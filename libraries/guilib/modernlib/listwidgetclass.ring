@@ -20,3 +20,24 @@ package System.GUI
 		func TakeItem nIndex 
 			return super.TakeItem(nIndex-1)		
 
+		func addList aList
+			if ! isList(aList)
+				? "Bad parameter type - The addList() method expect a List!"
+				return
+			ok
+			for item in aList
+				if isString(item) 
+					addItem(item)
+				but isNumber(item)
+					addItem(""+item)
+				but isList(item)
+					addList(item)
+				ok
+			next
+
+		func toList 
+			aList = []
+			for t=1 to count()
+				aList + item(t).text()
+			next
+			return aList

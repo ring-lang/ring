@@ -19,8 +19,8 @@ While True
 
 	" give number
 	switch number 
-		# propmpt the user the add a number to be
-		# summmed up later	
+		# prompt the user the add a number to be
+		# summed up later	
 		on 1 ? "Enter a number" give newNumber 
 		List + newNumber
 		# sums up all the numbers in the list

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Building RingQt Applications for WebAssembly &mdash; Ring 1.16 documentation</title>
+  <title>Building RingQt Applications for WebAssembly &mdash; Ring 1.18 documentation</title>
   
 
   
@@ -161,6 +161,10 @@
 <li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csvlib.html">CSVLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jsonlib.html">JSONLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="httplib.html">HTTPLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenslib.html">TokensLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="socket.html">Using RingSockets</a></li>
@@ -202,6 +206,8 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew14.html">Release Notes: Version 1.14</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew15.html">Release Notes: Version 1.15</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew17.html">Release Notes: Version 1.17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew18.html">Release Notes: Version 1.18</a></li>
 <li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
@@ -279,11 +285,12 @@
 <p>Check the next link : <a class="reference external" href="https://doc.qt.io/qt-5/wasm.html">https://doc.qt.io/qt-5/wasm.html</a></p>
 <p>Tested using</p>
 <ul class="simple">
-<li><p>Qt (5.15.0) : <a class="reference external" href="https://www.qt.io/blog/qt-5.15-released">https://www.qt.io/blog/qt-5.15-released</a></p></li>
-<li><p>Emscripten (1.39.7) : <a class="reference external" href="https://emscripten.org/docs/getting_started/index.html">https://emscripten.org/docs/getting_started/index.html</a></p></li>
+<li><p>Qt (5.15.2)</p></li>
+<li><p>Qt Creator (6.0.1)</p></li>
+<li><p>Emscripten (1.39.8) : <a class="reference external" href="https://emscripten.org/docs/getting_started/index.html">https://emscripten.org/docs/getting_started/index.html</a></p></li>
 </ul>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>emsdk install sdk-fastcomp-1.39.7-64bit
-emsdk activate sdk-fastcomp-1.39.7-64bit
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>emsdk install sdk-fastcomp-1.39.8-64bit
+emsdk activate sdk-fastcomp-1.39.8-64bit
 </pre></div>
 </div>
 <p>Check Emscripten installation</p>
@@ -291,7 +298,7 @@ emsdk activate sdk-fastcomp-1.39.7-64bit
 </pre></div>
 </div>
 <p>Output</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>emcc (Emscripten gcc/clang-like replacement) 1.39.7
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>emcc (Emscripten gcc/clang-like replacement) 1.39.8
 (commit 24d88487f47629fac9d4acd231497a3a412bdee8)
 Copyright (C) 2014 the Emscripten authors (see AUTHORS.txt)
 This is free and open source software under the MIT license.
@@ -299,6 +306,11 @@ There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
 PARTICULAR PURPOSE.
 </pre></div>
 </div>
+<ul class="simple">
+<li><p>Run Qt Creator</p></li>
+<li><p>Select Tools &gt; Options &gt; Devices &gt; WebAssembly</p></li>
+</ul>
+<img alt="Qt for WebAssembly" src="_images/qtwebasm_tools.png" />
 </div>
 <div class="section" id="using-ring2exe">
 <span id="index-2"></span><h2>Using Ring2EXE<a class="headerlink" href="#using-ring2exe" title="Permalink to this headline">¶</a></h2>
@@ -315,6 +327,7 @@ PARTICULAR PURPOSE.
 <p class="admonition-title">Tip</p>
 <p>The option ( Prepare Qt project for WebAssembly ) in the Distribute Menu</p>
 </div>
+<img alt="Qt for WebAssembly shot1" src="_images/qtwebasm_shot1.png" />
 </div>
 <div class="section" id="the-qt-project-for-your-ring-application">
 <span id="index-3"></span><h2>The Qt project for your Ring application<a class="headerlink" href="#the-qt-project-for-your-ring-application" title="Permalink to this headline">¶</a></h2>
@@ -326,6 +339,9 @@ PARTICULAR PURPOSE.
 <p>Project file : project.pro</p>
 </div></blockquote>
 </li>
+</ul>
+<img alt="Qt for WebAssembly shot2" src="_images/qtwebasm_shot2.png" />
+<ul>
 <li><p>Using Qt Creator, You will find the compiled Ring application in the resources (YourAppName.ringo)</p>
 <blockquote>
 <div><p>This file (Ring Object File) is generated by the Ring compiler using</p>
@@ -338,6 +354,9 @@ PARTICULAR PURPOSE.
 <ul class="simple">
 <li><p>You can build your application using Qt Creator</p></li>
 </ul>
+<img alt="Qt for WebAssembly shot3" src="_images/qtwebasm_shot3.png" />
+<p>The next screen shot for the application during the runtime</p>
+<img alt="Qt for WebAssembly shot4" src="_images/qtwebasm_shot4.png" />
 <ol class="arabic">
 <li><p>You can add your application images to the resources</p>
 <blockquote>
@@ -465,7 +484,7 @@ resource file will be used</p>
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2016-2021, Ring Team
+        &copy; Copyright 2016-2022, Ring Team
 
     </p>
   </div>

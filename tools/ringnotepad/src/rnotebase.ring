@@ -12,7 +12,7 @@ class RNoteControllerBase from WindowsControllerParent
 	oTFont 			= new qfont("",0,0,0)
 	lSetProjectFilesFont	= True
 
-	cWebsite 		= "http://www.ring-lang.sf.net/doc1.11/index.html"
+	cWebsite 		= "http://ring-lang.github.io/doc1.16/index.html"
 
 	cCurrentDir 		= CurrentDir() + "/"	# The Ring Notepad Folder
 	cStartUpFolder 		= exefolder() + "/../applications/"
@@ -30,11 +30,11 @@ class RNoteControllerBase from WindowsControllerParent
 
 	aBrowserLinks 		= [
 		["Local Help", "file:///"+substr(exefolder(),"\","/") + "../documents/build/html/index.html"],
-		["Ring Website","http://ring-lang.sf.net"],
+		["Ring Website","http://ring-lang.github.io"],
 		["Ring Samples (Rosetta Code)","https://rosettacode.org/wiki/Category:Ring"],
-		["Ring Resources","http://ring-lang.sourceforge.net/resources.html"],
+		["Ring Resources","http://ring-lang.github.io/resources.html"],
 		["Ring Source Code (GitHub)","https://github.com/ring-lang/ring"],
-		["Ring Team","http://ring-lang.sourceforge.net/team.html"]
+		["Ring Team","http://ring-lang.github.io/team.html"]
 	]
 
 	# Define Colors

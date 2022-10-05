@@ -1,8 +1,7 @@
 
-/* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2022 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef GBLUETOOTHSERVER_H
 #define GBLUETOOTHSERVER_H
-#include <QApplication>
 #include "ringqt.h"
 #include <QBluetoothServer>
 extern "C" {

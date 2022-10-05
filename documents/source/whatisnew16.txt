@@ -16,8 +16,10 @@ List of changes and new features
 Ring 1.16 comes with the next features!
 
 * Light GUILib 
-* Better Load Command
-* Nested methods call in separate lines
+* UTF-8 File Names in Microsoft Windows
+* Nested Methods Call in Separate Lines
+* Code Runner Extension support Ring
+* Zero and Strings
 * Better Installation Scripts
 * Better Documentation
 * MDI Windows Sample
@@ -62,23 +64,27 @@ So we can distribute these GUI applications using an installer less than 10 MB
 
 
 .. index:: 
-	pair: What is new in Ring 1.16?; Better Load Command 
+	pair: What is new in Ring 1.16?; UTF-8 File Names in Microsoft Windows
 
-Better Load Command 
-===================
+UTF-8 File Names in Microsoft Windows
+=====================================
 
 In Ring 1.16, The Load command support using UTF-8 in the file name.
 
-Example:
+For example, We can write Arabic letters in the File Name!
 
-.. code-block:: ring
+Also the next functions support this feature
 
-	load "مرحبا.ring"
+.. code-block:: none
+
+	read()
+	write()
+	fopen()
 
 .. index:: 
-	pair: What is new in Ring 1.16?; Nested methods call in separate lines
+	pair: What is new in Ring 1.16?; Nested Methods Call in Separate Lines
 
-Nested methods call in separate lines
+Nested Methods Call in Separate Lines
 =====================================
 
 In Ring 1.16, the Compiler support adding new lines after the method call and before the dot operator
@@ -121,6 +127,105 @@ Output:
 	Two
 	Three
 	Go!
+
+
+.. index:: 
+	pair: What is new in Ring 1.16?; Code Runner Extension support Ring
+
+Code Runner Extension support Ring
+==================================
+
+If you are using Microsoft Visual Studio Code, We have good news for you!
+
+The Code Runner Extension added support for the Ring programming language
+
+.. image:: coderunner.png
+	:alt: coderunner
+
+After installing Code Runner
+
+It's recommended to modify this file : 
+
+C:/Users/YOURUSERNAME/.vscode/extensions/formulahendry.code-runner-0.11.6/package.json
+
+Set the property (code-runner.fileDirectoryAsCwd) to (True)
+
+So Code Runner can move to the file directory when we run it using (Ctrl+Alt+N)
+
+.. code-block:: none
+
+	"code-runner.fileDirectoryAsCwd": {
+		"type": "boolean",
+		"default": true,
+		"description": "Whether to use the directory of the file to be executed as the working directory.",
+		"scope": "resource"
+	},
+
+
+.. tip:: Check ring/tools/editors/vscode folder to support Ring in VSCode
+
+.. image:: tetrisvscode.png
+	:alt: tetrisvscode
+
+.. index:: 
+	pair: What is new in Ring 1.16?; Zero and Strings
+
+Zero and Strings
+================
+
+From Ring 1.0, the language do implicit conversion between numbers and strings
+
+This is useful when we mix them in some situations like printing something on the screen
+
+.. code-block:: ring
+
+	x = 10		# Number
+	? "x = " + x 	# x converted from Number to String 
+
+Also we can do arithmetic operations
+
+.. code-block:: ring
+
+	x = "10"	# String
+	? 5 + x		# x converted from String to Number
+
+The question is What happens if x content is not a number?
+
+The answer : The result of the conversion will be (Zero)
+
+.. code-block:: ring
+
+	x = "Test"	# String - The content is not a number
+	? 5 + x		# print (5) - x converted from String to Number (Zero)
+
+The other operators like "=" and "!=" do the conversion too
+
+Starting from Ring 1.16, They will be careful when we compare things to Zero
+
+Example: 
+
+.. code-block:: ring
+
+	x = "Test"
+	? 0 = x		# The result will be FALSE
+	? 0 != x	# The result will be TRUE
+
+This is useful when we compare between values inside Empty Lists and Strings 
+
+.. code-block:: ring
+
+	aList = list(10)	# 10 items - Each item is Zero
+	? aList[1] + 5		# print (5)
+	? aList[1] = "Test"	# False
+	? aList[1] = 0		# True
+
+The other values (Not Zero) will follow the normal conversion rules
+
+.. code-block:: ring
+
+	x = "5"
+	? 5  = x	# True
+	? 6 != x	# True
 
 .. index:: 
 	pair: What is new in Ring 1.16?; Better Installation Scripts

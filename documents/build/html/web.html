@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Web Development (CGI Library) &mdash; Ring 1.16 documentation</title>
+  <title>Web Development (CGI Library) &mdash; Ring 1.18 documentation</title>
   
 
   
@@ -190,6 +190,10 @@
 <li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csvlib.html">CSVLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jsonlib.html">JSONLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="httplib.html">HTTPLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenslib.html">TokensLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="socket.html">Using RingSockets</a></li>
@@ -231,6 +235,7 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew14.html">Release Notes: Version 1.14</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew15.html">Release Notes: Version 1.15</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew17.html">Release Notes: Version 1.17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
@@ -1426,7 +1431,7 @@ templates then using objects (slower).</p>
                   <span class="n">classname</span> <span class="o">=</span> <span class="s">&quot;col-sm-4&quot;</span>
                   <span class="n">Button</span> <span class="p">{</span>  <span class="n">classname</span> <span class="o">=</span> <span class="s">&quot;btn btn-default btn-lg&quot;</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;default&quot;</span><span class="p">)</span> <span class="p">}</span>
                   <span class="n">Button</span> <span class="p">{</span>  <span class="n">classname</span> <span class="o">=</span> <span class="s">&quot;btn btn-primary btn-md&quot;</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;primary&quot;</span><span class="p">)</span> <span class="p">}</span>
-                  <span class="n">Button</span> <span class="p">{</span>  <span class="n">classname</span> <span class="o">=</span> <span class="s">&quot;btn btn-sucess btn-sm&quot;</span>  <span class="n">text</span><span class="p">(</span><span class="s">&quot;sucess&quot;</span><span class="p">)</span> <span class="p">}</span>
+                  <span class="n">Button</span> <span class="p">{</span>  <span class="n">classname</span> <span class="o">=</span> <span class="s">&quot;btn btn-success btn-sm&quot;</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;success&quot;</span><span class="p">)</span> <span class="p">}</span>
                   <span class="n">Button</span> <span class="p">{</span>  <span class="n">classname</span> <span class="o">=</span> <span class="s">&quot;btn btn-info btn-xs&quot;</span>    <span class="n">text</span><span class="p">(</span><span class="s">&quot;info&quot;</span><span class="p">)</span> <span class="p">}</span>
                   <span class="n">Button</span> <span class="p">{</span>  <span class="n">classname</span> <span class="o">=</span> <span class="s">&quot;btn btn-warning&quot;</span>        <span class="n">text</span><span class="p">(</span><span class="s">&quot;warning&quot;</span><span class="p">)</span> <span class="p">}</span>
                   <span class="n">Button</span> <span class="p">{</span>  <span class="n">classname</span> <span class="o">=</span> <span class="s">&quot;btn btn-danger&quot;</span>         <span class="n">text</span><span class="p">(</span><span class="s">&quot;danger&quot;</span><span class="p">)</span> <span class="p">}</span>
@@ -1437,7 +1442,7 @@ templates then using objects (slower).</p>
                   <span class="n">classname</span> <span class="o">=</span> <span class="s">&quot;col-sm-4&quot;</span>
                   <span class="n">Button</span> <span class="p">{</span>  <span class="n">classname</span> <span class="o">=</span> <span class="s">&quot;btn btn-default btn-block&quot;</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;default&quot;</span><span class="p">)</span> <span class="p">}</span>
                   <span class="n">Button</span> <span class="p">{</span>  <span class="n">classname</span> <span class="o">=</span> <span class="s">&quot;btn btn-primary btn-block&quot;</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;primary&quot;</span><span class="p">)</span> <span class="p">}</span>
-                  <span class="n">Button</span> <span class="p">{</span>  <span class="n">classname</span> <span class="o">=</span> <span class="s">&quot;btn btn-sucess btn-block&quot;</span>  <span class="n">text</span><span class="p">(</span><span class="s">&quot;sucess&quot;</span><span class="p">)</span> <span class="p">}</span>
+                  <span class="n">Button</span> <span class="p">{</span>  <span class="n">classname</span> <span class="o">=</span> <span class="s">&quot;btn btn-success btn-block&quot;</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;success&quot;</span><span class="p">)</span> <span class="p">}</span>
                   <span class="n">Button</span> <span class="p">{</span>  <span class="n">classname</span> <span class="o">=</span> <span class="s">&quot;btn btn-info btn-block&quot;</span>    <span class="n">text</span><span class="p">(</span><span class="s">&quot;info&quot;</span><span class="p">)</span> <span class="p">}</span>
                   <span class="n">Button</span> <span class="p">{</span>  <span class="n">classname</span> <span class="o">=</span> <span class="s">&quot;btn btn-warning btn-block&quot;</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;warning&quot;</span><span class="p">)</span> <span class="p">}</span>
                   <span class="n">Button</span> <span class="p">{</span>  <span class="n">classname</span> <span class="o">=</span> <span class="s">&quot;btn btn-danger btn-block&quot;</span>  <span class="n">text</span><span class="p">(</span><span class="s">&quot;danger&quot;</span><span class="p">)</span> <span class="p">}</span>
@@ -2974,7 +2979,7 @@ Page class, so we can use the next methods with page objects directly.</p>
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2016-2021, Ring Team
+        &copy; Copyright 2016-2022, Ring Team
 
     </p>
   </div>

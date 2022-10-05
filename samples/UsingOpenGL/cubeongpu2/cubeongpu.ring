@@ -220,7 +220,7 @@ func main
 	cube.setup(0.5, 0.5, 0.5, "grid512.bmp", true, [ // RGB color list
 		 [1.0, 1.0, 1.0],	// v0 - front right up color
 		 [1.0, 1.0, 0.0],	// v1 - front left up color
-		 [1.0, 0.0, 0.0],	// v2 - front leftt down color
+		 [1.0, 0.0, 0.0],	// v2 - front left down color
 		 [1.0, 0.0, 1.0],	// v3 - front right down color
 		 [0.0, 0.0, 1.0],	// v4 - back right down color
 		 [0.0, 1.0, 1.0],	// v5 - back left down color
@@ -340,8 +340,8 @@ class Cube
 	// color list can be in [R, G, B] form, single color for each corner of the cube
 	// list argument can be null, making cube entirely white
 	// image makes a texture, can be null for no texture
-	// if lights is true, cube accepts lights, orherwise not
-	// lights argument is having effect only if texure is used
+	// if lights is true, cube accepts lights, otherwise not
+	// lights argument is having effect only if texture is used
 	func setup width, height, depth, image, lights, color_list
 
 		wh = width
@@ -367,7 +367,7 @@ class Cube
 			if lights = false				
 				glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL)
 			ok
-			//scale linearly when image smalled than texture
+			//scale linearly when image smaller than texture
 			glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR)
 			glEnable(GL_TEXTURE_2D)
 
@@ -429,7 +429,7 @@ class Cube
 	
 		glBindBuffer(GL_ARRAY_BUFFER, vbo_id)
 			glBufferData(GL_ARRAY_BUFFER, cube_size, NULL, GL_STATIC_DRAW)
-			// copy vertices starting from 0 offest to VRAM
+			// copy vertices starting from 0 offset to VRAM
 			glBufferSubData(GL_ARRAY_BUFFER, 0, vert_len, vertices)
 			// copy normals after vertices to VRAM
 			glBufferSubData(GL_ARRAY_BUFFER, vert_len, norm_len, normals)

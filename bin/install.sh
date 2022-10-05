@@ -550,3 +550,31 @@ sudo ln -sf "`pwd`/lib/libring_libui.so" /usr/lib64
 sudo cp extensions/ringlibui/linux/libui.so.* /usr/lib
 sudo cp extensions/ringlibui/linux/libui.so.* /usr/lib64
 fi
+
+# Make the RingCJSON library ready for use directly
+
+if [ -f lib/libring_cjson.dylib ];
+then
+ln -sf "`pwd`/lib/libring_cjson.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_cjson.dylib
+fi
+
+if [ -f lib/libring_cjson.so ];
+then
+sudo ln -sf "`pwd`/lib/libring_cjson.so" /usr/lib
+sudo ln -sf "`pwd`/lib/libring_cjson.so" /usr/lib64
+fi
+
+# Make the RingHTTPLib library ready for use directly
+
+if [ -f lib/libring_httplib.dylib ];
+then
+ln -sf "`pwd`/lib/libring_httplib.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_httplib.dylib
+fi
+
+if [ -f lib/libring_httplib.so ];
+then
+sudo ln -sf "`pwd`/lib/libring_httplib.so" /usr/lib
+sudo ln -sf "`pwd`/lib/libring_httplib.so" /usr/lib64
+fi

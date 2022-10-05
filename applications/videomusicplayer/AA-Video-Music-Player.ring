@@ -12,12 +12,12 @@ Load "guilib.ring"
  +---------------------------------------------------------------------
  +     NEED NEED  NEED *** REQUIRED FILES ***
  +
- +     Codex MUST be already loaded  <<<==
+ +     Codec MUST be already loaded  <<<==
  +     http://www.codecguide.com/download_k-lite_codec_pack_basic.htm
  +
  +     stock.jpg  for Initial Image
  +     stock.mp3  for Initial Music
- +     icons.zip  for Button-Icons -- Play,Pause,Stop,Back,Fwd,Mute.Volume,Vol-Low,Vil-High,PlayList
+ +     icons.zip  for Button-Icons -- Play,Pause,Stop,Back,Fwd,Mute.Volume,Vol-Low,Vol-High,PlayList
  +---------------------------------------------------------------------
 */
 dirList   = []   ### Search /Users directories
@@ -39,9 +39,13 @@ SelectedRow   = 1
 
 
 ###---------------------------------
-### Fetch User directoty and name
+### Fetch User directory and name
+### Limitation: Multibyte name (Japanese
+### name, e.g. 野口雨情) is not supported yet.
+### 
+### Test data: https://en.wikipedia.org/wiki/List_of_Japanese_people
 
-    System("whoami > output.txt")        ### Output User Name  data to file
+    System("whoami > output.txt")        ### Output User Name data to file
         cYou = read("output.txt")
         cYou = chomp(cYou)
         See "Whoami: "+ cYou +"|"+ nl
@@ -234,7 +238,7 @@ MyApp = New qapp
                     imageW = 400
                     imageH = imageH / AspectRatio
 
-                    setpixmap(image.scaled(imageW , imageH ,0,0))   ### Size-H, Siz-V, Aspect, Transform
+                    setpixmap(image.scaled(imageW , imageH ,0,0))   ### Size-H, Size-V, Aspect, Transform
 
                     PosLeft = (BoxWidth  - imageW ) / 2
                     PosTop  = (BoxHeight - imageH ) / 2
@@ -254,8 +258,8 @@ MyApp = New qapp
                 SendMsg(msg)
             ok
 
-            ###---------------------------------------
-            ### PlayList plays sequential mmedia files
+            ###--------------------------------------
+            ### PlayList plays sequential media files
 
 
             playlist = new qMediaPlayList()
@@ -646,7 +650,7 @@ Func pTime
     imageW += GrowBy
     imageH  = imageW / AspectRatio
 
-    imageStock.setpixmap(image.scaled(imageW , imageH ,0,0))   ### Size-H, Siz-V, Aspect, Transform
+    imageStock.setpixmap(image.scaled(imageW , imageH ,0,0))   ### Size-H, Size-V, Aspect, Transform
 
     PosLeft = (WinWidth  - imageW ) / 2
     PosTop  = (WinHeight - imageH ) / 2
@@ -685,7 +689,7 @@ return  Time()
 ### Pops every 4 second
 
 Func pTimeDuration()
-    Duration()   ### Update Postion and duration, BarMan
+    Duration()   ### Update Position and duration, BarMan
 return
 
 ###-----------------------------------
@@ -923,7 +927,7 @@ Func pPlayList
 ##============================================================
 
 ###--------------------------------------------------------------
-### FileType for Music and Video in  CL\Users\name\Music  Videos
+### FileType for Music and Video in  C:\Users\name\Music  Videos
 ###
 ### fileType = [".avi", ".mp4", ".mpg", ".mkv", ".wmv", ".mp3", ".wav", ".aac", ".ogg", ".wma", ".flac" ]
 ### UserPath = "C:\Users\Umberto\Videos"    ### <<<== Search this path
@@ -1098,7 +1102,7 @@ func pDelete()
     win2.setWindowTitle("DELETED: " + nbrOfItems +" Cur: " + curItemNbr +" : " + curValue )
 
 ###----------------------------------------
-### Select highlited item in PlayList
+### Select highlighted item in PlayList
 ### Save as SelectedRow and SelectedValue
 
 func pSelect()

@@ -1,12 +1,12 @@
 /*
 	name	:	Darsh Adam
-	Lesson	:	test31.ring
+	Lesson	:	test33.ring
 	Date 	:	16/12/2017
 */
 		// if , For , While 
 
 #=====================================================
-	/* Codition ----> True \ False */
+	/* Condition ----> True \ False */
 #=====================================================
 
 alist = [:one, :two, :three]

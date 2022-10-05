@@ -10,3 +10,5 @@ msg = recv(sock,1024)
 close(sock)
 ? "Socket connection closed"
 
+# terminates use of the Winsock
+socketsCleanup()

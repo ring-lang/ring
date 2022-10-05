@@ -2,8 +2,8 @@
 # 2018, Etqan Company
 # 2018, Mahmoud Fayed <msfclipper@yahoo.com>
 
-load "guilib.ring"
-load "stdlib.ring"
+load "lightguilib.ring"
+load "stdlibcore.ring"
 load "editorController.ring"
 
 import System.GUI

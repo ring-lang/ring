@@ -1,19 +1,21 @@
-/*        app:oop
-            author:heba atef
-            date:3.1.2018
+/*
+ * Application : Object Oriented programming (OOP)
+ * Author      : heba atef
+ * Date        : 3.1.2018
 */
 
-#object oriented programing(oop)
 new point {
-      x=10 y=20 
-         print() 
+    x=10 y=20 
+    print() 
 }
+
 new point
- { 
-x=30 y=40 
-print()
+{ 
+    x=30 y=40 
+    print()
 }
+
 class point x y 
-   func print 
-   ?" x : " +  x +
- " y : " + y
+    func print 
+    ? " x : " +  x +
+      " y : " + y

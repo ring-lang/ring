@@ -1,11 +1,11 @@
-/*     Application : my frist Application
-       name        : Abdelrahman Adam
-       Date        : 19\12\2017 
+/*     Application : my first Application
+       Author      : Abdelrahman Adam
+       Date        : 19/12/2017 
 */
 
-#test 1
-//testing
-see"Hello , welcome to frist program" +nl 
+# test 2
+// testing
+see"Hello , welcome to first program" + nl 
 see " Enter your name : "
 give name
-see " Hello  "+name
+see " Hello  "+ name

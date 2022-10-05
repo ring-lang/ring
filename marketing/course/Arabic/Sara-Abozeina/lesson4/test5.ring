@@ -1,5 +1,5 @@
 /*
-**	Application:many goto&theend&execute by the numbers of expr
+**	Application:many goto & theend & execute by the numbers of expression
 **	Author	   :Sara Abozeina
 **	Date       :2017.12.31
 */
@@ -15,10 +15,10 @@ theend 1
 ?"again"
 execute 1
 ?"12345"
-#execute 2
+# execute 2
 for x=1 to 5
 ? x next
-#execute 2
+# execute 2
 ?"ok"
 }
 	

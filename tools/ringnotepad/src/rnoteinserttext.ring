@@ -61,8 +61,8 @@ class RNoteInsertText
        func insertText
 
 		nr = templateList.currentRow()+1
-		function = aCodeTemplates[nr][2]
-		output = call function()
+		cFunction = aCodeTemplates[nr][2]
+		output = call cFunction()
 		cTextContent = textedit1.toplaintext()
 		oCursor = textedit1.textcursor()
 		nPosStart = oCursor.Position()

@@ -1,14 +1,14 @@
-#      Input   --------->   processing  ------------> output
-#      Data ---------------> transform -------------> Data 
-#     Inpout (keyboard, mouse,files (hardDisk),network....)Device()
-#     output  (screen,printing files send, .....)
-
 /*
-Application     :My first application
-Author           :Mohamed shaban
-Date               :2017.12.31
-*/
+ * Application : My first application
+ * Author      : Mohamed shaban
+ * Date        : 2017.12.31
+ */
 
 See "Enter Your name: "
-give  Name
-See "Welcom And  Helo  "  + Name
+give Name
+See "Welcome And Hello " + Name
+
+#     Input ----> Processing ----> Output
+#     Data  ----> Transform  ----> Data 
+#     Input  Device : Keyboard, Mouse, Files (Hard-drive), Network, etc...)
+#     Output Device : Screen, Printing files send, etc...)

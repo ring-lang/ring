@@ -1,0 +1,77 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 20 , : y = 20  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "Tab Events" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  1  ,
+		 :GUILibrary =  0  
+
+		]
+	],
+	[ :name = "Tab1" , :id = 2 , :classname = "formdesigner_qtabwidget" , :data = [
+		 :x = 64 , : y = 38  , 
+		 :width =  249 , :height = 244 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :PagesCount =  "3",
+		 :PagesTitles =  "one,two,three"
+		]
+	],
+	[ :name = "LineEdit1" , :id = 3 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 20 , : y = 80  , 
+		 :width =  200 , :height = 30 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "Tab1Page1"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "LineEdit2" , :id = 4 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 20 , : y = 80  , 
+		 :width =  200 , :height = 30 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "Tab1Page2"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "LineEdit3" , :id = 5 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 20 , : y = 80  , 
+		 :width =  200 , :height = 30 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "Tab1Page3"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	]
+]
+# End Form Designer File

@@ -13,7 +13,7 @@ load "openssllib.ring"
 
 ? "Enter String : " give cstr
 	list=0:15		# list [1,2,3...15]
-	ckey=""			# 16 byt
+	ckey=""			# 16 bytes
 	for x in list
 		ckey += char(x)
 	next

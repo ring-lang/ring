@@ -3,8 +3,8 @@
 **	Author		: Osama Ballan .
 **	Date			: 2018 - 01 - 15 .
 */
-# Machine [CPU (CU - ALU - Registers) - Memories - I/O]
-# Operating System [Process Management - MM - File System - Drivers]
+# Machine [CPU (CU - ALU - Registers) - Memory - I/O]
+# Operating System [Process Management - Memory Management - File System - Drivers]
 # Programming Languages (Abstraction)
 # 	Programming Paradigm ( Imperative - Do This Then Do That	
 #			Procedural
@@ -28,10 +28,10 @@
 
 	* Class (Definition) = Attributes (Data) + Methods
 		----> Many Objects (Instances)
-		[Class Based OOP] --- Java , C# , C++ , Ring , Ruby , Paython
+		[Class Based OOP] --- Java , C# , C++ , Ring , Ruby , Python
 	* Objects (Properties - Values) -Copy Object		
 		[Prototype Based OOP] --- Self , JavaScript
-	* Poly ---> Same Interface (Methods) ---> For Different objs.
+	* Poly ---> Same Interface (Methods) ---> For Different objects.
 		execute()		----> SQLite
 		execute()		---->MySQL
 	* Inheritance
@@ -41,5 +41,3 @@
 	* Composition (Object - Contains Other Objects)
 		Rectangle (2 Objects (Point))
 */
-
-

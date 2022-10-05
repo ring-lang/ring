@@ -1,0 +1,361 @@
+CPPHTTPLIB_KEEPALIVE_TIMEOUT_SECOND = get_CPPHTTPLIB_KEEPALIVE_TIMEOUT_SECOND()
+CPPHTTPLIB_KEEPALIVE_MAX_COUNT = get_CPPHTTPLIB_KEEPALIVE_MAX_COUNT()
+CPPHTTPLIB_CONNECTION_TIMEOUT_SECOND = get_CPPHTTPLIB_CONNECTION_TIMEOUT_SECOND()
+CPPHTTPLIB_CONNECTION_TIMEOUT_USECOND = get_CPPHTTPLIB_CONNECTION_TIMEOUT_USECOND()
+CPPHTTPLIB_READ_TIMEOUT_SECOND = get_CPPHTTPLIB_READ_TIMEOUT_SECOND()
+CPPHTTPLIB_READ_TIMEOUT_USECOND = get_CPPHTTPLIB_READ_TIMEOUT_USECOND()
+CPPHTTPLIB_WRITE_TIMEOUT_SECOND = get_CPPHTTPLIB_WRITE_TIMEOUT_SECOND()
+CPPHTTPLIB_WRITE_TIMEOUT_USECOND = get_CPPHTTPLIB_WRITE_TIMEOUT_USECOND()
+CPPHTTPLIB_IDLE_INTERVAL_SECOND = get_CPPHTTPLIB_IDLE_INTERVAL_SECOND()
+CPPHTTPLIB_IDLE_INTERVAL_USECOND = get_CPPHTTPLIB_IDLE_INTERVAL_USECOND()
+CPPHTTPLIB_REQUEST_URI_MAX_LENGTH = get_CPPHTTPLIB_REQUEST_URI_MAX_LENGTH()
+CPPHTTPLIB_REDIRECT_MAX_COUNT = get_CPPHTTPLIB_REDIRECT_MAX_COUNT()
+CPPHTTPLIB_PAYLOAD_MAX_LENGTH = get_CPPHTTPLIB_PAYLOAD_MAX_LENGTH()
+CPPHTTPLIB_TCP_NODELAY = get_CPPHTTPLIB_TCP_NODELAY()
+CPPHTTPLIB_COMPRESSION_BUFSIZ = get_CPPHTTPLIB_COMPRESSION_BUFSIZ()
+CPPHTTPLIB_THREAD_POOL_COUNT = get_CPPHTTPLIB_THREAD_POOL_COUNT()
+CPPHTTPLIB_RECV_FLAGS = get_CPPHTTPLIB_RECV_FLAGS()
+CPPHTTPLIB_LISTEN_BACKLOG = get_CPPHTTPLIB_LISTEN_BACKLOG()
+
+load "codegenlib.ring"
+
+Class HTTPLib_Server
+
+	pObject
+
+	Func init 
+		pObject = HTTPLib_Server_new()
+		return self
+
+	Func delete
+		pObject = HTTPLib_Server_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func listen P1,P2
+		return HTTPLib_Server_listen(pObject,P1,P2)
+
+	Func listen_2 P1,P2,P3
+		return HTTPLib_Server_listen_2(pObject,P1,P2,P3)
+
+	Func set_base_dir P1
+		return HTTPLib_Server_set_base_dir(pObject,P1)
+
+	Func set_base_dir_2 P1,P2
+		return HTTPLib_Server_set_base_dir_2(pObject,P1,P2)
+
+	Func set_mount_point P1,P2
+		return HTTPLib_Server_set_mount_point(pObject,P1,P2)
+
+	Func set_mount_point_2 P1,P2,P3
+		return HTTPLib_Server_set_mount_point_2(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func remove_mount_point P1
+		return HTTPLib_Server_remove_mount_point(pObject,P1)
+
+	Func set_file_extension_and_mimetype_mapping P1,P2
+		return HTTPLib_Server_set_file_extension_and_mimetype_mapping(pObject,P1,P2)
+
+	Func set_tcp_nodelay P1
+		return HTTPLib_Server_set_tcp_nodelay(pObject,P1)
+
+	Func set_address_family P1
+		return HTTPLib_Server_set_address_family(pObject,P1)
+
+	Func set_keep_alive_max_count P1
+		return HTTPLib_Server_set_keep_alive_max_count(pObject,P1)
+
+	Func set_keep_alive_timeout P1
+		return HTTPLib_Server_set_keep_alive_timeout(pObject,P1)
+
+	Func set_read_timeout P1
+		return HTTPLib_Server_set_read_timeout(pObject,P1)
+
+	Func set_read_timeout_2 P1,P2
+		return HTTPLib_Server_set_read_timeout_2(pObject,P1,P2)
+
+	Func set_write_timeout P1
+		return HTTPLib_Server_set_write_timeout(pObject,P1)
+
+	Func set_write_timeout_2 P1,P2
+		return HTTPLib_Server_set_write_timeout_2(pObject,P1,P2)
+
+	Func set_idle_interval P1
+		return HTTPLib_Server_set_idle_interval(pObject,P1)
+
+	Func set_idle_interval_2 P1,P2
+		return HTTPLib_Server_set_idle_interval_2(pObject,P1,P2)
+
+	Func set_payload_max_length P1
+		return HTTPLib_Server_set_payload_max_length(pObject,P1)
+
+	Func bind_to_port P1,P2
+		return HTTPLib_Server_bind_to_port(pObject,P1,P2)
+
+	Func bind_to_port_2 P1,P2,P3
+		return HTTPLib_Server_bind_to_port_2(pObject,P1,P2,P3)
+
+	Func bind_to_any_port P1
+		return HTTPLib_Server_bind_to_any_port(pObject,P1)
+
+	Func bind_to_any_port_2 P1,P2
+		return HTTPLib_Server_bind_to_any_port_2(pObject,P1,P2)
+
+	Func listen_after_bind 
+		return HTTPLib_Server_listen_after_bind(pObject)
+
+	Func is_running 
+		return HTTPLib_Server_is_running(pObject)
+
+	Func stop 
+		return HTTPLib_Server_stop(pObject)
+
+	Func wget P1,P2
+		return HTTPLib_Server_wget(pObject,P1,P2)
+
+	Func wpost P1,P2
+		return HTTPLib_Server_wpost(pObject,P1,P2)
+
+	Func response 
+		pTempObj = new HTTPLib_Response
+		pTempObj.pObject = HTTPLib_Server_response(pObject)
+		return pTempObj
+
+	Func request 
+		pTempObj = new HTTPLib_Request
+		pTempObj.pObject = HTTPLib_Server_request(pObject)
+		return pTempObj
+
+Class HTTPLib_Response
+
+	pObject
+
+	Func init 
+		pObject = HTTPLib_Response_new()
+		return self
+
+	Func delete
+		pObject = HTTPLib_Response_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func has_header P1
+		return HTTPLib_Response_has_header(pObject,P1)
+
+	Func get_header_value P1
+		return HTTPLib_Response_get_header_value(pObject,P1)
+
+	Func get_header_value_2 P1,P2
+		return HTTPLib_Response_get_header_value_2(pObject,P1,P2)
+
+	Func get_header_value_count P1
+		return HTTPLib_Response_get_header_value_count(pObject,P1)
+
+	Func set_header P1,P2
+		return HTTPLib_Response_set_header(pObject,P1,P2)
+
+	Func set_redirect P1
+		return HTTPLib_Response_set_redirect(pObject,P1)
+
+	Func set_redirect_2 P1,P2
+		return HTTPLib_Response_set_redirect_2(pObject,P1,P2)
+
+	Func set_content P1,P2
+		return HTTPLib_Response_set_content(pObject,P1,P2)
+
+	Func set_content_2 P1,P2,P3
+		return HTTPLib_Response_set_content_2(pObject,P1,P2,P3)
+
+Class HTTPLib_Request
+
+	pObject
+
+	Func init 
+		pObject = HTTPLib_Request_new()
+		return self
+
+	Func delete
+		pObject = HTTPLib_Request_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func has_header P1
+		return HTTPLib_Request_has_header(pObject,P1)
+
+	Func get_header_value P1
+		return HTTPLib_Request_get_header_value(pObject,P1)
+
+	Func get_header_value_2 P1,P2
+		return HTTPLib_Request_get_header_value_2(pObject,P1,P2)
+
+	Func get_header_value_count P1
+		return HTTPLib_Request_get_header_value_count(pObject,P1)
+
+	Func set_header P1,P2
+		return HTTPLib_Request_set_header(pObject,P1,P2)
+
+	Func has_param P1
+		return HTTPLib_Request_has_param(pObject,P1)
+
+	Func get_param_value P1
+		return HTTPLib_Request_get_param_value(pObject,P1)
+
+	Func get_param_value_2 P1,P2
+		return HTTPLib_Request_get_param_value_2(pObject,P1,P2)
+
+	Func get_param_value_count P1
+		return HTTPLib_Request_get_param_value_count(pObject,P1)
+
+	Func is_multipart_form_data 
+		return HTTPLib_Request_is_multipart_form_data(pObject)
+
+	Func has_file P1
+		return HTTPLib_Request_has_file(pObject,P1)
+
+	Func get_file_value P1
+		return HTTPLib_Request_get_file_value(pObject,P1)
+
+	Func get_multipartformdata_content2 P1
+		return HTTPLib_Request_get_multipartformdata_content2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func matches P1
+		return HTTPLib_Request_matches(pObject,P1)
+
+Class HTTPLib_Client
+
+	pObject
+
+	Func init P1
+		pObject = HTTPLib_Client_new(P1)
+		return self
+
+	Func delete
+		pObject = HTTPLib_Client_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func download P1
+		return HTTPLib_Client_download(pObject,P1)
+
+	Func is_valid 
+		return HTTPLib_Client_is_valid(pObject)
+
+	Func is_socket_open 
+		return HTTPLib_Client_is_socket_open(pObject)
+
+	Func stop 
+		return HTTPLib_Client_stop(pObject)
+
+	Func set_address_family P1
+		return HTTPLib_Client_set_address_family(pObject,P1)
+
+	Func set_tcp_nodelay P1
+		return HTTPLib_Client_set_tcp_nodelay(pObject,P1)
+
+	Func set_connection_timeout P1
+		return HTTPLib_Client_set_connection_timeout(pObject,P1)
+
+	Func set_connection_timeout_2 P1,P2
+		return HTTPLib_Client_set_connection_timeout_2(pObject,P1,P2)
+
+	Func set_read_timeout P1
+		return HTTPLib_Client_set_read_timeout(pObject,P1)
+
+	Func set_read_timeout_2 P1,P2
+		return HTTPLib_Client_set_read_timeout_2(pObject,P1,P2)
+
+	Func set_write_timeout P1
+		return HTTPLib_Client_set_write_timeout(pObject,P1)
+
+	Func set_write_timeout_2 P1,P2
+		return HTTPLib_Client_set_write_timeout_2(pObject,P1,P2)
+
+	Func set_basic_auth P1,P2
+		return HTTPLib_Client_set_basic_auth(pObject,P1,P2)
+
+	Func set_bearer_token_auth P1
+		return HTTPLib_Client_set_bearer_token_auth(pObject,P1)
+
+	Func set_keep_alive P1
+		return HTTPLib_Client_set_keep_alive(pObject,P1)
+
+	Func set_follow_location P1
+		return HTTPLib_Client_set_follow_location(pObject,P1)
+
+	Func set_url_encode P1
+		return HTTPLib_Client_set_url_encode(pObject,P1)
+
+	Func set_compress P1
+		return HTTPLib_Client_set_compress(pObject,P1)
+
+	Func set_decompress P1
+		return HTTPLib_Client_set_decompress(pObject,P1)
+
+	Func set_interface P1
+		return HTTPLib_Client_set_interface(pObject,P1)
+
+	Func set_proxy P1,P2
+		return HTTPLib_Client_set_proxy(pObject,P1,P2)
+
+	Func set_proxy_basic_auth P1,P2
+		return HTTPLib_Client_set_proxy_basic_auth(pObject,P1,P2)
+
+	Func set_proxy_bearer_token_auth P1
+		return HTTPLib_Client_set_proxy_bearer_token_auth(pObject,P1)
+
+	Func Head P1
+		return HTTPLib_Client_Head(pObject,P1)
+
+	Func Post P1
+		return HTTPLib_Client_Post(pObject,P1)
+
+	Func Post_2 P1,P2,P3,P4
+		return HTTPLib_Client_Post_2(pObject,P1,P2,P3,P4)
+
+	Func Patch P1
+		return HTTPLib_Client_Patch(pObject,P1)
+
+	Func Patch_2 P1,P2,P3,P4
+		return HTTPLib_Client_Patch_2(pObject,P1,P2,P3,P4)
+
+	Func Delete_2 P1
+		return HTTPLib_Client_Delete_2(pObject,P1)
+
+	Func Delete_3 P1,P2,P3,P4
+		return HTTPLib_Client_Delete_3(pObject,P1,P2,P3,P4)
+
+	Func Options P1
+		return HTTPLib_Client_Options(pObject,P1)
+
+	Func Options_2 P1,P2
+		return HTTPLib_Client_Options_2(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+Class HTTPLib_Result
+
+	pObject
+
+	Func init 
+		pObject = HTTPLib_Result_new()
+		return self
+
+	Func delete
+		pObject = HTTPLib_Result_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func has_request_header P1
+		return HTTPLib_Result_has_request_header(pObject,P1)
+
+	Func get_request_header_value P1
+		return HTTPLib_Result_get_request_header_value(pObject,P1)
+
+	Func get_request_header_value_2 P1,P2
+		return HTTPLib_Result_get_request_header_value_2(pObject,P1,P2)
+
+	Func get_request_header_value_count P1
+		return HTTPLib_Result_get_request_header_value_count(pObject,P1)

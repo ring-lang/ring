@@ -1,70 +1,46 @@
 ﻿aTeam = [
-				  [
-					'Mahmoud Samir Fayed<br/>Software Developer (The Creator of Ring)',
-					'<img src="fayed.jpg" width="150" height="170">'
-				  ],
-				  [
-					'Bert Mariani<br/>Software Developer (Applications Master)',
-					'<img src="UmbertoMariani.png" width="150" height="170">'
-				  ],
-  				  [
-					'Ahmed Hassouna<br/>Software Developer (Training Master)',
-					'<img src="AhmedHassouna.jpg" width="150" height="170">'
-				  ],
-		  		  [
-                    			'Mansour Ayouni<br/>Software Developer (Writing Master)',
-		    			'<img src="mansour.jpg" width="150" height="170">'
-                  		  ],
-				  [
-					'Majdi Sobain<br/>Software Developer (Extensions Master)',
-					'<img src="majdi.jpg" width="150" height="170">'
-				  ],
-				  [
-					'Gal Zsolt (CalmoSoft)<br/>Software Developer (Samples Master)',
-					'<img src="GalZsolt.png" width="150" height="170">'
-				  ]
+		[
+			'Mahmoud Samir Fayed<br/>Software Developer (The Creator of Ring)',
+			'<img src="fayed.jpg" width="150" height="170">'
+		],
+		[
+			'Bert Mariani<br/>Software Developer (Applications Master)',
+			'<img src="UmbertoMariani.png" width="150" height="170">'
+		],
+		[
+			'Ahmed Hassouna<br/>Software Developer (Training Master)',
+			'<img src="AhmedHassouna.jpg" width="150" height="170">'
+		],
+		[
+			'Mansour Ayouni<br/>Software Developer (Writing Master)',
+			'<img src="mansour.jpg" width="150" height="170">'
+		],
+		[
+			'Majdi Sobain<br/>Software Developer (Extensions Master)',
+			'<img src="majdi.jpg" width="150" height="170">'
+		]
 ]
 aManyThanks = [
-				  [
-					'Prof. Dr. Atif M. Alamri',
-					'<img src="dratif.png" width="150" height="170">'
-				  ],
-				  [
-                    			'José Rosado',
-					'<img src="jose.jpg" width="150" height="170">'
-                  		  ],
-				  [
-                    			'Marino Esteban',
-					'<img src="marino.jpg" width="150" height="170">'
-                  		  ],
-				  [
-					'Mona Kamel',
-					'<img src="mona.png" width="150" height="170">'
-				  ],
-				  [
-					'Hebat Alla Ismail',
-					'<img src="heba.jpg" width="150" height="170">'
-				  ],
-  				  [
-					'Abdelrahman Mahmoud',
-					'<img src="abdelrahman.jpg" width="150" height="170">'
-				  ],				  
-				  [
-                    			'Amin Najah',
-					'<img src="amine.jpg" width="150" height="170">'
-                  		  ],				  
-				  [
-					'Nouran M. Radwan',
-					'<img src="nouran.png" width="150" height="170">'
-				  ],				  
-				  [
-                    			'Heba Omran',
-					'<img src="hebaomran.png" width="150" height="170">'
-                  		  ],
-		  		  [
-                    			'Ahmed Baryyan',
-		    			'<img src="ahmedbarayan1.jpg" width="150" height="170">'
-                  		  ]
+		[
+			'Gal Zsolt',
+			'<img src="GalZsolt.png" width="150" height="170">'
+		],
+		[
+			'José Rosado',
+			'<img src="jose.jpg" width="150" height="170">'
+		],
+		[
+			'Marino Esteban',
+			'<img src="marino.jpg" width="150" height="170">'
+		],
+		[
+			'Ahmed Baryyan',
+			'<img src="ahmedbarayan1.jpg" width="150" height="170">'
+		],
+		[
+			'Amin Najah',
+			'<img src="amine.jpg" width="150" height="170">'
+		]				  
 ]
 aTopContributors = [
 		  [
@@ -76,45 +52,24 @@ aTopContributors = [
                     'Ring VM Master'                    
                   ],
 		  [
+                    'isVowel / GreenWing',
+                    'Translation Master'                    
+		  ],
+		  [
                     'Azzeddine Remmal',
                     'Qt3D Master'                    
 		  ],
 		  [
                     'Ahmad Zakaria',
                     'RayLib Master'                    
-		  ],
-		  [
-                    'isVowel / GreenWing',
-                    'Translation Master'                    
 		  ]
 ]
-aTeam2 = [
-				  [
-					'Mohammed Fayed',
-					'Domain'								
-				  ],
-					[
-						'Sara Hamdy Mohamed',
-						'Tutorials'
-					],
-					[
-						'Alaa Mohammed Elockle',
-						'Tutorials'
-					],
-					[
-						'Amr Essam',
-						'Tutorials'
-					],
+aGraphicDesigners = [
 				  [
 					'Mohammed Ali Haggag',
 					'Graphic Designer'
 					
 				  ],			
-				  [
-					'Ahmad Fayed',
-					'Graphic Designer'
-					
-				  ],				  
 				  [
 					'Muhammad Wael',
 					'Graphic Designer'
@@ -140,6 +95,39 @@ aTeam2 = [
 					'Graphic Designer'
 					
 				  ],
+				  [
+					'Nouran M. Radwan',
+					'Graphic Designer'
+					
+				  ]
+]
+aTutorials = [
+		[
+			'Sara Hamdy Mohamed',
+			'Tutorials'
+		],
+		[
+			'Alaa Mohammed Elockle',
+			'Tutorials'
+		],
+		[
+			'Amr Essam',
+			'Tutorials'
+		]
+]
+
+aSuccessPartners = [
+			[
+				'Mohammed Fayed',
+				'Ring Domain'								
+			],
+			[
+				'Ahmad Fayed',
+				'Ring Logo'		
+			]			
+]
+
+aTeam2 = [
 				  [
 					'Magdy Ragab',
 					'Tester'				
@@ -518,7 +506,7 @@ aTeam2 = [
                     
                   ],
 				  [
-                    'mohammed hani elsayed',
+                    'Mohammed Hani Elsayed',
                     'Tester'
                     
                   ],
@@ -618,7 +606,7 @@ aTeam2 = [
                     
                   ],
 				  [
-                    'osama Kamel Abd El-hamed',
+                    'Osama Kamel Abd El-hamed',
                     'Tester'
                     
                   ],
@@ -633,7 +621,7 @@ aTeam2 = [
                     
                   ],
 				  [
-                    'djouamaa hocine',
+                    'Djouamaa hocine',
                     'Tester'
                     
                   ],
@@ -822,20 +810,36 @@ aTeam2 = [
                     'Tester'
                     
                   ],
-				  [
+		  [
                     'Shimoo Ali',
                     'Tester'
                     
                   ],
-				  [
-                    'John Storm (SienSystem)',
+		  [
+                    'Hebat Alla Ismail',
+                    'Tester'                   
+                  ],
+		  [
+                    'Mona Kamel',
                     'Tester'
                     
                   ],
-				  [
-                    'Hassan Ahmed',
+		  [
+                    'Heba Omran',
                     'Tester'
                     
+                  ],
+		  [
+                    'Abdelrahman Mahmoud',
+                    'Tester'
+                  ],
+		  [
+                    'John Storm (SienSystem)',
+                    'Tester'
+                  ],
+		  [
+                    'Hassan Ahmed',
+                    'Tester'
                   ],
 				  [
                     'Jamie Cooper',
@@ -885,6 +889,17 @@ aTeam2 = [
 		  [
                     'Harald Lapp',
                     'Tester'                    
-		  ]
-		     
+		  ],
+		  [
+                    'Gary Chike',
+                    'Tester'                    
+		  ],
+		  [
+		    'Aavesh Jilani',
+                    'Tester'                    
+		  ],
+		  [
+		    'Manoj Negi',
+                    'Tester'                    
+		  ]		     
 ]

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Low Level Functions &mdash; Ring 1.16 documentation</title>
+  <title>Low Level Functions &mdash; Ring 1.18 documentation</title>
   
 
   
@@ -153,6 +153,10 @@
 <li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csvlib.html">CSVLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jsonlib.html">JSONLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="httplib.html">HTTPLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenslib.html">TokensLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="socket.html">Using RingSockets</a></li>
@@ -204,6 +208,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#example-the-trace-library">Example - The Trace Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringvm-see-function">ringvm_see() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringvm-give-function">ringvm_give() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-codelist-function">ringvm_codelist() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringvm-info-function">ringvm_info() function</a></li>
 </ul>
 </li>
@@ -229,6 +234,7 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew14.html">Release Notes: Version 1.14</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew15.html">Release Notes: Version 1.15</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew17.html">Release Notes: Version 1.17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
@@ -307,7 +313,7 @@
 * nullpointer()         | nullptr()
 * object2pointer()      | obj2ptr()
 * pointer2object()      | ptr2obj()
-* ispointer()           | isptr()
+* ispointer()
 * pointercompare()      | ptrcmp()
 * setpointer()          | setptr()
 * getpointer()          | getptr()
@@ -332,6 +338,7 @@
 * ringvm_see()
 * ringvm_give()
 * ringvm_info()
+* ringvm_codelist()
 </pre></div>
 </div>
 <div class="section" id="callgc-function">
@@ -542,8 +549,7 @@ to create a reference for the parent node (object) in the child node (another ob
 <span id="index-7"></span><h2>ispointer() function<a class="headerlink" href="#ispointer-function" title="Permalink to this headline">¶</a></h2>
 <p>Check if the parameter is a pointer (C Object) or not.</p>
 <p>Syntax:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>IsPtr(vPara) ---&gt; True|False            # Short name
-IsPointer(vPara) ---&gt; True|False        # Long name
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>IsPointer(vPara) ---&gt; True|False        # Long name
 </pre></div>
 </div>
 <p>Example :</p>
@@ -1004,9 +1010,9 @@ y
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">hello</span><span class="p">()</span> <span class="k">in</span> <span class="n">file</span> <span class="n">B</span><span class="p">:</span><span class="o">/</span><span class="n">ring</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">calllist</span><span class="p">.</span><span class="n">ring</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">hello</span><span class="p">()</span> <span class="k">in</span> <span class="n">file</span> <span class="n">B</span><span class="p">:</span><span class="o">/</span><span class="n">ring</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">calllist</span><span class="p">.</span><span class="n">ring</span>
 <span class="n">called</span> <span class="k">from</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="n">function</span> <span class="n">test</span><span class="p">()</span> <span class="k">in</span> <span class="n">file</span> <span class="n">B</span><span class="p">:</span><span class="o">/</span><span class="n">ring</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">calllist</span><span class="p">.</span><span class="n">ring</span>
+<span class="k">function</span> <span class="n">test</span><span class="p">()</span> <span class="k">in</span> <span class="n">file</span> <span class="n">B</span><span class="p">:</span><span class="o">/</span><span class="n">ring</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">calllist</span><span class="p">.</span><span class="n">ring</span>
 <span class="n">called</span> <span class="k">from</span> <span class="n">line</span> <span class="mi">3</span>
 <span class="n">ringvm_calllist</span>
 </pre></div>
@@ -1628,8 +1634,14 @@ z: 30.000000
 </pre></div>
 </div>
 </div>
+<div class="section" id="ringvm-codelist-function">
+<span id="index-33"></span><h2>ringvm_codelist() function<a class="headerlink" href="#ringvm-codelist-function" title="Permalink to this headline">¶</a></h2>
+<p>The Function return a list contains the Byte Code of the current program.</p>
+<p>Each item is a sub list that represent an instruction</p>
+<p>This sub list starts with the operation code (A Number) then the parameters</p>
+</div>
 <div class="section" id="ringvm-info-function">
-<span id="index-33"></span><h2>ringvm_info() function<a class="headerlink" href="#ringvm-info-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-34"></span><h2>ringvm_info() function<a class="headerlink" href="#ringvm-info-function" title="Permalink to this headline">¶</a></h2>
 <p>The ringvm_info() is an internal function that return a list of information about the Ring VM structure.</p>
 <p>It’s used only by the Ring Team in advanced tests to check the VM status.</p>
 <p>Syntax:</p>
@@ -1660,7 +1672,7 @@ z: 30.000000
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2016-2021, Ring Team
+        &copy; Copyright 2016-2022, Ring Team
 
     </p>
   </div>

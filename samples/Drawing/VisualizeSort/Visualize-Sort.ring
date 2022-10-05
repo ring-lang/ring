@@ -160,7 +160,7 @@ Func Leave()
 return
   
 ###=================================================
-### Comparisons,  Array Acesses,  Delay
+### Comparisons,  Array Accesses,  Delay
   
 Func DrawSort()
 
@@ -807,10 +807,3 @@ return
 
 ###--------------------------------------------------- 
 // Sorted Data ->1->3->12->54->96->129->542->886->1125->3125
-
-
-
-
-
-
-

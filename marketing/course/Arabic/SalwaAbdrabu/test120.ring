@@ -5,7 +5,7 @@
 
 # Functional Programming Paradigm
 test(func {
-	? "Anonymouse Function"
+	? "Anonymous Function"
 })
 
 func test f1

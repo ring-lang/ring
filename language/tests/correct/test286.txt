@@ -1,5 +1,15 @@
-
-Can't open file syntaxerror.ring 
-
-general/test83.ring Line (2) Error (C27) : Syntax Error!
-general/test83.ring errors count : 1 
+x: 10
+y: 20
+z: 30
+x: 10
+y: 20
+z: 30
+100
+200
+300
+100
+200
+300
+10
+20
+30

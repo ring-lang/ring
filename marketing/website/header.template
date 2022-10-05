@@ -36,10 +36,11 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
           <li><a href="index.html#">Home</a></li>
-	  <li><a href="index.html#whyring">Why?</a></li>
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Download<span class="caret"></span></a>
+	  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Download<span class="caret"></span></a>
             <ul class="dropdown-menu">
-		  <li><a href="download.html">Download Ring 1.15</a></li>
+		  <li><a href="download.html">Download Ring 1.17</a></li>
+		  <li><a href="download116.html">Download Ring 1.16</a></li>
+		  <li><a href="download115.html">Download Ring 1.15</a></li>
 		  <li><a href="download114.html">Download Ring 1.14</a></li>
 		  <li><a href="download113.html">Download Ring 1.13</a></li>
 		  <li><a href="download112.html">Download Ring 1.12</a></li>
@@ -57,8 +58,10 @@
           	  <li><a href="download1.html">Download Ring 1.0</a></li>
             </ul>
           </li>	
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentation<span class="caret"></span></a>
+	  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentation<span class="caret"></span></a>
             <ul class="dropdown-menu">
+		  <li><a href="doc1.17/index.html" >Ring 1.17 Documentation</a></li>
+		  <li><a href="doc1.16/index.html" >Ring 1.16 Documentation</a></li>
 		  <li><a href="doc1.15/index.html" >Ring 1.15 Documentation</a></li>
 		  <li><a href="doc1.14/index.html" >Ring 1.14 Documentation</a></li>
 		  <li><a href="doc1.13/index.html" >Ring 1.13 Documentation</a></li>
@@ -77,19 +80,19 @@
           	  <li><a href="doc/index.html" >Ring 1.0 Documentation</a></li>
             </ul>
           </li>
-		  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">More<span class="caret"></span></a>
+	  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">More<span class="caret"></span></a>
             <ul class="dropdown-menu">
 			  <li><a href="https://tio.run/#ring">Try Online</a></li>
 			  <li><a href="resources.html">Resources</a></li>			  
-			  <li><a href="https://github.com/ring-lang/ring" target="_blank">GitHub</a></li>
-			  <li><a href="https://groups.google.com/forum/#!forum/ring-lang" target="_blank">Group</a></li>
+			  <li><a href="https://groups.google.com/g/ring-lang">Group</a></li>			  
+			  <li><a href="https://github.com/ring-lang/ring">GitHub</a></li>
           	  <li><a href="team.html">Team</a></li>
             </ul>
           </li>
     </ul>
 
 	<div style="float:right ; margin-top:0.5% ; margin-right: 1%">
-		<form class="search" action="doc1.15/search.html" method="get" style="width:200px" >
+		<form class="search" action="doc1.17/search.html" method="get" style="width:200px" >
 			<div class="input-group">
 				<input name="q" type="text" class="form-control" placeholder="Search for...">
 				<span class="input-group-btn">
@@ -106,7 +109,7 @@
 
 </nav>  
 
-<a href="https://github.com/ring-lang/ring" target="_blank" class="hidden-xs" style="float:right ; margin-top:4%">
+<a href="https://github.com/ring-lang/ring" class="hidden-xs" style="float:right ; margin-top:4%">
 	<img src="forkme.png" alt="Fork me on GitHub" width="198" height="198">
 </a>
 
@@ -134,7 +137,7 @@
 				</div>
 				
 				<div class="col-sm-12 col-md-2">
-					<a href="doc1.15/index.html" target="_blank" class="btn btn-default btn-block" style="">Documents</a>
+					<a href="doc1.17/index.html" class="btn btn-default btn-block" style="">Documentation</a>
 				</div>
 
 				<div class="col-sm-12 col-md-2">
@@ -142,7 +145,7 @@
 				</div>
 
 				<div class="col-sm-12 col-md-2">
-					<a href="https://groups.google.com/forum/#!forum/ring-lang" target="_blank" class="btn btn-default btn-block" style="">Group</a>
+					<a href="https://groups.google.com/g/ring-lang" class="btn btn-default btn-block" style="">Group</a>
 				</div>
 				
 				<div class="col-xs-2">

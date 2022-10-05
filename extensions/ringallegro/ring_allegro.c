@@ -20,7 +20,7 @@
 RING_FUNC(ring_al_new_allegro_event)
 {
 	ALLEGRO_EVENT *pMyPointer ;
-	pMyPointer = (ALLEGRO_EVENT *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_EVENT)) ;
+	pMyPointer = (ALLEGRO_EVENT *) RING_API_MALLOC(sizeof(ALLEGRO_EVENT)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -32,13 +32,13 @@ RING_FUNC(ring_al_new_allegro_event)
 RING_FUNC(ring_al_new_managed_allegro_event)
 {
 	ALLEGRO_EVENT *pMyPointer ;
-	pMyPointer = (ALLEGRO_EVENT *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_EVENT)) ;
+	pMyPointer = (ALLEGRO_EVENT *) RING_API_MALLOC(sizeof(ALLEGRO_EVENT)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"ALLEGRO_EVENT",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"ALLEGRO_EVENT",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_al_destroy_allegro_event)
@@ -52,9 +52,9 @@ RING_FUNC(ring_al_destroy_allegro_event)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_EVENT");
+	pMyPointer = (ALLEGRO_EVENT*) RING_API_GETCPOINTER(1,"ALLEGRO_EVENT");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -402,7 +402,7 @@ RING_FUNC(ring_al_set_allegro_event_joystick_button)
 RING_FUNC(ring_al_new_allegro_timeout)
 {
 	ALLEGRO_TIMEOUT *pMyPointer ;
-	pMyPointer = (ALLEGRO_TIMEOUT *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_TIMEOUT)) ;
+	pMyPointer = (ALLEGRO_TIMEOUT *) RING_API_MALLOC(sizeof(ALLEGRO_TIMEOUT)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -414,13 +414,13 @@ RING_FUNC(ring_al_new_allegro_timeout)
 RING_FUNC(ring_al_new_managed_allegro_timeout)
 {
 	ALLEGRO_TIMEOUT *pMyPointer ;
-	pMyPointer = (ALLEGRO_TIMEOUT *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_TIMEOUT)) ;
+	pMyPointer = (ALLEGRO_TIMEOUT *) RING_API_MALLOC(sizeof(ALLEGRO_TIMEOUT)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"ALLEGRO_TIMEOUT",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"ALLEGRO_TIMEOUT",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_al_destroy_allegro_timeout)
@@ -434,9 +434,9 @@ RING_FUNC(ring_al_destroy_allegro_timeout)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_TIMEOUT");
+	pMyPointer = (ALLEGRO_TIMEOUT*) RING_API_GETCPOINTER(1,"ALLEGRO_TIMEOUT");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -444,7 +444,7 @@ RING_FUNC(ring_al_destroy_allegro_timeout)
 RING_FUNC(ring_al_new_allegro_sample_id)
 {
 	ALLEGRO_SAMPLE_ID *pMyPointer ;
-	pMyPointer = (ALLEGRO_SAMPLE_ID *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_SAMPLE_ID)) ;
+	pMyPointer = (ALLEGRO_SAMPLE_ID *) RING_API_MALLOC(sizeof(ALLEGRO_SAMPLE_ID)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -456,13 +456,13 @@ RING_FUNC(ring_al_new_allegro_sample_id)
 RING_FUNC(ring_al_new_managed_allegro_sample_id)
 {
 	ALLEGRO_SAMPLE_ID *pMyPointer ;
-	pMyPointer = (ALLEGRO_SAMPLE_ID *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_SAMPLE_ID)) ;
+	pMyPointer = (ALLEGRO_SAMPLE_ID *) RING_API_MALLOC(sizeof(ALLEGRO_SAMPLE_ID)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"ALLEGRO_SAMPLE_ID",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"ALLEGRO_SAMPLE_ID",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_al_destroy_allegro_sample_id)
@@ -476,9 +476,9 @@ RING_FUNC(ring_al_destroy_allegro_sample_id)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_ID");
+	pMyPointer = (ALLEGRO_SAMPLE_ID*) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_ID");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -486,7 +486,7 @@ RING_FUNC(ring_al_destroy_allegro_sample_id)
 RING_FUNC(ring_al_new_allegro_color)
 {
 	ALLEGRO_COLOR *pMyPointer ;
-	pMyPointer = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
+	pMyPointer = (ALLEGRO_COLOR *) RING_API_MALLOC(sizeof(ALLEGRO_COLOR)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -498,13 +498,13 @@ RING_FUNC(ring_al_new_allegro_color)
 RING_FUNC(ring_al_new_managed_allegro_color)
 {
 	ALLEGRO_COLOR *pMyPointer ;
-	pMyPointer = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
+	pMyPointer = (ALLEGRO_COLOR *) RING_API_MALLOC(sizeof(ALLEGRO_COLOR)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"ALLEGRO_COLOR",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"ALLEGRO_COLOR",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_al_destroy_allegro_color)
@@ -518,9 +518,9 @@ RING_FUNC(ring_al_destroy_allegro_color)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_COLOR");
+	pMyPointer = (ALLEGRO_COLOR*) RING_API_GETCPOINTER(1,"ALLEGRO_COLOR");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -528,7 +528,7 @@ RING_FUNC(ring_al_destroy_allegro_color)
 RING_FUNC(ring_al_new_allegro_joystick_state)
 {
 	ALLEGRO_JOYSTICK_STATE *pMyPointer ;
-	pMyPointer = (ALLEGRO_JOYSTICK_STATE *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_JOYSTICK_STATE)) ;
+	pMyPointer = (ALLEGRO_JOYSTICK_STATE *) RING_API_MALLOC(sizeof(ALLEGRO_JOYSTICK_STATE)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -540,13 +540,13 @@ RING_FUNC(ring_al_new_allegro_joystick_state)
 RING_FUNC(ring_al_new_managed_allegro_joystick_state)
 {
 	ALLEGRO_JOYSTICK_STATE *pMyPointer ;
-	pMyPointer = (ALLEGRO_JOYSTICK_STATE *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_JOYSTICK_STATE)) ;
+	pMyPointer = (ALLEGRO_JOYSTICK_STATE *) RING_API_MALLOC(sizeof(ALLEGRO_JOYSTICK_STATE)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"ALLEGRO_JOYSTICK_STATE",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"ALLEGRO_JOYSTICK_STATE",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_al_destroy_allegro_joystick_state)
@@ -560,9 +560,9 @@ RING_FUNC(ring_al_destroy_allegro_joystick_state)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"ALLEGRO_JOYSTICK_STATE");
+	pMyPointer = (ALLEGRO_JOYSTICK_STATE*) RING_API_GETCPOINTER(1,"ALLEGRO_JOYSTICK_STATE");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -1770,9 +1770,9 @@ RING_FUNC(ring_al_get_event_source_data)
 	}
 	{
 		intptr_t *pValue ; 
-		pValue = (intptr_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(intptr_t)) ;
+		pValue = (intptr_t *) RING_API_MALLOC(sizeof(intptr_t)) ;
 		*pValue = al_get_event_source_data((ALLEGRO_EVENT_SOURCE *) RING_API_GETCPOINTER(1,"ALLEGRO_EVENT_SOURCE"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"intptr_t",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"intptr_t",RING_API_FREEFUNC);
 	}
 }
 
@@ -1789,7 +1789,7 @@ RING_FUNC(ring_al_set_event_source_data)
 	}
 	al_set_event_source_data((ALLEGRO_EVENT_SOURCE *) RING_API_GETCPOINTER(1,"ALLEGRO_EVENT_SOURCE"),* (intptr_t  *) RING_API_GETCPOINTER(2,"intptr_t"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"intptr_t"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"intptr_t"));
 }
 
 
@@ -2213,7 +2213,7 @@ RING_FUNC(ring_al_fgets)
 	}
 	RING_API_RETSTRING(al_fgets((ALLEGRO_FILE *) RING_API_GETCPOINTER(1,"ALLEGRO_FILE"),* (char * const  *) RING_API_GETCPOINTER(2,"char * const"), (size_t ) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"char"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"char"));
 }
 
 
@@ -2433,9 +2433,9 @@ RING_FUNC(ring_al_get_fs_entry_atime)
 	}
 	{
 		time_t *pValue ; 
-		pValue = (time_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(time_t)) ;
+		pValue = (time_t *) RING_API_MALLOC(sizeof(time_t)) ;
 		*pValue = al_get_fs_entry_atime((ALLEGRO_FS_ENTRY *) RING_API_GETCPOINTER(1,"ALLEGRO_FS_ENTRY"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"time_t",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"time_t",RING_API_FREEFUNC);
 	}
 }
 
@@ -2452,9 +2452,9 @@ RING_FUNC(ring_al_get_fs_entry_ctime)
 	}
 	{
 		time_t *pValue ; 
-		pValue = (time_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(time_t)) ;
+		pValue = (time_t *) RING_API_MALLOC(sizeof(time_t)) ;
 		*pValue = al_get_fs_entry_ctime((ALLEGRO_FS_ENTRY *) RING_API_GETCPOINTER(1,"ALLEGRO_FS_ENTRY"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"time_t",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"time_t",RING_API_FREEFUNC);
 	}
 }
 
@@ -2471,9 +2471,9 @@ RING_FUNC(ring_al_get_fs_entry_mtime)
 	}
 	{
 		time_t *pValue ; 
-		pValue = (time_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(time_t)) ;
+		pValue = (time_t *) RING_API_MALLOC(sizeof(time_t)) ;
 		*pValue = al_get_fs_entry_mtime((ALLEGRO_FS_ENTRY *) RING_API_GETCPOINTER(1,"ALLEGRO_FS_ENTRY"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"time_t",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"time_t",RING_API_FREEFUNC);
 	}
 }
 
@@ -2490,9 +2490,9 @@ RING_FUNC(ring_al_get_fs_entry_size)
 	}
 	{
 		off_t *pValue ; 
-		pValue = (off_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(off_t)) ;
+		pValue = (off_t *) RING_API_MALLOC(sizeof(off_t)) ;
 		*pValue = al_get_fs_entry_size((ALLEGRO_FS_ENTRY *) RING_API_GETCPOINTER(1,"ALLEGRO_FS_ENTRY"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"off_t",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"off_t",RING_API_FREEFUNC);
 	}
 }
 
@@ -3023,9 +3023,9 @@ RING_FUNC(ring_al_map_rgb)
 	}
 	{
 		ALLEGRO_COLOR *pValue ; 
-		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
+		pValue = (ALLEGRO_COLOR *) RING_API_MALLOC(sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_map_rgb( (unsigned char ) RING_API_GETNUMBER(1), (unsigned char ) RING_API_GETNUMBER(2), (unsigned char ) RING_API_GETNUMBER(3));
-		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",RING_API_FREEFUNC);
 	}
 }
 
@@ -3050,9 +3050,9 @@ RING_FUNC(ring_al_map_rgb_f)
 	}
 	{
 		ALLEGRO_COLOR *pValue ; 
-		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
+		pValue = (ALLEGRO_COLOR *) RING_API_MALLOC(sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_map_rgb_f( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3));
-		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",RING_API_FREEFUNC);
 	}
 }
 
@@ -3081,9 +3081,9 @@ RING_FUNC(ring_al_map_rgba)
 	}
 	{
 		ALLEGRO_COLOR *pValue ; 
-		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
+		pValue = (ALLEGRO_COLOR *) RING_API_MALLOC(sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_map_rgba( (unsigned char ) RING_API_GETNUMBER(1), (unsigned char ) RING_API_GETNUMBER(2), (unsigned char ) RING_API_GETNUMBER(3), (unsigned char ) RING_API_GETNUMBER(4));
-		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",RING_API_FREEFUNC);
 	}
 }
 
@@ -3112,9 +3112,9 @@ RING_FUNC(ring_al_map_rgba_f)
 	}
 	{
 		ALLEGRO_COLOR *pValue ; 
-		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
+		pValue = (ALLEGRO_COLOR *) RING_API_MALLOC(sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_map_rgba_f( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4));
-		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",RING_API_FREEFUNC);
 	}
 }
 
@@ -3139,7 +3139,7 @@ RING_FUNC(ring_al_unmap_rgb)
 	}
 	al_unmap_rgb(* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"),(unsigned char *) RING_API_GETCPOINTER(2,"unsigned char"),(unsigned char *) RING_API_GETCPOINTER(3,"unsigned char"),(unsigned char *) RING_API_GETCPOINTER(4,"unsigned char"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"));
 }
 
 
@@ -3163,7 +3163,7 @@ RING_FUNC(ring_al_unmap_rgb_f)
 	}
 	al_unmap_rgb_f(* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"),(float *) RING_API_GETCPOINTER(2,"float"),(float *) RING_API_GETCPOINTER(3,"float"),(float *) RING_API_GETCPOINTER(4,"float"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"));
 }
 
 
@@ -3191,7 +3191,7 @@ RING_FUNC(ring_al_unmap_rgba)
 	}
 	al_unmap_rgba(* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"),(unsigned char *) RING_API_GETCPOINTER(2,"unsigned char"),(unsigned char *) RING_API_GETCPOINTER(3,"unsigned char"),(unsigned char *) RING_API_GETCPOINTER(4,"unsigned char"),(unsigned char *) RING_API_GETCPOINTER(5,"unsigned char"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"));
 }
 
 
@@ -3219,7 +3219,7 @@ RING_FUNC(ring_al_unmap_rgba_f)
 	}
 	al_unmap_rgba_f(* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"),(float *) RING_API_GETCPOINTER(2,"float"),(float *) RING_API_GETCPOINTER(3,"float"),(float *) RING_API_GETCPOINTER(4,"float"),(float *) RING_API_GETCPOINTER(5,"float"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"));
 }
 
 
@@ -3539,9 +3539,9 @@ RING_FUNC(ring_al_get_pixel)
 	}
 	{
 		ALLEGRO_COLOR *pValue ; 
-		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
+		pValue = (ALLEGRO_COLOR *) RING_API_MALLOC(sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_get_pixel((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
-		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",RING_API_FREEFUNC);
 	}
 }
 
@@ -3610,7 +3610,7 @@ RING_FUNC(ring_al_clear_to_color)
 	}
 	al_clear_to_color(* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"ALLEGRO_COLOR"));
 }
 
 
@@ -3664,7 +3664,7 @@ RING_FUNC(ring_al_draw_tinted_bitmap)
 	}
 	al_draw_tinted_bitmap((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP"),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
 }
 
 
@@ -3750,7 +3750,7 @@ RING_FUNC(ring_al_draw_tinted_bitmap_region)
 	}
 	al_draw_tinted_bitmap_region((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP"),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6), (float ) RING_API_GETNUMBER(7), (float ) RING_API_GETNUMBER(8), (int ) RING_API_GETNUMBER(9));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
 }
 
 
@@ -3770,7 +3770,7 @@ RING_FUNC(ring_al_draw_pixel)
 	}
 	al_draw_pixel( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(3,"ALLEGRO_COLOR"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"ALLEGRO_COLOR"));
 }
 
 
@@ -3848,7 +3848,7 @@ RING_FUNC(ring_al_draw_tinted_rotated_bitmap)
 	}
 	al_draw_tinted_rotated_bitmap((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP"),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6), (float ) RING_API_GETNUMBER(7), (int ) RING_API_GETNUMBER(8));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
 }
 
 
@@ -3942,7 +3942,7 @@ RING_FUNC(ring_al_draw_tinted_scaled_rotated_bitmap)
 	}
 	al_draw_tinted_scaled_rotated_bitmap((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP"),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6), (float ) RING_API_GETNUMBER(7), (float ) RING_API_GETNUMBER(8), (float ) RING_API_GETNUMBER(9), (int ) RING_API_GETNUMBER(10));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
 }
 
 
@@ -4006,7 +4006,7 @@ RING_FUNC(ring_al_draw_tinted_scaled_rotated_bitmap_region)
 	}
 	al_draw_tinted_scaled_rotated_bitmap_region((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP"), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(6,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(7), (float ) RING_API_GETNUMBER(8), (float ) RING_API_GETNUMBER(9), (float ) RING_API_GETNUMBER(10), (float ) RING_API_GETNUMBER(11), (float ) RING_API_GETNUMBER(12), (float ) RING_API_GETNUMBER(13), (int ) RING_API_GETNUMBER(14));
 	if (RING_API_ISCPOINTERNOTASSIGNED(6))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(6,"ALLEGRO_COLOR"));
 }
 
 
@@ -4108,7 +4108,7 @@ RING_FUNC(ring_al_draw_tinted_scaled_bitmap)
 	}
 	al_draw_tinted_scaled_bitmap((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP"),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6), (float ) RING_API_GETNUMBER(7), (float ) RING_API_GETNUMBER(8), (float ) RING_API_GETNUMBER(9), (float ) RING_API_GETNUMBER(10), (int ) RING_API_GETNUMBER(11));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
 }
 
 
@@ -4138,7 +4138,7 @@ RING_FUNC(ring_al_put_pixel)
 	}
 	al_put_pixel( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(3,"ALLEGRO_COLOR"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"ALLEGRO_COLOR"));
 }
 
 
@@ -4158,7 +4158,7 @@ RING_FUNC(ring_al_put_blended_pixel)
 	}
 	al_put_blended_pixel( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(3,"ALLEGRO_COLOR"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"ALLEGRO_COLOR"));
 }
 
 
@@ -4399,7 +4399,7 @@ RING_FUNC(ring_al_convert_mask_to_alpha)
 	}
 	al_convert_mask_to_alpha((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP"),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
 }
 
 
@@ -5277,7 +5277,7 @@ RING_FUNC(ring_al_set_system_mouse_cursor)
 	}
 	RING_API_RETNUMBER(al_set_system_mouse_cursor((ALLEGRO_DISPLAY *) RING_API_GETCPOINTER(1,"ALLEGRO_DISPLAY"),* (ALLEGRO_SYSTEM_MOUSE_CURSOR  *) RING_API_GETCPOINTER(2,"ALLEGRO_SYSTEM_MOUSE_CURSOR")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_SYSTEM_MOUSE_CURSOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"ALLEGRO_SYSTEM_MOUSE_CURSOR"));
 }
 
 
@@ -7099,7 +7099,7 @@ RING_FUNC(ring_al_ustr_vappendf)
 	}
 	RING_API_RETNUMBER(al_ustr_vappendf((ALLEGRO_USTR *) RING_API_GETCPOINTER(1,"ALLEGRO_USTR"),RING_API_GETSTRING(2),* (va_list  *) RING_API_GETCPOINTER(3,"va_list")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"va_list"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"va_list"));
 }
 
 
@@ -7823,9 +7823,9 @@ RING_FUNC(ring_al_get_d3d_device)
 	}
 	{
 		LPDIRECT3DDEVICE9 *pValue ; 
-		pValue = (LPDIRECT3DDEVICE9 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(LPDIRECT3DDEVICE9)) ;
+		pValue = (LPDIRECT3DDEVICE9 *) RING_API_MALLOC(sizeof(LPDIRECT3DDEVICE9)) ;
 		*pValue = al_get_d3d_device((ALLEGRO_DISPLAY *) RING_API_GETCPOINTER(1,"ALLEGRO_DISPLAY"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"LPDIRECT3DDEVICE9",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"LPDIRECT3DDEVICE9",RING_API_FREEFUNC);
 	}
 }
 
@@ -7842,9 +7842,9 @@ RING_FUNC(ring_al_get_d3d_system_texture)
 	}
 	{
 		LPDIRECT3DTEXTURE9 *pValue ; 
-		pValue = (LPDIRECT3DTEXTURE9 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(LPDIRECT3DTEXTURE9)) ;
+		pValue = (LPDIRECT3DTEXTURE9 *) RING_API_MALLOC(sizeof(LPDIRECT3DTEXTURE9)) ;
 		*pValue = al_get_d3d_system_texture((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"LPDIRECT3DTEXTURE9",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"LPDIRECT3DTEXTURE9",RING_API_FREEFUNC);
 	}
 }
 
@@ -7861,9 +7861,9 @@ RING_FUNC(ring_al_get_d3d_video_texture)
 	}
 	{
 		LPDIRECT3DTEXTURE9 *pValue ; 
-		pValue = (LPDIRECT3DTEXTURE9 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(LPDIRECT3DTEXTURE9)) ;
+		pValue = (LPDIRECT3DTEXTURE9 *) RING_API_MALLOC(sizeof(LPDIRECT3DTEXTURE9)) ;
 		*pValue = al_get_d3d_video_texture((ALLEGRO_BITMAP *) RING_API_GETCPOINTER(1,"ALLEGRO_BITMAP"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"LPDIRECT3DTEXTURE9",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"LPDIRECT3DTEXTURE9",RING_API_FREEFUNC);
 	}
 }
 
@@ -8840,9 +8840,9 @@ RING_FUNC(ring_al_get_sample_instance_playmode)
 	}
 	{
 		ALLEGRO_PLAYMODE *pValue ; 
-		pValue = (ALLEGRO_PLAYMODE *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_PLAYMODE)) ;
+		pValue = (ALLEGRO_PLAYMODE *) RING_API_MALLOC(sizeof(ALLEGRO_PLAYMODE)) ;
 		*pValue = al_get_sample_instance_playmode((ALLEGRO_SAMPLE_INSTANCE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_INSTANCE"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_PLAYMODE",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_PLAYMODE",RING_API_FREEFUNC);
 	}
 }
 
@@ -8859,7 +8859,7 @@ RING_FUNC(ring_al_set_sample_instance_playmode)
 	}
 	RING_API_RETNUMBER(al_set_sample_instance_playmode((ALLEGRO_SAMPLE_INSTANCE *) RING_API_GETCPOINTER(1,"ALLEGRO_SAMPLE_INSTANCE"),* (ALLEGRO_PLAYMODE  *) RING_API_GETCPOINTER(2,"ALLEGRO_PLAYMODE")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_PLAYMODE"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"ALLEGRO_PLAYMODE"));
 }
 
 
@@ -9183,9 +9183,9 @@ RING_FUNC(ring_al_get_mixer_quality)
 	}
 	{
 		ALLEGRO_MIXER_QUALITY *pValue ; 
-		pValue = (ALLEGRO_MIXER_QUALITY *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_MIXER_QUALITY)) ;
+		pValue = (ALLEGRO_MIXER_QUALITY *) RING_API_MALLOC(sizeof(ALLEGRO_MIXER_QUALITY)) ;
 		*pValue = al_get_mixer_quality((ALLEGRO_MIXER *) RING_API_GETCPOINTER(1,"ALLEGRO_MIXER"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_MIXER_QUALITY",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_MIXER_QUALITY",RING_API_FREEFUNC);
 	}
 }
 
@@ -9202,7 +9202,7 @@ RING_FUNC(ring_al_set_mixer_quality)
 	}
 	RING_API_RETNUMBER(al_set_mixer_quality((ALLEGRO_MIXER *) RING_API_GETCPOINTER(1,"ALLEGRO_MIXER"),* (ALLEGRO_MIXER_QUALITY  *) RING_API_GETCPOINTER(2,"ALLEGRO_MIXER_QUALITY")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_MIXER_QUALITY"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"ALLEGRO_MIXER_QUALITY"));
 }
 
 
@@ -9548,9 +9548,9 @@ RING_FUNC(ring_al_get_audio_stream_playmode)
 	}
 	{
 		ALLEGRO_PLAYMODE *pValue ; 
-		pValue = (ALLEGRO_PLAYMODE *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_PLAYMODE)) ;
+		pValue = (ALLEGRO_PLAYMODE *) RING_API_MALLOC(sizeof(ALLEGRO_PLAYMODE)) ;
 		*pValue = al_get_audio_stream_playmode((ALLEGRO_AUDIO_STREAM *) RING_API_GETCPOINTER(1,"ALLEGRO_AUDIO_STREAM"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_PLAYMODE",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_PLAYMODE",RING_API_FREEFUNC);
 	}
 }
 
@@ -9567,7 +9567,7 @@ RING_FUNC(ring_al_set_audio_stream_playmode)
 	}
 	RING_API_RETNUMBER(al_set_audio_stream_playmode((ALLEGRO_AUDIO_STREAM *) RING_API_GETCPOINTER(1,"ALLEGRO_AUDIO_STREAM"),* (ALLEGRO_PLAYMODE  *) RING_API_GETCPOINTER(2,"ALLEGRO_PLAYMODE")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_PLAYMODE"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"ALLEGRO_PLAYMODE"));
 }
 
 
@@ -9891,9 +9891,9 @@ RING_FUNC(ring_al_color_cmyk)
 	}
 	{
 		ALLEGRO_COLOR *pValue ; 
-		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
+		pValue = (ALLEGRO_COLOR *) RING_API_MALLOC(sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_color_cmyk( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4));
-		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",RING_API_FREEFUNC);
 	}
 }
 
@@ -9956,9 +9956,9 @@ RING_FUNC(ring_al_color_hsl)
 	}
 	{
 		ALLEGRO_COLOR *pValue ; 
-		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
+		pValue = (ALLEGRO_COLOR *) RING_API_MALLOC(sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_color_hsl( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3));
-		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",RING_API_FREEFUNC);
 	}
 }
 
@@ -10017,9 +10017,9 @@ RING_FUNC(ring_al_color_hsv)
 	}
 	{
 		ALLEGRO_COLOR *pValue ; 
-		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
+		pValue = (ALLEGRO_COLOR *) RING_API_MALLOC(sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_color_hsv( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3));
-		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",RING_API_FREEFUNC);
 	}
 }
 
@@ -10070,9 +10070,9 @@ RING_FUNC(ring_al_color_html)
 	}
 	{
 		ALLEGRO_COLOR *pValue ; 
-		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
+		pValue = (ALLEGRO_COLOR *) RING_API_MALLOC(sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_color_html(RING_API_GETSTRING(1));
-		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",RING_API_FREEFUNC);
 	}
 }
 
@@ -10141,9 +10141,9 @@ RING_FUNC(ring_al_color_name)
 	}
 	{
 		ALLEGRO_COLOR *pValue ; 
-		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
+		pValue = (ALLEGRO_COLOR *) RING_API_MALLOC(sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_color_name(RING_API_GETSTRING(1));
-		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",RING_API_FREEFUNC);
 	}
 }
 
@@ -10356,9 +10356,9 @@ RING_FUNC(ring_al_color_yuv)
 	}
 	{
 		ALLEGRO_COLOR *pValue ; 
-		pValue = (ALLEGRO_COLOR *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ALLEGRO_COLOR)) ;
+		pValue = (ALLEGRO_COLOR *) RING_API_MALLOC(sizeof(ALLEGRO_COLOR)) ;
 		*pValue = al_color_yuv( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3));
-		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"ALLEGRO_COLOR",RING_API_FREEFUNC);
 	}
 }
 
@@ -10569,7 +10569,7 @@ RING_FUNC(ring_al_draw_text)
 	}
 	al_draw_text((ALLEGRO_FONT *) RING_API_GETCPOINTER(1,"ALLEGRO_FONT"),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5),RING_API_GETSTRING(6));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
 }
 
 
@@ -10601,7 +10601,7 @@ RING_FUNC(ring_al_draw_ustr)
 	}
 	al_draw_ustr((ALLEGRO_FONT *) RING_API_GETCPOINTER(1,"ALLEGRO_FONT"),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5),(ALLEGRO_USTR *) RING_API_GETCPOINTER(6,"ALLEGRO_USTR"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
 }
 
 
@@ -10641,7 +10641,7 @@ RING_FUNC(ring_al_draw_justified_text)
 	}
 	al_draw_justified_text((ALLEGRO_FONT *) RING_API_GETCPOINTER(1,"ALLEGRO_FONT"),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6), (int ) RING_API_GETNUMBER(7),RING_API_GETSTRING(8));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
 }
 
 
@@ -10681,7 +10681,7 @@ RING_FUNC(ring_al_draw_justified_ustr)
 	}
 	al_draw_justified_ustr((ALLEGRO_FONT *) RING_API_GETCPOINTER(1,"ALLEGRO_FONT"),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6), (int ) RING_API_GETNUMBER(7),(ALLEGRO_USTR *) RING_API_GETCPOINTER(8,"ALLEGRO_USTR"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"ALLEGRO_COLOR"));
 }
 
 
@@ -11292,7 +11292,7 @@ RING_FUNC(ring_al_draw_line)
 	}
 	al_draw_line( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(6));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"));
 }
 
 
@@ -11332,7 +11332,7 @@ RING_FUNC(ring_al_draw_triangle)
 	}
 	al_draw_triangle( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(8));
 	if (RING_API_ISCPOINTERNOTASSIGNED(7))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"));
 }
 
 
@@ -11368,7 +11368,7 @@ RING_FUNC(ring_al_draw_filled_triangle)
 	}
 	al_draw_filled_triangle( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(7))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"));
 }
 
 
@@ -11400,7 +11400,7 @@ RING_FUNC(ring_al_draw_rectangle)
 	}
 	al_draw_rectangle( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(6));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"));
 }
 
 
@@ -11428,7 +11428,7 @@ RING_FUNC(ring_al_draw_filled_rectangle)
 	}
 	al_draw_filled_rectangle( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"));
 }
 
 
@@ -11468,7 +11468,7 @@ RING_FUNC(ring_al_draw_rounded_rectangle)
 	}
 	al_draw_rounded_rectangle( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(8));
 	if (RING_API_ISCPOINTERNOTASSIGNED(7))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"));
 }
 
 
@@ -11504,7 +11504,7 @@ RING_FUNC(ring_al_draw_filled_rounded_rectangle)
 	}
 	al_draw_filled_rounded_rectangle( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(7))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"));
 }
 
 
@@ -11590,7 +11590,7 @@ RING_FUNC(ring_al_draw_pieslice)
 	}
 	al_draw_pieslice( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(6,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(7));
 	if (RING_API_ISCPOINTERNOTASSIGNED(6))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(6,"ALLEGRO_COLOR"));
 }
 
 
@@ -11622,7 +11622,7 @@ RING_FUNC(ring_al_draw_filled_pieslice)
 	}
 	al_draw_filled_pieslice( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(6,"ALLEGRO_COLOR"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(6))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(6,"ALLEGRO_COLOR"));
 }
 
 
@@ -11654,7 +11654,7 @@ RING_FUNC(ring_al_draw_ellipse)
 	}
 	al_draw_ellipse( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(6));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"));
 }
 
 
@@ -11682,7 +11682,7 @@ RING_FUNC(ring_al_draw_filled_ellipse)
 	}
 	al_draw_filled_ellipse( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(5,"ALLEGRO_COLOR"));
 }
 
 
@@ -11710,7 +11710,7 @@ RING_FUNC(ring_al_draw_circle)
 	}
 	al_draw_circle( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(4,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(5));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(4,"ALLEGRO_COLOR"));
 }
 
 
@@ -11734,7 +11734,7 @@ RING_FUNC(ring_al_draw_filled_circle)
 	}
 	al_draw_filled_circle( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(4,"ALLEGRO_COLOR"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(4,"ALLEGRO_COLOR"));
 }
 
 
@@ -11770,7 +11770,7 @@ RING_FUNC(ring_al_draw_arc)
 	}
 	al_draw_arc( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(6,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(7));
 	if (RING_API_ISCPOINTERNOTASSIGNED(6))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(6,"ALLEGRO_COLOR"));
 }
 
 
@@ -11810,7 +11810,7 @@ RING_FUNC(ring_al_draw_elliptical_arc)
 	}
 	al_draw_elliptical_arc( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(8));
 	if (RING_API_ISCPOINTERNOTASSIGNED(7))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(7,"ALLEGRO_COLOR"));
 }
 
 
@@ -11872,7 +11872,7 @@ RING_FUNC(ring_al_draw_ribbon)
 	}
 	al_draw_ribbon((float *) RING_API_GETCPOINTER(1,"float"), (int ) RING_API_GETNUMBER(2),* (ALLEGRO_COLOR  *) RING_API_GETCPOINTER(3,"ALLEGRO_COLOR"), (float ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"ALLEGRO_COLOR"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"ALLEGRO_COLOR"));
 }
 
 
@@ -12269,693 +12269,693 @@ RING_FUNC(ring_al_get_default_shader_source)
 	RING_API_RETSTRING(al_get_default_shader_source( (ALLEGRO_SHADER_PLATFORM )  (int) RING_API_GETNUMBER(1), (ALLEGRO_SHADER_TYPE )  (int) RING_API_GETNUMBER(2)));
 }
 
-RING_API void ringlib_init(RingState *pRingState)
+RING_LIBINIT
 {
-	ring_vm_funcregister("al_exit",ring_al_exit);
-	ring_vm_funcregister("al_run_main",ring_al_run_main);
-	ring_vm_funcregister("al_init",ring_al_init);
-	ring_vm_funcregister("al_create_config",ring_al_create_config);
-	ring_vm_funcregister("al_destroy_config",ring_al_destroy_config);
-	ring_vm_funcregister("al_load_config_file",ring_al_load_config_file);
-	ring_vm_funcregister("al_load_config_file_f",ring_al_load_config_file_f);
-	ring_vm_funcregister("al_save_config_file",ring_al_save_config_file);
-	ring_vm_funcregister("al_save_config_file_f",ring_al_save_config_file_f);
-	ring_vm_funcregister("al_add_config_section",ring_al_add_config_section);
-	ring_vm_funcregister("al_add_config_comment",ring_al_add_config_comment);
-	ring_vm_funcregister("al_get_config_value",ring_al_get_config_value);
-	ring_vm_funcregister("al_set_config_value",ring_al_set_config_value);
-	ring_vm_funcregister("al_get_first_config_section",ring_al_get_first_config_section);
-	ring_vm_funcregister("al_get_next_config_section",ring_al_get_next_config_section);
-	ring_vm_funcregister("al_get_first_config_entry",ring_al_get_first_config_entry);
-	ring_vm_funcregister("al_get_next_config_entry",ring_al_get_next_config_entry);
-	ring_vm_funcregister("al_merge_config",ring_al_merge_config);
-	ring_vm_funcregister("al_merge_config_into",ring_al_merge_config_into);
-	ring_vm_funcregister("al_create_display",ring_al_create_display);
-	ring_vm_funcregister("al_destroy_display",ring_al_destroy_display);
-	ring_vm_funcregister("al_get_new_display_flags",ring_al_get_new_display_flags);
-	ring_vm_funcregister("al_set_new_display_flags",ring_al_set_new_display_flags);
-	ring_vm_funcregister("al_get_new_display_option",ring_al_get_new_display_option);
-	ring_vm_funcregister("al_set_new_display_option",ring_al_set_new_display_option);
-	ring_vm_funcregister("al_reset_new_display_options",ring_al_reset_new_display_options);
-	ring_vm_funcregister("al_get_new_window_position",ring_al_get_new_window_position);
-	ring_vm_funcregister("al_set_new_window_position",ring_al_set_new_window_position);
-	ring_vm_funcregister("al_get_new_display_refresh_rate",ring_al_get_new_display_refresh_rate);
-	ring_vm_funcregister("al_set_new_display_refresh_rate",ring_al_set_new_display_refresh_rate);
-	ring_vm_funcregister("al_get_display_event_source",ring_al_get_display_event_source);
-	ring_vm_funcregister("al_get_backbuffer",ring_al_get_backbuffer);
-	ring_vm_funcregister("al_flip_display",ring_al_flip_display);
-	ring_vm_funcregister("al_update_display_region",ring_al_update_display_region);
-	ring_vm_funcregister("al_wait_for_vsync",ring_al_wait_for_vsync);
-	ring_vm_funcregister("al_get_display_width",ring_al_get_display_width);
-	ring_vm_funcregister("al_get_display_height",ring_al_get_display_height);
-	ring_vm_funcregister("al_resize_display",ring_al_resize_display);
-	ring_vm_funcregister("al_acknowledge_resize",ring_al_acknowledge_resize);
-	ring_vm_funcregister("al_get_window_position",ring_al_get_window_position);
-	ring_vm_funcregister("al_set_window_position",ring_al_set_window_position);
-	ring_vm_funcregister("al_get_display_flags",ring_al_get_display_flags);
-	ring_vm_funcregister("al_set_display_flag",ring_al_set_display_flag);
-	ring_vm_funcregister("al_get_display_option",ring_al_get_display_option);
-	ring_vm_funcregister("al_get_display_format",ring_al_get_display_format);
-	ring_vm_funcregister("al_get_display_refresh_rate",ring_al_get_display_refresh_rate);
-	ring_vm_funcregister("al_set_window_title",ring_al_set_window_title);
-	ring_vm_funcregister("al_set_display_icon",ring_al_set_display_icon);
-	ring_vm_funcregister("al_set_display_icons",ring_al_set_display_icons);
-	ring_vm_funcregister("al_inhibit_screensaver",ring_al_inhibit_screensaver);
-	ring_vm_funcregister("al_acknowledge_drawing_halt",ring_al_acknowledge_drawing_halt);
-	ring_vm_funcregister("al_acknowledge_drawing_resume",ring_al_acknowledge_drawing_resume);
-	ring_vm_funcregister("al_get_display_orientation",ring_al_get_display_orientation);
-	ring_vm_funcregister("al_set_display_option",ring_al_set_display_option);
-	ring_vm_funcregister("al_get_window_constraints",ring_al_get_window_constraints);
-	ring_vm_funcregister("al_set_window_constraints",ring_al_set_window_constraints);
-	ring_vm_funcregister("al_create_event_queue",ring_al_create_event_queue);
-	ring_vm_funcregister("al_destroy_event_queue",ring_al_destroy_event_queue);
-	ring_vm_funcregister("al_register_event_source",ring_al_register_event_source);
-	ring_vm_funcregister("al_unregister_event_source",ring_al_unregister_event_source);
-	ring_vm_funcregister("al_is_event_queue_empty",ring_al_is_event_queue_empty);
-	ring_vm_funcregister("al_get_next_event",ring_al_get_next_event);
-	ring_vm_funcregister("al_peek_next_event",ring_al_peek_next_event);
-	ring_vm_funcregister("al_drop_next_event",ring_al_drop_next_event);
-	ring_vm_funcregister("al_flush_event_queue",ring_al_flush_event_queue);
-	ring_vm_funcregister("al_wait_for_event",ring_al_wait_for_event);
-	ring_vm_funcregister("al_wait_for_event_timed",ring_al_wait_for_event_timed);
-	ring_vm_funcregister("al_wait_for_event_until",ring_al_wait_for_event_until);
-	ring_vm_funcregister("al_init_user_event_source",ring_al_init_user_event_source);
-	ring_vm_funcregister("al_destroy_user_event_source",ring_al_destroy_user_event_source);
-	ring_vm_funcregister("al_unref_user_event",ring_al_unref_user_event);
-	ring_vm_funcregister("al_get_event_source_data",ring_al_get_event_source_data);
-	ring_vm_funcregister("al_set_event_source_data",ring_al_set_event_source_data);
-	ring_vm_funcregister("al_fopen",ring_al_fopen);
-	ring_vm_funcregister("al_fopen_interface",ring_al_fopen_interface);
-	ring_vm_funcregister("al_fopen_slice",ring_al_fopen_slice);
-	ring_vm_funcregister("al_fclose",ring_al_fclose);
-	ring_vm_funcregister("al_fread",ring_al_fread);
-	ring_vm_funcregister("al_fwrite",ring_al_fwrite);
-	ring_vm_funcregister("al_fflush",ring_al_fflush);
-	ring_vm_funcregister("al_ftell",ring_al_ftell);
-	ring_vm_funcregister("al_fseek",ring_al_fseek);
-	ring_vm_funcregister("al_feof",ring_al_feof);
-	ring_vm_funcregister("al_ferror",ring_al_ferror);
-	ring_vm_funcregister("al_fclearerr",ring_al_fclearerr);
-	ring_vm_funcregister("al_fungetc",ring_al_fungetc);
-	ring_vm_funcregister("al_fsize",ring_al_fsize);
-	ring_vm_funcregister("al_fgetc",ring_al_fgetc);
-	ring_vm_funcregister("al_fputc",ring_al_fputc);
-	ring_vm_funcregister("al_fread16le",ring_al_fread16le);
-	ring_vm_funcregister("al_fread16be",ring_al_fread16be);
-	ring_vm_funcregister("al_fwrite16le",ring_al_fwrite16le);
-	ring_vm_funcregister("al_fwrite16be",ring_al_fwrite16be);
-	ring_vm_funcregister("al_fread32le",ring_al_fread32le);
-	ring_vm_funcregister("al_fread32be",ring_al_fread32be);
-	ring_vm_funcregister("al_fwrite32le",ring_al_fwrite32le);
-	ring_vm_funcregister("al_fwrite32be",ring_al_fwrite32be);
-	ring_vm_funcregister("al_fgets",ring_al_fgets);
-	ring_vm_funcregister("al_fget_ustr",ring_al_fget_ustr);
-	ring_vm_funcregister("al_fputs",ring_al_fputs);
-	ring_vm_funcregister("al_fopen_fd",ring_al_fopen_fd);
-	ring_vm_funcregister("al_make_temp_file",ring_al_make_temp_file);
-	ring_vm_funcregister("al_set_new_file_interface",ring_al_set_new_file_interface);
-	ring_vm_funcregister("al_set_standard_file_interface",ring_al_set_standard_file_interface);
-	ring_vm_funcregister("al_get_new_file_interface",ring_al_get_new_file_interface);
-	ring_vm_funcregister("al_create_file_handle",ring_al_create_file_handle);
-	ring_vm_funcregister("al_get_file_userdata",ring_al_get_file_userdata);
-	ring_vm_funcregister("al_create_fs_entry",ring_al_create_fs_entry);
-	ring_vm_funcregister("al_destroy_fs_entry",ring_al_destroy_fs_entry);
-	ring_vm_funcregister("al_get_fs_entry_name",ring_al_get_fs_entry_name);
-	ring_vm_funcregister("al_update_fs_entry",ring_al_update_fs_entry);
-	ring_vm_funcregister("al_get_fs_entry_mode",ring_al_get_fs_entry_mode);
-	ring_vm_funcregister("al_get_fs_entry_atime",ring_al_get_fs_entry_atime);
-	ring_vm_funcregister("al_get_fs_entry_ctime",ring_al_get_fs_entry_ctime);
-	ring_vm_funcregister("al_get_fs_entry_mtime",ring_al_get_fs_entry_mtime);
-	ring_vm_funcregister("al_get_fs_entry_size",ring_al_get_fs_entry_size);
-	ring_vm_funcregister("al_fs_entry_exists",ring_al_fs_entry_exists);
-	ring_vm_funcregister("al_remove_fs_entry",ring_al_remove_fs_entry);
-	ring_vm_funcregister("al_filename_exists",ring_al_filename_exists);
-	ring_vm_funcregister("al_remove_filename",ring_al_remove_filename);
-	ring_vm_funcregister("al_open_directory",ring_al_open_directory);
-	ring_vm_funcregister("al_read_directory",ring_al_read_directory);
-	ring_vm_funcregister("al_close_directory",ring_al_close_directory);
-	ring_vm_funcregister("al_get_current_directory",ring_al_get_current_directory);
-	ring_vm_funcregister("al_change_directory",ring_al_change_directory);
-	ring_vm_funcregister("al_make_directory",ring_al_make_directory);
-	ring_vm_funcregister("al_open_fs_entry",ring_al_open_fs_entry);
-	ring_vm_funcregister("al_set_fs_interface",ring_al_set_fs_interface);
-	ring_vm_funcregister("al_set_standard_fs_interface",ring_al_set_standard_fs_interface);
-	ring_vm_funcregister("al_get_fs_interface",ring_al_get_fs_interface);
-	ring_vm_funcregister("al_itofix",ring_al_itofix);
-	ring_vm_funcregister("al_fixtoi",ring_al_fixtoi);
-	ring_vm_funcregister("al_fixfloor",ring_al_fixfloor);
-	ring_vm_funcregister("al_fixceil",ring_al_fixceil);
-	ring_vm_funcregister("al_ftofix",ring_al_ftofix);
-	ring_vm_funcregister("al_fixtof",ring_al_fixtof);
-	ring_vm_funcregister("al_fixmul",ring_al_fixmul);
-	ring_vm_funcregister("al_fixdiv",ring_al_fixdiv);
-	ring_vm_funcregister("al_fixadd",ring_al_fixadd);
-	ring_vm_funcregister("al_fixsub",ring_al_fixsub);
-	ring_vm_funcregister("al_fixsin",ring_al_fixsin);
-	ring_vm_funcregister("al_fixcos",ring_al_fixcos);
-	ring_vm_funcregister("al_fixtan",ring_al_fixtan);
-	ring_vm_funcregister("al_fixasin",ring_al_fixasin);
-	ring_vm_funcregister("al_fixacos",ring_al_fixacos);
-	ring_vm_funcregister("al_fixatan",ring_al_fixatan);
-	ring_vm_funcregister("al_fixatan2",ring_al_fixatan2);
-	ring_vm_funcregister("al_fixsqrt",ring_al_fixsqrt);
-	ring_vm_funcregister("al_fixhypot",ring_al_fixhypot);
-	ring_vm_funcregister("al_get_display_mode",ring_al_get_display_mode);
-	ring_vm_funcregister("al_get_num_display_modes",ring_al_get_num_display_modes);
-	ring_vm_funcregister("al_map_rgb",ring_al_map_rgb);
-	ring_vm_funcregister("al_map_rgb_f",ring_al_map_rgb_f);
-	ring_vm_funcregister("al_map_rgba",ring_al_map_rgba);
-	ring_vm_funcregister("al_map_rgba_f",ring_al_map_rgba_f);
-	ring_vm_funcregister("al_unmap_rgb",ring_al_unmap_rgb);
-	ring_vm_funcregister("al_unmap_rgb_f",ring_al_unmap_rgb_f);
-	ring_vm_funcregister("al_unmap_rgba",ring_al_unmap_rgba);
-	ring_vm_funcregister("al_unmap_rgba_f",ring_al_unmap_rgba_f);
-	ring_vm_funcregister("al_get_pixel_size",ring_al_get_pixel_size);
-	ring_vm_funcregister("al_get_pixel_format_bits",ring_al_get_pixel_format_bits);
-	ring_vm_funcregister("al_lock_bitmap",ring_al_lock_bitmap);
-	ring_vm_funcregister("al_lock_bitmap_region",ring_al_lock_bitmap_region);
-	ring_vm_funcregister("al_unlock_bitmap",ring_al_unlock_bitmap);
-	ring_vm_funcregister("al_create_bitmap",ring_al_create_bitmap);
-	ring_vm_funcregister("al_create_sub_bitmap",ring_al_create_sub_bitmap);
-	ring_vm_funcregister("al_clone_bitmap",ring_al_clone_bitmap);
-	ring_vm_funcregister("al_destroy_bitmap",ring_al_destroy_bitmap);
-	ring_vm_funcregister("al_get_new_bitmap_flags",ring_al_get_new_bitmap_flags);
-	ring_vm_funcregister("al_get_new_bitmap_format",ring_al_get_new_bitmap_format);
-	ring_vm_funcregister("al_set_new_bitmap_flags",ring_al_set_new_bitmap_flags);
-	ring_vm_funcregister("al_add_new_bitmap_flag",ring_al_add_new_bitmap_flag);
-	ring_vm_funcregister("al_set_new_bitmap_format",ring_al_set_new_bitmap_format);
-	ring_vm_funcregister("al_get_bitmap_flags",ring_al_get_bitmap_flags);
-	ring_vm_funcregister("al_get_bitmap_format",ring_al_get_bitmap_format);
-	ring_vm_funcregister("al_get_bitmap_height",ring_al_get_bitmap_height);
-	ring_vm_funcregister("al_get_bitmap_width",ring_al_get_bitmap_width);
-	ring_vm_funcregister("al_get_pixel",ring_al_get_pixel);
-	ring_vm_funcregister("al_is_bitmap_locked",ring_al_is_bitmap_locked);
-	ring_vm_funcregister("al_is_compatible_bitmap",ring_al_is_compatible_bitmap);
-	ring_vm_funcregister("al_is_sub_bitmap",ring_al_is_sub_bitmap);
-	ring_vm_funcregister("al_get_parent_bitmap",ring_al_get_parent_bitmap);
-	ring_vm_funcregister("al_clear_to_color",ring_al_clear_to_color);
-	ring_vm_funcregister("al_draw_bitmap",ring_al_draw_bitmap);
-	ring_vm_funcregister("al_draw_tinted_bitmap",ring_al_draw_tinted_bitmap);
-	ring_vm_funcregister("al_draw_bitmap_region",ring_al_draw_bitmap_region);
-	ring_vm_funcregister("al_draw_tinted_bitmap_region",ring_al_draw_tinted_bitmap_region);
-	ring_vm_funcregister("al_draw_pixel",ring_al_draw_pixel);
-	ring_vm_funcregister("al_draw_rotated_bitmap",ring_al_draw_rotated_bitmap);
-	ring_vm_funcregister("al_draw_tinted_rotated_bitmap",ring_al_draw_tinted_rotated_bitmap);
-	ring_vm_funcregister("al_draw_scaled_rotated_bitmap",ring_al_draw_scaled_rotated_bitmap);
-	ring_vm_funcregister("al_draw_tinted_scaled_rotated_bitmap",ring_al_draw_tinted_scaled_rotated_bitmap);
-	ring_vm_funcregister("al_draw_tinted_scaled_rotated_bitmap_region",ring_al_draw_tinted_scaled_rotated_bitmap_region);
-	ring_vm_funcregister("al_draw_scaled_bitmap",ring_al_draw_scaled_bitmap);
-	ring_vm_funcregister("al_draw_tinted_scaled_bitmap",ring_al_draw_tinted_scaled_bitmap);
-	ring_vm_funcregister("al_get_target_bitmap",ring_al_get_target_bitmap);
-	ring_vm_funcregister("al_put_pixel",ring_al_put_pixel);
-	ring_vm_funcregister("al_put_blended_pixel",ring_al_put_blended_pixel);
-	ring_vm_funcregister("al_set_target_bitmap",ring_al_set_target_bitmap);
-	ring_vm_funcregister("al_set_target_backbuffer",ring_al_set_target_backbuffer);
-	ring_vm_funcregister("al_get_current_display",ring_al_get_current_display);
-	ring_vm_funcregister("al_get_blender",ring_al_get_blender);
-	ring_vm_funcregister("al_get_separate_blender",ring_al_get_separate_blender);
-	ring_vm_funcregister("al_set_blender",ring_al_set_blender);
-	ring_vm_funcregister("al_set_separate_blender",ring_al_set_separate_blender);
-	ring_vm_funcregister("al_get_clipping_rectangle",ring_al_get_clipping_rectangle);
-	ring_vm_funcregister("al_set_clipping_rectangle",ring_al_set_clipping_rectangle);
-	ring_vm_funcregister("al_reset_clipping_rectangle",ring_al_reset_clipping_rectangle);
-	ring_vm_funcregister("al_convert_mask_to_alpha",ring_al_convert_mask_to_alpha);
-	ring_vm_funcregister("al_hold_bitmap_drawing",ring_al_hold_bitmap_drawing);
-	ring_vm_funcregister("al_is_bitmap_drawing_held",ring_al_is_bitmap_drawing_held);
-	ring_vm_funcregister("al_load_bitmap",ring_al_load_bitmap);
-	ring_vm_funcregister("al_load_bitmap_f",ring_al_load_bitmap_f);
-	ring_vm_funcregister("al_save_bitmap",ring_al_save_bitmap);
-	ring_vm_funcregister("al_save_bitmap_f",ring_al_save_bitmap_f);
-	ring_vm_funcregister("al_install_joystick",ring_al_install_joystick);
-	ring_vm_funcregister("al_uninstall_joystick",ring_al_uninstall_joystick);
-	ring_vm_funcregister("al_is_joystick_installed",ring_al_is_joystick_installed);
-	ring_vm_funcregister("al_reconfigure_joysticks",ring_al_reconfigure_joysticks);
-	ring_vm_funcregister("al_get_num_joysticks",ring_al_get_num_joysticks);
-	ring_vm_funcregister("al_get_joystick",ring_al_get_joystick);
-	ring_vm_funcregister("al_release_joystick",ring_al_release_joystick);
-	ring_vm_funcregister("al_get_joystick_active",ring_al_get_joystick_active);
-	ring_vm_funcregister("al_get_joystick_name",ring_al_get_joystick_name);
-	ring_vm_funcregister("al_get_joystick_stick_name",ring_al_get_joystick_stick_name);
-	ring_vm_funcregister("al_get_joystick_axis_name",ring_al_get_joystick_axis_name);
-	ring_vm_funcregister("al_get_joystick_button_name",ring_al_get_joystick_button_name);
-	ring_vm_funcregister("al_get_joystick_stick_flags",ring_al_get_joystick_stick_flags);
-	ring_vm_funcregister("al_get_joystick_num_sticks",ring_al_get_joystick_num_sticks);
-	ring_vm_funcregister("al_get_joystick_num_axes",ring_al_get_joystick_num_axes);
-	ring_vm_funcregister("al_get_joystick_num_buttons",ring_al_get_joystick_num_buttons);
-	ring_vm_funcregister("al_get_joystick_state",ring_al_get_joystick_state);
-	ring_vm_funcregister("al_get_joystick_event_source",ring_al_get_joystick_event_source);
-	ring_vm_funcregister("al_install_keyboard",ring_al_install_keyboard);
-	ring_vm_funcregister("al_is_keyboard_installed",ring_al_is_keyboard_installed);
-	ring_vm_funcregister("al_uninstall_keyboard",ring_al_uninstall_keyboard);
-	ring_vm_funcregister("al_get_keyboard_state",ring_al_get_keyboard_state);
-	ring_vm_funcregister("al_key_down",ring_al_key_down);
-	ring_vm_funcregister("al_keycode_to_name",ring_al_keycode_to_name);
-	ring_vm_funcregister("al_set_keyboard_leds",ring_al_set_keyboard_leds);
-	ring_vm_funcregister("al_get_keyboard_event_source",ring_al_get_keyboard_event_source);
-	ring_vm_funcregister("al_malloc_with_context",ring_al_malloc_with_context);
-	ring_vm_funcregister("al_free_with_context",ring_al_free_with_context);
-	ring_vm_funcregister("al_realloc_with_context",ring_al_realloc_with_context);
-	ring_vm_funcregister("al_calloc_with_context",ring_al_calloc_with_context);
-	ring_vm_funcregister("al_set_memory_interface",ring_al_set_memory_interface);
-	ring_vm_funcregister("al_get_new_display_adapter",ring_al_get_new_display_adapter);
-	ring_vm_funcregister("al_set_new_display_adapter",ring_al_set_new_display_adapter);
-	ring_vm_funcregister("al_get_monitor_info",ring_al_get_monitor_info);
-	ring_vm_funcregister("al_get_num_video_adapters",ring_al_get_num_video_adapters);
-	ring_vm_funcregister("al_install_mouse",ring_al_install_mouse);
-	ring_vm_funcregister("al_is_mouse_installed",ring_al_is_mouse_installed);
-	ring_vm_funcregister("al_uninstall_mouse",ring_al_uninstall_mouse);
-	ring_vm_funcregister("al_get_mouse_num_axes",ring_al_get_mouse_num_axes);
-	ring_vm_funcregister("al_get_mouse_num_buttons",ring_al_get_mouse_num_buttons);
-	ring_vm_funcregister("al_get_mouse_state",ring_al_get_mouse_state);
-	ring_vm_funcregister("al_get_mouse_state_axis",ring_al_get_mouse_state_axis);
-	ring_vm_funcregister("al_mouse_button_down",ring_al_mouse_button_down);
-	ring_vm_funcregister("al_set_mouse_xy",ring_al_set_mouse_xy);
-	ring_vm_funcregister("al_set_mouse_z",ring_al_set_mouse_z);
-	ring_vm_funcregister("al_set_mouse_w",ring_al_set_mouse_w);
-	ring_vm_funcregister("al_set_mouse_axis",ring_al_set_mouse_axis);
-	ring_vm_funcregister("al_get_mouse_event_source",ring_al_get_mouse_event_source);
-	ring_vm_funcregister("al_create_mouse_cursor",ring_al_create_mouse_cursor);
-	ring_vm_funcregister("al_destroy_mouse_cursor",ring_al_destroy_mouse_cursor);
-	ring_vm_funcregister("al_set_mouse_cursor",ring_al_set_mouse_cursor);
-	ring_vm_funcregister("al_set_system_mouse_cursor",ring_al_set_system_mouse_cursor);
-	ring_vm_funcregister("al_get_mouse_cursor_position",ring_al_get_mouse_cursor_position);
-	ring_vm_funcregister("al_hide_mouse_cursor",ring_al_hide_mouse_cursor);
-	ring_vm_funcregister("al_show_mouse_cursor",ring_al_show_mouse_cursor);
-	ring_vm_funcregister("al_grab_mouse",ring_al_grab_mouse);
-	ring_vm_funcregister("al_ungrab_mouse",ring_al_ungrab_mouse);
-	ring_vm_funcregister("al_create_path",ring_al_create_path);
-	ring_vm_funcregister("al_create_path_for_directory",ring_al_create_path_for_directory);
-	ring_vm_funcregister("al_destroy_path",ring_al_destroy_path);
-	ring_vm_funcregister("al_clone_path",ring_al_clone_path);
-	ring_vm_funcregister("al_join_paths",ring_al_join_paths);
-	ring_vm_funcregister("al_rebase_path",ring_al_rebase_path);
-	ring_vm_funcregister("al_get_path_drive",ring_al_get_path_drive);
-	ring_vm_funcregister("al_get_path_num_components",ring_al_get_path_num_components);
-	ring_vm_funcregister("al_get_path_component",ring_al_get_path_component);
-	ring_vm_funcregister("al_get_path_tail",ring_al_get_path_tail);
-	ring_vm_funcregister("al_get_path_filename",ring_al_get_path_filename);
-	ring_vm_funcregister("al_get_path_basename",ring_al_get_path_basename);
-	ring_vm_funcregister("al_get_path_extension",ring_al_get_path_extension);
-	ring_vm_funcregister("al_set_path_drive",ring_al_set_path_drive);
-	ring_vm_funcregister("al_append_path_component",ring_al_append_path_component);
-	ring_vm_funcregister("al_insert_path_component",ring_al_insert_path_component);
-	ring_vm_funcregister("al_replace_path_component",ring_al_replace_path_component);
-	ring_vm_funcregister("al_remove_path_component",ring_al_remove_path_component);
-	ring_vm_funcregister("al_drop_path_tail",ring_al_drop_path_tail);
-	ring_vm_funcregister("al_set_path_filename",ring_al_set_path_filename);
-	ring_vm_funcregister("al_set_path_extension",ring_al_set_path_extension);
-	ring_vm_funcregister("al_path_cstr",ring_al_path_cstr);
-	ring_vm_funcregister("al_make_path_canonical",ring_al_make_path_canonical);
-	ring_vm_funcregister("al_restore_state",ring_al_restore_state);
-	ring_vm_funcregister("al_store_state",ring_al_store_state);
-	ring_vm_funcregister("al_get_errno",ring_al_get_errno);
-	ring_vm_funcregister("al_set_errno",ring_al_set_errno);
-	ring_vm_funcregister("al_uninstall_system",ring_al_uninstall_system);
-	ring_vm_funcregister("al_is_system_installed",ring_al_is_system_installed);
-	ring_vm_funcregister("al_get_allegro_version",ring_al_get_allegro_version);
-	ring_vm_funcregister("al_get_standard_path",ring_al_get_standard_path);
-	ring_vm_funcregister("al_set_exe_name",ring_al_set_exe_name);
-	ring_vm_funcregister("al_set_app_name",ring_al_set_app_name);
-	ring_vm_funcregister("al_set_org_name",ring_al_set_org_name);
-	ring_vm_funcregister("al_get_app_name",ring_al_get_app_name);
-	ring_vm_funcregister("al_get_org_name",ring_al_get_org_name);
-	ring_vm_funcregister("al_get_system_config",ring_al_get_system_config);
-	ring_vm_funcregister("al_create_thread",ring_al_create_thread);
-	ring_vm_funcregister("al_run_detached_thread",ring_al_run_detached_thread);
-	ring_vm_funcregister("al_start_thread",ring_al_start_thread);
-	ring_vm_funcregister("al_join_thread",ring_al_join_thread);
-	ring_vm_funcregister("al_set_thread_should_stop",ring_al_set_thread_should_stop);
-	ring_vm_funcregister("al_get_thread_should_stop",ring_al_get_thread_should_stop);
-	ring_vm_funcregister("al_destroy_thread",ring_al_destroy_thread);
-	ring_vm_funcregister("al_create_mutex",ring_al_create_mutex);
-	ring_vm_funcregister("al_create_mutex_recursive",ring_al_create_mutex_recursive);
-	ring_vm_funcregister("al_lock_mutex",ring_al_lock_mutex);
-	ring_vm_funcregister("al_unlock_mutex",ring_al_unlock_mutex);
-	ring_vm_funcregister("al_destroy_mutex",ring_al_destroy_mutex);
-	ring_vm_funcregister("al_create_cond",ring_al_create_cond);
-	ring_vm_funcregister("al_destroy_cond",ring_al_destroy_cond);
-	ring_vm_funcregister("al_wait_cond",ring_al_wait_cond);
-	ring_vm_funcregister("al_wait_cond_until",ring_al_wait_cond_until);
-	ring_vm_funcregister("al_broadcast_cond",ring_al_broadcast_cond);
-	ring_vm_funcregister("al_signal_cond",ring_al_signal_cond);
-	ring_vm_funcregister("al_get_time",ring_al_get_time);
-	ring_vm_funcregister("al_init_timeout",ring_al_init_timeout);
-	ring_vm_funcregister("al_rest",ring_al_rest);
-	ring_vm_funcregister("al_create_timer",ring_al_create_timer);
-	ring_vm_funcregister("al_start_timer",ring_al_start_timer);
-	ring_vm_funcregister("al_stop_timer",ring_al_stop_timer);
-	ring_vm_funcregister("al_get_timer_started",ring_al_get_timer_started);
-	ring_vm_funcregister("al_destroy_timer",ring_al_destroy_timer);
-	ring_vm_funcregister("al_get_timer_count",ring_al_get_timer_count);
-	ring_vm_funcregister("al_set_timer_count",ring_al_set_timer_count);
-	ring_vm_funcregister("al_add_timer_count",ring_al_add_timer_count);
-	ring_vm_funcregister("al_get_timer_speed",ring_al_get_timer_speed);
-	ring_vm_funcregister("al_set_timer_speed",ring_al_set_timer_speed);
-	ring_vm_funcregister("al_get_timer_event_source",ring_al_get_timer_event_source);
-	ring_vm_funcregister("al_copy_transform",ring_al_copy_transform);
-	ring_vm_funcregister("al_use_transform",ring_al_use_transform);
-	ring_vm_funcregister("al_get_current_transform",ring_al_get_current_transform);
-	ring_vm_funcregister("al_invert_transform",ring_al_invert_transform);
-	ring_vm_funcregister("al_check_inverse",ring_al_check_inverse);
-	ring_vm_funcregister("al_identity_transform",ring_al_identity_transform);
-	ring_vm_funcregister("al_build_transform",ring_al_build_transform);
-	ring_vm_funcregister("al_translate_transform",ring_al_translate_transform);
-	ring_vm_funcregister("al_rotate_transform",ring_al_rotate_transform);
-	ring_vm_funcregister("al_scale_transform",ring_al_scale_transform);
-	ring_vm_funcregister("al_transform_coordinates",ring_al_transform_coordinates);
-	ring_vm_funcregister("al_compose_transform",ring_al_compose_transform);
-	ring_vm_funcregister("al_ustr_new",ring_al_ustr_new);
-	ring_vm_funcregister("al_ustr_new_from_buffer",ring_al_ustr_new_from_buffer);
-	ring_vm_funcregister("al_ustr_free",ring_al_ustr_free);
-	ring_vm_funcregister("al_cstr",ring_al_cstr);
-	ring_vm_funcregister("al_ustr_to_buffer",ring_al_ustr_to_buffer);
-	ring_vm_funcregister("al_cstr_dup",ring_al_cstr_dup);
-	ring_vm_funcregister("al_ustr_dup",ring_al_ustr_dup);
-	ring_vm_funcregister("al_ustr_dup_substr",ring_al_ustr_dup_substr);
-	ring_vm_funcregister("al_ustr_empty_string",ring_al_ustr_empty_string);
-	ring_vm_funcregister("al_ref_cstr",ring_al_ref_cstr);
-	ring_vm_funcregister("al_ref_buffer",ring_al_ref_buffer);
-	ring_vm_funcregister("al_ref_ustr",ring_al_ref_ustr);
-	ring_vm_funcregister("al_ustr_size",ring_al_ustr_size);
-	ring_vm_funcregister("al_ustr_length",ring_al_ustr_length);
-	ring_vm_funcregister("al_ustr_offset",ring_al_ustr_offset);
-	ring_vm_funcregister("al_ustr_next",ring_al_ustr_next);
-	ring_vm_funcregister("al_ustr_prev",ring_al_ustr_prev);
-	ring_vm_funcregister("al_ustr_get",ring_al_ustr_get);
-	ring_vm_funcregister("al_ustr_get_next",ring_al_ustr_get_next);
-	ring_vm_funcregister("al_ustr_prev_get",ring_al_ustr_prev_get);
-	ring_vm_funcregister("al_ustr_insert",ring_al_ustr_insert);
-	ring_vm_funcregister("al_ustr_insert_cstr",ring_al_ustr_insert_cstr);
-	ring_vm_funcregister("al_ustr_insert_chr",ring_al_ustr_insert_chr);
-	ring_vm_funcregister("al_ustr_append",ring_al_ustr_append);
-	ring_vm_funcregister("al_ustr_append_cstr",ring_al_ustr_append_cstr);
-	ring_vm_funcregister("al_ustr_append_chr",ring_al_ustr_append_chr);
-	ring_vm_funcregister("al_ustr_vappendf",ring_al_ustr_vappendf);
-	ring_vm_funcregister("al_ustr_remove_chr",ring_al_ustr_remove_chr);
-	ring_vm_funcregister("al_ustr_remove_range",ring_al_ustr_remove_range);
-	ring_vm_funcregister("al_ustr_truncate",ring_al_ustr_truncate);
-	ring_vm_funcregister("al_ustr_ltrim_ws",ring_al_ustr_ltrim_ws);
-	ring_vm_funcregister("al_ustr_rtrim_ws",ring_al_ustr_rtrim_ws);
-	ring_vm_funcregister("al_ustr_trim_ws",ring_al_ustr_trim_ws);
-	ring_vm_funcregister("al_ustr_assign",ring_al_ustr_assign);
-	ring_vm_funcregister("al_ustr_assign_substr",ring_al_ustr_assign_substr);
-	ring_vm_funcregister("al_ustr_assign_cstr",ring_al_ustr_assign_cstr);
-	ring_vm_funcregister("al_ustr_set_chr",ring_al_ustr_set_chr);
-	ring_vm_funcregister("al_ustr_replace_range",ring_al_ustr_replace_range);
-	ring_vm_funcregister("al_ustr_find_chr",ring_al_ustr_find_chr);
-	ring_vm_funcregister("al_ustr_rfind_chr",ring_al_ustr_rfind_chr);
-	ring_vm_funcregister("al_ustr_find_set",ring_al_ustr_find_set);
-	ring_vm_funcregister("al_ustr_find_set_cstr",ring_al_ustr_find_set_cstr);
-	ring_vm_funcregister("al_ustr_find_cset",ring_al_ustr_find_cset);
-	ring_vm_funcregister("al_ustr_find_cset_cstr",ring_al_ustr_find_cset_cstr);
-	ring_vm_funcregister("al_ustr_find_str",ring_al_ustr_find_str);
-	ring_vm_funcregister("al_ustr_find_cstr",ring_al_ustr_find_cstr);
-	ring_vm_funcregister("al_ustr_rfind_str",ring_al_ustr_rfind_str);
-	ring_vm_funcregister("al_ustr_rfind_cstr",ring_al_ustr_rfind_cstr);
-	ring_vm_funcregister("al_ustr_find_replace",ring_al_ustr_find_replace);
-	ring_vm_funcregister("al_ustr_find_replace_cstr",ring_al_ustr_find_replace_cstr);
-	ring_vm_funcregister("al_ustr_compare",ring_al_ustr_compare);
-	ring_vm_funcregister("al_ustr_ncompare",ring_al_ustr_ncompare);
-	ring_vm_funcregister("al_ustr_equal",ring_al_ustr_equal);
-	ring_vm_funcregister("al_ustr_has_prefix",ring_al_ustr_has_prefix);
-	ring_vm_funcregister("al_ustr_has_prefix_cstr",ring_al_ustr_has_prefix_cstr);
-	ring_vm_funcregister("al_ustr_has_suffix",ring_al_ustr_has_suffix);
-	ring_vm_funcregister("al_ustr_has_suffix_cstr",ring_al_ustr_has_suffix_cstr);
-	ring_vm_funcregister("al_ustr_new_from_utf16",ring_al_ustr_new_from_utf16);
-	ring_vm_funcregister("al_ustr_size_utf16",ring_al_ustr_size_utf16);
-	ring_vm_funcregister("al_ustr_encode_utf16",ring_al_ustr_encode_utf16);
-	ring_vm_funcregister("al_utf8_width",ring_al_utf8_width);
-	ring_vm_funcregister("al_utf8_encode",ring_al_utf8_encode);
-	ring_vm_funcregister("al_utf16_width",ring_al_utf16_width);
-	ring_vm_funcregister("al_get_d3d_device",ring_al_get_d3d_device);
-	ring_vm_funcregister("al_get_d3d_system_texture",ring_al_get_d3d_system_texture);
-	ring_vm_funcregister("al_get_d3d_video_texture",ring_al_get_d3d_video_texture);
-	ring_vm_funcregister("al_have_d3d_non_pow2_texture_support",ring_al_have_d3d_non_pow2_texture_support);
-	ring_vm_funcregister("al_have_d3d_non_square_texture_support",ring_al_have_d3d_non_square_texture_support);
-	ring_vm_funcregister("al_get_d3d_texture_position",ring_al_get_d3d_texture_position);
-	ring_vm_funcregister("al_is_d3d_device_lost",ring_al_is_d3d_device_lost);
-	ring_vm_funcregister("al_get_opengl_extension_list",ring_al_get_opengl_extension_list);
-	ring_vm_funcregister("al_get_opengl_proc_address",ring_al_get_opengl_proc_address);
-	ring_vm_funcregister("al_get_opengl_texture",ring_al_get_opengl_texture);
-	ring_vm_funcregister("al_get_opengl_texture_size",ring_al_get_opengl_texture_size);
-	ring_vm_funcregister("al_get_opengl_texture_position",ring_al_get_opengl_texture_position);
-	ring_vm_funcregister("al_get_opengl_fbo",ring_al_get_opengl_fbo);
-	ring_vm_funcregister("al_remove_opengl_fbo",ring_al_remove_opengl_fbo);
-	ring_vm_funcregister("al_have_opengl_extension",ring_al_have_opengl_extension);
-	ring_vm_funcregister("al_get_opengl_version",ring_al_get_opengl_version);
-	ring_vm_funcregister("al_get_opengl_variant",ring_al_get_opengl_variant);
-	ring_vm_funcregister("al_set_current_opengl_context",ring_al_set_current_opengl_context);
-	ring_vm_funcregister("al_install_audio",ring_al_install_audio);
-	ring_vm_funcregister("al_uninstall_audio",ring_al_uninstall_audio);
-	ring_vm_funcregister("al_is_audio_installed",ring_al_is_audio_installed);
-	ring_vm_funcregister("al_reserve_samples",ring_al_reserve_samples);
-	ring_vm_funcregister("al_get_allegro_audio_version",ring_al_get_allegro_audio_version);
-	ring_vm_funcregister("al_get_audio_depth_size",ring_al_get_audio_depth_size);
-	ring_vm_funcregister("al_get_channel_count",ring_al_get_channel_count);
-	ring_vm_funcregister("al_create_voice",ring_al_create_voice);
-	ring_vm_funcregister("al_destroy_voice",ring_al_destroy_voice);
-	ring_vm_funcregister("al_detach_voice",ring_al_detach_voice);
-	ring_vm_funcregister("al_attach_audio_stream_to_voice",ring_al_attach_audio_stream_to_voice);
-	ring_vm_funcregister("al_attach_mixer_to_voice",ring_al_attach_mixer_to_voice);
-	ring_vm_funcregister("al_attach_sample_instance_to_voice",ring_al_attach_sample_instance_to_voice);
-	ring_vm_funcregister("al_get_voice_frequency",ring_al_get_voice_frequency);
-	ring_vm_funcregister("al_get_voice_channels",ring_al_get_voice_channels);
-	ring_vm_funcregister("al_get_voice_depth",ring_al_get_voice_depth);
-	ring_vm_funcregister("al_get_voice_playing",ring_al_get_voice_playing);
-	ring_vm_funcregister("al_set_voice_playing",ring_al_set_voice_playing);
-	ring_vm_funcregister("al_get_voice_position",ring_al_get_voice_position);
-	ring_vm_funcregister("al_set_voice_position",ring_al_set_voice_position);
-	ring_vm_funcregister("al_create_sample",ring_al_create_sample);
-	ring_vm_funcregister("al_destroy_sample",ring_al_destroy_sample);
-	ring_vm_funcregister("al_play_sample",ring_al_play_sample);
-	ring_vm_funcregister("al_stop_sample",ring_al_stop_sample);
-	ring_vm_funcregister("al_stop_samples",ring_al_stop_samples);
-	ring_vm_funcregister("al_get_sample_channels",ring_al_get_sample_channels);
-	ring_vm_funcregister("al_get_sample_depth",ring_al_get_sample_depth);
-	ring_vm_funcregister("al_get_sample_frequency",ring_al_get_sample_frequency);
-	ring_vm_funcregister("al_get_sample_length",ring_al_get_sample_length);
-	ring_vm_funcregister("al_get_sample_data",ring_al_get_sample_data);
-	ring_vm_funcregister("al_create_sample_instance",ring_al_create_sample_instance);
-	ring_vm_funcregister("al_destroy_sample_instance",ring_al_destroy_sample_instance);
-	ring_vm_funcregister("al_play_sample_instance",ring_al_play_sample_instance);
-	ring_vm_funcregister("al_stop_sample_instance",ring_al_stop_sample_instance);
-	ring_vm_funcregister("al_get_sample_instance_channels",ring_al_get_sample_instance_channels);
-	ring_vm_funcregister("al_get_sample_instance_depth",ring_al_get_sample_instance_depth);
-	ring_vm_funcregister("al_get_sample_instance_frequency",ring_al_get_sample_instance_frequency);
-	ring_vm_funcregister("al_get_sample_instance_length",ring_al_get_sample_instance_length);
-	ring_vm_funcregister("al_set_sample_instance_length",ring_al_set_sample_instance_length);
-	ring_vm_funcregister("al_get_sample_instance_position",ring_al_get_sample_instance_position);
-	ring_vm_funcregister("al_set_sample_instance_position",ring_al_set_sample_instance_position);
-	ring_vm_funcregister("al_get_sample_instance_speed",ring_al_get_sample_instance_speed);
-	ring_vm_funcregister("al_set_sample_instance_speed",ring_al_set_sample_instance_speed);
-	ring_vm_funcregister("al_get_sample_instance_gain",ring_al_get_sample_instance_gain);
-	ring_vm_funcregister("al_set_sample_instance_gain",ring_al_set_sample_instance_gain);
-	ring_vm_funcregister("al_get_sample_instance_pan",ring_al_get_sample_instance_pan);
-	ring_vm_funcregister("al_set_sample_instance_pan",ring_al_set_sample_instance_pan);
-	ring_vm_funcregister("al_get_sample_instance_time",ring_al_get_sample_instance_time);
-	ring_vm_funcregister("al_get_sample_instance_playmode",ring_al_get_sample_instance_playmode);
-	ring_vm_funcregister("al_set_sample_instance_playmode",ring_al_set_sample_instance_playmode);
-	ring_vm_funcregister("al_get_sample_instance_playing",ring_al_get_sample_instance_playing);
-	ring_vm_funcregister("al_set_sample_instance_playing",ring_al_set_sample_instance_playing);
-	ring_vm_funcregister("al_get_sample_instance_attached",ring_al_get_sample_instance_attached);
-	ring_vm_funcregister("al_detach_sample_instance",ring_al_detach_sample_instance);
-	ring_vm_funcregister("al_get_sample",ring_al_get_sample);
-	ring_vm_funcregister("al_set_sample",ring_al_set_sample);
-	ring_vm_funcregister("al_create_mixer",ring_al_create_mixer);
-	ring_vm_funcregister("al_destroy_mixer",ring_al_destroy_mixer);
-	ring_vm_funcregister("al_get_default_mixer",ring_al_get_default_mixer);
-	ring_vm_funcregister("al_set_default_mixer",ring_al_set_default_mixer);
-	ring_vm_funcregister("al_restore_default_mixer",ring_al_restore_default_mixer);
-	ring_vm_funcregister("al_attach_mixer_to_mixer",ring_al_attach_mixer_to_mixer);
-	ring_vm_funcregister("al_attach_sample_instance_to_mixer",ring_al_attach_sample_instance_to_mixer);
-	ring_vm_funcregister("al_attach_audio_stream_to_mixer",ring_al_attach_audio_stream_to_mixer);
-	ring_vm_funcregister("al_get_mixer_frequency",ring_al_get_mixer_frequency);
-	ring_vm_funcregister("al_set_mixer_frequency",ring_al_set_mixer_frequency);
-	ring_vm_funcregister("al_get_mixer_channels",ring_al_get_mixer_channels);
-	ring_vm_funcregister("al_get_mixer_depth",ring_al_get_mixer_depth);
-	ring_vm_funcregister("al_get_mixer_gain",ring_al_get_mixer_gain);
-	ring_vm_funcregister("al_set_mixer_gain",ring_al_set_mixer_gain);
-	ring_vm_funcregister("al_get_mixer_quality",ring_al_get_mixer_quality);
-	ring_vm_funcregister("al_set_mixer_quality",ring_al_set_mixer_quality);
-	ring_vm_funcregister("al_get_mixer_playing",ring_al_get_mixer_playing);
-	ring_vm_funcregister("al_set_mixer_playing",ring_al_set_mixer_playing);
-	ring_vm_funcregister("al_get_mixer_attached",ring_al_get_mixer_attached);
-	ring_vm_funcregister("al_detach_mixer",ring_al_detach_mixer);
-	ring_vm_funcregister("al_create_audio_stream",ring_al_create_audio_stream);
-	ring_vm_funcregister("al_destroy_audio_stream",ring_al_destroy_audio_stream);
-	ring_vm_funcregister("al_get_audio_stream_event_source",ring_al_get_audio_stream_event_source);
-	ring_vm_funcregister("al_drain_audio_stream",ring_al_drain_audio_stream);
-	ring_vm_funcregister("al_rewind_audio_stream",ring_al_rewind_audio_stream);
-	ring_vm_funcregister("al_get_audio_stream_frequency",ring_al_get_audio_stream_frequency);
-	ring_vm_funcregister("al_get_audio_stream_channels",ring_al_get_audio_stream_channels);
-	ring_vm_funcregister("al_get_audio_stream_depth",ring_al_get_audio_stream_depth);
-	ring_vm_funcregister("al_get_audio_stream_length",ring_al_get_audio_stream_length);
-	ring_vm_funcregister("al_get_audio_stream_speed",ring_al_get_audio_stream_speed);
-	ring_vm_funcregister("al_set_audio_stream_speed",ring_al_set_audio_stream_speed);
-	ring_vm_funcregister("al_get_audio_stream_gain",ring_al_get_audio_stream_gain);
-	ring_vm_funcregister("al_set_audio_stream_gain",ring_al_set_audio_stream_gain);
-	ring_vm_funcregister("al_get_audio_stream_pan",ring_al_get_audio_stream_pan);
-	ring_vm_funcregister("al_set_audio_stream_pan",ring_al_set_audio_stream_pan);
-	ring_vm_funcregister("al_get_audio_stream_playing",ring_al_get_audio_stream_playing);
-	ring_vm_funcregister("al_set_audio_stream_playing",ring_al_set_audio_stream_playing);
-	ring_vm_funcregister("al_get_audio_stream_playmode",ring_al_get_audio_stream_playmode);
-	ring_vm_funcregister("al_set_audio_stream_playmode",ring_al_set_audio_stream_playmode);
-	ring_vm_funcregister("al_get_audio_stream_attached",ring_al_get_audio_stream_attached);
-	ring_vm_funcregister("al_detach_audio_stream",ring_al_detach_audio_stream);
-	ring_vm_funcregister("al_get_audio_stream_fragment",ring_al_get_audio_stream_fragment);
-	ring_vm_funcregister("al_set_audio_stream_fragment",ring_al_set_audio_stream_fragment);
-	ring_vm_funcregister("al_get_audio_stream_fragments",ring_al_get_audio_stream_fragments);
-	ring_vm_funcregister("al_get_available_audio_stream_fragments",ring_al_get_available_audio_stream_fragments);
-	ring_vm_funcregister("al_seek_audio_stream_secs",ring_al_seek_audio_stream_secs);
-	ring_vm_funcregister("al_get_audio_stream_position_secs",ring_al_get_audio_stream_position_secs);
-	ring_vm_funcregister("al_get_audio_stream_length_secs",ring_al_get_audio_stream_length_secs);
-	ring_vm_funcregister("al_set_audio_stream_loop_secs",ring_al_set_audio_stream_loop_secs);
-	ring_vm_funcregister("al_load_sample",ring_al_load_sample);
-	ring_vm_funcregister("al_load_sample_f",ring_al_load_sample_f);
-	ring_vm_funcregister("al_load_audio_stream",ring_al_load_audio_stream);
-	ring_vm_funcregister("al_load_audio_stream_f",ring_al_load_audio_stream_f);
-	ring_vm_funcregister("al_save_sample",ring_al_save_sample);
-	ring_vm_funcregister("al_save_sample_f",ring_al_save_sample_f);
-	ring_vm_funcregister("al_init_acodec_addon",ring_al_init_acodec_addon);
-	ring_vm_funcregister("al_get_allegro_acodec_version",ring_al_get_allegro_acodec_version);
-	ring_vm_funcregister("al_color_cmyk",ring_al_color_cmyk);
-	ring_vm_funcregister("al_color_cmyk_to_rgb",ring_al_color_cmyk_to_rgb);
-	ring_vm_funcregister("al_color_hsl",ring_al_color_hsl);
-	ring_vm_funcregister("al_color_hsl_to_rgb",ring_al_color_hsl_to_rgb);
-	ring_vm_funcregister("al_color_hsv",ring_al_color_hsv);
-	ring_vm_funcregister("al_color_hsv_to_rgb",ring_al_color_hsv_to_rgb);
-	ring_vm_funcregister("al_color_html",ring_al_color_html);
-	ring_vm_funcregister("al_color_html_to_rgb",ring_al_color_html_to_rgb);
-	ring_vm_funcregister("al_color_rgb_to_html",ring_al_color_rgb_to_html);
-	ring_vm_funcregister("al_color_name",ring_al_color_name);
-	ring_vm_funcregister("al_color_name_to_rgb",ring_al_color_name_to_rgb);
-	ring_vm_funcregister("al_color_rgb_to_cmyk",ring_al_color_rgb_to_cmyk);
-	ring_vm_funcregister("al_color_rgb_to_hsl",ring_al_color_rgb_to_hsl);
-	ring_vm_funcregister("al_color_rgb_to_hsv",ring_al_color_rgb_to_hsv);
-	ring_vm_funcregister("al_color_rgb_to_name",ring_al_color_rgb_to_name);
-	ring_vm_funcregister("al_color_rgb_to_yuv",ring_al_color_rgb_to_yuv);
-	ring_vm_funcregister("al_color_yuv",ring_al_color_yuv);
-	ring_vm_funcregister("al_color_yuv_to_rgb",ring_al_color_yuv_to_rgb);
-	ring_vm_funcregister("al_get_allegro_color_version",ring_al_get_allegro_color_version);
-	ring_vm_funcregister("al_init_font_addon",ring_al_init_font_addon);
-	ring_vm_funcregister("al_shutdown_font_addon",ring_al_shutdown_font_addon);
-	ring_vm_funcregister("al_load_font",ring_al_load_font);
-	ring_vm_funcregister("al_destroy_font",ring_al_destroy_font);
-	ring_vm_funcregister("al_get_font_line_height",ring_al_get_font_line_height);
-	ring_vm_funcregister("al_get_font_ascent",ring_al_get_font_ascent);
-	ring_vm_funcregister("al_get_font_descent",ring_al_get_font_descent);
-	ring_vm_funcregister("al_get_text_width",ring_al_get_text_width);
-	ring_vm_funcregister("al_get_ustr_width",ring_al_get_ustr_width);
-	ring_vm_funcregister("al_draw_text",ring_al_draw_text);
-	ring_vm_funcregister("al_draw_ustr",ring_al_draw_ustr);
-	ring_vm_funcregister("al_draw_justified_text",ring_al_draw_justified_text);
-	ring_vm_funcregister("al_draw_justified_ustr",ring_al_draw_justified_ustr);
-	ring_vm_funcregister("al_get_text_dimensions",ring_al_get_text_dimensions);
-	ring_vm_funcregister("al_get_ustr_dimensions",ring_al_get_ustr_dimensions);
-	ring_vm_funcregister("al_get_allegro_font_version",ring_al_get_allegro_font_version);
-	ring_vm_funcregister("al_grab_font_from_bitmap",ring_al_grab_font_from_bitmap);
-	ring_vm_funcregister("al_load_bitmap_font",ring_al_load_bitmap_font);
-	ring_vm_funcregister("al_create_builtin_font",ring_al_create_builtin_font);
-	ring_vm_funcregister("al_init_ttf_addon",ring_al_init_ttf_addon);
-	ring_vm_funcregister("al_shutdown_ttf_addon",ring_al_shutdown_ttf_addon);
-	ring_vm_funcregister("al_load_ttf_font",ring_al_load_ttf_font);
-	ring_vm_funcregister("al_load_ttf_font_f",ring_al_load_ttf_font_f);
-	ring_vm_funcregister("al_load_ttf_font_stretch",ring_al_load_ttf_font_stretch);
-	ring_vm_funcregister("al_load_ttf_font_stretch_f",ring_al_load_ttf_font_stretch_f);
-	ring_vm_funcregister("al_get_allegro_ttf_version",ring_al_get_allegro_ttf_version);
-	ring_vm_funcregister("al_init_image_addon",ring_al_init_image_addon);
-	ring_vm_funcregister("al_shutdown_image_addon",ring_al_shutdown_image_addon);
-	ring_vm_funcregister("al_get_allegro_image_version",ring_al_get_allegro_image_version);
-	ring_vm_funcregister("al_open_memfile",ring_al_open_memfile);
-	ring_vm_funcregister("al_get_allegro_memfile_version",ring_al_get_allegro_memfile_version);
-	ring_vm_funcregister("al_init_native_dialog_addon",ring_al_init_native_dialog_addon);
-	ring_vm_funcregister("al_shutdown_native_dialog_addon",ring_al_shutdown_native_dialog_addon);
-	ring_vm_funcregister("al_create_native_file_dialog",ring_al_create_native_file_dialog);
-	ring_vm_funcregister("al_show_native_file_dialog",ring_al_show_native_file_dialog);
-	ring_vm_funcregister("al_get_native_file_dialog_count",ring_al_get_native_file_dialog_count);
-	ring_vm_funcregister("al_get_native_file_dialog_path",ring_al_get_native_file_dialog_path);
-	ring_vm_funcregister("al_destroy_native_file_dialog",ring_al_destroy_native_file_dialog);
-	ring_vm_funcregister("al_show_native_message_box",ring_al_show_native_message_box);
-	ring_vm_funcregister("al_open_native_text_log",ring_al_open_native_text_log);
-	ring_vm_funcregister("al_close_native_text_log",ring_al_close_native_text_log);
-	ring_vm_funcregister("al_get_native_text_log_event_source",ring_al_get_native_text_log_event_source);
-	ring_vm_funcregister("al_get_allegro_native_dialog_version",ring_al_get_allegro_native_dialog_version);
-	ring_vm_funcregister("al_set_physfs_file_interface",ring_al_set_physfs_file_interface);
-	ring_vm_funcregister("al_get_allegro_physfs_version",ring_al_get_allegro_physfs_version);
-	ring_vm_funcregister("al_get_allegro_primitives_version",ring_al_get_allegro_primitives_version);
-	ring_vm_funcregister("al_init_primitives_addon",ring_al_init_primitives_addon);
-	ring_vm_funcregister("al_shutdown_primitives_addon",ring_al_shutdown_primitives_addon);
-	ring_vm_funcregister("al_draw_line",ring_al_draw_line);
-	ring_vm_funcregister("al_draw_triangle",ring_al_draw_triangle);
-	ring_vm_funcregister("al_draw_filled_triangle",ring_al_draw_filled_triangle);
-	ring_vm_funcregister("al_draw_rectangle",ring_al_draw_rectangle);
-	ring_vm_funcregister("al_draw_filled_rectangle",ring_al_draw_filled_rectangle);
-	ring_vm_funcregister("al_draw_rounded_rectangle",ring_al_draw_rounded_rectangle);
-	ring_vm_funcregister("al_draw_filled_rounded_rectangle",ring_al_draw_filled_rounded_rectangle);
-	ring_vm_funcregister("al_calculate_arc",ring_al_calculate_arc);
-	ring_vm_funcregister("al_draw_pieslice",ring_al_draw_pieslice);
-	ring_vm_funcregister("al_draw_filled_pieslice",ring_al_draw_filled_pieslice);
-	ring_vm_funcregister("al_draw_ellipse",ring_al_draw_ellipse);
-	ring_vm_funcregister("al_draw_filled_ellipse",ring_al_draw_filled_ellipse);
-	ring_vm_funcregister("al_draw_circle",ring_al_draw_circle);
-	ring_vm_funcregister("al_draw_filled_circle",ring_al_draw_filled_circle);
-	ring_vm_funcregister("al_draw_arc",ring_al_draw_arc);
-	ring_vm_funcregister("al_draw_elliptical_arc",ring_al_draw_elliptical_arc);
-	ring_vm_funcregister("al_calculate_ribbon",ring_al_calculate_ribbon);
-	ring_vm_funcregister("al_draw_ribbon",ring_al_draw_ribbon);
-	ring_vm_funcregister("al_draw_prim",ring_al_draw_prim);
-	ring_vm_funcregister("al_draw_indexed_prim",ring_al_draw_indexed_prim);
-	ring_vm_funcregister("al_create_vertex_decl",ring_al_create_vertex_decl);
-	ring_vm_funcregister("al_destroy_vertex_decl",ring_al_destroy_vertex_decl);
-	ring_vm_funcregister("al_create_shader",ring_al_create_shader);
-	ring_vm_funcregister("al_attach_shader_source",ring_al_attach_shader_source);
-	ring_vm_funcregister("al_attach_shader_source_file",ring_al_attach_shader_source_file);
-	ring_vm_funcregister("al_build_shader",ring_al_build_shader);
-	ring_vm_funcregister("al_get_shader_log",ring_al_get_shader_log);
-	ring_vm_funcregister("al_get_shader_platform",ring_al_get_shader_platform);
-	ring_vm_funcregister("al_use_shader",ring_al_use_shader);
-	ring_vm_funcregister("al_destroy_shader",ring_al_destroy_shader);
-	ring_vm_funcregister("al_set_shader_sampler",ring_al_set_shader_sampler);
-	ring_vm_funcregister("al_set_shader_matrix",ring_al_set_shader_matrix);
-	ring_vm_funcregister("al_set_shader_int",ring_al_set_shader_int);
-	ring_vm_funcregister("al_set_shader_float",ring_al_set_shader_float);
-	ring_vm_funcregister("al_set_shader_bool",ring_al_set_shader_bool);
-	ring_vm_funcregister("al_set_shader_int_vector",ring_al_set_shader_int_vector);
-	ring_vm_funcregister("al_set_shader_float_vector",ring_al_set_shader_float_vector);
-	ring_vm_funcregister("al_get_default_shader_source",ring_al_get_default_shader_source);
-	ring_vm_funcregister("al_new_allegro_event",ring_al_new_allegro_event);
-	ring_vm_funcregister("al_new_managed_allegro_event",ring_al_new_managed_allegro_event);
-	ring_vm_funcregister("al_destroy_allegro_event",ring_al_destroy_allegro_event);
-	ring_vm_funcregister("al_get_allegro_event_type",ring_al_get_allegro_event_type);
-	ring_vm_funcregister("al_set_allegro_event_type",ring_al_set_allegro_event_type);
-	ring_vm_funcregister("al_get_allegro_event_keyboard_keycode",ring_al_get_allegro_event_keyboard_keycode);
-	ring_vm_funcregister("al_set_allegro_event_keyboard_keycode",ring_al_set_allegro_event_keyboard_keycode);
-	ring_vm_funcregister("al_get_allegro_event_mouse_x",ring_al_get_allegro_event_mouse_x);
-	ring_vm_funcregister("al_set_allegro_event_mouse_x",ring_al_set_allegro_event_mouse_x);
-	ring_vm_funcregister("al_get_allegro_event_mouse_y",ring_al_get_allegro_event_mouse_y);
-	ring_vm_funcregister("al_set_allegro_event_mouse_y",ring_al_set_allegro_event_mouse_y);
-	ring_vm_funcregister("al_get_allegro_event_timer_source",ring_al_get_allegro_event_timer_source);
-	ring_vm_funcregister("al_set_allegro_event_timer_source",ring_al_set_allegro_event_timer_source);
-	ring_vm_funcregister("al_get_allegro_event_joystick_id",ring_al_get_allegro_event_joystick_id);
-	ring_vm_funcregister("al_set_allegro_event_joystick_id",ring_al_set_allegro_event_joystick_id);
-	ring_vm_funcregister("al_get_allegro_event_joystick_stick",ring_al_get_allegro_event_joystick_stick);
-	ring_vm_funcregister("al_set_allegro_event_joystick_stick",ring_al_set_allegro_event_joystick_stick);
-	ring_vm_funcregister("al_get_allegro_event_joystick_axis",ring_al_get_allegro_event_joystick_axis);
-	ring_vm_funcregister("al_set_allegro_event_joystick_axis",ring_al_set_allegro_event_joystick_axis);
-	ring_vm_funcregister("al_get_allegro_event_joystick_pos",ring_al_get_allegro_event_joystick_pos);
-	ring_vm_funcregister("al_set_allegro_event_joystick_pos",ring_al_set_allegro_event_joystick_pos);
-	ring_vm_funcregister("al_get_allegro_event_joystick_button",ring_al_get_allegro_event_joystick_button);
-	ring_vm_funcregister("al_set_allegro_event_joystick_button",ring_al_set_allegro_event_joystick_button);
-	ring_vm_funcregister("al_new_allegro_timeout",ring_al_new_allegro_timeout);
-	ring_vm_funcregister("al_new_managed_allegro_timeout",ring_al_new_managed_allegro_timeout);
-	ring_vm_funcregister("al_destroy_allegro_timeout",ring_al_destroy_allegro_timeout);
-	ring_vm_funcregister("al_new_allegro_sample_id",ring_al_new_allegro_sample_id);
-	ring_vm_funcregister("al_new_managed_allegro_sample_id",ring_al_new_managed_allegro_sample_id);
-	ring_vm_funcregister("al_destroy_allegro_sample_id",ring_al_destroy_allegro_sample_id);
-	ring_vm_funcregister("al_new_allegro_color",ring_al_new_allegro_color);
-	ring_vm_funcregister("al_new_managed_allegro_color",ring_al_new_managed_allegro_color);
-	ring_vm_funcregister("al_destroy_allegro_color",ring_al_destroy_allegro_color);
-	ring_vm_funcregister("al_new_allegro_joystick_state",ring_al_new_allegro_joystick_state);
-	ring_vm_funcregister("al_new_managed_allegro_joystick_state",ring_al_new_managed_allegro_joystick_state);
-	ring_vm_funcregister("al_destroy_allegro_joystick_state",ring_al_destroy_allegro_joystick_state);
+	RING_API_REGISTER("al_exit",ring_al_exit);
+	RING_API_REGISTER("al_run_main",ring_al_run_main);
+	RING_API_REGISTER("al_init",ring_al_init);
+	RING_API_REGISTER("al_create_config",ring_al_create_config);
+	RING_API_REGISTER("al_destroy_config",ring_al_destroy_config);
+	RING_API_REGISTER("al_load_config_file",ring_al_load_config_file);
+	RING_API_REGISTER("al_load_config_file_f",ring_al_load_config_file_f);
+	RING_API_REGISTER("al_save_config_file",ring_al_save_config_file);
+	RING_API_REGISTER("al_save_config_file_f",ring_al_save_config_file_f);
+	RING_API_REGISTER("al_add_config_section",ring_al_add_config_section);
+	RING_API_REGISTER("al_add_config_comment",ring_al_add_config_comment);
+	RING_API_REGISTER("al_get_config_value",ring_al_get_config_value);
+	RING_API_REGISTER("al_set_config_value",ring_al_set_config_value);
+	RING_API_REGISTER("al_get_first_config_section",ring_al_get_first_config_section);
+	RING_API_REGISTER("al_get_next_config_section",ring_al_get_next_config_section);
+	RING_API_REGISTER("al_get_first_config_entry",ring_al_get_first_config_entry);
+	RING_API_REGISTER("al_get_next_config_entry",ring_al_get_next_config_entry);
+	RING_API_REGISTER("al_merge_config",ring_al_merge_config);
+	RING_API_REGISTER("al_merge_config_into",ring_al_merge_config_into);
+	RING_API_REGISTER("al_create_display",ring_al_create_display);
+	RING_API_REGISTER("al_destroy_display",ring_al_destroy_display);
+	RING_API_REGISTER("al_get_new_display_flags",ring_al_get_new_display_flags);
+	RING_API_REGISTER("al_set_new_display_flags",ring_al_set_new_display_flags);
+	RING_API_REGISTER("al_get_new_display_option",ring_al_get_new_display_option);
+	RING_API_REGISTER("al_set_new_display_option",ring_al_set_new_display_option);
+	RING_API_REGISTER("al_reset_new_display_options",ring_al_reset_new_display_options);
+	RING_API_REGISTER("al_get_new_window_position",ring_al_get_new_window_position);
+	RING_API_REGISTER("al_set_new_window_position",ring_al_set_new_window_position);
+	RING_API_REGISTER("al_get_new_display_refresh_rate",ring_al_get_new_display_refresh_rate);
+	RING_API_REGISTER("al_set_new_display_refresh_rate",ring_al_set_new_display_refresh_rate);
+	RING_API_REGISTER("al_get_display_event_source",ring_al_get_display_event_source);
+	RING_API_REGISTER("al_get_backbuffer",ring_al_get_backbuffer);
+	RING_API_REGISTER("al_flip_display",ring_al_flip_display);
+	RING_API_REGISTER("al_update_display_region",ring_al_update_display_region);
+	RING_API_REGISTER("al_wait_for_vsync",ring_al_wait_for_vsync);
+	RING_API_REGISTER("al_get_display_width",ring_al_get_display_width);
+	RING_API_REGISTER("al_get_display_height",ring_al_get_display_height);
+	RING_API_REGISTER("al_resize_display",ring_al_resize_display);
+	RING_API_REGISTER("al_acknowledge_resize",ring_al_acknowledge_resize);
+	RING_API_REGISTER("al_get_window_position",ring_al_get_window_position);
+	RING_API_REGISTER("al_set_window_position",ring_al_set_window_position);
+	RING_API_REGISTER("al_get_display_flags",ring_al_get_display_flags);
+	RING_API_REGISTER("al_set_display_flag",ring_al_set_display_flag);
+	RING_API_REGISTER("al_get_display_option",ring_al_get_display_option);
+	RING_API_REGISTER("al_get_display_format",ring_al_get_display_format);
+	RING_API_REGISTER("al_get_display_refresh_rate",ring_al_get_display_refresh_rate);
+	RING_API_REGISTER("al_set_window_title",ring_al_set_window_title);
+	RING_API_REGISTER("al_set_display_icon",ring_al_set_display_icon);
+	RING_API_REGISTER("al_set_display_icons",ring_al_set_display_icons);
+	RING_API_REGISTER("al_inhibit_screensaver",ring_al_inhibit_screensaver);
+	RING_API_REGISTER("al_acknowledge_drawing_halt",ring_al_acknowledge_drawing_halt);
+	RING_API_REGISTER("al_acknowledge_drawing_resume",ring_al_acknowledge_drawing_resume);
+	RING_API_REGISTER("al_get_display_orientation",ring_al_get_display_orientation);
+	RING_API_REGISTER("al_set_display_option",ring_al_set_display_option);
+	RING_API_REGISTER("al_get_window_constraints",ring_al_get_window_constraints);
+	RING_API_REGISTER("al_set_window_constraints",ring_al_set_window_constraints);
+	RING_API_REGISTER("al_create_event_queue",ring_al_create_event_queue);
+	RING_API_REGISTER("al_destroy_event_queue",ring_al_destroy_event_queue);
+	RING_API_REGISTER("al_register_event_source",ring_al_register_event_source);
+	RING_API_REGISTER("al_unregister_event_source",ring_al_unregister_event_source);
+	RING_API_REGISTER("al_is_event_queue_empty",ring_al_is_event_queue_empty);
+	RING_API_REGISTER("al_get_next_event",ring_al_get_next_event);
+	RING_API_REGISTER("al_peek_next_event",ring_al_peek_next_event);
+	RING_API_REGISTER("al_drop_next_event",ring_al_drop_next_event);
+	RING_API_REGISTER("al_flush_event_queue",ring_al_flush_event_queue);
+	RING_API_REGISTER("al_wait_for_event",ring_al_wait_for_event);
+	RING_API_REGISTER("al_wait_for_event_timed",ring_al_wait_for_event_timed);
+	RING_API_REGISTER("al_wait_for_event_until",ring_al_wait_for_event_until);
+	RING_API_REGISTER("al_init_user_event_source",ring_al_init_user_event_source);
+	RING_API_REGISTER("al_destroy_user_event_source",ring_al_destroy_user_event_source);
+	RING_API_REGISTER("al_unref_user_event",ring_al_unref_user_event);
+	RING_API_REGISTER("al_get_event_source_data",ring_al_get_event_source_data);
+	RING_API_REGISTER("al_set_event_source_data",ring_al_set_event_source_data);
+	RING_API_REGISTER("al_fopen",ring_al_fopen);
+	RING_API_REGISTER("al_fopen_interface",ring_al_fopen_interface);
+	RING_API_REGISTER("al_fopen_slice",ring_al_fopen_slice);
+	RING_API_REGISTER("al_fclose",ring_al_fclose);
+	RING_API_REGISTER("al_fread",ring_al_fread);
+	RING_API_REGISTER("al_fwrite",ring_al_fwrite);
+	RING_API_REGISTER("al_fflush",ring_al_fflush);
+	RING_API_REGISTER("al_ftell",ring_al_ftell);
+	RING_API_REGISTER("al_fseek",ring_al_fseek);
+	RING_API_REGISTER("al_feof",ring_al_feof);
+	RING_API_REGISTER("al_ferror",ring_al_ferror);
+	RING_API_REGISTER("al_fclearerr",ring_al_fclearerr);
+	RING_API_REGISTER("al_fungetc",ring_al_fungetc);
+	RING_API_REGISTER("al_fsize",ring_al_fsize);
+	RING_API_REGISTER("al_fgetc",ring_al_fgetc);
+	RING_API_REGISTER("al_fputc",ring_al_fputc);
+	RING_API_REGISTER("al_fread16le",ring_al_fread16le);
+	RING_API_REGISTER("al_fread16be",ring_al_fread16be);
+	RING_API_REGISTER("al_fwrite16le",ring_al_fwrite16le);
+	RING_API_REGISTER("al_fwrite16be",ring_al_fwrite16be);
+	RING_API_REGISTER("al_fread32le",ring_al_fread32le);
+	RING_API_REGISTER("al_fread32be",ring_al_fread32be);
+	RING_API_REGISTER("al_fwrite32le",ring_al_fwrite32le);
+	RING_API_REGISTER("al_fwrite32be",ring_al_fwrite32be);
+	RING_API_REGISTER("al_fgets",ring_al_fgets);
+	RING_API_REGISTER("al_fget_ustr",ring_al_fget_ustr);
+	RING_API_REGISTER("al_fputs",ring_al_fputs);
+	RING_API_REGISTER("al_fopen_fd",ring_al_fopen_fd);
+	RING_API_REGISTER("al_make_temp_file",ring_al_make_temp_file);
+	RING_API_REGISTER("al_set_new_file_interface",ring_al_set_new_file_interface);
+	RING_API_REGISTER("al_set_standard_file_interface",ring_al_set_standard_file_interface);
+	RING_API_REGISTER("al_get_new_file_interface",ring_al_get_new_file_interface);
+	RING_API_REGISTER("al_create_file_handle",ring_al_create_file_handle);
+	RING_API_REGISTER("al_get_file_userdata",ring_al_get_file_userdata);
+	RING_API_REGISTER("al_create_fs_entry",ring_al_create_fs_entry);
+	RING_API_REGISTER("al_destroy_fs_entry",ring_al_destroy_fs_entry);
+	RING_API_REGISTER("al_get_fs_entry_name",ring_al_get_fs_entry_name);
+	RING_API_REGISTER("al_update_fs_entry",ring_al_update_fs_entry);
+	RING_API_REGISTER("al_get_fs_entry_mode",ring_al_get_fs_entry_mode);
+	RING_API_REGISTER("al_get_fs_entry_atime",ring_al_get_fs_entry_atime);
+	RING_API_REGISTER("al_get_fs_entry_ctime",ring_al_get_fs_entry_ctime);
+	RING_API_REGISTER("al_get_fs_entry_mtime",ring_al_get_fs_entry_mtime);
+	RING_API_REGISTER("al_get_fs_entry_size",ring_al_get_fs_entry_size);
+	RING_API_REGISTER("al_fs_entry_exists",ring_al_fs_entry_exists);
+	RING_API_REGISTER("al_remove_fs_entry",ring_al_remove_fs_entry);
+	RING_API_REGISTER("al_filename_exists",ring_al_filename_exists);
+	RING_API_REGISTER("al_remove_filename",ring_al_remove_filename);
+	RING_API_REGISTER("al_open_directory",ring_al_open_directory);
+	RING_API_REGISTER("al_read_directory",ring_al_read_directory);
+	RING_API_REGISTER("al_close_directory",ring_al_close_directory);
+	RING_API_REGISTER("al_get_current_directory",ring_al_get_current_directory);
+	RING_API_REGISTER("al_change_directory",ring_al_change_directory);
+	RING_API_REGISTER("al_make_directory",ring_al_make_directory);
+	RING_API_REGISTER("al_open_fs_entry",ring_al_open_fs_entry);
+	RING_API_REGISTER("al_set_fs_interface",ring_al_set_fs_interface);
+	RING_API_REGISTER("al_set_standard_fs_interface",ring_al_set_standard_fs_interface);
+	RING_API_REGISTER("al_get_fs_interface",ring_al_get_fs_interface);
+	RING_API_REGISTER("al_itofix",ring_al_itofix);
+	RING_API_REGISTER("al_fixtoi",ring_al_fixtoi);
+	RING_API_REGISTER("al_fixfloor",ring_al_fixfloor);
+	RING_API_REGISTER("al_fixceil",ring_al_fixceil);
+	RING_API_REGISTER("al_ftofix",ring_al_ftofix);
+	RING_API_REGISTER("al_fixtof",ring_al_fixtof);
+	RING_API_REGISTER("al_fixmul",ring_al_fixmul);
+	RING_API_REGISTER("al_fixdiv",ring_al_fixdiv);
+	RING_API_REGISTER("al_fixadd",ring_al_fixadd);
+	RING_API_REGISTER("al_fixsub",ring_al_fixsub);
+	RING_API_REGISTER("al_fixsin",ring_al_fixsin);
+	RING_API_REGISTER("al_fixcos",ring_al_fixcos);
+	RING_API_REGISTER("al_fixtan",ring_al_fixtan);
+	RING_API_REGISTER("al_fixasin",ring_al_fixasin);
+	RING_API_REGISTER("al_fixacos",ring_al_fixacos);
+	RING_API_REGISTER("al_fixatan",ring_al_fixatan);
+	RING_API_REGISTER("al_fixatan2",ring_al_fixatan2);
+	RING_API_REGISTER("al_fixsqrt",ring_al_fixsqrt);
+	RING_API_REGISTER("al_fixhypot",ring_al_fixhypot);
+	RING_API_REGISTER("al_get_display_mode",ring_al_get_display_mode);
+	RING_API_REGISTER("al_get_num_display_modes",ring_al_get_num_display_modes);
+	RING_API_REGISTER("al_map_rgb",ring_al_map_rgb);
+	RING_API_REGISTER("al_map_rgb_f",ring_al_map_rgb_f);
+	RING_API_REGISTER("al_map_rgba",ring_al_map_rgba);
+	RING_API_REGISTER("al_map_rgba_f",ring_al_map_rgba_f);
+	RING_API_REGISTER("al_unmap_rgb",ring_al_unmap_rgb);
+	RING_API_REGISTER("al_unmap_rgb_f",ring_al_unmap_rgb_f);
+	RING_API_REGISTER("al_unmap_rgba",ring_al_unmap_rgba);
+	RING_API_REGISTER("al_unmap_rgba_f",ring_al_unmap_rgba_f);
+	RING_API_REGISTER("al_get_pixel_size",ring_al_get_pixel_size);
+	RING_API_REGISTER("al_get_pixel_format_bits",ring_al_get_pixel_format_bits);
+	RING_API_REGISTER("al_lock_bitmap",ring_al_lock_bitmap);
+	RING_API_REGISTER("al_lock_bitmap_region",ring_al_lock_bitmap_region);
+	RING_API_REGISTER("al_unlock_bitmap",ring_al_unlock_bitmap);
+	RING_API_REGISTER("al_create_bitmap",ring_al_create_bitmap);
+	RING_API_REGISTER("al_create_sub_bitmap",ring_al_create_sub_bitmap);
+	RING_API_REGISTER("al_clone_bitmap",ring_al_clone_bitmap);
+	RING_API_REGISTER("al_destroy_bitmap",ring_al_destroy_bitmap);
+	RING_API_REGISTER("al_get_new_bitmap_flags",ring_al_get_new_bitmap_flags);
+	RING_API_REGISTER("al_get_new_bitmap_format",ring_al_get_new_bitmap_format);
+	RING_API_REGISTER("al_set_new_bitmap_flags",ring_al_set_new_bitmap_flags);
+	RING_API_REGISTER("al_add_new_bitmap_flag",ring_al_add_new_bitmap_flag);
+	RING_API_REGISTER("al_set_new_bitmap_format",ring_al_set_new_bitmap_format);
+	RING_API_REGISTER("al_get_bitmap_flags",ring_al_get_bitmap_flags);
+	RING_API_REGISTER("al_get_bitmap_format",ring_al_get_bitmap_format);
+	RING_API_REGISTER("al_get_bitmap_height",ring_al_get_bitmap_height);
+	RING_API_REGISTER("al_get_bitmap_width",ring_al_get_bitmap_width);
+	RING_API_REGISTER("al_get_pixel",ring_al_get_pixel);
+	RING_API_REGISTER("al_is_bitmap_locked",ring_al_is_bitmap_locked);
+	RING_API_REGISTER("al_is_compatible_bitmap",ring_al_is_compatible_bitmap);
+	RING_API_REGISTER("al_is_sub_bitmap",ring_al_is_sub_bitmap);
+	RING_API_REGISTER("al_get_parent_bitmap",ring_al_get_parent_bitmap);
+	RING_API_REGISTER("al_clear_to_color",ring_al_clear_to_color);
+	RING_API_REGISTER("al_draw_bitmap",ring_al_draw_bitmap);
+	RING_API_REGISTER("al_draw_tinted_bitmap",ring_al_draw_tinted_bitmap);
+	RING_API_REGISTER("al_draw_bitmap_region",ring_al_draw_bitmap_region);
+	RING_API_REGISTER("al_draw_tinted_bitmap_region",ring_al_draw_tinted_bitmap_region);
+	RING_API_REGISTER("al_draw_pixel",ring_al_draw_pixel);
+	RING_API_REGISTER("al_draw_rotated_bitmap",ring_al_draw_rotated_bitmap);
+	RING_API_REGISTER("al_draw_tinted_rotated_bitmap",ring_al_draw_tinted_rotated_bitmap);
+	RING_API_REGISTER("al_draw_scaled_rotated_bitmap",ring_al_draw_scaled_rotated_bitmap);
+	RING_API_REGISTER("al_draw_tinted_scaled_rotated_bitmap",ring_al_draw_tinted_scaled_rotated_bitmap);
+	RING_API_REGISTER("al_draw_tinted_scaled_rotated_bitmap_region",ring_al_draw_tinted_scaled_rotated_bitmap_region);
+	RING_API_REGISTER("al_draw_scaled_bitmap",ring_al_draw_scaled_bitmap);
+	RING_API_REGISTER("al_draw_tinted_scaled_bitmap",ring_al_draw_tinted_scaled_bitmap);
+	RING_API_REGISTER("al_get_target_bitmap",ring_al_get_target_bitmap);
+	RING_API_REGISTER("al_put_pixel",ring_al_put_pixel);
+	RING_API_REGISTER("al_put_blended_pixel",ring_al_put_blended_pixel);
+	RING_API_REGISTER("al_set_target_bitmap",ring_al_set_target_bitmap);
+	RING_API_REGISTER("al_set_target_backbuffer",ring_al_set_target_backbuffer);
+	RING_API_REGISTER("al_get_current_display",ring_al_get_current_display);
+	RING_API_REGISTER("al_get_blender",ring_al_get_blender);
+	RING_API_REGISTER("al_get_separate_blender",ring_al_get_separate_blender);
+	RING_API_REGISTER("al_set_blender",ring_al_set_blender);
+	RING_API_REGISTER("al_set_separate_blender",ring_al_set_separate_blender);
+	RING_API_REGISTER("al_get_clipping_rectangle",ring_al_get_clipping_rectangle);
+	RING_API_REGISTER("al_set_clipping_rectangle",ring_al_set_clipping_rectangle);
+	RING_API_REGISTER("al_reset_clipping_rectangle",ring_al_reset_clipping_rectangle);
+	RING_API_REGISTER("al_convert_mask_to_alpha",ring_al_convert_mask_to_alpha);
+	RING_API_REGISTER("al_hold_bitmap_drawing",ring_al_hold_bitmap_drawing);
+	RING_API_REGISTER("al_is_bitmap_drawing_held",ring_al_is_bitmap_drawing_held);
+	RING_API_REGISTER("al_load_bitmap",ring_al_load_bitmap);
+	RING_API_REGISTER("al_load_bitmap_f",ring_al_load_bitmap_f);
+	RING_API_REGISTER("al_save_bitmap",ring_al_save_bitmap);
+	RING_API_REGISTER("al_save_bitmap_f",ring_al_save_bitmap_f);
+	RING_API_REGISTER("al_install_joystick",ring_al_install_joystick);
+	RING_API_REGISTER("al_uninstall_joystick",ring_al_uninstall_joystick);
+	RING_API_REGISTER("al_is_joystick_installed",ring_al_is_joystick_installed);
+	RING_API_REGISTER("al_reconfigure_joysticks",ring_al_reconfigure_joysticks);
+	RING_API_REGISTER("al_get_num_joysticks",ring_al_get_num_joysticks);
+	RING_API_REGISTER("al_get_joystick",ring_al_get_joystick);
+	RING_API_REGISTER("al_release_joystick",ring_al_release_joystick);
+	RING_API_REGISTER("al_get_joystick_active",ring_al_get_joystick_active);
+	RING_API_REGISTER("al_get_joystick_name",ring_al_get_joystick_name);
+	RING_API_REGISTER("al_get_joystick_stick_name",ring_al_get_joystick_stick_name);
+	RING_API_REGISTER("al_get_joystick_axis_name",ring_al_get_joystick_axis_name);
+	RING_API_REGISTER("al_get_joystick_button_name",ring_al_get_joystick_button_name);
+	RING_API_REGISTER("al_get_joystick_stick_flags",ring_al_get_joystick_stick_flags);
+	RING_API_REGISTER("al_get_joystick_num_sticks",ring_al_get_joystick_num_sticks);
+	RING_API_REGISTER("al_get_joystick_num_axes",ring_al_get_joystick_num_axes);
+	RING_API_REGISTER("al_get_joystick_num_buttons",ring_al_get_joystick_num_buttons);
+	RING_API_REGISTER("al_get_joystick_state",ring_al_get_joystick_state);
+	RING_API_REGISTER("al_get_joystick_event_source",ring_al_get_joystick_event_source);
+	RING_API_REGISTER("al_install_keyboard",ring_al_install_keyboard);
+	RING_API_REGISTER("al_is_keyboard_installed",ring_al_is_keyboard_installed);
+	RING_API_REGISTER("al_uninstall_keyboard",ring_al_uninstall_keyboard);
+	RING_API_REGISTER("al_get_keyboard_state",ring_al_get_keyboard_state);
+	RING_API_REGISTER("al_key_down",ring_al_key_down);
+	RING_API_REGISTER("al_keycode_to_name",ring_al_keycode_to_name);
+	RING_API_REGISTER("al_set_keyboard_leds",ring_al_set_keyboard_leds);
+	RING_API_REGISTER("al_get_keyboard_event_source",ring_al_get_keyboard_event_source);
+	RING_API_REGISTER("al_malloc_with_context",ring_al_malloc_with_context);
+	RING_API_REGISTER("al_free_with_context",ring_al_free_with_context);
+	RING_API_REGISTER("al_realloc_with_context",ring_al_realloc_with_context);
+	RING_API_REGISTER("al_calloc_with_context",ring_al_calloc_with_context);
+	RING_API_REGISTER("al_set_memory_interface",ring_al_set_memory_interface);
+	RING_API_REGISTER("al_get_new_display_adapter",ring_al_get_new_display_adapter);
+	RING_API_REGISTER("al_set_new_display_adapter",ring_al_set_new_display_adapter);
+	RING_API_REGISTER("al_get_monitor_info",ring_al_get_monitor_info);
+	RING_API_REGISTER("al_get_num_video_adapters",ring_al_get_num_video_adapters);
+	RING_API_REGISTER("al_install_mouse",ring_al_install_mouse);
+	RING_API_REGISTER("al_is_mouse_installed",ring_al_is_mouse_installed);
+	RING_API_REGISTER("al_uninstall_mouse",ring_al_uninstall_mouse);
+	RING_API_REGISTER("al_get_mouse_num_axes",ring_al_get_mouse_num_axes);
+	RING_API_REGISTER("al_get_mouse_num_buttons",ring_al_get_mouse_num_buttons);
+	RING_API_REGISTER("al_get_mouse_state",ring_al_get_mouse_state);
+	RING_API_REGISTER("al_get_mouse_state_axis",ring_al_get_mouse_state_axis);
+	RING_API_REGISTER("al_mouse_button_down",ring_al_mouse_button_down);
+	RING_API_REGISTER("al_set_mouse_xy",ring_al_set_mouse_xy);
+	RING_API_REGISTER("al_set_mouse_z",ring_al_set_mouse_z);
+	RING_API_REGISTER("al_set_mouse_w",ring_al_set_mouse_w);
+	RING_API_REGISTER("al_set_mouse_axis",ring_al_set_mouse_axis);
+	RING_API_REGISTER("al_get_mouse_event_source",ring_al_get_mouse_event_source);
+	RING_API_REGISTER("al_create_mouse_cursor",ring_al_create_mouse_cursor);
+	RING_API_REGISTER("al_destroy_mouse_cursor",ring_al_destroy_mouse_cursor);
+	RING_API_REGISTER("al_set_mouse_cursor",ring_al_set_mouse_cursor);
+	RING_API_REGISTER("al_set_system_mouse_cursor",ring_al_set_system_mouse_cursor);
+	RING_API_REGISTER("al_get_mouse_cursor_position",ring_al_get_mouse_cursor_position);
+	RING_API_REGISTER("al_hide_mouse_cursor",ring_al_hide_mouse_cursor);
+	RING_API_REGISTER("al_show_mouse_cursor",ring_al_show_mouse_cursor);
+	RING_API_REGISTER("al_grab_mouse",ring_al_grab_mouse);
+	RING_API_REGISTER("al_ungrab_mouse",ring_al_ungrab_mouse);
+	RING_API_REGISTER("al_create_path",ring_al_create_path);
+	RING_API_REGISTER("al_create_path_for_directory",ring_al_create_path_for_directory);
+	RING_API_REGISTER("al_destroy_path",ring_al_destroy_path);
+	RING_API_REGISTER("al_clone_path",ring_al_clone_path);
+	RING_API_REGISTER("al_join_paths",ring_al_join_paths);
+	RING_API_REGISTER("al_rebase_path",ring_al_rebase_path);
+	RING_API_REGISTER("al_get_path_drive",ring_al_get_path_drive);
+	RING_API_REGISTER("al_get_path_num_components",ring_al_get_path_num_components);
+	RING_API_REGISTER("al_get_path_component",ring_al_get_path_component);
+	RING_API_REGISTER("al_get_path_tail",ring_al_get_path_tail);
+	RING_API_REGISTER("al_get_path_filename",ring_al_get_path_filename);
+	RING_API_REGISTER("al_get_path_basename",ring_al_get_path_basename);
+	RING_API_REGISTER("al_get_path_extension",ring_al_get_path_extension);
+	RING_API_REGISTER("al_set_path_drive",ring_al_set_path_drive);
+	RING_API_REGISTER("al_append_path_component",ring_al_append_path_component);
+	RING_API_REGISTER("al_insert_path_component",ring_al_insert_path_component);
+	RING_API_REGISTER("al_replace_path_component",ring_al_replace_path_component);
+	RING_API_REGISTER("al_remove_path_component",ring_al_remove_path_component);
+	RING_API_REGISTER("al_drop_path_tail",ring_al_drop_path_tail);
+	RING_API_REGISTER("al_set_path_filename",ring_al_set_path_filename);
+	RING_API_REGISTER("al_set_path_extension",ring_al_set_path_extension);
+	RING_API_REGISTER("al_path_cstr",ring_al_path_cstr);
+	RING_API_REGISTER("al_make_path_canonical",ring_al_make_path_canonical);
+	RING_API_REGISTER("al_restore_state",ring_al_restore_state);
+	RING_API_REGISTER("al_store_state",ring_al_store_state);
+	RING_API_REGISTER("al_get_errno",ring_al_get_errno);
+	RING_API_REGISTER("al_set_errno",ring_al_set_errno);
+	RING_API_REGISTER("al_uninstall_system",ring_al_uninstall_system);
+	RING_API_REGISTER("al_is_system_installed",ring_al_is_system_installed);
+	RING_API_REGISTER("al_get_allegro_version",ring_al_get_allegro_version);
+	RING_API_REGISTER("al_get_standard_path",ring_al_get_standard_path);
+	RING_API_REGISTER("al_set_exe_name",ring_al_set_exe_name);
+	RING_API_REGISTER("al_set_app_name",ring_al_set_app_name);
+	RING_API_REGISTER("al_set_org_name",ring_al_set_org_name);
+	RING_API_REGISTER("al_get_app_name",ring_al_get_app_name);
+	RING_API_REGISTER("al_get_org_name",ring_al_get_org_name);
+	RING_API_REGISTER("al_get_system_config",ring_al_get_system_config);
+	RING_API_REGISTER("al_create_thread",ring_al_create_thread);
+	RING_API_REGISTER("al_run_detached_thread",ring_al_run_detached_thread);
+	RING_API_REGISTER("al_start_thread",ring_al_start_thread);
+	RING_API_REGISTER("al_join_thread",ring_al_join_thread);
+	RING_API_REGISTER("al_set_thread_should_stop",ring_al_set_thread_should_stop);
+	RING_API_REGISTER("al_get_thread_should_stop",ring_al_get_thread_should_stop);
+	RING_API_REGISTER("al_destroy_thread",ring_al_destroy_thread);
+	RING_API_REGISTER("al_create_mutex",ring_al_create_mutex);
+	RING_API_REGISTER("al_create_mutex_recursive",ring_al_create_mutex_recursive);
+	RING_API_REGISTER("al_lock_mutex",ring_al_lock_mutex);
+	RING_API_REGISTER("al_unlock_mutex",ring_al_unlock_mutex);
+	RING_API_REGISTER("al_destroy_mutex",ring_al_destroy_mutex);
+	RING_API_REGISTER("al_create_cond",ring_al_create_cond);
+	RING_API_REGISTER("al_destroy_cond",ring_al_destroy_cond);
+	RING_API_REGISTER("al_wait_cond",ring_al_wait_cond);
+	RING_API_REGISTER("al_wait_cond_until",ring_al_wait_cond_until);
+	RING_API_REGISTER("al_broadcast_cond",ring_al_broadcast_cond);
+	RING_API_REGISTER("al_signal_cond",ring_al_signal_cond);
+	RING_API_REGISTER("al_get_time",ring_al_get_time);
+	RING_API_REGISTER("al_init_timeout",ring_al_init_timeout);
+	RING_API_REGISTER("al_rest",ring_al_rest);
+	RING_API_REGISTER("al_create_timer",ring_al_create_timer);
+	RING_API_REGISTER("al_start_timer",ring_al_start_timer);
+	RING_API_REGISTER("al_stop_timer",ring_al_stop_timer);
+	RING_API_REGISTER("al_get_timer_started",ring_al_get_timer_started);
+	RING_API_REGISTER("al_destroy_timer",ring_al_destroy_timer);
+	RING_API_REGISTER("al_get_timer_count",ring_al_get_timer_count);
+	RING_API_REGISTER("al_set_timer_count",ring_al_set_timer_count);
+	RING_API_REGISTER("al_add_timer_count",ring_al_add_timer_count);
+	RING_API_REGISTER("al_get_timer_speed",ring_al_get_timer_speed);
+	RING_API_REGISTER("al_set_timer_speed",ring_al_set_timer_speed);
+	RING_API_REGISTER("al_get_timer_event_source",ring_al_get_timer_event_source);
+	RING_API_REGISTER("al_copy_transform",ring_al_copy_transform);
+	RING_API_REGISTER("al_use_transform",ring_al_use_transform);
+	RING_API_REGISTER("al_get_current_transform",ring_al_get_current_transform);
+	RING_API_REGISTER("al_invert_transform",ring_al_invert_transform);
+	RING_API_REGISTER("al_check_inverse",ring_al_check_inverse);
+	RING_API_REGISTER("al_identity_transform",ring_al_identity_transform);
+	RING_API_REGISTER("al_build_transform",ring_al_build_transform);
+	RING_API_REGISTER("al_translate_transform",ring_al_translate_transform);
+	RING_API_REGISTER("al_rotate_transform",ring_al_rotate_transform);
+	RING_API_REGISTER("al_scale_transform",ring_al_scale_transform);
+	RING_API_REGISTER("al_transform_coordinates",ring_al_transform_coordinates);
+	RING_API_REGISTER("al_compose_transform",ring_al_compose_transform);
+	RING_API_REGISTER("al_ustr_new",ring_al_ustr_new);
+	RING_API_REGISTER("al_ustr_new_from_buffer",ring_al_ustr_new_from_buffer);
+	RING_API_REGISTER("al_ustr_free",ring_al_ustr_free);
+	RING_API_REGISTER("al_cstr",ring_al_cstr);
+	RING_API_REGISTER("al_ustr_to_buffer",ring_al_ustr_to_buffer);
+	RING_API_REGISTER("al_cstr_dup",ring_al_cstr_dup);
+	RING_API_REGISTER("al_ustr_dup",ring_al_ustr_dup);
+	RING_API_REGISTER("al_ustr_dup_substr",ring_al_ustr_dup_substr);
+	RING_API_REGISTER("al_ustr_empty_string",ring_al_ustr_empty_string);
+	RING_API_REGISTER("al_ref_cstr",ring_al_ref_cstr);
+	RING_API_REGISTER("al_ref_buffer",ring_al_ref_buffer);
+	RING_API_REGISTER("al_ref_ustr",ring_al_ref_ustr);
+	RING_API_REGISTER("al_ustr_size",ring_al_ustr_size);
+	RING_API_REGISTER("al_ustr_length",ring_al_ustr_length);
+	RING_API_REGISTER("al_ustr_offset",ring_al_ustr_offset);
+	RING_API_REGISTER("al_ustr_next",ring_al_ustr_next);
+	RING_API_REGISTER("al_ustr_prev",ring_al_ustr_prev);
+	RING_API_REGISTER("al_ustr_get",ring_al_ustr_get);
+	RING_API_REGISTER("al_ustr_get_next",ring_al_ustr_get_next);
+	RING_API_REGISTER("al_ustr_prev_get",ring_al_ustr_prev_get);
+	RING_API_REGISTER("al_ustr_insert",ring_al_ustr_insert);
+	RING_API_REGISTER("al_ustr_insert_cstr",ring_al_ustr_insert_cstr);
+	RING_API_REGISTER("al_ustr_insert_chr",ring_al_ustr_insert_chr);
+	RING_API_REGISTER("al_ustr_append",ring_al_ustr_append);
+	RING_API_REGISTER("al_ustr_append_cstr",ring_al_ustr_append_cstr);
+	RING_API_REGISTER("al_ustr_append_chr",ring_al_ustr_append_chr);
+	RING_API_REGISTER("al_ustr_vappendf",ring_al_ustr_vappendf);
+	RING_API_REGISTER("al_ustr_remove_chr",ring_al_ustr_remove_chr);
+	RING_API_REGISTER("al_ustr_remove_range",ring_al_ustr_remove_range);
+	RING_API_REGISTER("al_ustr_truncate",ring_al_ustr_truncate);
+	RING_API_REGISTER("al_ustr_ltrim_ws",ring_al_ustr_ltrim_ws);
+	RING_API_REGISTER("al_ustr_rtrim_ws",ring_al_ustr_rtrim_ws);
+	RING_API_REGISTER("al_ustr_trim_ws",ring_al_ustr_trim_ws);
+	RING_API_REGISTER("al_ustr_assign",ring_al_ustr_assign);
+	RING_API_REGISTER("al_ustr_assign_substr",ring_al_ustr_assign_substr);
+	RING_API_REGISTER("al_ustr_assign_cstr",ring_al_ustr_assign_cstr);
+	RING_API_REGISTER("al_ustr_set_chr",ring_al_ustr_set_chr);
+	RING_API_REGISTER("al_ustr_replace_range",ring_al_ustr_replace_range);
+	RING_API_REGISTER("al_ustr_find_chr",ring_al_ustr_find_chr);
+	RING_API_REGISTER("al_ustr_rfind_chr",ring_al_ustr_rfind_chr);
+	RING_API_REGISTER("al_ustr_find_set",ring_al_ustr_find_set);
+	RING_API_REGISTER("al_ustr_find_set_cstr",ring_al_ustr_find_set_cstr);
+	RING_API_REGISTER("al_ustr_find_cset",ring_al_ustr_find_cset);
+	RING_API_REGISTER("al_ustr_find_cset_cstr",ring_al_ustr_find_cset_cstr);
+	RING_API_REGISTER("al_ustr_find_str",ring_al_ustr_find_str);
+	RING_API_REGISTER("al_ustr_find_cstr",ring_al_ustr_find_cstr);
+	RING_API_REGISTER("al_ustr_rfind_str",ring_al_ustr_rfind_str);
+	RING_API_REGISTER("al_ustr_rfind_cstr",ring_al_ustr_rfind_cstr);
+	RING_API_REGISTER("al_ustr_find_replace",ring_al_ustr_find_replace);
+	RING_API_REGISTER("al_ustr_find_replace_cstr",ring_al_ustr_find_replace_cstr);
+	RING_API_REGISTER("al_ustr_compare",ring_al_ustr_compare);
+	RING_API_REGISTER("al_ustr_ncompare",ring_al_ustr_ncompare);
+	RING_API_REGISTER("al_ustr_equal",ring_al_ustr_equal);
+	RING_API_REGISTER("al_ustr_has_prefix",ring_al_ustr_has_prefix);
+	RING_API_REGISTER("al_ustr_has_prefix_cstr",ring_al_ustr_has_prefix_cstr);
+	RING_API_REGISTER("al_ustr_has_suffix",ring_al_ustr_has_suffix);
+	RING_API_REGISTER("al_ustr_has_suffix_cstr",ring_al_ustr_has_suffix_cstr);
+	RING_API_REGISTER("al_ustr_new_from_utf16",ring_al_ustr_new_from_utf16);
+	RING_API_REGISTER("al_ustr_size_utf16",ring_al_ustr_size_utf16);
+	RING_API_REGISTER("al_ustr_encode_utf16",ring_al_ustr_encode_utf16);
+	RING_API_REGISTER("al_utf8_width",ring_al_utf8_width);
+	RING_API_REGISTER("al_utf8_encode",ring_al_utf8_encode);
+	RING_API_REGISTER("al_utf16_width",ring_al_utf16_width);
+	RING_API_REGISTER("al_get_d3d_device",ring_al_get_d3d_device);
+	RING_API_REGISTER("al_get_d3d_system_texture",ring_al_get_d3d_system_texture);
+	RING_API_REGISTER("al_get_d3d_video_texture",ring_al_get_d3d_video_texture);
+	RING_API_REGISTER("al_have_d3d_non_pow2_texture_support",ring_al_have_d3d_non_pow2_texture_support);
+	RING_API_REGISTER("al_have_d3d_non_square_texture_support",ring_al_have_d3d_non_square_texture_support);
+	RING_API_REGISTER("al_get_d3d_texture_position",ring_al_get_d3d_texture_position);
+	RING_API_REGISTER("al_is_d3d_device_lost",ring_al_is_d3d_device_lost);
+	RING_API_REGISTER("al_get_opengl_extension_list",ring_al_get_opengl_extension_list);
+	RING_API_REGISTER("al_get_opengl_proc_address",ring_al_get_opengl_proc_address);
+	RING_API_REGISTER("al_get_opengl_texture",ring_al_get_opengl_texture);
+	RING_API_REGISTER("al_get_opengl_texture_size",ring_al_get_opengl_texture_size);
+	RING_API_REGISTER("al_get_opengl_texture_position",ring_al_get_opengl_texture_position);
+	RING_API_REGISTER("al_get_opengl_fbo",ring_al_get_opengl_fbo);
+	RING_API_REGISTER("al_remove_opengl_fbo",ring_al_remove_opengl_fbo);
+	RING_API_REGISTER("al_have_opengl_extension",ring_al_have_opengl_extension);
+	RING_API_REGISTER("al_get_opengl_version",ring_al_get_opengl_version);
+	RING_API_REGISTER("al_get_opengl_variant",ring_al_get_opengl_variant);
+	RING_API_REGISTER("al_set_current_opengl_context",ring_al_set_current_opengl_context);
+	RING_API_REGISTER("al_install_audio",ring_al_install_audio);
+	RING_API_REGISTER("al_uninstall_audio",ring_al_uninstall_audio);
+	RING_API_REGISTER("al_is_audio_installed",ring_al_is_audio_installed);
+	RING_API_REGISTER("al_reserve_samples",ring_al_reserve_samples);
+	RING_API_REGISTER("al_get_allegro_audio_version",ring_al_get_allegro_audio_version);
+	RING_API_REGISTER("al_get_audio_depth_size",ring_al_get_audio_depth_size);
+	RING_API_REGISTER("al_get_channel_count",ring_al_get_channel_count);
+	RING_API_REGISTER("al_create_voice",ring_al_create_voice);
+	RING_API_REGISTER("al_destroy_voice",ring_al_destroy_voice);
+	RING_API_REGISTER("al_detach_voice",ring_al_detach_voice);
+	RING_API_REGISTER("al_attach_audio_stream_to_voice",ring_al_attach_audio_stream_to_voice);
+	RING_API_REGISTER("al_attach_mixer_to_voice",ring_al_attach_mixer_to_voice);
+	RING_API_REGISTER("al_attach_sample_instance_to_voice",ring_al_attach_sample_instance_to_voice);
+	RING_API_REGISTER("al_get_voice_frequency",ring_al_get_voice_frequency);
+	RING_API_REGISTER("al_get_voice_channels",ring_al_get_voice_channels);
+	RING_API_REGISTER("al_get_voice_depth",ring_al_get_voice_depth);
+	RING_API_REGISTER("al_get_voice_playing",ring_al_get_voice_playing);
+	RING_API_REGISTER("al_set_voice_playing",ring_al_set_voice_playing);
+	RING_API_REGISTER("al_get_voice_position",ring_al_get_voice_position);
+	RING_API_REGISTER("al_set_voice_position",ring_al_set_voice_position);
+	RING_API_REGISTER("al_create_sample",ring_al_create_sample);
+	RING_API_REGISTER("al_destroy_sample",ring_al_destroy_sample);
+	RING_API_REGISTER("al_play_sample",ring_al_play_sample);
+	RING_API_REGISTER("al_stop_sample",ring_al_stop_sample);
+	RING_API_REGISTER("al_stop_samples",ring_al_stop_samples);
+	RING_API_REGISTER("al_get_sample_channels",ring_al_get_sample_channels);
+	RING_API_REGISTER("al_get_sample_depth",ring_al_get_sample_depth);
+	RING_API_REGISTER("al_get_sample_frequency",ring_al_get_sample_frequency);
+	RING_API_REGISTER("al_get_sample_length",ring_al_get_sample_length);
+	RING_API_REGISTER("al_get_sample_data",ring_al_get_sample_data);
+	RING_API_REGISTER("al_create_sample_instance",ring_al_create_sample_instance);
+	RING_API_REGISTER("al_destroy_sample_instance",ring_al_destroy_sample_instance);
+	RING_API_REGISTER("al_play_sample_instance",ring_al_play_sample_instance);
+	RING_API_REGISTER("al_stop_sample_instance",ring_al_stop_sample_instance);
+	RING_API_REGISTER("al_get_sample_instance_channels",ring_al_get_sample_instance_channels);
+	RING_API_REGISTER("al_get_sample_instance_depth",ring_al_get_sample_instance_depth);
+	RING_API_REGISTER("al_get_sample_instance_frequency",ring_al_get_sample_instance_frequency);
+	RING_API_REGISTER("al_get_sample_instance_length",ring_al_get_sample_instance_length);
+	RING_API_REGISTER("al_set_sample_instance_length",ring_al_set_sample_instance_length);
+	RING_API_REGISTER("al_get_sample_instance_position",ring_al_get_sample_instance_position);
+	RING_API_REGISTER("al_set_sample_instance_position",ring_al_set_sample_instance_position);
+	RING_API_REGISTER("al_get_sample_instance_speed",ring_al_get_sample_instance_speed);
+	RING_API_REGISTER("al_set_sample_instance_speed",ring_al_set_sample_instance_speed);
+	RING_API_REGISTER("al_get_sample_instance_gain",ring_al_get_sample_instance_gain);
+	RING_API_REGISTER("al_set_sample_instance_gain",ring_al_set_sample_instance_gain);
+	RING_API_REGISTER("al_get_sample_instance_pan",ring_al_get_sample_instance_pan);
+	RING_API_REGISTER("al_set_sample_instance_pan",ring_al_set_sample_instance_pan);
+	RING_API_REGISTER("al_get_sample_instance_time",ring_al_get_sample_instance_time);
+	RING_API_REGISTER("al_get_sample_instance_playmode",ring_al_get_sample_instance_playmode);
+	RING_API_REGISTER("al_set_sample_instance_playmode",ring_al_set_sample_instance_playmode);
+	RING_API_REGISTER("al_get_sample_instance_playing",ring_al_get_sample_instance_playing);
+	RING_API_REGISTER("al_set_sample_instance_playing",ring_al_set_sample_instance_playing);
+	RING_API_REGISTER("al_get_sample_instance_attached",ring_al_get_sample_instance_attached);
+	RING_API_REGISTER("al_detach_sample_instance",ring_al_detach_sample_instance);
+	RING_API_REGISTER("al_get_sample",ring_al_get_sample);
+	RING_API_REGISTER("al_set_sample",ring_al_set_sample);
+	RING_API_REGISTER("al_create_mixer",ring_al_create_mixer);
+	RING_API_REGISTER("al_destroy_mixer",ring_al_destroy_mixer);
+	RING_API_REGISTER("al_get_default_mixer",ring_al_get_default_mixer);
+	RING_API_REGISTER("al_set_default_mixer",ring_al_set_default_mixer);
+	RING_API_REGISTER("al_restore_default_mixer",ring_al_restore_default_mixer);
+	RING_API_REGISTER("al_attach_mixer_to_mixer",ring_al_attach_mixer_to_mixer);
+	RING_API_REGISTER("al_attach_sample_instance_to_mixer",ring_al_attach_sample_instance_to_mixer);
+	RING_API_REGISTER("al_attach_audio_stream_to_mixer",ring_al_attach_audio_stream_to_mixer);
+	RING_API_REGISTER("al_get_mixer_frequency",ring_al_get_mixer_frequency);
+	RING_API_REGISTER("al_set_mixer_frequency",ring_al_set_mixer_frequency);
+	RING_API_REGISTER("al_get_mixer_channels",ring_al_get_mixer_channels);
+	RING_API_REGISTER("al_get_mixer_depth",ring_al_get_mixer_depth);
+	RING_API_REGISTER("al_get_mixer_gain",ring_al_get_mixer_gain);
+	RING_API_REGISTER("al_set_mixer_gain",ring_al_set_mixer_gain);
+	RING_API_REGISTER("al_get_mixer_quality",ring_al_get_mixer_quality);
+	RING_API_REGISTER("al_set_mixer_quality",ring_al_set_mixer_quality);
+	RING_API_REGISTER("al_get_mixer_playing",ring_al_get_mixer_playing);
+	RING_API_REGISTER("al_set_mixer_playing",ring_al_set_mixer_playing);
+	RING_API_REGISTER("al_get_mixer_attached",ring_al_get_mixer_attached);
+	RING_API_REGISTER("al_detach_mixer",ring_al_detach_mixer);
+	RING_API_REGISTER("al_create_audio_stream",ring_al_create_audio_stream);
+	RING_API_REGISTER("al_destroy_audio_stream",ring_al_destroy_audio_stream);
+	RING_API_REGISTER("al_get_audio_stream_event_source",ring_al_get_audio_stream_event_source);
+	RING_API_REGISTER("al_drain_audio_stream",ring_al_drain_audio_stream);
+	RING_API_REGISTER("al_rewind_audio_stream",ring_al_rewind_audio_stream);
+	RING_API_REGISTER("al_get_audio_stream_frequency",ring_al_get_audio_stream_frequency);
+	RING_API_REGISTER("al_get_audio_stream_channels",ring_al_get_audio_stream_channels);
+	RING_API_REGISTER("al_get_audio_stream_depth",ring_al_get_audio_stream_depth);
+	RING_API_REGISTER("al_get_audio_stream_length",ring_al_get_audio_stream_length);
+	RING_API_REGISTER("al_get_audio_stream_speed",ring_al_get_audio_stream_speed);
+	RING_API_REGISTER("al_set_audio_stream_speed",ring_al_set_audio_stream_speed);
+	RING_API_REGISTER("al_get_audio_stream_gain",ring_al_get_audio_stream_gain);
+	RING_API_REGISTER("al_set_audio_stream_gain",ring_al_set_audio_stream_gain);
+	RING_API_REGISTER("al_get_audio_stream_pan",ring_al_get_audio_stream_pan);
+	RING_API_REGISTER("al_set_audio_stream_pan",ring_al_set_audio_stream_pan);
+	RING_API_REGISTER("al_get_audio_stream_playing",ring_al_get_audio_stream_playing);
+	RING_API_REGISTER("al_set_audio_stream_playing",ring_al_set_audio_stream_playing);
+	RING_API_REGISTER("al_get_audio_stream_playmode",ring_al_get_audio_stream_playmode);
+	RING_API_REGISTER("al_set_audio_stream_playmode",ring_al_set_audio_stream_playmode);
+	RING_API_REGISTER("al_get_audio_stream_attached",ring_al_get_audio_stream_attached);
+	RING_API_REGISTER("al_detach_audio_stream",ring_al_detach_audio_stream);
+	RING_API_REGISTER("al_get_audio_stream_fragment",ring_al_get_audio_stream_fragment);
+	RING_API_REGISTER("al_set_audio_stream_fragment",ring_al_set_audio_stream_fragment);
+	RING_API_REGISTER("al_get_audio_stream_fragments",ring_al_get_audio_stream_fragments);
+	RING_API_REGISTER("al_get_available_audio_stream_fragments",ring_al_get_available_audio_stream_fragments);
+	RING_API_REGISTER("al_seek_audio_stream_secs",ring_al_seek_audio_stream_secs);
+	RING_API_REGISTER("al_get_audio_stream_position_secs",ring_al_get_audio_stream_position_secs);
+	RING_API_REGISTER("al_get_audio_stream_length_secs",ring_al_get_audio_stream_length_secs);
+	RING_API_REGISTER("al_set_audio_stream_loop_secs",ring_al_set_audio_stream_loop_secs);
+	RING_API_REGISTER("al_load_sample",ring_al_load_sample);
+	RING_API_REGISTER("al_load_sample_f",ring_al_load_sample_f);
+	RING_API_REGISTER("al_load_audio_stream",ring_al_load_audio_stream);
+	RING_API_REGISTER("al_load_audio_stream_f",ring_al_load_audio_stream_f);
+	RING_API_REGISTER("al_save_sample",ring_al_save_sample);
+	RING_API_REGISTER("al_save_sample_f",ring_al_save_sample_f);
+	RING_API_REGISTER("al_init_acodec_addon",ring_al_init_acodec_addon);
+	RING_API_REGISTER("al_get_allegro_acodec_version",ring_al_get_allegro_acodec_version);
+	RING_API_REGISTER("al_color_cmyk",ring_al_color_cmyk);
+	RING_API_REGISTER("al_color_cmyk_to_rgb",ring_al_color_cmyk_to_rgb);
+	RING_API_REGISTER("al_color_hsl",ring_al_color_hsl);
+	RING_API_REGISTER("al_color_hsl_to_rgb",ring_al_color_hsl_to_rgb);
+	RING_API_REGISTER("al_color_hsv",ring_al_color_hsv);
+	RING_API_REGISTER("al_color_hsv_to_rgb",ring_al_color_hsv_to_rgb);
+	RING_API_REGISTER("al_color_html",ring_al_color_html);
+	RING_API_REGISTER("al_color_html_to_rgb",ring_al_color_html_to_rgb);
+	RING_API_REGISTER("al_color_rgb_to_html",ring_al_color_rgb_to_html);
+	RING_API_REGISTER("al_color_name",ring_al_color_name);
+	RING_API_REGISTER("al_color_name_to_rgb",ring_al_color_name_to_rgb);
+	RING_API_REGISTER("al_color_rgb_to_cmyk",ring_al_color_rgb_to_cmyk);
+	RING_API_REGISTER("al_color_rgb_to_hsl",ring_al_color_rgb_to_hsl);
+	RING_API_REGISTER("al_color_rgb_to_hsv",ring_al_color_rgb_to_hsv);
+	RING_API_REGISTER("al_color_rgb_to_name",ring_al_color_rgb_to_name);
+	RING_API_REGISTER("al_color_rgb_to_yuv",ring_al_color_rgb_to_yuv);
+	RING_API_REGISTER("al_color_yuv",ring_al_color_yuv);
+	RING_API_REGISTER("al_color_yuv_to_rgb",ring_al_color_yuv_to_rgb);
+	RING_API_REGISTER("al_get_allegro_color_version",ring_al_get_allegro_color_version);
+	RING_API_REGISTER("al_init_font_addon",ring_al_init_font_addon);
+	RING_API_REGISTER("al_shutdown_font_addon",ring_al_shutdown_font_addon);
+	RING_API_REGISTER("al_load_font",ring_al_load_font);
+	RING_API_REGISTER("al_destroy_font",ring_al_destroy_font);
+	RING_API_REGISTER("al_get_font_line_height",ring_al_get_font_line_height);
+	RING_API_REGISTER("al_get_font_ascent",ring_al_get_font_ascent);
+	RING_API_REGISTER("al_get_font_descent",ring_al_get_font_descent);
+	RING_API_REGISTER("al_get_text_width",ring_al_get_text_width);
+	RING_API_REGISTER("al_get_ustr_width",ring_al_get_ustr_width);
+	RING_API_REGISTER("al_draw_text",ring_al_draw_text);
+	RING_API_REGISTER("al_draw_ustr",ring_al_draw_ustr);
+	RING_API_REGISTER("al_draw_justified_text",ring_al_draw_justified_text);
+	RING_API_REGISTER("al_draw_justified_ustr",ring_al_draw_justified_ustr);
+	RING_API_REGISTER("al_get_text_dimensions",ring_al_get_text_dimensions);
+	RING_API_REGISTER("al_get_ustr_dimensions",ring_al_get_ustr_dimensions);
+	RING_API_REGISTER("al_get_allegro_font_version",ring_al_get_allegro_font_version);
+	RING_API_REGISTER("al_grab_font_from_bitmap",ring_al_grab_font_from_bitmap);
+	RING_API_REGISTER("al_load_bitmap_font",ring_al_load_bitmap_font);
+	RING_API_REGISTER("al_create_builtin_font",ring_al_create_builtin_font);
+	RING_API_REGISTER("al_init_ttf_addon",ring_al_init_ttf_addon);
+	RING_API_REGISTER("al_shutdown_ttf_addon",ring_al_shutdown_ttf_addon);
+	RING_API_REGISTER("al_load_ttf_font",ring_al_load_ttf_font);
+	RING_API_REGISTER("al_load_ttf_font_f",ring_al_load_ttf_font_f);
+	RING_API_REGISTER("al_load_ttf_font_stretch",ring_al_load_ttf_font_stretch);
+	RING_API_REGISTER("al_load_ttf_font_stretch_f",ring_al_load_ttf_font_stretch_f);
+	RING_API_REGISTER("al_get_allegro_ttf_version",ring_al_get_allegro_ttf_version);
+	RING_API_REGISTER("al_init_image_addon",ring_al_init_image_addon);
+	RING_API_REGISTER("al_shutdown_image_addon",ring_al_shutdown_image_addon);
+	RING_API_REGISTER("al_get_allegro_image_version",ring_al_get_allegro_image_version);
+	RING_API_REGISTER("al_open_memfile",ring_al_open_memfile);
+	RING_API_REGISTER("al_get_allegro_memfile_version",ring_al_get_allegro_memfile_version);
+	RING_API_REGISTER("al_init_native_dialog_addon",ring_al_init_native_dialog_addon);
+	RING_API_REGISTER("al_shutdown_native_dialog_addon",ring_al_shutdown_native_dialog_addon);
+	RING_API_REGISTER("al_create_native_file_dialog",ring_al_create_native_file_dialog);
+	RING_API_REGISTER("al_show_native_file_dialog",ring_al_show_native_file_dialog);
+	RING_API_REGISTER("al_get_native_file_dialog_count",ring_al_get_native_file_dialog_count);
+	RING_API_REGISTER("al_get_native_file_dialog_path",ring_al_get_native_file_dialog_path);
+	RING_API_REGISTER("al_destroy_native_file_dialog",ring_al_destroy_native_file_dialog);
+	RING_API_REGISTER("al_show_native_message_box",ring_al_show_native_message_box);
+	RING_API_REGISTER("al_open_native_text_log",ring_al_open_native_text_log);
+	RING_API_REGISTER("al_close_native_text_log",ring_al_close_native_text_log);
+	RING_API_REGISTER("al_get_native_text_log_event_source",ring_al_get_native_text_log_event_source);
+	RING_API_REGISTER("al_get_allegro_native_dialog_version",ring_al_get_allegro_native_dialog_version);
+	RING_API_REGISTER("al_set_physfs_file_interface",ring_al_set_physfs_file_interface);
+	RING_API_REGISTER("al_get_allegro_physfs_version",ring_al_get_allegro_physfs_version);
+	RING_API_REGISTER("al_get_allegro_primitives_version",ring_al_get_allegro_primitives_version);
+	RING_API_REGISTER("al_init_primitives_addon",ring_al_init_primitives_addon);
+	RING_API_REGISTER("al_shutdown_primitives_addon",ring_al_shutdown_primitives_addon);
+	RING_API_REGISTER("al_draw_line",ring_al_draw_line);
+	RING_API_REGISTER("al_draw_triangle",ring_al_draw_triangle);
+	RING_API_REGISTER("al_draw_filled_triangle",ring_al_draw_filled_triangle);
+	RING_API_REGISTER("al_draw_rectangle",ring_al_draw_rectangle);
+	RING_API_REGISTER("al_draw_filled_rectangle",ring_al_draw_filled_rectangle);
+	RING_API_REGISTER("al_draw_rounded_rectangle",ring_al_draw_rounded_rectangle);
+	RING_API_REGISTER("al_draw_filled_rounded_rectangle",ring_al_draw_filled_rounded_rectangle);
+	RING_API_REGISTER("al_calculate_arc",ring_al_calculate_arc);
+	RING_API_REGISTER("al_draw_pieslice",ring_al_draw_pieslice);
+	RING_API_REGISTER("al_draw_filled_pieslice",ring_al_draw_filled_pieslice);
+	RING_API_REGISTER("al_draw_ellipse",ring_al_draw_ellipse);
+	RING_API_REGISTER("al_draw_filled_ellipse",ring_al_draw_filled_ellipse);
+	RING_API_REGISTER("al_draw_circle",ring_al_draw_circle);
+	RING_API_REGISTER("al_draw_filled_circle",ring_al_draw_filled_circle);
+	RING_API_REGISTER("al_draw_arc",ring_al_draw_arc);
+	RING_API_REGISTER("al_draw_elliptical_arc",ring_al_draw_elliptical_arc);
+	RING_API_REGISTER("al_calculate_ribbon",ring_al_calculate_ribbon);
+	RING_API_REGISTER("al_draw_ribbon",ring_al_draw_ribbon);
+	RING_API_REGISTER("al_draw_prim",ring_al_draw_prim);
+	RING_API_REGISTER("al_draw_indexed_prim",ring_al_draw_indexed_prim);
+	RING_API_REGISTER("al_create_vertex_decl",ring_al_create_vertex_decl);
+	RING_API_REGISTER("al_destroy_vertex_decl",ring_al_destroy_vertex_decl);
+	RING_API_REGISTER("al_create_shader",ring_al_create_shader);
+	RING_API_REGISTER("al_attach_shader_source",ring_al_attach_shader_source);
+	RING_API_REGISTER("al_attach_shader_source_file",ring_al_attach_shader_source_file);
+	RING_API_REGISTER("al_build_shader",ring_al_build_shader);
+	RING_API_REGISTER("al_get_shader_log",ring_al_get_shader_log);
+	RING_API_REGISTER("al_get_shader_platform",ring_al_get_shader_platform);
+	RING_API_REGISTER("al_use_shader",ring_al_use_shader);
+	RING_API_REGISTER("al_destroy_shader",ring_al_destroy_shader);
+	RING_API_REGISTER("al_set_shader_sampler",ring_al_set_shader_sampler);
+	RING_API_REGISTER("al_set_shader_matrix",ring_al_set_shader_matrix);
+	RING_API_REGISTER("al_set_shader_int",ring_al_set_shader_int);
+	RING_API_REGISTER("al_set_shader_float",ring_al_set_shader_float);
+	RING_API_REGISTER("al_set_shader_bool",ring_al_set_shader_bool);
+	RING_API_REGISTER("al_set_shader_int_vector",ring_al_set_shader_int_vector);
+	RING_API_REGISTER("al_set_shader_float_vector",ring_al_set_shader_float_vector);
+	RING_API_REGISTER("al_get_default_shader_source",ring_al_get_default_shader_source);
+	RING_API_REGISTER("al_new_allegro_event",ring_al_new_allegro_event);
+	RING_API_REGISTER("al_new_managed_allegro_event",ring_al_new_managed_allegro_event);
+	RING_API_REGISTER("al_destroy_allegro_event",ring_al_destroy_allegro_event);
+	RING_API_REGISTER("al_get_allegro_event_type",ring_al_get_allegro_event_type);
+	RING_API_REGISTER("al_set_allegro_event_type",ring_al_set_allegro_event_type);
+	RING_API_REGISTER("al_get_allegro_event_keyboard_keycode",ring_al_get_allegro_event_keyboard_keycode);
+	RING_API_REGISTER("al_set_allegro_event_keyboard_keycode",ring_al_set_allegro_event_keyboard_keycode);
+	RING_API_REGISTER("al_get_allegro_event_mouse_x",ring_al_get_allegro_event_mouse_x);
+	RING_API_REGISTER("al_set_allegro_event_mouse_x",ring_al_set_allegro_event_mouse_x);
+	RING_API_REGISTER("al_get_allegro_event_mouse_y",ring_al_get_allegro_event_mouse_y);
+	RING_API_REGISTER("al_set_allegro_event_mouse_y",ring_al_set_allegro_event_mouse_y);
+	RING_API_REGISTER("al_get_allegro_event_timer_source",ring_al_get_allegro_event_timer_source);
+	RING_API_REGISTER("al_set_allegro_event_timer_source",ring_al_set_allegro_event_timer_source);
+	RING_API_REGISTER("al_get_allegro_event_joystick_id",ring_al_get_allegro_event_joystick_id);
+	RING_API_REGISTER("al_set_allegro_event_joystick_id",ring_al_set_allegro_event_joystick_id);
+	RING_API_REGISTER("al_get_allegro_event_joystick_stick",ring_al_get_allegro_event_joystick_stick);
+	RING_API_REGISTER("al_set_allegro_event_joystick_stick",ring_al_set_allegro_event_joystick_stick);
+	RING_API_REGISTER("al_get_allegro_event_joystick_axis",ring_al_get_allegro_event_joystick_axis);
+	RING_API_REGISTER("al_set_allegro_event_joystick_axis",ring_al_set_allegro_event_joystick_axis);
+	RING_API_REGISTER("al_get_allegro_event_joystick_pos",ring_al_get_allegro_event_joystick_pos);
+	RING_API_REGISTER("al_set_allegro_event_joystick_pos",ring_al_set_allegro_event_joystick_pos);
+	RING_API_REGISTER("al_get_allegro_event_joystick_button",ring_al_get_allegro_event_joystick_button);
+	RING_API_REGISTER("al_set_allegro_event_joystick_button",ring_al_set_allegro_event_joystick_button);
+	RING_API_REGISTER("al_new_allegro_timeout",ring_al_new_allegro_timeout);
+	RING_API_REGISTER("al_new_managed_allegro_timeout",ring_al_new_managed_allegro_timeout);
+	RING_API_REGISTER("al_destroy_allegro_timeout",ring_al_destroy_allegro_timeout);
+	RING_API_REGISTER("al_new_allegro_sample_id",ring_al_new_allegro_sample_id);
+	RING_API_REGISTER("al_new_managed_allegro_sample_id",ring_al_new_managed_allegro_sample_id);
+	RING_API_REGISTER("al_destroy_allegro_sample_id",ring_al_destroy_allegro_sample_id);
+	RING_API_REGISTER("al_new_allegro_color",ring_al_new_allegro_color);
+	RING_API_REGISTER("al_new_managed_allegro_color",ring_al_new_managed_allegro_color);
+	RING_API_REGISTER("al_destroy_allegro_color",ring_al_destroy_allegro_color);
+	RING_API_REGISTER("al_new_allegro_joystick_state",ring_al_new_allegro_joystick_state);
+	RING_API_REGISTER("al_new_managed_allegro_joystick_state",ring_al_new_managed_allegro_joystick_state);
+	RING_API_REGISTER("al_destroy_allegro_joystick_state",ring_al_destroy_allegro_joystick_state);
 }

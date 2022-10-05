@@ -70,7 +70,7 @@ class RNoteFilesTabs
  		new qMenu(win1) {
 	                oAction = new qAction(this.win1) {
 	                        settext("Close Other Files")
-	                        SetCLickevent(Method(:TabsCMCloseOtherFiles))
+	                        setClickEvent(Method(:TabsCMCloseOtherFiles))
 				if this.filestabs.count() = 1
 					setenabled(False)
 				ok
@@ -79,7 +79,7 @@ class RNoteFilesTabs
 			addseparator()
 	                oAction = new qAction(this.win1) {
 	                        settext("Close Active File")
-	                        SetCLickevent(Method(:TabsCMCloseActiveFile))
+	                        setClickEvent(Method(:TabsCMCloseActiveFile))
 				if len(this.aFilesLines) = 0
 					setenabled(False)
 				ok
@@ -88,7 +88,7 @@ class RNoteFilesTabs
 			addseparator()
 	                oAction = new qAction(this.win1) {
 	                        settext("Close All")
-	                        SetCLickevent(Method(:TabsCMCloseAll))
+	                        setClickEvent(Method(:TabsCMCloseAll))
 				if len(this.aFilesLines) <= 1
 					setenabled(False)
 				ok

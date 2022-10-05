@@ -2,16 +2,16 @@
 ### Author:	 Bert Mariani
 ### Date:	 2018-10-14
 
-load "stdlib.ring"
-load "guilib.ring"
+load "stdlibcore.ring"
+load "lightguilib.ring"
 load "ChessPuzzles.ring"	### A File with Chess Puzzles to Solve	
 
 ###-------------------
 ### Track Moves
 
-  TurnColor		 = "White"		### "Black"
- IgnoreTurnColor =	False		### False <<=== Normal turns
-#IgnoreTurnColor =	True		### True  <<=== Debug and Testing
+TurnColor	 = "White"		### "Black"
+IgnoreTurnColor  = False		### False <<=== Normal turns
+#IgnoreTurnColor = True		### True  <<=== Debug and Testing
 
 ###-------------------
 ### WINDOW SIZE
@@ -22,8 +22,8 @@ sizeX  = 840 sizeY	= 820		### Size of Window
 hSize	= 8 +2 +2	### Size of array, Display -4 smaller
 vSize	= 8 +2 +2	### Size of array, Display -4 smaller
 
-h	= 0	### H-coord of Cell
-v	= 0	### V-coord of Cell
+h	= 0	### Horizontal　coordinate of Cell
+v	= 0	### Vertical　coordinate of Cell
 
 
 ###----------------------------------------------------------
@@ -152,7 +152,7 @@ app = new qApp
 
 ###---------------------------------------------------------------------------
 ### Layout the Grid Square, Create the Arrays
-### workWidget items need to be made Global. Mke available toother functions
+### workWidget items need to be made Global. Make available to other functions
 
 Func DrawWidget()
 	 
@@ -294,7 +294,7 @@ Func DrawWidget()
 						setSizePolicy(1,1)									
 					}
 					
-				### Widget - Add HORZ BOTTON
+				### Widget - Add HORIZONTAL BUTTONS
 					LayoutButtonRow[Row].AddWidget(aButton[Row][Col])	
 			next
 			odd++
@@ -458,7 +458,7 @@ Func Play(Row,Col)
 		ColorTo	  = aArray[Row][Col]
 	
 	###--------------------------------------------------------------
-	### FIRST -PICK Piece - NOT Empty - PIECE is on Square	to Play
+	### FIRST -PICK Piece - NOT Empty - PIECE is on Square to Play
 	
 	if FlagStartMove = 0
 		#See "Func-Play: 1st Start 0" +nl
@@ -874,7 +874,7 @@ Func ValidMoveQueen(Piece, oldH, oldV, h, v)
 	FlagValidMove = 0
 		
 	### Moves like Rook "+" and Bishop "X"
-	###	  Horzontal						Vertical						Sideways-Bishop
+	###	  Horizontal						Vertical						Sideways-Bishop
 	if (((h = oldH	AND v != OldV) OR ( h != oldH AND v = OldV ) ) OR ( fabs(h - oldH) = fabs(v - OldV) ) )
 		FlagValidMove = 1
 	ok
@@ -888,7 +888,7 @@ Func ValidMoveKing(Piece, oldH, oldV, h, v)
 	
 	FlagValidMove = 0
 	
-	### Move 1 Horzontal		 Vertical			  
+	### Move 1 Horizontal		 Vertical			  
 	if (fabs(h - oldH) = 1) OR (fabs(v - oldV) = 1)		
 		FlagValidMove = 1
 		
@@ -1220,7 +1220,7 @@ Func KingChecked( ByColor )
 	
 	###-----------------------------------------
 	###-----------------------------------------
-	### Queen or Rook - Horzizontal, Vertical 
+	### Queen or Rook - Horizontal, Vertical 
 
 	### Vertical UP Attack ?
 		h = KingRow	  v = KingCol  
@@ -1266,7 +1266,6 @@ Func KingChecked( ByColor )
 
 
 	###---------------------------------
-	
 	### Horizontal LEFT Attack ?
 		h = KingRow	  v = KingCol  
 		
@@ -1311,7 +1310,7 @@ Func KingChecked( ByColor )
 		
 	###---------------------------------
 	### Queen or Bishop - Diagonal
-
+	
 	### Diagonal UP LEFT Attack ?
 		h = KingRow	  v = KingCol  
 		

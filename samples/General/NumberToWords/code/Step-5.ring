@@ -1,7 +1,7 @@
 // *** Step-5 ***
 // Number to Words 
 // assembled jew
-// efective (netto) approximately 30 lines of code for an arbitrary number of words.
+// effective (cost) approximately 30 lines of code for an arbitrary number of words.
 // currently limited by tsds ["vigintillion"] (can be traced)
 // Datum: 20.02.2018 (Revised: 23.12.2019)
 // Author: Nestor Kuka 

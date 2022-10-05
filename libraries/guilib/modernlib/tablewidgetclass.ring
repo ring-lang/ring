@@ -77,3 +77,64 @@ package System.GUI
 		func removeRow p1
 			return Super.removeRow(p1-1)		
 
+		func addList aList
+			if ! isList(aList)
+				? "Bad parameter type - The addList() method expect a List!"
+				return
+			ok
+			if ! isList(aList[1])
+				AddListAsColumn(aList)
+				return
+			ok
+			nRows = len(aList)
+			if nRows = 0 return ok
+			nRowStart = RowCount()
+			setRowCount(nRowStart+nRows)
+			nRow = 1
+			for aRows in aList
+				if isList(aRows)
+					nCol = 1
+					for vValue in aRows
+						# We do this check here to allow records with different columns size
+							if len(aRows) > ColumnCount()
+								setColumnCount(len(aRows))
+							ok
+						# We Support Strings & Numbers
+						if isString(vValue)
+							oItem = new QTableWidgetItem(vValue)
+						but isNumber(vValue)
+							oItem = new QTableWidgetItem(""+vValue)
+						else
+							? "Bad parameter type - The List is not a Table!"
+							return
+						ok
+						setItem(nRowStart+nRow,nCol,oItem)
+						nCol++
+					next
+				ok				
+				nRow++				
+			next
+			setcurrentcell(nRowStart+1,1)
+
+		func addListAsColumn aList
+			aNewList = []
+			for item in aList
+				aNewList + [item]
+			next
+			addList(aNewList)
+
+		func toList
+			aList = []
+			for nRow = 1 to rowCount()
+				aRow = []	
+				for nCol = 1 to columnCount()
+					oItem = item(nRow,nCol)
+					if ! isNULL(oItem.pObject)
+						aRow + item(nRow,nCol).text()
+					else
+						aRow + ""
+					ok
+				next
+				aList + aRow
+			next
+			return aList

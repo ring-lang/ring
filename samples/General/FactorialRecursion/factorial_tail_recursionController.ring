@@ -1,9 +1,9 @@
-#---------------------------------------------#
-# Application 	: Factorial Recusion Function #
-# Author	: Tawfik Yasser Tawfik        #
-# Date		: 07-09-2020                  #
-#---------------------------------------------#
-# -------- First Program in Ring -------------#
+#----------------------------------------------#
+# Application 	: Factorial Recursion Function #
+# Author	: Tawfik Yasser Tawfik         #
+# Date		: 07-09-2020                   #
+#----------------------------------------------#
+# -------- First Program in Ring --------------#
 
 /* You can type the number and automatically
    the factorial values will be calculated
@@ -57,8 +57,11 @@ facApp = new qApp {
 }
 
 func calcFac n
-
+     if n < 251
 	lblRes.setText(String(fact(n)))
+     else
+        lblRes.setText("")
+     ok
 
 func fact x 
 

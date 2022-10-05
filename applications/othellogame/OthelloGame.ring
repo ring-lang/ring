@@ -42,7 +42,7 @@ FlagSkipTurn =  0    ### Player has No Possible Valid Move
 
 TransScript = list(1)
 MoveNumber  = 1
-dArray      = list(8)           ### Flat destination array for diagnal analysis
+dArray      = list(8)           ### Flat destination array for diagonal analysis
 bArray      = newList(8,8)      ### Internal button array
 oldArray    = newList(8,8)      ### Save bArray as oldArray, See who flip for Animation
 
@@ -170,10 +170,10 @@ app = new qApp
                         setSizePolicy(1,1)
                     }
                     
-                    LayoutButtonRow[Row].AddWidget(Button[Row][Col])    ### Widget - Add HORZ BOTTON
+                    LayoutButtonRow[Row].AddWidget(Button[Row][Col])    ### Widget - Add HORIZONTAL BUTTON
                next
                
-               LayoutButtonMain.AddLayout(LayoutButtonRow[Row])         ### Layout - Add ROW of ButtonS
+               LayoutButtonMain.AddLayout(LayoutButtonRow[Row])         ### Layout - Add ROW of Buttons
             next
 
             ###------------------------------------------------

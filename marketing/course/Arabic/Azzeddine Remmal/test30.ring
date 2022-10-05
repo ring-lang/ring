@@ -11,10 +11,10 @@
 # ------Statement ----> Keywords + Expressions 
 
 see "Hello, World!" + nl
-#-------- -Keword Expression 
+#-------- -Keyword Expression 
 
 # --------Statement ----> 'See' <Expression> 
-# --------Statement ----> <Expresssion>
+# --------Statement ----> <Expression>
 
 "Hello, World!"
 12
@@ -45,4 +45,3 @@ nl = Windowsnl()	                         # ----char(13) + char(10)
 cString = "Hello" + nl + "How are you" + nl
 write("mytest.txt",cString)
 system("notepad mytest.txt")
-

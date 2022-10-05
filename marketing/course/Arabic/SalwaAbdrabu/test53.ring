@@ -5,4 +5,4 @@
 
 
 func test 
-	? "Calling Fanction From Another File"
+	? "Calling Function From Another File"

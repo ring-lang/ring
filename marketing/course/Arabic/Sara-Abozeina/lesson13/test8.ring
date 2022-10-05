@@ -1,5 +1,5 @@
 /*
-**	Application:define lines to be executed {even it is in the commentation area}
+**	Application:define lines to be executed {even it is in the comment area}
 **	Author	   :Sara Abozeina
 **	Date       :2017.12.25
 */

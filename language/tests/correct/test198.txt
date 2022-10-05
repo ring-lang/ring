@@ -1,20 +1,24 @@
-two
-
-
-2
-m
-four
-4
-
-one
-two
-three
-
-ring
-one
-1
-two
-2
-three
-3
-
+c in str step 1
+t
+s in substr(str,2) step 2
+e
+h in hybrid step 3
+t
+c in str step 1
+e
+s in substr(str,2) step 2
+e
+h in hybrid step 3
+t
+c in str step 1
+s
+s in substr(str,2) step 2
+e
+h in hybrid step 3
+t
+c in str step 1
+t
+s in substr(str,2) step 2
+e
+h in hybrid step 3
+t

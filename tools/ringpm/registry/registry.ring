@@ -212,7 +212,7 @@ aPackagesRegistry = [
 	  :ProviderUserName = "ringpackages"
 	],
 	[ :name = "employee",
-	  :description = "Empoyee application for the Ring programming language",
+	  :description = "Employee application for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
 	],
 	[ :name = "fifteenpuzzle",
@@ -666,5 +666,57 @@ aPackagesRegistry = [
 	[ :name = "chessendgame",
           :description = "ChessEndGame package for the Ring programming language",
           :ProviderUserName = "ringpackages"
-        ]
+        ],
+	[ :name = "csvlib",
+          :description = "CSVLib library for the Ring programming language",
+          :ProviderUserName = "ringpackages"
+        ],
+	[ :name = "tokenslib",
+          :description = "TokensLib library for the Ring programming language",
+          :ProviderUserName = "ringpackages"
+        ],
+	[ :name = "jsonlib",
+          :description = "JSONLib library for the Ring programming language",
+          :ProviderUserName = "ringpackages"
+        ],
+	[ :name = "libdepwin_allegro5271",
+	  :description = "LibDepWin_Allegro5271 package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "citationsprediction",
+	  :description = "Citations Prediction application package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "mergetwofiles",
+	  :description = "Merge Two Files application package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "poetryanalysis",
+	  :description = "Poetry Analysis application package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "Rosetta-Ring-Sample",
+	  :description = "Our Rosetta-Ring-Sample package using the Ring programming language",
+	  :ProviderUserName = "Azzeddine2017"
+	],
+	[ :name = "dogapi",
+	  :description = "Dog API client",
+	  :ProviderUserName = "thexxiv"
+	],
+	[ :name = "regex",
+	  :description = "An easy to use pattern matching",
+	  :ProviderUserName = "thexxiv"
+	],
+	[ :name = "softanzalib",
+	  :description = "Softanza Library for the Ring programming language",
+	  :ProviderUserName = "mayouni"
+	],
+	[ :name = "httplib",
+	  :description = "RingHTTPLib package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "randomuser",
+	  :description = "RandomUser package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	]
 ]

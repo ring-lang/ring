@@ -1,22 +1,22 @@
 /*
-	name 		: Mostafa Abdullah Adam 
-	App 		: Test 13 ( Lists ) 
+	Application 	: Test 13 ( Lists ) 
+	Author 		: Mostafa Abdullah Adam 
 	Date 		: 2017-12-11 
 */ 
 #=======================================================
-     // Variables types ( str , num , list , obj , c obj )
+     // Variables types ( string , number , list , obj , c obj )
 #=======================================================
 
 		#===============================#
-		//List -----> Aray , list , ...etc 
+		//List -----> Array , list , ...etc 
 		      #==================#
 
 
 
 	mylist= [1,2,3,4,5,6,7,8]
 	? mylist
-#len(listname)		--->viwelistcount  
-#len(stringname)	--->view lentgh of character of string
+#len(listname)		---> view list of count  
+#len(stringname)	---> view length of character inside that string
 	see "the count = " + len(mylist) +nl
 //===================================================//
 

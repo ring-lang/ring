@@ -1,4 +1,5 @@
-Start
-Message From Test
-Test Output
-End
+10
+6
+10
+
+10

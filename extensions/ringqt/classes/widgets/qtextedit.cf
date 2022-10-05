@@ -6,6 +6,15 @@ codename: GTextEdit
 passvmpointer
 </class>
 
+<filter> sysget("RINGQT_QT515") = ""
+void setTabStopWidth(int width)
+int tabStopWidth(void)  
+</filter>
+
+void setTabStopDistance(qreal width)
+qreal tabStopDistance(void)  
+
+
 bool acceptRichText(void)
 int alignment(void)
 QString anchorAt(QPoint)
@@ -46,13 +55,11 @@ void setLineWrapMode(QTextEdit::LineWrapMode)
 void setOverwriteMode(bool overwrite)
 void setReadOnly(bool)
 void setTabChangesFocus(bool)
-void setTabStopWidth(int width)
 void setTextCursor(QTextCursor)
 void setTextInteractionFlags(Qt::TextInteractionFlag flags)
 void setUndoRedoEnabled(bool enable)
 void setWordWrapMode(QTextOption::WrapMode policy)
 bool tabChangesFocus(void)  
-int tabStopWidth(void)  
 QColor textBackgroundColor(void)  
 QColor textColor(void)  
 QTextCursor textCursor(void)  

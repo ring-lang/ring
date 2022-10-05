@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Using the Natural Library &mdash; Ring 1.16 documentation</title>
+  <title>Using the Natural Library &mdash; Ring 1.18 documentation</title>
   
 
   
@@ -159,6 +159,10 @@
 <li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csvlib.html">CSVLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jsonlib.html">JSONLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="httplib.html">HTTPLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenslib.html">TokensLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="socket.html">Using RingSockets</a></li>
@@ -200,6 +204,7 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew14.html">Release Notes: Version 1.14</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew15.html">Release Notes: Version 1.15</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew17.html">Release Notes: Version 1.17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
@@ -375,7 +380,7 @@ I will count Again!
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="p">.</span><span class="n">SyntaxIsKeyword</span><span class="p">(</span><span class="o">[</span>
         <span class="p">:</span><span class="n">Package</span> <span class="o">=</span> <span class="s">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
         <span class="p">:</span><span class="n">Keyword</span> <span class="o">=</span> <span class="p">:</span><span class="n">hello</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">Function</span> <span class="o">=</span> <span class="k">func</span> <span class="p">{</span>
+        <span class="p">:</span><span class="k">Function</span> <span class="o">=</span> <span class="k">func</span> <span class="p">{</span>
                 <span class="k">See</span>  <span class="s">&quot;Hello, Sir!&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">nl</span>
         <span class="p">}</span>
 <span class="o">]</span><span class="p">)</span>
@@ -385,7 +390,7 @@ I will count Again!
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="p">.</span><span class="n">SyntaxIsKeywordNumberNumber</span><span class="p">(</span><span class="o">[</span>
         <span class="p">:</span><span class="n">Package</span> <span class="o">=</span> <span class="s">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
         <span class="p">:</span><span class="n">Keyword</span> <span class="o">=</span> <span class="p">:</span><span class="n">count</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">Function</span> <span class="o">=</span> <span class="k">func</span> <span class="p">{</span>
+        <span class="p">:</span><span class="k">Function</span> <span class="o">=</span> <span class="k">func</span> <span class="p">{</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">isattribute</span><span class="p">(</span><span class="n">self</span><span class="p">,:</span><span class="n">count_times</span><span class="p">)</span> <span class="p">{</span>
                         <span class="n">AddAttribute</span><span class="p">(</span><span class="n">self</span><span class="p">,:</span><span class="n">count_times</span><span class="p">)</span>
                         <span class="n">Count_Times</span> <span class="o">=</span> <span class="mi">0</span>
@@ -464,7 +469,7 @@ user will write after the keyword.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="p">.</span><span class="n">SyntaxIsKeywordExpression</span><span class="p">(</span><span class="o">[</span>
         <span class="p">:</span><span class="n">Package</span> <span class="o">=</span> <span class="s">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
         <span class="p">:</span><span class="n">Keyword</span> <span class="o">=</span> <span class="p">:</span><span class="n">print</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">Function</span> <span class="o">=</span> <span class="k">func</span> <span class="p">{</span>
+        <span class="p">:</span><span class="k">Function</span> <span class="o">=</span> <span class="k">func</span> <span class="p">{</span>
                 <span class="k">See</span>  <span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
         <span class="p">}</span>
 <span class="o">]</span><span class="p">)</span>
@@ -487,7 +492,7 @@ user will write after the keyword.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="p">.</span><span class="n">SyntaxIsCommand</span><span class="p">(</span><span class="o">[</span>
         <span class="p">:</span><span class="n">Package</span> <span class="o">=</span> <span class="s">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
         <span class="p">:</span><span class="n">Command</span> <span class="o">=</span> <span class="s">&quot;i want window&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">Function</span> <span class="o">=</span> <span class="k">func</span> <span class="p">{</span>
+        <span class="p">:</span><span class="k">Function</span> <span class="o">=</span> <span class="k">func</span> <span class="p">{</span>
                 <span class="k">See</span>  <span class="s">&quot;Command: I want window&quot;</span> <span class="o">+</span> <span class="n">nl</span>
         <span class="p">}</span>
 <span class="o">]</span><span class="p">)</span>
@@ -510,7 +515,7 @@ user will write after the keyword.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="p">.</span><span class="n">SyntaxIsCommandString</span><span class="p">(</span><span class="o">[</span>
         <span class="p">:</span><span class="n">Package</span> <span class="o">=</span> <span class="s">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
         <span class="p">:</span><span class="n">Command</span> <span class="o">=</span> <span class="s">&quot;window title is&quot;</span><span class="p">,</span>
-        <span class="p">:</span><span class="n">Function</span> <span class="o">=</span> <span class="k">func</span> <span class="p">{</span>
+        <span class="p">:</span><span class="k">Function</span> <span class="o">=</span> <span class="k">func</span> <span class="p">{</span>
                 <span class="k">See</span>  <span class="s">&quot;Command: Window title is &quot;</span> <span class="o">+</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
         <span class="p">}</span>
 <span class="o">]</span><span class="p">)</span>
@@ -655,7 +660,7 @@ DefineNaturalCommand object or by defining new class as in the next examples.</p
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2016-2021, Ring Team
+        &copy; Copyright 2016-2022, Ring Team
 
     </p>
   </div>

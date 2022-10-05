@@ -4,6 +4,8 @@ name: QPixmap
 para: const char *
 </class>
 
+QPixmap transformed(QTransform transform, Qt::TransformationMode mode)
+
 QPixmap copy(int x, int y, int width, int height)
 QPixmap scaled(int width, int height, Qt::AspectRatioMode aspectRatioMode, Qt::TransformationMode transformMode) 
 int width(void)
@@ -40,10 +42,8 @@ void setDevicePixelRatio(qreal scaleFactor)
 QSize size(void)
 void swap(QPixmap other)
 QImage toImage(void)
-QPixmap transformed(QTransform transform, Qt::TransformationMode mode)
-QPixmap transformed@2(QMatrix matrix, Qt::TransformationMode mode)
+QPixmap transformed@2(QTransform matrix, Qt::TransformationMode mode)
 int defaultDepth(void)
 QPixmap fromImage@2(QImage image, Qt::ImageConversionFlags flags)
 QPixmap fromImageReader(QImageReader *imageReader, Qt::ImageConversionFlags flags)
 QTransform trueMatrix(QTransform matrix, int width, int height)
-QMatrix trueMatrix@2(QMatrix m, int w, int h)

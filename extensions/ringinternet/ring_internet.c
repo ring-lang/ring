@@ -12,10 +12,10 @@ struct upload_status {
 } ;
 /* Functions */
 
-RING_API void ringlib_init ( RingState *pRingState )
+RING_LIBINIT
 {
-	ring_vm_funcregister("download",ring_vm_curl_download);
-	ring_vm_funcregister("sendemail",ring_vm_curl_sendemail);
+	RING_API_REGISTER("download",ring_vm_curl_download);
+	RING_API_REGISTER("sendemail",ring_vm_curl_sendemail);
 }
 
 size_t ring_getcurldata ( void *buffer, size_t size, size_t nmemb, void *pString )

@@ -1,5 +1,6 @@
 <libinitfunc> ring_qt_start
 
+<runcodenow> if sysget("RINGQT_CORE_ALONE") = "1" $globals[:AppType] = :Core  ok
 <runcodenow> if $globals[:AppType] = NULL  $globals[:AppType] = :Application  ok
 
 <code>
@@ -7,7 +8,7 @@ extern "C" {
 
 	RING_API void ring_qt_start(RingState *pRingState);
 
-	RING_API void ringlib_init(RingState *pRingState)
+	RING_LIBINIT
 	{
 </code>
 

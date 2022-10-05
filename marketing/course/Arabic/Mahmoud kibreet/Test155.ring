@@ -14,7 +14,7 @@
 /*
 	(1) Functions/Methods Scope 
 	(2) Type Hints 
-	(3) Trace Labrary (Debugging)
+	(3) Trace Library (Debugging)
 */
 
 # Function|Method Call

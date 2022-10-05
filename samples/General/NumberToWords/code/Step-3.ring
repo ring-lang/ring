@@ -1,5 +1,5 @@
 // *** step 3
-// number to words (hunderds)
+// number to words (hundreds)
 
 load "stdlib.ring"   // need for string func.
 
@@ -21,7 +21,7 @@ if number(n)< 20        // 1-19
   n = number(n)         // convert to num
   rtn = ones[n]         // ret value 
  elseif n < 100         // 20-99
-  n=n*1                 // convert to num (another possib.)
+  n=n*1                 // convert to num (another possible.)
   x = n % 10            // for ones
   y = floor(n / 10)     // for tens
   if x = 0 rtn = tens[y]
@@ -30,7 +30,7 @@ if number(n)< 20        // 1-19
  elseif len(n) = 3      // first place: hundreds
   z = right(n,2)
   h = (floor(n / 100)) *1   // Find out the hundreds
-  rtn = ones[h] +" hunderd "
+  rtn = ones[h] +" hundred "
   rtn = rtn + doWord(z)     // And.. (Recursion)
  end //if
 return rtn                  // pick up     

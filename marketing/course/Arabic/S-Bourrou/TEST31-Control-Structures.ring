@@ -8,16 +8,16 @@
 # In this  example i use : if,else,elseif,but 
 load "stdlib.ring"
 while true 
-Question = "What is the capital of palstine ?"
-? upper(Question) ? " Pleaz Enter correct word :"give Answer
-    if Answer = :jerusalem 
-    see "Of Course ! Correct :) thanks" sleep(5) exit
+Question = "What is the capital of Palestine ?"
+? upper(Question) ? " Please Enter correct word :"give Answer
+    if Answer = :Jerusalem
+    see "Of Course! Correct :) thanks" sleep(5) exit
     but Answer = :القدس 
     see "Right Arabic answer :)"  sleep(3) exit
     but Answer = "elquds"  
     ? "Ok Right !" sleep(3) exit
     elseif answer = :hint  
-    ? " jerusalem is the capital of palstine , sir !" + nl sleep(5) 
+    ? " Jerusalem is the capital of Palestine , sir !" + nl sleep(5) 
 
  
     else ?"You Failed!"  ? "Write hint to see the answer"

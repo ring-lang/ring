@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Functions - Third Style &mdash; Ring 1.16 documentation</title>
+  <title>Functions - Third Style &mdash; Ring 1.18 documentation</title>
   
 
   
@@ -163,6 +163,10 @@
 <li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csvlib.html">CSVLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jsonlib.html">JSONLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="httplib.html">HTTPLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenslib.html">TokensLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="socket.html">Using RingSockets</a></li>
@@ -204,6 +208,7 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew14.html">Release Notes: Version 1.14</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew15.html">Release Notes: Version 1.15</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew17.html">Release Notes: Version 1.17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
@@ -296,8 +301,7 @@
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
-<span class="k">func</span> <span class="n">hello</span> <span class="p">{</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">hello</span> <span class="p">{</span>
         <span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello from function </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
@@ -311,9 +315,7 @@
 <p>We can call the function before the function definition and the function code.</p>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
-
-<span class="n">hello</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">hello</span><span class="p">()</span>
 
 <span class="k">func</span> <span class="n">hello</span> <span class="p">{</span>
         <span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello from function </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
@@ -321,9 +323,7 @@
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
-
-<span class="n">first</span><span class="p">()</span>  <span class="n">second</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">first</span><span class="p">()</span>  <span class="n">second</span><span class="p">()</span>
 
 <span class="k">func</span> <span class="n">first</span> <span class="p">{</span>  <span class="n">print</span><span class="p">(</span><span class="s">&quot;message from the first function </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>  <span class="p">}</span>
 
@@ -336,9 +336,7 @@
 <p>To declare the function parameters, after the function name type the list of parameters as a group
 of identifiers separated by comma.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
-
-<span class="k">func</span> <span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">print</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
@@ -357,8 +355,6 @@ of identifiers separated by comma.</p>
 <span class="o">**</span> <span class="mi">3000</span>
 <span class="o">*/</span>
 
-<span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
-
 <span class="n">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="n">sum</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">2000</span><span class="p">)</span>
 
 <span class="k">func</span> <span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="n">print</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span> <span class="p">}</span>
@@ -372,8 +368,6 @@ when it’s defined, it will be executed after the end of other statements.</p>
 <p>if no other statements comes alone, the main function will be the first <a class="reference external" href="http://en.wikipedia.org/wiki/Entry_point">entry point</a></p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># this program will print the hello world message first then execute the main function</span>
-
-<span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
 <span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello, World! </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
 
@@ -392,8 +386,6 @@ Variables defined outside functions (before any function) are global variables.<
 <p>Inside any function we can access the variables defined inside this function beside the global variables.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># the program will print numbers from 10 to 1</span>
-
-<span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>                          <span class="c"># x is a global variable.</span>
 
@@ -433,9 +425,7 @@ to end the function execution without returning any value.</p>
 <p>if the function doesn’t return explicit value, it will return NULL (empty string = “” ).</p>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
-
-<span class="k">if</span> <span class="n">novalue</span><span class="p">()</span> <span class="o">=</span> <span class="kp">NULL</span> <span class="p">{</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">novalue</span><span class="p">()</span> <span class="o">=</span> <span class="kp">NULL</span> <span class="p">{</span>
         <span class="n">print</span><span class="p">(</span><span class="s">&quot;the function doesn&#39;t return a value</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 
@@ -448,9 +438,7 @@ to end the function execution without returning any value.</p>
 <p>The Ring programming language support <a class="reference external" href="http://en.wikipedia.org/wiki/Recursion_%28computer_science%29">Recursion</a>
 and the function can call itself using different parameters.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
-
-<span class="n">print</span><span class="p">(</span> <span class="n">fact</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="p">)</span>        <span class="c"># output = 120</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">print</span><span class="p">(</span> <span class="n">fact</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="p">)</span>        <span class="c"># output = 120</span>
 
 <span class="k">func</span> <span class="n">fact</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">1</span> <span class="k">else</span> <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">fact</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
 </pre></div>
@@ -479,7 +467,7 @@ and the function can call itself using different parameters.</p>
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2016-2021, Ring Team
+        &copy; Copyright 2016-2022, Ring Team
 
     </p>
   </div>

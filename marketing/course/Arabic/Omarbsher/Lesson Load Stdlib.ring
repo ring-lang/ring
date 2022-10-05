@@ -1,8 +1,9 @@
-/* Application :Sum Tow Number()
-Author :Omar Bsher
-Date  2017/12/09
-*/
+/* Application : What is your name? (Using stdlib)
+ * Author      : Omar Bsher
+ * Date        : 2017/12/09
+ */
+
 load "Stdlib.ring"
-print("Hello Worlad!\n  welcom to me frist app \n Waht is your Name?\n")
-name=getstring()
+print("Hello World!\n  Welcome to me first application \n What is your Name?\n")
+name = getstring()
 print ("Hello #{Name} " )

@@ -1,5 +1,4 @@
-/*hello
-*/
-see "welcom"
+/* Hello, your name */
+see "Welcome"
 give name 
-see "hello" +name
+see "Hello, " + name

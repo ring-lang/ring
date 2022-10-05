@@ -1,6 +1,6 @@
-Hello
-How are you?
-Welcome to Ring
-one
-two
-three
+1
+0
+1
+0
+1
+0

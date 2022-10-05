@@ -2,7 +2,7 @@
 			Modifications have comments started with *** or *****
 			Debugging was on Dev-C++ 5.11 and MSVC++ 10.0
 
-	All credit goes to the auther <Stuart Konen> and his CodeProject article on : 
+	All credit goes to the author <Stuart Konen> and his CodeProject article on : 
 	http://www.codeproject.com/Articles/8953/Registry-Wrapper-Class-CRegistry
 -------------------------------------------------------------------------------------	
 	
@@ -798,7 +798,7 @@ LPTSTR CRegEntry::GetExpandSZ(bool Expandable) {
 		DWORD vSize = _MAX_REG_VALUE * 16; 
 		
 		_tcscpy(tmpStr, lpszStr);
-		
+		if (lpszStr) delete[] lpszStr;
 		lpszStr = new TCHAR[vSize];
 
 		ExpandEnvironmentStrings(tmpStr, lpszStr, vSize);
@@ -829,6 +829,7 @@ DWORD CRegEntry::SetExpandSZ(LPTSTR value) {
 
 	assert(svalue <= _MAX_REG_VALUE);
 
+	if (lpszStr) delete[] lpszStr;
 	lpszStr = new TCHAR[_MAX_REG_VALUE];
 	_tcscpy(lpszStr, value);
 
@@ -859,6 +860,7 @@ DWORD CRegEntry::SetExpandSZ(LPTSTR value) {
  */
 
 DWORD CRegEntry::SetQWORD(UINT64 value) {
+	if (lpszStr) delete[] lpszStr;
 	lpszStr = new TCHAR[21];		// limit of largest value of QWORD range (20) + NULL termination
 	DWORD lRes = 0;
 

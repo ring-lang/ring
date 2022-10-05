@@ -1,17 +1,17 @@
 /*  
  **      Application : check type
- **      name        : Abdelrahman Adam
- **      Date        : 22\12\2017 
+ **      Author      : Abdelrahman Adam
+ **      Date        : 22/12/2017 
 */ 
 #======================================================
 
-mystring    = "welcome"
+mystring = "welcome"
 myNumber = 1
-myList	 =[1,2,3,4]
+myList	 = [ 1, 2, 3, 4 ]
 
 ? type(mystring)
 ? type(myNumber)
-?type(myList)
+? type(myList)
 
 ? isString(mystring)
 ? isString(myNumber)

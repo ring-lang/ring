@@ -4,10 +4,10 @@
 /
 /	Authors : 
 /		1- Majdi Sobain <MajdiSobain@Gmail.com>
-/		2- 
+/		2- Mounir IDRASSI <mounir@idrix.fr>
 /
 /
-/			Copyright (c) 2016-2017
+/			Copyright (c) 2016-2022
 /------------------------------------------------------------------------------------------------------------------*/
 
 
@@ -24,7 +24,7 @@ Function Name : rwaIsRunAsAdmin
 Func. Purpose : Check whether this process (ring.exe) is running as administrator or not
 Func. Params  : () Nothing
 Func. Return  : True or False
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 
  - - - - - - - - - - - - - - - - - - EXAMPLE - - - - - - - - - - - - - - - */
 Load "WINAPI.ring"
@@ -42,7 +42,7 @@ Func. Purpose : Elevate to ask administrator rights for the process
 Func. Params  : Either (String exepath) for running a particular app as administrator
 				/Or/   (String exepath, String params) to run a particular app with some parameters
 Func. Return  : Nothing
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 
  - - - - - - - - - - - - - - - - - - EXAMPLE - - - - - - - - - - - - - - - */
 Load "WINAPI.ring"
@@ -61,11 +61,11 @@ rwaElevate("C:\Windows\explorer.exe")	#The path of the executable file should be
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 Function Name : rShellExecute
-Func. Type	  : 
+Func. Type    : 
 Func. Purpose : Execute\Open an application or file with specific action
 Func. Params  : (HWND hwnd, String lpOperation, String lpFile, String lpParameters, String lpDirectory, INT nShowCmd)
-Func. Return  : the value that returned by ShellExecute() function
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Return  : The value that returned by ShellExecute() function
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 
  - - - - - - - - - - - - - - - - - - EXAMPLE - - - - - - - - - - - - - - - */
 Load "WINAPI.ring"
@@ -80,11 +80,11 @@ rShellExecute(NULL, "Open", "C:\Windows\notepad.exe", CurrentDir() + "\rnote.rin
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 Function Name : rShellExecuteResult
-Func. Type	  : This is local ring function created in "winapi.ring"
-Func. Purpose : it is a good function to reveal the code returned by rShellExecute()
+Func. Type    : This is local ring function created in "winapi.ring"
+Func. Purpose : It is a good function to reveal the code returned by rShellExecute()
 Func. Params  : ( RetID ) is the code that has been returned by rShellExecute() function
-Func. Return  : a string containing the interpretaion of the code returned by rShellExecute()
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Return  : a string containing the interpretation of the code returned by rShellExecute()
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 
  - - - - - - - - - - - - - - - - - - EXAMPLE - - - - - - - - - - - - - - - */
 Load "WINAPI.ring"
@@ -100,7 +100,7 @@ Function Name : rwaIsWow64Process
 Func. Purpose : Check whether this process (ring.exe) is a Wow64 process or not
 Func. Params  : () Nothing
 Func. Return  : (1) if True or (0) if False or (-1) if function failed
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 
  - - - - - - - - - - - - - - - - - - EXAMPLE - - - - - - - - - - - - - - - */
 Load "WINAPI.ring"
@@ -122,7 +122,7 @@ Function Name : rwaUserSID
 Func. Purpose : Return User SID
 Func. Params  : Either (HANDLE handle) of a process /Or/ () Nothing for the current process
 Func. Return  : User SID in a string format
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 
  - - - - - - - - - - - - - - - - - - EXAMPLE - - - - - - - - - - - - - - - */
 Load "WINAPI.ring"
@@ -138,7 +138,7 @@ Func. Purpose : Return user name according to the passed process
 				Note: if no parameter passed it will retrieve current user name
 Func. Params  : Either (HANDLE handle) of a process /Or/ () Nothing for the current process
 Func. Return  : User name in a string format
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 Func. Source  : https://msdn.microsoft.com/en-us/library/windows/desktop/aa379166(v=vs.85).aspx
 Minimum supported Win client\server : XP(Desktop_apps)\Server2003(Desktop_apps)
 
@@ -155,7 +155,7 @@ Func. Purpose : Return the string error message from the passed error code
 Func. Params  : Either (Number ID) to return a message in English
 				/Or/   (Number ID, BOOL allowlocale) to return a message in the user locale
 Func. Return  : Error message
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 
  - - - - - - - - - - - - - - - - - - EXAMPLE - - - - - - - - - - - - - - - */
 
@@ -170,7 +170,7 @@ Function Name : rGetLastError
 Func. Purpose : Return the last error code
 Func. Params  : ---
 Func. Return  : Error code
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 Func. Source  : https://msdn.microsoft.com/en-us/library/ms679360.aspx
 Minimum supported Win client\server\phone : XP\Server2003\Phone8
 
@@ -189,7 +189,7 @@ Function Name : rWow64EnableWow64FsRedirection
 Func. Purpose : Enable or Disable file system redirection under Wow64 environment
 Func. Params  : True for enabling and False for disabling
 Func. Return  : True if succeed or False if not
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 Func. Source  : https://msdn.microsoft.com/en-us/library/aa365744.aspx
 Minimum supported Win client\server : Vista(Desktop_apps)\Server2003(Desktop_apps)
 
@@ -223,7 +223,7 @@ Func. Return  : Pointer to data that should be passed to rwaRevertWow64FsRedirec
 				if you want to re-enable redirection
 				Note: This function must not be used with rWow64EnableWow64FsRedirection() function
 					at the same time
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 Func. Source  : https://msdn.microsoft.com/en-us/library/aa365743.aspx
 Minimum supported Win client\server :  XP_Pro_x64(Desktop_apps)\Server2003SP1(Desktop_apps)
 
@@ -246,7 +246,7 @@ Func. Params  : Pointer to data that has been created by rwaDisableWow64FsRedire
 Func. Return  : True if revert file system redirection succeed or False if not
 				Note: This function must not be used with rWow64EnableWow64FsRedirection() function
 					at the same time
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 Func. Source  : https://msdn.microsoft.com/en-us/library/aa365743.aspx
 Minimum supported Win client\server :  XP_Pro_x64(Desktop_apps)\Server2003SP1(Desktop_apps)
 
@@ -269,9 +269,9 @@ ok
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 Function Name : rwaEnvirVarString
 Func. Purpose : Return the string value of system environment variables
-Func. Params  : string contains a system environment variables
+Func. Params  : String contains a system environment variables
 Func. Return  : String value of system environment variables
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 Func. Source  : https://msdn.microsoft.com/en-us/library/windows/desktop/ms724265(v=vs.85).aspx
 Minimum supported Win client\server : Win2000Pro(Desktop_apps)\Server2000(Desktop_apps)
 
@@ -280,5 +280,82 @@ Minimum supported Win client\server : Win2000Pro(Desktop_apps)\Server2000(Deskto
 Load "WINAPI.ring"
 
 See rwaEnvirVarString("%SystemRoot%")
+
+/*=========================================================*/
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Function Name : rGetTempPath
+Func. Purpose : Retrieves the path of the directory designated for temporary files.
+Func. Params  : ()
+Func. Return  : the value that returned by GetTempPathA() function
+Func. Author  : Mounir IDRASSI <mounir@idrix.fr>
+Func. Source  : https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-gettemppatha
+
+ - - - - - - - - - - - - - - - - - - EXAMPLE - - - - - - - - - - - - - - - */
+
+Load "WINAPI.ring"
+
+See rGetTempPath()
+
+/*=========================================================*/
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Function Name : rGetTempFileName
+Func. Purpose : Creates a name for a temporary file inside the specified directory
+Func. Params  : (LPCSTR lpPathName, LPCSTR lpPrefixString, UINT   uUnique)
+Func. Return  : the value that returned by GetTempFileNameA() function
+Func. Author  : Mounir IDRASSI <mounir@idrix.fr>
+Func. Source  : https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-gettempfilenamea
+
+ - - - - - - - - - - - - - - - - - - EXAMPLE - - - - - - - - - - - - - - - */
+
+Load "WINAPI.ring"
+
+tempDir = rGetTempPath()
+/* we use a custom prefix "xyz". Any letters combination is ok*/
+tempFilePath = rGetTempFileNametempDir, "xyz", 0)
+See tempFilePath 
+
+/*=========================================================*/
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Function Name : rwaCreateUUID
+Func. Purpose : Creates a Universally Unique Identifier (UUID)
+Func. Params  : ()
+Func. Return  : a string containing the value of the generated UUID
+Func. Author  : Mounir IDRASSI <mounir@idrix.fr>
+Func. Source  : https://docs.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-uuidcreate
+
+ - - - - - - - - - - - - - - - - - - EXAMPLE - - - - - - - - - - - - - - - */
+
+Load "WINAPI.ring"
+
+/* create a unique UUID string */
+uuid = rwaCreateUUID()
+
+See "UUID = " + uuid + nl
+
+/*=========================================================*/
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Function Name : rwaReadBinaryResource
+Func. Purpose : Read the content bytes of the given resource embedded into our executable
+Func. Params  : (modulePath, resourceName, resourceType), 
+				modulePath is the path of the exe that contains the resources. If modulePath is NULL, then current exe is used.
+				resourceName/resourceType are either a string or an integer, they should match the identifiers set in the .rc file
+Func. Return  : a string containing the bytes of the requested resource or an empty string in case of failure.
+Func. Author  : Mounir IDRASSI <mounir@idrix.fr>
+
+ - - - - - - - - - - - - - - - - - - EXAMPLE - - - - - - - - - - - - - - - */
+
+Load "WINAPI.ring"
+
+/* read the resource identified by its name and its type */
+data = rwaReadBinaryResource("RESOURCENAME", "RESOURCETYPE")
+if len(data) = 0
+	See "resource could not be found" + nl
+ok
+
+
 
 

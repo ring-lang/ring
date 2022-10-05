@@ -19,8 +19,8 @@ Load "winapi.rh"
 Function Name : rShellExecuteResult
 Func. Purpose : it is a good function to reveal the code returned by rShellExecute()
 Func. Params  : ( RetID ) is the code that has been returned by rShellExecute() function
-Func. Return  : a string containing the interpretaion of the code returned by rShellExecute()
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Return  : a string containing the interpretation of the code returned by rShellExecute()
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 */
 Func rShellExecuteResult RetID
 aList = [

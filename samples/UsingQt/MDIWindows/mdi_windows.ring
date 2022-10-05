@@ -2,11 +2,11 @@
 # Inviting the RingQt library
 load "guilib.ring"
 
-# Creating an QApp object to hold your holle app
+# Creating an QApp object to hold your whole app
 oApp = new QApp {
 
 	# Creating a main workspace for your app, where you wan design
-	# the GUI strutcure of your App (menu, toolbar, dockbars, status bar)...
+	# the GUI structure of your App (menu, toolbar, dockbars, status bar)...
 	# and more importantly, for your case, a central region where you can
 	# specify your MDI windows...
 
@@ -54,7 +54,7 @@ oApp = new QApp {
 
 		# Great, we've finished designing the MDI area of
 		# our workspace/ Let's tell to our QMainWindow to
-		# popultae its central region with it:
+		# populate its central region with it:
 		setCentralWidget(mdiArea)
 
 		# Now, our design is ready, let's tell to RingQt to

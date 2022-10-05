@@ -1,5 +1,12 @@
-hello from test
-hello from test
-hello from test2
-hello from test3
-7
+Number to String
+Number: 1234567890
+Number: 1234567890
+String to Number
+String: 123456790
+Number plus one: 123456791
+Number to String
+Number: 123456789012345
+Number: 123456789012345
+String to Number
+String: 123456789012345
+Number plus one: 123456789012346

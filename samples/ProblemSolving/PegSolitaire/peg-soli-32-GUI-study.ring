@@ -3,7 +3,7 @@
 // http://en.wikipedia.org/wiki/Peg_solitaire
 // quell: https://golang.org/doc/play/solitaire.go
 
-// at the beginning mai 2020 nestor kuka / bert mariani (grafics)
+// at the beginning to May 2020 - nestor kuka / bert mariani (Graphics)
 
 Load "stdlib.ring"
 load "guilib.ring"
@@ -19,7 +19,7 @@ N      = 11  		 			// length of a row (11x11)
 pd     = [-1, -N, 1, N]	   		// possible directions
 moves  = 0						// number of times move is called
 center = 0					   	// empty hole
-cnt    = 32						// count the sucefull moves
+cnt    = 32						// count the successful moves
 
 ###---------------------------------------------------------------
  
@@ -89,7 +89,7 @@ app = new qApp
 
 ########################################
 
-// ---------------------------------------------- programm start
+// ---------------------------------------------- program start
 func startMain() {
 
 	See "startMain: "+nl
@@ -239,7 +239,7 @@ func solve() {
 	
 	return false
 }
- // --------------------------------------------------  end pgm
+ // --------------------------------------------------  end program
 
 
 //-------------------------------------------------
@@ -268,7 +268,7 @@ Func MapToButtons(b)
 	next
 	
 	###--------------------------
-    ### Update disply of Squares
+    ### Update display of Squares
 	
 	app.processevents()
 	sleep(1)

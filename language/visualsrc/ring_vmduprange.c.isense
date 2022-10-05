@@ -10,10 +10,8 @@ nType
 ring_vm_range
 nNum1,nNum2
 Type: int
-x
+x,nSize1,nSize2
 cStr
-Type: String *
-pString1,*pString2
 Type: List *
 pVar
 ring_vm_range_newlist

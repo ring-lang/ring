@@ -23,7 +23,15 @@ Func LoadVars
 	    	if sysget("REQUEST_METHOD") = "GET"
 			cInput = sysget("QUERY_STRING")
 		else
-			cInput = input(sysget("CONTENT_LENGTH"))
+			if sysget("CONTENT_LENGTH") > 0
+				cInput = input(sysget("CONTENT_LENGTH"))
+				if sysget("QUERY_STRING") != ""
+					cInput += "&" + sysget("QUERY_STRING")
+
+				ok
+			else
+				cInput = ""
+			ok
 		ok
 		
 		aPageVars = decode(cInput)

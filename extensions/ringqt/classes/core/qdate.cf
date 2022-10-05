@@ -3,6 +3,13 @@ name: QDate
 para: void
 </class>
 
+<filter> sysget("RINGQT_QT515") = ""
+QString longDayName(int weekday)
+QString longMonthName(int month)
+QString shortDayName(int weekday)
+QString shortMonthName(int month)
+</filter>
+
 QDate addDays(int ndays)
 QDate addMonths(int nmonths)
 QDate addYears(int nyears)
@@ -25,7 +32,3 @@ QDate currentDate(void)
 QDate fromJulianDay(int jd)
 QDate fromString(QString, QString)
 bool isLeapYear(int year)
-QString longDayName(int weekday)
-QString longMonthName(int month)
-QString shortDayName(int weekday)
-QString shortMonthName(int month)

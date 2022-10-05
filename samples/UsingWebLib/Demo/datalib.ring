@@ -82,9 +82,13 @@ Class ModelBase from Database
 				 cValues + ")" )
 
 	Func Update nID
+		UpdateColumns(nID,aColumns)
 
+	Func UpdateColumns nID,aColumnsList
 		cStr = ""
-		for x in aColumns
+		for x in aColumnsList
+			x = lower(x)
+			if x = "id" loop ok
 			cStr += x + " = '" + EscapeString(aPageVars[x]) + "' , " # the space after comma is necessary
 		Next
 		cStr = left(cStr,len(cStr)-2)  		
@@ -182,6 +186,9 @@ Class ModelBase from Database
 
 Class ControllerBase
 	
+	lAllowEdit   = True
+	lAllowDelete = True
+
 	nRecordsPerPage = 5
 	nRecordsCount = 0
 	nPagesCount = 0
@@ -261,16 +268,17 @@ Class ControllerBase
 		oView.SaveView(self)
 
 	func EditRecord
-
+		if !lAllowEdit return ok
 		oModel.Find( aPageVars[cRecID] )
 		oView.FormViewEdit(Self,:update,true) # true mean include record id
 
 	func UpdateRecord
-		oModel.update( aPageVars[cRecID] )
+		if !lAllowEdit return ok
+		oModel.updateColumns( aPageVars[cRecID], aColumnsNames )
 		oView.UpdateView(self)
 
 	func DeleteRecord
-
+		if !lAllowDelete return ok
 		oModel.Delete( aPageVars[cRecID] )
 		oView.DeleteView()
 
@@ -279,6 +287,10 @@ Class ControllerBase
 		oModel.Disconnect()
 
 Class ViewBase
+
+	aSize = [100,200,100]
+	lShowOptions = True
+	lShowBackLink = True
 
 	Func HiddenVars	
 		# No hidden variables
@@ -330,11 +342,13 @@ Class ViewBase
 				text( oTranslation.cTitle )
 			divend()
 
-			divstart( [ :style = stylesize("100%","5%") + stylegradient(4) ] )
-				divstart( [ :style = stylesize("100%","5%") + stylegradient(13) ] )
-					link([ :url = website, :title = oTranslation.cBack] )				
+			if this.lShowBackLink
+				divstart( [ :style = stylesize("100%","5%") + stylegradient(4) ] )
+					divstart( [ :style = stylesize("100%","5%") + stylegradient(13) ] )
+						link([ :url = website, :title = oTranslation.cBack] )				
+					divend()
 				divend()
-			divend()
+			ok
 
 			divstart( [ :style = stylesize("100%","10%") + stylegradient(11) ] )
 				divstart([ :style= stylewidth("30%") + styleHorizontalCenter() ])
@@ -347,7 +361,7 @@ Class ViewBase
 						tablestart([ :style = styletablenoborder() ])
 						rowstart([])
 						cellstart([ :style = styletablenoborder() + stylewidth("10%") ])
-							text(oTranslation.aColumnsTitles[2]+" : ")
+							text(oTranslation.cSearchColumn+" : ")
 						cellend()
 						cellstart([ :style = styletablenoborder() + stylewidth("70%") ])
 							textbox([ :name = oController.cSearchName , 
@@ -373,24 +387,27 @@ Class ViewBase
 					tablestart([:id = :t01 , :style="width:100%"])		
 						rowstart([ :style = stylegradient(57) ]) 
 							for x in oTranslation.aColumnsTitles headerstart([]) text(x) headerend() next 
-							headerstart([]) text(oTranslation.cOptions) headerend()
+							if this.lShowOptions
+								headerstart([]) text(oTranslation.cOptions) headerend()
+							ok
 						rowend() 
-						aSize = [100,200,100]
 						nID = 1
 						for x in oController.oModel.aQueryResult
 							rowstart([ :id = "gridrow" + nID ])
 								nSizeIndex = 0
-								for x2=1 to len(x)
-									if x2 > 1 and x2 <= len(oController.oModel.aColumns) + 1
-										if find(oController.aColumnsNames,oController.oModel.aColumns[x2-1]) = 0
-											loop
-										ok
-									ok
+								for x2=1 to len(oController.aColumnsNames)
 									nSizeIndex++
-									cellstart([ :style = stylewidth(""+aSize[nSizeIndex]+"px") ]) 
-										text(x[x2]) 
-									cellend() 
+									if nSizeIndex > len(this.aSize) 
+										this.aSize + 100
+									ok
+									nIndex = find(oController.oModel.aColumns,oController.aColumnsNames[x2])
+									if nIndex > 0 or lower(oController.aColumnsNames[x2]) = "id"
+										cellstart([ :style = stylewidth(""+this.aSize[nSizeIndex]+"px") ]) 
+											text(x[nIndex+1]) 
+										cellend() 
+									ok
 								next
+								if this.lShowOptions
 								cellstart([]) 						
 									combobox([ :id = "options"+nID,
 										   :name = "options",
@@ -402,6 +419,7 @@ Class ViewBase
 										   :value = "Select Option..." ] )						
 									nID++
 								cellend()
+								ok
 							rowend()
 						next
 					tableend()					
@@ -463,12 +481,17 @@ Class ViewBase
 			divend()
 			divend()
 
-			Script( oThisView.AddFuncScript(self,oController) + 
-				scriptfuncclean("myclean","result") +
-				scriptfuncselect("selectrecord",oTranslation.comboitems,
+			cScripts = oThisView.AddFuncScript(self,oController) + 
+				scriptfuncclean("myclean","result") 
+
+			if this.lShowOptions 
+				cScripts += scriptfuncselect("selectrecord",oTranslation.comboitems,
 						 "mysubpage","result","gridrow","myclean",3000,
 						 oController.cMainURL+oController.cOperation+"=edit&"+oController.cRecID+"=",
-						 oController.cMainURL+oController.cOperation+"=delete&"+oController.cRecID+"=") )	
+						 oController.cMainURL+oController.cOperation+"=delete&"+oController.cRecID+"=") 
+			ok
+
+			Script( cScripts )	
 
 		}
 
@@ -520,7 +543,7 @@ Class ViewBase
 								cellstart([ :style = styletablenoborder() ])
 								cellend()
 								cellstart([ :style = StyleTableNoBorder() ])
-									submit([ :value = oTranslation.cSave , :style = stylewidth("15%")])
+									submit([ :value = oTranslation.cSave , :style = stylewidth("25%")])
 								cellend()
 							rowend()
 						tableend()			

@@ -1,14 +1,17 @@
-print the list
-1
-2
-3
-x: 1.000000
-y: 2.000000
-z: 3.000000
-x: 1.000000
-y: 2.000000
-z: 3.000000
-print the item (object)
-x: 1
-y: 2
-z: 3
+Testing bitwise operators : 
+ X = 10 
+ Y = 5 
+x << y : 320
+x >> y : 0
+x ^ y : 15
+x & y : 0
+x | y : 15
+ X = 4 
+ Y = 5 
+x << y : 128
+x >> y : 0
+x ^ y : 1
+x & y : 4
+x | y : 5
+ 8 << 1 16
+ 8 >> 1 4

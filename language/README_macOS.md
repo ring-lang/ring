@@ -4,6 +4,8 @@
 
 ## Building using macOS
 
+This version is tested using macOS Catalina (version 10.15)
+
 ### Get the source code
 
 	git clone http://github.com/ring-lang/ring.git

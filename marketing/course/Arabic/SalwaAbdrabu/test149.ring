@@ -11,7 +11,7 @@
 		(3) Local Scope 
 */
 
-# Conflict between Local variable ane class attribute|object
+# Conflict between Local variable and class attribute|object
 
 new test{  
 		myTest()

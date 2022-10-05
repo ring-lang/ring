@@ -15,7 +15,7 @@ gSleepDelay = 0.00      // Animated Delay
 //Parameters
 
    radiusC    = 100     
-   xOff       = 150                   // horizonal for SineWave
+   xOff       = 150                   // horizontal for SineWave
    freq       = 5                     // Degrees freq
    nbrSq      = 5                     // Max 0-99 SQUARE count for SineWave
    nbrWaves   = 512                   // oSinQ Queue size for SineWave
@@ -69,7 +69,7 @@ MyApp = new qApp
     win = new qWidget()
     {
       setWindowTitle("SineWave ")
-      setGeometry(xPos, yPos, xWidth, yHeight)  ### Window Pos and Size
+      setGeometry(xPos, yPos, xWidth, yHeight)  ### Window Position and Size
 
       ###------------------------------------------
       ### Mouse Event
@@ -86,7 +86,7 @@ MyApp = new qApp
          daVinci = new qpainter()
          {
             begin(MonaLisa)
-            translate(300,300)     ### TRANSLATE CO-ORD x,y -- 0,0 MAPS TO 300,300
+            translate(300,300)     ### TRANSLATE COORDINATE x,y -- 0,0 MAPS TO 300,300
             #endpaint()            ### This will Stop the Painting      
          }
 
@@ -164,7 +164,7 @@ return
 
 ###===============================================
 ###===============================================
-### Sin() = Vertical  Cos() - Horzontal
+### Sin() = Vertical  Cos() - Horizontal
 //
 // See "Sin(15) radians = " + sin(15)            =>  0.65
 // See "Sin(15) degree  = " + sin(15 * 3.14/180) =>  0.26
@@ -191,7 +191,7 @@ Func pDrawObjects()
          //---------------------------------------
          // Draw SineWave made from oSinQ Queue
          
-         aPos  = FindCirclePoint(0,0,radiusC,Angle)    // Circle-Orig 
+         aPos  = FindCirclePoint(0,0,radiusC,Angle)    // Circle-Origin 
          xVert = aPos[1]  yVert = aPos[2]             // Angle => x,y position on circumference
       
          oSineQ.add(yVert)                            // SineWave    Add y-Point to end of Queue

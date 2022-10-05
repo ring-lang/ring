@@ -13,6 +13,7 @@ Mark: ->
 GCData *
 ring_pooldata
 RING_USEPOOLMANAGER
+RING_USEPOOLMANAGER
 RING_TRACKALLOCATIONS
 RING_POOLMANAGER_ITEMSINBLOCK
 RING_POOLMANAGER_ITEMSIZE
@@ -105,9 +106,15 @@ ring_vm_gc_newitemreference
 ring_vm_gc_freefunc
 ring_vm_gc_setfreefunc
 ring_malloc
+Type: void *
+pMemory
 ring_free
 ring_calloc
+Type: void *
+pMemory
 ring_realloc
+Type: void *
+pMemory
 ring_state_malloc
 ring_state_free
 Type: void *

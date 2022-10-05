@@ -15,7 +15,7 @@ class MainMenuScene from Scene
 			}
 			position.x -= w / 2
 
-			function = :startGame
+			cFunction = :startGame
 			parentScene = object2pointer(this)	
 		}
 		# Exit button in the scene
@@ -28,7 +28,7 @@ class MainMenuScene from Scene
 			}
 			position.x -= w / 2
 
-			function = :exitTheGame
+			cFunction = :exitTheGame
 			parentScene = object2pointer(this)	
 		}
 

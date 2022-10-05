@@ -1,27 +1,27 @@
-/*            app: database
-                 author : heba atef
-                  date :1.1.2018
-*/
+/*    Application: database
+ *    Author     : heba atef
+ *    Date       : 1.1.2018
+ */
 # odbc ( connect - database - odbc driver )
 
 # my sql 
 
 # sql lite 
 
-#============
+#========================================
 # ring sql lite 
  
 load "sqlitelib.ring"
 
 # sqlite_init() 
-# sqlite_open(object,"file.db")
-# sqllite_excute(object,"sql statment")
-#sqlite_close()
-#=========
+# sqlite_open(object, "file.db")
+# sqllite_execute(object, "sql statement")
+# sqlite_close()
+#========================================
 
 oSQLite = sqlite_init()
 
-sqlite_open(oSQLite,"mytest.db")
+sqlite_open(oSQLite, "mytest.db")
 
 sql ="
  CREATE TABLE COMPANY(
@@ -36,7 +36,7 @@ sql ="
 sqlite_execute(oSQLite,sql)
 
 sql = "
-INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) 
+INSERT INTO COMPANY (ID,NAME, AGE, ADDRESS, SALARY) 
          VALUES (1, 'Mahmoud', 29, 'Jeddah', 20000.00 ); 
          INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) 
          VALUES (2, 'Ahmed', 27, 'Jeddah', 15000.00 ); 
@@ -47,13 +47,13 @@ INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)
 "
 sqlite_execute(oSQLite,sql)
 
-aResult =  sqlite_execute(oSQLite,"select * from COMPANY")
+aResult =  sqlite_execute(oSQLite, "select * from COMPANY")
 for x in aResult
         for t in x
               ? t[2] 
         next
 next
-? copy("*",50)  
+? copy("*", 50)  
 for x in aResult
         ? x["name"] 
 next

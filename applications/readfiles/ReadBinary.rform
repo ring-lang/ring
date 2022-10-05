@@ -1,0 +1,185 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 3 , : y = 13  , 
+		 :width =  1133 , :height = 563 , 
+		 :title =  "Read Binary Files" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "icon.png" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  ,
+		 :GUILibrary =  0  
+
+		]
+	],
+	[ :name = "btnChooseFile" , :id = 2 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 10 , : y = 14  , 
+		 :width =  158 , :height = 35 , 
+		 :textcolor =  "#dfdfdf" , 
+		 :backcolor =  "" , 
+		 :font =  "Consolas,14,-1,5,75,0,0,0,0,0,Bold" , 
+		 :parent =  "win"  ,
+		 :text =  "Choose File",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Choose_File"
+		]
+	],
+	[ :name = "ListWidget1" , :id = 3 , :classname = "formdesigner_qlistwidget" , :data = [
+		 :x = 173 , : y = 105  , 
+		 :width =  457 , :height = 402 , 
+		 :textcolor =  "#dfdfdf" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :cItems =  "",
+		 :cCurrentRow =  "",
+		 :setcurrentItemChangedEvent =  "ListWidget1_ItemChanged",
+		 :setcurrentRowChangedEvent =  "",
+		 :setcurrentTextChangedEvent =  "",
+		 :setitemActivatedEvent =  "",
+		 :setitemChangedEvent =  "",
+		 :setitemClickedEvent =  "",
+		 :setitemDoubleClickedEvent =  "",
+		 :setitemEnteredEvent =  "",
+		 :setitemPressedEvent =  "",
+		 :setitemSelectionChangedEvent =  ""
+		]
+	],
+	[ :name = "Label1" , :id = 4 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 894 , : y = 107  , 
+		 :width =  215 , :height = 35 , 
+		 :textcolor =  "#dfdfdf" , 
+		 :backcolor =  "" , 
+		 :font =  "Consolas,14,-1,5,75,0,0,0,0,0,Bold" , 
+		 :parent =  "win"  ,
+		 :text =  "0",
+		 :textalign =  0
+		]
+	],
+	[ :name = "btnChooseFile4" , :id = 5 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 892 , : y = 302  , 
+		 :width =  213 , :height = 35 , 
+		 :textcolor =  "#dfdfdf" , 
+		 :backcolor =  "" , 
+		 :font =  "Consolas,14,-1,5,75,0,0,0,0,0,Bold" , 
+		 :parent =  "win"  ,
+		 :text =  "Copy As String",
+		 :BtnImage =  "",
+		 :setClickEvent =  "btn_copy1"
+		]
+	],
+	[ :name = "btnChooseFile5" , :id = 6 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 892 , : y = 359  , 
+		 :width =  213 , :height = 35 , 
+		 :textcolor =  "#dfdfdf" , 
+		 :backcolor =  "" , 
+		 :font =  "Consolas,14,-1,5,75,0,0,0,0,0,Bold" , 
+		 :parent =  "win"  ,
+		 :text =  "Copy As List",
+		 :BtnImage =  "",
+		 :setClickEvent =  "btn_copy2"
+		]
+	],
+	[ :name = "btnChooseFile6" , :id = 7 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 892 , : y = 417  , 
+		 :width =  213 , :height = 34 , 
+		 :textcolor =  "#dfdfdf" , 
+		 :backcolor =  "" , 
+		 :font =  "Consolas,14,-1,5,75,0,0,0,0,0,Bold" , 
+		 :parent =  "win"  ,
+		 :text =  "Copy As List 0x00",
+		 :BtnImage =  "",
+		 :setClickEvent =  "btn_copy3"
+		]
+	],
+	[ :name = "Label2" , :id = 8 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 895 , : y = 149  , 
+		 :width =  214 , :height = 35 , 
+		 :textcolor =  "#dfdfdf" , 
+		 :backcolor =  "" , 
+		 :font =  "Consolas,14,-1,5,75,0,0,0,0,0,Bold" , 
+		 :parent =  "win"  ,
+		 :text =  "0",
+		 :textalign =  0
+		]
+	],
+	[ :name = "Label3" , :id = 9 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 895 , : y = 186  , 
+		 :width =  214 , :height = 35 , 
+		 :textcolor =  "#dfdfdf" , 
+		 :backcolor =  "" , 
+		 :font =  "Consolas,14,-1,5,75,0,0,0,0,0,Bold" , 
+		 :parent =  "win"  ,
+		 :text =  "0",
+		 :textalign =  0
+		]
+	],
+	[ :name = "btnChooseFile9" , :id = 10 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 892 , : y = 470  , 
+		 :width =  213 , :height = 34 , 
+		 :textcolor =  "#dfdfdf" , 
+		 :backcolor =  "" , 
+		 :font =  "Consolas,14,-1,5,75,0,0,0,0,0,Bold" , 
+		 :parent =  "win"  ,
+		 :text =  "Exit",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Exit_Click"
+		]
+	],
+	[ :name = "ListWidgetP" , :id = 11 , :classname = "formdesigner_qlistwidget" , :data = [
+		 :x = 8 , : y = 105  , 
+		 :width =  157 , :height = 401 , 
+		 :textcolor =  "#dfdfdf" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :cItems =  "",
+		 :cCurrentRow =  "",
+		 :setcurrentItemChangedEvent =  "ListWidgetP_ItemChanged",
+		 :setcurrentRowChangedEvent =  "",
+		 :setcurrentTextChangedEvent =  "",
+		 :setitemActivatedEvent =  "",
+		 :setitemChangedEvent =  "",
+		 :setitemClickedEvent =  "",
+		 :setitemDoubleClickedEvent =  "",
+		 :setitemEnteredEvent =  "",
+		 :setitemPressedEvent =  "",
+		 :setitemSelectionChangedEvent =  ""
+		]
+	],
+	[ :name = "LabelcName" , :id = 12 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 12 , : y = 58  , 
+		 :width =  947 , :height = 35 , 
+		 :textcolor =  "#dfdfdf" , 
+		 :backcolor =  "" , 
+		 :font =  "Consolas,14,-1,5,75,0,0,0,0,0,Bold" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :textalign =  0
+		]
+	],
+	[ :name = "ListWidget2" , :id = 13 , :classname = "formdesigner_qlistwidget" , :data = [
+		 :x = 636 , : y = 105  , 
+		 :width =  247 , :height = 402 , 
+		 :textcolor =  "#dfdfdf" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :cItems =  "",
+		 :cCurrentRow =  "",
+		 :setcurrentItemChangedEvent =  "ListWidget2_ItemChanged",
+		 :setcurrentRowChangedEvent =  "",
+		 :setcurrentTextChangedEvent =  "",
+		 :setitemActivatedEvent =  "",
+		 :setitemChangedEvent =  "",
+		 :setitemClickedEvent =  "",
+		 :setitemDoubleClickedEvent =  "",
+		 :setitemEnteredEvent =  "",
+		 :setitemPressedEvent =  "",
+		 :setitemSelectionChangedEvent =  ""
+		]
+	]
+]
+# End Form Designer File

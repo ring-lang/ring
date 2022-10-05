@@ -4,22 +4,22 @@
           Date               :2018.03.16
 */
 
-# object oriented programming (oop)
+# Object Oriented programming (OOP)
 
-# Machine [cpu (cuc-Alu-Registers) mem - I/O]
+# Machine - CPU (CU - ALU - Registers) - Memory - I/O]
 
-# operating system [ process management - MM - filesystems - Drivers]
+# Operating System [ Process Management - Memory Management - Filesystems - Drivers]
 
-# programming language (abstraction)
+# Programming Language (abstraction)
 
-#		programming paradigm (Imperative - Do this then do that
+#		Programming Paradigm (Imperative - Do this then do that
 					
 			
-#			procedural
+#			Procedural
 
-#			functional programming
+#			Functional programming
 
-#			oop - declarative - natural -meta-programming)
+#			OOP - declarative - natural -meta-programming)
 
 #	libraries
 
@@ -35,24 +35,24 @@
 	[Data,Methods]----------[
 			Messages
 				prof. Alan Kay (smalltalk) - GUI
-	(1) communication bettween objects (only using messages)
+	(1) communication between objects (only using messages)
 	(2) object (Data + Methods) - separate Data
 		[ state is the Evil ]
 
 	Data    ----> (you need to protect)
 	Methods ----> (your way to get the data)
 
-	* Class (Definition) = Attributes(Data) + Methodes
+	* Class (Definition) = Attributes(Data) + Methods
 		----> Many objects (Instances)
-	[Class based OOP]---Java c++ c# Ring Python Ruby
+	[Class based OOP]---Java c++ C# Ring Python Ruby
 
 	*Objects (Properties - Values) - Copy object
 		[Prototype based OOP] ---- Self - Javascript
 
-	*poly. same interfaces (Methodes) --->for different objects
+	*poly. same interfaces (Methods) --->for different objects
 
-		execute()  ---> Mysql
-		execute()  ---> sqlite
+		execute()  ---> MySQL
+		execute()  ---> SQLite
 
 	*Inheritance 
 			Child---> parents

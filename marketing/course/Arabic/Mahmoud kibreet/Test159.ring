@@ -5,16 +5,16 @@
 */
 
 /*
-		(1) Desktop 
-		(2) Web 
+		(1) Desktop
+		(2) Web
 		(3) Mobile
 		(4) Games
 */
 
 /*
-	(1) Functions/Methods Scope 
-	(2) Type Hints 
-	(3) Trace Labrary (Debugging)
+	(1) Functions/Methods Scope
+	(2) Type Hints
+	(3) Trace Library (Debugging)
 */
 
 Load "tracelib.ring"

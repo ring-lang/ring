@@ -83,7 +83,7 @@ x = GenerateEnum("Alignment", [:Left, :Right,:Center])
 ? x
 ```
 
-You can also use string values (but don't use double qutes `"` in the string. Use single quotes instead `'`) like this:
+You can also use string values (but don't use double quotes `"` in the string. Use single quotes instead `'`) like this:
 ```ring
 x = GenerateEnum("Alignment", [
    :Left = "Left align",
@@ -94,7 +94,7 @@ x = GenerateEnum("Alignment", [
 ```
 
 # Flag Generator:
-A flag is an enum whitch members values are of power of 2 (1, 2, 4, ....), represinting binary flags that can be used to efficiently store a collection of boolean values. This requires some methods to set, unset and get the value of any individual flag in the collection, besides some overloaded operators to do the same tasks using the language operators like `+, -, &, |, ^, ~, =, !=, > ... etc`. I created the [FlagType class](FlagType.bin) that conatains all these methods and operators. In fact you will not directly use this class, and will not deal with it unless you want to modify it.
+A flag is an enum which members values are of power of 2 (1, 2, 4, ....), representing binary flags that can be used to efficiently store a collection of boolean values. This requires some methods to set, unset and get the value of any individual flag in the collection, besides some overloaded operators to do the same tasks using the language operators like `+, -, &, |, ^, ~, =, !=, > ... etc`. I created the [FlagType class](FlagType.bin) that contains all these methods and operators. In fact you will not directly use this class, and will not deal with it unless you want to modify it.
 I also created a function named [GenerateFlag](FlagGenerator.ring) to generate the required flag values as objects of the FlagType Class. Use this function like this:
 ```ring
 ? GenerateFlag("FileState", ["ReadOnly", "Hidden", "System"])
@@ -124,7 +124,7 @@ Class FileStateFlags
 
 You can copy this code to a new file and name it `FileState.ring` for example. 
 Note that for the `load "FlagType.ring"` statement to work, you need to copy the file `Flagtype.ring` to the folder `ring\bin`. This will make it available to use in all your ring projects. 
-Now you can use the FileState fals like this:
+Now you can use the FileState false like this:
 ```ring
 load "FileState.ring"
 x = FileState.ReadOnly
@@ -155,7 +155,7 @@ x = FileState.FlagFromInt(3)
 
 Note that the flag is immutable, and all methods and operator return a new Flag holding the result, without affecting the original Flag.
 
-Note also that if you will use the flag members multiple times un thee same code block, you can use this simple trick to shorten the name of the flag:
+Note also that if you will use the flag members multiple times on three same code block, you can use this simple trick to shorten the name of the flag:
 ```ring
 FileState {
    x = ReadOnly
@@ -177,5 +177,5 @@ FileState {
 ```
 
 # To Do:
-Personally, I wish someone can add a command in the Ring Notepad that shows a window with a textbox (to enter the enum name) , a table grid with two columns to enter names and values, and an OK button that calls the ` GenerateEnum` function to generate the class and show a save file dialogue to let the user choose the name and the location to save the class. Finally, the editor should add a `Load "[enumfile].ring" ` statement at the beginning of the current file opened in ring. Ot maybe we can let this option up to the user (by adding a check box to the enum generation window).
+Personally, I wish someone can add a command in the Ring Notepad that shows a window with a textbox (to enter the enum name) , a table grid with two columns to enter names and values, and an OK button that calls the ` GenerateEnum` function to generate the class and show a save file dialogue to let the user choose the name and the location to save the class. Finally, the editor should add a `Load "[enumfile].ring" ` statement at the beginning of the current file opened in ring. Qt maybe we can let this option up to the user (by adding a check box to the enum generation window).
 

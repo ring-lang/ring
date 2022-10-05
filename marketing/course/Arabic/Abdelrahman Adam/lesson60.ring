@@ -1,7 +1,7 @@
 /*  
- **      Application : Ring  Lessons
- **      name         : Abdelrahman Adam
- **      Date          :  22\12\2017 
+ **      Application : Ring Lessons
+ **      Author      : Abdelrahman Adam
+ **      Date        :  22/12/2017 
 */ 
 #======================================================
 
@@ -11,4 +11,4 @@
 ? random(100)
 
 decimals(2)
-? 12/5
+? 12 / 5

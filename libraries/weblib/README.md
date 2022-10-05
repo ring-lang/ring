@@ -1,4 +1,4 @@
-The WebLib Library for the Ring programming langauge 
+The WebLib Library for the Ring programming language 
 ====================================================
 
 To learn see the chapter 

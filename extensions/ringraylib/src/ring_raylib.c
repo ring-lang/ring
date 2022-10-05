@@ -11,7 +11,7 @@
 RING_FUNC(ring_raylib_new_vector2)
 {
 	Vector2 *pMyPointer ;
-	pMyPointer = (Vector2 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector2)) ;
+	pMyPointer = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -23,13 +23,13 @@ RING_FUNC(ring_raylib_new_vector2)
 RING_FUNC(ring_raylib_new_managed_vector2)
 {
 	Vector2 *pMyPointer ;
-	pMyPointer = (Vector2 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector2)) ;
+	pMyPointer = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Vector2",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Vector2",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_vector2)
@@ -43,9 +43,9 @@ RING_FUNC(ring_raylib_destroy_vector2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"Vector2");
+	pMyPointer = (Vector2*) RING_API_GETCPOINTER(1,"Vector2");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -121,7 +121,7 @@ RING_FUNC(ring_raylib_set_vector2_y)
 RING_FUNC(ring_raylib_new_vector3)
 {
 	Vector3 *pMyPointer ;
-	pMyPointer = (Vector3 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector3)) ;
+	pMyPointer = (Vector3 *) RING_API_MALLOC(sizeof(Vector3)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -133,13 +133,13 @@ RING_FUNC(ring_raylib_new_vector3)
 RING_FUNC(ring_raylib_new_managed_vector3)
 {
 	Vector3 *pMyPointer ;
-	pMyPointer = (Vector3 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector3)) ;
+	pMyPointer = (Vector3 *) RING_API_MALLOC(sizeof(Vector3)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Vector3",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Vector3",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_vector3)
@@ -153,9 +153,9 @@ RING_FUNC(ring_raylib_destroy_vector3)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"Vector3");
+	pMyPointer = (Vector3*) RING_API_GETCPOINTER(1,"Vector3");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -265,7 +265,7 @@ RING_FUNC(ring_raylib_set_vector3_z)
 RING_FUNC(ring_raylib_new_vector4)
 {
 	Vector4 *pMyPointer ;
-	pMyPointer = (Vector4 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector4)) ;
+	pMyPointer = (Vector4 *) RING_API_MALLOC(sizeof(Vector4)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -277,13 +277,13 @@ RING_FUNC(ring_raylib_new_vector4)
 RING_FUNC(ring_raylib_new_managed_vector4)
 {
 	Vector4 *pMyPointer ;
-	pMyPointer = (Vector4 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector4)) ;
+	pMyPointer = (Vector4 *) RING_API_MALLOC(sizeof(Vector4)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Vector4",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Vector4",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_vector4)
@@ -297,9 +297,9 @@ RING_FUNC(ring_raylib_destroy_vector4)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"Vector4");
+	pMyPointer = (Vector4*) RING_API_GETCPOINTER(1,"Vector4");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -443,7 +443,7 @@ RING_FUNC(ring_raylib_set_vector4_w)
 RING_FUNC(ring_raylib_new_quaternion)
 {
 	Quaternion *pMyPointer ;
-	pMyPointer = (Quaternion *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Quaternion)) ;
+	pMyPointer = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -455,13 +455,13 @@ RING_FUNC(ring_raylib_new_quaternion)
 RING_FUNC(ring_raylib_new_managed_quaternion)
 {
 	Quaternion *pMyPointer ;
-	pMyPointer = (Quaternion *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Quaternion)) ;
+	pMyPointer = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Quaternion",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Quaternion",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_quaternion)
@@ -475,9 +475,9 @@ RING_FUNC(ring_raylib_destroy_quaternion)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"Quaternion");
+	pMyPointer = (Quaternion*) RING_API_GETCPOINTER(1,"Quaternion");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -621,7 +621,7 @@ RING_FUNC(ring_raylib_set_quaternion_w)
 RING_FUNC(ring_raylib_new_matrix)
 {
 	Matrix *pMyPointer ;
-	pMyPointer = (Matrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Matrix)) ;
+	pMyPointer = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -633,13 +633,13 @@ RING_FUNC(ring_raylib_new_matrix)
 RING_FUNC(ring_raylib_new_managed_matrix)
 {
 	Matrix *pMyPointer ;
-	pMyPointer = (Matrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Matrix)) ;
+	pMyPointer = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Matrix",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Matrix",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_matrix)
@@ -653,9 +653,9 @@ RING_FUNC(ring_raylib_destroy_matrix)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"Matrix");
+	pMyPointer = (Matrix*) RING_API_GETCPOINTER(1,"Matrix");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -1207,7 +1207,7 @@ RING_FUNC(ring_raylib_set_matrix_m15)
 RING_FUNC(ring_raylib_new_color)
 {
 	Color *pMyPointer ;
-	pMyPointer = (Color *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Color)) ;
+	pMyPointer = (Color *) RING_API_MALLOC(sizeof(Color)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -1219,13 +1219,13 @@ RING_FUNC(ring_raylib_new_color)
 RING_FUNC(ring_raylib_new_managed_color)
 {
 	Color *pMyPointer ;
-	pMyPointer = (Color *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Color)) ;
+	pMyPointer = (Color *) RING_API_MALLOC(sizeof(Color)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Color",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Color",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_color)
@@ -1239,9 +1239,9 @@ RING_FUNC(ring_raylib_destroy_color)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"Color");
+	pMyPointer = (Color*) RING_API_GETCPOINTER(1,"Color");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -1385,7 +1385,7 @@ RING_FUNC(ring_raylib_set_color_a)
 RING_FUNC(ring_raylib_new_rectangle)
 {
 	Rectangle *pMyPointer ;
-	pMyPointer = (Rectangle *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Rectangle)) ;
+	pMyPointer = (Rectangle *) RING_API_MALLOC(sizeof(Rectangle)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -1397,13 +1397,13 @@ RING_FUNC(ring_raylib_new_rectangle)
 RING_FUNC(ring_raylib_new_managed_rectangle)
 {
 	Rectangle *pMyPointer ;
-	pMyPointer = (Rectangle *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Rectangle)) ;
+	pMyPointer = (Rectangle *) RING_API_MALLOC(sizeof(Rectangle)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Rectangle",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Rectangle",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_rectangle)
@@ -1417,9 +1417,9 @@ RING_FUNC(ring_raylib_destroy_rectangle)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"Rectangle");
+	pMyPointer = (Rectangle*) RING_API_GETCPOINTER(1,"Rectangle");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -1563,7 +1563,7 @@ RING_FUNC(ring_raylib_set_rectangle_height)
 RING_FUNC(ring_raylib_new_image)
 {
 	Image *pMyPointer ;
-	pMyPointer = (Image *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Image)) ;
+	pMyPointer = (Image *) RING_API_MALLOC(sizeof(Image)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -1575,13 +1575,13 @@ RING_FUNC(ring_raylib_new_image)
 RING_FUNC(ring_raylib_new_managed_image)
 {
 	Image *pMyPointer ;
-	pMyPointer = (Image *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Image)) ;
+	pMyPointer = (Image *) RING_API_MALLOC(sizeof(Image)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Image",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Image",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_image)
@@ -1595,9 +1595,9 @@ RING_FUNC(ring_raylib_destroy_image)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"Image");
+	pMyPointer = (Image*) RING_API_GETCPOINTER(1,"Image");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -1775,7 +1775,7 @@ RING_FUNC(ring_raylib_set_image_format)
 RING_FUNC(ring_raylib_new_texture2d)
 {
 	Texture2D *pMyPointer ;
-	pMyPointer = (Texture2D *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Texture2D)) ;
+	pMyPointer = (Texture2D *) RING_API_MALLOC(sizeof(Texture2D)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -1787,13 +1787,13 @@ RING_FUNC(ring_raylib_new_texture2d)
 RING_FUNC(ring_raylib_new_managed_texture2d)
 {
 	Texture2D *pMyPointer ;
-	pMyPointer = (Texture2D *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Texture2D)) ;
+	pMyPointer = (Texture2D *) RING_API_MALLOC(sizeof(Texture2D)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Texture2D",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Texture2D",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_texture2d)
@@ -1807,9 +1807,9 @@ RING_FUNC(ring_raylib_destroy_texture2d)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"Texture2D");
+	pMyPointer = (Texture2D*) RING_API_GETCPOINTER(1,"Texture2D");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -1987,7 +1987,7 @@ RING_FUNC(ring_raylib_set_texture2d_format)
 RING_FUNC(ring_raylib_new_texture)
 {
 	Texture *pMyPointer ;
-	pMyPointer = (Texture *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Texture)) ;
+	pMyPointer = (Texture *) RING_API_MALLOC(sizeof(Texture)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -1999,13 +1999,13 @@ RING_FUNC(ring_raylib_new_texture)
 RING_FUNC(ring_raylib_new_managed_texture)
 {
 	Texture *pMyPointer ;
-	pMyPointer = (Texture *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Texture)) ;
+	pMyPointer = (Texture *) RING_API_MALLOC(sizeof(Texture)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Texture",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Texture",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_texture)
@@ -2019,9 +2019,9 @@ RING_FUNC(ring_raylib_destroy_texture)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"Texture");
+	pMyPointer = (Texture*) RING_API_GETCPOINTER(1,"Texture");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -2199,7 +2199,7 @@ RING_FUNC(ring_raylib_set_texture_format)
 RING_FUNC(ring_raylib_new_rendertexture2d)
 {
 	RenderTexture2D *pMyPointer ;
-	pMyPointer = (RenderTexture2D *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(RenderTexture2D)) ;
+	pMyPointer = (RenderTexture2D *) RING_API_MALLOC(sizeof(RenderTexture2D)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -2211,13 +2211,13 @@ RING_FUNC(ring_raylib_new_rendertexture2d)
 RING_FUNC(ring_raylib_new_managed_rendertexture2d)
 {
 	RenderTexture2D *pMyPointer ;
-	pMyPointer = (RenderTexture2D *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(RenderTexture2D)) ;
+	pMyPointer = (RenderTexture2D *) RING_API_MALLOC(sizeof(RenderTexture2D)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"RenderTexture2D",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"RenderTexture2D",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_rendertexture2d)
@@ -2231,9 +2231,9 @@ RING_FUNC(ring_raylib_destroy_rendertexture2d)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"RenderTexture2D");
+	pMyPointer = (RenderTexture2D*) RING_API_GETCPOINTER(1,"RenderTexture2D");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -2649,7 +2649,7 @@ RING_FUNC(ring_raylib_set_rendertexture2d_depthTexture)
 RING_FUNC(ring_raylib_new_rendertexture)
 {
 	RenderTexture *pMyPointer ;
-	pMyPointer = (RenderTexture *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(RenderTexture)) ;
+	pMyPointer = (RenderTexture *) RING_API_MALLOC(sizeof(RenderTexture)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -2661,13 +2661,13 @@ RING_FUNC(ring_raylib_new_rendertexture)
 RING_FUNC(ring_raylib_new_managed_rendertexture)
 {
 	RenderTexture *pMyPointer ;
-	pMyPointer = (RenderTexture *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(RenderTexture)) ;
+	pMyPointer = (RenderTexture *) RING_API_MALLOC(sizeof(RenderTexture)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"RenderTexture",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"RenderTexture",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_rendertexture)
@@ -2681,9 +2681,9 @@ RING_FUNC(ring_raylib_destroy_rendertexture)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"RenderTexture");
+	pMyPointer = (RenderTexture*) RING_API_GETCPOINTER(1,"RenderTexture");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -3099,7 +3099,7 @@ RING_FUNC(ring_raylib_set_rendertexture_depthTexture)
 RING_FUNC(ring_raylib_new_npatchinfo)
 {
 	NPatchInfo *pMyPointer ;
-	pMyPointer = (NPatchInfo *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(NPatchInfo)) ;
+	pMyPointer = (NPatchInfo *) RING_API_MALLOC(sizeof(NPatchInfo)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -3111,13 +3111,13 @@ RING_FUNC(ring_raylib_new_npatchinfo)
 RING_FUNC(ring_raylib_new_managed_npatchinfo)
 {
 	NPatchInfo *pMyPointer ;
-	pMyPointer = (NPatchInfo *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(NPatchInfo)) ;
+	pMyPointer = (NPatchInfo *) RING_API_MALLOC(sizeof(NPatchInfo)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"NPatchInfo",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"NPatchInfo",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_npatchinfo)
@@ -3131,9 +3131,9 @@ RING_FUNC(ring_raylib_destroy_npatchinfo)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"NPatchInfo");
+	pMyPointer = (NPatchInfo*) RING_API_GETCPOINTER(1,"NPatchInfo");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -3447,7 +3447,7 @@ RING_FUNC(ring_raylib_set_npatchinfo_type)
 RING_FUNC(ring_raylib_new_charinfo)
 {
 	CharInfo *pMyPointer ;
-	pMyPointer = (CharInfo *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(CharInfo)) ;
+	pMyPointer = (CharInfo *) RING_API_MALLOC(sizeof(CharInfo)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -3459,13 +3459,13 @@ RING_FUNC(ring_raylib_new_charinfo)
 RING_FUNC(ring_raylib_new_managed_charinfo)
 {
 	CharInfo *pMyPointer ;
-	pMyPointer = (CharInfo *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(CharInfo)) ;
+	pMyPointer = (CharInfo *) RING_API_MALLOC(sizeof(CharInfo)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"CharInfo",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"CharInfo",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_charinfo)
@@ -3479,9 +3479,9 @@ RING_FUNC(ring_raylib_destroy_charinfo)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"CharInfo");
+	pMyPointer = (CharInfo*) RING_API_GETCPOINTER(1,"CharInfo");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -3795,7 +3795,7 @@ RING_FUNC(ring_raylib_set_charinfo_data)
 RING_FUNC(ring_raylib_new_font)
 {
 	Font *pMyPointer ;
-	pMyPointer = (Font *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Font)) ;
+	pMyPointer = (Font *) RING_API_MALLOC(sizeof(Font)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -3807,13 +3807,13 @@ RING_FUNC(ring_raylib_new_font)
 RING_FUNC(ring_raylib_new_managed_font)
 {
 	Font *pMyPointer ;
-	pMyPointer = (Font *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Font)) ;
+	pMyPointer = (Font *) RING_API_MALLOC(sizeof(Font)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Font",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Font",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_font)
@@ -3827,9 +3827,9 @@ RING_FUNC(ring_raylib_destroy_font)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"Font");
+	pMyPointer = (Font*) RING_API_GETCPOINTER(1,"Font");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -4109,7 +4109,7 @@ RING_FUNC(ring_raylib_set_font_chars)
 RING_FUNC(ring_raylib_new_spritefont)
 {
 	SpriteFont *pMyPointer ;
-	pMyPointer = (SpriteFont *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(SpriteFont)) ;
+	pMyPointer = (SpriteFont *) RING_API_MALLOC(sizeof(SpriteFont)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -4121,13 +4121,13 @@ RING_FUNC(ring_raylib_new_spritefont)
 RING_FUNC(ring_raylib_new_managed_spritefont)
 {
 	SpriteFont *pMyPointer ;
-	pMyPointer = (SpriteFont *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(SpriteFont)) ;
+	pMyPointer = (SpriteFont *) RING_API_MALLOC(sizeof(SpriteFont)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"SpriteFont",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"SpriteFont",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_spritefont)
@@ -4141,9 +4141,9 @@ RING_FUNC(ring_raylib_destroy_spritefont)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"SpriteFont");
+	pMyPointer = (SpriteFont*) RING_API_GETCPOINTER(1,"SpriteFont");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -4423,7 +4423,7 @@ RING_FUNC(ring_raylib_set_spritefont_chars)
 RING_FUNC(ring_raylib_new_camera3d)
 {
 	Camera3D *pMyPointer ;
-	pMyPointer = (Camera3D *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Camera3D)) ;
+	pMyPointer = (Camera3D *) RING_API_MALLOC(sizeof(Camera3D)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -4435,13 +4435,13 @@ RING_FUNC(ring_raylib_new_camera3d)
 RING_FUNC(ring_raylib_new_managed_camera3d)
 {
 	Camera3D *pMyPointer ;
-	pMyPointer = (Camera3D *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Camera3D)) ;
+	pMyPointer = (Camera3D *) RING_API_MALLOC(sizeof(Camera3D)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Camera3D",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Camera3D",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_camera3d)
@@ -4455,9 +4455,9 @@ RING_FUNC(ring_raylib_destroy_camera3d)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"Camera3D");
+	pMyPointer = (Camera3D*) RING_API_GETCPOINTER(1,"Camera3D");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -4839,7 +4839,7 @@ RING_FUNC(ring_raylib_set_camera3d_type)
 RING_FUNC(ring_raylib_new_mesh)
 {
 	Mesh *pMyPointer ;
-	pMyPointer = (Mesh *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Mesh)) ;
+	pMyPointer = (Mesh *) RING_API_MALLOC(sizeof(Mesh)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -4851,13 +4851,13 @@ RING_FUNC(ring_raylib_new_mesh)
 RING_FUNC(ring_raylib_new_managed_mesh)
 {
 	Mesh *pMyPointer ;
-	pMyPointer = (Mesh *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Mesh)) ;
+	pMyPointer = (Mesh *) RING_API_MALLOC(sizeof(Mesh)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Mesh",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Mesh",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_mesh)
@@ -4871,9 +4871,9 @@ RING_FUNC(ring_raylib_destroy_mesh)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"Mesh");
+	pMyPointer = (Mesh*) RING_API_GETCPOINTER(1,"Mesh");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -5357,7 +5357,7 @@ RING_FUNC(ring_raylib_set_mesh_vaoId)
 RING_FUNC(ring_raylib_new_shader)
 {
 	Shader *pMyPointer ;
-	pMyPointer = (Shader *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Shader)) ;
+	pMyPointer = (Shader *) RING_API_MALLOC(sizeof(Shader)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -5369,13 +5369,13 @@ RING_FUNC(ring_raylib_new_shader)
 RING_FUNC(ring_raylib_new_managed_shader)
 {
 	Shader *pMyPointer ;
-	pMyPointer = (Shader *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Shader)) ;
+	pMyPointer = (Shader *) RING_API_MALLOC(sizeof(Shader)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Shader",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Shader",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_shader)
@@ -5389,9 +5389,9 @@ RING_FUNC(ring_raylib_destroy_shader)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"Shader");
+	pMyPointer = (Shader*) RING_API_GETCPOINTER(1,"Shader");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -5433,7 +5433,7 @@ RING_FUNC(ring_raylib_set_shader_id)
 RING_FUNC(ring_raylib_new_materialmap)
 {
 	MaterialMap *pMyPointer ;
-	pMyPointer = (MaterialMap *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(MaterialMap)) ;
+	pMyPointer = (MaterialMap *) RING_API_MALLOC(sizeof(MaterialMap)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -5445,13 +5445,13 @@ RING_FUNC(ring_raylib_new_materialmap)
 RING_FUNC(ring_raylib_new_managed_materialmap)
 {
 	MaterialMap *pMyPointer ;
-	pMyPointer = (MaterialMap *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(MaterialMap)) ;
+	pMyPointer = (MaterialMap *) RING_API_MALLOC(sizeof(MaterialMap)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"MaterialMap",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"MaterialMap",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_materialmap)
@@ -5465,9 +5465,9 @@ RING_FUNC(ring_raylib_destroy_materialmap)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"MaterialMap");
+	pMyPointer = (MaterialMap*) RING_API_GETCPOINTER(1,"MaterialMap");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -5679,7 +5679,7 @@ RING_FUNC(ring_raylib_set_materialmap_value)
 RING_FUNC(ring_raylib_new_material)
 {
 	Material *pMyPointer ;
-	pMyPointer = (Material *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Material)) ;
+	pMyPointer = (Material *) RING_API_MALLOC(sizeof(Material)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -5691,13 +5691,13 @@ RING_FUNC(ring_raylib_new_material)
 RING_FUNC(ring_raylib_new_managed_material)
 {
 	Material *pMyPointer ;
-	pMyPointer = (Material *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Material)) ;
+	pMyPointer = (Material *) RING_API_MALLOC(sizeof(Material)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Material",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Material",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_material)
@@ -5711,9 +5711,9 @@ RING_FUNC(ring_raylib_destroy_material)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"Material");
+	pMyPointer = (Material*) RING_API_GETCPOINTER(1,"Material");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -5789,7 +5789,7 @@ RING_FUNC(ring_raylib_set_material_params)
 RING_FUNC(ring_raylib_new_transform)
 {
 	Transform *pMyPointer ;
-	pMyPointer = (Transform *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Transform)) ;
+	pMyPointer = (Transform *) RING_API_MALLOC(sizeof(Transform)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -5801,13 +5801,13 @@ RING_FUNC(ring_raylib_new_transform)
 RING_FUNC(ring_raylib_new_managed_transform)
 {
 	Transform *pMyPointer ;
-	pMyPointer = (Transform *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Transform)) ;
+	pMyPointer = (Transform *) RING_API_MALLOC(sizeof(Transform)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Transform",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Transform",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_transform)
@@ -5821,9 +5821,9 @@ RING_FUNC(ring_raylib_destroy_transform)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"Transform");
+	pMyPointer = (Transform*) RING_API_GETCPOINTER(1,"Transform");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -6171,7 +6171,7 @@ RING_FUNC(ring_raylib_set_transform_scale_z)
 RING_FUNC(ring_raylib_new_boneinfo)
 {
 	BoneInfo *pMyPointer ;
-	pMyPointer = (BoneInfo *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(BoneInfo)) ;
+	pMyPointer = (BoneInfo *) RING_API_MALLOC(sizeof(BoneInfo)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -6183,13 +6183,13 @@ RING_FUNC(ring_raylib_new_boneinfo)
 RING_FUNC(ring_raylib_new_managed_boneinfo)
 {
 	BoneInfo *pMyPointer ;
-	pMyPointer = (BoneInfo *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(BoneInfo)) ;
+	pMyPointer = (BoneInfo *) RING_API_MALLOC(sizeof(BoneInfo)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"BoneInfo",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"BoneInfo",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_boneinfo)
@@ -6203,9 +6203,9 @@ RING_FUNC(ring_raylib_destroy_boneinfo)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"BoneInfo");
+	pMyPointer = (BoneInfo*) RING_API_GETCPOINTER(1,"BoneInfo");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -6247,7 +6247,7 @@ RING_FUNC(ring_raylib_set_boneinfo_parent)
 RING_FUNC(ring_raylib_new_model)
 {
 	Model *pMyPointer ;
-	pMyPointer = (Model *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Model)) ;
+	pMyPointer = (Model *) RING_API_MALLOC(sizeof(Model)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -6259,13 +6259,13 @@ RING_FUNC(ring_raylib_new_model)
 RING_FUNC(ring_raylib_new_managed_model)
 {
 	Model *pMyPointer ;
-	pMyPointer = (Model *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Model)) ;
+	pMyPointer = (Model *) RING_API_MALLOC(sizeof(Model)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Model",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Model",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_model)
@@ -6279,9 +6279,9 @@ RING_FUNC(ring_raylib_destroy_model)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"Model");
+	pMyPointer = (Model*) RING_API_GETCPOINTER(1,"Model");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -7105,7 +7105,7 @@ RING_FUNC(ring_raylib_set_model_bindPose)
 RING_FUNC(ring_raylib_new_modelanimation)
 {
 	ModelAnimation *pMyPointer ;
-	pMyPointer = (ModelAnimation *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ModelAnimation)) ;
+	pMyPointer = (ModelAnimation *) RING_API_MALLOC(sizeof(ModelAnimation)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -7117,13 +7117,13 @@ RING_FUNC(ring_raylib_new_modelanimation)
 RING_FUNC(ring_raylib_new_managed_modelanimation)
 {
 	ModelAnimation *pMyPointer ;
-	pMyPointer = (ModelAnimation *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(ModelAnimation)) ;
+	pMyPointer = (ModelAnimation *) RING_API_MALLOC(sizeof(ModelAnimation)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"ModelAnimation",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"ModelAnimation",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_modelanimation)
@@ -7137,9 +7137,9 @@ RING_FUNC(ring_raylib_destroy_modelanimation)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"ModelAnimation");
+	pMyPointer = (ModelAnimation*) RING_API_GETCPOINTER(1,"ModelAnimation");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -7249,7 +7249,7 @@ RING_FUNC(ring_raylib_set_modelanimation_frameCount)
 RING_FUNC(ring_raylib_new_ray)
 {
 	Ray *pMyPointer ;
-	pMyPointer = (Ray *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Ray)) ;
+	pMyPointer = (Ray *) RING_API_MALLOC(sizeof(Ray)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -7261,13 +7261,13 @@ RING_FUNC(ring_raylib_new_ray)
 RING_FUNC(ring_raylib_new_managed_ray)
 {
 	Ray *pMyPointer ;
-	pMyPointer = (Ray *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Ray)) ;
+	pMyPointer = (Ray *) RING_API_MALLOC(sizeof(Ray)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Ray",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Ray",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_ray)
@@ -7281,9 +7281,9 @@ RING_FUNC(ring_raylib_destroy_ray)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"Ray");
+	pMyPointer = (Ray*) RING_API_GETCPOINTER(1,"Ray");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -7495,7 +7495,7 @@ RING_FUNC(ring_raylib_set_ray_direction_z)
 RING_FUNC(ring_raylib_new_rayhitinfo)
 {
 	RayHitInfo *pMyPointer ;
-	pMyPointer = (RayHitInfo *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(RayHitInfo)) ;
+	pMyPointer = (RayHitInfo *) RING_API_MALLOC(sizeof(RayHitInfo)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -7507,13 +7507,13 @@ RING_FUNC(ring_raylib_new_rayhitinfo)
 RING_FUNC(ring_raylib_new_managed_rayhitinfo)
 {
 	RayHitInfo *pMyPointer ;
-	pMyPointer = (RayHitInfo *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(RayHitInfo)) ;
+	pMyPointer = (RayHitInfo *) RING_API_MALLOC(sizeof(RayHitInfo)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"RayHitInfo",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"RayHitInfo",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_rayhitinfo)
@@ -7527,9 +7527,9 @@ RING_FUNC(ring_raylib_destroy_rayhitinfo)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"RayHitInfo");
+	pMyPointer = (RayHitInfo*) RING_API_GETCPOINTER(1,"RayHitInfo");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -7809,7 +7809,7 @@ RING_FUNC(ring_raylib_set_rayhitinfo_normal_z)
 RING_FUNC(ring_raylib_new_boundingbox)
 {
 	BoundingBox *pMyPointer ;
-	pMyPointer = (BoundingBox *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(BoundingBox)) ;
+	pMyPointer = (BoundingBox *) RING_API_MALLOC(sizeof(BoundingBox)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -7821,13 +7821,13 @@ RING_FUNC(ring_raylib_new_boundingbox)
 RING_FUNC(ring_raylib_new_managed_boundingbox)
 {
 	BoundingBox *pMyPointer ;
-	pMyPointer = (BoundingBox *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(BoundingBox)) ;
+	pMyPointer = (BoundingBox *) RING_API_MALLOC(sizeof(BoundingBox)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"BoundingBox",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"BoundingBox",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_boundingbox)
@@ -7841,9 +7841,9 @@ RING_FUNC(ring_raylib_destroy_boundingbox)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"BoundingBox");
+	pMyPointer = (BoundingBox*) RING_API_GETCPOINTER(1,"BoundingBox");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -8055,7 +8055,7 @@ RING_FUNC(ring_raylib_set_boundingbox_max_z)
 RING_FUNC(ring_raylib_new_wave)
 {
 	Wave *pMyPointer ;
-	pMyPointer = (Wave *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Wave)) ;
+	pMyPointer = (Wave *) RING_API_MALLOC(sizeof(Wave)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -8067,13 +8067,13 @@ RING_FUNC(ring_raylib_new_wave)
 RING_FUNC(ring_raylib_new_managed_wave)
 {
 	Wave *pMyPointer ;
-	pMyPointer = (Wave *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Wave)) ;
+	pMyPointer = (Wave *) RING_API_MALLOC(sizeof(Wave)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Wave",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Wave",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_wave)
@@ -8087,9 +8087,9 @@ RING_FUNC(ring_raylib_destroy_wave)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"Wave");
+	pMyPointer = (Wave*) RING_API_GETCPOINTER(1,"Wave");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -8267,7 +8267,7 @@ RING_FUNC(ring_raylib_set_wave_data)
 RING_FUNC(ring_raylib_new_sound)
 {
 	Sound *pMyPointer ;
-	pMyPointer = (Sound *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Sound)) ;
+	pMyPointer = (Sound *) RING_API_MALLOC(sizeof(Sound)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -8279,13 +8279,13 @@ RING_FUNC(ring_raylib_new_sound)
 RING_FUNC(ring_raylib_new_managed_sound)
 {
 	Sound *pMyPointer ;
-	pMyPointer = (Sound *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Sound)) ;
+	pMyPointer = (Sound *) RING_API_MALLOC(sizeof(Sound)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Sound",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Sound",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_sound)
@@ -8299,9 +8299,9 @@ RING_FUNC(ring_raylib_destroy_sound)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"Sound");
+	pMyPointer = (Sound*) RING_API_GETCPOINTER(1,"Sound");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -8445,7 +8445,7 @@ RING_FUNC(ring_raylib_set_sound_format)
 RING_FUNC(ring_raylib_new_audiostream)
 {
 	AudioStream *pMyPointer ;
-	pMyPointer = (AudioStream *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(AudioStream)) ;
+	pMyPointer = (AudioStream *) RING_API_MALLOC(sizeof(AudioStream)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -8457,13 +8457,13 @@ RING_FUNC(ring_raylib_new_audiostream)
 RING_FUNC(ring_raylib_new_managed_audiostream)
 {
 	AudioStream *pMyPointer ;
-	pMyPointer = (AudioStream *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(AudioStream)) ;
+	pMyPointer = (AudioStream *) RING_API_MALLOC(sizeof(AudioStream)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"AudioStream",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"AudioStream",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_audiostream)
@@ -8477,9 +8477,9 @@ RING_FUNC(ring_raylib_destroy_audiostream)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"AudioStream");
+	pMyPointer = (AudioStream*) RING_API_GETCPOINTER(1,"AudioStream");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -8691,7 +8691,7 @@ RING_FUNC(ring_raylib_set_audiostream_source)
 RING_FUNC(ring_raylib_new_vrdeviceinfo)
 {
 	VrDeviceInfo *pMyPointer ;
-	pMyPointer = (VrDeviceInfo *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(VrDeviceInfo)) ;
+	pMyPointer = (VrDeviceInfo *) RING_API_MALLOC(sizeof(VrDeviceInfo)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -8703,13 +8703,13 @@ RING_FUNC(ring_raylib_new_vrdeviceinfo)
 RING_FUNC(ring_raylib_new_managed_vrdeviceinfo)
 {
 	VrDeviceInfo *pMyPointer ;
-	pMyPointer = (VrDeviceInfo *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(VrDeviceInfo)) ;
+	pMyPointer = (VrDeviceInfo *) RING_API_MALLOC(sizeof(VrDeviceInfo)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"VrDeviceInfo",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"VrDeviceInfo",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_raylib_destroy_vrdeviceinfo)
@@ -8723,9 +8723,9 @@ RING_FUNC(ring_raylib_destroy_vrdeviceinfo)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"VrDeviceInfo");
+	pMyPointer = (VrDeviceInfo*) RING_API_GETCPOINTER(1,"VrDeviceInfo");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -9123,7 +9123,7 @@ RING_FUNC(ring_SetWindowIcon_2)
 	}
 	SetWindowIcon(* (Image  *) RING_API_GETCPOINTER(1,"Image"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Image"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Image"));
 }
 
 
@@ -9401,7 +9401,7 @@ RING_FUNC(ring_ClearBackground_2)
 	}
 	ClearBackground(* (Color  *) RING_API_GETCPOINTER(1,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Color"));
 }
 
 
@@ -9433,7 +9433,7 @@ RING_FUNC(ring_BeginMode2D_2)
 	}
 	BeginMode2D(* (Camera2D  *) RING_API_GETCPOINTER(1,"Camera2D"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Camera2D"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Camera2D"));
 }
 
 
@@ -9455,7 +9455,7 @@ RING_FUNC(ring_BeginMode3D_2)
 	}
 	BeginMode3D(* (Camera3D  *) RING_API_GETCPOINTER(1,"Camera3D"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Camera3D"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Camera3D"));
 }
 
 
@@ -9477,7 +9477,7 @@ RING_FUNC(ring_BeginTextureMode_2)
 	}
 	BeginTextureMode(* (RenderTexture2D  *) RING_API_GETCPOINTER(1,"RenderTexture2D"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"RenderTexture2D"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"RenderTexture2D"));
 }
 
 
@@ -9499,13 +9499,13 @@ RING_FUNC(ring_GetMouseRay_2)
 	}
 	{
 		Ray *pValue ; 
-		pValue = (Ray *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Ray)) ;
+		pValue = (Ray *) RING_API_MALLOC(sizeof(Ray)) ;
 		*pValue = GetMouseRay(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"),* (Camera3D  *) RING_API_GETCPOINTER(2,"Camera3D"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Camera3D"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Ray",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Camera3D"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Ray",RING_API_FREEFUNC);
 	}
 }
 
@@ -9518,13 +9518,13 @@ RING_FUNC(ring_GetWorldToScreen_2)
 	}
 	{
 		Vector2 *pValue ; 
-		pValue = (Vector2 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector2)) ;
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
 		*pValue = GetWorldToScreen(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"),* (Camera3D  *) RING_API_GETCPOINTER(2,"Camera3D"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Camera3D"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Camera3D"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
 	}
 }
 
@@ -9537,11 +9537,11 @@ RING_FUNC(ring_GetCameraMatrix_2)
 	}
 	{
 		Matrix *pValue ; 
-		pValue = (Matrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Matrix)) ;
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
 		*pValue = GetCameraMatrix(* (Camera3D  *) RING_API_GETCPOINTER(1,"Camera3D"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Camera3D"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Camera3D"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
 	}
 }
 
@@ -9598,7 +9598,7 @@ RING_FUNC(ring_ColorToInt_2)
 	}
 	RING_API_RETNUMBER(ColorToInt(* (Color  *) RING_API_GETCPOINTER(1,"Color")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Color"));
 }
 
 
@@ -9610,11 +9610,11 @@ RING_FUNC(ring_ColorNormalize_2)
 	}
 	{
 		Vector4 *pValue ; 
-		pValue = (Vector4 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector4)) ;
+		pValue = (Vector4 *) RING_API_MALLOC(sizeof(Vector4)) ;
 		*pValue = ColorNormalize(* (Color  *) RING_API_GETCPOINTER(1,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Color"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector4",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Color"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector4",RING_API_FREEFUNC);
 	}
 }
 
@@ -9627,11 +9627,11 @@ RING_FUNC(ring_ColorToHSV_2)
 	}
 	{
 		Vector3 *pValue ; 
-		pValue = (Vector3 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector3)) ;
+		pValue = (Vector3 *) RING_API_MALLOC(sizeof(Vector3)) ;
 		*pValue = ColorToHSV(* (Color  *) RING_API_GETCPOINTER(1,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Color"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Color"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",RING_API_FREEFUNC);
 	}
 }
 
@@ -9644,11 +9644,11 @@ RING_FUNC(ring_ColorFromHSV_2)
 	}
 	{
 		Color *pValue ; 
-		pValue = (Color *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Color)) ;
+		pValue = (Color *) RING_API_MALLOC(sizeof(Color)) ;
 		*pValue = ColorFromHSV(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Color",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Color",RING_API_FREEFUNC);
 	}
 }
 
@@ -9665,9 +9665,9 @@ RING_FUNC(ring_GetColor)
 	}
 	{
 		Color *pValue ; 
-		pValue = (Color *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Color)) ;
+		pValue = (Color *) RING_API_MALLOC(sizeof(Color)) ;
 		*pValue = GetColor( (int ) RING_API_GETNUMBER(1));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Color",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Color",RING_API_FREEFUNC);
 	}
 }
 
@@ -9684,11 +9684,11 @@ RING_FUNC(ring_Fade_2)
 	}
 	{
 		Color *pValue ; 
-		pValue = (Color *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Color)) ;
+		pValue = (Color *) RING_API_MALLOC(sizeof(Color)) ;
 		*pValue = Fade(* (Color  *) RING_API_GETCPOINTER(1,"Color"), (float ) RING_API_GETNUMBER(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Color"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Color",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Color"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Color",RING_API_FREEFUNC);
 	}
 }
 
@@ -9743,7 +9743,7 @@ RING_FUNC(ring_SetTraceLogCallback)
 	}
 	SetTraceLogCallback(* (TraceLogCallback  *) RING_API_GETCPOINTER(1,"TraceLogCallback"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TraceLogCallback"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"TraceLogCallback"));
 }
 
 
@@ -9985,9 +9985,9 @@ RING_FUNC(ring_GetFileModTime)
 	}
 	{
 		long *pValue ; 
-		pValue = (long *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(long)) ;
+		pValue = (long *) RING_API_MALLOC(sizeof(long)) ;
 		*pValue = GetFileModTime(RING_API_GETSTRING(1));
-		RING_API_RETMANAGEDCPOINTER(pValue,"long",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"long",RING_API_FREEFUNC);
 	}
 }
 
@@ -10362,9 +10362,9 @@ RING_FUNC(ring_GetMousePosition_2)
 	}
 	{
 		Vector2 *pValue ; 
-		pValue = (Vector2 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector2)) ;
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
 		*pValue = GetMousePosition();
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
 	}
 }
 
@@ -10465,9 +10465,9 @@ RING_FUNC(ring_GetTouchPosition_2)
 	}
 	{
 		Vector2 *pValue ; 
-		pValue = (Vector2 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector2)) ;
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
 		*pValue = GetTouchPosition( (int ) RING_API_GETNUMBER(1));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
 	}
 }
 
@@ -10538,9 +10538,9 @@ RING_FUNC(ring_GetGestureDragVector_2)
 	}
 	{
 		Vector2 *pValue ; 
-		pValue = (Vector2 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector2)) ;
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
 		*pValue = GetGestureDragVector();
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
 	}
 }
 
@@ -10563,9 +10563,9 @@ RING_FUNC(ring_GetGesturePinchVector_2)
 	}
 	{
 		Vector2 *pValue ; 
-		pValue = (Vector2 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector2)) ;
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
 		*pValue = GetGesturePinchVector();
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
 	}
 }
 
@@ -10592,7 +10592,7 @@ RING_FUNC(ring_SetCameraMode_2)
 	}
 	SetCameraMode(* (Camera3D  *) RING_API_GETCPOINTER(1,"Camera3D"), (int ) RING_API_GETNUMBER(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Camera3D"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Camera3D"));
 }
 
 
@@ -10702,7 +10702,7 @@ RING_FUNC(ring_DrawPixel_2)
 	}
 	DrawPixel( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Color"));
 }
 
 
@@ -10714,9 +10714,9 @@ RING_FUNC(ring_DrawPixelV_2)
 	}
 	DrawPixelV(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"),* (Color  *) RING_API_GETCPOINTER(2,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Color"));
 }
 
 
@@ -10744,7 +10744,7 @@ RING_FUNC(ring_DrawLine_2)
 	}
 	DrawLine( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4),* (Color  *) RING_API_GETCPOINTER(5,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(5,"Color"));
 }
 
 
@@ -10756,11 +10756,11 @@ RING_FUNC(ring_DrawLineV_2)
 	}
 	DrawLineV(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Color"));
 }
 
 
@@ -10776,11 +10776,11 @@ RING_FUNC(ring_DrawLineEx_2)
 	}
 	DrawLineEx(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"), (float ) RING_API_GETNUMBER(3),* (Color  *) RING_API_GETCPOINTER(4,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Color"));
 }
 
 
@@ -10796,11 +10796,11 @@ RING_FUNC(ring_DrawLineBezier_2)
 	}
 	DrawLineBezier(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"), (float ) RING_API_GETNUMBER(3),* (Color  *) RING_API_GETCPOINTER(4,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Color"));
 }
 
 
@@ -10820,7 +10820,7 @@ RING_FUNC(ring_DrawLineStrip_2)
 	}
 	DrawLineStrip((Vector2 *) RING_API_GETCPOINTER(1,"Vector2"), (int ) RING_API_GETNUMBER(2),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Color"));
 }
 
 
@@ -10844,7 +10844,7 @@ RING_FUNC(ring_DrawCircle_2)
 	}
 	DrawCircle( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3),* (Color  *) RING_API_GETCPOINTER(4,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Color"));
 }
 
 
@@ -10872,9 +10872,9 @@ RING_FUNC(ring_DrawCircleSector_2)
 	}
 	DrawCircleSector(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"), (float ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5),* (Color  *) RING_API_GETCPOINTER(6,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(6))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(6,"Color"));
 }
 
 
@@ -10902,9 +10902,9 @@ RING_FUNC(ring_DrawCircleSectorLines_2)
 	}
 	DrawCircleSectorLines(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"), (float ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5),* (Color  *) RING_API_GETCPOINTER(6,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(6))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(6,"Color"));
 }
 
 
@@ -10928,9 +10928,9 @@ RING_FUNC(ring_DrawCircleGradient_2)
 	}
 	DrawCircleGradient( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3),* (Color  *) RING_API_GETCPOINTER(4,"Color"),* (Color  *) RING_API_GETCPOINTER(5,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(5,"Color"));
 }
 
 
@@ -10946,9 +10946,9 @@ RING_FUNC(ring_DrawCircleV_2)
 	}
 	DrawCircleV(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"), (float ) RING_API_GETNUMBER(2),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Color"));
 }
 
 
@@ -10972,7 +10972,7 @@ RING_FUNC(ring_DrawCircleLines_2)
 	}
 	DrawCircleLines( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3),* (Color  *) RING_API_GETCPOINTER(4,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Color"));
 }
 
 
@@ -11004,9 +11004,9 @@ RING_FUNC(ring_DrawRing_2)
 	}
 	DrawRing(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5), (int ) RING_API_GETNUMBER(6),* (Color  *) RING_API_GETCPOINTER(7,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(7))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(7,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(7,"Color"));
 }
 
 
@@ -11038,9 +11038,9 @@ RING_FUNC(ring_DrawRingLines_2)
 	}
 	DrawRingLines(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5), (int ) RING_API_GETNUMBER(6),* (Color  *) RING_API_GETCPOINTER(7,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(7))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(7,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(7,"Color"));
 }
 
 
@@ -11068,7 +11068,7 @@ RING_FUNC(ring_DrawRectangle_2)
 	}
 	DrawRectangle( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4),* (Color  *) RING_API_GETCPOINTER(5,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(5,"Color"));
 }
 
 
@@ -11080,11 +11080,11 @@ RING_FUNC(ring_DrawRectangleV_2)
 	}
 	DrawRectangleV(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Color"));
 }
 
 
@@ -11096,9 +11096,9 @@ RING_FUNC(ring_DrawRectangleRec_2)
 	}
 	DrawRectangleRec(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),* (Color  *) RING_API_GETCPOINTER(2,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Color"));
 }
 
 
@@ -11114,11 +11114,11 @@ RING_FUNC(ring_DrawRectanglePro_2)
 	}
 	DrawRectanglePro(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"), (float ) RING_API_GETNUMBER(3),* (Color  *) RING_API_GETCPOINTER(4,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Color"));
 }
 
 
@@ -11146,9 +11146,9 @@ RING_FUNC(ring_DrawRectangleGradientV_2)
 	}
 	DrawRectangleGradientV( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4),* (Color  *) RING_API_GETCPOINTER(5,"Color"),* (Color  *) RING_API_GETCPOINTER(6,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(5,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(6))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(6,"Color"));
 }
 
 
@@ -11176,9 +11176,9 @@ RING_FUNC(ring_DrawRectangleGradientH_2)
 	}
 	DrawRectangleGradientH( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4),* (Color  *) RING_API_GETCPOINTER(5,"Color"),* (Color  *) RING_API_GETCPOINTER(6,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(5,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(6))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(6,"Color"));
 }
 
 
@@ -11190,15 +11190,15 @@ RING_FUNC(ring_DrawRectangleGradientEx_2)
 	}
 	DrawRectangleGradientEx(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),* (Color  *) RING_API_GETCPOINTER(2,"Color"),* (Color  *) RING_API_GETCPOINTER(3,"Color"),* (Color  *) RING_API_GETCPOINTER(4,"Color"),* (Color  *) RING_API_GETCPOINTER(5,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(5,"Color"));
 }
 
 
@@ -11226,7 +11226,7 @@ RING_FUNC(ring_DrawRectangleLines_2)
 	}
 	DrawRectangleLines( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4),* (Color  *) RING_API_GETCPOINTER(5,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(5,"Color"));
 }
 
 
@@ -11242,9 +11242,9 @@ RING_FUNC(ring_DrawRectangleLinesEx_2)
 	}
 	DrawRectangleLinesEx(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"), (int ) RING_API_GETNUMBER(2),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Color"));
 }
 
 
@@ -11264,9 +11264,9 @@ RING_FUNC(ring_DrawRectangleRounded_2)
 	}
 	DrawRectangleRounded(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"), (float ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),* (Color  *) RING_API_GETCPOINTER(4,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Color"));
 }
 
 
@@ -11290,9 +11290,9 @@ RING_FUNC(ring_DrawRectangleRoundedLines_2)
 	}
 	DrawRectangleRoundedLines(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"), (float ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4),* (Color  *) RING_API_GETCPOINTER(5,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(5,"Color"));
 }
 
 
@@ -11304,13 +11304,13 @@ RING_FUNC(ring_DrawTriangle_2)
 	}
 	DrawTriangle(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"),* (Vector2  *) RING_API_GETCPOINTER(3,"Vector2"),* (Color  *) RING_API_GETCPOINTER(4,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Color"));
 }
 
 
@@ -11322,13 +11322,13 @@ RING_FUNC(ring_DrawTriangleLines_2)
 	}
 	DrawTriangleLines(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"),* (Vector2  *) RING_API_GETCPOINTER(3,"Vector2"),* (Color  *) RING_API_GETCPOINTER(4,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Color"));
 }
 
 
@@ -11348,7 +11348,7 @@ RING_FUNC(ring_DrawTriangleFan_2)
 	}
 	DrawTriangleFan((Vector2 *) RING_API_GETCPOINTER(1,"Vector2"), (int ) RING_API_GETNUMBER(2),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Color"));
 }
 
 
@@ -11372,9 +11372,9 @@ RING_FUNC(ring_DrawPoly_2)
 	}
 	DrawPoly(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"), (int ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4),* (Color  *) RING_API_GETCPOINTER(5,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(5,"Color"));
 }
 
 
@@ -11386,9 +11386,9 @@ RING_FUNC(ring_SetShapesTexture_2)
 	}
 	SetShapesTexture(* (Texture2D  *) RING_API_GETCPOINTER(1,"Texture2D"),* (Rectangle  *) RING_API_GETCPOINTER(2,"Rectangle"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Texture2D"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Texture2D"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Rectangle"));
 }
 
 
@@ -11400,9 +11400,9 @@ RING_FUNC(ring_CheckCollisionRecs_2)
 	}
 	RING_API_RETNUMBER(CheckCollisionRecs(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),* (Rectangle  *) RING_API_GETCPOINTER(2,"Rectangle")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Rectangle"));
 }
 
 
@@ -11422,9 +11422,9 @@ RING_FUNC(ring_CheckCollisionCircles_2)
 	}
 	RING_API_RETNUMBER(CheckCollisionCircles(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"), (float ) RING_API_GETNUMBER(2),* (Vector2  *) RING_API_GETCPOINTER(3,"Vector2"), (float ) RING_API_GETNUMBER(4)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Vector2"));
 }
 
 
@@ -11440,9 +11440,9 @@ RING_FUNC(ring_CheckCollisionCircleRec_2)
 	}
 	RING_API_RETNUMBER(CheckCollisionCircleRec(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"), (float ) RING_API_GETNUMBER(2),* (Rectangle  *) RING_API_GETCPOINTER(3,"Rectangle")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Rectangle"));
 }
 
 
@@ -11454,13 +11454,13 @@ RING_FUNC(ring_GetCollisionRec_2)
 	}
 	{
 		Rectangle *pValue ; 
-		pValue = (Rectangle *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Rectangle)) ;
+		pValue = (Rectangle *) RING_API_MALLOC(sizeof(Rectangle)) ;
 		*pValue = GetCollisionRec(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),* (Rectangle  *) RING_API_GETCPOINTER(2,"Rectangle"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Rectangle"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Rectangle",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Rectangle"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Rectangle",RING_API_FREEFUNC);
 	}
 }
 
@@ -11473,9 +11473,9 @@ RING_FUNC(ring_CheckCollisionPointRec_2)
 	}
 	RING_API_RETNUMBER(CheckCollisionPointRec(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"),* (Rectangle  *) RING_API_GETCPOINTER(2,"Rectangle")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Rectangle"));
 }
 
 
@@ -11491,9 +11491,9 @@ RING_FUNC(ring_CheckCollisionPointCircle_2)
 	}
 	RING_API_RETNUMBER(CheckCollisionPointCircle(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"), (float ) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
 }
 
 
@@ -11505,13 +11505,13 @@ RING_FUNC(ring_CheckCollisionPointTriangle_2)
 	}
 	RING_API_RETNUMBER(CheckCollisionPointTriangle(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"),* (Vector2  *) RING_API_GETCPOINTER(3,"Vector2"),* (Vector2  *) RING_API_GETCPOINTER(4,"Vector2")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Vector2"));
 }
 
 
@@ -11527,9 +11527,9 @@ RING_FUNC(ring_LoadImage_2)
 	}
 	{
 		Image *pValue ; 
-		pValue = (Image *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Image)) ;
+		pValue = (Image *) RING_API_MALLOC(sizeof(Image)) ;
 		*pValue = LoadImage(RING_API_GETSTRING(1));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Image",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",RING_API_FREEFUNC);
 	}
 }
 
@@ -11554,9 +11554,9 @@ RING_FUNC(ring_LoadImageEx_2)
 	}
 	{
 		Image *pValue ; 
-		pValue = (Image *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Image)) ;
+		pValue = (Image *) RING_API_MALLOC(sizeof(Image)) ;
 		*pValue = LoadImageEx((Color *) RING_API_GETCPOINTER(1,"Color"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Image",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",RING_API_FREEFUNC);
 	}
 }
 
@@ -11585,9 +11585,9 @@ RING_FUNC(ring_LoadImagePro_2)
 	}
 	{
 		Image *pValue ; 
-		pValue = (Image *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Image)) ;
+		pValue = (Image *) RING_API_MALLOC(sizeof(Image)) ;
 		*pValue = LoadImagePro((void *) RING_API_GETCPOINTER(1,"void"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Image",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",RING_API_FREEFUNC);
 	}
 }
 
@@ -11620,9 +11620,9 @@ RING_FUNC(ring_LoadImageRaw_2)
 	}
 	{
 		Image *pValue ; 
-		pValue = (Image *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Image)) ;
+		pValue = (Image *) RING_API_MALLOC(sizeof(Image)) ;
 		*pValue = LoadImageRaw(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Image",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",RING_API_FREEFUNC);
 	}
 }
 
@@ -11639,7 +11639,7 @@ RING_FUNC(ring_ExportImage_2)
 	}
 	ExportImage(* (Image  *) RING_API_GETCPOINTER(1,"Image"),RING_API_GETSTRING(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Image"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Image"));
 }
 
 
@@ -11655,7 +11655,7 @@ RING_FUNC(ring_ExportImageAsCode_2)
 	}
 	ExportImageAsCode(* (Image  *) RING_API_GETCPOINTER(1,"Image"),RING_API_GETSTRING(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Image"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Image"));
 }
 
 
@@ -11671,9 +11671,9 @@ RING_FUNC(ring_LoadTexture_2)
 	}
 	{
 		Texture2D *pValue ; 
-		pValue = (Texture2D *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Texture2D)) ;
+		pValue = (Texture2D *) RING_API_MALLOC(sizeof(Texture2D)) ;
 		*pValue = LoadTexture(RING_API_GETSTRING(1));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Texture2D",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Texture2D",RING_API_FREEFUNC);
 	}
 }
 
@@ -11686,11 +11686,11 @@ RING_FUNC(ring_LoadTextureFromImage_2)
 	}
 	{
 		Texture2D *pValue ; 
-		pValue = (Texture2D *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Texture2D)) ;
+		pValue = (Texture2D *) RING_API_MALLOC(sizeof(Texture2D)) ;
 		*pValue = LoadTextureFromImage(* (Image  *) RING_API_GETCPOINTER(1,"Image"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Image"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Texture2D",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Image"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Texture2D",RING_API_FREEFUNC);
 	}
 }
 
@@ -11707,11 +11707,11 @@ RING_FUNC(ring_LoadTextureCubemap)
 	}
 	{
 		TextureCubemap *pValue ; 
-		pValue = (TextureCubemap *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TextureCubemap)) ;
+		pValue = (TextureCubemap *) RING_API_MALLOC(sizeof(TextureCubemap)) ;
 		*pValue = LoadTextureCubemap(* (Image  *) RING_API_GETCPOINTER(1,"Image"), (int ) RING_API_GETNUMBER(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Image"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"TextureCubemap",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Image"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"TextureCubemap",RING_API_FREEFUNC);
 	}
 }
 
@@ -11732,9 +11732,9 @@ RING_FUNC(ring_LoadRenderTexture_2)
 	}
 	{
 		RenderTexture2D *pValue ; 
-		pValue = (RenderTexture2D *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(RenderTexture2D)) ;
+		pValue = (RenderTexture2D *) RING_API_MALLOC(sizeof(RenderTexture2D)) ;
 		*pValue = LoadRenderTexture( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2));
-		RING_API_RETMANAGEDCPOINTER(pValue,"RenderTexture2D",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"RenderTexture2D",RING_API_FREEFUNC);
 	}
 }
 
@@ -11747,7 +11747,7 @@ RING_FUNC(ring_UnloadImage_2)
 	}
 	UnloadImage(* (Image  *) RING_API_GETCPOINTER(1,"Image"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Image"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Image"));
 }
 
 
@@ -11759,7 +11759,7 @@ RING_FUNC(ring_UnloadTexture_2)
 	}
 	UnloadTexture(* (Texture2D  *) RING_API_GETCPOINTER(1,"Texture2D"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Texture2D"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Texture2D"));
 }
 
 
@@ -11771,7 +11771,7 @@ RING_FUNC(ring_UnloadRenderTexture_2)
 	}
 	UnloadRenderTexture(* (RenderTexture2D  *) RING_API_GETCPOINTER(1,"RenderTexture2D"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"RenderTexture2D"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"RenderTexture2D"));
 }
 
 
@@ -11783,7 +11783,7 @@ RING_FUNC(ring_GetImageData_2)
 	}
 	RING_API_RETCPOINTER(GetImageData(* (Image  *) RING_API_GETCPOINTER(1,"Image")),"Color");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Image"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Image"));
 }
 
 
@@ -11795,7 +11795,7 @@ RING_FUNC(ring_GetImageDataNormalized_2)
 	}
 	RING_API_RETCPOINTER(GetImageDataNormalized(* (Image  *) RING_API_GETCPOINTER(1,"Image")),"Vector4");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Image"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Image"));
 }
 
 
@@ -11829,11 +11829,11 @@ RING_FUNC(ring_GetTextureData_2)
 	}
 	{
 		Image *pValue ; 
-		pValue = (Image *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Image)) ;
+		pValue = (Image *) RING_API_MALLOC(sizeof(Image)) ;
 		*pValue = GetTextureData(* (Texture2D  *) RING_API_GETCPOINTER(1,"Texture2D"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Texture2D"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Image",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Texture2D"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",RING_API_FREEFUNC);
 	}
 }
 
@@ -11846,9 +11846,9 @@ RING_FUNC(ring_GetScreenData_2)
 	}
 	{
 		Image *pValue ; 
-		pValue = (Image *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Image)) ;
+		pValue = (Image *) RING_API_MALLOC(sizeof(Image)) ;
 		*pValue = GetScreenData();
-		RING_API_RETMANAGEDCPOINTER(pValue,"Image",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",RING_API_FREEFUNC);
 	}
 }
 
@@ -11865,7 +11865,7 @@ RING_FUNC(ring_UpdateTexture_2)
 	}
 	UpdateTexture(* (Texture2D  *) RING_API_GETCPOINTER(1,"Texture2D"),(void *) RING_API_GETCPOINTER(2,"void"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Texture2D"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Texture2D"));
 }
 
 
@@ -11877,11 +11877,11 @@ RING_FUNC(ring_ImageCopy_2)
 	}
 	{
 		Image *pValue ; 
-		pValue = (Image *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Image)) ;
+		pValue = (Image *) RING_API_MALLOC(sizeof(Image)) ;
 		*pValue = ImageCopy(* (Image  *) RING_API_GETCPOINTER(1,"Image"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Image"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Image",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Image"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",RING_API_FREEFUNC);
 	}
 }
 
@@ -11898,7 +11898,7 @@ RING_FUNC(ring_ImageToPOT_2)
 	}
 	ImageToPOT((Image *) RING_API_GETCPOINTER(1,"Image"),* (Color  *) RING_API_GETCPOINTER(2,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Color"));
 }
 
 
@@ -11932,7 +11932,7 @@ RING_FUNC(ring_ImageAlphaMask_2)
 	}
 	ImageAlphaMask((Image *) RING_API_GETCPOINTER(1,"Image"),* (Image  *) RING_API_GETCPOINTER(2,"Image"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Image"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Image"));
 }
 
 
@@ -11952,7 +11952,7 @@ RING_FUNC(ring_ImageAlphaClear_2)
 	}
 	ImageAlphaClear((Image *) RING_API_GETCPOINTER(1,"Image"),* (Color  *) RING_API_GETCPOINTER(2,"Color"), (float ) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Color"));
 }
 
 
@@ -12000,7 +12000,7 @@ RING_FUNC(ring_ImageCrop_2)
 	}
 	ImageCrop((Image *) RING_API_GETCPOINTER(1,"Image"),* (Rectangle  *) RING_API_GETCPOINTER(2,"Rectangle"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Rectangle"));
 }
 
 
@@ -12076,7 +12076,7 @@ RING_FUNC(ring_ImageResizeCanvas_2)
 	}
 	ImageResizeCanvas((Image *) RING_API_GETCPOINTER(1,"Image"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5),* (Color  *) RING_API_GETCPOINTER(6,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(6))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(6,"Color"));
 }
 
 
@@ -12140,7 +12140,7 @@ RING_FUNC(ring_ImageExtractPalette_2)
 	}
 	RING_API_RETCPOINTER(ImageExtractPalette(* (Image  *) RING_API_GETCPOINTER(1,"Image"), (int ) RING_API_GETNUMBER(2),RING_API_GETINTPOINTER(3)),"Color");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Image"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Image"));
 	RING_API_ACCEPTINTVALUE(3) ;
 }
 
@@ -12161,11 +12161,11 @@ RING_FUNC(ring_ImageText_2)
 	}
 	{
 		Image *pValue ; 
-		pValue = (Image *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Image)) ;
+		pValue = (Image *) RING_API_MALLOC(sizeof(Image)) ;
 		*pValue = ImageText(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Image",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Color"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",RING_API_FREEFUNC);
 	}
 }
 
@@ -12190,13 +12190,13 @@ RING_FUNC(ring_ImageTextEx_2)
 	}
 	{
 		Image *pValue ; 
-		pValue = (Image *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Image)) ;
+		pValue = (Image *) RING_API_MALLOC(sizeof(Image)) ;
 		*pValue = ImageTextEx(* (Font  *) RING_API_GETCPOINTER(1,"Font"),RING_API_GETSTRING(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4),* (Color  *) RING_API_GETCPOINTER(5,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Font"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Font"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Color"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Image",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(5,"Color"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",RING_API_FREEFUNC);
 	}
 }
 
@@ -12213,11 +12213,11 @@ RING_FUNC(ring_ImageDraw_2)
 	}
 	ImageDraw((Image *) RING_API_GETCPOINTER(1,"Image"),* (Image  *) RING_API_GETCPOINTER(2,"Image"),* (Rectangle  *) RING_API_GETCPOINTER(3,"Rectangle"),* (Rectangle  *) RING_API_GETCPOINTER(4,"Rectangle"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Image"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Image"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Rectangle"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Rectangle"));
 }
 
 
@@ -12233,9 +12233,9 @@ RING_FUNC(ring_ImageDrawRectangle_2)
 	}
 	ImageDrawRectangle((Image *) RING_API_GETCPOINTER(1,"Image"),* (Rectangle  *) RING_API_GETCPOINTER(2,"Rectangle"),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Rectangle"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Color"));
 }
 
 
@@ -12255,9 +12255,9 @@ RING_FUNC(ring_ImageDrawRectangleLines_2)
 	}
 	ImageDrawRectangleLines((Image *) RING_API_GETCPOINTER(1,"Image"),* (Rectangle  *) RING_API_GETCPOINTER(2,"Rectangle"), (int ) RING_API_GETNUMBER(3),* (Color  *) RING_API_GETCPOINTER(4,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Rectangle"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Color"));
 }
 
 
@@ -12281,9 +12281,9 @@ RING_FUNC(ring_ImageDrawText_2)
 	}
 	ImageDrawText((Image *) RING_API_GETCPOINTER(1,"Image"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"),RING_API_GETSTRING(3), (int ) RING_API_GETNUMBER(4),* (Color  *) RING_API_GETCPOINTER(5,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(5,"Color"));
 }
 
 
@@ -12311,11 +12311,11 @@ RING_FUNC(ring_ImageDrawTextEx_2)
 	}
 	ImageDrawTextEx((Image *) RING_API_GETCPOINTER(1,"Image"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"),* (Font  *) RING_API_GETCPOINTER(3,"Font"),RING_API_GETSTRING(4), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6),* (Color  *) RING_API_GETCPOINTER(7,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Font"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Font"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(7))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(7,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(7,"Color"));
 }
 
 
@@ -12387,7 +12387,7 @@ RING_FUNC(ring_ImageColorTint_2)
 	}
 	ImageColorTint((Image *) RING_API_GETCPOINTER(1,"Image"),* (Color  *) RING_API_GETCPOINTER(2,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Color"));
 }
 
 
@@ -12467,9 +12467,9 @@ RING_FUNC(ring_ImageColorReplace_2)
 	}
 	ImageColorReplace((Image *) RING_API_GETCPOINTER(1,"Image"),* (Color  *) RING_API_GETCPOINTER(2,"Color"),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Color"));
 }
 
 
@@ -12489,11 +12489,11 @@ RING_FUNC(ring_GenImageColor_2)
 	}
 	{
 		Image *pValue ; 
-		pValue = (Image *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Image)) ;
+		pValue = (Image *) RING_API_MALLOC(sizeof(Image)) ;
 		*pValue = GenImageColor( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Image",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Color"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",RING_API_FREEFUNC);
 	}
 }
 
@@ -12514,13 +12514,13 @@ RING_FUNC(ring_GenImageGradientV_2)
 	}
 	{
 		Image *pValue ; 
-		pValue = (Image *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Image)) ;
+		pValue = (Image *) RING_API_MALLOC(sizeof(Image)) ;
 		*pValue = GenImageGradientV( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2),* (Color  *) RING_API_GETCPOINTER(3,"Color"),* (Color  *) RING_API_GETCPOINTER(4,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Color"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Image",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Color"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",RING_API_FREEFUNC);
 	}
 }
 
@@ -12541,13 +12541,13 @@ RING_FUNC(ring_GenImageGradientH_2)
 	}
 	{
 		Image *pValue ; 
-		pValue = (Image *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Image)) ;
+		pValue = (Image *) RING_API_MALLOC(sizeof(Image)) ;
 		*pValue = GenImageGradientH( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2),* (Color  *) RING_API_GETCPOINTER(3,"Color"),* (Color  *) RING_API_GETCPOINTER(4,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Color"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Image",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Color"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",RING_API_FREEFUNC);
 	}
 }
 
@@ -12572,13 +12572,13 @@ RING_FUNC(ring_GenImageGradientRadial_2)
 	}
 	{
 		Image *pValue ; 
-		pValue = (Image *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Image)) ;
+		pValue = (Image *) RING_API_MALLOC(sizeof(Image)) ;
 		*pValue = GenImageGradientRadial( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3),* (Color  *) RING_API_GETCPOINTER(4,"Color"),* (Color  *) RING_API_GETCPOINTER(5,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Color"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Image",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(5,"Color"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",RING_API_FREEFUNC);
 	}
 }
 
@@ -12607,13 +12607,13 @@ RING_FUNC(ring_GenImageChecked_2)
 	}
 	{
 		Image *pValue ; 
-		pValue = (Image *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Image)) ;
+		pValue = (Image *) RING_API_MALLOC(sizeof(Image)) ;
 		*pValue = GenImageChecked( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4),* (Color  *) RING_API_GETCPOINTER(5,"Color"),* (Color  *) RING_API_GETCPOINTER(6,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(5,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(6))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"Color"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Image",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(6,"Color"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",RING_API_FREEFUNC);
 	}
 }
 
@@ -12638,9 +12638,9 @@ RING_FUNC(ring_GenImageWhiteNoise_2)
 	}
 	{
 		Image *pValue ; 
-		pValue = (Image *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Image)) ;
+		pValue = (Image *) RING_API_MALLOC(sizeof(Image)) ;
 		*pValue = GenImageWhiteNoise( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Image",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",RING_API_FREEFUNC);
 	}
 }
 
@@ -12673,9 +12673,9 @@ RING_FUNC(ring_GenImagePerlinNoise_2)
 	}
 	{
 		Image *pValue ; 
-		pValue = (Image *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Image)) ;
+		pValue = (Image *) RING_API_MALLOC(sizeof(Image)) ;
 		*pValue = GenImagePerlinNoise( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Image",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",RING_API_FREEFUNC);
 	}
 }
 
@@ -12700,9 +12700,9 @@ RING_FUNC(ring_GenImageCellular_2)
 	}
 	{
 		Image *pValue ; 
-		pValue = (Image *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Image)) ;
+		pValue = (Image *) RING_API_MALLOC(sizeof(Image)) ;
 		*pValue = GenImageCellular( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Image",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",RING_API_FREEFUNC);
 	}
 }
 
@@ -12733,7 +12733,7 @@ RING_FUNC(ring_SetTextureFilter_2)
 	}
 	SetTextureFilter(* (Texture2D  *) RING_API_GETCPOINTER(1,"Texture2D"), (int ) RING_API_GETNUMBER(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Texture2D"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Texture2D"));
 }
 
 
@@ -12749,7 +12749,7 @@ RING_FUNC(ring_SetTextureWrap_2)
 	}
 	SetTextureWrap(* (Texture2D  *) RING_API_GETCPOINTER(1,"Texture2D"), (int ) RING_API_GETNUMBER(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Texture2D"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Texture2D"));
 }
 
 
@@ -12769,9 +12769,9 @@ RING_FUNC(ring_DrawTexture_2)
 	}
 	DrawTexture(* (Texture2D  *) RING_API_GETCPOINTER(1,"Texture2D"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),* (Color  *) RING_API_GETCPOINTER(4,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Texture2D"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Texture2D"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Color"));
 }
 
 
@@ -12783,11 +12783,11 @@ RING_FUNC(ring_DrawTextureV_2)
 	}
 	DrawTextureV(* (Texture2D  *) RING_API_GETCPOINTER(1,"Texture2D"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Texture2D"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Texture2D"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Color"));
 }
 
 
@@ -12807,11 +12807,11 @@ RING_FUNC(ring_DrawTextureEx_2)
 	}
 	DrawTextureEx(* (Texture2D  *) RING_API_GETCPOINTER(1,"Texture2D"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4),* (Color  *) RING_API_GETCPOINTER(5,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Texture2D"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Texture2D"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(5,"Color"));
 }
 
 
@@ -12823,13 +12823,13 @@ RING_FUNC(ring_DrawTextureRec_2)
 	}
 	DrawTextureRec(* (Texture2D  *) RING_API_GETCPOINTER(1,"Texture2D"),* (Rectangle  *) RING_API_GETCPOINTER(2,"Rectangle"),* (Vector2  *) RING_API_GETCPOINTER(3,"Vector2"),* (Color  *) RING_API_GETCPOINTER(4,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Texture2D"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Texture2D"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Rectangle"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Color"));
 }
 
 
@@ -12841,15 +12841,15 @@ RING_FUNC(ring_DrawTextureQuad_2)
 	}
 	DrawTextureQuad(* (Texture2D  *) RING_API_GETCPOINTER(1,"Texture2D"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"),* (Vector2  *) RING_API_GETCPOINTER(3,"Vector2"),* (Rectangle  *) RING_API_GETCPOINTER(4,"Rectangle"),* (Color  *) RING_API_GETCPOINTER(5,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Texture2D"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Texture2D"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Rectangle"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(5,"Color"));
 }
 
 
@@ -12865,15 +12865,15 @@ RING_FUNC(ring_DrawTexturePro_2)
 	}
 	DrawTexturePro(* (Texture2D  *) RING_API_GETCPOINTER(1,"Texture2D"),* (Rectangle  *) RING_API_GETCPOINTER(2,"Rectangle"),* (Rectangle  *) RING_API_GETCPOINTER(3,"Rectangle"),* (Vector2  *) RING_API_GETCPOINTER(4,"Vector2"), (float ) RING_API_GETNUMBER(5),* (Color  *) RING_API_GETCPOINTER(6,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Texture2D"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Texture2D"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Rectangle"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Rectangle"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(6))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(6,"Color"));
 }
 
 
@@ -12889,15 +12889,15 @@ RING_FUNC(ring_DrawTextureNPatch_2)
 	}
 	DrawTextureNPatch(* (Texture2D  *) RING_API_GETCPOINTER(1,"Texture2D"),* (NPatchInfo  *) RING_API_GETCPOINTER(2,"NPatchInfo"),* (Rectangle  *) RING_API_GETCPOINTER(3,"Rectangle"),* (Vector2  *) RING_API_GETCPOINTER(4,"Vector2"), (float ) RING_API_GETNUMBER(5),* (Color  *) RING_API_GETCPOINTER(6,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Texture2D"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Texture2D"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"NPatchInfo"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"NPatchInfo"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Rectangle"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(6))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(6,"Color"));
 }
 
 
@@ -12909,9 +12909,9 @@ RING_FUNC(ring_GetFontDefault_2)
 	}
 	{
 		Font *pValue ; 
-		pValue = (Font *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Font)) ;
+		pValue = (Font *) RING_API_MALLOC(sizeof(Font)) ;
 		*pValue = GetFontDefault();
-		RING_API_RETMANAGEDCPOINTER(pValue,"Font",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Font",RING_API_FREEFUNC);
 	}
 }
 
@@ -12928,9 +12928,9 @@ RING_FUNC(ring_LoadFont_2)
 	}
 	{
 		Font *pValue ; 
-		pValue = (Font *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Font)) ;
+		pValue = (Font *) RING_API_MALLOC(sizeof(Font)) ;
 		*pValue = LoadFont(RING_API_GETSTRING(1));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Font",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Font",RING_API_FREEFUNC);
 	}
 }
 
@@ -12959,9 +12959,9 @@ RING_FUNC(ring_LoadFontEx_2)
 	}
 	{
 		Font *pValue ; 
-		pValue = (Font *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Font)) ;
+		pValue = (Font *) RING_API_MALLOC(sizeof(Font)) ;
 		*pValue = LoadFontEx(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2),RING_API_GETINTPOINTER(3), (int ) RING_API_GETNUMBER(4));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Font",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Font",RING_API_FREEFUNC);
 	}
 	RING_API_ACCEPTINTVALUE(3) ;
 }
@@ -12979,13 +12979,13 @@ RING_FUNC(ring_LoadFontFromImage_2)
 	}
 	{
 		Font *pValue ; 
-		pValue = (Font *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Font)) ;
+		pValue = (Font *) RING_API_MALLOC(sizeof(Font)) ;
 		*pValue = LoadFontFromImage(* (Image  *) RING_API_GETCPOINTER(1,"Image"),* (Color  *) RING_API_GETCPOINTER(2,"Color"), (int ) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Image"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Image"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Color"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Font",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Color"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Font",RING_API_FREEFUNC);
 	}
 }
 
@@ -13049,9 +13049,9 @@ RING_FUNC(ring_GenImageFontAtlas_2)
 	}
 	{
 		Image *pValue ; 
-		pValue = (Image *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Image)) ;
+		pValue = (Image *) RING_API_MALLOC(sizeof(Image)) ;
 		*pValue = GenImageFontAtlas((CharInfo *) RING_API_GETCPOINTER(1,"CharInfo"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Image",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Image",RING_API_FREEFUNC);
 	}
 }
 
@@ -13064,7 +13064,7 @@ RING_FUNC(ring_UnloadFont_2)
 	}
 	UnloadFont(* (Font  *) RING_API_GETCPOINTER(1,"Font"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Font"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Font"));
 }
 
 
@@ -13110,7 +13110,7 @@ RING_FUNC(ring_DrawText)
 	}
 	DrawText(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4),* (Color  *) RING_API_GETCPOINTER(5,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(5,"Color"));
 }
 
 
@@ -13134,11 +13134,11 @@ RING_FUNC(ring_DrawTextEx_2)
 	}
 	DrawTextEx(* (Font  *) RING_API_GETCPOINTER(1,"Font"),RING_API_GETSTRING(2),* (Vector2  *) RING_API_GETCPOINTER(3,"Vector2"), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5),* (Color  *) RING_API_GETCPOINTER(6,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Font"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Font"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(6))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(6,"Color"));
 }
 
 
@@ -13166,11 +13166,11 @@ RING_FUNC(ring_DrawTextRec_2)
 	}
 	DrawTextRec(* (Font  *) RING_API_GETCPOINTER(1,"Font"),RING_API_GETSTRING(2),* (Rectangle  *) RING_API_GETCPOINTER(3,"Rectangle"), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5), (bool ) RING_API_GETNUMBER(6),* (Color  *) RING_API_GETCPOINTER(7,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Font"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Font"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Rectangle"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(7))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(7,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(7,"Color"));
 }
 
 
@@ -13206,15 +13206,15 @@ RING_FUNC(ring_DrawTextRecEx_2)
 	}
 	DrawTextRecEx(* (Font  *) RING_API_GETCPOINTER(1,"Font"),RING_API_GETSTRING(2),* (Rectangle  *) RING_API_GETCPOINTER(3,"Rectangle"), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5), (bool ) RING_API_GETNUMBER(6),* (Color  *) RING_API_GETCPOINTER(7,"Color"), (int ) RING_API_GETNUMBER(8), (int ) RING_API_GETNUMBER(9),* (Color  *) RING_API_GETCPOINTER(10,"Color"),* (Color  *) RING_API_GETCPOINTER(11,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Font"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Font"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Rectangle"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(7))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(7,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(7,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(10))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(10,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(10,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(11))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(11,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(11,"Color"));
 }
 
 
@@ -13256,11 +13256,11 @@ RING_FUNC(ring_MeasureTextEx_2)
 	}
 	{
 		Vector2 *pValue ; 
-		pValue = (Vector2 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector2)) ;
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
 		*pValue = MeasureTextEx(* (Font  *) RING_API_GETCPOINTER(1,"Font"),RING_API_GETSTRING(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Font"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Font"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
 	}
 }
 
@@ -13277,7 +13277,7 @@ RING_FUNC(ring_GetGlyphIndex_2)
 	}
 	RING_API_RETNUMBER(GetGlyphIndex(* (Font  *) RING_API_GETCPOINTER(1,"Font"), (int ) RING_API_GETNUMBER(2)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Font"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Font"));
 }
 
 
@@ -13576,11 +13576,11 @@ RING_FUNC(ring_DrawLine3D_2)
 	}
 	DrawLine3D(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Color"));
 }
 
 
@@ -13600,11 +13600,11 @@ RING_FUNC(ring_DrawCircle3D_2)
 	}
 	DrawCircle3D(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"), (float ) RING_API_GETNUMBER(2),* (Vector3  *) RING_API_GETCPOINTER(3,"Vector3"), (float ) RING_API_GETNUMBER(4),* (Color  *) RING_API_GETCPOINTER(5,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(5,"Color"));
 }
 
 
@@ -13628,9 +13628,9 @@ RING_FUNC(ring_DrawCube_2)
 	}
 	DrawCube(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4),* (Color  *) RING_API_GETCPOINTER(5,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(5,"Color"));
 }
 
 
@@ -13642,11 +13642,11 @@ RING_FUNC(ring_DrawCubeV_2)
 	}
 	DrawCubeV(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Color"));
 }
 
 
@@ -13670,9 +13670,9 @@ RING_FUNC(ring_DrawCubeWires_2)
 	}
 	DrawCubeWires(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4),* (Color  *) RING_API_GETCPOINTER(5,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(5,"Color"));
 }
 
 
@@ -13684,11 +13684,11 @@ RING_FUNC(ring_DrawCubeWiresV_2)
 	}
 	DrawCubeWiresV(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Color"));
 }
 
 
@@ -13712,11 +13712,11 @@ RING_FUNC(ring_DrawCubeTexture_2)
 	}
 	DrawCubeTexture(* (Texture2D  *) RING_API_GETCPOINTER(1,"Texture2D"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5),* (Color  *) RING_API_GETCPOINTER(6,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Texture2D"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Texture2D"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(6))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(6,"Color"));
 }
 
 
@@ -13732,9 +13732,9 @@ RING_FUNC(ring_DrawSphere_2)
 	}
 	DrawSphere(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"), (float ) RING_API_GETNUMBER(2),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Color"));
 }
 
 
@@ -13758,9 +13758,9 @@ RING_FUNC(ring_DrawSphereEx_2)
 	}
 	DrawSphereEx(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"), (float ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4),* (Color  *) RING_API_GETCPOINTER(5,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(5,"Color"));
 }
 
 
@@ -13784,9 +13784,9 @@ RING_FUNC(ring_DrawSphereWires_2)
 	}
 	DrawSphereWires(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"), (float ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4),* (Color  *) RING_API_GETCPOINTER(5,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(5,"Color"));
 }
 
 
@@ -13814,9 +13814,9 @@ RING_FUNC(ring_DrawCylinder_2)
 	}
 	DrawCylinder(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5),* (Color  *) RING_API_GETCPOINTER(6,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(6))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(6,"Color"));
 }
 
 
@@ -13844,9 +13844,9 @@ RING_FUNC(ring_DrawCylinderWires_2)
 	}
 	DrawCylinderWires(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5),* (Color  *) RING_API_GETCPOINTER(6,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(6))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(6,"Color"));
 }
 
 
@@ -13858,11 +13858,11 @@ RING_FUNC(ring_DrawPlane_2)
 	}
 	DrawPlane(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"),* (Color  *) RING_API_GETCPOINTER(3,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Color"));
 }
 
 
@@ -13874,9 +13874,9 @@ RING_FUNC(ring_DrawRay_2)
 	}
 	DrawRay(* (Ray  *) RING_API_GETCPOINTER(1,"Ray"),* (Color  *) RING_API_GETCPOINTER(2,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Ray"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Ray"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Color"));
 }
 
 
@@ -13906,7 +13906,7 @@ RING_FUNC(ring_DrawGizmo_2)
 	}
 	DrawGizmo(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 }
 
 
@@ -13922,9 +13922,9 @@ RING_FUNC(ring_LoadModel_2)
 	}
 	{
 		Model *pValue ; 
-		pValue = (Model *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Model)) ;
+		pValue = (Model *) RING_API_MALLOC(sizeof(Model)) ;
 		*pValue = LoadModel(RING_API_GETSTRING(1));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Model",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Model",RING_API_FREEFUNC);
 	}
 }
 
@@ -13937,11 +13937,11 @@ RING_FUNC(ring_LoadModelFromMesh_2)
 	}
 	{
 		Model *pValue ; 
-		pValue = (Model *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Model)) ;
+		pValue = (Model *) RING_API_MALLOC(sizeof(Model)) ;
 		*pValue = LoadModelFromMesh(* (Mesh  *) RING_API_GETCPOINTER(1,"Mesh"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Mesh"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Model",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Mesh"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Model",RING_API_FREEFUNC);
 	}
 }
 
@@ -13954,7 +13954,7 @@ RING_FUNC(ring_UnloadModel_2)
 	}
 	UnloadModel(* (Model  *) RING_API_GETCPOINTER(1,"Model"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Model"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Model"));
 }
 
 
@@ -13989,7 +13989,7 @@ RING_FUNC(ring_ExportMesh_2)
 	}
 	ExportMesh(* (Mesh  *) RING_API_GETCPOINTER(1,"Mesh"),RING_API_GETSTRING(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Mesh"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Mesh"));
 }
 
 
@@ -14034,9 +14034,9 @@ RING_FUNC(ring_LoadMaterialDefault_2)
 	}
 	{
 		Material *pValue ; 
-		pValue = (Material *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Material)) ;
+		pValue = (Material *) RING_API_MALLOC(sizeof(Material)) ;
 		*pValue = LoadMaterialDefault();
-		RING_API_RETMANAGEDCPOINTER(pValue,"Material",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Material",RING_API_FREEFUNC);
 	}
 }
 
@@ -14049,7 +14049,7 @@ RING_FUNC(ring_UnloadMaterial_2)
 	}
 	UnloadMaterial(* (Material  *) RING_API_GETCPOINTER(1,"Material"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Material"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Material"));
 }
 
 
@@ -14069,7 +14069,7 @@ RING_FUNC(ring_SetMaterialTexture_2)
 	}
 	SetMaterialTexture((Material *) RING_API_GETCPOINTER(1,"Material"), (int ) RING_API_GETNUMBER(2),* (Texture2D  *) RING_API_GETCPOINTER(3,"Texture2D"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Texture2D"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Texture2D"));
 }
 
 
@@ -14126,9 +14126,9 @@ RING_FUNC(ring_UpdateModelAnimation_2)
 	}
 	UpdateModelAnimation(* (Model  *) RING_API_GETCPOINTER(1,"Model"),* (ModelAnimation  *) RING_API_GETCPOINTER(2,"ModelAnimation"), (int ) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Model"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Model"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ModelAnimation"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"ModelAnimation"));
 }
 
 
@@ -14140,7 +14140,7 @@ RING_FUNC(ring_UnloadModelAnimation_2)
 	}
 	UnloadModelAnimation(* (ModelAnimation  *) RING_API_GETCPOINTER(1,"ModelAnimation"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"ModelAnimation"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"ModelAnimation"));
 }
 
 
@@ -14152,9 +14152,9 @@ RING_FUNC(ring_IsModelAnimationValid_2)
 	}
 	RING_API_RETNUMBER(IsModelAnimationValid(* (Model  *) RING_API_GETCPOINTER(1,"Model"),* (ModelAnimation  *) RING_API_GETCPOINTER(2,"ModelAnimation")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Model"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Model"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"ModelAnimation"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"ModelAnimation"));
 }
 
 
@@ -14174,9 +14174,9 @@ RING_FUNC(ring_GenMeshPoly_2)
 	}
 	{
 		Mesh *pValue ; 
-		pValue = (Mesh *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Mesh)) ;
+		pValue = (Mesh *) RING_API_MALLOC(sizeof(Mesh)) ;
 		*pValue = GenMeshPoly( (int ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Mesh",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Mesh",RING_API_FREEFUNC);
 	}
 }
 
@@ -14205,9 +14205,9 @@ RING_FUNC(ring_GenMeshPlane_2)
 	}
 	{
 		Mesh *pValue ; 
-		pValue = (Mesh *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Mesh)) ;
+		pValue = (Mesh *) RING_API_MALLOC(sizeof(Mesh)) ;
 		*pValue = GenMeshPlane( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Mesh",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Mesh",RING_API_FREEFUNC);
 	}
 }
 
@@ -14232,9 +14232,9 @@ RING_FUNC(ring_GenMeshCube_2)
 	}
 	{
 		Mesh *pValue ; 
-		pValue = (Mesh *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Mesh)) ;
+		pValue = (Mesh *) RING_API_MALLOC(sizeof(Mesh)) ;
 		*pValue = GenMeshCube( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Mesh",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Mesh",RING_API_FREEFUNC);
 	}
 }
 
@@ -14259,9 +14259,9 @@ RING_FUNC(ring_GenMeshSphere_2)
 	}
 	{
 		Mesh *pValue ; 
-		pValue = (Mesh *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Mesh)) ;
+		pValue = (Mesh *) RING_API_MALLOC(sizeof(Mesh)) ;
 		*pValue = GenMeshSphere( (float ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Mesh",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Mesh",RING_API_FREEFUNC);
 	}
 }
 
@@ -14286,9 +14286,9 @@ RING_FUNC(ring_GenMeshHemiSphere_2)
 	}
 	{
 		Mesh *pValue ; 
-		pValue = (Mesh *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Mesh)) ;
+		pValue = (Mesh *) RING_API_MALLOC(sizeof(Mesh)) ;
 		*pValue = GenMeshHemiSphere( (float ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Mesh",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Mesh",RING_API_FREEFUNC);
 	}
 }
 
@@ -14313,9 +14313,9 @@ RING_FUNC(ring_GenMeshCylinder_2)
 	}
 	{
 		Mesh *pValue ; 
-		pValue = (Mesh *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Mesh)) ;
+		pValue = (Mesh *) RING_API_MALLOC(sizeof(Mesh)) ;
 		*pValue = GenMeshCylinder( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Mesh",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Mesh",RING_API_FREEFUNC);
 	}
 }
 
@@ -14344,9 +14344,9 @@ RING_FUNC(ring_GenMeshTorus_2)
 	}
 	{
 		Mesh *pValue ; 
-		pValue = (Mesh *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Mesh)) ;
+		pValue = (Mesh *) RING_API_MALLOC(sizeof(Mesh)) ;
 		*pValue = GenMeshTorus( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Mesh",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Mesh",RING_API_FREEFUNC);
 	}
 }
 
@@ -14375,9 +14375,9 @@ RING_FUNC(ring_GenMeshKnot_2)
 	}
 	{
 		Mesh *pValue ; 
-		pValue = (Mesh *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Mesh)) ;
+		pValue = (Mesh *) RING_API_MALLOC(sizeof(Mesh)) ;
 		*pValue = GenMeshKnot( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Mesh",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Mesh",RING_API_FREEFUNC);
 	}
 }
 
@@ -14390,13 +14390,13 @@ RING_FUNC(ring_GenMeshHeightmap_2)
 	}
 	{
 		Mesh *pValue ; 
-		pValue = (Mesh *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Mesh)) ;
+		pValue = (Mesh *) RING_API_MALLOC(sizeof(Mesh)) ;
 		*pValue = GenMeshHeightmap(* (Image  *) RING_API_GETCPOINTER(1,"Image"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Image"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Image"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Mesh",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Mesh",RING_API_FREEFUNC);
 	}
 }
 
@@ -14409,13 +14409,13 @@ RING_FUNC(ring_GenMeshCubicmap_2)
 	}
 	{
 		Mesh *pValue ; 
-		pValue = (Mesh *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Mesh)) ;
+		pValue = (Mesh *) RING_API_MALLOC(sizeof(Mesh)) ;
 		*pValue = GenMeshCubicmap(* (Image  *) RING_API_GETCPOINTER(1,"Image"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Image"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Image"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Mesh",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Mesh",RING_API_FREEFUNC);
 	}
 }
 
@@ -14428,11 +14428,11 @@ RING_FUNC(ring_MeshBoundingBox_2)
 	}
 	{
 		BoundingBox *pValue ; 
-		pValue = (BoundingBox *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(BoundingBox)) ;
+		pValue = (BoundingBox *) RING_API_MALLOC(sizeof(BoundingBox)) ;
 		*pValue = MeshBoundingBox(* (Mesh  *) RING_API_GETCPOINTER(1,"Mesh"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Mesh"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"BoundingBox",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Mesh"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"BoundingBox",RING_API_FREEFUNC);
 	}
 }
 
@@ -14477,11 +14477,11 @@ RING_FUNC(ring_DrawModel_2)
 	}
 	DrawModel(* (Model  *) RING_API_GETCPOINTER(1,"Model"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"), (float ) RING_API_GETNUMBER(3),* (Color  *) RING_API_GETCPOINTER(4,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Model"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Model"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Color"));
 }
 
 
@@ -14497,15 +14497,15 @@ RING_FUNC(ring_DrawModelEx_2)
 	}
 	DrawModelEx(* (Model  *) RING_API_GETCPOINTER(1,"Model"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(3,"Vector3"), (float ) RING_API_GETNUMBER(4),* (Vector3  *) RING_API_GETCPOINTER(5,"Vector3"),* (Color  *) RING_API_GETCPOINTER(6,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Model"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Model"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(5,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(6))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(6,"Color"));
 }
 
 
@@ -14521,11 +14521,11 @@ RING_FUNC(ring_DrawModelWires_2)
 	}
 	DrawModelWires(* (Model  *) RING_API_GETCPOINTER(1,"Model"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"), (float ) RING_API_GETNUMBER(3),* (Color  *) RING_API_GETCPOINTER(4,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Model"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Model"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Color"));
 }
 
 
@@ -14541,15 +14541,15 @@ RING_FUNC(ring_DrawModelWiresEx_2)
 	}
 	DrawModelWiresEx(* (Model  *) RING_API_GETCPOINTER(1,"Model"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(3,"Vector3"), (float ) RING_API_GETNUMBER(4),* (Vector3  *) RING_API_GETCPOINTER(5,"Vector3"),* (Color  *) RING_API_GETCPOINTER(6,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Model"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Model"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(5,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(6))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(6,"Color"));
 }
 
 
@@ -14561,9 +14561,9 @@ RING_FUNC(ring_DrawBoundingBox_2)
 	}
 	DrawBoundingBox(* (BoundingBox  *) RING_API_GETCPOINTER(1,"BoundingBox"),* (Color  *) RING_API_GETCPOINTER(2,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"BoundingBox"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"BoundingBox"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Color"));
 }
 
 
@@ -14579,13 +14579,13 @@ RING_FUNC(ring_DrawBillboard_2)
 	}
 	DrawBillboard(* (Camera3D  *) RING_API_GETCPOINTER(1,"Camera3D"),* (Texture2D  *) RING_API_GETCPOINTER(2,"Texture2D"),* (Vector3  *) RING_API_GETCPOINTER(3,"Vector3"), (float ) RING_API_GETNUMBER(4),* (Color  *) RING_API_GETCPOINTER(5,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Camera3D"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Camera3D"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Texture2D"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Texture2D"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(5,"Color"));
 }
 
 
@@ -14601,15 +14601,15 @@ RING_FUNC(ring_DrawBillboardRec_2)
 	}
 	DrawBillboardRec(* (Camera3D  *) RING_API_GETCPOINTER(1,"Camera3D"),* (Texture2D  *) RING_API_GETCPOINTER(2,"Texture2D"),* (Rectangle  *) RING_API_GETCPOINTER(3,"Rectangle"),* (Vector3  *) RING_API_GETCPOINTER(4,"Vector3"), (float ) RING_API_GETNUMBER(5),* (Color  *) RING_API_GETCPOINTER(6,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Camera3D"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Camera3D"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Texture2D"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Texture2D"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Rectangle"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(6))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"Color"));
+		RING_API_FREE(RING_API_GETCPOINTER(6,"Color"));
 }
 
 
@@ -14629,9 +14629,9 @@ RING_FUNC(ring_CheckCollisionSpheres_2)
 	}
 	RING_API_RETNUMBER(CheckCollisionSpheres(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"), (float ) RING_API_GETNUMBER(2),* (Vector3  *) RING_API_GETCPOINTER(3,"Vector3"), (float ) RING_API_GETNUMBER(4)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Vector3"));
 }
 
 
@@ -14643,9 +14643,9 @@ RING_FUNC(ring_CheckCollisionBoxes_2)
 	}
 	RING_API_RETNUMBER(CheckCollisionBoxes(* (BoundingBox  *) RING_API_GETCPOINTER(1,"BoundingBox"),* (BoundingBox  *) RING_API_GETCPOINTER(2,"BoundingBox")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"BoundingBox"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"BoundingBox"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"BoundingBox"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"BoundingBox"));
 }
 
 
@@ -14661,9 +14661,9 @@ RING_FUNC(ring_CheckCollisionBoxSphere_2)
 	}
 	RING_API_RETNUMBER(CheckCollisionBoxSphere(* (BoundingBox  *) RING_API_GETCPOINTER(1,"BoundingBox"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"), (float ) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"BoundingBox"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"BoundingBox"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
 }
 
 
@@ -14679,9 +14679,9 @@ RING_FUNC(ring_CheckCollisionRaySphere_2)
 	}
 	RING_API_RETNUMBER(CheckCollisionRaySphere(* (Ray  *) RING_API_GETCPOINTER(1,"Ray"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"), (float ) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Ray"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Ray"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
 }
 
 
@@ -14701,9 +14701,9 @@ RING_FUNC(ring_CheckCollisionRaySphereEx_2)
 	}
 	RING_API_RETNUMBER(CheckCollisionRaySphereEx(* (Ray  *) RING_API_GETCPOINTER(1,"Ray"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"), (float ) RING_API_GETNUMBER(3),(Vector3 *) RING_API_GETCPOINTER(4,"Vector3")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Ray"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Ray"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
 }
 
 
@@ -14715,9 +14715,9 @@ RING_FUNC(ring_CheckCollisionRayBox_2)
 	}
 	RING_API_RETNUMBER(CheckCollisionRayBox(* (Ray  *) RING_API_GETCPOINTER(1,"Ray"),* (BoundingBox  *) RING_API_GETCPOINTER(2,"BoundingBox")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Ray"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Ray"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"BoundingBox"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"BoundingBox"));
 }
 
 
@@ -14733,11 +14733,11 @@ RING_FUNC(ring_GetCollisionRayModel_2)
 	}
 	{
 		RayHitInfo *pValue ; 
-		pValue = (RayHitInfo *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(RayHitInfo)) ;
+		pValue = (RayHitInfo *) RING_API_MALLOC(sizeof(RayHitInfo)) ;
 		*pValue = GetCollisionRayModel(* (Ray  *) RING_API_GETCPOINTER(1,"Ray"),(Model *) RING_API_GETCPOINTER(2,"Model"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Ray"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"RayHitInfo",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Ray"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"RayHitInfo",RING_API_FREEFUNC);
 	}
 }
 
@@ -14750,17 +14750,17 @@ RING_FUNC(ring_GetCollisionRayTriangle_2)
 	}
 	{
 		RayHitInfo *pValue ; 
-		pValue = (RayHitInfo *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(RayHitInfo)) ;
+		pValue = (RayHitInfo *) RING_API_MALLOC(sizeof(RayHitInfo)) ;
 		*pValue = GetCollisionRayTriangle(* (Ray  *) RING_API_GETCPOINTER(1,"Ray"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(3,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(4,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Ray"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Ray"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Vector3"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"RayHitInfo",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"RayHitInfo",RING_API_FREEFUNC);
 	}
 }
 
@@ -14777,11 +14777,11 @@ RING_FUNC(ring_GetCollisionRayGround_2)
 	}
 	{
 		RayHitInfo *pValue ; 
-		pValue = (RayHitInfo *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(RayHitInfo)) ;
+		pValue = (RayHitInfo *) RING_API_MALLOC(sizeof(RayHitInfo)) ;
 		*pValue = GetCollisionRayGround(* (Ray  *) RING_API_GETCPOINTER(1,"Ray"), (float ) RING_API_GETNUMBER(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Ray"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"RayHitInfo",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Ray"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"RayHitInfo",RING_API_FREEFUNC);
 	}
 }
 
@@ -14816,9 +14816,9 @@ RING_FUNC(ring_LoadShader_2)
 	}
 	{
 		Shader *pValue ; 
-		pValue = (Shader *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Shader)) ;
+		pValue = (Shader *) RING_API_MALLOC(sizeof(Shader)) ;
 		*pValue = LoadShader(RING_API_GETSTRING(1),RING_API_GETSTRING(2));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Shader",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Shader",RING_API_FREEFUNC);
 	}
 }
 
@@ -14839,9 +14839,9 @@ RING_FUNC(ring_LoadShaderCode_2)
 	}
 	{
 		Shader *pValue ; 
-		pValue = (Shader *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Shader)) ;
+		pValue = (Shader *) RING_API_MALLOC(sizeof(Shader)) ;
 		*pValue = LoadShaderCode(RING_API_GETSTRING(1),RING_API_GETSTRING(2));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Shader",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Shader",RING_API_FREEFUNC);
 	}
 }
 
@@ -14854,7 +14854,7 @@ RING_FUNC(ring_UnloadShader_2)
 	}
 	UnloadShader(* (Shader  *) RING_API_GETCPOINTER(1,"Shader"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Shader"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Shader"));
 }
 
 
@@ -14866,9 +14866,9 @@ RING_FUNC(ring_GetShaderDefault_2)
 	}
 	{
 		Shader *pValue ; 
-		pValue = (Shader *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Shader)) ;
+		pValue = (Shader *) RING_API_MALLOC(sizeof(Shader)) ;
 		*pValue = GetShaderDefault();
-		RING_API_RETMANAGEDCPOINTER(pValue,"Shader",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Shader",RING_API_FREEFUNC);
 	}
 }
 
@@ -14881,9 +14881,9 @@ RING_FUNC(ring_GetTextureDefault_2)
 	}
 	{
 		Texture2D *pValue ; 
-		pValue = (Texture2D *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Texture2D)) ;
+		pValue = (Texture2D *) RING_API_MALLOC(sizeof(Texture2D)) ;
 		*pValue = GetTextureDefault();
-		RING_API_RETMANAGEDCPOINTER(pValue,"Texture2D",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Texture2D",RING_API_FREEFUNC);
 	}
 }
 
@@ -14900,7 +14900,7 @@ RING_FUNC(ring_GetShaderLocation_2)
 	}
 	RING_API_RETNUMBER(GetShaderLocation(* (Shader  *) RING_API_GETCPOINTER(1,"Shader"),RING_API_GETSTRING(2)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Shader"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Shader"));
 }
 
 
@@ -14924,7 +14924,7 @@ RING_FUNC(ring_SetShaderValue_2)
 	}
 	SetShaderValue(* (Shader  *) RING_API_GETCPOINTER(1,"Shader"), (int ) RING_API_GETNUMBER(2),(void *) RING_API_GETCPOINTER(3,"void"), (int ) RING_API_GETNUMBER(4));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Shader"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Shader"));
 }
 
 
@@ -14952,7 +14952,7 @@ RING_FUNC(ring_SetShaderValueV_2)
 	}
 	SetShaderValueV(* (Shader  *) RING_API_GETCPOINTER(1,"Shader"), (int ) RING_API_GETNUMBER(2),(void *) RING_API_GETCPOINTER(3,"void"), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Shader"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Shader"));
 }
 
 
@@ -14968,9 +14968,9 @@ RING_FUNC(ring_SetShaderValueMatrix_2)
 	}
 	SetShaderValueMatrix(* (Shader  *) RING_API_GETCPOINTER(1,"Shader"), (int ) RING_API_GETNUMBER(2),* (Matrix  *) RING_API_GETCPOINTER(3,"Matrix"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Shader"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Shader"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Matrix"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Matrix"));
 }
 
 
@@ -14986,9 +14986,9 @@ RING_FUNC(ring_SetShaderValueTexture_2)
 	}
 	SetShaderValueTexture(* (Shader  *) RING_API_GETCPOINTER(1,"Shader"), (int ) RING_API_GETNUMBER(2),* (Texture2D  *) RING_API_GETCPOINTER(3,"Texture2D"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Shader"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Shader"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Texture2D"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Texture2D"));
 }
 
 
@@ -15000,7 +15000,7 @@ RING_FUNC(ring_SetMatrixProjection_2)
 	}
 	SetMatrixProjection(* (Matrix  *) RING_API_GETCPOINTER(1,"Matrix"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Matrix"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Matrix"));
 }
 
 
@@ -15012,7 +15012,7 @@ RING_FUNC(ring_SetMatrixModelview_2)
 	}
 	SetMatrixModelview(* (Matrix  *) RING_API_GETCPOINTER(1,"Matrix"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Matrix"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Matrix"));
 }
 
 
@@ -15024,9 +15024,9 @@ RING_FUNC(ring_GetMatrixModelview_2)
 	}
 	{
 		Matrix *pValue ; 
-		pValue = (Matrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Matrix)) ;
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
 		*pValue = GetMatrixModelview();
-		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
 	}
 }
 
@@ -15043,13 +15043,13 @@ RING_FUNC(ring_GenTextureCubemap_2)
 	}
 	{
 		Texture2D *pValue ; 
-		pValue = (Texture2D *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Texture2D)) ;
+		pValue = (Texture2D *) RING_API_MALLOC(sizeof(Texture2D)) ;
 		*pValue = GenTextureCubemap(* (Shader  *) RING_API_GETCPOINTER(1,"Shader"),* (Texture2D  *) RING_API_GETCPOINTER(2,"Texture2D"), (int ) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Shader"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Shader"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Texture2D"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Texture2D",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Texture2D"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Texture2D",RING_API_FREEFUNC);
 	}
 }
 
@@ -15066,13 +15066,13 @@ RING_FUNC(ring_GenTextureIrradiance_2)
 	}
 	{
 		Texture2D *pValue ; 
-		pValue = (Texture2D *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Texture2D)) ;
+		pValue = (Texture2D *) RING_API_MALLOC(sizeof(Texture2D)) ;
 		*pValue = GenTextureIrradiance(* (Shader  *) RING_API_GETCPOINTER(1,"Shader"),* (Texture2D  *) RING_API_GETCPOINTER(2,"Texture2D"), (int ) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Shader"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Shader"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Texture2D"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Texture2D",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Texture2D"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Texture2D",RING_API_FREEFUNC);
 	}
 }
 
@@ -15089,13 +15089,13 @@ RING_FUNC(ring_GenTexturePrefilter_2)
 	}
 	{
 		Texture2D *pValue ; 
-		pValue = (Texture2D *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Texture2D)) ;
+		pValue = (Texture2D *) RING_API_MALLOC(sizeof(Texture2D)) ;
 		*pValue = GenTexturePrefilter(* (Shader  *) RING_API_GETCPOINTER(1,"Shader"),* (Texture2D  *) RING_API_GETCPOINTER(2,"Texture2D"), (int ) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Shader"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Shader"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Texture2D"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Texture2D",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Texture2D"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Texture2D",RING_API_FREEFUNC);
 	}
 }
 
@@ -15112,11 +15112,11 @@ RING_FUNC(ring_GenTextureBRDF_2)
 	}
 	{
 		Texture2D *pValue ; 
-		pValue = (Texture2D *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Texture2D)) ;
+		pValue = (Texture2D *) RING_API_MALLOC(sizeof(Texture2D)) ;
 		*pValue = GenTextureBRDF(* (Shader  *) RING_API_GETCPOINTER(1,"Shader"), (int ) RING_API_GETNUMBER(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Shader"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Texture2D",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Shader"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Texture2D",RING_API_FREEFUNC);
 	}
 }
 
@@ -15129,7 +15129,7 @@ RING_FUNC(ring_BeginShaderMode_2)
 	}
 	BeginShaderMode(* (Shader  *) RING_API_GETCPOINTER(1,"Shader"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Shader"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Shader"));
 }
 
 
@@ -15245,9 +15245,9 @@ RING_FUNC(ring_SetVrConfiguration_2)
 	}
 	SetVrConfiguration(* (VrDeviceInfo  *) RING_API_GETCPOINTER(1,"VrDeviceInfo"),* (Shader  *) RING_API_GETCPOINTER(2,"Shader"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"VrDeviceInfo"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"VrDeviceInfo"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Shader"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Shader"));
 }
 
 
@@ -15347,9 +15347,9 @@ RING_FUNC(ring_LoadWave_2)
 	}
 	{
 		Wave *pValue ; 
-		pValue = (Wave *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Wave)) ;
+		pValue = (Wave *) RING_API_MALLOC(sizeof(Wave)) ;
 		*pValue = LoadWave(RING_API_GETSTRING(1));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Wave",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Wave",RING_API_FREEFUNC);
 	}
 }
 
@@ -15382,9 +15382,9 @@ RING_FUNC(ring_LoadWaveEx_2)
 	}
 	{
 		Wave *pValue ; 
-		pValue = (Wave *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Wave)) ;
+		pValue = (Wave *) RING_API_MALLOC(sizeof(Wave)) ;
 		*pValue = LoadWaveEx((void *) RING_API_GETCPOINTER(1,"void"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Wave",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Wave",RING_API_FREEFUNC);
 	}
 }
 
@@ -15401,9 +15401,9 @@ RING_FUNC(ring_LoadSound_2)
 	}
 	{
 		Sound *pValue ; 
-		pValue = (Sound *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Sound)) ;
+		pValue = (Sound *) RING_API_MALLOC(sizeof(Sound)) ;
 		*pValue = LoadSound(RING_API_GETSTRING(1));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Sound",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Sound",RING_API_FREEFUNC);
 	}
 }
 
@@ -15416,11 +15416,11 @@ RING_FUNC(ring_LoadSoundFromWave_2)
 	}
 	{
 		Sound *pValue ; 
-		pValue = (Sound *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Sound)) ;
+		pValue = (Sound *) RING_API_MALLOC(sizeof(Sound)) ;
 		*pValue = LoadSoundFromWave(* (Wave  *) RING_API_GETCPOINTER(1,"Wave"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Wave"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Sound",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Wave"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Sound",RING_API_FREEFUNC);
 	}
 }
 
@@ -15441,7 +15441,7 @@ RING_FUNC(ring_UpdateSound_2)
 	}
 	UpdateSound(* (Sound  *) RING_API_GETCPOINTER(1,"Sound"),(void *) RING_API_GETCPOINTER(2,"void"), (int ) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Sound"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Sound"));
 }
 
 
@@ -15453,7 +15453,7 @@ RING_FUNC(ring_UnloadWave_2)
 	}
 	UnloadWave(* (Wave  *) RING_API_GETCPOINTER(1,"Wave"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Wave"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Wave"));
 }
 
 
@@ -15465,7 +15465,7 @@ RING_FUNC(ring_UnloadSound_2)
 	}
 	UnloadSound(* (Sound  *) RING_API_GETCPOINTER(1,"Sound"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Sound"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Sound"));
 }
 
 
@@ -15481,7 +15481,7 @@ RING_FUNC(ring_ExportWave_2)
 	}
 	ExportWave(* (Wave  *) RING_API_GETCPOINTER(1,"Wave"),RING_API_GETSTRING(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Wave"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Wave"));
 }
 
 
@@ -15497,7 +15497,7 @@ RING_FUNC(ring_ExportWaveAsCode_2)
 	}
 	ExportWaveAsCode(* (Wave  *) RING_API_GETCPOINTER(1,"Wave"),RING_API_GETSTRING(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Wave"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Wave"));
 }
 
 
@@ -15509,7 +15509,7 @@ RING_FUNC(ring_PlaySound_2)
 	}
 	PlaySound(* (Sound  *) RING_API_GETCPOINTER(1,"Sound"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Sound"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Sound"));
 }
 
 
@@ -15521,7 +15521,7 @@ RING_FUNC(ring_PauseSound_2)
 	}
 	PauseSound(* (Sound  *) RING_API_GETCPOINTER(1,"Sound"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Sound"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Sound"));
 }
 
 
@@ -15533,7 +15533,7 @@ RING_FUNC(ring_ResumeSound_2)
 	}
 	ResumeSound(* (Sound  *) RING_API_GETCPOINTER(1,"Sound"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Sound"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Sound"));
 }
 
 
@@ -15545,7 +15545,7 @@ RING_FUNC(ring_StopSound_2)
 	}
 	StopSound(* (Sound  *) RING_API_GETCPOINTER(1,"Sound"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Sound"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Sound"));
 }
 
 
@@ -15557,7 +15557,7 @@ RING_FUNC(ring_IsSoundPlaying_2)
 	}
 	RING_API_RETNUMBER(IsSoundPlaying(* (Sound  *) RING_API_GETCPOINTER(1,"Sound")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Sound"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Sound"));
 }
 
 
@@ -15573,7 +15573,7 @@ RING_FUNC(ring_SetSoundVolume_2)
 	}
 	SetSoundVolume(* (Sound  *) RING_API_GETCPOINTER(1,"Sound"), (float ) RING_API_GETNUMBER(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Sound"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Sound"));
 }
 
 
@@ -15589,7 +15589,7 @@ RING_FUNC(ring_SetSoundPitch_2)
 	}
 	SetSoundPitch(* (Sound  *) RING_API_GETCPOINTER(1,"Sound"), (float ) RING_API_GETNUMBER(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Sound"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Sound"));
 }
 
 
@@ -15627,11 +15627,11 @@ RING_FUNC(ring_WaveCopy_2)
 	}
 	{
 		Wave *pValue ; 
-		pValue = (Wave *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Wave)) ;
+		pValue = (Wave *) RING_API_MALLOC(sizeof(Wave)) ;
 		*pValue = WaveCopy(* (Wave  *) RING_API_GETCPOINTER(1,"Wave"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Wave"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Wave",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Wave"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Wave",RING_API_FREEFUNC);
 	}
 }
 
@@ -15666,7 +15666,7 @@ RING_FUNC(ring_GetWaveData_2)
 	}
 	RING_API_RETCPOINTER(GetWaveData(* (Wave  *) RING_API_GETCPOINTER(1,"Wave")),"float");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Wave"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Wave"));
 }
 
 
@@ -15682,9 +15682,9 @@ RING_FUNC(ring_LoadMusicStream_2)
 	}
 	{
 		Music *pValue ; 
-		pValue = (Music *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Music)) ;
+		pValue = (Music *) RING_API_MALLOC(sizeof(Music)) ;
 		*pValue = LoadMusicStream(RING_API_GETSTRING(1));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Music",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Music",RING_API_FREEFUNC);
 	}
 }
 
@@ -15697,7 +15697,7 @@ RING_FUNC(ring_UnloadMusicStream_2)
 	}
 	UnloadMusicStream(* (Music  *) RING_API_GETCPOINTER(1,"Music"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Music"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Music"));
 }
 
 
@@ -15709,7 +15709,7 @@ RING_FUNC(ring_PlayMusicStream_2)
 	}
 	PlayMusicStream(* (Music  *) RING_API_GETCPOINTER(1,"Music"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Music"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Music"));
 }
 
 
@@ -15721,7 +15721,7 @@ RING_FUNC(ring_UpdateMusicStream_2)
 	}
 	UpdateMusicStream(* (Music  *) RING_API_GETCPOINTER(1,"Music"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Music"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Music"));
 }
 
 
@@ -15733,7 +15733,7 @@ RING_FUNC(ring_StopMusicStream_2)
 	}
 	StopMusicStream(* (Music  *) RING_API_GETCPOINTER(1,"Music"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Music"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Music"));
 }
 
 
@@ -15745,7 +15745,7 @@ RING_FUNC(ring_PauseMusicStream_2)
 	}
 	PauseMusicStream(* (Music  *) RING_API_GETCPOINTER(1,"Music"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Music"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Music"));
 }
 
 
@@ -15757,7 +15757,7 @@ RING_FUNC(ring_ResumeMusicStream_2)
 	}
 	ResumeMusicStream(* (Music  *) RING_API_GETCPOINTER(1,"Music"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Music"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Music"));
 }
 
 
@@ -15769,7 +15769,7 @@ RING_FUNC(ring_IsMusicPlaying_2)
 	}
 	RING_API_RETNUMBER(IsMusicPlaying(* (Music  *) RING_API_GETCPOINTER(1,"Music")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Music"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Music"));
 }
 
 
@@ -15785,7 +15785,7 @@ RING_FUNC(ring_SetMusicVolume_2)
 	}
 	SetMusicVolume(* (Music  *) RING_API_GETCPOINTER(1,"Music"), (float ) RING_API_GETNUMBER(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Music"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Music"));
 }
 
 
@@ -15801,7 +15801,7 @@ RING_FUNC(ring_SetMusicPitch_2)
 	}
 	SetMusicPitch(* (Music  *) RING_API_GETCPOINTER(1,"Music"), (float ) RING_API_GETNUMBER(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Music"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Music"));
 }
 
 
@@ -15817,7 +15817,7 @@ RING_FUNC(ring_SetMusicLoopCount_2)
 	}
 	SetMusicLoopCount(* (Music  *) RING_API_GETCPOINTER(1,"Music"), (int ) RING_API_GETNUMBER(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Music"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Music"));
 }
 
 
@@ -15829,7 +15829,7 @@ RING_FUNC(ring_GetMusicTimeLength_2)
 	}
 	RING_API_RETNUMBER(GetMusicTimeLength(* (Music  *) RING_API_GETCPOINTER(1,"Music")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Music"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Music"));
 }
 
 
@@ -15841,7 +15841,7 @@ RING_FUNC(ring_GetMusicTimePlayed_2)
 	}
 	RING_API_RETNUMBER(GetMusicTimePlayed(* (Music  *) RING_API_GETCPOINTER(1,"Music")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Music"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Music"));
 }
 
 
@@ -15865,9 +15865,9 @@ RING_FUNC(ring_InitAudioStream_2)
 	}
 	{
 		AudioStream *pValue ; 
-		pValue = (AudioStream *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(AudioStream)) ;
+		pValue = (AudioStream *) RING_API_MALLOC(sizeof(AudioStream)) ;
 		*pValue = InitAudioStream( (unsigned int ) RING_API_GETNUMBER(1), (unsigned int ) RING_API_GETNUMBER(2), (unsigned int ) RING_API_GETNUMBER(3));
-		RING_API_RETMANAGEDCPOINTER(pValue,"AudioStream",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"AudioStream",RING_API_FREEFUNC);
 	}
 }
 
@@ -15888,7 +15888,7 @@ RING_FUNC(ring_UpdateAudioStream_2)
 	}
 	UpdateAudioStream(* (AudioStream  *) RING_API_GETCPOINTER(1,"AudioStream"),(void *) RING_API_GETCPOINTER(2,"void"), (int ) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"AudioStream"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"AudioStream"));
 }
 
 
@@ -15900,7 +15900,7 @@ RING_FUNC(ring_CloseAudioStream_2)
 	}
 	CloseAudioStream(* (AudioStream  *) RING_API_GETCPOINTER(1,"AudioStream"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"AudioStream"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"AudioStream"));
 }
 
 
@@ -15912,7 +15912,7 @@ RING_FUNC(ring_IsAudioBufferProcessed_2)
 	}
 	RING_API_RETNUMBER(IsAudioBufferProcessed(* (AudioStream  *) RING_API_GETCPOINTER(1,"AudioStream")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"AudioStream"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"AudioStream"));
 }
 
 
@@ -15924,7 +15924,7 @@ RING_FUNC(ring_PlayAudioStream_2)
 	}
 	PlayAudioStream(* (AudioStream  *) RING_API_GETCPOINTER(1,"AudioStream"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"AudioStream"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"AudioStream"));
 }
 
 
@@ -15936,7 +15936,7 @@ RING_FUNC(ring_PauseAudioStream_2)
 	}
 	PauseAudioStream(* (AudioStream  *) RING_API_GETCPOINTER(1,"AudioStream"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"AudioStream"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"AudioStream"));
 }
 
 
@@ -15948,7 +15948,7 @@ RING_FUNC(ring_ResumeAudioStream_2)
 	}
 	ResumeAudioStream(* (AudioStream  *) RING_API_GETCPOINTER(1,"AudioStream"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"AudioStream"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"AudioStream"));
 }
 
 
@@ -15960,7 +15960,7 @@ RING_FUNC(ring_IsAudioStreamPlaying_2)
 	}
 	RING_API_RETNUMBER(IsAudioStreamPlaying(* (AudioStream  *) RING_API_GETCPOINTER(1,"AudioStream")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"AudioStream"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"AudioStream"));
 }
 
 
@@ -15972,7 +15972,7 @@ RING_FUNC(ring_StopAudioStream_2)
 	}
 	StopAudioStream(* (AudioStream  *) RING_API_GETCPOINTER(1,"AudioStream"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"AudioStream"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"AudioStream"));
 }
 
 
@@ -15988,7 +15988,7 @@ RING_FUNC(ring_SetAudioStreamVolume_2)
 	}
 	SetAudioStreamVolume(* (AudioStream  *) RING_API_GETCPOINTER(1,"AudioStream"), (float ) RING_API_GETNUMBER(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"AudioStream"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"AudioStream"));
 }
 
 
@@ -16004,7 +16004,7 @@ RING_FUNC(ring_SetAudioStreamPitch_2)
 	}
 	SetAudioStreamPitch(* (AudioStream  *) RING_API_GETCPOINTER(1,"AudioStream"), (float ) RING_API_GETNUMBER(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"AudioStream"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"AudioStream"));
 }
 
 
@@ -16070,7 +16070,7 @@ RING_FUNC(ring_GuiFont)
 	}
 	GuiFont(* (Font  *) RING_API_GETCPOINTER(1,"Font"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Font"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Font"));
 }
 
 
@@ -16140,7 +16140,7 @@ RING_FUNC(ring_GuiWindowBox_2)
 	}
 	RING_API_RETNUMBER(GuiWindowBox(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 }
 
 
@@ -16156,7 +16156,7 @@ RING_FUNC(ring_GuiGroupBox_2)
 	}
 	GuiGroupBox(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 }
 
 
@@ -16172,7 +16172,7 @@ RING_FUNC(ring_GuiLine_2)
 	}
 	GuiLine(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 }
 
 
@@ -16184,7 +16184,7 @@ RING_FUNC(ring_GuiPanel_2)
 	}
 	GuiPanel(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 }
 
 
@@ -16200,13 +16200,13 @@ RING_FUNC(ring_GuiScrollPanel_2)
 	}
 	{
 		Rectangle *pValue ; 
-		pValue = (Rectangle *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Rectangle)) ;
+		pValue = (Rectangle *) RING_API_MALLOC(sizeof(Rectangle)) ;
 		*pValue = GuiScrollPanel(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),* (Rectangle  *) RING_API_GETCPOINTER(2,"Rectangle"),(Vector2 *) RING_API_GETCPOINTER(3,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Rectangle"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Rectangle",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Rectangle"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Rectangle",RING_API_FREEFUNC);
 	}
 }
 
@@ -16223,7 +16223,7 @@ RING_FUNC(ring_GuiLabel_2)
 	}
 	GuiLabel(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 }
 
 
@@ -16239,7 +16239,7 @@ RING_FUNC(ring_GuiButton_2)
 	}
 	RING_API_RETNUMBER(GuiButton(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 }
 
 
@@ -16255,7 +16255,7 @@ RING_FUNC(ring_GuiLabelButton_2)
 	}
 	RING_API_RETNUMBER(GuiLabelButton(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 }
 
 
@@ -16267,9 +16267,9 @@ RING_FUNC(ring_GuiImageButton_2)
 	}
 	RING_API_RETNUMBER(GuiImageButton(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),* (Texture2D  *) RING_API_GETCPOINTER(2,"Texture2D")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Texture2D"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Texture2D"));
 }
 
 
@@ -16285,11 +16285,11 @@ RING_FUNC(ring_GuiImageButtonEx_2)
 	}
 	RING_API_RETNUMBER(GuiImageButtonEx(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),* (Texture2D  *) RING_API_GETCPOINTER(2,"Texture2D"),* (Rectangle  *) RING_API_GETCPOINTER(3,"Rectangle"),RING_API_GETSTRING(4)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Texture2D"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Texture2D"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Rectangle"));
 }
 
 
@@ -16309,7 +16309,7 @@ RING_FUNC(ring_GuiToggle_2)
 	}
 	RING_API_RETNUMBER(GuiToggle(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2), (bool ) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 }
 
 
@@ -16329,7 +16329,7 @@ RING_FUNC(ring_GuiToggleGroup_2)
 	}
 	RING_API_RETNUMBER(GuiToggleGroup(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 }
 
 
@@ -16349,7 +16349,7 @@ RING_FUNC(ring_GuiCheckBox_2)
 	}
 	RING_API_RETNUMBER(GuiCheckBox(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2), (bool ) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 }
 
 
@@ -16369,7 +16369,7 @@ RING_FUNC(ring_GuiComboBox_2)
 	}
 	RING_API_RETNUMBER(GuiComboBox(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 }
 
 
@@ -16393,7 +16393,7 @@ RING_FUNC(ring_GuiDropdownBox_2)
 	}
 	RING_API_RETNUMBER(GuiDropdownBox(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2),RING_API_GETINTPOINTER(3), (bool ) RING_API_GETNUMBER(4)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 	RING_API_ACCEPTINTVALUE(3) ;
 }
 
@@ -16422,7 +16422,7 @@ RING_FUNC(ring_GuiSpinner_2)
 	}
 	RING_API_RETNUMBER(GuiSpinner(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETINTPOINTER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (bool ) RING_API_GETNUMBER(5)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 	RING_API_ACCEPTINTVALUE(2) ;
 }
 
@@ -16451,7 +16451,7 @@ RING_FUNC(ring_GuiValueBox_2)
 	}
 	RING_API_RETNUMBER(GuiValueBox(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETINTPOINTER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (bool ) RING_API_GETNUMBER(5)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 	RING_API_ACCEPTINTVALUE(2) ;
 }
 
@@ -16476,7 +16476,7 @@ RING_FUNC(ring_GuiTextBox_2)
 	}
 	RING_API_RETNUMBER(GuiTextBox(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3), (bool ) RING_API_GETNUMBER(4)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 }
 
 
@@ -16500,7 +16500,7 @@ RING_FUNC(ring_GuiTextBoxMulti_2)
 	}
 	RING_API_RETNUMBER(GuiTextBoxMulti(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3), (bool ) RING_API_GETNUMBER(4)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 }
 
 
@@ -16532,7 +16532,7 @@ RING_FUNC(ring_GuiSlider_2)
 	}
 	RING_API_RETNUMBER(GuiSlider(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5), (bool ) RING_API_GETNUMBER(6)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 }
 
 
@@ -16564,7 +16564,7 @@ RING_FUNC(ring_GuiSliderBar_2)
 	}
 	RING_API_RETNUMBER(GuiSliderBar(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5), (bool ) RING_API_GETNUMBER(6)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 }
 
 
@@ -16596,7 +16596,7 @@ RING_FUNC(ring_GuiProgressBar_2)
 	}
 	RING_API_RETNUMBER(GuiProgressBar(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4), (float ) RING_API_GETNUMBER(5), (bool ) RING_API_GETNUMBER(6)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 }
 
 
@@ -16612,7 +16612,7 @@ RING_FUNC(ring_GuiStatusBar_2)
 	}
 	GuiStatusBar(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 }
 
 
@@ -16628,7 +16628,7 @@ RING_FUNC(ring_GuiDummyRec_2)
 	}
 	GuiDummyRec(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 }
 
 
@@ -16652,7 +16652,7 @@ RING_FUNC(ring_GuiScrollBar_2)
 	}
 	RING_API_RETNUMBER(GuiScrollBar(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 }
 
 
@@ -16672,11 +16672,11 @@ RING_FUNC(ring_GuiGrid_2)
 	}
 	{
 		Vector2 *pValue ; 
-		pValue = (Vector2 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector2)) ;
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
 		*pValue = GuiGrid(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"), (float ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
 	}
 }
 
@@ -16705,7 +16705,7 @@ RING_FUNC(ring_GuiListView_2)
 	}
 	RING_API_RETNUMBER(GuiListView(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2),RING_API_GETINTPOINTER(3),RING_API_GETINTPOINTER(4), (bool ) RING_API_GETNUMBER(5)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 	RING_API_ACCEPTINTVALUE(3) ;
 	RING_API_ACCEPTINTVALUE(4) ;
 }
@@ -16747,7 +16747,7 @@ RING_FUNC(ring_GuiListViewEx_2)
 	}
 	RING_API_RETNUMBER(GuiListViewEx(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),(char **) RING_API_GETCPOINTER2POINTER(2,"char"), (int ) RING_API_GETNUMBER(3),RING_API_GETINTPOINTER(4),RING_API_GETINTPOINTER(5),RING_API_GETINTPOINTER(6),RING_API_GETINTPOINTER(7), (bool ) RING_API_GETNUMBER(8)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 	RING_API_ACCEPTINTVALUE(4) ;
 	RING_API_ACCEPTINTVALUE(5) ;
 	RING_API_ACCEPTINTVALUE(6) ;
@@ -16775,7 +16775,7 @@ RING_FUNC(ring_GuiMessageBox_2)
 	}
 	RING_API_RETNUMBER(GuiMessageBox(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2),RING_API_GETSTRING(3),RING_API_GETSTRING(4)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 }
 
 
@@ -16803,7 +16803,7 @@ RING_FUNC(ring_GuiTextInputBox_2)
 	}
 	RING_API_RETNUMBER(GuiTextInputBox(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2),RING_API_GETSTRING(3),RING_API_GETSTRING(4),RING_API_GETSTRING(5)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 }
 
 
@@ -16815,13 +16815,13 @@ RING_FUNC(ring_GuiColorPicker_2)
 	}
 	{
 		Color *pValue ; 
-		pValue = (Color *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Color)) ;
+		pValue = (Color *) RING_API_MALLOC(sizeof(Color)) ;
 		*pValue = GuiColorPicker(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),* (Color  *) RING_API_GETCPOINTER(2,"Color"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Rectangle"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Color"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Color",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Color"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Color",RING_API_FREEFUNC);
 	}
 }
 
@@ -17001,9 +17001,9 @@ RING_FUNC(ring_Vector2Zero_2)
 	}
 	{
 		Vector2 *pValue ; 
-		pValue = (Vector2 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector2)) ;
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
 		*pValue = Vector2Zero();
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
 	}
 }
 
@@ -17016,9 +17016,9 @@ RING_FUNC(ring_Vector2One_2)
 	}
 	{
 		Vector2 *pValue ; 
-		pValue = (Vector2 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector2)) ;
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
 		*pValue = Vector2One();
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
 	}
 }
 
@@ -17031,13 +17031,13 @@ RING_FUNC(ring_Vector2Add_2)
 	}
 	{
 		Vector2 *pValue ; 
-		pValue = (Vector2 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector2)) ;
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
 		*pValue = Vector2Add(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector2"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
 	}
 }
 
@@ -17054,11 +17054,11 @@ RING_FUNC(ring_Vector2AddValue_2)
 	}
 	{
 		Vector2 *pValue ; 
-		pValue = (Vector2 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector2)) ;
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
 		*pValue = Vector2AddValue(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"), (float ) RING_API_GETNUMBER(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
 	}
 }
 
@@ -17071,13 +17071,13 @@ RING_FUNC(ring_Vector2Subtract_2)
 	}
 	{
 		Vector2 *pValue ; 
-		pValue = (Vector2 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector2)) ;
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
 		*pValue = Vector2Subtract(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector2"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
 	}
 }
 
@@ -17094,11 +17094,11 @@ RING_FUNC(ring_Vector2SubtractValue_2)
 	}
 	{
 		Vector2 *pValue ; 
-		pValue = (Vector2 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector2)) ;
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
 		*pValue = Vector2SubtractValue(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"), (float ) RING_API_GETNUMBER(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
 	}
 }
 
@@ -17111,7 +17111,7 @@ RING_FUNC(ring_Vector2Length_2)
 	}
 	RING_API_RETNUMBER(Vector2Length(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 }
 
 
@@ -17123,7 +17123,7 @@ RING_FUNC(ring_Vector2LengthSqr_2)
 	}
 	RING_API_RETNUMBER(Vector2LengthSqr(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 }
 
 
@@ -17135,9 +17135,9 @@ RING_FUNC(ring_Vector2DotProduct_2)
 	}
 	RING_API_RETNUMBER(Vector2DotProduct(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
 }
 
 
@@ -17149,9 +17149,9 @@ RING_FUNC(ring_Vector2Distance_2)
 	}
 	RING_API_RETNUMBER(Vector2Distance(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
 }
 
 
@@ -17163,9 +17163,9 @@ RING_FUNC(ring_Vector2Angle_2)
 	}
 	RING_API_RETNUMBER(Vector2Angle(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
 }
 
 
@@ -17181,11 +17181,11 @@ RING_FUNC(ring_Vector2Scale_2)
 	}
 	{
 		Vector2 *pValue ; 
-		pValue = (Vector2 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector2)) ;
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
 		*pValue = Vector2Scale(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"), (float ) RING_API_GETNUMBER(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
 	}
 }
 
@@ -17198,13 +17198,13 @@ RING_FUNC(ring_Vector2Multiply_2)
 	}
 	{
 		Vector2 *pValue ; 
-		pValue = (Vector2 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector2)) ;
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
 		*pValue = Vector2Multiply(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector2"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
 	}
 }
 
@@ -17217,11 +17217,11 @@ RING_FUNC(ring_Vector2Negate_2)
 	}
 	{
 		Vector2 *pValue ; 
-		pValue = (Vector2 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector2)) ;
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
 		*pValue = Vector2Negate(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
 	}
 }
 
@@ -17234,13 +17234,13 @@ RING_FUNC(ring_Vector2Divide_2)
 	}
 	{
 		Vector2 *pValue ; 
-		pValue = (Vector2 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector2)) ;
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
 		*pValue = Vector2Divide(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector2"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
 	}
 }
 
@@ -17253,11 +17253,11 @@ RING_FUNC(ring_Vector2Normalize_2)
 	}
 	{
 		Vector2 *pValue ; 
-		pValue = (Vector2 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector2)) ;
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
 		*pValue = Vector2Normalize(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
 	}
 }
 
@@ -17274,13 +17274,13 @@ RING_FUNC(ring_Vector2Lerp_2)
 	}
 	{
 		Vector2 *pValue ; 
-		pValue = (Vector2 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector2)) ;
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
 		*pValue = Vector2Lerp(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"), (float ) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector2"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
 	}
 }
 
@@ -17297,11 +17297,11 @@ RING_FUNC(ring_Vector2Rotate_2)
 	}
 	{
 		Vector2 *pValue ; 
-		pValue = (Vector2 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector2)) ;
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
 		*pValue = Vector2Rotate(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"), (float ) RING_API_GETNUMBER(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
 	}
 }
 
@@ -17318,13 +17318,13 @@ RING_FUNC(ring_Vector2MoveTowards_2)
 	}
 	{
 		Vector2 *pValue ; 
-		pValue = (Vector2 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector2)) ;
+		pValue = (Vector2 *) RING_API_MALLOC(sizeof(Vector2)) ;
 		*pValue = Vector2MoveTowards(* (Vector2  *) RING_API_GETCPOINTER(1,"Vector2"),* (Vector2  *) RING_API_GETCPOINTER(2,"Vector2"), (float ) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector2"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector2"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector2"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector2"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector2",RING_API_FREEFUNC);
 	}
 }
 
@@ -17337,9 +17337,9 @@ RING_FUNC(ring_Vector3Zero_2)
 	}
 	{
 		Vector3 *pValue ; 
-		pValue = (Vector3 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector3)) ;
+		pValue = (Vector3 *) RING_API_MALLOC(sizeof(Vector3)) ;
 		*pValue = Vector3Zero();
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",RING_API_FREEFUNC);
 	}
 }
 
@@ -17352,9 +17352,9 @@ RING_FUNC(ring_Vector3One_2)
 	}
 	{
 		Vector3 *pValue ; 
-		pValue = (Vector3 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector3)) ;
+		pValue = (Vector3 *) RING_API_MALLOC(sizeof(Vector3)) ;
 		*pValue = Vector3One();
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",RING_API_FREEFUNC);
 	}
 }
 
@@ -17367,13 +17367,13 @@ RING_FUNC(ring_Vector3Add_2)
 	}
 	{
 		Vector3 *pValue ; 
-		pValue = (Vector3 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector3)) ;
+		pValue = (Vector3 *) RING_API_MALLOC(sizeof(Vector3)) ;
 		*pValue = Vector3Add(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",RING_API_FREEFUNC);
 	}
 }
 
@@ -17390,11 +17390,11 @@ RING_FUNC(ring_Vector3AddValue_2)
 	}
 	{
 		Vector3 *pValue ; 
-		pValue = (Vector3 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector3)) ;
+		pValue = (Vector3 *) RING_API_MALLOC(sizeof(Vector3)) ;
 		*pValue = Vector3AddValue(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"), (float ) RING_API_GETNUMBER(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",RING_API_FREEFUNC);
 	}
 }
 
@@ -17407,13 +17407,13 @@ RING_FUNC(ring_Vector3Subtract_2)
 	}
 	{
 		Vector3 *pValue ; 
-		pValue = (Vector3 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector3)) ;
+		pValue = (Vector3 *) RING_API_MALLOC(sizeof(Vector3)) ;
 		*pValue = Vector3Subtract(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",RING_API_FREEFUNC);
 	}
 }
 
@@ -17430,11 +17430,11 @@ RING_FUNC(ring_Vector3SubtractValue_2)
 	}
 	{
 		Vector3 *pValue ; 
-		pValue = (Vector3 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector3)) ;
+		pValue = (Vector3 *) RING_API_MALLOC(sizeof(Vector3)) ;
 		*pValue = Vector3SubtractValue(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"), (float ) RING_API_GETNUMBER(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",RING_API_FREEFUNC);
 	}
 }
 
@@ -17451,11 +17451,11 @@ RING_FUNC(ring_Vector3Scale_2)
 	}
 	{
 		Vector3 *pValue ; 
-		pValue = (Vector3 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector3)) ;
+		pValue = (Vector3 *) RING_API_MALLOC(sizeof(Vector3)) ;
 		*pValue = Vector3Scale(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"), (float ) RING_API_GETNUMBER(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",RING_API_FREEFUNC);
 	}
 }
 
@@ -17468,13 +17468,13 @@ RING_FUNC(ring_Vector3Multiply_2)
 	}
 	{
 		Vector3 *pValue ; 
-		pValue = (Vector3 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector3)) ;
+		pValue = (Vector3 *) RING_API_MALLOC(sizeof(Vector3)) ;
 		*pValue = Vector3Multiply(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",RING_API_FREEFUNC);
 	}
 }
 
@@ -17487,13 +17487,13 @@ RING_FUNC(ring_Vector3CrossProduct_2)
 	}
 	{
 		Vector3 *pValue ; 
-		pValue = (Vector3 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector3)) ;
+		pValue = (Vector3 *) RING_API_MALLOC(sizeof(Vector3)) ;
 		*pValue = Vector3CrossProduct(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",RING_API_FREEFUNC);
 	}
 }
 
@@ -17506,11 +17506,11 @@ RING_FUNC(ring_Vector3Perpendicular_2)
 	}
 	{
 		Vector3 *pValue ; 
-		pValue = (Vector3 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector3)) ;
+		pValue = (Vector3 *) RING_API_MALLOC(sizeof(Vector3)) ;
 		*pValue = Vector3Perpendicular(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",RING_API_FREEFUNC);
 	}
 }
 
@@ -17523,7 +17523,7 @@ RING_FUNC(ring_Vector3Length_2)
 	}
 	RING_API_RETNUMBER(Vector3Length(* (const Vector3  *) RING_API_GETCPOINTER(1,"const Vector3")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 }
 
 
@@ -17535,7 +17535,7 @@ RING_FUNC(ring_Vector3LengthSqr_2)
 	}
 	RING_API_RETNUMBER(Vector3LengthSqr(* (const Vector3  *) RING_API_GETCPOINTER(1,"const Vector3")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 }
 
 
@@ -17547,9 +17547,9 @@ RING_FUNC(ring_Vector3DotProduct_2)
 	}
 	RING_API_RETNUMBER(Vector3DotProduct(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
 }
 
 
@@ -17561,9 +17561,9 @@ RING_FUNC(ring_Vector3Distance_2)
 	}
 	RING_API_RETNUMBER(Vector3Distance(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
 }
 
 
@@ -17575,11 +17575,11 @@ RING_FUNC(ring_Vector3Negate_2)
 	}
 	{
 		Vector3 *pValue ; 
-		pValue = (Vector3 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector3)) ;
+		pValue = (Vector3 *) RING_API_MALLOC(sizeof(Vector3)) ;
 		*pValue = Vector3Negate(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",RING_API_FREEFUNC);
 	}
 }
 
@@ -17592,13 +17592,13 @@ RING_FUNC(ring_Vector3Divide_2)
 	}
 	{
 		Vector3 *pValue ; 
-		pValue = (Vector3 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector3)) ;
+		pValue = (Vector3 *) RING_API_MALLOC(sizeof(Vector3)) ;
 		*pValue = Vector3Divide(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",RING_API_FREEFUNC);
 	}
 }
 
@@ -17611,11 +17611,11 @@ RING_FUNC(ring_Vector3Normalize_2)
 	}
 	{
 		Vector3 *pValue ; 
-		pValue = (Vector3 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector3)) ;
+		pValue = (Vector3 *) RING_API_MALLOC(sizeof(Vector3)) ;
 		*pValue = Vector3Normalize(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",RING_API_FREEFUNC);
 	}
 }
 
@@ -17646,13 +17646,13 @@ RING_FUNC(ring_Vector3Transform_2)
 	}
 	{
 		Vector3 *pValue ; 
-		pValue = (Vector3 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector3)) ;
+		pValue = (Vector3 *) RING_API_MALLOC(sizeof(Vector3)) ;
 		*pValue = Vector3Transform(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"),* (Matrix  *) RING_API_GETCPOINTER(2,"Matrix"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Matrix"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Matrix"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",RING_API_FREEFUNC);
 	}
 }
 
@@ -17665,13 +17665,13 @@ RING_FUNC(ring_Vector3RotateByQuaternion_2)
 	}
 	{
 		Vector3 *pValue ; 
-		pValue = (Vector3 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector3)) ;
+		pValue = (Vector3 *) RING_API_MALLOC(sizeof(Vector3)) ;
 		*pValue = Vector3RotateByQuaternion(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"),* (Quaternion  *) RING_API_GETCPOINTER(2,"Quaternion"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Quaternion"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",RING_API_FREEFUNC);
 	}
 }
 
@@ -17688,13 +17688,13 @@ RING_FUNC(ring_Vector3Lerp_2)
 	}
 	{
 		Vector3 *pValue ; 
-		pValue = (Vector3 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector3)) ;
+		pValue = (Vector3 *) RING_API_MALLOC(sizeof(Vector3)) ;
 		*pValue = Vector3Lerp(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"), (float ) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",RING_API_FREEFUNC);
 	}
 }
 
@@ -17707,13 +17707,13 @@ RING_FUNC(ring_Vector3Reflect_2)
 	}
 	{
 		Vector3 *pValue ; 
-		pValue = (Vector3 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector3)) ;
+		pValue = (Vector3 *) RING_API_MALLOC(sizeof(Vector3)) ;
 		*pValue = Vector3Reflect(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",RING_API_FREEFUNC);
 	}
 }
 
@@ -17726,13 +17726,13 @@ RING_FUNC(ring_Vector3Min_2)
 	}
 	{
 		Vector3 *pValue ; 
-		pValue = (Vector3 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector3)) ;
+		pValue = (Vector3 *) RING_API_MALLOC(sizeof(Vector3)) ;
 		*pValue = Vector3Min(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",RING_API_FREEFUNC);
 	}
 }
 
@@ -17745,13 +17745,13 @@ RING_FUNC(ring_Vector3Max_2)
 	}
 	{
 		Vector3 *pValue ; 
-		pValue = (Vector3 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector3)) ;
+		pValue = (Vector3 *) RING_API_MALLOC(sizeof(Vector3)) ;
 		*pValue = Vector3Max(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",RING_API_FREEFUNC);
 	}
 }
 
@@ -17764,17 +17764,17 @@ RING_FUNC(ring_Vector3Barycenter_2)
 	}
 	{
 		Vector3 *pValue ; 
-		pValue = (Vector3 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector3)) ;
+		pValue = (Vector3 *) RING_API_MALLOC(sizeof(Vector3)) ;
 		*pValue = Vector3Barycenter(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(3,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(4,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Vector3"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",RING_API_FREEFUNC);
 	}
 }
 
@@ -17787,11 +17787,11 @@ RING_FUNC(ring_Vector3ToFloatV_2)
 	}
 	{
 		float3 *pValue ; 
-		pValue = (float3 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(float3)) ;
+		pValue = (float3 *) RING_API_MALLOC(sizeof(float3)) ;
 		*pValue = Vector3ToFloatV(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"float3",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"float3",RING_API_FREEFUNC);
 	}
 }
 
@@ -17804,7 +17804,7 @@ RING_FUNC(ring_MatrixDeterminant_2)
 	}
 	RING_API_RETNUMBER(MatrixDeterminant(* (Matrix  *) RING_API_GETCPOINTER(1,"Matrix")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Matrix"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Matrix"));
 }
 
 
@@ -17816,7 +17816,7 @@ RING_FUNC(ring_MatrixTrace_2)
 	}
 	RING_API_RETNUMBER(MatrixTrace(* (Matrix  *) RING_API_GETCPOINTER(1,"Matrix")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Matrix"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Matrix"));
 }
 
 
@@ -17828,11 +17828,11 @@ RING_FUNC(ring_MatrixTranspose_2)
 	}
 	{
 		Matrix *pValue ; 
-		pValue = (Matrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Matrix)) ;
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
 		*pValue = MatrixTranspose(* (Matrix  *) RING_API_GETCPOINTER(1,"Matrix"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Matrix"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Matrix"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
 	}
 }
 
@@ -17845,11 +17845,11 @@ RING_FUNC(ring_MatrixInvert_2)
 	}
 	{
 		Matrix *pValue ; 
-		pValue = (Matrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Matrix)) ;
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
 		*pValue = MatrixInvert(* (Matrix  *) RING_API_GETCPOINTER(1,"Matrix"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Matrix"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Matrix"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
 	}
 }
 
@@ -17862,11 +17862,11 @@ RING_FUNC(ring_MatrixNormalize_2)
 	}
 	{
 		Matrix *pValue ; 
-		pValue = (Matrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Matrix)) ;
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
 		*pValue = MatrixNormalize(* (Matrix  *) RING_API_GETCPOINTER(1,"Matrix"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Matrix"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Matrix"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
 	}
 }
 
@@ -17879,9 +17879,9 @@ RING_FUNC(ring_MatrixIdentity_2)
 	}
 	{
 		Matrix *pValue ; 
-		pValue = (Matrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Matrix)) ;
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
 		*pValue = MatrixIdentity();
-		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
 	}
 }
 
@@ -17894,13 +17894,13 @@ RING_FUNC(ring_MatrixAdd_2)
 	}
 	{
 		Matrix *pValue ; 
-		pValue = (Matrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Matrix)) ;
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
 		*pValue = MatrixAdd(* (Matrix  *) RING_API_GETCPOINTER(1,"Matrix"),* (Matrix  *) RING_API_GETCPOINTER(2,"Matrix"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Matrix"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Matrix"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Matrix"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Matrix"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
 	}
 }
 
@@ -17913,13 +17913,13 @@ RING_FUNC(ring_MatrixSubtract_2)
 	}
 	{
 		Matrix *pValue ; 
-		pValue = (Matrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Matrix)) ;
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
 		*pValue = MatrixSubtract(* (Matrix  *) RING_API_GETCPOINTER(1,"Matrix"),* (Matrix  *) RING_API_GETCPOINTER(2,"Matrix"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Matrix"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Matrix"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Matrix"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Matrix"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
 	}
 }
 
@@ -17944,9 +17944,9 @@ RING_FUNC(ring_MatrixTranslate_2)
 	}
 	{
 		Matrix *pValue ; 
-		pValue = (Matrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Matrix)) ;
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
 		*pValue = MatrixTranslate( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
 	}
 }
 
@@ -17963,11 +17963,11 @@ RING_FUNC(ring_MatrixRotate_2)
 	}
 	{
 		Matrix *pValue ; 
-		pValue = (Matrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Matrix)) ;
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
 		*pValue = MatrixRotate(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"), (float ) RING_API_GETNUMBER(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
 	}
 }
 
@@ -17980,11 +17980,11 @@ RING_FUNC(ring_MatrixRotateXYZ_2)
 	}
 	{
 		Matrix *pValue ; 
-		pValue = (Matrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Matrix)) ;
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
 		*pValue = MatrixRotateXYZ(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
 	}
 }
 
@@ -18001,9 +18001,9 @@ RING_FUNC(ring_MatrixRotateX_2)
 	}
 	{
 		Matrix *pValue ; 
-		pValue = (Matrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Matrix)) ;
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
 		*pValue = MatrixRotateX( (float ) RING_API_GETNUMBER(1));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
 	}
 }
 
@@ -18020,9 +18020,9 @@ RING_FUNC(ring_MatrixRotateY_2)
 	}
 	{
 		Matrix *pValue ; 
-		pValue = (Matrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Matrix)) ;
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
 		*pValue = MatrixRotateY( (float ) RING_API_GETNUMBER(1));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
 	}
 }
 
@@ -18039,9 +18039,9 @@ RING_FUNC(ring_MatrixRotateZ_2)
 	}
 	{
 		Matrix *pValue ; 
-		pValue = (Matrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Matrix)) ;
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
 		*pValue = MatrixRotateZ( (float ) RING_API_GETNUMBER(1));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
 	}
 }
 
@@ -18066,9 +18066,9 @@ RING_FUNC(ring_MatrixScale_2)
 	}
 	{
 		Matrix *pValue ; 
-		pValue = (Matrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Matrix)) ;
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
 		*pValue = MatrixScale( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
 	}
 }
 
@@ -18081,13 +18081,13 @@ RING_FUNC(ring_MatrixMultiply_2)
 	}
 	{
 		Matrix *pValue ; 
-		pValue = (Matrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Matrix)) ;
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
 		*pValue = MatrixMultiply(* (Matrix  *) RING_API_GETCPOINTER(1,"Matrix"),* (Matrix  *) RING_API_GETCPOINTER(2,"Matrix"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Matrix"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Matrix"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Matrix"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Matrix"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
 	}
 }
 
@@ -18124,9 +18124,9 @@ RING_FUNC(ring_MatrixFrustum_2)
 	}
 	{
 		Matrix *pValue ; 
-		pValue = (Matrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Matrix)) ;
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
 		*pValue = MatrixFrustum( (double ) RING_API_GETNUMBER(1), (double ) RING_API_GETNUMBER(2), (double ) RING_API_GETNUMBER(3), (double ) RING_API_GETNUMBER(4), (double ) RING_API_GETNUMBER(5), (double ) RING_API_GETNUMBER(6));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
 	}
 }
 
@@ -18155,9 +18155,9 @@ RING_FUNC(ring_MatrixPerspective_2)
 	}
 	{
 		Matrix *pValue ; 
-		pValue = (Matrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Matrix)) ;
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
 		*pValue = MatrixPerspective( (double ) RING_API_GETNUMBER(1), (double ) RING_API_GETNUMBER(2), (double ) RING_API_GETNUMBER(3), (double ) RING_API_GETNUMBER(4));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
 	}
 }
 
@@ -18194,9 +18194,9 @@ RING_FUNC(ring_MatrixOrtho_2)
 	}
 	{
 		Matrix *pValue ; 
-		pValue = (Matrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Matrix)) ;
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
 		*pValue = MatrixOrtho( (double ) RING_API_GETNUMBER(1), (double ) RING_API_GETNUMBER(2), (double ) RING_API_GETNUMBER(3), (double ) RING_API_GETNUMBER(4), (double ) RING_API_GETNUMBER(5), (double ) RING_API_GETNUMBER(6));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
 	}
 }
 
@@ -18209,15 +18209,15 @@ RING_FUNC(ring_MatrixLookAt_2)
 	}
 	{
 		Matrix *pValue ; 
-		pValue = (Matrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Matrix)) ;
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
 		*pValue = MatrixLookAt(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(3,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Vector3"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
 	}
 }
 
@@ -18230,11 +18230,11 @@ RING_FUNC(ring_MatrixToFloatV_2)
 	}
 	{
 		float16 *pValue ; 
-		pValue = (float16 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(float16)) ;
+		pValue = (float16 *) RING_API_MALLOC(sizeof(float16)) ;
 		*pValue = MatrixToFloatV(* (Matrix  *) RING_API_GETCPOINTER(1,"Matrix"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Matrix"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"float16",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Matrix"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"float16",RING_API_FREEFUNC);
 	}
 }
 
@@ -18247,13 +18247,13 @@ RING_FUNC(ring_QuaternionAdd_2)
 	}
 	{
 		Quaternion *pValue ; 
-		pValue = (Quaternion *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Quaternion)) ;
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
 		*pValue = QuaternionAdd(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"),* (Quaternion  *) RING_API_GETCPOINTER(2,"Quaternion"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Quaternion"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Quaternion"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
 	}
 }
 
@@ -18270,11 +18270,11 @@ RING_FUNC(ring_QuaternionAddValue_2)
 	}
 	{
 		Quaternion *pValue ; 
-		pValue = (Quaternion *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Quaternion)) ;
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
 		*pValue = QuaternionAddValue(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"), (float ) RING_API_GETNUMBER(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Quaternion"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
 	}
 }
 
@@ -18287,13 +18287,13 @@ RING_FUNC(ring_QuaternionSubtract_2)
 	}
 	{
 		Quaternion *pValue ; 
-		pValue = (Quaternion *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Quaternion)) ;
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
 		*pValue = QuaternionSubtract(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"),* (Quaternion  *) RING_API_GETCPOINTER(2,"Quaternion"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Quaternion"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Quaternion"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
 	}
 }
 
@@ -18310,11 +18310,11 @@ RING_FUNC(ring_QuaternionSubtractValue_2)
 	}
 	{
 		Quaternion *pValue ; 
-		pValue = (Quaternion *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Quaternion)) ;
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
 		*pValue = QuaternionSubtractValue(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"), (float ) RING_API_GETNUMBER(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Quaternion"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
 	}
 }
 
@@ -18327,9 +18327,9 @@ RING_FUNC(ring_QuaternionIdentity_2)
 	}
 	{
 		Quaternion *pValue ; 
-		pValue = (Quaternion *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Quaternion)) ;
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
 		*pValue = QuaternionIdentity();
-		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
 	}
 }
 
@@ -18342,7 +18342,7 @@ RING_FUNC(ring_QuaternionLength_2)
 	}
 	RING_API_RETNUMBER(QuaternionLength(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Quaternion"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
 }
 
 
@@ -18354,11 +18354,11 @@ RING_FUNC(ring_QuaternionNormalize_2)
 	}
 	{
 		Quaternion *pValue ; 
-		pValue = (Quaternion *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Quaternion)) ;
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
 		*pValue = QuaternionNormalize(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Quaternion"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
 	}
 }
 
@@ -18371,11 +18371,11 @@ RING_FUNC(ring_QuaternionInvert_2)
 	}
 	{
 		Quaternion *pValue ; 
-		pValue = (Quaternion *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Quaternion)) ;
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
 		*pValue = QuaternionInvert(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Quaternion"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
 	}
 }
 
@@ -18388,13 +18388,13 @@ RING_FUNC(ring_QuaternionMultiply_2)
 	}
 	{
 		Quaternion *pValue ; 
-		pValue = (Quaternion *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Quaternion)) ;
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
 		*pValue = QuaternionMultiply(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"),* (Quaternion  *) RING_API_GETCPOINTER(2,"Quaternion"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Quaternion"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Quaternion"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
 	}
 }
 
@@ -18411,11 +18411,11 @@ RING_FUNC(ring_QuaternionScale_2)
 	}
 	{
 		Quaternion *pValue ; 
-		pValue = (Quaternion *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Quaternion)) ;
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
 		*pValue = QuaternionScale(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"), (float ) RING_API_GETNUMBER(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Quaternion"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
 	}
 }
 
@@ -18428,13 +18428,13 @@ RING_FUNC(ring_QuaternionDivide_2)
 	}
 	{
 		Quaternion *pValue ; 
-		pValue = (Quaternion *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Quaternion)) ;
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
 		*pValue = QuaternionDivide(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"),* (Quaternion  *) RING_API_GETCPOINTER(2,"Quaternion"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Quaternion"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Quaternion"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
 	}
 }
 
@@ -18451,13 +18451,13 @@ RING_FUNC(ring_QuaternionLerp_2)
 	}
 	{
 		Quaternion *pValue ; 
-		pValue = (Quaternion *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Quaternion)) ;
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
 		*pValue = QuaternionLerp(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"),* (Quaternion  *) RING_API_GETCPOINTER(2,"Quaternion"), (float ) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Quaternion"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Quaternion"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
 	}
 }
 
@@ -18474,13 +18474,13 @@ RING_FUNC(ring_QuaternionNlerp_2)
 	}
 	{
 		Quaternion *pValue ; 
-		pValue = (Quaternion *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Quaternion)) ;
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
 		*pValue = QuaternionNlerp(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"),* (Quaternion  *) RING_API_GETCPOINTER(2,"Quaternion"), (float ) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Quaternion"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Quaternion"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
 	}
 }
 
@@ -18497,13 +18497,13 @@ RING_FUNC(ring_QuaternionSlerp_2)
 	}
 	{
 		Quaternion *pValue ; 
-		pValue = (Quaternion *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Quaternion)) ;
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
 		*pValue = QuaternionSlerp(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"),* (Quaternion  *) RING_API_GETCPOINTER(2,"Quaternion"), (float ) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Quaternion"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Quaternion"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
 	}
 }
 
@@ -18516,13 +18516,13 @@ RING_FUNC(ring_QuaternionFromVector3ToVector3_2)
 	}
 	{
 		Quaternion *pValue ; 
-		pValue = (Quaternion *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Quaternion)) ;
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
 		*pValue = QuaternionFromVector3ToVector3(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Vector3"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
 	}
 }
 
@@ -18535,11 +18535,11 @@ RING_FUNC(ring_QuaternionFromMatrix_2)
 	}
 	{
 		Quaternion *pValue ; 
-		pValue = (Quaternion *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Quaternion)) ;
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
 		*pValue = QuaternionFromMatrix(* (Matrix  *) RING_API_GETCPOINTER(1,"Matrix"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Matrix"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Matrix"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
 	}
 }
 
@@ -18552,11 +18552,11 @@ RING_FUNC(ring_QuaternionToMatrix_2)
 	}
 	{
 		Matrix *pValue ; 
-		pValue = (Matrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Matrix)) ;
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
 		*pValue = QuaternionToMatrix(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Quaternion"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
 	}
 }
 
@@ -18573,11 +18573,11 @@ RING_FUNC(ring_QuaternionFromAxisAngle_2)
 	}
 	{
 		Quaternion *pValue ; 
-		pValue = (Quaternion *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Quaternion)) ;
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
 		*pValue = QuaternionFromAxisAngle(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"), (float ) RING_API_GETNUMBER(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Vector3"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
 	}
 }
 
@@ -18598,7 +18598,7 @@ RING_FUNC(ring_QuaternionToAxisAngle_2)
 	}
 	QuaternionToAxisAngle(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"),(Vector3 *) RING_API_GETCPOINTER(2,"Vector3"),(float *) RING_API_GETCPOINTER(3,"float"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Quaternion"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
 }
 
 
@@ -18622,9 +18622,9 @@ RING_FUNC(ring_QuaternionFromEuler_2)
 	}
 	{
 		Quaternion *pValue ; 
-		pValue = (Quaternion *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Quaternion)) ;
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
 		*pValue = QuaternionFromEuler( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
 	}
 }
 
@@ -18637,11 +18637,11 @@ RING_FUNC(ring_QuaternionToEuler_2)
 	}
 	{
 		Vector3 *pValue ; 
-		pValue = (Vector3 *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Vector3)) ;
+		pValue = (Vector3 *) RING_API_MALLOC(sizeof(Vector3)) ;
 		*pValue = QuaternionToEuler(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Quaternion"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",RING_API_FREEFUNC);
 	}
 }
 
@@ -18654,13 +18654,13 @@ RING_FUNC(ring_QuaternionTransform_2)
 	}
 	{
 		Quaternion *pValue ; 
-		pValue = (Quaternion *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Quaternion)) ;
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
 		*pValue = QuaternionTransform(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"),* (Matrix  *) RING_API_GETCPOINTER(2,"Matrix"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"Quaternion"));
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"Matrix"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Matrix"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
 	}
 }
 
@@ -18736,1094 +18736,1094 @@ RING_FUNC(ring_getimagepixela_2) {
 }
 
 
-RING_API void ringlib_init(RingState *pRingState)
+RING_LIBINIT
 {
-	ring_vm_funcregister("initwindow",ring_InitWindow);
-	ring_vm_funcregister("windowshouldclose",ring_WindowShouldClose);
-	ring_vm_funcregister("closewindow",ring_CloseWindow);
-	ring_vm_funcregister("iswindowready",ring_IsWindowReady);
-	ring_vm_funcregister("iswindowminimized",ring_IsWindowMinimized);
-	ring_vm_funcregister("iswindowresized",ring_IsWindowResized);
-	ring_vm_funcregister("iswindowhidden",ring_IsWindowHidden);
-	ring_vm_funcregister("togglefullscreen",ring_ToggleFullscreen);
-	ring_vm_funcregister("unhidewindow",ring_UnhideWindow);
-	ring_vm_funcregister("hidewindow",ring_HideWindow);
-	ring_vm_funcregister("setwindowicon_2",ring_SetWindowIcon_2);
-	ring_vm_funcregister("setwindowtitle",ring_SetWindowTitle);
-	ring_vm_funcregister("setwindowposition",ring_SetWindowPosition);
-	ring_vm_funcregister("setwindowmonitor",ring_SetWindowMonitor);
-	ring_vm_funcregister("setwindowminsize",ring_SetWindowMinSize);
-	ring_vm_funcregister("setwindowsize",ring_SetWindowSize);
-	ring_vm_funcregister("getwindowhandle",ring_GetWindowHandle);
-	ring_vm_funcregister("getscreenwidth",ring_GetScreenWidth);
-	ring_vm_funcregister("getscreenheight",ring_GetScreenHeight);
-	ring_vm_funcregister("getmonitorcount",ring_GetMonitorCount);
-	ring_vm_funcregister("getmonitorwidth",ring_GetMonitorWidth);
-	ring_vm_funcregister("getmonitorheight",ring_GetMonitorHeight);
-	ring_vm_funcregister("getmonitorphysicalwidth",ring_GetMonitorPhysicalWidth);
-	ring_vm_funcregister("getmonitorphysicalheight",ring_GetMonitorPhysicalHeight);
-	ring_vm_funcregister("getmonitorname",ring_GetMonitorName);
-	ring_vm_funcregister("getclipboardtext",ring_GetClipboardText);
-	ring_vm_funcregister("setclipboardtext",ring_SetClipboardText);
-	ring_vm_funcregister("showcursor",ring_ShowCursor);
-	ring_vm_funcregister("hidecursor",ring_HideCursor);
-	ring_vm_funcregister("iscursorhidden",ring_IsCursorHidden);
-	ring_vm_funcregister("enablecursor",ring_EnableCursor);
-	ring_vm_funcregister("disablecursor",ring_DisableCursor);
-	ring_vm_funcregister("clearbackground_2",ring_ClearBackground_2);
-	ring_vm_funcregister("begindrawing",ring_BeginDrawing);
-	ring_vm_funcregister("enddrawing",ring_EndDrawing);
-	ring_vm_funcregister("beginmode2d_2",ring_BeginMode2D_2);
-	ring_vm_funcregister("endmode2d",ring_EndMode2D);
-	ring_vm_funcregister("beginmode3d_2",ring_BeginMode3D_2);
-	ring_vm_funcregister("endmode3d",ring_EndMode3D);
-	ring_vm_funcregister("begintexturemode_2",ring_BeginTextureMode_2);
-	ring_vm_funcregister("endtexturemode",ring_EndTextureMode);
-	ring_vm_funcregister("getmouseray_2",ring_GetMouseRay_2);
-	ring_vm_funcregister("getworldtoscreen_2",ring_GetWorldToScreen_2);
-	ring_vm_funcregister("getcameramatrix_2",ring_GetCameraMatrix_2);
-	ring_vm_funcregister("settargetfps",ring_SetTargetFPS);
-	ring_vm_funcregister("getfps",ring_GetFPS);
-	ring_vm_funcregister("getframetime",ring_GetFrameTime);
-	ring_vm_funcregister("gettime",ring_GetTime);
-	ring_vm_funcregister("colortoint_2",ring_ColorToInt_2);
-	ring_vm_funcregister("colornormalize_2",ring_ColorNormalize_2);
-	ring_vm_funcregister("colortohsv_2",ring_ColorToHSV_2);
-	ring_vm_funcregister("colorfromhsv_2",ring_ColorFromHSV_2);
-	ring_vm_funcregister("getcolor",ring_GetColor);
-	ring_vm_funcregister("fade_2",ring_Fade_2);
-	ring_vm_funcregister("setconfigflags",ring_SetConfigFlags);
-	ring_vm_funcregister("settraceloglevel",ring_SetTraceLogLevel);
-	ring_vm_funcregister("settracelogexit",ring_SetTraceLogExit);
-	ring_vm_funcregister("settracelogcallback",ring_SetTraceLogCallback);
-	ring_vm_funcregister("tracelog",ring_TraceLog);
-	ring_vm_funcregister("takescreenshot",ring_TakeScreenshot);
-	ring_vm_funcregister("getrandomvalue",ring_GetRandomValue);
-	ring_vm_funcregister("fileexists",ring_FileExists);
-	ring_vm_funcregister("isfileextension",ring_IsFileExtension);
-	ring_vm_funcregister("getextension",ring_GetExtension);
-	ring_vm_funcregister("getfilename",ring_GetFileName);
-	ring_vm_funcregister("getfilenamewithoutext",ring_GetFileNameWithoutExt);
-	ring_vm_funcregister("getdirectorypath",ring_GetDirectoryPath);
-	ring_vm_funcregister("getworkingdirectory",ring_GetWorkingDirectory);
-	ring_vm_funcregister("getdirectoryfiles",ring_GetDirectoryFiles);
-	ring_vm_funcregister("cleardirectoryfiles",ring_ClearDirectoryFiles);
-	ring_vm_funcregister("changedirectory",ring_ChangeDirectory);
-	ring_vm_funcregister("isfiledropped",ring_IsFileDropped);
-	ring_vm_funcregister("getdroppedfiles",ring_GetDroppedFiles);
-	ring_vm_funcregister("cleardroppedfiles",ring_ClearDroppedFiles);
-	ring_vm_funcregister("getfilemodtime",ring_GetFileModTime);
-	ring_vm_funcregister("storagesavevalue",ring_StorageSaveValue);
-	ring_vm_funcregister("storageloadvalue",ring_StorageLoadValue);
-	ring_vm_funcregister("openurl",ring_OpenURL);
-	ring_vm_funcregister("iskeypressed_2",ring_IsKeyPressed_2);
-	ring_vm_funcregister("iskeydown_2",ring_IsKeyDown_2);
-	ring_vm_funcregister("iskeyreleased_2",ring_IsKeyReleased_2);
-	ring_vm_funcregister("iskeyup_2",ring_IsKeyUp_2);
-	ring_vm_funcregister("getkeypressed",ring_GetKeyPressed);
-	ring_vm_funcregister("setexitkey_2",ring_SetExitKey_2);
-	ring_vm_funcregister("isgamepadavailable",ring_IsGamepadAvailable);
-	ring_vm_funcregister("isgamepadname",ring_IsGamepadName);
-	ring_vm_funcregister("getgamepadname",ring_GetGamepadName);
-	ring_vm_funcregister("isgamepadbuttonpressed",ring_IsGamepadButtonPressed);
-	ring_vm_funcregister("isgamepadbuttondown",ring_IsGamepadButtonDown);
-	ring_vm_funcregister("isgamepadbuttonreleased",ring_IsGamepadButtonReleased);
-	ring_vm_funcregister("isgamepadbuttonup",ring_IsGamepadButtonUp);
-	ring_vm_funcregister("getgamepadbuttonpressed",ring_GetGamepadButtonPressed);
-	ring_vm_funcregister("getgamepadaxiscount",ring_GetGamepadAxisCount);
-	ring_vm_funcregister("getgamepadaxismovement",ring_GetGamepadAxisMovement);
-	ring_vm_funcregister("ismousebuttonpressed",ring_IsMouseButtonPressed);
-	ring_vm_funcregister("ismousebuttondown",ring_IsMouseButtonDown);
-	ring_vm_funcregister("ismousebuttonreleased",ring_IsMouseButtonReleased);
-	ring_vm_funcregister("ismousebuttonup",ring_IsMouseButtonUp);
-	ring_vm_funcregister("getmousex",ring_GetMouseX);
-	ring_vm_funcregister("getmousey",ring_GetMouseY);
-	ring_vm_funcregister("getmouseposition_2",ring_GetMousePosition_2);
-	ring_vm_funcregister("setmouseposition",ring_SetMousePosition);
-	ring_vm_funcregister("setmouseoffset",ring_SetMouseOffset);
-	ring_vm_funcregister("setmousescale",ring_SetMouseScale);
-	ring_vm_funcregister("getmousewheelmove",ring_GetMouseWheelMove);
-	ring_vm_funcregister("gettouchx",ring_GetTouchX);
-	ring_vm_funcregister("gettouchy",ring_GetTouchY);
-	ring_vm_funcregister("gettouchposition_2",ring_GetTouchPosition_2);
-	ring_vm_funcregister("setgesturesenabled",ring_SetGesturesEnabled);
-	ring_vm_funcregister("isgesturedetected",ring_IsGestureDetected);
-	ring_vm_funcregister("getgesturedetected",ring_GetGestureDetected);
-	ring_vm_funcregister("gettouchpointscount",ring_GetTouchPointsCount);
-	ring_vm_funcregister("getgestureholdduration",ring_GetGestureHoldDuration);
-	ring_vm_funcregister("getgesturedragvector_2",ring_GetGestureDragVector_2);
-	ring_vm_funcregister("getgesturedragangle",ring_GetGestureDragAngle);
-	ring_vm_funcregister("getgesturepinchvector_2",ring_GetGesturePinchVector_2);
-	ring_vm_funcregister("getgesturepinchangle",ring_GetGesturePinchAngle);
-	ring_vm_funcregister("setcameramode_2",ring_SetCameraMode_2);
-	ring_vm_funcregister("updatecamera_2",ring_UpdateCamera_2);
-	ring_vm_funcregister("setcamerapancontrol",ring_SetCameraPanControl);
-	ring_vm_funcregister("setcameraaltcontrol",ring_SetCameraAltControl);
-	ring_vm_funcregister("setcamerasmoothzoomcontrol",ring_SetCameraSmoothZoomControl);
-	ring_vm_funcregister("setcameramovecontrols",ring_SetCameraMoveControls);
-	ring_vm_funcregister("drawpixel_2",ring_DrawPixel_2);
-	ring_vm_funcregister("drawpixelv_2",ring_DrawPixelV_2);
-	ring_vm_funcregister("drawline_2",ring_DrawLine_2);
-	ring_vm_funcregister("drawlinev_2",ring_DrawLineV_2);
-	ring_vm_funcregister("drawlineex_2",ring_DrawLineEx_2);
-	ring_vm_funcregister("drawlinebezier_2",ring_DrawLineBezier_2);
-	ring_vm_funcregister("drawlinestrip_2",ring_DrawLineStrip_2);
-	ring_vm_funcregister("drawcircle_2",ring_DrawCircle_2);
-	ring_vm_funcregister("drawcirclesector_2",ring_DrawCircleSector_2);
-	ring_vm_funcregister("drawcirclesectorlines_2",ring_DrawCircleSectorLines_2);
-	ring_vm_funcregister("drawcirclegradient_2",ring_DrawCircleGradient_2);
-	ring_vm_funcregister("drawcirclev_2",ring_DrawCircleV_2);
-	ring_vm_funcregister("drawcirclelines_2",ring_DrawCircleLines_2);
-	ring_vm_funcregister("drawring_2",ring_DrawRing_2);
-	ring_vm_funcregister("drawringlines_2",ring_DrawRingLines_2);
-	ring_vm_funcregister("drawrectangle_2",ring_DrawRectangle_2);
-	ring_vm_funcregister("drawrectanglev_2",ring_DrawRectangleV_2);
-	ring_vm_funcregister("drawrectanglerec_2",ring_DrawRectangleRec_2);
-	ring_vm_funcregister("drawrectanglepro_2",ring_DrawRectanglePro_2);
-	ring_vm_funcregister("drawrectanglegradientv_2",ring_DrawRectangleGradientV_2);
-	ring_vm_funcregister("drawrectanglegradienth_2",ring_DrawRectangleGradientH_2);
-	ring_vm_funcregister("drawrectanglegradientex_2",ring_DrawRectangleGradientEx_2);
-	ring_vm_funcregister("drawrectanglelines_2",ring_DrawRectangleLines_2);
-	ring_vm_funcregister("drawrectanglelinesex_2",ring_DrawRectangleLinesEx_2);
-	ring_vm_funcregister("drawrectanglerounded_2",ring_DrawRectangleRounded_2);
-	ring_vm_funcregister("drawrectangleroundedlines_2",ring_DrawRectangleRoundedLines_2);
-	ring_vm_funcregister("drawtriangle_2",ring_DrawTriangle_2);
-	ring_vm_funcregister("drawtrianglelines_2",ring_DrawTriangleLines_2);
-	ring_vm_funcregister("drawtrianglefan_2",ring_DrawTriangleFan_2);
-	ring_vm_funcregister("drawpoly_2",ring_DrawPoly_2);
-	ring_vm_funcregister("setshapestexture_2",ring_SetShapesTexture_2);
-	ring_vm_funcregister("checkcollisionrecs_2",ring_CheckCollisionRecs_2);
-	ring_vm_funcregister("checkcollisioncircles_2",ring_CheckCollisionCircles_2);
-	ring_vm_funcregister("checkcollisioncirclerec_2",ring_CheckCollisionCircleRec_2);
-	ring_vm_funcregister("getcollisionrec_2",ring_GetCollisionRec_2);
-	ring_vm_funcregister("checkcollisionpointrec_2",ring_CheckCollisionPointRec_2);
-	ring_vm_funcregister("checkcollisionpointcircle_2",ring_CheckCollisionPointCircle_2);
-	ring_vm_funcregister("checkcollisionpointtriangle_2",ring_CheckCollisionPointTriangle_2);
-	ring_vm_funcregister("loadimage_2",ring_LoadImage_2);
-	ring_vm_funcregister("loadimageex_2",ring_LoadImageEx_2);
-	ring_vm_funcregister("loadimagepro_2",ring_LoadImagePro_2);
-	ring_vm_funcregister("loadimageraw_2",ring_LoadImageRaw_2);
-	ring_vm_funcregister("exportimage_2",ring_ExportImage_2);
-	ring_vm_funcregister("exportimageascode_2",ring_ExportImageAsCode_2);
-	ring_vm_funcregister("loadtexture_2",ring_LoadTexture_2);
-	ring_vm_funcregister("loadtexturefromimage_2",ring_LoadTextureFromImage_2);
-	ring_vm_funcregister("loadtexturecubemap",ring_LoadTextureCubemap);
-	ring_vm_funcregister("loadrendertexture_2",ring_LoadRenderTexture_2);
-	ring_vm_funcregister("unloadimage_2",ring_UnloadImage_2);
-	ring_vm_funcregister("unloadtexture_2",ring_UnloadTexture_2);
-	ring_vm_funcregister("unloadrendertexture_2",ring_UnloadRenderTexture_2);
-	ring_vm_funcregister("getimagedata_2",ring_GetImageData_2);
-	ring_vm_funcregister("getimagedatanormalized_2",ring_GetImageDataNormalized_2);
-	ring_vm_funcregister("getpixeldatasize",ring_GetPixelDataSize);
-	ring_vm_funcregister("gettexturedata_2",ring_GetTextureData_2);
-	ring_vm_funcregister("getscreendata_2",ring_GetScreenData_2);
-	ring_vm_funcregister("updatetexture_2",ring_UpdateTexture_2);
-	ring_vm_funcregister("imagecopy_2",ring_ImageCopy_2);
-	ring_vm_funcregister("imagetopot_2",ring_ImageToPOT_2);
-	ring_vm_funcregister("imageformat_2",ring_ImageFormat_2);
-	ring_vm_funcregister("imagealphamask_2",ring_ImageAlphaMask_2);
-	ring_vm_funcregister("imagealphaclear_2",ring_ImageAlphaClear_2);
-	ring_vm_funcregister("imagealphacrop_2",ring_ImageAlphaCrop_2);
-	ring_vm_funcregister("imagealphapremultiply_2",ring_ImageAlphaPremultiply_2);
-	ring_vm_funcregister("imagecrop_2",ring_ImageCrop_2);
-	ring_vm_funcregister("imageresize_2",ring_ImageResize_2);
-	ring_vm_funcregister("imageresizenn_2",ring_ImageResizeNN_2);
-	ring_vm_funcregister("imageresizecanvas_2",ring_ImageResizeCanvas_2);
-	ring_vm_funcregister("imagemipmaps_2",ring_ImageMipmaps_2);
-	ring_vm_funcregister("imagedither_2",ring_ImageDither_2);
-	ring_vm_funcregister("imageextractpalette_2",ring_ImageExtractPalette_2);
-	ring_vm_funcregister("imagetext_2",ring_ImageText_2);
-	ring_vm_funcregister("imagetextex_2",ring_ImageTextEx_2);
-	ring_vm_funcregister("imagedraw_2",ring_ImageDraw_2);
-	ring_vm_funcregister("imagedrawrectangle_2",ring_ImageDrawRectangle_2);
-	ring_vm_funcregister("imagedrawrectanglelines_2",ring_ImageDrawRectangleLines_2);
-	ring_vm_funcregister("imagedrawtext_2",ring_ImageDrawText_2);
-	ring_vm_funcregister("imagedrawtextex_2",ring_ImageDrawTextEx_2);
-	ring_vm_funcregister("imageflipvertical_2",ring_ImageFlipVertical_2);
-	ring_vm_funcregister("imagefliphorizontal_2",ring_ImageFlipHorizontal_2);
-	ring_vm_funcregister("imagerotatecw_2",ring_ImageRotateCW_2);
-	ring_vm_funcregister("imagerotateccw_2",ring_ImageRotateCCW_2);
-	ring_vm_funcregister("imagecolortint_2",ring_ImageColorTint_2);
-	ring_vm_funcregister("imagecolorinvert_2",ring_ImageColorInvert_2);
-	ring_vm_funcregister("imagecolorgrayscale_2",ring_ImageColorGrayscale_2);
-	ring_vm_funcregister("imagecolorcontrast_2",ring_ImageColorContrast_2);
-	ring_vm_funcregister("imagecolorbrightness_2",ring_ImageColorBrightness_2);
-	ring_vm_funcregister("imagecolorreplace_2",ring_ImageColorReplace_2);
-	ring_vm_funcregister("genimagecolor_2",ring_GenImageColor_2);
-	ring_vm_funcregister("genimagegradientv_2",ring_GenImageGradientV_2);
-	ring_vm_funcregister("genimagegradienth_2",ring_GenImageGradientH_2);
-	ring_vm_funcregister("genimagegradientradial_2",ring_GenImageGradientRadial_2);
-	ring_vm_funcregister("genimagechecked_2",ring_GenImageChecked_2);
-	ring_vm_funcregister("genimagewhitenoise_2",ring_GenImageWhiteNoise_2);
-	ring_vm_funcregister("genimageperlinnoise_2",ring_GenImagePerlinNoise_2);
-	ring_vm_funcregister("genimagecellular_2",ring_GenImageCellular_2);
-	ring_vm_funcregister("gentexturemipmaps_2",ring_GenTextureMipmaps_2);
-	ring_vm_funcregister("settexturefilter_2",ring_SetTextureFilter_2);
-	ring_vm_funcregister("settexturewrap_2",ring_SetTextureWrap_2);
-	ring_vm_funcregister("drawtexture_2",ring_DrawTexture_2);
-	ring_vm_funcregister("drawtexturev_2",ring_DrawTextureV_2);
-	ring_vm_funcregister("drawtextureex_2",ring_DrawTextureEx_2);
-	ring_vm_funcregister("drawtexturerec_2",ring_DrawTextureRec_2);
-	ring_vm_funcregister("drawtexturequad_2",ring_DrawTextureQuad_2);
-	ring_vm_funcregister("drawtexturepro_2",ring_DrawTexturePro_2);
-	ring_vm_funcregister("drawtexturenpatch_2",ring_DrawTextureNPatch_2);
-	ring_vm_funcregister("getfontdefault_2",ring_GetFontDefault_2);
-	ring_vm_funcregister("loadfont_2",ring_LoadFont_2);
-	ring_vm_funcregister("loadfontex_2",ring_LoadFontEx_2);
-	ring_vm_funcregister("loadfontfromimage_2",ring_LoadFontFromImage_2);
-	ring_vm_funcregister("loadfontdata_2",ring_LoadFontData_2);
-	ring_vm_funcregister("genimagefontatlas_2",ring_GenImageFontAtlas_2);
-	ring_vm_funcregister("unloadfont_2",ring_UnloadFont_2);
-	ring_vm_funcregister("drawfps",ring_DrawFPS);
-	ring_vm_funcregister("drawtext",ring_DrawText);
-	ring_vm_funcregister("drawtextex_2",ring_DrawTextEx_2);
-	ring_vm_funcregister("drawtextrec_2",ring_DrawTextRec_2);
-	ring_vm_funcregister("drawtextrecex_2",ring_DrawTextRecEx_2);
-	ring_vm_funcregister("measuretext",ring_MeasureText);
-	ring_vm_funcregister("measuretextex_2",ring_MeasureTextEx_2);
-	ring_vm_funcregister("getglyphindex_2",ring_GetGlyphIndex_2);
-	ring_vm_funcregister("getnextcodepoint",ring_GetNextCodepoint);
-	ring_vm_funcregister("textisequal",ring_TextIsEqual);
-	ring_vm_funcregister("textlength",ring_TextLength);
-	ring_vm_funcregister("textcountcodepoints",ring_TextCountCodepoints);
-	ring_vm_funcregister("textformat",ring_TextFormat);
-	ring_vm_funcregister("textsubtext",ring_TextSubtext);
-	ring_vm_funcregister("textreplace",ring_TextReplace);
-	ring_vm_funcregister("textinsert",ring_TextInsert);
-	ring_vm_funcregister("textjoin",ring_TextJoin);
-	ring_vm_funcregister("textsplit",ring_TextSplit);
-	ring_vm_funcregister("textappend",ring_TextAppend);
-	ring_vm_funcregister("textfindindex",ring_TextFindIndex);
-	ring_vm_funcregister("texttoupper",ring_TextToUpper);
-	ring_vm_funcregister("texttolower",ring_TextToLower);
-	ring_vm_funcregister("texttopascal",ring_TextToPascal);
-	ring_vm_funcregister("texttointeger",ring_TextToInteger);
-	ring_vm_funcregister("drawline3d_2",ring_DrawLine3D_2);
-	ring_vm_funcregister("drawcircle3d_2",ring_DrawCircle3D_2);
-	ring_vm_funcregister("drawcube_2",ring_DrawCube_2);
-	ring_vm_funcregister("drawcubev_2",ring_DrawCubeV_2);
-	ring_vm_funcregister("drawcubewires_2",ring_DrawCubeWires_2);
-	ring_vm_funcregister("drawcubewiresv_2",ring_DrawCubeWiresV_2);
-	ring_vm_funcregister("drawcubetexture_2",ring_DrawCubeTexture_2);
-	ring_vm_funcregister("drawsphere_2",ring_DrawSphere_2);
-	ring_vm_funcregister("drawsphereex_2",ring_DrawSphereEx_2);
-	ring_vm_funcregister("drawspherewires_2",ring_DrawSphereWires_2);
-	ring_vm_funcregister("drawcylinder_2",ring_DrawCylinder_2);
-	ring_vm_funcregister("drawcylinderwires_2",ring_DrawCylinderWires_2);
-	ring_vm_funcregister("drawplane_2",ring_DrawPlane_2);
-	ring_vm_funcregister("drawray_2",ring_DrawRay_2);
-	ring_vm_funcregister("drawgrid",ring_DrawGrid);
-	ring_vm_funcregister("drawgizmo_2",ring_DrawGizmo_2);
-	ring_vm_funcregister("loadmodel_2",ring_LoadModel_2);
-	ring_vm_funcregister("loadmodelfrommesh_2",ring_LoadModelFromMesh_2);
-	ring_vm_funcregister("unloadmodel_2",ring_UnloadModel_2);
-	ring_vm_funcregister("loadmeshes_2",ring_LoadMeshes_2);
-	ring_vm_funcregister("exportmesh_2",ring_ExportMesh_2);
-	ring_vm_funcregister("unloadmesh_2",ring_UnloadMesh_2);
-	ring_vm_funcregister("loadmaterials_2",ring_LoadMaterials_2);
-	ring_vm_funcregister("loadmaterialdefault_2",ring_LoadMaterialDefault_2);
-	ring_vm_funcregister("unloadmaterial_2",ring_UnloadMaterial_2);
-	ring_vm_funcregister("setmaterialtexture_2",ring_SetMaterialTexture_2);
-	ring_vm_funcregister("setmodelmeshmaterial_2",ring_SetModelMeshMaterial_2);
-	ring_vm_funcregister("loadmodelanimations_2",ring_LoadModelAnimations_2);
-	ring_vm_funcregister("updatemodelanimation_2",ring_UpdateModelAnimation_2);
-	ring_vm_funcregister("unloadmodelanimation_2",ring_UnloadModelAnimation_2);
-	ring_vm_funcregister("ismodelanimationvalid_2",ring_IsModelAnimationValid_2);
-	ring_vm_funcregister("genmeshpoly_2",ring_GenMeshPoly_2);
-	ring_vm_funcregister("genmeshplane_2",ring_GenMeshPlane_2);
-	ring_vm_funcregister("genmeshcube_2",ring_GenMeshCube_2);
-	ring_vm_funcregister("genmeshsphere_2",ring_GenMeshSphere_2);
-	ring_vm_funcregister("genmeshhemisphere_2",ring_GenMeshHemiSphere_2);
-	ring_vm_funcregister("genmeshcylinder_2",ring_GenMeshCylinder_2);
-	ring_vm_funcregister("genmeshtorus_2",ring_GenMeshTorus_2);
-	ring_vm_funcregister("genmeshknot_2",ring_GenMeshKnot_2);
-	ring_vm_funcregister("genmeshheightmap_2",ring_GenMeshHeightmap_2);
-	ring_vm_funcregister("genmeshcubicmap_2",ring_GenMeshCubicmap_2);
-	ring_vm_funcregister("meshboundingbox_2",ring_MeshBoundingBox_2);
-	ring_vm_funcregister("meshtangents_2",ring_MeshTangents_2);
-	ring_vm_funcregister("meshbinormals_2",ring_MeshBinormals_2);
-	ring_vm_funcregister("drawmodel_2",ring_DrawModel_2);
-	ring_vm_funcregister("drawmodelex_2",ring_DrawModelEx_2);
-	ring_vm_funcregister("drawmodelwires_2",ring_DrawModelWires_2);
-	ring_vm_funcregister("drawmodelwiresex_2",ring_DrawModelWiresEx_2);
-	ring_vm_funcregister("drawboundingbox_2",ring_DrawBoundingBox_2);
-	ring_vm_funcregister("drawbillboard_2",ring_DrawBillboard_2);
-	ring_vm_funcregister("drawbillboardrec_2",ring_DrawBillboardRec_2);
-	ring_vm_funcregister("checkcollisionspheres_2",ring_CheckCollisionSpheres_2);
-	ring_vm_funcregister("checkcollisionboxes_2",ring_CheckCollisionBoxes_2);
-	ring_vm_funcregister("checkcollisionboxsphere_2",ring_CheckCollisionBoxSphere_2);
-	ring_vm_funcregister("checkcollisionraysphere_2",ring_CheckCollisionRaySphere_2);
-	ring_vm_funcregister("checkcollisionraysphereex_2",ring_CheckCollisionRaySphereEx_2);
-	ring_vm_funcregister("checkcollisionraybox_2",ring_CheckCollisionRayBox_2);
-	ring_vm_funcregister("getcollisionraymodel_2",ring_GetCollisionRayModel_2);
-	ring_vm_funcregister("getcollisionraytriangle_2",ring_GetCollisionRayTriangle_2);
-	ring_vm_funcregister("getcollisionrayground_2",ring_GetCollisionRayGround_2);
-	ring_vm_funcregister("loadtext",ring_LoadText);
-	ring_vm_funcregister("loadshader_2",ring_LoadShader_2);
-	ring_vm_funcregister("loadshadercode_2",ring_LoadShaderCode_2);
-	ring_vm_funcregister("unloadshader_2",ring_UnloadShader_2);
-	ring_vm_funcregister("getshaderdefault_2",ring_GetShaderDefault_2);
-	ring_vm_funcregister("gettexturedefault_2",ring_GetTextureDefault_2);
-	ring_vm_funcregister("getshaderlocation_2",ring_GetShaderLocation_2);
-	ring_vm_funcregister("setshadervalue_2",ring_SetShaderValue_2);
-	ring_vm_funcregister("setshadervaluev_2",ring_SetShaderValueV_2);
-	ring_vm_funcregister("setshadervaluematrix_2",ring_SetShaderValueMatrix_2);
-	ring_vm_funcregister("setshadervaluetexture_2",ring_SetShaderValueTexture_2);
-	ring_vm_funcregister("setmatrixprojection_2",ring_SetMatrixProjection_2);
-	ring_vm_funcregister("setmatrixmodelview_2",ring_SetMatrixModelview_2);
-	ring_vm_funcregister("getmatrixmodelview_2",ring_GetMatrixModelview_2);
-	ring_vm_funcregister("gentexturecubemap_2",ring_GenTextureCubemap_2);
-	ring_vm_funcregister("gentextureirradiance_2",ring_GenTextureIrradiance_2);
-	ring_vm_funcregister("gentextureprefilter_2",ring_GenTexturePrefilter_2);
-	ring_vm_funcregister("gentexturebrdf_2",ring_GenTextureBRDF_2);
-	ring_vm_funcregister("beginshadermode_2",ring_BeginShaderMode_2);
-	ring_vm_funcregister("endshadermode",ring_EndShaderMode);
-	ring_vm_funcregister("beginblendmode",ring_BeginBlendMode);
-	ring_vm_funcregister("endblendmode",ring_EndBlendMode);
-	ring_vm_funcregister("beginscissormode",ring_BeginScissorMode);
-	ring_vm_funcregister("endscissormode",ring_EndScissorMode);
-	ring_vm_funcregister("initvrsimulator",ring_InitVrSimulator);
-	ring_vm_funcregister("closevrsimulator",ring_CloseVrSimulator);
-	ring_vm_funcregister("updatevrtracking_2",ring_UpdateVrTracking_2);
-	ring_vm_funcregister("setvrconfiguration_2",ring_SetVrConfiguration_2);
-	ring_vm_funcregister("isvrsimulatorready",ring_IsVrSimulatorReady);
-	ring_vm_funcregister("togglevrmode",ring_ToggleVrMode);
-	ring_vm_funcregister("beginvrdrawing",ring_BeginVrDrawing);
-	ring_vm_funcregister("endvrdrawing",ring_EndVrDrawing);
-	ring_vm_funcregister("initaudiodevice",ring_InitAudioDevice);
-	ring_vm_funcregister("closeaudiodevice",ring_CloseAudioDevice);
-	ring_vm_funcregister("isaudiodeviceready",ring_IsAudioDeviceReady);
-	ring_vm_funcregister("setmastervolume",ring_SetMasterVolume);
-	ring_vm_funcregister("loadwave_2",ring_LoadWave_2);
-	ring_vm_funcregister("loadwaveex_2",ring_LoadWaveEx_2);
-	ring_vm_funcregister("loadsound_2",ring_LoadSound_2);
-	ring_vm_funcregister("loadsoundfromwave_2",ring_LoadSoundFromWave_2);
-	ring_vm_funcregister("updatesound_2",ring_UpdateSound_2);
-	ring_vm_funcregister("unloadwave_2",ring_UnloadWave_2);
-	ring_vm_funcregister("unloadsound_2",ring_UnloadSound_2);
-	ring_vm_funcregister("exportwave_2",ring_ExportWave_2);
-	ring_vm_funcregister("exportwaveascode_2",ring_ExportWaveAsCode_2);
-	ring_vm_funcregister("playsound_2",ring_PlaySound_2);
-	ring_vm_funcregister("pausesound_2",ring_PauseSound_2);
-	ring_vm_funcregister("resumesound_2",ring_ResumeSound_2);
-	ring_vm_funcregister("stopsound_2",ring_StopSound_2);
-	ring_vm_funcregister("issoundplaying_2",ring_IsSoundPlaying_2);
-	ring_vm_funcregister("setsoundvolume_2",ring_SetSoundVolume_2);
-	ring_vm_funcregister("setsoundpitch_2",ring_SetSoundPitch_2);
-	ring_vm_funcregister("waveformat_2",ring_WaveFormat_2);
-	ring_vm_funcregister("wavecopy_2",ring_WaveCopy_2);
-	ring_vm_funcregister("wavecrop_2",ring_WaveCrop_2);
-	ring_vm_funcregister("getwavedata_2",ring_GetWaveData_2);
-	ring_vm_funcregister("loadmusicstream_2",ring_LoadMusicStream_2);
-	ring_vm_funcregister("unloadmusicstream_2",ring_UnloadMusicStream_2);
-	ring_vm_funcregister("playmusicstream_2",ring_PlayMusicStream_2);
-	ring_vm_funcregister("updatemusicstream_2",ring_UpdateMusicStream_2);
-	ring_vm_funcregister("stopmusicstream_2",ring_StopMusicStream_2);
-	ring_vm_funcregister("pausemusicstream_2",ring_PauseMusicStream_2);
-	ring_vm_funcregister("resumemusicstream_2",ring_ResumeMusicStream_2);
-	ring_vm_funcregister("ismusicplaying_2",ring_IsMusicPlaying_2);
-	ring_vm_funcregister("setmusicvolume_2",ring_SetMusicVolume_2);
-	ring_vm_funcregister("setmusicpitch_2",ring_SetMusicPitch_2);
-	ring_vm_funcregister("setmusicloopcount_2",ring_SetMusicLoopCount_2);
-	ring_vm_funcregister("getmusictimelength_2",ring_GetMusicTimeLength_2);
-	ring_vm_funcregister("getmusictimeplayed_2",ring_GetMusicTimePlayed_2);
-	ring_vm_funcregister("initaudiostream_2",ring_InitAudioStream_2);
-	ring_vm_funcregister("updateaudiostream_2",ring_UpdateAudioStream_2);
-	ring_vm_funcregister("closeaudiostream_2",ring_CloseAudioStream_2);
-	ring_vm_funcregister("isaudiobufferprocessed_2",ring_IsAudioBufferProcessed_2);
-	ring_vm_funcregister("playaudiostream_2",ring_PlayAudioStream_2);
-	ring_vm_funcregister("pauseaudiostream_2",ring_PauseAudioStream_2);
-	ring_vm_funcregister("resumeaudiostream_2",ring_ResumeAudioStream_2);
-	ring_vm_funcregister("isaudiostreamplaying_2",ring_IsAudioStreamPlaying_2);
-	ring_vm_funcregister("stopaudiostream_2",ring_StopAudioStream_2);
-	ring_vm_funcregister("setaudiostreamvolume_2",ring_SetAudioStreamVolume_2);
-	ring_vm_funcregister("setaudiostreampitch_2",ring_SetAudioStreamPitch_2);
-	ring_vm_funcregister("guienable",ring_GuiEnable);
-	ring_vm_funcregister("guidisable",ring_GuiDisable);
-	ring_vm_funcregister("guilock",ring_GuiLock);
-	ring_vm_funcregister("guiunlock",ring_GuiUnlock);
-	ring_vm_funcregister("guistate",ring_GuiState);
-	ring_vm_funcregister("guifont",ring_GuiFont);
-	ring_vm_funcregister("guifade",ring_GuiFade);
-	ring_vm_funcregister("guisetstyle",ring_GuiSetStyle);
-	ring_vm_funcregister("guigetstyle",ring_GuiGetStyle);
-	ring_vm_funcregister("guiwindowbox_2",ring_GuiWindowBox_2);
-	ring_vm_funcregister("guigroupbox_2",ring_GuiGroupBox_2);
-	ring_vm_funcregister("guiline_2",ring_GuiLine_2);
-	ring_vm_funcregister("guipanel_2",ring_GuiPanel_2);
-	ring_vm_funcregister("guiscrollpanel_2",ring_GuiScrollPanel_2);
-	ring_vm_funcregister("guilabel_2",ring_GuiLabel_2);
-	ring_vm_funcregister("guibutton_2",ring_GuiButton_2);
-	ring_vm_funcregister("guilabelbutton_2",ring_GuiLabelButton_2);
-	ring_vm_funcregister("guiimagebutton_2",ring_GuiImageButton_2);
-	ring_vm_funcregister("guiimagebuttonex_2",ring_GuiImageButtonEx_2);
-	ring_vm_funcregister("guitoggle_2",ring_GuiToggle_2);
-	ring_vm_funcregister("guitogglegroup_2",ring_GuiToggleGroup_2);
-	ring_vm_funcregister("guicheckbox_2",ring_GuiCheckBox_2);
-	ring_vm_funcregister("guicombobox_2",ring_GuiComboBox_2);
-	ring_vm_funcregister("guidropdownbox_2",ring_GuiDropdownBox_2);
-	ring_vm_funcregister("guispinner_2",ring_GuiSpinner_2);
-	ring_vm_funcregister("guivaluebox_2",ring_GuiValueBox_2);
-	ring_vm_funcregister("guitextbox_2",ring_GuiTextBox_2);
-	ring_vm_funcregister("guitextboxmulti_2",ring_GuiTextBoxMulti_2);
-	ring_vm_funcregister("guislider_2",ring_GuiSlider_2);
-	ring_vm_funcregister("guisliderbar_2",ring_GuiSliderBar_2);
-	ring_vm_funcregister("guiprogressbar_2",ring_GuiProgressBar_2);
-	ring_vm_funcregister("guistatusbar_2",ring_GuiStatusBar_2);
-	ring_vm_funcregister("guidummyrec_2",ring_GuiDummyRec_2);
-	ring_vm_funcregister("guiscrollbar_2",ring_GuiScrollBar_2);
-	ring_vm_funcregister("guigrid_2",ring_GuiGrid_2);
-	ring_vm_funcregister("guilistview_2",ring_GuiListView_2);
-	ring_vm_funcregister("guilistviewex_2",ring_GuiListViewEx_2);
-	ring_vm_funcregister("guimessagebox_2",ring_GuiMessageBox_2);
-	ring_vm_funcregister("guitextinputbox_2",ring_GuiTextInputBox_2);
-	ring_vm_funcregister("guicolorpicker_2",ring_GuiColorPicker_2);
-	ring_vm_funcregister("guiloadstyle",ring_GuiLoadStyle);
-	ring_vm_funcregister("guiloadstyleprops",ring_GuiLoadStyleProps);
-	ring_vm_funcregister("guiloadstyledefault",ring_GuiLoadStyleDefault);
-	ring_vm_funcregister("guiupdatestylecomplete",ring_GuiUpdateStyleComplete);
-	ring_vm_funcregister("guiicontext",ring_GuiIconText);
-	ring_vm_funcregister("clamp",ring_Clamp);
-	ring_vm_funcregister("lerp",ring_Lerp);
-	ring_vm_funcregister("normalize",ring_Normalize);
-	ring_vm_funcregister("remap",ring_Remap);
-	ring_vm_funcregister("vector2zero_2",ring_Vector2Zero_2);
-	ring_vm_funcregister("vector2one_2",ring_Vector2One_2);
-	ring_vm_funcregister("vector2add_2",ring_Vector2Add_2);
-	ring_vm_funcregister("vector2addvalue_2",ring_Vector2AddValue_2);
-	ring_vm_funcregister("vector2subtract_2",ring_Vector2Subtract_2);
-	ring_vm_funcregister("vector2subtractvalue_2",ring_Vector2SubtractValue_2);
-	ring_vm_funcregister("vector2length_2",ring_Vector2Length_2);
-	ring_vm_funcregister("vector2lengthsqr_2",ring_Vector2LengthSqr_2);
-	ring_vm_funcregister("vector2dotproduct_2",ring_Vector2DotProduct_2);
-	ring_vm_funcregister("vector2distance_2",ring_Vector2Distance_2);
-	ring_vm_funcregister("vector2angle_2",ring_Vector2Angle_2);
-	ring_vm_funcregister("vector2scale_2",ring_Vector2Scale_2);
-	ring_vm_funcregister("vector2multiply_2",ring_Vector2Multiply_2);
-	ring_vm_funcregister("vector2negate_2",ring_Vector2Negate_2);
-	ring_vm_funcregister("vector2divide_2",ring_Vector2Divide_2);
-	ring_vm_funcregister("vector2normalize_2",ring_Vector2Normalize_2);
-	ring_vm_funcregister("vector2lerp_2",ring_Vector2Lerp_2);
-	ring_vm_funcregister("vector2rotate_2",ring_Vector2Rotate_2);
-	ring_vm_funcregister("vector2movetowards_2",ring_Vector2MoveTowards_2);
-	ring_vm_funcregister("vector3zero_2",ring_Vector3Zero_2);
-	ring_vm_funcregister("vector3one_2",ring_Vector3One_2);
-	ring_vm_funcregister("vector3add_2",ring_Vector3Add_2);
-	ring_vm_funcregister("vector3addvalue_2",ring_Vector3AddValue_2);
-	ring_vm_funcregister("vector3subtract_2",ring_Vector3Subtract_2);
-	ring_vm_funcregister("vector3subtractvalue_2",ring_Vector3SubtractValue_2);
-	ring_vm_funcregister("vector3scale_2",ring_Vector3Scale_2);
-	ring_vm_funcregister("vector3multiply_2",ring_Vector3Multiply_2);
-	ring_vm_funcregister("vector3crossproduct_2",ring_Vector3CrossProduct_2);
-	ring_vm_funcregister("vector3perpendicular_2",ring_Vector3Perpendicular_2);
-	ring_vm_funcregister("vector3length_2",ring_Vector3Length_2);
-	ring_vm_funcregister("vector3lengthsqr_2",ring_Vector3LengthSqr_2);
-	ring_vm_funcregister("vector3dotproduct_2",ring_Vector3DotProduct_2);
-	ring_vm_funcregister("vector3distance_2",ring_Vector3Distance_2);
-	ring_vm_funcregister("vector3negate_2",ring_Vector3Negate_2);
-	ring_vm_funcregister("vector3divide_2",ring_Vector3Divide_2);
-	ring_vm_funcregister("vector3normalize_2",ring_Vector3Normalize_2);
-	ring_vm_funcregister("vector3orthonormalize_2",ring_Vector3OrthoNormalize_2);
-	ring_vm_funcregister("vector3transform_2",ring_Vector3Transform_2);
-	ring_vm_funcregister("vector3rotatebyquaternion_2",ring_Vector3RotateByQuaternion_2);
-	ring_vm_funcregister("vector3lerp_2",ring_Vector3Lerp_2);
-	ring_vm_funcregister("vector3reflect_2",ring_Vector3Reflect_2);
-	ring_vm_funcregister("vector3min_2",ring_Vector3Min_2);
-	ring_vm_funcregister("vector3max_2",ring_Vector3Max_2);
-	ring_vm_funcregister("vector3barycenter_2",ring_Vector3Barycenter_2);
-	ring_vm_funcregister("vector3tofloatv_2",ring_Vector3ToFloatV_2);
-	ring_vm_funcregister("matrixdeterminant_2",ring_MatrixDeterminant_2);
-	ring_vm_funcregister("matrixtrace_2",ring_MatrixTrace_2);
-	ring_vm_funcregister("matrixtranspose_2",ring_MatrixTranspose_2);
-	ring_vm_funcregister("matrixinvert_2",ring_MatrixInvert_2);
-	ring_vm_funcregister("matrixnormalize_2",ring_MatrixNormalize_2);
-	ring_vm_funcregister("matrixidentity_2",ring_MatrixIdentity_2);
-	ring_vm_funcregister("matrixadd_2",ring_MatrixAdd_2);
-	ring_vm_funcregister("matrixsubtract_2",ring_MatrixSubtract_2);
-	ring_vm_funcregister("matrixtranslate_2",ring_MatrixTranslate_2);
-	ring_vm_funcregister("matrixrotate_2",ring_MatrixRotate_2);
-	ring_vm_funcregister("matrixrotatexyz_2",ring_MatrixRotateXYZ_2);
-	ring_vm_funcregister("matrixrotatex_2",ring_MatrixRotateX_2);
-	ring_vm_funcregister("matrixrotatey_2",ring_MatrixRotateY_2);
-	ring_vm_funcregister("matrixrotatez_2",ring_MatrixRotateZ_2);
-	ring_vm_funcregister("matrixscale_2",ring_MatrixScale_2);
-	ring_vm_funcregister("matrixmultiply_2",ring_MatrixMultiply_2);
-	ring_vm_funcregister("matrixfrustum_2",ring_MatrixFrustum_2);
-	ring_vm_funcregister("matrixperspective_2",ring_MatrixPerspective_2);
-	ring_vm_funcregister("matrixortho_2",ring_MatrixOrtho_2);
-	ring_vm_funcregister("matrixlookat_2",ring_MatrixLookAt_2);
-	ring_vm_funcregister("matrixtofloatv_2",ring_MatrixToFloatV_2);
-	ring_vm_funcregister("quaternionadd_2",ring_QuaternionAdd_2);
-	ring_vm_funcregister("quaternionaddvalue_2",ring_QuaternionAddValue_2);
-	ring_vm_funcregister("quaternionsubtract_2",ring_QuaternionSubtract_2);
-	ring_vm_funcregister("quaternionsubtractvalue_2",ring_QuaternionSubtractValue_2);
-	ring_vm_funcregister("quaternionidentity_2",ring_QuaternionIdentity_2);
-	ring_vm_funcregister("quaternionlength_2",ring_QuaternionLength_2);
-	ring_vm_funcregister("quaternionnormalize_2",ring_QuaternionNormalize_2);
-	ring_vm_funcregister("quaternioninvert_2",ring_QuaternionInvert_2);
-	ring_vm_funcregister("quaternionmultiply_2",ring_QuaternionMultiply_2);
-	ring_vm_funcregister("quaternionscale_2",ring_QuaternionScale_2);
-	ring_vm_funcregister("quaterniondivide_2",ring_QuaternionDivide_2);
-	ring_vm_funcregister("quaternionlerp_2",ring_QuaternionLerp_2);
-	ring_vm_funcregister("quaternionnlerp_2",ring_QuaternionNlerp_2);
-	ring_vm_funcregister("quaternionslerp_2",ring_QuaternionSlerp_2);
-	ring_vm_funcregister("quaternionfromvector3tovector3_2",ring_QuaternionFromVector3ToVector3_2);
-	ring_vm_funcregister("quaternionfrommatrix_2",ring_QuaternionFromMatrix_2);
-	ring_vm_funcregister("quaterniontomatrix_2",ring_QuaternionToMatrix_2);
-	ring_vm_funcregister("quaternionfromaxisangle_2",ring_QuaternionFromAxisAngle_2);
-	ring_vm_funcregister("quaterniontoaxisangle_2",ring_QuaternionToAxisAngle_2);
-	ring_vm_funcregister("quaternionfromeuler_2",ring_QuaternionFromEuler_2);
-	ring_vm_funcregister("quaterniontoeuler_2",ring_QuaternionToEuler_2);
-	ring_vm_funcregister("quaterniontransform_2",ring_QuaternionTransform_2);
-	ring_vm_funcregister("setmodelmaterialtexture_2",ring_setmodelmaterialtexture_2);
-	ring_vm_funcregister("getimagepixelr_2",ring_getimagepixelr_2);
-	ring_vm_funcregister("getimagepixelg_2",ring_getimagepixelg_2);
-	ring_vm_funcregister("getimagepixelb_2",ring_getimagepixelb_2);
-	ring_vm_funcregister("getimagepixela_2",ring_getimagepixela_2);
-	ring_vm_funcregister("raylib_new_vector2",ring_raylib_new_vector2);
-	ring_vm_funcregister("raylib_new_managed_vector2",ring_raylib_new_managed_vector2);
-	ring_vm_funcregister("raylib_destroy_vector2",ring_raylib_destroy_vector2);
-	ring_vm_funcregister("raylib_get_vector2_x",ring_raylib_get_vector2_x);
-	ring_vm_funcregister("raylib_set_vector2_x",ring_raylib_set_vector2_x);
-	ring_vm_funcregister("raylib_get_vector2_y",ring_raylib_get_vector2_y);
-	ring_vm_funcregister("raylib_set_vector2_y",ring_raylib_set_vector2_y);
-	ring_vm_funcregister("raylib_new_vector3",ring_raylib_new_vector3);
-	ring_vm_funcregister("raylib_new_managed_vector3",ring_raylib_new_managed_vector3);
-	ring_vm_funcregister("raylib_destroy_vector3",ring_raylib_destroy_vector3);
-	ring_vm_funcregister("raylib_get_vector3_x",ring_raylib_get_vector3_x);
-	ring_vm_funcregister("raylib_set_vector3_x",ring_raylib_set_vector3_x);
-	ring_vm_funcregister("raylib_get_vector3_y",ring_raylib_get_vector3_y);
-	ring_vm_funcregister("raylib_set_vector3_y",ring_raylib_set_vector3_y);
-	ring_vm_funcregister("raylib_get_vector3_z",ring_raylib_get_vector3_z);
-	ring_vm_funcregister("raylib_set_vector3_z",ring_raylib_set_vector3_z);
-	ring_vm_funcregister("raylib_new_vector4",ring_raylib_new_vector4);
-	ring_vm_funcregister("raylib_new_managed_vector4",ring_raylib_new_managed_vector4);
-	ring_vm_funcregister("raylib_destroy_vector4",ring_raylib_destroy_vector4);
-	ring_vm_funcregister("raylib_get_vector4_x",ring_raylib_get_vector4_x);
-	ring_vm_funcregister("raylib_set_vector4_x",ring_raylib_set_vector4_x);
-	ring_vm_funcregister("raylib_get_vector4_y",ring_raylib_get_vector4_y);
-	ring_vm_funcregister("raylib_set_vector4_y",ring_raylib_set_vector4_y);
-	ring_vm_funcregister("raylib_get_vector4_z",ring_raylib_get_vector4_z);
-	ring_vm_funcregister("raylib_set_vector4_z",ring_raylib_set_vector4_z);
-	ring_vm_funcregister("raylib_get_vector4_w",ring_raylib_get_vector4_w);
-	ring_vm_funcregister("raylib_set_vector4_w",ring_raylib_set_vector4_w);
-	ring_vm_funcregister("raylib_new_quaternion",ring_raylib_new_quaternion);
-	ring_vm_funcregister("raylib_new_managed_quaternion",ring_raylib_new_managed_quaternion);
-	ring_vm_funcregister("raylib_destroy_quaternion",ring_raylib_destroy_quaternion);
-	ring_vm_funcregister("raylib_get_quaternion_x",ring_raylib_get_quaternion_x);
-	ring_vm_funcregister("raylib_set_quaternion_x",ring_raylib_set_quaternion_x);
-	ring_vm_funcregister("raylib_get_quaternion_y",ring_raylib_get_quaternion_y);
-	ring_vm_funcregister("raylib_set_quaternion_y",ring_raylib_set_quaternion_y);
-	ring_vm_funcregister("raylib_get_quaternion_z",ring_raylib_get_quaternion_z);
-	ring_vm_funcregister("raylib_set_quaternion_z",ring_raylib_set_quaternion_z);
-	ring_vm_funcregister("raylib_get_quaternion_w",ring_raylib_get_quaternion_w);
-	ring_vm_funcregister("raylib_set_quaternion_w",ring_raylib_set_quaternion_w);
-	ring_vm_funcregister("raylib_new_matrix",ring_raylib_new_matrix);
-	ring_vm_funcregister("raylib_new_managed_matrix",ring_raylib_new_managed_matrix);
-	ring_vm_funcregister("raylib_destroy_matrix",ring_raylib_destroy_matrix);
-	ring_vm_funcregister("raylib_get_matrix_m0",ring_raylib_get_matrix_m0);
-	ring_vm_funcregister("raylib_set_matrix_m0",ring_raylib_set_matrix_m0);
-	ring_vm_funcregister("raylib_get_matrix_m1",ring_raylib_get_matrix_m1);
-	ring_vm_funcregister("raylib_set_matrix_m1",ring_raylib_set_matrix_m1);
-	ring_vm_funcregister("raylib_get_matrix_m2",ring_raylib_get_matrix_m2);
-	ring_vm_funcregister("raylib_set_matrix_m2",ring_raylib_set_matrix_m2);
-	ring_vm_funcregister("raylib_get_matrix_m3",ring_raylib_get_matrix_m3);
-	ring_vm_funcregister("raylib_set_matrix_m3",ring_raylib_set_matrix_m3);
-	ring_vm_funcregister("raylib_get_matrix_m4",ring_raylib_get_matrix_m4);
-	ring_vm_funcregister("raylib_set_matrix_m4",ring_raylib_set_matrix_m4);
-	ring_vm_funcregister("raylib_get_matrix_m5",ring_raylib_get_matrix_m5);
-	ring_vm_funcregister("raylib_set_matrix_m5",ring_raylib_set_matrix_m5);
-	ring_vm_funcregister("raylib_get_matrix_m6",ring_raylib_get_matrix_m6);
-	ring_vm_funcregister("raylib_set_matrix_m6",ring_raylib_set_matrix_m6);
-	ring_vm_funcregister("raylib_get_matrix_m7",ring_raylib_get_matrix_m7);
-	ring_vm_funcregister("raylib_set_matrix_m7",ring_raylib_set_matrix_m7);
-	ring_vm_funcregister("raylib_get_matrix_m8",ring_raylib_get_matrix_m8);
-	ring_vm_funcregister("raylib_set_matrix_m8",ring_raylib_set_matrix_m8);
-	ring_vm_funcregister("raylib_get_matrix_m9",ring_raylib_get_matrix_m9);
-	ring_vm_funcregister("raylib_set_matrix_m9",ring_raylib_set_matrix_m9);
-	ring_vm_funcregister("raylib_get_matrix_m10",ring_raylib_get_matrix_m10);
-	ring_vm_funcregister("raylib_set_matrix_m10",ring_raylib_set_matrix_m10);
-	ring_vm_funcregister("raylib_get_matrix_m11",ring_raylib_get_matrix_m11);
-	ring_vm_funcregister("raylib_set_matrix_m11",ring_raylib_set_matrix_m11);
-	ring_vm_funcregister("raylib_get_matrix_m12",ring_raylib_get_matrix_m12);
-	ring_vm_funcregister("raylib_set_matrix_m12",ring_raylib_set_matrix_m12);
-	ring_vm_funcregister("raylib_get_matrix_m13",ring_raylib_get_matrix_m13);
-	ring_vm_funcregister("raylib_set_matrix_m13",ring_raylib_set_matrix_m13);
-	ring_vm_funcregister("raylib_get_matrix_m14",ring_raylib_get_matrix_m14);
-	ring_vm_funcregister("raylib_set_matrix_m14",ring_raylib_set_matrix_m14);
-	ring_vm_funcregister("raylib_get_matrix_m15",ring_raylib_get_matrix_m15);
-	ring_vm_funcregister("raylib_set_matrix_m15",ring_raylib_set_matrix_m15);
-	ring_vm_funcregister("raylib_new_color",ring_raylib_new_color);
-	ring_vm_funcregister("raylib_new_managed_color",ring_raylib_new_managed_color);
-	ring_vm_funcregister("raylib_destroy_color",ring_raylib_destroy_color);
-	ring_vm_funcregister("raylib_get_color_r",ring_raylib_get_color_r);
-	ring_vm_funcregister("raylib_set_color_r",ring_raylib_set_color_r);
-	ring_vm_funcregister("raylib_get_color_g",ring_raylib_get_color_g);
-	ring_vm_funcregister("raylib_set_color_g",ring_raylib_set_color_g);
-	ring_vm_funcregister("raylib_get_color_b",ring_raylib_get_color_b);
-	ring_vm_funcregister("raylib_set_color_b",ring_raylib_set_color_b);
-	ring_vm_funcregister("raylib_get_color_a",ring_raylib_get_color_a);
-	ring_vm_funcregister("raylib_set_color_a",ring_raylib_set_color_a);
-	ring_vm_funcregister("raylib_new_rectangle",ring_raylib_new_rectangle);
-	ring_vm_funcregister("raylib_new_managed_rectangle",ring_raylib_new_managed_rectangle);
-	ring_vm_funcregister("raylib_destroy_rectangle",ring_raylib_destroy_rectangle);
-	ring_vm_funcregister("raylib_get_rectangle_x",ring_raylib_get_rectangle_x);
-	ring_vm_funcregister("raylib_set_rectangle_x",ring_raylib_set_rectangle_x);
-	ring_vm_funcregister("raylib_get_rectangle_y",ring_raylib_get_rectangle_y);
-	ring_vm_funcregister("raylib_set_rectangle_y",ring_raylib_set_rectangle_y);
-	ring_vm_funcregister("raylib_get_rectangle_width",ring_raylib_get_rectangle_width);
-	ring_vm_funcregister("raylib_set_rectangle_width",ring_raylib_set_rectangle_width);
-	ring_vm_funcregister("raylib_get_rectangle_height",ring_raylib_get_rectangle_height);
-	ring_vm_funcregister("raylib_set_rectangle_height",ring_raylib_set_rectangle_height);
-	ring_vm_funcregister("raylib_new_image",ring_raylib_new_image);
-	ring_vm_funcregister("raylib_new_managed_image",ring_raylib_new_managed_image);
-	ring_vm_funcregister("raylib_destroy_image",ring_raylib_destroy_image);
-	ring_vm_funcregister("raylib_get_image_data",ring_raylib_get_image_data);
-	ring_vm_funcregister("raylib_set_image_data",ring_raylib_set_image_data);
-	ring_vm_funcregister("raylib_get_image_width",ring_raylib_get_image_width);
-	ring_vm_funcregister("raylib_set_image_width",ring_raylib_set_image_width);
-	ring_vm_funcregister("raylib_get_image_height",ring_raylib_get_image_height);
-	ring_vm_funcregister("raylib_set_image_height",ring_raylib_set_image_height);
-	ring_vm_funcregister("raylib_get_image_mipmaps",ring_raylib_get_image_mipmaps);
-	ring_vm_funcregister("raylib_set_image_mipmaps",ring_raylib_set_image_mipmaps);
-	ring_vm_funcregister("raylib_get_image_format",ring_raylib_get_image_format);
-	ring_vm_funcregister("raylib_set_image_format",ring_raylib_set_image_format);
-	ring_vm_funcregister("raylib_new_texture2d",ring_raylib_new_texture2d);
-	ring_vm_funcregister("raylib_new_managed_texture2d",ring_raylib_new_managed_texture2d);
-	ring_vm_funcregister("raylib_destroy_texture2d",ring_raylib_destroy_texture2d);
-	ring_vm_funcregister("raylib_get_texture2d_id",ring_raylib_get_texture2d_id);
-	ring_vm_funcregister("raylib_set_texture2d_id",ring_raylib_set_texture2d_id);
-	ring_vm_funcregister("raylib_get_texture2d_width",ring_raylib_get_texture2d_width);
-	ring_vm_funcregister("raylib_set_texture2d_width",ring_raylib_set_texture2d_width);
-	ring_vm_funcregister("raylib_get_texture2d_height",ring_raylib_get_texture2d_height);
-	ring_vm_funcregister("raylib_set_texture2d_height",ring_raylib_set_texture2d_height);
-	ring_vm_funcregister("raylib_get_texture2d_mipmaps",ring_raylib_get_texture2d_mipmaps);
-	ring_vm_funcregister("raylib_set_texture2d_mipmaps",ring_raylib_set_texture2d_mipmaps);
-	ring_vm_funcregister("raylib_get_texture2d_format",ring_raylib_get_texture2d_format);
-	ring_vm_funcregister("raylib_set_texture2d_format",ring_raylib_set_texture2d_format);
-	ring_vm_funcregister("raylib_new_texture",ring_raylib_new_texture);
-	ring_vm_funcregister("raylib_new_managed_texture",ring_raylib_new_managed_texture);
-	ring_vm_funcregister("raylib_destroy_texture",ring_raylib_destroy_texture);
-	ring_vm_funcregister("raylib_get_texture_id",ring_raylib_get_texture_id);
-	ring_vm_funcregister("raylib_set_texture_id",ring_raylib_set_texture_id);
-	ring_vm_funcregister("raylib_get_texture_width",ring_raylib_get_texture_width);
-	ring_vm_funcregister("raylib_set_texture_width",ring_raylib_set_texture_width);
-	ring_vm_funcregister("raylib_get_texture_height",ring_raylib_get_texture_height);
-	ring_vm_funcregister("raylib_set_texture_height",ring_raylib_set_texture_height);
-	ring_vm_funcregister("raylib_get_texture_mipmaps",ring_raylib_get_texture_mipmaps);
-	ring_vm_funcregister("raylib_set_texture_mipmaps",ring_raylib_set_texture_mipmaps);
-	ring_vm_funcregister("raylib_get_texture_format",ring_raylib_get_texture_format);
-	ring_vm_funcregister("raylib_set_texture_format",ring_raylib_set_texture_format);
-	ring_vm_funcregister("raylib_new_rendertexture2d",ring_raylib_new_rendertexture2d);
-	ring_vm_funcregister("raylib_new_managed_rendertexture2d",ring_raylib_new_managed_rendertexture2d);
-	ring_vm_funcregister("raylib_destroy_rendertexture2d",ring_raylib_destroy_rendertexture2d);
-	ring_vm_funcregister("raylib_get_rendertexture2d_id",ring_raylib_get_rendertexture2d_id);
-	ring_vm_funcregister("raylib_set_rendertexture2d_id",ring_raylib_set_rendertexture2d_id);
-	ring_vm_funcregister("raylib_get_rendertexture2d_texture_id",ring_raylib_get_rendertexture2d_texture_id);
-	ring_vm_funcregister("raylib_set_rendertexture2d_texture_id",ring_raylib_set_rendertexture2d_texture_id);
-	ring_vm_funcregister("raylib_get_rendertexture2d_texture_width",ring_raylib_get_rendertexture2d_texture_width);
-	ring_vm_funcregister("raylib_set_rendertexture2d_texture_width",ring_raylib_set_rendertexture2d_texture_width);
-	ring_vm_funcregister("raylib_get_rendertexture2d_texture_height",ring_raylib_get_rendertexture2d_texture_height);
-	ring_vm_funcregister("raylib_set_rendertexture2d_texture_height",ring_raylib_set_rendertexture2d_texture_height);
-	ring_vm_funcregister("raylib_get_rendertexture2d_texture_mipmaps",ring_raylib_get_rendertexture2d_texture_mipmaps);
-	ring_vm_funcregister("raylib_set_rendertexture2d_texture_mipmaps",ring_raylib_set_rendertexture2d_texture_mipmaps);
-	ring_vm_funcregister("raylib_get_rendertexture2d_texture_format",ring_raylib_get_rendertexture2d_texture_format);
-	ring_vm_funcregister("raylib_set_rendertexture2d_texture_format",ring_raylib_set_rendertexture2d_texture_format);
-	ring_vm_funcregister("raylib_get_rendertexture2d_depth_id",ring_raylib_get_rendertexture2d_depth_id);
-	ring_vm_funcregister("raylib_set_rendertexture2d_depth_id",ring_raylib_set_rendertexture2d_depth_id);
-	ring_vm_funcregister("raylib_get_rendertexture2d_depth_width",ring_raylib_get_rendertexture2d_depth_width);
-	ring_vm_funcregister("raylib_set_rendertexture2d_depth_width",ring_raylib_set_rendertexture2d_depth_width);
-	ring_vm_funcregister("raylib_get_rendertexture2d_depth_height",ring_raylib_get_rendertexture2d_depth_height);
-	ring_vm_funcregister("raylib_set_rendertexture2d_depth_height",ring_raylib_set_rendertexture2d_depth_height);
-	ring_vm_funcregister("raylib_get_rendertexture2d_depth_mipmaps",ring_raylib_get_rendertexture2d_depth_mipmaps);
-	ring_vm_funcregister("raylib_set_rendertexture2d_depth_mipmaps",ring_raylib_set_rendertexture2d_depth_mipmaps);
-	ring_vm_funcregister("raylib_get_rendertexture2d_depth_format",ring_raylib_get_rendertexture2d_depth_format);
-	ring_vm_funcregister("raylib_set_rendertexture2d_depth_format",ring_raylib_set_rendertexture2d_depth_format);
-	ring_vm_funcregister("raylib_get_rendertexture2d_depthtexture",ring_raylib_get_rendertexture2d_depthTexture);
-	ring_vm_funcregister("raylib_set_rendertexture2d_depthtexture",ring_raylib_set_rendertexture2d_depthTexture);
-	ring_vm_funcregister("raylib_new_rendertexture",ring_raylib_new_rendertexture);
-	ring_vm_funcregister("raylib_new_managed_rendertexture",ring_raylib_new_managed_rendertexture);
-	ring_vm_funcregister("raylib_destroy_rendertexture",ring_raylib_destroy_rendertexture);
-	ring_vm_funcregister("raylib_get_rendertexture_id",ring_raylib_get_rendertexture_id);
-	ring_vm_funcregister("raylib_set_rendertexture_id",ring_raylib_set_rendertexture_id);
-	ring_vm_funcregister("raylib_get_rendertexture_texture_id",ring_raylib_get_rendertexture_texture_id);
-	ring_vm_funcregister("raylib_set_rendertexture_texture_id",ring_raylib_set_rendertexture_texture_id);
-	ring_vm_funcregister("raylib_get_rendertexture_texture_width",ring_raylib_get_rendertexture_texture_width);
-	ring_vm_funcregister("raylib_set_rendertexture_texture_width",ring_raylib_set_rendertexture_texture_width);
-	ring_vm_funcregister("raylib_get_rendertexture_texture_height",ring_raylib_get_rendertexture_texture_height);
-	ring_vm_funcregister("raylib_set_rendertexture_texture_height",ring_raylib_set_rendertexture_texture_height);
-	ring_vm_funcregister("raylib_get_rendertexture_texture_mipmaps",ring_raylib_get_rendertexture_texture_mipmaps);
-	ring_vm_funcregister("raylib_set_rendertexture_texture_mipmaps",ring_raylib_set_rendertexture_texture_mipmaps);
-	ring_vm_funcregister("raylib_get_rendertexture_texture_format",ring_raylib_get_rendertexture_texture_format);
-	ring_vm_funcregister("raylib_set_rendertexture_texture_format",ring_raylib_set_rendertexture_texture_format);
-	ring_vm_funcregister("raylib_get_rendertexture_depth_id",ring_raylib_get_rendertexture_depth_id);
-	ring_vm_funcregister("raylib_set_rendertexture_depth_id",ring_raylib_set_rendertexture_depth_id);
-	ring_vm_funcregister("raylib_get_rendertexture_depth_width",ring_raylib_get_rendertexture_depth_width);
-	ring_vm_funcregister("raylib_set_rendertexture_depth_width",ring_raylib_set_rendertexture_depth_width);
-	ring_vm_funcregister("raylib_get_rendertexture_depth_height",ring_raylib_get_rendertexture_depth_height);
-	ring_vm_funcregister("raylib_set_rendertexture_depth_height",ring_raylib_set_rendertexture_depth_height);
-	ring_vm_funcregister("raylib_get_rendertexture_depth_mipmaps",ring_raylib_get_rendertexture_depth_mipmaps);
-	ring_vm_funcregister("raylib_set_rendertexture_depth_mipmaps",ring_raylib_set_rendertexture_depth_mipmaps);
-	ring_vm_funcregister("raylib_get_rendertexture_depth_format",ring_raylib_get_rendertexture_depth_format);
-	ring_vm_funcregister("raylib_set_rendertexture_depth_format",ring_raylib_set_rendertexture_depth_format);
-	ring_vm_funcregister("raylib_get_rendertexture_depthtexture",ring_raylib_get_rendertexture_depthTexture);
-	ring_vm_funcregister("raylib_set_rendertexture_depthtexture",ring_raylib_set_rendertexture_depthTexture);
-	ring_vm_funcregister("raylib_new_npatchinfo",ring_raylib_new_npatchinfo);
-	ring_vm_funcregister("raylib_new_managed_npatchinfo",ring_raylib_new_managed_npatchinfo);
-	ring_vm_funcregister("raylib_destroy_npatchinfo",ring_raylib_destroy_npatchinfo);
-	ring_vm_funcregister("raylib_get_npatchinfo_sourcerec_x",ring_raylib_get_npatchinfo_sourceRec_x);
-	ring_vm_funcregister("raylib_set_npatchinfo_sourcerec_x",ring_raylib_set_npatchinfo_sourceRec_x);
-	ring_vm_funcregister("raylib_get_npatchinfo_sourcerec_y",ring_raylib_get_npatchinfo_sourceRec_y);
-	ring_vm_funcregister("raylib_set_npatchinfo_sourcerec_y",ring_raylib_set_npatchinfo_sourceRec_y);
-	ring_vm_funcregister("raylib_get_npatchinfo_sourcerec_width",ring_raylib_get_npatchinfo_sourceRec_width);
-	ring_vm_funcregister("raylib_set_npatchinfo_sourcerec_width",ring_raylib_set_npatchinfo_sourceRec_width);
-	ring_vm_funcregister("raylib_get_npatchinfo_sourcerec_height",ring_raylib_get_npatchinfo_sourceRec_height);
-	ring_vm_funcregister("raylib_set_npatchinfo_sourcerec_height",ring_raylib_set_npatchinfo_sourceRec_height);
-	ring_vm_funcregister("raylib_get_npatchinfo_left",ring_raylib_get_npatchinfo_left);
-	ring_vm_funcregister("raylib_set_npatchinfo_left",ring_raylib_set_npatchinfo_left);
-	ring_vm_funcregister("raylib_get_npatchinfo_top",ring_raylib_get_npatchinfo_top);
-	ring_vm_funcregister("raylib_set_npatchinfo_top",ring_raylib_set_npatchinfo_top);
-	ring_vm_funcregister("raylib_get_npatchinfo_right",ring_raylib_get_npatchinfo_right);
-	ring_vm_funcregister("raylib_set_npatchinfo_right",ring_raylib_set_npatchinfo_right);
-	ring_vm_funcregister("raylib_get_npatchinfo_bottom",ring_raylib_get_npatchinfo_bottom);
-	ring_vm_funcregister("raylib_set_npatchinfo_bottom",ring_raylib_set_npatchinfo_bottom);
-	ring_vm_funcregister("raylib_get_npatchinfo_type",ring_raylib_get_npatchinfo_type);
-	ring_vm_funcregister("raylib_set_npatchinfo_type",ring_raylib_set_npatchinfo_type);
-	ring_vm_funcregister("raylib_new_charinfo",ring_raylib_new_charinfo);
-	ring_vm_funcregister("raylib_new_managed_charinfo",ring_raylib_new_managed_charinfo);
-	ring_vm_funcregister("raylib_destroy_charinfo",ring_raylib_destroy_charinfo);
-	ring_vm_funcregister("raylib_get_charinfo_value",ring_raylib_get_charinfo_value);
-	ring_vm_funcregister("raylib_set_charinfo_value",ring_raylib_set_charinfo_value);
-	ring_vm_funcregister("raylib_get_charinfo_rec_x",ring_raylib_get_charinfo_rec_x);
-	ring_vm_funcregister("raylib_set_charinfo_rec_x",ring_raylib_set_charinfo_rec_x);
-	ring_vm_funcregister("raylib_get_charinfo_rec_y",ring_raylib_get_charinfo_rec_y);
-	ring_vm_funcregister("raylib_set_charinfo_rec_y",ring_raylib_set_charinfo_rec_y);
-	ring_vm_funcregister("raylib_get_charinfo_rec_width",ring_raylib_get_charinfo_rec_width);
-	ring_vm_funcregister("raylib_set_charinfo_rec_width",ring_raylib_set_charinfo_rec_width);
-	ring_vm_funcregister("raylib_get_charinfo_rec_height",ring_raylib_get_charinfo_rec_height);
-	ring_vm_funcregister("raylib_set_charinfo_rec_height",ring_raylib_set_charinfo_rec_height);
-	ring_vm_funcregister("raylib_get_charinfo_offsetx",ring_raylib_get_charinfo_offsetX);
-	ring_vm_funcregister("raylib_set_charinfo_offsetx",ring_raylib_set_charinfo_offsetX);
-	ring_vm_funcregister("raylib_get_charinfo_offsety",ring_raylib_get_charinfo_offsetY);
-	ring_vm_funcregister("raylib_set_charinfo_offsety",ring_raylib_set_charinfo_offsetY);
-	ring_vm_funcregister("raylib_get_charinfo_advancex",ring_raylib_get_charinfo_advanceX);
-	ring_vm_funcregister("raylib_set_charinfo_advancex",ring_raylib_set_charinfo_advanceX);
-	ring_vm_funcregister("raylib_get_charinfo_data",ring_raylib_get_charinfo_data);
-	ring_vm_funcregister("raylib_set_charinfo_data",ring_raylib_set_charinfo_data);
-	ring_vm_funcregister("raylib_new_font",ring_raylib_new_font);
-	ring_vm_funcregister("raylib_new_managed_font",ring_raylib_new_managed_font);
-	ring_vm_funcregister("raylib_destroy_font",ring_raylib_destroy_font);
-	ring_vm_funcregister("raylib_get_font_texture_id",ring_raylib_get_font_texture_id);
-	ring_vm_funcregister("raylib_set_font_texture_id",ring_raylib_set_font_texture_id);
-	ring_vm_funcregister("raylib_get_font_texture_width",ring_raylib_get_font_texture_width);
-	ring_vm_funcregister("raylib_set_font_texture_width",ring_raylib_set_font_texture_width);
-	ring_vm_funcregister("raylib_get_font_texture_height",ring_raylib_get_font_texture_height);
-	ring_vm_funcregister("raylib_set_font_texture_height",ring_raylib_set_font_texture_height);
-	ring_vm_funcregister("raylib_get_font_texture_mipmaps",ring_raylib_get_font_texture_mipmaps);
-	ring_vm_funcregister("raylib_set_font_texture_mipmaps",ring_raylib_set_font_texture_mipmaps);
-	ring_vm_funcregister("raylib_get_font_texture_format",ring_raylib_get_font_texture_format);
-	ring_vm_funcregister("raylib_set_font_texture_format",ring_raylib_set_font_texture_format);
-	ring_vm_funcregister("raylib_get_font_basesize",ring_raylib_get_font_baseSize);
-	ring_vm_funcregister("raylib_set_font_basesize",ring_raylib_set_font_baseSize);
-	ring_vm_funcregister("raylib_get_font_charscount",ring_raylib_get_font_charsCount);
-	ring_vm_funcregister("raylib_set_font_charscount",ring_raylib_set_font_charsCount);
-	ring_vm_funcregister("raylib_get_font_chars",ring_raylib_get_font_chars);
-	ring_vm_funcregister("raylib_set_font_chars",ring_raylib_set_font_chars);
-	ring_vm_funcregister("raylib_new_spritefont",ring_raylib_new_spritefont);
-	ring_vm_funcregister("raylib_new_managed_spritefont",ring_raylib_new_managed_spritefont);
-	ring_vm_funcregister("raylib_destroy_spritefont",ring_raylib_destroy_spritefont);
-	ring_vm_funcregister("raylib_get_spritefont_texture_id",ring_raylib_get_spritefont_texture_id);
-	ring_vm_funcregister("raylib_set_spritefont_texture_id",ring_raylib_set_spritefont_texture_id);
-	ring_vm_funcregister("raylib_get_spritefont_texture_width",ring_raylib_get_spritefont_texture_width);
-	ring_vm_funcregister("raylib_set_spritefont_texture_width",ring_raylib_set_spritefont_texture_width);
-	ring_vm_funcregister("raylib_get_spritefont_texture_height",ring_raylib_get_spritefont_texture_height);
-	ring_vm_funcregister("raylib_set_spritefont_texture_height",ring_raylib_set_spritefont_texture_height);
-	ring_vm_funcregister("raylib_get_spritefont_texture_mipmaps",ring_raylib_get_spritefont_texture_mipmaps);
-	ring_vm_funcregister("raylib_set_spritefont_texture_mipmaps",ring_raylib_set_spritefont_texture_mipmaps);
-	ring_vm_funcregister("raylib_get_spritefont_texture_format",ring_raylib_get_spritefont_texture_format);
-	ring_vm_funcregister("raylib_set_spritefont_texture_format",ring_raylib_set_spritefont_texture_format);
-	ring_vm_funcregister("raylib_get_spritefont_basesize",ring_raylib_get_spritefont_baseSize);
-	ring_vm_funcregister("raylib_set_spritefont_basesize",ring_raylib_set_spritefont_baseSize);
-	ring_vm_funcregister("raylib_get_spritefont_charscount",ring_raylib_get_spritefont_charsCount);
-	ring_vm_funcregister("raylib_set_spritefont_charscount",ring_raylib_set_spritefont_charsCount);
-	ring_vm_funcregister("raylib_get_spritefont_chars",ring_raylib_get_spritefont_chars);
-	ring_vm_funcregister("raylib_set_spritefont_chars",ring_raylib_set_spritefont_chars);
-	ring_vm_funcregister("raylib_new_camera3d",ring_raylib_new_camera3d);
-	ring_vm_funcregister("raylib_new_managed_camera3d",ring_raylib_new_managed_camera3d);
-	ring_vm_funcregister("raylib_destroy_camera3d",ring_raylib_destroy_camera3d);
-	ring_vm_funcregister("raylib_get_camera3d_position_x",ring_raylib_get_camera3d_position_x);
-	ring_vm_funcregister("raylib_set_camera3d_position_x",ring_raylib_set_camera3d_position_x);
-	ring_vm_funcregister("raylib_get_camera3d_position_y",ring_raylib_get_camera3d_position_y);
-	ring_vm_funcregister("raylib_set_camera3d_position_y",ring_raylib_set_camera3d_position_y);
-	ring_vm_funcregister("raylib_get_camera3d_position_z",ring_raylib_get_camera3d_position_z);
-	ring_vm_funcregister("raylib_set_camera3d_position_z",ring_raylib_set_camera3d_position_z);
-	ring_vm_funcregister("raylib_get_camera3d_target_x",ring_raylib_get_camera3d_target_x);
-	ring_vm_funcregister("raylib_set_camera3d_target_x",ring_raylib_set_camera3d_target_x);
-	ring_vm_funcregister("raylib_get_camera3d_target_y",ring_raylib_get_camera3d_target_y);
-	ring_vm_funcregister("raylib_set_camera3d_target_y",ring_raylib_set_camera3d_target_y);
-	ring_vm_funcregister("raylib_get_camera3d_target_z",ring_raylib_get_camera3d_target_z);
-	ring_vm_funcregister("raylib_set_camera3d_target_z",ring_raylib_set_camera3d_target_z);
-	ring_vm_funcregister("raylib_get_camera3d_up_x",ring_raylib_get_camera3d_up_x);
-	ring_vm_funcregister("raylib_set_camera3d_up_x",ring_raylib_set_camera3d_up_x);
-	ring_vm_funcregister("raylib_get_camera3d_up_y",ring_raylib_get_camera3d_up_y);
-	ring_vm_funcregister("raylib_set_camera3d_up_y",ring_raylib_set_camera3d_up_y);
-	ring_vm_funcregister("raylib_get_camera3d_up_z",ring_raylib_get_camera3d_up_z);
-	ring_vm_funcregister("raylib_set_camera3d_up_z",ring_raylib_set_camera3d_up_z);
-	ring_vm_funcregister("raylib_get_camera3d_fovy",ring_raylib_get_camera3d_fovy);
-	ring_vm_funcregister("raylib_set_camera3d_fovy",ring_raylib_set_camera3d_fovy);
-	ring_vm_funcregister("raylib_get_camera3d_type",ring_raylib_get_camera3d_type);
-	ring_vm_funcregister("raylib_set_camera3d_type",ring_raylib_set_camera3d_type);
-	ring_vm_funcregister("raylib_new_mesh",ring_raylib_new_mesh);
-	ring_vm_funcregister("raylib_new_managed_mesh",ring_raylib_new_managed_mesh);
-	ring_vm_funcregister("raylib_destroy_mesh",ring_raylib_destroy_mesh);
-	ring_vm_funcregister("raylib_get_mesh_vertexcount",ring_raylib_get_mesh_vertexCount);
-	ring_vm_funcregister("raylib_set_mesh_vertexcount",ring_raylib_set_mesh_vertexCount);
-	ring_vm_funcregister("raylib_get_mesh_trianglecount",ring_raylib_get_mesh_triangleCount);
-	ring_vm_funcregister("raylib_set_mesh_trianglecount",ring_raylib_set_mesh_triangleCount);
-	ring_vm_funcregister("raylib_get_mesh_vertices",ring_raylib_get_mesh_vertices);
-	ring_vm_funcregister("raylib_set_mesh_vertices",ring_raylib_set_mesh_vertices);
-	ring_vm_funcregister("raylib_get_mesh_texcoords",ring_raylib_get_mesh_texcoords);
-	ring_vm_funcregister("raylib_set_mesh_texcoords",ring_raylib_set_mesh_texcoords);
-	ring_vm_funcregister("raylib_get_mesh_texcoords2",ring_raylib_get_mesh_texcoords2);
-	ring_vm_funcregister("raylib_set_mesh_texcoords2",ring_raylib_set_mesh_texcoords2);
-	ring_vm_funcregister("raylib_get_mesh_normals",ring_raylib_get_mesh_normals);
-	ring_vm_funcregister("raylib_set_mesh_normals",ring_raylib_set_mesh_normals);
-	ring_vm_funcregister("raylib_get_mesh_tangents",ring_raylib_get_mesh_tangents);
-	ring_vm_funcregister("raylib_set_mesh_tangents",ring_raylib_set_mesh_tangents);
-	ring_vm_funcregister("raylib_get_mesh_colors",ring_raylib_get_mesh_colors);
-	ring_vm_funcregister("raylib_set_mesh_colors",ring_raylib_set_mesh_colors);
-	ring_vm_funcregister("raylib_get_mesh_indices",ring_raylib_get_mesh_indices);
-	ring_vm_funcregister("raylib_set_mesh_indices",ring_raylib_set_mesh_indices);
-	ring_vm_funcregister("raylib_get_mesh_animvertices",ring_raylib_get_mesh_animVertices);
-	ring_vm_funcregister("raylib_set_mesh_animvertices",ring_raylib_set_mesh_animVertices);
-	ring_vm_funcregister("raylib_get_mesh_animnormals",ring_raylib_get_mesh_animNormals);
-	ring_vm_funcregister("raylib_set_mesh_animnormals",ring_raylib_set_mesh_animNormals);
-	ring_vm_funcregister("raylib_get_mesh_boneids",ring_raylib_get_mesh_boneIds);
-	ring_vm_funcregister("raylib_set_mesh_boneids",ring_raylib_set_mesh_boneIds);
-	ring_vm_funcregister("raylib_get_mesh_boneweights",ring_raylib_get_mesh_boneWeights);
-	ring_vm_funcregister("raylib_set_mesh_boneweights",ring_raylib_set_mesh_boneWeights);
-	ring_vm_funcregister("raylib_get_mesh_vaoid",ring_raylib_get_mesh_vaoId);
-	ring_vm_funcregister("raylib_set_mesh_vaoid",ring_raylib_set_mesh_vaoId);
-	ring_vm_funcregister("raylib_new_shader",ring_raylib_new_shader);
-	ring_vm_funcregister("raylib_new_managed_shader",ring_raylib_new_managed_shader);
-	ring_vm_funcregister("raylib_destroy_shader",ring_raylib_destroy_shader);
-	ring_vm_funcregister("raylib_get_shader_id",ring_raylib_get_shader_id);
-	ring_vm_funcregister("raylib_set_shader_id",ring_raylib_set_shader_id);
-	ring_vm_funcregister("raylib_new_materialmap",ring_raylib_new_materialmap);
-	ring_vm_funcregister("raylib_new_managed_materialmap",ring_raylib_new_managed_materialmap);
-	ring_vm_funcregister("raylib_destroy_materialmap",ring_raylib_destroy_materialmap);
-	ring_vm_funcregister("raylib_get_materialmap_texture_id",ring_raylib_get_materialmap_texture_id);
-	ring_vm_funcregister("raylib_set_materialmap_texture_id",ring_raylib_set_materialmap_texture_id);
-	ring_vm_funcregister("raylib_get_materialmap_texture_width",ring_raylib_get_materialmap_texture_width);
-	ring_vm_funcregister("raylib_set_materialmap_texture_width",ring_raylib_set_materialmap_texture_width);
-	ring_vm_funcregister("raylib_get_materialmap_texture_height",ring_raylib_get_materialmap_texture_height);
-	ring_vm_funcregister("raylib_set_materialmap_texture_height",ring_raylib_set_materialmap_texture_height);
-	ring_vm_funcregister("raylib_get_materialmap_texture_mipmaps",ring_raylib_get_materialmap_texture_mipmaps);
-	ring_vm_funcregister("raylib_set_materialmap_texture_mipmaps",ring_raylib_set_materialmap_texture_mipmaps);
-	ring_vm_funcregister("raylib_get_materialmap_texture_format",ring_raylib_get_materialmap_texture_format);
-	ring_vm_funcregister("raylib_set_materialmap_texture_format",ring_raylib_set_materialmap_texture_format);
-	ring_vm_funcregister("raylib_get_materialmap_value",ring_raylib_get_materialmap_value);
-	ring_vm_funcregister("raylib_set_materialmap_value",ring_raylib_set_materialmap_value);
-	ring_vm_funcregister("raylib_new_material",ring_raylib_new_material);
-	ring_vm_funcregister("raylib_new_managed_material",ring_raylib_new_managed_material);
-	ring_vm_funcregister("raylib_destroy_material",ring_raylib_destroy_material);
-	ring_vm_funcregister("raylib_get_material_shader_id",ring_raylib_get_material_shader_id);
-	ring_vm_funcregister("raylib_set_material_shader_id",ring_raylib_set_material_shader_id);
-	ring_vm_funcregister("raylib_get_material_params",ring_raylib_get_material_params);
-	ring_vm_funcregister("raylib_set_material_params",ring_raylib_set_material_params);
-	ring_vm_funcregister("raylib_new_transform",ring_raylib_new_transform);
-	ring_vm_funcregister("raylib_new_managed_transform",ring_raylib_new_managed_transform);
-	ring_vm_funcregister("raylib_destroy_transform",ring_raylib_destroy_transform);
-	ring_vm_funcregister("raylib_get_transform_translation_x",ring_raylib_get_transform_translation_x);
-	ring_vm_funcregister("raylib_set_transform_translation_x",ring_raylib_set_transform_translation_x);
-	ring_vm_funcregister("raylib_get_transform_translation_y",ring_raylib_get_transform_translation_y);
-	ring_vm_funcregister("raylib_set_transform_translation_y",ring_raylib_set_transform_translation_y);
-	ring_vm_funcregister("raylib_get_transform_translation_z",ring_raylib_get_transform_translation_z);
-	ring_vm_funcregister("raylib_set_transform_translation_z",ring_raylib_set_transform_translation_z);
-	ring_vm_funcregister("raylib_get_transform_rotation_x",ring_raylib_get_transform_rotation_x);
-	ring_vm_funcregister("raylib_set_transform_rotation_x",ring_raylib_set_transform_rotation_x);
-	ring_vm_funcregister("raylib_get_transform_rotation_y",ring_raylib_get_transform_rotation_y);
-	ring_vm_funcregister("raylib_set_transform_rotation_y",ring_raylib_set_transform_rotation_y);
-	ring_vm_funcregister("raylib_get_transform_rotation_z",ring_raylib_get_transform_rotation_z);
-	ring_vm_funcregister("raylib_set_transform_rotation_z",ring_raylib_set_transform_rotation_z);
-	ring_vm_funcregister("raylib_get_transform_rotation_w",ring_raylib_get_transform_rotation_w);
-	ring_vm_funcregister("raylib_set_transform_rotation_w",ring_raylib_set_transform_rotation_w);
-	ring_vm_funcregister("raylib_get_transform_scale_x",ring_raylib_get_transform_scale_x);
-	ring_vm_funcregister("raylib_set_transform_scale_x",ring_raylib_set_transform_scale_x);
-	ring_vm_funcregister("raylib_get_transform_scale_y",ring_raylib_get_transform_scale_y);
-	ring_vm_funcregister("raylib_set_transform_scale_y",ring_raylib_set_transform_scale_y);
-	ring_vm_funcregister("raylib_get_transform_scale_z",ring_raylib_get_transform_scale_z);
-	ring_vm_funcregister("raylib_set_transform_scale_z",ring_raylib_set_transform_scale_z);
-	ring_vm_funcregister("raylib_new_boneinfo",ring_raylib_new_boneinfo);
-	ring_vm_funcregister("raylib_new_managed_boneinfo",ring_raylib_new_managed_boneinfo);
-	ring_vm_funcregister("raylib_destroy_boneinfo",ring_raylib_destroy_boneinfo);
-	ring_vm_funcregister("raylib_get_boneinfo_parent",ring_raylib_get_boneinfo_parent);
-	ring_vm_funcregister("raylib_set_boneinfo_parent",ring_raylib_set_boneinfo_parent);
-	ring_vm_funcregister("raylib_new_model",ring_raylib_new_model);
-	ring_vm_funcregister("raylib_new_managed_model",ring_raylib_new_managed_model);
-	ring_vm_funcregister("raylib_destroy_model",ring_raylib_destroy_model);
-	ring_vm_funcregister("raylib_get_model_transform_m0",ring_raylib_get_model_transform_m0);
-	ring_vm_funcregister("raylib_set_model_transform_m0",ring_raylib_set_model_transform_m0);
-	ring_vm_funcregister("raylib_get_model_transform_m1",ring_raylib_get_model_transform_m1);
-	ring_vm_funcregister("raylib_set_model_transform_m1",ring_raylib_set_model_transform_m1);
-	ring_vm_funcregister("raylib_get_model_transform_m2",ring_raylib_get_model_transform_m2);
-	ring_vm_funcregister("raylib_set_model_transform_m2",ring_raylib_set_model_transform_m2);
-	ring_vm_funcregister("raylib_get_model_transform_m3",ring_raylib_get_model_transform_m3);
-	ring_vm_funcregister("raylib_set_model_transform_m3",ring_raylib_set_model_transform_m3);
-	ring_vm_funcregister("raylib_get_model_transform_m4",ring_raylib_get_model_transform_m4);
-	ring_vm_funcregister("raylib_set_model_transform_m4",ring_raylib_set_model_transform_m4);
-	ring_vm_funcregister("raylib_get_model_transform_m5",ring_raylib_get_model_transform_m5);
-	ring_vm_funcregister("raylib_set_model_transform_m5",ring_raylib_set_model_transform_m5);
-	ring_vm_funcregister("raylib_get_model_transform_m6",ring_raylib_get_model_transform_m6);
-	ring_vm_funcregister("raylib_set_model_transform_m6",ring_raylib_set_model_transform_m6);
-	ring_vm_funcregister("raylib_get_model_transform_m7",ring_raylib_get_model_transform_m7);
-	ring_vm_funcregister("raylib_set_model_transform_m7",ring_raylib_set_model_transform_m7);
-	ring_vm_funcregister("raylib_get_model_transform_m8",ring_raylib_get_model_transform_m8);
-	ring_vm_funcregister("raylib_set_model_transform_m8",ring_raylib_set_model_transform_m8);
-	ring_vm_funcregister("raylib_get_model_transform_m9",ring_raylib_get_model_transform_m9);
-	ring_vm_funcregister("raylib_set_model_transform_m9",ring_raylib_set_model_transform_m9);
-	ring_vm_funcregister("raylib_get_model_transform_m10",ring_raylib_get_model_transform_m10);
-	ring_vm_funcregister("raylib_set_model_transform_m10",ring_raylib_set_model_transform_m10);
-	ring_vm_funcregister("raylib_get_model_transform_m11",ring_raylib_get_model_transform_m11);
-	ring_vm_funcregister("raylib_set_model_transform_m11",ring_raylib_set_model_transform_m11);
-	ring_vm_funcregister("raylib_get_model_transform_m12",ring_raylib_get_model_transform_m12);
-	ring_vm_funcregister("raylib_set_model_transform_m12",ring_raylib_set_model_transform_m12);
-	ring_vm_funcregister("raylib_get_model_transform_m13",ring_raylib_get_model_transform_m13);
-	ring_vm_funcregister("raylib_set_model_transform_m13",ring_raylib_set_model_transform_m13);
-	ring_vm_funcregister("raylib_get_model_transform_m14",ring_raylib_get_model_transform_m14);
-	ring_vm_funcregister("raylib_set_model_transform_m14",ring_raylib_set_model_transform_m14);
-	ring_vm_funcregister("raylib_get_model_transform_m15",ring_raylib_get_model_transform_m15);
-	ring_vm_funcregister("raylib_set_model_transform_m15",ring_raylib_set_model_transform_m15);
-	ring_vm_funcregister("raylib_get_model_meshcount",ring_raylib_get_model_meshCount);
-	ring_vm_funcregister("raylib_set_model_meshcount",ring_raylib_set_model_meshCount);
-	ring_vm_funcregister("raylib_get_model_meshes",ring_raylib_get_model_meshes);
-	ring_vm_funcregister("raylib_set_model_meshes",ring_raylib_set_model_meshes);
-	ring_vm_funcregister("raylib_get_model_materialcount",ring_raylib_get_model_materialCount);
-	ring_vm_funcregister("raylib_set_model_materialcount",ring_raylib_set_model_materialCount);
-	ring_vm_funcregister("raylib_get_model_materials",ring_raylib_get_model_materials);
-	ring_vm_funcregister("raylib_set_model_materials",ring_raylib_set_model_materials);
-	ring_vm_funcregister("raylib_get_model_meshmaterial",ring_raylib_get_model_meshMaterial);
-	ring_vm_funcregister("raylib_set_model_meshmaterial",ring_raylib_set_model_meshMaterial);
-	ring_vm_funcregister("raylib_get_model_bonecount",ring_raylib_get_model_boneCount);
-	ring_vm_funcregister("raylib_set_model_bonecount",ring_raylib_set_model_boneCount);
-	ring_vm_funcregister("raylib_get_model_bones",ring_raylib_get_model_bones);
-	ring_vm_funcregister("raylib_set_model_bones",ring_raylib_set_model_bones);
-	ring_vm_funcregister("raylib_get_model_bindpose",ring_raylib_get_model_bindPose);
-	ring_vm_funcregister("raylib_set_model_bindpose",ring_raylib_set_model_bindPose);
-	ring_vm_funcregister("raylib_new_modelanimation",ring_raylib_new_modelanimation);
-	ring_vm_funcregister("raylib_new_managed_modelanimation",ring_raylib_new_managed_modelanimation);
-	ring_vm_funcregister("raylib_destroy_modelanimation",ring_raylib_destroy_modelanimation);
-	ring_vm_funcregister("raylib_get_modelanimation_bonecount",ring_raylib_get_modelanimation_boneCount);
-	ring_vm_funcregister("raylib_set_modelanimation_bonecount",ring_raylib_set_modelanimation_boneCount);
-	ring_vm_funcregister("raylib_get_modelanimation_bones",ring_raylib_get_modelanimation_bones);
-	ring_vm_funcregister("raylib_set_modelanimation_bones",ring_raylib_set_modelanimation_bones);
-	ring_vm_funcregister("raylib_get_modelanimation_framecount",ring_raylib_get_modelanimation_frameCount);
-	ring_vm_funcregister("raylib_set_modelanimation_framecount",ring_raylib_set_modelanimation_frameCount);
-	ring_vm_funcregister("raylib_new_ray",ring_raylib_new_ray);
-	ring_vm_funcregister("raylib_new_managed_ray",ring_raylib_new_managed_ray);
-	ring_vm_funcregister("raylib_destroy_ray",ring_raylib_destroy_ray);
-	ring_vm_funcregister("raylib_get_ray_position_x",ring_raylib_get_ray_position_x);
-	ring_vm_funcregister("raylib_set_ray_position_x",ring_raylib_set_ray_position_x);
-	ring_vm_funcregister("raylib_get_ray_position_y",ring_raylib_get_ray_position_y);
-	ring_vm_funcregister("raylib_set_ray_position_y",ring_raylib_set_ray_position_y);
-	ring_vm_funcregister("raylib_get_ray_position_z",ring_raylib_get_ray_position_z);
-	ring_vm_funcregister("raylib_set_ray_position_z",ring_raylib_set_ray_position_z);
-	ring_vm_funcregister("raylib_get_ray_direction_x",ring_raylib_get_ray_direction_x);
-	ring_vm_funcregister("raylib_set_ray_direction_x",ring_raylib_set_ray_direction_x);
-	ring_vm_funcregister("raylib_get_ray_direction_y",ring_raylib_get_ray_direction_y);
-	ring_vm_funcregister("raylib_set_ray_direction_y",ring_raylib_set_ray_direction_y);
-	ring_vm_funcregister("raylib_get_ray_direction_z",ring_raylib_get_ray_direction_z);
-	ring_vm_funcregister("raylib_set_ray_direction_z",ring_raylib_set_ray_direction_z);
-	ring_vm_funcregister("raylib_new_rayhitinfo",ring_raylib_new_rayhitinfo);
-	ring_vm_funcregister("raylib_new_managed_rayhitinfo",ring_raylib_new_managed_rayhitinfo);
-	ring_vm_funcregister("raylib_destroy_rayhitinfo",ring_raylib_destroy_rayhitinfo);
-	ring_vm_funcregister("raylib_get_rayhitinfo_hit",ring_raylib_get_rayhitinfo_hit);
-	ring_vm_funcregister("raylib_set_rayhitinfo_hit",ring_raylib_set_rayhitinfo_hit);
-	ring_vm_funcregister("raylib_get_rayhitinfo_distance",ring_raylib_get_rayhitinfo_distance);
-	ring_vm_funcregister("raylib_set_rayhitinfo_distance",ring_raylib_set_rayhitinfo_distance);
-	ring_vm_funcregister("raylib_get_rayhitinfo_position_x",ring_raylib_get_rayhitinfo_position_x);
-	ring_vm_funcregister("raylib_set_rayhitinfo_position_x",ring_raylib_set_rayhitinfo_position_x);
-	ring_vm_funcregister("raylib_get_rayhitinfo_position_y",ring_raylib_get_rayhitinfo_position_y);
-	ring_vm_funcregister("raylib_set_rayhitinfo_position_y",ring_raylib_set_rayhitinfo_position_y);
-	ring_vm_funcregister("raylib_get_rayhitinfo_position_z",ring_raylib_get_rayhitinfo_position_z);
-	ring_vm_funcregister("raylib_set_rayhitinfo_position_z",ring_raylib_set_rayhitinfo_position_z);
-	ring_vm_funcregister("raylib_get_rayhitinfo_normal_x",ring_raylib_get_rayhitinfo_normal_x);
-	ring_vm_funcregister("raylib_set_rayhitinfo_normal_x",ring_raylib_set_rayhitinfo_normal_x);
-	ring_vm_funcregister("raylib_get_rayhitinfo_normal_y",ring_raylib_get_rayhitinfo_normal_y);
-	ring_vm_funcregister("raylib_set_rayhitinfo_normal_y",ring_raylib_set_rayhitinfo_normal_y);
-	ring_vm_funcregister("raylib_get_rayhitinfo_normal_z",ring_raylib_get_rayhitinfo_normal_z);
-	ring_vm_funcregister("raylib_set_rayhitinfo_normal_z",ring_raylib_set_rayhitinfo_normal_z);
-	ring_vm_funcregister("raylib_new_boundingbox",ring_raylib_new_boundingbox);
-	ring_vm_funcregister("raylib_new_managed_boundingbox",ring_raylib_new_managed_boundingbox);
-	ring_vm_funcregister("raylib_destroy_boundingbox",ring_raylib_destroy_boundingbox);
-	ring_vm_funcregister("raylib_get_boundingbox_min_x",ring_raylib_get_boundingbox_min_x);
-	ring_vm_funcregister("raylib_set_boundingbox_min_x",ring_raylib_set_boundingbox_min_x);
-	ring_vm_funcregister("raylib_get_boundingbox_min_y",ring_raylib_get_boundingbox_min_y);
-	ring_vm_funcregister("raylib_set_boundingbox_min_y",ring_raylib_set_boundingbox_min_y);
-	ring_vm_funcregister("raylib_get_boundingbox_min_z",ring_raylib_get_boundingbox_min_z);
-	ring_vm_funcregister("raylib_set_boundingbox_min_z",ring_raylib_set_boundingbox_min_z);
-	ring_vm_funcregister("raylib_get_boundingbox_max_x",ring_raylib_get_boundingbox_max_x);
-	ring_vm_funcregister("raylib_set_boundingbox_max_x",ring_raylib_set_boundingbox_max_x);
-	ring_vm_funcregister("raylib_get_boundingbox_max_y",ring_raylib_get_boundingbox_max_y);
-	ring_vm_funcregister("raylib_set_boundingbox_max_y",ring_raylib_set_boundingbox_max_y);
-	ring_vm_funcregister("raylib_get_boundingbox_max_z",ring_raylib_get_boundingbox_max_z);
-	ring_vm_funcregister("raylib_set_boundingbox_max_z",ring_raylib_set_boundingbox_max_z);
-	ring_vm_funcregister("raylib_new_wave",ring_raylib_new_wave);
-	ring_vm_funcregister("raylib_new_managed_wave",ring_raylib_new_managed_wave);
-	ring_vm_funcregister("raylib_destroy_wave",ring_raylib_destroy_wave);
-	ring_vm_funcregister("raylib_get_wave_samplecount",ring_raylib_get_wave_sampleCount);
-	ring_vm_funcregister("raylib_set_wave_samplecount",ring_raylib_set_wave_sampleCount);
-	ring_vm_funcregister("raylib_get_wave_samplerate",ring_raylib_get_wave_sampleRate);
-	ring_vm_funcregister("raylib_set_wave_samplerate",ring_raylib_set_wave_sampleRate);
-	ring_vm_funcregister("raylib_get_wave_samplesize",ring_raylib_get_wave_sampleSize);
-	ring_vm_funcregister("raylib_set_wave_samplesize",ring_raylib_set_wave_sampleSize);
-	ring_vm_funcregister("raylib_get_wave_channels",ring_raylib_get_wave_channels);
-	ring_vm_funcregister("raylib_set_wave_channels",ring_raylib_set_wave_channels);
-	ring_vm_funcregister("raylib_get_wave_data",ring_raylib_get_wave_data);
-	ring_vm_funcregister("raylib_set_wave_data",ring_raylib_set_wave_data);
-	ring_vm_funcregister("raylib_new_sound",ring_raylib_new_sound);
-	ring_vm_funcregister("raylib_new_managed_sound",ring_raylib_new_managed_sound);
-	ring_vm_funcregister("raylib_destroy_sound",ring_raylib_destroy_sound);
-	ring_vm_funcregister("raylib_get_sound_audiobuffer",ring_raylib_get_sound_audioBuffer);
-	ring_vm_funcregister("raylib_set_sound_audiobuffer",ring_raylib_set_sound_audioBuffer);
-	ring_vm_funcregister("raylib_get_sound_source",ring_raylib_get_sound_source);
-	ring_vm_funcregister("raylib_set_sound_source",ring_raylib_set_sound_source);
-	ring_vm_funcregister("raylib_get_sound_buffer",ring_raylib_get_sound_buffer);
-	ring_vm_funcregister("raylib_set_sound_buffer",ring_raylib_set_sound_buffer);
-	ring_vm_funcregister("raylib_get_sound_format",ring_raylib_get_sound_format);
-	ring_vm_funcregister("raylib_set_sound_format",ring_raylib_set_sound_format);
-	ring_vm_funcregister("raylib_new_audiostream",ring_raylib_new_audiostream);
-	ring_vm_funcregister("raylib_new_managed_audiostream",ring_raylib_new_managed_audiostream);
-	ring_vm_funcregister("raylib_destroy_audiostream",ring_raylib_destroy_audiostream);
-	ring_vm_funcregister("raylib_get_audiostream_samplerate",ring_raylib_get_audiostream_sampleRate);
-	ring_vm_funcregister("raylib_set_audiostream_samplerate",ring_raylib_set_audiostream_sampleRate);
-	ring_vm_funcregister("raylib_get_audiostream_samplesize",ring_raylib_get_audiostream_sampleSize);
-	ring_vm_funcregister("raylib_set_audiostream_samplesize",ring_raylib_set_audiostream_sampleSize);
-	ring_vm_funcregister("raylib_get_audiostream_channels",ring_raylib_get_audiostream_channels);
-	ring_vm_funcregister("raylib_set_audiostream_channels",ring_raylib_set_audiostream_channels);
-	ring_vm_funcregister("raylib_get_audiostream_audiobuffer",ring_raylib_get_audiostream_audioBuffer);
-	ring_vm_funcregister("raylib_set_audiostream_audiobuffer",ring_raylib_set_audiostream_audioBuffer);
-	ring_vm_funcregister("raylib_get_audiostream_format",ring_raylib_get_audiostream_format);
-	ring_vm_funcregister("raylib_set_audiostream_format",ring_raylib_set_audiostream_format);
-	ring_vm_funcregister("raylib_get_audiostream_source",ring_raylib_get_audiostream_source);
-	ring_vm_funcregister("raylib_set_audiostream_source",ring_raylib_set_audiostream_source);
-	ring_vm_funcregister("raylib_new_vrdeviceinfo",ring_raylib_new_vrdeviceinfo);
-	ring_vm_funcregister("raylib_new_managed_vrdeviceinfo",ring_raylib_new_managed_vrdeviceinfo);
-	ring_vm_funcregister("raylib_destroy_vrdeviceinfo",ring_raylib_destroy_vrdeviceinfo);
-	ring_vm_funcregister("raylib_get_vrdeviceinfo_hresolution",ring_raylib_get_vrdeviceinfo_hResolution);
-	ring_vm_funcregister("raylib_set_vrdeviceinfo_hresolution",ring_raylib_set_vrdeviceinfo_hResolution);
-	ring_vm_funcregister("raylib_get_vrdeviceinfo_vresolution",ring_raylib_get_vrdeviceinfo_vResolution);
-	ring_vm_funcregister("raylib_set_vrdeviceinfo_vresolution",ring_raylib_set_vrdeviceinfo_vResolution);
-	ring_vm_funcregister("raylib_get_vrdeviceinfo_hscreensize",ring_raylib_get_vrdeviceinfo_hScreenSize);
-	ring_vm_funcregister("raylib_set_vrdeviceinfo_hscreensize",ring_raylib_set_vrdeviceinfo_hScreenSize);
-	ring_vm_funcregister("raylib_get_vrdeviceinfo_vscreensize",ring_raylib_get_vrdeviceinfo_vScreenSize);
-	ring_vm_funcregister("raylib_set_vrdeviceinfo_vscreensize",ring_raylib_set_vrdeviceinfo_vScreenSize);
-	ring_vm_funcregister("raylib_get_vrdeviceinfo_vscreencenter",ring_raylib_get_vrdeviceinfo_vScreenCenter);
-	ring_vm_funcregister("raylib_set_vrdeviceinfo_vscreencenter",ring_raylib_set_vrdeviceinfo_vScreenCenter);
-	ring_vm_funcregister("raylib_get_vrdeviceinfo_eyetoscreendistance",ring_raylib_get_vrdeviceinfo_eyeToScreenDistance);
-	ring_vm_funcregister("raylib_set_vrdeviceinfo_eyetoscreendistance",ring_raylib_set_vrdeviceinfo_eyeToScreenDistance);
-	ring_vm_funcregister("raylib_get_vrdeviceinfo_lensseparationdistance",ring_raylib_get_vrdeviceinfo_lensSeparationDistance);
-	ring_vm_funcregister("raylib_set_vrdeviceinfo_lensseparationdistance",ring_raylib_set_vrdeviceinfo_lensSeparationDistance);
-	ring_vm_funcregister("raylib_get_vrdeviceinfo_interpupillarydistance",ring_raylib_get_vrdeviceinfo_interpupillaryDistance);
-	ring_vm_funcregister("raylib_set_vrdeviceinfo_interpupillarydistance",ring_raylib_set_vrdeviceinfo_interpupillaryDistance);
+	RING_API_REGISTER("initwindow",ring_InitWindow);
+	RING_API_REGISTER("windowshouldclose",ring_WindowShouldClose);
+	RING_API_REGISTER("closewindow",ring_CloseWindow);
+	RING_API_REGISTER("iswindowready",ring_IsWindowReady);
+	RING_API_REGISTER("iswindowminimized",ring_IsWindowMinimized);
+	RING_API_REGISTER("iswindowresized",ring_IsWindowResized);
+	RING_API_REGISTER("iswindowhidden",ring_IsWindowHidden);
+	RING_API_REGISTER("togglefullscreen",ring_ToggleFullscreen);
+	RING_API_REGISTER("unhidewindow",ring_UnhideWindow);
+	RING_API_REGISTER("hidewindow",ring_HideWindow);
+	RING_API_REGISTER("setwindowicon_2",ring_SetWindowIcon_2);
+	RING_API_REGISTER("setwindowtitle",ring_SetWindowTitle);
+	RING_API_REGISTER("setwindowposition",ring_SetWindowPosition);
+	RING_API_REGISTER("setwindowmonitor",ring_SetWindowMonitor);
+	RING_API_REGISTER("setwindowminsize",ring_SetWindowMinSize);
+	RING_API_REGISTER("setwindowsize",ring_SetWindowSize);
+	RING_API_REGISTER("getwindowhandle",ring_GetWindowHandle);
+	RING_API_REGISTER("getscreenwidth",ring_GetScreenWidth);
+	RING_API_REGISTER("getscreenheight",ring_GetScreenHeight);
+	RING_API_REGISTER("getmonitorcount",ring_GetMonitorCount);
+	RING_API_REGISTER("getmonitorwidth",ring_GetMonitorWidth);
+	RING_API_REGISTER("getmonitorheight",ring_GetMonitorHeight);
+	RING_API_REGISTER("getmonitorphysicalwidth",ring_GetMonitorPhysicalWidth);
+	RING_API_REGISTER("getmonitorphysicalheight",ring_GetMonitorPhysicalHeight);
+	RING_API_REGISTER("getmonitorname",ring_GetMonitorName);
+	RING_API_REGISTER("getclipboardtext",ring_GetClipboardText);
+	RING_API_REGISTER("setclipboardtext",ring_SetClipboardText);
+	RING_API_REGISTER("showcursor",ring_ShowCursor);
+	RING_API_REGISTER("hidecursor",ring_HideCursor);
+	RING_API_REGISTER("iscursorhidden",ring_IsCursorHidden);
+	RING_API_REGISTER("enablecursor",ring_EnableCursor);
+	RING_API_REGISTER("disablecursor",ring_DisableCursor);
+	RING_API_REGISTER("clearbackground_2",ring_ClearBackground_2);
+	RING_API_REGISTER("begindrawing",ring_BeginDrawing);
+	RING_API_REGISTER("enddrawing",ring_EndDrawing);
+	RING_API_REGISTER("beginmode2d_2",ring_BeginMode2D_2);
+	RING_API_REGISTER("endmode2d",ring_EndMode2D);
+	RING_API_REGISTER("beginmode3d_2",ring_BeginMode3D_2);
+	RING_API_REGISTER("endmode3d",ring_EndMode3D);
+	RING_API_REGISTER("begintexturemode_2",ring_BeginTextureMode_2);
+	RING_API_REGISTER("endtexturemode",ring_EndTextureMode);
+	RING_API_REGISTER("getmouseray_2",ring_GetMouseRay_2);
+	RING_API_REGISTER("getworldtoscreen_2",ring_GetWorldToScreen_2);
+	RING_API_REGISTER("getcameramatrix_2",ring_GetCameraMatrix_2);
+	RING_API_REGISTER("settargetfps",ring_SetTargetFPS);
+	RING_API_REGISTER("getfps",ring_GetFPS);
+	RING_API_REGISTER("getframetime",ring_GetFrameTime);
+	RING_API_REGISTER("gettime",ring_GetTime);
+	RING_API_REGISTER("colortoint_2",ring_ColorToInt_2);
+	RING_API_REGISTER("colornormalize_2",ring_ColorNormalize_2);
+	RING_API_REGISTER("colortohsv_2",ring_ColorToHSV_2);
+	RING_API_REGISTER("colorfromhsv_2",ring_ColorFromHSV_2);
+	RING_API_REGISTER("getcolor",ring_GetColor);
+	RING_API_REGISTER("fade_2",ring_Fade_2);
+	RING_API_REGISTER("setconfigflags",ring_SetConfigFlags);
+	RING_API_REGISTER("settraceloglevel",ring_SetTraceLogLevel);
+	RING_API_REGISTER("settracelogexit",ring_SetTraceLogExit);
+	RING_API_REGISTER("settracelogcallback",ring_SetTraceLogCallback);
+	RING_API_REGISTER("tracelog",ring_TraceLog);
+	RING_API_REGISTER("takescreenshot",ring_TakeScreenshot);
+	RING_API_REGISTER("getrandomvalue",ring_GetRandomValue);
+	RING_API_REGISTER("fileexists",ring_FileExists);
+	RING_API_REGISTER("isfileextension",ring_IsFileExtension);
+	RING_API_REGISTER("getextension",ring_GetExtension);
+	RING_API_REGISTER("getfilename",ring_GetFileName);
+	RING_API_REGISTER("getfilenamewithoutext",ring_GetFileNameWithoutExt);
+	RING_API_REGISTER("getdirectorypath",ring_GetDirectoryPath);
+	RING_API_REGISTER("getworkingdirectory",ring_GetWorkingDirectory);
+	RING_API_REGISTER("getdirectoryfiles",ring_GetDirectoryFiles);
+	RING_API_REGISTER("cleardirectoryfiles",ring_ClearDirectoryFiles);
+	RING_API_REGISTER("changedirectory",ring_ChangeDirectory);
+	RING_API_REGISTER("isfiledropped",ring_IsFileDropped);
+	RING_API_REGISTER("getdroppedfiles",ring_GetDroppedFiles);
+	RING_API_REGISTER("cleardroppedfiles",ring_ClearDroppedFiles);
+	RING_API_REGISTER("getfilemodtime",ring_GetFileModTime);
+	RING_API_REGISTER("storagesavevalue",ring_StorageSaveValue);
+	RING_API_REGISTER("storageloadvalue",ring_StorageLoadValue);
+	RING_API_REGISTER("openurl",ring_OpenURL);
+	RING_API_REGISTER("iskeypressed_2",ring_IsKeyPressed_2);
+	RING_API_REGISTER("iskeydown_2",ring_IsKeyDown_2);
+	RING_API_REGISTER("iskeyreleased_2",ring_IsKeyReleased_2);
+	RING_API_REGISTER("iskeyup_2",ring_IsKeyUp_2);
+	RING_API_REGISTER("getkeypressed",ring_GetKeyPressed);
+	RING_API_REGISTER("setexitkey_2",ring_SetExitKey_2);
+	RING_API_REGISTER("isgamepadavailable",ring_IsGamepadAvailable);
+	RING_API_REGISTER("isgamepadname",ring_IsGamepadName);
+	RING_API_REGISTER("getgamepadname",ring_GetGamepadName);
+	RING_API_REGISTER("isgamepadbuttonpressed",ring_IsGamepadButtonPressed);
+	RING_API_REGISTER("isgamepadbuttondown",ring_IsGamepadButtonDown);
+	RING_API_REGISTER("isgamepadbuttonreleased",ring_IsGamepadButtonReleased);
+	RING_API_REGISTER("isgamepadbuttonup",ring_IsGamepadButtonUp);
+	RING_API_REGISTER("getgamepadbuttonpressed",ring_GetGamepadButtonPressed);
+	RING_API_REGISTER("getgamepadaxiscount",ring_GetGamepadAxisCount);
+	RING_API_REGISTER("getgamepadaxismovement",ring_GetGamepadAxisMovement);
+	RING_API_REGISTER("ismousebuttonpressed",ring_IsMouseButtonPressed);
+	RING_API_REGISTER("ismousebuttondown",ring_IsMouseButtonDown);
+	RING_API_REGISTER("ismousebuttonreleased",ring_IsMouseButtonReleased);
+	RING_API_REGISTER("ismousebuttonup",ring_IsMouseButtonUp);
+	RING_API_REGISTER("getmousex",ring_GetMouseX);
+	RING_API_REGISTER("getmousey",ring_GetMouseY);
+	RING_API_REGISTER("getmouseposition_2",ring_GetMousePosition_2);
+	RING_API_REGISTER("setmouseposition",ring_SetMousePosition);
+	RING_API_REGISTER("setmouseoffset",ring_SetMouseOffset);
+	RING_API_REGISTER("setmousescale",ring_SetMouseScale);
+	RING_API_REGISTER("getmousewheelmove",ring_GetMouseWheelMove);
+	RING_API_REGISTER("gettouchx",ring_GetTouchX);
+	RING_API_REGISTER("gettouchy",ring_GetTouchY);
+	RING_API_REGISTER("gettouchposition_2",ring_GetTouchPosition_2);
+	RING_API_REGISTER("setgesturesenabled",ring_SetGesturesEnabled);
+	RING_API_REGISTER("isgesturedetected",ring_IsGestureDetected);
+	RING_API_REGISTER("getgesturedetected",ring_GetGestureDetected);
+	RING_API_REGISTER("gettouchpointscount",ring_GetTouchPointsCount);
+	RING_API_REGISTER("getgestureholdduration",ring_GetGestureHoldDuration);
+	RING_API_REGISTER("getgesturedragvector_2",ring_GetGestureDragVector_2);
+	RING_API_REGISTER("getgesturedragangle",ring_GetGestureDragAngle);
+	RING_API_REGISTER("getgesturepinchvector_2",ring_GetGesturePinchVector_2);
+	RING_API_REGISTER("getgesturepinchangle",ring_GetGesturePinchAngle);
+	RING_API_REGISTER("setcameramode_2",ring_SetCameraMode_2);
+	RING_API_REGISTER("updatecamera_2",ring_UpdateCamera_2);
+	RING_API_REGISTER("setcamerapancontrol",ring_SetCameraPanControl);
+	RING_API_REGISTER("setcameraaltcontrol",ring_SetCameraAltControl);
+	RING_API_REGISTER("setcamerasmoothzoomcontrol",ring_SetCameraSmoothZoomControl);
+	RING_API_REGISTER("setcameramovecontrols",ring_SetCameraMoveControls);
+	RING_API_REGISTER("drawpixel_2",ring_DrawPixel_2);
+	RING_API_REGISTER("drawpixelv_2",ring_DrawPixelV_2);
+	RING_API_REGISTER("drawline_2",ring_DrawLine_2);
+	RING_API_REGISTER("drawlinev_2",ring_DrawLineV_2);
+	RING_API_REGISTER("drawlineex_2",ring_DrawLineEx_2);
+	RING_API_REGISTER("drawlinebezier_2",ring_DrawLineBezier_2);
+	RING_API_REGISTER("drawlinestrip_2",ring_DrawLineStrip_2);
+	RING_API_REGISTER("drawcircle_2",ring_DrawCircle_2);
+	RING_API_REGISTER("drawcirclesector_2",ring_DrawCircleSector_2);
+	RING_API_REGISTER("drawcirclesectorlines_2",ring_DrawCircleSectorLines_2);
+	RING_API_REGISTER("drawcirclegradient_2",ring_DrawCircleGradient_2);
+	RING_API_REGISTER("drawcirclev_2",ring_DrawCircleV_2);
+	RING_API_REGISTER("drawcirclelines_2",ring_DrawCircleLines_2);
+	RING_API_REGISTER("drawring_2",ring_DrawRing_2);
+	RING_API_REGISTER("drawringlines_2",ring_DrawRingLines_2);
+	RING_API_REGISTER("drawrectangle_2",ring_DrawRectangle_2);
+	RING_API_REGISTER("drawrectanglev_2",ring_DrawRectangleV_2);
+	RING_API_REGISTER("drawrectanglerec_2",ring_DrawRectangleRec_2);
+	RING_API_REGISTER("drawrectanglepro_2",ring_DrawRectanglePro_2);
+	RING_API_REGISTER("drawrectanglegradientv_2",ring_DrawRectangleGradientV_2);
+	RING_API_REGISTER("drawrectanglegradienth_2",ring_DrawRectangleGradientH_2);
+	RING_API_REGISTER("drawrectanglegradientex_2",ring_DrawRectangleGradientEx_2);
+	RING_API_REGISTER("drawrectanglelines_2",ring_DrawRectangleLines_2);
+	RING_API_REGISTER("drawrectanglelinesex_2",ring_DrawRectangleLinesEx_2);
+	RING_API_REGISTER("drawrectanglerounded_2",ring_DrawRectangleRounded_2);
+	RING_API_REGISTER("drawrectangleroundedlines_2",ring_DrawRectangleRoundedLines_2);
+	RING_API_REGISTER("drawtriangle_2",ring_DrawTriangle_2);
+	RING_API_REGISTER("drawtrianglelines_2",ring_DrawTriangleLines_2);
+	RING_API_REGISTER("drawtrianglefan_2",ring_DrawTriangleFan_2);
+	RING_API_REGISTER("drawpoly_2",ring_DrawPoly_2);
+	RING_API_REGISTER("setshapestexture_2",ring_SetShapesTexture_2);
+	RING_API_REGISTER("checkcollisionrecs_2",ring_CheckCollisionRecs_2);
+	RING_API_REGISTER("checkcollisioncircles_2",ring_CheckCollisionCircles_2);
+	RING_API_REGISTER("checkcollisioncirclerec_2",ring_CheckCollisionCircleRec_2);
+	RING_API_REGISTER("getcollisionrec_2",ring_GetCollisionRec_2);
+	RING_API_REGISTER("checkcollisionpointrec_2",ring_CheckCollisionPointRec_2);
+	RING_API_REGISTER("checkcollisionpointcircle_2",ring_CheckCollisionPointCircle_2);
+	RING_API_REGISTER("checkcollisionpointtriangle_2",ring_CheckCollisionPointTriangle_2);
+	RING_API_REGISTER("loadimage_2",ring_LoadImage_2);
+	RING_API_REGISTER("loadimageex_2",ring_LoadImageEx_2);
+	RING_API_REGISTER("loadimagepro_2",ring_LoadImagePro_2);
+	RING_API_REGISTER("loadimageraw_2",ring_LoadImageRaw_2);
+	RING_API_REGISTER("exportimage_2",ring_ExportImage_2);
+	RING_API_REGISTER("exportimageascode_2",ring_ExportImageAsCode_2);
+	RING_API_REGISTER("loadtexture_2",ring_LoadTexture_2);
+	RING_API_REGISTER("loadtexturefromimage_2",ring_LoadTextureFromImage_2);
+	RING_API_REGISTER("loadtexturecubemap",ring_LoadTextureCubemap);
+	RING_API_REGISTER("loadrendertexture_2",ring_LoadRenderTexture_2);
+	RING_API_REGISTER("unloadimage_2",ring_UnloadImage_2);
+	RING_API_REGISTER("unloadtexture_2",ring_UnloadTexture_2);
+	RING_API_REGISTER("unloadrendertexture_2",ring_UnloadRenderTexture_2);
+	RING_API_REGISTER("getimagedata_2",ring_GetImageData_2);
+	RING_API_REGISTER("getimagedatanormalized_2",ring_GetImageDataNormalized_2);
+	RING_API_REGISTER("getpixeldatasize",ring_GetPixelDataSize);
+	RING_API_REGISTER("gettexturedata_2",ring_GetTextureData_2);
+	RING_API_REGISTER("getscreendata_2",ring_GetScreenData_2);
+	RING_API_REGISTER("updatetexture_2",ring_UpdateTexture_2);
+	RING_API_REGISTER("imagecopy_2",ring_ImageCopy_2);
+	RING_API_REGISTER("imagetopot_2",ring_ImageToPOT_2);
+	RING_API_REGISTER("imageformat_2",ring_ImageFormat_2);
+	RING_API_REGISTER("imagealphamask_2",ring_ImageAlphaMask_2);
+	RING_API_REGISTER("imagealphaclear_2",ring_ImageAlphaClear_2);
+	RING_API_REGISTER("imagealphacrop_2",ring_ImageAlphaCrop_2);
+	RING_API_REGISTER("imagealphapremultiply_2",ring_ImageAlphaPremultiply_2);
+	RING_API_REGISTER("imagecrop_2",ring_ImageCrop_2);
+	RING_API_REGISTER("imageresize_2",ring_ImageResize_2);
+	RING_API_REGISTER("imageresizenn_2",ring_ImageResizeNN_2);
+	RING_API_REGISTER("imageresizecanvas_2",ring_ImageResizeCanvas_2);
+	RING_API_REGISTER("imagemipmaps_2",ring_ImageMipmaps_2);
+	RING_API_REGISTER("imagedither_2",ring_ImageDither_2);
+	RING_API_REGISTER("imageextractpalette_2",ring_ImageExtractPalette_2);
+	RING_API_REGISTER("imagetext_2",ring_ImageText_2);
+	RING_API_REGISTER("imagetextex_2",ring_ImageTextEx_2);
+	RING_API_REGISTER("imagedraw_2",ring_ImageDraw_2);
+	RING_API_REGISTER("imagedrawrectangle_2",ring_ImageDrawRectangle_2);
+	RING_API_REGISTER("imagedrawrectanglelines_2",ring_ImageDrawRectangleLines_2);
+	RING_API_REGISTER("imagedrawtext_2",ring_ImageDrawText_2);
+	RING_API_REGISTER("imagedrawtextex_2",ring_ImageDrawTextEx_2);
+	RING_API_REGISTER("imageflipvertical_2",ring_ImageFlipVertical_2);
+	RING_API_REGISTER("imagefliphorizontal_2",ring_ImageFlipHorizontal_2);
+	RING_API_REGISTER("imagerotatecw_2",ring_ImageRotateCW_2);
+	RING_API_REGISTER("imagerotateccw_2",ring_ImageRotateCCW_2);
+	RING_API_REGISTER("imagecolortint_2",ring_ImageColorTint_2);
+	RING_API_REGISTER("imagecolorinvert_2",ring_ImageColorInvert_2);
+	RING_API_REGISTER("imagecolorgrayscale_2",ring_ImageColorGrayscale_2);
+	RING_API_REGISTER("imagecolorcontrast_2",ring_ImageColorContrast_2);
+	RING_API_REGISTER("imagecolorbrightness_2",ring_ImageColorBrightness_2);
+	RING_API_REGISTER("imagecolorreplace_2",ring_ImageColorReplace_2);
+	RING_API_REGISTER("genimagecolor_2",ring_GenImageColor_2);
+	RING_API_REGISTER("genimagegradientv_2",ring_GenImageGradientV_2);
+	RING_API_REGISTER("genimagegradienth_2",ring_GenImageGradientH_2);
+	RING_API_REGISTER("genimagegradientradial_2",ring_GenImageGradientRadial_2);
+	RING_API_REGISTER("genimagechecked_2",ring_GenImageChecked_2);
+	RING_API_REGISTER("genimagewhitenoise_2",ring_GenImageWhiteNoise_2);
+	RING_API_REGISTER("genimageperlinnoise_2",ring_GenImagePerlinNoise_2);
+	RING_API_REGISTER("genimagecellular_2",ring_GenImageCellular_2);
+	RING_API_REGISTER("gentexturemipmaps_2",ring_GenTextureMipmaps_2);
+	RING_API_REGISTER("settexturefilter_2",ring_SetTextureFilter_2);
+	RING_API_REGISTER("settexturewrap_2",ring_SetTextureWrap_2);
+	RING_API_REGISTER("drawtexture_2",ring_DrawTexture_2);
+	RING_API_REGISTER("drawtexturev_2",ring_DrawTextureV_2);
+	RING_API_REGISTER("drawtextureex_2",ring_DrawTextureEx_2);
+	RING_API_REGISTER("drawtexturerec_2",ring_DrawTextureRec_2);
+	RING_API_REGISTER("drawtexturequad_2",ring_DrawTextureQuad_2);
+	RING_API_REGISTER("drawtexturepro_2",ring_DrawTexturePro_2);
+	RING_API_REGISTER("drawtexturenpatch_2",ring_DrawTextureNPatch_2);
+	RING_API_REGISTER("getfontdefault_2",ring_GetFontDefault_2);
+	RING_API_REGISTER("loadfont_2",ring_LoadFont_2);
+	RING_API_REGISTER("loadfontex_2",ring_LoadFontEx_2);
+	RING_API_REGISTER("loadfontfromimage_2",ring_LoadFontFromImage_2);
+	RING_API_REGISTER("loadfontdata_2",ring_LoadFontData_2);
+	RING_API_REGISTER("genimagefontatlas_2",ring_GenImageFontAtlas_2);
+	RING_API_REGISTER("unloadfont_2",ring_UnloadFont_2);
+	RING_API_REGISTER("drawfps",ring_DrawFPS);
+	RING_API_REGISTER("drawtext",ring_DrawText);
+	RING_API_REGISTER("drawtextex_2",ring_DrawTextEx_2);
+	RING_API_REGISTER("drawtextrec_2",ring_DrawTextRec_2);
+	RING_API_REGISTER("drawtextrecex_2",ring_DrawTextRecEx_2);
+	RING_API_REGISTER("measuretext",ring_MeasureText);
+	RING_API_REGISTER("measuretextex_2",ring_MeasureTextEx_2);
+	RING_API_REGISTER("getglyphindex_2",ring_GetGlyphIndex_2);
+	RING_API_REGISTER("getnextcodepoint",ring_GetNextCodepoint);
+	RING_API_REGISTER("textisequal",ring_TextIsEqual);
+	RING_API_REGISTER("textlength",ring_TextLength);
+	RING_API_REGISTER("textcountcodepoints",ring_TextCountCodepoints);
+	RING_API_REGISTER("textformat",ring_TextFormat);
+	RING_API_REGISTER("textsubtext",ring_TextSubtext);
+	RING_API_REGISTER("textreplace",ring_TextReplace);
+	RING_API_REGISTER("textinsert",ring_TextInsert);
+	RING_API_REGISTER("textjoin",ring_TextJoin);
+	RING_API_REGISTER("textsplit",ring_TextSplit);
+	RING_API_REGISTER("textappend",ring_TextAppend);
+	RING_API_REGISTER("textfindindex",ring_TextFindIndex);
+	RING_API_REGISTER("texttoupper",ring_TextToUpper);
+	RING_API_REGISTER("texttolower",ring_TextToLower);
+	RING_API_REGISTER("texttopascal",ring_TextToPascal);
+	RING_API_REGISTER("texttointeger",ring_TextToInteger);
+	RING_API_REGISTER("drawline3d_2",ring_DrawLine3D_2);
+	RING_API_REGISTER("drawcircle3d_2",ring_DrawCircle3D_2);
+	RING_API_REGISTER("drawcube_2",ring_DrawCube_2);
+	RING_API_REGISTER("drawcubev_2",ring_DrawCubeV_2);
+	RING_API_REGISTER("drawcubewires_2",ring_DrawCubeWires_2);
+	RING_API_REGISTER("drawcubewiresv_2",ring_DrawCubeWiresV_2);
+	RING_API_REGISTER("drawcubetexture_2",ring_DrawCubeTexture_2);
+	RING_API_REGISTER("drawsphere_2",ring_DrawSphere_2);
+	RING_API_REGISTER("drawsphereex_2",ring_DrawSphereEx_2);
+	RING_API_REGISTER("drawspherewires_2",ring_DrawSphereWires_2);
+	RING_API_REGISTER("drawcylinder_2",ring_DrawCylinder_2);
+	RING_API_REGISTER("drawcylinderwires_2",ring_DrawCylinderWires_2);
+	RING_API_REGISTER("drawplane_2",ring_DrawPlane_2);
+	RING_API_REGISTER("drawray_2",ring_DrawRay_2);
+	RING_API_REGISTER("drawgrid",ring_DrawGrid);
+	RING_API_REGISTER("drawgizmo_2",ring_DrawGizmo_2);
+	RING_API_REGISTER("loadmodel_2",ring_LoadModel_2);
+	RING_API_REGISTER("loadmodelfrommesh_2",ring_LoadModelFromMesh_2);
+	RING_API_REGISTER("unloadmodel_2",ring_UnloadModel_2);
+	RING_API_REGISTER("loadmeshes_2",ring_LoadMeshes_2);
+	RING_API_REGISTER("exportmesh_2",ring_ExportMesh_2);
+	RING_API_REGISTER("unloadmesh_2",ring_UnloadMesh_2);
+	RING_API_REGISTER("loadmaterials_2",ring_LoadMaterials_2);
+	RING_API_REGISTER("loadmaterialdefault_2",ring_LoadMaterialDefault_2);
+	RING_API_REGISTER("unloadmaterial_2",ring_UnloadMaterial_2);
+	RING_API_REGISTER("setmaterialtexture_2",ring_SetMaterialTexture_2);
+	RING_API_REGISTER("setmodelmeshmaterial_2",ring_SetModelMeshMaterial_2);
+	RING_API_REGISTER("loadmodelanimations_2",ring_LoadModelAnimations_2);
+	RING_API_REGISTER("updatemodelanimation_2",ring_UpdateModelAnimation_2);
+	RING_API_REGISTER("unloadmodelanimation_2",ring_UnloadModelAnimation_2);
+	RING_API_REGISTER("ismodelanimationvalid_2",ring_IsModelAnimationValid_2);
+	RING_API_REGISTER("genmeshpoly_2",ring_GenMeshPoly_2);
+	RING_API_REGISTER("genmeshplane_2",ring_GenMeshPlane_2);
+	RING_API_REGISTER("genmeshcube_2",ring_GenMeshCube_2);
+	RING_API_REGISTER("genmeshsphere_2",ring_GenMeshSphere_2);
+	RING_API_REGISTER("genmeshhemisphere_2",ring_GenMeshHemiSphere_2);
+	RING_API_REGISTER("genmeshcylinder_2",ring_GenMeshCylinder_2);
+	RING_API_REGISTER("genmeshtorus_2",ring_GenMeshTorus_2);
+	RING_API_REGISTER("genmeshknot_2",ring_GenMeshKnot_2);
+	RING_API_REGISTER("genmeshheightmap_2",ring_GenMeshHeightmap_2);
+	RING_API_REGISTER("genmeshcubicmap_2",ring_GenMeshCubicmap_2);
+	RING_API_REGISTER("meshboundingbox_2",ring_MeshBoundingBox_2);
+	RING_API_REGISTER("meshtangents_2",ring_MeshTangents_2);
+	RING_API_REGISTER("meshbinormals_2",ring_MeshBinormals_2);
+	RING_API_REGISTER("drawmodel_2",ring_DrawModel_2);
+	RING_API_REGISTER("drawmodelex_2",ring_DrawModelEx_2);
+	RING_API_REGISTER("drawmodelwires_2",ring_DrawModelWires_2);
+	RING_API_REGISTER("drawmodelwiresex_2",ring_DrawModelWiresEx_2);
+	RING_API_REGISTER("drawboundingbox_2",ring_DrawBoundingBox_2);
+	RING_API_REGISTER("drawbillboard_2",ring_DrawBillboard_2);
+	RING_API_REGISTER("drawbillboardrec_2",ring_DrawBillboardRec_2);
+	RING_API_REGISTER("checkcollisionspheres_2",ring_CheckCollisionSpheres_2);
+	RING_API_REGISTER("checkcollisionboxes_2",ring_CheckCollisionBoxes_2);
+	RING_API_REGISTER("checkcollisionboxsphere_2",ring_CheckCollisionBoxSphere_2);
+	RING_API_REGISTER("checkcollisionraysphere_2",ring_CheckCollisionRaySphere_2);
+	RING_API_REGISTER("checkcollisionraysphereex_2",ring_CheckCollisionRaySphereEx_2);
+	RING_API_REGISTER("checkcollisionraybox_2",ring_CheckCollisionRayBox_2);
+	RING_API_REGISTER("getcollisionraymodel_2",ring_GetCollisionRayModel_2);
+	RING_API_REGISTER("getcollisionraytriangle_2",ring_GetCollisionRayTriangle_2);
+	RING_API_REGISTER("getcollisionrayground_2",ring_GetCollisionRayGround_2);
+	RING_API_REGISTER("loadtext",ring_LoadText);
+	RING_API_REGISTER("loadshader_2",ring_LoadShader_2);
+	RING_API_REGISTER("loadshadercode_2",ring_LoadShaderCode_2);
+	RING_API_REGISTER("unloadshader_2",ring_UnloadShader_2);
+	RING_API_REGISTER("getshaderdefault_2",ring_GetShaderDefault_2);
+	RING_API_REGISTER("gettexturedefault_2",ring_GetTextureDefault_2);
+	RING_API_REGISTER("getshaderlocation_2",ring_GetShaderLocation_2);
+	RING_API_REGISTER("setshadervalue_2",ring_SetShaderValue_2);
+	RING_API_REGISTER("setshadervaluev_2",ring_SetShaderValueV_2);
+	RING_API_REGISTER("setshadervaluematrix_2",ring_SetShaderValueMatrix_2);
+	RING_API_REGISTER("setshadervaluetexture_2",ring_SetShaderValueTexture_2);
+	RING_API_REGISTER("setmatrixprojection_2",ring_SetMatrixProjection_2);
+	RING_API_REGISTER("setmatrixmodelview_2",ring_SetMatrixModelview_2);
+	RING_API_REGISTER("getmatrixmodelview_2",ring_GetMatrixModelview_2);
+	RING_API_REGISTER("gentexturecubemap_2",ring_GenTextureCubemap_2);
+	RING_API_REGISTER("gentextureirradiance_2",ring_GenTextureIrradiance_2);
+	RING_API_REGISTER("gentextureprefilter_2",ring_GenTexturePrefilter_2);
+	RING_API_REGISTER("gentexturebrdf_2",ring_GenTextureBRDF_2);
+	RING_API_REGISTER("beginshadermode_2",ring_BeginShaderMode_2);
+	RING_API_REGISTER("endshadermode",ring_EndShaderMode);
+	RING_API_REGISTER("beginblendmode",ring_BeginBlendMode);
+	RING_API_REGISTER("endblendmode",ring_EndBlendMode);
+	RING_API_REGISTER("beginscissormode",ring_BeginScissorMode);
+	RING_API_REGISTER("endscissormode",ring_EndScissorMode);
+	RING_API_REGISTER("initvrsimulator",ring_InitVrSimulator);
+	RING_API_REGISTER("closevrsimulator",ring_CloseVrSimulator);
+	RING_API_REGISTER("updatevrtracking_2",ring_UpdateVrTracking_2);
+	RING_API_REGISTER("setvrconfiguration_2",ring_SetVrConfiguration_2);
+	RING_API_REGISTER("isvrsimulatorready",ring_IsVrSimulatorReady);
+	RING_API_REGISTER("togglevrmode",ring_ToggleVrMode);
+	RING_API_REGISTER("beginvrdrawing",ring_BeginVrDrawing);
+	RING_API_REGISTER("endvrdrawing",ring_EndVrDrawing);
+	RING_API_REGISTER("initaudiodevice",ring_InitAudioDevice);
+	RING_API_REGISTER("closeaudiodevice",ring_CloseAudioDevice);
+	RING_API_REGISTER("isaudiodeviceready",ring_IsAudioDeviceReady);
+	RING_API_REGISTER("setmastervolume",ring_SetMasterVolume);
+	RING_API_REGISTER("loadwave_2",ring_LoadWave_2);
+	RING_API_REGISTER("loadwaveex_2",ring_LoadWaveEx_2);
+	RING_API_REGISTER("loadsound_2",ring_LoadSound_2);
+	RING_API_REGISTER("loadsoundfromwave_2",ring_LoadSoundFromWave_2);
+	RING_API_REGISTER("updatesound_2",ring_UpdateSound_2);
+	RING_API_REGISTER("unloadwave_2",ring_UnloadWave_2);
+	RING_API_REGISTER("unloadsound_2",ring_UnloadSound_2);
+	RING_API_REGISTER("exportwave_2",ring_ExportWave_2);
+	RING_API_REGISTER("exportwaveascode_2",ring_ExportWaveAsCode_2);
+	RING_API_REGISTER("playsound_2",ring_PlaySound_2);
+	RING_API_REGISTER("pausesound_2",ring_PauseSound_2);
+	RING_API_REGISTER("resumesound_2",ring_ResumeSound_2);
+	RING_API_REGISTER("stopsound_2",ring_StopSound_2);
+	RING_API_REGISTER("issoundplaying_2",ring_IsSoundPlaying_2);
+	RING_API_REGISTER("setsoundvolume_2",ring_SetSoundVolume_2);
+	RING_API_REGISTER("setsoundpitch_2",ring_SetSoundPitch_2);
+	RING_API_REGISTER("waveformat_2",ring_WaveFormat_2);
+	RING_API_REGISTER("wavecopy_2",ring_WaveCopy_2);
+	RING_API_REGISTER("wavecrop_2",ring_WaveCrop_2);
+	RING_API_REGISTER("getwavedata_2",ring_GetWaveData_2);
+	RING_API_REGISTER("loadmusicstream_2",ring_LoadMusicStream_2);
+	RING_API_REGISTER("unloadmusicstream_2",ring_UnloadMusicStream_2);
+	RING_API_REGISTER("playmusicstream_2",ring_PlayMusicStream_2);
+	RING_API_REGISTER("updatemusicstream_2",ring_UpdateMusicStream_2);
+	RING_API_REGISTER("stopmusicstream_2",ring_StopMusicStream_2);
+	RING_API_REGISTER("pausemusicstream_2",ring_PauseMusicStream_2);
+	RING_API_REGISTER("resumemusicstream_2",ring_ResumeMusicStream_2);
+	RING_API_REGISTER("ismusicplaying_2",ring_IsMusicPlaying_2);
+	RING_API_REGISTER("setmusicvolume_2",ring_SetMusicVolume_2);
+	RING_API_REGISTER("setmusicpitch_2",ring_SetMusicPitch_2);
+	RING_API_REGISTER("setmusicloopcount_2",ring_SetMusicLoopCount_2);
+	RING_API_REGISTER("getmusictimelength_2",ring_GetMusicTimeLength_2);
+	RING_API_REGISTER("getmusictimeplayed_2",ring_GetMusicTimePlayed_2);
+	RING_API_REGISTER("initaudiostream_2",ring_InitAudioStream_2);
+	RING_API_REGISTER("updateaudiostream_2",ring_UpdateAudioStream_2);
+	RING_API_REGISTER("closeaudiostream_2",ring_CloseAudioStream_2);
+	RING_API_REGISTER("isaudiobufferprocessed_2",ring_IsAudioBufferProcessed_2);
+	RING_API_REGISTER("playaudiostream_2",ring_PlayAudioStream_2);
+	RING_API_REGISTER("pauseaudiostream_2",ring_PauseAudioStream_2);
+	RING_API_REGISTER("resumeaudiostream_2",ring_ResumeAudioStream_2);
+	RING_API_REGISTER("isaudiostreamplaying_2",ring_IsAudioStreamPlaying_2);
+	RING_API_REGISTER("stopaudiostream_2",ring_StopAudioStream_2);
+	RING_API_REGISTER("setaudiostreamvolume_2",ring_SetAudioStreamVolume_2);
+	RING_API_REGISTER("setaudiostreampitch_2",ring_SetAudioStreamPitch_2);
+	RING_API_REGISTER("guienable",ring_GuiEnable);
+	RING_API_REGISTER("guidisable",ring_GuiDisable);
+	RING_API_REGISTER("guilock",ring_GuiLock);
+	RING_API_REGISTER("guiunlock",ring_GuiUnlock);
+	RING_API_REGISTER("guistate",ring_GuiState);
+	RING_API_REGISTER("guifont",ring_GuiFont);
+	RING_API_REGISTER("guifade",ring_GuiFade);
+	RING_API_REGISTER("guisetstyle",ring_GuiSetStyle);
+	RING_API_REGISTER("guigetstyle",ring_GuiGetStyle);
+	RING_API_REGISTER("guiwindowbox_2",ring_GuiWindowBox_2);
+	RING_API_REGISTER("guigroupbox_2",ring_GuiGroupBox_2);
+	RING_API_REGISTER("guiline_2",ring_GuiLine_2);
+	RING_API_REGISTER("guipanel_2",ring_GuiPanel_2);
+	RING_API_REGISTER("guiscrollpanel_2",ring_GuiScrollPanel_2);
+	RING_API_REGISTER("guilabel_2",ring_GuiLabel_2);
+	RING_API_REGISTER("guibutton_2",ring_GuiButton_2);
+	RING_API_REGISTER("guilabelbutton_2",ring_GuiLabelButton_2);
+	RING_API_REGISTER("guiimagebutton_2",ring_GuiImageButton_2);
+	RING_API_REGISTER("guiimagebuttonex_2",ring_GuiImageButtonEx_2);
+	RING_API_REGISTER("guitoggle_2",ring_GuiToggle_2);
+	RING_API_REGISTER("guitogglegroup_2",ring_GuiToggleGroup_2);
+	RING_API_REGISTER("guicheckbox_2",ring_GuiCheckBox_2);
+	RING_API_REGISTER("guicombobox_2",ring_GuiComboBox_2);
+	RING_API_REGISTER("guidropdownbox_2",ring_GuiDropdownBox_2);
+	RING_API_REGISTER("guispinner_2",ring_GuiSpinner_2);
+	RING_API_REGISTER("guivaluebox_2",ring_GuiValueBox_2);
+	RING_API_REGISTER("guitextbox_2",ring_GuiTextBox_2);
+	RING_API_REGISTER("guitextboxmulti_2",ring_GuiTextBoxMulti_2);
+	RING_API_REGISTER("guislider_2",ring_GuiSlider_2);
+	RING_API_REGISTER("guisliderbar_2",ring_GuiSliderBar_2);
+	RING_API_REGISTER("guiprogressbar_2",ring_GuiProgressBar_2);
+	RING_API_REGISTER("guistatusbar_2",ring_GuiStatusBar_2);
+	RING_API_REGISTER("guidummyrec_2",ring_GuiDummyRec_2);
+	RING_API_REGISTER("guiscrollbar_2",ring_GuiScrollBar_2);
+	RING_API_REGISTER("guigrid_2",ring_GuiGrid_2);
+	RING_API_REGISTER("guilistview_2",ring_GuiListView_2);
+	RING_API_REGISTER("guilistviewex_2",ring_GuiListViewEx_2);
+	RING_API_REGISTER("guimessagebox_2",ring_GuiMessageBox_2);
+	RING_API_REGISTER("guitextinputbox_2",ring_GuiTextInputBox_2);
+	RING_API_REGISTER("guicolorpicker_2",ring_GuiColorPicker_2);
+	RING_API_REGISTER("guiloadstyle",ring_GuiLoadStyle);
+	RING_API_REGISTER("guiloadstyleprops",ring_GuiLoadStyleProps);
+	RING_API_REGISTER("guiloadstyledefault",ring_GuiLoadStyleDefault);
+	RING_API_REGISTER("guiupdatestylecomplete",ring_GuiUpdateStyleComplete);
+	RING_API_REGISTER("guiicontext",ring_GuiIconText);
+	RING_API_REGISTER("clamp",ring_Clamp);
+	RING_API_REGISTER("lerp",ring_Lerp);
+	RING_API_REGISTER("normalize",ring_Normalize);
+	RING_API_REGISTER("remap",ring_Remap);
+	RING_API_REGISTER("vector2zero_2",ring_Vector2Zero_2);
+	RING_API_REGISTER("vector2one_2",ring_Vector2One_2);
+	RING_API_REGISTER("vector2add_2",ring_Vector2Add_2);
+	RING_API_REGISTER("vector2addvalue_2",ring_Vector2AddValue_2);
+	RING_API_REGISTER("vector2subtract_2",ring_Vector2Subtract_2);
+	RING_API_REGISTER("vector2subtractvalue_2",ring_Vector2SubtractValue_2);
+	RING_API_REGISTER("vector2length_2",ring_Vector2Length_2);
+	RING_API_REGISTER("vector2lengthsqr_2",ring_Vector2LengthSqr_2);
+	RING_API_REGISTER("vector2dotproduct_2",ring_Vector2DotProduct_2);
+	RING_API_REGISTER("vector2distance_2",ring_Vector2Distance_2);
+	RING_API_REGISTER("vector2angle_2",ring_Vector2Angle_2);
+	RING_API_REGISTER("vector2scale_2",ring_Vector2Scale_2);
+	RING_API_REGISTER("vector2multiply_2",ring_Vector2Multiply_2);
+	RING_API_REGISTER("vector2negate_2",ring_Vector2Negate_2);
+	RING_API_REGISTER("vector2divide_2",ring_Vector2Divide_2);
+	RING_API_REGISTER("vector2normalize_2",ring_Vector2Normalize_2);
+	RING_API_REGISTER("vector2lerp_2",ring_Vector2Lerp_2);
+	RING_API_REGISTER("vector2rotate_2",ring_Vector2Rotate_2);
+	RING_API_REGISTER("vector2movetowards_2",ring_Vector2MoveTowards_2);
+	RING_API_REGISTER("vector3zero_2",ring_Vector3Zero_2);
+	RING_API_REGISTER("vector3one_2",ring_Vector3One_2);
+	RING_API_REGISTER("vector3add_2",ring_Vector3Add_2);
+	RING_API_REGISTER("vector3addvalue_2",ring_Vector3AddValue_2);
+	RING_API_REGISTER("vector3subtract_2",ring_Vector3Subtract_2);
+	RING_API_REGISTER("vector3subtractvalue_2",ring_Vector3SubtractValue_2);
+	RING_API_REGISTER("vector3scale_2",ring_Vector3Scale_2);
+	RING_API_REGISTER("vector3multiply_2",ring_Vector3Multiply_2);
+	RING_API_REGISTER("vector3crossproduct_2",ring_Vector3CrossProduct_2);
+	RING_API_REGISTER("vector3perpendicular_2",ring_Vector3Perpendicular_2);
+	RING_API_REGISTER("vector3length_2",ring_Vector3Length_2);
+	RING_API_REGISTER("vector3lengthsqr_2",ring_Vector3LengthSqr_2);
+	RING_API_REGISTER("vector3dotproduct_2",ring_Vector3DotProduct_2);
+	RING_API_REGISTER("vector3distance_2",ring_Vector3Distance_2);
+	RING_API_REGISTER("vector3negate_2",ring_Vector3Negate_2);
+	RING_API_REGISTER("vector3divide_2",ring_Vector3Divide_2);
+	RING_API_REGISTER("vector3normalize_2",ring_Vector3Normalize_2);
+	RING_API_REGISTER("vector3orthonormalize_2",ring_Vector3OrthoNormalize_2);
+	RING_API_REGISTER("vector3transform_2",ring_Vector3Transform_2);
+	RING_API_REGISTER("vector3rotatebyquaternion_2",ring_Vector3RotateByQuaternion_2);
+	RING_API_REGISTER("vector3lerp_2",ring_Vector3Lerp_2);
+	RING_API_REGISTER("vector3reflect_2",ring_Vector3Reflect_2);
+	RING_API_REGISTER("vector3min_2",ring_Vector3Min_2);
+	RING_API_REGISTER("vector3max_2",ring_Vector3Max_2);
+	RING_API_REGISTER("vector3barycenter_2",ring_Vector3Barycenter_2);
+	RING_API_REGISTER("vector3tofloatv_2",ring_Vector3ToFloatV_2);
+	RING_API_REGISTER("matrixdeterminant_2",ring_MatrixDeterminant_2);
+	RING_API_REGISTER("matrixtrace_2",ring_MatrixTrace_2);
+	RING_API_REGISTER("matrixtranspose_2",ring_MatrixTranspose_2);
+	RING_API_REGISTER("matrixinvert_2",ring_MatrixInvert_2);
+	RING_API_REGISTER("matrixnormalize_2",ring_MatrixNormalize_2);
+	RING_API_REGISTER("matrixidentity_2",ring_MatrixIdentity_2);
+	RING_API_REGISTER("matrixadd_2",ring_MatrixAdd_2);
+	RING_API_REGISTER("matrixsubtract_2",ring_MatrixSubtract_2);
+	RING_API_REGISTER("matrixtranslate_2",ring_MatrixTranslate_2);
+	RING_API_REGISTER("matrixrotate_2",ring_MatrixRotate_2);
+	RING_API_REGISTER("matrixrotatexyz_2",ring_MatrixRotateXYZ_2);
+	RING_API_REGISTER("matrixrotatex_2",ring_MatrixRotateX_2);
+	RING_API_REGISTER("matrixrotatey_2",ring_MatrixRotateY_2);
+	RING_API_REGISTER("matrixrotatez_2",ring_MatrixRotateZ_2);
+	RING_API_REGISTER("matrixscale_2",ring_MatrixScale_2);
+	RING_API_REGISTER("matrixmultiply_2",ring_MatrixMultiply_2);
+	RING_API_REGISTER("matrixfrustum_2",ring_MatrixFrustum_2);
+	RING_API_REGISTER("matrixperspective_2",ring_MatrixPerspective_2);
+	RING_API_REGISTER("matrixortho_2",ring_MatrixOrtho_2);
+	RING_API_REGISTER("matrixlookat_2",ring_MatrixLookAt_2);
+	RING_API_REGISTER("matrixtofloatv_2",ring_MatrixToFloatV_2);
+	RING_API_REGISTER("quaternionadd_2",ring_QuaternionAdd_2);
+	RING_API_REGISTER("quaternionaddvalue_2",ring_QuaternionAddValue_2);
+	RING_API_REGISTER("quaternionsubtract_2",ring_QuaternionSubtract_2);
+	RING_API_REGISTER("quaternionsubtractvalue_2",ring_QuaternionSubtractValue_2);
+	RING_API_REGISTER("quaternionidentity_2",ring_QuaternionIdentity_2);
+	RING_API_REGISTER("quaternionlength_2",ring_QuaternionLength_2);
+	RING_API_REGISTER("quaternionnormalize_2",ring_QuaternionNormalize_2);
+	RING_API_REGISTER("quaternioninvert_2",ring_QuaternionInvert_2);
+	RING_API_REGISTER("quaternionmultiply_2",ring_QuaternionMultiply_2);
+	RING_API_REGISTER("quaternionscale_2",ring_QuaternionScale_2);
+	RING_API_REGISTER("quaterniondivide_2",ring_QuaternionDivide_2);
+	RING_API_REGISTER("quaternionlerp_2",ring_QuaternionLerp_2);
+	RING_API_REGISTER("quaternionnlerp_2",ring_QuaternionNlerp_2);
+	RING_API_REGISTER("quaternionslerp_2",ring_QuaternionSlerp_2);
+	RING_API_REGISTER("quaternionfromvector3tovector3_2",ring_QuaternionFromVector3ToVector3_2);
+	RING_API_REGISTER("quaternionfrommatrix_2",ring_QuaternionFromMatrix_2);
+	RING_API_REGISTER("quaterniontomatrix_2",ring_QuaternionToMatrix_2);
+	RING_API_REGISTER("quaternionfromaxisangle_2",ring_QuaternionFromAxisAngle_2);
+	RING_API_REGISTER("quaterniontoaxisangle_2",ring_QuaternionToAxisAngle_2);
+	RING_API_REGISTER("quaternionfromeuler_2",ring_QuaternionFromEuler_2);
+	RING_API_REGISTER("quaterniontoeuler_2",ring_QuaternionToEuler_2);
+	RING_API_REGISTER("quaterniontransform_2",ring_QuaternionTransform_2);
+	RING_API_REGISTER("setmodelmaterialtexture_2",ring_setmodelmaterialtexture_2);
+	RING_API_REGISTER("getimagepixelr_2",ring_getimagepixelr_2);
+	RING_API_REGISTER("getimagepixelg_2",ring_getimagepixelg_2);
+	RING_API_REGISTER("getimagepixelb_2",ring_getimagepixelb_2);
+	RING_API_REGISTER("getimagepixela_2",ring_getimagepixela_2);
+	RING_API_REGISTER("raylib_new_vector2",ring_raylib_new_vector2);
+	RING_API_REGISTER("raylib_new_managed_vector2",ring_raylib_new_managed_vector2);
+	RING_API_REGISTER("raylib_destroy_vector2",ring_raylib_destroy_vector2);
+	RING_API_REGISTER("raylib_get_vector2_x",ring_raylib_get_vector2_x);
+	RING_API_REGISTER("raylib_set_vector2_x",ring_raylib_set_vector2_x);
+	RING_API_REGISTER("raylib_get_vector2_y",ring_raylib_get_vector2_y);
+	RING_API_REGISTER("raylib_set_vector2_y",ring_raylib_set_vector2_y);
+	RING_API_REGISTER("raylib_new_vector3",ring_raylib_new_vector3);
+	RING_API_REGISTER("raylib_new_managed_vector3",ring_raylib_new_managed_vector3);
+	RING_API_REGISTER("raylib_destroy_vector3",ring_raylib_destroy_vector3);
+	RING_API_REGISTER("raylib_get_vector3_x",ring_raylib_get_vector3_x);
+	RING_API_REGISTER("raylib_set_vector3_x",ring_raylib_set_vector3_x);
+	RING_API_REGISTER("raylib_get_vector3_y",ring_raylib_get_vector3_y);
+	RING_API_REGISTER("raylib_set_vector3_y",ring_raylib_set_vector3_y);
+	RING_API_REGISTER("raylib_get_vector3_z",ring_raylib_get_vector3_z);
+	RING_API_REGISTER("raylib_set_vector3_z",ring_raylib_set_vector3_z);
+	RING_API_REGISTER("raylib_new_vector4",ring_raylib_new_vector4);
+	RING_API_REGISTER("raylib_new_managed_vector4",ring_raylib_new_managed_vector4);
+	RING_API_REGISTER("raylib_destroy_vector4",ring_raylib_destroy_vector4);
+	RING_API_REGISTER("raylib_get_vector4_x",ring_raylib_get_vector4_x);
+	RING_API_REGISTER("raylib_set_vector4_x",ring_raylib_set_vector4_x);
+	RING_API_REGISTER("raylib_get_vector4_y",ring_raylib_get_vector4_y);
+	RING_API_REGISTER("raylib_set_vector4_y",ring_raylib_set_vector4_y);
+	RING_API_REGISTER("raylib_get_vector4_z",ring_raylib_get_vector4_z);
+	RING_API_REGISTER("raylib_set_vector4_z",ring_raylib_set_vector4_z);
+	RING_API_REGISTER("raylib_get_vector4_w",ring_raylib_get_vector4_w);
+	RING_API_REGISTER("raylib_set_vector4_w",ring_raylib_set_vector4_w);
+	RING_API_REGISTER("raylib_new_quaternion",ring_raylib_new_quaternion);
+	RING_API_REGISTER("raylib_new_managed_quaternion",ring_raylib_new_managed_quaternion);
+	RING_API_REGISTER("raylib_destroy_quaternion",ring_raylib_destroy_quaternion);
+	RING_API_REGISTER("raylib_get_quaternion_x",ring_raylib_get_quaternion_x);
+	RING_API_REGISTER("raylib_set_quaternion_x",ring_raylib_set_quaternion_x);
+	RING_API_REGISTER("raylib_get_quaternion_y",ring_raylib_get_quaternion_y);
+	RING_API_REGISTER("raylib_set_quaternion_y",ring_raylib_set_quaternion_y);
+	RING_API_REGISTER("raylib_get_quaternion_z",ring_raylib_get_quaternion_z);
+	RING_API_REGISTER("raylib_set_quaternion_z",ring_raylib_set_quaternion_z);
+	RING_API_REGISTER("raylib_get_quaternion_w",ring_raylib_get_quaternion_w);
+	RING_API_REGISTER("raylib_set_quaternion_w",ring_raylib_set_quaternion_w);
+	RING_API_REGISTER("raylib_new_matrix",ring_raylib_new_matrix);
+	RING_API_REGISTER("raylib_new_managed_matrix",ring_raylib_new_managed_matrix);
+	RING_API_REGISTER("raylib_destroy_matrix",ring_raylib_destroy_matrix);
+	RING_API_REGISTER("raylib_get_matrix_m0",ring_raylib_get_matrix_m0);
+	RING_API_REGISTER("raylib_set_matrix_m0",ring_raylib_set_matrix_m0);
+	RING_API_REGISTER("raylib_get_matrix_m1",ring_raylib_get_matrix_m1);
+	RING_API_REGISTER("raylib_set_matrix_m1",ring_raylib_set_matrix_m1);
+	RING_API_REGISTER("raylib_get_matrix_m2",ring_raylib_get_matrix_m2);
+	RING_API_REGISTER("raylib_set_matrix_m2",ring_raylib_set_matrix_m2);
+	RING_API_REGISTER("raylib_get_matrix_m3",ring_raylib_get_matrix_m3);
+	RING_API_REGISTER("raylib_set_matrix_m3",ring_raylib_set_matrix_m3);
+	RING_API_REGISTER("raylib_get_matrix_m4",ring_raylib_get_matrix_m4);
+	RING_API_REGISTER("raylib_set_matrix_m4",ring_raylib_set_matrix_m4);
+	RING_API_REGISTER("raylib_get_matrix_m5",ring_raylib_get_matrix_m5);
+	RING_API_REGISTER("raylib_set_matrix_m5",ring_raylib_set_matrix_m5);
+	RING_API_REGISTER("raylib_get_matrix_m6",ring_raylib_get_matrix_m6);
+	RING_API_REGISTER("raylib_set_matrix_m6",ring_raylib_set_matrix_m6);
+	RING_API_REGISTER("raylib_get_matrix_m7",ring_raylib_get_matrix_m7);
+	RING_API_REGISTER("raylib_set_matrix_m7",ring_raylib_set_matrix_m7);
+	RING_API_REGISTER("raylib_get_matrix_m8",ring_raylib_get_matrix_m8);
+	RING_API_REGISTER("raylib_set_matrix_m8",ring_raylib_set_matrix_m8);
+	RING_API_REGISTER("raylib_get_matrix_m9",ring_raylib_get_matrix_m9);
+	RING_API_REGISTER("raylib_set_matrix_m9",ring_raylib_set_matrix_m9);
+	RING_API_REGISTER("raylib_get_matrix_m10",ring_raylib_get_matrix_m10);
+	RING_API_REGISTER("raylib_set_matrix_m10",ring_raylib_set_matrix_m10);
+	RING_API_REGISTER("raylib_get_matrix_m11",ring_raylib_get_matrix_m11);
+	RING_API_REGISTER("raylib_set_matrix_m11",ring_raylib_set_matrix_m11);
+	RING_API_REGISTER("raylib_get_matrix_m12",ring_raylib_get_matrix_m12);
+	RING_API_REGISTER("raylib_set_matrix_m12",ring_raylib_set_matrix_m12);
+	RING_API_REGISTER("raylib_get_matrix_m13",ring_raylib_get_matrix_m13);
+	RING_API_REGISTER("raylib_set_matrix_m13",ring_raylib_set_matrix_m13);
+	RING_API_REGISTER("raylib_get_matrix_m14",ring_raylib_get_matrix_m14);
+	RING_API_REGISTER("raylib_set_matrix_m14",ring_raylib_set_matrix_m14);
+	RING_API_REGISTER("raylib_get_matrix_m15",ring_raylib_get_matrix_m15);
+	RING_API_REGISTER("raylib_set_matrix_m15",ring_raylib_set_matrix_m15);
+	RING_API_REGISTER("raylib_new_color",ring_raylib_new_color);
+	RING_API_REGISTER("raylib_new_managed_color",ring_raylib_new_managed_color);
+	RING_API_REGISTER("raylib_destroy_color",ring_raylib_destroy_color);
+	RING_API_REGISTER("raylib_get_color_r",ring_raylib_get_color_r);
+	RING_API_REGISTER("raylib_set_color_r",ring_raylib_set_color_r);
+	RING_API_REGISTER("raylib_get_color_g",ring_raylib_get_color_g);
+	RING_API_REGISTER("raylib_set_color_g",ring_raylib_set_color_g);
+	RING_API_REGISTER("raylib_get_color_b",ring_raylib_get_color_b);
+	RING_API_REGISTER("raylib_set_color_b",ring_raylib_set_color_b);
+	RING_API_REGISTER("raylib_get_color_a",ring_raylib_get_color_a);
+	RING_API_REGISTER("raylib_set_color_a",ring_raylib_set_color_a);
+	RING_API_REGISTER("raylib_new_rectangle",ring_raylib_new_rectangle);
+	RING_API_REGISTER("raylib_new_managed_rectangle",ring_raylib_new_managed_rectangle);
+	RING_API_REGISTER("raylib_destroy_rectangle",ring_raylib_destroy_rectangle);
+	RING_API_REGISTER("raylib_get_rectangle_x",ring_raylib_get_rectangle_x);
+	RING_API_REGISTER("raylib_set_rectangle_x",ring_raylib_set_rectangle_x);
+	RING_API_REGISTER("raylib_get_rectangle_y",ring_raylib_get_rectangle_y);
+	RING_API_REGISTER("raylib_set_rectangle_y",ring_raylib_set_rectangle_y);
+	RING_API_REGISTER("raylib_get_rectangle_width",ring_raylib_get_rectangle_width);
+	RING_API_REGISTER("raylib_set_rectangle_width",ring_raylib_set_rectangle_width);
+	RING_API_REGISTER("raylib_get_rectangle_height",ring_raylib_get_rectangle_height);
+	RING_API_REGISTER("raylib_set_rectangle_height",ring_raylib_set_rectangle_height);
+	RING_API_REGISTER("raylib_new_image",ring_raylib_new_image);
+	RING_API_REGISTER("raylib_new_managed_image",ring_raylib_new_managed_image);
+	RING_API_REGISTER("raylib_destroy_image",ring_raylib_destroy_image);
+	RING_API_REGISTER("raylib_get_image_data",ring_raylib_get_image_data);
+	RING_API_REGISTER("raylib_set_image_data",ring_raylib_set_image_data);
+	RING_API_REGISTER("raylib_get_image_width",ring_raylib_get_image_width);
+	RING_API_REGISTER("raylib_set_image_width",ring_raylib_set_image_width);
+	RING_API_REGISTER("raylib_get_image_height",ring_raylib_get_image_height);
+	RING_API_REGISTER("raylib_set_image_height",ring_raylib_set_image_height);
+	RING_API_REGISTER("raylib_get_image_mipmaps",ring_raylib_get_image_mipmaps);
+	RING_API_REGISTER("raylib_set_image_mipmaps",ring_raylib_set_image_mipmaps);
+	RING_API_REGISTER("raylib_get_image_format",ring_raylib_get_image_format);
+	RING_API_REGISTER("raylib_set_image_format",ring_raylib_set_image_format);
+	RING_API_REGISTER("raylib_new_texture2d",ring_raylib_new_texture2d);
+	RING_API_REGISTER("raylib_new_managed_texture2d",ring_raylib_new_managed_texture2d);
+	RING_API_REGISTER("raylib_destroy_texture2d",ring_raylib_destroy_texture2d);
+	RING_API_REGISTER("raylib_get_texture2d_id",ring_raylib_get_texture2d_id);
+	RING_API_REGISTER("raylib_set_texture2d_id",ring_raylib_set_texture2d_id);
+	RING_API_REGISTER("raylib_get_texture2d_width",ring_raylib_get_texture2d_width);
+	RING_API_REGISTER("raylib_set_texture2d_width",ring_raylib_set_texture2d_width);
+	RING_API_REGISTER("raylib_get_texture2d_height",ring_raylib_get_texture2d_height);
+	RING_API_REGISTER("raylib_set_texture2d_height",ring_raylib_set_texture2d_height);
+	RING_API_REGISTER("raylib_get_texture2d_mipmaps",ring_raylib_get_texture2d_mipmaps);
+	RING_API_REGISTER("raylib_set_texture2d_mipmaps",ring_raylib_set_texture2d_mipmaps);
+	RING_API_REGISTER("raylib_get_texture2d_format",ring_raylib_get_texture2d_format);
+	RING_API_REGISTER("raylib_set_texture2d_format",ring_raylib_set_texture2d_format);
+	RING_API_REGISTER("raylib_new_texture",ring_raylib_new_texture);
+	RING_API_REGISTER("raylib_new_managed_texture",ring_raylib_new_managed_texture);
+	RING_API_REGISTER("raylib_destroy_texture",ring_raylib_destroy_texture);
+	RING_API_REGISTER("raylib_get_texture_id",ring_raylib_get_texture_id);
+	RING_API_REGISTER("raylib_set_texture_id",ring_raylib_set_texture_id);
+	RING_API_REGISTER("raylib_get_texture_width",ring_raylib_get_texture_width);
+	RING_API_REGISTER("raylib_set_texture_width",ring_raylib_set_texture_width);
+	RING_API_REGISTER("raylib_get_texture_height",ring_raylib_get_texture_height);
+	RING_API_REGISTER("raylib_set_texture_height",ring_raylib_set_texture_height);
+	RING_API_REGISTER("raylib_get_texture_mipmaps",ring_raylib_get_texture_mipmaps);
+	RING_API_REGISTER("raylib_set_texture_mipmaps",ring_raylib_set_texture_mipmaps);
+	RING_API_REGISTER("raylib_get_texture_format",ring_raylib_get_texture_format);
+	RING_API_REGISTER("raylib_set_texture_format",ring_raylib_set_texture_format);
+	RING_API_REGISTER("raylib_new_rendertexture2d",ring_raylib_new_rendertexture2d);
+	RING_API_REGISTER("raylib_new_managed_rendertexture2d",ring_raylib_new_managed_rendertexture2d);
+	RING_API_REGISTER("raylib_destroy_rendertexture2d",ring_raylib_destroy_rendertexture2d);
+	RING_API_REGISTER("raylib_get_rendertexture2d_id",ring_raylib_get_rendertexture2d_id);
+	RING_API_REGISTER("raylib_set_rendertexture2d_id",ring_raylib_set_rendertexture2d_id);
+	RING_API_REGISTER("raylib_get_rendertexture2d_texture_id",ring_raylib_get_rendertexture2d_texture_id);
+	RING_API_REGISTER("raylib_set_rendertexture2d_texture_id",ring_raylib_set_rendertexture2d_texture_id);
+	RING_API_REGISTER("raylib_get_rendertexture2d_texture_width",ring_raylib_get_rendertexture2d_texture_width);
+	RING_API_REGISTER("raylib_set_rendertexture2d_texture_width",ring_raylib_set_rendertexture2d_texture_width);
+	RING_API_REGISTER("raylib_get_rendertexture2d_texture_height",ring_raylib_get_rendertexture2d_texture_height);
+	RING_API_REGISTER("raylib_set_rendertexture2d_texture_height",ring_raylib_set_rendertexture2d_texture_height);
+	RING_API_REGISTER("raylib_get_rendertexture2d_texture_mipmaps",ring_raylib_get_rendertexture2d_texture_mipmaps);
+	RING_API_REGISTER("raylib_set_rendertexture2d_texture_mipmaps",ring_raylib_set_rendertexture2d_texture_mipmaps);
+	RING_API_REGISTER("raylib_get_rendertexture2d_texture_format",ring_raylib_get_rendertexture2d_texture_format);
+	RING_API_REGISTER("raylib_set_rendertexture2d_texture_format",ring_raylib_set_rendertexture2d_texture_format);
+	RING_API_REGISTER("raylib_get_rendertexture2d_depth_id",ring_raylib_get_rendertexture2d_depth_id);
+	RING_API_REGISTER("raylib_set_rendertexture2d_depth_id",ring_raylib_set_rendertexture2d_depth_id);
+	RING_API_REGISTER("raylib_get_rendertexture2d_depth_width",ring_raylib_get_rendertexture2d_depth_width);
+	RING_API_REGISTER("raylib_set_rendertexture2d_depth_width",ring_raylib_set_rendertexture2d_depth_width);
+	RING_API_REGISTER("raylib_get_rendertexture2d_depth_height",ring_raylib_get_rendertexture2d_depth_height);
+	RING_API_REGISTER("raylib_set_rendertexture2d_depth_height",ring_raylib_set_rendertexture2d_depth_height);
+	RING_API_REGISTER("raylib_get_rendertexture2d_depth_mipmaps",ring_raylib_get_rendertexture2d_depth_mipmaps);
+	RING_API_REGISTER("raylib_set_rendertexture2d_depth_mipmaps",ring_raylib_set_rendertexture2d_depth_mipmaps);
+	RING_API_REGISTER("raylib_get_rendertexture2d_depth_format",ring_raylib_get_rendertexture2d_depth_format);
+	RING_API_REGISTER("raylib_set_rendertexture2d_depth_format",ring_raylib_set_rendertexture2d_depth_format);
+	RING_API_REGISTER("raylib_get_rendertexture2d_depthtexture",ring_raylib_get_rendertexture2d_depthTexture);
+	RING_API_REGISTER("raylib_set_rendertexture2d_depthtexture",ring_raylib_set_rendertexture2d_depthTexture);
+	RING_API_REGISTER("raylib_new_rendertexture",ring_raylib_new_rendertexture);
+	RING_API_REGISTER("raylib_new_managed_rendertexture",ring_raylib_new_managed_rendertexture);
+	RING_API_REGISTER("raylib_destroy_rendertexture",ring_raylib_destroy_rendertexture);
+	RING_API_REGISTER("raylib_get_rendertexture_id",ring_raylib_get_rendertexture_id);
+	RING_API_REGISTER("raylib_set_rendertexture_id",ring_raylib_set_rendertexture_id);
+	RING_API_REGISTER("raylib_get_rendertexture_texture_id",ring_raylib_get_rendertexture_texture_id);
+	RING_API_REGISTER("raylib_set_rendertexture_texture_id",ring_raylib_set_rendertexture_texture_id);
+	RING_API_REGISTER("raylib_get_rendertexture_texture_width",ring_raylib_get_rendertexture_texture_width);
+	RING_API_REGISTER("raylib_set_rendertexture_texture_width",ring_raylib_set_rendertexture_texture_width);
+	RING_API_REGISTER("raylib_get_rendertexture_texture_height",ring_raylib_get_rendertexture_texture_height);
+	RING_API_REGISTER("raylib_set_rendertexture_texture_height",ring_raylib_set_rendertexture_texture_height);
+	RING_API_REGISTER("raylib_get_rendertexture_texture_mipmaps",ring_raylib_get_rendertexture_texture_mipmaps);
+	RING_API_REGISTER("raylib_set_rendertexture_texture_mipmaps",ring_raylib_set_rendertexture_texture_mipmaps);
+	RING_API_REGISTER("raylib_get_rendertexture_texture_format",ring_raylib_get_rendertexture_texture_format);
+	RING_API_REGISTER("raylib_set_rendertexture_texture_format",ring_raylib_set_rendertexture_texture_format);
+	RING_API_REGISTER("raylib_get_rendertexture_depth_id",ring_raylib_get_rendertexture_depth_id);
+	RING_API_REGISTER("raylib_set_rendertexture_depth_id",ring_raylib_set_rendertexture_depth_id);
+	RING_API_REGISTER("raylib_get_rendertexture_depth_width",ring_raylib_get_rendertexture_depth_width);
+	RING_API_REGISTER("raylib_set_rendertexture_depth_width",ring_raylib_set_rendertexture_depth_width);
+	RING_API_REGISTER("raylib_get_rendertexture_depth_height",ring_raylib_get_rendertexture_depth_height);
+	RING_API_REGISTER("raylib_set_rendertexture_depth_height",ring_raylib_set_rendertexture_depth_height);
+	RING_API_REGISTER("raylib_get_rendertexture_depth_mipmaps",ring_raylib_get_rendertexture_depth_mipmaps);
+	RING_API_REGISTER("raylib_set_rendertexture_depth_mipmaps",ring_raylib_set_rendertexture_depth_mipmaps);
+	RING_API_REGISTER("raylib_get_rendertexture_depth_format",ring_raylib_get_rendertexture_depth_format);
+	RING_API_REGISTER("raylib_set_rendertexture_depth_format",ring_raylib_set_rendertexture_depth_format);
+	RING_API_REGISTER("raylib_get_rendertexture_depthtexture",ring_raylib_get_rendertexture_depthTexture);
+	RING_API_REGISTER("raylib_set_rendertexture_depthtexture",ring_raylib_set_rendertexture_depthTexture);
+	RING_API_REGISTER("raylib_new_npatchinfo",ring_raylib_new_npatchinfo);
+	RING_API_REGISTER("raylib_new_managed_npatchinfo",ring_raylib_new_managed_npatchinfo);
+	RING_API_REGISTER("raylib_destroy_npatchinfo",ring_raylib_destroy_npatchinfo);
+	RING_API_REGISTER("raylib_get_npatchinfo_sourcerec_x",ring_raylib_get_npatchinfo_sourceRec_x);
+	RING_API_REGISTER("raylib_set_npatchinfo_sourcerec_x",ring_raylib_set_npatchinfo_sourceRec_x);
+	RING_API_REGISTER("raylib_get_npatchinfo_sourcerec_y",ring_raylib_get_npatchinfo_sourceRec_y);
+	RING_API_REGISTER("raylib_set_npatchinfo_sourcerec_y",ring_raylib_set_npatchinfo_sourceRec_y);
+	RING_API_REGISTER("raylib_get_npatchinfo_sourcerec_width",ring_raylib_get_npatchinfo_sourceRec_width);
+	RING_API_REGISTER("raylib_set_npatchinfo_sourcerec_width",ring_raylib_set_npatchinfo_sourceRec_width);
+	RING_API_REGISTER("raylib_get_npatchinfo_sourcerec_height",ring_raylib_get_npatchinfo_sourceRec_height);
+	RING_API_REGISTER("raylib_set_npatchinfo_sourcerec_height",ring_raylib_set_npatchinfo_sourceRec_height);
+	RING_API_REGISTER("raylib_get_npatchinfo_left",ring_raylib_get_npatchinfo_left);
+	RING_API_REGISTER("raylib_set_npatchinfo_left",ring_raylib_set_npatchinfo_left);
+	RING_API_REGISTER("raylib_get_npatchinfo_top",ring_raylib_get_npatchinfo_top);
+	RING_API_REGISTER("raylib_set_npatchinfo_top",ring_raylib_set_npatchinfo_top);
+	RING_API_REGISTER("raylib_get_npatchinfo_right",ring_raylib_get_npatchinfo_right);
+	RING_API_REGISTER("raylib_set_npatchinfo_right",ring_raylib_set_npatchinfo_right);
+	RING_API_REGISTER("raylib_get_npatchinfo_bottom",ring_raylib_get_npatchinfo_bottom);
+	RING_API_REGISTER("raylib_set_npatchinfo_bottom",ring_raylib_set_npatchinfo_bottom);
+	RING_API_REGISTER("raylib_get_npatchinfo_type",ring_raylib_get_npatchinfo_type);
+	RING_API_REGISTER("raylib_set_npatchinfo_type",ring_raylib_set_npatchinfo_type);
+	RING_API_REGISTER("raylib_new_charinfo",ring_raylib_new_charinfo);
+	RING_API_REGISTER("raylib_new_managed_charinfo",ring_raylib_new_managed_charinfo);
+	RING_API_REGISTER("raylib_destroy_charinfo",ring_raylib_destroy_charinfo);
+	RING_API_REGISTER("raylib_get_charinfo_value",ring_raylib_get_charinfo_value);
+	RING_API_REGISTER("raylib_set_charinfo_value",ring_raylib_set_charinfo_value);
+	RING_API_REGISTER("raylib_get_charinfo_rec_x",ring_raylib_get_charinfo_rec_x);
+	RING_API_REGISTER("raylib_set_charinfo_rec_x",ring_raylib_set_charinfo_rec_x);
+	RING_API_REGISTER("raylib_get_charinfo_rec_y",ring_raylib_get_charinfo_rec_y);
+	RING_API_REGISTER("raylib_set_charinfo_rec_y",ring_raylib_set_charinfo_rec_y);
+	RING_API_REGISTER("raylib_get_charinfo_rec_width",ring_raylib_get_charinfo_rec_width);
+	RING_API_REGISTER("raylib_set_charinfo_rec_width",ring_raylib_set_charinfo_rec_width);
+	RING_API_REGISTER("raylib_get_charinfo_rec_height",ring_raylib_get_charinfo_rec_height);
+	RING_API_REGISTER("raylib_set_charinfo_rec_height",ring_raylib_set_charinfo_rec_height);
+	RING_API_REGISTER("raylib_get_charinfo_offsetx",ring_raylib_get_charinfo_offsetX);
+	RING_API_REGISTER("raylib_set_charinfo_offsetx",ring_raylib_set_charinfo_offsetX);
+	RING_API_REGISTER("raylib_get_charinfo_offsety",ring_raylib_get_charinfo_offsetY);
+	RING_API_REGISTER("raylib_set_charinfo_offsety",ring_raylib_set_charinfo_offsetY);
+	RING_API_REGISTER("raylib_get_charinfo_advancex",ring_raylib_get_charinfo_advanceX);
+	RING_API_REGISTER("raylib_set_charinfo_advancex",ring_raylib_set_charinfo_advanceX);
+	RING_API_REGISTER("raylib_get_charinfo_data",ring_raylib_get_charinfo_data);
+	RING_API_REGISTER("raylib_set_charinfo_data",ring_raylib_set_charinfo_data);
+	RING_API_REGISTER("raylib_new_font",ring_raylib_new_font);
+	RING_API_REGISTER("raylib_new_managed_font",ring_raylib_new_managed_font);
+	RING_API_REGISTER("raylib_destroy_font",ring_raylib_destroy_font);
+	RING_API_REGISTER("raylib_get_font_texture_id",ring_raylib_get_font_texture_id);
+	RING_API_REGISTER("raylib_set_font_texture_id",ring_raylib_set_font_texture_id);
+	RING_API_REGISTER("raylib_get_font_texture_width",ring_raylib_get_font_texture_width);
+	RING_API_REGISTER("raylib_set_font_texture_width",ring_raylib_set_font_texture_width);
+	RING_API_REGISTER("raylib_get_font_texture_height",ring_raylib_get_font_texture_height);
+	RING_API_REGISTER("raylib_set_font_texture_height",ring_raylib_set_font_texture_height);
+	RING_API_REGISTER("raylib_get_font_texture_mipmaps",ring_raylib_get_font_texture_mipmaps);
+	RING_API_REGISTER("raylib_set_font_texture_mipmaps",ring_raylib_set_font_texture_mipmaps);
+	RING_API_REGISTER("raylib_get_font_texture_format",ring_raylib_get_font_texture_format);
+	RING_API_REGISTER("raylib_set_font_texture_format",ring_raylib_set_font_texture_format);
+	RING_API_REGISTER("raylib_get_font_basesize",ring_raylib_get_font_baseSize);
+	RING_API_REGISTER("raylib_set_font_basesize",ring_raylib_set_font_baseSize);
+	RING_API_REGISTER("raylib_get_font_charscount",ring_raylib_get_font_charsCount);
+	RING_API_REGISTER("raylib_set_font_charscount",ring_raylib_set_font_charsCount);
+	RING_API_REGISTER("raylib_get_font_chars",ring_raylib_get_font_chars);
+	RING_API_REGISTER("raylib_set_font_chars",ring_raylib_set_font_chars);
+	RING_API_REGISTER("raylib_new_spritefont",ring_raylib_new_spritefont);
+	RING_API_REGISTER("raylib_new_managed_spritefont",ring_raylib_new_managed_spritefont);
+	RING_API_REGISTER("raylib_destroy_spritefont",ring_raylib_destroy_spritefont);
+	RING_API_REGISTER("raylib_get_spritefont_texture_id",ring_raylib_get_spritefont_texture_id);
+	RING_API_REGISTER("raylib_set_spritefont_texture_id",ring_raylib_set_spritefont_texture_id);
+	RING_API_REGISTER("raylib_get_spritefont_texture_width",ring_raylib_get_spritefont_texture_width);
+	RING_API_REGISTER("raylib_set_spritefont_texture_width",ring_raylib_set_spritefont_texture_width);
+	RING_API_REGISTER("raylib_get_spritefont_texture_height",ring_raylib_get_spritefont_texture_height);
+	RING_API_REGISTER("raylib_set_spritefont_texture_height",ring_raylib_set_spritefont_texture_height);
+	RING_API_REGISTER("raylib_get_spritefont_texture_mipmaps",ring_raylib_get_spritefont_texture_mipmaps);
+	RING_API_REGISTER("raylib_set_spritefont_texture_mipmaps",ring_raylib_set_spritefont_texture_mipmaps);
+	RING_API_REGISTER("raylib_get_spritefont_texture_format",ring_raylib_get_spritefont_texture_format);
+	RING_API_REGISTER("raylib_set_spritefont_texture_format",ring_raylib_set_spritefont_texture_format);
+	RING_API_REGISTER("raylib_get_spritefont_basesize",ring_raylib_get_spritefont_baseSize);
+	RING_API_REGISTER("raylib_set_spritefont_basesize",ring_raylib_set_spritefont_baseSize);
+	RING_API_REGISTER("raylib_get_spritefont_charscount",ring_raylib_get_spritefont_charsCount);
+	RING_API_REGISTER("raylib_set_spritefont_charscount",ring_raylib_set_spritefont_charsCount);
+	RING_API_REGISTER("raylib_get_spritefont_chars",ring_raylib_get_spritefont_chars);
+	RING_API_REGISTER("raylib_set_spritefont_chars",ring_raylib_set_spritefont_chars);
+	RING_API_REGISTER("raylib_new_camera3d",ring_raylib_new_camera3d);
+	RING_API_REGISTER("raylib_new_managed_camera3d",ring_raylib_new_managed_camera3d);
+	RING_API_REGISTER("raylib_destroy_camera3d",ring_raylib_destroy_camera3d);
+	RING_API_REGISTER("raylib_get_camera3d_position_x",ring_raylib_get_camera3d_position_x);
+	RING_API_REGISTER("raylib_set_camera3d_position_x",ring_raylib_set_camera3d_position_x);
+	RING_API_REGISTER("raylib_get_camera3d_position_y",ring_raylib_get_camera3d_position_y);
+	RING_API_REGISTER("raylib_set_camera3d_position_y",ring_raylib_set_camera3d_position_y);
+	RING_API_REGISTER("raylib_get_camera3d_position_z",ring_raylib_get_camera3d_position_z);
+	RING_API_REGISTER("raylib_set_camera3d_position_z",ring_raylib_set_camera3d_position_z);
+	RING_API_REGISTER("raylib_get_camera3d_target_x",ring_raylib_get_camera3d_target_x);
+	RING_API_REGISTER("raylib_set_camera3d_target_x",ring_raylib_set_camera3d_target_x);
+	RING_API_REGISTER("raylib_get_camera3d_target_y",ring_raylib_get_camera3d_target_y);
+	RING_API_REGISTER("raylib_set_camera3d_target_y",ring_raylib_set_camera3d_target_y);
+	RING_API_REGISTER("raylib_get_camera3d_target_z",ring_raylib_get_camera3d_target_z);
+	RING_API_REGISTER("raylib_set_camera3d_target_z",ring_raylib_set_camera3d_target_z);
+	RING_API_REGISTER("raylib_get_camera3d_up_x",ring_raylib_get_camera3d_up_x);
+	RING_API_REGISTER("raylib_set_camera3d_up_x",ring_raylib_set_camera3d_up_x);
+	RING_API_REGISTER("raylib_get_camera3d_up_y",ring_raylib_get_camera3d_up_y);
+	RING_API_REGISTER("raylib_set_camera3d_up_y",ring_raylib_set_camera3d_up_y);
+	RING_API_REGISTER("raylib_get_camera3d_up_z",ring_raylib_get_camera3d_up_z);
+	RING_API_REGISTER("raylib_set_camera3d_up_z",ring_raylib_set_camera3d_up_z);
+	RING_API_REGISTER("raylib_get_camera3d_fovy",ring_raylib_get_camera3d_fovy);
+	RING_API_REGISTER("raylib_set_camera3d_fovy",ring_raylib_set_camera3d_fovy);
+	RING_API_REGISTER("raylib_get_camera3d_type",ring_raylib_get_camera3d_type);
+	RING_API_REGISTER("raylib_set_camera3d_type",ring_raylib_set_camera3d_type);
+	RING_API_REGISTER("raylib_new_mesh",ring_raylib_new_mesh);
+	RING_API_REGISTER("raylib_new_managed_mesh",ring_raylib_new_managed_mesh);
+	RING_API_REGISTER("raylib_destroy_mesh",ring_raylib_destroy_mesh);
+	RING_API_REGISTER("raylib_get_mesh_vertexcount",ring_raylib_get_mesh_vertexCount);
+	RING_API_REGISTER("raylib_set_mesh_vertexcount",ring_raylib_set_mesh_vertexCount);
+	RING_API_REGISTER("raylib_get_mesh_trianglecount",ring_raylib_get_mesh_triangleCount);
+	RING_API_REGISTER("raylib_set_mesh_trianglecount",ring_raylib_set_mesh_triangleCount);
+	RING_API_REGISTER("raylib_get_mesh_vertices",ring_raylib_get_mesh_vertices);
+	RING_API_REGISTER("raylib_set_mesh_vertices",ring_raylib_set_mesh_vertices);
+	RING_API_REGISTER("raylib_get_mesh_texcoords",ring_raylib_get_mesh_texcoords);
+	RING_API_REGISTER("raylib_set_mesh_texcoords",ring_raylib_set_mesh_texcoords);
+	RING_API_REGISTER("raylib_get_mesh_texcoords2",ring_raylib_get_mesh_texcoords2);
+	RING_API_REGISTER("raylib_set_mesh_texcoords2",ring_raylib_set_mesh_texcoords2);
+	RING_API_REGISTER("raylib_get_mesh_normals",ring_raylib_get_mesh_normals);
+	RING_API_REGISTER("raylib_set_mesh_normals",ring_raylib_set_mesh_normals);
+	RING_API_REGISTER("raylib_get_mesh_tangents",ring_raylib_get_mesh_tangents);
+	RING_API_REGISTER("raylib_set_mesh_tangents",ring_raylib_set_mesh_tangents);
+	RING_API_REGISTER("raylib_get_mesh_colors",ring_raylib_get_mesh_colors);
+	RING_API_REGISTER("raylib_set_mesh_colors",ring_raylib_set_mesh_colors);
+	RING_API_REGISTER("raylib_get_mesh_indices",ring_raylib_get_mesh_indices);
+	RING_API_REGISTER("raylib_set_mesh_indices",ring_raylib_set_mesh_indices);
+	RING_API_REGISTER("raylib_get_mesh_animvertices",ring_raylib_get_mesh_animVertices);
+	RING_API_REGISTER("raylib_set_mesh_animvertices",ring_raylib_set_mesh_animVertices);
+	RING_API_REGISTER("raylib_get_mesh_animnormals",ring_raylib_get_mesh_animNormals);
+	RING_API_REGISTER("raylib_set_mesh_animnormals",ring_raylib_set_mesh_animNormals);
+	RING_API_REGISTER("raylib_get_mesh_boneids",ring_raylib_get_mesh_boneIds);
+	RING_API_REGISTER("raylib_set_mesh_boneids",ring_raylib_set_mesh_boneIds);
+	RING_API_REGISTER("raylib_get_mesh_boneweights",ring_raylib_get_mesh_boneWeights);
+	RING_API_REGISTER("raylib_set_mesh_boneweights",ring_raylib_set_mesh_boneWeights);
+	RING_API_REGISTER("raylib_get_mesh_vaoid",ring_raylib_get_mesh_vaoId);
+	RING_API_REGISTER("raylib_set_mesh_vaoid",ring_raylib_set_mesh_vaoId);
+	RING_API_REGISTER("raylib_new_shader",ring_raylib_new_shader);
+	RING_API_REGISTER("raylib_new_managed_shader",ring_raylib_new_managed_shader);
+	RING_API_REGISTER("raylib_destroy_shader",ring_raylib_destroy_shader);
+	RING_API_REGISTER("raylib_get_shader_id",ring_raylib_get_shader_id);
+	RING_API_REGISTER("raylib_set_shader_id",ring_raylib_set_shader_id);
+	RING_API_REGISTER("raylib_new_materialmap",ring_raylib_new_materialmap);
+	RING_API_REGISTER("raylib_new_managed_materialmap",ring_raylib_new_managed_materialmap);
+	RING_API_REGISTER("raylib_destroy_materialmap",ring_raylib_destroy_materialmap);
+	RING_API_REGISTER("raylib_get_materialmap_texture_id",ring_raylib_get_materialmap_texture_id);
+	RING_API_REGISTER("raylib_set_materialmap_texture_id",ring_raylib_set_materialmap_texture_id);
+	RING_API_REGISTER("raylib_get_materialmap_texture_width",ring_raylib_get_materialmap_texture_width);
+	RING_API_REGISTER("raylib_set_materialmap_texture_width",ring_raylib_set_materialmap_texture_width);
+	RING_API_REGISTER("raylib_get_materialmap_texture_height",ring_raylib_get_materialmap_texture_height);
+	RING_API_REGISTER("raylib_set_materialmap_texture_height",ring_raylib_set_materialmap_texture_height);
+	RING_API_REGISTER("raylib_get_materialmap_texture_mipmaps",ring_raylib_get_materialmap_texture_mipmaps);
+	RING_API_REGISTER("raylib_set_materialmap_texture_mipmaps",ring_raylib_set_materialmap_texture_mipmaps);
+	RING_API_REGISTER("raylib_get_materialmap_texture_format",ring_raylib_get_materialmap_texture_format);
+	RING_API_REGISTER("raylib_set_materialmap_texture_format",ring_raylib_set_materialmap_texture_format);
+	RING_API_REGISTER("raylib_get_materialmap_value",ring_raylib_get_materialmap_value);
+	RING_API_REGISTER("raylib_set_materialmap_value",ring_raylib_set_materialmap_value);
+	RING_API_REGISTER("raylib_new_material",ring_raylib_new_material);
+	RING_API_REGISTER("raylib_new_managed_material",ring_raylib_new_managed_material);
+	RING_API_REGISTER("raylib_destroy_material",ring_raylib_destroy_material);
+	RING_API_REGISTER("raylib_get_material_shader_id",ring_raylib_get_material_shader_id);
+	RING_API_REGISTER("raylib_set_material_shader_id",ring_raylib_set_material_shader_id);
+	RING_API_REGISTER("raylib_get_material_params",ring_raylib_get_material_params);
+	RING_API_REGISTER("raylib_set_material_params",ring_raylib_set_material_params);
+	RING_API_REGISTER("raylib_new_transform",ring_raylib_new_transform);
+	RING_API_REGISTER("raylib_new_managed_transform",ring_raylib_new_managed_transform);
+	RING_API_REGISTER("raylib_destroy_transform",ring_raylib_destroy_transform);
+	RING_API_REGISTER("raylib_get_transform_translation_x",ring_raylib_get_transform_translation_x);
+	RING_API_REGISTER("raylib_set_transform_translation_x",ring_raylib_set_transform_translation_x);
+	RING_API_REGISTER("raylib_get_transform_translation_y",ring_raylib_get_transform_translation_y);
+	RING_API_REGISTER("raylib_set_transform_translation_y",ring_raylib_set_transform_translation_y);
+	RING_API_REGISTER("raylib_get_transform_translation_z",ring_raylib_get_transform_translation_z);
+	RING_API_REGISTER("raylib_set_transform_translation_z",ring_raylib_set_transform_translation_z);
+	RING_API_REGISTER("raylib_get_transform_rotation_x",ring_raylib_get_transform_rotation_x);
+	RING_API_REGISTER("raylib_set_transform_rotation_x",ring_raylib_set_transform_rotation_x);
+	RING_API_REGISTER("raylib_get_transform_rotation_y",ring_raylib_get_transform_rotation_y);
+	RING_API_REGISTER("raylib_set_transform_rotation_y",ring_raylib_set_transform_rotation_y);
+	RING_API_REGISTER("raylib_get_transform_rotation_z",ring_raylib_get_transform_rotation_z);
+	RING_API_REGISTER("raylib_set_transform_rotation_z",ring_raylib_set_transform_rotation_z);
+	RING_API_REGISTER("raylib_get_transform_rotation_w",ring_raylib_get_transform_rotation_w);
+	RING_API_REGISTER("raylib_set_transform_rotation_w",ring_raylib_set_transform_rotation_w);
+	RING_API_REGISTER("raylib_get_transform_scale_x",ring_raylib_get_transform_scale_x);
+	RING_API_REGISTER("raylib_set_transform_scale_x",ring_raylib_set_transform_scale_x);
+	RING_API_REGISTER("raylib_get_transform_scale_y",ring_raylib_get_transform_scale_y);
+	RING_API_REGISTER("raylib_set_transform_scale_y",ring_raylib_set_transform_scale_y);
+	RING_API_REGISTER("raylib_get_transform_scale_z",ring_raylib_get_transform_scale_z);
+	RING_API_REGISTER("raylib_set_transform_scale_z",ring_raylib_set_transform_scale_z);
+	RING_API_REGISTER("raylib_new_boneinfo",ring_raylib_new_boneinfo);
+	RING_API_REGISTER("raylib_new_managed_boneinfo",ring_raylib_new_managed_boneinfo);
+	RING_API_REGISTER("raylib_destroy_boneinfo",ring_raylib_destroy_boneinfo);
+	RING_API_REGISTER("raylib_get_boneinfo_parent",ring_raylib_get_boneinfo_parent);
+	RING_API_REGISTER("raylib_set_boneinfo_parent",ring_raylib_set_boneinfo_parent);
+	RING_API_REGISTER("raylib_new_model",ring_raylib_new_model);
+	RING_API_REGISTER("raylib_new_managed_model",ring_raylib_new_managed_model);
+	RING_API_REGISTER("raylib_destroy_model",ring_raylib_destroy_model);
+	RING_API_REGISTER("raylib_get_model_transform_m0",ring_raylib_get_model_transform_m0);
+	RING_API_REGISTER("raylib_set_model_transform_m0",ring_raylib_set_model_transform_m0);
+	RING_API_REGISTER("raylib_get_model_transform_m1",ring_raylib_get_model_transform_m1);
+	RING_API_REGISTER("raylib_set_model_transform_m1",ring_raylib_set_model_transform_m1);
+	RING_API_REGISTER("raylib_get_model_transform_m2",ring_raylib_get_model_transform_m2);
+	RING_API_REGISTER("raylib_set_model_transform_m2",ring_raylib_set_model_transform_m2);
+	RING_API_REGISTER("raylib_get_model_transform_m3",ring_raylib_get_model_transform_m3);
+	RING_API_REGISTER("raylib_set_model_transform_m3",ring_raylib_set_model_transform_m3);
+	RING_API_REGISTER("raylib_get_model_transform_m4",ring_raylib_get_model_transform_m4);
+	RING_API_REGISTER("raylib_set_model_transform_m4",ring_raylib_set_model_transform_m4);
+	RING_API_REGISTER("raylib_get_model_transform_m5",ring_raylib_get_model_transform_m5);
+	RING_API_REGISTER("raylib_set_model_transform_m5",ring_raylib_set_model_transform_m5);
+	RING_API_REGISTER("raylib_get_model_transform_m6",ring_raylib_get_model_transform_m6);
+	RING_API_REGISTER("raylib_set_model_transform_m6",ring_raylib_set_model_transform_m6);
+	RING_API_REGISTER("raylib_get_model_transform_m7",ring_raylib_get_model_transform_m7);
+	RING_API_REGISTER("raylib_set_model_transform_m7",ring_raylib_set_model_transform_m7);
+	RING_API_REGISTER("raylib_get_model_transform_m8",ring_raylib_get_model_transform_m8);
+	RING_API_REGISTER("raylib_set_model_transform_m8",ring_raylib_set_model_transform_m8);
+	RING_API_REGISTER("raylib_get_model_transform_m9",ring_raylib_get_model_transform_m9);
+	RING_API_REGISTER("raylib_set_model_transform_m9",ring_raylib_set_model_transform_m9);
+	RING_API_REGISTER("raylib_get_model_transform_m10",ring_raylib_get_model_transform_m10);
+	RING_API_REGISTER("raylib_set_model_transform_m10",ring_raylib_set_model_transform_m10);
+	RING_API_REGISTER("raylib_get_model_transform_m11",ring_raylib_get_model_transform_m11);
+	RING_API_REGISTER("raylib_set_model_transform_m11",ring_raylib_set_model_transform_m11);
+	RING_API_REGISTER("raylib_get_model_transform_m12",ring_raylib_get_model_transform_m12);
+	RING_API_REGISTER("raylib_set_model_transform_m12",ring_raylib_set_model_transform_m12);
+	RING_API_REGISTER("raylib_get_model_transform_m13",ring_raylib_get_model_transform_m13);
+	RING_API_REGISTER("raylib_set_model_transform_m13",ring_raylib_set_model_transform_m13);
+	RING_API_REGISTER("raylib_get_model_transform_m14",ring_raylib_get_model_transform_m14);
+	RING_API_REGISTER("raylib_set_model_transform_m14",ring_raylib_set_model_transform_m14);
+	RING_API_REGISTER("raylib_get_model_transform_m15",ring_raylib_get_model_transform_m15);
+	RING_API_REGISTER("raylib_set_model_transform_m15",ring_raylib_set_model_transform_m15);
+	RING_API_REGISTER("raylib_get_model_meshcount",ring_raylib_get_model_meshCount);
+	RING_API_REGISTER("raylib_set_model_meshcount",ring_raylib_set_model_meshCount);
+	RING_API_REGISTER("raylib_get_model_meshes",ring_raylib_get_model_meshes);
+	RING_API_REGISTER("raylib_set_model_meshes",ring_raylib_set_model_meshes);
+	RING_API_REGISTER("raylib_get_model_materialcount",ring_raylib_get_model_materialCount);
+	RING_API_REGISTER("raylib_set_model_materialcount",ring_raylib_set_model_materialCount);
+	RING_API_REGISTER("raylib_get_model_materials",ring_raylib_get_model_materials);
+	RING_API_REGISTER("raylib_set_model_materials",ring_raylib_set_model_materials);
+	RING_API_REGISTER("raylib_get_model_meshmaterial",ring_raylib_get_model_meshMaterial);
+	RING_API_REGISTER("raylib_set_model_meshmaterial",ring_raylib_set_model_meshMaterial);
+	RING_API_REGISTER("raylib_get_model_bonecount",ring_raylib_get_model_boneCount);
+	RING_API_REGISTER("raylib_set_model_bonecount",ring_raylib_set_model_boneCount);
+	RING_API_REGISTER("raylib_get_model_bones",ring_raylib_get_model_bones);
+	RING_API_REGISTER("raylib_set_model_bones",ring_raylib_set_model_bones);
+	RING_API_REGISTER("raylib_get_model_bindpose",ring_raylib_get_model_bindPose);
+	RING_API_REGISTER("raylib_set_model_bindpose",ring_raylib_set_model_bindPose);
+	RING_API_REGISTER("raylib_new_modelanimation",ring_raylib_new_modelanimation);
+	RING_API_REGISTER("raylib_new_managed_modelanimation",ring_raylib_new_managed_modelanimation);
+	RING_API_REGISTER("raylib_destroy_modelanimation",ring_raylib_destroy_modelanimation);
+	RING_API_REGISTER("raylib_get_modelanimation_bonecount",ring_raylib_get_modelanimation_boneCount);
+	RING_API_REGISTER("raylib_set_modelanimation_bonecount",ring_raylib_set_modelanimation_boneCount);
+	RING_API_REGISTER("raylib_get_modelanimation_bones",ring_raylib_get_modelanimation_bones);
+	RING_API_REGISTER("raylib_set_modelanimation_bones",ring_raylib_set_modelanimation_bones);
+	RING_API_REGISTER("raylib_get_modelanimation_framecount",ring_raylib_get_modelanimation_frameCount);
+	RING_API_REGISTER("raylib_set_modelanimation_framecount",ring_raylib_set_modelanimation_frameCount);
+	RING_API_REGISTER("raylib_new_ray",ring_raylib_new_ray);
+	RING_API_REGISTER("raylib_new_managed_ray",ring_raylib_new_managed_ray);
+	RING_API_REGISTER("raylib_destroy_ray",ring_raylib_destroy_ray);
+	RING_API_REGISTER("raylib_get_ray_position_x",ring_raylib_get_ray_position_x);
+	RING_API_REGISTER("raylib_set_ray_position_x",ring_raylib_set_ray_position_x);
+	RING_API_REGISTER("raylib_get_ray_position_y",ring_raylib_get_ray_position_y);
+	RING_API_REGISTER("raylib_set_ray_position_y",ring_raylib_set_ray_position_y);
+	RING_API_REGISTER("raylib_get_ray_position_z",ring_raylib_get_ray_position_z);
+	RING_API_REGISTER("raylib_set_ray_position_z",ring_raylib_set_ray_position_z);
+	RING_API_REGISTER("raylib_get_ray_direction_x",ring_raylib_get_ray_direction_x);
+	RING_API_REGISTER("raylib_set_ray_direction_x",ring_raylib_set_ray_direction_x);
+	RING_API_REGISTER("raylib_get_ray_direction_y",ring_raylib_get_ray_direction_y);
+	RING_API_REGISTER("raylib_set_ray_direction_y",ring_raylib_set_ray_direction_y);
+	RING_API_REGISTER("raylib_get_ray_direction_z",ring_raylib_get_ray_direction_z);
+	RING_API_REGISTER("raylib_set_ray_direction_z",ring_raylib_set_ray_direction_z);
+	RING_API_REGISTER("raylib_new_rayhitinfo",ring_raylib_new_rayhitinfo);
+	RING_API_REGISTER("raylib_new_managed_rayhitinfo",ring_raylib_new_managed_rayhitinfo);
+	RING_API_REGISTER("raylib_destroy_rayhitinfo",ring_raylib_destroy_rayhitinfo);
+	RING_API_REGISTER("raylib_get_rayhitinfo_hit",ring_raylib_get_rayhitinfo_hit);
+	RING_API_REGISTER("raylib_set_rayhitinfo_hit",ring_raylib_set_rayhitinfo_hit);
+	RING_API_REGISTER("raylib_get_rayhitinfo_distance",ring_raylib_get_rayhitinfo_distance);
+	RING_API_REGISTER("raylib_set_rayhitinfo_distance",ring_raylib_set_rayhitinfo_distance);
+	RING_API_REGISTER("raylib_get_rayhitinfo_position_x",ring_raylib_get_rayhitinfo_position_x);
+	RING_API_REGISTER("raylib_set_rayhitinfo_position_x",ring_raylib_set_rayhitinfo_position_x);
+	RING_API_REGISTER("raylib_get_rayhitinfo_position_y",ring_raylib_get_rayhitinfo_position_y);
+	RING_API_REGISTER("raylib_set_rayhitinfo_position_y",ring_raylib_set_rayhitinfo_position_y);
+	RING_API_REGISTER("raylib_get_rayhitinfo_position_z",ring_raylib_get_rayhitinfo_position_z);
+	RING_API_REGISTER("raylib_set_rayhitinfo_position_z",ring_raylib_set_rayhitinfo_position_z);
+	RING_API_REGISTER("raylib_get_rayhitinfo_normal_x",ring_raylib_get_rayhitinfo_normal_x);
+	RING_API_REGISTER("raylib_set_rayhitinfo_normal_x",ring_raylib_set_rayhitinfo_normal_x);
+	RING_API_REGISTER("raylib_get_rayhitinfo_normal_y",ring_raylib_get_rayhitinfo_normal_y);
+	RING_API_REGISTER("raylib_set_rayhitinfo_normal_y",ring_raylib_set_rayhitinfo_normal_y);
+	RING_API_REGISTER("raylib_get_rayhitinfo_normal_z",ring_raylib_get_rayhitinfo_normal_z);
+	RING_API_REGISTER("raylib_set_rayhitinfo_normal_z",ring_raylib_set_rayhitinfo_normal_z);
+	RING_API_REGISTER("raylib_new_boundingbox",ring_raylib_new_boundingbox);
+	RING_API_REGISTER("raylib_new_managed_boundingbox",ring_raylib_new_managed_boundingbox);
+	RING_API_REGISTER("raylib_destroy_boundingbox",ring_raylib_destroy_boundingbox);
+	RING_API_REGISTER("raylib_get_boundingbox_min_x",ring_raylib_get_boundingbox_min_x);
+	RING_API_REGISTER("raylib_set_boundingbox_min_x",ring_raylib_set_boundingbox_min_x);
+	RING_API_REGISTER("raylib_get_boundingbox_min_y",ring_raylib_get_boundingbox_min_y);
+	RING_API_REGISTER("raylib_set_boundingbox_min_y",ring_raylib_set_boundingbox_min_y);
+	RING_API_REGISTER("raylib_get_boundingbox_min_z",ring_raylib_get_boundingbox_min_z);
+	RING_API_REGISTER("raylib_set_boundingbox_min_z",ring_raylib_set_boundingbox_min_z);
+	RING_API_REGISTER("raylib_get_boundingbox_max_x",ring_raylib_get_boundingbox_max_x);
+	RING_API_REGISTER("raylib_set_boundingbox_max_x",ring_raylib_set_boundingbox_max_x);
+	RING_API_REGISTER("raylib_get_boundingbox_max_y",ring_raylib_get_boundingbox_max_y);
+	RING_API_REGISTER("raylib_set_boundingbox_max_y",ring_raylib_set_boundingbox_max_y);
+	RING_API_REGISTER("raylib_get_boundingbox_max_z",ring_raylib_get_boundingbox_max_z);
+	RING_API_REGISTER("raylib_set_boundingbox_max_z",ring_raylib_set_boundingbox_max_z);
+	RING_API_REGISTER("raylib_new_wave",ring_raylib_new_wave);
+	RING_API_REGISTER("raylib_new_managed_wave",ring_raylib_new_managed_wave);
+	RING_API_REGISTER("raylib_destroy_wave",ring_raylib_destroy_wave);
+	RING_API_REGISTER("raylib_get_wave_samplecount",ring_raylib_get_wave_sampleCount);
+	RING_API_REGISTER("raylib_set_wave_samplecount",ring_raylib_set_wave_sampleCount);
+	RING_API_REGISTER("raylib_get_wave_samplerate",ring_raylib_get_wave_sampleRate);
+	RING_API_REGISTER("raylib_set_wave_samplerate",ring_raylib_set_wave_sampleRate);
+	RING_API_REGISTER("raylib_get_wave_samplesize",ring_raylib_get_wave_sampleSize);
+	RING_API_REGISTER("raylib_set_wave_samplesize",ring_raylib_set_wave_sampleSize);
+	RING_API_REGISTER("raylib_get_wave_channels",ring_raylib_get_wave_channels);
+	RING_API_REGISTER("raylib_set_wave_channels",ring_raylib_set_wave_channels);
+	RING_API_REGISTER("raylib_get_wave_data",ring_raylib_get_wave_data);
+	RING_API_REGISTER("raylib_set_wave_data",ring_raylib_set_wave_data);
+	RING_API_REGISTER("raylib_new_sound",ring_raylib_new_sound);
+	RING_API_REGISTER("raylib_new_managed_sound",ring_raylib_new_managed_sound);
+	RING_API_REGISTER("raylib_destroy_sound",ring_raylib_destroy_sound);
+	RING_API_REGISTER("raylib_get_sound_audiobuffer",ring_raylib_get_sound_audioBuffer);
+	RING_API_REGISTER("raylib_set_sound_audiobuffer",ring_raylib_set_sound_audioBuffer);
+	RING_API_REGISTER("raylib_get_sound_source",ring_raylib_get_sound_source);
+	RING_API_REGISTER("raylib_set_sound_source",ring_raylib_set_sound_source);
+	RING_API_REGISTER("raylib_get_sound_buffer",ring_raylib_get_sound_buffer);
+	RING_API_REGISTER("raylib_set_sound_buffer",ring_raylib_set_sound_buffer);
+	RING_API_REGISTER("raylib_get_sound_format",ring_raylib_get_sound_format);
+	RING_API_REGISTER("raylib_set_sound_format",ring_raylib_set_sound_format);
+	RING_API_REGISTER("raylib_new_audiostream",ring_raylib_new_audiostream);
+	RING_API_REGISTER("raylib_new_managed_audiostream",ring_raylib_new_managed_audiostream);
+	RING_API_REGISTER("raylib_destroy_audiostream",ring_raylib_destroy_audiostream);
+	RING_API_REGISTER("raylib_get_audiostream_samplerate",ring_raylib_get_audiostream_sampleRate);
+	RING_API_REGISTER("raylib_set_audiostream_samplerate",ring_raylib_set_audiostream_sampleRate);
+	RING_API_REGISTER("raylib_get_audiostream_samplesize",ring_raylib_get_audiostream_sampleSize);
+	RING_API_REGISTER("raylib_set_audiostream_samplesize",ring_raylib_set_audiostream_sampleSize);
+	RING_API_REGISTER("raylib_get_audiostream_channels",ring_raylib_get_audiostream_channels);
+	RING_API_REGISTER("raylib_set_audiostream_channels",ring_raylib_set_audiostream_channels);
+	RING_API_REGISTER("raylib_get_audiostream_audiobuffer",ring_raylib_get_audiostream_audioBuffer);
+	RING_API_REGISTER("raylib_set_audiostream_audiobuffer",ring_raylib_set_audiostream_audioBuffer);
+	RING_API_REGISTER("raylib_get_audiostream_format",ring_raylib_get_audiostream_format);
+	RING_API_REGISTER("raylib_set_audiostream_format",ring_raylib_set_audiostream_format);
+	RING_API_REGISTER("raylib_get_audiostream_source",ring_raylib_get_audiostream_source);
+	RING_API_REGISTER("raylib_set_audiostream_source",ring_raylib_set_audiostream_source);
+	RING_API_REGISTER("raylib_new_vrdeviceinfo",ring_raylib_new_vrdeviceinfo);
+	RING_API_REGISTER("raylib_new_managed_vrdeviceinfo",ring_raylib_new_managed_vrdeviceinfo);
+	RING_API_REGISTER("raylib_destroy_vrdeviceinfo",ring_raylib_destroy_vrdeviceinfo);
+	RING_API_REGISTER("raylib_get_vrdeviceinfo_hresolution",ring_raylib_get_vrdeviceinfo_hResolution);
+	RING_API_REGISTER("raylib_set_vrdeviceinfo_hresolution",ring_raylib_set_vrdeviceinfo_hResolution);
+	RING_API_REGISTER("raylib_get_vrdeviceinfo_vresolution",ring_raylib_get_vrdeviceinfo_vResolution);
+	RING_API_REGISTER("raylib_set_vrdeviceinfo_vresolution",ring_raylib_set_vrdeviceinfo_vResolution);
+	RING_API_REGISTER("raylib_get_vrdeviceinfo_hscreensize",ring_raylib_get_vrdeviceinfo_hScreenSize);
+	RING_API_REGISTER("raylib_set_vrdeviceinfo_hscreensize",ring_raylib_set_vrdeviceinfo_hScreenSize);
+	RING_API_REGISTER("raylib_get_vrdeviceinfo_vscreensize",ring_raylib_get_vrdeviceinfo_vScreenSize);
+	RING_API_REGISTER("raylib_set_vrdeviceinfo_vscreensize",ring_raylib_set_vrdeviceinfo_vScreenSize);
+	RING_API_REGISTER("raylib_get_vrdeviceinfo_vscreencenter",ring_raylib_get_vrdeviceinfo_vScreenCenter);
+	RING_API_REGISTER("raylib_set_vrdeviceinfo_vscreencenter",ring_raylib_set_vrdeviceinfo_vScreenCenter);
+	RING_API_REGISTER("raylib_get_vrdeviceinfo_eyetoscreendistance",ring_raylib_get_vrdeviceinfo_eyeToScreenDistance);
+	RING_API_REGISTER("raylib_set_vrdeviceinfo_eyetoscreendistance",ring_raylib_set_vrdeviceinfo_eyeToScreenDistance);
+	RING_API_REGISTER("raylib_get_vrdeviceinfo_lensseparationdistance",ring_raylib_get_vrdeviceinfo_lensSeparationDistance);
+	RING_API_REGISTER("raylib_set_vrdeviceinfo_lensseparationdistance",ring_raylib_set_vrdeviceinfo_lensSeparationDistance);
+	RING_API_REGISTER("raylib_get_vrdeviceinfo_interpupillarydistance",ring_raylib_get_vrdeviceinfo_interpupillaryDistance);
+	RING_API_REGISTER("raylib_set_vrdeviceinfo_interpupillarydistance",ring_raylib_set_vrdeviceinfo_interpupillaryDistance);
 }

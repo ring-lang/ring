@@ -336,7 +336,7 @@ RING_API void ringlib_init(RingState *pRingState)
 // c:\ring\src\buildvc.bat      
 //
 // Copy it to directory c:\MyStuff. Edit as shown  
-// COMPILES the C-Code using Visual Sudio C
+// COMPILES the C-Code using Visual Studio C
 //                  
 // SCRIPT: buildvc-Sudoku.bat   
 //

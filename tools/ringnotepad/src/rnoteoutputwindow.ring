@@ -43,6 +43,7 @@ class RNoteOutputWindow
 			cText = oProcessText.text() + nl
 		ok
 		oProcess.write(cText ,len(cText))
+		oProcessEditbox.movecursor(13,0)
 		oProcessEditbox.insertplaintext(cText)
 		oProcessText.setText("")
 

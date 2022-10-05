@@ -1,4 +1,4 @@
 
 class test
 	x = 10
-	? filename()
+	cFile = filename()

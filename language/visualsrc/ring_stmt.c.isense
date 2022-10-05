@@ -7,7 +7,7 @@ Type: String *
 pString
 ring_parser_stmt
 Type: int
-x,nMark1,nMark2,nMark3,nStart,nEnd,nPerformanceLocations,nFlag,nLoadPackage,nPathExist,nLoopOrExitCommand,nLoadAgain,nForInVarsCount,nVar
+x,nMark1,nMark2,nMark3,nStart,nEnd,nPerformanceLocations,nFlag,nLoadPackage,nLoopOrExitCommand,nLoadAgain,nForInVarsCount,nVar
 Type: String *
 pString
 Type: List *
@@ -25,8 +25,8 @@ nStart
 Type: const char *
 cToken
 ring_parser_list
-ring_parser_epslion
-ring_parser_passepslion
+ring_parser_epsilon
+ring_parser_passepsilon
 ring_parser_namedotname
 Type: String *
 pString

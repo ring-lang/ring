@@ -1,0 +1,658 @@
+.. index:: 
+	single: What is new in Ring 1.17; Introduction
+
+========================
+What is new in Ring 1.17
+========================
+
+In this chapter we will learn about the changes and new features in Ring 1.17 release.
+
+.. index:: 
+	pair: What is new in Ring 1.17?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring 1.17 comes with the next features!
+
+* Merge Two Files 
+* Poetry Analysis 
+* Citations Prediction
+* TokensLib Library
+* CSVLib Library
+* JSONLib Library
+* HTTPLib Library
+* Better GUILib
+* Better RingOpenSSL
+* Better RingWinAPI
+* Better Syntax Flexibility
+* Better I/O functions
+* Better Ring API
+* Better Code Generator for Extensions
+* More Improvements
+
+.. index:: 
+	pair: What is new in Ring  1.17; Merge Two Files
+
+Merge Two Files
+===============
+
+An application to merge two text files line by line
+
+Development Time: 30 minutes (Includes user interface design, coding, testing and distribution)
+
+.. image:: mergetwofiles.png
+	:alt: merge
+
+
+.. index:: 
+	pair: What is new in Ring  1.17; Poetry Analysis
+
+Poetry Analysis
+===============
+
+An application to analysis the Arabic poetry
+
+The application is over 4000 lines of Ring code
+
+The source code is explained in a printed book about the subject
+
+.. image:: poetryanalysis.png
+	:alt: arabicpoetry
+
+.. index:: 
+	pair: What is new in Ring  1.17; Citations Prediction
+
+Citations Prediction
+====================
+
+An applicaiton to predict the research paper citations using title, abstract or authors.
+
+The applications uses Microsoft Azure Machine Learning for the Models
+
+The Models are trained using a Dataset for a specific domain and specific journal
+
+This application comes with 3 samples to see how it works!
+
+It's an example about using Ring, RingQt, RingLibCurl and JSONLib
+
+.. image:: predictionapp1.png
+	:alt: citations
+
+.. index:: 
+	pair: What is new in Ring  1.17; TokensLib Library
+
+TokensLib Library
+=================
+
+Using this library we can get Ring tokens from source code files or strings.
+
+Example:
+
+.. code-block:: ring
+
+	load "tokenslib.ring"
+
+	func main
+		oTokens = new RingTokens {
+			fromFile("hello.ring")
+			PrintTokens()
+			? Copy("=",50)
+			fromString("? 1+1")
+			PrintTokens()
+		}
+
+Output:
+
+.. code-block:: none
+
+	Keyword     : SEE
+	Literal     : Hello, World!
+	EndLine
+	==================================================
+	Operator    : ? (23)
+	Number      : 1
+	Operator    : + (1)
+	Number      : 1
+	EndLine
+
+.. index:: 
+	pair: What is new in Ring  1.17; CSVLib Library
+
+CSVLib Library
+==============
+
+Using this library we can generate and read CSV files 
+
+Functions:
+
+.. code-block:: none
+
+	List2CSV(aList) --> cCSVString
+	CSV2List(cCSVString) --> aList
+
+
+Example:
+
+.. code-block:: ring
+
+	load "csvlib.ring"
+
+	aList = [ ["number", "square" ] ]
+
+	for t=1 to 10
+		aList + [ t, t*t ]
+	next
+	
+	write( "squares.csv", list2CSV(aList) )
+
+Output:
+
+.. image:: squarestable.png
+	:alt: squarestable
+
+
+Example (2)
+
+.. code-block:: ring
+
+	load "csvlib.ring"
+
+	if ! fexists("squares.csv")
+		? "The file squares.csv doesn't exist! - Run writeSquaresTable.ring to create it"
+		return
+	ok
+	
+	aList = CSV2List( read("squares.csv") )
+	
+	for subList in aList 
+		? "" + subList[1] + " - " + subList[2]
+	next
+
+Output:
+
+.. code-block:: none
+
+	number - square
+	1 - 1
+	2 - 4
+	3 - 9
+	4 - 16
+	5 - 25
+	6 - 36
+	7 - 49
+	8 - 64
+	9 - 81
+	10 - 100
+
+.. index:: 
+	pair: What is new in Ring  1.17; JSONLib Library
+
+JSONLib Library
+===============
+
+Using this library we can generate and read JSON files 
+
+Functions:
+
+.. code-block:: none
+
+	List2JSON(aList) --> cJSONString
+	JSON2List(cJSONString) --> aList
+
+
+Example (1):
+
+File: sample.json
+
+.. code-block:: none
+
+	{
+	  "firstName": "John",
+	  "lastName": "Smith", 
+	  "age": 20,
+	  "address": {
+		"streetAddress": "21 2nd Street",
+		"city": "New York",
+		"state": "NY",
+		"postalCode": "10021"
+	  },
+	  "phoneNumbers": [
+		{ "type": "home", "number": "212 555-1234" },
+		{ "type": "fax", "number": "646 555-4567" }
+	  ]
+	}
+
+Ring Code:
+
+.. code-block:: none
+
+	load "jsonlib.ring"
+	
+	func main
+	
+		aList = JSON2List( read("sample.json") )
+	
+		? aList[:FirstName]
+		? aList[:LastName]
+		? aList[:Age]
+		? aList[:Address][:city]
+		? aList[:phoneNumbers][1][:Type]
+		? aList[:phoneNumbers][1][:Number]
+		? aList[:phoneNumbers][2][:Type]
+		? aList[:phoneNumbers][2][:Number]
+
+Output:
+
+.. code-block:: none
+
+	John
+	Smith
+	20
+	New York
+	home
+	212 555-1234
+	fax
+	646 555-4567
+
+Example (2):
+
+.. code-block:: ring
+
+	load "jsonlib.ring"
+	
+	func main
+	
+		aList = [
+			:name = "Ring",
+			:year = 2016
+		]
+	
+		? List2JSON(aList)
+
+Output:
+
+.. code-block:: none
+
+	{
+	        "name": "Ring",
+	        "year": 2016
+	}
+
+
+JSONLib uses RingCJSON to read JSON files at high-performance
+
+This RingCJSON extension support the CJSON library
+
+CJSON URL: https://github.com/DaveGamble/cJSON
+
+.. index:: 
+	pair: What is new in Ring  1.17; HTTPLib Library
+
+HTTPLib Library
+===============
+
+This library provides support for HTTP based on cpp-httplib
+
+URL: https://github.com/yhirose/cpp-httplib
+
+Example:
+
+.. code-block:: ring
+
+	load "httplib.ring"
+	
+	oServer = new Server {
+	
+		? "Try localhost:8080/hi"
+		route(:Get,"/hi",:mytest)
+		
+		? "Listen to port 8080"
+		listen("0.0.0.0", 8080)
+
+	}
+	
+	func mytest 
+		oServer.setContent("Hello World!", "text/plain")
+
+The other examples exist in this folder: ring/samples/UsingHTTPLib
+
+See the (Using HTTPLib) chapter for more information.
+
+.. index:: 
+	pair: What is new in Ring  1.17; Better GUILib
+
+Better GUILib
+=============
+
+(1) Many deprecated methods are removed from RingQt 
+
+(2) Added: AddList() method to the TableWidget class 
+
+.. tip:: TableWidget class is a subclass of QTableWidget class
+
+.. note:: To use TableWidget class, import system.gui after loading guilib.ring or lightguilib.ring
+
+Example:
+
+Source code: https://github.com/ring-lang/ring/tree/master/samples/UsingQt/TableWidget/AddRingList
+
+.. code-block:: ring
+
+
+	class addRingListController from windowsControllerParent
+
+		oView = new addRingListView
+
+		aList = [["one","two"],
+			 ["three","four"],
+			 ["five","six"],
+			 [7,8],
+			 ["I","Love","Ring","Programming"]]
+		
+		oView.tablewidget1.addList(aList)
+
+		aList = [["Number","Square"]]
+		for t = 1 to 10
+			aList + [ t, t*t]
+		next
+
+		oView.tablewidget1.addList(aList)
+
+Screen Shot:
+
+.. image:: addlisttotablewidget.png
+	:alt: addlisttotablewidget
+
+
+(3) Added: toList() method to the tableWidget class 
+
+Example:
+
+.. code-block:: ring
+
+	aList = oView.tablewidget1.toList()
+	? aList
+
+(4) Added: AddList() method to the ListWidget class 
+
+.. tip:: ListWidget class is a subclass of QListWidget class
+
+.. note:: To use ListWidget class, import system.gui after loading guilib.ring or lightguilib.ring
+
+Example:
+
+.. code-block:: ring
+
+		aList = [ 1:10, "one", "two", "three"]
+		oView.listWidget1.addList(aList)
+
+(5) Added: toList() method to the ListWidget class 
+
+Example:
+
+.. code-block:: ring
+
+	aList = oView.listwidget1.toList()
+	? aList
+
+
+.. index:: 
+	pair: What is new in Ring  1.17; Better RingOpenSSL
+
+Better RingOpenSSL
+==================
+
+* Enhancements to support all cipher algorithms
+* New Functions:
+
+.. code-block:: none
+
+	rsa_generate(nBits[,nPublicExponent]) ---> a random RSA key pair 
+	rsa_export_params(pRsaKey) ---> list of the key parameters
+	rsa_import_params(pParamsList) ---> a new RSA key
+	rsa_export_pem(pRsaKey) ---> string encoding of the key in PEM format
+	rsa_import_pem(cStrPEM) ---> a new RSA key
+	rsa_is_privatekey(pRsaKey) ---> Bool
+	rsa_encrypt_pkcs(pRsaKey,cPlainData) ---> String
+	rsa_decrypt_pkcs(pRsaKey,cEncryptedData) ---> String
+	rsa_encrypt_oaep(pRsaKey,cPlainData[,nHashAlgorithm]) ---> String
+	rsa_decrypt_oaep(pRsaKey,cEncryptedData[,nHashAlgorithm]) ---> String
+	rsa_encrypt_raw(pRsaKey,cPlainData) ---> String
+	rsa_decrypt_raw(pRsaKey,cEncryptedData) ---> String
+	rsa_sign_pkcs(pRsaKey,cData) ---> String
+	rsa_signhash_pkcs(pRsaKey,cHashValue) ---> String
+	rsa_verify_pkcs(pRsaKey,cData,cSignature) ---> Bool
+	rsa_verifyhash_pkcs(pRsaKey,cHashValue,cSignature) ---> Bool
+	rsa_sign_pss(pRsaKey,cData,nHashAlgorithm[,nSaltLength]) ---> String
+	rsa_signhash_pss(pRsaKey,cHashValue[,nSaltLength]) ---> String
+	rsa_verify_pss(pRsaKey,cData,cSignature,nHashAlgorithm[,nSaltLength]) ---> Bool
+	rsa_verifyhash_pss(pRsaKey,cHashValue,cSignature[,nSaltLength]) ---> Bool
+	openssl_versiontext() ---> String
+	openssl_version() ---> List
+
+
+.. index:: 
+	pair: What is new in Ring  1.17; Better RingWinAPI
+
+Better RingWinAPI
+=================
+
+* Better Code
+* New functions for resources, temp files and uuid
+
+.. code-block:: none
+
+	rGetTempFileName(LPCSTR lpPathName, LPCSTR lpPrefixString, UINT   uUnique)
+	rwaCreateUUID() ---> a string containing the value of the generated UUID
+	rwaReadBinaryResource(modulePath, resourceName, resourceType) ---> String (Bytes)
+
+.. index:: 
+	pair: What is new in Ring  1.17; Better Syntax Flexibility
+
+Better Syntax Flexibility
+=========================
+
+The next keywords are added to the language
+
+* endif
+* endfor
+* endwhile
+* endswitch
+* endtry
+* function
+* endfunction
+* break
+* continue
+
+Example:
+
+.. code-block:: ring
+
+	for t=1 to 10
+		? t
+		if t=3 
+			? :three
+		endif
+	endfor
+
+.. index:: 
+	pair: What is new in Ring  1.17; Better I/O Functions
+
+Better I/O Functions
+====================
+
+The next functions can be used without the need to load stdlib.ring
+
+* print(cString)
+* print2str(cString) -> cString
+* puts(cString)
+* getstring() -> cString
+* getnumber() -> nNumber
+
+They are written in the C language to provide better performance 
+
+Example:
+
+.. code-block:: ring
+
+	puts("Hello, World!")
+	puts(2022)
+	puts("one\ntwo\nthree")
+	puts("one\n\ttwo\n\t\tthree")
+	age = 6
+	puts("Ring is #{age} years old!") 
+	puts("I know that 2+2=#{2+2} and 3+3=#{3+3}")
+	happy()
+
+	func happy
+		new myclass {x=10 y=20 z=30 test()}
+		? :done
+
+	class myclass 
+		name = "Ring"
+		x y z 
+		func test
+			puts("Language Name = #{name}")
+			puts("x=#{x}\ny=#{y}\nz=#{z}")
+
+Output:
+
+.. code-block:: none
+
+	Hello, World!
+	2022
+	one
+	two
+	three
+	one
+			two
+					three
+	Ring is 6 years old!
+	I know that 2+2=4 and 3+3=6
+	Language Name = Ring
+	x=10
+	y=20
+	z=30
+	done
+
+.. index:: 
+	pair: What is new in Ring  1.17; Better Ring API
+
+Better Ring API
+===============
+
+The next functions are added to Ring API
+
+* RING_LIBINIT
+* RING_API_REGISTER(cFunctionName,pFunction)
+* RING_API_MALLOC(nSize)
+* RING_API_CALLOC(nItems,nItemSize)
+* RING_API_REALLOC(pPointer,nSize)
+* RING_API_FREE(pPointer)
+* RING_API_FREEFUNC
+
+The next example demonstrates using RING_LIBINIT and RING_API_REGISTER
+
+.. code-block:: c
+
+	#include "ring.h"
+	#include "stdlib.h"
+
+	RING_FUNC(ring_myfunction)
+	{	
+		printf("Hello, World!");
+	}
+
+	RING_LIBINIT
+	{
+		RING_API_REGISTER("myfunction",ring_myfunction);
+	}
+
+
+.. index:: 
+	pair: What is new in Ring  1.17; Code Generator for Extensions
+
+Better Code Generator for Extensions
+====================================
+
+The code generator is updated to include the next features
+
+* Better output messages 
+* Avoid generating the delete method twice 
+* Using codegenlib.ring for common functions
+* Use casting in functions that destroy the structures
+* Clean error message when we can't parse a line
+* Support C/C++ strings in structures
+
+Example from RingHTTPLib extension
+
+.. code-block:: none
+
+	<struct>
+	MultipartFormData {string name,string content,string filename,string content_type}
+	</struct>
+
+.. index:: 
+	pair: What is new in Ring  1.17; More Improvements
+
+More Improvements
+=================
+
+* Ring Notepad (Web Browser) - Support URLs without "http" in the start
+* Form Designer - Default TextColor is Empty (Better when changing styles)
+* Form Designer - Generating Code - Form Height - Better Code
+* Many documents and samples are revised (Better English)
+* Documentation - Language Reference - Functions - Parameters & Output
+* Many applications are updated to use LightGUILib 
+* Calendar application - Better code to detect the current year
+* JulianDayCalendar application - Better code to detect the current year
+* 2048 Game - Added window icon
+* Added: samples/Drawing/Mandelbrot/Mandelbrot_Fast.ring
+* Added: samples/AQuickStart/MySQL/mysql10.ring
+* Added: samples/UsingQt/Process/processoutput.ring
+* Added: samples/UsingObjectsLib/test1.ring
+* Added: samples/UsingObjectsLib/test2.ring
+* Added: samples/UsingObjectsLib/test3.ring
+* StdLib - AppPath() function - Better Code
+* StdLib - New Function: IsAppCompiled()
+* StdLib - New Function: AppArguments()
+* StdLib - New Function: CheckEquality()
+* ObjectsLib - New Function: GetWindowByID()
+* RingLibSDL - LibSDL version is updated from 2.0.14 to 2.0.20
+* RingAllegro - Allegro version is updated from 5.2.4 to 5.2.7.1
+* RingLibCurl - Better support for Ring2EXE
+* RingLibUI - The function uiFreeText() is removed from the library API
+* RingLibUI - Better implementation for functions that require uiFreeText()
+* RingSockets - Better Code
+* RingWinCReg - Better Code
+* RingQt - QString Class - Another version for the Replace() Method
+* RingQt - QLabel Class inherits the QFrame Class
+* RingQt - Added: QStyle class
+* RingQt - QApp Class - Added more methods
+* Ring Object File - ring_objfile_writeCfile() - Better Code
+* Eval() function - Return NULL if the Return command is not used
+* SetPointer()/GetPointer() functions - Better Code
+* Fexists() function - Support UTF-8 file names
+* GetFileSize() function - Get the file size without requiring any I/O
+* ringvm_codelist() function - Return the Byte Code of the current program
+* Ring VM - Better code when copying lists
+* Ring VM - ICO_JUMPZ Instruction - Treat empty lists as Zero
+* Ring VM - ICO_JUMPZ Instruction - Treat empty strings (NULL) as Zero
+* Ring VM - The result of using the Not (!) operator then List will be False
+* Ring VM - ring_vm_catch() function - Better Code
+* Ring VM - ring_vm_showerrormessage() function - Better Code
+* Ring VM - State Management - Better Code - ring_vm_newobjectstackpointer() 
+* Ring VM - State management - Better Performance (when creating new objects)
+* Ring VM - Adding binary strings to the Stack - Better Code
+* Ring VM - ring_vm_loadindexaddress() function - Better Code
+* Ring VM - ring_vm_range() function - Better Code
+* Ring VM - ring_vm_string_assignment() function - Better Code
+* Ring VM - ring_vm_notequal() function - Better Code
+* Ring VM - ring_item_getnumber() - support different types (int/double) 
+* Ring Compiler - Better Code - Using ring_general_addosfileseparator()
+* Ring Compiler - Better Code - Using ring_general_folderexistinfilename()
+* Ring Compiler - ring_scanner_checktoken() - Faster & Better Code
+* Ring Source Code - Better Format
+* Ring Source Code - Check out of memory at the Callee side instead of the Caller
+* Update: language/src/locatevc.bat - Support VS 2022

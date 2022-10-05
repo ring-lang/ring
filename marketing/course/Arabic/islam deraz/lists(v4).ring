@@ -1,8 +1,8 @@
 /*
-**          Application        		:Variables (lists version 4)
-**          Author               		:Islam Deraz
-**          Date                      	:2018.02.03
-**          Application Number 	:8
+**          Application         : Variables (lists version 4)
+**          Author              : Islam Deraz
+**          Date                : 2018.02.03
+**          Application Number 	: 8
 */ 
 
 #========================================
@@ -20,12 +20,12 @@ while True
 					(3) Exit
 
 				"
-			give coption
-		    switch coption
+			give cOption
+		    switch cOption
 				on "1" see "Enter Number: "  give cNumber    alist + cNumber
-				on "2" nsum=0 for nNum in alist     nsum= nsum+nNum Next
+				on "2" nsum = 0 for nNum in alist     nsum = nsum + nNum Next
 						? "Sum = " + nsum
-				on "3" bye 							# shutdwon
+				on "3" bye 							# shutdown
 				other ? "Bad option!"
 
 				off

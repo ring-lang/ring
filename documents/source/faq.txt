@@ -2192,7 +2192,7 @@ In general you can extend Ring using C or C++ code
 Ring from Ring code you can call C Functions or use C++ Classes & Methods
 
 This chapter in the documentation explains this part in the language
-https://ring-lang.sourceforge.io/doc1.13/extension.html
+https://ring-lang.github.io/doc1.16/extension.html
 
 For example the next code in *.c file can be compiled to a DLL file using the Ring library (*.lib)
 

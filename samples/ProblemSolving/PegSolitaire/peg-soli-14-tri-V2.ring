@@ -56,7 +56,7 @@ func solve(board, left)
                 mj   = moves[j]         
                 over = pos + mj           
                 tgt  = pos + ( 2 * mj )     
-				// IF - formated for better readability:
+				// IF - formatted for better readability:
 				if  ( tgt >= 1          &&      
 					tgt <= len(start) 	&&
 					board[tgt]  = '0'  	&&

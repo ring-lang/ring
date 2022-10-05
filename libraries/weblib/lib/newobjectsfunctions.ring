@@ -82,6 +82,18 @@ Package System.Web
 			aObjs + new TH
 			return aObjs[len(aObjs)]
 
+		Func GetThead
+			aObjs + new THEAD
+			return aObjs[len(aObjs)]
+
+		Func GetTBody
+			aObjs + new TBody
+			return aObjs[len(aObjs)]
+
+		Func GetTFoot
+			aObjs + new TFoot
+			return aObjs[len(aObjs)]
+
 		Func GetAudio
 			aObjs + new Audio
 			return aObjs[len(aObjs)]

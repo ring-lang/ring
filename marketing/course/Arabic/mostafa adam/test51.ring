@@ -1,7 +1,7 @@
 /*
-	name	:	Darsh Adam
-	Lesson	:	test51.ring
-	Date 	:	16/12/2017
+	Application : test51.ring
+	Author      : Darsh Adam
+	Date        : 16/12/2017
 */
 
 #=====================================================
@@ -16,4 +16,4 @@ func main
 
 
 
-#========================Enf Of Lesson====================
+#========================End Of Lesson====================

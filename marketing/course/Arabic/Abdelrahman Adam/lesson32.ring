@@ -1,7 +1,7 @@
 /*  
  **      Application : Condition
  **      name        : Abdelrahman Adam
- **      Date        : 21\12\2017 
+ **      Date        : 21/12/2017 
 */ 
 #======================================================
 
@@ -13,10 +13,10 @@ for item in aList
 		switch item	
 			on :one			item = 1
 			on :two			item = 2
-			on :three			item = 3
+			on :three		item = 3
 			other			item = 0
 		off
-			?item
+			? item
 next
 
 ?aList

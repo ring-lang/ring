@@ -3,10 +3,17 @@ name: QImage
 para: void
 </class>
 
+<filter> sysget("RINGQT_QT515") = ""
+int byteCount(void)
+</filter>
+
+<comment>
+QImage transformed(QTransform *, Qt::TransformationMode mode)
+</comment>
+
 bool allGray(void)
 int bitPlaneCount(void)
 uchar *bits(void)
-int byteCount(void)
 int bytesPerLine(void)
 qint64 cacheKey(void)
 QRgb color(int i)
@@ -52,7 +59,6 @@ QSize size(void)
 void swap(QImage)
 QString text(QString)
 QStringList textKeys(void)
-QImage transformed(QMatrix, Qt::TransformationMode mode)
 bool valid(int x, int y)
 int width(void)
 

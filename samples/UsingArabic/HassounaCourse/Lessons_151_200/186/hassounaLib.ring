@@ -321,7 +321,7 @@ class DataTable{
 		ok		
 		for x=1 to len(this.Rows)
 			if len(this.Rows[x]) != len(this.Columns)
-				Raise("One or more row has diffrent values with number of columns")
+				Raise("One or more row has different values with number of columns")
 			ok
 		next 
 		tbl = TableWidgetTarget
@@ -329,9 +329,3 @@ class DataTable{
 	}
 
 }
-
-
-
-
-
-

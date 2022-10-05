@@ -121,6 +121,9 @@ ring_parser_icg_getoperationatpos(pParser,x)
 ring_parser_icg_newoperation
 ring_parser_icg_insertoperation
 ring_parser_icg_newoperand
+ring_parser_icg_addtooperand
+Type: String *
+pString
 ring_parser_icg_newoperandint
 ring_parser_icg_newoperanddouble
 ring_parser_icg_newoperandpointer
@@ -143,3 +146,14 @@ x
 Type: int
 y,nCount2
 ring_parser_icg_newlabel2
+ring_parser_icg_loadfunction
+ring_parser_icg_loadfunctionextraoperands
+Type: int
+x
+ring_parser_icg_loadaddress
+Type: int
+x
+ring_parser_icg_loadaddressassignmentpos
+ring_parser_icg_loadaddresstoloadfunction
+Type: int
+x

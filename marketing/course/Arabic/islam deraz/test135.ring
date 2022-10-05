@@ -7,7 +7,7 @@
 load "stdlib.ring"
 /*
 
-	Reflection & Metaprograming
+	Reflection & Meta-programming
 
 */
 
@@ -20,6 +20,3 @@ olist.print()
 class mylist from list
 	func count	
 		return len(vValue)
-
-
-

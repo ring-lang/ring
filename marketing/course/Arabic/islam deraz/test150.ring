@@ -17,7 +17,7 @@
 /*
 
 	(1) use the main function 
-	(2) try to avoide global variables
+	(2) try to avoid global variables
 	(3) start global variable with $ or g_
 
 	to be more safe 
@@ -25,4 +25,3 @@
 	(5) or use @
 
 */
-

@@ -1,4 +1,5 @@
-
-Line 7 Error (R4) : Stack Overflow ! 
-In function rec() in file general/infinite.ring
-called from line 7  in file general/infinite.ring 
+1
+2
+0
+1
+0

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>The Ring Programming Language</title>
+  <link rel="icon" href="ringicon.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="title" content="Ring Language">
+  <meta name="description" content="Ring is an innovative and practical general-purpose multi-paradigm language. The supported programming paradigms are imperative, procedural, object-oriented, declarative using nested structures, functional, meta programming and natural programming.">
+  <meta name="keywords" content="Ring, Ring Language, innovative , practical , programming language, multi paradigm language, general purpose language, imperative, procedural, object-oriented, declarative using nested structures, functional, meta programming and natural programming. The language is portable Windows, Linux, macOS, Android, create Console, GUI, Web, Games, Mobile applications">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="language" content="English">  
+  <meta name="og:title" property="og:title" content="Ring Language - Innovative and practical general-purpose multi-paradigm language">
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="http://ring-lang.sourceforge.net/" />
+  <meta property="og:image" content="http://ring-lang.sourceforge.net/theringlogo.jpg" />
+	
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+<nav class="navbar navbar-default navbar-fixed-top" >
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+      </button>
+    </div>
+    <div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="index.html#">Home</a></li>
+	  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Download<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+		  <li><a href="download.html">Download Ring 1.17</a></li>
+		  <li><a href="download116.html">Download Ring 1.16</a></li>
+		  <li><a href="download115.html">Download Ring 1.15</a></li>
+		  <li><a href="download114.html">Download Ring 1.14</a></li>
+		  <li><a href="download113.html">Download Ring 1.13</a></li>
+		  <li><a href="download112.html">Download Ring 1.12</a></li>
+		  <li><a href="download111.html">Download Ring 1.11</a></li>
+		  <li><a href="download110.html">Download Ring 1.10</a></li>
+		  <li><a href="download19.html">Download Ring 1.9</a></li>
+		  <li><a href="download18.html">Download Ring 1.8</a></li>
+		  <li><a href="download17.html">Download Ring 1.7</a></li>
+		  <li><a href="download16.html">Download Ring 1.6</a></li>
+		  <li><a href="download154.html">Download Ring 1.5</a></li>
+		  <li><a href="download141.html">Download Ring 1.4</a></li>
+		  <li><a href="download13.html">Download Ring 1.3</a></li>
+		  <li><a href="download12.html">Download Ring 1.2</a></li>
+	          <li><a href="download11.html">Download Ring 1.1</a></li>
+          	  <li><a href="download1.html">Download Ring 1.0</a></li>
+            </ul>
+          </li>	
+	  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentation<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+		  <li><a href="doc1.17/index.html" >Ring 1.17 Documentation</a></li>
+		  <li><a href="doc1.16/index.html" >Ring 1.16 Documentation</a></li>
+		  <li><a href="doc1.15/index.html" >Ring 1.15 Documentation</a></li>
+		  <li><a href="doc1.14/index.html" >Ring 1.14 Documentation</a></li>
+		  <li><a href="doc1.13/index.html" >Ring 1.13 Documentation</a></li>
+		  <li><a href="doc1.12/index.html" >Ring 1.12 Documentation</a></li>
+		  <li><a href="doc1.11/index.html" >Ring 1.11 Documentation</a></li>
+		  <li><a href="doc1.10/index.html" >Ring 1.10 Documentation</a></li>
+		  <li><a href="doc1.9/index.html" >Ring 1.9 Documentation</a></li>
+		  <li><a href="doc1.8/index.html" >Ring 1.8 Documentation</a></li>
+		  <li><a href="doc1.7/index.html" >Ring 1.7 Documentation</a></li>
+		  <li><a href="doc1.6/index.html" >Ring 1.6 Documentation</a></li>
+		  <li><a href="doc1.5.4/index.html" >Ring 1.5 Documentation</a></li>
+		  <li><a href="doc1.4.1/index.html" >Ring 1.4 Documentation</a></li>
+		  <li><a href="doc1.3/index.html" >Ring 1.3 Documentation</a></li>
+		  <li><a href="doc1.2/index.html" >Ring 1.2 Documentation</a></li>
+	          <li><a href="doc1.1/index.html" >Ring 1.1 Documentation</a></li>
+          	  <li><a href="doc/index.html" >Ring 1.0 Documentation</a></li>
+            </ul>
+          </li>
+	  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">More<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+			  <li><a href="https://tio.run/#ring">Try Online</a></li>
+			  <li><a href="resources.html">Resources</a></li>			  
+			  <li><a href="https://groups.google.com/g/ring-lang">Group</a></li>			  
+			  <li><a href="https://github.com/ring-lang/ring">GitHub</a></li>
+          	  <li><a href="team.html">Team</a></li>
+            </ul>
+          </li>
+    </ul>
+
+	<div style="float:right ; margin-top:0.5% ; margin-right: 1%">
+		<form class="search" action="doc1.17/search.html" method="get" style="width:200px" >
+			<div class="input-group">
+				<input name="q" type="text" class="form-control" placeholder="Search for...">
+				<span class="input-group-btn">
+				<button class="btn btn-default" type="submit">Go!</button>
+				</span>
+			</div>
+			<input name="check_keywords" value="yes" type="hidden">
+			<input name="area" value="default" type="hidden">
+		</form>
+
+    </div>
+
+  </div>
+
+</nav>  
+
+<a href="https://github.com/ring-lang/ring" class="hidden-xs" style="float:right ; margin-top:4%">
+	<img src="forkme.png" alt="Fork me on GitHub" width="198" height="198">
+</a>
+
+
+<div class="container">
+ <div class="text-center">
+	<br><br><br> 
+	<br><br>
+	<div class="row">		
+			<div class="col-xs-3 hidden-xs">
+			</div>
+			<div class="col-xs-6">
+				<img src="theringlogo.jpg" width="297px" height="154px">
+			</div>
+			<div class="col-xs-3 hidden-xs">
+			</div>
+	</div>
+
+	<div class="row">
+				<br> 
+				<div class="col-xs-2">
+				</div>
+				<div class="col-sm-12 col-md-2">
+					<a href="download.html" class="btn btn-default btn-block" style="">Download</a>
+				</div>
+				
+				<div class="col-sm-12 col-md-2">
+					<a href="doc1.17/index.html" class="btn btn-default btn-block" style="">Documentation</a>
+				</div>
+
+				<div class="col-sm-12 col-md-2">
+					<a href="resources.html" class="btn btn-default btn-block" style="">Resources</a>
+				</div>
+
+				<div class="col-sm-12 col-md-2">
+					<a href="https://groups.google.com/g/ring-lang" class="btn btn-default btn-block" style="">Group</a>
+				</div>
+				
+				<div class="col-xs-2">
+				</div>
+				<br>  
+	</div>
+		
+	<h3>Simple and flexible programming language for applications development</h3>
+	
+		
+		
+  </div>
+
+
+
+﻿
+ <div id="download" class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h4>Download <span class="badge">1</span></h4></div>
+      <div class="panel-body">
+
+
+	    
+
+	    <div class="panel panel-primary">
+	      <div class="panel-heading">Ring 1.16 All Platforms <span class="badge"> 8</span> </div>
+	      <div class="panel-body">
+
+			<table class="table table-striped">
+				<thead>
+				  <tr>
+					<th width="90%">Description  </th>
+					<th width="10%">File Size </th>
+				  </tr>
+				</thead>
+				<tbody>
+				  
+				  <tr>
+					
+						<th><a href="https://github.com/ring-lang/ring/releases/download/v1.16/Fayed_Ring_1.16_Windows.exe"  >Ring 1.16 For Windows (32bit and 64bit)</a></th>
+					
+						<th>382 MB</th>
+					
+					
+				  </tr>
+				  
+				  <tr>
+					
+						<th><a href="https://github.com/ring-lang/ring/releases/download/v1.16/Fayed_Ring_1.16_Ubuntu.zip">Ring 1.16 For Ubuntu Linux (64bit)</a></th>
+					
+						<th>453 MB</a></th>
+					
+					
+				  </tr>
+				  
+				  <tr>
+					
+						<th><a href="https://github.com/ring-lang/ring/releases/download/v1.16/Fayed_Ring_1.16_macOS.zip">Ring 1.16 For macOS (64bit)</a></th>
+					
+						<th>451 MB</th>
+					
+					
+				  </tr>
+				  
+				  <tr>
+					
+						<th><a href="https://github.com/ring-lang/ring/releases/download/v1.16/Fayed_RingDoc_1.16.pdf">Ring 1.16 Documentation (PDF)</a> </th>
+					
+						<th>45 MB</th>
+					
+					
+				  </tr>
+				  
+				  <tr>
+					
+						<th><a href="https://github.com/ring-lang/ring/releases/download/v1.16/Fayed_RingDoc_1.16.chm">Ring 1.16 Documentation (CHM)</a></th>
+					
+						<th>43 MB</th>
+					
+					
+				  </tr>
+				  
+				  <tr>
+					
+						<th><a href="https://github.com/ring-lang/ring/releases/download/v1.16/Fayed_RingDoc_1.16.zip">Ring 1.16 Documentation (HTML)</a></th>
+					
+						<th>54 MB</th>
+					
+					
+				  </tr>
+				  
+				  <tr>
+					
+						<th><a href="https://github.com/ring-lang/ring/releases/download/v1.16/Fayed_Ring_1.16_LightRelease_Windows_Binary.zip">Ring 1.16 (Light Release - Windows Binary)</a></th>
+					
+						<th>3.36 MB</th>
+					
+					
+				  </tr>
+				  
+				  <tr>
+					
+						<th><a href="https://github.com/ring-lang/ring/releases/download/v1.16/Fayed_Ring_1.16_LightRelease_SourceCode.zip">Ring 1.16 (Light Release - Source Code - All Platforms)</a></th>
+					
+						<th>706 KB</th>
+					
+					
+				  </tr>
+				  
+
+				</tbody>
+			</table>
+				
+	      </div>
+	     </div>  
+
+	    
+
+
+      </div>
+     </div>  
+  </div>
+
+﻿</div>
+<div class="container-fluid" style="color:black ; background: transparent linear-gradient(to bottom, rgb(240, 249, 255) 0%, rgb(203, 235, 255) 47%, rgb(161, 219, 255) 100%) repeat scroll 0% 0% ; margin-bottom: 0%;">
+<div class="container" style=" margin-bottom: 2%;">
+<br> <br>
+  <div class="row">
+    <div class="col-sm-12 col-md-4">
+ 	    Basic <br> <br>
+
+            <ul>			  
+			  <li><a href="doc1.17/ringapps.html" >Applications developed in little hours</a></li>
+              <li><a href="doc1.17/introduction.html" >Introduction</a></li>
+			  <li><a href="doc1.17/languagedesign.html" >Language Design</a></li>
+			  <li><a href="doc1.17/sourcecode.html" >Building From Source Code</a></li>
+			  <li><a href="doc1.17/contribute.html" >How to contribute?</a></li>
+			  <li><a href="doc1.17/ringnotepad.html" >Using Ring Notepad</a></li>
+              <li><a href="doc1.17/getting_started.html" >Getting Started - First Style </a></li>
+			  <li><a href="doc1.17/getting_started2.html" >Getting Started - Second Style</a></li>
+			  <li><a href="doc1.17/getting_started3.html" >Getting Started - Third Style</a></li>
+              <li><a href="doc1.17/variables.html" >Variables</a></li>
+              <li><a href="doc1.17/operators.html" >Operators</a></li>
+              <li><a href="doc1.17/controlstructures.html" >Control Structures - First Style</a></li>
+			  <li><a href="doc1.17/controlstructures2.html" >Control Structures - Second Style</a></li>
+			  <li><a href="doc1.17/controlstructures3.html" >Control Structures - Third Style</a></li>
+              <li><a href="doc1.17/getinput.html" >Getting Input</a></li>
+              <li><a href="doc1.17/functions.html" >Functions - First Style</a></li>
+			  <li><a href="doc1.17/functions2.html" >Functions - Second Style</a></li>
+			  <li><a href="doc1.17/functions3.html" >Functions - Third Style</a></li>
+			  <li><a href="doc1.17/programstructure.html" >Program Structure</a></li>
+              <li><a href="doc1.17/lists.html" >Lists</a></li>
+              <li><a href="doc1.17/strings.html" >Strings</a></li>
+              <li><a href="doc1.17/dateandtime.html" >Date and Time</a></li>
+              <li><a href="doc1.17/checkandconvert.html" >Check Data Type and Conversion</a></li>
+              <li><a href="doc1.17/mathfunc.html" >Mathematical Functions</a></li>
+			  <li><a href="doc1.17/files.html" >Files</a></li>
+              <li><a href="doc1.17/systemfunc.html" >System Functions</a></li>              
+			  <li><a href="doc1.17/evaldebug.html" >Eval() and Debugging</a></li>              
+			  <li><a href="doc1.17/demo.html" >Demo Programs</a></li>
+            </ul>
+	</div>
+
+	<div class="col-sm-12 col-md-4">
+ 	    Intermediate <br> <br>
+
+            <ul>              			  
+              <li><a href="doc1.17/odbc.html" >ODBC Functions</a></li>
+              <li><a href="doc1.17/mysql.html" >MYSQL Functions</a></li>
+			  <li><a href="doc1.17/sqlite.html" >SQLite Functions</a></li>
+			  <li><a href="doc1.17/postgresql.html" >PostgreSQL Functions</a></li>			  
+              <li><a href="doc1.17/secfunc.html" >Security and Internet Functions</a></li>
+			  <li><a href="doc1.17/oop.html" >Object Oriented Programming</a></li>
+			  <li><a href="doc1.17/fp.html" >Functional Programming (FP)</a></li>
+			  <li><a href="doc1.17/metaprog.html" >Reflection and Meta-programming</a></li>
+			  <li><a href="doc1.17/stdlib.html" >Stdlib Functions</a></li>
+			  <li><a href="doc1.17/stdlibclasses.html" >Stdlib Classes</a></li>
+			  <li><a href="doc1.17/declarative.html" >Declarative Programming using Nested Structures</a></li>
+              <li><a href="doc1.17/natural.html" >Natural language programming</a></li>              
+			  <li><a href="doc1.17/naturallibrary.html" >Using the Natural Library</a></li>              
+			  <li><a href="doc1.17/scope.html" >Scope Rules for Variables and Attributes</a></li>
+			  <li><a href="doc1.17/scope2.html" >Scope Rules for Functions and Methods</a></li>			  
+			  <li><a href="doc1.17/syntaxflexibility.html" >Syntax Flexibility</a></li>
+			  <li><a href="doc1.17/distribute.html" >Distributing Ring Applications</a></li>
+			  <li><a href="doc1.17/distribute_ring2exe.html" >Distributing Ring Applications using Ring2EXE</a></li>
+			  <li><a href="doc1.17/ringpm.html" >The Ring Package Manager (RingPM)</a></li>
+			  <li><a href="doc1.17/typehints.html" >The Type Hints Library</a></li>
+			  <li><a href="doc1.17/web.html" >Web Development (CGI Library)</a></li>
+			  <li><a href="doc1.17/deployincloud.html" >Deploying Web Applications in the Cloud</a></li>
+			  <li><a href="doc1.17/libcurl.html" >Using RingLibCurl</a></li>
+			  <li><a href="doc1.17/ringzip.html" >Using RingZip</a></li>			  			  			  			  
+			  <li><a href="doc1.17/allegro.html" >Graphics and 2D Games programming using RingAllegro</a></li>
+              <li><a href="doc1.17/libsdl.html" >Using RingLibSDL</a></li>			
+			  <li><a href="doc1.17/gameengine.html" >Demo Project - Game Engine for 2D Games</a></li>			  
+			  <li><a href="doc1.17/gameengineandorid.html" >Building Games for Android</a></li>
+            </ul>
+	</div>
+
+	<div class="col-sm-12 col-md-4">
+ 	    Advanced <br> <br>
+
+            <ul>     			
+			  <li><a href="doc1.17/usingopengl.html" >Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+			  <li><a href="doc1.17/usingopengl2.html" >Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+			  <li><a href="doc1.17/goldmagic800.html" >The Gold Magic 800 Game</a></li>			  
+			  <li><a href="doc1.17/ringraylib.html" >Using RingRayLib</a></li>			  
+			  <li><a href="doc1.17/qt.html" >Desktop and Mobile development using RingQt</a></li>
+			  <li><a href="doc1.17/qtmobile.html" >Building RingQt Applications for Mobile</a></li>			  			  
+			  <li><a href="doc1.17/ringqtobjects.html" >Objects Library for RingQt Application</a></li>			  			  
+			  <li><a href="doc1.17/formdesigner.html" >Using the Form Designer</a></li>			  			  
+			  <li><a href="doc1.17/multilanguage.html" >Multi-language Applications</a></li>			  			  
+			  <li><a href="doc1.17/qt3d.html" >Using Qt3D</a></li>			  			  
+			  <li><a href="doc1.17/lowlevel.html" >Low Level Functions</a></li>
+			  <li><a href="doc1.17/debug.html" >The Trace Library and the Interactive Debugger</a></li>
+			  <li><a href="doc1.17/extension_tutorial.html" >Tutorial: Ring Extensions in C/C++</a></li>
+              <li><a href="doc1.17/extension.html" >Extension using the C/C++ languages</a></li>
+              <li><a href="doc1.17/embedding.html" >Embedding Ring Language in C/C++ Programs</a></li>
+              <li><a href="doc1.17/codegenerator.html" >Code Generator for wrapping C/C++ Libraries</a></li>
+			  <li><a href="doc1.17/ringbeep.html" >Create your first extension using the Code Generator</a></li>
+			  </ul> 
+			  More <br> <br>
+			  <ul>
+              <li><a href="doc1.17/compiler.html" >Command Line Options</a></li>              
+			  <li><a href="doc1.17/generalinfo.html" >General Information</a></li>
+			  <li><a href="doc1.17/reference.html" >Language Reference</a></li>
+			  <li><a href="doc1.17/faq.html" >Frequently Asked Questions (FAQ)</a></li>	      
+            </ul>
+	</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="container-fluid" style="text-align:center;color:black; height: 25px; background: transparent linear-gradient(to bottom, rgb(240, 249, 255) 0%, rgb(203, 235, 255) 47%, rgb(161, 219, 255) 100%) repeat scroll 0% 0% ; margin-bottom: 0%;">
+              <a href="https://github.com/ring-lang/ring">GitHub</a>
+              <a href="resources.html">Resources</a>
+              <a href="team.html">Team</a>
+</div>
+
+<div class="container-fluid" style="color:black ; height: 5px; background: transparent linear-gradient(to bottom, rgb(0, 183, 234) 0%, rgb(0, 158, 195) 100%) repeat scroll 0% 0% ; margin-bottom: 0%; text-align:center;">
+ <p>
+ 
+ </p>
+
+</div>
+
+</body>
+</html>

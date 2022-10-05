@@ -1,6 +1,6 @@
 # See -> Display Content For User
-/* Nl -> Predefined Varaiable
-      -> Nonconstant Varaiable
+/* nl -> Predefined Variable
+      -> Non-constant Variable
       -> Add New Line
 */
 # + -> Concatenation Operator

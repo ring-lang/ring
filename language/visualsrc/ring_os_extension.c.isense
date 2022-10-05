@@ -1,5 +1,6 @@
 ring_os_extension_h
 RING_VM_POINTER_LIBNAME
+RING_VM_UNSUPPORTEDFUNCTION
 Type: static LPFN_ISWOW64PROCESS
 fnCheckWindows64
 ring_vm_os_gettime
@@ -41,7 +42,7 @@ ring_vm_os_sysget
 Type: char *
 pData
 setenv
-Type: errno_t
+Type: int
 errcode
 Type: size_t
 envsize
@@ -56,7 +57,7 @@ ring_vm_os_uptime
 Type: double
 nTime
 Type: LARGE_INTEGER
-ElapsedMicroseconds
+PerformanceCounterTicks, PerformanceCounterFrequency
 Type: struct timespec
 ts
 ring_vm_os_randomize

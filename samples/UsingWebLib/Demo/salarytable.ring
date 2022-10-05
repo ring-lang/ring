@@ -1,6 +1,7 @@
-﻿Import System.Web
+Import System.Web
 
 Class SalaryModel from ModelBase
+	cSearchColumn = "Name"
 
 Class SalaryController From ControllerBase
 	cMainURL = website+"?page=16&"
@@ -34,6 +35,7 @@ Class SalaryLanguageEnglish
 	aColumnsTitles = ["ID","Name","Salary"]
 	cOptions = "Options"
 	cSearch = "Search"
+	cSearchColumn = "Name"
 	comboitems = ["Select Option...","Edit","Delete"]
 	cAddRecord = "Add Record"
 	cEditRecord = "Edit Record"
@@ -53,6 +55,7 @@ Class SalaryLanguageArabic
 	aColumnsTitles = ["الكود","الإسم","الراتب"]
 	cOptions = "خيارات"
 	cSearch = "بحث"
+	cSearchColumn = "الإسم"
 	comboitems = ["فضلا إختار...","تعديل","حذف"]
 	cAddRecord = "إضافة سجل"
 	cEditRecord = "تعديل سجل"

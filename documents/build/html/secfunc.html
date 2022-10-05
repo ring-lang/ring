@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Security and Internet Functions &mdash; Ring 1.16 documentation</title>
+  <title>Security and Internet Functions &mdash; Ring 1.18 documentation</title>
   
 
   
@@ -120,11 +120,34 @@
 <li class="toctree-l2"><a class="reference internal" href="#sha512-function">SHA512() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sha384-function">SHA384() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sha224-function">SHA224() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#supportedciphers-function">SupportedCiphers() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#encrypt-function">Encrypt() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#decrypt-function">Decrypt() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#encryption-and-decryption-example">Encryption and Decryption Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#file-hash">File Hash</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#randbytes-function">Randbytes() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsa-generate-function">rsa_generate() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsa-export-params-function">rsa_export_params() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsa-import-params-function">rsa_import_params() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsa-export-pem-function">rsa_export_pem() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsa-import-pem-function">rsa_import_pem() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsa-is-privatekey-function">rsa_is_privatekey() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsa-encrypt-pkcs-function">rsa_encrypt_pkcs() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsa-decrypt-pkcs-function">rsa_decrypt_pkcs() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsa-encrypt-oaep-function">rsa_encrypt_oaep() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsa-decrypt-oaep-function">rsa_decrypt_oaep() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsa-encrypt-raw-function">rsa_encrypt_raw() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsa-decrypt-raw-function">rsa_decrypt_raw() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsa-sign-pkcs-function">rsa_sign_pkcs() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsa-signhash-pkcs-function">rsa_signhash_pkcs() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsa-verify-pkcs-function">rsa_verify_pkcs() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsa-verifyhash-pkcs-function">rsa_verifyhash_pkcs() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsa-sign-pss-function">rsa_sign_pss() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsa-signhash-pss-function">rsa_signhash_pss() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsa-verify-pss-function">rsa_verify_pss() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsa-verifyhash-pss-function">rsa_verifyhash_pss() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#openssl-versiontext-function">openssl_versiontext() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#openssl-version-function">openssl_version() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#large-files-hash">Large Files Hash</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#download-function">Download() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sendemail-function">SendEmail() Function</a></li>
@@ -169,6 +192,10 @@
 <li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csvlib.html">CSVLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jsonlib.html">JSONLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="httplib.html">HTTPLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenslib.html">TokensLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="socket.html">Using RingSockets</a></li>
@@ -210,6 +237,7 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew14.html">Release Notes: Version 1.14</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew15.html">Release Notes: Version 1.15</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew17.html">Release Notes: Version 1.17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
@@ -295,9 +323,32 @@ for Hashing, Encryption &amp; Decryption.</p>
 <li><p>SHA512()</p></li>
 <li><p>SHA384()</p></li>
 <li><p>SHA224()</p></li>
+<li><p>SupportedCiphers()</p></li>
 <li><p>Encrypt()</p></li>
 <li><p>Decrypt()</p></li>
 <li><p>Randbytes()</p></li>
+<li><p>rsa_generate</p></li>
+<li><p>rsa_export_params</p></li>
+<li><p>rsa_import_params</p></li>
+<li><p>rsa_export_pem</p></li>
+<li><p>rsa_import_pem</p></li>
+<li><p>rsa_is_privatekey</p></li>
+<li><p>rsa_encrypt_pkcs</p></li>
+<li><p>rsa_decrypt_pkcs</p></li>
+<li><p>rsa_encrypt_oaep</p></li>
+<li><p>rsa_decrypt_oaep</p></li>
+<li><p>rsa_encrypt_raw</p></li>
+<li><p>rsa_decrypt_raw</p></li>
+<li><p>rsa_sign_pkcs</p></li>
+<li><p>rsa_signhash_pkcs</p></li>
+<li><p>rsa_verify_pkcs</p></li>
+<li><p>rsa_verifyhash_pkcs</p></li>
+<li><p>rsa_sign_pss</p></li>
+<li><p>rsa_signhash_pss</p></li>
+<li><p>rsa_verify_pss</p></li>
+<li><p>rsa_verifyhash_pss</p></li>
+<li><p>openssl_versiontext</p></li>
+<li><p>openssl_version</p></li>
 <li><p>MD5Init(), MD5Update(), MD5Final()</p></li>
 <li><p>SHA1Init(), SHA1Update(), SHA1Final()</p></li>
 <li><p>SHA256Init(), SHA256Update(), SHA256Final()</p></li>
@@ -434,32 +485,46 @@ sha224(&#39;hello world&#39;) : 2f05477fc24bb4faefd86517156dafdecec45b8ad3cf2522
 </pre></div>
 </div>
 </div>
-<div class="section" id="encrypt-function">
-<span id="index-7"></span><h2>Encrypt() Function<a class="headerlink" href="#encrypt-function" title="Permalink to this headline">¶</a></h2>
-<p>We can use the Encrypt() function to encrypts the data using the Blowfish algorithm.</p>
+<div class="section" id="supportedciphers-function">
+<span id="index-7"></span><h2>SupportedCiphers() Function<a class="headerlink" href="#supportedciphers-function" title="Permalink to this headline">¶</a></h2>
+<p>The function SupportedCiphers() retrieves the list of all algorithms supported by Encrypt()/Decrypt() functions.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Encrypt</span><span class="p">(</span><span class="n">cString</span><span class="p">,</span> <span class="n">cKey</span><span class="p">,</span> <span class="n">cIV</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Encrypted</span> <span class="kt">string</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SupportedCiphers</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span> <span class="n">of</span> <span class="n">names</span> <span class="n">of</span> <span class="n">cipher</span> <span class="n">algorithms</span> <span class="n">supported</span> <span class="n">by</span> <span class="n">Encrypt</span><span class="p">()</span><span class="o">/</span><span class="n">Decrypt</span><span class="p">()</span> <span class="n">functions</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="encrypt-function">
+<span id="index-8"></span><h2>Encrypt() Function<a class="headerlink" href="#encrypt-function" title="Permalink to this headline">¶</a></h2>
+<p>We can use the Encrypt() function to encrypt the data using the specified algorithm.
+If no algorithm is specified, Blowfish algorithm is used in CBC mode.
+Typical algorithm values: “bf”, “des”, “des3”, “aes128”, “aes192”, “aes256” which all use CBC mode.
+The function CipherAlgorithms() return the list of all supported cipher algorithms.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Encrypt</span><span class="p">(</span><span class="n">cString</span><span class="p">,</span> <span class="n">cKey</span><span class="p">,</span> <span class="n">cIV</span><span class="o">[</span><span class="p">,</span> <span class="n">cCipherAlgorithmName</span><span class="o">]</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Encrypted</span> <span class="kt">string</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="decrypt-function">
-<span id="index-8"></span><h2>Decrypt() Function<a class="headerlink" href="#decrypt-function" title="Permalink to this headline">¶</a></h2>
-<p>We can use the Decrypt() function to decrypt the data encrypted using the Encrypt() function.</p>
+<span id="index-9"></span><h2>Decrypt() Function<a class="headerlink" href="#decrypt-function" title="Permalink to this headline">¶</a></h2>
+<p>We can use the Decrypt() function to decrypt the data encrypted using the Encrypt() function.
+If no algorithm is specified, Blowfish algorithm is used in CBC mode.
+Typical algorithm values: “bf”, “des”, “des3”, “aes128”, “aes192”, “aes256” which all use CBC mode.
+The function CipherAlgorithms() return the list of all supported cipher algorithms.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Decrypt</span><span class="p">(</span><span class="n">cCipher</span><span class="p">,</span> <span class="n">cKey</span><span class="p">,</span> <span class="n">cIV</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Decrypted</span> <span class="kt">string</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Decrypt</span><span class="p">(</span><span class="n">cCipher</span><span class="p">,</span> <span class="n">cKey</span><span class="p">,</span> <span class="n">cIV</span><span class="o">[</span><span class="p">,</span> <span class="n">cCipherAlgorithm</span><span class="o">]</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Decrypted</span> <span class="kt">string</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="encryption-and-decryption-example">
-<span id="index-9"></span><h2>Encryption and Decryption Example<a class="headerlink" href="#encryption-and-decryption-example" title="Permalink to this headline">¶</a></h2>
+<span id="index-10"></span><h2>Encryption and Decryption Example<a class="headerlink" href="#encryption-and-decryption-example" title="Permalink to this headline">¶</a></h2>
 <p>The next example demonstrates how to use the Encrypt() and Decrypt() functions.</p>
-<p>These functions use the Blowfish algorithm.</p>
+<p>These functions use the AES-128 algorithm (AES with 128-bits key)</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Enter a string : &quot;</span> <span class="k">give</span> <span class="n">cStr</span>
 <span class="kt">list</span> <span class="o">=</span> <span class="mi">0</span><span class="p">:</span><span class="mi">15</span>  <span class="n">cKey</span><span class="o">=</span><span class="s">&quot;&quot;</span>    <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="kt">list</span> <span class="n">cKey</span> <span class="o">+=</span> <span class="n">char</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">next</span>
-<span class="kt">list</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">8</span>   <span class="n">cIV</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>   <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="kt">list</span> <span class="n">cIV</span> <span class="o">+=</span> <span class="n">char</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">next</span>
-<span class="n">cStr</span> <span class="o">=</span> <span class="n">Encrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">)</span>
+<span class="kt">list</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">16</span>  <span class="n">cIV</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>   <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="kt">list</span> <span class="n">cIV</span> <span class="o">+=</span> <span class="n">char</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">next</span>
+<span class="n">cStr</span> <span class="o">=</span> <span class="n">Encrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">,</span><span class="s">&quot;aes128&quot;</span><span class="p">)</span>
 <span class="k">See</span> <span class="s">&quot;Cipher Text    : &quot;</span> <span class="o">+</span> <span class="n">cStr</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="s">&quot;Plain Text     : &quot;</span> <span class="o">+</span> <span class="n">Decrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+    <span class="s">&quot;Plain Text     : &quot;</span> <span class="o">+</span> <span class="n">Decrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">,</span><span class="s">&quot;aes128&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>We can write the same example using normal for loop</p>
@@ -471,31 +536,43 @@ sha224(&#39;hello world&#39;) : 2f05477fc24bb4faefd86517156dafdecec45b8ad3cf2522
 <span class="k">next</span>
 
 <span class="n">cIV</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">8</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">16</span>
         <span class="n">cIV</span> <span class="o">+=</span> <span class="n">char</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="k">next</span>
 
 
-<span class="n">cStr</span> <span class="o">=</span> <span class="n">Encrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">)</span>
+<span class="n">cStr</span> <span class="o">=</span> <span class="n">Encrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">,</span><span class="s">&quot;aes128&quot;</span><span class="p">)</span>
 <span class="k">See</span> <span class="s">&quot;Cipher Text    : &quot;</span> <span class="o">+</span> <span class="n">cStr</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="s">&quot;Plain Text     : &quot;</span> <span class="o">+</span> <span class="n">Decrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+    <span class="s">&quot;Plain Text     : &quot;</span> <span class="o">+</span> <span class="n">Decrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">,</span><span class="s">&quot;aes128&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
-<p>Also we can write the password and the IV directly using strings</p>
+<p>Also we can write the key and the IV directly using strings</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Enter a string : &quot;</span> <span class="k">give</span> <span class="n">cStr</span>
 
-<span class="c"># Note: Don&#39;t use simple password in real applications!</span>
+<span class="c"># Note: Don&#39;t use simple key in real applications!</span>
 <span class="n">cKey</span> <span class="o">=</span> <span class="s">&quot;1234567890@#$%^&amp;&quot;</span>
-<span class="n">cIV</span>  <span class="o">=</span> <span class="s">&quot;87654321&quot;</span>
+<span class="n">cIV</span>  <span class="o">=</span> <span class="s">&quot;FEDCBA0987654321&quot;</span>
 
-<span class="n">cStr</span> <span class="o">=</span> <span class="n">Encrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">)</span>
+<span class="n">cStr</span> <span class="o">=</span> <span class="n">Encrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">,</span><span class="s">&quot;aes128&quot;</span><span class="p">)</span>
 <span class="k">See</span> <span class="s">&quot;Cipher Text    : &quot;</span> <span class="o">+</span> <span class="n">cStr</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="s">&quot;Plain Text     : &quot;</span> <span class="o">+</span> <span class="n">Decrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+    <span class="s">&quot;Plain Text     : &quot;</span> <span class="o">+</span> <span class="n">Decrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">,</span><span class="s">&quot;aes128&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+<p>Finally we can specify the key and the IV values using hexadecimal notation</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Enter a string : &quot;</span> <span class="k">give</span> <span class="n">cStr</span>
+
+<span class="c"># Note: Don&#39;t use simple key in real applications!</span>
+<span class="n">cKey</span> <span class="o">=</span> <span class="n">hex2str</span><span class="p">(</span><span class="s">&quot;A0A1A2A3A5A6A7A8AAABACADAFB0B1B2&quot;</span><span class="p">)</span>
+<span class="n">cIV</span>  <span class="o">=</span> <span class="n">hex2str</span><span class="p">(</span><span class="s">&quot;00112233445566778899AABBCCDDEEFF&quot;</span><span class="p">)</span>
+
+<span class="n">cStr</span> <span class="o">=</span> <span class="n">Encrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">,</span><span class="s">&quot;aes128&quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="s">&quot;Cipher Text    : &quot;</span> <span class="o">+</span> <span class="n">cStr</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="s">&quot;Plain Text     : &quot;</span> <span class="o">+</span> <span class="n">Decrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">,</span><span class="s">&quot;aes128&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="file-hash">
-<span id="index-10"></span><h2>File Hash<a class="headerlink" href="#file-hash" title="Permalink to this headline">¶</a></h2>
+<span id="index-11"></span><h2>File Hash<a class="headerlink" href="#file-hash" title="Permalink to this headline">¶</a></h2>
 <p>The next example demonstrates how to calculate the hash functions for files</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cStr</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s">&quot;myapp.exe&quot;</span><span class="p">)</span>
 <span class="k">see</span> <span class="s">&quot;Size : &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
@@ -521,8 +598,8 @@ cd53dcab1167bdca0b82fec5071971ac17c76479d76985ced4ab0d18e
 </div>
 </div>
 <div class="section" id="randbytes-function">
-<span id="index-11"></span><h2>Randbytes() Function<a class="headerlink" href="#randbytes-function" title="Permalink to this headline">¶</a></h2>
-<p>We can generate a string of pseudo-random bytes using the Randbytes() function.</p>
+<span id="index-12"></span><h2>Randbytes() Function<a class="headerlink" href="#randbytes-function" title="Permalink to this headline">¶</a></h2>
+<p>We can generate a string of cryptographically secure pseudo-random bytes using the Randbytes() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Randbytes</span><span class="p">(</span><span class="n">nSize</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">random</span> <span class="n">bytes</span> <span class="p">(</span><span class="n">bytes</span> <span class="n">count</span> <span class="o">=</span> <span class="n">nSize</span><span class="p">)</span>
 </pre></div>
@@ -535,8 +612,906 @@ cd53dcab1167bdca0b82fec5071971ac17c76479d76985ced4ab0d18e
 </pre></div>
 </div>
 </div>
+<div class="section" id="rsa-generate-function">
+<span id="index-13"></span><h2>rsa_generate() Function<a class="headerlink" href="#rsa-generate-function" title="Permalink to this headline">¶</a></h2>
+<p>We can generate a random RSA key pair using the rsa_generate() function.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_generate</span><span class="p">(</span><span class="n">nBits</span><span class="o">[</span><span class="p">,</span><span class="n">nPublicExponent</span><span class="o">]</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">a</span> <span class="n">random</span> <span class="n">RSA</span> <span class="n">key</span> <span class="n">pair</span> <span class="n">with</span> <span class="n">nBits</span> <span class="n">as</span> <span class="n">size</span> <span class="k">in</span> <span class="n">bits</span>
+                <span class="k">If</span> <span class="n">nPublicExponent</span> <span class="n">is</span> <span class="n">omited</span><span class="p">,</span> <span class="n">then</span> <span class="n">the</span> <span class="n">standard</span> <span class="n">public</span> <span class="n">exponent</span> <span class="n">value</span> <span class="mi">65537</span> <span class="n">is</span> <span class="n">used</span><span class="p">.</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">generate</span> <span class="n">a</span> <span class="k">new</span> <span class="mi">2048</span><span class="o">-</span><span class="n">bit</span> <span class="n">RSA</span> <span class="n">key</span> <span class="n">pair</span> <span class="o">*/</span>
+<span class="k">try</span>
+        <span class="n">rsaKey</span> <span class="o">=</span> <span class="n">rsa_generate</span><span class="p">(</span><span class="mi">2048</span><span class="p">)</span>
+        <span class="n">rsaKeyParams</span> <span class="o">=</span> <span class="n">rsa_export_params</span><span class="p">(</span><span class="n">rsaKey</span><span class="p">)</span>
+        <span class="k">See</span> <span class="s">&quot;Modulus = &quot;</span> <span class="o">+</span> <span class="n">rsaKeyParams</span><span class="o">[</span><span class="p">:</span><span class="n">n</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">catch</span>
+        <span class="k">See</span> <span class="s">&quot;Failed to generate the RSA key pair: &quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rsa-export-params-function">
+<span id="index-14"></span><h2>rsa_export_params() Function<a class="headerlink" href="#rsa-export-params-function" title="Permalink to this headline">¶</a></h2>
+<p>We can export the parameters of an RSA key to a string-indexed list using the rsa_export_params() function.
+The list contains the following string indexes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>“type” for the key type as a string equal to “RSA” in our case</p></li>
+<li><p>“bits” for the bot length of the key as an integer</p></li>
+<li><p>“n” for the Modulus as a hexadecimal string</p></li>
+<li><p>“e” for the Public Exponent as a hexadecimal string</p></li>
+<li><p>“d” for the Private Exponent as a hexadecimal string</p></li>
+<li><p>“p” for the first prime as a hexadecimal string</p></li>
+<li><p>“q” for the second prime as a hexadecimal string</p></li>
+<li><p>“dmp1” for the first CRT exponent as a hexadecimal string</p></li>
+<li><p>“dmq1” for the second CRT exponent as a hexadecimal string</p></li>
+<li><p>“iqmp” for the CRT coefficent as a hexadecimal string</p></li>
+</ul>
+</div></blockquote>
+<p>If the key contains only the public part, then “d”, “p”, “q”, “dmp1”, “dmq1” and “iqmp” will be empty strings.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_export_params</span><span class="p">(</span><span class="n">pRsaKey</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">list</span> <span class="n">of</span> <span class="n">the</span> <span class="n">key</span> <span class="n">parameters</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">generate</span> <span class="n">a</span> <span class="k">new</span> <span class="mi">2048</span><span class="o">-</span><span class="n">bit</span> <span class="n">RSA</span> <span class="n">key</span> <span class="n">pair</span> <span class="o">*/</span>
+<span class="k">try</span>
+        <span class="n">rsaKey</span> <span class="o">=</span> <span class="n">rsa_generate</span><span class="p">(</span><span class="mi">2048</span><span class="p">)</span>
+        <span class="n">rsaKeyParams</span> <span class="o">=</span> <span class="n">rsa_export_params</span><span class="p">(</span><span class="n">rsaKey</span><span class="p">)</span>
+        <span class="k">See</span> <span class="s">&quot;Key Type = &quot;</span> <span class="o">+</span> <span class="n">rsaKeyParams</span><span class="o">[</span><span class="p">:</span><span class="n">type</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">See</span> <span class="s">&quot;Key Size = &quot;</span> <span class="o">+</span> <span class="n">rsaKeyParams</span><span class="o">[</span><span class="p">:</span><span class="n">bits</span><span class="o">]</span> <span class="o">+</span> <span class="s">&quot; bits&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">See</span> <span class="s">&quot;Modulus = &quot;</span> <span class="o">+</span> <span class="n">rsaKeyParams</span><span class="o">[</span><span class="p">:</span><span class="n">n</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">See</span> <span class="s">&quot;Public Exponent = &quot;</span> <span class="o">+</span> <span class="n">rsaKeyParams</span><span class="o">[</span><span class="p">:</span><span class="n">e</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">See</span> <span class="s">&quot;Private Exponent = &quot;</span> <span class="o">+</span> <span class="n">rsaKeyParams</span><span class="o">[</span><span class="p">:</span><span class="n">d</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">See</span> <span class="s">&quot;Prime 1 = &quot;</span> <span class="o">+</span> <span class="n">rsaKeyParams</span><span class="o">[</span><span class="p">:</span><span class="n">p</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">See</span> <span class="s">&quot;Prime 2 = &quot;</span> <span class="o">+</span> <span class="n">rsaKeyParams</span><span class="o">[</span><span class="p">:</span><span class="n">q</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">See</span> <span class="s">&quot;CRT Exponent 1 = &quot;</span> <span class="o">+</span> <span class="n">rsaKeyParams</span><span class="o">[</span><span class="p">:</span><span class="n">dmp1</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">See</span> <span class="s">&quot;CRT Exponent 2 = &quot;</span> <span class="o">+</span> <span class="n">rsaKeyParams</span><span class="o">[</span><span class="p">:</span><span class="n">dmq1</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">See</span> <span class="s">&quot;CRT Coefficient = &quot;</span> <span class="o">+</span> <span class="n">rsaKeyParams</span><span class="o">[</span><span class="p">:</span><span class="n">iqmp</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">catch</span>
+        <span class="k">See</span> <span class="s">&quot;Failed to generate the RSA key pair: &quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rsa-import-params-function">
+<span id="index-15"></span><h2>rsa_import_params() Function<a class="headerlink" href="#rsa-import-params-function" title="Permalink to this headline">¶</a></h2>
+<p>We can create a new RSA key from parameters stored in a string-indexed list using the rsa_import_params() function.
+The format of the input list is the one described in the function rsa_export_params</p>
+<p>The indexes “n” and “e” must not be empty, otherwise an exception is thrown.
+If we need to import only an RSA public key, then the indexes “d”, “p”, “q”, “dmp1”, “dmq1” and “iqmp” must be empty.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_import_params</span><span class="p">(</span><span class="n">pParamsList</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">a</span> <span class="k">new</span> <span class="n">RSA</span> <span class="n">key</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">create</span> <span class="n">an</span> <span class="n">RSA</span> <span class="n">public</span> <span class="n">key</span> <span class="k">from</span> <span class="n">a</span> <span class="n">generated</span> <span class="n">RSA</span> <span class="n">key</span> <span class="n">pair</span> <span class="o">*/</span>
+<span class="k">try</span>
+        <span class="n">rsaKey</span> <span class="o">=</span> <span class="n">rsa_generate</span><span class="p">(</span><span class="mi">2048</span><span class="p">)</span>
+        <span class="n">rsaKeyParams</span> <span class="o">=</span> <span class="n">rsa_export_params</span><span class="p">(</span><span class="n">rsaKey</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">create</span> <span class="n">parameters</span> <span class="n">of</span> <span class="n">public</span> <span class="n">key</span><span class="p">:</span> <span class="n">modulus</span> <span class="ow">and</span> <span class="n">public</span> <span class="n">exponent</span> <span class="o">*/</span>
+        <span class="n">rsaPublicKeyParam</span> <span class="o">=</span> <span class="o">[</span><span class="p">:</span><span class="n">n</span> <span class="o">=</span> <span class="n">rsaKeyParams</span><span class="o">[</span><span class="p">:</span><span class="n">n</span><span class="o">]</span><span class="p">,</span> <span class="p">:</span><span class="n">e</span> <span class="o">=</span> <span class="n">rsaKeyParams</span><span class="o">[</span><span class="p">:</span><span class="n">e</span><span class="o">]]</span>
+        <span class="o">/*</span> <span class="n">create</span> <span class="n">the</span> <span class="n">public</span> <span class="n">key</span> <span class="n">using</span> <span class="n">rsa_import_params</span> <span class="o">*/</span>
+        <span class="n">rsaPublicKey</span> <span class="o">=</span> <span class="n">rsa_import_params</span><span class="p">(</span><span class="n">rsaPublicKeyParam</span><span class="p">)</span>
+
+<span class="k">catch</span>
+        <span class="k">See</span> <span class="s">&quot;Unexpected error occured: &quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rsa-export-pem-function">
+<span id="index-16"></span><h2>rsa_export_pem() Function<a class="headerlink" href="#rsa-export-pem-function" title="Permalink to this headline">¶</a></h2>
+<p>We can export an RSA key to a string in PEM format using the rsa_export_pem() function.
+If the RSA key contains both public and private parts, then returned string  will start with “—–BEGIN PRIVATE KEY—–”
+If the RSA key contains only the public part, then returned string will start with “—–BEGIN PUBLIC KEY—–”</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_export_pem</span><span class="p">(</span><span class="n">pRsaKey</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">string</span> <span class="n">encoding</span> <span class="n">of</span> <span class="n">the</span> <span class="n">key</span> <span class="k">in</span> <span class="n">PEM</span> <span class="n">format</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">generate</span> <span class="n">an</span> <span class="n">RSA</span> <span class="n">key</span> <span class="ow">and</span> <span class="n">save</span> <span class="n">it</span> <span class="k">to</span> <span class="n">a</span> <span class="n">file</span> <span class="k">in</span> <span class="n">PEM</span> <span class="n">format</span> <span class="o">*/</span>
+<span class="k">try</span>
+        <span class="n">rsaKey</span> <span class="o">=</span> <span class="n">rsa_generate</span><span class="p">(</span><span class="mi">2048</span><span class="p">)</span>
+        <span class="n">rsaKeyPEM</span> <span class="o">=</span> <span class="n">rsa_export_pem</span><span class="p">(</span><span class="n">rsaKey</span><span class="p">)</span>
+        <span class="o">/*</span> <span class="n">save</span> <span class="n">private</span> <span class="n">key</span> <span class="k">to</span> <span class="n">a</span> <span class="n">file</span> <span class="o">*/</span>
+        <span class="n">write</span> <span class="p">(</span><span class="s">&quot;privateKey.pem&quot;</span><span class="p">,</span> <span class="n">rsaKeyPEM</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">save</span> <span class="n">public</span> <span class="n">key</span> <span class="k">to</span> <span class="n">a</span> <span class="n">file</span> <span class="o">*/</span>
+        <span class="n">rsaKeyParams</span> <span class="o">=</span> <span class="n">rsa_export_params</span><span class="p">(</span><span class="n">rsaKey</span><span class="p">)</span>
+        <span class="n">rsaPublicKeyParam</span> <span class="o">=</span> <span class="o">[</span><span class="p">:</span><span class="n">n</span> <span class="o">=</span> <span class="n">rsaKeyParams</span><span class="o">[</span><span class="p">:</span><span class="n">n</span><span class="o">]</span><span class="p">,</span> <span class="p">:</span><span class="n">e</span> <span class="o">=</span> <span class="n">rsaKeyParams</span><span class="o">[</span><span class="p">:</span><span class="n">e</span><span class="o">]]</span>
+        <span class="n">rsaPublicKey</span> <span class="o">=</span> <span class="n">rsa_import_params</span><span class="p">(</span><span class="n">rsaPublicKeyParam</span><span class="p">)</span>
+        <span class="n">rsaPublicKeyPEM</span> <span class="o">=</span> <span class="n">rsa_export_pem</span><span class="p">(</span><span class="n">rsaPublicKey</span><span class="p">)</span>
+        <span class="n">write</span> <span class="p">(</span><span class="s">&quot;publicKey.pem&quot;</span><span class="p">,</span> <span class="n">rsaPublicKeyPEM</span><span class="p">)</span>
+
+<span class="k">catch</span>
+        <span class="k">See</span> <span class="s">&quot;Unexpected error occured: &quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rsa-import-pem-function">
+<span id="index-17"></span><h2>rsa_import_pem() Function<a class="headerlink" href="#rsa-import-pem-function" title="Permalink to this headline">¶</a></h2>
+<p>We can create an RSA key from PEM encoded string using the rsa_import_pem() function.
+If the PEM string starts with “—–BEGIN PRIVATE KEY—–”, then a full RSA key pair will be created.
+if the PEM string starts with “—–BEGIN PUBLIC KEY—–”, then an RSA public key will be created.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">cStrPEM</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">a</span> <span class="k">new</span> <span class="n">RSA</span> <span class="n">key</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">create</span> <span class="n">an</span> <span class="n">RSA</span> <span class="n">key</span> <span class="k">from</span> <span class="n">a</span> <span class="n">PEM</span> <span class="n">file</span> <span class="o">*/</span>
+<span class="k">try</span>
+        <span class="n">rsaKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;privateKey.pem&quot;</span><span class="p">)</span>
+        <span class="n">rsaKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaKeyPEM</span><span class="p">)</span>
+
+        <span class="n">rsaPublicKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;publicKey.pem&quot;</span><span class="p">)</span>
+        <span class="n">rsaPublicKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaPublicKeyPEM</span><span class="p">)</span>
+<span class="k">catch</span>
+        <span class="k">See</span> <span class="s">&quot;Unexpected error occured: &quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rsa-is-privatekey-function">
+<span id="index-18"></span><h2>rsa_is_privatekey() Function<a class="headerlink" href="#rsa-is-privatekey-function" title="Permalink to this headline">¶</a></h2>
+<p>We can check whether an RSA key is a private key or public key using the rsa_is_privatekey() function.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_is_privatekey</span><span class="p">(</span><span class="n">pRsaKey</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">pRsaKey</span> <span class="n">is</span> <span class="n">an</span> <span class="n">RSA</span> <span class="n">private</span> <span class="n">key</span> <span class="ow">and</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span> <span class="n">is</span> <span class="n">an</span> <span class="n">RSA</span> <span class="n">public</span> <span class="n">key</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">create</span> <span class="n">an</span> <span class="n">RSA</span> <span class="n">key</span> <span class="k">from</span> <span class="n">a</span> <span class="n">PEM</span> <span class="n">file</span> <span class="ow">and</span> <span class="n">check</span> <span class="k">if</span> <span class="n">it</span> <span class="n">is</span> <span class="n">a</span> <span class="n">private</span> <span class="n">key</span> <span class="o">*/</span>
+<span class="k">try</span>
+        <span class="n">rsaKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;key.pem&quot;</span><span class="p">)</span>
+        <span class="n">rsaKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaKeyPEM</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">rsa_is_privatekey</span><span class="p">(</span><span class="n">rsaKey</span><span class="p">)</span>
+                <span class="k">See</span> <span class="s">&quot;an RSA private key was loaded&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">else</span>
+                <span class="k">See</span> <span class="s">&quot;an RSA public key was loaded&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">ok</span>
+<span class="k">catch</span>
+        <span class="k">See</span> <span class="s">&quot;Unexpected error occured: &quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rsa-encrypt-pkcs-function">
+<span id="index-19"></span><h2>rsa_encrypt_pkcs() Function<a class="headerlink" href="#rsa-encrypt-pkcs-function" title="Permalink to this headline">¶</a></h2>
+<p>We can encrypt data with an RSA key and PKCS#1 v1.5 padding using the rsa_encrypt_pkcs() function.
+The maximum size of data that can be encrypted by rsa_encrypt_pkcs is (modulusLen - 11), with modulusLen
+the length of the RSA key modulus in bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the maximum size
+of data that can be encrypted is 256 - 11 = 245 bytes.
+RSA encryption is usually applied to a symmetric key (e.g. AES) which is used to encrypt much larger data.
+RSA encryption needs only the public part of an RSA key, so rsa_encrypt_pkcs can be used with both RSA private
+key and RSA public key</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_encrypt_pkcs</span><span class="p">(</span><span class="n">pRsaKey</span><span class="p">,</span><span class="n">cPlainData</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="k">return</span> <span class="n">a</span> <span class="kt">string</span> <span class="n">containing</span> <span class="n">the</span> <span class="n">encryption</span> <span class="n">of</span> <span class="n">cPlainData</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">encrypt</span> <span class="n">a</span> <span class="n">file</span> <span class="n">using</span> <span class="n">AES</span> <span class="n">key</span> <span class="ow">and</span> <span class="n">then</span> <span class="n">encrypt</span> <span class="n">the</span> <span class="n">AES</span> <span class="n">key</span> <span class="n">using</span> <span class="n">an</span> <span class="n">RSA</span> <span class="n">public</span> <span class="n">key</span> <span class="o">*/</span>
+<span class="k">try</span>
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="n">public</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">rsaPublicKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;alice_public_key.pem&quot;</span><span class="p">)</span>
+        <span class="n">rsaPublicKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaPublicKeyPEM</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">encrypt</span> <span class="n">file</span> <span class="n">with</span> <span class="n">random</span> <span class="n">AES</span><span class="o">-</span><span class="mi">128</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">cData</span> <span class="o">=</span> <span class="n">Read</span> <span class="p">(</span><span class="s">&quot;secret_document.txt&quot;</span><span class="p">)</span>
+        <span class="n">cKey</span> <span class="o">=</span> <span class="n">RandBytes</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+        <span class="n">cIV</span> <span class="o">=</span> <span class="n">RandBytes</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+        <span class="n">cEncryptedData</span> <span class="o">=</span> <span class="n">Encrypt</span><span class="p">(</span><span class="n">cData</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">,</span><span class="s">&quot;aes128&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">encrypt</span> <span class="n">the</span> <span class="n">AES</span><span class="o">-</span><span class="mi">128</span> <span class="n">key</span> <span class="n">with</span> <span class="n">the</span> <span class="n">RSA</span> <span class="n">public</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">cEncryptedKey</span> <span class="o">=</span> <span class="n">rsa_encrypt_pkcs</span><span class="p">(</span><span class="n">rsaPublicKey</span><span class="p">,</span><span class="n">cKey</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">store</span> <span class="n">IV</span><span class="p">,</span> <span class="n">encrypted</span> <span class="n">AES</span> <span class="n">key</span> <span class="ow">and</span> <span class="n">encrypted</span> <span class="n">data</span> <span class="k">in</span> <span class="n">a</span> <span class="n">file</span> <span class="k">to</span> <span class="n">be</span> <span class="n">sent</span> <span class="k">to</span> <span class="n">Alice</span><span class="o">*/</span>
+        <span class="n">Write</span><span class="p">(</span><span class="s">&quot;encrypted_document.enc&quot;</span><span class="p">,</span> <span class="n">cIV</span> <span class="o">+</span> <span class="n">cEncryptedKey</span> <span class="o">+</span> <span class="n">cEncryptedData</span><span class="p">)</span>
+
+<span class="k">catch</span>
+        <span class="k">See</span> <span class="s">&quot;Unexpected error occured: &quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rsa-decrypt-pkcs-function">
+<span id="index-20"></span><h2>rsa_decrypt_pkcs() Function<a class="headerlink" href="#rsa-decrypt-pkcs-function" title="Permalink to this headline">¶</a></h2>
+<p>We can decrypt data encrypted with an RSA key and PKCS#1 v1.5 padding using the rsa_decrypt_pkcs() function.
+The size of data that can be decrypted by rsa_decrypt_pkcs must be equal to modulusLen which is the length
+of the RSA key modulus in bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of encrypted data
+that can be decrypted must be 256 bytes.
+For RSA decryption, the RSA key must contain the private key part.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_decrypt_pkcs</span><span class="p">(</span><span class="n">pRsaKey</span><span class="p">,</span><span class="n">cEncryptedData</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="k">return</span> <span class="n">a</span> <span class="kt">string</span> <span class="n">containing</span> <span class="n">the</span> <span class="n">decryption</span> <span class="n">of</span> <span class="n">cEncryptedData</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">decrypt</span> <span class="n">a</span> <span class="n">file</span> <span class="n">by</span> <span class="n">first</span> <span class="n">decrypting</span> <span class="n">AES</span> <span class="n">key</span> <span class="n">that</span> <span class="n">was</span> <span class="n">used</span> <span class="k">to</span> <span class="n">encrypt</span> <span class="n">it</span>
+ <span class="o">*</span> <span class="ow">and</span> <span class="n">then</span> <span class="n">decrypt</span> <span class="n">the</span> <span class="n">whole</span> <span class="n">content</span> <span class="n">using</span> <span class="n">the</span> <span class="n">AES</span> <span class="n">key</span>
+ <span class="o">*/</span>
+<span class="k">try</span>
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="n">private</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">rsaKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;alice_private_key.pem&quot;</span><span class="p">)</span>
+        <span class="n">rsaKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaKeyPEM</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">calculate</span> <span class="n">the</span> <span class="n">modulus</span> <span class="n">length</span> <span class="o">*/</span>
+        <span class="n">rsaKeyParams</span> <span class="o">=</span> <span class="n">rsa_export_params</span><span class="p">(</span><span class="n">rsaKey</span><span class="p">)</span>
+        <span class="n">modulusLen</span> <span class="o">=</span> <span class="n">rsaKeyParams</span><span class="o">[</span><span class="p">:</span><span class="n">bits</span><span class="o">]/</span> <span class="mi">8</span>
+
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">encrypted</span> <span class="n">file</span> <span class="o">*/</span>
+        <span class="n">cEncryptedContent</span> <span class="o">=</span> <span class="n">Read</span> <span class="p">(</span><span class="s">&quot;encrypted_document.enc&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">IV</span> <span class="n">is</span> <span class="n">the</span> <span class="n">first</span> <span class="mi">16</span> <span class="n">bytes</span> <span class="k">if</span> <span class="n">the</span> <span class="n">file</span> <span class="o">*/</span>
+        <span class="n">cIV</span> <span class="o">=</span> <span class="n">substr</span><span class="p">(</span><span class="n">cEncryptedContent</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">encrypted</span> <span class="n">key</span> <span class="n">follows</span> <span class="n">IV</span> <span class="ow">and</span> <span class="n">its</span> <span class="n">length</span> <span class="n">is</span> <span class="n">modulusLen</span> <span class="o">*/</span>
+        <span class="n">cEncryptedKey</span> <span class="o">=</span> <span class="n">substr</span><span class="p">(</span><span class="n">cEncryptedContent</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="n">modulusLen</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">encrypted</span> <span class="n">data</span> <span class="n">follows</span> <span class="n">the</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">cEncryptedData</span> <span class="o">=</span> <span class="n">substr</span><span class="p">(</span><span class="n">cEncryptedContent</span><span class="p">,</span> <span class="mi">17</span> <span class="o">+</span> <span class="n">modulusLen</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">decrypt</span> <span class="n">the</span> <span class="n">AES</span><span class="o">-</span><span class="mi">128</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">cKey</span> <span class="o">=</span> <span class="n">rsa_decrypt_pkcs</span><span class="p">(</span><span class="n">rsaKey</span><span class="p">,</span><span class="n">cEncryptedKey</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">decrypt</span> <span class="n">the</span> <span class="n">data</span> <span class="n">using</span> <span class="n">the</span> <span class="n">AES</span><span class="o">-</span><span class="mi">128</span> <span class="n">key</span> <span class="o">*/</span>
+
+        <span class="n">cPlainData</span> <span class="o">=</span> <span class="n">Decrypt</span><span class="p">(</span><span class="n">cEncryptedData</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">,</span><span class="s">&quot;aes128&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">store</span> <span class="n">the</span> <span class="n">decrypted</span> <span class="n">data</span> <span class="k">to</span> <span class="n">a</span> <span class="n">file</span> <span class="o">*/</span>
+        <span class="n">Write</span><span class="p">(</span><span class="s">&quot;decrypted_document.txt&quot;</span><span class="p">,</span> <span class="n">cPlainData</span><span class="p">)</span>
+
+<span class="k">catch</span>
+        <span class="k">See</span> <span class="s">&quot;Unexpected error occured: &quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rsa-encrypt-oaep-function">
+<span id="index-21"></span><h2>rsa_encrypt_oaep() Function<a class="headerlink" href="#rsa-encrypt-oaep-function" title="Permalink to this headline">¶</a></h2>
+<p>We can encrypt data with an RSA key and OAEP padding using the rsa_encrypt_oaep() function.
+The maximum size of data that can be encrypted by rsa_encrypt_oaep is (modulusLen - 2*hashLen -2),
+with modulusLen the length of the RSA key modulus in bytes and hashLen and the length of hash algorithm used.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the maximum size
+of data that can be encrypted using OAEP padding with SHA-1 is 256 - 2*20 - 2 = 214 bytes.
+RSA encryption is usually applied to a symmetric key (e.g. AES) which is used to encrypt much larger data.
+RSA encryption needs only the public part of an RSA key, so rsa_encrypt_oaep can be used with both RSA private
+key and RSA public key.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_encrypt_oaep</span><span class="p">(</span><span class="n">pRsaKey</span><span class="p">,</span><span class="n">cPlainData</span><span class="o">[</span><span class="p">,</span><span class="n">nHashAlgorithm</span><span class="o">]</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="k">return</span> <span class="n">a</span> <span class="kt">string</span> <span class="n">containing</span> <span class="n">the</span> <span class="n">OAEP</span> <span class="n">encryption</span> <span class="n">of</span> <span class="n">cPlainData</span>
+        <span class="n">nHashAlgorithm</span> <span class="n">indicates</span> <span class="n">the</span> <span class="n">hash</span> <span class="n">algorithm</span> <span class="k">to</span> <span class="n">use</span> <span class="k">for</span> <span class="n">OAEP</span> <span class="n">padding</span><span class="p">.</span> <span class="k">If</span> <span class="n">omited</span><span class="p">,</span> <span class="n">SHA</span><span class="o">-</span><span class="mi">1</span> <span class="n">is</span> <span class="n">used</span> <span class="n">by</span> <span class="n">default</span><span class="p">.</span>
+        <span class="n">Possible</span> <span class="n">values</span> <span class="k">for</span> <span class="n">nHashAlgorithm</span> <span class="n">argument</span> <span class="n">are</span><span class="p">:</span>
+         <span class="o">-</span> <span class="o">$</span><span class="n">OSSL_HASH_MD5</span> <span class="n">which</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="mi">0</span>
+         <span class="o">-</span> <span class="o">$</span><span class="n">OSSL_HASH_SHA1</span> <span class="n">which</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="mi">1</span>
+         <span class="o">-</span> <span class="o">$</span><span class="n">OSSL_HASH_SHA256</span> <span class="n">which</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="mi">2</span>
+         <span class="o">-</span> <span class="o">$</span><span class="n">OSSL_HASH_SHA384</span> <span class="n">which</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="mi">3</span>
+         <span class="o">-</span> <span class="o">$</span><span class="n">OSSL_HASH_SHA512</span> <span class="n">which</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="mi">4</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">encrypt</span> <span class="n">a</span> <span class="n">file</span> <span class="n">using</span> <span class="n">AES</span> <span class="n">key</span> <span class="ow">and</span> <span class="n">then</span> <span class="n">encrypt</span> <span class="n">the</span> <span class="n">AES</span> <span class="n">key</span> <span class="n">using</span> <span class="n">an</span> <span class="n">RSA</span> <span class="n">public</span> <span class="n">key</span> <span class="n">using</span> <span class="n">OAEP</span> <span class="n">padding</span> <span class="o">*/</span>
+<span class="k">try</span>
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="n">public</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">rsaPublicKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;alice_public_key.pem&quot;</span><span class="p">)</span>
+        <span class="n">rsaPublicKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaPublicKeyPEM</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">encrypt</span> <span class="n">file</span> <span class="n">with</span> <span class="n">random</span> <span class="n">AES</span><span class="o">-</span><span class="mi">128</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">cData</span> <span class="o">=</span> <span class="n">Read</span> <span class="p">(</span><span class="s">&quot;secret_document.txt&quot;</span><span class="p">)</span>
+        <span class="n">cKey</span> <span class="o">=</span> <span class="n">RandBytes</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+        <span class="n">cIV</span> <span class="o">=</span> <span class="n">RandBytes</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+        <span class="n">cEncryptedData</span> <span class="o">=</span> <span class="n">Encrypt</span><span class="p">(</span><span class="n">cData</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">,</span><span class="s">&quot;aes128&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">encrypt</span> <span class="n">the</span> <span class="n">AES</span><span class="o">-</span><span class="mi">128</span> <span class="n">key</span> <span class="n">with</span> <span class="n">the</span> <span class="n">RSA</span> <span class="n">public</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">cEncryptedKey</span> <span class="o">=</span> <span class="n">rsa_encrypt_oaep</span><span class="p">(</span><span class="n">rsaPublicKey</span><span class="p">,</span><span class="n">cKey</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">store</span> <span class="n">IV</span><span class="p">,</span> <span class="n">encrypted</span> <span class="n">AES</span> <span class="n">key</span> <span class="ow">and</span> <span class="n">encrypted</span> <span class="n">data</span> <span class="k">in</span> <span class="n">a</span> <span class="n">file</span> <span class="k">to</span> <span class="n">be</span> <span class="n">sent</span> <span class="k">to</span> <span class="n">Alice</span><span class="o">*/</span>
+        <span class="n">Write</span><span class="p">(</span><span class="s">&quot;oaep_encrypted_document.enc&quot;</span><span class="p">,</span> <span class="n">cIV</span> <span class="o">+</span> <span class="n">cEncryptedKey</span> <span class="o">+</span> <span class="n">cEncryptedData</span><span class="p">)</span>
+
+<span class="k">catch</span>
+        <span class="k">See</span> <span class="s">&quot;Unexpected error occured: &quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rsa-decrypt-oaep-function">
+<span id="index-22"></span><h2>rsa_decrypt_oaep() Function<a class="headerlink" href="#rsa-decrypt-oaep-function" title="Permalink to this headline">¶</a></h2>
+<p>We can decrypt data encrypted with an RSA key and OAEP padding using the rsa_decrypt_oaep() function.
+The size of data that can be decrypted by rsa_decrypt_oaep must be equal to modulusLen which is the length
+of the RSA key modulus in bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of encrypted data
+that can be decrypted must be 256 bytes.
+For RSA decryption, the RSA key must contain the private key part.
+The hash algorithm specified in rsa_decrypt_oaep() call must be the same as the one used during OAEP encryption.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_decrypt_oaep</span><span class="p">(</span><span class="n">pRsaKey</span><span class="p">,</span><span class="n">cEncryptedData</span><span class="o">[</span><span class="p">,</span><span class="n">nHashAlgorithm</span><span class="o">]</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="k">return</span> <span class="n">a</span> <span class="kt">string</span> <span class="n">containing</span> <span class="n">the</span> <span class="n">decryption</span> <span class="n">of</span> <span class="n">cEncryptedData</span>
+        <span class="n">nHashAlgorithm</span> <span class="n">indicates</span> <span class="n">the</span> <span class="n">hash</span> <span class="n">algorithm</span> <span class="k">to</span> <span class="n">use</span> <span class="k">for</span> <span class="n">OAEP</span> <span class="n">padding</span><span class="p">.</span> <span class="k">If</span> <span class="n">omited</span><span class="p">,</span> <span class="n">SHA</span><span class="o">-</span><span class="mi">1</span> <span class="n">is</span> <span class="n">used</span> <span class="n">by</span> <span class="n">default</span><span class="p">.</span>
+        <span class="n">Possible</span> <span class="n">values</span> <span class="k">for</span> <span class="n">nHashAlgorithm</span> <span class="n">argument</span> <span class="n">are</span><span class="p">:</span>
+         <span class="o">-</span> <span class="o">$</span><span class="n">OSSL_HASH_MD5</span> <span class="n">which</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="mi">0</span>
+         <span class="o">-</span> <span class="o">$</span><span class="n">OSSL_HASH_SHA1</span> <span class="n">which</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="mi">1</span>
+         <span class="o">-</span> <span class="o">$</span><span class="n">OSSL_HASH_SHA256</span> <span class="n">which</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="mi">2</span>
+         <span class="o">-</span> <span class="o">$</span><span class="n">OSSL_HASH_SHA384</span> <span class="n">which</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="mi">3</span>
+         <span class="o">-</span> <span class="o">$</span><span class="n">OSSL_HASH_SHA512</span> <span class="n">which</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="mi">4</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">decrypt</span> <span class="n">a</span> <span class="n">file</span> <span class="n">by</span> <span class="n">first</span> <span class="n">decrypting</span> <span class="n">AES</span> <span class="n">key</span> <span class="n">that</span> <span class="n">was</span> <span class="n">used</span> <span class="k">to</span> <span class="n">encrypt</span> <span class="n">it</span>
+ <span class="o">*</span> <span class="ow">and</span> <span class="n">then</span> <span class="n">decrypt</span> <span class="n">the</span> <span class="n">whole</span> <span class="n">content</span> <span class="n">using</span> <span class="n">the</span> <span class="n">AES</span> <span class="n">key</span>
+ <span class="o">*/</span>
+<span class="k">try</span>
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="n">private</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">rsaKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;alice_private_key.pem&quot;</span><span class="p">)</span>
+        <span class="n">rsaKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaKeyPEM</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">calculate</span> <span class="n">the</span> <span class="n">modulus</span> <span class="n">length</span> <span class="o">*/</span>
+        <span class="n">rsaKeyParams</span> <span class="o">=</span> <span class="n">rsa_export_params</span><span class="p">(</span><span class="n">rsaKey</span><span class="p">)</span>
+        <span class="n">modulusLen</span> <span class="o">=</span> <span class="n">rsaKeyParams</span><span class="o">[</span><span class="p">:</span><span class="n">bits</span><span class="o">]/</span> <span class="mi">8</span>
+
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">encrypted</span> <span class="n">file</span> <span class="o">*/</span>
+        <span class="n">cEncryptedContent</span> <span class="o">=</span> <span class="n">Read</span> <span class="p">(</span><span class="s">&quot;oaep_encrypted_document.enc&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">IV</span> <span class="n">is</span> <span class="n">the</span> <span class="n">first</span> <span class="mi">16</span> <span class="n">bytes</span> <span class="k">if</span> <span class="n">the</span> <span class="n">file</span> <span class="o">*/</span>
+        <span class="n">cIV</span> <span class="o">=</span> <span class="n">substr</span><span class="p">(</span><span class="n">cEncryptedContent</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">encrypted</span> <span class="n">key</span> <span class="n">follows</span> <span class="n">IV</span> <span class="ow">and</span> <span class="n">its</span> <span class="n">length</span> <span class="n">is</span> <span class="n">modulusLen</span> <span class="o">*/</span>
+        <span class="n">cEncryptedKey</span> <span class="o">=</span> <span class="n">substr</span><span class="p">(</span><span class="n">cEncryptedContent</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="n">modulusLen</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">encrypted</span> <span class="n">data</span> <span class="n">follows</span> <span class="n">the</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">cEncryptedData</span> <span class="o">=</span> <span class="n">substr</span><span class="p">(</span><span class="n">cEncryptedContent</span><span class="p">,</span> <span class="mi">17</span> <span class="o">+</span> <span class="n">modulusLen</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">decrypt</span> <span class="n">the</span> <span class="n">AES</span><span class="o">-</span><span class="mi">128</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">cKey</span> <span class="o">=</span> <span class="n">rsa_decrypt_oaep</span><span class="p">(</span><span class="n">rsaKey</span><span class="p">,</span><span class="n">cEncryptedKey</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">decrypt</span> <span class="n">the</span> <span class="n">data</span> <span class="n">using</span> <span class="n">the</span> <span class="n">AES</span><span class="o">-</span><span class="mi">128</span> <span class="n">key</span> <span class="o">*/</span>
+
+        <span class="n">cPlainData</span> <span class="o">=</span> <span class="n">Decrypt</span><span class="p">(</span><span class="n">cEncryptedData</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">,</span><span class="s">&quot;aes128&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">store</span> <span class="n">the</span> <span class="n">decrypted</span> <span class="n">data</span> <span class="k">to</span> <span class="n">a</span> <span class="n">file</span> <span class="o">*/</span>
+        <span class="n">Write</span><span class="p">(</span><span class="s">&quot;oaep_decrypted_document.txt&quot;</span><span class="p">,</span> <span class="n">cPlainData</span><span class="p">)</span>
+
+<span class="k">catch</span>
+        <span class="k">See</span> <span class="s">&quot;Unexpected error occured: &quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rsa-encrypt-raw-function">
+<span id="index-23"></span><h2>rsa_encrypt_raw() Function<a class="headerlink" href="#rsa-encrypt-raw-function" title="Permalink to this headline">¶</a></h2>
+<p>We can perform raw RSA encryption on data using the function rsa_encrypt_raw()
+The size of data must be equal to the length of the RSA key modulus in bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of input data
+that can be encrypted using raw RSA is 256 bytes.
+Raw RSA encryption needs only the public part of an RSA key, so rsa_encrypt_raw can be used with both
+RSA private key and RSA public key.
+Raw RSA should only be used to implement secure cryptographic protocols. Encrypting user data directly with
+raw RSA is insecure.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_encrypt_raw</span><span class="p">(</span><span class="n">pRsaKey</span><span class="p">,</span><span class="n">cPlainData</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="k">return</span> <span class="n">a</span> <span class="kt">string</span> <span class="n">containing</span> <span class="n">the</span> <span class="n">raw</span> <span class="n">RSA</span> <span class="n">encryption</span> <span class="n">of</span> <span class="n">cPlainData</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">encrypt</span> <span class="n">a</span> <span class="n">file</span> <span class="n">using</span> <span class="n">AES</span> <span class="n">key</span> <span class="ow">and</span> <span class="n">then</span> <span class="n">encrypt</span> <span class="n">the</span> <span class="n">AES</span> <span class="n">key</span> <span class="n">using</span> <span class="n">an</span> <span class="n">RSA</span> <span class="n">public</span> <span class="n">key</span> <span class="n">using</span> <span class="n">PKCS1</span> <span class="n">padding</span> <span class="o">*/</span>
+<span class="o">/*</span> <span class="n">we</span> <span class="n">manually</span> <span class="n">add</span> <span class="n">PKCS1</span> <span class="n">padding</span> <span class="ow">and</span> <span class="n">then</span> <span class="n">perform</span> <span class="n">raw</span> <span class="n">RSA</span> <span class="n">encryption</span> <span class="o">*/</span>
+<span class="k">try</span>
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="n">public</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">rsaPublicKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;alice_public_key.pem&quot;</span><span class="p">)</span>
+        <span class="n">rsaPublicKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaPublicKeyPEM</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">encrypt</span> <span class="n">file</span> <span class="n">with</span> <span class="n">random</span> <span class="n">AES</span><span class="o">-</span><span class="mi">128</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">cData</span> <span class="o">=</span> <span class="n">Read</span> <span class="p">(</span><span class="s">&quot;secret_document.txt&quot;</span><span class="p">)</span>
+        <span class="n">cKey</span> <span class="o">=</span> <span class="n">RandBytes</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+        <span class="n">cIV</span> <span class="o">=</span> <span class="n">RandBytes</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+        <span class="n">cEncryptedData</span> <span class="o">=</span> <span class="n">Encrypt</span><span class="p">(</span><span class="n">cData</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">,</span><span class="s">&quot;aes128&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">encrypt</span> <span class="n">the</span> <span class="n">AES</span><span class="o">-</span><span class="mi">128</span> <span class="n">key</span> <span class="n">with</span> <span class="n">the</span> <span class="n">RSA</span> <span class="n">public</span> <span class="n">key</span> <span class="o">*/</span>
+
+        <span class="o">/*</span> <span class="n">calculate</span> <span class="n">the</span> <span class="n">modulus</span> <span class="n">length</span> <span class="o">*/</span>
+        <span class="n">rsaKeyParams</span> <span class="o">=</span> <span class="n">rsa_export_params</span><span class="p">(</span><span class="n">rsaPublicKey</span><span class="p">)</span>
+        <span class="n">modulusLen</span> <span class="o">=</span> <span class="n">rsaKeyParams</span><span class="o">[</span><span class="p">:</span><span class="n">bits</span><span class="o">]/</span> <span class="mi">8</span>
+
+        <span class="o">/*</span> <span class="n">we</span> <span class="n">manually</span> <span class="n">add</span> <span class="n">PKCS1</span> <span class="n">padding</span> <span class="o">*/</span>
+        <span class="n">paddingSize</span> <span class="o">=</span> <span class="n">modulusLen</span> <span class="o">-</span> <span class="n">Len</span><span class="p">(</span><span class="n">cKey</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">paddingStr</span> <span class="o">=</span> <span class="n">space</span> <span class="p">(</span><span class="n">paddingSize</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">encryption</span> <span class="k">case</span><span class="p">.</span> <span class="n">Add</span> <span class="n">random</span> <span class="n">bytes</span> <span class="o">*/</span>
+        <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">paddingSize</span>
+                <span class="n">paddingStr</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">Char</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">Random</span><span class="p">(</span><span class="mi">254</span><span class="p">))</span>
+        <span class="k">next</span>
+
+        <span class="n">paddedData</span> <span class="o">=</span> <span class="n">Char</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">Char</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">paddingStr</span> <span class="o">+</span> <span class="n">Char</span> <span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">cKey</span>
+
+        <span class="n">cEncryptedKey</span> <span class="o">=</span> <span class="n">rsa_encrypt_raw</span><span class="p">(</span><span class="n">rsaPublicKey</span><span class="p">,</span><span class="n">paddedData</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">store</span> <span class="n">IV</span><span class="p">,</span> <span class="n">encrypted</span> <span class="n">AES</span> <span class="n">key</span> <span class="ow">and</span> <span class="n">encrypted</span> <span class="n">data</span> <span class="k">in</span> <span class="n">a</span> <span class="n">file</span> <span class="k">to</span> <span class="n">be</span> <span class="n">sent</span> <span class="k">to</span> <span class="n">Alice</span><span class="o">*/</span>
+        <span class="n">Write</span><span class="p">(</span><span class="s">&quot;raw_encrypted_document.enc&quot;</span><span class="p">,</span> <span class="n">cIV</span> <span class="o">+</span> <span class="n">cEncryptedKey</span> <span class="o">+</span> <span class="n">cEncryptedData</span><span class="p">)</span>
+
+<span class="k">catch</span>
+        <span class="k">See</span> <span class="s">&quot;Unexpected error occured: &quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rsa-decrypt-raw-function">
+<span id="index-24"></span><h2>rsa_decrypt_raw() Function<a class="headerlink" href="#rsa-decrypt-raw-function" title="Permalink to this headline">¶</a></h2>
+<p>We can perform raw RSA decryption of data using the rsa_decrypt_pkcs() function.
+The size of data that can be decrypted by rsa_decrypt_raw must be equal to modulusLen which is the length
+of the RSA key modulus in bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of encrypted data
+that can be decrypted must be 256 bytes.
+For raw RSA decryption, the RSA key must contain the private key part.
+The size of the result of raw RSA decryption is equal to the length of RSA modulus in bytes.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_decrypt_raw</span><span class="p">(</span><span class="n">pRsaKey</span><span class="p">,</span><span class="n">cEncryptedData</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="k">return</span> <span class="n">a</span> <span class="kt">string</span> <span class="n">containing</span> <span class="n">the</span> <span class="n">decryption</span> <span class="n">of</span> <span class="n">cEncryptedData</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">decrypt</span> <span class="n">a</span> <span class="n">file</span> <span class="n">by</span> <span class="n">first</span> <span class="n">decrypting</span> <span class="n">AES</span> <span class="n">key</span> <span class="n">that</span> <span class="n">was</span> <span class="n">used</span> <span class="k">to</span> <span class="n">encrypt</span> <span class="n">it</span>
+ <span class="o">*</span> <span class="ow">and</span> <span class="n">then</span> <span class="n">decrypt</span> <span class="n">the</span> <span class="n">whole</span> <span class="n">content</span> <span class="n">using</span> <span class="n">the</span> <span class="n">AES</span> <span class="n">key</span>
+ <span class="o">/*</span> <span class="n">We</span> <span class="n">decrypt</span> <span class="n">AES</span> <span class="n">using</span> <span class="n">rsa_decrypt_raw</span> <span class="ow">and</span> <span class="n">then</span> <span class="n">remove</span> <span class="n">padding</span> <span class="n">manually</span>
+ <span class="o">*/</span>
+<span class="k">try</span>
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="n">private</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">rsaKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;alice_private_key.pem&quot;</span><span class="p">)</span>
+        <span class="n">rsaKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaKeyPEM</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">calculate</span> <span class="n">the</span> <span class="n">modulus</span> <span class="n">length</span> <span class="o">*/</span>
+        <span class="n">rsaKeyParams</span> <span class="o">=</span> <span class="n">rsa_export_params</span><span class="p">(</span><span class="n">rsaKey</span><span class="p">)</span>
+        <span class="n">modulusLen</span> <span class="o">=</span> <span class="n">rsaKeyParams</span><span class="o">[</span><span class="p">:</span><span class="n">bits</span><span class="o">]/</span> <span class="mi">8</span>
+
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">encrypted</span> <span class="n">file</span> <span class="o">*/</span>
+        <span class="n">cEncryptedContent</span> <span class="o">=</span> <span class="n">Read</span> <span class="p">(</span><span class="s">&quot;encrypted_document.enc&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">IV</span> <span class="n">is</span> <span class="n">the</span> <span class="n">first</span> <span class="mi">16</span> <span class="n">bytes</span> <span class="k">if</span> <span class="n">the</span> <span class="n">file</span> <span class="o">*/</span>
+        <span class="n">cIV</span> <span class="o">=</span> <span class="n">substr</span><span class="p">(</span><span class="n">cEncryptedContent</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">encrypted</span> <span class="n">key</span> <span class="n">follows</span> <span class="n">IV</span> <span class="ow">and</span> <span class="n">its</span> <span class="n">length</span> <span class="n">is</span> <span class="n">modulusLen</span> <span class="o">*/</span>
+        <span class="n">cEncryptedKey</span> <span class="o">=</span> <span class="n">substr</span><span class="p">(</span><span class="n">cEncryptedContent</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="n">modulusLen</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">encrypted</span> <span class="n">data</span> <span class="n">follows</span> <span class="n">the</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">cEncryptedData</span> <span class="o">=</span> <span class="n">substr</span><span class="p">(</span><span class="n">cEncryptedContent</span><span class="p">,</span> <span class="mi">17</span> <span class="o">+</span> <span class="n">modulusLen</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">decrypt</span> <span class="n">the</span> <span class="n">AES</span><span class="o">-</span><span class="mi">128</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">cPaddedKey</span> <span class="o">=</span> <span class="n">rsa_decrypt_raw</span><span class="p">(</span><span class="n">rsaKey</span><span class="p">,</span><span class="n">cEncryptedKey</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">remove</span> <span class="n">PKCS1</span> <span class="n">padding</span> <span class="o">*/</span>
+        <span class="n">paddedInputLength</span> <span class="o">=</span> <span class="n">len</span><span class="p">(</span><span class="n">cPaddedKey</span><span class="p">)</span>
+        <span class="n">cKey</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">paddedInputLength</span> <span class="o">&gt;</span> <span class="mi">11</span> <span class="ow">AND</span> <span class="n">Ascii</span><span class="p">(</span><span class="n">cPaddedKey</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span> <span class="ow">AND</span> <span class="n">Ascii</span><span class="p">(</span><span class="n">cPaddedKey</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span>
+                <span class="n">zeroFound</span> <span class="o">=</span> <span class="kp">false</span>
+                <span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">3</span> <span class="k">to</span> <span class="n">paddedInputLength</span>
+                        <span class="k">if</span> <span class="n">Ascii</span><span class="p">(</span><span class="n">cPaddedKey</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+                                <span class="n">i</span> <span class="o">=</span> <span class="n">j</span>
+                                <span class="n">zeroFound</span> <span class="o">=</span> <span class="kp">true</span>
+                                <span class="k">exit</span>
+                        <span class="k">ok</span>
+                <span class="k">next</span>
+
+                <span class="k">if</span> <span class="n">zeroFound</span>
+                        <span class="k">if</span> <span class="n">i</span> <span class="o">=</span> <span class="n">paddedInputLength</span>
+                                <span class="o">/*</span> <span class="n">unpadded</span> <span class="n">data</span> <span class="n">is</span> <span class="n">empty</span> <span class="o">*/</span>
+                                <span class="n">Raise</span><span class="p">(</span><span class="s">&quot;Empty data recovered from padding&quot;</span><span class="p">)</span>
+                        <span class="k">else</span>
+                                <span class="n">cKey</span> <span class="o">=</span> <span class="n">substr</span><span class="p">(</span><span class="n">cPaddedKey</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+                        <span class="k">ok</span>
+                <span class="k">else</span>
+                        <span class="n">Raise</span> <span class="p">(</span><span class="s">&quot;Invalid data padding&quot;</span><span class="p">)</span>
+                <span class="k">ok</span>
+        <span class="k">else</span>
+                <span class="n">Raise</span><span class="p">(</span><span class="s">&quot;the decrypted data is invalid&quot;</span><span class="p">)</span>
+        <span class="k">ok</span>
+
+        <span class="o">/*</span> <span class="n">decrypt</span> <span class="n">the</span> <span class="n">data</span> <span class="n">using</span> <span class="n">the</span> <span class="n">AES</span><span class="o">-</span><span class="mi">128</span> <span class="n">key</span> <span class="o">*/</span>
+
+        <span class="n">cPlainData</span> <span class="o">=</span> <span class="n">Decrypt</span><span class="p">(</span><span class="n">cEncryptedData</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">,</span><span class="s">&quot;aes128&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">store</span> <span class="n">the</span> <span class="n">decrypted</span> <span class="n">data</span> <span class="k">to</span> <span class="n">a</span> <span class="n">file</span> <span class="o">*/</span>
+        <span class="n">Write</span><span class="p">(</span><span class="s">&quot;decrypted_document.txt&quot;</span><span class="p">,</span> <span class="n">cPlainData</span><span class="p">)</span>
+
+<span class="k">catch</span>
+        <span class="k">See</span> <span class="s">&quot;Unexpected error occured: &quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rsa-sign-pkcs-function">
+<span id="index-25"></span><h2>rsa_sign_pkcs() Function<a class="headerlink" href="#rsa-sign-pkcs-function" title="Permalink to this headline">¶</a></h2>
+<p>We can sign data with RSA PKCS#1 v1.5 padding using the function rsa_sign_pkcs()
+The maximum size of data that can be signed by rsa_sign_pkcs is (modulusLen - 11), with modulusLen
+the length of the RSA key modulus in bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the maximum size
+of data that can be signed is 256 - 11 = 245 bytes.
+For RSA PKCS signature, the RSA key must contain the private key part.
+The size of the result of RSA PKCS signature is equal to the length of RSA modulus in bytes.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_sign_pkcs</span><span class="p">(</span><span class="n">pRsaKey</span><span class="p">,</span><span class="n">cData</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="k">return</span> <span class="n">a</span> <span class="kt">string</span> <span class="n">containing</span> <span class="n">RSA</span> <span class="n">PKCS</span> <span class="n">signature</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">sign</span> <span class="n">a</span> <span class="n">document</span> <span class="n">using</span>  <span class="n">RSA</span><span class="o">-</span><span class="n">PKCS</span> <span class="n">with</span> <span class="n">SHA256</span><span class="p">.</span>
+ <span class="o">*</span> <span class="n">digest</span> <span class="n">OID</span> <span class="n">added</span> <span class="n">manually</span>
+ <span class="o">*/</span>
+<span class="k">try</span>
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="n">private</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">rsaKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;alice_private_key.pem&quot;</span><span class="p">)</span>
+        <span class="n">rsaKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaKeyPEM</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">file</span> <span class="n">content</span> <span class="o">*/</span>
+        <span class="n">cFileContent</span> <span class="o">=</span> <span class="n">Read</span> <span class="p">(</span><span class="s">&quot;document.txt&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">hash</span> <span class="n">content</span> <span class="o">*/</span>
+        <span class="n">digest</span> <span class="o">=</span> <span class="n">SHA256</span><span class="p">(</span><span class="n">cFileContent</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">digest</span> <span class="n">OID</span> <span class="n">of</span> <span class="n">SHA256</span> <span class="o">*/</span>
+        <span class="n">digestOID</span> <span class="o">=</span> <span class="n">hex2str</span><span class="p">(</span><span class="s">&quot;3031300d060960864801650304020105000420&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">perform</span> <span class="n">PKCS</span> <span class="n">signing</span> <span class="o">*/</span>
+        <span class="n">dataToSign</span> <span class="o">=</span> <span class="n">digestOID</span> <span class="o">+</span> <span class="n">digest</span>
+        <span class="n">cSignature</span> <span class="o">=</span> <span class="n">rsa_sign_pkcs</span><span class="p">(</span><span class="n">rsaKey</span><span class="p">,</span><span class="n">dataToSign</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">store</span> <span class="n">the</span> <span class="n">signature</span> <span class="o">*/</span>
+        <span class="n">Write</span><span class="p">(</span><span class="s">&quot;document.txt.pkcs1.sig&quot;</span><span class="p">,</span> <span class="n">cSignature</span><span class="p">)</span>
+
+<span class="k">catch</span>
+        <span class="k">See</span> <span class="s">&quot;Unexpected error occured: &quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rsa-signhash-pkcs-function">
+<span id="index-26"></span><h2>rsa_signhash_pkcs() Function<a class="headerlink" href="#rsa-signhash-pkcs-function" title="Permalink to this headline">¶</a></h2>
+<p>We can sign a hash value with RSA PKCS#1 v1.5 padding using the function rsa_signhash_pkcs()
+This function infers the hash algorithm from hash value size and it automatically adds OID of hash
+algorithm before applying the PKCS#1 v1.5 padding.
+For RSA PKCS signature, the RSA key must contain the private key part.
+The size of the result of RSA PKCS signature is equal to the length of RSA modulus in bytes.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_signhash_pkcs</span><span class="p">(</span><span class="n">pRsaKey</span><span class="p">,</span><span class="n">cHashValue</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="k">return</span> <span class="n">a</span> <span class="kt">string</span> <span class="n">containing</span> <span class="n">RSA</span> <span class="n">PKCS</span> <span class="n">signature</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">sign</span> <span class="n">a</span> <span class="n">document</span> <span class="n">using</span>  <span class="n">RSA</span><span class="o">-</span><span class="n">PKCS</span> <span class="n">with</span> <span class="n">SHA256</span><span class="p">.</span>
+ <span class="o">*/</span>
+<span class="k">try</span>
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="n">private</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">rsaKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;alice_private_key.pem&quot;</span><span class="p">)</span>
+        <span class="n">rsaKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaKeyPEM</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">file</span> <span class="n">content</span> <span class="o">*/</span>
+        <span class="n">cFileContent</span> <span class="o">=</span> <span class="n">Read</span> <span class="p">(</span><span class="s">&quot;document.txt&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">hash</span> <span class="n">content</span> <span class="o">*/</span>
+        <span class="n">digest</span> <span class="o">=</span> <span class="n">SHA256</span><span class="p">(</span><span class="n">cFileContent</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">perform</span> <span class="n">PKCS</span> <span class="n">signing</span> <span class="o">*/</span>
+        <span class="n">cSignature</span> <span class="o">=</span> <span class="n">rsa_signhash_pkcs</span><span class="p">(</span><span class="n">rsaKey</span><span class="p">,</span><span class="n">digest</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">store</span> <span class="n">the</span> <span class="n">signature</span> <span class="o">*/</span>
+        <span class="n">Write</span><span class="p">(</span><span class="s">&quot;document.txt.pkcs1.sig&quot;</span><span class="p">,</span> <span class="n">cSignature</span><span class="p">)</span>
+
+<span class="k">catch</span>
+        <span class="k">See</span> <span class="s">&quot;Unexpected error occured: &quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rsa-verify-pkcs-function">
+<span id="index-27"></span><h2>rsa_verify_pkcs() Function<a class="headerlink" href="#rsa-verify-pkcs-function" title="Permalink to this headline">¶</a></h2>
+<p>We can verify an RSA-PKCS signature of data using the function rsa_verify_pkcs()
+The size of signature must be equal to the length of the RSA key modulus in bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of input signature
+that can be verified using RSA-PKCS is 256 bytes.
+RSA-PKCS verification needs only the public part of an RSA key, so rsa_verify_pkcs can be used with both
+RSA private key and RSA public key.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_verify_pkcs</span><span class="p">(</span><span class="n">pRsaKey</span><span class="p">,</span><span class="n">cData</span><span class="p">,</span><span class="n">cSignature</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">signature</span> <span class="n">is</span> <span class="n">valid</span> <span class="ow">and</span> <span class="mi">0</span> <span class="n">otherwise</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">verify</span> <span class="n">a</span> <span class="n">document</span> <span class="n">signature</span> <span class="n">using</span> <span class="n">RSA</span><span class="o">-</span><span class="n">PKCS</span> <span class="n">with</span> <span class="n">SHA256</span>
+ <span class="o">*</span> <span class="n">digest</span> <span class="n">OID</span> <span class="n">is</span> <span class="n">added</span> <span class="n">manually</span>
+ <span class="o">*/</span>
+<span class="k">try</span>
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="n">public</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">rsaPublicKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;alice_public_key.pem&quot;</span><span class="p">)</span>
+        <span class="n">rsaPublicKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaPublicKeyPEM</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">file</span> <span class="n">content</span> <span class="o">*/</span>
+        <span class="n">cFileContent</span> <span class="o">=</span> <span class="n">Read</span> <span class="p">(</span><span class="s">&quot;document.txt&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">hash</span> <span class="n">content</span> <span class="o">*/</span>
+        <span class="n">digest</span> <span class="o">=</span> <span class="n">SHA256</span><span class="p">(</span><span class="n">cFileContent</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">digest</span> <span class="n">OID</span> <span class="n">of</span> <span class="n">SHA256</span> <span class="o">*/</span>
+        <span class="n">digestOID</span> <span class="o">=</span> <span class="n">hex2str</span><span class="p">(</span><span class="s">&quot;3031300d060960864801650304020105000420&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">file</span> <span class="n">signature</span> <span class="o">*/</span>
+        <span class="n">cSignature</span> <span class="o">=</span> <span class="n">Read</span> <span class="p">(</span><span class="s">&quot;document.txt.pkcs1.sig&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">perform</span> <span class="n">PKCS</span> <span class="n">verification</span> <span class="o">*/</span>
+        <span class="n">dataToVerify</span> <span class="o">=</span> <span class="n">digestOID</span> <span class="o">+</span> <span class="n">digest</span>
+        <span class="k">if</span> <span class="n">rsa_verify_pkcs</span><span class="p">(</span><span class="n">rsaPublicKey</span><span class="p">,</span><span class="n">dataToVerify</span><span class="p">,</span><span class="n">cSignature</span><span class="p">)</span>
+                <span class="k">See</span> <span class="s">&quot;file signature is valid&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">else</span>
+                <span class="k">See</span> <span class="s">&quot;file signature is INVALID&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">ok</span>
+
+<span class="k">catch</span>
+        <span class="k">See</span> <span class="s">&quot;Unexpected error occured: &quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rsa-verifyhash-pkcs-function">
+<span id="index-28"></span><h2>rsa_verifyhash_pkcs() Function<a class="headerlink" href="#rsa-verifyhash-pkcs-function" title="Permalink to this headline">¶</a></h2>
+<p>We can verify the RSA-PKCS signature of a hash value using the function rsa_verifyhash_pkcs()
+This function infers the hash algorithm from hash value size and it automatically uses the OID of hash
+algorithm during verification.
+The size of signature must be equal to the length of the RSA key modulus in bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of input signature
+that can be verified using RSA-PKCS is 256 bytes.
+RSA-PKCS verification needs only the public part of an RSA key, so rsa_verifyhash_pkcs can be used with both
+RSA private key and RSA public key.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_verifyhash_pkcs</span><span class="p">(</span><span class="n">pRsaKey</span><span class="p">,</span><span class="n">cHashValue</span><span class="p">,</span><span class="n">cSignature</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">signature</span> <span class="n">is</span> <span class="n">valid</span> <span class="ow">and</span> <span class="mi">0</span> <span class="n">otherwise</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">verify</span> <span class="n">a</span> <span class="n">document</span> <span class="n">signature</span> <span class="n">using</span> <span class="n">RSA</span><span class="o">-</span><span class="n">PKCS</span> <span class="n">with</span> <span class="n">SHA256</span>
+ <span class="o">*/</span>
+<span class="k">try</span>
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="n">public</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">rsaPublicKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;alice_public_key.pem&quot;</span><span class="p">)</span>
+        <span class="n">rsaPublicKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaPublicKeyPEM</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">file</span> <span class="n">content</span> <span class="o">*/</span>
+        <span class="n">cFileContent</span> <span class="o">=</span> <span class="n">Read</span> <span class="p">(</span><span class="s">&quot;document.txt&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">hash</span> <span class="n">content</span> <span class="o">*/</span>
+        <span class="n">digest</span> <span class="o">=</span> <span class="n">SHA256</span><span class="p">(</span><span class="n">cFileContent</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">file</span> <span class="n">signature</span> <span class="o">*/</span>
+        <span class="n">cSignature</span> <span class="o">=</span> <span class="n">Read</span> <span class="p">(</span><span class="s">&quot;document.txt.pkcs1.sig&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">perform</span> <span class="n">PKCS</span> <span class="n">verification</span> <span class="o">*/</span>
+        <span class="k">if</span> <span class="n">rsa_verifyhash_pkcs</span><span class="p">(</span><span class="n">rsaPublicKey</span><span class="p">,</span><span class="n">digest</span><span class="p">,</span><span class="n">cSignature</span><span class="p">)</span>
+                <span class="k">See</span> <span class="s">&quot;file signature is valid&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">else</span>
+                <span class="k">See</span> <span class="s">&quot;file signature is INVALID&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">ok</span>
+
+<span class="k">catch</span>
+        <span class="k">See</span> <span class="s">&quot;Unexpected error occured: &quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rsa-sign-pss-function">
+<span id="index-29"></span><h2>rsa_sign_pss() Function<a class="headerlink" href="#rsa-sign-pss-function" title="Permalink to this headline">¶</a></h2>
+<p>We can sign data with RSA PSS using the function rsa_sign_pss()
+The input data will be first hashed using the specified hash algorithm then RSA PSS signing will
+be applied to the computed hash value.
+For RSA PSS signature, the RSA key must contain the private key part.
+The size of the result of RSA PSS signature is equal to the length of RSA modulus in bytes.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_sign_pss</span><span class="p">(</span><span class="n">pRsaKey</span><span class="p">,</span><span class="n">cData</span><span class="p">,</span><span class="n">nHashAlgorithm</span><span class="o">[</span><span class="p">,</span><span class="n">nSaltLength</span><span class="o">]</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="k">return</span> <span class="n">a</span> <span class="kt">string</span> <span class="n">containing</span> <span class="n">RSA</span> <span class="n">PSS</span> <span class="n">signature</span>
+        <span class="n">nHashAlgorithm</span> <span class="n">indicates</span> <span class="n">the</span> <span class="n">hash</span> <span class="n">algorithm</span> <span class="k">to</span> <span class="n">use</span> <span class="k">for</span> <span class="n">hashing</span> <span class="ow">and</span> <span class="n">PSS</span> <span class="n">padding</span><span class="p">.</span>
+        <span class="n">nSaltLength</span> <span class="n">indicates</span> <span class="n">the</span> <span class="n">length</span> <span class="n">of</span> <span class="n">PSS</span> <span class="n">salt</span> <span class="k">to</span> <span class="n">use</span><span class="p">.</span> <span class="k">If</span> <span class="n">ommited</span><span class="p">,</span> <span class="n">then</span> <span class="n">maximum</span> <span class="n">salt</span> <span class="n">length</span> <span class="n">is</span> <span class="n">used</span><span class="p">.</span>
+        <span class="n">nSaltLength</span> <span class="n">can</span> <span class="n">have</span> <span class="n">the</span> <span class="n">special</span> <span class="n">values</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="o">-</span><span class="mi">2</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span> <span class="n">indicates</span> <span class="n">that</span> <span class="n">salt</span> <span class="n">length</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="n">hash</span> <span class="n">size</span>
+        <span class="ow">and</span> <span class="o">-</span><span class="mi">2</span> <span class="n">indicates</span> <span class="n">that</span> <span class="n">maximum</span> <span class="n">salt</span> <span class="n">length</span> <span class="n">is</span> <span class="n">used</span><span class="p">.</span>
+        <span class="n">Possible</span> <span class="n">values</span> <span class="k">for</span> <span class="n">nHashAlgorithm</span> <span class="n">argument</span> <span class="n">are</span><span class="p">:</span>
+         <span class="o">-</span> <span class="o">$</span><span class="n">OSSL_HASH_MD5</span> <span class="n">which</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="mi">0</span>
+         <span class="o">-</span> <span class="o">$</span><span class="n">OSSL_HASH_SHA1</span> <span class="n">which</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="mi">1</span>
+         <span class="o">-</span> <span class="o">$</span><span class="n">OSSL_HASH_SHA256</span> <span class="n">which</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="mi">2</span>
+         <span class="o">-</span> <span class="o">$</span><span class="n">OSSL_HASH_SHA384</span> <span class="n">which</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="mi">3</span>
+         <span class="o">-</span> <span class="o">$</span><span class="n">OSSL_HASH_SHA512</span> <span class="n">which</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="mi">4</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">sign</span> <span class="n">a</span> <span class="n">document</span> <span class="n">using</span>  <span class="n">RSA</span><span class="o">-</span><span class="n">PSS</span> <span class="n">with</span> <span class="n">SHA256</span> <span class="ow">and</span> <span class="n">maximal</span> <span class="n">salt</span> <span class="n">length</span>
+ <span class="o">*/</span>
+<span class="k">try</span>
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="n">private</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">rsaKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;alice_private_key.pem&quot;</span><span class="p">)</span>
+        <span class="n">rsaKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaKeyPEM</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">file</span> <span class="n">content</span> <span class="o">*/</span>
+        <span class="n">cFileContent</span> <span class="o">=</span> <span class="n">Read</span> <span class="p">(</span><span class="s">&quot;document.txt&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">perform</span> <span class="n">PSS</span> <span class="n">signing</span> <span class="o">*/</span>
+        <span class="n">cSignature</span> <span class="o">=</span> <span class="n">rsa_sign_pss</span><span class="p">(</span><span class="n">rsaKey</span><span class="p">,</span><span class="n">cFileContent</span><span class="p">,</span><span class="o">$</span><span class="n">OSSL_HASH_SHA256</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">store</span> <span class="n">the</span> <span class="n">signature</span> <span class="o">*/</span>
+        <span class="n">Write</span><span class="p">(</span><span class="s">&quot;document.txt.sig&quot;</span><span class="p">,</span> <span class="n">cSignature</span><span class="p">)</span>
+
+<span class="k">catch</span>
+        <span class="k">See</span> <span class="s">&quot;Unexpected error occured: &quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rsa-signhash-pss-function">
+<span id="index-30"></span><h2>rsa_signhash_pss() Function<a class="headerlink" href="#rsa-signhash-pss-function" title="Permalink to this headline">¶</a></h2>
+<p>We can sign a hash value with RSA PSS using the function rsa_signhash_pss()
+This function infers the hash algorithm from hash value size.
+For RSA PSS signature, the RSA key must contain the private key part.
+The size of the result of RSA PSS signature is equal to the length of RSA modulus in bytes.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_signhash_pss</span><span class="p">(</span><span class="n">pRsaKey</span><span class="p">,</span><span class="n">cHashValue</span><span class="o">[</span><span class="p">,</span><span class="n">nSaltLength</span><span class="o">]</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="k">return</span> <span class="n">a</span> <span class="kt">string</span> <span class="n">containing</span> <span class="n">RSA</span> <span class="n">PSS</span> <span class="n">signature</span>
+        <span class="n">nSaltLength</span> <span class="n">indicates</span> <span class="n">the</span> <span class="n">length</span> <span class="n">of</span> <span class="n">PSS</span> <span class="n">salt</span> <span class="k">to</span> <span class="n">use</span><span class="p">.</span> <span class="k">If</span> <span class="n">ommited</span><span class="p">,</span> <span class="n">then</span> <span class="n">maximum</span> <span class="n">salt</span> <span class="n">length</span> <span class="n">is</span> <span class="n">used</span><span class="p">.</span>
+        <span class="n">nSaltLength</span> <span class="n">can</span> <span class="n">have</span> <span class="n">the</span> <span class="n">special</span> <span class="n">values</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="o">-</span><span class="mi">2</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span> <span class="n">indicates</span> <span class="n">that</span> <span class="n">salt</span> <span class="n">length</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="n">hash</span> <span class="n">size</span>
+        <span class="ow">and</span> <span class="o">-</span><span class="mi">2</span> <span class="n">indicates</span> <span class="n">that</span> <span class="n">maximum</span> <span class="n">salt</span> <span class="n">length</span> <span class="n">is</span> <span class="n">used</span><span class="p">.</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">sign</span> <span class="n">a</span> <span class="n">document</span> <span class="n">using</span>  <span class="n">RSA</span><span class="o">-</span><span class="n">PSS</span> <span class="n">with</span> <span class="n">SHA256</span> <span class="ow">and</span> <span class="n">maximal</span> <span class="n">salt</span> <span class="n">length</span>
+ <span class="o">*/</span>
+<span class="k">try</span>
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="n">private</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">rsaKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;alice_private_key.pem&quot;</span><span class="p">)</span>
+        <span class="n">rsaKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaKeyPEM</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">hash</span> <span class="n">file</span> <span class="n">content</span> <span class="o">*/</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="n">SHA256Init</span><span class="p">()</span>
+        <span class="n">cFileContent</span> <span class="o">=</span> <span class="n">Read</span> <span class="p">(</span><span class="s">&quot;document.txt&quot;</span><span class="p">)</span>
+        <span class="n">SHA256Update</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">cFileContent</span><span class="p">)</span>
+        <span class="n">digest</span> <span class="o">=</span> <span class="n">SHA256Final</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">perform</span> <span class="n">PSS</span> <span class="n">signing</span> <span class="o">*/</span>
+        <span class="n">cSignature</span> <span class="o">=</span> <span class="n">rsa_signhash_pss</span><span class="p">(</span><span class="n">rsaKey</span><span class="p">,</span><span class="n">digest</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">store</span> <span class="n">the</span> <span class="n">signature</span> <span class="o">*/</span>
+        <span class="n">Write</span><span class="p">(</span><span class="s">&quot;document.txt.sig&quot;</span><span class="p">,</span> <span class="n">cSignature</span><span class="p">)</span>
+
+<span class="k">catch</span>
+        <span class="k">See</span> <span class="s">&quot;Unexpected error occured: &quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rsa-verify-pss-function">
+<span id="index-31"></span><h2>rsa_verify_pss() Function<a class="headerlink" href="#rsa-verify-pss-function" title="Permalink to this headline">¶</a></h2>
+<p>We can verify the RSA-PSS signature of data using the function rsa_verify_pss()
+The input data will be first hashed using the specified hash algorithm then RSA PSS verification will
+be applied to the computed hash value and the given signature to check if they match or not.
+The size of signature must be equal to the length of the RSA key modulus in bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of input signature
+that can be verified using RSA-PSS is 256 bytes.
+RSA-PSS verification needs only the public part of an RSA key, so rsa_verify_pss can be used with both
+RSA private key and RSA public key.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_verify_pss</span><span class="p">(</span><span class="n">pRsaKey</span><span class="p">,</span><span class="n">cData</span><span class="p">,</span><span class="n">cSignature</span><span class="p">,</span><span class="n">nHashAlgorithm</span><span class="o">[</span><span class="p">,</span><span class="n">nSaltLength</span><span class="o">]</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">signature</span> <span class="n">is</span> <span class="n">valid</span> <span class="ow">and</span> <span class="mi">0</span> <span class="n">otherwise</span>
+        <span class="n">nHashAlgorithm</span> <span class="n">indicates</span> <span class="n">the</span> <span class="n">hash</span> <span class="n">algorithm</span> <span class="k">to</span> <span class="n">use</span> <span class="k">for</span> <span class="n">hashing</span> <span class="ow">and</span> <span class="n">PSS</span> <span class="n">padding</span><span class="p">.</span>
+        <span class="n">nSaltLength</span> <span class="n">indicates</span> <span class="n">the</span> <span class="n">length</span> <span class="n">of</span> <span class="n">PSS</span> <span class="n">salt</span> <span class="k">to</span> <span class="n">use</span><span class="p">.</span> <span class="k">If</span> <span class="n">ommited</span><span class="p">,</span> <span class="n">then</span> <span class="n">maximum</span> <span class="n">salt</span> <span class="n">length</span> <span class="n">is</span> <span class="n">used</span><span class="p">.</span>
+        <span class="n">nSaltLength</span> <span class="n">can</span> <span class="n">have</span> <span class="n">the</span> <span class="n">special</span> <span class="n">values</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="o">-</span><span class="mi">2</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span> <span class="n">indicates</span> <span class="n">that</span> <span class="n">salt</span> <span class="n">length</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="n">hash</span> <span class="n">size</span>
+        <span class="ow">and</span> <span class="o">-</span><span class="mi">2</span> <span class="n">indicates</span> <span class="n">that</span> <span class="n">maximum</span> <span class="n">salt</span> <span class="n">length</span> <span class="n">is</span> <span class="n">used</span><span class="p">.</span>
+        <span class="n">Possible</span> <span class="n">values</span> <span class="k">for</span> <span class="n">nHashAlgorithm</span> <span class="n">argument</span> <span class="n">are</span><span class="p">:</span>
+         <span class="o">-</span> <span class="o">$</span><span class="n">OSSL_HASH_MD5</span> <span class="n">which</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="mi">0</span>
+         <span class="o">-</span> <span class="o">$</span><span class="n">OSSL_HASH_SHA1</span> <span class="n">which</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="mi">1</span>
+         <span class="o">-</span> <span class="o">$</span><span class="n">OSSL_HASH_SHA256</span> <span class="n">which</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="mi">2</span>
+         <span class="o">-</span> <span class="o">$</span><span class="n">OSSL_HASH_SHA384</span> <span class="n">which</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="mi">3</span>
+         <span class="o">-</span> <span class="o">$</span><span class="n">OSSL_HASH_SHA512</span> <span class="n">which</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="mi">4</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">verify</span> <span class="n">a</span> <span class="n">document</span> <span class="n">signature</span> <span class="n">using</span> <span class="n">RSA</span><span class="o">-</span><span class="n">PSS</span> <span class="n">with</span> <span class="n">SHA256</span> <span class="ow">and</span> <span class="n">maximal</span> <span class="n">salt</span> <span class="n">length</span>
+ <span class="o">*/</span>
+<span class="k">try</span>
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="n">public</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">rsaPublicKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;alice_public_key.pem&quot;</span><span class="p">)</span>
+        <span class="n">rsaPublicKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaPublicKeyPEM</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">file</span> <span class="n">content</span> <span class="o">*/</span>
+        <span class="n">cFileContent</span> <span class="o">=</span> <span class="n">Read</span> <span class="p">(</span><span class="s">&quot;document.txt&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">file</span> <span class="n">signature</span> <span class="o">*/</span>
+        <span class="n">cSignature</span> <span class="o">=</span> <span class="n">Read</span> <span class="p">(</span><span class="s">&quot;document.txt.sig&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">perform</span> <span class="n">PSS</span> <span class="n">verification</span> <span class="o">*/</span>
+        <span class="k">if</span> <span class="n">rsa_verify_pss</span><span class="p">(</span><span class="n">rsaPublicKey</span><span class="p">,</span><span class="n">cFileContent</span><span class="p">,</span><span class="n">cSignature</span><span class="p">,</span><span class="o">$</span><span class="n">OSSL_HASH_SHA256</span><span class="p">)</span>
+                <span class="k">See</span> <span class="s">&quot;file signature is valid&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">else</span>
+                <span class="k">See</span> <span class="s">&quot;file signature is INVALID&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">ok</span>
+
+        <span class="o">/*</span> <span class="n">store</span> <span class="n">the</span> <span class="n">signature</span> <span class="o">*/</span>
+        <span class="n">Write</span><span class="p">(</span><span class="s">&quot;document.txt.sig&quot;</span><span class="p">,</span> <span class="n">cSignature</span><span class="p">)</span>
+
+<span class="k">catch</span>
+        <span class="k">See</span> <span class="s">&quot;Unexpected error occured: &quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rsa-verifyhash-pss-function">
+<span id="index-32"></span><h2>rsa_verifyhash_pss() Function<a class="headerlink" href="#rsa-verifyhash-pss-function" title="Permalink to this headline">¶</a></h2>
+<p>We can verify the RSA-PSS signature of a hash value using the function rsa_verifyhash_pss()
+This function infers the hash algorithm from hash value size.
+The size of signature must be equal to the length of the RSA key modulus in bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of input signature
+that can be verified using RSA-PSS is 256 bytes.
+RSA-PSS verification needs only the public part of an RSA key, so rsa_verifyhash_pss can be used with both
+RSA private key and RSA public key.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_verifyhash_pss</span><span class="p">(</span><span class="n">pRsaKey</span><span class="p">,</span><span class="n">cHashValue</span><span class="p">,</span><span class="n">cSignature</span><span class="o">[</span><span class="p">,</span><span class="n">nSaltLength</span><span class="o">]</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">signature</span> <span class="n">is</span> <span class="n">valid</span> <span class="ow">and</span> <span class="mi">0</span> <span class="n">otherwise</span>
+        <span class="n">nSaltLength</span> <span class="n">indicates</span> <span class="n">the</span> <span class="n">length</span> <span class="n">of</span> <span class="n">PSS</span> <span class="n">salt</span> <span class="k">to</span> <span class="n">use</span><span class="p">.</span> <span class="k">If</span> <span class="n">ommited</span><span class="p">,</span> <span class="n">then</span> <span class="n">maximum</span> <span class="n">salt</span> <span class="n">length</span> <span class="n">is</span> <span class="n">used</span><span class="p">.</span>
+        <span class="n">nSaltLength</span> <span class="n">can</span> <span class="n">have</span> <span class="n">the</span> <span class="n">special</span> <span class="n">values</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="o">-</span><span class="mi">2</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span> <span class="n">indicates</span> <span class="n">that</span> <span class="n">salt</span> <span class="n">length</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="n">hash</span> <span class="n">size</span>
+        <span class="ow">and</span> <span class="o">-</span><span class="mi">2</span> <span class="n">indicates</span> <span class="n">that</span> <span class="n">maximum</span> <span class="n">salt</span> <span class="n">length</span> <span class="n">is</span> <span class="n">used</span><span class="p">.</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">verify</span> <span class="n">a</span> <span class="n">document</span> <span class="n">signature</span> <span class="n">using</span> <span class="n">RSA</span><span class="o">-</span><span class="n">PSS</span> <span class="n">with</span> <span class="n">SHA256</span> <span class="ow">and</span> <span class="n">maximal</span> <span class="n">salt</span> <span class="n">length</span>
+ <span class="o">*/</span>
+<span class="k">try</span>
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="n">public</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">rsaPublicKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;alice_public_key.pem&quot;</span><span class="p">)</span>
+        <span class="n">rsaPublicKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaPublicKeyPEM</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">hash</span> <span class="n">file</span> <span class="n">content</span> <span class="o">*/</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="n">SHA256Init</span><span class="p">()</span>
+        <span class="n">cFileContent</span> <span class="o">=</span> <span class="n">Read</span> <span class="p">(</span><span class="s">&quot;document.txt&quot;</span><span class="p">)</span>
+        <span class="n">SHA256Update</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">cFileContent</span><span class="p">)</span>
+        <span class="n">digest</span> <span class="o">=</span> <span class="n">SHA256Final</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">file</span> <span class="n">signature</span> <span class="o">*/</span>
+        <span class="n">cSignature</span> <span class="o">=</span> <span class="n">Read</span> <span class="p">(</span><span class="s">&quot;document.txt.sig&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">perform</span> <span class="n">PSS</span> <span class="n">verification</span> <span class="o">*/</span>
+        <span class="k">if</span> <span class="n">rsa_verifyhash_pss</span><span class="p">(</span><span class="n">rsaPublicKey</span><span class="p">,</span><span class="n">digest</span><span class="p">,</span><span class="n">cSignature</span><span class="p">)</span>
+                <span class="k">See</span> <span class="s">&quot;file signature is valid&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">else</span>
+                <span class="k">See</span> <span class="s">&quot;file signature is INVALID&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">ok</span>
+
+<span class="k">catch</span>
+        <span class="k">See</span> <span class="s">&quot;Unexpected error occured: &quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="openssl-versiontext-function">
+<span id="index-33"></span><h2>openssl_versiontext() Function<a class="headerlink" href="#openssl-versiontext-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get the full version text of the OpenSSL library using the function openssl_versiontext().
+The returned string is equal to the value returned by the command “openssl.exe version”</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">openssl_versiontext</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="k">return</span> <span class="n">a</span> <span class="kt">string</span> <span class="n">containing</span> <span class="n">the</span> <span class="n">full</span> <span class="n">version</span> <span class="n">text</span> <span class="n">of</span> <span class="n">OpenSSL</span> <span class="n">library</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">Display</span> <span class="n">the</span> <span class="n">version</span> <span class="n">of</span> <span class="n">OpenSSL</span> <span class="n">library</span> <span class="n">used</span> <span class="n">by</span> <span class="n">Ring</span>
+ <span class="o">*/</span>
+<span class="k">See</span> <span class="s">&quot;Ring is using &quot;</span> <span class="o">+</span> <span class="n">openssl_versionText</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="openssl-version-function">
+<span id="index-34"></span><h2>openssl_version() Function<a class="headerlink" href="#openssl-version-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get the version numbers (Major,Minor,Fix) of the OpenSSL library using the function openssl_version().
+The returned list contains three items corresponding to the the three part of the version.
+For example, for OpenSSL 1.0.2, openssl_version() returns the list [1,0,2]</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">openssl_version</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="k">return</span> <span class="n">a</span> <span class="kt">list</span> <span class="n">containing</span> <span class="n">the</span> <span class="n">version</span> <span class="n">numbers</span> <span class="n">of</span> <span class="n">the</span> <span class="n">OpenSSL</span> <span class="n">library</span>
+        <span class="n">First</span> <span class="kt">list</span> <span class="n">item</span> <span class="n">holds</span> <span class="n">the</span> <span class="n">version</span> <span class="n">major</span> <span class="n">number</span>
+        <span class="n">Second</span> <span class="kt">list</span> <span class="n">item</span> <span class="n">holds</span> <span class="n">the</span> <span class="n">version</span> <span class="n">minor</span> <span class="n">number</span>
+        <span class="n">Third</span> <span class="kt">list</span> <span class="n">item</span> <span class="n">holds</span> <span class="n">the</span> <span class="n">version</span> <span class="n">fix</span> <span class="n">number</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">Display</span> <span class="n">the</span> <span class="n">version</span> <span class="n">number</span> <span class="n">of</span> <span class="n">OpenSSL</span> <span class="n">library</span> <span class="n">used</span> <span class="n">by</span> <span class="n">Ring</span>
+ <span class="o">*/</span>
+<span class="n">ver</span> <span class="o">=</span> <span class="n">openssl_version</span><span class="p">()</span>
+<span class="n">OpenSSLVersionMajor</span> <span class="o">=</span> <span class="n">ver</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+<span class="n">OpenSSLVersionMinor</span> <span class="o">=</span> <span class="n">ver</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+<span class="n">OpenSSLVersionFix</span> <span class="o">=</span> <span class="n">ver</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+<span class="k">See</span> <span class="s">&quot;Ring is using OpenSSL version &quot;</span> <span class="o">+</span> <span class="n">OpenSSLVersionMajor</span> <span class="o">+</span> <span class="s">&quot;.&quot;</span> <span class="o">+</span> <span class="n">OpenSSLVersionMinor</span> <span class="o">+</span> <span class="s">&quot;.&quot;</span> <span class="o">+</span> <span class="n">OpenSSLVersionFix</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="large-files-hash">
-<span id="index-12"></span><h2>Large Files Hash<a class="headerlink" href="#large-files-hash" title="Permalink to this headline">¶</a></h2>
+<span id="index-35"></span><h2>Large Files Hash<a class="headerlink" href="#large-files-hash" title="Permalink to this headline">¶</a></h2>
 <p>These functions compute the hash of large files/data without the need to load all of the content in a single string.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>md5init() -&gt; MD5_CTX
 md5update (MD5_CTX, string) -&gt; 1 for success or 0 for failure
@@ -565,7 +1540,7 @@ sha512final (SHA512_CTX) -&gt; string
 </div>
 </div>
 <div class="section" id="download-function">
-<span id="index-13"></span><h2>Download() Function<a class="headerlink" href="#download-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-36"></span><h2>Download() Function<a class="headerlink" href="#download-function" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Download</span><span class="p">(</span><span class="n">cURL</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">server</span> <span class="n">response</span>
 </pre></div>
@@ -578,7 +1553,7 @@ sha512final (SHA512_CTX) -&gt; string
 </div>
 </div>
 <div class="section" id="sendemail-function">
-<span id="index-14"></span><h2>SendEmail() Function<a class="headerlink" href="#sendemail-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-37"></span><h2>SendEmail() Function<a class="headerlink" href="#sendemail-function" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SendEmail</span><span class="p">(</span><span class="n">cSMTPServer</span><span class="p">,</span><span class="n">cEmail</span><span class="p">,</span><span class="n">cPassword</span><span class="p">,</span><span class="n">cSender</span><span class="p">,</span><span class="n">cReceiver</span><span class="p">,</span><span class="n">cCC</span><span class="p">,</span><span class="n">cTitle</span><span class="p">,</span><span class="n">cContent</span><span class="p">)</span>
 </pre></div>
@@ -625,7 +1600,7 @@ sha512final (SHA512_CTX) -&gt; string
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2016-2021, Ring Team
+        &copy; Copyright 2016-2022, Ring Team
 
     </p>
   </div>

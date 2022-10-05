@@ -8,6 +8,7 @@ C_USING_GUILIB = True
 
 # Load the DLL files 
 	if iswindows()
+		SysSet ("QT_QPA_PLATFORM_PLUGIN_PATH", exefolder())
 		LoadLib("ringqt.dll")
 	but ismacosx()
 		LoadLib("libringqt.dylib")

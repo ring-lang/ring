@@ -6,7 +6,9 @@
 load "guilib.ring"
 load "stdlib.ring"
 
-actYear = timelist()[19]
+actYear    = timelist()[19]
+aYears     = 1904:2099
+nYearIndex = find(aYears,0+actYear) - 1 
 msg = "After the Month of February add one to the Day Number for Leap Years: 2008, 2012, 2016, 2020, 2024, 2028, 2032, 2036, 2040 ......"
 
 btnSizeW = 30
@@ -18,7 +20,6 @@ new qapp
         win1 = new qwidget() {
 		   setWindowFlags(Qt_Window | Qt_WindowTitleHint | Qt_WindowSystemMenuHint | Qt_WindowCloseButtonHint | Qt_CustomizeWindowHint) 
 		   setWinIcon(win1,"calendar.png")
-                   actYear = 2020 
                    setwindowtitle("Julian Day Calendar")
                    resize(1200,700)
                    button = newlist(31,31)
@@ -42,10 +43,9 @@ new qapp
                              resize(85,30)
                              setstylesheet("color:white;background-color:red;")
                              setFont(new qFont("Verdana",15,100,0))
-                             aList = 1904:2099
-                             for x in aList additem(string(x),0) next
-                             setcurrentIndex(116)
-                             setactivatedEvent("changeYear(actYear)")
+                             for x in aYears additem(string(x),0) next
+                             setcurrentIndex(nYearIndex)
+                             setactivatedEvent("changeYear(nYearIndex)")
                              show() }
 
                    labelJulian = new qLabel(win1)
@@ -90,7 +90,7 @@ new qapp
                               settext("Day")
                             }
 
-                   showdays(actYear)
+                   showdays(nYearIndex)
 
                    show()
         }

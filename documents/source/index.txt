@@ -77,9 +77,13 @@ Contents:
    Distributing Ring Applications (Manual) <distribute>
    Distributing Ring Applications using Ring2EXE <distribute_ring2exe>
    The Ring Package Manager (RingPM) <ringpm>
-   ZeroLib Functions Reference<zerolib>
+   ZeroLib Functions Reference <zerolib>
    FoxRing Functions Reference <foxringfuncsdoc>
    BigNumber Functions Reference <bignumber>
+   CSVLib Functions Reference <csvlib>
+   JSONLib Functions Reference <jsonlib>
+   HTTPLib Functions Reference <httplib>
+   TokensLib Functions Reference <tokenslib>
    Using RingLibCurl <libcurl>
    RingLibCurl Functions Reference <ringlibcurlfuncsdoc>
    Using RingSockets <socket>
@@ -121,6 +125,8 @@ Contents:
    Release Notes: Version 1.14 <whatisnew14>
    Release Notes: Version 1.15 <whatisnew15>
    Release Notes: Version 1.16 <whatisnew16>
+   Release Notes: Version 1.17 <whatisnew17>
+   Release Notes: Version 1.18 <whatisnew18>
    Using Other Code Editors <codeeditors>
    Frequently Asked Questions (FAQ) <faq>
    How to Compile Ring From Source Code? <sourcecode>

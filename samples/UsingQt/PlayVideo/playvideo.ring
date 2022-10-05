@@ -13,7 +13,7 @@ new qapp {
 		}
 
 		player = new qmediaplayer() {
-			setmedia(new qurl("drop.avi")) 	
+			setmedia(new qurl("m2000.avi")) 	
 			setvideooutput(videowidget)               
 		}
  

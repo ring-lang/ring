@@ -1,5 +1,5 @@
 /*
-		Application	: Variables (Lists-Execercise)
+		Application	: Variables (Lists-Exercise)
 		Author		: Sherif Abdelhay
 		Date		: 2018.5.27
 

@@ -10,7 +10,7 @@ Advices
 =======
 
 1 - (Start working on Common Cases First - Not General)
-2 - (Start with simple methods and simple soltions)
+2 - (Start with simple methods and simple solutions)
 3 - (Don't keep attacking the main problem (Development) )
  	---> After each step - Stop and revise your work first!
 		(1) Your next steps will be faster 
@@ -263,7 +263,7 @@ Installing from different branches
 		Developer ---> Developed an application (2 years ago)
 		User ---> Need simple update 
 
-		Developr ---> Using (Package D) - version 0.9
+		Developer ---> Using (Package D) - version 0.9
 		Current Version (Package D) - version 1.0 
 			--> Breaking Changes 
 
@@ -320,7 +320,7 @@ Main Goal
 				 1.2.1
 
 			Before version 1.0 ---> In Range ( v 0.0.0 ---> 0.x.x ) 
-					New version is not compatibile with old version 
+					New version is not compatible with old version 
 		
 			From Version 1.0.0 (Major.Minor.Patch)
 			

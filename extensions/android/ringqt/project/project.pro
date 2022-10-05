@@ -23,7 +23,7 @@ INCLUDEPATH += ringqt/include
 
 SOURCES +=   \
     main.cpp \
-    ring/src/ring_ext.c \
+    ring/src/ext.c \
     ringqt/src/gpushbutton.cpp \
     ringqt/src/gaction.cpp \
     ringqt/src/glineedit.cpp \
@@ -119,7 +119,7 @@ SOURCES +=   \
     ringqt/src/ring_qt.cpp
 
 HEADERS  += \
-    ring/include/ring_ext.h \
+    ring/include/ext.h \
     ring/include/ring.h \
     ringqt/include/gpushbutton.h \
     ringqt/include/gaction.h \
@@ -215,16 +215,6 @@ HEADERS  += \
 	ringqt/include/mscompleter.h 
 
 CONFIG += warn_off
+CONFIG += -Wno-deprecated
 
 RESOURCES = project.qrc
-
-DISTFILES += \
-    android/AndroidManifest.xml \
-    android/gradle/wrapper/gradle-wrapper.jar \
-    android/gradlew \
-    android/res/values/libs.xml \
-    android/build.gradle \
-    android/gradle/wrapper/gradle-wrapper.properties \
-    android/gradlew.bat
-
-ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android

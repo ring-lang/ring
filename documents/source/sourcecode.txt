@@ -230,6 +230,20 @@ Run Ring Notepad
 Building using Ubuntu Linux
 ===========================
 
+This version is tested using Ubuntu 22.04 LTS
+
+Install Git
+
+.. code-block:: none
+
+	sudo apt-get install git
+
+Upgrade the packages
+
+.. code-block:: none
+
+	sudo apt-get update && sudo apt-get upgrade
+
 Get the source code
 
 .. code-block:: none
@@ -617,6 +631,8 @@ Run Ring Notepad
 
 Building using MacOS X
 ======================
+
+This version is tested using macOS Catalina (version 10.15)
 
 Get the source code
 

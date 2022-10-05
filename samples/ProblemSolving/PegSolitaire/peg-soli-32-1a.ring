@@ -3,7 +3,7 @@
 // http://en.wikipedia.org/wiki/Peg_solitaire
 // quell: https://golang.org/doc/play/solitaire.go
 
-// at the beginning mai 2020 - nestor kuka
+// at the beginning to May, 2020 - nestor kuka
 
 // runtime ring: ~ 60 sec.
 
@@ -13,11 +13,11 @@ Load "stdlib.ring"
 // so that move() doesn't need to check the board boundaries.
 // Periods represent illegal fields, x are pegs, and o are holes.
 
-// clasic:
+// classic:
 b = "..........................xxx........xxx......xxxxxxx....xxxoxxx....xxxxxxx......xxx........xxx.........................."
 
 /*
-clasic:
+classic:
 ...........
 ...........
 ....xxx....
@@ -35,7 +35,7 @@ N = 11  		 			// length of a row (11x11)
 pd = [-1, -N, 1, N]			// possible directions
 moves = 0					// number of times move is called
 center = 0					// empty hole
-cnt= 0						// count the sucefull moves
+cnt= 0						// count the successful moves
 
 ? " "
 ? "Show board:"
@@ -76,7 +76,7 @@ func init(b) {
 	ok
 }
 
-// ---------------------------------------------- programm start
+// ---------------------------------------------- program start
 func main() {
 	init(b)	
 	if !solve() {
@@ -162,4 +162,4 @@ func solve() {
 	// no solution found for this board
 	return false
 }
- // --------------------------------------------------  end pgm
+ // --------------------------------------------------  end program

@@ -6,9 +6,9 @@
 ######
 /*
 to be more readable in large projects
-support types for class and func. and vars.
-support outside funcs. and the code inside it{pars.}
-need to use "()" around paras.
+support types for class and function and variables.
+support outside functions. and the code inside it { parameters }
+need to use "()" around parameters.
 */
 ######
 load "typehints.ring"
@@ -35,7 +35,3 @@ Class person2
 
 	public static void func msg
 		?"msg from second class!"
-
-
-
-

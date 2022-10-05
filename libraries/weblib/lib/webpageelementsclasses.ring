@@ -74,7 +74,7 @@ Package System.Web
 			cOutput = nl+GetTabs() + "<a href='" + Link + "'> "+ Title + " </a> " + nl			
 
 	Class NewLine from ObjsBase
-		cOutput = GetTabs() + "<br />"
+		cOutput = "<br />"
 
 	Class Div from ObjsBase 
 		Func braceend
@@ -207,6 +207,33 @@ Package System.Web
 			AddStyle()
 			getobjsdata()
 			cOutput += nl+"</th>" + nl
+			cOutput = TabMLString(cOutput)
+
+	Class THEAD from ObjsBase 
+		Func braceend
+			cOutput += nl+'<thead'
+			addattributes()
+			AddStyle()
+			getobjsdata()
+			cOutput += nl+"</thead>" + nl
+			cOutput = TabMLString(cOutput)
+
+	Class TBODY from ObjsBase 
+		Func braceend
+			cOutput += nl+'<tbody'
+			addattributes()
+			AddStyle()
+			getobjsdata()
+			cOutput += nl+"</tbody>" + nl
+			cOutput = TabMLString(cOutput)
+
+	Class TFOOT from ObjsBase 
+		Func braceend
+			cOutput += nl+'<tfoot'
+			addattributes()
+			AddStyle()
+			getobjsdata()
+			cOutput += nl+"</tfoot>" + nl
 			cOutput = TabMLString(cOutput)
 
 	Class Audio from ObjsBase 

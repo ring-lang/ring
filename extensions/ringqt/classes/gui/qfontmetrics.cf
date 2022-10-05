@@ -3,6 +3,11 @@ name: QFontMetrics
 para: QFont
 </class>
 
+<filter> sysget("RINGQT_QT515") = ""
+int width( QString   text, int len )
+int width@2(QChar ch)
+</filter>
+
 int ascent(void)
 int averageCharWidth(void)
 QRect boundingRect(QChar ch)
@@ -27,6 +32,6 @@ QSize size(int flags,  QString   text, int tabStops , int * tabArray )
 int strikeOutPos(void)
 QRect tightBoundingRect( QString   text)
 int underlinePos(void)
-int width( QString   text, int len )
-int width@2(QChar ch)
 int xHeight(void)
+int horizontalAdvance( QString   text, int len )
+int horizontalAdvance@2(QChar ch)

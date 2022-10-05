@@ -1,1 +1,9 @@
-hello from brace end!hello from brace end!
+Using ? substr(cStr,100, 1)
+
+Using ? substr(cStr, -1, 4)
+
+Using ? substr(cStr, 1, 1000)
+
+Using ? substr(cStr, 1, -1)
+
+done

@@ -11,13 +11,13 @@ typedef struct ring_sqlite {
 } ring_sqlite ;
 /* Functions */
 
-RING_API void ringlib_init ( RingState *pRingState )
+RING_LIBINIT
 {
-	ring_vm_funcregister("sqlite_init",ring_vm_sqlite_init);
-	ring_vm_funcregister("sqlite_close",ring_vm_sqlite_close);
-	ring_vm_funcregister("sqlite_open",ring_vm_sqlite_open);
-	ring_vm_funcregister("sqlite_errmsg",ring_vm_sqlite_errmsg);
-	ring_vm_funcregister("sqlite_execute",ring_vm_sqlite_execute);
+	RING_API_REGISTER("sqlite_init",ring_vm_sqlite_init);
+	RING_API_REGISTER("sqlite_close",ring_vm_sqlite_close);
+	RING_API_REGISTER("sqlite_open",ring_vm_sqlite_open);
+	RING_API_REGISTER("sqlite_errmsg",ring_vm_sqlite_errmsg);
+	RING_API_REGISTER("sqlite_execute",ring_vm_sqlite_execute);
 }
 
 void ring_vm_sqlite_init ( void *pPointer )

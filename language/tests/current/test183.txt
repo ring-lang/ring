@@ -1,2 +1,13 @@
-Instruction : I want window
-Instruction : Window Title = hello world
+hello
+x: 10
+y: 20
+z: 30
+x: 100
+y: 200
+z: 300
+x: 1000
+y: 2000
+z: 3000
+x: 1000
+y: 2000
+z: 3000

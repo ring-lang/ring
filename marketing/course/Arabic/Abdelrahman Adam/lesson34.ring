@@ -1,16 +1,16 @@
 /*  
  **      Application : loop & exit
- **      name        : Abdelrahman Adam
- **      Date        : 21\12\2017 
+ **      Author      : Abdelrahman Adam
+ **      Date        : 21/12/2017 
 */ 
 #======================================================
 
 #test34
 for x = 1 to 10 
-		if x = 3  ?"three" 
+		if x = 3  ? "three" 
 				loop
 		ok
-			?x
+			? x
 		if x = 7  
 				exit
 		ok

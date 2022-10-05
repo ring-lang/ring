@@ -1,3 +1,7 @@
 load "general/filenameinclassregion.ring"
 
-new test
+try
+	new test
+catch
+	? "Can't divide by Zero!"
+end

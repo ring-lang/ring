@@ -7,7 +7,7 @@
 | |*Resources*|*Operating System*|*Status*|
 |---|---|---|---|             																															 
 |Download |[![Download](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/graphics/binaryrelease.svg)](https://ring-lang.github.io/download.html)|**macOS (Compiler: gcc C)**      |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|   
-|Help |[![Help](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/graphics/documentation.svg)](https://ring-lang.github.io/doc1.14/index.html)|**Ubuntu Linux (Compiler: gcc C)** |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|                  
+|Help |[![Help](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/graphics/documentation.svg)](https://ring-lang.github.io/doc1.17/index.html)|**Ubuntu Linux (Compiler: gcc C)** |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|                  
 |Try |[![Try](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/graphics//interactive%20ring-use%20online-green.svg)](https://tio.run/#Ring)|**macOS (Compiler: clang C)**      |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|   
 |Extra |[![Resources](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/graphics/resources-orange.svg)](https://ring-lang.github.io/resources.html)|**Ubuntu Linux (Compiler: clang C)** |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|                  
 
@@ -60,7 +60,7 @@ Ring is a practical general-purpose multi-paradigm language.
 The supported programming paradigms are Imperative, Procedural, Object-Oriented, Functional,
 Metaprogramming, Declarative programming using nested structures, and Natural programming.
 
-The language is portable (Windows, Linux, macOS, Android, WebAssembly, etc.) and can be used to create
+The language is portable (MS-DOS, Windows, Linux, macOS, Android, WebAssembly, etc.) and can be used to create
 Console, GUI, Web, Games, and Mobile applications. 
 
 The language is designed to be Simple, Small, and Flexible. 
@@ -82,6 +82,8 @@ You get the language constructs ready for use to create domain-specific language
 * [Natural Language Programming](https://www.codeproject.com/Articles/1138605/Natural-Language-Programming-in-the-Ring-Programmi)
 
 * [Natural Language Programming Library](https://www.codeproject.com/Articles/1200766/Using-the-Natural-Language-Programming-Library-NLP)
+
+* [Programming Without Coding Technology](https://store.steampowered.com/app/1953110/Programming_Without_Coding_Technology/)
 
 # Batteries Included
 
@@ -341,7 +343,7 @@ Ring contains only 4 types that represent the program data
 These types are (String, Number, List & Object)
 
 The idea is to have many use cases for each type which increase the flexibility and the ability
-to write functions that are more usable in different situtations.
+to write functions that are more usable in different situations.
 
 The String type is used to represent:
 * One character
@@ -584,7 +586,7 @@ The first instruction is : I want window
 
 The second instruction is : Window title = Expression
 
-Also, keywords that can be ignored like the ‘the’ keyword
+Also, keywords that can be ignored like the **the** keyword
 
 ```ring
 new App
@@ -799,7 +801,7 @@ If we have a reference to a variable (when we pass objects and lists to function
 
 ## No Global Interpreter (VM) Lock - No GIL
 
-When we use threads in Ring applications, We don’t have a global interpreter (VM) lock (No GIL)
+When we use threads in Ring applications, We don't have a global interpreter (VM) lock (No GIL)
 
 So threads can work in parallel and execute Ring instructions at the same time
 
@@ -880,7 +882,7 @@ Also when we need more speed we can use C/C++ extensions!
 
 * No Global Interpreter Lock (No GIL)
 
-* Portable (Windows, Linux, macOS, Android, WebAssembly, etc.)
+* Portable (MS-DOS, Windows, Linux, macOS, Android, WebAssembly, etc.)
 
 ## Simple
 

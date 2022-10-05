@@ -167,13 +167,13 @@ def pAvanza
 	str = " "
 	txt.settext(str)
 
-// funtion to add image to a qTextedit
+// function to add image to a qTextedit
 func pPress moj
 	p = '"'+elist[moj]+'"' see p+nl
 	txtM = txt.toHtml() + "<img src = 'p', hight=14, width=14>";
      txt.setHtml(txtM);
 
-// Class that handle the panel in wich the bottons are located
+// Class that handle the panel in which the buttons are located
 class Teclado from qwidget { 
 	panel lab myEvent btn dat   
 
@@ -251,7 +251,7 @@ class Teclado from qwidget {
 				setclickevent("pIntro()")
 				show()} 
 }
-// Class that handle the panel, panel2, panel3 and panel4 in wich the bottons are located
+// Class that handle the panel, panel2, panel3 and panel4 in which the buttons are located
 Class ButtonKey from Qwidget {
 	panel2 panel3 panel4 lab btc bts let myEvent  
 

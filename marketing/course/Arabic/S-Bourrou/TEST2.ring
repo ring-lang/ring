@@ -7,6 +7,6 @@
 
 */
 see " Hello , Welcome to My Simple Ring APP " + nl
-see "Pleaz Enter Your Name "
+see "Please Enter Your Name "
 give Name 
 see " HI ! " + Name

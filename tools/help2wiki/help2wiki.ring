@@ -1,5 +1,5 @@
 # Application  : Help2Wiki
-# Usage        : convert Sphinix source code style to Wikibooks style
+# Usage        : convert Sphinx source code style to Wikibooks style
 # Author       : Mahmoud Fayed <msfclipper@yahoo.com>
 
 Load "guilib.ring"

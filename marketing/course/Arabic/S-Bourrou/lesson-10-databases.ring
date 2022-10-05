@@ -1,6 +1,6 @@
-# lesson 10  , Ring Practices with Dr.Mahmoud Fayed
+# Lesson 10  , Ring Practices with Dr.Mahmoud Fayed
 # Date  : 18/10/2019
-# title : DATABESE (Connect ODBC Driver)-(MYSQL) -(SQLIte) 
+# Title : Database (Connect ODBC Driver)-(MySQL) -(SQLite) 
 # Author: S.BOURROU
 #==========================================================#
 # RingSQlite

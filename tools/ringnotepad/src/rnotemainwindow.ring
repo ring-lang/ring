@@ -725,6 +725,11 @@ class RNoteMainWindow
 							setclickEvent(Method("Distribute(2)"))
 						}
 						addaction(oAction)
+						oAction = new qAction(this.win1) {
+							settext("Ring2EXE (Build GUI Application)")
+							setclickEvent(Method("Distribute(10)"))
+						}
+						addaction(oAction)
 						addseparator()
 						oAction = new qAction(this.win1) {
 							settext("Ring2EXE (Distribute Application - Use All Runtime)")

@@ -1,5 +1,5 @@
 /*
-**	Application:type hints in funs.
+**	Application:type hints in functions
 **	Author	   :Sara Abozeina
 **	Date       :2018.01.04
 */

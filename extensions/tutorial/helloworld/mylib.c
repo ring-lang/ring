@@ -7,7 +7,7 @@ RING_FUNC(ring_myfunction)
 	printf("Hello, World!");
 }
 
-RING_API void ringlib_init(RingState *pRingState)
+RING_LIBINIT
 {
-	ring_vm_funcregister("myfunction",ring_myfunction);
+	RING_API_REGISTER("myfunction",ring_myfunction);
 }

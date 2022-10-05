@@ -173,6 +173,7 @@ Class UsersLanguageEnglish
 	aColumnsTitles = ["ID","User Name","Email"]
 	cOptions = "Options"
 	cSearch = "Search"
+	cSearchColumn = "User Name"
 	comboitems = ["Select Option...","Edit","Delete"]
 	cAddRecord = "Add Record"
 	cEditRecord = "Edit Record"

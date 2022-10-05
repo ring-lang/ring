@@ -7,46 +7,88 @@
 #include "openssl/md5.h"
 #include "openssl/sha.h"
 #include "openssl/evp.h"
+#include "openssl/err.h"
+#include "openssl/pem.h"
 #include "openssl/rand.h"
+#include "openssl/rsa.h"
+#include "openssl/bn.h"
 #include "ring_vmopenssl.h"
 /* Functions Depend on the Library Version */
-#if OPENSSL_VERSION_NUMBER >= 0x10100000L
-/* OpenSSL 1.1 and later */
+#if OPENSSL_VERSION_NUMBER >= 0x00908000L
+/* OpenSSL 0.98 and later */
 #include "encrypt_v2.c"
 #else
 #include "encrypt_v1.c"
 #endif
+#include "openssl_rsa.c"
 /* Functions */
 
-RING_API void ringlib_init ( RingState *pRingState )
+typedef struct ListCipherArg {
+	void *pPointer;
+	List *pList;
+} ListCipherArg;
+
+RING_LIBINIT
 {
-	ring_vm_funcregister("md5init",ring_vm_openssl_md5_init);
-	ring_vm_funcregister("md5update",ring_vm_openssl_md5_update);
-	ring_vm_funcregister("md5final",ring_vm_openssl_md5_final);
-	ring_vm_funcregister("md5",ring_vm_openssl_md5);
-	ring_vm_funcregister("sha1init",ring_vm_openssl_sha1_init);
-	ring_vm_funcregister("sha1update",ring_vm_openssl_sha1_update);
-	ring_vm_funcregister("sha1final",ring_vm_openssl_sha1_final);
-	ring_vm_funcregister("sha1",ring_vm_openssl_sha1);
-	ring_vm_funcregister("sha256init",ring_vm_openssl_sha256_init);
-	ring_vm_funcregister("sha256update",ring_vm_openssl_sha256_update);
-	ring_vm_funcregister("sha256final",ring_vm_openssl_sha256_final);
-	ring_vm_funcregister("sha256",ring_vm_openssl_sha256);
-	ring_vm_funcregister("sha512init",ring_vm_openssl_sha512_init);
-	ring_vm_funcregister("sha512update",ring_vm_openssl_sha512_update);
-	ring_vm_funcregister("sha512final",ring_vm_openssl_sha512_final);
-	ring_vm_funcregister("sha512",ring_vm_openssl_sha512);
-	ring_vm_funcregister("sha384init",ring_vm_openssl_sha384_init);
-	ring_vm_funcregister("sha384update",ring_vm_openssl_sha384_update);
-	ring_vm_funcregister("sha384final",ring_vm_openssl_sha384_final);
-	ring_vm_funcregister("sha384",ring_vm_openssl_sha384);
-	ring_vm_funcregister("sha224init",ring_vm_openssl_sha224_init);
-	ring_vm_funcregister("sha224update",ring_vm_openssl_sha224_update);
-	ring_vm_funcregister("sha224final",ring_vm_openssl_sha224_final);
-	ring_vm_funcregister("sha224",ring_vm_openssl_sha224);
-	ring_vm_funcregister("encrypt",ring_vm_openssl_encrypt);
-	ring_vm_funcregister("decrypt",ring_vm_openssl_decrypt);
-	ring_vm_funcregister("randbytes",ring_vm_openssl_randbytes);
+	RING_API_REGISTER("md5init",ring_vm_openssl_md5_init);
+	RING_API_REGISTER("md5update",ring_vm_openssl_md5_update);
+	RING_API_REGISTER("md5final",ring_vm_openssl_md5_final);
+	RING_API_REGISTER("md5",ring_vm_openssl_md5);
+	RING_API_REGISTER("sha1init",ring_vm_openssl_sha1_init);
+	RING_API_REGISTER("sha1update",ring_vm_openssl_sha1_update);
+	RING_API_REGISTER("sha1final",ring_vm_openssl_sha1_final);
+	RING_API_REGISTER("sha1",ring_vm_openssl_sha1);
+	RING_API_REGISTER("sha256init",ring_vm_openssl_sha256_init);
+	RING_API_REGISTER("sha256update",ring_vm_openssl_sha256_update);
+	RING_API_REGISTER("sha256final",ring_vm_openssl_sha256_final);
+	RING_API_REGISTER("sha256",ring_vm_openssl_sha256);
+	RING_API_REGISTER("sha512init",ring_vm_openssl_sha512_init);
+	RING_API_REGISTER("sha512update",ring_vm_openssl_sha512_update);
+	RING_API_REGISTER("sha512final",ring_vm_openssl_sha512_final);
+	RING_API_REGISTER("sha512",ring_vm_openssl_sha512);
+	RING_API_REGISTER("sha384init",ring_vm_openssl_sha384_init);
+	RING_API_REGISTER("sha384update",ring_vm_openssl_sha384_update);
+	RING_API_REGISTER("sha384final",ring_vm_openssl_sha384_final);
+	RING_API_REGISTER("sha384",ring_vm_openssl_sha384);
+	RING_API_REGISTER("sha224init",ring_vm_openssl_sha224_init);
+	RING_API_REGISTER("sha224update",ring_vm_openssl_sha224_update);
+	RING_API_REGISTER("sha224final",ring_vm_openssl_sha224_final);
+	RING_API_REGISTER("sha224",ring_vm_openssl_sha224);
+	RING_API_REGISTER("encrypt",ring_vm_openssl_encrypt);
+	RING_API_REGISTER("decrypt",ring_vm_openssl_decrypt);
+	RING_API_REGISTER("randbytes",ring_vm_openssl_randbytes);
+	RING_API_REGISTER("supportedciphers",ring_vm_openssl_list_ciphers);
+	RING_API_REGISTER("rsa_generate",ring_vm_openssl_rsa_generate);
+	RING_API_REGISTER("rsa_is_privatekey",ring_vm_openssl_rsa_is_privatekey);
+	RING_API_REGISTER("rsa_export_params",ring_vm_openssl_rsa_export_params);
+	RING_API_REGISTER("rsa_import_params",ring_vm_openssl_rsa_import_params);
+	RING_API_REGISTER("rsa_export_pem",ring_vm_openssl_rsa_export_pem);
+	RING_API_REGISTER("rsa_import_pem",ring_vm_openssl_rsa_import_pem);
+	RING_API_REGISTER("rsa_encrypt_pkcs",ring_vm_openssl_rsa_encrypt_pkcs);
+	RING_API_REGISTER("rsa_decrypt_pkcs",ring_vm_openssl_rsa_decrypt_pkcs);
+	RING_API_REGISTER("rsa_encrypt_oaep",ring_vm_openssl_rsa_encrypt_oaep);
+	RING_API_REGISTER("rsa_decrypt_oaep",ring_vm_openssl_rsa_decrypt_oaep);
+	RING_API_REGISTER("rsa_encrypt_raw", ring_vm_openssl_rsa_encrypt_raw);
+	RING_API_REGISTER("rsa_decrypt_raw", ring_vm_openssl_rsa_decrypt_raw);
+	RING_API_REGISTER("rsa_sign_pkcs", ring_vm_openssl_rsa_sign_pkcs);
+	RING_API_REGISTER("rsa_verify_pkcs", ring_vm_openssl_rsa_verify_pkcs);
+	RING_API_REGISTER("rsa_signhash_pkcs", ring_vm_openssl_rsa_signhash_pkcs);
+	RING_API_REGISTER("rsa_verifyhash_pkcs", ring_vm_openssl_rsa_verifyhash_pkcs);
+	RING_API_REGISTER("rsa_sign_pss", ring_vm_openssl_rsa_sign_pss);
+	RING_API_REGISTER("rsa_verify_pss", ring_vm_openssl_rsa_verify_pss);
+	RING_API_REGISTER("rsa_signhash_pss", ring_vm_openssl_rsa_signhash_pss);
+	RING_API_REGISTER("rsa_verifyhash_pss", ring_vm_openssl_rsa_verifyhash_pss);
+	RING_API_REGISTER("openssl_versiontext",ring_vm_openssl_versiontext);
+	RING_API_REGISTER("openssl_version",ring_vm_openssl_version);
+	/* Before OpenSSL 1.1, calling OpenSSL_add_all_algorithms is required */
+	/* Ref: https://wiki.openssl.org/index.php/Library_Initialization */
+	#if OPENSSL_VERSION_NUMBER < 0x10100000L
+	OpenSSL_add_all_algorithms();
+	ERR_load_crypto_strings();
+	#else
+	/* Ref: https://www.openssl.org/docs/man1.1.1/man3/OPENSSL_init_crypto.html */
+	OPENSSL_init_crypto(OPENSSL_INIT_ADD_ALL_CIPHERS | OPENSSL_INIT_ADD_ALL_DIGESTS | OPENSSL_INIT_LOAD_CRYPTO_STRINGS, NULL);
+	#endif
 }
 
 static void ring_vm_openssl_buf2hex (const unsigned char* pData, int nLen, char* cStr)
@@ -78,7 +120,7 @@ void ring_vm_openssl_md5_init ( void *pPointer )
 
 void ring_vm_openssl_md5_update ( void *pPointer )
 {
-	int x,nSize  ;
+	int nSize  ;
 	char *cInput  ;
 	MD5_CTX* pValue ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -107,8 +149,6 @@ void ring_vm_openssl_md5_final ( void *pPointer )
 {
 	unsigned char digest[MD5_DIGEST_LENGTH]  ;
 	char cString[MD5_DIGEST_LENGTH*2+1]  ;
-	int nSize  ;
-	char *cInput  ;
 	MD5_CTX* pValue ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -165,7 +205,7 @@ void ring_vm_openssl_sha1_init ( void *pPointer )
 
 void ring_vm_openssl_sha1_update ( void *pPointer )
 {
-	int x,nSize  ;
+	int nSize  ;
 	char *cInput  ;
 	SHA_CTX* pValue ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -194,8 +234,6 @@ void ring_vm_openssl_sha1_final ( void *pPointer )
 {
 	unsigned char digest[SHA_DIGEST_LENGTH]  ;
 	char cString[SHA_DIGEST_LENGTH*2+1]  ;
-	int nSize  ;
-	char *cInput  ;
 	SHA_CTX* pValue ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -251,7 +289,7 @@ void ring_vm_openssl_sha256_init ( void *pPointer )
 
 void ring_vm_openssl_sha256_update ( void *pPointer )
 {
-	int x,nSize  ;
+	int nSize  ;
 	char *cInput  ;
 	SHA256_CTX* pValue ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -280,8 +318,6 @@ void ring_vm_openssl_sha256_final ( void *pPointer )
 {
 	unsigned char digest[SHA256_DIGEST_LENGTH]  ;
 	char cString[SHA256_DIGEST_LENGTH*2+1]  ;
-	int nSize  ;
-	char *cInput  ;
 	SHA256_CTX* pValue ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -338,7 +374,7 @@ void ring_vm_openssl_sha512_init ( void *pPointer )
 
 void ring_vm_openssl_sha512_update ( void *pPointer )
 {
-	int x,nSize  ;
+	int nSize  ;
 	char *cInput  ;
 	SHA512_CTX* pValue ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -367,8 +403,6 @@ void ring_vm_openssl_sha512_final ( void *pPointer )
 {
 	unsigned char digest[SHA512_DIGEST_LENGTH]  ;
 	char cString[SHA512_DIGEST_LENGTH*2+1]  ;
-	int nSize  ;
-	char *cInput  ;
 	SHA512_CTX* pValue ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -424,7 +458,7 @@ void ring_vm_openssl_sha384_init ( void *pPointer )
 
 void ring_vm_openssl_sha384_update ( void *pPointer )
 {
-	int x,nSize  ;
+	int nSize  ;
 	char *cInput  ;
 	SHA512_CTX* pValue ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -453,8 +487,6 @@ void ring_vm_openssl_sha384_final ( void *pPointer )
 {
 	unsigned char digest[SHA384_DIGEST_LENGTH]  ;
 	char cString[SHA384_DIGEST_LENGTH*2+1]  ;
-	int nSize  ;
-	char *cInput  ;
 	SHA512_CTX* pValue ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -510,7 +542,7 @@ void ring_vm_openssl_sha224_init ( void *pPointer )
 
 void ring_vm_openssl_sha224_update ( void *pPointer )
 {
-	int x,nSize  ;
+	int nSize  ;
 	char *cInput  ;
 	SHA256_CTX* pValue ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -539,8 +571,6 @@ void ring_vm_openssl_sha224_final ( void *pPointer )
 {
 	unsigned char digest[SHA224_DIGEST_LENGTH]  ;
 	char cString[SHA224_DIGEST_LENGTH*2+1]  ;
-	int nSize  ;
-	char *cInput  ;
 	SHA256_CTX* pValue ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -580,6 +610,35 @@ void ring_vm_openssl_sha224 ( void *pPointer )
 	}
 }
 
+void ring_vm_openssl_versiontext ( void *pPointer )
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	
+	RING_API_RETSTRING(OPENSSL_VERSION_TEXT);
+}
+
+void ring_vm_openssl_version ( void *pPointer )
+{
+	int nMajor,nMinor,nFix  ;
+	List *pList  ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	nMajor = (int) ((OPENSSL_VERSION_NUMBER >> 28) & 0x000000FF);
+	nMinor = (int) ((OPENSSL_VERSION_NUMBER >> 20) & 0x000000FF);
+	nFix   = (int) ((OPENSSL_VERSION_NUMBER >> 12) & 0x000000FF);
+	/* return a list: [major,minor, fix] */
+	pList = RING_API_NEWLIST ;
+	ring_list_addint_gc(((VM *) pPointer)->pRingState, pList, nMajor);
+	ring_list_addint_gc(((VM *) pPointer)->pRingState, pList, nMinor);
+	ring_list_addint_gc(((VM *) pPointer)->pRingState, pList, nFix);
+	RING_API_RETLIST(pList);
+}
+
 void ring_vm_openssl_randbytes ( void *pPointer )
 {
 	unsigned char *cStr  ;
@@ -610,3 +669,42 @@ void ring_vm_openssl_randbytes ( void *pPointer )
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
+
+static void list_ciphers_fn(const OBJ_NAME *name, void *arg)
+{
+	const char *cStr = name->name ;
+	const EVP_CIPHER *cipher;
+    ListCipherArg* pCipherArg = (ListCipherArg*) arg;
+
+    if (!islower((unsigned char)*cStr))
+        return;
+	
+    /* Filter out ciphers that we cannot use */
+    cipher = EVP_get_cipherbyname(cStr);
+    if (cipher == NULL)
+        return;
+
+	/* add only if the string doesn't already exist in the list*/
+	if ( (ring_list_getsize(pCipherArg->pList) == 0) || (ring_list_findstring(pCipherArg->pList,cStr,0) < 1) ) {
+		ring_list_addstring_gc(((VM *) pCipherArg->pPointer)->pRingState,pCipherArg->pList,cStr);
+	}
+
+}
+
+void ring_vm_openssl_list_ciphers ( void *pPointer )
+{
+	List *pList  ;
+	ListCipherArg cipherArg;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	else {
+		pList = RING_API_NEWLIST ;
+		cipherArg.pList = pList;
+		cipherArg.pPointer = pPointer;
+		OBJ_NAME_do_all_sorted(OBJ_NAME_TYPE_CIPHER_METH, list_ciphers_fn, &cipherArg);
+		RING_API_RETLIST(pList);
+	}
+}
+

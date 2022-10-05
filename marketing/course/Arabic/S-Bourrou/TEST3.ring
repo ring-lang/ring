@@ -6,7 +6,7 @@
         Date       :  09.12.2017  
 
 */
-see "  Welcome to My Simple Ring APP " + nl # nl is Variable
-see "Pleaz Enter Your Name "
+see "  Welcome to My Simple Ring Application " + nl # nl is Variable
+see "Please Enter Your Name "
 give Name # string
 see " HI ! " + Name

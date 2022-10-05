@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Reflection and Meta-programming &mdash; Ring 1.16 documentation</title>
+  <title>Reflection and Meta-programming &mdash; Ring 1.18 documentation</title>
   
 
   
@@ -184,6 +184,10 @@
 <li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csvlib.html">CSVLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jsonlib.html">JSONLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="httplib.html">HTTPLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenslib.html">TokensLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="socket.html">Using RingSockets</a></li>
@@ -225,6 +229,7 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew14.html">Release Notes: Version 1.14</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew15.html">Release Notes: Version 1.15</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew17.html">Release Notes: Version 1.17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
@@ -429,7 +434,7 @@ the program code and we can modify our code during the runtime.</p>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Count</span> <span class="p">:</span> <span class="mi">238</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Count</span> <span class="p">:</span> <span class="mi">245</span>
 <span class="n">len</span><span class="p">()</span>
 <span class="n">add</span><span class="p">()</span>
 <span class="n">del</span><span class="p">()</span>
@@ -498,8 +503,8 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-7"></span><h2>isfunction() Function<a class="headerlink" href="#isfunction-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if a Ring function is defined or not using the isfunction() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">isfunction</span><span class="p">(</span><span class="n">cFunctionName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">Ring</span> <span class="n">function</span> <span class="n">is</span> <span class="n">defined</span>
-                              <span class="n">returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">the</span> <span class="n">Ring</span> <span class="n">function</span> <span class="n">is</span> <span class="ow">not</span> <span class="n">defined</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">isfunction</span><span class="p">(</span><span class="n">cFunctionName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">Ring</span> <span class="k">function</span> <span class="n">is</span> <span class="n">defined</span>
+                              <span class="n">returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">the</span> <span class="n">Ring</span> <span class="k">function</span> <span class="n">is</span> <span class="ow">not</span> <span class="n">defined</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -525,8 +530,8 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-8"></span><h2>iscfunction() Function<a class="headerlink" href="#iscfunction-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if a C function is defined or not using the iscfunction() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">iscfunction</span><span class="p">(</span><span class="n">cFunctionName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">C</span> <span class="n">function</span> <span class="n">is</span> <span class="n">defined</span>
-                               <span class="n">returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">the</span> <span class="n">C</span> <span class="n">function</span> <span class="n">is</span> <span class="ow">not</span> <span class="n">defined</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">iscfunction</span><span class="p">(</span><span class="n">cFunctionName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">C</span> <span class="k">function</span> <span class="n">is</span> <span class="n">defined</span>
+                               <span class="n">returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">the</span> <span class="n">C</span> <span class="k">function</span> <span class="n">is</span> <span class="ow">not</span> <span class="n">defined</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -1269,7 +1274,7 @@ The Find uses the member name, rather than the column number</p>
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2016-2021, Ring Team
+        &copy; Copyright 2016-2022, Ring Team
 
     </p>
   </div>

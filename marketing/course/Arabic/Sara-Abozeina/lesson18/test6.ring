@@ -23,7 +23,7 @@ func msg data{
 	?data
 	return new person2
 }
-func print data			            # it is afunc.
+func print data			            # it is a function.
 	?"hello in func print()"
 	?data
 	return data
@@ -42,7 +42,7 @@ Class person
 		print("A")		    # search in the methods firstly
 		
 		NEW local{
-				print("S")  # escape from class scope ,so print func not method
+				print("S")  # escape from class scope ,so print function not method
 		}
 class local
 

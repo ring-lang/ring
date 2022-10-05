@@ -178,7 +178,7 @@ func main
 	glutKeyboardFunc(:regularKeys)
 	glutCloseFunc(:leave)
  
-	// initialize glew for externsions
+	// initialize glew for extensions
 	glewInit()
 
 	// set lights, buffers, etc
@@ -326,7 +326,7 @@ class Cube
 
 				glBindBuffer(GL_ARRAY_BUFFER, vbo_id)
 					glBufferData(GL_ARRAY_BUFFER, cube_size, NULL, GL_STATIC_DRAW)
-				// copy vertices starting from 0 offest
+				// copy vertices starting from 0 offset
 					glBufferSubData(GL_ARRAY_BUFFER, 0, vert_len, vertices)
 				// copy normals after vertices
 					glBufferSubData(GL_ARRAY_BUFFER, vert_len, norm_len, normals)

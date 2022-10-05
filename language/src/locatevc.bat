@@ -29,7 +29,7 @@ if /I ["%1"]==["auto"] (
 	if exist %RINGEXEPATH% (
 		rem run buildarch.ring to get ring.exe architecture
 		rem we use trick documented at https://devblogs.microsoft.com/oldnewthing/20120731-00/?p=7003
-		for /f %%i in ('%RINGEXEPATH% %RINGARCHPATH%') do set ringbuildtarget=%%i
+		for /f %%i in ('call %RINGEXEPATH% %RINGARCHPATH%') do set ringbuildtarget=%%i
 	)
 )
 
@@ -71,6 +71,12 @@ if exist "C:\Program Files\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" (
 if exist "C:\Program Files\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" (
 	call "C:\Program Files\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" %ringbuildtarget%
 	exit /b
+)
+
+if exist "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\VsDevCmd.bat" (
+    set VSCMD_START_DIR=%cd%
+    call "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+    exit /b
 )
 
 if exist "C:\Program Files\Microsoft Visual Studio\2017\Community\Common7\Tools\VsDevCmd.bat" (

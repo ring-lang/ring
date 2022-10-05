@@ -12,7 +12,9 @@ class RNoteAutoComplete
 				"func","get","give","if","import","in","load","loadsyntax",
 				"loop","new","next","not","off","ok","on","or","other",
 				"package","private","put","return","see","step","switch",
-				"to","try","while"]
+				"to","try","while","endfunc","endclass","endpackage",
+				"endif","endfor","endwhile","endswitch","endtry",
+				"function","endfunction","break","continue"]
 			AddItems(aKeywords,oAutoCompleteList)
 		# Add Ring Functions
 			aCFunctionsList = cfunctions()

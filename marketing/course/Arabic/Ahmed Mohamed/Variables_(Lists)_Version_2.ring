@@ -10,13 +10,13 @@
 aList = [
 	
 	:name 		= "Ahmed Mohamed",
-	:jop 		= "Developer",
+	:job 		= "Developer",
 	:country 	= "Egypt",
 	:city		= "Alexandria"
 ]
 
 ? aList[:name]
-? aList[:jop]
+? aList[:job]
 ? aList[:country]
 
 if aList[:city] = null aList[:city] = "Cairo" ok

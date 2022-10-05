@@ -1,7 +1,7 @@
 /*
 **	Application	: Ring lessons - Functional Programming.
 **	Author		: Osama Ballan .
-**	Date			: 2018 - 01 - 22 .
+**	Date		: 2018 - 01 - 22 .
 */
 
 # Functional Programming Paradigm .
@@ -11,13 +11,13 @@
 	Functions  	----> Pass Function as Para .
 	Pure Functions	 ----> Don't Modify The State .
 	(First-Class) 	 	 Return Function as Value Store in Variable .
-	Recusion		----> Function Call Itself 
+	Recursion		----> Function Call Itself 
 				 	 (Loop | Control Structure)
 	Lazy Evaluation ----> Expressions in Function Parameters Evaluated 
 					 Only When Usage .
 */
 /* 
-# 	Adventages : 
+# 	Advantages : 
 	(1) The same Input ----> Function ----> The same output .
 		Cache Result (Output)
 	(2) parallel Execution For Functions

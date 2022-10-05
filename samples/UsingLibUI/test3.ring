@@ -243,7 +243,6 @@ func onOpenFileClicked
 		return
 	ok
 	uiEntrySetText(entryOpen, filename)
-	uiFreeText(filename)
 
 func onSaveFileClicked
 	filename = uiSaveFile(mainwin)
@@ -252,7 +251,6 @@ func onSaveFileClicked
 		return
 	ok
 	uiEntrySetText(entrySave, filename)
-	uiFreeText(filename)
 
 func onMsgBoxClicked
 	uiMsgBox(mainwin,

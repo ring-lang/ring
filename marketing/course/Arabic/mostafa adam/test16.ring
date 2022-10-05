@@ -1,14 +1,14 @@
 /*
 	name 		: Mostafa Abdullah Adam 
-	App 		: Test 16 ( Lists v.4) 
+	Application	: Test 16 ( Lists v.4) 
 	Date 		: 2017-12-11 
 */ 
 #=======================================================
-     // Variables types ( str , num ,[ list ], obj , c obj )
+     // Variables types ( string , number ,[ list ], object , c object )
 #=======================================================
 
 		#===============================#
-		//List -----> Aray , list , ...etc 
+		//List -----> Array , list , ...etc 
 		      #==================#
 # Number = (n)
 # string = (c)
@@ -27,9 +27,9 @@ while true
 		on "1" see " inter Number " give add mylist+add   # Add Number to my list 
 		on "2" sum=0 for Nsm in mylist sum = sum+Nsm next # convert (numbers) to Numbers to sum & sum
 			? "sum = " + sum			  # Show message with sum 
-		on "3" mylist=[] 				  # Empity my list again []
+		on "3" mylist=[] 				  # Empty my list again []
 			? "Done"
-		on "4" ? "GoodBye " bye				  # To Colse bye or / Shutdown()
+		on "4" ? "GoodBye " bye				  # To Close bye or / Shutdown()
 
 		other ? " bad switch "
 	off

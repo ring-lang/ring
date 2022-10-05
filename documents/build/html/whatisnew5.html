@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>What is new in Ring 1.5? &mdash; Ring 1.16 documentation</title>
+  <title>What is new in Ring 1.5? &mdash; Ring 1.18 documentation</title>
   
 
   
@@ -153,6 +153,10 @@
 <li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csvlib.html">CSVLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jsonlib.html">JSONLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="httplib.html">HTTPLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenslib.html">TokensLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="socket.html">Using RingSockets</a></li>
@@ -218,6 +222,7 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew14.html">Release Notes: Version 1.14</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew15.html">Release Notes: Version 1.15</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew17.html">Release Notes: Version 1.17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
@@ -1221,7 +1226,7 @@ func main
 <span class="n">rotate_x</span><span class="o">=</span><span class="mi">0</span>
 
 <span class="o">//</span> <span class="o">----------------------------------------------------------</span>
-<span class="o">//</span> <span class="n">display</span><span class="p">()</span> <span class="n">Callback</span> <span class="n">function</span>
+<span class="o">//</span> <span class="n">display</span><span class="p">()</span> <span class="n">Callback</span> <span class="k">function</span>
 <span class="o">//</span> <span class="o">----------------------------------------------------------</span>
 <span class="k">func</span> <span class="n">display</span>
 
@@ -1295,7 +1300,7 @@ func main
 
 
 <span class="o">//</span> <span class="o">----------------------------------------------------------</span>
-<span class="o">//</span> <span class="n">specialKeys</span><span class="p">()</span> <span class="n">Callback</span> <span class="n">Function</span>
+<span class="o">//</span> <span class="n">specialKeys</span><span class="p">()</span> <span class="n">Callback</span> <span class="k">Function</span>
 <span class="o">//</span> <span class="o">----------------------------------------------------------</span>
 <span class="k">func</span> <span class="n">specialKeys</span>
 
@@ -1325,7 +1330,7 @@ func main
 
 
 <span class="o">//</span> <span class="o">----------------------------------------------------------</span>
-<span class="o">//</span> <span class="n">main</span><span class="p">()</span> <span class="n">function</span>
+<span class="o">//</span> <span class="n">main</span><span class="p">()</span> <span class="k">function</span>
 <span class="o">//</span> <span class="o">----------------------------------------------------------</span>
 <span class="k">func</span> <span class="n">main</span>
 
@@ -2093,22 +2098,22 @@ very useful for tools like</p>
         <span class="k">new</span> <span class="n">qMenu</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
                 <span class="n">oAction</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qAction</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
                         <span class="n">settext</span><span class="p">(</span><span class="s">&quot;new&quot;</span><span class="p">)</span>
-                        <span class="n">SetCLickevent</span><span class="p">(</span><span class="s">&quot;See :New&quot;</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span><span class="s">&quot;See :New&quot;</span><span class="p">)</span>
                 <span class="p">}</span>
                 <span class="n">addaction</span><span class="p">(</span><span class="n">oAction</span><span class="p">)</span>
                 <span class="n">oAction</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qAction</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
                         <span class="n">settext</span><span class="p">(</span><span class="s">&quot;open&quot;</span><span class="p">)</span>
-                        <span class="n">SetCLickevent</span><span class="p">(</span><span class="s">&quot;See :Open&quot;</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span><span class="s">&quot;See :Open&quot;</span><span class="p">)</span>
                 <span class="p">}</span>
                 <span class="n">addaction</span><span class="p">(</span><span class="n">oAction</span><span class="p">)</span>
                 <span class="n">oAction</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qAction</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
                         <span class="n">settext</span><span class="p">(</span><span class="s">&quot;save&quot;</span><span class="p">)</span>
-                        <span class="n">SetCLickevent</span><span class="p">(</span><span class="s">&quot;See :Save&quot;</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span><span class="s">&quot;See :Save&quot;</span><span class="p">)</span>
                 <span class="p">}</span>
                 <span class="n">addaction</span><span class="p">(</span><span class="n">oAction</span><span class="p">)</span>
                 <span class="n">oAction</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qAction</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
                         <span class="n">settext</span><span class="p">(</span><span class="s">&quot;close&quot;</span><span class="p">)</span>
-                        <span class="n">SetCLickevent</span><span class="p">(</span><span class="s">&quot;See :Close&quot;</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span><span class="s">&quot;See :Close&quot;</span><span class="p">)</span>
                 <span class="p">}</span>
                 <span class="n">addaction</span><span class="p">(</span><span class="n">oAction</span><span class="p">)</span>
                 <span class="n">oCursor</span>  <span class="o">=</span> <span class="k">new</span> <span class="n">qCursor</span><span class="p">()</span>
@@ -2207,7 +2212,7 @@ see type(x) + nl
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2016-2021, Ring Team
+        &copy; Copyright 2016-2022, Ring Team
 
     </p>
   </div>

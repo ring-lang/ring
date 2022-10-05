@@ -18,15 +18,6 @@ S_ISREG(m)
 S_ISDIR(m)
 stat _stat
 ring_vm_file_loadfunctions
-ring_fexists_general
-Type: struct stat
-sb
-ring_direxists
-Type: struct stat
-sb
-ring_getpathtype
-Type: struct stat
-sb
 ring_vm_file_fopen
 Type: FILE *
 fp
@@ -44,11 +35,6 @@ fp2
 ring_vm_file_tempfile
 Type: FILE *
 fp
-ring_vm_file_tempname
-_tmpfile
-Type: errno_t
-error
-_tmpfile
 ring_vm_file_fseek
 Type: int
 nResult
@@ -130,27 +116,6 @@ Type: int
 nResult
 Type: FILE *
 fp
-ring_vm_file_dir
-Type: const char *
-cStr
-Type: List *
-pList, *pList2
-Type: WIN32_FIND_DATA
-fdFile
-Type: HANDLE
-hFind
-Type: String *
-pString
-Type: DIR *
-pDir
-Type: struct dirent *
-pDirent
-Type: struct stat
-st
-Type: char
-cPath[FILENAME_MAX]
-Type: char
-cCurrentDir[FILENAME_MAX]
 ring_vm_file_read
 Type: FILE *
 fp
@@ -161,9 +126,6 @@ cBuffer
 ring_vm_file_write
 Type: FILE *
 fp
-ring_vm_file_fexists
-ring_vm_file_direxists
-ring_vm_file_getpathtype
 ring_vm_file_int2bytes
 Type: Ring_uData
 uData
@@ -191,3 +153,51 @@ x
 ring_vm_file_freefunc
 Type: FILE *
 fp
+ring_fexists_general
+Type: struct _stat
+sb
+Type: wchar_t
+cPath[MAX_PATH]
+Type: int
+nLen1,nFileNameSize
+Type: struct stat
+sb
+ring_direxists
+Type: struct stat
+sb
+ring_getpathtype
+Type: struct stat
+sb
+ring_getfilesize
+Type: struct stat
+sb
+ring_vm_file_fexists
+ring_vm_file_direxists
+ring_vm_file_getpathtype
+ring_vm_file_getfilesize
+ring_vm_file_dir
+Type: const char *
+cStr
+Type: List *
+pList, *pList2
+Type: WIN32_FIND_DATA
+fdFile
+Type: HANDLE
+hFind
+Type: String *
+pString
+Type: DIR *
+pDir
+Type: struct dirent *
+pDirent
+Type: struct stat
+st
+Type: char
+cPath[FILENAME_MAX]
+Type: char
+cCurrentDir[FILENAME_MAX]
+ring_vm_file_tempname
+_tmpfile
+Type: errno_t
+error
+_tmpfile

@@ -12,7 +12,7 @@ gSleepDelay = 0.00		// Animated Delay
 //Parameters
 
 	radiusC = 100		
-	xOff	  = 250							// horizonal for SineWave
+	xOff	  = 250							// Horizontal for SineWave
 	inc	  = 4								// Degrees inc
 	nbrSq	  = 20								// Max 0-99 SQUARE count for SineWave
 	nbrWaves = 512							// oSinQ Queue size for SineWave
@@ -64,7 +64,7 @@ MyApp = new qApp
 	 win = new qWidget()
 	 {
 		  setWindowTitle("Fourier Series")
-		  setGeometry(xPos, yPos, xWidth, yHeight)	 ### Window Pos and Size
+		  setGeometry(xPos, yPos, xWidth, yHeight)	 ### Window Position and Size
 
 		  myfilter = new qallevents(win)
 
@@ -91,7 +91,7 @@ MyApp = new qApp
 				daVinci = new qpainter()
 				{
 					begin(MonaLisa)
-					translate(300,300)			  ### TRANSLATE CO-ORD x,y	 0,0	MAPS TO	300,300
+					translate(300,300)			  ### TRANSLATE COORDINATE x,y	 0,0	MAPS TO	300,300
 					#endpaint()						  ### This will Stop the Painting		
 				}
 
@@ -118,7 +118,7 @@ MyApp = new qApp
 		  {
 				setGeometry(240, 2, 100, 20)
 				setOrientation(Qt_Horizontal)
-				setTickInterval(1)							// Count of Anble  1...10
+				setTickInterval(1)							// Count of Angle  1...10
 				setValue(5)										
 				setValueChangedEvent("SliderEventAngle()")
 		  }		  
@@ -179,11 +179,11 @@ return
 Func pPress
 	 win.setWindowTitle("Press: Top " + initX +"-" +initY +" Bottom "+ finalX +"-" +finalY )
 	 
-	 initX = myfilter.getglobalx()		### Screen co-ord, NOT Canvas
-	 initY = myfilter.getglobaly()		### Screen co-ord, NOT Canvas
+	 initX = myfilter.getglobalx()		### Screen coordinate, NOT Canvas
+	 initY = myfilter.getglobaly()		### Screen coordinate, NOT Canvas
 
-	 //initX = myfilter.getx()				### Screen co-ord, NOT Canvas
-	 //initY = myfilter.gety()				### Screen co-ord, NOT Canvas
+	 //initX = myfilter.getx()				### Screen coordinate, NOT Canvas
+	 //initY = myfilter.gety()				### Screen coordinate, NOT Canvas
 
 	 ### Change Pen Color
 	 if  counter % 3 = 0	 daVinci.setpen(penRed)		curPen = penRed
@@ -204,7 +204,7 @@ return
 Func pRelease
 	 win.setWindowTitle("Press: Top " + initX +"-" +initY +" Bottom "+ finalX +"-" +finalY +" Width "+ (finalX-initX) + " Height "+ (finalY-initY) )
 
-	 finalX = myfilter.getglobalx()				### Screen co-ord, NOT Canvas
+	 finalX = myfilter.getglobalx()				### Screen coordinate, NOT Canvas
 	 finalY = myfilter.getglobaly()
 
 	 pDrawObjects()
@@ -219,7 +219,7 @@ return
 Func pMove
 	 win.setWindowTitle("Press: Top " + initX +"-" +initY +" Bottom "+ finalX +"-" +finalY +" Width "+ (finalX-initX) + " Height "+ (finalY-initY) )
 
-	 finalX = myfilter.getglobalx()			### Screen co-ord, NOT Canvas getx()  gety()
+	 finalX = myfilter.getglobalx()			### Screen coordinate, NOT Canvas getx()  gety()
 	 finalY = myfilter.getglobaly()
 
 	 pDrawObjects()
@@ -267,7 +267,7 @@ return
 
 ###===============================================
 ###===============================================
-### Sin() = Vertical	 Cos() - Horzontal
+### Sin() = Vertical	 Cos() - Horizontal
 //
 // See "Sin(15) radians = " + sin(15)				 =>  0.65
 // See "Sin(15) degree	= " + sin(15 * 3.14/180) =>  0.26
@@ -312,8 +312,8 @@ Func pDrawObjects()
 													
 							radius = radiusC * (4 / (n * PI))   	// For each Smaller Circle-N
 							radian = ( n * ( angle * gDegree ) )	// For Angle in Circle-N
-							x += radius * cos(radian)  				// Cos() Horz X
-							y += radius * sin(radian)  				// Sin() Vert Y
+							x += radius * cos(radian)  				// Cos() Horizontal X
+							y += radius * sin(radian)  				// Sin() Vertical Y
 
 					###--------------
 					### SawTooth
@@ -322,8 +322,8 @@ Func pDrawObjects()
 											
 							radius = radiusC * (4 / (n * PI))   	// For each Smaller Circle-N
 							radian = ( n * ( angle * gDegree ) )	// For Angle in Circle-N
-							x += radius * cos(radian)  				// Cos() Horz X
-							y += radius * sin(radian)  				// Sin() Vert Y
+							x += radius * cos(radian)  				// Cos() Horizontal X
+							y += radius * sin(radian)  				// Sin() Vertical Y
 					
 					###--------------
 					### Pulse
@@ -333,8 +333,8 @@ Func pDrawObjects()
                      pulseSize = 10									// Pulse - same small circle		
 							radius = radiusC * (4 / ( pulseSize * PI) )   	// For each Smaller Circle-N
 							radian = ( n * ( angle * gDegree ) )	// For Angle in Circle-N
-							x += radius * cos(radian)  				// Cos() Horz X
-							y += radius * sin(radian)  				// Sin() Vert Y		
+							x += radius * cos(radian)  				// Cos() Horizontal X
+							y += radius * sin(radian)  				// Sin() Vertical Y		
 
 					###--------------
 					### Triangle
@@ -346,20 +346,20 @@ Func pDrawObjects()
 
 						
 							if (count % 2) = 0
-								x += radius * cos(radian)  				// Cos() Horz X  PLUS
-								y += radius * sin(radian)  				// Sin() Vert Y	
+								x += radius * cos(radian)  				// Cos() Horizontal X  PLUS
+								y += radius * sin(radian)  				// Sin() Vertical Y	
 							else
-								x -= radius * cos(radian)  				// Cos() Horz X  MINUS
-								y -= radius * sin(radian)  				// Sin() Vert Y								
+								x -= radius * cos(radian)  				// Cos() Horizontal X  MINUS
+								y -= radius * sin(radian)  				// Sin() Vertical Y								
 							ok
 					else
-							See "Error: Unknow Wave Name: "+ WaveType +nl
+							See "Error: Unknown Wave Name: "+ WaveType +nl
 							return
 					ok			
 					
 					 
 				daVinci.setpen(penYellow)				
-				daVinci.drawLine(oldX, -oldY, X, -Y)		// From oldCircle center to newCircle cemter
+				daVinci.drawLine(oldX, -oldY, X, -Y)		// From oldCircle center to newCircle center
 				
 				daVinci.setpen(curPen)
 				DrawCircle(oldX, -oldY, radius)
@@ -369,7 +369,7 @@ Func pDrawObjects()
 			//---------------------------------------
 			// Draw SineWave made from oSinQ Queue
 			
-			aPos = FindCirclePoint(0,0,radiusC,Angle)		// Circle-Orig 
+			aPos = FindCirclePoint(0,0,radiusC,Angle)		// Circle-Origin
 			xVert = aPos[1]  yVert = aPos[2]					// Angle => x,y position on circumference
 		
 			oSineQ.add(yVert)										// SineWave		Add y-Point to end of Queue
@@ -386,8 +386,8 @@ Func pDrawObjects()
 				curY =  0 - oSquareQ[k]
 				sinY =  0 - oSineQ[k]
 				
-				 daVinci.DrawLine( curX, curY, prevX, prevY)		// SqaureWave make solid 
-				daVinci.DrawPoint( curX, curY )						// SqaureWave Points	 -Y goes up
+				daVinci.DrawLine( curX, curY, prevX, prevY)		// SquareWave make solid 
+				daVinci.DrawPoint( curX, curY )						// SquareWave Points	 -Y goes up
 				
 				daVinci.setPen(penWhite)
 				daVinci.DrawPoint( curX, sinY )						// SineWave	  Points	 -Y goes up
@@ -457,8 +457,8 @@ Func DrawCirclePoint(x,y,radius,angle)
 
 	radian = Angle * gDegree
 	
-	x =  cos(radian)	// Cos() Horz X
-	y =  sin(radian)	// Sin() Vert Y
+	x =  cos(radian)	// Cos() Horizontal X
+	y =  sin(radian)	// Sin() Vertical Y
 
 	XPos =  x * radius
 	YPos =  y * radius
@@ -477,8 +477,8 @@ Func DrawCircleLine(x,y,radius,Angle)
 	
 	radian = Angle * gDegree
 	
-	x =  cos(radian)	// Cos() Horz X
-	y =  sin(radian)	// Sin() Vert Y
+	x =  cos(radian)	// Cos() Horizontal X
+	y =  sin(radian)	// Sin() Vertical Y
 
 	XPos =  x * radius
 	YPos =  y * radius
@@ -497,8 +497,8 @@ Func FindCirclePoint(x,y,radius,Angle)
 	
 	radian = Angle * gDegree
 	
-	x =  cos(radian)	// Cos() Horz X
-	y =  sin(radian)	// Sin() Vert Y
+	x =  cos(radian)	// Cos() Horizontal X
+	y =  sin(radian)	// Sin() Vertical Y
 
 	XPos =  x * radius
 	YPos =  y * radius

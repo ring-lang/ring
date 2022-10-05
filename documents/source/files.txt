@@ -37,6 +37,7 @@ In this chapter we are going to learn about files functions.
 * fexists()
 * direxists()
 * getpathtype()
+* getfilesize()
 * Numbers and Bytes
 
 .. index:: 
@@ -640,6 +641,37 @@ Output:
 	2
 	0
 
+.. index:: 
+	pair: Files; Getfilesize()
+
+Getfilesize() Function
+======================
+
+We can get the size in bytes of a given file using the Getfilesize() function
+
+Syntax:
+
+.. code-block:: none
+
+	Getfilesize(cFilePath) ---> file size in bytes as a positive Number 
+				    or -1 in case of failure 
+				    (e.g. path doesn't exist or not a regular file)
+
+Example:
+
+.. code-block:: ring
+
+	? Getfilesize("b:\ring\bin\ring.exe") + nl +
+	  Getfilesize("b:\ring") + nl +
+	  Getfilesize("b:\ring\ring2.exe") 
+
+Output:
+
+.. code-block:: none
+
+	80384
+	-1
+	-1
 
 .. index:: 
 	pair: Files; Example

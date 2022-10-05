@@ -5,15 +5,28 @@ codename: QString
 managed
 </class>
 
+<filter> sysget("RINGQT_QT515") = "" or sysget("RINGQT_ANDROID_QT512") = "1"
+QStringList split( QString  sep, QString::SplitBehavior behavior , Qt::CaseSensitivity cs )
+QStringList split@2(QChar sep, QString::SplitBehavior behavior , Qt::CaseSensitivity cs )
+QStringList split@3( QRegExp  rx, QString::SplitBehavior behavior )
+QStringList split@4( QRegularExpression  re, QString::SplitBehavior behavior )
+</filter>
+
+<filter> sysget("RINGQT_QT515") = "1" and sysget("RINGQT_ANDROID_QT512") = ""
+QStringList split( QString  sep, Qt::SplitBehavior behavior , Qt::CaseSensitivity cs )
+QStringList split@2(QChar sep, Qt::SplitBehavior behavior , Qt::CaseSensitivity cs )
+QStringList split@3( QRegExp  rx, Qt::SplitBehavior behavior )
+QStringList split@4( QRegularExpression  re, Qt::SplitBehavior behavior )
+</filter>
+
+
 QString append(QString  str)
 QString append@2(QChar ch)
 QByteArray toUtf8(void)
 QByteArray toLatin1(void)
 QByteArray toLocal8Bit(void)
-QStringList split( QString  sep, QString::SplitBehavior behavior , Qt::CaseSensitivity cs )
-QStringList split@2(QChar sep, QString::SplitBehavior behavior , Qt::CaseSensitivity cs )
-QStringList split@3( QRegExp  rx, QString::SplitBehavior behavior )
-QStringList split@4( QRegularExpression  re, QString::SplitBehavior behavior )
+
+
 QChar * unicode(void)
 QString number(ulong n, int base)
 int count(void)
@@ -27,6 +40,7 @@ QString insert(int position,  QString  str)
 bool isRightToLeft(void)
 QString repeated(int times)
 QString replace(int position, int n,  QString  after)
+QString replace@2(QString before, QString after, Qt::CaseSensitivity)
 bool startsWith( QString  s, Qt::CaseSensitivity cs )
 bool endsWith( QString  s, Qt::CaseSensitivity cs )
 QString toHtmlEscaped(void)

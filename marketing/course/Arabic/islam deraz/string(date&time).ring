@@ -4,7 +4,7 @@
           Date               :2018.02.12
           Application Number :1
 */ 
-#variable Types (string, number, list, object, c object)
+# variable Types (string, number, list, object, c object)
 
 ? date()
 cdate = date()
@@ -20,19 +20,19 @@ cdate2 =diffdays(cdate1,cdate)
 
  # Application of age Calculation
 
-? "Wellcome" 
+? "Welcome" 
 see "Enter your name: " +nl
 give Name 
 see "Hello " +Name +nl
 
-see "Enter your Bornday: " +nl
+see "Enter your Born-day: " +nl
 give nday
  
 
-see "Enter your Bornmonth: " +nl
+see "Enter your Born-month: " +nl
 give nmonth
 
-see "Enter your Bornyear: " +nl
+see "Enter your Born-year: " +nl
 give nyear
 
 see "Enter the current day: " +nl
@@ -122,7 +122,3 @@ see "the year is: " +nyear3 +nl
 see "the month is: " +nmonth3 +nl
 end
 */
-
-
-
-

@@ -603,22 +603,22 @@ Example:
 		new qMenu(win) {
 			oAction = new qAction(win) {
 				settext("new")
-				SetCLickevent("See :New")
+				setClickEvent("See :New")
 			}
 			addaction(oAction)
 			oAction = new qAction(win) {
 				settext("open")
-				SetCLickevent("See :Open")
+				setClickEvent("See :Open")
 			}
 			addaction(oAction)
 			oAction = new qAction(win) {
 				settext("save")
-				SetCLickevent("See :Save")
+				setClickEvent("See :Save")
 			}
 			addaction(oAction)
 			oAction = new qAction(win) {
 				settext("close")
-				SetCLickevent("See :Close")
+				setClickEvent("See :Close")
 			}
 			addaction(oAction)
 			oCursor  = new qCursor()
@@ -1677,7 +1677,7 @@ In this example we will learn about using the QTimer class
 			setwindowtitle("Timer")
 			label1 = new qlabel(win1) {
 				setgeometry(10,10,200,30)
-				settext(thetime()) 
+				settext(theTime()) 
 			}
 			new qtimer(win1) {
 				setinterval(1000)
@@ -1689,10 +1689,10 @@ In this example we will learn about using the QTimer class
 		exec()
 	}
 
-	func ptime
+	func pTime
 		label1.settext(thetime())
 
-	Func thetime
+	func theTime
 		return "Time : " + Time()
 
 
@@ -2606,8 +2606,7 @@ In the next example we will learn about using the QDesktopWidget class
 
 	Func pCenter
 		oDesktop  = new qDesktopWidget()
-		oRect = oDesktop.screenGeometry( oDesktop.primaryScreen()  ) 
-		win1.move((oRect.width()-win1.width()) /2 , (oRect.Height()-win1.Height())/2 )
+		win1.move((oDesktop.width()-win1.width()) /2 , (oDesktop.Height()-win1.Height())/2 )
 		win1.show()
 
 The application during the runtime
@@ -4559,8 +4558,49 @@ Example  (Uses the Form Designer)
 (2) https://github.com/ring-lang/ring/blob/master/samples/UsingFormDesigner/indexstart/indexstartController.ring 
 
 .. index:: 
-	pair: Desktop, WebAssembly and Mobile Development; Creating Reports using the WebLib and the GUILib
+	pair: Desktop, WebAssembly and Mobile Development; TableWidget - AddList() Method
 
+TableWidget - AddList() Method
+==============================
+
+Using this method we can add Ring List to the TableWidget
+
+.. tip:: TableWidget class is a subclass of QTableWidget class
+
+.. note:: To use TableWidget class, import system.gui after loading guilib.ring or lightguilib.ring
+
+Example:
+
+Source code: https://github.com/ring-lang/ring/tree/master/samples/UsingQt/TableWidget/AddRingList
+
+.. code-block:: ring
+
+	class addRingListController from windowsControllerParent
+
+		oView = new addRingListView
+
+		aList = [["one","two"],
+			 ["three","four"],
+			 ["five","six"],
+			 [7,8],
+			 ["I","Love","Ring","Programming"]]
+		
+		oView.tablewidget1.addList(aList)
+
+		aList = [["Number","Square"]]
+		for t = 1 to 10
+			aList + [ t, t*t]
+		next
+
+		oView.tablewidget1.addList(aList)
+
+Screen Shot:
+
+.. image:: addlisttotablewidget.png
+	:alt: addlisttotablewidget
+
+.. index:: 
+	pair: Desktop, WebAssembly and Mobile Development; Creating Reports using the WebLib and the GUILib
 
 Creating Reports using the WebLib and the GUILib 
 ================================================

@@ -72,7 +72,7 @@ New qapp {
                 
                 lineEdit1 = new qlineedit(win1) {
                         setGeometry( (10) , (20), 50, 20 )
-                        settext( "150" )                  ### <<<< Inital Value
+                        settext( "150" )                  ### <<<< Initial Value
                 }
 
                 new qpushbutton(win1) 
@@ -130,7 +130,7 @@ Func Draw ButtonNbr
                     Status = Count % 1000
                     
                     if Status = 0
-                        See "Count: "+ Count +" Cicles: "+ posCol +nl
+                        See "Count: "+ Count +" Circles: "+ posCol +nl
                     ok
                 
                     if Count > CountMax
@@ -238,7 +238,7 @@ Func CollisionDetectionRect (horz, vert, rad)
 
         ### Rectangle
         ### Check 4 corners for overlap
-        ### if New Rect -- Any Corner -- Inside Each Rect ==> Ovelap 
+        ### if New Rect -- Any Corner -- Inside Each Rect ==> Overlap 
 
     for i = 1 to nbrOfCircles
         if arrayCol[i][1] = 0
@@ -289,7 +289,7 @@ Func CollisionDetectionRect (horz, vert, rad)
             if     ( ((oVL <= VL ) and (VL <= oVR )) or ((VL <= oVL ) and (oVL <= VR )) ) V1 = 1  ok  ### VertLeft          
             if     ( ((oVL <= VR ) and (VR <= oVR )) or ((VL <= oVR ) and (oVR <= VR )) ) V2 = 1  ok  ### VertRight
 
-            ###     TopLeft          Bottomleft     TopRight       BottomRight
+            ###     TopLeft          BottomLeft     TopRight       BottomRight
             if  ( ( H1 and V1 ) or ( H2 and V1) or (H1 and V2) or (H2 and V2) )
              
                 Overlap = 1

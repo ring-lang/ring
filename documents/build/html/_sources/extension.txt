@@ -9,7 +9,7 @@ We can extend the Ring Virtual Machine (RingVM) by adding new functions written 
 The RingVM comes with many functions written in C that we can call like any Ring function.
 
 We can extend the language by writing new functions then rebuilding the RingVM again, or we can create shared 
-library (DLL/So) file to extend the RingVM without the need to rebuild it.
+library (DLL/So/Dylib) file to extend the RingVM without the need to rebuild it.
 
 The Ring language source code comes with two files to add new modules to the RingVM, ring_ext.h and ring_ext.c
 
@@ -107,10 +107,10 @@ Each module starts by include the ring header file (ring.h).
 This files contains the Ring API that we can use to extend the RingVM.
 
 Each module comes with a function to register the module functions in the RingVM 
-The registration is done by using ring_vm_funcregister() function.
+The registration is done by using RING_API_REGISTER() function.
 
 
-The ring_vm_funcregister() function takes two parameters, the first is the function name
+The RING_API_REGISTER() function takes two parameters, the first is the function name
 that will be used by Ring programs to call the function. The second parameter is the 
 function pointer in the C program.
 
@@ -122,27 +122,27 @@ for example, the ring_vmmath.c module contains the next code to register the mod
 
 	void ring_vm_math_loadfunctions ( RingState *pRingState )
 	{
-		ring_vm_funcregister("sin",ring_vm_math_sin);
-		ring_vm_funcregister("cos",ring_vm_math_cos);
-		ring_vm_funcregister("tan",ring_vm_math_tan);
-		ring_vm_funcregister("asin",ring_vm_math_asin);
-		ring_vm_funcregister("acos",ring_vm_math_acos);
-		ring_vm_funcregister("atan",ring_vm_math_atan);
-		ring_vm_funcregister("atan2",ring_vm_math_atan2);
-		ring_vm_funcregister("sinh",ring_vm_math_sinh);
-		ring_vm_funcregister("cosh",ring_vm_math_cosh);
-		ring_vm_funcregister("tanh",ring_vm_math_tanh);
-		ring_vm_funcregister("exp",ring_vm_math_exp);
-		ring_vm_funcregister("log",ring_vm_math_log);
-		ring_vm_funcregister("log10",ring_vm_math_log10);
-		ring_vm_funcregister("ceil",ring_vm_math_ceil);
-		ring_vm_funcregister("floor",ring_vm_math_floor);
-		ring_vm_funcregister("fabs",ring_vm_math_fabs);
-		ring_vm_funcregister("pow",ring_vm_math_pow);
-		ring_vm_funcregister("sqrt",ring_vm_math_sqrt);
-		ring_vm_funcregister("unsigned",ring_vm_math_unsigned);
-		ring_vm_funcregister("decimals",ring_vm_math_decimals);
-		ring_vm_funcregister("murmur3hash",ring_vm_math_murmur3hash);
+		RING_API_REGISTER("sin",ring_vm_math_sin);
+		RING_API_REGISTER("cos",ring_vm_math_cos);
+		RING_API_REGISTER("tan",ring_vm_math_tan);
+		RING_API_REGISTER("asin",ring_vm_math_asin);
+		RING_API_REGISTER("acos",ring_vm_math_acos);
+		RING_API_REGISTER("atan",ring_vm_math_atan);
+		RING_API_REGISTER("atan2",ring_vm_math_atan2);
+		RING_API_REGISTER("sinh",ring_vm_math_sinh);
+		RING_API_REGISTER("cosh",ring_vm_math_cosh);
+		RING_API_REGISTER("tanh",ring_vm_math_tanh);
+		RING_API_REGISTER("exp",ring_vm_math_exp);
+		RING_API_REGISTER("log",ring_vm_math_log);
+		RING_API_REGISTER("log10",ring_vm_math_log10);
+		RING_API_REGISTER("ceil",ring_vm_math_ceil);
+		RING_API_REGISTER("floor",ring_vm_math_floor);
+		RING_API_REGISTER("fabs",ring_vm_math_fabs);
+		RING_API_REGISTER("pow",ring_vm_math_pow);
+		RING_API_REGISTER("sqrt",ring_vm_math_sqrt);
+		RING_API_REGISTER("unsigned",ring_vm_math_unsigned);
+		RING_API_REGISTER("decimals",ring_vm_math_decimals);
+		RING_API_REGISTER("murmur3hash",ring_vm_math_murmur3hash);
 	}
 
 .. tip:: Remember that the function ring_vm_math_loadfunctions() will be called by the 
@@ -613,15 +613,15 @@ Dynamic library example in C
 		printf("Message from dlfunc");
 	}
 
-	RING_DLL void ringlib_init(RingState *pRingState)
+	RING_LIBINIT
 	{
-		ring_vm_funcregister("dlfunc",ring_ringlib_dlfunc); 
+		RING_API_REGISTER("dlfunc",ring_ringlib_dlfunc); 
 	}
 
-the idea is to create the ringlib_init() function, this function will be called by the RingVM when we use the generated DLL 
-file though the LoadLib() function.
+the idea is to create the RING_LIBINIT function, this function will be called by the RingVM when we use the generated DLL 
+file through the LoadLib() function.
 
-Inside the ringlib_init() function we can register the module function or call a function that do the registration process
+Inside the RING_LIBINIT function we can register the module function or call a function that do the registration process
 for all of the module functions.
 
 The next Ring code demonstrates how to use the DLL library during the runtime.
@@ -718,4 +718,30 @@ Example:
 		pObject = (QPixmap *) pPointer;
 		delete pObject ;
 	}
+
+
+.. index:: 
+	pair: Extension; Memory Functions
+
+Memory Functions
+================
+
+Ring API provides the next functions for Memory Management
+
+These functions uses the Memory pool provided by Ring VM
+
+.. code-block:: none
+
+	RING_API_MALLOC(nSize)
+	RING_API_CALLOC(nItems,nItemSize)
+	RING_API_REALLOC(pPointer,nSize)
+	RING_API_FREE(pPointer)
+	RING_API_FREEFUNC
+
+* Use RING_API_MALLOC() instead of the malloc() function.
+* Use RING_API_CALLOC() instead of the calloc() function.
+* Use RING_API_REALLOC() instead of the realloc() function.
+* Use RING_API_FREE() instead of the free() function.
+* RING_API_FREEFUNC provides a function pointer to the ring_state_free() function
+
 

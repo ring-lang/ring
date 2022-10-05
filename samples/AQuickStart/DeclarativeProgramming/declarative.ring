@@ -1,4 +1,4 @@
-# Declartive Programming (Nested Structures)
+# Declarative Programming (Nested Structures)
 
 Screen()
 {

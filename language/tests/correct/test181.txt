@@ -1,3 +1,7 @@
-Instruction : I want window
-Using : and
-Instruction : Window Title = hello world
+pobject: NULL
+x: 30
+y: 40
+z: 50
+pobject: NULL
+x: 10
+y: 20

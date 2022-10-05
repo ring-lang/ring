@@ -1,7 +1,7 @@
 /*
-	name	:	Darsh Adam
-	Lesson	:	test50.ring
-	Date 	:	16/12/2017
+	Application : test50.ring
+	Author      : Darsh Adam
+	Date        : 16/12/2017
 */
 
 #=====================================================
@@ -30,4 +30,4 @@ func hello
 func exitapp 
 	# bye
 	Exit
-#========================Enf Of Lesson====================
+#========================End Of Lesson====================

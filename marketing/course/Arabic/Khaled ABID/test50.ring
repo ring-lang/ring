@@ -27,4 +27,4 @@ func main
 func Hello
 	? "Enter your name: " give cName ? "Hello, " + cName
 func closeapplication
-	exit 		# ze can exit from the loop
+	exit 		# we can exit from the loop

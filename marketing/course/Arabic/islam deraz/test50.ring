@@ -29,9 +29,4 @@ func Hello
 		? "Enter your name:" give name ? "Hello " + name
 
 func closeapplication
-		exit    # we can exite frome the loop
-
-
-
-
-          
+		exit    # we can exit from the loop

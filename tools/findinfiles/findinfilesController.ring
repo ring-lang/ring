@@ -65,7 +65,11 @@ class findinfilesController from WindowsControllerParent
 			this.nFilesCount 	= 0
 			this.nMatches 		= 0
 			for cFile in aFiles step 1 { 
-				cFileText = read(cFile)
+				try
+					cFileText = read(cFile)
+				catch 
+					loop
+				done
 				aList = str2list(cFileText)
 				nMax = len(aList)
 				lFound = False 
@@ -150,7 +154,11 @@ class findinfilesController from WindowsControllerParent
 		cText     = oView.txtFind.text()		
 		cReplace  = oView.txtReplace.text()
 		lCase	  = oView.checkMatchCase.checkstate()
-		cContent  = read(cFile)
+		try
+			cContent  = read(cFile)
+		catch
+			return 
+		end
 		aContentList = str2list(cContent)
 		if lCase {
 			aContentList[nRow] = substr(aContentList[nRow],cText,cReplace)
@@ -172,7 +180,11 @@ class findinfilesController from WindowsControllerParent
 		cReplace  = oView.txtReplace.text()
 		lCase	  = oView.checkMatchCase.checkstate()
 		for cFile in aResultFiles {
-			cContent  = read(cFile)
+			try
+				cContent  = read(cFile)
+			catch 
+				loop
+			end
 			if lCase {
 				cContent = substr(cContent,cText,cReplace)
 			else 

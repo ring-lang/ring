@@ -1,13 +1,13 @@
 /*
-**		Application		:variables (Lists3)
-**		Author			:Adel Mahmoud
-**		Date			:2018.01.28
+**	Application		:variables (Lists3)
+**	Author			:Adel Mahmoud
+**	Date			:2018.01.28
 */
 
 #=========================================================
 
-# Strings	---> character,array of character ,ML,Binarry,Null
-# Numbers	---> int, float|double, Boolean(True,False)
+# Strings	---> character, array of character, ML,Binary, Null
+# Numbers	---> int, float|double, Boolean(True, False)
 # List		---> array, list, Nested list, MD array, Hash|Dictionary
 
 #=========================================================
@@ -35,6 +35,3 @@
 # list + (number|string|list)	---> Add items 
 
 #=========================================================
-
-
-

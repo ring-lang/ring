@@ -61,7 +61,7 @@ class Trees
 	# Function to get the size of tree (children count)
 	func size
 		return len(children)
-	# Fnction to check if the whole tree has a children with given value
+	# Function to check if the whole tree has a children with given value
 	func contains v
 		# Simple BFS
 		queue = new QueueArray {enqueue(this)}

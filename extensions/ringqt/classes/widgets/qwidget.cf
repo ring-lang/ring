@@ -4,6 +4,10 @@ para: void
 parent: QObject
 </class>
 
+<filter> sysget("RINGQT_QT515") = ""
+void getContentsMargins(int *left, int *top, int *right, int *bottom)
+</filter>
+
 bool acceptDrops(void)
 QString accessibleDescription(void)
 QString accessibleName(void)
@@ -38,7 +42,6 @@ int foregroundRole(void)
 QRect frameGeometry(void)
 QSize frameSize(void)
 QRect geometry(void)
-void getContentsMargins(int *left, int *top, int *right, int *bottom)
 QPixmap grab(QRect) 
 void grabGesture(Qt::GestureType gesture, Qt::GestureFlag flags)
 void grabKeyboard(void)

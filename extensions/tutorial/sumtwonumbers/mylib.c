@@ -28,8 +28,8 @@ RING_FUNC(ring_sumtwonumbers)
 		RING_API_RETNUMBER(nSum);
 }
 
-RING_API void ringlib_init(RingState *pRingState)
+RING_LIBINIT
 {
-	ring_vm_funcregister("myfunction",ring_myfunction);
-	ring_vm_funcregister("sumtwonumbers",ring_sumtwonumbers);
+	RING_API_REGISTER("myfunction",ring_myfunction);
+	RING_API_REGISTER("sumtwonumbers",ring_sumtwonumbers);
 }

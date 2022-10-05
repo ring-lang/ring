@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.13",
-	:ringversion = "1.15",
+	:version = "1.0.20",
+	:ringversion = "1.17",
 	:versions = 	[
 		[
-			:version = "1.0.13",
+			:version = "1.0.20",
 			:branch = "master"
 		]
 	],
@@ -51,13 +51,9 @@ aPackageInfo = [
 		"tools/ringnotepad/batch/run2.bat",
 		"tools/ringnotepad/batch/run.sh",
 		"tools/ringnotepad/batch/run2.sh",
-		"tools/ringnotepad/apache_config/access.log",
-		"tools/ringnotepad/apache_config/error.log",
-		"tools/ringnotepad/apache_config/lastrundirpath.txt",
-		"tools/ringnotepad/apache_config/makeexecutable.sh",
-		"tools/ringnotepad/apache_config/ringwebapp.local.conf",
-		"tools/ringnotepad/apache_config/setwebappconf.sh",
-		"tools/ringnotepad/apache_config/webapp.conf.bak",
+		"tools/ringnotepad/batch/apache_config/makeexecutable.sh",
+		"tools/ringnotepad/batch/apache_config/setwebappconf.sh",
+		"tools/ringnotepad/batch/apache_config/webapp.conf.bak",
 		"tools/ringnotepad/image/back.jpg",
 		"tools/ringnotepad/image/back2.jpg",
 		"tools/ringnotepad/image/close.png",

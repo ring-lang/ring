@@ -8,27 +8,27 @@
 
 */
 ######
-variables=[:x]		#global scope
+variables=[:x]			# global scope
 
-func main            	        #to separate local and global functions
+func main            	        # to separate local and global functions
 
-test()				#take its data from global
+test()				# take its data from global
 
 
 new object{		
-	?variables		#object scope(inside objects)=>search in self braces then calss then global
+	?variables		# object scope(inside objects)=>search in self braces then calss then global
 }
 
 new Global{
-	?variables		#take data from class
+	?variables		# take data from class
 }
 
 new Local{
-	variables=[:y,:z]	#take from braces
+	variables=[:y,:z]	# take from braces
 	?variables
 }
 
-func test			#local func search in self then global
+func test			# local function search in self then global
 	?variables	
 
 Class Global

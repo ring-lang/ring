@@ -21,9 +21,32 @@ Before using the next functions load the openssllib.ring library
 * SHA512()
 * SHA384()
 * SHA224()
+* SupportedCiphers()
 * Encrypt()
 * Decrypt()
 * Randbytes()
+* rsa_generate
+* rsa_export_params
+* rsa_import_params
+* rsa_export_pem
+* rsa_import_pem
+* rsa_is_privatekey
+* rsa_encrypt_pkcs
+* rsa_decrypt_pkcs
+* rsa_encrypt_oaep
+* rsa_decrypt_oaep
+* rsa_encrypt_raw
+* rsa_decrypt_raw
+* rsa_sign_pkcs
+* rsa_signhash_pkcs
+* rsa_verify_pkcs
+* rsa_verifyhash_pkcs
+* rsa_sign_pss
+* rsa_signhash_pss
+* rsa_verify_pss
+* rsa_verifyhash_pss
+* openssl_versiontext
+* openssl_version
 * MD5Init(), MD5Update(), MD5Final()
 * SHA1Init(), SHA1Update(), SHA1Final()
 * SHA256Init(), SHA256Update(), SHA256Final()
@@ -224,18 +247,35 @@ Output:
 	sha224('hello world') : 2f05477fc24bb4faefd86517156dafdecec45b8ad3cf2522a563582b
 
 .. index:: 
-	pair: Security and Internet Functions; Encrypt()
+	pair: Security and Internet Functions; SupportedCiphers()
 
-Encrypt() Function
-==================
+SupportedCiphers() Function
+===========================
 
-We can use the Encrypt() function to encrypts the data using the Blowfish algorithm.
+The function SupportedCiphers() retrieves the list of all algorithms supported by Encrypt()/Decrypt() functions.
 
 Syntax:
 
 .. code-block:: ring
 
-	Encrypt(cString, cKey, cIV) ---> Encrypted string
+	SupportedCiphers() ---> List of names of cipher algorithms supported by Encrypt()/Decrypt() functions
+
+.. index:: 
+	pair: Security and Internet Functions; Encrypt()
+
+Encrypt() Function
+==================
+
+We can use the Encrypt() function to encrypt the data using the specified algorithm.
+If no algorithm is specified, Blowfish algorithm is used in CBC mode.
+Typical algorithm values: "bf", "des", "des3", "aes128", "aes192", "aes256" which all use CBC mode.
+The function CipherAlgorithms() return the list of all supported cipher algorithms.
+
+Syntax:
+
+.. code-block:: ring
+
+	Encrypt(cString, cKey, cIV[, cCipherAlgorithmName]) ---> Encrypted string
 
 .. index:: 
 	pair: Security and Internet Functions; Decrypt()
@@ -244,12 +284,15 @@ Decrypt() Function
 ==================
 
 We can use the Decrypt() function to decrypt the data encrypted using the Encrypt() function.
+If no algorithm is specified, Blowfish algorithm is used in CBC mode.
+Typical algorithm values: "bf", "des", "des3", "aes128", "aes192", "aes256" which all use CBC mode.
+The function CipherAlgorithms() return the list of all supported cipher algorithms.
 
 Syntax:
 
 .. code-block:: ring
 
-	Decrypt(cCipher, cKey, cIV) ---> Decrypted string
+	Decrypt(cCipher, cKey, cIV[, cCipherAlgorithm]) ---> Decrypted string
 
 .. index:: 
 	pair: Security and Internet Functions; Example
@@ -259,16 +302,16 @@ Encryption and Decryption Example
 
 The next example demonstrates how to use the Encrypt() and Decrypt() functions.
 
-These functions use the Blowfish algorithm.
+These functions use the AES-128 algorithm (AES with 128-bits key)
 
 .. code-block:: ring
 
 	See "Enter a string : " give cStr
 	list = 0:15  cKey=""    for x in list cKey += char(x) next
-	list = 1:8   cIV = ""   for x in list cIV += char(x) next
-	cStr = Encrypt(cStr,cKey,cIV) 
+	list = 1:16  cIV = ""   for x in list cIV += char(x) next
+	cStr = Encrypt(cStr,cKey,cIV,"aes128") 
 	See "Cipher Text    : " + cStr + nl +
-	    "Plain Text     : " + Decrypt(cStr,cKey,cIV) + nl
+	    "Plain Text     : " + Decrypt(cStr,cKey,cIV,"aes128") + nl
 
 We can write the same example using normal for loop
 
@@ -282,28 +325,42 @@ We can write the same example using normal for loop
 	next
 
 	cIV = ""   
-	for x = 1 to 8
+	for x = 1 to 16
 		cIV += char(x) 
 	next
 
 
-	cStr = Encrypt(cStr,cKey,cIV)
+	cStr = Encrypt(cStr,cKey,cIV,"aes128")
 	See "Cipher Text    : " + cStr + nl +
-	    "Plain Text     : " + Decrypt(cStr,cKey,cIV) + nl
+	    "Plain Text     : " + Decrypt(cStr,cKey,cIV,"aes128") + nl
 
-Also we can write the password and the IV directly using strings
+Also we can write the key and the IV directly using strings
 
 .. code-block:: ring
 
 	See "Enter a string : " give cStr
 
-	# Note: Don't use simple password in real applications!
+	# Note: Don't use simple key in real applications!
 	cKey = "1234567890@#$%^&"		
-	cIV  = "87654321"			
+	cIV  = "FEDCBA0987654321"			
 
-	cStr = Encrypt(cStr,cKey,cIV)
+	cStr = Encrypt(cStr,cKey,cIV,"aes128")
 	See "Cipher Text    : " + cStr + nl +
-	    "Plain Text     : " + Decrypt(cStr,cKey,cIV) + nl
+	    "Plain Text     : " + Decrypt(cStr,cKey,cIV,"aes128") + nl
+
+Finally we can specify the key and the IV values using hexadecimal notation
+
+.. code-block:: ring
+
+	See "Enter a string : " give cStr
+
+	# Note: Don't use simple key in real applications!
+	cKey = hex2str("A0A1A2A3A5A6A7A8AAABACADAFB0B1B2")		
+	cIV  = hex2str("00112233445566778899AABBCCDDEEFF")			
+
+	cStr = Encrypt(cStr,cKey,cIV,"aes128")
+	See "Cipher Text    : " + cStr + nl +
+	    "Plain Text     : " + Decrypt(cStr,cKey,cIV,"aes128") + nl
 
 
 .. index:: 
@@ -346,7 +403,7 @@ Output:
 Randbytes() Function
 ====================
 
-We can generate a string of pseudo-random bytes using the Randbytes() function.
+We can generate a string of cryptographically secure pseudo-random bytes using the Randbytes() function.
 
 Syntax:
 
@@ -362,6 +419,1100 @@ Example:
 	password = "SecretPassWord@$%123"
 	see salt + nl
 	see sha256("test" + salt) + nl
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_generate()
+
+rsa_generate() Function
+====================
+
+We can generate a random RSA key pair using the rsa_generate() function.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_generate(nBits[,nPublicExponent]) ---> a random RSA key pair with nBits as size in bits
+			If nPublicExponent is omited, then the standard public exponent value 65537 is used.
+
+Example:
+
+.. code-block:: ring
+
+	/* generate a new 2048-bit RSA key pair */
+	try
+		rsaKey = rsa_generate(2048)
+		rsaKeyParams = rsa_export_params(rsaKey)
+		See "Modulus = " + rsaKeyParams[:n] + nl
+	catch
+		See "Failed to generate the RSA key pair: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_export_params()
+
+rsa_export_params() Function
+====================
+
+We can export the parameters of an RSA key to a string-indexed list using the rsa_export_params() function.
+The list contains the following string indexes:
+ - "type" for the key type as a string equal to "RSA" in our case
+ - "bits" for the bot length of the key as an integer
+ - "n" for the Modulus as a hexadecimal string
+ - "e" for the Public Exponent as a hexadecimal string
+ - "d" for the Private Exponent as a hexadecimal string
+ - "p" for the first prime as a hexadecimal string
+ - "q" for the second prime as a hexadecimal string
+ - "dmp1" for the first CRT exponent as a hexadecimal string
+ - "dmq1" for the second CRT exponent as a hexadecimal string
+ - "iqmp" for the CRT coefficent as a hexadecimal string
+
+If the key contains only the public part, then "d", "p", "q", "dmp1", "dmq1" and "iqmp" will be empty strings.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_export_params(pRsaKey) ---> list of the key parameters
+
+Example:
+
+.. code-block:: ring
+
+	/* generate a new 2048-bit RSA key pair */
+	try
+		rsaKey = rsa_generate(2048)
+		rsaKeyParams = rsa_export_params(rsaKey)
+		See "Key Type = " + rsaKeyParams[:type] + nl
+		See "Key Size = " + rsaKeyParams[:bits] + " bits" + nl
+		See "Modulus = " + rsaKeyParams[:n] + nl
+		See "Public Exponent = " + rsaKeyParams[:e] + nl
+		See "Private Exponent = " + rsaKeyParams[:d] + nl
+		See "Prime 1 = " + rsaKeyParams[:p] + nl
+		See "Prime 2 = " + rsaKeyParams[:q] + nl
+		See "CRT Exponent 1 = " + rsaKeyParams[:dmp1] + nl
+		See "CRT Exponent 2 = " + rsaKeyParams[:dmq1] + nl
+		See "CRT Coefficient = " + rsaKeyParams[:iqmp] + nl
+	catch
+		See "Failed to generate the RSA key pair: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_import_params()
+
+rsa_import_params() Function
+====================
+
+We can create a new RSA key from parameters stored in a string-indexed list using the rsa_import_params() function.
+The format of the input list is the one described in the function rsa_export_params
+
+The indexes "n" and "e" must not be empty, otherwise an exception is thrown.
+If we need to import only an RSA public key, then the indexes "d", "p", "q", "dmp1", "dmq1" and "iqmp" must be empty.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_import_params(pParamsList) ---> a new RSA key
+
+Example:
+
+.. code-block:: ring
+
+	/* create an RSA public key from a generated RSA key pair */
+	try
+		rsaKey = rsa_generate(2048)
+		rsaKeyParams = rsa_export_params(rsaKey)
+
+		/* create parameters of public key: modulus and public exponent */
+		rsaPublicKeyParam = [:n = rsaKeyParams[:n], :e = rsaKeyParams[:e]]
+		/* create the public key using rsa_import_params */
+		rsaPublicKey = rsa_import_params(rsaPublicKeyParam)
+
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_export_pem()
+
+rsa_export_pem() Function
+====================
+
+We can export an RSA key to a string in PEM format using the rsa_export_pem() function.
+If the RSA key contains both public and private parts, then returned string  will start with "-----BEGIN PRIVATE KEY-----"
+If the RSA key contains only the public part, then returned string will start with "-----BEGIN PUBLIC KEY-----"
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_export_pem(pRsaKey) ---> string encoding of the key in PEM format
+
+Example:
+
+.. code-block:: ring
+
+	/* generate an RSA key and save it to a file in PEM format */
+	try
+		rsaKey = rsa_generate(2048)
+		rsaKeyPEM = rsa_export_pem(rsaKey)
+		/* save private key to a file */
+		write ("privateKey.pem", rsaKeyPEM)
+		
+		/* save public key to a file */
+		rsaKeyParams = rsa_export_params(rsaKey)
+		rsaPublicKeyParam = [:n = rsaKeyParams[:n], :e = rsaKeyParams[:e]]
+		rsaPublicKey = rsa_import_params(rsaPublicKeyParam)
+		rsaPublicKeyPEM = rsa_export_pem(rsaPublicKey)
+		write ("publicKey.pem", rsaPublicKeyPEM)
+
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_import_pem()
+
+rsa_import_pem() Function
+====================
+
+We can create an RSA key from PEM encoded string using the rsa_import_pem() function.
+If the PEM string starts with "-----BEGIN PRIVATE KEY-----", then a full RSA key pair will be created.
+if the PEM string starts with "-----BEGIN PUBLIC KEY-----", then an RSA public key will be created.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_import_pem(cStrPEM) ---> a new RSA key
+
+Example:
+
+.. code-block:: ring
+
+	/* create an RSA key from a PEM file */
+	try
+		rsaKeyPEM = Read("privateKey.pem")
+		rsaKey = rsa_import_pem(rsaKeyPEM)
+		
+		rsaPublicKeyPEM = Read("publicKey.pem")
+		rsaPublicKey = rsa_import_pem(rsaPublicKeyPEM)
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_is_privatekey()
+
+rsa_is_privatekey() Function
+====================
+
+We can check whether an RSA key is a private key or public key using the rsa_is_privatekey() function.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_is_privatekey(pRsaKey) ---> returns 1 if pRsaKey is an RSA private key and 0 if it is an RSA public key
+
+Example:
+
+.. code-block:: ring
+
+	/* create an RSA key from a PEM file and check if it is a private key */
+	try
+		rsaKeyPEM = Read("key.pem")
+		rsaKey = rsa_import_pem(rsaKeyPEM)
+		
+		if rsa_is_privatekey(rsaKey)
+			See "an RSA private key was loaded" + nl
+		else
+			See "an RSA public key was loaded" + nl
+		ok
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_encrypt_pkcs()
+
+rsa_encrypt_pkcs() Function
+====================
+
+We can encrypt data with an RSA key and PKCS#1 v1.5 padding using the rsa_encrypt_pkcs() function.
+The maximum size of data that can be encrypted by rsa_encrypt_pkcs is (modulusLen - 11), with modulusLen
+the length of the RSA key modulus in bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the maximum size
+of data that can be encrypted is 256 - 11 = 245 bytes.
+RSA encryption is usually applied to a symmetric key (e.g. AES) which is used to encrypt much larger data.
+RSA encryption needs only the public part of an RSA key, so rsa_encrypt_pkcs can be used with both RSA private
+key and RSA public key
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_encrypt_pkcs(pRsaKey,cPlainData) ---> return a string containing the encryption of cPlainData
+
+Example:
+
+.. code-block:: ring
+
+	/* encrypt a file using AES key and then encrypt the AES key using an RSA public key */
+	try
+		/* read Alice public key */
+		rsaPublicKeyPEM = Read("alice_public_key.pem")
+		rsaPublicKey = rsa_import_pem(rsaPublicKeyPEM)
+		
+		/* encrypt file with random AES-128 key */
+		cData = Read ("secret_document.txt")
+		cKey = RandBytes(16)
+		cIV = RandBytes(16)
+		cEncryptedData = Encrypt(cData,cKey,cIV,"aes128") 
+		
+		/* encrypt the AES-128 key with the RSA public key */
+		cEncryptedKey = rsa_encrypt_pkcs(rsaPublicKey,cKey)
+		
+		/* store IV, encrypted AES key and encrypted data in a file to be sent to Alice*/
+		Write("encrypted_document.enc", cIV + cEncryptedKey + cEncryptedData)
+		
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_decrypt_pkcs()
+
+rsa_decrypt_pkcs() Function
+====================
+
+We can decrypt data encrypted with an RSA key and PKCS#1 v1.5 padding using the rsa_decrypt_pkcs() function.
+The size of data that can be decrypted by rsa_decrypt_pkcs must be equal to modulusLen which is the length 
+of the RSA key modulus in bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of encrypted data 
+that can be decrypted must be 256 bytes.
+For RSA decryption, the RSA key must contain the private key part.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_decrypt_pkcs(pRsaKey,cEncryptedData) ---> return a string containing the decryption of cEncryptedData
+
+Example:
+
+.. code-block:: ring
+
+	/* decrypt a file by first decrypting AES key that was used to encrypt it 
+	 * and then decrypt the whole content using the AES key
+	 */
+	try
+		/* read Alice private key */
+		rsaKeyPEM = Read("alice_private_key.pem")
+		rsaKey = rsa_import_pem(rsaKeyPEM)
+		
+		/* calculate the modulus length */
+		rsaKeyParams = rsa_export_params(rsaKey)
+		modulusLen = rsaKeyParams[:bits]/ 8
+		
+		/* read encrypted file */
+		cEncryptedContent = Read ("encrypted_document.enc")
+		
+		/* IV is the first 16 bytes if the file */
+		cIV = substr(cEncryptedContent, 1, 16)
+		
+		/* encrypted key follows IV and its length is modulusLen */
+		cEncryptedKey = substr(cEncryptedContent, 17, modulusLen)
+		
+		/* encrypted data follows the key */
+		cEncryptedData = substr(cEncryptedContent, 17 + modulusLen)
+		
+		/* decrypt the AES-128 key */
+		cKey = rsa_decrypt_pkcs(rsaKey,cEncryptedKey)
+		
+		/* decrypt the data using the AES-128 key */
+		
+		cPlainData = Decrypt(cEncryptedData,cKey,cIV,"aes128") 
+
+		/* store the decrypted data to a file */
+		Write("decrypted_document.txt", cPlainData)
+		
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_encrypt_oaep()
+
+rsa_encrypt_oaep() Function
+====================
+
+We can encrypt data with an RSA key and OAEP padding using the rsa_encrypt_oaep() function.
+The maximum size of data that can be encrypted by rsa_encrypt_oaep is (modulusLen - 2*hashLen -2), 
+with modulusLen the length of the RSA key modulus in bytes and hashLen and the length of hash algorithm used.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the maximum size
+of data that can be encrypted using OAEP padding with SHA-1 is 256 - 2*20 - 2 = 214 bytes.
+RSA encryption is usually applied to a symmetric key (e.g. AES) which is used to encrypt much larger data.
+RSA encryption needs only the public part of an RSA key, so rsa_encrypt_oaep can be used with both RSA private
+key and RSA public key.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_encrypt_oaep(pRsaKey,cPlainData[,nHashAlgorithm]) ---> return a string containing the OAEP encryption of cPlainData
+		nHashAlgorithm indicates the hash algorithm to use for OAEP padding. If omited, SHA-1 is used by default.
+		Possible values for nHashAlgorithm argument are:
+		 - $OSSL_HASH_MD5 which is equal to 0
+		 - $OSSL_HASH_SHA1 which is equal to 1
+		 - $OSSL_HASH_SHA256 which is equal to 2
+		 - $OSSL_HASH_SHA384 which is equal to 3
+		 - $OSSL_HASH_SHA512 which is equal to 4
+
+Example:
+
+.. code-block:: ring
+
+	/* encrypt a file using AES key and then encrypt the AES key using an RSA public key using OAEP padding */
+	try
+		/* read Alice public key */
+		rsaPublicKeyPEM = Read("alice_public_key.pem")
+		rsaPublicKey = rsa_import_pem(rsaPublicKeyPEM)
+		
+		/* encrypt file with random AES-128 key */
+		cData = Read ("secret_document.txt")
+		cKey = RandBytes(16)
+		cIV = RandBytes(16)
+		cEncryptedData = Encrypt(cData,cKey,cIV,"aes128") 
+		
+		/* encrypt the AES-128 key with the RSA public key */
+		cEncryptedKey = rsa_encrypt_oaep(rsaPublicKey,cKey)
+		
+		/* store IV, encrypted AES key and encrypted data in a file to be sent to Alice*/
+		Write("oaep_encrypted_document.enc", cIV + cEncryptedKey + cEncryptedData)
+		
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_decrypt_oaep()
+
+rsa_decrypt_oaep() Function
+====================
+
+We can decrypt data encrypted with an RSA key and OAEP padding using the rsa_decrypt_oaep() function.
+The size of data that can be decrypted by rsa_decrypt_oaep must be equal to modulusLen which is the length 
+of the RSA key modulus in bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of encrypted data 
+that can be decrypted must be 256 bytes.
+For RSA decryption, the RSA key must contain the private key part.
+The hash algorithm specified in rsa_decrypt_oaep() call must be the same as the one used during OAEP encryption.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_decrypt_oaep(pRsaKey,cEncryptedData[,nHashAlgorithm]) ---> return a string containing the decryption of cEncryptedData
+		nHashAlgorithm indicates the hash algorithm to use for OAEP padding. If omited, SHA-1 is used by default.
+		Possible values for nHashAlgorithm argument are:
+		 - $OSSL_HASH_MD5 which is equal to 0
+		 - $OSSL_HASH_SHA1 which is equal to 1
+		 - $OSSL_HASH_SHA256 which is equal to 2
+		 - $OSSL_HASH_SHA384 which is equal to 3
+		 - $OSSL_HASH_SHA512 which is equal to 4
+
+Example:
+
+.. code-block:: ring
+
+	/* decrypt a file by first decrypting AES key that was used to encrypt it 
+	 * and then decrypt the whole content using the AES key
+	 */
+	try
+		/* read Alice private key */
+		rsaKeyPEM = Read("alice_private_key.pem")
+		rsaKey = rsa_import_pem(rsaKeyPEM)
+		
+		/* calculate the modulus length */
+		rsaKeyParams = rsa_export_params(rsaKey)
+		modulusLen = rsaKeyParams[:bits]/ 8
+		
+		/* read encrypted file */
+		cEncryptedContent = Read ("oaep_encrypted_document.enc")
+		
+		/* IV is the first 16 bytes if the file */
+		cIV = substr(cEncryptedContent, 1, 16)
+		
+		/* encrypted key follows IV and its length is modulusLen */
+		cEncryptedKey = substr(cEncryptedContent, 17, modulusLen)
+		
+		/* encrypted data follows the key */
+		cEncryptedData = substr(cEncryptedContent, 17 + modulusLen)
+		
+		/* decrypt the AES-128 key */
+		cKey = rsa_decrypt_oaep(rsaKey,cEncryptedKey)
+		
+		/* decrypt the data using the AES-128 key */
+		
+		cPlainData = Decrypt(cEncryptedData,cKey,cIV,"aes128") 
+
+		/* store the decrypted data to a file */
+		Write("oaep_decrypted_document.txt", cPlainData)
+		
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_encrypt_raw()
+
+rsa_encrypt_raw() Function
+==========================
+
+We can perform raw RSA encryption on data using the function rsa_encrypt_raw()
+The size of data must be equal to the length of the RSA key modulus in bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of input data
+that can be encrypted using raw RSA is 256 bytes.
+Raw RSA encryption needs only the public part of an RSA key, so rsa_encrypt_raw can be used with both 
+RSA private key and RSA public key.
+Raw RSA should only be used to implement secure cryptographic protocols. Encrypting user data directly with 
+raw RSA is insecure.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_encrypt_raw(pRsaKey,cPlainData) ---> return a string containing the raw RSA encryption of cPlainData
+
+Example:
+
+.. code-block:: ring
+
+	/* encrypt a file using AES key and then encrypt the AES key using an RSA public key using PKCS1 padding */
+	/* we manually add PKCS1 padding and then perform raw RSA encryption */
+	try
+		/* read Alice public key */
+		rsaPublicKeyPEM = Read("alice_public_key.pem")
+		rsaPublicKey = rsa_import_pem(rsaPublicKeyPEM)
+		
+		/* encrypt file with random AES-128 key */
+		cData = Read ("secret_document.txt")
+		cKey = RandBytes(16)
+		cIV = RandBytes(16)
+		cEncryptedData = Encrypt(cData,cKey,cIV,"aes128") 
+		
+		/* encrypt the AES-128 key with the RSA public key */
+
+		/* calculate the modulus length */
+		rsaKeyParams = rsa_export_params(rsaPublicKey)
+		modulusLen = rsaKeyParams[:bits]/ 8
+		
+		/* we manually add PKCS1 padding */
+		paddingSize = modulusLen - Len(cKey) - 2 - 1
+		paddingStr = space (paddingSize)
+
+		/* encryption case. Add random bytes */
+		for i=1 to paddingSize
+			paddingStr[i] = Char (1 + Random(254))
+		next
+		
+		paddedData = Char(0) + Char(2) + paddingStr + Char (0) + cKey
+
+		cEncryptedKey = rsa_encrypt_raw(rsaPublicKey,paddedData)
+		
+		/* store IV, encrypted AES key and encrypted data in a file to be sent to Alice*/
+		Write("raw_encrypted_document.enc", cIV + cEncryptedKey + cEncryptedData)
+		
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_decrypt_raw()
+
+rsa_decrypt_raw() Function
+==========================
+
+We can perform raw RSA decryption of data using the rsa_decrypt_pkcs() function.
+The size of data that can be decrypted by rsa_decrypt_raw must be equal to modulusLen which is the length 
+of the RSA key modulus in bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of encrypted data 
+that can be decrypted must be 256 bytes.
+For raw RSA decryption, the RSA key must contain the private key part.
+The size of the result of raw RSA decryption is equal to the length of RSA modulus in bytes.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_decrypt_raw(pRsaKey,cEncryptedData) ---> return a string containing the decryption of cEncryptedData
+
+Example:
+
+.. code-block:: ring
+
+	/* decrypt a file by first decrypting AES key that was used to encrypt it 
+	 * and then decrypt the whole content using the AES key
+	 /* We decrypt AES using rsa_decrypt_raw and then remove padding manually
+	 */
+	try
+		/* read Alice private key */
+		rsaKeyPEM = Read("alice_private_key.pem")
+		rsaKey = rsa_import_pem(rsaKeyPEM)
+		
+		/* calculate the modulus length */
+		rsaKeyParams = rsa_export_params(rsaKey)
+		modulusLen = rsaKeyParams[:bits]/ 8
+		
+		/* read encrypted file */
+		cEncryptedContent = Read ("encrypted_document.enc")
+		
+		/* IV is the first 16 bytes if the file */
+		cIV = substr(cEncryptedContent, 1, 16)
+		
+		/* encrypted key follows IV and its length is modulusLen */
+		cEncryptedKey = substr(cEncryptedContent, 17, modulusLen)
+		
+		/* encrypted data follows the key */
+		cEncryptedData = substr(cEncryptedContent, 17 + modulusLen)
+		
+		/* decrypt the AES-128 key */
+		cPaddedKey = rsa_decrypt_raw(rsaKey,cEncryptedKey)
+		
+		/* remove PKCS1 padding */
+		paddedInputLength = len(cPaddedKey)
+		cKey = ""
+		if paddedInputLength > 11 AND Ascii(cPaddedKey[1]) = 0 AND Ascii(cPaddedKey[2]) = 2
+			zeroFound = false
+			for j = 3 to paddedInputLength
+				if Ascii(cPaddedKey[j]) = 0
+					i = j
+					zeroFound = true
+					exit
+				ok
+			next
+			
+			if zeroFound
+				if i = paddedInputLength
+					/* unpadded data is empty */
+					Raise("Empty data recovered from padding")
+				else
+					cKey = substr(cPaddedKey,i+1)
+				ok
+			else
+				Raise ("Invalid data padding")
+			ok
+		else
+			Raise("the decrypted data is invalid")
+		ok
+		
+		/* decrypt the data using the AES-128 key */
+		
+		cPlainData = Decrypt(cEncryptedData,cKey,cIV,"aes128") 
+
+		/* store the decrypted data to a file */
+		Write("decrypted_document.txt", cPlainData)
+		
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_sign_pkcs()
+
+rsa_sign_pkcs() Function
+========================
+
+We can sign data with RSA PKCS#1 v1.5 padding using the function rsa_sign_pkcs()
+The maximum size of data that can be signed by rsa_sign_pkcs is (modulusLen - 11), with modulusLen
+the length of the RSA key modulus in bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the maximum size
+of data that can be signed is 256 - 11 = 245 bytes.
+For RSA PKCS signature, the RSA key must contain the private key part.
+The size of the result of RSA PKCS signature is equal to the length of RSA modulus in bytes.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_sign_pkcs(pRsaKey,cData) ---> return a string containing RSA PKCS signature
+
+Example:
+
+.. code-block:: ring
+
+	/* sign a document using  RSA-PKCS with SHA256. 
+	 * digest OID added manually
+	 */
+	try
+		/* read Alice private key */
+		rsaKeyPEM = Read("alice_private_key.pem")
+		rsaKey = rsa_import_pem(rsaKeyPEM)
+		
+		/* read file content */
+		cFileContent = Read ("document.txt")
+		
+		/* hash content */
+		digest = SHA256(cFileContent)
+		
+		/* digest OID of SHA256 */
+		digestOID = hex2str("3031300d060960864801650304020105000420")
+		
+		/* perform PKCS signing */
+		dataToSign = digestOID + digest
+		cSignature = rsa_sign_pkcs(rsaKey,dataToSign)
+
+		/* store the signature */
+		Write("document.txt.pkcs1.sig", cSignature)
+		
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_signhash_pkcs()
+
+rsa_signhash_pkcs() Function
+============================
+
+We can sign a hash value with RSA PKCS#1 v1.5 padding using the function rsa_signhash_pkcs()
+This function infers the hash algorithm from hash value size and it automatically adds OID of hash
+algorithm before applying the PKCS#1 v1.5 padding.
+For RSA PKCS signature, the RSA key must contain the private key part.
+The size of the result of RSA PKCS signature is equal to the length of RSA modulus in bytes.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_signhash_pkcs(pRsaKey,cHashValue) ---> return a string containing RSA PKCS signature
+
+Example:
+
+.. code-block:: ring
+
+	/* sign a document using  RSA-PKCS with SHA256.
+	 */
+	try
+		/* read Alice private key */
+		rsaKeyPEM = Read("alice_private_key.pem")
+		rsaKey = rsa_import_pem(rsaKeyPEM)
+		
+		/* read file content */
+		cFileContent = Read ("document.txt")
+		
+		/* hash content */
+		digest = SHA256(cFileContent)
+		
+		/* perform PKCS signing */
+		cSignature = rsa_signhash_pkcs(rsaKey,digest)
+
+		/* store the signature */
+		Write("document.txt.pkcs1.sig", cSignature)
+		
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_verify_pkcs()
+
+rsa_verify_pkcs() Function
+==========================
+
+We can verify an RSA-PKCS signature of data using the function rsa_verify_pkcs()
+The size of signature must be equal to the length of the RSA key modulus in bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of input signature
+that can be verified using RSA-PKCS is 256 bytes.
+RSA-PKCS verification needs only the public part of an RSA key, so rsa_verify_pkcs can be used with both 
+RSA private key and RSA public key.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_verify_pkcs(pRsaKey,cData,cSignature) ---> returns 1 if signature is valid and 0 otherwise
+
+Example:
+
+.. code-block:: ring
+
+	/* verify a document signature using RSA-PKCS with SHA256
+	 * digest OID is added manually
+	 */
+	try
+		/* read Alice public key */
+		rsaPublicKeyPEM = Read("alice_public_key.pem")
+		rsaPublicKey = rsa_import_pem(rsaPublicKeyPEM)
+		
+		/* read file content */
+		cFileContent = Read ("document.txt")
+		
+		/* hash content */
+		digest = SHA256(cFileContent)
+		
+		/* digest OID of SHA256 */
+		digestOID = hex2str("3031300d060960864801650304020105000420")
+
+		/* read file signature */
+		cSignature = Read ("document.txt.pkcs1.sig")
+		
+		/* perform PKCS verification */
+		dataToVerify = digestOID + digest
+		if rsa_verify_pkcs(rsaPublicKey,dataToVerify,cSignature)
+			See "file signature is valid" + nl
+		else
+			See "file signature is INVALID" + nl
+		ok
+		
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_verifyhash_pkcs()
+
+rsa_verifyhash_pkcs() Function
+==========================
+
+We can verify the RSA-PKCS signature of a hash value using the function rsa_verifyhash_pkcs()
+This function infers the hash algorithm from hash value size and it automatically uses the OID of hash
+algorithm during verification.
+The size of signature must be equal to the length of the RSA key modulus in bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of input signature
+that can be verified using RSA-PKCS is 256 bytes.
+RSA-PKCS verification needs only the public part of an RSA key, so rsa_verifyhash_pkcs can be used with both 
+RSA private key and RSA public key.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_verifyhash_pkcs(pRsaKey,cHashValue,cSignature) ---> returns 1 if signature is valid and 0 otherwise
+
+Example:
+
+.. code-block:: ring
+
+	/* verify a document signature using RSA-PKCS with SHA256
+	 */
+	try
+		/* read Alice public key */
+		rsaPublicKeyPEM = Read("alice_public_key.pem")
+		rsaPublicKey = rsa_import_pem(rsaPublicKeyPEM)
+		
+		/* read file content */
+		cFileContent = Read ("document.txt")
+		
+		/* hash content */
+		digest = SHA256(cFileContent)
+
+		/* read file signature */
+		cSignature = Read ("document.txt.pkcs1.sig")
+		
+		/* perform PKCS verification */
+		if rsa_verifyhash_pkcs(rsaPublicKey,digest,cSignature)
+			See "file signature is valid" + nl
+		else
+			See "file signature is INVALID" + nl
+		ok
+		
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_sign_pss()
+
+rsa_sign_pss() Function
+=======================
+
+We can sign data with RSA PSS using the function rsa_sign_pss()
+The input data will be first hashed using the specified hash algorithm then RSA PSS signing will
+be applied to the computed hash value.
+For RSA PSS signature, the RSA key must contain the private key part.
+The size of the result of RSA PSS signature is equal to the length of RSA modulus in bytes.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_sign_pss(pRsaKey,cData,nHashAlgorithm[,nSaltLength]) ---> return a string containing RSA PSS signature
+		nHashAlgorithm indicates the hash algorithm to use for hashing and PSS padding.
+		nSaltLength indicates the length of PSS salt to use. If ommited, then maximum salt length is used.
+		nSaltLength can have the special values -1 and -2: -1 indicates that salt length is equal to hash size
+		and -2 indicates that maximum salt length is used.
+		Possible values for nHashAlgorithm argument are:
+		 - $OSSL_HASH_MD5 which is equal to 0
+		 - $OSSL_HASH_SHA1 which is equal to 1
+		 - $OSSL_HASH_SHA256 which is equal to 2
+		 - $OSSL_HASH_SHA384 which is equal to 3
+		 - $OSSL_HASH_SHA512 which is equal to 4
+
+Example:
+
+.. code-block:: ring
+
+	/* sign a document using  RSA-PSS with SHA256 and maximal salt length
+	 */
+	try
+		/* read Alice private key */
+		rsaKeyPEM = Read("alice_private_key.pem")
+		rsaKey = rsa_import_pem(rsaKeyPEM)
+		
+		/* read file content */
+		cFileContent = Read ("document.txt")
+		
+		/* perform PSS signing */
+		cSignature = rsa_sign_pss(rsaKey,cFileContent,$OSSL_HASH_SHA256)
+
+		/* store the signature */
+		Write("document.txt.sig", cSignature)
+		
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_signhash_pss()
+
+rsa_signhash_pss() Function
+===========================
+
+We can sign a hash value with RSA PSS using the function rsa_signhash_pss()
+This function infers the hash algorithm from hash value size.
+For RSA PSS signature, the RSA key must contain the private key part.
+The size of the result of RSA PSS signature is equal to the length of RSA modulus in bytes.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_signhash_pss(pRsaKey,cHashValue[,nSaltLength]) ---> return a string containing RSA PSS signature
+		nSaltLength indicates the length of PSS salt to use. If ommited, then maximum salt length is used.
+		nSaltLength can have the special values -1 and -2: -1 indicates that salt length is equal to hash size
+		and -2 indicates that maximum salt length is used.
+
+Example:
+
+.. code-block:: ring
+
+	/* sign a document using  RSA-PSS with SHA256 and maximal salt length
+	 */
+	try
+		/* read Alice private key */
+		rsaKeyPEM = Read("alice_private_key.pem")
+		rsaKey = rsa_import_pem(rsaKeyPEM)
+		
+		/* hash file content */
+		ctx = SHA256Init()
+		cFileContent = Read ("document.txt")
+		SHA256Update(ctx, cFileContent)
+		digest = SHA256Final(ctx)
+		
+		/* perform PSS signing */
+		cSignature = rsa_signhash_pss(rsaKey,digest)
+
+		/* store the signature */
+		Write("document.txt.sig", cSignature)
+		
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_verify_pss()
+
+rsa_verify_pss() Function
+=========================
+
+We can verify the RSA-PSS signature of data using the function rsa_verify_pss()
+The input data will be first hashed using the specified hash algorithm then RSA PSS verification will
+be applied to the computed hash value and the given signature to check if they match or not.
+The size of signature must be equal to the length of the RSA key modulus in bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of input signature
+that can be verified using RSA-PSS is 256 bytes.
+RSA-PSS verification needs only the public part of an RSA key, so rsa_verify_pss can be used with both 
+RSA private key and RSA public key.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_verify_pss(pRsaKey,cData,cSignature,nHashAlgorithm[,nSaltLength]) ---> returns 1 if signature is valid and 0 otherwise
+		nHashAlgorithm indicates the hash algorithm to use for hashing and PSS padding.
+		nSaltLength indicates the length of PSS salt to use. If ommited, then maximum salt length is used.
+		nSaltLength can have the special values -1 and -2: -1 indicates that salt length is equal to hash size
+		and -2 indicates that maximum salt length is used.
+		Possible values for nHashAlgorithm argument are:
+		 - $OSSL_HASH_MD5 which is equal to 0
+		 - $OSSL_HASH_SHA1 which is equal to 1
+		 - $OSSL_HASH_SHA256 which is equal to 2
+		 - $OSSL_HASH_SHA384 which is equal to 3
+		 - $OSSL_HASH_SHA512 which is equal to 4
+
+Example:
+
+.. code-block:: ring
+
+	/* verify a document signature using RSA-PSS with SHA256 and maximal salt length
+	 */
+	try
+		/* read Alice public key */
+		rsaPublicKeyPEM = Read("alice_public_key.pem")
+		rsaPublicKey = rsa_import_pem(rsaPublicKeyPEM)
+		
+		/* read file content */
+		cFileContent = Read ("document.txt")
+		
+		/* read file signature */
+		cSignature = Read ("document.txt.sig")
+		
+		/* perform PSS verification */
+		if rsa_verify_pss(rsaPublicKey,cFileContent,cSignature,$OSSL_HASH_SHA256)
+			See "file signature is valid" + nl
+		else
+			See "file signature is INVALID" + nl
+		ok
+
+		/* store the signature */
+		Write("document.txt.sig", cSignature)
+		
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_verifyhash_pss()
+
+rsa_verifyhash_pss() Function
+=============================
+
+We can verify the RSA-PSS signature of a hash value using the function rsa_verifyhash_pss()
+This function infers the hash algorithm from hash value size.
+The size of signature must be equal to the length of the RSA key modulus in bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of input signature
+that can be verified using RSA-PSS is 256 bytes.
+RSA-PSS verification needs only the public part of an RSA key, so rsa_verifyhash_pss can be used with both 
+RSA private key and RSA public key.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_verifyhash_pss(pRsaKey,cHashValue,cSignature[,nSaltLength]) ---> returns 1 if signature is valid and 0 otherwise
+		nSaltLength indicates the length of PSS salt to use. If ommited, then maximum salt length is used.
+		nSaltLength can have the special values -1 and -2: -1 indicates that salt length is equal to hash size
+		and -2 indicates that maximum salt length is used.
+
+Example:
+
+.. code-block:: ring
+
+	/* verify a document signature using RSA-PSS with SHA256 and maximal salt length
+	 */
+	try
+		/* read Alice public key */
+		rsaPublicKeyPEM = Read("alice_public_key.pem")
+		rsaPublicKey = rsa_import_pem(rsaPublicKeyPEM)
+		
+		/* hash file content */
+		ctx = SHA256Init()
+		cFileContent = Read ("document.txt")
+		SHA256Update(ctx, cFileContent)
+		digest = SHA256Final(ctx)
+		
+		/* read file signature */
+		cSignature = Read ("document.txt.sig")
+		
+		/* perform PSS verification */
+		if rsa_verifyhash_pss(rsaPublicKey,digest,cSignature)
+			See "file signature is valid" + nl
+		else
+			See "file signature is INVALID" + nl
+		ok
+		
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; openssl_versiontext()
+
+openssl_versiontext() Function
+====================
+
+We can get the full version text of the OpenSSL library using the function openssl_versiontext().
+The returned string is equal to the value returned by the command "openssl.exe version"
+
+Syntax:
+
+.. code-block:: ring
+
+	openssl_versiontext() ---> return a string containing the full version text of OpenSSL library
+
+Example:
+
+.. code-block:: ring
+
+	/* Display the version of OpenSSL library used by Ring
+	 */
+	See "Ring is using " + openssl_versionText() + nl
+
+
+.. index:: 
+	pair: Security and Internet Functions; openssl_version()
+
+openssl_version() Function
+====================
+
+We can get the version numbers (Major,Minor,Fix) of the OpenSSL library using the function openssl_version().
+The returned list contains three items corresponding to the the three part of the version.
+For example, for OpenSSL 1.0.2, openssl_version() returns the list [1,0,2]
+
+Syntax:
+
+.. code-block:: ring
+
+	openssl_version() ---> return a list containing the version numbers of the OpenSSL library
+		First list item holds the version major number
+		Second list item holds the version minor number
+		Third list item holds the version fix number
+
+Example:
+
+.. code-block:: ring
+
+	/* Display the version number of OpenSSL library used by Ring
+	 */
+	ver = openssl_version()
+	OpenSSLVersionMajor = ver[1] 
+	OpenSSLVersionMinor = ver[2] 
+	OpenSSLVersionFix = ver[3] 
+	See "Ring is using OpenSSL version " + OpenSSLVersionMajor + "." + OpenSSLVersionMinor + "." + OpenSSLVersionFix + nl
 
 
 .. index:: 

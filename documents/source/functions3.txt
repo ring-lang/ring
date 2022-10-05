@@ -44,7 +44,6 @@ Example:
 
 .. code-block:: ring
 
-	load "stdlib.ring"
 	func hello {
 		print("Hello from function \n")
 	}
@@ -64,8 +63,6 @@ Example:
 
 .. code-block:: ring
 
-	load "stdlib.ring"
-
 	hello()
 
 	func hello {
@@ -76,8 +73,6 @@ Example:
 Example:
 
 .. code-block:: ring
-
-	load "stdlib.ring"
 
 	first()  second()
 
@@ -97,8 +92,6 @@ of identifiers separated by comma.
 Example:
 
 .. code-block:: ring
-
-	load "stdlib.ring"
 
 	func sum(x,y) {
 		print(x+y)
@@ -127,8 +120,6 @@ Example:
 	** 3000
 	*/
 
-	load "stdlib.ring"
-
 	sum(3,5) sum(1000,2000)
 
 	func sum(x,y) { print(x+y) } 
@@ -149,8 +140,6 @@ Example:
 .. code-block:: ring
 
 	# this program will print the hello world message first then execute the main function
-
-	load "stdlib.ring"
 
 	print("Hello, World! \n")
 
@@ -178,8 +167,6 @@ Example:
 
 	# the program will print numbers from 10 to 1
 	
-	load "stdlib.ring"
-
 	x = 10 				# x is a global variable.
 
 	func main {
@@ -220,8 +207,6 @@ Example:
 
 .. code-block:: ring
 
-	load "stdlib.ring"
-
 	if novalue() = NULL {
 		print("the function doesn't return a value\n")
 	}
@@ -240,8 +225,6 @@ and the function can call itself using different parameters.
 Example:
 
 .. code-block:: ring
-
-	load "stdlib.ring"
 
 	print( fact(5) )  	# output = 120
 

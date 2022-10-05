@@ -1,0 +1,11 @@
+<class>
+name: HTTPLib_Result
+para: void
+codename: Result
+abstract
+</class>
+
+bool has_request_header(const char *key)
+std::string get_request_header_value(const char *key)
+std::string get_request_header_value@2(const char *key, size_t id)
+size_t get_request_header_value_count(const char *key)

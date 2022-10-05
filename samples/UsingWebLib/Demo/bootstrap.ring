@@ -29,6 +29,40 @@ Func testbootstrap
 
 			divend() 	
 
+			newline()
+			divstart([ :class = :row ])	
+				tableStart([ :class = "table table-striped" ])
+					theadStart([ :style = stylecolor("white")+stylegradient(54) ])
+						rowStart([])
+							cellStart([]) text("#") cellEnd()
+							cellStart([]) text("Language") cellEnd()
+							cellStart([]) text("Creator") cellEnd()
+							cellStart([]) text("Year") cellEnd()
+						rowEnd()
+					theadEnd()
+					tbodyStart([])
+						rowStart([])
+							cellStart([]) text("1") cellEnd()
+							cellStart([]) text("Python") cellEnd()
+							cellStart([]) text("Guido van Rossum") cellEnd()
+							cellStart([]) text("1991") cellEnd()
+						rowEnd()
+						rowStart([])
+							cellStart([]) text("2") cellEnd()
+							cellStart([]) text("Ruby") cellEnd()
+							cellStart([]) text("Yukihiro Matsumoto") cellEnd()
+							cellStart([]) text("1995") cellEnd()
+						rowEnd()
+						rowStart([])
+							cellStart([]) text("3") cellEnd()
+							cellStart([]) text("Ring") cellEnd()
+							cellStart([]) text("Mahmoud Fayed") cellEnd()
+							cellStart([]) text("2016") cellEnd()
+						rowEnd()
+					tbodyEnd()
+				tableEnd()
+			divend()
+
 		divend()
 
 	}
@@ -80,7 +114,7 @@ Func testbootstrap2
 					classname = "col-sm-4"
 					Button {  classname = "btn btn-default btn-lg" text("default") }
 					Button {  classname = "btn btn-primary btn-md" text("primary") }
-					Button {  classname = "btn btn-sucess btn-sm"  text("sucess") }
+					Button {  classname = "btn btn-success btn-sm" text("success") }
 					Button {  classname = "btn btn-info btn-xs"    text("info") }
 					Button {  classname = "btn btn-warning"        text("warning") }
 					Button {  classname = "btn btn-danger"	       text("danger") }
@@ -91,7 +125,7 @@ Func testbootstrap2
 					classname = "col-sm-4"
 					Button {  classname = "btn btn-default btn-block" text("default") }
 					Button {  classname = "btn btn-primary btn-block" text("primary") }
-					Button {  classname = "btn btn-sucess btn-block"  text("sucess") }
+					Button {  classname = "btn btn-success btn-block" text("success") }
 					Button {  classname = "btn btn-info btn-block"    text("info") }
 					Button {  classname = "btn btn-warning btn-block" text("warning") }
 					Button {  classname = "btn btn-danger btn-block"  text("danger") }
@@ -150,6 +184,43 @@ Func testbootstrap2
 					}
 				}
 			}
+
+			newline
+			table {
+				classname = "table table-striped"
+				thead {
+					style = stylecolor("white")+stylegradient(54)
+					tr {
+						td { text("#") }
+						td { text("Language") }
+						td { text("Creator") }
+						td { text("Year") }
+					}
+				}
+				tbody {
+					tr {
+						td { text("1") }
+						td { text("Python") }
+						td { text("Gudio van Rossum") }
+						td { text("1991") }
+					}
+					tr {
+						td { text("2") }
+						td { text("Ruby") }
+						td { text("Yukihiro Matsumoto") }
+						td { text("1995") }
+					}
+					tr {
+						td { text("3") }
+						td { text("Ring") }
+						td { text("Mahmoud Fayed") }
+						td { text("2016") }
+					}
+				}
+			}
+
+
+
 		}	
 
 	}
@@ -283,9 +354,9 @@ Func testbootstrap3
 				</button>
 			
 						
-				<button class = "btn btn-sucess btn-sm" style="">
+				<button class = "btn btn-success btn-sm" style="">
 						
-					sucess
+					success
 				
 				</button>
 			
@@ -337,9 +408,9 @@ Func testbootstrap3
 				</button>
 			
 						
-				<button class = "btn btn-sucess btn-block" style="">
+				<button class = "btn btn-success btn-block" style="">
 						
-					sucess
+					success
 				
 				</button>
 			
@@ -529,6 +600,38 @@ Func testbootstrap3
 		</div>
 	
 	
+		<table class="table table-striped">
+		  <thead>
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">Language</th>
+		      <th scope="col">Creator</th>
+		      <th scope="col">Year</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <th scope="row">1</th>
+		      <td>Python</td>
+		      <td>Guido van Rossum</td>
+		      <td>1991</td>
+		    </tr>
+		    <tr>
+		      <th scope="row">2</th>
+		      <td>Ruby</td>
+		      <td>Yukihiro Matsumoto</td>
+		      <td>1995</td>
+		    </tr>
+		    <tr>
+		      <th scope="row">3</th>
+		      <td>Ring</td>
+		      <td>Mahmoud</td>
+		      <td>2016</td>
+		    </tr>
+		  </tbody>
+		</table>
+
+
 	</div>
 
 

@@ -3,9 +3,9 @@ rem	Author : Mahmoud Fayed <msfclipper@yahoo.com>
 
 copy ..\..\..\..\language\src\*.c ..\project\jni\ring\src\
 copy ..\..\..\ringsdl\ring_libsdl.c ..\project\jni\ring\src\
-copy ring_ext.c ..\project\jni\ring\src\
+copy ext.c ..\project\jni\ring\src\
 copy ..\..\..\..\language\include\*.h ..\project\jni\ring\include\
-copy ring_ext.h ..\project\jni\ring\include\
+copy ext.h ..\project\jni\ring\include\
 copy ..\..\..\..\libraries\gameengine\gameengine.ring ..\project\assets\
 copy ..\..\..\..\libraries\gameengine\gameengine.rh ..\project\assets\
 copy ..\..\..\..\libraries\gameengine\classes\*.ring ..\project\assets\classes

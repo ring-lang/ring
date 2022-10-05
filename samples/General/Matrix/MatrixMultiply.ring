@@ -149,7 +149,7 @@ Func MatrixMultiply(A,B)
          for k = 1 to horzA             
             Sum += A[vA][k] * B[k][hB]    
 
-            if FlagShowSolution = 1                  // 0 No Show, 1 = Show Solutio
+            if FlagShowSolution = 1                  // 0 No Show, 1 = Show Solution
                 See " "+ A[vA][k] +"*"+ B[k][hB]
             ok
             

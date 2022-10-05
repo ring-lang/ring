@@ -11,7 +11,7 @@
 import System.GUI
 
 # Load Ring Libraries
-    Load "guilib.ring"
+    Load "lightguilib.ring"
     Load "stdlib.ring"
 
 UserIcons = CurrentDir() +"/"
@@ -332,7 +332,7 @@ Func changedText()
             if isDigit(Char) or Char="." or Char="^" or Char="v" or Char="!" or Char="%"  or Char="+"  or Char="-" or Char="*" or Char="/" or Char="(" or Char=")"  
                 ### do nothing
             else
-                ### Resore old data before last char
+                ### Restore old data before last char
                 keyDataOld = substr( keyData, 1, lenData-1)
                 edit1.settext(keyDataOld)
             ok
@@ -417,7 +417,7 @@ return
 
 func checkEnter()
 
-        ### If test rquired to validate an expression, 
+        ### If test required to validate an expression, 
         ### Enter it above in the Func testExpression
         
 			#testExpression()  ### <<<== Run built in test to verify
@@ -686,7 +686,7 @@ return enumNew
 Func Memo()
     win2 = new qWidget() 
     {
-        setwindowtitle("History Of Ring Calcuator")
+        setwindowtitle("History Of Ring Calculator")
         setwindowmodality(false)
         setparent(win1)
         setwinicon(self,"images/calc.png")

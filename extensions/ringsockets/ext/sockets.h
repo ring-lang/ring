@@ -1,16 +1,10 @@
 #ifndef ring_socket_h
 #define ring_socket_h
 
-
-#include <stdlib.h>
-#include <string.h>
+#include "constants.h"
 
 
 #if defined _WIN32
-    #define win
-
-    #define WIN32_LEAN_AND_MEAN
-
     #pragma once
 
     #include <winsock2.h>
@@ -20,16 +14,12 @@
     #pragma comment (lib,"mswsock.lib")
     #pragma comment (lib,"advapi32.lib")
 
-    typedef struct ring_vm_socket_obj {
 
-        SOCKET sockfd;
-        struct addrinfo *addr;
-        struct addrinfo hints;
+    #define CLOSESOCKET closesocket
 
-    } RING_SOCKET;
+    #define SOCKET_T SOCKET
 
 #else
-
     #include <sys/socket.h>
     #include <sys/types.h>
     #include <netinet/in.h>
@@ -37,14 +27,26 @@
     #include <arpa/inet.h>
     #include <netdb.h>
 
+    #define CLOSESOCKET close
 
-    typedef struct ring_vm_socket_obj {
+    #define SOCKET_T int
 
-        int sockfd;
-        struct sockaddr_in addr;
-
-    } RING_SOCKET;
+    #define INVALID_SOCKET (SOCKET_T)(~0)
+    #define SOCKET_ERROR -1
+    
 #endif
+
+
+typedef struct 
+{
+    SOCKET_T sockfd;
+    struct addrinfo *addr;
+    struct addrinfo hints;
+} RING_SOCKET;
+
+
+
+#include "ring.h"
 
 
 void ring_vm_socket_init(void *pPointer);
@@ -70,7 +72,10 @@ void ring_vm_socket_htonl(void *pPointer);
 void ring_vm_socket_htons(void *pPointer);
 void ring_vm_socket_inet_addr(void *pPointer);
 void ring_vm_socket_inet_ntoa(void *pPointer);
+void ring_vm_socket_inet_pton(void *pPointer);
+void ring_vm_socket_inet_ntop(void *pPointer);
 
+void ring_vm_socket_cleanup(void *pPointer);
 
 RING_API void ringlib_init(RingState *pRingState);
 

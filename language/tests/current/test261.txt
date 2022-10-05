@@ -1,5 +1,2 @@
-one
-two
-three
-four
-five
+nindex: 1
+nindex: 2

@@ -1,17 +1,19 @@
+# ======================================================
 /*
 
-   	Application         :Variables (Lists)version3
-   	author                :Mahmoud Rabie 
-	Date                   :2017/12/23  
+   	Application         :Variables (Lists) version3
+   	Author              :Mahmoud Rabie 
+	Date                :2017/12/23  
 */
 
-#===============================================================
+# ======================================================
+
 aList = [ 
     
            :name       = "Mahmoud rabie",
-           :job          = "programer",
-           : country   = "Egypt",
-           :city          ="alex"
+           :job        = "Programmer",
+           :country    = "Egypt",
+           :city       = "alex"
 
 
 

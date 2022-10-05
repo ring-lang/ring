@@ -17,7 +17,7 @@ f2=func {
 }
 callfunc(f2)
 
-f3=func x,y {?"see the simple sytax! that is the code" 
+f3=func x,y {?"see the simple syntax! that is the code" 
 		?x+y
 }
 	

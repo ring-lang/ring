@@ -4,7 +4,7 @@
 **	Date   		: 08/03/2018
 */
 ####################################################################
-# Variables types(String, Number, List, Objet, c object)
+# Variables types(String, Number, List, Object, c object)
 
 alist = 1:10
 #? alist
@@ -26,7 +26,3 @@ alist = [
 ]
 
 ? alist[find(alist, "Ali", 1)][2]
-
-
-
-

@@ -6,7 +6,7 @@
 
 load "stdlib.ring"
 print(" اللهم صل وسلم\n وبارك على محمد\n")
-print(" what is your name \n mohamed \n im egypition")
+print(" What is your name \n mohamed \n I'm Egyptian ")
 
 # name = getstirng()
 # print("hello #{name}")

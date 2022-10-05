@@ -6,7 +6,7 @@
 
 # Input ---> Processing ---> Output
 # Data ----> Transform ----> Data
-# Input (Keyboard,Mouse,Files(Harddisk),Network...) Dvice
+# Input (Keyboard,Mouse,Files(Hard-drive),Network...) Device
 # Output (Screen, Printing,Files, ...)
 
 /*

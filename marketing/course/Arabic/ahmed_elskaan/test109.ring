@@ -3,7 +3,7 @@
 **	Author           : Ahmed Elskaan;
 **	Date             : 2017-12-31;		
 */
-# problem: conflict between local varibles and class attribute
+# problem: conflict between local variables and class attribute
 
 
 new test {

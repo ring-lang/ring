@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Stdlib Classes &mdash; Ring 1.16 documentation</title>
+  <title>Stdlib Classes &mdash; Ring 1.18 documentation</title>
   
 
   
@@ -175,6 +175,10 @@
 <li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csvlib.html">CSVLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jsonlib.html">JSONLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="httplib.html">HTTPLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenslib.html">TokensLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="socket.html">Using RingSockets</a></li>
@@ -216,6 +220,7 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew14.html">Release Notes: Version 1.14</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew15.html">Release Notes: Version 1.15</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew17.html">Release Notes: Version 1.17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
@@ -2084,8 +2089,8 @@ Egypt
 <p>Methods:</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 35%" />
-<col style="width: 65%" />
+<col style="width: 31%" />
+<col style="width: 69%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Method</p></th>
@@ -2112,13 +2117,22 @@ Egypt
 <td><p>Calculate the SHA224 hash.</p></td>
 </tr>
 <tr class="row-even"><td><p>encrypt(cString,cKey,cIV)</p></td>
-<td><p>Encrypts the data using the Blowfish algorithm.</p></td>
+<td><p>Encrypts the data using the Blowfish algorithm in CBC mode.</p></td>
 </tr>
 <tr class="row-odd"><td><p>decrypt(cString,cKey,cIV)</p></td>
-<td><p>Decrypt the data encrypted using the Encrypt() method.</p></td>
+<td><p>Decrypt the encrypted data using the Blowfish algorithm in CBC mode.</p></td>
 </tr>
-<tr class="row-even"><td><p>randbytes(nSize)</p></td>
-<td><p>Generate a string of pseudo-random bytes.</p></td>
+<tr class="row-even"><td><p>encrypt_ex(cString,cKey,cIV,cCipher)</p></td>
+<td><p>Encrypts the data using the given cipher algorithm.</p></td>
+</tr>
+<tr class="row-odd"><td><p>decrypt_ex(cString,cKey,cIV,cCipher)</p></td>
+<td><p>Decrypt the encrypted data using the given cipher algorithm.</p></td>
+</tr>
+<tr class="row-even"><td><p>supportedciphers()</p></td>
+<td><p>List all supported cipher algorithms for encryption/decryption.</p></td>
+</tr>
+<tr class="row-odd"><td><p>randbytes(nSize)</p></td>
+<td><p>Generate a string of cryptographically secure pseudo-random bytes.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2181,7 +2195,7 @@ Egypt
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2016-2021, Ring Team
+        &copy; Copyright 2016-2022, Ring Team
 
     </p>
   </div>

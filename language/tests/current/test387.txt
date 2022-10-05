@@ -1,0 +1,26 @@
+10
+11
+12
+13
+14
+15
+one
+two
+three
+2022Hello, World!
+one
+	two
+		three
+\\
+i
+love
+programming
+\\##
+wow!sum three number 6 = 6
+I know that 1+1=2 and 2+2=4
+Ring is 6 years old!
+Language Name = Ring
+x=10
+y=20
+z=30
+done

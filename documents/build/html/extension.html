@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Extension using the C/C++ languages &mdash; Ring 1.16 documentation</title>
+  <title>Extension using the C/C++ languages &mdash; Ring 1.18 documentation</title>
   
 
   
@@ -153,6 +153,10 @@
 <li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csvlib.html">CSVLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jsonlib.html">JSONLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="httplib.html">HTTPLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenslib.html">TokensLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="socket.html">Using RingSockets</a></li>
@@ -191,6 +195,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#mysql-columns-function-implementation">MySQL_Columns() Function Implementation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dynamic-shared-libraries-dll-so-dylib-and-loadlib-function">Dynamic/Shared Libraries (DLL/So/Dylib) and LoadLib() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-ring-api-retmanagedcpointer">Using RING_API_RETMANAGEDCPOINTER()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#memory-functions">Memory Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
@@ -213,6 +218,7 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew14.html">Release Notes: Version 1.14</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew15.html">Release Notes: Version 1.15</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew17.html">Release Notes: Version 1.17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
@@ -287,7 +293,7 @@
 <p>We can extend the Ring Virtual Machine (RingVM) by adding new functions written in the C programming language or C++.
 The RingVM comes with many functions written in C that we can call like any Ring function.</p>
 <p>We can extend the language by writing new functions then rebuilding the RingVM again, or we can create shared
-library (DLL/So) file to extend the RingVM without the need to rebuild it.</p>
+library (DLL/So/Dylib) file to extend the RingVM without the need to rebuild it.</p>
 <p>The Ring language source code comes with two files to add new modules to the RingVM, ring_ext.h and ring_ext.c</p>
 <div class="section" id="ring-ext-h">
 <span id="index-1"></span><h2>ring_ext.h<a class="headerlink" href="#ring-ext-h" title="Permalink to this headline">¶</a></h2>
@@ -366,8 +372,8 @@ library (DLL/So) file to extend the RingVM without the need to rebuild it.</p>
 <p>Each module starts by include the ring header file (ring.h).
 This files contains the Ring API that we can use to extend the RingVM.</p>
 <p>Each module comes with a function to register the module functions in the RingVM
-The registration is done by using ring_vm_funcregister() function.</p>
-<p>The ring_vm_funcregister() function takes two parameters, the first is the function name
+The registration is done by using RING_API_REGISTER() function.</p>
+<p>The RING_API_REGISTER() function takes two parameters, the first is the function name
 that will be used by Ring programs to call the function. The second parameter is the
 function pointer in the C program.</p>
 <p>for example, the ring_vmmath.c module contains the next code to register the module functions</p>
@@ -375,27 +381,27 @@ function pointer in the C program.</p>
 
 <span class="kt">void</span> <span class="nf">ring_vm_math_loadfunctions</span> <span class="p">(</span> <span class="n">RingState</span> <span class="o">*</span><span class="n">pRingState</span> <span class="p">)</span>
 <span class="p">{</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;sin&quot;</span><span class="p">,</span><span class="n">ring_vm_math_sin</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;cos&quot;</span><span class="p">,</span><span class="n">ring_vm_math_cos</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;tan&quot;</span><span class="p">,</span><span class="n">ring_vm_math_tan</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;asin&quot;</span><span class="p">,</span><span class="n">ring_vm_math_asin</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;acos&quot;</span><span class="p">,</span><span class="n">ring_vm_math_acos</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;atan&quot;</span><span class="p">,</span><span class="n">ring_vm_math_atan</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;atan2&quot;</span><span class="p">,</span><span class="n">ring_vm_math_atan2</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;sinh&quot;</span><span class="p">,</span><span class="n">ring_vm_math_sinh</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;cosh&quot;</span><span class="p">,</span><span class="n">ring_vm_math_cosh</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;tanh&quot;</span><span class="p">,</span><span class="n">ring_vm_math_tanh</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;exp&quot;</span><span class="p">,</span><span class="n">ring_vm_math_exp</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;log&quot;</span><span class="p">,</span><span class="n">ring_vm_math_log</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;log10&quot;</span><span class="p">,</span><span class="n">ring_vm_math_log10</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;ceil&quot;</span><span class="p">,</span><span class="n">ring_vm_math_ceil</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;floor&quot;</span><span class="p">,</span><span class="n">ring_vm_math_floor</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;fabs&quot;</span><span class="p">,</span><span class="n">ring_vm_math_fabs</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;pow&quot;</span><span class="p">,</span><span class="n">ring_vm_math_pow</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;sqrt&quot;</span><span class="p">,</span><span class="n">ring_vm_math_sqrt</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;unsigned&quot;</span><span class="p">,</span><span class="n">ring_vm_math_unsigned</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;decimals&quot;</span><span class="p">,</span><span class="n">ring_vm_math_decimals</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;murmur3hash&quot;</span><span class="p">,</span><span class="n">ring_vm_math_murmur3hash</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;sin&quot;</span><span class="p">,</span><span class="n">ring_vm_math_sin</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;cos&quot;</span><span class="p">,</span><span class="n">ring_vm_math_cos</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;tan&quot;</span><span class="p">,</span><span class="n">ring_vm_math_tan</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;asin&quot;</span><span class="p">,</span><span class="n">ring_vm_math_asin</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;acos&quot;</span><span class="p">,</span><span class="n">ring_vm_math_acos</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;atan&quot;</span><span class="p">,</span><span class="n">ring_vm_math_atan</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;atan2&quot;</span><span class="p">,</span><span class="n">ring_vm_math_atan2</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;sinh&quot;</span><span class="p">,</span><span class="n">ring_vm_math_sinh</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;cosh&quot;</span><span class="p">,</span><span class="n">ring_vm_math_cosh</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;tanh&quot;</span><span class="p">,</span><span class="n">ring_vm_math_tanh</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;exp&quot;</span><span class="p">,</span><span class="n">ring_vm_math_exp</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;log&quot;</span><span class="p">,</span><span class="n">ring_vm_math_log</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;log10&quot;</span><span class="p">,</span><span class="n">ring_vm_math_log10</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;ceil&quot;</span><span class="p">,</span><span class="n">ring_vm_math_ceil</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;floor&quot;</span><span class="p">,</span><span class="n">ring_vm_math_floor</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;fabs&quot;</span><span class="p">,</span><span class="n">ring_vm_math_fabs</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;pow&quot;</span><span class="p">,</span><span class="n">ring_vm_math_pow</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;sqrt&quot;</span><span class="p">,</span><span class="n">ring_vm_math_sqrt</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;unsigned&quot;</span><span class="p">,</span><span class="n">ring_vm_math_unsigned</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;decimals&quot;</span><span class="p">,</span><span class="n">ring_vm_math_decimals</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;murmur3hash&quot;</span><span class="p">,</span><span class="n">ring_vm_math_murmur3hash</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -761,15 +767,15 @@ a DLL/So/Dylib file and dynamically use the functions provided by this file in t
         <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Message from dlfunc&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="n">RING_DLL</span> <span class="kt">void</span> <span class="nf">ringlib_init</span><span class="p">(</span><span class="n">RingState</span> <span class="o">*</span><span class="n">pRingState</span><span class="p">)</span>
+<span class="n">RING_LIBINIT</span>
 <span class="p">{</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;dlfunc&quot;</span><span class="p">,</span><span class="n">ring_ringlib_dlfunc</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;dlfunc&quot;</span><span class="p">,</span><span class="n">ring_ringlib_dlfunc</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>the idea is to create the ringlib_init() function, this function will be called by the RingVM when we use the generated DLL
-file though the LoadLib() function.</p>
-<p>Inside the ringlib_init() function we can register the module function or call a function that do the registration process
+<p>the idea is to create the RING_LIBINIT function, this function will be called by the RingVM when we use the generated DLL
+file through the LoadLib() function.</p>
+<p>Inside the RING_LIBINIT function we can register the module function or call a function that do the registration process
 for all of the module functions.</p>
 <p>The next Ring code demonstrates how to use the DLL library during the runtime.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Dynamic DLL&quot;</span> <span class="o">+</span> <span class="n">NL</span>
@@ -848,6 +854,25 @@ pointer to Ring. This pointer can be controlled by the Ring VM using reference c
 </pre></div>
 </div>
 </div>
+<div class="section" id="memory-functions">
+<span id="index-18"></span><h2>Memory Functions<a class="headerlink" href="#memory-functions" title="Permalink to this headline">¶</a></h2>
+<p>Ring API provides the next functions for Memory Management</p>
+<p>These functions uses the Memory pool provided by Ring VM</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>RING_API_MALLOC(nSize)
+RING_API_CALLOC(nItems,nItemSize)
+RING_API_REALLOC(pPointer,nSize)
+RING_API_FREE(pPointer)
+RING_API_FREEFUNC
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Use RING_API_MALLOC() instead of the malloc() function.</p></li>
+<li><p>Use RING_API_CALLOC() instead of the calloc() function.</p></li>
+<li><p>Use RING_API_REALLOC() instead of the realloc() function.</p></li>
+<li><p>Use RING_API_FREE() instead of the free() function.</p></li>
+<li><p>RING_API_FREEFUNC provides a function pointer to the ring_state_free() function</p></li>
+</ul>
+</div>
 </div>
 
 
@@ -871,7 +896,7 @@ pointer to Ring. This pointer can be controlled by the Ring VM using reference c
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2016-2021, Ring Team
+        &copy; Copyright 2016-2022, Ring Team
 
     </p>
   </div>

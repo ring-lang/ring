@@ -1,5 +1,5 @@
 /*
-	Application : Convertion between Lists And Strings
+	Application : Conversion between Lists And Strings
 	Author      : Salwa Abdrabu
 */
 
@@ -8,7 +8,7 @@
 aList = [ :One ,:Two ,:Three ,:Four ,:Five]
 
 ? aList
-? "Len aList1 :"+len(aList)
+? "Len aList1 :"+ len(aList)
 
 cString = List2str(aList)
 

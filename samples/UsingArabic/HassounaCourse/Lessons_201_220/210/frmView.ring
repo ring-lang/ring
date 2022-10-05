@@ -58,7 +58,7 @@ class frmView from WindowsViewParent
 			oFont.fromstring("MS Shell Dlg 2,20,-1,5,75,0,0,0,0,0")
 			setfont(oFont)
 			oFont.delete()
-			setText("Chcek")
+			setText("Check")
 			setClickEvent(Method(:test))
 			setBtnImage(btn,"")
 			

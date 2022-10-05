@@ -3,7 +3,7 @@
 ### Update  : 2019/02/25-04:21:08
 ### Author  : Gal Zsolt 
 
-###  Madelbrot - Colorized and Animated
+###  Mandelbrot - Colorized and Animated
 ###  2019-02-25  Bert Mariani
 ###
 ###  MyApp.ProcessEvents()  ###<<< EXEC the Draw MonaLisa between each step of array sorting

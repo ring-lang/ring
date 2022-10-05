@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>What is new in Ring 1.16? &mdash; Ring 1.16 documentation</title>
+  <title>What is new in Ring 1.16? &mdash; Ring 1.18 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Using Other Code Editors" href="codeeditors.html" />
+    <link rel="next" title="What is new in Ring 1.17" href="whatisnew17.html" />
     <link rel="prev" title="What is new in Ring 1.15?" href="whatisnew15.html" /> 
 </head>
 
@@ -153,6 +153,10 @@
 <li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csvlib.html">CSVLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jsonlib.html">JSONLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="httplib.html">HTTPLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenslib.html">TokensLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="socket.html">Using RingSockets</a></li>
@@ -196,14 +200,17 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes: Version 1.16</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#light-guilib">Light GUILib</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#better-load-command">Better Load Command</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#nested-methods-call-in-separate-lines">Nested methods call in separate lines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#utf-8-file-names-in-microsoft-windows">UTF-8 File Names in Microsoft Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nested-methods-call-in-separate-lines">Nested Methods Call in Separate Lines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-runner-extension-support-ring">Code Runner Extension support Ring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zero-and-strings">Zero and Strings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-installation-scripts">Better Installation Scripts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-documentation">Better Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mdi-windows-sample">MDI Windows Sample</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew17.html">Release Notes: Version 1.17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
@@ -281,8 +288,10 @@
 <p>Ring 1.16 comes with the next features!</p>
 <ul class="simple">
 <li><p>Light GUILib</p></li>
-<li><p>Better Load Command</p></li>
-<li><p>Nested methods call in separate lines</p></li>
+<li><p>UTF-8 File Names in Microsoft Windows</p></li>
+<li><p>Nested Methods Call in Separate Lines</p></li>
+<li><p>Code Runner Extension support Ring</p></li>
+<li><p>Zero and Strings</p></li>
 <li><p>Better Installation Scripts</p></li>
 <li><p>Better Documentation</p></li>
 <li><p>MDI Windows Sample</p></li>
@@ -315,16 +324,19 @@
 <p>if you need something smaller than that (1 MB) then switch to other libraries like LibUI</p>
 </div>
 </div>
-<div class="section" id="better-load-command">
-<span id="index-3"></span><h2>Better Load Command<a class="headerlink" href="#better-load-command" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="utf-8-file-names-in-microsoft-windows">
+<span id="index-3"></span><h2>UTF-8 File Names in Microsoft Windows<a class="headerlink" href="#utf-8-file-names-in-microsoft-windows" title="Permalink to this headline">¶</a></h2>
 <p>In Ring 1.16, The Load command support using UTF-8 in the file name.</p>
-<p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;مرحبا.ring&quot;</span>
+<p>For example, We can write Arabic letters in the File Name!</p>
+<p>Also the next functions support this feature</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>read()
+write()
+fopen()
 </pre></div>
 </div>
 </div>
 <div class="section" id="nested-methods-call-in-separate-lines">
-<span id="index-4"></span><h2>Nested methods call in separate lines<a class="headerlink" href="#nested-methods-call-in-separate-lines" title="Permalink to this headline">¶</a></h2>
+<span id="index-4"></span><h2>Nested Methods Call in Separate Lines<a class="headerlink" href="#nested-methods-call-in-separate-lines" title="Permalink to this headline">¶</a></h2>
 <p>In Ring 1.16, the Compiler support adding new lines after the method call and before the dot operator</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">myobj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Start</span>
@@ -362,8 +374,73 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="code-runner-extension-support-ring">
+<span id="index-5"></span><h2>Code Runner Extension support Ring<a class="headerlink" href="#code-runner-extension-support-ring" title="Permalink to this headline">¶</a></h2>
+<p>If you are using Microsoft Visual Studio Code, We have good news for you!</p>
+<p>The Code Runner Extension added support for the Ring programming language</p>
+<img alt="coderunner" src="_images/coderunner.png" />
+<p>After installing Code Runner</p>
+<p>It’s recommended to modify this file :</p>
+<p>C:/Users/YOURUSERNAME/.vscode/extensions/formulahendry.code-runner-0.11.6/package.json</p>
+<p>Set the property (code-runner.fileDirectoryAsCwd) to (True)</p>
+<p>So Code Runner can move to the file directory when we run it using (Ctrl+Alt+N)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;code-runner.fileDirectoryAsCwd&quot;: {
+        &quot;type&quot;: &quot;boolean&quot;,
+        &quot;default&quot;: true,
+        &quot;description&quot;: &quot;Whether to use the directory of the file to be executed as the working directory.&quot;,
+        &quot;scope&quot;: &quot;resource&quot;
+},
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Check ring/tools/editors/vscode folder to support Ring in VSCode</p>
+</div>
+<img alt="tetrisvscode" src="_images/tetrisvscode.png" />
+</div>
+<div class="section" id="zero-and-strings">
+<span id="index-6"></span><h2>Zero and Strings<a class="headerlink" href="#zero-and-strings" title="Permalink to this headline">¶</a></h2>
+<p>From Ring 1.0, the language do implicit conversion between numbers and strings</p>
+<p>This is useful when we mix them in some situations like printing something on the screen</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>          <span class="c"># Number</span>
+<span class="o">?</span> <span class="s">&quot;x = &quot;</span> <span class="o">+</span> <span class="n">x</span>    <span class="c"># x converted from Number to String</span>
+</pre></div>
+</div>
+<p>Also we can do arithmetic operations</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;10&quot;</span>        <span class="c"># String</span>
+<span class="o">?</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">x</span>         <span class="c"># x converted from String to Number</span>
+</pre></div>
+</div>
+<p>The question is What happens if x content is not a number?</p>
+<p>The answer : The result of the conversion will be (Zero)</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Test&quot;</span>      <span class="c"># String - The content is not a number</span>
+<span class="o">?</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">x</span>         <span class="c"># print (5) - x converted from String to Number (Zero)</span>
+</pre></div>
+</div>
+<p>The other operators like “=” and “!=” do the conversion too</p>
+<p>Starting from Ring 1.16, They will be careful when we compare things to Zero</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Test&quot;</span>
+<span class="o">?</span> <span class="mi">0</span> <span class="o">=</span> <span class="n">x</span>         <span class="c"># The result will be FALSE</span>
+<span class="o">?</span> <span class="mi">0</span> <span class="o">!=</span> <span class="n">x</span>        <span class="c"># The result will be TRUE</span>
+</pre></div>
+</div>
+<p>This is useful when we compare between values inside Empty Lists and Strings</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="kt">list</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>        <span class="c"># 10 items - Each item is Zero</span>
+<span class="o">?</span> <span class="n">aList</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="mi">5</span>          <span class="c"># print (5)</span>
+<span class="o">?</span> <span class="n">aList</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="s">&quot;Test&quot;</span>     <span class="c"># False</span>
+<span class="o">?</span> <span class="n">aList</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span>          <span class="c"># True</span>
+</pre></div>
+</div>
+<p>The other values (Not Zero) will follow the normal conversion rules</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;5&quot;</span>
+<span class="o">?</span> <span class="mi">5</span>  <span class="o">=</span> <span class="n">x</span>        <span class="c"># True</span>
+<span class="o">?</span> <span class="mi">6</span> <span class="o">!=</span> <span class="n">x</span>        <span class="c"># True</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="better-installation-scripts">
-<span id="index-5"></span><h2>Better Installation Scripts<a class="headerlink" href="#better-installation-scripts" title="Permalink to this headline">¶</a></h2>
+<span id="index-7"></span><h2>Better Installation Scripts<a class="headerlink" href="#better-installation-scripts" title="Permalink to this headline">¶</a></h2>
 <p>Ring 1.16 comes with better installation scripts on Linux and macOS</p>
 <ul class="simple">
 <li><p>install.sh - Force creation of symlinks in case they already exist</p></li>
@@ -372,11 +449,11 @@
 </ul>
 </div>
 <div class="section" id="better-documentation">
-<span id="index-6"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this headline">¶</a></h2>
+<span id="index-8"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this headline">¶</a></h2>
 <p>All of the documentation chapters are revised and improved</p>
 </div>
 <div class="section" id="mdi-windows-sample">
-<span id="index-7"></span><h2>MDI Windows Sample<a class="headerlink" href="#mdi-windows-sample" title="Permalink to this headline">¶</a></h2>
+<span id="index-9"></span><h2>MDI Windows Sample<a class="headerlink" href="#mdi-windows-sample" title="Permalink to this headline">¶</a></h2>
 <p>The next sample is added to the samples folder</p>
 <blockquote>
 <div><ul class="simple">
@@ -386,7 +463,7 @@
 <img alt="mdiwindowssample" src="_images/mdiwindowssample.png" />
 </div>
 <div class="section" id="more-improvements">
-<span id="index-8"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
+<span id="index-10"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Sample: samples/AQuickStart/GUILib/gui1.ring - Better Code</p></li>
 <li><p>Form Designer - Set the Button Event (If it’s Empty) from the Button Text</p></li>
@@ -412,7 +489,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="codeeditors.html" class="btn btn-neutral float-right" title="Using Other Code Editors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="whatisnew17.html" class="btn btn-neutral float-right" title="What is new in Ring 1.17" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="whatisnew15.html" class="btn btn-neutral float-left" title="What is new in Ring 1.15?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -425,7 +502,7 @@
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2016-2021, Ring Team
+        &copy; Copyright 2016-2022, Ring Team
 
     </p>
   </div>

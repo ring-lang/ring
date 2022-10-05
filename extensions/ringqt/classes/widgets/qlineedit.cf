@@ -6,6 +6,10 @@ codename: GLineEdit
 passvmpointer
 </class>
 
+<filter> sysget("RINGQT_QT515") = ""
+void getTextMargins(int *left, int *top, int *right, int *bottom)
+</filter>
+
 int alignment(void)
 void backspace(void)
 QCompleter *completer(void)
@@ -23,7 +27,6 @@ QString displayText(void)
 bool dragEnabled(void)
 int echoMode(void)
 void end(bool mark) # In RingQt use : void endtext(bool mark)
-void getTextMargins(int *left, int *top, int *right, int *bottom)
 bool hasAcceptableInput(void)
 bool hasFrame(void)
 bool hasSelectedText(void)

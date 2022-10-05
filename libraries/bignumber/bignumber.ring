@@ -7,12 +7,12 @@
 # Verify using site: 
 # https://www.calculator.net/big-number-calculator.html?cx=12345&cy=24&cp=1&co=divide
 #
-# Funcions:
+# Functions:
 #   FuncAdd         - The BASE block
 #   FuncSubtract    - Depends on FuncAdd. Uses Additive Subtract
 #   FuncCompare     - Compare numbers. returns: Greater 1, Equal 0, Less -1
 #   FuncDivide      - Depends on FuncSubtract, FuncAdd, FuncCompare
-#   FuncMultiply    - Depends on FuncAdd and Funcompare
+#   FuncMultiply    - Depends on FuncAdd and FuncCompare
 #   FuncPower       - Depends on FuncMultiply 
 #
 #   FuncDecimalToBinary
@@ -116,7 +116,7 @@ Func BigNumber_testClass()
     
     ###--------------------------------------------
 
-    See "Finished Calculatiions "+ nl   
+    See "Finished Calculations "+ nl   
 return
 
 Func BigNumber_testFunctions() 
@@ -195,7 +195,7 @@ Func BigNumber_testFunctions()
     a3 = FuncPower(a1, a2)      ; See a3 +nl+nl
      
         
-    See "Finished Calculatiions "+ nl   
+    See "Finished Calculations "+ nl   
 return
         
 ###========================================================
@@ -267,7 +267,7 @@ Func FuncSubtract(num1, num2)
     ###------------------------------------------------------
     ### Use additive subtract method
     # 
-    # Use Complement 10 on rightmost non-zero, then compliment 9 going left. righmost 0 do NOT touch
+    # Use Complement 10 on rightmost non-zero, then compliment 9 going left. rightmost 0 do NOT touch
     # Remove leftmost 1
     #              v---   Big   Comp    Rem 1  |   Swap  Comp    Rem 1 Change Sign |
     #     0123456789000   9876   9876          |   1234   5432                     | 9876  9876
@@ -456,7 +456,7 @@ func FuncDivide(num1,num2)
         Pad = Pad - 1
         num2  = Left(num2, len(num2)  - 1)
  
-        #SEE nl +"NextLoop: "+nl+ "Pad: "+ Pad +" N1: "+ num1 +" Padd-N2: "+ num2  +" Count: "+ count +" Q3: "+ q3 +nl      
+        #SEE nl +"NextLoop: "+nl+ "Pad: "+ Pad +" N1: "+ num1 +" Pad-N2: "+ num2  +" Count: "+ count +" Q3: "+ q3 +nl      
     next
 
         ### Remove leading Zero from Q3-Quotient
@@ -785,7 +785,7 @@ class BigNumber
                 on "%"
 
                     answer = FuncCompare( aData, dataInfo )
-                     ### ? nl+"AnswerString - FunCompare aData, dataInfo: " ? answer  
+                     ### ? nl+"AnswerString - FuncCompare aData, dataInfo: " ? answer  
 
                      ### result = self,  is Object
                      result.aData = answer          

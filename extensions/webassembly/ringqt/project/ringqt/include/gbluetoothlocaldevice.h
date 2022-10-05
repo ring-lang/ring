@@ -1,8 +1,7 @@
 
-/* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2022 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef GBLUETOOTHLOCALDEVICE_H
 #define GBLUETOOTHLOCALDEVICE_H
-#include <QApplication>
 #include "ringqt.h"
 #include <QBluetoothLocalDevice>
 extern "C" {

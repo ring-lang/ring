@@ -1,14 +1,14 @@
 /*
 	name 		: Mostafa Abdullah Adam 
-	App 		: Test 14 ( Lists v.2) 
+	Application	: Test 14 ( Lists v.2) 
 	Date 		: 2017-12-11 
 */ 
 #=======================================================
-     // Variables types ( str , num , list , obj , c obj )
+// Variables types ( string , number , list , object , c object )
 #=======================================================
 
 		#===============================#
-		//List -----> Aray , list , ...etc 
+		//List -----> Array , list , ...etc 
 		      #==================#
 mylist= [
 	"Darsh",

@@ -3,7 +3,7 @@
 ** Author       : Mahmoud Fayed <msfclipper@yahoo.com>
 */
 
-load "guilib.ring"
+load "lightguilib.ring"
 
 # Global variables and constants used by the main menu 
 

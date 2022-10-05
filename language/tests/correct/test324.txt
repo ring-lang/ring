@@ -1,2 +1,2 @@
-char
-char
+Welcome!
+Hi!

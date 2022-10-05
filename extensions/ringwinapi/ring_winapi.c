@@ -23,10 +23,211 @@ Ext. Rules : There are some rules that have been followed in here to make this l
 #include "ring.h"
 #include "windows.h"
 #include "WinBase.h"
+#include <shellapi.h>
 #include <stdio.h>
 #include <ctype.h>
 #include "Sddl.h"		// added to get User SID by ConvertSidToStringSid()
+#include <strsafe.h>
+#include <Rpc.h>
 
+#pragma comment(lib, "Rpcrt4.lib")
+#pragma comment(lib, "Gdi32.lib")
+#pragma comment(lib, "User32.lib")
+
+/* Reference : https://stackoverflow.com/questions/20729156/find-out-number-of-icons-in-an-icon-resource-using-win32-api/20731449#20731449
+ */
+#pragma pack( push )
+#pragma pack( 2 )
+typedef struct
+{
+	BYTE   bWidth;               // Width, in pixels, of the image
+	BYTE   bHeight;              // Height, in pixels, of the image
+	BYTE   bColorCount;          // Number of colors in image (0 if >=8bpp)
+	BYTE   bReserved;            // Reserved
+	WORD   wPlanes;              // Color Planes
+	WORD   wBitCount;            // Bits per pixel
+	DWORD  dwBytesInRes;         // how many bytes in this resource?
+	WORD   nID;                  // the ID
+} GRPICONDIRENTRY, * LPGRPICONDIRENTRY;
+
+typedef struct
+{
+	WORD            idReserved;   // Reserved (must be 0)
+	WORD            idType;       // Resource type (1 for icons)
+	WORD            idCount;      // How many images?
+	GRPICONDIRENTRY idEntries[1]; // The entries for each image
+} GRPICONDIR, * LPGRPICONDIR;
+#pragma pack( pop )
+
+
+/* Modified from reference code: https://stackoverflow.com/questions/2289894/how-can-i-save-hicon-to-an-ico-file/59253425#59253425 
+*/
+#pragma pack( push )
+#pragma pack( 2 )
+typedef struct _ICONDIRENTRY
+{
+	UCHAR nWidth;
+	UCHAR nHeight;
+	UCHAR nNumColorsInPalette; // 0 if no palette
+	UCHAR nReserved; // should be 0
+	WORD nNumColorPlanes; // 0 or 1
+	WORD nBitsPerPixel;
+	ULONG nDataLength; // length in bytes
+	ULONG nOffset; // offset of BMP or PNG data from beginning of file
+} ICONDIRENTRY;
+#pragma pack( pop )
+
+static BOOL GetIconData(HICON hIcon, int nColorBits, unsigned char* buff, int* pLen)
+{
+	int index = 0;
+	HDC dc;
+	char icoHeader[6] = { 0, 0, 1, 0, 1, 0 }; // ICO file with 1 image
+	ICONINFO iconInfo;
+	BITMAPINFO bmInfo = { 0 };
+	int nBmInfoSize;
+	unsigned char* bitmapInfo;
+	BITMAPINFO* pBmInfo;
+	unsigned char* bits;
+	BITMAPINFO maskInfo = { 0 };
+	unsigned char* maskBits;
+	unsigned char* maskInfoBytes;
+	BITMAPINFO* pMaskInfo;
+	ICONDIRENTRY dir;
+	int nBitsSize;
+
+	// ASSERT(nColorBits == 4 || nColorBits == 8 || nColorBits == 24 || nColorBits == 32);
+
+	if (offsetof(ICONDIRENTRY, nOffset) != 12)
+	{
+		return FALSE;
+	}
+
+	dc = CreateCompatibleDC(NULL);
+
+	// Write header:
+	index = sizeof(icoHeader);
+	if (buff)
+	{
+		memcpy(buff, icoHeader, sizeof(icoHeader));
+		buff += sizeof(icoHeader);
+	}
+
+	// Get information about icon:
+	GetIconInfo(hIcon, &iconInfo);
+	bmInfo.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
+	bmInfo.bmiHeader.biBitCount = 0;    // don't get the color table     
+	if (!GetDIBits(dc, iconInfo.hbmColor, 0, 0, NULL, &bmInfo, DIB_RGB_COLORS))
+	{
+		return FALSE;
+	}
+
+	// Get bitmap data:
+	if (!bmInfo.bmiHeader.biSizeImage)
+		return FALSE;
+
+	// Allocate size of bitmap info header plus space for color table:
+	nBmInfoSize = sizeof(BITMAPINFOHEADER);
+	if (nColorBits < 24)
+	{
+		nBmInfoSize += sizeof(RGBQUAD) * (int)(1 << nColorBits);
+	}
+
+	bitmapInfo = (unsigned char*) malloc(nBmInfoSize);
+	pBmInfo = (BITMAPINFO*)bitmapInfo;
+	memcpy(pBmInfo, &bmInfo, sizeof(BITMAPINFOHEADER));
+
+	bits = (unsigned char*) malloc(bmInfo.bmiHeader.biSizeImage);
+	pBmInfo->bmiHeader.biBitCount = nColorBits;
+	pBmInfo->bmiHeader.biCompression = BI_RGB;
+	if (!GetDIBits(dc, iconInfo.hbmColor, 0, bmInfo.bmiHeader.biHeight, bits, pBmInfo, DIB_RGB_COLORS))
+	{
+		free(bitmapInfo);
+		free(bits);
+		return FALSE;
+	}
+
+	// Get mask data:
+	maskInfo.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
+	maskInfo.bmiHeader.biBitCount = 0;  // don't get the color table     
+	if (!GetDIBits(dc, iconInfo.hbmMask, 0, 0, NULL, &maskInfo, DIB_RGB_COLORS) || maskInfo.bmiHeader.biBitCount != 1)
+	{
+		free(bitmapInfo);
+		free(bits);
+		return FALSE;
+	}
+
+	maskBits = (unsigned char* ) malloc(maskInfo.bmiHeader.biSizeImage);
+	maskInfoBytes = (unsigned char*) malloc(sizeof(BITMAPINFO) + 2 * sizeof(RGBQUAD));
+	pMaskInfo = (BITMAPINFO*)maskInfoBytes;
+	memcpy(pMaskInfo, &maskInfo, sizeof(maskInfo));
+	if (!GetDIBits(dc, iconInfo.hbmMask, 0, maskInfo.bmiHeader.biHeight, maskBits, pMaskInfo, DIB_RGB_COLORS))
+	{
+		free(bitmapInfo);
+		free(bits);
+		free(maskBits);
+		free(maskInfoBytes);
+		return FALSE;
+	}
+
+	// Write directory entry:
+	dir.nWidth = (UCHAR)pBmInfo->bmiHeader.biWidth;
+	dir.nHeight = (UCHAR)pBmInfo->bmiHeader.biHeight;
+	dir.nNumColorsInPalette = (nColorBits == 4 ? 16 : 0);
+	dir.nReserved = 0;
+	dir.nNumColorPlanes = 0;
+	dir.nBitsPerPixel = pBmInfo->bmiHeader.biBitCount;
+	dir.nDataLength = pBmInfo->bmiHeader.biSizeImage + pMaskInfo->bmiHeader.biSizeImage + nBmInfoSize;
+	dir.nOffset = sizeof(dir) + sizeof(icoHeader);
+
+	index += sizeof(dir);
+	if (buff)
+	{
+		memcpy(buff, &dir, sizeof(dir));
+		buff += sizeof(dir);
+	}
+
+	// Write DIB header (including color table):
+	nBitsSize = pBmInfo->bmiHeader.biSizeImage;
+	pBmInfo->bmiHeader.biHeight *= 2; // because the header is for both image and mask
+	pBmInfo->bmiHeader.biCompression = 0;
+	pBmInfo->bmiHeader.biSizeImage += pMaskInfo->bmiHeader.biSizeImage; // because the header is for both image and mask
+
+	index += nBmInfoSize;
+	if (buff) {
+		memcpy(buff, &pBmInfo->bmiHeader, nBmInfoSize);
+		buff += nBmInfoSize;
+	}
+
+	// Write image data:
+	index += nBitsSize;
+	if (buff)
+	{
+		memcpy(buff, bits, nBitsSize);
+		buff += nBitsSize;
+	}
+
+	// Write mask data:
+	index += pMaskInfo->bmiHeader.biSizeImage;
+	if (buff)
+	{
+		memcpy(buff, maskBits, pMaskInfo->bmiHeader.biSizeImage);
+		buff += pMaskInfo->bmiHeader.biSizeImage;
+	}
+
+	DeleteObject(iconInfo.hbmColor);
+	DeleteObject(iconInfo.hbmMask);
+
+	DeleteDC(dc);
+
+	free(bitmapInfo);
+	free(bits);
+	free(maskBits);
+	free(maskInfoBytes);
+
+	*pLen = index;
+
+	return TRUE;
+}
 
 /*
 ===================================================================================== 
@@ -39,7 +240,7 @@ Ext. Rules : There are some rules that have been followed in here to make this l
 /*
 Function Name : rwaGetErrorMsg
 Func. Purpose : Return System error message
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 */
 LPSTR rwaGetErrorMsg(LONG ErrorId , LPTSTR pMsg, size_t pMsgsize){
     LPSTR pBuffer = NULL;
@@ -53,12 +254,12 @@ LPSTR rwaGetErrorMsg(LONG ErrorId , LPTSTR pMsg, size_t pMsgsize){
                   NULL);
     if (pBuffer)
     {
-		sprintf_s(pMsg, pMsgsize, "Error ID (%d) : %s", ErrorId, pBuffer);
-		HeapFree(GetProcessHeap(), 0, pBuffer);
+		StringCbPrintfA(pMsg, pMsgsize, "Error ID (%d) : %s", ErrorId, pBuffer);
+		LocalFree(pBuffer);
      }
     else
     {
-		sprintf_s(pMsg, pMsgsize, "Format message failed with : %d", GetLastError());
+		StringCbPrintfA(pMsg, pMsgsize, "Format message failed with : %d", GetLastError());
     } 
 	return pMsg;
 }
@@ -67,7 +268,7 @@ LPSTR rwaGetErrorMsg(LONG ErrorId , LPTSTR pMsg, size_t pMsgsize){
 /*
 Function Name : IsRunAsAdmin
 Func. Purpose : Return (1) if current program is elevated, (0) if not, or (-1) if there's error during checking
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 Func. Source  : Created with help from SpaceWorm's post at http://www.cplusplus.com/forum/windows/101207/
 */
 char IsRunAsAdmin(){
@@ -105,6 +306,8 @@ Cleanup:
 
     if (ERROR_SUCCESS != dwError)
     {
+		/* restore original error code */
+		SetLastError(dwError);
 		return -1;
     }
 	
@@ -132,7 +335,7 @@ Function Name : rwaIsRunAsAdmin
 Func. Purpose : Check whether this process (ring.exe) is running as administrator or not
 Func. Params  : () Nothing
 Func. Return  : True or False
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 */
 RING_FUNC(ring_winapi_rwaisrunasadmin) {
 	
@@ -166,7 +369,7 @@ Func. Purpose : Elevate to ask administrator rights for the process
 Func. Params  : Either (String exepath) for running a particular app as administrator
 				/Or/   (String exepath, String params) to run a particular app with some parameters
 Func. Return  : Nothing
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 Func. Source  : Created with help from SpaceWorm's post at http://www.cplusplus.com/forum/windows/101207/
 */
 RING_FUNC(ring_winapi_rwaelevate) {
@@ -177,60 +380,70 @@ RING_FUNC(ring_winapi_rwaelevate) {
 	if ( RING_API_PARACOUNT == 1 ) {
 		if ( RING_API_ISSTRING(1) ) {
 			SHELLEXECUTEINFOA sei = { sizeof(sei) };
-			char appPath[200];
-			char entAppPath[200];
+			char appPath[MAX_PATH + 1];
+			char entAppPath[MAX_PATH + 1];
 			sei.lpVerb = "runas";
 			sei.lpFile = RING_API_GETSTRING(1);
 			sei.hwnd = NULL;
 			sei.nShow = SW_NORMAL;
-			
-			// ---------------------------retrieve and unify paths-----------------------------
-			GetModuleFileName(NULL,appPath,200);
-			strcpy(entAppPath, RING_API_GETSTRING(1));
-			for (int i=0; i < strlen(appPath); i++) appPath[i] = tolower(appPath[i]);
-			for (int i=0; i < strlen(entAppPath); i++) entAppPath[i] = tolower(entAppPath[i]);
-			for (int i=0; i < strlen(appPath); i++) if (appPath[i] == '/' ) appPath[i] = '\\';
-			for (int i=0; i < strlen(entAppPath); i++) if (entAppPath[i] == '/') entAppPath[i] = '\\';
-			
-			if ( (!strcmp(entAppPath, appPath) && !IsRunAsAdmin()) || strcmp(entAppPath, appPath) ) {
-				if (!ShellExecuteExA(&sei)) {
-					char errmsg[200];
-					RING_API_ERROR(rwaGetErrorMsg(GetLastError(),errmsg,200));
+
+			if (strlen(RING_API_GETSTRING(1)) <= MAX_PATH) {
+				// ---------------------------retrieve and unify paths-----------------------------
+				GetModuleFileName(NULL, appPath, MAX_PATH+1);
+				StringCbCopyA(entAppPath, MAX_PATH+1, RING_API_GETSTRING(1));
+				for (int i = 0; i < strlen(appPath); i++) appPath[i] = tolower(appPath[i]);
+				for (int i = 0; i < strlen(entAppPath); i++) entAppPath[i] = tolower(entAppPath[i]);
+				for (int i = 0; i < strlen(appPath); i++) if (appPath[i] == '/') appPath[i] = '\\';
+				for (int i = 0; i < strlen(entAppPath); i++) if (entAppPath[i] == '/') entAppPath[i] = '\\';
+
+				if ((!strcmp(entAppPath, appPath) && !IsRunAsAdmin()) || strcmp(entAppPath, appPath)) {
+					if (!ShellExecuteExA(&sei)) {
+						char errmsg[200];
+						RING_API_ERROR(rwaGetErrorMsg(GetLastError(), errmsg, 200));
+					}
 				}
+			}
+			else {
+				RING_API_ERROR(RING_API_BADPARALENGTH);
 			}
 		} else RING_API_ERROR(RING_API_BADPARATYPE);
 	} else {
 		if ( RING_API_ISSTRING(1) && RING_API_ISSTRING(2) ) {
 			SHELLEXECUTEINFOA sei = { sizeof(sei) };
-			char appPath[200];
-			char entAppPath[200];
-			char lcFileName[200];
-			char entFilePath[200];
+			char appPath[MAX_PATH+1];
+			char entAppPath[MAX_PATH + 1];
+			char lcFileName[MAX_PATH + 1];
+			char entFilePath[MAX_PATH + 1];
 			sei.lpVerb = "runas";
 			sei.lpFile = RING_API_GETSTRING(1);
 			sei.lpParameters = RING_API_GETSTRING(2);
 			sei.hwnd = NULL;
 			sei.nShow = SW_NORMAL;
-			
-			// ---------------------------retrieve and unify paths-----------------------------
-			GetModuleFileName(NULL,appPath,200);
-			strcpy(entAppPath, RING_API_GETSTRING(1));
-			strcpy(lcFileName, ((VM *) pPointer)->cFileName);
-			strcpy(entFilePath, RING_API_GETSTRING(2));
-			for (int i=0; i < strlen(appPath); i++) appPath[i] = tolower(appPath[i]);
-			for (int i=0; i < strlen(appPath); i++) if (appPath[i] == '/' ) appPath[i] = '\\';
-			for (int i=0; i < strlen(entAppPath); i++) entAppPath[i] = tolower(entAppPath[i]);
-			for (int i=0; i < strlen(entAppPath); i++) if (entAppPath[i] == '/' ) entAppPath[i] = '\\';
-			for (int i=0; i < strlen(lcFileName); i++) lcFileName[i] = tolower(lcFileName[i]);
-			for (int i=0; i < strlen(lcFileName); i++) if (lcFileName[i] == '/') lcFileName[i] = '\\';
-			for (int i=0; i < strlen(entFilePath); i++) entFilePath[i] = tolower(entFilePath[i]);
-			for (int i=0; i < strlen(entFilePath); i++) if (entFilePath[i] == '/') entFilePath[i] = '\\';
-			
-			if ( (!strcmp(entAppPath, appPath) && !strcmp(entFilePath, lcFileName) && !IsRunAsAdmin()) || strcmp(entAppPath, appPath) || strcmp(entFilePath, lcFileName) ) {
-				if (!ShellExecuteExA(&sei)) {
-					char errmsg[200];
-					RING_API_ERROR(rwaGetErrorMsg(GetLastError(),errmsg,200));
+
+			if (strlen(RING_API_GETSTRING(1)) <= MAX_PATH && strlen(RING_API_GETSTRING(2)) <= MAX_PATH) {
+				// ---------------------------retrieve and unify paths-----------------------------
+				GetModuleFileName(NULL, appPath, MAX_PATH + 1);
+				StringCbCopyA(entAppPath, MAX_PATH + 1, RING_API_GETSTRING(1));
+				StringCbCopyA(lcFileName, MAX_PATH + 1, ((VM*)pPointer)->cFileName);
+				StringCbCopyA(entFilePath, MAX_PATH + 1, RING_API_GETSTRING(2));
+				for (int i = 0; i < strlen(appPath); i++) appPath[i] = tolower(appPath[i]);
+				for (int i = 0; i < strlen(appPath); i++) if (appPath[i] == '/') appPath[i] = '\\';
+				for (int i = 0; i < strlen(entAppPath); i++) entAppPath[i] = tolower(entAppPath[i]);
+				for (int i = 0; i < strlen(entAppPath); i++) if (entAppPath[i] == '/') entAppPath[i] = '\\';
+				for (int i = 0; i < strlen(lcFileName); i++) lcFileName[i] = tolower(lcFileName[i]);
+				for (int i = 0; i < strlen(lcFileName); i++) if (lcFileName[i] == '/') lcFileName[i] = '\\';
+				for (int i = 0; i < strlen(entFilePath); i++) entFilePath[i] = tolower(entFilePath[i]);
+				for (int i = 0; i < strlen(entFilePath); i++) if (entFilePath[i] == '/') entFilePath[i] = '\\';
+
+				if ((!strcmp(entAppPath, appPath) && !strcmp(entFilePath, lcFileName) && !IsRunAsAdmin()) || strcmp(entAppPath, appPath) || strcmp(entFilePath, lcFileName)) {
+					if (!ShellExecuteExA(&sei)) {
+						char errmsg[200];
+						RING_API_ERROR(rwaGetErrorMsg(GetLastError(), errmsg, 200));
+					}
 				}
+			}
+			else {
+				RING_API_ERROR(RING_API_BADPARALENGTH);
 			}
 		} else RING_API_ERROR(RING_API_BADPARATYPE);
 	}
@@ -244,7 +457,7 @@ Function Name : rShellExecute
 Func. Purpose : Execute\Open an application or file with specific action
 Func. Params  : (HWND hwnd, LPCSTR lpOperation, LPCSTR lpFile, LPCSTR lpParameters, LPCSTR lpDirectory, INT nShowCmd)
 Func. Return  : the value that returned by ShellExecute() function
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 */
 RING_FUNC(ring_winapi_rshellexecute) {
 	HWND hwnd = NULL;
@@ -312,7 +525,7 @@ Function Name : rwaIsWow64Process
 Func. Purpose : Check whether this process (ring.exe) is a Wow64 process or not
 Func. Params  : () Nothing
 Func. Return  : (1) if True or (0) if False or (-1) if function failed
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 */
 RING_FUNC(ring_winapi_rwaiswow64process) {
 	typedef BOOL (WINAPI *LPFN_ISWOW64PROCESS) (HANDLE, PBOOL);
@@ -357,7 +570,7 @@ Function Name : rwaUserSID
 Func. Purpose : Return User SID
 Func. Params  : Either (HANDLE handle) of a process /Or/ () Nothing for the current process
 Func. Return  : User SID in a string format
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 Func. Source  : Created with help from Rose's post at http://www.codeexperts.com/showthread.php?1220-Getting-a-user-SID-in-term-of-string-from-a-process-handle-process-id
 */
 RING_FUNC(ring_winapi_rwausersid) { 
@@ -384,27 +597,42 @@ RING_FUNC(ring_winapi_rwausersid) {
 	if (SUCCEEDED(res))
 	{
 		PTOKEN_USER pUserToken = NULL ;
-		DWORD dwRequiredLength = 0 ;
+		DWORD dwRequiredLength = 0, dwLastError = 0 ;
 		GetTokenInformation(hTokenHandle, TokenUser, pUserToken, 0, &dwRequiredLength);
 		pUserToken = (PTOKEN_USER) HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, dwRequiredLength) ;
 		if(NULL != pUserToken)
 		{
-			res = GetTokenInformation(hTokenHandle, TokenUser, pUserToken, dwRequiredLength, &dwRequiredLength);
-			if (SUCCEEDED(res))
+			if (GetTokenInformation(hTokenHandle, TokenUser, pUserToken, dwRequiredLength, &dwRequiredLength))
 			{
-				LPTSTR pszSID;
-				ConvertSidToStringSidA(pUserToken->User.Sid, &pszSID) ;
-				RING_API_RETSTRING(pszSID);
-				LocalFree(pszSID) ;
+				LPSTR pszSID;
+				if (ConvertSidToStringSidA(pUserToken->User.Sid, &pszSID))
+				{
+					RING_API_RETSTRING(pszSID);
+					LocalFree(pszSID);
+				}
+				else {
+					res = E_FAIL;
+					dwLastError = GetLastError();
+				}
+			}
+			else {
+				res = E_FAIL;
+				dwLastError = GetLastError();
 			}
 			HeapFree(GetProcessHeap(), 0, pUserToken) ;
 		}
 		else {
+			dwLastError = GetLastError();
 			CloseHandle(hTokenHandle);
 			RING_API_ERROR("Error: Unable to allocate pUserToken");
 		}
 
 		CloseHandle(hTokenHandle) ;
+
+		/* restore last error so that rwaGetErrorMsg uses the correct error code */
+		if (dwLastError != 0) {
+			SetLastError(dwLastError);
+		}
 	}
 
 	if (!SUCCEEDED(res)) {
@@ -422,7 +650,7 @@ Func. Purpose : Return user name according to the passed process
 				Note: if no parameter passed it will retrieve current user name
 Func. Params  : Either (HANDLE handle) of a process /Or/ () Nothing for the current process
 Func. Return  : User name in a string format
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 Func. Source  : https://msdn.microsoft.com/en-us/library/windows/desktop/aa379166(v=vs.85).aspx
 Minimum supported Win client\server : XP(Desktop_apps)\Server2003(Desktop_apps)
 */
@@ -452,37 +680,51 @@ RING_FUNC(ring_winapi_rwausername) {
 	if (SUCCEEDED(res))
 	{
 		PTOKEN_USER pUserToken = NULL;
-		DWORD dwRequiredLength = 0;
+		DWORD dwRequiredLength = 0, dwLastError = 0;
 		GetTokenInformation(hTokenHandle, TokenUser, pUserToken, 0, &dwRequiredLength);
 		pUserToken = (PTOKEN_USER)HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, dwRequiredLength);
 		if (NULL != pUserToken)
 		{
-			res = GetTokenInformation(hTokenHandle, TokenUser, pUserToken, dwRequiredLength, &dwRequiredLength);
-			if (SUCCEEDED(res))
+			if (GetTokenInformation(hTokenHandle, TokenUser, pUserToken, dwRequiredLength, &dwRequiredLength))
 			{
-				LPTSTR AccountN;
-				PSID_NAME_USE peUse = (PSID_NAME_USE)calloc(1, sizeof(SID_NAME_USE));
-				LPDWORD AccNlen = (LPDWORD)calloc(1, sizeof(DWORD far));
-				LPDWORD DomLen = (LPDWORD)calloc(1, sizeof(DWORD far));
-				LookupAccountSid(NULL, (PSID)pUserToken->User.Sid, NULL, AccNlen, NULL, DomLen, peUse);
-				AccountN = (LPTSTR)malloc((DWORD)AccNlen + 1);
-				res = LookupAccountSid(NULL, (PSID)pUserToken->User.Sid, AccountN, AccNlen, NULL, DomLen, peUse);
-				if (SUCCEEDED(res)){
+				LPSTR AccountN;
+				SID_NAME_USE eUse;
+				DWORD AccNlen = 0;
+				DWORD DomLen = 0;
+				if (LookupAccountSidA(NULL, (PSID)pUserToken->User.Sid, NULL, &AccNlen, NULL, &DomLen, &eUse) || (GetLastError() == ERROR_INSUFFICIENT_BUFFER))
+				{
+					AccountN = (LPSTR)malloc(AccNlen + 1);
+					if (LookupAccountSidA(NULL, (PSID)pUserToken->User.Sid, AccountN, &AccNlen, NULL, &DomLen, &eUse)) {
 						RING_API_RETSTRING(AccountN);
-				} 
-				free(AccNlen);
-				free(DomLen);
-				free(peUse);
-				free(AccountN);
+					}
+					else {
+						res = E_FAIL;
+						dwLastError = GetLastError();
+					}
+					free(AccountN);
+				}
+				else {
+					res = E_FAIL;
+					dwLastError = GetLastError();
+				}
+			}
+			else {
+				res = E_FAIL;
+				dwLastError = GetLastError();
 			}
 			HeapFree(GetProcessHeap(), 0, pUserToken);
 		}
 		else {
+			dwLastError = GetLastError();
 			CloseHandle(hTokenHandle);
 			RING_API_ERROR("Error: Unable to allocate pUserToken");
 		}
 
 		CloseHandle(hTokenHandle);
+
+		if (dwLastError != 0) {
+			SetLastError(dwLastError);
+		}
 	}
 
 	if (!SUCCEEDED(res)) {
@@ -501,7 +743,7 @@ Func. Purpose : Return the string error message from the passed error code
 Func. Params  : Either (Number ID) to return a message in English
 				/Or/ (Number ID, BOOL allowlocale) to return a message in the user locale
 Func. Return  : Error message
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 */
 RING_FUNC(ring_winapi_rwasyserrormsg) {
 	BOOL allowlocale = FALSE;
@@ -555,10 +797,10 @@ RING_FUNC(ring_winapi_rwasyserrormsg) {
 	}
 	if ( lresult ) {
 		RING_API_RETSTRING(pBuffer);
+		LocalFree(pBuffer);
 	} else {
 		RING_API_ERROR("Error : FormatMessage() function ended with unexpected result");
 	}
-	HeapFree(GetProcessHeap(), 0, pBuffer);
 	return;
 }
 
@@ -569,7 +811,7 @@ Function Name : rGetLastError
 Func. Purpose : Return the last error code
 Func. Params  : ---
 Func. Return  : Error code
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 Func. Source  : https://msdn.microsoft.com/en-us/library/ms679360.aspx
 Minimum supported Win client\server\phone : XP\Server2003\Phone8
 */
@@ -589,7 +831,7 @@ Function Name : rWow64EnableWow64FsRedirection
 Func. Purpose : Enable or Disable file system redirection under Wow64 environment
 Func. Params  : True for enabling and False for disabling
 Func. Return  : True if succeed or False if not
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 Func. Source  : https://msdn.microsoft.com/en-us/library/aa365744.aspx
 Minimum supported Win client\server : Vista(Desktop_apps)\Server2003(Desktop_apps)
 */
@@ -618,7 +860,7 @@ Func. Return  : Pointer to data that should be passed to rwaRevertWow64FsRedirec
 				if you want to re-enable redirection
 				Note: This function must not be used with rWow64EnableWow64FsRedirection() function
 					at the same time
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 Func. Source  : https://msdn.microsoft.com/en-us/library/aa365743.aspx
 Minimum supported Win client\server :  XP_Pro_x64(Desktop_apps)\Server2003SP1(Desktop_apps)
 */
@@ -650,7 +892,7 @@ Func. Params  : Pointer to data that has been created by rwaDisableWow64FsRedire
 Func. Return  : True if revert file system redirection succeed or False if not
 				Note: This function must not be used with rWow64EnableWow64FsRedirection() function
 					at the same time
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 Func. Source  : https://msdn.microsoft.com/en-us/library/aa365743.aspx
 Minimum supported Win client\server :  XP_Pro_x64(Desktop_apps)\Server2003SP1(Desktop_apps)
 */
@@ -685,7 +927,7 @@ Function Name : rwaEnvirVarString
 Func. Purpose : Return the string value of system environment variables
 Func. Params  : string contains a system environment variables
 Func. Return  : String value of system environment variables
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 Func. Source  : https://msdn.microsoft.com/en-us/library/windows/desktop/ms724265(v=vs.85).aspx
 Minimum supported Win client\server : Win2000Pro(Desktop_apps)\Server2000(Desktop_apps)
 */
@@ -705,6 +947,7 @@ RING_FUNC(ring_winapi_rwaenvirvarstring) {
 	res = ExpandEnvironmentStrings(RING_API_GETSTRING(1), exStr, 200);
 	if (res > 200)
 	{
+		free(exStr);
 		exStr = (LPTSTR)malloc ((res + 1)*sizeof(TCHAR));
 		res = ExpandEnvironmentStrings(RING_API_GETSTRING(1), exStr, res +1);
 	}
@@ -721,7 +964,242 @@ RING_FUNC(ring_winapi_rwaenvirvarstring) {
 	
 }
 
+/*
+Function Name : rGetTempPath
+Func. Purpose : Retrieves the path of the directory designated for temporary files.
+Func. Params  : ()
+Func. Return  : the value that returned by GetTempPathA() function
+Func. Author  : Mounir IDRASSI <mounir@idrix.fr>
+*/
+RING_FUNC(ring_winapi_rgettemppath) {
+	char szPath[MAX_PATH + 2];
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR("Error: Bad parameter count, this function does not accept parameters");
+		return;
+	}
 
+	if (GetTempPathA(MAX_PATH + 2, szPath)) {
+		RING_API_RETSTRING(szPath);
+	}
+	else {
+		char errmsg[200];
+		RING_API_ERROR(rwaGetErrorMsg(GetLastError(), errmsg, 200));
+	}
+}
+
+/*
+Function Name : rGetTempFileName
+Func. Purpose : Creates a name for a temporary file inside the specified directory
+Func. Params  : (LPCSTR lpPathName, LPCSTR lpPrefixString, UINT   uUnique)
+Func. Return  : the value that returned by GetTempFileNameA() function
+Func. Author  : Mounir IDRASSI <mounir@idrix.fr>
+*/
+RING_FUNC(ring_winapi_rgettempfilename) {
+	char szPath[MAX_PATH + 1];
+	if (RING_API_PARACOUNT != 3) {
+		RING_API_ERROR("Error: Bad parameter count, this function accepts 3 parameters");
+		return;
+	}
+
+	if (!RING_API_ISSTRING(1) || !RING_API_ISSTRING(2) || !RING_API_ISNUMBER(3)) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+
+	if (GetTempFileNameA(RING_API_GETSTRING(1), RING_API_GETSTRING(2), (UINT)RING_API_GETNUMBER(3), szPath)) {
+		RING_API_RETSTRING(szPath);
+	}
+	else {
+		char errmsg[200];
+		RING_API_ERROR(rwaGetErrorMsg(GetLastError(), errmsg, 200));
+	}
+}
+
+/*
+Function Name : rwaCreateUUID
+Func. Purpose : Creates a Universally Unique Identifier (UUID)
+Func. Params  : ()
+Func. Return  : a string containing the value of the generated UUID
+Func. Author  : Mounir IDRASSI <mounir@idrix.fr>
+*/
+RING_FUNC(ring_winapi_rwacreateuuid) {
+	RPC_STATUS nStatus;
+	UUID uuid;
+	RPC_CSTR cStringUuid;
+
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR("Error: Bad parameter count, this function does not accept parameters");
+		return;
+	}
+
+	nStatus = UuidCreate(&uuid);
+	if (nStatus != RPC_S_OK) {
+		char errmsg[128];
+		StringCbPrintfA(errmsg, ARRAYSIZE(errmsg), "Error: UuidCreate failed with error %d", nStatus);
+		RING_API_ERROR(errmsg);
+		return;
+	}
+
+	nStatus = UuidToStringA(&uuid, &cStringUuid);
+	if (nStatus != RPC_S_OK) {
+		char errmsg[128];
+		StringCbPrintfA(errmsg, ARRAYSIZE(errmsg), "Error: UuidToStringA failed with error %d", nStatus);
+		RING_API_ERROR(errmsg);
+		return;
+	}
+	
+	RING_API_RETSTRING((const char*) cStringUuid);
+
+	RpcStringFreeA(&cStringUuid);
+}
+
+/*
+Function Name : rwaReadBinaryResource
+Func. Purpose : Read the content bytes of the given resource embedded into our executable
+Func. Params  : (modulePath, resourceName, resourceType), 
+				modulePath is the path of the exe that contains the resources. If modulePath is NULL, then current exe is used.
+				resourceName/resourceType are either a string or an integer, they should match the identifiers set in the .rc file
+Func. Return  : a string containing the bytes of the requested resource or an empty string in case of failure.
+Func. Author  : Mounir IDRASSI <mounir@idrix.fr>
+*/
+RING_FUNC(ring_winapi_rwareadbinaryresource) {
+	LPCSTR  lpName;
+	LPCSTR  lpType;
+	int nID, nColorDepth, i;
+	HRSRC hSrc;
+	HGLOBAL hRes;
+	LPVOID pData;
+	DWORD nSize;
+	HICON hIcon;
+	BOOL bIsIcon, bFreeData, bTypeIsNumber;
+	HMODULE hModule;
+	GRPICONDIR* lpGrpIconDir;
+	if (RING_API_PARACOUNT != 3) {
+		RING_API_ERROR("Error: Bad parameter count, this function accepts 3 parameters");
+		return;
+	}
+
+	if (!RING_API_ISSTRING(1) || (!RING_API_ISSTRING(2) && !RING_API_ISNUMBER(2)) || (!RING_API_ISSTRING(3) && !RING_API_ISNUMBER(3))) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+
+	if (RING_API_ISSTRING(2)) {
+		lpName = RING_API_GETSTRING(2);
+	}
+	else {
+		lpName = MAKEINTRESOURCEA((int)RING_API_GETNUMBER(2));
+	}
+
+	if (RING_API_ISSTRING(3)) {
+		bTypeIsNumber = FALSE;
+		lpType = RING_API_GETSTRING(3);
+	}
+	else {
+		bTypeIsNumber = TRUE;
+		lpType = MAKEINTRESOURCEA((int)RING_API_GETNUMBER(3));
+	}
+
+	if (RING_API_GETSTRINGSIZE(1) > 0) {
+		hModule = LoadLibraryA(RING_API_GETSTRING(1));
+		if (hModule == NULL) {
+			char errmsg[200];
+			RING_API_ERROR(rwaGetErrorMsg(GetLastError(), errmsg, 200));
+			return;
+		}
+	}
+	else {
+		hModule = NULL;
+	}
+
+	bFreeData = FALSE;
+	pData = NULL;
+	nSize = 0;
+	hSrc = FindResourceA(hModule, lpName, lpType);
+	if (hSrc)
+	{
+		hRes = LoadResource(hModule, hSrc);
+		if (hRes && bTypeIsNumber && (lpType == RT_GROUP_ICON || lpType == RT_GROUP_CURSOR)) {
+			/* special case of icon */
+			/* Reference: https://docs.microsoft.com/en-us/windows/win32/menurc/using-icons#sharing-icon-resources */
+			bIsIcon = lpType == RT_GROUP_ICON ? TRUE : FALSE;
+			pData = LockResource(hRes);
+			if (pData) {
+				// Get the identifier of the icon that is most appropriate 
+				// for the video display. 
+				lpGrpIconDir = (GRPICONDIR*) pData;
+				nID = LookupIconIdFromDirectoryEx((PBYTE)pData, bIsIcon,
+					0, 0, LR_DEFAULTCOLOR);
+				pData = NULL;
+				if (nID) {
+					// Find the bits for the nID icon. 
+					hSrc = FindResource(hModule,
+						MAKEINTRESOURCE(nID),
+						MAKEINTRESOURCE(RT_ICON));
+					if (hSrc) {
+						// Load and lock the icon. 
+						hRes = LoadResource(hModule, hSrc);
+						if (hRes) {
+							// Create a handle to the icon. 
+							hIcon = CreateIconFromResourceEx((PBYTE)LockResource(hRes),
+								SizeofResource(NULL, hSrc), bIsIcon, 0x00030000,
+								0, 0, LR_DEFAULTCOLOR);
+							if (hIcon) {
+								/* try to find the original color depth */
+								nColorDepth = 32;
+								if (bIsIcon)
+								{
+									for (i = 0; i < lpGrpIconDir->idCount; i++) {
+										if (nID == lpGrpIconDir->idEntries[i].nID)
+										{
+											if (lpGrpIconDir->idEntries[i].bColorCount != 0)
+											{
+												/* color depth <= 8bpp
+												 * we only support value 4 for depth in this range (color count = 16)
+												 */
+												nColorDepth = 4;
+											}
+											break;
+										}
+									}
+								}
+								if (GetIconData(hIcon, nColorDepth, NULL, &nSize)) {
+									pData = malloc(nSize);
+									if (!GetIconData(hIcon, nColorDepth, pData, &nSize)) {
+										free(pData);
+										pData = NULL;
+										nSize = 0;
+									}
+								}
+
+								DestroyIcon(hIcon);
+							}
+						}
+					}
+				}
+			}
+		}
+		else if (hRes) {
+			nSize = SizeofResource(hModule, hSrc);
+			if (nSize) {
+				pData = LockResource(hRes);
+				if (!pData) {
+					nSize = 0;
+				}
+			}
+		}
+	}
+
+	RING_API_RETSTRING2((const char*)pData, (int)nSize);
+
+	if (bFreeData) {
+		free(pData);
+	}
+
+	if (hModule) {
+		FreeLibrary(hModule);
+	}
+}
 /*
 =================================================================================================
 			This Function Is Needed for Registration Of This Library 
@@ -729,18 +1207,21 @@ RING_FUNC(ring_winapi_rwaenvirvarstring) {
 			Note: This function has to be at the bottom of this library				
 =================================================================================================
 */
-RING_API void ringlib_init ( RingState *pRingState ) {
-	ring_vm_funcregister("rwaisrunasadmin", ring_winapi_rwaisrunasadmin);
-	ring_vm_funcregister("rwaelevate", ring_winapi_rwaelevate);
-	ring_vm_funcregister("rwasyserrormsg", ring_winapi_rwasyserrormsg);
-	ring_vm_funcregister("rshellexecute", ring_winapi_rshellexecute);
-	ring_vm_funcregister("rwaiswow64process", ring_winapi_rwaiswow64process);
-	ring_vm_funcregister("rwausersid", ring_winapi_rwausersid);
-	ring_vm_funcregister("rwausername", ring_winapi_rwausername);
-	ring_vm_funcregister("rgetlasterror", ring_winapi_rgetlasterror);
-	ring_vm_funcregister("rwow64enablewow64fsredirection", ring_winapi_rwow64enablewow64fsredirection);
-	ring_vm_funcregister("rwadisablewow64fsredirection", ring_winapi_rwadisablewow64fsredirection);
-	ring_vm_funcregister("rwarevertwow64fsredirection", ring_winapi_rwarevertwow64fsredirection);
-	ring_vm_funcregister("rwaenvirvarstring", ring_winapi_rwaenvirvarstring);
-
+RING_LIBINIT {
+	RING_API_REGISTER("rwaisrunasadmin", ring_winapi_rwaisrunasadmin);
+	RING_API_REGISTER("rwaelevate", ring_winapi_rwaelevate);
+	RING_API_REGISTER("rwasyserrormsg", ring_winapi_rwasyserrormsg);
+	RING_API_REGISTER("rshellexecute", ring_winapi_rshellexecute);
+	RING_API_REGISTER("rwaiswow64process", ring_winapi_rwaiswow64process);
+	RING_API_REGISTER("rwausersid", ring_winapi_rwausersid);
+	RING_API_REGISTER("rwausername", ring_winapi_rwausername);
+	RING_API_REGISTER("rgetlasterror", ring_winapi_rgetlasterror);
+	RING_API_REGISTER("rwow64enablewow64fsredirection", ring_winapi_rwow64enablewow64fsredirection);
+	RING_API_REGISTER("rwadisablewow64fsredirection", ring_winapi_rwadisablewow64fsredirection);
+	RING_API_REGISTER("rwarevertwow64fsredirection", ring_winapi_rwarevertwow64fsredirection);
+	RING_API_REGISTER("rwaenvirvarstring", ring_winapi_rwaenvirvarstring);
+	RING_API_REGISTER("rgettemppath", ring_winapi_rgettemppath);
+	RING_API_REGISTER("rgettempfilename", ring_winapi_rgettempfilename);
+	RING_API_REGISTER("rwacreateuuid", ring_winapi_rwacreateuuid);
+	RING_API_REGISTER("rwareadbinaryresource", ring_winapi_rwareadbinaryresource);
 }

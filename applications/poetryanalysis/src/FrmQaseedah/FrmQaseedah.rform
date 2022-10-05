@@ -1,0 +1,111 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = -239 , : y = -79  , 
+		 :width =  901 , :height = 570 , 
+		 :title =  "الشاعر" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "Qt_Window | Qt_WindowTitleHint | Qt_WindowCloseButtonHint | Qt_CustomizeWindowHint" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "FrmQaseedah/poetry.jpg" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  1  ,
+		 :GUILibrary =  0  
+
+		]
+	],
+	[ :name = "txtQaseedah" , :id = 2 , :classname = "formdesigner_qtextedit" , :data = [
+		 :x = 445 , : y = 16  , 
+		 :width =  430 , :height = 250 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "Simplified Arabic,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setcopyAvailableEvent =  "",
+		 :setcurrentCharFormatChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :setredoAvailableEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextChangedEvent =  "",
+		 :setundoAvailableEvent =  ""
+		]
+	],
+	[ :name = "btnExecute" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 93 , : y = 69  , 
+		 :width =  253 , :height = 66 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Simplified Arabic,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "تحليل القصيدة",
+		 :BtnImage =  "",
+		 :setClickEvent =  "btnExecute_Click"
+		]
+	],
+	[ :name = "txtDetails" , :id = 4 , :classname = "formdesigner_qtextedit" , :data = [
+		 :x = 13 , : y = 288  , 
+		 :width =  422 , :height = 250 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "Simplified Arabic,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setcopyAvailableEvent =  "",
+		 :setcurrentCharFormatChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :setredoAvailableEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextChangedEvent =  "",
+		 :setundoAvailableEvent =  ""
+		]
+	],
+	[ :name = "cmbBohoor" , :id = 5 , :classname = "formdesigner_qcombobox" , :data = [
+		 :x = 16 , : y = 196  , 
+		 :width =  271 , :height = 56 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Simplified Arabic,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :cItems =  "",
+		 :cCurrentIndex =  "",
+		 :setactivatedEvent =  "",
+		 :setcurrentIndexChangedEvent =  "cmbBohoor_IndexChanged",
+		 :seteditTextChangedEvent =  "",
+		 :sethighlightedEvent =  ""
+		]
+	],
+	[ :name = "lstShataraat" , :id = 6 , :classname = "formdesigner_qlistwidget" , :data = [
+		 :x = 449 , : y = 286  , 
+		 :width =  427 , :height = 250 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "Simplified Arabic,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :cItems =  "",
+		 :cCurrentRow =  "",
+		 :setcurrentItemChangedEvent =  "LstShataraat_ItemChanged",
+		 :setcurrentRowChangedEvent =  "",
+		 :setcurrentTextChangedEvent =  "",
+		 :setitemActivatedEvent =  "",
+		 :setitemChangedEvent =  "",
+		 :setitemClickedEvent =  "",
+		 :setitemDoubleClickedEvent =  "",
+		 :setitemEnteredEvent =  "",
+		 :setitemPressedEvent =  "",
+		 :setitemSelectionChangedEvent =  ""
+		]
+	],
+	[ :name = "Label1" , :id = 7 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 299 , : y = 182  , 
+		 :width =  111 , :height = 81 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Simplified Arabic,14,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "البحور الممكنة",
+		 :textalign =  0
+		]
+	]
+]
+# End Form Designer File

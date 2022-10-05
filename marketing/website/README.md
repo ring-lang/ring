@@ -13,9 +13,8 @@ To modify the representation/style just modify the *.template files
 After modifying *.data or *.template run
 ring build.ring to generate the HTML files 
 
-==========
 Advantages
-==========
+----------
 
 * We upload static HTML files to the website (fast)
 * The HTML files are generated from templates that includes Ring Code

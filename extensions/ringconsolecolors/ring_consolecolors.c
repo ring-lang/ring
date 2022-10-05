@@ -207,41 +207,41 @@ RING_FUNC(ring_cc_print)
 	cc_print( (int ) RING_API_GETNUMBER(1),RING_API_GETSTRING(2));
 }
 
-RING_API void ringlib_init(RingState *pRingState)
+RING_LIBINIT
 {
-	ring_vm_funcregister("cc_print",ring_cc_print);
-	ring_vm_funcregister("get_cc_fg_none",ring_get_cc_fg_none);
-	ring_vm_funcregister("get_cc_fg_black",ring_get_cc_fg_black);
-	ring_vm_funcregister("get_cc_fg_dark_red",ring_get_cc_fg_dark_red);
-	ring_vm_funcregister("get_cc_fg_dark_green",ring_get_cc_fg_dark_green);
-	ring_vm_funcregister("get_cc_fg_dark_yellow",ring_get_cc_fg_dark_yellow);
-	ring_vm_funcregister("get_cc_fg_dark_blue",ring_get_cc_fg_dark_blue);
-	ring_vm_funcregister("get_cc_fg_dark_magenta",ring_get_cc_fg_dark_magenta);
-	ring_vm_funcregister("get_cc_fg_dark_cyan",ring_get_cc_fg_dark_cyan);
-	ring_vm_funcregister("get_cc_fg_gray",ring_get_cc_fg_gray);
-	ring_vm_funcregister("get_cc_fg_dark_gray",ring_get_cc_fg_dark_gray);
-	ring_vm_funcregister("get_cc_fg_red",ring_get_cc_fg_red);
-	ring_vm_funcregister("get_cc_fg_green",ring_get_cc_fg_green);
-	ring_vm_funcregister("get_cc_fg_yellow",ring_get_cc_fg_yellow);
-	ring_vm_funcregister("get_cc_fg_blue",ring_get_cc_fg_blue);
-	ring_vm_funcregister("get_cc_fg_magenta",ring_get_cc_fg_magenta);
-	ring_vm_funcregister("get_cc_fg_cyan",ring_get_cc_fg_cyan);
-	ring_vm_funcregister("get_cc_fg_white",ring_get_cc_fg_white);
-	ring_vm_funcregister("get_cc_bg_none",ring_get_cc_bg_none);
-	ring_vm_funcregister("get_cc_bg_black",ring_get_cc_bg_black);
-	ring_vm_funcregister("get_cc_bg_dark_red",ring_get_cc_bg_dark_red);
-	ring_vm_funcregister("get_cc_bg_dark_green",ring_get_cc_bg_dark_green);
-	ring_vm_funcregister("get_cc_bg_dark_yellow",ring_get_cc_bg_dark_yellow);
-	ring_vm_funcregister("get_cc_bg_dark_blue",ring_get_cc_bg_dark_blue);
-	ring_vm_funcregister("get_cc_bg_dark_magenta",ring_get_cc_bg_dark_magenta);
-	ring_vm_funcregister("get_cc_bg_dark_cyan",ring_get_cc_bg_dark_cyan);
-	ring_vm_funcregister("get_cc_bg_gray",ring_get_cc_bg_gray);
-	ring_vm_funcregister("get_cc_bg_dark_gray",ring_get_cc_bg_dark_gray);
-	ring_vm_funcregister("get_cc_bg_red",ring_get_cc_bg_red);
-	ring_vm_funcregister("get_cc_bg_green",ring_get_cc_bg_green);
-	ring_vm_funcregister("get_cc_bg_yellow",ring_get_cc_bg_yellow);
-	ring_vm_funcregister("get_cc_bg_blue",ring_get_cc_bg_blue);
-	ring_vm_funcregister("get_cc_bg_magenta",ring_get_cc_bg_magenta);
-	ring_vm_funcregister("get_cc_bg_cyan",ring_get_cc_bg_cyan);
-	ring_vm_funcregister("get_cc_bg_white",ring_get_cc_bg_white);
+	RING_API_REGISTER("cc_print",ring_cc_print);
+	RING_API_REGISTER("get_cc_fg_none",ring_get_cc_fg_none);
+	RING_API_REGISTER("get_cc_fg_black",ring_get_cc_fg_black);
+	RING_API_REGISTER("get_cc_fg_dark_red",ring_get_cc_fg_dark_red);
+	RING_API_REGISTER("get_cc_fg_dark_green",ring_get_cc_fg_dark_green);
+	RING_API_REGISTER("get_cc_fg_dark_yellow",ring_get_cc_fg_dark_yellow);
+	RING_API_REGISTER("get_cc_fg_dark_blue",ring_get_cc_fg_dark_blue);
+	RING_API_REGISTER("get_cc_fg_dark_magenta",ring_get_cc_fg_dark_magenta);
+	RING_API_REGISTER("get_cc_fg_dark_cyan",ring_get_cc_fg_dark_cyan);
+	RING_API_REGISTER("get_cc_fg_gray",ring_get_cc_fg_gray);
+	RING_API_REGISTER("get_cc_fg_dark_gray",ring_get_cc_fg_dark_gray);
+	RING_API_REGISTER("get_cc_fg_red",ring_get_cc_fg_red);
+	RING_API_REGISTER("get_cc_fg_green",ring_get_cc_fg_green);
+	RING_API_REGISTER("get_cc_fg_yellow",ring_get_cc_fg_yellow);
+	RING_API_REGISTER("get_cc_fg_blue",ring_get_cc_fg_blue);
+	RING_API_REGISTER("get_cc_fg_magenta",ring_get_cc_fg_magenta);
+	RING_API_REGISTER("get_cc_fg_cyan",ring_get_cc_fg_cyan);
+	RING_API_REGISTER("get_cc_fg_white",ring_get_cc_fg_white);
+	RING_API_REGISTER("get_cc_bg_none",ring_get_cc_bg_none);
+	RING_API_REGISTER("get_cc_bg_black",ring_get_cc_bg_black);
+	RING_API_REGISTER("get_cc_bg_dark_red",ring_get_cc_bg_dark_red);
+	RING_API_REGISTER("get_cc_bg_dark_green",ring_get_cc_bg_dark_green);
+	RING_API_REGISTER("get_cc_bg_dark_yellow",ring_get_cc_bg_dark_yellow);
+	RING_API_REGISTER("get_cc_bg_dark_blue",ring_get_cc_bg_dark_blue);
+	RING_API_REGISTER("get_cc_bg_dark_magenta",ring_get_cc_bg_dark_magenta);
+	RING_API_REGISTER("get_cc_bg_dark_cyan",ring_get_cc_bg_dark_cyan);
+	RING_API_REGISTER("get_cc_bg_gray",ring_get_cc_bg_gray);
+	RING_API_REGISTER("get_cc_bg_dark_gray",ring_get_cc_bg_dark_gray);
+	RING_API_REGISTER("get_cc_bg_red",ring_get_cc_bg_red);
+	RING_API_REGISTER("get_cc_bg_green",ring_get_cc_bg_green);
+	RING_API_REGISTER("get_cc_bg_yellow",ring_get_cc_bg_yellow);
+	RING_API_REGISTER("get_cc_bg_blue",ring_get_cc_bg_blue);
+	RING_API_REGISTER("get_cc_bg_magenta",ring_get_cc_bg_magenta);
+	RING_API_REGISTER("get_cc_bg_cyan",ring_get_cc_bg_cyan);
+	RING_API_REGISTER("get_cc_bg_white",ring_get_cc_bg_white);
 }

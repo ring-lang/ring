@@ -203,7 +203,7 @@ func generateEnemy index, type
 		setTimeBetweenShots(1)
 		scale = -1
 	}
-# Function to return ship type using the curent wave state
+# Function to return ship type using the current wave state
 func getShipType
 	if currentWave >= 15 return 4
 	elseif currentWave >= 10 return 3

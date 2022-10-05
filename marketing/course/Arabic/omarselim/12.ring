@@ -1,4 +1,4 @@
-orect=new rect{
+orect = new rect {
 p1{
 x=10
 y=20
@@ -43,11 +43,11 @@ class person3
 
 
 
-o1 = new person4{
+o1 = new person4 {
 	name ="omar" country = "egypt"
 	//? o1
 }
-o2 = new emplyee{
+o2 = new employee {
 	//name ="omar" country = "egypt" salary ="2222"
 	//? o2
 }
@@ -58,7 +58,7 @@ o2 = new emplyee{
 class person4   name country 
 
 
-class emplyee from person4	
+class employee from person4	
 	salary  job
 
 
@@ -98,10 +98,7 @@ NEW PERSON {
 
 
 class person name address phone
-	finc print
-		see "name : " +name +nl+ 
+	func print
+	see "name : " +name +nl+ 
 	"address : " +address +nl+
 	"phone :" + phone +nl
-
-
-	

@@ -170,7 +170,7 @@ extern "C" {
 #include <QQmlEngine>
 </filter>
 
-<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
+<filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "") and sysget("RINGQT_NOOPENGL") = ""
 #include "openglwidget.h"
 #include <QOpenGLFunctions>
 #include <QOpenGLContext>

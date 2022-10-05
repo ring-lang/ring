@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Control Structures - Third Style &mdash; Ring 1.16 documentation</title>
+  <title>Control Structures - Third Style &mdash; Ring 1.18 documentation</title>
   
 
   
@@ -158,6 +158,10 @@
 <li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csvlib.html">CSVLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jsonlib.html">JSONLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="httplib.html">HTTPLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenslib.html">TokensLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="socket.html">Using RingSockets</a></li>
@@ -199,6 +203,7 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew14.html">Release Notes: Version 1.14</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew15.html">Release Notes: Version 1.15</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew17.html">Release Notes: Version 1.17</a></li>
 <li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
@@ -288,9 +293,7 @@ provided by the Ring programming language.</p>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
-
-<span class="n">print</span><span class="p">(</span><span class="s">&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">print</span><span class="p">(</span><span class="s">&quot;</span>
         <span class="n">Main</span> <span class="n">Menu</span>
         <span class="o">---------</span>
         <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">Say</span> <span class="n">Hello</span>
@@ -326,9 +329,7 @@ provided by the Ring programming language.</p>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
-
-<span class="n">print</span><span class="p">(</span><span class="s">&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">print</span><span class="p">(</span><span class="s">&quot;</span>
         <span class="n">Main</span> <span class="n">Menu</span>
         <span class="o">---------</span>
         <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">Say</span> <span class="n">Hello</span>
@@ -366,9 +367,7 @@ provided by the Ring programming language.</p>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
-
-<span class="k">While</span> <span class="kp">True</span> <span class="p">{</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">While</span> <span class="kp">True</span> <span class="p">{</span>
 
         <span class="n">print</span><span class="p">(</span><span class="s">&quot;</span>
                 <span class="n">Main</span> <span class="n">Menu</span>
@@ -408,16 +407,13 @@ provided by the Ring programming language.</p>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># print numbers from 1 to 10</span>
-<span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>  <span class="p">{</span>
         <span class="n">print</span><span class="p">(</span><span class="s">&quot;#{x}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
-
-<span class="c"># Dynamic loop</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># Dynamic loop</span>
 <span class="n">print</span><span class="p">(</span><span class="s">&quot;Start : &quot;</span><span class="p">)</span> <span class="n">nStart</span> <span class="o">=</span> <span class="n">getnumber</span><span class="p">()</span>
 <span class="n">print</span><span class="p">(</span><span class="s">&quot;End   : &quot;</span><span class="p">)</span> <span class="n">nEnd</span> <span class="o">=</span> <span class="n">getnumber</span><span class="p">()</span>
 <span class="n">print</span><span class="p">(</span><span class="s">&quot;Step  : &quot;</span><span class="p">)</span> <span class="n">nStep</span> <span class="o">=</span> <span class="n">getnumber</span><span class="p">()</span>
@@ -427,18 +423,14 @@ provided by the Ring programming language.</p>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
-
-<span class="c"># print even numbers from 0 to 10</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># print even numbers from 0 to 10</span>
 <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">to</span> <span class="mi">10</span> <span class="k">step</span> <span class="mi">2</span> <span class="p">{</span>
         <span class="n">print</span><span class="p">(</span><span class="s">&quot;#{x}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
-
-<span class="c"># print even numbers from 10 to 0</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># print even numbers from 10 to 0</span>
 <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span> <span class="k">to</span> <span class="mi">0</span> <span class="k">step</span> <span class="o">-</span><span class="mi">2</span> <span class="p">{</span>
         <span class="n">print</span><span class="p">(</span><span class="s">&quot;#{x}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
 <span class="p">}</span>
@@ -454,16 +446,12 @@ provided by the Ring programming language.</p>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
-
-<span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span>    <span class="c"># create list contains numbers from 1 to 10</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span>    <span class="c"># create list contains numbers from 1 to 10</span>
 <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span> <span class="p">{</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;#{x}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span> <span class="p">}</span>  <span class="c"># print numbers from 1 to 10</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
-
-<span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span>    <span class="c"># create list contains numbers from 1 to 10</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span>    <span class="c"># create list contains numbers from 1 to 10</span>
 <span class="c"># print odd items inside the list</span>
 <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span> <span class="k">step</span> <span class="mi">2</span> <span class="p">{</span>
         <span class="n">print</span><span class="p">(</span><span class="s">&quot;#{x}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
@@ -473,9 +461,7 @@ provided by the Ring programming language.</p>
 <p>When we use (For in) we get items by reference.</p>
 <p>This means that we can read/edit items inside the loop.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
-
-<span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">5</span>     <span class="c"># create list contains numbers from 1 to 5</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">5</span>     <span class="c"># create list contains numbers from 1 to 5</span>
 <span class="c"># replace list numbers with strings</span>
 <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span> <span class="p">{</span>
         <span class="k">switch</span> <span class="n">x</span> <span class="p">{</span>
@@ -523,7 +509,7 @@ provided by the Ring programming language.</p>
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2016-2021, Ring Team
+        &copy; Copyright 2016-2022, Ring Team
 
     </p>
   </div>

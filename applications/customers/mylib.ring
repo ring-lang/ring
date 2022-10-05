@@ -4,7 +4,7 @@
 #==================================#
 
 load "mysqlitelib.ring"
-load "degitClock.ring"
+load "digital_clock.ring"
 
 nRowIndex = 0
 nNumber	  = 3
@@ -79,7 +79,7 @@ func disableBtn oButton
 	oButton{
 
 		if isEnabled()  setEnabled(0) ok
-		setStylesheet("backgound-color:#aeaeae")
+		setStylesheet("background-color:#aeaeae")
 	}
 
 # Check the current index (enabled/disabled controls)
@@ -229,7 +229,7 @@ func enable_txtedit
 	btnSearch{
 		if isEnabled()  setenabled(0) ok
 		setstylesheet(cssButton)
-		setStylesheet("backgound-color:#aeaeae")
+		setStylesheet("background-color:#aeaeae")
 		setCursor(btnCursor)}
 
 func disableFrom aBtns,aBtnsList
@@ -240,7 +240,7 @@ func disableFrom aBtns,aBtnsList
 
 			if isEnabled()  setenabled(0) ok 
 			setstylesheet(cssButton)
-			setStylesheet("backgound-color:#aeaeae")
+			setStylesheet("background-color:#aeaeae")
 			setCursor(btnCursor)
 
 			}
@@ -393,7 +393,7 @@ func newClient
 	
 	btnSearch{
 		setEnabled(0) 
-		setStylesheet("backgound-color:#aeaeae")}
+		setStylesheet("background-color:#aeaeae")}
 
 	leditNom.setfocus(1)
 	lblCount.hide()

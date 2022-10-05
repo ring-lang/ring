@@ -3,13 +3,13 @@ setlocal
 call locatevc.bat %1 %2
 
 cls
-cl %ringcflags% ring_test.c  ^
-ring_string.c ring_list.c ring_item.c ring_items.c ring_hashtable.c ring_general.c ring_state.c ring_scanner.c ring_parser.c ring_hashlib.c ring_vmgc.c ^
-ring_stmt.c ring_expr.c ring_codegen.c ring_vm.c ring_vmexpr.c ring_vmvars.c ^
-ring_vmlists.c ring_vmfuncs.c ring_api.c ring_vmoop.c ring_vmcui.c ^
-ring_vmtrycatch.c ring_vmstrindex.c ring_vmjump.c ring_vmduprange.c ^
-ring_vmperformance.c ring_vmexit.c ring_vmstackvars.c ring_vmstate.c ring_generallib_extension.c ring_math_extension.c ring_file_extension.c ring_os_extension.c ring_list_extension.c ring_refmeta_extension.c ^
-ring_ext.c ring_dll_extension.c ring_objfile.c -I"..\include" /link /SUBSYSTEM:CONSOLE,"%ringsubsystem%" /OUT:test.exe 
+cl %ringcflags% test.c  ^
+rstring.c rlist.c ritem.c ritems.c rhtable.c general.c state.c scanner.c parser.c hashlib.c vmgc.c ^
+stmt.c expr.c codegen.c vm.c vmexpr.c vmvars.c ^
+vmlists.c vmfuncs.c ringapi.c vmoop.c vmcui.c ^
+vmtry.c vmstr.c vmjump.c vmrange.c ^
+vmperf.c vmexit.c vmstack.c vmstate.c genlib_e.c math_e.c file_e.c os_e.c list_e.c meta_e.c ^
+ext.c dll_e.c objfile.c -I"..\include" /link /SUBSYSTEM:CONSOLE,"%ringsubsystem%" /OUT:test.exe 
 
 del *.obj
 

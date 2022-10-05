@@ -19,10 +19,10 @@ Func main()
     //           [ 'O', 'O', 'X' ],
     //           [ '_', '_', '_' ] ]
               
-    //------------------------------------------------        
-    //  Evaluate this Poistion. Recommend Optimal Move
+    //------------------------------------------------
+    //  Evaluate this Position. Recommend Optimal Move
 
-    Board = [ 'X','O','X','O','O','X','_','_','_' ]           
+    Board = [ 'X','O','X','O','O','X','_','_','_' ]
               
     Player   = 'X'   // Turn First
     Opponent = 'O'   // Turn Second
@@ -75,7 +75,7 @@ Func findBestMove(Board)
 return bestMove
 
 
-//================================================== ============================== 
+//=================================================================================
 // This is the MiniMax function. It considers all the possible ways the game can go
 // and returns the value of the Board 
 
@@ -171,7 +171,7 @@ return false
 
 //==================================================  
 // This is the Evaluation function 
-// Assign points to diffrent results
+// Assign points to different results
 // Check who won. Assign +- 10 points
 
 Func evaluate(b)
@@ -244,6 +244,3 @@ return
 //======================================
 ////////////////////////////////////////
 //======================================
-
-
-

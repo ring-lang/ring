@@ -1,2 +1,5 @@
-How are you?
-I'm fine, Thank you!
+Using ? substr(cStr,100)
+
+Using ? substr(cStr,-1)
+
+done

@@ -13,7 +13,7 @@ aList =  1:10
 
 aList + "Products"
 aList + "shipping"
-aList + "Adress"
+aList + "Address"
 
 ? "Products Position :" + find(aList,"Products")  # 10
 

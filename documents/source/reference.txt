@@ -21,7 +21,7 @@ In this chapter we will learn about
 Language Keywords
 =================
 
-Keywords Count : 49
+Keywords Count : 58
 
 * again
 * and
@@ -72,6 +72,15 @@ Keywords Count : 49
 * endfunc
 * endclass
 * endpackage
+* endif
+* endfor
+* endwhile
+* endswitch
+* endtry
+* function
+* endfunction
+* break
+* continue
 
 .. index:: 
 	pair: Language Specification; Language Functions
@@ -79,248 +88,271 @@ Keywords Count : 49
 Language Functions
 ==================
 
-Functions Count : 238
+Functions Count : 245
 
 .. code-block:: ring
 
-        acos()
-        add()
-        addattribute()
-        adddays()
-        addmethod()
-        addsublistsbyfastcopy()
-        addsublistsbymove()
-        ascii()
-        asin()
-        assert()
-        atan()
-        atan2()
-        attributes()
-        binarysearch()
-        bytes2double()
-        bytes2float()
-        bytes2int()
+        acos(x) ---> The principal value of the arc cosine of x, expressed in radians
+        add(List,Item)
+        addattribute(Object,cAttributeName|aAttributesList)
+        adddays(cDate,nDays) ---> Date from cDate and after nDays
+        addmethod(Object,cNewMethodName,cMethodName|AnonymousFunction)
+        addsublistsbyfastcopy(lFlag)
+        addsublistsbymove(lFlag)
+        ascii(character) ---> ASCII Code
+        asin(x) ---> The principal value of the arc sine of x, expressed in radians
+        assert(condition)
+        atan(x) ---> The principal value of the arc tangent of x, expressed in radians
+        atan2(y,x) ---> The principal arc tangent of y/x, in the interval [-pi,+pi] radians
+        attributes(object) ---> Returns a list contains the object attributes
+	binarysearch(List,ItemValue) ---> Item Index
+	binarysearch(List,ItemValue,nColumn) ---> Search in nColumn, returns the Item Index
+        bytes2double(cBytes) ---> nNumber
+        bytes2float(cBytes) ---> nNumber
+        bytes2int(cBytes) ---> nNumber
         callgarbagecollector()
         callgc()
-        ceil()
-        cfunctions()
-        char()
-        chdir()
-        checkoverflow()
-        classes()
-        classname()
-        clearerr()
-        clock()
-        clockspersecond()
-        closelib()
-        copy()
-        cos()
-        cosh()
-        currentdir()
-        date()
-        dec()
-        decimals()
-        del()
-        diffdays()
-        dir()
-        direxists()
-        double2bytes()
-        eval()
-        exefilename()
-        exefolder()
-        exp()
-        fabs()
-        fclose()
-        feof()
-        ferror()
-        fexists()
-        fflush()
-        fgetc()
-        fgetpos()
-        fgets()
-        filename()
-        find()
-        float2bytes()
-        floor()
-        fopen()
-        fputc()
-        fputs()
-        fread()
-        freopen()
-        fseek()
-        fsetpos()
-        ftell()
-        functions()
-        fwrite()
-        getarch()
-        getattribute()
-        getchar()
-        getpathtype()
-        getpointer()
-        getptr()
-        globals()
-        hex()
-        hex2str()
-        input()
-        insert()
-        int2bytes()
-        intvalue()
-        isalnum()
-        isalpha()
-        isandroid()
-        isattribute()
-        iscfunction()
-        isclass()
-        iscntrl()
-        isdigit()
-        isfreebsd()
-        isfunction()
-        isglobal()
-        isgraph()
-        islinux()
-        islist()
-        islocal()
-        islower()
-        ismacosx()
-        ismethod()
-        ismsdos()
-        isnull()
-        isnumber()
-        isobject()
-        ispackage()
-        ispackageclass()
-        ispointer()
-        isprint()
-        isprivateattribute()
-        isprivatemethod()
-        ispunct()
-        isspace()
-        isstring()
-        isunix()
-        isupper()
-        iswindows()
-        iswindows64()
-        isxdigit()
-        left()
-        len()
-        lines()
-        list()
-        list2str()
-        loadlib()
-        locals()
-        log()
-        log10()
-        lower()
-        max()
-        memcpy()
-        memorycopy()
-        mergemethods()
-        methods()
-        min()
-        murmur3hash()
-        newlist()
-        nofprocessors()
-        nullpointer()
-        nullptr()
-        number()
-        obj2ptr()
-        object2pointer()
-        objectid()
-        packageclasses()
-        packagename()
-        packages()
-        perror()
-        pointer2object()
-        pointer2string()
-        pointercompare()
-        pow()
-        prevfilename()
-        ptr2obj()
-        ptr2str()
-        ptrcmp()
-        raise()
-        random()
-        randomize()
-        read()
-        remove()
-        rename()
-        reverse()
-        rewind()
-        right()
-        ring_give()
-        ring_see()
-        ring_state_delete()
-        ring_state_filetokens()
-        ring_state_findvar()
-        ring_state_init()
-        ring_state_main()
-        ring_state_mainfile()
-        ring_state_new()
-        ring_state_newvar()
-        ring_state_runcode()
-        ring_state_runfile()
-        ring_state_runobjectfile()
-        ring_state_scannererror()
-        ring_state_setvar()
-        ring_state_stringtokens()
-        ringvm_callfunc()
-        ringvm_calllist()
-        ringvm_cfunctionslist()
-        ringvm_classeslist()
-        ringvm_evalinscope()
-        ringvm_fileslist()
-        ringvm_functionslist()
-        ringvm_genarray()
-        ringvm_give()
-        ringvm_hideerrormsg()
-        ringvm_info()
-        ringvm_memorylist()
-        ringvm_packageslist()
+        ceil(x) ---> The smallest integer value greater than or equal to x
+        cfunctions() ---> a list contains functions names
+        char(ASCII Code) ---> character
+        chdir(cNewPath)
+        checkoverflow(lFlag)
+        classes() ---> a list contains classes names
+        classname(object) ---> Returns the object class name
+        clearerr(FileHandle)
+        clock() ---> The number of clock ticks from program start
+        clockspersecond() ---> Number of clocks in one second
+        closelib(pDLL)
+	copy(string,nCount) ---> string replicated nCount times
+        cos(x) ---> The cosine of an angle of x radians
+        cosh(x) ---> The hyperbolic cosine of x radians
+        currentdir() ---> String contains the path of the current directory
+        date() ---> String represent the date "dd/mm/yyyy"
+        dec(hexadecimal) ---> decimal
+        decimals(n) ---> Determine the decimals digits after the point in float/double numbers
+        del(list,index)
+        diffdays(cDate1,cDate2) ---> number of days (Date1 - Date2)
+	dir(cFolderPath) ---> List contains files & sub folders.
+        direxists(cDirPath) ---> returns 1 if the directory exists
+        double2bytes(nNumber) ---> cBytes
+        eval(cCode)
+        exefilename() ---> String contains the Ring executable file name
+        exefolder() ---> String contains the Ring executable path
+        exp(x) ---> The value of e raised to the xth power
+        fabs(x) ---> The absolute value of x
+	fclose(FileHandle)
+        feof(FileHandle) ---> returns 1 if EOF and 0 if not
+        ferror(FileHandle) ---> returns 1 if error and 0 if not
+        fexists(cFileName) ---> returns 1 if the file exists
+        fflush(FileHandle)
+        fgetc(FileHandle) ---> returns character or EOF
+        fgetpos(FileHandle) ---> position handle
+        fgets(FileHandle,nSize) ---> string
+        filename() ---> String contains the active source file name
+	find(List,ItemValue) ---> Item Index
+	find(List,ItemValue,nColumn) ---> Search in nColumn, returns the Item Index
+	find(List,ItemValue,nColumn,cAttribute) ---> Item Index
+        float2bytes(nNumber) ---> cBytes
+        floor(x) ---> The largest integer value less than or equal to x
+	fopen(cFileName,cMode) ---> FileHandle
+        fputc(FileHandle,cChar)
+        fputs(FileHandle,cString)
+        fread(FileHandle,nSize)
+        freopen(cFileName,cMode,file handle) ---> FileHandle
+        fseek(FileHandle,nOffset,nWhence) ---> zero if successful
+        fsetpos(FileHandle,PositionHandle)
+        ftell(FileHandle) ---> file position as number
+        functions() ---> a list contains functions names
+        fwrite(FileHandle,cString)
+        getarch() ---> cString (The name of the architecture of the Ring executable)
+        getattribute(oObject,cAttributeName) ---> Attribute Value
+        getchar() ---> Character
+        getfilesize(cFilePath) ---> nSize
+	getnumber() ---> Number
+        getpathtype(cPath) ---> nStatus
+        getpointer(pointer) ---> nAddress 
+        getptr(pointer) ---> nAddress 
+	getstring() ---> String
+        globals() ---> a list contains variables names in the global scope
+        hex(decimal) ---> hexadecimal
+        hex2str(Hexadecimal string) ---> string
+        input(nCount) ---> string
+	insert(List,Index,Item)
+        int2bytes(nNumber) ---> cBytes
+        intvalue(cVariableName)
+        isalnum(value) ---> 1 if the value is digit/letter or 0 if not
+        isalpha(value) ---> 1 if the value is a letter or 0 if not
+        isandroid() ---> Returns 1 if the operating system is Android, Returns 0 if it's not
+        isattribute(object,cAttributeName) ---> Bool
+        iscfunction(cFunctionName) ---> returns 1 if the C function is defined
+        isclass(cClassName) ---> returns 1 if the Class is defined
+        iscntrl(value) ---> 1 if the value is a control character or 0 if not
+        isdigit(value) ---> 1 if the value is a digit or 0 if not
+        isfreebsd() ---> Returns 1 if the operating system is FreeBSD, Returns 0 if it's not
+        isfunction(cFunctionName) ---> returns 1 if the Ring function is defined
+        isglobal(cVariableName) ---> returns 1 if the variable is defined in the global scope
+        isgraph(value) ---> 1 if the value can be printed (Except space) or 0 if not
+        islinux() ---> Returns 1 if the operating system is Linux, Returns 0 if it's not
+        islist(value) ---> 1 if the value is a list or 0 if not
+        islocal(cVariableName) ---> returns 1 if the variable is defined in the local scope
+        islower(value) ---> 1 if the value is lowercase letter or 0 if not
+        ismacosx() ---> Returns 1 if the operating system is Mac OS X, Returns 0 if it's not
+        ismethod(object,cMethodName) ---> Returns True if the object class contains the method
+        ismsdos() ---> Returns 1 if the operating system is MS-DOS, Returns 0 if it's not
+        isnull(value) ---> 1 if the value is NULL or 0 if not
+        isnumber(value) ---> 1 if the value is a number or 0 if not
+        isobject(variable) ---> Returns True if it's an object, False if it's not
+        ispackage(cPackageName) ---> returns 1 if the Package is defined
+        ispackageclass(cPackageName,cClassName) ---> returns 1 if the Class is defined
+        ispointer(vPara) ---> True|False 
+        isprint(value) ---> 1 if the value occupies a printing position or 0 if not
+        isprivateattribute(object,cAttributeName) ---> lResult
+        isprivatemethod(object,cMethodName) ---> lResult
+        ispunct(value) ---> 1 if the value is a punctuation character or 0 if not
+        isspace(value) ---> 1 if the value is a white-space or 0 if not
+        isstring(value) ---> 1 if the value is a string or 0 if not
+        isunix() ---> Returns 1 if the operating system is Unix, Returns 0 if it's not
+        isupper(value) ---> 1 if the value is an uppercase alphabetic letter or 0 if not
+        iswindows() ---> Returns 1 if the operating system is Windows
+        iswindows64() ---> Returns 1 if the operating system is Windows64
+        isxdigit(value) ---> 1 if the value is a hexadecimal digit character or 0 if not
+	left(string,count) ---> Get characters starting from the left
+	len(string) ---> String length
+        len(List) ---> The list size
+	lines(string) ---> Number of lines inside the string
+        list(nSize) ---> aList
+        list(nRows,nCols) ---> aList
+	list2str(list) ---> string contains the list items
+        loadlib(cDLLFileName) ---> pDLL
+        locals() ---> a list contains the variables names in the current scope
+        log(x) ---> The natural logarithm of x (the base of e)
+	log(x,b) ---> The logarithm of x to the base of b
+        log10(x) ---> The common logarithm (base-10 logarithm) of x
+	lower(string) ---> convert string letters to lower c
+        max(nNumber1,nNumber) ---> Maximum number
+        max(aList) ---> Maximum number inside the list
+        memcpy(pDestinationPointer,cSourceString,nSize)
+        memorycopy(pDestinationPointer,cSourceString,nSize)
+        mergemethods(cClassNameDestination,cClassNameSource)
+        methods(object) ---> Returns a list contains the object methods
+        min(nNumber,nNumber2) ---> Minimum number
+	min(aList) ---> Minimum number inside the list
+        murmur3hash(cString,nNumber) ---> nNumber
+        newlist(nSize) ---> aList
+        newlist(nRows,nCols) ---> aList
+        nofprocessors() ---> nProcessors
+        nullpointer() ---> pPointer
+        nullptr() ---> pPointer
+        number(string) ---> Number
+        obj2ptr(List|Object) --> Low Level Object ( C Pointer )
+        object2pointer(List|Object) --> Low Level Object ( C Pointer )
+        objectid(object) ---> Returns the object id
+        packageclasses() cPackageName) ---> a list contains classes names inside the package
+        packagename() ---> Returns the package name of the latest successful import
+        packages() ---> a list contains packages names
+        perror(cErrorMessage)
+        pointer2object(Low Level Object) ---> List|Object
+        pointer2string(pointer,nStart,nCount) ---> cString   
+        pointercompare(oObject1,oObject2) ---> lResult
+        pow(x,y) ---> x raised to the power of y
+        prevfilename() ---> String contains the previous source file name.
+	print(cString)
+	print2str(cString) ---> String
+        ptr2obj(Low Level Object) ---> List|Object     
+        ptr2str(pointer,nStart,nCount) ---> cString   
+        ptrcmp(oObject1,oObject2) ---> lResult
+	puts(cString)
+        raise(cErrorMessage)
+        random(x) ---> A random number in the range [0,x]
+        randomize(nNumber) ---> nNumber
+	read(cFileName) ---> String contains the file content
+	remove(cFileName)
+	rename(cOldFileName,cNewFileName) ---> Zero for Success or -1 for Error
+	reverse(List) ---> Reversed List
+        rewind(FileHandle)
+	right(string,count) ---> get characters starting from the right
+        ring_give(cVariable)
+        ring_see(cMessage)
+        ring_state_delete(oState)
+        ring_state_filetokens(oState,cRingFileName) ---> aTokens
+        ring_state_findvar(oState,cVariableName) ---> aVariableList
+        ring_state_init() ---> oState
+        ring_state_main(cRingFileName)
+        ring_state_mainfile(oState,cRingFileName)
+        ring_state_new() ---> oState
+        ring_state_newvar(oState,cVariableName) ---> aVariableList
+        ring_state_runcode(oState,cCode)
+        ring_state_runfile(oState,cRingFileName)
+        ring_state_runobjectfile(oState,cRingObjectFileName)
+        ring_state_scannererror(oState) ---> nStatus
+        ring_state_setvar(oState,cVariableName,Value)
+        ring_state_stringtokens(oState,cRingFileName)
+        ring_state_stringtokens(oState,cRingFileName,lCaseSensitive)
+        ringvm_callfunc(cFuncName)
+        ringvm_calllist() ---> List
+        ringvm_cfunctionslist() ---> List
+        ringvm_classeslist() ---> List
+	ringvm_codelist() ---> List
+        ringvm_evalinscope(nScope,cCode)
+        ringvm_fileslist() ---> List
+        ringvm_functionslist() ---> List
+        ringvm_genarray(aList)
+        ringvm_give(cVariableName)
+        ringvm_hideerrormsg(lStatus)
+        ringvm_info() ---> List of information about the VM structure
+        ringvm_memorylist() ---> List
+        ringvm_packageslist() ---> List
         ringvm_passerror()
-        ringvm_scopescount()
-        ringvm_see()
-        ringvm_settrace()
-        ringvm_tracedata()
-        ringvm_traceevent()
-        ringvm_tracefunc()
-        setattribute()
-        setpointer()
-        setptr()
-        shutdown()
-        sin()
-        sinh()
-        sort()
-        space()
-        sqrt()
-        srandom()
-        str2hex()
-        str2hexcstyle()
-        str2list()
-        strcmp()
-        string()
-        substr()
-        swap()
-        sysget()
-        sysset()
-        system()
-        sysunset()
-        tan()
-        tanh()
-        tempfile()
-        tempname()
-        time()
-        timelist()
-        trim()
-        type()
-        ungetc()
-        unsigned()
-        upper()
-        uptime()
-        variablepointer()
-        varptr()
-        version()
-        windowsnl()
-        write()
+        ringvm_scopescount() ---> nScopes
+        ringvm_see(cMessage)
+        ringvm_settrace(cCode)
+        ringvm_tracedata() ---> aDataList
+        ringvm_traceevent() ---> nTraceEvent
+        ringvm_tracefunc() ---> cCode
+        setattribute(oObject,cAttributeName,Value)
+        setpointer(pointer,nNewAddress)  
+        setptr(pointer,nNewAddress)  
+        shutdown(nStatus)
+        sin(x) ---> The sine of an angle of x radians
+        sinh(x) ---> The hyperbolic sine of x radians
+	sort(List) ---> Sorted List
+	sort(List,nColumn) ---> Sorted List based on nColumn
+	sort(List,nColumn,cAttribute) ---> Sorted List based on Object Attribute
+        space(nBytesCount) ---> String
+        sqrt(x) ---> The square root of x
+        srandom(x) ---> Initialize random number generator
+        str2hex(string) ---> hexadecimal string
+        str2hexcstyle(string) ---> hexadecimal string
+	str2list(string) ---> list contains the string lines
+	strcmp(cString1,cString2) ---> value = 0 if cString1 = cString2
+        string(number) ---> String
+	substr(string,substring) ---> the starting position of substring in string
+	substr(string,position)  ---> Get substring starting from position to end
+	substr(string,position,count)  ---> Get characters starting from position
+	substr(string,substring,newsubstring)  ---> Transformed string (Match case)
+	substr(string,substring,newsubstring,1) ---> Transformed string (Ignore case)
+        swap(aList,nItem1,nItem2)
+        sysget(cVariable)
+        sysset(cVariable,cValue) ---> Returns 1 for success and return 0 for failure
+        system(cCommand)
+        sysunset(cVariable) ---> Returns 1 for success and return 0 for failure
+        tan(x) ---> Tangent of an angle of x radians 
+        tanh(x) ---> The hyperbolic tangent of x radians
+        tempfile() ---> FileHandle
+        tempname() ---> generated file name as string
+        time() ---> The system time as String
+        timelist() ---> List contains the time and date information.
+	trim(string) ---> Remove spaces from right and left
+        type(value) ---> The Type as String
+        ungetc(FileHandle,character)
+        unsigned(nNum1,nNum2,cOperator) ---> Perform operation using unsigned numbers
+	upper(string) ---> convert string letters to UPPER case
+        uptime() ---> nTime
+        variablepointer(cVariableName,cPointerType) ---> Low Level Object (C Pointer)
+        varptr(cVariableName,cPointerType) ---> Low Level Object (C Pointer)
+        version() ---> String contains the Ring version
+        windowsnl() ---> Returns a string contains CR+LF = CHAR(13) + CHAR(10)
+	write(cFileName,cString)
 	
 .. index:: 
 	pair: Language Specification; Compiler Errors
@@ -440,7 +472,7 @@ Statement ---> 'package' <Identifier> { '.' <Identifier> } ['{' {statement} '}']
 
 Statement ---> 'class' <Identifier> [ 'from'|':'|'<' <Identifier> ] ['{' {statement} '}']['end'|'endclass']
 
-Statement ---> 'func'|'def' <Identifier> [ParaList] ['{' {statement} '}']['end'|'endfunc']
+Statement ---> 'func'|'def'|'function' <Identifier> [ParaList] ['{' {statement} '}']['end'|'endfunc'|'endfunction']
 
 Statement ---> 'import' <Identifier> { '.' <Identifier> }
 
@@ -458,33 +490,33 @@ Statement ---> 'see'|'put' <Expr>
 
 Statement ---> 'give'|'get' <Identifier>
 
-Statement ---> 'if' <Expr> ['{'] {statement} [ {'but'|'elseif' <Expr> {Statement} } ] ['else' {Statement} ] 'ok'|'end'|'}'
+Statement ---> 'if' <Expr> ['{'] {statement} [ {'but'|'elseif' <Expr> {Statement} } ] ['else' {Statement} ] 'ok'|'end'|'}'|'endif'
 
-Statement ---> 'Switch' <Expr> ['{'] { 'on'|'case' <Expr> {statement} } ['other' {Statement} ]  'off'|'end'|'}'
+Statement ---> 'Switch' <Expr> ['{'] { 'on'|'case' <Expr> {statement} } ['other' {Statement} ]  'off'|'end'|'}'|'endswitch'
 
-Statement ---> 'for' <Identifier> '=' <Expr> 'to' <Expr> [ 'step' <Expr> ] ['{'] {Statement} 'next'|'end'|'}'
+Statement ---> 'for' <Identifier> '=' <Expr> 'to' <Expr> [ 'step' <Expr> ] ['{'] {Statement} 'next'|'end'|'}'|'endfor'
 
-Statement ---> 'for' <Identifier> 'in' <Expr>  [ 'step' <Expr> ] ['{'] {statement} 'next'|'end'|'}'
+Statement ---> 'for' <Identifier> 'in' <Expr>  [ 'step' <Expr> ] ['{'] {statement} 'next'|'end'|'}'|'endfor'
 
-Statement ---> 'while' <Expr> ['{'] {statement} 'end'|'}'
+Statement ---> 'while' <Expr> ['{'] {statement} 'end'|'}'|'endwhile'
 
 Statement ---> 'do' {statement} 'again' <Expr> 
 
-Statement ---> 'try' {statement} ['{'] 'catch' {statement} 'done'|'end'|'}'
+Statement ---> 'try' {statement} ['{'] 'catch' {statement} 'done'|'end'|'}'|'endtry'
 
 Statement ---> 'return' <Expr>
 
 Statement ---> 'bye'
 
-Statement ---> 'exit'
+Statement ---> 'exit'|'break'
 
-Statement ---> 'loop'
+Statement ---> 'loop'|'continue'
 
 Statement ---> <Expr>
 
-Statement ---> epslion
+Statement ---> epsilon
 
-ParaList ---> epslion
+ParaList ---> epsilon
 
 ParaList ---> ['('] <Identifier> [{ ',' <Identifier> }] [')']
 
@@ -538,7 +570,7 @@ Mixer ---> '(' [ <Expr> [ { ',' <Expr> }] ]  ')'
 
 Mixer ---> '{' {Statement} '}'
 
-AnonymousFunction ---> 'func'|'def'| [<ParaList>] '{' {Statement} '}'
+AnonymousFunction ---> 'func'|'def'|'function' [<ParaList>] '{' {Statement} '}'
 
 .. index:: 
 	pair: Language Specification; Virtual Machine Instructions
@@ -560,17 +592,17 @@ Definitions :-
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_PUSHC 		Add string from the IR to the stack
-* ICO_PUSHN 		Add number from the IR to the stack
-* ICO_PUSHV 		Replace VP in the stack[nSize] with the variable value 
-* ICO_LOADADDRESS 	Read variable name from the IR, push VP to the stack
-* ICO_ASSIGNMENT 	Stack[nSize-1] VV = Stack[nSize] VV , POP Stack[nSize]
-* ICO_INC 		Increment Number in Stack[nSize] by 1
-* ICO_LOADAPUSHV	The same as ICO_LOADADDRESS then ICO_PUSHV
-* ICO_NEWLINE		Store new line number (debug info)
-* ICO_FREESTACK		Remove all items from the stack , nSize = 0
-* ICO_FILENAME		Store the source code file name (debug info)
-* ICO_FREELOADASCOPE	Free the Scope List of the current Expression
+ICO_PUSHC 		Add string from the IR to the stack
+ICO_PUSHN 		Add number from the IR to the stack
+ICO_PUSHV 		Replace VP in the stack[nSize] with the variable value 
+ICO_LOADADDRESS 	Read variable name from the IR, push VP to the stack
+ICO_ASSIGNMENT		Stack[nSize-1] VV = Stack[nSize] VV , POP Stack[nSize]
+ICO_INC 		Increment Number in Stack[nSize] by 1
+ICO_LOADAPUSHV		The same as ICO_LOADADDRESS then ICO_PUSHV
+ICO_NEWLINE		Store new line number (debug info)
+ICO_FREESTACK		Remove all items from the stack , nSize = 0
+ICO_FILENAME		Store the source code file name (debug info)
+ICO_FREELOADASCOPE	Free the Scope List of the current Expression
 =======================	============================================================================
 
 (Jump)
@@ -578,12 +610,12 @@ Operation			Description
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_JUMP		Set PC to new value from the IR 
-* ICO_JUMPZERO		If Stack[nSize] is a number = 0 then Set PC to new value from the IR 
-* ICO_JUMPFOR		End of for loop
-* ICO_JUMPONE		If Stack[nSize] is a number = 1 then Set PC to new value from the IR 
-* ICO_JUMPZERO2		As ICO_JUMPZERO but add 1 to the stack (required for many 'AND' conditions)
-* ICO_JUMPONE2		As ICO_JUMPONE but add 1 to the stack (required for many 'OR' conditions)
+ICO_JUMP		Set PC to new value from the IR 
+ICO_JUMPZERO		If Stack[nSize] is a number = 0 then Set PC to new value from the IR 
+ICO_JUMPFOR		End of for loop
+ICO_JUMPONE		If Stack[nSize] is a number = 1 then Set PC to new value from the IR 
+ICO_JUMPZERO2		As ICO_JUMPZERO but add 1 to the stack (required for many 'AND' conditions)
+ICO_JUMPONE2		As ICO_JUMPONE but add 1 to the stack (required for many 'OR' conditions)
 =======================	============================================================================
 
 (Compare)
@@ -591,12 +623,12 @@ Operation			Description
 =======================	==========================================================================================================
 Operation			Description
 =======================	==========================================================================================================
-* ICO_LESSEQUAL		If stack[nSize-1] <= stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
-* ICO_EQUAL		If stack[nSize-1] = stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
-* ICO_LESS		If stack[nSize-1] < stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
-* ICO_GREATER		If stack[nSize-1] > stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
-* ICO_GREATEREQUAL	If stack[nSize-1] >= stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
-* ICO_NOTEQUAL		If stack[nSize-1] != stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
+ICO_LESSEQUAL		If stack[nSize-1] <= stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
+ICO_EQUAL		If stack[nSize-1] = stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
+ICO_LESS		If stack[nSize-1] < stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
+ICO_GREATER		If stack[nSize-1] > stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
+ICO_GREATEREQUAL	If stack[nSize-1] >= stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
+ICO_NOTEQUAL		If stack[nSize-1] != stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
 =======================	==========================================================================================================
 
 (Math)
@@ -604,14 +636,14 @@ Operation			Description
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_SUM		Stack[nSize-1] = Stack[nSize-1] + Stack[nSize] , POP stack[nSize]
-* ICO_SUB		Stack[nSize-1] = Stack[nSize-1] - Stack[nSize] , POP stack[nSize]
-* ICO_MUL		Stack[nSize-1] = Stack[nSize-1] * Stack[nSize] , POP stack[nSize]
-* ICO_DIV		Stack[nSize-1] = Stack[nSize-1] / Stack[nSize] , POP stack[nSize]
-* ICO_MOD		Stack[nSize-1] = Stack[nSize-1] % Stack[nSize] , POP stack[nSize]
-* ICO_NEG		Stack[nSize] = - Stack[nSize-1]
-* ICO_PLUSPLUS		Stack[nSize] = Stack[nSize] + 1
-* ICO_MINUSMINUS	Stack[nSize] = Stack[nSize] - 1
+ICO_SUM			Stack[nSize-1] = Stack[nSize-1] + Stack[nSize] , POP stack[nSize]
+ICO_SUB			Stack[nSize-1] = Stack[nSize-1] - Stack[nSize] , POP stack[nSize]
+ICO_MUL			Stack[nSize-1] = Stack[nSize-1] * Stack[nSize] , POP stack[nSize]
+ICO_DIV			Stack[nSize-1] = Stack[nSize-1] / Stack[nSize] , POP stack[nSize]
+ICO_MOD			Stack[nSize-1] = Stack[nSize-1] % Stack[nSize] , POP stack[nSize]
+ICO_NEG			Stack[nSize] = - Stack[nSize-1]
+ICO_PLUSPLUS		Stack[nSize] = Stack[nSize] + 1
+ICO_MINUSMINUS		Stack[nSize] = Stack[nSize] - 1
 =======================	============================================================================
 
 (Logic)
@@ -619,9 +651,9 @@ Operation			Description
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_AND		Stack[nSize-1] = Stack[nSize-1] && Stack[nSize] , POP stack[nSize]
-* ICO_OR		Stack[nSize-1] = Stack[nSize-1] || Stack[nSize] , POP stack[nSize]
-* ICO_NOT		Stack[nSize]   = ! Stack[nSize]  
+ICO_AND			Stack[nSize-1] = Stack[nSize-1] && Stack[nSize] , POP stack[nSize]
+ICO_OR			Stack[nSize-1] = Stack[nSize-1] || Stack[nSize] , POP stack[nSize]
+ICO_NOT			Stack[nSize]   = ! Stack[nSize]  
 =======================	============================================================================
 
 (Lists)
@@ -629,10 +661,10 @@ Operation			Description
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_LISTSTART		Start New List in Temp. Memory
-* ICO_LISTITEM		Add List Item
-* ICO_LISTEND		End List
-* ICO_LOADINDEXADDRESS	Stack[nSize-1] = Stack[nSize-1] VV [ Stack[nSize] ] , POP stack[nSize]
+ICO_LISTSTART		Start New List in Temp. Memory
+ICO_LISTITEM		Add List Item
+ICO_LISTEND		End List
+ICO_LOADINDEXADDRESS	Stack[nSize-1] = Stack[nSize-1] VV [ Stack[nSize] ] , POP stack[nSize]
 =======================	============================================================================
 
 (Functions)
@@ -640,18 +672,18 @@ Operation			Description
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_LOADFUNC		Find function
-* ICO_CALL		Call function
-* ICO_RETURN		Return from function
-* ICO_RETNULL		Return NULL from function
-* ICO_RETFROMEVAL	Return after eval() 
-* ICO_RETITEMREF	Return the list item reference - not the value
-* ICO_NEWFUNC		Start new function
-* ICO_BLOCKFLAG		Flag to determine where to jump later (after ICO_RETURN)
-* ICO_FUNCEXE		Start executing function
-* ICO_ENDFUNCEXE	End function execution
-* ICO_ANONYMOUS		Anonymous function
-* ICO_FREETEMPLISTS	Delete temp. lists
+ICO_LOADFUNC		Find function
+ICO_CALL		Call function
+ICO_RETURN		Return from function
+ICO_RETNULL		Return NULL from function
+ICO_RETFROMEVAL		Return after eval() 
+ICO_RETITEMREF		Return the list item reference - not the value
+ICO_NEWFUNC		Start new function
+ICO_BLOCKFLAG		Flag to determine where to jump later (after ICO_RETURN)
+ICO_FUNCEXE		Start executing function
+ICO_ENDFUNCEXE		End function execution
+ICO_ANONYMOUS		Anonymous function
+ICO_FREETEMPLISTS	Delete temp. lists
 =======================	============================================================================
 
 (User Interface)
@@ -659,8 +691,8 @@ Operation			Description
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_PRINT		Print value to the standard output
-* ICO_GIVE		Get input from the keyboard
+ICO_PRINT		Print value to the standard output
+ICO_GIVE		Get input from the keyboard
 =======================	============================================================================
 
 (End Program/Loop)
@@ -668,11 +700,11 @@ Operation			Description
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_BYE		End execution of VM
-* ICO_EXITMARK		Place to exit to from a loop	
-* ICO_POPEXITMARK	Remove exit mark
-* ICO_EXIT		Break from one loop or more 
-* ICO_LOOP		Continue to next loop 
+ICO_BYE			End execution of VM
+ICO_EXITMARK		Place to exit to from a loop	
+ICO_POPEXITMARK		Remove exit mark
+ICO_EXIT		Break from one loop or more 
+ICO_LOOP		Continue to next loop 
 =======================	============================================================================
 
 (For Better Performance)
@@ -680,19 +712,19 @@ Operation			Description
 ========================	============================================================================
 Operation			Description
 ========================	============================================================================
-* ICO_PUSHP			Push pointer to the stack
-* ICO_INCP			Increment variable value using pointer
-* ICO_PUSHPV			Push value of variable using variable pointer
-* ICO_INCJUMP			Increment then jump
-* ICO_INCPJUMP			Increment using pointer then jump
-* ICO_JUMPVARLENUM		Jump if variable value is <= numeric value
-* ICO_JUMPVARPLENUM		Jump if variable value (using pointer) <= numeric value 
-* ICO_LOADFUNCP			Push function pointer
-* ICO_PUSHPLOCAL		Push pointer to local variable
-* ICO_INCLPJUMP			Increment value using pointer to local variable then jump
-* ICO_JUMPVARLPLENUM		Jump if the variable value (using pointer) <= numeric value
-* ICO_INCPJUMPSTEP1	 	Increment value using variable pointer then jump (for loop step = 1)
-* ICO_JUMPVARPLENUMSTEP1	Increment value using variable pointer then jump (for loop step = 1)
+ICO_PUSHP			Push pointer to the stack
+ICO_INCP			Increment variable value using pointer
+ICO_PUSHPV			Push value of variable using variable pointer
+ICO_INCJUMP			Increment then jump
+ICO_INCPJUMP			Increment using pointer then jump
+ICO_JUMPVARLENUM		Jump if variable value is <= numeric value
+ICO_JUMPVARPLENUM		Jump if variable value (using pointer) <= numeric value 
+ICO_LOADFUNCP			Push function pointer
+ICO_PUSHPLOCAL			Push pointer to local variable
+ICO_INCLPJUMP			Increment value using pointer to local variable then jump
+ICO_JUMPVARLPLENUM		Jump if the variable value (using pointer) <= numeric value
+ICO_INCPJUMPSTEP1	 	Increment value using variable pointer then jump (for loop step = 1)
+ICO_JUMPVARPLENUMSTEP1		Increment value using variable pointer then jump (for loop step = 1)
 ========================	============================================================================
 
 (Try-Catch-Done)
@@ -700,8 +732,8 @@ Operation			Description
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_TRY		Start try region
-* ICO_DONE		End try region
+ICO_TRY			Start try region
+ICO_DONE		End try region
 =======================	============================================================================
 
 (Duplicate and Range)
@@ -709,8 +741,8 @@ Operation			Description
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_DUPLICATE		Duplicate stack value
-* ICO_RANGE		Create list from value to value
+ICO_DUPLICATE		Duplicate stack value
+ICO_RANGE		Create list from value to value
 =======================	============================================================================
 
 (OOP)
@@ -718,19 +750,19 @@ Operation			Description
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_NEWOBJ		Create new object, get class name from the IR, push object pointer to the stack.
-* ICO_SETSCOPE		Called after creating new object, set the active scope to be the object scope.
-* ICO_LOADSUBADDRESS	Get object attribute, push the pointer to the stack.
-* ICO_LOADMETHOD	Find object method 
-* ICO_AFTERCALLMETHOD	Used after calling a method - normal case
-* ICO_AFTERCALLMETHOD2  Used after calling a method - second case
-* ICO_NEWCLASS		Start new class region
-* ICO_BRACESTART	Open brace
-* ICO_BRACEEND		End brace
-* ICO_IMPORT		Import package
-* ICO_PRIVATE		start private attributes region
-* ICO_SETPROPERTY	set attribute value - check for setter.	
-* ICO_CALLCLASSINIT	call class init() method.
+ICO_NEWOBJ		Create new object, get class name from the IR, push object pointer to the stack.
+ICO_SETSCOPE		Called after creating new object, set the active scope to be the object scope.
+ICO_LOADSUBADDRESS	Get object attribute, push the pointer to the stack.
+ICO_LOADMETHOD		Find object method 
+ICO_AFTERCALLMETHOD	Used after calling a method - normal case
+ICO_AFTERCALLMETHOD2	Used after calling a method - second case
+ICO_NEWCLASS		Start new class region
+ICO_BRACESTART		Open brace
+ICO_BRACEEND		End brace
+ICO_IMPORT		Import package
+ICO_PRIVATE		start private attributes region
+ICO_SETPROPERTY		set attribute value - check for setter.	
+ICO_CALLCLASSINIT	call class init() method.
 =======================	============================================================================
 
 (Other)
@@ -738,10 +770,10 @@ Operation			Description
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_SETREFERENCE	Copy by reference
-* ICO_KILLREFERENCE	Remove reference
-* ICO_ASSIGNMENTPOINTER Determine the left side variable
-* ICO_BEFOREEQUAL	Determine operators like += , -= , ... etc
+ICO_SETREFERENCE	Copy by reference
+ICO_KILLREFERENCE	Remove reference
+ICO_ASSIGNMENTPOINTER 	Determine the left side variable
+ICO_BEFOREEQUAL		Determine operators like += , -= , ... etc
 =======================	============================================================================
 
 (Bitwise Operators)
@@ -749,12 +781,12 @@ Operation			Description
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_BITAND		Stack[nSize-1] = Stack[nSize-1] & Stack[nSize] , POP stack[nSize]
-* ICO_BITOR		Stack[nSize-1] = Stack[nSize-1] | Stack[nSize] , POP stack[nSize]
-* ICO_BITXOR		Stack[nSize-1] = Stack[nSize-1] ^ Stack[nSize] , POP stack[nSize]
-* ICO_BITNOT		Stack[nSize] = ! Stack[nSize] 
-* ICO_BITSHL		Stack[nSize-1] = Stack[nSize-1] << Stack[nSize] , POP stack[nSize]
-* ICO_BITSHR		Stack[nSize-1] = Stack[nSize-1] >> Stack[nSize] , POP stack[nSize]
+ICO_BITAND		Stack[nSize-1] = Stack[nSize-1] & Stack[nSize] , POP stack[nSize]
+ICO_BITOR		Stack[nSize-1] = Stack[nSize-1] | Stack[nSize] , POP stack[nSize]
+ICO_BITXOR		Stack[nSize-1] = Stack[nSize-1] ^ Stack[nSize] , POP stack[nSize]
+ICO_BITNOT		Stack[nSize] = ! Stack[nSize] 
+ICO_BITSHL		Stack[nSize-1] = Stack[nSize-1] << Stack[nSize] , POP stack[nSize]
+ICO_BITSHR		Stack[nSize-1] = Stack[nSize-1] >> Stack[nSize] , POP stack[nSize]
 =======================	============================================================================
 
 (For Step)
@@ -762,9 +794,9 @@ Operation			Description
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_STEPNUMBER	Determine step number in for loop
-* ICO_POPSTEP		POP step number from steps stack
-* ICO_LOADAFIRST	Load the first address of variable name 
+ICO_STEPNUMBER		Determine step number in for loop
+ICO_POPSTEP		POP step number from steps stack
+ICO_LOADAFIRST		Load the first address of variable name 
 =======================	============================================================================
 
 (Custom Global Scope)
@@ -772,8 +804,8 @@ Operation			Description
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_NEWGLOBALSCOPE	Start new custom global scope - used by 'load package' command
-* ICO_ENDGLOBALSCOPE	End of custom global scope - used by 'load package' command
-* ICO_SETGLOBALSCOPE	Set the current global scope 
+ICO_NEWGLOBALSCOPE	Start new custom global scope - used by 'load package' command
+ICO_ENDGLOBALSCOPE	End of custom global scope - used by 'load package' command
+ICO_SETGLOBALSCOPE	Set the current global scope 
 =======================	============================================================================
 

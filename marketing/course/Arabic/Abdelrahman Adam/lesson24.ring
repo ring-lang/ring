@@ -1,18 +1,18 @@
 /*  
- **      Application : Strings Funcation
- **      name        : Abdelrahman Adam
- **      Date        : 20\12\2017 
+ **      Application : Strings Function
+ **      Author      : Abdelrahman Adam
+ **      Date        : 20/12/2017 
 */ 
 #======================================================
 
-# variables type ( string , number , list , object , cobject )
+# variables type ( string , number , list , object , c object )
 
-#test24
+# test24
 
 mystring = "hello"
-?mystring
-?Upper(mystring)			#capital
-?Lower(mystring)			#small
-?left(mystring,2)
-?right(mystring,2)
-?substr(mystring,3,3)			#Begin and count
+? mystring
+? Upper(mystring)			# Capital
+? Lower(mystring)			# Small
+? left(mystring, 2)
+? right(mystring, 2)
+? substr(mystring, 3, 3)			# Begin and count

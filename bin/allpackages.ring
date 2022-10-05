@@ -15,11 +15,13 @@ aAllPackagesInfo = [
 		"ringopengl21",
 		"ringopengl32",
 		"ringqt",
-		"ringlibsdl"
+		"ringlibsdl",
+		"guilib"
 	],
 	:ringcurl = 	[
 		"internetlib",
-		"stdlib"
+		"stdlib",
+		"CitationsPrediction"
 	],
 	:ringzip = 	[
 		"ringqt",
@@ -28,7 +30,6 @@ aAllPackagesInfo = [
 		"androidringqt",
 		"visualstudioeditorextension",
 		"ringsamples",
-		"libdepwin_allegro524",
 		"libdepwin_glew",
 		"libdepwin_libsdl",
 		"libdepwin_mysql",
@@ -36,13 +37,16 @@ aAllPackagesInfo = [
 		"libdepwin_pgsql",
 		"qt515runtime",
 		"qt515qmlruntime",
-		"webassemblyringqt"
+		"webassemblyringqt",
+		"libdepwin_allegro5271",
+		"RandomUser"
 	],
 	:ringopenssl = 	[
 		"stdlib"
 	],
 	:internetlib = 	[
-		"stdlib"
+		"stdlib",
+		"RandomUser"
 	],
 	:ringodbc = 	[
 		"stdlib"
@@ -121,7 +125,12 @@ aAllPackagesInfo = [
 		"webassemblyringqt",
 		"erlangbformula",
 		"Chess3d-Qt3D",
-		"chessendgame"
+		"chessendgame",
+		"jsonlib",
+		"CitationsPrediction",
+		"mergetwofiles",
+		"poetryanalysis",
+		"RandomUser"
 	],
 	:ringallegro = 	[
 		"gameengine",
@@ -203,7 +212,11 @@ aAllPackagesInfo = [
 		"ringrepl",
 		"erlangbformula",
 		"Chess3d-Qt3D",
-		"chessendgame"
+		"chessendgame",
+		"CitationsPrediction",
+		"mergetwofiles",
+		"poetryanalysis",
+		"RandomUser"
 	],
 	:findinfiles = 	[
 		"ringnotepad"
@@ -235,7 +248,8 @@ aAllPackagesInfo = [
 		"androidringlibsdl",
 		"tetris",
 		"escape",
-		"towersofhanoi"
+		"towersofhanoi",
+		"RandomUser"
 	],
 	:ringallegro = 	[
 		"squarespuzzle"
@@ -243,7 +257,8 @@ aAllPackagesInfo = [
 	:ringraylib = 	[
 		"typingquiz",
 		"pong2game",
-		"spaceshootergame"
+		"spaceshootergame",
+		"RandomUser"
 	],
 	:zerolib = 	[
 
@@ -293,5 +308,25 @@ aAllPackagesInfo = [
 	] ],
 	:chessendgame = 	[
 
+	],
+	:tokenslib = 	[
+		"jsonlib"
+	],
+	:libdepwin_allegro524 = 	[
+
+	],
+	:csvlib = 	[
+		"CitationsPrediction"
+	],
+	:jsonlib = 	[
+		"CitationsPrediction",
+		"RandomUser"
+	],
+	:weblib = 	[
+		"httplib",
+		"RandomUser"
+	],
+	:httplib = 	[
+		"RandomUser"
 	]
 ]

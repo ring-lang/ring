@@ -645,7 +645,7 @@ RING_FUNC(ring_get_uitablevaluetypecolor)
 RING_FUNC(ring_new_uiinitoptions)
 {
 	uiInitOptions *pMyPointer ;
-	pMyPointer = (uiInitOptions *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiInitOptions)) ;
+	pMyPointer = (uiInitOptions *) RING_API_MALLOC(sizeof(uiInitOptions)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -657,13 +657,13 @@ RING_FUNC(ring_new_uiinitoptions)
 RING_FUNC(ring_new_managed_uiinitoptions)
 {
 	uiInitOptions *pMyPointer ;
-	pMyPointer = (uiInitOptions *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiInitOptions)) ;
+	pMyPointer = (uiInitOptions *) RING_API_MALLOC(sizeof(uiInitOptions)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiInitOptions",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiInitOptions",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_uiinitoptions)
@@ -677,9 +677,9 @@ RING_FUNC(ring_destroy_uiinitoptions)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"uiInitOptions");
+	pMyPointer = (uiInitOptions*) RING_API_GETCPOINTER(1,"uiInitOptions");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -687,7 +687,7 @@ RING_FUNC(ring_destroy_uiinitoptions)
 RING_FUNC(ring_new_uicontrol)
 {
 	uiControl *pMyPointer ;
-	pMyPointer = (uiControl *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiControl)) ;
+	pMyPointer = (uiControl *) RING_API_MALLOC(sizeof(uiControl)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -699,13 +699,13 @@ RING_FUNC(ring_new_uicontrol)
 RING_FUNC(ring_new_managed_uicontrol)
 {
 	uiControl *pMyPointer ;
-	pMyPointer = (uiControl *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiControl)) ;
+	pMyPointer = (uiControl *) RING_API_MALLOC(sizeof(uiControl)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiControl",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiControl",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_uicontrol)
@@ -719,9 +719,9 @@ RING_FUNC(ring_destroy_uicontrol)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"uiControl");
+	pMyPointer = (uiControl*) RING_API_GETCPOINTER(1,"uiControl");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -831,7 +831,7 @@ RING_FUNC(ring_set_uicontrol_TypeSignature)
 RING_FUNC(ring_new_uiareadrawparams)
 {
 	uiAreaDrawParams *pMyPointer ;
-	pMyPointer = (uiAreaDrawParams *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiAreaDrawParams)) ;
+	pMyPointer = (uiAreaDrawParams *) RING_API_MALLOC(sizeof(uiAreaDrawParams)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -843,13 +843,13 @@ RING_FUNC(ring_new_uiareadrawparams)
 RING_FUNC(ring_new_managed_uiareadrawparams)
 {
 	uiAreaDrawParams *pMyPointer ;
-	pMyPointer = (uiAreaDrawParams *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiAreaDrawParams)) ;
+	pMyPointer = (uiAreaDrawParams *) RING_API_MALLOC(sizeof(uiAreaDrawParams)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiAreaDrawParams",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiAreaDrawParams",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_uiareadrawparams)
@@ -863,9 +863,9 @@ RING_FUNC(ring_destroy_uiareadrawparams)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaDrawParams");
+	pMyPointer = (uiAreaDrawParams*) RING_API_GETCPOINTER(1,"uiAreaDrawParams");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -1111,7 +1111,7 @@ RING_FUNC(ring_set_uiareadrawparams_ClipHeight)
 RING_FUNC(ring_new_uidrawmatrix)
 {
 	uiDrawMatrix *pMyPointer ;
-	pMyPointer = (uiDrawMatrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiDrawMatrix)) ;
+	pMyPointer = (uiDrawMatrix *) RING_API_MALLOC(sizeof(uiDrawMatrix)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -1123,13 +1123,13 @@ RING_FUNC(ring_new_uidrawmatrix)
 RING_FUNC(ring_new_managed_uidrawmatrix)
 {
 	uiDrawMatrix *pMyPointer ;
-	pMyPointer = (uiDrawMatrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiDrawMatrix)) ;
+	pMyPointer = (uiDrawMatrix *) RING_API_MALLOC(sizeof(uiDrawMatrix)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiDrawMatrix",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiDrawMatrix",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_uidrawmatrix)
@@ -1143,9 +1143,9 @@ RING_FUNC(ring_destroy_uidrawmatrix)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawMatrix");
+	pMyPointer = (uiDrawMatrix*) RING_API_GETCPOINTER(1,"uiDrawMatrix");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -1357,7 +1357,7 @@ RING_FUNC(ring_set_uidrawmatrix_M32)
 RING_FUNC(ring_new_uitabletextcolumnoptionalparams)
 {
 	uiTableTextColumnOptionalParams *pMyPointer ;
-	pMyPointer = (uiTableTextColumnOptionalParams *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiTableTextColumnOptionalParams)) ;
+	pMyPointer = (uiTableTextColumnOptionalParams *) RING_API_MALLOC(sizeof(uiTableTextColumnOptionalParams)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -1369,13 +1369,13 @@ RING_FUNC(ring_new_uitabletextcolumnoptionalparams)
 RING_FUNC(ring_new_managed_uitabletextcolumnoptionalparams)
 {
 	uiTableTextColumnOptionalParams *pMyPointer ;
-	pMyPointer = (uiTableTextColumnOptionalParams *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiTableTextColumnOptionalParams)) ;
+	pMyPointer = (uiTableTextColumnOptionalParams *) RING_API_MALLOC(sizeof(uiTableTextColumnOptionalParams)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiTableTextColumnOptionalParams",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiTableTextColumnOptionalParams",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_uitabletextcolumnoptionalparams)
@@ -1389,9 +1389,9 @@ RING_FUNC(ring_destroy_uitabletextcolumnoptionalparams)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"uiTableTextColumnOptionalParams");
+	pMyPointer = (uiTableTextColumnOptionalParams*) RING_API_GETCPOINTER(1,"uiTableTextColumnOptionalParams");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -1433,7 +1433,7 @@ RING_FUNC(ring_set_uitabletextcolumnoptionalparams_ColorModelColumn)
 RING_FUNC(ring_new_uidrawbrush)
 {
 	uiDrawBrush *pMyPointer ;
-	pMyPointer = (uiDrawBrush *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiDrawBrush)) ;
+	pMyPointer = (uiDrawBrush *) RING_API_MALLOC(sizeof(uiDrawBrush)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -1445,13 +1445,13 @@ RING_FUNC(ring_new_uidrawbrush)
 RING_FUNC(ring_new_managed_uidrawbrush)
 {
 	uiDrawBrush *pMyPointer ;
-	pMyPointer = (uiDrawBrush *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiDrawBrush)) ;
+	pMyPointer = (uiDrawBrush *) RING_API_MALLOC(sizeof(uiDrawBrush)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiDrawBrush",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiDrawBrush",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_uidrawbrush)
@@ -1465,9 +1465,9 @@ RING_FUNC(ring_destroy_uidrawbrush)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawBrush");
+	pMyPointer = (uiDrawBrush*) RING_API_GETCPOINTER(1,"uiDrawBrush");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -1849,7 +1849,7 @@ RING_FUNC(ring_set_uidrawbrush_NumStops)
 RING_FUNC(ring_new_uidrawbrushgradientstop)
 {
 	uiDrawBrushGradientStop *pMyPointer ;
-	pMyPointer = (uiDrawBrushGradientStop *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiDrawBrushGradientStop)) ;
+	pMyPointer = (uiDrawBrushGradientStop *) RING_API_MALLOC(sizeof(uiDrawBrushGradientStop)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -1861,13 +1861,13 @@ RING_FUNC(ring_new_uidrawbrushgradientstop)
 RING_FUNC(ring_new_managed_uidrawbrushgradientstop)
 {
 	uiDrawBrushGradientStop *pMyPointer ;
-	pMyPointer = (uiDrawBrushGradientStop *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiDrawBrushGradientStop)) ;
+	pMyPointer = (uiDrawBrushGradientStop *) RING_API_MALLOC(sizeof(uiDrawBrushGradientStop)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiDrawBrushGradientStop",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiDrawBrushGradientStop",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_uidrawbrushgradientstop)
@@ -1881,9 +1881,9 @@ RING_FUNC(ring_destroy_uidrawbrushgradientstop)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawBrushGradientStop");
+	pMyPointer = (uiDrawBrushGradientStop*) RING_API_GETCPOINTER(1,"uiDrawBrushGradientStop");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -2061,7 +2061,7 @@ RING_FUNC(ring_set_uidrawbrushgradientstop_A)
 RING_FUNC(ring_new_uidrawstrokeparams)
 {
 	uiDrawStrokeParams *pMyPointer ;
-	pMyPointer = (uiDrawStrokeParams *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiDrawStrokeParams)) ;
+	pMyPointer = (uiDrawStrokeParams *) RING_API_MALLOC(sizeof(uiDrawStrokeParams)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -2073,13 +2073,13 @@ RING_FUNC(ring_new_uidrawstrokeparams)
 RING_FUNC(ring_new_managed_uidrawstrokeparams)
 {
 	uiDrawStrokeParams *pMyPointer ;
-	pMyPointer = (uiDrawStrokeParams *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiDrawStrokeParams)) ;
+	pMyPointer = (uiDrawStrokeParams *) RING_API_MALLOC(sizeof(uiDrawStrokeParams)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiDrawStrokeParams",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiDrawStrokeParams",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_uidrawstrokeparams)
@@ -2093,9 +2093,9 @@ RING_FUNC(ring_destroy_uidrawstrokeparams)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawStrokeParams");
+	pMyPointer = (uiDrawStrokeParams*) RING_API_GETCPOINTER(1,"uiDrawStrokeParams");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -2307,7 +2307,7 @@ RING_FUNC(ring_set_uidrawstrokeparams_DashPhase)
 RING_FUNC(ring_new_uitablemodelhandler)
 {
 	uiTableModelHandler *pMyPointer ;
-	pMyPointer = (uiTableModelHandler *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiTableModelHandler)) ;
+	pMyPointer = (uiTableModelHandler *) RING_API_MALLOC(sizeof(uiTableModelHandler)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -2319,13 +2319,13 @@ RING_FUNC(ring_new_uitablemodelhandler)
 RING_FUNC(ring_new_managed_uitablemodelhandler)
 {
 	uiTableModelHandler *pMyPointer ;
-	pMyPointer = (uiTableModelHandler *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiTableModelHandler)) ;
+	pMyPointer = (uiTableModelHandler *) RING_API_MALLOC(sizeof(uiTableModelHandler)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiTableModelHandler",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiTableModelHandler",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_uitablemodelhandler)
@@ -2339,9 +2339,9 @@ RING_FUNC(ring_destroy_uitablemodelhandler)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"uiTableModelHandler");
+	pMyPointer = (uiTableModelHandler*) RING_API_GETCPOINTER(1,"uiTableModelHandler");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -2349,7 +2349,7 @@ RING_FUNC(ring_destroy_uitablemodelhandler)
 RING_FUNC(ring_new_uiareakeyevent)
 {
 	uiAreaKeyEvent *pMyPointer ;
-	pMyPointer = (uiAreaKeyEvent *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiAreaKeyEvent)) ;
+	pMyPointer = (uiAreaKeyEvent *) RING_API_MALLOC(sizeof(uiAreaKeyEvent)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -2361,13 +2361,13 @@ RING_FUNC(ring_new_uiareakeyevent)
 RING_FUNC(ring_new_managed_uiareakeyevent)
 {
 	uiAreaKeyEvent *pMyPointer ;
-	pMyPointer = (uiAreaKeyEvent *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiAreaKeyEvent)) ;
+	pMyPointer = (uiAreaKeyEvent *) RING_API_MALLOC(sizeof(uiAreaKeyEvent)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiAreaKeyEvent",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiAreaKeyEvent",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_uiareakeyevent)
@@ -2381,9 +2381,9 @@ RING_FUNC(ring_destroy_uiareakeyevent)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaKeyEvent");
+	pMyPointer = (uiAreaKeyEvent*) RING_API_GETCPOINTER(1,"uiAreaKeyEvent");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -2561,7 +2561,7 @@ RING_FUNC(ring_set_uiareakeyevent_Up)
 RING_FUNC(ring_new_uitableparams)
 {
 	uiTableParams *pMyPointer ;
-	pMyPointer = (uiTableParams *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiTableParams)) ;
+	pMyPointer = (uiTableParams *) RING_API_MALLOC(sizeof(uiTableParams)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -2573,13 +2573,13 @@ RING_FUNC(ring_new_uitableparams)
 RING_FUNC(ring_new_managed_uitableparams)
 {
 	uiTableParams *pMyPointer ;
-	pMyPointer = (uiTableParams *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiTableParams)) ;
+	pMyPointer = (uiTableParams *) RING_API_MALLOC(sizeof(uiTableParams)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiTableParams",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiTableParams",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_uitableparams)
@@ -2593,9 +2593,9 @@ RING_FUNC(ring_destroy_uitableparams)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"uiTableParams");
+	pMyPointer = (uiTableParams*) RING_API_GETCPOINTER(1,"uiTableParams");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -2671,7 +2671,7 @@ RING_FUNC(ring_set_uitableparams_RowBackgroundColorModelColumn)
 RING_FUNC(ring_new_uiareamouseevent)
 {
 	uiAreaMouseEvent *pMyPointer ;
-	pMyPointer = (uiAreaMouseEvent *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiAreaMouseEvent)) ;
+	pMyPointer = (uiAreaMouseEvent *) RING_API_MALLOC(sizeof(uiAreaMouseEvent)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -2683,13 +2683,13 @@ RING_FUNC(ring_new_uiareamouseevent)
 RING_FUNC(ring_new_managed_uiareamouseevent)
 {
 	uiAreaMouseEvent *pMyPointer ;
-	pMyPointer = (uiAreaMouseEvent *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiAreaMouseEvent)) ;
+	pMyPointer = (uiAreaMouseEvent *) RING_API_MALLOC(sizeof(uiAreaMouseEvent)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiAreaMouseEvent",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiAreaMouseEvent",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_uiareamouseevent)
@@ -2703,9 +2703,9 @@ RING_FUNC(ring_destroy_uiareamouseevent)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaMouseEvent");
+	pMyPointer = (uiAreaMouseEvent*) RING_API_GETCPOINTER(1,"uiAreaMouseEvent");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -3019,7 +3019,7 @@ RING_FUNC(ring_set_uiareamouseevent_Held1To64)
 RING_FUNC(ring_new_uidrawtextlayoutparams)
 {
 	uiDrawTextLayoutParams *pMyPointer ;
-	pMyPointer = (uiDrawTextLayoutParams *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiDrawTextLayoutParams)) ;
+	pMyPointer = (uiDrawTextLayoutParams *) RING_API_MALLOC(sizeof(uiDrawTextLayoutParams)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -3031,13 +3031,13 @@ RING_FUNC(ring_new_uidrawtextlayoutparams)
 RING_FUNC(ring_new_managed_uidrawtextlayoutparams)
 {
 	uiDrawTextLayoutParams *pMyPointer ;
-	pMyPointer = (uiDrawTextLayoutParams *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiDrawTextLayoutParams)) ;
+	pMyPointer = (uiDrawTextLayoutParams *) RING_API_MALLOC(sizeof(uiDrawTextLayoutParams)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiDrawTextLayoutParams",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiDrawTextLayoutParams",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_uidrawtextlayoutparams)
@@ -3051,9 +3051,9 @@ RING_FUNC(ring_destroy_uidrawtextlayoutparams)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawTextLayoutParams");
+	pMyPointer = (uiDrawTextLayoutParams*) RING_API_GETCPOINTER(1,"uiDrawTextLayoutParams");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -3197,7 +3197,7 @@ RING_FUNC(ring_set_uidrawtextlayoutparams_Align)
 RING_FUNC(ring_new_uifontdescriptor)
 {
 	uiFontDescriptor *pMyPointer ;
-	pMyPointer = (uiFontDescriptor *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiFontDescriptor)) ;
+	pMyPointer = (uiFontDescriptor *) RING_API_MALLOC(sizeof(uiFontDescriptor)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -3209,13 +3209,13 @@ RING_FUNC(ring_new_uifontdescriptor)
 RING_FUNC(ring_new_managed_uifontdescriptor)
 {
 	uiFontDescriptor *pMyPointer ;
-	pMyPointer = (uiFontDescriptor *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiFontDescriptor)) ;
+	pMyPointer = (uiFontDescriptor *) RING_API_MALLOC(sizeof(uiFontDescriptor)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiFontDescriptor",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiFontDescriptor",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_uifontdescriptor)
@@ -3229,9 +3229,9 @@ RING_FUNC(ring_destroy_uifontdescriptor)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"uiFontDescriptor");
+	pMyPointer = (uiFontDescriptor*) RING_API_GETCPOINTER(1,"uiFontDescriptor");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -3607,7 +3607,7 @@ RING_FUNC(ring_uiUninit)
 {
 	aLibUIEvents = ring_list_delete(aLibUIEvents);
 	// Calling uiUninit() lead to CRASH (A bug in libui itself)
-	// Also it's not necessary to call it before closing the applicaiton
+	// Also it's not necessary to call it before closing the application
 	// uiUninit();
 }
 
@@ -4481,21 +4481,6 @@ RING_FUNC(ring_uiUserBugCannotSetParentOnToplevel)
 }
 
 
-RING_FUNC(ring_uiWindowTitle)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETSTRING(uiWindowTitle((uiWindow *) RING_API_GETCPOINTER(1,"uiWindow")));
-}
-
-
 RING_FUNC(ring_uiWindowSetTitle)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -4711,21 +4696,6 @@ RING_FUNC(ring_uiNewWindow)
 }
 
 
-RING_FUNC(ring_uiButtonText)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETSTRING(uiButtonText((uiButton *) RING_API_GETCPOINTER(1,"uiButton")));
-}
-
-
 RING_FUNC(ring_uiButtonSetText)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -4858,21 +4828,6 @@ RING_FUNC(ring_uiNewVerticalBox)
 }
 
 
-RING_FUNC(ring_uiCheckboxText)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETSTRING(uiCheckboxText((uiCheckbox *) RING_API_GETCPOINTER(1,"uiCheckbox")));
-}
-
-
 RING_FUNC(ring_uiCheckboxSetText)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -4938,21 +4893,6 @@ RING_FUNC(ring_uiNewCheckbox)
 		return ;
 	}
 	RING_API_RETCPOINTER(uiNewCheckbox(RING_API_GETSTRING(1)),"uiCheckbox");
-}
-
-
-RING_FUNC(ring_uiEntryText)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETSTRING(uiEntryText((uiEntry *) RING_API_GETCPOINTER(1,"uiEntry")));
 }
 
 
@@ -5039,21 +4979,6 @@ RING_FUNC(ring_uiNewSearchEntry)
 	}
 	RING_API_IGNORECPOINTERTYPE ;
 	RING_API_RETCPOINTER(uiNewSearchEntry(),"uiEntry");
-}
-
-
-RING_FUNC(ring_uiLabelText)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETSTRING(uiLabelText((uiLabel *) RING_API_GETCPOINTER(1,"uiLabel")));
 }
 
 
@@ -5225,21 +5150,6 @@ RING_FUNC(ring_uiNewTab)
 	}
 	RING_API_IGNORECPOINTERTYPE ;
 	RING_API_RETCPOINTER(uiNewTab(),"uiTab");
-}
-
-
-RING_FUNC(ring_uiGroupTitle)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETSTRING(uiGroupTitle((uiGroup *) RING_API_GETCPOINTER(1,"uiGroup")));
 }
 
 
@@ -5586,21 +5496,6 @@ RING_FUNC(ring_uiEditableComboboxAppend)
 }
 
 
-RING_FUNC(ring_uiEditableComboboxText)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETSTRING(uiEditableComboboxText((uiEditableCombobox *) RING_API_GETCPOINTER(1,"uiEditableCombobox")));
-}
-
-
 RING_FUNC(ring_uiEditableComboboxSetText)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -5763,21 +5658,6 @@ RING_FUNC(ring_uiNewTimePicker)
 	}
 	RING_API_IGNORECPOINTERTYPE ;
 	RING_API_RETCPOINTER(uiNewTimePicker(),"uiDateTimePicker");
-}
-
-
-RING_FUNC(ring_uiMultilineEntryText)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETSTRING(uiMultilineEntryText((uiMultilineEntry *) RING_API_GETCPOINTER(1,"uiMultilineEntry")));
 }
 
 
@@ -7255,7 +7135,7 @@ RING_FUNC(ring_uiOpenTypeFeaturesForEach)
 	}
 	uiOpenTypeFeaturesForEach((uiOpenTypeFeatures *) RING_API_GETCPOINTER(1,"uiOpenTypeFeatures"),* (uiOpenTypeFeaturesForEachFunc  *) RING_API_GETCPOINTER(2,"uiOpenTypeFeaturesForEachFunc"),(void *) RING_API_GETCPOINTER(3,"void"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"uiOpenTypeFeaturesForEachFunc"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uiOpenTypeFeaturesForEachFunc"));
 }
 
 
@@ -7458,7 +7338,7 @@ RING_FUNC(ring_uiAttributedStringForEachAttribute)
 	}
 	uiAttributedStringForEachAttribute((uiAttributedString *) RING_API_GETCPOINTER(1,"uiAttributedString"),* (uiAttributedStringForEachAttributeFunc  *) RING_API_GETCPOINTER(2,"uiAttributedStringForEachAttributeFunc"),(void *) RING_API_GETCPOINTER(3,"void"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"uiAttributedStringForEachAttributeFunc"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uiAttributedStringForEachAttributeFunc"));
 }
 
 
@@ -8612,25 +8492,178 @@ RING_FUNC(ring_uiControlHandle)
 	}
 	{
 		uintptr_t *pValue ; 
-		pValue = (uintptr_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uintptr_t)) ;
+		pValue = (uintptr_t *) RING_API_MALLOC(sizeof(uintptr_t)) ;
 		*pValue = uiControlHandle((uiControl *) RING_API_GETCPOINTER(1,"uiControl"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"uintptr_t",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"uintptr_t",RING_API_FREEFUNC);
 	}
 }
 
-
-RING_FUNC(ring_uiFreeText)
+RING_FUNC(ring_uiWindowTitle)
 {
+	char *cOut;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISSTRING(1) ) {
+	if ( ! RING_API_ISCPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	uiFreeText(RING_API_GETSTRING(1));
+	cOut = uiWindowTitle((uiWindow *) RING_API_GETCPOINTER(1,"uiWindow"));
+	if (cOut == NULL) {
+		RING_API_RETSTRING("");
+	} else {
+		RING_API_RETSTRING(cOut);
+		uiFreeText(cOut);
+	}
+}
+
+RING_FUNC(ring_uiButtonText)
+{
+	char *cOut;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOut = uiButtonText((uiButton *) RING_API_GETCPOINTER(1,"uiButton"));
+	if (cOut == NULL) {
+		RING_API_RETSTRING("");
+	} else {
+		RING_API_RETSTRING(cOut);
+		uiFreeText(cOut);
+	}
+}
+
+RING_FUNC(ring_uiCheckboxText)
+{
+	char *cOut;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOut = uiCheckboxText((uiCheckbox *) RING_API_GETCPOINTER(1,"uiCheckbox"));
+	if (cOut == NULL) {
+		RING_API_RETSTRING("");
+	} else {
+		RING_API_RETSTRING(cOut);
+		uiFreeText(cOut);
+	}
+}
+
+RING_FUNC(ring_uiEntryText)
+{
+	char *cOut;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOut = uiEntryText((uiEntry *) RING_API_GETCPOINTER(1,"uiEntry"));
+	if (cOut == NULL) {
+		RING_API_RETSTRING("");
+	} else {
+		RING_API_RETSTRING(cOut);
+		uiFreeText(cOut);
+	}
+}
+
+RING_FUNC(ring_uiMultilineEntryText)
+{
+	char *cOut;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOut = uiMultilineEntryText((uiMultilineEntry *) RING_API_GETCPOINTER(1,"uiMultilineEntry"));
+	if (cOut == NULL) {
+		RING_API_RETSTRING("");
+	} else {
+		RING_API_RETSTRING(cOut);
+		uiFreeText(cOut);
+	}
+}
+
+RING_FUNC(ring_uiLabelText)
+{
+	char *cOut;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOut = uiLabelText((uiLabel *) RING_API_GETCPOINTER(1,"uiLabel"));
+	if (cOut == NULL) {
+		RING_API_RETSTRING("");
+	} else {
+		RING_API_RETSTRING(cOut);
+		uiFreeText(cOut);
+	}
+}
+
+RING_FUNC(ring_uiGroupTitle)
+{
+	char *cOut;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOut = uiGroupTitle((uiGroup *) RING_API_GETCPOINTER(1,"uiGroup"));
+	if (cOut == NULL) {
+		RING_API_RETSTRING("");
+	} else {
+		RING_API_RETSTRING(cOut);
+		uiFreeText(cOut);
+	}
+}
+
+RING_FUNC(ring_uiEditableComboboxText)
+{
+	char *cOut;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOut = uiEditableComboboxText((uiEditableCombobox *) RING_API_GETCPOINTER(1,"uiEditableCombobox"));
+	if (cOut == NULL) {
+		RING_API_RETSTRING("");
+	} else {
+		RING_API_RETSTRING(cOut);
+		uiFreeText(cOut);
+	}
 }
 
 RING_FUNC(ring_uiOpenFile)
@@ -8650,6 +8683,7 @@ RING_FUNC(ring_uiOpenFile)
 		RING_API_RETSTRING("");
 	} else {
 		RING_API_RETSTRING(cOut);
+		uiFreeText(cOut);
 	}
 }
 
@@ -8670,589 +8704,589 @@ RING_FUNC(ring_uiSaveFile)
 		RING_API_RETSTRING("");
 	} else {
 		RING_API_RETSTRING(cOut);
+		uiFreeText(cOut);
 	}
 }
-RING_API void ringlib_init(RingState *pRingState)
+RING_LIBINIT
 {
-	ring_vm_funcregister("uiinit_2",ring_uiInit_2);
-	ring_vm_funcregister("uiinit",ring_uiInit);
-	ring_vm_funcregister("uiuninit",ring_uiUninit);
-	ring_vm_funcregister("uionshouldquit",ring_uiOnShouldQuit);
-	ring_vm_funcregister("uiwindowonclosing",ring_uiWindowOnClosing);
-	ring_vm_funcregister("uibuttononclicked",ring_uiButtonOnClicked);
-	ring_vm_funcregister("uiqueuemain",ring_uiQueueMain);
-	ring_vm_funcregister("uitimer",ring_uiTimer);
-	ring_vm_funcregister("uiwindowoncontentsizechanged",ring_uiWindowOnContentSizeChanged);
-	ring_vm_funcregister("uicheckboxontoggled",ring_uiCheckboxOnToggled);
-	ring_vm_funcregister("uientryonchanged",ring_uiEntryOnChanged);
-	ring_vm_funcregister("uispinboxonchanged",ring_uiSpinboxOnChanged);
-	ring_vm_funcregister("uislideronchanged",ring_uiSliderOnChanged);
-	ring_vm_funcregister("uicomboboxonselected",ring_uiComboboxOnSelected);
-	ring_vm_funcregister("uieditablecomboboxonchanged",ring_uiEditableComboboxOnChanged);
-	ring_vm_funcregister("uiradiobuttonsonselected",ring_uiRadioButtonsOnSelected);
-	ring_vm_funcregister("uidatetimepickeronchanged",ring_uiDateTimePickerOnChanged);
-	ring_vm_funcregister("uimultilineentryonchanged",ring_uiMultilineEntryOnChanged);
-	ring_vm_funcregister("uimenuitemonclicked",ring_uiMenuItemOnClicked);
-	ring_vm_funcregister("uifontbuttononchanged",ring_uiFontButtonOnChanged);
-	ring_vm_funcregister("uicolorbuttononchanged",ring_uiColorButtonOnChanged);
-	ring_vm_funcregister("uieventwindow",ring_uiEventWindow);
-	ring_vm_funcregister("uieventbutton",ring_uiEventButton);
-	ring_vm_funcregister("uieventcheckbox",ring_uiEventCheckbox);
-	ring_vm_funcregister("uievententry",ring_uiEventEntry);
-	ring_vm_funcregister("uieventspinbox",ring_uiEventSpinbox);
-	ring_vm_funcregister("uieventslider",ring_uiEventSlider);
-	ring_vm_funcregister("uieventcombobox",ring_uiEventCombobox);
-	ring_vm_funcregister("uieventeditablecombobox",ring_uiEventEditableCombobox);
-	ring_vm_funcregister("uieventradiobuttons",ring_uiEventRadioButtons);
-	ring_vm_funcregister("uieventdatetimepicker",ring_uiEventDateTimePicker);
-	ring_vm_funcregister("uieventmultilineentry",ring_uiEventMultilineEntry);
-	ring_vm_funcregister("uieventmenuitem",ring_uiEventMenuItem);
-	ring_vm_funcregister("uieventmenuitemwindow",ring_uiEventMenuItemWindow);
-	ring_vm_funcregister("uieventfontbutton",ring_uiEventFontButton);
-	ring_vm_funcregister("uieventcolorbutton",ring_uiEventColorButton);
-	ring_vm_funcregister("uinewareahandler",ring_uiNewAreaHandler);
-	ring_vm_funcregister("uieventareahandler",ring_uiEventAreaHandler);
-	ring_vm_funcregister("uieventarea",ring_uiEventArea);
-	ring_vm_funcregister("uieventareadrawparams",ring_uiEventAreaDrawParams);
-	ring_vm_funcregister("uieventareakeyevent",ring_uiEventAreaKeyEvent);
-	ring_vm_funcregister("uieventareamouseevent",ring_uiEventAreaMouseEvent);
-	ring_vm_funcregister("uieventleft",ring_uiEventLeft);
-	ring_vm_funcregister("setsolidbrush",ring_setSolidBrush);
-	ring_vm_funcregister("uifreeiniterror",ring_uiFreeInitError);
-	ring_vm_funcregister("uimain",ring_uiMain);
-	ring_vm_funcregister("uimainsteps",ring_uiMainSteps);
-	ring_vm_funcregister("uimainstep",ring_uiMainStep);
-	ring_vm_funcregister("uiquit",ring_uiQuit);
-	ring_vm_funcregister("uicontroldestroy",ring_uiControlDestroy);
-	ring_vm_funcregister("uicontrolparent",ring_uiControlParent);
-	ring_vm_funcregister("uicontrolsetparent",ring_uiControlSetParent);
-	ring_vm_funcregister("uicontroltoplevel",ring_uiControlToplevel);
-	ring_vm_funcregister("uicontrolvisible",ring_uiControlVisible);
-	ring_vm_funcregister("uicontrolshow",ring_uiControlShow);
-	ring_vm_funcregister("uicontrolhide",ring_uiControlHide);
-	ring_vm_funcregister("uicontrolenabled",ring_uiControlEnabled);
-	ring_vm_funcregister("uicontrolenable",ring_uiControlEnable);
-	ring_vm_funcregister("uicontroldisable",ring_uiControlDisable);
-	ring_vm_funcregister("uialloccontrol",ring_uiAllocControl);
-	ring_vm_funcregister("uifreecontrol",ring_uiFreeControl);
-	ring_vm_funcregister("uicontrolverifysetparent",ring_uiControlVerifySetParent);
-	ring_vm_funcregister("uicontrolenabledtouser",ring_uiControlEnabledToUser);
-	ring_vm_funcregister("uiuserbugcannotsetparentontoplevel",ring_uiUserBugCannotSetParentOnToplevel);
-	ring_vm_funcregister("uiwindowtitle",ring_uiWindowTitle);
-	ring_vm_funcregister("uiwindowsettitle",ring_uiWindowSetTitle);
-	ring_vm_funcregister("uiwindowcontentsize",ring_uiWindowContentSize);
-	ring_vm_funcregister("uiwindowsetcontentsize",ring_uiWindowSetContentSize);
-	ring_vm_funcregister("uiwindowfullscreen",ring_uiWindowFullscreen);
-	ring_vm_funcregister("uiwindowsetfullscreen",ring_uiWindowSetFullscreen);
-	ring_vm_funcregister("uiwindowborderless",ring_uiWindowBorderless);
-	ring_vm_funcregister("uiwindowsetborderless",ring_uiWindowSetBorderless);
-	ring_vm_funcregister("uiwindowsetchild",ring_uiWindowSetChild);
-	ring_vm_funcregister("uiwindowmargined",ring_uiWindowMargined);
-	ring_vm_funcregister("uiwindowsetmargined",ring_uiWindowSetMargined);
-	ring_vm_funcregister("uinewwindow",ring_uiNewWindow);
-	ring_vm_funcregister("uibuttontext",ring_uiButtonText);
-	ring_vm_funcregister("uibuttonsettext",ring_uiButtonSetText);
-	ring_vm_funcregister("uinewbutton",ring_uiNewButton);
-	ring_vm_funcregister("uiboxappend",ring_uiBoxAppend);
-	ring_vm_funcregister("uiboxdelete",ring_uiBoxDelete);
-	ring_vm_funcregister("uiboxpadded",ring_uiBoxPadded);
-	ring_vm_funcregister("uiboxsetpadded",ring_uiBoxSetPadded);
-	ring_vm_funcregister("uinewhorizontalbox",ring_uiNewHorizontalBox);
-	ring_vm_funcregister("uinewverticalbox",ring_uiNewVerticalBox);
-	ring_vm_funcregister("uicheckboxtext",ring_uiCheckboxText);
-	ring_vm_funcregister("uicheckboxsettext",ring_uiCheckboxSetText);
-	ring_vm_funcregister("uicheckboxchecked",ring_uiCheckboxChecked);
-	ring_vm_funcregister("uicheckboxsetchecked",ring_uiCheckboxSetChecked);
-	ring_vm_funcregister("uinewcheckbox",ring_uiNewCheckbox);
-	ring_vm_funcregister("uientrytext",ring_uiEntryText);
-	ring_vm_funcregister("uientrysettext",ring_uiEntrySetText);
-	ring_vm_funcregister("uientryreadonly",ring_uiEntryReadOnly);
-	ring_vm_funcregister("uientrysetreadonly",ring_uiEntrySetReadOnly);
-	ring_vm_funcregister("uinewentry",ring_uiNewEntry);
-	ring_vm_funcregister("uinewpasswordentry",ring_uiNewPasswordEntry);
-	ring_vm_funcregister("uinewsearchentry",ring_uiNewSearchEntry);
-	ring_vm_funcregister("uilabeltext",ring_uiLabelText);
-	ring_vm_funcregister("uilabelsettext",ring_uiLabelSetText);
-	ring_vm_funcregister("uinewlabel",ring_uiNewLabel);
-	ring_vm_funcregister("uitabappend",ring_uiTabAppend);
-	ring_vm_funcregister("uitabinsertat",ring_uiTabInsertAt);
-	ring_vm_funcregister("uitabdelete",ring_uiTabDelete);
-	ring_vm_funcregister("uitabnumpages",ring_uiTabNumPages);
-	ring_vm_funcregister("uitabmargined",ring_uiTabMargined);
-	ring_vm_funcregister("uitabsetmargined",ring_uiTabSetMargined);
-	ring_vm_funcregister("uinewtab",ring_uiNewTab);
-	ring_vm_funcregister("uigrouptitle",ring_uiGroupTitle);
-	ring_vm_funcregister("uigroupsettitle",ring_uiGroupSetTitle);
-	ring_vm_funcregister("uigroupsetchild",ring_uiGroupSetChild);
-	ring_vm_funcregister("uigroupmargined",ring_uiGroupMargined);
-	ring_vm_funcregister("uigroupsetmargined",ring_uiGroupSetMargined);
-	ring_vm_funcregister("uinewgroup",ring_uiNewGroup);
-	ring_vm_funcregister("uispinboxvalue",ring_uiSpinboxValue);
-	ring_vm_funcregister("uispinboxsetvalue",ring_uiSpinboxSetValue);
-	ring_vm_funcregister("uinewspinbox",ring_uiNewSpinbox);
-	ring_vm_funcregister("uislidervalue",ring_uiSliderValue);
-	ring_vm_funcregister("uislidersetvalue",ring_uiSliderSetValue);
-	ring_vm_funcregister("uinewslider",ring_uiNewSlider);
-	ring_vm_funcregister("uiprogressbarvalue",ring_uiProgressBarValue);
-	ring_vm_funcregister("uiprogressbarsetvalue",ring_uiProgressBarSetValue);
-	ring_vm_funcregister("uinewprogressbar",ring_uiNewProgressBar);
-	ring_vm_funcregister("uinewhorizontalseparator",ring_uiNewHorizontalSeparator);
-	ring_vm_funcregister("uinewverticalseparator",ring_uiNewVerticalSeparator);
-	ring_vm_funcregister("uicomboboxappend",ring_uiComboboxAppend);
-	ring_vm_funcregister("uicomboboxselected",ring_uiComboboxSelected);
-	ring_vm_funcregister("uicomboboxsetselected",ring_uiComboboxSetSelected);
-	ring_vm_funcregister("uinewcombobox",ring_uiNewCombobox);
-	ring_vm_funcregister("uieditablecomboboxappend",ring_uiEditableComboboxAppend);
-	ring_vm_funcregister("uieditablecomboboxtext",ring_uiEditableComboboxText);
-	ring_vm_funcregister("uieditablecomboboxsettext",ring_uiEditableComboboxSetText);
-	ring_vm_funcregister("uineweditablecombobox",ring_uiNewEditableCombobox);
-	ring_vm_funcregister("uiradiobuttonsappend",ring_uiRadioButtonsAppend);
-	ring_vm_funcregister("uiradiobuttonsselected",ring_uiRadioButtonsSelected);
-	ring_vm_funcregister("uiradiobuttonssetselected",ring_uiRadioButtonsSetSelected);
-	ring_vm_funcregister("uinewradiobuttons",ring_uiNewRadioButtons);
-	ring_vm_funcregister("uidatetimepickertime",ring_uiDateTimePickerTime);
-	ring_vm_funcregister("uidatetimepickersettime",ring_uiDateTimePickerSetTime);
-	ring_vm_funcregister("uinewdatetimepicker",ring_uiNewDateTimePicker);
-	ring_vm_funcregister("uinewdatepicker",ring_uiNewDatePicker);
-	ring_vm_funcregister("uinewtimepicker",ring_uiNewTimePicker);
-	ring_vm_funcregister("uimultilineentrytext",ring_uiMultilineEntryText);
-	ring_vm_funcregister("uimultilineentrysettext",ring_uiMultilineEntrySetText);
-	ring_vm_funcregister("uimultilineentryappend",ring_uiMultilineEntryAppend);
-	ring_vm_funcregister("uimultilineentryreadonly",ring_uiMultilineEntryReadOnly);
-	ring_vm_funcregister("uimultilineentrysetreadonly",ring_uiMultilineEntrySetReadOnly);
-	ring_vm_funcregister("uinewmultilineentry",ring_uiNewMultilineEntry);
-	ring_vm_funcregister("uinewnonwrappingmultilineentry",ring_uiNewNonWrappingMultilineEntry);
-	ring_vm_funcregister("uimenuitemenable",ring_uiMenuItemEnable);
-	ring_vm_funcregister("uimenuitemdisable",ring_uiMenuItemDisable);
-	ring_vm_funcregister("uimenuitemchecked",ring_uiMenuItemChecked);
-	ring_vm_funcregister("uimenuitemsetchecked",ring_uiMenuItemSetChecked);
-	ring_vm_funcregister("uimenuappenditem",ring_uiMenuAppendItem);
-	ring_vm_funcregister("uimenuappendcheckitem",ring_uiMenuAppendCheckItem);
-	ring_vm_funcregister("uimenuappendquititem",ring_uiMenuAppendQuitItem);
-	ring_vm_funcregister("uimenuappendpreferencesitem",ring_uiMenuAppendPreferencesItem);
-	ring_vm_funcregister("uimenuappendaboutitem",ring_uiMenuAppendAboutItem);
-	ring_vm_funcregister("uimenuappendseparator",ring_uiMenuAppendSeparator);
-	ring_vm_funcregister("uinewmenu",ring_uiNewMenu);
-	ring_vm_funcregister("uimsgbox",ring_uiMsgBox);
-	ring_vm_funcregister("uimsgboxerror",ring_uiMsgBoxError);
-	ring_vm_funcregister("uiareaqueueredrawall",ring_uiAreaQueueRedrawAll);
-	ring_vm_funcregister("uiareascrollto",ring_uiAreaScrollTo);
-	ring_vm_funcregister("uiareabeginuserwindowmove",ring_uiAreaBeginUserWindowMove);
-	ring_vm_funcregister("uiareabeginuserwindowresize",ring_uiAreaBeginUserWindowResize);
-	ring_vm_funcregister("uinewarea",ring_uiNewArea);
-	ring_vm_funcregister("uinewscrollingarea",ring_uiNewScrollingArea);
-	ring_vm_funcregister("uidrawnewpath",ring_uiDrawNewPath);
-	ring_vm_funcregister("uidrawfreepath",ring_uiDrawFreePath);
-	ring_vm_funcregister("uidrawpathnewfigure",ring_uiDrawPathNewFigure);
-	ring_vm_funcregister("uidrawpathnewfigurewitharc",ring_uiDrawPathNewFigureWithArc);
-	ring_vm_funcregister("uidrawpathlineto",ring_uiDrawPathLineTo);
-	ring_vm_funcregister("uidrawpatharcto",ring_uiDrawPathArcTo);
-	ring_vm_funcregister("uidrawpathbezierto",ring_uiDrawPathBezierTo);
-	ring_vm_funcregister("uidrawpathclosefigure",ring_uiDrawPathCloseFigure);
-	ring_vm_funcregister("uidrawpathaddrectangle",ring_uiDrawPathAddRectangle);
-	ring_vm_funcregister("uidrawpathend",ring_uiDrawPathEnd);
-	ring_vm_funcregister("uidrawstroke",ring_uiDrawStroke);
-	ring_vm_funcregister("uidrawfill",ring_uiDrawFill);
-	ring_vm_funcregister("uidrawmatrixsetidentity",ring_uiDrawMatrixSetIdentity);
-	ring_vm_funcregister("uidrawmatrixtranslate",ring_uiDrawMatrixTranslate);
-	ring_vm_funcregister("uidrawmatrixscale",ring_uiDrawMatrixScale);
-	ring_vm_funcregister("uidrawmatrixrotate",ring_uiDrawMatrixRotate);
-	ring_vm_funcregister("uidrawmatrixskew",ring_uiDrawMatrixSkew);
-	ring_vm_funcregister("uidrawmatrixmultiply",ring_uiDrawMatrixMultiply);
-	ring_vm_funcregister("uidrawmatrixinvertible",ring_uiDrawMatrixInvertible);
-	ring_vm_funcregister("uidrawmatrixinvert",ring_uiDrawMatrixInvert);
-	ring_vm_funcregister("uidrawmatrixtransformpoint",ring_uiDrawMatrixTransformPoint);
-	ring_vm_funcregister("uidrawmatrixtransformsize",ring_uiDrawMatrixTransformSize);
-	ring_vm_funcregister("uidrawtransform",ring_uiDrawTransform);
-	ring_vm_funcregister("uidrawclip",ring_uiDrawClip);
-	ring_vm_funcregister("uidrawsave",ring_uiDrawSave);
-	ring_vm_funcregister("uidrawrestore",ring_uiDrawRestore);
-	ring_vm_funcregister("uiattributegettype",ring_uiAttributeGetType);
-	ring_vm_funcregister("uinewfamilyattribute",ring_uiNewFamilyAttribute);
-	ring_vm_funcregister("uiattributefamily",ring_uiAttributeFamily);
-	ring_vm_funcregister("uinewsizeattribute",ring_uiNewSizeAttribute);
-	ring_vm_funcregister("uiattributesize",ring_uiAttributeSize);
-	ring_vm_funcregister("uinewstretchattribute",ring_uiNewStretchAttribute);
-	ring_vm_funcregister("uiattributestretch",ring_uiAttributeStretch);
-	ring_vm_funcregister("uinewcolorattribute",ring_uiNewColorAttribute);
-	ring_vm_funcregister("uiattributecolor",ring_uiAttributeColor);
-	ring_vm_funcregister("uinewbackgroundattribute",ring_uiNewBackgroundAttribute);
-	ring_vm_funcregister("uinewunderlineattribute",ring_uiNewUnderlineAttribute);
-	ring_vm_funcregister("uiattributeunderline",ring_uiAttributeUnderline);
-	ring_vm_funcregister("uinewunderlinecolorattribute",ring_uiNewUnderlineColorAttribute);
-	ring_vm_funcregister("uiattributeunderlinecolor",ring_uiAttributeUnderlineColor);
-	ring_vm_funcregister("uinewopentypefeatures",ring_uiNewOpenTypeFeatures);
-	ring_vm_funcregister("uifreeopentypefeatures",ring_uiFreeOpenTypeFeatures);
-	ring_vm_funcregister("uiopentypefeaturesclone",ring_uiOpenTypeFeaturesClone);
-	ring_vm_funcregister("uiopentypefeaturesadd",ring_uiOpenTypeFeaturesAdd);
-	ring_vm_funcregister("uiopentypefeaturesremove",ring_uiOpenTypeFeaturesRemove);
-	ring_vm_funcregister("uiopentypefeaturesget",ring_uiOpenTypeFeaturesGet);
-	ring_vm_funcregister("uiopentypefeaturesforeach",ring_uiOpenTypeFeaturesForEach);
-	ring_vm_funcregister("uinewfeaturesattribute",ring_uiNewFeaturesAttribute);
-	ring_vm_funcregister("uiattributefeatures",ring_uiAttributeFeatures);
-	ring_vm_funcregister("uinewattributedstring",ring_uiNewAttributedString);
-	ring_vm_funcregister("uifreeattributedstring",ring_uiFreeAttributedString);
-	ring_vm_funcregister("uiattributedstringstring",ring_uiAttributedStringString);
-	ring_vm_funcregister("uiattributedstringlen",ring_uiAttributedStringLen);
-	ring_vm_funcregister("uiattributedstringappendunattributed",ring_uiAttributedStringAppendUnattributed);
-	ring_vm_funcregister("uiattributedstringinsertatunattributed",ring_uiAttributedStringInsertAtUnattributed);
-	ring_vm_funcregister("uiattributedstringdelete",ring_uiAttributedStringDelete);
-	ring_vm_funcregister("uiattributedstringsetattribute",ring_uiAttributedStringSetAttribute);
-	ring_vm_funcregister("uiattributedstringforeachattribute",ring_uiAttributedStringForEachAttribute);
-	ring_vm_funcregister("uiattributedstringnumgraphemes",ring_uiAttributedStringNumGraphemes);
-	ring_vm_funcregister("uiattributedstringbyteindextographeme",ring_uiAttributedStringByteIndexToGrapheme);
-	ring_vm_funcregister("uiattributedstringgraphemetobyteindex",ring_uiAttributedStringGraphemeToByteIndex);
-	ring_vm_funcregister("uidrawnewtextlayout",ring_uiDrawNewTextLayout);
-	ring_vm_funcregister("uidrawfreetextlayout",ring_uiDrawFreeTextLayout);
-	ring_vm_funcregister("uidrawtext",ring_uiDrawText);
-	ring_vm_funcregister("uidrawtextlayoutextents",ring_uiDrawTextLayoutExtents);
-	ring_vm_funcregister("uifontbuttonfont",ring_uiFontButtonFont);
-	ring_vm_funcregister("uinewfontbutton",ring_uiNewFontButton);
-	ring_vm_funcregister("uifreefontbuttonfont",ring_uiFreeFontButtonFont);
-	ring_vm_funcregister("uicolorbuttoncolor",ring_uiColorButtonColor);
-	ring_vm_funcregister("uicolorbuttonsetcolor",ring_uiColorButtonSetColor);
-	ring_vm_funcregister("uinewcolorbutton",ring_uiNewColorButton);
-	ring_vm_funcregister("uiformappend",ring_uiFormAppend);
-	ring_vm_funcregister("uiformdelete",ring_uiFormDelete);
-	ring_vm_funcregister("uiformpadded",ring_uiFormPadded);
-	ring_vm_funcregister("uiformsetpadded",ring_uiFormSetPadded);
-	ring_vm_funcregister("uinewform",ring_uiNewForm);
-	ring_vm_funcregister("uigridappend",ring_uiGridAppend);
-	ring_vm_funcregister("uigridinsertat",ring_uiGridInsertAt);
-	ring_vm_funcregister("uigridpadded",ring_uiGridPadded);
-	ring_vm_funcregister("uigridsetpadded",ring_uiGridSetPadded);
-	ring_vm_funcregister("uinewgrid",ring_uiNewGrid);
-	ring_vm_funcregister("uitablevaluegettype",ring_uiTableValueGetType);
-	ring_vm_funcregister("uinewtablevaluestring",ring_uiNewTableValueString);
-	ring_vm_funcregister("uitablevaluestring",ring_uiTableValueString);
-	ring_vm_funcregister("uinewtablevalueimage",ring_uiNewTableValueImage);
-	ring_vm_funcregister("uitablevalueimage",ring_uiTableValueImage);
-	ring_vm_funcregister("uinewtablevalueint",ring_uiNewTableValueInt);
-	ring_vm_funcregister("uitablevalueint",ring_uiTableValueInt);
-	ring_vm_funcregister("uinewtablevaluecolor",ring_uiNewTableValueColor);
-	ring_vm_funcregister("uitablevaluecolor",ring_uiTableValueColor);
-	ring_vm_funcregister("uinewimage",ring_uiNewImage);
-	ring_vm_funcregister("uifreeimage",ring_uiFreeImage);
-	ring_vm_funcregister("uiimageappend",ring_uiImageAppend);
-	ring_vm_funcregister("uifreetablevalue",ring_uiFreeTableValue);
-	ring_vm_funcregister("uinewtablemodel",ring_uiNewTableModel);
-	ring_vm_funcregister("uifreetablemodel",ring_uiFreeTableModel);
-	ring_vm_funcregister("uitablemodelrowinserted",ring_uiTableModelRowInserted);
-	ring_vm_funcregister("uitablemodelrowchanged",ring_uiTableModelRowChanged);
-	ring_vm_funcregister("uitablemodelrowdeleted",ring_uiTableModelRowDeleted);
-	ring_vm_funcregister("uinewweightattribute",ring_uiNewWeightAttribute);
-	ring_vm_funcregister("uiattributeweight",ring_uiAttributeWeight);
-	ring_vm_funcregister("uinewitalicattribute",ring_uiNewItalicAttribute);
-	ring_vm_funcregister("uiattributeitalic",ring_uiAttributeItalic);
-	ring_vm_funcregister("uifreeattribute",ring_uiFreeAttribute);
-	ring_vm_funcregister("uitableappendtextcolumn",ring_uiTableAppendTextColumn);
-	ring_vm_funcregister("uitableappendimagecolumn",ring_uiTableAppendImageColumn);
-	ring_vm_funcregister("uitableappendimagetextcolumn",ring_uiTableAppendImageTextColumn);
-	ring_vm_funcregister("uitableappendcheckboxcolumn",ring_uiTableAppendCheckboxColumn);
-	ring_vm_funcregister("uitableappendcheckboxtextcolumn",ring_uiTableAppendCheckboxTextColumn);
-	ring_vm_funcregister("uitableappendprogressbarcolumn",ring_uiTableAppendProgressBarColumn);
-	ring_vm_funcregister("uitableappendbuttoncolumn",ring_uiTableAppendButtonColumn);
-	ring_vm_funcregister("uinewtable",ring_uiNewTable);
-	ring_vm_funcregister("uiareasetsize",ring_uiAreaSetSize);
-	ring_vm_funcregister("uicontrolhandle",ring_uiControlHandle);
-	ring_vm_funcregister("uifreetext",ring_uiFreeText);
-	ring_vm_funcregister("uiopenfile",ring_uiOpenFile);
-	ring_vm_funcregister("uisavefile",ring_uiSaveFile);
-	ring_vm_funcregister("get_uipi",ring_get_uipi);
-	ring_vm_funcregister("get_uiforeachcontinue",ring_get_uiforeachcontinue);
-	ring_vm_funcregister("get_uiforeachstop",ring_get_uiforeachstop);
-	ring_vm_funcregister("get_uiwindowresizeedgeleft",ring_get_uiwindowresizeedgeleft);
-	ring_vm_funcregister("get_uiwindowresizeedgetop",ring_get_uiwindowresizeedgetop);
-	ring_vm_funcregister("get_uiwindowresizeedgeright",ring_get_uiwindowresizeedgeright);
-	ring_vm_funcregister("get_uiwindowresizeedgebottom",ring_get_uiwindowresizeedgebottom);
-	ring_vm_funcregister("get_uiwindowresizeedgetopleft",ring_get_uiwindowresizeedgetopleft);
-	ring_vm_funcregister("get_uiwindowresizeedgetopright",ring_get_uiwindowresizeedgetopright);
-	ring_vm_funcregister("get_uiwindowresizeedgebottomleft",ring_get_uiwindowresizeedgebottomleft);
-	ring_vm_funcregister("get_uiwindowresizeedgebottomright",ring_get_uiwindowresizeedgebottomright);
-	ring_vm_funcregister("get_uidrawbrushtypesolid",ring_get_uidrawbrushtypesolid);
-	ring_vm_funcregister("get_uidrawbrushtypelineargradient",ring_get_uidrawbrushtypelineargradient);
-	ring_vm_funcregister("get_uidrawbrushtyperadialgradient",ring_get_uidrawbrushtyperadialgradient);
-	ring_vm_funcregister("get_uidrawbrushtypeimage",ring_get_uidrawbrushtypeimage);
-	ring_vm_funcregister("get_uidrawdefaultmiterlimit",ring_get_uidrawdefaultmiterlimit);
-	ring_vm_funcregister("get_uitablemodelcolumnnevereditable",ring_get_uitablemodelcolumnnevereditable);
-	ring_vm_funcregister("get_uitablemodelcolumnalwayseditable",ring_get_uitablemodelcolumnalwayseditable);
-	ring_vm_funcregister("get_uidrawlinecapflat",ring_get_uidrawlinecapflat);
-	ring_vm_funcregister("get_uidrawlinecapround",ring_get_uidrawlinecapround);
-	ring_vm_funcregister("get_uidrawlinecapsquare",ring_get_uidrawlinecapsquare);
-	ring_vm_funcregister("get_uidrawlinejoinmiter",ring_get_uidrawlinejoinmiter);
-	ring_vm_funcregister("get_uidrawlinejoinround",ring_get_uidrawlinejoinround);
-	ring_vm_funcregister("get_uidrawlinejoinbevel",ring_get_uidrawlinejoinbevel);
-	ring_vm_funcregister("get_uidrawfillmodewinding",ring_get_uidrawfillmodewinding);
-	ring_vm_funcregister("get_uidrawfillmodealternate",ring_get_uidrawfillmodealternate);
-	ring_vm_funcregister("get_uiattributetypefamily",ring_get_uiattributetypefamily);
-	ring_vm_funcregister("get_uiattributetypesize",ring_get_uiattributetypesize);
-	ring_vm_funcregister("get_uiattributetypeweight",ring_get_uiattributetypeweight);
-	ring_vm_funcregister("get_uiattributetypeitalic",ring_get_uiattributetypeitalic);
-	ring_vm_funcregister("get_uiattributetypestretch",ring_get_uiattributetypestretch);
-	ring_vm_funcregister("get_uiattributetypecolor",ring_get_uiattributetypecolor);
-	ring_vm_funcregister("get_uiattributetypebackground",ring_get_uiattributetypebackground);
-	ring_vm_funcregister("get_uiattributetypeunderline",ring_get_uiattributetypeunderline);
-	ring_vm_funcregister("get_uiattributetypeunderlinecolor",ring_get_uiattributetypeunderlinecolor);
-	ring_vm_funcregister("get_uiattributetypefeatures",ring_get_uiattributetypefeatures);
-	ring_vm_funcregister("get_uitextweightminimum",ring_get_uitextweightminimum);
-	ring_vm_funcregister("get_uitextweightthin",ring_get_uitextweightthin);
-	ring_vm_funcregister("get_uitextweightultralight",ring_get_uitextweightultralight);
-	ring_vm_funcregister("get_uitextweightlight",ring_get_uitextweightlight);
-	ring_vm_funcregister("get_uitextweightbook",ring_get_uitextweightbook);
-	ring_vm_funcregister("get_uitextweightnormal",ring_get_uitextweightnormal);
-	ring_vm_funcregister("get_uitextweightmedium",ring_get_uitextweightmedium);
-	ring_vm_funcregister("get_uitextweightsemibold",ring_get_uitextweightsemibold);
-	ring_vm_funcregister("get_uitextweightbold",ring_get_uitextweightbold);
-	ring_vm_funcregister("get_uitextweightultrabold",ring_get_uitextweightultrabold);
-	ring_vm_funcregister("get_uitextweightheavy",ring_get_uitextweightheavy);
-	ring_vm_funcregister("get_uitextweightultraheavy",ring_get_uitextweightultraheavy);
-	ring_vm_funcregister("get_uitextweightmaximum",ring_get_uitextweightmaximum);
-	ring_vm_funcregister("get_uitextstretchultracondensed",ring_get_uitextstretchultracondensed);
-	ring_vm_funcregister("get_uitextstretchextracondensed",ring_get_uitextstretchextracondensed);
-	ring_vm_funcregister("get_uitextstretchcondensed",ring_get_uitextstretchcondensed);
-	ring_vm_funcregister("get_uitextstretchsemicondensed",ring_get_uitextstretchsemicondensed);
-	ring_vm_funcregister("get_uitextstretchnormal",ring_get_uitextstretchnormal);
-	ring_vm_funcregister("get_uitextstretchsemiexpanded",ring_get_uitextstretchsemiexpanded);
-	ring_vm_funcregister("get_uitextstretchexpanded",ring_get_uitextstretchexpanded);
-	ring_vm_funcregister("get_uitextstretchextraexpanded",ring_get_uitextstretchextraexpanded);
-	ring_vm_funcregister("get_uitextstretchultraexpanded",ring_get_uitextstretchultraexpanded);
-	ring_vm_funcregister("get_uitextitalicnormal",ring_get_uitextitalicnormal);
-	ring_vm_funcregister("get_uitextitalicoblique",ring_get_uitextitalicoblique);
-	ring_vm_funcregister("get_uitextitalicitalic",ring_get_uitextitalicitalic);
-	ring_vm_funcregister("get_uiunderlinenone",ring_get_uiunderlinenone);
-	ring_vm_funcregister("get_uiunderlinesingle",ring_get_uiunderlinesingle);
-	ring_vm_funcregister("get_uiunderlinedouble",ring_get_uiunderlinedouble);
-	ring_vm_funcregister("get_uiunderlinesuggestion",ring_get_uiunderlinesuggestion);
-	ring_vm_funcregister("get_uiunderlinecolorcustom",ring_get_uiunderlinecolorcustom);
-	ring_vm_funcregister("get_uiunderlinecolorspelling",ring_get_uiunderlinecolorspelling);
-	ring_vm_funcregister("get_uiunderlinecolorgrammar",ring_get_uiunderlinecolorgrammar);
-	ring_vm_funcregister("get_uiunderlinecolorauxiliary",ring_get_uiunderlinecolorauxiliary);
-	ring_vm_funcregister("get_uidrawtextalignleft",ring_get_uidrawtextalignleft);
-	ring_vm_funcregister("get_uidrawtextaligncenter",ring_get_uidrawtextaligncenter);
-	ring_vm_funcregister("get_uidrawtextalignright",ring_get_uidrawtextalignright);
-	ring_vm_funcregister("get_uimodifierctrl",ring_get_uimodifierctrl);
-	ring_vm_funcregister("get_uimodifieralt",ring_get_uimodifieralt);
-	ring_vm_funcregister("get_uimodifiershift",ring_get_uimodifiershift);
-	ring_vm_funcregister("get_uimodifiersuper",ring_get_uimodifiersuper);
-	ring_vm_funcregister("get_uiextkeyescape",ring_get_uiextkeyescape);
-	ring_vm_funcregister("get_uiextkeyinsert",ring_get_uiextkeyinsert);
-	ring_vm_funcregister("get_uiextkeydelete",ring_get_uiextkeydelete);
-	ring_vm_funcregister("get_uiextkeyhome",ring_get_uiextkeyhome);
-	ring_vm_funcregister("get_uiextkeyend",ring_get_uiextkeyend);
-	ring_vm_funcregister("get_uiextkeypageup",ring_get_uiextkeypageup);
-	ring_vm_funcregister("get_uiextkeypagedown",ring_get_uiextkeypagedown);
-	ring_vm_funcregister("get_uiextkeyup",ring_get_uiextkeyup);
-	ring_vm_funcregister("get_uiextkeydown",ring_get_uiextkeydown);
-	ring_vm_funcregister("get_uiextkeyleft",ring_get_uiextkeyleft);
-	ring_vm_funcregister("get_uiextkeyright",ring_get_uiextkeyright);
-	ring_vm_funcregister("get_uiextkeyf1",ring_get_uiextkeyf1);
-	ring_vm_funcregister("get_uiextkeyf2",ring_get_uiextkeyf2);
-	ring_vm_funcregister("get_uiextkeyf3",ring_get_uiextkeyf3);
-	ring_vm_funcregister("get_uiextkeyf4",ring_get_uiextkeyf4);
-	ring_vm_funcregister("get_uiextkeyf5",ring_get_uiextkeyf5);
-	ring_vm_funcregister("get_uiextkeyf6",ring_get_uiextkeyf6);
-	ring_vm_funcregister("get_uiextkeyf7",ring_get_uiextkeyf7);
-	ring_vm_funcregister("get_uiextkeyf8",ring_get_uiextkeyf8);
-	ring_vm_funcregister("get_uiextkeyf9",ring_get_uiextkeyf9);
-	ring_vm_funcregister("get_uiextkeyf10",ring_get_uiextkeyf10);
-	ring_vm_funcregister("get_uiextkeyf11",ring_get_uiextkeyf11);
-	ring_vm_funcregister("get_uiextkeyf12",ring_get_uiextkeyf12);
-	ring_vm_funcregister("get_uiextkeyn0",ring_get_uiextkeyn0);
-	ring_vm_funcregister("get_uiextkeyn1",ring_get_uiextkeyn1);
-	ring_vm_funcregister("get_uiextkeyn2",ring_get_uiextkeyn2);
-	ring_vm_funcregister("get_uiextkeyn3",ring_get_uiextkeyn3);
-	ring_vm_funcregister("get_uiextkeyn4",ring_get_uiextkeyn4);
-	ring_vm_funcregister("get_uiextkeyn5",ring_get_uiextkeyn5);
-	ring_vm_funcregister("get_uiextkeyn6",ring_get_uiextkeyn6);
-	ring_vm_funcregister("get_uiextkeyn7",ring_get_uiextkeyn7);
-	ring_vm_funcregister("get_uiextkeyn8",ring_get_uiextkeyn8);
-	ring_vm_funcregister("get_uiextkeyn9",ring_get_uiextkeyn9);
-	ring_vm_funcregister("get_uiextkeyndot",ring_get_uiextkeyndot);
-	ring_vm_funcregister("get_uiextkeynenter",ring_get_uiextkeynenter);
-	ring_vm_funcregister("get_uiextkeynadd",ring_get_uiextkeynadd);
-	ring_vm_funcregister("get_uiextkeynsubtract",ring_get_uiextkeynsubtract);
-	ring_vm_funcregister("get_uiextkeynmultiply",ring_get_uiextkeynmultiply);
-	ring_vm_funcregister("get_uiextkeyndivide",ring_get_uiextkeyndivide);
-	ring_vm_funcregister("get_uialignfill",ring_get_uialignfill);
-	ring_vm_funcregister("get_uialignstart",ring_get_uialignstart);
-	ring_vm_funcregister("get_uialigncenter",ring_get_uialigncenter);
-	ring_vm_funcregister("get_uialignend",ring_get_uialignend);
-	ring_vm_funcregister("get_uiatleading",ring_get_uiatleading);
-	ring_vm_funcregister("get_uiattop",ring_get_uiattop);
-	ring_vm_funcregister("get_uiattrailing",ring_get_uiattrailing);
-	ring_vm_funcregister("get_uiatbottom",ring_get_uiatbottom);
-	ring_vm_funcregister("get_uitablevaluetypestring",ring_get_uitablevaluetypestring);
-	ring_vm_funcregister("get_uitablevaluetypeimage",ring_get_uitablevaluetypeimage);
-	ring_vm_funcregister("get_uitablevaluetypeint",ring_get_uitablevaluetypeint);
-	ring_vm_funcregister("get_uitablevaluetypecolor",ring_get_uitablevaluetypecolor);
-	ring_vm_funcregister("new_uiinitoptions",ring_new_uiinitoptions);
-	ring_vm_funcregister("new_managed_uiinitoptions",ring_new_managed_uiinitoptions);
-	ring_vm_funcregister("destroy_uiinitoptions",ring_destroy_uiinitoptions);
-	ring_vm_funcregister("new_uicontrol",ring_new_uicontrol);
-	ring_vm_funcregister("new_managed_uicontrol",ring_new_managed_uicontrol);
-	ring_vm_funcregister("destroy_uicontrol",ring_destroy_uicontrol);
-	ring_vm_funcregister("get_uicontrol_signature",ring_get_uicontrol_Signature);
-	ring_vm_funcregister("set_uicontrol_signature",ring_set_uicontrol_Signature);
-	ring_vm_funcregister("get_uicontrol_ossignature",ring_get_uicontrol_OSSignature);
-	ring_vm_funcregister("set_uicontrol_ossignature",ring_set_uicontrol_OSSignature);
-	ring_vm_funcregister("get_uicontrol_typesignature",ring_get_uicontrol_TypeSignature);
-	ring_vm_funcregister("set_uicontrol_typesignature",ring_set_uicontrol_TypeSignature);
-	ring_vm_funcregister("new_uiareadrawparams",ring_new_uiareadrawparams);
-	ring_vm_funcregister("new_managed_uiareadrawparams",ring_new_managed_uiareadrawparams);
-	ring_vm_funcregister("destroy_uiareadrawparams",ring_destroy_uiareadrawparams);
-	ring_vm_funcregister("get_uiareadrawparams_context",ring_get_uiareadrawparams_Context);
-	ring_vm_funcregister("set_uiareadrawparams_context",ring_set_uiareadrawparams_Context);
-	ring_vm_funcregister("get_uiareadrawparams_areawidth",ring_get_uiareadrawparams_AreaWidth);
-	ring_vm_funcregister("set_uiareadrawparams_areawidth",ring_set_uiareadrawparams_AreaWidth);
-	ring_vm_funcregister("get_uiareadrawparams_areaheight",ring_get_uiareadrawparams_AreaHeight);
-	ring_vm_funcregister("set_uiareadrawparams_areaheight",ring_set_uiareadrawparams_AreaHeight);
-	ring_vm_funcregister("get_uiareadrawparams_clipx",ring_get_uiareadrawparams_ClipX);
-	ring_vm_funcregister("set_uiareadrawparams_clipx",ring_set_uiareadrawparams_ClipX);
-	ring_vm_funcregister("get_uiareadrawparams_clipy",ring_get_uiareadrawparams_ClipY);
-	ring_vm_funcregister("set_uiareadrawparams_clipy",ring_set_uiareadrawparams_ClipY);
-	ring_vm_funcregister("get_uiareadrawparams_clipwidth",ring_get_uiareadrawparams_ClipWidth);
-	ring_vm_funcregister("set_uiareadrawparams_clipwidth",ring_set_uiareadrawparams_ClipWidth);
-	ring_vm_funcregister("get_uiareadrawparams_clipheight",ring_get_uiareadrawparams_ClipHeight);
-	ring_vm_funcregister("set_uiareadrawparams_clipheight",ring_set_uiareadrawparams_ClipHeight);
-	ring_vm_funcregister("new_uidrawmatrix",ring_new_uidrawmatrix);
-	ring_vm_funcregister("new_managed_uidrawmatrix",ring_new_managed_uidrawmatrix);
-	ring_vm_funcregister("destroy_uidrawmatrix",ring_destroy_uidrawmatrix);
-	ring_vm_funcregister("get_uidrawmatrix_m11",ring_get_uidrawmatrix_M11);
-	ring_vm_funcregister("set_uidrawmatrix_m11",ring_set_uidrawmatrix_M11);
-	ring_vm_funcregister("get_uidrawmatrix_m12",ring_get_uidrawmatrix_M12);
-	ring_vm_funcregister("set_uidrawmatrix_m12",ring_set_uidrawmatrix_M12);
-	ring_vm_funcregister("get_uidrawmatrix_m21",ring_get_uidrawmatrix_M21);
-	ring_vm_funcregister("set_uidrawmatrix_m21",ring_set_uidrawmatrix_M21);
-	ring_vm_funcregister("get_uidrawmatrix_m22",ring_get_uidrawmatrix_M22);
-	ring_vm_funcregister("set_uidrawmatrix_m22",ring_set_uidrawmatrix_M22);
-	ring_vm_funcregister("get_uidrawmatrix_m31",ring_get_uidrawmatrix_M31);
-	ring_vm_funcregister("set_uidrawmatrix_m31",ring_set_uidrawmatrix_M31);
-	ring_vm_funcregister("get_uidrawmatrix_m32",ring_get_uidrawmatrix_M32);
-	ring_vm_funcregister("set_uidrawmatrix_m32",ring_set_uidrawmatrix_M32);
-	ring_vm_funcregister("new_uitabletextcolumnoptionalparams",ring_new_uitabletextcolumnoptionalparams);
-	ring_vm_funcregister("new_managed_uitabletextcolumnoptionalparams",ring_new_managed_uitabletextcolumnoptionalparams);
-	ring_vm_funcregister("destroy_uitabletextcolumnoptionalparams",ring_destroy_uitabletextcolumnoptionalparams);
-	ring_vm_funcregister("get_uitabletextcolumnoptionalparams_colormodelcolumn",ring_get_uitabletextcolumnoptionalparams_ColorModelColumn);
-	ring_vm_funcregister("set_uitabletextcolumnoptionalparams_colormodelcolumn",ring_set_uitabletextcolumnoptionalparams_ColorModelColumn);
-	ring_vm_funcregister("new_uidrawbrush",ring_new_uidrawbrush);
-	ring_vm_funcregister("new_managed_uidrawbrush",ring_new_managed_uidrawbrush);
-	ring_vm_funcregister("destroy_uidrawbrush",ring_destroy_uidrawbrush);
-	ring_vm_funcregister("get_uidrawbrush_type",ring_get_uidrawbrush_Type);
-	ring_vm_funcregister("set_uidrawbrush_type",ring_set_uidrawbrush_Type);
-	ring_vm_funcregister("get_uidrawbrush_r",ring_get_uidrawbrush_R);
-	ring_vm_funcregister("set_uidrawbrush_r",ring_set_uidrawbrush_R);
-	ring_vm_funcregister("get_uidrawbrush_g",ring_get_uidrawbrush_G);
-	ring_vm_funcregister("set_uidrawbrush_g",ring_set_uidrawbrush_G);
-	ring_vm_funcregister("get_uidrawbrush_b",ring_get_uidrawbrush_B);
-	ring_vm_funcregister("set_uidrawbrush_b",ring_set_uidrawbrush_B);
-	ring_vm_funcregister("get_uidrawbrush_a",ring_get_uidrawbrush_A);
-	ring_vm_funcregister("set_uidrawbrush_a",ring_set_uidrawbrush_A);
-	ring_vm_funcregister("get_uidrawbrush_x0",ring_get_uidrawbrush_X0);
-	ring_vm_funcregister("set_uidrawbrush_x0",ring_set_uidrawbrush_X0);
-	ring_vm_funcregister("get_uidrawbrush_y0",ring_get_uidrawbrush_Y0);
-	ring_vm_funcregister("set_uidrawbrush_y0",ring_set_uidrawbrush_Y0);
-	ring_vm_funcregister("get_uidrawbrush_x1",ring_get_uidrawbrush_X1);
-	ring_vm_funcregister("set_uidrawbrush_x1",ring_set_uidrawbrush_X1);
-	ring_vm_funcregister("get_uidrawbrush_y1",ring_get_uidrawbrush_Y1);
-	ring_vm_funcregister("set_uidrawbrush_y1",ring_set_uidrawbrush_Y1);
-	ring_vm_funcregister("get_uidrawbrush_outerradius",ring_get_uidrawbrush_OuterRadius);
-	ring_vm_funcregister("set_uidrawbrush_outerradius",ring_set_uidrawbrush_OuterRadius);
-	ring_vm_funcregister("get_uidrawbrush_numstops",ring_get_uidrawbrush_NumStops);
-	ring_vm_funcregister("set_uidrawbrush_numstops",ring_set_uidrawbrush_NumStops);
-	ring_vm_funcregister("new_uidrawbrushgradientstop",ring_new_uidrawbrushgradientstop);
-	ring_vm_funcregister("new_managed_uidrawbrushgradientstop",ring_new_managed_uidrawbrushgradientstop);
-	ring_vm_funcregister("destroy_uidrawbrushgradientstop",ring_destroy_uidrawbrushgradientstop);
-	ring_vm_funcregister("get_uidrawbrushgradientstop_pos",ring_get_uidrawbrushgradientstop_Pos);
-	ring_vm_funcregister("set_uidrawbrushgradientstop_pos",ring_set_uidrawbrushgradientstop_Pos);
-	ring_vm_funcregister("get_uidrawbrushgradientstop_r",ring_get_uidrawbrushgradientstop_R);
-	ring_vm_funcregister("set_uidrawbrushgradientstop_r",ring_set_uidrawbrushgradientstop_R);
-	ring_vm_funcregister("get_uidrawbrushgradientstop_g",ring_get_uidrawbrushgradientstop_G);
-	ring_vm_funcregister("set_uidrawbrushgradientstop_g",ring_set_uidrawbrushgradientstop_G);
-	ring_vm_funcregister("get_uidrawbrushgradientstop_b",ring_get_uidrawbrushgradientstop_B);
-	ring_vm_funcregister("set_uidrawbrushgradientstop_b",ring_set_uidrawbrushgradientstop_B);
-	ring_vm_funcregister("get_uidrawbrushgradientstop_a",ring_get_uidrawbrushgradientstop_A);
-	ring_vm_funcregister("set_uidrawbrushgradientstop_a",ring_set_uidrawbrushgradientstop_A);
-	ring_vm_funcregister("new_uidrawstrokeparams",ring_new_uidrawstrokeparams);
-	ring_vm_funcregister("new_managed_uidrawstrokeparams",ring_new_managed_uidrawstrokeparams);
-	ring_vm_funcregister("destroy_uidrawstrokeparams",ring_destroy_uidrawstrokeparams);
-	ring_vm_funcregister("get_uidrawstrokeparams_cap",ring_get_uidrawstrokeparams_Cap);
-	ring_vm_funcregister("set_uidrawstrokeparams_cap",ring_set_uidrawstrokeparams_Cap);
-	ring_vm_funcregister("get_uidrawstrokeparams_join",ring_get_uidrawstrokeparams_Join);
-	ring_vm_funcregister("set_uidrawstrokeparams_join",ring_set_uidrawstrokeparams_Join);
-	ring_vm_funcregister("get_uidrawstrokeparams_thickness",ring_get_uidrawstrokeparams_Thickness);
-	ring_vm_funcregister("set_uidrawstrokeparams_thickness",ring_set_uidrawstrokeparams_Thickness);
-	ring_vm_funcregister("get_uidrawstrokeparams_miterlimit",ring_get_uidrawstrokeparams_MiterLimit);
-	ring_vm_funcregister("set_uidrawstrokeparams_miterlimit",ring_set_uidrawstrokeparams_MiterLimit);
-	ring_vm_funcregister("get_uidrawstrokeparams_numdashes",ring_get_uidrawstrokeparams_NumDashes);
-	ring_vm_funcregister("set_uidrawstrokeparams_numdashes",ring_set_uidrawstrokeparams_NumDashes);
-	ring_vm_funcregister("get_uidrawstrokeparams_dashphase",ring_get_uidrawstrokeparams_DashPhase);
-	ring_vm_funcregister("set_uidrawstrokeparams_dashphase",ring_set_uidrawstrokeparams_DashPhase);
-	ring_vm_funcregister("new_uitablemodelhandler",ring_new_uitablemodelhandler);
-	ring_vm_funcregister("new_managed_uitablemodelhandler",ring_new_managed_uitablemodelhandler);
-	ring_vm_funcregister("destroy_uitablemodelhandler",ring_destroy_uitablemodelhandler);
-	ring_vm_funcregister("new_uiareakeyevent",ring_new_uiareakeyevent);
-	ring_vm_funcregister("new_managed_uiareakeyevent",ring_new_managed_uiareakeyevent);
-	ring_vm_funcregister("destroy_uiareakeyevent",ring_destroy_uiareakeyevent);
-	ring_vm_funcregister("get_uiareakeyevent_key",ring_get_uiareakeyevent_Key);
-	ring_vm_funcregister("set_uiareakeyevent_key",ring_set_uiareakeyevent_Key);
-	ring_vm_funcregister("get_uiareakeyevent_extkey",ring_get_uiareakeyevent_ExtKey);
-	ring_vm_funcregister("set_uiareakeyevent_extkey",ring_set_uiareakeyevent_ExtKey);
-	ring_vm_funcregister("get_uiareakeyevent_modifier",ring_get_uiareakeyevent_Modifier);
-	ring_vm_funcregister("set_uiareakeyevent_modifier",ring_set_uiareakeyevent_Modifier);
-	ring_vm_funcregister("get_uiareakeyevent_modifiers",ring_get_uiareakeyevent_Modifiers);
-	ring_vm_funcregister("set_uiareakeyevent_modifiers",ring_set_uiareakeyevent_Modifiers);
-	ring_vm_funcregister("get_uiareakeyevent_up",ring_get_uiareakeyevent_Up);
-	ring_vm_funcregister("set_uiareakeyevent_up",ring_set_uiareakeyevent_Up);
-	ring_vm_funcregister("new_uitableparams",ring_new_uitableparams);
-	ring_vm_funcregister("new_managed_uitableparams",ring_new_managed_uitableparams);
-	ring_vm_funcregister("destroy_uitableparams",ring_destroy_uitableparams);
-	ring_vm_funcregister("get_uitableparams_model",ring_get_uitableparams_Model);
-	ring_vm_funcregister("set_uitableparams_model",ring_set_uitableparams_Model);
-	ring_vm_funcregister("get_uitableparams_rowbackgroundcolormodelcolumn",ring_get_uitableparams_RowBackgroundColorModelColumn);
-	ring_vm_funcregister("set_uitableparams_rowbackgroundcolormodelcolumn",ring_set_uitableparams_RowBackgroundColorModelColumn);
-	ring_vm_funcregister("new_uiareamouseevent",ring_new_uiareamouseevent);
-	ring_vm_funcregister("new_managed_uiareamouseevent",ring_new_managed_uiareamouseevent);
-	ring_vm_funcregister("destroy_uiareamouseevent",ring_destroy_uiareamouseevent);
-	ring_vm_funcregister("get_uiareamouseevent_x",ring_get_uiareamouseevent_X);
-	ring_vm_funcregister("set_uiareamouseevent_x",ring_set_uiareamouseevent_X);
-	ring_vm_funcregister("get_uiareamouseevent_y",ring_get_uiareamouseevent_Y);
-	ring_vm_funcregister("set_uiareamouseevent_y",ring_set_uiareamouseevent_Y);
-	ring_vm_funcregister("get_uiareamouseevent_areawidth",ring_get_uiareamouseevent_AreaWidth);
-	ring_vm_funcregister("set_uiareamouseevent_areawidth",ring_set_uiareamouseevent_AreaWidth);
-	ring_vm_funcregister("get_uiareamouseevent_areaheight",ring_get_uiareamouseevent_AreaHeight);
-	ring_vm_funcregister("set_uiareamouseevent_areaheight",ring_set_uiareamouseevent_AreaHeight);
-	ring_vm_funcregister("get_uiareamouseevent_down",ring_get_uiareamouseevent_Down);
-	ring_vm_funcregister("set_uiareamouseevent_down",ring_set_uiareamouseevent_Down);
-	ring_vm_funcregister("get_uiareamouseevent_up",ring_get_uiareamouseevent_Up);
-	ring_vm_funcregister("set_uiareamouseevent_up",ring_set_uiareamouseevent_Up);
-	ring_vm_funcregister("get_uiareamouseevent_count",ring_get_uiareamouseevent_Count);
-	ring_vm_funcregister("set_uiareamouseevent_count",ring_set_uiareamouseevent_Count);
-	ring_vm_funcregister("get_uiareamouseevent_modifiers",ring_get_uiareamouseevent_Modifiers);
-	ring_vm_funcregister("set_uiareamouseevent_modifiers",ring_set_uiareamouseevent_Modifiers);
-	ring_vm_funcregister("get_uiareamouseevent_held1to64",ring_get_uiareamouseevent_Held1To64);
-	ring_vm_funcregister("set_uiareamouseevent_held1to64",ring_set_uiareamouseevent_Held1To64);
-	ring_vm_funcregister("new_uidrawtextlayoutparams",ring_new_uidrawtextlayoutparams);
-	ring_vm_funcregister("new_managed_uidrawtextlayoutparams",ring_new_managed_uidrawtextlayoutparams);
-	ring_vm_funcregister("destroy_uidrawtextlayoutparams",ring_destroy_uidrawtextlayoutparams);
-	ring_vm_funcregister("get_uidrawtextlayoutparams_string",ring_get_uidrawtextlayoutparams_String);
-	ring_vm_funcregister("set_uidrawtextlayoutparams_string",ring_set_uidrawtextlayoutparams_String);
-	ring_vm_funcregister("get_uidrawtextlayoutparams_defaultfont",ring_get_uidrawtextlayoutparams_DefaultFont);
-	ring_vm_funcregister("set_uidrawtextlayoutparams_defaultfont",ring_set_uidrawtextlayoutparams_DefaultFont);
-	ring_vm_funcregister("get_uidrawtextlayoutparams_width",ring_get_uidrawtextlayoutparams_Width);
-	ring_vm_funcregister("set_uidrawtextlayoutparams_width",ring_set_uidrawtextlayoutparams_Width);
-	ring_vm_funcregister("get_uidrawtextlayoutparams_align",ring_get_uidrawtextlayoutparams_Align);
-	ring_vm_funcregister("set_uidrawtextlayoutparams_align",ring_set_uidrawtextlayoutparams_Align);
-	ring_vm_funcregister("new_uifontdescriptor",ring_new_uifontdescriptor);
-	ring_vm_funcregister("new_managed_uifontdescriptor",ring_new_managed_uifontdescriptor);
-	ring_vm_funcregister("destroy_uifontdescriptor",ring_destroy_uifontdescriptor);
-	ring_vm_funcregister("get_uifontdescriptor_family",ring_get_uifontdescriptor_Family);
-	ring_vm_funcregister("set_uifontdescriptor_family",ring_set_uifontdescriptor_Family);
-	ring_vm_funcregister("get_uifontdescriptor_size",ring_get_uifontdescriptor_Size);
-	ring_vm_funcregister("set_uifontdescriptor_size",ring_set_uifontdescriptor_Size);
-	ring_vm_funcregister("get_uifontdescriptor_weight",ring_get_uifontdescriptor_Weight);
-	ring_vm_funcregister("set_uifontdescriptor_weight",ring_set_uifontdescriptor_Weight);
-	ring_vm_funcregister("get_uifontdescriptor_italic",ring_get_uifontdescriptor_Italic);
-	ring_vm_funcregister("set_uifontdescriptor_italic",ring_set_uifontdescriptor_Italic);
-	ring_vm_funcregister("get_uifontdescriptor_stretch",ring_get_uifontdescriptor_Stretch);
-	ring_vm_funcregister("set_uifontdescriptor_stretch",ring_set_uifontdescriptor_Stretch);
+	RING_API_REGISTER("uiinit_2",ring_uiInit_2);
+	RING_API_REGISTER("uiinit",ring_uiInit);
+	RING_API_REGISTER("uiuninit",ring_uiUninit);
+	RING_API_REGISTER("uionshouldquit",ring_uiOnShouldQuit);
+	RING_API_REGISTER("uiwindowonclosing",ring_uiWindowOnClosing);
+	RING_API_REGISTER("uibuttononclicked",ring_uiButtonOnClicked);
+	RING_API_REGISTER("uiqueuemain",ring_uiQueueMain);
+	RING_API_REGISTER("uitimer",ring_uiTimer);
+	RING_API_REGISTER("uiwindowoncontentsizechanged",ring_uiWindowOnContentSizeChanged);
+	RING_API_REGISTER("uicheckboxontoggled",ring_uiCheckboxOnToggled);
+	RING_API_REGISTER("uientryonchanged",ring_uiEntryOnChanged);
+	RING_API_REGISTER("uispinboxonchanged",ring_uiSpinboxOnChanged);
+	RING_API_REGISTER("uislideronchanged",ring_uiSliderOnChanged);
+	RING_API_REGISTER("uicomboboxonselected",ring_uiComboboxOnSelected);
+	RING_API_REGISTER("uieditablecomboboxonchanged",ring_uiEditableComboboxOnChanged);
+	RING_API_REGISTER("uiradiobuttonsonselected",ring_uiRadioButtonsOnSelected);
+	RING_API_REGISTER("uidatetimepickeronchanged",ring_uiDateTimePickerOnChanged);
+	RING_API_REGISTER("uimultilineentryonchanged",ring_uiMultilineEntryOnChanged);
+	RING_API_REGISTER("uimenuitemonclicked",ring_uiMenuItemOnClicked);
+	RING_API_REGISTER("uifontbuttononchanged",ring_uiFontButtonOnChanged);
+	RING_API_REGISTER("uicolorbuttononchanged",ring_uiColorButtonOnChanged);
+	RING_API_REGISTER("uieventwindow",ring_uiEventWindow);
+	RING_API_REGISTER("uieventbutton",ring_uiEventButton);
+	RING_API_REGISTER("uieventcheckbox",ring_uiEventCheckbox);
+	RING_API_REGISTER("uievententry",ring_uiEventEntry);
+	RING_API_REGISTER("uieventspinbox",ring_uiEventSpinbox);
+	RING_API_REGISTER("uieventslider",ring_uiEventSlider);
+	RING_API_REGISTER("uieventcombobox",ring_uiEventCombobox);
+	RING_API_REGISTER("uieventeditablecombobox",ring_uiEventEditableCombobox);
+	RING_API_REGISTER("uieventradiobuttons",ring_uiEventRadioButtons);
+	RING_API_REGISTER("uieventdatetimepicker",ring_uiEventDateTimePicker);
+	RING_API_REGISTER("uieventmultilineentry",ring_uiEventMultilineEntry);
+	RING_API_REGISTER("uieventmenuitem",ring_uiEventMenuItem);
+	RING_API_REGISTER("uieventmenuitemwindow",ring_uiEventMenuItemWindow);
+	RING_API_REGISTER("uieventfontbutton",ring_uiEventFontButton);
+	RING_API_REGISTER("uieventcolorbutton",ring_uiEventColorButton);
+	RING_API_REGISTER("uinewareahandler",ring_uiNewAreaHandler);
+	RING_API_REGISTER("uieventareahandler",ring_uiEventAreaHandler);
+	RING_API_REGISTER("uieventarea",ring_uiEventArea);
+	RING_API_REGISTER("uieventareadrawparams",ring_uiEventAreaDrawParams);
+	RING_API_REGISTER("uieventareakeyevent",ring_uiEventAreaKeyEvent);
+	RING_API_REGISTER("uieventareamouseevent",ring_uiEventAreaMouseEvent);
+	RING_API_REGISTER("uieventleft",ring_uiEventLeft);
+	RING_API_REGISTER("setsolidbrush",ring_setSolidBrush);
+	RING_API_REGISTER("uifreeiniterror",ring_uiFreeInitError);
+	RING_API_REGISTER("uimain",ring_uiMain);
+	RING_API_REGISTER("uimainsteps",ring_uiMainSteps);
+	RING_API_REGISTER("uimainstep",ring_uiMainStep);
+	RING_API_REGISTER("uiquit",ring_uiQuit);
+	RING_API_REGISTER("uicontroldestroy",ring_uiControlDestroy);
+	RING_API_REGISTER("uicontrolparent",ring_uiControlParent);
+	RING_API_REGISTER("uicontrolsetparent",ring_uiControlSetParent);
+	RING_API_REGISTER("uicontroltoplevel",ring_uiControlToplevel);
+	RING_API_REGISTER("uicontrolvisible",ring_uiControlVisible);
+	RING_API_REGISTER("uicontrolshow",ring_uiControlShow);
+	RING_API_REGISTER("uicontrolhide",ring_uiControlHide);
+	RING_API_REGISTER("uicontrolenabled",ring_uiControlEnabled);
+	RING_API_REGISTER("uicontrolenable",ring_uiControlEnable);
+	RING_API_REGISTER("uicontroldisable",ring_uiControlDisable);
+	RING_API_REGISTER("uialloccontrol",ring_uiAllocControl);
+	RING_API_REGISTER("uifreecontrol",ring_uiFreeControl);
+	RING_API_REGISTER("uicontrolverifysetparent",ring_uiControlVerifySetParent);
+	RING_API_REGISTER("uicontrolenabledtouser",ring_uiControlEnabledToUser);
+	RING_API_REGISTER("uiuserbugcannotsetparentontoplevel",ring_uiUserBugCannotSetParentOnToplevel);
+	RING_API_REGISTER("uiwindowsettitle",ring_uiWindowSetTitle);
+	RING_API_REGISTER("uiwindowcontentsize",ring_uiWindowContentSize);
+	RING_API_REGISTER("uiwindowsetcontentsize",ring_uiWindowSetContentSize);
+	RING_API_REGISTER("uiwindowfullscreen",ring_uiWindowFullscreen);
+	RING_API_REGISTER("uiwindowsetfullscreen",ring_uiWindowSetFullscreen);
+	RING_API_REGISTER("uiwindowborderless",ring_uiWindowBorderless);
+	RING_API_REGISTER("uiwindowsetborderless",ring_uiWindowSetBorderless);
+	RING_API_REGISTER("uiwindowsetchild",ring_uiWindowSetChild);
+	RING_API_REGISTER("uiwindowmargined",ring_uiWindowMargined);
+	RING_API_REGISTER("uiwindowsetmargined",ring_uiWindowSetMargined);
+	RING_API_REGISTER("uinewwindow",ring_uiNewWindow);
+	RING_API_REGISTER("uibuttonsettext",ring_uiButtonSetText);
+	RING_API_REGISTER("uinewbutton",ring_uiNewButton);
+	RING_API_REGISTER("uiboxappend",ring_uiBoxAppend);
+	RING_API_REGISTER("uiboxdelete",ring_uiBoxDelete);
+	RING_API_REGISTER("uiboxpadded",ring_uiBoxPadded);
+	RING_API_REGISTER("uiboxsetpadded",ring_uiBoxSetPadded);
+	RING_API_REGISTER("uinewhorizontalbox",ring_uiNewHorizontalBox);
+	RING_API_REGISTER("uinewverticalbox",ring_uiNewVerticalBox);
+	RING_API_REGISTER("uicheckboxsettext",ring_uiCheckboxSetText);
+	RING_API_REGISTER("uicheckboxchecked",ring_uiCheckboxChecked);
+	RING_API_REGISTER("uicheckboxsetchecked",ring_uiCheckboxSetChecked);
+	RING_API_REGISTER("uinewcheckbox",ring_uiNewCheckbox);
+	RING_API_REGISTER("uientrysettext",ring_uiEntrySetText);
+	RING_API_REGISTER("uientryreadonly",ring_uiEntryReadOnly);
+	RING_API_REGISTER("uientrysetreadonly",ring_uiEntrySetReadOnly);
+	RING_API_REGISTER("uinewentry",ring_uiNewEntry);
+	RING_API_REGISTER("uinewpasswordentry",ring_uiNewPasswordEntry);
+	RING_API_REGISTER("uinewsearchentry",ring_uiNewSearchEntry);
+	RING_API_REGISTER("uilabelsettext",ring_uiLabelSetText);
+	RING_API_REGISTER("uinewlabel",ring_uiNewLabel);
+	RING_API_REGISTER("uitabappend",ring_uiTabAppend);
+	RING_API_REGISTER("uitabinsertat",ring_uiTabInsertAt);
+	RING_API_REGISTER("uitabdelete",ring_uiTabDelete);
+	RING_API_REGISTER("uitabnumpages",ring_uiTabNumPages);
+	RING_API_REGISTER("uitabmargined",ring_uiTabMargined);
+	RING_API_REGISTER("uitabsetmargined",ring_uiTabSetMargined);
+	RING_API_REGISTER("uinewtab",ring_uiNewTab);
+	RING_API_REGISTER("uigroupsettitle",ring_uiGroupSetTitle);
+	RING_API_REGISTER("uigroupsetchild",ring_uiGroupSetChild);
+	RING_API_REGISTER("uigroupmargined",ring_uiGroupMargined);
+	RING_API_REGISTER("uigroupsetmargined",ring_uiGroupSetMargined);
+	RING_API_REGISTER("uinewgroup",ring_uiNewGroup);
+	RING_API_REGISTER("uispinboxvalue",ring_uiSpinboxValue);
+	RING_API_REGISTER("uispinboxsetvalue",ring_uiSpinboxSetValue);
+	RING_API_REGISTER("uinewspinbox",ring_uiNewSpinbox);
+	RING_API_REGISTER("uislidervalue",ring_uiSliderValue);
+	RING_API_REGISTER("uislidersetvalue",ring_uiSliderSetValue);
+	RING_API_REGISTER("uinewslider",ring_uiNewSlider);
+	RING_API_REGISTER("uiprogressbarvalue",ring_uiProgressBarValue);
+	RING_API_REGISTER("uiprogressbarsetvalue",ring_uiProgressBarSetValue);
+	RING_API_REGISTER("uinewprogressbar",ring_uiNewProgressBar);
+	RING_API_REGISTER("uinewhorizontalseparator",ring_uiNewHorizontalSeparator);
+	RING_API_REGISTER("uinewverticalseparator",ring_uiNewVerticalSeparator);
+	RING_API_REGISTER("uicomboboxappend",ring_uiComboboxAppend);
+	RING_API_REGISTER("uicomboboxselected",ring_uiComboboxSelected);
+	RING_API_REGISTER("uicomboboxsetselected",ring_uiComboboxSetSelected);
+	RING_API_REGISTER("uinewcombobox",ring_uiNewCombobox);
+	RING_API_REGISTER("uieditablecomboboxappend",ring_uiEditableComboboxAppend);
+	RING_API_REGISTER("uieditablecomboboxsettext",ring_uiEditableComboboxSetText);
+	RING_API_REGISTER("uineweditablecombobox",ring_uiNewEditableCombobox);
+	RING_API_REGISTER("uiradiobuttonsappend",ring_uiRadioButtonsAppend);
+	RING_API_REGISTER("uiradiobuttonsselected",ring_uiRadioButtonsSelected);
+	RING_API_REGISTER("uiradiobuttonssetselected",ring_uiRadioButtonsSetSelected);
+	RING_API_REGISTER("uinewradiobuttons",ring_uiNewRadioButtons);
+	RING_API_REGISTER("uidatetimepickertime",ring_uiDateTimePickerTime);
+	RING_API_REGISTER("uidatetimepickersettime",ring_uiDateTimePickerSetTime);
+	RING_API_REGISTER("uinewdatetimepicker",ring_uiNewDateTimePicker);
+	RING_API_REGISTER("uinewdatepicker",ring_uiNewDatePicker);
+	RING_API_REGISTER("uinewtimepicker",ring_uiNewTimePicker);
+	RING_API_REGISTER("uimultilineentrysettext",ring_uiMultilineEntrySetText);
+	RING_API_REGISTER("uimultilineentryappend",ring_uiMultilineEntryAppend);
+	RING_API_REGISTER("uimultilineentryreadonly",ring_uiMultilineEntryReadOnly);
+	RING_API_REGISTER("uimultilineentrysetreadonly",ring_uiMultilineEntrySetReadOnly);
+	RING_API_REGISTER("uinewmultilineentry",ring_uiNewMultilineEntry);
+	RING_API_REGISTER("uinewnonwrappingmultilineentry",ring_uiNewNonWrappingMultilineEntry);
+	RING_API_REGISTER("uimenuitemenable",ring_uiMenuItemEnable);
+	RING_API_REGISTER("uimenuitemdisable",ring_uiMenuItemDisable);
+	RING_API_REGISTER("uimenuitemchecked",ring_uiMenuItemChecked);
+	RING_API_REGISTER("uimenuitemsetchecked",ring_uiMenuItemSetChecked);
+	RING_API_REGISTER("uimenuappenditem",ring_uiMenuAppendItem);
+	RING_API_REGISTER("uimenuappendcheckitem",ring_uiMenuAppendCheckItem);
+	RING_API_REGISTER("uimenuappendquititem",ring_uiMenuAppendQuitItem);
+	RING_API_REGISTER("uimenuappendpreferencesitem",ring_uiMenuAppendPreferencesItem);
+	RING_API_REGISTER("uimenuappendaboutitem",ring_uiMenuAppendAboutItem);
+	RING_API_REGISTER("uimenuappendseparator",ring_uiMenuAppendSeparator);
+	RING_API_REGISTER("uinewmenu",ring_uiNewMenu);
+	RING_API_REGISTER("uimsgbox",ring_uiMsgBox);
+	RING_API_REGISTER("uimsgboxerror",ring_uiMsgBoxError);
+	RING_API_REGISTER("uiareaqueueredrawall",ring_uiAreaQueueRedrawAll);
+	RING_API_REGISTER("uiareascrollto",ring_uiAreaScrollTo);
+	RING_API_REGISTER("uiareabeginuserwindowmove",ring_uiAreaBeginUserWindowMove);
+	RING_API_REGISTER("uiareabeginuserwindowresize",ring_uiAreaBeginUserWindowResize);
+	RING_API_REGISTER("uinewarea",ring_uiNewArea);
+	RING_API_REGISTER("uinewscrollingarea",ring_uiNewScrollingArea);
+	RING_API_REGISTER("uidrawnewpath",ring_uiDrawNewPath);
+	RING_API_REGISTER("uidrawfreepath",ring_uiDrawFreePath);
+	RING_API_REGISTER("uidrawpathnewfigure",ring_uiDrawPathNewFigure);
+	RING_API_REGISTER("uidrawpathnewfigurewitharc",ring_uiDrawPathNewFigureWithArc);
+	RING_API_REGISTER("uidrawpathlineto",ring_uiDrawPathLineTo);
+	RING_API_REGISTER("uidrawpatharcto",ring_uiDrawPathArcTo);
+	RING_API_REGISTER("uidrawpathbezierto",ring_uiDrawPathBezierTo);
+	RING_API_REGISTER("uidrawpathclosefigure",ring_uiDrawPathCloseFigure);
+	RING_API_REGISTER("uidrawpathaddrectangle",ring_uiDrawPathAddRectangle);
+	RING_API_REGISTER("uidrawpathend",ring_uiDrawPathEnd);
+	RING_API_REGISTER("uidrawstroke",ring_uiDrawStroke);
+	RING_API_REGISTER("uidrawfill",ring_uiDrawFill);
+	RING_API_REGISTER("uidrawmatrixsetidentity",ring_uiDrawMatrixSetIdentity);
+	RING_API_REGISTER("uidrawmatrixtranslate",ring_uiDrawMatrixTranslate);
+	RING_API_REGISTER("uidrawmatrixscale",ring_uiDrawMatrixScale);
+	RING_API_REGISTER("uidrawmatrixrotate",ring_uiDrawMatrixRotate);
+	RING_API_REGISTER("uidrawmatrixskew",ring_uiDrawMatrixSkew);
+	RING_API_REGISTER("uidrawmatrixmultiply",ring_uiDrawMatrixMultiply);
+	RING_API_REGISTER("uidrawmatrixinvertible",ring_uiDrawMatrixInvertible);
+	RING_API_REGISTER("uidrawmatrixinvert",ring_uiDrawMatrixInvert);
+	RING_API_REGISTER("uidrawmatrixtransformpoint",ring_uiDrawMatrixTransformPoint);
+	RING_API_REGISTER("uidrawmatrixtransformsize",ring_uiDrawMatrixTransformSize);
+	RING_API_REGISTER("uidrawtransform",ring_uiDrawTransform);
+	RING_API_REGISTER("uidrawclip",ring_uiDrawClip);
+	RING_API_REGISTER("uidrawsave",ring_uiDrawSave);
+	RING_API_REGISTER("uidrawrestore",ring_uiDrawRestore);
+	RING_API_REGISTER("uiattributegettype",ring_uiAttributeGetType);
+	RING_API_REGISTER("uinewfamilyattribute",ring_uiNewFamilyAttribute);
+	RING_API_REGISTER("uiattributefamily",ring_uiAttributeFamily);
+	RING_API_REGISTER("uinewsizeattribute",ring_uiNewSizeAttribute);
+	RING_API_REGISTER("uiattributesize",ring_uiAttributeSize);
+	RING_API_REGISTER("uinewstretchattribute",ring_uiNewStretchAttribute);
+	RING_API_REGISTER("uiattributestretch",ring_uiAttributeStretch);
+	RING_API_REGISTER("uinewcolorattribute",ring_uiNewColorAttribute);
+	RING_API_REGISTER("uiattributecolor",ring_uiAttributeColor);
+	RING_API_REGISTER("uinewbackgroundattribute",ring_uiNewBackgroundAttribute);
+	RING_API_REGISTER("uinewunderlineattribute",ring_uiNewUnderlineAttribute);
+	RING_API_REGISTER("uiattributeunderline",ring_uiAttributeUnderline);
+	RING_API_REGISTER("uinewunderlinecolorattribute",ring_uiNewUnderlineColorAttribute);
+	RING_API_REGISTER("uiattributeunderlinecolor",ring_uiAttributeUnderlineColor);
+	RING_API_REGISTER("uinewopentypefeatures",ring_uiNewOpenTypeFeatures);
+	RING_API_REGISTER("uifreeopentypefeatures",ring_uiFreeOpenTypeFeatures);
+	RING_API_REGISTER("uiopentypefeaturesclone",ring_uiOpenTypeFeaturesClone);
+	RING_API_REGISTER("uiopentypefeaturesadd",ring_uiOpenTypeFeaturesAdd);
+	RING_API_REGISTER("uiopentypefeaturesremove",ring_uiOpenTypeFeaturesRemove);
+	RING_API_REGISTER("uiopentypefeaturesget",ring_uiOpenTypeFeaturesGet);
+	RING_API_REGISTER("uiopentypefeaturesforeach",ring_uiOpenTypeFeaturesForEach);
+	RING_API_REGISTER("uinewfeaturesattribute",ring_uiNewFeaturesAttribute);
+	RING_API_REGISTER("uiattributefeatures",ring_uiAttributeFeatures);
+	RING_API_REGISTER("uinewattributedstring",ring_uiNewAttributedString);
+	RING_API_REGISTER("uifreeattributedstring",ring_uiFreeAttributedString);
+	RING_API_REGISTER("uiattributedstringstring",ring_uiAttributedStringString);
+	RING_API_REGISTER("uiattributedstringlen",ring_uiAttributedStringLen);
+	RING_API_REGISTER("uiattributedstringappendunattributed",ring_uiAttributedStringAppendUnattributed);
+	RING_API_REGISTER("uiattributedstringinsertatunattributed",ring_uiAttributedStringInsertAtUnattributed);
+	RING_API_REGISTER("uiattributedstringdelete",ring_uiAttributedStringDelete);
+	RING_API_REGISTER("uiattributedstringsetattribute",ring_uiAttributedStringSetAttribute);
+	RING_API_REGISTER("uiattributedstringforeachattribute",ring_uiAttributedStringForEachAttribute);
+	RING_API_REGISTER("uiattributedstringnumgraphemes",ring_uiAttributedStringNumGraphemes);
+	RING_API_REGISTER("uiattributedstringbyteindextographeme",ring_uiAttributedStringByteIndexToGrapheme);
+	RING_API_REGISTER("uiattributedstringgraphemetobyteindex",ring_uiAttributedStringGraphemeToByteIndex);
+	RING_API_REGISTER("uidrawnewtextlayout",ring_uiDrawNewTextLayout);
+	RING_API_REGISTER("uidrawfreetextlayout",ring_uiDrawFreeTextLayout);
+	RING_API_REGISTER("uidrawtext",ring_uiDrawText);
+	RING_API_REGISTER("uidrawtextlayoutextents",ring_uiDrawTextLayoutExtents);
+	RING_API_REGISTER("uifontbuttonfont",ring_uiFontButtonFont);
+	RING_API_REGISTER("uinewfontbutton",ring_uiNewFontButton);
+	RING_API_REGISTER("uifreefontbuttonfont",ring_uiFreeFontButtonFont);
+	RING_API_REGISTER("uicolorbuttoncolor",ring_uiColorButtonColor);
+	RING_API_REGISTER("uicolorbuttonsetcolor",ring_uiColorButtonSetColor);
+	RING_API_REGISTER("uinewcolorbutton",ring_uiNewColorButton);
+	RING_API_REGISTER("uiformappend",ring_uiFormAppend);
+	RING_API_REGISTER("uiformdelete",ring_uiFormDelete);
+	RING_API_REGISTER("uiformpadded",ring_uiFormPadded);
+	RING_API_REGISTER("uiformsetpadded",ring_uiFormSetPadded);
+	RING_API_REGISTER("uinewform",ring_uiNewForm);
+	RING_API_REGISTER("uigridappend",ring_uiGridAppend);
+	RING_API_REGISTER("uigridinsertat",ring_uiGridInsertAt);
+	RING_API_REGISTER("uigridpadded",ring_uiGridPadded);
+	RING_API_REGISTER("uigridsetpadded",ring_uiGridSetPadded);
+	RING_API_REGISTER("uinewgrid",ring_uiNewGrid);
+	RING_API_REGISTER("uitablevaluegettype",ring_uiTableValueGetType);
+	RING_API_REGISTER("uinewtablevaluestring",ring_uiNewTableValueString);
+	RING_API_REGISTER("uitablevaluestring",ring_uiTableValueString);
+	RING_API_REGISTER("uinewtablevalueimage",ring_uiNewTableValueImage);
+	RING_API_REGISTER("uitablevalueimage",ring_uiTableValueImage);
+	RING_API_REGISTER("uinewtablevalueint",ring_uiNewTableValueInt);
+	RING_API_REGISTER("uitablevalueint",ring_uiTableValueInt);
+	RING_API_REGISTER("uinewtablevaluecolor",ring_uiNewTableValueColor);
+	RING_API_REGISTER("uitablevaluecolor",ring_uiTableValueColor);
+	RING_API_REGISTER("uinewimage",ring_uiNewImage);
+	RING_API_REGISTER("uifreeimage",ring_uiFreeImage);
+	RING_API_REGISTER("uiimageappend",ring_uiImageAppend);
+	RING_API_REGISTER("uifreetablevalue",ring_uiFreeTableValue);
+	RING_API_REGISTER("uinewtablemodel",ring_uiNewTableModel);
+	RING_API_REGISTER("uifreetablemodel",ring_uiFreeTableModel);
+	RING_API_REGISTER("uitablemodelrowinserted",ring_uiTableModelRowInserted);
+	RING_API_REGISTER("uitablemodelrowchanged",ring_uiTableModelRowChanged);
+	RING_API_REGISTER("uitablemodelrowdeleted",ring_uiTableModelRowDeleted);
+	RING_API_REGISTER("uinewweightattribute",ring_uiNewWeightAttribute);
+	RING_API_REGISTER("uiattributeweight",ring_uiAttributeWeight);
+	RING_API_REGISTER("uinewitalicattribute",ring_uiNewItalicAttribute);
+	RING_API_REGISTER("uiattributeitalic",ring_uiAttributeItalic);
+	RING_API_REGISTER("uifreeattribute",ring_uiFreeAttribute);
+	RING_API_REGISTER("uitableappendtextcolumn",ring_uiTableAppendTextColumn);
+	RING_API_REGISTER("uitableappendimagecolumn",ring_uiTableAppendImageColumn);
+	RING_API_REGISTER("uitableappendimagetextcolumn",ring_uiTableAppendImageTextColumn);
+	RING_API_REGISTER("uitableappendcheckboxcolumn",ring_uiTableAppendCheckboxColumn);
+	RING_API_REGISTER("uitableappendcheckboxtextcolumn",ring_uiTableAppendCheckboxTextColumn);
+	RING_API_REGISTER("uitableappendprogressbarcolumn",ring_uiTableAppendProgressBarColumn);
+	RING_API_REGISTER("uitableappendbuttoncolumn",ring_uiTableAppendButtonColumn);
+	RING_API_REGISTER("uinewtable",ring_uiNewTable);
+	RING_API_REGISTER("uiareasetsize",ring_uiAreaSetSize);
+	RING_API_REGISTER("uicontrolhandle",ring_uiControlHandle);
+	RING_API_REGISTER("uiwindowtitle",ring_uiWindowTitle);
+	RING_API_REGISTER("uibuttontext",ring_uiButtonText);
+	RING_API_REGISTER("uicheckboxtext",ring_uiCheckboxText);
+	RING_API_REGISTER("uientrytext",ring_uiEntryText);
+	RING_API_REGISTER("uimultilineentrytext",ring_uiMultilineEntryText);
+	RING_API_REGISTER("uilabeltext",ring_uiLabelText);
+	RING_API_REGISTER("uigrouptitle",ring_uiGroupTitle);
+	RING_API_REGISTER("uieditablecomboboxtext",ring_uiEditableComboboxText);
+	RING_API_REGISTER("uiopenfile",ring_uiOpenFile);
+	RING_API_REGISTER("uisavefile",ring_uiSaveFile);
+	RING_API_REGISTER("get_uipi",ring_get_uipi);
+	RING_API_REGISTER("get_uiforeachcontinue",ring_get_uiforeachcontinue);
+	RING_API_REGISTER("get_uiforeachstop",ring_get_uiforeachstop);
+	RING_API_REGISTER("get_uiwindowresizeedgeleft",ring_get_uiwindowresizeedgeleft);
+	RING_API_REGISTER("get_uiwindowresizeedgetop",ring_get_uiwindowresizeedgetop);
+	RING_API_REGISTER("get_uiwindowresizeedgeright",ring_get_uiwindowresizeedgeright);
+	RING_API_REGISTER("get_uiwindowresizeedgebottom",ring_get_uiwindowresizeedgebottom);
+	RING_API_REGISTER("get_uiwindowresizeedgetopleft",ring_get_uiwindowresizeedgetopleft);
+	RING_API_REGISTER("get_uiwindowresizeedgetopright",ring_get_uiwindowresizeedgetopright);
+	RING_API_REGISTER("get_uiwindowresizeedgebottomleft",ring_get_uiwindowresizeedgebottomleft);
+	RING_API_REGISTER("get_uiwindowresizeedgebottomright",ring_get_uiwindowresizeedgebottomright);
+	RING_API_REGISTER("get_uidrawbrushtypesolid",ring_get_uidrawbrushtypesolid);
+	RING_API_REGISTER("get_uidrawbrushtypelineargradient",ring_get_uidrawbrushtypelineargradient);
+	RING_API_REGISTER("get_uidrawbrushtyperadialgradient",ring_get_uidrawbrushtyperadialgradient);
+	RING_API_REGISTER("get_uidrawbrushtypeimage",ring_get_uidrawbrushtypeimage);
+	RING_API_REGISTER("get_uidrawdefaultmiterlimit",ring_get_uidrawdefaultmiterlimit);
+	RING_API_REGISTER("get_uitablemodelcolumnnevereditable",ring_get_uitablemodelcolumnnevereditable);
+	RING_API_REGISTER("get_uitablemodelcolumnalwayseditable",ring_get_uitablemodelcolumnalwayseditable);
+	RING_API_REGISTER("get_uidrawlinecapflat",ring_get_uidrawlinecapflat);
+	RING_API_REGISTER("get_uidrawlinecapround",ring_get_uidrawlinecapround);
+	RING_API_REGISTER("get_uidrawlinecapsquare",ring_get_uidrawlinecapsquare);
+	RING_API_REGISTER("get_uidrawlinejoinmiter",ring_get_uidrawlinejoinmiter);
+	RING_API_REGISTER("get_uidrawlinejoinround",ring_get_uidrawlinejoinround);
+	RING_API_REGISTER("get_uidrawlinejoinbevel",ring_get_uidrawlinejoinbevel);
+	RING_API_REGISTER("get_uidrawfillmodewinding",ring_get_uidrawfillmodewinding);
+	RING_API_REGISTER("get_uidrawfillmodealternate",ring_get_uidrawfillmodealternate);
+	RING_API_REGISTER("get_uiattributetypefamily",ring_get_uiattributetypefamily);
+	RING_API_REGISTER("get_uiattributetypesize",ring_get_uiattributetypesize);
+	RING_API_REGISTER("get_uiattributetypeweight",ring_get_uiattributetypeweight);
+	RING_API_REGISTER("get_uiattributetypeitalic",ring_get_uiattributetypeitalic);
+	RING_API_REGISTER("get_uiattributetypestretch",ring_get_uiattributetypestretch);
+	RING_API_REGISTER("get_uiattributetypecolor",ring_get_uiattributetypecolor);
+	RING_API_REGISTER("get_uiattributetypebackground",ring_get_uiattributetypebackground);
+	RING_API_REGISTER("get_uiattributetypeunderline",ring_get_uiattributetypeunderline);
+	RING_API_REGISTER("get_uiattributetypeunderlinecolor",ring_get_uiattributetypeunderlinecolor);
+	RING_API_REGISTER("get_uiattributetypefeatures",ring_get_uiattributetypefeatures);
+	RING_API_REGISTER("get_uitextweightminimum",ring_get_uitextweightminimum);
+	RING_API_REGISTER("get_uitextweightthin",ring_get_uitextweightthin);
+	RING_API_REGISTER("get_uitextweightultralight",ring_get_uitextweightultralight);
+	RING_API_REGISTER("get_uitextweightlight",ring_get_uitextweightlight);
+	RING_API_REGISTER("get_uitextweightbook",ring_get_uitextweightbook);
+	RING_API_REGISTER("get_uitextweightnormal",ring_get_uitextweightnormal);
+	RING_API_REGISTER("get_uitextweightmedium",ring_get_uitextweightmedium);
+	RING_API_REGISTER("get_uitextweightsemibold",ring_get_uitextweightsemibold);
+	RING_API_REGISTER("get_uitextweightbold",ring_get_uitextweightbold);
+	RING_API_REGISTER("get_uitextweightultrabold",ring_get_uitextweightultrabold);
+	RING_API_REGISTER("get_uitextweightheavy",ring_get_uitextweightheavy);
+	RING_API_REGISTER("get_uitextweightultraheavy",ring_get_uitextweightultraheavy);
+	RING_API_REGISTER("get_uitextweightmaximum",ring_get_uitextweightmaximum);
+	RING_API_REGISTER("get_uitextstretchultracondensed",ring_get_uitextstretchultracondensed);
+	RING_API_REGISTER("get_uitextstretchextracondensed",ring_get_uitextstretchextracondensed);
+	RING_API_REGISTER("get_uitextstretchcondensed",ring_get_uitextstretchcondensed);
+	RING_API_REGISTER("get_uitextstretchsemicondensed",ring_get_uitextstretchsemicondensed);
+	RING_API_REGISTER("get_uitextstretchnormal",ring_get_uitextstretchnormal);
+	RING_API_REGISTER("get_uitextstretchsemiexpanded",ring_get_uitextstretchsemiexpanded);
+	RING_API_REGISTER("get_uitextstretchexpanded",ring_get_uitextstretchexpanded);
+	RING_API_REGISTER("get_uitextstretchextraexpanded",ring_get_uitextstretchextraexpanded);
+	RING_API_REGISTER("get_uitextstretchultraexpanded",ring_get_uitextstretchultraexpanded);
+	RING_API_REGISTER("get_uitextitalicnormal",ring_get_uitextitalicnormal);
+	RING_API_REGISTER("get_uitextitalicoblique",ring_get_uitextitalicoblique);
+	RING_API_REGISTER("get_uitextitalicitalic",ring_get_uitextitalicitalic);
+	RING_API_REGISTER("get_uiunderlinenone",ring_get_uiunderlinenone);
+	RING_API_REGISTER("get_uiunderlinesingle",ring_get_uiunderlinesingle);
+	RING_API_REGISTER("get_uiunderlinedouble",ring_get_uiunderlinedouble);
+	RING_API_REGISTER("get_uiunderlinesuggestion",ring_get_uiunderlinesuggestion);
+	RING_API_REGISTER("get_uiunderlinecolorcustom",ring_get_uiunderlinecolorcustom);
+	RING_API_REGISTER("get_uiunderlinecolorspelling",ring_get_uiunderlinecolorspelling);
+	RING_API_REGISTER("get_uiunderlinecolorgrammar",ring_get_uiunderlinecolorgrammar);
+	RING_API_REGISTER("get_uiunderlinecolorauxiliary",ring_get_uiunderlinecolorauxiliary);
+	RING_API_REGISTER("get_uidrawtextalignleft",ring_get_uidrawtextalignleft);
+	RING_API_REGISTER("get_uidrawtextaligncenter",ring_get_uidrawtextaligncenter);
+	RING_API_REGISTER("get_uidrawtextalignright",ring_get_uidrawtextalignright);
+	RING_API_REGISTER("get_uimodifierctrl",ring_get_uimodifierctrl);
+	RING_API_REGISTER("get_uimodifieralt",ring_get_uimodifieralt);
+	RING_API_REGISTER("get_uimodifiershift",ring_get_uimodifiershift);
+	RING_API_REGISTER("get_uimodifiersuper",ring_get_uimodifiersuper);
+	RING_API_REGISTER("get_uiextkeyescape",ring_get_uiextkeyescape);
+	RING_API_REGISTER("get_uiextkeyinsert",ring_get_uiextkeyinsert);
+	RING_API_REGISTER("get_uiextkeydelete",ring_get_uiextkeydelete);
+	RING_API_REGISTER("get_uiextkeyhome",ring_get_uiextkeyhome);
+	RING_API_REGISTER("get_uiextkeyend",ring_get_uiextkeyend);
+	RING_API_REGISTER("get_uiextkeypageup",ring_get_uiextkeypageup);
+	RING_API_REGISTER("get_uiextkeypagedown",ring_get_uiextkeypagedown);
+	RING_API_REGISTER("get_uiextkeyup",ring_get_uiextkeyup);
+	RING_API_REGISTER("get_uiextkeydown",ring_get_uiextkeydown);
+	RING_API_REGISTER("get_uiextkeyleft",ring_get_uiextkeyleft);
+	RING_API_REGISTER("get_uiextkeyright",ring_get_uiextkeyright);
+	RING_API_REGISTER("get_uiextkeyf1",ring_get_uiextkeyf1);
+	RING_API_REGISTER("get_uiextkeyf2",ring_get_uiextkeyf2);
+	RING_API_REGISTER("get_uiextkeyf3",ring_get_uiextkeyf3);
+	RING_API_REGISTER("get_uiextkeyf4",ring_get_uiextkeyf4);
+	RING_API_REGISTER("get_uiextkeyf5",ring_get_uiextkeyf5);
+	RING_API_REGISTER("get_uiextkeyf6",ring_get_uiextkeyf6);
+	RING_API_REGISTER("get_uiextkeyf7",ring_get_uiextkeyf7);
+	RING_API_REGISTER("get_uiextkeyf8",ring_get_uiextkeyf8);
+	RING_API_REGISTER("get_uiextkeyf9",ring_get_uiextkeyf9);
+	RING_API_REGISTER("get_uiextkeyf10",ring_get_uiextkeyf10);
+	RING_API_REGISTER("get_uiextkeyf11",ring_get_uiextkeyf11);
+	RING_API_REGISTER("get_uiextkeyf12",ring_get_uiextkeyf12);
+	RING_API_REGISTER("get_uiextkeyn0",ring_get_uiextkeyn0);
+	RING_API_REGISTER("get_uiextkeyn1",ring_get_uiextkeyn1);
+	RING_API_REGISTER("get_uiextkeyn2",ring_get_uiextkeyn2);
+	RING_API_REGISTER("get_uiextkeyn3",ring_get_uiextkeyn3);
+	RING_API_REGISTER("get_uiextkeyn4",ring_get_uiextkeyn4);
+	RING_API_REGISTER("get_uiextkeyn5",ring_get_uiextkeyn5);
+	RING_API_REGISTER("get_uiextkeyn6",ring_get_uiextkeyn6);
+	RING_API_REGISTER("get_uiextkeyn7",ring_get_uiextkeyn7);
+	RING_API_REGISTER("get_uiextkeyn8",ring_get_uiextkeyn8);
+	RING_API_REGISTER("get_uiextkeyn9",ring_get_uiextkeyn9);
+	RING_API_REGISTER("get_uiextkeyndot",ring_get_uiextkeyndot);
+	RING_API_REGISTER("get_uiextkeynenter",ring_get_uiextkeynenter);
+	RING_API_REGISTER("get_uiextkeynadd",ring_get_uiextkeynadd);
+	RING_API_REGISTER("get_uiextkeynsubtract",ring_get_uiextkeynsubtract);
+	RING_API_REGISTER("get_uiextkeynmultiply",ring_get_uiextkeynmultiply);
+	RING_API_REGISTER("get_uiextkeyndivide",ring_get_uiextkeyndivide);
+	RING_API_REGISTER("get_uialignfill",ring_get_uialignfill);
+	RING_API_REGISTER("get_uialignstart",ring_get_uialignstart);
+	RING_API_REGISTER("get_uialigncenter",ring_get_uialigncenter);
+	RING_API_REGISTER("get_uialignend",ring_get_uialignend);
+	RING_API_REGISTER("get_uiatleading",ring_get_uiatleading);
+	RING_API_REGISTER("get_uiattop",ring_get_uiattop);
+	RING_API_REGISTER("get_uiattrailing",ring_get_uiattrailing);
+	RING_API_REGISTER("get_uiatbottom",ring_get_uiatbottom);
+	RING_API_REGISTER("get_uitablevaluetypestring",ring_get_uitablevaluetypestring);
+	RING_API_REGISTER("get_uitablevaluetypeimage",ring_get_uitablevaluetypeimage);
+	RING_API_REGISTER("get_uitablevaluetypeint",ring_get_uitablevaluetypeint);
+	RING_API_REGISTER("get_uitablevaluetypecolor",ring_get_uitablevaluetypecolor);
+	RING_API_REGISTER("new_uiinitoptions",ring_new_uiinitoptions);
+	RING_API_REGISTER("new_managed_uiinitoptions",ring_new_managed_uiinitoptions);
+	RING_API_REGISTER("destroy_uiinitoptions",ring_destroy_uiinitoptions);
+	RING_API_REGISTER("new_uicontrol",ring_new_uicontrol);
+	RING_API_REGISTER("new_managed_uicontrol",ring_new_managed_uicontrol);
+	RING_API_REGISTER("destroy_uicontrol",ring_destroy_uicontrol);
+	RING_API_REGISTER("get_uicontrol_signature",ring_get_uicontrol_Signature);
+	RING_API_REGISTER("set_uicontrol_signature",ring_set_uicontrol_Signature);
+	RING_API_REGISTER("get_uicontrol_ossignature",ring_get_uicontrol_OSSignature);
+	RING_API_REGISTER("set_uicontrol_ossignature",ring_set_uicontrol_OSSignature);
+	RING_API_REGISTER("get_uicontrol_typesignature",ring_get_uicontrol_TypeSignature);
+	RING_API_REGISTER("set_uicontrol_typesignature",ring_set_uicontrol_TypeSignature);
+	RING_API_REGISTER("new_uiareadrawparams",ring_new_uiareadrawparams);
+	RING_API_REGISTER("new_managed_uiareadrawparams",ring_new_managed_uiareadrawparams);
+	RING_API_REGISTER("destroy_uiareadrawparams",ring_destroy_uiareadrawparams);
+	RING_API_REGISTER("get_uiareadrawparams_context",ring_get_uiareadrawparams_Context);
+	RING_API_REGISTER("set_uiareadrawparams_context",ring_set_uiareadrawparams_Context);
+	RING_API_REGISTER("get_uiareadrawparams_areawidth",ring_get_uiareadrawparams_AreaWidth);
+	RING_API_REGISTER("set_uiareadrawparams_areawidth",ring_set_uiareadrawparams_AreaWidth);
+	RING_API_REGISTER("get_uiareadrawparams_areaheight",ring_get_uiareadrawparams_AreaHeight);
+	RING_API_REGISTER("set_uiareadrawparams_areaheight",ring_set_uiareadrawparams_AreaHeight);
+	RING_API_REGISTER("get_uiareadrawparams_clipx",ring_get_uiareadrawparams_ClipX);
+	RING_API_REGISTER("set_uiareadrawparams_clipx",ring_set_uiareadrawparams_ClipX);
+	RING_API_REGISTER("get_uiareadrawparams_clipy",ring_get_uiareadrawparams_ClipY);
+	RING_API_REGISTER("set_uiareadrawparams_clipy",ring_set_uiareadrawparams_ClipY);
+	RING_API_REGISTER("get_uiareadrawparams_clipwidth",ring_get_uiareadrawparams_ClipWidth);
+	RING_API_REGISTER("set_uiareadrawparams_clipwidth",ring_set_uiareadrawparams_ClipWidth);
+	RING_API_REGISTER("get_uiareadrawparams_clipheight",ring_get_uiareadrawparams_ClipHeight);
+	RING_API_REGISTER("set_uiareadrawparams_clipheight",ring_set_uiareadrawparams_ClipHeight);
+	RING_API_REGISTER("new_uidrawmatrix",ring_new_uidrawmatrix);
+	RING_API_REGISTER("new_managed_uidrawmatrix",ring_new_managed_uidrawmatrix);
+	RING_API_REGISTER("destroy_uidrawmatrix",ring_destroy_uidrawmatrix);
+	RING_API_REGISTER("get_uidrawmatrix_m11",ring_get_uidrawmatrix_M11);
+	RING_API_REGISTER("set_uidrawmatrix_m11",ring_set_uidrawmatrix_M11);
+	RING_API_REGISTER("get_uidrawmatrix_m12",ring_get_uidrawmatrix_M12);
+	RING_API_REGISTER("set_uidrawmatrix_m12",ring_set_uidrawmatrix_M12);
+	RING_API_REGISTER("get_uidrawmatrix_m21",ring_get_uidrawmatrix_M21);
+	RING_API_REGISTER("set_uidrawmatrix_m21",ring_set_uidrawmatrix_M21);
+	RING_API_REGISTER("get_uidrawmatrix_m22",ring_get_uidrawmatrix_M22);
+	RING_API_REGISTER("set_uidrawmatrix_m22",ring_set_uidrawmatrix_M22);
+	RING_API_REGISTER("get_uidrawmatrix_m31",ring_get_uidrawmatrix_M31);
+	RING_API_REGISTER("set_uidrawmatrix_m31",ring_set_uidrawmatrix_M31);
+	RING_API_REGISTER("get_uidrawmatrix_m32",ring_get_uidrawmatrix_M32);
+	RING_API_REGISTER("set_uidrawmatrix_m32",ring_set_uidrawmatrix_M32);
+	RING_API_REGISTER("new_uitabletextcolumnoptionalparams",ring_new_uitabletextcolumnoptionalparams);
+	RING_API_REGISTER("new_managed_uitabletextcolumnoptionalparams",ring_new_managed_uitabletextcolumnoptionalparams);
+	RING_API_REGISTER("destroy_uitabletextcolumnoptionalparams",ring_destroy_uitabletextcolumnoptionalparams);
+	RING_API_REGISTER("get_uitabletextcolumnoptionalparams_colormodelcolumn",ring_get_uitabletextcolumnoptionalparams_ColorModelColumn);
+	RING_API_REGISTER("set_uitabletextcolumnoptionalparams_colormodelcolumn",ring_set_uitabletextcolumnoptionalparams_ColorModelColumn);
+	RING_API_REGISTER("new_uidrawbrush",ring_new_uidrawbrush);
+	RING_API_REGISTER("new_managed_uidrawbrush",ring_new_managed_uidrawbrush);
+	RING_API_REGISTER("destroy_uidrawbrush",ring_destroy_uidrawbrush);
+	RING_API_REGISTER("get_uidrawbrush_type",ring_get_uidrawbrush_Type);
+	RING_API_REGISTER("set_uidrawbrush_type",ring_set_uidrawbrush_Type);
+	RING_API_REGISTER("get_uidrawbrush_r",ring_get_uidrawbrush_R);
+	RING_API_REGISTER("set_uidrawbrush_r",ring_set_uidrawbrush_R);
+	RING_API_REGISTER("get_uidrawbrush_g",ring_get_uidrawbrush_G);
+	RING_API_REGISTER("set_uidrawbrush_g",ring_set_uidrawbrush_G);
+	RING_API_REGISTER("get_uidrawbrush_b",ring_get_uidrawbrush_B);
+	RING_API_REGISTER("set_uidrawbrush_b",ring_set_uidrawbrush_B);
+	RING_API_REGISTER("get_uidrawbrush_a",ring_get_uidrawbrush_A);
+	RING_API_REGISTER("set_uidrawbrush_a",ring_set_uidrawbrush_A);
+	RING_API_REGISTER("get_uidrawbrush_x0",ring_get_uidrawbrush_X0);
+	RING_API_REGISTER("set_uidrawbrush_x0",ring_set_uidrawbrush_X0);
+	RING_API_REGISTER("get_uidrawbrush_y0",ring_get_uidrawbrush_Y0);
+	RING_API_REGISTER("set_uidrawbrush_y0",ring_set_uidrawbrush_Y0);
+	RING_API_REGISTER("get_uidrawbrush_x1",ring_get_uidrawbrush_X1);
+	RING_API_REGISTER("set_uidrawbrush_x1",ring_set_uidrawbrush_X1);
+	RING_API_REGISTER("get_uidrawbrush_y1",ring_get_uidrawbrush_Y1);
+	RING_API_REGISTER("set_uidrawbrush_y1",ring_set_uidrawbrush_Y1);
+	RING_API_REGISTER("get_uidrawbrush_outerradius",ring_get_uidrawbrush_OuterRadius);
+	RING_API_REGISTER("set_uidrawbrush_outerradius",ring_set_uidrawbrush_OuterRadius);
+	RING_API_REGISTER("get_uidrawbrush_numstops",ring_get_uidrawbrush_NumStops);
+	RING_API_REGISTER("set_uidrawbrush_numstops",ring_set_uidrawbrush_NumStops);
+	RING_API_REGISTER("new_uidrawbrushgradientstop",ring_new_uidrawbrushgradientstop);
+	RING_API_REGISTER("new_managed_uidrawbrushgradientstop",ring_new_managed_uidrawbrushgradientstop);
+	RING_API_REGISTER("destroy_uidrawbrushgradientstop",ring_destroy_uidrawbrushgradientstop);
+	RING_API_REGISTER("get_uidrawbrushgradientstop_pos",ring_get_uidrawbrushgradientstop_Pos);
+	RING_API_REGISTER("set_uidrawbrushgradientstop_pos",ring_set_uidrawbrushgradientstop_Pos);
+	RING_API_REGISTER("get_uidrawbrushgradientstop_r",ring_get_uidrawbrushgradientstop_R);
+	RING_API_REGISTER("set_uidrawbrushgradientstop_r",ring_set_uidrawbrushgradientstop_R);
+	RING_API_REGISTER("get_uidrawbrushgradientstop_g",ring_get_uidrawbrushgradientstop_G);
+	RING_API_REGISTER("set_uidrawbrushgradientstop_g",ring_set_uidrawbrushgradientstop_G);
+	RING_API_REGISTER("get_uidrawbrushgradientstop_b",ring_get_uidrawbrushgradientstop_B);
+	RING_API_REGISTER("set_uidrawbrushgradientstop_b",ring_set_uidrawbrushgradientstop_B);
+	RING_API_REGISTER("get_uidrawbrushgradientstop_a",ring_get_uidrawbrushgradientstop_A);
+	RING_API_REGISTER("set_uidrawbrushgradientstop_a",ring_set_uidrawbrushgradientstop_A);
+	RING_API_REGISTER("new_uidrawstrokeparams",ring_new_uidrawstrokeparams);
+	RING_API_REGISTER("new_managed_uidrawstrokeparams",ring_new_managed_uidrawstrokeparams);
+	RING_API_REGISTER("destroy_uidrawstrokeparams",ring_destroy_uidrawstrokeparams);
+	RING_API_REGISTER("get_uidrawstrokeparams_cap",ring_get_uidrawstrokeparams_Cap);
+	RING_API_REGISTER("set_uidrawstrokeparams_cap",ring_set_uidrawstrokeparams_Cap);
+	RING_API_REGISTER("get_uidrawstrokeparams_join",ring_get_uidrawstrokeparams_Join);
+	RING_API_REGISTER("set_uidrawstrokeparams_join",ring_set_uidrawstrokeparams_Join);
+	RING_API_REGISTER("get_uidrawstrokeparams_thickness",ring_get_uidrawstrokeparams_Thickness);
+	RING_API_REGISTER("set_uidrawstrokeparams_thickness",ring_set_uidrawstrokeparams_Thickness);
+	RING_API_REGISTER("get_uidrawstrokeparams_miterlimit",ring_get_uidrawstrokeparams_MiterLimit);
+	RING_API_REGISTER("set_uidrawstrokeparams_miterlimit",ring_set_uidrawstrokeparams_MiterLimit);
+	RING_API_REGISTER("get_uidrawstrokeparams_numdashes",ring_get_uidrawstrokeparams_NumDashes);
+	RING_API_REGISTER("set_uidrawstrokeparams_numdashes",ring_set_uidrawstrokeparams_NumDashes);
+	RING_API_REGISTER("get_uidrawstrokeparams_dashphase",ring_get_uidrawstrokeparams_DashPhase);
+	RING_API_REGISTER("set_uidrawstrokeparams_dashphase",ring_set_uidrawstrokeparams_DashPhase);
+	RING_API_REGISTER("new_uitablemodelhandler",ring_new_uitablemodelhandler);
+	RING_API_REGISTER("new_managed_uitablemodelhandler",ring_new_managed_uitablemodelhandler);
+	RING_API_REGISTER("destroy_uitablemodelhandler",ring_destroy_uitablemodelhandler);
+	RING_API_REGISTER("new_uiareakeyevent",ring_new_uiareakeyevent);
+	RING_API_REGISTER("new_managed_uiareakeyevent",ring_new_managed_uiareakeyevent);
+	RING_API_REGISTER("destroy_uiareakeyevent",ring_destroy_uiareakeyevent);
+	RING_API_REGISTER("get_uiareakeyevent_key",ring_get_uiareakeyevent_Key);
+	RING_API_REGISTER("set_uiareakeyevent_key",ring_set_uiareakeyevent_Key);
+	RING_API_REGISTER("get_uiareakeyevent_extkey",ring_get_uiareakeyevent_ExtKey);
+	RING_API_REGISTER("set_uiareakeyevent_extkey",ring_set_uiareakeyevent_ExtKey);
+	RING_API_REGISTER("get_uiareakeyevent_modifier",ring_get_uiareakeyevent_Modifier);
+	RING_API_REGISTER("set_uiareakeyevent_modifier",ring_set_uiareakeyevent_Modifier);
+	RING_API_REGISTER("get_uiareakeyevent_modifiers",ring_get_uiareakeyevent_Modifiers);
+	RING_API_REGISTER("set_uiareakeyevent_modifiers",ring_set_uiareakeyevent_Modifiers);
+	RING_API_REGISTER("get_uiareakeyevent_up",ring_get_uiareakeyevent_Up);
+	RING_API_REGISTER("set_uiareakeyevent_up",ring_set_uiareakeyevent_Up);
+	RING_API_REGISTER("new_uitableparams",ring_new_uitableparams);
+	RING_API_REGISTER("new_managed_uitableparams",ring_new_managed_uitableparams);
+	RING_API_REGISTER("destroy_uitableparams",ring_destroy_uitableparams);
+	RING_API_REGISTER("get_uitableparams_model",ring_get_uitableparams_Model);
+	RING_API_REGISTER("set_uitableparams_model",ring_set_uitableparams_Model);
+	RING_API_REGISTER("get_uitableparams_rowbackgroundcolormodelcolumn",ring_get_uitableparams_RowBackgroundColorModelColumn);
+	RING_API_REGISTER("set_uitableparams_rowbackgroundcolormodelcolumn",ring_set_uitableparams_RowBackgroundColorModelColumn);
+	RING_API_REGISTER("new_uiareamouseevent",ring_new_uiareamouseevent);
+	RING_API_REGISTER("new_managed_uiareamouseevent",ring_new_managed_uiareamouseevent);
+	RING_API_REGISTER("destroy_uiareamouseevent",ring_destroy_uiareamouseevent);
+	RING_API_REGISTER("get_uiareamouseevent_x",ring_get_uiareamouseevent_X);
+	RING_API_REGISTER("set_uiareamouseevent_x",ring_set_uiareamouseevent_X);
+	RING_API_REGISTER("get_uiareamouseevent_y",ring_get_uiareamouseevent_Y);
+	RING_API_REGISTER("set_uiareamouseevent_y",ring_set_uiareamouseevent_Y);
+	RING_API_REGISTER("get_uiareamouseevent_areawidth",ring_get_uiareamouseevent_AreaWidth);
+	RING_API_REGISTER("set_uiareamouseevent_areawidth",ring_set_uiareamouseevent_AreaWidth);
+	RING_API_REGISTER("get_uiareamouseevent_areaheight",ring_get_uiareamouseevent_AreaHeight);
+	RING_API_REGISTER("set_uiareamouseevent_areaheight",ring_set_uiareamouseevent_AreaHeight);
+	RING_API_REGISTER("get_uiareamouseevent_down",ring_get_uiareamouseevent_Down);
+	RING_API_REGISTER("set_uiareamouseevent_down",ring_set_uiareamouseevent_Down);
+	RING_API_REGISTER("get_uiareamouseevent_up",ring_get_uiareamouseevent_Up);
+	RING_API_REGISTER("set_uiareamouseevent_up",ring_set_uiareamouseevent_Up);
+	RING_API_REGISTER("get_uiareamouseevent_count",ring_get_uiareamouseevent_Count);
+	RING_API_REGISTER("set_uiareamouseevent_count",ring_set_uiareamouseevent_Count);
+	RING_API_REGISTER("get_uiareamouseevent_modifiers",ring_get_uiareamouseevent_Modifiers);
+	RING_API_REGISTER("set_uiareamouseevent_modifiers",ring_set_uiareamouseevent_Modifiers);
+	RING_API_REGISTER("get_uiareamouseevent_held1to64",ring_get_uiareamouseevent_Held1To64);
+	RING_API_REGISTER("set_uiareamouseevent_held1to64",ring_set_uiareamouseevent_Held1To64);
+	RING_API_REGISTER("new_uidrawtextlayoutparams",ring_new_uidrawtextlayoutparams);
+	RING_API_REGISTER("new_managed_uidrawtextlayoutparams",ring_new_managed_uidrawtextlayoutparams);
+	RING_API_REGISTER("destroy_uidrawtextlayoutparams",ring_destroy_uidrawtextlayoutparams);
+	RING_API_REGISTER("get_uidrawtextlayoutparams_string",ring_get_uidrawtextlayoutparams_String);
+	RING_API_REGISTER("set_uidrawtextlayoutparams_string",ring_set_uidrawtextlayoutparams_String);
+	RING_API_REGISTER("get_uidrawtextlayoutparams_defaultfont",ring_get_uidrawtextlayoutparams_DefaultFont);
+	RING_API_REGISTER("set_uidrawtextlayoutparams_defaultfont",ring_set_uidrawtextlayoutparams_DefaultFont);
+	RING_API_REGISTER("get_uidrawtextlayoutparams_width",ring_get_uidrawtextlayoutparams_Width);
+	RING_API_REGISTER("set_uidrawtextlayoutparams_width",ring_set_uidrawtextlayoutparams_Width);
+	RING_API_REGISTER("get_uidrawtextlayoutparams_align",ring_get_uidrawtextlayoutparams_Align);
+	RING_API_REGISTER("set_uidrawtextlayoutparams_align",ring_set_uidrawtextlayoutparams_Align);
+	RING_API_REGISTER("new_uifontdescriptor",ring_new_uifontdescriptor);
+	RING_API_REGISTER("new_managed_uifontdescriptor",ring_new_managed_uifontdescriptor);
+	RING_API_REGISTER("destroy_uifontdescriptor",ring_destroy_uifontdescriptor);
+	RING_API_REGISTER("get_uifontdescriptor_family",ring_get_uifontdescriptor_Family);
+	RING_API_REGISTER("set_uifontdescriptor_family",ring_set_uifontdescriptor_Family);
+	RING_API_REGISTER("get_uifontdescriptor_size",ring_get_uifontdescriptor_Size);
+	RING_API_REGISTER("set_uifontdescriptor_size",ring_set_uifontdescriptor_Size);
+	RING_API_REGISTER("get_uifontdescriptor_weight",ring_get_uifontdescriptor_Weight);
+	RING_API_REGISTER("set_uifontdescriptor_weight",ring_set_uifontdescriptor_Weight);
+	RING_API_REGISTER("get_uifontdescriptor_italic",ring_get_uifontdescriptor_Italic);
+	RING_API_REGISTER("set_uifontdescriptor_italic",ring_set_uifontdescriptor_Italic);
+	RING_API_REGISTER("get_uifontdescriptor_stretch",ring_get_uifontdescriptor_Stretch);
+	RING_API_REGISTER("set_uifontdescriptor_stretch",ring_set_uifontdescriptor_Stretch);
 }

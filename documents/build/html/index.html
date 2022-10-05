@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to Ring’s documentation! &mdash; Ring 1.16 documentation</title>
+  <title>Welcome to Ring’s documentation! &mdash; Ring 1.18 documentation</title>
   
 
   
@@ -152,6 +152,10 @@
 <li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csvlib.html">CSVLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jsonlib.html">JSONLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="httplib.html">HTTPLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenslib.html">TokensLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="socket.html">Using RingSockets</a></li>
@@ -193,6 +197,8 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew14.html">Release Notes: Version 1.14</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew15.html">Release Notes: Version 1.15</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew17.html">Release Notes: Version 1.17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew18.html">Release Notes: Version 1.18</a></li>
 <li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
@@ -337,6 +343,11 @@
 <li class="toctree-l2"><a class="reference internal" href="getting_started3.html#getting-input">Getting Input</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting_started3.html#no-explicit-end-for-statements">No Explicit End For Statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting_started3.html#writing-comments">Writing Comments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started3.html#puts-function">Puts() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started3.html#print-function">Print() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started3.html#print2str-function">Print2Str() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started3.html#getstring-function">GetString() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started3.html#getnumber-function">GetNumber() function</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a><ul>
@@ -554,6 +565,7 @@
 <li class="toctree-l2"><a class="reference internal" href="files.html#fexists-function">Fexists() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="files.html#direxists-function">Direxists() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="files.html#getpathtype-function">Getpathtype() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#getfilesize-function">Getfilesize() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="files.html#example">Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="files.html#numbers-and-bytes">Numbers and Bytes</a></li>
 </ul>
@@ -668,11 +680,34 @@
 <li class="toctree-l2"><a class="reference internal" href="secfunc.html#sha512-function">SHA512() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="secfunc.html#sha384-function">SHA384() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="secfunc.html#sha224-function">SHA224() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#supportedciphers-function">SupportedCiphers() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="secfunc.html#encrypt-function">Encrypt() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="secfunc.html#decrypt-function">Decrypt() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="secfunc.html#encryption-and-decryption-example">Encryption and Decryption Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="secfunc.html#file-hash">File Hash</a></li>
 <li class="toctree-l2"><a class="reference internal" href="secfunc.html#randbytes-function">Randbytes() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#rsa-generate-function">rsa_generate() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#rsa-export-params-function">rsa_export_params() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#rsa-import-params-function">rsa_import_params() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#rsa-export-pem-function">rsa_export_pem() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#rsa-import-pem-function">rsa_import_pem() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#rsa-is-privatekey-function">rsa_is_privatekey() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#rsa-encrypt-pkcs-function">rsa_encrypt_pkcs() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#rsa-decrypt-pkcs-function">rsa_decrypt_pkcs() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#rsa-encrypt-oaep-function">rsa_encrypt_oaep() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#rsa-decrypt-oaep-function">rsa_decrypt_oaep() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#rsa-encrypt-raw-function">rsa_encrypt_raw() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#rsa-decrypt-raw-function">rsa_decrypt_raw() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#rsa-sign-pkcs-function">rsa_sign_pkcs() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#rsa-signhash-pkcs-function">rsa_signhash_pkcs() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#rsa-verify-pkcs-function">rsa_verify_pkcs() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#rsa-verifyhash-pkcs-function">rsa_verifyhash_pkcs() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#rsa-sign-pss-function">rsa_sign_pss() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#rsa-signhash-pss-function">rsa_signhash_pss() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#rsa-verify-pss-function">rsa_verify_pss() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#rsa-verifyhash-pss-function">rsa_verifyhash_pss() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#openssl-versiontext-function">openssl_versiontext() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="secfunc.html#openssl-version-function">openssl_version() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="secfunc.html#large-files-hash">Large Files Hash</a></li>
 <li class="toctree-l2"><a class="reference internal" href="secfunc.html#download-function">Download() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="secfunc.html#sendemail-function">SendEmail() Function</a></li>
@@ -805,7 +840,10 @@
 <li class="toctree-l2"><a class="reference internal" href="syntaxflexibility.html#using-case-as-on-in-switch-statements">Using ‘case’ as ‘on’ in switch statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="syntaxflexibility.html#using-def-as-func-in-functions-methods-definition">Using ‘def’ as ‘func’ in functions/methods definition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="syntaxflexibility.html#using-braces-in-packages-classes-functions">Using braces { } in Packages/Classes/Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="syntaxflexibility.html#using-break-continue-keywords">Using ‘break’/’continue’ keywords</a></li>
 <li class="toctree-l2"><a class="reference internal" href="syntaxflexibility.html#using-end-keyword-after-packages-classes-functions">Using ‘end’ keyword after Packages/Classes/Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="syntaxflexibility.html#using-function-endfunction-keywords">Using ‘function’/’endfunction’ keywords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="syntaxflexibility.html#using-endif-endfor-endwhile-endswitch-endtry-keywords">Using ‘endif’/’endfor’/’endwhile’/’endswitch’/’endtry’ keywords</a></li>
 <li class="toctree-l2"><a class="reference internal" href="syntaxflexibility.html#using-endpackage-endclass-endfunc-keywords-after-packages-classes-functions">Using ‘endpackage’/’endclass’/’endfunc’ keywords after Packages/Classes/Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="syntaxflexibility.html#ignore-new-lines-after-keywords">Ignore new lines after keywords</a></li>
 </ul>
@@ -840,11 +878,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="stdlib.html#puts-function">Puts() function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stdlib.html#print-function">Print() function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stdlib.html#print2str-function">Print2Str() Function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stdlib.html#getstring-function">GetString() function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="stdlib.html#getnumber-function">GetNumber() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stdlib.html#isappcompiled-function">IsAppCompiled() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stdlib.html#apparguments-function">AppArguments() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stdlib.html#apppath-function">AppPath() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stdlib.html#justfilepath-function">JustFilePath() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stdlib.html#justfilename-function">JustFileName() function</a></li>
@@ -907,6 +942,7 @@
 <li class="toctree-l2"><a class="reference internal" href="stdlib.html#timeinfo">TimeInfo()</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stdlib.html#randomlist">RandomList()</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stdlib.html#randomitem">RandomItem()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stdlib.html#checkequality">CheckEquality()</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a><ul>
@@ -995,6 +1031,7 @@
 <li class="toctree-l2"><a class="reference internal" href="qt.html#the-difference-between-qt-and-ringqt">The Difference between Qt and RingQt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qt.html#ringqt-classes-and-their-qt-documentation">RingQt Classes and their Qt Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qt.html#new-classes-names-index-start-from-1">New Classes names - Index Start from 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qt.html#tablewidget-addlist-method">TableWidget - AddList() Method</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qt.html#creating-reports-using-the-weblib-and-the-guilib">Creating Reports using the WebLib and the GUILib</a></li>
 </ul>
 </li>
@@ -1039,6 +1076,8 @@
 <li class="toctree-l2"><a class="reference internal" href="ringqtobjects.html#example">Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ringqtobjects.html#openwindowandlink-function">openWindowAndLink() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ringqtobjects.html#openwindowinpackages-function">openWindowInPackages() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ringqtobjects.html#using-objectid-and-getwindowbyid">Using ObjectID() and GetWindowByID()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ringqtobjects.html#using-objectid-and-openwindowandlink">Using ObjectID() and OpenWindowAndLink()</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ringqtobjects.html#objects-library-source-code">Objects Library Source Code</a></li>
 </ul>
 </li>
@@ -1050,7 +1089,6 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="qtmobile.html#download-requirements">Download Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="qtmobile.html#update-the-android-sdk">Update the Android SDK</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qtmobile.html#install-qt-for-android">Install Qt for Android</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qtmobile.html#using-ring2exe">Using Ring2EXE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qtmobile.html#the-qt-project-for-your-ring-application">The Qt project for your Ring application</a></li>
@@ -1351,6 +1389,42 @@
 <li class="toctree-l2"><a class="reference internal" href="bignumber.html#bignumber-functions">BigNumber Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bignumber.html#bignumber-class">BigNumber Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bignumber.html#library-source-code">Library Source Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="csvlib.html">CSVLib Functions Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="csvlib.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvlib.html#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="csvlib.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jsonlib.html">JSONLib Functions Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jsonlib.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jsonlib.html#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jsonlib.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="httplib.html">HTTPLib Functions Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="httplib.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httplib.html#server-class-methods">Server Class Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httplib.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httplib.html#samples">Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httplib.html#printing-constants">Printing Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httplib.html#using-http-get">Using HTTP GET</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httplib.html#using-weblib">Using WebLib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httplib.html#using-http-post">Using HTTP Post</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httplib.html#more-samples">More Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httplib.html#using-cookies">Using Cookies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httplib.html#uploading-files">Uploading Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httplib.html#using-templates">Using Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httplib.html#regular-expressions">Regular Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="httplib.html#stop-the-server">Stop the Server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tokenslib.html">TokensLib Functions Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tokenslib.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tokenslib.html#ringtokens-class">RingTokens Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tokenslib.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tokenslib.html#constants">Constants</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a><ul>
@@ -1760,6 +1834,7 @@
 <li class="toctree-l2"><a class="reference internal" href="qtclassesdoc.html#qstring2-class">QString2 Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qtclassesdoc.html#qstringlist-class">QStringList Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qtclassesdoc.html#qstringref-class">QStringRef Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qtclassesdoc.html#qstyle-class">QStyle Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qtclassesdoc.html#qsurfaceformat-class">QSurfaceFormat Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qtclassesdoc.html#qsystemtrayicon-class">QSystemTrayIcon Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qtclassesdoc.html#qtabbar-class">QTabBar Class</a></li>
@@ -1827,7 +1902,7 @@
 <li class="toctree-l2"><a class="reference internal" href="qtclassesdoc.html#qwebenginepage-class">QWebEnginePage Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qtclassesdoc.html#qwebengineview-class">QWebEngineView Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qtclassesdoc.html#qwebview-class">QWebView Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="qtclassesdoc.html#index-354">QWebView Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qtclassesdoc.html#index-355">QWebView Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qtclassesdoc.html#qwidget-class">QWidget Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qtclassesdoc.html#qwindow-class">QWindow Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="qtclassesdoc.html#qxylegendmarker-class">QXYLegendMarker Class</a></li>
@@ -1878,6 +1953,7 @@
 <li class="toctree-l2"><a class="reference internal" href="lowlevel.html#example-the-trace-library">Example - The Trace Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lowlevel.html#ringvm-see-function">ringvm_see() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lowlevel.html#ringvm-give-function">ringvm_give() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lowlevel.html#ringvm-codelist-function">ringvm_codelist() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lowlevel.html#ringvm-info-function">ringvm_info() function</a></li>
 </ul>
 </li>
@@ -1914,6 +1990,7 @@
 <li class="toctree-l2"><a class="reference internal" href="extension.html#mysql-columns-function-implementation">MySQL_Columns() Function Implementation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="extension.html#dynamic-shared-libraries-dll-so-dylib-and-loadlib-function">Dynamic/Shared Libraries (DLL/So/Dylib) and LoadLib() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="extension.html#using-ring-api-retmanagedcpointer">Using RING_API_RETMANAGEDCPOINTER()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension.html#memory-functions">Memory Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a><ul>
@@ -2237,12 +2314,46 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="whatisnew16.html#list-of-changes-and-new-features">List of changes and new features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="whatisnew16.html#light-guilib">Light GUILib</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whatisnew16.html#better-load-command">Better Load Command</a></li>
-<li class="toctree-l2"><a class="reference internal" href="whatisnew16.html#nested-methods-call-in-separate-lines">Nested methods call in separate lines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew16.html#utf-8-file-names-in-microsoft-windows">UTF-8 File Names in Microsoft Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew16.html#nested-methods-call-in-separate-lines">Nested Methods Call in Separate Lines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew16.html#code-runner-extension-support-ring">Code Runner Extension support Ring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew16.html#zero-and-strings">Zero and Strings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="whatisnew16.html#better-installation-scripts">Better Installation Scripts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="whatisnew16.html#better-documentation">Better Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="whatisnew16.html#mdi-windows-sample">MDI Windows Sample</a></li>
 <li class="toctree-l2"><a class="reference internal" href="whatisnew16.html#more-improvements">More Improvements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew17.html">Release Notes: Version 1.17</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew17.html#list-of-changes-and-new-features">List of changes and new features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew17.html#merge-two-files">Merge Two Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew17.html#poetry-analysis">Poetry Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew17.html#citations-prediction">Citations Prediction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew17.html#tokenslib-library">TokensLib Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew17.html#csvlib-library">CSVLib Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew17.html#jsonlib-library">JSONLib Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew17.html#httplib-library">HTTPLib Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew17.html#better-guilib">Better GUILib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew17.html#better-ringopenssl">Better RingOpenSSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew17.html#better-ringwinapi">Better RingWinAPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew17.html#better-syntax-flexibility">Better Syntax Flexibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew17.html#better-i-o-functions">Better I/O Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew17.html#better-ring-api">Better Ring API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew17.html#better-code-generator-for-extensions">Better Code Generator for Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew17.html#more-improvements">More Improvements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew18.html">Release Notes: Version 1.18</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew18.html#list-of-changes-and-new-features">List of changes and new features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew18.html#read-files-application">Read Files application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew18.html#random-user-application">Random User application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew18.html#better-citations-prediction-application">Better Citations Prediction application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew18.html#ring-for-ms-dos">Ring for MS-DOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew18.html#better-ringsockets">Better RingSockets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew18.html#heroku-better-support">Heroku (Better support)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew18.html#better-weblib">Better WebLib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew18.html#better-documentation">Better Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatisnew18.html#more-improvements">More Improvements</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a><ul>
@@ -2374,7 +2485,7 @@
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2016-2021, Ring Team
+        &copy; Copyright 2016-2022, Ring Team
 
     </p>
   </div>

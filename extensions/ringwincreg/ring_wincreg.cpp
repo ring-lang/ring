@@ -12,52 +12,59 @@ extern "C" {
 
 extern "C" {
 
-RING_API void ringlib_init ( RingState *pRingState )
+RING_LIBINIT
 {
-	ring_vm_funcregister("cregopenkey",ring_vm_creg_cregopenkey);
-	ring_vm_funcregister("cregclosekey",ring_vm_creg_cregclosekey);
-	ring_vm_funcregister("cregdeletekey",ring_vm_creg_cregdeletekey);
-	ring_vm_funcregister("cregkeyexists",ring_vm_creg_cregkeyexists);
-	ring_vm_funcregister("cregsubkeyexists",ring_vm_creg_cregsubkeyexists);
-	ring_vm_funcregister("cregsetflags",ring_vm_creg_cregsetflags);
-	ring_vm_funcregister("cregentriescount",ring_vm_creg_cregentriescount);
-	ring_vm_funcregister("creggetflags",ring_vm_creg_creggetflags);
-	ring_vm_funcregister("cregaccess64tree",ring_vm_creg_cregaccess64tree);
-	ring_vm_funcregister("cregisvirtualized",ring_vm_creg_cregisvirtualized);
-	ring_vm_funcregister("cregsubkeyscount",ring_vm_creg_cregsubkeyscount);
-	ring_vm_funcregister("creggetsubkeyat",ring_vm_creg_creggetsubkeyat);
-	ring_vm_funcregister("cregrefresh",ring_vm_creg_cregrefresh);
-	ring_vm_funcregister("creggetat",ring_vm_creg_creggetat);
-	ring_vm_funcregister("creggetname",ring_vm_creg_creggetname);
-	ring_vm_funcregister("cregcopy",ring_vm_creg_cregcopy);
-	ring_vm_funcregister("cregrename",ring_vm_creg_cregrename);
-	ring_vm_funcregister("cregsetvalue",ring_vm_creg_cregsetvalue);
-	ring_vm_funcregister("creggetvalue",ring_vm_creg_creggetvalue);
-	ring_vm_funcregister("cregdelete",ring_vm_creg_cregdelete);
-	ring_vm_funcregister("cregsetmulti",ring_vm_creg_cregsetmulti);
-	ring_vm_funcregister("cregmultiremoveat",ring_vm_creg_cregmultiremoveat);
-	ring_vm_funcregister("cregmultisetat",ring_vm_creg_cregmultisetat);
-	ring_vm_funcregister("cregmultiadd",ring_vm_creg_cregmultiadd);
-	ring_vm_funcregister("cregmultigetat",ring_vm_creg_cregmultigetat);
-	ring_vm_funcregister("cregmulticount",ring_vm_creg_cregmulticount);
-	ring_vm_funcregister("cregmulticlear",ring_vm_creg_cregmulticlear);
-	ring_vm_funcregister("creggetexpandsz",ring_vm_creg_creggetexpandsz);
-	ring_vm_funcregister("cregsetexpandsz",ring_vm_creg_cregsetexpandsz);
-	ring_vm_funcregister("creggetexpandedsz",ring_vm_creg_creggetexpandedsz);
-	ring_vm_funcregister("cregsetqword",ring_vm_creg_cregsetqword);
-	ring_vm_funcregister("creggetqword",ring_vm_creg_creggetqword);
-	ring_vm_funcregister("creggetbinary",ring_vm_creg_creggetbinary);
-	ring_vm_funcregister("cregsetbinary",ring_vm_creg_cregsetbinary);
-	ring_vm_funcregister("cregbinarylength",ring_vm_creg_cregbinarylength);
-	ring_vm_funcregister("cregisstring",ring_vm_creg_cregisstring);
-	ring_vm_funcregister("cregisdword",ring_vm_creg_cregisdword);
-	ring_vm_funcregister("cregismultistring",ring_vm_creg_cregismultistring);
-	ring_vm_funcregister("cregisbinary",ring_vm_creg_cregisbinary);
-	ring_vm_funcregister("cregisexpandsz",ring_vm_creg_cregisexpandsz);
-	ring_vm_funcregister("cregisqword",ring_vm_creg_cregisqword);
-	ring_vm_funcregister("cregexists",ring_vm_creg_cregexists);
-	ring_vm_funcregister("cregtype",ring_vm_creg_cregtype);
+	RING_API_REGISTER("cregopenkey",ring_vm_creg_cregopenkey);
+	RING_API_REGISTER("cregclosekey",ring_vm_creg_cregclosekey);
+	RING_API_REGISTER("cregdeletekey",ring_vm_creg_cregdeletekey);
+	RING_API_REGISTER("cregkeyexists",ring_vm_creg_cregkeyexists);
+	RING_API_REGISTER("cregsubkeyexists",ring_vm_creg_cregsubkeyexists);
+	RING_API_REGISTER("cregsetflags",ring_vm_creg_cregsetflags);
+	RING_API_REGISTER("cregentriescount",ring_vm_creg_cregentriescount);
+	RING_API_REGISTER("creggetflags",ring_vm_creg_creggetflags);
+	RING_API_REGISTER("cregaccess64tree",ring_vm_creg_cregaccess64tree);
+	RING_API_REGISTER("cregisvirtualized",ring_vm_creg_cregisvirtualized);
+	RING_API_REGISTER("cregsubkeyscount",ring_vm_creg_cregsubkeyscount);
+	RING_API_REGISTER("creggetsubkeyat",ring_vm_creg_creggetsubkeyat);
+	RING_API_REGISTER("cregrefresh",ring_vm_creg_cregrefresh);
+	RING_API_REGISTER("creggetat",ring_vm_creg_creggetat);
+	RING_API_REGISTER("creggetname",ring_vm_creg_creggetname);
+	RING_API_REGISTER("cregcopy",ring_vm_creg_cregcopy);
+	RING_API_REGISTER("cregrename",ring_vm_creg_cregrename);
+	RING_API_REGISTER("cregsetvalue",ring_vm_creg_cregsetvalue);
+	RING_API_REGISTER("creggetvalue",ring_vm_creg_creggetvalue);
+	RING_API_REGISTER("cregdelete",ring_vm_creg_cregdelete);
+	RING_API_REGISTER("cregsetmulti",ring_vm_creg_cregsetmulti);
+	RING_API_REGISTER("cregmultiremoveat",ring_vm_creg_cregmultiremoveat);
+	RING_API_REGISTER("cregmultisetat",ring_vm_creg_cregmultisetat);
+	RING_API_REGISTER("cregmultiadd",ring_vm_creg_cregmultiadd);
+	RING_API_REGISTER("cregmultigetat",ring_vm_creg_cregmultigetat);
+	RING_API_REGISTER("cregmulticount",ring_vm_creg_cregmulticount);
+	RING_API_REGISTER("cregmulticlear",ring_vm_creg_cregmulticlear);
+	RING_API_REGISTER("creggetexpandsz",ring_vm_creg_creggetexpandsz);
+	RING_API_REGISTER("cregsetexpandsz",ring_vm_creg_cregsetexpandsz);
+	RING_API_REGISTER("creggetexpandedsz",ring_vm_creg_creggetexpandedsz);
+	RING_API_REGISTER("cregsetqword",ring_vm_creg_cregsetqword);
+	RING_API_REGISTER("creggetqword",ring_vm_creg_creggetqword);
+	RING_API_REGISTER("creggetbinary",ring_vm_creg_creggetbinary);
+	RING_API_REGISTER("cregsetbinary",ring_vm_creg_cregsetbinary);
+	RING_API_REGISTER("cregbinarylength",ring_vm_creg_cregbinarylength);
+	RING_API_REGISTER("cregisstring",ring_vm_creg_cregisstring);
+	RING_API_REGISTER("cregisdword",ring_vm_creg_cregisdword);
+	RING_API_REGISTER("cregismultistring",ring_vm_creg_cregismultistring);
+	RING_API_REGISTER("cregisbinary",ring_vm_creg_cregisbinary);
+	RING_API_REGISTER("cregisexpandsz",ring_vm_creg_cregisexpandsz);
+	RING_API_REGISTER("cregisqword",ring_vm_creg_cregisqword);
+	RING_API_REGISTER("cregexists",ring_vm_creg_cregexists);
+	RING_API_REGISTER("cregtype",ring_vm_creg_cregtype);
 	
+}
+
+static void ring_vm_creg_cregfree(void* pRingState, void* pPointer)
+{
+	CRegistry* pCR;
+	pCR = (CRegistry*)pPointer;
+	delete pCR;
 }
 
 // CRegistry cregopenkey ( RootHkey index /*like HKEY_CURRENT_USER*/ , string keyname , \optional int flags, \optional boolean access64tree )
@@ -129,7 +136,7 @@ void ring_vm_creg_cregopenkey(void *pPointer){
 	}
 	lResult = pCR->Open(RING_API_GETSTRING(2), hkey);
 	if ( lResult == ERROR_SUCCESS ) {
-		RING_API_RETCPOINTER(pCR, "CRegistry");
+		RING_API_RETMANAGEDCPOINTER(pCR, "CRegistry", ring_vm_creg_cregfree);
 		return;
 	} else {
 		TCHAR msgBuf[200];

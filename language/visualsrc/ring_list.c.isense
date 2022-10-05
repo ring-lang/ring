@@ -54,7 +54,7 @@ pItems,*pItemsLast
 ring_list_delete_gc
 ring_list_copy_gc
 Type: int
-x
+x,nMax
 Type: List *
 pNewList2
 ring_list_print

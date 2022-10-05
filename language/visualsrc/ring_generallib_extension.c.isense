@@ -1,4 +1,5 @@
 ring_generallib_extension_h
+C_EXPRCODESIZE
 ring_vm_generallib_loadfunctions
 ring_vm_generallib_len
 Type: VM *
@@ -259,9 +260,13 @@ ring_vm_generallib_pointer2string
 ring_vm_generallib_setpointer
 Type: List *
 pList
+Type: RING_UNSIGNEDINTEGERPOINTER
+nNum
 ring_vm_generallib_getpointer
 Type: List *
 pList
+Type: RING_UNSIGNEDINTEGERPOINTER
+nNum
 ring_vm_generallib_memcpy
 Type: void *
 dest
@@ -345,6 +350,38 @@ ring_vm_generallib_give
 Type: int
 x
 cLine
+ring_vm_generallib_print
+Type: List *
+pList
+Type: char
+cStr[100]
+Type: VM *
+pVM
+ring_vm_generallib_print2str
+ring_vm_generallib_puts
+Type: List *
+pList
+Type: char
+cStr[100]
+Type: VM *
+pVM
+ring_vm_generallib_getnumber
+Type: int
+x
+cLine
+Type: double
+nNum
+ring_vm_generallib_customprint
+cStr
+Type: int
+x,nSize,nPos
+cCode
+Type: char *
+cString
+Type: String *
+pRingCode
+Type: VM *
+pVM
 ring_vm_generallib_checkoverflow
-ring_vm_generallib_addsublistsbymove
-ring_vm_generallib_addsublistsbyfastcopy
+ring_vm_generallib_bymoveaddsublists
+ring_vm_generallib_byfastcopyaddsublists

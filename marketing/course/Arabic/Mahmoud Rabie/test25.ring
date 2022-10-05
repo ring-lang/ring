@@ -6,7 +6,7 @@
 */
 
 #===============================================================
-cString = "welcome to the Ring programing language (ring)"
+cString = "welcome to the Ring programming language (ring)"
 
 ? cString
 
@@ -14,4 +14,4 @@ cString = "welcome to the Ring programing language (ring)"
 ? substr(cString,"Ring")
 ? substr(cString,"Ring","***Ring***")
          
-      ? substr(cString,"Ring","***Ring***",True)
+? substr(cString,"Ring","***Ring***",True)

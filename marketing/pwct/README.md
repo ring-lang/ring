@@ -3,10 +3,13 @@ Programming Without Coding Technology (PWCT) 2.0
 
 * Posted: 30 April 2021
 
-* Date last Updated: 30 June 2021
+* Date last Updated: 24 July 2022
 
 # Contents:
 
+- [Publications](#publications)
+- [Videos](#videos)
+- [The Release Date](#the-release-date)
 - [Introduction](#introduction)
 - [The First Generation](#the-first-generation)
   - [The Concept of the First Generation](#the-concept-of-the-first-generation)
@@ -21,8 +24,28 @@ Programming Without Coding Technology (PWCT) 2.0
     - [Inserting Steps](#inserting-steps)
     - [Auto-Complete](#auto-complete)
     - [Web and Mobile versions](#web-and-mobile-versions)
+    - [Dark Theme](#dark-theme)
+    - [Better Documentation](#better-documentation)
     - [Translation (Arabic Version)](#translation-arabic-version)
-  - [The Release Date](#the-release-date)
+
+## Publications
+
+* Fayed et al., PWCT: a novel general-purpose visual programming language in support of pervasive application development, CCF Transactions on Pervasive Computing and Interaction, 2020
+* Fayed et al., PWCT: visual language for IoT and cloud computing applications and systems, ACM, 2017
+
+## Videos
+
+* [Introduction to PWCT 2.0](https://cdn.akamai.steamstatic.com/steam/apps/256883333/movie_max_vp9.webm?t=1657472871)
+* [Templates & AutoRun](https://cdn.akamai.steamstatic.com/steam/apps/256893582/movie_max_vp9.webm?t=1656153375)
+* [Web Development](https://cdn.akamai.steamstatic.com/steam/apps/256883763/movie_max_vp9.webm?t=1657473295)
+
+## The Release Date
+
+Since we already have the first generation of the product (PWCT 1.9) 
+
+We decided that in the second generation we will focus on the quality and accept the high costs (Development Time).
+
+[Check the website](https://store.steampowered.com/app/1953110/Programming_Without_Coding_Technology/)
 
 # Introduction 
 
@@ -87,7 +110,7 @@ At that time, the advantages were very clear
 
 * The same component could generate different steps based on the data that we enter through data-entry forms 
 
-This design was enough to attract a few thouands of developers until 2009
+This design was enough to attract a few thousands of developers until 2009
 
 from 2009 to 2013, We improved the system with the next features 
 
@@ -125,7 +148,7 @@ Using the Time Machine slider, we can move to the past and run the program befor
 
 The previous screen shots uses PWCT 2.0 but, the same idea is implemented in the first generation of PWCT from 2011 (PWCT 1.8)
 
-These updates were enough to attract hundered thousands of developers to download the product and try it!
+These updates were enough to attract hundred thousands of developers to download the product and try it!
 
 ## The Disadvantages of the First Generation
 
@@ -135,7 +158,7 @@ The concept is very good, that attracted many developers with different backgrou
 
 And Yes! some developers asked about improving the concept itself! (More innovation is required)
 
-1. Some developers reported that using Code Editors is too much flexibile and faster in some situtations 
+1. Some developers reported that using Code Editors is too much flexible and faster in some situations 
 
 2. Slow performance when using large visual source files 
 
@@ -143,7 +166,7 @@ And Yes! some developers asked about improving the concept itself! (More innovat
 
 4. Support importing the source code (Convert source code files to Visual Source Files)
 
-5. Opening many files and quick nagivation
+5. Opening many files and quick navigation
 
 6. Multiplatform support (Windows, Linux & macOS)
 
@@ -173,7 +196,7 @@ Our goal is to provide a more powerful version of the software that satisfy two 
 
 (2) To be a better replacement for Textual Code Editors 
 
-In the first generation we tried to achive the same goals but, we did a lot of mistakes, we 
+In the first generation we tried to achieve the same goals but, we did a lot of mistakes, we 
 learned from them and developed new ideas then we implemented these ideas in PWCT 2.0
 
 I could be brave and say that after PWCT 2.0 development, I don't see any reason to use a Textual Code Editor
@@ -277,7 +300,7 @@ The next screen shot for the Mobile & Web versions
 
 The Web version uses (Qt For WebAssembly) and the Mobile version uses (Qt for Android)
 
-Most software developers uses the Desktop platforms and I belive that this is too much
+Most software developers uses the Desktop platforms and I believe that this is too much
 better and practical. but we added the support to these platforms for two reasons
 
 1- We can easily support them (Thanks to the powerful Ring language & Qt framework)
@@ -295,6 +318,18 @@ Using foldable smartphones and Tablets provide better experience.
 
 ![webandmobile](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/WebAndMobile.png)
 
+### Dark Theme
+
+PWCT 2.0 comes with many themes include the Dark Theme.
+
+![dark](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/darktheme.png)
+
+### Better Documentation
+
+In this version we invested more time to think about how the developers are going to learn the product and how we can help in improving this experience
+
+So one of the nice things that comes with PWCT 2.0 is the improved documentation that comes in many formats (HTML, CHM & PDF)
+
 ### Translation (Arabic Version)
 
 One of the advantages of using Visual Programming and GUI over textual code editors is the easy translation of these User Interfaces to other natural languages.
@@ -302,18 +337,4 @@ One of the advantages of using Visual Programming and GUI over textual code edit
 PWCT 2.0 will comes with an Arabic version, other languages could be added in the future.
 
 ![arabicversion](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/Arabic.jpg)
-
-## The Release Date
-
-Since we already have the first generation of the product (PWCT 1.9) we decided that in
-the second generation we will focus on the quality and accept the high costs (Development Time).
-
-Until now the product is usable and a lot of useful ideas are implemented and we are happy with
-the product, It's too much better than the first generation but, we are going to invest 
-more time to provide many useful resources around the software.
-
-Once we have a fixed release date we will update this document.
-
-The more we are investing our time in the development of this product, the more we save
-your time when you use it.
 

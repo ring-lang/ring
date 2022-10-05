@@ -1,11 +1,10 @@
-2
-1
-20
-30
-1
-20
-30
-good
-good
-good
-nice
+1.22000
+1.50000
+1.22000
+
+x: 10.22000
+mylist: [This Attribute Contains A List]
+
+1.20000
+1.40000
+

@@ -50,5 +50,5 @@ aLibrary = [:name = :qt ,
 		      " libqt5webkit5-dev libqt5serialport5-dev qtconnectivity5-dev libqt5opengl5-dev qtdeclarative5-dev qtpositioning5-dev",
 	 :fedoradep = "qt5-qtbase-devel qt5-qtmultimedia-devel "+
 		      "qt5-qtwebkit-devel qt5-qtserialport-devel qt5-qtconnectivity-devel qt5-qtdeclarative-devel qt5-qtlocation-devel",
-	 :macosxdep = "qt"
+	 :macosxdep = "qt@5"
 	]

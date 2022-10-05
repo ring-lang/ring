@@ -1,5 +1,4 @@
 /*
-
    	Application    :variables (Numbers)
    	author         :Mahmoud Rabie 
 	Date           :2017/12/11  
@@ -10,7 +9,7 @@
 	
 	mynumber  	= 1	 	# int 
 
-	mynumber2 	= 1.25		# float |doule
+	mynumber2 	= 1.25		# float | double
 
 #Logical (True | False) 
 
@@ -25,4 +24,3 @@
 ? mynumber2
 ? mynumber3
 ? mynumber4
-

@@ -1,10 +1,12 @@
-# load,print,getstring
 /*
-application       : using stdlib
-auther            : Hany Ibrahim Ahmed
-Date              : 17/12/2017
+ * Application       : Using stdlib
+ * Author            : Hany Ibrahim Ahmed
+ * Date              : 17/12/2017
 */
+
+# load, print, getstring
+
 load "stdlib.ring"
-print ("hello, worled \n welcom to my first App")
-name=getstring()
+print ("Hello, world \n Welcome to my first Application")
+name = getstring()
 print("hello #{name}")

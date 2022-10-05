@@ -11,9 +11,9 @@
 load "odbclib.ring"
 
 # connect/disconnect
-# Execute query (Sql)
+# Execute query (SQL)
 # Transaction (Commit)
-# save / restore binary data (imgs)
+# save / restore binary data (images)
 
 oodbc = odbc_init()
 ? odbc_drivers(oodbc)

@@ -10,7 +10,7 @@
 
 aList = [
 	:name 		= "Ahmed Mohamed",
-	:jop 		= "Developer",
+	:job 		= "Developer",
 	:country	= "Egypt"
 ]
 
@@ -20,13 +20,9 @@ aList = [
 aList = [
 
 	["name" 	, "Ahmed Mohamed"],
-	["jop" 		, "Developer"],
+	["job" 		, "Developer"],
 	["country"	, "Egypt"]
 ]
 
 
 ? aList
-
-
-
-

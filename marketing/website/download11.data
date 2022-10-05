@@ -2,17 +2,17 @@ aDownload = [
 		["Ring 1.1 All Platforms",[
 						 [
 							'Ring 1.1 (All Platforms)',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.1/Fayed_Ring_1.1_All_Platforms.zip/download" target="_blank">Download</a>',
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.1/Fayed_Ring_1.1_All_Platforms.zip">Download</a>',
 							'<img src="ring11.jpg" width="40%">'
 						 ],
 						 [
 							'Ring 1.1 Documentation (PDF)',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.1/Fayed_RingDoc_1.1.pdf/download" target="_blank">Download</a>',
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.1/Fayed_RingDoc_1.1.pdf">Download</a>',
 							'<img src="book3.jpg" width="40%">'
 						 ],
 						 [
 							'Ring 1.1 Documentation (CHM)',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.1/Fayed_RingDoc_1.1.chm/download" target="_blank">Download</a>',
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.1/Fayed_RingDoc_1.1.chm">Download</a>',
 							'<img src="book4.jpg" width="40%">'
 						 ]
 			]

@@ -134,7 +134,7 @@ func musicHandler
 		UpdateMusicStream(music)
 	ok
 
-# Function to check if the user prees R key to restart the game
+# Function to check if the user press R key to restart the game
 func listenForRestart
 	DrawText("PRESS R TO RESTART", screenWidth / 2 - 130, 60, 25, GRAY)
 

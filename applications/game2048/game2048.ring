@@ -3,8 +3,8 @@
 # Author : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
-load "stdlib.ring"
-load "guilib.ring"
+load "stdlibcore.ring"
+load "lightguilib.ring"
 
 C_GAMETITLE		= '2048 Game'
 C_WINDOWBACKGROUND 	= "background-color: gray;"
@@ -57,15 +57,15 @@ app = new qApp {
           StyleFusion()
           processevents()
           win = new qWidget() {
+				  setWinIcon(win,"2048_logo.png")
                   setWindowTitle(C_GAMETITLE)
-                  setgeometry(100,100,600,700)
+                  resize(600,700)
                   setminimumwidth(300)
                   setminimumheight(300)
 		  if not isMobile()
 	                  grabkeyboard()
 		  ok
                   setstylesheet(C_WINDOWBACKGROUND)
-                  move(490,100) 
                   for n = 1 to size
                        for m = 1 to size
                             button[n][m] = new MyButton(win)

@@ -33,5 +33,5 @@ aLibrary = [:name = :lightguilib ,
 	 ],
 	 :ubuntudep = "qt5-default qtbase5-dev",
 	 :fedoradep = "qt5-qtbase-devel",
-	 :macosxdep = "qt"
+	 :macosxdep = "qt@5"
 	]

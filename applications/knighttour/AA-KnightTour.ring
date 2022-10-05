@@ -20,8 +20,8 @@ sizeX  = 800 sizeY	= 820		### Size of Window
 hSize	= 8 +2 +2	### Size of array, Display -4 smaller
 vSize	= 8 +2 +2	### Size of array, Display -4 smaller
 
-h	= 0	### H-coord of Cell
-v	= 0	### V-coord of Cell
+h	= 0	### Horizontal coordinate of Cell
+v	= 0	### Vertical coordinate of Cell
 
 
 ###----------------------------------------------------------
@@ -53,7 +53,7 @@ C_ButtonSecondStyle	= 'border-radius:1px; color:black; background-color: rgb(179
 			  'border-style: outset; border-width: 2px; border-radius: 2px; border-color: darkGray; '
 
 			  
-animationDelay = 0.5	###	 Sleep 1 sec bewteen Computer Moves display
+animationDelay = 0.5	###	 Sleep 1 second between Computer Moves display
 	
 ###=============================================================================
 ###=============================================================================
@@ -78,7 +78,7 @@ app = new qApp
 
 ###---------------------------------------------------------------------------
 ### Layout the Grid Square, Create the Arrays
-### workWidget items need to be made Global. Mke available toother functions
+### workWidget items need to be made Global. Make available to other functions
 
 Func DrawWidget()
 	 
@@ -222,7 +222,7 @@ Func DrawWidget()
 						setSizePolicy(1,1)									
 					}
 					
-				### Widget - Add HORZ BOTTON
+				### Widget - Add HORIZONTAL BUTTON
 					LayoutButtonRow[Row].AddWidget(aButton[Row][Col])	
 			next
 			odd++
@@ -535,7 +535,7 @@ while k <= cbx * cby
 		ok	
 	next	   
 
-	###	 -- Warnsdorff�s algorithmus;	extended
+	###	 -- Warnsdorff’s algorithms;	extended
 	###		Move to the neighbor that has min number of available neighbors
 	###		Randomization:	we could take it - or not
 	
@@ -596,7 +596,7 @@ while k <= cbx * cby
 	
 end ### while
 
-### end pgm	  **************************************
+### end program ************************************
 
 ###-------------------------------------------------
 ### Control output:

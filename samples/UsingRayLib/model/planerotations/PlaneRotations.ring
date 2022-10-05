@@ -123,7 +123,7 @@ while (!WindowShouldClose())    // Detect window close button or ESC key
 
 	ClearBackground(RAYWHITE)
 
-	// Draw framebuffer texture (Ahrs Display)
+	// Draw framebuffer texture (AHRS Display)
 
 	centerX = framebuffer.texture.width  /2
 	centerY = framebuffer.texture.height /2
@@ -151,7 +151,7 @@ while (!WindowShouldClose())    // Detect window close button or ESC key
 	EndTextureMode()
 
 
-	// Draw 3D model (recomended to draw 3D always before 2D)
+	// Draw 3D model (recommended to draw 3D always before 2D)
 	BeginMode3D(camera)
 
 	DrawModel(model, Vector3( 0, 6.0, 0 ), 1.0, WHITE)   // Draw 3d model with texture

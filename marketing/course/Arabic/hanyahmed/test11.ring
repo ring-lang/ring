@@ -1,18 +1,18 @@
-# variables types 
 /*
-*application       : variables numbers
-*auther            : Hany Ibrahim Ahmed
-*Date              : 18/12/2017
+ * Application : variables numbers
+ * Author      : Hany Ibrahim Ahmed
+ * Date        : 18/12/2017
 */
-#variables types (string,number,list,object,c object)
 
-	mynumber1=1		#int
-	mynumber2=1.25		#dubble ,float
-	mynumber3=true		#1
-	mynumber4=false		#0
+# variables types (string, number, list, object, c object)
+
+	mynumber1 = 1		# integer
+	mynumber2 = 1.25	# double, float
+	mynumber3 = true	# boolean - equivalent of 1
+	mynumber4 = false	# boolean - equivalent of 0
 #----------------------------------------------------------
-#display data
-	?mynumber1
-	?mynumber2
-	?mynumber3
-	?mynumber4
+# display data
+	? mynumber1
+	? mynumber2
+	? mynumber3
+	? mynumber4

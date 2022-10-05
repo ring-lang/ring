@@ -3,6 +3,8 @@ C_HEADER = "header.template"   C_FOOTER = "footer.template"
 
 # In the list aPages we define the website templates
 aPages = ["index.template","download.template",
+  	  "download116.template",
+  	  "download115.template",
   	  "download114.template",
   	  "download113.template",
   	  "download112.template",
@@ -23,7 +25,8 @@ aPages = ["index.template","download.template",
 	  "download12.template",	
 	  "download11.template",	
 	  "download1.template",	
-          "news.template","resources.template",
+          "news.template",
+	  "resources.template",
           "team.template"]
 
 # We need aDownload as a Global Variable
