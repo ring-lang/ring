@@ -132,7 +132,7 @@ aAddressScope
 Type: int
 nFuncExecute2
 Type: List *
-aNewByteCodeItems
+pCLibrariesaNewByteCodeItems
 Type: char
 nEvalCalledFromRingCode
 Type: char
@@ -194,7 +194,7 @@ lUsePushPLocal
 Type: char
 lInsideEval
 Type: List *
-pCLibraries
+aNewByteCodeItems
 Type: char
 lNoSetterMethod
 Type: char

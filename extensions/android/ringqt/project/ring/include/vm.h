@@ -72,7 +72,7 @@
         List *aBeforeObjState  ;
         List *aAddressScope  ;
         int nFuncExecute2  ;
-        List *aNewByteCodeItems  ;
+        List *pCLibraries  ;
         char nEvalCalledFromRingCode  ;
         char nDecimals  ;
         char nEvalReallocationFlag  ;
@@ -106,7 +106,6 @@
         char *cFileNameInClassRegion  ;
         char lUsePushPLocal  ;
         char lInsideEval  ;
-        List *pCLibraries  ;
         char lNoSetterMethod  ;
         char lCheckOverFlow  ;
         char lAddSubListsByMove  ;
@@ -364,8 +363,6 @@
     void ring_vm_tobytecode ( VM *pVM,int x ) ;
 
     void ring_vm_error2 ( VM *pVM,const char *cStr,const char *cStr2 ) ;
-
-    void ring_vm_newbytecodeitem ( VM *pVM,int x ) ;
 
     void ring_vm_mainloop ( VM *pVM ) ;
 

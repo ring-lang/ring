@@ -117,8 +117,6 @@ VM * ring_vm_new ( RingState *pRingState )
     pVM->aBeforeObjState = ring_list_new_gc(pVM->pRingState,0) ;
     /* Another flag like nFuncExec but not used by see command or return command */
     pVM->nFuncExecute2 = 0 ;
-    /* Create List for Temp Items (added to ByteCode) inside TempMem */
-    pVM->aNewByteCodeItems = ring_list_new_gc(pVM->pRingState,0);
     /* Eval can be called from C code (OOP Set/Get/Operator Overloading) or from ring code using eval() */
     pVM->nEvalCalledFromRingCode = 0 ;
     /* Number of decimals after the point */
@@ -237,7 +235,6 @@ VM * ring_vm_delete ( VM *pVM )
     pVM->aSetProperty = ring_list_delete_gc(pVM->pRingState,pVM->aSetProperty);
     pVM->aForStep = ring_list_delete_gc(pVM->pRingState,pVM->aForStep);
     pVM->aBeforeObjState = ring_list_delete_gc(pVM->pRingState,pVM->aBeforeObjState);
-    pVM->aNewByteCodeItems = ring_list_delete_gc(pVM->pRingState,pVM->aNewByteCodeItems);
     /* Free Stack */
     for ( x = 0 ; x < RING_VM_STACK_SIZE ; x++ ) {
         ring_item_content_delete(&(pVM->aStack[x]));
@@ -950,14 +947,6 @@ void ring_vm_error2 ( VM *pVM,const char *cStr,const char *cStr2 )
     ring_string_add_gc(pVM->pRingState,pError,cStr2);
     ring_vm_error(pVM,ring_string_get(pError));
     ring_string_delete_gc(pVM->pRingState,pError);
-}
-
-void ring_vm_newbytecodeitem ( VM *pVM,int x )
-{
-    Item *pItem  ;
-    ring_list_addint_gc(pVM->pRingState,pVM->aNewByteCodeItems,0);
-    pItem = ring_list_getitem(pVM->aNewByteCodeItems,ring_list_getsize(pVM->aNewByteCodeItems));
-    RING_VM_IR_ITEM(x) = pItem ;
 }
 
 RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
