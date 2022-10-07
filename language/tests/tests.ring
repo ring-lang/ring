@@ -75,6 +75,7 @@ aTests = [
 	[ :name = "Testing Object Oriented Programming (Part 57)", :Command = "ring objectoriented/oop57.ring" ],
 	[ :name = "Testing Object Oriented Programming (Part 58)", :Command = "ring objectoriented/oop58.ring" ],
 	[ :name = "Testing Object Oriented Programming (Part 59)", :Command = "ring objectoriented/oop59.ring" ],
+	[ :name = "Testing Object Oriented Programming (Part 60)", :Command = "ring objectoriented/oop60.ring" ],
 	[ :name = "Object Attribute Setter (Part 1)", :Command = "ring setter/setter.ring" ],
 	[ :name = "Object Attribute Setter (Part 2)", :Command = "ring setter/setter2.ring" ],
 	[ :name = "Object Attribute Setter (Part 3)", :Command = "ring setter/setter3.ring" ],
@@ -399,6 +400,5 @@ aTests = [
 	[ :name = "General Tests (Part 179)", :Command = "ring general/binequal.ring" ],
 	[ :name = "General Tests (Part 180)", :Command = "ring general/assignmentandisequal.ring" ],
 	[ :name = "General Tests (Part 181)", :Command = "ring general/testprint2.ring" ],
-	[ :name = "General Tests (Part 182)", :Command = "ring general/manypara.ring" ],
-	[ :name = "Testing Object Oriented Programming (Part 60)", :Command = "ring objectoriented/oop60.ring" ]
+	[ :name = "General Tests (Part 182)", :Command = "ring general/manypara.ring" ]
 ]

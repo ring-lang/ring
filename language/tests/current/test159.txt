@@ -1,8 +1,4 @@
 test1
-good
-wow
-NULL
-child
-test1
-pass1
-pass2
+
+Line 7 Error (R26) : Calling private method from outside the class : good 
+in file private/private10.ring 

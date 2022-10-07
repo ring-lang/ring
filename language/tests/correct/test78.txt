@@ -3,6 +3,10 @@ nice
 getter
 setter
 good
+setter
+great
 getter
-2
+setter
+getter
+4
 0

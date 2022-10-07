@@ -1,4 +1,3 @@
-Try ? eval('0+1') - Miss Return command - We expect no output!
+5
+x value = 10
 
-Try ? eval('return 0+1') - We expect 1
-1
