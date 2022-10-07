@@ -10,7 +10,7 @@ app1 = new qapp {
 
         t1 = 0
         temp = ""
-        table = [][]
+        table = []
         movesnr = 0
         button = list(16) 
         begintiles = list(16)
