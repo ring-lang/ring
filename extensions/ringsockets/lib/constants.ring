@@ -39,8 +39,8 @@
     IP_DROP_SOURCE_MEMBERSHIP = get_IP_DROP_SOURCE_MEMBERSHIP()
     IP_HDRINCL          = get_IP_HDRINCL()
     /*
-    IP_MTU              = get_IP_MTU()
-    IP_MTU_DISCOVER     = get_IP_MTU_DISCOVER()
+    # IP_MTU              = get_IP_MTU()
+    # IP_MTU_DISCOVER     = get_IP_MTU_DISCOVER()
     */
     IP_MULTICAST_LOOP   = get_IP_MULTICAST_LOOP()
     IP_MULTICAST_TTL    = get_IP_MULTICAST_TTL()
