@@ -1,0 +1,16 @@
+before
+I'm Happy
+after
+MyClass is good
+before
+Hi
+after
+MyClass2 is good
+before
+I'm Happy
+after
+MyClass is good
+before
+Hi
+after
+MyClass2 is good
