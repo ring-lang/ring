@@ -25,7 +25,7 @@ aLiberty   = list(Size2)    ### 0,1,2,3,4,5
 aDotSquare = list(Size2)    ### Dots Capture = Free, All-Black-Nbor, All-White-Nbor, Mixed-B-W-Nbor
                             ### (Memo: Nbr(s)/nbor means NeighBouR in CalmoSoft's naming convention)
 
-aCheckNeighbour = [][]      ### 2D List  SQ Visit Liberty
+aCheckNeighbour = []        ### 2D List  SQ Visit Liberty
 
 gEscape = 0                 ### gEscape Route = 1 True --- NOT Blocked
 gDelay  = 0.2               ### Sleep Delay
@@ -849,7 +849,7 @@ Func CheckCapture(SqrNbr, lastColor)
     gEscape = 0                                 ### gEscape Route 1 True , NOT Blocked
     CalcLiberty()                               ### Liberties 0..4 calculated
 
-    aCheckNeighbour = [][]                      ### Square Nbr White Visited=1
+    aCheckNeighbour = []                        ### Square Nbr White Visited=1
 
 
     ###------------------------------------------------------
@@ -892,7 +892,7 @@ return Blocked
 
 ###===============================================================
 ### FindNeighbours -- Same Color
-### aCheckNeighbour = [][]  List of SQ Visit,  Liberty
+### aCheckNeighbour = []    List of SQ Visit,  Liberty
 
 Func FindNbor(CurSq, OppColor)
 
@@ -1027,7 +1027,7 @@ return
 ###      - Touches ONLY Black      = BlackTerritory
 ###      - Touches ONLY White      = WhiteTerritory
 ###
-### aCheckNeighbour = [][]         ### 2D
+### aCheckNeighbour = []           ### 2D
 ###         SQ      = aCheckNeighbour[i][1]
 ###         Color   = aCheckNeighbour[i][2]
 ###         Visit   = aCheckNeighbour[i][3]
@@ -1036,7 +1036,7 @@ return
 
 Func CalcTerritory()
     Color = DOT
-    aCheckNeighbour = [][]
+    aCheckNeighbour = []
 
    ###----------------------------
    ### 2nd CalcTer etc -- Remove the Old Captures
@@ -1076,7 +1076,7 @@ Func CalcTerritory()
 
     for ThisSquare = 1 to  Size2
 
-       aCheckNeighbour = [][]
+       aCheckNeighbour = []
 
        RC = CalcRC(ThisSquare)
        //See "CalcTer: FindNbor for ThisSquare: "+ThisSquare +" "+ RC +nl
