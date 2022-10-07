@@ -81,17 +81,19 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
             ring_list_addpointer_gc(pVM->pRingState,pList3,pVM->pNestedLists);
             pVM->nListStart = 0 ;
             pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
-            if ( (strcmp(cStr,"main") != 0 ) && (pVM->nCallMethod != 1) && (y != 2) && (nPerformance == 1) ) {
+            if ( (strcmp(cStr,"main") != 0 ) && (pVM->nCallMethod != 1) && (y != 2) ) {
                 /* We check that we will convert Functions only, not methods */
                 if ( pVM->nInsideBraceFlag == 0 ) {
-                    /* Replace Instruction with ICO_LOADFUNCP for better performance */
-                    RING_VM_IR_OPCODE = ICO_LOADFUNCP ;
-                    /* Leave the first parameter (contains the function name as wanted) */
-                    ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(2),ring_list_getint(pList2,RING_FUNCMAP_PC));
-                    ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(3),RING_FUNCTYPE_SCRIPT);
-                    ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(4),ring_list_getstring(pList2,RING_FUNCMAP_FILENAME));
-                    ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(5),ring_list_getint(pList3,RING_FUNCCL_METHODORFUNC));
-                    ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(6),ring_list_getint(pList3,RING_FUNCCL_LINENUMBER));
+                    if ( nPerformance == 1 ) {
+                        /* Replace Instruction with ICO_LOADFUNCP for better performance */
+                        RING_VM_IR_OPCODE = ICO_LOADFUNCP ;
+                        /* Leave the first parameter (contains the function name as wanted) */
+                        ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(2),ring_list_getint(pList2,RING_FUNCMAP_PC));
+                        ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(3),RING_FUNCTYPE_SCRIPT);
+                        ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(4),ring_list_getstring(pList2,RING_FUNCMAP_FILENAME));
+                        ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(5),ring_list_getint(pList3,RING_FUNCCL_METHODORFUNC));
+                        ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(6),ring_list_getint(pList3,RING_FUNCCL_LINENUMBER));
+                    }
                 }
                 else {
                     /*
