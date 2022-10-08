@@ -577,7 +577,9 @@ void ring_vm_movetoprevscope ( VM *pVM )
 
 void ring_vm_createtemplist ( VM *pVM )
 {
-    List *pList  ;
+    List *pList, *pList2  ;
+    int x,lFound  ;
+    /* Get the Parent List */
     if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
         /*
         **  Create the list in the TempMem related to the function 
@@ -590,6 +592,30 @@ void ring_vm_createtemplist ( VM *pVM )
     else {
         /* We will create the list in the General Temp. Memory */
         pList = pVM->pTempMem ;
+    }
+    /*
+    **  Don't allow more than one temp. list per VM instruction 
+    **  This avoid a memory leak when using code like this:  while true if [] ok end 
+    */
+    lFound = 0 ;
+    for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
+        if ( ring_list_islist(pList,x) ) {
+            pList2 = ring_list_getlist(pList,x) ;
+            if ( ring_list_getsize(pList2) == 2 ) {
+                if ( ring_list_isint(pList2,1) && ring_list_islist(pList2,2) ) {
+                    if ( ring_list_getint(pList2,1) == pVM->nPC ) {
+                        lFound = 1 ;
+                        pList = ring_list_getlist(pList2,2) ;
+                        ring_list_deleteallitems_gc(pVM->pRingState,pList);
+                    }
+                }
+            }
+        }
+    }
+    if ( lFound == 0 ) {
+        pList2 = ring_list_newlist_gc(pVM->pRingState,pList);
+        ring_list_addint_gc(pVM->pRingState,pList2,pVM->nPC);
+        pList = ring_list_newlist_gc(pVM->pRingState,pList2);
     }
     /* Create the variable */
     ring_vm_newtempvar(pVM,RING_TEMP_VARIABLE,pList);
