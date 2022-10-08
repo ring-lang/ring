@@ -588,8 +588,8 @@ void ring_vm_createtemplist ( VM *pVM )
         pList = ring_list_getlist(pList,RING_FUNCCL_TEMPMEM);
     }
     else {
-        /* Create the list in the General Temp. Memory */
-        pList = ring_list_newlist_gc(pVM->pRingState,pVM->pTempMem);
+        /* We will create the list in the General Temp. Memory */
+        pList = pVM->pTempMem ;
     }
     /* Create the variable */
     ring_vm_newtempvar(pVM,RING_TEMP_VARIABLE,pList);
