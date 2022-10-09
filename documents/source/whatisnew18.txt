@@ -174,6 +174,7 @@ More Improvements
 * Ring Functions - Print()/Puts() - Better Code
 * Ring Compiler/VM Source Code - Better File Names
 * Ring Compiler/VM Source Code - Define RING_MSDOS
+* Ring Compiler/VM Source Code - Many structures updated to use unsigned int/char
 * Support building Ring on windows using Tiny C Compiler
 * Ring Compiler - Support unlimited number of function/method parameters
 * Ring VM - Memory Functions - Display the size when the memory allocation fail
