@@ -1372,8 +1372,7 @@ int ring_parser_epsilon ( Parser *pParser )
     if ( ring_parser_isendline(pParser) ) {
         /* Generate Code */
         if ( pParser->pRingState->lNoLineNumber == 0 ) {
-            ring_parser_icg_newoperation(pParser,ICO_NEWLINE);
-            ring_parser_icg_newoperandint(pParser,atoi(pParser->TokenText));
+            ring_parser_icg_newline(pParser,atoi(pParser->TokenText));
         }
         pParser->nLineNumber = atoi(pParser->TokenText) ;
         #if RING_PARSERTRACE

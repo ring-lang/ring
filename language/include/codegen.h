@@ -213,4 +213,6 @@
     void ring_parser_icg_loadaddresstoloadfunction ( Parser *pParser ) ;
 
     void ring_parser_icg_freestack ( Parser *pParser ) ;
+
+    void ring_parser_icg_newline ( Parser *pParser,int nLine ) ;
 #endif

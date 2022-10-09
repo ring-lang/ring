@@ -270,3 +270,9 @@ void ring_parser_icg_freestack ( Parser *pParser )
     }
     ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
 }
+
+void ring_parser_icg_newline ( Parser *pParser,int nLine )
+{
+    ring_parser_icg_newoperation(pParser,ICO_NEWLINE);
+    ring_parser_icg_newoperandint(pParser,nLine);
+}
