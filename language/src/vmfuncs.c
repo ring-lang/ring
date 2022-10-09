@@ -75,7 +75,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
                 ring_list_addint_gc(pVM->pRingState,pList3,1);
             }
             /* Line Number */
-            ring_list_addint_gc(pVM->pRingState,pList3,pVM->nLineNumber);
+            ring_list_addint_gc(pVM->pRingState,pList3,RING_VM_IR_GETLINENUMBER);
             /* Store List information */
             ring_list_addint_gc(pVM->pRingState,pList3,pVM->nListStart);
             ring_list_addpointer_gc(pVM->pRingState,pList3,pVM->pNestedLists);
@@ -150,7 +150,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
         /* Method or Function */
         ring_list_addint_gc(pVM->pRingState,pList2,0);
         /* Line Number */
-        ring_list_addint_gc(pVM->pRingState,pList2,pVM->nLineNumber);
+        ring_list_addint_gc(pVM->pRingState,pList2,RING_VM_IR_GETLINENUMBER);
         /* Store List information */
         ring_list_addint_gc(pVM->pRingState,pList2,pVM->nListStart);
         ring_list_addpointer_gc(pVM->pRingState,pList2,pVM->pNestedLists);

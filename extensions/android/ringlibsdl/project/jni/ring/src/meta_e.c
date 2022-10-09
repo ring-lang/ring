@@ -1133,7 +1133,7 @@ void ring_vm_refmeta_ringvminfo ( void *pPointer )
     ring_list_adddouble_gc(pVM->pRingState, pList, (double) pVM->nPC);
     ring_list_adddouble_gc(pVM->pRingState, pList, (double) pVM->nSP);
     ring_list_adddouble_gc(pVM->pRingState, pList, (double) pVM->nFuncSP);
-    ring_list_adddouble_gc(pVM->pRingState, pList, (double) pVM->nLineNumber);
+    ring_list_adddouble_gc(pVM->pRingState, pList, (double) RING_VM_IR_GETLINENUMBER);
     ring_list_adddouble_gc(pVM->pRingState, pList, (double) pVM->nDecimals);
     ring_list_adddouble_gc(pVM->pRingState, pList, (double) pVM->nActiveError);
     ring_list_addstring(pList,pVM->cFileName);

@@ -346,7 +346,7 @@ void ring_vm_fetch2 ( VM *pVM )
             printf( "\nPC            : %d  " ,pVM->nPC ) ;
             printf( "\nScopes Count  : %d  " ,ring_list_getsize(pVM->pMem) ) ;
             printf( "\nScope Pointer : %p  " ,pVM->pActiveMem ) ;
-            printf( "\nFile Name     : %s \nLine Number   : %d\n" ,pVM->cFileName,pVM->nLineNumber ) ;
+            printf( "\nFile Name     : %s \nLine Number   : %d\n" ,pVM->cFileName,RING_VM_IR_GETLINENUMBER ) ;
             if ( (pVM->nOPCode == ICO_PUSHC) || (pVM->nOPCode == ICO_LOADADDRESS) || (pVM->nOPCode == ICO_LOADFUNC) ) {
                 printf( "Data          : %s \n",RING_VM_IR_READC ) ;
             }
@@ -356,7 +356,7 @@ void ring_vm_fetch2 ( VM *pVM )
     ring_vm_execute(pVM);
     #if RING_VMSHOWOPCODE
         if ( pVM->pRingState->nPrintInstruction ) {
-            printf( "\nSP (After)    : %d  \nFuncSP        : %d \nLineNumber    : %d \n" , (int) pVM->nSP,pVM->nFuncSP,pVM->nLineNumber ) ;
+            printf( "\nSP (After)    : %d  \nFuncSP        : %d \nLineNumber    : %d \n" , (int) pVM->nSP,pVM->nFuncSP,RING_VM_IR_GETLINENUMBER ) ;
         }
     #endif
     if ( pVM->nSP > RING_VM_STACK_CHECKOVERFLOW ) {
@@ -961,7 +961,7 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
     nSP = pVM->nSP ;
     nFuncSP = pVM->nFuncSP ;
     pStackList = ring_vm_savestack(pVM);
-    nLineNumber = pVM->nLineNumber ;
+    nLineNumber = RING_VM_IR_GETLINENUMBER ;
     ring_vm_mutexlock(pVM);
     pVM->nEvalCalledFromRingCode = 1 ;
     /* Take in mind nested events */
@@ -990,7 +990,7 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
     /* Restore Stack to avoid Stack Overflow */
     pVM->nSP = nSP ;
     pVM->nFuncSP = nFuncSP ;
-    pVM->nLineNumber = nLineNumber ;
+    RING_VM_IR_SETLINENUMBER(nLineNumber);
 }
 
 void ring_vm_init ( RingState *pRingState )
@@ -1101,7 +1101,7 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
     /* CGI Support */
     ring_state_cgiheader(pVM->pRingState);
     /* Print the Error Message */
-    printf( "\nLine %d %s \n",pVM->nLineNumber,cStr ) ;
+    printf( "\nLine %d %s \n",RING_VM_IR_GETLINENUMBER,cStr ) ;
     /* Print Calling Information */
     cOldFile = NULL ;
     lFunctionCall = 0 ;
@@ -1478,7 +1478,7 @@ void ring_vm_traceevent ( VM *pVM,char nEvent )
         /* Prepare Trace Data */
         ring_list_deleteallitems_gc(pVM->pRingState,pVM->pTraceData);
         /* Add Line Number */
-        ring_list_adddouble_gc(pVM->pRingState,pVM->pTraceData,pVM->nLineNumber);
+        ring_list_adddouble_gc(pVM->pRingState,pVM->pTraceData,RING_VM_IR_GETLINENUMBER);
         /* Add File Name */
         ring_list_addstring_gc(pVM->pRingState,pVM->pTraceData,pVM->cFileName);
         /* Add Function/Method Name */

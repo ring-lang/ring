@@ -239,7 +239,7 @@ void ring_vm_loadapushv ( VM *pVM )
 
 void ring_vm_newline ( VM *pVM )
 {
-    pVM->nLineNumber = RING_VM_IR_READI ;
+    RING_VM_IR_SETLINENUMBER(RING_VM_IR_READI);
     ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_NEWLINE);
 }
 
