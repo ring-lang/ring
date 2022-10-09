@@ -5,14 +5,14 @@
     typedef struct List {
         struct Items *pFirst  ;
         struct Items *pLast  ;
-        int nSize  ;
-        int nNextItemAfterLastAccess  ;
+        unsigned int nSize  ;
+        unsigned int nNextItemAfterLastAccess  ;
         struct Items *pLastItemLastAccess  ;
         struct Item **pItemsArray  ;
         struct HashTable *pHashTable  ;
         struct Item *pItemBlock  ;
         struct Items *pItemsBlock  ;
-        char lCopyByRef  ;
+        unsigned char lCopyByRef  ;
     } List ;
     /* Constants */
     #define RING_VM_LISTOFOBJS_FINDSTRING 1

@@ -8,7 +8,7 @@
         List *Operators  ;
         List *Tokens  ;
         String *ActiveToken  ;
-        int LinesCount  ;
+        unsigned int LinesCount  ;
         /* Float Identification (0 = Start 1 = Number  2 = Number Dot  3 = Number Dot Number ) */
         char FloatMark  ;
         /* Literal Type "  or ' */
@@ -18,9 +18,9 @@
         /* Ring State */
         RingState *pRingState  ;
         /* Index of Keyword/Operator */
-        int nTokenIndex  ;
+        unsigned int nTokenIndex  ;
         /* Literal Line */
-        int nLiteralLine  ;
+        unsigned int nLiteralLine  ;
     } Scanner ;
     /* Keywords Enum */
     typedef enum SCANNER_KEYWORD {

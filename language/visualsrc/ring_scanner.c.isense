@@ -9,6 +9,7 @@ Type: List *
 Tokens
 Type: String *
 ActiveToken
+Type: unsigned int
 LinesCount
 FloatMark
 Type: char
@@ -17,7 +18,7 @@ Type: char
 cMLComment
 Type: RingState *
 pRingState
-Type: int
+Type: unsigned int
 nTokenIndex
 Type: int
 nLiteralLine

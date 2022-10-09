@@ -4,8 +4,9 @@ Type: struct Items *
 pFirst
 Type: struct Items *
 pLast
+Type: unsigned int
 nSize
-Type: int
+Type: unsigned int
 nNextItemAfterLastAccess
 Type: struct Items *
 pLastItemLastAccess

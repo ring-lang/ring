@@ -1,7 +1,7 @@
 ring_string_h
 Parent: String
 cStr
-nSize
+nSize2
 END:
 Type: String
 struct String

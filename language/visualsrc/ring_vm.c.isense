@@ -21,7 +21,7 @@ Type: ByteCode
 Mark: ->
 ByteCode *
 Parent: VM
-Type: int
+Type: unsigned int
 nPC
 Type: List *
 pCode
@@ -31,7 +31,7 @@ Type: List *
 pClassesMap
 Type: List *
 pPackagesMap
-Type: int
+Type: unsigned int
 nOPCode
 Type: Item
 aStack[RING_VM_STACK_SIZE]
@@ -49,21 +49,21 @@ Type: ByteCode *
 pByteCodeIR
 Type: char *
 cFileName
-Type: int
+Type: unsigned int
 nLineNumber
-Type: int
+Type: unsigned int
 nListStart
 Type: List *
 pNestedLists
-Type: int
+Type: unsigned int
 nBlockFlag
 Type: List *
 aPCBlockFlag
 Type: List *
 pFuncCallList
-Type: int
+Type: unsigned int
 nFuncSP
-Type: int
+Type: unsigned int
 nFuncExecute
 Type: List *
 pCFunctionsList
@@ -71,13 +71,13 @@ Type: List *
 pExitMark
 Type: List *
 pLoopMark
-Type: int
+Type: unsigned int
 nCallMainFunction
 Type: List *
 pTry
 Type: List *
 aScopeNewObj
-Type: char
+Type: unsigned char
 nCallMethod
 Type: List *
 pObjState
@@ -85,29 +85,29 @@ Type: List *
 pBraceObject
 Type: List *
 aBraceObjects
-Type: int
+Type: unsigned int
 nVarScope
-Type: int
+Type: unsigned int
 nScopeID
 Type: List *
 aScopeID
-Type: int
+Type: unsigned int
 nActiveScopeID
-Type: int
+Type: unsigned int
 nActiveCatch
-Type: char
+Type: unsigned char
 nInsideBraceFlag
-Type: char
+Type: unsigned char
 nInClassRegion
 Type: List *
 aActivePackage
-Type: char
+Type: unsigned char
 nPrivateFlag
-Type: char
+Type: unsigned char
 nGetSetProperty
 Type: void *
 pGetSetObject
-Type: char
+Type: unsigned char
 nGetSetObjType
 Type: List *
 aSetProperty
@@ -115,95 +115,93 @@ Type: void *
 pAssignment
 Type: List *
 aForStep
-Type: char
+Type: unsigned char
 nFirstAddress
-Type: char
+Type: unsigned char
 nBeforeEqual
-Type: char
+Type: unsigned char
 nNOAssignment
 Type: RingState *
 pRingState
-Type: int
+Type: unsigned int
 nLoadAddressScope
 Type: List *
 aBeforeObjState
 Type: List *
 aAddressScope
-Type: int
+Type: unsigned int
 nFuncExecute2
 Type: List *
-pCLibrariesaNewByteCodeItems
-Type: char
+pCLibraries
+Type: unsigned char
 nEvalCalledFromRingCode
-Type: char
+Type: unsigned char
 nDecimals
-Type: char
+Type: unsigned char
 nEvalReallocationFlag
-Type: int
+Type: unsigned int
 nEvalReallocationSize
-Type: int
+Type: unsigned int
 nCFuncParaCount
-Type: char
+Type: unsigned char
 nIgnoreNULL
-Type: int
+Type: unsigned int
 nEvalReturnPC
-Type: char
+Type: unsigned char
 nRetItemRef
 Type: void *
 pMutex
-Type: char
+Type: unsigned char
 nIgnoreCPointerTypeCheck
-Type: char
+Type: unsigned char
 nCallClassInit
-Type: char
+Type: unsigned char
 nRetEvalDontDelete
 Type: char *
 cPrevFileName
-Type: char
+Type: unsigned char
 nRunCode
-Type: char
+Type: unsigned char
 nActiveError
 Type: String *
 pPackageName
-Type: char
+Type: unsigned char
 lTrace
 Type: String *
 pTrace
-Type: char
+Type: unsigned char
 lTraceActive
-Type: char
+Type: unsigned char
 nTraceEvent
 Type: List *
 pTraceData
-Type: char
+Type: unsigned char
 nEvalInScope
-Type: char
+Type: unsigned char
 lPassError
-Type: char
+Type: unsigned char
 lHideErrorMsg
 Type: List *
 aGlobalScopes
 Type: List *
 aActiveGlobalScopes
-Type: int
+Type: unsigned int
 nCurrentGlobalScope
 Type: char *
 cFileNameInClassRegion
-Type: char
+Type: unsigned char
 lUsePushPLocal
-Type: char
+Type: unsigned char
 lInsideEval
-Type: List *
-aNewByteCodeItems
-Type: char
+Type: unsigned char
 lNoSetterMethod
-Type: char
+Type: unsigned char
 lCheckOverFlow
-Type: char
+Type: unsigned char
 lAddSubListsByMove
-Type: char
+Type: unsigned char
 lAddSubListsByFastCopy
-Type: char
+Type: unsigned char
 lExitFlag
 END:
 Type: VM
@@ -451,9 +449,6 @@ pByteCode
 ring_vm_error2
 Type: String *
 pError
-ring_vm_newbytecodeitem
-Type: Item *
-pItem
 ring_vm_runcode
 Type: int
 nEvalReturnPC,nEvalReallocationFlag,nPC,nRunVM,nSP,nFuncSP,nLineNumber
