@@ -860,7 +860,6 @@ void ring_vm_tobytecode ( VM *pVM,int x )
     Item *pItem  ;
     pByteCode = pVM->pByteCode + x - 1 ;
     pIR = ring_list_getlist(pVM->pCode,x);
-    pByteCode->nSize = ring_list_getsize(pIR) ;
     /* Check Instruction Size */
     if ( ring_list_getsize(pIR) > RING_VM_BC_ITEMS_COUNT ) {
         printf( RING_LONGINSTRUCTION ) ;
@@ -1286,6 +1285,21 @@ void ring_vm_mainloopforeval ( VM *pVM )
     #endif
     pVM->lInsideEval-- ;
     pVM->nRetEvalDontDelete = nDontDelete ;
+}
+
+int ring_vm_irparacount ( VM *pVM )
+{
+    int x,nCount  ;
+    nCount = 7 ;
+    for ( x = RING_VM_BC_ITEMS_COUNT-1 ; x >= 0 ; x-- ) {
+        if ( pVM->pByteCodeIR->aData[x] == NULL ) {
+            nCount-- ;
+        }
+        else {
+            break ;
+        }
+    }
+    return nCount ;
 }
 /* Threads */
 

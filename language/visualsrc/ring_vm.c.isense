@@ -491,6 +491,9 @@ x
 ring_vm_mainloopforeval
 Type: int
 nDontDelete
+ring_vm_irparacount
+Type: int
+x,nCount
 ring_vm_mutexfunctions
 ring_vm_mutexlock
 ring_vm_mutexunlock
