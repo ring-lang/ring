@@ -2,7 +2,7 @@
 #ifndef ring_vmgcdata
     #define ring_vmgcdata
     typedef struct GCData {
-        int nReferenceCount  ;
+        unsigned short nReferenceCount  ;
         void (*pFreeFunc)(void *,void *) ;
     } GCData ;
 #endif
