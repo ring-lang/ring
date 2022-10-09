@@ -273,6 +273,9 @@ void ring_parser_icg_freestack ( Parser *pParser )
 
 void ring_parser_icg_newline ( Parser *pParser,int nLine )
 {
+    if ( pParser->pRingState->lNoLineNumber != 0 ) {
+        return ;
+    }
     ring_parser_icg_newoperation(pParser,ICO_NEWLINE);
     ring_parser_icg_newoperandint(pParser,nLine);
 }
