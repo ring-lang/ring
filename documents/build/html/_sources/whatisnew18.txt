@@ -177,6 +177,7 @@ More Improvements
 * Ring Compiler/VM Source Code - Many structures updated to use unsigned int/char
 * Support building Ring on windows using Tiny C Compiler
 * Ring Compiler - Support unlimited number of function/method parameters
+* Ring Compiler - Optimization - Prevent repeating ICO_FREESTACK instruction
 * Ring VM - Memory Functions - Display the size when the memory allocation fail
 * Ring VM - Support calling private methods from the class region
 * Ring VM - Better code when loading the VM instructions (Uses less memory)
