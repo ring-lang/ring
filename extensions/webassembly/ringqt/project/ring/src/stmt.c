@@ -342,7 +342,7 @@ int ring_parser_stmt ( Parser *pParser )
             /* Set Active File */
             ring_parser_icg_newoperation(pParser,ICO_FILENAME);
             ring_parser_icg_newoperand(pParser,ring_list_getstring(pParser->pRingState->pRingFilesStack,ring_list_getsize(pParser->pRingState->pRingFilesStack)));
-            ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
+            ring_parser_icg_freestack(pParser);
             ring_parser_nexttoken(pParser);
             return x ;
         }
@@ -396,7 +396,7 @@ int ring_parser_stmt ( Parser *pParser )
         ring_parser_icg_newoperation(pParser,ICO_CALL);
         ring_parser_icg_newoperandint(pParser,0);
         ring_parser_icg_newoperation(pParser,ICO_NOOP);
-        ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
+        ring_parser_icg_freestack(pParser);
         #else
         /*
         **  Generate Code using the See common instructions 
@@ -454,7 +454,7 @@ int ring_parser_stmt ( Parser *pParser )
             ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
             ring_parser_icg_newoperandint(pParser,0);
             ring_parser_icg_newoperandint(pParser,0);
-            ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
+            ring_parser_icg_freestack(pParser);
             #else
             ring_parser_icg_newoperation(pParser,ICO_GIVE);
             #endif
@@ -569,7 +569,7 @@ int ring_parser_stmt ( Parser *pParser )
                                 /* POP Step */
                                 ring_parser_icg_newoperation(pParser,ICO_POPSTEP);
                                 /* Be more sure that (For-Loop) execution doesn't have any effects on the state */
-                                ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
+                                ring_parser_icg_freestack(pParser);
                                 ring_parser_nexttoken(pParser);
                                 #if RING_PARSERTRACE
                                 RING_STATE_CHECKPRINTRULES 
@@ -699,7 +699,7 @@ int ring_parser_stmt ( Parser *pParser )
                             ring_list_deleteallitems(pParser->pForInVars);
                         }
                         /* Be more sure that (For-Loop) execution doesn't have any effects on the state */
-                        ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
+                        ring_parser_icg_freestack(pParser);
                         #if RING_PARSERTRACE
                         RING_STATE_CHECKPRINTRULES 
                         
@@ -1133,7 +1133,7 @@ int ring_parser_stmt ( Parser *pParser )
                     ring_parser_icg_newoperation(pParser,ICO_EQUAL);
                     ring_parser_icg_newoperation(pParser,ICO_JUMPZERO);
                     pMark = ring_parser_icg_getactiveoperation(pParser);
-                    ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
+                    ring_parser_icg_freestack(pParser);
                     #if RING_PARSERTRACE
                     RING_STATE_CHECKPRINTRULES 
                     
@@ -1154,7 +1154,7 @@ int ring_parser_stmt ( Parser *pParser )
                     ring_parser_icg_addoperandint(pParser,pMark,nMark1);
                     pMark = NULL ;
                 }
-                ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
+                ring_parser_icg_freestack(pParser);
                 #if RING_PARSERTRACE
                 RING_STATE_CHECKPRINTRULES 
                 
@@ -1176,7 +1176,7 @@ int ring_parser_stmt ( Parser *pParser )
                     }
                 }
                 ring_list_delete_gc(pParser->pRingState,pList2);
-                ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
+                ring_parser_icg_freestack(pParser);
                 #if RING_PARSERTRACE
                 RING_STATE_CHECKPRINTRULES 
                 
@@ -1237,11 +1237,11 @@ int ring_parser_stmt ( Parser *pParser )
             ring_parser_icg_newoperation(pParser,ICO_CALL);
             ring_parser_icg_newoperation(pParser,ICO_NOOP);
             ring_parser_icg_newoperation(pParser,ICO_PUSHV);
-            ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
+            ring_parser_icg_freestack(pParser);
             nMark1 = ring_parser_icg_newlabel(pParser);
             ring_parser_icg_addoperandint(pParser,pMark,nMark1);
         }
-        ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
+        ring_parser_icg_freestack(pParser);
         return 1 ;
     }
     return 0 ;
@@ -1548,7 +1548,7 @@ int ring_parser_gencallringvmsee ( Parser *pParser )
     ring_parser_icg_newoperation(pParser,ICO_CALL);
     ring_parser_icg_newoperandint(pParser,0);
     ring_parser_icg_newoperation(pParser,ICO_NOOP);
-    ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
+    ring_parser_icg_freestack(pParser);
     return x ;
 }
 

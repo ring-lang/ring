@@ -259,3 +259,8 @@ void ring_parser_icg_loadaddresstoloadfunction ( Parser *pParser )
         ring_parser_icg_newoperandint(pParser,0);
     }
 }
+
+void ring_parser_icg_freestack ( Parser *pParser )
+{
+    ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
+}

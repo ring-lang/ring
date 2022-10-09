@@ -211,4 +211,6 @@
     void ring_parser_icg_loadaddressassignmentpos ( Parser *pParser,List *pLoadAPos,int nPos ) ;
 
     void ring_parser_icg_loadaddresstoloadfunction ( Parser *pParser ) ;
+
+    void ring_parser_icg_freestack ( Parser *pParser ) ;
 #endif
