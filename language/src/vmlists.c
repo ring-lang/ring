@@ -202,6 +202,10 @@ void ring_vm_loadindexaddress ( VM *pVM )
             }
         }
         else if ( RING_VM_STACK_ISSTRING ) {
+            if ( nNum1 < 1 || nNum1 > RING_VM_STACK_STRINGSIZE ) {
+                ring_vm_error(pVM,RING_VM_ERROR_INDEXOUTOFRANGE);
+                return ;
+            }
             cStr2[0] = RING_VM_STACK_READC[((int) nNum1)-1] ;
             cStr2[1] = '\0' ;
             RING_VM_STACK_SETCVALUE2(cStr2,1);
@@ -301,6 +305,17 @@ void ring_vm_listpushv ( VM *pVM )
         RING_VM_STACK_PUSHPVALUE(pItem);
         RING_VM_STACK_OBJTYPE = RING_OBJTYPE_LISTITEM ;
         ring_vm_oop_setbraceobj(pVM, (List *) ring_item_getlist(pItem));
+    }
+    else if ( ring_item_gettype(pItem) == ITEMTYPE_POINTER ) {
+        if ( pVM->nRetItemRef > 0 ) {
+            pVM->nRetItemRef-- ;
+            if ( (ring_vm_isstackpointertoobjstate(pVM) == 1) ) {
+                RING_VM_STACK_SETPVALUE(pItem);
+                RING_VM_STACK_OBJTYPE = RING_OBJTYPE_LISTITEM ;
+                return ;
+            }
+        }
+	RING_VM_STACK_SETCVALUE2(NULL,0);
     }
 }
 
