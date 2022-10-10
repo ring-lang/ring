@@ -31,6 +31,8 @@ pString
 ring_vm_listpushv
 Type: Item *
 pItem
+Type: char
+cPointer[17]
 ring_vm_listassignment
 Type: Item *
 pItem
