@@ -262,12 +262,6 @@ void ring_parser_icg_loadaddresstoloadfunction ( Parser *pParser )
 
 void ring_parser_icg_freestack ( Parser *pParser )
 {
-    /* Prevent repeating the instruction */
-    if ( ring_parser_icg_instructionscount(pParser)  > 0 ) {
-        if ( ring_parser_icg_getlastoperation(pParser) == ICO_FREESTACK ) {
-            return ;
-        }
-    }
     ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
 }
 
