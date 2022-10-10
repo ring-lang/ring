@@ -6,8 +6,9 @@ n1 = 12553523
 ? "Create a pointer to the number"
 ptr = varptr("n1",:int)
 
-? "Print the pointer value"
-? ptr
+? "Check the pointer"
+? "Is pointer : " + ispointer(ptr)
+? "List Size  : " + len(ptr)
 
 ? "Get a string using the pointer"
 cStr = ptr2str(ptr,0,4)
@@ -26,7 +27,7 @@ done
 
 ? "Print each item in pointer list"
 for e in ptr
-	if e = ptr[1]
+	if isString(e) and e = ptr[1]
 		? "We have a pointer here!"
 	else
 		? e 			
