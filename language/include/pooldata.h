@@ -12,7 +12,7 @@
     #endif
     #define RING_TRACKALLOCATIONS 0
     #define RING_POOLMANAGER_ITEMSINBLOCK 2000000
-    #define RING_POOLMANAGER_ITEMSIZE 40
+    #define RING_POOLMANAGER_ITEMSTRINGSIZE 40
     /* Data */
     typedef struct PoolData {
         union PoolDataTypes {
@@ -22,7 +22,7 @@
             List vList  ;
             HashTable vHashTable  ;
             HashItem vHashItem  ;
-            char cChar[RING_POOLMANAGER_ITEMSIZE]  ;
+            char cChar[RING_POOLMANAGER_ITEMSTRINGSIZE]  ;
         } PoolDataTypes ;
         struct PoolData *pNext  ;
     } PoolData ;

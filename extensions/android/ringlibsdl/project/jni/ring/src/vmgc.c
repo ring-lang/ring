@@ -254,7 +254,7 @@ RING_API void * ring_state_malloc ( void *pState,size_t size )
             #if RING_TRACKALLOCATIONS
                 ((RingState *) pState)->vPoolManager.nAllocCount++ ;
             #endif
-            if ( size <= RING_POOLMANAGER_ITEMSIZE ) {
+            if ( size <= sizeof(PoolData) ) {
                 if ( ((RingState *) pState)->pVM != NULL ) {
                     return ring_poolmanager_allocate((RingState *) pState,size) ;
                 }
@@ -328,7 +328,7 @@ RING_API void * ring_state_realloc ( void *pState,void *ptr,size_t nAllocatedSiz
             if ( ((RingState *) pState)->pVM != NULL ) {
                 if ( ring_poolmanager_find((RingState *) pState,ptr) ) {
                     pPoolData = (PoolData*) ptr ;
-                    if ( size <= RING_POOLMANAGER_ITEMSIZE ) {
+                    if ( size <= sizeof(PoolData) ) {
                         /*
                         **  The Pointer belong to memory pool and new size less than RING_POOLMANAGER_ITEMSIZE 
                         **  In this case, just return the same pointer since we have space for the new data 
