@@ -171,6 +171,9 @@
     #define RING_VM_NUMBER 2
     #define RING_VM_LIST 3
     #define RING_VM_POINTER 4
+    /* Instructions */
+    #define RING_VM_INSTRUCTIONSCOUNT ring_list_getsize(pVM->pCode)
+    #define RING_VM_DELETELASTINSTRUCTION ring_list_deletelastitem_gc(pVM->pRingState,pVM->pCode)
     /* IR (Instruction Register) */
     #define RING_VM_JUMP pVM->nPC = pVM->pByteCodeIR->aData[1]->data.iNumber
     #define RING_VM_IR_READC ring_string_get(pVM->pByteCodeIR->aData[1]->data.pString)
@@ -190,7 +193,6 @@
     #define RING_VM_IR_UNLOAD pVM->pByteCodeIR = pVM->pByteCode + pVM->nPC - 2
     #define RING_VM_IR_GETLINENUMBER pVM->nLineNumber
     #define RING_VM_IR_SETLINENUMBER(x) pVM->nLineNumber = x
-    #define RING_VM_INSTRUCTIONSCOUNT ring_list_getsize(pVM->pCode)
     /*
     **  Calling Functions 
     **  Note : When you insert items check performance functions for update too! 

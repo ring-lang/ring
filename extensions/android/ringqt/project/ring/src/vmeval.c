@@ -117,7 +117,7 @@ void ring_vm_returneval ( VM *pVM )
         */
         nExtraSize = RING_VM_INSTRUCTIONSCOUNT - aPara[0] ;
         while ( RING_VM_INSTRUCTIONSCOUNT != aPara[0] ) {
-            ring_list_deletelastitem_gc(pVM->pRingState,pVM->pCode);
+            RING_VM_DELETELASTINSTRUCTION ;
         }
         if ( pVM->nEvalReallocationFlag == 1 ) {
             pVM->nEvalReallocationFlag = 0 ;
