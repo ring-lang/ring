@@ -32,7 +32,7 @@ int ring_parser_class ( Parser *pParser )
             }
             pList = ring_list_newlist_gc(pParser->pRingState,pList);
             ring_list_addstring_gc(pParser->pRingState,pList,pParser->TokenText);
-            ring_list_addint_gc(pParser->pRingState,pList,ring_list_getsize(pParser->GenCode));
+            ring_list_addint_gc(pParser->pRingState,pList,ring_parser_icg_instructionscount(pParser));
             /* Add class pointer to generated code */
             ring_parser_icg_newoperandpointer(pParser,pList);
             ring_parser_nexttoken(pParser);
@@ -137,7 +137,7 @@ int ring_parser_class ( Parser *pParser )
             }
             pList2 = ring_list_newlist_gc(pParser->pRingState,pList2);
             ring_list_addstring_gc(pParser->pRingState,pList2,pParser->TokenText);
-            ring_list_addint_gc(pParser->pRingState,pList2,ring_list_getsize(pParser->GenCode));
+            ring_list_addint_gc(pParser->pRingState,pList2,ring_parser_icg_instructionscount(pParser));
             ring_list_addstring_gc(pParser->pRingState,pList2,ring_list_getstring(pParser->pRingState->pRingFilesStack,ring_list_getsize(pParser->pRingState->pRingFilesStack)));
             if ( pParser->nClassStart == 1 ) {
                 ring_list_addint_gc(pParser->pRingState,pList2,pParser->nPrivateFlag);
