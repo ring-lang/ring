@@ -505,7 +505,7 @@ int ring_parser_stmt ( Parser *pParser )
                                 **  We check nMark2+2 to avoid executing next instructions when we have expr 
                                 **  for example for x = 1 to 10+5 
                                 */
-                                nNum1 = ring_list_getdouble(pParser->ActiveGenCodeList,2) ;
+                                nNum1 = ring_parser_icg_getoperanddouble(pParser,2) ;
                                 ring_parser_icg_deletelastoperation(pParser);
                                 ring_parser_icg_setlastoperation(pParser,ICO_JUMPVARLENUM);
                                 ring_parser_icg_newoperanddouble(pParser,nNum1);
