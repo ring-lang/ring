@@ -9,8 +9,6 @@ RING_VM_MAXDIGITSINNUMBER
 Parent: ByteCode
 Type: Item *
 aData[RING_VM_BC_ITEMS_COUNT]
-Type: unsigned char
-nSize
 END:
 Type: ByteCode
 struct ByteCode
