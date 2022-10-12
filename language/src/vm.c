@@ -855,13 +855,6 @@ void ring_vm_loadaddressfirst ( VM *pVM )
     ring_vm_loadaddress(pVM);
     pVM->nFirstAddress = 0 ;
 }
-
-void ring_vm_endfuncexec ( VM *pVM )
-{
-    if ( pVM->nFuncExecute > 0 ) {
-        pVM->nFuncExecute-- ;
-    }
-}
 /* Error */
 
 RING_API void ring_vm_error ( VM *pVM,const char *cStr )

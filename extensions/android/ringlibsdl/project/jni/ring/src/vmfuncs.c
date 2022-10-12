@@ -724,3 +724,10 @@ void ring_vm_freetemplists ( VM *pVM )
         }
     }
 }
+
+void ring_vm_endfuncexec ( VM *pVM )
+{
+    if ( pVM->nFuncExecute > 0 ) {
+        pVM->nFuncExecute-- ;
+    }
+}
