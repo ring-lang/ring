@@ -459,6 +459,9 @@ cFile
 Type: const char *
 cOldFile
 ring_vm_setfilename
+ring_vm_traceevent
+Type: List *
+pList
 ring_vm_eval
 Type: int
 nPC,nCont,nLastPC,nRunVM,x,nSize
@@ -494,6 +497,3 @@ Type: unsigned int
 nMemoryBlocksCount, x
 Type: Items *
 pItems
-ring_vm_traceevent
-Type: List *
-pList
