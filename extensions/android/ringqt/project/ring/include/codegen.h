@@ -191,8 +191,6 @@
 
     void ring_parser_icg_showoutput ( List *pListGenCode,int nStatus ) ;
 
-    Items * ring_parser_icg_getoperationpos ( Parser *pParser ) ;
-
     void ring_parser_icg_deletelastoperation ( Parser *pParser ) ;
 
     void ring_parser_icg_duplicate ( Parser *pParser,int nStart,int nEnd ) ;

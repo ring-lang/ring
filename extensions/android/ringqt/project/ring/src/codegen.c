@@ -86,13 +86,6 @@ List * ring_parser_icg_getactiveoperation ( Parser *pParser )
     return pParser->ActiveGenCodeList ;
 }
 
-Items * ring_parser_icg_getoperationpos ( Parser *pParser )
-{
-    assert(pParser != NULL);
-    assert(pParser->GenCode != NULL);
-    return pParser->GenCode->pLast ;
-}
-
 void ring_parser_icg_addoperand ( Parser *pParser ,List *pList , const char *cStr )
 {
     assert(pList != NULL);
