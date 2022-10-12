@@ -206,6 +206,11 @@ int ring_parser_icg_newlabel2 ( Parser *pParser )
     ring_parser_icg_newoperation(pParser,ICO_NEWLABEL);
     return ring_list_getsize(pParser->GenCode) ;
 }
+
+void ring_parser_icg_setopcode ( Parser *pParser ,List *pList , int nValue )
+{
+    ring_list_setint_gc(pParser,pList,1,nValue);
+}
 /* Specific Instructions */
 
 void ring_parser_icg_loadfunction ( Parser *pParser,const char *cFunctionName )

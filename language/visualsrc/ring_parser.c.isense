@@ -56,7 +56,7 @@ Type: unsigned char
 nLoopOrExitCommand
 Type: unsigned char
 nCheckLoopAndExit
-Type: int
+Type: unsigned int
 nLoopFlag
 Type: List *
 pForInVars

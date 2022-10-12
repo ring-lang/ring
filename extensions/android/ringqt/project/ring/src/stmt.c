@@ -211,8 +211,8 @@ int ring_parser_class ( Parser *pParser )
             ring_parser_icg_newoperation(pParser,ICO_RETNULL);
             /* Change Label After Class to BlockFlag to Jump to Private */
             pList = ring_parser_icg_getoperationlist(pParser,pParser->nClassMark);
-            ring_list_setint_gc(pParser->pRingState,pList,1,ICO_BLOCKFLAG);
-            ring_list_addint_gc(pParser->pRingState,pList,ring_parser_icg_newlabel(pParser));
+            ring_parser_icg_setopcode(pParser,pList,ICO_BLOCKFLAG);
+            ring_parser_icg_addoperandint(pParser,pList,ring_parser_icg_newlabel(pParser));
             ring_parser_icg_newoperation(pParser,ICO_PRIVATE);
             #if RING_PARSERTRACE
             RING_STATE_CHECKPRINTRULES 
@@ -561,7 +561,7 @@ int ring_parser_stmt ( Parser *pParser )
                                     ring_parser_icg_newoperation(pParser,ICO_POPEXITMARK);
                                 }
                                 else {
-                                    ring_list_setint_gc(pParser->pRingState,pMark3,1,ICO_NOOP);
+                                    ring_parser_icg_setopcode(pParser,pMark3,ICO_NOOP);
                                 }
                                 if ( pParser->nLoopFlag == 0 ) {
                                     pParser->nLoopOrExitCommand = nLoopOrExitCommand ;
@@ -682,7 +682,7 @@ int ring_parser_stmt ( Parser *pParser )
                             ring_parser_icg_newoperation(pParser,ICO_POPEXITMARK);
                         }
                         else {
-                            ring_list_setint_gc(pParser->pRingState,pMark3,1,ICO_NOOP);
+                            ring_parser_icg_setopcode(pParser,pMark3,ICO_NOOP);
                         }
                         if ( pParser->nLoopFlag == 0 ) {
                             pParser->nLoopOrExitCommand = nLoopOrExitCommand ;
@@ -851,7 +851,7 @@ int ring_parser_stmt ( Parser *pParser )
                     ring_parser_icg_newoperation(pParser,ICO_POPEXITMARK);
                 }
                 else {
-                    ring_list_setint_gc(pParser->pRingState,pMark3,1,ICO_NOOP);
+                    ring_parser_icg_setopcode(pParser,pMark3,ICO_NOOP);
                 }
                 if ( pParser->nLoopFlag == 0 ) {
                     pParser->nLoopOrExitCommand = nLoopOrExitCommand ;
@@ -921,7 +921,7 @@ int ring_parser_stmt ( Parser *pParser )
                     ring_parser_icg_newoperation(pParser,ICO_POPEXITMARK);
                 }
                 else {
-                    ring_list_setint_gc(pParser->pRingState,pMark3,1,ICO_NOOP);
+                    ring_parser_icg_setopcode(pParser,pMark3,ICO_NOOP);
                 }
                 if ( pParser->nLoopFlag == 0 ) {
                     pParser->nLoopOrExitCommand = nLoopOrExitCommand ;

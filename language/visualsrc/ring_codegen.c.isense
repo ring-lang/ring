@@ -128,7 +128,6 @@ ring_parser_icg_newoperandint
 ring_parser_icg_newoperanddouble
 ring_parser_icg_newoperandpointer
 ring_parser_icg_getactiveoperation
-ring_parser_icg_getoperationpos
 ring_parser_icg_addoperand
 ring_parser_icg_addoperandint
 ring_parser_icg_addoperandpointer
@@ -146,6 +145,7 @@ x
 Type: int
 y,nCount2
 ring_parser_icg_newlabel2
+ring_parser_icg_setopcode
 ring_parser_icg_loadfunction
 ring_parser_icg_loadfunctionextraoperands
 Type: int
