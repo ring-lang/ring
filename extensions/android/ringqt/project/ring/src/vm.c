@@ -956,6 +956,38 @@ void ring_vm_setfilename ( VM *pVM )
     pVM->cPrevFileName = pVM->cFileName ;
     pVM->cFileName = RING_VM_IR_READC ;
 }
+/* Trace */
+
+void ring_vm_traceevent ( VM *pVM,char nEvent )
+{
+    List *pList  ;
+    if ( (pVM->lTrace == 1) && (pVM->lTraceActive == 0) ) {
+        pVM->lTraceActive = 1 ;
+        pVM->nTraceEvent = nEvent ;
+        /* Prepare Trace Data */
+        ring_list_deleteallitems_gc(pVM->pRingState,pVM->pTraceData);
+        /* Add Line Number */
+        ring_list_adddouble_gc(pVM->pRingState,pVM->pTraceData,RING_VM_IR_GETLINENUMBER);
+        /* Add File Name */
+        ring_list_addstring_gc(pVM->pRingState,pVM->pTraceData,pVM->cFileName);
+        /* Add Function/Method Name */
+        if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
+            pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList)) ;
+            ring_list_addstring_gc(pVM->pRingState,pVM->pTraceData,ring_list_getstring(pList,RING_FUNCCL_NAME));
+            /* Method of Function */
+            ring_list_adddouble_gc(pVM->pRingState,pVM->pTraceData,ring_list_getint(pList,RING_FUNCCL_METHODORFUNC));
+        }
+        else {
+            ring_list_addstring_gc(pVM->pRingState,pVM->pTraceData,"");
+            /* Method of Function */
+            ring_list_adddouble_gc(pVM->pRingState,pVM->pTraceData,0);
+        }
+        /* Execute Trace Function */
+        ring_vm_runcode(pVM,ring_string_get(pVM->pTrace));
+        pVM->lTraceActive = 0 ;
+        pVM->nTraceEvent = 0 ;
+    }
+}
 /* Eval */
 
 int ring_vm_eval ( VM *pVM,const char *cStr )
@@ -1362,36 +1394,4 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
     pState->pVM->pMutex = NULL ;
     /* Delete the RingState */
     ring_state_delete(pState);
-}
-/* Trace */
-
-void ring_vm_traceevent ( VM *pVM,char nEvent )
-{
-    List *pList  ;
-    if ( (pVM->lTrace == 1) && (pVM->lTraceActive == 0) ) {
-        pVM->lTraceActive = 1 ;
-        pVM->nTraceEvent = nEvent ;
-        /* Prepare Trace Data */
-        ring_list_deleteallitems_gc(pVM->pRingState,pVM->pTraceData);
-        /* Add Line Number */
-        ring_list_adddouble_gc(pVM->pRingState,pVM->pTraceData,RING_VM_IR_GETLINENUMBER);
-        /* Add File Name */
-        ring_list_addstring_gc(pVM->pRingState,pVM->pTraceData,pVM->cFileName);
-        /* Add Function/Method Name */
-        if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
-            pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList)) ;
-            ring_list_addstring_gc(pVM->pRingState,pVM->pTraceData,ring_list_getstring(pList,RING_FUNCCL_NAME));
-            /* Method of Function */
-            ring_list_adddouble_gc(pVM->pRingState,pVM->pTraceData,ring_list_getint(pList,RING_FUNCCL_METHODORFUNC));
-        }
-        else {
-            ring_list_addstring_gc(pVM->pRingState,pVM->pTraceData,"");
-            /* Method of Function */
-            ring_list_adddouble_gc(pVM->pRingState,pVM->pTraceData,0);
-        }
-        /* Execute Trace Function */
-        ring_vm_runcode(pVM,ring_string_get(pVM->pTrace));
-        pVM->lTraceActive = 0 ;
-        pVM->nTraceEvent = 0 ;
-    }
 }

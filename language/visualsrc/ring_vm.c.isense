@@ -441,13 +441,6 @@ ring_vm_mainloop
 ring_vm_fetch
 ring_vm_fetch2
 ring_vm_execute
-ring_vm_printstack
-Type: int
-x,nSP
-ring_vm_retitemref
-Type: List *
-pList
-ring_vm_loadaddressfirst
 ring_vm_error
 Type: List *
 pList
