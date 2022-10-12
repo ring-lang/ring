@@ -403,12 +403,6 @@ RING_VM_EXTRASIZE
 RING_VM_MINVMINSTRUCTIONS
 RING_MAX(a,b)
 RING_VM_STATICVAR_THIS
-ring_vm_init
-Type: Scanner *
-pScanner
-Type: VM *
-pVM
-nRunVM,nFreeFilesList
 ring_vm_new
 Type: VM *
 pVM
@@ -421,6 +415,17 @@ Type: List *
 pRecord
 Type: Item *
 pItem
+ring_vm_start
+ring_vm_init
+Type: Scanner *
+pScanner
+Type: VM *
+pVM
+nRunVM,nFreeFilesList
+ring_vm_mainloop
+ring_vm_fetch
+ring_vm_fetch2
+ring_vm_execute
 ring_vm_loadcode
 Type: int
 x,nSize
@@ -436,11 +441,6 @@ pItem
 ring_vm_irparacount
 Type: int
 x,nCount
-ring_vm_start
-ring_vm_mainloop
-ring_vm_fetch
-ring_vm_fetch2
-ring_vm_execute
 ring_vm_error
 Type: List *
 pList

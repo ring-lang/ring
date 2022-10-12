@@ -315,7 +315,81 @@ void ring_vm_init ( RingState *pRingState )
     }
     return ;
 }
-/* Main Loop */
+/* ByteCode Functions */
+
+RING_API void ring_vm_loadcode ( VM *pVM )
+{
+    int x,nSize  ;
+    /*
+    **  We may allocation double of the size that we need to avoid reallocation when we use eval() 
+    **  eval() will check if there is a need to reallocation or not 
+    **  This optimization increase the performance of applications that uses eval() 
+    */
+    #if RING_MSDOS
+        nSize = ring_list_getsize(pVM->pCode) ;
+    #else
+        nSize = (RING_MAX(ring_list_getsize(pVM->pCode),RING_VM_MINVMINSTRUCTIONS))+RING_VM_EXTRASIZE ;
+    #endif
+    pVM->pByteCode = (ByteCode *) ring_calloc(nSize,sizeof(ByteCode));
+    for ( x = 1 ; x <= ring_list_getsize(pVM->pCode) ; x++ ) {
+        ring_vm_tobytecode(pVM,x);
+    }
+    pVM->nEvalReallocationSize = nSize ;
+}
+
+void ring_vm_tobytecode ( VM *pVM,int x )
+{
+    List *pIR  ;
+    int x2  ;
+    ByteCode *pByteCode  ;
+    Item *pItem  ;
+    pByteCode = pVM->pByteCode + x - 1 ;
+    pIR = ring_list_getlist(pVM->pCode,x);
+    /* Check Instruction Size */
+    if ( ring_list_getsize(pIR) > RING_VM_BC_ITEMS_COUNT ) {
+        printf( RING_LONGINSTRUCTION ) ;
+        printf( "In File : %s  - Byte-Code PC : %d  ",pVM->cFileName,x ) ;
+        exit(0);
+    }
+    for ( x2 = 1 ; x2 <= ring_list_getsize(pIR) ; x2++ ) {
+        pItem = ring_list_getitem(pIR,x2) ;
+        pByteCode->aData[x2-1] = pItem ;
+        /* Avoid Performance Instructions (Happens when called from New Thread) */
+        if ( x2 == 1 ) {
+            switch ( pItem->data.iNumber ) {
+                case ICO_PUSHPLOCAL :
+                    pItem->data.iNumber = ICO_LOADADDRESS ;
+                    break ;
+                case ICO_JUMPVARLPLENUM :
+                    pItem->data.iNumber = ICO_JUMPVARLENUM ;
+                    break ;
+                case ICO_INCLPJUMP :
+                    pItem->data.iNumber = ICO_INCJUMP ;
+                    break ;
+            }
+        }
+    }
+    /* Clear Other Items */
+    for ( x2 = ring_list_getsize(pIR)+1 ; x2 <= RING_VM_BC_ITEMS_COUNT ; x2++ ) {
+        pByteCode->aData[x2-1] = NULL ;
+    }
+}
+
+int ring_vm_irparacount ( VM *pVM )
+{
+    int x,nCount  ;
+    nCount = 7 ;
+    for ( x = RING_VM_BC_ITEMS_COUNT-1 ; x >= 0 ; x-- ) {
+        if ( pVM->pByteCodeIR->aData[x] == NULL ) {
+            nCount-- ;
+        }
+        else {
+            break ;
+        }
+    }
+    return nCount ;
+}
+/* Main Loop Functions */
 
 void ring_vm_mainloop ( VM *pVM )
 {
@@ -711,78 +785,4 @@ void ring_vm_execute ( VM *pVM )
             ring_vm_freetemplists(pVM);
             break ;
     }
-}
-/* ByteCode */
-
-RING_API void ring_vm_loadcode ( VM *pVM )
-{
-    int x,nSize  ;
-    /*
-    **  We may allocation double of the size that we need to avoid reallocation when we use eval() 
-    **  eval() will check if there is a need to reallocation or not 
-    **  This optimization increase the performance of applications that uses eval() 
-    */
-    #if RING_MSDOS
-        nSize = ring_list_getsize(pVM->pCode) ;
-    #else
-        nSize = (RING_MAX(ring_list_getsize(pVM->pCode),RING_VM_MINVMINSTRUCTIONS))+RING_VM_EXTRASIZE ;
-    #endif
-    pVM->pByteCode = (ByteCode *) ring_calloc(nSize,sizeof(ByteCode));
-    for ( x = 1 ; x <= ring_list_getsize(pVM->pCode) ; x++ ) {
-        ring_vm_tobytecode(pVM,x);
-    }
-    pVM->nEvalReallocationSize = nSize ;
-}
-
-void ring_vm_tobytecode ( VM *pVM,int x )
-{
-    List *pIR  ;
-    int x2  ;
-    ByteCode *pByteCode  ;
-    Item *pItem  ;
-    pByteCode = pVM->pByteCode + x - 1 ;
-    pIR = ring_list_getlist(pVM->pCode,x);
-    /* Check Instruction Size */
-    if ( ring_list_getsize(pIR) > RING_VM_BC_ITEMS_COUNT ) {
-        printf( RING_LONGINSTRUCTION ) ;
-        printf( "In File : %s  - Byte-Code PC : %d  ",pVM->cFileName,x ) ;
-        exit(0);
-    }
-    for ( x2 = 1 ; x2 <= ring_list_getsize(pIR) ; x2++ ) {
-        pItem = ring_list_getitem(pIR,x2) ;
-        pByteCode->aData[x2-1] = pItem ;
-        /* Avoid Performance Instructions (Happens when called from New Thread) */
-        if ( x2 == 1 ) {
-            switch ( pItem->data.iNumber ) {
-                case ICO_PUSHPLOCAL :
-                    pItem->data.iNumber = ICO_LOADADDRESS ;
-                    break ;
-                case ICO_JUMPVARLPLENUM :
-                    pItem->data.iNumber = ICO_JUMPVARLENUM ;
-                    break ;
-                case ICO_INCLPJUMP :
-                    pItem->data.iNumber = ICO_INCJUMP ;
-                    break ;
-            }
-        }
-    }
-    /* Clear Other Items */
-    for ( x2 = ring_list_getsize(pIR)+1 ; x2 <= RING_VM_BC_ITEMS_COUNT ; x2++ ) {
-        pByteCode->aData[x2-1] = NULL ;
-    }
-}
-
-int ring_vm_irparacount ( VM *pVM )
-{
-    int x,nCount  ;
-    nCount = 7 ;
-    for ( x = RING_VM_BC_ITEMS_COUNT-1 ; x >= 0 ; x-- ) {
-        if ( pVM->pByteCodeIR->aData[x] == NULL ) {
-            nCount-- ;
-        }
-        else {
-            break ;
-        }
-    }
-    return nCount ;
 }

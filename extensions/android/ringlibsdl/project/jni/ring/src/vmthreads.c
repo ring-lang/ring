@@ -2,7 +2,7 @@
 #include "ring.h"
 /*
 **  Functions 
-**  Threads 
+**  Mutex 
 */
 
 RING_API void ring_vm_mutexfunctions ( VM *pVM,void *(*pFunc)(void),void (*pFuncLock)(void *),void (*pFuncUnlock)(void *),void (*pFuncDestroy)(void *) )
