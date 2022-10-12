@@ -724,7 +724,7 @@ void ring_vm_execute ( VM *pVM )
             ring_vm_oop_setproperty(pVM);
             break ;
         case ICO_CALLCLASSINIT :
-            ring_vm_callclassinit(pVM);
+            ring_vm_oop_callclassinit(pVM);
             break ;
         /* Other */
         case ICO_SETREFERENCE :
@@ -836,16 +836,6 @@ void ring_vm_retitemref ( VM *pVM )
         if ( strcmp(ring_list_getstring(pList,RING_FUNCCL_NAME),"operator") == 0 ) {
             pVM->nRetItemRef++ ;
         }
-    }
-}
-
-void ring_vm_callclassinit ( VM *pVM )
-{
-    if ( RING_VM_IR_READIVALUE(1) ) {
-        pVM->nCallClassInit++ ;
-    }
-    else {
-        pVM->nCallClassInit-- ;
     }
 }
 

@@ -567,8 +567,6 @@
 
     void ring_vm_retitemref ( VM *pVM ) ;
 
-    void ring_vm_callclassinit ( VM *pVM ) ;
-
     List * ring_vm_prevtempmem ( VM *pVM ) ;
     /* User Interface */
 
@@ -679,6 +677,8 @@
     void ring_vm_oop_setthethisvariableinclassregion ( VM *pVM ) ;
 
     int ring_vm_oop_callingclassmethodfromclassregion ( VM *pVM, List *pMethods ) ;
+
+    void ring_vm_oop_callclassinit ( VM *pVM ) ;
     /* For Better Performance */
 
     void ring_vm_pushp ( VM *pVM ) ;

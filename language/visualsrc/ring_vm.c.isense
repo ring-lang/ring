@@ -447,9 +447,7 @@ x,nSP
 ring_vm_retitemref
 Type: List *
 pList
-ring_vm_callclassinit
 ring_vm_loadaddressfirst
-ring_vm_endfuncexec
 ring_vm_error
 Type: List *
 pList

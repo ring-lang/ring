@@ -1281,3 +1281,13 @@ int ring_vm_oop_callingclassmethodfromclassregion ( VM *pVM, List *pMethods )
     }
     return 0 ;
 }
+
+void ring_vm_oop_callclassinit ( VM *pVM )
+{
+    if ( RING_VM_IR_READIVALUE(1) ) {
+        pVM->nCallClassInit++ ;
+    }
+    else {
+        pVM->nCallClassInit-- ;
+    }
+}
