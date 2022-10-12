@@ -731,3 +731,24 @@ void ring_vm_endfuncexec ( VM *pVM )
         pVM->nFuncExecute-- ;
     }
 }
+
+void ring_vm_retitemref ( VM *pVM )
+{
+    List *pList  ;
+    pVM->nRetItemRef++ ;
+    /* We free the stack to avoid effects on nLoadAddressScope which is used by isstackpointertoobjstate */
+    ring_vm_freestack(pVM);
+    /*
+    **  Check if we are in the operator method to increment the counter again 
+    **  We do this to avoid another PUSHV on the list item 
+    **  The first one after return expression in the operator method 
+    **  The second one before return from eval() that is used by operator overloading 
+    **  This to avoid using & two times like  &  & 
+    */
+    if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
+        pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
+        if ( strcmp(ring_list_getstring(pList,RING_FUNCCL_NAME),"operator") == 0 ) {
+            pVM->nRetItemRef++ ;
+        }
+    }
+}

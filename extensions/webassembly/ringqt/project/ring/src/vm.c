@@ -784,67 +784,6 @@ void ring_vm_execute ( VM *pVM )
             break ;
     }
 }
-/* Stack */
-
-void ring_vm_printstack ( VM *pVM )
-{
-    int x,nSP  ;
-    printf( "\n*****************************************\n" ) ;
-    printf( "Stack Size %u \n",pVM->nSP ) ;
-    nSP = pVM->nSP ;
-    if ( nSP > 0 ) {
-        for ( x = 1 ; x <= nSP ; x++ ) {
-            /* Print Values */
-            if ( RING_VM_STACK_ISSTRING ) {
-                printf( "(String) : %s  \n",RING_VM_STACK_READC ) ;
-            }
-            else if ( RING_VM_STACK_ISNUMBER ) {
-                printf( "(Number) : %f  \n",RING_VM_STACK_READN ) ;
-            }
-            else if ( RING_VM_STACK_ISPOINTER ) {
-                printf( "(Pointer) : %p  \n",RING_VM_STACK_READP ) ;
-                if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
-                    printf( "(Pointer Type) : Variable \n" ) ;
-                    ring_list_print2((List *) RING_VM_STACK_READP,pVM->nDecimals);
-                }
-                else if ( RING_VM_STACK_OBJTYPE ==RING_OBJTYPE_LISTITEM ) {
-                    printf( "(Pointer Type) : ListItem \n" ) ;
-                    ring_item_print((Item *) RING_VM_STACK_READP);
-                }
-            }
-            RING_VM_STACK_POP ;
-            printf( "\n*****************************************\n" ) ;
-        }
-    }
-}
-
-void ring_vm_retitemref ( VM *pVM )
-{
-    List *pList  ;
-    pVM->nRetItemRef++ ;
-    /* We free the stack to avoid effects on nLoadAddressScope which is used by isstackpointertoobjstate */
-    ring_vm_freestack(pVM);
-    /*
-    **  Check if we are in the operator method to increment the counter again 
-    **  We do this to avoid another PUSHV on the list item 
-    **  The first one after return expression in the operator method 
-    **  The second one before return from eval() that is used by operator overloading 
-    **  This to avoid using & two times like  &  & 
-    */
-    if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
-        pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
-        if ( strcmp(ring_list_getstring(pList,RING_FUNCCL_NAME),"operator") == 0 ) {
-            pVM->nRetItemRef++ ;
-        }
-    }
-}
-
-void ring_vm_loadaddressfirst ( VM *pVM )
-{
-    pVM->nFirstAddress = 1 ;
-    ring_vm_loadaddress(pVM);
-    pVM->nFirstAddress = 0 ;
-}
 /* Error */
 
 RING_API void ring_vm_error ( VM *pVM,const char *cStr )

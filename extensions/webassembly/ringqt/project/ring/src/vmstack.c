@@ -612,3 +612,42 @@ void ring_vm_freeloadaddressscope ( VM *pVM )
     /* Clear Load Address Scope Information */
     pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
 }
+
+void ring_vm_loadaddressfirst ( VM *pVM )
+{
+    pVM->nFirstAddress = 1 ;
+    ring_vm_loadaddress(pVM);
+    pVM->nFirstAddress = 0 ;
+}
+
+void ring_vm_printstack ( VM *pVM )
+{
+    int x,nSP  ;
+    printf( "\n*****************************************\n" ) ;
+    printf( "Stack Size %u \n",pVM->nSP ) ;
+    nSP = pVM->nSP ;
+    if ( nSP > 0 ) {
+        for ( x = 1 ; x <= nSP ; x++ ) {
+            /* Print Values */
+            if ( RING_VM_STACK_ISSTRING ) {
+                printf( "(String) : %s  \n",RING_VM_STACK_READC ) ;
+            }
+            else if ( RING_VM_STACK_ISNUMBER ) {
+                printf( "(Number) : %f  \n",RING_VM_STACK_READN ) ;
+            }
+            else if ( RING_VM_STACK_ISPOINTER ) {
+                printf( "(Pointer) : %p  \n",RING_VM_STACK_READP ) ;
+                if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
+                    printf( "(Pointer Type) : Variable \n" ) ;
+                    ring_list_print2((List *) RING_VM_STACK_READP,pVM->nDecimals);
+                }
+                else if ( RING_VM_STACK_OBJTYPE ==RING_OBJTYPE_LISTITEM ) {
+                    printf( "(Pointer Type) : ListItem \n" ) ;
+                    ring_item_print((Item *) RING_VM_STACK_READP);
+                }
+            }
+            RING_VM_STACK_POP ;
+            printf( "\n*****************************************\n" ) ;
+        }
+    }
+}
