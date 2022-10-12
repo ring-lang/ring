@@ -285,6 +285,7 @@ RING_VM_IR_LOAD
 RING_VM_IR_UNLOAD
 RING_VM_IR_GETLINENUMBER
 RING_VM_IR_SETLINENUMBER(x)
+RING_VM_INSTRUCTIONSCOUNT
 RING_FUNCTYPE_SCRIPT
 RING_FUNCTYPE_C
 RING_FUNCCL_TYPE
@@ -422,10 +423,6 @@ pScanner
 Type: VM *
 pVM
 nRunVM,nFreeFilesList
-ring_vm_mainloop
-ring_vm_fetch
-ring_vm_fetch2
-ring_vm_execute
 ring_vm_loadcode
 Type: int
 x,nSize
@@ -441,6 +438,10 @@ pItem
 ring_vm_irparacount
 Type: int
 x,nCount
+ring_vm_mainloop
+ring_vm_fetch
+ring_vm_fetch2
+ring_vm_execute
 ring_vm_error
 Type: List *
 pList

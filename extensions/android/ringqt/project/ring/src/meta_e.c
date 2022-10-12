@@ -1114,7 +1114,7 @@ void ring_vm_refmeta_ringvminfo ( void *pPointer )
     */
     ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->pRingState->pRingFilesList));
     ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->pRingState->pRingFilesStack));
-    ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->pCode));
+    ring_list_adddouble_gc(pVM->pRingState, pList, (double) RING_VM_INSTRUCTIONSCOUNT);
     ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->pMem));
     ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->aScopeID));
     ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->pTempMem));

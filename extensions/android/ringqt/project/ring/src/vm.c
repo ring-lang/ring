@@ -275,7 +275,7 @@ void ring_vm_start ( RingState *pRingState,VM *pVM )
     ring_list_genarray(pRingState->pRingCFunctions);
     ring_list_genhashtable2(pRingState->pRingCFunctions);
     ring_state_log(pRingState,"function: ring_vm_start - after generating hash tables");
-    if ( ring_list_getsize(pVM->pCode) > 0 ) {
+    if ( RING_VM_INSTRUCTIONSCOUNT > 0 ) {
         pVM->nPC = 1 ;
         ring_vm_mainloop(pVM);
     }
@@ -326,12 +326,12 @@ RING_API void ring_vm_loadcode ( VM *pVM )
     **  This optimization increase the performance of applications that uses eval() 
     */
     #if RING_MSDOS
-        nSize = ring_list_getsize(pVM->pCode) ;
+        nSize = RING_VM_INSTRUCTIONSCOUNT ;
     #else
-        nSize = (RING_MAX(ring_list_getsize(pVM->pCode),RING_VM_MINVMINSTRUCTIONS))+RING_VM_EXTRASIZE ;
+        nSize = (RING_MAX(RING_VM_INSTRUCTIONSCOUNT,RING_VM_MINVMINSTRUCTIONS))+RING_VM_EXTRASIZE ;
     #endif
     pVM->pByteCode = (ByteCode *) ring_calloc(nSize,sizeof(ByteCode));
-    for ( x = 1 ; x <= ring_list_getsize(pVM->pCode) ; x++ ) {
+    for ( x = 1 ; x <= RING_VM_INSTRUCTIONSCOUNT ; x++ ) {
         ring_vm_tobytecode(pVM,x);
     }
     pVM->nEvalReallocationSize = nSize ;
@@ -399,17 +399,17 @@ void ring_vm_mainloop ( VM *pVM )
         if ( pVM->pRingState->nPrintInstruction ) {
             do {
                 ring_vm_fetch2(pVM);
-            } while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
+            } while (pVM->nPC <= RING_VM_INSTRUCTIONSCOUNT)  ;
         }
         else {
             do {
                 ring_vm_fetch(pVM);
-            } while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
+            } while (pVM->nPC <= RING_VM_INSTRUCTIONSCOUNT)  ;
         }
     #else
         do {
             ring_vm_fetch(pVM);
-        } while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
+        } while (pVM->nPC <= RING_VM_INSTRUCTIONSCOUNT)  ;
     #endif
 }
 

@@ -26,7 +26,7 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
     nCont = ring_scanner_checklasttoken(pScanner);
     /* Add Token "End of Line" to the end of any program */
     ring_scanner_endofline(pScanner);
-    nLastPC = ring_list_getsize(pVM->pCode);
+    nLastPC = RING_VM_INSTRUCTIONSCOUNT ;
     /* Get Functions/Classes Size before change by parser */
     aPara[0] = nLastPC ;
     aPara[1] = ring_list_getsize(pVM->pFunctionsMap) ;
@@ -57,20 +57,20 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
         }
         ring_vm_blockflag2(pVM,nPC);
         pVM->nPC = nLastPC+1 ;
-        if ( ring_list_getsize(pVM->pCode)  > pVM->nEvalReallocationSize ) {
-            pVM->pByteCode = (ByteCode *) ring_realloc(pVM->pByteCode , sizeof(ByteCode) * ring_list_getsize(pVM->pCode));
+        if ( RING_VM_INSTRUCTIONSCOUNT  > pVM->nEvalReallocationSize ) {
+            pVM->pByteCode = (ByteCode *) ring_realloc(pVM->pByteCode , sizeof(ByteCode) * RING_VM_INSTRUCTIONSCOUNT);
             if ( pVM->nEvalCalledFromRingCode ) {
                 /* Here eval() function is called from .ring files ( not by the VM for setter/getter/operator overloadi */
                 pVM->nEvalReallocationFlag = 1 ;
             }
             /* Update the Eval Reallocation Size after Reallocation */
-            pVM->nEvalReallocationSize = ring_list_getsize(pVM->pCode) ;
+            pVM->nEvalReallocationSize = RING_VM_INSTRUCTIONSCOUNT ;
         }
         else {
             pVM->nEvalReallocationFlag = 0 ;
         }
         /* Load New Code */
-        for ( x = pVM->nPC ; x <= ring_list_getsize(pVM->pCode) ; x++ ) {
+        for ( x = pVM->nPC ; x <= RING_VM_INSTRUCTIONSCOUNT ; x++ ) {
             ring_vm_tobytecode(pVM,x);
         }
         /*
@@ -85,7 +85,7 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
         **  And the local scope will be restored so we can use it from eval() 
         **  Update ReallocationSize 
         */
-        pVM->nEvalReallocationSize = pVM->nEvalReallocationSize - (ring_list_getsize(pVM->pCode)-nLastPC) ;
+        pVM->nEvalReallocationSize = pVM->nEvalReallocationSize - (RING_VM_INSTRUCTIONSCOUNT-nLastPC) ;
     }
     else {
         ring_vm_error(pVM,"Error in eval!");
@@ -115,13 +115,13 @@ void ring_vm_returneval ( VM *pVM )
         **  This means that the code can be deleted without any problems 
         **  We do that to avoid memory leaks 
         */
-        nExtraSize = ring_list_getsize(pVM->pCode) - aPara[0] ;
-        while ( ring_list_getsize(pVM->pCode) != aPara[0] ) {
+        nExtraSize = RING_VM_INSTRUCTIONSCOUNT - aPara[0] ;
+        while ( RING_VM_INSTRUCTIONSCOUNT != aPara[0] ) {
             ring_list_deletelastitem_gc(pVM->pRingState,pVM->pCode);
         }
         if ( pVM->nEvalReallocationFlag == 1 ) {
             pVM->nEvalReallocationFlag = 0 ;
-            pByteCode = (ByteCode *) ring_realloc(pVM->pByteCode , sizeof(ByteCode) * ring_list_getsize(pVM->pCode));
+            pByteCode = (ByteCode *) ring_realloc(pVM->pByteCode , sizeof(ByteCode) * RING_VM_INSTRUCTIONSCOUNT);
             pVM->pByteCode = pByteCode ;
             /* Update the Eval Reallocation Size after Reallocation */
             pVM->nEvalReallocationSize = pVM->nEvalReallocationSize - nExtraSize ;
@@ -163,7 +163,7 @@ void ring_vm_mainloopforeval ( VM *pVM )
                     pVM->nEvalReturnPC = 0 ;
                     break ;
                 }
-            } while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
+            } while (pVM->nPC <= RING_VM_INSTRUCTIONSCOUNT)  ;
         }
         else {
             do {
@@ -172,7 +172,7 @@ void ring_vm_mainloopforeval ( VM *pVM )
                     pVM->nEvalReturnPC = 0 ;
                     break ;
                 }
-            } while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
+            } while (pVM->nPC <= RING_VM_INSTRUCTIONSCOUNT)  ;
         }
     #else
         do {
@@ -181,7 +181,7 @@ void ring_vm_mainloopforeval ( VM *pVM )
                 pVM->nEvalReturnPC = 0 ;
                 break ;
             }
-        } while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
+        } while (pVM->nPC <= RING_VM_INSTRUCTIONSCOUNT)  ;
     #endif
     pVM->lInsideEval-- ;
     pVM->nRetEvalDontDelete = nDontDelete ;

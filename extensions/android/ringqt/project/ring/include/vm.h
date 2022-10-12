@@ -190,6 +190,7 @@
     #define RING_VM_IR_UNLOAD pVM->pByteCodeIR = pVM->pByteCode + pVM->nPC - 2
     #define RING_VM_IR_GETLINENUMBER pVM->nLineNumber
     #define RING_VM_IR_SETLINENUMBER(x) pVM->nLineNumber = x
+    #define RING_VM_INSTRUCTIONSCOUNT ring_list_getsize(pVM->pCode)
     /*
     **  Calling Functions 
     **  Note : When you insert items check performance functions for update too! 
