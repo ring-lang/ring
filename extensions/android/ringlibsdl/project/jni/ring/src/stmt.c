@@ -784,7 +784,7 @@ int ring_parser_stmt ( Parser *pParser )
                 }
                 if ( ring_list_getsize(pList2) > 0 ) {
                     for ( x = 1 ; x <= ring_list_getsize(pList2) ; x++ ) {
-                        ring_parser_icg_addoperandint(pParser,((List *) ring_list_getpointer(pList2,x)),nMark1);
+                        ring_parser_icg_addoperandint(pParser,((RING_PARSER_ICG_INSTRUCTIONSLISTTYPE *) ring_list_getpointer(pList2,x)),nMark1);
                     }
                 }
                 ring_list_delete_gc(pParser->pRingState,pList2);
@@ -1173,7 +1173,7 @@ int ring_parser_stmt ( Parser *pParser )
                 }
                 if ( ring_list_getsize(pList2) > 0 ) {
                     for ( x = 1 ; x <= ring_list_getsize(pList2) ; x++ ) {
-                        ring_parser_icg_addoperandint(pParser,((List *) ring_list_getpointer(pList2,x)),nMark1);
+                        ring_parser_icg_addoperandint(pParser,((RING_PARSER_ICG_INSTRUCTIONSLISTTYPE *) ring_list_getpointer(pList2,x)),nMark1);
                     }
                 }
                 ring_list_delete_gc(pParser->pRingState,pList2);
