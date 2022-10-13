@@ -88,18 +88,21 @@ List * ring_parser_icg_getactiveoperation ( Parser *pParser )
 
 void ring_parser_icg_addoperand ( Parser *pParser ,List *pList , const char *cStr )
 {
+    assert(pParser != NULL);
     assert(pList != NULL);
     ring_list_addstring_gc(pParser->pRingState,pList,cStr);
 }
 
 void ring_parser_icg_addoperandint ( Parser *pParser ,List *pList , int nValue )
 {
+    assert(pParser != NULL);
     assert(pList != NULL);
     ring_list_addint_gc(pParser->pRingState,pList,nValue);
 }
 
 void ring_parser_icg_addoperandpointer ( Parser *pParser ,List *pList , void *pValue )
 {
+    assert(pParser != NULL);
     assert(pList != NULL);
     ring_list_addpointer_gc(pParser->pRingState,pList,pValue);
 }
@@ -155,6 +158,7 @@ void ring_parser_icg_showoutput ( List *pListGenCode,int nStatus )
 
 void ring_parser_icg_deletelastoperation ( Parser *pParser )
 {
+    assert(pParser != NULL);
     if ( ring_list_getsize(pParser->GenCode) > 0 ) {
         ring_list_deleteitem_gc(pParser->pRingState,pParser->GenCode,ring_list_getsize(pParser->GenCode));
         pParser->ActiveGenCodeList = ring_list_getlist(pParser->GenCode,ring_list_getsize(pParser->GenCode));
@@ -209,6 +213,7 @@ int ring_parser_icg_newlabel2 ( Parser *pParser )
 
 void ring_parser_icg_setopcode ( Parser *pParser ,List *pList , int nValue )
 {
+    assert(pParser != NULL);
     ring_list_setint_gc(pParser,pList,1,nValue);
 }
 
@@ -222,6 +227,7 @@ void ring_parser_icg_deleteoperand ( Parser *pParser , int nPos )
 
 void ring_parser_icg_loadfunction ( Parser *pParser,const char *cFunctionName )
 {
+    assert(pParser != NULL);
     ring_parser_icg_newoperation(pParser,ICO_LOADFUNC);
     ring_parser_icg_newoperand(pParser,cFunctionName);
     ring_parser_icg_loadfunctionextraoperands(pParser);
@@ -230,6 +236,7 @@ void ring_parser_icg_loadfunction ( Parser *pParser,const char *cFunctionName )
 void ring_parser_icg_loadfunctionextraoperands ( Parser *pParser )
 {
     int x  ;
+    assert(pParser != NULL);
     /* We Add these operands to allow changing ICO_LOADFUNC to ICO_LOADFUNCP */
     for ( x = 0 ; x < 5 ; x++ ) {
         ring_parser_icg_newoperandint(pParser,0);
@@ -239,6 +246,7 @@ void ring_parser_icg_loadfunctionextraoperands ( Parser *pParser )
 void ring_parser_icg_loadaddress ( Parser *pParser,const char *cVariableName )
 {
     int x  ;
+    assert(pParser != NULL);
     ring_parser_icg_newoperation(pParser,ICO_LOADADDRESS);
     ring_parser_icg_newoperand(pParser,cVariableName);
     for ( x = 0 ; x < 3 ; x++ ) {
@@ -248,12 +256,14 @@ void ring_parser_icg_loadaddress ( Parser *pParser,const char *cVariableName )
 
 void ring_parser_icg_loadaddressassignmentpos ( Parser *pParser,List *pLoadAPos,int nPos )
 {
+    assert(pParser != NULL);
     ring_list_setint_gc(pParser->pRingState,pLoadAPos,4,nPos);
 }
 
 void ring_parser_icg_loadaddresstoloadfunction ( Parser *pParser )
 {
     int x  ;
+    assert(pParser != NULL);
     ring_parser_icg_setlastoperation(pParser,ICO_LOADFUNC);
     /*
     **  The ICO_LOADADDRESS uses 3 operands after the Variable Name 
@@ -267,11 +277,13 @@ void ring_parser_icg_loadaddresstoloadfunction ( Parser *pParser )
 
 void ring_parser_icg_freestack ( Parser *pParser )
 {
+    assert(pParser != NULL);
     ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
 }
 
 void ring_parser_icg_newline ( Parser *pParser,int nLine )
 {
+    assert(pParser != NULL);
     if ( pParser->pRingState->lNoLineNumber != 0 ) {
         return ;
     }
@@ -281,6 +293,7 @@ void ring_parser_icg_newline ( Parser *pParser,int nLine )
 
 char * ring_parser_icg_parentclassname ( Parser *pParser )
 {
+    assert(pParser != NULL);
     /* This function assume that the current instruction define new class and return the parent class name */
     return ring_list_getstring(pParser->ActiveGenCodeList ,RING_PARSER_ICG_PARENTCLASSPOS) ;
 }
