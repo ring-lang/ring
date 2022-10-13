@@ -202,6 +202,8 @@
     void ring_parser_icg_insertoperation ( Parser *pParser , int nPos , IC_OPERATIONS opcode ) ;
 
     void ring_parser_icg_setopcode ( Parser *pParser ,List *pList , int nValue ) ;
+
+    void ring_parser_icg_deleteoperand ( Parser *pParser , int nPos ) ;
     /* Specific Instructions */
 
     void ring_parser_icg_loadfunction ( Parser *pParser,const char *cFunctionName ) ;

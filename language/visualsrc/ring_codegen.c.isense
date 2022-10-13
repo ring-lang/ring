@@ -119,7 +119,7 @@ RING_PARSER_ICG_OPERATIONCODE
 ring_parser_icg_getoperationbeforelastoperation(pParser)
 ring_parser_icg_getoperationatpos(pParser,x)
 ring_parser_icg_getoperandint(pParser,x)
-ring_parser_icg_getoperandint(pParser,x)
+ring_parser_icg_getoperanddouble(pParser,x)
 ring_parser_icg_newoperation
 ring_parser_icg_insertoperation
 ring_parser_icg_newoperand
@@ -148,6 +148,7 @@ Type: int
 y,nCount2
 ring_parser_icg_newlabel2
 ring_parser_icg_setopcode
+ring_parser_icg_deleteoperand
 ring_parser_icg_loadfunction
 ring_parser_icg_loadfunctionextraoperands
 Type: int

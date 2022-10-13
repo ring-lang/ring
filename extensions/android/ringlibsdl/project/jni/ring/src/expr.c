@@ -1192,8 +1192,8 @@ int ring_parser_mixer ( Parser *pParser )
         else if ( ring_parser_icg_getlastoperation(pParser) == ICO_LOADSUBADDRESS ) {
             ring_parser_icg_setlastoperation(pParser,ICO_LOADMETHOD);
             /* Delete Locations for Setter/Getter */
-            ring_list_deleteitem_gc(pParser->pRingState,ring_parser_icg_getactiveoperation(pParser),4);
-            ring_list_deleteitem_gc(pParser->pRingState,ring_parser_icg_getactiveoperation(pParser),3);
+            ring_parser_icg_deleteoperand(pParser,4);
+            ring_parser_icg_deleteoperand(pParser,3);
             nCallMethod = 1 ;
         }
         ring_parser_nexttoken(pParser);

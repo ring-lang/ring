@@ -211,6 +211,13 @@ void ring_parser_icg_setopcode ( Parser *pParser ,List *pList , int nValue )
 {
     ring_list_setint_gc(pParser,pList,1,nValue);
 }
+
+void ring_parser_icg_deleteoperand ( Parser *pParser , int nPos )
+{
+    assert(pParser != NULL);
+    assert(pParser->ActiveGenCodeList != NULL);
+    ring_list_deleteitem_gc(pParser->pRingState,pParser->ActiveGenCodeList,nPos);
+}
 /* Specific Instructions */
 
 void ring_parser_icg_loadfunction ( Parser *pParser,const char *cFunctionName )
