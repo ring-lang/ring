@@ -40,15 +40,16 @@ int ring_parser_class ( Parser *pParser )
             if ( ring_parser_iskeyword(pParser,K_FROM) || ring_parser_isoperator2(pParser,OP_RANGE) || ring_parser_isoperator2(pParser,OP_LESS) ) {
                 ring_parser_nexttoken(pParser);
                 if ( ring_parser_namedotname(pParser) ) {
-                    /* Generate Code */
-                    pList3 = ring_parser_icg_getactiveoperation(pParser);
-                    /* Check if parent class name = subclass name */
-                    if ( strcmp(ring_list_getstring(pList,1),ring_list_getstring(pList3,4)) == 0 ) {
+                    /*
+                    **  Generate Code 
+                    **  Check if parent class name = subclass name 
+                    */
+                    if ( strcmp(ring_list_getstring(pList,1),ring_parser_icg_parentclassname(pParser)) == 0 ) {
                         ring_parser_error(pParser,RING_PARSER_ERROR_PARENTLIKESUBCLASS);
                         return 0 ;
                     }
                     /* Set Parent Class Name in Classes Map */
-                    ring_list_addstring_gc(pParser->pRingState,pList,ring_list_getstring(pList3,4));
+                    ring_list_addstring_gc(pParser->pRingState,pList,ring_parser_icg_parentclassname(pParser));
                     #if RING_PARSERTRACE
                     RING_STATE_CHECKPRINTRULES 
                     

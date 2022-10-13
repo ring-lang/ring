@@ -278,3 +278,9 @@ void ring_parser_icg_newline ( Parser *pParser,int nLine )
     ring_parser_icg_newoperation(pParser,ICO_NEWLINE);
     ring_parser_icg_newoperandint(pParser,nLine);
 }
+
+char * ring_parser_icg_parentclassname ( Parser *pParser )
+{
+    /* This function assume that the current instruction define new class and return the parent class name */
+    return ring_list_getstring(pParser->ActiveGenCodeList ,RING_PARSER_ICG_PARENTCLASSPOS) ;
+}

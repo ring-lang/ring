@@ -166,6 +166,7 @@
     #define ring_parser_icg_getoperationatpos(pParser,x) ring_list_getint(ring_parser_icg_getoperationlist(pParser,x),RING_PARSER_ICG_OPERATIONCODE)
     #define ring_parser_icg_getoperandint(pParser,x) ring_list_getint(pParser->ActiveGenCodeList,x)
     #define ring_parser_icg_getoperanddouble(pParser,x) ring_list_getdouble(pParser->ActiveGenCodeList,x)
+    #define RING_PARSER_ICG_PARENTCLASSPOS 4
     /*
     **  Functions 
     **  Generate Intermediate Code 
@@ -219,4 +220,6 @@
     void ring_parser_icg_freestack ( Parser *pParser ) ;
 
     void ring_parser_icg_newline ( Parser *pParser,int nLine ) ;
+
+    char * ring_parser_icg_parentclassname ( Parser *pParser ) ;
 #endif

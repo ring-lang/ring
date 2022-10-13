@@ -120,6 +120,7 @@ ring_parser_icg_getoperationbeforelastoperation(pParser)
 ring_parser_icg_getoperationatpos(pParser,x)
 ring_parser_icg_getoperandint(pParser,x)
 ring_parser_icg_getoperanddouble(pParser,x)
+RING_PARSER_ICG_PARENTCLASSPOS
 ring_parser_icg_newoperation
 ring_parser_icg_insertoperation
 ring_parser_icg_newoperand
@@ -162,3 +163,4 @@ Type: int
 x
 ring_parser_icg_freestack
 ring_parser_icg_newline
+ring_parser_icg_parentclassname
