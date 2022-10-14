@@ -65,3 +65,6 @@ pTempMem
 Type: int
 x,nStart
 ring_vm_endfuncexec
+ring_vm_retitemref
+Type: List *
+pList

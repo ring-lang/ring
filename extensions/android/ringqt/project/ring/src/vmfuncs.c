@@ -88,11 +88,11 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
                         /* Replace Instruction with ICO_LOADFUNCP for better performance */
                         RING_VM_IR_OPCODE = ICO_LOADFUNCP ;
                         /* Leave the first parameter (contains the function name as wanted) */
-                        ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(2),ring_list_getint(pList2,RING_FUNCMAP_PC));
-                        ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(3),RING_FUNCTYPE_SCRIPT);
-                        ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(4),ring_list_getstring(pList2,RING_FUNCMAP_FILENAME));
-                        ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(5),ring_list_getint(pList3,RING_FUNCCL_METHODORFUNC));
-                        ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(6),ring_list_getint(pList3,RING_FUNCCL_LINENUMBER));
+                        RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(2),ring_list_getint(pList2,RING_FUNCMAP_PC));
+                        RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(3),RING_FUNCTYPE_SCRIPT);
+                        RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(4),ring_list_getstring(pList2,RING_FUNCMAP_FILENAME));
+                        RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(5),ring_list_getint(pList3,RING_FUNCCL_METHODORFUNC));
+                        RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(6),ring_list_getint(pList3,RING_FUNCCL_LINENUMBER));
                     }
                 }
                 else {
