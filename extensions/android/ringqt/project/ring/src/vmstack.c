@@ -81,14 +81,14 @@ void ring_vm_loadaddress ( VM *pVM )
     if ( pVM->nVarScope == RING_VARSCOPE_GLOBAL ) {
         /* Replace LoadAddress with PUSHP for better performance */
         RING_VM_IR_OPCODE = ICO_PUSHP ;
-        ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
+        RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
     }
     else if ( pVM->nVarScope == RING_VARSCOPE_LOCAL ) {
         if ( pVM->lUsePushPLocal ) {
             /* Replace LoadAddress with PUSHPLOCAL for better performance */
             RING_VM_IR_OPCODE = ICO_PUSHPLOCAL ;
-            ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(3),RING_VM_STACK_READP);
-            ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(4),ring_list_getint(pVM->aScopeID,ring_list_getsize(pVM->aScopeID)));
+            RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(3),RING_VM_STACK_READP);
+            RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(4),ring_list_getint(pVM->aScopeID,ring_list_getsize(pVM->aScopeID)));
         }
     }
     /* Save Scope in nLoadAddressScope */
@@ -217,7 +217,7 @@ void ring_vm_inc ( VM *pVM )
     if ( ( ring_list_getsize(pVM->pMem) == 1 )  && (pVM->pActiveMem == ring_vm_getglobalscope(pVM)) ) {
         /* Replace ICO_INC with IncP for better performance */
         RING_VM_IR_OPCODE = ICO_INCP ;
-        ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
+        RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
     }
     pVar = (List *) RING_VM_STACK_READP ;
     RING_VM_STACK_POP ;
@@ -232,7 +232,7 @@ void ring_vm_loadapushv ( VM *pVM )
     if ( pVM->nVarScope == RING_VARSCOPE_GLOBAL ) {
         /* Replace LoadAPushV with PUSHPV for better performance */
         RING_VM_IR_OPCODE = ICO_PUSHPV ;
-        ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
+        RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
     }
     ring_vm_varpushv(pVM);
 }

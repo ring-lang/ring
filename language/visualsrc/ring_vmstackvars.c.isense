@@ -74,3 +74,7 @@ pItem
 Type: int
 x
 ring_vm_freeloadaddressscope
+ring_vm_loadaddressfirst
+ring_vm_printstack
+Type: int
+x,nSP
