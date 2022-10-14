@@ -867,7 +867,7 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
             }
             ring_vm_eval(pVM,ring_string_get(pString));
             /* We don't use RING_VM_IR because Eval reallocation change mem. locations */
-            ring_item_setint_gc(pVM->pRingState,pItem,pVM->nPC);
+            RING_VM_IR_ITEMSETINT(pItem,pVM->nPC);
         }
         else {
             ring_vm_blockflag2(pVM,pVM->nPC);
@@ -981,7 +981,7 @@ void ring_vm_oop_setproperty ( VM *pVM )
             }
             ring_vm_eval(pVM,ring_string_get(pString));
             /* We don't use RING_VM_IR because Eval reallocation change mem. locations */
-            ring_item_setint_gc(pVM->pRingState,pItem,pVM->nPC);
+            RING_VM_IR_ITEMSETINT(pItem,pVM->nPC);
             /* Delete String */
             ring_string_delete_gc(pVM->pRingState,pString);
         }
@@ -990,7 +990,7 @@ void ring_vm_oop_setproperty ( VM *pVM )
             pVM->nPC = RING_VM_IR_READIVALUE(2) ;
         }
         /* Set Before/After SetProperty Flag To After */
-        ring_item_setint_gc(pVM->pRingState,pItem2,1);
+        RING_VM_IR_ITEMSETINT(pItem2,1);
     }
     /* After (Second Time) */
     else {
@@ -1114,7 +1114,7 @@ void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int 
         }
         ring_vm_eval(pVM,ring_string_get(pString));
         /* We don't use RING_VM_IR because Eval reallocation change mem. locations */
-        ring_item_setint_gc(pVM->pRingState,pItem,pVM->nPC);
+        RING_VM_IR_ITEMSETINT(pItem,pVM->nPC);
         /* Delete String */
         ring_string_delete_gc(pVM->pRingState,pString);
     }

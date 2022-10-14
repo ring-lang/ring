@@ -167,4 +167,4 @@ Type: List *
 pList, *pThis, *pClass, *pVar
 Type: Item *
 pItem
-ring_vm_callclassinit
+ring_vm_oop_callclassinit
