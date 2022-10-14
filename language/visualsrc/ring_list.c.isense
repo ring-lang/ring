@@ -18,7 +18,7 @@ Type: struct Item *
 pItemBlock
 Type: struct Items *
 pItemsBlock
-Type: char
+Type: unsigned char
 lCopyByRef
 END:
 Type: List
@@ -108,6 +108,11 @@ ring_list_setpointer_gc
 Type: Item *
 pItem
 ring_list_addpointer_gc
+ring_list_addringpointer_gc
+Type: List *
+pPointerList
+Type: Item *
+pItem
 ring_list_setdouble_gc
 Type: Item *
 pItem
@@ -247,6 +252,7 @@ ring_list_setint
 ring_list_addint
 ring_list_setpointer
 ring_list_addpointer
+ring_list_addringpointer
 ring_list_setfuncpointer
 ring_list_addfuncpointer
 ring_list_setdouble
