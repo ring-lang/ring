@@ -1,6 +1,7 @@
 /* Copyright (c) 2013-2022 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_h
     #define ring_h
+    #define NDEBUG
     /* Include C Headers */
     #include <stdlib.h>
     #include <stdio.h>
@@ -16,6 +17,7 @@
         #define RING_MSDOS 1
         #if __BORLANDC__
             #include <dir.h>
+            #include <alloc.h>
         #endif
     #else
         #define RING_MSDOS 0
