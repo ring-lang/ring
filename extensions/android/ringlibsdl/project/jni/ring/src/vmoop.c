@@ -810,6 +810,7 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
     Item *pGetSetItem  ;
     String *pString, *pString2  ;
     RING_VM_IR_ITEMTYPE *pItem  ;
+    int nIns  ;
     /* Create String */
     pString = ring_string_new_gc(pVM->pRingState,"if ismethod(ring_gettemp_var,'get");
     ring_string_add_gc(pVM->pRingState,pString,ring_list_getstring(pVar,1));
@@ -861,13 +862,14 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
         }
         ring_string_delete_gc(pVM->pRingState,pString2);
         if ( RING_VM_IR_READIVALUE(2)  == 0 ) {
-            pGetSetItem = RING_VM_IR_ITEM(2) ;
+            nIns = pVM->nPC - 2 ;
             pVM->nEvalCalledFromRingCode = 0 ;
             if ( pVM->lInsideEval ) {
                 pVM->nRetEvalDontDelete = 1 ;
             }
             ring_vm_eval(pVM,ring_string_get(pString));
-            /* We don't use RING_VM_IR because Eval reallocation change mem. locations */
+            /* Note: Eval reallocation change mem. locations */
+            pGetSetItem = RING_VM_IR_ITEMATINS(nIns,2) ;
             RING_VM_IR_ITEMSETINT(pGetSetItem,pVM->nPC);
         }
         else {
@@ -920,6 +922,7 @@ void ring_vm_oop_setproperty ( VM *pVM )
     List *pList, *pList2  ;
     RING_VM_IR_ITEMTYPE *pItem, *pRegItem  ;
     String *pString  ;
+    int nIns  ;
     /* If we don't have a setter method and we have a new list or new object */
     if ( pVM->lNoSetterMethod == 2 ) {
         pVM->lNoSetterMethod = 0 ;
@@ -974,14 +977,18 @@ void ring_vm_oop_setproperty ( VM *pVM )
             ring_string_add_gc(pVM->pRingState,pString,"')\nring_gettemp_var.'set");
             ring_string_add_gc(pVM->pRingState,pString,ring_list_getstring(pList,3));
             ring_string_add_gc(pVM->pRingState,pString,"'(ring_settemp_var)\nring_tempflag_var = 0\nelse\nring_tempflag_var = 1\nok");
-            /* Eval the string */
-            pItem = RING_VM_IR_ITEM(2) ;
+            /*
+            **  Eval the string 
+            **  We use -1 instead of -2 because we already used pVM->nPC-- 
+            */
+            nIns = pVM->nPC - 1 ;
             pVM->nEvalCalledFromRingCode = 0 ;
             if ( pVM->lInsideEval ) {
                 pVM->nRetEvalDontDelete = 1 ;
             }
             ring_vm_eval(pVM,ring_string_get(pString));
-            /* We don't use RING_VM_IR because Eval reallocation change mem. locations */
+            /* Note: Eval reallocation change mem. locations */
+            pItem = RING_VM_IR_ITEMATINS(nIns,2) ;
             RING_VM_IR_ITEMSETINT(pItem,pVM->nPC);
             /* Delete String */
             ring_string_delete_gc(pVM->pRingState,pString);
@@ -1075,7 +1082,7 @@ void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int 
     Item *pItem  ;
     RING_VM_IR_ITEMTYPE *pRegItem  ;
     String *pString  ;
-    int nObjType  ;
+    int nObjType, nIns  ;
     nObjType = ring_vm_oop_objtypefromobjlist(pObj);
     /* Set Variable ring_gettemp_var  , Number 5 in Public Memory */
     pList2 = ring_list_getlist(ring_vm_getglobalscope(pVM),5) ;
@@ -1109,13 +1116,14 @@ void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int 
         ring_string_add_gc(pVM->pRingState,pString,cStr1);
         ring_string_add_gc(pVM->pRingState,pString,"',ring_settemp_var)\nelse\nraise('Object does not support operator overloading')\nok\n");
         /* Eval the string */
-        pRegItem = RING_VM_IR_ITEM(1) ;
+        nIns = pVM->nPC - 2 ;
         pVM->nEvalCalledFromRingCode = 0 ;
         if ( pVM->lInsideEval ) {
             pVM->nRetEvalDontDelete = 1 ;
         }
         ring_vm_eval(pVM,ring_string_get(pString));
-        /* We don't use RING_VM_IR because Eval reallocation change mem. locations */
+        /* Note: Eval reallocation change mem. locations */
+        pRegItem = RING_VM_IR_ITEMATINS(nIns,1) ;
         RING_VM_IR_ITEMSETINT(pRegItem,pVM->nPC);
         /* Delete String */
         ring_string_delete_gc(pVM->pRingState,pString);

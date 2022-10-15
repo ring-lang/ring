@@ -195,6 +195,7 @@
     #define RING_VM_IR_ITEMSETINT(x,y) ring_item_setint_gc(pVM->pRingState,x,y)
     #define RING_VM_IR_ITEMSETPOINTER(x,y) ring_item_setpointer_gc(pVM->pRingState,x,y)
     #define RING_VM_IR_ITEMTYPE Item
+    #define RING_VM_IR_ITEMATINS(x,y) (pVM->pByteCode + x)->aData[y]
     /*
     **  Calling Functions 
     **  Note : When you insert items check performance functions for update too! 

@@ -118,6 +118,8 @@ Type: String *
 pString, *pString2
 Type: RING_VM_IR_ITEMTYPE *
 pItem
+Type: int
+nIns
 ring_vm_oop_setproperty
 Type: List *
 pList, *pList2
@@ -125,6 +127,8 @@ Type: RING_VM_IR_ITEMTYPE *
 pItem, *pRegItem
 Type: String *
 pString
+Type: int
+nIns
 ring_vm_oop_objvarfromobjlist
 Type: int
 nType
@@ -139,12 +143,14 @@ pItem
 ring_vm_oop_operatoroverloading
 Type: List *
 pList2
+Type: Item *
+pItem
 Type: RING_VM_IR_ITEMTYPE *
 pRegItem
 Type: String *
 pString
 Type: int
-nObjType
+nObjType, nIns
 ring_vm_oop_callmethodfrombrace
 Type: List *
 pList,*pList2
