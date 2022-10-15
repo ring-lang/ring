@@ -113,14 +113,14 @@ ring_vm_oop_setget
 Type: List *
 pList, *pList2
 Type: Item *
-pItem, *pItem2
+pItem, *pGetSetItem
 Type: String *
 pString, *pString2
 ring_vm_oop_setproperty
 Type: List *
 pList, *pList2
 Type: Item *
-pItem,*pItem2
+pItem,*pRegItem
 Type: String *
 pString
 ring_vm_oop_objvarfromobjlist

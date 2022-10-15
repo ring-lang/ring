@@ -807,7 +807,7 @@ int ring_vm_oop_callmethodinsideclass ( VM *pVM )
 void ring_vm_oop_setget ( VM *pVM,List *pVar )
 {
     List *pList, *pList2  ;
-    Item *pItem, *pItem2  ;
+    Item *pItem, *pGetSetItem  ;
     String *pString, *pString2  ;
     /* Create String */
     pString = ring_string_new_gc(pVM->pRingState,"if ismethod(ring_gettemp_var,'get");
@@ -835,8 +835,8 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
             pList2 = ring_list_getlist((List *) (pVM->pGetSetObject),RING_VAR_VALUE ) ;
         }
         else if ( pVM->nGetSetObjType == RING_OBJTYPE_LISTITEM ) {
-            pItem2 = (Item *) pVM->pGetSetObject ;
-            pList2 = ring_item_getlist(pItem2) ;
+            pGetSetItem = (Item *) pVM->pGetSetObject ;
+            pList2 = ring_item_getlist(pGetSetItem) ;
         }
         if ( ring_vm_oop_ismethod(pVM,pList2,ring_string_get(pString2)) ) {
             RING_VM_STACK_POP ;
@@ -901,8 +901,8 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
             pList2 = ring_list_getlist((List *) (pVM->pGetSetObject),RING_VAR_VALUE ) ;
         }
         else if ( pVM->nGetSetObjType == RING_OBJTYPE_LISTITEM ) {
-            pItem2 = (Item *) pVM->pGetSetObject ;
-            pList2 = ring_item_getlist(pItem2) ;
+            pGetSetItem = (Item *) pVM->pGetSetObject ;
+            pList2 = ring_item_getlist(pGetSetItem) ;
         }
         pVM->lNoSetterMethod = 0 ;
         if ( ! ring_vm_oop_ismethod(pVM,pList2,ring_string_get(pString2)) ) {
@@ -917,7 +917,7 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 void ring_vm_oop_setproperty ( VM *pVM )
 {
     List *pList, *pList2  ;
-    Item *pItem,*pItem2  ;
+    Item *pItem,*pRegItem  ;
     String *pString  ;
     /* If we don't have a setter method and we have a new list or new object */
     if ( pVM->lNoSetterMethod == 2 ) {
@@ -937,7 +937,7 @@ void ring_vm_oop_setproperty ( VM *pVM )
     }
     /* Before (First Time) */
     if ( RING_VM_IR_READIVALUE(1) == 0 ) {
-        pItem2 = RING_VM_IR_ITEM(1) ;
+        pRegItem = RING_VM_IR_ITEM(1) ;
         /* Set Variable ring_gettemp_var  , Number 5 in Public Memory */
         pList2 = ring_list_getlist(ring_vm_getglobalscope(pVM),5) ;
         ring_list_setpointer_gc(pVM->pRingState,pList2,RING_VAR_VALUE,ring_list_getpointer(pList,1));
@@ -990,7 +990,7 @@ void ring_vm_oop_setproperty ( VM *pVM )
             pVM->nPC = RING_VM_IR_READIVALUE(2) ;
         }
         /* Set Before/After SetProperty Flag To After */
-        RING_VM_IR_ITEMSETINT(pItem2,1);
+        RING_VM_IR_ITEMSETINT(pRegItem,1);
     }
     /* After (Second Time) */
     else {
