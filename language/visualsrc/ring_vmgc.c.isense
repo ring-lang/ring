@@ -1,6 +1,6 @@
 ring_vmgcdata
 Parent: GCData
-Type: unsigned short
+Type: unsigned int
 nReferenceCount
 END:
 Type: GCData
