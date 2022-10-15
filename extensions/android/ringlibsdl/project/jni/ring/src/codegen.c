@@ -238,7 +238,7 @@ void ring_parser_icg_loadfunctionextraoperands ( Parser *pParser )
     int x  ;
     assert(pParser != NULL);
     /* We Add these operands to allow changing ICO_LOADFUNC to ICO_LOADFUNCP */
-    for ( x = 0 ; x < 5 ; x++ ) {
+    for ( x = 0 ; x < 4 ; x++ ) {
         ring_parser_icg_newoperandint(pParser,0);
     }
 }
@@ -262,17 +262,14 @@ void ring_parser_icg_loadaddressassignmentpos ( Parser *pParser,List *pLoadAPos,
 
 void ring_parser_icg_loadaddresstoloadfunction ( Parser *pParser )
 {
-    int x  ;
     assert(pParser != NULL);
     ring_parser_icg_setlastoperation(pParser,ICO_LOADFUNC);
     /*
     **  The ICO_LOADADDRESS uses 3 operands after the Variable Name 
-    **  While the ICO_LOADFUNC uses 5 operands after the function name 
-    **  So we add another two operands 
+    **  While the ICO_LOADFUNC uses 4 operands after the function name 
+    **  So we add another operand 
     */
-    for ( x = 0 ; x < 2 ; x++ ) {
-        ring_parser_icg_newoperandint(pParser,0);
-    }
+    ring_parser_icg_newoperandint(pParser,0);
 }
 
 void ring_parser_icg_freestack ( Parser *pParser )

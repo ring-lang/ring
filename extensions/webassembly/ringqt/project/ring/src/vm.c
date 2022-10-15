@@ -349,7 +349,7 @@ void ring_vm_tobytecode ( VM *pVM,int x )
     if ( ring_list_getsize(pIR) > RING_VM_BC_ITEMS_COUNT ) {
         printf( RING_LONGINSTRUCTION ) ;
         printf( "In File : %s  - Byte-Code PC : %d  ",pVM->cFileName,x ) ;
-        exit(0);
+        exit(1);
     }
     for ( x2 = 1 ; x2 <= ring_list_getsize(pIR) ; x2++ ) {
         pItem = ring_list_getitem(pIR,x2) ;
@@ -378,7 +378,7 @@ void ring_vm_tobytecode ( VM *pVM,int x )
 int ring_vm_irparacount ( VM *pVM )
 {
     int x,nCount  ;
-    nCount = 7 ;
+    nCount = RING_VM_BC_ITEMS_COUNT ;
     for ( x = RING_VM_BC_ITEMS_COUNT-1 ; x >= 0 ; x-- ) {
         if ( pVM->pByteCodeIR->aData[x] == NULL ) {
             nCount-- ;

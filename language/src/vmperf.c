@@ -264,17 +264,17 @@ void ring_vm_loadfuncp ( VM *pVM )
     pVM->nFuncExecute++ ;
     pVM->nFuncExecute2++ ;
     pList = ring_list_newlist_gc(pVM->pRingState,pVM->pFuncCallList);
-    ring_list_addint_gc(pVM->pRingState,pList,RING_VM_IR_READIVALUE(3));
+    ring_list_addint_gc(pVM->pRingState,pList,RING_FUNCTYPE_SCRIPT);
     ring_list_addstring_gc(pVM->pRingState,pList,RING_VM_IR_READC);
     ring_list_addint_gc(pVM->pRingState,pList,RING_VM_IR_READIVALUE(2));
     ring_list_addint_gc(pVM->pRingState,pList,pVM->nSP);
     ring_list_newlist_gc(pVM->pRingState,pList);
     ring_list_addpointer_gc(pVM->pRingState,pList,pVM->cFileName);
     pVM->cPrevFileName = pVM->cFileName ;
-    pVM->cFileName = (char *) RING_VM_IR_READPVALUE(4) ;
+    pVM->cFileName = (char *) RING_VM_IR_READPVALUE(3) ;
     ring_list_addpointer_gc(pVM->pRingState,pList,pVM->cFileName);
+    ring_list_addint_gc(pVM->pRingState,pList,RING_VM_IR_READIVALUE(4));
     ring_list_addint_gc(pVM->pRingState,pList,RING_VM_IR_READIVALUE(5));
-    ring_list_addint_gc(pVM->pRingState,pList,RING_VM_IR_READIVALUE(6));
     /* Store List information */
     ring_list_addint_gc(pVM->pRingState,pList,pVM->nListStart);
     ring_list_addpointer_gc(pVM->pRingState,pList,pVM->pNestedLists);
