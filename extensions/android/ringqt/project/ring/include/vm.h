@@ -187,7 +187,6 @@
     #define RING_VM_IR_PARACOUNT ring_vm_irparacount(pVM)
     #define RING_VM_IR_OPCODE pVM->pByteCodeIR->aData[0]->data.iNumber
     #define RING_VM_IR_OPCODEVALUE(x) (pVM->pByteCode + x)->aData[0]->data.iNumber
-    #define RING_VM_IR_SETCVALUE(x,y) ring_string_set_gc(pVM->pRingState,pVM->pByteCodeIR->aData[x]->data.pString,y)
     #define RING_VM_IR_ITEM(x) pVM->pByteCodeIR->aData[x]
     #define RING_VM_IR_LOAD pVM->pByteCodeIR = pVM->pByteCode + pVM->nPC - 1
     #define RING_VM_IR_UNLOAD pVM->pByteCodeIR = pVM->pByteCode + pVM->nPC - 2
