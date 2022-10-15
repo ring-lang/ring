@@ -194,6 +194,7 @@
     #define RING_VM_IR_SETLINENUMBER(x) pVM->nLineNumber = x
     #define RING_VM_IR_ITEMSETINT(x,y) ring_item_setint_gc(pVM->pRingState,x,y)
     #define RING_VM_IR_ITEMSETPOINTER(x,y) ring_item_setpointer_gc(pVM->pRingState,x,y)
+    #define RING_VM_IR_ITEMTYPE Item
     /*
     **  Calling Functions 
     **  Note : When you insert items check performance functions for update too! 
