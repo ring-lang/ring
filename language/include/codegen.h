@@ -223,4 +223,6 @@
     void ring_parser_icg_newline ( Parser *pParser,int nLine ) ;
 
     char * ring_parser_icg_parentclassname ( Parser *pParser ) ;
+
+    char * ring_parser_icg_newpackagename ( Parser *pParser,List *pPos ) ;
 #endif

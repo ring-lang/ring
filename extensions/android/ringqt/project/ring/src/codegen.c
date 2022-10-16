@@ -294,3 +294,8 @@ char * ring_parser_icg_parentclassname ( Parser *pParser )
     /* This function assume that the current instruction define new class and return the parent class name */
     return ring_list_getstring(pParser->ActiveGenCodeList ,RING_PARSER_ICG_PARENTCLASSPOS) ;
 }
+
+char * ring_parser_icg_newpackagename ( Parser *pParser,List *pPos )
+{
+    return ring_list_getstring(pPos,2) ;
+}

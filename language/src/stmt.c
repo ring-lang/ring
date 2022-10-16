@@ -189,14 +189,14 @@ int ring_parser_class ( Parser *pParser )
             /* Check early definition of the package */
             for ( x = 1 ; x <= ring_list_getsize(pParser->pRingState->pRingPackagesMap) ; x++ ) {
                 pList3 = ring_list_getlist(pParser->pRingState->pRingPackagesMap,x);
-                if ( strcmp(ring_list_getstring(pList3,1),ring_list_getstring(pMark,2)) == 0 ) {
+                if ( strcmp(ring_list_getstring(pList3,1),ring_parser_icg_newpackagename(pParser,pMark)) == 0 ) {
                     pParser->ClassesMap = ring_list_getlist(pList3,2);
                     return 1 ;
                 }
             }
             pList2 = ring_list_newlist_gc(pParser->pRingState,pParser->pRingState->pRingPackagesMap);
             /* Add Package Name */
-            ring_list_addstring_gc(pParser->pRingState,pList2,ring_list_getstring(pMark,2));
+            ring_list_addstring_gc(pParser->pRingState,pList2,ring_parser_icg_newpackagename(pParser,pMark));
             /* Add Package Classes List */
             pParser->ClassesMap = ring_list_newlist_gc(pParser->pRingState,pList2);
             /* Support using { } around the package code and using 'end' after the content */
