@@ -214,7 +214,7 @@ int ring_parser_icg_newlabel2 ( Parser *pParser )
 void ring_parser_icg_setopcode ( Parser *pParser ,List *pList , int nValue )
 {
     assert(pParser != NULL);
-    ring_list_setint_gc(pParser,pList,1,nValue);
+    ring_list_setint_gc(pParser->pRingState,pList,1,nValue);
 }
 
 void ring_parser_icg_deleteoperand ( Parser *pParser , int nPos )
