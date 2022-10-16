@@ -151,8 +151,8 @@ New qapp {
                 resize(WinWidth, WinHeight)
 				setMinimumHeight(500)
 				setMinimumWidth(600)
-
-                win1{ setwindowtitle("Initial Window Position: " +" L " + WinLeft +" T " + WinTop +" Width" + width() +" Height " +  height() ) }
+				setWinIcon(Self,"appicon.png")
+                setwindowtitle("Initial Window Position: " +" L " + WinLeft +" T " + WinTop +" Width" + width() +" Height " +  height() ) 
 
                 ###------------------------------------------
                 ### ReSizeEvent ... Call WhereAreWe function
