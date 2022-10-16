@@ -609,7 +609,7 @@ int ring_parser_range ( Parser *pParser )
 int ring_parser_factor ( Parser *pParser,int *nFlag )
 {
     int x,x2,x3,nLastOperation,nCount,nNOOP,nToken,nMark,nFlag2,nThisOrSelfLoadA  ;
-    List *pLoadAPos, *pList, *pMark,*pAssignmentPointerPos  ;
+    List *pLoadAPos, *pLoadAMark,*pList, *pMark,*pAssignmentPointerPos  ;
     char lSetProperty,lequal,nBeforeEqual  ;
     char cFuncName[100]  ;
     char cKeyword[100]  ;
@@ -648,7 +648,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
         **  Save State before changes by Check Operator 
         */
         nLastOperation = ring_parser_icg_getlastoperation(pParser) ;
-        pList = ring_parser_icg_getactiveoperation(pParser) ;
+        pLoadAMark = ring_parser_icg_getactiveoperation(pParser) ;
         /* Check Operator */
         lequal = 1 ;
         if ( ring_parser_isoperator2(pParser,OP_EQUAL) ) {
@@ -700,7 +700,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
                 lSetProperty = 0 ;
                 /* When the assignment is after LoadAddress */
                 if ( nLastOperation == ICO_LOADADDRESS ) {
-                    pLoadAPos = pList ;
+                    pLoadAPos = pLoadAMark ;
                 }
             }
             /* Generate Code */
