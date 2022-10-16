@@ -149,6 +149,8 @@ New qapp {
                 ### Size on Screen
                 setwindowtitle("GetQuotesHistory-DrawChart using QPainter")
                 resize(WinWidth, WinHeight)
+				setMinimumHeight(500)
+				setMinimumWidth(600)
 
                 win1{ setwindowtitle("Initial Window Position: " +" L " + WinLeft +" T " + WinTop +" Width" + width() +" Height " +  height() ) }
 
