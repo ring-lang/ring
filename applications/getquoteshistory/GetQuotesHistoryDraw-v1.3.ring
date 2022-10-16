@@ -245,6 +245,7 @@ New qapp {
                         alist = ["Line","Bar","Mountain","Actual","Log","HeikenAshi"]
                         for x in aList additem(x,0) next
 						setCurrentIndex(2)
+						setCurrentIndexChangedEvent("draw()")
                 }
 
                 ###----------------------------------------------------------
