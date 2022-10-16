@@ -107,6 +107,8 @@ oldV = 0
  
 C_ButtonIconWidth  = 60
 C_ButtonIconHeight = 60
+C_ButtonMinWidth   = 70
+C_ButtonMinHeight  = 70
 C_Spacing  = 2
 C_ButtonFirstStyle	= 'border-radius:1px; color:black; background-color: rgb(229,249,203) ;'		### Square pale
 				###'border-style: outset; border-width: 2px; border-radius: 2px; border-color: gray;'
@@ -293,8 +295,8 @@ Func DrawWidget()
 						setClickEvent("UserLeftClick(" + string(Row) +
 								 "," + string(Col) + ")")	
 						setSizePolicy(1,1)		
-						setMinimumWidth(70)
-						setMinimumHeight(70)							
+						setMinimumWidth(C_ButtonMinWidth)
+						setMinimumHeight(C_ButtonMinHeight)							
 					}
 					
 				### Widget - Add HORIZONTAL BUTTONS
