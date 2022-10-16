@@ -1,5 +1,5 @@
-Load "guilib.ring"
-Load "libcurl.ring"
+load "guilib.ring"
+load "libcurl.ring"
 
 /*
  +---------------------------------------------------------------------------------------------------------
@@ -143,8 +143,11 @@ myCrumb  = "abcdefghijklmnopqrstuvwxyz"
 ###
 ###==================================
 
-New qapp {
-        win1 = new qwidget() {
+new QApp {
+
+		styleFusion()
+
+        win1 = new QWidget() {
 
                 ### Size on Screen
                 setwindowtitle("GetQuotesHistory-DrawChart using QPainter")
