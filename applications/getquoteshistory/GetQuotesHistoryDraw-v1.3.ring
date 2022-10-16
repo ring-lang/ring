@@ -255,6 +255,7 @@ New qapp {
                         setGeometry(BoxLeft +440+EXTRAWIDTH*2.5, BoxTop -BoxTop, 80, 20)
                         alistTime = ["Weekly", "Daily", "Monthly"]
                         for x in aListTime additem(x,0) next
+						setCurrentIndexChangedEvent("draw()")
                 }
 
                 ###---------------------------
