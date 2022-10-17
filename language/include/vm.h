@@ -197,6 +197,7 @@
     #define RING_VM_IR_ITEMTYPE Item
     #define RING_VM_IR_ITEMATINS(x,y) (pVM->pByteCode + x)->aData[y]
     #define RING_VM_IR_READIVALUEATINS(x,y) (pVM->pByteCode+x)->aData[y]->data.iNumber
+    #define RING_VM_IR_READPVALUEATINS(x,y) (pVM->pByteCode+x)->aData[y]->data.pPointer
     #define RING_VM_PC_CURRENTINS pVM->nPC - 2
     #define RING_VM_PC_PREVINS pVM->nPC - 3
     /*
