@@ -274,7 +274,7 @@ void ring_vm_loadfuncp ( VM *pVM )
     pVM->cFileName = (char *) RING_VM_IR_READPVALUE(3) ;
     ring_list_addpointer_gc(pVM->pRingState,pList,pVM->cFileName);
     ring_list_addint_gc(pVM->pRingState,pList,RING_VM_IR_READIVALUE(4));
-    ring_list_addint_gc(pVM->pRingState,pList,RING_VM_IR_READIVALUE(5));
+    ring_list_addint_gc(pVM->pRingState,pList,RING_VM_IR_READIVALUEATINS(RING_VM_PC_PREVINS,1));
     /* Store List information */
     ring_list_addint_gc(pVM->pRingState,pList,pVM->nListStart);
     ring_list_addpointer_gc(pVM->pRingState,pList,pVM->pNestedLists);
