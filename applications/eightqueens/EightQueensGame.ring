@@ -46,6 +46,10 @@ WinWidth = 0
 WinHeight = 0
 
 C_Spacing  = 2
+C_ButtonIconWidth  = 60
+C_ButtonIconHeight = 60
+C_ButtonMinWidth   = 80
+C_ButtonMinHeight  = 80
 C_ButtonFirstStyle	= 'border-radius:1px; color:black; background-color: rgb(229,249,203) ;'		### Square pale
 				###'border-style: outset; border-width: 2px; border-radius: 2px; border-color: gray;'
 
@@ -75,8 +79,8 @@ Func DrawWidget()
 	{
 		# Set the Window Icon
 		setWindowIcon(new qIcon(new qPixmap(WQueen)))
-                win.setminimumwidth(500)
-                win.setminimumheight(500)
+		win.setminimumwidth(600)
+		win.setminimumheight(600)
 
 		Button = newList(size, size)	    ### Internal Array with Letters
 		
@@ -86,9 +90,6 @@ Func DrawWidget()
 		workHeight = win.height()
 		fontSize   = 8 + (workHeight / 100)
 		
-		move(moveX, moveY)
-                resize(500,500)
-
                 wwidth = win.width()
                 wheight = win.height()
                 bwidth = wwidth/size
@@ -212,7 +213,9 @@ Func DrawWidget()
 						setClickEvent("UserLeftClick(" + string(Row) +
 								 "," + string(Col) + ")")	
 						setSizePolicy(1,1)
-                                                resize(bwidth,bheight)	
+						resize(bwidth,bheight)	
+						setMinimumWidth(C_ButtonMinWidth)
+						setMinimumHeight(C_ButtonMinHeight)							
 					}
 					
 				        ### Widget - Add HORIZONTAL BUTTON
@@ -631,7 +634,7 @@ func pBadCell(Row,Col)
 
 func setButtonImage oBtn,oPixmap,width,height
      oBtn { setIcon(new qicon(oPixmap.scaled(width(),height(),0,0)))
-	    setIconSize(new QSize(width,height))
+	    setIconSize(new QSize(C_ButtonIconWidth,C_ButtonIconHeight))
 	  }
 
 ###============================================================ 
