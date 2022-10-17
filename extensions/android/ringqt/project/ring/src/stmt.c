@@ -233,14 +233,13 @@ int ring_parser_class ( Parser *pParser )
 
 int ring_parser_stmt ( Parser *pParser )
 {
-    int x,nMark1,nMark2,nMark3,nStart,nEnd,nPerformanceLocations,nFlag,nLoadPackage,nLoopOrExitCommand,nLoadAgain,nForInVarsCount,nVar  ;
+    int x,nMark1,nMark2,nMark3,nStart,nEnd,nFlag,nLoadPackage,nLoopOrExitCommand,nLoadAgain,nForInVarsCount,nVar  ;
     String *pString  ;
     List *pMark,*pMark2,*pMark3,*pList2  ;
     double nNum1  ;
     char cStr[50]  ;
     char cFileName[RING_PATHSIZE]  ;
     char cCurrentDir[RING_PATHSIZE]  ;
-    nPerformanceLocations = 0 ;
     nLoadPackage = 0 ;
     nLoopOrExitCommand = 0 ;
     nLoadAgain = 0 ;
@@ -512,7 +511,10 @@ int ring_parser_stmt ( Parser *pParser )
                                 ring_parser_icg_setlastoperation(pParser,ICO_JUMPVARLENUM);
                                 ring_parser_icg_newoperanddouble(pParser,nNum1);
                                 /* Add Locations Needed for Instruction change for performance */
-                                nPerformanceLocations = 1 ;
+                                ring_parser_icg_insertoperation(pParser,ring_parser_icg_instructionscount(pParser)-1,ICO_EXTRAPARA);
+                                ring_parser_icg_newoperandint(pParser,0);
+                                ring_parser_icg_newoperandint(pParser,0);
+                                pParser->ActiveGenCodeList = ring_list_getlist(pParser->GenCode,ring_parser_icg_instructionscount(pParser)) ;
                             } else {
                                 ring_parser_icg_newoperation(pParser,ICO_JUMPFOR);
                             }
@@ -547,12 +549,6 @@ int ring_parser_stmt ( Parser *pParser )
                                 ring_parser_icg_newoperandint(pParser,0);
                                 nMark2 = ring_parser_icg_newlabel(pParser);
                                 ring_parser_icg_addoperandint(pParser,pMark,nMark2);
-                                /* Performance Locations */
-                                if ( nPerformanceLocations ) {
-                                    /* Add Locations Needed for Instruction JUMPVARLENUM change for performance */
-                                    ring_parser_icg_addoperandint(pParser,pMark,0);
-                                    ring_parser_icg_addoperandint(pParser,pMark,0);
-                                }
                                 /* Restore Loop|Exit Commands Status */
                                 if ( pParser->nLoopOrExitCommand || ! pParser->nCheckLoopAndExit ) {
                                     /* Set Exit Mark */

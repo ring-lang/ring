@@ -132,7 +132,9 @@
         ICO_ENDGLOBALSCOPE ,
         ICO_SETGLOBALSCOPE ,
         /* Temp Lists */
-        ICO_FREETEMPLISTS 
+        ICO_FREETEMPLISTS ,
+        /* Extra Para */
+        ICO_EXTRAPARA 
     } IC_OPERATIONS ;
     /* Operations Text (Array) */
     static const char * RING_IC_OP[] = {"NewLine","FileName","Print","Class","Func","Dup","New","Give","Private","NewLabel", 
@@ -153,7 +155,9 @@
     
     "BITAND","BITOR","BITNOT","BITXOR","BITSHL","BITSHR","StepNumber","POPStep","LoadAFirst", 
     
-    "INCPJUMPSTEP1","JUMPVARPLENUMSTEP1","ANONYMOUS","CallClassInit","NewGlobalScope","EndGlobalScope","SetGlobalScope","FreeTempLists"} ;
+    "INCPJUMPSTEP1","JUMPVARPLENUMSTEP1","ANONYMOUS","CallClassInit", 
+    
+    "NewGlobalScope","EndGlobalScope","SetGlobalScope","FreeTempLists","ExtraPara"} ;
     /* Macro */
     #define RING_PARSER_ICG_GOTOLASTOP pParser->ActiveGenCodeList = ring_list_getlist(pParser->GenCode,ring_list_getsize(pParser->GenCode))
     #define ring_parser_icg_newlabel(x) ( ring_list_getsize(x->GenCode) + 1 )
