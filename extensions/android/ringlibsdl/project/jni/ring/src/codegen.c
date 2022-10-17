@@ -243,13 +243,15 @@ void ring_parser_icg_loadfunction ( Parser *pParser,const char *cFunctionName )
 
 void ring_parser_icg_loadaddress ( Parser *pParser,const char *cVariableName )
 {
-    int x  ;
     assert(pParser != NULL);
+    /* Extra Parameters */
+    ring_parser_icg_newoperation(pParser,ICO_EXTRAPARA);
+    ring_parser_icg_newoperandint(pParser,0);
+    ring_parser_icg_newoperandint(pParser,0);
     ring_parser_icg_newoperation(pParser,ICO_LOADADDRESS);
     ring_parser_icg_newoperand(pParser,cVariableName);
-    for ( x = 0 ; x < 3 ; x++ ) {
-        ring_parser_icg_newoperandint(pParser,0);
-    }
+    ring_parser_icg_newoperandint(pParser,0);
+    ring_parser_icg_newoperandint(pParser,0);
 }
 
 void ring_parser_icg_loadaddressassignmentpos ( Parser *pParser,List *pLoadAPos,int nPos )
