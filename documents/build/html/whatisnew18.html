@@ -429,7 +429,6 @@
 <li><p>Ring Compiler/VM Source Code - Added: vmerror.c, vmeval.c &amp; vmthreads.c</p></li>
 <li><p>Support building Ring on windows using Tiny C Compiler</p></li>
 <li><p>Ring Compiler - Support unlimited number of function/method parameters</p></li>
-<li><p>Ring Compiler - Optimization - Prevent repeating ICO_FREESTACK instruction</p></li>
 <li><p>Ring Compiler - ring_parser_epsilon() function - Better Code</p></li>
 <li><p>Ring VM - Memory Functions - Display the size when the memory allocation fail</p></li>
 <li><p>Ring VM - Support calling private methods from the class region</p></li>
@@ -437,11 +436,14 @@
 <li><p>Ring VM - Fixed count for ByteCode items for the ICO_FUNC instruction</p></li>
 <li><p>Ring VM - Remove nSize from the ByteCode structure</p></li>
 <li><p>Ring VM - Better code for dynamic change between function/method calls inside braces</p></li>
-<li><p>Ring VM - Don’t create more than one temp. list per VM instruction</p></li>
-<li><p>Ring VM - The default RING_POOLMANAGER_ITEMSIZE value is 40 (instead of 64)</p></li>
-<li><p>Ring VM - Using RING_VM_IR_GETLINENUMBER &amp; RING_VM_IR_SETLINENUMBER(x)</p></li>
 <li><p>Ring VM - Check string range when we access strings after calling functions directly</p></li>
 <li><p>Ring VM - Get pointer as string when we access the pointer address</p></li>
+<li><p>Ring VM - Don’t create more than one temp. list per VM instruction</p></li>
+<li><p>Ring VM - Using RING_VM_IR_GETLINENUMBER &amp; RING_VM_IR_SETLINENUMBER(x)</p></li>
+<li><p>Ring VM - The default RING_POOLMANAGER_ITEMSIZE value is 40 (instead of 64)</p></li>
+<li><p>Ring VM - The default RING_POOLMANAGER_ITEMSINBLOCK value is 500K (instead of 2M)</p></li>
+<li><p>Ring VM - Max. parameters for each VM instruction is three (3)</p></li>
+<li><p>Ring VM - New instruction: ICO_EXTRAPARA (For instructions that need more parameters)</p></li>
 </ul>
 </div>
 </div>
