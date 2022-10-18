@@ -1,0 +1,134 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 20 , : y = 20  , 
+		 :width =  1251 , :height = 758 , 
+		 :title =  "Ring Tasks in Rosetta Code" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  ,
+		 :GUILibrary =  0  
+
+		]
+	],
+	[ :name = "ListWidget1" , :id = 2 , :classname = "formdesigner_qlistwidget" , :data = [
+		 :x = 8 , : y = 75  , 
+		 :width =  410 , :height = 643 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :cItems =  "",
+		 :cCurrentRow =  "",
+		 :setcurrentItemChangedEvent =  "",
+		 :setcurrentRowChangedEvent =  "",
+		 :setcurrentTextChangedEvent =  "",
+		 :setitemActivatedEvent =  "",
+		 :setitemChangedEvent =  "",
+		 :setitemClickedEvent =  "ListWidgetClicked",
+		 :setitemDoubleClickedEvent =  "",
+		 :setitemEnteredEvent =  "",
+		 :setitemPressedEvent =  "",
+		 :setitemSelectionChangedEvent =  ""
+		]
+	],
+	[ :name = "Label1" , :id = 3 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 6 , : y = 26  , 
+		 :width =  87 , :height = 27 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "72,12,-1,5,75,0,0,0,0,0,Bold" , 
+		 :parent =  "win"  ,
+		 :text =  "Task Name",
+		 :textalign =  0
+		]
+	],
+	[ :name = "LineEdit1" , :id = 4 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 159 , : y = 24  , 
+		 :width =  686 , :height = 30 , 
+		 :textcolor =  "#0000ff" , 
+		 :backcolor =  "white" , 
+		 :font =  "72,12,-1,5,75,0,0,0,0,0,Bold" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "Label3" , :id = 5 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 862 , : y = 23  , 
+		 :width =  84 , :height = 28 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "72,12,-1,5,75,0,0,0,0,0,Bold" , 
+		 :parent =  "win"  ,
+		 :text =  "Code Text",
+		 :textalign =  0
+		]
+	],
+	[ :name = "Button1" , :id = 6 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 969 , : y = 22  , 
+		 :width =  90 , :height = 29 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "#aaffff" , 
+		 :font =  "72,12,-1,5,75,0,0,0,0,0,Bold" , 
+		 :parent =  "win"  ,
+		 :text =  "Display",
+		 :BtnImage =  "",
+		 :setClickEvent =  "DisplayCode"
+		]
+	],
+	[ :name = "TextEdit1" , :id = 7 , :classname = "formdesigner_qtextedit" , :data = [
+		 :x = 432 , : y = 73  , 
+		 :width =  793 , :height = 649 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "#ffffff" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setcopyAvailableEvent =  "",
+		 :setcurrentCharFormatChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :setredoAvailableEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextChangedEvent =  "",
+		 :setundoAvailableEvent =  ""
+		]
+	],
+	[ :name = "LineEdit2" , :id = 8 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 100 , : y = 25  , 
+		 :width =  51 , :height = 30 , 
+		 :textcolor =  "blue" , 
+		 :backcolor =  "000000" , 
+		 :font =  "72,12,-1,5,75,0,0,0,0,0,Bold" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "Button2" , :id = 9 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 1085 , : y = 24  , 
+		 :width =  64 , :height = 24 , 
+		 :textcolor =  "#000000" , 
+		 :backcolor =  "#aaff7f" , 
+		 :font =  "72,12,-1,5,75,0,0,0,0,0,Bold" , 
+		 :parent =  "win"  ,
+		 :text =  "Run",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Run"
+		]
+	]
+]
+# End Form Designer File
