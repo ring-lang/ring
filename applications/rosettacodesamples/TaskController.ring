@@ -2,7 +2,7 @@
 # Author: Bert Mariani
 # Date..: 2022-02-05
 
-load "Rosetta_FormDesigner-TaskView.ring"
+load "TaskView.ring"
 load "internetLib.ring"
 
 import System.GUI
