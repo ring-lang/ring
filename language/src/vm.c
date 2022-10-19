@@ -346,33 +346,31 @@ void ring_vm_tobytecode ( VM *pVM,int x )
     pByteCode = pVM->pByteCode + x - 1 ;
     pIR = ring_list_getlist(pVM->pCode,x);
     /* Check Instruction Size */
-    if ( ring_list_getsize(pIR) > RING_VM_BC_ITEMS_COUNT ) {
+    if ( ring_list_getsize(pIR) > RING_VM_BC_ITEMS_COUNT+1 ) {
         printf( RING_LONGINSTRUCTION ) ;
         printf( "In File : %s  - Byte-Code PC : %d  ",pVM->cFileName,x ) ;
         exit(1);
     }
     /* Get the Operation Code */
     pItem = ring_list_getitem(pIR,1) ;
+    /* Avoid Performance Instructions (Happens when called from New Thread) */
+    switch ( pItem->data.iNumber ) {
+        case ICO_PUSHPLOCAL :
+            pItem->data.iNumber = ICO_LOADADDRESS ;
+            break ;
+        case ICO_JUMPVARLPLENUM :
+            pItem->data.iNumber = ICO_JUMPVARLENUM ;
+            break ;
+        case ICO_INCLPJUMP :
+            pItem->data.iNumber = ICO_INCJUMP ;
+            break ;
+    }
     pByteCode->nOPCode = pItem->data.iNumber ;
     /* Get Instruction Parameters Count */
     pByteCode->nParaCount = ring_list_getsize(pIR) ;
     for ( x2 = 2 ; x2 <= ring_list_getsize(pIR) ; x2++ ) {
         pItem = ring_list_getitem(pIR,x2) ;
-        pByteCode->aData[x2-1] = pItem ;
-        /* Avoid Performance Instructions (Happens when called from New Thread) */
-        if ( x2 == 1 ) {
-            switch ( pItem->data.iNumber ) {
-                case ICO_PUSHPLOCAL :
-                    pItem->data.iNumber = ICO_LOADADDRESS ;
-                    break ;
-                case ICO_JUMPVARLPLENUM :
-                    pItem->data.iNumber = ICO_JUMPVARLENUM ;
-                    break ;
-                case ICO_INCLPJUMP :
-                    pItem->data.iNumber = ICO_INCJUMP ;
-                    break ;
-            }
-        }
+        pByteCode->aData[x2-2] = pItem ;
     }
 }
 /* Main Loop Functions */

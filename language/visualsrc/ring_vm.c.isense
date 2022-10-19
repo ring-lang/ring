@@ -447,7 +447,6 @@ Type: ByteCode *
 pByteCode
 Type: Item *
 pItem
-ring_vm_irparacount
 ring_vm_mainloop
 ring_vm_fetch
 ring_vm_fetch2

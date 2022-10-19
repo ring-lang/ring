@@ -8,7 +8,7 @@
     #define RING_VM_STACK_SIZE 256
     #define RING_VM_STACK_CHECKOVERFLOW 253
     #define RING_VM_FREE_STACK_IN_CLASS_REGION_AFTER 100
-    #define RING_VM_BC_ITEMS_COUNT 4
+    #define RING_VM_BC_ITEMS_COUNT 3
     #define RING_VM_STATE_NUMBERS_COUNT 35
     #define RING_VM_STATE_POINTERS_COUNT 10
     #define RING_VM_MAXDIGITSINNUMBER 15
@@ -122,9 +122,9 @@
     **  Stack 
     **  Add 
     */
-    #define RING_VM_STACK_PUSHC pVM->nSP++ ; ring_itemarray_setstring2(pVM->aStack, pVM->nSP, ring_string_get(pVM->pByteCodeIR->aData[1]->data.pString), ring_string_size(pVM->pByteCodeIR->aData[1]->data.pString))
-    #define RING_VM_STACK_PUSHN pVM->nSP++ ; ring_itemarray_setdouble(pVM->aStack, pVM->nSP , pVM->pByteCodeIR->aData[1]->data.dNumber)
-    #define RING_VM_STACK_PUSHP pVM->nSP++ ; ring_itemarray_setpointer(pVM->aStack, pVM->nSP , pVM->pByteCodeIR->aData[1]->data.pPointer )
+    #define RING_VM_STACK_PUSHC pVM->nSP++ ; ring_itemarray_setstring2(pVM->aStack, pVM->nSP, ring_string_get(pVM->pByteCodeIR->aData[0]->data.pString), ring_string_size(pVM->pByteCodeIR->aData[0]->data.pString))
+    #define RING_VM_STACK_PUSHN pVM->nSP++ ; ring_itemarray_setdouble(pVM->aStack, pVM->nSP , pVM->pByteCodeIR->aData[0]->data.dNumber)
+    #define RING_VM_STACK_PUSHP pVM->nSP++ ; ring_itemarray_setpointer(pVM->aStack, pVM->nSP , pVM->pByteCodeIR->aData[0]->data.pPointer )
     /* Note, use RING_VM_STACK_OBJTYPE to read/write the pointer type */
     #define RING_VM_STACK_TRUE ring_itemarray_setdouble(pVM->aStack,pVM->nSP, 1)
     #define RING_VM_STACK_FALSE ring_itemarray_setdouble(pVM->aStack,pVM->nSP, 0)
@@ -177,19 +177,19 @@
     #define RING_VM_INSTRUCTIONSCOUNT ring_list_getsize(pVM->pCode)
     #define RING_VM_DELETELASTINSTRUCTION ring_list_deletelastitem_gc(pVM->pRingState,pVM->pCode)
     /* IR (Instruction Register) */
-    #define RING_VM_JUMP pVM->nPC = pVM->pByteCodeIR->aData[1]->data.iNumber
-    #define RING_VM_IR_READC ring_string_get(pVM->pByteCodeIR->aData[1]->data.pString)
-    #define RING_VM_IR_READCVALUE(x) ring_string_get(pVM->pByteCodeIR->aData[x]->data.pString)
-    #define RING_VM_IR_READP pVM->pByteCodeIR->aData[1]->data.pPointer
-    #define RING_VM_IR_READPVALUE(x) pVM->pByteCodeIR->aData[x]->data.pPointer
-    #define RING_VM_IR_READI pVM->pByteCodeIR->aData[1]->data.iNumber
-    #define RING_VM_IR_READIVALUE(x) pVM->pByteCodeIR->aData[x]->data.iNumber
-    #define RING_VM_IR_READD pVM->pByteCodeIR->aData[1]->data.dNumber
-    #define RING_VM_IR_READDVALUE(x) pVM->pByteCodeIR->aData[x]->data.dNumber
+    #define RING_VM_JUMP pVM->nPC = pVM->pByteCodeIR->aData[0]->data.iNumber
+    #define RING_VM_IR_READC ring_string_get(pVM->pByteCodeIR->aData[0]->data.pString)
+    #define RING_VM_IR_READCVALUE(x) ring_string_get(pVM->pByteCodeIR->aData[x-1]->data.pString)
+    #define RING_VM_IR_READP pVM->pByteCodeIR->aData[0]->data.pPointer
+    #define RING_VM_IR_READPVALUE(x) pVM->pByteCodeIR->aData[x-1]->data.pPointer
+    #define RING_VM_IR_READI pVM->pByteCodeIR->aData[0]->data.iNumber
+    #define RING_VM_IR_READIVALUE(x) pVM->pByteCodeIR->aData[x-1]->data.iNumber
+    #define RING_VM_IR_READD pVM->pByteCodeIR->aData[0]->data.dNumber
+    #define RING_VM_IR_READDVALUE(x) pVM->pByteCodeIR->aData[x-1]->data.dNumber
     #define RING_VM_IR_PARACOUNT pVM->pByteCodeIR->nParaCount
     #define RING_VM_IR_OPCODE pVM->pByteCodeIR->nOPCode
     #define RING_VM_IR_OPCODEVALUE(x) (pVM->pByteCode + x)->nOPCode
-    #define RING_VM_IR_ITEM(x) pVM->pByteCodeIR->aData[x]
+    #define RING_VM_IR_ITEM(x) pVM->pByteCodeIR->aData[x-1]
     #define RING_VM_IR_LOAD pVM->pByteCodeIR = pVM->pByteCode + pVM->nPC - 1
     #define RING_VM_IR_UNLOAD pVM->pByteCodeIR = pVM->pByteCode + pVM->nPC - 2
     #define RING_VM_IR_GETLINENUMBER pVM->nLineNumber
@@ -197,9 +197,9 @@
     #define RING_VM_IR_ITEMSETINT(x,y) ring_item_setint_gc(pVM->pRingState,x,y)
     #define RING_VM_IR_ITEMSETPOINTER(x,y) ring_item_setpointer_gc(pVM->pRingState,x,y)
     #define RING_VM_IR_ITEMTYPE Item
-    #define RING_VM_IR_ITEMATINS(x,y) (pVM->pByteCode + x)->aData[y]
-    #define RING_VM_IR_READIVALUEATINS(x,y) (pVM->pByteCode+x)->aData[y]->data.iNumber
-    #define RING_VM_IR_READPVALUEATINS(x,y) (pVM->pByteCode+x)->aData[y]->data.pPointer
+    #define RING_VM_IR_ITEMATINS(x,y) (pVM->pByteCode + x)->aData[y-1]
+    #define RING_VM_IR_READIVALUEATINS(x,y) (pVM->pByteCode+x)->aData[y-1]->data.iNumber
+    #define RING_VM_IR_READPVALUEATINS(x,y) (pVM->pByteCode+x)->aData[y-1]->data.pPointer
     #define RING_VM_PC_CURRENTINS pVM->nPC - 2
     #define RING_VM_PC_PREVINS pVM->nPC - 3
     /*
