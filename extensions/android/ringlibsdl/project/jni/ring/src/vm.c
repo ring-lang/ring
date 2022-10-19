@@ -351,7 +351,12 @@ void ring_vm_tobytecode ( VM *pVM,int x )
         printf( "In File : %s  - Byte-Code PC : %d  ",pVM->cFileName,x ) ;
         exit(1);
     }
-    for ( x2 = 1 ; x2 <= ring_list_getsize(pIR) ; x2++ ) {
+    /* Get the Operation Code */
+    pItem = ring_list_getitem(pIR,1) ;
+    pByteCode->nOPCode = pItem->data.iNumber ;
+    /* Get Instruction Parameters Count */
+    pByteCode->nParaCount = ring_list_getsize(pIR) ;
+    for ( x2 = 2 ; x2 <= ring_list_getsize(pIR) ; x2++ ) {
         pItem = ring_list_getitem(pIR,x2) ;
         pByteCode->aData[x2-1] = pItem ;
         /* Avoid Performance Instructions (Happens when called from New Thread) */
@@ -377,17 +382,7 @@ void ring_vm_tobytecode ( VM *pVM,int x )
 
 int ring_vm_irparacount ( VM *pVM )
 {
-    int x,nCount  ;
-    nCount = RING_VM_BC_ITEMS_COUNT ;
-    for ( x = RING_VM_BC_ITEMS_COUNT-1 ; x >= 0 ; x-- ) {
-        if ( pVM->pByteCodeIR->aData[x] == NULL ) {
-            nCount-- ;
-        }
-        else {
-            break ;
-        }
-    }
-    return nCount ;
+    return pVM->pByteCodeIR->nParaCount ;
 }
 /* Main Loop Functions */
 

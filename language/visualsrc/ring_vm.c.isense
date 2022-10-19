@@ -7,6 +7,10 @@ RING_VM_STATE_NUMBERS_COUNT
 RING_VM_STATE_POINTERS_COUNT
 RING_VM_MAXDIGITSINNUMBER
 Parent: ByteCode
+Type: char
+nOPCode
+Type: char
+nParaCount
 Type: Item *
 aData[RING_VM_BC_ITEMS_COUNT]
 END:
@@ -444,8 +448,6 @@ pByteCode
 Type: Item *
 pItem
 ring_vm_irparacount
-Type: int
-x,nCount
 ring_vm_mainloop
 ring_vm_fetch
 ring_vm_fetch2
