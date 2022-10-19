@@ -117,7 +117,7 @@ pGetSetItem
 Type: String *
 pString, *pString2
 Type: RING_VM_IR_ITEMTYPE *
-pItem
+pItem, *pItem2
 Type: int
 nIns
 ring_vm_oop_setproperty

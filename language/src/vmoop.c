@@ -809,7 +809,7 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
     List *pList, *pList2  ;
     Item *pGetSetItem  ;
     String *pString, *pString2  ;
-    RING_VM_IR_ITEMTYPE *pItem  ;
+    RING_VM_IR_ITEMTYPE *pItem, *pItem2  ;
     int nIns  ;
     /* Create String */
     pString = ring_string_new_gc(pVM->pRingState,"if ismethod(ring_gettemp_var,'get");
@@ -869,8 +869,8 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
             }
             ring_vm_eval(pVM,ring_string_get(pString));
             /* Note: Eval reallocation change mem. locations */
-            pGetSetItem = RING_VM_IR_ITEMATINS(nIns,2) ;
-            RING_VM_IR_ITEMSETINT(pGetSetItem,pVM->nPC);
+            pItem2 = RING_VM_IR_ITEMATINS(nIns,2) ;
+            RING_VM_IR_ITEMSETINT(pItem2,pVM->nPC);
         }
         else {
             ring_vm_blockflag2(pVM,pVM->nPC);
