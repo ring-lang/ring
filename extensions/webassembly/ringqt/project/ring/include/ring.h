@@ -1,7 +1,9 @@
 /* Copyright (c) 2013-2022 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_h
     #define ring_h
-    #define NDEBUG
+    #ifndef NDEBUG
+        #define NDEBUG
+    #endif
     /* Include C Headers */
     #include <stdlib.h>
     #include <stdio.h>
