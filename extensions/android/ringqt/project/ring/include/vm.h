@@ -373,9 +373,9 @@
 
     int ring_vm_eval ( VM *pVM,const char *cStr ) ;
 
-    void ring_vm_tobytecode ( VM *pVM,int x ) ;
+    void ring_vm_tobytecode ( VM *pVM,int nIns ) ;
 
-    void ring_vm_deletebytecode ( VM *pVM,int x ) ;
+    void ring_vm_deletebytecode ( VM *pVM,int nIns ) ;
 
     void ring_vm_error2 ( VM *pVM,const char *cStr,const char *cStr2 ) ;
 

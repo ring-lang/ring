@@ -442,14 +442,14 @@ ring_vm_tobytecode
 Type: List *
 pIR
 Type: int
-x2
+x
 Type: ByteCode *
 pByteCode
 Type: Item *
 pItem
 ring_vm_deletebytecode
 Type: int
-x2
+x
 Type: ByteCode *
 pByteCode
 Type: Item *

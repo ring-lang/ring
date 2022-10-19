@@ -341,18 +341,18 @@ RING_API void ring_vm_loadcode ( VM *pVM )
     pVM->nEvalReallocationSize = nSize ;
 }
 
-void ring_vm_tobytecode ( VM *pVM,int x )
+void ring_vm_tobytecode ( VM *pVM,int nIns )
 {
     List *pIR  ;
-    int x2  ;
+    int x  ;
     ByteCode *pByteCode  ;
     Item *pItem  ;
-    pByteCode = pVM->pByteCode + x - 1 ;
-    pIR = ring_list_getlist(pVM->pCode,x);
+    pByteCode = pVM->pByteCode + nIns - 1 ;
+    pIR = ring_list_getlist(pVM->pCode,nIns);
     /* Check Instruction Size */
     if ( ring_list_getsize(pIR) > RING_VM_BC_ITEMS_COUNT+1 ) {
         printf( RING_LONGINSTRUCTION ) ;
-        printf( "In File : %s  - Byte-Code PC : %d  ",pVM->cFileName,x ) ;
+        printf( "In File : %s  - Byte-Code PC : %d  ",pVM->cFileName,nIns ) ;
         exit(1);
     }
     /* Get the Operation Code */
@@ -372,25 +372,25 @@ void ring_vm_tobytecode ( VM *pVM,int x )
     pByteCode->nOPCode = pItem->data.iNumber ;
     /* Get Instruction Parameters Count */
     pByteCode->nParaCount = ring_list_getsize(pIR) ;
-    for ( x2 = 2 ; x2 <= RING_VM_BC_ITEMS_COUNT+1 ; x2++ ) {
-        pItem = ring_list_getitem(pIR,x2) ;
-        if ( x2 <= ring_list_getsize(pIR) ) {
-            pByteCode->aData[x2-2] = ring_item_copy_gc(NULL,pItem) ;
+    for ( x = 2 ; x <= RING_VM_BC_ITEMS_COUNT+1 ; x++ ) {
+        pItem = ring_list_getitem(pIR,x) ;
+        if ( x <= ring_list_getsize(pIR) ) {
+            pByteCode->aData[x-2] = ring_item_copy_gc(NULL,pItem) ;
         }
         else {
-            pByteCode->aData[x2-2] = NULL ;
+            pByteCode->aData[x-2] = NULL ;
         }
     }
 }
 
-void ring_vm_deletebytecode ( VM *pVM,int x )
+void ring_vm_deletebytecode ( VM *pVM,int nIns )
 {
-    int x2  ;
+    int x  ;
     ByteCode *pByteCode  ;
     Item *pItem  ;
-    pByteCode = pVM->pByteCode + x - 1 ;
-    for ( x2 = 0 ; x2 < RING_VM_BC_ITEMS_COUNT ; x2++ ) {
-        pItem = pByteCode->aData[x2] ;
+    pByteCode = pVM->pByteCode + nIns - 1 ;
+    for ( x = 0 ; x < RING_VM_BC_ITEMS_COUNT ; x++ ) {
+        pItem = pByteCode->aData[x] ;
         if ( pItem != NULL ) {
             ring_item_delete_gc(pVM->pRingState,pItem);
         }
