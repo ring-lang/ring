@@ -379,11 +379,6 @@ void ring_vm_tobytecode ( VM *pVM,int x )
         pByteCode->aData[x2-1] = NULL ;
     }
 }
-
-int ring_vm_irparacount ( VM *pVM )
-{
-    return pVM->pByteCodeIR->nParaCount ;
-}
 /* Main Loop Functions */
 
 void ring_vm_mainloop ( VM *pVM )

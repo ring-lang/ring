@@ -186,7 +186,7 @@
     #define RING_VM_IR_READIVALUE(x) pVM->pByteCodeIR->aData[x]->data.iNumber
     #define RING_VM_IR_READD pVM->pByteCodeIR->aData[1]->data.dNumber
     #define RING_VM_IR_READDVALUE(x) pVM->pByteCodeIR->aData[x]->data.dNumber
-    #define RING_VM_IR_PARACOUNT ring_vm_irparacount(pVM)
+    #define RING_VM_IR_PARACOUNT pVM->pByteCodeIR->nParaCount
     #define RING_VM_IR_OPCODE pVM->pByteCodeIR->nOPCode
     #define RING_VM_IR_OPCODEVALUE(x) (pVM->pByteCode + x)->nOPCode
     #define RING_VM_IR_ITEM(x) pVM->pByteCodeIR->aData[x]
@@ -390,8 +390,6 @@
     void ring_vm_addglobalvariables ( VM *pVM ) ;
 
     void ring_vm_mainloopforeval ( VM *pVM ) ;
-
-    int ring_vm_irparacount ( VM *pVM ) ;
     /* Stack and Variables */
 
     void ring_vm_pushv ( VM *pVM ) ;
