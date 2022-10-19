@@ -175,7 +175,7 @@
     #define RING_VM_POINTER 4
     /* Instructions */
     #define RING_VM_INSTRUCTIONSCOUNT ring_list_getsize(pVM->pCode)
-    #define RING_VM_DELETELASTINSTRUCTION ring_list_deletelastitem_gc(pVM->pRingState,pVM->pCode)
+    #define RING_VM_DELETELASTINSTRUCTION ring_vm_deletebytecode(pVM,RING_VM_INSTRUCTIONSCOUNT); ring_list_deletelastitem_gc(pVM->pRingState,pVM->pCode)
     /* IR (Instruction Register) */
     #define RING_VM_JUMP pVM->nPC = pVM->pByteCodeIR->aData[0]->data.iNumber
     #define RING_VM_IR_READC ring_string_get(pVM->pByteCodeIR->aData[0]->data.pString)
@@ -374,6 +374,8 @@
     int ring_vm_eval ( VM *pVM,const char *cStr ) ;
 
     void ring_vm_tobytecode ( VM *pVM,int x ) ;
+
+    void ring_vm_deletebytecode ( VM *pVM,int x ) ;
 
     void ring_vm_error2 ( VM *pVM,const char *cStr,const char *cStr2 ) ;
 

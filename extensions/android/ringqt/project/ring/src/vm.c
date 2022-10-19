@@ -239,6 +239,10 @@ VM * ring_vm_delete ( VM *pVM )
     for ( x = 0 ; x < RING_VM_STACK_SIZE ; x++ ) {
         ring_item_content_delete(&(pVM->aStack[x]));
     }
+    /* Delete the bytecode */
+    for ( x = 1 ; x <= RING_VM_INSTRUCTIONSCOUNT ; x++ ) {
+        ring_vm_deletebytecode(pVM,x);
+    }
     ring_state_free(pVM->pRingState,pVM->pByteCode);
     /* Delete Mutex */
     ring_vm_mutexdestroy(pVM);
@@ -368,9 +372,28 @@ void ring_vm_tobytecode ( VM *pVM,int x )
     pByteCode->nOPCode = pItem->data.iNumber ;
     /* Get Instruction Parameters Count */
     pByteCode->nParaCount = ring_list_getsize(pIR) ;
-    for ( x2 = 2 ; x2 <= ring_list_getsize(pIR) ; x2++ ) {
+    for ( x2 = 2 ; x2 <= RING_VM_BC_ITEMS_COUNT+1 ; x2++ ) {
         pItem = ring_list_getitem(pIR,x2) ;
-        pByteCode->aData[x2-2] = pItem ;
+        if ( x2 <= ring_list_getsize(pIR) ) {
+            pByteCode->aData[x2-2] = ring_item_copy_gc(NULL,pItem) ;
+        }
+        else {
+            pByteCode->aData[x2-2] = NULL ;
+        }
+    }
+}
+
+void ring_vm_deletebytecode ( VM *pVM,int x )
+{
+    int x2  ;
+    ByteCode *pByteCode  ;
+    Item *pItem  ;
+    pByteCode = pVM->pByteCode + x - 1 ;
+    for ( x2 = 0 ; x2 < RING_VM_BC_ITEMS_COUNT ; x2++ ) {
+        pItem = pByteCode->aData[x2] ;
+        if ( pItem != NULL ) {
+            ring_item_delete_gc(pVM->pRingState,pItem);
+        }
     }
 }
 /* Main Loop Functions */
