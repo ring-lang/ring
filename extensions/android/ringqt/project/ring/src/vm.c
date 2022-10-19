@@ -374,10 +374,6 @@ void ring_vm_tobytecode ( VM *pVM,int x )
             }
         }
     }
-    /* Clear Other Items */
-    for ( x2 = ring_list_getsize(pIR)+1 ; x2 <= RING_VM_BC_ITEMS_COUNT ; x2++ ) {
-        pByteCode->aData[x2-1] = NULL ;
-    }
 }
 /* Main Loop Functions */
 
