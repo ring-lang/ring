@@ -12,6 +12,12 @@
     #define RING_VM_STATE_NUMBERS_COUNT 35
     #define RING_VM_STATE_POINTERS_COUNT 10
     #define RING_VM_MAXDIGITSINNUMBER 15
+    /* Register Type */
+    #define RING_VM_REGTYPE_NOTHING 0
+    #define RING_VM_REGTYPE_INT 1
+    #define RING_VM_REGTYPE_DOUBLE 2
+    #define RING_VM_REGTYPE_STRING 3
+    #define RING_VM_REGTYPE_POINTER 4
     typedef union Register {
         String *pString  ;
         double dNumber  ;
@@ -21,9 +27,9 @@
     typedef struct ByteCode {
         char nOPCode  ;
         char nParaCount  ;
-        unsigned int lReg1IsString:1  ;
-        unsigned int lReg2IsString:1  ;
-        unsigned int lReg3IsString:1  ;
+        unsigned int nReg1Type:3  ;
+        unsigned int nReg2Type:3  ;
+        unsigned int nReg3Type:3  ;
         Register aReg[RING_VM_BC_ITEMS_COUNT]  ;
     } ByteCode ;
     typedef struct VM {
@@ -212,6 +218,7 @@
     #define RING_VM_PC_CURRENTINS pVM->nPC - 2
     #define RING_VM_PC_PREVINS pVM->nPC - 3
     #define RING_VM_IR_CLEARREGISTER1STRING ring_vm_clearregisterstring(pVM,1)
+    #define RING_VM_IR_SETREGISTER1TYPE(x) pVM->pByteCodeIR->nReg1Type = x
     /*
     **  Calling Functions 
     **  Note : When you insert items check performance functions for update too! 

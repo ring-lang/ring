@@ -62,6 +62,7 @@ void ring_vm_incjump ( VM *pVM )
             RING_VM_IR_OPCODE = ICO_INCPJUMP ;
         }
         RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
+        RING_VM_IR_SETREGISTER1TYPE(RING_VM_REGTYPE_POINTER) ;
     }
     else if ( pVM->nVarScope == RING_VARSCOPE_LOCAL ) {
         /* Replace ICO_INCJUMP with IncLPJUMP for better performance */
@@ -157,6 +158,7 @@ void ring_vm_jumpvarlenum ( VM *pVM )
             RING_VM_IR_OPCODE = ICO_JUMPVARPLENUM ;
         }
         RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
+        RING_VM_IR_SETREGISTER1TYPE(RING_VM_REGTYPE_POINTER) ;
     }
     else if ( pVM->nVarScope == RING_VARSCOPE_LOCAL ) {
         /* Replace JumpVarLENum with JumpVarLPLENum for better performance */
