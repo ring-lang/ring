@@ -79,6 +79,7 @@ void ring_vm_loadaddress ( VM *pVM )
         return ;
     }
     if ( pVM->nVarScope == RING_VARSCOPE_GLOBAL ) {
+        RING_VM_IR_CLEARREGISTER1STRING ;
         /* Replace LoadAddress with PUSHP for better performance */
         RING_VM_IR_OPCODE = ICO_PUSHP ;
         RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
@@ -215,6 +216,7 @@ void ring_vm_inc ( VM *pVM )
         ring_vm_newvar(pVM, RING_VM_IR_READC);
     }
     if ( ( ring_list_getsize(pVM->pMem) == 1 )  && (pVM->pActiveMem == ring_vm_getglobalscope(pVM)) ) {
+        RING_VM_IR_CLEARREGISTER1STRING ;
         /* Replace ICO_INC with IncP for better performance */
         RING_VM_IR_OPCODE = ICO_INCP ;
         RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
@@ -230,6 +232,7 @@ void ring_vm_loadapushv ( VM *pVM )
         ring_vm_newvar(pVM, RING_VM_IR_READC);
     }
     if ( pVM->nVarScope == RING_VARSCOPE_GLOBAL ) {
+        RING_VM_IR_CLEARREGISTER1STRING ;
         /* Replace LoadAPushV with PUSHPV for better performance */
         RING_VM_IR_OPCODE = ICO_PUSHPV ;
         RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
