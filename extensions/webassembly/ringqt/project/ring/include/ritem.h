@@ -133,7 +133,4 @@
     /* Functions to deal with numbers (int/double) */
 
     RING_API double ring_item_getnumber ( Item *pItem ) ;
-    /* Copy Item */
-
-    RING_API Item * ring_item_copy_gc ( void *pState,Item *pItem ) ;
 #endif

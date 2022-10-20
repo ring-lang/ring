@@ -295,38 +295,3 @@ RING_API double ring_item_getnumber ( Item *pItem )
         return pItem->data.dNumber ;
     }
 }
-/* Copy Item */
-
-RING_API Item * ring_item_copy_gc ( void *pState,Item *pItem )
-{
-    int ItemType  ;
-    Item *pNewItem  ;
-    assert(pItem != NULL);
-    pNewItem = ring_item_new_gc(pState,ITEMTYPE_NOTHING);
-    ItemType = pItem->nType ;
-    switch ( ItemType ) {
-        case ITEMTYPE_NOTHING :
-            break ;
-        case ITEMTYPE_STRING :
-            /* Work */
-            ring_item_setstring2_gc(pState,pNewItem,ring_string_get(ring_item_getstring(pItem)),ring_string_size(ring_item_getstring(pItem)));
-            break ;
-        case ITEMTYPE_NUMBER :
-            /* Work */
-            if ( pItem->NumberFlag == ITEM_NUMBERFLAG_INT ) {
-                ring_item_setint_gc(pState,pNewItem,ring_item_getint(pItem));
-            }
-            else {
-                ring_item_setdouble_gc(pState,pNewItem,ring_item_getdouble(pItem));
-            }
-            break ;
-        case ITEMTYPE_POINTER :
-            /* Work */
-            ring_item_setpointer_gc(pState,pNewItem,ring_item_getpointer(pItem));
-            break ;
-        case ITEMTYPE_LIST :
-            /* This function doesn't support items that contains Lists */
-            break ;
-    }
-    return pNewItem ;
-}
