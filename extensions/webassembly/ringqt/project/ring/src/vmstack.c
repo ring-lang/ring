@@ -81,7 +81,7 @@ void ring_vm_loadaddress ( VM *pVM )
     if ( pVM->nVarScope == RING_VARSCOPE_GLOBAL ) {
         /* Replace LoadAddress with PUSHP for better performance */
         RING_VM_IR_OPCODE = ICO_PUSHP ;
-        ring_vm_setreg1topointerfromstack(pVM);
+        RING_VM_IR_SETREG1TOPOINTERFROMSTACK ;
     }
     else if ( pVM->nVarScope == RING_VARSCOPE_LOCAL ) {
         if ( pVM->lUsePushPLocal ) {
@@ -217,7 +217,7 @@ void ring_vm_inc ( VM *pVM )
     if ( ( ring_list_getsize(pVM->pMem) == 1 )  && (pVM->pActiveMem == ring_vm_getglobalscope(pVM)) ) {
         /* Replace ICO_INC with IncP for better performance */
         RING_VM_IR_OPCODE = ICO_INCP ;
-        ring_vm_setreg1topointerfromstack(pVM);
+        RING_VM_IR_SETREG1TOPOINTERFROMSTACK ;
     }
     pVar = (List *) RING_VM_STACK_READP ;
     RING_VM_STACK_POP ;
@@ -232,7 +232,7 @@ void ring_vm_loadapushv ( VM *pVM )
     if ( pVM->nVarScope == RING_VARSCOPE_GLOBAL ) {
         /* Replace LoadAPushV with PUSHPV for better performance */
         RING_VM_IR_OPCODE = ICO_PUSHPV ;
-        ring_vm_setreg1topointerfromstack(pVM);
+        RING_VM_IR_SETREG1TOPOINTERFROMSTACK ;
     }
     ring_vm_varpushv(pVM);
 }

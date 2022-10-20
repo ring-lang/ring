@@ -323,6 +323,7 @@ RING_VM_PC_CURRENTINS
 RING_VM_PC_PREVINS
 RING_VM_IR_CLEARREGISTER1STRING
 RING_VM_IR_SETREGISTER1TYPE(x)
+RING_VM_IR_SETREG1TOPOINTERFROMSTACK
 RING_FUNCTYPE_SCRIPT
 RING_FUNCTYPE_C
 RING_FUNCCL_TYPE
@@ -480,6 +481,7 @@ x
 Type: ByteCode *
 pByteCode
 ring_vm_clearregisterstring
+ring_vm_setreg1topointerfromstack
 ring_vm_mainloop
 ring_vm_fetch
 ring_vm_fetch2

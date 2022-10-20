@@ -449,6 +449,13 @@ void ring_vm_clearregisterstring ( VM *pVM,int nReg )
             break ;
     }
 }
+
+void ring_vm_setreg1topointerfromstack ( VM * pVM )
+{
+    RING_VM_IR_CLEARREGISTER1STRING ;
+    RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
+    RING_VM_IR_SETREG1TYPE(RING_VM_REGTYPE_POINTER) ;
+}
 /* Main Loop Functions */
 
 void ring_vm_mainloop ( VM *pVM )

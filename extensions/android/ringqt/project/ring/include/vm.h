@@ -218,7 +218,8 @@
     #define RING_VM_PC_CURRENTINS pVM->nPC - 2
     #define RING_VM_PC_PREVINS pVM->nPC - 3
     #define RING_VM_IR_CLEARREGISTER1STRING ring_vm_clearregisterstring(pVM,1)
-    #define RING_VM_IR_SETREGISTER1TYPE(x) pVM->pByteCodeIR->nReg1Type = x
+    #define RING_VM_IR_SETREG1TYPE(x) pVM->pByteCodeIR->nReg1Type = x
+    #define RING_VM_IR_SETREG1TOPOINTERFROMSTACK ring_vm_setreg1topointerfromstack(pVM)
     /*
     **  Calling Functions 
     **  Note : When you insert items check performance functions for update too! 
