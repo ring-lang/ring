@@ -372,7 +372,7 @@ void ring_vm_tobytecode ( VM *pVM,int nIns )
     }
     pByteCode->nOPCode = pItem->data.iNumber ;
     /* Get Instruction Parameters Count */
-    pByteCode->nParaCount = ring_list_getsize(pIR) ;
+    pByteCode->nInsSize = ring_list_getsize(pIR) ;
     /* Set the Registers Type */
     pByteCode->nReg1Type = RING_VM_REGTYPE_NOTHING ;
     pByteCode->nReg2Type = RING_VM_REGTYPE_NOTHING ;

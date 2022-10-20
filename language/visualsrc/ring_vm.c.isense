@@ -27,7 +27,7 @@ Parent: ByteCode
 Type: char
 nOPCode
 Type: char
-nParaCount
+nInsSize
 Type: unsigned int
 nReg1Type:3
 Type: unsigned int

@@ -26,7 +26,7 @@
     } Register ;
     typedef struct ByteCode {
         char nOPCode  ;
-        char nParaCount  ;
+        unsigned int nInsSize:3  ;
         unsigned int nReg1Type:3  ;
         unsigned int nReg2Type:3  ;
         unsigned int nReg3Type:3  ;
@@ -201,7 +201,7 @@
     #define RING_VM_IR_READIVALUE(x) pVM->pByteCodeIR->aReg[x-1].iNumber
     #define RING_VM_IR_READD pVM->pByteCodeIR->aReg[0].dNumber
     #define RING_VM_IR_READDVALUE(x) pVM->pByteCodeIR->aReg[x-1].dNumber
-    #define RING_VM_IR_PARACOUNT pVM->pByteCodeIR->nParaCount
+    #define RING_VM_IR_PARACOUNT pVM->pByteCodeIR->nInsSize
     #define RING_VM_IR_OPCODE pVM->pByteCodeIR->nOPCode
     #define RING_VM_IR_OPCODEVALUE(x) (pVM->pByteCode + x)->nOPCode
     #define RING_VM_IR_ITEM(x) & (pVM->pByteCodeIR->aReg[x-1])
