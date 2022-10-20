@@ -347,6 +347,7 @@ void ring_vm_tobytecode ( VM *pVM,int nIns )
     int x  ;
     ByteCode *pByteCode  ;
     Item *pItem  ;
+    String *pString  ;
     pByteCode = pVM->pByteCode + nIns - 1 ;
     pIR = ring_list_getlist(pVM->pCode,nIns);
     /* Check Instruction Size */
@@ -372,13 +373,40 @@ void ring_vm_tobytecode ( VM *pVM,int nIns )
     pByteCode->nOPCode = pItem->data.iNumber ;
     /* Get Instruction Parameters Count */
     pByteCode->nParaCount = ring_list_getsize(pIR) ;
-    for ( x = 2 ; x <= RING_VM_BC_ITEMS_COUNT+1 ; x++ ) {
+    /* Set the Flags for Strings */
+    pByteCode->lReg1IsString = 0 ;
+    pByteCode->lReg2IsString = 0 ;
+    pByteCode->lReg3IsString = 0 ;
+    for ( x = 2 ; x <= ring_list_getsize(pIR) ; x++ ) {
         pItem = ring_list_getitem(pIR,x) ;
-        if ( x <= ring_list_getsize(pIR) ) {
-            pByteCode->aData[x-2] = ring_item_copy_gc(NULL,pItem) ;
-        }
-        else {
-            pByteCode->aData[x-2] = NULL ;
+        /* Copy the item data */
+        switch ( pItem->nType ) {
+            case ITEMTYPE_NUMBER :
+                if ( ring_item_isdouble(pItem) ) {
+                    pByteCode->aReg[x-2].dNumber = ring_item_getdouble(pItem) ;
+                }
+                else {
+                    pByteCode->aReg[x-2].iNumber = ring_item_getint(pItem) ;
+                }
+                break ;
+            case ITEMTYPE_STRING :
+                pString = ring_item_getstring(pItem) ;
+                pByteCode->aReg[x-2].pString = ring_string_new2_gc(NULL,ring_string_get(pString),ring_string_size(pString)) ;
+                switch ( x-2 ) {
+                    case 0 :
+                        pByteCode->lReg1IsString = 1 ;
+                        break ;
+                    case 1 :
+                        pByteCode->lReg2IsString = 1 ;
+                        break ;
+                    case 2 :
+                        pByteCode->lReg3IsString = 1 ;
+                        break ;
+                }
+                break ;
+            case ITEMTYPE_POINTER :
+                pByteCode->aReg[x-2].pPointer = ring_item_getpointer(pItem) ;
+                break ;
         }
     }
 }
@@ -387,13 +415,33 @@ void ring_vm_deletebytecode ( VM *pVM,int nIns )
 {
     int x  ;
     ByteCode *pByteCode  ;
-    Item *pItem  ;
-    pByteCode = pVM->pByteCode + nIns - 1 ;
-    for ( x = 0 ; x < RING_VM_BC_ITEMS_COUNT ; x++ ) {
-        pItem = pByteCode->aData[x] ;
-        if ( pItem != NULL ) {
-            ring_item_delete_gc(pVM->pRingState,pItem);
-        }
+    pVM->pByteCodeIR = pVM->pByteCode + nIns - 1 ;
+    ring_vm_clearregisterstring(pVM,1);
+    ring_vm_clearregisterstring(pVM,2);
+    ring_vm_clearregisterstring(pVM,3);
+}
+
+void ring_vm_clearregisterstring ( VM *pVM,int nReg )
+{
+    switch ( nReg ) {
+        case 1 :
+            if ( pVM->pByteCodeIR->lReg1IsString == 1 ) {
+                ring_string_delete_gc(pVM->pRingState,pVM->pByteCodeIR->aReg[0].pString);
+                pVM->pByteCodeIR->lReg1IsString = 0 ;
+            }
+            break ;
+        case 2 :
+            if ( pVM->pByteCodeIR->lReg2IsString == 1 ) {
+                ring_string_delete_gc(pVM->pRingState,pVM->pByteCodeIR->aReg[1].pString);
+                pVM->pByteCodeIR->lReg2IsString = 0 ;
+            }
+            break ;
+        case 3 :
+            if ( pVM->pByteCodeIR->lReg3IsString == 1 ) {
+                ring_string_delete_gc(pVM->pRingState,pVM->pByteCodeIR->aReg[2].pString);
+                pVM->pByteCodeIR->lReg3IsString = 0 ;
+            }
+            break ;
     }
 }
 /* Main Loop Functions */

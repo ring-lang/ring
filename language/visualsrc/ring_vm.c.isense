@@ -6,13 +6,31 @@ RING_VM_BC_ITEMS_COUNT
 RING_VM_STATE_NUMBERS_COUNT
 RING_VM_STATE_POINTERS_COUNT
 RING_VM_MAXDIGITSINNUMBER
+Parent: Register
+Type: String *
+pString
+Type: double
+dNumber
+Type: int
+iNumber
+Type: void *
+pPointer
+END:
+Type: Register
+Register
 Parent: ByteCode
 Type: char
 nOPCode
 Type: char
 nParaCount
-Type: Item *
-aData[RING_VM_BC_ITEMS_COUNT]
+Type: unsigned int
+lReg1IsString:1
+Type: unsigned int
+lReg2IsString:1
+Type: unsigned int
+lReg3IsString:1
+Type: Register
+aReg[RING_VM_BC_ITEMS_COUNT]
 END:
 Type: ByteCode
 struct ByteCode
@@ -298,6 +316,7 @@ RING_VM_IR_READIVALUEATINS(x,y)
 RING_VM_IR_READPVALUEATINS(x,y)
 RING_VM_PC_CURRENTINS
 RING_VM_PC_PREVINS
+RING_VM_JUMP
 RING_FUNCTYPE_SCRIPT
 RING_FUNCTYPE_C
 RING_FUNCCL_TYPE
@@ -447,13 +466,14 @@ Type: ByteCode *
 pByteCode
 Type: Item *
 pItem
+Type: String *
+pString
 ring_vm_deletebytecode
 Type: int
 x
 Type: ByteCode *
 pByteCode
-Type: Item *
-pItem
+ring_vm_clearregisterstring
 ring_vm_mainloop
 ring_vm_fetch
 ring_vm_fetch2
