@@ -47,3 +47,4 @@ Type: List *
 pVar
 Type: double
 nNum1
+ring_vm_setreg1topointerfromstack
