@@ -83,6 +83,7 @@ void ring_vm_loadaddress ( VM *pVM )
         /* Replace LoadAddress with PUSHP for better performance */
         RING_VM_IR_OPCODE = ICO_PUSHP ;
         RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
+        RING_VM_IR_SETREGISTER1TYPE(RING_VM_REGTYPE_POINTER) ;
     }
     else if ( pVM->nVarScope == RING_VARSCOPE_LOCAL ) {
         if ( pVM->lUsePushPLocal ) {
@@ -220,6 +221,7 @@ void ring_vm_inc ( VM *pVM )
         /* Replace ICO_INC with IncP for better performance */
         RING_VM_IR_OPCODE = ICO_INCP ;
         RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
+        RING_VM_IR_SETREGISTER1TYPE(RING_VM_REGTYPE_POINTER) ;
     }
     pVar = (List *) RING_VM_STACK_READP ;
     RING_VM_STACK_POP ;
@@ -236,6 +238,7 @@ void ring_vm_loadapushv ( VM *pVM )
         /* Replace LoadAPushV with PUSHPV for better performance */
         RING_VM_IR_OPCODE = ICO_PUSHPV ;
         RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
+        RING_VM_IR_SETREGISTER1TYPE(RING_VM_REGTYPE_POINTER) ;
     }
     ring_vm_varpushv(pVM);
 }

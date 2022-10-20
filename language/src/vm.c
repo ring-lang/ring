@@ -344,7 +344,7 @@ RING_API void ring_vm_loadcode ( VM *pVM )
 void ring_vm_tobytecode ( VM *pVM,int nIns )
 {
     List *pIR  ;
-    int x  ;
+    int x,nType  ;
     ByteCode *pByteCode  ;
     Item *pItem  ;
     String *pString  ;
@@ -373,10 +373,10 @@ void ring_vm_tobytecode ( VM *pVM,int nIns )
     pByteCode->nOPCode = pItem->data.iNumber ;
     /* Get Instruction Parameters Count */
     pByteCode->nParaCount = ring_list_getsize(pIR) ;
-    /* Set the Flags for Strings */
-    pByteCode->lReg1IsString = 0 ;
-    pByteCode->lReg2IsString = 0 ;
-    pByteCode->lReg3IsString = 0 ;
+    /* Set the Registers Type */
+    pByteCode->nReg1Type = RING_VM_REGTYPE_NOTHING ;
+    pByteCode->nReg2Type = RING_VM_REGTYPE_NOTHING ;
+    pByteCode->nReg3Type = RING_VM_REGTYPE_NOTHING ;
     for ( x = 2 ; x <= ring_list_getsize(pIR) ; x++ ) {
         pItem = ring_list_getitem(pIR,x) ;
         /* Copy the item data */
@@ -384,28 +384,33 @@ void ring_vm_tobytecode ( VM *pVM,int nIns )
             case ITEMTYPE_NUMBER :
                 if ( ring_item_isdouble(pItem) ) {
                     pByteCode->aReg[x-2].dNumber = ring_item_getdouble(pItem) ;
+                    nType = RING_VM_REGTYPE_DOUBLE ;
                 }
                 else {
                     pByteCode->aReg[x-2].iNumber = ring_item_getint(pItem) ;
+                    nType = RING_VM_REGTYPE_INT ;
                 }
                 break ;
             case ITEMTYPE_STRING :
                 pString = ring_item_getstring(pItem) ;
                 pByteCode->aReg[x-2].pString = ring_string_new2_gc(NULL,ring_string_get(pString),ring_string_size(pString)) ;
-                switch ( x-2 ) {
-                    case 0 :
-                        pByteCode->lReg1IsString = 1 ;
-                        break ;
-                    case 1 :
-                        pByteCode->lReg2IsString = 1 ;
-                        break ;
-                    case 2 :
-                        pByteCode->lReg3IsString = 1 ;
-                        break ;
-                }
+                nType = RING_VM_REGTYPE_STRING ;
                 break ;
             case ITEMTYPE_POINTER :
                 pByteCode->aReg[x-2].pPointer = ring_item_getpointer(pItem) ;
+                nType = RING_VM_REGTYPE_POINTER ;
+                break ;
+        }
+        /* Set the Register type */
+        switch ( x-2 ) {
+            case 0 :
+                pByteCode->nReg1Type = nType ;
+                break ;
+            case 1 :
+                pByteCode->nReg2Type = nType ;
+                break ;
+            case 2 :
+                pByteCode->nReg3Type = nType ;
                 break ;
         }
     }
@@ -425,21 +430,21 @@ void ring_vm_clearregisterstring ( VM *pVM,int nReg )
 {
     switch ( nReg ) {
         case 1 :
-            if ( pVM->pByteCodeIR->lReg1IsString == 1 ) {
+            if ( pVM->pByteCodeIR->nReg1Type == RING_VM_REGTYPE_STRING ) {
                 ring_string_delete_gc(pVM->pRingState,pVM->pByteCodeIR->aReg[0].pString);
-                pVM->pByteCodeIR->lReg1IsString = 0 ;
+                pVM->pByteCodeIR->nReg1Type = RING_VM_REGTYPE_NOTHING ;
             }
             break ;
         case 2 :
-            if ( pVM->pByteCodeIR->lReg2IsString == 1 ) {
+            if ( pVM->pByteCodeIR->nReg2Type == RING_VM_REGTYPE_STRING ) {
                 ring_string_delete_gc(pVM->pRingState,pVM->pByteCodeIR->aReg[1].pString);
-                pVM->pByteCodeIR->lReg2IsString = 0 ;
+                pVM->pByteCodeIR->nReg2Type = RING_VM_REGTYPE_NOTHING ;
             }
             break ;
         case 3 :
-            if ( pVM->pByteCodeIR->lReg3IsString == 1 ) {
+            if ( pVM->pByteCodeIR->nReg3Type == RING_VM_REGTYPE_STRING ) {
                 ring_string_delete_gc(pVM->pRingState,pVM->pByteCodeIR->aReg[2].pString);
-                pVM->pByteCodeIR->lReg3IsString = 0 ;
+                pVM->pByteCodeIR->nReg3Type = RING_VM_REGTYPE_NOTHING ;
             }
             break ;
     }
