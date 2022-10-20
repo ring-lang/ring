@@ -411,6 +411,8 @@
     void ring_vm_mainloopforeval ( VM *pVM ) ;
 
     void ring_vm_clearregisterstring ( VM *pVM,int nReg ) ;
+
+    void ring_vm_setreg1topointerfromstack ( VM *pVM ) ;
     /* Stack and Variables */
 
     void ring_vm_pushv ( VM *pVM ) ;

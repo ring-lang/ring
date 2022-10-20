@@ -53,7 +53,6 @@ void ring_vm_incjump ( VM *pVM )
     nNum1 = ring_list_getdouble(pVM->aForStep,ring_list_getsize(pVM->aForStep));
     /* Change Instruction for Performance */
     if ( pVM->nVarScope == RING_VARSCOPE_GLOBAL ) {
-        RING_VM_IR_CLEARREGISTER1STRING ;
         /* Replace ICO_INCJUMP with IncPJUMP for better performance */
         if ( nNum1 == 1.0 ) {
             RING_VM_IR_OPCODE = ICO_INCPJUMPSTEP1 ;
@@ -61,8 +60,7 @@ void ring_vm_incjump ( VM *pVM )
         else {
             RING_VM_IR_OPCODE = ICO_INCPJUMP ;
         }
-        RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
-        RING_VM_IR_SETREGISTER1TYPE(RING_VM_REGTYPE_POINTER) ;
+        ring_vm_setreg1topointerfromstack(pVM);
     }
     else if ( pVM->nVarScope == RING_VARSCOPE_LOCAL ) {
         /* Replace ICO_INCJUMP with IncLPJUMP for better performance */
@@ -149,7 +147,6 @@ void ring_vm_jumpvarlenum ( VM *pVM )
     nNum1 = ring_list_getdouble(pVM->aForStep,ring_list_getsize(pVM->aForStep));
     /* Change Instruction for Performance */
     if ( pVM->nVarScope == RING_VARSCOPE_GLOBAL ) {
-        RING_VM_IR_CLEARREGISTER1STRING ;
         /* Replace JumpVarLENum with JumpVarPLENum for better performance */
         if ( nNum1 == 1.0 ) {
             RING_VM_IR_OPCODE = ICO_JUMPVARPLENUMSTEP1 ;
@@ -157,8 +154,7 @@ void ring_vm_jumpvarlenum ( VM *pVM )
         else {
             RING_VM_IR_OPCODE = ICO_JUMPVARPLENUM ;
         }
-        RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
-        RING_VM_IR_SETREGISTER1TYPE(RING_VM_REGTYPE_POINTER) ;
+        ring_vm_setreg1topointerfromstack(pVM);
     }
     else if ( pVM->nVarScope == RING_VARSCOPE_LOCAL ) {
         /* Replace JumpVarLENum with JumpVarLPLENum for better performance */
@@ -323,4 +319,12 @@ void ring_vm_jumpvarplenumstep1 ( VM *pVM )
         /* Jump */
         pVM->nPC = RING_VM_IR_READIVALUE(3) ;
     }
+}
+/* Replace Reg1 String with a Pointer from Stack */
+
+void ring_vm_setreg1topointerfromstack ( VM * pVM )
+{
+    RING_VM_IR_CLEARREGISTER1STRING ;
+    RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
+    RING_VM_IR_SETREGISTER1TYPE(RING_VM_REGTYPE_POINTER) ;
 }
