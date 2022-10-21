@@ -66,6 +66,8 @@
         unsigned int lCommentsAsTokens : 1  ;
         /* Scanner Error Code */
         unsigned int nScannerError  ;
+        /* VM Instructions Count */
+        int nInstructionsCount  ;
     } RingState ;
     /* Constants */
     #define RING_STATE_VERSION "1.18"
