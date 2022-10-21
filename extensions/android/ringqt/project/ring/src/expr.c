@@ -869,7 +869,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
     if ( ring_parser_isoperator2(pParser,OP_RANGE) ) {
         ring_parser_nexttoken(pParser);
         if ( ring_parser_isidentifier(pParser) || ring_parser_isanykeyword(pParser) || ring_parser_isnumber(pParser) ) {
-            nCount = ring_parser_icg_instructionscount(pParser);
+            nCount = ring_parser_icg_instructionslistsize(pParser);
             /* Generate Code */
             ring_parser_icg_newoperation(pParser,ICO_PUSHC);
             if ( ring_parser_isanykeyword(pParser) ) {

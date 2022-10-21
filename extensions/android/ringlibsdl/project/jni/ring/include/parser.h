@@ -94,7 +94,7 @@
     #define RING_PARSER_IGNORENEWLINE while(ring_parser_epsilon(pParser));
     #define RING_PARSER_PASSNEWLINE while(ring_parser_passepsilon(pParser));
     #define RING_PARSER_CURRENTTOKEN pParser->ActiveToken
-    #define RING_PARSER_OPERATIONID ring_list_getsize(pParser->GenCode)
+    #define RING_PARSER_OPERATIONID ring_list_getsize(pParser->GenCode) + pParser->pRingState->nInstructionsCount
     #define RING_PARSER_ACCEPTSTATEMENTS while ( ring_parser_stmt(pParser) ) if ( pParser->ActiveToken == pParser->TokensCount ) break ;
     /* Functions */
 

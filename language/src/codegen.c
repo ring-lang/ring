@@ -173,7 +173,7 @@ void ring_parser_icg_duplicate ( Parser *pParser,int nStart,int nEnd )
         int y,nCount2  ;
     #endif
     assert(pParser != NULL);
-    if ( (nStart <= nEnd) && ( nEnd <= ring_parser_icg_instructionscount(pParser) ) ) {
+    if ( (nStart <= nEnd) && ( nEnd <= ring_list_getsize(pParser->GenCode) ) ) {
         for ( x = nStart ; x <= nEnd ; x++ ) {
             pList = ring_list_newlist_gc(NULL,pParser->GenCode);
             pList2 = ring_list_getlist(pParser->GenCode,x);
@@ -208,7 +208,7 @@ int ring_parser_icg_newlabel2 ( Parser *pParser )
 {
     assert(pParser != NULL);
     ring_parser_icg_newoperation(pParser,ICO_NEWLABEL);
-    return ring_list_getsize(pParser->GenCode) ;
+    return ring_list_getsize(pParser->GenCode) + pParser->pRingState->nInstructionsCount ;
 }
 
 void ring_parser_icg_setopcode ( Parser *pParser ,List *pList , int nValue )
@@ -269,7 +269,7 @@ void ring_parser_icg_loadaddresstoloadfunction ( Parser *pParser )
     **  While the ICO_LOADFUNC uses 4 operands after the function name 
     **  So we add another operand 
     */
-    ring_parser_icg_insertoperation(pParser,ring_parser_icg_instructionscount(pParser)-1,ICO_EXTRAPARA);
+    ring_parser_icg_insertoperation(pParser,ring_list_getsize(pParser->GenCode)-1,ICO_EXTRAPARA);
     ring_parser_icg_newoperandint(pParser,0);
     ring_parser_icg_newoperandint(pParser,0);
     ring_parser_icg_newoperandint(pParser,0);
