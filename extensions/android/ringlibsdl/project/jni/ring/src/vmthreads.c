@@ -120,9 +120,9 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
     /* Get a copy from the byte code List */
     pState->pVM->nScopeID = pVM->nScopeID + 10000 ;
     pState->pVM->pCode = ring_list_new_gc(pState,0) ;
-    ring_list_copy(pState->pVM->pCode,pVM->pRingState->pRingGenCode);
     pState->pRingGenCode = pState->pVM->pCode ;
-    ring_vm_loadcode(pState->pVM);
+    /* Get a copy from the Byte Code */
+    ring_vm_bytecodefornewthread(pState->pVM,pVM);
     /* Avoid the call to the main function */
     pState->pVM->nCallMainFunction = 1 ;
     ring_vm_mutexunlock(pVM);
@@ -165,4 +165,41 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
     pState->pVM->pMutex = NULL ;
     /* Delete the RingState */
     ring_state_delete(pState);
+}
+
+RING_API void ring_vm_bytecodefornewthread ( VM *pVM,VM *pOldVM )
+{
+    int x,y,nSize,nCount,nType  ;
+    ByteCode *pByteCode  ;
+    String *pString  ;
+    /* Get the Instructions Count */
+    pVM->pRingState->nInstructionsCount = pOldVM->pRingState->nInstructionsCount ;
+    /* Allocate memory for the Byte Code */
+    nSize = pOldVM->nEvalReallocationSize ;
+    pVM->pByteCode = (ByteCode *) ring_calloc(nSize,sizeof(ByteCode));
+    pVM->nEvalReallocationSize = nSize ;
+    /* Copy the Byte Code */
+    memcpy(pVM->pByteCode,pOldVM->pByteCode,nSize*sizeof(ByteCode));
+    /* Create new strings */
+    for ( x = 1 ; x <= RING_VM_INSTRUCTIONSCOUNT ; x++ ) {
+        pByteCode = pVM->pByteCode + x - 1 ;
+        nCount = pByteCode->nInsSize - 1 ;
+        for ( y = 0 ; y < nCount ; y++ ) {
+            /* Get The Register Type */
+            if ( y == 0 ) {
+                nType = pByteCode->nReg1Type ;
+            }
+            else if ( y == 1 ) {
+                nType = pByteCode->nReg2Type ;
+            }
+            else {
+                nType = pByteCode->nReg3Type ;
+            }
+            /* Create new string */
+            if ( nType == RING_VM_REGTYPE_STRING ) {
+                pString = ring_string_new2(ring_string_get(pByteCode->aReg[y].pString),ring_string_size(pByteCode->aReg[y].pString));
+                pByteCode->aReg[y].pString = pString ;
+            }
+        }
+    }
 }

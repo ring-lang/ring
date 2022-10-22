@@ -189,8 +189,9 @@
     #define RING_VM_LIST 3
     #define RING_VM_POINTER 4
     /* Instructions */
-    #define RING_VM_INSTRUCTIONSCOUNT ring_list_getsize(pVM->pCode)
-    #define RING_VM_DELETELASTINSTRUCTION ring_vm_deletebytecode(pVM,RING_VM_INSTRUCTIONSCOUNT); ring_list_deletelastitem_gc(pVM->pRingState,pVM->pCode)
+    #define RING_VM_INSTRUCTIONSCOUNT pVM->pRingState->nInstructionsCount
+    #define RING_VM_INSTRUCTIONSLISTSIZE ring_list_getsize(pVM->pRingState->pRingGenCode)
+    #define RING_VM_DELETELASTINSTRUCTION ring_vm_deletebytecode(pVM,RING_VM_INSTRUCTIONSCOUNT); pVM->pRingState->nInstructionsCount--
     /* IR (Instruction Register) */
     #define RING_VM_JUMP pVM->nPC = pVM->pByteCodeIR->aReg[0].iNumber
     #define RING_VM_IR_READC ring_string_get(pVM->pByteCodeIR->aReg[0].pString)
@@ -206,15 +207,15 @@
     #define RING_VM_IR_OPCODEVALUE(x) (pVM->pByteCode + x)->nOPCode
     #define RING_VM_IR_ITEM(x) & (pVM->pByteCodeIR->aReg[x-1])
     #define RING_VM_IR_LOAD pVM->pByteCodeIR = pVM->pByteCode + pVM->nPC - 1
-    #define RING_VM_IR_UNLOAD pVM->pByteCodeIR = pVM->pByteCode + pVM->nPC - 2
+    #define RING_VM_IR_UNLOAD pVM->pByteCodeIR = pVM->pByteCode +  pVM->nPC - 2
     #define RING_VM_IR_GETLINENUMBER pVM->nLineNumber
     #define RING_VM_IR_SETLINENUMBER(x) pVM->nLineNumber = x
     #define RING_VM_IR_ITEMSETINT(x,y) (* x).iNumber  = y
     #define RING_VM_IR_ITEMSETPOINTER(x,y) (* x).pPointer = y
     #define RING_VM_IR_ITEMTYPE Register
     #define RING_VM_IR_ITEMATINS(x,y) & ((pVM->pByteCode + x)->aReg[y-1])
-    #define RING_VM_IR_READIVALUEATINS(x,y) (pVM->pByteCode+x)->aReg[y-1].iNumber
-    #define RING_VM_IR_READPVALUEATINS(x,y) (pVM->pByteCode+x)->aReg[y-1].pPointer
+    #define RING_VM_IR_READIVALUEATINS(x,y) (pVM->pByteCode + x)->aReg[y-1].iNumber
+    #define RING_VM_IR_READPVALUEATINS(x,y) (pVM->pByteCode + x)->aReg[y-1].pPointer
     #define RING_VM_PC_CURRENTINS pVM->nPC - 2
     #define RING_VM_PC_PREVINS pVM->nPC - 3
     #define RING_VM_IR_CLEARREG1STRING ring_vm_clearregisterstring(pVM,1)
@@ -414,6 +415,8 @@
     void ring_vm_clearregisterstring ( VM *pVM,int nReg ) ;
 
     void ring_vm_setreg1topointerfromstack ( VM *pVM ) ;
+
+    void ring_vm_showbytecode ( VM *pVM ) ;
     /* Stack and Variables */
 
     void ring_vm_pushv ( VM *pVM ) ;
@@ -799,6 +802,8 @@
     RING_API void ring_vm_mutexdestroy ( VM *pVM ) ;
 
     RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr ) ;
+
+    RING_API void ring_vm_bytecodefornewthread ( VM *pVM,VM *pOldVM ) ;
     /* Trace */
 
     void ring_vm_traceevent ( VM *pVM,char nEvent ) ;

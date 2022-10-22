@@ -56,6 +56,7 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
             ring_scanner_addreturn2(pVM->pRingState);
         }
         ring_vm_blockflag2(pVM,nPC);
+        pVM->pRingState->nInstructionsCount += ring_list_getsize(pVM->pRingState->pRingGenCode) ;
         pVM->nPC = nLastPC+1 ;
         if ( RING_VM_INSTRUCTIONSCOUNT  > pVM->nEvalReallocationSize ) {
             pVM->pByteCode = (ByteCode *) ring_realloc(pVM->pByteCode , sizeof(ByteCode) * RING_VM_INSTRUCTIONSCOUNT);
@@ -70,9 +71,12 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
             pVM->nEvalReallocationFlag = 0 ;
         }
         /* Load New Code */
-        for ( x = pVM->nPC ; x <= RING_VM_INSTRUCTIONSCOUNT ; x++ ) {
+        pVM->pRingState->nInstructionsCount -= ring_list_getsize(pVM->pRingState->pRingGenCode) ;
+        for ( x = 1 ; x <= RING_VM_INSTRUCTIONSLISTSIZE ; x++ ) {
             ring_vm_tobytecode(pVM,x);
         }
+        pVM->pRingState->nInstructionsCount += ring_list_getsize(pVM->pRingState->pRingGenCode) ;
+        ring_list_deleteallitems_gc(pVM->pRingState,pVM->pRingState->pRingGenCode);
         /*
         **  The mainloop will be called again 
         **  We do this to execute eval instructions directly 

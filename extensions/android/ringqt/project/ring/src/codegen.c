@@ -107,55 +107,6 @@ void ring_parser_icg_addoperandpointer ( Parser *pParser ,List *pList , void *pV
     ring_list_addpointer_gc(NULL,pList,pValue);
 }
 
-void ring_parser_icg_showoutput ( List *pListGenCode,int nStatus )
-{
-    int x,y,nCount,nCount2  ;
-    List *pList  ;
-    assert(pListGenCode != NULL);
-    /* Header */
-    printf( "\n\n" ) ;
-    ring_general_printline();
-    if ( nStatus == 1 ) {
-        puts("Byte Code - Before Execution by the VM");
-    }
-    else {
-        puts("Byte Code - After Execution by the VM");
-    }
-    ring_general_printline();
-    nCount = ring_list_getsize(pListGenCode);
-    if ( nCount > 0 ) {
-        printf( "\n %6s  %10s  %10s\n", "PC","OPCode","Data" ) ;
-        for ( x = 1 ; x <= nCount ; x++ ) {
-            pList = ring_list_getlist(pListGenCode,x);
-            nCount2 = ring_list_getsize(pList);
-            printf( "\n %6d  %10s  ", x , RING_IC_OP[ring_list_getint(pList,1)] ) ;
-            if ( nCount2 > 1 ) {
-                for ( y = 2 ; y <= nCount2 ; y++ ) {
-                    if ( ring_list_isstring(pList,y) ) {
-                        printf( " %5s ",ring_list_getstring(pList,y) ) ;
-                    }
-                    else if ( ring_list_isnumber(pList,y) ) {
-                        if ( ring_list_isdouble(pList,y) ) {
-                            printf( " %f",ring_list_getdouble(pList,y) ) ;
-                        }
-                        else {
-                            printf( " %5d ",ring_list_getint(pList,y) ) ;
-                        }
-                    }
-                    else {
-                        printf( " %5p ",ring_list_getpointer(pList,y) ) ;
-                    }
-                }
-            }
-        }
-        printf( "\n" ) ;
-    }
-    /* End */
-    puts("");
-    ring_general_printline();
-    puts("");
-}
-
 void ring_parser_icg_deletelastoperation ( Parser *pParser )
 {
     assert(pParser != NULL);
@@ -301,4 +252,49 @@ char * ring_parser_icg_parentclassname ( Parser *pParser )
 char * ring_parser_icg_newpackagename ( Parser *pParser,List *pPos )
 {
     return ring_list_getstring(pPos,2) ;
+}
+/* Show the Intermediate Code */
+
+void ring_parser_icg_showoutput ( List *pListGenCode )
+{
+    int x,y,nCount,nCount2  ;
+    List *pList  ;
+    assert(pListGenCode != NULL);
+    /* Header */
+    printf( "\n\n" ) ;
+    ring_general_printline();
+    puts(" Byte Code - Before Execution by the VM");
+    ring_general_printline();
+    nCount = ring_list_getsize(pListGenCode);
+    if ( nCount > 0 ) {
+        printf( "\n %6s  %18s  %29s\n", "PC","OPCode","Data" ) ;
+        for ( x = 1 ; x <= nCount ; x++ ) {
+            pList = ring_list_getlist(pListGenCode,x);
+            nCount2 = ring_list_getsize(pList);
+            printf( "\n %6d  %18s  ", x , RING_IC_OP[ring_list_getint(pList,1)] ) ;
+            if ( nCount2 > 1 ) {
+                for ( y = 2 ; y <= nCount2 ; y++ ) {
+                    if ( ring_list_isstring(pList,y) ) {
+                        printf( " %12s ",ring_list_getstring(pList,y) ) ;
+                    }
+                    else if ( ring_list_isnumber(pList,y) ) {
+                        if ( ring_list_isdouble(pList,y) ) {
+                            printf( " %12f",ring_list_getdouble(pList,y) ) ;
+                        }
+                        else {
+                            printf( " %12d ",ring_list_getint(pList,y) ) ;
+                        }
+                    }
+                    else {
+                        printf( " %12p ",ring_list_getpointer(pList,y) ) ;
+                    }
+                }
+            }
+        }
+        printf( "\n" ) ;
+    }
+    /* End */
+    puts("");
+    ring_general_printline();
+    puts("");
 }

@@ -397,10 +397,6 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
                 return 1 ;
             }
         #endif
-        /* Display Generated Code */
-        if ( pRingState->nPrintICFinal ) {
-            ring_parser_icg_showoutput(pRingState->pRingGenCode,2);
-        }
     }
     return nRunVM ;
 }
@@ -439,19 +435,19 @@ RING_API void ring_state_runprogram ( RingState *pRingState )
     ring_scanner_addreturn(pRingState);
     ring_state_log(pRingState,"function ring_state_runprogram() after ring_scanner_addreturn()");
     if ( pRingState->nPrintIC ) {
-        ring_parser_icg_showoutput(pRingState->pRingGenCode,1);
+        ring_parser_icg_showoutput(pRingState->pRingGenCode);
     }
     if ( ! pRingState->nRun ) {
         return ;
     }
     pVM = ring_vm_new(pRingState);
     ring_vm_start(pRingState,pVM);
-    if ( ! pRingState->nDontDeleteTheVM ) {
-        ring_vm_delete(pVM);
-    }
     /* Display Generated Code */
     if ( pRingState->nPrintICFinal ) {
-        ring_parser_icg_showoutput(pRingState->pRingGenCode,2);
+        ring_vm_showbytecode(pVM);
+    }
+    if ( ! pRingState->nDontDeleteTheVM ) {
+        ring_vm_delete(pVM);
     }
     ring_state_log(pRingState,"function ring_state_runprogram() end");
 }
@@ -580,10 +576,6 @@ RING_API int ring_state_runstring ( RingState *pRingState,char *cString )
                 return 1 ;
             }
         #endif
-        /* Display Generated Code */
-        if ( pRingState->nPrintICFinal ) {
-            ring_parser_icg_showoutput(pRingState->pRingGenCode,2);
-        }
     }
     return nRunVM ;
 }

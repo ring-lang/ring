@@ -1437,7 +1437,7 @@ int ring_parser_step ( Parser *pParser,int *nMark1 )
 {
     /* Step <expr> */
     pParser->nInsertFlag = 1 ;
-    pParser->nInsertCounter = *nMark1-1 ;
+    pParser->nInsertCounter = *nMark1 - 1 - pParser->pRingState->nInstructionsCount ;
     if ( ring_parser_iskeyword(pParser,K_STEP) ) {
         ring_parser_nexttoken(pParser);
         pParser->nAssignmentFlag = 0 ;
@@ -1454,7 +1454,7 @@ int ring_parser_step ( Parser *pParser,int *nMark1 )
         ring_parser_icg_newoperanddouble(pParser,1.0);
         ring_parser_icg_newoperation(pParser,ICO_STEPNUMBER);
     }
-    *nMark1 = pParser->nInsertCounter + 1 ;
+    *nMark1 = pParser->nInsertCounter + 1 + pParser->pRingState->nInstructionsCount ;
     pParser->nInsertFlag = 0 ;
     pParser->nInsertCounter = 0 ;
     return 1 ;
