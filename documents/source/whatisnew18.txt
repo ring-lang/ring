@@ -185,7 +185,6 @@ More Improvements
 * Ring VM - Support calling private methods from the class region
 * Ring VM - Better code when loading the VM instructions (Uses less memory)
 * Ring VM - Fixed count for ByteCode items for the ICO_FUNC instruction
-* Ring VM - Remove nSize from the ByteCode structure
 * Ring VM - Better code for dynamic change between function/method calls inside braces
 * Ring VM - Check string range when we access strings after calling functions directly
 * Ring VM - Get pointer as string when we access the pointer address
@@ -195,3 +194,6 @@ More Improvements
 * Ring VM - The default RING_POOLMANAGER_ITEMSINBLOCK value is 500K (instead of 2M)
 * Ring VM - Max. parameters for each VM instruction is three (3)
 * Ring VM - New instruction: ICO_EXTRAPARA (For instructions that need more parameters)
+* Ring VM - Delete the Intermediate Code list after having the Byte Code
+* Ring VM - Better format when displaying the Byte Code
+* Ring VM - Faster code when creating new threads
