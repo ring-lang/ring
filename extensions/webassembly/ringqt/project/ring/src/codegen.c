@@ -213,6 +213,7 @@ void ring_parser_icg_loadaddressassignmentpos ( Parser *pParser,List *pLoadAPos,
 
 void ring_parser_icg_loadaddresstoloadfunction ( Parser *pParser )
 {
+    RING_PARSER_ICG_INSTRUCTIONSLISTTYPE *pList  ;
     assert(pParser != NULL);
     ring_parser_icg_setlastoperation(pParser,ICO_LOADFUNC);
     /*
@@ -220,10 +221,8 @@ void ring_parser_icg_loadaddresstoloadfunction ( Parser *pParser )
     **  While the ICO_LOADFUNC uses 4 operands after the function name 
     **  So we add another operand 
     */
-    ring_parser_icg_insertoperation(pParser,ring_list_getsize(pParser->GenCode)-1,ICO_EXTRAPARA);
-    ring_parser_icg_newoperandint(pParser,0);
-    ring_parser_icg_newoperandint(pParser,0);
-    ring_parser_icg_newoperandint(pParser,0);
+    pList = ring_parser_icg_getoperationlist(pParser,ring_list_getsize(pParser->GenCode)-1) ;
+    ring_parser_icg_addoperandint(pParser,pList,0);
 }
 
 void ring_parser_icg_freestack ( Parser *pParser )
