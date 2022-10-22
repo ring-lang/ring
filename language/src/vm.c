@@ -330,15 +330,17 @@ RING_API void ring_vm_loadcode ( VM *pVM )
     **  This optimization increase the performance of applications that uses eval() 
     */
     #if RING_MSDOS
-        nSize = RING_VM_INSTRUCTIONSCOUNT ;
+        nSize = RING_VM_INSTRUCTIONSLISTSIZE ;
     #else
-        nSize = (RING_MAX(RING_VM_INSTRUCTIONSCOUNT,RING_VM_MINVMINSTRUCTIONS))+RING_VM_EXTRASIZE ;
+        nSize = (RING_MAX(RING_VM_INSTRUCTIONSLISTSIZE,RING_VM_MINVMINSTRUCTIONS))+RING_VM_EXTRASIZE ;
     #endif
     pVM->pByteCode = (ByteCode *) ring_calloc(nSize,sizeof(ByteCode));
-    for ( x = 1 ; x <= RING_VM_INSTRUCTIONSCOUNT ; x++ ) {
+    for ( x = 1 ; x <= RING_VM_INSTRUCTIONSLISTSIZE ; x++ ) {
         ring_vm_tobytecode(pVM,x);
     }
     pVM->nEvalReallocationSize = nSize ;
+    pVM->pRingState->nInstructionsCount = ring_list_getsize(pVM->pCode) ;
+    ring_list_deleteallitems_gc(pVM->pRingState,pVM->pRingState->pRingGenCode);
 }
 
 void ring_vm_tobytecode ( VM *pVM,int nIns )
@@ -348,7 +350,7 @@ void ring_vm_tobytecode ( VM *pVM,int nIns )
     ByteCode *pByteCode  ;
     Item *pItem  ;
     String *pString  ;
-    pByteCode = pVM->pByteCode + nIns - 1 ;
+    pByteCode = pVM->pByteCode + pVM->pRingState->nInstructionsCount + nIns - 1 ;
     pIR = ring_list_getlist(pVM->pCode,nIns);
     /* Check Instruction Size */
     if ( ring_list_getsize(pIR) > RING_VM_BC_ITEMS_COUNT+1 ) {
@@ -499,6 +501,7 @@ void ring_vm_fetch2 ( VM *pVM )
         if ( pVM->pRingState->nPrintInstruction ) {
             ring_general_printline();
             printf( "VM Pointer    : %p  " , (void *) pVM ) ;
+            printf( "\nVM IR Pointer : %p  " , (void *) pVM->pByteCodeIR ) ;
             printf( "\nOperation     : %s  " , RING_IC_OP[pVM->nOPCode] ) ;
             printf( "\nPC            : %d  " ,pVM->nPC ) ;
             printf( "\nScopes Count  : %d  " ,ring_list_getsize(pVM->pMem) ) ;

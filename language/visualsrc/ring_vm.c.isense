@@ -26,8 +26,8 @@ Register
 Parent: ByteCode
 Type: char
 nOPCode
-Type: char
-nInsSize
+Type: unsigned int
+nInsSize:3
 Type: unsigned int
 nReg1Type:3
 Type: unsigned int
@@ -295,6 +295,7 @@ RING_VM_NUMBER
 RING_VM_LIST
 RING_VM_POINTER
 RING_VM_INSTRUCTIONSCOUNT
+RING_VM_INSTRUCTIONSLISTSIZE
 RING_VM_DELETELASTINSTRUCTION
 RING_VM_JUMP
 RING_VM_IR_READC
