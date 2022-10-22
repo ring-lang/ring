@@ -619,7 +619,7 @@ void ring_vm_execute ( VM *pVM )
             break ;
         /* Jump */
         case ICO_JUMP :
-            ring_vm_jump(pVM);
+            RING_VM_JUMP ;
             break ;
         case ICO_JUMPZERO :
             ring_vm_jumpzero(pVM);

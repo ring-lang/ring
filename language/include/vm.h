@@ -534,8 +534,6 @@
     void ring_vm_addnewcpointervar ( VM *pVM,const char *cStr,void *pPointer,const char *cStr2 ) ;
     /* Jump */
 
-    void ring_vm_jump ( VM *pVM ) ;
-
     void ring_vm_jumpzero ( VM *pVM ) ;
 
     void ring_vm_jumpfor ( VM *pVM ) ;
