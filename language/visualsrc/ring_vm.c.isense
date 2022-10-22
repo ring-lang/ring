@@ -483,6 +483,11 @@ Type: ByteCode *
 pByteCode
 ring_vm_clearregisterstring
 ring_vm_setreg1topointerfromstack
+ring_vm_showbytecode
+Type: int
+x,y,nCount,nCount2,nType
+Type: ByteCode *
+pByteCode
 ring_vm_mainloop
 ring_vm_fetch
 ring_vm_fetch2

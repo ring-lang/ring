@@ -113,7 +113,6 @@ void ring_vm_returneval ( VM *pVM )
     aPara[0] = RING_VM_IR_READIVALUE(1) ;
     aPara[1] = RING_VM_IR_READIVALUE(2) ;
     aPara[2] = RING_VM_IR_READIVALUE(3) ;
-    /* Print values */
     if ( ( pVM->nRetEvalDontDelete == 0 ) && (aPara[1] == ring_list_getsize(pVM->pFunctionsMap)) && (aPara[2] == ring_list_getsize(pVM->pClassesMap)) ) {
         /*
         **  The code interpreted by eval doesn't add new functions or new classes 

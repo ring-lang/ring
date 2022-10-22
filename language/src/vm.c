@@ -458,6 +458,62 @@ void ring_vm_setreg1topointerfromstack ( VM * pVM )
     RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
     RING_VM_IR_SETREG1TYPE(RING_VM_REGTYPE_POINTER) ;
 }
+
+void ring_vm_showbytecode ( VM *pVM )
+{
+    int x,y,nCount,nCount2,nType  ;
+    ByteCode *pByteCode  ;
+    /* Print Header */
+    printf( "\n\n" ) ;
+    ring_general_printline();
+    puts(" Byte Code - After Execution by the VM");
+    ring_general_printline();
+    /* Print the ByteCode */
+    nCount = RING_VM_INSTRUCTIONSCOUNT ;
+    if ( nCount > 0 ) {
+        printf( "\n %6s  %18s  %29s\n", "PC","OPCode","Data" ) ;
+        for ( x = 1 ; x <= nCount ; x++ ) {
+            /* Get the Instruction */
+            pByteCode = pVM->pByteCode + x - 1 ;
+            nCount2 = pByteCode->nInsSize - 1 ;
+            printf( "\n %6d  %18s  ", x , RING_IC_OP[pByteCode->nOPCode] ) ;
+            if ( nCount2 > 0 ) {
+                for ( y = 0 ; y < nCount2 ; y++ ) {
+                    /* Get The Register Type */
+                    if ( y == 0 ) {
+                        nType = pByteCode->nReg1Type ;
+                    }
+                    else if ( y == 1 ) {
+                        nType = pByteCode->nReg2Type ;
+                    }
+                    else {
+                        nType = pByteCode->nReg3Type ;
+                    }
+                    /* Display the Register Value */
+                    switch ( nType ) {
+                        case RING_VM_REGTYPE_STRING :
+                            printf( " %12s ",ring_string_get(pByteCode->aReg[y].pString) ) ;
+                            break ;
+                        case RING_VM_REGTYPE_INT :
+                            printf( " %12d ",pByteCode->aReg[y].iNumber ) ;
+                            break ;
+                        case RING_VM_REGTYPE_DOUBLE :
+                            printf( " %12f",pByteCode->aReg[y].dNumber ) ;
+                            break ;
+                        case RING_VM_REGTYPE_POINTER :
+                            printf( " %12p ",pByteCode->aReg[y].pPointer ) ;
+                            break ;
+                    }
+                }
+            }
+        }
+        printf( "\n" ) ;
+    }
+    /* Print Footer */
+    puts("");
+    ring_general_printline();
+    puts("");
+}
 /* Main Loop Functions */
 
 void ring_vm_mainloop ( VM *pVM )
