@@ -53,9 +53,9 @@ Parser * ring_parser_new ( List *pTokens,RingState *pRingState )
     pParser->nErrorsCount = 0 ;
     if ( pRingState->pRingGenCode == NULL ) {
         pRingState->pRingGenCode = ring_list_new(0);
-        pRingState->pRingFunctionsMap = ring_list_new(0);
-        pRingState->pRingClassesMap = ring_list_new(0);
-        pRingState->pRingPackagesMap = ring_list_new(0);
+        pRingState->pRingFunctionsMap = ring_list_new_gc(pRingState,0);
+        pRingState->pRingClassesMap = ring_list_new_gc(pRingState,0);
+        pRingState->pRingPackagesMap = ring_list_new_gc(pRingState,0);
     }
     pParser->GenCode = pRingState->pRingGenCode ;
     pParser->FunctionsMap = pRingState->pRingFunctionsMap ;
@@ -77,14 +77,14 @@ Parser * ring_parser_new ( List *pTokens,RingState *pRingState )
     pParser->nLoopOrExitCommand = 0 ;
     pParser->nCheckLoopAndExit = 1 ;
     pParser->nLoopFlag = 0 ;
-    pParser->pForInVars = ring_list_new(0);
+    pParser->pForInVars = ring_list_new_gc(pRingState,0);
     return pParser ;
 }
 
 Parser * ring_parser_delete ( Parser *pParser )
 {
     assert(pParser != NULL);
-    pParser->pForInVars = ring_list_delete(pParser->pForInVars);
+    pParser->pForInVars = ring_list_delete_gc(pParser->pRingState,pParser->pForInVars);
     ring_state_free(pParser->pRingState,pParser);
     return NULL ;
 }

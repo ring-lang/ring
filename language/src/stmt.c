@@ -589,7 +589,7 @@ int ring_parser_stmt ( Parser *pParser )
             else if ( ring_parser_iskeyword(pParser,K_IN) ) {
                 /* Add the reference to the (For-In Loop) variables */
                 nForInVarsCount = ring_list_getsize(pParser->pForInVars) + 1 ;
-                ring_list_addstring(pParser->pForInVars,ring_string_get(pString));
+                ring_list_addstring_gc(pParser->pRingState,pParser->pForInVars,ring_string_get(pString));
                 /* Generate Code */
                 sprintf( cStr , "n_sys_var_%d" , ring_parser_icg_instructionscount(pParser) ) ;
                 /* Mark for Exit command to go to outside the loop */
@@ -700,7 +700,7 @@ int ring_parser_stmt ( Parser *pParser )
                             ring_parser_icg_newoperation(pParser,ICO_KILLREFERENCE);
                         }
                         if ( nForInVarsCount == 1 ) {
-                            ring_list_deleteallitems(pParser->pForInVars);
+                            ring_list_deleteallitems_gc(pParser->pRingState,pParser->pForInVars);
                         }
                         /* Be more sure that (For-Loop) execution doesn't have any effects on the state */
                         ring_parser_icg_freestack(pParser);
