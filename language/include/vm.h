@@ -802,6 +802,8 @@
     RING_API void ring_vm_mutexdestroy ( VM *pVM ) ;
 
     RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr ) ;
+
+    RING_API void ring_vm_bytecodefornewthread ( VM *pVM,VM *pOldVM ) ;
     /* Trace */
 
     void ring_vm_traceevent ( VM *pVM,char nEvent ) ;

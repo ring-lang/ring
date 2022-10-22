@@ -548,3 +548,10 @@ Type: unsigned int
 nMemoryBlocksCount, x
 Type: Items *
 pItems
+ring_vm_bytecodefornewthread
+Type: int
+x,y,nSize,nCount,nType
+Type: ByteCode *
+pByteCode
+Type: String *
+pString
