@@ -198,8 +198,6 @@
 
     void ring_parser_icg_addoperandpointer ( Parser *pParser ,List *pList , void *pValue ) ;
 
-    void ring_parser_icg_showoutput ( List *pListGenCode,int nStatus ) ;
-
     void ring_parser_icg_deletelastoperation ( Parser *pParser ) ;
 
     void ring_parser_icg_duplicate ( Parser *pParser,int nStart,int nEnd ) ;
@@ -228,4 +226,7 @@
     char * ring_parser_icg_parentclassname ( Parser *pParser ) ;
 
     char * ring_parser_icg_newpackagename ( Parser *pParser,List *pPos ) ;
+    /* Show the Intermediate Code */
+
+    void ring_parser_icg_showoutput ( List *pListGenCode ) ;
 #endif

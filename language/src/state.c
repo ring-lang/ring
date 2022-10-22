@@ -435,7 +435,7 @@ RING_API void ring_state_runprogram ( RingState *pRingState )
     ring_scanner_addreturn(pRingState);
     ring_state_log(pRingState,"function ring_state_runprogram() after ring_scanner_addreturn()");
     if ( pRingState->nPrintIC ) {
-        ring_parser_icg_showoutput(pRingState->pRingGenCode,1);
+        ring_parser_icg_showoutput(pRingState->pRingGenCode);
     }
     if ( ! pRingState->nRun ) {
         return ;

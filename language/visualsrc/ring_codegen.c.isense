@@ -137,11 +137,6 @@ ring_parser_icg_getactiveoperation
 ring_parser_icg_addoperand
 ring_parser_icg_addoperandint
 ring_parser_icg_addoperandpointer
-ring_parser_icg_showoutput
-Type: int
-x,y,nCount,nCount2
-Type: List *
-pList
 ring_parser_icg_deletelastoperation
 ring_parser_icg_duplicate
 Type: List *
@@ -161,3 +156,8 @@ ring_parser_icg_freestack
 ring_parser_icg_newline
 ring_parser_icg_parentclassname
 ring_parser_icg_newpackagename
+ring_parser_icg_showoutput
+Type: int
+x,y,nCount,nCount2
+Type: List *
+pList
