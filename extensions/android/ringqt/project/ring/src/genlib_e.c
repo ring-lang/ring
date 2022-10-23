@@ -2043,6 +2043,11 @@ void ring_vm_generallib_print ( void *pPointer )
         RING_API_ERROR(RING_API_MISS1PARA);
         return ;
     }
+    if ( RING_API_ISSTRING(1) ) {
+        if ( strcmp(RING_API_GETSTRING(1),"") == 0 ) {
+            return ;
+        }
+    }
     if ( RING_API_ISNUMBER(1) ) {
         ring_vm_numtostring(pVM,RING_API_GETNUMBER(1),cStr);
         printf( "%s",cStr ) ;
@@ -2067,6 +2072,11 @@ void ring_vm_generallib_print ( void *pPointer )
 
 void ring_vm_generallib_print2str ( void *pPointer )
 {
+    if ( RING_API_ISSTRING(1) ) {
+        if ( strcmp(RING_API_GETSTRING(1),"") == 0 ) {
+            return ;
+        }
+    }
     ring_vm_generallib_customprint(pPointer,"return");
 }
 
@@ -2079,6 +2089,12 @@ void ring_vm_generallib_puts ( void *pPointer )
     if ( RING_API_PARACOUNT != 1 ) {
         RING_API_ERROR(RING_API_MISS1PARA);
         return ;
+    }
+    if ( RING_API_ISSTRING(1) ) {
+        if ( strcmp(RING_API_GETSTRING(1),"") == 0 ) {
+            printf( "\n" ) ;
+            return ;
+        }
     }
     if ( RING_API_ISNUMBER(1) ) {
         ring_vm_numtostring(pVM,RING_API_GETNUMBER(1),cStr);
