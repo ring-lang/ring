@@ -233,7 +233,7 @@ int ring_parser_class ( Parser *pParser )
 
 int ring_parser_stmt ( Parser *pParser )
 {
-    int x,nMark1,nMark2,nMark3,nStart,nEnd,nFlag,nLoadPackage,nLoopOrExitCommand,nLoadAgain,nForInVarsCount,nVar  ;
+    int x,nMark1,nMark2,nMark3,nStart,nEnd,nFlag,nLoadPackage,nLoopOrExitCommand,nLoadAgain,nForInVarsCount,nVar,nLine  ;
     String *pString  ;
     List *pMark,*pMark2,*pMark3,*pList2  ;
     double nNum1  ;
@@ -501,6 +501,11 @@ int ring_parser_stmt ( Parser *pParser )
                         if ( ring_parser_csexpr(pParser) ) {
                             pParser->nAssignmentFlag = 1 ;
                             /* Generate Code */
+                            nLine = 0 ;
+                            if ( (ring_parser_icg_getlastoperation(pParser) == ICO_NEWLINE) && (ring_parser_icg_newlabel(pParser) == (nMark1+3)) ) {
+                                nLine = ring_parser_icg_getoperandint(pParser,2) ;
+                                ring_parser_icg_deletelastoperation(pParser);
+                            }
                             if ( (ring_parser_icg_getlastoperation(pParser) == ICO_PUSHN) && (ring_parser_icg_newlabel(pParser) == (nMark1+2)) ) {
                                 /*
                                 **  We check nMark2+2 to avoid executing next instructions when we have expr 
@@ -519,6 +524,9 @@ int ring_parser_stmt ( Parser *pParser )
                                 ring_parser_icg_newoperation(pParser,ICO_JUMPFOR);
                             }
                             pMark = ring_parser_icg_getactiveoperation(pParser);
+                            if ( nLine != 0 ) {
+                                ring_parser_icg_newline(pParser,nLine);
+                            }
                             /* Step <expr> */
                             x = ring_parser_step(pParser,&nMark1);
                             if ( x == 0 ) {
