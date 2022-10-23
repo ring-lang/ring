@@ -1,0 +1,5 @@
+Using puts()
+
+Using print()
+Using print2str()
+Done

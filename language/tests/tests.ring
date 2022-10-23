@@ -401,5 +401,6 @@ aTests = [
 	[ :name = "General Tests (Part 180)", :Command = "ring general/assignmentandisequal.ring" ],
 	[ :name = "General Tests (Part 181)", :Command = "ring general/testprint2.ring" ],
 	[ :name = "General Tests (Part 182)", :Command = "ring general/manypara.ring" ],
-	[ :name = "General Tests (Part 183)", :Command = "ring general/listcontainspointer.ring" ]
+	[ :name = "General Tests (Part 183)", :Command = "ring general/listcontainspointer.ring" ],
+	[ :name = "General Tests (Part 183)", :Command = "ring general/printemptystr.ring" ]
 ]
