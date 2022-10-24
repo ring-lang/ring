@@ -144,3 +144,6 @@ class RNoteControllerBase from WindowsControllerParent
 		oFilterTextEdit 
 		oTabsAndText
 		oLayoutTabsText
+
+	# Dialogs
+		oFontDialog

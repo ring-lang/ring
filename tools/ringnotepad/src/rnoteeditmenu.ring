@@ -23,16 +23,15 @@ class RNoteEditMenu
 
 	func Font
 		oFontDialog = new qfontdialog() {
-
 			this.oTFont.fromstring(this.cFont)
 			setcurrentfont(this.oTFont)
-
-			aFont = getfont()
+			setFontSelectedEvent(this.Method(:FontAction))
+			show()
 		}
-		if aFont[1] != NULL
-			cFont = aFont[1]
-			SetFont()	# set the new font
-		ok
+
+	func FontAction	
+		cFont = oFontDialog.selectedfont().tostring()
+		SetFont()	# set the new font
 
 	func SetFont
 		oTFont.fromstring(cFont)
