@@ -92,7 +92,6 @@
         #define RING_API extern
     #endif
     /* Constants */
-    #define RING_PARSERSTART 1
     #define RING_PARSERTRACE 1
     #define RING_RUNVM 1
     #define RING_VMSHOWOPCODE 1

@@ -7,30 +7,28 @@ int ring_parser_start ( List *pTokens,RingState *pRingState )
     Parser *pParser  ;
     int nResult,RingActiveFile  ;
     pParser = ring_parser_new(pTokens,pRingState);
-    #if RING_PARSERSTART
-        /* Parse Tokens */
-        ring_parser_nexttoken(pParser);
-        do {
-            nResult = ring_parser_class(pParser);
-            if ( nResult == 0 ) {
-                ring_parser_error(pParser,"");
-                /* Important check to avoid missing the line number counter */
-                if ( ring_parser_isendline(pParser) == 0 ) {
-                    /* Move next trying to avoid the error */
-                    ring_parser_nexttoken(pParser);
-                }
+    /* Parse Tokens */
+    ring_parser_nexttoken(pParser);
+    do {
+        nResult = ring_parser_class(pParser);
+        if ( nResult == 0 ) {
+            ring_parser_error(pParser,"");
+            /* Important check to avoid missing the line number counter */
+            if ( ring_parser_isendline(pParser) == 0 ) {
+                /* Move next trying to avoid the error */
+                ring_parser_nexttoken(pParser);
             }
-        } while (pParser->ActiveToken !=pParser->TokensCount)  ;
-        /* Display Errors Count */
-        RingActiveFile = ring_list_getsize(pParser->pRingState->pRingFilesStack);
-        if ( pParser->nErrorsCount == 0 ) {
-            ring_parser_delete(pParser);
-            return 1 ;
         }
-        else {
-            printf( "\n%s errors count : %d \n",ring_list_getstring(pParser->pRingState->pRingFilesStack,RingActiveFile),pParser->nErrorsCount ) ;
-        }
-    #endif
+    } while (pParser->ActiveToken !=pParser->TokensCount)  ;
+    /* Display Errors Count */
+    RingActiveFile = ring_list_getsize(pParser->pRingState->pRingFilesStack);
+    if ( pParser->nErrorsCount == 0 ) {
+        ring_parser_delete(pParser);
+        return 1 ;
+    }
+    else {
+        printf( "\n%s errors count : %d \n",ring_list_getstring(pParser->pRingState->pRingFilesStack,RingActiveFile),pParser->nErrorsCount ) ;
+    }
     ring_parser_delete(pParser);
     return 0 ;
 }
