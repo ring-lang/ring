@@ -11,8 +11,8 @@ int main ( int argc, char *argv[] )
     ring_section("Hello!");
     printf( "These are some old tests that I was using in the early days of development \n" ) ;
     printf( "This was before we have a Compiler and a VM that we can run \n" ) ;
-    printf( "Now we have a group of tests in ring/language/test folder \n" ) ;
-    printf( "Also we keep this file if you want to do some experiments! \n" ) ;
+    printf( "Now we have a group of tests in ring/language/tests folder \n" ) ;
+    printf( "Also we keep this file if we want to do some experiments! \n" ) ;
     ring_section("Start of tests");
     ring_testallunits();
     ring_section("End of tests");
