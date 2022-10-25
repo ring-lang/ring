@@ -234,7 +234,7 @@
     RING_API void ring_list_genhashtable ( List *pList ) ;
 
     RING_API void ring_list_genhashtable2 ( List *pList ) ;
-    /* Functions tha know about Ring VM */
+    /* Functions that know about Ring VM */
 
     RING_API void ring_list_print ( List *pList ) ;
 
