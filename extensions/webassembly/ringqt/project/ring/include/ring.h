@@ -93,7 +93,6 @@
     #endif
     /* Constants */
     #define RING_PARSERTRACE 1
-    #define RING_VMSHOWOPCODE 1
     #define RING_LOGFILE 0
     /* Environment Errors */
     #define RING_SEGFAULT "\nError (E1) : Caught SegFault!\n"

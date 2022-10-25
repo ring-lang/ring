@@ -505,23 +505,17 @@ void ring_vm_showbytecode ( VM *pVM )
 void ring_vm_mainloop ( VM *pVM )
 {
     pVM->pRingState->lStartPoolManager = 1 ;
-    #if RING_VMSHOWOPCODE
-        /* Preprocessor Allows showing the OPCODE */
-        if ( pVM->pRingState->nPrintInstruction ) {
-            do {
-                ring_vm_fetch2(pVM);
-            } while (pVM->nPC <= RING_VM_INSTRUCTIONSCOUNT)  ;
-        }
-        else {
-            do {
-                ring_vm_fetch(pVM);
-            } while (pVM->nPC <= RING_VM_INSTRUCTIONSCOUNT)  ;
-        }
-    #else
+    /* Allows showing the OPCODE */
+    if ( pVM->pRingState->nPrintInstruction ) {
+        do {
+            ring_vm_fetch2(pVM);
+        } while (pVM->nPC <= RING_VM_INSTRUCTIONSCOUNT)  ;
+    }
+    else {
         do {
             ring_vm_fetch(pVM);
         } while (pVM->nPC <= RING_VM_INSTRUCTIONSCOUNT)  ;
-    #endif
+    }
 }
 
 void ring_vm_fetch ( VM *pVM )
@@ -539,28 +533,24 @@ void ring_vm_fetch2 ( VM *pVM )
 {
     pVM->pByteCodeIR = pVM->pByteCode + pVM->nPC - 1 ;
     pVM->nOPCode = RING_VM_IR_OPCODE ;
-    #if RING_VMSHOWOPCODE
-        if ( pVM->pRingState->nPrintInstruction ) {
-            ring_general_printline();
-            printf( "VM Pointer    : %p  " , (void *) pVM ) ;
-            printf( "\nVM IR Pointer : %p  " , (void *) pVM->pByteCodeIR ) ;
-            printf( "\nOperation     : %s  " , RING_IC_OP[pVM->nOPCode] ) ;
-            printf( "\nPC            : %d  " ,pVM->nPC ) ;
-            printf( "\nScopes Count  : %d  " ,ring_list_getsize(pVM->pMem) ) ;
-            printf( "\nScope Pointer : %p  " ,pVM->pActiveMem ) ;
-            printf( "\nFile Name     : %s \nLine Number   : %d\n" ,pVM->cFileName,RING_VM_IR_GETLINENUMBER ) ;
-            if ( (pVM->nOPCode == ICO_PUSHC) || (pVM->nOPCode == ICO_LOADADDRESS) || (pVM->nOPCode == ICO_LOADFUNC) ) {
-                printf( "Data          : %s \n",RING_VM_IR_READC ) ;
-            }
+    if ( pVM->pRingState->nPrintInstruction ) {
+        ring_general_printline();
+        printf( "VM Pointer    : %p  " , (void *) pVM ) ;
+        printf( "\nVM IR Pointer : %p  " , (void *) pVM->pByteCodeIR ) ;
+        printf( "\nOperation     : %s  " , RING_IC_OP[pVM->nOPCode] ) ;
+        printf( "\nPC            : %d  " ,pVM->nPC ) ;
+        printf( "\nScopes Count  : %d  " ,ring_list_getsize(pVM->pMem) ) ;
+        printf( "\nScope Pointer : %p  " ,pVM->pActiveMem ) ;
+        printf( "\nFile Name     : %s \nLine Number   : %d\n" ,pVM->cFileName,RING_VM_IR_GETLINENUMBER ) ;
+        if ( (pVM->nOPCode == ICO_PUSHC) || (pVM->nOPCode == ICO_LOADADDRESS) || (pVM->nOPCode == ICO_LOADFUNC) ) {
+            printf( "Data          : %s \n",RING_VM_IR_READC ) ;
         }
-    #endif
+    }
     pVM->nPC++ ;
     ring_vm_execute(pVM);
-    #if RING_VMSHOWOPCODE
-        if ( pVM->pRingState->nPrintInstruction ) {
-            printf( "\nSP (After)    : %d  \nFuncSP        : %d \nLineNumber    : %d \n" , (int) pVM->nSP,pVM->nFuncSP,RING_VM_IR_GETLINENUMBER ) ;
-        }
-    #endif
+    if ( pVM->pRingState->nPrintInstruction ) {
+        printf( "\nSP (After)    : %d  \nFuncSP        : %d \nLineNumber    : %d \n" , (int) pVM->nSP,pVM->nFuncSP,RING_VM_IR_GETLINENUMBER ) ;
+    }
     if ( pVM->nSP > RING_VM_STACK_CHECKOVERFLOW ) {
         ring_vm_error(pVM,RING_VM_ERROR_STACKOVERFLOW);
     }

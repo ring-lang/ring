@@ -155,27 +155,17 @@ void ring_vm_mainloopforeval ( VM *pVM )
     pVM->lInsideEval++ ;
     nDontDelete = pVM->nRetEvalDontDelete ;
     pVM->nRetEvalDontDelete = 0 ;
-    #if RING_VMSHOWOPCODE
-        /* Preprocessor Allows showing the OPCODE */
-        if ( pVM->pRingState->nPrintInstruction ) {
-            do {
-                ring_vm_fetch2(pVM);
-                if ( pVM->nPC <= pVM->nEvalReturnPC ) {
-                    pVM->nEvalReturnPC = 0 ;
-                    break ;
-                }
-            } while (pVM->nPC <= RING_VM_INSTRUCTIONSCOUNT)  ;
-        }
-        else {
-            do {
-                ring_vm_fetch(pVM);
-                if ( pVM->nPC <= pVM->nEvalReturnPC ) {
-                    pVM->nEvalReturnPC = 0 ;
-                    break ;
-                }
-            } while (pVM->nPC <= RING_VM_INSTRUCTIONSCOUNT)  ;
-        }
-    #else
+    /* Allows showing the OPCODE */
+    if ( pVM->pRingState->nPrintInstruction ) {
+        do {
+            ring_vm_fetch2(pVM);
+            if ( pVM->nPC <= pVM->nEvalReturnPC ) {
+                pVM->nEvalReturnPC = 0 ;
+                break ;
+            }
+        } while (pVM->nPC <= RING_VM_INSTRUCTIONSCOUNT)  ;
+    }
+    else {
         do {
             ring_vm_fetch(pVM);
             if ( pVM->nPC <= pVM->nEvalReturnPC ) {
@@ -183,7 +173,7 @@ void ring_vm_mainloopforeval ( VM *pVM )
                 break ;
             }
         } while (pVM->nPC <= RING_VM_INSTRUCTIONSCOUNT)  ;
-    #endif
+    }
     pVM->lInsideEval-- ;
     pVM->nRetEvalDontDelete = nDontDelete ;
 }
