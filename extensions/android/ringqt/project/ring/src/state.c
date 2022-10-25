@@ -348,23 +348,19 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
     }
     /* Call Parser */
     if ( (nCont == 1) && (pRingState->nOnlyTokens == 0) ) {
-        #if RING_PARSERTRACE
-            if ( pScanner->pRingState->nPrintRules ) {
-                printf( "\n" ) ;
-                ring_general_printline();
-                puts("Grammar Rules Used by The Parser ");
-                ring_general_printline();
-                printf( "\nRule : Program --> {Statement}\n\nLine 1\n" ) ;
-            }
-        #endif
+        if ( pScanner->pRingState->nPrintRules ) {
+            printf( "\n" ) ;
+            ring_general_printline();
+            puts("Grammar Rules Used by The Parser ");
+            ring_general_printline();
+            printf( "\nRule : Program --> {Statement}\n\nLine 1\n" ) ;
+        }
         nRunVM = ring_parser_start(pScanner->Tokens,pRingState);
-        #if RING_PARSERTRACE
-            if ( pScanner->pRingState->nPrintRules ) {
-                printf( "\n" ) ;
-                ring_general_printline();
-                printf( "\n" ) ;
-            }
-        #endif
+        if ( pScanner->pRingState->nPrintRules ) {
+            printf( "\n" ) ;
+            ring_general_printline();
+            printf( "\n" ) ;
+        }
     }
     else {
         ring_list_deleteitem_gc(pRingState,pRingState->pRingFilesStack,ring_list_getsize(pRingState->pRingFilesStack));
@@ -519,23 +515,19 @@ RING_API int ring_state_runstring ( RingState *pRingState,char *cString )
     }
     /* Call Parser */
     if ( (nCont == 1) && (pRingState->nOnlyTokens == 0) ) {
-        #if RING_PARSERTRACE
-            if ( pScanner->pRingState->nPrintRules ) {
-                printf( "\n" ) ;
-                ring_general_printline();
-                puts("Grammar Rules Used by The Parser ");
-                ring_general_printline();
-                printf( "\nRule : Program --> {Statement}\n\nLine 1\n" ) ;
-            }
-        #endif
+        if ( pScanner->pRingState->nPrintRules ) {
+            printf( "\n" ) ;
+            ring_general_printline();
+            puts("Grammar Rules Used by The Parser ");
+            ring_general_printline();
+            printf( "\nRule : Program --> {Statement}\n\nLine 1\n" ) ;
+        }
         nRunVM = ring_parser_start(pScanner->Tokens,pRingState);
-        #if RING_PARSERTRACE
-            if ( pScanner->pRingState->nPrintRules ) {
-                printf( "\n" ) ;
-                ring_general_printline();
-                printf( "\n" ) ;
-            }
-        #endif
+        if ( pScanner->pRingState->nPrintRules ) {
+            printf( "\n" ) ;
+            ring_general_printline();
+            printf( "\n" ) ;
+        }
     }
     else {
         ring_list_deleteitem_gc(pRingState,pRingState->pRingFilesStack,ring_list_getsize(pRingState->pRingFilesStack));

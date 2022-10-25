@@ -12,11 +12,9 @@ int ring_parser_expr ( Parser *pParser )
     /* Expr --> LogicNot { and|or LogicNot } */
     if ( ring_parser_logicnot(pParser) ) {
         x = 1 ;
-        #if RING_PARSERTRACE
-            RING_STATE_CHECKPRINTRULES 
-            
-            puts("Rule : Expr --> LogicNot");
-        #endif
+        RING_STATE_CHECKPRINTRULES 
+        
+        puts("Rule : Expr --> LogicNot");
         while ( ring_parser_iskeyword(pParser,K_AND) || ring_parser_isoperator(pParser,"&&")  || ring_parser_iskeyword(pParser,K_OR) || ring_parser_isoperator(pParser,"||") ) {
             if ( ring_parser_iskeyword(pParser,K_AND) || ring_parser_isoperator(pParser,"&&") ) {
                 /* Generate Code */
@@ -34,14 +32,12 @@ int ring_parser_expr ( Parser *pParser )
                 ring_parser_icg_newoperandint(pParser,0);
                 nMark = ring_parser_icg_newlabel(pParser);
                 ring_parser_icg_addoperandint(pParser,pMark,nMark);
-                #if RING_PARSERTRACE
-                    RING_STATE_CHECKPRINTRULES 
-                    
-                    {
-                        puts("Rule : Expr --> LogicNot");
-                        puts("Rule : Expr --> Expr 'And' Expr");
-                    }
-                #endif
+                RING_STATE_CHECKPRINTRULES 
+                
+                {
+                    puts("Rule : Expr --> LogicNot");
+                    puts("Rule : Expr --> Expr 'And' Expr");
+                }
             }
             else {
                 /* Generate Code */
@@ -53,14 +49,12 @@ int ring_parser_expr ( Parser *pParser )
                 if ( x == 0 ) {
                     return 0 ;
                 }
-                #if RING_PARSERTRACE
-                    RING_STATE_CHECKPRINTRULES 
-                    
-                    {
-                        puts("Rule : Expr --> LogicNot");
-                        puts("Rule : Expr --> Expr 'Or' Expr");
-                    }
-                #endif
+                RING_STATE_CHECKPRINTRULES 
+                
+                {
+                    puts("Rule : Expr --> LogicNot");
+                    puts("Rule : Expr --> Expr 'Or' Expr");
+                }
                 /* Generate Code */
                 ring_parser_icg_newoperation(pParser,ICO_OR);
                 /* Generate Location for nPC for Operator Overloading */
@@ -82,13 +76,11 @@ int ring_parser_logicnot ( Parser *pParser )
         ring_parser_nexttoken(pParser);
         RING_PARSER_IGNORENEWLINE ;
         x = ring_parser_equalornot(pParser);
-        #if RING_PARSERTRACE
-            if ( x == 1 ) {
-                RING_STATE_CHECKPRINTRULES 
-                
-                puts("Rule : LogicNot -> 'not' EqualOrNot ");
-            }
-        #endif
+        if ( x == 1 ) {
+            RING_STATE_CHECKPRINTRULES 
+            
+            puts("Rule : LogicNot -> 'not' EqualOrNot ");
+        }
         /* Generate Code */
         ring_parser_icg_newoperation(pParser,ICO_NOT);
         /* Generate Location for nPC for Operator Overloading */
@@ -96,13 +88,11 @@ int ring_parser_logicnot ( Parser *pParser )
         return x ;
     }
     x = ring_parser_equalornot(pParser);
-    #if RING_PARSERTRACE
-        if ( x == 1 ) {
-            RING_STATE_CHECKPRINTRULES 
-            
-            puts("Rule : LogicNot -> EqualOrNot ");
-        }
-    #endif
+    if ( x == 1 ) {
+        RING_STATE_CHECKPRINTRULES 
+        
+        puts("Rule : LogicNot -> EqualOrNot ");
+    }
     return x ;
 }
 
@@ -112,11 +102,9 @@ int ring_parser_equalornot ( Parser *pParser )
     /* EqualOrNot --> Compare { =|!= Compare } */
     if ( ring_parser_compare(pParser) ) {
         x = 1 ;
-        #if RING_PARSERTRACE
-            RING_STATE_CHECKPRINTRULES 
-            
-            puts("Rule : EqualOrNot --> Compare");
-        #endif
+        RING_STATE_CHECKPRINTRULES 
+        
+        puts("Rule : EqualOrNot --> Compare");
         while ( ring_parser_isoperator2(pParser,OP_EQUAL) || ring_parser_isoperator2(pParser,OP_NOT) ) {
             if ( ring_parser_isoperator2(pParser,OP_NOT) ) {
                 ring_parser_nexttoken(pParser);
@@ -132,14 +120,12 @@ int ring_parser_equalornot ( Parser *pParser )
                     ring_parser_icg_newoperation(pParser,ICO_NOTEQUAL);
                     /* Generate Location for nPC for Operator Overloading */
                     ring_parser_icg_newoperandint(pParser,0);
-                    #if RING_PARSERTRACE
-                        RING_STATE_CHECKPRINTRULES 
-                        
-                        {
-                            puts("Rule : EqualOrNot --> Compare");
-                            puts("Rule : EqualOrNot --> EqualOrNot '!=' EqualOrNot");
-                        }
-                    #endif
+                    RING_STATE_CHECKPRINTRULES 
+                    
+                    {
+                        puts("Rule : EqualOrNot --> Compare");
+                        puts("Rule : EqualOrNot --> EqualOrNot '!=' EqualOrNot");
+                    }
                 }
                 else {
                     ring_parser_error(pParser,RING_PARSER_ERROR_EXPROPERATOR);
@@ -157,14 +143,12 @@ int ring_parser_equalornot ( Parser *pParser )
                 ring_parser_icg_newoperation(pParser,ICO_EQUAL);
                 /* Generate Location for nPC for Operator Overloading */
                 ring_parser_icg_newoperandint(pParser,0);
-                #if RING_PARSERTRACE
-                    RING_STATE_CHECKPRINTRULES 
-                    
-                    {
-                        puts("Rule : EqualOrNot --> Compare");
-                        puts("Rule : EqualOrNot --> EqualOrNot '=' EqualOrNot");
-                    }
-                #endif
+                RING_STATE_CHECKPRINTRULES 
+                
+                {
+                    puts("Rule : EqualOrNot --> Compare");
+                    puts("Rule : EqualOrNot --> EqualOrNot '=' EqualOrNot");
+                }
             }
         }
         return x ;
@@ -178,11 +162,9 @@ int ring_parser_compare ( Parser *pParser )
     /* Compare --> BitORXOR { <|>|<=|>= BITORXOR } */
     if ( ring_parser_bitorxor(pParser) ) {
         x = 1 ;
-        #if RING_PARSERTRACE
-            RING_STATE_CHECKPRINTRULES 
-            
-            puts("Rule : Compare --> BitOrXOR");
-        #endif
+        RING_STATE_CHECKPRINTRULES 
+        
+        puts("Rule : Compare --> BitOrXOR");
         while ( ring_parser_isoperator2(pParser,OP_LESS) || ring_parser_isoperator2(pParser,OP_GREATER) ) {
             nEqual = 0 ;
             if ( ring_parser_isoperator2(pParser,OP_LESS) ) {
@@ -201,28 +183,24 @@ int ring_parser_compare ( Parser *pParser )
                     ring_parser_icg_newoperation(pParser,ICO_LESS);
                     /* Generate Location for nPC for Operator Overloading */
                     ring_parser_icg_newoperandint(pParser,0);
-                    #if RING_PARSERTRACE
-                        RING_STATE_CHECKPRINTRULES 
-                        
-                        {
-                            puts("Rule : Compare --> BitOrXOR");
-                            puts("Rule : Compare --> Compare '<' Compare");
-                        }
-                    #endif
+                    RING_STATE_CHECKPRINTRULES 
+                    
+                    {
+                        puts("Rule : Compare --> BitOrXOR");
+                        puts("Rule : Compare --> Compare '<' Compare");
+                    }
                 }
                 else {
                     /* Generate Code */
                     ring_parser_icg_newoperation(pParser,ICO_LESSEQUAL);
                     /* Generate Location for nPC for Operator Overloading */
                     ring_parser_icg_newoperandint(pParser,0);
-                    #if RING_PARSERTRACE
-                        RING_STATE_CHECKPRINTRULES 
-                        
-                        {
-                            puts("Rule : Compare --> BitOrXOR");
-                            puts("Rule : Compare --> Compare '<=' Compare");
-                        }
-                    #endif
+                    RING_STATE_CHECKPRINTRULES 
+                    
+                    {
+                        puts("Rule : Compare --> BitOrXOR");
+                        puts("Rule : Compare --> Compare '<=' Compare");
+                    }
                 }
             }
             else {
@@ -242,28 +220,24 @@ int ring_parser_compare ( Parser *pParser )
                     ring_parser_icg_newoperation(pParser,ICO_GREATER);
                     /* Generate Location for nPC for Operator Overloading */
                     ring_parser_icg_newoperandint(pParser,0);
-                    #if RING_PARSERTRACE
-                        RING_STATE_CHECKPRINTRULES 
-                        
-                        {
-                            puts("Rule : Compare --> BitOrXOR");
-                            puts("Rule : Compare --> Compare '>' Compare");
-                        }
-                    #endif
+                    RING_STATE_CHECKPRINTRULES 
+                    
+                    {
+                        puts("Rule : Compare --> BitOrXOR");
+                        puts("Rule : Compare --> Compare '>' Compare");
+                    }
                 }
                 else {
                     /* Generate Code */
                     ring_parser_icg_newoperation(pParser,ICO_GREATEREQUAL);
                     /* Generate Location for nPC for Operator Overloading */
                     ring_parser_icg_newoperandint(pParser,0);
-                    #if RING_PARSERTRACE
-                        RING_STATE_CHECKPRINTRULES 
-                        
-                        {
-                            puts("Rule : Compare --> BitOrXOR");
-                            puts("Rule : Compare --> Compare '>=' Compare");
-                        }
-                    #endif
+                    RING_STATE_CHECKPRINTRULES 
+                    
+                    {
+                        puts("Rule : Compare --> BitOrXOR");
+                        puts("Rule : Compare --> Compare '>=' Compare");
+                    }
                 }
             }
             /* Check <> */
@@ -282,11 +256,9 @@ int ring_parser_bitorxor ( Parser *pParser )
     /* BitOrXOR --> BitAnd { | | ^ BitAnd } */
     if ( ring_parser_bitand(pParser) ) {
         x = 1 ;
-        #if RING_PARSERTRACE
-            RING_STATE_CHECKPRINTRULES 
-            
-            puts("Rule : BitOrXOR -->  BitAnd");
-        #endif
+        RING_STATE_CHECKPRINTRULES 
+        
+        puts("Rule : BitOrXOR -->  BitAnd");
         while ( ring_parser_isoperator2(pParser,OP_BITOR) || ring_parser_isoperator2(pParser,OP_XOR) ) {
             if ( ring_parser_isoperator2(pParser,OP_BITOR) ) {
                 ring_parser_nexttoken(pParser);
@@ -299,14 +271,12 @@ int ring_parser_bitorxor ( Parser *pParser )
                 ring_parser_icg_newoperation(pParser,ICO_BITOR);
                 /* Generate Location for nPC for Operator Overloading */
                 ring_parser_icg_newoperandint(pParser,0);
-                #if RING_PARSERTRACE
-                    RING_STATE_CHECKPRINTRULES 
-                    
-                    {
-                        puts("Rule : BitOrXOR --> BitAnd");
-                        puts("Rule : BitOrXOR --> BitOrXOR '|' BitOrXOR");
-                    }
-                #endif
+                RING_STATE_CHECKPRINTRULES 
+                
+                {
+                    puts("Rule : BitOrXOR --> BitAnd");
+                    puts("Rule : BitOrXOR --> BitOrXOR '|' BitOrXOR");
+                }
             }
             else {
                 ring_parser_nexttoken(pParser);
@@ -319,14 +289,12 @@ int ring_parser_bitorxor ( Parser *pParser )
                 ring_parser_icg_newoperation(pParser,ICO_BITXOR);
                 /* Generate Location for nPC for Operator Overloading */
                 ring_parser_icg_newoperandint(pParser,0);
-                #if RING_PARSERTRACE
-                    RING_STATE_CHECKPRINTRULES 
-                    
-                    {
-                        puts("Rule : BitOrXOR --> BitAnd");
-                        puts("Rule : BitOrXOR --> BitOrXOR '^' BitOrXOR");
-                    }
-                #endif
+                RING_STATE_CHECKPRINTRULES 
+                
+                {
+                    puts("Rule : BitOrXOR --> BitAnd");
+                    puts("Rule : BitOrXOR --> BitOrXOR '^' BitOrXOR");
+                }
             }
         }
         return x ;
@@ -340,11 +308,9 @@ int ring_parser_bitand ( Parser *pParser )
     /* BitAnd --> BitShift { & BitShift } */
     if ( ring_parser_bitshift(pParser) ) {
         x = 1 ;
-        #if RING_PARSERTRACE
-            RING_STATE_CHECKPRINTRULES 
-            
-            puts("Rule : BitAnd --> BitShift");
-        #endif
+        RING_STATE_CHECKPRINTRULES 
+        
+        puts("Rule : BitAnd --> BitShift");
         while ( ring_parser_isoperator2(pParser,OP_BITAND) ) {
             ring_parser_nexttoken(pParser);
             RING_PARSER_IGNORENEWLINE ;
@@ -356,14 +322,12 @@ int ring_parser_bitand ( Parser *pParser )
             ring_parser_icg_newoperation(pParser,ICO_BITAND);
             /* Generate Location for nPC for Operator Overloading */
             ring_parser_icg_newoperandint(pParser,0);
-            #if RING_PARSERTRACE
-                RING_STATE_CHECKPRINTRULES 
-                
-                {
-                    puts("Rule : BitAnd --> BitShift");
-                    puts("Rule : BitAnd --> BitAnd '&' BitAnd");
-                }
-            #endif
+            RING_STATE_CHECKPRINTRULES 
+            
+            {
+                puts("Rule : BitAnd --> BitShift");
+                puts("Rule : BitAnd --> BitAnd '&' BitAnd");
+            }
         }
         return x ;
     }
@@ -376,11 +340,9 @@ int ring_parser_bitshift ( Parser *pParser )
     /* BitShift --> Arith { << | >>  Arith } */
     if ( ring_parser_arithmetic(pParser) ) {
         x = 1 ;
-        #if RING_PARSERTRACE
-            RING_STATE_CHECKPRINTRULES 
-            
-            puts("Rule : BitShift --> Arithmetic");
-        #endif
+        RING_STATE_CHECKPRINTRULES 
+        
+        puts("Rule : BitShift --> Arithmetic");
         while ( ring_parser_isoperator(pParser,"<<") || ring_parser_isoperator(pParser,">>") ) {
             if ( ring_parser_isoperator(pParser,"<<") ) {
                 ring_parser_nexttoken(pParser);
@@ -393,14 +355,12 @@ int ring_parser_bitshift ( Parser *pParser )
                 ring_parser_icg_newoperation(pParser,ICO_BITSHL);
                 /* Generate Location for nPC for Operator Overloading */
                 ring_parser_icg_newoperandint(pParser,0);
-                #if RING_PARSERTRACE
-                    RING_STATE_CHECKPRINTRULES 
-                    
-                    {
-                        puts("Rule : BitShift --> Arithmetic");
-                        puts("Rule : BitShift --> BitShift '<<' BitShift");
-                    }
-                #endif
+                RING_STATE_CHECKPRINTRULES 
+                
+                {
+                    puts("Rule : BitShift --> Arithmetic");
+                    puts("Rule : BitShift --> BitShift '<<' BitShift");
+                }
             }
             else {
                 ring_parser_nexttoken(pParser);
@@ -413,14 +373,12 @@ int ring_parser_bitshift ( Parser *pParser )
                 ring_parser_icg_newoperation(pParser,ICO_BITSHR);
                 /* Generate Location for nPC for Operator Overloading */
                 ring_parser_icg_newoperandint(pParser,0);
-                #if RING_PARSERTRACE
-                    RING_STATE_CHECKPRINTRULES 
-                    
-                    {
-                        puts("Rule : BitShift --> Arithmetic");
-                        puts("Rule : BitShift --> BitShift '>>' BitShift");
-                    }
-                #endif
+                RING_STATE_CHECKPRINTRULES 
+                
+                {
+                    puts("Rule : BitShift --> Arithmetic");
+                    puts("Rule : BitShift --> BitShift '>>' BitShift");
+                }
             }
         }
         return x ;
@@ -433,11 +391,9 @@ int ring_parser_arithmetic ( Parser *pParser )
     int x  ;
     /* Arithmetic --> Term { +|- Term } */
     if ( ring_parser_term(pParser) ) {
-        #if RING_PARSERTRACE
-            RING_STATE_CHECKPRINTRULES 
-            
-            puts("Rule : Arithmetic --> Term");
-        #endif
+        RING_STATE_CHECKPRINTRULES 
+        
+        puts("Rule : Arithmetic --> Term");
         x = 1 ;
         while ( ring_parser_isoperator2(pParser,OP_PLUS) || ring_parser_isoperator2(pParser,OP_MINUS) ) {
             if ( ring_parser_isoperator2(pParser,OP_PLUS) ) {
@@ -451,14 +407,12 @@ int ring_parser_arithmetic ( Parser *pParser )
                 ring_parser_icg_newoperation(pParser,ICO_SUM);
                 /* Generate Location for nPC for Operator Overloading */
                 ring_parser_icg_newoperandint(pParser,0);
-                #if RING_PARSERTRACE
-                    RING_STATE_CHECKPRINTRULES 
-                    
-                    {
-                        puts("Rule : Arithmetic --> Term");
-                        puts("Rule : Arithmetic --> Arithmetic + Arithmetic");
-                    }
-                #endif
+                RING_STATE_CHECKPRINTRULES 
+                
+                {
+                    puts("Rule : Arithmetic --> Term");
+                    puts("Rule : Arithmetic --> Arithmetic + Arithmetic");
+                }
             }
             else {
                 ring_parser_nexttoken(pParser);
@@ -471,14 +425,12 @@ int ring_parser_arithmetic ( Parser *pParser )
                 ring_parser_icg_newoperation(pParser,ICO_SUB);
                 /* Generate Location for nPC for Operator Overloading */
                 ring_parser_icg_newoperandint(pParser,0);
-                #if RING_PARSERTRACE
-                    RING_STATE_CHECKPRINTRULES 
-                    
-                    {
-                        puts("Rule : Arithmetic --> Term");
-                        puts("Rule : Arithmetic --> Arithmetic - Arithmetic");
-                    }
-                #endif
+                RING_STATE_CHECKPRINTRULES 
+                
+                {
+                    puts("Rule : Arithmetic --> Term");
+                    puts("Rule : Arithmetic --> Arithmetic - Arithmetic");
+                }
             }
         }
         return x ;
@@ -492,23 +444,19 @@ int ring_parser_term ( Parser *pParser )
     /* Term --> Range { *|/|% Range } */
     if ( ring_parser_range(pParser) ) {
         x = 1 ;
-        #if RING_PARSERTRACE
-            RING_STATE_CHECKPRINTRULES 
-            
-            puts("Rule : Term --> Range");
-        #endif
+        RING_STATE_CHECKPRINTRULES 
+        
+        puts("Rule : Term --> Range");
         while ( ring_parser_isoperator2(pParser,OP_MUL) || ring_parser_isoperator2(pParser,OP_DIV) || ring_parser_isoperator2(pParser,OP_REM) ) {
             if ( ring_parser_isoperator2(pParser,OP_MUL) ) {
                 ring_parser_nexttoken(pParser);
                 RING_PARSER_IGNORENEWLINE ;
-                #if RING_PARSERTRACE
-                    RING_STATE_CHECKPRINTRULES 
-                    
-                    {
-                        puts("Rule : Term --> Range");
-                        puts("Rule : Term --> Term * Term ");
-                    }
-                #endif
+                RING_STATE_CHECKPRINTRULES 
+                
+                {
+                    puts("Rule : Term --> Range");
+                    puts("Rule : Term --> Term * Term ");
+                }
                 x = ring_parser_range(pParser);
                 if ( x == 0 ) {
                     return 0 ;
@@ -529,14 +477,12 @@ int ring_parser_term ( Parser *pParser )
                 ring_parser_icg_newoperation(pParser,ICO_MOD);
                 /* Generate Location for nPC for Operator Overloading */
                 ring_parser_icg_newoperandint(pParser,0);
-                #if RING_PARSERTRACE
-                    RING_STATE_CHECKPRINTRULES 
-                    
-                    {
-                        puts("Rule : Term --> Range");
-                        puts("Rule : Term --> Term % Term ");
-                    }
-                #endif
+                RING_STATE_CHECKPRINTRULES 
+                
+                {
+                    puts("Rule : Term --> Range");
+                    puts("Rule : Term --> Term % Term ");
+                }
             }
             else {
                 ring_parser_nexttoken(pParser);
@@ -549,14 +495,12 @@ int ring_parser_term ( Parser *pParser )
                 ring_parser_icg_newoperation(pParser,ICO_DIV);
                 /* Generate Location for nPC for Operator Overloading */
                 ring_parser_icg_newoperandint(pParser,0);
-                #if RING_PARSERTRACE
-                    RING_STATE_CHECKPRINTRULES 
-                    
-                    {
-                        puts("Rule : Term --> Range");
-                        puts("Rule : Term --> Term / Term ");
-                    }
-                #endif
+                RING_STATE_CHECKPRINTRULES 
+                
+                {
+                    puts("Rule : Term --> Range");
+                    puts("Rule : Term --> Term / Term ");
+                }
             }
         }
         return x ;
@@ -570,16 +514,14 @@ int ring_parser_range ( Parser *pParser )
     /* Range --> Factor : Factor */
     if ( ring_parser_factor(pParser,&nFlag) ) {
         x = 1 ;
-        #if RING_PARSERTRACE
-            RING_STATE_CHECKPRINTRULES 
+        RING_STATE_CHECKPRINTRULES 
+        
+        {
+            if (nFlag) 
             
-            {
-                if (nFlag) 
-                
-                puts("Rule : Factor --> Identifier [ {Mixer} | Assignment | PlusPlus | MinusMinus]");
-                puts("Rule : Range --> Factor");
-            }
-        #endif
+            puts("Rule : Factor --> Identifier [ {Mixer} | Assignment | PlusPlus | MinusMinus]");
+            puts("Rule : Range --> Factor");
+        }
         if ( ring_parser_isoperator2(pParser,OP_RANGE) ) {
             ring_parser_nexttoken(pParser);
             RING_PARSER_IGNORENEWLINE ;
@@ -589,17 +531,15 @@ int ring_parser_range ( Parser *pParser )
             }
             /* Generate Code */
             ring_parser_icg_newoperation(pParser,ICO_RANGE);
-            #if RING_PARSERTRACE
-                RING_STATE_CHECKPRINTRULES 
+            RING_STATE_CHECKPRINTRULES 
+            
+            {
+                if (nFlag) 
                 
-                {
-                    if (nFlag) 
-                    
-                    puts("Rule : Factor --> Identifier [ {Mixer} | Assignment | PlusPlus | MinusMinus]");
-                    puts(" Range --> Factor");
-                    puts(" Range --> Range : Range ");
-                }
-            #endif
+                puts("Rule : Factor --> Identifier [ {Mixer} | Assignment | PlusPlus | MinusMinus]");
+                puts(" Range --> Factor");
+                puts(" Range --> Range : Range ");
+            }
         }
         return x ;
     }
@@ -715,13 +655,11 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
             if ( pParser->nNewObject && lSetProperty && nThisOrSelfLoadA ) {
                 lSetProperty = 0 ;
             }
-            #if RING_PARSERTRACE
-                if ( x == 1 ) {
-                    RING_STATE_CHECKPRINTRULES 
-                    
-                    puts("Rule : Assignment -> '=' Expr ");
-                }
-            #endif
+            if ( x == 1 ) {
+                RING_STATE_CHECKPRINTRULES 
+                
+                puts("Rule : Assignment -> '=' Expr ");
+            }
             /* Generate Code */
             if ( pParser->nNewObject==0 ) {
                 /*
@@ -827,11 +765,9 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
             ring_parser_nexttoken(pParser);
             return 0 ;
         }
-        #if RING_PARSERTRACE
-            RING_STATE_CHECKPRINTRULES 
-            
-            puts("Rule : Factor --> Number");
-        #endif
+        RING_STATE_CHECKPRINTRULES 
+        
+        puts("Rule : Factor --> Number");
         ring_parser_nexttoken(pParser);
         /* If we have condition - pass new lines */
         if ( pParser->nControlStructureExpr ) {
@@ -853,11 +789,9 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
         /* Generate Code */
         ring_parser_icg_newoperation(pParser,ICO_PUSHC);
         ring_parser_icg_newoperand(pParser,pParser->TokenText);
-        #if RING_PARSERTRACE
-            RING_STATE_CHECKPRINTRULES 
-            
-            puts("Rule : Factor --> Literal");
-        #endif
+        RING_STATE_CHECKPRINTRULES 
+        
+        puts("Rule : Factor --> Literal");
         ring_parser_nexttoken(pParser);
         /* If we have condition - pass new lines */
         if ( pParser->nControlStructureExpr ) {
@@ -880,14 +814,12 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
             else {
                 ring_parser_icg_newoperand(pParser,pParser->TokenText);
             }
-            #if RING_PARSERTRACE
-                RING_STATE_CHECKPRINTRULES 
-                
-                {
-                    puts("Rule : Literal --> ':' Identifier ['=' Expr]");
-                    puts("Rule : Factor --> Literal");
-                }
-            #endif
+            RING_STATE_CHECKPRINTRULES 
+            
+            {
+                puts("Rule : Literal --> ':' Identifier ['=' Expr]");
+                puts("Rule : Factor --> Literal");
+            }
             ring_parser_nexttoken(pParser);
             /* Hash --> '=' Expression */
             if ( ring_parser_isoperator2(pParser,OP_EQUAL) ) {
@@ -918,11 +850,9 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
         ring_parser_icg_newoperation(pParser,ICO_NEG);
         /* Generate Location for nPC for Operator Overloading */
         ring_parser_icg_newoperandint(pParser,0);
-        #if RING_PARSERTRACE
-            RING_STATE_CHECKPRINTRULES 
-            
-            puts("Rule : Factor --> '-' Factor");
-        #endif
+        RING_STATE_CHECKPRINTRULES 
+        
+        puts("Rule : Factor --> '-' Factor");
         return x ;
     }
     else if ( ring_parser_isoperator2(pParser,OP_BITNOT) ) {
@@ -933,11 +863,9 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
         ring_parser_icg_newoperation(pParser,ICO_BITNOT);
         /* Generate Location for nPC for Operator Overloading */
         ring_parser_icg_newoperandint(pParser,0);
-        #if RING_PARSERTRACE
-            RING_STATE_CHECKPRINTRULES 
-            
-            puts("Rule : Factor --> '~' Expr");
-        #endif
+        RING_STATE_CHECKPRINTRULES 
+        
+        puts("Rule : Factor --> '~' Expr");
         return x ;
     }
     /* Factor --> & */
@@ -955,11 +883,9 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
         if ( ring_parser_isoperator2(pParser,OP_FCLOSE) ) {
             ring_parser_nexttoken(pParser);
             RING_PARSER_IGNORENEWLINE ;
-            #if RING_PARSERTRACE
-                RING_STATE_CHECKPRINTRULES 
-                
-                puts("Rule : Factor --> '()'");
-            #endif
+            RING_STATE_CHECKPRINTRULES 
+            
+            puts("Rule : Factor --> '()'");
             return 1 ;
         }
         x = pParser->nAssignmentFlag ;
@@ -969,11 +895,9 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
             if ( ring_parser_isoperator2(pParser,OP_FCLOSE) ) {
                 ring_parser_nexttoken(pParser);
                 RING_PARSER_IGNORENEWLINE ;
-                #if RING_PARSERTRACE
-                    RING_STATE_CHECKPRINTRULES 
-                    
-                    puts("Rule : Factor --> '(' Expr ')'");
-                #endif
+                RING_STATE_CHECKPRINTRULES 
+                
+                puts("Rule : Factor --> '(' Expr ')'");
                 /* '(' Expression ')' then Dot Operator to access an object */
                 if ( ring_parser_isoperator2(pParser,OP_DOT) ) {
                     /* Remove PUSHV */
@@ -999,11 +923,9 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
     /* Factor --> List */
     if ( ring_parser_isoperator2(pParser,OP_LOPEN) ) {
         x = ring_parser_list(pParser) ;
-        #if RING_PARSERTRACE
-            RING_STATE_CHECKPRINTRULES 
-            
-            puts("Rule : Factor --> List");
-        #endif
+        RING_STATE_CHECKPRINTRULES 
+        
+        puts("Rule : Factor --> List");
         return x ;
     }
     /* Factor --> New Identifier */
@@ -1012,11 +934,9 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
         RING_PARSER_IGNORENEWLINE ;
         /* Generate Code */
         ring_parser_icg_newoperation(pParser,ICO_NEWOBJ);
-        #if RING_PARSERTRACE
-            RING_STATE_CHECKPRINTRULES 
-            
-            puts("Rule : Factor --> New Identifier {'.' Identifier }  ");
-        #endif
+        RING_STATE_CHECKPRINTRULES 
+        
+        puts("Rule : Factor --> New Identifier {'.' Identifier }  ");
         if ( ring_parser_namedotname(pParser) ) {
             /* Generate Code */
             ring_parser_icg_newoperation(pParser,ICO_SETSCOPE);
@@ -1105,11 +1025,9 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
                 ring_parser_icg_newoperation(pParser,ICO_RETNULL);
                 nMark = ring_parser_icg_newlabel(pParser);
                 ring_parser_icg_addoperandint(pParser,pMark,nMark);
-                #if RING_PARSERTRACE
-                    RING_STATE_CHECKPRINTRULES 
-                    
-                    puts("Rule : AnonymousFunction --> Func ParaList '{' Statement '}'");
-                #endif
+                RING_STATE_CHECKPRINTRULES 
+                
+                puts("Rule : AnonymousFunction --> Func ParaList '{' Statement '}'");
                 return 1 ;
             }
         }
@@ -1163,11 +1081,9 @@ int ring_parser_mixer ( Parser *pParser )
             if ( ring_parser_isoperator2(pParser,OP_LCLOSE) ) {
                 ring_parser_nexttoken(pParser);
                 RING_PARSER_PASSNEWLINE ;
-                #if RING_PARSERTRACE
-                    RING_STATE_CHECKPRINTRULES 
-                    
-                    puts("Rule : Mixer -> '[' Expr ']' ");
-                #endif
+                RING_STATE_CHECKPRINTRULES 
+                
+                puts("Rule : Mixer -> '[' Expr ']' ");
                 x = ring_parser_mixer(pParser);
                 if ( x == 0 ) {
                     return 0 ;
@@ -1202,11 +1118,9 @@ int ring_parser_mixer ( Parser *pParser )
             ring_parser_nexttoken(pParser);
             /* Generate Code */
             ring_parser_gencall(pParser,nCallMethod);
-            #if RING_PARSERTRACE
-                RING_STATE_CHECKPRINTRULES 
-                
-                puts("Rule : Mixer -> '(' [Expr { ',' Expr} ] ')' ");
-            #endif
+            RING_STATE_CHECKPRINTRULES 
+            
+            puts("Rule : Mixer -> '(' [Expr { ',' Expr} ] ')' ");
             RING_PARSER_IGNORENEWLINE ;
             x = ring_parser_mixer(pParser);
             return x ;
@@ -1223,11 +1137,9 @@ int ring_parser_mixer ( Parser *pParser )
                     ring_parser_nexttoken(pParser);
                 }
                 else if ( ring_parser_isoperator2(pParser,OP_FCLOSE) ) {
-                    #if RING_PARSERTRACE
-                        RING_STATE_CHECKPRINTRULES 
-                        
-                        puts("Rule : Mixer -> '(' [Expr { ',' Expr} ] ')' ");
-                    #endif
+                    RING_STATE_CHECKPRINTRULES 
+                    
+                    puts("Rule : Mixer -> '(' [Expr { ',' Expr} ] ')' ");
                     ring_parser_nexttoken(pParser);
                     /* Generate Code */
                     ring_parser_gencall(pParser,nCallMethod);
@@ -1256,11 +1168,9 @@ int ring_parser_mixer ( Parser *pParser )
         /* Generate Code */
         ring_parser_icg_newoperation(pParser,ICO_PUSHV);
         ring_parser_icg_newoperation(pParser,ICO_BRACESTART);
-        #if RING_PARSERTRACE
-            RING_STATE_CHECKPRINTRULES 
-            
-            puts("Rule : Mixer --> '{' {Statement} BraceEnd");
-        #endif
+        RING_STATE_CHECKPRINTRULES 
+        
+        puts("Rule : Mixer --> '{' {Statement} BraceEnd");
         /* if ismethod(self,"bracestart") bracestart() ok */
         ring_parser_gencallbracemethod(pParser,"bracestart");
         ring_parser_nexttoken(pParser);
@@ -1276,11 +1186,9 @@ int ring_parser_mixer ( Parser *pParser )
             */
             ring_parser_gencallbracemethod(pParser,"braceend");
             ring_parser_icg_newoperation(pParser,ICO_BRACEEND);
-            #if RING_PARSERTRACE
-                RING_STATE_CHECKPRINTRULES 
-                
-                puts("Rule : BraceEnd --> '}' ");
-            #endif
+            RING_STATE_CHECKPRINTRULES 
+            
+            puts("Rule : BraceEnd --> '}' ");
             ring_parser_nexttoken(pParser);
             x = ring_parser_mixer(pParser);
             return x ;
@@ -1407,21 +1315,17 @@ int ring_parser_ppmm ( Parser *pParser )
             /* Generate Code */
             ring_parser_icg_newoperation(pParser,ICO_PLUSPLUS);
             ring_parser_icg_newoperation(pParser,ICO_PUSHV);
-            #if RING_PARSERTRACE
-                RING_STATE_CHECKPRINTRULES 
-                
-                puts("Rule : PlusPlus --> '++'");
-            #endif
+            RING_STATE_CHECKPRINTRULES 
+            
+            puts("Rule : PlusPlus --> '++'");
             break ;
         case 4 :
             /* Generate Code */
             ring_parser_icg_newoperation(pParser,ICO_MINUSMINUS);
             ring_parser_icg_newoperation(pParser,ICO_PUSHV);
-            #if RING_PARSERTRACE
-                RING_STATE_CHECKPRINTRULES 
-                
-                puts("Rule : MinusMinus --> '--'");
-            #endif
+            RING_STATE_CHECKPRINTRULES 
+            
+            puts("Rule : MinusMinus --> '--'");
             break ;
     }
     return 1 ;
@@ -1470,11 +1374,9 @@ int ring_parser_objattributes ( Parser *pParser )
             ring_parser_icg_newoperand(pParser,pParser->TokenText);
             /* Generate Location for nPC of Getter - When we access object attribute using { } */
             ring_parser_icg_newoperandint(pParser,0);
-            #if RING_PARSERTRACE
-                RING_STATE_CHECKPRINTRULES 
-                
-                puts("Rule : Mixer -> '.' Identifier ");
-            #endif
+            RING_STATE_CHECKPRINTRULES 
+            
+            puts("Rule : Mixer -> '.' Identifier ");
             ring_parser_nexttoken(pParser);
             RING_PARSER_IGNORENEWLINE ;
         }
