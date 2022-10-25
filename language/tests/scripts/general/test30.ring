@@ -9,3 +9,5 @@ mylist + "welcome"
 
 # print the list items
 y = pointer2object(x)
+
+? y
