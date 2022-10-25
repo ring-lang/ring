@@ -6,7 +6,6 @@ int ring_parser_start ( List *pTokens,RingState *pRingState )
 {
     Parser *pParser  ;
     int nResult,RingActiveFile  ;
-    ring_state_log(pRingState,"function ring_parser_start() begin");
     pParser = ring_parser_new(pTokens,pRingState);
     #if RING_PARSERSTART
         /* Parse Tokens */
@@ -26,7 +25,6 @@ int ring_parser_start ( List *pTokens,RingState *pRingState )
         RingActiveFile = ring_list_getsize(pParser->pRingState->pRingFilesStack);
         if ( pParser->nErrorsCount == 0 ) {
             ring_parser_delete(pParser);
-            ring_state_log(pRingState,"function ring_parser_start() end");
             return 1 ;
         }
         else {
@@ -34,7 +32,6 @@ int ring_parser_start ( List *pTokens,RingState *pRingState )
         }
     #endif
     ring_parser_delete(pParser);
-    ring_state_log(pRingState,"function ring_parser_start() end");
     return 0 ;
 }
 

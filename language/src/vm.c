@@ -9,12 +9,10 @@ VM * ring_vm_new ( RingState *pRingState )
 {
     VM *pVM  ;
     int x  ;
-    ring_state_log(pRingState,"function: ring_vm_new - start");
     pVM = (VM *) ring_state_malloc(pRingState,sizeof(VM));
     /* Ring State */
     pVM->pRingState = pRingState ;
     pRingState->pVM = pVM ;
-    ring_state_log(pRingState,"function: ring_vm_new - after malloc()");
     pVM->nPC = 1 ;
     pVM->pCode = NULL ;
     pVM->pFunctionsMap = NULL ;
@@ -27,7 +25,6 @@ VM * ring_vm_new ( RingState *pRingState )
     /* Information to test the lifetime of the local scope */
     pVM->nScopeID = 0 ;
     pVM->aScopeID = ring_list_new_gc(pVM->pRingState,0);
-    ring_state_log(pRingState,"function: ring_vm_new - after setting aScopeID");
     ring_vm_newscope(pVM);
     for ( x = 0 ; x < RING_VM_STACK_SIZE ; x++ ) {
         pVM->aStack[x].nType = ITEMTYPE_NOTHING ;
@@ -39,14 +36,11 @@ VM * ring_vm_new ( RingState *pRingState )
     **  Class Region (After the Class Name) 
     */
     pVM->nInClassRegion = 0 ;
-    ring_state_log(pRingState,"function: ring_vm_new - after class region flag");
     /* Add Variables */
     ring_vm_addglobalvariables(pVM);
-    ring_state_log(pRingState,"function: ring_vm_new - after global variables");
     /* Lists */
     pVM->nListStart = 0 ;
     pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
-    ring_state_log(pRingState,"function: ring_vm_new - after nested lists");
     /* Support for nested Load Instructions */
     pVM->nBlockFlag = 0 ;
     pVM->aPCBlockFlag = ring_list_new_gc(pVM->pRingState,0);
@@ -62,7 +56,6 @@ VM * ring_vm_new ( RingState *pRingState )
     /* Support for Exit/Loop Commands inside For/While loops. */
     pVM->pExitMark = ring_list_new_gc(pVM->pRingState,0);
     pVM->pLoopMark = ring_list_new_gc(pVM->pRingState,0);
-    ring_state_log(pRingState,"function: ring_vm_new - after exit/loop marks");
     /* Try-Catch-Done */
     pVM->pTry = ring_list_new_gc(pVM->pRingState,0);
     /* Saving scope when creating new objects and calling class init method */
@@ -84,7 +77,6 @@ VM * ring_vm_new ( RingState *pRingState )
     /* Set the main File Name */
     pVM->cFileName = ring_list_getstring(pVM->pRingState->pRingFilesList,1) ;
     pVM->cPrevFileName = ring_list_getstring(pVM->pRingState->pRingFilesList,1) ;
-    ring_state_log(pRingState,"function: ring_vm_new - after setting the main file");
     /* We keep information about active package to access its classes directly with new/from */
     pVM->aActivePackage = ring_list_new_gc(pVM->pRingState,0);
     /* Scope of class attribute ( 0 = public 1 = private ) */
@@ -180,7 +172,6 @@ VM * ring_vm_new ( RingState *pRingState )
     pVM->lTraceActive = 0 ;
     pVM->nTraceEvent = 0 ;
     pVM->pTraceData = ring_list_new_gc(pVM->pRingState,0) ;
-    ring_state_log(pRingState,"function: ring_vm_new - after trace attributes");
     /* Eval In Scope function is Active : ringvm_evalinscope() */
     pVM->nEvalInScope = 0 ;
     /* Pass error in ring_vm_error() from ringvm_passerror() */
@@ -209,7 +200,6 @@ VM * ring_vm_new ( RingState *pRingState )
     pVM->lAddSubListsByFastCopy = 0 ;
     /* A Flag that the Exit command is used to terminate the (For-In) Loop */
     pVM->lExitFlag = 0 ;
-    ring_state_log(pRingState,"function: ring_vm_new - end");
     return pVM ;
 }
 
@@ -270,15 +260,11 @@ void ring_vm_start ( RingState *pRingState,VM *pVM )
     pVM->pFunctionsMap = pRingState->pRingFunctionsMap ;
     pVM->pClassesMap = pRingState->pRingClassesMap ;
     pVM->pPackagesMap = pRingState->pRingPackagesMap ;
-    ring_state_log(pRingState,"function: ring_vm_start");
     ring_vm_loadcode(pVM);
-    ring_state_log(pRingState,"function: ring_vm_start - after loading code");
     ring_vm_loadcfunctions(pRingState);
-    ring_state_log(pRingState,"function: ring_vm_start - after loading c functions");
     /* Generate Items Array &  Hash Table */
     ring_list_genarray(pRingState->pRingCFunctions);
     ring_list_genhashtable2(pRingState->pRingCFunctions);
-    ring_state_log(pRingState,"function: ring_vm_start - after generating hash tables");
     if ( RING_VM_INSTRUCTIONSCOUNT > 0 ) {
         pVM->nPC = 1 ;
         ring_vm_mainloop(pVM);
