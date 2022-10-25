@@ -388,12 +388,10 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
             ring_objfile_writeCfile(pRingState);
         }
         /* Run the Program */
-        #if RING_RUNVM
-            if ( nRunVM == 1 ) {
-                ring_state_runprogram(pRingState);
-                return 1 ;
-            }
-        #endif
+        if ( nRunVM == 1 ) {
+            ring_state_runprogram(pRingState);
+            return 1 ;
+        }
     }
     return nRunVM ;
 }
@@ -561,12 +559,10 @@ RING_API int ring_state_runstring ( RingState *pRingState,char *cString )
             ring_objfile_writeCfile(pRingState);
         }
         /* Run the Program */
-        #if RING_RUNVM
-            if ( nRunVM == 1 ) {
-                ring_state_runprogram(pRingState);
-                return 1 ;
-            }
-        #endif
+        if ( nRunVM == 1 ) {
+            ring_state_runprogram(pRingState);
+            return 1 ;
+        }
     }
     return nRunVM ;
 }
