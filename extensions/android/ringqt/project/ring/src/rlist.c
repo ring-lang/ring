@@ -821,7 +821,7 @@ RING_API int ring_list_findinlistofobjs ( List *pList,int nType,double nNum1,con
             }
             pList2 = ring_list_getlist(pList2,RING_OBJECT_OBJECTDATA) ;
             pList2 = ring_list_getlist(pList2,nPos) ;
-            if ( nType  == RING_VM_LISTOFOBJS_FINDSTRING ) {
+            if ( nType  == RING_LISTOFOBJS_FINDSTRING ) {
                 if ( strcmp(str,ring_list_getstring(pList2,RING_VAR_VALUE)) == 0 ) {
                     return x ;
                 }
