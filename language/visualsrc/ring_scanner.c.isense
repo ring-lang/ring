@@ -20,7 +20,7 @@ Type: RingState *
 pRingState
 Type: unsigned int
 nTokenIndex
-Type: int
+Type: unsigned int
 nLiteralLine
 END:
 Type: Scanner
