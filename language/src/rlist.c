@@ -949,11 +949,6 @@ RING_API void ring_list_addpointer ( List *pList,void *pValue )
 {
     ring_list_addpointer_gc(NULL,pList,pValue);
 }
-
-RING_API void ring_list_addringpointer ( List *pList,void *pValue )
-{
-    ring_list_addringpointer_gc(NULL,pList,pValue);
-}
 /* Function Pointers */
 
 RING_API void ring_list_setfuncpointer ( List *pList, int index ,void (*pFunc)(void *) )
@@ -1293,6 +1288,11 @@ RING_API char * ring_list_getstringcolumn ( List *pList,int nIndex,int nColumn,c
         }
     }
     return nullstring ;
+}
+
+RING_API void ring_list_addringpointer ( List *pList,void *pValue )
+{
+    ring_list_addringpointer_gc(NULL,pList,pValue);
 }
 
 RING_API void ring_list_addringpointer_gc ( void *pState,List *pList,void *pValue )
