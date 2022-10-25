@@ -15,9 +15,6 @@ void ring_parser_icg_newoperation ( Parser *pParser , IC_OPERATIONS opcode )
     }
     pParser->ActiveGenCodeList = ring_list_newlist_gc(NULL,pParser->GenCode);
     ring_list_addint_gc(NULL,pParser->ActiveGenCodeList,opcode);
-    #if RING_SHOWIC
-        printf( "\n %6d [ %s ] ",ring_list_getsize(pParser->GenCode) , RING_IC_OP[opcode] ) ;
-    #endif
 }
 
 void ring_parser_icg_insertoperation ( Parser *pParser , int nPos , IC_OPERATIONS opcode )
@@ -25,9 +22,6 @@ void ring_parser_icg_insertoperation ( Parser *pParser , int nPos , IC_OPERATION
     assert(pParser != NULL);
     pParser->ActiveGenCodeList = ring_list_insertlist(pParser->GenCode,nPos);
     ring_list_addint_gc(NULL,pParser->ActiveGenCodeList,opcode);
-    #if RING_SHOWIC
-        printf( "\n %6d [ %s ] ",nPos, RING_IC_OP[opcode] ) ;
-    #endif
 }
 
 void ring_parser_icg_newoperand ( Parser *pParser , const char *cStr )
@@ -35,9 +29,6 @@ void ring_parser_icg_newoperand ( Parser *pParser , const char *cStr )
     assert(pParser != NULL);
     assert(pParser->ActiveGenCodeList != NULL);
     ring_list_addstring_gc(NULL,pParser->ActiveGenCodeList,cStr);
-    #if RING_SHOWIC
-        printf( " Operand : %s ",cStr ) ;
-    #endif
 }
 
 void ring_parser_icg_addtooperand ( Parser *pParser , const char *cStr )
@@ -54,9 +45,6 @@ void ring_parser_icg_newoperandint ( Parser *pParser , int nValue )
     assert(pParser != NULL);
     assert(pParser->ActiveGenCodeList != NULL);
     ring_list_addint_gc(NULL,pParser->ActiveGenCodeList,nValue);
-    #if RING_SHOWIC
-        printf( " Operand : %d ",nValue ) ;
-    #endif
 }
 
 void ring_parser_icg_newoperanddouble ( Parser *pParser , double nValue )
@@ -64,9 +52,6 @@ void ring_parser_icg_newoperanddouble ( Parser *pParser , double nValue )
     assert(pParser != NULL);
     assert(pParser->ActiveGenCodeList  != NULL);
     ring_list_adddouble_gc(NULL,pParser->ActiveGenCodeList,nValue);
-    #if RING_SHOWIC
-        printf( " Operand : %.5f ",nValue ) ;
-    #endif
 }
 
 void ring_parser_icg_newoperandpointer ( Parser *pParser , void *pValue )
@@ -74,9 +59,6 @@ void ring_parser_icg_newoperandpointer ( Parser *pParser , void *pValue )
     assert(pParser != NULL);
     assert(pParser->ActiveGenCodeList != NULL);
     ring_list_addpointer_gc(NULL,pParser->ActiveGenCodeList,pValue);
-    #if RING_SHOWIC
-        printf( " Operand : %p ",pValue ) ;
-    #endif
 }
 
 List * ring_parser_icg_getactiveoperation ( Parser *pParser )
@@ -120,37 +102,12 @@ void ring_parser_icg_duplicate ( Parser *pParser,int nStart,int nEnd )
 {
     List *pList,*pList2  ;
     int x  ;
-    #if RING_SHOWIC
-        int y,nCount2  ;
-    #endif
     assert(pParser != NULL);
     if ( (nStart <= nEnd) && ( nEnd <= ring_list_getsize(pParser->GenCode) ) ) {
         for ( x = nStart ; x <= nEnd ; x++ ) {
             pList = ring_list_newlist_gc(NULL,pParser->GenCode);
             pList2 = ring_list_getlist(pParser->GenCode,x);
             ring_list_copy_gc(NULL,pList,pList2);
-            #if RING_SHOWIC
-                nCount2 = ring_list_getsize(pList);
-                printf( "\n %6d [ %s ] ", ring_list_getsize(pParser->GenCode) , RING_IC_OP[ring_list_getint(pList,1)] ) ;
-                if ( nCount2 > 1 ) {
-                    for ( y = 2 ; y <= nCount2 ; y++ ) {
-                        if ( ring_list_isstring(pList,y) ) {
-                            printf( " Operand : %s ",ring_list_getstring(pList,y) ) ;
-                        }
-                        else if ( ring_list_isnumber(pList,y) ) {
-                            if ( ring_list_isdouble(pList,y) ) {
-                                printf( " Operand : %f ",ring_list_getdouble(pList,y) ) ;
-                            }
-                            else {
-                                printf( " Operand : %5d ",ring_list_getint(pList,y) ) ;
-                            }
-                        }
-                        else {
-                            printf( " Operand : %5p ",ring_list_getpointer(pList,y) ) ;
-                        }
-                    }
-                }
-            #endif
         }
     }
 }
