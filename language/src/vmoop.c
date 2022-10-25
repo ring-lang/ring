@@ -241,19 +241,7 @@ void ring_vm_oop_setscope ( VM *pVM )
 
 int ring_vm_oop_isobject ( List *pList )
 {
-    if ( pList == NULL ) {
-        return 0 ;
-    }
-    if ( ring_list_getsize(pList) != 2 ) {
-        return 0 ;
-    }
-    if ( ring_list_ispointer(pList,1) == 0 ) {
-        return 0 ;
-    }
-    if ( ring_list_islist(pList,2) == 0 ) {
-        return 0 ;
-    }
-    return 1 ;
+    return ring_list_isobject(pList) ;
 }
 
 List * ring_vm_oop_getobj ( VM *pVM )

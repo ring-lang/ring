@@ -1082,7 +1082,7 @@ RING_API void ring_list_swaptwolists ( List *pList1, List *pList2 )
     /* Get data from TempList to pList2 */
     memcpy(pList2,&TempList,sizeof(List));
 }
-/* List Functions that know about Ring VM */
+/* List Functions that know about using Lists for Ring Objects & C Pointers */
 
 RING_API void ring_list_print ( List *pList )
 {
@@ -1133,7 +1133,7 @@ RING_API void ring_list_print2 ( List *pList,int nDecimals )
         }
         else if ( ring_list_islist(pList,x) ) {
             pList2 = ring_list_getlist(pList,x) ;
-            if ( ring_vm_oop_isobject(pList2) ) {
+            if ( ring_list_isobject(pList2) ) {
                 ring_vm_oop_printobj(NULL,pList2);
             }
             else {
@@ -1171,7 +1171,7 @@ RING_API int ring_list_findinlistofobjs ( List *pList,int nType,double nNum1,con
                     continue ;
                 }
             }
-            if ( ring_vm_oop_isobject(pList2) == 0 ) {
+            if ( ring_list_isobject(pList2) == 0 ) {
                 continue ;
             }
             nPos = ring_list_findstring(ring_list_getlist(pList2,RING_OBJECT_OBJECTDATA),cAttribute,RING_VAR_NAME);
@@ -1248,7 +1248,7 @@ RING_API double ring_list_getdoublecolumn ( List *pList,int nIndex,int nColumn,c
             if ( nColumn > 1 ) {
                 pList = ring_list_getlist(pList,nColumn);
             }
-            if ( ring_vm_oop_isobject(pList) ) {
+            if ( ring_list_isobject(pList) ) {
                 nPos = ring_list_findstring(ring_list_getlist(pList,RING_OBJECT_OBJECTDATA),cAttribute,RING_VAR_NAME);
                 pList = ring_list_getlist(pList,RING_OBJECT_OBJECTDATA) ;
                 pList = ring_list_getlist(pList,nPos) ;
@@ -1277,7 +1277,7 @@ RING_API char * ring_list_getstringcolumn ( List *pList,int nIndex,int nColumn,c
             if ( nColumn > 1 ) {
                 pList = ring_list_getlist(pList,nColumn);
             }
-            if ( ring_vm_oop_isobject(pList) ) {
+            if ( ring_list_isobject(pList) ) {
                 nPos = ring_list_findstring(ring_list_getlist(pList,RING_OBJECT_OBJECTDATA),cAttribute,RING_VAR_NAME);
                 pList = ring_list_getlist(pList,RING_OBJECT_OBJECTDATA) ;
                 pList = ring_list_getlist(pList,nPos) ;
@@ -1306,4 +1306,21 @@ RING_API void ring_list_addringpointer_gc ( void *pState,List *pList,void *pValu
     ring_list_addint_gc(pState,pPointerList,RING_CPOINTERSTATUS_NOTASSIGNED);
     pItem = ring_list_getitem(pPointerList,RING_CPOINTER_POINTER);
     ring_vm_gc_setfreefunc(pItem,ring_state_free);
+}
+
+RING_API int ring_list_isobject ( List *pList )
+{
+    if ( pList == NULL ) {
+        return 0 ;
+    }
+    if ( ring_list_getsize(pList) != 2 ) {
+        return 0 ;
+    }
+    if ( ring_list_ispointer(pList,1) == 0 ) {
+        return 0 ;
+    }
+    if ( ring_list_islist(pList,2) == 0 ) {
+        return 0 ;
+    }
+    return 1 ;
 }

@@ -232,7 +232,7 @@
     RING_API void ring_list_genhashtable ( List *pList ) ;
 
     RING_API void ring_list_genhashtable2 ( List *pList ) ;
-    /* Functions that know about Ring VM */
+    /* Functions that know about using Lists for Ring Objects & C Pointers */
 
     RING_API void ring_list_print ( List *pList ) ;
 
@@ -249,4 +249,6 @@
     RING_API void ring_list_addringpointer ( List *pList,void *pValue ) ;
 
     RING_API void ring_list_addringpointer_gc ( void *pState,List *pList,void *pValue ) ;
+
+    RING_API int ring_list_isobject ( List *pList ) ;
 #endif
