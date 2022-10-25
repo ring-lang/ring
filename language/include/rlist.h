@@ -49,10 +49,6 @@
 
     RING_API void ring_list_deleteitem_gc ( void *pState,List *pList,int index ) ;
 
-    RING_API void ring_list_print ( List *pList ) ;
-
-    RING_API void ring_list_print2 ( List *pList,int nDecimals ) ;
-
     RING_API int ring_list_gettype ( List *pList, int index ) ;
     /* int */
 
@@ -133,10 +129,6 @@
     RING_API int ring_list_finddouble ( List *pList,double nNum1,int nColumn ) ;
 
     RING_API int ring_list_findpointer ( List *pList,void *pPointer ) ;
-
-    RING_API int ring_list_findinlistofobjs ( List *pList,int nType,double nNum1,const char *str,int nColumn,char *cAttribute ) ;
-
-    RING_API int ring_list_findcpointer ( List *pList,List *pValue,int nColumn ) ;
     /* Sort and Binary Search */
 
     RING_API void ring_list_sortnum ( List *pList,int left,int right,int nColumn,const char *cAttribute ) ;
@@ -148,10 +140,6 @@
     RING_API int ring_list_binarysearchstr ( List *pList,const char *cFind,int nColumn,const char *cAttribute ) ;
 
     RING_API void ring_list_swap ( List *pList,int x,int y ) ;
-
-    RING_API double ring_list_getdoublecolumn ( List *pList,int nIndex,int nColumn,const char *cAttribute ) ;
-
-    RING_API char * ring_list_getstringcolumn ( List *pList,int nIndex,int nColumn,const char *cAttribute ) ;
     /* List Items to Array */
 
     RING_API void ring_list_genarray_gc ( void *pState,List *pList ) ;
@@ -194,8 +182,6 @@
     RING_API void ring_list_setpointer ( List *pList, int index ,void *pValue ) ;
 
     RING_API void ring_list_addpointer ( List *pList,void *pValue ) ;
-
-    RING_API void ring_list_addringpointer ( List *pList,void *pValue ) ;
     /* Function Pointers */
 
     RING_API void ring_list_setfuncpointer ( List *pList, int index ,void (*pFunc)(void *) ) ;
@@ -248,4 +234,19 @@
     RING_API void ring_list_genhashtable ( List *pList ) ;
 
     RING_API void ring_list_genhashtable2 ( List *pList ) ;
+    /* Functions tha know about Ring VM */
+
+    RING_API void ring_list_print ( List *pList ) ;
+
+    RING_API void ring_list_print2 ( List *pList,int nDecimals ) ;
+
+    RING_API int ring_list_findinlistofobjs ( List *pList,int nType,double nNum1,const char *str,int nColumn,char *cAttribute ) ;
+
+    RING_API int ring_list_findcpointer ( List *pList,List *pValue,int nColumn ) ;
+
+    RING_API double ring_list_getdoublecolumn ( List *pList,int nIndex,int nColumn,const char *cAttribute ) ;
+
+    RING_API char * ring_list_getstringcolumn ( List *pList,int nIndex,int nColumn,const char *cAttribute ) ;
+
+    RING_API void ring_list_addringpointer ( List *pList,void *pValue ) ;
 #endif

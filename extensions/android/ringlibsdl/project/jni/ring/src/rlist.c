@@ -93,71 +93,6 @@ RING_API void ring_list_copy_gc ( void *pState,List *pNewList, List *pList )
     }
 }
 
-RING_API void ring_list_print ( List *pList )
-{
-    ring_list_print2(pList,2);
-}
-
-RING_API void ring_list_print2 ( List *pList,int nDecimals )
-{
-    int x,t,nSize  ;
-    double y  ;
-    const char *cStr  ;
-    List *pList2  ;
-    char cOptions[10]  ;
-    char cString[100]  ;
-    assert(pList != NULL);
-    /* Print Items */
-    if ( ring_list_getsize(pList) < 0 ) {
-        return ;
-    }
-    for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
-        if ( ring_list_isstring(pList,x) ) {
-            cStr = ring_list_getstring(pList,x) ;
-            nSize = ring_list_getstringsize(pList,x);
-            for ( t = 0 ; t < nSize ; t++ ) {
-                printf( "%c",cStr[t] ) ;
-            }
-            printf( "\n" ) ;
-        }
-        else if ( ring_list_isnumber(pList,x) ) {
-            if ( ring_list_isdouble(pList,x) ) {
-                y = ring_list_getdouble(pList,x) ;
-                if ( y == (int) y ) {
-                    printf( "%.0f\n",y ) ;
-                }
-                else {
-                    sprintf(cOptions , "%s%df" , "%.",nDecimals);
-                    #if RING_MSDOS
-                        sprintf(cString, cOptions, y);
-                    #else
-                        snprintf(cString, 100, cOptions, y);
-                    #endif
-                    printf("%s\n",cString);
-                }
-            }
-            else if ( ring_list_isint(pList,x) ) {
-                printf( "%d\n",ring_list_getint(pList,x) ) ;
-            }
-        }
-        else if ( ring_list_islist(pList,x) ) {
-            pList2 = ring_list_getlist(pList,x) ;
-            if ( ring_vm_oop_isobject(pList2) ) {
-                ring_vm_oop_printobj(NULL,pList2);
-            }
-            else {
-                ring_list_print2(pList2,nDecimals);
-            }
-        }
-        else if ( ring_list_ispointer(pList,x) ) {
-            printf( "%p\n",ring_list_getpointer(pList,x) ) ;
-        }
-        else if ( ring_list_isfuncpointer(pList,x) ) {
-            printf( "%p\n",ring_list_getfuncpointer(pList,x) ) ;
-        }
-    }
-}
-
 RING_API void ring_list_deleteallitems_gc ( void *pState,List *pList )
 {
     Items *pItems,*pItemsNext  ;
@@ -445,19 +380,6 @@ RING_API void ring_list_addpointer_gc ( void *pState,List *pList,void *pValue )
     assert(pList != NULL);
     ring_list_newitem_gc(pState,pList);
     ring_list_setpointer_gc(pState,pList,ring_list_getsize(pList),pValue);
-}
-
-RING_API void ring_list_addringpointer_gc ( void *pState,List *pList,void *pValue )
-{
-    List *pPointerList  ;
-    Item *pItem  ;
-    assert(pList != NULL);
-    pPointerList = ring_list_newlist_gc(pState,pList);
-    ring_list_addpointer_gc(pState,pPointerList,pValue);
-    ring_list_addstring_gc(pState,pPointerList,"RingPointer");
-    ring_list_addint_gc(pState,pPointerList,RING_CPOINTERSTATUS_NOTASSIGNED);
-    pItem = ring_list_getitem(pPointerList,RING_CPOINTER_POINTER);
-    ring_vm_gc_setfreefunc(pItem,ring_state_free);
 }
 /* double */
 
@@ -789,90 +711,6 @@ RING_API int ring_list_findpointer ( List *pList,void *pPointer )
     }
     return 0 ;
 }
-
-RING_API int ring_list_findinlistofobjs ( List *pList,int nType,double nNum1,const char *str,int nColumn,char *cAttribute )
-{
-    int x,nCount,nPos  ;
-    List *pList2  ;
-    assert(pList != NULL);
-    nCount = ring_list_getsize(pList);
-    ring_string_lower(cAttribute);
-    /* Find Item */
-    if ( (nCount > 0) && (nColumn > 0) ) {
-        for ( x = 1 ; x <= nCount ; x++ ) {
-            if ( ring_list_islist(pList,x) == 0 ) {
-                continue ;
-            }
-            pList2 = ring_list_getlist(pList,x);
-            if ( nColumn > 1 ) {
-                if ( ring_list_islist(pList2,nColumn) ) {
-                    pList2 = ring_list_getlist(pList2,nColumn);
-                }
-                else {
-                    continue ;
-                }
-            }
-            if ( ring_vm_oop_isobject(pList2) == 0 ) {
-                continue ;
-            }
-            nPos = ring_list_findstring(ring_list_getlist(pList2,RING_OBJECT_OBJECTDATA),cAttribute,RING_VAR_NAME);
-            if ( nPos == 0 ) {
-                return -1 ;
-            }
-            pList2 = ring_list_getlist(pList2,RING_OBJECT_OBJECTDATA) ;
-            pList2 = ring_list_getlist(pList2,nPos) ;
-            if ( nType  == RING_LISTOFOBJS_FINDSTRING ) {
-                if ( strcmp(str,ring_list_getstring(pList2,RING_VAR_VALUE)) == 0 ) {
-                    return x ;
-                }
-            }
-            else {
-                if ( ring_list_getdouble(pList2,RING_VAR_VALUE) == nNum1 ) {
-                    return x ;
-                }
-            }
-        }
-    }
-    return 0 ;
-}
-
-RING_API int ring_list_findcpointer ( List *pList,List *pValue,int nColumn )
-{
-    int x,nCount  ;
-    List *pList2, *pList3  ;
-    assert(pList != NULL);
-    nCount = ring_list_getsize(pList);
-    /* Find Item */
-    if ( nCount > 0 ) {
-        if ( nColumn == 0 ) {
-            for ( x = 1 ; x <= nCount ; x++ ) {
-                if ( ring_list_islist(pList,x) ) {
-                    pList2 = ring_list_getlist(pList,x);
-                    if ( ring_vm_api_iscpointerlist(pList2) ) {
-                        if ( ring_vm_api_cpointercmp(pList2,pValue) ) {
-                            return x ;
-                        }
-                    }
-                }
-            }
-        }
-        else {
-            for ( x = 1 ; x <= nCount ; x++ ) {
-                if ( ring_list_islist(pList,x) == 0 ) {
-                    continue ;
-                }
-                pList2 = ring_list_getlist(pList,x);
-                if ( ring_list_islist(pList2,nColumn) ) {
-                    pList3 = ring_list_getlist(pList2,nColumn);
-                    if ( ring_vm_api_cpointercmp(pList3,pValue) ) {
-                        return x ;
-                    }
-                }
-            }
-        }
-    }
-    return 0 ;
-}
 /* Sort (QuickSort) and Binary Search */
 
 RING_API void ring_list_sortnum ( List *pList,int left,int right,int nColumn,const char *cAttribute )
@@ -984,63 +822,6 @@ RING_API void ring_list_swap ( List *pList,int x,int y )
     ring_list_getitem(pList,y);
     pItems->pValue = pList->pLastItemLastAccess->pValue ;
     pList->pLastItemLastAccess->pValue = pItem ;
-}
-
-RING_API double ring_list_getdoublecolumn ( List *pList,int nIndex,int nColumn,const char *cAttribute )
-{
-    int nPos  ;
-    if ( nColumn == 0 ) {
-        return ring_list_getdouble(pList,nIndex) ;
-    }
-    else {
-        if ( strcmp(cAttribute,"") == 0 ) {
-            return ring_list_getdouble(ring_list_getlist(pList,nIndex),nColumn) ;
-        }
-        else {
-            pList = ring_list_getlist(pList,nIndex);
-            if ( nColumn > 1 ) {
-                pList = ring_list_getlist(pList,nColumn);
-            }
-            if ( ring_vm_oop_isobject(pList) ) {
-                nPos = ring_list_findstring(ring_list_getlist(pList,RING_OBJECT_OBJECTDATA),cAttribute,RING_VAR_NAME);
-                pList = ring_list_getlist(pList,RING_OBJECT_OBJECTDATA) ;
-                pList = ring_list_getlist(pList,nPos) ;
-                if ( ring_list_isdouble(pList,RING_VAR_VALUE) ) {
-                    return ring_list_getdouble(pList,RING_VAR_VALUE) ;
-                }
-            }
-        }
-    }
-    return 0.0 ;
-}
-
-RING_API char * ring_list_getstringcolumn ( List *pList,int nIndex,int nColumn,const char *cAttribute )
-{
-    int nPos  ;
-    static char nullstring[] = "" ;
-    if ( nColumn == 0 ) {
-        return ring_list_getstring(pList,nIndex) ;
-    }
-    else {
-        if ( strcmp(cAttribute,"") == 0 ) {
-            return ring_list_getstring(ring_list_getlist(pList,nIndex),nColumn) ;
-        }
-        else {
-            pList = ring_list_getlist(pList,nIndex);
-            if ( nColumn > 1 ) {
-                pList = ring_list_getlist(pList,nColumn);
-            }
-            if ( ring_vm_oop_isobject(pList) ) {
-                nPos = ring_list_findstring(ring_list_getlist(pList,RING_OBJECT_OBJECTDATA),cAttribute,RING_VAR_NAME);
-                pList = ring_list_getlist(pList,RING_OBJECT_OBJECTDATA) ;
-                pList = ring_list_getlist(pList,nPos) ;
-                if ( ring_list_isstring(pList,RING_VAR_VALUE) ) {
-                    return ring_list_getstring(pList,RING_VAR_VALUE) ;
-                }
-            }
-        }
-    }
-    return nullstring ;
 }
 /* List Items to Array */
 
@@ -1305,4 +1086,224 @@ RING_API void ring_list_swaptwolists ( List *pList1, List *pList2 )
     memcpy(pList1,pList2,sizeof(List));
     /* Get data from TempList to pList2 */
     memcpy(pList2,&TempList,sizeof(List));
+}
+/* List Functions that know about Ring VM */
+
+RING_API void ring_list_print ( List *pList )
+{
+    ring_list_print2(pList,2);
+}
+
+RING_API void ring_list_print2 ( List *pList,int nDecimals )
+{
+    int x,t,nSize  ;
+    double y  ;
+    const char *cStr  ;
+    List *pList2  ;
+    char cOptions[10]  ;
+    char cString[100]  ;
+    assert(pList != NULL);
+    /* Print Items */
+    if ( ring_list_getsize(pList) < 0 ) {
+        return ;
+    }
+    for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
+        if ( ring_list_isstring(pList,x) ) {
+            cStr = ring_list_getstring(pList,x) ;
+            nSize = ring_list_getstringsize(pList,x);
+            for ( t = 0 ; t < nSize ; t++ ) {
+                printf( "%c",cStr[t] ) ;
+            }
+            printf( "\n" ) ;
+        }
+        else if ( ring_list_isnumber(pList,x) ) {
+            if ( ring_list_isdouble(pList,x) ) {
+                y = ring_list_getdouble(pList,x) ;
+                if ( y == (int) y ) {
+                    printf( "%.0f\n",y ) ;
+                }
+                else {
+                    sprintf(cOptions , "%s%df" , "%.",nDecimals);
+                    #if RING_MSDOS
+                        sprintf(cString, cOptions, y);
+                    #else
+                        snprintf(cString, 100, cOptions, y);
+                    #endif
+                    printf("%s\n",cString);
+                }
+            }
+            else if ( ring_list_isint(pList,x) ) {
+                printf( "%d\n",ring_list_getint(pList,x) ) ;
+            }
+        }
+        else if ( ring_list_islist(pList,x) ) {
+            pList2 = ring_list_getlist(pList,x) ;
+            if ( ring_vm_oop_isobject(pList2) ) {
+                ring_vm_oop_printobj(NULL,pList2);
+            }
+            else {
+                ring_list_print2(pList2,nDecimals);
+            }
+        }
+        else if ( ring_list_ispointer(pList,x) ) {
+            printf( "%p\n",ring_list_getpointer(pList,x) ) ;
+        }
+        else if ( ring_list_isfuncpointer(pList,x) ) {
+            printf( "%p\n",ring_list_getfuncpointer(pList,x) ) ;
+        }
+    }
+}
+
+RING_API int ring_list_findinlistofobjs ( List *pList,int nType,double nNum1,const char *str,int nColumn,char *cAttribute )
+{
+    int x,nCount,nPos  ;
+    List *pList2  ;
+    assert(pList != NULL);
+    nCount = ring_list_getsize(pList);
+    ring_string_lower(cAttribute);
+    /* Find Item */
+    if ( (nCount > 0) && (nColumn > 0) ) {
+        for ( x = 1 ; x <= nCount ; x++ ) {
+            if ( ring_list_islist(pList,x) == 0 ) {
+                continue ;
+            }
+            pList2 = ring_list_getlist(pList,x);
+            if ( nColumn > 1 ) {
+                if ( ring_list_islist(pList2,nColumn) ) {
+                    pList2 = ring_list_getlist(pList2,nColumn);
+                }
+                else {
+                    continue ;
+                }
+            }
+            if ( ring_vm_oop_isobject(pList2) == 0 ) {
+                continue ;
+            }
+            nPos = ring_list_findstring(ring_list_getlist(pList2,RING_OBJECT_OBJECTDATA),cAttribute,RING_VAR_NAME);
+            if ( nPos == 0 ) {
+                return -1 ;
+            }
+            pList2 = ring_list_getlist(pList2,RING_OBJECT_OBJECTDATA) ;
+            pList2 = ring_list_getlist(pList2,nPos) ;
+            if ( nType  == RING_LISTOFOBJS_FINDSTRING ) {
+                if ( strcmp(str,ring_list_getstring(pList2,RING_VAR_VALUE)) == 0 ) {
+                    return x ;
+                }
+            }
+            else {
+                if ( ring_list_getdouble(pList2,RING_VAR_VALUE) == nNum1 ) {
+                    return x ;
+                }
+            }
+        }
+    }
+    return 0 ;
+}
+
+RING_API int ring_list_findcpointer ( List *pList,List *pValue,int nColumn )
+{
+    int x,nCount  ;
+    List *pList2, *pList3  ;
+    assert(pList != NULL);
+    nCount = ring_list_getsize(pList);
+    /* Find Item */
+    if ( nCount > 0 ) {
+        if ( nColumn == 0 ) {
+            for ( x = 1 ; x <= nCount ; x++ ) {
+                if ( ring_list_islist(pList,x) ) {
+                    pList2 = ring_list_getlist(pList,x);
+                    if ( ring_vm_api_iscpointerlist(pList2) ) {
+                        if ( ring_vm_api_cpointercmp(pList2,pValue) ) {
+                            return x ;
+                        }
+                    }
+                }
+            }
+        }
+        else {
+            for ( x = 1 ; x <= nCount ; x++ ) {
+                if ( ring_list_islist(pList,x) == 0 ) {
+                    continue ;
+                }
+                pList2 = ring_list_getlist(pList,x);
+                if ( ring_list_islist(pList2,nColumn) ) {
+                    pList3 = ring_list_getlist(pList2,nColumn);
+                    if ( ring_vm_api_cpointercmp(pList3,pValue) ) {
+                        return x ;
+                    }
+                }
+            }
+        }
+    }
+    return 0 ;
+}
+
+RING_API double ring_list_getdoublecolumn ( List *pList,int nIndex,int nColumn,const char *cAttribute )
+{
+    int nPos  ;
+    if ( nColumn == 0 ) {
+        return ring_list_getdouble(pList,nIndex) ;
+    }
+    else {
+        if ( strcmp(cAttribute,"") == 0 ) {
+            return ring_list_getdouble(ring_list_getlist(pList,nIndex),nColumn) ;
+        }
+        else {
+            pList = ring_list_getlist(pList,nIndex);
+            if ( nColumn > 1 ) {
+                pList = ring_list_getlist(pList,nColumn);
+            }
+            if ( ring_vm_oop_isobject(pList) ) {
+                nPos = ring_list_findstring(ring_list_getlist(pList,RING_OBJECT_OBJECTDATA),cAttribute,RING_VAR_NAME);
+                pList = ring_list_getlist(pList,RING_OBJECT_OBJECTDATA) ;
+                pList = ring_list_getlist(pList,nPos) ;
+                if ( ring_list_isdouble(pList,RING_VAR_VALUE) ) {
+                    return ring_list_getdouble(pList,RING_VAR_VALUE) ;
+                }
+            }
+        }
+    }
+    return 0.0 ;
+}
+
+RING_API char * ring_list_getstringcolumn ( List *pList,int nIndex,int nColumn,const char *cAttribute )
+{
+    int nPos  ;
+    static char nullstring[] = "" ;
+    if ( nColumn == 0 ) {
+        return ring_list_getstring(pList,nIndex) ;
+    }
+    else {
+        if ( strcmp(cAttribute,"") == 0 ) {
+            return ring_list_getstring(ring_list_getlist(pList,nIndex),nColumn) ;
+        }
+        else {
+            pList = ring_list_getlist(pList,nIndex);
+            if ( nColumn > 1 ) {
+                pList = ring_list_getlist(pList,nColumn);
+            }
+            if ( ring_vm_oop_isobject(pList) ) {
+                nPos = ring_list_findstring(ring_list_getlist(pList,RING_OBJECT_OBJECTDATA),cAttribute,RING_VAR_NAME);
+                pList = ring_list_getlist(pList,RING_OBJECT_OBJECTDATA) ;
+                pList = ring_list_getlist(pList,nPos) ;
+                if ( ring_list_isstring(pList,RING_VAR_VALUE) ) {
+                    return ring_list_getstring(pList,RING_VAR_VALUE) ;
+                }
+            }
+        }
+    }
+    return nullstring ;
+}
+
+RING_API void ring_list_addringpointer_gc ( void *pState,List *pList,void *pValue )
+{
+    List *pPointerList  ;
+    Item *pItem  ;
+    assert(pList != NULL);
+    pPointerList = ring_list_newlist_gc(pState,pList);
+    ring_list_addpointer_gc(pState,pPointerList,pValue);
+    ring_list_addstring_gc(pState,pPointerList,"RingPointer");
+    ring_list_addint_gc(pState,pPointerList,RING_CPOINTERSTATUS_NOTASSIGNED);
+    pItem = ring_list_getitem(pPointerList,RING_CPOINTER_POINTER);
+    ring_vm_gc_setfreefunc(pItem,ring_state_free);
 }
