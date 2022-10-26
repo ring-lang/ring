@@ -198,3 +198,4 @@ More Improvements
 * Ring VM - Delete the Intermediate Code list after having the Byte Code
 * Ring VM - Better format when displaying the Byte Code
 * Ring VM - Faster code when creating new threads
+* Ring VM - Better numbers format when printing lists and objects
