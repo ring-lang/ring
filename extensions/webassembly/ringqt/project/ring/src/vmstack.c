@@ -354,18 +354,16 @@ void ring_vm_list_copy ( VM *pVM,List *pNewList, List *pList )
             }
         }
     }
-    /* Check if the List if a C Pointer List */
-    if ( ring_list_getsize(pList) == RING_CPOINTER_LISTSIZE ) {
-        if ( ring_list_ispointer(pList,RING_CPOINTER_POINTER)  && ring_list_isstring(pList,RING_CPOINTER_TYPE) && ring_list_isint(pList,RING_CPOINTER_STATUS) ) {
-            /* Mark the C Pointer List as Not Copied */
-            ring_list_setint_gc(pVM->pRingState,pList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_NOTCOPIED);
-            ring_list_setint_gc(pVM->pRingState,pNewList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_NOTCOPIED);
-            /* Copy The Pointer by Reference */
-            pNewList->pFirst->pValue = ring_item_delete_gc(pVM->pRingState,pNewList->pFirst->pValue);
-            pItem = ring_list_getitem(pList,1) ;
-            pNewList->pFirst->pValue = pItem ;
-            ring_vm_gc_newitemreference(pItem);
-        }
+    /* Check if the List is a C Pointer List */
+    if ( ring_list_iscpointerlist(pList) ) {
+        /* Mark the C Pointer List as Not Copied */
+        ring_list_setint_gc(pVM->pRingState,pList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_NOTCOPIED);
+        ring_list_setint_gc(pVM->pRingState,pNewList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_NOTCOPIED);
+        /* Copy The Pointer by Reference */
+        pNewList->pFirst->pValue = ring_item_delete_gc(pVM->pRingState,pNewList->pFirst->pValue);
+        pItem = ring_list_getitem(pList,1) ;
+        pNewList->pFirst->pValue = pItem ;
+        ring_vm_gc_newitemreference(pItem);
     }
 }
 
@@ -382,18 +380,16 @@ void ring_vm_list_simpointercopy ( VM *pVM,List *pList )
             ring_vm_list_simpointercopy(pVM,ring_list_getlist(pList,x));
         }
     }
-    /* Check if the List if a C Pointer List */
-    if ( ring_list_getsize(pList) == RING_CPOINTER_LISTSIZE ) {
-        if ( ring_list_ispointer(pList,RING_CPOINTER_POINTER)  && ring_list_isstring(pList,RING_CPOINTER_TYPE) && ring_list_isint(pList,RING_CPOINTER_STATUS) ) {
-            /* Check value to avoid adding the pointer to the C Pointer list again */
-            if ( ring_list_getint(pList,RING_CPOINTER_STATUS) == RING_CPOINTERSTATUS_NOTCOPIED ) {
-                /* Mark C Pointer List As Copied */
-                ring_list_setint_gc(pVM->pRingState,pList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_COPIED);
-            }
-            else if ( ring_list_getint(pList,RING_CPOINTER_STATUS) == RING_CPOINTERSTATUS_NOTASSIGNED ) {
-                /* Mark the C Pointer List as Not Copied */
-                ring_list_setint_gc(pVM->pRingState,pList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_NOTCOPIED);
-            }
+    /* Check if the List is a C Pointer List */
+    if ( ring_list_iscpointerlist(pList) ) {
+        /* Check value to avoid adding the pointer to the C Pointer list again */
+        if ( ring_list_getint(pList,RING_CPOINTER_STATUS) == RING_CPOINTERSTATUS_NOTCOPIED ) {
+            /* Mark C Pointer List As Copied */
+            ring_list_setint_gc(pVM->pRingState,pList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_COPIED);
+        }
+        else if ( ring_list_getint(pList,RING_CPOINTER_STATUS) == RING_CPOINTERSTATUS_NOTASSIGNED ) {
+            /* Mark the C Pointer List as Not Copied */
+            ring_list_setint_gc(pVM->pRingState,pList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_NOTCOPIED);
         }
     }
 }
