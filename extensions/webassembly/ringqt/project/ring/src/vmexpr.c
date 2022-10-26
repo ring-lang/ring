@@ -987,31 +987,7 @@ void ring_vm_bitnot ( VM *pVM )
 
 RING_API char * ring_vm_numtostring ( VM *pVM,double nNum1,char *cStr )
 {
-    char cOptions[10]  ;
-    int nNum2  ;
-    RING_LONGLONG nVal  ;
-    nVal = (RING_LONGLONG) nNum1 ;
-    if ( (nNum1 == nVal) && (nVal >= RING_LONGLONG_LOWVALUE && nVal <= RING_LONGLONG_HIGHVALUE) ) {
-        sprintf(cStr , RING_LONGLONG_FORMAT , nVal);
-    }
-    else {
-        sprintf( cOptions , "%s%df" , "%.",pVM->nDecimals ) ;
-        #if RING_MSDOS
-            sprintf(cStr, cOptions, nNum1);
-        #else
-            /* Avoid buffer overrun by using snprint() function */
-            nNum2 = snprintf(cStr , 100, cOptions , nNum1);
-            if ( nNum2 >= 100 ) {
-                /* Result truncated so print in compact format with a precision of 90 */
-                nNum2 = snprintf(cStr , 100, "%.90e" , nNum1);
-            }
-            if ( nNum2 < 0 ) {
-                /* Error */
-                cStr[0] = 0 ;
-            }
-        #endif
-    }
-    return cStr ;
+    return ring_numtostring(nNum1,cStr,pVM->nDecimals) ;
 }
 
 RING_API double ring_vm_stringtonum ( VM *pVM,const char *cStr )
@@ -1047,6 +1023,35 @@ RING_API double ring_vm_stringtonum ( VM *pVM,const char *cStr )
         return 0.0 ;
     }
     return nResult ;
+}
+
+RING_API char * ring_numtostring ( double nNum1,char *cStr,int nDecimals )
+{
+    char cOptions[10]  ;
+    int nNum2  ;
+    RING_LONGLONG nVal  ;
+    nVal = (RING_LONGLONG) nNum1 ;
+    if ( (nNum1 == nVal) && (nVal >= RING_LONGLONG_LOWVALUE && nVal <= RING_LONGLONG_HIGHVALUE) ) {
+        sprintf(cStr , RING_LONGLONG_FORMAT , nVal);
+    }
+    else {
+        sprintf( cOptions , "%s%df" , "%.",nDecimals ) ;
+        #if RING_MSDOS
+            sprintf(cStr, cOptions, nNum1);
+        #else
+            /* Avoid buffer overrun by using snprint() function */
+            nNum2 = snprintf(cStr , 100, cOptions , nNum1);
+            if ( nNum2 >= 100 ) {
+                /* Result truncated so print in compact format with a precision of 90 */
+                nNum2 = snprintf(cStr , 100, "%.90e" , nNum1);
+            }
+            if ( nNum2 < 0 ) {
+                /* Error */
+                cStr[0] = 0 ;
+            }
+        #endif
+    }
+    return cStr ;
 }
 /*
 **  Operator Overloading 

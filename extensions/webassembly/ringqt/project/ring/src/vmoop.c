@@ -446,35 +446,7 @@ void ring_vm_oop_aftercallmethod ( VM *pVM )
 
 void ring_vm_oop_printobj ( VM *pVM,List *pList )
 {
-    List *pList2,*pList3  ;
-    int x  ;
-    char cStr[100]  ;
-    pList = ring_list_getlist(pList,2);
-    for ( x = 3 ; x <= ring_list_getsize(pList) ; x++ ) {
-        pList2 = ring_list_getlist(pList,x);
-        printf( "%s: " , ring_list_getstring(pList2,1) ) ;
-        if ( ring_list_isstring(pList2,3) ) {
-            printf( "%s\n" , ring_list_getstring(pList2,3) ) ;
-        }
-        else if ( ring_list_isnumber(pList2,3) ) {
-            if ( pVM != NULL ) {
-                ring_vm_numtostring(pVM,ring_list_getdouble(pList2,3),cStr);
-                printf( "%s\n" ,cStr ) ;
-            }
-            else {
-                printf( "%f\n" , ring_list_getdouble(pList2,3) ) ;
-            }
-        }
-        else if ( ring_list_islist(pList2,3) ) {
-            pList3 = ring_list_getlist(pList2,3) ;
-            if ( ring_vm_oop_isobject(pList3) ) {
-                printf( "Object...\n" ) ;
-            }
-            else {
-                printf( "[This Attribute Contains A List]\n" ) ;
-            }
-        }
-    }
+    ring_list_printobj(pList,pVM->nDecimals);
 }
 
 void ring_vm_oop_setbraceobj ( VM *pVM,List *pList )

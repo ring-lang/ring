@@ -1134,7 +1134,7 @@ RING_API void ring_list_print2 ( List *pList,int nDecimals )
         else if ( ring_list_islist(pList,x) ) {
             pList2 = ring_list_getlist(pList,x) ;
             if ( ring_list_isobject(pList2) ) {
-                ring_vm_oop_printobj(NULL,pList2);
+                ring_list_printobj(pList2,nDecimals);
             }
             else {
                 ring_list_print2(pList2,nDecimals);
@@ -1323,4 +1323,32 @@ RING_API int ring_list_isobject ( List *pList )
         return 0 ;
     }
     return 1 ;
+}
+
+RING_API void ring_list_printobj ( List *pList,int nDecimals )
+{
+    List *pList2,*pList3  ;
+    int x  ;
+    char cStr[100]  ;
+    pList = ring_list_getlist(pList,2);
+    for ( x = 3 ; x <= ring_list_getsize(pList) ; x++ ) {
+        pList2 = ring_list_getlist(pList,x);
+        printf( "%s: " , ring_list_getstring(pList2,1) ) ;
+        if ( ring_list_isstring(pList2,3) ) {
+            printf( "%s\n" , ring_list_getstring(pList2,3) ) ;
+        }
+        else if ( ring_list_isnumber(pList2,3) ) {
+            ring_numtostring(ring_list_getdouble(pList2,3),cStr,nDecimals);
+            printf( "%s\n" ,cStr ) ;
+        }
+        else if ( ring_list_islist(pList2,3) ) {
+            pList3 = ring_list_getlist(pList2,3) ;
+            if ( ring_list_isobject(pList3) ) {
+                printf( "Object...\n" ) ;
+            }
+            else {
+                printf( "[This Attribute Contains A List]\n" ) ;
+            }
+        }
+    }
 }
