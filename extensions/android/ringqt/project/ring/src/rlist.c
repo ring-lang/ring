@@ -1366,10 +1366,5 @@ RING_API int ring_list_iscpointerlist ( List *pList )
 
 RING_API int ring_list_cpointercmp ( List *pList,List *pList2 )
 {
-    if ( ring_list_getpointer(pList,RING_CPOINTER_POINTER) == ring_list_getpointer(pList2,RING_CPOINTER_POINTER) ) {
-        return 1 ;
-    }
-    else {
-        return 0 ;
-    }
+    return ring_list_getpointer(pList,RING_CPOINTER_POINTER) == ring_list_getpointer(pList2,RING_CPOINTER_POINTER) ;
 }
