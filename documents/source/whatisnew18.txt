@@ -180,7 +180,7 @@ More Improvements
 * Ring Compiler/VM Source Code - Many structures updated to use unsigned int/char
 * Ring Compiler/VM Source Code - Added: vmerror.c, vmeval.c & vmthreads.c
 * Support building Ring on windows using Tiny C Compiler
-* Ring Compiler - Support unlimited number of function/method parameters
+* Ring Compiler - Support larger number of function/method parameters
 * Ring Compiler - ring_parser_epsilon() function - Better Code
 * Ring VM - Memory Functions - Display the size when the memory allocation fail
 * Ring VM - Support calling private methods from the class region
