@@ -215,13 +215,7 @@ RING_API void ring_list_addcpointer ( List *pList,void *pGeneral,const char *cTy
 
 RING_API int ring_vm_api_iscpointerlist ( List *pList )
 {
-    if ( ring_list_getsize(pList) != 3 ) {
-        return 0 ;
-    }
-    if ( ring_list_ispointer(pList,1) && ring_list_isstring(pList,2) && ring_list_isnumber(pList,3) ) {
-        return 1 ;
-    }
-    return 0 ;
+    return ring_list_iscpointerlist(pList) ;
 }
 
 RING_API int ring_vm_api_iscpointer ( void *pPointer,int x )
