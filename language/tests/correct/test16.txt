@@ -12,10 +12,10 @@ one
 two
 cjobname: a
 cother: nice
-vgood: 3.140000
+vgood: 3.14
 cjobname: a
 cother: nice
-vgood: 3.140000
+vgood: 3.14
 Jobs count : 6
 other : nice
 other : nice
