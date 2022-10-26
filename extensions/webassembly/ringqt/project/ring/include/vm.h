@@ -500,8 +500,6 @@
     void ring_vm_addlisttolist ( VM *pVM,List *pList,List *pList2 ) ;
 
     int ring_vm_checkoverflow ( VM *pVM,double nNum1,double nNum2 ) ;
-
-    RING_API char * ring_numtostring ( double nNum1,char *cStr,int nDecimals ) ;
     /* Logic */
 
     void ring_vm_and ( VM *pVM ) ;

@@ -1338,7 +1338,7 @@ RING_API void ring_list_printobj ( List *pList,int nDecimals )
             printf( "%s\n" , ring_list_getstring(pList2,3) ) ;
         }
         else if ( ring_list_isnumber(pList2,3) ) {
-            ring_numtostring(ring_list_getdouble(pList2,3),cStr,nDecimals);
+            ring_general_numtostring(ring_list_getdouble(pList2,3),cStr,nDecimals);
             printf( "%s\n" ,cStr ) ;
         }
         else if ( ring_list_islist(pList2,3) ) {
