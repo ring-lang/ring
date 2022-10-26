@@ -251,4 +251,6 @@
     RING_API void ring_list_addringpointer_gc ( void *pState,List *pList,void *pValue ) ;
 
     RING_API int ring_list_isobject ( List *pList ) ;
+
+    RING_API void ring_list_printobj ( List *pList, int nDecimals ) ;
 #endif

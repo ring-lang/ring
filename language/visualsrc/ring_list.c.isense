@@ -280,3 +280,10 @@ pPointerList
 Type: Item *
 pItem
 ring_list_isobject
+ring_list_printobj
+Type: List *
+pList2,*pList3
+Type: int
+x
+Type: char
+cStr[100]

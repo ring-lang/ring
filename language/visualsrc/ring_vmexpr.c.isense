@@ -110,17 +110,18 @@ ring_vm_bitnot
 Type: double
 nNum1
 ring_vm_numtostring
+ring_vm_stringtonum
+Type: double
+nResult
+Type: char *
+cEndStr
+ring_numtostring
 Type: char
 cOptions[10]
 Type: int
 nNum2
 Type: RING_LONGLONG
 nVal
-ring_vm_stringtonum
-Type: double
-nResult
-Type: char *
-cEndStr
 ring_vm_expr_ppoo
 Type: List *
 pList,*pList2

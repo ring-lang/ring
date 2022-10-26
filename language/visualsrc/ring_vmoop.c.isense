@@ -48,12 +48,6 @@ Type: List *
 pList3,*pList4
 ring_vm_oop_aftercallmethod
 ring_vm_oop_printobj
-Type: List *
-pList2,*pList3
-Type: int
-x
-Type: char
-cStr[100]
 ring_vm_oop_setbraceobj
 ring_vm_oop_bracestart
 Type: List *
