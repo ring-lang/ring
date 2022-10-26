@@ -1208,7 +1208,7 @@ RING_API int ring_list_findcpointer ( List *pList,List *pValue,int nColumn )
                 if ( ring_list_islist(pList,x) ) {
                     pList2 = ring_list_getlist(pList,x);
                     if ( ring_list_iscpointerlist(pList2) ) {
-                        if ( ring_vm_api_cpointercmp(pList2,pValue) ) {
+                        if ( ring_list_cpointercmp(pList2,pValue) ) {
                             return x ;
                         }
                     }
@@ -1223,7 +1223,7 @@ RING_API int ring_list_findcpointer ( List *pList,List *pValue,int nColumn )
                 pList2 = ring_list_getlist(pList,x);
                 if ( ring_list_islist(pList2,nColumn) ) {
                     pList3 = ring_list_getlist(pList2,nColumn);
-                    if ( ring_vm_api_cpointercmp(pList3,pValue) ) {
+                    if ( ring_list_cpointercmp(pList3,pValue) ) {
                         return x ;
                     }
                 }
@@ -1362,4 +1362,14 @@ RING_API int ring_list_iscpointerlist ( List *pList )
         return 1 ;
     }
     return 0 ;
+}
+
+RING_API int ring_list_cpointercmp ( List *pList,List *pList2 )
+{
+    if ( ring_list_getpointer(pList,RING_CPOINTER_POINTER) == ring_list_getpointer(pList2,RING_CPOINTER_POINTER) ) {
+        return 1 ;
+    }
+    else {
+        return 0 ;
+    }
 }

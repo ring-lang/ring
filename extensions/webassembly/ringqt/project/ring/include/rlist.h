@@ -255,4 +255,6 @@
     RING_API void ring_list_printobj ( List *pList, int nDecimals ) ;
 
     RING_API int ring_list_iscpointerlist ( List *pList ) ;
+
+    RING_API int ring_list_cpointercmp ( List *pList,List *pList2 ) ;
 #endif

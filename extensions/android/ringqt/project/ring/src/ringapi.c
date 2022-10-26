@@ -236,12 +236,7 @@ RING_API int ring_vm_api_isobject ( void *pPointer,int x )
 
 RING_API int ring_vm_api_cpointercmp ( List *pList,List *pList2 )
 {
-    if ( ring_list_getpointer(pList,RING_CPOINTER_POINTER) == ring_list_getpointer(pList2,RING_CPOINTER_POINTER) ) {
-        return 1 ;
-    }
-    else {
-        return 0 ;
-    }
+    return ring_list_cpointercmp(pList,pList2) ;
 }
 
 RING_API int ring_vm_api_ispointer ( void *pPointer,int x )

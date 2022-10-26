@@ -45,7 +45,7 @@ ring_list_getstringobject(pList,index)
 ring_list_getstringsize(pList,index)
 ring_list_getsize(x)
 ring_list_deletelastitem_gc(s,x)
-ring_list_iscpointerlist
+ring_list_cpointercmp
 ring_list_new_gc
 Type: List *
 pList
@@ -289,3 +289,4 @@ x
 Type: char
 cStr[100]
 ring_list_iscpointerlist
+ring_list_cpointercmp
