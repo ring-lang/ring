@@ -136,4 +136,16 @@ In this folder we will store simple examples about using C code in Ring programs
 			 Using C Code, Create table contains rows and columns
 		</td>
 	</tr>
+	<tr>
+		<td>
+			13
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/tutorial/integerpointer"> Integer Pointer</a>
+		</td>
+		<td>
+			 Using C Code, Get integer pointer from Ring code using the variable name
+		</td>
+	</tr>
+
 </table>
