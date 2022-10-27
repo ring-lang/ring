@@ -6,10 +6,10 @@ List Size  : 3
 Get a string using the pointer
 String Size: 4
 Print the ASCII code for each character
+51
+141
+191
 0
-0
-0
-96
 Print character outsize range
 Can't access the character - outside range
 Print each item in pointer list
