@@ -41,6 +41,16 @@ The file mylib.c contains
 		RING_API_REGISTER("changevalue",ring_changevalue);
 	}
 
+Our function get one parameter as String
+
+This String must contains the Variable Name (lower-case)
+
+Using RING_API_GETINTPOINTER we get a pointer to this variable (int *)
+
+After that we call changeValue() function to change the variable value 
+
+We refersh our Ring variable value using RING_API_ACCEPTINTVALUE
+
 Then we build the extension using : 
 
 	buildvc.bat
