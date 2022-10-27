@@ -99,3 +99,22 @@ The file test.ring contains
 
 			changevalue(:z)
 			? z
+
+Output
+
+	Loading Library
+	Test passing global variables as integer pointer
+	101
+	102
+	Using test() function - Pass local variables
+	1517
+	1518
+	x: 10
+	y: 20
+	z: 30
+	
+	Using test() method - pass object attributes
+	11
+	21
+	31
+
