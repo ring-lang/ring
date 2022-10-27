@@ -159,6 +159,7 @@ RING_API void * ring_vm_api_varptr ( void *pPointer,const char  *cStr,const char
             return &(pItem->data.dNumber) ;
         }
         else if ( strcmp(cStr2,"int") == 0 ) {
+            pItem->data.iNumber = (int) pItem->data.dNumber ;
             return &(pItem->data.iNumber) ;
         }
     }
