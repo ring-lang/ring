@@ -152,6 +152,7 @@ The next chapters are improved!
 More Improvements
 =================
 
+* Added: samples/General/OrbitalMechanics
 * Added: samples/UsingQt/TabActivate/simpleExample.ring 
 * Added: samples/UsingQt/TabActivate/TabActivateController.ring 
 * Added: samples/UsingFormDesigner/centerwindow
@@ -184,6 +185,7 @@ More Improvements
 * Support building Ring on windows using Tiny C Compiler
 * Ring Compiler - Support larger number of function/method parameters
 * Ring Compiler - ring_parser_epsilon() function - Better Code
+* Ring Compiler - Support (**) and (^^) as the power operator
 * Ring API - RING_API_GETINTPOINTER - Better code when passing integer pointer
 * Ring VM - Memory Functions - Display the size when the memory allocation fail
 * Ring VM - Support calling private methods from the class region
