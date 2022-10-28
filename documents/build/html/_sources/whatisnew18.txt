@@ -159,6 +159,7 @@ More Improvements
 * Sample: samples/AQuickStart/GUILib/gui44.ring - Better Code
 * Sample: samples/UsingWebLib/Demo/datalib.ring - Better Code
 * Sample: samples/UsingWebLib/Demo/bootstrap.ring - Better Code
+* Sample: samples/UsingStbImage/test2.ring - Better Code
 * Sample: extensions/tutorial/integerpointer
 * Ring Notepad: New option to build GUI application using Ring2EXE
 * Ring Notepad: Output Window - Correct cursor position while using unicode 
