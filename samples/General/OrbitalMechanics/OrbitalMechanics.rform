@@ -1,0 +1,124 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = -524 , : y = -144  , 
+		 :width =  1152 , :height = 969 , 
+		 :title =  "Orbital Mechanics Lagrange" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  ,
+		 :GUILibrary =  0  
+
+		]
+	],
+	[ :name = "TableWidget1" , :id = 2 , :classname = "formdesigner_qtablewidget" , :data = [
+		 :x = 22 , : y = 492  , 
+		 :width =  1007 , :height = 471 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :RowCount =  "14",
+		 :ColumnCount =  "9",
+		 :HorizontalHeaders =  "-,Planet,Mass,Distance,L1,L2,L3,L4-L5-x,L4-L5-y",
+		 :ColumnsWidth =  "",
+		 :HorizontalHeaderStyle =  "",
+		 :VerticalHeaderStyle =  "",
+		 :selectionbehavior =  1,
+		 :alternatingcolors =  0,
+		 :setcellActivatedEvent =  "",
+		 :setcellChangedEvent =  "",
+		 :setcellClickedEvent =  "",
+		 :setcellDoubleClickedEvent =  "",
+		 :setcellEnteredEvent =  "",
+		 :setcellPressedEvent =  "",
+		 :setcurrentCellChangedEvent =  "",
+		 :setcurrentItemChangedEvent =  "",
+		 :setitemActivatedEvent =  "",
+		 :setitemChangedEvent =  "",
+		 :setitemClickedEvent =  "",
+		 :setitemDoubleClickedEvent =  "",
+		 :setitemEnteredEvent =  "",
+		 :setitemPressedEvent =  "",
+		 :setitemSelectionChangedEvent =  ""
+		]
+	],
+	[ :name = "Image1" , :id = 3 , :classname = "formdesigner_qimage" , :data = [
+		 :x = 18 , : y = 66  , 
+		 :width =  503 , :height = 388 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :imagefile =  "Lagrange-Sun-Earth.jpg"
+		]
+	],
+	[ :name = "TableWidget2" , :id = 4 , :classname = "formdesigner_qtablewidget" , :data = [
+		 :x = 122 , : y = 662  , 
+		 :width =  1 , :height = 6 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :RowCount =  "",
+		 :ColumnCount =  "0",
+		 :HorizontalHeaders =  "",
+		 :ColumnsWidth =  "",
+		 :HorizontalHeaderStyle =  "",
+		 :VerticalHeaderStyle =  "",
+		 :selectionbehavior =  0,
+		 :alternatingcolors =  0,
+		 :setcellActivatedEvent =  "",
+		 :setcellChangedEvent =  "",
+		 :setcellClickedEvent =  "",
+		 :setcellDoubleClickedEvent =  "",
+		 :setcellEnteredEvent =  "",
+		 :setcellPressedEvent =  "",
+		 :setcurrentCellChangedEvent =  "",
+		 :setcurrentItemChangedEvent =  "",
+		 :setitemActivatedEvent =  "",
+		 :setitemChangedEvent =  "",
+		 :setitemClickedEvent =  "",
+		 :setitemDoubleClickedEvent =  "",
+		 :setitemEnteredEvent =  "",
+		 :setitemPressedEvent =  "",
+		 :setitemSelectionChangedEvent =  ""
+		]
+	],
+	[ :name = "Image2" , :id = 5 , :classname = "formdesigner_qimage" , :data = [
+		 :x = 522 , : y = 55  , 
+		 :width =  499 , :height = 402 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :imagefile =  "Equations.jpg"
+		]
+	],
+	[ :name = "Label1" , :id = 6 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 30 , : y = 5  , 
+		 :width =  462 , :height = 47 , 
+		 :textcolor =  "#0000ff" , 
+		 :backcolor =  "" , 
+		 :font =  "Calibri,24,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Lagrange Points Calculations",
+		 :textalign =  1
+		]
+	],
+	[ :name = "Label2" , :id = 7 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 529 , : y = 7  , 
+		 :width =  488 , :height = 41 , 
+		 :textcolor =  "#0000ff" , 
+		 :backcolor =  "" , 
+		 :font =  "Calibri,24,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Orbital Mechanics: Forces",
+		 :textalign =  1
+		]
+	]
+]
+# End Form Designer File
