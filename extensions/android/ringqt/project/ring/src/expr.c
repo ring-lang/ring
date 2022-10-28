@@ -441,13 +441,13 @@ int ring_parser_arithmetic ( Parser *pParser )
 int ring_parser_term ( Parser *pParser )
 {
     int x  ;
-    /* Term --> Range { *|/|% Range } */
+    /* Term --> Range { *|/|%|** Range } */
     if ( ring_parser_range(pParser) ) {
         x = 1 ;
         RING_STATE_CHECKPRINTRULES 
         
         puts("Rule : Term --> Range");
-        while ( ring_parser_isoperator2(pParser,OP_MUL) || ring_parser_isoperator2(pParser,OP_DIV) || ring_parser_isoperator2(pParser,OP_REM) ) {
+        while ( ring_parser_isoperator2(pParser,OP_MUL) || ring_parser_isoperator2(pParser,OP_DIV) || ring_parser_isoperator2(pParser,OP_REM) || ring_parser_isoperator(pParser,"**") ) {
             if ( ring_parser_isoperator2(pParser,OP_MUL) ) {
                 ring_parser_nexttoken(pParser);
                 RING_PARSER_IGNORENEWLINE ;
@@ -482,6 +482,24 @@ int ring_parser_term ( Parser *pParser )
                 {
                     puts("Rule : Term --> Range");
                     puts("Rule : Term --> Term % Term ");
+                }
+            }
+            else if ( ring_parser_isoperator(pParser,"**") ) {
+                ring_parser_nexttoken(pParser);
+                RING_PARSER_IGNORENEWLINE ;
+                x = ring_parser_range(pParser);
+                if ( x == 0 ) {
+                    return 0 ;
+                }
+                /* Generate Code */
+                ring_parser_icg_newoperation(pParser,ICO_POW);
+                /* Generate Location for nPC for Operator Overloading */
+                ring_parser_icg_newoperandint(pParser,0);
+                RING_STATE_CHECKPRINTRULES 
+                
+                {
+                    puts("Rule : Term --> Range");
+                    puts("Rule : Term --> Term ** Term ");
                 }
             }
             else {
@@ -623,6 +641,9 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
         }
         else if ( ring_parser_isoperator(pParser,">>=") ) {
             nBeforeEqual = 10 ;
+        }
+        else if ( ring_parser_isoperator(pParser,"**=") ) {
+            nBeforeEqual = 11 ;
         }
         else {
             lequal = 0 ;

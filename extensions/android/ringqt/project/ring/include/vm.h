@@ -497,6 +497,8 @@
 
     void ring_vm_minusminus ( VM *pVM ) ;
 
+    void ring_vm_pow ( VM *pVM ) ;
+
     void ring_vm_addlisttolist ( VM *pVM,List *pList,List *pList2 ) ;
 
     int ring_vm_checkoverflow ( VM *pVM,double nNum1,double nNum2 ) ;

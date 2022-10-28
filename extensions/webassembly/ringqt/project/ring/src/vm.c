@@ -656,6 +656,9 @@ void ring_vm_execute ( VM *pVM )
         case ICO_MINUSMINUS :
             ring_vm_minusminus(pVM);
             break ;
+        case ICO_POW :
+            ring_vm_pow(pVM);
+            break ;
         /* Logic */
         case ICO_AND :
             ring_vm_and(pVM);

@@ -432,6 +432,9 @@ void ring_vm_beforeequallist ( VM *pVM,List *pVar,double nNum1 )
         else if ( pVM->nBeforeEqual == 10 ) {
             ring_list_setdouble_gc(pVM->pRingState,pVar, RING_VAR_VALUE , (int) ring_list_getdouble(pVar,RING_VAR_VALUE) >> (int) nNum1);
         }
+        else if ( pVM->nBeforeEqual == 11 ) {
+            ring_list_setdouble_gc(pVM->pRingState,pVar, RING_VAR_VALUE , pow( ring_list_getdouble(pVar,RING_VAR_VALUE) , nNum1));
+        }
     }
     else if ( (ring_list_isstring(pVar,RING_VAR_VALUE) == 1) && (pVM->nBeforeEqual == 1) ) {
         pString = ring_list_getstringobject(pVar,RING_VAR_VALUE);
@@ -479,6 +482,9 @@ void ring_vm_beforeequalitem ( VM *pVM,Item *pItem,double nNum1 )
         }
         else if ( pVM->nBeforeEqual == 10 ) {
             ring_item_setdouble_gc(pVM->pRingState,pItem ,(int) ring_item_getdouble(pItem) >> (int) nNum1);
+        }
+        else if ( pVM->nBeforeEqual == 11 ) {
+            ring_item_setdouble_gc(pVM->pRingState,pItem ,pow( ring_item_getdouble(pItem) , nNum1 ));
         }
     }
     else if ( (ring_item_isstring(pItem) == 1)  && (pVM->nBeforeEqual == 1) ) {

@@ -53,6 +53,7 @@
         ICO_NEG ,
         ICO_INC ,
         ICO_INCP ,
+        ICO_POW ,
         /* Functions/Methods */
         ICO_LOADFUNC ,
         ICO_CALL ,
@@ -141,7 +142,7 @@
     
     "Jump","JumpZ","Jump1","JumpFOR","JZ2","J12","LoadA","Assignment","LoadSA","LoadIA","LoadAPushV","==","<",">","!=","<=",">=", 
     
-    "PushC","PushN","PushV","PushP","PushPV","PushPLocal", "SUM","SUB","MUL","DIV","MOD","Negative","Inc","IncP", 
+    "PushC","PushN","PushV","PushP","PushPV","PushPLocal", "SUM","SUB","MUL","DIV","MOD","Negative","Inc","IncP","POW", 
     
     "LoadFunc","Call", "Return","ReturnNull","RetFromEval","RetItemRef","ListStart","ListItem","ListEnd","And","Or","Not","FreeStack", 
     
