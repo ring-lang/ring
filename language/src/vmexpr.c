@@ -320,7 +320,7 @@ void ring_vm_pow ( VM *pVM )
     }
     /* Check Overflow */
     if ( ring_vm_checkoverflow(pVM,nNum1,nNum2)  ) return ;
-    RING_VM_STACK_SETNVALUE(pow(nNum1,nNum2));
+    RING_VM_STACK_SETNVALUE(pow(nNum2,nNum1));
 }
 /*
 **  compare 
