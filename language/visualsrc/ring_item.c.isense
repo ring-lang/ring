@@ -90,7 +90,3 @@ ring_item_setpointer
 ring_item_setint
 ring_item_setstring2
 ring_item_getnumber
-ring_item_copy_gc
-ItemType
-Type: Item *
-pNewItem

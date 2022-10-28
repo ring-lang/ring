@@ -162,6 +162,10 @@ RING_API void * ring_vm_api_varptr ( void *pPointer,const char  *cStr,const char
             pItem->data.iNumber = (int) pItem->data.dNumber ;
             return &(pItem->data.iNumber) ;
         }
+        else if ( strcmp(cStr2,"float") == 0 ) {
+            pItem->data.fNumber = (float) pItem->data.dNumber ;
+            return &(pItem->data.fNumber) ;
+        }
     }
     else if ( ring_list_getint(pList,RING_VAR_TYPE) == RING_VM_STRING ) {
         pItem = ring_list_getitem(pList,RING_VAR_VALUE);
@@ -170,7 +174,7 @@ RING_API void * ring_vm_api_varptr ( void *pPointer,const char  *cStr,const char
     return NULL ;
 }
 
-RING_API void ring_vm_api_intvalue ( void *pPointer,const char  *cStr )
+RING_API void ring_vm_api_varvalue ( void *pPointer,const char  *cStr,int nType )
 {
     VM *pVM  ;
     List *pList, *pActiveMem  ;
@@ -197,7 +201,12 @@ RING_API void ring_vm_api_intvalue ( void *pPointer,const char  *cStr )
     RING_VM_STACK_POP ;
     if ( ring_list_getint(pList,RING_VAR_TYPE) == RING_VM_NUMBER ) {
         pItem = ring_list_getitem(pList,RING_VAR_VALUE);
-        pItem->data.dNumber = (double) pItem->data.iNumber ;
+        if ( nType == 1 ) {
+            pItem->data.dNumber = (double) pItem->data.iNumber ;
+        }
+        else {
+            pItem->data.dNumber = (double) pItem->data.fNumber ;
+        }
     }
 }
 
@@ -349,4 +358,14 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int lRef )
     }
     RING_API_PUSHPVALUE(pVariableList);
     RING_API_OBJTYPE = RING_OBJTYPE_VARIABLE ;
+}
+
+RING_API void ring_vm_api_intvalue ( void *pPointer,const char  *cStr )
+{
+    ring_vm_api_varvalue(pPointer,cStr,1);
+}
+
+RING_API void ring_vm_api_floatvalue ( void *pPointer,const char  *cStr )
+{
+    ring_vm_api_varvalue(pPointer,cStr,2);
 }
