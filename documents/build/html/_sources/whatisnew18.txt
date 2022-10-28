@@ -187,6 +187,8 @@ More Improvements
 * Ring Compiler - ring_parser_epsilon() function - Better Code
 * Ring Compiler - Support (**) and (^^) as the power operator
 * Ring API - RING_API_GETINTPOINTER - Better code when passing integer pointer
+* Ring API - Added: RING_API_GETFLOATPOINTER(nParameter)
+* Ring API - Added: RING_API_ACCEPTFLOATVALUE(nParameter)
 * Ring VM - Memory Functions - Display the size when the memory allocation fail
 * Ring VM - Support calling private methods from the class region
 * Ring VM - Better code when loading the VM instructions (Uses less memory)
