@@ -199,6 +199,7 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew15.html">Release Notes: Version 1.15</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew17.html">Release Notes: Version 1.17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew18.html">Release Notes: Version 1.18</a></li>
 <li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
@@ -755,7 +756,7 @@
 <p>BitAnd —&gt; &lt;BitShift&gt; [ { ‘&amp;’ &lt;BitShift&gt; } ]</p>
 <p>BitShift —&gt; &lt;Arithmetic&gt; [ { ‘&lt;&lt;’ | ‘&gt;&gt;’ &lt;Arithmetic&gt; } ]</p>
 <p>Arithmetic —&gt; &lt;Term&gt; [ { ‘+’ | ‘-‘  &lt;Term&gt;  } ]</p>
-<p>Term —&gt; &lt;Range&gt; [ { ‘*’ | ‘/’ | ‘%’ &lt;Range&gt; } ]</p>
+<p>Term —&gt; &lt;Range&gt; [ { ‘*’ | ‘/’ | ‘%’ | ‘**’ | ‘^^’ &lt;Range&gt; } ]</p>
 <p>Range —&gt; &lt;Factor&gt; [ ‘:’ &lt;Factor&gt; ]</p>
 <p>Factor —&gt; &lt;Identifier&gt; [ {Mixer} ] [ ‘=’ &lt;Expr&gt; ]</p>
 <p>Factor —&gt; &lt;Number&gt;</p>
@@ -924,14 +925,17 @@
 <tr class="row-even"><td><p>ICO_MOD</p></td>
 <td><p>Stack[nSize-1] = Stack[nSize-1] % Stack[nSize] , POP stack[nSize]</p></td>
 </tr>
-<tr class="row-odd"><td><p>ICO_NEG</p></td>
-<td><p>Stack[nSize] = - Stack[nSize-1]</p></td>
+<tr class="row-odd"><td><p>ICO_POW</p></td>
+<td><p>Stack[nSize-1] = Stack[nSize-1] ^ Stack[nSize] , POP stack[nSize]</p></td>
 </tr>
-<tr class="row-even"><td><p>ICO_PLUSPLUS</p></td>
-<td><p>Stack[nSize] = Stack[nSize] + 1</p></td>
+<tr class="row-even"><td><p>ICO_NEG</p></td>
+<td><p>Stack[nSize]   = - Stack[nSize-1]</p></td>
 </tr>
-<tr class="row-odd"><td><p>ICO_MINUSMINUS</p></td>
-<td><p>Stack[nSize] = Stack[nSize] - 1</p></td>
+<tr class="row-odd"><td><p>ICO_PLUSPLUS</p></td>
+<td><p>Stack[nSize]   = Stack[nSize] + 1</p></td>
+</tr>
+<tr class="row-even"><td><p>ICO_MINUSMINUS</p></td>
+<td><p>Stack[nSize]   = Stack[nSize] - 1</p></td>
 </tr>
 </tbody>
 </table>
