@@ -41,6 +41,7 @@ ICO_MOD
 ICO_NEG
 ICO_INC
 ICO_INCP
+ICO_POW
 ICO_LOADFUNC
 ICO_CALL
 ICO_RETURN
@@ -143,8 +144,6 @@ Type: List *
 pList,*pList2
 Type: int
 x
-Type: int
-y,nCount2
 ring_parser_icg_newlabel2
 ring_parser_icg_setopcode
 ring_parser_icg_deleteoperand
