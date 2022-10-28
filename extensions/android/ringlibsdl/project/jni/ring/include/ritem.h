@@ -20,6 +20,7 @@
             void *pPointer  ;
             struct List *pList  ;
             void (*pFunc)(void *) ;
+            float fNumber  ;
         } data ;
         /* Garbage Collector Data (Reference Counting) */
         GCData gc  ;
