@@ -483,8 +483,8 @@ void ring_poolmanager_delete ( RingState *pRingState )
 {
     if ( pRingState != NULL ) {
         if ( pRingState->vPoolManager.lDeleteMemory ) {
+            pRingState->vPoolManager.aBlocks = ring_list_delete(pRingState->vPoolManager.aBlocks) ;
             if ( pRingState->vPoolManager.pBlockStart != NULL ) {
-                pRingState->vPoolManager.aBlocks = ring_list_delete(pRingState->vPoolManager.aBlocks) ;
                 free( pRingState->vPoolManager.pBlockStart ) ;
                 pRingState->vPoolManager.pBlockStart = NULL ;
                 pRingState->vPoolManager.pBlockEnd = NULL ;
