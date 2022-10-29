@@ -124,7 +124,11 @@ aSuccessPartners = [
 			[
 				'Ahmad Fayed',
 				'Ring Logo'		
-			]			
+			],
+			[
+				'Ibrahim Fayed',
+				'Marketing'		
+			]				
 ]
 
 aTeam2 = [
