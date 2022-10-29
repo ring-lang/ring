@@ -3,7 +3,7 @@ Programming Without Coding Technology (PWCT) 2.0
 
 * Posted: 30 April 2021
 
-* Date last Updated: 24 July 2022
+* Date last Updated: 30 October 2022
 
 # Contents:
 
@@ -30,8 +30,8 @@ Programming Without Coding Technology (PWCT) 2.0
 
 ## Publications
 
-* Fayed et al., PWCT: a novel general-purpose visual programming language in support of pervasive application development, CCF Transactions on Pervasive Computing and Interaction, 2020
-* Fayed et al., PWCT: visual language for IoT and cloud computing applications and systems, ACM, 2017
+* [Fayed et al., PWCT: a novel general-purpose visual programming language in support of pervasive application development, CCF Transactions on Pervasive Computing and Interaction, 2020](https://link.springer.com/article/10.1007/s42486-020-00038-y)
+* [Fayed et al., PWCT: visual language for IoT and cloud computing applications and systems, ACM, 2017](https://dl.acm.org/doi/10.1145/3018896.3056782)
 
 ## Videos
 
@@ -44,8 +44,6 @@ Programming Without Coding Technology (PWCT) 2.0
 Since we already have the first generation of the product (PWCT 1.9) 
 
 We decided that in the second generation we will focus on the quality and accept the high costs (Development Time).
-
-[Check the website](https://store.steampowered.com/app/1953110/Programming_Without_Coding_Technology/)
 
 # Introduction 
 
