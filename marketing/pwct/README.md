@@ -319,7 +319,9 @@ PWCT 2.0 will comes with an Arabic version, other languages could be added in th
 
 ![arabicversion](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/Arabic.jpg)
 
-## Videos (PWCT 2.0)
+## Videos
+
+The next videos demonstrates some of the PWCT 2.0 features:
 
 * [Introduction to PWCT 2.0](https://cdn.akamai.steamstatic.com/steam/apps/256883333/movie_max_vp9.webm?t=1657472871)
 * [Templates & AutoRun](https://cdn.akamai.steamstatic.com/steam/apps/256893582/movie_max_vp9.webm?t=1656153375)
