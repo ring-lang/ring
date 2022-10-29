@@ -162,6 +162,7 @@ More Improvements
 * Sample: samples/UsingWebLib/Demo/bootstrap.ring - Better Code
 * Sample: samples/UsingStbImage/test2.ring - Better Code
 * Sample: extensions/tutorial/integerpointer
+* Sample: extensions/tutorial/stringpointer
 * Ring Notepad: New option to build GUI application using Ring2EXE
 * Ring Notepad: Output Window - Correct cursor position while using unicode 
 * Ring Notepad: Set the default font when opening the Font dialog
@@ -189,6 +190,7 @@ More Improvements
 * Ring API - RING_API_GETINTPOINTER - Better code when passing integer pointer
 * Ring API - Added: RING_API_GETFLOATPOINTER(nParameter)
 * Ring API - Added: RING_API_ACCEPTFLOATVALUE(nParameter)
+* Ring API - Added: RING_API_GETCHARPOINTER(nParameter)
 * Ring VM - Memory Functions - Display the size when the memory allocation fail
 * Ring VM - Support calling private methods from the class region
 * Ring VM - Better code when loading the VM instructions (Uses less memory)
