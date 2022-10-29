@@ -311,7 +311,7 @@ RING_API void ring_vm_loadcode ( VM *pVM )
 {
     int x,nSize  ;
     /*
-    **  We may allocation double of the size that we need to avoid reallocation when we use eval() 
+    **  We may allocate larger than the size that we need to avoid reallocation when we use eval() 
     **  eval() will check if there is a need to reallocation or not 
     **  This optimization increase the performance of applications that uses eval() 
     */
