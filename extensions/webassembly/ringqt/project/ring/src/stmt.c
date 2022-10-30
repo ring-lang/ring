@@ -78,7 +78,7 @@ int ring_parser_class ( Parser *pParser )
                 pString = ring_string_new_gc(pParser->pRingState,ring_list_getstring(pList3,1));
                 /* Add pointer to the Package in the Class List */
                 ring_list_addpointer_gc(pParser->pRingState,pList,pList3);
-                /* Add List point to General Classes point to the class in the package */
+                /* Add List pointer to General Classes that point to the class in the package */
                 pList2 = ring_list_newlist_gc(pParser->pRingState,pParser->pRingState->pRingClassesMap);
                 ring_list_addstring_gc(pParser->pRingState,pList2,"");
                 ring_list_addpointer_gc(pParser->pRingState,pList2,pList);
