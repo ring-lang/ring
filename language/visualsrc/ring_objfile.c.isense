@@ -59,7 +59,7 @@ ring_objfile_updateclassespointers
 Type: int
 x,x2,x3,x4,lFound
 Type: List *
-pList, *pList2, *pList3
+pList, *pList2, *pList3, *pPackageList
 Type: const char *
 cString
 Type: char
