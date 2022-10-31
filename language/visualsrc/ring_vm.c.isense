@@ -462,6 +462,9 @@ pScanner
 Type: VM *
 pVM
 nRunVM,nFreeFilesList
+ring_vm_defragmentation
+Type: List *
+pRingFilesList
 ring_vm_loadcode
 Type: int
 x,nSize

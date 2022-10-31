@@ -528,29 +528,6 @@ RING_API void ring_objfile_updateclassespointers ( RingState *pRingState )
     const char *cString  ;
     char cPackageName[400]  ;
     char cClassName[400]  ;
-    /* Update Class Pointer in Code */
-    lFound = 0 ;
-    for ( x = 1 ; x <= ring_list_getsize(pRingState->pRingGenCode) ; x++ ) {
-        pList = ring_list_getlist(pRingState->pRingGenCode,x);
-        if ( ring_list_getint(pList,1) == ICO_NEWCLASS ) {
-            cString = ring_list_getstring(pList,2);
-            for ( x2 = 1 ; x2 <= ring_list_getsize(pRingState->pRingClassesMap) ; x2++ ) {
-                pList2 = ring_list_getlist(pRingState->pRingClassesMap,x2);
-                if ( strcmp(cString,ring_list_getstring(pList2,1)) == 0 ) {
-                    lFound = 0 ;
-                    ring_list_setpointer_gc(pRingState,pList,3,pList2);
-                    #ifdef DEBUG_OBJFILE
-                        puts("Pointer Updated ");
-                    #endif
-                    break ;
-                }
-            }
-            /* If we can't find the list (the class is inside a package) */
-            if ( lFound == 0 ) {
-                ring_list_setpointer_gc(pRingState,pList,3,NULL);
-            }
-        }
-    }
     /*
     **  Update Class Pointers in Classes Map when the class belong to a Package 
     **  This updates works when the class name is : packagename.classname 
@@ -600,6 +577,29 @@ RING_API void ring_objfile_updateclassespointers ( RingState *pRingState )
                         break ;
                     }
                 }
+            }
+        }
+    }
+    /* Update Class Pointer in Code */
+    for ( x = 1 ; x <= ring_list_getsize(pRingState->pRingGenCode) ; x++ ) {
+        pList = ring_list_getlist(pRingState->pRingGenCode,x);
+        if ( ring_list_getint(pList,1) == ICO_NEWCLASS ) {
+            cString = ring_list_getstring(pList,2);
+            lFound = 0 ;
+            for ( x2 = 1 ; x2 <= ring_list_getsize(pRingState->pRingClassesMap) ; x2++ ) {
+                pList2 = ring_list_getlist(pRingState->pRingClassesMap,x2);
+                if ( strcmp(cString,ring_list_getstring(pList2,1)) == 0 ) {
+                    lFound = 1 ;
+                    ring_list_setpointer_gc(pRingState,pList,3,pList2);
+                    #ifdef DEBUG_OBJFILE
+                        puts("Pointer Updated ");
+                    #endif
+                    break ;
+                }
+            }
+            /* If we can't find the list (the class is inside a package) */
+            if ( lFound == 0 ) {
+                ring_list_setpointer_gc(pRingState,pList,3,NULL);
             }
         }
     }
