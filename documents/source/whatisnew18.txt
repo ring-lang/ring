@@ -184,6 +184,7 @@ More Improvements
 * Ring Compiler/VM Source Code - Many structures updated to use unsigned int/char
 * Ring Compiler/VM Source Code - Added: vmerror.c, vmeval.c & vmthreads.c
 * Support building Ring on windows using Tiny C Compiler
+* Ring Object File - Better support for classes that exist inside packages
 * Ring Compiler - Support larger number of function/method parameters
 * Ring Compiler - ring_parser_epsilon() function - Better Code
 * Ring Compiler - Support (**) and (^^) as the power operator
@@ -208,3 +209,4 @@ More Improvements
 * Ring VM - Better format when displaying the Byte Code
 * Ring VM - Faster code when creating new threads
 * Ring VM - Better numbers format when printing lists and objects
+* Ring VM - Memory defragmentation before Byte Code execution
