@@ -4,10 +4,9 @@
 
 int ring_parser_class ( Parser *pParser )
 {
-    List *pList,*pList2,*pList3  ;
+    List *pList,*pList2,*pList3,*pMark,*pNewClass  ;
     int x  ;
     String *pString  ;
-    List *pMark  ;
     /* Statement --> Class Identifier  [ From Identifier ] */
     if ( ring_parser_iskeyword(pParser,K_CLASS) ) {
         ring_parser_nexttoken(pParser);
@@ -20,6 +19,7 @@ int ring_parser_class ( Parser *pParser )
             ring_parser_icg_newoperation(pParser,ICO_RETNULL);
             ring_parser_icg_newoperation(pParser,ICO_NEWCLASS);
             ring_parser_icg_newoperand(pParser,pParser->TokenText);
+            pNewClass = ring_parser_icg_getactiveoperation(pParser) ;
             /* Add Class to Classes Table */
             pList = pParser->ClassesMap ;
             /* Check Class Redefinition */
@@ -88,6 +88,8 @@ int ring_parser_class ( Parser *pParser )
                 ring_string_add_gc(pParser->pRingState,pString,".");
                 ring_string_add_gc(pParser->pRingState,pString,ring_list_getstring(pList,1));
                 ring_list_setstring_gc(pParser->pRingState,pList2,1,ring_string_get(pString));
+                /* Set the class name as PackageName.ClassName in the Generated Code */
+                ring_list_setstring(pNewClass,2,ring_string_get(pString));
                 ring_string_delete_gc(pParser->pRingState,pString);
             } else {
                 /* Add pointer to the Package in the Class List */
