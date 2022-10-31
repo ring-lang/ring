@@ -260,6 +260,7 @@ void ring_vm_start ( RingState *pRingState,VM *pVM )
     pVM->pFunctionsMap = pRingState->pRingFunctionsMap ;
     pVM->pClassesMap = pRingState->pRingClassesMap ;
     pVM->pPackagesMap = pRingState->pRingPackagesMap ;
+    ring_vm_defragmentation(pRingState,pVM);
     ring_vm_loadcode(pVM);
     ring_vm_loadcfunctions(pRingState);
     /* Generate Items Array &  Hash Table */
@@ -304,6 +305,34 @@ void ring_vm_init ( RingState *pRingState )
         }
     }
     return ;
+}
+
+void ring_vm_defragmentation ( RingState *pRingState,VM *pVM )
+{
+    List *pRingFilesList  ;
+    /* Create Lists */
+    pVM->pFunctionsMap = ring_list_new(0) ;
+    pVM->pClassesMap = ring_list_new(0) ;
+    pVM->pPackagesMap = ring_list_new(0) ;
+    pRingFilesList = ring_list_new(0) ;
+    /* Copy Lists */
+    ring_list_copy(pVM->pFunctionsMap,pRingState->pRingFunctionsMap);
+    ring_list_copy(pVM->pClassesMap,pRingState->pRingClassesMap);
+    ring_list_copy(pVM->pPackagesMap,pRingState->pRingPackagesMap);
+    ring_list_copy(pRingFilesList,pRingState->pRingFilesList);
+    ring_list_delete_gc(pRingState,pRingState->pRingFunctionsMap);
+    ring_list_delete_gc(pRingState,pRingState->pRingClassesMap);
+    ring_list_delete_gc(pRingState,pRingState->pRingPackagesMap);
+    ring_list_delete_gc(pRingState,pRingState->pRingFilesList);
+    pRingState->pRingFunctionsMap = pVM->pFunctionsMap ;
+    pRingState->pRingClassesMap = pVM->pClassesMap ;
+    pRingState->pRingPackagesMap = pVM->pPackagesMap ;
+    pRingState->pRingFilesList = pRingFilesList ;
+    /* Update Pointers */
+    ring_objfile_updateclassespointers(pRingState);
+    /* Set the main File Name */
+    pVM->cFileName = ring_list_getstring(pVM->pRingState->pRingFilesList,1) ;
+    pVM->cPrevFileName = ring_list_getstring(pVM->pRingState->pRingFilesList,1) ;
 }
 /* ByteCode Functions */
 

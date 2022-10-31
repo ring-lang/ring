@@ -417,6 +417,8 @@
     void ring_vm_setreg1topointerfromstack ( VM *pVM ) ;
 
     void ring_vm_showbytecode ( VM *pVM ) ;
+
+    void ring_vm_defragmentation ( RingState *pRingState,VM *pVM ) ;
     /* Stack and Variables */
 
     void ring_vm_pushv ( VM *pVM ) ;
