@@ -13,22 +13,24 @@ int main ( int argc, char *argv[] )
     printf( "This was before we have a Compiler and a VM that we can run \n" ) ;
     printf( "Now we have a group of tests in ring/language/tests folder \n" ) ;
     printf( "Also we keep this file if we want to do some experiments! \n" ) ;
-    ring_section("Start of tests");
     ring_testallunits();
-    ring_section("End of tests");
     getchar();
 }
 /* Functions */
 
 void ring_testallunits ( void )
 {
+    ring_section("Start of tests");
     /* Test */
+    ring_section("Structures Size");
+    ring_structuressize();
     ring_section("Strings");
     ring_string_test();
     ring_section("Lists");
     ring_list_test();
     ring_section("HashTable");
     ring_hashtable_test();
+    ring_section("End of tests");
 }
 
 void ring_section ( const char *cTitle )
@@ -264,4 +266,23 @@ void ring_hashtable_test ( void )
     puts("\nDelete HashTable ");
     ring_hashtable_delete(pHashTable);
     puts("\nEnd of HashTable Test ");
+}
+
+void ring_structuressize ( void )
+{
+    printf( "Stucture (RingState) size: %d \n",sizeof(RingState) ) ;
+    printf( "Stucture (GCData) size: %d \n",sizeof(GCData) ) ;
+    printf( "Stucture (PoolData) size: %d \n",sizeof(PoolData) ) ;
+    printf( "Stucture (PoolManager) size: %d \n",sizeof(PoolManager) ) ;
+    printf( "Stucture (String) size: %d \n",sizeof(String) ) ;
+    printf( "Stucture (Item) size: %d \n",sizeof(Item) ) ;
+    printf( "Stucture (Items) size: %d \n",sizeof(Items) ) ;
+    printf( "Stucture (List) size: %d \n",sizeof(List) ) ;
+    printf( "Stucture (HashItem) size: %d \n",sizeof(HashItem) ) ;
+    printf( "Stucture (HashTable) size: %d \n",sizeof(HashTable) ) ;
+    printf( "Stucture (Scanner) size: %d \n",sizeof(Scanner) ) ;
+    printf( "Stucture (Parser) size: %d \n",sizeof(Parser) ) ;
+    printf( "Stucture (ByteCode) size: %d \n",sizeof(ByteCode) ) ;
+    printf( "Stucture (VMState) size: %d \n",sizeof(VMState) ) ;
+    printf( "Stucture (VM) size: %d \n",sizeof(VM) ) ;
 }
