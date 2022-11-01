@@ -419,6 +419,8 @@
     void ring_vm_showbytecode ( VM *pVM ) ;
 
     void ring_vm_defragmentation ( RingState *pRingState,VM *pVM ) ;
+
+    void ring_vm_updateclassespointers ( RingState *pRingState ) ;
     /* Stack and Variables */
 
     void ring_vm_pushv ( VM *pVM ) ;

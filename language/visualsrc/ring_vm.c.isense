@@ -465,6 +465,17 @@ nRunVM,nFreeFilesList
 ring_vm_defragmentation
 Type: List *
 pRingFilesList
+ring_vm_updateclassespointers
+Type: int
+x,x2,x3,x4,lFound
+Type: List *
+pList, *pList2, *pList3, *pPackageList
+Type: const char *
+cString
+Type: char
+cPackageName[400]
+Type: char
+cClassName[400]
 ring_vm_loadcode
 Type: int
 x,nSize
