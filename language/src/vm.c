@@ -260,7 +260,9 @@ void ring_vm_start ( RingState *pRingState,VM *pVM )
     pVM->pFunctionsMap = pRingState->pRingFunctionsMap ;
     pVM->pClassesMap = pRingState->pRingClassesMap ;
     pVM->pPackagesMap = pRingState->pRingPackagesMap ;
-    ring_vm_defragmentation(pRingState,pVM);
+    if ( pRingState->lRunFromObjectFile == 0 ) {
+        ring_vm_defragmentation(pRingState,pVM);
+    }
     ring_vm_loadcode(pVM);
     ring_vm_loadcfunctions(pRingState);
     /* Generate Items Array &  Hash Table */

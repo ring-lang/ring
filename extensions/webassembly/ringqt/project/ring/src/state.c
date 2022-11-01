@@ -52,6 +52,7 @@ RING_API RingState * ring_state_new ( void )
     pRingState->lCommentsAsTokens = 0 ;
     pRingState->nScannerError = 0 ;
     pRingState->nInstructionsCount = 0 ;
+    pRingState->lRunFromObjectFile = 0 ;
     return pRingState ;
 }
 
@@ -400,6 +401,7 @@ RING_API void ring_state_runobjectfile ( RingState *pRingState,char *cFileName )
     ring_list_addstring_gc(pRingState,pRingState->pRingFilesList,cFileName);
     ring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,cFileName);
     if ( ring_objfile_readfile(pRingState,cFileName) ) {
+        pRingState->lRunFromObjectFile = 1 ;
         ring_state_runprogram(pRingState);
     }
 }
@@ -412,6 +414,7 @@ RING_API void ring_state_runobjectstring ( RingState *pRingState,char *cString,c
     ring_list_addstring_gc(pRingState,pRingState->pRingFilesList,cFileName);
     ring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,cFileName);
     if ( ring_objfile_readstring(pRingState,cString) ) {
+        pRingState->lRunFromObjectFile = 1 ;
         ring_state_runprogram(pRingState);
     }
 }
