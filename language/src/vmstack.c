@@ -182,9 +182,14 @@ void ring_vm_assignment ( VM *pVM )
                 ring_list_setlist_gc(pVM->pRingState,pVar,RING_VAR_VALUE);
                 /* Copy The List */
                 if ( pList->lCopyByRef ) {
-                    pList->lCopyByRef = 0 ;
                     pVar = ring_list_getlist(pVar,RING_VAR_VALUE) ;
-                    ring_list_swaptwolists(pList,pVar);
+                    if ( ring_vm_oop_isobject(pList) ) {
+                        memcpy(pVar,pList,sizeof(List));
+                    }
+                    else {
+                        pList->lCopyByRef = 0 ;
+                        ring_list_swaptwolists(pVar,pList);
+                    }
                 }
                 else {
                     ring_vm_list_copy(pVM,ring_list_getlist(pVar,RING_VAR_VALUE),pList);
