@@ -546,6 +546,8 @@ void ring_vm_movetoprevscope ( VM *pVM )
     /* Get The Source List */
     if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
         pList = (List *) RING_VM_STACK_READP ;
+        if (pList->lCopyByRef) { pList->lCopyByRef=0; return; } 
+        
         if ( ring_list_islist(pList,RING_VAR_VALUE) ) {
             pList = ring_list_getlist(pList,RING_VAR_VALUE);
         }
@@ -556,6 +558,8 @@ void ring_vm_movetoprevscope ( VM *pVM )
     else if ( RING_VM_STACK_OBJTYPE ==RING_OBJTYPE_LISTITEM ) {
         pItem = (Item *) RING_VM_STACK_READP ;
         pList = ring_item_getlist(pItem);
+        if (pList->lCopyByRef) { pList->lCopyByRef=0; return; } 
+        
     }
     else {
         return ;
