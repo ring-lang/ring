@@ -546,8 +546,6 @@ void ring_vm_movetoprevscope ( VM *pVM )
     /* Get The Source List */
     if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
         pList = (List *) RING_VM_STACK_READP ;
-        if (pList->lCopyByRef) { pList->lCopyByRef=0; return; } 
-        
         if ( ring_list_islist(pList,RING_VAR_VALUE) ) {
             pList = ring_list_getlist(pList,RING_VAR_VALUE);
         }
@@ -558,8 +556,6 @@ void ring_vm_movetoprevscope ( VM *pVM )
     else if ( RING_VM_STACK_OBJTYPE ==RING_OBJTYPE_LISTITEM ) {
         pItem = (Item *) RING_VM_STACK_READP ;
         pList = ring_item_getlist(pItem);
-        if (pList->lCopyByRef) { pList->lCopyByRef=0; return; } 
-        
     }
     else {
         return ;
@@ -569,7 +565,18 @@ void ring_vm_movetoprevscope ( VM *pVM )
     ring_list_setlist_gc(pVM->pRingState,pList3,RING_VAR_VALUE);
     pList2 = ring_list_getlist(pList3,RING_VAR_VALUE);
     /* Copy the list */
-    ring_vm_list_copy(pVM,pList2,pList);
+    if ( pList->lCopyByRef ) {
+        pList->lCopyByRef = 0 ;
+        if ( ring_vm_oop_isobject(pList) ) {
+            memcpy(pList2,pList,sizeof(List));
+        }
+        else {
+            ring_list_swaptwolists(pList2,pList);
+        }
+    }
+    else {
+        ring_vm_list_copy(pVM,pList2,pList);
+    }
     /* Update self object pointer */
     if ( ring_vm_oop_isobject(pList2) ) {
         ring_vm_oop_updateselfpointer(pVM,pList2,RING_OBJTYPE_VARIABLE,pList3);
