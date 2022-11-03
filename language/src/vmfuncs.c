@@ -577,10 +577,10 @@ void ring_vm_movetoprevscope ( VM *pVM )
     }
     else {
         ring_vm_list_copy(pVM,pList2,pList);
-    }
-    /* Update self object pointer */
-    if ( ring_vm_oop_isobject(pList2) ) {
-        ring_vm_oop_updateselfpointer(pVM,pList2,RING_OBJTYPE_VARIABLE,pList3);
+        /* Update self object pointer */
+        if ( ring_vm_oop_isobject(pList2) ) {
+            ring_vm_oop_updateselfpointer(pVM,pList2,RING_OBJTYPE_VARIABLE,pList3);
+        }
     }
     RING_VM_STACK_SETPVALUE(pList3);
     RING_VM_STACK_OBJTYPE = RING_OBJTYPE_VARIABLE ;
