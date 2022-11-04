@@ -49,11 +49,18 @@ RING_API List * ring_list_new2_gc ( void *pState,List *pList,int nSize )
 
 RING_API List * ring_list_delete_gc ( void *pState,List *pList )
 {
+    /* Avoid deleting objects when the list is just a reference */
+    if ( pList->lCopyByRef ) {
+        if ( ring_list_isobject(pList) ) {
+            /* We don't delete the items because the List is just a reference */
+            ring_state_free(pState,pList);
+            return NULL ;
+        }
+    }
     /* Delete All Items */
     ring_list_deleteallitems_gc(pState,pList);
     ring_state_free(pState,pList);
-    pList = NULL ;
-    return pList ;
+    return NULL ;
 }
 
 RING_API void ring_list_copy_gc ( void *pState,List *pNewList, List *pList )

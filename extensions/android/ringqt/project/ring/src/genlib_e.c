@@ -1588,7 +1588,7 @@ void ring_vm_generallib_pointer2object ( void *pPointer )
     if ( ! RING_API_ISPOINTER(1) ) {
         RING_API_ERROR(RING_API_BADPARATYPE);
     }
-    RING_API_RETLIST((List *) RING_API_GETCPOINTER(1,"OBJECTPOINTER"));
+    RING_API_RETLISTBYREF((List *) RING_API_GETCPOINTER(1,"OBJECTPOINTER"));
 }
 
 void ring_vm_generallib_nullpointer ( void *pPointer )
