@@ -1,0 +1,29 @@
+Test the tree Class Methods
+************************************************************
+The first step
+one
+two
+2.1
+2.2
+2.3
+2.3.1
+2.3.2
+2.3.3
+three
+3.1
+3.2
+3.3
+************************************************************
+2.3.3
+2.3
+
+Another value!
+Let's modify the value!
+Using Pointer2Object() is fun!
+It's easy to modify the value
+two
+I was the first step
+I am still the first step!
+We can copy the first step by reference
+Delete the reference (This doesn't delete the real object)
+I am still the first step!
