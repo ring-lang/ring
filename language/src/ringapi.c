@@ -365,10 +365,8 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int lRef )
             memcpy(pRealList,pList,sizeof(List));
         }
         else {
-            ring_list_swaptwolists(pList,pRealList);
+            ring_list_swaptwolists(pRealList,pList);
         }
-        /* We set the lCopyByRef Flag for the Container (Variable) */
-        pVariableList->lCopyByRef = 1 ;
     }
     RING_API_PUSHPVALUE(pVariableList);
     RING_API_OBJTYPE = RING_OBJTYPE_VARIABLE ;
