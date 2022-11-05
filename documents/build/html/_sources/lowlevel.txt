@@ -7,6 +7,12 @@ Low Level Functions
 
 In this chapter we will learn about the low level functions provided by Ring
 
+It's not recommended to use these functions in your application code
+
+These functions exist for C/C++ developers who are developing Ring libraries/tools
+
+We expect from those developers to know about pointers and dynamic memory management
+
 .. code-block:: none
 
 	* callgarbagecollector()| callgc()
