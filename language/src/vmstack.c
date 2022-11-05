@@ -184,6 +184,7 @@ void ring_vm_assignment ( VM *pVM )
                 if ( pList->lCopyByRef ) {
                     pVar = ring_list_getlist(pVar,RING_VAR_VALUE) ;
                     if ( ring_vm_oop_isobject(pList) ) {
+                        pList->lCopyByRef++ ;
                         memcpy(pVar,pList,sizeof(List));
                     }
                     else {

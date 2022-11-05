@@ -18,7 +18,7 @@ Type: struct Item *
 pItemBlock
 Type: struct Items *
 pItemsBlock
-Type: unsigned char
+Type: unsigned int
 lCopyByRef
 END:
 Type: List

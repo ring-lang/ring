@@ -379,6 +379,7 @@ void ring_vm_listassignment ( VM *pVM )
         ring_list_deleteallitems_gc(pVM->pRingState,pList);
         if ( pVar->lCopyByRef ) {
             if ( ring_vm_oop_isobject(pVar) ) {
+                pVar->lCopyByRef++ ;
                 memcpy(pList,pVar,sizeof(List));
             }
             else {
