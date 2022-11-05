@@ -189,6 +189,7 @@ More Improvements
 * Ring Compiler - ring_parser_epsilon() function - Better Code
 * Ring Compiler - Support (**) and (^^) as the power operator
 * Ring Compiler - Automatic loading for the syntax file (ringsyntax.ring)
+* Ring Compiler - Support running source code files with any extension 
 * Ring API - RING_API_GETINTPOINTER - Better code when passing integer pointer
 * Ring API - Added: RING_API_GETFLOATPOINTER(nParameter)
 * Ring API - Added: RING_API_ACCEPTFLOATVALUE(nParameter)
