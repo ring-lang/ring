@@ -227,8 +227,8 @@ Syntax:
 
 .. code-block:: ring
 
-	ptr2obj(Low Level Object) ---> List|Object		# Short name
-	pointer2object(Low Level Object) ---> List|Object	# Long name	
+	ptr2obj(Low Level Object) ---> ListCopy|ObjectReference		# Short name
+	pointer2object(Low Level Object) ---> ListCopy|ObjectReference	# Long name	
 
 
 .. note:: You have to be sure that the Pointer still valid (Doesn't point to deallocated memory)
@@ -250,8 +250,9 @@ Example:
 	# Add items to the list
 	mylist + "welcome"
 
-	# print the list items
+	# Get a copy from the list
 	y = pointer2object(x)
+	# print the new list items
 	see y 
 
 Output:
@@ -269,7 +270,7 @@ Output:
 	5
 	welcome
 
-.. note:: In Ring the assignment operator copy lists and objects by value, to copy by reference
+.. note:: In Ring the assignment operator copy lists and objects by value, to copy Objects by reference
 	Just use the object2pointer() and pointer2object() functions.
 
 .. tip:: The object2pointer() and pointer2object() are used in the stdlib - Tree Class implementation
