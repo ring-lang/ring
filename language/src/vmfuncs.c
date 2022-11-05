@@ -565,13 +565,13 @@ void ring_vm_movetoprevscope ( VM *pVM )
     ring_list_setlist_gc(pVM->pRingState,pList3,RING_VAR_VALUE);
     pList2 = ring_list_getlist(pList3,RING_VAR_VALUE);
     /* Copy the list */
-    if ( pList->lCopyByRef ) {
+    if ( pList->nCopyByRef ) {
         if ( ring_vm_oop_isobject(pList) ) {
-            /* Here we keep lCopyByRef = 1 to avoid deleting the object */
+            /* Here we keep nCopyByRef = 1 to avoid deleting the object */
             memcpy(pList2,pList,sizeof(List));
         }
         else {
-            pList->lCopyByRef = 0 ;
+            pList->nCopyByRef = 0 ;
             ring_list_swaptwolists(pList2,pList);
         }
     }
