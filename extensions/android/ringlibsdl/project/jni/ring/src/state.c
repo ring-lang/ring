@@ -188,8 +188,14 @@ RING_API void ring_state_main ( int argc, char *argv[] )
             }
             else {
                 if ( nSRC == 0 ) {
-                    ring_general_printline();
-                    printf( "WARNING: Unrecognized option: %s\n",argv[x] ) ;
+                    if ( ring_general_fexists(argv[x]) ) {
+                        cStr = argv[x] ;
+                        nSRC = 1 ;
+                    }
+                    else {
+                        ring_general_printline();
+                        printf( "WARNING: Unrecognized option: %s\n",argv[x] ) ;
+                    }
                 }
             }
         }
@@ -253,11 +259,11 @@ RING_API void ring_state_execute ( char *cFileName, int nISCGI,int nRun,int nPri
     pRingState->nWarning = nWarn ;
     pRingState->argc = argc ;
     pRingState->argv = argv ;
-    if ( ring_general_issourcefile(cFileName) ) {
-        ring_state_runfile(pRingState,cFileName);
+    if ( ring_general_isobjectfile(cFileName) ) {
+        ring_state_runobjectfile(pRingState,cFileName);
     }
     else {
-        ring_state_runobjectfile(pRingState,cFileName);
+        ring_state_runfile(pRingState,cFileName);
     }
     ring_state_delete(pRingState);
 }
