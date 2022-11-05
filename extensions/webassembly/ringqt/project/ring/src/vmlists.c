@@ -377,12 +377,13 @@ void ring_vm_listassignment ( VM *pVM )
         ring_item_settype_gc(pVM->pRingState,pItem,ITEMTYPE_LIST);
         pList = ring_item_getlist(pItem);
         ring_list_deleteallitems_gc(pVM->pRingState,pList);
-        if ( pVar->lCopyByRef ) {
+        if ( pVar->nCopyByRef ) {
             if ( ring_vm_oop_isobject(pVar) ) {
+                pVar->nCopyByRef++ ;
                 memcpy(pList,pVar,sizeof(List));
             }
             else {
-                pVar->lCopyByRef = 0 ;
+                pVar->nCopyByRef = 0 ;
                 ring_list_swaptwolists(pList,pVar);
             }
         }

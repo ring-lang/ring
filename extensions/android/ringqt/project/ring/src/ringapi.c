@@ -354,15 +354,15 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int lRef )
     else {
         if ( ring_vm_oop_isobject(pList) ) {
             /*
-            **  Using lCopyByRef will avoid deleting the List items when using ring_list_delete 
-            **  This is important to avoid deleting the object that we don't own (We just have a reference) 
-            */
-            pList->lCopyByRef = 1 ;
-            /*
             **  Here we don't use swaptwolists, because the List is an object reference 
             **  And we want to keep the original object 
             */
             memcpy(pRealList,pList,sizeof(List));
+            /*
+            **  Using nCopyByRef will avoid deleting the List items when using ring_list_delete 
+            **  This is important to avoid deleting the object that we don't own (We just have a reference) 
+            */
+            pRealList->nCopyByRef++ ;
         }
         else {
             ring_list_swaptwolists(pRealList,pList);

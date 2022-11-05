@@ -12,7 +12,7 @@
         struct HashTable *pHashTable  ;
         struct Item *pItemBlock  ;
         struct Items *pItemsBlock  ;
-        unsigned char lCopyByRef  ;
+        unsigned int nCopyByRef  ;
     } List ;
     /* Constants */
     #define RING_LISTOFOBJS_FINDSTRING 1

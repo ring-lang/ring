@@ -43,19 +43,18 @@ RING_API List * ring_list_new2_gc ( void *pState,List *pList,int nSize )
     pList->pHashTable = NULL ;
     pList->pItemBlock = NULL ;
     pList->pItemsBlock = NULL ;
-    pList->lCopyByRef = 0 ;
+    pList->nCopyByRef = 0 ;
     return pList ;
 }
 
 RING_API List * ring_list_delete_gc ( void *pState,List *pList )
 {
     /* Avoid deleting objects when the list is just a reference */
-    if ( pList->lCopyByRef ) {
-        if ( ring_list_isobject(pList) ) {
-            /* We don't delete the items because the List is just a reference */
-            ring_state_free(pState,pList);
-            return NULL ;
-        }
+    if ( pList->nCopyByRef ) {
+        pList->nCopyByRef-- ;
+        /* We don't delete the items because the List is just a reference */
+        ring_state_free(pState,pList);
+        return NULL ;
     }
     /* Delete All Items */
     ring_list_deleteallitems_gc(pState,pList);
@@ -135,7 +134,7 @@ RING_API void ring_list_deleteallitems_gc ( void *pState,List *pList )
         ring_state_free(pState,pList->pItemsBlock);
         pList->pItemsBlock = NULL ;
     }
-    pList->lCopyByRef = 0 ;
+    pList->nCopyByRef = 0 ;
 }
 
 RING_API void ring_list_copy_tohighlevel_gc ( void *pState,List *pNewList, List *pList )
