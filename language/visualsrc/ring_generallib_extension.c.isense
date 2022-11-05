@@ -247,6 +247,8 @@ ring_vm_generallib_object2pointer
 Type: List *
 pList
 ring_vm_generallib_pointer2object
+Type: List *
+pList
 ring_vm_generallib_nullpointer
 ring_vm_generallib_space
 Type: char *

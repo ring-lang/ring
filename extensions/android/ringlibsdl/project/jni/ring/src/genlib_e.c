@@ -1581,6 +1581,7 @@ void ring_vm_generallib_object2pointer ( void *pPointer )
 
 void ring_vm_generallib_pointer2object ( void *pPointer )
 {
+    List *pList  ;
     if ( RING_API_PARACOUNT != 1 ) {
         RING_API_ERROR(RING_API_MISS1PARA);
         return ;
@@ -1588,7 +1589,13 @@ void ring_vm_generallib_pointer2object ( void *pPointer )
     if ( ! RING_API_ISPOINTER(1) ) {
         RING_API_ERROR(RING_API_BADPARATYPE);
     }
-    RING_API_RETLISTBYREF((List *) RING_API_GETCPOINTER(1,"OBJECTPOINTER"));
+    pList = (List *) RING_API_GETCPOINTER(1,"OBJECTPOINTER") ;
+    if ( ring_vm_oop_isobject(pList) ) {
+        RING_API_RETLISTBYREF(pList);
+    }
+    else {
+        RING_API_RETLIST(pList);
+    }
 }
 
 void ring_vm_generallib_nullpointer ( void *pPointer )
