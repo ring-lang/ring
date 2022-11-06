@@ -123,6 +123,11 @@ Type: Item *
 pItem
 Type: List *
 pList2
+ring_list_setlistbyref_gc
+Type: List *
+pRealList
+Type: Item *
+pItem
 ring_list_setfuncpointer_gc
 Type: Item *
 pItem

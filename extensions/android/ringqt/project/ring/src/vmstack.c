@@ -184,9 +184,7 @@ void ring_vm_assignment ( VM *pVM )
                 if ( pList->nCopyByRef ) {
                     pList2 = ring_list_getlist(pVar,RING_VAR_VALUE) ;
                     if ( ring_vm_oop_isobject(pList) ) {
-                        ring_state_free(pVM->pRingState,pList2);
-                        ring_list_getitem(pVar,RING_VAR_VALUE)->data.pList = pList ;
-                        pList->nCopyByRef++ ;
+                        ring_list_setlistbyref_gc(pVM->pRingState,pVar,RING_VAR_VALUE,pList);
                     }
                     else {
                         pList->nCopyByRef = 0 ;

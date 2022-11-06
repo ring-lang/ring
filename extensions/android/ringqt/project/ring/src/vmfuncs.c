@@ -567,9 +567,7 @@ void ring_vm_movetoprevscope ( VM *pVM )
     /* Copy the list */
     if ( pList->nCopyByRef ) {
         if ( ring_vm_oop_isobject(pList) ) {
-            ring_state_free(pVM->pRingState,pList2);
-            ring_list_getitem(pList3,RING_VAR_VALUE)->data.pList = pList ;
-            pList->nCopyByRef++ ;
+            ring_list_setlistbyref_gc(pVM->pRingState,pList3,RING_VAR_VALUE,pList);
         }
         else {
             pList->nCopyByRef = 0 ;

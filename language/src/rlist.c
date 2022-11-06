@@ -472,6 +472,21 @@ RING_API List * ring_list_getlist ( List *pList, int index )
     pList2 = ring_item_getlist(pItem);
     return pList2 ;
 }
+
+RING_API void ring_list_setlistbyref_gc ( void *pState,List *pList, int index,List *pRef )
+{
+    List *pRealList  ;
+    Item *pItem  ;
+    /* Setting the list could be unnecessary but, we do this to have a solid function */
+    ring_list_setlist_gc(pState,pList,index);
+    /* Free the old list (We expect that it's an empty list) */
+    pRealList = ring_list_getlist(pList,index);
+    ring_state_free(pState,pRealList);
+    /* Set the Item as a List reference */
+    pItem = ring_list_getitem(pList,index);
+    pItem->data.pList = pRef ;
+    pRef->nCopyByRef++ ;
+}
 /* Function Pointers */
 
 RING_API void ring_list_setfuncpointer_gc ( void *pState,List *pList, int index ,void (*pFunc)(void *) )

@@ -89,6 +89,8 @@
 
     RING_API List * ring_list_getlist ( List *pList, int index ) ;
 
+    RING_API void ring_list_setlistbyref_gc ( void *pState,List *pList, int index,List *pRef ) ;
+
     RING_API void ring_list_copy_gc ( void *pState,List *pNewList, List *pList ) ;
 
     RING_API int ring_list_isnumber ( List *pList, int index ) ;
