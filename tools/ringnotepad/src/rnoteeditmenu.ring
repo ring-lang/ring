@@ -126,19 +126,8 @@ class RNoteEditMenu
 		})
 
 	func UpdateSelectedText fFunction
-		oCursor = textedit1.textCursor()
-		nStart = oCursor.SelectionStart() + 1
-		nEnd = oCursor.SelectionEnd() + 1
-		cStr = textedit1.toPlainText()
-		cNewStr = ""
-		if nStart > 1
-			cNewStr += left(cStr,nStart-1)
+		seltext = textedit1.textCursor().selectedtext()
+		if len(seltext) > 0
+			textedit1.textcursor().insertText(call fFunction(seltext))
 		ok
-
-		cNewStr2 = substr(cStr,nStart,nEnd-nStart)
-		cNewStr += call fFunction(cNewStr2)
-
-		if nEnd < len(cStr)
-			cNewStr += substr(cStr,nEnd)
-		ok
-		textedit1.setPlainText(cNewStr)
+		
