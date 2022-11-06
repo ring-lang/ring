@@ -127,6 +127,7 @@ class RNoteEditMenu
 
 	func UpdateSelectedText fFunction
 		seltext = textedit1.textCursor().selectedtext()
+		seltext = substr(seltext, char(226) + char(128) + char(169), char(10))      # This line corrects chars of EOL caused by selectedtext()
 		if len(seltext) > 0
 			textedit1.textcursor().insertText(call fFunction(seltext))
 		ok
