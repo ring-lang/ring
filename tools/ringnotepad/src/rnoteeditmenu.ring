@@ -108,15 +108,18 @@ class RNoteEditMenu
 	func CommentLines
 		UpdateSelectedText(func cData {
 			aList = str2list(cData)
-			for cItem in aList
-				if len(cItem) > 3
-					if cItem[1] = '/' and cItem[2] = '/'
-						cItem = substr(cItem, 4)
-						loop
-					ok
+		if cData[len(cData)] = char(10)
+			aList + ""      # This check to overcome trimming of EOL by str2list() function
+		ok
+		for cItem in aList
+			if len(cItem) > 1
+				if cItem[1] = '/' and cItem[2] = '/'
+					cItem = substr(cItem, 3)
+					loop
 				ok
-				cItem = "// " + cItem
-			next
+			ok
+			cItem = "//" + cItem
+		next
 			return list2str(aList)
 		})
 
