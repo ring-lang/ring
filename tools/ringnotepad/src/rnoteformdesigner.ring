@@ -45,10 +45,10 @@ class RNoteFormDesigner
 			nPos = substr(cStr,"func " + cFunctionName)
 		if nPos = 0
 			# Create the Event Code
-				cStr += WindowsNL() + 
+				cStr = WindowsNL() + 
 					Tab + "func " + cFunctionName + WindowsNL() +
 					Tab + Tab + "oView {" + WindowsNL() +
 					Tab + Tab + Tab + WindowsNL() + 
 					Tab + Tab + "}" + WindowsNL()
-				textedit1.setPlainText(cStr)
+				textedit1.appendPlainText(cStr)
 		ok
