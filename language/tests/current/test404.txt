@@ -1,0 +1,40 @@
+************************************************************
+The Tree is deleted
+We have a reference to the first node!
+The first step - 1
+************************************************************
+The Tree is deleted
+We have a reference to the first node!
+The first step - 2
+************************************************************
+The Tree is deleted
+We have a reference to the first node!
+The first step - 3
+************************************************************
+The Tree is deleted
+We have a reference to the first node!
+The first step - 4
+************************************************************
+The Tree is deleted
+We have a reference to the first node!
+The first step - 5
+************************************************************
+The Tree is deleted
+We have a reference to the first node!
+The first step - 6
+************************************************************
+The Tree is deleted
+We have a reference to the first node!
+The first step - 7
+************************************************************
+The Tree is deleted
+We have a reference to the first node!
+The first step - 8
+************************************************************
+The Tree is deleted
+We have a reference to the first node!
+The first step - 9
+************************************************************
+The Tree is deleted
+We have a reference to the first node!
+The first step - 10
