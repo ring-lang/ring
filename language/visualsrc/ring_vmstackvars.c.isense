@@ -10,7 +10,7 @@ pVar, *pList
 ring_vm_loadaddress
 ring_vm_assignment
 Type: List *
-pVar,*pList
+pVar,*pList, *pList2
 Type: String *
 cStr1, *pString
 Type: double

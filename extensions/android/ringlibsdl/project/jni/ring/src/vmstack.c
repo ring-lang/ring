@@ -99,7 +99,7 @@ void ring_vm_loadaddress ( VM *pVM )
 
 void ring_vm_assignment ( VM *pVM )
 {
-    List *pVar,*pList  ;
+    List *pVar,*pList, *pList2  ;
     String *cStr1, *pString  ;
     double nNum1  ;
     Item *pItem  ;
@@ -182,14 +182,15 @@ void ring_vm_assignment ( VM *pVM )
                 ring_list_setlist_gc(pVM->pRingState,pVar,RING_VAR_VALUE);
                 /* Copy The List */
                 if ( pList->nCopyByRef ) {
-                    pVar = ring_list_getlist(pVar,RING_VAR_VALUE) ;
+                    pList2 = ring_list_getlist(pVar,RING_VAR_VALUE) ;
                     if ( ring_vm_oop_isobject(pList) ) {
+                        ring_state_free(pVM->pRingState,pList2);
+                        ring_list_getitem(pVar,RING_VAR_VALUE)->data.pList = pList ;
                         pList->nCopyByRef++ ;
-                        memcpy(pVar,pList,sizeof(List));
                     }
                     else {
                         pList->nCopyByRef = 0 ;
-                        ring_list_swaptwolists(pVar,pList);
+                        ring_list_swaptwolists(pList2,pList);
                     }
                 }
                 else {

@@ -51,9 +51,8 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
 {
     /* Avoid deleting objects when the list is just a reference */
     if ( pList->nCopyByRef ) {
+        /* We don't delete the list because there are other references */
         pList->nCopyByRef-- ;
-        /* We don't delete the items because the List is just a reference */
-        ring_state_free(pState,pList);
         return NULL ;
     }
     /* Delete All Items */

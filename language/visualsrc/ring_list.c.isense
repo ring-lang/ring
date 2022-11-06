@@ -19,7 +19,7 @@ pItemBlock
 Type: struct Items *
 pItemsBlock
 Type: unsigned int
-lCopyByRef
+nCopyByRef
 END:
 Type: List
 struct List
