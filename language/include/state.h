@@ -64,8 +64,12 @@
         unsigned int lNotCaseSensitive : 1  ;
         /* Flag (Comments As Tokens From Scanner) */
         unsigned int lCommentsAsTokens : 1  ;
+        /* Flag to know if we are running from Object File (RINGO file) */
+        unsigned int lRunFromObjectFile : 1  ;
         /* Scanner Error Code */
         unsigned int nScannerError  ;
+        /* VM Instructions Count */
+        int nInstructionsCount  ;
     } RingState ;
     /* Constants */
     #define RING_STATE_VERSION "1.18"

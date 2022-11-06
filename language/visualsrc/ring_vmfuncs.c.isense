@@ -45,7 +45,9 @@ Type: List *
 pList,*pList2,*pList3
 ring_vm_createtemplist
 Type: List *
-pList
+pList, *pList2
+Type: int
+x,lFound
 ring_vm_saveloadaddressscope
 ring_vm_restoreloadaddressscope
 ring_vm_anonymous
@@ -62,3 +64,7 @@ Type: List *
 pTempMem
 Type: int
 x,nStart
+ring_vm_endfuncexec
+ring_vm_retitemref
+Type: List *
+pList

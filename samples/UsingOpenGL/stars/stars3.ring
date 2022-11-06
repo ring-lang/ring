@@ -13,7 +13,7 @@ al_init_image_addon()
 
 al_set_new_display_flags(ALLEGRO_OPENGL) 
 display = al_create_display(800,600)
-al_set_Window_title(display,"Ring Cube")
+al_set_Window_title(display,"Stars")
 al_clear_to_color(al_map_rgb(0,0,255))
 
 

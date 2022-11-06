@@ -159,7 +159,12 @@ RING_API void * ring_vm_api_varptr ( void *pPointer,const char  *cStr,const char
             return &(pItem->data.dNumber) ;
         }
         else if ( strcmp(cStr2,"int") == 0 ) {
+            pItem->data.iNumber = (int) pItem->data.dNumber ;
             return &(pItem->data.iNumber) ;
+        }
+        else if ( strcmp(cStr2,"float") == 0 ) {
+            pItem->data.fNumber = (float) pItem->data.dNumber ;
+            return &(pItem->data.fNumber) ;
         }
     }
     else if ( ring_list_getint(pList,RING_VAR_TYPE) == RING_VM_STRING ) {
@@ -169,7 +174,7 @@ RING_API void * ring_vm_api_varptr ( void *pPointer,const char  *cStr,const char
     return NULL ;
 }
 
-RING_API void ring_vm_api_intvalue ( void *pPointer,const char  *cStr )
+RING_API void ring_vm_api_varvalue ( void *pPointer,const char  *cStr,int nType )
 {
     VM *pVM  ;
     List *pList, *pActiveMem  ;
@@ -196,7 +201,12 @@ RING_API void ring_vm_api_intvalue ( void *pPointer,const char  *cStr )
     RING_VM_STACK_POP ;
     if ( ring_list_getint(pList,RING_VAR_TYPE) == RING_VM_NUMBER ) {
         pItem = ring_list_getitem(pList,RING_VAR_VALUE);
-        pItem->data.dNumber = (double) pItem->data.iNumber ;
+        if ( nType == 1 ) {
+            pItem->data.dNumber = (double) pItem->data.iNumber ;
+        }
+        else {
+            pItem->data.dNumber = (double) pItem->data.fNumber ;
+        }
     }
 }
 
@@ -215,13 +225,7 @@ RING_API void ring_list_addcpointer ( List *pList,void *pGeneral,const char *cTy
 
 RING_API int ring_vm_api_iscpointerlist ( List *pList )
 {
-    if ( ring_list_getsize(pList) != 3 ) {
-        return 0 ;
-    }
-    if ( ring_list_ispointer(pList,1) && ring_list_isstring(pList,2) && ring_list_isnumber(pList,3) ) {
-        return 1 ;
-    }
-    return 0 ;
+    return ring_list_iscpointerlist(pList) ;
 }
 
 RING_API int ring_vm_api_iscpointer ( void *pPointer,int x )
@@ -242,12 +246,7 @@ RING_API int ring_vm_api_isobject ( void *pPointer,int x )
 
 RING_API int ring_vm_api_cpointercmp ( List *pList,List *pList2 )
 {
-    if ( ring_list_getpointer(pList,RING_CPOINTER_POINTER) == ring_list_getpointer(pList2,RING_CPOINTER_POINTER) ) {
-        return 1 ;
-    }
-    else {
-        return 0 ;
-    }
+    return ring_list_cpointercmp(pList,pList2) ;
 }
 
 RING_API int ring_vm_api_ispointer ( void *pPointer,int x )
@@ -353,10 +352,27 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int lRef )
         ring_vm_list_copy((VM *) pPointer,pRealList,pList);
     }
     else {
-        ring_list_swaptwolists(pList,pRealList);
-        /* We set the lCopyByRef Flag for the Container (Variable) - Not for the Inner List */
-        pVariableList->lCopyByRef = 1 ;
+        if ( ring_vm_oop_isobject(pList) ) {
+            /*
+            **  Here we don't use swaptwolists, because the List is an object reference 
+            **  And we want to keep the original object 
+            */
+            ring_list_setlistbyref_gc(((VM *) pPointer)->pRingState,pVariableList,RING_VAR_VALUE,pList);
+        }
+        else {
+            ring_list_swaptwolists(pRealList,pList);
+        }
     }
     RING_API_PUSHPVALUE(pVariableList);
     RING_API_OBJTYPE = RING_OBJTYPE_VARIABLE ;
+}
+
+RING_API void ring_vm_api_intvalue ( void *pPointer,const char  *cStr )
+{
+    ring_vm_api_varvalue(pPointer,cStr,1);
+}
+
+RING_API void ring_vm_api_floatvalue ( void *pPointer,const char  *cStr )
+{
+    ring_vm_api_varvalue(pPointer,cStr,2);
 }

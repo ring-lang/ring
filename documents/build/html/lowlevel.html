@@ -235,6 +235,7 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew15.html">Release Notes: Version 1.15</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew17.html">Release Notes: Version 1.17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew18.html">Release Notes: Version 1.18</a></li>
 <li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
@@ -307,6 +308,9 @@
   <div class="section" id="low-level-functions">
 <span id="index-0"></span><h1>Low Level Functions<a class="headerlink" href="#low-level-functions" title="Permalink to this headline">¶</a></h1>
 <p>In this chapter we will learn about the low level functions provided by Ring</p>
+<p>It’s not recommended to use these functions in your application code</p>
+<p>These functions exist for C/C++ developers who are developing Ring libraries/tools</p>
+<p>We expect from those developers to know about pointers and dynamic memory management</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* callgarbagecollector()| callgc()
 * variablepointer()     | varptr()
 * space()
@@ -485,8 +489,8 @@ Also the function accept NULL pointers, so we can pass them using the NULLPointe
 <span id="index-6"></span><h2>pointer2object() function<a class="headerlink" href="#pointer2object-function" title="Permalink to this headline">¶</a></h2>
 <p>Use this function to get the Ring list and/or object from the low level object (C Pointer)</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ptr2obj</span><span class="p">(</span><span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span><span class="o">|</span><span class="n">Object</span>              <span class="c"># Short name</span>
-<span class="n">pointer2object</span><span class="p">(</span><span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span><span class="o">|</span><span class="n">Object</span>       <span class="c"># Long name</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ptr2obj</span><span class="p">(</span><span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">ListCopy</span><span class="o">|</span><span class="n">ObjectReference</span>         <span class="c"># Short name</span>
+<span class="n">pointer2object</span><span class="p">(</span><span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">ListCopy</span><span class="o">|</span><span class="n">ObjectReference</span>  <span class="c"># Long name</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -506,8 +510,9 @@ Also the function accept NULL pointers, so we can pass them using the NULLPointe
 <span class="c"># Add items to the list</span>
 <span class="n">mylist</span> <span class="o">+</span> <span class="s">&quot;welcome&quot;</span>
 
-<span class="c"># print the list items</span>
+<span class="c"># Get a copy from the list</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">pointer2object</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c"># print the new list items</span>
 <span class="k">see</span> <span class="n">y</span>
 </pre></div>
 </div>
@@ -526,7 +531,7 @@ welcome
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In Ring the assignment operator copy lists and objects by value, to copy by reference
+<p>In Ring the assignment operator copy lists and objects by value, to copy Objects by reference
 Just use the object2pointer() and pointer2object() functions.</p>
 </div>
 <div class="admonition tip">

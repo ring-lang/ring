@@ -14,8 +14,7 @@ lTrackMoves =  False	 ### True = Knight / False = SolidColor
 ###-------------------
 ### WINDOW SIZE
 
-moveX  = 200 moveY	= 100		### Open Window on Screen Position
-sizeX  = 800 sizeY	= 820		### Size of Window
+sizeX  = 800 sizeY	= 600		### Size of Window
 
 hSize	= 8 +2 +2	### Size of array, Display -4 smaller
 vSize	= 8 +2 +2	### Size of array, Display -4 smaller
@@ -39,14 +38,18 @@ LayoutButtonRow			= null
  
 Knight	  = AppFile("knight.png")
 oKnight	  = new QPixmap(Knight)
-bWidth	  = oKnight.width()	  ### 50 
-bHeight	  = oKnight.height()	  ### 50
+bWidth	  = oKnight.width()	  	### 50 
+bHeight	  = oKnight.height()	### 50
 nMoves	  = 0 
 
 oldH = 0
 oldV = 0
  
 C_Spacing  = 2
+C_ButtonIconWidth  = 60
+C_ButtonIconHeight = 60
+C_ButtonMinWidth   = 80
+C_ButtonMinHeight  = 80
 C_ButtonFirstStyle	= 'border-radius:1px; color:black; background-color: rgb(229,249,203) ;'+
 			  'border-style: outset; border-width: 2px; border-radius: 2px; border-color: gray;'
 C_ButtonSecondStyle	= 'border-radius:1px; color:black; background-color: rgb(179,200,93); '+
@@ -98,7 +101,6 @@ Func DrawWidget()
 		workHeight = workWidget.height()
 		fontSize   = 8 + (workHeight / 100)
 		
-		  move(moveX, moveY)
 		resize(sizeX, sizeY)
 	 
 
@@ -219,7 +221,9 @@ Func DrawWidget()
 						ok
 						setClickEvent("UserLeftClick(" + string(Row) +
 								 "," + string(Col) + ")")	
-						setSizePolicy(1,1)									
+						setSizePolicy(1,1)		
+						setMinimumWidth(C_ButtonMinWidth)
+						setMinimumHeight(C_ButtonMinHeight)														
 					}
 					
 				### Widget - Add HORIZONTAL BUTTON
@@ -356,15 +360,16 @@ Func ClearOldMove()
 				nImageHeight = Height() - 65	
 				oMine = new qpixmap(Knight)
 				setIcon(new qIcon(oMine))
-				setIconSize(new qSize(nImageWidth, nImageHeight))
 				setFont(new qFont("Calibri",14,100,0))
-				setText(""+ nMoves)			
+				setText(""+ nMoves)		
+				setIconSize(new qSize(C_ButtonIconWidth, C_ButtonIconHeight))	
 			else								### False show Solid Color
 				oMine = new qpixmap2(0,0)
 				setIcon(new qIcon(oMine))
 				setStylesheet("background-color:rgb(64,128,128);")	### Color blind people have problem with rgb(0,255,100);") 
 				setFont(new qFont("Calibri",14,100,0))
 				setText(""+ nMoves)
+				setIconSize(new qSize(C_ButtonIconWidth, C_ButtonIconHeight))
 			ok
 		}	
 	ok
@@ -408,9 +413,9 @@ Func NewLocation(h,v)
 			nImageWidth	 = Width()	-24
 			nImageHeight = Height() -24		
 			oMine = new qpixmap(Knight)
-			oMine = oMine.scaled(nImageWidth , nImageHeight ,0,0)
+			//oMine = oMine.scaled(nImageWidth , nImageHeight ,0,0)
 			setIcon(new qIcon(oMine))
-			setIconSize(new qSize(nImageWidth, nImageHeight))
+			setIconSize(new qSize(C_ButtonIconWidth, C_ButtonIconHeight))
 		}		
 	
 

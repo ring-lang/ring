@@ -277,6 +277,51 @@ void ring_vm_neg ( VM *pVM )
         ring_vm_expr_npoo(pVM,"neg",0);
     }
 }
+
+void ring_vm_pow ( VM *pVM )
+{
+    double nNum1=0,nNum2=0  ;
+    String *cStr1  ;
+    RING_LIST_CHECKOPERATIONONSUBLIST ;
+    if ( RING_VM_STACK_ISNUMBER ) {
+        nNum1 = RING_VM_STACK_READN ;
+        RING_VM_STACK_POP ;
+        if ( RING_VM_STACK_ISNUMBER ) {
+            nNum2 = RING_VM_STACK_READN ;
+        }
+        else if ( RING_VM_STACK_ISSTRING ) {
+            nNum2 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
+        }
+        else if ( RING_VM_STACK_ISPOINTER ) {
+            ring_vm_expr_npoo(pVM,"**",nNum1);
+            return ;
+        }
+    }
+    else if ( RING_VM_STACK_ISSTRING ) {
+        cStr1 = RING_VM_STACK_GETSTRINGRAW ;
+        if ( ! RING_VM_STACK_ISPOINTERVALUE(pVM->nSP-1) ) {
+            nNum1 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
+        }
+        RING_VM_STACK_POP ;
+        if ( RING_VM_STACK_ISSTRING ) {
+            nNum2 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
+        }
+        else if ( RING_VM_STACK_ISNUMBER ) {
+            nNum2 = RING_VM_STACK_READN ;
+        }
+        else if ( RING_VM_STACK_ISPOINTER ) {
+            ring_vm_expr_spoo(pVM,"**",ring_string_get(cStr1),ring_string_size(cStr1));
+            return ;
+        }
+    }
+    else if ( RING_VM_STACK_ISPOINTER ) {
+        ring_vm_expr_ppoo(pVM,"**");
+        return ;
+    }
+    /* Check Overflow */
+    if ( ring_vm_checkoverflow(pVM,nNum1,nNum2)  ) return ;
+    RING_VM_STACK_SETNVALUE(pow(nNum2,nNum1));
+}
 /*
 **  compare 
 **  Here the conversion to string/number before comparing is not important 
@@ -987,31 +1032,7 @@ void ring_vm_bitnot ( VM *pVM )
 
 RING_API char * ring_vm_numtostring ( VM *pVM,double nNum1,char *cStr )
 {
-    char cOptions[10]  ;
-    int nNum2  ;
-    RING_LONGLONG nVal  ;
-    nVal = (RING_LONGLONG) nNum1 ;
-    if ( (nNum1 == nVal) && (nVal >= RING_LONGLONG_LOWVALUE && nVal <= RING_LONGLONG_HIGHVALUE) ) {
-        sprintf(cStr , RING_LONGLONG_FORMAT , nVal);
-    }
-    else {
-        sprintf( cOptions , "%s%df" , "%.",pVM->nDecimals ) ;
-        #if RING_MSDOS
-            sprintf(cStr, cOptions, nNum1);
-        #else
-            /* Avoid buffer overrun by using snprint() function */
-            nNum2 = snprintf(cStr , 100, cOptions , nNum1);
-            if ( nNum2 >= 100 ) {
-                /* Result truncated so print in compact format with a precision of 90 */
-                nNum2 = snprintf(cStr , 100, "%.90e" , nNum1);
-            }
-            if ( nNum2 < 0 ) {
-                /* Error */
-                cStr[0] = 0 ;
-            }
-        #endif
-    }
-    return cStr ;
+    return ring_general_numtostring(nNum1,cStr,pVM->nDecimals) ;
 }
 
 RING_API double ring_vm_stringtonum ( VM *pVM,const char *cStr )

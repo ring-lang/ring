@@ -1,6 +1,6 @@
 ring_vmgcdata
 Parent: GCData
-Type: int
+Type: unsigned int
 nReferenceCount
 END:
 Type: GCData
@@ -16,7 +16,7 @@ RING_USEPOOLMANAGER
 RING_USEPOOLMANAGER
 RING_TRACKALLOCATIONS
 RING_POOLMANAGER_ITEMSINBLOCK
-RING_POOLMANAGER_ITEMSIZE
+RING_POOLMANAGER_ITEMSTRINGSIZE
 Parent: PoolData
 Parent: PoolDataTypes
 Type: String
@@ -32,7 +32,7 @@ vHashTable
 Type: HashItem
 vHashItem
 Type: char
-cChar[RING_POOLMANAGER_ITEMSIZE]
+cChar[RING_POOLMANAGER_ITEMSTRINGSIZE]
 END:
 Type: struct PoolData *
 pNext

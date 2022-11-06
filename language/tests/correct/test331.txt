@@ -1,5 +1,3 @@
+mylist: [This Attribute Contains A List]
+name: Test
 
-Can't open file natural/testloadpackage.ring 
-
-general/test117.ring Line (3) Error (C27) : Syntax Error!
-general/test117.ring errors count : 1 

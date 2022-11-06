@@ -28,7 +28,7 @@
 
     RING_API void * ring_vm_api_varptr ( void *pPointer,const char  *cStr,const char *cStr2 ) ;
 
-    RING_API void ring_vm_api_intvalue ( void *pPointer,const char  *cStr ) ;
+    RING_API void ring_vm_api_varvalue ( void *pPointer,const char  *cStr,int nType ) ;
 
     RING_API void ring_list_addcpointer ( List *pList,void *pGeneral,const char *cType ) ;
 
@@ -49,6 +49,10 @@
     RING_API void ring_vm_api_retcpointer2 ( void *pPointer,void *pGeneral,const char *cType, void (* pFreeFunc)(void *,void *) ) ;
 
     RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int lRef ) ;
+
+    RING_API void ring_vm_api_intvalue ( void *pPointer,const char  *cStr ) ;
+
+    RING_API void ring_vm_api_floatvalue ( void *pPointer,const char  *cStr ) ;
     /* API For C Functions */
     #define RING_API_PARALIST (((VM *) pPointer)->pActiveMem)
     #define RING_API_PARACOUNT (((VM *) pPointer)->nCFuncParaCount)
@@ -79,9 +83,12 @@
     #define RING_API_ISCPOINTERNOTASSIGNED(x) (RING_API_GETCPOINTERSTATUS(x) == RING_CPOINTERSTATUS_NOTASSIGNED)
     #define RING_API_VARPOINTER(x,y) (ring_vm_api_varptr(pPointer,x,y))
     #define RING_API_INTVALUE(x) (ring_vm_api_intvalue(pPointer,x))
+    #define RING_API_FLOATVALUE(x) (ring_vm_api_floatvalue(pPointer,x))
     #define RING_API_GETINTPOINTER(x) (int *) RING_API_VARPOINTER(RING_API_GETSTRING(x),"int")
-    #define RING_API_ACCEPTINTVALUE(x) RING_API_INTVALUE(RING_API_GETSTRING(x))
+    #define RING_API_GETFLOATPOINTER(x) (float *) RING_API_VARPOINTER(RING_API_GETSTRING(x),"float")
     #define RING_API_GETDOUBLEPOINTER(x) RING_API_VARPOINTER(RING_API_GETSTRING(x),"double")
+    #define RING_API_ACCEPTINTVALUE(x) RING_API_INTVALUE(RING_API_GETSTRING(x))
+    #define RING_API_ACCEPTFLOATVALUE(x) RING_API_FLOATVALUE(RING_API_GETSTRING(x))
     #define RING_API_IGNORECPOINTERTYPE ((VM *) pPointer)->nIgnoreCPointerTypeCheck = 1
     #define RING_API_ISCPOINTER(x) ring_vm_api_iscpointer(pPointer,x)
     #define RING_API_ISOBJECT(x) ring_vm_api_isobject(pPointer,x)
@@ -97,6 +104,7 @@
     #define RING_API_FREEFUNC ring_state_free
     #define RING_FUNC(x) void x(void *pPointer)
     #define RING_LIBINIT RING_API void ringlib_init(RingState *pRingState)
+    #define RING_API_GETCHARPOINTER(x) RING_API_VARPOINTER(RING_API_GETSTRING(x),"char")
     /* Constants/MACRO */
     #define RING_API_MISS1PARA "Bad parameters count, the function expect one parameter"
     #define RING_API_MISS2PARA "Bad parameters count, the function expect two parameters"

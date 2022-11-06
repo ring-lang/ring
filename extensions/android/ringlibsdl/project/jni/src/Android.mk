@@ -33,6 +33,9 @@ LOCAL_SRC_FILES := $(SDL_PATH)/src/main/android/SDL_android_main.c \
 	$(RING_PATH)/expr.c \
 	$(RING_PATH)/codegen.c \
 	$(RING_PATH)/vm.c \
+	$(RING_PATH)/vmerror.c \
+	$(RING_PATH)/vmeval.c \
+	$(RING_PATH)/vmthreads.c \
 	$(RING_PATH)/vmexpr.c \
 	$(RING_PATH)/vmvars.c \
 	$(RING_PATH)/vmlists.c \

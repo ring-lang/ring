@@ -19,7 +19,9 @@ class base
 Class Message from base
 	cMsg = ""
 	func print
+		? "Hello from print() method"
 
 Class Message2 from Message
 	cMsg = ""
 	func test
+		? "Hello from test() method"

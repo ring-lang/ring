@@ -9,7 +9,7 @@ void ring_vm_bye ( VM *pVM )
         puts(RING_VM_ERROR_BADCOMMAND);
         return ;
     }
-    pVM->nPC = ring_list_getsize(pVM->pCode) + 1 ;
+    pVM->nPC = RING_VM_INSTRUCTIONSCOUNT  + 1 ;
 }
 
 void ring_vm_exitmark ( VM *pVM )

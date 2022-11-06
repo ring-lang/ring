@@ -1,5 +1,5 @@
-Load "guilib.ring"
-Load "libcurl.ring"
+load "guilib.ring"
+load "libcurl.ring"
 
 /*
  +---------------------------------------------------------------------------------------------------------
@@ -91,12 +91,12 @@ myCrumb  = "abcdefghijklmnopqrstuvwxyz"
 
 ###-------------------------------
 ### Window Size
-    WinLeft   = 80                  ### 80    Window position on screen
-    WinTop    = 80                  ### 80    Window position on screen
-    WinWidth  = 1200                ### 1000  Window Size - Horizontal-X WinWidth
-    WinHeight = 750                 ### 750   Window Size - Vertical-Y WinHeight
-    WinRight  = WinLeft + WinWidth  ### 1080
-    WinBottom = WinTop  + WinHeight ### 830
+    WinLeft   = 80                  ### Window position on screen
+    WinTop    = 80                  ### Window position on screen
+    WinWidth  = 800                 ### Window Size - Horizontal-X WinWidth
+    WinHeight = 600                 ### Window Size - Vertical-Y WinHeight
+    WinRight  = WinLeft + WinWidth  
+    WinBottom = WinTop  + WinHeight 
 
 ###----------------------------
 ### Label1 Box Size
@@ -143,14 +143,19 @@ myCrumb  = "abcdefghijklmnopqrstuvwxyz"
 ###
 ###==================================
 
-New qapp {
-        win1 = new qwidget() {
+new QApp {
 
-                ### Position and Size on Screen
+		styleFusion()
+
+        win1 = new QWidget() {
+
+                ### Size on Screen
                 setwindowtitle("GetQuotesHistory-DrawChart using QPainter")
-                setgeometry( WinLeft, WinTop, WinWidth, WinHeight)
-
-                win1{ setwindowtitle("Initial Window Position: " +" L " + WinLeft +" T " + WinTop +" Width" + width() +" Height " +  height() ) }
+                resize(WinWidth, WinHeight)
+				setMinimumHeight(500)
+				setMinimumWidth(600)
+				setWinIcon(Self,"appicon.png")
+                setwindowtitle("Initial Window Position: " +" L " + WinLeft +" T " + WinTop +" Width" + width() +" Height " +  height() ) 
 
                 ###------------------------------------------
                 ### ReSizeEvent ... Call WhereAreWe function
@@ -244,6 +249,8 @@ New qapp {
                         setGeometry(BoxLeft +380+EXTRAWIDTH*2, BoxTop -BoxTop, 80, 20)
                         alist = ["Line","Bar","Mountain","Actual","Log","HeikenAshi"]
                         for x in aList additem(x,0) next
+						setCurrentIndex(2)
+						setCurrentIndexChangedEvent("draw()")
                 }
 
                 ###----------------------------------------------------------
@@ -253,6 +260,7 @@ New qapp {
                         setGeometry(BoxLeft +440+EXTRAWIDTH*2.5, BoxTop -BoxTop, 80, 20)
                         alistTime = ["Weekly", "Daily", "Monthly"]
                         for x in aListTime additem(x,0) next
+						setCurrentIndexChangedEvent("draw()")
                 }
 
                 ###---------------------------
@@ -427,6 +435,7 @@ New qapp {
 
 
             show()
+			NextSymbol()
         }
         exec()
 }

@@ -49,3 +49,5 @@ RING_FILE ring_custom_fopen ( const char*filename, const char*mode ) ;
 void ring_general_addosfileseparator ( char *cFileName ) ;
 
 int ring_general_folderexistinfilename ( const char *cFolderName,const char *cFileName ) ;
+
+RING_API char * ring_general_numtostring ( double nNum1,char *cStr,int nDecimals ) ;

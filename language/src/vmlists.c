@@ -202,6 +202,11 @@ void ring_vm_loadindexaddress ( VM *pVM )
             }
         }
         else if ( RING_VM_STACK_ISSTRING ) {
+            /* Check index value */
+            if ( nNum1 < 1 || nNum1 > RING_VM_STACK_STRINGSIZE ) {
+                ring_vm_error(pVM,RING_VM_ERROR_INDEXOUTOFRANGE);
+                return ;
+            }
             cStr2[0] = RING_VM_STACK_READC[((int) nNum1)-1] ;
             cStr2[1] = '\0' ;
             RING_VM_STACK_SETCVALUE2(cStr2,1);
@@ -272,11 +277,12 @@ void ring_vm_loadindexaddress ( VM *pVM )
 void ring_vm_listpushv ( VM *pVM )
 {
     Item *pItem  ;
+    char cPointer[17]  ;
     pItem = (Item *) RING_VM_STACK_READP ;
     RING_VM_STACK_POP ;
     /* Push Item Data */
     if ( ring_item_gettype(pItem) == ITEMTYPE_STRING ) {
-        if ( (pVM->nRetItemRef>=1)  && (ring_vm_isstackpointertoobjstate(pVM)==1) ) {
+        if ( (pVM->nRetItemRef > 0)  && (ring_vm_isstackpointertoobjstate(pVM)==1) ) {
             RING_VM_STACK_PUSHPVALUE(pItem);
             RING_VM_STACK_OBJTYPE = RING_OBJTYPE_LISTITEM ;
             pVM->nRetItemRef-- ;
@@ -286,7 +292,7 @@ void ring_vm_listpushv ( VM *pVM )
         RING_VM_STACK_SETCVALUE2(ring_string_get(ring_item_getstring(pItem)),ring_string_size(ring_item_getstring(pItem)));
     }
     else if ( ring_item_gettype(pItem) == ITEMTYPE_NUMBER ) {
-        if ( (pVM->nRetItemRef>=1)  && (ring_vm_isstackpointertoobjstate(pVM)==1) ) {
+        if ( (pVM->nRetItemRef > 0)  && (ring_vm_isstackpointertoobjstate(pVM)==1) ) {
             RING_VM_STACK_PUSHPVALUE(pItem);
             RING_VM_STACK_OBJTYPE = RING_OBJTYPE_LISTITEM ;
             pVM->nRetItemRef-- ;
@@ -295,12 +301,23 @@ void ring_vm_listpushv ( VM *pVM )
         RING_VM_STACK_PUSHNVALUE(ring_item_getnumber(pItem));
     }
     else if ( ring_item_gettype(pItem) == ITEMTYPE_LIST ) {
-        if ( (pVM->nRetItemRef>=1)  && (ring_vm_isstackpointertoobjstate(pVM)==1) ) {
+        if ( (pVM->nRetItemRef > 0)  && (ring_vm_isstackpointertoobjstate(pVM)==1) ) {
             pVM->nRetItemRef-- ;
         }
         RING_VM_STACK_PUSHPVALUE(pItem);
         RING_VM_STACK_OBJTYPE = RING_OBJTYPE_LISTITEM ;
         ring_vm_oop_setbraceobj(pVM, (List *) ring_item_getlist(pItem));
+    }
+    else if ( ring_item_gettype(pItem) == ITEMTYPE_POINTER ) {
+        if ( (pVM->nRetItemRef > 0)  && (ring_vm_isstackpointertoobjstate(pVM)==1) ) {
+            RING_VM_STACK_PUSHPVALUE(pItem);
+            RING_VM_STACK_OBJTYPE = RING_OBJTYPE_LISTITEM ;
+            pVM->nRetItemRef-- ;
+            return ;
+        }
+        pVM->nSP++ ;
+        sprintf( cPointer , "%p" , ring_item_getpointer(pItem) ) ;
+        RING_VM_STACK_SETCVALUE2(cPointer,strlen(cPointer));
     }
 }
 
@@ -360,9 +377,16 @@ void ring_vm_listassignment ( VM *pVM )
         ring_item_settype_gc(pVM->pRingState,pItem,ITEMTYPE_LIST);
         pList = ring_item_getlist(pItem);
         ring_list_deleteallitems_gc(pVM->pRingState,pList);
-        if ( pVar->lCopyByRef ) {
-            pVar->lCopyByRef = 0 ;
-            ring_list_swaptwolists(pList,pVar);
+        if ( pVar->nCopyByRef ) {
+            if ( ring_vm_oop_isobject(pVar) ) {
+                ring_state_free(pVM->pRingState,pList);
+                pItem->data.pList = pVar ;
+                pVar->nCopyByRef++ ;
+            }
+            else {
+                pVar->nCopyByRef = 0 ;
+                ring_list_swaptwolists(pList,pVar);
+            }
         }
         else {
             pTempList = ring_list_new_gc(pVM->pRingState,0);

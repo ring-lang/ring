@@ -70,7 +70,11 @@ lNotCaseSensitive : 1
 Type: unsigned int
 lCommentsAsTokens : 1
 Type: unsigned int
+lRunFromObjectFile : 1
+Type: unsigned int
 nScannerError
+Type: int
+nInstructionsCount
 END:
 Type: RingState
 struct RingState

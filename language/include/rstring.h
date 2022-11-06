@@ -4,7 +4,7 @@
     /* Data */
     typedef struct String {
         char *cStr  ;
-        int nSize  ;
+        unsigned int nSize  ;
         /* Note : nSize is (Allocation Size - 1) */
     } String ;
     /* Constants */

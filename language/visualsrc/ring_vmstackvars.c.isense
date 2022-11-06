@@ -10,7 +10,7 @@ pVar, *pList
 ring_vm_loadaddress
 ring_vm_assignment
 Type: List *
-pVar,*pList
+pVar,*pList, *pList2
 Type: String *
 cStr1, *pString
 Type: double
@@ -74,3 +74,7 @@ pItem
 Type: int
 x
 ring_vm_freeloadaddressscope
+ring_vm_loadaddressfirst
+ring_vm_printstack
+Type: int
+x,nSP

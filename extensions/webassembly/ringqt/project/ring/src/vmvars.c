@@ -1,5 +1,40 @@
 /* Copyright (c) 2013-2022 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
+/* Global Variables */
+
+void ring_vm_addglobalvariables ( VM *pVM )
+{
+    List *pList  ;
+    int x  ;
+    pVM->nLoadAddressScope = RING_VARSCOPE_GLOBAL ;
+    /*
+    **  Add Variables 
+    **  We write variable name in lower case because Identifiers is converted to lower by Compiler(Scanner) 
+    */
+    ring_vm_addnewnumbervar(pVM,"true",1);
+    ring_vm_addnewnumbervar(pVM,"false",0);
+    ring_vm_addnewstringvar(pVM,"nl","\n");
+    ring_vm_addnewstringvar(pVM,"null","");
+    ring_vm_addnewpointervar(pVM,"ring_gettemp_var",NULL,0);
+    ring_vm_addnewstringvar(pVM,"ccatcherror","NULL");
+    ring_vm_addnewpointervar(pVM,"ring_settemp_var",NULL,0);
+    ring_vm_addnewnumbervar(pVM,"ring_tempflag_var",0);
+    ring_vm_addnewcpointervar(pVM,"stdin",stdin,"file");
+    ring_vm_addnewcpointervar(pVM,"stdout",stdout,"file");
+    ring_vm_addnewcpointervar(pVM,"stderr",stderr,"file");
+    ring_vm_addnewpointervar(pVM,"this",NULL,0);
+    ring_vm_addnewstringvar(pVM,"tab","\t");
+    ring_vm_addnewstringvar(pVM,"cr","\r");
+    /* Add Command Line Parameters */
+    pList = ring_vm_newvar2(pVM,"sysargv",pVM->pActiveMem);
+    ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_LIST);
+    ring_list_setlist_gc(pVM->pRingState,pList,RING_VAR_VALUE);
+    pList = ring_list_getlist(pList,RING_VAR_VALUE);
+    for ( x = 0 ; x < pVM->pRingState->argc ; x++ ) {
+        ring_list_addstring_gc(pVM->pRingState,pList,pVM->pRingState->argv[x]);
+    }
+    pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
+}
 /*
 **  Variables 
 **  Memory is a List and each item inside the list is another List (Represent Scope) 
@@ -11,7 +46,7 @@ void ring_vm_newscope ( VM *pVM )
 {
     if ( ring_list_getsize(pVM->pMem) == RING_VM_STACK_SIZE ) {
         ring_vm_error(pVM,RING_VM_ERROR_STACKOVERFLOW);
-        exit(0);
+        exit(1);
     }
     pVM->pActiveMem = ring_list_newlist_gc(pVM->pRingState,pVM->pMem);
     /* Save Local Scope Information */
@@ -325,7 +360,7 @@ void ring_vm_deletescope ( VM *pVM )
 {
     if ( ring_list_getsize(pVM->pMem) < 2 ) {
         printf( RING_NOSCOPE ) ;
-        exit(0);
+        exit(1);
     }
     /* Check References */
     ring_vm_gc_checkreferences(pVM);

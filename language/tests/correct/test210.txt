@@ -1,5 +1,7 @@
-Using ? substr(cStr,100)
+STRING
 
-Using ? substr(cStr,-1)
+STRING
 
-done
+STRING
+
+Done

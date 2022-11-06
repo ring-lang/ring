@@ -14,4 +14,6 @@
     void ring_hashtable_test ( void ) ;
 
     void ring_section ( const char *cTitle ) ;
+
+    void ring_structuressize ( void ) ;
 #endif

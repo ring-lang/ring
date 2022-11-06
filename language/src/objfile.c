@@ -90,20 +90,17 @@ void ring_objfile_writelist ( List *pList,FILE *fObj )
 
 int ring_objfile_readfile ( RingState *pRingState,char *cFileName )
 {
-    ring_state_log(pRingState,"function: ring_objfile_readfile()");
     return ring_objfile_readfromsource(pRingState,cFileName,RING_OBJFILE_READFROMFILE) ;
 }
 
 int ring_objfile_readstring ( RingState *pRingState,char *cString )
 {
-    ring_state_log(pRingState,"function: ring_objfile_readstring()");
     return ring_objfile_readfromsource(pRingState,cString,RING_OBJFILE_READFROMSTRING) ;
 }
 
 int ring_objfile_readfromsource ( RingState *pRingState,char *cSource,int nSource )
 {
     List *pListFunctions, *pListClasses, *pListPackages, *pListCode, *pListFiles, *pListStack  ;
-    ring_state_log(pRingState,"function: ring_objfile_readfromsource() start");
     /* Create Lists */
     pListFunctions = ring_list_new_gc(pRingState,0);
     pListClasses = ring_list_new_gc(pRingState,0);
@@ -151,7 +148,6 @@ int ring_objfile_readfromsource ( RingState *pRingState,char *cSource,int nSourc
     #endif
     /* Update Classes Pointers */
     ring_objfile_updateclassespointers(pRingState);
-    ring_state_log(pRingState,"function: ring_objfile_readfromsource() end");
     return 1 ;
 }
 
@@ -166,7 +162,6 @@ int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pList
     char cFileType[100]  ;
     List *pList  ;
     strcpy(cKey,"ringstring");
-    ring_state_log(pRingState,"function: ring_objfile_processfile()");
     /* Set Active List (1=functions 2=classes 3=packages 4=code) */
     nActiveList = 0 ;
     nBraceEnd = 0 ;
@@ -346,7 +341,6 @@ int ring_objfile_processstring ( RingState *pRingState,char *cContent,List *pLis
     char cFileType[100]  ;
     List *pList  ;
     strcpy(cKey,"ringstring");
-    ring_state_log(pRingState,"function: ring_objfile_processstring() start");
     /* Set Active List (1=functions 2=classes 3=packages 4=code) */
     nActiveList = 0 ;
     nBraceEnd = 0 ;
@@ -524,104 +518,12 @@ int ring_objfile_processstring ( RingState *pRingState,char *cContent,List *pLis
         }
         c = ring_objfile_getc(pRingState,&cData);
     }
-    ring_state_log(pRingState,"function: ring_objfile_processstring() end");
     return 1 ;
 }
 
 RING_API void ring_objfile_updateclassespointers ( RingState *pRingState )
 {
-    int x,x2,x3,x4,lFound  ;
-    List *pList, *pList2, *pList3  ;
-    const char *cString  ;
-    char cPackageName[400]  ;
-    char cClassName[400]  ;
-    ring_state_log(pRingState,"function: ring_objfile_updateclasspointers() start");
-    /* Update Class Pointer in Code */
-    lFound = 0 ;
-    for ( x = 1 ; x <= ring_list_getsize(pRingState->pRingGenCode) ; x++ ) {
-        pList = ring_list_getlist(pRingState->pRingGenCode,x);
-        if ( ring_list_getint(pList,1) == ICO_NEWCLASS ) {
-            cString = ring_list_getstring(pList,2);
-            for ( x2 = 1 ; x2 <= ring_list_getsize(pRingState->pRingClassesMap) ; x2++ ) {
-                pList2 = ring_list_getlist(pRingState->pRingClassesMap,x2);
-                if ( strcmp(cString,ring_list_getstring(pList2,1)) == 0 ) {
-                    lFound = 0 ;
-                    ring_list_setpointer_gc(pRingState,pList,3,pList2);
-                    #ifdef DEBUG_OBJFILE
-                        puts("Pointer Updated ");
-                    #endif
-                    break ;
-                }
-            }
-            /* If we can't find the list (the class is inside a package) */
-            if ( lFound == 0 ) {
-                ring_list_setpointer_gc(pRingState,pList,3,NULL);
-            }
-        }
-    }
-    /*
-    **  Update Class Pointers in Classes Map when the class belong to a Package 
-    **  This updates works when the class name is : packagename.classname 
-    */
-    for ( x = 1 ; x <= ring_list_getsize(pRingState->pRingClassesMap) ; x++ ) {
-        pList = ring_list_getlist(pRingState->pRingClassesMap,x);
-        cString = ring_list_getstring(pList,1);
-        if ( ring_list_getstringsize(pList,1)  > 400 ) {
-            /* Avoid large names - we have limits (400 letters per package name - 400 letters for class name) */
-            continue ;
-        }
-        for ( x2 = ring_list_getstringsize(pList,1) - 1 ; x2 >= 0 ; x2-- ) {
-            if ( cString[x2] == '.' ) {
-                /*
-                **  Now we have a class name stored as packagename.classname 
-                **  Get Package Name 
-                */
-                for ( x3 = 0 ; x3 < x2 ; x3++ ) {
-                    cPackageName[x3] = cString[x3] ;
-                }
-                cPackageName[x2] = '\0' ;
-                #ifdef DEBUG_OBJFILE
-                    printf( "Package Name %s \n  ",cPackageName ) ;
-                #endif
-                /* Get Class Name */
-                for ( x3 = x2+1 ; x3 <= ring_list_getstringsize(pList,1) - 1 ; x3++ ) {
-                    cClassName[x3-x2-1] = cString[x3] ;
-                }
-                cClassName[ring_list_getstringsize(pList,1) - 1 - x2] = '\0' ;
-                #ifdef DEBUG_OBJFILE
-                    printf( "Class Name %s \n  ",cClassName ) ;
-                #endif
-                /* Get The Package List */
-                for ( x3 = 1 ; x3 <= ring_list_getsize(pRingState->pRingPackagesMap) ; x3++ ) {
-                    pList2 = ring_list_getlist(pRingState->pRingPackagesMap,x3);
-                    if ( strcmp(ring_list_getstring(pList2,1),cPackageName) == 0 ) {
-                        /* Get The Class List */
-                        pList2 = ring_list_getlist(pList2,2);
-                        for ( x4 = 1 ; x4 <= ring_list_getsize(pList2) ; x4++ ) {
-                            pList3 = ring_list_getlist(pList2,x4);
-                            if ( strcmp(ring_list_getstring(pList3,1),cClassName) == 0 ) {
-                                /* Now We have the Class - Update Pointer */
-                                ring_list_setpointer_gc(pRingState,pList,2,(void *) pList3);
-                                break ;
-                            }
-                        }
-                        break ;
-                    }
-                }
-            }
-        }
-    }
-    /* Update Package Pointers in Packages Classes */
-    for ( x = 1 ; x <= ring_list_getsize(pRingState->pRingPackagesMap) ; x++ ) {
-        pList = ring_list_getlist(pRingState->pRingPackagesMap,x);
-        /* Get The Class List */
-        pList2 = ring_list_getlist(pList,2);
-        for ( x2 = 1 ; x2 <= ring_list_getsize(pList2) ; x2++ ) {
-            pList3 = ring_list_getlist(pList2,x2);
-            ring_list_setpointer_gc(pRingState,pList3,RING_CLASSMAP_POINTERTOPACKAGE,pList);
-        }
-    }
-    ring_state_log(pRingState,"function: ring_objfile_updateclasspointers() end");
+    ring_vm_updateclassespointers(pRingState);
 }
 
 void ring_objfile_xorstring ( char *cString,int nStringSize,char *cKey,int nKeySize )

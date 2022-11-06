@@ -1,3 +1,8 @@
+ring_vm_addglobalvariables
+Type: List *
+pList
+Type: int
+x
 ring_vm_newscope
 ring_vm_findvar
 Type: int

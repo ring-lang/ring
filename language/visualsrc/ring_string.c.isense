@@ -1,6 +1,7 @@
 ring_string_h
 Parent: String
 cStr
+Type: unsigned int
 nSize
 END:
 Type: String

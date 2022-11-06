@@ -3,13 +3,10 @@ Programming Without Coding Technology (PWCT) 2.0
 
 * Posted: 30 April 2021
 
-* Date last Updated: 24 July 2022
+* Date last Updated: 30 October 2022
 
 # Contents:
 
-- [Publications](#publications)
-- [Videos](#videos)
-- [The Release Date](#the-release-date)
 - [Introduction](#introduction)
 - [The First Generation](#the-first-generation)
   - [The Concept of the First Generation](#the-concept-of-the-first-generation)
@@ -27,25 +24,9 @@ Programming Without Coding Technology (PWCT) 2.0
     - [Dark Theme](#dark-theme)
     - [Better Documentation](#better-documentation)
     - [Translation (Arabic Version)](#translation-arabic-version)
-
-## Publications
-
-* Fayed et al., PWCT: a novel general-purpose visual programming language in support of pervasive application development, CCF Transactions on Pervasive Computing and Interaction, 2020
-* Fayed et al., PWCT: visual language for IoT and cloud computing applications and systems, ACM, 2017
-
-## Videos
-
-* [Introduction to PWCT 2.0](https://cdn.akamai.steamstatic.com/steam/apps/256883333/movie_max_vp9.webm?t=1657472871)
-* [Templates & AutoRun](https://cdn.akamai.steamstatic.com/steam/apps/256893582/movie_max_vp9.webm?t=1656153375)
-* [Web Development](https://cdn.akamai.steamstatic.com/steam/apps/256883763/movie_max_vp9.webm?t=1657473295)
-
-## The Release Date
-
-Since we already have the first generation of the product (PWCT 1.9) 
-
-We decided that in the second generation we will focus on the quality and accept the high costs (Development Time).
-
-[Check the website](https://store.steampowered.com/app/1953110/Programming_Without_Coding_Technology/)
+- [Videos](#videos)
+- [The Release Date](#the-release-date)
+- [Publications](#publications)
 
 # Introduction 
 
@@ -338,3 +319,21 @@ PWCT 2.0 will comes with an Arabic version, other languages could be added in th
 
 ![arabicversion](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/Arabic.jpg)
 
+## Videos
+
+The next videos demonstrates some of the PWCT 2.0 features:
+
+* [Introduction to PWCT 2.0](https://cdn.akamai.steamstatic.com/steam/apps/256883333/movie_max_vp9.webm?t=1657472871)
+* [Templates & AutoRun](https://cdn.akamai.steamstatic.com/steam/apps/256893582/movie_max_vp9.webm?t=1656153375)
+* [Web Development](https://cdn.akamai.steamstatic.com/steam/apps/256883763/movie_max_vp9.webm?t=1657473295)
+
+## The Release Date
+
+Since we already have the first generation of the product (PWCT 1.9) 
+
+We decided that in the second generation we will focus on the quality and accept the high costs (Development Time).
+
+## Publications
+
+* [Fayed et al., PWCT: a novel general-purpose visual programming language in support of pervasive application development, CCF Transactions on Pervasive Computing and Interaction, 2020](https://link.springer.com/article/10.1007/s42486-020-00038-y)
+* [Fayed et al., PWCT: visual language for IoT and cloud computing applications and systems, ACM, 2017](https://dl.acm.org/doi/10.1145/3018896.3056782)

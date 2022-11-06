@@ -253,10 +253,10 @@ void ring_vm_listfuncs_find ( void *pPointer )
             if ( RING_API_PARACOUNT == 4 ) {
                 if ( RING_API_ISSTRING(4) ) {
                     if ( RING_API_ISSTRING(2) ) {
-                        nNum1 = ring_list_findinlistofobjs(pList,RING_VM_LISTOFOBJS_FINDSTRING,0.0,RING_API_GETSTRING(2),nColumn,RING_API_GETSTRING(4));
+                        nNum1 = ring_list_findinlistofobjs(pList,RING_LISTOFOBJS_FINDSTRING,0.0,RING_API_GETSTRING(2),nColumn,RING_API_GETSTRING(4));
                     }
                     else if ( RING_API_ISNUMBER(2) ) {
-                        nNum1 = ring_list_findinlistofobjs(pList,RING_VM_LISTOFOBJS_FINDNUMBER,RING_API_GETNUMBER(2),"",nColumn,RING_API_GETSTRING(4));
+                        nNum1 = ring_list_findinlistofobjs(pList,RING_LISTOFOBJS_FINDNUMBER,RING_API_GETNUMBER(2),"",nColumn,RING_API_GETSTRING(4));
                     }
                     else {
                         RING_API_ERROR(RING_API_BADPARATYPE);

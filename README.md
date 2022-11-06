@@ -83,7 +83,7 @@ You get the language constructs ready for use to create domain-specific language
 
 * [Natural Language Programming Library](https://www.codeproject.com/Articles/1200766/Using-the-Natural-Language-Programming-Library-NLP)
 
-* [Programming Without Coding Technology](https://store.steampowered.com/app/1953110/Programming_Without_Coding_Technology/)
+* [Programming Without Coding Technology](https://github.com/ring-lang/ring/tree/master/marketing/pwct)
 
 # Batteries Included
 

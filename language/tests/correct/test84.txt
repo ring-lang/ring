@@ -1,1 +1,1 @@
-10
+hello world from test function!

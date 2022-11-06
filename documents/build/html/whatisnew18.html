@@ -401,6 +401,7 @@
 <div class="section" id="more-improvements">
 <span id="index-10"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li><p>Added: samples/General/OrbitalMechanics</p></li>
 <li><p>Added: samples/UsingQt/TabActivate/simpleExample.ring</p></li>
 <li><p>Added: samples/UsingQt/TabActivate/TabActivateController.ring</p></li>
 <li><p>Added: samples/UsingFormDesigner/centerwindow</p></li>
@@ -408,9 +409,15 @@
 <li><p>Sample: samples/AQuickStart/GUILib/gui44.ring - Better Code</p></li>
 <li><p>Sample: samples/UsingWebLib/Demo/datalib.ring - Better Code</p></li>
 <li><p>Sample: samples/UsingWebLib/Demo/bootstrap.ring - Better Code</p></li>
+<li><p>Sample: samples/UsingStbImage/test2.ring - Better Code</p></li>
+<li><p>Sample: extensions/tutorial/integerpointer</p></li>
+<li><p>Sample: extensions/tutorial/stringpointer</p></li>
 <li><p>Ring Notepad: New option to build GUI application using Ring2EXE</p></li>
 <li><p>Ring Notepad: Output Window - Correct cursor position while using unicode</p></li>
+<li><p>Ring Notepad: Set the default font when opening the Font dialog</p></li>
 <li><p>FindInFiles Application: Better Code (Check Read() function output)</p></li>
+<li><p>GetQuotesHistory Application: Better Style</p></li>
+<li><p>Chess/Checkers Games: Looks more nice on small screen resolutions</p></li>
 <li><p>RingSQLite: Use SQLite 3.39.2.</p></li>
 <li><p>RingHTTPLib: Use cpp-httplib 0.10.9</p></li>
 <li><p>RingZip: Use zip 0.2.4</p></li>
@@ -423,12 +430,38 @@
 <li><p>Ring Functions - Print()/Puts() - Better Code</p></li>
 <li><p>Ring Compiler/VM Source Code - Better File Names</p></li>
 <li><p>Ring Compiler/VM Source Code - Define RING_MSDOS</p></li>
+<li><p>Ring Compiler/VM Source Code - Many structures updated to use unsigned int/char</p></li>
+<li><p>Ring Compiler/VM Source Code - Added: vmerror.c, vmeval.c &amp; vmthreads.c</p></li>
 <li><p>Support building Ring on windows using Tiny C Compiler</p></li>
-<li><p>Ring Compiler - Support unlimited number of function/method parameters</p></li>
+<li><p>Ring Object File - Better support for classes that exist inside packages</p></li>
+<li><p>Ring Compiler - Support larger number of function/method parameters</p></li>
+<li><p>Ring Compiler - ring_parser_epsilon() function - Better Code</p></li>
+<li><p>Ring Compiler - Support (**) and (^^) as the power operator</p></li>
+<li><p>Ring Compiler - Automatic loading for the syntax file (ringsyntax.ring)</p></li>
+<li><p>Ring Compiler - Support running source code files with any extension</p></li>
+<li><p>Ring API - RING_API_GETINTPOINTER - Better code when passing integer pointer</p></li>
+<li><p>Ring API - Added: RING_API_GETFLOATPOINTER(nParameter)</p></li>
+<li><p>Ring API - Added: RING_API_ACCEPTFLOATVALUE(nParameter)</p></li>
+<li><p>Ring API - Added: RING_API_GETCHARPOINTER(nParameter)</p></li>
 <li><p>Ring VM - Memory Functions - Display the size when the memory allocation fail</p></li>
 <li><p>Ring VM - Support calling private methods from the class region</p></li>
 <li><p>Ring VM - Better code when loading the VM instructions (Uses less memory)</p></li>
 <li><p>Ring VM - Fixed count for ByteCode items for the ICO_FUNC instruction</p></li>
+<li><p>Ring VM - Better code for dynamic change between function/method calls inside braces</p></li>
+<li><p>Ring VM - Check string range when we access strings after calling functions directly</p></li>
+<li><p>Ring VM - Get pointer as string when we access the pointer address</p></li>
+<li><p>Ring VM - Don’t create more than one temp. list per VM instruction</p></li>
+<li><p>Ring VM - Using RING_VM_IR_GETLINENUMBER &amp; RING_VM_IR_SETLINENUMBER(x)</p></li>
+<li><p>Ring VM - The default RING_POOLMANAGER_ITEMSIZE value is 40 (instead of 64)</p></li>
+<li><p>Ring VM - The default RING_POOLMANAGER_ITEMSINBLOCK value is 500K (instead of 2M)</p></li>
+<li><p>Ring VM - Max. parameters for each VM instruction is three (3)</p></li>
+<li><p>Ring VM - New instruction: ICO_EXTRAPARA (For instructions that need more parameters)</p></li>
+<li><p>Ring VM - Delete the Intermediate Code list after having the Byte Code</p></li>
+<li><p>Ring VM - Better format when displaying the Byte Code</p></li>
+<li><p>Ring VM - Faster code when creating new threads</p></li>
+<li><p>Ring VM - Better numbers format when printing lists and objects</p></li>
+<li><p>Ring VM - Memory defragmentation before Byte Code execution</p></li>
+<li><p>Ring VM - Pointer2Object() function - return object reference instead of object copy</p></li>
 </ul>
 </div>
 </div>

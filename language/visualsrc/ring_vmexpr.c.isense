@@ -32,6 +32,11 @@ cStr1
 ring_vm_neg
 Type: double
 nNum1
+ring_vm_pow
+Type: double
+nNum1=0,nNum2=0
+Type: String *
+cStr1
 ring_vm_equal
 Type: String *
 cStr1,*cStr2
@@ -110,12 +115,6 @@ ring_vm_bitnot
 Type: double
 nNum1
 ring_vm_numtostring
-Type: char
-cOptions[10]
-Type: int
-nNum2
-Type: RING_LONGLONG
-nVal
 ring_vm_stringtonum
 Type: double
 nResult

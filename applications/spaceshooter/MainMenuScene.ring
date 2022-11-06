@@ -16,7 +16,7 @@ class MainMenuScene from Scene
 			position.x -= w / 2
 
 			cFunction = :startGame
-			parentScene = object2pointer(this)	
+
 		}
 		# Exit button in the scene
 		exitButton = new Button("Assets/buttonRed.png",
@@ -29,7 +29,7 @@ class MainMenuScene from Scene
 			position.x -= w / 2
 
 			cFunction = :exitTheGame
-			parentScene = object2pointer(this)	
+
 		}
 
 		return self	

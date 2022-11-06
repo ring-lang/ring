@@ -32,9 +32,9 @@ class datasetController from WindowsControllerParent
 			nRow++
 		}
 		# set Values
-			predict().oView.txtAuthors.setText(aDataList[nRow][1])
-			predict().oView.txtTitle.setText(aDataList[nRow][2])
-			predict().oView.txtAbstract.setText(aDataList[nRow][3])
+			predict().oView.txtAuthors.setText(""+aDataList[nRow][1])
+			predict().oView.txtTitle.setText(""+aDataList[nRow][2])
+			predict().oView.txtAbstract.setText(""+aDataList[nRow][3])
 			predict().oView.txtOutput.setText("")
 		oView.win.close()
 	} 

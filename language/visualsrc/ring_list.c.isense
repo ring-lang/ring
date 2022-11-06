@@ -4,8 +4,9 @@ Type: struct Items *
 pFirst
 Type: struct Items *
 pLast
+Type: unsigned int
 nSize
-Type: int
+Type: unsigned int
 nNextItemAfterLastAccess
 Type: struct Items *
 pLastItemLastAccess
@@ -17,8 +18,8 @@ Type: struct Item *
 pItemBlock
 Type: struct Items *
 pItemsBlock
-Type: char
-lCopyByRef
+Type: unsigned int
+nCopyByRef
 END:
 Type: List
 struct List
@@ -28,8 +29,8 @@ struct List *
 Type: List
 Mark: ->
 List *
-RING_VM_LISTOFOBJS_FINDSTRING
-RING_VM_LISTOFOBJS_FINDNUMBER
+RING_LISTOFOBJS_FINDSTRING
+RING_LISTOFOBJS_FINDNUMBER
 ring_list_isdouble(pList,index)
 ring_list_isint(pList,index)
 ring_list_deletelastitem(x)
@@ -57,20 +58,6 @@ Type: int
 x,nMax
 Type: List *
 pNewList2
-ring_list_print
-ring_list_print2
-Type: int
-x,t,nSize
-Type: double
-y
-Type: const char *
-cStr
-Type: List *
-pList2
-Type: char
-cOptions[10]
-Type: char
-cString[100]
 ring_list_deleteallitems_gc
 Type: Items *
 pItems,*pItemsNext
@@ -136,6 +123,11 @@ Type: Item *
 pItem
 Type: List *
 pList2
+ring_list_setlistbyref_gc
+Type: List *
+pRealList
+Type: Item *
+pItem
 ring_list_setfuncpointer_gc
 Type: Item *
 pItem
@@ -182,16 +174,6 @@ pList2
 ring_list_findpointer
 Type: int
 x
-ring_list_findinlistofobjs
-Type: int
-x,nCount,nPos
-Type: List *
-pList2
-ring_list_findcpointer
-Type: int
-x,nCount
-Type: List *
-pList2, *pList3
 ring_list_sortnum
 Type: int
 x,y,mid
@@ -213,14 +195,6 @@ Type: Item *
 pItem
 Type: Items *
 pItems
-ring_list_getdoublecolumn
-Type: int
-nPos
-ring_list_getstringcolumn
-Type: int
-nPos
-Type: static char
-nullstring[]
 ring_list_genarray_gc
 Type: int
 x
@@ -272,3 +246,51 @@ ring_list_genhashtable2
 ring_list_swaptwolists
 Type: List
 TempList
+ring_list_print
+ring_list_print2
+Type: int
+x,t,nSize
+Type: double
+y
+Type: const char *
+cStr
+Type: List *
+pList2
+Type: char
+cOptions[10]
+Type: char
+cString[100]
+ring_list_findinlistofobjs
+Type: int
+x,nCount,nPos
+Type: List *
+pList2
+ring_list_findcpointer
+Type: int
+x,nCount
+Type: List *
+pList2, *pList3
+ring_list_getdoublecolumn
+Type: int
+nPos
+ring_list_getstringcolumn
+Type: int
+nPos
+Type: static char
+nullstring[]
+ring_list_addringpointer
+ring_list_addringpointer_gc
+Type: List *
+pPointerList
+Type: Item *
+pItem
+ring_list_isobject
+ring_list_printobj
+Type: List *
+pList2,*pList3
+Type: int
+x
+Type: char
+cStr[100]
+ring_list_iscpointerlist
+ring_list_cpointercmp

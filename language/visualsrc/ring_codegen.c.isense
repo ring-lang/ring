@@ -41,6 +41,7 @@ ICO_MOD
 ICO_NEG
 ICO_INC
 ICO_INCP
+ICO_POW
 ICO_LOADFUNC
 ICO_CALL
 ICO_RETURN
@@ -106,6 +107,7 @@ ICO_NEWGLOBALSCOPE
 ICO_ENDGLOBALSCOPE
 ICO_SETGLOBALSCOPE
 ICO_FREETEMPLISTS
+ICO_EXTRAPARA
 END:
 Type: IC_OPERATIONS
 IC_OPERATIONS
@@ -114,10 +116,15 @@ ring_parser_icg_newlabel(x)
 ring_parser_icg_getlastoperation(pParser)
 ring_parser_icg_setlastoperation(pParser,x)
 ring_parser_icg_instructionscount(pParser)
+ring_parser_icg_instructionslistsize(pParser)
 ring_parser_icg_getoperationlist(pParser,x)
 RING_PARSER_ICG_OPERATIONCODE
 ring_parser_icg_getoperationbeforelastoperation(pParser)
 ring_parser_icg_getoperationatpos(pParser,x)
+ring_parser_icg_getoperandint(pParser,x)
+ring_parser_icg_getoperanddouble(pParser,x)
+RING_PARSER_ICG_PARENTCLASSPOS
+RING_PARSER_ICG_INSTRUCTIONSLISTTYPE
 ring_parser_icg_newoperation
 ring_parser_icg_insertoperation
 ring_parser_icg_newoperand
@@ -128,32 +135,30 @@ ring_parser_icg_newoperandint
 ring_parser_icg_newoperanddouble
 ring_parser_icg_newoperandpointer
 ring_parser_icg_getactiveoperation
-ring_parser_icg_getoperationpos
 ring_parser_icg_addoperand
 ring_parser_icg_addoperandint
 ring_parser_icg_addoperandpointer
-ring_parser_icg_showoutput
-Type: int
-x,y,nCount,nCount2
-Type: List *
-pList
 ring_parser_icg_deletelastoperation
 ring_parser_icg_duplicate
 Type: List *
 pList,*pList2
 Type: int
 x
-Type: int
-y,nCount2
 ring_parser_icg_newlabel2
+ring_parser_icg_setopcode
+ring_parser_icg_deleteoperand
 ring_parser_icg_loadfunction
-ring_parser_icg_loadfunctionextraoperands
-Type: int
-x
 ring_parser_icg_loadaddress
-Type: int
-x
 ring_parser_icg_loadaddressassignmentpos
 ring_parser_icg_loadaddresstoloadfunction
+Type: RING_PARSER_ICG_INSTRUCTIONSLISTTYPE *
+pList
+ring_parser_icg_freestack
+ring_parser_icg_newline
+ring_parser_icg_parentclassname
+ring_parser_icg_newpackagename
+ring_parser_icg_showoutput
 Type: int
-x
+x,y,nCount,nCount2
+Type: List *
+pList

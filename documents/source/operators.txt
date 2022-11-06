@@ -34,6 +34,8 @@ provided by the Ring language. Assume variable X=50 and variable Y=10 then:
 +------------+---------------+----------+---------+
 | \- \-      |  Decrement    |	x\- \-  |  49     |
 +------------+---------------+----------+---------+
+| ** OR ^^   |  Power        |	x**3    |  125000 |
++------------+---------------+----------+---------+
 
 .. index:: 
 	pair: Operators; Relational Operators

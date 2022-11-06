@@ -1,6 +1,9 @@
 /* Copyright (c) 2013-2022 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_h
     #define ring_h
+    #ifndef NDEBUG
+        #define NDEBUG
+    #endif
     /* Include C Headers */
     #include <stdlib.h>
     #include <stdio.h>
@@ -89,16 +92,7 @@
         #define RING_API extern
     #endif
     /* Constants */
-    #define RING_SCANNEROUTPUT 0
-    #define RING_PARSERSTART 1
-    #define RING_PARSERTRACE 1
-    #define RING_SHOWIC 0
-    #define RING_RUNVM 1
-    #define RING_VMSHOWOPCODE 1
     #define RING_LOGFILE 0
-    #ifndef NDEBUG
-        #define NDEBUG
-    #endif
     /* Environment Errors */
     #define RING_SEGFAULT "\nError (E1) : Caught SegFault!\n"
     #define RING_OOM "\nError (E2) : Out of Memory!\n"

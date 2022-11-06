@@ -16,8 +16,7 @@ IgnoreTurnColor  = False		### False <<=== Normal turns
 ###-------------------
 ### WINDOW SIZE
 
-moveX  = 200 moveY	= 100		### Open Window on Screen Position
-sizeX  = 840 sizeY	= 820		### Size of Window
+sizeX  = 800 sizeY	= 600		### Size of Window
 
 hSize	= 8 +2 +2	### Size of array, Display -4 smaller
 vSize	= 8 +2 +2	### Size of array, Display -4 smaller
@@ -96,7 +95,7 @@ BoardLayout = [
 
 Knight	  = AppFile("WKnight.png")
 oKnight	  = new QPixmap(Knight)
-bWidth	  = oKnight.width()	  ### 50 
+bWidth	  = oKnight.width()	  	  ### 50 
 bHeight	  = oKnight.height()	  ### 50
 
 nMoves	  = 0 
@@ -106,6 +105,10 @@ oldV = 0
 
 ###-----------------------
  
+C_ButtonIconWidth  = 60
+C_ButtonIconHeight = 60
+C_ButtonMinWidth   = 70
+C_ButtonMinHeight  = 70
 C_Spacing  = 2
 C_ButtonFirstStyle	= 'border-radius:1px; color:black; background-color: rgb(229,249,203) ;'		### Square pale
 				###'border-style: outset; border-width: 2px; border-radius: 2px; border-color: gray;'
@@ -160,6 +163,7 @@ Func DrawWidget()
 
 	workWidget = new qWidget()				
 	{
+
 		# Set the Window Icon
 		setWindowIcon(new qIcon(new qPixmap(KNIGHT)))
 
@@ -173,7 +177,6 @@ Func DrawWidget()
 		workHeight = workWidget.height()
 		fontSize   = 8 + (workHeight / 100)
 		
-		  move(moveX, moveY)
 		resize(sizeX, sizeY)
 	 
 
@@ -291,7 +294,9 @@ Func DrawWidget()
 						ok
 						setClickEvent("UserLeftClick(" + string(Row) +
 								 "," + string(Col) + ")")	
-						setSizePolicy(1,1)									
+						setSizePolicy(1,1)		
+						setMinimumWidth(C_ButtonMinWidth)
+						setMinimumHeight(C_ButtonMinHeight)							
 					}
 					
 				### Widget - Add HORIZONTAL BUTTONS
@@ -344,7 +349,7 @@ Func DrawImage( Piece, Row,	 Col  )
 						nImageHeight = oPiece.Height()		### Piece, not Square	
 						oPiece = oPiece.scaled(nImageWidth , nImageHeight ,0,0) 
 						setIcon(new qIcon(oPiece)) 
-						setIconSize(new qSize(nImageWidth , nImageHeight ))
+						setIconSize(new qSize(C_ButtonIconWidth , C_ButtonIconHeight ))
 					  }		
 
 return

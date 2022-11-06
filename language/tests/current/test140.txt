@@ -1,7 +1,3 @@
-wow
-wow3
-wow5
-init
-nice
-wow4
-wow2
+0
+1
+Wow, we get error here!

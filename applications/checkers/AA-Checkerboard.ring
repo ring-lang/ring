@@ -15,8 +15,7 @@ FlagStartMove   = 0
 ###-------------------
 ### WINDOW SIZE
 
-moveX  = 200 moveY  = 100       ### Open Window on Screen Position
-sizeX  = 840 sizeY  = 820       ### Size of Window
+sizeX  = 700 sizeY  = 600       ### Size of Window
 
 hSize   = 8 +2 +2   ### Size of array, Display -4 smaller
 vSize   = 8 +2 +2   ### Size of array, Display -4 smaller
@@ -100,7 +99,11 @@ oldH   = 0
 oldV   = 0
 
 ###-----------------------
- 
+
+C_ButtonImageWidth  = 60 
+C_ButtonImageHeight = 60 
+C_ButtonMinWidth    = 70
+C_ButtonMinHeight   = 70
 C_Spacing  = 2
 C_ButtonFirstStyle  = 'border-radius:1px; color:black; background-color: rgb(229,249,203) ;'        ### Square pale
 C_ButtonSecondStyle = 'border-radius:1px; color:black; background-color: rgb(179,200,93); '         ### Square dark
@@ -159,7 +162,6 @@ Func DrawWidget()
         workHeight = workWidget.height()
         fontSize   = 8 + (workHeight / 100)
         
-          move(moveX, moveY)
         resize(sizeX, sizeY)
      
 
@@ -269,7 +271,9 @@ Func DrawWidget()
                         ok
                         setClickEvent("UserLeftClick(" + string(Row) +
                                  "," + string(Col) + ")")   
-                        setSizePolicy(1,1)                                  
+                        setSizePolicy(1,1)   
+						setMinimumWidth(C_ButtonMinWidth)
+						setMinimumHeight(C_ButtonMinHeight)							                               
                     }
                     
                 ### Widget - Add Horizontal Button
@@ -331,7 +335,7 @@ Func DrawImage( PieceName, Row,  Col  )
                             nImageHeight = oPiece.Height()      ### Piece, not Square   
                             oPiece = oPiece.scaled(nImageWidth , nImageHeight ,0,0) 
                             setIcon(new qIcon(oPiece)) 
-                            setIconSize(new qSize(nImageWidth , nImageHeight ))
+                            setIconSize(new qSize(C_ButtonImageWidth , C_ButtonImageHeight ))
                           }     
     }
     

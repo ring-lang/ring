@@ -1,10 +1,11 @@
-ahmed
-14000
-ibrahim
-11000
 mahmoud
-15000
-mohammed
-12000
 samir
-16000
+ahmed
+ibrahim
+mohammed
+list after sort
+ahmed
+ibrahim
+mahmoud
+mohammed
+samir

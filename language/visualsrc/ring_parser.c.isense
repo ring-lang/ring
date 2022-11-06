@@ -2,29 +2,29 @@ ring_parser_h
 Parent: Parser
 Type: List *
 Tokens
-Type: int
+Type: unsigned int
 ActiveToken
-Type: int
+Type: unsigned int
 TokensCount
-Type: char
+Type: unsigned char
 TokenType
 Type: const char *
 TokenText
-Type: int
+Type: unsigned int
 nTokenIndex
-Type: int
+Type: unsigned int
 nLineNumber
-Type: int
+Type: unsigned int
 nErrorLine
-Type: int
+Type: unsigned int
 nErrorsCount
 Type: List *
 GenCode
 Type: List *
 ActiveGenCodeList
-Type: char
+Type: unsigned char
 nAssignmentFlag
-Type: char
+Type: unsigned char
 nClassStart
 Type: List *
 FunctionsMap
@@ -34,29 +34,29 @@ Type: List *
 PackagesMap
 Type: int
 nClassMark
-Type: char
+Type: unsigned char
 nPrivateFlag
-Type: int
+Type: unsigned int
 nBraceFlag
-Type: char
+Type: unsigned char
 nInsertFlag
-Type: int
+Type: unsigned int
 nInsertCounter
-Type: char
+Type: unsigned char
 nNewObject
-Type: char
+Type: unsigned char
 nFuncCallOnly
-Type: int
+Type: unsigned int
 nControlStructureExpr
-Type: int
+Type: unsigned int
 nControlStructureBrace
-Type: char
+Type: unsigned char
 nThisOrSelfLoadA
-Type: char
+Type: unsigned char
 nLoopOrExitCommand
-Type: char
+Type: unsigned char
 nCheckLoopAndExit
-Type: int
+Type: unsigned int
 nLoopFlag
 Type: List *
 pForInVars

@@ -536,7 +536,7 @@ BitShift ---> <Arithmetic> [ { '<<' | '>>' <Arithmetic> } ]
 
 Arithmetic ---> <Term> [ { '+' | '-'  <Term>  } ]
 
-Term ---> <Range> [ { '*' | '/' | '%' <Range> } ]
+Term ---> <Range> [ { '*' | '/' | '%' | '**' | '^^' <Range> } ]
 
 Range ---> <Factor> [ ':' <Factor> ]
 
@@ -641,9 +641,10 @@ ICO_SUB			Stack[nSize-1] = Stack[nSize-1] - Stack[nSize] , POP stack[nSize]
 ICO_MUL			Stack[nSize-1] = Stack[nSize-1] * Stack[nSize] , POP stack[nSize]
 ICO_DIV			Stack[nSize-1] = Stack[nSize-1] / Stack[nSize] , POP stack[nSize]
 ICO_MOD			Stack[nSize-1] = Stack[nSize-1] % Stack[nSize] , POP stack[nSize]
-ICO_NEG			Stack[nSize] = - Stack[nSize-1]
-ICO_PLUSPLUS		Stack[nSize] = Stack[nSize] + 1
-ICO_MINUSMINUS		Stack[nSize] = Stack[nSize] - 1
+ICO_POW			Stack[nSize-1] = Stack[nSize-1] ^ Stack[nSize] , POP stack[nSize]
+ICO_NEG			Stack[nSize]   = - Stack[nSize-1]
+ICO_PLUSPLUS		Stack[nSize]   = Stack[nSize] + 1
+ICO_MINUSMINUS		Stack[nSize]   = Stack[nSize] - 1
 =======================	============================================================================
 
 (Logic)

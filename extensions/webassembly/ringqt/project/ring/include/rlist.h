@@ -5,18 +5,18 @@
     typedef struct List {
         struct Items *pFirst  ;
         struct Items *pLast  ;
-        int nSize  ;
-        int nNextItemAfterLastAccess  ;
+        unsigned int nSize  ;
+        unsigned int nNextItemAfterLastAccess  ;
         struct Items *pLastItemLastAccess  ;
         struct Item **pItemsArray  ;
         struct HashTable *pHashTable  ;
         struct Item *pItemBlock  ;
         struct Items *pItemsBlock  ;
-        char lCopyByRef  ;
+        unsigned int nCopyByRef  ;
     } List ;
     /* Constants */
-    #define RING_VM_LISTOFOBJS_FINDSTRING 1
-    #define RING_VM_LISTOFOBJS_FINDNUMBER 0
+    #define RING_LISTOFOBJS_FINDSTRING 1
+    #define RING_LISTOFOBJS_FINDNUMBER 0
     /* Macro */
     #define ring_list_isdouble(pList,index) ( ring_list_getitem(pList,index)->NumberFlag == ITEM_NUMBERFLAG_DOUBLE)
     #define ring_list_isint(pList,index) ( ring_list_getitem(pList,index)->NumberFlag == ITEM_NUMBERFLAG_INT )
@@ -48,10 +48,6 @@
     RING_API List * ring_list_delete_gc ( void *pState,List *pList ) ;
 
     RING_API void ring_list_deleteitem_gc ( void *pState,List *pList,int index ) ;
-
-    RING_API void ring_list_print ( List *pList ) ;
-
-    RING_API void ring_list_print2 ( List *pList,int nDecimals ) ;
 
     RING_API int ring_list_gettype ( List *pList, int index ) ;
     /* int */
@@ -93,6 +89,8 @@
 
     RING_API List * ring_list_getlist ( List *pList, int index ) ;
 
+    RING_API void ring_list_setlistbyref_gc ( void *pState,List *pList, int index,List *pRef ) ;
+
     RING_API void ring_list_copy_gc ( void *pState,List *pNewList, List *pList ) ;
 
     RING_API int ring_list_isnumber ( List *pList, int index ) ;
@@ -131,10 +129,6 @@
     RING_API int ring_list_finddouble ( List *pList,double nNum1,int nColumn ) ;
 
     RING_API int ring_list_findpointer ( List *pList,void *pPointer ) ;
-
-    RING_API int ring_list_findinlistofobjs ( List *pList,int nType,double nNum1,const char *str,int nColumn,char *cAttribute ) ;
-
-    RING_API int ring_list_findcpointer ( List *pList,List *pValue,int nColumn ) ;
     /* Sort and Binary Search */
 
     RING_API void ring_list_sortnum ( List *pList,int left,int right,int nColumn,const char *cAttribute ) ;
@@ -146,10 +140,6 @@
     RING_API int ring_list_binarysearchstr ( List *pList,const char *cFind,int nColumn,const char *cAttribute ) ;
 
     RING_API void ring_list_swap ( List *pList,int x,int y ) ;
-
-    RING_API double ring_list_getdoublecolumn ( List *pList,int nIndex,int nColumn,const char *cAttribute ) ;
-
-    RING_API char * ring_list_getstringcolumn ( List *pList,int nIndex,int nColumn,const char *cAttribute ) ;
     /* List Items to Array */
 
     RING_API void ring_list_genarray_gc ( void *pState,List *pList ) ;
@@ -244,4 +234,29 @@
     RING_API void ring_list_genhashtable ( List *pList ) ;
 
     RING_API void ring_list_genhashtable2 ( List *pList ) ;
+    /* Functions that know about using Lists for Ring Objects & C Pointers */
+
+    RING_API void ring_list_print ( List *pList ) ;
+
+    RING_API void ring_list_print2 ( List *pList,int nDecimals ) ;
+
+    RING_API int ring_list_findinlistofobjs ( List *pList,int nType,double nNum1,const char *str,int nColumn,char *cAttribute ) ;
+
+    RING_API int ring_list_findcpointer ( List *pList,List *pValue,int nColumn ) ;
+
+    RING_API double ring_list_getdoublecolumn ( List *pList,int nIndex,int nColumn,const char *cAttribute ) ;
+
+    RING_API char * ring_list_getstringcolumn ( List *pList,int nIndex,int nColumn,const char *cAttribute ) ;
+
+    RING_API void ring_list_addringpointer ( List *pList,void *pValue ) ;
+
+    RING_API void ring_list_addringpointer_gc ( void *pState,List *pList,void *pValue ) ;
+
+    RING_API int ring_list_isobject ( List *pList ) ;
+
+    RING_API void ring_list_printobj ( List *pList, int nDecimals ) ;
+
+    RING_API int ring_list_iscpointerlist ( List *pList ) ;
+
+    RING_API int ring_list_cpointercmp ( List *pList,List *pList2 ) ;
 #endif

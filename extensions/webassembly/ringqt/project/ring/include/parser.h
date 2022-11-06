@@ -4,20 +4,20 @@
     /* Data */
     typedef struct Parser {
         List *Tokens  ;
-        int ActiveToken  ;
-        int TokensCount  ;
-        char TokenType  ;
+        unsigned int ActiveToken  ;
+        unsigned int TokensCount  ;
+        unsigned char TokenType  ;
         const char *TokenText  ;
-        int nTokenIndex  ;
-        int nLineNumber  ;
-        int nErrorLine  ;
-        int nErrorsCount  ;
+        unsigned int nTokenIndex  ;
+        unsigned int nLineNumber  ;
+        unsigned int nErrorLine  ;
+        unsigned int nErrorsCount  ;
         List *GenCode  ;
         List *ActiveGenCodeList  ;
         /* Variable to select between = and == while using = only in the code */
-        char nAssignmentFlag  ;
+        unsigned char nAssignmentFlag  ;
         /* Variable to determine the start of the class definition */
-        char nClassStart  ;
+        unsigned char nClassStart  ;
         /* Lists of Lists, Functions in Program or in Class */
         List *FunctionsMap  ;
         /* Lists of Lists, Classes in Program or in Class */
@@ -27,31 +27,31 @@
         /* Mark to class label to be used by Private */
         int nClassMark  ;
         /* Private Flag */
-        char nPrivateFlag  ;
+        unsigned char nPrivateFlag  ;
         /* Counter to know if we are inside { } or not */
-        int nBraceFlag  ;
+        unsigned int nBraceFlag  ;
         /* required for For-Step , insert instructions */
-        char nInsertFlag  ;
-        int nInsertCounter  ;
+        unsigned char nInsertFlag  ;
+        unsigned int nInsertCounter  ;
         /* required for using { } after using new object to avoid assignment */
-        char nNewObject  ;
+        unsigned char nNewObject  ;
         /* Object Init() Uses mixer for one purpose only( function call)  - don't continue to get braces { } */
-        char nFuncCallOnly  ;
+        unsigned char nFuncCallOnly  ;
         /* Flag to tell { } that we are inside control structure (if/for/while/...) expression */
-        int nControlStructureExpr  ;
+        unsigned int nControlStructureExpr  ;
         /* Flag - We started using braces {} in control structure - we have { */
-        int nControlStructureBrace  ;
+        unsigned int nControlStructureBrace  ;
         /* Using Self or This with LoadAddress */
-        char nThisOrSelfLoadA  ;
+        unsigned char nThisOrSelfLoadA  ;
         /*
         **  required in loops (for|while) for loop and exit commands 
         **  To Know if the commands (Loop or Exit) are used 
         */
-        char nLoopOrExitCommand  ;
+        unsigned char nLoopOrExitCommand  ;
         /* Enable|Disable checking Loop & Exit commands before storing Loop & Exit marks */
-        char nCheckLoopAndExit  ;
+        unsigned char nCheckLoopAndExit  ;
         /* Counter to know if we are inside a loop or not */
-        int nLoopFlag  ;
+        unsigned int nLoopFlag  ;
         /* Required by (For In Loops) to kill the reference when we exit from many loops */
         List *pForInVars  ;
         /* Ring State */
@@ -94,7 +94,7 @@
     #define RING_PARSER_IGNORENEWLINE while(ring_parser_epsilon(pParser));
     #define RING_PARSER_PASSNEWLINE while(ring_parser_passepsilon(pParser));
     #define RING_PARSER_CURRENTTOKEN pParser->ActiveToken
-    #define RING_PARSER_OPERATIONID ring_list_getsize(pParser->GenCode)
+    #define RING_PARSER_OPERATIONID ring_list_getsize(pParser->GenCode) + pParser->pRingState->nInstructionsCount
     #define RING_PARSER_ACCEPTSTATEMENTS while ( ring_parser_stmt(pParser) ) if ( pParser->ActiveToken == pParser->TokensCount ) break ;
     /* Functions */
 

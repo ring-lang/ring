@@ -58,9 +58,6 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
                     nTokenIndex = pScanner->nTokenIndex ;
                     ring_scanner_checktoken(pScanner);
                     ring_string_set_gc(pScanner->pRingState,pScanner->ActiveToken,cStr);
-                    #if RING_SCANNEROUTPUT
-                        printf( "\nTOKEN (Operator) = %s  \n",ring_string_get(pScanner->ActiveToken) ) ;
-                    #endif
                     /* Check Operator Then Operator */
                     if ( ring_scanner_lasttokentype(pScanner) ==SCANNER_TOKEN_OPERATOR ) {
                         /* Check Multiline Comment */
@@ -70,9 +67,6 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
                                 ring_list_deleteitem_gc(pScanner->pRingState,pScanner->Tokens,ring_list_getsize(pScanner->Tokens));
                                 pScanner->state = SCANNER_STATE_MLCOMMENT ;
                                 ring_string_set_gc(pScanner->pRingState,pScanner->ActiveToken,"/*");
-                                #if RING_SCANNEROUTPUT
-                                    printf( "\nMultiline comments start, ignore /* \n" ) ;
-                                #endif
                                 return ;
                             }
                         }
@@ -85,24 +79,23 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
                                 return ;
                             }
                         }
-                        /* Check << | >> operators */
-                        if ( ( strcmp(cStr,"<") == 0 ) | ( strcmp(cStr,">") == 0 ) ) {
+                        /* Check << | >>|**|^^ operators */
+                        if ( ( strcmp(cStr,"<") == 0 ) | ( strcmp(cStr,">") == 0 ) | ( strcmp(cStr,"*") == 0 ) | ( strcmp(cStr,"^") == 0) ) {
                             if ( strcmp(cStr,ring_scanner_lasttokenvalue(pScanner)) ==  0 ) {
+                                RING_SCANNER_DELETELASTTOKEN ;
                                 if ( strcmp(cStr,"<") == 0 ) {
-                                    RING_SCANNER_DELETELASTTOKEN ;
                                     ring_string_set_gc(pScanner->pRingState,pScanner->ActiveToken,"<<");
                                 }
+                                else if ( (strcmp(cStr,"*") == 0) | ( strcmp(cStr,"^") == 0 ) ) {
+                                    ring_string_set_gc(pScanner->pRingState,pScanner->ActiveToken,"**");
+                                }
                                 else {
-                                    RING_SCANNER_DELETELASTTOKEN ;
                                     ring_string_set_gc(pScanner->pRingState,pScanner->ActiveToken,">>");
                                 }
-                                #if RING_SCANNEROUTPUT
-                                    printf( "\nTOKEN (Operator) = %s , merge previous two operators in one \n",ring_string_get(pScanner->ActiveToken) ) ;
-                                #endif
                                 nTokenIndex += 100 ;
                             }
                         }
-                        /* Check += -= *= /= %= &= |= ^= <<= >>= */
+                        /* Check += -= *= /= %= &= |= ^= <<= >>= **= */
                         else if ( strcmp(cStr,"=") == 0 ) {
                             nTokenIndex += 100 ;
                             if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"+") == 0 ) {
@@ -144,6 +137,10 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
                             else if ( strcmp(ring_scanner_lasttokenvalue(pScanner),">>") == 0 ) {
                                 RING_SCANNER_DELETELASTTOKEN ;
                                 ring_string_set_gc(pScanner->pRingState,pScanner->ActiveToken,">>=");
+                            }
+                            else if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"**") == 0 ) {
+                                RING_SCANNER_DELETELASTTOKEN ;
+                                ring_string_set_gc(pScanner->pRingState,pScanner->ActiveToken,"**=");
                             }
                             else {
                                 nTokenIndex -= 100 ;
@@ -219,9 +216,6 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
             /* Switch State */
             if ( c == pScanner->cLiteral ) {
                 pScanner->state = SCANNER_STATE_GENERAL ;
-                #if RING_SCANNEROUTPUT
-                    printf( "\nTOKEN (Literal) = %s  \n",ring_string_get(pScanner->ActiveToken) ) ;
-                #endif
                 ring_scanner_addtoken(pScanner,SCANNER_TOKEN_LITERAL);
             }
             else {
@@ -232,9 +226,6 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
             /* Switch State */
             if ( c == '\n' ) {
                 pScanner->state = SCANNER_STATE_GENERAL ;
-                #if RING_SCANNEROUTPUT
-                    printf( "\n Not TOKEN (Comment) = %s  \n",ring_string_get(pScanner->ActiveToken) ) ;
-                #endif
                 if ( pScanner->pRingState->lCommentsAsTokens ) {
                     ring_scanner_addtoken(pScanner,SCANNER_TOKEN_COMMENT);
                 }
@@ -261,9 +252,6 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
                 case 1 :
                     if ( strcmp(cStr,"/") == 0 ) {
                         pScanner->state = SCANNER_STATE_GENERAL ;
-                        #if RING_SCANNEROUTPUT
-                            printf( "\nMultiline comments end \n" ) ;
-                        #endif
                         if ( pScanner->pRingState->lCommentsAsTokens ) {
                             ring_scanner_addtoken(pScanner,SCANNER_TOKEN_COMMENT);
                         }
@@ -278,9 +266,6 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
             /* Switch State */
             if ( c == '\n' ) {
                 pScanner->state = SCANNER_STATE_GENERAL ;
-                #if RING_SCANNEROUTPUT
-                    printf( "\n Change Keyword = %s  \n",ring_string_get(pScanner->ActiveToken) ) ;
-                #endif
                 ring_scanner_changekeyword(pScanner);
                 ring_string_set_gc(pScanner->pRingState,pScanner->ActiveToken,"");
             }
@@ -302,9 +287,6 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
             /* Switch State */
             if ( c == '\n' ) {
                 pScanner->state = SCANNER_STATE_GENERAL ;
-                #if RING_SCANNEROUTPUT
-                    printf( "\n Change operator = %s  \n",ring_string_get(pScanner->ActiveToken) ) ;
-                #endif
                 ring_scanner_changeoperator(pScanner);
                 ring_string_set_gc(pScanner->pRingState,pScanner->ActiveToken,"");
             }
@@ -319,9 +301,6 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
             /* Switch State */
             if ( c == '\n' ) {
                 pScanner->state = SCANNER_STATE_GENERAL ;
-                #if RING_SCANNEROUTPUT
-                    printf( "\n Load Syntax = %s  \n",ring_string_get(pScanner->ActiveToken) ) ;
-                #endif
                 ring_scanner_loadsyntax(pScanner);
                 ring_string_set_gc(pScanner->pRingState,pScanner->ActiveToken,"");
             }
@@ -337,9 +316,6 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
         if ( (ring_scanner_lasttokentype(pScanner) != SCANNER_TOKEN_ENDLINE ) ) {
             ring_string_setfromint_gc(pScanner->pRingState,pScanner->ActiveToken,pScanner->LinesCount);
             ring_scanner_addtoken(pScanner,SCANNER_TOKEN_ENDLINE);
-            #if RING_SCANNEROUTPUT
-                printf( "\nTOKEN (ENDLINE)  \n" ) ;
-            #endif
         }
         else {
             pList = ring_list_getlist(pScanner->Tokens,ring_list_getsize(pScanner->Tokens));
@@ -460,9 +436,6 @@ void ring_scanner_checktoken ( Scanner *pScanner )
         ring_state_free(pScanner->pRingState,cActiveStr);
     }
     if ( nResult > 0 ) {
-        #if RING_SCANNEROUTPUT
-            printf( "\nTOKEN (Keyword) = %s  \n",ring_string_get(pScanner->ActiveToken) ) ;
-        #endif
         if ( nResult < RING_SCANNER_CHANGERINGKEYWORD ) {
             sprintf( cStr , "%d" , nResult ) ;
             ring_string_set_gc(pScanner->pRingState,pScanner->ActiveToken,cStr);
@@ -485,15 +458,9 @@ void ring_scanner_checktoken ( Scanner *pScanner )
         /* Add Identifier */
         if ( strcmp(ring_string_get(pScanner->ActiveToken),"") != 0 ) {
             if ( ring_scanner_isnumber(ring_string_get(pScanner->ActiveToken) ) == 0 ) {
-                #if RING_SCANNEROUTPUT
-                    printf( "\nTOKEN (Identifier) = %s  \n",ring_string_get(pScanner->ActiveToken) ) ;
-                #endif
                 ring_scanner_addtoken(pScanner,SCANNER_TOKEN_IDENTIFIER);
             }
             else {
-                #if RING_SCANNEROUTPUT
-                    printf( "\nTOKEN (Number) = %s  \n",ring_string_get(pScanner->ActiveToken) ) ;
-                #endif
                 ring_scanner_addtoken(pScanner,SCANNER_TOKEN_NUMBER);
             }
         }
@@ -679,10 +646,6 @@ void ring_scanner_floatmark ( Scanner *pScanner,int nType )
                 ring_string_add_gc(pScanner->pRingState,ring_item_getstring(ring_list_getitem(pList,2)),".");
                 ring_string_add_gc(pScanner->pRingState,ring_item_getstring(ring_list_getitem(pList,2)),ring_string_get(pString));
                 ring_string_delete_gc(pScanner->pRingState,pString);
-                #if RING_SCANNEROUTPUT
-                    printf( "\nFloat Found, Removed 2 tokens from the end, update value to float ! \n" ) ;
-                    printf( "\nFloat Value = %s  \n",ring_list_getstring(pList,2) ) ;
-                #endif
             }
             pScanner->FloatMark = 0 ;
             break ;
@@ -695,9 +658,6 @@ void ring_scanner_endofline ( Scanner *pScanner )
     if ( ring_scanner_lasttokentype(pScanner) != SCANNER_TOKEN_ENDLINE ) {
         ring_string_setfromint_gc(pScanner->pRingState,pScanner->ActiveToken,pScanner->LinesCount);
         ring_scanner_addtoken(pScanner,SCANNER_TOKEN_ENDLINE);
-        #if RING_SCANNEROUTPUT
-            printf( "\nTOKEN (ENDLINE)  \n" ) ;
-        #endif
     }
 }
 

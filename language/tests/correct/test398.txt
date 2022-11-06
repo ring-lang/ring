@@ -1,0 +1,24 @@
+Define a number
+Create a pointer to the number
+Check the pointer
+Is pointer : 1
+List Size  : 3
+Get a string using the pointer
+String Size: 4
+Print the ASCII code for each character
+51
+141
+191
+0
+Print character outsize range
+Can't access the character - outside range
+Print each item in pointer list
+We have a pointer here!
+int
+0
+Check the pointer value
+STRING
+Call function that return a string
+1234
+Access character outside range
+Can't access the character - outside range

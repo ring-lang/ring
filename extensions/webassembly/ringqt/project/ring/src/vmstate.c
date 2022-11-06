@@ -7,15 +7,10 @@ void ring_vm_savestate ( VM *pVM,List *pList )
     List *pThis  ;
     VMState *pVMState  ;
     Item *pItem  ;
-    pList = ring_list_newlist_gc(pVM->pRingState,pList);
     /* Using VMState */
     pVMState = (VMState *) ring_state_malloc(pVM->pRingState,sizeof(VMState));
     /* Save the state as Managed C Pointer */
-    ring_list_addpointer_gc(pVM->pRingState,pList,pVMState);
-    ring_list_addstring_gc(pVM->pRingState,pList,"VMState");
-    ring_list_addint_gc(pVM->pRingState,pList,RING_CPOINTERSTATUS_NOTASSIGNED);
-    pItem = ring_list_getitem(pList,RING_CPOINTER_POINTER);
-    ring_vm_gc_setfreefunc(pItem,ring_state_free);
+    ring_list_addringpointer_gc(pVM->pRingState,pList,pVMState);
     pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
     /* Save the data */
     pVMState->aNumbers[0] = ring_list_getsize(pVM->pMem) ;
@@ -38,7 +33,7 @@ void ring_vm_savestate ( VM *pVM,List *pList )
     pVMState->aNumbers[17] = pVM->nInsideBraceFlag ;
     pVMState->aNumbers[18] = ring_list_getsize(pVM->aForStep) ;
     pVMState->aNumbers[19] = ring_list_getsize(pVM->aBeforeObjState) ;
-    pVMState->aNumbers[20] = pVM->nLineNumber ;
+    pVMState->aNumbers[20] = RING_VM_IR_GETLINENUMBER ;
     pVMState->aNumbers[21] = pVM->nInClassRegion ;
     pVMState->aNumbers[22] = pVM->nPrivateFlag ;
     pVMState->aNumbers[23] = pVM->nGetSetProperty ;
@@ -127,7 +122,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
     }
     pVM->nInsideBraceFlag = pVMState->aNumbers[17] ;
     ring_vm_backstate(pVM,pVMState->aNumbers[19],pVM->aBeforeObjState);
-    pVM->nLineNumber = pVMState->aNumbers[20] ;
+    RING_VM_IR_SETLINENUMBER(pVMState->aNumbers[20]);
     pVM->nInClassRegion = pVMState->aNumbers[21] ;
     pVM->nPrivateFlag = pVMState->aNumbers[22] ;
     pVM->nGetSetProperty = pVMState->aNumbers[23] ;
@@ -156,14 +151,9 @@ void ring_vm_savestate2 ( VM *pVM,List *pList )
     Item *pItem  ;
     /* Using VMState */
     pVMState = (VMState *) ring_state_malloc(pVM->pRingState,sizeof(VMState));
-    pList = ring_list_newlist_gc(pVM->pRingState,pList);
     pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
     /* Save the state as Managed C Pointer */
-    ring_list_addpointer_gc(pVM->pRingState,pList,pVMState);
-    ring_list_addstring_gc(pVM->pRingState,pList,"VMState");
-    ring_list_addint_gc(pVM->pRingState,pList,RING_CPOINTERSTATUS_NOTASSIGNED);
-    pItem = ring_list_getitem(pList,RING_CPOINTER_POINTER);
-    ring_vm_gc_setfreefunc(pItem,ring_state_free);
+    ring_list_addringpointer_gc(pVM->pRingState,pList,pVMState);
     /* Save the Data */
     pVMState->aNumbers[0] = ring_list_getsize(pVM->pExitMark) ;
     pVMState->aNumbers[1] = ring_list_getsize(pVM->pLoopMark) ;
@@ -181,7 +171,7 @@ void ring_vm_savestate2 ( VM *pVM,List *pList )
     pVMState->aNumbers[13] = pVM->nActiveScopeID ;
     pVMState->aNumbers[14] = ring_list_getsize(pVM->aScopeNewObj) ;
     pVMState->aNumbers[15] = ring_list_getsize(pVM->aScopeID) ;
-    pVMState->aNumbers[16] = pVM->nLineNumber ;
+    pVMState->aNumbers[16] = RING_VM_IR_GETLINENUMBER ;
     pVMState->aNumbers[17] = pVM->nBeforeEqual ;
     pVMState->aNumbers[18] = pVM->nNOAssignment ;
     pVMState->aNumbers[19] = pVM->nGetSetProperty ;
@@ -250,7 +240,7 @@ void ring_vm_restorestate2 ( VM *pVM,List *pList,int x )
     pVM->nActiveScopeID = pVMState->aNumbers[13] ;
     ring_vm_backstate(pVM,pVMState->aNumbers[14],pVM->aScopeNewObj);
     ring_vm_backstate(pVM,pVMState->aNumbers[15],pVM->aScopeID);
-    pVM->nLineNumber = pVMState->aNumbers[16] ;
+    RING_VM_IR_SETLINENUMBER(pVMState->aNumbers[16]);
     pVM->nBeforeEqual = pVMState->aNumbers[17] ;
     pVM->nNOAssignment = pVMState->aNumbers[18] ;
     pVM->nGetSetProperty = pVMState->aNumbers[19] ;
@@ -273,14 +263,9 @@ void ring_vm_savestate3 ( VM *pVM )
     VMState *pVMState  ;
     Item *pItem  ;
     /* Using VMState */
-    pList = ring_list_newlist_gc(pVM->pRingState,pVM->aScopeNewObj);
     pVMState = (VMState *) ring_state_malloc(pVM->pRingState,sizeof(VMState));
     /* Save the state as Managed C Pointer */
-    ring_list_addpointer_gc(pVM->pRingState,pList,pVMState);
-    ring_list_addstring_gc(pVM->pRingState,pList,"VMState");
-    ring_list_addint_gc(pVM->pRingState,pList,RING_CPOINTERSTATUS_NOTASSIGNED);
-    pItem = ring_list_getitem(pList,RING_CPOINTER_POINTER);
-    ring_vm_gc_setfreefunc(pItem,ring_state_free);
+    ring_list_addringpointer_gc(pVM->pRingState,pVM->aScopeNewObj,pVMState);
     /*
     **  Save the Data 
     **  Save the Active Memory 
@@ -307,7 +292,7 @@ void ring_vm_savestate3 ( VM *pVM )
     pVMState->aNumbers[5] = pVM->nCallClassInit ;
     pVM->nCallClassInit = 0 ;
     /* Save Line Number */
-    pVMState->aNumbers[6] = pVM->nLineNumber ;
+    pVMState->aNumbers[6] = RING_VM_IR_GETLINENUMBER ;
     /* Save Function Stack */
     pVMState->aNumbers[7] = pVM->nFuncSP ;
     /* Save Assignment Pointer */
@@ -406,7 +391,7 @@ void ring_vm_restorestate3 ( VM *pVM )
     /* Restore nCallClassInit */
     pVM->nCallClassInit = pVMState->aNumbers[5] ;
     /* Restore nLineNumber */
-    pVM->nLineNumber = pVMState->aNumbers[6] ;
+    RING_VM_IR_SETLINENUMBER(pVMState->aNumbers[6]);
     /* Restore Function Stack */
     pVM->nFuncSP = pVMState->aNumbers[7] ;
     /* Restore Assignment Pointer */
