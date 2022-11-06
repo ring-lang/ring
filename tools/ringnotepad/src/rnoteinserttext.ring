@@ -63,15 +63,7 @@ class RNoteInsertText
 		nr = templateList.currentRow()+1
 		cFunction = aCodeTemplates[nr][2]
 		output = call cFunction()
-		cTextContent = textedit1.toplaintext()
-		oCursor = textedit1.textcursor()
-		nPosStart = oCursor.Position()
-		nPosEnd = len(cTextContent) - nPosStart
-		cNewContent = substr(cTextContent,1,nPosStart)+ output +
-			substr(cTextContent,nPosStart+1,nPosEnd)
-		textedit1.setPlaintext(cNewContent)
-		oCursor.setposition(nPosStart+len(output),0)
-		textedit1.settextcursor(oCursor)
+		textedit1.textcursor().insertText(output)
 
 	func pCancel
 
