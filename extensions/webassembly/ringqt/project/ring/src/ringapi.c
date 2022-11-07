@@ -352,16 +352,7 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int lRef )
         ring_vm_list_copy((VM *) pPointer,pRealList,pList);
     }
     else {
-        if ( ring_vm_oop_isobject(pList) ) {
-            /*
-            **  Here we don't use swaptwolists, because the List is an object reference 
-            **  And we want to keep the original object 
-            */
-            ring_list_setlistbyref_gc(((VM *) pPointer)->pRingState,pVariableList,RING_VAR_VALUE,pList);
-        }
-        else {
-            ring_list_swaptwolists(pRealList,pList);
-        }
+        ring_list_setlistbyref_gc(((VM *) pPointer)->pRingState,pVariableList,RING_VAR_VALUE,pList);
     }
     RING_API_PUSHPVALUE(pVariableList);
     RING_API_OBJTYPE = RING_OBJTYPE_VARIABLE ;
