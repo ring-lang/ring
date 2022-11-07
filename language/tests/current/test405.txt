@@ -1,0 +1,53 @@
+Create the list
+Create pointer to the list
+Add item to the list
+Print the list!
+1
+2
+3
+4
+5
+Six
+
+Add another item using pointer2object()
+Print the list using pointer2object()
+1
+2
+3
+4
+5
+Six
+Seven
+
+Store a reference to the list
+Print the list
+1
+2
+3
+4
+5
+Six
+Seven
+
+Add item using the reference
+Print the list using the reference
+1
+2
+3
+4
+5
+Six
+Seven
+Eight
+
+Print the list using the original object
+1
+2
+3
+4
+5
+Six
+Seven
+Eight
+
+done
