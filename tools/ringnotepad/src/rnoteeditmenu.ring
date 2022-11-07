@@ -108,15 +108,18 @@ class RNoteEditMenu
 	func CommentLines
 		UpdateSelectedText(func cData {
 			aList = str2list(cData)
-			for cItem in aList
-				if len(cItem) > 3
-					if cItem[1] = '/' and cItem[2] = '/'
-						cItem = substr(cItem, 4)
-						loop
-					ok
+		if cData[len(cData)] = char(10)
+			aList + ""      # This check to overcome trimming of EOL by str2list() function
+		ok
+		for cItem in aList
+			if len(cItem) > 1
+				if cItem[1] = '/' and cItem[2] = '/'
+					cItem = substr(cItem, 3)
+					loop
 				ok
-				cItem = "// " + cItem
-			next
+			ok
+			cItem = "//" + cItem
+		next
 			return list2str(aList)
 		})
 
@@ -126,19 +129,9 @@ class RNoteEditMenu
 		})
 
 	func UpdateSelectedText fFunction
-		oCursor = textedit1.textCursor()
-		nStart = oCursor.SelectionStart() + 1
-		nEnd = oCursor.SelectionEnd() + 1
-		cStr = textedit1.toPlainText()
-		cNewStr = ""
-		if nStart > 1
-			cNewStr += left(cStr,nStart-1)
+		seltext = textedit1.textCursor().selectedtext()
+		seltext = substr(seltext, char(226) + char(128) + char(169), char(10))      # This line corrects chars of EOL caused by selectedtext()
+		if len(seltext) > 0
+			textedit1.textcursor().insertText(call fFunction(seltext))
 		ok
-
-		cNewStr2 = substr(cStr,nStart,nEnd-nStart)
-		cNewStr += call fFunction(cNewStr2)
-
-		if nEnd < len(cStr)
-			cNewStr += substr(cStr,nEnd)
-		ok
-		textedit1.setPlainText(cNewStr)
+		
