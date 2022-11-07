@@ -378,15 +378,9 @@ void ring_vm_listassignment ( VM *pVM )
         pList = ring_item_getlist(pItem);
         ring_list_deleteallitems_gc(pVM->pRingState,pList);
         if ( pVar->nCopyByRef ) {
-            if ( ring_vm_oop_isobject(pVar) ) {
-                ring_state_free(pVM->pRingState,pList);
-                pItem->data.pList = pVar ;
-                pVar->nCopyByRef++ ;
-            }
-            else {
-                pVar->nCopyByRef = 0 ;
-                ring_list_swaptwolists(pList,pVar);
-            }
+            ring_state_free(pVM->pRingState,pList);
+            pItem->data.pList = pVar ;
+            pVar->nCopyByRef++ ;
         }
         else {
             pTempList = ring_list_new_gc(pVM->pRingState,0);
