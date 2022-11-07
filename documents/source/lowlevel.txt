@@ -233,12 +233,13 @@ Syntax:
 
 .. code-block:: ring
 
-	ptr2obj(Low Level Object) ---> ListCopy|ObjectReference		# Short name
-	pointer2object(Low Level Object) ---> ListCopy|ObjectReference	# Long name	
+	ptr2obj(Low Level Object) ---> ListReference|ObjectReference		# Short name
+	pointer2object(Low Level Object) ---> ListReference|ObjectReference	# Long name	
 
 
-.. note:: You have to be sure that the Pointer still valid (Doesn't point to deallocated memory)
+.. note:: Before using Pointer2Object() to create a reference, Be sure that the Pointer is valid (Doesn't point to deallocated memory, i.e. deleted list/object)
 
+.. tip:: After using Pointer2Object() to create a reference, and if the original List/Object is deleted, Ring will uses reference counting and will keep the List/Object until the latest reference is removed
 
 Example:
 
@@ -276,7 +277,7 @@ Output:
 	5
 	welcome
 
-.. note:: In Ring the assignment operator copy lists and objects by value, to copy Objects by reference
+.. note:: In Ring the assignment operator copy lists and objects by value, to copy lists and objects by reference
 	Just use the object2pointer() and pointer2object() functions.
 
 .. tip:: The object2pointer() and pointer2object() are used in the stdlib - Tree Class implementation
@@ -297,7 +298,7 @@ i.e. A pointer that points to the memory location of the deallocated memory
 
 Using this invalid pointer could lead to (CRASH or Memory Corruption).
 
-If you will use pointers (Using Object2Pointer() or Pointer2Object) then never use pointers that point to the memory that are deallocated.
+If you will use pointers (Using Object2Pointer() or Pointer2Object()) then never use pointers that point to the memory that are deallocated.
 
 In simple words, Keep the memory (Don't delete it if you still need it)
 

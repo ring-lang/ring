@@ -489,13 +489,17 @@ Also the function accept NULL pointers, so we can pass them using the NULLPointe
 <span id="index-6"></span><h2>pointer2object() function<a class="headerlink" href="#pointer2object-function" title="Permalink to this headline">¶</a></h2>
 <p>Use this function to get the Ring list and/or object from the low level object (C Pointer)</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ptr2obj</span><span class="p">(</span><span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">ListCopy</span><span class="o">|</span><span class="n">ObjectReference</span>         <span class="c"># Short name</span>
-<span class="n">pointer2object</span><span class="p">(</span><span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">ListCopy</span><span class="o">|</span><span class="n">ObjectReference</span>  <span class="c"># Long name</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ptr2obj</span><span class="p">(</span><span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">ListReference</span><span class="o">|</span><span class="n">ObjectReference</span>            <span class="c"># Short name</span>
+<span class="n">pointer2object</span><span class="p">(</span><span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">ListReference</span><span class="o">|</span><span class="n">ObjectReference</span>     <span class="c"># Long name</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You have to be sure that the Pointer still valid (Doesn’t point to deallocated memory)</p>
+<p>Before using Pointer2Object() to create a reference, Be sure that the Pointer is valid (Doesn’t point to deallocated memory, i.e. deleted list/object)</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>After using Pointer2Object() to create a reference, and if the original List/Object is deleted, Ring will uses reference counting and will keep the List/Object until the latest reference is removed</p>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># Create the list</span>
@@ -531,7 +535,7 @@ welcome
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In Ring the assignment operator copy lists and objects by value, to copy Objects by reference
+<p>In Ring the assignment operator copy lists and objects by value, to copy lists and objects by reference
 Just use the object2pointer() and pointer2object() functions.</p>
 </div>
 <div class="admonition tip">
@@ -546,7 +550,7 @@ to create a reference for the parent node (object) in the child node (another ob
 <p>This means that the pointer created with Object2Pointer() will becomes a dangling pointer</p>
 <p>i.e. A pointer that points to the memory location of the deallocated memory</p>
 <p>Using this invalid pointer could lead to (CRASH or Memory Corruption).</p>
-<p>If you will use pointers (Using Object2Pointer() or Pointer2Object) then never use pointers that point to the memory that are deallocated.</p>
+<p>If you will use pointers (Using Object2Pointer() or Pointer2Object()) then never use pointers that point to the memory that are deallocated.</p>
 <p>In simple words, Keep the memory (Don’t delete it if you still need it)</p>
 <p>i.e. instead of using (Local Variables) that will be deleted, You can use Class Attributes or Global Variables.</p>
 </div>
