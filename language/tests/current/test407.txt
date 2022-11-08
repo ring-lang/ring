@@ -1,0 +1,30 @@
+Create the list
+Store a reference to the list
+Print the list
+1
+2
+3
+4
+5
+
+Add item using the reference
+Add item using the original list
+Print the list using the reference
+1
+2
+3
+4
+5
+Six
+Seven
+
+Print the list using the original list
+1
+2
+3
+4
+5
+Six
+Seven
+
+done
