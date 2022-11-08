@@ -36,7 +36,7 @@ ring_vm_list_copy
 Type: int
 x,nMax
 Type: List *
-pNewList2
+pNewList2, *pSourceList
 Type: Item *
 pItem
 ring_vm_list_simpointercopy
