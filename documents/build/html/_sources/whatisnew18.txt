@@ -214,3 +214,4 @@ More Improvements
 * Ring VM - Better numbers format when printing lists and objects
 * Ring VM - Memory defragmentation before Byte Code execution
 * Ring VM - Pointer2Object() function - return list/object reference instead of a copy
+* Ring VM - Ref()/Reference() function - Return a safe (managed) reference for a List/Object
