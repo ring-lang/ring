@@ -88,7 +88,7 @@ Keywords Count : 58
 Language Functions
 ==================
 
-Functions Count : 245
+Functions Count : 247
 
 .. code-block:: ring
 
@@ -266,6 +266,8 @@ Functions Count : 245
         random(x) ---> A random number in the range [0,x]
         randomize(nNumber) ---> nNumber
 	read(cFileName) ---> String contains the file content
+	ref(aList|oObject) ---> List/Object reference
+	reference(aList|oObject) ---> List/Object reference
 	remove(cFileName)
 	rename(cOldFileName,cNewFileName) ---> Zero for Success or -1 for Error
 	reverse(List) ---> Reversed List
