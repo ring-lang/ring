@@ -1,2 +1,10 @@
-
-Can't open file general/deping.ring 
+myclass1
+myclass1
+one
+two
+10
+20
+myclass1
+myclass1
+one
+two
