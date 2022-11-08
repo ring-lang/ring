@@ -19,6 +19,8 @@ void ring_vm_listfuncs_loadfunctions ( RingState *pRingState )
     RING_API_REGISTER("sort",ring_vm_listfuncs_sort);
     RING_API_REGISTER("reverse",ring_vm_listfuncs_reverse);
     RING_API_REGISTER("binarysearch",ring_vm_listfuncs_binarysearch);
+    RING_API_REGISTER("ref",ring_vm_listfuncs_reference);
+    RING_API_REGISTER("reference",ring_vm_listfuncs_reference);
     /* Instead of NewList() function from StdLib (Just to support Old Code until converting it to List() ) */
     RING_API_REGISTER("newlist",ring_vm_listfuncs_list);
 }
@@ -659,4 +661,20 @@ void ring_vm_listfuncs_reverse ( void *pPointer )
     else {
         RING_API_ERROR(RING_API_BADPARATYPE);
     }
+}
+
+void ring_vm_listfuncs_reference ( void *pPointer )
+{
+    List *pList  ;
+    if ( RING_API_PARACOUNT == 1 ) {
+        if ( RING_API_ISLIST(1) ) {
+            pList = RING_API_GETLIST(1) ;
+            RING_API_RETLISTBYREF(pList);
+        }
+        else {
+            RING_API_ERROR(RING_API_BADPARATYPE);
+        }
+        return ;
+    }
+    RING_API_ERROR(RING_API_BADPARACOUNT);
 }

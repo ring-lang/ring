@@ -67,3 +67,6 @@ Type: List *
 pList,*pList2,*pList3
 Type: int
 x
+ring_vm_listfuncs_reference
+Type: List *
+pList
