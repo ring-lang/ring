@@ -9,7 +9,7 @@
         #define RING_VM_STACK_SIZE 256
         #define RING_VM_STACK_CHECKOVERFLOW 253
     #else
-        #define RING_VM_STACK_SIZE 1024
+        #define RING_VM_STACK_SIZE 1004
         #define RING_VM_STACK_CHECKOVERFLOW 1000
     #endif
     #define RING_VM_FREE_STACK_IN_CLASS_REGION_AFTER 100
