@@ -516,15 +516,16 @@ Type: String *
 pError
 ring_vm_showerrormessage
 Type: int
-x,lFunctionCall
+x,lFunctionCall,nRecursion
 Type: char *
-cStr2
+cStr2, *cStr3
 Type: List *
-pList
+pList, *pList2
 Type: const char *
-cFile
+cFile, *cFile2
 Type: const char *
 cOldFile
+ring_vm_showrecursiondepth
 ring_vm_setfilename
 ring_vm_traceevent
 Type: List *
