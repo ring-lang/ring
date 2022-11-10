@@ -283,6 +283,34 @@ Qt_Key_PageDown	= dec("01000017")
 Qt_Key_Shift	= dec("01000020")
 Qt_Key_Control	= dec("01000021")
 
+Qt_Key_A = 0x41	 
+Qt_Key_B = 0x42	 
+Qt_Key_C = 0x43	 
+Qt_Key_D = 0x44	 
+Qt_Key_E = 0x45	 
+Qt_Key_F = 0x46	 
+Qt_Key_G = 0x47	 
+Qt_Key_H = 0x48	 
+Qt_Key_I = 0x49	 
+Qt_Key_J = 0x4a	 
+Qt_Key_K = 0x4b	 
+Qt_Key_L = 0x4c	 
+Qt_Key_M = 0x4d	 
+Qt_Key_N = 0x4e	 
+Qt_Key_O = 0x4f	 
+Qt_Key_P = 0x50	 
+Qt_Key_Q = 0x51	 
+Qt_Key_R = 0x52	 
+Qt_Key_S = 0x53	 
+Qt_Key_T = 0x54	 
+Qt_Key_U = 0x55	 
+Qt_Key_V = 0x56	 
+Qt_Key_W = 0x57	 
+Qt_Key_X = 0x58	 
+Qt_Key_Y = 0x59	 
+Qt_Key_Z = 0x5a	 
+
+
 QAbstractItemView_SingleSelection 	= 1
 QAbstractItemView_ContiguousSelection 	= 4
 QAbstractItemView_ExtendedSelection 	= 3
