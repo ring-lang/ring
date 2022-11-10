@@ -10,7 +10,7 @@
 /------------------------------------------------------------------------------------*/
 
 
-LoadLib ("libs\ring_winapi.dll")
+LoadLib ("ring_winapi.dll")
 Load "winapi.rh"
 
 

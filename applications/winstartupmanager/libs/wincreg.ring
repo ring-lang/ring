@@ -11,7 +11,7 @@
 
 
 
-LoadLib("libs\ring_wincreg.dll")
+LoadLib("ring_wincreg.dll")
 Load "wincreg.rh"
 
 RCRegRetObj = NULL
