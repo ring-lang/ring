@@ -525,7 +525,6 @@ Type: const char *
 cFile, *cFile2
 Type: const char *
 cOldFile
-ring_vm_showrecursiondepth
 ring_vm_setfilename
 ring_vm_traceevent
 Type: List *
