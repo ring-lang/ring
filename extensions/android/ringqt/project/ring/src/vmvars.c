@@ -44,7 +44,7 @@ void ring_vm_addglobalvariables ( VM *pVM )
 
 void ring_vm_newscope ( VM *pVM )
 {
-    if ( ring_list_getsize(pVM->pMem) == RING_VM_STACK_SIZE ) {
+    if ( ring_list_getsize(pVM->pMem) >= RING_VM_STACK_CHECKOVERFLOW ) {
         ring_vm_error(pVM,RING_VM_ERROR_STACKOVERFLOW);
         exit(1);
     }
