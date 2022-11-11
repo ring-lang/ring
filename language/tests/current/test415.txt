@@ -1,0 +1,30 @@
+A Size: 2
+start
+b
+a
+start
+c
+c
+
+B Size: 2
+a
+start
+c
+c
+
+**********
+A Size: 2
+start
+b
+a
+start
+c
+c
+
+B Size: 2
+a
+start
+c
+c
+
+**********
