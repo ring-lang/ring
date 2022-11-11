@@ -18,8 +18,12 @@ Type: struct Item *
 pItemBlock
 Type: struct Items *
 pItemsBlock
-Type: unsigned int
-nCopyByRef
+Type: unsigned short int
+nReferenceCount
+Type: unsigned char
+lDeleteContainerVariable
+Type: char
+lNewRef
 END:
 Type: List
 struct List
@@ -53,6 +57,8 @@ x
 Type: Items *
 pItems,*pItemsLast
 ring_list_delete_gc
+Type: List *
+pVariable
 ring_list_copy_gc
 Type: int
 x,nMax

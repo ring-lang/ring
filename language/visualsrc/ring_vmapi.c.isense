@@ -131,7 +131,7 @@ pList2
 ring_vm_api_retcpointer
 ring_vm_api_retlist2
 Type: List *
-pRealList,*pTempMem,*pVariableList
+pRealList,*pTempMem,*pVariableList, *pObjectVariable
 Type: VM *
 pVM
 ring_vm_api_intvalue
