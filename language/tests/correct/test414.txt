@@ -1,0 +1,24 @@
+x: 100
+y: 200
+z: 300
+
+x: 100
+y: 200
+z: 300
+
+x: 1000
+y: 2000
+z: 3000
+
+x: 1000
+y: 2000
+z: 3000
+
+Size: 0
+Size: 6
+NUMBER
+NUMBER
+OBJECT
+OBJECT
+OBJECT
+OBJECT
