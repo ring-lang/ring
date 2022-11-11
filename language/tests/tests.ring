@@ -415,5 +415,6 @@ aTests = [
 	[ :name = "General Tests (Part 194)", :Command = "ring general/recstack.ring" ],
 	[ :name = "General Tests (Part 195)", :Command = "ring general/deep.ring" ],
 	[ :name = "General Tests (Part 196)", :Command = "ring general/selfdel.ring" ],
-	[ :name = "General Tests (Part 197)", :Command = "ring general/selfdel2.ring" ]
+	[ :name = "General Tests (Part 197)", :Command = "ring general/selfdel2.ring" ],
+	[ :name = "General Tests (Part 198)", :Command = "ring general/selfdel3.ring" ]
 ]
