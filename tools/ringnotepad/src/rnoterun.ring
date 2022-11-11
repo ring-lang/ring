@@ -73,7 +73,11 @@ Class RNoteRun
 		else
                         apacheConfigPath = cCurrentDir+ "batch/apache_config/"
                         lastRunPathFile = apacheConfigPath + "lastrundirpath.txt"
-                        lastRunPath = substr(read(lastRunPathFile),nl , "")
+                        if fexists(lastRunPathFile)
+                                lastRunPath = substr(read(lastRunPathFile),nl , "")
+                        else
+                                lastRunPath = ""
+                        ok
                         cAppDir = JustFilePath(cFileName)
                         if len(lastRunPath) = 0 OR Substr(cAppDir, lastRunPath) = 0
                                 apacheConfigTxt = read(apacheConfigPath + "webapp.conf.bak")
