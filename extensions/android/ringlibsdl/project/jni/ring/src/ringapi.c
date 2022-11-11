@@ -339,7 +339,7 @@ RING_API void ring_vm_api_retcpointer ( void *pPointer,void *pGeneral,const char
 
 RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int lRef )
 {
-    List *pRealList,*pTempMem,*pVariableList  ;
+    List *pRealList,*pTempMem,*pVariableList, *pObjectVariable  ;
     VM *pVM  ;
     pVM = (VM *) pPointer ;
     pTempMem = ring_vm_prevtempmem(pVM);
@@ -353,6 +353,12 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int lRef )
     }
     else {
         ring_list_setlistbyref_gc(((VM *) pPointer)->pRingState,pVariableList,RING_VAR_VALUE,pList);
+        pList->lNewRef = 1 ;
+        if ( ring_vm_oop_isobject(pList) ) {
+            ring_vm_oop_updateselfpointer(pVM,pList,RING_OBJTYPE_VARIABLE,pVariableList);
+            pVariableList->nReferenceCount = 1 ;
+            pList->lDeleteContainerVariable = 1 ;
+        }
     }
     RING_API_PUSHPVALUE(pVariableList);
     RING_API_OBJTYPE = RING_OBJTYPE_VARIABLE ;

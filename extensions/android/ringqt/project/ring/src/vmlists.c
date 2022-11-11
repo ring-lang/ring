@@ -381,6 +381,12 @@ void ring_vm_listassignment ( VM *pVM )
             ring_state_free(pVM->pRingState,pList);
             pItem->data.pList = pVar ;
             pVar->nReferenceCount++ ;
+            if ( pVar->lNewRef ) {
+                pVar->lNewRef = 0 ;
+                if ( pVar->lDeleteContainerVariable ) {
+                    pVar->nReferenceCount-- ;
+                }
+            }
         }
         else {
             pTempList = ring_list_new_gc(pVM->pRingState,0);

@@ -44,16 +44,29 @@ RING_API List * ring_list_new2_gc ( void *pState,List *pList,int nSize )
     pList->pItemBlock = NULL ;
     pList->pItemsBlock = NULL ;
     pList->nReferenceCount = 0 ;
+    pList->lDeleteContainerVariable = 0 ;
+    pList->lNewRef = 0 ;
     return pList ;
 }
 
 RING_API List * ring_list_delete_gc ( void *pState,List *pList )
 {
+    List *pVariable  ;
     /* Avoid deleting objects when the list is just a reference */
     if ( pList->nReferenceCount ) {
         /* We don't delete the list because there are other references */
         pList->nReferenceCount-- ;
         return NULL ;
+    }
+    /* Delete Container Variable */
+    if ( pList->lDeleteContainerVariable ) {
+        pList->lDeleteContainerVariable = 0 ;
+        if ( ring_list_isobject(pList) ) {
+            pList->nReferenceCount++ ;
+            pVariable = ring_vm_oop_objvarfromobjlist(pList);
+            pVariable->nReferenceCount = 0 ;
+            ring_list_delete_gc(pState,pVariable);
+        }
     }
     /* Delete All Items */
     ring_list_deleteallitems_gc(pState,pList);
