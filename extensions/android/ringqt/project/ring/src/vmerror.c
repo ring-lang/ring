@@ -78,10 +78,10 @@ void ring_vm_error2 ( VM *pVM,const char *cStr,const char *cStr2 )
 
 RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 {
-    int x,lFunctionCall  ;
-    char *cStr2  ;
-    List *pList  ;
-    const char *cFile  ;
+    int x,lFunctionCall,nRecursion  ;
+    char *cStr2, *cStr3  ;
+    List *pList, *pList2  ;
+    const char *cFile, *cFile2  ;
     const char *cOldFile  ;
     /* CGI Support */
     ring_state_cgiheader(pVM->pRingState);
@@ -90,6 +90,7 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
     /* Print Calling Information */
     cOldFile = NULL ;
     lFunctionCall = 0 ;
+    nRecursion = 0 ;
     for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
         pList = ring_list_getlist(pVM->pFuncCallList,x);
         /*
@@ -104,6 +105,19 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
             cStr2 = ring_list_getstring(pList,RING_FUNCCL_NAME) ;
             if ( strcmp("",cStr2) == 0 ) {
                 break ;
+            }
+            /* Don't repeat messages in case of recursion */
+            if ( x != 1 ) {
+                pList2 = ring_list_getlist(pVM->pFuncCallList,x-1);
+                if ( ring_list_getsize(pList) == ring_list_getsize(pList2) ) {
+                    cStr3 = ring_list_getstring(pList2,RING_FUNCCL_NAME) ;
+                    cFile = (const char *) ring_list_getpointer(pList,RING_FUNCCL_NEWFILENAME) ;
+                    cFile2 = (const char *) ring_list_getpointer(pList2,RING_FUNCCL_NEWFILENAME) ;
+                    if ( (cFile == cFile2 ) && (strcmp(cStr2,cStr3) == 0) ) {
+                        nRecursion++ ;
+                        continue ;
+                    }
+                }
             }
             /*
             **  Prepare Message 
@@ -158,6 +172,9 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
             }
         }
         printf( "in file %s ",cFile ) ;
+    }
+    if ( nRecursion != 0 ) {
+        printf( "\n---{ Recursion Depth: %d }---\n",nRecursion ) ;
     }
     fflush(stdout);
 }

@@ -4,4 +4,5 @@
 rec()
 
 func rec
-	rec()
+	return "" + rec()	# Using "" wil lead to StackOverFlow
+				# Without "" - We will get (Out of Memory)

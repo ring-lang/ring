@@ -5,8 +5,13 @@
     **  Data 
     **  Stack Size 
     */
-    #define RING_VM_STACK_SIZE 256
-    #define RING_VM_STACK_CHECKOVERFLOW 253
+    #if RING_MSDOS
+        #define RING_VM_STACK_SIZE 256
+        #define RING_VM_STACK_CHECKOVERFLOW 253
+    #else
+        #define RING_VM_STACK_SIZE 1004
+        #define RING_VM_STACK_CHECKOVERFLOW 1000
+    #endif
     #define RING_VM_FREE_STACK_IN_CLASS_REGION_AFTER 100
     #define RING_VM_BC_ITEMS_COUNT 3
     #define RING_VM_STATE_NUMBERS_COUNT 35
@@ -40,7 +45,7 @@
         List *pPackagesMap  ;
         unsigned int nOPCode  ;
         Item aStack[RING_VM_STACK_SIZE]  ;
-        unsigned char nSP  ;
+        unsigned int nSP  ;
         List *pMem  ;
         List *pActiveMem  ;
         List *pTempMem  ;

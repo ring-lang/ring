@@ -157,6 +157,7 @@ More Improvements
 * Added: samples/UsingQt/TabActivate/TabActivateController.ring 
 * Added: samples/UsingFormDesigner/centerwindow
 * Added: samples/AQuickStart/MySQL/mysql11.ring
+* Added: samples/UsingQt3D/ex19_sceneKeyboard.ring
 * Sample: samples/AQuickStart/GUILib/gui44.ring - Better Code
 * Sample: samples/UsingWebLib/Demo/datalib.ring - Better Code
 * Sample: samples/UsingWebLib/Demo/bootstrap.ring - Better Code
@@ -215,3 +216,5 @@ More Improvements
 * Ring VM - Memory defragmentation before Byte Code execution
 * Ring VM - Pointer2Object() function - return list/object reference instead of a copy
 * Ring VM - Ref()/Reference() function - Return a safe (managed) reference for a List/Object
+* Ring VM - Increase the Stack size to 1K
+* Ring VM - Error System - Display recursion depth
