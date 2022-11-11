@@ -6,6 +6,9 @@ printf "Setting Apache configuration before running this app ...\n\n\n"
 if [ -f /etc/apache2/apache2.conf ]
 then
         printf "Setting configuration for official apache release - Ubuntu.....\n\n"
+        printf "Activating CGI module...\n"
+        sudo a2enmod cgi
+        printf "\n"
         if [ -L /etc/apache2/sites-enabled/ringwebapp.local.conf ]
         then
                 printf "Removing previously set 'ringwebapp.local.conf' config file...\n\n"
@@ -29,40 +32,62 @@ then
 fi
 
 # include ring web app virtual host in the official apache2 release and XAMPP configurations - MacOSX
-if [ -f /etc/apache2/httpd.conf ] ||  [ -f /Applications/XAMPP/xamppfiles/etc/httpd.conf ]
+OFFICIAL_CONFPATH=/etc/apache2/httpd.conf
+XAMPP_CONFPATH=/Applications/XAMPP/xamppfiles/etc/httpd.conf
+CONF_STR='Include /private/etc/apache2/vhosts/*.conf'
+if [ -f $OFFICIAL_CONFPATH ]
 then
-        printf "Setting configuration for apache - MacOSX.....\n\n"
-        CONF_STR= 'Include /private/etc/apache2/vhosts/*.conf'
-        if grep -q "$CONF_STR" /etc/apache2/httpd.conf; then
-                if grep -q "#$CONF_STR" /etc/apache2/httpd.conf; then
+        printf "Setting configuration for officail apache - MacOSX.....\n\n"
+        printf "Activating CGI module...\n"
+        sudo sed -i '' "s/#LoadModule cgid_module/LoadModule cgid_module/g" $OFFICIAL_CONFPATH
+        sudo sed -i '' "s/#AddModule mod_cgid.c/AddModule mod_cgid.c/g" $OFFICIAL_CONFPATH
+        sudo sed -i '' "s/#LoadModule cgi_module/LoadModule cgi_module/g" $OFFICIAL_CONFPATH
+        sudo sed -i '' "s/#AddModule mod_cgi.c/AddModule mod_cgi.c/g" $OFFICIAL_CONFPATH
+        printf "\n"
+        if grep -q "$CONF_STR" $OFFICIAL_CONFPATH; then
+                if grep -q "$CONF_STR" $OFFICIAL_CONFPATH; then
                         printf "Reactivate inactivated vhosts inclusion in apache httpd.conf file - Official apache release...\n\n"
-                        sudo sed -i '' "s/#$CONF_STR/$CONF_STR/g" /etc/apache2/httpd.conf
+                        sudo sed -i '' "s/#$CONF_STR/$CONF_STR/g" $OFFICIAL_CONFPATH
                 fi
         else
                 printf "Activate vhosts inclusion in apache httpd.conf file - Official apache release...\n\n"
-                sudo sh -c 'printf "$CONF_STR" >> /etc/apache2/httpd.conf'
+                sudo sh -c 'printf "$CONF_STR" >> $OFFICIAL_CONFPATH'
         fi
-        if grep -q "$CONF_STR" /Applications/XAMPP/xamppfiles/etc/httpd.conf; then
-                if grep -q "#$CONF_STR" /Applications/XAMPP/xamppfiles/etc/httpd.conf; then
-                        printf "Reactivate inactivated vhosts inclusion in apache httpd.conf file - XAMPP apache...\n\n"
-                        sudo sed -i '' "s/#$CONF_STR/$CONF_STR/g" /Applications/XAMPP/xamppfiles/etc/httpd.conf
+
+fi
+if [ -f $XAMPP_CONFPATH ]
+then
+        printf "Activating CGI module for the XAMPP apache...\n"
+        sudo sed -i '' "s/#LoadModule cgid_module/LoadModule cgid_module/g" $XAMPP_CONFPATH
+        sudo sed -i '' "s/#AddModule mod_cgid.c/AddModule mod_cgid.c/g" $XAMPP_CONFPATH
+        sudo sed -i '' "s/#LoadModule cgi_module/LoadModule cgi_module/g" $XAMPP_CONFPATH
+        sudo sed -i '' "s/#AddModule mod_cgi.c/AddModule mod_cgi.c/g" $XAMPP_CONFPATH
+        printf "\n"
+        if grep -q "$CONF_STR" $XAMPP_CONFPATH; then
+                if grep -q "$CONF_STR" $XAMPP_CONFPATH; then
+                       printf "Reactivate inactivated vhosts inclusion in apache httpd.conf file - XAMPP apache...\n\n"
+                       sudo sed -i '' "s/#$CONF_STR/$CONF_STR/g" $XAMPP_CONFPATH
                 fi
         else
                 printf "Activate vhosts inclusion in apache httpd.conf file - XAMPP apache...\n\n"
-                sudo sh -c 'printf "$CONF_STR" >> /Applications/XAMPP/xamppfiles/etc/httpd.conf'
+                sudo sh -c 'printf "$CONF_STR" >> $XAMPP_CONFPATH'
         fi
-        if [ ! -d /private/etc/apache2/vhosts ]
+fi
+if [ -f $OFFICIAL_CONFPATH ] || [ -f $XAMPP_CONFPATH ]
+then
+        VHOST_DIR=/private/etc/apache2/vhosts
+        if [ ! -d $VHOST_DIR ]
         then
                 printf "Create vhosts directory...\n\n"
-                mkdir /etc/apache2/vhosts
+                mkdir $VHOST_DIR
         fi
-        if [ -L /private/etc/apache2/vhosts/ringwebapp.local.conf ]
+        if [ -L $VHOST_DIR/ringwebapp.local.conf ]
         then
                 printf "Removing previously set 'ringwebapp.local.conf' config file...\n\n"
-                rm /private/etc/apache2/vhosts/ringwebapp.local.conf
+                rm $VHOST_DIR/ringwebapp.local.conf
         fi
         printf "Setting new 'ringwebapp.local.conf' config file...\n\n"
-        ln -s "$1/ringwebapp.local.conf" /private/etc/apache2/vhosts
+        ln -s "$1/ringwebapp.local.conf" $VHOST_DIR
 fi
 
 # add ringwebapp.local to /etc/hosts file
@@ -71,7 +96,7 @@ if ! grep -q 'ringwebapp.local' /etc/hosts; then
 fi
 
 # restart apache2 service to activate our ring web app
-PS3='Do you run Apache official releases or XAMPP?'
+PS3='Do you run Apache official releases or XAMPP? '
 options=("Apache official releases" "XAMPP")
 select opt in "${options[@]}"
 do
