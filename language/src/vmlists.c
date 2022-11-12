@@ -105,6 +105,12 @@ void ring_vm_listitem ( VM *pVM )
             if ( pList2->nReferenceCount ) {
                 /* Copy by ref (pList2 to pList3) */
                 ring_list_setlistbyref_gc(pVM->pRingState,pList,ring_list_getsize(pList),pList2);
+                if ( pList2->lNewRef ) {
+                    pList2->lNewRef = 0 ;
+                    if ( pList2->lDeleteContainerVariable ) {
+                        pList2->nReferenceCount-- ;
+                    }
+                }
             }
             else {
                 ring_vm_list_copy(pVM,pList4,pList2);
@@ -122,6 +128,12 @@ void ring_vm_listitem ( VM *pVM )
                 ring_state_free(pVM->pRingState,pList3);
                 pItem->data.pList = pList2 ;
                 pList2->nReferenceCount++ ;
+                if ( pList2->lNewRef ) {
+                    pList2->lNewRef = 0 ;
+                    if ( pList2->lDeleteContainerVariable ) {
+                        pList2->nReferenceCount-- ;
+                    }
+                }
             }
             else {
                 ring_vm_list_copy(pVM,pList4,pList2);
