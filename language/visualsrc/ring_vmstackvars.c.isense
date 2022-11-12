@@ -17,6 +17,8 @@ Type: double
 nNum1
 Type: Item *
 pItem
+Type: int
+lIncrementSource
 ring_vm_inc
 Type: List *
 pVar

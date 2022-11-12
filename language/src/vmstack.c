@@ -103,6 +103,7 @@ void ring_vm_assignment ( VM *pVM )
     String *cStr1, *pString  ;
     double nNum1  ;
     Item *pItem  ;
+    int lIncrementSource  ;
     if ( RING_VM_STACK_PREVOBJTYPE == RING_OBJTYPE_SUBSTRING ) {
         if ( pVM->nBeforeEqual == 0 ) {
             ring_vm_string_assignment(pVM);
@@ -178,6 +179,12 @@ void ring_vm_assignment ( VM *pVM )
                 RING_VM_STACK_POP ;
                 pVar = (List *) RING_VM_STACK_READP ;
                 RING_VM_STACK_POP ;
+                /* Check Source Increment */
+                lIncrementSource = 0 ;
+                if ( pList->nReferenceCount ) {
+                    pList->nReferenceCount++ ;
+                    lIncrementSource = 1 ;
+                }
                 ring_list_setint_gc(pVM->pRingState,pVar, RING_VAR_TYPE ,RING_VM_LIST);
                 ring_list_setlist_gc(pVM->pRingState,pVar,RING_VAR_VALUE);
                 /* Copy The List */
@@ -197,6 +204,10 @@ void ring_vm_assignment ( VM *pVM )
                         ring_vm_oop_updateselfpointer(pVM,ring_list_getlist(pVar,RING_VAR_VALUE),RING_OBJTYPE_VARIABLE,pVar);
                     }
                     ring_list_delete_gc(pVM->pRingState,pList);
+                }
+                /* Check Source Increment */
+                if ( lIncrementSource ) {
+                    pList->nReferenceCount-- ;
                 }
             }
         }
