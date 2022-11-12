@@ -134,7 +134,7 @@ Type: List *
 pRealList
 Type: Item *
 pItem
-ring_list_deletereference
+ring_list_updatenestedreferences
 Type: int
 x,nSize,lDeleteaSubListsPointers
 Type: List *

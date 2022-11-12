@@ -55,7 +55,7 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
     /* Avoid deleting objects when the list is just a reference */
     if ( pList->nReferenceCount ) {
         /* We don't delete the list because there are other references */
-        pList->nReferenceCount-- ;
+        ring_list_updatenestedreferences(pState,pList, NULL, -1);
         return NULL ;
     }
     /* Delete Container Variable */
@@ -503,10 +503,10 @@ RING_API void ring_list_setlistbyref_gc ( void *pState,List *pList, int index,Li
     pItem = ring_list_getitem(pList,index);
     pItem->data.pList = pRef ;
     /* Increment the Reference */
-    pRef->nReferenceCount++ ;
+    ring_list_updatenestedreferences(pState,pRef, NULL, 1);
 }
 
-void ring_list_deletereference ( void *pState,List *pList, List *aSubListsPointers )
+void ring_list_updatenestedreferences ( void *pState,List *pList, List *aSubListsPointers,int nChange )
 {
     int x,nSize,lDeleteaSubListsPointers  ;
     List *pSubList  ;
@@ -518,9 +518,9 @@ void ring_list_deletereference ( void *pState,List *pList, List *aSubListsPointe
         /* We must add the first list too */
         ring_list_addpointer_gc(pState,aSubListsPointers,pList);
     }
-    /* Delete The Reference */
-    if ( pList->nReferenceCount ) {
-        pList->nReferenceCount-- ;
+    /* Update The Reference */
+    if ( (pList->nReferenceCount  && (nChange < 1)) || (nChange == 1) ) {
+        pList->nReferenceCount += nChange ;
     }
     /* Check nested references */
     nSize = ring_list_getsize(pList) ;
@@ -529,7 +529,7 @@ void ring_list_deletereference ( void *pState,List *pList, List *aSubListsPointe
             pSubList = ring_list_getlist(pList,x) ;
             if ( ! ring_list_findpointer(aSubListsPointers,pSubList) ) {
                 ring_list_addpointer_gc(pState,aSubListsPointers,pSubList);
-                ring_list_deletereference(pState,pSubList, aSubListsPointers);
+                ring_list_updatenestedreferences(pState,pSubList, aSubListsPointers, nChange);
             }
         }
     }

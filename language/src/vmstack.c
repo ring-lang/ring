@@ -182,7 +182,7 @@ void ring_vm_assignment ( VM *pVM )
                 /* Check Source Increment */
                 lIncrementSource = 0 ;
                 if ( pList->nReferenceCount ) {
-                    pList->nReferenceCount++ ;
+                    ring_list_updatenestedreferences(pVM->pRingState,pList,NULL,1);
                     lIncrementSource = 1 ;
                 }
                 ring_list_setint_gc(pVM->pRingState,pVar, RING_VAR_TYPE ,RING_VM_LIST);
@@ -193,7 +193,7 @@ void ring_vm_assignment ( VM *pVM )
                     if ( pList->lNewRef ) {
                         pList->lNewRef = 0 ;
                         if ( pList->lDeleteContainerVariable ) {
-                            pList->nReferenceCount-- ;
+                            ring_list_updatenestedreferences(pVM->pRingState,pList,NULL,-1);
                         }
                     }
                 }
@@ -207,7 +207,7 @@ void ring_vm_assignment ( VM *pVM )
                 }
                 /* Check Source Increment */
                 if ( lIncrementSource ) {
-                    pList->nReferenceCount-- ;
+                    ring_list_updatenestedreferences(pVM->pRingState,pList,NULL,-1);
                 }
             }
         }
