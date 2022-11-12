@@ -64,7 +64,7 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
         /* Only the Objects needs a container to be used by the Self attribute */
         if ( ring_list_isobject(pList) ) {
             /* Increase the counter to avoid deleting the current object list by the Container */
-            pList->nReferenceCount++ ;
+            ring_list_updatenestedreferences(pState,pList, NULL,RING_LISTREF_INC);
             pVariable = ring_vm_oop_objvarfromobjlist(pList);
             pVariable->nReferenceCount = 0 ;
             ring_list_delete_gc(pState,pVariable);
