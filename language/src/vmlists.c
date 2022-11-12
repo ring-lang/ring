@@ -116,8 +116,17 @@ void ring_vm_listitem ( VM *pVM )
             RING_VM_STACK_POP ;
             pList2 = ring_item_getlist(pItem);
             pList3 = ring_list_newlist_gc(pVM->pRingState,pList);
-            ring_vm_list_copy(pVM,pList4,pList2);
-            ring_list_swaptwolists(pList3,pList4);
+            if ( pList2->nReferenceCount ) {
+                /* Copy by ref (pList2 to pList3) */
+                pItem = ring_list_getitem(pList,ring_list_getsize(pList));
+                ring_state_free(pVM->pRingState,pList3);
+                pItem->data.pList = pList2 ;
+                pList2->nReferenceCount++ ;
+            }
+            else {
+                ring_vm_list_copy(pVM,pList4,pList2);
+                ring_list_swaptwolists(pList3,pList4);
+            }
         }
         ring_list_delete_gc(pVM->pRingState,pList4);
     }
