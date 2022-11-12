@@ -52,6 +52,8 @@
     RING_API void ring_list_deleteitem_gc ( void *pState,List *pList,int index ) ;
 
     RING_API int ring_list_gettype ( List *pList, int index ) ;
+
+    void ring_list_deletereference ( List *pList ) ;
     /* int */
 
     RING_API void ring_list_setint_gc ( void *pState,List *pList, int index ,int number ) ;

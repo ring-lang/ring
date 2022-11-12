@@ -55,7 +55,7 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
     /* Avoid deleting objects when the list is just a reference */
     if ( pList->nReferenceCount ) {
         /* We don't delete the list because there are other references */
-        pList->nReferenceCount-- ;
+        ring_list_deletereference(pList);
         return NULL ;
     }
     /* Delete Container Variable */
@@ -499,6 +499,11 @@ RING_API void ring_list_setlistbyref_gc ( void *pState,List *pList, int index,Li
     pItem = ring_list_getitem(pList,index);
     pItem->data.pList = pRef ;
     pRef->nReferenceCount++ ;
+}
+
+void ring_list_deletereference ( List *pList )
+{
+    pList->nReferenceCount-- ;
 }
 /* Function Pointers */
 

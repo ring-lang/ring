@@ -22,7 +22,7 @@ Type: unsigned short int
 nReferenceCount
 Type: unsigned char
 lDeleteContainerVariable
-Type: char
+Type: unsigned char
 lNewRef
 END:
 Type: List
@@ -134,6 +134,7 @@ Type: List *
 pRealList
 Type: Item *
 pItem
+ring_list_deletereference
 ring_list_setfuncpointer_gc
 Type: Item *
 pItem
