@@ -108,7 +108,7 @@ void ring_vm_listitem ( VM *pVM )
                 if ( pList2->lNewRef ) {
                     pList2->lNewRef = 0 ;
                     if ( pList2->lDeleteContainerVariable ) {
-                        ring_list_updatenestedreferences(pVM->pRingState,pList2,NULL,-1);
+                        ring_list_updatenestedreferences(pVM->pRingState,pList2,NULL,RING_LISTREF_DEC);
                     }
                 }
             }
@@ -127,11 +127,11 @@ void ring_vm_listitem ( VM *pVM )
                 pItem = ring_list_getitem(pList,ring_list_getsize(pList));
                 ring_state_free(pVM->pRingState,pList3);
                 pItem->data.pList = pList2 ;
-                ring_list_updatenestedreferences(pVM->pRingState,pList2,NULL,1);
+                ring_list_updatenestedreferences(pVM->pRingState,pList2,NULL,RING_LISTREF_INC);
                 if ( pList2->lNewRef ) {
                     pList2->lNewRef = 0 ;
                     if ( pList2->lDeleteContainerVariable ) {
-                        ring_list_updatenestedreferences(pVM->pRingState,pList2,NULL,-1);
+                        ring_list_updatenestedreferences(pVM->pRingState,pList2,NULL,RING_LISTREF_DEC);
                     }
                 }
             }
@@ -407,11 +407,11 @@ void ring_vm_listassignment ( VM *pVM )
         if ( pVar->nReferenceCount ) {
             ring_state_free(pVM->pRingState,pList);
             pItem->data.pList = pVar ;
-            ring_list_updatenestedreferences(pVM->pRingState,pVar,NULL,1);
+            ring_list_updatenestedreferences(pVM->pRingState,pVar,NULL,RING_LISTREF_INC);
             if ( pVar->lNewRef ) {
                 pVar->lNewRef = 0 ;
                 if ( pVar->lDeleteContainerVariable ) {
-                    ring_list_updatenestedreferences(pVM->pRingState,pVar,NULL,-1);
+                    ring_list_updatenestedreferences(pVM->pRingState,pVar,NULL,RING_LISTREF_DEC);
                 }
             }
         }

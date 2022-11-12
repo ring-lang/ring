@@ -357,11 +357,11 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int lRef )
         if ( ring_vm_oop_isobject(pList) ) {
             ring_vm_oop_updateselfpointer(pVM,pList,RING_OBJTYPE_VARIABLE,pVariableList);
             pList->lDeleteContainerVariable = 1 ;
-            ring_list_updatenestedreferences(((VM *) pPointer)->pRingState,pVariableList,NULL,1);
+            ring_list_updatenestedreferences(((VM *) pPointer)->pRingState,pVariableList,NULL,RING_LISTREF_INC);
         }
         else {
             /* Increment the Counter because the list exist in a container variable */
-            ring_list_updatenestedreferences(((VM *) pPointer)->pRingState,pList,NULL,1);
+            ring_list_updatenestedreferences(((VM *) pPointer)->pRingState,pList,NULL,RING_LISTREF_INC);
         }
     }
     RING_API_PUSHPVALUE(pVariableList);
