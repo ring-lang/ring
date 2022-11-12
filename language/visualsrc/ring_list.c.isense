@@ -135,6 +135,10 @@ pRealList
 Type: Item *
 pItem
 ring_list_deletereference
+Type: int
+x,nSize,lDeleteaSubListsPointers
+Type: List *
+pSubList
 ring_list_setfuncpointer_gc
 Type: Item *
 pItem

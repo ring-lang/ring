@@ -55,13 +55,15 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
     /* Avoid deleting objects when the list is just a reference */
     if ( pList->nReferenceCount ) {
         /* We don't delete the list because there are other references */
-        ring_list_deletereference(pList);
+        pList->nReferenceCount-- ;
         return NULL ;
     }
     /* Delete Container Variable */
     if ( pList->lDeleteContainerVariable ) {
         pList->lDeleteContainerVariable = 0 ;
+        /* Only the Objects needs a container to be used by the Self attribute */
         if ( ring_list_isobject(pList) ) {
+            /* Increase the counter to avoid deleting the current object list by the Container */
             pList->nReferenceCount++ ;
             pVariable = ring_vm_oop_objvarfromobjlist(pList);
             pVariable->nReferenceCount = 0 ;
@@ -498,12 +500,41 @@ RING_API void ring_list_setlistbyref_gc ( void *pState,List *pList, int index,Li
     /* Set the Item as a List reference */
     pItem = ring_list_getitem(pList,index);
     pItem->data.pList = pRef ;
+    /* Increment the Reference */
     pRef->nReferenceCount++ ;
 }
 
-void ring_list_deletereference ( List *pList )
+void ring_list_deletereference ( void *pState,List *pList, List *aSubListsPointers )
 {
-    pList->nReferenceCount-- ;
+    int x,nSize,lDeleteaSubListsPointers  ;
+    List *pSubList  ;
+    /* Check Sub Lists Pointers */
+    lDeleteaSubListsPointers = (aSubListsPointers == NULL) ;
+    if ( lDeleteaSubListsPointers ) {
+        lDeleteaSubListsPointers = 1 ;
+        aSubListsPointers = ring_list_new_gc(pState,0);
+        /* We must add the first list too */
+        ring_list_addpointer_gc(pState,aSubListsPointers,pList);
+    }
+    /* Delete The Reference */
+    if ( pList->nReferenceCount ) {
+        pList->nReferenceCount-- ;
+    }
+    /* Check nested references */
+    nSize = ring_list_getsize(pList) ;
+    for ( x = 1 ; x <= nSize ; x++ ) {
+        if ( ring_list_islist(pList,x) ) {
+            pSubList = ring_list_getlist(pList,x) ;
+            if ( ! ring_list_findpointer(aSubListsPointers,pSubList) ) {
+                ring_list_addpointer_gc(pState,aSubListsPointers,pSubList);
+                ring_list_deletereference(pState,pSubList, aSubListsPointers);
+            }
+        }
+    }
+    /* Delete Sub Lists Pointers */
+    if ( lDeleteaSubListsPointers ) {
+        ring_list_delete_gc(pState,aSubListsPointers);
+    }
 }
 /* Function Pointers */
 
