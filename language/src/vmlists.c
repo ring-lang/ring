@@ -102,8 +102,14 @@ void ring_vm_listitem ( VM *pVM )
             RING_VM_STACK_POP ;
             pList2 = ring_list_getlist(pList2,RING_VAR_VALUE);
             pList3 = ring_list_newlist_gc(pVM->pRingState,pList);
-            ring_vm_list_copy(pVM,pList4,pList2);
-            ring_list_swaptwolists(pList3,pList4);
+            if ( pList2->nReferenceCount ) {
+                /* Copy by ref (pList2 to pList3) */
+                ring_list_setlistbyref_gc(pVM->pRingState,pList,ring_list_getsize(pList),pList2);
+            }
+            else {
+                ring_vm_list_copy(pVM,pList4,pList2);
+                ring_list_swaptwolists(pList3,pList4);
+            }
         }
         else if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM ) {
             pItem = (Item *) RING_VM_STACK_READP ;
