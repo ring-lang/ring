@@ -359,10 +359,6 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int lRef )
             pList->lDeleteContainerVariable = 1 ;
             ring_list_updatenestedreferences(((VM *) pPointer)->pRingState,pVariableList,NULL,RING_LISTREF_INC);
         }
-        else {
-            /* Increment the Counter because the list exist in a container variable */
-            ring_list_updatenestedreferences(((VM *) pPointer)->pRingState,pList,NULL,RING_LISTREF_INC);
-        }
     }
     RING_API_PUSHPVALUE(pVariableList);
     RING_API_OBJTYPE = RING_OBJTYPE_VARIABLE ;
