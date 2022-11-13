@@ -179,7 +179,7 @@ void ring_vm_assignment ( VM *pVM )
                 RING_VM_STACK_POP ;
                 pVar = (List *) RING_VM_STACK_READP ;
                 RING_VM_STACK_POP ;
-                /* Check Source Increment */
+                /* Check Source Increment (Allow to copy the Reference to itself, i.e.  MyRefVar = MyRefVar) */
                 lIncrementSource = 0 ;
                 if ( pList->nReferenceCount ) {
                     ring_list_updatenestedreferences(pVM->pRingState,pList,NULL,RING_LISTREF_INC);
