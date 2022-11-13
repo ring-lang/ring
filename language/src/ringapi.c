@@ -353,11 +353,11 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int lRef )
     }
     else {
         ring_list_setlistbyref_gc(((VM *) pPointer)->pRingState,pVariableList,RING_VAR_VALUE,pList);
-        pList->lNewRef = 1 ;
         if ( ring_vm_oop_isobject(pList) ) {
             ring_vm_oop_updateselfpointer(pVM,pList,RING_OBJTYPE_VARIABLE,pVariableList);
         }
         ring_list_updatenestedreferences(((VM *) pPointer)->pRingState,pVariableList,NULL,RING_LISTREF_INC);
+        pList->lNewRef = 1 ;
         pList->lDeleteContainerVariable = 1 ;
         pList->pContainer = pVariableList ;
     }
