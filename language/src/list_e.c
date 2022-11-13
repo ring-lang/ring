@@ -164,7 +164,7 @@ void ring_vm_listfuncs_list ( void *pPointer )
                 }
                 /* Set the List Data */
                 pList->nSize = nSize ;
-                RING_API_RETLISTBYREF(pList);
+                RING_API_RETNEWLISTBYREF(pList);
                 return ;
             }
         }
@@ -215,7 +215,7 @@ void ring_vm_listfuncs_list ( void *pPointer )
                 /* Set the List Data */
                 pList->nNextItemAfterLastAccess = 0 ;
                 pList->pLastItemLastAccess = NULL ;
-                RING_API_RETLISTBYREF(pList);
+                RING_API_RETNEWLISTBYREF(pList);
                 return ;
             }
         }
