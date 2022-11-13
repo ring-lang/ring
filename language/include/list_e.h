@@ -29,4 +29,6 @@
     void ring_vm_listfuncs_reverse ( void *pPointer ) ;
 
     void ring_vm_listfuncs_reference ( void *pPointer ) ;
+
+    void ring_vm_listfuncs_refcount ( void *pPointer ) ;
 #endif

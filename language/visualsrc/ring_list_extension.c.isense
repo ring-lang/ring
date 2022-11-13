@@ -70,3 +70,6 @@ x
 ring_vm_listfuncs_reference
 Type: List *
 pList
+ring_vm_listfuncs_refcount
+Type: List *
+pList
