@@ -349,6 +349,11 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int lRef )
     pRealList = ring_list_getlist(pVariableList,RING_VAR_VALUE);
     /* Copy the list */
     if ( lRef == 0 ) {
+        /* Used by RING_API_RETLIST */
+        ring_vm_list_copy((VM *) pPointer,pRealList,pList);
+    }
+    else if ( lRef == 2 ) {
+        /* Used by RING_API_RETNEWLISTBYREF */
         ring_vm_list_copy((VM *) pPointer,pRealList,pList);
     }
     else {
