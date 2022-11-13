@@ -24,6 +24,8 @@ Type: unsigned char
 lDeleteContainerVariable
 Type: unsigned char
 lNewRef
+Type: void *
+pContainer
 END:
 Type: List
 struct List

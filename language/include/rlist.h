@@ -15,6 +15,7 @@
         unsigned short int nReferenceCount  ;
         unsigned char lDeleteContainerVariable  ;
         unsigned char lNewRef  ;
+        void *pContainer  ;
     } List ;
     /* Constants */
     #define RING_LISTOFOBJS_FINDSTRING 1

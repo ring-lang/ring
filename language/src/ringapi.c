@@ -356,9 +356,10 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int lRef )
         pList->lNewRef = 1 ;
         if ( ring_vm_oop_isobject(pList) ) {
             ring_vm_oop_updateselfpointer(pVM,pList,RING_OBJTYPE_VARIABLE,pVariableList);
-            pList->lDeleteContainerVariable = 1 ;
-            ring_list_updatenestedreferences(((VM *) pPointer)->pRingState,pVariableList,NULL,RING_LISTREF_INC);
         }
+        ring_list_updatenestedreferences(((VM *) pPointer)->pRingState,pVariableList,NULL,RING_LISTREF_INC);
+        pList->lDeleteContainerVariable = 1 ;
+        pList->pContainer = pVariableList ;
     }
     RING_API_PUSHPVALUE(pVariableList);
     RING_API_OBJTYPE = RING_OBJTYPE_VARIABLE ;

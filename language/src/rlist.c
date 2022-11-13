@@ -46,6 +46,7 @@ RING_API List * ring_list_new2_gc ( void *pState,List *pList,int nSize )
     pList->nReferenceCount = 0 ;
     pList->lNewRef = 0 ;
     pList->lDeleteContainerVariable = 0 ;
+    pList->pContainer = NULL ;
     return pList ;
 }
 
@@ -61,14 +62,11 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
     /* Delete Container Variable */
     if ( pList->lDeleteContainerVariable ) {
         pList->lDeleteContainerVariable = 0 ;
-        /* Only the Objects needs a container to be used by the Self attribute */
-        if ( ring_list_isobject(pList) ) {
-            /* Increase the counter to avoid deleting the current object list by the Container */
-            ring_list_updatenestedreferences(pState,pList, NULL,RING_LISTREF_INC);
-            pVariable = ring_vm_oop_objvarfromobjlist(pList);
-            pVariable->nReferenceCount = 0 ;
-            ring_list_delete_gc(pState,pVariable);
-        }
+        pVariable = (List *) pList->pContainer ;
+        pVariable->nReferenceCount = 0 ;
+        ring_list_delete_gc(pState,pVariable);
+        pList->pContainer = NULL ;
+        return NULL ;
     }
     /* Delete All Items */
     ring_list_deleteallitems_gc(pState,pList);
