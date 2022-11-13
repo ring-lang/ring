@@ -105,12 +105,6 @@ void ring_vm_listitem ( VM *pVM )
             if ( pList2->nReferenceCount ) {
                 /* Copy by ref (pList2 to pList3) */
                 ring_list_setlistbyref_gc(pVM->pRingState,pList,ring_list_getsize(pList),pList2);
-                if ( pList2->lNewRef ) {
-                    pList2->lNewRef = 0 ;
-                    if ( pList2->lDeleteContainerVariable ) {
-                        ring_list_updatenestedreferences(pVM->pRingState,pList2,NULL,RING_LISTREF_DEC);
-                    }
-                }
             }
             else {
                 ring_vm_list_copy(pVM,pList4,pList2);
@@ -128,12 +122,6 @@ void ring_vm_listitem ( VM *pVM )
                 ring_state_free(pVM->pRingState,pList3);
                 pItem->data.pList = pList2 ;
                 ring_list_updatenestedreferences(pVM->pRingState,pList2,NULL,RING_LISTREF_INC);
-                if ( pList2->lNewRef ) {
-                    pList2->lNewRef = 0 ;
-                    if ( pList2->lDeleteContainerVariable ) {
-                        ring_list_updatenestedreferences(pVM->pRingState,pList2,NULL,RING_LISTREF_DEC);
-                    }
-                }
             }
             else {
                 ring_vm_list_copy(pVM,pList4,pList2);
@@ -408,12 +396,6 @@ void ring_vm_listassignment ( VM *pVM )
             ring_state_free(pVM->pRingState,pList);
             pItem->data.pList = pVar ;
             ring_list_updatenestedreferences(pVM->pRingState,pVar,NULL,RING_LISTREF_INC);
-            if ( pVar->lNewRef ) {
-                pVar->lNewRef = 0 ;
-                if ( pVar->lDeleteContainerVariable ) {
-                    ring_list_updatenestedreferences(pVM->pRingState,pVar,NULL,RING_LISTREF_DEC);
-                }
-            }
         }
         else {
             pTempList = ring_list_new_gc(pVM->pRingState,0);
