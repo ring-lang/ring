@@ -489,53 +489,6 @@ RING_API List * ring_list_getlist ( List *pList, int index )
     pList2 = ring_item_getlist(pItem);
     return pList2 ;
 }
-
-RING_API void ring_list_setlistbyref_gc ( void *pState,List *pList, int index,List *pRef )
-{
-    List *pRealList  ;
-    Item *pItem  ;
-    /* Setting the list could be unnecessary but, we do this to have a solid function */
-    ring_list_setlist_gc(pState,pList,index);
-    /* Free the old list (We expect that it's an empty list) */
-    pRealList = ring_list_getlist(pList,index);
-    ring_state_free(pState,pRealList);
-    /* Set the Item as a List reference */
-    pItem = ring_list_getitem(pList,index);
-    pItem->data.pList = pRef ;
-    /* Increment the Reference */
-    ring_list_updatenestedreferences(pState,pRef, NULL,RING_LISTREF_INC);
-}
-
-void ring_list_updatenestedreferences ( void *pState,List *pList, List *aSubListsPointers,int nChange )
-{
-    int x,nSize,lDeleteaSubListsPointers  ;
-    List *pSubList  ;
-    /* Check Sub Lists Pointers */
-    lDeleteaSubListsPointers = (aSubListsPointers == NULL) ;
-    if ( lDeleteaSubListsPointers ) {
-        lDeleteaSubListsPointers = 1 ;
-        aSubListsPointers = ring_list_new_gc(pState,0);
-        /* We must add the first list too */
-        ring_list_addpointer_gc(pState,aSubListsPointers,pList);
-    }
-    /* Update The Reference */
-    pList->nReferenceCount += nChange ;
-    /* Check nested references */
-    nSize = ring_list_getsize(pList) ;
-    for ( x = 1 ; x <= nSize ; x++ ) {
-        if ( ring_list_islist(pList,x) ) {
-            pSubList = ring_list_getlist(pList,x) ;
-            if ( ! ring_list_findpointer(aSubListsPointers,pSubList) ) {
-                ring_list_addpointer_gc(pState,aSubListsPointers,pSubList);
-                ring_list_updatenestedreferences(pState,pSubList, aSubListsPointers, nChange);
-            }
-        }
-    }
-    /* Delete Sub Lists Pointers */
-    if ( lDeleteaSubListsPointers ) {
-        ring_list_delete_gc(pState,aSubListsPointers);
-    }
-}
 /* Function Pointers */
 
 RING_API void ring_list_setfuncpointer_gc ( void *pState,List *pList, int index ,void (*pFunc)(void *) )
@@ -1439,4 +1392,52 @@ RING_API int ring_list_iscpointerlist ( List *pList )
 RING_API int ring_list_cpointercmp ( List *pList,List *pList2 )
 {
     return ring_list_getpointer(pList,RING_CPOINTER_POINTER) == ring_list_getpointer(pList2,RING_CPOINTER_POINTER) ;
+}
+/* References */
+
+RING_API void ring_list_setlistbyref_gc ( void *pState,List *pList, int index,List *pRef )
+{
+    List *pRealList  ;
+    Item *pItem  ;
+    /* Setting the list could be unnecessary but, we do this to have a solid function */
+    ring_list_setlist_gc(pState,pList,index);
+    /* Free the old list (We expect that it's an empty list) */
+    pRealList = ring_list_getlist(pList,index);
+    ring_state_free(pState,pRealList);
+    /* Set the Item as a List reference */
+    pItem = ring_list_getitem(pList,index);
+    pItem->data.pList = pRef ;
+    /* Increment the Reference */
+    ring_list_updatenestedreferences(pState,pRef, NULL,RING_LISTREF_INC);
+}
+
+void ring_list_updatenestedreferences ( void *pState,List *pList, List *aSubListsPointers,int nChange )
+{
+    int x,nSize,lDeleteaSubListsPointers  ;
+    List *pSubList  ;
+    /* Check Sub Lists Pointers */
+    lDeleteaSubListsPointers = (aSubListsPointers == NULL) ;
+    if ( lDeleteaSubListsPointers ) {
+        lDeleteaSubListsPointers = 1 ;
+        aSubListsPointers = ring_list_new_gc(pState,0);
+        /* We must add the first list too */
+        ring_list_addpointer_gc(pState,aSubListsPointers,pList);
+    }
+    /* Update The Reference */
+    pList->nReferenceCount += nChange ;
+    /* Check nested references */
+    nSize = ring_list_getsize(pList) ;
+    for ( x = 1 ; x <= nSize ; x++ ) {
+        if ( ring_list_islist(pList,x) ) {
+            pSubList = ring_list_getlist(pList,x) ;
+            if ( ! ring_list_findpointer(aSubListsPointers,pSubList) ) {
+                ring_list_addpointer_gc(pState,aSubListsPointers,pSubList);
+                ring_list_updatenestedreferences(pState,pSubList, aSubListsPointers, nChange);
+            }
+        }
+    }
+    /* Delete Sub Lists Pointers */
+    if ( lDeleteaSubListsPointers ) {
+        ring_list_delete_gc(pState,aSubListsPointers);
+    }
 }
