@@ -354,7 +354,8 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int lRef )
     }
     else if ( lRef == 2 ) {
         /* Used by RING_API_RETNEWLISTBYREF */
-        ring_vm_list_copy((VM *) pPointer,pRealList,pList);
+        pList->lCopyByRef = 1 ;
+        ring_list_swaptwolists(pRealList,pList);
     }
     else {
         ring_list_setlistbyref_gc(((VM *) pPointer)->pRingState,pVariableList,RING_VAR_VALUE,pList);

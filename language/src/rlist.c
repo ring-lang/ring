@@ -45,6 +45,7 @@ RING_API List * ring_list_new2_gc ( void *pState,List *pList,int nSize )
     pList->pItemsBlock = NULL ;
     pList->nReferenceCount = 0 ;
     pList->lNewRef = 0 ;
+    pList->lCopyByRef = 0 ;
     pList->lDeleteContainerVariable = 0 ;
     pList->pContainer = NULL ;
     return pList ;
@@ -150,6 +151,7 @@ RING_API void ring_list_deleteallitems_gc ( void *pState,List *pList )
     }
     pList->nReferenceCount = 0 ;
     pList->lNewRef = 0 ;
+    pList->lCopyByRef = 0 ;
     pList->lDeleteContainerVariable = 0 ;
 }
 
@@ -919,6 +921,7 @@ RING_API void ring_list_clear ( List *pList )
     pList->pItemsBlock = NULL ;
     pList->nReferenceCount = 0 ;
     pList->lNewRef = 0 ;
+    pList->lCopyByRef = 0 ;
     pList->lDeleteContainerVariable = 0 ;
 }
 /* Define functions without State Pointer */

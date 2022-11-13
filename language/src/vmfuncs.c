@@ -569,10 +569,15 @@ void ring_vm_movetoprevscope ( VM *pVM )
         ring_list_setlistbyref_gc(pVM->pRingState,pList3,RING_VAR_VALUE,pList);
     }
     else {
-        ring_vm_list_copy(pVM,pList2,pList);
-        /* Update self object pointer */
-        if ( ring_vm_oop_isobject(pList2) ) {
-            ring_vm_oop_updateselfpointer(pVM,pList2,RING_OBJTYPE_VARIABLE,pList3);
+        if ( pList->lCopyByRef ) {
+            ring_list_swaptwolists(pList2,pList);
+        }
+        else {
+            ring_vm_list_copy(pVM,pList2,pList);
+            /* Update self object pointer */
+            if ( ring_vm_oop_isobject(pList2) ) {
+                ring_vm_oop_updateselfpointer(pVM,pList2,RING_OBJTYPE_VARIABLE,pList3);
+            }
         }
     }
     RING_VM_STACK_SETPVALUE(pList3);

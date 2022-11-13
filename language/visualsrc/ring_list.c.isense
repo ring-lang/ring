@@ -21,9 +21,11 @@ pItemsBlock
 Type: unsigned short int
 nReferenceCount
 Type: unsigned char
-lDeleteContainerVariable
-Type: unsigned char
 lNewRef
+Type: unsigned char
+lCopyByRef
+Type: unsigned char
+lDeleteContainerVariable
 Type: void *
 pContainer
 END:
@@ -133,16 +135,6 @@ Type: Item *
 pItem
 Type: List *
 pList2
-ring_list_setlistbyref_gc
-Type: List *
-pRealList
-Type: Item *
-pItem
-ring_list_updatenestedreferences
-Type: int
-x,nSize,lDeleteaSubListsPointers
-Type: List *
-pSubList
 ring_list_setfuncpointer_gc
 Type: Item *
 pItem
@@ -309,3 +301,13 @@ Type: char
 cStr[100]
 ring_list_iscpointerlist
 ring_list_cpointercmp
+ring_list_setlistbyref_gc
+Type: List *
+pRealList
+Type: Item *
+pItem
+ring_list_updatenestedreferences
+Type: int
+x,nSize,lDeleteaSubListsPointers
+Type: List *
+pSubList

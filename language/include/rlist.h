@@ -13,8 +13,9 @@
         struct Item *pItemBlock  ;
         struct Items *pItemsBlock  ;
         unsigned short int nReferenceCount  ;
-        unsigned char lDeleteContainerVariable  ;
         unsigned char lNewRef  ;
+        unsigned char lCopyByRef  ;
+        unsigned char lDeleteContainerVariable  ;
         void *pContainer  ;
     } List ;
     /* Constants */
