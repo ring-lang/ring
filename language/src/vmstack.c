@@ -190,6 +190,9 @@ void ring_vm_assignment ( VM *pVM )
                 /* Copy The List */
                 if ( pList->nReferenceCount ) {
                     ring_list_setlistbyref_gc(pVM->pRingState,pVar,RING_VAR_VALUE,pList);
+                    if ( pList->lNewRef ) {
+                        pList->lNewRef = 0 ;
+                    }
                 }
                 else {
                     ring_vm_list_copy(pVM,ring_list_getlist(pVar,RING_VAR_VALUE),pList);
