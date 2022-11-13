@@ -84,6 +84,19 @@ void ring_vm_gc_killreference ( VM *pVM )
     Item *pItem  ;
     char *newstr  ;
     char cStr[2]  ;
+    /* Check usage before the For In Loop, If there are a reference, set it to NULL */
+    if ( RING_VM_IR_PARACOUNT > 1 ) {
+        if ( RING_VM_IR_READI == 1 ) {
+            /* Kill the reference */
+            pList = (List *) RING_VM_STACK_READP ;
+            RING_VM_STACK_POP ;
+            if ( ring_list_getint(pList,RING_VAR_TYPE) == RING_VM_POINTER ) {
+                ring_list_setint_gc(pVM->pRingState,pList, RING_VAR_TYPE ,RING_VM_STRING);
+                ring_list_setstring_gc(pVM->pRingState,pList,RING_VAR_VALUE,"");
+            }
+        }
+        return ;
+    }
     /* The (For In) Loop generate the ICO_KILLREFERENCE instruction that call this function */
     if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
         pList = (List *) RING_VM_STACK_READP ;
