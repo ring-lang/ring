@@ -358,12 +358,16 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int lRef )
         ring_list_swaptwolists(pRealList,pList);
     }
     else {
+        /* Used by RING_API_RETLISTBYREF (i.e. Ref()/Reference() function implementation) */
         ring_list_setlistbyref_gc(((VM *) pPointer)->pRingState,pVariableList,RING_VAR_VALUE,pList);
         if ( ring_vm_oop_isobject(pList) ) {
+            /* If we have a reference to an object, the Self attribute will stay pointing to the Container Variable */
             ring_vm_oop_updateselfpointer(pVM,pList,RING_OBJTYPE_VARIABLE,pVariableList);
         }
+        /* We increase the Counter to avoid deleting the container variable */
         ring_list_updatenestedreferences(((VM *) pPointer)->pRingState,pVariableList,NULL,RING_LISTREF_INC);
         pList->lNewRef = 1 ;
+        /* When deleting the list (No other references) - It will delete the container variable */
         pList->lDeleteContainerVariable = 1 ;
         pList->pContainer = pVariableList ;
     }
