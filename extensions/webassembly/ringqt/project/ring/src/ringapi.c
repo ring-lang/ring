@@ -352,8 +352,8 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int lRef )
         /* Used by RING_API_RETLIST */
         ring_vm_list_copy((VM *) pPointer,pRealList,pList);
     }
-    else if ( lRef == 2 ) {
-        /* Used by RING_API_RETNEWLISTBYREF */
+    else if ( lRef == 1 ) {
+        /* Used by RING_API_RETNEWLISTBYREF  (i.e. List() function implementation) */
         pList->lCopyByRef = 1 ;
         ring_list_swaptwolists(pRealList,pList);
     }
