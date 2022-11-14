@@ -164,7 +164,7 @@ void ring_vm_listfuncs_list ( void *pPointer )
                 }
                 /* Set the List Data */
                 pList->nSize = nSize ;
-                RING_API_RETNEWLISTBYREF(pList);
+                RING_API_RETLISTBYREF(pList);
                 return ;
             }
         }
@@ -215,7 +215,7 @@ void ring_vm_listfuncs_list ( void *pPointer )
                 /* Set the List Data */
                 pList->nNextItemAfterLastAccess = 0 ;
                 pList->pLastItemLastAccess = NULL ;
-                RING_API_RETNEWLISTBYREF(pList);
+                RING_API_RETLISTBYREF(pList);
                 return ;
             }
         }
@@ -670,7 +670,7 @@ void ring_vm_listfuncs_reference ( void *pPointer )
     if ( RING_API_PARACOUNT == 1 ) {
         if ( RING_API_ISLIST(1) ) {
             pList = RING_API_GETLIST(1) ;
-            RING_API_RETLISTBYREF(pList);
+            RING_API_RETNEWREF(pList);
         }
         else {
             RING_API_ERROR(RING_API_BADPARATYPE);

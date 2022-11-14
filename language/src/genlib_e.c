@@ -1590,7 +1590,7 @@ void ring_vm_generallib_pointer2object ( void *pPointer )
         RING_API_ERROR(RING_API_BADPARATYPE);
     }
     pList = (List *) RING_API_GETCPOINTER(1,"OBJECTPOINTER") ;
-    RING_API_RETLISTBYREF(pList);
+    RING_API_RETNEWREF(pList);
 }
 
 void ring_vm_generallib_nullpointer ( void *pPointer )
