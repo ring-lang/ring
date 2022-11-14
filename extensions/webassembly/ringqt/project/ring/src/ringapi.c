@@ -353,12 +353,12 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int lRef )
         ring_vm_list_copy((VM *) pPointer,pRealList,pList);
     }
     else if ( lRef == 1 ) {
-        /* Used by RING_API_RETNEWLISTBYREF  (i.e. List() function implementation) */
+        /* Used by RING_API_RETLISTBYREF  (i.e. List() function implementation) */
         pList->lCopyByRef = 1 ;
         ring_list_swaptwolists(pRealList,pList);
     }
     else {
-        /* Used by RING_API_RETLISTBYREF (i.e. Ref()/Reference() function implementation) */
+        /* Used by RING_API_RETNEWREF (i.e. Ref()/Reference() function implementation) */
         ring_list_setlistbyref_gc(((VM *) pPointer)->pRingState,pVariableList,RING_VAR_VALUE,pList);
         if ( ring_vm_oop_isobject(pList) ) {
             /* If we have a reference to an object, the Self attribute will stay pointing to the Container Variable */

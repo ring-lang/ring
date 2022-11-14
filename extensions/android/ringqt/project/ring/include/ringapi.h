@@ -94,7 +94,8 @@
     #define RING_API_ISOBJECT(x) ring_vm_api_isobject(pPointer,x)
     #define RING_API_GETCPOINTER2POINTER(x,y) (ring_vm_api_getcpointer2pointer((VM *) pPointer,x,y))
     #define RING_API_RETMANAGEDCPOINTER(x,y,z) (ring_vm_api_retcpointer2((VM *) pPointer,(void *) x,y,z))
-    #define RING_API_RETLISTBYREF(x) ring_vm_api_retlist2((VM *) pPointer,x,2)
+    #define RING_API_RETLISTBYREF(x) ring_vm_api_retlist2((VM *) pPointer,x,1)
+    #define RING_API_RETNEWREF(x) ring_vm_api_retlist2((VM *) pPointer,x,2)
     #define ring_vm_funcregister(x,y) ring_vm_funcregister2(pRingState,x,y)
     #define RING_API_REGISTER(x,y) ring_vm_funcregister2(pRingState,x,y)
     #define RING_API_MALLOC(x) ring_state_malloc(((VM *) pPointer)->pRingState,x)
@@ -105,7 +106,6 @@
     #define RING_FUNC(x) void x(void *pPointer)
     #define RING_LIBINIT RING_API void ringlib_init(RingState *pRingState)
     #define RING_API_GETCHARPOINTER(x) RING_API_VARPOINTER(RING_API_GETSTRING(x),"char")
-    #define RING_API_RETNEWLISTBYREF(x) ring_vm_api_retlist2((VM *) pPointer,x,1)
     /* Constants/MACRO */
     #define RING_API_MISS1PARA "Bad parameters count, the function expect one parameter"
     #define RING_API_MISS2PARA "Bad parameters count, the function expect two parameters"
