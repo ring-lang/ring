@@ -199,18 +199,14 @@ void ring_vm_assignment ( VM *pVM )
                     if ( pList->lCopyByRef ) {
                         pList->lCopyByRef = 0 ;
                         ring_list_swaptwolists(ring_list_getlist(pVar,RING_VAR_VALUE),pList);
-                        /* Update self object pointer */
-                        if ( ring_vm_oop_isobject(ring_list_getlist(pVar,RING_VAR_VALUE)) ) {
-                            ring_vm_oop_updateselfpointer(pVM,ring_list_getlist(pVar,RING_VAR_VALUE),RING_OBJTYPE_VARIABLE,pVar);
-                        }
                     }
                     else {
                         ring_vm_list_copy(pVM,ring_list_getlist(pVar,RING_VAR_VALUE),pList);
-                        /* Update self object pointer */
-                        if ( ring_vm_oop_isobject(ring_list_getlist(pVar,RING_VAR_VALUE)) ) {
-                            ring_vm_oop_updateselfpointer(pVM,ring_list_getlist(pVar,RING_VAR_VALUE),RING_OBJTYPE_VARIABLE,pVar);
-                        }
                         ring_list_delete_gc(pVM->pRingState,pList);
+                    }
+                    /* Update self object pointer */
+                    if ( ring_vm_oop_isobject(ring_list_getlist(pVar,RING_VAR_VALUE)) ) {
+                        ring_vm_oop_updateselfpointer(pVM,ring_list_getlist(pVar,RING_VAR_VALUE),RING_OBJTYPE_VARIABLE,pVar);
                     }
                 }
                 /* Check Source Increment */
