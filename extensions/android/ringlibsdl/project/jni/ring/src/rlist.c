@@ -66,7 +66,7 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
     if ( pList->lDeleteContainerVariable ) {
         pList->lDeleteContainerVariable = 0 ;
         pVariable = (List *) pList->pContainer ;
-        pVariable->nReferenceCount = 0 ;
+        ring_list_updatenestedreferences(pState,pVariable, NULL,RING_LISTREF_DEC);
         ring_list_delete_gc(pState,pVariable);
         pList->pContainer = NULL ;
         return NULL ;
