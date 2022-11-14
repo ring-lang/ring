@@ -1428,6 +1428,7 @@ void ring_list_updatenestedreferences ( void *pState,List *pList, List *aSubList
     }
     /* Update The Reference */
     pList->nReferenceCount += nChange ;
+    if (pList->nReferenceCount < 0) pList->nReferenceCount = 0; ;
     /* Check nested references */
     nSize = ring_list_getsize(pList) ;
     for ( x = 1 ; x <= nSize ; x++ ) {
