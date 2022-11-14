@@ -13,12 +13,16 @@
         struct Item *pItemBlock  ;
         struct Items *pItemsBlock  ;
         unsigned short int nReferenceCount  ;
-        unsigned char lDeleteContainerVariable  ;
         unsigned char lNewRef  ;
+        unsigned char lCopyByRef  ;
+        unsigned char lDeleteContainerVariable  ;
+        void *pContainer  ;
     } List ;
     /* Constants */
     #define RING_LISTOFOBJS_FINDSTRING 1
     #define RING_LISTOFOBJS_FINDNUMBER 0
+    #define RING_LISTREF_INC 1
+    #define RING_LISTREF_DEC -1
     /* Macro */
     #define ring_list_isdouble(pList,index) ( ring_list_getitem(pList,index)->NumberFlag == ITEM_NUMBERFLAG_DOUBLE)
     #define ring_list_isint(pList,index) ( ring_list_getitem(pList,index)->NumberFlag == ITEM_NUMBERFLAG_INT )
@@ -52,6 +56,8 @@
     RING_API void ring_list_deleteitem_gc ( void *pState,List *pList,int index ) ;
 
     RING_API int ring_list_gettype ( List *pList, int index ) ;
+
+    void ring_list_updatenestedreferences ( void *pState,List *pList, List *aSubListsPointers, int nChange ) ;
     /* int */
 
     RING_API void ring_list_setint_gc ( void *pState,List *pList, int index ,int number ) ;

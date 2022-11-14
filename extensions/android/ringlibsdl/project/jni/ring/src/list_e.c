@@ -21,6 +21,7 @@ void ring_vm_listfuncs_loadfunctions ( RingState *pRingState )
     RING_API_REGISTER("binarysearch",ring_vm_listfuncs_binarysearch);
     RING_API_REGISTER("ref",ring_vm_listfuncs_reference);
     RING_API_REGISTER("reference",ring_vm_listfuncs_reference);
+    RING_API_REGISTER("refcount",ring_vm_listfuncs_refcount);
     /* Instead of NewList() function from StdLib (Just to support Old Code until converting it to List() ) */
     RING_API_REGISTER("newlist",ring_vm_listfuncs_list);
 }
@@ -163,7 +164,7 @@ void ring_vm_listfuncs_list ( void *pPointer )
                 }
                 /* Set the List Data */
                 pList->nSize = nSize ;
-                RING_API_RETLISTBYREF(pList);
+                RING_API_RETNEWLISTBYREF(pList);
                 return ;
             }
         }
@@ -214,7 +215,7 @@ void ring_vm_listfuncs_list ( void *pPointer )
                 /* Set the List Data */
                 pList->nNextItemAfterLastAccess = 0 ;
                 pList->pLastItemLastAccess = NULL ;
-                RING_API_RETLISTBYREF(pList);
+                RING_API_RETNEWLISTBYREF(pList);
                 return ;
             }
         }
@@ -670,6 +671,22 @@ void ring_vm_listfuncs_reference ( void *pPointer )
         if ( RING_API_ISLIST(1) ) {
             pList = RING_API_GETLIST(1) ;
             RING_API_RETLISTBYREF(pList);
+        }
+        else {
+            RING_API_ERROR(RING_API_BADPARATYPE);
+        }
+        return ;
+    }
+    RING_API_ERROR(RING_API_BADPARACOUNT);
+}
+
+void ring_vm_listfuncs_refcount ( void *pPointer )
+{
+    List *pList  ;
+    if ( RING_API_PARACOUNT == 1 ) {
+        if ( RING_API_ISLIST(1) ) {
+            pList = RING_API_GETLIST(1) ;
+            RING_API_RETNUMBER(pList->nReferenceCount);
         }
         else {
             RING_API_ERROR(RING_API_BADPARATYPE);

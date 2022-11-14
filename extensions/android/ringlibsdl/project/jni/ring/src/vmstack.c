@@ -103,6 +103,7 @@ void ring_vm_assignment ( VM *pVM )
     String *cStr1, *pString  ;
     double nNum1  ;
     Item *pItem  ;
+    int lIncrementSource  ;
     if ( RING_VM_STACK_PREVOBJTYPE == RING_OBJTYPE_SUBSTRING ) {
         if ( pVM->nBeforeEqual == 0 ) {
             ring_vm_string_assignment(pVM);
@@ -171,13 +172,24 @@ void ring_vm_assignment ( VM *pVM )
                     pList = pVar ;
                 }
                 else {
-                    /* We use (Temp) List - to avoid problems when coping from parent list to child list */
-                    pList = ring_list_new_gc(pVM->pRingState,0);
-                    ring_vm_list_copy(pVM,pList,pVar);
+                    if ( pVar->lCopyByRef ) {
+                        pList = pVar ;
+                    }
+                    else {
+                        /* We use (Temp) List - to avoid problems when coping from parent list to child list */
+                        pList = ring_list_new_gc(pVM->pRingState,0);
+                        ring_vm_list_copy(pVM,pList,pVar);
+                    }
                 }
                 RING_VM_STACK_POP ;
                 pVar = (List *) RING_VM_STACK_READP ;
                 RING_VM_STACK_POP ;
+                /* Check Source Increment (Allow to copy the Reference to itself, i.e.  MyRefVar = MyRefVar) */
+                lIncrementSource = 0 ;
+                if ( pList->nReferenceCount ) {
+                    ring_list_updatenestedreferences(pVM->pRingState,pList,NULL,RING_LISTREF_INC);
+                    lIncrementSource = 1 ;
+                }
                 ring_list_setint_gc(pVM->pRingState,pVar, RING_VAR_TYPE ,RING_VM_LIST);
                 ring_list_setlist_gc(pVM->pRingState,pVar,RING_VAR_VALUE);
                 /* Copy The List */
@@ -185,18 +197,30 @@ void ring_vm_assignment ( VM *pVM )
                     ring_list_setlistbyref_gc(pVM->pRingState,pVar,RING_VAR_VALUE,pList);
                     if ( pList->lNewRef ) {
                         pList->lNewRef = 0 ;
-                        if ( pList->lDeleteContainerVariable ) {
-                            pList->nReferenceCount-- ;
-                        }
+                        ring_list_updatenestedreferences(pVM->pRingState,pList,NULL,RING_LISTREF_DEC);
                     }
                 }
                 else {
-                    ring_vm_list_copy(pVM,ring_list_getlist(pVar,RING_VAR_VALUE),pList);
-                    /* Update self object pointer */
-                    if ( ring_vm_oop_isobject(ring_list_getlist(pVar,RING_VAR_VALUE)) ) {
-                        ring_vm_oop_updateselfpointer(pVM,ring_list_getlist(pVar,RING_VAR_VALUE),RING_OBJTYPE_VARIABLE,pVar);
+                    if ( pList->lCopyByRef ) {
+                        pList->lCopyByRef = 0 ;
+                        ring_list_swaptwolists(ring_list_getlist(pVar,RING_VAR_VALUE),pList);
+                        /* Update self object pointer */
+                        if ( ring_vm_oop_isobject(ring_list_getlist(pVar,RING_VAR_VALUE)) ) {
+                            ring_vm_oop_updateselfpointer(pVM,ring_list_getlist(pVar,RING_VAR_VALUE),RING_OBJTYPE_VARIABLE,pVar);
+                        }
                     }
-                    ring_list_delete_gc(pVM->pRingState,pList);
+                    else {
+                        ring_vm_list_copy(pVM,ring_list_getlist(pVar,RING_VAR_VALUE),pList);
+                        /* Update self object pointer */
+                        if ( ring_vm_oop_isobject(ring_list_getlist(pVar,RING_VAR_VALUE)) ) {
+                            ring_vm_oop_updateselfpointer(pVM,ring_list_getlist(pVar,RING_VAR_VALUE),RING_OBJTYPE_VARIABLE,pVar);
+                        }
+                        ring_list_delete_gc(pVM->pRingState,pList);
+                    }
+                }
+                /* Check Source Increment */
+                if ( lIncrementSource ) {
+                    ring_list_updatenestedreferences(pVM->pRingState,pList,NULL,RING_LISTREF_DEC);
                 }
             }
         }

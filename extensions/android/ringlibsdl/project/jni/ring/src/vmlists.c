@@ -102,16 +102,39 @@ void ring_vm_listitem ( VM *pVM )
             RING_VM_STACK_POP ;
             pList2 = ring_list_getlist(pList2,RING_VAR_VALUE);
             pList3 = ring_list_newlist_gc(pVM->pRingState,pList);
-            ring_vm_list_copy(pVM,pList4,pList2);
-            ring_list_swaptwolists(pList3,pList4);
+            if ( pList2->nReferenceCount ) {
+                /* Copy by ref (pList2 to pList3) */
+                ring_list_setlistbyref_gc(pVM->pRingState,pList,ring_list_getsize(pList),pList2);
+                if ( pList2->lNewRef ) {
+                    pList2->lNewRef = 0 ;
+                    ring_list_updatenestedreferences(pVM->pRingState,pList2,NULL,RING_LISTREF_DEC);
+                }
+            }
+            else {
+                ring_vm_list_copy(pVM,pList4,pList2);
+                ring_list_swaptwolists(pList3,pList4);
+            }
         }
         else if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM ) {
             pItem = (Item *) RING_VM_STACK_READP ;
             RING_VM_STACK_POP ;
             pList2 = ring_item_getlist(pItem);
             pList3 = ring_list_newlist_gc(pVM->pRingState,pList);
-            ring_vm_list_copy(pVM,pList4,pList2);
-            ring_list_swaptwolists(pList3,pList4);
+            if ( pList2->nReferenceCount ) {
+                /* Copy by ref (pList2 to pList3) */
+                pItem = ring_list_getitem(pList,ring_list_getsize(pList));
+                ring_state_free(pVM->pRingState,pList3);
+                pItem->data.pList = pList2 ;
+                ring_list_updatenestedreferences(pVM->pRingState,pList2,NULL,RING_LISTREF_INC);
+                if ( pList2->lNewRef ) {
+                    pList2->lNewRef = 0 ;
+                    ring_list_updatenestedreferences(pVM->pRingState,pList2,NULL,RING_LISTREF_DEC);
+                }
+            }
+            else {
+                ring_vm_list_copy(pVM,pList4,pList2);
+                ring_list_swaptwolists(pList3,pList4);
+            }
         }
         ring_list_delete_gc(pVM->pRingState,pList4);
     }
@@ -380,12 +403,10 @@ void ring_vm_listassignment ( VM *pVM )
         if ( pVar->nReferenceCount ) {
             ring_state_free(pVM->pRingState,pList);
             pItem->data.pList = pVar ;
-            pVar->nReferenceCount++ ;
+            ring_list_updatenestedreferences(pVM->pRingState,pVar,NULL,RING_LISTREF_INC);
             if ( pVar->lNewRef ) {
                 pVar->lNewRef = 0 ;
-                if ( pVar->lDeleteContainerVariable ) {
-                    pVar->nReferenceCount-- ;
-                }
+                ring_list_updatenestedreferences(pVM->pRingState,pVar,NULL,RING_LISTREF_DEC);
             }
         }
         else {

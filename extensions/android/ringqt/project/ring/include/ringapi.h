@@ -105,6 +105,7 @@
     #define RING_FUNC(x) void x(void *pPointer)
     #define RING_LIBINIT RING_API void ringlib_init(RingState *pRingState)
     #define RING_API_GETCHARPOINTER(x) RING_API_VARPOINTER(RING_API_GETSTRING(x),"char")
+    #define RING_API_RETNEWLISTBYREF(x) ring_vm_api_retlist2((VM *) pPointer,x,2)
     /* Constants/MACRO */
     #define RING_API_MISS1PARA "Bad parameters count, the function expect one parameter"
     #define RING_API_MISS2PARA "Bad parameters count, the function expect two parameters"

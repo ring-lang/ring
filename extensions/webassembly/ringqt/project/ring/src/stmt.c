@@ -578,6 +578,11 @@ int ring_parser_stmt ( Parser *pParser )
                 /* Add the reference to the (For-In Loop) variables */
                 nForInVarsCount = ring_list_getsize(pParser->pForInVars) + 1 ;
                 ring_list_addstring_gc(pParser->pRingState,pParser->pForInVars,ring_string_get(pString));
+                /* If the Loop Variable is already a reference, Set it to  NULL with ICO_KILLREFERENCE and parameter (1) */
+                ring_parser_icg_newoperation(pParser,ICO_LOADAFIRST);
+                ring_parser_icg_newoperand(pParser,ring_string_get(pString));
+                ring_parser_icg_newoperation(pParser,ICO_KILLREFERENCE);
+                ring_parser_icg_newoperandint(pParser,1);
                 /* Generate Code */
                 sprintf( cStr , "n_sys_var_%d" , ring_parser_icg_instructionscount(pParser) ) ;
                 /* Mark for Exit command to go to outside the loop */
