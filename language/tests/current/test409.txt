@@ -16,22 +16,14 @@ three
 ************************************************************
 2.3.3
 2.3
-two
-The first step
-data: 2.3.3
-parent: Object...
-children: [This Attribute Contains A List]
-
-2.3.3
-
-OBJECT
-2.3.3
-2.3
 
 Another value!
 Let's modify the value!
-Using references is fun!
+Using Pointer2Object() is fun!
 It's easy to modify the value
 two
 I was the first step
+I am still the first step!
+We can copy the first step by reference
+Delete the reference (This doesn't delete the real object)
 I am still the first step!

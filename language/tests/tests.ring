@@ -406,6 +406,8 @@ aTests = [
 	[ :name = "General Tests (Part 185)", :Command = "ring general/recstack.ring" ],
 	[ :name = "General Tests (Part 186)", :Command = "ring general/deep.ring" ],
 	[ :name = "General Tests (Part 187)", :Command = "ring general/retlistbyref.ring" ],
+	[ :name = "Performance (Part 1)", :Command = "ring performance/listfunc1.ring" ],
+	[ :name = "Performance (Part 2)", :Command = "ring performance/listfunc2.ring" ],
 	[ :name = "Power Operator (Part 1)", :Command = "ring poweroperator/powoperator.ring" ],
 	[ :name = "Power Operator (Part 2)", :Command = "ring poweroperator/powoperator2.ring" ],
 	[ :name = "Using References (Part 1)", :Command = "ring references/pointer.ring" ],
@@ -421,7 +423,5 @@ aTests = [
 	[ :name = "Using References (Part 11)", :Command = "ring references/cycle.ring" ],
 	[ :name = "Using References (Part 12)", :Command = "ring references/cycle2.ring" ],
 	[ :name = "Using References (Part 13)", :Command = "ring references/refequalitself.ring" ],
-	[ :name = "Using References (Part 14)", :Command = "ring references/refequalitself2.ring" ],
-	[ :name = "Performance (Part 1)", :Command = "ring performance/listfunc1.ring" ],
-	[ :name = "Performance (Part 2)", :Command = "ring performance/listfunc2.ring" ]
+	[ :name = "Using References (Part 14)", :Command = "ring references/refequalitself2.ring" ]
 ]
