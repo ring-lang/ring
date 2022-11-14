@@ -168,18 +168,13 @@ void ring_vm_assignment ( VM *pVM )
                     pItem = (Item *) RING_VM_STACK_READP ;
                     pVar = ring_item_getlist(pItem);
                 }
-                if ( pVar->nReferenceCount ) {
+                if ( pVar->nReferenceCount || pVar->lCopyByRef ) {
                     pList = pVar ;
                 }
                 else {
-                    if ( pVar->lCopyByRef ) {
-                        pList = pVar ;
-                    }
-                    else {
-                        /* We use (Temp) List - to avoid problems when coping from parent list to child list */
-                        pList = ring_list_new_gc(pVM->pRingState,0);
-                        ring_vm_list_copy(pVM,pList,pVar);
-                    }
+                    /* We use (Temp) List - to avoid problems when coping from parent list to child list */
+                    pList = ring_list_new_gc(pVM->pRingState,0);
+                    ring_vm_list_copy(pVM,pList,pVar);
                 }
                 RING_VM_STACK_POP ;
                 pVar = (List *) RING_VM_STACK_READP ;
