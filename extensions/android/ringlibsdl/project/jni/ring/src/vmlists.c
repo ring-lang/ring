@@ -410,14 +410,20 @@ void ring_vm_listassignment ( VM *pVM )
             }
         }
         else {
-            pTempList = ring_list_new_gc(pVM->pRingState,0);
-            ring_vm_list_copy(pVM,pTempList,pVar);
-            ring_list_swaptwolists(pList,pTempList);
+            if ( pVar->lCopyByRef ) {
+                pVar->lCopyByRef = 0 ;
+                ring_list_swaptwolists(pList,pVar);
+            }
+            else {
+                pTempList = ring_list_new_gc(pVM->pRingState,0);
+                ring_vm_list_copy(pVM,pTempList,pVar);
+                ring_list_swaptwolists(pList,pTempList);
+                ring_list_delete_gc(pVM->pRingState,pTempList);
+            }
             /* Update self object Pointer */
             if ( ring_vm_oop_isobject(pList) ) {
                 ring_vm_oop_updateselfpointer(pVM,pList,RING_OBJTYPE_LISTITEM,pItem);
             }
-            ring_list_delete_gc(pVM->pRingState,pTempList);
         }
     }
     else {
