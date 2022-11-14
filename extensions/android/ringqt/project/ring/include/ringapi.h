@@ -48,7 +48,7 @@
 
     RING_API void ring_vm_api_retcpointer2 ( void *pPointer,void *pGeneral,const char *cType, void (* pFreeFunc)(void *,void *) ) ;
 
-    RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int lRef ) ;
+    RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef ) ;
 
     RING_API void ring_vm_api_intvalue ( void *pPointer,const char  *cStr ) ;
 

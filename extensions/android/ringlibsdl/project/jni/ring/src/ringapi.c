@@ -337,7 +337,7 @@ RING_API void ring_vm_api_retcpointer ( void *pPointer,void *pGeneral,const char
     ring_vm_api_retcpointer2(pPointer,pGeneral,cType,NULL);
 }
 
-RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int lRef )
+RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
 {
     List *pRealList,*pTempMem,*pVariableList, *pObjectVariable  ;
     VM *pVM  ;
@@ -347,12 +347,16 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int lRef )
     ring_list_setint_gc(((VM *) pPointer)->pRingState,pVariableList,RING_VAR_TYPE,RING_VM_LIST);
     ring_list_setlist_gc(((VM *) pPointer)->pRingState,pVariableList,RING_VAR_VALUE);
     pRealList = ring_list_getlist(pVariableList,RING_VAR_VALUE);
+    /* Check if we are creating a Reference before assignment, i.e. Ref(List(nSize)) */
+    if ( pList->lCopyByRef && (nRef == 2) ) {
+        nRef = 1 ;
+    }
     /* Copy the list */
-    if ( lRef == 0 ) {
+    if ( nRef == 0 ) {
         /* Used by RING_API_RETLIST */
         ring_vm_list_copy((VM *) pPointer,pRealList,pList);
     }
-    else if ( lRef == 1 ) {
+    else if ( nRef == 1 ) {
         /* Used by RING_API_RETLISTBYREF  (i.e. List() function implementation) */
         pList->lCopyByRef = 1 ;
         ring_list_swaptwolists(pRealList,pList);
