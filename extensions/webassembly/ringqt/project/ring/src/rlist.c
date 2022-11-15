@@ -55,14 +55,25 @@ RING_API List * ring_list_new2_gc ( void *pState,List *pList,int nSize )
 RING_API List * ring_list_delete_gc ( void *pState,List *pList )
 {
     List *pVariable  ;
+    /* Check if we have a Circular Reference */
+    if ( pList->nReferenceCount < 0 ) {
+        return NULL ;
+    }
     /* Avoid deleting objects when the list is just a reference */
     if ( pList->nReferenceCount ) {
         /* We don't delete the list because there are other references */
         if ( pList->lIgnoreNestedRef ) {
+            /* This is a container that we will not delete, but will be deleted by that list that know about it */
             pList->nReferenceCount-- ;
+            return NULL ;
         }
         else {
             ring_list_updatenestedreferences(pState,pList, NULL,RING_LISTREF_DEC);
+            if ( pList->nReferenceCount < 0 ) {
+                pList->nReferenceCount = 0 ;
+                pList = ring_list_delete_gc(pState,pList);
+                return NULL ;
+            }
         }
         if ( ! (pList->lNewRef && (pList->nReferenceCount==0)) ) {
             if ( pList->lNewRef ) {
@@ -73,17 +84,18 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
             return NULL ;
         }
     }
-    /* Delete Container Variable */
+    /* Delete Container Variable (If the list have one) */
     if ( pList->lDeleteContainerVariable ) {
         pVariable = (List *) pList->pContainer ;
         pList->lDeleteContainerVariable = 0 ;
+        pList->pContainer = NULL ;
         if ( pVariable->nReferenceCount ) {
             pVariable->nReferenceCount = 0 ;
         }
         else {
+            ring_list_safedelete(pState,pVariable,NULL);
             ring_list_delete_gc(pState,pVariable);
         }
-        pList->pContainer = NULL ;
         return NULL ;
     }
     /* Delete All Items */
@@ -1459,6 +1471,51 @@ void ring_list_updatenestedreferences ( void *pState,List *pList, List *aSubList
             if ( ! ring_list_findpointer(aSubListsPointers,pSubList) ) {
                 ring_list_addpointer_gc(pState,aSubListsPointers,pSubList);
                 ring_list_updatenestedreferences(pState,pSubList, aSubListsPointers, nChange);
+            }
+            else {
+                /* Update The Reference */
+                if ( pSubList->nReferenceCount + nChange >= 0 ) {
+                    pSubList->nReferenceCount += nChange ;
+                }
+                else {
+                    if ( ((List *) ring_list_getpointer(aSubListsPointers,1)) == pSubList ) {
+                        pSubList->nReferenceCount += nChange ;
+                    }
+                }
+            }
+        }
+    }
+    /* Delete Sub Lists Pointers */
+    if ( lDeleteaSubListsPointers ) {
+        ring_list_delete_gc(pState,aSubListsPointers);
+    }
+}
+
+void ring_list_safedelete ( void *pState,List *pList, List *aSubListsPointers )
+{
+    int x,nSize,lDeleteaSubListsPointers  ;
+    List *pSubList  ;
+    Item *pItem  ;
+    /* Check Sub Lists Pointers */
+    lDeleteaSubListsPointers = (aSubListsPointers == NULL) ;
+    if ( lDeleteaSubListsPointers ) {
+        lDeleteaSubListsPointers = 1 ;
+        aSubListsPointers = ring_list_new_gc(pState,0);
+        /* We must add the first list too */
+        ring_list_addpointer_gc(pState,aSubListsPointers,pList);
+    }
+    /* Check nested references */
+    nSize = ring_list_getsize(pList) ;
+    for ( x = 1 ; x <= nSize ; x++ ) {
+        if ( ring_list_islist(pList,x) ) {
+            pSubList = ring_list_getlist(pList,x) ;
+            if ( ! ring_list_findpointer(aSubListsPointers,pSubList) ) {
+                ring_list_addpointer_gc(pState,aSubListsPointers,pSubList);
+                ring_list_safedelete(pState,pSubList, aSubListsPointers);
+            }
+            else {
+                pItem = ring_list_getitem(pList,x) ;
+                pItem->nType = ITEMTYPE_NUMBER ;
             }
         }
     }

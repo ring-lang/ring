@@ -12,7 +12,7 @@
         struct HashTable *pHashTable  ;
         struct Item *pItemBlock  ;
         struct Items *pItemsBlock  ;
-        unsigned short int nReferenceCount  ;
+        short int nReferenceCount  ;
         unsigned char lNewRef  ;
         unsigned char lCopyByRef  ;
         unsigned char lDeleteContainerVariable  ;
@@ -59,6 +59,8 @@
     RING_API int ring_list_gettype ( List *pList, int index ) ;
 
     void ring_list_updatenestedreferences ( void *pState,List *pList, List *aSubListsPointers, int nChange ) ;
+
+    void ring_list_safedelete ( void *pState,List *pList, List *aSubListsPointers ) ;
     /* int */
 
     RING_API void ring_list_setint_gc ( void *pState,List *pList, int index ,int number ) ;
