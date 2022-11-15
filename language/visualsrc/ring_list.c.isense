@@ -26,6 +26,8 @@ Type: unsigned char
 lCopyByRef
 Type: unsigned char
 lDeleteContainerVariable
+Type: unsigned char
+lIgnoreNestedRef
 Type: void *
 pContainer
 END:

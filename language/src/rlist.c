@@ -48,6 +48,7 @@ RING_API List * ring_list_new2_gc ( void *pState,List *pList,int nSize )
     pList->lCopyByRef = 0 ;
     pList->lDeleteContainerVariable = 0 ;
     pList->pContainer = NULL ;
+    pList->lIgnoreNestedRef = 0 ;
     return pList ;
 }
 
@@ -57,17 +58,26 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
     /* Avoid deleting objects when the list is just a reference */
     if ( pList->nReferenceCount ) {
         /* We don't delete the list because there are other references */
-        ring_list_updatenestedreferences(pState,pList, NULL,RING_LISTREF_DEC);
+        if ( pList->lIgnoreNestedRef ) {
+            pList->nReferenceCount-- ;
+        }
+        else {
+            ring_list_updatenestedreferences(pState,pList, NULL,RING_LISTREF_DEC);
+        }
         if ( ! (pList->lNewRef && (pList->nReferenceCount==0)) ) {
             return NULL ;
         }
     }
     /* Delete Container Variable */
     if ( pList->lDeleteContainerVariable ) {
-        pList->lDeleteContainerVariable = 0 ;
         pVariable = (List *) pList->pContainer ;
-        ring_list_updatenestedreferences(pState,pVariable, NULL,RING_LISTREF_DEC);
-        ring_list_delete_gc(pState,pVariable);
+        pList->lDeleteContainerVariable = 0 ;
+        if ( pVariable->nReferenceCount ) {
+            pVariable->nReferenceCount = 0 ;
+        }
+        else {
+            ring_list_delete_gc(pState,pVariable);
+        }
         pList->pContainer = NULL ;
         return NULL ;
     }
@@ -923,6 +933,7 @@ RING_API void ring_list_clear ( List *pList )
     pList->lNewRef = 0 ;
     pList->lCopyByRef = 0 ;
     pList->lDeleteContainerVariable = 0 ;
+    pList->lIgnoreNestedRef = 0 ;
 }
 /* Define functions without State Pointer */
 

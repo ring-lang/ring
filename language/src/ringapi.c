@@ -369,7 +369,8 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
             ring_vm_oop_updateselfpointer(pVM,pList,RING_OBJTYPE_VARIABLE,pVariableList);
         }
         /* We increase the Counter to avoid deleting the container variable */
-        ring_list_updatenestedreferences(((VM *) pPointer)->pRingState,pVariableList,NULL,RING_LISTREF_INC);
+        pVariableList->nReferenceCount = 1 ;
+        pVariableList->lIgnoreNestedRef = 1 ;
         pList->lNewRef = 1 ;
         /* When deleting the list (No other references) - It will delete the container variable */
         pList->lDeleteContainerVariable = 1 ;
