@@ -56,7 +56,7 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
 {
     List *pVariable  ;
     /* Check if we have a Circular Reference */
-    if ( (pList->nReferenceCount < 0) || (pList == NULL) ) {
+    if ( pList->nReferenceCount < 0 ) {
         return NULL ;
     }
     /* Avoid deleting objects when the list is just a reference */
@@ -70,7 +70,6 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
         else {
             ring_list_updatenestedreferences(pState,pList, NULL,RING_LISTREF_DEC);
             if ( pList->nReferenceCount < 0 ) {
-                ring_list_deleteallitems_gc(pState,pList);
                 pList->nReferenceCount = 0 ;
                 pList = ring_list_delete_gc(pState,pList);
                 return NULL ;
