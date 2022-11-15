@@ -1462,3 +1462,17 @@ void ring_list_updatenestedreferences ( void *pState,List *pList, List *aSubList
         ring_list_delete_gc(pState,aSubListsPointers);
     }
 }
+
+RING_API void ring_list_acceptlistbyref_gc ( void *pState,List *pList, int index,List *pRef )
+{
+    List *pRealList  ;
+    Item *pItem  ;
+    /* Setting the list could be unnecessary but, we do this to have a solid function */
+    ring_list_setlist_gc(pState,pList,index);
+    /* Free the old list (We expect that it's an empty list) */
+    pRealList = ring_list_getlist(pList,index);
+    ring_state_free(pState,pRealList);
+    /* Set the Item as a List reference */
+    pItem = ring_list_getitem(pList,index);
+    pItem->data.pList = pRef ;
+}
