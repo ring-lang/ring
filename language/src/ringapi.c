@@ -373,18 +373,22 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
         }
         /* Note: The list may already have a container variable (Previous Reference) */
         if ( pList->pContainer == NULL ) {
+            /* If we have a reference to an object, the Self attribute will stay pointing to the Container Variable */
             if ( ring_vm_oop_isobject(pList) ) {
-                /* If we have a reference to an object, the Self attribute will stay pointing to the Container Variable */
                 ring_vm_oop_updateselfpointer(pVM,pList,RING_OBJTYPE_VARIABLE,pVariableList);
             }
             /* We increase the Counter to avoid deleting the container variable */
             pVariableList->nReferenceCount = 1 ;
             pVariableList->lIgnoreNestedRef = 1 ;
-            /* When deleting the list (No other references) - It will delete the container variable */
+            /* When deleting the list (No other references exist) - It will delete the container variable */
             pList->lDeleteContainerVariable = 1 ;
             pList->pContainer = pVariableList ;
         }
         else {
+            /*
+            **  The container will be deleted after the end of the function call (i.e. not by pList) 
+            **  So to be sure to keep our pList alive -  we decrement the counter 
+            */
             ring_list_updatenestedreferences(pVM->pRingState,pList, NULL,RING_LISTREF_INC);
         }
     }
