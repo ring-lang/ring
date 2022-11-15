@@ -1414,7 +1414,7 @@ RING_API int ring_list_cpointercmp ( List *pList,List *pList2 )
 }
 /* References */
 
-RING_API void ring_list_setlistbyref_gc ( void *pState,List *pList, int index,List *pRef )
+RING_API void ring_list_acceptlistbyref_gc ( void *pState,List *pList, int index,List *pRef )
 {
     List *pRealList  ;
     Item *pItem  ;
@@ -1426,6 +1426,11 @@ RING_API void ring_list_setlistbyref_gc ( void *pState,List *pList, int index,Li
     /* Set the Item as a List reference */
     pItem = ring_list_getitem(pList,index);
     pItem->data.pList = pRef ;
+}
+
+RING_API void ring_list_setlistbyref_gc ( void *pState,List *pList, int index,List *pRef )
+{
+    ring_list_acceptlistbyref_gc(pState,pList,index,pRef);
     /* Increment the Reference */
     ring_list_updatenestedreferences(pState,pRef, NULL,RING_LISTREF_INC);
 }
@@ -1461,18 +1466,4 @@ void ring_list_updatenestedreferences ( void *pState,List *pList, List *aSubList
     if ( lDeleteaSubListsPointers ) {
         ring_list_delete_gc(pState,aSubListsPointers);
     }
-}
-
-RING_API void ring_list_acceptlistbyref_gc ( void *pState,List *pList, int index,List *pRef )
-{
-    List *pRealList  ;
-    Item *pItem  ;
-    /* Setting the list could be unnecessary but, we do this to have a solid function */
-    ring_list_setlist_gc(pState,pList,index);
-    /* Free the old list (We expect that it's an empty list) */
-    pRealList = ring_list_getlist(pList,index);
-    ring_state_free(pState,pRealList);
-    /* Set the Item as a List reference */
-    pItem = ring_list_getitem(pList,index);
-    pItem->data.pList = pRef ;
 }
