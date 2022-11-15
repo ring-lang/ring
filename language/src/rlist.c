@@ -1443,8 +1443,9 @@ void ring_list_updatenestedreferences ( void *pState,List *pList, List *aSubList
         ring_list_addpointer_gc(pState,aSubListsPointers,pList);
     }
     /* Update The Reference */
-    pList->nReferenceCount += nChange ;
-    if (pList->nReferenceCount < 0) pList->nReferenceCount = 0; ;
+    if ( pList->nReferenceCount + nChange >= 0 ) {
+        pList->nReferenceCount += nChange ;
+    }
     /* Check nested references */
     nSize = ring_list_getsize(pList) ;
     for ( x = 1 ; x <= nSize ; x++ ) {
