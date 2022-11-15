@@ -104,10 +104,12 @@ void ring_vm_listitem ( VM *pVM )
             pList3 = ring_list_newlist_gc(pVM->pRingState,pList);
             if ( pList2->nReferenceCount ) {
                 /* Copy by ref (pList2 to pList3) */
-                ring_list_setlistbyref_gc(pVM->pRingState,pList,ring_list_getsize(pList),pList2);
                 if ( pList2->lNewRef ) {
                     pList2->lNewRef = 0 ;
-                    ring_list_updatenestedreferences(pVM->pRingState,pList2,NULL,RING_LISTREF_DEC);
+                    ring_list_acceptlistbyref_gc(pVM->pRingState,pList,ring_list_getsize(pList),pList2);
+                }
+                else {
+                    ring_list_setlistbyref_gc(pVM->pRingState,pList,ring_list_getsize(pList),pList2);
                 }
             }
             else {
@@ -125,10 +127,11 @@ void ring_vm_listitem ( VM *pVM )
                 pItem = ring_list_getitem(pList,ring_list_getsize(pList));
                 ring_state_free(pVM->pRingState,pList3);
                 pItem->data.pList = pList2 ;
-                ring_list_updatenestedreferences(pVM->pRingState,pList2,NULL,RING_LISTREF_INC);
                 if ( pList2->lNewRef ) {
                     pList2->lNewRef = 0 ;
-                    ring_list_updatenestedreferences(pVM->pRingState,pList2,NULL,RING_LISTREF_DEC);
+                }
+                else {
+                    ring_list_updatenestedreferences(pVM->pRingState,pList2,NULL,RING_LISTREF_INC);
                 }
             }
             else {
@@ -403,10 +406,11 @@ void ring_vm_listassignment ( VM *pVM )
         if ( pVar->nReferenceCount ) {
             ring_state_free(pVM->pRingState,pList);
             pItem->data.pList = pVar ;
-            ring_list_updatenestedreferences(pVM->pRingState,pVar,NULL,RING_LISTREF_INC);
             if ( pVar->lNewRef ) {
                 pVar->lNewRef = 0 ;
-                ring_list_updatenestedreferences(pVM->pRingState,pVar,NULL,RING_LISTREF_DEC);
+            }
+            else {
+                ring_list_updatenestedreferences(pVM->pRingState,pVar,NULL,RING_LISTREF_INC);
             }
         }
         else {

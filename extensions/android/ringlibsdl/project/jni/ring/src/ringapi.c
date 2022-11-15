@@ -387,7 +387,7 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
         else {
             /*
             **  The container will be deleted after the end of the function call (i.e. not by pList) 
-            **  So to be sure to keep our pList alive -  we decrement the counter 
+            **  So to be sure to keep our pList alive -  we increment the counter 
             */
             ring_list_updatenestedreferences(pVM->pRingState,pList, NULL,RING_LISTREF_INC);
         }

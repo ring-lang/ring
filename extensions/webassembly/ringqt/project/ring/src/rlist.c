@@ -1414,7 +1414,7 @@ RING_API int ring_list_cpointercmp ( List *pList,List *pList2 )
 }
 /* References */
 
-RING_API void ring_list_setlistbyref_gc ( void *pState,List *pList, int index,List *pRef )
+RING_API void ring_list_acceptlistbyref_gc ( void *pState,List *pList, int index,List *pRef )
 {
     List *pRealList  ;
     Item *pItem  ;
@@ -1426,6 +1426,11 @@ RING_API void ring_list_setlistbyref_gc ( void *pState,List *pList, int index,Li
     /* Set the Item as a List reference */
     pItem = ring_list_getitem(pList,index);
     pItem->data.pList = pRef ;
+}
+
+RING_API void ring_list_setlistbyref_gc ( void *pState,List *pList, int index,List *pRef )
+{
+    ring_list_acceptlistbyref_gc(pState,pList,index,pRef);
     /* Increment the Reference */
     ring_list_updatenestedreferences(pState,pRef, NULL,RING_LISTREF_INC);
 }
@@ -1443,8 +1448,9 @@ void ring_list_updatenestedreferences ( void *pState,List *pList, List *aSubList
         ring_list_addpointer_gc(pState,aSubListsPointers,pList);
     }
     /* Update The Reference */
-    pList->nReferenceCount += nChange ;
-    if (pList->nReferenceCount < 0) pList->nReferenceCount = 0; ;
+    if ( pList->nReferenceCount + nChange >= 0 ) {
+        pList->nReferenceCount += nChange ;
+    }
     /* Check nested references */
     nSize = ring_list_getsize(pList) ;
     for ( x = 1 ; x <= nSize ; x++ ) {
