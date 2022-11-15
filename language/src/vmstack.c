@@ -184,10 +184,10 @@ void ring_vm_assignment ( VM *pVM )
                     if ( ! ( ring_list_getlist(pVar,RING_VAR_VALUE) == pList ) ) {
                         ring_list_setlist_gc(pVM->pRingState,pVar,RING_VAR_VALUE);
                         ring_list_setlistbyref_gc(pVM->pRingState,pVar,RING_VAR_VALUE,pList);
-                        if ( pList->lNewRef ) {
-                            pList->lNewRef = 0 ;
-                            ring_list_updatenestedreferences(pVM->pRingState,pList,NULL,RING_LISTREF_DEC);
-                        }
+                    }
+                    if ( pList->lNewRef ) {
+                        pList->lNewRef = 0 ;
+                        ring_list_updatenestedreferences(pVM->pRingState,pList,NULL,RING_LISTREF_DEC);
                     }
                 }
                 else {
