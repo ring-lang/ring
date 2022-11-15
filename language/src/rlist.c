@@ -65,6 +65,11 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
             ring_list_updatenestedreferences(pState,pList, NULL,RING_LISTREF_DEC);
         }
         if ( ! (pList->lNewRef && (pList->nReferenceCount==0)) ) {
+            if ( pList->lNewRef ) {
+                /* Deleting a Ref() before assignment while we have other references */
+                pList->lNewRef = 0 ;
+                ring_list_updatenestedreferences(pState,pList, NULL,RING_LISTREF_DEC);
+            }
             return NULL ;
         }
     }

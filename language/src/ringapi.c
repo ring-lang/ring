@@ -364,7 +364,13 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
     else {
         /* Used by RING_API_RETNEWREF (i.e. Ref()/Reference() function implementation) */
         ring_list_setlistbyref_gc(((VM *) pPointer)->pRingState,pVariableList,RING_VAR_VALUE,pList);
-        pList->lNewRef = 1 ;
+        if ( pList->lNewRef == 0 ) {
+            pList->lNewRef = 1 ;
+        }
+        else {
+            /* Avoid increasing the counter when writing Ref(Ref(Ref(....Ref(aList)....))) */
+            ring_list_updatenestedreferences(pVM->pRingState,pList, NULL,RING_LISTREF_DEC);
+        }
         /* Note: The list may already have a container variable (Previous Reference) */
         if ( pList->pContainer == NULL ) {
             if ( ring_vm_oop_isobject(pList) ) {
