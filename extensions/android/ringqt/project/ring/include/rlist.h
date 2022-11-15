@@ -16,6 +16,7 @@
         unsigned char lNewRef  ;
         unsigned char lCopyByRef  ;
         unsigned char lDeleteContainerVariable  ;
+        unsigned char lIgnoreNestedRef  ;
         void *pContainer  ;
     } List ;
     /* Constants */
