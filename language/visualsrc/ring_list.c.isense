@@ -18,7 +18,7 @@ Type: struct Item *
 pItemBlock
 Type: struct Items *
 pItemsBlock
-Type: unsigned short int
+Type: short int
 nReferenceCount
 Type: unsigned char
 lNewRef
@@ -314,3 +314,10 @@ Type: int
 x,nSize,lDeleteaSubListsPointers
 Type: List *
 pSubList
+ring_list_safedelete
+Type: int
+x,nSize,lDeleteaSubListsPointers
+Type: List *
+pSubList
+Type: Item *
+pItem
