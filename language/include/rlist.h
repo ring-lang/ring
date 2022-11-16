@@ -58,7 +58,7 @@
 
     RING_API int ring_list_gettype ( List *pList, int index ) ;
 
-    void ring_list_updatenestedreferences ( void *pState,List *pList, List *aSubListsPointers, int nChange ) ;
+    void ring_list_updatenestedreferences_gc ( void *pState,List *pList, List *aSubListsPointers, int nChange ) ;
 
     void ring_list_allowdeleteingcircularreferences_gc ( void *pState,List *pList, List *aSubListsPointers ) ;
     /* int */

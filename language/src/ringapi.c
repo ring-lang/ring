@@ -369,7 +369,7 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
         }
         else {
             /* Avoid increasing the counter when writing Ref(Ref(Ref(....Ref(aList)....))) */
-            ring_list_updatenestedreferences(pVM->pRingState,pList, NULL,RING_LISTREF_DEC);
+            ring_list_updatenestedreferences_gc(pVM->pRingState,pList, NULL,RING_LISTREF_DEC);
         }
         /* Note: The list may already have a container variable (Previous Reference) */
         if ( pList->pContainer == NULL ) {
@@ -389,7 +389,7 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
             **  The container will be deleted after the end of the function call (i.e. not by pList) 
             **  So to be sure to keep our pList alive -  we increment the counter 
             */
-            ring_list_updatenestedreferences(pVM->pRingState,pList, NULL,RING_LISTREF_INC);
+            ring_list_updatenestedreferences_gc(pVM->pRingState,pList, NULL,RING_LISTREF_INC);
         }
     }
     RING_API_PUSHPVALUE(pVariableList);

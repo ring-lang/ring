@@ -68,7 +68,7 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
             return NULL ;
         }
         else {
-            ring_list_updatenestedreferences(pState,pList, NULL,RING_LISTREF_DEC);
+            ring_list_updatenestedreferences_gc(pState,pList, NULL,RING_LISTREF_DEC);
             if ( pList->nReferenceCount < 0 ) {
                 pList->nReferenceCount = 0 ;
                 pList = ring_list_delete_gc(pState,pList);
@@ -79,7 +79,7 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
             if ( pList->lNewRef ) {
                 /* Deleting a Ref() before assignment while we have other references */
                 pList->lNewRef = 0 ;
-                ring_list_updatenestedreferences(pState,pList, NULL,RING_LISTREF_DEC);
+                ring_list_updatenestedreferences_gc(pState,pList, NULL,RING_LISTREF_DEC);
             }
             return NULL ;
         }
@@ -1444,10 +1444,10 @@ RING_API void ring_list_setlistbyref_gc ( void *pState,List *pList, int index,Li
 {
     ring_list_acceptlistbyref_gc(pState,pList,index,pRef);
     /* Increment the Reference */
-    ring_list_updatenestedreferences(pState,pRef, NULL,RING_LISTREF_INC);
+    ring_list_updatenestedreferences_gc(pState,pRef, NULL,RING_LISTREF_INC);
 }
 
-void ring_list_updatenestedreferences ( void *pState,List *pList, List *aSubListsPointers,int nChange )
+void ring_list_updatenestedreferences_gc ( void *pState,List *pList, List *aSubListsPointers,int nChange )
 {
     int x,nSize,lDeleteaSubListsPointers  ;
     List *pSubList  ;
@@ -1470,7 +1470,7 @@ void ring_list_updatenestedreferences ( void *pState,List *pList, List *aSubList
             pSubList = ring_list_getlist(pList,x) ;
             if ( ! ring_list_findpointer(aSubListsPointers,pSubList) ) {
                 ring_list_addpointer_gc(pState,aSubListsPointers,pSubList);
-                ring_list_updatenestedreferences(pState,pSubList, aSubListsPointers, nChange);
+                ring_list_updatenestedreferences_gc(pState,pSubList, aSubListsPointers, nChange);
             }
             else {
                 /* Update The Reference */

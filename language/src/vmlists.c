@@ -131,7 +131,7 @@ void ring_vm_listitem ( VM *pVM )
                     pList2->lNewRef = 0 ;
                 }
                 else {
-                    ring_list_updatenestedreferences(pVM->pRingState,pList2,NULL,RING_LISTREF_INC);
+                    ring_list_updatenestedreferences_gc(pVM->pRingState,pList2,NULL,RING_LISTREF_INC);
                 }
             }
             else {
@@ -410,7 +410,7 @@ void ring_vm_listassignment ( VM *pVM )
                 pVar->lNewRef = 0 ;
             }
             else {
-                ring_list_updatenestedreferences(pVM->pRingState,pVar,NULL,RING_LISTREF_INC);
+                ring_list_updatenestedreferences_gc(pVM->pRingState,pVar,NULL,RING_LISTREF_INC);
             }
         }
         else {
