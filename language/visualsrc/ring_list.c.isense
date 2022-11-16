@@ -28,8 +28,10 @@ Type: unsigned int
 lIgnoreNestedRef: 1
 Type: unsigned int
 lNewRef: 1
-Type: unsigned char
-lCopyByRef
+Type: unsigned int
+lCircularRef: 1
+Type: unsigned int
+lCopyByRef: 1
 END:
 Type: List
 struct List
