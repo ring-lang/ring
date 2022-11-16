@@ -93,7 +93,7 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
             pVariable->nReferenceCount = 0 ;
         }
         else {
-            ring_list_safedelete(pState,pVariable,NULL);
+            ring_list_allowdeleteingcircularreferences_gc(pState,pVariable,NULL);
             ring_list_delete_gc(pState,pVariable);
         }
         return NULL ;
@@ -1491,7 +1491,7 @@ void ring_list_updatenestedreferences ( void *pState,List *pList, List *aSubList
     }
 }
 
-void ring_list_safedelete ( void *pState,List *pList, List *aSubListsPointers )
+void ring_list_allowdeleteingcircularreferences_gc ( void *pState,List *pList, List *aSubListsPointers )
 {
     int x,nSize,lDeleteaSubListsPointers  ;
     List *pSubList  ;
@@ -1511,7 +1511,7 @@ void ring_list_safedelete ( void *pState,List *pList, List *aSubListsPointers )
             pSubList = ring_list_getlist(pList,x) ;
             if ( ! ring_list_findpointer(aSubListsPointers,pSubList) ) {
                 ring_list_addpointer_gc(pState,aSubListsPointers,pSubList);
-                ring_list_safedelete(pState,pSubList, aSubListsPointers);
+                ring_list_allowdeleteingcircularreferences_gc(pState,pSubList, aSubListsPointers);
             }
             else {
                 pItem = ring_list_getitem(pList,x) ;
