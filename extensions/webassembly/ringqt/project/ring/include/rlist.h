@@ -12,12 +12,12 @@
         struct HashTable *pHashTable  ;
         struct Item *pItemBlock  ;
         struct Items *pItemsBlock  ;
-        short int nReferenceCount  ;
-        unsigned char lNewRef  ;
-        unsigned char lCopyByRef  ;
-        unsigned char lDeleteContainerVariable  ;
-        unsigned char lIgnoreNestedRef  ;
         void *pContainer  ;
+        short int nReferenceCount  ;
+        unsigned int lDeleteContainerVariable: 1  ;
+        unsigned int lIgnoreNestedRef: 1  ;
+        unsigned int lNewRef: 1  ;
+        unsigned int lCopyByRef: 1  ;
     } List ;
     /* Constants */
     #define RING_LISTOFOBJS_FINDSTRING 1
