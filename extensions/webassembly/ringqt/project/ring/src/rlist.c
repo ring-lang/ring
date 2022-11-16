@@ -43,12 +43,13 @@ RING_API List * ring_list_new2_gc ( void *pState,List *pList,int nSize )
     pList->pHashTable = NULL ;
     pList->pItemBlock = NULL ;
     pList->pItemsBlock = NULL ;
-    pList->nReferenceCount = 0 ;
-    pList->lNewRef = 0 ;
-    pList->lCopyByRef = 0 ;
-    pList->lDeleteContainerVariable = 0 ;
     pList->pContainer = NULL ;
+    pList->nReferenceCount = 0 ;
+    pList->lDeleteContainerVariable = 0 ;
     pList->lIgnoreNestedRef = 0 ;
+    pList->lNewRef = 0 ;
+    pList->lCircularRef = 0 ;
+    pList->lCopyByRef = 0 ;
     return pList ;
 }
 
@@ -56,7 +57,7 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
 {
     List *pVariable  ;
     /* Check if we have a Circular Reference */
-    if ( pList->nReferenceCount < 0 ) {
+    if ( pList->lCircularRef ) {
         return NULL ;
     }
     /* Avoid deleting objects when the list is just a reference */
@@ -69,8 +70,8 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
         }
         else {
             ring_list_updatenestedreferences_gc(pState,pList, NULL,RING_LISTREF_DEC);
-            if ( pList->nReferenceCount < 0 ) {
-                pList->nReferenceCount = 0 ;
+            if ( pList->lCircularRef ) {
+                pList->lCircularRef = 0 ;
                 pList = ring_list_delete_gc(pState,pList);
                 return NULL ;
             }
@@ -176,10 +177,6 @@ RING_API void ring_list_deleteallitems_gc ( void *pState,List *pList )
         ring_state_free(pState,pList->pItemsBlock);
         pList->pItemsBlock = NULL ;
     }
-    pList->nReferenceCount = 0 ;
-    pList->lNewRef = 0 ;
-    pList->lCopyByRef = 0 ;
-    pList->lDeleteContainerVariable = 0 ;
 }
 
 RING_API void ring_list_copy_tohighlevel_gc ( void *pState,List *pNewList, List *pList )
@@ -946,11 +943,13 @@ RING_API void ring_list_clear ( List *pList )
     pList->pHashTable = NULL ;
     pList->pItemBlock = NULL ;
     pList->pItemsBlock = NULL ;
+    pList->pContainer = NULL ;
     pList->nReferenceCount = 0 ;
-    pList->lNewRef = 0 ;
-    pList->lCopyByRef = 0 ;
     pList->lDeleteContainerVariable = 0 ;
     pList->lIgnoreNestedRef = 0 ;
+    pList->lNewRef = 0 ;
+    pList->lCircularRef = 0 ;
+    pList->lCopyByRef = 0 ;
 }
 /* Define functions without State Pointer */
 
@@ -1479,7 +1478,7 @@ void ring_list_updatenestedreferences_gc ( void *pState,List *pList, List *aSubL
                 }
                 else {
                     if ( ((List *) ring_list_getpointer(aSubListsPointers,1)) == pSubList ) {
-                        pSubList->nReferenceCount += nChange ;
+                        pSubList->lCircularRef = 1 ;
                     }
                 }
             }
