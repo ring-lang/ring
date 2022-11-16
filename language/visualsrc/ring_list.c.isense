@@ -18,18 +18,18 @@ Type: struct Item *
 pItemBlock
 Type: struct Items *
 pItemsBlock
-Type: short int
-nReferenceCount
-Type: unsigned char
-lNewRef
-Type: unsigned char
-lCopyByRef
-Type: unsigned char
-lDeleteContainerVariable
-Type: unsigned char
-lIgnoreNestedRef
 Type: void *
 pContainer
+Type: short int
+nReferenceCount
+Type: unsigned int
+lDeleteContainerVariable: 1
+Type: unsigned int
+lIgnoreNestedRef: 1
+Type: unsigned int
+lNewRef: 1
+Type: unsigned char
+lCopyByRef
 END:
 Type: List
 struct List
@@ -309,12 +309,12 @@ pRealList
 Type: Item *
 pItem
 ring_list_setlistbyref_gc
-ring_list_updatenestedreferences
+ring_list_updatenestedreferences_gc
 Type: int
 x,nSize,lDeleteaSubListsPointers
 Type: List *
 pSubList
-ring_list_safedelete
+ring_list_allowdeleteingcircularreferences_gc
 Type: int
 x,nSize,lDeleteaSubListsPointers
 Type: List *
