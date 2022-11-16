@@ -94,6 +94,10 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
             pVariable->nReferenceCount = 0 ;
         }
         else {
+            ring_list_updatenestedreferences_gc(pState,pVariable, NULL,RING_LISTREF_DEC);
+            if ( pVariable->lCircularRef ) {
+                pVariable->lCircularRef = 0 ;
+            }
             ring_list_allowdeleteingcircularreferences_gc(pState,pVariable,NULL);
             ring_list_delete_gc(pState,pVariable);
         }
