@@ -56,6 +56,7 @@ RING_API List * ring_list_new2_gc ( void *pState,List *pList,int nSize )
 RING_API List * ring_list_delete_gc ( void *pState,List *pList )
 {
     List *pVariable  ;
+    /* Check lDontDelete (Used by Container Variables) */
     if ( pList->lDontDelete ) {
         /* This is a container that we will not delete, but will be deleted by that list that know about it */
         return NULL ;
