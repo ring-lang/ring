@@ -15,7 +15,7 @@
         void *pContainer  ;
         short int nReferenceCount  ;
         unsigned int lDeleteContainerVariable: 1  ;
-        unsigned int lIgnoreNestedRef: 1  ;
+        unsigned int lDontDelete: 1  ;
         unsigned int lNewRef: 1  ;
         unsigned int lCircularRef: 1  ;
         unsigned int lCopyByRef: 1  ;
@@ -58,10 +58,6 @@
     RING_API void ring_list_deleteitem_gc ( void *pState,List *pList,int index ) ;
 
     RING_API int ring_list_gettype ( List *pList, int index ) ;
-
-    void ring_list_updatenestedreferences_gc ( void *pState,List *pList, List *aSubListsPointers, int nChange ) ;
-
-    void ring_list_allowdeleteingcircularreferences_gc ( void *pState,List *pList, List *aSubListsPointers ) ;
     /* int */
 
     RING_API void ring_list_setint_gc ( void *pState,List *pList, int index ,int number ) ;
@@ -100,10 +96,6 @@
     RING_API void ring_list_setlist_gc ( void *pState,List *pList, int index ) ;
 
     RING_API List * ring_list_getlist ( List *pList, int index ) ;
-
-    RING_API void ring_list_setlistbyref_gc ( void *pState,List *pList, int index,List *pRef ) ;
-
-    RING_API void ring_list_acceptlistbyref_gc ( void *pState,List *pList, int index,List *pRef ) ;
 
     RING_API void ring_list_copy_gc ( void *pState,List *pNewList, List *pList ) ;
 
@@ -273,4 +265,13 @@
     RING_API int ring_list_iscpointerlist ( List *pList ) ;
 
     RING_API int ring_list_cpointercmp ( List *pList,List *pList2 ) ;
+    /* References */
+
+    RING_API void ring_list_acceptlistbyref_gc ( void *pState,List *pList, int index,List *pRef ) ;
+
+    RING_API void ring_list_setlistbyref_gc ( void *pState,List *pList, int index,List *pRef ) ;
+
+    void ring_list_updatenestedreferences_gc ( void *pState,List *pList, List *aSubListsPointers, int nChange ) ;
+
+    void ring_list_allowdeleteingcircularreferences_gc ( void *pState,List *pList, List *aSubListsPointers ) ;
 #endif
