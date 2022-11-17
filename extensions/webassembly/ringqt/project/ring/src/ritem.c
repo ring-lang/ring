@@ -68,12 +68,16 @@ RING_API void ring_item_content_delete_gc ( void *pState,Item *pItem )
     assert(pItem != NULL);
     switch ( pItem->nType ) {
         case ITEMTYPE_STRING :
-            /* Work */
-            pItem->data.pString = ring_string_delete_gc(pState,pItem->data.pString);
+            if ( pItem->data.pString != NULL ) {
+                /* Work */
+                pItem->data.pString = ring_string_delete_gc(pState,pItem->data.pString);
+            }
             break ;
         case ITEMTYPE_LIST :
-            /* Work */
-            pItem->data.pList = ring_list_delete_gc(pState,pItem->data.pList);
+            if ( pItem->data.pList != NULL ) {
+                /* Work */
+                pItem->data.pList = ring_list_delete_gc(pState,pItem->data.pList);
+            }
             break ;
     }
     /* Set Type */

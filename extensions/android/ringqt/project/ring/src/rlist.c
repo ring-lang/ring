@@ -94,6 +94,7 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
             pVariable->lCircularRef = 0 ;
         }
         pVariable->lDontDelete = 0 ;
+        pVariable->nReferenceCount = 0 ;
         ring_list_allowdeleteingcircularreferences_gc(pState,pVariable,NULL);
         ring_list_delete_gc(pState,pVariable);
         return NULL ;
@@ -1432,7 +1433,7 @@ RING_API void ring_list_acceptlistbyref_gc ( void *pState,List *pList, int index
     ring_list_setlist_gc(pState,pList,index);
     /* Free the old list (We expect that it's an empty list) */
     pRealList = ring_list_getlist(pList,index);
-    ring_state_free(pState,pRealList);
+    ring_list_delete_gc(pState,pRealList);
     /* Set the Item as a List reference */
     pItem = ring_list_getitem(pList,index);
     pItem->data.pList = pRef ;

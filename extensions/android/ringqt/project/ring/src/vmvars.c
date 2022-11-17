@@ -274,8 +274,16 @@ void ring_vm_newvar ( VM *pVM,const char *cStr )
 List * ring_vm_newvar2 ( VM *pVM,const char *cStr,List *pParent )
 {
     List *pList  ;
-    /* This function is called by all of the other functions that create new variables */
-    pList = ring_list_newlist_gc(pVM->pRingState,pParent);
+    /*
+    **  This function is called by all of the other functions that create new variables 
+    **  Get/Create the parent list 
+    */
+    if ( pParent != NULL ) {
+        pList = ring_list_newlist_gc(pVM->pRingState,pParent);
+    }
+    else {
+        pList = ring_list_new_gc(pVM->pRingState,0);
+    }
     ring_list_addstring_gc(pVM->pRingState,pList,cStr);
     /* Determine Type based on Region */
     if ( pVM->nInClassRegion ) {
@@ -289,12 +297,16 @@ List * ring_vm_newvar2 ( VM *pVM,const char *cStr,List *pParent )
     ring_list_addint_gc(pVM->pRingState,pList,0);
     /* Private Flag */
     ring_list_addint_gc(pVM->pRingState,pList,0);
-    /* Add Pointer to the HashTable */
-    if ( pParent->pHashTable == NULL ) {
-        pParent->pHashTable = ring_hashtable_new_gc(pVM->pRingState);
+    /* HashTable & Array */
+    if ( pParent != NULL ) {
+        /* Add Pointer to the HashTable */
+        if ( pParent->pHashTable == NULL ) {
+            pParent->pHashTable = ring_hashtable_new_gc(pVM->pRingState);
+        }
+        ring_hashtable_newpointer_gc(pVM->pRingState,pParent->pHashTable,cStr,pList);
+        /* Generate the Array */
+        ring_list_genarray(pList);
     }
-    ring_hashtable_newpointer_gc(pVM->pRingState,pParent->pHashTable,cStr,pList);
-    ring_list_genarray(pList);
     return pList ;
 }
 
