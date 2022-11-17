@@ -17,6 +17,8 @@ Type: void *
 pPointer
 Type: struct List *
 pList
+Type: float
+fNumber
 END:
 Type: GCData
 gc
