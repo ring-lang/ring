@@ -689,7 +689,7 @@ void ring_vm_listfuncs_refcount ( void *pPointer )
             RING_API_RETNUMBER(pList->nReferenceCount + 1);
         }
         else {
-            RING_API_ERROR(RING_API_BADPARATYPE);
+            RING_API_RETNUMBER(1);
         }
         return ;
     }
