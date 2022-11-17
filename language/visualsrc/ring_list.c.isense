@@ -25,7 +25,7 @@ nReferenceCount
 Type: unsigned int
 lDeleteContainerVariable: 1
 Type: unsigned int
-lIgnoreNestedRef: 1
+lDontDelete: 1
 Type: unsigned int
 lNewRef: 1
 Type: unsigned int

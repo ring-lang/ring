@@ -15,7 +15,7 @@
         void *pContainer  ;
         short int nReferenceCount  ;
         unsigned int lDeleteContainerVariable: 1  ;
-        unsigned int lIgnoreNestedRef: 1  ;
+        unsigned int lDontDelete: 1  ;
         unsigned int lNewRef: 1  ;
         unsigned int lCircularRef: 1  ;
         unsigned int lCopyByRef: 1  ;
