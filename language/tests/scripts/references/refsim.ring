@@ -47,12 +47,13 @@ func PrintMemory aList
 	next
 	line()
 
-func increment aMem,cVar
+func getVar aMem,cVar
 	nIndex = find(aMem,cVar,C_VARNAME)
 	if nIndex
-		aMem[nIndex][C_REFCOUNT]++
-	else 
-		? "Sorry, Can't find the variable: " + cVar
+		return nIndex
 	ok
+	raise( "Sorry, Can't find the variable: " + cVar)
 
-	
+func increment aMem,cVar
+	nIndex = getVar(aMem,cVar)
+	aMem[nIndex][C_REFCOUNT]++
