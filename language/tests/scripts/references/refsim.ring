@@ -233,6 +233,17 @@ func setRefCount aMem,cVar,nValue
 func decRefCount aMem,cVar
 	nIndex = getVar(aMem,cVar)
 	aMem[nIndex][C_REFCOUNT]--
+	# Reflect the update to other variables 
+	# which is just a reference to this variable 
+	# This is not needed in Ring VM  (C Code)
+	# Because in Ring VM the List pointer is shared 
+	for var in aMem 
+		if isString(var[C_VALUE])
+			if var[C_VALUE] = cVar 
+				var[C_REFCOUNT] = aMem[nIndex][C_REFCOUNT]
+			ok
+		ok
+	next
 
 func getLostOwnerCount aMem,cVar 
 	nIndex = getVar(aMem,cVar)
@@ -264,7 +275,9 @@ func decrement aMem,cVar
 	ok 
 	# Do the decrement 
 		decRefCount(aMem,cVar)
-	decrementChildren(aMem,cVar)
+	# Kill the Var 
+		killVar(aMem,cVar)
+	//decrementChildren(aMem,cVar)
 
 func decrementChildren aMem,cVar
 	aChild = getNestedChildren(aMem,cVar)
