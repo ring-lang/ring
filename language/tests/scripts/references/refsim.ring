@@ -26,6 +26,7 @@ printMemory(mem1)
 printMemory(mem2)
 printMemory(mem3)
 
+testDirectCircularCount()
 
 func size cStr,nSize
 	cStr = "" + cStr
@@ -57,3 +58,24 @@ func getVar aMem,cVar
 func increment aMem,cVar
 	nIndex = getVar(aMem,cVar)
 	aMem[nIndex][C_REFCOUNT]++
+
+func directCircularCount aMem,cVar 
+	nIndex = getVar(aMem,cVar)
+	vValue = aMem[nIndex][C_VALUE]
+	nCount = 0
+	if isList(vValue)
+		for item in vValue 
+			if ""+item = cVar 
+				nCount++
+			ok
+		next 
+	but isString(vValue) 
+		return directCircularCount(aMem,vValue)
+	ok
+	return nCount
+
+func testDirectCircularCount
+	? "Direct Cirular Count"
+	? "MEM1 - a    - " + directCircularCount(mem1,:a)
+	? "MEM1 - mix  - " + directCircularCount(mem1,:mix)
+	? "MEM1 - mix2 - " + directCircularCount(mem1,:mix2)
