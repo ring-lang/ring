@@ -267,8 +267,9 @@ func incLostOwnerCount aMem,cVar
 	aMem[nIndex][C_STATUS] = :Hidden
 	aChild = getChildren(aMem,cVar)
 	for child in aChild 
-		if child[C_VARNAME] != cVar 
-			nIndex = getVar(aMem,child)
+		if child = NULL loop ok
+		nIndex = getVar(aMem,child)
+		if aMem[nIndex][C_VARNAME] != cVar 
 			aMem[nIndex][C_LOSTOWNERCOUNT]++
 			if aMem[nIndex][C_LOSTOWNERCOUNT] > aMem[nIndex][C_REFCOUNT]
 				killVar(aMem,aMem[nIndex][C_VARNAME])
@@ -331,6 +332,7 @@ func hideVar aMem,cVar
 func testDeleteVar
 	testDeleteVarInMem1()
 	testDeleteVarInMem2()
+	testDeleteVarInMem3()
 
 func testDeleteVarInMem1
 	title("Test deleteVar(mem1,:a)")
@@ -354,16 +356,16 @@ func testDeleteVarInMem2
 func testDeleteVarInMem3
 	title("Test deleteVar(mem3,:n1)")
 	deleteVar(mem3,:n1)
-	printMemory(mem3,"MEM2")
+	printMemory(mem3,"")
 	title("Test deleteVar(mem3,:n2)")
 	deleteVar(mem3,:n2)
-	printMemory(mem3,"MEM2")
+	printMemory(mem3,"")
 	title("Test deleteVar(mem3,:n3)")
 	deleteVar(mem3,:n3)
-	printMemory(mem3,"MEM2")
+	printMemory(mem3,"")
 	title("Test deleteVar(mem3,:n4)")
 	deleteVar(mem3,:n4)
-	printMemory(mem3,"MEM2")
+	printMemory(mem3,"")
 	title("Test deleteVar(mem3,:n5)")
 	deleteVar(mem3,:n5)
-	printMemory(mem3,"MEM2")
+	printMemory(mem3,"")
