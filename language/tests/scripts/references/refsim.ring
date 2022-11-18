@@ -27,13 +27,14 @@ printMemory(mem2)
 printMemory(mem3)
 
 testDirectCircularCount()
+testGetChildren()
 
 func size cStr,nSize
 	cStr = "" + cStr
 	return cStr + Copy(" ",nSize-len(cStr))
 
 func line
-	? copy("=",40)
+	? copy("=",30)
 
 func PrintMemory aList
 	line()
@@ -75,7 +76,7 @@ func directCircularCount aMem,cVar
 	return nCount
 
 func testDirectCircularCount
-	? "Direct Cirular Count"
+	? "Test: Direct Cirular Count"
 	? "MEM1 - a    - " + directCircularCount(mem1,:a)
 	? "MEM1 - mix  - " + directCircularCount(mem1,:mix)
 	? "MEM1 - mix2 - " + directCircularCount(mem1,:mix2)
@@ -86,3 +87,37 @@ func testDirectCircularCount
 	? "MEM3 - n3   - " + directCircularCount(mem3,:n3)
 	? "MEM3 - n4   - " + directCircularCount(mem3,:n4)
 	? "MEM3 - n5   - " + directCircularCount(mem3,:n5)
+	line()
+
+func getChildren aMem,cVar 
+	aChild = []
+	nIndex = getVar(aMem,cVar)
+	vValue = aMem[nIndex][C_VALUE]
+	if isList(vValue)
+		for item in vValue 
+			if isString(item)
+				aChild + item 
+			ok
+		next
+	but isString(vValue)
+		aChild + vValue
+	ok
+	return aChild 
+
+func ListAsString aList 
+	cStr = "["
+	nMax = len(aList)
+	for t=1 to nMax
+		cStr += aList[t]
+		if t != nMax
+			cStr += ","
+		ok
+	next
+	cStr += "]"
+	return cStr
+
+func testGetChildren 
+	? "Test: GetChildren"
+	? "MEM1 - a    : " + ListAsString( getChildren(mem1,:a)    )
+	? "MEM1 - mix  : " + ListAsString( getChildren(mem1,:mix)  )
+	? "MEM1 - mix2 : " + ListAsString( getChildren(mem1,:mix2) )
