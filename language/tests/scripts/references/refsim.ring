@@ -52,9 +52,11 @@ func title cTitle
 	line()
 
 func PrintMemory aList,cTitle
-	title(cTitle)
+	if cTitle != NULL
+		title(cTitle)
+	ok
 	? size("Var",5) + size("Status",7) + 
-	  size("RefCount",9) + size("LOCount",7) 
+	  size("RefCount",9) + size("LostOwner",7) 
 	subLine()
 	for vValue in aList
 		# Print Variable Name
@@ -293,13 +295,13 @@ func testDeleteVar
 func testDeleteVarInMem1
 	title("Test deleteVar(mem1,:a)")
 	deleteVar(mem1,:a)
-	printMemory(mem1,"MEM1")
+	printMemory(mem1,"")
 	title("Test deleteVar(mem1,:mix)")
 	deleteVar(mem1,:mix)
-	printMemory(mem1,"MEM1")
+	printMemory(mem1,"")
 	title("Test deleteVar(mem1,:mix2)")
 	deleteVar(mem1,:mix2)
-	printMemory(mem1,"MEM1")
+	printMemory(mem1,"")
 
 func testDeleteVarInMem2
 	title("Test deleteVar(mem2,:a)")
