@@ -1,4 +1,4 @@
-C_LINESIZE = 30
+C_LINESIZE = 45
 
 C_VARNAME        = 1
 C_STATUS         = 2
@@ -8,7 +8,7 @@ C_LOSTOWNERCOUNT = 5
 
 mem1 = [
 	[:a,:Live,1,[1,2,3],0],
-	[:mix,:Live,3,[1,2,3,:a,:mix,:mix],0],
+	[:mix,:Live,3,[1,2,3,:a,:mix,:mix],0], 
 	[:mix2,:Live,3,:mix,0]
 ]
 
@@ -33,6 +33,7 @@ testGetChildren()
 testGetNestedChildren()
 testDirectCircularCount()
 testIndirectCircularCount()
+testDeleteVar()
 
 func size cStr,nSize
 	cStr = "" + cStr
@@ -52,7 +53,8 @@ func title cTitle
 
 func PrintMemory aList,cTitle
 	title(cTitle)
-	? size("Variable",10) + size("Status",10) + size("RefCount",10)
+	? size("Variable",10) + size("Status",10) + 
+	  size("RefCount",10) + size("LostOwnerCount",10) + 
 	subLine()
 	for vValue in aList
 		# Print Variable Name
@@ -259,10 +261,9 @@ func decrement aMem,cVar
 			freeRef(aMem,cVar)
 		ok
 		return 
-	else 
-		# Do the decrement 
+	ok 
+	# Do the decrement 
 		decRefCount(aMem,cVar)
-	ok
 	decrementChildren(aMem,cVar)
 
 func decrementChildren aMem,cVar
@@ -287,4 +288,47 @@ func deleteVar aMem,cVar
 func killVar aMem,cVar 
 	nIndex = getVar(aMem,cVar)
 	aMem[nIndex][C_STATUS] = :Dead
+
+func testDeleteVar
+	testDeleteVarInMem1()
+
+func testDeleteVarInMem1
+	title("Test deleteVar(mem1,:a)")
+	deleteVar(mem1,:a)
+	printMemory(mem1,"MEM1")
+	title("Test deleteVar(mem1,:mix)")
+	deleteVar(mem1,:mix)
+	printMemory(mem1,"MEM1")
+	title("Test deleteVar(mem1,:mix2)")
+	deleteVar(mem1,:mix2)
+	printMemory(mem1,"MEM1")
+
+func testDeleteVarInMem2
+	title("Test deleteVar(mem2,:a)")
+	deleteVar(mem2,:a)
+	printMemory(mem2,"MEM2")
+	title("Test deleteVar(mem2,:b)")
+	deleteVar(mem2,:b)
+	printMemory(mem2,"MEM2")
+
+func testDeleteVarInMem3
+	title("Test deleteVar(mem3,:n1)")
+	deleteVar(mem3,:n1)
+	printMemory(mem3,"MEM2")
+	title("Test deleteVar(mem3,:n2)")
+	deleteVar(mem3,:n2)
+	printMemory(mem3,"MEM2")
+	title("Test deleteVar(mem3,:n3)")
+	deleteVar(mem3,:n3)
+	printMemory(mem3,"MEM2")
+	title("Test deleteVar(mem3,:n4)")
+	deleteVar(mem3,:n4)
+	printMemory(mem3,"MEM2")
+	title("Test deleteVar(mem3,:n5)")
+	deleteVar(mem3,:n5)
+	printMemory(mem3,"MEM2")
+
+
+
+
 
