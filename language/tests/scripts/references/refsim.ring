@@ -31,6 +31,7 @@ printMemory(mem3,"MEM3")
 testGetChildren()
 testGetNestedChildren()
 testDirectCircularCount()
+testIndirectCircularCount()
 
 func size cStr,nSize
 	cStr = "" + cStr
@@ -171,3 +172,45 @@ func testGetNestedChildren
 	? "MEM3 - n3   : " + ListAsString( GetNestedChildren(mem3,:n3)   )
 	? "MEM3 - n4   : " + ListAsString( GetNestedChildren(mem3,:n4)   )
 	? "MEM3 - n5   : " + ListAsString( GetNestedChildren(mem3,:n5)   )
+
+func indirectCircularCount aMem,cVar 
+	nIndex = getVar(aMem,cVar)
+	if isString(aMem[nIndex][C_VALUE])
+		return indirectCircularCount(aMem,aMem[nIndex][C_VALUE])
+	ok
+	nDirectCircularCount   = DirectCircularCount(aMem,cVar)
+	nCount = 0
+	aChild = getChildren(aMem,cVar)
+	for t=1 to len(aChild)
+		if aChild[t] = NULL loop ok
+		if aChild[t] = cVar 
+			nCount++ 
+			loop
+		ok
+		aNewChild = getChildren(aMem,aChild[t])
+		for item in aNewChild 
+			if item = NULL loop ok
+			if item = cVar 
+				nCount++ 
+				loop
+			ok
+			if not find(aChild,item)
+				aChild + item
+			ok
+		next	
+	next
+	nIndirectCircularCount = nCount - nDirectCircularCount
+	return nIndirectCircularCount
+
+func testIndirectCircularCount
+	title("Test: Indirect Cirular Count")
+	? "MEM1 - a    : " + indirectCircularCount(mem1,:a)
+	? "MEM1 - mix  : " + indirectCircularCount(mem1,:mix)
+	? "MEM1 - mix2 : " + indirectCircularCount(mem1,:mix2)
+	? "MEM2 - a    : " + indirectCircularCount(mem2,:a)
+	? "MEM2 - b    : " + indirectCircularCount(mem2,:b)
+	? "MEM3 - n1   : " + indirectCircularCount(mem3,:n1)
+	? "MEM3 - n2   : " + indirectCircularCount(mem3,:n2)
+	? "MEM3 - n3   : " + indirectCircularCount(mem3,:n3)
+	? "MEM3 - n4   : " + indirectCircularCount(mem3,:n4)
+	? "MEM3 - n5   : " + indirectCircularCount(mem3,:n5)
