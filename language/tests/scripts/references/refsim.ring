@@ -1,27 +1,28 @@
 C_LINESIZE = 30
 
-C_VARNAME  = 1
-C_STATUS   = 2
-C_REFCOUNT = 3
-C_VALUE    = 4
+C_VARNAME        = 1
+C_STATUS         = 2
+C_REFCOUNT       = 3
+C_VALUE          = 4
+C_LOSTOWNERCOUNT = 5
 
 mem1 = [
-	[:a,:Live,1,[1,2,3]],
-	[:mix,:Live,3,[1,2,3,:a,:mix,:mix]],
-	[:mix2,:Live,3,:mix]
+	[:a,:Live,1,[1,2,3],0],
+	[:mix,:Live,3,[1,2,3,:a,:mix,:mix],0],
+	[:mix2,:Live,3,:mix,0]
 ]
 
 mem2 = [
-	[:a,:Live,1,[:b]],
-	[:b,:Live,1,[:a]]
+	[:a,:Live,1,[:b],0],
+	[:b,:Live,1,[:a],0]
 ]
 
 mem3 = [
-	[:n1,:Live,1,[null,:n2]],
-	[:n2,:Live,2,[:n1,:n3]],
-	[:n3,:Live,2,[:n2,:n4]],
-	[:n4,:Live,2,[:n3,:n5]],
-	[:n5,:Live,1,[:n4,null]]
+	[:n1,:Live,1,[null,:n2],0],
+	[:n2,:Live,2,[:n1,:n3],0],
+	[:n3,:Live,2,[:n2,:n4],0],
+	[:n4,:Live,2,[:n3,:n5],0],
+	[:n5,:Live,1,[:n4,null],0]
 ]
 
 printMemory(mem1,"MEM1")
@@ -55,11 +56,13 @@ func PrintMemory aList,cTitle
 	subLine()
 	for vValue in aList
 		# Print Variable Name
-			see size(vValue[1],10)
+			see size(vValue[C_VARNAME],10)
 		# Print Status
-			see Size(UPPER(vValue[2]),10)
+			see Size(UPPER(vValue[C_STATUS]),10)
 		# Print Reference Count
-			see Size(vValue[3],10)
+			see Size(vValue[C_REFCOUNT],10)
+		# Print Lost Owner Count 
+			see Size(vValue[C_LOSTOWNERCOUNT],10)
 		see nl
 	next
 
@@ -214,3 +217,74 @@ func testIndirectCircularCount
 	? "MEM3 - n3   : " + indirectCircularCount(mem3,:n3)
 	? "MEM3 - n4   : " + indirectCircularCount(mem3,:n4)
 	? "MEM3 - n5   : " + indirectCircularCount(mem3,:n5)
+
+
+func getRefCount aMem,cVar 
+	nIndex = getVar(aMem,cVar)
+	return aMem[nIndex][C_REFCOUNT]
+
+func setRefCount aMem,cVar,nValue 
+	nIndex = getVar(aMem,cVar)
+	aMem[nIndex][C_REFCOUNT] = nValue 
+
+func decRefCount aMem,cVar
+	nIndex = getVar(aMem,cVar)
+	aMem[nIndex][C_REFCOUNT]--
+
+func getLostOwnerCount aMem,cVar 
+	nIndex = getVar(aMem,cVar)
+	return aMem[nIndex][C_LOSTOWNERCOUNT]
+
+func incLostOwnerCount aMem,cVar 
+	nIndex = getVar(aMem,cVar)
+	aMem[nIndex][C_LOSTOWNERCOUNT]++
+
+
+func decrement aMem,cVar
+	nDirectCount   = DirectCircularCount(aMem,cVar)   #  WithoutCountingTheRoot
+	nInDirectCount = InDirectCircularCount(aMem,cVar) #  WithoutCountingTheRoot
+	nRefCount      = getRefCount(aMem,cVar)
+	if nRefCount - nDirectCount = 0
+		# We have one owner and we can free the reference 
+		setRefCount(aMem,cVar,0)
+		freeRef(aMem,cVar)
+		return
+	ok
+	if nInDirectCount > 0
+		# Circular Reference 
+		incLostOwnerCount(aMem,cVar)
+		# Check if this is the last owner where we can delete the reference
+		if getLostOwnerCount(aMem,cVar) > nInDirectCount
+			setRefCount(aMem,cVar,0)
+			freeRef(aMem,cVar)
+		ok
+		return 
+	else 
+		# Do the decrement 
+		decRefCount(aMem,cVar)
+	ok
+	decrementChildren(aMem,cVar)
+
+func decrementChildren aMem,cVar
+	aChild = getNestedChildren(aMem,cVar)
+	for child in aChild 
+		if child != cVar 
+			deleteVar(aMem,cVar)
+		ok
+	next
+
+func freeRef aMem,cVar 
+	decrementChildren(aMem,cVar)
+	deleteVar(aMem,cVar) 
+
+func deleteVar aMem,cVar 
+	if getRefCount(aMem,cVar) > 0
+		decrement(aMem,cVar)
+		return 
+	ok
+	killVar(aMem,cVar)
+
+func killVar aMem,cVar 
+	nIndex = getVar(aMem,cVar)
+	aMem[nIndex][C_STATUS] = :Dead
+
