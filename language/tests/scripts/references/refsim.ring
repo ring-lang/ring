@@ -37,7 +37,6 @@ func line
 	? copy("=",30)
 
 func PrintMemory aList
-	line()
 	for vValue in aList
 		# Print Variable Name
 			see size(vValue[1],10)
@@ -108,9 +107,11 @@ func ListAsString aList
 	cStr = "["
 	nMax = len(aList)
 	for t=1 to nMax
-		cStr += aList[t]
-		if t != nMax
-			cStr += ","
+		if aList[t] != NULL
+			cStr += aList[t]
+			if t != nMax
+				cStr += ","
+			ok
 		ok
 	next
 	cStr += "]"
@@ -121,3 +122,11 @@ func testGetChildren
 	? "MEM1 - a    : " + ListAsString( getChildren(mem1,:a)    )
 	? "MEM1 - mix  : " + ListAsString( getChildren(mem1,:mix)  )
 	? "MEM1 - mix2 : " + ListAsString( getChildren(mem1,:mix2) )
+	? "MEM2 - a    : " + ListAsString( getChildren(mem2,:a)  )
+	? "MEM2 - b    : " + ListAsString( getChildren(mem2,:b)  )
+	? "MEM3 - n1   : " + ListAsString( getChildren(mem3,:n1) )
+	? "MEM3 - n2   : " + ListAsString( getChildren(mem3,:n2) )
+	? "MEM3 - n3   : " + ListAsString( getChildren(mem3,:n3) )
+	? "MEM3 - n4   : " + ListAsString( getChildren(mem3,:n4) )
+	? "MEM3 - n5   : " + ListAsString( getChildren(mem3,:n5) )
+	line()
