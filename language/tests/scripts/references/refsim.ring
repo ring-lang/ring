@@ -229,10 +229,15 @@ func getRefCount aMem,cVar
 func setRefCount aMem,cVar,nValue 
 	nIndex = getVar(aMem,cVar)
 	aMem[nIndex][C_REFCOUNT] = nValue 
+	refreshRefCount(aMem,cVar)
 
 func decRefCount aMem,cVar
 	nIndex = getVar(aMem,cVar)
 	aMem[nIndex][C_REFCOUNT]--
+	refreshRefCount(aMem,cVar)
+
+func refreshRefCount aMem,cVar
+	nIndex = getVar(aMem,cVar)
 	# Reflect the update to other variables 
 	# which is just a reference to this variable 
 	# This is not needed in Ring VM  (C Code)
@@ -244,6 +249,13 @@ func decRefCount aMem,cVar
 			ok
 		ok
 	next
+	if isString(aMem[nIndex][C_VALUE])
+		for var in aMem 
+			if var[C_VARNAME] = aMem[nIndex][C_VALUE]
+				var[C_REFCOUNT] = aMem[nIndex][C_REFCOUNT]
+			ok
+		next
+	ok
 
 func getLostOwnerCount aMem,cVar 
 	nIndex = getVar(aMem,cVar)
