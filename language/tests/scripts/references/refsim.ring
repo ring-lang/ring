@@ -1,4 +1,4 @@
-C_LINESIZE = 45
+C_LINESIZE = 30
 
 C_VARNAME        = 1
 C_STATUS         = 2
@@ -53,16 +53,16 @@ func title cTitle
 
 func PrintMemory aList,cTitle
 	title(cTitle)
-	? size("Variable",10) + size("Status",10) + 
-	  size("RefCount",10) + size("LostOwnerCount",10) + 
+	? size("Var",5) + size("Status",7) + 
+	  size("RefCount",9) + size("LOCount",7) 
 	subLine()
 	for vValue in aList
 		# Print Variable Name
-			see size(vValue[C_VARNAME],10)
+			see size(vValue[C_VARNAME],5)
 		# Print Status
-			see Size(UPPER(vValue[C_STATUS]),10)
+			see Size(UPPER(vValue[C_STATUS]),7)
 		# Print Reference Count
-			see Size(vValue[C_REFCOUNT],10)
+			see Size(vValue[C_REFCOUNT],9)
 		# Print Lost Owner Count 
 			see Size(vValue[C_LOSTOWNERCOUNT],10)
 		see nl
@@ -220,7 +220,6 @@ func testIndirectCircularCount
 	? "MEM3 - n4   : " + indirectCircularCount(mem3,:n4)
 	? "MEM3 - n5   : " + indirectCircularCount(mem3,:n5)
 
-
 func getRefCount aMem,cVar 
 	nIndex = getVar(aMem,cVar)
 	return aMem[nIndex][C_REFCOUNT]
@@ -240,7 +239,6 @@ func getLostOwnerCount aMem,cVar
 func incLostOwnerCount aMem,cVar 
 	nIndex = getVar(aMem,cVar)
 	aMem[nIndex][C_LOSTOWNERCOUNT]++
-
 
 func decrement aMem,cVar
 	nDirectCount   = DirectCircularCount(aMem,cVar)   #  WithoutCountingTheRoot
@@ -327,8 +325,3 @@ func testDeleteVarInMem3
 	title("Test deleteVar(mem3,:n5)")
 	deleteVar(mem3,:n5)
 	printMemory(mem3,"MEM2")
-
-
-
-
-
