@@ -1,3 +1,5 @@
+C_LINESIZE = 30
+
 C_VARNAME  = 1
 C_STATUS   = 2
 C_REFCOUNT = 3
@@ -22,9 +24,9 @@ mem3 = [
 	[:n5,:Live,1,[:n4,null]]
 ]
 
-printMemory(mem1)
-printMemory(mem2)
-printMemory(mem3)
+printMemory(mem1,"MEM1")
+printMemory(mem2,"MEM2")
+printMemory(mem3,"MEM3")
 
 testDirectCircularCount()
 testGetChildren()
@@ -34,14 +36,21 @@ func size cStr,nSize
 	return cStr + Copy(" ",nSize-len(cStr))
 
 func line
-	? copy("=",30)
+	? copy("=",C_LINESIZE)
+
+func subline
+	? copy("-",C_LINESIZE)
 
 func title cTitle 
-	nSpace = (30 - len(cTitle)) / 2
+	line()
+	nSpace = (C_LINESIZE - len(cTitle)) / 2
 	? copy(" ",nSpace) + cTitle 
 	line()
 
-func PrintMemory aList
+func PrintMemory aList,cTitle
+	title(cTitle)
+	? size("Variable",10) + size("Status",10) + size("RefCount",10)
+	subLine()
 	for vValue in aList
 		# Print Variable Name
 			see size(vValue[1],10)
@@ -51,7 +60,6 @@ func PrintMemory aList
 			see Size(vValue[3],10)
 		see nl
 	next
-	line()
 
 func getVar aMem,cVar
 	nIndex = find(aMem,cVar,C_VARNAME)
@@ -81,17 +89,16 @@ func directCircularCount aMem,cVar
 
 func testDirectCircularCount
 	title("Test: Direct Cirular Count")
-	? "MEM1 - a    - " + directCircularCount(mem1,:a)
-	? "MEM1 - mix  - " + directCircularCount(mem1,:mix)
-	? "MEM1 - mix2 - " + directCircularCount(mem1,:mix2)
-	? "MEM2 - a    - " + directCircularCount(mem2,:a)
-	? "MEM2 - b    - " + directCircularCount(mem2,:b)
-	? "MEM3 - n1   - " + directCircularCount(mem3,:n1)
-	? "MEM3 - n2   - " + directCircularCount(mem3,:n2)
-	? "MEM3 - n3   - " + directCircularCount(mem3,:n3)
-	? "MEM3 - n4   - " + directCircularCount(mem3,:n4)
-	? "MEM3 - n5   - " + directCircularCount(mem3,:n5)
-	line()
+	? "MEM1 - a    : " + directCircularCount(mem1,:a)
+	? "MEM1 - mix  : " + directCircularCount(mem1,:mix)
+	? "MEM1 - mix2 : " + directCircularCount(mem1,:mix2)
+	? "MEM2 - a    : " + directCircularCount(mem2,:a)
+	? "MEM2 - b    : " + directCircularCount(mem2,:b)
+	? "MEM3 - n1   : " + directCircularCount(mem3,:n1)
+	? "MEM3 - n2   : " + directCircularCount(mem3,:n2)
+	? "MEM3 - n3   : " + directCircularCount(mem3,:n3)
+	? "MEM3 - n4   : " + directCircularCount(mem3,:n4)
+	? "MEM3 - n5   : " + directCircularCount(mem3,:n5)
 
 func getChildren aMem,cVar 
 	aChild = []
@@ -134,4 +141,3 @@ func testGetChildren
 	? "MEM3 - n3   : " + ListAsString( getChildren(mem3,:n3) )
 	? "MEM3 - n4   : " + ListAsString( getChildren(mem3,:n4) )
 	? "MEM3 - n5   : " + ListAsString( getChildren(mem3,:n5) )
-	line()
