@@ -36,6 +36,11 @@ func size cStr,nSize
 func line
 	? copy("=",30)
 
+func title cTitle 
+	nSpace = (30 - len(cTitle)) / 2
+	? copy(" ",nSpace) + cTitle 
+	line()
+
 func PrintMemory aList
 	for vValue in aList
 		# Print Variable Name
@@ -75,7 +80,7 @@ func directCircularCount aMem,cVar
 	return nCount
 
 func testDirectCircularCount
-	? "Test: Direct Cirular Count"
+	title("Test: Direct Cirular Count")
 	? "MEM1 - a    - " + directCircularCount(mem1,:a)
 	? "MEM1 - mix  - " + directCircularCount(mem1,:mix)
 	? "MEM1 - mix2 - " + directCircularCount(mem1,:mix2)
@@ -118,7 +123,7 @@ func ListAsString aList
 	return cStr
 
 func testGetChildren 
-	? "Test: GetChildren"
+	title("Test: GetChildren")
 	? "MEM1 - a    : " + ListAsString( getChildren(mem1,:a)    )
 	? "MEM1 - mix  : " + ListAsString( getChildren(mem1,:mix)  )
 	? "MEM1 - mix2 : " + ListAsString( getChildren(mem1,:mix2) )
