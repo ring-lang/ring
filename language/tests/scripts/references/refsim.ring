@@ -30,6 +30,7 @@ printMemory(mem3,"MEM3")
 
 testDirectCircularCount()
 testGetChildren()
+testGetNestedChildren()
 
 func size cStr,nSize
 	cStr = "" + cStr
@@ -121,7 +122,7 @@ func ListAsString aList
 	for t=1 to nMax
 		if aList[t] != NULL
 			cStr += aList[t]
-			if t != nMax
+			if (t != nMax) and aList[t+1] != NULL
 				cStr += ","
 			ok
 		ok
@@ -134,10 +135,38 @@ func testGetChildren
 	? "MEM1 - a    : " + ListAsString( getChildren(mem1,:a)    )
 	? "MEM1 - mix  : " + ListAsString( getChildren(mem1,:mix)  )
 	? "MEM1 - mix2 : " + ListAsString( getChildren(mem1,:mix2) )
-	? "MEM2 - a    : " + ListAsString( getChildren(mem2,:a)  )
-	? "MEM2 - b    : " + ListAsString( getChildren(mem2,:b)  )
-	? "MEM3 - n1   : " + ListAsString( getChildren(mem3,:n1) )
-	? "MEM3 - n2   : " + ListAsString( getChildren(mem3,:n2) )
-	? "MEM3 - n3   : " + ListAsString( getChildren(mem3,:n3) )
-	? "MEM3 - n4   : " + ListAsString( getChildren(mem3,:n4) )
-	? "MEM3 - n5   : " + ListAsString( getChildren(mem3,:n5) )
+	? "MEM2 - a    : " + ListAsString( getChildren(mem2,:a)    )
+	? "MEM2 - b    : " + ListAsString( getChildren(mem2,:b)    )
+	? "MEM3 - n1   : " + ListAsString( getChildren(mem3,:n1)   )
+	? "MEM3 - n2   : " + ListAsString( getChildren(mem3,:n2)   )
+	? "MEM3 - n3   : " + ListAsString( getChildren(mem3,:n3)   )
+	? "MEM3 - n4   : " + ListAsString( getChildren(mem3,:n4)   )
+	? "MEM3 - n5   : " + ListAsString( getChildren(mem3,:n5)   )
+
+func getNestedChildren aMem,cVar 
+	aChild = getChildren(aMem,cVar)
+	if len(aChild) = 0 return aChild ok	
+	for t=1 to len(aChild)
+		if aChild[t] = NULL loop ok
+		aNewChild = getChildren(aMem,aChild[t])
+		if len(aNewChild) = 0 loop ok
+		for item in aNewChild 
+			if not find(aChild,item)
+				aChild + item
+			ok
+		next	
+	next
+	return aChild
+
+func testGetNestedChildren 
+	title("Test: GetNestedChildren")
+	? "MEM1 - a    : " + ListAsString( GetNestedChildren(mem1,:a)    )
+	? "MEM1 - mix  : " + ListAsString( GetNestedChildren(mem1,:mix)  )
+	? "MEM1 - mix2 : " + ListAsString( GetNestedChildren(mem1,:mix2) )
+	? "MEM2 - a    : " + ListAsString( GetNestedChildren(mem2,:a)    )
+	? "MEM2 - b    : " + ListAsString( GetNestedChildren(mem2,:b)    )
+	? "MEM3 - n1   : " + ListAsString( GetNestedChildren(mem3,:n1)   )
+	? "MEM3 - n2   : " + ListAsString( GetNestedChildren(mem3,:n2)   )
+	? "MEM3 - n3   : " + ListAsString( GetNestedChildren(mem3,:n3)   )
+	? "MEM3 - n4   : " + ListAsString( GetNestedChildren(mem3,:n4)   )
+	? "MEM3 - n5   : " + ListAsString( GetNestedChildren(mem3,:n5)   )
