@@ -288,8 +288,7 @@ func decrement aMem,cVar
 	# Do the decrement 
 		decRefCount(aMem,cVar)
 	# Kill the Var 
-		killVar(aMem,cVar)
-	//decrementChildren(aMem,cVar)
+		hideVar(aMem,cVar)
 
 func decrementChildren aMem,cVar
 	aChild = getNestedChildren(aMem,cVar)
@@ -313,6 +312,10 @@ func deleteVar aMem,cVar
 func killVar aMem,cVar 
 	nIndex = getVar(aMem,cVar)
 	aMem[nIndex][C_STATUS] = :Dead
+
+func hideVar aMem,cVar 
+	nIndex = getVar(aMem,cVar)
+	aMem[nIndex][C_STATUS] = :Hidden
 
 func testDeleteVar
 	testDeleteVarInMem1()
