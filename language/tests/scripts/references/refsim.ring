@@ -1,3 +1,8 @@
+C_VARNAME  = 1
+C_STATUS   = 2
+C_REFCOUNT = 3
+C_VALUE    = 4
+
 mem1 = [
 	[:a,:Live,1,[1,2,3]],
 	[:mix,:Live,3,[1,2,3,:a,:mix,:mix]],
@@ -41,3 +46,13 @@ func PrintMemory aList
 		see nl
 	next
 	line()
+
+func increment aMem,cVar
+	nIndex = find(aMem,cVar,C_VARNAME)
+	if nIndex
+		aMem[nIndex][C_REFCOUNT]++
+	else 
+		? "Sorry, Can't find the variable: " + cVar
+	ok
+
+	
