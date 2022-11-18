@@ -10,8 +10,8 @@ mem1 = [
 ]
 
 mem2 = [
-	[:a,:Live,1,:b],
-	[:b,:Live,1,:a]
+	[:a,:Live,1,[:b]],
+	[:b,:Live,1,[:a]]
 ]
 
 mem3 = [
@@ -69,7 +69,7 @@ func directCircularCount aMem,cVar
 				nCount++
 			ok
 		next 
-	but isString(vValue) 
+	but isString(vValue)
 		return directCircularCount(aMem,vValue)
 	ok
 	return nCount
@@ -79,3 +79,10 @@ func testDirectCircularCount
 	? "MEM1 - a    - " + directCircularCount(mem1,:a)
 	? "MEM1 - mix  - " + directCircularCount(mem1,:mix)
 	? "MEM1 - mix2 - " + directCircularCount(mem1,:mix2)
+	? "MEM2 - a    - " + directCircularCount(mem2,:a)
+	? "MEM2 - b    - " + directCircularCount(mem2,:b)
+	? "MEM3 - n1   - " + directCircularCount(mem3,:n1)
+	? "MEM3 - n2   - " + directCircularCount(mem3,:n2)
+	? "MEM3 - n3   - " + directCircularCount(mem3,:n3)
+	? "MEM3 - n4   - " + directCircularCount(mem3,:n4)
+	? "MEM3 - n5   - " + directCircularCount(mem3,:n5)
