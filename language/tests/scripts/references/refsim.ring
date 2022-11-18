@@ -264,6 +264,17 @@ func getLostOwnerCount aMem,cVar
 func incLostOwnerCount aMem,cVar 
 	nIndex = getVar(aMem,cVar)
 	aMem[nIndex][C_LOSTOWNERCOUNT]++
+	aMem[nIndex][C_STATUS] = :Hidden
+	aChild = getChildren(aMem,cVar)
+	for child in aChild 
+		if child[C_VARNAME] != cVar 
+			nIndex = getVar(aMem,child)
+			aMem[nIndex][C_LOSTOWNERCOUNT]++
+			if aMem[nIndex][C_LOSTOWNERCOUNT] > aMem[nIndex][C_REFCOUNT]
+				killVar(aMem,aMem[nIndex][C_VARNAME])
+			ok
+		ok
+	next
 
 func decrement aMem,cVar
 	nDirectCount   = DirectCircularCount(aMem,cVar)   #  WithoutCountingTheRoot
@@ -287,7 +298,7 @@ func decrement aMem,cVar
 	ok 
 	# Do the decrement 
 		decRefCount(aMem,cVar)
-	# Kill the Var 
+	# Hide the Var 
 		hideVar(aMem,cVar)
 
 func decrementChildren aMem,cVar
@@ -319,6 +330,7 @@ func hideVar aMem,cVar
 
 func testDeleteVar
 	testDeleteVarInMem1()
+	testDeleteVarInMem2()
 
 func testDeleteVarInMem1
 	title("Test deleteVar(mem1,:a)")
