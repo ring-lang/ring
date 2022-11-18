@@ -1,4 +1,4 @@
-C_LINESIZE = 30
+C_LINESIZE = 50
 
 C_VARNAME        = 1
 C_STATUS         = 2
@@ -56,7 +56,8 @@ func PrintMemory aList,cTitle
 		title(cTitle)
 	ok
 	? size("Var",5) + size("Status",7) + 
-	  size("RefCount",9) + size("LostOwner",7) 
+	  size("RefCount",9) + size("LostOwner",10) +
+	  size("Value",20)
 	subLine()
 	for vValue in aList
 		# Print Variable Name
@@ -67,6 +68,8 @@ func PrintMemory aList,cTitle
 			see Size(vValue[C_REFCOUNT],9)
 		# Print Lost Owner Count 
 			see Size(vValue[C_LOSTOWNERCOUNT],10)
+		# Print the Value 
+			see Size(ListAsString(vValue[C_VALUE]),20)
 		see nl
 	next
 
@@ -125,6 +128,7 @@ func getChildren aMem,cVar
 	return aChild 
 
 func ListAsString aList 
+	if isString(aList) return aList ok
 	cStr = "["
 	nMax = len(aList)
 	for t=1 to nMax
