@@ -28,9 +28,9 @@ printMemory(mem1,"MEM1")
 printMemory(mem2,"MEM2")
 printMemory(mem3,"MEM3")
 
-testDirectCircularCount()
 testGetChildren()
 testGetNestedChildren()
+testDirectCircularCount()
 
 func size cStr,nSize
 	cStr = "" + cStr
@@ -122,11 +122,12 @@ func ListAsString aList
 	for t=1 to nMax
 		if aList[t] != NULL
 			cStr += aList[t]
-			if (t != nMax) and aList[t+1] != NULL
+			if t != nMax
 				cStr += ","
 			ok
 		ok
 	next
+	if right(cStr,1) = "," cStr = left(cStr,len(cStr)-1) ok
 	cStr += "]"
 	return cStr
 
