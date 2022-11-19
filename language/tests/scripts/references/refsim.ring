@@ -202,61 +202,25 @@ func testDeleteVar
 	testDeleteVarInMem5()
 
 func testDeleteVarInMem1
-	printMemory(mem1,"MEM1")
-	testDeleteVarInMem("mem1",mem1,:a)
-	testDeleteVarInMem("mem1",mem1,:mix)
-	testDeleteVarInMem("mem1",mem1,:mix2)
-	checkMemoryLeak(mem1)
+	testDeleteVars("MEM1",mem1,[:a,:mix,:mix2])
 
 func testDeleteVarInMem2
-	printMemory(mem2,"MEM2")
-	testDeleteVarInMem("mem2",mem2,:a)
-	testDeleteVarInMem("mem2",mem2,:b)
-	checkMemoryLeak(mem2)
+	testDeleteVars("MEM2",mem2,[:a,:b])
 
 func testDeleteVarInMem3
-	printMemory(mem3,"MEM3")
 	Mem3Copy = Mem3
-	testDeleteVarInMem("mem3",mem3,:n1)
-	testDeleteVarInMem("mem3",mem3,:n2)
-	testDeleteVarInMem("mem3",mem3,:n3)
-	testDeleteVarInMem("mem3",mem3,:n4)
-	testDeleteVarInMem("mem3",mem3,:n5)
-	checkMemoryLeak(mem3)
+	testDeleteVars("MEM3",mem3,[:n1,:n2,:n3,:n4,:n5])
 	Mem3 = Mem3Copy 
-	printMemory(mem3,"MEM3")
-	testDeleteVarInMem("mem3",mem3,:n3)
-	testDeleteVarInMem("mem3",mem3,:n2)
-	testDeleteVarInMem("mem3",mem3,:n1)
-	testDeleteVarInMem("mem3",mem3,:n4)
-	testDeleteVarInMem("mem3",mem3,:n5)
-	checkMemoryLeak(mem3)
+	testDeleteVars("MEM3",mem3,[:n3,:n2,:n1,:n4,:n5])
 	Mem3 = Mem3Copy 
 	printMemory(mem3,"MEM3")
 	testDeleteVarInMem("mem3",mem3,:n1)
 	title("Test deleteItem(mem3,:n2,1)")
 	deleteItem(mem3,:n2,1)
-	printMemory(mem3,"")
-	testDeleteVarInMem("mem3",mem3,:n2)
-	testDeleteVarInMem("mem3",mem3,:n3)
-	testDeleteVarInMem("mem3",mem3,:n4)
-	testDeleteVarInMem("mem3",mem3,:n5)
-	checkMemoryLeak(mem3)
+	testDeleteVars("MEM3",mem3,[:n2,:n3,:n4,:n5])
 
 func testDeleteVarInMem4
-	printMemory(mem4,"MEM4")
-	testDeleteVarInMem("mem4",mem4,:n1)
-	testDeleteVarInMem("mem4",mem4,:n3)
-	testDeleteVarInMem("mem4",mem4,:x)
-	testDeleteVarInMem("mem4",mem4,:mix)
-	testDeleteVarInMem("mem4",mem4,:mix2)
-	testDeleteVarInMem("mem4",mem4,:b)
-	testDeleteVarInMem("mem4",mem4,:n5)
-	testDeleteVarInMem("mem4",mem4,:a)
-	testDeleteVarInMem("mem4",mem4,:n3)
-	testDeleteVarInMem("mem4",mem4,:n4)
-	testDeleteVarInMem("mem4",mem4,:n2)
-	checkMemoryLeak(mem4)
+	testDeleteVars("MEM4",mem4,[:n1,:n3,:x,:mix,:mix2,:b,:n5,:a,:n3,:n4,:n2])
 
 func testDeleteVarInMem5
 	testDeleteVars("MEM5",mem5,[:n1,:n2,:n3,:n4,:n5])
