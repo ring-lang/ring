@@ -288,7 +288,7 @@ func increment aMem,cVar
 	nIndex = getVar(aMem,cVar)
 	aMem[nIndex][C_REFCOUNT]++
 
-func hideVar aMem,cVar 
+func removeVar aMem,cVar 
 	nIndex = getVar(aMem,cVar)
 	aMem[nIndex][C_STATUS] = :LOST
 
@@ -473,7 +473,7 @@ func decrement aMem,cVar
 	# Do the decrement 
 		decRefCount(aMem,cVar)
 	# Hide the Var 
-		hideVar(aMem,cVar)
+		removeVar(aMem,cVar)
 
 func deleteChildren aMem,cVar
 	aChild = getNestedChildren(aMem,cVar)
