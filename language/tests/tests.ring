@@ -423,5 +423,6 @@ aTests = [
 	[ :name = "Using References (Part 11)", :Command = "ring references/cycle.ring" ],
 	[ :name = "Using References (Part 12)", :Command = "ring references/cycle2.ring" ],
 	[ :name = "Using References (Part 13)", :Command = "ring references/refequalitself.ring" ],
-	[ :name = "Using References (Part 14)", :Command = "ring references/refequalitself2.ring" ]
+	[ :name = "Using References (Part 14)", :Command = "ring references/refequalitself2.ring" ],
+	[ :name = "General Tests (Part 188)", :Command = "ring general/refsim.ring" ]
 ]
