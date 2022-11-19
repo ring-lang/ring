@@ -70,15 +70,16 @@ mem3 = [
 /*
 	In this group of variables 
 	We mix between the previous groups 
-	n1 have a reference to mix
+	n1 have a reference to mix2
 	n3 have a reference to x 
 	n5 have a reference to a
 */
 
 mem4 = [
 	[:x,:Live,2,[1,2,3],0],
-	[:mix,:Live,3,[1,2,3,:x,:mix,:mix],0], 
-	[:n1,:Live,1,[:mix,:n2],0],
+	[:mix,:Live,4,[1,2,3,:x,:mix,:mix],0], 
+	[:mix2,:Live,4,[:mix],0],
+	[:n1,:Live,1,[:mix2,:n2],0],
 	[:n2,:Live,2,[:n1,:n3],0],
 	[:n3,:Live,2,[:n2,:n4,:x],0],
 	[:n4,:Live,2,[:n3,:n5],0],
@@ -219,7 +220,7 @@ func testDeleteVarInMem3
 	testDeleteVars("MEM3",mem3,[:n2,:n3,:n4,:n5])
 
 func testDeleteVarInMem4
-	testDeleteVars("MEM4",mem4,[:n1,:n3,:x,:mix,:b,:n5,:a,:n3,:n4,:n2])
+	testDeleteVars("MEM4",mem4,[:n1,:n3,:x,:mix,:b,:n5,:mix2,:a,:n3,:n4,:n2])
 
 func testDeleteVarInMem5
 	testDeleteVars("MEM5",mem5,[:n1,:n2,:n3,:n4,:n5])
@@ -455,7 +456,7 @@ func indirectCircularCount aMem,cVar
 	nIndirectCircularCount = nCount - nDirectCircularCount
 	return nIndirectCircularCount
 
-func incLostOwnerCountOneLevel aMem,cVar,nValue
+func incLostOwnerCount aMem,cVar,nValue
 	nIndex = getVar(aMem,cVar)
 	aMem[nIndex][C_LOSTOWNERCOUNT] += nValue
 	aMem[nIndex][C_STATUS] = :LOST
@@ -500,14 +501,14 @@ func decrement aMem,cVar
 	if nInDirectCount > 0
 		# Circular Reference 
 		# Check if this is the last owner where we can delete the reference
-		incLostOwnerCountOneLevel(aMem,cVar,max(1,nDirectCount))
+		incLostOwnerCount(aMem,cVar,max(1,nDirectCount))
 		if getLostOwnerCount(aMem,cVar) > nRefCount+nDirectCount+nInDirectCount+1
 			checkAllOwnersAreLost(aMem,cVar)
 		ok
 		return 
 	ok 
 	# Increment lost owner counter 
-		incLostOwnerCountOneLevel(aMem,cVar,max(1,nDirectCount))
+		incLostOwnerCount(aMem,cVar,max(1,nDirectCount))
 	# Do the decrement 
 		decRefCount(aMem,cVar)
 	# Hide the Var 
