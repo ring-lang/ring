@@ -15,6 +15,9 @@ C_STATUS         = 2
 C_REFCOUNT       = 3
 C_VALUE          = 4
 C_LOSTOWNERCOUNT = 5
+C_MEMLEAK 		 = "[Memory Leak Detected!]"
+C_NOMEMLEAK		 = "[No Memory Leak]"
+C_DOUBLEFREE	 = "Double Free Error! - Variable: "
 
 #==========================#
 # Memory Variables & Values 
@@ -545,7 +548,7 @@ func deleteVar aMem,cVar
 func killVar aMem,cVar 
 	nIndex = getVar(aMem,cVar)
 	if aMem[nIndex][C_STATUS] = :Dead 
-		? ("Double Free Error! - Variable: " + cVar)
+		? C_DOUBLEFREE + cVar
 	ok
 	aMem[nIndex][C_STATUS] = :Dead
 	# Each child with RefCount=0 is dead too
@@ -566,8 +569,8 @@ func deleteChildren aMem,cVar
 func checkMemoryLeak aMem 
 	for var in aMem 
 			if var[C_STATUS] != :Dead
-				? "[Memory Leak Detected!]"
+				? C_MEMLEAK
 				return 
 			ok
 	next
-	? "[No Memory Leak (All variables are deleted)]"
+	? C_NOMEMLEAK
