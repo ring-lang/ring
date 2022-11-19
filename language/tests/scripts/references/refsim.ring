@@ -1,8 +1,14 @@
 /*
 ** Author      : Mahmoud Fayed
 ** Date        : November 2022
-** Description : Reference Counting  
-**				 Can Detect/Delete Circular References  
+** Description : Reference Counting Simulator
+**				 Playing with algorithms around it 
+**				 The simulator can detect 
+**				 * Memory Leak
+**				 * Double Free 
+**				 * Some Circular References (Some Cases) 
+**				 The algorithm is just experimental 
+**               Not production ready!    
 */
 
 #==========================#
