@@ -369,9 +369,9 @@ func setRefCount aMem,cVar,nValue
 	aMem[nIndex][C_REFCOUNT] = nValue 
 	refreshRefCount(aMem,cVar)
 
-func decRefCount aMem,cVar,nValue
+func decRefCount aMem,cVar
 	nIndex = getVar(aMem,cVar)
-	aMem[nIndex][C_REFCOUNT] -= nValue
+	aMem[nIndex][C_REFCOUNT]--
 	refreshRefCount(aMem,cVar)
 
 func refreshRefCount aMem,cVar
@@ -540,7 +540,7 @@ func decrement aMem,cVar
 	ok 
 	# Do the decrement 
 		incLostOwnerCountOneLevel(aMem,cVar,max(1,nDirectCount+1))
-		decRefCount(aMem,cVar, max(1,nDirectCount+1))
+		decRefCount(aMem,cVar)
 	# Hide the Var 
 		removeVar(aMem,cVar)
 
