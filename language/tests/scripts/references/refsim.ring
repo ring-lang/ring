@@ -475,15 +475,6 @@ func decrement aMem,cVar
 	# Hide the Var 
 		removeVar(aMem,cVar)
 
-func deleteChildren aMem,cVar
-	aChild = getNestedChildren(aMem,cVar)
-	for child in aChild 
-		if child = NULL loop ok
-		if child != cVar 
-			deleteVar(aMem,cVar)
-		ok
-	next
-
 func deleteVar aMem,cVar 
 	if getRefCount(aMem,cVar) > 0
 		decrement(aMem,cVar)
@@ -498,6 +489,9 @@ func killVar aMem,cVar
 	ok
 	aMem[nIndex][C_STATUS] = :Dead
 	# Each child with RefCount=0 is dead too
+	deleteChildren(aMem,cVar)
+
+func deleteChildren aMem,cVar
 	aChild = getNestedChildren(aMem,cVar)
 	for child in aChild 
 		if (child = NULL) OR (child = cVar) loop ok
