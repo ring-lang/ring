@@ -200,7 +200,7 @@ func testDeleteVarInMem1
 	checkMemoryLeak(mem1)
 
 func testDeleteVarInMem2
-	printMemory(mem1,"MEM2")
+	printMemory(mem2,"MEM2")
 	title("Test deleteVar(mem2,:a)")
 	deleteVar(mem2,:a)
 	printMemory(mem2,"MEM2")
@@ -210,7 +210,7 @@ func testDeleteVarInMem2
 	checkMemoryLeak(mem2)
 
 func testDeleteVarInMem3
-	printMemory(mem1,"MEM3")
+	printMemory(mem3,"MEM3")
 	Mem3Copy = Mem3
 	title("Test deleteVar(mem3,:n1)")
 	deleteVar(mem3,:n1)
@@ -249,7 +249,7 @@ func testDeleteVarInMem3
 	checkMemoryLeak(mem3)
 
 func testDeleteVarInMem4
-	printMemory(mem1,"MEM4")
+	printMemory(mem4,"MEM4")
 	title("Test deleteVar(mem4,:n1)")
 	deleteVar(mem4,:n1)
 	printMemory(mem4,"")
@@ -483,7 +483,7 @@ func indirectCircularCount aMem,cVar
 
 func incLostOwnerCountOneLevel aMem,cVar,nValue
 	nIndex = getVar(aMem,cVar)
-	aMem[nIndex][C_LOSTOWNERCOUNT]++
+	aMem[nIndex][C_LOSTOWNERCOUNT] += nValue
 	aMem[nIndex][C_STATUS] = :LOST
 	aChild = getChildren(aMem,cVar)
 	for child in aChild 
