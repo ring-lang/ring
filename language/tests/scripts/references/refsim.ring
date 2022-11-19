@@ -429,17 +429,15 @@ func incLostOwnerCountOneLevel aMem,cVar
 func checkAllOwnersAreLost aMem,cVar
 	nIndex = getVar(aMem,cVar)
 	aChild = getNestedChildren(aMem,cVar)
-	lKill = True
 	for child in aChild 
 		if child = NULL loop ok
 		nIndex = getVar(aMem,child)
 		if aMem[nIndex][C_VARNAME] != cVar 
 			if ! ( aMem[nIndex][C_LOSTOWNERCOUNT] > aMem[nIndex][C_REFCOUNT] )
-				lKill = False 
+				return 
 			ok
 		ok
 	next
-	if ! lKill return ok
 	setRefCount(aMem,cVar,0)
 	freeRef(aMem,cVar)
 	for child in aChild 
