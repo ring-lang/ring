@@ -508,13 +508,15 @@ func decrement aMem,cVar
 		# Circular Reference 
 		# Check if this is the last owner where we can delete the reference
 		incLostOwnerCountOneLevel(aMem,cVar,max(1,nDirectCount+1))
-		if getLostOwnerCount(aMem,cVar) >= nInDirectCount
+		if getLostOwnerCount(aMem,cVar) > nRefCount 
+			? "we may delete everything!"
 			checkAllOwnersAreLost(aMem,cVar)
 		ok
 		return 
 	ok 
-	# Do the decrement 
+	# Increment lost owner counter 
 		incLostOwnerCountOneLevel(aMem,cVar,max(1,nDirectCount+1))
+	# Do the decrement 
 		decRefCount(aMem,cVar)
 	# Hide the Var 
 		removeVar(aMem,cVar)
