@@ -438,19 +438,18 @@ func checkAllOwnersAreLost aMem,cVar
 			ok
 		ok
 	next
-	setRefCount(aMem,cVar,0)
-	freeRef(aMem,cVar)
 	for child in aChild 
 		if child = NULL loop ok
 		nIndex = getVar(aMem,child)
 		if aMem[nIndex][C_VARNAME] != cVar 
 			aMem[nIndex][C_LOSTOWNERCOUNT]++
-			if (aMem[nIndex][C_REFCOUNT]=0) OR (aMem[nIndex][C_LOSTOWNERCOUNT] > aMem[nIndex][C_REFCOUNT]) 
+			if aMem[nIndex][C_LOSTOWNERCOUNT] > aMem[nIndex][C_REFCOUNT]
 				setRefCount(aMem,aMem[nIndex][C_VARNAME],0)
-				freeRef(aMem,aMem[nIndex][C_VARNAME])
 			ok
 		ok
 	next
+	setRefCount(aMem,cVar,0)
+	freeRef(aMem,cVar)
 
 func decrement aMem,cVar
 	nDirectCount   = DirectCircularCount(aMem,cVar)   #  WithoutCountingTheRoot
