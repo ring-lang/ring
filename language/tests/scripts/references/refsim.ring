@@ -258,6 +258,10 @@ func testDeleteVarInMem4
 	title("Test deleteVar(mem4,:mix)")
 	deleteVar(mem4,:mix)
 	printMemory(mem4,"")
+	title("Test deleteVar(mem4,:mix2)")
+	deleteVar(mem4,:mix2)
+	printMemory(mem4,"")
+
 	title("Test deleteVar(mem4,:b)")
 	deleteVar(mem4,:b)
 	printMemory(mem4,"")
@@ -266,9 +270,6 @@ func testDeleteVarInMem4
 	printMemory(mem4,"")
 	title("Test deleteVar(mem4,:a)")
 	deleteVar(mem4,:a)
-	printMemory(mem4,"")
-	title("Test deleteVar(mem4,:mix2)")
-	deleteVar(mem4,:mix2)
 	printMemory(mem4,"")
 	title("Test deleteVar(mem4,:n2)")
 	deleteVar(mem4,:n2)
@@ -364,9 +365,9 @@ func setRefCount aMem,cVar,nValue
 	aMem[nIndex][C_REFCOUNT] = nValue 
 	refreshRefCount(aMem,cVar)
 
-func decRefCount aMem,cVar
+func decRefCount aMem,cVar,nValue
 	nIndex = getVar(aMem,cVar)
-	aMem[nIndex][C_REFCOUNT]--
+	aMem[nIndex][C_REFCOUNT] -= nValue
 	refreshRefCount(aMem,cVar)
 
 func refreshRefCount aMem,cVar
@@ -476,7 +477,7 @@ func indirectCircularCount aMem,cVar
 	nIndirectCircularCount = nCount - nDirectCircularCount
 	return nIndirectCircularCount
 
-func incLostOwnerCountOneLevel aMem,cVar
+func incLostOwnerCountOneLevel aMem,cVar,nValue
 	nIndex = getVar(aMem,cVar)
 	aMem[nIndex][C_LOSTOWNERCOUNT]++
 	aMem[nIndex][C_STATUS] = :LOST
@@ -485,7 +486,7 @@ func incLostOwnerCountOneLevel aMem,cVar
 		if child = NULL loop ok
 		if child != cVar 
 			nIndex = getVar(aMem,child)
-			aMem[nIndex][C_LOSTOWNERCOUNT]++
+			aMem[nIndex][C_LOSTOWNERCOUNT] += nValue
 		ok
 	next
 
@@ -527,14 +528,15 @@ func decrement aMem,cVar
 	if nInDirectCount > 0
 		# Circular Reference 
 		# Check if this is the last owner where we can delete the reference
-		incLostOwnerCountOneLevel(aMem,cVar)
+		incLostOwnerCountOneLevel(aMem,cVar,max(1,nDirectCount+1))
 		if getLostOwnerCount(aMem,cVar) >= nInDirectCount
 			checkAllOwnersAreLost(aMem,cVar)
 		ok
 		return 
 	ok 
 	# Do the decrement 
-		decRefCount(aMem,cVar)
+		incLostOwnerCountOneLevel(aMem,cVar,max(1,nDirectCount+1))
+		decRefCount(aMem,cVar, max(1,nDirectCount))
 	# Hide the Var 
 		removeVar(aMem,cVar)
 
