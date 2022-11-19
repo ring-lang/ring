@@ -1,4 +1,4 @@
-C_LINESIZE = 50
+C_LINESIZE = 35
 
 C_VARNAME        = 1
 C_STATUS         = 2
@@ -55,19 +55,19 @@ func PrintMemory aList,cTitle
 	if cTitle != NULL
 		title(cTitle)
 	ok
-	? size("Var",5) + size("Status",7) + 
-	  size("RefCount",9) + size("LostOwner",10) +
+	? size("Var",5) + size("S",5) + 
+	  size("RC",3) + size("LO",3) +
 	  size("Value",20)
 	subLine()
 	for vValue in aList
 		# Print Variable Name
 			see size(vValue[C_VARNAME],5)
 		# Print Status
-			see Size(UPPER(vValue[C_STATUS]),7)
+			see Size(UPPER(vValue[C_STATUS]),5)
 		# Print Reference Count
-			see Size(vValue[C_REFCOUNT],9)
+			see Size(vValue[C_REFCOUNT],3)
 		# Print Lost Owner Count 
-			see Size(vValue[C_LOSTOWNERCOUNT],10)
+			see Size(vValue[C_LOSTOWNERCOUNT],3)
 		# Print the Value 
 			see Size(ListAsString(vValue[C_VALUE]),20)
 		see nl
@@ -268,7 +268,7 @@ func getLostOwnerCount aMem,cVar
 func incLostOwnerCount aMem,cVar,lKill 
 	nIndex = getVar(aMem,cVar)
 	aMem[nIndex][C_LOSTOWNERCOUNT]++
-	aMem[nIndex][C_STATUS] = :Hidden
+	aMem[nIndex][C_STATUS] = :LOST
 	if lKill
 		aChild = getNestedChildren(aMem,cVar)
 	else 
@@ -337,10 +337,20 @@ func deleteVar aMem,cVar
 func killVar aMem,cVar 
 	nIndex = getVar(aMem,cVar)
 	aMem[nIndex][C_STATUS] = :Dead
+	# Each child with RefCount=0 is dead too
+	aChild = getNestedChildren(aMem,cVar)
+	for child in aChild 
+		if child = NULL loop ok
+		nIndex = getVar(aMem,child)
+		if aMem[nIndex][C_REFCOUNT] = 0
+			aMem[nIndex][C_STATUS] = :Dead
+		ok
+	next
+
 
 func hideVar aMem,cVar 
 	nIndex = getVar(aMem,cVar)
-	aMem[nIndex][C_STATUS] = :Hidden
+	aMem[nIndex][C_STATUS] = :LOST
 
 func testDeleteVar
 	testDeleteVarInMem1()
