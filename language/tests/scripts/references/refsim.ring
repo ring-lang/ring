@@ -322,22 +322,18 @@ func testDeleteVarInMem4
 
 func testDeleteVarInMem5
 	printMemory(mem5,"MEM5")
-	title("Test deleteVar(mem5,:n1)")
-	deleteVar(mem5,:n1)
-	printMemory(mem5,"")
-	title("Test deleteVar(mem5,:n2)")
-	deleteVar(mem5,:n2)
-	printMemory(mem5,"")
-	title("Test deleteVar(mem5,:n3)")
-	deleteVar(mem5,:n3)
-	printMemory(mem5,"")
-	title("Test deleteVar(mem5,:n4)")
-	deleteVar(mem5,:n4)
-	printMemory(mem5,"")
-	title("Test deleteVar(mem5,:n5)")
-	deleteVar(mem5,:n5)
-	printMemory(mem5,"")
+	deleteVarInMem(mem5,:n1,"mem5")
+	deleteVarInMem(mem5,:n2,"mem5")
+	deleteVarInMem(mem5,:n3,"mem5")
+	deleteVarInMem(mem5,:n4,"mem5")
+	deleteVarInMem(mem5,:n5,"mem5")
 	checkMemoryLeak(mem5)
+
+func deleteVarInMem(aMem,cVar,cMemTitle)
+	title("Test deleteVar("+cMemTitle+",:"+cVar+")")
+	deleteVar(aMem,cVar)
+	printMemory(aMem,"")
+
 
 #==========================#
 # User Interface Functions
