@@ -413,6 +413,19 @@ func indirectCircularCount aMem,cVar
 	nIndirectCircularCount = nCount - nDirectCircularCount
 	return nIndirectCircularCount
 
+func incLostOwnerCountOneLevel aMem,cVar
+	nIndex = getVar(aMem,cVar)
+	aMem[nIndex][C_LOSTOWNERCOUNT]++
+	aMem[nIndex][C_STATUS] = :LOST
+	aChild = getChildren(aMem,cVar)
+	for child in aChild 
+		if child = NULL loop ok
+		nIndex = getVar(aMem,child)
+		if aMem[nIndex][C_VARNAME] != cVar 
+			aMem[nIndex][C_LOSTOWNERCOUNT]++
+		ok
+	next
+
 func checkAllOwnersAreLost aMem,cVar
 	nIndex = getVar(aMem,cVar)
 	aChild = getNestedChildren(aMem,cVar)
@@ -441,19 +454,6 @@ func checkAllOwnersAreLost aMem,cVar
 		ok
 	next
 
-func incLostOwnerCountOneLevel aMem,cVar
-	nIndex = getVar(aMem,cVar)
-	aMem[nIndex][C_LOSTOWNERCOUNT]++
-	aMem[nIndex][C_STATUS] = :LOST
-	aChild = getChildren(aMem,cVar)
-	for child in aChild 
-		if child = NULL loop ok
-		nIndex = getVar(aMem,child)
-		if aMem[nIndex][C_VARNAME] != cVar 
-			aMem[nIndex][C_LOSTOWNERCOUNT]++
-		ok
-	next
-
 func decrement aMem,cVar
 	nDirectCount   = DirectCircularCount(aMem,cVar)   #  WithoutCountingTheRoot
 	nInDirectCount = InDirectCircularCount(aMem,cVar) #  WithoutCountingTheRoot
@@ -467,11 +467,9 @@ func decrement aMem,cVar
 	if nInDirectCount > 0
 		# Circular Reference 
 		# Check if this is the last owner where we can delete the reference
+		incLostOwnerCountOneLevel(aMem,cVar)
 		if getLostOwnerCount(aMem,cVar) >= nInDirectCount
-			incLostOwnerCountOneLevel(aMem,cVar)
 			checkAllOwnersAreLost(aMem,cVar)
-		else
-			incLostOwnerCountOneLevel(aMem,cVar)
 		ok
 		return 
 	ok 
