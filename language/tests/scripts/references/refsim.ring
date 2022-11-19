@@ -590,8 +590,6 @@ func deleteChildren aMem,cVar
 		nIndex = getVar(aMem,child)
 		if aMem[nIndex][C_REFCOUNT] = 0
 			aMem[nIndex][C_STATUS] = :Dead
-		//else 
-		//	decrement(aMem,child)
 		ok
 	next
 
