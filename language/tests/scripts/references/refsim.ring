@@ -449,7 +449,7 @@ func checkAllOwnersAreLost aMem,cVar
 		ok
 	next
 	setRefCount(aMem,cVar,0)
-	freeRef(aMem,cVar)
+	deleteVar(aMem,cVar)
 
 func decrement aMem,cVar
 	nDirectCount   = DirectCircularCount(aMem,cVar)   #  WithoutCountingTheRoot
@@ -458,7 +458,7 @@ func decrement aMem,cVar
 	if nRefCount - nDirectCount = 0
 		# We have one owner and we can free the reference 
 		setRefCount(aMem,cVar,0)
-		freeRef(aMem,cVar)
+		deleteVar(aMem,cVar)
 		return
 	ok
 	if nInDirectCount > 0
@@ -483,9 +483,6 @@ func deleteChildren aMem,cVar
 			deleteVar(aMem,cVar)
 		ok
 	next
-
-func freeRef aMem,cVar 
-	deleteVar(aMem,cVar) 
 
 func deleteVar aMem,cVar 
 	if getRefCount(aMem,cVar) > 0
