@@ -500,9 +500,11 @@ func killVar aMem,cVar
 	# Each child with RefCount=0 is dead too
 	aChild = getNestedChildren(aMem,cVar)
 	for child in aChild 
-		if child = NULL loop ok
+		if (child = NULL) OR (child = cVar) loop ok
 		nIndex = getVar(aMem,child)
 		if aMem[nIndex][C_REFCOUNT] = 0
 			aMem[nIndex][C_STATUS] = :Dead
+		else 
+			decrement(aMem,cVar)
 		ok
 	next
