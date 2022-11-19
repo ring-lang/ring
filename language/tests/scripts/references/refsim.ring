@@ -68,15 +68,40 @@ mem3 = [
 # Testing 
 #==========================#
 
+/*
+	Display the variables & their values 
+*/
+
 printMemory(mem1,"MEM1")
 printMemory(mem2,"MEM2")
 printMemory(mem3,"MEM3")
 
+/*
+	Test getting children at one level or at all nested levels 
+*/
+
 testGetChildren()
 testGetNestedChildren()
+
+/*
+	Get Circular References count at one level 
+	i.e. the variable have a reference to itself 
+	Or at nested levels 
+*/
+
 testDirectCircularCount()
 testIndirectCircularCount()
+
+/*
+	Test deleting variables to see how the algorithm will delete them 
+	Or will keep them because they are used by other references 
+*/
+
 testDeleteVar()
+
+/*
+	Testing functions 
+*/
 
 func testGetChildren 
 	title("Test: GetChildren")
@@ -419,16 +444,17 @@ func decrement aMem,cVar
 	# Hide the Var 
 		hideVar(aMem,cVar)
 
-func decrementChildren aMem,cVar
+func deleteChildren aMem,cVar
 	aChild = getNestedChildren(aMem,cVar)
 	for child in aChild 
+		if child = NULL loop ok
 		if child != cVar 
 			deleteVar(aMem,cVar)
 		ok
 	next
 
 func freeRef aMem,cVar 
-	decrementChildren(aMem,cVar)
+	deleteChildren(aMem,cVar)
 	deleteVar(aMem,cVar) 
 
 func deleteVar aMem,cVar 
