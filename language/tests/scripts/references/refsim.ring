@@ -248,6 +248,28 @@ func testDeleteVarInMem3
 	printMemory(mem3,"")
 	checkMemoryLeak(mem3)
 
+	Mem3 = Mem3Copy 
+	printMemory(mem3,"MEM3")
+	title("Test deleteVar(mem3,:n1)")
+	deleteVar(mem3,:n1)
+	printMemory(mem3,"")
+	title("Test deleteItem(mem3,:n2,1)")
+	deleteItem(mem3,:n2,1)
+	printMemory(mem3,"")
+	title("Test deleteVar(mem3,:n2)")
+	deleteVar(mem3,:n2)
+	printMemory(mem3,"")
+	title("Test deleteVar(mem3,:n3)")
+	deleteVar(mem3,:n3)
+	printMemory(mem3,"")
+	title("Test deleteVar(mem3,:n4)")
+	deleteVar(mem3,:n4)
+	printMemory(mem3,"")
+	title("Test deleteVar(mem3,:n5)")
+	deleteVar(mem3,:n5)
+	printMemory(mem3,"")
+	checkMemoryLeak(mem3)
+
 func testDeleteVarInMem4
 	printMemory(mem4,"MEM4")
 	title("Test deleteVar(mem4,:n1)")
@@ -580,3 +602,9 @@ func checkMemoryLeak aMem
 			ok
 	next
 	? C_NOMEMLEAK
+
+func deleteItem aMem,cVar,num 
+	nIndex = getVar(aMem,cVar)
+	cName = aMem[nIndex][C_VALUE][num] 
+	aMem[nIndex][C_VALUE][num] = ""
+	deleteVar(aMem,cName)
