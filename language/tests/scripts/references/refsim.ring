@@ -473,22 +473,18 @@ func checkAllOwnersAreLost aMem,cVar
 	nIndex = getVar(aMem,cVar)
 	aChild = getNestedChildren(aMem,cVar)
 	for child in aChild 
-		if child = NULL loop ok
-		if child != cVar 
-			nIndex = getVar(aMem,child)
-			if ! ( aMem[nIndex][C_LOSTOWNERCOUNT] > aMem[nIndex][C_REFCOUNT] )
-				return 
-			ok
+		if (child = NULL) Or (child = cVar) loop ok
+		nIndex = getVar(aMem,child)
+		if ! ( aMem[nIndex][C_LOSTOWNERCOUNT] > aMem[nIndex][C_REFCOUNT] )
+			return 
 		ok
 	next
 	for child in aChild 
-		if child = NULL loop ok
-		if child != cVar 
-			nIndex = getVar(aMem,child)
-			aMem[nIndex][C_LOSTOWNERCOUNT]++
-			if aMem[nIndex][C_LOSTOWNERCOUNT] > aMem[nIndex][C_REFCOUNT]
-				setRefCount(aMem,aMem[nIndex][C_VARNAME],0)
-			ok
+		if (child = NULL) or (child = cVar) loop ok
+		nIndex = getVar(aMem,child)
+		aMem[nIndex][C_LOSTOWNERCOUNT]++
+		if aMem[nIndex][C_LOSTOWNERCOUNT] > aMem[nIndex][C_REFCOUNT]
+			setRefCount(aMem,aMem[nIndex][C_VARNAME],0)
 		ok
 	next
 	setRefCount(aMem,cVar,0)
