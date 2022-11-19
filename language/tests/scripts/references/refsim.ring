@@ -483,8 +483,8 @@ func incLostOwnerCountOneLevel aMem,cVar
 	aChild = getChildren(aMem,cVar)
 	for child in aChild 
 		if child = NULL loop ok
-		nIndex = getVar(aMem,child)
-		if aMem[nIndex][C_VARNAME] != cVar 
+		if child != cVar 
+			nIndex = getVar(aMem,child)
 			aMem[nIndex][C_LOSTOWNERCOUNT]++
 		ok
 	next
