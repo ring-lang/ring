@@ -88,6 +88,19 @@ mem4 = [
 	[:b,:Live,1,[:a],0]
 ]
 
+/*
+	In this group of variables 
+	n5 have a reference to n1
+*/
+
+mem5 = [
+	[:n1,:Live,1,[:n2],0],
+	[:n2,:Live,2,[:n3],0],
+	[:n3,:Live,2,[:n4],0],
+	[:n4,:Live,2,[:n5],0],
+	[:n5,:Live,1,[:n1],0]
+]
+
 #==========================#
 # Testing 
 #==========================#
@@ -100,6 +113,7 @@ printMemory(mem1,"MEM1")
 printMemory(mem2,"MEM2")
 printMemory(mem3,"MEM3")
 printMemory(mem4,"MEM4")
+printMemory(mem5,"MEM5")
 
 /*
 	Test getting children at one level or at all nested levels 
@@ -185,6 +199,7 @@ func testDeleteVar
 	testDeleteVarInMem2()
 	testDeleteVarInMem3()
 	testDeleteVarInMem4()
+	testDeleteVarInMem5()
 
 func testDeleteVarInMem1
 	printMemory(mem1,"MEM1")
@@ -304,6 +319,25 @@ func testDeleteVarInMem4
 	deleteVar(mem4,:n4)
 	printMemory(mem4,"")
 	checkMemoryLeak(mem4)
+
+func testDeleteVarInMem5
+	printMemory(mem5,"MEM5")
+	title("Test deleteVar(mem5,:n1)")
+	deleteVar(mem5,:n1)
+	printMemory(mem5,"")
+	title("Test deleteVar(mem5,:n2)")
+	deleteVar(mem5,:n2)
+	printMemory(mem5,"")
+	title("Test deleteVar(mem5,:n3)")
+	deleteVar(mem5,:n3)
+	printMemory(mem5,"")
+	title("Test deleteVar(mem5,:n4)")
+	deleteVar(mem5,:n4)
+	printMemory(mem5,"")
+	title("Test deleteVar(mem5,:n5)")
+	deleteVar(mem5,:n5)
+	printMemory(mem5,"")
+	checkMemoryLeak(mem5)
 
 #==========================#
 # User Interface Functions
