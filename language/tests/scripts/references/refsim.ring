@@ -193,6 +193,7 @@ func testDeleteVarInMem1
 	title("Test deleteVar(mem1,:mix2)")
 	deleteVar(mem1,:mix2)
 	printMemory(mem1,"")
+	checkMemoryLeak(mem1)
 
 func testDeleteVarInMem2
 	title("Test deleteVar(mem2,:a)")
@@ -201,6 +202,7 @@ func testDeleteVarInMem2
 	title("Test deleteVar(mem2,:b)")
 	deleteVar(mem2,:b)
 	printMemory(mem2,"MEM2")
+	checkMemoryLeak(mem2)
 
 func testDeleteVarInMem3
 	Mem3Copy = Mem3
@@ -219,6 +221,7 @@ func testDeleteVarInMem3
 	title("Test deleteVar(mem3,:n5)")
 	deleteVar(mem3,:n5)
 	printMemory(mem3,"")
+	checkMemoryLeak(mem3)
 
 	Mem3 = Mem3Copy 
 	printMemory(mem3,"MEM3")
@@ -237,6 +240,7 @@ func testDeleteVarInMem3
 	title("Test deleteVar(mem3,:n5)")
 	deleteVar(mem3,:n5)
 	printMemory(mem3,"")
+	checkMemoryLeak(mem3)
 
 func testDeleteVarInMem4
 	title("Test deleteVar(mem4,:n1)")
@@ -269,6 +273,7 @@ func testDeleteVarInMem4
 	title("Test deleteVar(mem4,:n4)")
 	deleteVar(mem4,:n4)
 	printMemory(mem4,"")
+	checkMemoryLeak(mem4)
 
 #==========================#
 # User Interface Functions
@@ -557,3 +562,12 @@ func deleteChildren aMem,cVar
 			decrement(aMem,cVar)
 		ok
 	next
+
+func checkMemoryLeak aMem 
+	for var in aMem 
+			if var[C_STATUS] != :Dead
+				? "[Memory Leak Detected!]"
+				return 
+			ok
+	next
+	? "[No Memory Leak (All variables are deleted)]"
