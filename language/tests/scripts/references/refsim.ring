@@ -456,6 +456,27 @@ func getNestedChildren aMem,cVar
 	return aChild
 
 #==========================#
+# Checking Memory 
+#==========================#
+
+func checkMemoryLeak aMem 
+	for var in aMem 
+			if var[C_STATUS] != :Dead
+				? C_MEMLEAK
+				return 
+			ok
+	next
+	? C_NOMEMLEAK
+
+func checkDoubleFree aMem,cVar
+	nIndex = getVar(aMem,cVar)
+	if aMem[nIndex][C_STATUS] = :Dead 
+		? C_DOUBLEFREE + cVar 
+		return True
+	ok
+	return False
+
+#==========================#
 # Algorithm
 #==========================#
 
@@ -574,11 +595,8 @@ func deleteVar aMem,cVar
 	killVar(aMem,cVar)
 
 func killVar aMem,cVar 
+	if checkDoubleFree(aMem,cVar) return ok
 	nIndex = getVar(aMem,cVar)
-	if aMem[nIndex][C_STATUS] = :Dead 
-		? C_DOUBLEFREE + cVar 
-		return 
-	ok
 	aMem[nIndex][C_STATUS] = :Dead
 	# Each child with RefCount=0 is dead too
 	deleteChildren(aMem,cVar)
@@ -592,15 +610,6 @@ func deleteChildren aMem,cVar
 			aMem[nIndex][C_STATUS] = :Dead
 		ok
 	next
-
-func checkMemoryLeak aMem 
-	for var in aMem 
-			if var[C_STATUS] != :Dead
-				? C_MEMLEAK
-				return 
-			ok
-	next
-	? C_NOMEMLEAK
 
 func deleteItem aMem,cVar,num 
 	nIndex = getVar(aMem,cVar)
