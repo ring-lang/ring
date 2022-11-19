@@ -64,6 +64,27 @@ mem3 = [
 	[:n5,:Live,1,[:n4,null],0]
 ]
 
+/*
+	In this group of variables 
+	We mix between the previous groups 
+	n1 have a reference to mix2 
+	n3 have a reference to x 
+	n5 have a reference to a
+*/
+
+mem4 = [
+	[:x,:Live,2,[1,2,3],0],
+	[:mix,:Live,4,[1,2,3,:x,:mix,:mix],0], 
+	[:mix2,:Live,4,:mix,0],
+	[:n1,:Live,1,[:mix2,:n2],0],
+	[:n2,:Live,2,[:n1,:n3],0],
+	[:n3,:Live,2,[:n2,:n4,:x],0],
+	[:n4,:Live,2,[:n3,:n5],0],
+	[:n5,:Live,1,[:n4,:a],0],
+	[:a,:Live,2,[:b],0],
+	[:b,:Live,1,[:a],0]
+]
+
 #==========================#
 # Testing 
 #==========================#
@@ -75,6 +96,7 @@ mem3 = [
 printMemory(mem1,"MEM1")
 printMemory(mem2,"MEM2")
 printMemory(mem3,"MEM3")
+printMemory(mem4,"MEM4")
 
 /*
 	Test getting children at one level or at all nested levels 
@@ -159,6 +181,7 @@ func testDeleteVar
 	testDeleteVarInMem1()
 	testDeleteVarInMem2()
 	testDeleteVarInMem3()
+	testDeleteVarInMem4()
 
 func testDeleteVarInMem1
 	title("Test deleteVar(mem1,:a)")
@@ -214,6 +237,38 @@ func testDeleteVarInMem3
 	title("Test deleteVar(mem3,:n5)")
 	deleteVar(mem3,:n5)
 	printMemory(mem3,"")
+
+func testDeleteVarInMem4
+	title("Test deleteVar(mem4,:n1)")
+	deleteVar(mem4,:n1)
+	printMemory(mem4,"")
+	title("Test deleteVar(mem4,:n3)")
+	deleteVar(mem4,:n3)
+	printMemory(mem4,"")
+	title("Test deleteVar(mem4,:x)")
+	deleteVar(mem4,:x)
+	printMemory(mem4,"")
+	title("Test deleteVar(mem4,:mix)")
+	deleteVar(mem4,:mix)
+	printMemory(mem4,"")
+	title("Test deleteVar(mem4,:b)")
+	deleteVar(mem4,:b)
+	printMemory(mem4,"")
+	title("Test deleteVar(mem4,:n5)")
+	deleteVar(mem4,:n5)
+	printMemory(mem4,"")
+	title("Test deleteVar(mem4,:a)")
+	deleteVar(mem4,:a)
+	printMemory(mem4,"")
+	title("Test deleteVar(mem4,:mix2)")
+	deleteVar(mem4,:mix2)
+	printMemory(mem4,"")
+	title("Test deleteVar(mem4,:n2)")
+	deleteVar(mem4,:n2)
+	printMemory(mem4,"")
+	title("Test deleteVar(mem4,:n4)")
+	deleteVar(mem4,:n4)
+	printMemory(mem4,"")
 
 #==========================#
 # User Interface Functions
