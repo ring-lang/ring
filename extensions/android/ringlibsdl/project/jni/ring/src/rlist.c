@@ -1450,6 +1450,11 @@ void ring_list_updatenestedreferences_gc ( void *pState,List *pList, List *aSubL
 {
     int x,nSize,lDeleteaSubListsPointers  ;
     List *pSubList  ;
+    /* Check updating one level */
+    if ( RING_LISTREF_ONELEVEL ) {
+        pList->nReferenceCount += nChange ;
+        return ;
+    }
     /* Check Sub Lists Pointers */
     lDeleteaSubListsPointers = (aSubListsPointers == NULL) ;
     if ( lDeleteaSubListsPointers ) {

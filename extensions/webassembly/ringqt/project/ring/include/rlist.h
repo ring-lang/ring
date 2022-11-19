@@ -25,6 +25,7 @@
     #define RING_LISTOFOBJS_FINDNUMBER 0
     #define RING_LISTREF_INC 1
     #define RING_LISTREF_DEC -1
+    #define RING_LISTREF_ONELEVEL 1
     /* Macro */
     #define ring_list_isdouble(pList,index) ( ring_list_getitem(pList,index)->NumberFlag == ITEM_NUMBERFLAG_DOUBLE)
     #define ring_list_isint(pList,index) ( ring_list_getitem(pList,index)->NumberFlag == ITEM_NUMBERFLAG_INT )
