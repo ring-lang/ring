@@ -187,6 +187,7 @@ func testDeleteVar
 	testDeleteVarInMem4()
 
 func testDeleteVarInMem1
+	printMemory(mem1,"MEM1")
 	title("Test deleteVar(mem1,:a)")
 	deleteVar(mem1,:a)
 	printMemory(mem1,"")
@@ -199,6 +200,7 @@ func testDeleteVarInMem1
 	checkMemoryLeak(mem1)
 
 func testDeleteVarInMem2
+	printMemory(mem1,"MEM2")
 	title("Test deleteVar(mem2,:a)")
 	deleteVar(mem2,:a)
 	printMemory(mem2,"MEM2")
@@ -208,6 +210,7 @@ func testDeleteVarInMem2
 	checkMemoryLeak(mem2)
 
 func testDeleteVarInMem3
+	printMemory(mem1,"MEM3")
 	Mem3Copy = Mem3
 	title("Test deleteVar(mem3,:n1)")
 	deleteVar(mem3,:n1)
@@ -246,6 +249,7 @@ func testDeleteVarInMem3
 	checkMemoryLeak(mem3)
 
 func testDeleteVarInMem4
+	printMemory(mem1,"MEM4")
 	title("Test deleteVar(mem4,:n1)")
 	deleteVar(mem4,:n1)
 	printMemory(mem4,"")
@@ -536,7 +540,7 @@ func decrement aMem,cVar
 	ok 
 	# Do the decrement 
 		incLostOwnerCountOneLevel(aMem,cVar,max(1,nDirectCount+1))
-		decRefCount(aMem,cVar, max(1,nDirectCount))
+		decRefCount(aMem,cVar, max(1,nDirectCount+1))
 	# Hide the Var 
 		removeVar(aMem,cVar)
 
