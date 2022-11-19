@@ -180,6 +180,7 @@ func testDeleteVarInMem2
 	printMemory(mem2,"MEM2")
 
 func testDeleteVarInMem3
+	Mem3Copy = Mem3
 	title("Test deleteVar(mem3,:n1)")
 	deleteVar(mem3,:n1)
 	printMemory(mem3,"")
@@ -188,6 +189,24 @@ func testDeleteVarInMem3
 	printMemory(mem3,"")
 	title("Test deleteVar(mem3,:n3)")
 	deleteVar(mem3,:n3)
+	printMemory(mem3,"")
+	title("Test deleteVar(mem3,:n4)")
+	deleteVar(mem3,:n4)
+	printMemory(mem3,"")
+	title("Test deleteVar(mem3,:n5)")
+	deleteVar(mem3,:n5)
+	printMemory(mem3,"")
+
+	Mem3 = Mem3Copy 
+	printMemory(mem3,"MEM3")
+	title("Test deleteVar(mem3,:n3)")
+	deleteVar(mem3,:n3)
+	printMemory(mem3,"")
+	title("Test deleteVar(mem3,:n2)")
+	deleteVar(mem3,:n2)
+	printMemory(mem3,"")
+	title("Test deleteVar(mem3,:n1)")
+	deleteVar(mem3,:n1)
 	printMemory(mem3,"")
 	title("Test deleteVar(mem3,:n4)")
 	deleteVar(mem3,:n4)
