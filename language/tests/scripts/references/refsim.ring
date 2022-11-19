@@ -485,7 +485,6 @@ func deleteChildren aMem,cVar
 	next
 
 func freeRef aMem,cVar 
-	deleteChildren(aMem,cVar)
 	deleteVar(aMem,cVar) 
 
 func deleteVar aMem,cVar 
@@ -497,6 +496,9 @@ func deleteVar aMem,cVar
 
 func killVar aMem,cVar 
 	nIndex = getVar(aMem,cVar)
+	if aMem[nIndex][C_STATUS] = :Dead 
+		? ("Double Free Error! - Variable: " + cVar)
+	ok
 	aMem[nIndex][C_STATUS] = :Dead
 	# Each child with RefCount=0 is dead too
 	aChild = getNestedChildren(aMem,cVar)
