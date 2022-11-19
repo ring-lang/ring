@@ -576,7 +576,8 @@ func deleteVar aMem,cVar
 func killVar aMem,cVar 
 	nIndex = getVar(aMem,cVar)
 	if aMem[nIndex][C_STATUS] = :Dead 
-		? C_DOUBLEFREE + cVar
+		? C_DOUBLEFREE + cVar 
+		return 
 	ok
 	aMem[nIndex][C_STATUS] = :Dead
 	# Each child with RefCount=0 is dead too
@@ -589,8 +590,8 @@ func deleteChildren aMem,cVar
 		nIndex = getVar(aMem,child)
 		if aMem[nIndex][C_REFCOUNT] = 0
 			aMem[nIndex][C_STATUS] = :Dead
-		else 
-			decrement(aMem,cVar)
+		//else 
+		//	decrement(aMem,child)
 		ok
 	next
 
@@ -606,5 +607,10 @@ func checkMemoryLeak aMem
 func deleteItem aMem,cVar,num 
 	nIndex = getVar(aMem,cVar)
 	cName = aMem[nIndex][C_VALUE][num] 
-	aMem[nIndex][C_VALUE][num] = ""
+	del(aMem[nIndex][C_VALUE],num)
+	nIndex = getVar(aMem,cName)
+	aMem[nIndex][C_LOSTOWNERCOUNT]++
+	if aMem[nIndex][C_LOSTOWNERCOUNT] > aMem[nIndex][C_REFCOUNT]
+		aMem[nIndex][C_REFCOUNT] = 0
+	ok
 	deleteVar(aMem,cName)
