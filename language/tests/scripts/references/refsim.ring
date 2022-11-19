@@ -20,16 +20,41 @@ C_LOSTOWNERCOUNT = 5
 # Memory Variables & Values 
 #==========================#
 
+/*
+	In this group of variables (Mem1)
+	We have three varaibles a, mix & mix2 
+	a have just some value [1,2,3]
+	mix have a reference to a and two references to itself 
+	mix2 is just another reference to mix
+*/
+
 mem1 = [
 	[:a,:Live,1,[1,2,3],0],
 	[:mix,:Live,3,[1,2,3,:a,:mix,:mix],0], 
 	[:mix2,:Live,3,:mix,0]
 ]
 
+/*
+	In this group of variables (Mem2)
+	We have two variables a,b 
+	a have a reference to b 
+	b have a reference to a
+*/
+
 mem2 = [
 	[:a,:Live,1,[:b],0],
 	[:b,:Live,1,[:a],0]
 ]
+
+/*
+	In this group of variables (Mem3)
+	We have five variables n1,n2,n3,n4,n5 
+	n1 have one reference to n2 
+	n2 have a reference to n1 and a reference to n3 
+	n3 have a reference to n2 and a reference to n4
+	n4 have a reference to n3 and a reference to n5
+	n5 have one reference to n4
+*/
 
 mem3 = [
 	[:n1,:Live,1,[null,:n2],0],
