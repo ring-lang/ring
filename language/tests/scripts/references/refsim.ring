@@ -459,7 +459,7 @@ func incLostOwnerCountOneLevel aMem,cVar,nValue
 	nIndex = getVar(aMem,cVar)
 	aMem[nIndex][C_LOSTOWNERCOUNT] += nValue
 	aMem[nIndex][C_STATUS] = :LOST
-	aChild = getChildren(aMem,cVar)
+	aChild = getNestedChildren(aMem,cVar)
 	for child in aChild 
 		if (child = NULL) or (child = cVar) loop ok
 		nIndex = getVar(aMem,child)
@@ -501,7 +501,7 @@ func decrement aMem,cVar
 		# Circular Reference 
 		# Check if this is the last owner where we can delete the reference
 		incLostOwnerCountOneLevel(aMem,cVar,max(1,nDirectCount))
-		if getLostOwnerCount(aMem,cVar) > nRefCount 
+		if getLostOwnerCount(aMem,cVar) > nRefCount+nDirectCount+nInDirectCount+1
 			checkAllOwnersAreLost(aMem,cVar)
 		ok
 		return 
