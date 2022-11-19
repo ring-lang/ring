@@ -259,13 +259,14 @@ func testDeleteVarInMem4
 	checkMemoryLeak(mem4)
 
 func testDeleteVarInMem5
-	printMemory(mem5,"MEM5")
-	testDeleteVarInMem("mem5",mem5,:n1)
-	testDeleteVarInMem("mem5",mem5,:n2)
-	testDeleteVarInMem("mem5",mem5,:n3)
-	testDeleteVarInMem("mem5",mem5,:n4)
-	testDeleteVarInMem("mem5",mem5,:n5)
-	checkMemoryLeak(mem5)
+	testDeleteVars("MEM5",mem5,[:n1,:n2,:n3,:n4,:n5])
+
+func testDeleteVars(cMemTitle,aMem,aVars)
+	printMemory(aMem,cMemTitle)
+	for cVar in aVars 
+		testDeleteVarInMem(cMemTitle,aMem,cVar)
+	next
+	checkMemoryLeak(aMem)
 
 func testDeleteVarInMem(cMemTitle,aMem,cVar)
 	title("Test deleteVar("+cMemTitle+",:"+cVar+")")
