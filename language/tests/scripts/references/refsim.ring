@@ -70,16 +70,15 @@ mem3 = [
 /*
 	In this group of variables 
 	We mix between the previous groups 
-	n1 have a reference to mix2 
+	n1 have a reference to mix
 	n3 have a reference to x 
 	n5 have a reference to a
 */
 
 mem4 = [
 	[:x,:Live,2,[1,2,3],0],
-	[:mix,:Live,4,[1,2,3,:x,:mix,:mix],0], 
-	[:mix2,:Live,4,:mix,0],
-	[:n1,:Live,1,[:mix2,:n2],0],
+	[:mix,:Live,3,[1,2,3,:x,:mix,:mix],0], 
+	[:n1,:Live,1,[:mix,:n2],0],
 	[:n2,:Live,2,[:n1,:n3],0],
 	[:n3,:Live,2,[:n2,:n4,:x],0],
 	[:n4,:Live,2,[:n3,:n5],0],
@@ -220,7 +219,7 @@ func testDeleteVarInMem3
 	testDeleteVars("MEM3",mem3,[:n2,:n3,:n4,:n5])
 
 func testDeleteVarInMem4
-	testDeleteVars("MEM4",mem4,[:n1,:n3,:x,:mix,:mix2,:b,:n5,:a,:n3,:n4,:n2])
+	testDeleteVars("MEM4",mem4,[:n1,:n3,:x,:mix,:b,:n5,:a,:n3,:n4,:n2])
 
 func testDeleteVarInMem5
 	testDeleteVars("MEM5",mem5,[:n1,:n2,:n3,:n4,:n5])
@@ -475,7 +474,7 @@ func checkAllOwnersAreLost aMem,cVar
 	for child in aChild 
 		if (child = NULL) Or (child = cVar) loop ok
 		nIndex = getVar(aMem,child)
-		if ! ( aMem[nIndex][C_LOSTOWNERCOUNT] > aMem[nIndex][C_REFCOUNT] )
+		if ! ( aMem[nIndex][C_LOSTOWNERCOUNT] > aMem[nIndex][C_REFCOUNT] ) 
 			return 
 		ok
 	next
@@ -505,7 +504,6 @@ func decrement aMem,cVar
 		# Check if this is the last owner where we can delete the reference
 		incLostOwnerCountOneLevel(aMem,cVar,max(1,nDirectCount+1))
 		if getLostOwnerCount(aMem,cVar) > nRefCount 
-			? "we may delete everything!"
 			checkAllOwnersAreLost(aMem,cVar)
 		ok
 		return 
