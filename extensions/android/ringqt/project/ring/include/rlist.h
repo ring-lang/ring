@@ -17,7 +17,6 @@
         unsigned int lDeleteContainerVariable: 1  ;
         unsigned int lDontDelete: 1  ;
         unsigned int lNewRef: 1  ;
-        unsigned int lCircularRef: 1  ;
         unsigned int lCopyByRef: 1  ;
     } List ;
     /* Constants */
@@ -270,10 +269,6 @@
     RING_API void ring_list_acceptlistbyref_gc ( void *pState,List *pList, int index,List *pRef ) ;
 
     RING_API void ring_list_setlistbyref_gc ( void *pState,List *pList, int index,List *pRef ) ;
-
-    void ring_list_updatenestedreferences_gc ( void *pState,List *pList, List *aSubListsPointers, int nChange ) ;
-
-    void ring_list_allowdeleteingcircularreferences_gc ( void *pState,List *pList, List *aSubListsPointers ) ;
 
     void ring_list_updaterefcount_gc ( void *pState,List *pList, int nChange ) ;
 #endif
