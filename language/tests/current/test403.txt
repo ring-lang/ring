@@ -30,8 +30,7 @@ Var  S    RC LO Value
 -----------------------------------
 x    LIVE 2  0  [1,2,3]             
 mix  LIVE 4  0  [1,2,3,x,mix,mix]   
-mix2 LIVE 4  0  [mix]               
-n1   LIVE 1  0  [mix2,n2]           
+n1   LIVE 1  0  [mix,n2]            
 n2   LIVE 2  0  [n1,n3]             
 n3   LIVE 2  0  [n2,n4,x]           
 n4   LIVE 2  0  [n3,n5]             
@@ -44,9 +43,9 @@ b    LIVE 1  0  [a]
 Var  S    RC LO Value               
 -----------------------------------
 n1   LIVE 1  0  [n2]                
-n2   LIVE 2  0  [n3]                
-n3   LIVE 2  0  [n4]                
-n4   LIVE 2  0  [n5]                
+n2   LIVE 1  0  [n3]                
+n3   LIVE 1  0  [n4]                
+n4   LIVE 1  0  [n5]                
 n5   LIVE 1  0  [n1]                
 ===================================
          Test: GetChildren
@@ -145,7 +144,7 @@ b    LIVE 1  0  [a]
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
-a    LOST 1  1  [b]                 
+a    LOST 0  1  [b]                 
 b    LIVE 1  1  [a]                 
 ===================================
       Test deleteVar(MEM2,:b)
@@ -170,51 +169,51 @@ n5   LIVE 1  0  [n4]
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
-n1   LOST 1  1  [n2]                
+n1   LOST 0  1  [n2]                
 n2   LIVE 2  1  [n1,n3]             
-n3   LIVE 2  1  [n2,n4]             
-n4   LIVE 2  1  [n3,n5]             
-n5   LIVE 1  1  [n4]                
+n3   LIVE 2  0  [n2,n4]             
+n4   LIVE 2  0  [n3,n5]             
+n5   LIVE 1  0  [n4]                
 ===================================
      Test deleteVar(MEM3,:n2)
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
-n1   LOST 1  2  [n2]                
-n2   LOST 2  2  [n1,n3]             
-n3   LIVE 2  2  [n2,n4]             
-n4   LIVE 2  2  [n3,n5]             
-n5   LIVE 1  2  [n4]                
+n1   LOST 0  2  [n2]                
+n2   LOST 1  2  [n1,n3]             
+n3   LIVE 2  1  [n2,n4]             
+n4   LIVE 2  0  [n3,n5]             
+n5   LIVE 1  0  [n4]                
 ===================================
      Test deleteVar(MEM3,:n3)
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
-n1   LOST 1  3  [n2]                
-n2   LOST 2  3  [n1,n3]             
-n3   LOST 2  3  [n2,n4]             
-n4   LIVE 2  3  [n3,n5]             
-n5   LIVE 1  3  [n4]                
+n1   LOST 0  2  [n2]                
+n2   LOST 1  3  [n1,n3]             
+n3   LOST 1  2  [n2,n4]             
+n4   LIVE 2  1  [n3,n5]             
+n5   LIVE 1  0  [n4]                
 ===================================
      Test deleteVar(MEM3,:n4)
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
-n1   LOST 1  4  [n2]                
-n2   LOST 2  4  [n1,n3]             
-n3   LOST 2  4  [n2,n4]             
-n4   LOST 2  4  [n3,n5]             
-n5   LIVE 1  4  [n4]                
+n1   LOST 0  2  [n2]                
+n2   LOST 1  3  [n1,n3]             
+n3   LOST 1  3  [n2,n4]             
+n4   LOST 1  2  [n3,n5]             
+n5   LIVE 1  1  [n4]                
 ===================================
      Test deleteVar(MEM3,:n5)
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
-n1   DEAD 0  6  [n2]                
-n2   DEAD 0  6  [n1,n3]             
-n3   DEAD 0  6  [n2,n4]             
-n4   DEAD 0  6  [n3,n5]             
-n5   DEAD 0  5  [n4]                
+n1   DEAD 0  3  [n2]                
+n2   DEAD 0  4  [n1,n3]             
+n3   DEAD 0  4  [n2,n4]             
+n4   DEAD 0  4  [n3,n5]             
+n5   DEAD 0  2  [n4]                
 [No Memory Leak]
 ===================================
                MEM3
@@ -231,51 +230,51 @@ n5   LIVE 1  0  [n4]
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
-n1   LIVE 1  1  [n2]                
+n1   LIVE 1  0  [n2]                
 n2   LIVE 2  1  [n1,n3]             
-n3   LOST 2  1  [n2,n4]             
+n3   LOST 1  1  [n2,n4]             
 n4   LIVE 2  1  [n3,n5]             
-n5   LIVE 1  1  [n4]                
+n5   LIVE 1  0  [n4]                
 ===================================
      Test deleteVar(MEM3,:n2)
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
-n1   LIVE 1  2  [n2]                
-n2   LOST 2  2  [n1,n3]             
-n3   LOST 2  2  [n2,n4]             
-n4   LIVE 2  2  [n3,n5]             
-n5   LIVE 1  2  [n4]                
+n1   LIVE 1  1  [n2]                
+n2   LOST 1  2  [n1,n3]             
+n3   LOST 1  2  [n2,n4]             
+n4   LIVE 2  1  [n3,n5]             
+n5   LIVE 1  0  [n4]                
 ===================================
      Test deleteVar(MEM3,:n1)
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
-n1   LOST 1  3  [n2]                
-n2   LOST 2  3  [n1,n3]             
-n3   LOST 2  3  [n2,n4]             
-n4   LIVE 2  3  [n3,n5]             
-n5   LIVE 1  3  [n4]                
+n1   LOST 0  2  [n2]                
+n2   LOST 1  3  [n1,n3]             
+n3   LOST 1  2  [n2,n4]             
+n4   LIVE 2  1  [n3,n5]             
+n5   LIVE 1  0  [n4]                
 ===================================
      Test deleteVar(MEM3,:n4)
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
-n1   LOST 1  4  [n2]                
-n2   LOST 2  4  [n1,n3]             
-n3   LOST 2  4  [n2,n4]             
-n4   LOST 2  4  [n3,n5]             
-n5   LIVE 1  4  [n4]                
+n1   LOST 0  2  [n2]                
+n2   LOST 1  3  [n1,n3]             
+n3   LOST 1  3  [n2,n4]             
+n4   LOST 1  2  [n3,n5]             
+n5   LIVE 1  1  [n4]                
 ===================================
      Test deleteVar(MEM3,:n5)
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
-n1   DEAD 0  6  [n2]                
-n2   DEAD 0  6  [n1,n3]             
-n3   DEAD 0  6  [n2,n4]             
-n4   DEAD 0  6  [n3,n5]             
-n5   DEAD 0  5  [n4]                
+n1   DEAD 0  3  [n2]                
+n2   DEAD 0  4  [n1,n3]             
+n3   DEAD 0  4  [n2,n4]             
+n4   DEAD 0  4  [n3,n5]             
+n5   DEAD 0  2  [n4]                
 [No Memory Leak]
 ===================================
                MEM3
@@ -292,11 +291,11 @@ n5   LIVE 1  0  [n4]
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
-n1   LOST 1  1  [n2]                
+n1   LOST 0  1  [n2]                
 n2   LIVE 2  1  [n1,n3]             
-n3   LIVE 2  1  [n2,n4]             
-n4   LIVE 2  1  [n3,n5]             
-n5   LIVE 1  1  [n4]                
+n3   LIVE 2  0  [n2,n4]             
+n4   LIVE 2  0  [n3,n5]             
+n5   LIVE 1  0  [n4]                
 ===================================
     Test deleteItem(mem3,:n2,1)
 ===================================
@@ -307,9 +306,9 @@ Var  S    RC LO Value
 -----------------------------------
 n1   DEAD 0  2  [n2]                
 n2   LIVE 2  1  [n3]                
-n3   LIVE 2  1  [n2,n4]             
-n4   LIVE 2  1  [n3,n5]             
-n5   LIVE 1  1  [n4]                
+n3   LIVE 2  0  [n2,n4]             
+n4   LIVE 2  0  [n3,n5]             
+n5   LIVE 1  0  [n4]                
 ===================================
      Test deleteVar(MEM3,:n2)
 ===================================
@@ -317,9 +316,9 @@ Var  S    RC LO Value
 -----------------------------------
 n1   DEAD 0  2  [n2]                
 n2   LOST 1  2  [n3]                
-n3   LIVE 2  2  [n2,n4]             
-n4   LIVE 2  2  [n3,n5]             
-n5   LIVE 1  2  [n4]                
+n3   LIVE 2  1  [n2,n4]             
+n4   LIVE 2  0  [n3,n5]             
+n5   LIVE 1  0  [n4]                
 ===================================
      Test deleteVar(MEM3,:n3)
 ===================================
@@ -327,29 +326,29 @@ Var  S    RC LO Value
 -----------------------------------
 n1   DEAD 0  2  [n2]                
 n2   LOST 1  3  [n3]                
-n3   LOST 2  3  [n2,n4]             
-n4   LIVE 2  3  [n3,n5]             
-n5   LIVE 1  3  [n4]                
+n3   LOST 1  2  [n2,n4]             
+n4   LIVE 2  1  [n3,n5]             
+n5   LIVE 1  0  [n4]                
 ===================================
      Test deleteVar(MEM3,:n4)
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
 n1   DEAD 0  2  [n2]                
-n2   LOST 1  4  [n3]                
-n3   LOST 2  4  [n2,n4]             
-n4   LOST 2  4  [n3,n5]             
-n5   LIVE 1  4  [n4]                
+n2   LOST 1  3  [n3]                
+n3   LOST 1  3  [n2,n4]             
+n4   LOST 1  2  [n3,n5]             
+n5   LIVE 1  1  [n4]                
 ===================================
      Test deleteVar(MEM3,:n5)
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
 n1   DEAD 0  2  [n2]                
-n2   DEAD 0  6  [n3]                
-n3   DEAD 0  6  [n2,n4]             
-n4   DEAD 0  6  [n3,n5]             
-n5   DEAD 0  5  [n4]                
+n2   DEAD 0  4  [n3]                
+n3   DEAD 0  4  [n2,n4]             
+n4   DEAD 0  4  [n3,n5]             
+n5   DEAD 0  2  [n4]                
 [No Memory Leak]
 ===================================
                MEM4
@@ -358,8 +357,7 @@ Var  S    RC LO Value
 -----------------------------------
 x    LIVE 2  0  [1,2,3]             
 mix  LIVE 4  0  [1,2,3,x,mix,mix]   
-mix2 LIVE 4  0  [mix]               
-n1   LIVE 1  0  [mix2,n2]           
+n1   LIVE 1  0  [mix,n2]            
 n2   LIVE 2  0  [n1,n3]             
 n3   LIVE 2  0  [n2,n4,x]           
 n4   LIVE 2  0  [n3,n5]             
@@ -371,225 +369,200 @@ b    LIVE 1  0  [a]
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
-x    LIVE 2  1  [1,2,3]             
+x    LIVE 2  0  [1,2,3]             
 mix  LIVE 4  1  [1,2,3,x,mix,mix]   
-mix2 LIVE 4  1  [mix]               
-n1   LOST 1  1  [mix2,n2]           
+n1   LOST 0  1  [mix,n2]            
 n2   LIVE 2  1  [n1,n3]             
-n3   LIVE 2  1  [n2,n4,x]           
-n4   LIVE 2  1  [n3,n5]             
-n5   LIVE 1  1  [n4,a]              
-a    LIVE 2  1  [b]                 
-b    LIVE 1  1  [a]                 
+n3   LIVE 2  0  [n2,n4,x]           
+n4   LIVE 2  0  [n3,n5]             
+n5   LIVE 1  0  [n4,a]              
+a    LIVE 2  0  [b]                 
+b    LIVE 1  0  [a]                 
 ===================================
      Test deleteVar(MEM4,:n3)
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
-x    LIVE 2  2  [1,2,3]             
-mix  LIVE 4  2  [1,2,3,x,mix,mix]   
-mix2 LIVE 4  2  [mix]               
-n1   LOST 1  2  [mix2,n2]           
+x    LIVE 2  1  [1,2,3]             
+mix  LIVE 4  1  [1,2,3,x,mix,mix]   
+n1   LOST 0  1  [mix,n2]            
 n2   LIVE 2  2  [n1,n3]             
-n3   LOST 2  2  [n2,n4,x]           
-n4   LIVE 2  2  [n3,n5]             
-n5   LIVE 1  2  [n4,a]              
-a    LIVE 2  2  [b]                 
-b    LIVE 1  2  [a]                 
+n3   LOST 1  1  [n2,n4,x]           
+n4   LIVE 2  1  [n3,n5]             
+n5   LIVE 1  0  [n4,a]              
+a    LIVE 2  0  [b]                 
+b    LIVE 1  0  [a]                 
 ===================================
       Test deleteVar(MEM4,:x)
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
-x    LOST 1  3  [1,2,3]             
-mix  LIVE 4  2  [1,2,3,x,mix,mix]   
-mix2 LIVE 4  2  [mix]               
-n1   LOST 1  2  [mix2,n2]           
+x    LOST 1  2  [1,2,3]             
+mix  LIVE 4  1  [1,2,3,x,mix,mix]   
+n1   LOST 0  1  [mix,n2]            
 n2   LIVE 2  2  [n1,n3]             
-n3   LOST 2  2  [n2,n4,x]           
-n4   LIVE 2  2  [n3,n5]             
-n5   LIVE 1  2  [n4,a]              
-a    LIVE 2  2  [b]                 
-b    LIVE 1  2  [a]                 
+n3   LOST 1  1  [n2,n4,x]           
+n4   LIVE 2  1  [n3,n5]             
+n5   LIVE 1  0  [n4,a]              
+a    LIVE 2  0  [b]                 
+b    LIVE 1  0  [a]                 
 ===================================
      Test deleteVar(MEM4,:mix)
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
-x    LOST 1  4  [1,2,3]             
-mix  LOST 3  3  [1,2,3,x,mix,mix]   
-mix2 LIVE 4  2  [mix]               
-n1   LOST 1  2  [mix2,n2]           
+x    LOST 1  3  [1,2,3]             
+mix  LOST 3  2  [1,2,3,x,mix,mix]   
+n1   LOST 0  1  [mix,n2]            
 n2   LIVE 2  2  [n1,n3]             
-n3   LOST 2  2  [n2,n4,x]           
-n4   LIVE 2  2  [n3,n5]             
-n5   LIVE 1  2  [n4,a]              
-a    LIVE 2  2  [b]                 
-b    LIVE 1  2  [a]                 
+n3   LOST 1  1  [n2,n4,x]           
+n4   LIVE 2  1  [n3,n5]             
+n5   LIVE 1  0  [n4,a]              
+a    LIVE 2  0  [b]                 
+b    LIVE 1  0  [a]                 
 ===================================
       Test deleteVar(MEM4,:b)
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
-x    LOST 1  4  [1,2,3]             
-mix  LOST 3  3  [1,2,3,x,mix,mix]   
-mix2 LIVE 4  2  [mix]               
-n1   LOST 1  2  [mix2,n2]           
+x    LOST 1  3  [1,2,3]             
+mix  LOST 3  2  [1,2,3,x,mix,mix]   
+n1   LOST 0  1  [mix,n2]            
 n2   LIVE 2  2  [n1,n3]             
-n3   LOST 2  2  [n2,n4,x]           
-n4   LIVE 2  2  [n3,n5]             
-n5   LIVE 1  2  [n4,a]              
-a    LIVE 2  3  [b]                 
-b    LOST 1  3  [a]                 
+n3   LOST 1  1  [n2,n4,x]           
+n4   LIVE 2  1  [n3,n5]             
+n5   LIVE 1  0  [n4,a]              
+a    LIVE 2  1  [b]                 
+b    LOST 0  1  [a]                 
 ===================================
      Test deleteVar(MEM4,:n5)
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
-x    LOST 1  5  [1,2,3]             
-mix  LOST 3  4  [1,2,3,x,mix,mix]   
-mix2 LIVE 4  3  [mix]               
-n1   LOST 1  3  [mix2,n2]           
-n2   LIVE 2  3  [n1,n3]             
-n3   LOST 2  3  [n2,n4,x]           
-n4   LIVE 2  3  [n3,n5]             
-n5   LOST 1  3  [n4,a]              
-a    LIVE 2  4  [b]                 
-b    LOST 1  4  [a]                 
-===================================
-    Test deleteVar(MEM4,:mix2)
-===================================
-Var  S    RC LO Value               
------------------------------------
-x    LOST 1  6  [1,2,3]             
-mix  LOST 3  5  [1,2,3,x,mix,mix]   
-mix2 LOST 3  4  [mix]               
-n1   LOST 1  3  [mix2,n2]           
-n2   LIVE 2  3  [n1,n3]             
-n3   LOST 2  3  [n2,n4,x]           
-n4   LIVE 2  3  [n3,n5]             
-n5   LOST 1  3  [n4,a]              
-a    LIVE 2  4  [b]                 
-b    LOST 1  4  [a]                 
+x    LOST 1  3  [1,2,3]             
+mix  LOST 3  2  [1,2,3,x,mix,mix]   
+n1   LOST 0  1  [mix,n2]            
+n2   LIVE 2  2  [n1,n3]             
+n3   LOST 1  1  [n2,n4,x]           
+n4   LIVE 2  2  [n3,n5]             
+n5   LOST 0  1  [n4,a]              
+a    LIVE 2  2  [b]                 
+b    LOST 0  1  [a]                 
 ===================================
       Test deleteVar(MEM4,:a)
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
-x    LOST 1  6  [1,2,3]             
-mix  LOST 3  5  [1,2,3,x,mix,mix]   
-mix2 LOST 3  4  [mix]               
-n1   LOST 1  3  [mix2,n2]           
-n2   LIVE 2  3  [n1,n3]             
-n3   LOST 2  3  [n2,n4,x]           
-n4   LIVE 2  3  [n3,n5]             
-n5   LOST 1  3  [n4,a]              
-a    LOST 1  5  [b]                 
-b    LOST 1  5  [a]                 
+x    LOST 1  3  [1,2,3]             
+mix  LOST 3  2  [1,2,3,x,mix,mix]   
+n1   LOST 0  1  [mix,n2]            
+n2   LIVE 2  2  [n1,n3]             
+n3   LOST 1  1  [n2,n4,x]           
+n4   LIVE 2  2  [n3,n5]             
+n5   LOST 0  1  [n4,a]              
+a    LOST 1  3  [b]                 
+b    LOST 0  2  [a]                 
 ===================================
      Test deleteVar(MEM4,:n3)
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
-x    LOST 1  7  [1,2,3]             
-mix  LOST 3  6  [1,2,3,x,mix,mix]   
-mix2 LOST 3  5  [mix]               
-n1   LOST 1  4  [mix2,n2]           
-n2   LIVE 2  4  [n1,n3]             
-n3   LOST 2  4  [n2,n4,x]           
-n4   LIVE 2  4  [n3,n5]             
-n5   LOST 1  4  [n4,a]              
-a    LOST 1  6  [b]                 
-b    LOST 1  6  [a]                 
+x    LOST 1  4  [1,2,3]             
+mix  LOST 3  2  [1,2,3,x,mix,mix]   
+n1   LOST 0  1  [mix,n2]            
+n2   LIVE 2  3  [n1,n3]             
+n3   LOST 0  2  [n2,n4,x]           
+n4   LIVE 2  3  [n3,n5]             
+n5   LOST 0  1  [n4,a]              
+a    LOST 1  3  [b]                 
+b    LOST 0  2  [a]                 
 ===================================
      Test deleteVar(MEM4,:n4)
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
-x    LOST 1  8  [1,2,3]             
-mix  LOST 3  7  [1,2,3,x,mix,mix]   
-mix2 LOST 3  6  [mix]               
-n1   LOST 1  5  [mix2,n2]           
-n2   LIVE 2  5  [n1,n3]             
-n3   LOST 2  5  [n2,n4,x]           
-n4   LOST 2  5  [n3,n5]             
-n5   LOST 1  5  [n4,a]              
-a    LOST 1  7  [b]                 
-b    LOST 1  7  [a]                 
+x    LOST 1  4  [1,2,3]             
+mix  LOST 3  2  [1,2,3,x,mix,mix]   
+n1   LOST 0  1  [mix,n2]            
+n2   LIVE 2  3  [n1,n3]             
+n3   LOST 0  3  [n2,n4,x]           
+n4   LOST 1  4  [n3,n5]             
+n5   LOST 0  2  [n4,a]              
+a    LOST 1  3  [b]                 
+b    LOST 0  2  [a]                 
 ===================================
      Test deleteVar(MEM4,:n2)
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
-x    DEAD 0  10 [1,2,3]             
-mix  DEAD 0  9  [1,2,3,x,mix,mix]   
-mix2 DEAD 0  8  [mix]               
-n1   DEAD 0  7  [mix2,n2]           
-n2   DEAD 0  6  [n1,n3]             
-n3   DEAD 0  7  [n2,n4,x]           
-n4   DEAD 0  7  [n3,n5]             
-n5   DEAD 0  7  [n4,a]              
-a    DEAD 0  9  [b]                 
-b    DEAD 0  9  [a]                 
-[No Memory Leak]
+x    LOST 1  4  [1,2,3]             
+mix  LOST 3  2  [1,2,3,x,mix,mix]   
+n1   LOST 0  2  [mix,n2]            
+n2   LOST 1  4  [n1,n3]             
+n3   LOST 0  4  [n2,n4,x]           
+n4   LOST 1  4  [n3,n5]             
+n5   LOST 0  2  [n4,a]              
+a    LOST 1  3  [b]                 
+b    LOST 0  2  [a]                 
+[Memory Leak Detected!]
 ===================================
                MEM5
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
 n1   LIVE 1  0  [n2]                
-n2   LIVE 2  0  [n3]                
-n3   LIVE 2  0  [n4]                
-n4   LIVE 2  0  [n5]                
+n2   LIVE 1  0  [n3]                
+n3   LIVE 1  0  [n4]                
+n4   LIVE 1  0  [n5]                
 n5   LIVE 1  0  [n1]                
 ===================================
      Test deleteVar(MEM5,:n1)
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
-n1   LOST 1  1  [n2]                
-n2   LIVE 2  1  [n3]                
-n3   LIVE 2  1  [n4]                
-n4   LIVE 2  1  [n5]                
-n5   LIVE 1  1  [n1]                
+n1   LOST 0  1  [n2]                
+n2   LIVE 1  1  [n3]                
+n3   LIVE 1  0  [n4]                
+n4   LIVE 1  0  [n5]                
+n5   LIVE 1  0  [n1]                
 ===================================
      Test deleteVar(MEM5,:n2)
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
-n1   LOST 1  2  [n2]                
-n2   LOST 1  2  [n3]                
-n3   LIVE 2  2  [n4]                
-n4   LIVE 2  2  [n5]                
-n5   LIVE 1  2  [n1]                
+n1   LOST 0  1  [n2]                
+n2   LOST 0  2  [n3]                
+n3   LIVE 1  1  [n4]                
+n4   LIVE 1  0  [n5]                
+n5   LIVE 1  0  [n1]                
 ===================================
      Test deleteVar(MEM5,:n3)
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
-n1   LOST 1  3  [n2]                
-n2   LOST 1  3  [n3]                
-n3   LOST 1  3  [n4]                
-n4   LIVE 2  3  [n5]                
-n5   LIVE 1  3  [n1]                
+n1   LOST 0  1  [n2]                
+n2   LOST 0  2  [n3]                
+n3   LOST 0  2  [n4]                
+n4   LIVE 1  1  [n5]                
+n5   LIVE 1  0  [n1]                
 ===================================
      Test deleteVar(MEM5,:n4)
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
-n1   LOST 1  4  [n2]                
-n2   LOST 1  4  [n3]                
-n3   LOST 1  4  [n4]                
-n4   LOST 1  4  [n5]                
-n5   LIVE 1  4  [n1]                
+n1   LOST 0  1  [n2]                
+n2   LOST 0  2  [n3]                
+n3   LOST 0  2  [n4]                
+n4   LOST 0  2  [n5]                
+n5   LIVE 1  1  [n1]                
 ===================================
      Test deleteVar(MEM5,:n5)
 ===================================
 Var  S    RC LO Value               
 -----------------------------------
-n1   DEAD 0  6  [n2]                
-n2   DEAD 0  6  [n3]                
-n3   DEAD 0  6  [n4]                
-n4   DEAD 0  6  [n5]                
-n5   DEAD 0  5  [n1]                
+n1   DEAD 0  3  [n2]                
+n2   DEAD 0  3  [n3]                
+n3   DEAD 0  3  [n4]                
+n4   DEAD 0  3  [n5]                
+n5   DEAD 0  2  [n1]                
 [No Memory Leak]
