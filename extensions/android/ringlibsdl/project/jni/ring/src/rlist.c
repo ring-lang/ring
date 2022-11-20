@@ -59,11 +59,11 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
     /* Check lDontDelete (Used by Container Variables) */
     if ( pList->lDontDelete ) {
         /* This is a container that we will not delete, but will be deleted by that list that know about it */
-        return NULL ;
+        return pList ;
     }
     /* Check if we have a Circular Reference */
     if ( pList->lCircularRef ) {
-        return NULL ;
+        return pList ;
     }
     /* Avoid deleting objects when the list is just a reference */
     if ( pList->nReferenceCount ) {
@@ -72,7 +72,7 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
         if ( pList->lCircularRef ) {
             pList->lCircularRef = 0 ;
             pList = ring_list_delete_gc(pState,pList);
-            return NULL ;
+            return pList ;
         }
         if ( ! (pList->lNewRef && (pList->nReferenceCount==0)) ) {
             if ( pList->lNewRef ) {
@@ -80,7 +80,7 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
                 pList->lNewRef = 0 ;
                 ring_list_updaterefcount_gc(pState,pList,RING_LISTREF_DEC);
             }
-            return NULL ;
+            return pList ;
         }
     }
     /* Delete Container Variable (If the list have one) */
