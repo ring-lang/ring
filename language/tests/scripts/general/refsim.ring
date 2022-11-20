@@ -1,28 +1,25 @@
 /*
-** Author      : Mahmoud Fayed
-** Date        : November 2022
 ** Description : Reference Counting Simulator
 **		 Playing with algorithms around it 
 **		 The simulator can detect 
 **		 	* Memory Leak
 **		 	* Double Free 
 **		 	* Some Circular References (Some Cases) 
-**		 The algorithm is just experimental 
-**               Not production ready!    
+**		 The algorithm is just experimental (i.e. not correct)
 */
 
 #==========================#
-#		  Constants 
+#	 Constants 
 #==========================#
 
-C_LINESIZE 		 = 35
+C_LINESIZE 	 = 35
 C_VARNAME        = 1
 C_STATUS         = 2
 C_REFCOUNT       = 3
 C_VALUE          = 4
 C_LOSTOWNERCOUNT = 5
-C_MEMLEAK 		 = "[Memory Leak Detected!]"
-C_NOMEMLEAK		 = "[No Memory Leak]"
+C_MEMLEAK 	 = "[Memory Leak Detected!]"
+C_NOMEMLEAK	 = "[No Memory Leak]"
 C_DOUBLEFREE	 = "Double Free Error! - Variable: "
 
 #==========================#
@@ -76,7 +73,7 @@ mem3 = [
 /*
 	In this group of variables 
 	We mix between the previous groups 
-	n1 have a reference to mix2
+	n1 have a reference to mix
 	n3 have a reference to x 
 	n5 have a reference to a
 */
@@ -84,8 +81,7 @@ mem3 = [
 mem4 = [
 	[:x,:Live,2,[1,2,3],0],
 	[:mix,:Live,4,[1,2,3,:x,:mix,:mix],0], 
-	[:mix2,:Live,4,[:mix],0],
-	[:n1,:Live,1,[:mix2,:n2],0],
+	[:n1,:Live,1,[:mix,:n2],0],
 	[:n2,:Live,2,[:n1,:n3],0],
 	[:n3,:Live,2,[:n2,:n4,:x],0],
 	[:n4,:Live,2,[:n3,:n5],0],
@@ -101,9 +97,9 @@ mem4 = [
 
 mem5 = [
 	[:n1,:Live,1,[:n2],0],
-	[:n2,:Live,2,[:n3],0],
-	[:n3,:Live,2,[:n4],0],
-	[:n4,:Live,2,[:n5],0],
+	[:n2,:Live,1,[:n3],0],
+	[:n3,:Live,1,[:n4],0],
+	[:n4,:Live,1,[:n5],0],
 	[:n5,:Live,1,[:n1],0]
 ]
 
@@ -226,7 +222,7 @@ func testDeleteVarInMem3
 	testDeleteVars("MEM3",mem3,[:n2,:n3,:n4,:n5])
 
 func testDeleteVarInMem4
-	testDeleteVars("MEM4",mem4,[:n1,:n3,:x,:mix,:b,:n5,:mix2,:a,:n3,:n4,:n2])
+	testDeleteVars("MEM4",mem4,[:n1,:n3,:x,:mix,:b,:n5,:a,:n3,:n4,:n2])
 
 func testDeleteVarInMem5
 	testDeleteVars("MEM5",mem5,[:n1,:n2,:n3,:n4,:n5])
@@ -466,7 +462,7 @@ func incLostOwnerCount aMem,cVar
 	nIndex = getVar(aMem,cVar)
 	aMem[nIndex][C_LOSTOWNERCOUNT]++
 	aMem[nIndex][C_STATUS] = :LOST
-	aChild = getNestedChildren(aMem,cVar)
+	aChild = getChildren(aMem,cVar)
 	for child in aChild 
 		if (child = NULL) or (child = cVar) loop ok
 		nIndex = getVar(aMem,child)
@@ -504,23 +500,20 @@ func decrement aMem,cVar
 		deleteVar(aMem,cVar)
 		return
 	ok
-	if (nInDirectCount > 0) and (nRefCount <= nDirectCount+nInDirectCount)
-		# Circular Reference 
-		# Check if this is the last owner where we can delete the reference
-		incLostOwnerCount(aMem,cVar)
-			if (getLostOwnerCount(aMem,cVar) > nRefCount+nDirectCount+nInDirectCount+1) or
-				( (nRefCount=1) and (getLostOwnerCount(aMem,cVar)=2) 
-					and (getLostOwnerCount(aMem,cVar) > nDirectCount ) )
-				checkAllOwnersAreLost(aMem,cVar)
-			ok
-		return 
-	ok 
 	# Increment lost owner counter 
 		incLostOwnerCount(aMem,cVar)
 	# Do the decrement 
 		decRefCount(aMem,cVar)
 	# Hide the Var 
 		removeVar(aMem,cVar)
+	if (nInDirectCount > 0) and (nRefCount <= nDirectCount+nInDirectCount)
+		# Circular Reference 
+		# Check if this is the last owner where we can delete the reference
+			if getLostOwnerCount(aMem,cVar)+1 >= nRefCount
+				checkAllOwnersAreLost(aMem,cVar)
+			ok
+		return 
+	ok 
 
 func deleteVar aMem,cVar 
 	if getRefCount(aMem,cVar) > 0
