@@ -64,14 +64,12 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
     if ( pList->nReferenceCount ) {
         /* We don't delete the list because there are other references */
         ring_list_updaterefcount_gc(pState,pList,RING_LISTREF_DEC);
-        if ( ! (pList->lNewRef && (pList->nReferenceCount==0)) ) {
-            if ( pList->lNewRef ) {
-                /* Deleting a Ref() before assignment while we have other references */
-                pList->lNewRef = 0 ;
-                ring_list_updaterefcount_gc(pState,pList,RING_LISTREF_DEC);
-            }
-            return pList ;
+        if ( pList->lNewRef && (pList->nReferenceCount != 0) ) {
+            /* Deleting a Ref() before assignment while we have other references */
+            pList->lNewRef = 0 ;
+            ring_list_updaterefcount_gc(pState,pList,RING_LISTREF_DEC);
         }
+        return pList ;
     }
     /* Delete Container Variable (If the list have one) */
     if ( pList->lDeleteContainerVariable ) {
@@ -79,7 +77,6 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
         pList->lDeleteContainerVariable = 0 ;
         pList->pContainer = NULL ;
         /* Delete the Container */
-        ring_list_updaterefcount_gc(pState,pVariable,RING_LISTREF_DEC);
         pVariable->lDontDelete = 0 ;
         pVariable->nReferenceCount = 0 ;
         ring_list_delete_gc(pState,pVariable);
