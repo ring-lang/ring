@@ -324,3 +324,4 @@ Type: List *
 pSubList
 Type: Item *
 pItem
+ring_list_updaterefcount_gc

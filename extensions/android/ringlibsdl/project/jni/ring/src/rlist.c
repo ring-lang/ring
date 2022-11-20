@@ -68,7 +68,7 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
     /* Avoid deleting objects when the list is just a reference */
     if ( pList->nReferenceCount ) {
         /* We don't delete the list because there are other references */
-        ring_list_updatenestedreferences_gc(pState,pList, NULL,RING_LISTREF_DEC);
+        ring_list_updaterefcount_gc(pState,pList,RING_LISTREF_DEC);
         if ( pList->lCircularRef ) {
             pList->lCircularRef = 0 ;
             pList = ring_list_delete_gc(pState,pList);
@@ -78,7 +78,7 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
             if ( pList->lNewRef ) {
                 /* Deleting a Ref() before assignment while we have other references */
                 pList->lNewRef = 0 ;
-                ring_list_updatenestedreferences_gc(pState,pList, NULL,RING_LISTREF_DEC);
+                ring_list_updaterefcount_gc(pState,pList,RING_LISTREF_DEC);
             }
             return NULL ;
         }
@@ -89,7 +89,7 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
         pList->lDeleteContainerVariable = 0 ;
         pList->pContainer = NULL ;
         /* Delete the Container */
-        ring_list_updatenestedreferences_gc(pState,pVariable, NULL,RING_LISTREF_DEC);
+        ring_list_updaterefcount_gc(pState,pVariable,RING_LISTREF_DEC);
         if ( pVariable->lCircularRef ) {
             pVariable->lCircularRef = 0 ;
         }
@@ -1443,18 +1443,13 @@ RING_API void ring_list_setlistbyref_gc ( void *pState,List *pList, int index,Li
 {
     ring_list_acceptlistbyref_gc(pState,pList,index,pRef);
     /* Increment the Reference */
-    ring_list_updatenestedreferences_gc(pState,pRef, NULL,RING_LISTREF_INC);
+    ring_list_updaterefcount_gc(pState,pRef,RING_LISTREF_INC);
 }
 
 void ring_list_updatenestedreferences_gc ( void *pState,List *pList, List *aSubListsPointers,int nChange )
 {
     int x,nSize,lDeleteaSubListsPointers  ;
     List *pSubList  ;
-    /* Check updating one level */
-    if ( RING_LISTREF_ONELEVEL ) {
-        pList->nReferenceCount += nChange ;
-        return ;
-    }
     /* Check Sub Lists Pointers */
     lDeleteaSubListsPointers = (aSubListsPointers == NULL) ;
     if ( lDeleteaSubListsPointers ) {
@@ -1527,4 +1522,9 @@ void ring_list_allowdeleteingcircularreferences_gc ( void *pState,List *pList, L
     if ( lDeleteaSubListsPointers ) {
         ring_list_delete_gc(pState,aSubListsPointers);
     }
+}
+
+void ring_list_updaterefcount_gc ( void *pState,List *pList, int nChange )
+{
+    pList->nReferenceCount += nChange ;
 }

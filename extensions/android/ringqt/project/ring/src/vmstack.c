@@ -187,7 +187,7 @@ void ring_vm_assignment ( VM *pVM )
                     }
                     if ( pList->lNewRef ) {
                         pList->lNewRef = 0 ;
-                        ring_list_updatenestedreferences_gc(pVM->pRingState,pList,NULL,RING_LISTREF_DEC);
+                        ring_list_updaterefcount_gc(pVM->pRingState,pList,RING_LISTREF_DEC);
                     }
                 }
                 else {
