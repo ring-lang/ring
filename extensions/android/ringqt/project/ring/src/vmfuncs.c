@@ -316,10 +316,14 @@ void ring_vm_call2 ( VM *pVM )
             }
         }
         /*
-        **  We don't need to move the list to the previous scope 
-        **  Because RING_API_RETLIST() will do this for us 
-        **  Return (Delete Scope, Restore ActiveMem) 
+        **  We move the list to the previous scope 
+        **  Because we may have nested functions calls like refcount( list(nSize) ) 
+        **  Move returned List to the previous scope 
         */
+        if ( RING_VM_STACK_ISPOINTER ) {
+            ring_vm_movetoprevscope(pVM);
+        }
+        /* Return (Delete Scope, Restore ActiveMem) */
         ring_list_deleteitem_gc(pVM->pRingState,pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
         ring_vm_deletescope(pVM);
         /* Restore ActiveMem */
