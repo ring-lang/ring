@@ -45,7 +45,6 @@ RING_LISTOFOBJS_FINDSTRING
 RING_LISTOFOBJS_FINDNUMBER
 RING_LISTREF_INC
 RING_LISTREF_DEC
-RING_LISTREF_ONELEVEL
 ring_list_isdouble(pList,index)
 ring_list_isint(pList,index)
 ring_list_deletelastitem(x)
