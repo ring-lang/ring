@@ -63,7 +63,7 @@ ring_vm_freetemplists
 Type: List *
 pTempMem
 Type: int
-x,nStart
+x,nStart,lMutex
 ring_vm_endfuncexec
 ring_vm_retitemref
 Type: List *
