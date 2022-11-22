@@ -592,20 +592,13 @@ void ring_vm_createtemplist ( VM *pVM )
 {
     List *pList, *pList2  ;
     int x,lFound  ;
-    /* Get the Parent List */
-    if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
-        /*
-        **  Create the list in the TempMem related to the function 
-        **  The advantage of TempMem over Scope is that TempMem out of search domain (Var Name is not important) 
-        **  Variable name in TemMem is not important, we use it for storage (no search) 
-        */
-        pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
-        pList = ring_list_getlist(pList,RING_FUNCCL_TEMPMEM);
-    }
-    else {
-        /* We will create the list in the General Temp. Memory */
-        pList = pVM->pTempMem ;
-    }
+    /*
+    **  Get the Parent List 
+    **  Create the list in the TempMem related to the function 
+    **  The advantage of TempMem over Scope is that TempMem out of search domain (Var Name is not important) 
+    **  Variable name in TemMem is not important, we use it for storage (no search) 
+    */
+    pList = ring_vm_prevtempmem(pVM) ;
     /*
     **  Don't allow more than one temp. list per VM instruction 
     **  This avoid a memory leak when using code like this:  while true if [] ok end 
