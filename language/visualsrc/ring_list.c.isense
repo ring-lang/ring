@@ -310,3 +310,4 @@ Type: Item *
 pItem
 ring_list_setlistbyref_gc
 ring_list_updaterefcount_gc
+ring_list_isreference
