@@ -285,8 +285,6 @@ void ring_vm_freestack ( VM *pVM )
     if ( ( ring_list_getsize(pVM->pFuncCallList) == 0 ) && (pVM->nInsideBraceFlag == 0) ) {
         pVM->nSP = 0 ;
         pVM->nFuncSP = 0 ;
-        /* Clear General Temp Memory */
-        ring_list_deleteallitems_gc(pVM->pRingState,pVM->pTempMem);
     }
     else {
         if ( pVM->nInsideBraceFlag == 0 ) {

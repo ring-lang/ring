@@ -689,8 +689,9 @@ List * ring_vm_prevtempmem ( VM *pVM )
 void ring_vm_freetemplists ( VM *pVM )
 {
     List *pTempMem  ;
-    int x,nStart  ;
+    int x,nStart,lMutex  ;
     nStart = 1 ;
+    lMutex = 0 ;
     /* Check that we are not in the class region */
     if ( pVM->nInClassRegion ) {
         /*
@@ -706,6 +707,7 @@ void ring_vm_freetemplists ( VM *pVM )
         pTempMem = ring_list_getlist(pTempMem,RING_FUNCCL_TEMPMEM) ;
     }
     else {
+        lMutex = 1 ;
         pTempMem = pVM->pTempMem ;
     }
     if ( (RING_VM_IR_READI == 0) || (RING_VM_IR_READIVALUE(2) !=pVM->nActiveScopeID) ) {
@@ -713,6 +715,10 @@ void ring_vm_freetemplists ( VM *pVM )
         RING_VM_IR_READIVALUE(2) = pVM->nActiveScopeID ;
     }
     nStart = RING_VM_IR_READI ;
+    /* Lock (Important for Threads Support) */
+    if ( lMutex ) {
+        ring_vm_mutexlock(pVM);
+    }
     /* Delete Temp. Lists created during the function call */
     if ( nStart == 1 ) {
         /* No Temp. Lists are created before the code execution of the function */
@@ -728,6 +734,10 @@ void ring_vm_freetemplists ( VM *pVM )
         for ( x = nStart ; x <= ring_list_getsize(pTempMem) ; x++ ) {
             ring_list_deleteitem_gc(pVM->pRingState,pTempMem,nStart);
         }
+    }
+    /* Unlock (If we are using Threads) */
+    if ( lMutex ) {
+        ring_vm_mutexunlock(pVM);
     }
 }
 
