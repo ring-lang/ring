@@ -102,7 +102,7 @@ void ring_vm_listitem ( VM *pVM )
             RING_VM_STACK_POP ;
             pList2 = ring_list_getlist(pList2,RING_VAR_VALUE);
             pList3 = ring_list_newlist_gc(pVM->pRingState,pList);
-            if ( pList2->nReferenceCount ) {
+            if ( ring_list_isreference(pList2) ) {
                 /* Copy by ref (pList2 to pList3) */
                 if ( pList2->lNewRef ) {
                     pList2->lNewRef = 0 ;
@@ -122,7 +122,7 @@ void ring_vm_listitem ( VM *pVM )
             RING_VM_STACK_POP ;
             pList2 = ring_item_getlist(pItem);
             pList3 = ring_list_newlist_gc(pVM->pRingState,pList);
-            if ( pList2->nReferenceCount ) {
+            if ( ring_list_isreference(pList2) ) {
                 /* Copy by ref (pList2 to pList3) */
                 pItem = ring_list_getitem(pList,ring_list_getsize(pList));
                 ring_state_free(pVM->pRingState,pList3);
@@ -403,7 +403,7 @@ void ring_vm_listassignment ( VM *pVM )
         ring_item_settype_gc(pVM->pRingState,pItem,ITEMTYPE_LIST);
         pList = ring_item_getlist(pItem);
         ring_list_deleteallitems_gc(pVM->pRingState,pList);
-        if ( pVar->nReferenceCount ) {
+        if ( ring_list_isreference(pVar) ) {
             ring_state_free(pVM->pRingState,pList);
             pItem->data.pList = pVar ;
             if ( pVar->lNewRef ) {

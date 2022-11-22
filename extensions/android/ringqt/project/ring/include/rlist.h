@@ -270,5 +270,7 @@
 
     RING_API void ring_list_setlistbyref_gc ( void *pState,List *pList, int index,List *pRef ) ;
 
-    void ring_list_updaterefcount_gc ( void *pState,List *pList, int nChange ) ;
+    RING_API void ring_list_updaterefcount_gc ( void *pState,List *pList, int nChange ) ;
+
+    RING_API int ring_list_isreference ( List *pList ) ;
 #endif

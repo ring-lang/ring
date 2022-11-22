@@ -167,7 +167,7 @@ void ring_vm_assignment ( VM *pVM )
                     pItem = (Item *) RING_VM_STACK_READP ;
                     pVar = ring_item_getlist(pItem);
                 }
-                if ( pVar->nReferenceCount || pVar->lCopyByRef ) {
+                if ( ring_list_isreference(pVar) || pVar->lCopyByRef ) {
                     pList = pVar ;
                 }
                 else {
@@ -180,7 +180,7 @@ void ring_vm_assignment ( VM *pVM )
                 RING_VM_STACK_POP ;
                 ring_list_setint_gc(pVM->pRingState,pVar, RING_VAR_TYPE ,RING_VM_LIST);
                 /* Copy The List */
-                if ( pList->nReferenceCount ) {
+                if ( ring_list_isreference(pList) ) {
                     if ( ! ( ring_list_getlist(pVar,RING_VAR_VALUE) == pList ) ) {
                         ring_list_setlist_gc(pVM->pRingState,pVar,RING_VAR_VALUE);
                         ring_list_setlistbyref_gc(pVM->pRingState,pVar,RING_VAR_VALUE,pList);
@@ -358,7 +358,7 @@ void ring_vm_list_copy ( VM *pVM,List *pNewList, List *pList )
         else if ( ring_list_islist(pList,x) ) {
             pNewList2 = ring_list_newlist_gc(pVM->pRingState,pNewList);
             pSourceList = ring_list_getlist(pList,x) ;
-            if ( pSourceList->nReferenceCount ) {
+            if ( ring_list_isreference(pSourceList) ) {
                 /* Copy By Reference */
                 ring_list_setlistbyref_gc(pVM->pRingState,pNewList, ring_list_getsize(pNewList),pSourceList);
             }
