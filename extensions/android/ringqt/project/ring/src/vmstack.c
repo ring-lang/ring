@@ -438,7 +438,6 @@ void ring_vm_beforeequallist ( VM *pVM,List *pVar,double nNum1 )
         }
         else if ( pVM->nBeforeEqual == 7 ) {
             ring_list_setdouble_gc(pVM->pRingState,pVar, RING_VAR_VALUE , (int) ring_list_getdouble(pVar,RING_VAR_VALUE) | (int) nNum1);
-            ring_list_setdouble_gc(pVM->pRingState,pVar, RING_VAR_VALUE , (int) ring_list_getdouble(pVar,RING_VAR_VALUE) | (int) nNum1);
         }
         else if ( pVM->nBeforeEqual == 8 ) {
             ring_list_setdouble_gc(pVM->pRingState,pVar, RING_VAR_VALUE , (int) ring_list_getdouble(pVar,RING_VAR_VALUE) ^ (int) nNum1);
