@@ -104,13 +104,7 @@ void ring_vm_listitem ( VM *pVM )
             pList3 = ring_list_newlist_gc(pVM->pRingState,pList);
             if ( ring_list_isreference(pList2) ) {
                 /* Copy by ref (pList2 to pList3) */
-                if ( pList2->lNewRef ) {
-                    pList2->lNewRef = 0 ;
-                    ring_list_acceptlistbyref_gc(pVM->pRingState,pList,ring_list_getsize(pList),pList2);
-                }
-                else {
-                    ring_list_setlistbyref_gc(pVM->pRingState,pList,ring_list_getsize(pList),pList2);
-                }
+                ring_list_assignreftovar(pVM->pRingState,pList2,pList,ring_list_getsize(pList));
             }
             else {
                 ring_vm_list_copy(pVM,pList4,pList2);
