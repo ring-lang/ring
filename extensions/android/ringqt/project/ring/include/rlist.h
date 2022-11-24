@@ -276,5 +276,5 @@
 
     RING_API void ring_list_assignreftovar_gc ( void *pState,List *pRef,List *pVar,int nPos ) ;
 
-    RING_API void ring_list_assignreftoitem ( void *pState,List *pRef,Item *pItem ) ;
+    RING_API void ring_list_assignreftoitem_gc ( void *pState,List *pRef,Item *pItem ) ;
 #endif

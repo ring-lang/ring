@@ -1453,7 +1453,7 @@ RING_API void ring_list_assignreftovar_gc ( void *pState,List *pRef,List *pVar,i
     }
 }
 
-RING_API void ring_list_assignreftoitem ( void *pState,List *pRef,Item *pItem )
+RING_API void ring_list_assignreftoitem_gc ( void *pState,List *pRef,Item *pItem )
 {
     List *pList  ;
     pList = ring_item_getlist(pItem);
