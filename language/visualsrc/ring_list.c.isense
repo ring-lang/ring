@@ -311,7 +311,7 @@ pItem
 ring_list_setlistbyref_gc
 ring_list_updaterefcount_gc
 ring_list_isreference
-ring_list_assignreftovar
+ring_list_assignreftovar_gc_gc
 Type: int
 lNewRef
 ring_list_assignreftoitem
