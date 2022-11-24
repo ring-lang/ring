@@ -273,4 +273,6 @@
     RING_API void ring_list_updaterefcount_gc ( void *pState,List *pList, int nChange ) ;
 
     RING_API int ring_list_isreference ( List *pList ) ;
+
+    RING_API void ring_list_assignreftovar ( void *pState,List *pRef,List *pVar ) ;
 #endif

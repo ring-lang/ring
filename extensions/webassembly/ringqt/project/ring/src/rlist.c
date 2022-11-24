@@ -1437,3 +1437,18 @@ RING_API int ring_list_isreference ( List *pList )
 {
     return pList->nReferenceCount ;
 }
+
+RING_API void ring_list_assignreftovar ( void *pState,List *pRef,List *pVar )
+{
+    int lNewRef  ;
+    lNewRef = pRef->lNewRef ;
+    pRef->lNewRef = 0 ;
+    if ( ! ( ring_list_getlist(pVar,RING_VAR_VALUE) == pRef ) ) {
+        if ( lNewRef ) {
+            ring_list_acceptlistbyref_gc(pState,pVar,RING_VAR_VALUE,pRef);
+        }
+        else {
+            ring_list_setlistbyref_gc(pState,pVar,RING_VAR_VALUE,pRef);
+        }
+    }
+}
