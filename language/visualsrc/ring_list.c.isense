@@ -314,3 +314,6 @@ ring_list_isreference
 ring_list_assignreftovar
 Type: int
 lNewRef
+ring_list_assignreftoitem
+Type: List *
+pList

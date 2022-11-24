@@ -1428,7 +1428,7 @@ RING_API void ring_list_setlistbyref_gc ( void *pState,List *pList, int index,Li
     ring_list_updaterefcount_gc(pState,pRef,RING_LISTREF_INC);
 }
 
-void ring_list_updaterefcount_gc ( void *pState,List *pList, int nChange )
+RING_API void ring_list_updaterefcount_gc ( void *pState,List *pList, int nChange )
 {
     pList->nReferenceCount += nChange ;
 }
@@ -1450,5 +1450,19 @@ RING_API void ring_list_assignreftovar ( void *pState,List *pRef,List *pVar,int 
         else {
             ring_list_setlistbyref_gc(pState,pVar,nPos,pRef);
         }
+    }
+}
+
+RING_API void ring_list_assignreftoitem ( void *pState,List *pRef,Item *pItem )
+{
+    List *pList  ;
+    pList = ring_item_getlist(pItem);
+    ring_list_delete_gc(pState,pList);
+    pItem->data.pList = pRef ;
+    if ( pRef->lNewRef ) {
+        pRef->lNewRef = 0 ;
+    }
+    else {
+        ring_list_updaterefcount_gc(pState,pRef,RING_LISTREF_INC);
     }
 }
