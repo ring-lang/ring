@@ -342,7 +342,12 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
     List *pRealList,*pTempMem,*pVariableList, *pObjectVariable  ;
     VM *pVM  ;
     pVM = (VM *) pPointer ;
-    pTempMem = ring_vm_prevtempmem(pVM);
+    if ( nRef == 2 ) {
+        pTempMem = NULL ;
+    }
+    else {
+        pTempMem = ring_vm_prevtempmem(pVM);
+    }
     pVariableList = ring_vm_newvar2(pVM,RING_TEMP_VARIABLE,pTempMem);
     ring_list_setint_gc(((VM *) pPointer)->pRingState,pVariableList,RING_VAR_TYPE,RING_VM_LIST);
     ring_list_setlist_gc(((VM *) pPointer)->pRingState,pVariableList,RING_VAR_VALUE);
