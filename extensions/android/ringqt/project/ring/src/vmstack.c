@@ -181,7 +181,7 @@ void ring_vm_assignment ( VM *pVM )
                 ring_list_setint_gc(pVM->pRingState,pVar, RING_VAR_TYPE ,RING_VM_LIST);
                 /* Copy The List */
                 if ( ring_list_isreference(pList) ) {
-                    ring_list_assignreftovar(pVM->pRingState,pList,pVar);
+                    ring_list_assignreftovar(pVM->pRingState,pList,pVar,RING_VAR_VALUE);
                 }
                 else {
                     ring_list_setlist_gc(pVM->pRingState,pVar,RING_VAR_VALUE);

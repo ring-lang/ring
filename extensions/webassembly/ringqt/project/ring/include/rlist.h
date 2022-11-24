@@ -274,5 +274,5 @@
 
     RING_API int ring_list_isreference ( List *pList ) ;
 
-    RING_API void ring_list_assignreftovar ( void *pState,List *pRef,List *pVar ) ;
+    RING_API void ring_list_assignreftovar ( void *pState,List *pRef,List *pVar,int nPos ) ;
 #endif
