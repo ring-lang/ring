@@ -218,3 +218,5 @@ More Improvements
 * Ring VM - Ref()/Reference() function - Return a safe (managed) reference for a List/Object
 * Ring VM - Increase the Stack size to 1K
 * Ring VM - Error System - Display recursion depth
+* Ring VM - ICO_FREESTACK instruction - Don't delete temp. lists in global scope
+* Ring VM - ICO_FREETEMPLISTS instruction - Delete temp. lists in global scope (Thread Safe)
