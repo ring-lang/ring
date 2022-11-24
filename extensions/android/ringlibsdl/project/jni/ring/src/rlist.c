@@ -1457,6 +1457,10 @@ RING_API void ring_list_assignreftoitem_gc ( void *pState,List *pRef,Item *pItem
 {
     List *pList  ;
     pList = ring_item_getlist(pItem);
+    if ( pList == pRef ) {
+        pRef->lNewRef = 0 ;
+        return ;
+    }
     ring_list_delete_gc(pState,pList);
     pItem->data.pList = pRef ;
     if ( pRef->lNewRef ) {
