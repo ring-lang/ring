@@ -182,13 +182,14 @@ void ring_vm_assignment ( VM *pVM )
                 /* Copy The List */
                 if ( ring_list_isreference(pList) ) {
                     if ( ! ( ring_list_getlist(pVar,RING_VAR_VALUE) == pList ) ) {
-                        ring_list_setlist_gc(pVM->pRingState,pVar,RING_VAR_VALUE);
-                        ring_list_setlistbyref_gc(pVM->pRingState,pVar,RING_VAR_VALUE,pList);
+                        if ( pList->lNewRef ) {
+                            ring_list_acceptlistbyref_gc(pVM->pRingState,pVar,RING_VAR_VALUE,pList);
+                        }
+                        else {
+                            ring_list_setlistbyref_gc(pVM->pRingState,pVar,RING_VAR_VALUE,pList);
+                        }
                     }
-                    if ( pList->lNewRef ) {
-                        pList->lNewRef = 0 ;
-                        ring_list_updaterefcount_gc(pVM->pRingState,pList,RING_LISTREF_DEC);
-                    }
+                    pList->lNewRef = 0 ;
                 }
                 else {
                     ring_list_setlist_gc(pVM->pRingState,pVar,RING_VAR_VALUE);
