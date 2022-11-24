@@ -389,11 +389,11 @@ void ring_vm_listassignment ( VM *pVM )
         RING_VM_STACK_POP ;
         ring_item_settype_gc(pVM->pRingState,pItem,ITEMTYPE_LIST);
         pList = ring_item_getlist(pItem);
-        ring_list_deleteallitems_gc(pVM->pRingState,pList);
         if ( ring_list_isref(pVar) ) {
             ring_list_assignreftoitem_gc(pVM->pRingState,pVar,pItem);
         }
         else {
+            ring_list_deleteallitems_gc(pVM->pRingState,pList);
             if ( pVar->lCopyByRef ) {
                 pVar->lCopyByRef = 0 ;
                 ring_list_swaptwolists(pList,pVar);
