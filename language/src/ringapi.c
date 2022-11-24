@@ -348,10 +348,13 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
     else {
         pTempMem = ring_vm_prevtempmem(pVM);
     }
-    pVariableList = ring_vm_newvar2(pVM,RING_TEMP_VARIABLE,pTempMem);
-    ring_list_setint_gc(((VM *) pPointer)->pRingState,pVariableList,RING_VAR_TYPE,RING_VM_LIST);
-    ring_list_setlist_gc(((VM *) pPointer)->pRingState,pVariableList,RING_VAR_VALUE);
-    pRealList = ring_list_getlist(pVariableList,RING_VAR_VALUE);
+    /* Check if we need to create the container variable */
+    if ( ! ( (nRef==2) && (pList->pContainer != NULL) ) ) {
+        pVariableList = ring_vm_newvar2(pVM,RING_TEMP_VARIABLE,pTempMem);
+        ring_list_setint_gc(((VM *) pPointer)->pRingState,pVariableList,RING_VAR_TYPE,RING_VM_LIST);
+        ring_list_setlist_gc(((VM *) pPointer)->pRingState,pVariableList,RING_VAR_VALUE);
+        pRealList = ring_list_getlist(pVariableList,RING_VAR_VALUE);
+    }
     /* Check if we are creating a Reference before assignment, i.e. Ref(List(nSize)) */
     if ( pList->lCopyByRef && (nRef == 2) ) {
         nRef = 1 ;
