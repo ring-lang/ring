@@ -61,10 +61,10 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
         return pList ;
     }
     /* Avoid deleting objects when the list is just a reference */
-    if ( ring_list_isreference(pList) ) {
+    if ( ring_list_isref(pList) ) {
         /* We don't delete the list because there are other references */
         ring_list_updaterefcount_gc(pState,pList,RING_LISTREF_DEC);
-        if ( pList->lNewRef && ring_list_isreference(pList) ) {
+        if ( pList->lNewRef && ring_list_isref(pList) ) {
             /* Deleting a Ref() before assignment while we have other references */
             pList->lNewRef = 0 ;
             ring_list_updaterefcount_gc(pState,pList,RING_LISTREF_DEC);
@@ -1433,7 +1433,7 @@ RING_API void ring_list_updaterefcount_gc ( void *pState,List *pList, int nChang
     pList->nReferenceCount += nChange ;
 }
 
-RING_API int ring_list_isreference ( List *pList )
+RING_API int ring_list_isref ( List *pList )
 {
     return pList->nReferenceCount ;
 }
