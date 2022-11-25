@@ -43,12 +43,7 @@ RING_API List * ring_list_new2_gc ( void *pState,List *pList,unsigned int nSize 
     pList->pHashTable = NULL ;
     pList->pItemBlock = NULL ;
     pList->pItemsBlock = NULL ;
-    pList->pContainer = NULL ;
-    pList->nReferenceCount = 0 ;
-    pList->lDeleteContainerVariable = 0 ;
-    pList->lDontDelete = 0 ;
-    pList->lNewRef = 0 ;
-    pList->lCopyByRef = 0 ;
+    ring_list_clearrefdata(pList);
     return pList ;
 }
 
@@ -926,12 +921,7 @@ RING_API void ring_list_clear ( List *pList )
     pList->pHashTable = NULL ;
     pList->pItemBlock = NULL ;
     pList->pItemsBlock = NULL ;
-    pList->pContainer = NULL ;
-    pList->nReferenceCount = 0 ;
-    pList->lDeleteContainerVariable = 0 ;
-    pList->lDontDelete = 0 ;
-    pList->lNewRef = 0 ;
-    pList->lCopyByRef = 0 ;
+    ring_list_clearrefdata(pList);
 }
 /* Define functions without State Pointer */
 
@@ -1517,4 +1507,14 @@ RING_API void ring_list_enablecopybyref ( List *pList )
 RING_API void ring_list_disablecopybyref ( List *pList )
 {
     pList->lCopyByRef = 0 ;
+}
+
+RING_API void ring_list_clearrefdata ( List *pList )
+{
+    pList->pContainer = NULL ;
+    pList->lCopyByRef = 0 ;
+    pList->lNewRef = 0 ;
+    pList->lDontDelete = 0 ;
+    pList->lDeleteContainerVariable = 0 ;
+    pList->nReferenceCount = 0 ;
 }
