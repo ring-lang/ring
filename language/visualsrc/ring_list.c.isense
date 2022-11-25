@@ -67,6 +67,7 @@ pItems,*pItemsLast
 ring_list_delete_gc
 Type: List *
 pVariable
+ring_list_deletecontent_gc
 ring_list_copy_gc
 Type: int
 x,nMax
@@ -218,7 +219,6 @@ Type: int
 x
 Type: List *
 pList2
-ring_list_clear
 ring_list_new
 ring_list_genarray
 ring_list_delete
@@ -303,6 +303,10 @@ Type: char
 cStr[100]
 ring_list_iscpointerlist
 ring_list_cpointercmp
+ring_list_clear
+ring_list_iscopybyref
+ring_list_enablecopybyref
+ring_list_disablecopybyref
 ring_list_acceptlistbyref_gc
 Type: List *
 pRealList
@@ -319,7 +323,4 @@ ring_list_assignreftoitem_gc
 Type: List *
 pList
 ring_list_isrefcontainer
-ring_list_iscopybyref
-ring_list_enablecopybyref
-ring_list_disablecopybyref
 ring_list_clearrefdata

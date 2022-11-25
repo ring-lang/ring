@@ -77,10 +77,15 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
         ring_list_delete_gc(pState,pVariable);
         return NULL ;
     }
+    ring_list_deletecontent_gc(pState,pList);
+    return NULL ;
+}
+
+RING_API void ring_list_deletecontent_gc ( void *pState,List *pList )
+{
     /* Delete All Items */
     ring_list_deleteallitems_gc(pState,pList);
     ring_state_free(pState,pList);
-    return NULL ;
 }
 
 RING_API void ring_list_copy_gc ( void *pState,List *pNewList, List *pList )
