@@ -2,14 +2,6 @@
 #ifndef ring_list_h
     #define ring_list_h
     /* Data */
-    typedef struct ListGCData {
-        void *pContainer  ;
-        unsigned int lCopyByRef: 1  ;
-        unsigned int lNewRef: 1  ;
-        unsigned int lDontDelete: 1  ;
-        unsigned int lDeleteContainerVariable: 1  ;
-        short int nReferenceCount  ;
-    } ListGCData ;
     typedef struct List {
         struct Items *pFirst  ;
         struct Items *pLast  ;

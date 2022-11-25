@@ -5,4 +5,12 @@
         void (*pFreeFunc)(void *,void *) ;
         unsigned int nReferenceCount  ;
     } GCData ;
+    typedef struct ListGCData {
+        void *pContainer  ;
+        unsigned int lCopyByRef: 1  ;
+        unsigned int lNewRef: 1  ;
+        unsigned int lDontDelete: 1  ;
+        unsigned int lDeleteContainerVariable: 1  ;
+        short int nReferenceCount  ;
+    } ListGCData ;
 #endif
