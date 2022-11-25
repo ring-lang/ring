@@ -13,11 +13,11 @@
         struct Item *pItemBlock  ;
         struct Items *pItemsBlock  ;
         void *pContainer  ;
-        short int nReferenceCount  ;
-        unsigned int lDeleteContainerVariable: 1  ;
-        unsigned int lDontDelete: 1  ;
-        unsigned int lNewRef: 1  ;
         unsigned int lCopyByRef: 1  ;
+        unsigned int lNewRef: 1  ;
+        unsigned int lDontDelete: 1  ;
+        unsigned int lDeleteContainerVariable: 1  ;
+        short int nReferenceCount  ;
     } List ;
     /* Constants */
     #define RING_LISTOFOBJS_FINDSTRING 1
