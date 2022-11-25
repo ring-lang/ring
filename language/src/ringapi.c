@@ -370,32 +370,8 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
         ring_list_swaptwolists(pRealList,pList);
     }
     else {
-        /*
-        **  Used by RING_API_RETNEWREF (i.e. Ref()/Reference() function implementation) 
-        **  Note: The list may already have a container variable (Previous Reference) 
-        */
-        if ( pList->pContainer == NULL ) {
-            ring_list_setlistbyref_gc(((VM *) pPointer)->pRingState,pVariableList,RING_VAR_VALUE,pList);
-            if ( pList->lNewRef == 0 ) {
-                pList->lNewRef = 1 ;
-            }
-            else {
-                /* Avoid increasing the counter when writing Ref(Ref(Ref(....Ref(aList)....))) */
-                ring_list_updaterefcount_gc(pVM->pRingState,pList,RING_LISTREF_DEC);
-            }
-            /* If we have a reference to an object, the Self attribute will stay pointing to the Container Variable */
-            if ( ring_vm_oop_isobject(pList) ) {
-                ring_vm_oop_updateselfpointer(pVM,pList,RING_OBJTYPE_VARIABLE,pVariableList);
-            }
-            /* We increase the Counter to avoid deleting the container variable */
-            pVariableList->lDontDelete = 1 ;
-            /* When deleting the list (No other references exist) - It will delete the container variable */
-            pList->lDeleteContainerVariable = 1 ;
-            pList->pContainer = pVariableList ;
-        }
-        else {
-            pVariableList = (List *) pList->pContainer ;
-        }
+        /* Used by RING_API_RETNEWREF (i.e. Ref()/Reference() function implementation) */
+        pVariableList = ring_list_newref_gc(((VM *) pPointer)->pRingState,pVariableList,pList);
     }
     RING_API_PUSHPVALUE(pVariableList);
     RING_API_OBJTYPE = RING_OBJTYPE_VARIABLE ;
