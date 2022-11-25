@@ -59,6 +59,8 @@
     RING_API void ring_list_deleteitem_gc ( void *pState,List *pList,unsigned int index ) ;
 
     RING_API int ring_list_gettype ( List *pList, unsigned int index ) ;
+
+    RING_API void ring_list_clear ( List *pList ) ;
     /* int */
 
     RING_API void ring_list_setint_gc ( void *pState,List *pList, unsigned int index ,int number ) ;
@@ -265,8 +267,6 @@
 
     RING_API int ring_list_cpointercmp ( List *pList,List *pList2 ) ;
     /* Copy list by Reference */
-
-    RING_API void ring_list_clear ( List *pList ) ;
 
     RING_API int ring_list_iscopybyref ( List *pList ) ;
 

@@ -166,6 +166,20 @@ RING_API void ring_list_copy_tohighlevel_gc ( void *pState,List *pNewList, List 
         }
     }
 }
+
+RING_API void ring_list_clear ( List *pList )
+{
+    pList->pFirst = NULL ;
+    pList->pLast = NULL ;
+    pList->nSize = 0 ;
+    pList->nNextItemAfterLastAccess = 0 ;
+    pList->pLastItemLastAccess = NULL ;
+    pList->pItemsArray = NULL ;
+    pList->pHashTable = NULL ;
+    pList->pItemBlock = NULL ;
+    pList->pItemsBlock = NULL ;
+    ring_list_clearrefdata(pList);
+}
 /* List Items */
 
 RING_API void ring_list_newitem_gc ( void *pState,List *pList )
@@ -1358,20 +1372,6 @@ RING_API int ring_list_cpointercmp ( List *pList,List *pList2 )
     return ring_list_getpointer(pList,RING_CPOINTER_POINTER) == ring_list_getpointer(pList2,RING_CPOINTER_POINTER) ;
 }
 /* Copy list by Reference */
-
-RING_API void ring_list_clear ( List *pList )
-{
-    pList->pFirst = NULL ;
-    pList->pLast = NULL ;
-    pList->nSize = 0 ;
-    pList->nNextItemAfterLastAccess = 0 ;
-    pList->pLastItemLastAccess = NULL ;
-    pList->pItemsArray = NULL ;
-    pList->pHashTable = NULL ;
-    pList->pItemBlock = NULL ;
-    pList->pItemsBlock = NULL ;
-    ring_list_clearrefdata(pList);
-}
 
 RING_API int ring_list_iscopybyref ( List *pList )
 {
