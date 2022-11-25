@@ -243,15 +243,15 @@
 
     RING_API void ring_list_print ( List *pList ) ;
 
-    RING_API void ring_list_print2 ( List *pList,int nDecimals ) ;
+    RING_API void ring_list_print2 ( List *pList,unsigned int nDecimals ) ;
 
     RING_API int ring_list_findinlistofobjs ( List *pList,int nType,double nNum1,const char *str,int nColumn,char *cAttribute ) ;
 
     RING_API int ring_list_findcpointer ( List *pList,List *pValue,unsigned int nColumn ) ;
 
-    RING_API double ring_list_getdoublecolumn ( List *pList,int nIndex,unsigned int nColumn,const char *cAttribute ) ;
+    RING_API double ring_list_getdoublecolumn ( List *pList,unsigned int nIndex,unsigned int nColumn,const char *cAttribute ) ;
 
-    RING_API char * ring_list_getstringcolumn ( List *pList,int nIndex,unsigned int nColumn,const char *cAttribute ) ;
+    RING_API char * ring_list_getstringcolumn ( List *pList,unsigned int nIndex,unsigned int nColumn,const char *cAttribute ) ;
 
     RING_API void ring_list_addringpointer ( List *pList,void *pValue ) ;
 
@@ -259,7 +259,7 @@
 
     RING_API int ring_list_isobject ( List *pList ) ;
 
-    RING_API void ring_list_printobj ( List *pList, int nDecimals ) ;
+    RING_API void ring_list_printobj ( List *pList, unsigned int nDecimals ) ;
 
     RING_API int ring_list_iscpointerlist ( List *pList ) ;
 

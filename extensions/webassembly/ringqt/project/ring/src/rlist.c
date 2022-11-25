@@ -1126,7 +1126,7 @@ RING_API void ring_list_print ( List *pList )
     ring_list_print2(pList,2);
 }
 
-RING_API void ring_list_print2 ( List *pList,int nDecimals )
+RING_API void ring_list_print2 ( List *pList,unsigned int nDecimals )
 {
     int x,t,nSize  ;
     double y  ;
@@ -1270,7 +1270,7 @@ RING_API int ring_list_findcpointer ( List *pList,List *pValue,unsigned int nCol
     return 0 ;
 }
 
-RING_API double ring_list_getdoublecolumn ( List *pList,int nIndex,unsigned int nColumn,const char *cAttribute )
+RING_API double ring_list_getdoublecolumn ( List *pList,unsigned int nIndex,unsigned int nColumn,const char *cAttribute )
 {
     int nPos  ;
     if ( nColumn == 0 ) {
@@ -1298,7 +1298,7 @@ RING_API double ring_list_getdoublecolumn ( List *pList,int nIndex,unsigned int 
     return 0.0 ;
 }
 
-RING_API char * ring_list_getstringcolumn ( List *pList,int nIndex,unsigned int nColumn,const char *cAttribute )
+RING_API char * ring_list_getstringcolumn ( List *pList,unsigned int nIndex,unsigned int nColumn,const char *cAttribute )
 {
     int nPos  ;
     static char nullstring[] = "" ;
@@ -1362,7 +1362,7 @@ RING_API int ring_list_isobject ( List *pList )
     return 1 ;
 }
 
-RING_API void ring_list_printobj ( List *pList,int nDecimals )
+RING_API void ring_list_printobj ( List *pList,unsigned int nDecimals )
 {
     List *pList2,*pList3  ;
     int x  ;
