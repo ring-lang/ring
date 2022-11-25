@@ -20,7 +20,7 @@ pList
 Type: float
 fNumber
 END:
-Type: GCData
+Type: ItemGCData
 gc
 END:
 Type: Item

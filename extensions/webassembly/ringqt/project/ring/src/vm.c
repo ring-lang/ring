@@ -227,7 +227,7 @@ VM * ring_vm_delete ( VM *pVM )
     pVM->aBeforeObjState = ring_list_delete_gc(pVM->pRingState,pVM->aBeforeObjState);
     /* Free Stack */
     for ( x = 0 ; x < RING_VM_STACK_SIZE ; x++ ) {
-        ring_item_content_delete(&(pVM->aStack[x]));
+        ring_item_deletecontent(&(pVM->aStack[x]));
     }
     /* Delete the bytecode */
     for ( x = 1 ; x <= RING_VM_INSTRUCTIONSCOUNT ; x++ ) {

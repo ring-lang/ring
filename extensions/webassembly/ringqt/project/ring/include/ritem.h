@@ -65,7 +65,7 @@
 
     RING_API void ring_item_print ( Item *pItem ) ;
 
-    RING_API void ring_item_content_delete_gc ( void *pState,Item *pItem ) ;
+    RING_API void ring_item_deletecontent_gc ( void *pState,Item *pItem ) ;
     /*
     **  Functions to deal with array of items 
     **  int 
@@ -102,7 +102,7 @@
 
     RING_API void ring_item_settype ( Item *pItem,unsigned int ItemType ) ;
 
-    RING_API void ring_item_content_delete ( Item *pItem ) ;
+    RING_API void ring_item_deletecontent ( Item *pItem ) ;
     /*
     **  Functions to deal with array of items 
     **  int 

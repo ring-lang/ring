@@ -63,7 +63,7 @@ RING_API void ring_item_print ( Item *pItem )
     }
 }
 
-RING_API void ring_item_content_delete_gc ( void *pState,Item *pItem )
+RING_API void ring_item_deletecontent_gc ( void *pState,Item *pItem )
 {
     assert(pItem != NULL);
     switch ( pItem->nType ) {
@@ -106,7 +106,7 @@ RING_API void ring_item_settype_gc ( void *pState,Item *pItem,unsigned int ItemT
         return ;
     }
     /* When we set the type we remove the current content at first */
-    ring_item_content_delete_gc(pState,pItem);
+    ring_item_deletecontent_gc(pState,pItem);
     switch ( ItemType ) {
         case ITEMTYPE_NOTHING :
             pItem->nType = ITEMTYPE_NOTHING ;
@@ -226,9 +226,9 @@ RING_API void ring_item_settype ( Item *pItem,unsigned int ItemType )
     ring_item_settype_gc(NULL,pItem,ItemType);
 }
 
-RING_API void ring_item_content_delete ( Item *pItem )
+RING_API void ring_item_deletecontent ( Item *pItem )
 {
-    ring_item_content_delete_gc(NULL,pItem);
+    ring_item_deletecontent_gc(NULL,pItem);
 }
 /*
 **  Functions to deal with array of items 

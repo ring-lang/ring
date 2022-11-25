@@ -3,7 +3,7 @@
     #define ring_gc_h
     /*
     **  Functions 
-    **  GC Functions 
+    **  Item GC Functions 
     */
 
     void ring_vm_gc_cleardata ( Item *pItem ) ;

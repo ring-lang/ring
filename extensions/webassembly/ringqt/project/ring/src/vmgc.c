@@ -1,6 +1,6 @@
 /* Copyright (c) 2013-2022 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
-/* GC Functions */
+/* Item GC Functions */
 
 void ring_vm_gc_cleardata ( Item *pItem )
 {
@@ -70,7 +70,7 @@ void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem )
         if ( pItem->nType == ITEMTYPE_POINTER ) {
             ring_vm_gc_freefunc((RingState *) pState,pItem);
         }
-        ring_item_content_delete_gc(pState,pItem);
+        ring_item_deletecontent_gc(pState,pItem);
         ring_state_free(pState,pItem);
     }
     else {
