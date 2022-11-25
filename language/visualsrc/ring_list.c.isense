@@ -321,3 +321,4 @@ pList
 ring_list_iscopybyref
 ring_list_enablecopybyref
 ring_list_disablecopybyref
+ring_list_isrefcontainer

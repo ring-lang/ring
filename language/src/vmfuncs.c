@@ -550,7 +550,7 @@ void ring_vm_movetoprevscope ( VM *pVM )
     /* Get The Source List */
     if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
         pList = (List *) RING_VM_STACK_READP ;
-        if ( pList->lDontDelete ) {
+        if ( ring_list_isrefcontainer(pList) ) {
             /*
             **  This is a container variable that will not be deleted 
             **  So we don't need to move it to the previous scope 

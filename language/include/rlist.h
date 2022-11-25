@@ -285,4 +285,6 @@
     RING_API void ring_list_enablecopybyref ( List *pList ) ;
 
     RING_API void ring_list_disablecopybyref ( List *pList ) ;
+
+    RING_API int ring_list_isrefcontainer ( List *pList ) ;
 #endif

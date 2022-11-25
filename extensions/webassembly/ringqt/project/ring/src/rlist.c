@@ -1499,6 +1499,11 @@ RING_API void ring_list_assignreftoitem_gc ( void *pState,List *pRef,Item *pItem
     }
 }
 
+RING_API int ring_list_isrefcontainer ( List *pList )
+{
+    return pList->lDontDelete ;
+}
+
 RING_API int ring_list_iscopybyref ( List *pList )
 {
     return pList->lCopyByRef ;
