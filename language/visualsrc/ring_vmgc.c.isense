@@ -11,6 +11,28 @@ struct GCData *
 Type: GCData
 Mark: ->
 GCData *
+Parent: ListGCData
+Type: void *
+pContainer
+Type: unsigned int
+lCopyByRef: 1
+Type: unsigned int
+lNewRef: 1
+Type: unsigned int
+lDontDelete: 1
+Type: unsigned int
+lDeleteContainerVariable: 1
+Type: short int
+nReferenceCount
+END:
+Type: ListGCData
+struct ListGCData
+Type: ListGCData
+Mark: ->
+struct ListGCData *
+Type: ListGCData
+Mark: ->
+ListGCData *
 ring_pooldata
 RING_USEPOOLMANAGER
 RING_USEPOOLMANAGER

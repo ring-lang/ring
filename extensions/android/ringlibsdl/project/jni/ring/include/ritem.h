@@ -23,7 +23,7 @@
             float fNumber  ;
         } data ;
         /* Garbage Collector Data (Reference Counting) */
-        GCData gc  ;
+        ItemGCData gc  ;
     } Item ;
     /* Constants */
     #define ITEMTYPE_NOTHING 0
