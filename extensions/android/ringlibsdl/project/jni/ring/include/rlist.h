@@ -155,8 +155,6 @@
     RING_API void ring_list_genhashtable_gc ( void *pState,List *pList ) ;
 
     RING_API void ring_list_genhashtable2_gc ( void *pState,List *pList ) ;
-
-    RING_API void ring_list_clear ( List *pList ) ;
     /* Delete item from list using the item pointer */
 
     RING_API int ring_list_deliteminsidelist_gc ( void *pState,List *pList,Item *pItem ) ;
@@ -264,6 +262,15 @@
     RING_API int ring_list_iscpointerlist ( List *pList ) ;
 
     RING_API int ring_list_cpointercmp ( List *pList,List *pList2 ) ;
+    /* Copy list by Reference */
+
+    RING_API void ring_list_clear ( List *pList ) ;
+
+    RING_API int ring_list_iscopybyref ( List *pList ) ;
+
+    RING_API void ring_list_enablecopybyref ( List *pList ) ;
+
+    RING_API void ring_list_disablecopybyref ( List *pList ) ;
     /* References */
 
     RING_API void ring_list_acceptlistbyref_gc ( void *pState,List *pList, unsigned int index,List *pRef ) ;
@@ -279,12 +286,6 @@
     RING_API void ring_list_assignreftovar_gc ( void *pState,List *pRef,List *pVar,unsigned int nPos ) ;
 
     RING_API void ring_list_assignreftoitem_gc ( void *pState,List *pRef,Item *pItem ) ;
-
-    RING_API int ring_list_iscopybyref ( List *pList ) ;
-
-    RING_API void ring_list_enablecopybyref ( List *pList ) ;
-
-    RING_API void ring_list_disablecopybyref ( List *pList ) ;
 
     RING_API int ring_list_isrefcontainer ( List *pList ) ;
 

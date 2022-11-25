@@ -908,21 +908,6 @@ RING_API void ring_list_genhashtable2_gc ( void *pState,List *pList )
         ring_hashtable_newpointer_gc(pState,pList->pHashTable,ring_list_getstring(pList2,1),pList2);
     }
 }
-/* Copy list by reference */
-
-RING_API void ring_list_clear ( List *pList )
-{
-    pList->pFirst = NULL ;
-    pList->pLast = NULL ;
-    pList->nSize = 0 ;
-    pList->nNextItemAfterLastAccess = 0 ;
-    pList->pLastItemLastAccess = NULL ;
-    pList->pItemsArray = NULL ;
-    pList->pHashTable = NULL ;
-    pList->pItemBlock = NULL ;
-    pList->pItemsBlock = NULL ;
-    ring_list_clearrefdata(pList);
-}
 /* Define functions without State Pointer */
 
 RING_API List * ring_list_new ( unsigned int nSize )
@@ -1395,6 +1380,36 @@ RING_API int ring_list_cpointercmp ( List *pList,List *pList2 )
 {
     return ring_list_getpointer(pList,RING_CPOINTER_POINTER) == ring_list_getpointer(pList2,RING_CPOINTER_POINTER) ;
 }
+/* Copy list by Reference */
+
+RING_API void ring_list_clear ( List *pList )
+{
+    pList->pFirst = NULL ;
+    pList->pLast = NULL ;
+    pList->nSize = 0 ;
+    pList->nNextItemAfterLastAccess = 0 ;
+    pList->pLastItemLastAccess = NULL ;
+    pList->pItemsArray = NULL ;
+    pList->pHashTable = NULL ;
+    pList->pItemBlock = NULL ;
+    pList->pItemsBlock = NULL ;
+    ring_list_clearrefdata(pList);
+}
+
+RING_API int ring_list_iscopybyref ( List *pList )
+{
+    return pList->lCopyByRef ;
+}
+
+RING_API void ring_list_enablecopybyref ( List *pList )
+{
+    pList->lCopyByRef = 1 ;
+}
+
+RING_API void ring_list_disablecopybyref ( List *pList )
+{
+    pList->lCopyByRef = 0 ;
+}
 /* References */
 
 RING_API void ring_list_acceptlistbyref_gc ( void *pState,List *pList, unsigned int index,List *pRef )
@@ -1492,21 +1507,6 @@ RING_API void ring_list_assignreftoitem_gc ( void *pState,List *pRef,Item *pItem
 RING_API int ring_list_isrefcontainer ( List *pList )
 {
     return pList->lDontDelete ;
-}
-
-RING_API int ring_list_iscopybyref ( List *pList )
-{
-    return pList->lCopyByRef ;
-}
-
-RING_API void ring_list_enablecopybyref ( List *pList )
-{
-    pList->lCopyByRef = 1 ;
-}
-
-RING_API void ring_list_disablecopybyref ( List *pList )
-{
-    pList->lCopyByRef = 0 ;
 }
 
 RING_API void ring_list_clearrefdata ( List *pList )
