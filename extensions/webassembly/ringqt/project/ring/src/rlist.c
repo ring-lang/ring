@@ -528,7 +528,7 @@ RING_API int ring_list_isfuncpointer ( List *pList, unsigned int index )
 **  When you insert item, it will be inserted after nPos 
 */
 
-RING_API void ring_list_insertitem_gc ( void *pState,List *pList,int x )
+RING_API void ring_list_insertitem_gc ( void *pState,List *pList,unsigned int x )
 {
     Items *pItems  ;
     assert(pList != NULL);
@@ -656,7 +656,7 @@ RING_API int ring_list_deliteminsidelist_gc ( void *pState,List *pList,Item *pIt
 }
 /* Linear Search */
 
-RING_API int ring_list_findstring ( List *pList,const char *str,int nColumn )
+RING_API int ring_list_findstring ( List *pList,const char *str,unsigned int nColumn )
 {
     int x,nCount  ;
     List *pList2  ;
@@ -693,7 +693,7 @@ RING_API int ring_list_findstring ( List *pList,const char *str,int nColumn )
     return 0 ;
 }
 
-RING_API int ring_list_finddouble ( List *pList,double nNum1,int nColumn )
+RING_API int ring_list_finddouble ( List *pList,double nNum1,unsigned int nColumn )
 {
     int x,nCount  ;
     List *pList2  ;
@@ -744,7 +744,7 @@ RING_API int ring_list_findpointer ( List *pList,void *pPointer )
 }
 /* Sort (QuickSort) and Binary Search */
 
-RING_API void ring_list_sortnum ( List *pList,int left,int right,int nColumn,const char *cAttribute )
+RING_API void ring_list_sortnum ( List *pList,int left,int right,unsigned int nColumn,const char *cAttribute )
 {
     int x,y,mid  ;
     double midvalue  ;
@@ -773,7 +773,7 @@ RING_API void ring_list_sortnum ( List *pList,int left,int right,int nColumn,con
     }
 }
 
-RING_API void ring_list_sortstr_gc ( void *pState,List *pList,int left,int right,int nColumn,const char *cAttribute )
+RING_API void ring_list_sortstr_gc ( void *pState,List *pList,int left,int right,unsigned int nColumn,const char *cAttribute )
 {
     int x,y,mid  ;
     String *midvalue  ;
@@ -803,7 +803,7 @@ RING_API void ring_list_sortstr_gc ( void *pState,List *pList,int left,int right
     }
 }
 
-RING_API int ring_list_binarysearchnum ( List *pList,double nNum1,int nColumn,const char *cAttribute )
+RING_API int ring_list_binarysearchnum ( List *pList,double nNum1,unsigned int nColumn,const char *cAttribute )
 {
     int nFirst,nMiddle,nLast  ;
     nFirst = 1 ;
@@ -823,7 +823,7 @@ RING_API int ring_list_binarysearchnum ( List *pList,double nNum1,int nColumn,co
     return 0 ;
 }
 
-RING_API int ring_list_binarysearchstr ( List *pList,const char *cFind,int nColumn,const char *cAttribute )
+RING_API int ring_list_binarysearchstr ( List *pList,const char *cFind,unsigned int nColumn,const char *cAttribute )
 {
     int nFirst,nMiddle,nLast,nRes  ;
     nFirst = 1 ;
@@ -844,7 +844,7 @@ RING_API int ring_list_binarysearchstr ( List *pList,const char *cFind,int nColu
     return 0 ;
 }
 
-RING_API void ring_list_swap ( List *pList,int x,int y )
+RING_API void ring_list_swap ( List *pList,unsigned int x,unsigned int y )
 {
     Item *pItem  ;
     Items *pItems  ;
@@ -1052,7 +1052,7 @@ RING_API void ring_list_deleteallitems ( List *pList )
 }
 /* Insert Items */
 
-RING_API void ring_list_insertitem ( List *pList,int x )
+RING_API void ring_list_insertitem ( List *pList,unsigned int x )
 {
     ring_list_insertitem_gc(NULL,pList,x);
 }
@@ -1092,7 +1092,7 @@ RING_API List * ring_list_insertlist ( List *pList,unsigned int nPos )
     return ring_list_insertlist_gc(NULL,pList,nPos) ;
 }
 
-RING_API void ring_list_sortstr ( List *pList,int left,int right,int nColumn,const char *cAttribute )
+RING_API void ring_list_sortstr ( List *pList,int left,int right,unsigned int nColumn,const char *cAttribute )
 {
     ring_list_sortstr_gc(NULL,pList,left,right,nColumn,cAttribute);
 }
@@ -1232,7 +1232,7 @@ RING_API int ring_list_findinlistofobjs ( List *pList,int nType,double nNum1,con
     return 0 ;
 }
 
-RING_API int ring_list_findcpointer ( List *pList,List *pValue,int nColumn )
+RING_API int ring_list_findcpointer ( List *pList,List *pValue,unsigned int nColumn )
 {
     int x,nCount  ;
     List *pList2, *pList3  ;
@@ -1270,7 +1270,7 @@ RING_API int ring_list_findcpointer ( List *pList,List *pValue,int nColumn )
     return 0 ;
 }
 
-RING_API double ring_list_getdoublecolumn ( List *pList,int nIndex,int nColumn,const char *cAttribute )
+RING_API double ring_list_getdoublecolumn ( List *pList,int nIndex,unsigned int nColumn,const char *cAttribute )
 {
     int nPos  ;
     if ( nColumn == 0 ) {
@@ -1298,7 +1298,7 @@ RING_API double ring_list_getdoublecolumn ( List *pList,int nIndex,int nColumn,c
     return 0.0 ;
 }
 
-RING_API char * ring_list_getstringcolumn ( List *pList,int nIndex,int nColumn,const char *cAttribute )
+RING_API char * ring_list_getstringcolumn ( List *pList,int nIndex,unsigned int nColumn,const char *cAttribute )
 {
     int nPos  ;
     static char nullstring[] = "" ;
