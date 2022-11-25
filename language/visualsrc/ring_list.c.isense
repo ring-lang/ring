@@ -20,16 +20,16 @@ Type: struct Items *
 pItemsBlock
 Type: void *
 pContainer
-Type: short int
-nReferenceCount
 Type: unsigned int
-lDeleteContainerVariable: 1
-Type: unsigned int
-lDontDelete: 1
+lCopyByRef: 1
 Type: unsigned int
 lNewRef: 1
 Type: unsigned int
-lCopyByRef: 1
+lDontDelete: 1
+Type: unsigned int
+lDeleteContainerVariable: 1
+Type: short int
+nReferenceCount
 END:
 Type: List
 struct List
@@ -317,3 +317,6 @@ lNewRef
 ring_list_assignreftoitem_gc
 Type: List *
 pList
+ring_list_iscopybyref
+ring_list_enablecopybyref
+ring_list_disablecopybyref

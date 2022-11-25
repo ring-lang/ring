@@ -277,4 +277,10 @@
     RING_API void ring_list_assignreftovar_gc ( void *pState,List *pRef,List *pVar,unsigned int nPos ) ;
 
     RING_API void ring_list_assignreftoitem_gc ( void *pState,List *pRef,Item *pItem ) ;
+
+    RING_API int ring_list_iscopybyref ( List *pList ) ;
+
+    RING_API void ring_list_enablecopybyref ( List *pList ) ;
+
+    RING_API void ring_list_disablecopybyref ( List *pList ) ;
 #endif

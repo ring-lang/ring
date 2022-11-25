@@ -1470,3 +1470,18 @@ RING_API void ring_list_assignreftoitem_gc ( void *pState,List *pRef,Item *pItem
         ring_list_updaterefcount_gc(pState,pRef,RING_LISTREF_INC);
     }
 }
+
+RING_API int ring_list_iscopybyref ( List *pList )
+{
+    return pList->lCopyByRef ;
+}
+
+RING_API void ring_list_enablecopybyref ( List *pList )
+{
+    pList->lCopyByRef = 1 ;
+}
+
+RING_API void ring_list_disablecopybyref ( List *pList )
+{
+    pList->lCopyByRef = 0 ;
+}

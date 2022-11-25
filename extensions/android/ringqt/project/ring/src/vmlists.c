@@ -394,8 +394,8 @@ void ring_vm_listassignment ( VM *pVM )
         }
         else {
             ring_list_deleteallitems_gc(pVM->pRingState,pList);
-            if ( pVar->lCopyByRef ) {
-                pVar->lCopyByRef = 0 ;
+            if ( ring_list_iscopybyref(pVar) ) {
+                ring_list_disablecopybyref(pVar);
                 ring_list_swaptwolists(pList,pVar);
             }
             else {

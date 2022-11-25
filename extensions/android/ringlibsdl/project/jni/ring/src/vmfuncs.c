@@ -581,7 +581,7 @@ void ring_vm_movetoprevscope ( VM *pVM )
         ring_list_setlistbyref_gc(pVM->pRingState,pList3,RING_VAR_VALUE,pList);
     }
     else {
-        if ( pList->lCopyByRef ) {
+        if ( ring_list_iscopybyref(pList) ) {
             ring_list_swaptwolists(pList2,pList);
         }
         else {

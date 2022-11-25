@@ -167,7 +167,7 @@ void ring_vm_assignment ( VM *pVM )
                     pItem = (Item *) RING_VM_STACK_READP ;
                     pVar = ring_item_getlist(pItem);
                 }
-                if ( ring_list_isref(pVar) || pVar->lCopyByRef ) {
+                if ( ring_list_isref(pVar) || ring_list_iscopybyref(pVar) ) {
                     pList = pVar ;
                 }
                 else {
@@ -185,8 +185,8 @@ void ring_vm_assignment ( VM *pVM )
                 }
                 else {
                     ring_list_setlist_gc(pVM->pRingState,pVar,RING_VAR_VALUE);
-                    if ( pList->lCopyByRef ) {
-                        pList->lCopyByRef = 0 ;
+                    if ( ring_list_iscopybyref(pList) ) {
+                        ring_list_disablecopybyref(pList);
                         ring_list_swaptwolists(ring_list_getlist(pVar,RING_VAR_VALUE),pList);
                     }
                     else {
