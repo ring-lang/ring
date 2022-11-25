@@ -1,4 +1,26 @@
 ring_list_h
+Parent: ListGCData
+Type: void *
+pContainer
+Type: unsigned int
+lCopyByRef: 1
+Type: unsigned int
+lNewRef: 1
+Type: unsigned int
+lDontDelete: 1
+Type: unsigned int
+lDeleteContainerVariable: 1
+Type: short int
+nReferenceCount
+END:
+Type: ListGCData
+struct ListGCData
+Type: ListGCData
+Mark: ->
+struct ListGCData *
+Type: ListGCData
+Mark: ->
+ListGCData *
 Parent: List
 Type: struct Items *
 pFirst
@@ -18,18 +40,8 @@ Type: struct Item *
 pItemBlock
 Type: struct Items *
 pItemsBlock
-Type: void *
-pContainer
-Type: unsigned int
-lCopyByRef: 1
-Type: unsigned int
-lNewRef: 1
-Type: unsigned int
-lDontDelete: 1
-Type: unsigned int
-lDeleteContainerVariable: 1
-Type: short int
-nReferenceCount
+Type: ListGCData
+gc
 END:
 Type: List
 struct List
@@ -79,6 +91,7 @@ Type: int
 x
 Type: List *
 pNewList2
+ring_list_clear
 ring_list_newitem_gc
 Type: Items *
 pItems
@@ -301,7 +314,6 @@ Type: char
 cStr[100]
 ring_list_iscpointerlist
 ring_list_cpointercmp
-ring_list_clear
 ring_list_iscopybyref
 ring_list_enablecopybyref
 ring_list_disablecopybyref
@@ -325,3 +337,4 @@ ring_list_clearrefdata
 ring_list_deleteref_gc
 Type: List *
 pVariable
+ring_list_getrefcontainer

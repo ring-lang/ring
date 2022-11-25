@@ -2,6 +2,14 @@
 #ifndef ring_list_h
     #define ring_list_h
     /* Data */
+    typedef struct ListGCData {
+        void *pContainer  ;
+        unsigned int lCopyByRef: 1  ;
+        unsigned int lNewRef: 1  ;
+        unsigned int lDontDelete: 1  ;
+        unsigned int lDeleteContainerVariable: 1  ;
+        short int nReferenceCount  ;
+    } ListGCData ;
     typedef struct List {
         struct Items *pFirst  ;
         struct Items *pLast  ;
@@ -12,12 +20,8 @@
         struct HashTable *pHashTable  ;
         struct Item *pItemBlock  ;
         struct Items *pItemsBlock  ;
-        void *pContainer  ;
-        unsigned int lCopyByRef: 1  ;
-        unsigned int lNewRef: 1  ;
-        unsigned int lDontDelete: 1  ;
-        unsigned int lDeleteContainerVariable: 1  ;
-        short int nReferenceCount  ;
+        /* Garbage Collector Data (Reference Counting) */
+        ListGCData gc  ;
     } List ;
     /* Constants */
     #define RING_LISTOFOBJS_FINDSTRING 1
@@ -294,4 +298,6 @@
     RING_API void ring_list_clearrefdata ( List *pList ) ;
 
     RING_API List * ring_list_deleteref_gc ( void *pState,List *pList ) ;
+
+    RING_API List * ring_list_getrefcontainer ( List *pList ) ;
 #endif
