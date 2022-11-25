@@ -1,16 +1,16 @@
 ring_vmgcdata
-Parent: GCData
+Parent: ItemGCData
 Type: unsigned int
 nReferenceCount
 END:
-Type: GCData
-struct GCData
-Type: GCData
+Type: ItemGCData
+struct ItemGCData
+Type: ItemGCData
 Mark: ->
-struct GCData *
-Type: GCData
+struct ItemGCData *
+Type: ItemGCData
 Mark: ->
-GCData *
+ItemGCData *
 Parent: ListGCData
 Type: void *
 pContainer
@@ -127,6 +127,30 @@ ring_vm_gc_deletetemplists
 ring_vm_gc_newitemreference
 ring_vm_gc_freefunc
 ring_vm_gc_setfreefunc
+ring_list_iscopybyref
+ring_list_enablecopybyref
+ring_list_disablecopybyref
+ring_list_acceptlistbyref_gc
+Type: List *
+pRealList
+Type: Item *
+pItem
+ring_list_setlistbyref_gc
+ring_list_updaterefcount_gc
+ring_list_newref_gc
+ring_list_isref
+ring_list_assignreftovar_gc
+Type: int
+lNewRef
+ring_list_assignreftoitem_gc
+Type: List *
+pList
+ring_list_isrefcontainer
+ring_list_clearrefdata
+ring_list_deleteref_gc
+Type: List *
+pVariable
+ring_list_getrefcontainer
 ring_malloc
 Type: void *
 pMemory

@@ -213,6 +213,172 @@ void ring_vm_gc_setfreefunc ( Item *pItem, void (* pFreeFunc)(void *,void *) )
 {
     pItem->gc.pFreeFunc = pFreeFunc ;
 }
+/*
+**  List GC Functions 
+**  Copy list by Reference 
+*/
+
+RING_API int ring_list_iscopybyref ( List *pList )
+{
+    return pList->gc.lCopyByRef ;
+}
+
+RING_API void ring_list_enablecopybyref ( List *pList )
+{
+    pList->gc.lCopyByRef = 1 ;
+}
+
+RING_API void ring_list_disablecopybyref ( List *pList )
+{
+    pList->gc.lCopyByRef = 0 ;
+}
+/* References */
+
+RING_API void ring_list_acceptlistbyref_gc ( void *pState,List *pList, unsigned int index,List *pRef )
+{
+    List *pRealList  ;
+    Item *pItem  ;
+    /* Setting the list could be unnecessary but, we do this to have a solid function */
+    ring_list_setlist_gc(pState,pList,index);
+    /* Free the old list (We expect that it's an empty list) */
+    pRealList = ring_list_getlist(pList,index);
+    ring_list_delete_gc(pState,pRealList);
+    /* Set the Item as a List reference */
+    pItem = ring_list_getitem(pList,index);
+    pItem->data.pList = pRef ;
+}
+
+RING_API void ring_list_setlistbyref_gc ( void *pState,List *pList, unsigned int index,List *pRef )
+{
+    ring_list_acceptlistbyref_gc(pState,pList,index,pRef);
+    /* Increment the Reference */
+    ring_list_updaterefcount_gc(pState,pRef,RING_LISTREF_INC);
+}
+
+RING_API void ring_list_updaterefcount_gc ( void *pState,List *pList, int nChange )
+{
+    pList->gc.nReferenceCount += nChange ;
+}
+
+RING_API List * ring_list_newref_gc ( void *pState, List *pVariableList, List *pList )
+{
+    /* Note: The list may already have a container variable (Previous Reference) */
+    if ( pList->gc.pContainer == NULL ) {
+        ring_list_setlistbyref_gc(pState,pVariableList,RING_VAR_VALUE,pList);
+        if ( pList->gc.lNewRef == 0 ) {
+            pList->gc.lNewRef = 1 ;
+        }
+        else {
+            /* Avoid increasing the counter when writing Ref(Ref(Ref(....Ref(aList)....))) */
+            ring_list_updaterefcount_gc(pState,pList,RING_LISTREF_DEC);
+        }
+        /* If we have a reference to an object, the Self attribute will stay pointing to the Container Variable */
+        if ( ring_vm_oop_isobject(pList) ) {
+            ring_vm_oop_updateselfpointer(((RingState *) pState)->pVM,pList,RING_OBJTYPE_VARIABLE,pVariableList);
+        }
+        /* We increase the Counter to avoid deleting the container variable */
+        pVariableList->gc.lDontDelete = 1 ;
+        /* When deleting the list (No other references exist) - It will delete the container variable */
+        pList->gc.lDeleteContainerVariable = 1 ;
+        pList->gc.pContainer = pVariableList ;
+    }
+    else {
+        pVariableList = (List *) pList->gc.pContainer ;
+    }
+    return pVariableList ;
+}
+
+RING_API int ring_list_isref ( List *pList )
+{
+    return pList->gc.nReferenceCount ;
+}
+
+RING_API void ring_list_assignreftovar_gc ( void *pState,List *pRef,List *pVar,unsigned int nPos )
+{
+    int lNewRef  ;
+    lNewRef = pRef->gc.lNewRef ;
+    pRef->gc.lNewRef = 0 ;
+    if ( ! ( ring_list_getlist(pVar,nPos) == pRef ) ) {
+        if ( lNewRef ) {
+            ring_list_acceptlistbyref_gc(pState,pVar,nPos,pRef);
+        }
+        else {
+            ring_list_setlistbyref_gc(pState,pVar,nPos,pRef);
+        }
+    }
+}
+
+RING_API void ring_list_assignreftoitem_gc ( void *pState,List *pRef,Item *pItem )
+{
+    List *pList  ;
+    pList = ring_item_getlist(pItem);
+    if ( pList == pRef ) {
+        pRef->gc.lNewRef = 0 ;
+        return ;
+    }
+    ring_list_delete_gc(pState,pList);
+    pItem->data.pList = pRef ;
+    if ( pRef->gc.lNewRef ) {
+        pRef->gc.lNewRef = 0 ;
+    }
+    else {
+        ring_list_updaterefcount_gc(pState,pRef,RING_LISTREF_INC);
+    }
+}
+
+RING_API int ring_list_isrefcontainer ( List *pList )
+{
+    return pList->gc.lDontDelete ;
+}
+
+RING_API void ring_list_clearrefdata ( List *pList )
+{
+    pList->gc.pContainer = NULL ;
+    pList->gc.lCopyByRef = 0 ;
+    pList->gc.lNewRef = 0 ;
+    pList->gc.lDontDelete = 0 ;
+    pList->gc.lDeleteContainerVariable = 0 ;
+    pList->gc.nReferenceCount = 0 ;
+}
+
+RING_API List * ring_list_deleteref_gc ( void *pState,List *pList )
+{
+    List *pVariable  ;
+    /* Check lDontDelete (Used by Container Variables) */
+    if ( pList->gc.lDontDelete ) {
+        /* This is a container that we will not delete, but will be deleted by that list that know about it */
+        return pList ;
+    }
+    /* Avoid deleting objects when the list is just a reference */
+    if ( ring_list_isref(pList) ) {
+        /* We don't delete the list because there are other references */
+        ring_list_updaterefcount_gc(pState,pList,RING_LISTREF_DEC);
+        if ( pList->gc.lNewRef && ring_list_isref(pList) ) {
+            /* Deleting a Ref() before assignment while we have other references */
+            pList->gc.lNewRef = 0 ;
+            ring_list_updaterefcount_gc(pState,pList,RING_LISTREF_DEC);
+        }
+        return pList ;
+    }
+    /* Delete Container Variable (If the list have one) */
+    if ( pList->gc.lDeleteContainerVariable ) {
+        pVariable = (List *) pList->gc.pContainer ;
+        pList->gc.lDeleteContainerVariable = 0 ;
+        pList->gc.pContainer = NULL ;
+        /* Delete the Container */
+        pVariable->gc.lDontDelete = 0 ;
+        pVariable->gc.nReferenceCount = 0 ;
+        ring_list_delete_gc(pState,pVariable);
+        return NULL ;
+    }
+    ring_list_deletecontent_gc(pState,pList);
+    return NULL ;
+}
+
+RING_API List * ring_list_getrefcontainer ( List *pList )
+{
+    return pList->gc.pContainer ;
+}
 /* Memory Functions (General) */
 
 RING_API void * ring_malloc ( size_t size )

@@ -25,6 +25,39 @@
     void ring_vm_gc_freefunc ( RingState *pState,Item *pItem ) ;
 
     void ring_vm_gc_setfreefunc ( Item *pItem, void (* pFreeFunc)(void *,void *) ) ;
+    /*
+    **  List GC Functions 
+    **  Copy list by Reference 
+    */
+
+    RING_API int ring_list_iscopybyref ( List *pList ) ;
+
+    RING_API void ring_list_enablecopybyref ( List *pList ) ;
+
+    RING_API void ring_list_disablecopybyref ( List *pList ) ;
+    /* References */
+
+    RING_API void ring_list_acceptlistbyref_gc ( void *pState,List *pList, unsigned int index,List *pRef ) ;
+
+    RING_API void ring_list_setlistbyref_gc ( void *pState,List *pList, unsigned int index,List *pRef ) ;
+
+    RING_API void ring_list_updaterefcount_gc ( void *pState,List *pList, int nChange ) ;
+
+    RING_API List * ring_list_newref_gc ( void *pState, List *pVariableList, List *pList ) ;
+
+    RING_API int ring_list_isref ( List *pList ) ;
+
+    RING_API void ring_list_assignreftovar_gc ( void *pState,List *pRef,List *pVar,unsigned int nPos ) ;
+
+    RING_API void ring_list_assignreftoitem_gc ( void *pState,List *pRef,Item *pItem ) ;
+
+    RING_API int ring_list_isrefcontainer ( List *pList ) ;
+
+    RING_API void ring_list_clearrefdata ( List *pList ) ;
+
+    RING_API List * ring_list_deleteref_gc ( void *pState,List *pList ) ;
+
+    RING_API List * ring_list_getrefcontainer ( List *pList ) ;
     /* Memory Functions (General) */
 
     RING_API void * ring_malloc ( size_t size ) ;
