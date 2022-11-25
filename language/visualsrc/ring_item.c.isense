@@ -64,7 +64,8 @@ Type: Item *
 pItem
 ring_item_delete_gc
 ring_item_print
-ItemType
+Type: unsigned int
+ItemType2
 ring_item_content_delete_gc
 ring_item_settype_gc
 ring_itemarray_setint_gc

@@ -4,7 +4,7 @@
 */
 #include "ring.h"
 
-RING_API Item * ring_item_new_gc ( void *pState,int ItemType )
+RING_API Item * ring_item_new_gc ( void *pState,unsigned int ItemType )
 {
     Item *pItem  ;
     pItem = (Item *) ring_state_malloc(pState,sizeof(Item));
@@ -32,7 +32,7 @@ RING_API Item * ring_item_delete_gc ( void *pState,Item *pItem )
 
 RING_API void ring_item_print ( Item *pItem )
 {
-    int ItemType  ;
+    unsigned int ItemType  ;
     assert(pItem != NULL);
     ItemType = pItem->nType ;
     switch ( ItemType ) {
@@ -91,7 +91,7 @@ RING_API void ring_item_content_delete_gc ( void *pState,Item *pItem )
     pItem->NumberFlag = ITEM_NUMBERFLAG_NOTHING ;
 }
 
-RING_API void ring_item_settype_gc ( void *pState,Item *pItem,int ItemType )
+RING_API void ring_item_settype_gc ( void *pState,Item *pItem,unsigned int ItemType )
 {
     assert(pItem != NULL);
     if ( (ItemType == ITEMTYPE_STRING) && (pItem->nType == ITEMTYPE_STRING) ) {
@@ -140,7 +140,7 @@ RING_API void ring_item_settype_gc ( void *pState,Item *pItem,int ItemType )
 **  int 
 */
 
-RING_API void ring_itemarray_setint_gc ( void *pState,Item pList[], int index ,int number )
+RING_API void ring_itemarray_setint_gc ( void *pState,Item pList[], unsigned int index ,int number )
 {
     ring_item_settype_gc(pState,&pList[index],ITEMTYPE_NUMBER);
     pList[index].data.iNumber = number ;
@@ -148,7 +148,7 @@ RING_API void ring_itemarray_setint_gc ( void *pState,Item pList[], int index ,i
 }
 /* Pointers */
 
-RING_API void ring_itemarray_setpointer_gc ( void *pState,Item pList[], int index ,void *pValue )
+RING_API void ring_itemarray_setpointer_gc ( void *pState,Item pList[], unsigned int index ,void *pValue )
 {
     ring_item_settype_gc(pState,&pList[index],ITEMTYPE_POINTER);
     pList[index].data.pPointer = pValue ;
@@ -156,7 +156,7 @@ RING_API void ring_itemarray_setpointer_gc ( void *pState,Item pList[], int inde
 }
 /* double */
 
-RING_API void ring_itemarray_setdouble_gc ( void *pState,Item pList[], int index ,double number )
+RING_API void ring_itemarray_setdouble_gc ( void *pState,Item pList[], unsigned int index ,double number )
 {
     ring_item_settype_gc(pState,&pList[index],ITEMTYPE_NUMBER);
     pList[index].data.dNumber = number ;
@@ -164,13 +164,13 @@ RING_API void ring_itemarray_setdouble_gc ( void *pState,Item pList[], int index
 }
 /* String */
 
-RING_API void ring_itemarray_setstring_gc ( void *pState,Item pList[], int index ,const char *str )
+RING_API void ring_itemarray_setstring_gc ( void *pState,Item pList[], unsigned int index ,const char *str )
 {
     ring_item_settype_gc(pState,&pList[index],ITEMTYPE_STRING);
     ring_string_set_gc(pState,pList[index].data.pString ,str);
 }
 
-RING_API void ring_itemarray_setstring2_gc ( void *pState,Item pList[], int index ,const char *str,int nStrSize )
+RING_API void ring_itemarray_setstring2_gc ( void *pState,Item pList[], unsigned int index ,const char *str,int nStrSize )
 {
     ring_item_settype_gc(pState,&pList[index],ITEMTYPE_STRING);
     ring_string_set2_gc(pState,pList[index].data.pString ,str,nStrSize);
@@ -211,7 +211,7 @@ RING_API void ring_item_setint_gc ( void *pState,Item *pItem,int x )
 }
 /* Functions without state pointer */
 
-RING_API Item * ring_item_new ( int ItemType )
+RING_API Item * ring_item_new ( unsigned int ItemType )
 {
     return ring_item_new_gc(NULL,ItemType) ;
 }
@@ -221,7 +221,7 @@ RING_API Item * ring_item_delete ( Item *pItem )
     return ring_item_delete_gc(NULL,pItem) ;
 }
 
-RING_API void ring_item_settype ( Item *pItem,int ItemType )
+RING_API void ring_item_settype ( Item *pItem,unsigned int ItemType )
 {
     ring_item_settype_gc(NULL,pItem,ItemType);
 }
@@ -235,30 +235,30 @@ RING_API void ring_item_content_delete ( Item *pItem )
 **  int 
 */
 
-RING_API void ring_itemarray_setint ( Item pList[], int index ,int number )
+RING_API void ring_itemarray_setint ( Item pList[], unsigned int index ,int number )
 {
     ring_itemarray_setint_gc(NULL,pList,index,number);
 }
 /* Pointers */
 
-RING_API void ring_itemarray_setpointer ( Item pList[], int index ,void *pValue )
+RING_API void ring_itemarray_setpointer ( Item pList[], unsigned int index ,void *pValue )
 {
     ring_itemarray_setpointer_gc(NULL,pList,index,pValue);
 }
 /* double */
 
-RING_API void ring_itemarray_setdouble ( Item pList[], int index ,double number )
+RING_API void ring_itemarray_setdouble ( Item pList[], unsigned int index ,double number )
 {
     ring_itemarray_setdouble_gc(NULL,pList,index,number);
 }
 /* String */
 
-RING_API void ring_itemarray_setstring ( Item pList[], int index ,const char *str )
+RING_API void ring_itemarray_setstring ( Item pList[], unsigned int index ,const char *str )
 {
     ring_itemarray_setstring_gc(NULL,pList,index,str);
 }
 
-RING_API void ring_itemarray_setstring2 ( Item pList[], int index ,const char *str,int nStrSize )
+RING_API void ring_itemarray_setstring2 ( Item pList[], unsigned int index ,const char *str,int nStrSize )
 {
     ring_itemarray_setstring2_gc(NULL,pList,index,str,nStrSize);
 }
