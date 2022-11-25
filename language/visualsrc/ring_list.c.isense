@@ -65,8 +65,6 @@ x
 Type: Items *
 pItems,*pItemsLast
 ring_list_delete_gc
-Type: List *
-pVariable
 ring_list_deletecontent_gc
 ring_list_copy_gc
 Type: int
@@ -324,3 +322,6 @@ Type: List *
 pList
 ring_list_isrefcontainer
 ring_list_clearrefdata
+ring_list_deleteref_gc
+Type: List *
+pVariable

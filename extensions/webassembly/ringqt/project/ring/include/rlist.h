@@ -292,4 +292,6 @@
     RING_API int ring_list_isrefcontainer ( List *pList ) ;
 
     RING_API void ring_list_clearrefdata ( List *pList ) ;
+
+    RING_API List * ring_list_deleteref_gc ( void *pState,List *pList ) ;
 #endif

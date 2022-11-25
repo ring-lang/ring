@@ -49,36 +49,8 @@ RING_API List * ring_list_new2_gc ( void *pState,List *pList,unsigned int nSize 
 
 RING_API List * ring_list_delete_gc ( void *pState,List *pList )
 {
-    List *pVariable  ;
-    /* Check lDontDelete (Used by Container Variables) */
-    if ( pList->lDontDelete ) {
-        /* This is a container that we will not delete, but will be deleted by that list that know about it */
-        return pList ;
-    }
-    /* Avoid deleting objects when the list is just a reference */
-    if ( ring_list_isref(pList) ) {
-        /* We don't delete the list because there are other references */
-        ring_list_updaterefcount_gc(pState,pList,RING_LISTREF_DEC);
-        if ( pList->lNewRef && ring_list_isref(pList) ) {
-            /* Deleting a Ref() before assignment while we have other references */
-            pList->lNewRef = 0 ;
-            ring_list_updaterefcount_gc(pState,pList,RING_LISTREF_DEC);
-        }
-        return pList ;
-    }
-    /* Delete Container Variable (If the list have one) */
-    if ( pList->lDeleteContainerVariable ) {
-        pVariable = (List *) pList->pContainer ;
-        pList->lDeleteContainerVariable = 0 ;
-        pList->pContainer = NULL ;
-        /* Delete the Container */
-        pVariable->lDontDelete = 0 ;
-        pVariable->nReferenceCount = 0 ;
-        ring_list_delete_gc(pState,pVariable);
-        return NULL ;
-    }
-    ring_list_deletecontent_gc(pState,pList);
-    return NULL ;
+    assert(pList != NULL);
+    return ring_list_deleteref_gc(pState,pList) ;
 }
 
 RING_API void ring_list_deletecontent_gc ( void *pState,List *pList )
@@ -1522,4 +1494,38 @@ RING_API void ring_list_clearrefdata ( List *pList )
     pList->lDontDelete = 0 ;
     pList->lDeleteContainerVariable = 0 ;
     pList->nReferenceCount = 0 ;
+}
+
+RING_API List * ring_list_deleteref_gc ( void *pState,List *pList )
+{
+    List *pVariable  ;
+    /* Check lDontDelete (Used by Container Variables) */
+    if ( pList->lDontDelete ) {
+        /* This is a container that we will not delete, but will be deleted by that list that know about it */
+        return pList ;
+    }
+    /* Avoid deleting objects when the list is just a reference */
+    if ( ring_list_isref(pList) ) {
+        /* We don't delete the list because there are other references */
+        ring_list_updaterefcount_gc(pState,pList,RING_LISTREF_DEC);
+        if ( pList->lNewRef && ring_list_isref(pList) ) {
+            /* Deleting a Ref() before assignment while we have other references */
+            pList->lNewRef = 0 ;
+            ring_list_updaterefcount_gc(pState,pList,RING_LISTREF_DEC);
+        }
+        return pList ;
+    }
+    /* Delete Container Variable (If the list have one) */
+    if ( pList->lDeleteContainerVariable ) {
+        pVariable = (List *) pList->pContainer ;
+        pList->lDeleteContainerVariable = 0 ;
+        pList->pContainer = NULL ;
+        /* Delete the Container */
+        pVariable->lDontDelete = 0 ;
+        pVariable->nReferenceCount = 0 ;
+        ring_list_delete_gc(pState,pVariable);
+        return NULL ;
+    }
+    ring_list_deletecontent_gc(pState,pList);
+    return NULL ;
 }
