@@ -430,5 +430,6 @@ aTests = [
 	[ :name = "Using References (Part 17)", :Command = "ring references/tree4.ring" ],
 	[ :name = "Using References (Part 18)", :Command = "ring references/itemisref.ring" ],
 	[ :name = "Using References (Part 19)", :Command = "ring references/refcount2.ring" ],
-	[ :name = "Using References (Part 20)", :Command = "ring references/cool1.ring" ]
+	[ :name = "Using References (Part 20)", :Command = "ring references/cool1.ring" ],
+	[ :name = "General Tests (Part 189)", :Command = "ring general/errorafterlistindex.ring" ]
 ]
