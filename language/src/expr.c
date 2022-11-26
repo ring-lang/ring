@@ -1101,7 +1101,7 @@ int ring_parser_mixer ( Parser *pParser )
             ring_parser_icg_newoperandint(pParser,0);
             if ( ring_parser_isoperator2(pParser,OP_LCLOSE) ) {
                 ring_parser_nexttoken(pParser);
-                RING_PARSER_PASSNEWLINE ;
+                RING_PARSER_IGNORENEWLINE ;
                 RING_STATE_CHECKPRINTRULES 
                 
                 puts("Rule : Mixer -> '[' Expr ']' ");
