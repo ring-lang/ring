@@ -19,7 +19,22 @@ o1ref = ref(o1)
 ? o1 = o1ref
 ? o1 != o1ref
 
+o3 = new myclass2
+? o3 = o1
+? o3 != o1
+
+o3ref = ref(o3)
+? o3 = o3ref
+? o3 != o3ref
+
 class myclass
 
-//	func operator v1,v2
-//		? :wow
+class myclass2
+	func operator cOP,vValue
+		? "Using the Operator() Method"
+		if cOP = "="
+			return obj2Ptr(self) = obj2Ptr(vValue)
+		but cOP = "!="		
+			return obj2Ptr(self) != obj2Ptr(vValue)
+		ok
+	
