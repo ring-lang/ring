@@ -128,7 +128,7 @@ pItem
 Type: void *
 pPointer
 Type: int
-nType
+nType, lCompare
 ring_vm_expr_npoo
 Type: List *
 pList
