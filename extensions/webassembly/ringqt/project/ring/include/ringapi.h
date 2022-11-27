@@ -120,6 +120,7 @@
     #define RING_API_NULLPOINTER "Error in parameter, NULL pointer!"
     #define RING_API_EMPTYLIST "Bad parameter, empty list!"
     #define RING_API_INTERNALFAILURE "Internal function call failed!"
+    #define RING_API_RANGEEXCEEDED "Range Exceeded!"
     /*
     **  Note : The C Function Get Lists as pointers because of (List Pass by Reference) 
     **  The List Maybe a Variable/ListItem or may represent Object or C Pointer inside a List 

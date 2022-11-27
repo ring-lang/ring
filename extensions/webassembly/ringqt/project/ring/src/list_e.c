@@ -38,6 +38,11 @@ void ring_vm_listfuncs_add ( void *pPointer )
     }
     if ( RING_API_ISLIST(1) ) {
         pList = RING_API_GETLIST(1) ;
+        /* Check the Range */
+        if ( ring_list_getsize(pList) == UINT_MAX ) {
+            RING_API_ERROR(RING_API_RANGEEXCEEDED);
+            return ;
+        }
         if ( RING_API_ISSTRING(2) ) {
             ring_list_addstring2_gc(pVM->pRingState,pList,RING_API_GETSTRING(2),RING_API_GETSTRINGSIZE(2));
             RING_API_RETSTRING2(RING_API_GETSTRING(2),RING_API_GETSTRINGSIZE(2));
@@ -423,6 +428,11 @@ void ring_vm_listfuncs_insert ( void *pPointer )
     }
     if ( RING_API_ISLIST(1) && RING_API_ISNUMBER(2) ) {
         pList = RING_API_GETLIST(1) ;
+        /* Check the Range */
+        if ( ring_list_getsize(pList) == UINT_MAX ) {
+            RING_API_ERROR(RING_API_RANGEEXCEEDED);
+            return ;
+        }
         nPos = (int) RING_API_GETNUMBER(2) ;
         if ( (nPos < 0) || (nPos > ring_list_getsize(pList) ) ) {
             RING_API_ERROR(RING_VM_ERROR_INDEXOUTOFRANGE);
