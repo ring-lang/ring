@@ -1079,7 +1079,7 @@ void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
     List *pList,*pList2  ;
     Item *pItem  ;
     void *pPointer  ;
-    int nType  ;
+    int nType, lCompare  ;
     if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
         pList = (List *) RING_VM_STACK_READP ;
         pList = ring_list_getlist(pList,RING_VAR_VALUE);
@@ -1136,7 +1136,14 @@ void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
                 }
                 return ;
             }
-            if ( ring_list_isref(pList) && ring_list_isref(pList2) ) {
+            lCompare = 1 ;
+            if ( ring_vm_oop_isobject(pList2) == 1 ) {
+                if ( ring_vm_oop_ismethod(pVM,pList2,"operator") ) {
+                    lCompare = 0 ;
+                }
+            }
+            if ( lCompare ) {
+                RING_VM_STACK_POP ;
                 if ( pList == pList2 ) {
                     if ( strcmp(cStr,"=") == 0 ) {
                         RING_VM_STACK_PUSHNVALUE(1.0) ;
