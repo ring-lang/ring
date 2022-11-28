@@ -66,7 +66,7 @@ ring_item_delete_gc
 ring_item_print
 Type: unsigned int
 ItemType
-ring_item_content_delete_gc
+ring_item_deletecontent_gc
 ring_item_settype_gc
 ring_itemarray_setint_gc
 ring_itemarray_setpointer_gc
@@ -81,7 +81,7 @@ ring_item_setint_gc
 ring_item_new
 ring_item_delete
 ring_item_settype
-ring_item_content_delete
+ring_item_deletecontent
 ring_itemarray_setint
 ring_itemarray_setpointer
 ring_itemarray_setdouble
