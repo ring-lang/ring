@@ -24,7 +24,7 @@ Type: unsigned int
 lDeleteContainerVariable: 1
 Type: unsigned short int
 nReferenceCount
-Type: unsigned short int
+Type: short int
 nTempRC
 END:
 Type: ListGCData
@@ -164,7 +164,7 @@ ring_list_containssublist_gc
 Type: List *
 aProcess, *pActiveList, *pSubList
 Type: int
-x,y,lDelete
+x,y,lFound
 ring_list_iscircular_gc
 ring_malloc
 Type: void *
