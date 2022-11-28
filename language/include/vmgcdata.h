@@ -11,7 +11,7 @@
         unsigned int lNewRef: 1  ;
         unsigned int lDontDelete: 1  ;
         unsigned int lDeleteContainerVariable: 1  ;
-        unsigned short int nReferenceCount  ;
+        short int nReferenceCount  ;
         short int nTempRC  ;
     } ListGCData ;
 #endif
