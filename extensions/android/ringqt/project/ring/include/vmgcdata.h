@@ -12,6 +12,6 @@
         unsigned int lDontDelete: 1  ;
         unsigned int lDeleteContainerVariable: 1  ;
         unsigned short int nReferenceCount  ;
-        unsigned short int nTempRC  ;
+        short int nTempRC  ;
     } ListGCData ;
 #endif
