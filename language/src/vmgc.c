@@ -358,6 +358,7 @@ RING_API List * ring_list_deleteref_gc ( void *pState,List *pList )
             pList->gc.lNewRef = 0 ;
             ring_list_updaterefcount_gc(pState,pList,RING_LISTREF_DEC);
         }
+        pList = ring_list_collectcycles_gc(pState,pList);
         return pList ;
     }
     /* Delete Container Variable (If the list have one) */
@@ -378,6 +379,108 @@ RING_API List * ring_list_deleteref_gc ( void *pState,List *pList )
 RING_API List * ring_list_getrefcontainer ( List *pList )
 {
     return pList->gc.pContainer ;
+}
+
+RING_API List * ring_list_collectcycles_gc ( void *pState,List *pList )
+{
+    List *aProcess, *pActiveList, *pSubList  ;
+    int x,y,lDelete,lCircular  ;
+    Item *pItem  ;
+    /* Create the List */
+    aProcess = ring_list_new_gc(pState,0);
+    /* Add the Root */
+    ring_list_addpointer_gc(pState,aProcess,pList);
+    lCircular = 0 ;
+    /*
+    **  Process the List 
+    **  Set nTempRC to 0 for all references and be sure that we have circular reference 
+    */
+    for ( x = 1 ; x <= ring_list_getsize(aProcess) ; x++ ) {
+        pActiveList = (List *) ring_list_getpointer(aProcess,x);
+        for ( y = 1 ; y <= ring_list_getsize(pActiveList) ; y++ ) {
+            if ( ring_list_islist(pActiveList,y) ) {
+                pSubList = ring_list_getlist(pActiveList,y);
+                pSubList->gc.nTempRC = 0 ;
+                if ( ! ring_list_findpointer(aProcess,pSubList) ) {
+                    ring_list_addpointer_gc(pState,aProcess,pSubList);
+                }
+                if ( pSubList == pList ) {
+                    lCircular = 1 ;
+                }
+            }
+        }
+    }
+    /* Delete all items in aProcess except the Root */
+    while ( ring_list_getsize(aProcess) > 1 ) {
+        ring_list_deleteitem_gc(pState,aProcess,ring_list_getsize(aProcess));
+    }
+    /* Increment nTempRC for each reference even if it's repeated but follow each reference once */
+    for ( x = 1 ; x <= ring_list_getsize(aProcess) ; x++ ) {
+        pActiveList = (List *) ring_list_getpointer(aProcess,x);
+        for ( y = 1 ; y <= ring_list_getsize(pActiveList) ; y++ ) {
+            if ( ring_list_islist(pActiveList,y) ) {
+                pSubList = ring_list_getlist(pActiveList,y);
+                pSubList->gc.nTempRC++ ;
+                if ( ! ring_list_findpointer(aProcess,pSubList) ) {
+                    ring_list_addpointer_gc(pState,aProcess,pSubList);
+                }
+            }
+        }
+    }
+    /* Delete all items in aProcess except the Root */
+    while ( ring_list_getsize(aProcess) > 1 ) {
+        ring_list_deleteitem_gc(pState,aProcess,ring_list_getsize(aProcess));
+    }
+    /* Be sure that we don't have external references */
+    lDelete = 1 ;
+    for ( x = 1 ; x <= ring_list_getsize(aProcess) ; x++ ) {
+        pActiveList = (List *) ring_list_getpointer(aProcess,x);
+        for ( y = 1 ; y <= ring_list_getsize(pActiveList) ; y++ ) {
+            if ( ring_list_islist(pActiveList,y) ) {
+                pSubList = ring_list_getlist(pActiveList,y);
+                if ( ! ( pSubList->gc.nReferenceCount < pSubList->gc.nTempRC ) ) {
+                    lDelete = 0 ;
+                    break ;
+                }
+                if ( ! ring_list_findpointer(aProcess,pSubList) ) {
+                    ring_list_addpointer_gc(pState,aProcess,pSubList);
+                }
+            }
+        }
+    }
+    /* Check if we can delete the Cycle */
+    if ( (lCircular==1) && (pList->gc.nReferenceCount < pList->gc.nTempRC ) && (lDelete==1) ) {
+        /*
+        **  Delete the Cycle 
+        **  Delete all items in aProcess except the Root 
+        */
+        while ( ring_list_getsize(aProcess) > 1 ) {
+            ring_list_deleteitem_gc(pState,aProcess,ring_list_getsize(aProcess));
+        }
+        /* Convert the item that contains circular reference from List to Number (To be able to delete it) */
+        for ( x = 1 ; x <= ring_list_getsize(aProcess) ; x++ ) {
+            pActiveList = (List *) ring_list_getpointer(aProcess,x);
+            for ( y = 1 ; y <= ring_list_getsize(pActiveList) ; y++ ) {
+                if ( ring_list_islist(pActiveList,y) ) {
+                    pSubList = ring_list_getlist(pActiveList,y);
+                    pSubList->gc.nReferenceCount = 0 ;
+                    if ( ! ring_list_findpointer(aProcess,pSubList) ) {
+                        ring_list_addpointer_gc(pState,aProcess,pSubList);
+                    }
+                    else {
+                        pItem = ring_list_getitem(pActiveList,y);
+                        pItem->nType = ITEMTYPE_NUMBER ;
+                    }
+                }
+            }
+        }
+        /* It's important to set nReferenceCount to 0 because the same reference may contains many circular references */
+        pList->gc.nReferenceCount = 0 ;
+        pList = ring_list_delete_gc(pState,pList);
+    }
+    /* Delete the List */
+    aProcess = ring_list_delete_gc(pState,aProcess);
+    return pList ;
 }
 /* Memory Functions (General) */
 

@@ -22,8 +22,10 @@ Type: unsigned int
 lDontDelete: 1
 Type: unsigned int
 lDeleteContainerVariable: 1
-Type: short int
+Type: unsigned short int
 nReferenceCount
+Type: unsigned short int
+nTempRC
 END:
 Type: ListGCData
 struct ListGCData
@@ -151,6 +153,13 @@ ring_list_deleteref_gc
 Type: List *
 pVariable
 ring_list_getrefcontainer
+ring_list_collectcycles_gc
+Type: List *
+aProcess, *pActiveList, *pSubList
+Type: int
+x,y,lDelete,lCircular
+Type: Item *
+pItem
 ring_malloc
 Type: void *
 pMemory
