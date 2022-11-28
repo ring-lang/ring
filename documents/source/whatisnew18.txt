@@ -171,6 +171,7 @@ More Improvements
 * FindInFiles Application: Better Code (Check Read() function output)
 * GetQuotesHistory Application: Better Style
 * Chess/Checkers Games: Looks more nice on small screen resolutions
+* StdLib - Tree Class - Use the ref() function
 * RingSQLite: Use SQLite 3.39.2.
 * RingHTTPLib: Use cpp-httplib 0.10.9
 * RingZip: Use zip 0.2.4 
