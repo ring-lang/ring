@@ -157,9 +157,15 @@ ring_list_collectcycles_gc
 Type: List *
 aProcess, *pActiveList, *pSubList
 Type: int
-x,y,lDelete,lCircular
+x,y,lDelete
 Type: Item *
 pItem
+ring_list_containssublist_gc
+Type: List *
+aProcess, *pActiveList, *pSubList
+Type: int
+x,y,lDelete
+ring_list_iscircular_gc
 ring_malloc
 Type: void *
 pMemory

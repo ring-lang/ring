@@ -384,13 +384,16 @@ RING_API List * ring_list_getrefcontainer ( List *pList )
 RING_API List * ring_list_collectcycles_gc ( void *pState,List *pList )
 {
     List *aProcess, *pActiveList, *pSubList  ;
-    int x,y,lDelete,lCircular  ;
+    int x,y,lDelete  ;
     Item *pItem  ;
+    /* Be sure that we have a circular list */
+    if ( ! ring_list_iscircular_gc(pState,pList) ) {
+        return pList ;
+    }
     /* Create the List */
     aProcess = ring_list_new_gc(pState,0);
     /* Add the Root */
     ring_list_addpointer_gc(pState,aProcess,pList);
-    lCircular = 0 ;
     /*
     **  Process the List 
     **  Set nTempRC to 0 for all references and be sure that we have circular reference 
@@ -403,9 +406,6 @@ RING_API List * ring_list_collectcycles_gc ( void *pState,List *pList )
                 pSubList->gc.nTempRC = 0 ;
                 if ( ! ring_list_findpointer(aProcess,pSubList) ) {
                     ring_list_addpointer_gc(pState,aProcess,pSubList);
-                }
-                if ( pSubList == pList ) {
-                    lCircular = 1 ;
                 }
             }
         }
@@ -449,7 +449,7 @@ RING_API List * ring_list_collectcycles_gc ( void *pState,List *pList )
         }
     }
     /* Check if we can delete the Cycle */
-    if ( (lCircular==1) && (pList->gc.nReferenceCount < pList->gc.nTempRC ) && (lDelete==1) ) {
+    if ( (pList->gc.nReferenceCount < pList->gc.nTempRC ) && (lDelete==1) ) {
         /*
         **  Delete the Cycle 
         **  Delete all items in aProcess except the Root 
@@ -481,6 +481,38 @@ RING_API List * ring_list_collectcycles_gc ( void *pState,List *pList )
     /* Delete the List */
     aProcess = ring_list_delete_gc(pState,aProcess);
     return pList ;
+}
+
+RING_API int ring_list_containssublist_gc ( void *pState,List *pList,List *pCheck )
+{
+    List *aProcess, *pActiveList, *pSubList  ;
+    int x,y,lFound  ;
+    /* Check if the List is a circular reference */
+    lFound = 0 ;
+    aProcess = ring_list_new_gc(pState,0);
+    ring_list_addpointer_gc(pState,aProcess,pList);
+    for ( x = 1 ; x <= ring_list_getsize(aProcess) ; x++ ) {
+        pActiveList = (List *) ring_list_getpointer(aProcess,x);
+        for ( y = 1 ; y <= ring_list_getsize(pActiveList) ; y++ ) {
+            if ( ring_list_islist(pActiveList,y) ) {
+                pSubList = ring_list_getlist(pActiveList,y);
+                if ( ! ring_list_findpointer(aProcess,pSubList) ) {
+                    ring_list_addpointer_gc(pState,aProcess,pSubList);
+                }
+                if ( pSubList == pCheck ) {
+                    lFound = 1 ;
+                    break ;
+                }
+            }
+        }
+    }
+    aProcess = ring_list_delete_gc(pState,aProcess);
+    return lFound ;
+}
+
+RING_API int ring_list_iscircular_gc ( void *pState,List *pList )
+{
+    return ring_list_containssublist_gc(pState,pList,pList) ;
 }
 /* Memory Functions (General) */
 
