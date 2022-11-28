@@ -49,16 +49,16 @@ Class tree
 
 	func add x
 		children + new tree
-		children[len(children)].parent = object2pointer(self)
+		children[len(children)].parent = ref(self)
 		children[len(children)].data = x
 		return children[len(children)]
 
 	func parent
-		if parent = null
+		if ! isObject(parent)
 			raise("This node is the root!")
 			return
 		ok
-		return pointer2object(parent)
+		return parent
 
 	func print
 		for x in children
