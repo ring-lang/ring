@@ -58,6 +58,8 @@
     RING_API List * ring_list_deleteref_gc ( void *pState,List *pList ) ;
 
     RING_API List * ring_list_getrefcontainer ( List *pList ) ;
+
+    RING_API List * ring_list_collectcycles_gc ( void *pState,List *pList ) ;
     /* Memory Functions (General) */
 
     RING_API void * ring_malloc ( size_t size ) ;
