@@ -182,7 +182,7 @@ x,y,mid
 Type: double
 midvalue
 ring_list_sortstr_gc
-Type: int
+Type: unsigned int
 x,y,mid
 Type: String *
 midvalue

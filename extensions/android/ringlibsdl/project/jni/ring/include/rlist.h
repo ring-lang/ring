@@ -243,7 +243,7 @@
 
     RING_API void ring_list_print2 ( List *pList,unsigned int nDecimals ) ;
 
-    RING_API int ring_list_findinlistofobjs ( List *pList,int nType,double nNum1,const char *str,int nColumn,char *cAttribute ) ;
+    RING_API int ring_list_findinlistofobjs ( List *pList,int nType,double nNum1,const char *str,unsigned int nColumn,char *cAttribute ) ;
 
     RING_API int ring_list_findcpointer ( List *pList,List *pValue,unsigned int nColumn ) ;
 
