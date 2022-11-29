@@ -51,13 +51,14 @@ ring_list_new_gc
 Type: List *
 pList
 ring_list_new2_gc
+Type: unsigned int
 x
 Type: Items *
 pItems,*pItemsLast
 ring_list_delete_gc
 ring_list_deletecontent_gc
 ring_list_copy_gc
-Type: int
+Type: unsigned int
 x,nMax
 Type: List *
 pNewList2
@@ -65,7 +66,7 @@ ring_list_deleteallitems_gc
 Type: Items *
 pItems,*pItemsNext
 ring_list_copy_tohighlevel_gc
-Type: int
+Type: unsigned int
 x
 Type: List *
 pNewList2
@@ -74,12 +75,14 @@ ring_list_newitem_gc
 Type: Items *
 pItems
 ring_list_getitem
+Type: unsigned int
 x
 Type: Items *
 pItems
 Type: Item *
 pItem
 ring_list_deleteitem_gc
+Type: unsigned int
 x
 Type: Items *
 pItems,*pItemsPrev
@@ -147,34 +150,34 @@ pItem
 Type: List *
 pList2
 ring_list_isiteminsidelist
-Type: int
+Type: unsigned int
 x
 Type: Item *
 pItem2
 Type: List *
 pList2
 ring_list_deliteminsidelist_gc
-Type: int
+Type: unsigned int
 x
 Type: Item *
 pItem2
 Type: List *
 pList2
 ring_list_findstring
-Type: int
+Type: unsigned int
 x,nCount
 Type: List *
 pList2
 ring_list_finddouble
-Type: int
+Type: unsigned int
 x,nCount
 Type: List *
 pList2
 ring_list_findpointer
-Type: int
+Type: unsigned int
 x
 ring_list_sortnum
-Type: int
+Type: unsigned int
 x,y,mid
 Type: double
 midvalue
@@ -195,16 +198,16 @@ pItem
 Type: Items *
 pItems
 ring_list_genarray_gc
-Type: int
+Type: unsigned int
 x
 Type: Item **
 pArray
 ring_list_deletearray_gc
 ring_list_genhashtable_gc
-Type: int
+Type: unsigned int
 x
 ring_list_genhashtable2_gc
-Type: int
+Type: unsigned int
 x
 Type: List *
 pList2
@@ -246,7 +249,7 @@ Type: List
 TempList
 ring_list_print
 ring_list_print2
-Type: int
+Type: unsigned int
 x,t,nSize
 Type: double
 y
@@ -259,12 +262,12 @@ cOptions[10]
 Type: char
 cString[100]
 ring_list_findinlistofobjs
-Type: int
+Type: unsigned int
 x,nCount,nPos
 Type: List *
 pList2
 ring_list_findcpointer
-Type: int
+Type: unsigned int
 x,nCount
 Type: List *
 pList2, *pList3
@@ -286,7 +289,7 @@ ring_list_isobject
 ring_list_printobj
 Type: List *
 pList2,*pList3
-Type: int
+Type: unsigned int
 x
 Type: char
 cStr[100]
