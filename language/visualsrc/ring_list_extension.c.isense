@@ -31,8 +31,6 @@ pVM
 ring_vm_listfuncs_find
 Type: unsigned int
 nNum1
-Type: int
-nColumn
 Type: List *
 pList
 ring_vm_listfuncs_min
@@ -56,24 +54,28 @@ Type: unsigned int
 nPos
 Type: double
 x
+Type: VM *
+pVM
 ring_vm_listfuncs_sort
 Type: List *
 pList, *pList2, *pList3
 Type: int
-nParaCount,nColumn
+nParaCount
 Type: unsigned int
-x, nPos
+x, nPos, nColumn
 Type: char *
 cAttribute
 ring_vm_listfuncs_binarysearch
 Type: List *
 pList, *pList2
 Type: int
-nParaCount,nColumn
+nParaCount
+Type: unsigned int
+x, nColumn
 ring_vm_listfuncs_reverse
 Type: List *
 pList,*pList2,*pList3
-Type: int
+Type: unsigned int
 x
 ring_vm_listfuncs_reference
 Type: List *
