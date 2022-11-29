@@ -92,7 +92,8 @@ void ring_vm_listfuncs_del ( void *pPointer )
 void ring_vm_listfuncs_swap ( void *pPointer )
 {
     List *pList  ;
-    int nNum1,nNum2,nSize  ;
+    double nNum1,nNum2  ;
+    unsigned int nSize  ;
     if ( RING_API_PARACOUNT != 3 ) {
         RING_API_ERROR(RING_API_MISS3PARA);
         return ;
@@ -100,11 +101,11 @@ void ring_vm_listfuncs_swap ( void *pPointer )
     if ( RING_API_ISLIST(1) ) {
         pList = RING_API_GETLIST(1) ;
         if ( RING_API_ISNUMBER(2)  && RING_API_ISNUMBER(3) ) {
-            nNum1 = (int) RING_API_GETNUMBER(2) ;
-            nNum2 = (int) RING_API_GETNUMBER(3) ;
+            nNum1 = RING_API_GETNUMBER(2) ;
+            nNum2 = RING_API_GETNUMBER(3) ;
             nSize = ring_list_getsize(pList);
             if ( (nNum1 > 0) && (nNum2 > 0) && (nNum1!= nNum2) && (nNum1<= nSize) && (nNum2 <= nSize) ) {
-                ring_list_swap(pList,nNum1, nNum2);
+                ring_list_swap(pList,(unsigned int) nNum1, (unsigned int) nNum2);
             }
             else {
                 RING_API_ERROR(RING_API_BADPARARANGE);
@@ -239,7 +240,8 @@ void ring_vm_listfuncs_list ( void *pPointer )
 
 void ring_vm_listfuncs_find ( void *pPointer )
 {
-    int nNum1,nColumn  ;
+    unsigned int nNum1  ;
+    int nColumn  ;
     List *pList  ;
     if ( ! ( (RING_API_PARACOUNT >= 2) && (RING_API_PARACOUNT <= 4) ) ) {
         RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -306,7 +308,7 @@ void ring_vm_listfuncs_min ( void *pPointer )
 {
     double nNum1  ;
     List *pList  ;
-    int x  ;
+    unsigned int x  ;
     if ( RING_API_PARACOUNT == 1 ) {
         if ( RING_API_ISLIST(1) ) {
             pList = RING_API_GETLIST(1) ;
@@ -364,7 +366,7 @@ void ring_vm_listfuncs_max ( void *pPointer )
 {
     double nNum1  ;
     List *pList  ;
-    int x  ;
+    unsigned int x  ;
     if ( RING_API_PARACOUNT == 1 ) {
         if ( RING_API_ISLIST(1) ) {
             pList = RING_API_GETLIST(1) ;
@@ -421,7 +423,10 @@ void ring_vm_listfuncs_max ( void *pPointer )
 void ring_vm_listfuncs_insert ( void *pPointer )
 {
     List *pList, *pList2  ;
-    int nPos  ;
+    unsigned int nPos  ;
+    double x  ;
+    VM *pVM  ;
+    pVM = (VM *) pPointer ;
     if ( RING_API_PARACOUNT != 3 ) {
         RING_API_ERROR(RING_API_BADPARACOUNT);
         return ;
@@ -433,11 +438,12 @@ void ring_vm_listfuncs_insert ( void *pPointer )
             RING_API_ERROR(RING_API_RANGEEXCEEDED);
             return ;
         }
-        nPos = (int) RING_API_GETNUMBER(2) ;
-        if ( (nPos < 0) || (nPos > ring_list_getsize(pList) ) ) {
+        x = RING_API_GETNUMBER(2) ;
+        if ( (x < 0) || (x > ring_list_getsize(pList) ) ) {
             RING_API_ERROR(RING_VM_ERROR_INDEXOUTOFRANGE);
             return ;
         }
+        nPos = (unsigned int) x ;
         if ( RING_API_ISSTRING(3) ) {
             ring_list_insertstring2(pList,nPos,RING_API_GETSTRING(3),RING_API_GETSTRINGSIZE(3));
         }
@@ -446,7 +452,7 @@ void ring_vm_listfuncs_insert ( void *pPointer )
         }
         else if ( RING_API_ISLIST(3) ) {
             pList2 = ring_list_insertlist(pList,nPos);
-            ring_vm_list_copy((VM *) pPointer,pList2,RING_API_GETLIST(3));
+            ring_vm_list_copy(pVM,pList2,RING_API_GETLIST(3));
         }
         else {
             RING_API_ERROR(RING_API_BADPARATYPE);
@@ -461,7 +467,8 @@ void ring_vm_listfuncs_insert ( void *pPointer )
 void ring_vm_listfuncs_sort ( void *pPointer )
 {
     List *pList, *pList2, *pList3  ;
-    int x,nParaCount,nColumn,nPos  ;
+    int nParaCount,nColumn  ;
+    unsigned int x, nPos  ;
     char *cAttribute  ;
     nParaCount = RING_API_PARACOUNT ;
     if ( ! ( (nParaCount >= 1) && (nParaCount <= 3) ) ) {
@@ -574,7 +581,8 @@ void ring_vm_listfuncs_sort ( void *pPointer )
 void ring_vm_listfuncs_binarysearch ( void *pPointer )
 {
     List *pList, *pList2  ;
-    int x,nParaCount,nColumn  ;
+    int nParaCount,nColumn  ;
+    unsigned int x  ;
     nParaCount = RING_API_PARACOUNT ;
     if ( (nParaCount != 2) && (nParaCount != 3) ) {
         RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -647,7 +655,7 @@ void ring_vm_listfuncs_binarysearch ( void *pPointer )
 void ring_vm_listfuncs_reverse ( void *pPointer )
 {
     List *pList,*pList2,*pList3  ;
-    int x  ;
+    unsigned int x  ;
     if ( RING_API_PARACOUNT != 1 ) {
         RING_API_ERROR(RING_API_MISS1PARA);
         return ;
