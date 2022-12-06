@@ -85,6 +85,9 @@ More Samples
 * Sample: samples/UsingWebLib/Demo/bootstrap.ring - Better Code
 * Sample: samples/UsingStbImage/test2.ring - Better Code
 
+.. image:: lagrange.png
+	:alt: lagrange
+
 .. index:: 
 	pair: What is new in Ring  1.18; The Power Operator
 
