@@ -1,13 +1,13 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = -524 , : y = -144  , 
-		 :width =  1152 , :height = 969 , 
+		 :x = 0 , : y = -243  , 
+		 :width =  1035 , :height = 738 , 
 		 :title =  "Orbital Mechanics Lagrange" , 
 		 :backcolor =  "" , 
 		 :windowflags =  "" , 
 		 :mainlayout =  "" ,
-		 :WindowIcon =  "" , 
+		 :WindowIcon =  "Lagrange-Sun-Earth.jpg" , 
 		 :Menubar =  ""  ,
 		 :IndexType =  0  ,
 		 :GUILibrary =  0  
@@ -15,8 +15,8 @@ aObjectsList = [
 		]
 	],
 	[ :name = "TableWidget1" , :id = 2 , :classname = "formdesigner_qtablewidget" , :data = [
-		 :x = 22 , : y = 492  , 
-		 :width =  1007 , :height = 471 , 
+		 :x = 18 , : y = 462  , 
+		 :width =  1004 , :height = 231 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
