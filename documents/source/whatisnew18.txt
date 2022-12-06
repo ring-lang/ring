@@ -24,6 +24,7 @@ Ring 1.18 comes with the next features!
 * Heroku (Better support)
 * Better WebLib
 * Better Documentation
+* Better Ring API
 * More Improvements
 
 .. index:: 
@@ -167,6 +168,17 @@ The next chapters are improved!
 (3) How to compile Ring from source code?
 
 .. index:: 
+	pair: What is new in Ring  1.18; Better Ring API
+
+Better Ring API
+===============
+
+* Added: RING_API_GETFLOATPOINTER(nParameter)
+* Added: RING_API_ACCEPTFLOATVALUE(nParameter)
+* Added: RING_API_GETCHARPOINTER(nParameter)
+* RING_API_GETINTPOINTER - Better code when passing integer pointer
+
+.. index:: 
 	pair: What is new in Ring  1.18; More Improvements
 
 More Improvements
@@ -201,10 +213,6 @@ More Improvements
 * Ring Compiler - Support (**) and (^^) as the power operator
 * Ring Compiler - Automatic loading for the syntax file (ringsyntax.ring)
 * Ring Compiler - Support running source code files with any extension 
-* Ring API - RING_API_GETINTPOINTER - Better code when passing integer pointer
-* Ring API - Added: RING_API_GETFLOATPOINTER(nParameter)
-* Ring API - Added: RING_API_ACCEPTFLOATVALUE(nParameter)
-* Ring API - Added: RING_API_GETCHARPOINTER(nParameter)
 * Ring VM - Memory Functions - Display the size when the memory allocation fail
 * Ring VM - Support calling private methods from the class region
 * Ring VM - Better code when loading the VM instructions (Uses less memory)
