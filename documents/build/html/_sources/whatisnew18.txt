@@ -19,6 +19,7 @@ Ring 1.18 comes with the next features!
 * Random User application
 * Better Citations Prediction application
 * More Samples
+* The Power Operator
 * Ring for MS-DOS
 * Better RingSockets
 * Heroku (Better support)
@@ -83,6 +84,14 @@ More Samples
 * Sample: samples/UsingStbImage/test2.ring - Better Code
 * Sample: extensions/tutorial/integerpointer
 * Sample: extensions/tutorial/stringpointer
+
+.. index:: 
+	pair: What is new in Ring  1.18; The Power Operator
+
+The Power Operator
+==================
+
+Ring 1.18 Support (**) and (^^) as the power operator
 
 .. index:: 
 	pair: What is new in Ring  1.18; Ring for MS-DOS
@@ -210,7 +219,6 @@ More Improvements
 * Ring Object File - Better support for classes that exist inside packages
 * Ring Compiler - Support larger number of function/method parameters
 * Ring Compiler - ring_parser_epsilon() function - Better Code
-* Ring Compiler - Support (**) and (^^) as the power operator
 * Ring Compiler - Automatic loading for the syntax file (ringsyntax.ring)
 * Ring Compiler - Support running source code files with any extension 
 * Ring VM - Memory Functions - Display the size when the memory allocation fail
