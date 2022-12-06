@@ -84,8 +84,6 @@ More Samples
 * Sample: samples/UsingWebLib/Demo/datalib.ring - Better Code
 * Sample: samples/UsingWebLib/Demo/bootstrap.ring - Better Code
 * Sample: samples/UsingStbImage/test2.ring - Better Code
-* Sample: extensions/tutorial/integerpointer
-* Sample: extensions/tutorial/stringpointer
 
 .. index:: 
 	pair: What is new in Ring  1.18; The Power Operator
@@ -190,6 +188,8 @@ Better Ring API
 * Added: RING_API_ACCEPTFLOATVALUE(nParameter)
 * Added: RING_API_GETCHARPOINTER(nParameter)
 * RING_API_GETINTPOINTER - Better code when passing integer pointer
+* Sample: extensions/tutorial/integerpointer
+* Sample: extensions/tutorial/stringpointer
 
 Example (C Code):
 
