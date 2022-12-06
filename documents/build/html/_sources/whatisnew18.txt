@@ -97,7 +97,7 @@ Ring 1.18 Support (**) and (^^) as the power operator
 
 Example:
 
-.. code-block::
+.. code-block:: Ring
 
 	? 3**4			# 81.00		
 	? 3^^4			# 81.00    
@@ -190,6 +190,62 @@ Better Ring API
 * Added: RING_API_ACCEPTFLOATVALUE(nParameter)
 * Added: RING_API_GETCHARPOINTER(nParameter)
 * RING_API_GETINTPOINTER - Better code when passing integer pointer
+
+Example (C Code):
+
+.. code-block:: C
+
+	#include "ring.h"
+	#include "stdlib.h"
+	
+	void changeValue(char *var)
+	{
+		strcpy(var,"Hello from C Code");
+	}
+	
+	RING_FUNC(ring_changevalue)
+	{
+	
+		if (RING_API_PARACOUNT != 1)
+		{
+			RING_API_ERROR(RING_API_BADPARACOUNT);
+			return;
+		}
+	
+		if (!RING_API_ISSTRING(1))
+		{
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return;
+		}
+	
+		char *p1 = RING_API_GETCHARPOINTER(1);
+		changeValue(p1);
+	
+	}
+	
+	RING_LIBINIT
+	{
+		RING_API_REGISTER("changevalue",ring_changevalue);
+	}
+
+Example (Ring Code):
+
+.. code-block:: Ring
+
+	? "Loading Library"
+	loadlib("mylib.dll")
+	
+	cString = space(100)
+	changevalue(:cString)
+	? cString
+
+Output:
+
+.. code-block:: none
+
+	Loading Library
+	Hello from C Code
+
 
 .. index:: 
 	pair: What is new in Ring  1.18; Better Documentation
