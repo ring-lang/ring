@@ -63,7 +63,9 @@ In Ring 1.18 the Citations Prediction application is updated
 
 (1) The application comes with 500 samples
 
-(2) Journal Paper: https://downloads.hindawi.com/journals/bmri/2022/2239152.pdf
+(2) Journal Paper (HTML): https://www.hindawi.com/journals/bmri/2022/2239152/
+
+(3) Journal Paper (PDF): https://downloads.hindawi.com/journals/bmri/2022/2239152.pdf
 
 .. image:: citationsdataset.png
 	:alt: citationsdataset
