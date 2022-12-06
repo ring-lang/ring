@@ -18,6 +18,7 @@ Ring 1.18 comes with the next features!
 * Read Files application
 * Random User application
 * Better Citations Prediction application
+* More Samples
 * Ring for MS-DOS
 * Better RingSockets
 * Heroku (Better support)
@@ -62,6 +63,25 @@ Better Citations Prediction application
 
 .. image:: citationsdataset.png
 	:alt: citationsdataset
+
+.. index:: 
+	pair: What is new in Ring  1.18; More Samples
+
+More Samples
+============
+
+* Added: samples/General/OrbitalMechanics
+* Added: samples/UsingQt/TabActivate/simpleExample.ring 
+* Added: samples/UsingQt/TabActivate/TabActivateController.ring 
+* Added: samples/UsingFormDesigner/centerwindow
+* Added: samples/AQuickStart/MySQL/mysql11.ring
+* Added: samples/UsingQt3D/ex19_sceneKeyboard.ring
+* Sample: samples/AQuickStart/GUILib/gui44.ring - Better Code
+* Sample: samples/UsingWebLib/Demo/datalib.ring - Better Code
+* Sample: samples/UsingWebLib/Demo/bootstrap.ring - Better Code
+* Sample: samples/UsingStbImage/test2.ring - Better Code
+* Sample: extensions/tutorial/integerpointer
+* Sample: extensions/tutorial/stringpointer
 
 .. index:: 
 	pair: What is new in Ring  1.18; Ring for MS-DOS
@@ -152,18 +172,6 @@ The next chapters are improved!
 More Improvements
 =================
 
-* Added: samples/General/OrbitalMechanics
-* Added: samples/UsingQt/TabActivate/simpleExample.ring 
-* Added: samples/UsingQt/TabActivate/TabActivateController.ring 
-* Added: samples/UsingFormDesigner/centerwindow
-* Added: samples/AQuickStart/MySQL/mysql11.ring
-* Added: samples/UsingQt3D/ex19_sceneKeyboard.ring
-* Sample: samples/AQuickStart/GUILib/gui44.ring - Better Code
-* Sample: samples/UsingWebLib/Demo/datalib.ring - Better Code
-* Sample: samples/UsingWebLib/Demo/bootstrap.ring - Better Code
-* Sample: samples/UsingStbImage/test2.ring - Better Code
-* Sample: extensions/tutorial/integerpointer
-* Sample: extensions/tutorial/stringpointer
 * Ring Notepad: New option to build GUI application using Ring2EXE
 * Ring Notepad: Output Window - Correct cursor position while using unicode 
 * Ring Notepad: Set the default font when opening the Font dialog
