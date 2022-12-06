@@ -17,15 +17,15 @@ Ring 1.18 comes with the next features!
 
 * Read Files application
 * Random User application
-* Better Citations Prediction application
+* Better CitPre application
 * More Samples
 * The Power Operator
 * Ring for MS-DOS
 * Better RingSockets
 * Heroku (Better support)
 * Better WebLib
-* Better Documentation
 * Better Ring API
+* Better Documentation
 * More Improvements
 
 .. index:: 
@@ -54,10 +54,12 @@ A simple application as an example about using GUILib, InternetLib & JSONLib
 	:alt: randomuser
 
 .. index:: 
-	pair: What is new in Ring  1.18; Better Citations Prediction application
+	pair: What is new in Ring  1.18; Better CitPre application
 
-Better Citations Prediction application
-=======================================
+Better CitPre application
+=========================
+
+In Ring 1.18 the Citations Prediction application is updated
 
 (1) The application comes with 500 samples
 
@@ -165,6 +167,17 @@ Better WebLib
 (5) WebPage Class - Support (THead, TBody & TFoot)
 
 .. index:: 
+	pair: What is new in Ring  1.18; Better Ring API
+
+Better Ring API
+===============
+
+* Added: RING_API_GETFLOATPOINTER(nParameter)
+* Added: RING_API_ACCEPTFLOATVALUE(nParameter)
+* Added: RING_API_GETCHARPOINTER(nParameter)
+* RING_API_GETINTPOINTER - Better code when passing integer pointer
+
+.. index:: 
 	pair: What is new in Ring  1.18; Better Documentation
 
 Better Documentation
@@ -175,17 +188,6 @@ The next chapters are improved!
 (1) Building RingQt applications for Mobile
 (2) Building RingQt applications for WebAssembly
 (3) How to compile Ring from source code?
-
-.. index:: 
-	pair: What is new in Ring  1.18; Better Ring API
-
-Better Ring API
-===============
-
-* Added: RING_API_GETFLOATPOINTER(nParameter)
-* Added: RING_API_ACCEPTFLOATVALUE(nParameter)
-* Added: RING_API_GETCHARPOINTER(nParameter)
-* RING_API_GETINTPOINTER - Better code when passing integer pointer
 
 .. index:: 
 	pair: What is new in Ring  1.18; More Improvements
