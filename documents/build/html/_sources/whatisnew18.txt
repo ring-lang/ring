@@ -131,6 +131,9 @@ Tested using
 
 .. note:: Ring uses DOS/4GW (32-bit DOS extender) to eliminate the 640 KB conventional memory limit
 
+.. image:: ringfordos.png
+	:alt: ringfordos
+
 .. index:: 
 	pair: What is new in Ring  1.18; Better RingSockets
 
