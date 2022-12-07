@@ -432,5 +432,6 @@ aTests = [
 	[ :name = "Using References (Part 18)", :Command = "ring references/itemisref.ring" ],
 	[ :name = "Using References (Part 19)", :Command = "ring references/refcount2.ring" ],
 	[ :name = "Using References (Part 20)", :Command = "ring references/cool1.ring" ],
-	[ :name = "Using References (Part 21)", :Command = "ring references/opeq.ring" ]
+	[ :name = "Using References (Part 21)", :Command = "ring references/opeq.ring" ],
+	[ :name = "Using References (Part 22)", :Command = "ring references/selfref.ring" ]
 ]
