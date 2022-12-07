@@ -22,7 +22,7 @@ Type: unsigned int
 lDontDelete: 1
 Type: unsigned int
 lDeleteContainerVariable: 1
-Type: unsigned short int
+Type: short int
 nReferenceCount
 Type: short int
 nTempRC
