@@ -16,7 +16,7 @@ Type: void *
 pContainer
 Type: int
 nReferenceCount
-Type: short int
+Type: int
 nTempRC
 Type: unsigned int
 lCopyByRef: 1
@@ -166,6 +166,8 @@ aProcess, *pActiveList, *pSubList
 Type: int
 x,y,lFound
 ring_list_iscircular_gc
+ring_list_checkrefinleftside
+ring_list_checkrefvarinleftside
 ring_malloc
 Type: void *
 pMemory

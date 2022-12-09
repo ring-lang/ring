@@ -64,6 +64,10 @@
     RING_API int ring_list_containssublist_gc ( void *pState,List *pList,List *pCheck ) ;
 
     RING_API int ring_list_iscircular_gc ( void *pState,List *pList ) ;
+
+    RING_API int ring_list_checkrefinleftside ( void *pState,List *pList ) ;
+
+    RING_API int ring_list_checkrefvarinleftside ( void *pState,List *pVar ) ;
     /* Memory Functions (General) */
 
     RING_API void * ring_malloc ( size_t size ) ;
