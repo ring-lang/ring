@@ -283,7 +283,7 @@ RING_API List * ring_list_newref_gc ( void *pState, List *pVariableList, List *p
         pList->gc.pContainer = pVariableList ;
     }
     else {
-        /* If we don't have a reference here - It's a new reference! */
+        /* If we don't have a reference here - It's a new reference! */
         if ( ! ring_list_isref(pList) ) {
             pList->gc.lNewRef = 1 ;
             ring_list_updaterefcount_gc(pState,pList,RING_LISTREF_INC);
@@ -538,6 +538,29 @@ RING_API int ring_list_containssublist_gc ( void *pState,List *pList,List *pChec
 RING_API int ring_list_iscircular_gc ( void *pState,List *pList )
 {
     return ring_list_containssublist_gc(pState,pList,pList) ;
+}
+
+RING_API int ring_list_checkrefinleftside ( void *pState,List *pList )
+{
+    /* If we have Ref()/Reference() at the Left-Side then Delete the reference */
+    if ( ring_list_isref(pList) ) {
+        if ( pList->gc.lNewRef ) {
+            pList->gc.lNewRef = 0 ;
+            ring_list_updaterefcount_gc(pState,pList,RING_LISTREF_DEC);
+            return 1 ;
+        }
+    }
+    return 0 ;
+}
+
+RING_API int ring_list_checkrefvarinleftside ( void *pState,List *pVar )
+{
+    if ( ring_list_getint(pVar,RING_VAR_TYPE) == RING_VM_LIST ) {
+        if ( ring_list_islist(pVar,RING_VAR_VALUE) ) {
+            return ring_list_checkrefinleftside(pState,ring_list_getlist(pVar,RING_VAR_VALUE)) ;
+        }
+    }
+    return 0 ;
 }
 /* Memory Functions (General) */
 

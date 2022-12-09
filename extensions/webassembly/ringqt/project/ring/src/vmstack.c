@@ -120,6 +120,10 @@ void ring_vm_assignment ( VM *pVM )
             RING_VM_STACK_POP ;
             pVar = (List *) RING_VM_STACK_READP ;
             RING_VM_STACK_POP ;
+            /* Check Ref()/Reference() usage in the Left-Side */
+            if ( ring_list_checkrefvarinleftside(pVM->pRingState,pVar) ) {
+                return ;
+            }
             if ( pVM->nBeforeEqual == 0 ) {
                 ring_list_setint_gc(pVM->pRingState,pVar, RING_VAR_TYPE ,RING_VM_STRING);
                 ring_list_setstring2_gc(pVM->pRingState,pVar, RING_VAR_VALUE , ring_string_get(cStr1),ring_string_size(cStr1));
@@ -144,6 +148,10 @@ void ring_vm_assignment ( VM *pVM )
             RING_VM_STACK_POP ;
             pVar = (List *) RING_VM_STACK_READP ;
             RING_VM_STACK_POP ;
+            /* Check Ref()/Reference() usage in the Left-Side */
+            if ( ring_list_checkrefvarinleftside(pVM->pRingState,pVar) ) {
+                return ;
+            }
             if ( pVM->nBeforeEqual == 0 ) {
                 ring_list_setint_gc(pVM->pRingState,pVar, RING_VAR_TYPE ,RING_VM_NUMBER);
                 ring_list_setdouble_gc(pVM->pRingState,pVar, RING_VAR_VALUE , nNum1);
@@ -178,6 +186,15 @@ void ring_vm_assignment ( VM *pVM )
                 RING_VM_STACK_POP ;
                 pVar = (List *) RING_VM_STACK_READP ;
                 RING_VM_STACK_POP ;
+                /* Check Ref()/Reference() usage in the Left-Side */
+                if ( ring_list_checkrefvarinleftside(pVM->pRingState,pVar) ) {
+                    /*
+                    **  Take in mind using Ref()/Reference() in Right-Side too 
+                    **  I.e. Ref(tmp) = Ref(tmp) 
+                    **  We don't need to think about it - Because it's like Ref( Ref( Ref( ....) ) ) 
+                    */
+                    return ;
+                }
                 ring_list_setint_gc(pVM->pRingState,pVar, RING_VAR_TYPE ,RING_VM_LIST);
                 /* Copy The List */
                 if ( ring_list_isref(pList) ) {
