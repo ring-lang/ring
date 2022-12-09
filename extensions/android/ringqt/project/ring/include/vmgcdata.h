@@ -7,11 +7,11 @@
     } ItemGCData ;
     typedef struct ListGCData {
         void *pContainer  ;
+        int nReferenceCount  ;
+        int nTempRC  ;
         unsigned int lCopyByRef: 1  ;
         unsigned int lNewRef: 1  ;
         unsigned int lDontDelete: 1  ;
         unsigned int lDeleteContainerVariable: 1  ;
-        short int nReferenceCount  ;
-        short int nTempRC  ;
     } ListGCData ;
 #endif

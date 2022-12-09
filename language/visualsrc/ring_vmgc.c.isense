@@ -14,6 +14,10 @@ ItemGCData *
 Parent: ListGCData
 Type: void *
 pContainer
+Type: int
+nReferenceCount
+Type: short int
+nTempRC
 Type: unsigned int
 lCopyByRef: 1
 Type: unsigned int
@@ -22,10 +26,6 @@ Type: unsigned int
 lDontDelete: 1
 Type: unsigned int
 lDeleteContainerVariable: 1
-Type: short int
-nReferenceCount
-Type: short int
-nTempRC
 END:
 Type: ListGCData
 struct ListGCData
