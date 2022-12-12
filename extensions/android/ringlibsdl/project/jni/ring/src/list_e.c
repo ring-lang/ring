@@ -703,7 +703,7 @@ void ring_vm_listfuncs_refcount ( void *pPointer )
     if ( RING_API_PARACOUNT == 1 ) {
         if ( RING_API_ISLIST(1) ) {
             pList = RING_API_GETLIST(1) ;
-            RING_API_RETNUMBER(ring_list_isref(pList) + 1);
+            RING_API_RETNUMBER(ring_list_getrefcount(pList));
         }
         else {
             RING_API_RETNUMBER(1);

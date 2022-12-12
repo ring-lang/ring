@@ -30,7 +30,7 @@ Type: VM *
 pVM
 ring_vm_listfuncs_find
 Type: unsigned int
-nNum1
+nNum1, nColumn
 Type: List *
 pList
 ring_vm_listfuncs_min

@@ -168,6 +168,7 @@ x,y,lFound
 ring_list_iscircular_gc
 ring_list_checkrefinleftside
 ring_list_checkrefvarinleftside
+ring_list_getrefcount
 ring_malloc
 Type: void *
 pMemory

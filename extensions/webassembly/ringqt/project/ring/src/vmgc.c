@@ -562,6 +562,11 @@ RING_API int ring_list_checkrefvarinleftside ( void *pState,List *pVar )
     }
     return 0 ;
 }
+
+RING_API int ring_list_getrefcount ( List *pList )
+{
+    return pList->gc.nReferenceCount + 1 ;
+}
 /* Memory Functions (General) */
 
 RING_API void * ring_malloc ( size_t size )
