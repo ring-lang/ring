@@ -82,6 +82,7 @@ More Samples
 * Added: samples/UsingFormDesigner/centerwindow
 * Added: samples/AQuickStart/MySQL/mysql11.ring
 * Added: samples/UsingQt3D/ex19_sceneKeyboard.ring
+* Added: samples/General/SmallExamples/Conjecture/knuthconjecture.ring
 * Sample: samples/AQuickStart/GUILib/gui44.ring - Better Code
 * Sample: samples/UsingWebLib/Demo/datalib.ring - Better Code
 * Sample: samples/UsingWebLib/Demo/bootstrap.ring - Better Code
