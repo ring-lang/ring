@@ -423,13 +423,8 @@ void ring_vm_refmeta_objectid ( void *pPointer )
     }
     if ( RING_API_ISLIST(1) ) {
         pList = RING_API_GETLIST(1) ;
-        if ( ring_vm_oop_isobject(pList) ) {
-            sprintf( cStr , "%p" , (void *) pList ) ;
-            RING_API_RETSTRING(cStr);
-        }
-        else {
-            RING_API_ERROR(RING_API_BADPARATYPE);
-        }
+        sprintf( cStr , "%p" , (void *) pList ) ;
+        RING_API_RETSTRING(cStr);
     }
     else {
         RING_API_ERROR(RING_API_BADPARATYPE);
