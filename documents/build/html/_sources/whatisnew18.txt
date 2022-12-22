@@ -323,6 +323,7 @@ More Improvements
 * Ring VM - Pointer2Object() function - return list/object reference instead of a copy
 * Ring VM - Ref()/Reference() function - Return a safe (managed) reference for a List/Object
 * Ring VM - RefCount() function - Return references count for List/Object
+* Ring VM - ObjectID() function - Support Lists too
 * Ring VM - Increase the Stack size to 1K
 * Ring VM - Error System - Display recursion depth
 * Ring VM - ICO_FREESTACK instruction - Don't delete temp. lists in global scope
