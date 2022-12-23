@@ -2227,7 +2227,7 @@ Output
 
 When you read the documentation you will know about how to get parameters like (strings, numbers, lists and objects)
 
-And how to return a value (any type) from you function.
+And how to return a value (any type) from your function.
 
 From experience, when we support a C library or C++ Library
 
