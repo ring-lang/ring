@@ -44,13 +44,13 @@ aManyThanks = [
 ]
 aTopContributors = [
 		  [
+                    'Ilir Liburn (Creator of Ring2A/Ring2B)',
+                    'Ring VM Master'                    
+                  ],
+		  [
                     'Mounir IDRASSI (Creator of VeraCrypt)',
                     'Performance Master'                    
 		  ],
-		  [
-                    'Ilir Liburn',
-                    'Ring VM Master'                    
-                  ],
 		  [
                     'isVowel / GreenWing',
                     'Translation Master'                    
