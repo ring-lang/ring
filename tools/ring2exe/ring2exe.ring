@@ -125,7 +125,7 @@ func Main
 	else 
 		drawline()
 		see "Ring2EXE (Convert Ring Application To Executable File)" + nl
-		see "2017-2022, Mahmoud Fayed <msfclipper@yahoo.com>" + nl
+		see "2017-2023, Mahmoud Fayed <msfclipper@yahoo.com>" + nl
 		see "Usage : ring2exe filename.ring [Options]" + nl
 		drawline()
 		see RemoveTabs("

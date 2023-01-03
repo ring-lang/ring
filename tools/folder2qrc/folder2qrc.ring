@@ -11,7 +11,7 @@ func main
 	else 
 		drawline()
 		see "Application : Folder 2 qrc " + nl
-		see "Author      : 2017-2022, Mahmoud Fayed <msfclipper@yahoo.com>" + nl
+		see "Author      : 2017-2023, Mahmoud Fayed <msfclipper@yahoo.com>" + nl
 		see "Usage       : folder2qrc <MainAppFile.ring>" + nl
 		drawline()
 		bye

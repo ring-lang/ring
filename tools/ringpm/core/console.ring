@@ -9,7 +9,7 @@ func Title
 		if len(aCommand) >= 1 return ok
 	Line75()
 	? "Ring Package Manager (RingPM)" 
-	? "2018-2022, Mahmoud Fayed <msfclipper@yahoo.com>"
+	? "2018-2023, Mahmoud Fayed <msfclipper@yahoo.com>"
 	Line75()
 
 func Commands

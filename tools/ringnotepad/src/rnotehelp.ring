@@ -33,5 +33,5 @@ class RNoteHelp
 	func pAbout
 		MsgBox("About",
 			"Ring Notepad (Ring Version : " + Version() + ")" + nl +			
-			"2016-2022, Mahmoud Fayed <msfclipper@yahoo.com>")
+			"2016-2023, Mahmoud Fayed <msfclipper@yahoo.com>")
 
