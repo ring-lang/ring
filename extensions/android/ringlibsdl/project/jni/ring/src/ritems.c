@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2022 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2023 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 
 Items * ring_items_new_gc ( void *pState )

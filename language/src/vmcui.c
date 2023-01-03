@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2022 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2023 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* User Interface - Commands Implementation (Faster) - Because we don't have functions call */
 

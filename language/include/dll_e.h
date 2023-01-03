@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2022 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2023 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_dll_extension_h
     #define ring_dll_extension_h
     #ifdef _WIN32

@@ -55,7 +55,7 @@ ring_general_addosfileseparator
 ring_general_folderexistinfilename
 Type: int
 x
-ring_numtostring
+ring_general_numtostring
 Type: char
 cOptions[10]
 Type: int
