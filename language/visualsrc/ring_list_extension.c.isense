@@ -54,6 +54,8 @@ Type: unsigned int
 nPos
 Type: double
 x
+Type: Item *
+pItem
 Type: VM *
 pVM
 ring_vm_listfuncs_sort

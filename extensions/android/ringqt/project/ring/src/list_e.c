@@ -424,6 +424,7 @@ void ring_vm_listfuncs_insert ( void *pPointer )
     List *pList, *pList2  ;
     unsigned int nPos  ;
     double x  ;
+    Item *pItem  ;
     VM *pVM  ;
     pVM = (VM *) pPointer ;
     if ( RING_API_PARACOUNT != 3 ) {
@@ -451,7 +452,13 @@ void ring_vm_listfuncs_insert ( void *pPointer )
         }
         else if ( RING_API_ISLIST(3) ) {
             pList2 = ring_list_insertlist(pList,nPos);
-            ring_vm_list_copy(pVM,pList2,RING_API_GETLIST(3));
+            if ( ring_list_isref(RING_API_GETLIST(3)) ) {
+                pItem = ring_list_getitem(pList,nPos+1);
+                ring_list_assignreftoitem_gc(pVM->pRingState,RING_API_GETLIST(3),pItem);
+            }
+            else {
+                ring_vm_list_copy(pVM,pList2,RING_API_GETLIST(3));
+            }
         }
         else {
             RING_API_ERROR(RING_API_BADPARATYPE);
