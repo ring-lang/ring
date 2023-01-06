@@ -3,6 +3,8 @@ ring_vm_listfuncs_loadfunctions
 ring_vm_listfuncs_add
 Type: List *
 pList,*pList2
+Type: Item *
+pItem
 Type: VM *
 pVM
 ring_vm_listfuncs_del
