@@ -1140,7 +1140,12 @@ RING_API void ring_list_print2 ( List *pList,unsigned int nDecimals )
                 ring_list_printobj(pList2,nDecimals);
             }
             else {
-                ring_list_print2(pList2,nDecimals);
+                if ( ring_list_isref(pList2) ) {
+                    printf( "[...]\n" ) ;
+                }
+                else {
+                    ring_list_print2(pList2,nDecimals);
+                }
             }
         }
         else if ( ring_list_ispointer(pList,x) ) {
