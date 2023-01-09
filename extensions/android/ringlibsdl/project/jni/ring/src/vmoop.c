@@ -506,8 +506,6 @@ void ring_vm_oop_braceend ( VM *pVM )
     ring_list_deleteitem_gc(pVM->pRingState,pVM->aBraceObjects,ring_list_getsize(pVM->aBraceObjects));
     ring_list_deleteitem_gc(pVM->pRingState,pVM->pObjState,ring_list_getsize(pVM->pObjState));
     if ( ring_list_getsize(pVM->aBraceObjects) > 0 ) {
-        pVM->pBraceObject = ring_list_getlist(pVM->aBraceObjects,ring_list_getsize(pVM->aBraceObjects)) ;
-        pVM->pBraceObject = (List *) ring_list_getpointer(pVM->pBraceObject,1) ;
         pVM->nInsideBraceFlag = 1 ;
     }
     else {
