@@ -1,0 +1,3 @@
+y: 10
+
+x is not an object!
