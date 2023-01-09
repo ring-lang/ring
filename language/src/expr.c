@@ -992,11 +992,6 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
                 return x ;
             }
             pParser->nNewObject = 1 ;
-            /*
-            **  Generate Code 
-            **  PUSHV enable using braces to access the object 
-            */
-            ring_parser_icg_newoperation(pParser,ICO_PUSHV);
             return 1 ;
         }
     }

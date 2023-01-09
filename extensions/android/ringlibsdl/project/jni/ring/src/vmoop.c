@@ -124,8 +124,6 @@ void ring_vm_oop_newobj ( VM *pVM )
                 ring_vm_oop_newsuperobj(pVM,pList3,pList);
                 /* Enable NULL variables (To be class attributes) */
                 pVM->nInClassRegion++ ;
-                /* Support using Braces to access the object state */
-                pVM->pBraceObject = pList2 ;
                 return ;
             }
         }
