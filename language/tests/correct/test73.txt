@@ -1,11 +1,3 @@
-Setter!
-Test
-Setter!
-100
-Setter!
-wow
-2
-Setter!
-x: 10
-y: 20
-z: 30
+y: 10
+
+x is not an object!

@@ -4,4 +4,3 @@ z: 300
 x: 50
 y: 150
 z: 250
-I have 2 points!
