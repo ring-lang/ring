@@ -505,12 +505,7 @@ void ring_vm_oop_braceend ( VM *pVM )
     pVM->nSP = ring_list_getint(pList,2) ;
     ring_list_deleteitem_gc(pVM->pRingState,pVM->aBraceObjects,ring_list_getsize(pVM->aBraceObjects));
     ring_list_deleteitem_gc(pVM->pRingState,pVM->pObjState,ring_list_getsize(pVM->pObjState));
-    if ( ring_list_getsize(pVM->aBraceObjects) > 0 ) {
-        pVM->nInsideBraceFlag = 1 ;
-    }
-    else {
-        pVM->nInsideBraceFlag = 0 ;
-    }
+    pVM->nInsideBraceFlag = ( ring_list_getsize(pVM->aBraceObjects) > 0 ) ;
 }
 
 void ring_vm_oop_bracestack ( VM *pVM )
