@@ -25,3 +25,4 @@ class test4
 
 	func init o 
 		? type(o)
+		return self
