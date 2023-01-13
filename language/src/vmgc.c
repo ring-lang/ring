@@ -283,8 +283,8 @@ RING_API List * ring_list_newref_gc ( void *pState, List *pVariableList, List *p
         pList->gc.pContainer = pVariableList ;
     }
     else {
-        /* If we don't have a reference here - It's a new reference! */
-        if ( ! ring_list_isref(pList) ) {
+        /* Check if it's a new reference! */
+        if ( ! pList->gc.lNewRef ) {
             pList->gc.lNewRef = 1 ;
             ring_list_updaterefcount_gc(pState,pList,RING_LISTREF_INC);
         }
