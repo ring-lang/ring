@@ -1,13 +1,14 @@
-first
+print the list
 1
 2
 3
-4
-5
-first
-1
-2
-3
-4
-5
-end
+x: 1
+y: 2
+z: 3
+x: 1
+y: 2
+z: 3
+print the item (object)
+x: 1
+y: 2
+z: 3

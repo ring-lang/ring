@@ -1,7 +1,21 @@
-1
-OBJECT
-t: NULL
+==========
+First
+==========
+[...]
+a
 
+**********
+b
+**********
+==========
+Second
+==========
+[...]
+a
 
-Line 6 Error (R16) : Using braces to access unknown object !  
-in file references/noobj.ring 
+**********
+[...]
+b
+a
+
+done
