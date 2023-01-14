@@ -19,6 +19,7 @@ Ring 1.18 comes with the next features!
 * Random User application
 * Better CitPre application
 * More Samples
+* Syntax Files 
 * The Power Operator
 * Ring for MS-DOS
 * Better RingSockets
@@ -90,6 +91,33 @@ More Samples
 
 .. image:: lagrange.png
 	:alt: lagrange
+
+.. index:: 
+	pair: What is new in Ring  1.18; Syntax Files
+
+Syntax Files
+============
+
+Ring 1.18 provide another step towards better syntax flexibility
+
+* Support running source code files with any extension 
+
+* Automatic loading for (ringsyntax.ring) file that exist in the current folder
+
+For example in the the next screen shot
+
+We have (ringsyntax.ring) that translate some of the Ring keywords to Arabic language
+
+When we execute (سلام.رينج) which means in english (hello.ring)
+
+Ring will automatically execute (ringsyntax.ring) using Load Syntax command
+
+Each Folder in the program could have it's optional (ringsyntax.ring) file
+
+We can mix styles in the same project 
+
+.. image:: autoloadsyntax.png
+	:alt: autoloadsyntax
 
 .. index:: 
 	pair: What is new in Ring  1.18; The Power Operator
@@ -301,7 +329,6 @@ More Improvements
 * Ring Object File - Better support for classes that exist inside packages
 * Ring Compiler - Support larger number of function/method parameters
 * Ring Compiler - ring_parser_epsilon() function - Better Code
-* Ring Compiler - Automatic loading for the syntax file (ringsyntax.ring)
 * Ring Compiler - Support running source code files with any extension 
 * Ring VM - Memory Functions - Display the size when the memory allocation fail
 * Ring VM - Support calling private methods from the class region
