@@ -1,0 +1,13 @@
+Print the sublist from function
+1
+2
+
+Print the Parent list
+1
+2
+
+Update the sublist from function
+Print the Parent list
+3
+4
+
