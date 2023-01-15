@@ -14,6 +14,8 @@ x,nSize1,nSize2
 cStr
 Type: List *
 pVar
+Type: void *
+pPointer
 ring_vm_range_newlist
 cVarName
 Type: List *

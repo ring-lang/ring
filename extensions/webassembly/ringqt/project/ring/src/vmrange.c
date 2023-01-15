@@ -39,6 +39,7 @@ void ring_vm_range ( VM *pVM )
             RING_VM_STACK_POP ;
             /* Create List Variable */
             pVar = ring_vm_range_newlist(pVM);
+            pVar->gc.lCopyByRef = 1 ;
             /* Create List */
             if ( nNum2 <= nNum1 ) {
                 for ( x = nNum2 ; x <= nNum1 ; x++ ) {
@@ -69,6 +70,7 @@ void ring_vm_range ( VM *pVM )
                     cStr[1] = '\0' ;
                     /* Create List Variable */
                     pVar = ring_vm_range_newlist(pVM);
+                    pVar->gc.lCopyByRef = 1 ;
                     /* Create List */
                     if ( nNum2 <= nNum1 ) {
                         for ( x = nNum2 ; x <= nNum1 ; x++ ) {
