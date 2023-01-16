@@ -342,6 +342,10 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
     List *pRealList,*pTempMem,*pVariableList, *pObjectVariable  ;
     VM *pVM  ;
     pVM = (VM *) pPointer ;
+    /* Check if we are creating a Reference before assignment, i.e. Ref(List(nSize)) */
+    if ( ring_list_iscopybyref(pList) && (nRef == RING_OUTPUT_RETNEWREF) ) {
+        nRef = RING_OUTPUT_RETLISTBYREF ;
+    }
     if ( nRef == RING_OUTPUT_RETNEWREF ) {
         pTempMem = NULL ;
     }
@@ -354,10 +358,6 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
         ring_list_setint_gc(((VM *) pPointer)->pRingState,pVariableList,RING_VAR_TYPE,RING_VM_LIST);
         ring_list_setlist_gc(((VM *) pPointer)->pRingState,pVariableList,RING_VAR_VALUE);
         pRealList = ring_list_getlist(pVariableList,RING_VAR_VALUE);
-    }
-    /* Check if we are creating a Reference before assignment, i.e. Ref(List(nSize)) */
-    if ( ring_list_iscopybyref(pList) && (nRef == RING_OUTPUT_RETNEWREF) ) {
-        nRef = RING_OUTPUT_RETLISTBYREF ;
     }
     /* Copy the list */
     if ( nRef == RING_OUTPUT_RETLIST ) {

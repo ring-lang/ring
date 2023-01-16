@@ -702,12 +702,7 @@ void ring_vm_listfuncs_reference ( void *pPointer )
     if ( RING_API_PARACOUNT == 1 ) {
         if ( RING_API_ISLIST(1) ) {
             pList = RING_API_GETLIST(1) ;
-            if ( ring_list_iscopybyref(pList) ) {
-                RING_API_RETLISTBYREF(pList);
-            }
-            else {
-                RING_API_RETNEWREF(pList);
-            }
+            RING_API_RETNEWREF(pList);
         }
         else {
             RING_API_ERROR(RING_API_BADPARATYPE);
