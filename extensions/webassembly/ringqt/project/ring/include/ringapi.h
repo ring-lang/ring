@@ -68,9 +68,9 @@
     #define RING_API_EMPTYLIST "Bad parameter, empty list!"
     #define RING_API_INTERNALFAILURE "Internal function call failed!"
     #define RING_API_RANGEEXCEEDED "Range Exceeded!"
-    #define OUTPUT_RETLIST 0
-    #define OUTPUT_RETLISTBYREF 1
-    #define OUTPUT_RETNEWREF 2
+    #define RING_OUTPUT_RETLIST 0
+    #define RING_OUTPUT_RETLISTBYREF 1
+    #define RING_OUTPUT_RETNEWREF 2
     /* API For C Functions */
     #define RING_API_PARALIST (((VM *) pPointer)->pActiveMem)
     #define RING_API_PARACOUNT (((VM *) pPointer)->nCFuncParaCount)
@@ -112,8 +112,8 @@
     #define RING_API_ISOBJECT(x) ring_vm_api_isobject(pPointer,x)
     #define RING_API_GETCPOINTER2POINTER(x,y) (ring_vm_api_getcpointer2pointer((VM *) pPointer,x,y))
     #define RING_API_RETMANAGEDCPOINTER(x,y,z) (ring_vm_api_retcpointer2((VM *) pPointer,(void *) x,y,z))
-    #define RING_API_RETLISTBYREF(x) ring_vm_api_retlist2((VM *) pPointer,x,OUTPUT_RETLISTBYREF)
-    #define RING_API_RETNEWREF(x) ring_vm_api_retlist2((VM *) pPointer,x,OUTPUT_RETNEWREF)
+    #define RING_API_RETLISTBYREF(x) ring_vm_api_retlist2((VM *) pPointer,x,RING_OUTPUT_RETLISTBYREF)
+    #define RING_API_RETNEWREF(x) ring_vm_api_retlist2((VM *) pPointer,x,RING_OUTPUT_RETNEWREF)
     #define ring_vm_funcregister(x,y) ring_vm_funcregister2(pRingState,x,y)
     #define RING_API_REGISTER(x,y) ring_vm_funcregister2(pRingState,x,y)
     #define RING_API_MALLOC(x) ring_state_malloc(((VM *) pPointer)->pRingState,x)

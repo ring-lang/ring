@@ -53,7 +53,7 @@ RING_API List * ring_vm_api_getlist ( void *pPointer,int x )
 
 RING_API void ring_vm_api_retlist ( void *pPointer,List *pList )
 {
-    ring_vm_api_retlist2(pPointer,pList,OUTPUT_RETLIST);
+    ring_vm_api_retlist2(pPointer,pList,RING_OUTPUT_RETLIST);
 }
 
 RING_API List * ring_vm_api_newlist ( VM *pVM )
@@ -342,29 +342,29 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
     List *pRealList,*pTempMem,*pVariableList, *pObjectVariable  ;
     VM *pVM  ;
     pVM = (VM *) pPointer ;
-    if ( nRef == OUTPUT_RETNEWREF ) {
+    if ( nRef == RING_OUTPUT_RETNEWREF ) {
         pTempMem = NULL ;
     }
     else {
         pTempMem = ring_vm_prevtempmem(pVM);
     }
     /* Check if we need to create the container variable */
-    if ( ! ( (nRef==OUTPUT_RETNEWREF) && (ring_list_getrefcontainer(pList) != NULL) ) ) {
+    if ( ! ( (nRef==RING_OUTPUT_RETNEWREF) && (ring_list_getrefcontainer(pList) != NULL) ) ) {
         pVariableList = ring_vm_newvar2(pVM,RING_TEMP_VARIABLE,pTempMem);
         ring_list_setint_gc(((VM *) pPointer)->pRingState,pVariableList,RING_VAR_TYPE,RING_VM_LIST);
         ring_list_setlist_gc(((VM *) pPointer)->pRingState,pVariableList,RING_VAR_VALUE);
         pRealList = ring_list_getlist(pVariableList,RING_VAR_VALUE);
     }
     /* Check if we are creating a Reference before assignment, i.e. Ref(List(nSize)) */
-    if ( ring_list_iscopybyref(pList) && (nRef == OUTPUT_RETNEWREF) ) {
-        nRef = OUTPUT_RETLISTBYREF ;
+    if ( ring_list_iscopybyref(pList) && (nRef == RING_OUTPUT_RETNEWREF) ) {
+        nRef = RING_OUTPUT_RETLISTBYREF ;
     }
     /* Copy the list */
-    if ( nRef == OUTPUT_RETLIST ) {
+    if ( nRef == RING_OUTPUT_RETLIST ) {
         /* Used by RING_API_RETLIST */
         ring_vm_list_copy((VM *) pPointer,pRealList,pList);
     }
-    else if ( nRef == OUTPUT_RETLISTBYREF ) {
+    else if ( nRef == RING_OUTPUT_RETLISTBYREF ) {
         /* Used by RING_API_RETLISTBYREF  (i.e. List() function implementation) */
         ring_list_enablecopybyref(pList);
         ring_list_swaptwolists(pRealList,pList);
