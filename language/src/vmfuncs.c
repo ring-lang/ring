@@ -437,12 +437,11 @@ void ring_vm_returnnull ( VM *pVM )
 
 void ring_vm_newfunc ( VM *pVM )
 {
-    int x,nSP,nMax, lRef  ;
-    List *pList, *pRef, *pVar  ;
+    int x,nSP,nMax  ;
+    List *pList, *aParameters  ;
     String *pParameter  ;
     char *cParameters  ;
     char cStr[2]  ;
-    List *aParameters  ;
     assert(pVM != NULL);
     ring_vm_newscope(pVM);
     /* Set the SP then Check Parameters */
@@ -478,20 +477,7 @@ void ring_vm_newfunc ( VM *pVM )
                     ring_vm_addnewnumbervar(pVM,ring_list_getstring(aParameters,x),RING_VM_STACK_READN);
                 }
                 else if ( RING_VM_STACK_ISPOINTER ) {
-                    lRef = 0 ;
-                    /* Check Reference */
-                    if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
-                        if ( ((List *) RING_VM_STACK_READP)->gc.lDontDelete ) {
-                            pRef = ring_list_getlist((List *) RING_VM_STACK_READP,RING_VAR_VALUE);
-                            if ( pRef->gc.lNewRef ) {
-                                lRef = 1 ;
-                                pVar = ring_vm_newvar2(pVM,ring_list_getstring(aParameters,x),pVM->pActiveMem);
-                                ring_list_setint_gc(pVM->pRingState,pVar,RING_VAR_TYPE,RING_VM_LIST);
-                                ring_list_assignreftovar_gc(pVM->pRingState,pRef,pVar,RING_VAR_VALUE);
-                            }
-                        }
-                    }
-                    if ( lRef == 0 ) {
+                    if ( ! ring_list_isrefparameter(pVM,ring_list_getstring(aParameters,x)) ) {
                         ring_vm_addnewpointervar(pVM,ring_list_getstring(aParameters,x),RING_VM_STACK_READP,RING_VM_STACK_OBJTYPE);
                     }
                 }

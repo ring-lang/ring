@@ -20,17 +20,15 @@ oTempItem
 ring_vm_returnnull
 ring_vm_newfunc
 Type: int
-x,nSP,nMax, lRef
+x,nSP,nMax
 Type: List *
-pList, *pRef, *pVar
+pList
 Type: String *
 pParameter
 Type: char *
 cParameters
 Type: char
 cStr[2]
-Type: List *
-aParameters
 ring_vm_blockflag
 ring_vm_blockflag2
 Type: List *

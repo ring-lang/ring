@@ -169,6 +169,11 @@ ring_list_iscircular_gc
 ring_list_checkrefinleftside
 ring_list_checkrefvarinleftside
 ring_list_getrefcount
+ring_list_isrefparameter
+Type: int
+lRef
+Type: List *
+pRef, pVar
 ring_malloc
 Type: void *
 pMemory

@@ -70,6 +70,8 @@
     RING_API int ring_list_checkrefvarinleftside ( void *pState,List *pVar ) ;
 
     RING_API int ring_list_getrefcount ( List *pList ) ;
+
+    RING_API int ring_list_isrefparameter ( VM *pVM,const char *cVariable ) ;
     /* Memory Functions (General) */
 
     RING_API void * ring_malloc ( size_t size ) ;
