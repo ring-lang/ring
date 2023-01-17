@@ -437,8 +437,8 @@ void ring_vm_returnnull ( VM *pVM )
 
 void ring_vm_newfunc ( VM *pVM )
 {
-    int x,nSP,nMax  ;
-    List *pList  ;
+    int x,nSP,nMax, lRef  ;
+    List *pList, *pRef, *pVar  ;
     String *pParameter  ;
     char *cParameters  ;
     char cStr[2]  ;
@@ -478,7 +478,22 @@ void ring_vm_newfunc ( VM *pVM )
                     ring_vm_addnewnumbervar(pVM,ring_list_getstring(aParameters,x),RING_VM_STACK_READN);
                 }
                 else if ( RING_VM_STACK_ISPOINTER ) {
-                    ring_vm_addnewpointervar(pVM,ring_list_getstring(aParameters,x),RING_VM_STACK_READP,RING_VM_STACK_OBJTYPE);
+                    lRef = 0 ;
+                    /* Check Reference */
+                    if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
+                        if ( ((List *) RING_VM_STACK_READP)->gc.lDontDelete ) {
+                            pRef = ring_list_getlist((List *) RING_VM_STACK_READP,RING_VAR_VALUE);
+                            if ( pRef->gc.lNewRef ) {
+                                lRef = 1 ;
+                                pVar = ring_vm_newvar2(pVM,ring_list_getstring(aParameters,x),pVM->pActiveMem);
+                                ring_list_setint_gc(pVM->pRingState,pVar,RING_VAR_TYPE,RING_VM_LIST);
+                                ring_list_assignreftovar_gc(pVM->pRingState,pRef,pVar,RING_VAR_VALUE);
+                            }
+                        }
+                    }
+                    if ( lRef == 0 ) {
+                        ring_vm_addnewpointervar(pVM,ring_list_getstring(aParameters,x),RING_VM_STACK_READP,RING_VM_STACK_OBJTYPE);
+                    }
                 }
                 RING_VM_STACK_POP ;
             }
