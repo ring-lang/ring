@@ -438,11 +438,10 @@ void ring_vm_returnnull ( VM *pVM )
 void ring_vm_newfunc ( VM *pVM )
 {
     int x,nSP,nMax  ;
-    List *pList  ;
+    List *pList, *aParameters  ;
     String *pParameter  ;
     char *cParameters  ;
     char cStr[2]  ;
-    List *aParameters  ;
     assert(pVM != NULL);
     ring_vm_newscope(pVM);
     /* Set the SP then Check Parameters */
@@ -478,7 +477,9 @@ void ring_vm_newfunc ( VM *pVM )
                     ring_vm_addnewnumbervar(pVM,ring_list_getstring(aParameters,x),RING_VM_STACK_READN);
                 }
                 else if ( RING_VM_STACK_ISPOINTER ) {
-                    ring_vm_addnewpointervar(pVM,ring_list_getstring(aParameters,x),RING_VM_STACK_READP,RING_VM_STACK_OBJTYPE);
+                    if ( ! ring_list_isrefparameter(pVM,ring_list_getstring(aParameters,x)) ) {
+                        ring_vm_addnewpointervar(pVM,ring_list_getstring(aParameters,x),RING_VM_STACK_READP,RING_VM_STACK_OBJTYPE);
+                    }
                 }
                 RING_VM_STACK_POP ;
             }

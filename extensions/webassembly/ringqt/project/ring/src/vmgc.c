@@ -567,6 +567,26 @@ RING_API int ring_list_getrefcount ( List *pList )
 {
     return pList->gc.nReferenceCount + 1 ;
 }
+
+RING_API int ring_list_isrefparameter ( VM *pVM,const char *cVariable )
+{
+    int lRef  ;
+    List *pRef, *pVar  ;
+    lRef = 0 ;
+    /* Check Reference */
+    if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
+        if ( ((List *) RING_VM_STACK_READP)->gc.lDontDelete ) {
+            pRef = ring_list_getlist((List *) RING_VM_STACK_READP,RING_VAR_VALUE);
+            if ( pRef->gc.lNewRef ) {
+                lRef = 1 ;
+                pVar = ring_vm_newvar2(pVM,cVariable,pVM->pActiveMem);
+                ring_list_setint_gc(pVM->pRingState,pVar,RING_VAR_TYPE,RING_VM_LIST);
+                ring_list_assignreftovar_gc(pVM->pRingState,pRef,pVar,RING_VAR_VALUE);
+            }
+        }
+    }
+    return lRef ;
+}
 /* Memory Functions (General) */
 
 RING_API void * ring_malloc ( size_t size )
