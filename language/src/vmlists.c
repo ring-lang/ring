@@ -393,7 +393,10 @@ void ring_vm_listassignment ( VM *pVM )
         RING_VM_STACK_POP ;
         pItem = (Item *) RING_VM_STACK_READP ;
         RING_VM_STACK_POP ;
-        ring_item_settype_gc(pVM->pRingState,pItem,ITEMTYPE_LIST);
+        if ( ring_item_gettype(pItem) != ITEMTYPE_LIST ) {
+            /* We check the type to avoid deleting the current list if it's a reference */
+            ring_item_settype_gc(pVM->pRingState,pItem,ITEMTYPE_LIST);
+        }
         pList = ring_item_getlist(pItem);
         if ( ring_list_isref(pVar) ) {
             ring_list_assignreftoitem_gc(pVM->pRingState,pVar,pItem);
