@@ -173,7 +173,7 @@ ring_list_isrefparameter
 Type: int
 lRef
 Type: List *
-pRef, pVar
+pRef, *pVar
 ring_malloc
 Type: void *
 pMemory

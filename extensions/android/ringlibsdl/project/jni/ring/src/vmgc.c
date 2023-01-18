@@ -318,6 +318,9 @@ RING_API void ring_list_assignreftoitem_gc ( void *pState,List *pRef,Item *pItem
     List *pList  ;
     pList = ring_item_getlist(pItem);
     if ( pList == pRef ) {
+        if ( pRef->gc.lNewRef ) {
+            ring_list_updaterefcount_gc(pState,pRef,RING_LISTREF_DEC);
+        }
         pRef->gc.lNewRef = 0 ;
         return ;
     }
