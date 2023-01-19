@@ -40,6 +40,7 @@ ITEMTYPE_FUNCPOINTER
 ITEM_NUMBERFLAG_NOTHING
 ITEM_NUMBERFLAG_INT
 ITEM_NUMBERFLAG_DOUBLE
+ITEM_OBJTYPE_NOTHING
 ring_item_getstring(x)
 ring_item_getnumber(x)
 ring_item_getdouble(x)
@@ -67,6 +68,8 @@ ring_item_print
 Type: unsigned int
 ItemType
 ring_item_deletecontent_gc
+Type: int
+nType
 ring_item_settype_gc
 ring_itemarray_setint_gc
 ring_itemarray_setpointer_gc

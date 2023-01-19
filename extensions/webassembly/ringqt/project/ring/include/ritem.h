@@ -35,6 +35,7 @@
     #define ITEM_NUMBERFLAG_NOTHING 0
     #define ITEM_NUMBERFLAG_INT 1
     #define ITEM_NUMBERFLAG_DOUBLE 2
+    #define ITEM_OBJTYPE_NOTHING 0
     /* Macro */
     #define ring_item_getstring(x) x->data.pString
     #define ring_item_getdouble(x) x->data.dNumber
