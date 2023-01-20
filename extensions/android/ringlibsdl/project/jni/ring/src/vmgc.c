@@ -460,28 +460,7 @@ RING_API List * ring_list_collectcycles_gc ( void *pState,List *pList )
     }
     /* Check if we can delete the Cycle */
     if ( (pList->gc.nReferenceCount <= pList->gc.nTempRC ) && (lDelete==1) ) {
-        /*
-        **  Delete the Cycle 
-        **  Delete all items in aProcess except the Root 
-        */
-        while ( ring_list_getsize(aProcess) > 1 ) {
-            ring_list_deleteitem_gc(pState,aProcess,ring_list_getsize(aProcess));
-        }
-        /* Decrement References */
-        for ( x = 1 ; x <= ring_list_getsize(aProcess) ; x++ ) {
-            pActiveList = (List *) ring_list_getpointer(aProcess,x);
-            for ( y = 1 ; y <= ring_list_getsize(pActiveList) ; y++ ) {
-                if ( ring_list_islist(pActiveList,y) ) {
-                    pSubList = ring_list_getlist(pActiveList,y);
-                    if ( (pSubList != pList) && ring_list_containssublist_gc(pState,pSubList,pList) ) {
-                        pSubList->gc.nReferenceCount = 0 ;
-                    }
-                    if ( ! ring_list_findpointer(aProcess,pSubList) ) {
-                        ring_list_addpointer_gc(pState,aProcess,pSubList);
-                    }
-                }
-            }
-        }
+        /* Delete the Cycle */
         /* Delete all items in aProcess except the Root */
         while ( ring_list_getsize(aProcess) > 1 ) {
             ring_list_deleteitem_gc(pState,aProcess,ring_list_getsize(aProcess));
@@ -495,7 +474,7 @@ RING_API List * ring_list_collectcycles_gc ( void *pState,List *pList )
                     if ( ! ring_list_findpointer(aProcess,pSubList) ) {
                         ring_list_addpointer_gc(pState,aProcess,pSubList);
                     }
-                    else {
+                    if ( pSubList == pList ) {
                         pItem = ring_list_getitem(pActiveList,y);
                         pItem->nType = ITEMTYPE_NUMBER ;
                     }
