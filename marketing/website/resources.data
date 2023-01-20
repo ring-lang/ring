@@ -61,7 +61,10 @@
 					'<a href="http://ring-lang.sourceforge.net/RingBasics_ArabicBook.pdf" >Book: Ring Basics (Hassouna Academy)</a>'
 				],
 				[
-					'<a href="http://ring-lang.sourceforge.net/ref/GhanemBookAboutRing.pdf" >Book: Using Ring to analysis the Arabic Poetry</a>'
+					'<a href="http://ring-lang.sourceforge.net/ref/GhanemBookAboutRing.pdf" >Book: Using Ring to analysis the Arabic Poetry (Introduction)</a>'
+				],
+				[
+					'<a href="http://ring-lang.sourceforge.net/ref/GhanemBookUsingRing.pdf" >Book: Using Ring to analysis the Arabic Poetry (The Book)</a>'
 				]
 			]
 	     ],
