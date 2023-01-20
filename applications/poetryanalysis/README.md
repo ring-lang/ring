@@ -17,7 +17,10 @@ The source code is explained in the Book
 
 ![thebook](https://raw.githubusercontent.com/ring-lang/ring/master/applications/poetryanalysis/images/arabicbook.jpg)
 
-# Free Chapter
+# Free Chapter (Introduction)
 
 URL: https://ring-lang.sourceforge.io/ref/GhanemBookAboutRing.pdf
 
+# Free PDF (The Book)
+
+URL: https://ring-lang.sourceforge.io/ref/GhanemBookUsingRing.pdf
