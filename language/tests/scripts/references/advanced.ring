@@ -12,6 +12,6 @@ for t=1 to 30
 		if e = 3 e = ref(c) ok
 		? refcount(a)
 		? refcount(b)
-		? refcount(c)  # Always increase!!
+		? refcount(c)
 	next
 next
