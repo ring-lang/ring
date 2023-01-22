@@ -1141,7 +1141,7 @@ RING_API void ring_list_print2 ( List *pList,unsigned int nDecimals )
             }
             else {
                 if ( ring_list_isref(pList2) ) {
-                    printf( "[...]\n" ) ;
+                    printf( "[...] (RC:%d)\n",ring_list_getrefcount(pList2) ) ;
                 }
                 else {
                     ring_list_print2(pList2,nDecimals);
