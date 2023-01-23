@@ -276,7 +276,7 @@ RING_API List * ring_list_newref_gc ( void *pState, List *pVariableList, List *p
         if ( ring_vm_oop_isobject(pList) ) {
             ring_vm_oop_updateselfpointer(((RingState *) pState)->pVM,pList,RING_OBJTYPE_VARIABLE,pVariableList);
         }
-        /* We increase the Counter to avoid deleting the container variable */
+        /* We use lDontDelete to avoid deleting the container variable */
         pVariableList->gc.lDontDelete = 1 ;
         /* When deleting the list (No other references exist) - It will delete the container variable */
         pList->gc.lDeleteContainerVariable = 1 ;
