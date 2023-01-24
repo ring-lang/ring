@@ -263,15 +263,9 @@ RING_API void ring_list_updaterefcount_gc ( void *pState,List *pList, int nChang
 RING_API List * ring_list_newref_gc ( void *pState, List *pVariableList, List *pList )
 {
     /* Note: The list may already have a container variable (Previous Reference) */
+    pList->gc.lNewRef = 1 ;
     if ( pList->gc.pContainer == NULL ) {
-        ring_list_setlistbyref_gc(pState,pVariableList,RING_VAR_VALUE,pList);
-        if ( pList->gc.lNewRef == 0 ) {
-            pList->gc.lNewRef = 1 ;
-        }
-        else {
-            /* Avoid increasing the counter when writing Ref(Ref(Ref(....Ref(aList)....))) */
-            ring_list_updaterefcount_gc(pState,pList,RING_LISTREF_DEC);
-        }
+        ring_list_acceptlistbyref_gc(pState,pVariableList,RING_VAR_VALUE,pList);
         /* If we have a reference to an object, the Self attribute will stay pointing to the Container Variable */
         if ( ring_vm_oop_isobject(pList) ) {
             ring_vm_oop_updateselfpointer(((RingState *) pState)->pVM,pList,RING_OBJTYPE_VARIABLE,pVariableList);
@@ -283,11 +277,6 @@ RING_API List * ring_list_newref_gc ( void *pState, List *pVariableList, List *p
         pList->gc.pContainer = pVariableList ;
     }
     else {
-        /* Check if it's a new reference! */
-        if ( ! pList->gc.lNewRef ) {
-            pList->gc.lNewRef = 1 ;
-            ring_list_updaterefcount_gc(pState,pList,RING_LISTREF_INC);
-        }
         pVariableList = (List *) pList->gc.pContainer ;
     }
     return pVariableList ;
@@ -295,21 +284,14 @@ RING_API List * ring_list_newref_gc ( void *pState, List *pVariableList, List *p
 
 RING_API int ring_list_isref ( List *pList )
 {
-    return pList->gc.nReferenceCount ;
+    return (pList->gc.nReferenceCount > 0 ) || ( pList->gc.lNewRef == 1) ;
 }
 
 RING_API void ring_list_assignreftovar_gc ( void *pState,List *pRef,List *pVar,unsigned int nPos )
 {
-    int lNewRef  ;
-    lNewRef = pRef->gc.lNewRef ;
-    pRef->gc.lNewRef = 0 ;
     if ( ! ( ring_list_getlist(pVar,nPos) == pRef ) ) {
-        if ( lNewRef ) {
-            ring_list_acceptlistbyref_gc(pState,pVar,nPos,pRef);
-        }
-        else {
-            ring_list_setlistbyref_gc(pState,pVar,nPos,pRef);
-        }
+        ring_list_setlistbyref_gc(pState,pVar,nPos,pRef);
+        pRef->gc.lNewRef = 0 ;
     }
 }
 
@@ -318,20 +300,12 @@ RING_API void ring_list_assignreftoitem_gc ( void *pState,List *pRef,Item *pItem
     List *pList  ;
     pList = ring_item_getlist(pItem);
     if ( pList == pRef ) {
-        if ( pRef->gc.lNewRef ) {
-            ring_list_updaterefcount_gc(pState,pRef,RING_LISTREF_DEC);
-        }
-        pRef->gc.lNewRef = 0 ;
         return ;
     }
     ring_list_delete_gc(pState,pList);
     pItem->data.pList = pRef ;
-    if ( pRef->gc.lNewRef ) {
-        pRef->gc.lNewRef = 0 ;
-    }
-    else {
-        ring_list_updaterefcount_gc(pState,pRef,RING_LISTREF_INC);
-    }
+    ring_list_updaterefcount_gc(pState,pRef,RING_LISTREF_INC);
+    pRef->gc.lNewRef = 0 ;
 }
 
 RING_API int ring_list_isrefcontainer ( List *pList )
@@ -360,13 +334,11 @@ RING_API List * ring_list_deleteref_gc ( void *pState,List *pList )
     /* Avoid deleting objects when the list is just a reference */
     if ( ring_list_isref(pList) ) {
         /* We don't delete the list because there are other references */
-        ring_list_updaterefcount_gc(pState,pList,RING_LISTREF_DEC);
-        if ( pList->gc.lNewRef && ring_list_isref(pList) ) {
-            /* Deleting a Ref() before assignment while we have other references */
-            pList->gc.lNewRef = 0 ;
+        pList->gc.lNewRef = 0 ;
+        if ( ring_list_getrefcount(pList) > 1 ) {
             ring_list_updaterefcount_gc(pState,pList,RING_LISTREF_DEC);
+            pList = ring_list_collectcycles_gc(pState,pList);
         }
-        pList = ring_list_collectcycles_gc(pState,pList);
         return pList ;
     }
     /* Delete Container Variable (If the list have one) */
@@ -525,12 +497,9 @@ RING_API int ring_list_iscircular_gc ( void *pState,List *pList )
 RING_API int ring_list_checkrefinleftside ( void *pState,List *pList )
 {
     /* If we have Ref()/Reference() at the Left-Side then Delete the reference */
-    if ( ring_list_isref(pList) ) {
-        if ( pList->gc.lNewRef ) {
-            pList->gc.lNewRef = 0 ;
-            ring_list_updaterefcount_gc(pState,pList,RING_LISTREF_DEC);
-            return 1 ;
-        }
+    if ( pList->gc.lNewRef ) {
+        pList->gc.lNewRef = 0 ;
+        return 1 ;
     }
     return 0 ;
 }
@@ -564,6 +533,7 @@ RING_API int ring_list_isrefparameter ( VM *pVM,const char *cVariable )
                 lRef = 1 ;
                 pVar = ring_vm_newvar2(pVM,cVariable,pVM->pActiveMem);
                 ring_list_setint_gc(pVM->pRingState,pVar,RING_VAR_TYPE,RING_VM_LIST);
+                ring_list_setlist_gc(pVM->pRingState,pVar, RING_VAR_VALUE);
                 ring_list_assignreftovar_gc(pVM->pRingState,pRef,pVar,RING_VAR_VALUE);
             }
         }
