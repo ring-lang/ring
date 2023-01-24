@@ -299,13 +299,12 @@ RING_API void ring_list_assignreftoitem_gc ( void *pState,List *pRef,Item *pItem
 {
     List *pList  ;
     pList = ring_item_getlist(pItem);
-    if ( pList == pRef ) {
-        return ;
+    if ( ! ( pList == pRef ) ) {
+        ring_list_delete_gc(pState,pList);
+        pItem->data.pList = pRef ;
+        ring_list_updaterefcount_gc(pState,pRef,RING_LISTREF_INC);
+        pRef->gc.lNewRef = 0 ;
     }
-    ring_list_delete_gc(pState,pList);
-    pItem->data.pList = pRef ;
-    ring_list_updaterefcount_gc(pState,pRef,RING_LISTREF_INC);
-    pRef->gc.lNewRef = 0 ;
 }
 
 RING_API int ring_list_isrefcontainer ( List *pList )
