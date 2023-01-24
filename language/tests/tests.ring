@@ -1,6 +1,6 @@
 /*
 	Tests For Ring programming language
-	2018-2022, Mahmoud Fayed
+	2018-2023, Mahmoud Fayed
 */
 
 aTests = [
@@ -460,5 +460,6 @@ aTests = [
 	[ :name = "Using References (Part 44)", :Command = "ring references/refpara4.ring" ],
 	[ :name = "Using References (Part 45)", :Command = "ring references/refpara5.ring" ],
 	[ :name = "Using References (Part 46)", :Command = "ring references/itemref2null.ring" ],
-	[ :name = "Using References (Part 47)", :Command = "ring references/refonetime.ring" ]
+	[ :name = "Using References (Part 47)", :Command = "ring references/refonetime.ring" ],
+	[ :name = "Using References (Part 48)", :Command = "ring references/retitemref.ring" ]
 ]
