@@ -466,5 +466,6 @@ aTests = [
 	[ :name = "Using References (Part 50)", :Command = "ring references/selfvar.ring" ],
 	[ :name = "Using References (Part 51)", :Command = "ring references/funcitemref.ring" ],
 	[ :name = "Using References (Part 52)", :Command = "ring references/funcitemref2.ring" ],
-	[ :name = "Using References (Part 53)", :Command = "ring references/itemref2var.ring" ]
+	[ :name = "Using References (Part 53)", :Command = "ring references/itemref2var.ring" ],
+	[ :name = "Using References (Part 54)", :Command = "ring references/refvar2null.ring" ]
 ]
