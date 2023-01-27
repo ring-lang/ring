@@ -289,21 +289,21 @@ RING_API int ring_list_isref ( List *pList )
 
 RING_API void ring_list_assignreftovar_gc ( void *pState,List *pRef,List *pVar,unsigned int nPos )
 {
+    pRef->gc.lNewRef = 0 ;
     if ( ! ( ring_list_getlist(pVar,nPos) == pRef ) ) {
         ring_list_setlistbyref_gc(pState,pVar,nPos,pRef);
-        pRef->gc.lNewRef = 0 ;
     }
 }
 
 RING_API void ring_list_assignreftoitem_gc ( void *pState,List *pRef,Item *pItem )
 {
     List *pList  ;
+    pRef->gc.lNewRef = 0 ;
     pList = ring_item_getlist(pItem);
     if ( ! ( pList == pRef ) ) {
         ring_list_delete_gc(pState,pList);
         pItem->data.pList = pRef ;
         ring_list_updaterefcount_gc(pState,pRef,RING_LISTREF_INC);
-        pRef->gc.lNewRef = 0 ;
     }
 }
 
