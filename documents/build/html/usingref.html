@@ -279,16 +279,73 @@
 <p>In this chapter we will learn about using references.</p>
 <div class="section" id="ref-reference-function">
 <span id="index-1"></span><h2>ref()/reference() function<a class="headerlink" href="#ref-reference-function" title="Permalink to this headline">¶</a></h2>
+<p>In Ring, Using the Assignment (=) operator copy variables by value.</p>
+<p>Also, Adding a List/Object to another List create a new copy.</p>
+<p>To change this behavior, We can use the Ref()/Reference() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ref</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">aList</span> <span class="p">(</span><span class="n">Reference</span><span class="p">)</span>       <span class="c"># Short name</span>
-<span class="n">reference</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">aList</span> <span class="p">(</span><span class="n">Reference</span><span class="p">)</span> <span class="c"># Long name</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ref</span><span class="p">(</span><span class="n">aList</span><span class="o">|</span><span class="n">oObject</span><span class="p">)</span>       <span class="o">---&gt;</span> <span class="n">aList</span><span class="o">|</span><span class="n">oObject</span> <span class="p">(</span><span class="n">Reference</span><span class="p">)</span> <span class="c"># Short name</span>
+<span class="n">reference</span><span class="p">(</span><span class="n">aList</span><span class="o">|</span><span class="n">oObject</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">aList</span><span class="o">|</span><span class="n">oObject</span> <span class="p">(</span><span class="n">Reference</span><span class="p">)</span> <span class="c"># Long name</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span>     <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span>
+<span class="n">aListCopy</span> <span class="o">=</span> <span class="n">aList</span>       <span class="c"># Copy by Value</span>
+<span class="n">aList2</span>    <span class="o">=</span> <span class="n">ref</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>  <span class="c"># Copy by Reference  (RC: 2)</span>
+<span class="n">aList3</span>    <span class="o">=</span> <span class="n">aList</span>       <span class="c"># Copy by Reference  (RC: 3)</span>
+<span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">aList</span>
+        <span class="n">item</span> <span class="o">*=</span> <span class="mi">10</span>
+<span class="k">next</span>
+<span class="o">?</span> <span class="n">aList3</span>                <span class="c"># 10 20 30</span>
+<span class="o">?</span> <span class="n">aListCopy</span>             <span class="c"># 1 2 3</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>10
+20
+30
+1
+2
+3
 </pre></div>
 </div>
 </div>
 <div class="section" id="refcount-function">
 <span id="index-2"></span><h2>refcount() function<a class="headerlink" href="#refcount-function" title="Permalink to this headline">¶</a></h2>
+<p>Using the refcount() function we can know how many references exist.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">refcount</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Number</span> <span class="p">(</span><span class="n">References</span> <span class="n">Count</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span>  <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span>
+<span class="n">aList2</span> <span class="o">=</span> <span class="n">ref</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">refcount</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>       <span class="c"># 2</span>
+<span class="o">?</span> <span class="n">refcount</span><span class="p">(</span><span class="n">aList2</span><span class="p">)</span>      <span class="c"># 2</span>
+<span class="n">aList3</span> <span class="o">=</span> <span class="n">aList2</span>
+<span class="n">aList4</span> <span class="o">=</span> <span class="n">aList</span>
+<span class="n">aList5</span> <span class="o">=</span> <span class="n">aList4</span>
+<span class="o">?</span> <span class="n">refcount</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>       <span class="c"># 5</span>
+<span class="o">?</span> <span class="n">refcount</span><span class="p">(</span><span class="n">aList2</span><span class="p">)</span>      <span class="c"># 5</span>
+<span class="o">?</span> <span class="n">refcount</span><span class="p">(</span><span class="n">aList3</span><span class="p">)</span>      <span class="c"># 5</span>
+<span class="o">?</span> <span class="n">refcount</span><span class="p">(</span><span class="n">aList4</span><span class="p">)</span>      <span class="c"># 5</span>
+<span class="o">?</span> <span class="n">refcount</span><span class="p">(</span><span class="n">aList5</span><span class="p">)</span>      <span class="c"># 5</span>
+<span class="n">aList5</span> <span class="o">=</span> <span class="kp">NULL</span>
+<span class="n">aList4</span> <span class="o">=</span> <span class="o">[]</span>
+<span class="n">aList3</span> <span class="o">=</span> <span class="o">[</span><span class="mi">10</span><span class="o">]</span>
+<span class="o">?</span> <span class="n">refcount</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>       <span class="c"># 2</span>
+<span class="o">?</span> <span class="n">refcount</span><span class="p">(</span><span class="n">aList2</span><span class="p">)</span>      <span class="c"># 2</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2
+2
+5
+5
+5
+5
+5
+2
+2
 </pre></div>
 </div>
 </div>

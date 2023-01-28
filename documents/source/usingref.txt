@@ -13,12 +13,43 @@ In this chapter we will learn about using references.
 ref()/reference() function
 ==========================
 
+In Ring, Using the Assignment (=) operator copy variables by value.
+
+Also, Adding a List/Object to another List create a new copy.
+
+To change this behavior, We can use the Ref()/Reference() function.
+
 Syntax:
 
 .. code-block:: ring
 
-	ref(aList) ---> aList (Reference)	# Short name
-	reference(aList) ---> aList (Reference)	# Long name
+	ref(aList|oObject) 	 ---> aList|oObject (Reference)	# Short name
+	reference(aList|oObject) ---> aList|oObject (Reference)	# Long name
+
+Example:
+
+.. code-block:: ring
+
+	aList     = [1,2,3]
+	aListCopy = aList	# Copy by Value 
+	aList2    = ref(aList)	# Copy by Reference  (RC: 2)
+	aList3    = aList 	# Copy by Reference  (RC: 3)
+	for item in aList
+		item *= 10
+	next
+	? aList3		# 10 20 30
+	? aListCopy		# 1 2 3
+
+Output:
+
+.. code-block:: none
+
+	10
+	20
+	30
+	1
+	2
+	3
 
 .. index:: 
 	pair: Using References; refcount()
@@ -26,9 +57,46 @@ Syntax:
 refcount() function
 ===================
 
+Using the refcount() function we can know how many references exist.
+
 Syntax:
 
 .. code-block:: ring
 
 	refcount(variable) ---> Number (References Count)
 
+Example:
+
+.. code-block:: ring
+
+	aList  = 1:10
+	aList2 = ref(aList)
+	? refcount(aList)	# 2
+	? refcount(aList2)	# 2
+	aList3 = aList2
+	aList4 = aList
+	aList5 = aList4
+	? refcount(aList)	# 5
+	? refcount(aList2)	# 5
+	? refcount(aList3)	# 5
+	? refcount(aList4)	# 5
+	? refcount(aList5)	# 5
+	aList5 = NULL
+	aList4 = []
+	aList3 = [10]
+	? refcount(aList)	# 2
+	? refcount(aList2)	# 2
+
+Output:
+
+.. code-block:: none
+
+	2
+	2
+	5
+	5
+	5
+	5
+	5
+	2
+	2
