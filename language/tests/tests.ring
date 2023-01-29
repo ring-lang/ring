@@ -473,5 +473,6 @@ aTests = [
 	[ :name = "Using References (Part 57)", :Command = "ring references/delcirref.ring" ],
 	[ :name = "Using References (Part 58)", :Command = "ring references/forinmagic.ring" ],
 	[ :name = "Using References (Part 59)", :Command = "ring references/doc1.ring" ],
-	[ :name = "Using References (Part 60)", :Command = "ring references/doc2.ring" ]
+	[ :name = "Using References (Part 60)", :Command = "ring references/doc2.ring" ],
+	[ :name = "Using References (Part 61)", :Command = "ring references/zeroproxy.ring" ]
 ]
