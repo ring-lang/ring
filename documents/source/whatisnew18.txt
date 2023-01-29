@@ -78,6 +78,7 @@ More Samples
 ============
 
 * Added: samples/General/OrbitalMechanics
+* Added: samples/General/QuizMarks/QuizMarks.ring
 * Added: samples/UsingQt/TabActivate/simpleExample.ring 
 * Added: samples/UsingQt/TabActivate/TabActivateController.ring 
 * Added: samples/UsingFormDesigner/centerwindow
