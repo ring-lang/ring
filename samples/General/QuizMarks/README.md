@@ -7,8 +7,12 @@ A simple example about using
 
 (2) CSV Files (Output)
 
+![csv](https://raw.githubusercontent.com/ring-lang/ring/master/samples/General/QuizMarks/img/usingcsv.png)
+
 (3) GUILib (TableWidget)
+
+![gui](https://raw.githubusercontent.com/ring-lang/ring/master/samples/General/QuizMarks/img/usinggui.png)
 
 (4) Many Source Code Files (*.ring)
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/samples/general/QuizMarks/img/manyfiles.png)
+![manyfiles](https://raw.githubusercontent.com/ring-lang/ring/master/samples/General/QuizMarks/img/manyfiles.png)
