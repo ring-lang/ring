@@ -10,3 +10,5 @@ A simple example about using
 (3) GUILib (TableWidget)
 
 (4) Many Source Code Files (*.ring)
+
+![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/samples/general/QuizMarks/img/manyfiles.png)
