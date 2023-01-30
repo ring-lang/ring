@@ -14,8 +14,6 @@
 #	(4) CSV File contains the results
 #==============================================================#
 
-load "csvlib.ring"
-
 F = "False"
 T = "True"
 
@@ -861,10 +859,12 @@ aStudents = [
 	]
 ]
 
-line()
+line = func { ? copy("=",70) }
+
+call line()
 ? " Students  Count : " + len(aStudents)
 ? " Questions Count : " + C_QUESTIONSCOUNT
-line()
+call line()
 aMarks = [["Student ID","Wrong Answers","Score of 100","Marks of 10"]]
 for student in aStudents
 	aMark = [student[1]]
@@ -888,8 +888,31 @@ for student in aStudents
 	? ") - " + cScore + " - " + nMark + " of 10 "
 	aMarks + aMark
 next
-line()
+call line()
+
+#==============================================================#
+# Create the CSV File
+#==============================================================#
+
+load "csvlib.ring"
 write("marks.csv",list2csv(aMarks))
 
-func line
-	? copy("=",70)
+#==============================================================#
+# Adding a GUI using RingQt & GUILib
+#==============================================================#
+
+load "guilib.ring"
+import System.GUI
+
+new App {
+	w = new Window() {
+		setWindowTitle("Quiz Marks") resize(800,600)
+		t = new TableWidget(w) { addList(aMarks) }
+		b = new PushButton(w) { 
+			setText("Close") setClickEvent("w.close()")
+		}
+		l = new VBoxLayout() { addWidget(t) addwidget(b) }
+		setLayout(l) show()
+	}
+	exec()
+}
