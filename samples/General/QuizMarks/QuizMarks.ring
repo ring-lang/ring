@@ -24,11 +24,11 @@ load "data.ring"
 #                    Display General Information
 #====================================================================#
 
-line = func { ? copy("=",70) }
-call line()
+load "uilib.ring"
+line()
 ? " Students  Count : " + len(aStudents)
 ? " Questions Count : " + C_QUESTIONSCOUNT
-call line()
+line()
 
 #====================================================================#
 # 			Prepare Results (Marks)
@@ -57,7 +57,7 @@ for student in aStudents
 	? ") - " + cScore + " - " + nMark + " of 10 "
 	aMarks + aMark
 next
-call line()
+line()
 
 #====================================================================#
 # 			Create the CSV File
