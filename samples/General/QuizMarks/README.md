@@ -5,6 +5,8 @@ A simple example about using
 
 (1) Lists (Input)
 
+![lists](https://raw.githubusercontent.com/ring-lang/ring/master/samples/General/QuizMarks/img/usinglists.png)
+
 (2) CSV Files (Output)
 
 ![csv](https://raw.githubusercontent.com/ring-lang/ring/master/samples/General/QuizMarks/img/usingcsv.png)
