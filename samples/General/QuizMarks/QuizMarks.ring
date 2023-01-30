@@ -24,13 +24,13 @@
 # 		      Load the Application Data 
 #====================================================================#
 
-load "data.ring"
+load "data/data.ring"
 
 #====================================================================#
 #                    Display General Information
 #====================================================================#
 
-load "uilib.ring"
+load "data/uilib.ring"
 line()
 ? " Students  Count : " + len(aStudents)
 ? " Questions Count : " + C_QUESTIONSCOUNT
