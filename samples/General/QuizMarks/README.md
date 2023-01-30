@@ -1,6 +1,8 @@
 QuizMarks Application
 =====================
 
+Source Code: https://github.com/ring-lang/ring/blob/master/samples/General/QuizMarks/QuizMarks.ring
+
 A simple example about using
 
 (1) Lists (Input)
