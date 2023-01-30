@@ -3,15 +3,21 @@
 # Author     : Mahmoud Fayed
 # Date       : 2023-01-29
 #====================================================================#
+#
 # We have a Quiz that contains 100 questions (True/False)
-# Input: 
+#
+# 			-={ Input  }=-
+#
 # 	(1) The correct answer (aCorrect)
 # 	(2) Also, We provide the Students answer (aStudents)
-# Output: 
+#
+# 			-={ Output }=-
+#
 # 	(1) Student Score  (of 100)
 #	(2) Students Marks (of 10)
 #	(3) Detect the Wrong Answers 
 #	(4) CSV File contains the results
+#
 #====================================================================#
 
 #====================================================================#
