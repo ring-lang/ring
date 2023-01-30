@@ -24,7 +24,7 @@
 # 		      Load the Application Data 
 #====================================================================#
 
-load "data/data.ring"
+load "data/answers.ring"
 
 #====================================================================#
 #                    Display General Information
