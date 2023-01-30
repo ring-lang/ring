@@ -30,7 +30,7 @@ load "data/answers.ring"
 #                    Display General Information
 #====================================================================#
 
-load "data/uilib.ring"
+load "libs/uilib.ring"
 line()
 ? " Students  Count : " + len(aStudents)
 ? " Questions Count : " + C_QUESTIONSCOUNT
@@ -70,7 +70,7 @@ line()
 #====================================================================#
 
 load "csvlib.ring"
-write("marks.csv",list2csv(aMarks))
+write("out/marks.csv",list2csv(aMarks))
 
 #====================================================================#
 # 		Adding a GUI using RingQt & GUILib
