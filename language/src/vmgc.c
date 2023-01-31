@@ -277,6 +277,8 @@ RING_API List * ring_list_newref_gc ( void *pState, List *pVariableList, List *p
         pList->gc.pContainer = pVariableList ;
     }
     else {
+        /* Delete the unused container */
+        ring_list_delete_gc(pState,pVariableList);
         pVariableList = (List *) pList->gc.pContainer ;
     }
     return pVariableList ;
