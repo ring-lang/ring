@@ -26,6 +26,8 @@ Type: unsigned int
 lDontDelete: 1
 Type: unsigned int
 lDeleteContainerVariable: 1
+Type: unsigned int
+lDontRef: 1
 END:
 Type: ListGCData
 struct ListGCData

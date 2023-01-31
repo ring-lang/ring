@@ -22,7 +22,7 @@ ring_vm_newfunc
 Type: int
 x,nSP,nMax
 Type: List *
-pList
+pList, *aParameters
 Type: String *
 pParameter
 Type: char *
