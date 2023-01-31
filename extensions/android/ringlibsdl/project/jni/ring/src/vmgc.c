@@ -322,6 +322,7 @@ RING_API void ring_list_clearrefdata ( List *pList )
     pList->gc.lDontDelete = 0 ;
     pList->gc.lDeleteContainerVariable = 0 ;
     pList->gc.nReferenceCount = 0 ;
+    pList->gc.lDontRef = 0 ;
 }
 
 RING_API List * ring_list_deleteref_gc ( void *pState,List *pList )

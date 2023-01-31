@@ -591,6 +591,7 @@ void ring_vm_movetoprevscope ( VM *pVM )
             if ( ring_vm_oop_isobject(pList2) ) {
                 ring_vm_oop_updateselfpointer(pVM,pList2,RING_OBJTYPE_VARIABLE,pList3);
             }
+            pList2->gc.lDontRef = 1 ;
         }
     }
     RING_VM_STACK_SETPVALUE(pList3);

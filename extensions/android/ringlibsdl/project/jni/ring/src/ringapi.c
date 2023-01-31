@@ -350,6 +350,10 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
     if ( ring_list_iscopybyref(pList) && (nRef == RING_OUTPUT_RETNEWREF) ) {
         nRef = RING_OUTPUT_RETLISTBYREF ;
     }
+    /* Check lDontRef Flag */
+    if ( pList->gc.lDontRef && (nRef == RING_OUTPUT_RETNEWREF) ) {
+        nRef = RING_OUTPUT_RETLIST ;
+    }
     if ( nRef == RING_OUTPUT_RETNEWREF ) {
         pTempMem = NULL ;
     }
