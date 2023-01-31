@@ -23,7 +23,11 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 int ring_vm_api_islist ( void *pPointer,int x )
 {
     int nType  ;
-    if ( RING_API_ISPOINTER(x) ) {
+    List *pList  ;
+    VM *pVM  ;
+    pVM = (VM *) pPointer ;
+    pList = ring_list_getlist(RING_API_PARALIST,x) ;
+    if ( ring_list_ispointer(pList,RING_VAR_VALUE) ) {
         nType = RING_API_GETPOINTERTYPE(x);
         if ( nType == RING_OBJTYPE_VARIABLE || nType == RING_OBJTYPE_LISTITEM ) {
             return 1 ;
@@ -86,7 +90,7 @@ RING_API void ring_vm_api_retcpointer2 ( void *pPointer,void *pGeneral,const cha
 RING_API void * ring_vm_api_getcpointer ( void *pPointer,int x,const char *cType )
 {
     List *pList  ;
-    if ( RING_API_ISLIST(x) ) {
+    if ( RING_API_ISLISTORNULL(x) ) {
         pList = RING_API_GETLIST(x) ;
         if ( ring_list_ispointer(pList,1) ) {
             if ( ring_list_getpointer(pList,1) != NULL ) {
@@ -230,7 +234,7 @@ RING_API int ring_vm_api_iscpointerlist ( List *pList )
 
 RING_API int ring_vm_api_iscpointer ( void *pPointer,int x )
 {
-    if ( RING_API_ISLIST(x) ) {
+    if ( RING_API_ISLISTORNULL(x) ) {
         return ring_vm_api_iscpointerlist(RING_API_GETLIST(x)) ;
     }
     return 0 ;
@@ -238,7 +242,7 @@ RING_API int ring_vm_api_iscpointer ( void *pPointer,int x )
 
 RING_API int ring_vm_api_isobject ( void *pPointer,int x )
 {
-    if ( RING_API_ISLIST(x) ) {
+    if ( RING_API_ISLISTORNULL(x) ) {
         return ring_vm_oop_isobject(RING_API_GETLIST(x)) ;
     }
     return 0 ;
@@ -286,7 +290,7 @@ RING_API void * ring_vm_api_getcpointer2pointer ( void *pPointer,int x,const cha
 {
     List *pList  ;
     Item *pItem  ;
-    if ( RING_API_ISLIST(x) ) {
+    if ( RING_API_ISLISTORNULL(x) ) {
         pList = RING_API_GETLIST(x) ;
         if ( ring_list_ispointer(pList,1) ) {
             if ( ring_list_getpointer(pList,1) != NULL ) {
@@ -383,4 +387,16 @@ RING_API void ring_vm_api_intvalue ( void *pPointer,const char  *cStr )
 RING_API void ring_vm_api_floatvalue ( void *pPointer,const char  *cStr )
 {
     ring_vm_api_varvalue(pPointer,cStr,2);
+}
+
+int ring_vm_api_islistornull ( void *pPointer,int x )
+{
+    int nType  ;
+    if ( RING_API_ISPOINTER(x) ) {
+        nType = RING_API_GETPOINTERTYPE(x);
+        if ( nType == RING_OBJTYPE_VARIABLE || nType == RING_OBJTYPE_LISTITEM ) {
+            return 1 ;
+        }
+    }
+    return 0 ;
 }

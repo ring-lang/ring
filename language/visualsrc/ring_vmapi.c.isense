@@ -68,6 +68,7 @@ RING_API_FREEFUNC
 RING_FUNC(x)
 RING_LIBINIT
 RING_API_GETCHARPOINTER(x)
+RING_API_ISLISTORNULL(x)
 ring_vm_funcregister2
 Type: List *
 pList
@@ -75,6 +76,10 @@ ring_vm_loadcfunctions
 ring_vm_api_islist
 Type: int
 nType
+Type: List *
+pList
+Type: VM *
+pVM
 ring_vm_api_getlist
 Type: int
 nType
@@ -141,3 +146,6 @@ Type: VM *
 pVM
 ring_vm_api_intvalue
 ring_vm_api_floatvalue
+ring_vm_api_islistornull
+Type: int
+nType
