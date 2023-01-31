@@ -86,10 +86,11 @@ More Samples
 * Added: samples/AQuickStart/MySQL/mysql11.ring
 * Added: samples/UsingQt3D/ex19_sceneKeyboard.ring
 * Added: samples/General/SmallExamples/Conjecture/knuthconjecture.ring
-* Sample: samples/AQuickStart/GUILib/gui44.ring - Better Code
-* Sample: samples/UsingWebLib/Demo/datalib.ring - Better Code
-* Sample: samples/UsingWebLib/Demo/bootstrap.ring - Better Code
-* Sample: samples/UsingStbImage/test2.ring - Better Code
+* File: samples/AQuickStart/GUILib/gui44.ring - Better Code
+* File: samples/UsingWebLib/Demo/datalib.ring - Better Code
+* File: samples/UsingWebLib/Demo/bootstrap.ring - Better Code
+* File: samples/UsingStbImage/test2.ring - Better Code
+* Folder: samples/UsingLibSDL - Better Code
 
 .. image:: lagrange.png
 	:alt: lagrange
@@ -256,6 +257,7 @@ Better Ring API
 * Added: RING_API_ACCEPTFLOATVALUE(nParameter)
 * Added: RING_API_GETCHARPOINTER(nParameter)
 * RING_API_GETINTPOINTER - Better code when passing integer pointer
+* RING_API_ISLIST - Don't accept empty strings (NULL) from Ring code
 * Sample: extensions/tutorial/integerpointer
 * Sample: extensions/tutorial/stringpointer
 
@@ -389,4 +391,3 @@ More Improvements
 * Ring VM - ICO_FREESTACK instruction - Don't delete temp. lists in global scope
 * Ring VM - ICO_FREETEMPLISTS instruction - Delete temp. lists in global scope (Thread Safe)
 * Ring VM - List Functions - Using (unsigned int) for the list index & size
-* Ring API - RING_API_ISLIST - Don't accept empty strings (NULL) from Ring code
