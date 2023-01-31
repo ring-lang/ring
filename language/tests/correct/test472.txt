@@ -1,0 +1,3 @@
+The ref() function doesn't accept strings
+The ref() function doesn't accept NULL
+The ref() function doesn't accept numbers
