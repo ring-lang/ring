@@ -187,6 +187,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingref.html">Using References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
@@ -424,7 +425,7 @@ LibSDL, SDLImage, SDLTTF and SDLMixer libraries.</p>
 <span class="n">sdl_set_sdl_color_b</span><span class="p">(</span><span class="n">color</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">text</span> <span class="o">=</span> <span class="n">TTF_RenderText_Solid</span><span class="p">(</span><span class="n">font</span><span class="p">,</span><span class="s">&quot;Welcome to the Ring language&quot;</span><span class="p">,</span><span class="n">color</span><span class="p">)</span>
 <span class="n">surface</span> <span class="o">=</span> <span class="n">SDL_GetWindowSurface</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
-<span class="n">SDL_BlitSurface</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">nullpointer</span><span class="p">(),</span> <span class="n">surface</span><span class="p">,</span> <span class="n">nullpointer</span><span class="p">())</span>
+<span class="n">SDL_BlitSurface</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">,</span> <span class="n">surface</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">)</span>
 <span class="n">SDL_UpdateWindowSurface</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
 <span class="n">SDL_Delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
 
@@ -454,7 +455,7 @@ LibSDL, SDLImage, SDLTTF and SDLMixer libraries.</p>
 <span class="n">tex</span> <span class="o">=</span> <span class="n">SDL_CreateTextureFromSurface</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">bmp</span><span class="p">)</span>
 <span class="n">SDL_FreeSurface</span><span class="p">(</span><span class="n">bmp</span><span class="p">)</span>
 <span class="n">SDL_RenderClear</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
-<span class="n">SDL_RenderCopy</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">tex</span><span class="p">,</span><span class="n">nullpointer</span><span class="p">(),</span><span class="n">nullpointer</span><span class="p">())</span>
+<span class="n">SDL_RenderCopy</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">tex</span><span class="p">,</span><span class="kp">NULL</span><span class="p">,</span><span class="kp">NULL</span><span class="p">)</span>
 <span class="n">SDL_DestroyTexture</span><span class="p">(</span><span class="n">tex</span><span class="p">)</span>
 
 <span class="n">bmp</span> <span class="o">=</span> <span class="n">IMG_Load</span><span class="p">(</span><span class="s">&quot;player.png&quot;</span><span class="p">)</span>
@@ -470,7 +471,7 @@ LibSDL, SDLImage, SDLTTF and SDLMixer libraries.</p>
 <span class="n">sdl_set_sdl_rect_y</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">sdl_set_sdl_rect_w</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">sdl_set_sdl_rect_h</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">SDL_RenderCopy</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">tex</span><span class="p">,</span><span class="n">nullpointer</span><span class="p">(),</span><span class="n">rect</span><span class="p">)</span>
+<span class="n">SDL_RenderCopy</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">tex</span><span class="p">,</span><span class="kp">NULL</span><span class="p">,</span><span class="n">rect</span><span class="p">)</span>
 
 <span class="n">SDL_SetTextureBlendMode</span><span class="p">(</span><span class="n">tex</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">SDL_SetTextureAlphaMod</span><span class="p">(</span><span class="n">tex</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>
@@ -478,7 +479,7 @@ LibSDL, SDLImage, SDLTTF and SDLMixer libraries.</p>
 <span class="n">sdl_set_sdl_rect_y</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
 <span class="n">sdl_set_sdl_rect_w</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">sdl_set_sdl_rect_h</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">SDL_RenderCopy</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">tex</span><span class="p">,</span><span class="n">nullpointer</span><span class="p">(),</span><span class="n">rect</span><span class="p">)</span>
+<span class="n">SDL_RenderCopy</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">tex</span><span class="p">,</span><span class="kp">NULL</span><span class="p">,</span><span class="n">rect</span><span class="p">)</span>
 
 <span class="n">SDL_DestroyTexture</span><span class="p">(</span><span class="n">tex</span><span class="p">)</span>
 <span class="n">SDL_Destroy_SDL_Rect</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
@@ -554,7 +555,7 @@ LibSDL, SDLImage, SDLTTF and SDLMixer libraries.</p>
                                 <span class="n">SDL_SETWINDOWTITLE</span><span class="p">(</span><span class="n">win</span><span class="p">,</span>  <span class="s">&quot; Button_Right_Down &quot;</span> <span class="p">)</span>
                         <span class="k">ok</span>
                 <span class="k">on</span> <span class="n">SDL_MOUSEMOTION</span>
-                        <span class="n">sdl_fillrect</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span><span class="n">nullpointer</span><span class="p">(),</span><span class="mi">0</span><span class="p">)</span>
+                        <span class="n">sdl_fillrect</span><span class="p">(</span><span class="n">surface</span><span class="p">,</span><span class="kp">NULL</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
                         <span class="k">if</span> <span class="n">sdl_get_sdl_event_motion_xrel</span><span class="p">(</span><span class="n">myevent</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span>
                                 <span class="n">cMsg</span> <span class="o">+=</span> <span class="s">&quot; Left &quot;</span>
                         <span class="k">else</span>
@@ -578,7 +579,7 @@ LibSDL, SDLImage, SDLTTF and SDLMixer libraries.</p>
 
 <span class="k">func</span> <span class="n">showmsg</span> <span class="n">mymsg</span>
         <span class="n">text</span> <span class="o">=</span> <span class="n">TTF_RenderText_Solid</span><span class="p">(</span><span class="n">font</span><span class="p">,</span><span class="n">mymsg</span><span class="p">,</span><span class="n">color</span><span class="p">)</span>
-        <span class="n">SDL_BlitSurface</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">nullpointer</span><span class="p">(),</span> <span class="n">surface</span><span class="p">,</span> <span class="n">nullpointer</span><span class="p">())</span>
+        <span class="n">SDL_BlitSurface</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">,</span> <span class="n">surface</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">)</span>
         <span class="n">SDL_UpdateWindowSurface</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
         <span class="n">SDL_FreeSurface</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </pre></div>

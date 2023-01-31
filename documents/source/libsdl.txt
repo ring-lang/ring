@@ -175,7 +175,7 @@ Example:
 	sdl_set_sdl_color_b(color,0)
 	text = TTF_RenderText_Solid(font,"Welcome to the Ring language",color)
 	surface = SDL_GetWindowSurface(win)
-	SDL_BlitSurface(text, nullpointer(), surface, nullpointer())
+	SDL_BlitSurface(text, NULL, surface, NULL)
 	SDL_UpdateWindowSurface(win)
 	SDL_Delay(2000)
 
@@ -210,7 +210,7 @@ Example:
 	tex = SDL_CreateTextureFromSurface(ren,bmp)
 	SDL_FreeSurface(bmp)
 	SDL_RenderClear(ren)
-	SDL_RenderCopy(ren,tex,nullpointer(),nullpointer())
+	SDL_RenderCopy(ren,tex,NULL,NULL)
 	SDL_DestroyTexture(tex)
 
 	bmp = IMG_Load("player.png")
@@ -226,7 +226,7 @@ Example:
 	sdl_set_sdl_rect_y(rect,0)
 	sdl_set_sdl_rect_w(rect,100)
 	sdl_set_sdl_rect_h(rect,100)
-	SDL_RenderCopy(ren,tex,nullpointer(),rect)
+	SDL_RenderCopy(ren,tex,NULL,rect)
 
 	SDL_SetTextureBlendMode(tex,2)
 	SDL_SetTextureAlphaMod(tex,255)
@@ -234,7 +234,7 @@ Example:
 	sdl_set_sdl_rect_y(rect,200)
 	sdl_set_sdl_rect_w(rect,100)
 	sdl_set_sdl_rect_h(rect,100)
-	SDL_RenderCopy(ren,tex,nullpointer(),rect)
+	SDL_RenderCopy(ren,tex,NULL,rect)
 
 	SDL_DestroyTexture(tex)
 	SDL_Destroy_SDL_Rect(rect)
@@ -320,7 +320,7 @@ Example:
 					SDL_SETWINDOWTITLE(win,  " Button_Right_Down " )
 				ok
 			on SDL_MOUSEMOTION
-				sdl_fillrect(surface,nullpointer(),0)
+				sdl_fillrect(surface,NULL,0)
 				if sdl_get_sdl_event_motion_xrel(myevent) < 0
 					cMsg += " Left "
 				else
@@ -344,7 +344,7 @@ Example:
 
 	func showmsg mymsg
 		text = TTF_RenderText_Solid(font,mymsg,color)
-		SDL_BlitSurface(text, nullpointer(), surface, nullpointer())
+		SDL_BlitSurface(text, NULL, surface, NULL)
 		SDL_UpdateWindowSurface(win)
 		SDL_FreeSurface(text)
 
