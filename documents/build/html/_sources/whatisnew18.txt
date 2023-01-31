@@ -21,6 +21,7 @@ Ring 1.18 comes with the next features!
 * More Samples
 * Syntax Files 
 * The Power Operator
+* Using References 
 * Ring for MS-DOS
 * Better RingSockets
 * Heroku (Better support)
@@ -141,6 +142,35 @@ Example:
 	? 5.9736*(10^^6)	# 5973600.00 
 	? 7.3476*(10^^(-5))	# 0.0000734760
 
+
+.. index:: 
+	pair: What is new in Ring  1.18; Using References
+
+Using References
+================
+
+Ring as a language is designed to reduce references usage
+
+The assignment operator (=) copy lists/objects by value
+
+This release comes with the next functions to create and use managed references
+
+.. code-block:: none
+
+	ref(aList|oObject) 	 ---> aList|oObject (Reference)	# Short name
+	reference(aList|oObject) ---> aList|oObject (Reference)	# Long name
+	refcount(variable) ---> Number (References Count)
+
+Example:
+
+.. code-block:: ring
+
+	aList = [ 10,20,30, ref(aList) ]	# Circular Reference
+	? aList[4][1] 				# Print 10
+	? aList[4][4][4][4][4][2]		# Print 20
+	? refcount(aList)			# Print 2
+
+Check the chapter (Using References) to learn more about using this feature!
 
 .. index:: 
 	pair: What is new in Ring  1.18; Ring for MS-DOS
