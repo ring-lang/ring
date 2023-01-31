@@ -13,7 +13,7 @@ sdl_set_sdl_color_g(color,255)
 sdl_set_sdl_color_b(color,0)
 text = TTF_RenderText_Solid(font,"Welcome to the Ring language",color)
 surface = SDL_GetWindowSurface(win)
-SDL_BlitSurface(text, nullpointer(), surface, nullpointer())
+SDL_BlitSurface(text, null, surface, null)
 SDL_UpdateWindowSurface(win)
 SDL_Delay(2000)
 

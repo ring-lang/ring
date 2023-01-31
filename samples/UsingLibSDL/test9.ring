@@ -32,7 +32,7 @@ while true
                                 SDL_SETWINDOWTITLE(win,  " Button_Right_Down " )
                         ok
                 on SDL_MOUSEMOTION
-                        sdl_fillrect(surface,nullpointer(),0)
+                        sdl_fillrect(surface,null,0)
                         if sdl_get_sdl_event_motion_xrel(myevent) < 0
                                 cMsg += " Left "
                         else
@@ -56,6 +56,6 @@ SDL_Quit()
 
 func showmsg mymsg
         text = TTF_RenderText_Solid(font,mymsg,color)
-        SDL_BlitSurface(text, nullpointer(), surface, nullpointer())
+        SDL_BlitSurface(text, null, surface, null)
         SDL_UpdateWindowSurface(win)
         SDL_FreeSurface(text)
