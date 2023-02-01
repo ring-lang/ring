@@ -243,6 +243,10 @@ int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr )
                 ring_vm_oop_setget(pVM,pList2);
             }
         }
+        /* Check lNewRef Flag */
+        if ( ring_list_getint(pList2,RING_VAR_TYPE) == RING_VM_LIST ) {
+            ring_list_getlist(pList2,RING_VAR_VALUE)->gc.lNewRef = 0 ;
+        }
     }
     return 1 ;
 }
