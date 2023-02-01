@@ -78,6 +78,8 @@
     RING_API void ring_list_enabledontref ( List *pList ) ;
 
     RING_API void ring_list_disabledontref ( List *pList ) ;
+
+    RING_API void ring_list_resetlnewref ( List *pVar ) ;
     /* Memory Functions (General) */
 
     RING_API void * ring_malloc ( size_t size ) ;

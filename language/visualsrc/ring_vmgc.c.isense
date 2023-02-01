@@ -177,6 +177,9 @@ pRef, *pVar, *pList
 ring_list_isdontref
 ring_list_enabledontref
 ring_list_disabledontref
+ring_list_resetlnewref
+Type: List *
+pList
 ring_malloc
 Type: void *
 pMemory
