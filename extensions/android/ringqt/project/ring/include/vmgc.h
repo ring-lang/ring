@@ -72,6 +72,12 @@
     RING_API int ring_list_getrefcount ( List *pList ) ;
 
     RING_API int ring_list_isrefparameter ( VM *pVM,const char *cVariable ) ;
+
+    RING_API int ring_list_isdontref ( List *pList ) ;
+
+    RING_API void ring_list_enabledontref ( List *pList ) ;
+
+    RING_API void ring_list_disabledontref ( List *pList ) ;
     /* Memory Functions (General) */
 
     RING_API void * ring_malloc ( size_t size ) ;

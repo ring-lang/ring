@@ -353,7 +353,7 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
             nRef = RING_OUTPUT_RETLISTBYREF ;
         }
         /* Check lDontRef Flag */
-        if ( pList->gc.lDontRef ) {
+        if ( ring_list_isdontref(pList) ) {
             nRef = RING_OUTPUT_RETLIST ;
         }
     }

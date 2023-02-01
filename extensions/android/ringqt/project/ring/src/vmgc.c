@@ -542,6 +542,21 @@ RING_API int ring_list_isrefparameter ( VM *pVM,const char *cVariable )
     }
     return lRef ;
 }
+
+RING_API int ring_list_isdontref ( List *pList )
+{
+    return pList->gc.lDontRef ;
+}
+
+RING_API void ring_list_enabledontref ( List *pList )
+{
+    pList->gc.lDontRef = 1 ;
+}
+
+RING_API void ring_list_disabledontref ( List *pList )
+{
+    pList->gc.lDontRef = 0 ;
+}
 /* Memory Functions (General) */
 
 RING_API void * ring_malloc ( size_t size )
