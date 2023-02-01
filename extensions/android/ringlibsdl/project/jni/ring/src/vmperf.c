@@ -11,6 +11,8 @@ void ring_vm_pushp ( VM *pVM )
         pVM->nLoadAddressScope = RING_VARSCOPE_GLOBAL ;
     }
     pVM->nVarScope = RING_VARSCOPE_GLOBAL ;
+    /* Check lNewRef Flag */
+    ring_list_resetlnewref((List *) RING_VM_STACK_READP);
 }
 
 void ring_vm_pushplocal ( VM *pVM )
@@ -28,6 +30,8 @@ void ring_vm_pushplocal ( VM *pVM )
         pVM->nLoadAddressScope = RING_VARSCOPE_LOCAL ;
     }
     pVM->nVarScope = RING_VARSCOPE_LOCAL ;
+    /* Check lNewRef Flag */
+    ring_list_resetlnewref((List *) RING_VM_STACK_READP);
 }
 
 void ring_vm_incp ( VM *pVM )
