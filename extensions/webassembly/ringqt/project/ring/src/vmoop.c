@@ -487,6 +487,9 @@ void ring_vm_oop_bracestart ( VM *pVM )
     ring_list_addpointer_gc(pVM->pRingState,pList,pVM->pNestedLists);
     pVM->nListStart = 0 ;
     pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
+    /* Store nFuncExec */
+    ring_list_addint_gc(pVM->pRingState,pList,pVM->nFuncExecute);
+    pVM->nFuncExecute = 0 ;
     pVM->pBraceObject = NULL ;
     pVM->nInsideBraceFlag = 1 ;
 }
@@ -501,6 +504,8 @@ void ring_vm_oop_braceend ( VM *pVM )
         pVM->pNestedLists = ring_list_delete_gc(pVM->pRingState,pVM->pNestedLists);
         pVM->pNestedLists = (List *) ring_list_getpointer(pList,4) ;
     }
+    /* Restore nFuncExec */
+    pVM->nFuncExecute = ring_list_getint(pList,5) ;
     /* Restore Stack Status */
     pVM->nSP = ring_list_getint(pList,2) ;
     ring_list_deleteitem_gc(pVM->pRingState,pVM->aBraceObjects,ring_list_getsize(pVM->aBraceObjects));
