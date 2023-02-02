@@ -292,6 +292,10 @@
     #define RING_OOPARA_POINTER 3
     /* aBraceObjects */
     #define RING_ABRACEOBJECTS_BRACEOBJECT 1
+    #define RING_ABRACEOBJECTS_NSP 2
+    #define RING_ABRACEOBJECTS_NLISTSTART 3
+    #define RING_ABRACEOBJECTS_PNESTEDLISTS 4
+    #define RING_ABRACEOBJECTS_NFUNCEXEC 5
     /* aScopeNewObj */
     #define RING_ASCOPENEWOBJ_SP 1
     /* State */

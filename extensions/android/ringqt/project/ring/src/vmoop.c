@@ -499,15 +499,15 @@ void ring_vm_oop_braceend ( VM *pVM )
     List *pList  ;
     /* Restore List Status */
     pList = ring_list_getlist(pVM->aBraceObjects,ring_list_getsize(pVM->aBraceObjects)) ;
-    pVM->nListStart = ring_list_getint(pList,3) ;
-    if ( pVM->pNestedLists != ring_list_getpointer(pList,4) ) {
+    pVM->nListStart = ring_list_getint(pList,RING_ABRACEOBJECTS_NLISTSTART) ;
+    if ( pVM->pNestedLists != ring_list_getpointer(pList,RING_ABRACEOBJECTS_PNESTEDLISTS) ) {
         pVM->pNestedLists = ring_list_delete_gc(pVM->pRingState,pVM->pNestedLists);
-        pVM->pNestedLists = (List *) ring_list_getpointer(pList,4) ;
+        pVM->pNestedLists = (List *) ring_list_getpointer(pList,RING_ABRACEOBJECTS_PNESTEDLISTS) ;
     }
     /* Restore nFuncExec */
-    pVM->nFuncExecute = ring_list_getint(pList,5) ;
+    pVM->nFuncExecute = ring_list_getint(pList,RING_ABRACEOBJECTS_NFUNCEXEC ) ;
     /* Restore Stack Status */
-    pVM->nSP = ring_list_getint(pList,2) ;
+    pVM->nSP = ring_list_getint(pList,RING_ABRACEOBJECTS_NSP) ;
     ring_list_deleteitem_gc(pVM->pRingState,pVM->aBraceObjects,ring_list_getsize(pVM->aBraceObjects));
     ring_list_deleteitem_gc(pVM->pRingState,pVM->pObjState,ring_list_getsize(pVM->pObjState));
     pVM->nInsideBraceFlag = ( ring_list_getsize(pVM->aBraceObjects) > 0 ) ;
@@ -515,7 +515,9 @@ void ring_vm_oop_braceend ( VM *pVM )
 
 void ring_vm_oop_bracestack ( VM *pVM )
 {
-    pVM->nSP = ring_list_getint(ring_list_getlist(pVM->aBraceObjects,ring_list_getsize(pVM->aBraceObjects)),2) ;
+    List *pList  ;
+    pList = ring_list_getlist(pVM->aBraceObjects,ring_list_getsize(pVM->aBraceObjects)) ;
+    pVM->nSP = ring_list_getint(pList,RING_ABRACEOBJECTS_NSP) ;
     if ( pVM->nFuncSP > pVM->nSP ) {
         /*
         **  This fixes a problem when we use oObject {  eval(code) } return cString 
