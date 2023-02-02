@@ -1,4 +1,3 @@
 OBJECT
 wow
 OBJECT
-OBJECT
