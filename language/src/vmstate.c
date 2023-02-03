@@ -355,6 +355,9 @@ void ring_vm_savestate3 ( VM *pVM )
     pVMState->aNumbers[27] = ring_list_getsize(pVM->aBeforeObjState) ;
     /* Save pFuncClassList */
     pVMState->aNumbers[28] = ring_list_getsize(pVM->pFuncCallList) ;
+    /* Save aSetProperty */
+    pVMState->aPointers[8] = pVM->aSetProperty ;
+    pVM->aSetProperty = ring_list_new_gc(pVM->pRingState,0);
 }
 
 void ring_vm_restorestate3 ( VM *pVM )
@@ -444,6 +447,9 @@ void ring_vm_restorestate3 ( VM *pVM )
     ring_vm_backstate(pVM,pVMState->aNumbers[27],pVM->aBeforeObjState);
     /* Restore pFuncCallList */
     ring_vm_backstate(pVM,pVMState->aNumbers[28],pVM->pFuncCallList);
+    /* Restore aSetProperty */
+    pVM->aSetProperty = ring_list_delete_gc(pVM->pRingState,pVM->aSetProperty);
+    pVM->aSetProperty = (List *)  pVMState->aPointers[8] ;
     ring_list_deleteitem_gc(pVM->pRingState,pVM->aScopeNewObj,ring_list_getsize(pVM->aScopeNewObj));
 }
 
