@@ -1,9 +1,16 @@
-2
---------
+0
 1
-data: test2
-
-2
-data: test2
-
-2
+0
+1
+1
+0
+1
+0
+Using the Operator() Method
+0
+Using the Operator() Method
+1
+Using the Operator() Method
+1
+Using the Operator() Method
+0

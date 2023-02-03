@@ -1,3 +1,2 @@
-5
-x value = 10
-
+Instruction : I want window
+Instruction : Window Title = hello world

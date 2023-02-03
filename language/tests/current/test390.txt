@@ -1,4 +1,7 @@
-
-Line 11 err2 
-In raise() In method init() in file general/testraiseinclass.ring
-called from line 3  in file general/testraiseinclass.ring 
+One
+Two
+What
+Three
+Four
+Great!
+Done

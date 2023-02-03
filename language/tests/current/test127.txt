@@ -10,5 +10,3 @@ Other
 0
 0
 0
-catch error!
-end of test

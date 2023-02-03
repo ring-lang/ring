@@ -1,1 +1,12 @@
-wow
+setter
+nice
+getter
+setter
+good
+setter
+great
+getter
+setter
+getter
+-4
+0

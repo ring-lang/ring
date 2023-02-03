@@ -1,11 +1,9 @@
-Setter!
-Test
-Setter!
-100
-Setter!
-wow
-2
-Setter!
+Setter
 x: 10
 y: 20
 z: 30
+
+Setter
+myobj: ok
+pp: Object...
+
