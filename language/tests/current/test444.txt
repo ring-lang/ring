@@ -1,13 +1,12 @@
-Print the sublist from function
 1
 2
+**********
 
-Print the Parent list
+a
 1
-2
+LIST
+**********
 
-Update the sublist from function
-Print the Parent list
-3
-4
-
+1
+LIST
+done

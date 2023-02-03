@@ -1,2 +1,10 @@
+A Size: 2
+B Size: 2
+c
 start
-START
+**********
+A Size: 2
+B Size: 2
+c
+start
+**********

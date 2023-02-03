@@ -79,6 +79,7 @@ aTests = [
 	[ :name = "Testing Object Oriented Programming (Part 61)", :Command = "ring objectoriented/oop61.ring" ],
 	[ :name = "Testing Object Oriented Programming (Part 62)", :Command = "ring objectoriented/oop62.ring" ],
 	[ :name = "Testing Object Oriented Programming (Part 63)", :Command = "ring objectoriented/oop63.ring" ],
+	[ :name = "Testing Object Oriented Programming (Part 64)", :Command = "ring objectoriented/oop64.ring" ],
 	[ :name = "Object Attribute Setter (Part 1)", :Command = "ring setter/setter.ring" ],
 	[ :name = "Object Attribute Setter (Part 2)", :Command = "ring setter/setter2.ring" ],
 	[ :name = "Object Attribute Setter (Part 3)", :Command = "ring setter/setter3.ring" ],
@@ -479,6 +480,5 @@ aTests = [
 	[ :name = "Using References (Part 62)", :Command = "ring references/nonull.ring" ],
 	[ :name = "Using References (Part 63)", :Command = "ring references/refalone.ring" ],
 	[ :name = "Using References (Part 64)", :Command = "ring references/refalone2.ring" ],
-	[ :name = "Using References (Part 65)", :Command = "ring references/refsetter.ring" ],
-	[ :name = "Testing Object Oriented Programming (Part 64)", :Command = "ring objectoriented/oop64.ring" ]
+	[ :name = "Using References (Part 65)", :Command = "ring references/refsetter.ring" ]
 ]
