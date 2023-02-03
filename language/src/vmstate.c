@@ -182,6 +182,8 @@ void ring_vm_savestate2 ( VM *pVM,List *pList )
     pVMState->aPointers[3] = pVM->pAssignment ;
     pVMState->aPointers[4] = pVM->pGetSetObject ;
     pVMState->aPointers[5] = ring_list_getpointer(pThis,RING_VAR_VALUE) ;
+    pVMState->aPointers[6] = pVM->aSetProperty ;
+    pVM->aSetProperty = ring_list_new_gc(pVM->pRingState,0);
     /* Save State */
     pVM->nInsideBraceFlag = 0 ;
     /* Save BlockFlag */
@@ -250,6 +252,9 @@ void ring_vm_restorestate2 ( VM *pVM,List *pList,int x )
     ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,pVMState->aPointers[5]);
     ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,pVMState->aNumbers[22]);
     ring_vm_backstate(pVM,pVMState->aNumbers[21],pVM->aAddressScope);
+    /* Restore aSetProperty */
+    pVM->aSetProperty = ring_list_delete_gc(pVM->pRingState,pVM->aSetProperty);
+    pVM->aSetProperty = (List *)  pVMState->aPointers[6] ;
 }
 /* Save/Restore State 3 - Used by (ICO_NEWOBJ) and (ICO_SETSCOPE) */
 
