@@ -213,6 +213,11 @@ void ring_vm_gc_setfreefunc ( Item *pItem, void (* pFreeFunc)(void *,void *) )
 {
     pItem->gc.pFreeFunc = pFreeFunc ;
 }
+
+void ring_vm_gc_deletelistinitem ( void *pState,void *pList )
+{
+    ring_list_delete_gc(pState,pList);
+}
 /*
 **  List GC Functions 
 **  Copy list by Reference 

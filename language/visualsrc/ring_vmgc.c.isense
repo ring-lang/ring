@@ -131,6 +131,7 @@ ring_vm_gc_deletetemplists
 ring_vm_gc_newitemreference
 ring_vm_gc_freefunc
 ring_vm_gc_setfreefunc
+ring_vm_gc_deletelistinitem
 ring_list_iscopybyref
 ring_list_enablecopybyref
 ring_list_disablecopybyref

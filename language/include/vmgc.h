@@ -25,6 +25,8 @@
     void ring_vm_gc_freefunc ( RingState *pState,Item *pItem ) ;
 
     void ring_vm_gc_setfreefunc ( Item *pItem, void (* pFreeFunc)(void *,void *) ) ;
+
+    void ring_vm_gc_deletelistinitem ( void *pState,void *pList ) ;
     /*
     **  List GC Functions 
     **  Copy list by Reference 
