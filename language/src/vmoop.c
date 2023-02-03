@@ -490,6 +490,9 @@ void ring_vm_oop_bracestart ( VM *pVM )
     /* Store nFuncExec */
     ring_list_addint_gc(pVM->pRingState,pList,pVM->nFuncExecute);
     pVM->nFuncExecute = 0 ;
+    /* Store GetSet Object */
+    ring_list_addpointer_gc(pVM->pRingState,pList,pVM->aSetProperty);
+    pVM->aSetProperty = ring_list_new_gc(pVM->pRingState,0);
     pVM->pBraceObject = NULL ;
     pVM->nInsideBraceFlag = 1 ;
 }
@@ -508,6 +511,9 @@ void ring_vm_oop_braceend ( VM *pVM )
     pVM->nFuncExecute = ring_list_getint(pList,RING_ABRACEOBJECTS_NFUNCEXEC ) ;
     /* Restore Stack Status */
     pVM->nSP = ring_list_getint(pList,RING_ABRACEOBJECTS_NSP) ;
+    /* Restore GetSet Object */
+    ring_list_delete_gc(pVM->pRingState,pVM->aSetProperty);
+    pVM->aSetProperty = ring_list_getpointer(pList,RING_ABRACEOBJECTS_ASETPROPERTY ) ;
     ring_list_deleteitem_gc(pVM->pRingState,pVM->aBraceObjects,ring_list_getsize(pVM->aBraceObjects));
     ring_list_deleteitem_gc(pVM->pRingState,pVM->pObjState,ring_list_getsize(pVM->pObjState));
     pVM->nInsideBraceFlag = ( ring_list_getsize(pVM->aBraceObjects) > 0 ) ;
