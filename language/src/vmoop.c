@@ -464,6 +464,7 @@ void ring_vm_oop_setbraceobj ( VM *pVM,List *pList )
 void ring_vm_oop_bracestart ( VM *pVM )
 {
     List *pList,*pClass  ;
+    Item *pItem  ;
     /* Check Error */
     if ( (pVM->pBraceObject == NULL) || (! RING_VM_STACK_ISPOINTER) ) {
         ring_vm_error(pVM,RING_VM_ERROR_BRACEWITHOUTOBJECT);
@@ -495,13 +496,24 @@ void ring_vm_oop_bracestart ( VM *pVM )
     pVM->aSetProperty = ring_list_new_gc(pVM->pRingState,0);
     pVM->pBraceObject = NULL ;
     pVM->nInsideBraceFlag = 1 ;
+    /* Enable functions for memory management */
+    pItem = ring_list_getitem(pList,RING_ABRACEOBJECTS_PNESTEDLISTS);
+    ring_vm_gc_setfreefunc(pItem,ring_vm_gc_deletelistinitem);
+    pItem = ring_list_getitem(pList,RING_ABRACEOBJECTS_ASETPROPERTY);
+    ring_vm_gc_setfreefunc(pItem,ring_vm_gc_deletelistinitem);
 }
 
 void ring_vm_oop_braceend ( VM *pVM )
 {
     List *pList  ;
-    /* Restore List Status */
+    Item *pItem  ;
     pList = ring_list_getlist(pVM->aBraceObjects,ring_list_getsize(pVM->aBraceObjects)) ;
+    /* Disable functions for memory management */
+    pItem = ring_list_getitem(pList,RING_ABRACEOBJECTS_PNESTEDLISTS);
+    ring_vm_gc_setfreefunc(pItem,NULL);
+    pItem = ring_list_getitem(pList,RING_ABRACEOBJECTS_ASETPROPERTY);
+    ring_vm_gc_setfreefunc(pItem,NULL);
+    /* Restore List Status */
     pVM->nListStart = ring_list_getint(pList,RING_ABRACEOBJECTS_NLISTSTART) ;
     if ( pVM->pNestedLists != ring_list_getpointer(pList,RING_ABRACEOBJECTS_PNESTEDLISTS) ) {
         pVM->pNestedLists = ring_list_delete_gc(pVM->pRingState,pVM->pNestedLists);
