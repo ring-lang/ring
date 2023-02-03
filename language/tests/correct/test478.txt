@@ -1,0 +1,9 @@
+Setter
+x: 10
+y: 20
+z: 30
+
+Setter
+myobj: ok
+pp: Object...
+

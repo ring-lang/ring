@@ -480,5 +480,6 @@ aTests = [
 	[ :name = "Using References (Part 62)", :Command = "ring references/nonull.ring" ],
 	[ :name = "Using References (Part 63)", :Command = "ring references/refalone.ring" ],
 	[ :name = "Using References (Part 64)", :Command = "ring references/refalone2.ring" ],
-	[ :name = "Using References (Part 65)", :Command = "ring references/refsetter.ring" ]
+	[ :name = "Using References (Part 65)", :Command = "ring references/refsetter.ring" ],
+	[ :name = "Testing Object Oriented Programming (Part 65)", :Command = "ring objectoriented/oop65.ring" ]
 ]
