@@ -1,0 +1,26 @@
+one
+Setter
+x: 10
+y: 20
+z: 30
+
+two
+Setter
+1
+2
+3
+
+three
+Setter
+10
+
+four
+Setter
+test
+
+five
+Setter
+x: 10
+y: 20
+z: 30
+
