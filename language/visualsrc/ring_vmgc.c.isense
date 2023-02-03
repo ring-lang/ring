@@ -132,6 +132,12 @@ ring_vm_gc_newitemreference
 ring_vm_gc_freefunc
 ring_vm_gc_setfreefunc
 ring_vm_gc_deletelistinitem
+ring_vm_gc_listpointerismine
+Type: Item *
+pItem
+ring_vm_gc_listpointerisnotmine
+Type: Item *
+pItem
 ring_list_iscopybyref
 ring_list_enablecopybyref
 ring_list_disablecopybyref
