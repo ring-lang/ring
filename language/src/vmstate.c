@@ -116,6 +116,8 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
     }
     /* List Status */
     pVM->nListStart = pVMState->aNumbers[16] ;
+    pVM->pNestedLists = ring_list_delete_gc(pVM->pRingState,pVM->pNestedLists);
+    pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
     pVM->nInsideBraceFlag = pVMState->aNumbers[17] ;
     ring_vm_backstate(pVM,pVMState->aNumbers[19],pVM->aBeforeObjState);
     RING_VM_IR_SETLINENUMBER(pVMState->aNumbers[20]);
