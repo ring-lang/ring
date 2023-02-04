@@ -171,6 +171,8 @@ Example:
 	? aList[4][4][4][4][4][2]		# Print 20
 	? refcount(aList)			# Print 2
 
+We added this feature to use Ring in teaching Data Structures & Design Patterns.
+
 Check the chapter (Using References) to learn more about using this feature!
 
 .. index:: 
@@ -383,11 +385,10 @@ More Improvements
 * Ring VM - Memory defragmentation before Byte Code execution
 * Ring VM - Range Operator - return list reference instead of a copy
 * Ring VM - Pointer2Object() function - return list/object reference instead of a copy
-* Ring VM - Ref()/Reference() function - Return a safe (managed) reference for a List/Object
-* Ring VM - RefCount() function - Return references count for List/Object
 * Ring VM - ObjectID() function - Support Lists too
 * Ring VM - Increase the Stack size to 1K
 * Ring VM - Error System - Display recursion depth
 * Ring VM - ICO_FREESTACK instruction - Don't delete temp. lists in global scope
 * Ring VM - ICO_FREETEMPLISTS instruction - Delete temp. lists in global scope (Thread Safe)
 * Ring VM - List Functions - Using (unsigned int) for the list index & size
+* Ring VM - Using Braces - Save/Restore the State - Better Code 
