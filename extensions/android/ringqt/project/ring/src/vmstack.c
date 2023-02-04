@@ -69,13 +69,15 @@ void ring_vm_varpushv ( VM *pVM )
 
 void ring_vm_loadaddress ( VM *pVM )
 {
-    if ( ring_vm_findvar(pVM, RING_VM_IR_READC  ) == 0 ) {
+    int lFound  ;
+    lFound = ring_vm_findvar(pVM, RING_VM_IR_READC ) ;
+    if ( lFound == 0 ) {
         ring_vm_newvar(pVM, RING_VM_IR_READC);
         /* Support for private attributes */
         ring_list_setint_gc(pVM->pRingState,(List *) RING_VM_STACK_READP,RING_VAR_PRIVATEFLAG,pVM->nPrivateFlag);
     }
     /* Don't change instruction if it's LoadAFirst */
-    if ( pVM->nFirstAddress == 1 ) {
+    if ( (pVM->nFirstAddress == 1) || (lFound == 0) ) {
         return ;
     }
     if ( pVM->nVarScope == RING_VARSCOPE_GLOBAL ) {

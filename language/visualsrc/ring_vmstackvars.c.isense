@@ -8,6 +8,8 @@ ring_vm_varpushv
 Type: List *
 pVar, *pList
 ring_vm_loadaddress
+Type: int
+lFound
 ring_vm_assignment
 Type: List *
 pVar,*pList, *pList2
