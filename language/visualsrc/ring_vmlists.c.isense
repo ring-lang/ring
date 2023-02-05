@@ -1,6 +1,6 @@
 ring_vm_liststart
 Type: List *
-pVar,*pList
+pVar,*pList,*pNewList
 Type: int
 nType
 Type: Item *

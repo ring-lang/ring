@@ -4,11 +4,12 @@
 
 void ring_vm_liststart ( VM *pVM )
 {
-    List *pVar,*pList  ;
+    List *pVar,*pList,*pNewList  ;
     int nType  ;
     Item *pItem  ;
     int nCont  ;
     pVar = NULL ;
+    pNewList = NULL ;
     pItem = NULL ;
     pVM->nListStart++ ;
     if ( pVM->nListStart == 1 ) {
@@ -69,14 +70,18 @@ void ring_vm_liststart ( VM *pVM )
         if ( nType == RING_OBJTYPE_VARIABLE ) {
             ring_list_setint_gc(pVM->pRingState,pVar, RING_VAR_TYPE ,RING_VM_LIST);
             ring_list_setlist_gc(pVM->pRingState,pVar, RING_VAR_VALUE);
-            ring_list_deleteallitems_gc(pVM->pRingState,ring_list_getlist(pVar,RING_VAR_VALUE));
-            ring_list_addpointer_gc(pVM->pRingState,pVM->pNestedLists,ring_list_getlist(pVar,RING_VAR_VALUE));
+            pNewList = ring_list_getlist(pVar,RING_VAR_VALUE) ;
+            ring_list_deleteallitems_gc(pVM->pRingState,pNewList);
+            ring_list_addpointer_gc(pVM->pRingState,pVM->pNestedLists,pNewList);
         }
         else if ( (nType == RING_OBJTYPE_LISTITEM) && (pItem != NULL) ) {
             ring_item_settype_gc(pVM->pRingState,pItem,ITEMTYPE_LIST);
-            pVar = ring_item_getlist(pItem);
-            ring_list_deleteallitems_gc(pVM->pRingState,pVar);
-            ring_list_addpointer_gc(pVM->pRingState,pVM->pNestedLists,pVar);
+            pNewList = ring_item_getlist(pItem);
+            ring_list_deleteallitems_gc(pVM->pRingState,pNewList);
+            ring_list_addpointer_gc(pVM->pRingState,pVM->pNestedLists,pNewList);
+        }
+        if ( nCont ) {
+            ring_list_enablecopybyref(pNewList);
         }
     }
     else {
