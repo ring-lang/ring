@@ -484,5 +484,6 @@ aTests = [
 	[ :name = "Using References (Part 65)", :Command = "ring references/refsetter.ring" ],
 	[ :name = "Memory Usage (Part 1)", :Command = "ring memory/ismempool.ring" ],
 	[ :name = "Memory Usage (Part 2)", :Command = "ring memory/leak1.ring" ],
-	[ :name = "Memory Usage (Part 3)", :Command = "ring memory/leak2.ring" ]
+	[ :name = "Memory Usage (Part 3)", :Command = "ring memory/leak2.ring" ],
+	[ :name = "Memory Usage (Part 4)", :Command = "ring memory/leak3.ring" ]
 ]
