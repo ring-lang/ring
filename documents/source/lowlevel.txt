@@ -46,6 +46,7 @@ We expect from those developers to know about pointers and dynamic memory manage
 	* ringvm_see()
 	* ringvm_give()
 	* ringvm_info()
+	* ringvm_ismempool()
 	* ringvm_codelist()
 
 .. index:: 
@@ -1637,3 +1638,20 @@ Syntax:
 .. code-block:: ring
 
 	ringvm_info() ---> List of information about the VM structure
+
+
+.. index:: 
+	pair: Low Level Functions; ringvm_ismempool()
+
+ringvm_ismempool() function
+===========================
+
+Check if we still have items in the memory pool or not
+
+This function is used to write tests that could detect a memory leak
+
+Syntax:
+
+.. code-block:: ring
+
+	ringvm_ismempool() ---> lStatus

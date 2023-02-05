@@ -88,7 +88,7 @@ Keywords Count : 58
 Language Functions
 ==================
 
-Functions Count : 247
+Functions Count : 248
 
 .. code-block:: ring
 
@@ -302,6 +302,7 @@ Functions Count : 247
         ringvm_give(cVariableName)
         ringvm_hideerrormsg(lStatus)
         ringvm_info() ---> List of information about the VM structure
+	ringvm_ismempool() ---> lStatus (Can provide memory or not)
         ringvm_memorylist() ---> List
         ringvm_packageslist() ---> List
         ringvm_passerror()
