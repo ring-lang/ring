@@ -88,7 +88,7 @@ Keywords Count : 58
 Language Functions
 ==================
 
-Functions Count : 248
+Functions Count : 249
 
 .. code-block:: ring
 
@@ -268,6 +268,7 @@ Functions Count : 248
 	read(cFileName) ---> String contains the file content
 	ref(aList|oObject) ---> List/Object reference
 	reference(aList|oObject) ---> List/Object reference
+	refcount(aList|oObject) ---> References Count
 	remove(cFileName)
 	rename(cOldFileName,cNewFileName) ---> Zero for Success or -1 for Error
 	reverse(List) ---> Reversed List
