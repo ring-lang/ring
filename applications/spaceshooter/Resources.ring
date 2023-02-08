@@ -29,11 +29,8 @@ Class Resources
 		return oImage
 
 	func Texture oImage
-		nPos = 0
 		if len(aData) > 0
-			nIndex = 0
 			for aList in aData 
-				nIndex++
 				if aList[C_DATA_IMAGE].oData = oImage.oData
 					unLoadTexture(aList[C_DATA_TEX])
 					aList[C_DATA_TEX] = LoadTextureFromImage(oImage)
