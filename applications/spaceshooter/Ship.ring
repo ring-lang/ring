@@ -22,7 +22,6 @@ class Ship
 		w = shipImage.width
 		h = shipImage.height
 		shipTex = LoadTextureFromImage(shipImage)
-		UnloadImage(shipImage)
 
 		# Position the ship
 		position = new Vector2(screenWidth / 2, screenHeight * 0.8)
@@ -76,10 +75,10 @@ class Ship
 	# Function to load ship image using a type
 	func loadShipImage
 		switch type
-			on 0 return LoadImage("Assets/Ship1.png")
-			on 1 return LoadImage("Assets/enemyGreen.png")
-			on 2 return LoadImage("Assets/enemyRed.png")
-			on 3 return LoadImage("Assets/enemyBlue.png")
-			on 4 return LoadImage("Assets/enemyBlack.png")
+			on 0 return resources.image("Assets/Ship1.png")
+			on 1 return resources.image("Assets/enemyGreen.png")
+			on 2 return resources.image("Assets/enemyRed.png")
+			on 3 return resources.image("Assets/enemyBlue.png")
+			on 4 return resources.image("Assets/enemyBlack.png")
 		end
 

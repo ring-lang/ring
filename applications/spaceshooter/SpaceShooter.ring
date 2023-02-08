@@ -1,4 +1,5 @@
 load "stdlibcore.ring"
+load "resources.ring"
 load "raylib.ring"
 load "Fire.ring"
 load "Ship.ring"
@@ -49,9 +50,9 @@ PlayMusicStream(mainMusic)
 generateWave()
 
 # Load background
-backgroundImage = LoadImage("Assets/black.png")
+backgroundImage = resources.Image("Assets/black.png")
 ImageResize(backgroundImage, screenWidth, screenHeight)
-backgroundTex = LoadTextureFromImage(backgroundImage)
+backgroundTex = resources.texture(backgroundImage)
 
 
 # Scenes

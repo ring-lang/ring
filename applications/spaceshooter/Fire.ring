@@ -13,11 +13,10 @@ class Fire
 
 		setFireAmount(enemyType)
 
-		fireImage = LoadImage(file)
-		fireTex = LoadTextureFromImage(fireImage)
+		fireImage = resources.image(file)
+		fireTex = resources.texture(fireImage)
 		h = fireimage.height
 
-		UnloadImage(fireImage)
 		playFireSound(sound)
 
 		return self

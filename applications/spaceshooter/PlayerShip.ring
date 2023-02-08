@@ -94,8 +94,8 @@ class PlayerShip from Ship
 	# Function to draw a shield
 	func drawShield
 		if powerShieldActive
-			image = LoadImage("Assets/shield1.png")
-			tex = LoadTextureFromImage(image)
+			image = resources.image("Assets/shield1.png")
+			tex = resources.texture(image)
 			DrawTexture(tex, position.x - 10, position.y - 10, WHITE)
 		ok
 

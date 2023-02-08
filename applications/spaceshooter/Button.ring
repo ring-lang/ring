@@ -2,12 +2,12 @@ class Button
 	position collider imageTex imageTex2 text = "Button" w = 200 h = 40
 	cFunction
 	func init file1, file2
-		image = LoadImage(file1)
+		image = resources.Image(file1)
 		ImageResize(image, image.width * 2, image.height * 2)
-		imageTex = LoadTextureFromImage(image)
-		image2 = LoadImage(file2)
+		imageTex = resources.texture(image)
+		image2 = resources.image(file2)
 		ImageResize(image2, image2.width * 2, image2.height * 2)
-		imageTex2 = LoadTextureFromImage(image2)
+		imageTex2 = resources.texture(image2)
 
 		w = image.width
 		h = image.height

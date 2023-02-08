@@ -39,8 +39,8 @@ class Power
 			on 2 path = "Assets/bold_silver.png"
 			on 3 path = "Assets/shield_silver.png"
 		off
-		image = LoadImage(path)
+		image = resources.image(path)
 		ImageResize(image, image.width * 1.5, image.height * 1.5)
 		w = image.width * 2
 		h = image.height * 2
-		imageTex = LoadTextureFromImage(image)
+		imageTex = resources.texture(image)
