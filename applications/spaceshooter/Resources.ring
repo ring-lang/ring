@@ -14,7 +14,7 @@ Class Resources
 		if len(aData) > 0
 			for aList in aData 
 				if aList[C_DATA_FILE] = cImage 
-					unloadImage(aList[C_DATA_IMAGE].oData)
+					unloadImage(aList[C_DATA_IMAGE])
 					aList[C_DATA_IMAGE] = loadImage(cImage)
 					unloadtexture(aList[C_DATA_TEX])
 					aList[C_DATA_TEX] =  LoadTextureFromImage(aList[C_DATA_IMAGE]) 

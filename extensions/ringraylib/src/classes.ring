@@ -213,7 +213,6 @@ class Image from RayLibBase
 		data=p1  width=p2 height=p3 mipmaps=p4 format=p5
 
 	func data 
-		raylib_set_Image_data(oData,data)
 		raylib_set_Image_width(oData,width)
 		raylib_set_Image_height(oData,height)
 		raylib_set_Image_mipmaps(oData,mipmaps)
