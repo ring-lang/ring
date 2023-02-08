@@ -345,6 +345,7 @@ More Improvements
 * FindInFiles Application: Better Code (Check Read() function output)
 * GetQuotesHistory Application: Better Style
 * Chess/Checkers Games: Looks more nice on small screen resolutions
+* SpaceShooter Game - Added: applications/spaceshooter/Resources.ring
 * StdLib - Tree Class - Use the ref() function
 * RingAllegro: Use Allegro 5.2.8 instead of Allegro 5.2.7.1
 * RingSQLite: Use SQLite 3.39.2.
