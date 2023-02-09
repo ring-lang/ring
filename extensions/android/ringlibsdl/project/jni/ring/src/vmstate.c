@@ -470,19 +470,19 @@ int ring_vm_newobjectstackpointer ( VM *pVM )
 }
 /* Save/Restore State 4 - Used by BraceStart & BraceEnd */
 
-void ring_vm_savestateforbraces ( VM *pVM,List *pList )
+void ring_vm_savestateforbraces ( VM *pVM,List *pObjState )
 {
-    List *pClass,*aSetProperty  ;
+    List *pList, *pClass,*aSetProperty  ;
     /*
     **  Prepare to Access Object State 
     **  Store Pointer to Object State 
     */
-    ring_list_addpointer_gc(pVM->pRingState,pList,ring_list_getlist(pVM->pBraceObject,2));
+    ring_list_addpointer_gc(pVM->pRingState,pObjState,ring_list_getlist(pVM->pBraceObject,2));
     /* Store Object Class Methods */
     pClass = (List *) ring_list_getpointer(pVM->pBraceObject,1) ;
-    ring_list_addpointer_gc(pVM->pRingState,pList,ring_list_getlist(pClass,4));
+    ring_list_addpointer_gc(pVM->pRingState,pObjState,ring_list_getlist(pClass,4));
     /* Store Class Pointer */
-    ring_list_addpointer_gc(pVM->pRingState,pList,pClass);
+    ring_list_addpointer_gc(pVM->pRingState,pObjState,pClass);
     /* Add Brace Object & Stack Pointer to List */
     pList = ring_list_newlist_gc(pVM->pRingState,pVM->aBraceObjects);
     ring_list_addpointer_gc(pVM->pRingState,pList,pVM->pBraceObject);

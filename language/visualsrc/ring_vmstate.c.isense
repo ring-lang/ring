@@ -10,26 +10,26 @@ Type: List *
 pThis
 Type: VMState *
 pVMState
-ring_vm_savestate2
+ring_vm_savestateforfunctions
 Type: List *
 pThis
 Type: VMState *
 pVMState
 Type: Item *
 pItem
-ring_vm_restorestate2
+ring_vm_restorestateforfunctions
 Type: List *
 pThis
 Type: VMState *
 pVMState
-ring_vm_savestate3
+ring_vm_savestatefornewobjects
 Type: List *
 pList, *pThis
 Type: VMState *
 pVMState
 Type: Item *
 pItem
-ring_vm_restorestate3
+ring_vm_restorestatefornewobjects
 Type: List *
 pList, *pThis
 Type: VMState *
@@ -39,10 +39,10 @@ Type: List *
 pList
 Type: VMState *
 pVMState
-ring_vm_savestate4
+ring_vm_savestateforbraces
 Type: List *
-pClass,*aSetProperty
-ring_vm_restorestate4
+pList, *pClass,*aSetProperty
+ring_vm_restorestateforbraces
 ring_vm_backstate
 Type: int
 nLimit,y
