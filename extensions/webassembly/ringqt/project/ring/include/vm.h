@@ -774,17 +774,17 @@
 
     void ring_vm_backstate ( VM *pVM,int x,List *pList ) ;
 
-    void ring_vm_savestate2 ( VM *pVM,List *pList ) ;
+    void ring_vm_savestateforfunctions ( VM *pVM,List *pList ) ;
 
-    void ring_vm_restorestate2 ( VM *pVM,List *pList,int x ) ;
+    void ring_vm_restorestateforfunctions ( VM *pVM,List *pList,int x ) ;
 
-    void ring_vm_savestate3 ( VM *pVM ) ;
+    void ring_vm_savestatefornewobjects ( VM *pVM ) ;
 
-    void ring_vm_restorestate3 ( VM *pVM ) ;
+    void ring_vm_restorestatefornewobjects ( VM *pVM ) ;
 
-    void ring_vm_savestate4 ( VM *pVM,List *pList ) ;
+    void ring_vm_savestateforbraces ( VM *pVM,List *pList ) ;
 
-    void ring_vm_restorestate4 ( VM *pVM, List *pList ) ;
+    void ring_vm_restorestateforbraces ( VM *pVM, List *pList ) ;
 
     int ring_vm_newobjectstackpointer ( VM *pVM ) ;
 

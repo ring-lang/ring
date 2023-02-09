@@ -102,7 +102,7 @@ void ring_vm_oop_newobj ( VM *pVM )
                 }
                 ring_list_setint_gc(pVM->pRingState,pSelf,RING_VAR_PVALUETYPE ,nType);
                 /* Save the State */
-                ring_vm_savestate3(pVM);
+                ring_vm_savestatefornewobjects(pVM);
                 /* Jump to Class INIT Method */
                 ring_vm_blockflag2(pVM,pVM->nPC);
                 /* Execute Parent Classes Init first */
@@ -236,7 +236,7 @@ void ring_vm_oop_setscope ( VM *pVM )
     **  This function called after creating new object and executing class init 
     **  Restore State 
     */
-    ring_vm_restorestate3(pVM);
+    ring_vm_restorestatefornewobjects(pVM);
     /* After init methods */
     ring_vm_oop_aftercallmethod(pVM);
     /* POP Class Package */
@@ -470,14 +470,14 @@ void ring_vm_oop_bracestart ( VM *pVM )
         return ;
     }
     pList = ring_list_newlist_gc(pVM->pRingState,pVM->pObjState);
-    ring_vm_savestate4(pVM,pList);
+    ring_vm_savestateforbraces(pVM,pList);
 }
 
 void ring_vm_oop_braceend ( VM *pVM )
 {
     List *pList  ;
     pList = ring_list_getlist(pVM->aBraceObjects,ring_list_getsize(pVM->aBraceObjects)) ;
-    ring_vm_restorestate4(pVM,pList);
+    ring_vm_restorestateforbraces(pVM,pList);
 }
 
 void ring_vm_oop_bracestack ( VM *pVM )

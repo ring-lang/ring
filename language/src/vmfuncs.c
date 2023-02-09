@@ -241,7 +241,7 @@ void ring_vm_call2 ( VM *pVM )
         pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
         pVM->nPC = ring_list_getint(pList,RING_FUNCCL_PC) ;
         /* Save State */
-        ring_vm_savestate2(pVM,pList);
+        ring_vm_savestateforfunctions(pVM,pList);
         /* Avoid accessing object data or methods */
         if ( ring_list_getint(pList,RING_FUNCCL_METHODORFUNC) == 0 ) {
             pList = ring_list_newlist_gc(pVM->pRingState,pVM->pObjState);
@@ -400,7 +400,7 @@ void ring_vm_return ( VM *pVM )
         }
         ring_vm_deletescope(pVM);
         /* Restore State */
-        ring_vm_restorestate2(pVM,pList,RING_FUNCCL_STATE);
+        ring_vm_restorestateforfunctions(pVM,pList,RING_FUNCCL_STATE);
         ring_list_deleteitem_gc(pVM->pRingState,pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
         /* Restore nFuncSP value */
         if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {

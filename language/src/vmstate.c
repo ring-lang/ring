@@ -142,7 +142,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 }
 /* Save/Restore State 2 - Used by Function Call & Return */
 
-void ring_vm_savestate2 ( VM *pVM,List *pList )
+void ring_vm_savestateforfunctions ( VM *pVM,List *pList )
 {
     List *pThis  ;
     VMState *pVMState  ;
@@ -208,7 +208,7 @@ void ring_vm_savestate2 ( VM *pVM,List *pList )
     pVM->lNoSetterMethod = 0 ;
 }
 
-void ring_vm_restorestate2 ( VM *pVM,List *pList,int x )
+void ring_vm_restorestateforfunctions ( VM *pVM,List *pList,int x )
 {
     List *pThis  ;
     VMState *pVMState  ;
@@ -260,7 +260,7 @@ void ring_vm_restorestate2 ( VM *pVM,List *pList,int x )
 }
 /* Save/Restore State 3 - Used by (ICO_NEWOBJ) and (ICO_SETSCOPE) */
 
-void ring_vm_savestate3 ( VM *pVM )
+void ring_vm_savestatefornewobjects ( VM *pVM )
 {
     List *pList, *pThis  ;
     VMState *pVMState  ;
@@ -367,7 +367,7 @@ void ring_vm_savestate3 ( VM *pVM )
     pVM->aSetProperty = ring_list_new_gc(pVM->pRingState,0);
 }
 
-void ring_vm_restorestate3 ( VM *pVM )
+void ring_vm_restorestatefornewobjects ( VM *pVM )
 {
     List *pList, *pThis  ;
     VMState *pVMState  ;
@@ -470,7 +470,7 @@ int ring_vm_newobjectstackpointer ( VM *pVM )
 }
 /* Save/Restore State 4 - Used by BraceStart & BraceEnd */
 
-void ring_vm_savestate4 ( VM *pVM,List *pList )
+void ring_vm_savestateforbraces ( VM *pVM,List *pList )
 {
     List *pClass,*aSetProperty  ;
     /*
@@ -505,7 +505,7 @@ void ring_vm_savestate4 ( VM *pVM,List *pList )
     pVM->nInsideBraceFlag = 1 ;
 }
 
-void ring_vm_restorestate4 ( VM *pVM,List *pList )
+void ring_vm_restorestateforbraces ( VM *pVM,List *pList )
 {
     /* Restore List Status */
     pVM->nListStart = ring_list_getint(pList,RING_ABRACEOBJECTS_NLISTSTART) ;

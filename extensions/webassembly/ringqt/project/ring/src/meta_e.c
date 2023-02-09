@@ -1038,10 +1038,10 @@ void ring_vm_refmeta_ringvmevalinscope ( void *pPointer )
         pVM->nEvalInScope++ ;
         /* Save State */
         pState = ring_list_new_gc(((VM *) pPointer)->pRingState,0);
-        ring_vm_savestate2(pVM,pState);
+        ring_vm_savestateforfunctions(pVM,pState);
         ring_vm_runcode(pVM,cStr);
         /* Restore State */
-        ring_vm_restorestate2(pVM,pState,1);
+        ring_vm_restorestateforfunctions(pVM,pState,1);
         ring_list_delete_gc(((VM *) pPointer)->pRingState,pState);
         pVM->nEvalInScope-- ;
         /* Restore the current scope */
