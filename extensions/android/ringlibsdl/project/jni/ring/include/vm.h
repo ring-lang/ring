@@ -782,7 +782,7 @@
 
     void ring_vm_restorestatefornewobjects ( VM *pVM ) ;
 
-    void ring_vm_savestateforbraces ( VM *pVM,List *pList ) ;
+    void ring_vm_savestateforbraces ( VM *pVM,List *pObjState ) ;
 
     void ring_vm_restorestateforbraces ( VM *pVM, List *pList ) ;
 
