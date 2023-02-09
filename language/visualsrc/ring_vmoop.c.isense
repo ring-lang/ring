@@ -51,14 +51,10 @@ ring_vm_oop_printobj
 ring_vm_oop_setbraceobj
 ring_vm_oop_bracestart
 Type: List *
-pList,*pClass,*aSetProperty
-Type: Item *
-pItem
+pList
 ring_vm_oop_braceend
 Type: List *
 pList
-Type: Item *
-pItem
 ring_vm_oop_bracestack
 Type: List *
 pList

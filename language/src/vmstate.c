@@ -468,6 +468,64 @@ int ring_vm_newobjectstackpointer ( VM *pVM )
     pVMState = (VMState *) ring_list_getpointer(pList,1);
     return pVMState->aNumbers[RING_ASCOPENEWOBJ_SP] ;
 }
+/* Save/Restore State 4 - Used by BraceStart & BraceEnd */
+
+void ring_vm_savestate4 ( VM *pVM,List *pList )
+{
+    List *pClass,*aSetProperty  ;
+    /*
+    **  Prepare to Access Object State 
+    **  Store Pointer to Object State 
+    */
+    ring_list_addpointer_gc(pVM->pRingState,pList,ring_list_getlist(pVM->pBraceObject,2));
+    /* Store Object Class Methods */
+    pClass = (List *) ring_list_getpointer(pVM->pBraceObject,1) ;
+    ring_list_addpointer_gc(pVM->pRingState,pList,ring_list_getlist(pClass,4));
+    /* Store Class Pointer */
+    ring_list_addpointer_gc(pVM->pRingState,pList,pClass);
+    /* Add Brace Object & Stack Pointer to List */
+    pList = ring_list_newlist_gc(pVM->pRingState,pVM->aBraceObjects);
+    ring_list_addpointer_gc(pVM->pRingState,pList,pVM->pBraceObject);
+    ring_list_addint_gc(pVM->pRingState,pList,pVM->nSP);
+    /* Store List information to allow using braces from list item and creating lists from that brace */
+    ring_list_addint_gc(pVM->pRingState,pList,pVM->nListStart);
+    ring_list_addpointer_gc(pVM->pRingState,pList,pVM->pNestedLists);
+    pVM->nListStart = 0 ;
+    pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
+    /* Enable function for memory management */
+    ring_vm_gc_listpointerismine(pList,RING_ABRACEOBJECTS_PNESTEDLISTS);
+    /* Store nFuncExec */
+    ring_list_addint_gc(pVM->pRingState,pList,pVM->nFuncExecute);
+    pVM->nFuncExecute = 0 ;
+    /* Store GetSet Object */
+    aSetProperty = ring_list_newlist_gc(pVM->pRingState,pList);
+    ring_list_copy_gc(pVM->pRingState,aSetProperty,pVM->aSetProperty);
+    ring_list_deleteallitems_gc(pVM->pRingState,pVM->aSetProperty);
+    pVM->pBraceObject = NULL ;
+    pVM->nInsideBraceFlag = 1 ;
+}
+
+void ring_vm_restorestate4 ( VM *pVM,List *pList )
+{
+    /* Restore List Status */
+    pVM->nListStart = ring_list_getint(pList,RING_ABRACEOBJECTS_NLISTSTART) ;
+    if ( pVM->pNestedLists != ring_list_getpointer(pList,RING_ABRACEOBJECTS_PNESTEDLISTS) ) {
+        pVM->pNestedLists = ring_list_delete_gc(pVM->pRingState,pVM->pNestedLists);
+        pVM->pNestedLists = (List *) ring_list_getpointer(pList,RING_ABRACEOBJECTS_PNESTEDLISTS) ;
+    }
+    /* Disable function for memory management */
+    ring_vm_gc_listpointerisnotmine(pList,RING_ABRACEOBJECTS_PNESTEDLISTS);
+    /* Restore nFuncExec */
+    pVM->nFuncExecute = ring_list_getint(pList,RING_ABRACEOBJECTS_NFUNCEXEC ) ;
+    /* Restore Stack Status */
+    pVM->nSP = ring_list_getint(pList,RING_ABRACEOBJECTS_NSP) ;
+    /* Restore GetSet Object */
+    ring_list_deleteallitems_gc(pVM->pRingState,pVM->aSetProperty);
+    ring_list_copy_gc(pVM->pRingState,pVM->aSetProperty,ring_list_getpointer(pList,RING_ABRACEOBJECTS_ASETPROPERTY ));
+    ring_list_deleteitem_gc(pVM->pRingState,pVM->aBraceObjects,ring_list_getsize(pVM->aBraceObjects));
+    ring_list_deleteitem_gc(pVM->pRingState,pVM->pObjState,ring_list_getsize(pVM->pObjState));
+    pVM->nInsideBraceFlag = ( ring_list_getsize(pVM->aBraceObjects) > 0 ) ;
+}
 /* Return to a Specific position in the array, delete all items after that position */
 
 void ring_vm_backstate ( VM *pVM,int x,List *pList )

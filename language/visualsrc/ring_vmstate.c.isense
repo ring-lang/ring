@@ -39,6 +39,10 @@ Type: List *
 pList
 Type: VMState *
 pVMState
+ring_vm_savestate4
+Type: List *
+pClass,*aSetProperty
+ring_vm_restorestate4
 ring_vm_backstate
 Type: int
 nLimit,y
