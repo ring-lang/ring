@@ -77,8 +77,12 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
             /* Let Return commands Jump to Return From Eval command */
             if ( lUpdate ) {
                 pIR = ring_list_getlist(pVM->pCode,x);
-                if ( (ring_list_getint(pIR,1) == ICO_RETURN) || (ring_list_getint(pIR,1) == ICO_RETNULL) ) {
+                if ( ring_list_getint(pIR,1) == ICO_RETURN ) {
                     ring_list_setint_gc(pVM->pRingState,pIR,1,ICO_JUMP);
+                    ring_list_addint_gc(pVM->pRingState,pIR,nMark);
+                }
+                else if ( ring_list_getint(pIR,1) == ICO_RETNULL ) {
+                    ring_list_setint_gc(pVM->pRingState,pIR,1,ICO_NULLJUMP);
                     ring_list_addint_gc(pVM->pRingState,pIR,nMark);
                 }
                 else if ( (ring_list_getint(pIR,1) == ICO_NEWFUNC) || (ring_list_getint(pIR,1) == ICO_NEWCLASS) ) {
@@ -104,8 +108,14 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
         pVM->nEvalReallocationSize = pVM->nEvalReallocationSize - (RING_VM_INSTRUCTIONSCOUNT-nLastPC) ;
     }
     else {
-        ring_vm_error(pVM,"Error in eval!");
         ring_scanner_delete(pScanner);
+        /*
+        **  Since we have a Syntax Error, We must delete the generated code 
+        **  Without doing this, RingREPL will suffer from many problems after having a Syntax Error 
+        **  Like executing (Old Code) when writing new code after having a Syntax Error 
+        */
+        ring_list_deleteallitems_gc(pVM->pRingState,pVM->pRingState->pRingGenCode);
+        ring_vm_error(pVM,"Error in eval!");
         return 0 ;
     }
     ring_scanner_delete(pScanner);
@@ -164,11 +174,21 @@ void ring_vm_returneval ( VM *pVM )
 
 void ring_vm_mainloopforeval ( VM *pVM )
 {
-    int nDontDelete  ;
+    int nDontDelete,nType,nOut,nSP,nFuncSP,nInClassRegion  ;
+    List *pStackList  ;
+    double nNumber  ;
+    String *pString  ;
+    void *pPointer, *pAssignment  ;
     pVM->pRingState->lStartPoolManager = 1 ;
     pVM->lInsideEval++ ;
     nDontDelete = pVM->nRetEvalDontDelete ;
     pVM->nRetEvalDontDelete = 0 ;
+    /* Save Stack */
+    nSP = pVM->nSP ;
+    nFuncSP = pVM->nFuncSP ;
+    pStackList = ring_vm_savestack(pVM);
+    pAssignment = pVM->pAssignment ;
+    nInClassRegion = pVM->nInClassRegion ;
     /* Allows showing the OPCODE */
     if ( pVM->pRingState->nPrintInstruction ) {
         do {
@@ -190,6 +210,43 @@ void ring_vm_mainloopforeval ( VM *pVM )
     }
     pVM->lInsideEval-- ;
     pVM->nRetEvalDontDelete = nDontDelete ;
+    if ( pVM->nSP == 0 ) {
+        return ;
+    }
+    /* Save Output */
+    nOut = 0 ;
+    if ( RING_VM_STACK_ISNUMBER ) {
+        nOut = 1 ;
+        nNumber = RING_VM_STACK_READN ;
+    }
+    else if ( RING_VM_STACK_ISSTRING ) {
+        nOut = 2 ;
+        pString = ring_string_new2_gc(pVM->pRingState,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
+    }
+    else if ( RING_VM_STACK_ISPOINTER ) {
+        nOut = 3 ;
+        pPointer = RING_VM_STACK_READP ;
+        nType = RING_VM_STACK_OBJTYPE ;
+    }
+    /* Restore Stack */
+    ring_vm_restorestack(pVM,pStackList);
+    ring_list_delete_gc(pVM->pRingState,pStackList);
+    pVM->nSP = nSP ;
+    pVM->nFuncSP = nFuncSP ;
+    pVM->pAssignment = pAssignment ;
+    pVM->nInClassRegion = nInClassRegion ;
+    /* Push Output */
+    if ( nOut == 1 ) {
+        RING_VM_STACK_PUSHNVALUE(nNumber);
+    }
+    else if ( nOut == 2 ) {
+        RING_VM_STACK_PUSHCVALUE2(ring_string_get(pString),ring_string_size(pString));
+        ring_string_delete_gc(pVM->pRingState,pString);
+    }
+    else if ( nOut == 3 ) {
+        RING_VM_STACK_PUSHPVALUE(pPointer);
+        RING_VM_STACK_OBJTYPE = nType ;
+    }
 }
 
 RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )

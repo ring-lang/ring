@@ -565,10 +565,10 @@ void ring_vm_restorestack ( VM *pVM,List *pList )
 {
     int x  ;
     List *pList2  ;
-    pVM->nSP = 0 ;
     if ( ring_list_getsize(pList) == 0 ) {
         return ;
     }
+    pVM->nSP = 0 ;
     for ( x = ring_list_getsize(pList) ; x >= 1 ; x-- ) {
         if ( ring_list_isstring(pList,x) ) {
             RING_VM_STACK_PUSHCVALUE2(ring_list_getstring(pList,x),ring_list_getstringsize(pList,x));
