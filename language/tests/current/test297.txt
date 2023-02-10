@@ -1,20 +1,17 @@
-========================================
-test method
-f1 function
-f2 function
-f3 method
-========================================
-========================================
-test2 method
-f1 function
-f2 function
-f3 method
-========================================
-========================================
-test2 function
-f1 function
-f2 function
-f3 method
-f3 method
-f3 method
-========================================
+Message from SetName() Function!
+Message from GetName() Function!
+
+Mr. Mahmoud - Ring Programming Language
+
+Message from SetName() Function!
+Message from GetName() Function!
+
+Mr. Gal - Ring Programming Language
+Message from SetName() Function!
+Message from GetName() Function!
+
+Mr. Bert - Ring Programming Language
+Message from SetName() Function!
+Message from GetName() Function!
+
+Mr. Marino - Ring Programming Language

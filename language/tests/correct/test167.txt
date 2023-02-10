@@ -1,3 +1,21 @@
-
-Line 9 Error (R1) : Can't divide by zero ! 
-in file classregion/test.ring 
+test1
+good
+wow
+NULL
+great
+test1
+test1
+test1
+test1
+wow
+wow
+wow
+wow
+good
+good
+good
+good
+child
+test1
+pass1
+pass2

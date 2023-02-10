@@ -1,5 +1,5 @@
 before class
 
-Line 17 Error (R9) : Using exit command outside loops  
-In method test() in file new/new10.ring
-called from line 11  in file new/new10.ring 
+Line 16 Error (R9) : Using exit command outside loops  
+In method test() in file new/new9.ring
+called from line 11  in file new/new9.ring 

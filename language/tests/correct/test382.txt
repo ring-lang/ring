@@ -1,30 +1,40 @@
-0.1000000000
-0.0100000000
-0.0010000000
-0.0001000000
-0.0000100000
-0.6000000000
-0.0600000000
-0.0060000000
-0.0006000000
-0.0000600000
-0.9000000000
-0.0900000000
-0.0090000000
-0.0009000000
-0.0000900000
-0.6600000000
-0.0660000000
-0.0066000000
-0.0006600000
-0.0000660000
-0.9900000000
-0.0990000000
-0.0099000000
-0.0009900000
-0.0000990000
-0.9010000000
-0.0901000000
-0.0090100000
-0.0009010000
-0.0000901000
+c = 1 to size step 1
+1
+s = 1 to ssize step 2
+1
+h in hybrid step 3
+t
+s = 1 to ssize step 2
+3
+h in hybrid step 3
+t
+c = 1 to size step 1
+2
+s = 1 to ssize step 2
+1
+h in hybrid step 3
+t
+s = 1 to ssize step 2
+3
+h in hybrid step 3
+t
+c = 1 to size step 1
+3
+s = 1 to ssize step 2
+1
+h in hybrid step 3
+t
+s = 1 to ssize step 2
+3
+h in hybrid step 3
+t
+c = 1 to size step 1
+4
+s = 1 to ssize step 2
+1
+h in hybrid step 3
+t
+s = 1 to ssize step 2
+3
+h in hybrid step 3
+t

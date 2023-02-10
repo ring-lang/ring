@@ -1,4 +1,4 @@
 test1
 
 Line 7 Error (R26) : Calling private method from outside the class : good 
-in file private/private10.ring 
+in file private/private9.ring 
