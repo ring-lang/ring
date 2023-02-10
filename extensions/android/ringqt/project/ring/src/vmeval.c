@@ -7,9 +7,10 @@
 
 int ring_vm_eval ( VM *pVM,const char *cStr )
 {
-    int nPC,nCont,nLastPC,nRunVM,x,nSize  ;
+    int nPC,nCont,nLastPC,nRunVM,x,nSize,nMark,lUpdate  ;
     Scanner *pScanner  ;
     int aPara[3]  ;
+    List *pIR  ;
     nSize = strlen( cStr ) ;
     if ( nSize == 0 ) {
         return 0 ;
@@ -69,8 +70,21 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
             pVM->nEvalReallocationFlag = 0 ;
         }
         /* Load New Code */
+        nMark = pVM->pRingState->nInstructionsCount ;
+        lUpdate = pVM->nEvalCalledFromRingCode ;
         pVM->pRingState->nInstructionsCount -= ring_list_getsize(pVM->pRingState->pRingGenCode) ;
         for ( x = 1 ; x <= RING_VM_INSTRUCTIONSLISTSIZE ; x++ ) {
+            /* Let Return commands Jump to Return From Eval command */
+            if ( lUpdate ) {
+                pIR = ring_list_getlist(pVM->pCode,x);
+                if ( (ring_list_getint(pIR,1) == ICO_RETURN) || (ring_list_getint(pIR,1) == ICO_RETNULL) ) {
+                    ring_list_setint_gc(pVM->pRingState,pIR,1,ICO_JUMP);
+                    ring_list_addint_gc(pVM->pRingState,pIR,nMark);
+                }
+                else if ( (ring_list_getint(pIR,1) == ICO_NEWFUNC) || (ring_list_getint(pIR,1) == ICO_NEWCLASS) ) {
+                    lUpdate = 0 ;
+                }
+            }
             ring_vm_tobytecode(pVM,x);
         }
         pVM->pRingState->nInstructionsCount += ring_list_getsize(pVM->pRingState->pRingGenCode) ;
