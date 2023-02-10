@@ -739,6 +739,10 @@ void ring_vm_execute ( VM *pVM )
         case ICO_JUMPONE2 :
             ring_vm_jumpone2(pVM);
             break ;
+        case ICO_NULLJUMP :
+            RING_VM_STACK_PUSHCVALUE("");
+            RING_VM_JUMP ;
+            break ;
         /* Compare */
         case ICO_LESSEQUAL :
             ring_vm_lessequal(pVM);
