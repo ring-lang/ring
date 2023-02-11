@@ -38,8 +38,10 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
         pVM->pRingState->lNoLineNumber = 0 ;
     }
     else {
-        ring_vm_error(pVM,"Error in eval!");
         ring_scanner_delete(pScanner);
+        ring_list_deletelastitem_gc(pVM->pRingState,pVM->pRingState->pRingFilesList);
+        ring_list_deletelastitem_gc(pVM->pRingState,pVM->pRingState->pRingFilesStack);
+        ring_vm_error(pVM,"Error in eval!");
         return 0 ;
     }
     if ( nRunVM == 1 ) {
@@ -115,6 +117,8 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
         **  Like executing (Old Code) when writing new code after having a Syntax Error 
         */
         ring_list_deleteallitems_gc(pVM->pRingState,pVM->pRingState->pRingGenCode);
+        ring_list_deletelastitem_gc(pVM->pRingState,pVM->pRingState->pRingFilesList);
+        ring_list_deletelastitem_gc(pVM->pRingState,pVM->pRingState->pRingFilesStack);
         ring_vm_error(pVM,"Error in eval!");
         return 0 ;
     }
