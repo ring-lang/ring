@@ -27,6 +27,7 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
     /* Add Token "End of Line" to the end of any program */
     ring_scanner_endofline(pScanner);
     nLastPC = RING_VM_INSTRUCTIONSCOUNT ;
+    nRunVM = 0 ;
     /* Get Functions/Classes Size before change by parser */
     aPara[0] = nLastPC ;
     aPara[1] = ring_list_getsize(pVM->pFunctionsMap) ;
@@ -37,13 +38,7 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
         nRunVM = ring_parser_start(pScanner->Tokens,pVM->pRingState);
         pVM->pRingState->lNoLineNumber = 0 ;
     }
-    else {
-        ring_scanner_delete(pScanner);
-        ring_list_deletelastitem_gc(pVM->pRingState,pVM->pRingState->pRingFilesList);
-        ring_list_deletelastitem_gc(pVM->pRingState,pVM->pRingState->pRingFilesStack);
-        ring_vm_error(pVM,"Error in eval!");
-        return 0 ;
-    }
+    /* Prepare the ByteCode */
     if ( nRunVM == 1 ) {
         /*
         **  Generate Code 
@@ -109,22 +104,20 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
         */
         pVM->nEvalReallocationSize = pVM->nEvalReallocationSize - (RING_VM_INSTRUCTIONSCOUNT-nLastPC) ;
     }
-    else {
-        ring_scanner_delete(pScanner);
-        /*
-        **  Since we have a Syntax Error, We must delete the generated code 
-        **  Without doing this, RingREPL will suffer from many problems after having a Syntax Error 
-        **  Like executing (Old Code) when writing new code after having a Syntax Error 
-        */
-        ring_list_deleteallitems_gc(pVM->pRingState,pVM->pRingState->pRingGenCode);
-        ring_list_deletelastitem_gc(pVM->pRingState,pVM->pRingState->pRingFilesList);
-        ring_list_deletelastitem_gc(pVM->pRingState,pVM->pRingState->pRingFilesStack);
-        ring_vm_error(pVM,"Error in eval!");
-        return 0 ;
-    }
+    /* Clean Memory */
     ring_scanner_delete(pScanner);
+    /*
+    **  Since we have a Syntax Error, We must delete the generated code 
+    **  Without doing this, RingREPL will suffer from many problems after having a Syntax Error 
+    **  Like executing (Old Code) when writing new code after having a Syntax Error 
+    */
+    ring_list_deleteallitems_gc(pVM->pRingState,pVM->pRingState->pRingGenCode);
     ring_list_deletelastitem_gc(pVM->pRingState,pVM->pRingState->pRingFilesList);
     ring_list_deletelastitem_gc(pVM->pRingState,pVM->pRingState->pRingFilesStack);
+    /* Check Error */
+    if ( (nCont == 0) || (nRunVM == 0) ) {
+        ring_vm_error(pVM,"Error in eval!");
+    }
     return nRunVM ;
 }
 
