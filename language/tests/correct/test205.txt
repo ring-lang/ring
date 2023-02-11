@@ -1,24 +1,12 @@
-c in str step 1
-t
-s in substr(str,2) step 2
-e
-h in hybrid step 3
-t
-c in str step 1
-e
-s in substr(str,2) step 2
-e
-h in hybrid step 3
-t
-c in str step 1
-s
-s in substr(str,2) step 2
-e
-h in hybrid step 3
-t
-c in str step 1
-t
-s in substr(str,2) step 2
-e
-h in hybrid step 3
-t
+c = 1 to size step 2
+1
+s = 1 to ssize step 1
+1
+h = 1 to hsize step 3
+1
+c = 1 to size step 2
+3
+s = 1 to ssize step 1
+1
+h = 1 to hsize step 3
+1

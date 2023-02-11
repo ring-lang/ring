@@ -1,2 +1,9 @@
-Using ? substr(cStr,"", "nice")
-Error in second parameter value!
+Using ? substr(cStr,100, 1)
+
+Using ? substr(cStr, -1, 4)
+
+Using ? substr(cStr, 1, 1000)
+
+Using ? substr(cStr, 1, -1)
+
+done

@@ -1,2 +1,1 @@
-Test!;;;
-;;;;;;;;;;
+Test!End of program!

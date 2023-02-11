@@ -1,6 +1,13 @@
-3
+LIST
 2
+Delete one reference
+Check new value
+NUMBER
 1
-tmp
-
-done
+Delete again!
+NUMBER
+Check the main value
+LIST
+1
+1000
+500

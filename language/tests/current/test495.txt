@@ -1,2 +1,2 @@
-10
-12
+Memory: 1
+Memory: 1
