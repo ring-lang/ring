@@ -234,7 +234,7 @@ Example:
 
 	aList = list(1_000_000)
 	t1 = clock()
-	for t=1 to 1000000
+	for t=1 to 1_000_000
 		x = aList[t]
 	next
 	t2 = clock()
