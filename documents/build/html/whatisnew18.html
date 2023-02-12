@@ -210,6 +210,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#the-power-operator">The Power Operator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-references">Using References</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ring-for-ms-dos">Ring for MS-DOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#faster-for-in-loop">Faster (For-In) Loop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ringsockets">Better RingSockets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#heroku-better-support">Heroku (Better support)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-weblib">Better WebLib</a></li>
@@ -302,6 +303,7 @@
 <li><p>The Power Operator</p></li>
 <li><p>Using References</p></li>
 <li><p>Ring for MS-DOS</p></li>
+<li><p>Faster (For-In) Loop</p></li>
 <li><p>Better RingSockets</p></li>
 <li><p>Heroku (Better support)</p></li>
 <li><p>Better WebLib</p></li>
@@ -422,8 +424,40 @@ refcount(variable) ---&gt; Number (References Count)
 </div>
 <img alt="ringfordos" src="_images/ringfordos.png" />
 </div>
+<div class="section" id="faster-for-in-loop">
+<span id="index-10"></span><h2>Faster (For-In) Loop<a class="headerlink" href="#faster-for-in-loop" title="Permalink to this headline">¶</a></h2>
+<p>The (For-In) Loop implementation is revised in Ring 1.18</p>
+<p>It’s six times (6x) faster than Ring 1.17</p>
+<p>Example:</p>
+<div class="highlight-Ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="kt">list</span><span class="p">(</span><span class="mi">1_000_000</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span>
+<span class="k">next</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
+<span class="o">?</span> <span class="p">(</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clockspersecond</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Time using Ring 1.18: 0.4 second</p>
+<p>Time using Ring 1.17: 2.6 seconds</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The normal (For Loop) is faster than (For-In Loop) by 25%</p>
+</div>
+<p>Example:</p>
+<div class="highlight-Ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="kt">list</span><span class="p">(</span><span class="mi">1_000_000</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">1000000</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">aList</span><span class="o">[</span><span class="n">t</span><span class="o">]</span>
+<span class="k">next</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
+<span class="o">?</span> <span class="p">(</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clockspersecond</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Time using Ring 1.18: 0.28 second</p>
+<p>Time using Ring 1.17: 0.28 second</p>
+</div>
 <div class="section" id="better-ringsockets">
-<span id="index-10"></span><h2>Better RingSockets<a class="headerlink" href="#better-ringsockets" title="Permalink to this headline">¶</a></h2>
+<span id="index-11"></span><h2>Better RingSockets<a class="headerlink" href="#better-ringsockets" title="Permalink to this headline">¶</a></h2>
 <p>The next functions are added to the extension</p>
 <ul class="simple">
 <li><p>inet_pton()</p></li>
@@ -432,13 +466,13 @@ refcount(variable) ---&gt; Number (References Count)
 </ul>
 </div>
 <div class="section" id="heroku-better-support">
-<span id="index-11"></span><h2>Heroku (Better support)<a class="headerlink" href="#heroku-better-support" title="Permalink to this headline">¶</a></h2>
+<span id="index-12"></span><h2>Heroku (Better support)<a class="headerlink" href="#heroku-better-support" title="Permalink to this headline">¶</a></h2>
 <p>In Ring 1.18 We updated the packages to use a modern Ring version</p>
 <p>The project is tested using Heroku-22 (Ubuntu 22.04)</p>
 <p>URL: <a class="reference external" href="https://github.com/ring-lang/RingWebAppOnHeroku">https://github.com/ring-lang/RingWebAppOnHeroku</a></p>
 </div>
 <div class="section" id="better-weblib">
-<span id="index-12"></span><h2>Better WebLib<a class="headerlink" href="#better-weblib" title="Permalink to this headline">¶</a></h2>
+<span id="index-13"></span><h2>Better WebLib<a class="headerlink" href="#better-weblib" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>HTTP Post - Better Code</p></li>
 <li><dl class="simple">
@@ -475,7 +509,7 @@ refcount(variable) ---&gt; Number (References Count)
 </ol>
 </div>
 <div class="section" id="better-ring-api">
-<span id="index-13"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this headline">¶</a></h2>
+<span id="index-14"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Added: RING_API_GETFLOATPOINTER(nParameter)</p></li>
 <li><p>Added: RING_API_ACCEPTFLOATVALUE(nParameter)</p></li>
@@ -536,7 +570,7 @@ Hello from C Code
 </div>
 </div>
 <div class="section" id="better-documentation">
-<span id="index-14"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this headline">¶</a></h2>
+<span id="index-15"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this headline">¶</a></h2>
 <p>The next chapters are improved!</p>
 <ol class="arabic simple">
 <li><p>Building RingQt applications for Mobile</p></li>
@@ -545,7 +579,7 @@ Hello from C Code
 </ol>
 </div>
 <div class="section" id="more-improvements">
-<span id="index-15"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
+<span id="index-16"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Ring Notepad: New option to build GUI application using Ring2EXE</p></li>
 <li><p>Ring Notepad: Output Window - Correct cursor position while using unicode</p></li>

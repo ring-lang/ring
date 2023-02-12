@@ -23,6 +23,7 @@ Ring 1.18 comes with the next features!
 * The Power Operator
 * Using References 
 * Ring for MS-DOS
+* Faster (For-In) Loop
 * Better RingSockets
 * Heroku (Better support)
 * Better WebLib
@@ -198,6 +199,50 @@ Tested using
 
 .. image:: ringfordos.png
 	:alt: ringfordos
+
+.. index:: 
+	pair: What is new in Ring  1.18; Faster (For-In) Loop
+
+Faster (For-In) Loop
+====================
+
+The (For-In) Loop implementation is revised in Ring 1.18
+
+It's six times (6x) faster than Ring 1.17
+
+Example:
+
+.. code-block:: Ring
+
+	aList = list(1_000_000)
+	t1 = clock()
+	for x in aList
+	next
+	t2 = clock()
+	? (t2-t1)/clockspersecond()
+
+Time using Ring 1.18: 0.4 second
+
+Time using Ring 1.17: 2.6 seconds
+
+
+.. tip:: The normal (For Loop) is faster than (For-In Loop) by 25%
+
+Example:
+
+.. code-block:: Ring
+
+	aList = list(1_000_000)
+	t1 = clock()
+	for t=1 to 1000000
+		x = aList[t]
+	next
+	t2 = clock()
+	? (t2-t1)/clockspersecond()
+
+Time using Ring 1.18: 0.28 second
+
+Time using Ring 1.17: 0.28 second
 
 .. index:: 
 	pair: What is new in Ring  1.18; Better RingSockets
