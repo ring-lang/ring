@@ -1019,5 +1019,9 @@ void ring_vm_execute ( VM *pVM )
         case ICO_FREETEMPLISTS :
             ring_vm_freetemplists(pVM);
             break ;
+        /* Fast Functions */
+        case ICO_LEN :
+            ring_vm_len(pVM);
+            break ;
     }
 }

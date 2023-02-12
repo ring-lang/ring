@@ -849,4 +849,7 @@
     /* Temp Lists */
 
     void ring_vm_freetemplists ( VM *pVM ) ;
+    /* Fast Functions */
+
+    void ring_vm_len ( VM *pVM ) ;
 #endif

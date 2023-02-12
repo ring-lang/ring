@@ -599,7 +599,6 @@ int ring_parser_stmt ( Parser *pParser )
                 nMark1 = ring_parser_icg_newlabel(pParser);
                 ring_parser_icg_newoperation(pParser,ICO_LOADAPUSHV);
                 ring_parser_icg_newoperand(pParser,cStr);
-                ring_parser_icg_loadfunction(pParser,"len");
                 nStart = ring_parser_icg_instructionslistsize(pParser) + 1 ;
                 ring_parser_nexttoken(pParser);
                 RING_PARSER_IGNORENEWLINE ;
@@ -620,7 +619,7 @@ int ring_parser_stmt ( Parser *pParser )
                             }
                             break ;
                     }
-                    ring_parser_icg_newoperation(pParser,ICO_CALL);
+                    ring_parser_icg_newoperation(pParser,ICO_LEN);
                     /* Generate 0 For Operator OverLoading */
                     ring_parser_icg_newoperandint(pParser,0);
                     ring_parser_icg_newoperation(pParser,ICO_JUMPFOR);
