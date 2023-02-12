@@ -207,9 +207,6 @@ void ring_vm_mainloopforeval ( VM *pVM )
     }
     pVM->lInsideEval-- ;
     pVM->nRetEvalDontDelete = nDontDelete ;
-    if ( pVM->nSP == 0 ) {
-        return ;
-    }
     /* Save Output */
     nOut = RING_EVALOUTPUT_NULL ;
     if ( RING_VM_STACK_ISNUMBER ) {
