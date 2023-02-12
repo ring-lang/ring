@@ -360,6 +360,7 @@ More Improvements
 * Ring Functions - Added: ringvm_ismempool()
 * Ring Functions - SetEnv()/UnSetEnv() - Better Code
 * Ring Functions - Print()/Puts() - Better Code
+* Ring Functions - Eval() - Better Code
 * Ring Compiler/VM Source Code - Better File Names
 * Ring Compiler/VM Source Code - Define RING_MSDOS
 * Ring Compiler/VM Source Code - Many structures updated to use unsigned int/char
