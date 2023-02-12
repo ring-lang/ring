@@ -74,15 +74,15 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
             /* Let Return commands Jump to Return From Eval command */
             if ( lUpdate ) {
                 pIR = ring_list_getlist(pVM->pCode,x);
-                if ( ring_list_getint(pIR,1) == ICO_RETURN ) {
-                    ring_list_setint_gc(pVM->pRingState,pIR,1,ICO_JUMP);
+                if ( ring_list_getint(pIR,RING_PARSER_ICG_OPERATIONCODE) == ICO_RETURN ) {
+                    ring_list_setint_gc(pVM->pRingState,pIR,RING_PARSER_ICG_OPERATIONCODE,ICO_JUMP);
                     ring_list_addint_gc(pVM->pRingState,pIR,nMark);
                 }
-                else if ( ring_list_getint(pIR,1) == ICO_RETNULL ) {
-                    ring_list_setint_gc(pVM->pRingState,pIR,1,ICO_NULLJUMP);
+                else if ( ring_list_getint(pIR,RING_PARSER_ICG_OPERATIONCODE) == ICO_RETNULL ) {
+                    ring_list_setint_gc(pVM->pRingState,pIR,RING_PARSER_ICG_OPERATIONCODE,ICO_PUSHNULLTHENJUMP);
                     ring_list_addint_gc(pVM->pRingState,pIR,nMark);
                 }
-                else if ( (ring_list_getint(pIR,1) == ICO_NEWFUNC) || (ring_list_getint(pIR,1) == ICO_NEWCLASS) ) {
+                else if ( (ring_list_getint(pIR,RING_PARSER_ICG_OPERATIONCODE) == ICO_NEWFUNC) || (ring_list_getint(pIR,RING_PARSER_ICG_OPERATIONCODE) == ICO_NEWCLASS) ) {
                     lUpdate = 0 ;
                 }
             }

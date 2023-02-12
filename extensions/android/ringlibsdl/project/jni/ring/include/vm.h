@@ -226,7 +226,7 @@
     #define RING_VM_IR_CLEARREG1STRING ring_vm_clearregisterstring(pVM,1)
     #define RING_VM_IR_SETREG1TYPE(x) pVM->pByteCodeIR->nReg1Type = x
     #define RING_VM_IR_SETREG1TOPOINTERFROMSTACK ring_vm_setreg1topointerfromstack(pVM)
-    #define RING_VM_NULLJUMP RING_VM_STACK_PUSHCVALUE(""); RING_VM_JUMP
+    #define RING_VM_PUSHNULLTHENJUMP RING_VM_STACK_PUSHCVALUE(""); RING_VM_JUMP
     /*
     **  Calling Functions 
     **  Note : When you insert items check performance functions for update too! 
