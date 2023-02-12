@@ -1055,15 +1055,22 @@ void ring_vm_len ( VM *pVM )
         }
         else if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM ) {
             pItem = (Item *) RING_VM_STACK_READP ;
-            RING_VM_STACK_POP ;
             switch ( pItem->nType ) {
                 case ITEMTYPE_STRING :
                     pString = ring_item_getstring(pItem) ;
+                    RING_VM_STACK_POP ;
                     RING_VM_STACK_PUSHNVALUE(ring_string_size(pString));
                     break ;
                 case ITEMTYPE_LIST :
                     pList = ring_item_getlist(pItem) ;
-                    RING_VM_STACK_PUSHNVALUE(ring_list_getsize(pList));
+                    if ( ring_vm_oop_isobject(pList) == 0 ) {
+                        RING_VM_STACK_POP ;
+                        RING_VM_STACK_PUSHNVALUE(ring_list_getsize(pList));
+                    }
+                    else {
+                        ring_vm_expr_npoo(pVM,"len",0);
+                        pVM->nIgnoreNULL = 1 ;
+                    }
                     break ;
                 default :
                     ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);
