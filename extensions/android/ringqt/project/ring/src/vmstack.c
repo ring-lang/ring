@@ -15,7 +15,7 @@ void ring_vm_pushv ( VM *pVM )
     }
     switch ( RING_VM_STACK_OBJTYPE ) {
         case RING_OBJTYPE_VARIABLE :
-            if ( ! ring_vm_checknull(pVM,1) ) {
+            if ( ! ring_vm_checknull(pVM,RING_CHECKNULL_SHOWERROR) ) {
                 ring_vm_varpushv(pVM);
             }
             break ;
@@ -40,7 +40,12 @@ int ring_vm_checknull ( VM *pVM,int lShowError )
                 if ( ring_list_getlist(pVM->pActiveMem,ring_list_getsize(pVM->pActiveMem)) == pVar ) {
                     /* Delete the Item from the HashTable */
                     ring_hashtable_deleteitem_gc(pVM->pRingState,pVM->pActiveMem->pHashTable,ring_list_getstring(pVar,RING_VAR_NAME));
+                    /* Delete the variable from the active scope */
                     ring_list_deletelastitem_gc(pVM->pRingState,pVM->pActiveMem);
+                    /* We deleted the variable, so we remove it from the Stack to avoid usage after delete */
+                    RING_VM_STACK_POP ;
+                    /* We replace it with NULL */
+                    RING_VM_STACK_PUSHCVALUE("");
                 }
             }
             return 1 ;

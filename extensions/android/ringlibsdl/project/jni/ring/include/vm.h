@@ -138,7 +138,7 @@
         void *aPointers[RING_VM_STATE_POINTERS_COUNT]  ;
     } VMState ;
     /*
-    **  Macro 
+    **  Macro & Constants 
     **  Stack 
     **  Add 
     */
@@ -332,6 +332,14 @@
     /* Loops */
     #define RING_COMMANDTYPE_EXIT 1
     #define RING_COMMANDTYPE_LOOP 2
+    /* Check NULL */
+    #define RING_CHECKNULL_SHOWERROR 1
+    #define RING_CHECKNULL_NOERROR 0
+    /* EVAL Output */
+    #define RING_EVALOUTPUT_NULL 0
+    #define RING_EVALOUTPUT_NUMBER 1
+    #define RING_EVALOUTPUT_STRING 2
+    #define RING_EVALOUTPUT_POINTER 3
     /* Runtime Error Messages */
     #define RING_VM_ERROR_DIVIDEBYZERO "Error (R1) : Can't divide by zero !"
     #define RING_VM_ERROR_INDEXOUTOFRANGE "Error (R2) : Array Access (Index out of range) !"
