@@ -211,19 +211,24 @@ void ring_vm_mainloopforeval ( VM *pVM )
         return ;
     }
     /* Save Output */
-    nOut = 0 ;
+    nOut = RING_EVALOUTPUT_NULL ;
     if ( RING_VM_STACK_ISNUMBER ) {
-        nOut = 1 ;
+        nOut = RING_EVALOUTPUT_NUMBER ;
         nNumber = RING_VM_STACK_READN ;
     }
     else if ( RING_VM_STACK_ISSTRING ) {
-        nOut = 2 ;
+        nOut = RING_EVALOUTPUT_STRING ;
         pString = ring_string_new2_gc(pVM->pRingState,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
     }
     else if ( RING_VM_STACK_ISPOINTER ) {
-        nOut = 3 ;
+        nOut = RING_EVALOUTPUT_POINTER ;
         pPointer = RING_VM_STACK_READP ;
         nType = RING_VM_STACK_OBJTYPE ;
+        if ( nType == RING_OBJTYPE_VARIABLE ) {
+            if ( ring_vm_checknull(pVM,RING_CHECKNULL_NOERROR) ) {
+                nOut = RING_EVALOUTPUT_NULL ;
+            }
+        }
     }
     /* Restore Stack */
     ring_vm_restorestack(pVM,pStackList);
@@ -233,14 +238,14 @@ void ring_vm_mainloopforeval ( VM *pVM )
     pVM->pAssignment = pAssignment ;
     pVM->nInClassRegion = nInClassRegion ;
     /* Push Output */
-    if ( nOut == 1 ) {
+    if ( nOut == RING_EVALOUTPUT_NUMBER ) {
         RING_VM_STACK_PUSHNVALUE(nNumber);
     }
-    else if ( nOut == 2 ) {
+    else if ( nOut == RING_EVALOUTPUT_STRING ) {
         RING_VM_STACK_PUSHCVALUE2(ring_string_get(pString),ring_string_size(pString));
         ring_string_delete_gc(pVM->pRingState,pString);
     }
-    else if ( nOut == 3 ) {
+    else if ( nOut == RING_EVALOUTPUT_POINTER ) {
         RING_VM_STACK_PUSHPVALUE(pPointer);
         RING_VM_STACK_OBJTYPE = nType ;
     }
