@@ -1,5 +1,3 @@
-aitems: [This Attribute Contains A List]
-
-aitems: [This Attribute Contains A List]
-
-
+x: 15
+x: 20
+x: 20
