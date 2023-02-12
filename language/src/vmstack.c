@@ -15,7 +15,7 @@ void ring_vm_pushv ( VM *pVM )
     }
     switch ( RING_VM_STACK_OBJTYPE ) {
         case RING_OBJTYPE_VARIABLE :
-            if ( ! ring_vm_checknull(pVM) ) {
+            if ( ! ring_vm_checknull(pVM,1) ) {
                 ring_vm_varpushv(pVM);
             }
             break ;
@@ -28,18 +28,20 @@ void ring_vm_pushv ( VM *pVM )
     }
 }
 
-int ring_vm_checknull ( VM *pVM )
+int ring_vm_checknull ( VM *pVM,int lShowError )
 {
     List *pVar  ;
     pVar = (List *) RING_VM_STACK_READP ;
     /* Check NULL Value */
     if ( (pVM->nInClassRegion == 0) && (ring_list_getint(pVar,RING_VAR_TYPE) == RING_VM_NULL) && ( ring_list_isstring(pVar,RING_VAR_VALUE) ) ) {
         if ( strcmp(ring_list_getstring(pVar,RING_VAR_VALUE),"NULL") == 0 ) {
-            ring_vm_error2(pVM,RING_VM_ERROR_USINGNULLVARIABLE,ring_list_getstring(pVar,RING_VAR_NAME));
-            if ( ring_list_getlist(pVM->pActiveMem,ring_list_getsize(pVM->pActiveMem)) == pVar ) {
-                /* Delete the Item from the HashTable */
-                ring_hashtable_deleteitem_gc(pVM->pRingState,pVM->pActiveMem->pHashTable,ring_list_getstring(pVar,RING_VAR_NAME));
-                ring_list_deletelastitem_gc(pVM->pRingState,pVM->pActiveMem);
+            if ( lShowError ) {
+                ring_vm_error2(pVM,RING_VM_ERROR_USINGNULLVARIABLE,ring_list_getstring(pVar,RING_VAR_NAME));
+                if ( ring_list_getlist(pVM->pActiveMem,ring_list_getsize(pVM->pActiveMem)) == pVar ) {
+                    /* Delete the Item from the HashTable */
+                    ring_hashtable_deleteitem_gc(pVM->pRingState,pVM->pActiveMem->pHashTable,ring_list_getstring(pVar,RING_VAR_NAME));
+                    ring_list_deletelastitem_gc(pVM->pRingState,pVM->pActiveMem);
+                }
             }
             return 1 ;
         }
