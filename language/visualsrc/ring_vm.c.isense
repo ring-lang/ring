@@ -520,6 +520,15 @@ ring_vm_mainloop
 ring_vm_fetch
 ring_vm_fetch2
 ring_vm_execute
+ring_vm_len
+Type: int
+nSize
+Type: List *
+pVar, *pList
+Type: Item *
+pItem
+Type: String *
+pString
 ring_vm_error
 Type: List *
 pList
