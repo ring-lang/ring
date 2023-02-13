@@ -1,18 +1,2 @@
-T
-e
-s
-t
-one
-two
-three
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-We can't use For-In loop with numbers
+Memory: 1
+Memory: 1

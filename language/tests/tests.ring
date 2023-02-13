@@ -222,6 +222,7 @@ aTests = [
 	[ :name = "For-In Loop (Part 4)", :Command = "ring forinloop/test4.ring" ],
 	[ :name = "For-In Loop (Part 5)", :Command = "ring forinloop/test5.ring" ],
 	[ :name = "For-In Loop (Part 6)", :Command = "ring forinloop/test6.ring" ],
+	[ :name = "For-In Loop (Part 7)", :Command = "ring forinloop/test7.ring" ],
 	[ :name = "Standard Functions (Part 1)", :Command = "ring libs/substr1.ring" ],
 	[ :name = "Standard Functions (Part 2)", :Command = "ring libs/substr2.ring" ],
 	[ :name = "Standard Functions (Part 3)", :Command = "ring libs/substr3.ring" ],
@@ -499,6 +500,5 @@ aTests = [
 	[ :name = "Memory Usage (Part 12)", :Command = "ring memory/leak11.ring" ],
 	[ :name = "Memory Usage (Part 13)", :Command = "ring memory/leak12.ring" ],
 	[ :name = "Memory Usage (Part 14)", :Command = "ring memory/leak13.ring" ],
-	[ :name = "Memory Usage (Part 15)", :Command = "ring memory/leak14.ring" ],
-	[ :name = "For-In Loop (Part 7)", :Command = "ring forinloop/test7.ring" ]
+	[ :name = "Memory Usage (Part 15)", :Command = "ring memory/leak14.ring" ]
 ]
