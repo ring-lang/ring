@@ -172,10 +172,6 @@ void ring_vm_div ( VM *pVM )
     if ( RING_VM_STACK_ISNUMBER ) {
         nNum1 = RING_VM_STACK_READN ;
         RING_VM_STACK_POP ;
-        if ( nNum1 == 0 ) {
-            ring_vm_error(pVM,RING_VM_ERROR_DIVIDEBYZERO);
-            return ;
-        }
         if ( RING_VM_STACK_ISNUMBER ) {
             nNum2 = RING_VM_STACK_READN ;
         }
@@ -206,6 +202,11 @@ void ring_vm_div ( VM *pVM )
     }
     else if ( RING_VM_STACK_ISPOINTER ) {
         ring_vm_expr_ppoo(pVM,"/");
+        return ;
+    }
+    /* Check Divide by Zero */
+    if ( nNum1 == 0 ) {
+        ring_vm_error(pVM,RING_VM_ERROR_DIVIDEBYZERO);
         return ;
     }
     /* Check Overflow */
