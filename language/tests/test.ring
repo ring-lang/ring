@@ -1,6 +1,6 @@
 /*
-	Ring programming language
-	2018, Mahmoud Fayed
+	Ring programming language - Test.ring
+	2018-2023, Mahmoud Fayed
 */
 
 
@@ -79,13 +79,13 @@ func RunTest nIndex,aTest
 	cDir = CurrentDir()
 	chDir("scripts")
 		System(aTest[:Command]+" > "+cOutputFolder+
-				"/test"+nIndex+".txt")
+				"/"+GetOutputFile(nIndex))
 	chDir(cDir)
 
 func ShowTestResult  nIndex,aTest
 	if nTestMode = C_MODE_TESTING
-		cFileNameCorrect = C_CORRECT_FOLDER+"/test"+nIndex+".txt"
-		cFileNameCurrent = C_CURRENT_FOLDER +"/test"+nIndex+".txt"
+		cFileNameCorrect = C_CORRECT_FOLDER+"/"+GetOutputFile(nIndex)
+		cFileNameCurrent = C_CURRENT_FOLDER +"/"+GetOutputFile(nIndex)
 		if ! fexists(cFileNameCorrect)
 			? ""
 			? C_ERROR_FILEDOESNOTEXIST + " - File Name : " +
@@ -114,3 +114,16 @@ func DisplayFileName aTest
 	next
 	cCommand = JustFileName(cCommand)
 	see " (" + cCommand + ")"
+
+func GetOutputFile nIndex
+	cName = aTests[nIndex][:command]
+	cName = trim(cName)
+	cName = left(cName, substr(cName,".") - 1) # Remove .ring
+	if lower(left(cName,4)) = "ring"
+		cName = substr(cName,5)
+	ok
+	cName = trim(cName)
+	cName = substr(cName,"\","_")
+	cName = substr(cName,"/","_")
+	cName = cName + ".txt"
+	return cName
