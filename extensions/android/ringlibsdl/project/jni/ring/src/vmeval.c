@@ -126,8 +126,12 @@ void ring_vm_returneval ( VM *pVM )
     int aPara[3],nExtraSize  ;
     ByteCode *pByteCode  ;
     /* This function will always be called after each eval() execution */
-    ring_vm_mutexlock(pVM);
     ring_vm_return(pVM);
+    /* Check ReturnNULL for Load Commands */
+    if ( ring_list_getsize(pVM->aPCBlockFlag) > 0 ) {
+        return ;
+    }
+    ring_vm_mutexlock(pVM);
     aPara[0] = RING_VM_IR_READIVALUE(1) ;
     aPara[1] = RING_VM_IR_READIVALUE(2) ;
     aPara[2] = RING_VM_IR_READIVALUE(3) ;
