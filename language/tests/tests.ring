@@ -419,6 +419,7 @@ aTests = [
 	[ :name = "General Tests (Part 189)", :Command = "ring general/errorafterlistindex.ring" ],
 	[ :name = "Performance (Part 1)", :Command = "ring performance/listfunc1.ring" ],
 	[ :name = "Performance (Part 2)", :Command = "ring performance/listfunc2.ring" ],
+	[ :name = "Performance (Part 3)", :Command = "ring performance/forin.ring" ],
 	[ :name = "Power Operator (Part 1)", :Command = "ring poweroperator/powoperator.ring" ],
 	[ :name = "Power Operator (Part 2)", :Command = "ring poweroperator/powoperator2.ring" ],
 	[ :name = "Using References (Part 1)", :Command = "ring references/pointer.ring" ],
@@ -500,6 +501,5 @@ aTests = [
 	[ :name = "Memory Usage (Part 12)", :Command = "ring memory/leak11.ring" ],
 	[ :name = "Memory Usage (Part 13)", :Command = "ring memory/leak12.ring" ],
 	[ :name = "Memory Usage (Part 14)", :Command = "ring memory/leak13.ring" ],
-	[ :name = "Memory Usage (Part 15)", :Command = "ring memory/leak14.ring" ],
-	[ :name = "Performance (Part 3)", :Command = "ring performance/forin.ring" ]
+	[ :name = "Memory Usage (Part 15)", :Command = "ring memory/leak14.ring" ]
 ]

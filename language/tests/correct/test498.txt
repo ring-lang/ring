@@ -1,1 +1,2 @@
-Fast
+Memory: 1
+Memory: 1
