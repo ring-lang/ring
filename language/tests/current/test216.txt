@@ -1,6 +1,50 @@
-test1
-test2
-test3
-aftertest3
-aftertest2
-aftertest1
+start
+before
+Error (R24) : Using uninitialized variable : justaname
+done
+============================================================
+start
+before
+Error (R24) : Using uninitialized variable : justaname
+done
+============================================================
+start
+before
+Error (R24) : Using uninitialized variable : justaname
+done
+============================================================
+start
+before
+Error (R24) : Using uninitialized variable : justaname
+done
+============================================================
+start
+before
+Error (R24) : Using uninitialized variable : justaname
+done
+============================================================
+start
+before
+Error (R24) : Using uninitialized variable : justaname
+done
+============================================================
+start
+before
+Error (R24) : Using uninitialized variable : justaname
+done
+============================================================
+start
+before
+Error (R24) : Using uninitialized variable : justaname
+done
+============================================================
+start
+before
+Error (R24) : Using uninitialized variable : justaname
+done
+============================================================
+start
+before
+Error (R24) : Using uninitialized variable : justaname
+done
+============================================================

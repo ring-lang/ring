@@ -1,3 +1,2 @@
-before
-Hello from mysub.ring
-after
+Memory: 1
+Memory: 1
