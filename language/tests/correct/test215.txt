@@ -1,20 +1,50 @@
-two
-
-
-2
-m
-four
-4
-
-one
-two
-three
-
-ring
-one
-1
-two
-2
-three
-3
-
+start
+before
+Error (R24) : Using uninitialized variable : justaname
+done
+============================================================
+start
+before
+Error (R24) : Using uninitialized variable : justaname
+done
+============================================================
+start
+before
+Error (R24) : Using uninitialized variable : justaname
+done
+============================================================
+start
+before
+Error (R24) : Using uninitialized variable : justaname
+done
+============================================================
+start
+before
+Error (R24) : Using uninitialized variable : justaname
+done
+============================================================
+start
+before
+Error (R24) : Using uninitialized variable : justaname
+done
+============================================================
+start
+before
+Error (R24) : Using uninitialized variable : justaname
+done
+============================================================
+start
+before
+Error (R24) : Using uninitialized variable : justaname
+done
+============================================================
+start
+before
+Error (R24) : Using uninitialized variable : justaname
+done
+============================================================
+start
+before
+Error (R24) : Using uninitialized variable : justaname
+done
+============================================================

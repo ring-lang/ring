@@ -1,1 +1,5 @@
-20
+NUMBER
+STRING
+LIST
+OBJECT
+file

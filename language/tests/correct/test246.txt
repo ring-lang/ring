@@ -1,14 +1,2 @@
-print the list
-1
-2
-3
-x: 1
-y: 2
-z: 3
-x: 1
-y: 2
-z: 3
-print the item (object)
-x: 1
-y: 2
-z: 3
+Hello
+Goodbye!
