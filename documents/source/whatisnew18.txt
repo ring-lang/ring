@@ -442,3 +442,4 @@ More Improvements
 * Ring VM - ICO_FREETEMPLISTS instruction - Delete temp. lists in global scope (Thread Safe)
 * Ring VM - List Functions - Using (unsigned int) for the list index & size
 * Ring VM - Using Braces - Save/Restore the State - Better Code 
+* Ring VM - Divide Operator - Display error message - Better Code
