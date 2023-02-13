@@ -1,3 +1,0 @@
-keyValue length = 8
-key.value length = 8
-Test OK

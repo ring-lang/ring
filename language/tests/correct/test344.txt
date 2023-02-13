@@ -1,4 +1,0 @@
-Hello
-
-Line 4 Error (R24) : Using uninitialized variable : noobject 
-in file general/test115.ring 

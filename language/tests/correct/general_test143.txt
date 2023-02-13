@@ -1,0 +1,40 @@
+c = 1 to size step 1
+1
+s = 1 to ssize step 2
+1
+h in hybrid step 3
+t
+s = 1 to ssize step 2
+3
+h in hybrid step 3
+t
+c = 1 to size step 1
+2
+s = 1 to ssize step 2
+1
+h in hybrid step 3
+t
+s = 1 to ssize step 2
+3
+h in hybrid step 3
+t
+c = 1 to size step 1
+3
+s = 1 to ssize step 2
+1
+h in hybrid step 3
+t
+s = 1 to ssize step 2
+3
+h in hybrid step 3
+t
+c = 1 to size step 1
+4
+s = 1 to ssize step 2
+1
+h in hybrid step 3
+t
+s = 1 to ssize step 2
+3
+h in hybrid step 3
+t

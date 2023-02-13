@@ -1,0 +1,18 @@
+============================================================
+Test: "1" = [ "text 1", 100 ]
+Test: "1" + [ "text 1", 100 ]
+Error (R21) : Using operator with values of incorrect type
+Test: "1" - [ "text 1", 100 ]
+Error (R21) : Using operator with values of incorrect type
+Test: "1" * [ "text 1", 100 ]
+Error (R21) : Using operator with values of incorrect type
+Test: "1" / [ "text 1", 100 ]
+Error (R21) : Using operator with values of incorrect type
+============================================================
+Print the List
+============================================================
+5
+6
+7
+
+============================================================

@@ -1,0 +1,84 @@
+
+=====================================================
+We will test using Operator Overloading
+(1) In standalone statements
+(2) In statements that exist inside Lists
+During these tests we will pass different types
+to the Object as parameters (Including Lists)
+=====================================================
+
+
+==============================
+Using Standalone Statements
+==============================
+
+Operator Overloading
+operator  : +
+Parameter : 1
+1
+Operator Overloading
+operator  : +
+Parameter : string
+string
+Operator Overloading
+operator  : +
+Parameter : 1
+2
+3
+
+1
+2
+3
+
+Operator Overloading
+operator  : =
+Parameter : 1
+2
+3
+
+1
+2
+3
+
+
+==============================
+Using Statements inside Lists
+==============================
+
+Operator Overloading
+operator  : +
+Parameter : 1
+Operator Overloading
+operator  : +
+Parameter : mystring
+Operator Overloading
+operator  : +
+Parameter : 1
+2
+3
+
+Operator Overloading
+operator  : =
+Parameter : 1
+2
+3
+
+
+==============================
+Print the List
+==============================
+
+1
+mystring
+1
+2
+3
+1
+2
+3
+
+
+==============================
+End of the Test Program
+==============================
+
