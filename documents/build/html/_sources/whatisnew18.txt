@@ -443,3 +443,4 @@ More Improvements
 * Ring VM - List Functions - Using (unsigned int) for the list index & size
 * Ring VM - Using Braces - Save/Restore the State - Better Code 
 * Ring VM - Divide Operator - Display error message - Better Code
+* Ring Compiler/VM Tests - Better names for output files
