@@ -1,6 +1,2 @@
-test1
-test2
-test3
-aftertest3
-aftertest2
-aftertest1
+Memory: 1
+Memory: 1

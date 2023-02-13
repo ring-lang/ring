@@ -1,12 +1,5 @@
-10
-9
-8
-7
-6
-5
-4
-3
-2
-1
+e
 0
-Fast
+
+Line 7 Error (R7) : Can't assign to a string letter more than one character 
+in file general/errorafterlistindex.ring 
