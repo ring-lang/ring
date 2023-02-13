@@ -1,7 +1,6 @@
-one
-two
-three
-four
+3
 2
 1
+tmp
+
 done
