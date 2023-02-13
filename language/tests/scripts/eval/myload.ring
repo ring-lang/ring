@@ -1,3 +1,3 @@
 ? :before
-eval('load "mysub.ring"')
+eval('load "eval/mysub.ring"')
 ? :after
