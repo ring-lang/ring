@@ -31,12 +31,17 @@ void ring_vm_pushv ( VM *pVM )
 int ring_vm_checknull ( VM *pVM,int lShowError )
 {
     List *pVar  ;
+    String *pString  ;
     pVar = (List *) RING_VM_STACK_READP ;
     /* Check NULL Value */
     if ( (pVM->nInClassRegion == 0) && (ring_list_getint(pVar,RING_VAR_TYPE) == RING_VM_NULL) && ( ring_list_isstring(pVar,RING_VAR_VALUE) ) ) {
         if ( strcmp(ring_list_getstring(pVar,RING_VAR_VALUE),"NULL") == 0 ) {
             if ( lShowError ) {
-                ring_vm_error2(pVM,RING_VM_ERROR_USINGNULLVARIABLE,ring_list_getstring(pVar,RING_VAR_NAME));
+                /*
+                **  We create pString because ring_vm_error2() could interact with Try/Catch and change the State 
+                **  So we check pVM->pActiveMem before calling ring_vm_error2() function 
+                */
+                pString = ring_string_new2_gc(pVM->pRingState,ring_list_getstring(pVar,RING_VAR_NAME),ring_list_getstringsize(pVar,RING_VAR_NAME));
                 if ( ring_list_getlist(pVM->pActiveMem,ring_list_getsize(pVM->pActiveMem)) == pVar ) {
                     /* Delete the Item from the HashTable */
                     ring_hashtable_deleteitem_gc(pVM->pRingState,pVM->pActiveMem->pHashTable,ring_list_getstring(pVar,RING_VAR_NAME));
@@ -47,6 +52,8 @@ int ring_vm_checknull ( VM *pVM,int lShowError )
                     /* We replace it with NULL */
                     RING_VM_STACK_PUSHCVALUE("");
                 }
+                ring_vm_error2(pVM,RING_VM_ERROR_USINGNULLVARIABLE,ring_string_get(pString));
+                ring_string_delete_gc(pVM->pRingState,pString);
             }
             return 1 ;
         }
