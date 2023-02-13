@@ -1,13 +1,13 @@
-LIST
+Print the sublist from function
+1
 2
-Delete one reference
-Check new value
-NUMBER
+
+Print the Parent list
 1
-Delete again!
-NUMBER
-Check the main value
-LIST
-1
-1000
-500
+2
+
+Update the sublist from function
+Print the Parent list
+3
+4
+

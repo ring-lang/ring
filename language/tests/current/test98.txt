@@ -1,3 +1,20 @@
-x: 15
-x: 20
-x: 20
+Error (R1) : Can't divide by zero !
+Error (R1) : Can't divide by zero !
+Error (R1) : Can't divide by zero !
+Error (R1) : Can't divide by zero !
+Error (R1) : Can't divide by zero !
+Error (R1) : Can't divide by zero !
+Error (R1) : Can't divide by zero !
+Error (R1) : Can't divide by zero !
+Error (R1) : Can't divide by zero !
+Error (R1) : Can't divide by zero !
+what
+what
+what
+what
+what
+what
+what
+what
+what
+what

@@ -1,7 +1,5 @@
-My Application
-1.0
-Name    = My Application
-Version = 1.0
-name: My Application
-version: 1.0
-
+x: NULL
+y: NULL
+x: NULL
+y: NULL
+z: NULL
