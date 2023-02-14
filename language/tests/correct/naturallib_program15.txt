@@ -1,0 +1,6 @@
+Command: I want window
+Command: Window title is Hello World
+Command: I want button
+Command: I want window
+Command: I want button
+Command: Window title is nice
