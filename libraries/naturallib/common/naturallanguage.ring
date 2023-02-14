@@ -36,7 +36,11 @@ class NaturalLanguage
 		cCode = '
 		loadsyntax "#{libpath}/syntax/naturalsyntaxon.ring"
 		Talk #{langname} {
+			CHANGERINGOPERATOR { _{
+			CHANGERINGOPERATOR } _}
 			#{naturalcode}
+			CHANGERINGOPERATOR _{ {
+			CHANGERINGOPERATOR _} }
 		}
 		loadsyntax "#{libpath}/syntax/naturalsyntaxoff.ring"
 		'
