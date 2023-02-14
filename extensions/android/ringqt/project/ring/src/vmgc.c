@@ -216,7 +216,7 @@ void ring_vm_gc_setfreefunc ( Item *pItem, void (* pFreeFunc)(void *,void *) )
 
 void ring_vm_gc_deletelistinitem ( void *pState,void *pList )
 {
-    ring_list_delete_gc(pState,pList);
+    ring_list_delete_gc(pState,(List *) pList);
 }
 
 void ring_vm_gc_listpointerismine ( List *pList,int nIndex )

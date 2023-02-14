@@ -517,7 +517,7 @@ void ring_vm_restorestateforbraces ( VM *pVM,List *pList )
     pVM->nSP = ring_list_getint(pList,RING_ABRACEOBJECTS_NSP) ;
     /* Restore GetSet Object */
     ring_list_deleteallitems_gc(pVM->pRingState,pVM->aSetProperty);
-    ring_list_copy_gc(pVM->pRingState,pVM->aSetProperty,ring_list_getpointer(pList,RING_ABRACEOBJECTS_ASETPROPERTY ));
+    ring_list_copy_gc(pVM->pRingState,pVM->aSetProperty,(List *) ring_list_getpointer(pList,RING_ABRACEOBJECTS_ASETPROPERTY ));
     ring_list_deleteitem_gc(pVM->pRingState,pVM->aBraceObjects,ring_list_getsize(pVM->aBraceObjects));
     ring_list_deleteitem_gc(pVM->pRingState,pVM->pObjState,ring_list_getsize(pVM->pObjState));
     pVM->nInsideBraceFlag = ( ring_list_getsize(pVM->aBraceObjects) > 0 ) ;
