@@ -466,6 +466,8 @@ void ring_vm_oop_bracestart ( VM *pVM )
     List *pList  ;
     /* Check Error */
     if ( (pVM->pBraceObject == NULL) || (! RING_VM_STACK_ISPOINTER) ) {
+        /* Disable handling this error using BraceError() Method */
+        pVM->lCheckBraceError = 0 ;
         ring_vm_error(pVM,RING_VM_ERROR_BRACEWITHOUTOBJECT);
         return ;
     }

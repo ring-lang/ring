@@ -14,7 +14,7 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
     }
     pVM->nActiveError = 1 ;
     /* Check BraceError() */
-    if ( ring_list_getsize(pVM->pObjState) > 0 ) {
+    if ( pVM->lCheckBraceError  && (ring_list_getsize(pVM->pObjState) > 0) ) {
         fflush(stdout);
         if ( (ring_vm_oop_callmethodinsideclass(pVM) == 0 ) && (pVM->nCallMethod == 0) ) {
             if ( ring_vm_findvar(pVM,"self") ) {
@@ -31,6 +31,7 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
             }
         }
     }
+    pVM->lCheckBraceError = 1 ;
     if ( ring_list_getsize(pVM->pTry) == 0 ) {
         if ( pVM->lHideErrorMsg == 0 ) {
             ring_vm_showerrormessage(pVM,cStr);

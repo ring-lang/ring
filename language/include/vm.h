@@ -132,6 +132,7 @@
         unsigned char lAddSubListsByMove  ;
         unsigned char lAddSubListsByFastCopy  ;
         unsigned char lExitFlag  ;
+        unsigned char lCheckBraceError  ;
     } VM ;
     typedef struct VMState {
         int aNumbers[RING_VM_STATE_NUMBERS_COUNT]  ;

@@ -230,6 +230,8 @@ Type: unsigned char
 lAddSubListsByFastCopy
 Type: unsigned char
 lExitFlag
+Type: unsigned char
+lCheckBraceError
 END:
 Type: VM
 struct VM
