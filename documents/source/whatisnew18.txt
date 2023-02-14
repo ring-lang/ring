@@ -388,6 +388,7 @@ More Improvements
 * Ring Notepad: Output Window - Correct cursor position while using unicode 
 * Ring Notepad: Set the default font when opening the Font dialog
 * Ring Notepad: Preserve editing history after text insertion
+* NaturalLib - RunString() Method - Ignore braces inside commands
 * FindInFiles Application: Better Code (Check Read() function output)
 * GetQuotesHistory Application: Better Style
 * Chess/Checkers Games: Looks more nice on small screen resolutions
