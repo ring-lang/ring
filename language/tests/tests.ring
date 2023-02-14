@@ -16,6 +16,7 @@ aTests = [
 	[ :name = "Testing Procedural Programming (Part 6)"	, :Command = "ring procedural/p6.ring" ],
 	[ :name = "Testing Procedural Programming (Part 7)"	, :Command = "ring procedural/p7.ring" ],
 	[ :name = "Testing Procedural Programming (Part 8)"	, :Command = "ring procedural/p8.ring < procedural/testp8.txt" ],
+	[ :name = "Testing Procedural Programming (Part 9)"	, :Command = "ring procedural/samefunc.ring" ],
 	[ :name = "Testing Object Oriented Programming (Part 1)", :Command = "ring objectoriented/oop.ring" ],
 	[ :name = "Testing Object Oriented Programming (Part 2)", :Command = "ring objectoriented/oop2.ring" ],
 	[ :name = "Testing Object Oriented Programming (Part 3)", :Command = "ring objectoriented/oop3.ring" ],
