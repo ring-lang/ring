@@ -379,7 +379,7 @@ RING_API List * ring_list_deleteref_gc ( void *pState,List *pList )
 
 RING_API List * ring_list_getrefcontainer ( List *pList )
 {
-    return pList->gc.pContainer ;
+    return (List *) pList->gc.pContainer ;
 }
 
 RING_API List * ring_list_collectcycles_gc ( void *pState,List *pList )
