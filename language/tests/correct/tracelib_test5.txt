@@ -1,0 +1,221 @@
+Before Line : 4
+
+
+============================================================
+                    Interactive Debugger
+============================================================
+Command (Exit)        : End Program
+Command (Cont)        : Continue Execution
+Command (Locals)      : Print local variables names
+Command (LocalsData)  : Print local variables data
+Command (Globals)     : Print global variables names
+Command (CallStack)   : Print call stack
+We can execute Ring code
+============================================================
+
+code:> true
+false
+nl
+null
+ring_gettemp_var
+ccatcherror
+ring_settemp_var
+ring_tempflag_var
+stdin
+stdout
+stderr
+this
+tab
+cr
+sysargv
+traceevent_newline
+traceevent_newfunc
+traceevent_return
+traceevent_error
+traceevent_beforecfunc
+traceevent_aftercfunc
+tracedata_linenumber
+tracedata_filename
+tracedata_funcname
+tracedata_methodorfunc
+tracedata_methodorfunc_method
+tracedata_methodorfunc_notmethod
+trace_breakpoints
+trace_templist
+
+code:> Call Stack
+==========
+Called From: ringvm_calllist
+Called From: _breakpoint
+Called From: tracelib_linebyline
+
+code:> Before Line : 7
+
+
+============================================================
+                    Interactive Debugger
+============================================================
+Command (Exit)        : End Program
+Command (Cont)        : Continue Execution
+Command (Locals)      : Print local variables names
+Command (LocalsData)  : Print local variables data
+Command (Globals)     : Print global variables names
+Command (CallStack)   : Print call stack
+We can execute Ring code
+============================================================
+
+code:> 
+code:> Before Line : 8
+
+
+============================================================
+                    Interactive Debugger
+============================================================
+Command (Exit)        : End Program
+Command (Cont)        : Continue Execution
+Command (Locals)      : Print local variables names
+Command (LocalsData)  : Print local variables data
+Command (Globals)     : Print global variables names
+Command (CallStack)   : Print call stack
+We can execute Ring code
+============================================================
+
+code:> x
+
+code:> 
+Variable : x      Type : NUMBER          Value : 10
+
+code:> test1
+Before Line : 9
+
+
+============================================================
+                    Interactive Debugger
+============================================================
+Command (Exit)        : End Program
+Command (Cont)        : Continue Execution
+Command (Locals)      : Print local variables names
+Command (LocalsData)  : Print local variables data
+Command (Globals)     : Print global variables names
+Command (CallStack)   : Print call stack
+We can execute Ring code
+============================================================
+
+code:> x
+
+code:> Before Line : 10
+
+
+============================================================
+                    Interactive Debugger
+============================================================
+Command (Exit)        : End Program
+Command (Cont)        : Continue Execution
+Command (Locals)      : Print local variables names
+Command (LocalsData)  : Print local variables data
+Command (Globals)     : Print global variables names
+Command (CallStack)   : Print call stack
+We can execute Ring code
+============================================================
+
+code:> x
+t
+
+code:> 
+Variable : x      Type : NUMBER          Value : 10
+Variable : t      Type : NUMBER          Value : 12
+
+code:> Call Stack
+==========
+Called From: ringvm_calllist
+Called From: _breakpoint
+Called From: tracelib_linebyline
+Called From: test1
+
+code:> 
+Line 10 Error (R3) : Calling Function without definition !: test2 
+In function test1() in file tracelib/test5.ring
+called from line 4  in file tracelib/test5.ring Before Line : 11
+
+
+============================================================
+                    Interactive Debugger
+============================================================
+Command (Exit)        : End Program
+Command (Cont)        : Continue Execution
+Command (Locals)      : Print local variables names
+Command (LocalsData)  : Print local variables data
+Command (Globals)     : Print global variables names
+Command (CallStack)   : Print call stack
+We can execute Ring code
+============================================================
+
+code:> After Error!
+Before Line : 12
+
+
+============================================================
+                    Interactive Debugger
+============================================================
+Command (Exit)        : End Program
+Command (Cont)        : Continue Execution
+Command (Locals)      : Print local variables names
+Command (LocalsData)  : Print local variables data
+Command (Globals)     : Print global variables names
+Command (CallStack)   : Print call stack
+We can execute Ring code
+============================================================
+
+code:> t = 12
+Before Line : 6
+
+
+============================================================
+                    Interactive Debugger
+============================================================
+Command (Exit)        : End Program
+Command (Cont)        : Continue Execution
+Command (Locals)      : Print local variables names
+Command (LocalsData)  : Print local variables data
+Command (Globals)     : Print global variables names
+Command (CallStack)   : Print call stack
+We can execute Ring code
+============================================================
+
+code:> true
+false
+nl
+null
+ring_gettemp_var
+ccatcherror
+ring_settemp_var
+ring_tempflag_var
+stdin
+stdout
+stderr
+this
+tab
+cr
+sysargv
+traceevent_newline
+traceevent_newfunc
+traceevent_return
+traceevent_error
+traceevent_beforecfunc
+traceevent_aftercfunc
+tracedata_linenumber
+tracedata_filename
+tracedata_funcname
+tracedata_methodorfunc
+tracedata_methodorfunc_method
+tracedata_methodorfunc_notmethod
+trace_breakpoints
+trace_templist
+
+code:> Call Stack
+==========
+Called From: ringvm_calllist
+Called From: _breakpoint
+Called From: tracelib_linebyline
+
+code:> 

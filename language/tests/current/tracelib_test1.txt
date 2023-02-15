@@ -1,0 +1,253 @@
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : Return
+Line Number : 4
+File Name   : tracelib/test1.ring
+Function Name : 
+Method or Function : Command
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : New Line
+Line Number : 6
+File Name   : tracelib/test1.ring
+Function Name : 
+Method or Function : Command
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : Before C Function
+Line Number : 6
+File Name   : tracelib/test1.ring
+Function Name : ringvm_see
+Method or Function : Function
+==========================================
+Hello, world!
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : After C Function
+Line Number : 6
+File Name   : tracelib/test1.ring
+Function Name : ringvm_see
+Method or Function : Function
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : New Line
+Line Number : 7
+File Name   : tracelib/test1.ring
+Function Name : 
+Method or Function : Command
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : Before C Function
+Line Number : 7
+File Name   : tracelib/test1.ring
+Function Name : ringvm_see
+Method or Function : Function
+==========================================
+Welcome
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : After C Function
+Line Number : 7
+File Name   : tracelib/test1.ring
+Function Name : ringvm_see
+Method or Function : Function
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : New Line
+Line Number : 8
+File Name   : tracelib/test1.ring
+Function Name : 
+Method or Function : Command
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : Before C Function
+Line Number : 8
+File Name   : tracelib/test1.ring
+Function Name : ringvm_see
+Method or Function : Function
+==========================================
+How are you?
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : After C Function
+Line Number : 8
+File Name   : tracelib/test1.ring
+Function Name : ringvm_see
+Method or Function : Function
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : New Line
+Line Number : 10
+File Name   : tracelib/test1.ring
+Function Name : 
+Method or Function : Command
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : New Function
+Line Number : 10
+File Name   : tracelib/test1.ring
+Function Name : mytest
+Method or Function : Function
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : New Line
+Line Number : 15
+File Name   : tracelib/test1.ring
+Function Name : mytest
+Method or Function : Function
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : Before C Function
+Line Number : 15
+File Name   : tracelib/test1.ring
+Function Name : ringvm_see
+Method or Function : Function
+==========================================
+Message from mytest
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : After C Function
+Line Number : 15
+File Name   : tracelib/test1.ring
+Function Name : ringvm_see
+Method or Function : Function
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : New Line
+Line Number : 17
+File Name   : tracelib/test1.ring
+Function Name : mytest
+Method or Function : Function
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : Return
+Line Number : 10
+File Name   : tracelib/test1.ring
+Function Name : 
+Method or Function : Command
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : New Line
+Line Number : 12
+File Name   : tracelib/test1.ring
+Function Name : 
+Method or Function : Command
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : New Line
+Line Number : 18
+File Name   : tracelib/test1.ring
+Function Name : 
+Method or Function : Command
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : Before C Function
+Line Number : 12
+File Name   : tracelib/test1.ring
+Function Name : ismethod
+Method or Function : Function
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : After C Function
+Line Number : 12
+File Name   : tracelib/test1.ring
+Function Name : ismethod
+Method or Function : Function
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : New Function
+Line Number : 12
+File Name   : tracelib/test1.ring
+Function Name : mymethod
+Method or Function : Method
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : New Line
+Line Number : 19
+File Name   : tracelib/test1.ring
+Function Name : mymethod
+Method or Function : Method
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : Before C Function
+Line Number : 19
+File Name   : tracelib/test1.ring
+Function Name : ringvm_see
+Method or Function : Function
+==========================================
+Message from mymethod
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : After C Function
+Line Number : 19
+File Name   : tracelib/test1.ring
+Function Name : ringvm_see
+Method or Function : Function
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : Return
+Line Number : 12
+File Name   : tracelib/test1.ring
+Function Name : 
+Method or Function : Command
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : Before C Function
+Line Number : 12
+File Name   : tracelib/test1.ring
+Function Name : ismethod
+Method or Function : Function
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : After C Function
+Line Number : 12
+File Name   : tracelib/test1.ring
+Function Name : ismethod
+Method or Function : Function
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : Before C Function
+Line Number : 12
+File Name   : tracelib/test1.ring
+Function Name : ismethod
+Method or Function : Function
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : After C Function
+Line Number : 12
+File Name   : tracelib/test1.ring
+Function Name : ismethod
+Method or Function : Function
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : TraceLib_AllEvents()
+Trace Event : New Line
+Line Number : 14
+File Name   : tracelib/test1.ring
+Function Name : 
+Method or Function : Command
+==========================================
