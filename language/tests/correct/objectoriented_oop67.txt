@@ -1,0 +1,6 @@
+before
+Handle Error (Using BraceError): Error (R24) : Using uninitialized variable : count
+Handle Error (Using  Try/Catch): Error (R16) : Using braces to access unknown object ! 
+good
+nice
+done
