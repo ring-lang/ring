@@ -321,7 +321,7 @@ void ring_vm_call2 ( VM *pVM )
         **  Move returned List to the previous scope 
         */
         if ( RING_VM_STACK_ISPOINTER ) {
-            ring_vm_movetoprevscope(pVM);
+            ring_vm_movetoprevscope(pVM,RING_FUNCTYPE_C);
         }
         /* Return (Delete Scope, Restore ActiveMem) */
         ring_list_deleteitem_gc(pVM->pRingState,pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
@@ -395,7 +395,7 @@ void ring_vm_return ( VM *pVM )
             **  So when we return an object we can access it directly using { } 
             */
             if ( ring_vm_isstackpointertoobjstate(pVM) == 0 ) {
-                ring_vm_movetoprevscope(pVM);
+                ring_vm_movetoprevscope(pVM,RING_FUNCTYPE_SCRIPT);
             }
         }
         ring_vm_deletescope(pVM);
@@ -537,10 +537,10 @@ void ring_vm_removeblockflag ( VM *pVM )
     ring_list_deleteitem_gc(pVM->pRingState,pVM->aPCBlockFlag,ring_list_getsize(pVM->aPCBlockFlag));
 }
 
-void ring_vm_movetoprevscope ( VM *pVM )
+void ring_vm_movetoprevscope ( VM *pVM,int nFuncType )
 {
     Item *pItem  ;
-    List *pList,*pList2,*pList3  ;
+    List *pList,*pList2,*pList3,*pRef  ;
     /*
     **  When the function return a value of type List or nested List 
     **  We copy the list to the previous scope, change the pointer 
@@ -557,7 +557,10 @@ void ring_vm_movetoprevscope ( VM *pVM )
             **  So we don't need to move it to the previous scope 
             **  Also, This is important to keep the Reference Count correct 
             */
-            return ;
+            pRef = ring_list_getlist(pList,RING_VAR_VALUE);
+            if ( ! ( (nFuncType == RING_FUNCTYPE_SCRIPT) && ring_list_isnewref(pRef) && (ring_list_getrefcount(pRef) > 1) ) ) {
+                return ;
+            }
         }
         if ( ring_list_islist(pList,RING_VAR_VALUE) ) {
             pList = ring_list_getlist(pList,RING_VAR_VALUE);
