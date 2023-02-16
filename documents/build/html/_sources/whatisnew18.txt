@@ -455,6 +455,7 @@ More Improvements
 * RingQt: QMediaPlayer Class - Remove currentNetworkConfiguration() Method
 * Ring2EXE: Better code when distributing GUI applications
 * Ring Functions - Added: ringvm_ismempool()
+* Ring Functions - Added: ringvm_runcode()
 * Ring Functions - SetEnv()/UnSetEnv() - Better Code
 * Ring Functions - Print()/Puts() - Better Code
 * Ring Functions - Eval() - Better Code
