@@ -58,6 +58,7 @@ void ring_vm_refmeta_loadfunctions ( RingState *pRingState )
     RING_API_REGISTER("ringvm_genarray",ring_vm_refmeta_ringvmgenarray);
     RING_API_REGISTER("ringvm_codelist",ring_vm_refmeta_ringvmcodelist);
     RING_API_REGISTER("ringvm_ismempool",ring_vm_refmeta_ringvmismempool);
+    RING_API_REGISTER("ringvm_runcode",ring_vm_refmeta_ringvmruncode);
 }
 /* Functions */
 
@@ -1195,5 +1196,21 @@ void ring_vm_refmeta_ringvmismempool ( void *pPointer )
     }
     else {
         RING_API_RETNUMBER(0);
+    }
+}
+
+void ring_vm_refmeta_ringvmruncode ( void *pPointer )
+{
+    VM *pVM  ;
+    pVM = (VM *) pPointer ;
+    if ( RING_API_PARACOUNT != 1 ) {
+        RING_API_ERROR(RING_API_BADPARACOUNT);
+        return ;
+    }
+    if ( RING_API_ISSTRING(1) ) {
+        ring_vm_runcode(pVM,RING_API_GETSTRING(1));
+    }
+    else {
+        RING_API_ERROR(RING_API_BADPARATYPE);
     }
 }

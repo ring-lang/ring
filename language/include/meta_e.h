@@ -103,4 +103,6 @@
     void ring_vm_refmeta_ringvmcodelist ( void *pPointer ) ;
 
     void ring_vm_refmeta_ringvmismempool ( void *pPointer ) ;
+
+    void ring_vm_refmeta_ringvmruncode ( void *pPointer ) ;
 #endif
