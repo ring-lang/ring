@@ -24,6 +24,7 @@ Ring 1.18 comes with the next features!
 * Using References 
 * Ring for MS-DOS
 * Faster (For-In) Loop
+* Faster BraceError()
 * Better RingSockets
 * Heroku (Better support)
 * Better WebLib
@@ -244,6 +245,56 @@ Time using Ring 1.18: 0.28 second
 
 Time using Ring 1.17: 0.28 second
 
+
+.. index:: 
+	pair: What is new in Ring  1.18; Faster BraceError()
+
+Faster BraceError()
+===================
+
+Using BraceError() we can handle errors that happens inside braces
+
+In Ring 1.18 - Calling BraceError() is faster and we can 
+return values from this method
+
+Example:
+
+.. code-block:: ring
+
+	new points {
+		first  { x=10   y=20   z=30   }
+		second { x=100  y=200  z=300  }
+		third  { x=1000 y=2000 z=3000 }
+		print()
+	}
+
+	class points
+	
+		aPoints = []
+	
+		func braceerror
+			aPoints + new point
+			return aPoints[len(aPoints)]
+	
+		func print
+			? aPoints
+	
+	class point x y z
+
+Output:
+
+.. code-block:: none
+
+	x: 10
+	y: 20
+	z: 30
+	x: 100
+	y: 200
+	z: 300
+	x: 1000
+	y: 2000
+	z: 3000
+
 .. index:: 
 	pair: What is new in Ring  1.18; Better RingSockets
 
@@ -411,6 +462,7 @@ More Improvements
 * Ring Compiler/VM Source Code - Define RING_MSDOS
 * Ring Compiler/VM Source Code - Many structures updated to use unsigned int/char
 * Ring Compiler/VM Source Code - Added: vmerror.c, vmeval.c & vmthreads.c
+* Ring Compiler/VM Tests - Better names for output files
 * Support building Ring on windows using Tiny C Compiler
 * Ring Object File - Better support for classes that exist inside packages
 * Ring Compiler - Support larger number of function/method parameters
@@ -444,4 +496,3 @@ More Improvements
 * Ring VM - List Functions - Using (unsigned int) for the list index & size
 * Ring VM - Using Braces - Save/Restore the State - Better Code 
 * Ring VM - Divide Operator - Display error message - Better Code
-* Ring Compiler/VM Tests - Better names for output files
