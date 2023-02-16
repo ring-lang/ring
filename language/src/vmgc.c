@@ -585,6 +585,11 @@ RING_API void ring_list_resetlnewref ( List *pVar )
         pList->gc.lNewRef = 0 ;
     }
 }
+
+RING_API int ring_list_isnewref ( List *pList )
+{
+    return pList->gc.lNewRef ;
+}
 /* Memory Functions (General) */
 
 RING_API void * ring_malloc ( size_t size )

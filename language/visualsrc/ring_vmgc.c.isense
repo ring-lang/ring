@@ -187,6 +187,7 @@ ring_list_disabledontref
 ring_list_resetlnewref
 Type: List *
 pList
+ring_list_isnewref
 ring_malloc
 Type: void *
 pMemory
