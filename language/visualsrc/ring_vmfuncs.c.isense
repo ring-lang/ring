@@ -40,7 +40,7 @@ ring_vm_movetoprevscope
 Type: Item *
 pItem
 Type: List *
-pList,*pList2,*pList3
+pList,*pList2,*pList3,*pRef
 ring_vm_createtemplist
 Type: List *
 pList, *pList2
