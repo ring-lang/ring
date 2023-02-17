@@ -14,7 +14,6 @@
 
 x = test()
 ? "--------------"
-? objectid(x)
 ? refcount(x)
 ? type(x)
 ? len(x)
