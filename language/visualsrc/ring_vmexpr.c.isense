@@ -144,6 +144,8 @@ Type: List *
 pList3, *pList4
 Type: List
 TempList
+Type: Item *
+pItem
 ring_vm_checkoverflow
 Type: char
 cStr1[100]

@@ -1287,6 +1287,7 @@ void ring_vm_addlisttolist ( VM *pVM,List *pList,List *pList2 )
 {
     List *pList3, *pList4  ;
     List TempList  ;
+    Item *pItem  ;
     /* Check Optimization Flags */
     if ( pVM->lAddSubListsByMove ) {
         pList3 = ring_list_newlist_gc(pVM->pRingState,pList2);
@@ -1302,7 +1303,14 @@ void ring_vm_addlisttolist ( VM *pVM,List *pList,List *pList2 )
     **  Here we are going to copy the list pList to the list pList2 
     **  We will copy to a temp list first (pList4) 
     **  So we can add the Self object for example to an attribute in this object 
+    **  Check if we have a Reference 
     */
+    if ( ring_list_isref(pList) ) {
+        ring_list_insertlist(pList2,ring_list_getsize(pList2));
+        pItem = ring_list_getitem(pList2,ring_list_getsize(pList2)) ;
+        ring_list_assignreftoitem_gc(pVM->pRingState,pList,pItem);
+        return ;
+    }
     pList4 = ring_list_new_gc(pVM->pRingState,0);
     ring_vm_list_copy(pVM,pList4,pList);
     pList3 = ring_list_newlist_gc(pVM->pRingState,pList2);
