@@ -530,6 +530,7 @@ aTests = [
 	[ :name = "Using References (Part 69)", :Command = "ring references/retnewref4.ring" ],
 	[ :name = "Using References (Part 70)", :Command = "ring references/weakandstrong.ring" ],
 	[ :name = "Using References (Part 71)", :Command = "ring references/weakandstrong2.ring" ],
+	[ :name = "Using References (Part 72)", :Command = "ring references/refrec.ring" ],
 	[ :name = "Memory Usage (Part 1)", :Command = "ring memory/ismempool.ring" ],
 	[ :name = "Memory Usage (Part 2)", :Command = "ring memory/leak1.ring" ],
 	[ :name = "Memory Usage (Part 3)", :Command = "ring memory/leak2.ring" ],
