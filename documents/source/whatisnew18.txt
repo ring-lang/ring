@@ -90,6 +90,7 @@ More Samples
 * Added: samples/General/SmallExamples/Random/random100.ring
 * Added: samples/General/SmallExamples/Conjecture/knuthconjecture.ring
 * Added: samples/General/SmallExamples/SendMoreMoney/SendMoreMoneyMonteCarlo.ring 
+* Added: samples/UsingFreeGLUT/test17.ring & test18.ring
 * File: samples/AQuickStart/GUILib/gui44.ring - Better Code
 * File: samples/UsingWebLib/Demo/datalib.ring - Better Code
 * File: samples/UsingWebLib/Demo/bootstrap.ring - Better Code
