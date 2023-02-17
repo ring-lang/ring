@@ -905,5 +905,9 @@ aTeam2 = [
 		  [
 		    'Manoj Negi',
                     'Tester'                    
-		  ]		     
+		  ],
+		  [
+		    'Fuad Omari',
+		    'Tester'                    	
+		  ] 
 ]
