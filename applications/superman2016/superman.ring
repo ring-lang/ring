@@ -187,7 +187,7 @@ func playstart oGame
 									y-=5
 									width +=10
 									height +=10
-									if x = -300
+									if x = -100
 										ogame.shutdown = true
 									ok
 								}
