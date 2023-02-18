@@ -2,8 +2,8 @@
 #ifndef ring_vmgcdata
     #define ring_vmgcdata
     typedef struct ItemGCData {
-        void (*pFreeFunc)(void *,void *) ;
         unsigned int nReferenceCount  ;
+        void (*pFreeFunc)(void *,void *) ;
     } ItemGCData ;
     typedef struct ListGCData {
         void *pContainer  ;
