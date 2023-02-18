@@ -556,6 +556,8 @@ RING_API int ring_list_isrefparameter ( VM *pVM,const char *cVariable )
                 ring_list_setint_gc(pVM->pRingState,pVar,RING_VAR_TYPE,RING_VM_LIST);
                 ring_list_setlist_gc(pVM->pRingState,pVar, RING_VAR_VALUE);
                 ring_list_assignreftovar_gc(pVM->pRingState,pRef,pVar,RING_VAR_VALUE);
+                /* If the same reference is passed as parameter multiple times then keep treating it as new reference */
+                pRef->gc.lNewRef = 1 ;
             }
         }
     }
