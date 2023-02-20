@@ -58,8 +58,9 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 
 void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 {
-    List *pThis  ;
-    VMState *pVMState  ;
+    List *pThis,*pFuncList, *pDeletedPCBlockFlag,*pPCBlockFlag, *pNestedLists  ;
+    VMState *pVMState, *pVMStateForFunc  ;
+    int x  ;
     pList = ring_list_getlist(pList,nPos);
     /* Using VMState */
     pVMState = (VMState *) ring_list_getpointer(pList,1);
@@ -80,8 +81,6 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
         }
     }
     pVM->pActiveMem = (List *) pVMState->aPointers[2] ;
-    /* We also return to the function call list */
-    ring_vm_backstate(pVM,pVMState->aNumbers[1],pVM->pFuncCallList);
     /* Stack & Executing Functions */
     pVM->nFuncExecute = pVMState->aNumbers[2] ;
     pVM->nSP = pVMState->aNumbers[3] ;
@@ -93,7 +92,9 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
     /* FileName & Packages */
     pVM->cFileName = (char *) pVMState->aPointers[1] ;
     /* aPCBlockFlag, aScopeNewObj , aActivePackage & aScopeID */
+    pDeletedPCBlockFlag = NULL ;
     if ( ((List *) pVMState->aPointers[4]) != pVM->aPCBlockFlag ) {
+        pDeletedPCBlockFlag = pVM->aPCBlockFlag ;
         pVM->aPCBlockFlag = ring_list_delete_gc(pVM->pRingState,pVM->aPCBlockFlag);
         pVM->aPCBlockFlag = (List *) pVMState->aPointers[4] ;
     }
@@ -103,6 +104,33 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
     ring_vm_backstate(pVM,pVMState->aNumbers[10],pVM->aActivePackage);
     ring_vm_backstate(pVM,pVMState->aNumbers[11],pVM->aScopeID);
     pVM->nActiveScopeID = pVMState->aNumbers[12] ;
+    /* We also return to the function call list */
+    if ( nFlag == RING_STATE_TRYCATCH ) {
+        /*
+        **  Since Try/Catch can terminate many function when error happens 
+        **  We need to clean memory and remove pNestedLists, aPCBlockFlag & aSetProperty 
+        */
+        for ( x = pVMState->aNumbers[1]+1 ; x <= ring_list_getsize(pVM->pFuncCallList) ; x++ ) {
+            pFuncList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList)) ;
+            if ( ring_list_getsize(pFuncList) >= RING_FUNCCL_STATE ) {
+                /* Delete pNestedLists */
+                pNestedLists = (List *) ring_list_getpointer(pFuncList,RING_FUNCCL_NESTEDLISTS) ;
+                if ( pNestedLists != pVM->pNestedLists ) {
+                    ring_list_delete_gc(pVM->pRingState,pNestedLists);
+                }
+                pFuncList = ring_list_getlist(pFuncList,RING_FUNCCL_STATE);
+                pVMStateForFunc = (VMState *) ring_list_getpointer(pFuncList,1);
+                /* Delete aPCBlockFlag */
+                pPCBlockFlag = (List *) pVMStateForFunc->aPointers[2] ;
+                if ( (pPCBlockFlag != pVM->aPCBlockFlag) && (pPCBlockFlag != pDeletedPCBlockFlag) ) {
+                    ring_list_delete_gc(pVM->pRingState,(List *) pVMStateForFunc->aPointers[2]);
+                }
+                /* Delete aSetProperty */
+                ring_list_delete_gc(pVM->pRingState,(List *) pVMStateForFunc->aPointers[6]);
+            }
+        }
+    }
+    ring_vm_backstate(pVM,pVMState->aNumbers[1],pVM->pFuncCallList);
     /* Loop/Exit Mark */
     if ( nFlag != RING_STATE_EXIT ) {
         ring_vm_backstate(pVM,pVMState->aNumbers[13],pVM->pExitMark);
