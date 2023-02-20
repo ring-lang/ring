@@ -629,6 +629,8 @@
     void ring_vm_retitemref ( VM *pVM ) ;
 
     List * ring_vm_prevtempmem ( VM *pVM ) ;
+
+    void ring_vm_cleanevalcode ( VM *pVM,int nCodeSize ) ;
     /* User Interface */
 
     void ring_vm_see ( VM *pVM ) ;

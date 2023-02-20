@@ -553,14 +553,12 @@ Type: List *
 pIR
 ring_vm_returneval
 Type: int
-aPara[3],nExtraSize
-Type: ByteCode *
-pByteCode
+aPara[3]
 ring_vm_mainloopforeval
 Type: int
 nDontDelete,nType,nOut,nSP,nFuncSP,nInClassRegion,lInsideEval
 Type: List *
-pStackList, *pActiveMem
+pStackList
 Type: double
 nNumber
 Type: String *
@@ -572,6 +570,11 @@ Type: int
 nEvalReturnPC,nEvalReallocationFlag,nPC,nRunVM,nSP,nFuncSP,nLineNumber
 Type: List *
 pStackList
+ring_vm_cleanevalcode
+Type: int
+nExtraSize
+Type: ByteCode *
+pByteCode
 ring_vm_callfunction
 ring_vm_mutexfunctions
 ring_vm_mutexlock

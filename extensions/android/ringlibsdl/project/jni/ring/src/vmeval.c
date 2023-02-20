@@ -119,8 +119,7 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 
 void ring_vm_returneval ( VM *pVM )
 {
-    int aPara[3],nExtraSize  ;
-    ByteCode *pByteCode  ;
+    int aPara[3]  ;
     /* This function will always be called after each eval() execution */
     ring_vm_return(pVM);
     ring_vm_mutexlock(pVM);
@@ -133,20 +132,7 @@ void ring_vm_returneval ( VM *pVM )
         **  This means that the code can be deleted without any problems 
         **  We do that to avoid memory leaks 
         */
-        nExtraSize = RING_VM_INSTRUCTIONSCOUNT - aPara[0] ;
-        while ( RING_VM_INSTRUCTIONSCOUNT != aPara[0] ) {
-            RING_VM_DELETELASTINSTRUCTION ;
-        }
-        if ( pVM->nEvalReallocationFlag == 1 ) {
-            pVM->nEvalReallocationFlag = 0 ;
-            pByteCode = (ByteCode *) ring_realloc(pVM->pByteCode , sizeof(ByteCode) * RING_VM_INSTRUCTIONSCOUNT);
-            pVM->pByteCode = pByteCode ;
-            /* Update the Eval Reallocation Size after Reallocation */
-            pVM->nEvalReallocationSize = pVM->nEvalReallocationSize - nExtraSize ;
-        }
-        else {
-            pVM->nEvalReallocationSize = pVM->nEvalReallocationSize + nExtraSize ;
-        }
+        ring_vm_cleanevalcode(pVM,aPara[0]);
     }
     /*
     **  nEvalReturnPC is checked by the ring_vm_mainloop to end the loop 
@@ -297,6 +283,26 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
     pVM->nSP = nSP ;
     pVM->nFuncSP = nFuncSP ;
     RING_VM_IR_SETLINENUMBER(nLineNumber);
+}
+
+void ring_vm_cleanevalcode ( VM *pVM,int nCodeSize )
+{
+    int nExtraSize  ;
+    ByteCode *pByteCode  ;
+    nExtraSize = RING_VM_INSTRUCTIONSCOUNT - nCodeSize ;
+    while ( RING_VM_INSTRUCTIONSCOUNT != nCodeSize ) {
+        RING_VM_DELETELASTINSTRUCTION ;
+    }
+    if ( pVM->nEvalReallocationFlag == 1 ) {
+        pVM->nEvalReallocationFlag = 0 ;
+        pByteCode = (ByteCode *) ring_realloc(pVM->pByteCode , sizeof(ByteCode) * RING_VM_INSTRUCTIONSCOUNT);
+        pVM->pByteCode = pByteCode ;
+        /* Update the Eval Reallocation Size after Reallocation */
+        pVM->nEvalReallocationSize = pVM->nEvalReallocationSize - nExtraSize ;
+    }
+    else {
+        pVM->nEvalReallocationSize = pVM->nEvalReallocationSize + nExtraSize ;
+    }
 }
 /* Fast Function Call for Extensions (Without Eval) */
 
