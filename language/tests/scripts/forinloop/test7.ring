@@ -17,13 +17,10 @@ for x in aList[3]
 	? x
 next
 
-try
-	for x in aList[4]
-		? x
-	next
-catch
-	? "We can't use For-In loop with numbers"
-done
+? "We can't use For-In loop with numbers"
+for x in aList[4]
+	? x
+next
 
 class generator
 	func operator cOp,vValue
