@@ -167,7 +167,7 @@ void ring_vm_returneval ( VM *pVM )
 
 void ring_vm_mainloopforeval ( VM *pVM )
 {
-    int nDontDelete,nType,nOut,nSP,nFuncSP,nInClassRegion  ;
+    int nDontDelete,nType,nOut,nSP,nFuncSP,nInClassRegion,lInsideEval  ;
     List *pStackList  ;
     double nNumber  ;
     String *pString  ;
@@ -182,12 +182,17 @@ void ring_vm_mainloopforeval ( VM *pVM )
     pStackList = ring_vm_savestack(pVM);
     pAssignment = pVM->pAssignment ;
     nInClassRegion = pVM->nInClassRegion ;
+    lInsideEval = pVM->lInsideEval ;
     /* Allows showing the OPCODE */
     if ( pVM->pRingState->nPrintInstruction ) {
         do {
             ring_vm_fetch2(pVM);
             if ( pVM->nPC <= pVM->nEvalReturnPC ) {
                 pVM->nEvalReturnPC = 0 ;
+                break ;
+            }
+            if ( (pVM->nActiveCatch) && (pVM->lInsideEval != lInsideEval) ) {
+                pVM->nActiveCatch = 0 ;
                 break ;
             }
         } while (pVM->nPC <= RING_VM_INSTRUCTIONSCOUNT)  ;
@@ -199,9 +204,15 @@ void ring_vm_mainloopforeval ( VM *pVM )
                 pVM->nEvalReturnPC = 0 ;
                 break ;
             }
+            if ( (pVM->nActiveCatch) && (pVM->lInsideEval != lInsideEval) ) {
+                pVM->nActiveCatch = 0 ;
+                break ;
+            }
         } while (pVM->nPC <= RING_VM_INSTRUCTIONSCOUNT)  ;
     }
-    pVM->lInsideEval-- ;
+    if ( pVM->lInsideEval == lInsideEval ) {
+        pVM->lInsideEval-- ;
+    }
     pVM->nRetEvalDontDelete = nDontDelete ;
     /* Save Output */
     nOut = RING_EVALOUTPUT_NULL ;

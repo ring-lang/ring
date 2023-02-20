@@ -558,9 +558,9 @@ Type: ByteCode *
 pByteCode
 ring_vm_mainloopforeval
 Type: int
-nDontDelete,nType,nOut,nSP,nFuncSP,nInClassRegion
+nDontDelete,nType,nOut,nSP,nFuncSP,nInClassRegion,lInsideEval
 Type: List *
-pStackList
+pStackList, *pActiveMem
 Type: double
 nNumber
 Type: String *
