@@ -1,0 +1,7 @@
+before
+start
+Error (R24) : Using uninitialized variable : vvvv
+done
+after
+great
+ilovering
