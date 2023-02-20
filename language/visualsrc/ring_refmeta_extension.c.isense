@@ -297,3 +297,5 @@ ring_vm_refmeta_ringvmismempool
 Type: VM *
 pVM
 ring_vm_refmeta_ringvmruncode
+Type: VM *
+pVM

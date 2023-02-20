@@ -126,7 +126,7 @@
         unsigned int nCurrentGlobalScope  ;
         char *cFileNameInClassRegion  ;
         unsigned char lUsePushPLocal  ;
-        unsigned char lInsideEval  ;
+        unsigned char nInsideEval  ;
         unsigned char lNoSetterMethod  ;
         unsigned char lCheckOverFlow  ;
         unsigned char lAddSubListsByMove  ;

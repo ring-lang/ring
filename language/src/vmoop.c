@@ -797,7 +797,7 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
         if ( RING_VM_IR_READIVALUE(2)  == 0 ) {
             nIns = pVM->nPC - 2 ;
             pVM->nEvalCalledFromRingCode = 0 ;
-            if ( pVM->lInsideEval ) {
+            if ( pVM->nInsideEval ) {
                 pVM->nRetEvalDontDelete = 1 ;
             }
             ring_vm_eval(pVM,ring_string_get(pString));
@@ -916,7 +916,7 @@ void ring_vm_oop_setproperty ( VM *pVM )
             */
             nIns2 = pVM->nPC - 1 ;
             pVM->nEvalCalledFromRingCode = 0 ;
-            if ( pVM->lInsideEval ) {
+            if ( pVM->nInsideEval ) {
                 pVM->nRetEvalDontDelete = 1 ;
             }
             ring_vm_eval(pVM,ring_string_get(pString));
@@ -1052,7 +1052,7 @@ void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int 
         /* Eval the string */
         nIns = pVM->nPC - 2 ;
         pVM->nEvalCalledFromRingCode = 0 ;
-        if ( pVM->lInsideEval ) {
+        if ( pVM->nInsideEval ) {
             pVM->nRetEvalDontDelete = 1 ;
         }
         ring_vm_eval(pVM,ring_string_get(pString));

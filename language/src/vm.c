@@ -187,7 +187,7 @@ VM * ring_vm_new ( RingState *pRingState )
     /* Control Performance Instructions */
     pVM->lUsePushPLocal = 0 ;
     /* To know if we are inside eval() or not */
-    pVM->lInsideEval = 0 ;
+    pVM->nInsideEval = 0 ;
     /* Dynamic Libraries */
     pVM->pCLibraries = ring_list_new_gc(pVM->pRingState,0);
     /* No Setter Method (used by ring_vm_oop_setget() function) */

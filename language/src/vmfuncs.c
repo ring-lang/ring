@@ -5,10 +5,10 @@
 int ring_vm_loadfunc ( VM *pVM )
 {
     /*
-    **  When pVM->lInsideEval == 1 In this case we are using eval("somefunction()") 
+    **  When pVM->nInsideEval == 1 In this case we are using eval("somefunction()") 
     **  We don't use optimization, it's not required because the code will not be executed again 
     */
-    return ring_vm_loadfunc2(pVM,RING_VM_IR_READC, ! pVM->lInsideEval ) ;
+    return ring_vm_loadfunc2(pVM,RING_VM_IR_READC, ! pVM->nInsideEval ) ;
 }
 
 int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )

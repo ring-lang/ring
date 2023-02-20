@@ -1,5 +1,5 @@
 /*
-**  Copyright (c) 2013-2022 Mahmoud Fayed <msfclipper@yahoo.com> 
+**  Copyright (c) 2013-2023 Mahmoud Fayed <msfclipper@yahoo.com> 
 **  Include Files 
 */
 #include "ring.h"
@@ -1398,7 +1398,7 @@ void ring_vm_generallib_eval ( void *pPointer )
         cStr = RING_API_GETSTRING(1);
         pVM = (VM *) pPointer ;
         pVM->nEvalCalledFromRingCode = 1 ;
-        if ( pVM->lInsideEval == 0 ) {
+        if ( pVM->nInsideEval == 0 ) {
             pVM->nRetEvalDontDelete = 0 ;
         }
         if ( ring_vm_eval(pVM,cStr) == 0 ) {
@@ -2221,7 +2221,7 @@ void ring_vm_generallib_customprint ( void *pPointer,const char *cCommand )
     }
     /* Evaluate the code */
     pVM->nEvalCalledFromRingCode = 1 ;
-    if ( pVM->lInsideEval == 0 ) {
+    if ( pVM->nInsideEval == 0 ) {
         pVM->nRetEvalDontDelete = 0 ;
     }
     if ( ring_vm_eval(pVM,ring_string_get(pRingCode) ) == 0 ) {
