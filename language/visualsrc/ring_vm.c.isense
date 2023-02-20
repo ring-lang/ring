@@ -556,7 +556,7 @@ Type: int
 aPara[3]
 ring_vm_mainloopforeval
 Type: int
-nDontDelete,nType,nOut,nSP,nFuncSP,nInClassRegion,lInsideEval
+nDontDelete,nType,nOut,nSP,nFuncSP,nInClassRegion,lInsideEval,nStartPC
 Type: List *
 pStackList
 Type: double
