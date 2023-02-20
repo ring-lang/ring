@@ -1,9 +1,15 @@
 # Author: Ilir Liburn
 # Updated by Fayed
 
+myid = NULL
+
 x = test()
 ? "--------------"
-? objectid(x)
+if objectid(x) = myid 
+	? "The same ID"
+else
+	? "Not the same ID"
+ok
 ? refcount(x)
 ? x
 ? "--------------"
@@ -22,6 +28,7 @@ func test
         a = [[ref(a),ref(a),3],[4,5,6]]
         ? a
 	? "--------------"
+	myid = objectid(a[1])
 	b = ref(a[1])
 	? a
         return b
