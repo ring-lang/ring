@@ -324,10 +324,7 @@ void ring_vm_savestatefornewobjects ( VM *pVM )
     pVMState->aNumbers[15] = ring_list_getsize(pVM->pTry) ;
     /* Save aBraceObjects */
     pVMState->aNumbers[16] = ring_list_getsize(pVM->aBraceObjects) ;
-    /*
-    **  Note: We don't save pObjState 
-    **  Save aForStep 
-    */
+    /* Save aForStep */
     pVMState->aNumbers[17] = ring_list_getsize(pVM->aForStep) ;
     /* Save nActiveScopeID */
     pVMState->aNumbers[18] = pVM->nActiveScopeID ;
@@ -365,6 +362,8 @@ void ring_vm_savestatefornewobjects ( VM *pVM )
     /* Save aSetProperty */
     pVMState->aPointers[8] = pVM->aSetProperty ;
     pVM->aSetProperty = ring_list_new_gc(pVM->pRingState,0);
+    /* Save pObjState */
+    pVMState->aNumbers[29] = ring_list_getsize(pVM->pObjState) ;
 }
 
 void ring_vm_restorestatefornewobjects ( VM *pVM )
@@ -421,10 +420,7 @@ void ring_vm_restorestatefornewobjects ( VM *pVM )
     ring_vm_backstate(pVM,pVMState->aNumbers[15],pVM->pTry);
     /* Restore aBraceObjects */
     ring_vm_backstate(pVM,pVMState->aNumbers[16],pVM->aBraceObjects);
-    /*
-    **  Note: We don't restore pObjState 
-    **  Restore aForStep 
-    */
+    /* Restore aForStep */
     ring_vm_backstate(pVM,pVMState->aNumbers[17],pVM->aForStep);
     /* Restore nActiveScopeID */
     pVM->nActiveScopeID = pVMState->aNumbers[18] ;
@@ -455,6 +451,8 @@ void ring_vm_restorestatefornewobjects ( VM *pVM )
     /* Restore aSetProperty */
     pVM->aSetProperty = ring_list_delete_gc(pVM->pRingState,pVM->aSetProperty);
     pVM->aSetProperty = (List *)  pVMState->aPointers[8] ;
+    /* Restore pObjState */
+    ring_vm_backstate(pVM,pVMState->aNumbers[29],pVM->pObjState);
     ring_list_deleteitem_gc(pVM->pRingState,pVM->aScopeNewObj,ring_list_getsize(pVM->aScopeNewObj));
 }
 

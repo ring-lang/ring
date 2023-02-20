@@ -234,13 +234,13 @@ void ring_vm_oop_setscope ( VM *pVM )
 {
     /*
     **  This function called after creating new object and executing class init 
-    **  Restore State 
+    **  After init methods 
     */
-    ring_vm_restorestatefornewobjects(pVM);
-    /* After init methods */
     ring_vm_oop_aftercallmethod(pVM);
     /* POP Class Package */
     ring_vm_oop_popclasspackage(pVM);
+    /* Restore State */
+    ring_vm_restorestatefornewobjects(pVM);
 }
 
 int ring_vm_oop_isobject ( List *pList )
