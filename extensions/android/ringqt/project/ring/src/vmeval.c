@@ -178,8 +178,7 @@ void ring_vm_mainloopforeval ( VM *pVM )
                 pVM->nEvalReturnPC = 0 ;
                 break ;
             }
-            if ( (pVM->nActiveCatch) && (pVM->lInsideEval != lInsideEval) ) {
-                pVM->nActiveCatch = 0 ;
+            if ( pVM->lInsideEval != lInsideEval ) {
                 ring_vm_cleanevalcode(pVM,nStartPC - 1);
                 break ;
             }
@@ -192,8 +191,7 @@ void ring_vm_mainloopforeval ( VM *pVM )
                 pVM->nEvalReturnPC = 0 ;
                 break ;
             }
-            if ( (pVM->nActiveCatch) && (pVM->lInsideEval != lInsideEval) ) {
-                pVM->nActiveCatch = 0 ;
+            if ( pVM->lInsideEval != lInsideEval ) {
                 ring_vm_cleanevalcode(pVM,nStartPC - 1);
                 break ;
             }
