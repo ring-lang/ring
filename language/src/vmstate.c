@@ -64,6 +64,14 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
     pList = ring_list_getlist(pList,nPos);
     /* Using VMState */
     pVMState = (VMState *) ring_list_getpointer(pList,1);
+    if ( (pVM->nInClassRegion == 1) && (pVMState->aNumbers[21] == 0 ) ) {
+        /*
+        **  If we have error in the class region while try catch is used outside it 
+        **  Then we clean the memory used by the new object 
+        **  Like pNestedLists, aPCBlocFlag & aSetProperty 
+        */
+        ring_vm_oop_setscope(pVM);
+    }
     pVM->nInClassRegion = pVMState->aNumbers[21] ;
     /*
     **  Set Scope 
