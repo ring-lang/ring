@@ -70,7 +70,9 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
         **  Then we clean the memory used by the new object 
         **  Like pNestedLists, aPCBlocFlag & aSetProperty 
         */
-        ring_vm_oop_setscope(pVM);
+        while ( pVMState->aNumbers[9] != ring_list_getsize(pVM->aScopeNewObj) ) {
+            ring_vm_oop_setscope(pVM);
+        }
     }
     pVM->nInClassRegion = pVMState->aNumbers[21] ;
     /*
