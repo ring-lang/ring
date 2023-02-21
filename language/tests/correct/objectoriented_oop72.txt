@@ -1,0 +1,9 @@
+x: 10
+y: 20
+
+x: 10
+y: 20
+z: 30
+
+Can't kill the object
+It's still under construction
