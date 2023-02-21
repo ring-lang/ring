@@ -64,6 +64,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
     pList = ring_list_getlist(pList,nPos);
     /* Using VMState */
     pVMState = (VMState *) ring_list_getpointer(pList,1);
+    pVM->nInClassRegion = pVMState->aNumbers[21] ;
     /*
     **  Set Scope 
     **  Delete Scopes using the correct function 
@@ -149,7 +150,6 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
     pVM->nInsideBraceFlag = pVMState->aNumbers[17] ;
     ring_vm_backstate(pVM,pVMState->aNumbers[19],pVM->aBeforeObjState);
     RING_VM_IR_SETLINENUMBER(pVMState->aNumbers[20]);
-    pVM->nInClassRegion = pVMState->aNumbers[21] ;
     pVM->nPrivateFlag = pVMState->aNumbers[22] ;
     pVM->nGetSetProperty = pVMState->aNumbers[23] ;
     pVM->pGetSetObject = (void *) pVMState->aPointers[5] ;
