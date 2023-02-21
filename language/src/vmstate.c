@@ -73,7 +73,8 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
     **  We also avoid doing this in the Class Region (After class name) 
     **  Because in the class region we don't use pVM->pMEM 
     */
-    if ( ! pVMState->aNumbers[21] ) {
+    pVM->nInClassRegion = pVMState->aNumbers[21] ;
+    if ( ! pVM->nInClassRegion ) {
         /*
         **  In the loop condition we use pVMState->aPointers[2] instead of pVM->pActiveMem 
         **  Because ring_vm_deletescope() update the pVM->pActiveMem value 
@@ -164,7 +165,6 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
                 ring_list_addpointer_gc(pVM->pRingState,aListsToDelete,pListPointer);
             }
         }
-        pVM->nInClassRegion = pVMState->aNumbers[21] ;
     }
     ring_vm_backstate(pVM,pVMState->aNumbers[9],pVM->aScopeNewObj);
     ring_vm_backstate(pVM,pVMState->aNumbers[1],pVM->pFuncCallList);
