@@ -7,11 +7,13 @@ Type: Item *
 pItem
 ring_vm_restorestate
 Type: List *
-pThis,*pFuncList, *pDeletedPCBlockFlag,*pPCBlockFlag, *pNestedLists
+pThis,*pFuncList
 Type: VMState *
 pVMState, *pVMStateForFunc
 Type: int
 x
+Type: List *
+aListsToDelete, *pListPointer
 ring_vm_savestateforfunctions
 Type: List *
 pThis
