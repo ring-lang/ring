@@ -58,8 +58,8 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 
 void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 {
-    List *pThis,*pFuncList  ;
-    VMState *pVMState, *pVMStateForFunc  ;
+    List *pThis,*pFuncList,*pNewObj  ;
+    VMState *pVMState, *pVMStateForFunc, *pVMStateForObj  ;
     int x  ;
     List *aListsToDelete, *pListPointer  ;
     pList = ring_list_getlist(pList,nPos);
@@ -143,6 +143,27 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
         **  Then we clean the memory used by the new object 
         **  Like pNestedLists, aPCBlocFlag & aSetProperty 
         */
+        for ( x = pVMState->aNumbers[9]+1 ; x <= ring_list_getsize(pVM->aScopeNewObj) ; x++ ) {
+            pNewObj = ring_list_getlist(pVM->aScopeNewObj,x) ;
+            pVMStateForObj = (VMState *) ring_list_getpointer(pNewObj,1);
+            /* Delete pNestedLists */
+            pListPointer = (List *) pVMStateForObj->aPointers[1] ;
+            if ( ! ring_list_findpointer(aListsToDelete,pListPointer) ) {
+                ring_list_addpointer_gc(pVM->pRingState,aListsToDelete,pListPointer);
+            }
+            /* Delete aPCBlockFlag */
+            pListPointer = (List *) pVMStateForObj->aPointers[7] ;
+            if ( pListPointer != pVM->aPCBlockFlag ) {
+                if ( ! ring_list_findpointer(aListsToDelete,pListPointer) ) {
+                    ring_list_addpointer_gc(pVM->pRingState,aListsToDelete,pListPointer);
+                }
+            }
+            /* Delete aSetProperty */
+            pListPointer = (List *) pVMStateForObj->aPointers[8] ;
+            if ( ! ring_list_findpointer(aListsToDelete,pListPointer) ) {
+                ring_list_addpointer_gc(pVM->pRingState,aListsToDelete,pListPointer);
+            }
+        }
         pVM->nInClassRegion = pVMState->aNumbers[21] ;
     }
     ring_vm_backstate(pVM,pVMState->aNumbers[9],pVM->aScopeNewObj);

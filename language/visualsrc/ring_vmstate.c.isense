@@ -7,9 +7,9 @@ Type: Item *
 pItem
 ring_vm_restorestate
 Type: List *
-pThis,*pFuncList
+pThis,*pFuncList,*pNewObj
 Type: VMState *
-pVMState, *pVMStateForFunc
+pVMState, *pVMStateForFunc, *pVMStateForObj
 Type: int
 x
 Type: List *
