@@ -556,5 +556,8 @@ aTests = [
 	[ :name = "Memory Usage (Part 14)", :Command = "ring memory/leak13.ring" ],
 	[ :name = "Memory Usage (Part 15)", :Command = "ring memory/leak14.ring" ],
 	[ :name = "Memory Usage (Part 16)", :Command = "ring memory/leak15.ring" ],
-	[ :name = "Memory Usage (Part 17)", :Command = "ring memory/leak16.ring" ]
+	[ :name = "Memory Usage (Part 17)", :Command = "ring memory/leak16.ring" ],
+	[ :name = "Memory Usage (Part 18)", :Command = "ring memory/leak17.ring" ],
+	[ :name = "Memory Usage (Part 19)", :Command = "ring memory/leak18.ring" ],
+	[ :name = "Memory Usage (Part 20)", :Command = "ring memory/leak19.ring" ]
 ]
