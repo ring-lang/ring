@@ -219,7 +219,7 @@ cFileNameInClassRegion
 Type: unsigned char
 lUsePushPLocal
 Type: unsigned char
-lInsideEval
+nInsideEval
 Type: unsigned char
 lNoSetterMethod
 Type: unsigned char
@@ -556,7 +556,7 @@ Type: int
 aPara[3]
 ring_vm_mainloopforeval
 Type: int
-nDontDelete,nType,nOut,nSP,nFuncSP,nInClassRegion,lInsideEval,nStartPC
+nDontDelete,nType,nOut,nSP,nFuncSP,nInClassRegion,nInsideEval,nStartPC
 Type: List *
 pStackList
 Type: double

@@ -1,5 +1,5 @@
 Handle Error!
-Message :Error (R24) : Using uninitialized variable : test
+Message :Error (R24) : Using uninitialized variable: test
 add attribute
 done
 10

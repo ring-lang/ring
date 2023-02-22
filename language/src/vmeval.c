@@ -112,7 +112,7 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
     ring_list_deletelastitem_gc(pVM->pRingState,pVM->pRingState->pRingFilesStack);
     /* Check Error */
     if ( (nCont == 0) || (nRunVM == 0) ) {
-        ring_vm_error(pVM,"Error in eval!");
+        ring_vm_error(pVM,"Error in eval");
     }
     return nRunVM ;
 }

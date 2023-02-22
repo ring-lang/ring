@@ -1,6 +1,6 @@
 test1
 
-Line 13 Error (R3) : Calling Function without definition !: test2 
+Line 13 Error (R3) : Calling Function without definition: test2 
 In function test1() in file tracelib/test4.ring
 called from line 6  in file tracelib/test4.ring 
 

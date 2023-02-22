@@ -3,5 +3,5 @@ OBJECT
 t: NULL
 
 
-Line 6 Error (R16) : Using braces to access unknown object !  
+Line 6 Error (R16) : Using braces to access unknown object 
 in file references/noobj.ring 

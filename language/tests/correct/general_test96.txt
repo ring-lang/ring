@@ -1,3 +1,3 @@
 
-Line 5 Error (R1) : Can't divide by zero ! 
+Line 5 Error (R1) : Can't divide by zero 
 in file general/test96.ring 

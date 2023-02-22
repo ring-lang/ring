@@ -997,7 +997,7 @@ Hello from f996()
 Hello from f997()
 Hello from f998()
 
-Line 2997 Error (R4) : Stack Overflow ! 
+Line 2997 Error (R4) : Stack Overflow 
 In ringvm_see() In function f999() in file general/deep.ring
 called from line 2995  In function f998() in file general/deep.ring
 called from line 2992  In function f997() in file general/deep.ring

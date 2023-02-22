@@ -1,11 +1,11 @@
 before
-Handle Error (Using BraceError): Error (R24) : Using uninitialized variable : count
+Handle Error (Using BraceError): Error (R24) : Using uninitialized variable: count
 what
 x: 10
 y: 20
 z: 30
 
-Handle Error (Using  Try/Catch): Error (R24) : Using uninitialized variable : count
+Handle Error (Using  Try/Catch): Error (R24) : Using uninitialized variable: count
 here1
 here2
 done

@@ -10,5 +10,5 @@ job : programmer
 job : programmer
 can't use private attribute
 
-Line 25 Error (R26) : Calling private method from outside the class : getjob 
+Line 25 Error (R26) : Calling private method from outside the class: getjob 
 in file objectoriented/oop29.ring 

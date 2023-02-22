@@ -1,6 +1,6 @@
 before
 start
-Error (R1) : Can't divide by zero !
+Error (R1) : Can't divide by zero
 done
 after
 great
