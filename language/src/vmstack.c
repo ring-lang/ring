@@ -136,12 +136,8 @@ void ring_vm_assignment ( VM *pVM )
             RING_VM_STACK_POP ;
             pVar = (List *) RING_VM_STACK_READP ;
             RING_VM_STACK_POP ;
-            /* Check Ref()/Reference() usage in the Left-Side */
-            if ( ring_list_checkrefvarinleftside(pVM->pRingState,pVar) ) {
-                return ;
-            }
-            /* Check if the content is protected (List during definition) */
-            if ( ring_vm_checkerroronassignment(pVM,pVar) ) {
+            /* Check Before Assignment */
+            if ( ring_vm_checkbeforeassignment(pVM,pVar) ) {
                 return ;
             }
             if ( pVM->nBeforeEqual == 0 ) {
@@ -168,12 +164,8 @@ void ring_vm_assignment ( VM *pVM )
             RING_VM_STACK_POP ;
             pVar = (List *) RING_VM_STACK_READP ;
             RING_VM_STACK_POP ;
-            /* Check Ref()/Reference() usage in the Left-Side */
-            if ( ring_list_checkrefvarinleftside(pVM->pRingState,pVar) ) {
-                return ;
-            }
-            /* Check if the content is protected (List during definition) */
-            if ( ring_vm_checkerroronassignment(pVM,pVar) ) {
+            /* Check Before Assignment */
+            if ( ring_vm_checkbeforeassignment(pVM,pVar) ) {
                 return ;
             }
             if ( pVM->nBeforeEqual == 0 ) {
@@ -210,17 +202,8 @@ void ring_vm_assignment ( VM *pVM )
                 RING_VM_STACK_POP ;
                 pVar = (List *) RING_VM_STACK_READP ;
                 RING_VM_STACK_POP ;
-                /* Check Ref()/Reference() usage in the Left-Side */
-                if ( ring_list_checkrefvarinleftside(pVM->pRingState,pVar) ) {
-                    /*
-                    **  Take in mind using Ref()/Reference() in Right-Side too 
-                    **  I.e. Ref(tmp) = Ref(tmp) 
-                    **  We don't need to think about it - Because it's like Ref( Ref( Ref( ....) ) ) 
-                    */
-                    return ;
-                }
-                /* Check if the content is protected (List during definition) */
-                if ( ring_vm_checkerroronassignment(pVM,pVar) ) {
+                /* Check Before Assignment */
+                if ( ring_vm_checkbeforeassignment(pVM,pVar) ) {
                     return ;
                 }
                 ring_list_setint_gc(pVM->pRingState,pVar, RING_VAR_TYPE ,RING_VM_LIST);
@@ -780,6 +763,23 @@ int ring_vm_checkerroronassignment ( VM *pVM,List *pVar )
             ring_vm_error(pVM,RING_VM_ERROR_PROTECTEDVALUE);
             return 1 ;
         }
+    }
+    return 0 ;
+}
+
+int ring_vm_checkbeforeassignment ( VM *pVM,List *pVar )
+{
+    /*
+    **  Check if the content is protected (List during definition) 
+    **  Also, Check Ref()/Reference() usage in the Left-Side 
+    */
+    if ( ring_list_checkrefvarinleftside(pVM->pRingState,pVar) || ring_vm_checkerroronassignment(pVM,pVar) ) {
+        /*
+        **  Take in mind using Ref()/Reference() in Right-Side too 
+        **  I.e. Ref(tmp) = Ref(tmp) 
+        **  We don't need to think about it - Because it's like Ref( Ref( Ref( ....) ) ) 
+        */
+        return 1 ;
     }
     return 0 ;
 }
