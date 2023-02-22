@@ -140,6 +140,14 @@ void ring_vm_assignment ( VM *pVM )
             if ( ring_list_checkrefvarinleftside(pVM->pRingState,pVar) ) {
                 return ;
             }
+            /* Check if the content is protected (List during definition) */
+            if ( ring_list_islist(pVar,RING_VAR_VALUE) ) {
+                pList = ring_list_getlist(pVar,RING_VAR_VALUE) ;
+                if ( pList->gc.lErrorOnAssignment ) {
+                    ring_vm_error(pVM,"The variable contains a protected list (List under definition)");
+                    return ;
+                }
+            }
             if ( pVM->nBeforeEqual == 0 ) {
                 ring_list_setint_gc(pVM->pRingState,pVar, RING_VAR_TYPE ,RING_VM_STRING);
                 ring_list_setstring2_gc(pVM->pRingState,pVar, RING_VAR_VALUE , ring_string_get(cStr1),ring_string_size(cStr1));

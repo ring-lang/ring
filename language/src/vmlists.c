@@ -88,6 +88,9 @@ void ring_vm_liststart ( VM *pVM )
         pList = (List *) ring_list_getpointer(pVM->pNestedLists,ring_list_getsize(pVM->pNestedLists));
         ring_list_addpointer_gc(pVM->pRingState,pVM->pNestedLists,ring_list_newlist_gc(pVM->pRingState,pList));
     }
+    /* Enable Error on Assignment */
+    pList = (List *) ring_list_getpointer(pVM->pNestedLists,ring_list_getsize(pVM->pNestedLists));
+    pList->gc.lErrorOnAssignment = 1 ;
 }
 
 void ring_vm_listitem ( VM *pVM )
@@ -143,6 +146,10 @@ void ring_vm_listitem ( VM *pVM )
 
 void ring_vm_listend ( VM *pVM )
 {
+    List *pList  ;
+    /* Disable Error on Assignment */
+    pList = (List *) ring_list_getpointer(pVM->pNestedLists,ring_list_getsize(pVM->pNestedLists));
+    pList->gc.lErrorOnAssignment = 0 ;
     pVM->nListStart-- ;
     ring_list_deleteitem_gc(pVM->pRingState,pVM->pNestedLists,ring_list_getsize(pVM->pNestedLists));
 }

@@ -28,6 +28,8 @@ Type: unsigned int
 lDeleteContainerVariable: 1
 Type: unsigned int
 lDontRef: 1
+Type: unsigned int
+lErrorOnAssignment: 1
 END:
 Type: ListGCData
 struct ListGCData
