@@ -67,3 +67,6 @@ Type: int
 x
 Type: List *
 pList
+ring_vm_removelistprotectionat
+Type: List *
+pList

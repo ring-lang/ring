@@ -487,9 +487,11 @@
 
     int ring_vm_checkbeforeassignment ( VM *pVM,List *pVar ) ;
 
+    int ring_vm_checkitemerroronassignment ( VM *pVM,Item *pItem ) ;
+
     void ring_vm_removelistprotection ( VM *pVM ) ;
 
-    int ring_vm_checkitemerroronassignment ( VM *pVM,Item *pItem ) ;
+    void ring_vm_removelistprotectionat ( VM *pVM,int nPos ) ;
     /* Compare */
 
     void ring_vm_equal ( VM *pVM ) ;

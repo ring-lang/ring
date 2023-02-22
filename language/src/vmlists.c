@@ -154,15 +154,7 @@ void ring_vm_listitem ( VM *pVM )
 
 void ring_vm_listend ( VM *pVM )
 {
-    List *pList  ;
-    /* Disable Error on Assignment */
-    pList = (List *) ring_list_getpointer(pVM->pNestedLists,ring_list_getsize(pVM->pNestedLists));
-    pList->gc.lErrorOnAssignment = 0 ;
-    /* Check if list is deleted by Parent */
-    if ( pList->gc.lDeletedByParent ) {
-        pList->gc.lDeletedByParent = 0 ;
-        ring_list_delete_gc(pVM->pRingState,pList);
-    }
+    ring_vm_removelistprotectionat(pVM,ring_list_getsize(pVM->pNestedLists));
     pVM->nListStart-- ;
     ring_list_deleteitem_gc(pVM->pRingState,pVM->pNestedLists,ring_list_getsize(pVM->pNestedLists));
 }
@@ -545,13 +537,19 @@ void ring_vm_removelistprotection ( VM *pVM )
     int x  ;
     List *pList  ;
     for ( x = 1 ; x <= ring_list_getsize(pVM->pNestedLists) ; x++ ) {
-        /* Disable Error on Assignment */
-        pList = (List *) ring_list_getpointer(pVM->pNestedLists,x);
-        pList->gc.lErrorOnAssignment = 0 ;
-        /* Check if list is deleted by Parent */
-        if ( pList->gc.lDeletedByParent ) {
-            pList->gc.lDeletedByParent = 0 ;
-            ring_list_delete_gc(pVM->pRingState,pList);
-        }
+        ring_vm_removelistprotectionat(pVM,x);
+    }
+}
+
+void ring_vm_removelistprotectionat ( VM *pVM,int nPos )
+{
+    List *pList  ;
+    /* Disable Error on Assignment */
+    pList = (List *) ring_list_getpointer(pVM->pNestedLists,nPos);
+    pList->gc.lErrorOnAssignment = 0 ;
+    /* Check if list is deleted by Parent */
+    if ( pList->gc.lDeletedByParent ) {
+        pList->gc.lDeletedByParent = 0 ;
+        ring_list_delete_gc(pVM->pRingState,pList);
     }
 }
