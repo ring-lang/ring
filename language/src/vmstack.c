@@ -783,3 +783,16 @@ int ring_vm_checkbeforeassignment ( VM *pVM,List *pVar )
     }
     return 0 ;
 }
+
+int ring_vm_checkitemerroronassignment ( VM *pVM,Item *pItem )
+{
+    List *pList  ;
+    if ( ring_item_gettype(pItem) == ITEMTYPE_LIST ) {
+        pList = ring_item_getlist(pItem) ;
+        if ( pList->gc.lErrorOnAssignment ) {
+            ring_vm_error(pVM,RING_VM_ERROR_PROTECTEDVALUE);
+            return 1 ;
+        }
+    }
+    return 0 ;
+}

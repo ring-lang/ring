@@ -82,6 +82,10 @@ void ring_vm_oop_newobj ( VM *pVM )
                     }
                     else if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM ) {
                         pItem = (Item *) RING_VM_STACK_READP ;
+                        /* Check before assignment */
+                        if ( ring_vm_checkitemerroronassignment(pVM,pItem) ) {
+                            return ;
+                        }
                         ring_item_settype_gc(pVM->pRingState,pItem,ITEMTYPE_LIST);
                         pVar = ring_item_getlist(pItem);
                         pList2 = pVar ;

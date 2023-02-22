@@ -79,6 +79,10 @@ void ring_vm_liststart ( VM *pVM )
             ring_list_addpointer_gc(pVM->pRingState,pVM->pNestedLists,pNewList);
         }
         else if ( (nType == RING_OBJTYPE_LISTITEM) && (pItem != NULL) ) {
+            /* Check error on assignment */
+            if ( ring_vm_checkitemerroronassignment(pVM,pItem) ) {
+                return ;
+            }
             ring_item_settype_gc(pVM->pRingState,pItem,ITEMTYPE_LIST);
             pNewList = ring_item_getlist(pItem);
             ring_list_deleteallitems_gc(pVM->pRingState,pNewList);
@@ -370,6 +374,10 @@ void ring_vm_listassignment ( VM *pVM )
         pItem = (Item *) RING_VM_STACK_READP ;
         assert(pItem != NULL);
         RING_VM_STACK_POP ;
+        /* Check error on assignment */
+        if ( ring_vm_checkitemerroronassignment(pVM,pItem) ) {
+            return ;
+        }
         if ( pVM->nBeforeEqual == 0 ) {
             ring_item_setstring2_gc(pVM->pRingState,pItem, ring_string_get(cStr1),ring_string_size(cStr1));
         }
@@ -389,6 +397,10 @@ void ring_vm_listassignment ( VM *pVM )
         pItem = (Item *) RING_VM_STACK_READP ;
         assert(pItem != NULL);
         RING_VM_STACK_POP ;
+        /* Check error on assignment */
+        if ( ring_vm_checkitemerroronassignment(pVM,pItem) ) {
+            return ;
+        }
         if ( pVM->nBeforeEqual == 0 ) {
             ring_item_setdouble_gc(pVM->pRingState,pItem , nNum1);
         }
@@ -409,6 +421,10 @@ void ring_vm_listassignment ( VM *pVM )
         RING_VM_STACK_POP ;
         pItem = (Item *) RING_VM_STACK_READP ;
         RING_VM_STACK_POP ;
+        /* Check error on assignment */
+        if ( ring_vm_checkitemerroronassignment(pVM,pItem) ) {
+            return ;
+        }
         if ( ring_item_gettype(pItem) != ITEMTYPE_LIST ) {
             /* We check the type to avoid deleting the current list if it's a reference */
             ring_item_settype_gc(pVM->pRingState,pItem,ITEMTYPE_LIST);
