@@ -384,6 +384,7 @@
     #define RING_VM_ERROR_NUMERICUNDERFLOW "Error (R40) : Numeric underflow"
     #define RING_VM_ERROR_NUMERICINVALID "Error (R41) : Invalid numeric string"
     #define RING_VM_ERROR_EVAL "Error (R42) : Error in eval() function"
+    #define RING_VM_ERROR_PROTECTEDVALUE "Error (R43) : The variable contains a protected value"
     /* Extra Size (for eval) */
     #define RING_VM_EXTRASIZE 1000
     #define RING_VM_MINVMINSTRUCTIONS 100000

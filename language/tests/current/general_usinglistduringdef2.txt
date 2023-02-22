@@ -1,4 +1,4 @@
 
-Line 14 The variable contains a protected list (List under definition) 
+Line 14 Error (R43) : The variable contains a protected value 
 In function test() in file general/usinglistduringdef2.ring
 called from line 6  in file general/usinglistduringdef2.ring 

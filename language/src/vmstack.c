@@ -144,7 +144,7 @@ void ring_vm_assignment ( VM *pVM )
             if ( ring_list_islist(pVar,RING_VAR_VALUE) ) {
                 pList = ring_list_getlist(pVar,RING_VAR_VALUE) ;
                 if ( pList->gc.lErrorOnAssignment ) {
-                    ring_vm_error(pVM,"The variable contains a protected list (List under definition)");
+                    ring_vm_error(pVM,RING_VM_ERROR_PROTECTEDVALUE);
                     return ;
                 }
             }
