@@ -489,9 +489,9 @@
 
     int ring_vm_checkbeforeassignment ( VM *pVM,List *pVar ) ;
 
-    void ring_vm_removelistprotection ( VM *pVM ) ;
+    void ring_vm_removelistprotection ( VM *pVM,List *pNestedLists ) ;
 
-    void ring_vm_removelistprotectionat ( VM *pVM,int nPos ) ;
+    void ring_vm_removelistprotectionat ( VM *pVM,List *pNestedLists,int nPos ) ;
     /* Compare */
 
     void ring_vm_equal ( VM *pVM ) ;
