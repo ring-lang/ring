@@ -464,6 +464,7 @@ aTests = [
 	[ :name = "General Tests (Part 191)", :Command = "ring general/usinglistduringdef2.ring" ],
 	[ :name = "General Tests (Part 192)", :Command = "ring general/usinglistduringdef3.ring" ],
 	[ :name = "General Tests (Part 193)", :Command = "ring general/usinglistduringdef4.ring" ],
+	[ :name = "General Tests (Part 194)", :Command = "ring general/usinglistduringdef5.ring" ],
 	[ :name = "Performance (Part 1)", :Command = "ring performance/listfunc1.ring" ],
 	[ :name = "Performance (Part 2)", :Command = "ring performance/listfunc2.ring" ],
 	[ :name = "Performance (Part 3)", :Command = "ring performance/forin.ring" ],
@@ -567,5 +568,6 @@ aTests = [
 	[ :name = "Memory Usage (Part 21)", :Command = "ring memory/leak20.ring" ],
 	[ :name = "Memory Usage (Part 22)", :Command = "ring memory/leak21.ring" ],
 	[ :name = "Memory Usage (Part 23)", :Command = "ring memory/leak22.ring" ],
-	[ :name = "Memory Usage (Part 24)", :Command = "ring memory/leak23.ring" ]
+	[ :name = "Memory Usage (Part 24)", :Command = "ring memory/leak23.ring" ],
+	[ :name = "Memory Usage (Part 25)", :Command = "ring memory/leak24.ring" ]
 ]
