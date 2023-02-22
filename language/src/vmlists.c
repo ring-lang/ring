@@ -68,6 +68,10 @@ void ring_vm_liststart ( VM *pVM )
             RING_VM_STACK_POP ;
         }
         if ( nType == RING_OBJTYPE_VARIABLE ) {
+            /* Check error on assignment */
+            if ( ring_vm_checkerroronassignment(pVM,pVar) ) {
+                return ;
+            }
             ring_list_setint_gc(pVM->pRingState,pVar, RING_VAR_TYPE ,RING_VM_LIST);
             ring_list_setlist_gc(pVM->pRingState,pVar, RING_VAR_VALUE);
             pNewList = ring_list_getlist(pVar,RING_VAR_VALUE) ;
@@ -513,4 +517,15 @@ int ring_vm_isoperationaftersublist ( VM *pVM )
         }
     }
     return 0 ;
+}
+
+void ring_vm_removelistprotection ( VM *pVM )
+{
+    int x  ;
+    List *pList  ;
+    for ( x = 1 ; x <= ring_list_getsize(pVM->pNestedLists) ; x++ ) {
+        /* Disable Error on Assignment */
+        pList = (List *) ring_list_getpointer(pVM->pNestedLists,x);
+        pList->gc.lErrorOnAssignment = 0 ;
+    }
 }

@@ -17,6 +17,8 @@ pList,*pList2,*pList3,*pList4
 Type: Item *
 pItem
 ring_vm_listend
+Type: List *
+pList
 ring_vm_loadindexaddress
 Type: double
 nNum1
@@ -60,3 +62,8 @@ Type: int
 nOPCode
 Type: List *
 pParent, *pSub, *pVar
+ring_vm_removelistprotection
+Type: int
+x
+Type: List *
+pList
