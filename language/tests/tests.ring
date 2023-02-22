@@ -461,6 +461,7 @@ aTests = [
 	[ :name = "General Tests (Part 188)", :Command = "ring general/refsim.ring" ],
 	[ :name = "General Tests (Part 189)", :Command = "ring general/errorafterlistindex.ring" ],
 	[ :name = "General Tests (Part 190)", :Command = "ring general/passlistmanytimes.ring" ],
+	[ :name = "General Tests (Part 191)", :Command = "ring general/usinglistduringdef2.ring" ],
 	[ :name = "Performance (Part 1)", :Command = "ring performance/listfunc1.ring" ],
 	[ :name = "Performance (Part 2)", :Command = "ring performance/listfunc2.ring" ],
 	[ :name = "Performance (Part 3)", :Command = "ring performance/forin.ring" ],

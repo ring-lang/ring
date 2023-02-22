@@ -1,0 +1,4 @@
+
+Line 14 The variable contains a protected list (List under definition) 
+In function test() in file general/usinglistduringdef2.ring
+called from line 6  in file general/usinglistduringdef2.ring 
