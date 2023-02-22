@@ -383,6 +383,7 @@
     #define RING_VM_ERROR_TEMPFILENAME "Error (R39) : Error occurred creating unique filename."
     #define RING_VM_ERROR_NUMERICUNDERFLOW "Error (R40) : Numeric underflow"
     #define RING_VM_ERROR_NUMERICINVALID "Error (R41) : Invalid numeric string"
+    #define RING_VM_ERROR_EVAL "Error (R42) : Error in eval() function"
     /* Extra Size (for eval) */
     #define RING_VM_EXTRASIZE 1000
     #define RING_VM_MINVMINSTRUCTIONS 100000
