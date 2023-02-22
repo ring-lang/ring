@@ -68,6 +68,10 @@ void ring_vm_liststart ( VM *pVM )
             RING_VM_STACK_POP ;
         }
         if ( nType == RING_OBJTYPE_VARIABLE ) {
+            /* Check error on assignment */
+            if ( ring_vm_checkvarerroronassignment(pVM,pVar) ) {
+                return ;
+            }
             ring_list_setint_gc(pVM->pRingState,pVar, RING_VAR_TYPE ,RING_VM_LIST);
             ring_list_setlist_gc(pVM->pRingState,pVar, RING_VAR_VALUE);
             pNewList = ring_list_getlist(pVar,RING_VAR_VALUE) ;
@@ -75,6 +79,10 @@ void ring_vm_liststart ( VM *pVM )
             ring_list_addpointer_gc(pVM->pRingState,pVM->pNestedLists,pNewList);
         }
         else if ( (nType == RING_OBJTYPE_LISTITEM) && (pItem != NULL) ) {
+            /* Check error on assignment */
+            if ( ring_vm_checkitemerroronassignment(pVM,pItem) ) {
+                return ;
+            }
             ring_item_settype_gc(pVM->pRingState,pItem,ITEMTYPE_LIST);
             pNewList = ring_item_getlist(pItem);
             ring_list_deleteallitems_gc(pVM->pRingState,pNewList);
@@ -88,6 +96,9 @@ void ring_vm_liststart ( VM *pVM )
         pList = (List *) ring_list_getpointer(pVM->pNestedLists,ring_list_getsize(pVM->pNestedLists));
         ring_list_addpointer_gc(pVM->pRingState,pVM->pNestedLists,ring_list_newlist_gc(pVM->pRingState,pList));
     }
+    /* Enable Error on Assignment */
+    pList = (List *) ring_list_getpointer(pVM->pNestedLists,ring_list_getsize(pVM->pNestedLists));
+    pList->gc.lErrorOnAssignment = 1 ;
 }
 
 void ring_vm_listitem ( VM *pVM )
@@ -143,6 +154,7 @@ void ring_vm_listitem ( VM *pVM )
 
 void ring_vm_listend ( VM *pVM )
 {
+    ring_vm_removelistprotectionat(pVM,ring_list_getsize(pVM->pNestedLists));
     pVM->nListStart-- ;
     ring_list_deleteitem_gc(pVM->pRingState,pVM->pNestedLists,ring_list_getsize(pVM->pNestedLists));
 }
@@ -359,6 +371,10 @@ void ring_vm_listassignment ( VM *pVM )
         pItem = (Item *) RING_VM_STACK_READP ;
         assert(pItem != NULL);
         RING_VM_STACK_POP ;
+        /* Check error on assignment */
+        if ( ring_vm_checkitemerroronassignment(pVM,pItem) ) {
+            return ;
+        }
         if ( pVM->nBeforeEqual == 0 ) {
             ring_item_setstring2_gc(pVM->pRingState,pItem, ring_string_get(cStr1),ring_string_size(cStr1));
         }
@@ -378,6 +394,10 @@ void ring_vm_listassignment ( VM *pVM )
         pItem = (Item *) RING_VM_STACK_READP ;
         assert(pItem != NULL);
         RING_VM_STACK_POP ;
+        /* Check error on assignment */
+        if ( ring_vm_checkitemerroronassignment(pVM,pItem) ) {
+            return ;
+        }
         if ( pVM->nBeforeEqual == 0 ) {
             ring_item_setdouble_gc(pVM->pRingState,pItem , nNum1);
         }
@@ -398,6 +418,10 @@ void ring_vm_listassignment ( VM *pVM )
         RING_VM_STACK_POP ;
         pItem = (Item *) RING_VM_STACK_READP ;
         RING_VM_STACK_POP ;
+        /* Check error on assignment */
+        if ( ring_vm_checkitemerroronassignment(pVM,pItem) ) {
+            return ;
+        }
         if ( ring_item_gettype(pItem) != ITEMTYPE_LIST ) {
             /* We check the type to avoid deleting the current list if it's a reference */
             ring_item_settype_gc(pVM->pRingState,pItem,ITEMTYPE_LIST);
@@ -506,4 +530,26 @@ int ring_vm_isoperationaftersublist ( VM *pVM )
         }
     }
     return 0 ;
+}
+
+void ring_vm_removelistprotection ( VM *pVM )
+{
+    int x  ;
+    List *pList  ;
+    for ( x = 1 ; x <= ring_list_getsize(pVM->pNestedLists) ; x++ ) {
+        ring_vm_removelistprotectionat(pVM,x);
+    }
+}
+
+void ring_vm_removelistprotectionat ( VM *pVM,int nPos )
+{
+    List *pList  ;
+    /* Disable Error on Assignment */
+    pList = (List *) ring_list_getpointer(pVM->pNestedLists,nPos);
+    pList->gc.lErrorOnAssignment = 0 ;
+    /* Check if list is deleted by Parent */
+    if ( pList->gc.lDeletedByParent ) {
+        pList->gc.lDeletedByParent = 0 ;
+        ring_list_delete_gc(pVM->pRingState,pList);
+    }
 }
