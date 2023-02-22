@@ -30,6 +30,8 @@ Type: unsigned int
 lDontRef: 1
 Type: unsigned int
 lErrorOnAssignment: 1
+Type: unsigned int
+lDeletedByParent: 1
 END:
 Type: ListGCData
 struct ListGCData

@@ -15,5 +15,6 @@
         unsigned int lDeleteContainerVariable: 1  ;
         unsigned int lDontRef: 1  ;
         unsigned int lErrorOnAssignment: 1  ;
+        unsigned int lDeletedByParent: 1  ;
     } ListGCData ;
 #endif
