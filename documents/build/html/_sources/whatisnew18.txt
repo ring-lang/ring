@@ -499,3 +499,4 @@ More Improvements
 * Ring VM - Using Braces - Save/Restore the State - Better Code 
 * Ring VM - Divide Operator - Display error message - Better Code
 * Ring VM - Try/Catch/Done - Better code for memory management
+* Ring VM - Using lists during definition - Protect the list (Prevent deleting it)
