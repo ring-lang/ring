@@ -91,3 +91,6 @@ Type: Item *
 pItem
 Type: String *
 pString
+ring_vm_checkerroronassignment
+Type: List *
+pList

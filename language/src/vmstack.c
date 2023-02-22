@@ -141,12 +141,8 @@ void ring_vm_assignment ( VM *pVM )
                 return ;
             }
             /* Check if the content is protected (List during definition) */
-            if ( ring_list_islist(pVar,RING_VAR_VALUE) ) {
-                pList = ring_list_getlist(pVar,RING_VAR_VALUE) ;
-                if ( pList->gc.lErrorOnAssignment ) {
-                    ring_vm_error(pVM,RING_VM_ERROR_PROTECTEDVALUE);
-                    return ;
-                }
+            if ( ring_vm_checkerroronassignment(pVM,pVar) ) {
+                return ;
             }
             if ( pVM->nBeforeEqual == 0 ) {
                 ring_list_setint_gc(pVM->pRingState,pVar, RING_VAR_TYPE ,RING_VM_STRING);
@@ -174,6 +170,10 @@ void ring_vm_assignment ( VM *pVM )
             RING_VM_STACK_POP ;
             /* Check Ref()/Reference() usage in the Left-Side */
             if ( ring_list_checkrefvarinleftside(pVM->pRingState,pVar) ) {
+                return ;
+            }
+            /* Check if the content is protected (List during definition) */
+            if ( ring_vm_checkerroronassignment(pVM,pVar) ) {
                 return ;
             }
             if ( pVM->nBeforeEqual == 0 ) {
@@ -217,6 +217,10 @@ void ring_vm_assignment ( VM *pVM )
                     **  I.e. Ref(tmp) = Ref(tmp) 
                     **  We don't need to think about it - Because it's like Ref( Ref( Ref( ....) ) ) 
                     */
+                    return ;
+                }
+                /* Check if the content is protected (List during definition) */
+                if ( ring_vm_checkerroronassignment(pVM,pVar) ) {
                     return ;
                 }
                 ring_list_setint_gc(pVM->pRingState,pVar, RING_VAR_TYPE ,RING_VM_LIST);
@@ -765,4 +769,17 @@ void ring_vm_len ( VM *pVM )
             ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);
         }
     }
+}
+
+int ring_vm_checkerroronassignment ( VM *pVM,List *pVar )
+{
+    List *pList  ;
+    if ( ring_list_islist(pVar,RING_VAR_VALUE) ) {
+        pList = ring_list_getlist(pVar,RING_VAR_VALUE) ;
+        if ( pList->gc.lErrorOnAssignment ) {
+            ring_vm_error(pVM,RING_VM_ERROR_PROTECTEDVALUE);
+            return 1 ;
+        }
+    }
+    return 0 ;
 }
