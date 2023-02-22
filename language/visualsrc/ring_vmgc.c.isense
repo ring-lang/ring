@@ -163,6 +163,8 @@ ring_list_clearrefdata
 ring_list_deleteref_gc
 Type: List *
 pVariable
+Type: int
+nOPCode
 ring_list_getrefcontainer
 ring_list_collectcycles_gc
 Type: List *
