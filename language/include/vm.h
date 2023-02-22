@@ -483,11 +483,11 @@
 
     int ring_vm_checknull ( VM *pVM,int lShowError ) ;
 
-    int ring_vm_checkerroronassignment ( VM *pVM,List *pVar ) ;
-
-    int ring_vm_checkbeforeassignment ( VM *pVM,List *pVar ) ;
+    int ring_vm_checkvarerroronassignment ( VM *pVM,List *pVar ) ;
 
     int ring_vm_checkitemerroronassignment ( VM *pVM,Item *pItem ) ;
+
+    int ring_vm_checkbeforeassignment ( VM *pVM,List *pVar ) ;
 
     void ring_vm_removelistprotection ( VM *pVM ) ;
 

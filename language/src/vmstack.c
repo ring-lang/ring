@@ -754,7 +754,7 @@ void ring_vm_len ( VM *pVM )
     }
 }
 
-int ring_vm_checkerroronassignment ( VM *pVM,List *pVar )
+int ring_vm_checkvarerroronassignment ( VM *pVM,List *pVar )
 {
     List *pList  ;
     if ( ring_list_islist(pVar,RING_VAR_VALUE) ) {
@@ -773,7 +773,7 @@ int ring_vm_checkbeforeassignment ( VM *pVM,List *pVar )
     **  Check if the content is protected (List during definition) 
     **  Also, Check Ref()/Reference() usage in the Left-Side 
     */
-    if ( ring_list_checkrefvarinleftside(pVM->pRingState,pVar) || ring_vm_checkerroronassignment(pVM,pVar) ) {
+    if ( ring_list_checkrefvarinleftside(pVM->pRingState,pVar) || ring_vm_checkvarerroronassignment(pVM,pVar) ) {
         /*
         **  Take in mind using Ref()/Reference() in Right-Side too 
         **  I.e. Ref(tmp) = Ref(tmp) 

@@ -91,7 +91,7 @@ Type: Item *
 pItem
 Type: String *
 pString
-ring_vm_checkerroronassignment
+ring_vm_checkvarerroronassignment
 Type: List *
 pList
 ring_vm_checkbeforeassignment

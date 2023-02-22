@@ -69,7 +69,7 @@ void ring_vm_liststart ( VM *pVM )
         }
         if ( nType == RING_OBJTYPE_VARIABLE ) {
             /* Check error on assignment */
-            if ( ring_vm_checkerroronassignment(pVM,pVar) ) {
+            if ( ring_vm_checkvarerroronassignment(pVM,pVar) ) {
                 return ;
             }
             ring_list_setint_gc(pVM->pRingState,pVar, RING_VAR_TYPE ,RING_VM_LIST);
