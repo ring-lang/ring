@@ -158,6 +158,11 @@ void ring_vm_mainloopforeval ( VM *pVM )
     double nNumber  ;
     String *pString  ;
     void *pPointer, *pAssignment  ;
+    /* Check many nested Eval */
+    if ( pVM->nInsideEval == RING_VM_MAXNESTEDEVAL ) {
+        ring_vm_error(pVM,RING_VM_ERROR_MAXNESTEDEVAL);
+        return ;
+    }
     pVM->pRingState->lStartPoolManager = 1 ;
     pVM->nInsideEval++ ;
     nDontDelete = pVM->nRetEvalDontDelete ;
