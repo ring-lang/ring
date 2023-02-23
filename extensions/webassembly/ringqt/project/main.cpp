@@ -113,7 +113,7 @@ int main(int argc, char *argv[])
     pRingState = ring_state_new();
     RING_API_REGISTER("loadlib",ring_loadlib);
     RING_API_REGISTER("ismobileqt",ring_ismobileqt);
-	RING_API_REGISTER("iswebassemblyqt",ring_iswebassemblyqt);
+    RING_API_REGISTER("iswebassemblyqt",ring_iswebassemblyqt);
     RING_API_REGISTER("qdebug",ring_qDebug);
 
     // Set the application folder
