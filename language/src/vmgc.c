@@ -604,6 +604,72 @@ RING_API int ring_list_isnewref ( List *pList )
 {
     return pList->gc.lNewRef ;
 }
+/* Protecting lists */
+
+int ring_vm_checkvarerroronassignment ( VM *pVM,List *pVar )
+{
+    List *pList  ;
+    if ( ring_list_islist(pVar,RING_VAR_VALUE) ) {
+        pList = ring_list_getlist(pVar,RING_VAR_VALUE) ;
+        if ( pList->gc.lErrorOnAssignment ) {
+            ring_vm_error(pVM,RING_VM_ERROR_PROTECTEDVALUE);
+            return 1 ;
+        }
+    }
+    return 0 ;
+}
+
+int ring_vm_checkitemerroronassignment ( VM *pVM,Item *pItem )
+{
+    List *pList  ;
+    if ( ring_item_gettype(pItem) == ITEMTYPE_LIST ) {
+        pList = ring_item_getlist(pItem) ;
+        if ( pList->gc.lErrorOnAssignment ) {
+            ring_vm_error(pVM,RING_VM_ERROR_PROTECTEDVALUE);
+            return 1 ;
+        }
+    }
+    return 0 ;
+}
+
+int ring_vm_checkbeforeassignment ( VM *pVM,List *pVar )
+{
+    /*
+    **  Check if the content is protected (List during definition) 
+    **  Also, Check Ref()/Reference() usage in the Left-Side 
+    */
+    if ( ring_list_checkrefvarinleftside(pVM->pRingState,pVar) || ring_vm_checkvarerroronassignment(pVM,pVar) ) {
+        /*
+        **  Take in mind using Ref()/Reference() in Right-Side too 
+        **  I.e. Ref(tmp) = Ref(tmp) 
+        **  We don't need to think about it - Because it's like Ref( Ref( Ref( ....) ) ) 
+        */
+        return 1 ;
+    }
+    return 0 ;
+}
+
+void ring_vm_removelistprotection ( VM *pVM,List *pNestedLists )
+{
+    int x  ;
+    List *pList  ;
+    for ( x = 1 ; x <= ring_list_getsize(pNestedLists) ; x++ ) {
+        ring_vm_removelistprotectionat(pVM,pNestedLists,x);
+    }
+}
+
+void ring_vm_removelistprotectionat ( VM *pVM,List *pNestedLists,int nPos )
+{
+    List *pList  ;
+    /* Disable Error on Assignment */
+    pList = (List *) ring_list_getpointer(pNestedLists,nPos);
+    pList->gc.lErrorOnAssignment = 0 ;
+    /* Check if list is deleted by Parent */
+    if ( pList->gc.lDeletedByParent ) {
+        pList->gc.lDeletedByParent = 0 ;
+        ring_list_delete_gc(pVM->pRingState,pList);
+    }
+}
 /* Memory Functions (General) */
 
 RING_API void * ring_malloc ( size_t size )

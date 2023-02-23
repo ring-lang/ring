@@ -94,7 +94,7 @@ pString
 ring_vm_checkvarerroronassignment
 Type: List *
 pList
-ring_vm_checkbeforeassignment
 ring_vm_checkitemerroronassignment
 Type: List *
 pList
+ring_vm_checkbeforeassignment

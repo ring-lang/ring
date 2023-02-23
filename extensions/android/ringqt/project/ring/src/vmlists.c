@@ -531,25 +531,3 @@ int ring_vm_isoperationaftersublist ( VM *pVM )
     }
     return 0 ;
 }
-
-void ring_vm_removelistprotection ( VM *pVM,List *pNestedLists )
-{
-    int x  ;
-    List *pList  ;
-    for ( x = 1 ; x <= ring_list_getsize(pNestedLists) ; x++ ) {
-        ring_vm_removelistprotectionat(pVM,pNestedLists,x);
-    }
-}
-
-void ring_vm_removelistprotectionat ( VM *pVM,List *pNestedLists,int nPos )
-{
-    List *pList  ;
-    /* Disable Error on Assignment */
-    pList = (List *) ring_list_getpointer(pNestedLists,nPos);
-    pList->gc.lErrorOnAssignment = 0 ;
-    /* Check if list is deleted by Parent */
-    if ( pList->gc.lDeletedByParent ) {
-        pList->gc.lDeletedByParent = 0 ;
-        ring_list_delete_gc(pVM->pRingState,pList);
-    }
-}
