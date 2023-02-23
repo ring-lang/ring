@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2023 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #define RINGFORMOBILE_CLEARSCREEN	0
 #define RINGFORMOBILE_WRITERINGOFILE	0
@@ -111,10 +111,10 @@ int main(int argc, char *argv[])
     // Create Ring State and register functions
     RingState *pRingState;
     pRingState = ring_state_new();
-    ring_vm_funcregister("loadlib",ring_loadlib);
-    ring_vm_funcregister("ismobileqt",ring_ismobileqt);
-	ring_vm_funcregister("iswebassemblyqt",ring_iswebassemblyqt);
-    ring_vm_funcregister("qdebug",ring_qDebug);
+    RING_API_REGISTER("loadlib",ring_loadlib);
+    RING_API_REGISTER("ismobileqt",ring_ismobileqt);
+	RING_API_REGISTER("iswebassemblyqt",ring_iswebassemblyqt);
+    RING_API_REGISTER("qdebug",ring_qDebug);
 
     // Set the application folder
     QString path ;
