@@ -20,8 +20,6 @@ void ring_vm_catch ( VM *pVM,const char *cError )
     pVM->nInsideEval = ring_list_getint(pList,2) ;
     /* Define variable cCatchError to contain the error message */
     ring_list_setstring_gc(pVM->pRingState,ring_list_getlist(ring_vm_getglobalscope(pVM),6),3,cError);
-    /* Remove protection from opened lists */
-    ring_vm_removelistprotection(pVM,pVM->pNestedLists);
     /* Avoid invalidated cError (variable) content by restore */
     ring_vm_restorestate(pVM,pList,3,RING_STATE_TRYCATCH);
     /* Tell C-API caller (CALL command) that catch happens! */
