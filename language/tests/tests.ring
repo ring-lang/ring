@@ -460,6 +460,7 @@ aTests = [
 	[ :name = "General Tests (Part 187)", :Command = "ring general/retlistbyref.ring" ],
 	[ :name = "General Tests (Part 188)", :Command = "ring general/refsim.ring" ],
 	[ :name = "General Tests (Part 189)", :Command = "ring general/errorafterlistindex.ring" ],
+	[ :name = "General Tests (Part 190)", :Command = "ring general/reduce.ring" ],
 	[ :name = "Using lists during definition (Part 1)", :Command = "ring listsduringdef/usinglistduringdef.ring" ],
 	[ :name = "Using lists during definition (Part 2)", :Command = "ring listsduringdef/usinglistduringdef2.ring" ],
 	[ :name = "Using lists during definition (Part 3)", :Command = "ring listsduringdef/usinglistduringdef3.ring" ],
