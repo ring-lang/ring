@@ -212,6 +212,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#ringvm-codelist-function">ringvm_codelist() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringvm-info-function">ringvm_info() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringvm-ismempool-function">ringvm_ismempool() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-runcode-function">ringvm_runcode() function</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
@@ -1662,6 +1663,18 @@ z: 30.000000
 <p>This function is used to write tests that could detect a memory leak</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ringvm_ismempool</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">lStatus</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ringvm-runcode-function">
+<span id="index-36"></span><h2>ringvm_runcode() function<a class="headerlink" href="#ringvm-runcode-function" title="Permalink to this headline">¶</a></h2>
+<p>Similar to the Eval() function</p>
+<p>1 - Used for GUI events like RingQt applications</p>
+<p>2 - Execute the Main Loop (i.e. Eval + MainLoop in one function)</p>
+<p>3 - Max. nested events is 255 events</p>
+<p>This function is used to write tests that contains events</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ringvm_runcode</span><span class="p">(</span><span class="n">cCode</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

@@ -1655,3 +1655,25 @@ Syntax:
 .. code-block:: ring
 
 	ringvm_ismempool() ---> lStatus
+
+.. index:: 
+	pair: Low Level Functions; ringvm_runcode()
+
+ringvm_runcode() function
+=========================
+
+Similar to the Eval() function 
+
+1 - Used for GUI events like RingQt applications 
+
+2 - Execute the Main Loop (i.e. Eval + MainLoop in one function)
+
+3 - Max. nested events is 255 events 
+
+This function is used to write tests that contains events 
+
+Syntax:
+
+.. code-block:: ring
+
+	ringvm_runcode(cCode)

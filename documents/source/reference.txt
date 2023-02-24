@@ -307,6 +307,7 @@ Functions Count : 249
         ringvm_memorylist() ---> List
         ringvm_packageslist() ---> List
         ringvm_passerror()
+	ringvm_runcode(cCode)
         ringvm_scopescount() ---> nScopes
         ringvm_see(cMessage)
         ringvm_settrace(cCode)
