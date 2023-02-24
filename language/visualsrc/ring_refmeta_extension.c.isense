@@ -202,6 +202,9 @@ cStr, *cStr2
 ring_vm_refmeta_packagename
 Type: VM *
 pVM
+ring_vm_refmeta_importpackage
+Type: VM *
+pVM
 ring_vm_refmeta_ringvmfileslist
 Type: VM *
 pVM
