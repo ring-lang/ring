@@ -1,0 +1,6 @@
+wow
+hello
+Error (R24) : Using uninitialized variable
+Error (R11) : Error in class name, class not found: Test
+Error (R8) : Variable is not a string
+Error (R6) : Variable is required
