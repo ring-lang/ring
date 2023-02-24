@@ -88,7 +88,7 @@ Keywords Count : 58
 Language Functions
 ==================
 
-Functions Count : 249
+Functions Count : 250
 
 .. code-block:: ring
 
@@ -408,47 +408,50 @@ Compiler Errors
 Runtime Errors
 ==============
 
-* Error (R1)  : Can't divide by zero !
-* Error (R2)  : Array Access (Index out of range) !
-* Error (R3)  : Calling Function without definition !
-* Error (R4)  : Stack Overflow !
-* Error (R5)  : Can't access the list item, Object is not list !
+* Error (R1)  : Can't divide by zero
+* Error (R2)  : Array Access (Index out of range)
+* Error (R3)  : Calling Function without definition
+* Error (R4)  : Stack Overflow
+* Error (R5)  : Can't access the list item, Object is not list
 * Error (R6)  : Variable is required
 * Error (R7)  : Can't assign to a string letter more than one character
 * Error (R8)  : Variable is not a string 
 * Error (R9)  : Using exit command outside loops 
 * Error (R10) : Using exit command with number outside the range 
-* Error (R11) : Error in class name, class not found! 
-* Error (R12) : Error in property name, property not found! 
+* Error (R11) : Error in class name, class not found
+* Error (R12) : Error in property name, property not found
 * Error (R13) : Object is required
-* Error (R14) : Calling Method without definition !
-* Error (R15) : Error in parent class name, class not found! 
-* Error (R16) : Using braces to access unknown object ! 
-* Error (R17) : Error, using 'Super' without parent class! 
-* Error (R18) : Numeric Overflow! 
-* Error (R19) : Calling function with less number of parameters!
-* Error (R20) : Calling function with extra number of parameters!
+* Error (R14) : Calling Method without definition
+* Error (R15) : Error in parent class name, class not found
+* Error (R16) : Using braces to access unknown object
+* Error (R17) : Error, using 'Super' without parent class
+* Error (R18) : Numeric Overflow
+* Error (R19) : Calling function with less number of parameters
+* Error (R20) : Calling function with extra number of parameters
 * Error (R21) : Using operator with values of incorrect type
 * Error (R22) : Using loop command outside loops 
 * Error (R23) : Using loop command with number outside the range 
 * Error (R24) : Using uninitialized variable 
-* Error (R25) : Error in package name, Package not found! 
+* Error (R25) : Error in package name, Package not found
 * Error (R26) : Calling private method from outside the class 
 * Error (R27) : Using private attribute from outside the class 
 * Error (R28) : Using bad data type as step value
 * Error (R29) : Using bad data type in for loop
 * Error (R30) : Parent class name is identical to child class name 
 * Error (R31) : Trying to destroy the object using the self reference 
-* Error (R32) : The CALL command expect a variable contains string!
+* Error (R32) : The CALL command expect a variable contains string
 * Error (R33) : Bad decimals number (correct range >= 0 and <= 90)
 * Error (R34) : Variable is required for the assignment operation
-* Error (R35) : Can't create/open the file!
+* Error (R35) : Can't create/open the file
 * Error (R36) : The column number is not correct! It's greater than the number of columns in the list
 * Error (R37) : Sorry, The command is not supported in this context
-* Error (R38) : Runtime Error in loading the dynamic library!
+* Error (R38) : Runtime Error in loading the dynamic library
 * Error (R39) : Error occurred creating unique filename
-* Error (R40) : Numeric underflow!
+* Error (R40) : Numeric underflow
 * Error (R41) : Invalid numeric string
+* Error (R42) : Error in eval() function
+* Error (R43) : The variable contains a protected value
+* Error (R44) : Maximum nested Eval()
 
 .. index:: 
 	pair: Language Specification; Environment Errors
