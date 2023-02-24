@@ -387,7 +387,7 @@
     #define RING_VM_ERROR_PROTECTEDVALUE "Error (R43) : The variable contains a protected value"
     #define RING_VM_ERROR_MAXNESTEDEVAL "Error (R44) : Maximum nested Eval()"
     /* Extra Size (for eval) */
-    #define RING_VM_EXTRASIZE 1000
+    #define RING_VM_EXTRASIZE 2
     #define RING_VM_MINVMINSTRUCTIONS 100000
     #define RING_MAX(a,b) (((a)>(b))?(a):(b))
     #define RING_VM_MAXNESTEDEVAL 255

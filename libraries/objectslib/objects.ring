@@ -115,7 +115,9 @@ func Open_WindowNoShow cClass
 		cCode += "import System.GUI" + nl
 	}
 	cCode += $RingQt_ObjName + " = new " + cClass 
+? "OLib - Before: " + clock()
 	eval(cCode)	
+? "OLib - After: " + clock()
 	$RingQt_ObjName = cRingQt_ObjName	# Restore the current Object
 
 
