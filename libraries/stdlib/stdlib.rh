@@ -46,3 +46,7 @@
 # Parameters
 	C_ERROR_EXPECTLIST = "Error: Bad parameter type - The function expect a list!"
 	C_ERROR_EMPTYLIST  = "Error: No items in the list"
+
+# Flag used by MatrixMulti() function
+
+	C_FLAGSHOWSOLUTION = 0

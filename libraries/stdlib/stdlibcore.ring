@@ -515,11 +515,11 @@ Func Matrixmulti A, B
 			Sum = 0
 			for k = 1 to horzA             
 				Sum += A[vA][k] * B[k][hB]    
-				if FlagShowSolution = 1                  // 0 No Show, 1 = Show Solution
+				if C_FLAGSHOWSOLUTION = 1                  // 0 No Show, 1 = Show Solution
 					See " "+ A[vA][k] +"*"+ B[k][hB]
 				ok
 			next
-			if FlagShowSolution = 1 
+			if C_FLAGSHOWSOLUTION = 1 
 				See " = "+ Sum  +"  C"+ vA + hB +nl
 			ok
 			C[va][hB] = Sum          
