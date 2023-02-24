@@ -214,6 +214,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#faster-braceerror">Faster BraceError()</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ringsockets">Better RingSockets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#heroku-better-support">Heroku (Better support)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-low-level-functions">More Low Level Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-weblib">Better WebLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ring-api">Better Ring API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-documentation">Better Documentation</a></li>
@@ -308,6 +309,7 @@
 <li><p>Faster BraceError()</p></li>
 <li><p>Better RingSockets</p></li>
 <li><p>Heroku (Better support)</p></li>
+<li><p>More Low Level functions</p></li>
 <li><p>Better WebLib</p></li>
 <li><p>Better Ring API</p></li>
 <li><p>Better Documentation</p></li>
@@ -514,8 +516,20 @@ z: 3000
 <p>The project is tested using Heroku-22 (Ubuntu 22.04)</p>
 <p>URL: <a class="reference external" href="https://github.com/ring-lang/RingWebAppOnHeroku">https://github.com/ring-lang/RingWebAppOnHeroku</a></p>
 </div>
+<div class="section" id="more-low-level-functions">
+<span id="index-14"></span><h2>More Low Level Functions<a class="headerlink" href="#more-low-level-functions" title="Permalink to this headline">¶</a></h2>
+<p>The next functions are added to the Low Level functions</p>
+<ul class="simple">
+<li><p>ringvm_ismempool()</p></li>
+<li><p>ringvm_runcode(cCode)</p></li>
+</ul>
+<p>These functions could be helpful for writing tests!</p>
+<p>The ringvm_ismempool() tell us if the memory pool still active or not.</p>
+<p>The ringvm_runcode(cCode) execute code using Eval() &amp; the Main Loop</p>
+<p>See the chapter (Low Level Functions) for more information.</p>
+</div>
 <div class="section" id="better-weblib">
-<span id="index-14"></span><h2>Better WebLib<a class="headerlink" href="#better-weblib" title="Permalink to this headline">¶</a></h2>
+<span id="index-15"></span><h2>Better WebLib<a class="headerlink" href="#better-weblib" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>HTTP Post - Better Code</p></li>
 <li><dl class="simple">
@@ -552,7 +566,7 @@ z: 3000
 </ol>
 </div>
 <div class="section" id="better-ring-api">
-<span id="index-15"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this headline">¶</a></h2>
+<span id="index-16"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Added: RING_API_GETFLOATPOINTER(nParameter)</p></li>
 <li><p>Added: RING_API_ACCEPTFLOATVALUE(nParameter)</p></li>
@@ -613,7 +627,7 @@ Hello from C Code
 </div>
 </div>
 <div class="section" id="better-documentation">
-<span id="index-16"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this headline">¶</a></h2>
+<span id="index-17"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this headline">¶</a></h2>
 <p>The next chapters are improved!</p>
 <ol class="arabic simple">
 <li><p>Building RingQt applications for Mobile</p></li>
@@ -622,7 +636,7 @@ Hello from C Code
 </ol>
 </div>
 <div class="section" id="more-improvements">
-<span id="index-17"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
+<span id="index-18"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Ring Notepad: New option to build GUI application using Ring2EXE</p></li>
 <li><p>Ring Notepad: Output Window - Correct cursor position while using unicode</p></li>
@@ -644,8 +658,6 @@ Hello from C Code
 <li><p>RingQt: Use Qt 5.15.2 instead of Qt 5.15.0</p></li>
 <li><p>RingQt: QMediaPlayer Class - Remove currentNetworkConfiguration() Method</p></li>
 <li><p>Ring2EXE: Better code when distributing GUI applications</p></li>
-<li><p>Ring Functions - Added: ringvm_ismempool()</p></li>
-<li><p>Ring Functions - Added: ringvm_runcode()</p></li>
 <li><p>Ring Functions - SetEnv()/UnSetEnv() - Better Code</p></li>
 <li><p>Ring Functions - Print()/Puts() - Better Code</p></li>
 <li><p>Ring Functions - Eval() - Better Code</p></li>
