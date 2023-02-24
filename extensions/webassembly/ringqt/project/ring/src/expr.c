@@ -566,7 +566,7 @@ int ring_parser_range ( Parser *pParser )
 
 int ring_parser_factor ( Parser *pParser,int *nFlag )
 {
-    int x,x2,x3,nLastOperation,nCount,nNOOP,nToken,nMark,nFlag2,nThisOrSelfLoadA  ;
+    int x,x2,x3,nLastOperation,nCount,nNOOP,nToken,nMark,nFlag2,nThisOrSelfLoadA,lNewFrom  ;
     List *pLoadAPos, *pLoadAMark,*pList, *pMark,*pAssignmentPointerPos  ;
     char lSetProperty,lequal,nBeforeEqual  ;
     char cFuncName[100]  ;
@@ -953,13 +953,21 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
     if ( ring_parser_iskeyword(pParser,K_NEW) ) {
         ring_parser_nexttoken(pParser);
         RING_PARSER_IGNORENEWLINE ;
+        /* Check creating new object from variable */
+        lNewFrom = 0 ;
+        if ( ring_parser_iskeyword(pParser,K_FROM) ) {
+            ring_parser_nexttoken(pParser);
+            RING_PARSER_IGNORENEWLINE ;
+            lNewFrom = 1 ;
+        }
         /* Generate Code */
         ring_parser_icg_newoperation(pParser,ICO_NEWOBJ);
         RING_STATE_CHECKPRINTRULES 
         
-        puts("Rule : Factor --> New Identifier {'.' Identifier }  ");
+        puts("Rule : Factor --> New [from] Identifier {'.' Identifier }  ");
         if ( ring_parser_namedotname(pParser) ) {
             /* Generate Code */
+            ring_parser_icg_newoperandint(pParser,lNewFrom);
             ring_parser_icg_newoperation(pParser,ICO_SETSCOPE);
             RING_PARSER_IGNORENEWLINE ;
             if ( ring_parser_isoperator2(pParser,OP_BRACEOPEN) ) {
