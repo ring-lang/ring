@@ -37,6 +37,7 @@ void ring_vm_refmeta_loadfunctions ( RingState *pRingState )
     RING_API_REGISTER("setattribute",ring_vm_refmeta_setattribute);
     RING_API_REGISTER("mergemethods",ring_vm_refmeta_mergemethods);
     RING_API_REGISTER("packagename",ring_vm_refmeta_packagename);
+    RING_API_REGISTER("importpackage",ring_vm_refmeta_importpackage);
     /* VM */
     RING_API_REGISTER("ringvm_fileslist",ring_vm_refmeta_ringvmfileslist);
     RING_API_REGISTER("ringvm_calllist",ring_vm_refmeta_ringvmcalllist);
@@ -859,6 +860,22 @@ void ring_vm_refmeta_packagename ( void *pPointer )
         return ;
     }
     RING_API_RETSTRING(ring_string_get(pVM->pPackageName));
+}
+
+void ring_vm_refmeta_importpackage ( void *pPointer )
+{
+    VM *pVM  ;
+    pVM = (VM *) pPointer ;
+    if ( RING_API_PARACOUNT != 1 ) {
+        RING_API_ERROR(RING_API_BADPARACOUNT);
+        return ;
+    }
+    if ( RING_API_ISSTRING(1) ) {
+        ring_vm_oop_import2(pVM,RING_API_GETSTRING(1));
+    }
+    else {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+    }
 }
 /* VM */
 

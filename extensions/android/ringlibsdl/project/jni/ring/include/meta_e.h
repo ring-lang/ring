@@ -62,6 +62,8 @@
     void ring_vm_refmeta_mergemethods ( void *pPointer ) ;
 
     void ring_vm_refmeta_packagename ( void *pPointer ) ;
+
+    void ring_vm_refmeta_importpackage ( void *pPointer ) ;
     /* VM */
 
     void ring_vm_refmeta_ringvmfileslist ( void *pPointer ) ;
