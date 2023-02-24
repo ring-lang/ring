@@ -28,6 +28,31 @@ void ring_vm_oop_newobj ( VM *pVM )
     pVar = NULL ;
     pItem = NULL ;
     cClassName = RING_VM_IR_READC ;
+    /* Check using variable to get the class name */
+    if ( RING_VM_IR_READIVALUE(2) ) {
+        if ( ring_vm_findvar(pVM,cClassName) ) {
+            pVar = (List *) RING_VM_STACK_READP ;
+            if ( ring_list_isstring(pVar,RING_VAR_VALUE) ) {
+                if ( strcmp(ring_list_getstring(pVar,RING_VAR_VALUE),"") != 0 ) {
+                    cClassName = ring_list_getstring(pVar,RING_VAR_VALUE);
+                }
+                else {
+                    ring_vm_error(pVM,RING_VM_ERROR_USINGNULLVARIABLE);
+                    return ;
+                }
+            }
+            else {
+                ring_vm_error(pVM,RING_VM_ERROR_VARISNOTSTRING);
+                return ;
+            }
+            RING_VM_STACK_POP ;
+            pVar = NULL ;
+        }
+        else {
+            ring_vm_error(pVM,RING_VM_ERROR_NOTVARIABLE);
+            return ;
+        }
+    }
     nLimit = ring_vm_oop_visibleclassescount(pVM);
     if ( nLimit > 0 ) {
         for ( x = 1 ; x <= nLimit ; x++ ) {

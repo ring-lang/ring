@@ -32,7 +32,7 @@ Type: int
 x,nFlag
 ring_parser_factor
 Type: int
-x,x2,x3,nLastOperation,nCount,nNOOP,nToken,nMark,nFlag2,nThisOrSelfLoadA
+x,x2,x3,nLastOperation,nCount,nNOOP,nToken,nMark,nFlag2,nThisOrSelfLoadA,lNewFrom
 Type: List *
 pLoadAPos, *pLoadAMark,*pList, *pMark,*pAssignmentPointerPos
 Type: char
