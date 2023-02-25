@@ -563,7 +563,7 @@ Factor ---> '(' <Expr> ')'
 
 Factor ---> <List>
 
-Factor ---> 'new' <Identifier>
+Factor ---> 'new' ['from'] <Identifier>
 
 Factor ---> <AnonymousFunction>
 
