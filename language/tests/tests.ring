@@ -553,6 +553,7 @@ aTests = [
 	[ :name = "Using References (Part 73)", :Command = "ring references/zeroproxy2.ring" ],
 	[ :name = "Using References (Part 74)", :Command = "ring references/refpara6.ring" ],
 	[ :name = "Using References (Part 75)", :Command = "ring references/forinmagic2.ring" ],
+	[ :name = "Using References (Part 76)", :Command = "ring references/reftemp.ring" ],
 	[ :name = "Memory Usage (Part 1)", :Command = "ring memory/ismempool.ring" ],
 	[ :name = "Memory Usage (Part 2)", :Command = "ring memory/leak1.ring" ],
 	[ :name = "Memory Usage (Part 3)", :Command = "ring memory/leak2.ring" ],
