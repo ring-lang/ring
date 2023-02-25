@@ -24,6 +24,7 @@ We will learn about
 * Sort() and List of Objects
 * Using Self.Attribute and Self.Method()
 * Using This.Attribute and This.Method()
+* Command: New From
 
 
 .. index:: 
@@ -1052,3 +1053,36 @@ Output:
 	0
 	name: My Application
 	version: 1.0
+
+.. index:: 
+	pair: Object Oriented Programming; New From
+
+Command: New From
+=================
+
+Using (new) we can create a new object from a specific class
+
+Using (new from) we provide a variable which contains the class name
+
+Example:
+
+.. code-block:: ring
+
+	cClassName = "myclass2"
+	myobj = new from cClassName
+
+	cClassName = "myclass"
+	myobj = new from cClassName
+
+	class myclass
+		? :hello
+
+	class myclass2
+		? :wow
+
+Output:
+
+.. code-block::
+
+	wow
+	hello

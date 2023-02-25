@@ -27,6 +27,7 @@ Ring 1.18 comes with the next features!
 * Faster BraceError()
 * Better RingSockets
 * Heroku (Better support)
+* Command: New From
 * ImportPackage() function
 * More Low Level functions
 * Better WebLib
@@ -322,6 +323,41 @@ In Ring 1.18 We updated the packages to use a modern Ring version
 The project is tested using Heroku-22 (Ubuntu 22.04)
 
 URL: https://github.com/ring-lang/RingWebAppOnHeroku
+
+.. index:: 
+	pair: What is new in Ring  1.18; New From
+
+Command: New From
+=================
+
+Using (new) we can create a new object from a specific class
+
+In Ring 1.18 we have (new from) where we provide a variable which contains the class name
+
+Using this command we can avoid using Eval() for this common case
+
+Example:
+
+.. code-block:: ring
+
+	cClassName = "myclass2"
+	myobj = new from cClassName
+
+	cClassName = "myclass"
+	myobj = new from cClassName
+
+	class myclass
+		? :hello
+
+	class myclass2
+		? :wow
+
+Output:
+
+.. code-block::
+
+	wow
+	hello
 
 .. index:: 
 	pair: What is new in Ring  1.18; ImportPackage() Function

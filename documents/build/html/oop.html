@@ -131,6 +131,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#using-this-attribute-and-this-method">Using This.Attribute and This.Method()</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-this-in-the-class-region-as-self">Using This in the class region as Self</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#default-value-for-object-attributes">Default value for object attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#command-new-from">Command: New From</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
@@ -193,6 +194,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingref.html">Using References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
@@ -307,6 +309,7 @@ inside the Ring programming language.</p>
 <li><p>Sort() and List of Objects</p></li>
 <li><p>Using Self.Attribute and Self.Method()</p></li>
 <li><p>Using This.Attribute and This.Method()</p></li>
+<li><p>Command: New From</p></li>
 </ul>
 <div class="section" id="classes-and-objects">
 <span id="index-1"></span><h2>Classes and Objects<a class="headerlink" href="#classes-and-objects" title="Permalink to this headline">¶</a></h2>
@@ -1178,6 +1181,30 @@ NULL
 0
 name: My Application
 version: 1.0
+</pre></div>
+</div>
+</div>
+<div class="section" id="command-new-from">
+<span id="index-17"></span><h2>Command: New From<a class="headerlink" href="#command-new-from" title="Permalink to this headline">¶</a></h2>
+<p>Using (new) we can create a new object from a specific class</p>
+<p>Using (new from) we provide a variable which contains the class name</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cClassName</span> <span class="o">=</span> <span class="s">&quot;myclass2&quot;</span>
+<span class="n">myobj</span> <span class="o">=</span> <span class="k">new</span> <span class="k">from</span> <span class="n">cClassName</span>
+
+<span class="n">cClassName</span> <span class="o">=</span> <span class="s">&quot;myclass&quot;</span>
+<span class="n">myobj</span> <span class="o">=</span> <span class="k">new</span> <span class="k">from</span> <span class="n">cClassName</span>
+
+<span class="k">class</span> <span class="n">myclass</span>
+        <span class="o">?</span> <span class="p">:</span><span class="n">hello</span>
+
+<span class="k">class</span> <span class="n">myclass2</span>
+        <span class="o">?</span> <span class="p">:</span><span class="n">wow</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wow</span>
+<span class="n">hello</span>
 </pre></div>
 </div>
 </div>
