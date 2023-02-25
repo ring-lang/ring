@@ -146,6 +146,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#setattribute-function">setattribute() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mergemethods-function">mergemethods() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#packagename-function">packagename() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#importpackage-function">importpackage() Function</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
@@ -336,6 +337,7 @@ the program code and we can modify our code during the runtime.</p>
 <li><p>setattribute()</p></li>
 <li><p>mergemethods()</p></li>
 <li><p>packagename()</p></li>
+<li><p>importpackage()</p></li>
 </ul>
 <div class="section" id="locals-function">
 <span id="index-1"></span><h2>locals() Function<a class="headerlink" href="#locals-function" title="Permalink to this headline">¶</a></h2>
@@ -436,7 +438,7 @@ the program code and we can modify our code during the runtime.</p>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Count</span> <span class="p">:</span> <span class="mi">250</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Count</span> <span class="p">:</span> <span class="mi">251</span>
 <span class="n">len</span><span class="p">()</span>
 <span class="n">add</span><span class="p">()</span>
 <span class="n">del</span><span class="p">()</span>
@@ -1250,6 +1252,26 @@ The Find uses the member name, rather than the column number</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">import</span> <span class="n">System</span><span class="p">.</span><span class="n">web</span>
 <span class="k">see</span> <span class="n">packagename</span><span class="p">()</span>       <span class="c"># system.web</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="importpackage-function">
+<span id="index-30"></span><h2>importpackage() Function<a class="headerlink" href="#importpackage-function" title="Permalink to this headline">¶</a></h2>
+<p>Instead of using the import command we can use the importpackage() function</p>
+<p>This function get the package name through a string or variable</p>
+<p>This is useful if the package name will be known only during the runtime</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">importpackage</span><span class="p">(</span><span class="n">cPackageName</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">importpackage</span><span class="p">(:</span><span class="n">mypackage</span><span class="p">)</span>
+<span class="k">new</span> <span class="n">myclass</span> <span class="p">{</span> <span class="n">myfunction</span><span class="p">()</span> <span class="p">}</span>
+
+<span class="n">package</span> <span class="n">mypackage</span>
+        <span class="k">class</span> <span class="n">myclass</span>
+                <span class="k">function</span> <span class="n">myfunction</span>
+                        <span class="o">?</span> <span class="s">&quot;Hello, World!&quot;</span>
 </pre></div>
 </div>
 </div>

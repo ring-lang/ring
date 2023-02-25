@@ -88,7 +88,7 @@ Keywords Count : 58
 Language Functions
 ==================
 
-Functions Count : 250
+Functions Count : 251
 
 .. code-block:: ring
 
@@ -176,6 +176,7 @@ Functions Count : 250
         globals() ---> a list contains variables names in the global scope
         hex(decimal) ---> hexadecimal
         hex2str(Hexadecimal string) ---> string
+	importpackage(cPackageName)
         input(nCount) ---> string
 	insert(List,Index,Item)
         int2bytes(nNumber) ---> cBytes

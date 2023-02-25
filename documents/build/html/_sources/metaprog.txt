@@ -39,6 +39,7 @@ In this chapter we will learn about this and the available functions to use.
 * setattribute()
 * mergemethods()
 * packagename()
+* importpackage()
 
 .. index:: 
 	pair: Reflection and Meta-programming; locals()
@@ -182,7 +183,7 @@ Output:
 
 .. code-block:: ring
 
-	Count : 250
+	Count : 251
 	len() 
 	add() 
 	del() 
@@ -1261,3 +1262,33 @@ Example:
 	load "weblib.ring"
 	import System.web
 	see packagename()	# system.web
+
+.. index:: 
+	pair: Reflection and Meta-programming; importpackage() Function
+
+importpackage() Function
+========================
+
+Instead of using the import command we can use the importpackage() function
+
+This function get the package name through a string or variable
+
+This is useful if the package name will be known only during the runtime
+
+Syntax:
+
+.. code-block:: ring
+
+	importpackage(cPackageName)
+
+Example:
+
+.. code-block:: ring
+
+	importpackage(:mypackage)
+	new myclass { myfunction() }
+
+	package mypackage
+		class myclass
+			function myfunction
+				? "Hello, World!"
