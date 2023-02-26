@@ -4,8 +4,9 @@
 # Using Ref() with the range operator or list() 
 # function doesn't create a new reference because these temp. lists
 # doesn't have a variable that contains it.
-# But using Ref with (new object) or ([1,2,3]) can create a reference
-# Because they are already stored in temp. variables
+# Also, using Ref() with (new object) or ([1,2,3]) 
+# doesn't create a reference because Ring will ignore the temp. variable
+# This is more natural (works as expected) - Thanks to Ilir 
 
 ? "**************"
 x = ref(1:3)

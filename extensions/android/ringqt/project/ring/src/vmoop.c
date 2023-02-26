@@ -92,6 +92,10 @@ void ring_vm_oop_newobj ( VM *pVM )
                     ring_list_setint_gc(pVM->pRingState,pVar,RING_VAR_TYPE,RING_VM_LIST);
                     ring_list_setlist_gc(pVM->pRingState,pVar,RING_VAR_VALUE);
                     pList2 = ring_list_getlist(pVar,RING_VAR_VALUE);
+                    /* When using something like Ref(new myclass) don't create new reference */
+                    if ( pVM->nFuncExecute > 0 ) {
+                        ring_list_enabledontref(pList2);
+                    }
                 }
                 else {
                     /* Prepare Object List */

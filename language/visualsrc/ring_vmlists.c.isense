@@ -60,11 +60,3 @@ Type: int
 nOPCode
 Type: List *
 pParent, *pSub, *pVar
-ring_vm_removelistprotection
-Type: int
-x
-Type: List *
-pList
-ring_vm_removelistprotectionat
-Type: List *
-pList

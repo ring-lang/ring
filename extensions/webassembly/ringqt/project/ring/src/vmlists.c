@@ -99,6 +99,10 @@ void ring_vm_liststart ( VM *pVM )
     /* Enable Error on Assignment */
     pList = (List *) ring_list_getpointer(pVM->pNestedLists,ring_list_getsize(pVM->pNestedLists));
     pList->gc.lErrorOnAssignment = 1 ;
+    /* When using something like Ref([1,2,3]) - Don't create new reference */
+    if ( (pNewList != NULL) && (pVM->nFuncExecute > 0) ) {
+        ring_list_enabledontref(pNewList);
+    }
 }
 
 void ring_vm_listitem ( VM *pVM )
