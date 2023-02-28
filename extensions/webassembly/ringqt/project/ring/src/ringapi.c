@@ -382,6 +382,12 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
         /* Used by RING_API_RETNEWREF (i.e. Ref()/Reference() function implementation) */
         pVariableList = ring_list_newref_gc(((VM *) pPointer)->pRingState,pVariableList,pList);
     }
+    if ( (nRef == RING_OUTPUT_RETLIST) || (nRef == RING_OUTPUT_RETLISTBYREF) ) {
+        /* Update self object pointer */
+        if ( ring_vm_oop_isobject(pRealList) ) {
+            ring_vm_oop_updateselfpointer(pVM,pRealList,RING_OBJTYPE_VARIABLE,pVariableList);
+        }
+    }
     RING_API_PUSHPVALUE(pVariableList);
     RING_API_OBJTYPE = RING_OBJTYPE_VARIABLE ;
 }
