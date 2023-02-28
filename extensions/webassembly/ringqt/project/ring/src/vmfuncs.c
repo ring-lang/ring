@@ -548,6 +548,11 @@ void ring_vm_movetoprevscope ( VM *pVM,int nFuncType )
     if ( ring_list_getsize(pVM->pMem) < 2 ) {
         return ;
     }
+    /* Check Flag */
+    if ( pVM->lDontMoveToPrevScope ) {
+        pVM->lDontMoveToPrevScope = 0 ;
+        return ;
+    }
     /* Get The Source List */
     if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
         pList = (List *) RING_VM_STACK_READP ;
@@ -589,6 +594,16 @@ void ring_vm_movetoprevscope ( VM *pVM,int nFuncType )
             ring_list_swaptwolists(pList2,pList);
         }
         else {
+            /* When we return a local object - Swap Container Lists (Don't copy object list) */
+            if ( ring_vm_oop_isobject(pList) ) {
+                if ( ring_vm_oop_objtypefromobjlist(pList) == RING_OBJTYPE_VARIABLE ) {
+                    ring_list_swaptwolists(pList3,ring_vm_oop_objvarfromobjlist(pList));
+                    ring_vm_oop_updateselfpointer(pVM,pList,RING_OBJTYPE_VARIABLE,pList3);
+                    RING_VM_STACK_SETPVALUE(pList3);
+                    RING_VM_STACK_OBJTYPE = RING_OBJTYPE_VARIABLE ;
+                    return ;
+                }
+            }
             ring_vm_list_copy(pVM,pList2,pList);
             ring_list_enabledontref(pList2);
         }

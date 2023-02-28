@@ -346,6 +346,7 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
     List *pRealList,*pTempMem,*pVariableList, *pObjectVariable  ;
     VM *pVM  ;
     pVM = (VM *) pPointer ;
+    int nType  ;
     /* Check Output Mode */
     if ( nRef == RING_OUTPUT_RETNEWREF ) {
         /* Check if we are creating a Reference before assignment, i.e. Ref(List(nSize)) */
@@ -354,6 +355,18 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
         }
         /* Check lDontRef Flag */
         if ( ring_list_isdontref(pList) ) {
+            if ( ring_vm_oop_isobject(pList) ) {
+                nType = ring_vm_oop_objtypefromobjlist(pList) ;
+                if ( nType == RING_OBJTYPE_VARIABLE ) {
+                    RING_API_PUSHPVALUE(ring_vm_oop_objvarfromobjlist(pList));
+                }
+                else {
+                    RING_API_PUSHPVALUE(ring_vm_oop_objitemfromobjlist(pList));
+                }
+                RING_API_OBJTYPE = nType ;
+                pVM->lDontMoveToPrevScope = 1 ;
+                return ;
+            }
             nRef = RING_OUTPUT_RETLIST ;
         }
     }
