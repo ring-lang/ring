@@ -232,6 +232,8 @@ Type: unsigned char
 lExitFlag
 Type: unsigned char
 lCheckBraceError
+Type: unsigned char
+lDontMoveToPrevScope
 END:
 Type: VM
 struct VM

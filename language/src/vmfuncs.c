@@ -548,6 +548,11 @@ void ring_vm_movetoprevscope ( VM *pVM,int nFuncType )
     if ( ring_list_getsize(pVM->pMem) < 2 ) {
         return ;
     }
+    /* Check Flag */
+    if ( pVM->lDontMoveToPrevScope ) {
+        pVM->lDontMoveToPrevScope = 0 ;
+        return ;
+    }
     /* Get The Source List */
     if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
         pList = (List *) RING_VM_STACK_READP ;
