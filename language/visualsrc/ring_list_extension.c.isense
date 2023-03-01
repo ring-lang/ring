@@ -69,6 +69,8 @@ Type: unsigned int
 x, nPos, nColumn
 Type: char *
 cAttribute
+Type: VM *
+pVM
 ring_vm_listfuncs_binarysearch
 Type: List *
 pList, *pList2
@@ -81,6 +83,10 @@ Type: List *
 pList,*pList2,*pList3
 Type: unsigned int
 x
+Type: Item *
+pItem
+Type: VM *
+pVM
 ring_vm_listfuncs_reference
 Type: List *
 pList

@@ -388,6 +388,7 @@
     #define RING_VM_ERROR_EVAL "Error (R42) : Error in eval() function"
     #define RING_VM_ERROR_PROTECTEDVALUE "Error (R43) : The variable contains a protected value"
     #define RING_VM_ERROR_MAXNESTEDEVAL "Error (R44) : Maximum nested Eval()"
+    #define RING_VM_ERROR_VARISNOTLIST "Error (R45) : Variable is not a list"
     /* Extra Size (for eval) */
     #define RING_VM_EXTRASIZE 1000
     #define RING_VM_MINVMINSTRUCTIONS 100000
