@@ -1,0 +1,33 @@
+-1
+-2
+-3
+-4
+-5
+-6
+-7
+-8
+-9
+-10
+
+-10
+-9
+-8
+-7
+-6
+-5
+-4
+-3
+-2
+-1
+
+We can't sort an object!
+We can't reverse an object!
+We can't insert to an object!
+We can't add to an object!
+We can't use swap with an object!
+We can't use min() with an object!
+We can't use max() with an object!
+x: 10
+y: 20
+z: 30
+
