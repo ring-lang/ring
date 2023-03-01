@@ -460,12 +460,16 @@ void ring_vm_listfuncs_insert ( void *pPointer )
         }
         else if ( RING_API_ISLIST(3) ) {
             pList2 = ring_list_insertlist(pList,nPos);
+            pItem = ring_list_getitem(pList,nPos+1);
             if ( ring_list_isref(RING_API_GETLIST(3)) ) {
-                pItem = ring_list_getitem(pList,nPos+1);
                 ring_list_assignreftoitem_gc(pVM->pRingState,RING_API_GETLIST(3),pItem);
             }
             else {
                 ring_vm_list_copy(pVM,pList2,RING_API_GETLIST(3));
+                /* Update self object pointer */
+                if ( ring_vm_oop_isobject(pList2) ) {
+                    ring_vm_oop_updateselfpointer(pVM,pList2,RING_OBJTYPE_LISTITEM,pItem);
+                }
             }
         }
         else {
