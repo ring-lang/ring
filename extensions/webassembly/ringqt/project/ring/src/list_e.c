@@ -674,6 +674,9 @@ void ring_vm_listfuncs_reverse ( void *pPointer )
 {
     List *pList,*pList2,*pList3  ;
     unsigned int x  ;
+    Item *pItem  ;
+    VM *pVM  ;
+    pVM = (VM *) pPointer ;
     if ( RING_API_PARACOUNT != 1 ) {
         RING_API_ERROR(RING_API_MISS1PARA);
         return ;
@@ -691,6 +694,11 @@ void ring_vm_listfuncs_reverse ( void *pPointer )
             else if ( ring_list_islist(pList2,x) ) {
                 pList3 = ring_list_newlist_gc(((VM *) pPointer)->pRingState,pList);
                 ring_vm_list_copy((VM *) pPointer,pList3,ring_list_getlist(pList2,x));
+                pItem = ring_list_getitem(pList,ring_list_getsize(pList));
+                /* Update self object pointer */
+                if ( ring_vm_oop_isobject(pList3) ) {
+                    ring_vm_oop_updateselfpointer(pVM,pList3,RING_OBJTYPE_LISTITEM,pItem);
+                }
             }
         }
         RING_API_RETLIST(pList);
