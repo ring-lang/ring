@@ -453,6 +453,7 @@ Runtime Errors
 * Error (R42) : Error in eval() function
 * Error (R43) : The variable contains a protected value
 * Error (R44) : Maximum nested Eval()
+* Error (R45) : Variable is not a list
 
 .. index:: 
 	pair: Language Specification; Environment Errors
