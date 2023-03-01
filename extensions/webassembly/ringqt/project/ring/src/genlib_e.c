@@ -1850,6 +1850,10 @@ void ring_vm_generallib_state_setvar ( void *pPointer )
         ring_list_setlist_gc(pRingSubState,pList, RING_VAR_VALUE);
         pList3 = ring_list_getlist(pList,RING_VAR_VALUE);
         ring_vm_list_copy(pRingSubState->pVM,pList3,pList2);
+        /* Update self object pointer */
+        if ( ring_vm_oop_isobject(pList3) ) {
+            ring_vm_oop_updateselfpointer(pVM,pList3,RING_OBJTYPE_VARIABLE,pList);
+        }
     }
 }
 
