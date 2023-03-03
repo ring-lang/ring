@@ -327,6 +327,13 @@ The next videos demonstrates some of the PWCT 2.0 features:
 * [Templates & AutoRun](https://cdn.akamai.steamstatic.com/steam/apps/256893582/movie_max_vp9.webm?t=1656153375)
 * [Web Development](https://cdn.akamai.steamstatic.com/steam/apps/256883763/movie_max_vp9.webm?t=1657473295)
 
+Tutorials
+
+* [Print Text component](https://www.youtube.com/watch?v=zd2jUEIlr8Y)
+* [Goal Designer features](https://www.youtube.com/watch?v=f9fbPKSiP4k)
+* [Get Input component](https://www.youtube.com/watch?v=GMlbc9bVIc0)
+* [PWCT Beginner Code Example](https://www.youtube.com/watch?v=4vpyVzTXBO8)
+
 ## The Release Date
 
 Since we already have the first generation of the product (PWCT 1.9) 
