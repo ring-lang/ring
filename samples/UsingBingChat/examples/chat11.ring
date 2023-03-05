@@ -23,7 +23,8 @@ while true
                     close()                                  
                else                     
                     see "Invalid choice!" + nl                     
-                    input("Press any key to continue...")                    
+                    ? "Press any key to continue..."
+                    give key                    
                ok
           ok
      ok
