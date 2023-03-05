@@ -334,6 +334,7 @@ Tutorials
 * [Get Input component](https://www.youtube.com/watch?v=GMlbc9bVIc0)
 * [PWCT Beginner Code Example](https://www.youtube.com/watch?v=4vpyVzTXBO8)
 * [Rich Comments (Adding Images)](https://www.youtube.com/watch?v=3yd72YrXxF0)
+* [Get Character/Characters](https://www.youtube.com/watch?v=4KgNXz-DxcY)
 
 ## The Release Date
 
