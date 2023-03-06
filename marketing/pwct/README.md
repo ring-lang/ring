@@ -3,7 +3,7 @@ Programming Without Coding Technology (PWCT) 2.0
 
 * Posted: 30 April 2021
 
-* Date last Updated: 4 March 2023
+* Date last Updated: 6 March 2023
 
 # Contents:
 
@@ -335,6 +335,7 @@ Tutorials
 * [PWCT Beginner Code Example](https://www.youtube.com/watch?v=4vpyVzTXBO8)
 * [Rich Comments (Adding Images)](https://www.youtube.com/watch?v=3yd72YrXxF0)
 * [Get Character/Characters](https://www.youtube.com/watch?v=4KgNXz-DxcY)
+* [Quick Start component](https://www.youtube.com/watch?v=OfzMfK_NukA)
 
 ## The Release Date
 
