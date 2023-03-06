@@ -337,6 +337,12 @@ Tutorials
 * [Get Character/Characters](https://www.youtube.com/watch?v=4KgNXz-DxcY)
 * [Quick Start component](https://www.youtube.com/watch?v=OfzMfK_NukA)
 
+More videos
+
+* [String Length](https://www.youtube.com/watch?v=4vpyVzTXBO8)
+* [Adding user input to a list](https://www.youtube.com/watch?v=DV5zq2sH_Yg)
+* [GUI - Button & Click Event](https://www.youtube.com/watch?v=eqQpzzSDq5k)
+
 ## The Release Date
 
 Since we already have the first generation of the product (PWCT 1.9) 
