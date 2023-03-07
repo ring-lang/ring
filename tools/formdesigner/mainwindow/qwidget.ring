@@ -289,6 +289,9 @@ class FormDesigner_QWidget from QWidget
 			if oDesigner.HasParent() {
 				top -= oDesigner.oView.win.parentwidget().y()
 				left -= oDesigner.oView.win.parentwidget().x()
+				# Where we move RNOTE main window down then draw button
+				top -= oDesigner.oView.win.parentwidget().parentwidget().y()
+				left -= oDesigner.oView.win.parentwidget().parentwidget().x()
 			}
 		width = max(nX,nX2) - min(nX,nX2)
 		height = max(nY,nY2) - min(nY,nY2)
