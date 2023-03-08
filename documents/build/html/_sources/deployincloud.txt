@@ -15,8 +15,6 @@ Introduction
 
 We created a new project and tutorial to explain how to deploy Ring web applications in the Cloud using Heroku
 
-Demo : http://testring.herokuapp.com/
-
 Project : https://github.com/ring-lang/RingWebAppOnHeroku
 
 Heroku Website : https://www.heroku.com/
@@ -120,8 +118,6 @@ Hello World program
 
 file : ringapp/helloworld.ring
 
-To run it : http://testring.herokuapp.com/ringapp/helloworld.ring
-
 .. code-block:: ring
 
 	#!/app/runring.sh -cgi
@@ -130,8 +126,6 @@ To run it : http://testring.herokuapp.com/ringapp/helloworld.ring
 	see "Hello, World!" + nl
 
 file : ringapp/helloworld2.ring
-
-To run it : http://testring.herokuapp.com/ringapp/helloworld2.ring
 
 .. code-block:: ring
 

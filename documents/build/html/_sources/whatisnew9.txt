@@ -383,8 +383,6 @@ Deploying Web applications in the Cloud
 
 We created a new project and tutorial to explain how to deploy Ring web applications in the Cloud using Heroku
 
-Demo : http://testring.herokuapp.com/
-
 Project : https://github.com/ring-lang/RingWebAppOnHeroku
 
 Heroku Website : https://www.heroku.com/
