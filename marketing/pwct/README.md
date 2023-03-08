@@ -3,7 +3,7 @@ Programming Without Coding Technology (PWCT) 2.0
 
 * Posted: 30 April 2021
 
-* Date last Updated: 6 March 2023
+* Date last Updated: 8 March 2023
 
 # Contents:
 
@@ -336,6 +336,8 @@ Tutorials
 * [Rich Comments (Adding Images)](https://www.youtube.com/watch?v=3yd72YrXxF0)
 * [Get Character/Characters](https://www.youtube.com/watch?v=4KgNXz-DxcY)
 * [Quick Start component](https://www.youtube.com/watch?v=OfzMfK_NukA)
+* [Arithmetic & logical operators](https://www.youtube.com/watch?v=gtL8m_-0F5o)
+* [Relational operators](https://www.youtube.com/watch?v=EVPwn6lgsDM)
 
 More videos
 
@@ -344,10 +346,6 @@ More videos
 * [GUI - Button & Click Event](https://www.youtube.com/watch?v=eqQpzzSDq5k)
 
 ## The Release Date
-
-Since we already have the first generation of the product (PWCT 1.9) 
-
-We decided that in the second generation we will focus on the quality and accept the high costs (Development Time).
 
 PWCT 2.0 was released on 1 March 2023
 
