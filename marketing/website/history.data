@@ -26,7 +26,6 @@ aNews = [
   ["October 4, 2021",'<a href="http://ring-lang-081.osdn.jp/docs-1.15/index.html"> Ring 1.15 Documentation (Japanese)</a>'],
   ["September 24, 2021",'<a href="doc1.15/whatisnew15.html"> Ring 1.15 Released!</a>'],
   ["August 20, 2021",'<a href="https://www.youtube.com/watch?v=jdgzpQbcHGQ&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=402"> Over 400 videos about Ring in Hassouna Academy'],
-  ["August 15, 2021",'<a href="https://ringmycoffee.herokuapp.com/mycoffee/index.ring"> MyCoffee (Cloud Deployment)'],
   ["July 22, 2021",'<a href="https://github.com/ring-lang/ring/tree/master/marketing/chess3d/README.md"> Chess 3D (Qt3D Sample)</a>'],
   ["May 1, 2021",'<a href="https://github.com/ring-lang/ring/blob/master/marketing/pwct/README.md"> PWCT 2.0 (Progress Report!)</a>'],
   ["April 17, 2021",'<a href="http://ring-lang-081.osdn.jp/docs-1.14/index.html"> Ring 1.14 Documentation (Japanese)</a>'],
