@@ -329,25 +329,26 @@ The next videos demonstrates some of the PWCT 2.0 features:
 
 Tutorials
 
-* [Print Text component](https://www.youtube.com/watch?v=zd2jUEIlr8Y)
-* [Goal Designer features](https://www.youtube.com/watch?v=f9fbPKSiP4k)
-* [Get Input component](https://www.youtube.com/watch?v=GMlbc9bVIc0)
-* [PWCT Beginner Code Example](https://www.youtube.com/watch?v=4vpyVzTXBO8)
-* [Rich Comments (Adding Images)](https://www.youtube.com/watch?v=3yd72YrXxF0)
-* [Get Character/Characters](https://www.youtube.com/watch?v=4KgNXz-DxcY)
-* [Quick Start component](https://www.youtube.com/watch?v=OfzMfK_NukA)
-* [Arithmetic & logical operators](https://www.youtube.com/watch?v=gtL8m_-0F5o)
-* [Relational operators](https://www.youtube.com/watch?v=EVPwn6lgsDM)
+* [1 - Print Text component](https://www.youtube.com/watch?v=zd2jUEIlr8Y)
+* [2 - Goal Designer features](https://www.youtube.com/watch?v=f9fbPKSiP4k)
+* [3 - Get Input component](https://www.youtube.com/watch?v=GMlbc9bVIc0)
+* [4 - Rich Comments (Adding Images)](https://www.youtube.com/watch?v=3yd72YrXxF0)
+* [5 - Get Character/Characters](https://www.youtube.com/watch?v=4KgNXz-DxcY)
+* [6 - Quick Start component](https://www.youtube.com/watch?v=OfzMfK_NukA)
+* [7 - Arithmetic & logical operators](https://www.youtube.com/watch?v=gtL8m_-0F5o)
+* [8 - Relational operators](https://www.youtube.com/watch?v=EVPwn6lgsDM)
 
 More videos
 
 * [String Length](https://www.youtube.com/watch?v=4vpyVzTXBO8)
 * [Adding user input to a list](https://www.youtube.com/watch?v=DV5zq2sH_Yg)
 * [GUI - Button & Click Event](https://www.youtube.com/watch?v=eqQpzzSDq5k)
+* [RayLib Library & FlappyBird3000](https://www.youtube.com/watch?v=8a75XWfFhKc)
 
 ## The Release Date
 
 PWCT 2.0 was released on 1 March 2023
+The current release is PWCT 2.0 Rev. 2023.03.07
 
 URL: https://store.steampowered.com/app/1953110/Programming_Without_Coding_Technology_20/
 
