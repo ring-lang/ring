@@ -3,7 +3,7 @@ Programming Without Coding Technology (PWCT) 2.0
 
 * Posted: 30 April 2021
 
-* Date last Updated: 8 March 2023
+* Date last Updated: 10 March 2023
 
 # Contents:
 
@@ -337,6 +337,7 @@ Tutorials
 * [6 - Quick Start component](https://www.youtube.com/watch?v=OfzMfK_NukA)
 * [7 - Arithmetic & logical operators](https://www.youtube.com/watch?v=gtL8m_-0F5o)
 * [8 - Relational operators](https://www.youtube.com/watch?v=EVPwn6lgsDM)
+* [9 - Increment/Decrement & Logical NOT](https://www.youtube.com/watch?v=rTJubpy7TiA)
 
 More videos
 
@@ -344,6 +345,7 @@ More videos
 * [Adding user input to a list](https://www.youtube.com/watch?v=DV5zq2sH_Yg)
 * [GUI - Button & Click Event](https://www.youtube.com/watch?v=eqQpzzSDq5k)
 * [RayLib Library & FlappyBird3000](https://www.youtube.com/watch?v=8a75XWfFhKc)
+* [Read-only TextEdit](https://www.youtube.com/watch?v=DNW3Iu5-Mns)
 
 ## The Release Date
 
