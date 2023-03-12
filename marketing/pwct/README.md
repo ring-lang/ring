@@ -339,6 +339,7 @@ Tutorials
 * [8 - Relational operators](https://www.youtube.com/watch?v=EVPwn6lgsDM)
 * [9 - Increment/Decrement & Logical NOT](https://www.youtube.com/watch?v=rTJubpy7TiA)
 * [10- ElseIf/Switch/While/Shutdown](https://www.youtube.com/watch?v=8Q75DgY-m1s)
+* [11- WhileLoop/ForLoop/Loop/Exit](https://www.youtube.com/watch?v=TtuWCah2FfY)
 
 More videos
 
