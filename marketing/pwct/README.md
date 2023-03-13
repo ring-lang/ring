@@ -3,7 +3,7 @@ Programming Without Coding Technology (PWCT) 2.0
 
 * Posted: 30 April 2021
 
-* Date last Updated: 12 March 2023
+* Date last Updated: 13 March 2023
 
 # Contents:
 
@@ -340,6 +340,7 @@ Tutorials
 * [9 - Increment/Decrement & Logical NOT](https://www.youtube.com/watch?v=rTJubpy7TiA)
 * [10- ElseIf/Switch/While Loop/Shutdown](https://www.youtube.com/watch?v=8Q75DgY-m1s)
 * [11- While Loop/For Loop/Loop/Exit](https://www.youtube.com/watch?v=TtuWCah2FfY)
+* [12- Nested For Loops](https://www.youtube.com/watch?v=qLqIOlP90EY)
 
 More videos
 
