@@ -354,11 +354,6 @@ void ring_vm_list_copy ( VM *pVM,List *pNewList, List *pList )
     Item *pItem  ;
     assert(pList != NULL);
     /* Copy Items */
-    if ( ring_list_isref(pList) ) {
-        ring_list_updaterefcount_gc(pVM->pRingState,pList,RING_LISTREF_INC);
-        pList->gc.lNewRef = 0 ;
-        return ;
-    }
     nMax = ring_list_getsize(pList) ;
     if ( nMax == 0 ) {
         return ;
