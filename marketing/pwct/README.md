@@ -341,6 +341,7 @@ Tutorials
 * [10- ElseIf/Switch/While Loop/Shutdown](https://www.youtube.com/watch?v=8Q75DgY-m1s)
 * [11- While Loop/For Loop/Loop/Exit](https://www.youtube.com/watch?v=TtuWCah2FfY)
 * [12- Nested For Loops](https://www.youtube.com/watch?v=qLqIOlP90EY)
+* [13- For In/Range Operator](https://www.youtube.com/watch?v=sLTrBXMYurw)
 
 More videos
 
