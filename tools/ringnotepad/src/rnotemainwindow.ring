@@ -1018,8 +1018,10 @@ class RNoteMainWindow
 				setClickEvent(Method(:SendProcessData))
 			}
 			oClearbtn = new qpushbutton(this.oOutputWindow) {
-				setText("Clear")
-				setClickEvent(Method(:ClearProcess))
+				settooltip("Clear output/Stop running program")
+				setbtnimage(self,this.cCurrentDir+"/image/pause.png")
+				setmaximumwidth(100)
+				setClickevent(Method(:ClearProcess))
 			}
 			oProcessLayout1 = new qhboxlayout() {
 				AddWidget(oProcessLabel)

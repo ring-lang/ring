@@ -48,4 +48,8 @@ class RNoteOutputWindow
 		oProcessText.setText("")
 
 	func ClearProcess
-		oProcessEditbox.setPlainText("")
+		oProcessEditbox.clear()
+		if ISNULL(oProcess) { return }
+		oProcess.setreadyreadstandardoutputevent("")
+		oProcess.kill()
+		oProcessEditbox.clear()
