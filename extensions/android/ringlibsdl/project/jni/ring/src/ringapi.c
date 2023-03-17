@@ -355,6 +355,8 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
         }
         /* Check lDontRef Flag */
         if ( ring_list_isdontref(pList) ) {
+            /* Reset the DontRef Flag to avoid reusage in wrong scope */
+            ring_list_disabledontref(pList);
             if ( ring_vm_oop_isobject(pList) ) {
                 nType = ring_vm_oop_objtypefromobjlist(pList) ;
                 if ( nType == RING_OBJTYPE_VARIABLE ) {

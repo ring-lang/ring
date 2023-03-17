@@ -585,6 +585,17 @@ void ring_vm_movetoprevscope ( VM *pVM,int nFuncType )
     ring_list_setint_gc(pVM->pRingState,pList3,RING_VAR_TYPE,RING_VM_LIST);
     ring_list_setlist_gc(pVM->pRingState,pList3,RING_VAR_VALUE);
     pList2 = ring_list_getlist(pList3,RING_VAR_VALUE);
+    /* Check Dont Ref flag to avoid reusage in wrong scope */
+    if ( ring_list_isdontref(pList) ) {
+        /*
+        **  We don't care about this flag here 
+        **  It's important when we pass (new obj) to ref() function 
+        **  In Ring functions, We just disable it 
+        **  Ref() In this case will not lead us here because it uses lMoveToPrevScope 
+        **  Which is checked in the start of this function 
+        */
+        ring_list_disabledontref(pList);
+    }
     /* Copy the list */
     if ( ring_list_isref(pList) ) {
         ring_list_setlistbyref_gc(pVM->pRingState,pList3,RING_VAR_VALUE,pList);
