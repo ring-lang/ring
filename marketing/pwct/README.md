@@ -3,7 +3,7 @@ Programming Without Coding Technology (PWCT) 2.0
 
 * Posted: 30 April 2021
 
-* Date last Updated: 13 March 2023
+* Date last Updated: 18 March 2023
 
 # Contents:
 
@@ -342,6 +342,9 @@ Tutorials
 * [11- While Loop/For Loop/Loop/Exit](https://www.youtube.com/watch?v=TtuWCah2FfY)
 * [12- Nested For Loops](https://www.youtube.com/watch?v=qLqIOlP90EY)
 * [13- For In/Range Operator](https://www.youtube.com/watch?v=sLTrBXMYurw)
+* [14- Using Do/Again](https://www.youtube.com/watch?v=3hOFTkd0Ul8)
+* [15- Using Try/Catch](https://www.youtube.com/watch?v=CPlyA9wo8RQ)
+* [16- Using cCatchError](https://www.youtube.com/watch?v=nnFKa4MShoE)
 
 More videos
 
