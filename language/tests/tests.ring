@@ -150,6 +150,7 @@ aTests = [
 	[ :name = "Using This (Part 2)" , :Command = "ring self/this2.ring" ],
 	[ :name = "Using This (Part 3)" , :Command = "ring self/this3.ring" ],
 	[ :name = "Using This (Part 4)" , :Command = "ring self/this4.ring" ],
+	[ :name = "Using This (Part 5)" , :Command = "ring self/this5.ring" ],
 	[ :name = "Declarative Programming (Part 1)", :Command = "ring declarative/declarative.ring" ],
 	[ :name = "Declarative Programming (Part 2)", :Command = "ring declarative/declarative2.ring" ],
 	[ :name = "Declarative Programming (Part 3)", :Command = "ring declarative/declarative3.ring" ],

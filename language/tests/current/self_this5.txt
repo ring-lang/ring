@@ -1,0 +1,10 @@
+UNKNOWN
+OBJECT
+point
+OBJECT
+myclass
+myclass3
+100
+20
+30
+UNKNOWN
