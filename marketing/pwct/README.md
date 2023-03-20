@@ -345,6 +345,7 @@ Tutorials
 * [14- Using Do/Again](https://www.youtube.com/watch?v=3hOFTkd0Ul8)
 * [15- Using Try/Catch](https://www.youtube.com/watch?v=CPlyA9wo8RQ)
 * [16- Using cCatchError](https://www.youtube.com/watch?v=nnFKa4MShoE)
+* [17- Using Functions](https://www.youtube.com/watch?v=Bzd1Gkass5E)
 
 More videos
 
