@@ -3,7 +3,7 @@ Programming Without Coding Technology (PWCT) 2.0
 
 * Posted: 30 April 2021
 
-* Date last Updated: 23 March 2023
+* Date last Updated: 25 March 2023
 
 # Contents:
 
@@ -349,6 +349,8 @@ Tutorials
 * [18- Return value from functions](https://www.youtube.com/watch?v=kJXGIUoczXQ)
 * [19- Global/Local variables](https://www.youtube.com/watch?v=9KctZM6zmuA)
 * [20- Recursion](https://www.youtube.com/watch?v=A9w4bOvQLBc)
+* [21- Short Circuit Evaluation](https://www.youtube.com/watch?v=LQdKeQRW2CM)
+* [22- Conditions/Len/Min/Max](https://www.youtube.com/watch?v=o88THX8766o)
 
 More videos
 
