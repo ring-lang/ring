@@ -3,7 +3,7 @@ Programming Without Coding Technology (PWCT) 2.0
 
 * Posted: 30 April 2021
 
-* Date last Updated: 25 March 2023
+* Date last Updated: 29 March 2023
 
 # Contents:
 
@@ -351,6 +351,8 @@ Tutorials
 * [20- Recursion](https://www.youtube.com/watch?v=A9w4bOvQLBc)
 * [21- Short Circuit Evaluation](https://www.youtube.com/watch?v=LQdKeQRW2CM)
 * [22- Conditions/Len/Min/Max](https://www.youtube.com/watch?v=o88THX8766o)
+* [23- Multiplication Table](https://www.youtube.com/watch?v=zFhWc_k3MoI)
+* [24- Using many files in the project](https://www.youtube.com/watch?v=T6cXrW3Ob8M)
 
 More videos
 
