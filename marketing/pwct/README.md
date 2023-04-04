@@ -353,6 +353,7 @@ Tutorials
 * [22- Conditions/Len/Min/Max](https://www.youtube.com/watch?v=o88THX8766o)
 * [23- Multiplication Table](https://www.youtube.com/watch?v=zFhWc_k3MoI)
 * [24- Using many files in the project](https://www.youtube.com/watch?v=T6cXrW3Ob8M)
+* [25- Using lists/Add/Delete/Find/Reverse/Sort](https://www.youtube.com/watch?v=fceWa4_DvyQ)
 
 More videos
 
