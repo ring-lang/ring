@@ -3,7 +3,7 @@ Programming Without Coding Technology (PWCT) 2.0
 
 * Posted: 30 April 2021
 
-* Date last Updated: 16 April 2023
+* Date last Updated: 17 April 2023
 
 # Contents:
 
@@ -355,8 +355,9 @@ Tutorials
 * [24- Using many files in the project](https://www.youtube.com/watch?v=T6cXrW3Ob8M)
 * [25- Using lists/Add/Delete/Find/Reverse/Sort](https://www.youtube.com/watch?v=fceWa4_DvyQ)
 * [26- Multi-Dimensional Lists/2D Lists](https://www.youtube.com/watch?v=cOdgpprb3_U)
-* [27- Using lists as HashTable](https://www.youtube.com/watch?v=kR5LCPPm89c)
-* [28- Using strings](https://www.youtube.com/watch?v=ZC99W16KEJM)
+* [27- Using Lists as HashTable](https://www.youtube.com/watch?v=kR5LCPPm89c)
+* [28- Using Strings](https://www.youtube.com/watch?v=ZC99W16KEJM)
+* [29- Using Date/Time](https://www.youtube.com/watch?v=d8GhoeTm1WE)
 
 More videos
 
@@ -370,7 +371,7 @@ More videos
 
 PWCT 2.0 was released on 1 March 2023
 
-The current release is PWCT 2.0 Rev. 2023.04.16
+The current release is PWCT 2.0 Rev. 2023.04.17
 
 URL: https://store.steampowered.com/app/1953110/Programming_Without_Coding_Technology_20/
 
