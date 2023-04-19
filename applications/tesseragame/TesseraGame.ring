@@ -24,11 +24,11 @@ LayoutButtonRow = list(C_ROWCOUNT+3)
 buttonsum1 = dimlist([size,size,1])
 buttonsum2 = dimlist([size,size,1])
 
-app = new qApp {
+app = new QApp {
          StyleFusion()
-         win = new qWidget() {
+         win = new QWidget() {
                   setWindowTitle('Tessera Game')
-		  setWindowIcon(new qIcon(new qPixmap("thought.png")))
+		  setWindowIcon(new QIcon(new qPixmap("thought.png")))
                   move(490,100)
                   resize(600,600)
                   setstylesheet('background-color:white')
@@ -81,9 +81,10 @@ app = new qApp {
                   LayoutButtonMain.AddLayout(oMainLayout)
                   setLayout(LayoutButtonMain)
                   show()
-         }
+	}
+	pComputer()
         exec()
-         }
+}
 
 func compenter()
        row2 = 0
