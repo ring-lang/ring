@@ -435,7 +435,9 @@ Func ValidMove( oldH, oldV, h, v)
 	PosMove	 = [[-2,-1],[-2,1],[-1,2],[1,2],[2,1],[2,-1],[1,-2],[-1,-2]] 
 	
 	FlagValidMove = 0
-	TitleKnightInvalidMove.setText(" Msg:  Invalid Move ")
+	if Not (oldH=0 and oldV=0) 
+		TitleKnightInvalidMove.setText(" Msg:  Invalid Move ")
+	ok
 	
 	for i = 1 to 8
 		if h = oldH + PosMove[i][1] AND	 v = oldV + PosMove[i][2]
