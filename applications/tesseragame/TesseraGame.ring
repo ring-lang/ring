@@ -28,6 +28,7 @@ app = new qApp {
          StyleFusion()
          win = new qWidget() {
                   setWindowTitle('Tessera Game')
+		  setWindowIcon(new qIcon(new qPixmap("thought.png")))
                   move(490,100)
                   resize(600,600)
                   setstylesheet('background-color:white')
