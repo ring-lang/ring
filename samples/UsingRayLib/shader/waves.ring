@@ -25,22 +25,22 @@ func main
 	speedXLoc = GetShaderLocation(shader, "speedX")
 	speedYLoc = GetShaderLocation(shader, "speedY")
 
-	freqX  = float2bytes(25.0)
-	freqY  = float2bytes(25.0)
-	ampX   = float2bytes(5.0)
-	ampY   = float2bytes(5.0)
-	speedX = float2bytes(8.0)
-	speedY = float2bytes(8.0)
+	freqX  = 25.0
+	freqY  = 25.0
+	ampX   = 5.0
+	ampY   = 5.0
+	speedX = 8.0
+	speedY = 8.0
 
 	screenSize = float2bytes( GetScreenWidth()) + float2bytes(GetScreenHeight())
 	SetShaderValue(shader, GetShaderLocation(shader, "size"), varptr(:screenSize,:void), UNIFORM_VEC2)
 
-	SetShaderValue(shader, freqXLoc, varptr(:freqX,:void), UNIFORM_FLOAT)
-	SetShaderValue(shader, freqYLoc, varptr(:freqY,:void), UNIFORM_FLOAT)
-	SetShaderValue(shader, ampXLoc, varptr(:ampX,:void), UNIFORM_FLOAT)
-	SetShaderValue(shader, ampYLoc, varptr(:ampY,:void), UNIFORM_FLOAT)
-	SetShaderValue(shader, speedXLoc, varptr(:speedX,:void), UNIFORM_FLOAT)
-	SetShaderValue(shader, speedYLoc, varptr(:speedY,:void), UNIFORM_FLOAT)
+	SetShaderFloat(shader, freqXLoc, freqX)
+	SetShaderFloat(shader, freqYLoc, freqY)
+	SetShaderFloat(shader, ampXLoc, ampX)
+	SetShaderFloat(shader, ampYLoc, ampY)
+	SetShaderFloat(shader, speedXLoc, speedX)
+	SetShaderFloat(shader, speedYLoc, speedY)
 
 	seconds = 0
 
@@ -49,8 +49,7 @@ func main
 	While (!WindowShouldClose())
 
 		seconds += GetFrameTime()
-        	seconds2 = float2bytes(seconds)
-		SetShaderValue(shader, secondsLoc, varptr(:seconds2,:void), UNIFORM_FLOAT)
+		SetShaderFloat(shader, secondsLoc, seconds)
 
 		BeginDrawing()
 
@@ -71,3 +70,9 @@ func main
 	UnloadTexture(texture)     
 	
 	CloseWindow()   
+
+
+func SetShaderFloat shader, Location, Value
+
+	valueFloat = float2bytes(value)
+	SetShaderValue(shader, Location, varptr(:valueFloat,:void), UNIFORM_FLOAT)
