@@ -8,22 +8,22 @@ load "raylib.ring"
 
 func main
 
-	screenWidth = 800
+	screenWidth  = 800
 	screenHeight = 450
 
 	InitWindow(screenWidth, screenHeight, "raylib [shaders] example - texture waves")
 	
 	texture = LoadTexture("space.png")
 	
-	shader = LoadShader("", "wave.fs" )
+	shader  = LoadShader("", "wave.fs" )
 
 	secondsLoc = GetShaderLocation(shader, "secondes")
-	freqXLoc = GetShaderLocation(shader, "freqX")
-	freqYLoc = GetShaderLocation(shader, "freqY")
-	ampXLoc = GetShaderLocation(shader, "ampX")
-	ampYLoc = GetShaderLocation(shader, "ampY")
-	speedXLoc = GetShaderLocation(shader, "speedX")
-	speedYLoc = GetShaderLocation(shader, "speedY")
+	freqXLoc   = GetShaderLocation(shader, "freqX")
+	freqYLoc   = GetShaderLocation(shader, "freqY")
+	ampXLoc    = GetShaderLocation(shader, "ampX")
+	ampYLoc    = GetShaderLocation(shader, "ampY")
+	speedXLoc  = GetShaderLocation(shader, "speedX")
+	speedYLoc  = GetShaderLocation(shader, "speedY")
 
 	freqX  = 25.0
 	freqY  = 25.0
@@ -79,8 +79,5 @@ func SetShaderFloat shader, Location, Value
 
 func SetShaderVec2 shader, Location, Value
 
-	valueFloat = ""
-	for nItem in Value
-		valueFloat += float2bytes(nItem)
-	next
+	valueFloat = float2bytes(Value[1]) + float2bytes(Value[2])
 	SetShaderValue(shader, Location, varptr(:valueFloat,:void), UNIFORM_VEC2)
