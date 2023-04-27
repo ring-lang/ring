@@ -32,8 +32,8 @@ func main
 	speedX = 8.0
 	speedY = 8.0
 
-	screenSize = float2bytes( GetScreenWidth()) + float2bytes(GetScreenHeight())
-	SetShaderValue(shader, GetShaderLocation(shader, "size"), varptr(:screenSize,:void), UNIFORM_VEC2)
+	screenSize = [ GetScreenWidth() , GetScreenHeight() ]
+	SetShaderVec2(shader, GetShaderLocation(shader, "size"), screenSize)
 
 	SetShaderFloat(shader, freqXLoc, freqX)
 	SetShaderFloat(shader, freqYLoc, freqY)
@@ -76,3 +76,11 @@ func SetShaderFloat shader, Location, Value
 
 	valueFloat = float2bytes(value)
 	SetShaderValue(shader, Location, varptr(:valueFloat,:void), UNIFORM_FLOAT)
+
+func SetShaderVec2 shader, Location, Value
+
+	valueFloat = ""
+	for nItem in Value
+		valueFloat += float2bytes(nItem)
+	next
+	SetShaderValue(shader, Location, varptr(:valueFloat,:void), UNIFORM_VEC2)
