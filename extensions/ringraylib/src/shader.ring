@@ -12,3 +12,8 @@ func SetShaderVec2 shader, Location, Value
 
 	valueFloat = float2bytes(Value[1]) + float2bytes(Value[2])
 	SetShaderValue(shader, Location, varptr(:valueFloat,:void), UNIFORM_VEC2)
+
+func SetShaderVec3 shader, Location, Value
+
+	valueFloat = float2bytes(Value[1]) + float2bytes(Value[2]) + float2bytes(Value[3])
+	SetShaderValue(shader, Location, varptr(:valueFloat,:void), UNIFORM_VEC3)
