@@ -12,9 +12,9 @@ func main
 
     InitWindow(screenWidth, screenHeight, "raylib [shaders] example - shapes and texture shaders")
 
-    fudesumi = LoadTexture("fudesumi.png")
+    fudesumi = LoadTexture("images/fudesumi.png")
    
-    shader   = LoadShader("", "grayscale.fs")
+    shader   = LoadShader("", "shaders/grayscale.fs")
 
     SetTargetFPS(60)
 

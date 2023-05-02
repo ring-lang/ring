@@ -13,9 +13,9 @@ func main
 
 	InitWindow(screenWidth, screenHeight, "raylib [shaders] example - texture waves")
 	
-	texture = LoadTexture("space.png")
+	texture = LoadTexture("images/space.png")
 	
-	shader  = LoadShader("", "wave.fs" )
+	shader  = LoadShader("", "shaders/wave.fs" )
 
 	secondsLoc = GetShaderLocation(shader, "secondes")
 	freqXLoc   = GetShaderLocation(shader, "freqX")
