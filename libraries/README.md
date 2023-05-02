@@ -17,3 +17,4 @@ This folder contains libraries for Ring written in the Ring programming language
 * Tokens Library : A library to get Ring tokens from source code files or strings.
 * CSVLib Library : Generate and read CSV Files
 * JSONLib Library : Generate and read JSON Files
+* Matrix Library : Matrix functions 
