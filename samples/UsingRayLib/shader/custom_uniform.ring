@@ -3,8 +3,6 @@
 
 load "raylib.ring"
 
-GLSL_VERSION = 330
-
 func main
 
     screenWidth = 800
