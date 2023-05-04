@@ -18679,6 +18679,20 @@ RING_FUNC(ring_setmodelmaterialtexture_2) {
 	model->materials[nMaterial].maps[nMap].texture = *texture ;
 }
 
+RING_FUNC(ring_setmodelmaterialshader_2) {
+	Model *model;
+	int nMaterial;
+	Shader *shader;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	model = RING_API_GETCPOINTER(1,"Model");
+	nMaterial = (int) RING_API_GETNUMBER(2);
+	shader = RING_API_GETCPOINTER(3,"Shader");
+	model->materials[nMaterial].shader = *shader ;
+}
+
 RING_FUNC(ring_getimagepixelr_2) {
 	Color *data;
 	int y,x,width;
@@ -19276,6 +19290,7 @@ RING_LIBINIT
 	RING_API_REGISTER("quaterniontoeuler_2",ring_QuaternionToEuler_2);
 	RING_API_REGISTER("quaterniontransform_2",ring_QuaternionTransform_2);
 	RING_API_REGISTER("setmodelmaterialtexture_2",ring_setmodelmaterialtexture_2);
+	RING_API_REGISTER("setmodelmaterialshader_2",ring_setmodelmaterialshader_2);
 	RING_API_REGISTER("getimagepixelr_2",ring_getimagepixelr_2);
 	RING_API_REGISTER("getimagepixelg_2",ring_getimagepixelg_2);
 	RING_API_REGISTER("getimagepixelb_2",ring_getimagepixelb_2);

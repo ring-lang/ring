@@ -622,6 +622,9 @@ func LoadTexture fileName
 func setmodelmaterialtexture oModel,nIndex,nMap,oTexture
 	return setmodelmaterialtexture_2(GPData(oModel),nIndex,nMap,GPData(oTexture))
 
+func setmodelmaterialshader oModel,nIndex,oShader
+	return setmodelmaterialshader_2(GPData(oModel),nIndex,GPData(oShader))
+
 func GetImageData image
 	return GetImageData_2(GPData(image))
 
