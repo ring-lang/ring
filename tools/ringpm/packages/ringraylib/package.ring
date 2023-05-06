@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "",
 	:email = "",
 	:license = "MIT License",
-	:version = "1.0.41",
+	:version = "1.0.42",
 	:ringversion = "1.17",
 	:versions = 	[
 		[
-			:version = "1.0.41",
+			:version = "1.0.42",
 			:branch = "master"
 		]
 	],
@@ -30,8 +30,11 @@ aPackageInfo = [
 		"bin/ring_raylib.dll",
 		"extensions/ringraylib/README.md",
 		"extensions/ringraylib/src/buildvc.bat",
+		"extensions/ringraylib/src/buildgcc.sh",
+		"extensions/ringraylib/src/buildgccmac.sh",
 		"extensions/ringraylib/src/classes.ring",
 		"extensions/ringraylib/src/functions.ring",
+		"extensions/ringraylib/src/shader.ring",
 		"extensions/ringraylib/src/gencode.bat",
 		"extensions/ringraylib/src/gencode.sh",
 		"extensions/ringraylib/src/raygui/raygui.h",
