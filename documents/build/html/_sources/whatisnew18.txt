@@ -25,6 +25,7 @@ Ring 1.18 comes with the next features!
 * Ring for MS-DOS
 * Faster (For-In) Loop
 * Faster BraceError()
+* Better RingRayLib
 * Better RingSockets
 * Heroku (Better support)
 * Command: New From
@@ -302,6 +303,24 @@ Output:
 	x: 1000
 	y: 2000
 	z: 3000
+
+.. index:: 
+	pair: What is new in Ring  1.18; Better RingRayLib
+
+Better RingRayLib
+=================
+
+The next functions are added to the extension
+
+* SetShaderInt(shader, Location, nValue)
+* SetShaderFloat(shader, Location, nValue)
+* SetShaderVec2(shader, Location, aValue)
+* SetShaderVec3(shader, Location, aValue)
+* SetShaderVec4(shader, Location, aValue)
+* SetShaderIVec2(shader, Location, aValue)
+* SetShaderIVec3(shader, Location, aValue)
+* SetShaderIVec4(shader, Location, aValue)
+* SetModelMaterialShader(model, nID, shader)
 
 .. index:: 
 	pair: What is new in Ring  1.18; Better RingSockets
