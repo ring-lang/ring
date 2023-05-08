@@ -322,6 +322,15 @@ The next functions are added to the extension
 * SetShaderIVec4(shader, Location, aValue)
 * SetModelMaterialShader(model, nID, shader)
 
+The next samples are ported from RayLib to RingRayLib
+
+* ring/samples/UsingRayLib/shader/custom_uniform.ring
+* ring/samples/UsingRayLib/shader/julia_set.ring
+* ring/samples/UsingRayLib/shader/model_shader.ring
+* ring/samples/UsingRayLib/shader/postprocessing.ring
+* ring/samples/UsingRayLib/shader/shapes_textures.ring
+* ring/samples/UsingRayLib/shader/waves.ring
+
 .. index:: 
 	pair: What is new in Ring  1.18; Better RingSockets
 
