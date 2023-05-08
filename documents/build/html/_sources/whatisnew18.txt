@@ -331,6 +331,14 @@ The next samples are ported from RayLib to RingRayLib
 * ring/samples/UsingRayLib/shader/shapes_textures.ring
 * ring/samples/UsingRayLib/shader/waves.ring
 
+.. image:: raylibshader1.png
+	:alt: raylibshader1
+
+
+.. image:: raylibshader2.png
+	:alt: raylibshader2
+
+
 .. index:: 
 	pair: What is new in Ring  1.18; Better RingSockets
 
