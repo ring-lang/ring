@@ -1,4 +1,4 @@
-// Bert Mariani 03/18/2023
+// Bert Mariani 03/18/2023 - Determinants
 // 
 // libraries/stdlib/stdlib.rh
 // libraries/stdlib/stdlibcore.ring

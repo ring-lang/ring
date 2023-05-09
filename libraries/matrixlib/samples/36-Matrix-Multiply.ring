@@ -2,6 +2,7 @@
 // libraries/stdlib/stdlibcore.ring
 
 Load "stdlibcore.ring"
+Load "MatrixFunctions.ring"
 
 // Multiply two matrices together.
 ? "MatrixMulti( MN x NP)"
@@ -70,27 +71,3 @@ ok
 
 //===================================
 
-//=============================================
-// Display a Matrix Array by Row and Col size
-
-Func MatrixPrint(A)
-
-See "      MatrixPrint: "
-x = len(A)     See "V: "+ x +"  "     // Rows 
-y = len(A[1])  See "H: "+ y +nl       // Cols 
-
-
- for h = 1 to x
-   for v = 1 to y
-     See " "+ A[h][v]
-   next
-   See nl
- next
-   See nl
-
-return
-
-//================================================
-
-
-//================================================
