@@ -4,7 +4,7 @@
 // libraries/stdlib/stdlibcore.ring
 
 Load "stdlibcore.ring"
-Load "MatrixFunctions.ring"
+Load "MatrixLib.ring"
 
 // p293 Finding Ortogonal Projection of Vector U onto Vector  V
 

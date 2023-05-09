@@ -4,7 +4,7 @@
 // libraries/stdlib/stdlibcore.ring
 
 Load "stdlibcore.ring"
-Load "MatrixFunctions.ring"
+Load "MatrixLib.ring"
 
     U2 = [[ 3,-2],             // 11  (3x1)-(-2x4) => (3)-(-8) => 3+8 => 11
           [ 4, 1]]             //

@@ -1,7 +1,7 @@
 // Angle between two Vectors p154
 
 Load "stdlibcore.ring"
-Load "MatrixFunctions.ring"
+Load "MatrixLib.ring"
 
 //-------------------------
 

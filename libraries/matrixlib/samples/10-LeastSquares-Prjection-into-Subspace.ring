@@ -1,7 +1,7 @@
 //Least Squares - Projection into Subspace
 
 Load "stdlibcore.ring"
-Load "MatrixFunctions.ring"
+Load "MatrixLib.ring"
 
 //-------------------------
 //Find the projection of Vector V onto the Subspace R3

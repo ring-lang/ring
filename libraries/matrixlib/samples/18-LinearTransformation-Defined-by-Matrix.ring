@@ -2,7 +2,7 @@
 // Rotation in a Plane R2 Space
 
 Load "stdlibcore.ring"
-Load "MatrixFunctions.ring"
+Load "MatrixLib.ring"
 
 
 

@@ -1,7 +1,7 @@
 //Least Squares
 
 Load "stdlibcore.ring"
-Load "MatrixFunctions.ring"
+Load "MatrixLib.ring"
 
 
 U1 = [[ 5,15,4],

@@ -2,7 +2,7 @@
 // Reflections in the Plane p397
 
 Load "stdlibcore.ring"
-Load "MatrixFunctions.ring"
+Load "MatrixLib.ring"
 //=======================
 
 k = 2  // ===<<< INITIALIZE

@@ -3,7 +3,7 @@
 // A Projection in R3 Space
 
 Load "stdlibcore.ring"
-Load "MatrixFunctions.ring"
+Load "MatrixLib.ring"
 
 
 //--------------------------------

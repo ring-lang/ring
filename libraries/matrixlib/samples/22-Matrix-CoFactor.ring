@@ -5,7 +5,7 @@
 // libraries/stdlib/stdlibcore.ring
 
 Load "stdlibcore.ring"
-Load "MatrixFunctions.ring"
+Load "MatrixLib.ring"
 Decimals(3)
 
 

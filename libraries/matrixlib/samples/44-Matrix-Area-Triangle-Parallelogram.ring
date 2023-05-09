@@ -4,7 +4,7 @@
 // libraries/stdlib/stdlibcore.ring
 
 Load "stdlibcore.ring"
-Load "MatrixFunctions.ring"
+Load "MatrixLib.ring"
 
 //===================================
 // Area of a Triangle  UxV

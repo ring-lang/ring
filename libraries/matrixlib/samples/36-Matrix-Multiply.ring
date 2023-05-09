@@ -2,7 +2,7 @@
 // libraries/stdlib/stdlibcore.ring
 
 Load "stdlibcore.ring"
-Load "MatrixFunctions.ring"
+Load "MatrixLib.ring"
 
 // Multiply two matrices together.
 ? "MatrixMulti( MN x NP)"

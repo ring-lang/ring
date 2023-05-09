@@ -1,7 +1,7 @@
 // VectorUnit p 273  Vector Length and Angle
 
 Load "stdlibcore.ring"
-Load "MatrixFunctions.ring"
+Load "MatrixLib.ring"
 
 //-------------------------
 

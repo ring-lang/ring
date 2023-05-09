@@ -1,7 +1,7 @@
 // Applying the Gram=Schmidt OrtoNormalization Process  p305
 
 Load "stdlibcore.ring"
-Load "MatrixFunctions.ring"
+Load "MatrixLib.ring"
     
 // B  = { V1, V2}
 

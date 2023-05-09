@@ -1,7 +1,7 @@
 // Adjoint, Cofactor p 154
 
 Load "stdlibcore.ring"
-Load "MatrixFunctions.ring"
+Load "MatrixLib.ring"
 
 //-------------------------
 

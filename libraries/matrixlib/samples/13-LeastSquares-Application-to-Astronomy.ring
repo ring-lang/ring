@@ -1,7 +1,7 @@
 //Least Squares - Application to Astronomy p324
 
 Load "stdlibcore.ring"
-Load "MatrixFunctions.ring"
+Load "MatrixLib.ring"
 
 //-------------------------
 // Application to Astonomy

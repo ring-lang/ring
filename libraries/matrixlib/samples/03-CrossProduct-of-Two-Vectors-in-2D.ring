@@ -1,7 +1,7 @@
 // Finding the Cross Product of 2 Vectors p328
 
 Load "stdlibcore.ring"
-Load "MatrixFunctions.ring"
+Load "MatrixLib.ring"
 
 // Find the Cross Product of 2 Vectors in R3 Space
 // UxV

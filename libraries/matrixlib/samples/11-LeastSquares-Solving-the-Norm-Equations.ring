@@ -1,7 +1,7 @@
 //Least Squares - Solving the Normal Equations p320
 
 Load "stdlibcore.ring"
-Load "MatrixFunctions.ring"
+Load "MatrixLib.ring"
 
 //-------------------------
 // Find the Solution of the Least Squares problem

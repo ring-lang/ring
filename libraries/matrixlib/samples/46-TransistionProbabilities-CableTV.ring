@@ -1,6 +1,6 @@
 // Matrix of Transition Probabililies
 Load "stdlibcore.ring"
-Load "MatrixFunctions.ring"
+Load "MatrixLib.ring"
 
 // Two competing companies offer cable television service to a city of 100,000 households
 // Change in subscription each yeay

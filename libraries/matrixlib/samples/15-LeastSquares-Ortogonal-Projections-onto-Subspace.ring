@@ -1,7 +1,7 @@
 //Least Squares - Ortogonal Projection onto a Subspace p321
 
 Load "stdlibcore.ring"
-Load "MatrixFunctions.ring"
+Load "MatrixLib.ring"
 
 //-------------------------
 // Ortogonal Projection onto a Subspace
