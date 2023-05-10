@@ -1,0 +1,26 @@
+4
+for c = 1 to len(str[1]) step 1
+t
+e
+s
+t
+for s = 1 to len(substr(str[1], s))
+t
+e
+for h = 1 to len(hybrid)
+t
+e
+s
+t
+for i = 1 to len(lst[1])
+lening...
+0
+lening...
+1
+lening...
+2
+lening...
+3
+lening...
+------------------
+1
