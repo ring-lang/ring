@@ -79,7 +79,7 @@ void ring_vm_error2 ( VM *pVM,const char *cStr,const char *cStr2 )
 
 RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 {
-    int x,lFunctionCall,nRecursion  ;
+    int x,lFunctionCall,nRecursion,nPos  ;
     char *cStr2, *cStr3  ;
     List *pList, *pList2  ;
     const char *cFile, *cFile2  ;
@@ -109,7 +109,17 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
             }
             /* Don't repeat messages in case of recursion */
             if ( x != 1 ) {
+                nPos = x-1 ;
                 pList2 = ring_list_getlist(pVM->pFuncCallList,x-1);
+                while ( ring_list_getint(pList2,RING_FUNCCL_TYPE) != RING_FUNCTYPE_SCRIPT ) {
+                    nPos-- ;
+                    if ( nPos > 0 ) {
+                        pList2 = ring_list_getlist(pVM->pFuncCallList,nPos);
+                    }
+                    else {
+                        break ;
+                    }
+                }
                 if ( ring_list_getsize(pList) == ring_list_getsize(pList2) ) {
                     cStr3 = ring_list_getstring(pList2,RING_FUNCCL_NAME) ;
                     cFile = (const char *) ring_list_getpointer(pList,RING_FUNCCL_NEWFILENAME) ;
