@@ -1,0 +1,4 @@
+test()
+
+func test
+	test()
