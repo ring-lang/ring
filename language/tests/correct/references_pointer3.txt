@@ -1,0 +1,5 @@
+We expect a runtime error
+When we pass NULL to the pointer2object() function
+
+Line 3 Error in parameter, NULL pointer! 
+In pointer2object() in file references/pointer3.ring 
