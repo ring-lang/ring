@@ -443,6 +443,8 @@ void ring_vm_savestatefornewobjects ( VM *pVM )
     pVM->aSetProperty = ring_list_new_gc(pVM->pRingState,0);
     /* Save pObjState */
     pVMState->aNumbers[29] = ring_list_getsize(pVM->pObjState) ;
+    /* Save aActivePackage */
+    pVMState->aNumbers[30] = ring_list_getsize(pVM->aActivePackage) ;
 }
 
 void ring_vm_restorestatefornewobjects ( VM *pVM )
@@ -538,6 +540,8 @@ void ring_vm_restorestatefornewobjects ( VM *pVM )
     pVM->aSetProperty = (List *)  pVMState->aPointers[8] ;
     /* Restore pObjState */
     ring_vm_backstate(pVM,pVMState->aNumbers[29],pVM->pObjState);
+    /* Restore aActivePackage */
+    ring_vm_backstate(pVM,pVMState->aNumbers[30],pVM->aActivePackage);
     ring_list_deleteitem_gc(pVM->pRingState,pVM->aScopeNewObj,ring_list_getsize(pVM->aScopeNewObj));
 }
 

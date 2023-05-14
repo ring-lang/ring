@@ -122,8 +122,6 @@ void ring_vm_oop_newobj ( VM *pVM )
                     nType = RING_VM_STACK_OBJTYPE ;
                 }
                 ring_list_deleteallitems_gc(pVM->pRingState,pList2);
-                /* Push Class Package */
-                ring_vm_oop_pushclasspackage(pVM,pList);
                 /* Store the Class Pointer in the Object Data */
                 ring_list_addpointer_gc(pVM->pRingState,pList2,pList);
                 /* Create List for the Object State */
@@ -140,6 +138,8 @@ void ring_vm_oop_newobj ( VM *pVM )
                 ring_list_setint_gc(pVM->pRingState,pSelf,RING_VAR_PVALUETYPE ,nType);
                 /* Save the State */
                 ring_vm_savestatefornewobjects(pVM);
+                /* Push Class Package */
+                ring_vm_oop_pushclasspackage(pVM,pList);
                 /* Jump to Class INIT Method */
                 ring_vm_blockflag2(pVM,pVM->nPC);
                 /* Execute Parent Classes Init first */
@@ -270,13 +270,9 @@ void ring_vm_oop_newclass ( VM *pVM )
 void ring_vm_oop_setscope ( VM *pVM )
 {
     /*
-    **  This function called after creating new object and executing class init 
-    **  After init methods 
+    **  This function will be called after creating a new object and executing the class init() method 
+    **  Restore State 
     */
-    ring_vm_oop_aftercallmethod(pVM);
-    /* POP Class Package */
-    ring_vm_oop_popclasspackage(pVM);
-    /* Restore State */
     ring_vm_restorestatefornewobjects(pVM);
 }
 
