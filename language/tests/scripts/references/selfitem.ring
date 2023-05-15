@@ -8,7 +8,11 @@ do
 	? ret
 again cnd
 
-ret { data = NULL }
+try
+	ret { data = NULL }
+catch
+	? "Using braces we access object (Not Lists)"
+done
 ? ret
 ? :done
 

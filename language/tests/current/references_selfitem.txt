@@ -1,6 +1,7 @@
 1
 data: test
 
-data: 
+Using braces we access object (Not Lists)
+data: test
 
 done
