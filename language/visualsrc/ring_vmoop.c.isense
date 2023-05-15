@@ -51,7 +51,11 @@ ring_vm_oop_printobj
 ring_vm_oop_setbraceobj
 ring_vm_oop_bracestart
 Type: List *
-pList
+pList, *pVar
+Type: Item *
+pItem
+Type: int
+lShowError
 ring_vm_oop_braceend
 Type: List *
 pList

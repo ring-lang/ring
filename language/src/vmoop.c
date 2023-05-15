@@ -496,9 +496,36 @@ void ring_vm_oop_setbraceobj ( VM *pVM,List *pList )
 
 void ring_vm_oop_bracestart ( VM *pVM )
 {
-    List *pList  ;
+    List *pList, *pVar  ;
+    Item *pItem  ;
+    int lShowError  ;
     /* Check Error */
+    lShowError = 0 ;
     if ( (pVM->pBraceObject == NULL) || (! RING_VM_STACK_ISPOINTER) ) {
+        lShowError = 1 ;
+    }
+    else if ( RING_VM_STACK_ISPOINTER ) {
+        if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
+            pVar = (List *) RING_VM_STACK_READP ;
+            pList = ring_list_getlist(pVar,RING_VAR_VALUE);
+            if ( ring_vm_oop_isobject(pList) == 0 ) {
+                lShowError = 1 ;
+            }
+        }
+        else if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM ) {
+            pItem = (Item *) RING_VM_STACK_READP ;
+            if ( ring_item_islist(pItem) ) {
+                pList = (List *) ring_item_getlist(pItem) ;
+                if ( ring_vm_oop_isobject(pList) == 0 ) {
+                    lShowError = 1 ;
+                }
+            }
+            else {
+                lShowError = 1 ;
+            }
+        }
+    }
+    if ( lShowError ) {
         /* Disable handling this error using BraceError() Method */
         pVM->lCheckBraceError = 0 ;
         ring_vm_error(pVM,RING_VM_ERROR_BRACEWITHOUTOBJECT);
