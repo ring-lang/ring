@@ -194,6 +194,7 @@ ring_list_resetlnewref
 Type: List *
 pList
 ring_list_isnewref
+ring_list_disablelnewref
 ring_vm_checkvarerroronassignment
 Type: List *
 pList

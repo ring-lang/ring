@@ -591,12 +591,17 @@ RING_API void ring_list_disabledontref ( List *pList )
     pList->gc.lDontRef = 0 ;
 }
 
+RING_API void ring_list_disablelnewref ( List *pRef )
+{
+    pRef->gc.lNewRef = 0 ;
+}
+
 RING_API void ring_list_resetlnewref ( List *pVar )
 {
     List *pList  ;
     if ( ring_list_getint(pVar,RING_VAR_TYPE) == RING_VM_LIST ) {
         pList = ring_list_getlist(pVar,RING_VAR_VALUE) ;
-        pList->gc.lNewRef = 0 ;
+        ring_list_disablelnewref(pList);
     }
 }
 
