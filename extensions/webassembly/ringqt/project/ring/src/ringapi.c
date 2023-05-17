@@ -396,6 +396,7 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
     else {
         /* Used by RING_API_RETNEWREF (i.e. Ref()/Reference() function implementation) */
         pVariableList = ring_list_newref_gc(((VM *) pPointer)->pRingState,pVariableList,pList);
+        pVM->lDontMoveToPrevScope = 1 ;
     }
     if ( (nRef == RING_OUTPUT_RETLIST) || (nRef == RING_OUTPUT_RETLISTBYREF) ) {
         /* Update self object pointer */
