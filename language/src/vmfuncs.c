@@ -553,7 +553,7 @@ void ring_vm_removeblockflag ( VM *pVM )
 void ring_vm_movetoprevscope ( VM *pVM,int nFuncType )
 {
     Item *pItem  ;
-    List *pList,*pList2,*pList3,*pRef  ;
+    List *pList,*pList2,*pList3  ;
     /*
     **  When the function return a value of type List or nested List 
     **  We copy the list to the previous scope, change the pointer 
@@ -569,17 +569,6 @@ void ring_vm_movetoprevscope ( VM *pVM,int nFuncType )
     /* Get The Source List */
     if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
         pList = (List *) RING_VM_STACK_READP ;
-        if ( ring_list_isrefcontainer(pList) ) {
-            /*
-            **  This is a container variable that will not be deleted 
-            **  So we don't need to move it to the previous scope 
-            **  Also, This is important to keep the Reference Count correct 
-            */
-            pRef = ring_list_getlist(pList,RING_VAR_VALUE);
-            if ( ! ( (nFuncType == RING_FUNCTYPE_SCRIPT) && ring_list_isnewref(pRef) && (ring_list_getrefcount(pRef) > 1) ) ) {
-                return ;
-            }
-        }
         if ( ring_list_islist(pList,RING_VAR_VALUE) ) {
             pList = ring_list_getlist(pList,RING_VAR_VALUE);
         }
