@@ -583,7 +583,10 @@ void ring_vm_movetoprevscope ( VM *pVM,int nFuncType )
     else {
         return ;
     }
-    pList3 = ring_vm_newvar2(pVM,RING_TEMP_VARIABLE,ring_vm_prevtempmem(pVM));
+    /* Create the Temp. Variable */
+    ring_vm_createtemplist(pVM);
+    pList3 = (List *) RING_VM_STACK_READP ;
+    RING_VM_STACK_POP ;
     ring_list_setint_gc(pVM->pRingState,pList3,RING_VAR_TYPE,RING_VM_LIST);
     ring_list_setlist_gc(pVM->pRingState,pList3,RING_VAR_VALUE);
     pList2 = ring_list_getlist(pList3,RING_VAR_VALUE);
