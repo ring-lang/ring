@@ -1,0 +1,15 @@
+start
+before self msg
+MSG Setter
+after self msg
+before self data
+DATA Setter
+after self data
+msg: work
+data: [This Attribute Contains A List]
+
+6
+8
+
+2
+done
