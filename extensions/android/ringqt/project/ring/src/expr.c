@@ -689,7 +689,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
                 */
                 nNOOP = 0 ;
                 if ( (ring_parser_icg_getlastoperation(pParser) == ICO_LISTEND) && (pParser->nBraceFlag == 0) ) {
-                    if ( lSetProperty == 0 ) {
+                    if ( (lSetProperty == 0) || pParser->nThisOrSelfLoadA ) {
                         return x ;
                     }
                     /* Disable Assignment Pointer */
