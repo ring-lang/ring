@@ -566,7 +566,7 @@ int ring_parser_range ( Parser *pParser )
 
 int ring_parser_factor ( Parser *pParser,int *nFlag )
 {
-    int x,x2,x3,nLastOperation,nCount,nNOOP,nToken,nMark,nFlag2,nThisOrSelfLoadA,lNewFrom  ;
+    int x,x2,x3,nLastOperation,nCount,nNOOP,nToken,nMark,nFlag2,nThisOrSelfLoadA,nThisLoadA,lNewFrom  ;
     List *pLoadAPos, *pLoadAMark,*pList, *pMark,*pAssignmentPointerPos  ;
     char lSetProperty,lequal,nBeforeEqual  ;
     char cFuncName[100]  ;
@@ -579,11 +579,13 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
         /* Generate Code */
         ring_parser_icg_loadaddress(pParser,pParser->TokenText);
         /* Check Loading Self or This */
-        if ( strcmp(pParser->TokenText,"self") == 0 || strcmp(pParser->TokenText ,"this") == 0 ) {
-            pParser->nThisOrSelfLoadA = 1 ;
+        pParser->nThisLoadA = 0 ;
+        if ( strcmp(pParser->TokenText ,"this") == 0 ) {
+            pParser->nThisLoadA = 1 ;
         }
-        else {
-            pParser->nThisOrSelfLoadA = 0 ;
+        pParser->nThisOrSelfLoadA = 0 ;
+        if ( strcmp(pParser->TokenText,"self") == 0 || pParser->nThisLoadA ) {
+            pParser->nThisOrSelfLoadA = 1 ;
         }
         ring_parser_nexttoken(pParser);
         /* Set Identifier Flag */
@@ -653,6 +655,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
             ring_parser_nexttoken(pParser);
             /* Check if the Assignment after object attribute name */
             nThisOrSelfLoadA = pParser->nThisOrSelfLoadA ;
+            nThisLoadA = pParser->nThisLoadA ;
             pLoadAPos = NULL ;
             if ( nLastOperation == ICO_LOADSUBADDRESS ) {
                 lSetProperty = 1 ;
@@ -673,8 +676,10 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
             x = ring_parser_expr(pParser);
             pParser->nAssignmentFlag = 1 ;
             /* Check New Object and this.property or self.property to disable set property */
-            if ( pParser->nNewObject && lSetProperty && nThisOrSelfLoadA ) {
-                lSetProperty = 0 ;
+            if ( pParser->nNewObject && lSetProperty ) {
+                if ( nThisLoadA || ( nThisOrSelfLoadA && (pParser->nBraceFlag == 0) ) ) {
+                    lSetProperty = 0 ;
+                }
             }
             if ( x == 1 ) {
                 RING_STATE_CHECKPRINTRULES 

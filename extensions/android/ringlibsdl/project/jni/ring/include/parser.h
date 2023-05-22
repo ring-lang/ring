@@ -43,6 +43,7 @@
         unsigned int nControlStructureBrace  ;
         /* Using Self or This with LoadAddress */
         unsigned char nThisOrSelfLoadA  ;
+        unsigned char nThisLoadA  ;
         /*
         **  required in loops (for|while) for loop and exit commands 
         **  To Know if the commands (Loop or Exit) are used 
