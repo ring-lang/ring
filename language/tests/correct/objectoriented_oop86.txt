@@ -1,0 +1,31 @@
+ONE
+Using Setter
+data: Object...
+
+x: NULL
+y: NULL
+z: NULL
+
+TWO
+Using Setter
+data: Object...
+
+x: 10
+y: 20
+z: 30
+
+THREE
+data: Object...
+
+x: NULL
+y: NULL
+z: NULL
+
+FOUR
+data: Object...
+
+x: 10
+y: 20
+z: 30
+
+done
