@@ -588,6 +588,8 @@ void ring_vm_savestateforbraces ( VM *pVM,List *pObjState )
     ring_list_deleteallitems_gc(pVM->pRingState,pVM->aSetProperty);
     /* Store nLoadAddressScope */
     ring_list_addint_gc(pVM->pRingState,pList,pVM->nLoadAddressScope);
+    /* Store lNoSetterMethod */
+    ring_list_addint_gc(pVM->pRingState,pList,pVM->lNoSetterMethod);
     pVM->pBraceObject = NULL ;
     pVM->nInsideBraceFlag = 1 ;
 }
@@ -615,6 +617,8 @@ void ring_vm_restorestateforbraces ( VM *pVM,List *pList )
     ring_list_copy_gc(pVM->pRingState,pVM->aSetProperty,(List *) ring_list_getpointer(pList,RING_ABRACEOBJECTS_ASETPROPERTY ));
     /* Restore nLoadAddressScope */
     pVM->nLoadAddressScope = ring_list_getint(pList,RING_ABRACEOBJECTS_NLOADASCOPE) ;
+    /* Restore lNoSetterMethod */
+    pVM->lNoSetterMethod = ring_list_getint(pList,RING_ABRACEOBJECTS_NNOSETTERMETHOD) ;
     ring_list_deleteitem_gc(pVM->pRingState,pVM->aBraceObjects,ring_list_getsize(pVM->aBraceObjects));
     ring_list_deleteitem_gc(pVM->pRingState,pVM->pObjState,ring_list_getsize(pVM->pObjState));
     pVM->nInsideBraceFlag = ( ring_list_getsize(pVM->aBraceObjects) > 0 ) ;

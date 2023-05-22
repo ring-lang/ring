@@ -53,6 +53,8 @@ nControlStructureBrace
 Type: unsigned char
 nThisOrSelfLoadA
 Type: unsigned char
+nThisLoadA
+Type: unsigned char
 nLoopOrExitCommand
 Type: unsigned char
 nCheckLoopAndExit
