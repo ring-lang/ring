@@ -16,5 +16,6 @@
         unsigned int lDontRef: 1  ;
         unsigned int lErrorOnAssignment: 1  ;
         unsigned int lDeletedByParent: 1  ;
+        unsigned int lDontRefAgain: 1  ;
     } ListGCData ;
 #endif

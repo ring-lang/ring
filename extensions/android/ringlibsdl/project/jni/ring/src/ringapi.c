@@ -350,13 +350,15 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
     /* Check Output Mode */
     if ( nRef == RING_OUTPUT_RETNEWREF ) {
         /* Check if we are creating a Reference before assignment, i.e. Ref(List(nSize)) */
-        if ( ring_list_iscopybyref(pList) ) {
+        if ( ring_list_iscopybyref(pList) || ring_list_isdontrefagain(pList) ) {
             nRef = RING_OUTPUT_RETLISTBYREF ;
         }
         /* Check lDontRef Flag */
         if ( ring_list_isdontref(pList) ) {
             /* Reset the DontRef Flag to avoid reusage in wrong scope */
             ring_list_disabledontref(pList);
+            /* Take in mind ref(ref(ref(new obj))) */
+            ring_list_enabledontrefagain(pList);
             if ( ring_vm_oop_isobject(pList) ) {
                 nType = ring_vm_oop_objtypefromobjlist(pList) ;
                 if ( nType == RING_OBJTYPE_VARIABLE ) {

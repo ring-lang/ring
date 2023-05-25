@@ -344,6 +344,7 @@ RING_API void ring_list_clearrefdata ( List *pList )
     pList->gc.lDontRef = 0 ;
     pList->gc.lErrorOnAssignment = 0 ;
     pList->gc.lDeletedByParent = 0 ;
+    pList->gc.lDontRefAgain = 0 ;
 }
 
 RING_API List * ring_list_deleteref_gc ( void *pState,List *pList )
@@ -608,6 +609,16 @@ RING_API void ring_list_resetlnewref ( List *pVar )
 RING_API int ring_list_isnewref ( List *pList )
 {
     return pList->gc.lNewRef ;
+}
+
+RING_API int ring_list_isdontrefagain ( List *pList )
+{
+    return pList->gc.lDontRefAgain ;
+}
+
+RING_API void ring_list_enabledontrefagain ( List *pList )
+{
+    pList->gc.lDontRefAgain = 1 ;
 }
 /* Protecting lists */
 

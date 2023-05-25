@@ -32,6 +32,8 @@ Type: unsigned int
 lErrorOnAssignment: 1
 Type: unsigned int
 lDeletedByParent: 1
+Type: unsigned int
+lDontRefAgain: 1
 END:
 Type: ListGCData
 struct ListGCData
@@ -190,11 +192,13 @@ pRef, *pVar, *pList
 ring_list_isdontref
 ring_list_enabledontref
 ring_list_disabledontref
+ring_list_disablelnewref
 ring_list_resetlnewref
 Type: List *
 pList
 ring_list_isnewref
-ring_list_disablelnewref
+ring_list_isdontrefagain
+ring_list_enabledontrefagain
 ring_vm_checkvarerroronassignment
 Type: List *
 pList
