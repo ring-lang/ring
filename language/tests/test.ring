@@ -78,8 +78,9 @@ func RunTest nIndex,aTest
 		 Width(aTest[:Name],65)
 	cDir = CurrentDir()
 	chDir("scripts")
-		System(aTest[:Command]+" > "+cOutputFolder+
-				"/"+GetOutputFile(nIndex))
+		cFileNameCurrent = cOutputFolder+"/"+GetOutputFile(nIndex)
+		remove(cFileNameCurrent)
+		System(aTest[:Command]+" > " + cFileNameCurrent)
 	chDir(cDir)
 
 func ShowTestResult  nIndex,aTest
