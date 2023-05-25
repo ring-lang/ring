@@ -360,12 +360,11 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
             /* Take in mind ref(ref(ref(new obj))) */
             ring_list_enabledontrefagain(pList);
             if ( ring_vm_oop_isobject(pList) ) {
-                /* Keep the same object (Ref() parameter) on the Stack (i.e. Return para. as output) */
-                pVM->nSP++ ;
                 pVM->lDontMoveToPrevScope = 1 ;
-                return ;
             }
-            nRef = RING_OUTPUT_RETLIST ;
+            /* Keep the same object (Ref() parameter) on the Stack (i.e. Return para. as output) */
+            pVM->nSP++ ;
+            return ;
         }
     }
     if ( nRef == RING_OUTPUT_RETNEWREF ) {
