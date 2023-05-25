@@ -1,0 +1,10 @@
+before
+after
+good
+x: 10
+y: 20
+z: 30
+
+1
+2
+done
