@@ -78,23 +78,23 @@ func RunTest nIndex,aTest
 		 Width(aTest[:Name],65)
 	cDir = CurrentDir()
 	chDir("scripts")
-		cFileNameCurrent = cOutputFolder+"/"+GetOutputFile(nIndex)
-		remove(cFileNameCurrent)
-		System(aTest[:Command]+" > " + cFileNameCurrent)
+		cCurrentFileName = cOutputFolder+"/"+GetOutputFile(nIndex)
+		remove(cCurrentFileName)
+		System(aTest[:Command]+" > " + cCurrentFileName)
 	chDir(cDir)
 
 func ShowTestResult  nIndex,aTest
 	if nTestMode = C_MODE_TESTING
-		cFileNameCorrect = C_CORRECT_FOLDER+"/"+GetOutputFile(nIndex)
-		cFileNameCurrent = C_CURRENT_FOLDER +"/"+GetOutputFile(nIndex)
-		if ! fexists(cFileNameCorrect)
+		cCorrectFileName = C_CORRECT_FOLDER+"/"+GetOutputFile(nIndex)
+		cCurrentFileName = C_CURRENT_FOLDER +"/"+GetOutputFile(nIndex)
+		if ! fexists(cCorrectFileName)
 			? ""
 			? C_ERROR_FILEDOESNOTEXIST + " - File Name : " +
-					 cFileNameCorrect 
+					 cCorrectFileName 
 			return 
 		ok
 		see " --- " 
-		if substr(read(cFileNameCorrect),windowsnl(),nl) = substr(read(cFileNameCurrent),windowsnl(),nl)
+		if substr(read(cCorrectFileName),windowsnl(),nl) = substr(read(cCurrentFileName),windowsnl(),nl)
 			style("PASS",:YellowBlack)
 			nPassCount++
 		else 
