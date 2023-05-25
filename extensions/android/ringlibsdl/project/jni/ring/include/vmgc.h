@@ -94,6 +94,8 @@
     RING_API int ring_list_isdontrefagain ( List *pList ) ;
 
     RING_API void ring_list_enabledontrefagain ( List *pList ) ;
+
+    RING_API void ring_list_disabledontrefagain ( List *pList ) ;
     /* Memory Functions (General) */
 
     RING_API void * ring_malloc ( size_t size ) ;

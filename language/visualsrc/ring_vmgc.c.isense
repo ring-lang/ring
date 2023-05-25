@@ -199,6 +199,7 @@ pList
 ring_list_isnewref
 ring_list_isdontrefagain
 ring_list_enabledontrefagain
+ring_list_disabledontrefagain
 ring_vm_checkvarerroronassignment
 Type: List *
 pList

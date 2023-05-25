@@ -531,6 +531,10 @@ void ring_vm_oop_bracestart ( VM *pVM )
         ring_vm_error(pVM,RING_VM_ERROR_BRACEWITHOUTOBJECT);
         return ;
     }
+    /* Check Don't Ref. Again */
+    if ( ring_list_isdontrefagain(pList) ) {
+        ring_list_disabledontrefagain(pList);
+    }
     pList = ring_list_newlist_gc(pVM->pRingState,pVM->pObjState);
     ring_vm_savestateforbraces(pVM,pList);
 }

@@ -620,6 +620,11 @@ RING_API void ring_list_enabledontrefagain ( List *pList )
 {
     pList->gc.lDontRefAgain = 1 ;
 }
+
+RING_API void ring_list_disabledontrefagain ( List *pList )
+{
+    pList->gc.lDontRefAgain = 0 ;
+}
 /* Protecting lists */
 
 int ring_vm_checkvarerroronassignment ( VM *pVM,List *pVar )
