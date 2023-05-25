@@ -360,14 +360,8 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
             /* Take in mind ref(ref(ref(new obj))) */
             ring_list_enabledontrefagain(pList);
             if ( ring_vm_oop_isobject(pList) ) {
-                nType = ring_vm_oop_objtypefromobjlist(pList) ;
-                if ( nType == RING_OBJTYPE_VARIABLE ) {
-                    RING_API_PUSHPVALUE(ring_vm_oop_objvarfromobjlist(pList));
-                }
-                else {
-                    RING_API_PUSHPVALUE(ring_vm_oop_objitemfromobjlist(pList));
-                }
-                RING_API_OBJTYPE = nType ;
+                /* Keep the same object (Ref() parameter) on the Stack (i.e. Return para. as output) */
+                pVM->nSP++ ;
                 pVM->lDontMoveToPrevScope = 1 ;
                 return ;
             }
