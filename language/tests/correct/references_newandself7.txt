@@ -1,0 +1,8 @@
+2
+2
+3
+3
+Error (R31) : Trying to destroy the object using the self reference
+message from mytest
+4
+
