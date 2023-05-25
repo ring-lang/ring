@@ -61,6 +61,7 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
     int x,nPos,nMax1  ;
     List *pList,*pList2  ;
     assert(pVM->pMem != NULL);
+    pVM->lSelfLoadA = 0 ;
     nMax1 = ring_list_getsize(pVM->pMem);
     /* The scope of the search result */
     pVM->nVarScope = RING_VARSCOPE_NOTHING ;
@@ -165,6 +166,9 @@ int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr )
         */
         if ( strcmp(cStr,"self") != 0 ) {
             pVM->nVarScope = RING_VARSCOPE_NOTHING ;
+        }
+        else {
+            pVM->lSelfLoadA = 1 ;
         }
     }
     else {
