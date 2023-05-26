@@ -732,10 +732,16 @@ List * ring_vm_prevtempmem ( VM *pVM )
 
 void ring_vm_freetemplists ( VM *pVM )
 {
-    List *pTempMem  ;
+    List *pTempMem, *pList  ;
     int x,nStart,lMutex  ;
     nStart = 1 ;
     lMutex = 0 ;
+    /* Clear lists inside aDeleteLater */
+    for ( x = 1 ; x <= ring_list_getsize(pVM->aDeleteLater) ; x++ ) {
+        pList = (List *) ring_list_getpointer(pVM->aDeleteLater,x) ;
+        ring_list_delete_gc(pVM->pRingState,pList);
+    }
+    ring_list_deleteallitems_gc(pVM->pRingState,pVM->aDeleteLater);
     /* Check that we are not in the class region */
     if ( pVM->nInClassRegion ) {
         /*

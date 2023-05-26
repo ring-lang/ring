@@ -277,20 +277,13 @@ void ring_vm_newline ( VM *pVM )
 
 void ring_vm_freestack ( VM *pVM )
 {
-    int x,nSP  ;
-    List *pList  ;
+    int nSP  ;
     /* Clear Assignment Pointer */
     pVM->pAssignment = NULL ;
     /* Clear Load Address Scope Information */
     pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
     /* Clear the Exit Command flag */
     pVM->lExitFlag = 0 ;
-    /* Clear lists inside aDeleteLater */
-    for ( x = 1 ; x <= ring_list_getsize(pVM->aDeleteLater) ; x++ ) {
-        pList = (List *) ring_list_getpointer(pVM->aDeleteLater,x) ;
-        ring_list_delete_gc(pVM->pRingState,pList);
-    }
-    ring_list_deleteallitems_gc(pVM->pRingState,pVM->aDeleteLater);
     /* In the class region */
     if ( pVM->nInClassRegion ) {
         /*
