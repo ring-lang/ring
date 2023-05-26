@@ -28,7 +28,9 @@ ring_vm_loadapushv
 ring_vm_newline
 ring_vm_freestack
 Type: int
-nSP
+x,nSP
+Type: List *
+pList
 ring_vm_setreference
 Type: List *
 pList

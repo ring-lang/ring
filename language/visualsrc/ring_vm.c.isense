@@ -236,6 +236,8 @@ Type: unsigned char
 lDontMoveToPrevScope
 Type: unsigned char
 lSelfLoadA
+Type: List *
+aDeleteLater
 END:
 Type: VM
 struct VM

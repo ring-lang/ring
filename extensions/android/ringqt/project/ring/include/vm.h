@@ -135,6 +135,7 @@
         unsigned char lCheckBraceError  ;
         unsigned char lDontMoveToPrevScope  ;
         unsigned char lSelfLoadA  ;
+        List *aDeleteLater  ;
     } VM ;
     typedef struct VMState {
         int aNumbers[RING_VM_STATE_NUMBERS_COUNT]  ;

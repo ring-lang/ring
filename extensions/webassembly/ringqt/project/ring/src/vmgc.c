@@ -373,6 +373,9 @@ RING_API List * ring_list_deleteref_gc ( void *pState,List *pList )
             ring_list_updaterefcount_gc(pState,pList,RING_LISTREF_DEC);
             pList = ring_list_collectcycles_gc(pState,pList);
         }
+        else {
+            ring_list_addpointer_gc(pState,((RingState *) pState)->pVM->aDeleteLater,pList);
+        }
         return pList ;
     }
     /* Delete Container Variable (If the list have one) */
