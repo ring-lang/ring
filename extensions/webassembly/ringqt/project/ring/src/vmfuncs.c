@@ -732,16 +732,27 @@ List * ring_vm_prevtempmem ( VM *pVM )
 
 void ring_vm_freetemplists ( VM *pVM )
 {
-    List *pTempMem, *pList  ;
-    int x,nStart,lMutex  ;
+    List *pTempMem, *pList, *pList2  ;
+    int x,x2,lFound,nStart,lMutex  ;
     nStart = 1 ;
     lMutex = 0 ;
     /* Clear lists inside aDeleteLater */
-    for ( x = 1 ; x <= ring_list_getsize(pVM->aDeleteLater) ; x++ ) {
+    for ( x = ring_list_getsize(pVM->aDeleteLater) ; x >= 1 ; x-- ) {
         pList = (List *) ring_list_getpointer(pVM->aDeleteLater,x) ;
-        ring_list_delete_gc(pVM->pRingState,pList);
+        lFound = 0 ;
+        /* Be sure that the list doesn't exist in opened objects */
+        for ( x2 = 1 ; x2 <= ring_list_getsize(pVM->aBraceObjects) ; x2++ ) {
+            pList2 = ring_list_getlist(pVM->aBraceObjects,x2);
+            if ( ring_list_getpointer(pList2,RING_ABRACEOBJECTS_BRACEOBJECT) == pList ) {
+                lFound = 1 ;
+                break ;
+            }
+        }
+        if ( lFound == 0 ) {
+            ring_list_delete_gc(pVM->pRingState,pList);
+            ring_list_deleteitem_gc(pVM->pRingState,pVM->aDeleteLater,x);
+        }
     }
-    ring_list_deleteallitems_gc(pVM->pRingState,pVM->aDeleteLater);
     /* Check that we are not in the class region */
     if ( pVM->nInClassRegion ) {
         /*

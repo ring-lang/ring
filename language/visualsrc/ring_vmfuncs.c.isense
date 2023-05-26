@@ -59,9 +59,9 @@ Type: int
 x
 ring_vm_freetemplists
 Type: List *
-pTempMem
+pTempMem, *pList, *pList2
 Type: int
-x,nStart,lMutex
+x,x2,lFound,nStart,lMutex
 ring_vm_endfuncexec
 ring_vm_retitemref
 Type: List *
