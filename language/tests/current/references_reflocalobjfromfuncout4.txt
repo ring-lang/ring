@@ -1,0 +1,29 @@
+start
+x: 10
+y: 20
+z: 30
+
+one
+two
+x: NULL
+y: NULL
+z: NULL
+
+x: 100
+y: 200
+z: 300
+
+x: 100
+y: 200
+z: 300
+
+three
+x: 10
+y: 20
+z: 30
+
+x: 10
+y: 20
+z: 30
+
+end
