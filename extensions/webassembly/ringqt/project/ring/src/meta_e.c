@@ -1207,13 +1207,18 @@ void ring_vm_refmeta_ringvmcodelist ( void *pPointer )
 void ring_vm_refmeta_ringvmismempool ( void *pPointer )
 {
     VM *pVM  ;
+    List *pList  ;
     pVM = (VM *) pPointer ;
+    /* Try creating a list contains 10000 items */
+    pList = ring_list_new_gc(pVM->pRingState,10000);
     if ( pVM->pRingState->vPoolManager.pCurrentItem != NULL ) {
         RING_API_RETNUMBER(1);
     }
     else {
         RING_API_RETNUMBER(0);
     }
+    /* Delete the List */
+    ring_list_delete_gc(pVM->pRingState,pList);
 }
 
 void ring_vm_refmeta_ringvmruncode ( void *pPointer )

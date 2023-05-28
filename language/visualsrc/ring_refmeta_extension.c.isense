@@ -299,6 +299,8 @@ pList
 ring_vm_refmeta_ringvmismempool
 Type: VM *
 pVM
+Type: List *
+pList
 ring_vm_refmeta_ringvmruncode
 Type: VM *
 pVM
