@@ -19,6 +19,7 @@ Ring 1.18 comes with the next features!
 * Random User application
 * Better CitPre application
 * More Samples
+* Better Tools
 * Syntax Files 
 * The Power Operator
 * Using References 
@@ -77,6 +78,20 @@ In Ring 1.18 the Citations Prediction application is updated
 
 .. image:: citationsdataset.png
 	:alt: citationsdataset
+
+.. index:: 
+	pair: What is new in Ring  1.18; Better Tools
+
+Better Tools
+============
+
+* Ring Notepad: New option to build GUI application using Ring2EXE
+* Ring Notepad: Output Window - Correct cursor position while using unicode 
+* Ring Notepad: Set the default font when opening the Font dialog
+* Ring Notepad: Preserve editing history after text insertion
+* Ring Notepad: New button to clear the output and stop the running program
+* Form Designer: Correct drawing for new controls after moving Ring Notepad
+* Ring2EXE: Better code when distributing GUI applications
 
 .. index:: 
 	pair: What is new in Ring  1.18; More Samples
@@ -563,12 +578,6 @@ The next chapters are improved!
 More Improvements
 =================
 
-* Ring Notepad: New option to build GUI application using Ring2EXE
-* Ring Notepad: Output Window - Correct cursor position while using unicode 
-* Ring Notepad: Set the default font when opening the Font dialog
-* Ring Notepad: Preserve editing history after text insertion
-* Ring Notepad: New button to clear the output and stop the running program
-* Form Designer: Correct drawing for new controls after moving Ring Notepad
 * NaturalLib - RunString() Method - Ignore braces inside commands
 * FindInFiles Application: Better Code (Check Read() function output)
 * GetQuotesHistory Application: Better Style
@@ -584,9 +593,7 @@ More Improvements
 * RingZip: Use zip 0.2.4 
 * RingCJSON: Update the version 
 * RingQt: Set the environment variable QT_QPA_PLATFORM_PLUGIN_PATH
-* RingQt: Use Qt 5.15.2 instead of Qt 5.15.0
 * RingQt: QMediaPlayer Class - Remove currentNetworkConfiguration() Method
-* Ring2EXE: Better code when distributing GUI applications
 * Ring Functions - SetEnv()/UnSetEnv() - Better Code
 * Ring Functions - Print()/Puts() - Better Code
 * Ring Functions - Eval() - Better Code
