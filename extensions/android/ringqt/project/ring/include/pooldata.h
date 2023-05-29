@@ -11,7 +11,7 @@
         #define RING_USEPOOLMANAGER 1
     #endif
     #define RING_TRACKALLOCATIONS 0
-    #define RING_POOLMANAGER_ITEMSINBLOCK 500000
+    #define RING_POOLMANAGER_ITEMSINBLOCK 2000000
     #define RING_POOLMANAGER_ITEMSTRINGSIZE 40
     /* Data */
     typedef struct PoolData {
