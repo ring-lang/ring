@@ -32,82 +32,82 @@ class RNoteMainWindow
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/new.png")
 						setclickEvent(Method(:NewFile))
-						settooltip("New File (Ctrl+N)")
+						settooltip(T_RINGNOTEPAD_NEWFILECTRLN) # "New File (Ctrl+N)"
 					} ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/open.png")
 						setclickEvent(Method(:Open))
-						settooltip("Open File (Ctrl+O)")
+						settooltip(T_RINGNOTEPAD_OPENFILECTRLO) # "Open File (Ctrl+O)"
 					} ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/save.png")
 						setclickEvent(Method(:Save))
-						settooltip("Save (Ctrl+S)")
+						settooltip(T_RINGNOTEPAD_SAVECTRLS) # "Save (Ctrl+S)"
 					 } ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/saveas.png")
 						setclickEvent(Method(:SaveAs))
-						settooltip("Save As (Ctrl+E)")
+						settooltip(T_RINGNOTEPAD_SAVEASCTRLE) # "Save As (Ctrl+E)"
 					 } ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/undo.png")
 						setclickEvent(Method(:Undo))
-						settooltip("Undo (Ctrl+Z)")
+						settooltip(T_RINGNOTEPAD_UNDOCTRLZ) # "Undo (Ctrl+Z)"
 					} ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/cut.png")
 						setclickEvent(Method(:Cut))
-						settooltip("Cut (Ctrl+X)")
+						settooltip(T_RINGNOTEPAD_CUTCTRLX) # "Cut (Ctrl+X)"
 					 } ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/copy.png")
 						setclickEvent(Method(:CopyText))
-						settooltip("Copy (Ctrl+C)")
+						settooltip(T_RINGNOTEPAD_COPYCTRLC) # "Copy (Ctrl+C)"
 					} ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/paste.png")
 						setclickEvent(Method(:Paste))
-						settooltip("Paste (Ctrl+V)")
+						settooltip(T_RINGNOTEPAD_PASTECTRLV) # "Paste (Ctrl+V)"
 					} ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/font.png")
 						setclickEvent(Method(:Font))
-						settooltip("Font (Ctrl+I)")
+						settooltip(T_RINGNOTEPAD_FONTCTRLI) # "Font (Ctrl+I)"
 					} ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/search.png")
 						setclickEvent(Method(:OpenFindWindow))
-						settooltip("Find and Replace (Ctrl+F)")
+						settooltip(T_RINGNOTEPAD_FINDANDREPLACECTRLF) # "Find and Replace (Ctrl+F)"
 					} ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/print.png")
 						setclickEvent(Method(:Print))
-						settooltip("Print (Ctrl+P)")
+						settooltip(T_RINGNOTEPAD_PRINTCTRLP) # "Print (Ctrl+P)"
 					} ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/debug.png")
 						setclickevent(Method(:Debug)) 
-						settooltip("Debug - Run then wait! (Ctrl+D)")
+						settooltip(T_RINGNOTEPAD_DEBUGRUNTHENWAITCTRLD) # "Debug - Run then wait! (Ctrl+D)"
 					} ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/run.png")
 						setclickEvent(Method(:Run))
-						settooltip("Run the program (Ctrl+R) ")
+						settooltip(T_RINGNOTEPAD_RUNTHEPROGRAMCTRLR) # "Run the program (Ctrl+R) "
 					} ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/rungui.png")
 						setclickEvent(Method(:RunNoConsole))
-						settooltip("Run GUI Application - No Console (Ctrl+F5)")
+						settooltip(T_RINGNOTEPAD_RUNGUIAPPLICATIONNOCONSOLECTRLF5) # "Run GUI Application - No Console (Ctrl+F5)"
 					} ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/web.png")
 						setclickEvent(Method(:RunInBrowser))
-						settooltip("Run Web Application - Open In Browser (Ctrl+F6)")
+						settooltip(T_RINGNOTEPAD_RUNWEBAPPLICATIONOPENINBROWSERCTRLF6) # "Run Web Application - Open In Browser (Ctrl+F6)"
 					} ,
 					new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/close.png")
 						setclickEvent(Method(:Quit))
-						settooltip("Quit (Ctrl+Q)")
+						settooltip(T_RINGNOTEPAD_QUITCTRLQ) # "Quit (Ctrl+Q)"
 					}
 				]
 	
@@ -118,7 +118,7 @@ class RNoteMainWindow
 			# Main File Toolbar
 			tool2 = addtoolbar("mainfile")  {
 				oLblMainFile = new qLabel(this.win1) {
-					setText("Main File : ")
+					setText(T_RINGNOTEPAD_MAINFILE) # "Main File : "
 				}
 				this.oTxtMainFile = new qLineEdit(this.win1) {
 					setStylesheet("border: 0px;  background-color: rgba(0, 0, 0, 0);")
@@ -127,27 +127,27 @@ class RNoteMainWindow
 				oBtnSetFile = new qtoolbutton(this.win1) {
 					setbtnimage(self,"image/open.png")
 					setclickEvent(Method(:SetMainFile))
-					settooltip("Set the Main File to be the current source file (Ctrl+Shift+M)")
+					settooltip(T_RINGNOTEPAD_SETTHEMAINFILE) # "Set the Main File to be the current source file (Ctrl+Shift+M)"
 				}
 				oBtnDebugMainFile = new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/debug.png")
 						setclickevent(Method(:DebugMainFile)) 
-						settooltip("Main File : Debug  - Run then wait! (Ctrl+Shift+D)")
+						settooltip(T_RINGNOTEPAD_MAINFILEDEBUG) # "Main File : Debug  - Run then wait! (Ctrl+Shift+D)"
 				} 
 				oBtnRunMainFile = new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/run.png")
 						setclickEvent(Method(:RunMainFile))
-						settooltip("Main File : Run the program (Ctrl+Shift+R)")
+						settooltip(T_RINGNOTEPAD_MAINFILERUN) # "Main File : Run the program (Ctrl+Shift+R)"
 				} 
 				oBtnRunGUIMainFile = new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/rungui.png")
 						setclickEvent(Method(:RunGUIMainFile))
-						settooltip("Main File : Run GUI Application - No Console (Ctrl+Shift+F5)")
+						settooltip(T_RINGNOTEPAD_MAINFILERUNGUI) # "Main File : Run GUI Application - No Console (Ctrl+Shift+F5)"
 				} 
 				oBtnRunWebMainFile = new qtoolbutton(this.win1) {
 						setbtnimage(self,"image/web.png")
 						setclickEvent(Method(:RunInBrowserMainFile))
-						settooltip("Main File : Run Web Application - Open In Browser (Ctrl+Shift+F6)")
+						settooltip(T_RINGNOTEPAD_MAINFILERUNWEB) # "Main File : Run Web Application - Open In Browser (Ctrl+Shift+F6)"
 				} 
 				AddWidget(oLblMainFile)
 				AddWidget(this.oTxtMainFile)
