@@ -223,7 +223,7 @@ class RNoteMainWindow
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+z"))
 							setbtnimage(self,"image/undo.png")
-							settext("Undo")
+							settext(T_RINGNOTEPAD_UNDO) # "Undo"
 							setclickEvent(Method(:Undo))
 						}
 						addaction(oAction)
@@ -231,21 +231,21 @@ class RNoteMainWindow
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+x"))
 							setbtnimage(self,"image/cut.png")
-							settext("Cut")
+							settext(T_RINGNOTEPAD_CUT) # "Cut"
 							setclickEvent(Method(:Cut))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+c"))
 							setbtnimage(self,"image/copy.png")
-							settext("Copy")
+							settext(T_RINGNOTEPAD_COPY) # "Copy"
 							setclickEvent(Method(:CopyText))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+v"))
 							setbtnimage(self,"image/paste.png")
-							settext("Paste")
+							settext(T_RINGNOTEPAD_PASTE) # "Paste"
 							setclickEvent(Method(:Paste))
 						}
 						addaction(oAction)
@@ -253,7 +253,7 @@ class RNoteMainWindow
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+i"))
 							setbtnimage(self,"image/font.png")
-							settext("Font")
+							settext(T_RINGNOTEPAD_FONT) # "Font"
 							setclickEvent(Method(:Font))
 						}
 						addseparator()
@@ -261,59 +261,59 @@ class RNoteMainWindow
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+t"))
 							setbtnimage(self,"image/colors.png")
-							settext("Text Color")
+							settext(T_RINGNOTEPAD_TEXTCOLOR) # "Text Color"
 							setclickEvent(Method(:SelectColor))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+b"))
 							setbtnimage(self,"image/colors.png")
-							settext("Back Color")
+							settext(T_RINGNOTEPAD_BACKCOLOR) # "Back Color"
 							setclickEvent(Method(:SelectColor2))
 						}
 						addaction(oAction)
 						addseparator()
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+h"))
-							settext("Set Tab Width")
+							settext(T_RINGNOTEPAD_SETTABWIDTH) # "Set Tab Width"
 							setclickEvent(Method(:TabWidth))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+g"))
-							settext("Go to line")
+							settext(T_RINGNOTEPAD_GOTOLINE) # "Go to line"
 							setclickEvent(Method(:Goto))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+f"))
 							setbtnimage(self,"image/search.png")
-							settext("Find and Replace")
+							settext(T_RINGNOTEPAD_FINDANDREPLACE) # "Find and Replace"
 							setclickEvent(Method(:OpenFindWindow))
 						}
 						addaction(oAction)
 						addseparator()
-                                                oAction = new qAction(this.win1) {
-	                                                setShortcut(new QKeySequence("Ctrl+Shift+i"))
-	                                                settext("Insert Text")
-	                                                setclickEvent(Method(:OpenInsertWindow))
-                                                }
+                        oAction = new qAction(this.win1) {
+                            setShortcut(new QKeySequence("Ctrl+Shift+i"))
+                            settext(T_RINGNOTEPAD_INSERTTEXT) # "Insert Text"
+                            setclickEvent(Method(:OpenInsertWindow))
+                        }
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+Shift+L"))
-							settext("Lower case")
+							settext(T_RINGNOTEPAD_LOWERCASE) # "Lower case"
 							setclickEvent(Method(:lowerCase))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+Shift+U"))
-							settext("Upper case")
+							settext(T_RINGNOTEPAD_UPPERCASE) # "Upper case"
 							setclickEvent(Method(:upperCase))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+Shift+C"))
-							settext("Capitalize")
+							settext(T_RINGNOTEPAD_CAPITALIZE) # "Capitalize"
 							setclickEvent(Method(:capitalize))
 						}
 						addaction(oAction)
@@ -321,14 +321,14 @@ class RNoteMainWindow
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+alt+C"))
 							setbtnimage(self,"image/comment2.png")
-							settext("Comment Lines")
+							settext(T_RINGNOTEPAD_COMMENTLINES) # "Comment Lines"
 							setclickEvent(Method(:CommentLines))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+alt+B"))
 							setbtnimage(self,"image/comment.png")
-							settext("Comment Block Of Lines")
+							settext(T_RINGNOTEPAD_COMMENTBLOCKOFLINES) # "Comment Block Of Lines"
 							setclickEvent(Method(:CommentBlockLines))
 						}
 						addaction(oAction)
@@ -336,7 +336,7 @@ class RNoteMainWindow
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+alt+f"))
 							setbtnimage(self,"image/search.png")
-							settext("Find in Files")
+							settext(T_RINGNOTEPAD_FINDINFILES) # "Find in Files"
 							setclickEvent(Method(:OpenFindInFiles))
 						}
 						addaction(oAction)
