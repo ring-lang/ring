@@ -1,2 +1,10 @@
-T_RN_APPNAME = "محرر لغة الرينج"
+T_RINGNOTEPAD_APPNAME    = "محرر لغة الرينج"
 
+T_RINGNOTEPAD_FILE       = "ملف"
+T_RINGNOTEPAD_EDIT       = "تحرير"
+T_RINGNOTEPAD_VIEW       = "عرض"
+T_RINGNOTEPAD_PROGRAM    = "برنامج"
+T_RINGNOTEPAD_BROWSER    = "متصفح"
+T_RINGNOTEPAD_TOOLS      = "أدوات"
+T_RINGNOTEPAD_DISTRIBUTE = "توزيع"
+T_RINGNOTEPAD_HELP       = "مساعدة"

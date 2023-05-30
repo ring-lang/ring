@@ -8,7 +8,7 @@ class RNoteMainWindow
 		oDesktop = new qDesktopWidget()
 
 		win1 = new qMainWindow() {
-			setwindowtitle(T_RN_APPNAME) # "Ring Notepad"
+			setwindowtitle(T_RINGNOTEPAD_APPNAME) # "Ring Notepad"
 			setwinicon(self,this.cCurrentDir + "/image/notepad.png")
 			this.oFilter = new qAllEvents(this.win1)
 			this.oFilter.setCloseEvent(Method(:RingNotepadXButton))
@@ -162,14 +162,14 @@ class RNoteMainWindow
 	func CreateMenubar 
 		win1 {
 				menu1 = new qmenubar(this.win1) {
-					subFile 	= addmenu("File")
-					subEdit 	= addmenu("Edit")
-					subView 	= addmenu("View")
-					subProgram 	= addmenu("Program")
-					subBrowser 	= addmenu("Browser")
-					subTools 	= addmenu("Tools")
-					subDistribute   = addmenu("Distribute")
-					subHelp 	= addmenu("Help")
+					subFile 	= addmenu(T_RINGNOTEPAD_FILE) # "File"
+					subEdit 	= addmenu(T_RINGNOTEPAD_EDIT) # "Edit"
+					subView 	= addmenu(T_RINGNOTEPAD_VIEW) # "View"
+					subProgram 	= addmenu(T_RINGNOTEPAD_PROGRAM) # "Program"
+					subBrowser 	= addmenu(T_RINGNOTEPAD_BROWSER) # "Browser"
+					subTools 	= addmenu(T_RINGNOTEPAD_TOOLS) # "Tools"
+					subDistribute   = addmenu(T_RINGNOTEPAD_DISTRIBUTE) # "Distribute"
+					subHelp 	= addmenu(T_RINGNOTEPAD_HELP) # "Help"
 					subFile {
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+n"))

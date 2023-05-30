@@ -1,2 +1,10 @@
-T_RN_APPNAME = "Ring Notepad"
+T_RINGNOTEPAD_APPNAME    = "Ring Notepad"
 
+T_RINGNOTEPAD_FILE       = "File"
+T_RINGNOTEPAD_EDIT       = "Edit"
+T_RINGNOTEPAD_VIEW       = "View"
+T_RINGNOTEPAD_PROGRAM    = "Program"
+T_RINGNOTEPAD_BROWSER    = "Browser"
+T_RINGNOTEPAD_TOOLS      = "Tools"
+T_RINGNOTEPAD_DISTRIBUTE = "Distribute"
+T_RINGNOTEPAD_HELP       = "Help"
