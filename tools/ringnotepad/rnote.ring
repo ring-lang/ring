@@ -6,6 +6,9 @@
 	load "stdlibcore.ring"
 	load "openssllib.ring"
 
+# Load Translation Files 
+	load "translation/english.ring"
+
 # Load Ring Notepad Files 
 	load "src/rnotefiles.ring"
 

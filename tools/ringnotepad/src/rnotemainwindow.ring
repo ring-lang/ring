@@ -8,7 +8,7 @@ class RNoteMainWindow
 		oDesktop = new qDesktopWidget()
 
 		win1 = new qMainWindow() {
-			setwindowtitle("Ring Notepad")
+			setwindowtitle(T_RN_APPNAME) # "Ring Notepad"
 			setwinicon(self,this.cCurrentDir + "/image/notepad.png")
 			this.oFilter = new qAllEvents(this.win1)
 			this.oFilter.setCloseEvent(Method(:RingNotepadXButton))
