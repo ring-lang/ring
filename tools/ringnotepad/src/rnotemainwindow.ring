@@ -346,7 +346,7 @@ class RNoteMainWindow
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+j"))
 							setbtnimage(self,"image/project.png")
-							settext("Project Files")
+							settext(T_RINGNOTEPAD_PROJECTFILES) # "Project Files"
 							setclickEvent(Method(:ProjectWindowStatus))
 						}
 						addaction(oAction)
@@ -355,7 +355,7 @@ class RNoteMainWindow
 							setShortcut(new QKeySequence("Ctrl+u"))
 							setbtnimage(self,"image/source.png")
 							setclickEvent(Method(:SourceCodeWindowStatus))
-							settext("Source Code")
+							settext(T_RINGNOTEPAD_SOURCECODE) # "Source Code"
 						}
 						addaction(oAction)
 						addseparator()
@@ -363,7 +363,7 @@ class RNoteMainWindow
 							setShortcut(new QKeySequence("Ctrl+w"))
 							setbtnimage(self,"image/richtext.png")
 							setclickEvent(Method(:WebBrowserWindowStatus))
-							settext("Web Browser")
+							settext(T_RINGNOTEPAD_WEBBROWSER) # "Web Browser"
 						}
 						addaction(oAction)
 						addseparator()
@@ -371,7 +371,7 @@ class RNoteMainWindow
 							setShortcut(new QKeySequence("Alt+f"))
 							setbtnimage(self,"image/source.png")
 							setclickEvent(Method(:FunctionsListWindowStatus))
-							settext("Functions List")
+							settext(T_RINGNOTEPAD_FUNCTIONSLIST) # "Functions List"
 						}
 						addaction(oAction)
 						addseparator()
@@ -379,7 +379,7 @@ class RNoteMainWindow
 							setShortcut(new QKeySequence("Alt+c"))
 							setbtnimage(self,"image/source.png")
 							setclickEvent(Method(:ClassesListWindowStatus))
-							settext("Classes List")
+							settext(T_RINGNOTEPAD_CLASSESLIST) # "Classes List"
 						}
 						addaction(oAction)
 						addseparator()
@@ -387,7 +387,7 @@ class RNoteMainWindow
 							setShortcut(new QKeySequence("Alt+o"))
 							setbtnimage(self,"image/source.png")
 							setclickEvent(Method(:OutputWindowStatus))
-							settext("Output Window")
+							settext(T_RINGNOTEPAD_OUTPUTWINDOW) # "Output Window"
 						}
 						addaction(oAction)
 						addseparator()
@@ -395,7 +395,7 @@ class RNoteMainWindow
 							setShortcut(new QKeySequence("CTRL+SHIFT+F"))
 							setbtnimage(self,"image/formdesigner.png")
 							setclickEvent(Method(:FormDesignerWindowStatus))
-							settext("Form Designer Window")
+							settext(T_RINGNOTEPAD_FORMDESIGNERWINDOW) # "Form Designer Window"
 						}
 						addaction(oAction)
 						addseparator()
@@ -403,188 +403,188 @@ class RNoteMainWindow
 							setclickEvent(Method(:EditFullScreen))
 							setbtnimage(self,"image/source.png")
 							setShortcut(new QKeySequence("Ctrl+Shift+F1"))
-							settext("Source Code (Full Screen)")
+							settext(T_RINGNOTEPAD_SOURCECODEFULLSCREEN) # "Source Code (Full Screen)"
 						}
 						addaction(oAction)
 						addseparator()
-						subStyle = addmenu("Style")
+						subStyle = addmenu(T_RINGNOTEPAD_STYLE) # "Style"
 						subStyle {
 							setbtnimage(self,"image/colors.png")
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Ctrl+Shift+W"))
 								setclickEvent(Method("SetStyleColor(0)"))
-								settext("Windows")
+								settext(T_RINGNOTEPAD_WINDOWS) # "Windows"
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Ctrl+Shift+2"))
 								setclickEvent(Method("SetStyleColor(1)"))
-								settext("Fusion : White")
+								settext(T_RINGNOTEPAD_FUSIONWHITE) # "Fusion : White"
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Ctrl+Shift+3"))
 								setclickEvent(Method("SetStyleColor(2)"))
-								settext("Fusion : Blue")
+								settext(T_RINGNOTEPAD_FUSIONBLUE) # "Fusion : Blue"
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Ctrl+Shift+4"))
 								setclickEvent(Method("SetStyleColor(3)"))
-								settext("Fusion : Black")
+								settext(T_RINGNOTEPAD_FUSIONBLACK) # "Fusion : Black"
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Ctrl+Shift+5"))
 								setclickEvent(Method("SetStyleColor(4)"))
-								settext("Modern")
+								settext(T_RINGNOTEPAD_MODERN) # "Modern"
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Ctrl+Shift+6"))
 								setclickEvent(Method("SetStyleColor(5)"))
-								settext("Modern : Black")
+								settext(T_RINGNOTEPAD_MODERNBLACK) # "Modern : Black"
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Ctrl+Shift+7"))
 								setclickEvent(Method("SetStyleColor(6)"))
-								settext("Modern : Black 2")
+								settext(T_RINGNOTEPAD_MODERNBLACK2) # "Modern : Black 2"
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Ctrl+Shift+8"))
 								setclickEvent(Method("SetStyleColor(7)"))
-								settext("Notepad : White")
+								settext(T_RINGNOTEPAD_NOTEPADWHITE) # "Notepad : White"
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Ctrl+Shift+9"))
 								setclickEvent(Method("SetStyleColor(8)"))
-								settext("Notepad : Purple")
+								settext(T_RINGNOTEPAD_NOTEPADPURPLE) # "Notepad : Purple"
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Ctrl+Shift+A"))
 								setclickEvent(Method("SetStyleColor(9)"))
-								settext("Notepad : DarkBlue")
+								settext(T_RINGNOTEPAD_NOTEPADDARKBLUE) # "Notepad : DarkBlue"
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Ctrl+Shift+F7"))
 								setclickEvent(Method("SetStyleColor(10)"))
-								settext("Notepad : Black")
+								settext(T_RINGNOTEPAD_NOTEPADBLACK) # "Notepad : Black"
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Ctrl+Shift+F8"))
 								setclickEvent(Method("SetStyleColor(11)"))
-								settext("Art")
+								settext(T_RINGNOTEPAD_ART) # "Art"
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Ctrl+Shift+F9"))
 								setclickEvent(Method("SetStyleColor(12)"))
-								settext("Art 2")
+								settext(T_RINGNOTEPAD_ART2) # "Art 2"
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Ctrl+Shift+F10"))
 								setclickEvent(Method("SetStyleColor(13)"))
-								settext("Art 3")
+								settext(T_RINGNOTEPAD_ART3) # "Art 3"
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Ctrl+Shift+F11"))
 								setclickEvent(Method("SetStyleColor(14)"))
-								settext("Image")
+								settext(T_RINGNOTEPAD_IMAGE) # "Image"
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Ctrl+Shift+F12"))
 								setclickEvent(Method("SetStyleColor(15)"))
-								settext("Image 2")
+								settext(T_RINGNOTEPAD_IMAGE2) # "Image 2"
 							}
 							addaction(oAction)
 						}
 						addseparator()
-						subStyle = addmenu("Mode")
+						subStyle = addmenu(T_RINGNOTEPAD_MODE) # "Mode"
 						subStyle {
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Ctrl+1"))
 								setclickEvent(Method("SetMode(1)"))
-								settext("General")
+								settext(T_RINGNOTEPAD_GENERAL) # "General"
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Ctrl+2"))
 								setclickEvent(Method("SetMode(2)"))
-								settext("Learning Ring (Editor + Documentation)")
+								settext(T_RINGNOTEPAD_LEARNINGRINGEDITORDOCUMENTATION) # "Learning Ring (Editor + Documentation)"
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Ctrl+3"))
 								setclickEvent(Method("SetMode(3)"))
-								settext("Coding (Project File + Editor)")
+								settext(T_RINGNOTEPAD_CODINGPROJECTFILEEDITOR) # "Coding (Project File + Editor)"
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Ctrl+4"))
 								setclickEvent(Method("SetMode(4)"))
-								settext("Coding (All Windows)")
+								settext(T_RINGNOTEPAD_CODINGALLWINDOWS) # "Coding (All Windows)"
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Ctrl+5"))
 								setclickEvent(Method("SetMode(5)"))
-								settext("Coding (Code Editor)")
+								settext(T_RINGNOTEPAD_CODINGCODEEDITOR) # "Coding (Code Editor)"
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Ctrl+6"))
 								setclickEvent(Method("SetMode(6)"))
-								settext("GUI Development (Code Editor + Form Designer)")
+								settext(T_RINGNOTEPAD_GUIDEVELOPMENTCODEEDITORFORMDESIGNER) # "GUI Development (Code Editor + Form Designer)")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Ctrl+7"))
 								setclickEvent(Method("SetMode(7)"))
-								settext("Web Development (Code Editor + Web Browser)")
+								settext(T_RINGNOTEPAD_WEBDEVELOPMENTCODEEDITORWEBBROWSER) # "Web Development (Code Editor + Web Browser)")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Ctrl+8"))
 								setclickEvent(Method("SetMode(8)"))
-								settext("Testing (Project Files + Code Editor + Output Window)")
+								settext(T_RINGNOTEPAD_TESTINGPROJECTFILESCODEEDITOROUTPUTWINDOW) # "Testing (Project Files + Code Editor + Output Window)")
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Ctrl+9"))
 								setclickEvent(Method("SetMode(9)"))
-								settext("Common (All Windows + Output Window in the bottom)")
+								settext(T_RINGNOTEPAD_COMMONALLWINDOWSOUTPUTWINDOWINTHEBOTTOM) # "Common (All Windows + Output Window in the bottom)")
 							}
 							addaction(oAction)
 						}
