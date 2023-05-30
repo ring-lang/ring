@@ -174,14 +174,14 @@ class RNoteMainWindow
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+n"))
 							setbtnimage(self,"image/new.png")
-							settext("New")
+							settext(T_RINGNOTEPAD_NEW) # "New"
 							setclickEvent(Method(:NewFile))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+o"))
 							setbtnimage(self,"image/open.png")
-							settext("Open")
+							settext(T_RINGNOTEPAD_OPEN) # "Open"
 							setclickEvent(Method(:Open))
 						}
 						addaction(oAction)
@@ -189,7 +189,7 @@ class RNoteMainWindow
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+s"))
 							setbtnimage(self,"image/save.png")
-							settext("Save")
+							settext(T_RINGNOTEPAD_SAVE) # "Save"
 							setclickEvent(Method(:Save))
 						}
 						addaction(oAction)
@@ -197,7 +197,7 @@ class RNoteMainWindow
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+e"))
 							setbtnimage(self,"image/saveas.png")
-							settext("Save As")
+							settext(T_RINGNOTEPAD_SAVEAS) # "Save As"
 							setclickEvent(Method(:SaveAs))
 						}
 						addaction(oAction)
@@ -205,7 +205,7 @@ class RNoteMainWindow
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+p"))
 							setbtnimage(self,"image/print.png")
-							settext("Print to PDF")
+							settext(T_RINGNOTEPAD_PRINTTOPDF) # "Print to PDF"
 							setclickEvent(Method(:Print))
 						}
 						addaction(oAction)
@@ -213,8 +213,8 @@ class RNoteMainWindow
 						oAction = new qaction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+q"))
 							setbtnimage(self,"image/close.png")
-							settext("Exit")
-							setstatustip("Exit")
+							settext(T_RINGNOTEPAD_EXIT) # "Exit"
+							setstatustip(T_RINGNOTEPAD_EXIT)
 							setclickEvent(Method(:Quit))
 						}
 						addaction(oAction)
