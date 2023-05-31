@@ -6160,7 +6160,9 @@ Class QTextDocument from QObject
 		return QTextDocument_defaultStyleSheet(pObject)
 
 	Func defaultTextOption 
-		return QTextDocument_defaultTextOption(pObject)
+		pTempObj = new QTextOption
+		pTempObj.pObject = QTextDocument_defaultTextOption(pObject)
+		return pTempObj
 
 	Func documentLayout 
 		return QTextDocument_documentLayout(pObject)
@@ -6333,6 +6335,53 @@ Class QTextDocument from QObject
 
 	Func setModified P1
 		return QTextDocument_setModified(pObject,P1)
+
+Class QTextOption
+
+	pObject
+
+	Func init P1
+		pObject = QTextOption_new(P1)
+		return self
+
+	Func delete
+		pObject = QTextOption_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func alignment 
+		return QTextOption_alignment(pObject)
+
+	Func flags 
+		return QTextOption_flags(pObject)
+
+	Func setAlignment P1
+		return QTextOption_setAlignment(pObject,P1)
+
+	Func setFlags P1
+		return QTextOption_setFlags(pObject,P1)
+
+	Func setTextDirection P1
+		return QTextOption_setTextDirection(pObject,P1)
+
+	Func setUseDesignMetrics P1
+		return QTextOption_setUseDesignMetrics(pObject,P1)
+
+	Func setWrapMode P1
+		return QTextOption_setWrapMode(pObject,P1)
+
+	Func tabStopDistance 
+		return QTextOption_tabStopDistance(pObject)
+
+	Func textDirection 
+		return QTextOption_textDirection(pObject)
+
+	Func useDesignMetrics 
+		return QTextOption_useDesignMetrics(pObject)
+
+	Func wrapMode 
+		return QTextOption_wrapMode(pObject)
 
 Class QTextBlock
 
