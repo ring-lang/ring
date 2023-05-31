@@ -1032,7 +1032,11 @@ class RNoteMainWindow
 				Addwidget(oProcessbtnSend)
                 		Addwidget(oClearbtn)
 			}
-			this.oProcessEditbox = new qPlaintextedit(this.oOutputWindow) 
+			this.oProcessEditbox = new qPlaintextedit(this.oOutputWindow)  {
+				if T_RINGNOTEPAD_LAYOUTDIRECTION
+					document().setdefaulttextoption(new qtextoption(Qt_AlignRight))
+				ok
+			}
 			oProcessLayout2 = new qvboxlayout() {
 				addWidget(this.oProcesseditbox)
 				addlayout(oProcesslayout1)
@@ -1042,6 +1046,7 @@ class RNoteMainWindow
 				setwidget( this.oOutputWindow )
 				setwindowtitle(T_RINGNOTEPAD_OUTPUT) # "Output"
 			}
+			
 		}
 
 	func CreateFormDesigner
