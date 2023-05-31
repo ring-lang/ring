@@ -771,37 +771,37 @@ class RNoteMainWindow
 						addaction(oAction)
 					}
 					subHelp {
-						subHelpLF = addmenu("Language Reference")
+						subHelpLF = addmenu(T_RINGNOTEPAD_LANGUAGEREFERENCE) # "Language Reference"
 						subHelpLF {
 							oAction = new qAction(this.win1) {
-								settext("CHM File")
+								settext(T_RINGNOTEPAD_CHMFILE) # "CHM File"
 								setclickEvent(Method(:OpenCHM))
 							}
 							addaction(oAction)
 							oAction = new qAction(this.win1) {
-								settext("PDF File")
+								settext(T_RINGNOTEPAD_PDFFILE) # "PDF File"
 								setclickEvent(Method(:OpenPDF))
 							}
 							addaction(oAction)
 						}
 						addseparator()
-						subHelpTools = addmenu("Development Tools")
+						subHelpTools = addmenu(T_RINGNOTEPAD_DEVELOPMENTTOOLS) # "Development Tools"
 						subHelpTools {
 	
 							oAction = new qAction(this.win1) {
-								settext("Programming Language")
+								settext(T_RINGNOTEPAD_PROGRAMMINGLANGUAGE) # "Programming Language"
 								setclickEvent(Method(:Lang))
 							}
 							addaction(oAction)
 							oAction = new qAction(this.win1) {
-								settext("GUI Library")
+								settext(T_RINGNOTEPAD_GUILIBRARY) # "GUI Library"
 								setclickEvent(Method(:GUI))
 							}
 							addaction(oAction)
 						}
 						addseparator()
 						oAction = new qAction(this.win1) {
-							settext("About")
+							settext(T_RINGNOTEPAD_ABOUT) # "About"
 							setclickEvent(Method(:pAbout))
 						}
 						addaction(oAction)
@@ -813,7 +813,7 @@ class RNoteMainWindow
 	func CreateStatusbar
 		win1 {
 			this.status1 = new qstatusbar(this.win1) {
-				showmessage("Ready!",0)
+				showmessage(T_RINGNOTEPAD_READY,0) # "Ready!"
 			}
 			setstatusbar(this.status1)
 		}

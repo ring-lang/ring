@@ -121,3 +121,12 @@ T_RINGNOTEPAD_RING2EXEDISTRIBUTERINGALLEGROGAME = "تجهيز تطبيق للت�
 T_RINGNOTEPAD_RING2EXEDISTRIBUTELIGHTRINGQTAPPLICATION = "تجهيز تطبيق للتوزيع - يستعمل مكتبة كيوت - النسخة الخفيفة"
 T_RINGNOTEPAD_RING2EXEPREPAREQTPROJECTDISTRIBUTEFORMOBILEDEVICES = "تجهيز تطبيق للتوزيع - يستعمل مكتبة كيوت - انتاج ملف مشروع خاص بكيوت للموبايل"
 T_RINGNOTEPAD_RING2EXEPREPAREQTPROJECTDISTRIBUTEFORWEBASSEMBLY = "تجهيز تطبيق للتوزيع - يستعمل مكتبة كيوت - انتاج ملف مشروع خاص بكيوت للويب"
+
+T_RINGNOTEPAD_LANGUAGEREFERENCE = "مرجع اللغة"
+T_RINGNOTEPAD_CHMFILE = "ملف لويندوز"
+T_RINGNOTEPAD_PDFFILE = "ملف للطباعة"
+T_RINGNOTEPAD_DEVELOPMENTTOOLS = "أدوات التطوير"
+T_RINGNOTEPAD_PROGRAMMINGLANGUAGE = "لغة البرمجة"
+T_RINGNOTEPAD_GUILIBRARY = "مكتبة واجهة المستخدم الرسومية"
+T_RINGNOTEPAD_ABOUT = "حول البرنامج"
+T_RINGNOTEPAD_READY = "جاهز"
