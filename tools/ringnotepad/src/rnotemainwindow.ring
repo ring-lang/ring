@@ -872,7 +872,7 @@ class RNoteMainWindow
 			}
 			this.oDockProjectFiles = new qdockwidget(this.win1,0) {
 				setGeometry(00,00,200,200)
-				setwindowtitle("Project Files")
+				setwindowtitle(T_RINGNOTEPAD_PROJECTFILES) # "Project Files"
 				setwidget(this.tree1)
 			}
 		}
@@ -886,7 +886,7 @@ class RNoteMainWindow
 			this.filestabs = new qTabWidget(this.win1) {
 				setFixedheight(35)
 				settabsclosable(True)
-				AddTab(new qWidget(),"noname")
+				AddTab(new qWidget(),T_RINGNOTEPAD_NONAME) # "noname"
 				setcurrentchangedevent(Method(:ChangeFileTab))
 				Settabcloserequestedevent(Method(:CloseFileTab))
 				installeventfilter(oTabsFilter)
@@ -932,7 +932,7 @@ class RNoteMainWindow
 			}
 			this.oDockSourceCode = new qdockwidget(this.win1,0) {
 				setwidget(this.oTabsAndText)
-				setwindowtitle("Source Code")
+				setwindowtitle(T_RINGNOTEPAD_SOURCECODE) # "Source Code"
 				setminimumwidth(floor(this.oDesktop.width()*0.17))                                                     
 			}
 		}
@@ -942,18 +942,18 @@ class RNoteMainWindow
 			this.oWebBrowser = new qWidget() {
 				setWindowFlags(Qt_SubWindow)
 				oWBLabel = new qLabel(this.win1) {
-					setText("Website: ")
+					setText(T_RINGNOTEPAD_WEBSITE) # "Website: "
 				}
 				this.oWBText = new qLineEdit(this.win1) {
 					setText(this.cWebSite)
 					setReturnPressedEvent(Method(:WebGo))
 				}
 				oWBGo = new qPushButton(this.win1) {
-					setText("Go")
+					setText(T_RINGNOTEPAD_GO) # "Go"
 					setClickEvent(Method(:WebGo))
 				}
 				oWBBack = new qPushButton(this.win1) {
-					setText("Back")
+					setText(T_RINGNOTEPAD_BACK) # "Back"
 					setClickEvent(Method(:WebBack))
 				}
 				oWBLayout1 = new qHBoxLayout() {
@@ -973,7 +973,7 @@ class RNoteMainWindow
 			}
 			this.oDockWebBrowser = new qdockwidget(this.win1,0) {
 				setwidget(this.oWebBrowser)
-				setwindowtitle("Web Browser")
+				setwindowtitle(T_RINGNOTEPAD_WEBBROWSER) # "Web Browser"
 			}
 		}
 
@@ -986,7 +986,7 @@ class RNoteMainWindow
 			}
 			this.oDockFunctionsList = new qDockwidget(this.win1,0) {
 				setWidget(this.oFunctionsList)
-				setwindowtitle("Functions")
+				setwindowtitle(T_RINGNOTEPAD_FUNCTIONS) # "Functions"
 			}
 		}
 
@@ -999,7 +999,7 @@ class RNoteMainWindow
 			}
 			this.oDockClassesList = new qDockwidget(this.win1,0) {
 				setWidget(this.oClassesList)
-				setwindowtitle("Classes")
+				setwindowtitle(T_RINGNOTEPAD_CLASSES) # "Classes"
 			}
 		}
 
@@ -1008,17 +1008,17 @@ class RNoteMainWindow
 			this.oProcess = NULL
 			this.oOutputWindow = new qWidget()
 			oProcessLabel = new qLabel(this.oOutputWindow) {
-				setText("Input :")
+				setText(T_RINGNOTEPAD_INPUT) # "Input :"
 			}
 			this.oProcessText = new qlineEdit(this.oOutputWindow) {
 				setreturnPressedEvent(Method(:SendProcessData))
 			}
 			oProcessbtnSend = new qpushbutton(this.oOutputWindow) {
-				setText("Send")
+				setText(T_RINGNOTEPAD_SEND) # "Send"
 				setClickEvent(Method(:SendProcessData))
 			}
 			oClearbtn = new qpushbutton(this.oOutputWindow) {
-				settooltip("Clear output/Stop running program")
+				settooltip(T_RINGNOTEPAD_CLEAROUTPUTSTOPRUNNINGPROGRAM) # "Clear output/Stop running program"
 				setbtnimage(self,this.cCurrentDir+"/image/pause.png")
 				setmaximumwidth(100)
 				setClickevent(Method(:ClearProcess))
@@ -1037,14 +1037,14 @@ class RNoteMainWindow
 			this.oOutputWindow.setlayout(oProcessLayout2)
 			this.oDockOutputWindow = new qDockWidget(this.win1,0) {
 				setwidget( this.oOutputWindow )
-				setwindowtitle("Output")
+				setwindowtitle(T_RINGNOTEPAD_OUTPUT) # "Output"
 			}
 		}
 
 	func CreateFormDesigner
 		win1 {
 			this.oDockFormDesigner = new qDockwidget(this.win1,0) {
-				setwindowtitle("Form Designer")
+				setwindowtitle(T_RINGNOTEPAD_FORMDESIGNER) # "Form Designer"
 			}
 			this.FormDesignerDock()
 		}

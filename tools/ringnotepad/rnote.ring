@@ -7,7 +7,7 @@
 	load "openssllib.ring"
 
 # Load Translation Files 
-	load "translation/arabic.ring"
+	load "translation/english.ring"
 
 # Load Ring Notepad Files 
 	load "src/rnotefiles.ring"
