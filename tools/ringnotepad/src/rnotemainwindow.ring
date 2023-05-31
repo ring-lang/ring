@@ -902,7 +902,9 @@ class RNoteMainWindow
 				this.oFilterTextEdit = new qAllEvents(this.win1)
 				this.oFilterTextEdit.setkeypressevent(Method(:TextEditKeyPress))
 				installEventFilter(this.oFilterTextEdit)
-
+				if T_RINGNOTEPAD_LAYOUTDIRECTION
+					document().setdefaulttextoption(new qtextoption(Qt_AlignRight))
+				ok
 			}
 			this.AutoComplete()
 			this.oACTimer = new qtimer(this.win1) {
