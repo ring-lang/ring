@@ -715,57 +715,57 @@ class RNoteMainWindow
 					}
 					subDistribute {
 						oAction = new qAction(this.win1) {
-							settext("Generate Ring Object File (*.ringo)")
+							settext(T_RINGNOTEPAD_GENERATERINGOBJECTFILE) # "Generate Ring Object File (*.ringo)"
 							setclickEvent(Method("Distribute(1)"))
 						}
 						addaction(oAction)
 						addseparator()
 						oAction = new qAction(this.win1) {
-							settext("Ring2EXE (Build Console Application)")
+							settext(T_RINGNOTEPAD_RING2EXEBUILDCONSOLEAPPLICATION) # "Ring2EXE (Build Console Application)"
 							setclickEvent(Method("Distribute(2)"))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
-							settext("Ring2EXE (Build GUI Application)")
+							settext(T_RINGNOTEPAD_RING2EXEBUILDGUIAPPLICATION) # "Ring2EXE (Build GUI Application)"
 							setclickEvent(Method("Distribute(10)"))
 						}
 						addaction(oAction)
 						addseparator()
 						oAction = new qAction(this.win1) {
-							settext("Ring2EXE (Distribute Application - Use All Runtime)")
+							settext(T_RINGNOTEPAD_RING2EXEDISTRIBUTEAPPLICATIONUSEALLRUNTIME) # "Ring2EXE (Distribute Application - Use All Runtime)"
 							setclickEvent(Method("Distribute(3)"))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
-							settext("Ring2EXE (Distribute Application - Use All Runtime - Hide Console Window)")
+							settext(T_RINGNOTEPAD_RING2EXEDISTRIBUTEAPPLICATIONUSEALLRUNTIMEHIDECONSOLEWINDOW) "Ring2EXE (Distribute Application - Use All Runtime - Hide Console Window)"
 							setclickEvent(Method("Distribute(4)"))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
-							settext("Ring2EXE (Distribute RingQt Application)")
+							settext(T_RINGNOTEPAD_RING2EXEDISTRIBUTERINGQTAPPLICATION) # "Ring2EXE (Distribute RingQt Application)"
 							setclickEvent(Method("Distribute(5)"))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
-							settext("Ring2EXE (Distribute RingAllegro Game)")
+							settext(T_RINGNOTEPAD_RING2EXEDISTRIBUTERINGALLEGROGAME) # "Ring2EXE (Distribute RingAllegro Game)"
 							setclickEvent(Method("Distribute(6)"))
 						}
 						addaction(oAction)
 						addseparator()
 						oAction = new qAction(this.win1) {
-							settext("Ring2EXE (Distribute Light RingQt Application - Using [QtCore, QtGui, QtWidgets])")
+							settext(T_RINGNOTEPAD_RING2EXEDISTRIBUTELIGHTRINGQTAPPLICATION) # "Ring2EXE (Distribute Light RingQt Application - Using [QtCore, QtGui, QtWidgets])"
 							setclickEvent(Method("Distribute(9)"))
 						}
 						addaction(oAction)
 						addseparator()
 						oAction = new qAction(this.win1) {
-							settext("Ring2EXE (Prepare Qt Project - Distribute for Mobile Devices)")
+							settext(T_RINGNOTEPAD_RING2EXEPREPAREQTPROJECTDISTRIBUTEFORMOBILEDEVICES) # "Ring2EXE (Prepare Qt Project - Distribute for Mobile Devices)")
 							setclickEvent(Method("Distribute(7)"))
 						}
 						addaction(oAction)
 						addseparator()
 						oAction = new qAction(this.win1) {
-							settext("Ring2EXE (Prepare Qt Project - Distribute for Web Browsers using WebAssembly)")
+							settext(T_RINGNOTEPAD_RING2EXEPREPAREQTPROJECTDISTRIBUTEFORWEBASSEMBLY) # "Ring2EXE (Prepare Qt Project - Distribute for Web Browsers using WebAssembly)")
 							setclickEvent(Method("Distribute(8)"))
 						}
 						addaction(oAction)
