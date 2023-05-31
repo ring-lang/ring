@@ -97,7 +97,7 @@ class RNoteAutoComplete
 		oCompleter.setCompletionMode(QCompleter_PopupCompletion)
 		oTFont.fromstring(cFont)
 		oCompleter.popup().setFont(oTFont)
-		//textedit1.setCompleter(oCompleter)
+		textedit1.setCompleter(oCompleter)
 		StatusMessage("Prepare Auto-Complete ... Done!")
 		StatusMessage("Ready...")
 		if isObject(oACTimer)

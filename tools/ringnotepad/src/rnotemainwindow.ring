@@ -1122,3 +1122,4 @@ class RingNotepadQTextEdit from QTextEdit
 		func setLineWrapMode p1
 		func setLineNumbersAreaColor p1
 		func setLineNumbersAreaBackColor p1
+		func setCompleter p1
