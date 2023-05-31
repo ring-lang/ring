@@ -654,8 +654,8 @@ class RNoteMainWindow
 							setclickEvent(Method(:RunInBrowserMainFile))
 						}
 						addaction(oAction)
-                                                addseparator()
-                                                oAction = new qAction(this.win1) {
+						addseparator()
+						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+Shift+P"))
 							setbtnimage(self,"image/web.png")
 							settext(T_RINGNOTEPAD_FIXRINGFILESPERMISSIONSTORUNBYAPACHE) # "Fix Ring files permissions to run by Apache"
@@ -678,35 +678,35 @@ class RNoteMainWindow
 					}
 					subTools {
 						oAction = new qAction(this.win1) {
-							settext("Form Designer")
+							settext(T_RINGNOTEPAD_FORMDESIGNER) # "Form Designer"
 							setclickEvent(Method(:OpenFormDesigner))
 						}
 						addaction(oAction)
 						addseparator()
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Alt+R"))
-							settext("RingREPL - Console")
+							settext(T_RINGNOTEPAD_RINGREPLCONSOLE) # "RingREPL - Console"
 							setclickEvent(Method(:REPLConsole))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Alt+Shift+R"))
-							settext("RingREPL - GUI")
+							settext(T_RINGNOTEPAD_RINGREPLGUI) # "RingREPL - GUI"
 							setclickEvent(Method(:REPLGUI))
 						}
 						addaction(oAction)
 						addseparator()
-						subOSTools = addmenu("Operating System Tools")
+						subOSTools = addmenu(T_RINGNOTEPAD_OPERATINGSYSTEMTOOLS) # "Operating System Tools"
 						subOSTools {
 							oAction = new qAction(this.win1) {
-								settext("Terminal (Command Prompt)")
+								settext(T_RINGNOTEPAD_TERMINALCOMMANDPROMPT) # "Terminal (Command Prompt)"
 								setShortcut(new QKeySequence("Alt+Shift+T"))
 								setclickEvent(Method(:OSTerminal))
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
-								settext("Files Manager (Explorer)")
+								settext(T_RINGNOTEPAD_FILESMANAGEREXPLORER) # "Files Manager (Explorer)"
 								setShortcut(new QKeySequence("Alt+Shift+F"))
 								setclickEvent(Method(:OSFilesManager))
 							}
