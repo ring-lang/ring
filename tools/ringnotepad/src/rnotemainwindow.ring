@@ -893,25 +893,31 @@ class RNoteMainWindow
 				installeventfilter(oTabsFilter)
 			}
 
-			this.textedit1 = new codeeditor(this.win1) {
+			if T_RINGNOTEPAD_LAYOUTDIRECTION
+				this.textedit1 = new RingNotepadQTextEdit(this.win1) 
+			else 
+				this.textedit1 = new CodeEditor(this.win1) 
+			ok
+
+			this.textedit1 {
 				setCursorPositionChangedEvent(Method(:CursorPositionChanged))
-				setLineWrapMode(QTextEdit_NoWrap)
 				setTextChangedEvent(Method(:TextChanged))
-				setLineNumbersAreaColor(this.aStyleColors[:LineNumbersAreaColor])
-				setLineNumbersAreaBackColor(this.aStyleColors[:LineNumbersAreaBackColor])
+				# Not supported by QTextEdit 
+					setLineWrapMode(QTextEdit_NoWrap)
+					setLineNumbersAreaColor(this.aStyleColors[:LineNumbersAreaColor])
+					setLineNumbersAreaBackColor(this.aStyleColors[:LineNumbersAreaBackColor])
 				this.oFilterTextEdit = new qAllEvents(this.win1)
 				this.oFilterTextEdit.setkeypressevent(Method(:TextEditKeyPress))
 				installEventFilter(this.oFilterTextEdit)
-				if T_RINGNOTEPAD_LAYOUTDIRECTION
-					document().setdefaulttextoption(new qtextoption(Qt_AlignRight))
-				ok
 			}
+
 			this.AutoComplete()
 			this.oACTimer = new qtimer(this.win1) {
 				setinterval(5000)
 				settimeoutevent(Method(:AutoCompleteTimer))
 				start()
 			}
+
 			new RingCodeHighLighter(this.textedit1.document() ) {
 				if ismethod(self,:setkeywordsbold) 
 					setKeywordsbold(this.lKeywordsBold)
@@ -924,6 +930,7 @@ class RNoteMainWindow
 					this.aStyleColors[:SyntaxFunctionCallsColor]
 				)
 			}
+
 			this.oTabsAndText = new qWidget() {
 				this.oLayoutTabsText = new qVBoxlayout() {
 					AddWidget(this.filestabs)
@@ -1032,7 +1039,7 @@ class RNoteMainWindow
 				Addwidget(oProcessbtnSend)
                 		Addwidget(oClearbtn)
 			}
-			this.oProcessEditbox = new qPlaintextedit(this.oOutputWindow)  {
+			this.oProcessEditbox = new QPlaintextedit(this.oOutputWindow)  {
 				if T_RINGNOTEPAD_LAYOUTDIRECTION
 					document().setdefaulttextoption(new qtextoption(Qt_AlignRight))
 				ok
@@ -1103,3 +1110,15 @@ class RNoteMainWindow
 			return
 		ok
 		this.oFilterTextEdit.setEventoutput(False)
+
+
+
+class RingNotepadQTextEdit from QTextEdit 
+
+		func init oParent 
+			super.init(oParent) 
+			return self
+
+		func setLineWrapMode p1
+		func setLineNumbersAreaColor p1
+		func setLineNumbersAreaBackColor p1
