@@ -1,0 +1,24 @@
+<class>
+name: QTextOption
+para: Qt::Alignment
+</class>
+
+Qt::Alignment alignment(void)
+QTextOption::Flags flags(void)
+void setAlignment(Qt::Alignment alignment)
+void setFlags(QTextOption::Flags flags)
+void setTextDirection(Qt::LayoutDirection direction)
+void setUseDesignMetrics(bool enable)
+void setWrapMode(QTextOption::WrapMode mode)
+qreal tabStopDistance(void)
+Qt::LayoutDirection textDirection(void)
+bool useDesignMetrics(void)
+QTextOption::WrapMode wrapMode(void)
+
+<comment>
+void setTabArray(QList<qreal> tabStops)
+void setTabStopDistance(qreal tabStopDistance)
+void setTabs(QList<QTextOption::Tab> tabStops)
+QList<qreal> tabArray(void)
+QList<QTextOption::Tab> tabs(void)
+</comment>

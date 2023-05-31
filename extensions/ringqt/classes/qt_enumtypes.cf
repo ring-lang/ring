@@ -446,4 +446,8 @@ aEnumTypes + "QStyle::StyleHint"
 aEnumTypes + "QStyle::SubControl"
 aEnumTypes + "QStyle::SubControls"
 aEnumTypes + "QStyle::SubElement"
+aEnumTypes + "QTextOption::Flag"
+aEnumTypes + "QTextOption::Flags"
+aEnumTypes + "QTextOption::TabType"
+aEnumTypes + "QTextOption::WrapMode"
 </runcode>

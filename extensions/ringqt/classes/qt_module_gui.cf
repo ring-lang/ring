@@ -17,6 +17,7 @@
 <loadfile> gui/qtextcursor.cf
 <loadfile> gui/qkeysequence.cf
 <loadfile> gui/qtextdocument.cf
+<loadfile> gui/qtextoption.cf
 <loadfile> gui/qtextblock.cf
 <loadfile> gui/qpainterpath.cf
 <loadfile> gui/qimage.cf
