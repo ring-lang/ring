@@ -593,28 +593,28 @@ class RNoteMainWindow
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+d"))
 							setbtnimage(self,"image/debug.png")
-							settext("Debug (Run then wait!)")
+							settext(T_RINGNOTEPAD_DEBUGRUNTHENWAIT) # "Debug (Run then wait!)"
 							setclickEvent(Method(:Debug))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+r"))
 							setbtnimage(self,"image/run.png")
-							settext("Run")
+							settext(T_RINGNOTEPAD_RUN) # "Run"
 							setclickEvent(Method(:Run))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+F5"))
 							setbtnimage(self,"image/rungui.png")
-							settext("Run GUI Application (No Console)")
+							settext(T_RINGNOTEPAD_RUNGUIAPPLICATIONNOCONSOLE) # "Run GUI Application (No Console)"
 							setclickEvent(Method(:RunNoConsole))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+F6"))
 							setbtnimage(self,"image/web.png")
-							settext("Run Web Application (Open In Browser)")
+							settext(T_RINGNOTEPAD_RUNWEBAPPLICATIONOPENINBROWSER) # "Run Web Application (Open In Browser)"
 							setclickEvent(Method(:RunInBrowser))
 						}
 						addaction(oAction)
@@ -622,35 +622,35 @@ class RNoteMainWindow
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+Shift+M"))
 							setbtnimage(self,"image/open.png")
-							settext("Set the Main File to be the current source file")
+							settext(T_RINGNOTEPAD_SETTHEMAINFILETOBETHECURRENTSOURCEFILE) # "Set the Main File to be the current source file"
 							setclickEvent(Method(:SetMainFile))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+Shift+d"))
 							setbtnimage(self,"image/debug.png")
-							settext("Main File : Debug (Run then wait!)")
+							settext(T_RINGNOTEPAD_MAINFILEDEBUGRUNTHENWAIT) # "Main File : Debug (Run then wait!)"
 							setclickEvent(Method(:DebugMainFile))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+Shift+r"))
 							setbtnimage(self,"image/run.png")
-							settext("Main File : Run")
+							settext(T_RINGNOTEPAD_MAINFILERUN) # "Main File : Run"
 							setclickEvent(Method(:RunMainFile))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+Shift+F5"))
 							setbtnimage(self,"image/rungui.png")
-							settext("Main File : Run GUI Application (No Console)")
+							settext(T_RINGNOTEPAD_MAINFILERUNGUIAPPLICATIONNOCONSOLE) # "Main File : Run GUI Application (No Console)"
 							setclickEvent(Method(:RunGUIMainFile))
 						}
 						addaction(oAction)
 						oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+Shift+F6"))
 							setbtnimage(self,"image/web.png")
-							settext("Main File : Run Web Application (Open In Browser)")
+							settext(T_RINGNOTEPAD_MAINFILERUNWEBAPPLICATIONOPENINBROWSER) # "Main File : Run Web Application (Open In Browser)"
 							setclickEvent(Method(:RunInBrowserMainFile))
 						}
 						addaction(oAction)
@@ -658,7 +658,7 @@ class RNoteMainWindow
                                                 oAction = new qAction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+Shift+P"))
 							setbtnimage(self,"image/web.png")
-							settext("Fix Ring files permissions to run by Apache")
+							settext(T_RINGNOTEPAD_FIXRINGFILESPERMISSIONSTORUNBYAPACHE) # "Fix Ring files permissions to run by Apache"
 							setclickEvent(Method(:MakeFilesExecutable))
 						}
 						addaction(oAction)
