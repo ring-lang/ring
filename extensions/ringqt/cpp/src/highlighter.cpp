@@ -108,6 +108,10 @@ void Highlighter::setColors(QColor c1,QColor c2,QColor c3,QColor c4,QColor c5) {
 					<< "\\bswitch\\b" << "\\bto\\b" << "\\btry\\b"
 					<< "\\bendfunc\\b" << "\\bendclass\\b" << "\\bendpackage\\b"
 					<< "\\bwhile\\b" << "\\bchangeringkeyword\\b"
+					<< "\\bendif\\b" << "\\bendfor\\b"
+					<< "\\bendwhile\\b" << "\\bendswitch\\b"
+					<< "\\bendtry\\b" << "\\bfunction\\b"
+					<< "\\bendfunction\\b" << "\\bbreak\\b" << "\\bcontinue\\b"
 					<< "\\bchangeringoperator\\b" << "\\bloadsyntax\\b";
                     
     foreach (const QString &pattern, keywordPatterns) {
