@@ -808,6 +808,7 @@ class RNoteMainWindow
 					}
 				}
 				setmenubar(menu1)
+				setlayoutdirection(T_RINGNOTEPAD_LAYOUTDIRECTION)
 		}
 
 	func CreateStatusbar

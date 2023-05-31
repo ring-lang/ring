@@ -1,3 +1,5 @@
+T_RINGNOTEPAD_LAYOUTDIRECTION = 1
+
 T_RINGNOTEPAD_APPNAME    = "محرر لغة الرينج"
 
 T_RINGNOTEPAD_FILE       = "ملف"
