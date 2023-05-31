@@ -29,12 +29,12 @@ class RNoteControllerBase from WindowsControllerParent
 	nTabSpaces 		= 8
 
 	aBrowserLinks 		= [
-		["Local Help", "file:///"+substr(exefolder(),"\","/") + "../documents/build/html/index.html"],
-		["Ring Website","http://ring-lang.github.io"],
-		["Ring Samples (Rosetta Code)","https://rosettacode.org/wiki/Category:Ring"],
-		["Ring Resources","http://ring-lang.github.io/resources.html"],
-		["Ring Source Code (GitHub)","https://github.com/ring-lang/ring"],
-		["Ring Team","http://ring-lang.github.io/team.html"]
+		[T_RINGNOTEPAD_BROWSERLOCALHELP, "file:///"+substr(exefolder(),"\","/") + "../documents/build/html/index.html"],
+		[T_RINGNOTEPAD_BROWSERRINGWEBSITE,"http://ring-lang.github.io"],
+		[T_RINGNOTEPAD_BRWOSERRINGSAMPLES,"https://rosettacode.org/wiki/Category:Ring"],
+		[T_RINGNOTEPAD_BROWSERRINGRESOURCES,"http://ring-lang.github.io/resources.html"],
+		[T_RINGNOTEPAD_BROWSERRINGSOURCECODE,"https://github.com/ring-lang/ring"],
+		[T_RINGNOTEPAD_BROWSERRINGTEAM,"http://ring-lang.github.io/team.html"]
 	]
 
 	# Define Colors
