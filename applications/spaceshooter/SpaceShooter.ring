@@ -1,6 +1,6 @@
 load "stdlibcore.ring"
-load "resources.ring"
 load "raylib.ring"
+load "Resources.ring"
 load "Fire.ring"
 load "Ship.ring"
 load "PlayerShip.ring"
