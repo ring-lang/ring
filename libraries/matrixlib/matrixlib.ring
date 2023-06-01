@@ -27,6 +27,7 @@
 // 24 MatrixOrthoNormal3(V1,V2,V3) // Gram-Schmidt method for 3 Vectors in R3 Space
 // 25 QuadSolve(Eq)                // Quadratric equation solve
 // 26 CubicSolve(Eq)               // Cubic equation solve
+// 27 MatrixLuDecompose(U)         // LU Decompose Matrix to Lower and Upper Matrix
 
 //--------------------------------------------
 // GLOBAL Constants
@@ -1215,4 +1216,53 @@ Func CubicSolve(Eq)
 
 return S  // Row-Col Solution 1x3
 
-//========================================
+
+//==========================================================
+// Decomposing Matrix into Upper and Lower Triangular Matrix
+// MatrixLuDecompose(U): Doolittle’s Method 
+// Return array = [Lower,Upper] 
+// Bert Mariani 2023-06-01
+
+Func MatrixLuDecompose(U)
+    Mat = U    // for clarity
+
+    vertU = len(Mat)    horzU = len(Mat[1])
+
+    if vertU != horzU
+        See "Error: MatrixLuDecompose: "+vertU +"x"+ horzU nl
+        See "VertU: "+ vertU +" HorzU: "+ horzU +" MUST BE Equal "+ nl
+        MatrixPrint(Mat)
+        return 1
+    OK
+ 
+    n = vertU
+    h = horzU
+
+    Lower = list(n,n)   // nxn
+    Upper = list(n,n)   
+
+    for i = 1 to n   
+        for k = i to n                                // Upper Triangular           
+            Sum = 0                                   // Summation of L(i, j) * U(j, k)
+            for j = 1 to i  
+                Sum += (Lower[i][j] * Upper[j][k])
+            next
+            Upper[i][k] = Mat[i][k] - Sum             // Evaluating U(i, k)
+        next
+    
+        for k = i to n                                // Lower Triangular
+            if (i = k)
+                Lower[i][i] = 1                       // Diagonal as 1
+            else             
+                Sum = 0                               // Summation of L(k, j) * U(j, i)
+                for j = 1 to i 
+                    Sum += (Lower[k][j] * Upper[j][i])
+                next               
+                Lower[k][i]   = (Mat[k][i] - sum) / Upper[i][i]  // Evaluating L(k, i)
+            ok
+        next
+    next
+
+ return [Lower,Upper]
+
+//======================================
