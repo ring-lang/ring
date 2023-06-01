@@ -25,7 +25,8 @@
 // 22 VectorDistance(U,V)
 // 23 MatricOrthoNormal2(U,V)      // Gram-Schmidt method for 2 Vectors in R2 Space
 // 24 MatrixOrthoNormal3(V1,V2,V3) // Gram-Schmidt method for 3 Vectors in R3 Space
-
+// 25 QuadSolve(Eq)                // Quadratric equation solve
+// 26 CubicSolve(Eq)               // Cubic equation solve
 
 //--------------------------------------------
 // GLOBAL Constants
@@ -390,10 +391,10 @@ Func MatrixInverse(U)
        U[2][1] = -b1   U[2][2] =  a1
 
        Det  = a1*b2 - a2*b1       // Determinate Cross multiply  
-	   if Det = 0                 // Inverse not possible
-	      return 1                // Error, flag as 1
-	   ok
-	   
+       if Det = 0                 // Inverse not possible
+          return 1                // Error, flag as 1
+       ok
+       
        Uinv = ScalarMultiply(1/Det, U)
     
     else
@@ -1088,7 +1089,7 @@ Func MatrixOrthoNormal3(V1,V2,V3)
     U1t = MatrixTranspose(U1)
     U2t = MatrixTranspose(U2)
     U3t = MatrixTranspose(U3)
-	
+    
     U4 = list(3, len(U1))       // Number of Vectors, Width(Depth) of Vector
     for i = 1 to len(U1)
         U4[1][i] = U1t[1][i]
@@ -1100,3 +1101,118 @@ return U4  // OrthoNormalized U4 = U1,U2,U3 Combo
 
 //============================================
 //============================================
+//========================================
+// Bert Mariani 2023-05-30
+// Quadratic Equation Solve => aX^2 + bX^1 + c
+// Return 3x1 array-S
+// x = ( -b +- (sqrt(b*b -4ac))) / 2*a
+
+Func QuadSolve(Eq)
+
+   S = list(2,1)   // Row Column
+
+   a  = Eq[1][1]
+   b  = Eq[1][2]
+   c  = Eq[1][3] 
+
+   sq1 = sqrt( (b*b) - (4*a*c) ) 
+
+   X1  = (-b + sq1 ) / (2*a)
+   X2  = (-b - sq1 ) / (2*a)
+
+   S[1][1] = x1
+   S[2][1] = x2
+
+return S  // Row-Col  1x2
+
+
+//=================================================
+// Cubic Equation Solve => aX^3 + bX^2 + cX^1 + d
+// Return 3x1 array-S
+// Alogorithm
+// Bert Mariani 2023-05-30
+
+Func CubicSolve(Eq)
+
+   S = list(3,1)  // Row-Column
+
+   a  = Eq[1][1]  //   2
+   b  = Eq[1][2]  //   1
+   c  = Eq[1][3]  // -13
+   d  = Eq[1][4]  //   6
+
+   P = []         // d = 1..6
+   Q = []         // a = 1..2
+   R = []         // P/Q
+   T = []         // +-R
+
+   for i = 1 to d
+       if !(d % i)             // modulo = 0
+         Add(P,i)
+       ok
+   next
+
+//----------
+
+   for i = 1 to a
+       if !(a % i)             // modulo = 0
+         Add(Q,i)
+       ok
+   next
+
+//----------
+
+   for k = 1 to len(P)
+       Add(R,P[k])
+   next 
+
+   for k = 1 to len(Q)
+       found = Find(P,Q[k])
+       if !found
+          Add(R,P[k])
+       ok
+   next
+
+//----------
+
+   for m = 1 to len(Q)
+      for k = 1 to len(P)
+
+          nbr = P[k] / Q[m]
+          found = Find(P,nbr)
+          if !found
+             Add(R,nbr)
+          ok
+      next
+   next
+
+//-------------------
+
+   for k = 1 to len(R)
+       posNbr =  R[k]
+       negNbr = -R[k]
+       Add(T,posNbr)
+       Add(T,negNbr)
+   next
+
+//----------
+
+   j = 1
+   for i = 1 to len(T)
+ 
+      k  = T[i]    
+      k3 = k*k*k
+      k2 = k*k
+
+      solve = (a*k3) + (b*k2) + (c*k) + d
+      if (solve = 0)
+         s[j][1] = k
+         j++
+      ok
+
+    next  
+    //See S 
+
+return S  // Row-Col Solution 1x3
+
+//========================================
