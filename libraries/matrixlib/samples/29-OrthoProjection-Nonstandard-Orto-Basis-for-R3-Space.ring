@@ -1,7 +1,7 @@
 // A Nonstandard Orthonormal Basis for R3 Space p298
 
 Load "stdlibcore.ring"
-Load "MatrixLib.ring"
+Load "matrixlib.ring"
     
 // R3 Space
 s2 = sqrt(2)

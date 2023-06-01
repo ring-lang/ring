@@ -4,7 +4,7 @@
 // libraries/stdlib/stdlibcore.ring
 
 Load "stdlibcore.ring"
-Load "MatrixLib.ring"
+Load "matrixlib.ring"
 
 //===================================
 // MatrixInverse  3x3

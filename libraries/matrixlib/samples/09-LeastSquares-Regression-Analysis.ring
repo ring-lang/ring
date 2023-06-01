@@ -1,7 +1,7 @@
 //Least Squares - Regression Analysis
 
 Load "stdlibcore.ring"
-Load "MatrixLib.ring"
+Load "matrixlib.ring"
 
 //-------------------------
 

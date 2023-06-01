@@ -1,7 +1,7 @@
 // Applying the Gram-Schmidt OrtoNormalization Process usin Library p306
 
 Load "stdlibcore.ring"
-Load "MatrixLib.ring"
+Load "matrixlib.ring"
     
 // Basis  = { V1, V2, V3}
 //

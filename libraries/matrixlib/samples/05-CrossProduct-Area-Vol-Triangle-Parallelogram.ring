@@ -4,7 +4,7 @@
 
 
 Load "stdlibcore.ring"
-Load "MatrixLib.ring"
+Load "matrixlib.ring"
 
 // Find the Cross Product of 2 Vectors in R3 Space
 // Finding the Area of a Parallelogram in 3D Space

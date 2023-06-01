@@ -1,7 +1,7 @@
 //DotProduct p282
 
 Load "stdlibcore.ring"
-Load "MatrixLib.ring"
+Load "matrixlib.ring"
     
 U = [[1],[ 2],[-1]]
 V = [[3],[-2],[ 4]]

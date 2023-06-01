@@ -2,7 +2,7 @@
 // Rotation About the Z-Axis
 
 Load "stdlibcore.ring"
-Load "MatrixLib.ring"
+Load "matrixlib.ring"
 //Load "MatrixDraw-3D-Rotation.ring"
 
 //=================================

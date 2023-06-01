@@ -1,7 +1,7 @@
 // VectorLength p 272
 
 Load "stdlibcore.ring"
-Load "MatrixLib.ring"
+Load "matrixlib.ring"
 
 //-------------------------
 

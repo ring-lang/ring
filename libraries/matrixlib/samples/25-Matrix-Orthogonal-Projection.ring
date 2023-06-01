@@ -1,6 +1,6 @@
 
 Load "stdlibcore.ring"
-Load "MatrixLib.ring"
+Load "matrixlib.ring"
 
 //============================================
 // Bert Mariani 03/18/2023

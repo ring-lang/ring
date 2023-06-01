@@ -1,7 +1,7 @@
 //DotProduct p282, 289
 
 Load "stdlibcore.ring"
-Load "MatrixLib.ring"
+Load "matrixlib.ring"
     
 //q = c    x    x^2
 P = [[1],[ 0],[-2]]

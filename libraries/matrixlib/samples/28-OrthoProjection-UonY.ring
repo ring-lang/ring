@@ -1,7 +1,7 @@
 // Find the Orthogonal Projection of U onto V  p293
 
 Load "stdlibcore.ring"
-Load "MatrixLib.ring"
+Load "matrixlib.ring"
     
 //R2 Space
 U = [[4],[ 2]]

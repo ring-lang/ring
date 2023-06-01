@@ -1,7 +1,7 @@
 // Representing Vectors Relative to an Orthonormal Basis  p303
 
 Load "stdlibcore.ring"
-Load "MatrixLib.ring"
+Load "matrixlib.ring"
     
 // B  = { V1, V2, V3 }
 
