@@ -48,13 +48,15 @@ Func Main()
          [-4,-2, 6, 3]]
 
     Triangle =	MatrixLuDecompose(U)
-	
-    Lower = Triangle[1]
-    Upper = Triangle[2]
 
-    See "Matrix ---------------- "  MatrixPrint(U)
-    See "Return Lower"  MatrixPrint(Lower)
-    See "Ret Upper"  MatrixPrint(Upper)
+    if isList(Triangle)	
+        Lower = Triangle[1]
+        Upper = Triangle[2]
+
+        See "Matrix ---------------- "  MatrixPrint(U)
+        See "Return Lower"  MatrixPrint(Lower)
+        See "Ret Upper"  MatrixPrint(Upper)
+    ok
 
 return
 
