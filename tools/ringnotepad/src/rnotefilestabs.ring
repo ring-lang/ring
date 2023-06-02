@@ -59,7 +59,7 @@ class RNoteFilesTabs
 			this.aFilesLines = []
 			lAskToSave 	 = false
 			cTextHash	 = sha256("")
-			filestabs.setTabText(0,"noname")
+			filestabs.setTabText(0,T_RINGNOTEPAD_NONAME)
 			textedit1.blocksignals(True)
 			textedit1.setPlaintext("")
 			textedit1.blocksignals(False)
@@ -69,7 +69,7 @@ class RNoteFilesTabs
 	func TabsContextMenu
  		new qMenu(win1) {
 	                oAction = new qAction(this.win1) {
-	                        settext("Close Other Files")
+	                        settext(T_RINGNOTEPAD_CLOSEOTHREFILES) # "Close Other Files"
 	                        setClickEvent(Method(:TabsCMCloseOtherFiles))
 				if this.filestabs.count() = 1
 					setenabled(False)
@@ -78,7 +78,7 @@ class RNoteFilesTabs
 	                addaction(oAction)
 			addseparator()
 	                oAction = new qAction(this.win1) {
-	                        settext("Close Active File")
+	                        settext(T_RINGNOTEPAD_CLOSEACTIVEFILE) # "Close Active File"
 	                        setClickEvent(Method(:TabsCMCloseActiveFile))
 				if len(this.aFilesLines) = 0
 					setenabled(False)
@@ -87,7 +87,7 @@ class RNoteFilesTabs
 	                addaction(oAction)
 			addseparator()
 	                oAction = new qAction(this.win1) {
-	                        settext("Close All")
+	                        settext(T_RINGNOTEPAD_CLOSEALL) # "Close All"
 	                        setClickEvent(Method(:TabsCMCloseAll))
 				if len(this.aFilesLines) <= 1
 					setenabled(False)
