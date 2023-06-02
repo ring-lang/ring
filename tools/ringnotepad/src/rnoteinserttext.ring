@@ -8,14 +8,14 @@ class RNoteInsertText
 	func OpenInsertWindow
 
 		oInsert = new QWidget() {
-			setwindowtitle("Insert Text")
+			setwindowtitle(T_RINGNOTEPAD_INSERTTEXT) # "Insert Text"
 			resize(400,350)
 			setwindowflags(Qt_WindowStaysOnTopHint)
 
 
 			templateLabel = new QLabel(oInsert) {
 				setGeometry(50,30,100,20)
-				settext("Insert Text : ")
+				settext(T_RINGNOTEPAD_INSERTTEXTCOLON) # "Insert Text : "
 			}
           
 			templateList = new QListWidget(oInsert) {
