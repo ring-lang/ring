@@ -6,10 +6,10 @@ class RNoteTabWidth
 	func TabWidth
 		oInput = New QInputDialog(win1)
 		{
-			setwindowtitle("Set the Tab Width")
+			setwindowtitle(T_RINGNOTEPAD_SETTHETABWIDTH) # "Set the Tab Width"
 			setgeometry(100,100,400,50)
-			setlabeltext("Spaces Count")
-			settextvalue("1")
+			setlabeltext(T_RINGNOTEPAD_SPACESCOUNT) # "Spaces Count"
+			settextvalue(T_RINGNOTEPAD_DEFAULTSPACESCOUNT) # "1"
 			r = exec()
 		}
 		if r=0 return ok
