@@ -7,19 +7,19 @@ class RNoteEditMenu
 
 	func Undo
 		textedit1.undo()
-		StatusMessage("Undo!")
+		StatusMessage(T_RINGNOTEPAD_STATUSUNDO) # "Undo!"
 
 	func Cut
 		textedit1.cut()
-		StatusMessage("Cut!")
+		StatusMessage(T_RINGNOTEPAD_STATUSCUT) # "Cut!"
 
 	func CopyText
 		textedit1.copy()
-		StatusMessage("Copy!")
+		StatusMessage(T_RINGNOTEPAD_STATUSCOPY) # "Copy!"
 
 	func Paste
 		textedit1.paste()
-		StatusMessage("Paste!")
+		StatusMessage(T_RINGNOTEPAD_STATUSPASTE) # "Paste!"
 
 	func Font
 		oFontDialog = new qfontdialog() {
