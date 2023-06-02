@@ -19,7 +19,7 @@ class RNoteLists
 		# Set the font
 			oTFont.fromstring(cFont)
 			oFunctionsList.setFont(oTFont)
-		StatusMessage("Creating functions list ... Please Wait!")
+		StatusMessage(T_RINGNOTEPAD_CREATEFUNCTIONSLISTWAIT) # "Creating functions list ... Please Wait!"
 		aFileContent = str2list(read(FileNameEncoding(cActiveFileName)))
 		nLineNumber = 0
 		for cLine in aFileContent
@@ -56,8 +56,8 @@ class RNoteLists
 		for cFunc in aFunctionsPos
 			oFunctionsList.addItem(cFunc[1])
 		next
-		oDockFunctionsList.setWindowTitle("Functions ("+oFunctionsList.Count()+")")
-		StatusMessage("Creating functions list ... Done!")
+		oDockFunctionsList.setWindowTitle(T_RINGNOTEPAD_FUNCTIONSDOCKWINDOWTITLE+" ("+oFunctionsList.Count()+")")
+		StatusMessage(T_RINGNOTEPAD_CREATEFUNCTIONSLISTDONE) # "Creating functions list ... Done!"
 
 	func SelectFunction
 		nIndex = oFunctionsList.currentrow() + 1
@@ -74,7 +74,7 @@ class RNoteLists
 		# Set the font
 			oTFont.fromstring(cFont)
 			oClassesList.setFont(oTFont)
-		StatusMessage("Creating Classes list ... Please Wait!")
+		StatusMessage(T_RINGNOTEPAD_CREATECLASSESLISTWAIT) # "Creating Classes list ... Please Wait!"
 		aFileContent = str2list(read(FileNameEncoding(cActiveFileName)))
 		nLineNumber = 0
 		for cLine in aFileContent
@@ -105,8 +105,8 @@ class RNoteLists
 		for cClass in aClassesPos
 			oClassesList.addItem(cClass[1])
 		next
-		oDockClassesList.setWindowTitle("Classes ("+oClassesList.Count()+")")
-		StatusMessage("Creating classes list ... Done!")
+		oDockClassesList.setWindowTitle(T_RINGNOTEPAD_CLASSESDOCKWINDOWTITLE+" ("+oClassesList.Count()+")")
+		StatusMessage(T_RINGNOTEPAD_CREATECLASSESLISTDONE) # "Creating classes list ... Done!"
 
 	func SelectClass
 		nIndex = oClassesList.currentrow() + 1
