@@ -154,3 +154,7 @@ T_RINGNOTEPAD_SEND = "ارسل"
 T_RINGNOTEPAD_CLEAROUTPUTSTOPRUNNINGPROGRAM = "محو النتائج وإيقاف البرنامج"
 T_RINGNOTEPAD_OUTPUT = "الناتج"
 T_RINGNOTEPAD_FORMDESIGNER = "مصمم النموذج"
+
+T_RINGNOTEPAD_SORRY = "عفوا"
+T_RINGNOTEPAD_SELECTTHEFILEFIRST = "فضلا قم بحفظ الملف او فتح الملف اولا"
+T_RINGNOTEPAD_SOURCECODECOLON = "ملفات التعليمات البرمجية : "

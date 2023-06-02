@@ -4,8 +4,8 @@
 class RNoteActiveFile
 
 	func Nofileopened
-		msginfo("Sorry","Save/Select the file first!")
+		msginfo(T_RINGNOTEPAD_SORRY,T_RINGNOTEPAD_SELECTTHEFILEFIRST)
 
 	func SetActiveFileName
-		oDockSourceCode.setWindowTitle("Source Code : " + cActiveFileName)
+		oDockSourceCode.setWindowTitle(T_RINGNOTEPAD_SOURCECODECOLON + cActiveFileName)
 		setFileTab(cActiveFileName)
