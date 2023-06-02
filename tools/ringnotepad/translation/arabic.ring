@@ -185,3 +185,7 @@ T_RINGNOTEPAD_CREATECLASSESLISTWAIT    = "جاري انشاء قائمة الف�
 T_RINGNOTEPAD_CREATECLASSESLISTDONE    = "تم انشاء قائمة الفئات"
 T_RINGNOTEPAD_FUNCTIONSDOCKWINDOWTITLE = "الدوال"
 T_RINGNOTEPAD_CLASSESDOCKWINDOWTITLE   = "الفئات"
+
+T_RINGNOTEPAD_SAVECHANGES            = "حفظ التعديلات?"
+T_RINGNOTEPAD_SOMECHANGESNOTSAVED    = "بعض التعديلات لم يتم حفظها!"
+T_RINGNOTEPAD_DOYOUWANTTOSAVECHANGES = "هل تريد حفظ التعديلات?"

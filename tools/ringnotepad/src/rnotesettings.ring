@@ -28,9 +28,9 @@ class RNoteSettings
 		if lAsktoSave and cTextHash != sha256(textedit1.toplaintext())
 			new qmessagebox(win1)
 			{
-				setwindowtitle("Save Changes?")
-				settext("Some changes are not saved!")
-				setInformativeText("Do you want to save your changes?")
+				setwindowtitle(T_RINGNOTEPAD_SAVECHANGES) # "Save Changes?"
+				settext(T_RINGNOTEPAD_SOMECHANGESNOTSAVED) # "Some changes are not saved!"
+				setInformativeText(T_RINGNOTEPAD_DOYOUWANTTOSAVECHANGES) # "Do you want to save your changes?"
 				setstandardbuttons(QMessageBox_Yes | QMessageBox_No)
 				result = exec()
 				this.win1 {
