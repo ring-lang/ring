@@ -1,14 +1,14 @@
 aCodeTemplates = [ 
-	["[comment] Separator (====)", func {
+	[T_RINGNOTEPAD_TEMPLATESEPARATOR, func {
 		return "#"+Copy("=",70) + "#" + nl 
 	} ],
-	["[Comment] Insert Date & Time" , func {
+	[T_RINGNOTEPAD_TEMPLATEDATETIME , func {
 		return "# Date   : " + Date() + nl + "# Time   : " + Time() + nl  
 	} ],
-	["[Comment] Author Name", func {
+	[T_RINGNOTEPAD_TEMPLATEAUTHOR, func {
 		return "# Author :" + nl
 	} ],
-	["[Comment] Function Description", func {
+	[T_RINGNOTEPAD_TEMPLATEFUNCDESC, func {
 		return "/*" + nl +
 			" Function Name :" + nl + 
 			" Parameters    :" + nl +
