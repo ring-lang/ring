@@ -211,3 +211,10 @@ T_RINGNOTEPAD_AUTOCOMPLETEREMOVE  = "Prepare Auto-Complete ... Remove Duplicates
 T_RINGNOTEPAD_AUTOCOMPLETESORT    = "Prepare Auto-Complete ... Sort!"
 T_RINGNOTEPAD_AUTOCOMPLETEDONE    = "Prepare Auto-Complete ... Done!"
 T_RINGNOTEPAD_AUTOCOMPLETEREADY   = "Ready..."
+
+T_RINGNOTEPAD_TREEOPENFORMFILE = "Open the form file..."
+T_RINGNOTEPAD_TREEREADY        = "Ready!"
+T_RINGNOTEPAD_TREESORRY        = "Sorry"
+T_RINGNOTEPAD_TREECANTOPENFILE = "Can't open the file "
+T_RINGNOTEPAD_TREELOADFUNCS    = "Functions (Loading...)"
+T_RINGNOTEPAD_TREELOADCLASSES  = "Classes (Loading...)"

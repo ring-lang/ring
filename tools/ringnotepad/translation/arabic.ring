@@ -211,3 +211,10 @@ T_RINGNOTEPAD_AUTOCOMPLETEREMOVE  = "تجهيز الإكمال التلقائى 
 T_RINGNOTEPAD_AUTOCOMPLETESORT    = "تجهيز الإكمال التلقائى - فرز"
 T_RINGNOTEPAD_AUTOCOMPLETEDONE    = "تجهيز الإكمال التلقائى - تم"
 T_RINGNOTEPAD_AUTOCOMPLETEREADY   = "جاهز"
+
+T_RINGNOTEPAD_TREEOPENFORMFILE = "فتح ملف النموذج"
+T_RINGNOTEPAD_TREEREADY        = "جاهز"
+T_RINGNOTEPAD_TREESORRY        = "عفوا"
+T_RINGNOTEPAD_TREECANTOPENFILE = "لايمكن فتح الملف "
+T_RINGNOTEPAD_TREELOADFUNCS    = "تحميل الدوال"
+T_RINGNOTEPAD_TREELOADCLASSES  = "تحميل الفئات"

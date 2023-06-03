@@ -19,12 +19,12 @@ class RNoteTreeViewEvents
 		# Open Form Designer File 
 		lActivateFormDesigner = False
 		if right(ofile.filepath(oItem),6) = ".rform"
-			StatusMessage("Open the form file...")
+			StatusMessage(T_RINGNOTEPAD_TREEOPENFORMFILE) # "Open the form file..."
 			if ofile.filepath(oItem) != cFormFile 
 				cFormFile = ofile.filepath(oItem)
 				FormDesigner().OpenFile(ofile.filepath(oItem))
 			ok
-			StatusMessage("Ready!")
+			StatusMessage(T_RINGNOTEPAD_TREEREADY) # "Ready!"
 			oDockFormDesigner.raise()
 			cSourceFile = substr(cFormFile,".rform","Controller.ring")
 			if fexists(FileNameEncoding(cSourceFile))
@@ -41,7 +41,7 @@ class RNoteTreeViewEvents
 		try 
 			textedit1.setPlaintext(read(FileNameEncoding(cActiveFileName)))
 		catch 
-			msginfo("Sorry","Can't open the file " + cActiveFileName)
+			msginfo(T_RINGNOTEPAD_TREESORRY,T_RINGNOTEPAD_TREECANTOPENFILE + cActiveFileName)
 			cActiveFileName = cOldActiveFileName
 			return 
 		end 
@@ -61,10 +61,10 @@ class RNoteTreeViewEvents
 			oDockSourceCode.raise()
 			tree1.setFocus(0)
 		ok
-		StatusMessage("Ready!")
+		StatusMessage(T_RINGNOTEPAD_TREEREADY) # "Ready!"
 
 	func DisplayFunctionsAndClasses
-		oDockFunctionsList.setWindowTitle("Functions (Loading...)")
-		oDockClassesList.setWindowTitle("Classes (Loading...)")
+		oDockFunctionsList.setWindowTitle(T_RINGNOTEPAD_TREELOADFUNCS) # "Functions (Loading...)"
+		oDockClassesList.setWindowTitle(T_RINGNOTEPAD_TREELOADCLASSES) # "Classes (Loading...)"
 		DisplayFunctionsList()
 		DisplayClassesList()
