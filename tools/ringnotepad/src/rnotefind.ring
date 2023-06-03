@@ -13,7 +13,7 @@ class RNoteFind
 		{
 			oLblFindWhat = new qLabel(this.oSearch)
 			{
-				setText("Find What : ")
+				setText(T_RINGNOTEPAD_FINDWINDOWFINDWHAT) # "Find What : "
 			}
 			this.oSearchValue = new qlineedit(this.oSearch)
 			{
@@ -27,7 +27,7 @@ class RNoteFind
 			}
 			oLblReplaceWith = new qLabel(this.oSearch)
 			{
-				setText("Replace with ")
+				setText(T_RINGNOTEPAD_FINDWINDOWREPLACEWITH) # "Replace with "
 			}
 			this.oReplaceValue = new qlineedit(this.oSearch)
 			{
@@ -41,7 +41,7 @@ class RNoteFind
 			}
 			this.oSearchCase = new qCheckbox(this.oSearch)
 			{
-				setText("Case Sensitive")
+				setText(T_RINGNOTEPAD_FINDWINDOWCASESENSITIVE) # "Case Sensitive"
 			}
 			oLayout3 = new qHBoxLayout()
 			{
@@ -49,27 +49,27 @@ class RNoteFind
 			}
 			oBtnFind = new qPushButton(this.oSearch)
 			{
-				setText("Find/Find Next")
+				setText(T_RINGNOTEPAD_FINDWINDOWFINDFINDNEXT) # "Find/Find Next"
 				setclickEvent(Method(:FindValue))
 			}
 			oBtnFindPrev = new qPushButton(this.oSearch)
 			{
-				setText("Find/Find Prev")
+				setText(T_RINGNOTEPAD_FINDWINDOWFINDFINDPREV) # "Find/Find Prev"
 				setclickEvent(Method(:FindPrevValue))
 			}
 			oBtnReplace = new qPushButton(this.oSearch)
 			{
-				setText("Replace")
+				setText(T_RINGNOTEPAD_FINDWINDOWREPLACE) # "Replace"
 				setclickEvent(Method(:Replace))
 			}
 			oBtnReplaceAll = new qPushButton(this.oSearch)
 			{
-				setText("Replace All")
+				setText(T_RINGNOTEPAD_FINDWINDOWREPLACEALL) # "Replace All"
 				setclickEvent(Method(:ReplaceAll))
 			}
 			oBtnClose = new qPushButton(this.oSearch)
 			{
-				setText("Close")
+				setText(T_RINGNOTEPAD_FINDWINDOWCLOSE) # "Close"
 				setclickEvent(Method(:SearchClose))
 			}
 			oLayout4 = new qHBoxLayout()
@@ -89,12 +89,13 @@ class RNoteFind
 			}
 			setLayout(oLayout5)
 			setwinicon(this.oSearch,"image/notepad.png")
-			setWindowTitle("Find/Replace")
+			setWindowTitle(T_RINGNOTEPAD_FINDWINDOWFINDREPLACE) # "Find/Replace"
 			setFixedsize(550,160)
 			setwindowflags(Qt_CustomizeWindowHint | Qt_WindowTitleHint) 
 			this.oSearchFilter = new qallevents(this.oSearch)
 			this.oSearchFilter.setKeyPressEvent(Method(:SearchKeyPress))
 			installeventfilter(this.oSearchFilter)
+			setlayoutdirection(T_RINGNOTEPAD_LAYOUTDIRECTION)
 			show()
 		}
 
@@ -103,8 +104,8 @@ class RNoteFind
 		if oCursor.HasSelection() = false
 			new qMessagebox(oSearch)
 			{
-				SetWindowTitle("Replace")
-				SetText("No Selection")
+				SetWindowTitle(T_RINGNOTEPAD_FINDWINDOWREPLACE) # "Replace"
+				SetText(T_RINGNOTEPAD_FINDWINDOWNOSELECTION) # "No Selection"
 				show()
 			}
 			return false
@@ -119,8 +120,8 @@ class RNoteFind
 		if cSelected != cValue
 			new qMessagebox(oSearch)
 			{
-				SetWindowTitle("Replace")
-				SetText("No Match")
+				SetWindowTitle(T_RINGNOTEPAD_FINDWINDOWREPLACE) # "Replace"
+				SetText(T_RINGNOTEPAD_FINDWINDOWNOMATCH) # "No Match"
 				show()
 			}
 			return false
@@ -149,15 +150,15 @@ class RNoteFind
 			cStr = SubStr(cStr,cOldValue,cNewValue)
 		ok
 		if cStr != textedit1.toPlainText()
-			cMsg = "Operation Done"
-			cMsg = cMsg + " - Replaced : " + cnt
+			cMsg = T_RINGNOTEPAD_FINDWINDOWOPERATIONDONE # "Operation Done"
+			cMsg = cMsg + T_RINGNOTEPAD_FINDWINDOWREPLACED + cnt
 		else 
-			cMsg = "Nothing to replace!"
+			cMsg = T_RINGNOTEPAD_FINDWINDOWNOTHINGTOREPLACE # "Nothing to replace!"
 		ok
 		setTextAllowUndo(cStr)
 		new qMessagebox(oSearch)
 		{
-			SetWindowTitle("Replace All")
+			SetWindowTitle(T_RINGNOTEPAD_FINDWINDOWREPLACEALL) # "Replace All"
 			SetText(cMsg)
 			show()
 		}
@@ -197,8 +198,8 @@ class RNoteFind
 		else
 			new qMessagebox(oSearch)
 			{
-				SetWindowTitle("Search")
-				SetText("Cannot find : " + cValue)
+				SetWindowTitle(T_RINGNOTEPAD_FINDWINDOWSEARCH) # "Search"
+				SetText(T_RINGNOTEPAD_FINDWINDOWCANNOTFIND + cValue)
 				show()
 			}
 			return false
@@ -234,8 +235,8 @@ class RNoteFind
 		else
 			new qMessagebox(oSearch)
 			{
-				SetWindowTitle("Search")
-				SetText("Cannot find : " + cValue)
+				SetWindowTitle(T_RINGNOTEPAD_FINDWINDOWSEARCH) # "Search"
+				SetText(T_RINGNOTEPAD_FINDWINDOWCANNOTFIND + cValue)
 				show()
 			}
 			return false

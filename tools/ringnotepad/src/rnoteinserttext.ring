@@ -28,13 +28,13 @@ class RNoteInsertText
  
 			BtntnOk = new qpushbutton(oInsert) {
 				setgeometry(180,250,50,50)
-				setText(T_FROMDESIGNER_WF_OK)
+				setText(T_RINGNOTEPAD_INSERTTEXTOK)
 				setClickEvent(Method(:insertText))
 			}
 
 			BtnCancel = new qpushbutton(oInsert) {
 				setgeometry(250,250,50,50)
-				setText(T_FROMDESIGNER_WF_CANCEL)
+				setText(T_RINGNOTEPAD_INSERTTEXTCANCEL)
 				setClickEvent(Method(:pCancel))
 			}
 
@@ -54,6 +54,7 @@ class RNoteInsertText
 
 			setLayout(LayoutButtonMain)
 			setwindowflags(Qt_CustomizeWindowHint | Qt_WindowTitleHint) 
+			setlayoutdirection(T_RINGNOTEPAD_LAYOUTDIRECTION)
 			show()
 
 		}
