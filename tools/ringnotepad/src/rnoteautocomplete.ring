@@ -73,13 +73,13 @@ class RNoteAutoComplete
 
 
 	func AutoComplete
-		StatusMessage("Prepare Auto-Complete ... Please Wait!")
+		StatusMessage(T_RINGNOTEPAD_AUTOCOMPLETEWAIT) # "Prepare Auto-Complete ... Please Wait!")
 		# Add words in the current file
 			cFileContent = textedit1.toplaintext() # read(cActiveFileName)
 			if len(cFileContent) < 102400	# 100 KByte
-				StatusMessage("Prepare Auto-Complete ... Get File Words!")
+				StatusMessage(T_RINGNOTEPAD_AUTOCOMPLETEPREPARE) # "Prepare Auto-Complete ... Get File Words!")
 				aList = Split(cFileContent," ")
-				StatusMessage("Prepare Auto-Complete ... Filter!")
+				StatusMessage(T_RINGNOTEPAD_AUTOCOMPLETEFILTER) # "Prepare Auto-Complete ... Filter!")
 				nMax = len(aList)
 				for x = nMax to 1 step -1
 					if not isalnum(aList[x])
@@ -88,9 +88,9 @@ class RNoteAutoComplete
 				next
 				AddItems(aList,oAutoCompleteList)
 			ok
-		StatusMessage("Prepare Auto-Complete ... Remove Duplicates!")
+		StatusMessage(T_RINGNOTEPAD_AUTOCOMPLETEREMOVE) # "Prepare Auto-Complete ... Remove Duplicates!")
 		oAutoCompleteList.RemoveDuplicates()
-		StatusMessage("Prepare Auto-Complete ... Sort!")
+		StatusMessage(T_RINGNOTEPAD_AUTOCOMPLETESORT) # "Prepare Auto-Complete ... Sort!")
 		oAutoCompleteList.Sort()
 		oCompleter = new qCompleter3(oAutoCompleteList,textedit1)
 		oCompleter.setCaseSensitivity(Qt_CaseInsensitive)
@@ -98,8 +98,8 @@ class RNoteAutoComplete
 		oTFont.fromstring(cFont)
 		oCompleter.popup().setFont(oTFont)
 		textedit1.setCompleter(oCompleter)
-		StatusMessage("Prepare Auto-Complete ... Done!")
-		StatusMessage("Ready...")
+		StatusMessage(T_RINGNOTEPAD_AUTOCOMPLETEDONE)  # "Prepare Auto-Complete ... Done!")
+		StatusMessage(T_RINGNOTEPAD_AUTOCOMPLETEREADY) # "Ready...")
 		if isObject(oACTimer)
 			oACTimer.start()
 		ok

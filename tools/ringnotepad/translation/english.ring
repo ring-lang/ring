@@ -202,4 +202,12 @@ T_RINGNOTEPAD_HELPGUILIBNAME     = "This application uses the Qt Framework throu
 T_RINGNOTEPAD_HELPABOUT		     = "About"
 T_RINGNOTEPAD_HELPAPPRINGVERSION = "Ring Notepad (Ring Version : "	
 T_RINGNOTEPAD_HELPAPPRINGVERSIONAFTER = ")"
-R_RINGNOTEPAD_AUTHOR             = "2016-2023, Mahmoud Fayed <msfclipper@yahoo.com>"
+T_RINGNOTEPAD_AUTHOR             = "2016-2023, Mahmoud Fayed <msfclipper@yahoo.com>"
+
+T_RINGNOTEPAD_AUTOCOMPLETEWAIT    = "Prepare Auto-Complete ... Please Wait!"
+T_RINGNOTEPAD_AUTOCOMPLETEPREPARE = "Prepare Auto-Complete ... Get File Words!"
+T_RINGNOTEPAD_AUTOCOMPLETEFILTER  = "Prepare Auto-Complete ... Filter!"
+T_RINGNOTEPAD_AUTOCOMPLETEREMOVE  = "Prepare Auto-Complete ... Remove Duplicates!"
+T_RINGNOTEPAD_AUTOCOMPLETESORT    = "Prepare Auto-Complete ... Sort!"
+T_RINGNOTEPAD_AUTOCOMPLETEDONE    = "Prepare Auto-Complete ... Done!"
+T_RINGNOTEPAD_AUTOCOMPLETEREADY   = "Ready..."

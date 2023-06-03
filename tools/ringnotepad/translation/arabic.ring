@@ -202,4 +202,12 @@ T_RINGNOTEPAD_HELPGUILIBNAME     = "يستعمل هذا التطبيق مكتب�
 T_RINGNOTEPAD_HELPABOUT		     = "حول"
 T_RINGNOTEPAD_HELPAPPRINGVERSION = "محرر رينج (إصدار رينج : "	
 T_RINGNOTEPAD_HELPAPPRINGVERSIONAFTER = ")"
-R_RINGNOTEPAD_AUTHOR             = "2016-2023, محمود سمير فايد <msfclipper@yahoo.com>"
+T_RINGNOTEPAD_AUTHOR             = "2016-2023, محمود سمير فايد <msfclipper@yahoo.com>"
+
+T_RINGNOTEPAD_AUTOCOMPLETEWAIT    = "نجهيز الإكمال التلقائى - فضلا انتظر"
+T_RINGNOTEPAD_AUTOCOMPLETEPREPARE = "تجهيز الاكمال التلقائى - الحصول على الكلمات"
+T_RINGNOTEPAD_AUTOCOMPLETEFILTER  = "تجهيز الإكمال التلقائى - تصفية"
+T_RINGNOTEPAD_AUTOCOMPLETEREMOVE  = "تجهيز الإكمال التلقائى - إزالة التكرار"
+T_RINGNOTEPAD_AUTOCOMPLETESORT    = "تجهيز الإكمال التلقائى - فرز"
+T_RINGNOTEPAD_AUTOCOMPLETEDONE    = "تجهيز الإكمال التلقائى - تم"
+T_RINGNOTEPAD_AUTOCOMPLETEREADY   = "جاهز"
