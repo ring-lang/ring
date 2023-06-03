@@ -193,3 +193,13 @@ T_RINGNOTEPAD_DOYOUWANTTOSAVECHANGES = "هل تريد حفظ التعديلات?
 T_RINGNOTEPAD_SETTHETABWIDTH     = "ضبط عرض الفاصل"
 T_RINGNOTEPAD_SPACESCOUNT        = "عدد المسافات"
 T_RINGNOTEPAD_DEFAULTSPACESCOUNT = "1"
+
+T_RINGNOTEPAD_HELPPL             = "لغة البرمجة المستخدمة"
+T_RINGNOTEPAD_HELPLANGUSED       = "تم عمل هذا التطبيق من خلال لغة البرمجة رينج"
+T_RINGNOTEPAD_RINGVERSION        = "إصدار الرينج : "
+T_RINGNOTEPAD_HELPGUILIB         = "مكتبة واجهة المستخدم الرسومية"
+T_RINGNOTEPAD_HELPGUILIBNAME     = "يستعمل هذا التطبيق مكتبة كيوت"
+T_RINGNOTEPAD_HELPABOUT		     = "حول"
+T_RINGNOTEPAD_HELPAPPRINGVERSION = "محرر رينج (إصدار رينج : "	
+T_RINGNOTEPAD_HELPAPPRINGVERSIONAFTER = ")"
+R_RINGNOTEPAD_AUTHOR             = "2016-2023, محمود سمير فايد <msfclipper@yahoo.com>"

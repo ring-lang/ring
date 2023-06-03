@@ -22,16 +22,16 @@ class RNoteHelp
 		}
 
 	func Lang
-		MsgBox("Programming Language",
-			"This application is developed using the Ring programming language" + nl +
-			"Ring Version : " + version())
+		MsgBox(T_RINGNOTEPAD_HELPPL,
+			T_RINGNOTEPAD_HELPLANGUSED + nl +
+			T_RINGNOTEPAD_RINGVERSION + version())
 
 	func GUI
-		MsgBox("GUI Library",
-			"This application uses the Qt Framework through RingQt")
+		MsgBox(T_RINGNOTEPAD_HELPGUILIB,
+			T_RINGNOTEPAD_HELPGUILIBNAME)
 
 	func pAbout
-		MsgBox("About",
-			"Ring Notepad (Ring Version : " + Version() + ")" + nl +			
-			"2016-2023, Mahmoud Fayed <msfclipper@yahoo.com>")
+		MsgBox(T_RINGNOTEPAD_HELPABOUT,
+			T_RINGNOTEPAD_HELPAPPRINGVERSION + Version() + T_RINGNOTEPAD_HELPAPPRINGVERSIONAFTER + nl +			
+			R_RINGNOTEPAD_AUTHOR)
 
