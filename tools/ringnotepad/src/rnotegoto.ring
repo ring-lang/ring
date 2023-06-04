@@ -14,27 +14,9 @@ class RNoteGoto
 		}
 		if r=0 return ok
 		nLine = 0 + oInput.textvalue()
-		gotolineUsingQTextBlock(nLine)
+		gotoline(nLine)
  
-	func GotoLine nLine
-		// This function is old and no longer used 
-		// It's ok for ASCII characters 
-		// Doesn't work fine with UTF-8 
-		// So we have gotolineUsingQTextBlock() function 
-		nLine--
-		cStr = textedit1.toPlainText()
-		nSize = len(cStr)
-		for t=1 to nSize
-			if cStr[t] = nl nLine-- ok
-			if nLine = 0
-				oCursor = textedit1.textcursor()
-				oCursor.setposition(t,0)
-				textedit1.settextcursor(oCursor)
-				exit
-			ok
-		next
-
-	func GotoLineUsingQTextBlock nLine 
+	func GotoLine nLine 
 		// This function support source code that contains UTF-8 characters 
 		// Get the character position
 			nPos = textedit1.document().findblockbylinenumber(nLine-1).position()
