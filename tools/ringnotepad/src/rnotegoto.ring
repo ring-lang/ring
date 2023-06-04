@@ -19,7 +19,7 @@ class RNoteGoto
 	func GotoLine nLine
 		// This function is old and no longer used 
 		// It's ok for ASCII characters 
-		// Doesn't work fine with UTF8 
+		// Doesn't work fine with UTF-8 
 		// So we have gotolineUsingQTextBlock() function 
 		nLine--
 		cStr = textedit1.toPlainText()
@@ -35,7 +35,7 @@ class RNoteGoto
 		next
 
 	func GotoLineUsingQTextBlock nLine 
-		// This function support source code that contains UTF8 characters 
+		// This function support source code that contains UTF-8 characters 
 		// Get the character position
 			nPos = textedit1.document().findblockbylinenumber(nLine-1).position()
 		// Set the current character 
