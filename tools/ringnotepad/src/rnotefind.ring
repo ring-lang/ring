@@ -107,7 +107,7 @@ class RNoteFind
 			if len(cStr) < 1 or len(cValue) < 1 return ok
 
 		# Check the case 
-			lNotCaseSensitive = (oSearchCase.checkState() = Qt_Unchecked)
+			lNotCaseSensitive = ! (oSearchCase.checkState() = Qt_Unchecked)
 
 		# Get the cursor position 
 			oCursor = textedit1.textcursor()
