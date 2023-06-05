@@ -108,15 +108,12 @@ class RNoteFind
 			cValue = oSearchValue.text()
 			if len(cStr) < 1 or len(cValue) < 1 return ok
 
-		# Check the case 
-			lNotCaseSensitive = ! (oSearchCase.checkState() = Qt_Unchecked)
-
 		# Get the cursor position 
 			nPosStart = CursorPosition()
 
 		# Find the sub string 
 			oContent = ToQString(cStr)
-			nPos = oContent.indexof(cValue,nPosStart,lNotCaseSensitive)		
+			nPos = oContent.indexof(cValue,nPosStart,IsNotCaseSensitive())		
 
 		return SelectSearchResult(cValue,nPos)
 
@@ -126,9 +123,6 @@ class RNoteFind
 			cStr = textedit1.toplaintext()
 			cValue = oSearchValue.text()
 			if len(cStr) < 1 or len(cValue) < 1 return ok
-
-		# Check the case 
-			lNotCaseSensitive = ! (oSearchCase.checkState() = Qt_Unchecked)
 
 		# Get the cursor position 
 			oCursor = textedit1.textcursor()
@@ -141,10 +135,12 @@ class RNoteFind
 
 		# Find the sub string 
 			oContent = ToQString(cStr)
-
-			nPos = oContent.lastindexof(cValue,nPosStart,lNotCaseSensitive)		
+			nPos = oContent.lastindexof(cValue,nPosStart,IsNotCaseSensitive())		
 
 		return SelectSearchResult(cValue,nPos)
+
+	func IsNotCaseSensitive
+			return ! (oSearchCase.checkState() = Qt_Unchecked)
 
 	func SelectSearchResult cValue,nPos
 
