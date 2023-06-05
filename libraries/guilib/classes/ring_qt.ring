@@ -2923,6 +2923,9 @@ Class QString2
 	Func indexOf P1,P2,P3
 		return QString2_indexOf(pObject,P1,P2,P3)
 
+	Func lastIndexOf P1,P2,P3
+		return QString2_lastIndexOf(pObject,P1,P2,P3)
+
 	Func insert P1,P2
 		return QString2_insert(pObject,P1,P2)
 

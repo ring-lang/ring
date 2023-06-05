@@ -15201,6 +15201,35 @@ RING_FUNC(ring_QString2_indexOf)
 }
 
 
+RING_FUNC(ring_QString2_lastIndexOf)
+{
+	QString *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QString *) RING_API_GETCPOINTER(1,"QString2");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->lastIndexOf(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(4)));
+}
+
+
 RING_FUNC(ring_QString2_insert)
 {
 	QString *pObject ;
@@ -130346,6 +130375,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qstring2_compare",ring_QString2_compare);
 	RING_API_REGISTER("qstring2_contains",ring_QString2_contains);
 	RING_API_REGISTER("qstring2_indexof",ring_QString2_indexOf);
+	RING_API_REGISTER("qstring2_lastindexof",ring_QString2_lastIndexOf);
 	RING_API_REGISTER("qstring2_insert",ring_QString2_insert);
 	RING_API_REGISTER("qstring2_isrighttoleft",ring_QString2_isRightToLeft);
 	RING_API_REGISTER("qstring2_repeated",ring_QString2_repeated);
