@@ -196,6 +196,9 @@ class RNoteFind
 			textedit1.settextcursor(oCursor)
 			return true
 		ok
+		return nooutput(cValue)
+
+	func NoOutput cValue
 		new qMessagebox(oSearch)
 		{
 			SetWindowTitle(T_RINGNOTEPAD_FINDWINDOWSEARCH) # "Search"
@@ -232,13 +235,7 @@ class RNoteFind
 			textedit1.settextcursor(oCursor)
 			return true
 		ok
-		new qMessagebox(oSearch)
-		{
-			SetWindowTitle(T_RINGNOTEPAD_FINDWINDOWSEARCH) # "Search"
-			SetText(T_RINGNOTEPAD_FINDWINDOWCANNOTFIND + cValue)
-			show()
-		}
-		return false
+		return nooutput(cValue)
 
 	func count cString,dString
 		sum = 0
