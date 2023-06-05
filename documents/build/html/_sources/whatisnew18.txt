@@ -85,12 +85,14 @@ In Ring 1.18 the Citations Prediction application is updated
 Better Tools
 ============
 
-* Ring Notepad: New option to build GUI application using Ring2EXE
 * Ring Notepad: Output Window - Correct cursor position while using unicode 
 * Ring Notepad: Set the default font when opening the Font dialog
 * Ring Notepad: Preserve editing history after text insertion
 * Ring Notepad: New button to clear the output and stop the running program
 * Ring Notepad: Goto Line - Support files contains UTF-8 characters
+* Ring Notepad: Find/Replace - Support files contains UTF-8 characters
+* Ring Notepad: Translation files (English/Arabic)
+* Ring Notepad: New option to build GUI application using Ring2EXE
 * Form Designer: Correct drawing for new controls after moving Ring Notepad
 * Ring2EXE: Better code when distributing GUI applications
 
