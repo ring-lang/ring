@@ -6,6 +6,7 @@
 
 # Load Translation Files
 	load "translation/arabic.ring"
+	load "src/templates.ring"
 	load "../formdesigner/translation/arabic.ring"
 
 # Open the Environment 
