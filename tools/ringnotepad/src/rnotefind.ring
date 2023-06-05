@@ -238,9 +238,7 @@ class RNoteFind
 	func setTextAllowUndo cText 
 
 		# Get the Text Size 
-			oString = new QString2()
-			oString.append(textedit1.toplaintext())
-			nTextSize = oString.count()
+			nTextSize = UTF8Size(textedit1.toplaintext())
 
 		# Select All of the Text 
 			oCursor = textedit1.textcursor()
@@ -255,6 +253,11 @@ class RNoteFind
 
 		# Restore the Cursor Position
 			SetCursorPosition(nPosStart,0)
+
+	func UTF8Size cStr 
+			oString = new QString2()
+			oString.append(cStr)
+			return oString.count()
 
 	func SelectFromTo nFrom,nTo
 			SetCursorPosition(nFrom,0)
