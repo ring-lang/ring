@@ -170,12 +170,15 @@ class RNoteFind
 		return nooutput(cValue)
 
 	func Replace
+
 		oCursor = textedit1.textCursor()
+
 		if oCursor.HasSelection() = false
 			SearchMessage(T_RINGNOTEPAD_FINDWINDOWREPLACE,
 							T_RINGNOTEPAD_FINDWINDOWNOSELECTION)
 			return false
 		ok
+
 		cValue = oSearchValue.text()
 		if len(cValue) < 1 return ok
 		cSelected = oCursor.SelectedText()
@@ -188,11 +191,20 @@ class RNoteFind
 							T_RINGNOTEPAD_FINDWINDOWNOMATCH)
 			return false
 		ok
+
 		cValue = oReplaceValue.text()
 		nStart = oCursor.SelectionStart()
 		nEnd = oCursor.SelectionEnd()
 		cStr = textedit1.toPlainText()
-		cStr = left(cStr,nStart)+cValue+substr(cStr,nEnd+1)
+
+		oString = new QString2()
+		oString.append(cStr)
+
+		cStr = oString.mid(0,nStart) + cValue + oString.mid(nEnd,-1)
+		//cStr = left(cStr,nStart)+cValue+substr(cStr,nEnd+1)
+
+
+
 		setTextAllowUndo(cStr)
 		oCursor.setposition(nEnd+1,1)
 		textedit1.settextcursor(oCursor)
@@ -222,7 +234,9 @@ class RNoteFind
 
 	func setTextAllowUndo cText 
 		# Get the Text Size 
-			nTextSize = len(textedit1.toplaintext())
+			oString = new QString2()
+			oString.append(textedit1.toplaintext())
+			nTextSize = oString.count()
 		# Select All of the Text 
 			oCursor = textedit1.textcursor()
 			# Save the current position 
