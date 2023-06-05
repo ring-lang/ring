@@ -119,8 +119,7 @@ class RNoteFind
 			nPos = oContent.indexof(cValue,nPosStart,lNotCaseSensitive)		
 
 		# Get the substring size 
-			oValue = ToQString(cValue)
-			nSize = oValue.count()
+			nSize = UTF8Size(cValue)
 
 		# If we have the substring then select it 		
 			if nPos >= 0
@@ -155,8 +154,7 @@ class RNoteFind
 			nPos = oContent.lastindexof(cValue,nPosStart,lNotCaseSensitive)		
 
 		# Get the substring size 
-			oValue = ToQString(cValue)
-			nSize = oValue.count()
+			nSize = UTF8Size(cValue)
 
 		# If we have the substring then select it 		
 			if nPos >= 0
