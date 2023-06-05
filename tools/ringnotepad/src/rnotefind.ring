@@ -117,23 +117,6 @@ class RNoteFind
 		ok
 		return nooutput(cValue)
 
-	func SelectFromTo nFrom,nTo
-			oCursor = textedit1.textcursor()
-			oCursor.setposition(nFrom,0)
-			textedit1.settextcursor(oCursor)
-			oCursor = textedit1.textcursor()
-			oCursor.setposition(nTo,1)
-			textedit1.settextcursor(oCursor)
-
-	func NoOutput cValue
-		new qMessagebox(oSearch)
-		{
-			SetWindowTitle(T_RINGNOTEPAD_FINDWINDOWSEARCH) # "Search"
-			SetText(T_RINGNOTEPAD_FINDWINDOWCANNOTFIND + cValue)
-			show()
-		}
-		return false
-
 	func FindPrevValue
 		oCursor = textedit1.textcursor()
 		nPosStart = oCursor.Position()
@@ -158,14 +141,6 @@ class RNoteFind
 			return true
 		ok
 		return nooutput(cValue)
-
-	func count cString,dString
-		sum = 0
-		while substr(cString,dString) > 0
-			sum++
-			cString = substr(cString,substr(cString,dString)+len(dString))
-		end
-		return sum
 
 	func Replace
 		oCursor = textedit1.textCursor()
@@ -249,6 +224,31 @@ class RNoteFind
 			oCursor = textedit1.textcursor()
 			oCursor.setposition(nPosStart,1)
 			textedit1.settextcursor(oCursor)
+
+	func SelectFromTo nFrom,nTo
+			oCursor = textedit1.textcursor()
+			oCursor.setposition(nFrom,0)
+			textedit1.settextcursor(oCursor)
+			oCursor = textedit1.textcursor()
+			oCursor.setposition(nTo,1)
+			textedit1.settextcursor(oCursor)
+
+	func NoOutput cValue
+		new qMessagebox(oSearch)
+		{
+			SetWindowTitle(T_RINGNOTEPAD_FINDWINDOWSEARCH) # "Search"
+			SetText(T_RINGNOTEPAD_FINDWINDOWCANNOTFIND + cValue)
+			show()
+		}
+		return false
+
+	func Count cString,dString
+		sum = 0
+		while substr(cString,dString) > 0
+			sum++
+			cString = substr(cString,substr(cString,dString)+len(dString))
+		end
+		return sum
 
 	func SearchKeyPress
 		if oSearchFilter.getKeyCode() = Qt_Key_Escape
