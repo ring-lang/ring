@@ -100,21 +100,35 @@ class RNoteFind
 		}
 
 	func FindValue
-		oCursor = textedit1.textcursor()
-		nPosStart = oCursor.Position() + 1
-		cValue = oSearchValue.text()
-		cStr = textedit1.toplaintext()
-		if len(cStr) < 1 or len(cValue) < 1 return ok
-		cStr = substr(cStr,nPosStart)
-		if oSearchCase.checkState() = Qt_Unchecked
-			cStr = lower(cStr)  cValue = lower(cValue)
-		ok
-		nPos = substr(cStr,cValue)
-		if nPos > 0
-			nPos += nPosStart - 2
-			SelectFromTo(nPos,nPos+len(cValue))
-			return true
-		ok
+
+		# Check the content and the search value
+			cStr = textedit1.toplaintext()
+			cValue = oSearchValue.text()
+			if len(cStr) < 1 or len(cValue) < 1 return ok
+
+		# Check the case 
+			lNotCaseSensitive = (oSearchCase.checkState() = Qt_Unchecked)
+
+		# Get the cursor position 
+			oCursor = textedit1.textcursor()
+			nPosStart = oCursor.Position()
+
+		# Find the sub string 
+			oContent = new QString2()
+			oContent.append(cStr)
+			nPos = oContent.indexof(cValue,nPosStart,lNotCaseSensitive)		
+
+		# Get the substring size 
+			oValue = new QString2() 
+			oValue.append(cValue)
+			nSize = oValue.count()
+
+		# If we have the substring then select it 		
+			if nPos >= 0
+				SelectFromTo(nPos,nPos+nSize)
+				return true
+			ok
+
 		return nooutput(cValue)
 
 	func FindPrevValue
