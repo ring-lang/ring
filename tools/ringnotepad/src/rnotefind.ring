@@ -224,12 +224,12 @@ class RNoteFind
 			cStr = SubStr(cStr,cOldValue,cNewValue)
 		ok
 		if cStr != textedit1.toPlainText()
+			setTextAllowUndo(cStr)
 			cMsg = T_RINGNOTEPAD_FINDWINDOWOPERATIONDONE # "Operation Done"
 			cMsg = cMsg + T_RINGNOTEPAD_FINDWINDOWREPLACED + cnt
 		else 
 			cMsg = T_RINGNOTEPAD_FINDWINDOWNOTHINGTOREPLACE # "Nothing to replace!"
 		ok
-		setTextAllowUndo(cStr)
 		SearchMessage(T_RINGNOTEPAD_FINDWINDOWREPLACEALL,cMsg)
 
 	func setTextAllowUndo cText 
@@ -250,7 +250,7 @@ class RNoteFind
 			textedit1.InsertPlainText(cText)
 		# Restore the Cursor Position 
 			oCursor = textedit1.textcursor()
-			oCursor.setposition(nPosStart,1)
+			oCursor.setposition(nPosStart,0)
 			textedit1.settextcursor(oCursor)
 
 	func SelectFromTo nFrom,nTo
