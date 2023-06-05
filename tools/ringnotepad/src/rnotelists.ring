@@ -25,7 +25,10 @@ class RNoteLists
 		for cLine in aFileContent
 			nLineNumber++
 			cLine = lower(trim(cLine))
-			if ( substr(cLine,"func ") > 0 ) or ( substr(cLine,"def ") > 0 )
+			if ( substr(cLine,"func ") > 0 ) or 
+				( substr(cLine,"def ") > 0 ) or 
+				( substr(cLine,"function ") > 0 ) or 
+				( substr(cLine,"دالة ") > 0 )
 				cLine = substr(cLine,"("," (")
 				aList = Split(cLine," ")
 				if len(aList) >= 2
@@ -34,8 +37,11 @@ class RNoteLists
 					for cChar in ["_","@","$"]
 						cFuncNameWithoutSymbols = substr(cFuncNameWithoutSymbols,cChar,"")
 					next 
-					if isalnum(cFuncNameWithoutSymbols) and 
-						( lower(trim(aList[1])) = "func" or lower(trim(aList[1])) = "def" )
+					if  isalnum(cFuncNameWithoutSymbols) and 
+						( (lower(trim(aList[1])) = "func") or 
+						  (lower(trim(aList[1])) = "def") or
+						  (lower(trim(aList[1])) = "function") )  or
+						(lower(trim(aList[1])) = "دالة") 
 						aFunctionsPos + [cFuncName+"()" , nLineNumber]
 					ok
 				ok
@@ -80,11 +86,11 @@ class RNoteLists
 		for cLine in aFileContent
 			nLineNumber++
 			cLine = lower(trim(cLine))
-			if substr(cLine,"class ") > 0
+			if ( substr(cLine,"class ") > 0 ) or (substr(cLine,"عنصر ") > 0)
 				aList = Split(cLine," ")
 				if len(aList) >= 2
 					cClassName = lower(trim(aList[2]))
-					if lower(trim(aList[1])) = "class"
+					if lower(trim(aList[1])) = "class" or lower(trim(aList[1])) = "عنصر"
 						aClassesPos + [cClassName , nLineNumber]
 					ok
 				ok
