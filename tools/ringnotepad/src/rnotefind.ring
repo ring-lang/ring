@@ -112,8 +112,7 @@ class RNoteFind
 			lNotCaseSensitive = ! (oSearchCase.checkState() = Qt_Unchecked)
 
 		# Get the cursor position 
-			oCursor = textedit1.textcursor()
-			nPosStart = oCursor.Position()
+			nPosStart = CursorPosition()
 
 		# Find the sub string 
 			oContent = new QString2()
@@ -241,9 +240,8 @@ class RNoteFind
 			nTextSize = UTF8Size(textedit1.toplaintext())
 
 		# Select All of the Text 
-			oCursor = textedit1.textcursor()
 			# Save the current position 
-				nPosStart = oCursor.Position()
+				nPosStart = CursorPosition()
 
 			SetCursorPosition(0,0)
 			SetCursorPosition(nTextSize,1)
@@ -262,6 +260,10 @@ class RNoteFind
 	func SelectFromTo nFrom,nTo
 			SetCursorPosition(nFrom,0)
 			SetCursorPosition(nTo,1)
+
+	func CursorPosition 
+			oCursor = textedit1.textcursor()
+			return oCursor.Position()
 
 	func SetCursorPosition nIndex,lFlag
 			oCursor = textedit1.textcursor()
