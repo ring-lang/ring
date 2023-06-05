@@ -115,13 +115,11 @@ class RNoteFind
 			nPosStart = CursorPosition()
 
 		# Find the sub string 
-			oContent = new QString2()
-			oContent.append(cStr)
+			oContent = ToQString(cStr)
 			nPos = oContent.indexof(cValue,nPosStart,lNotCaseSensitive)		
 
 		# Get the substring size 
-			oValue = new QString2() 
-			oValue.append(cValue)
+			oValue = ToQString(cValue)
 			nSize = oValue.count()
 
 		# If we have the substring then select it 		
@@ -152,14 +150,12 @@ class RNoteFind
 			nPosStart = max(nPosStart,0)
 
 		# Find the sub string 
-			oContent = new QString2()
-			oContent.append(cStr)
+			oContent = ToQString(cStr)
 
 			nPos = oContent.lastindexof(cValue,nPosStart,lNotCaseSensitive)		
 
 		# Get the substring size 
-			oValue = new QString2() 
-			oValue.append(cValue)
+			oValue = ToQString(cValue)
 			nSize = oValue.count()
 
 		# If we have the substring then select it 		
@@ -198,8 +194,7 @@ class RNoteFind
 		nEnd = oCursor.SelectionEnd()
 		cStr = textedit1.toPlainText()
 
-		oString = new QString2()
-		oString.append(cStr)
+		oString = ToQString(cStr)
 
 		cStr = oString.mid(0,nStart) + cValue + oString.mid(nEnd,-1)
 
@@ -252,9 +247,13 @@ class RNoteFind
 		# Restore the Cursor Position
 			SetCursorPosition(nPosStart,0)
 
-	func UTF8Size cStr 
+	func ToQString cStr 
 			oString = new QString2()
 			oString.append(cStr)
+			return oString
+
+	func UTF8Size cStr 
+			oString = ToQString(cStr)
 			return oString.count()
 
 	func SelectFromTo nFrom,nTo
