@@ -188,15 +188,18 @@ class RNoteFind
 		nPos = substr(cStr,cValue)
 		if nPos > 0
 			nPos += nPosStart - 2
-			oCursor = textedit1.textcursor()
-			oCursor.setposition(nPos,0)
-			textedit1.settextcursor(oCursor)
-			oCursor = textedit1.textcursor()
-			oCursor.setposition(nPos+len(cValue),1)
-			textedit1.settextcursor(oCursor)
+			SelectFromTo(nPos,nPos+len(cValue))
 			return true
 		ok
 		return nooutput(cValue)
+
+	func SelectFromTo nFrom,nTo
+			oCursor = textedit1.textcursor()
+			oCursor.setposition(nFrom,0)
+			textedit1.settextcursor(oCursor)
+			oCursor = textedit1.textcursor()
+			oCursor.setposition(nTo,1)
+			textedit1.settextcursor(oCursor)
 
 	func NoOutput cValue
 		new qMessagebox(oSearch)
@@ -227,12 +230,7 @@ class RNoteFind
 		next
 		if nPos > 0
 			nPos--
-			oCursor = textedit1.textcursor()
-			oCursor.setposition(nPos,0)
-			textedit1.settextcursor(oCursor)
-			oCursor = textedit1.textcursor()
-			oCursor.setposition(nPos+len(cValue),1)
-			textedit1.settextcursor(oCursor)
+			SelectFromTo(nPos,nPos+len(cValue))
 			return true
 		ok
 		return nooutput(cValue)
