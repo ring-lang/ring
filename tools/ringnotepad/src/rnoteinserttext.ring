@@ -54,7 +54,6 @@ class RNoteInsertText
 
 			setLayout(LayoutButtonMain)
 			setwindowflags(Qt_CustomizeWindowHint | Qt_WindowTitleHint) 
-			setlayoutdirection(T_RINGNOTEPAD_LAYOUTDIRECTION)
 			show()
 
 		}

@@ -97,7 +97,6 @@ class RNoteFind
 			this.oSearchFilter = new qallevents(this.oSearch)
 			this.oSearchFilter.setKeyPressEvent(Method(:SearchKeyPress))
 			installeventfilter(this.oSearchFilter)
-			setlayoutdirection(T_RINGNOTEPAD_LAYOUTDIRECTION)
 			show()
 		}
 

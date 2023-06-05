@@ -6,6 +6,7 @@ class RNoteController from RNoteControllerBase
 	LoadSettings()
 
 	oApp = New qApp 
+	oApp.setlayoutdirection(T_RINGNOTEPAD_LAYOUTDIRECTION)
 	# Custom Editor Style Color
 		CheckCustomColors()
 		PrepareAutoComplete()	
