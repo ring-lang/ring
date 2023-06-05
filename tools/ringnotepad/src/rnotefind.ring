@@ -118,16 +118,7 @@ class RNoteFind
 			oContent = ToQString(cStr)
 			nPos = oContent.indexof(cValue,nPosStart,lNotCaseSensitive)		
 
-		# Get the substring size 
-			nSize = UTF8Size(cValue)
-
-		# If we have the substring then select it 		
-			if nPos >= 0
-				SelectFromTo(nPos,nPos+nSize)
-				return true
-			ok
-
-		return nooutput(cValue)
+		return SelectSearchResult(cValue,nPos)
 
 	func FindPrevValue
 
@@ -152,6 +143,10 @@ class RNoteFind
 			oContent = ToQString(cStr)
 
 			nPos = oContent.lastindexof(cValue,nPosStart,lNotCaseSensitive)		
+
+		return SelectSearchResult(cValue,nPos)
+
+	func SelectSearchResult cValue,nPos
 
 		# Get the substring size 
 			nSize = UTF8Size(cValue)
