@@ -99,82 +99,6 @@ class RNoteFind
 			show()
 		}
 
-	func Replace
-		oCursor = textedit1.textCursor()
-		if oCursor.HasSelection() = false
-			new qMessagebox(oSearch)
-			{
-				SetWindowTitle(T_RINGNOTEPAD_FINDWINDOWREPLACE) # "Replace"
-				SetText(T_RINGNOTEPAD_FINDWINDOWNOSELECTION) # "No Selection"
-				show()
-			}
-			return false
-		ok
-		cValue = oSearchValue.text()
-		if len(cValue) < 1 return ok
-		cSelected = oCursor.SelectedText()
-		if oSearchCase.checkState() = Qt_Unchecked
-			cValue = lower(cValue)
-			cSelected = lower(cSelected)
-		ok
-		if cSelected != cValue
-			new qMessagebox(oSearch)
-			{
-				SetWindowTitle(T_RINGNOTEPAD_FINDWINDOWREPLACE) # "Replace"
-				SetText(T_RINGNOTEPAD_FINDWINDOWNOMATCH) # "No Match"
-				show()
-			}
-			return false
-		ok
-		cValue = oReplaceValue.text()
-		nStart = oCursor.SelectionStart()
-		nEnd = oCursor.SelectionEnd()
-		cStr = textedit1.toPlainText()
-		cStr = left(cStr,nStart)+cValue+substr(cStr,nEnd+1)
-		setTextAllowUndo(cStr)
-		oCursor.setposition(nEnd+1,1)
-		textedit1.settextcursor(oCursor)
-		return FindValue()
-
-	func ReplaceAll
-		cStr = textedit1.toPlainText()
-		cOldValue = oSearchValue.text()
-		cNewValue = oReplaceValue.text()
-		cnt = count(cStr,cOldValue)
-		if len(cStr) < 1 or len(cOldValue) < 1 return ok
-		if oSearchCase.checkState() = Qt_Unchecked
-			# Not Case Sensitive
-			cStr = SubStr(cStr,cOldValue,cNewValue,true)
-		else
-			# Case Sensitive
-			cStr = SubStr(cStr,cOldValue,cNewValue)
-		ok
-		if cStr != textedit1.toPlainText()
-			cMsg = T_RINGNOTEPAD_FINDWINDOWOPERATIONDONE # "Operation Done"
-			cMsg = cMsg + T_RINGNOTEPAD_FINDWINDOWREPLACED + cnt
-		else 
-			cMsg = T_RINGNOTEPAD_FINDWINDOWNOTHINGTOREPLACE # "Nothing to replace!"
-		ok
-		setTextAllowUndo(cStr)
-		new qMessagebox(oSearch)
-		{
-			SetWindowTitle(T_RINGNOTEPAD_FINDWINDOWREPLACEALL) # "Replace All"
-			SetText(cMsg)
-			show()
-		}
-
-	func SearchClose
-		oSearch.close()
-		oSearch = NULL
-		cSearchText = oSearchValue.text()
-		cReplaceText = oReplaceValue.text()
-
-
-	func SearchKeyPress
-		if oSearchFilter.getKeyCode() = Qt_Key_Escape
-			SearchClose()
-		ok
-
 	func FindValue
 		oCursor = textedit1.textcursor()
 		nPosStart = oCursor.Position() + 1
@@ -243,6 +167,70 @@ class RNoteFind
 		end
 		return sum
 
+	func Replace
+		oCursor = textedit1.textCursor()
+		if oCursor.HasSelection() = false
+			new qMessagebox(oSearch)
+			{
+				SetWindowTitle(T_RINGNOTEPAD_FINDWINDOWREPLACE) # "Replace"
+				SetText(T_RINGNOTEPAD_FINDWINDOWNOSELECTION) # "No Selection"
+				show()
+			}
+			return false
+		ok
+		cValue = oSearchValue.text()
+		if len(cValue) < 1 return ok
+		cSelected = oCursor.SelectedText()
+		if oSearchCase.checkState() = Qt_Unchecked
+			cValue = lower(cValue)
+			cSelected = lower(cSelected)
+		ok
+		if cSelected != cValue
+			new qMessagebox(oSearch)
+			{
+				SetWindowTitle(T_RINGNOTEPAD_FINDWINDOWREPLACE) # "Replace"
+				SetText(T_RINGNOTEPAD_FINDWINDOWNOMATCH) # "No Match"
+				show()
+			}
+			return false
+		ok
+		cValue = oReplaceValue.text()
+		nStart = oCursor.SelectionStart()
+		nEnd = oCursor.SelectionEnd()
+		cStr = textedit1.toPlainText()
+		cStr = left(cStr,nStart)+cValue+substr(cStr,nEnd+1)
+		setTextAllowUndo(cStr)
+		oCursor.setposition(nEnd+1,1)
+		textedit1.settextcursor(oCursor)
+		return FindValue()
+
+	func ReplaceAll
+		cStr = textedit1.toPlainText()
+		cOldValue = oSearchValue.text()
+		cNewValue = oReplaceValue.text()
+		cnt = count(cStr,cOldValue)
+		if len(cStr) < 1 or len(cOldValue) < 1 return ok
+		if oSearchCase.checkState() = Qt_Unchecked
+			# Not Case Sensitive
+			cStr = SubStr(cStr,cOldValue,cNewValue,true)
+		else
+			# Case Sensitive
+			cStr = SubStr(cStr,cOldValue,cNewValue)
+		ok
+		if cStr != textedit1.toPlainText()
+			cMsg = T_RINGNOTEPAD_FINDWINDOWOPERATIONDONE # "Operation Done"
+			cMsg = cMsg + T_RINGNOTEPAD_FINDWINDOWREPLACED + cnt
+		else 
+			cMsg = T_RINGNOTEPAD_FINDWINDOWNOTHINGTOREPLACE # "Nothing to replace!"
+		ok
+		setTextAllowUndo(cStr)
+		new qMessagebox(oSearch)
+		{
+			SetWindowTitle(T_RINGNOTEPAD_FINDWINDOWREPLACEALL) # "Replace All"
+			SetText(cMsg)
+			show()
+		}
+
 	func setTextAllowUndo cText 
 		# Get the Text Size 
 			nTextSize = len(textedit1.toplaintext())
@@ -261,3 +249,14 @@ class RNoteFind
 			oCursor = textedit1.textcursor()
 			oCursor.setposition(nPosStart,1)
 			textedit1.settextcursor(oCursor)
+
+	func SearchKeyPress
+		if oSearchFilter.getKeyCode() = Qt_Key_Escape
+			SearchClose()
+		ok
+
+	func SearchClose
+		oSearch.close()
+		oSearch = NULL
+		cSearchText = oSearchValue.text()
+		cReplaceText = oReplaceValue.text()
