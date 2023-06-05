@@ -201,9 +201,6 @@ class RNoteFind
 		oString.append(cStr)
 
 		cStr = oString.mid(0,nStart) + cValue + oString.mid(nEnd,-1)
-		//cStr = left(cStr,nStart)+cValue+substr(cStr,nEnd+1)
-
-
 
 		setTextAllowUndo(cStr)
 		oCursor.setposition(nEnd+1,1)
