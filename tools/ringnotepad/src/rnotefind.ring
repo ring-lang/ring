@@ -5,10 +5,12 @@
 class RNoteFind
 
 	func OpenFindWindow
+
 		if isobject(oSearch)
 			oSearch.activatewindow()
 			return
 		ok
+
 		oSearch = new qWidget()
 		{
 			oLblFindWhat = new qLabel(this.oSearch)
@@ -208,11 +210,13 @@ class RNoteFind
 		return FindValue()
 
 	func ReplaceAll
+
 		cStr = textedit1.toPlainText()
 		cOldValue = oSearchValue.text()
 		cNewValue = oReplaceValue.text()
 		cnt = count(cStr,cOldValue)
 		if len(cStr) < 1 or len(cOldValue) < 1 return ok
+
 		if oSearchCase.checkState() = Qt_Unchecked
 			# Not Case Sensitive
 			cStr = SubStr(cStr,cOldValue,cNewValue,true)
@@ -220,6 +224,7 @@ class RNoteFind
 			# Case Sensitive
 			cStr = SubStr(cStr,cOldValue,cNewValue)
 		ok
+
 		if cStr != textedit1.toPlainText()
 			setTextAllowUndo(cStr)
 			cMsg = T_RINGNOTEPAD_FINDWINDOWOPERATIONDONE # "Operation Done"
@@ -227,35 +232,37 @@ class RNoteFind
 		else 
 			cMsg = T_RINGNOTEPAD_FINDWINDOWNOTHINGTOREPLACE # "Nothing to replace!"
 		ok
+
 		SearchMessage(T_RINGNOTEPAD_FINDWINDOWREPLACEALL,cMsg)
 
 	func setTextAllowUndo cText 
+
 		# Get the Text Size 
 			oString = new QString2()
 			oString.append(textedit1.toplaintext())
 			nTextSize = oString.count()
+
 		# Select All of the Text 
 			oCursor = textedit1.textcursor()
 			# Save the current position 
 				nPosStart = oCursor.Position()
-			oCursor.setposition(0,0)
-			textedit1.settextcursor(oCursor)
-			oCursor = textedit1.textcursor()
-			oCursor.setposition(nTextSize,1)
-			textedit1.settextcursor(oCursor)
+
+			SetCursorPosition(0,0)
+			SetCursorPosition(nTextSize,1)
+
 		# Set the new text using InsertPlainText() that support the Undo process 
 			textedit1.InsertPlainText(cText)
-		# Restore the Cursor Position 
-			oCursor = textedit1.textcursor()
-			oCursor.setposition(nPosStart,0)
-			textedit1.settextcursor(oCursor)
+
+		# Restore the Cursor Position
+			SetCursorPosition(nPosStart,0)
 
 	func SelectFromTo nFrom,nTo
+			SetCursorPosition(nFrom,0)
+			SetCursorPosition(nTo,1)
+
+	func SetCursorPosition nIndex,lFlag
 			oCursor = textedit1.textcursor()
-			oCursor.setposition(nFrom,0)
-			textedit1.settextcursor(oCursor)
-			oCursor = textedit1.textcursor()
-			oCursor.setposition(nTo,1)
+			oCursor.setposition(nIndex,lFlag)
 			textedit1.settextcursor(oCursor)
 
 	func NoOutput cValue
