@@ -18530,6 +18530,12 @@ Class RingCodeHighlighter
 	Func setKeywordsBold P1
 		return RingCodeHighlighter_setKeywordsBold(pObject,P1)
 
+	Func setUseDefaultKeywords P1
+		return RingCodeHighlighter_setUseDefaultKeywords(pObject,P1)
+
+	Func setCustomKeywords P1
+		return RingCodeHighlighter_setCustomKeywords(pObject,GetObjectPointerFromRingObject(P1))
+
 Class QPlainTextEdit from QAbstractScrollArea
 
 	pObject
