@@ -940,6 +940,14 @@ class RNoteMainWindow
 			if ismethod(self,:setkeywordsbold) 
 				setKeywordsbold(this.lKeywordsBold)
 			ok
+			if len(T_RINGNOTEPAD_CUSTOMKEYWORDS)
+				mykeywords = new QStringList() {
+					for cKeyword in T_RINGNOTEPAD_CUSTOMKEYWORDS
+						append("\b"+cKeyword+"\b")
+					next
+				}
+				setCustomKeywords(mykeywords)
+			ok
 			setColors(
 				this.aStyleColors[:SyntaxKeywordsColor],
 				this.aStyleColors[:SyntaxClassNamesColor],

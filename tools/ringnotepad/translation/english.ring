@@ -255,3 +255,5 @@ T_RINGNOTEPAD_TEMPLATESEPARATOR = "[comment] Separator (====)"
 T_RINGNOTEPAD_TEMPLATEDATETIME  = "[Comment] Insert Date & Time"
 T_RINGNOTEPAD_TEMPLATEAUTHOR    = "[Comment] Author Name"
 T_RINGNOTEPAD_TEMPLATEFUNCDESC  = "[Comment] Function Description"
+
+T_RINGNOTEPAD_CUSTOMKEYWORDS = []
