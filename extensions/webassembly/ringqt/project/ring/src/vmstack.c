@@ -706,8 +706,7 @@ void ring_vm_len ( VM *pVM )
         RING_VM_STACK_PUSHNVALUE(nSize);
     }
     else if ( RING_VM_STACK_ISNUMBER ) {
-        RING_VM_STACK_POP ;
-        RING_VM_STACK_PUSHNVALUE(0.0);
+        ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);
     }
     else if ( RING_VM_STACK_ISPOINTER ) {
         if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
