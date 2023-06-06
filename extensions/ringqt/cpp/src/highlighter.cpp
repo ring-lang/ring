@@ -101,23 +101,33 @@ void Highlighter::setColors(QColor c1,QColor c2,QColor c3,QColor c4,QColor c5) {
                     << "\\bget\\b" << "\\bgive\\b" << "\\bif\\b"
                     << "\\bimport\\b" << "\\bin\\b" << "\\bload\\b"
                     << "\\bloop\\b" << "\\bnew\\b" << "\\bnext\\b"
-					<< "\\bnot\\b" << "\\boff\\b" << "\\bok\\b"
-					<< "\\bon\\b" << "\\bor\\b" << "\\bother\\b"
-					<< "\\bpackage\\b" << "\\bprivate\\b" << "\\bput\\b"
-					<< "\\breturn\\b" << "\\bsee\\b" << "\\bstep\\b"
-					<< "\\bswitch\\b" << "\\bto\\b" << "\\btry\\b"
-					<< "\\bendfunc\\b" << "\\bendclass\\b" << "\\bendpackage\\b"
-					<< "\\bwhile\\b" << "\\bchangeringkeyword\\b"
-					<< "\\bendif\\b" << "\\bendfor\\b"
-					<< "\\bendwhile\\b" << "\\bendswitch\\b"
-					<< "\\bendtry\\b" << "\\bfunction\\b"
-					<< "\\bendfunction\\b" << "\\bbreak\\b" << "\\bcontinue\\b"
-					<< "\\bchangeringoperator\\b" << "\\bloadsyntax\\b";
-                    
-    foreach (const QString &pattern, keywordPatterns) {
-        rule.pattern = QRegExp(pattern,Qt::CaseInsensitive);   
-        rule.format = keywordFormat;
-        highlightingRules.append(rule);
+                    << "\\bnot\\b" << "\\boff\\b" << "\\bok\\b"
+                    << "\\bon\\b" << "\\bor\\b" << "\\bother\\b"
+                    << "\\bpackage\\b" << "\\bprivate\\b" << "\\bput\\b"
+                    << "\\breturn\\b" << "\\bsee\\b" << "\\bstep\\b"
+                    << "\\bswitch\\b" << "\\bto\\b" << "\\btry\\b"
+                    << "\\bendfunc\\b" << "\\bendclass\\b" << "\\bendpackage\\b"
+                    << "\\bwhile\\b" << "\\bchangeringkeyword\\b"
+                    << "\\bendif\\b" << "\\bendfor\\b"
+                    << "\\bendwhile\\b" << "\\bendswitch\\b"
+                    << "\\bendtry\\b" << "\\bfunction\\b"
+                    << "\\bendfunction\\b" << "\\bbreak\\b" << "\\bcontinue\\b"
+                    << "\\bchangeringoperator\\b" << "\\bloadsyntax\\b";
+
+    if ( this->nUseDefaultKeywords) {
+        foreach (const QString &pattern, keywordPatterns) {
+            rule.pattern = QRegExp(pattern,Qt::CaseInsensitive);   
+            rule.format = keywordFormat;
+            highlightingRules.append(rule);
+        }
+    }
+
+    if ( this->nUseCustomKeywords) {
+        foreach (const QString &pattern, this->customKeywords) {
+            rule.pattern = QRegExp(pattern,Qt::CaseInsensitive);   
+            rule.format = keywordFormat;
+            highlightingRules.append(rule);
+        }
     }
 
     if (this->nKeywordsBold)
@@ -171,4 +181,13 @@ void Highlighter::setColors(QColor c1,QColor c2,QColor c3,QColor c4,QColor c5) {
 
 void Highlighter::setKeywordsBold(int nStatus) {
 	this->nKeywordsBold = nStatus;
+}
+
+void Highlighter::setUseDefaultKeywords(int nStatus) {
+	this->nUseDefaultKeywords = nStatus;
+}
+
+void Highlighter::setCustomKeywords(QStringList aKeywords) {
+	this->nUseCustomKeywords = 1;
+	this->customKeywords     = aKeywords;
 }
