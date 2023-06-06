@@ -469,12 +469,14 @@ RING_API List * ring_list_collectcycles_gc ( void *pState,List *pList )
     }
     /* Check if we can delete the Cycle */
     if ( (pList->gc.nReferenceCount <= pList->gc.nTempRC ) && (lDelete==1) ) {
-        /* Delete the Cycle */
-        /* Delete all items in aProcess except the Root */
+        /*
+        **  Delete the Cycle 
+        **  Delete all items in aProcess except the Root 
+        */
         while ( ring_list_getsize(aProcess) > 1 ) {
             ring_list_deleteitem_gc(pState,aProcess,ring_list_getsize(aProcess));
         }
-        /* Convert the item that contains circular reference from List to Number (To be able to delete it) */
+        /* Convert the item that contains circular reference from List to Empty String (To be able to delete it) */
         for ( x = 1 ; x <= ring_list_getsize(aProcess) ; x++ ) {
             pActiveList = (List *) ring_list_getpointer(aProcess,x);
             for ( y = 1 ; y <= ring_list_getsize(pActiveList) ; y++ ) {
@@ -485,7 +487,8 @@ RING_API List * ring_list_collectcycles_gc ( void *pState,List *pList )
                     }
                     if ( pSubList == pList ) {
                         pItem = ring_list_getitem(pActiveList,y);
-                        pItem->nType = ITEMTYPE_NUMBER ;
+                        pItem->nType = ITEMTYPE_STRING ;
+                        pItem->data.pString = ring_string_new_gc(pState,"") ;
                     }
                 }
             }

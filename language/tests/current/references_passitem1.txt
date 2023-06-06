@@ -2,7 +2,7 @@
 2
 3
 
-0.00
-NUMBER
+
+STRING
 1
 done
