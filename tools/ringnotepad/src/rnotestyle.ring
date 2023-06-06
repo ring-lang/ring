@@ -59,18 +59,7 @@ class RNoteStyle
 	func SetEditorColors
 		textedit1.setLineNumbersAreaColor(aStyleColors[:LineNumbersAreaColor])
 		textedit1.setLineNumbersAreaBackColor(aStyleColors[:LineNumbersAreaBackColor])
-		new RingCodeHighLighter(textedit1.document() ) {
-			if ismethod(self,:setkeywordsbold) 
-				setKeywordsbold(this.lKeywordsBold)
-			ok
-			setColors(
-				this.aStyleColors[:SyntaxKeywordsColor],
-				this.aStyleColors[:SyntaxClassNamesColor],
-				this.aStyleColors[:SyntaxCommentsColor],
-				this.aStyleColors[:SyntaxLiteralsColor],
-				this.aStyleColors[:SyntaxFunctionCallsColor]
-			)
-		}
+		ApplySyntaxColors()
 
 	func StyleBlue()
 			nDefaultStyle  = STYLECOLOR_BLUE

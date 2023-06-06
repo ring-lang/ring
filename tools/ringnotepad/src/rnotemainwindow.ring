@@ -917,18 +917,7 @@ class RNoteMainWindow
 				start()
 			}
 
-			new RingCodeHighLighter(this.textedit1.document() ) {
-				if ismethod(self,:setkeywordsbold) 
-					setKeywordsbold(this.lKeywordsBold)
-				ok
-				setColors(
-					this.aStyleColors[:SyntaxKeywordsColor],
-					this.aStyleColors[:SyntaxClassNamesColor],
-					this.aStyleColors[:SyntaxCommentsColor],
-					this.aStyleColors[:SyntaxLiteralsColor],
-					this.aStyleColors[:SyntaxFunctionCallsColor]
-				)
-			}
+			this.ApplySyntaxColors()
 
 			this.oTabsAndText = new qWidget() {
 				this.oLayoutTabsText = new qVBoxlayout() {
@@ -944,6 +933,20 @@ class RNoteMainWindow
 				setwindowtitle(T_RINGNOTEPAD_SOURCECODE) # "Source Code"
 				setminimumwidth(floor(this.oDesktop.width()*0.17))                                                     
 			}
+		}
+
+	func ApplySyntaxColors 
+		new RingCodeHighLighter(this.textedit1.document() ) {
+			if ismethod(self,:setkeywordsbold) 
+				setKeywordsbold(this.lKeywordsBold)
+			ok
+			setColors(
+				this.aStyleColors[:SyntaxKeywordsColor],
+				this.aStyleColors[:SyntaxClassNamesColor],
+				this.aStyleColors[:SyntaxCommentsColor],
+				this.aStyleColors[:SyntaxLiteralsColor],
+				this.aStyleColors[:SyntaxFunctionCallsColor]
+			)
 		}
 
 	func CreateWebBrowser
