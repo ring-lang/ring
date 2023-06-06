@@ -478,6 +478,7 @@ int ring_parser_stmt ( Parser *pParser )
                     nMark1 = ring_parser_icg_newlabel(pParser);
                     ring_parser_icg_newoperation(pParser,ICO_LOADAPUSHV);
                     ring_parser_icg_newoperand(pParser,ring_string_get(pString));
+                    ring_parser_icg_newline(pParser,pParser->nLineNumber);
                     if ( ring_parser_iskeyword(pParser,K_TO) ) {
                         ring_parser_nexttoken(pParser);
                         RING_PARSER_IGNORENEWLINE ;
@@ -597,6 +598,7 @@ int ring_parser_stmt ( Parser *pParser )
                 ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
                 /* Generate Code */
                 nMark1 = ring_parser_icg_newlabel(pParser);
+                ring_parser_icg_newline(pParser,pParser->nLineNumber);
                 ring_parser_icg_newoperation(pParser,ICO_LOADAPUSHV);
                 ring_parser_icg_newoperand(pParser,cStr);
                 nStart = ring_parser_icg_instructionslistsize(pParser) + 1 ;
@@ -798,6 +800,7 @@ int ring_parser_stmt ( Parser *pParser )
         ring_parser_icg_newoperation(pParser,ICO_EXITMARK);
         pMark3 = ring_parser_icg_getactiveoperation(pParser);
         nMark1 = ring_parser_icg_newlabel(pParser);
+        ring_parser_icg_newline(pParser,pParser->nLineNumber);
         /* Free Temp Lists */
         ring_parser_genfreetemplists(pParser);
         ring_parser_nexttoken(pParser);
