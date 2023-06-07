@@ -8,14 +8,15 @@ aObjectsList = [
 		 :windowflags =  "" , 
 		 :mainlayout =  "" ,
 		 :WindowIcon =  "" , 
-		 :Menubar =  "aMenuData = [ :Text = 'The Menubar' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [[ :Text = 'File' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [[ :Text = 'Exit' , :Image = '' ,
-			         :Shortcut = '' , :Action = 'close' ,
+		 :Menubar =  "aMenuData = [ :Text = 'The Menubar' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [[ :Text = 'File' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [[ :Text = 'Exit' , :Image = '' ,
+			         :Shortcut = '' , :Action = 'close' ,
 				:Children = [] ]] ]] ]"  ,
-		 :IndexType =  0  
+		 :IndexType =  0  ,
+		 :GUILibrary =  0  
 
 		]
 	],
