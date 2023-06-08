@@ -16,7 +16,7 @@
 // 13 MatrixInverse(U)
 // 14 MatrixDetCalc(U)             // Calls MatrixDeterminantReduce(U)
 // 15 MatrixDeterminantReduce(U)   // Any 2x2 to 10x10 Recursive
-// 16 MatrixDeterminant(U)         // Calls 16a-16e Determinant2x2,3x3,4x4,5x5,6x6
+// 16 Determinant(U)               // Calls 16a-16e Determinant2x2,3x3,4x4,5x5,6x6
 // 17 MatrixProjection(U,V)        // ProjvU = (U.V)/(V.V)xV
 // 18 MatrixOrthoDistance(U,V)
 // 19 VectorLength(U)
@@ -28,6 +28,10 @@
 // 25 QuadSolve(Eq)                // Quadratric equation solve
 // 26 CubicSolve(Eq)               // Cubic equation solve
 // 27 MatrixLuDecompose(U)         // LU Decompose Matrix to Lower and Upper Matrix
+// 28 QuarticSolve(Eq)             // Solve Quartic equation format x^4 + x^3 + x^2 + x + c
+// 29 SyntheticFactor(Eq)          // Find Factors of Quartric Equation
+// 30 SyntheticDiv(Eq,Factors)     // Synthetic Division using Factors to try possible solutions the Quartic equation
+ 
 
 //--------------------------------------------
 // GLOBAL Constants
@@ -73,7 +77,7 @@ Func MatrixFlatPrint(U)
  for h = 1 to Row
     See " "+ U[h] +","
  next
-   See nl
+   See nl+nl
 
 return
 //============================================
@@ -1146,75 +1150,90 @@ Func CubicSolve(Eq)
    Q = []         // a = 1..2
    R = []         // P/Q
    T = []         // +-R
+//----------
 
-   for i = 1 to d
-       if !(d % i)             // modulo = 0
+   for i = 1 to fabs(d)
+       if !(fabs(d) % i)       // Possible factors of D -> P
          Add(P,i)
        ok
    next
-
 //----------
 
-   for i = 1 to a
-       if !(a % i)             // modulo = 0
+   for i = 1 to fabs(a)
+       if !(fabs(a) % i)       // Possible factors of A -> Q
          Add(Q,i)
        ok
    next
-
 //----------
 
-   for k = 1 to len(P)
+   for k = 1 to len(P)         // R = Add all P factors
        Add(R,P[k])
    next 
+//----------
 
-   for k = 1 to len(Q)
+   for k = 1 to len(Q)         // R = Add all unique Q factors
        found = Find(P,Q[k])
        if !found
           Add(R,P[k])
        ok
    next
-
 //----------
 
    for m = 1 to len(Q)
       for k = 1 to len(P)
 
-          nbr = P[k] / Q[m]
+          nbr = P[k] / Q[m]    // R = Add all P/Q factors
           found = Find(P,nbr)
           if !found
              Add(R,nbr)
           ok
       next
    next
-
 //-------------------
 
-   for k = 1 to len(R)
-       posNbr =  R[k]
+   for k = 1 to len(R)        // T = +- R factors
+       posNbr =  R[k]         // Final possible list-T
        negNbr = -R[k]
        Add(T,posNbr)
        Add(T,negNbr)
    next
 
-//----------
+//------------------------
+// Synthetic Division
+// Factor a Cubic Equation to a Quadratic Equation
+// Try possible solution of X in T[]
+//
+// T = list of possible solutions to try as X
+// X   a  b    c  d
+// 2 | 2  1  -13  6   row1
+//   | v  4   10      mul   X*row2
+//     2  5   -3      row2  add col
 
-   j = 1
-   for i = 1 to len(T)
+for i = 1 to len(T)
+   X = T[i]
+   a2    = a
+
+   mb    = X * a2
+   b2    = b + mb
+
+   mc    = X * b2
+   c2    = c + mc
+
+   md    = X * c2
+   d2    = d + md
+
+   if (d2 = 0 )            // Remainder R=0 then X is a solution  
+      QS = QuadSolve([[a2,b2,c2]])
  
-      k  = T[i]    
-      k3 = k*k*k
-      k2 = k*k
+      S[1][1] = X          // Insert X solution
+      S[2][1] = QS[1][1]   // Insert Quadratic solution
+      S[3][1] = QS[2][1]
+      
+     exit
+   ok
+next
 
-      solve = (a*k3) + (b*k2) + (c*k) + d
-      if (solve = 0)
-         s[j][1] = k
-         j++
-      ok
-
-    next  
-    //See S 
-
-return S  // Row-Col Solution 1x3
+return S  // 3x1 matrix
 
 
 //==========================================================
@@ -1264,5 +1283,132 @@ Func MatrixLuDecompose(U)
     next
 
  return [Lower,Upper]
+ 
+//======================================
+//=================================================
+
+//=================================================
+// Bert Mariani 2023-06-07
+// Factor equation in to possible solutions => aX^4 + bX^3 + cX^2 +dX + e
+// Return array List of Factors => //  1, -1, 2, -2, 3, -3, 5, -5, 
+// Bert Mariani 2023-05-30
+
+Func SyntheticFactor(Eq)
+
+   last = len(Eq[1])   
+
+   a  = Eq[1][1]  //   2
+   d  = Eq[1][last]  //   6
+
+   P = []         // d = 1..6
+   Q = []         // a = 1..2
+   R = []         // P/Q
+   T = []         // +-R
+//----------
+   for i = 1 to fabs(d)
+       if !(fabs(d) % i)       // D Last Possible factors of D -> P
+         Add(P,i)
+       ok
+   next
+//----------
+   for i = 1 to fabs(a)
+       if !(fabs(a) % i)       // A 1st Possible factors of A -> Q
+         Add(Q,i)
+       ok
+   next
+//----------
+   for k = 1 to len(P)         // R = Add all P factors
+       Add(R,P[k])
+   next 
+//----------
+   for k = 1 to len(Q)         // R = Add all unique Q factors
+       found = Find(P,Q[k])
+       if !found
+          Add(R,P[k])
+       ok
+   next
+//----------
+   for m = 1 to len(Q)
+      for k = 1 to len(P)
+
+          nbr = P[k] / Q[m]    // P/Q R = Add all P/Q factors
+          found = Find(P,nbr)
+          if !found
+             Add(R,nbr)
+          ok
+      next
+   next
+//-------------------
+   for k = 1 to len(R)        // T = +- R factors
+       posNbr =  R[k]         // Final possible list-T
+       negNbr = -R[k]
+       Add(T,posNbr)
+       Add(T,negNbr)
+   next
+
+return T  // 1xk array of Factors for Eq
+
+//--------------------------------------------------
+// Bert Mariani 2023-06-07
+// Synthetic Division"
+// Factor a Quartic Equation x^4"
+// T[] 1xK is array of P and Q and P/Q factors from SyntheticFac"
+// A[] 1xK is array of Equation to Solve"
+// Try possible solution of X in T[]"
+//
+// T = list of possible solutions to try as X"
+// X   a  b    c  d"
+// 2 | 2  1  -13  6   1 row1"
+//   | 0  4   10 -6     multiply   X*row2"
+//     2  5   -3  0   2 row2  = row1 + multiply col"
+
+Func SyntheticDiv(Eq,T)
+
+   S = list(4,1)  // Row-Column
+   last = len(Eq[1])  // d
+   
+ 
+for i = 1 to len(T)
+   X     = T[i]              // Try each factor
+
+   F = [X]
+   for k = 1 to last-1       // Each term in the equatiom abcd..
+       ma  = X * F[k]
+       a2  = Eq[1][k+1] + ma
+       Add(F,a2)
+   next
+   
+   if F[last] = 0     // FOUND Possible Solution
+      Del(F,last)     // x^4 => x^3       
+      return [X,[F]]
+   ok
+next
+
+return S  // 4x1 matrix, if (0,0,0,0) Not solution
 
 //======================================
+// Bert Mariani 2023-06-07
+// QuartixSolve(Eq)
+// Format => aX^4 + bX^3 + cX^2 +dX + e
+// Input  => [[ 1, -7, 5, 31, -30]]
+// Return 4x1 matrix solution (1,-2,5,3)
+
+
+Func QuarticSolve(Eq)
+ Fac = SyntheticFactor(Eq)
+
+ Sol = SyntheticDiv(Eq,Fac)
+ X = Sol[1]
+
+ SolC = CubicSolve(Sol[2])
+
+ SolD = [ [X], [SolC[1][1]], [SolC[2][1]], [SolC[3][1]] ] 
+ 
+return SolD  // 4x1 matrix
+
+
+
+//======================================
+//======================================
+//======================================
+
