@@ -1,0 +1,34 @@
+<code>
+#include "windows.h"
+#include "winuser.h"
+
+</code>
+
+<runcode>
+aNumberTypes + "DWORD"
+aNumberTypes + "ULONG_PTR"
+aNumberTypes + "long"
+</runcode>
+
+<constant>
+GWL_EXSTYLE
+WS_EX_LAYOUTRTL 
+WS_EX_NOINHERITLAYOUT
+</constant>
+
+long GetWindowLong(int window,long style)
+void SetWindowLong(int window,long style,long style2)
+
+<register>
+void righttoleft(int window)
+</register>
+
+<code>
+
+RING_FUNC(ring_righttoleft) {
+    	long hWnd = (long) RING_API_GETNUMBER(1);
+	long extendedStyle = GetWindowLong(hWnd, GWL_EXSTYLE);
+	SetWindowLong(hWnd, GWL_EXSTYLE, extendedStyle | WS_EX_LAYOUTRTL | WS_EX_NOINHERITLAYOUT);
+}
+
+</code>
