@@ -9,6 +9,9 @@
 	load "src/templates.ring"
 	load "../formdesigner/translation/arabic.ring"
 
+# Support RightToLeft() function
+	load "winlib.ring"
+
 # Open the Environment 
 	if isMainSourceFile() 
 		# Create the Ring Notepad Object
