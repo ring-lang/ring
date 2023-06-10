@@ -18,6 +18,8 @@ The RingBeep folder contains a simple example to learn how to create an extensio
 
 The RingMouseEvent folder Another simple example to learn how to create an extension
 
+The RingWinLib folder contains simple extension that provide the RightToLeft() function
+
 The RingInternet folder contains functions that uses the LibCurl library  
 
 The RingCurl folder contains the Ring binding to the LibCurl library  

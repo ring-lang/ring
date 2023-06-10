@@ -14,7 +14,9 @@ new QApp {
 	new qWidget() {
 		setwindowtitle("السلام عليكم ورحمة الله وبركاته")
 		resize(800,600)
-		righttoleft( winid() )
+		if isWindows()
+			righttoleft( winid() )
+		ok
 		show()
 	}
 	exec()
