@@ -311,9 +311,12 @@ RING_API int ring_list_isref ( List *pList )
 RING_API void ring_list_assignreftovar_gc ( void *pState,List *pRef,List *pVar,unsigned int nPos )
 {
     pRef->gc.lNewRef = 0 ;
-    if ( ! ( ring_list_getlist(pVar,nPos) == pRef ) ) {
-        ring_list_setlistbyref_gc(pState,pVar,nPos,pRef);
+    if ( ring_list_islist(pVar,nPos) ) {
+        if ( ring_list_getlist(pVar,nPos) == pRef ) {
+            return ;
+        }
     }
+    ring_list_setlistbyref_gc(pState,pVar,nPos,pRef);
 }
 
 RING_API void ring_list_assignreftoitem_gc ( void *pState,List *pRef,Item *pItem )
