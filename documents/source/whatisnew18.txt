@@ -117,6 +117,7 @@ More Samples
 * Added: samples/UsingFreeGLUT/test17.ring, test18.ring & test19.ring
 * Added: samples/ProblemSolving/Cryptogram/Cryptogram.ring
 * Added: samples/UsingArabic/ArabicSyntax
+* Added: samples/UsingQt/Painter/test.ring & test2.ring
 * File: samples/AQuickStart/GUILib/gui44.ring - Better Code
 * File: samples/UsingWebLib/Demo/datalib.ring - Better Code
 * File: samples/UsingWebLib/Demo/bootstrap.ring - Better Code
@@ -597,6 +598,7 @@ More Improvements
 * RingCJSON: Update the version 
 * RingQt: Set the environment variable QT_QPA_PLATFORM_PLUGIN_PATH
 * RingQt: QMediaPlayer Class - Remove currentNetworkConfiguration() Method
+* RingQt: QString2 Class - Added lastIndexOf() method
 * Ring Functions - SetEnv()/UnSetEnv() - Better Code
 * Ring Functions - Print()/Puts() - Better Code
 * Ring Functions - Eval() - Better Code
