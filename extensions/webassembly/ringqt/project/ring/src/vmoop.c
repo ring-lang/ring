@@ -496,7 +496,7 @@ void ring_vm_oop_setbraceobj ( VM *pVM,List *pList )
 
 void ring_vm_oop_bracestart ( VM *pVM )
 {
-    List *pList, *pVar  ;
+    List *pList, *pVar, *pStateList  ;
     Item *pItem  ;
     int lShowError  ;
     /* Check Error */
@@ -531,11 +531,11 @@ void ring_vm_oop_bracestart ( VM *pVM )
         ring_vm_error(pVM,RING_VM_ERROR_BRACEWITHOUTOBJECT);
         return ;
     }
+    pStateList = ring_list_newlist_gc(pVM->pRingState,pVM->pObjState);
+    ring_vm_savestateforbraces(pVM,pStateList);
     /* Check Don't Ref. and Don't Ref Again */
     ring_list_disabledontref(pList);
     ring_list_disabledontrefagain(pList);
-    pList = ring_list_newlist_gc(pVM->pRingState,pVM->pObjState);
-    ring_vm_savestateforbraces(pVM,pList);
 }
 
 void ring_vm_oop_braceend ( VM *pVM )
