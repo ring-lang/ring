@@ -507,8 +507,11 @@ void ring_vm_oop_bracestart ( VM *pVM )
     else if ( RING_VM_STACK_ISPOINTER ) {
         if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
             pVar = (List *) RING_VM_STACK_READP ;
-            pList = ring_list_getlist(pVar,RING_VAR_VALUE);
-            if ( ring_vm_oop_isobject(pList) == 0 ) {
+            if ( ring_list_islist(pVar,RING_VAR_VALUE) ) {
+                pList = ring_list_getlist(pVar,RING_VAR_VALUE);
+                lShowError = (ring_vm_oop_isobject(pList) == 0) ;
+            }
+            else {
                 lShowError = 1 ;
             }
         }
@@ -516,9 +519,7 @@ void ring_vm_oop_bracestart ( VM *pVM )
             pItem = (Item *) RING_VM_STACK_READP ;
             if ( ring_item_islist(pItem) ) {
                 pList = (List *) ring_item_getlist(pItem) ;
-                if ( ring_vm_oop_isobject(pList) == 0 ) {
-                    lShowError = 1 ;
-                }
+                lShowError = (ring_vm_oop_isobject(pList) == 0) ;
             }
             else {
                 lShowError = 1 ;

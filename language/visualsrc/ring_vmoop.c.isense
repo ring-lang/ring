@@ -51,7 +51,7 @@ ring_vm_oop_printobj
 ring_vm_oop_setbraceobj
 ring_vm_oop_bracestart
 Type: List *
-pList, *pVar, *pSubList
+pList, *pVar, *pStateList
 Type: Item *
 pItem
 Type: int
