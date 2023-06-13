@@ -19,6 +19,12 @@ class mytest
 		}
 		this.data = "six"
 		o.data = "seven"
+		self {
+			this.data = "eight"
+		}
+		this {
+			this.data = "nine"
+		}
 
 	func setdata v
 		data = v + " updated"
