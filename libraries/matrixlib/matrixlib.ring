@@ -32,6 +32,10 @@
 // 29 CubicSolve(Eq)               // Cubic equation solve format x^3 + x^2 + x + c
 // 30 QuarticSolve(Eq)             // Solve Quartic equation format x^4 + x^3 + x^2 + x + c
 // 31 QuinticSolve(Eq)             // Solve Quintic equation format x^5 x^4 + x^3 + x^2 + x + c
+// 32 EigenValue2(A)               // EigenValues calculated for a 2x2 matrix
+// 33 EigenValue3(A)               // EigenValues calculated for a 3x3 matrix
+
+  
 
 //--------------------------------------------
 // GLOBAL Constants
@@ -1653,5 +1657,72 @@ next
 return S  // 5x1 matrix
 
 //=====================================
+// EigenValue3(A)
+//
+// Calculate EigenValues for a 3x3 Matrix
+// Return matrix 1x3 with EigenValues
+// Bert Mariani 2023-06-11
+//
+//------------------------------------------------
+// Simple Method to solve EigenValues for a 3x3 Matrix
+// Characteristic equation"
+//  |A-hI| = 0                   Use 'h' Lambda Symbol (λ) 
+//  +h^3 -s1h^2 +s2h -s3 = 0     Cubic equation 
+//  s1 -> Sum of main diagonal   
+//  s2 -> Sum of CoFactors of main diagonal
+//  s3 -> Determinant|A|"
 
+Func EigenValue3(A)
+
+    vertU = len(A)    horzU = len(A[1])
+
+    if vertU != horzU
+        See "Error: EigenValue3: "+vertU +"x"+ horzU nl
+        See "VertU: "+ vertU +" HorzU: "+ horzU +" MUST BE Equal "+ nl
+        MatrixPrint(Mat)
+        return 1
+    OK
+
+    s1  = A[1][1] + A[2][2] + A[3][3]        // Sum of Diagonal = TRACE
+    Cof = MatrixCoFactor(A)                  // CoFactors of Matrix 
+    s2  = Cof[1][1] + Cof[2][2] + Cof[3][3]  // Sum of CoFactors of Diagonal
+    s3  = MatrixDetCalc(A)                   // Determinant of Matrrix 3x3
+    Eq  = [[1, -s1, s2, -s3]]                // Formulate Cubic Equation + - + 1
+    S   = CubicSolve(Eq)                     // Solve cubic equation
+
+return S   // Solution 3x1 matix 
+
+//=====================================
+// EigenValue2(A)
+//
+// Calculate EigenValues for a 2x2 Matrix
+// Return matrix 2x1 with EigenValues
+// Bert Mariani 2023-06-11
+//
+//------------------------------------------------
+// Simple Method to solve EigenValues for a 2x2 Matrix
+// Characteristic equation"
+// Quaddratic formula 
+
+
+Func EigenValue2(A)
+
+    vertU = len(A)    horzU = len(A[1])
+
+    if vertU != horzU
+        See "Error: EigenValue2: "+vertU +"x"+ horzU nl
+        See "VertU: "+ vertU +" HorzU: "+ horzU +" MUST BE Equal "+ nl
+        MatrixPrint(Mat)
+        return 1
+    OK
+
+    t1  = A[1][1] + A[2][2]        // Trace = Sum of Diagonal
+    d2  = MatrixDetCalc(A)         // Determinant of Matrrix 2x2
+   
+    p3  = (t1 + sqrt( (t1*t1) -(4*d2) )) / 2    // pos Polynomial Quadratic
+    p4  = (t1 - sqrt( (t1*t1) -(4*d2) )) / 2    // neg Polynomial Quadratic
+    
+    S = [[p3],[p4]]
+
+return S   // Solution 2x1 matix 
 
