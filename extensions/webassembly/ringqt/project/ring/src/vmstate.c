@@ -562,10 +562,10 @@ void ring_vm_savestateforbraces ( VM *pVM,List *pObjState )
     **  Prepare to Access Object State 
     **  Store Pointer to Object State 
     */
-    ring_list_addpointer_gc(pVM->pRingState,pObjState,ring_list_getlist(pVM->pBraceObject,2));
+    ring_list_addpointer_gc(pVM->pRingState,pObjState,ring_list_getlist(pVM->pBraceObject,RING_OBJECT_OBJECTDATA));
     /* Store Object Class Methods */
-    pClass = (List *) ring_list_getpointer(pVM->pBraceObject,1) ;
-    ring_list_addpointer_gc(pVM->pRingState,pObjState,ring_list_getlist(pClass,4));
+    pClass = (List *) ring_list_getpointer(pVM->pBraceObject,RING_OBJECT_CLASSPOINTER) ;
+    ring_list_addpointer_gc(pVM->pRingState,pObjState,ring_list_getlist(pClass,RING_CLASSMAP_METHODSLIST));
     /* Store Class Pointer */
     ring_list_addpointer_gc(pVM->pRingState,pObjState,pClass);
     /* Add Brace Object & Stack Pointer to List */
@@ -590,12 +590,17 @@ void ring_vm_savestateforbraces ( VM *pVM,List *pObjState )
     ring_list_addint_gc(pVM->pRingState,pList,pVM->nLoadAddressScope);
     /* Store lNoSetterMethod */
     ring_list_addint_gc(pVM->pRingState,pList,pVM->lNoSetterMethod);
+    /* Store DontRef Info */
+    ring_list_addint_gc(pVM->pRingState,pList,ring_list_isdontref(pVM->pBraceObject));
+    ring_list_addint_gc(pVM->pRingState,pList,ring_list_isdontrefagain(pVM->pBraceObject));
     pVM->pBraceObject = NULL ;
     pVM->nInsideBraceFlag = 1 ;
 }
 
 void ring_vm_restorestateforbraces ( VM *pVM,List *pList )
 {
+    List *pObject  ;
+    int lDontRef,lDontRefAgain  ;
     /*
     **  Restore List Status 
     **  Remove protection from opened lists 
@@ -619,6 +624,16 @@ void ring_vm_restorestateforbraces ( VM *pVM,List *pList )
     pVM->nLoadAddressScope = ring_list_getint(pList,RING_ABRACEOBJECTS_NLOADASCOPE) ;
     /* Restore lNoSetterMethod */
     pVM->lNoSetterMethod = ring_list_getint(pList,RING_ABRACEOBJECTS_NNOSETTERMETHOD) ;
+    /* Restore DontRef Info */
+    pObject = (List *) ring_list_getpointer(pList,RING_ABRACEOBJECTS_BRACEOBJECT) ;
+    lDontRef = ring_list_getint(pList,RING_ABRACEOBJECTS_ISDONTREF) ;
+    lDontRefAgain = ring_list_getint(pList,RING_ABRACEOBJECTS_ISDONTREFAGAIN) ;
+    if ( lDontRef ) {
+        ring_list_enabledontref(pObject);
+    }
+    if ( lDontRefAgain ) {
+        ring_list_enabledontrefagain(pObject);
+    }
     ring_list_deleteitem_gc(pVM->pRingState,pVM->aBraceObjects,ring_list_getsize(pVM->aBraceObjects));
     ring_list_deleteitem_gc(pVM->pRingState,pVM->pObjState,ring_list_getsize(pVM->pObjState));
     pVM->nInsideBraceFlag = ( ring_list_getsize(pVM->aBraceObjects) > 0 ) ;

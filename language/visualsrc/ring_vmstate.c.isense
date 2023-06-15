@@ -47,6 +47,10 @@ ring_vm_savestateforbraces
 Type: List *
 pList, *pClass,*aSetProperty
 ring_vm_restorestateforbraces
+Type: List *
+pObject
+Type: int
+lDontRef,lDontRefAgain
 ring_vm_backstate
 Type: int
 nLimit,y

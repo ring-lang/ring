@@ -6,9 +6,8 @@
 # doesn't have a variable that contains it.
 # Also, using Ref() with (new object) or ([1,2,3]) 
 # doesn't create a reference because Ring will ignore the temp. variable
+# Also, using Ref() with (new object then braces { }) doesn't create a new reference 
 # This is more natural (works as expected) - Thanks to Ilir 
-# Using Ref() with (new object then braces { }) will keep the temp. variable
-# This will lead to Ref() creating a reference until this temp. variable is deleted
 
 ? "**************"
 x = ref(1:3)
