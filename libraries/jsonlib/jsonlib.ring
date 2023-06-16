@@ -85,7 +85,7 @@ func List2JSON_processObject aSubList,nTabs
 
 func List2JSON_processListValue aSubList,nTabs
 	cOutput = ""
-	if isList(aSubList[1]) and (len(aSubList[1]) = 2 ) and isString(aSubList[1][1]) 
+	if List2JSON_isobject(aSubList[1]) 
 		cOutput += "{" + nl
 		nTabs++
 		cOutput += List2JSON_process( aSubList, nTabs )
