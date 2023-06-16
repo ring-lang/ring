@@ -62,6 +62,25 @@ func List2JSON_processSubList aSubList,nTabs
 	cOutput += Copy(Tab,nTabs) + "]" 
 	return cOutput
 
+func List2JSON_processListValue aSubList,nTabs
+	cOutput = ""
+	if isString(aSubList[1]) or isNumber(aSubList[1])
+		cOutput += List2JSON_processSubList(aSubList,nTabs)
+	elseif isList(aSubList[1]) and (len(aSubList[1]) > 1 ) and isString(aSubList[1][1]) 
+		cOutput += "{" + nl
+		nTabs++
+		cOutput += List2JSON_process( aSubList, nTabs )
+		nTabs--
+		cOutput += Copy(Tab,nTabs) + "}" 
+	else 
+		cOutput += "[" + nl
+		nTabs++
+		cOutput += List2JSON_process( aSubList, nTabs )
+		nTabs--
+		cOutput += Copy(Tab,nTabs) + "]" 
+	ok
+	return cOutput
+
 func List2JSON_process aList,nTabs 
 	cOutput = ""
 	for t=1 to len( aList )
@@ -73,21 +92,7 @@ func List2JSON_process aList,nTabs
 			but isNumber(aSubList[2])
 				cOutput += "" + aSubList[2] 
 			but isList(aSubList[2])
-				if isString(aSubList[2][1]) or isNumber(aSubList[2][1])
-					cOutput += List2JSON_processSubList(aSubList[2],nTabs)
-				elseif isList(aSubList[2][1]) and (len(aSubList[2][1]) > 1 ) and isString(aSubList[2][1][1]) 
-					cOutput += "{" + nl
-					nTabs++
-					cOutput += List2JSON_process( aSubList[2], nTabs )
-					nTabs--
-					cOutput += Copy(Tab,nTabs) + "}" 
-				else 
-					cOutput += "[" + nl
-					nTabs++
-					cOutput += List2JSON_process( aSubList[2], nTabs )
-					nTabs--
-					cOutput += Copy(Tab,nTabs) + "]" 
-				ok
+				cOutput += List2JSON_processListValue (aSubList[2],nTabs)
 			ok
 		but isList(aSubList[1]) 
 			cOutput += Copy(Tab,nTabs) + "{" + nl
