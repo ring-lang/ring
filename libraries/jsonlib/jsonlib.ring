@@ -1,4 +1,4 @@
-#============================================================================#
+#=======================================================================================#
 #
 # JSONLib Library for the Ring programming language
 # 2021, Mahmoud Fayed 
@@ -7,23 +7,29 @@
 #	List2JSON(aList) --> cJSONString
 #	JSON2List(cJSONString) --> aList
 #
-#============================================================================#
+#=======================================================================================#
 
 load "cjson.ring"
 load "stdlibcore.ring"
 
-#============================================================================#
+#=======================================================================================#
+
+C_ERROR_EXPECTASTRING = "Bad parameter type! - The JSON2List() function expect a String"
+C_ERROR_CANTPARSE     = "Parsing Error (JSONLib) : Can't parse the content "
+C_ERROR_EXPECTALIST   = "Bad parameter type! - The List2JSON() function expect a List"
+
+#=======================================================================================#
 
 func JSON2List cJSON
 
 	if ! isString(cJSON) {
-		raise("Bad parameter type! - The JSON2List() function expect a String")
+		raise(C_ERROR_EXPECTASTRING)
 	}
 
 	oJSON = cJSON_Parse(cJSON)	
 
 	if isNULL(oJSON)
-		raise("Parsing Error (JSONLib) : Can't parse the content " + nl +
+		raise(C_ERROR_CANTPARSE + nl +
 			cJSON_GetErrorPtr() )
 	ok
 
@@ -31,11 +37,11 @@ func JSON2List cJSON
 
 	return aList
 
-#============================================================================#
+#=======================================================================================#
 
 func List2JSON aList 
 	if ! isList(aList) {
-		raise("Bad parameter type! - The List2JSON() function expect a List")
+		raise(C_ERROR_EXPECTALIST)
 	}
 	cOutput = "{" + nl
 	cOutput += List2JSON_process(aList,1)
@@ -118,4 +124,4 @@ func List2JSON_processSubList aSubList,nTabs
 	cOutput += Copy(Tab,nTabs) + "]" 
 	return cOutput
 
-#============================================================================#
+#=======================================================================================#
