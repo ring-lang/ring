@@ -22,15 +22,14 @@ C_ERROR_EXPECTALIST   = "Bad parameter type! - The List2JSON() function expect a
 
 func JSON2List cJSON
 
-	if ! isString(cJSON) {
+	if ! isString(cJSON)
 		raise(C_ERROR_EXPECTASTRING)
-	}
+	ok
 
 	oJSON = cJSON_Parse(cJSON)	
 
 	if isNULL(oJSON)
-		raise(C_ERROR_CANTPARSE + nl +
-			cJSON_GetErrorPtr() )
+		raise(C_ERROR_CANTPARSE + nl + cJSON_GetErrorPtr() )
 	ok
 
 	aList = cJSON_ToRingList(oJSON)
@@ -40,9 +39,9 @@ func JSON2List cJSON
 #=======================================================================================#
 
 func List2JSON aList 
-	if ! isList(aList) {
+	if ! isList(aList) 
 		raise(C_ERROR_EXPECTALIST)
-	}
+	ok
 	cOutput = "{" + nl
 	cOutput += List2JSON_process(aList,1)
 	cOutput += "}"
@@ -92,7 +91,7 @@ func List2JSON_processListValue aSubList,nTabs
 		cOutput += List2JSON_process( aSubList, nTabs )
 		nTabs--
 		cOutput += Copy(Tab,nTabs) + "}" 
-	elseif isString(aSubList[1]) or isNumber(aSubList[1])
+	but isString(aSubList[1]) or isNumber(aSubList[1])
 		cOutput += List2JSON_processSubList(aSubList,nTabs)
 	else 
 		cOutput += "[" + nl
@@ -110,9 +109,9 @@ func List2JSON_processSubList aSubList,nTabs
 		vValue = aSubList[m]
 		if isString(vValue)
 			cOutput += ""+Copy(Tab,nTabs)+Char(34)+vValue+ Char(34)
-		elseif isNumber(vValue)
+		but isNumber(vValue)
 			cOutput += ""+Copy(Tab,nTabs)+vValue
-		elseif isList(vValue)
+		but isList(vValue)
 			cOutput += Copy(Tab,nTabs)+List2JSON_process(vValue,nTabs)
 		ok
 		if m != len(aSubList)
