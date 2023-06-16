@@ -44,10 +44,13 @@ func List2JSON aList
 
 func List2JSON_process aList,nTabs 
 	cOutput = ""
-	for t=1 to len( aList )
+	for t=1 to len(aList)
 		aSubList = aList[t]
-		if isString(aSubList[1]) and len(aSubList) = 2 
+		# Check JSON Object
+		if (len(aSubList) = 2) and isString(aSubList[1])
+			# Add the object name
 			cOutput += Copy(Tab,nTabs) + Char(34) +  aSubList[1] + Char(34) + ": "
+			# Add the object value
 			if isString(aSubList[2])
 				cOutput += Char(34) + aSubList[2] + Char(34) 
 			but isNumber(aSubList[2])
@@ -56,7 +59,7 @@ func List2JSON_process aList,nTabs
 				cOutput += List2JSON_processListValue(aSubList[2],nTabs)
 			ok
 		but isList(aSubList[1]) 
-			cOutput += Copy(Tab,nTabs) + List2JSON_processListValue([ aSubList[1] ] ,nTabs)
+			cOutput += Copy(Tab,nTabs) + List2JSON_processListValue(aSubList[1],nTabs)
 		else	
 			? "Unexpected Input!" 		
 		ok
