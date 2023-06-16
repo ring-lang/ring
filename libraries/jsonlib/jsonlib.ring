@@ -48,16 +48,7 @@ func List2JSON_process aList,nTabs
 		aSubList = aList[t]
 		# Check JSON Object
 		if List2JSON_isobject(aSubList)
-			# Add the object name
-			cOutput += Copy(Tab,nTabs) + Char(34) +  aSubList[1] + Char(34) + ": "
-			# Add the object value
-			if isString(aSubList[2])
-				cOutput += Char(34) + aSubList[2] + Char(34) 
-			but isNumber(aSubList[2])
-				cOutput += "" + aSubList[2] 
-			but isList(aSubList[2])
-				cOutput += List2JSON_processListValue(aSubList[2],nTabs)
-			ok
+			cOutput += List2JSON_processObject(aSubList,nTabs)
 		but isList(aSubList[1]) 
 			cOutput += Copy(Tab,nTabs) + List2JSON_processListValue(aSubList[1],nTabs)
 		else	
@@ -72,6 +63,20 @@ func List2JSON_process aList,nTabs
 
 func List2JSON_isobject aSubList
 	return isList(aSubList) and (len(aSubList) = 2) and isString(aSubList[1])
+
+func List2JSON_processObject aSubList,nTabs
+	cOutput = ""
+	# Add the object name
+		cOutput += Copy(Tab,nTabs) + Char(34) +  aSubList[1] + Char(34) + ": "
+	# Add the object value
+		if isString(aSubList[2])
+			cOutput += Char(34) + aSubList[2] + Char(34) 
+		but isNumber(aSubList[2])
+			cOutput += "" + aSubList[2] 
+		but isList(aSubList[2])
+			cOutput += List2JSON_processListValue(aSubList[2],nTabs)
+		ok
+	return cOutput
 
 func List2JSON_processListValue aSubList,nTabs
 	cOutput = ""
