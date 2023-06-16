@@ -2045,43 +2045,62 @@ RING_FUNC(ring_cJSON_ToRingList)
 	RING_API_RETLIST(pOutputList);		
 }
 
+int cJSON_ProcessSimpleType(cJSON *pJSON,List *pOutputList)
+{
+	switch ((pJSON->type) & 0xFF)
+	{
+		case cJSON_NULL:
+			ring_list_addstring(pOutputList,"null");
+			break;
+		case cJSON_False:
+			ring_list_addstring(pOutputList,"false");
+			break;
+		case cJSON_True:
+			ring_list_addstring(pOutputList,"true");
+			break;
+		case cJSON_Number:
+			ring_list_adddouble(pOutputList,cJSON_GetNumberValue(pJSON));
+			break;
+		case cJSON_Raw:
+			ring_list_addstring(pOutputList,pJSON->valuestring);
+			break;
+		case cJSON_String:
+			if (pJSON->valuestring != NULL)
+				ring_list_addstring(pOutputList,cJSON_GetStringValue(pJSON));
+			break;
+		default:
+			return 0;
+			break;
+	}
+	return 1;
+}
+
 void cJSON_ProcessList(cJSON *pJSON,List *pOutputList)
 {
 	List *pList, *pList2;
 	cJSON *pJSONChild;
+	int nType;
 	while ( pJSON != NULL) {
 		pList = pOutputList;
 		if (pJSON->string != NULL) {
 			pOutputList = ring_list_newlist(pOutputList);
 			ring_list_addstring(pOutputList,pJSON->string);
 		}
+
+		if ( ! cJSON_ProcessSimpleType(pJSON,pOutputList) ) {
 		switch ((pJSON->type) & 0xFF)
 		{
-			case cJSON_NULL:
-				ring_list_addstring(pOutputList,"null");
-				break;
-			case cJSON_False:
-				ring_list_addstring(pOutputList,"false");
-				break;
-			case cJSON_True:
-				ring_list_addstring(pOutputList,"true");
-				break;
-			case cJSON_Number:
-				ring_list_adddouble(pOutputList,cJSON_GetNumberValue(pJSON));
-				break;
-			case cJSON_Raw:
-				ring_list_addstring(pOutputList,pJSON->valuestring);
-				break;
-			case cJSON_String:
-				if (pJSON->valuestring != NULL)
-					ring_list_addstring(pOutputList,cJSON_GetStringValue(pJSON));
-				break;
 			case cJSON_Array:
 				pOutputList = ring_list_newlist(pOutputList);
 				pJSONChild = pJSON->child;
 				while ( pJSONChild != NULL) {
-					pList2 = ring_list_newlist(pOutputList);
-					cJSON_ProcessList(pJSONChild,pList2);
+					nType = ((pJSONChild->type) & 0xFF) ;
+					if ( (nType == cJSON_Array) || (nType == cJSON_Object ) ) {
+						pList2 = ring_list_newlist(pOutputList);
+						cJSON_ProcessList(pJSONChild,pList2);
+					} else {
+						cJSON_ProcessSimpleType(pJSONChild,pOutputList);
+					}
 					pJSONChild = pJSONChild->next;
 				}
 				break;
@@ -2094,6 +2113,7 @@ void cJSON_ProcessList(cJSON *pJSON,List *pOutputList)
 				}
 				cJSON_ProcessList(pJSON->child,pOutputList);
 				break;
+		}
 		}
 		pOutputList = pList;
 		pJSON = pJSON->next;
