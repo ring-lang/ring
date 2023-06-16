@@ -93,12 +93,13 @@ func List2JSON_processSubList aSubList,nTabs
 	cOutput = "[" + nl
 	nTabs++
 	for m=1 to len(aSubList)
-		if isString(aSubList[m])
-			cOutput += ""+Copy(Tab,nTabs)+Char(34)+aSubList[m]+ Char(34)
-		elseif isNumber(aSubList[m])
-			cOutput += ""+Copy(Tab,nTabs)+aSubList[m]
-		elseif isList(aSubList[m])
-			cOutput += Copy(Tab,nTabs)+List2JSON_process( aSubList[m] , nTabs )
+		vValue = aSubList[m]
+		if isString(vValue)
+			cOutput += ""+Copy(Tab,nTabs)+Char(34)+vValue+ Char(34)
+		elseif isNumber(vValue)
+			cOutput += ""+Copy(Tab,nTabs)+vValue
+		elseif isList(vValue)
+			cOutput += Copy(Tab,nTabs)+List2JSON_process(vValue,nTabs)
 		ok
 		if m != len(aSubList)
 			cOutput += ","
