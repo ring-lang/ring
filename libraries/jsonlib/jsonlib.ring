@@ -56,6 +56,8 @@ func List2JSON_process aList,nTabs
 			cOutput += List2JSON_processObjectAttribute(aSubList,nTabs)
 		but isList(aSubList[1]) 
 			cOutput += Copy(Tab,nTabs) + List2JSON_processListValue(aSubList,nTabs)
+		but isList(aSubList)
+			cOutput += Copy(Tab,nTabs) + List2JSON_processSubList(aSubList,nTabs)
 		else	
 			? C_ERROR_UNEXPECTED		
 		ok
