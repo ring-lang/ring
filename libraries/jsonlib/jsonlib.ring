@@ -17,6 +17,7 @@ load "stdlibcore.ring"
 C_ERROR_EXPECTASTRING = "Bad parameter type! - The JSON2List() function expect a String"
 C_ERROR_CANTPARSE     = "Parsing Error (JSONLib) : Can't parse the content "
 C_ERROR_EXPECTALIST   = "Bad parameter type! - The List2JSON() function expect a List"
+C_ERROR_UNEXPECTED    = "Unexpected Input!"
 
 #=======================================================================================#
 
@@ -51,13 +52,12 @@ func List2JSON_process aList,nTabs
 	cOutput = ""
 	for t=1 to len(aList)
 		aSubList = aList[t]
-		# Check JSON Object
 		if List2JSON_isobject(aSubList)
 			cOutput += List2JSON_processObject(aSubList,nTabs)
 		but isList(aSubList[1]) 
 			cOutput += Copy(Tab,nTabs) + List2JSON_processListValue(aSubList[1],nTabs)
 		else	
-			? "Unexpected Input!" 		
+			? C_ERROR_UNEXPECTED		
 		ok
 		if t != len(aList) 
 			cOutput += ","
