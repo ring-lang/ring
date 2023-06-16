@@ -74,12 +74,13 @@ func List2JSON_processObject aSubList,nTabs
 	# Add the object name
 		cOutput += Copy(Tab,nTabs) + Char(34) +  aSubList[1] + Char(34) + ": "
 	# Add the object value
-		if isString(aSubList[2])
-			cOutput += Char(34) + aSubList[2] + Char(34) 
-		but isNumber(aSubList[2])
-			cOutput += "" + aSubList[2] 
-		but isList(aSubList[2])
-			cOutput += List2JSON_processListValue(aSubList[2],nTabs)
+		vValue = aSubList[2]
+		if isString(vValue)
+			cOutput += Char(34) + vValue + Char(34) 
+		but isNumber(vValue)
+			cOutput += "" + vValue 
+		but isList(vValue)
+			cOutput += List2JSON_processListValue(vValue,nTabs)
 		ok
 	return cOutput
 
