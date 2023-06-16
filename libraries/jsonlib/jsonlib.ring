@@ -42,6 +42,26 @@ func List2JSON aList
 	cOutput += "}"
 	return cOutput
 
+func List2JSON_processSubList aSubList,nTabs
+	cOutput = "[" + nl
+	nTabs++
+	for m=1 to len(aSubList)
+		if isString(aSubList[m])
+			cOutput += ""+Copy(Tab,nTabs)+Char(34)+aSubList[m]+ Char(34)
+		elseif isNumber(aSubList[m])
+			cOutput += ""+Copy(Tab,nTabs)+aSubList[m]
+		elseif isList(aSubList[m])
+			cOutput += Copy(Tab,nTabs)+List2JSON_processSubList(aSubList[m], nTabs )
+		ok
+		if m != len(aSubList)
+			cOutput += ","
+		ok
+		cOutput += nl
+	next
+	nTabs--
+	cOutput += Copy(Tab,nTabs) + "]" 
+	return cOutput
+
 func List2JSON_process aList,nTabs 
 	cOutput = ""
 	for t=1 to len( aList )
@@ -53,7 +73,9 @@ func List2JSON_process aList,nTabs
 			but isNumber(aSubList[2])
 				cOutput += "" + aSubList[2] 
 			but isList(aSubList[2])
-				if isString(aSubList[2][1][1])
+				if isString(aSubList[2][1]) or isNumber(aSubList[2][1])
+					cOutput += List2JSON_processSubList(aSubList[2],nTabs)
+				elseif isList(aSubList[2][1]) and (len(aSubList[2][1]) > 1 ) and isString(aSubList[2][1][1]) 
 					cOutput += "{" + nl
 					nTabs++
 					cOutput += List2JSON_process( aSubList[2], nTabs )
@@ -68,20 +90,20 @@ func List2JSON_process aList,nTabs
 				ok
 			ok
 		but isList(aSubList[1]) 
-				cOutput += Copy(Tab,nTabs) + "{" + nl
-				nTabs++
-				for t2 = 1 to len(aSubList)
-					aSubList2 = aSubList[t2]
-					cOutput += List2JSON_process( [ aSubList2 ], nTabs)
-					if t2 != len(aSubList)
-						if right(cOutput,1) = nl
-							cOutput = left(cOutput,len(cOutput)-1)
-						ok
-						cOutput += "," + nl
+			cOutput += Copy(Tab,nTabs) + "{" + nl
+			nTabs++
+			for t2 = 1 to len(aSubList)
+				aSubList2 = aSubList[t2]
+				cOutput += List2JSON_process( [ aSubList2 ], nTabs)
+				if t2 != len(aSubList)
+					if right(cOutput,1) = nl
+						cOutput = left(cOutput,len(cOutput)-1)
 					ok
-				next
-				nTabs--
-				cOutput += Copy(Tab,nTabs) + "}" 
+					cOutput += "," + nl
+				ok
+			next
+			nTabs--
+			cOutput += Copy(Tab,nTabs) + "}" 
 		else	
 			? "Unexpected Input!" 		
 		ok
