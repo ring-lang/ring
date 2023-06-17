@@ -103,3 +103,4 @@ class RNoteAutoComplete
 		if isObject(oACTimer)
 			oACTimer.start()
 		ok
+		textedit1.setfocus(0)

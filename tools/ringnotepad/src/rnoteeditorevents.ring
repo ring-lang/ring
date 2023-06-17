@@ -17,3 +17,4 @@ class RNoteEditorEvents
 		if cActiveFileName != NULL
 			aFilesLines[cActiveFileName] = nLine
 		ok
+		textedit1.setfocus(0)
