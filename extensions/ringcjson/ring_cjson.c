@@ -2035,7 +2035,6 @@ RING_FUNC(ring_cJSON_ToRingList)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	// TODO: Implement the function
 	pJSON = RING_API_GETCPOINTER(1,"cJSON");
 	if (pJSON == NULL) {
 		RING_API_RETLIST(pOutputList);		
@@ -2088,32 +2087,32 @@ void cJSON_ProcessList(cJSON *pJSON,List *pOutputList)
 		}
 
 		if ( ! cJSON_ProcessSimpleType(pJSON,pOutputList) ) {
-		switch ((pJSON->type) & 0xFF)
-		{
-			case cJSON_Array:
-				pOutputList = ring_list_newlist(pOutputList);
-				pJSONChild = pJSON->child;
-				while ( pJSONChild != NULL) {
-					nType = ((pJSONChild->type) & 0xFF) ;
-					if ( (nType == cJSON_Array) || (nType == cJSON_Object ) ) {
-						pList2 = ring_list_newlist(pOutputList);
-						cJSON_ProcessList(pJSONChild,pList2);
-					} else {
-						cJSON_ProcessSimpleType(pJSONChild,pOutputList);
-					}
-					pJSONChild = pJSONChild->next;
-				}
-				break;
-			case cJSON_Object:
-				if (pJSON->string != NULL) {
+			switch ((pJSON->type) & 0xFF)
+			{
+				case cJSON_Array:
 					pOutputList = ring_list_newlist(pOutputList);
-				} else {
-					pJSON = pJSON->child;
-					continue ;
-				}
-				cJSON_ProcessList(pJSON->child,pOutputList);
-				break;
-		}
+					pJSONChild = pJSON->child;
+					while ( pJSONChild != NULL) {
+						nType = ((pJSONChild->type) & 0xFF) ;
+						if ( (nType == cJSON_Array) || (nType == cJSON_Object ) ) {
+							pList2 = ring_list_newlist(pOutputList);
+							cJSON_ProcessList(pJSONChild,pList2);
+						} else {
+							cJSON_ProcessSimpleType(pJSONChild,pOutputList);
+						}
+						pJSONChild = pJSONChild->next;
+					}
+					break;
+				case cJSON_Object:
+					if (pJSON->string != NULL) {
+						pOutputList = ring_list_newlist(pOutputList);
+					} else {
+						pJSON = pJSON->child;
+						continue ;
+					}
+					cJSON_ProcessList(pJSON->child,pOutputList);
+					break;
+			}
 		}
 		pOutputList = pList;
 		pJSON = pJSON->next;

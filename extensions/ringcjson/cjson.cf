@@ -195,7 +195,6 @@ RING_FUNC(ring_cJSON_ToRingList)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	// TODO: Implement the function
 	pJSON = RING_API_GETCPOINTER(1,"cJSON");
 	if (pJSON == NULL) {
 		RING_API_RETLIST(pOutputList);		
