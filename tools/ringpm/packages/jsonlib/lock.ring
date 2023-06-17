@@ -2,7 +2,7 @@ aLockInfo = [
 	[
 		:name = "jsonlib",
 		:branch = "master",
-		:version = "1.0.7",
+		:version = "1.0.9",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
