@@ -2094,7 +2094,10 @@ void cJSON_ProcessList(cJSON *pJSON,List *pOutputList)
 					pJSONChild = pJSON->child;
 					while ( pJSONChild != NULL) {
 						nType = ((pJSONChild->type) & 0xFF) ;
-						if ( (nType == cJSON_Array) || (nType == cJSON_Object ) ) {
+						if ( nType == cJSON_Array ) {
+							pList2 = ring_list_newlist(pOutputList);
+							cJSON_ProcessList(pJSONChild->child,pList2);
+						} else if ( nType == cJSON_Object ) {
 							pList2 = ring_list_newlist(pOutputList);
 							cJSON_ProcessList(pJSONChild,pList2);
 						} else {
