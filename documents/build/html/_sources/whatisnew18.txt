@@ -118,6 +118,7 @@ More Samples
 * Added: samples/ProblemSolving/Cryptogram/Cryptogram.ring
 * Added: samples/UsingArabic/ArabicSyntax
 * Added: samples/UsingQt/Painter/test.ring & test2.ring
+* Added: samples/UsingJSONLib - From test5.ring to test9.ring
 * File: samples/AQuickStart/GUILib/gui44.ring - Better Code
 * File: samples/UsingWebLib/Demo/datalib.ring - Better Code
 * File: samples/UsingWebLib/Demo/bootstrap.ring - Better Code
@@ -595,7 +596,8 @@ More Improvements
 * RingSQLite: Use SQLite 3.39.2.
 * RingHTTPLib: Use cpp-httplib 0.10.9
 * RingZip: Use zip 0.2.4 
-* RingCJSON: Update the version 
+* RingCJSON: Update the CJSON version 
+* RingCJSON: Better support for arrays and nested arrays
 * RingQt: Set the environment variable QT_QPA_PLATFORM_PLUGIN_PATH
 * RingQt: QMediaPlayer Class - Remove currentNetworkConfiguration() Method
 * RingQt: QString2 Class - Added lastIndexOf() method
