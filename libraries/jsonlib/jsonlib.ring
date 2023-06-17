@@ -91,6 +91,9 @@ func List2JSON_processObjectAttribute aSubList,nTabs
 
 func List2JSON_processListValue aSubList,nTabs
 	cOutput = ""
+	if len(aSubList) = 0
+		return "[]"
+	ok
 	if List2JSON_isObjectAttribute(aSubList[1]) 
 		cOutput += "{" + nl
 		nTabs++
