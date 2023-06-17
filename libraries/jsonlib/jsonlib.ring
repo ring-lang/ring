@@ -115,7 +115,7 @@ func List2JSON_processSubList aSubList,nTabs
 		but isNumber(vValue)
 			cOutput += ""+Copy(Tab,nTabs)+vValue
 		but isList(vValue)
-			cOutput += Copy(Tab,nTabs)+List2JSON_process(vValue,nTabs)
+			cOutput += List2JSON_process(vValue,nTabs)
 		ok
 		if m != len(aSubList)
 			cOutput += ","
