@@ -1,5 +1,6 @@
 aNews = [
-  ["May 20, 2022",'<a href="https://github.com/ring-lang/ring/"> Ring has reached 36,000 commits</a>'],
+  ["June 18, 2023",'<a href="https://www.mdpi.com/2079-9292/12/12/2720/pdf?version=1687066525"> Journal Paper uses PWCT, Ring & Azure ML- Machine Learning and Cochlear Implantation</a>'],
+  ["May 20, 2023",'<a href="https://github.com/ring-lang/ring/"> Ring has reached 36,000 commits</a>'],
   ["May 6, 2023",'<a href="https://groups.google.com/g/ring-lang/c/cxUvwg1pXOM"> Using Shaders (RayLib Examples)</a>'],
   ["February 25, 2023",'<a href="https://www.youtube.com/watch?v=6SBT7-6YJJ4&list=PLHIfW1KZRIfnXP0-0vcAxCYcbbUrMnXkQ"> Game development (Arabic Videos)'],
   ["January 30, 2023",'<a href="https://github.com/ring-lang/ring/tree/master/samples/General/QuizMarks"> Application: Quiz Marks</a>'],
