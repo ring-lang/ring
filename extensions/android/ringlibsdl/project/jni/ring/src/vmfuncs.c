@@ -480,6 +480,13 @@ void ring_vm_newfunc ( VM *pVM )
                 else if ( RING_VM_STACK_ISPOINTER ) {
                     if ( ! ring_list_isrefparameter(pVM,ring_list_getstring(aParameters,x)) ) {
                         ring_vm_addnewpointervar(pVM,ring_list_getstring(aParameters,x),RING_VM_STACK_READP,RING_VM_STACK_OBJTYPE);
+                        if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
+                            pVar = (List *) RING_VM_STACK_READP ;
+                            if ( ring_list_islist(pVar,RING_VAR_VALUE) ) {
+                                pRef = ring_list_getlist(pVar,RING_VAR_VALUE);
+                                ring_list_disablecopybyref(pRef);
+                            }
+                        }
                     }
                     else {
                         pVar = (List *) RING_VM_STACK_READP ;
