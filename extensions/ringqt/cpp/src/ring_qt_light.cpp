@@ -106845,6 +106845,46 @@ RING_FUNC(ring_RingCodeHighlighter_setKeywordsBold)
 }
 
 
+RING_FUNC(ring_RingCodeHighlighter_setUseDefaultKeywords)
+{
+	Highlighter *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Highlighter *) RING_API_GETCPOINTER(1,"RingCodeHighlighter");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setUseDefaultKeywords( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_RingCodeHighlighter_setCustomKeywords)
+{
+	Highlighter *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Highlighter *) RING_API_GETCPOINTER(1,"RingCodeHighlighter");
+	pObject->setCustomKeywords(* (QStringList  *) RING_API_GETCPOINTER(2,"QStringList"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"QStringList"));
+}
+
+
 RING_FUNC(ring_QPlainTextEdit_setTabStopDistance)
 {
 	GPlainTextEdit *pObject ;
@@ -134661,6 +134701,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qsystemtrayicon_supportsmessages",ring_QSystemTrayIcon_supportsMessages);
 	RING_API_REGISTER("ringcodehighlighter_setcolors",ring_RingCodeHighlighter_setColors);
 	RING_API_REGISTER("ringcodehighlighter_setkeywordsbold",ring_RingCodeHighlighter_setKeywordsBold);
+	RING_API_REGISTER("ringcodehighlighter_setusedefaultkeywords",ring_RingCodeHighlighter_setUseDefaultKeywords);
+	RING_API_REGISTER("ringcodehighlighter_setcustomkeywords",ring_RingCodeHighlighter_setCustomKeywords);
 	RING_API_REGISTER("qplaintextedit_settabstopdistance",ring_QPlainTextEdit_setTabStopDistance);
 	RING_API_REGISTER("qplaintextedit_tabstopdistance",ring_QPlainTextEdit_tabStopDistance);
 	RING_API_REGISTER("qplaintextedit_anchorat",ring_QPlainTextEdit_anchorAt);
