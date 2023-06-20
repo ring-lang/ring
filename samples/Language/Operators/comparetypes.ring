@@ -4,7 +4,7 @@ see 0 = "0"
 if 0 = "0" 
 	? " (True)" 
 ok
-? "We can't compare between other different types!"
+? "Comparing between other types return false!"
 try
 	? 0 = [0]
 catch
