@@ -9,6 +9,7 @@ class menu
 
 	func braceexpreval value
 		if isstring(value)
+			if trim(value)=NULL return ok
 			aItems + value 
 		ok
 
