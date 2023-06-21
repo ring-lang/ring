@@ -73,6 +73,7 @@ class RNoteAutoComplete
 
 
 	func AutoComplete
+		lEditorHasFocus = textedit1.hasfocus()
 		StatusMessage(T_RINGNOTEPAD_AUTOCOMPLETEWAIT) # "Prepare Auto-Complete ... Please Wait!")
 		# Add words in the current file
 			cFileContent = textedit1.toplaintext() # read(cActiveFileName)
@@ -103,4 +104,6 @@ class RNoteAutoComplete
 		if isObject(oACTimer)
 			oACTimer.start()
 		ok
-		textedit1.setfocus(0)
+		if lEditorHasFocus
+			textedit1.setfocus(0)
+		ok

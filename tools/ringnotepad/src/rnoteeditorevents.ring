@@ -9,6 +9,7 @@ class RNoteEditorEvents
 		SetActiveLineColor()
 
 	func CursorPositionChanged
+		lEditorHasFocus = textedit1.hasfocus()
 		nLine = textedit1.textcursor().blocknumber()+1
 		StatusMessage(T_RINGNOTEPAD_CURSORLINE+nLine+
 					T_RINGNOTEPAD_CURSORCOLUMN +(textedit1.textcursor().columnnumber()+1) +
@@ -17,4 +18,6 @@ class RNoteEditorEvents
 		if cActiveFileName != NULL
 			aFilesLines[cActiveFileName] = nLine
 		ok
-		textedit1.setfocus(0)
+		if lEditorHasFocus
+			textedit1.setfocus(0)
+		ok
