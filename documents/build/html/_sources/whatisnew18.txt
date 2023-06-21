@@ -92,6 +92,7 @@ Better Tools
 * Ring Notepad: Goto Line - Support files contains UTF-8 characters
 * Ring Notepad: Find/Replace - Support files contains UTF-8 characters
 * Ring Notepad: Avoid hiding the cursor when pressing TAB
+* Ring Notepad: Reset the dockable window title when closing all opened files
 * Ring Notepad: Translation files (English/Arabic)
 * Ring Notepad: New option to build GUI application using Ring2EXE
 * Form Designer: Correct drawing for new controls after moving Ring Notepad
