@@ -17,5 +17,5 @@ three
 10
 We can't use For-In loop with numbers
 
-Line 22 Error (R29) : Using bad data type in for loop 
+Line 21 Error (R29) : Using bad data type in for loop 
 in file forinloop/test7.ring 

@@ -605,6 +605,7 @@ int ring_parser_stmt ( Parser *pParser )
                 ring_parser_nexttoken(pParser);
                 RING_PARSER_IGNORENEWLINE ;
                 pParser->nAssignmentFlag = 0 ;
+                nLine = pParser->nLineNumber ;
                 if ( ring_parser_csexpr(pParser) ) {
                     pParser->nAssignmentFlag = 1 ;
                     /* Generate Code */
@@ -621,6 +622,8 @@ int ring_parser_stmt ( Parser *pParser )
                             }
                             break ;
                     }
+                    /* Generate ICO_LEN */
+                    ring_parser_icg_newline(pParser,nLine);
                     ring_parser_icg_newoperation(pParser,ICO_LEN);
                     /* Generate 0 For Operator OverLoading */
                     ring_parser_icg_newoperandint(pParser,0);
