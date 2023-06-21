@@ -63,6 +63,7 @@ class RNoteFilesTabs
 			textedit1.blocksignals(True)
 			textedit1.setPlaintext("")
 			textedit1.blocksignals(False)
+			oDockSourceCode.setWindowTitle(T_RINGNOTEPAD_SOURCECODE)
 		ok
 		filestabs.blocksignals(False)
 
