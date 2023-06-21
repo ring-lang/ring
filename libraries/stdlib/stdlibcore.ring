@@ -113,6 +113,10 @@ func JustFileName cFile
 	Output		: the new copy of the list or the object
 */
 Func Value vlistorobj
+	if refcount(vlistorobj) > 1
+		raise("The Value() function doesn't support references")
+		return
+	ok
 	vlistorobj2 = vlistorobj
 	return vlistorobj2
 
