@@ -8,8 +8,10 @@ C_USING_LIGHTGUILIB = True
 
 # Load the DLL files 
 	if iswindows()
-		SysSet ("QT_QPA_PLATFORM_PLUGIN_PATH", exefolder())
+		cPluginPath = SysGet("QT_QPA_PLATFORM_PLUGIN_PATH")	
+		SysSet ("QT_QPA_PLATFORM_PLUGIN_PATH", "")
 		LoadLib("ringqt_light.dll")
+		SysSet ("QT_QPA_PLATFORM_PLUGIN_PATH", cPluginPath)
 	but ismacosx()
 		LoadLib("libringqt_light.dylib")
 	but islinux()
