@@ -155,3 +155,10 @@ To Copy the Qt runtime files to ring/bin folder
 Also, We can run Ring Notepad using Ring Package Manager
 
 	ringpm run ringnotepad
+
+### More Extensions
+
+The previous steps demonstrates building Ring and some of the Ring extensions.
+
+There are more extensions in ring/extensions folder like RingCJSON, RingHTTPLib, etc.
+

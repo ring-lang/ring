@@ -142,3 +142,9 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 Also, We can run Ring Notepad using Ring Package Manager
 
 	ringpm run ringnotepad
+
+### More Extensions
+
+The previous steps demonstrates building Ring and some of the Ring extensions.
+
+There are more extensions in ring/extensions folder like RingCJSON, RingHTTPLib, etc.

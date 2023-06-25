@@ -11,6 +11,10 @@ You can build Ring using CMake or using Scripts (Batch Files or Shell Scripts).
 
 The next steps explains building using scripts.
 
+The steps demonstrates building Ring and some of the Ring extensions.
+
+There are more extensions in ring/extensions folder like RingCJSON, RingHTTPLib, etc.
+
 .. index:: 
 	pair: Building From Source Code; Building using Microsoft Windows
 
