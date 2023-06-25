@@ -1,4 +1,4 @@
-qmake ring_qt512.pro
+qmake ring_qt515.pro
 make
 cp libringqt.so ../../lib
 
