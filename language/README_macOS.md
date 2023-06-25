@@ -24,7 +24,7 @@ This version is tested using macOS Catalina (version 10.15)
 ### Build Ring2EXE 
 
 	cd ring/tools/ring2exe
-	sudo ./buildring2exe.sh	
+	sudo ./build.sh	
 
 ### Generate RingConsoleColors Source Code and Build 
 	
@@ -52,7 +52,7 @@ This version is tested using macOS Catalina (version 10.15)
 ### Build RingPM
 
 	cd ring/tools/ringpm
-	sudo ./buildringpm.sh	
+	sudo ./build.sh	
 	
 ### Build RingODBC
 	

@@ -21,7 +21,7 @@
 ### Build Ring2EXE 
 
 	cd ring/tools/ring2exe
-	sudo ./buildring2exe.sh		
+	sudo ./build.sh		
 
 ### Generate RingConsoleColors Source Code and Build 
 	
@@ -49,7 +49,7 @@
 ### Build RingPM 
 
 	cd ring/tools/ringpm
-	sudo ./buildringpm.sh	
+	sudo ./build.sh	
 
 ### Build RingODBC
 	

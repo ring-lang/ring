@@ -17,7 +17,7 @@
 ### Build Ring2EXE 
 
 	cd ring/tools/ring2exe
-	buildring2exe.bat 
+	build.bat 
 
 ### Generate RingConsoleColors Source Code and Build 
 	
@@ -45,7 +45,7 @@
 ### Build RingPM
 
 	cd ring/tools/ringpm
-	buildringpm.bat 
+	build.bat 
 	
 ### Build RingODBC
 	
@@ -107,22 +107,7 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 	
 ### Generate RingQt Source Code and Build
 
-Tested using Qt 5.12 and Qt 5.15
-
-For Qt 5.12
-
-	Install Qt 5.12 : https://download.qt.io/archive/qt/5.12/5.12.6/
-	
-	cd ring/extensions/ringqt
-	gencodeqt512_nobluetooth.bat
-	buildqt512_nobluetooth.bat
-
-To Copy the Qt runtime files to ring/bin folder
-
-	cd ring/extensions/ringqt/binupdate
-	installqt512.bat
-
-For Qt 5.15
+Tested using Qt 5.15
 
 	Install Qt 5.15
 	cd ring/extensions/ringqt
