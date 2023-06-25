@@ -46,6 +46,16 @@
 
 	cd ring/tools/ringpm
 	build.bat 
+
+### Build RingREPL
+
+	cd ring/tools/ringrepl
+	build.bat 
+
+### Build Folder2QRC
+
+	cd ring/tools/folder2qrc
+	build.bat 
 	
 ### Build RingODBC
 	

@@ -53,7 +53,17 @@ This version is tested using macOS Catalina (version 10.15)
 
 	cd ring/tools/ringpm
 	sudo ./build.sh	
-	
+
+### Build RingREPL
+
+	cd ring/tools/ringrepl
+	sudo ./build.sh	
+
+### Build Folder2QRC
+
+	cd ring/tools/folder2qrc
+	sudo ./build.sh	
+
 ### Build RingODBC
 	
 	cd ../extensions/ringodbc
