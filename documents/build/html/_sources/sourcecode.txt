@@ -173,6 +173,8 @@ Install Qt 5.15 : https://www.qt.io/blog/qt-5.15-released
 .. code-block:: none
 
 	cd ring/extensions/ringqt
+	gencodeqt515_light.bat
+	buildqt515_light.bat
 	gencodeqt515_nobluetooth.bat
 	buildqt515_nobluetooth.bat
 
@@ -399,6 +401,8 @@ Generate RingQt Source Code and Build
 .. code-block:: none
 
 	cd ring/extensions/ringqt
+	./gencodeqt515_light.sh
+	./buildgccqt515_light.sh
 	./gencodeqt515.sh
 	./buildgccqt515.sh
 
@@ -580,6 +584,8 @@ Generate RingQt Source Code and Build
 .. code-block:: none
 
 	cd ring/extensions/ringqt
+	./gencodemac_light.sh
+	./buildclang_light.sh
 	./gencodemac.sh
 	./buildclang.sh
 
