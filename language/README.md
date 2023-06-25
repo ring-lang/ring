@@ -8,6 +8,4 @@ We provide instructions for building on the next platforms :-
 
 (2) [Ubuntu Linux](README_UbuntuLinux.md)
 
-(3) [Fedora Linux](README_FedoraLinux.md)
-
-(4) [macOS](README_macOS.md)
+(3) [macOS](README_macOS.md)
