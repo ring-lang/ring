@@ -225,6 +225,12 @@ Run Ring Notepad
 	cd ring/tools/ringnotepad
 	ring rnote.ring
 
+We can run Ring Notepad using Ring Package Manager
+
+.. code-block:: none
+
+	ringpm run ringnotepad
+
 .. index:: 
 	pair: Building From Source Code; Building using Ubuntu Linux
 
@@ -448,6 +454,12 @@ Run Ring Notepad
 	cd ring/tools/ringnotepad
 	ring rnote.ring
 
+We can run Ring Notepad using Ring Package Manager
+
+.. code-block:: none
+
+	ringpm run ringnotepad
+
 .. index:: 
 	pair: Building From Source Code; Building using MacOS X
 
@@ -644,6 +656,12 @@ Run Ring Notepad
 
 	cd ring/tools/ringnotepad
 	sudo ring rnote.ring
+
+We can run Ring Notepad using Ring Package Manager
+
+.. code-block:: none
+
+	ringpm run ringnotepad
 
 .. index:: 
 	pair: Building From Source Code; Building using CMake
