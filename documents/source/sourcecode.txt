@@ -170,14 +170,6 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 	gencode.bat
 	buildvc.bat
 
-Generate RingPostgreSQL Source Code and Build 
-
-.. code-block:: none
-	
-	cd ring/extensions/ringpostgresql
-	gencode.bat
-	buildvc.bat
-
 Generate RingQt Source Code and Build
 
 Tested using Qt 5.15
@@ -422,14 +414,6 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 	gencode.sh
 	buildgcc.sh
 
-Generate RingPostgreSQL Source Code and Build
-
-.. code-block:: none
-
-	cd ring/extensions/ringpostgresql
-	./gencode.sh
-	./buildgcc.sh
-
 Generate RingQt Source Code and Build
 
 .. code-block:: none
@@ -622,14 +606,6 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 .. code-block:: none
 	
 	cd ring/extensions/ringopengl/opengl21
-	./gencode.sh
-	./buildclang.sh
-
-Generate RingPostgreSQL Source Code and Build
-
-.. code-block:: none
-
-	cd ring/extensions/ringpostgresql
 	./gencode.sh
 	./buildclang.sh
 
