@@ -151,3 +151,7 @@ To Copy the Qt runtime files to ring/bin folder
 	
 	cd ring/tools/ringnotepad
 	ring rnote.ring
+
+Also, We can run Ring Notepad using Ring Package Manager
+
+	ringpm run ringnotepad

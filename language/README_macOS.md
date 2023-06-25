@@ -138,3 +138,7 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 	
 	cd ring/tools/ringnotepad
 	ring rnote.ring
+
+Also, We can run Ring Notepad using Ring Package Manager
+
+	ringpm run ringnotepad
