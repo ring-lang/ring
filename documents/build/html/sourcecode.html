@@ -206,7 +206,6 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">How to Compile Ring From Source Code?</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#building-using-microsoft-windows">Building using Microsoft Windows</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#building-using-ubuntu-linux">Building using Ubuntu Linux</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#building-using-fedora-linux">Building using Fedora Linux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#building-using-macos-x">Building using MacOS X</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#building-using-cmake">Building using CMake</a></li>
 </ul>
@@ -557,147 +556,8 @@ buildgcc.sh
 </div>
 <p>Generate RingQt Source Code and Build</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/extensions/ringqt
-./gencode.sh
-./buildgcc.sh
-</pre></div>
-</div>
-<p>To be able to call ring from any folder</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/bin
-sudo ./install.sh
-</pre></div>
-</div>
-<p>Run Ring Notepad</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/tools/ringnotepad
-ring rnote.ring
-</pre></div>
-</div>
-</div>
-<div class="section" id="building-using-fedora-linux">
-<span id="index-3"></span><h2>Building using Fedora Linux<a class="headerlink" href="#building-using-fedora-linux" title="Permalink to this headline">¶</a></h2>
-<p>Get the source code</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone http://github.com/ring-lang/ring.git
-</pre></div>
-</div>
-<p>Install Libraries</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/language/src
-./installdepfedora.sh
-</pre></div>
-</div>
-<p>Build Ring (Compiler/VM)</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo ./buildgcc.sh
-</pre></div>
-</div>
-<p>Build Ring2EXE</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/tools/ring2exe
-sudo ./build.sh
-</pre></div>
-</div>
-<p>Generate RingConsoleColors Source Code and Build</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/extensions/ringconsolecolors
-./gencode.sh
-./buildgcc.sh
-</pre></div>
-</div>
-<p>Build RingInternet</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/extensions/ringinternet
-./buildgcc.sh
-</pre></div>
-</div>
-<p>Generate RingLibCurl Source Code and Build</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/extensions/ringcurl
-./gencode.sh
-./buildgcc.sh
-</pre></div>
-</div>
-<p>Generate RingZip Source Code and Build</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/extensions/ringzip
-./gencode.sh
-./buildgcc.sh
-</pre></div>
-</div>
-<p>Build RingPM</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/tools/ringpm
-sudo ./build.sh
-</pre></div>
-</div>
-<p>Build RingODBC</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/extensions/ringodbc
-./buildgcc.sh
-</pre></div>
-</div>
-<p>Build RingMySQL</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/extensions/ringmysql
-./buildgccfedora.sh
-</pre></div>
-</div>
-<p>Build RingSQLite</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/extensions/ringsqlite
-./buildgcc.sh
-</pre></div>
-</div>
-<p>Build RingPostgreSQL</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/extensions/ringpostgresql
-gencode.sh
-buildgcc.sh
-</pre></div>
-</div>
-<p>Build RingOpenSSL</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/extensions/ringopenssl
-./buildgcc.sh
-</pre></div>
-</div>
-<p>Build RingMurmurHash</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/extensions/ringmurmurhash
-./buildgcc.sh
-</pre></div>
-</div>
-<p>Generate RingAllegro Source Code and Build</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/extensions/ringallegro
-./gencode.sh
-./buildgcc.sh
-</pre></div>
-</div>
-<p>Generate RingLibuv Source Code and Build</p>
-<p>We will build Libuv first</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/extensions/ringlibuv/libuv
-sudo dnf install libtool m4 autoconf automake
-sh autogen.sh
-./configure
-make
-make check
-sudo make install
-</pre></div>
-</div>
-<p>Then we will build RingLibuv</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/extensions/ringlibuv
-./gencode.sh
-./buildgcc.sh
-</pre></div>
-</div>
-<p>Generate RingFreeGLUT Source Code and Build</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/extensions/ringfreeglut
-./gencode.sh
-./buildgcc.sh
-</pre></div>
-</div>
-<p>Generate RingOpenGL Source Code and Build</p>
-<p>The ringopengl folder contains many sub folders for different OpenGL versions</p>
-<p>Starting from OpenGL 1.1 to OpenGL 4.6</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/extensions/ringopengl/opengl21
-gencode.sh
-buildgcc.sh
-</pre></div>
-</div>
-<p>Generate RingPostgreSQL Source Code and Build</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/extensions/ringpostgresql
-./gencode.sh
-./buildgcc.sh
-</pre></div>
-</div>
-<p>Generate RingQt Source Code and Build</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/extensions/ringqt
-./gencode.sh
-./buildgccfedora.sh
+./gencodeqt515.sh
+./buildgccqt515.sh
 </pre></div>
 </div>
 <p>To be able to call ring from any folder</p>
@@ -712,7 +572,7 @@ ring rnote.ring
 </div>
 </div>
 <div class="section" id="building-using-macos-x">
-<span id="index-4"></span><h2>Building using MacOS X<a class="headerlink" href="#building-using-macos-x" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><h2>Building using MacOS X<a class="headerlink" href="#building-using-macos-x" title="Permalink to this headline">¶</a></h2>
 <p>This version is tested using macOS Catalina (version 10.15)</p>
 <p>Get the source code</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone http://github.com/ring-lang/ring.git
@@ -842,7 +702,7 @@ sudo ring rnote.ring
 </div>
 </div>
 <div class="section" id="building-using-cmake">
-<span id="index-5"></span><h2>Building using CMake<a class="headerlink" href="#building-using-cmake" title="Permalink to this headline">¶</a></h2>
+<span id="index-4"></span><h2>Building using CMake<a class="headerlink" href="#building-using-cmake" title="Permalink to this headline">¶</a></h2>
 <p>This will build the Ring compiler and Ring Virtual Machine</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cmake .
 make
