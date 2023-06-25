@@ -601,9 +601,12 @@ More Improvements
 * RingZip: Use zip 0.2.4 
 * RingCJSON: Update the CJSON version 
 * RingCJSON: Better support for arrays and nested arrays
+* RingQt: Added QTextOption class
 * RingQt: Set the environment variable QT_QPA_PLATFORM_PLUGIN_PATH
 * RingQt: QMediaPlayer Class - Remove currentNetworkConfiguration() Method
 * RingQt: QString2 Class - Added lastIndexOf() method
+* RingQt: RingCodeHighlighter Class - Added setUseDefaultKeywords() Method
+* RingQt: RingCodeHighlighter Class - Added setCustomKeywords() Method
 * Ring Functions - SetEnv()/UnSetEnv() - Better Code
 * Ring Functions - Print()/Puts() - Better Code
 * Ring Functions - Eval() - Better Code
