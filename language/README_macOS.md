@@ -115,6 +115,8 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 ### Generate RingQt Source Code and Build
 	
 	cd ring/extensions/ringqt
+	./gencodemac_light.sh
+	./buildclang_light.sh
 	./gencodemac.sh
 	./buildclang.sh
 

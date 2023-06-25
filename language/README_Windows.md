@@ -111,6 +111,8 @@ Tested using Qt 5.15
 
 	Install Qt 5.15
 	cd ring/extensions/ringqt
+	gencodeqt515_light.bat
+	buildqt515_light.bat
 	gencodeqt515_nobluetooth.bat
 	buildqt515_nobluetooth.bat
 
