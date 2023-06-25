@@ -136,6 +136,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#times-function">Times() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#map-function">Map() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#filter-function">Filter() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reduce-function">Reduce() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#split-function">Split() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#splitmany-function">SplitMany() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#capitalized-function">Capitalized() function</a></li>
@@ -242,6 +243,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingref.html">Using References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
@@ -495,8 +497,31 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="reduce-function">
+<span id="index-10"></span><h2>Reduce() function<a class="headerlink" href="#reduce-function" title="Permalink to this headline">¶</a></h2>
+<p>Apply function cFunc to each result xResult from a list aList, return an
+accumulated value xResult</p>
+<p>The input list aList, the optional intial value xInitial and the output xResult, need
+to be the same Type</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Reduce</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">cFunc</span><span class="p">,</span><span class="n">xInitial</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">final</span> <span class="n">value</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="o">?</span> <span class="n">Reduce</span><span class="p">(</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="k">func</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="p">},</span> <span class="mi">0</span> <span class="p">)</span>
+<span class="o">?</span> <span class="n">Reduce</span><span class="p">(</span> <span class="o">[</span><span class="s">&quot;I&quot;</span><span class="p">,</span><span class="s">&quot;Love&quot;</span><span class="p">,</span><span class="s">&quot;Ring&quot;</span><span class="o">]</span><span class="p">,</span> <span class="k">func</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="p">},</span> <span class="s">&quot;&quot;</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">6</span>
+<span class="n">ILoveRing</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="split-function">
-<span id="index-10"></span><h2>Split() function<a class="headerlink" href="#split-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-11"></span><h2>Split() function<a class="headerlink" href="#split-function" title="Permalink to this headline">¶</a></h2>
 <p>Convert string words to list items</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Split</span><span class="p">(</span><span class="n">cstring</span><span class="p">,</span><span class="n">delimiter</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span>
@@ -511,7 +536,7 @@
 </div>
 </div>
 <div class="section" id="splitmany-function">
-<span id="index-11"></span><h2>SplitMany() function<a class="headerlink" href="#splitmany-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-12"></span><h2>SplitMany() function<a class="headerlink" href="#splitmany-function" title="Permalink to this headline">¶</a></h2>
 <p>Convert string words to list items. Allow many delimiters.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SplitMany</span><span class="p">(</span><span class="n">cstring</span><span class="p">,</span><span class="n">delimiters</span> <span class="n">as</span> <span class="kt">string</span> <span class="ow">or</span> <span class="kt">list</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="kt">List</span>
@@ -526,7 +551,7 @@
 </div>
 </div>
 <div class="section" id="capitalized-function">
-<span id="index-12"></span><h2>Capitalized() function<a class="headerlink" href="#capitalized-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-13"></span><h2>Capitalized() function<a class="headerlink" href="#capitalized-function" title="Permalink to this headline">¶</a></h2>
 <p>Return a copy of a string with the first letter capitalized</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Capitalized</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">string</span>
@@ -541,7 +566,7 @@
 </div>
 </div>
 <div class="section" id="isspecial-function">
-<span id="index-13"></span><h2>IsSpecial() function<a class="headerlink" href="#isspecial-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-14"></span><h2>IsSpecial() function<a class="headerlink" href="#isspecial-function" title="Permalink to this headline">¶</a></h2>
 <p>Check whether a character is special or not</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsSpecial</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kp">True</span><span class="o">/</span><span class="kp">False</span>
@@ -556,7 +581,7 @@
 </div>
 </div>
 <div class="section" id="isvowel-function">
-<span id="index-14"></span><h2>IsVowel() function<a class="headerlink" href="#isvowel-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-15"></span><h2>IsVowel() function<a class="headerlink" href="#isvowel-function" title="Permalink to this headline">¶</a></h2>
 <p>Check whether a character is vowel or not</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsVowel</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kp">True</span><span class="o">/</span><span class="kp">False</span>
@@ -571,7 +596,7 @@
 </div>
 </div>
 <div class="section" id="linecount-function">
-<span id="index-15"></span><h2>LineCount() function<a class="headerlink" href="#linecount-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-16"></span><h2>LineCount() function<a class="headerlink" href="#linecount-function" title="Permalink to this headline">¶</a></h2>
 <p>Return the lines count in a text file.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">LineCount</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Lines</span> <span class="n">Count</span> <span class="n">as</span> <span class="n">number</span>
@@ -586,7 +611,7 @@
 </div>
 </div>
 <div class="section" id="factorial-function">
-<span id="index-16"></span><h2>Factorial() function<a class="headerlink" href="#factorial-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-17"></span><h2>Factorial() function<a class="headerlink" href="#factorial-function" title="Permalink to this headline">¶</a></h2>
 <p>Return the factorial of a number</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Factorial</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span>
@@ -601,7 +626,7 @@
 </div>
 </div>
 <div class="section" id="fibonacci-function">
-<span id="index-17"></span><h2>Fibonacci() function<a class="headerlink" href="#fibonacci-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-18"></span><h2>Fibonacci() function<a class="headerlink" href="#fibonacci-function" title="Permalink to this headline">¶</a></h2>
 <p>Return the fibonacci number</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Fibonacci</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span>
@@ -616,7 +641,7 @@
 </div>
 </div>
 <div class="section" id="isprime-function">
-<span id="index-18"></span><h2>IsPrime() function<a class="headerlink" href="#isprime-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-19"></span><h2>IsPrime() function<a class="headerlink" href="#isprime-function" title="Permalink to this headline">¶</a></h2>
 <p>Check whether a number is prime or not</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">isprime</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Number</span>
@@ -632,7 +657,7 @@
 </div>
 </div>
 <div class="section" id="sign-function">
-<span id="index-19"></span><h2>Sign() function<a class="headerlink" href="#sign-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-20"></span><h2>Sign() function<a class="headerlink" href="#sign-function" title="Permalink to this headline">¶</a></h2>
 <p>Returns an integer value indicating the sign of a number.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Sign</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span> <span class="p">(</span> <span class="o">-</span><span class="mi">1</span> <span class="o">=</span> <span class="n">negative</span> <span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="mi">1</span> <span class="p">(</span><span class="n">positive</span><span class="p">)</span> <span class="p">)</span>
@@ -647,7 +672,7 @@
 </div>
 </div>
 <div class="section" id="list2file-function">
-<span id="index-20"></span><h2>List2File() function<a class="headerlink" href="#list2file-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-21"></span><h2>List2File() function<a class="headerlink" href="#list2file-function" title="Permalink to this headline">¶</a></h2>
 <p>Write list items to text file (each item in new line).</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">List2File</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">cFileName</span><span class="p">)</span>
@@ -663,7 +688,7 @@
 </div>
 </div>
 <div class="section" id="file2list-function">
-<span id="index-21"></span><h2>File2List() function<a class="headerlink" href="#file2list-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-22"></span><h2>File2List() function<a class="headerlink" href="#file2list-function" title="Permalink to this headline">¶</a></h2>
 <p>Read text file and convert lines to list items</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">File2List</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span>
@@ -679,7 +704,7 @@
 </div>
 </div>
 <div class="section" id="startswith-function">
-<span id="index-22"></span><h2>StartsWith() function<a class="headerlink" href="#startswith-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-23"></span><h2>StartsWith() function<a class="headerlink" href="#startswith-function" title="Permalink to this headline">¶</a></h2>
 <p>Returns true if the given string starts with the specified substring.</p>
 <p>Leading white spaces are ignored.</p>
 <p>Syntax:</p>
@@ -695,7 +720,7 @@
 </div>
 </div>
 <div class="section" id="endswith-function">
-<span id="index-23"></span><h2>EndsWith() function<a class="headerlink" href="#endswith-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-24"></span><h2>EndsWith() function<a class="headerlink" href="#endswith-function" title="Permalink to this headline">¶</a></h2>
 <p>Returns true if the given string ends with the specified substring.</p>
 <p>Trailing white spaces are ignored.</p>
 <p>Syntax:</p>
@@ -711,7 +736,7 @@
 </div>
 </div>
 <div class="section" id="gcd-function">
-<span id="index-24"></span><h2>GCD() function<a class="headerlink" href="#gcd-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-25"></span><h2>GCD() function<a class="headerlink" href="#gcd-function" title="Permalink to this headline">¶</a></h2>
 <p>Finding of the greatest common divisor of two integers.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Gcd</span><span class="p">(</span><span class="n">number</span><span class="p">,</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span>
@@ -726,7 +751,7 @@
 </div>
 </div>
 <div class="section" id="lcm-function">
-<span id="index-25"></span><h2>LCM() function<a class="headerlink" href="#lcm-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-26"></span><h2>LCM() function<a class="headerlink" href="#lcm-function" title="Permalink to this headline">¶</a></h2>
 <p>Compute the least common multiple of two integers.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">lcm</span><span class="p">(</span><span class="n">number</span><span class="p">,</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span>
@@ -741,7 +766,7 @@
 </div>
 </div>
 <div class="section" id="sumlist-function">
-<span id="index-26"></span><h2>SumList() function<a class="headerlink" href="#sumlist-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-27"></span><h2>SumList() function<a class="headerlink" href="#sumlist-function" title="Permalink to this headline">¶</a></h2>
 <p>Compute the sum of a list of integers.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">sumlist</span><span class="p">(</span><span class="kt">list</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span>
@@ -757,7 +782,7 @@
 </div>
 </div>
 <div class="section" id="prodlist-function">
-<span id="index-27"></span><h2>ProdList() function<a class="headerlink" href="#prodlist-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-28"></span><h2>ProdList() function<a class="headerlink" href="#prodlist-function" title="Permalink to this headline">¶</a></h2>
 <p>Compute the product of a list of integers.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">prodlist</span><span class="p">(</span><span class="kt">list</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span>
@@ -773,7 +798,7 @@
 </div>
 </div>
 <div class="section" id="evenorodd-function">
-<span id="index-28"></span><h2>EvenOrOdd() function<a class="headerlink" href="#evenorodd-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-29"></span><h2>EvenOrOdd() function<a class="headerlink" href="#evenorodd-function" title="Permalink to this headline">¶</a></h2>
 <p>Test whether an integer is even or odd.</p>
 <p>Result of test (1=odd 2=even).</p>
 <p>Syntax:</p>
@@ -790,7 +815,7 @@
 </div>
 </div>
 <div class="section" id="factors-function">
-<span id="index-29"></span><h2>Factors() function<a class="headerlink" href="#factors-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-30"></span><h2>Factors() function<a class="headerlink" href="#factors-function" title="Permalink to this headline">¶</a></h2>
 <p>Compute the factors of a positive integer.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">factors</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">list</span>
@@ -810,7 +835,7 @@
 </div>
 </div>
 <div class="section" id="ispalindrome-function">
-<span id="index-30"></span><h2>IsPalindrome() function<a class="headerlink" href="#ispalindrome-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-31"></span><h2>IsPalindrome() function<a class="headerlink" href="#ispalindrome-function" title="Permalink to this headline">¶</a></h2>
 <p>Check if a sequence of characters is a palindrome or not.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsPalindrome</span><span class="p">(</span><span class="kt">String</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kp">True</span><span class="o">/</span><span class="kp">False</span>
@@ -826,7 +851,7 @@
 </div>
 </div>
 <div class="section" id="isleapyear-function">
-<span id="index-31"></span><h2>IsLeapYear() function<a class="headerlink" href="#isleapyear-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-32"></span><h2>IsLeapYear() function<a class="headerlink" href="#isleapyear-function" title="Permalink to this headline">¶</a></h2>
 <p>Check whether a given year is a leap year in the Gregorian calendar.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Isleapyear</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kp">True</span><span class="o">/</span><span class="kp">False</span>
@@ -843,7 +868,7 @@
 </div>
 </div>
 <div class="section" id="binarydigits-function">
-<span id="index-32"></span><h2>BinaryDigits() function<a class="headerlink" href="#binarydigits-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-33"></span><h2>BinaryDigits() function<a class="headerlink" href="#binarydigits-function" title="Permalink to this headline">¶</a></h2>
 <p>Compute the sequence of binary digits for a given non-negative integer.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">binarydigits</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">string</span>
@@ -859,7 +884,7 @@
 </div>
 </div>
 <div class="section" id="matrixmulti-function">
-<span id="index-33"></span><h2>MatrixMulti() function<a class="headerlink" href="#matrixmulti-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-34"></span><h2>MatrixMulti() function<a class="headerlink" href="#matrixmulti-function" title="Permalink to this headline">¶</a></h2>
 <p>Multiply two matrices together.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Matrixmulti</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="kt">List</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span>
@@ -877,7 +902,7 @@
 </div>
 </div>
 <div class="section" id="matrixtrans-function">
-<span id="index-34"></span><h2>MatrixTrans() function<a class="headerlink" href="#matrixtrans-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-35"></span><h2>MatrixTrans() function<a class="headerlink" href="#matrixtrans-function" title="Permalink to this headline">¶</a></h2>
 <p>Transpose an arbitrarily sized rectangular Matrix.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Matrixtrans</span><span class="p">(</span><span class="kt">List</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span>
@@ -894,7 +919,7 @@
 </div>
 </div>
 <div class="section" id="dayofweek-function">
-<span id="index-35"></span><h2>DayOfWeek() function<a class="headerlink" href="#dayofweek-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-36"></span><h2>DayOfWeek() function<a class="headerlink" href="#dayofweek-function" title="Permalink to this headline">¶</a></h2>
 <p>Return the day of the week of given date. (yyyy-mm-dd)</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">dayofweek</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">string</span>
@@ -911,7 +936,7 @@
 </div>
 </div>
 <div class="section" id="permutation-function">
-<span id="index-36"></span><h2>Permutation() function<a class="headerlink" href="#permutation-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-37"></span><h2>Permutation() function<a class="headerlink" href="#permutation-function" title="Permalink to this headline">¶</a></h2>
 <p>Generates all permutations of n different numerals.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">permutation</span><span class="p">(</span><span class="kt">list</span><span class="p">)</span>
@@ -934,7 +959,7 @@
 </div>
 </div>
 <div class="section" id="readline-function">
-<span id="index-37"></span><h2>ReadLine() function<a class="headerlink" href="#readline-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-38"></span><h2>ReadLine() function<a class="headerlink" href="#readline-function" title="Permalink to this headline">¶</a></h2>
 <p>Read line from file</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">readline</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">string</span>
@@ -953,7 +978,7 @@
 </div>
 </div>
 <div class="section" id="substring-function">
-<span id="index-38"></span><h2>SubString() function<a class="headerlink" href="#substring-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-39"></span><h2>SubString() function<a class="headerlink" href="#substring-function" title="Permalink to this headline">¶</a></h2>
 <p>Return a position of a substring starting from a given position in a string.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Substring</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="n">substr</span><span class="p">,</span><span class="n">npos</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">string</span>
@@ -972,7 +997,7 @@
 </div>
 </div>
 <div class="section" id="changestring-function">
-<span id="index-39"></span><h2>ChangeString() function<a class="headerlink" href="#changestring-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-40"></span><h2>ChangeString() function<a class="headerlink" href="#changestring-function" title="Permalink to this headline">¶</a></h2>
 <p>Change substring from given position to a given position with another substring.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Changestring</span><span class="p">(</span><span class="n">cString</span><span class="p">,</span> <span class="n">nPos1</span><span class="p">,</span> <span class="n">nPos2</span><span class="p">,</span> <span class="n">cSubstr</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cString</span>
@@ -988,7 +1013,7 @@
 </div>
 </div>
 <div class="section" id="sleep-function">
-<span id="index-40"></span><h2>Sleep() function<a class="headerlink" href="#sleep-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-41"></span><h2>Sleep() function<a class="headerlink" href="#sleep-function" title="Permalink to this headline">¶</a></h2>
 <p>Sleep for the given amount of time.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">sleep</span><span class="p">(</span><span class="n">nSeconds</span><span class="p">)</span>
@@ -1005,7 +1030,7 @@
 </div>
 </div>
 <div class="section" id="ismainsourcefile-function">
-<span id="index-41"></span><h2>IsMainSourceFile() function<a class="headerlink" href="#ismainsourcefile-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-42"></span><h2>IsMainSourceFile() function<a class="headerlink" href="#ismainsourcefile-function" title="Permalink to this headline">¶</a></h2>
 <p>Check if the current file is the main source file</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsMainSourceFile</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kp">True</span><span class="o">/</span><span class="kp">False</span>
@@ -1021,7 +1046,7 @@
 </div>
 </div>
 <div class="section" id="makedir-function">
-<span id="index-42"></span><h2>MakeDir() function<a class="headerlink" href="#makedir-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-43"></span><h2>MakeDir() function<a class="headerlink" href="#makedir-function" title="Permalink to this headline">¶</a></h2>
 <p>Make Directory</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MakeDir</span><span class="p">(</span><span class="kt">String</span><span class="p">)</span>
@@ -1037,7 +1062,7 @@
 </div>
 </div>
 <div class="section" id="fsize-function">
-<span id="index-43"></span><h2>Fsize() function<a class="headerlink" href="#fsize-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-44"></span><h2>Fsize() function<a class="headerlink" href="#fsize-function" title="Permalink to this headline">¶</a></h2>
 <p>The function return the file size in bytes.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">FSize</span><span class="p">(</span><span class="n">File</span> <span class="n">Handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Number</span> <span class="p">(</span><span class="n">File</span> <span class="n">Size</span> <span class="k">in</span> <span class="n">Bytes</span><span class="p">)</span>
@@ -1045,7 +1070,7 @@
 </div>
 </div>
 <div class="section" id="trimall-function">
-<span id="index-44"></span><h2>TrimAll() function<a class="headerlink" href="#trimall-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-45"></span><h2>TrimAll() function<a class="headerlink" href="#trimall-function" title="Permalink to this headline">¶</a></h2>
 <p>Remove all spaces and tabs characters from a string</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">TrimAll</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cString</span> <span class="c"># Without Spaces and Tabs</span>
@@ -1053,7 +1078,7 @@
 </div>
 </div>
 <div class="section" id="trimleft-function">
-<span id="index-45"></span><h2>TrimLeft() function<a class="headerlink" href="#trimleft-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-46"></span><h2>TrimLeft() function<a class="headerlink" href="#trimleft-function" title="Permalink to this headline">¶</a></h2>
 <p>Remove all spaces and tabs characters from the left side of a string</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">TrimLeft</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cString</span> <span class="c"># Without Spaces and Tabs from the left side</span>
@@ -1061,7 +1086,7 @@
 </div>
 </div>
 <div class="section" id="trimright-function">
-<span id="index-46"></span><h2>TrimRight() function<a class="headerlink" href="#trimright-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-47"></span><h2>TrimRight() function<a class="headerlink" href="#trimright-function" title="Permalink to this headline">¶</a></h2>
 <p>Remove all spaces and tabs characters from the right side of a string</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">TrimRight</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cString</span> <span class="c"># Without Spaces and Tabs from the right side</span>
@@ -1069,7 +1094,7 @@
 </div>
 </div>
 <div class="section" id="epochtime-function">
-<span id="index-47"></span><h2>EpochTime() function<a class="headerlink" href="#epochtime-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-48"></span><h2>EpochTime() function<a class="headerlink" href="#epochtime-function" title="Permalink to this headline">¶</a></h2>
 <p>Return the Epoch Time</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">EpochTime</span><span class="p">(</span><span class="n">cDate</span><span class="p">,</span><span class="n">cTime</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">nEpochTime</span>
@@ -1081,7 +1106,7 @@
 </div>
 </div>
 <div class="section" id="systemcmd-function">
-<span id="index-48"></span><h2>SystemCmd() Function<a class="headerlink" href="#systemcmd-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-49"></span><h2>SystemCmd() Function<a class="headerlink" href="#systemcmd-function" title="Permalink to this headline">¶</a></h2>
 <p>We can execute system commands using the SystemCmd() function that outputs to a variable</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SystemCmd</span><span class="p">(</span><span class="n">cCommand</span><span class="p">)</span>
@@ -1094,7 +1119,7 @@
 </div>
 </div>
 <div class="section" id="listallfiles-function">
-<span id="index-49"></span><h2>ListAllFiles() Function<a class="headerlink" href="#listallfiles-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-50"></span><h2>ListAllFiles() Function<a class="headerlink" href="#listallfiles-function" title="Permalink to this headline">¶</a></h2>
 <p>Using this function we can quickly do a process on a group of files in a folder and it’s sub folders.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ListAllFiles</span><span class="p">(</span><span class="n">cFolder</span><span class="p">,</span><span class="n">cExtension</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span> <span class="n">of</span> <span class="n">Files</span>
@@ -1112,7 +1137,7 @@
 </div>
 </div>
 <div class="section" id="systemsilent-function">
-<span id="index-50"></span><h2>SystemSilent() Function<a class="headerlink" href="#systemsilent-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-51"></span><h2>SystemSilent() Function<a class="headerlink" href="#systemsilent-function" title="Permalink to this headline">¶</a></h2>
 <p>We can execute system commands using the SystemSilent() function to avoid displaying the output!</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SystemSilent</span><span class="p">(</span><span class="n">cCommand</span><span class="p">)</span>
@@ -1120,7 +1145,7 @@
 </div>
 </div>
 <div class="section" id="oscreateopenfolder-function">
-<span id="index-51"></span><h2>OSCreateOpenFolder() Function<a class="headerlink" href="#oscreateopenfolder-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-52"></span><h2>OSCreateOpenFolder() Function<a class="headerlink" href="#oscreateopenfolder-function" title="Permalink to this headline">¶</a></h2>
 <p>Create folder then change the current folder to this new folder</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">OSCreateOpenFolder</span><span class="p">(</span><span class="n">cCommand</span><span class="p">)</span>
@@ -1128,7 +1153,7 @@
 </div>
 </div>
 <div class="section" id="oscopyfolder-function">
-<span id="index-52"></span><h2>OSCopyFolder() Function<a class="headerlink" href="#oscopyfolder-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-53"></span><h2>OSCopyFolder() Function<a class="headerlink" href="#oscopyfolder-function" title="Permalink to this headline">¶</a></h2>
 <p>Copy folder to the current folder</p>
 <p>Parameters : The path to the parent folder and the folder name to copy</p>
 <p>Syntax:</p>
@@ -1142,7 +1167,7 @@
 </div>
 </div>
 <div class="section" id="osdeletefolder-function">
-<span id="index-53"></span><h2>OSDeleteFolder() Function<a class="headerlink" href="#osdeletefolder-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-54"></span><h2>OSDeleteFolder() Function<a class="headerlink" href="#osdeletefolder-function" title="Permalink to this headline">¶</a></h2>
 <p>Delete Folder in the current Directory</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">OSDeleteFolder</span><span class="p">(</span><span class="n">cFolderName</span><span class="p">)</span>
@@ -1150,7 +1175,7 @@
 </div>
 </div>
 <div class="section" id="oscopyfile-function">
-<span id="index-54"></span><h2>OSCopyFile() Function<a class="headerlink" href="#oscopyfile-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-55"></span><h2>OSCopyFile() Function<a class="headerlink" href="#oscopyfile-function" title="Permalink to this headline">¶</a></h2>
 <p>Copy File to the current directory</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">OSCopyFile</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span>
@@ -1158,7 +1183,7 @@
 </div>
 </div>
 <div class="section" id="osdeletefile-function">
-<span id="index-55"></span><h2>OSDeleteFile() Function<a class="headerlink" href="#osdeletefile-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-56"></span><h2>OSDeleteFile() Function<a class="headerlink" href="#osdeletefile-function" title="Permalink to this headline">¶</a></h2>
 <p>Delete File</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">OSDeleteFile</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span>
@@ -1166,7 +1191,7 @@
 </div>
 </div>
 <div class="section" id="osrenamefile-function">
-<span id="index-56"></span><h2>OSRenameFile() Function<a class="headerlink" href="#osrenamefile-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-57"></span><h2>OSRenameFile() Function<a class="headerlink" href="#osrenamefile-function" title="Permalink to this headline">¶</a></h2>
 <p>Rename File</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">OSRenameFile</span><span class="p">(</span><span class="n">cOldFileName</span><span class="p">,</span><span class="n">cNewFileName</span><span class="p">)</span>
@@ -1174,7 +1199,7 @@
 </div>
 </div>
 <div class="section" id="list2code-function">
-<span id="index-57"></span><h2>List2Code() Function<a class="headerlink" href="#list2code-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-58"></span><h2>List2Code() Function<a class="headerlink" href="#list2code-function" title="Permalink to this headline">¶</a></h2>
 <p>This function convert a Ring list during the runtime to Ring source code that we can save to source files.</p>
 <p>The list may contains strings, numbers or sub lists.</p>
 <p>Example:</p>
@@ -1191,7 +1216,7 @@
 </div>
 </div>
 <div class="section" id="str2asciilist">
-<span id="index-58"></span><h2>Str2ASCIIList()<a class="headerlink" href="#str2asciilist" title="Permalink to this headline">¶</a></h2>
+<span id="index-59"></span><h2>Str2ASCIIList()<a class="headerlink" href="#str2asciilist" title="Permalink to this headline">¶</a></h2>
 <p>Convert a string of bytes to a list of numbers where each item represent
 the ASCII code of one byte in the string.</p>
 <p>Syntax:</p>
@@ -1200,7 +1225,7 @@ the ASCII code of one byte in the string.</p>
 </div>
 </div>
 <div class="section" id="asciilist2str">
-<span id="index-59"></span><h2>ASCIIList2Str()<a class="headerlink" href="#asciilist2str" title="Permalink to this headline">¶</a></h2>
+<span id="index-60"></span><h2>ASCIIList2Str()<a class="headerlink" href="#asciilist2str" title="Permalink to this headline">¶</a></h2>
 <p>Convert a list of numbers where each item represent
 the ASCII code of one byte to a string of bytes.</p>
 <p>Syntax:</p>
@@ -1232,7 +1257,7 @@ MmMm
 </div>
 </div>
 <div class="section" id="islistcontainsitems">
-<span id="index-60"></span><h2>IsListContainsItems()<a class="headerlink" href="#islistcontainsitems" title="Permalink to this headline">¶</a></h2>
+<span id="index-61"></span><h2>IsListContainsItems()<a class="headerlink" href="#islistcontainsitems" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsListContainsItems</span><span class="p">(</span><span class="n">aParent</span><span class="p">,</span><span class="n">aChild</span><span class="p">)</span> <span class="o">----&gt;</span> <span class="kp">True</span><span class="o">/</span><span class="kp">False</span>
 </pre></div>
@@ -1246,7 +1271,7 @@ MmMm
 </div>
 </div>
 <div class="section" id="isbetween">
-<span id="index-61"></span><h2>IsBetween()<a class="headerlink" href="#isbetween" title="Permalink to this headline">¶</a></h2>
+<span id="index-62"></span><h2>IsBetween()<a class="headerlink" href="#isbetween" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsBetween</span><span class="p">(</span><span class="n">nNumber</span><span class="p">,</span><span class="n">nMin</span><span class="p">,</span><span class="n">nMax</span><span class="p">)</span> <span class="o">----&gt;</span> <span class="kp">True</span><span class="o">/</span><span class="kp">False</span>
 </pre></div>
@@ -1261,7 +1286,7 @@ MmMm
 </div>
 </div>
 <div class="section" id="timeinfo">
-<span id="index-62"></span><h2>TimeInfo()<a class="headerlink" href="#timeinfo" title="Permalink to this headline">¶</a></h2>
+<span id="index-63"></span><h2>TimeInfo()<a class="headerlink" href="#timeinfo" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">TimeInfo</span><span class="p">(</span><span class="n">cInformation</span><span class="p">)</span> <span class="o">----&gt;</span> <span class="kt">String</span>
 </pre></div>
@@ -1299,7 +1324,7 @@ MmMm
 </div>
 </div>
 <div class="section" id="randomlist">
-<span id="index-63"></span><h2>RandomList()<a class="headerlink" href="#randomlist" title="Permalink to this headline">¶</a></h2>
+<span id="index-64"></span><h2>RandomList()<a class="headerlink" href="#randomlist" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>RandomList(aList) --&gt; List contains the same items using Random order
 </pre></div>
@@ -1312,7 +1337,7 @@ MmMm
 </div>
 </div>
 <div class="section" id="randomitem">
-<span id="index-64"></span><h2>RandomItem()<a class="headerlink" href="#randomitem" title="Permalink to this headline">¶</a></h2>
+<span id="index-65"></span><h2>RandomItem()<a class="headerlink" href="#randomitem" title="Permalink to this headline">¶</a></h2>
 <p>Pick an item from a list (Random Choice)</p>
 <p>Syntax:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>RandomItem(aList) --&gt; Item
@@ -1326,7 +1351,7 @@ MmMm
 </div>
 </div>
 <div class="section" id="checkequality">
-<span id="index-65"></span><h2>CheckEquality()<a class="headerlink" href="#checkequality" title="Permalink to this headline">¶</a></h2>
+<span id="index-66"></span><h2>CheckEquality()<a class="headerlink" href="#checkequality" title="Permalink to this headline">¶</a></h2>
 <p>Check if two items are equal.
 Deep comparison is performed if the two items are lists
 Return 1 if both items are equal and 0 otherwise</p>

@@ -249,6 +249,40 @@ Example:
 	See Filter( 1:10 , func x { if x <= 5 return true else return false ok } )
 
 .. index:: 
+	pair: Stdlib Functions; reduce()
+
+Reduce() function
+=================
+
+Apply function cFunc to each result xResult from a list aList, return an 
+accumulated value xResult
+
+The input list aList, the optional intial value xInitial and the output xResult, need 
+to be the same Type
+
+Syntax:
+
+.. code-block:: ring
+
+	Reduce(aList,cFunc,xInitial) ---> final value
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	? Reduce( 1:3, func x, y { return x + y }, 0 )
+	? Reduce( ["I","Love","Ring"], func x, y { return x + y }, "" )
+
+Output:
+
+.. code-block:: ring
+
+	6
+	ILoveRing
+
+.. index:: 
 	pair: Stdlib Functions; split()
 
 Split() function
