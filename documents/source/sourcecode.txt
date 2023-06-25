@@ -36,7 +36,7 @@ Build Ring2EXE
 .. code-block:: none
 
 	cd ring/tools/ring2exe
-	buildring2exe.bat
+	build.bat
 
 Generate RingConsoleColors Source Code and Build
 
@@ -75,7 +75,7 @@ Build RingPM
 .. code-block:: none
 
 	cd ring/tools/ringpm
-	buildringpm.bat
+	build.bat
 
 Build RingODBC
 
@@ -166,24 +166,9 @@ Generate RingPostgreSQL Source Code and Build
 
 Generate RingQt Source Code and Build
 
-Tested using Qt 5.12 and Qt 5.15
+Tested using Qt 5.15
 
-For Qt 5.12 ( Install Qt 5.12 : https://download.qt.io/archive/qt/5.12/5.12.6/ )
-
-.. code-block:: none
-
-	cd ring/extensions/ringqt
-	gencodeqt512_nobluetooth.bat
-	buildqt512_nobluetooth.bat
-
-To Copy the Qt runtime files to ring/bin folder
-
-.. code-block:: none
-
-	cd ring/extensions/ringqt/binupdate
-	installqt512.bat
-
-For Qt 5.15 ( Install Qt 5.15 : https://www.qt.io/blog/qt-5.15-released )
+Install Qt 5.15 : https://www.qt.io/blog/qt-5.15-released 
 
 .. code-block:: none
 
@@ -268,7 +253,7 @@ Build Ring2EXE
 .. code-block:: none
 
 	cd ring/tools/ring2exe
-	sudo ./buildring2exe.sh
+	sudo ./build.sh
 
 Generate RingConsoleColors Source Code and Build
 
@@ -306,7 +291,7 @@ Build RingPM
 .. code-block:: none
 
 	cd ring/tools/ringpm
-	sudo ./buildringpm.sh
+	sudo ./build.sh
 
 Build RingODBC
 
@@ -461,7 +446,7 @@ Build Ring2EXE
 .. code-block:: none
 
 	cd ring/tools/ring2exe
-	sudo ./buildring2exe.sh
+	sudo ./build.sh
 
 Generate RingConsoleColors Source Code and Build
 
@@ -499,7 +484,7 @@ Build RingPM
 .. code-block:: none
 
 	cd ring/tools/ringpm
-	sudo ./buildringpm.sh
+	sudo ./build.sh
 
 Build RingODBC
 
@@ -659,7 +644,7 @@ Build Ring2EXE
 .. code-block:: none
 
 	cd ring/tools/ring2exe
-	sudo ./buildring2exe.sh
+	sudo ./build.sh
 
 Generate RingConsoleColors Source Code and Build
 
@@ -697,7 +682,7 @@ Build RingPM
 .. code-block:: none
 
 	cd ring/tools/ringpm
-	sudo ./buildringpm.sh
+	sudo ./build.sh
 
 Build RingODBC
 

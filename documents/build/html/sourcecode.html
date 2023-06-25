@@ -175,6 +175,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingref.html">Using References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
@@ -295,7 +296,7 @@ buildvcw.bat
 </div>
 <p>Build Ring2EXE</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/tools/ring2exe
-buildring2exe.bat
+build.bat
 </pre></div>
 </div>
 <p>Generate RingConsoleColors Source Code and Build</p>
@@ -323,7 +324,7 @@ buildvc.bat
 </div>
 <p>Build RingPM</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/tools/ringpm
-buildringpm.bat
+build.bat
 </pre></div>
 </div>
 <p>Build RingODBC</p>
@@ -390,19 +391,8 @@ buildvc.bat
 </pre></div>
 </div>
 <p>Generate RingQt Source Code and Build</p>
-<p>Tested using Qt 5.12 and Qt 5.15</p>
-<p>For Qt 5.12 ( Install Qt 5.12 : <a class="reference external" href="https://download.qt.io/archive/qt/5.12/5.12.6/">https://download.qt.io/archive/qt/5.12/5.12.6/</a> )</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/extensions/ringqt
-gencodeqt512_nobluetooth.bat
-buildqt512_nobluetooth.bat
-</pre></div>
-</div>
-<p>To Copy the Qt runtime files to ring/bin folder</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/extensions/ringqt/binupdate
-installqt512.bat
-</pre></div>
-</div>
-<p>For Qt 5.15 ( Install Qt 5.15 : <a class="reference external" href="https://www.qt.io/blog/qt-5.15-released">https://www.qt.io/blog/qt-5.15-released</a> )</p>
+<p>Tested using Qt 5.15</p>
+<p>Install Qt 5.15 : <a class="reference external" href="https://www.qt.io/blog/qt-5.15-released">https://www.qt.io/blog/qt-5.15-released</a></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/extensions/ringqt
 gencodeqt515_nobluetooth.bat
 buildqt515_nobluetooth.bat
@@ -460,7 +450,7 @@ ring rnote.ring
 </div>
 <p>Build Ring2EXE</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/tools/ring2exe
-sudo ./buildring2exe.sh
+sudo ./build.sh
 </pre></div>
 </div>
 <p>Generate RingConsoleColors Source Code and Build</p>
@@ -488,7 +478,7 @@ sudo ./buildring2exe.sh
 </div>
 <p>Build RingPM</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/tools/ringpm
-sudo ./buildringpm.sh
+sudo ./build.sh
 </pre></div>
 </div>
 <p>Build RingODBC</p>
@@ -599,7 +589,7 @@ ring rnote.ring
 </div>
 <p>Build Ring2EXE</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/tools/ring2exe
-sudo ./buildring2exe.sh
+sudo ./build.sh
 </pre></div>
 </div>
 <p>Generate RingConsoleColors Source Code and Build</p>
@@ -627,7 +617,7 @@ sudo ./buildring2exe.sh
 </div>
 <p>Build RingPM</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/tools/ringpm
-sudo ./buildringpm.sh
+sudo ./build.sh
 </pre></div>
 </div>
 <p>Build RingODBC</p>
@@ -740,7 +730,7 @@ Install Libraries</p>
 </div>
 <p>Build Ring2EXE</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/tools/ring2exe
-sudo ./buildring2exe.sh
+sudo ./build.sh
 </pre></div>
 </div>
 <p>Generate RingConsoleColors Source Code and Build</p>
@@ -768,7 +758,7 @@ sudo ./buildring2exe.sh
 </div>
 <p>Build RingPM</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/tools/ringpm
-sudo ./buildringpm.sh
+sudo ./build.sh
 </pre></div>
 </div>
 <p>Build RingODBC</p>
