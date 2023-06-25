@@ -77,6 +77,20 @@ Build RingPM
 	cd ring/tools/ringpm
 	build.bat
 
+Build RingREPL
+
+.. code-block:: none
+
+	cd ring/tools/ringrepl
+	build.bat
+
+Build Folder2QRC
+
+.. code-block:: none
+
+	cd ring/tools/folder2qrc
+	build.bat
+
 Build RingODBC
 
 .. code-block:: none
@@ -295,6 +309,20 @@ Build RingPM
 	cd ring/tools/ringpm
 	sudo ./build.sh
 
+Build RingREPL
+
+.. code-block:: none
+
+	cd ring/tools/ringrepl
+	sudo ./build.sh
+
+Build Folder2QRC
+
+.. code-block:: none
+
+	cd ring/tools/folder2qrc
+	sudo ./build.sh
+
 Build RingODBC
 
 .. code-block:: none
@@ -491,6 +519,20 @@ Build RingPM
 .. code-block:: none
 
 	cd ring/tools/ringpm
+	sudo ./build.sh
+
+Build RingREPL
+
+.. code-block:: none
+
+	cd ring/tools/ringrepl
+	sudo ./build.sh
+
+Build Folder2QRC
+
+.. code-block:: none
+
+	cd ring/tools/folder2qrc
 	sudo ./build.sh
 
 Build RingODBC
