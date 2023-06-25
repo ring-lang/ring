@@ -1052,9 +1052,7 @@ We provide instructions for building on the next platforms:-
 
 (2) [Ubuntu Linux](language/README_UbuntuLinux.md)
 
-(3) [Fedora Linux](language/README_FedoraLinux.md)
-
-(4) [macOS](language/README_macOS.md)
+(3) [macOS](language/README_macOS.md)
 
 # License 
 
