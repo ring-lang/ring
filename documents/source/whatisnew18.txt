@@ -95,6 +95,10 @@ Better Tools
 * Ring Notepad: Reset the dockable window title when closing all opened files
 * Ring Notepad: Translation files (English/Arabic)
 * Ring Notepad: New option to build GUI application using Ring2EXE
+* Ring Notepad: View menu - Navigate options
+* Ring Notepad: View menu - Apperance options (Checkboxes)
+* Ring Notepad: Check if we have web application before running
+* Ring Notepad: Better icon for closing the application
 * Form Designer: Correct drawing for new controls after moving Ring Notepad
 * Ring2EXE: Better code when distributing GUI applications
 
