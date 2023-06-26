@@ -466,14 +466,71 @@ class RNoteMainWindow
 							addaction(this.oCheckAction7)
 						}
 						addseparator()
-						oAction = new qAction(this.win1) {
-							setclickEvent(Method(:EditFullScreen))
-							setbtnimage(self,"image/source.png")
-							setShortcut(new QKeySequence("Ctrl+Shift+F1"))
-							settext(T_RINGNOTEPAD_SOURCECODEFULLSCREEN) # "Source Code (Full Screen)"
+						subMode = addmenu(T_RINGNOTEPAD_MODE) # "Mode"
+						subMode {
+							oAction = new qAction(this.win1) {
+								setShortcut(new QKeySequence("Ctrl+1"))
+								setclickEvent(Method("SetMode(1)"))
+								settext(T_RINGNOTEPAD_GENERAL) # "General"
+							}
+							addaction(oAction)
+							addseparator()
+							oAction = new qAction(this.win1) {
+								setShortcut(new QKeySequence("Ctrl+2"))
+								setclickEvent(Method("SetMode(2)"))
+								settext(T_RINGNOTEPAD_LEARNINGRINGEDITORDOCUMENTATION) # "Learning Ring (Editor + Documentation)"
+							}
+							addaction(oAction)
+							addseparator()
+							oAction = new qAction(this.win1) {
+								setShortcut(new QKeySequence("Ctrl+3"))
+								setclickEvent(Method("SetMode(3)"))
+								settext(T_RINGNOTEPAD_CODINGPROJECTFILEEDITOR) # "Coding (Project File + Editor)"
+							}
+							addaction(oAction)
+							addseparator()
+							oAction = new qAction(this.win1) {
+								setShortcut(new QKeySequence("Ctrl+4"))
+								setclickEvent(Method("SetMode(4)"))
+								settext(T_RINGNOTEPAD_CODINGALLWINDOWS) # "Coding (All Windows)"
+							}
+							addaction(oAction)
+							addseparator()
+							oAction = new qAction(this.win1) {
+								setShortcut(new QKeySequence("Ctrl+5"))
+								setclickEvent(Method("SetMode(5)"))
+								settext(T_RINGNOTEPAD_CODINGCODEEDITOR) # "Coding (Code Editor)"
+							}
+							addaction(oAction)
+							addseparator()
+							oAction = new qAction(this.win1) {
+								setShortcut(new QKeySequence("Ctrl+6"))
+								setclickEvent(Method("SetMode(6)"))
+								settext(T_RINGNOTEPAD_GUIDEVELOPMENTCODEEDITORFORMDESIGNER) # "GUI Development (Code Editor + Form Designer)")
+							}
+							addaction(oAction)
+							addseparator()
+							oAction = new qAction(this.win1) {
+								setShortcut(new QKeySequence("Ctrl+7"))
+								setclickEvent(Method("SetMode(7)"))
+								settext(T_RINGNOTEPAD_WEBDEVELOPMENTCODEEDITORWEBBROWSER) # "Web Development (Code Editor + Web Browser)")
+							}
+							addaction(oAction)
+							addseparator()
+							oAction = new qAction(this.win1) {
+								setShortcut(new QKeySequence("Ctrl+8"))
+								setclickEvent(Method("SetMode(8)"))
+								settext(T_RINGNOTEPAD_TESTINGPROJECTFILESCODEEDITOROUTPUTWINDOW) # "Testing (Project Files + Code Editor + Output Window)")
+							}
+							addaction(oAction)
+							addseparator()
+							oAction = new qAction(this.win1) {
+								setShortcut(new QKeySequence("Ctrl+9"))
+								setclickEvent(Method("SetMode(9)"))
+								settext(T_RINGNOTEPAD_COMMONALLWINDOWSOUTPUTWINDOWINTHEBOTTOM) # "Common (All Windows + Output Window in the bottom)")
+							}
+							addaction(oAction)
 						}
-						addaction(oAction)
-						addseparator()
 						subStyle = addmenu(T_RINGNOTEPAD_STYLE) # "Style"
 						subStyle {
 							setbtnimage(self,"image/colors.png")
@@ -590,71 +647,14 @@ class RNoteMainWindow
 							addaction(oAction)
 						}
 						addseparator()
-						subStyle = addmenu(T_RINGNOTEPAD_MODE) # "Mode"
-						subStyle {
-							oAction = new qAction(this.win1) {
-								setShortcut(new QKeySequence("Ctrl+1"))
-								setclickEvent(Method("SetMode(1)"))
-								settext(T_RINGNOTEPAD_GENERAL) # "General"
-							}
-							addaction(oAction)
-							addseparator()
-							oAction = new qAction(this.win1) {
-								setShortcut(new QKeySequence("Ctrl+2"))
-								setclickEvent(Method("SetMode(2)"))
-								settext(T_RINGNOTEPAD_LEARNINGRINGEDITORDOCUMENTATION) # "Learning Ring (Editor + Documentation)"
-							}
-							addaction(oAction)
-							addseparator()
-							oAction = new qAction(this.win1) {
-								setShortcut(new QKeySequence("Ctrl+3"))
-								setclickEvent(Method("SetMode(3)"))
-								settext(T_RINGNOTEPAD_CODINGPROJECTFILEEDITOR) # "Coding (Project File + Editor)"
-							}
-							addaction(oAction)
-							addseparator()
-							oAction = new qAction(this.win1) {
-								setShortcut(new QKeySequence("Ctrl+4"))
-								setclickEvent(Method("SetMode(4)"))
-								settext(T_RINGNOTEPAD_CODINGALLWINDOWS) # "Coding (All Windows)"
-							}
-							addaction(oAction)
-							addseparator()
-							oAction = new qAction(this.win1) {
-								setShortcut(new QKeySequence("Ctrl+5"))
-								setclickEvent(Method("SetMode(5)"))
-								settext(T_RINGNOTEPAD_CODINGCODEEDITOR) # "Coding (Code Editor)"
-							}
-							addaction(oAction)
-							addseparator()
-							oAction = new qAction(this.win1) {
-								setShortcut(new QKeySequence("Ctrl+6"))
-								setclickEvent(Method("SetMode(6)"))
-								settext(T_RINGNOTEPAD_GUIDEVELOPMENTCODEEDITORFORMDESIGNER) # "GUI Development (Code Editor + Form Designer)")
-							}
-							addaction(oAction)
-							addseparator()
-							oAction = new qAction(this.win1) {
-								setShortcut(new QKeySequence("Ctrl+7"))
-								setclickEvent(Method("SetMode(7)"))
-								settext(T_RINGNOTEPAD_WEBDEVELOPMENTCODEEDITORWEBBROWSER) # "Web Development (Code Editor + Web Browser)")
-							}
-							addaction(oAction)
-							addseparator()
-							oAction = new qAction(this.win1) {
-								setShortcut(new QKeySequence("Ctrl+8"))
-								setclickEvent(Method("SetMode(8)"))
-								settext(T_RINGNOTEPAD_TESTINGPROJECTFILESCODEEDITOROUTPUTWINDOW) # "Testing (Project Files + Code Editor + Output Window)")
-							}
-							addaction(oAction)
-							addseparator()
-							oAction = new qAction(this.win1) {
-								setShortcut(new QKeySequence("Ctrl+9"))
-								setclickEvent(Method("SetMode(9)"))
-								settext(T_RINGNOTEPAD_COMMONALLWINDOWSOUTPUTWINDOWINTHEBOTTOM) # "Common (All Windows + Output Window in the bottom)")
-							}
-							addaction(oAction)
+						oAction = new qAction(this.win1) {
+							setclickEvent(Method(:EditFullScreen))
+							setbtnimage(self,"image/source.png")
+							setShortcut(new QKeySequence("Ctrl+Shift+F1"))
+							settext(T_RINGNOTEPAD_SOURCECODEFULLSCREEN) # "Source Code (Full Screen)"
 						}
+						addaction(oAction)
+						addseparator()
 					} 
 					subProgram {
 						oAction = new qAction(this.win1) {
