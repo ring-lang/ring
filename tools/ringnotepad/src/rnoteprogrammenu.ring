@@ -21,7 +21,7 @@ class RNoteProgramMenu
 
 	func checkWebApplication cFileName
 		if left(read(cFileName),2) != "#!"
-			msginfo("Sorry","The current file is not a web application (CGI)")
+			msginfo(T_RINGNOTEPAD_NOTWEBAPPSORRY,T_RINGNOTEPAD_NOTWEBAPPMSG)
 			return false 
 		ok
 		return true 

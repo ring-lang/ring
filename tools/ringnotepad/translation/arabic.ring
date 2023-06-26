@@ -257,6 +257,9 @@ T_RINGNOTEPAD_TEMPLATEDATETIME  = "[تعليق] الوقت والتاريخ"
 T_RINGNOTEPAD_TEMPLATEAUTHOR    = "[تعليق] اسم المؤلف"
 T_RINGNOTEPAD_TEMPLATEFUNCDESC  = "[تعليق] وصف الدالة"
 
+T_RINGNOTEPAD_NOTWEBAPPSORRY    = "عفوا"
+T_RINGNOTEPAD_NOTWEBAPPMSG      = "الملف الحالي ليس تطبيق ويب"
+
 T_RINGNOTEPAD_CUSTOMKEYWORDS = [
 "سج", "سطر","سطرجديد","صح", "خطا","فراغ",
 "مجددا","مع","استدع","في_حالة","التقط","عنصر",
