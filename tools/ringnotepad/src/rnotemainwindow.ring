@@ -353,14 +353,14 @@ class RNoteMainWindow
 								setShortcut(new QKeySequence("Ctrl+j"))
 								setbtnimage(self,"image/project.png")
 								settext(T_RINGNOTEPAD_PROJECTFILES) # "Project Files"
-								setclickEvent(Method(:ProjectWindowStatus))
+								setclickEvent(Method(:ActivateProjectWindow))
 							}
 							addaction(oAction)
 							addseparator()
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Ctrl+u"))
 								setbtnimage(self,"image/source.png")
-								setclickEvent(Method(:SourceCodeWindowStatus))
+								setclickEvent(Method(:ActivateSourceCodeWindow))
 								settext(T_RINGNOTEPAD_SOURCECODE) # "Source Code"
 							}
 							addaction(oAction)
@@ -368,7 +368,7 @@ class RNoteMainWindow
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Ctrl+w"))
 								setbtnimage(self,"image/richtext.png")
-								setclickEvent(Method(:WebBrowserWindowStatus))
+								setclickEvent(Method(:ActivateWebBrowserWindow))
 								settext(T_RINGNOTEPAD_WEBBROWSER) # "Web Browser"
 							}
 							addaction(oAction)
@@ -376,7 +376,7 @@ class RNoteMainWindow
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Alt+f"))
 								setbtnimage(self,"image/source.png")
-								setclickEvent(Method(:FunctionsListWindowStatus))
+								setclickEvent(Method(:ActivateFunctionsListWindow))
 								settext(T_RINGNOTEPAD_FUNCTIONSLIST) # "Functions List"
 							}
 							addaction(oAction)
@@ -384,7 +384,7 @@ class RNoteMainWindow
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Alt+c"))
 								setbtnimage(self,"image/source.png")
-								setclickEvent(Method(:ClassesListWindowStatus))
+								setclickEvent(Method(:ActivateClassesListWindow))
 								settext(T_RINGNOTEPAD_CLASSESLIST) # "Classes List"
 							}
 							addaction(oAction)
@@ -392,7 +392,7 @@ class RNoteMainWindow
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Alt+o"))
 								setbtnimage(self,"image/source.png")
-								setclickEvent(Method(:OutputWindowStatus))
+								setclickEvent(Method(:ActivateOutputWindow))
 								settext(T_RINGNOTEPAD_OUTPUTWINDOW) # "Output Window"
 							}
 							addaction(oAction)
@@ -400,7 +400,7 @@ class RNoteMainWindow
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("CTRL+SHIFT+F"))
 								setbtnimage(self,"image/formdesigner.png")
-								setclickEvent(Method(:FormDesignerWindowStatus))
+								setclickEvent(Method(:ActivateFormDesignerWindow))
 								settext(T_RINGNOTEPAD_FORMDESIGNERWINDOW) # "Form Designer Window"
 							}
 							addaction(oAction)
