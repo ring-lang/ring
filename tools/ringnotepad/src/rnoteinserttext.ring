@@ -1,4 +1,4 @@
-oInsert 	= NULL
+oInsert 	    = NULL
 templateList 	= NULL
 
 load "templates.ring"

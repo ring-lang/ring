@@ -213,6 +213,14 @@ class RNoteMainWindow
 						}
 						addaction(oAction)
 						addseparator()
+						oAction = new qAction(this.win1) {
+							setShortcut(new QKeySequence("Ctrl+l"))
+							setbtnimage(self,"image/open.png")
+							settext(T_RINGNOTEPAD_SELECTFILEOPTION) # "Select File"
+							setclickEvent(Method(:OpenSelectFileWindow))
+						}
+						addaction(oAction)
+						addseparator()
 						oAction = new qaction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+q"))
 							setbtnimage(self,"image/closeapp.png")

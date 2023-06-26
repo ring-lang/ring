@@ -32,6 +32,7 @@
 	load "rnoteeditorevents.ring"
 	load "rnoterun.ring"
 	load "rnoteinserttext.ring"
+	load "rnoteselectfile.ring"
 
 # Merge Classes 
 	for cClass in [
@@ -62,7 +63,8 @@
 		:RNoteTreeViewEvents,
 		:RNoteEditorEvents,
 		:RNoteRun,
-		:RNoteInsertText
+		:RNoteInsertText,
+		:RNoteSelectFile
 	]
 			mergemethods(:RNoteController,cClass)
 	next
