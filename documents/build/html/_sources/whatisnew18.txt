@@ -99,6 +99,7 @@ Better Tools
 * Ring Notepad: View menu - Apperance options (Checkboxes)
 * Ring Notepad: Check if we have web application before running
 * Ring Notepad: Better icon for closing the application
+* Ring Notepad: Select file window (Quick navigation between opened files)
 * Form Designer: Correct drawing for new controls after moving Ring Notepad
 * Ring2EXE: Better code when distributing GUI applications
 
