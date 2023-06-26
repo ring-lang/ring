@@ -347,8 +347,8 @@ class RNoteMainWindow
 					}
 					subView {
 
-						subAppearance = addmenu(T_RINGNOTEPAD_Appearance) # "Appearance"
-						subAppearance {	
+						subActivate = addmenu(T_RINGNOTEPAD_ACTIVATE) # "Activate"
+						subActivate {	
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("Ctrl+j"))
 								setbtnimage(self,"image/project.png")
@@ -399,6 +399,59 @@ class RNoteMainWindow
 							addseparator()
 							oAction = new qAction(this.win1) {
 								setShortcut(new QKeySequence("CTRL+SHIFT+F"))
+								setbtnimage(self,"image/formdesigner.png")
+								setclickEvent(Method(:FormDesignerWindowStatus))
+								settext(T_RINGNOTEPAD_FORMDESIGNERWINDOW) # "Form Designer Window"
+							}
+							addaction(oAction)
+						}
+						addseparator()
+
+						subAppearance = addmenu(T_RINGNOTEPAD_APPEARANCE) # "Appearance"
+						subAppearance {	
+							oAction = new qAction(this.win1) {
+								setbtnimage(self,"image/project.png")
+								settext(T_RINGNOTEPAD_PROJECTFILES) # "Project Files"
+								setclickEvent(Method(:ProjectWindowStatus))
+							}
+							addaction(oAction)
+							addseparator()
+							oAction = new qAction(this.win1) {
+								setbtnimage(self,"image/source.png")
+								setclickEvent(Method(:SourceCodeWindowStatus))
+								settext(T_RINGNOTEPAD_SOURCECODE) # "Source Code"
+							}
+							addaction(oAction)
+							addseparator()
+							oAction = new qAction(this.win1) {
+								setbtnimage(self,"image/richtext.png")
+								setclickEvent(Method(:WebBrowserWindowStatus))
+								settext(T_RINGNOTEPAD_WEBBROWSER) # "Web Browser"
+							}
+							addaction(oAction)
+							addseparator()
+							oAction = new qAction(this.win1) {
+								setbtnimage(self,"image/source.png")
+								setclickEvent(Method(:FunctionsListWindowStatus))
+								settext(T_RINGNOTEPAD_FUNCTIONSLIST) # "Functions List"
+							}
+							addaction(oAction)
+							addseparator()
+							oAction = new qAction(this.win1) {
+								setbtnimage(self,"image/source.png")
+								setclickEvent(Method(:ClassesListWindowStatus))
+								settext(T_RINGNOTEPAD_CLASSESLIST) # "Classes List"
+							}
+							addaction(oAction)
+							addseparator()
+							oAction = new qAction(this.win1) {
+								setbtnimage(self,"image/source.png")
+								setclickEvent(Method(:OutputWindowStatus))
+								settext(T_RINGNOTEPAD_OUTPUTWINDOW) # "Output Window"
+							}
+							addaction(oAction)
+							addseparator()
+							oAction = new qAction(this.win1) {
 								setbtnimage(self,"image/formdesigner.png")
 								setclickEvent(Method(:FormDesignerWindowStatus))
 								settext(T_RINGNOTEPAD_FORMDESIGNERWINDOW) # "Form Designer Window"
