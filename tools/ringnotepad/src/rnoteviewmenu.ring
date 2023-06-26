@@ -87,3 +87,21 @@ class RNoteViewMenu
 		oCheckAction5.setChecked(oDockClassesList.isVisible())
 		oCheckAction6.setChecked(oDockOutputWindow.isVisible())
 		oCheckAction7.setChecked(oDockFormDesigner.isVisible())
+
+	func CloseDockable nDock
+		Switch nDock 
+			on 1
+				oCheckAction1.setChecked(False)
+			on 2
+				oCheckAction2.setChecked(False)
+			on 3
+				oCheckAction3.setChecked(False)
+			on 4
+				oCheckAction4.setChecked(False)
+			on 5
+				oCheckAction5.setChecked(False)
+			on 6
+				oCheckAction6.setChecked(False)
+			on 7
+				oCheckAction7.setChecked(False)
+		off

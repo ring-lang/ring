@@ -938,6 +938,9 @@ class RNoteMainWindow
 				ok
 			}
 			this.oDockProjectFiles = new qdockwidget(this.win1,0) {
+				myFilter = new qAllEvents(this.oDockProjectFiles)
+				myFilter.setCloseEvent(Method("CloseDockable(1)"))
+				installEventFilter(myFilter)
 				setGeometry(00,00,200,200)
 				setwindowtitle(T_RINGNOTEPAD_PROJECTFILES) # "Project Files"
 				setwidget(this.tree1)
@@ -996,6 +999,9 @@ class RNoteMainWindow
 				setLayout(this.oLayoutTabsText)
 			}
 			this.oDockSourceCode = new qdockwidget(this.win1,0) {
+				myFilter = new qAllEvents(this.oDockSourceCode)
+				myFilter.setCloseEvent(Method("CloseDockable(2)"))
+				installEventFilter(myFilter)
 				setwidget(this.oTabsAndText)
 				setwindowtitle(T_RINGNOTEPAD_SOURCECODE) # "Source Code"
 				setminimumwidth(floor(this.oDesktop.width()*0.17))                                                     
@@ -1059,6 +1065,9 @@ class RNoteMainWindow
 				setLayout(oWBLayout2)
 			}
 			this.oDockWebBrowser = new qdockwidget(this.win1,0) {
+				myFilter = new qAllEvents(this.oDockWebBrowser)
+				myFilter.setCloseEvent(Method("CloseDockable(3)"))
+				installEventFilter(myFilter)
 				setwidget(this.oWebBrowser)
 				setwindowtitle(T_RINGNOTEPAD_WEBBROWSER) # "Web Browser"
 			}
@@ -1072,6 +1081,9 @@ class RNoteMainWindow
 				setitemactivatedEvent(Method(:SelectFunction))
 			}
 			this.oDockFunctionsList = new qDockwidget(this.win1,0) {
+				myFilter = new qAllEvents(this.oDockFunctionsList)
+				myFilter.setCloseEvent(Method("CloseDockable(4)"))
+				installEventFilter(myFilter)
 				setWidget(this.oFunctionsList)
 				setwindowtitle(T_RINGNOTEPAD_FUNCTIONS) # "Functions"
 			}
@@ -1085,6 +1097,9 @@ class RNoteMainWindow
 				setitemactivatedEvent(Method(:SelectClass))
 			}
 			this.oDockClassesList = new qDockwidget(this.win1,0) {
+				myFilter = new qAllEvents(this.oDockClassesList)
+				myFilter.setCloseEvent(Method("CloseDockable(5)"))
+				installEventFilter(myFilter)
 				setWidget(this.oClassesList)
 				setwindowtitle(T_RINGNOTEPAD_CLASSES) # "Classes"
 			}
@@ -1127,6 +1142,9 @@ class RNoteMainWindow
 			}
 			this.oOutputWindow.setlayout(oProcessLayout2)
 			this.oDockOutputWindow = new qDockWidget(this.win1,0) {
+				myFilter = new qAllEvents(this.oDockOutputWindow)
+				myFilter.setCloseEvent(Method("CloseDockable(6)"))
+				installEventFilter(myFilter)
 				setwidget( this.oOutputWindow )
 				setwindowtitle(T_RINGNOTEPAD_OUTPUT) # "Output"
 			}
@@ -1136,6 +1154,9 @@ class RNoteMainWindow
 	func CreateFormDesigner
 		win1 {
 			this.oDockFormDesigner = new qDockwidget(this.win1,0) {
+				myFilter = new qAllEvents(this.oDockFormDesigner)
+				myFilter.setCloseEvent(Method("CloseDockable(7)"))
+				installEventFilter(myFilter)
 				setwindowtitle(T_RINGNOTEPAD_FORMDESIGNER) # "Form Designer"
 			}
 			this.FormDesignerDock()
