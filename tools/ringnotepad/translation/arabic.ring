@@ -59,6 +59,7 @@ T_RINGNOTEPAD_COMMENTLINES        = "تحويل الى تعليق"
 T_RINGNOTEPAD_COMMENTBLOCKOFLINES = "تعليق متعدد الاسطر"
 T_RINGNOTEPAD_FINDINFILES         = "بحث فى الملفات"
 
+T_RINGNOTEPAD_Appearance     = "الظهور"
 T_RINGNOTEPAD_PROJECTFILES   = "ملفات المشروع"
 T_RINGNOTEPAD_SOURCECODE     = "التعليمات البرمجية"
 T_RINGNOTEPAD_WEBBROWSER     = "المتصفح"

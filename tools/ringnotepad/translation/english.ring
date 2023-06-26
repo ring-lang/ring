@@ -59,6 +59,7 @@ T_RINGNOTEPAD_COMMENTLINES        = "Comment Lines"
 T_RINGNOTEPAD_COMMENTBLOCKOFLINES = "Comment Block Of Lines"
 T_RINGNOTEPAD_FINDINFILES         = "Find in Files"
 
+T_RINGNOTEPAD_Appearance     = "Appearance"
 T_RINGNOTEPAD_PROJECTFILES   = "Project Files"
 T_RINGNOTEPAD_SOURCECODE     = "Source Code"
 T_RINGNOTEPAD_WEBBROWSER     = "Web Browser"
