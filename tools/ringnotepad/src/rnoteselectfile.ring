@@ -13,7 +13,7 @@ class RNoteSelectFile
 
 		oSelectFile = new QWidget() {
 			setwindowtitle(T_RINGNOTEPAD_SELECTFILETEXT) # "Select File"
-			resize(400,350)
+			resize(600,400)
 			setwindowflags(Qt_WindowStaysOnTopHint)
 
 			oLabel = new QLabel(oSelectFile) {
