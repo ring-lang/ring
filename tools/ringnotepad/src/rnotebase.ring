@@ -147,3 +147,7 @@ class RNoteControllerBase from WindowsControllerParent
 
 	# Dialogs
 		oFontDialog
+
+	# Apperance menu 
+		oCheckAction1 oCheckAction2 oCheckAction3 oCheckAction4
+		oCheckAction5 oCheckAction6 oCheckAction7

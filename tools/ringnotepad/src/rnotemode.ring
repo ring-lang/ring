@@ -134,3 +134,6 @@ class RNoteMode
 				textedit1.setfocus(0)
 		off
 		nDefaultMode = nMode
+		if win1.isVisible()
+				RefreshAppearanceMenu()
+		ok

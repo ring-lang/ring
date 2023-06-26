@@ -409,61 +409,61 @@ class RNoteMainWindow
 
 						subAppearance = addmenu(T_RINGNOTEPAD_APPEARANCE) # "Appearance"
 						subAppearance {	
-							oAction = new qAction(this.win1) {
+							this.oCheckAction1 = new qAction(this.win1) {
 								setCheckable(True)
 								setChecked(this.lShowProject)
 								settext(T_RINGNOTEPAD_PROJECTFILES) # "Project Files"
 								setclickEvent(Method(:ProjectWindowStatus))
 							}
-							addaction(oAction)
+							addaction(this.oCheckAction1)
 							addseparator()
-							oAction = new qAction(this.win1) {
+							this.oCheckAction2 = new qAction(this.win1) {
 								setCheckable(True)
 								setChecked(this.lShowSourceCode)
 								setclickEvent(Method(:SourceCodeWindowStatus))
 								settext(T_RINGNOTEPAD_SOURCECODE) # "Source Code"
 							}
-							addaction(oAction)
+							addaction(this.oCheckAction2)
 							addseparator()
-							oAction = new qAction(this.win1) {
+							this.oCheckAction3 = new qAction(this.win1) {
 								setCheckable(True)
 								setChecked(this.lShowBrowser)
 								setclickEvent(Method(:WebBrowserWindowStatus))
 								settext(T_RINGNOTEPAD_WEBBROWSER) # "Web Browser"
 							}
-							addaction(oAction)
+							addaction(this.oCheckAction3)
 							addseparator()
-							oAction = new qAction(this.win1) {
+							this.oCheckAction4 = new qAction(this.win1) {
 								setCheckable(True)
 								setChecked(this.lShowFunctionsList)
 								setclickEvent(Method(:FunctionsListWindowStatus))
 								settext(T_RINGNOTEPAD_FUNCTIONSLIST) # "Functions List"
 							}
-							addaction(oAction)
+							addaction(this.oCheckAction4)
 							addseparator()
-							oAction = new qAction(this.win1) {
+							this.oCheckAction5 = new qAction(this.win1) {
 								setCheckable(True)
 								setChecked(this.lShowClassesList)
 								setclickEvent(Method(:ClassesListWindowStatus))
 								settext(T_RINGNOTEPAD_CLASSESLIST) # "Classes List"
 							}
-							addaction(oAction)
+							addaction(this.oCheckAction5)
 							addseparator()
-							oAction = new qAction(this.win1) {
+							this.oCheckAction6 = new qAction(this.win1) {
 								setCheckable(True)
 								setChecked(this.lShowOutputWindow)
 								setclickEvent(Method(:OutputWindowStatus))
 								settext(T_RINGNOTEPAD_OUTPUTWINDOW) # "Output Window"
 							}
-							addaction(oAction)
+							addaction(this.oCheckAction6)
 							addseparator()
-							oAction = new qAction(this.win1) {
+							this.oCheckAction7 = new qAction(this.win1) {
 								setCheckable(True)
 								setChecked(this.lShowFormDesigner)
 								setclickEvent(Method(:FormDesignerWindowStatus))
 								settext(T_RINGNOTEPAD_FORMDESIGNERWINDOW) # "Form Designer Window"
 							}
-							addaction(oAction)
+							addaction(this.oCheckAction7)
 						}
 						addseparator()
 						oAction = new qAction(this.win1) {

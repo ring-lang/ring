@@ -79,3 +79,11 @@ class RNoteViewMenu
 			ok
 		}
 
+	func RefreshAppearanceMenu
+		oCheckAction1.setChecked(oDockProjectFiles.isVisible())
+		oCheckAction2.setChecked(oDockSourceCode.isVisible())
+		oCheckAction3.setChecked(oDockWebBrowser.isVisible())
+		oCheckAction4.setChecked(oDockFunctionsList.isVisible())
+		oCheckAction5.setChecked(oDockClassesList.isVisible())
+		oCheckAction6.setChecked(oDockOutputWindow.isVisible())
+		oCheckAction7.setChecked(oDockFormDesigner.isVisible())
