@@ -106,7 +106,6 @@ T_RINGNOTEPAD_MAINFILEDEBUGRUNTHENWAIT = "تشغيل الملف الأساسي �
 T_RINGNOTEPAD_MAINFILERUN = "تشغيل الملف الأساسي"
 T_RINGNOTEPAD_MAINFILERUNGUIAPPLICATIONNOCONSOLE = "تشغيل الملف الأساسي كتطبيق رسومي"
 T_RINGNOTEPAD_MAINFILERUNWEBAPPLICATIONOPENINBROWSER = "تشغيل الملف الأساسي كتطبيق ويب"
-T_RINGNOTEPAD_FIXRINGFILESPERMISSIONSTORUNBYAPACHE = "ضبط إعدادا الملفات للتشغيل من قبل خادم اباتشي"
 
 T_RINGNOTEPAD_FORMDESIGNER = "مصمم النموذج"
 T_RINGNOTEPAD_RINGREPLCONSOLE = "نافذة الاوامر - واجهة مستخدم خطية"
