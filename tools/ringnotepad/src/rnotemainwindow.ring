@@ -108,7 +108,7 @@ class RNoteMainWindow
 						settooltip(T_RINGNOTEPAD_RUNWEBAPPLICATIONOPENINBROWSERCTRLF6) # "Run Web Application - Open In Browser (Ctrl+F6)"
 					} ,
 					new qtoolbutton(this.win1) {
-						setbtnimage(self,"image/close.png")
+						setbtnimage(self,"image/closeapp.png")
 						setclickEvent(Method(:Quit))
 						settooltip(T_RINGNOTEPAD_QUITCTRLQ) # "Quit (Ctrl+Q)"
 					}
@@ -215,7 +215,7 @@ class RNoteMainWindow
 						addseparator()
 						oAction = new qaction(this.win1) {
 							setShortcut(new QKeySequence("Ctrl+q"))
-							setbtnimage(self,"image/close.png")
+							setbtnimage(self,"image/closeapp.png")
 							settext(T_RINGNOTEPAD_EXIT) # "Exit"
 							setstatustip(T_RINGNOTEPAD_EXIT)
 							setclickEvent(Method(:Quit))
