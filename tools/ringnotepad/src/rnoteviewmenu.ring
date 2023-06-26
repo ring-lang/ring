@@ -6,31 +6,38 @@ class RNoteViewMenu
 	func ActivateProjectWindow
 		oDockProjectFiles { show() raise() }
 		Tree1.setFocus(0)
+		oCheckAction1.setChecked(True)
 
 	func ActivateSourceCodeWindow
 		oDockSourceCode { show() raise() }
 		TextEdit1.setFocus(0)
+		oCheckAction2.setChecked(True)
 
 	func ActivateWebBrowserWindow
 		oDockWebBrowser { show() raise() }
 		oWBText.setFocus(0)
+		oCheckAction3.setChecked(True)
 
 	func ActivateFunctionsListWindow
 		oDockFunctionsList { show() raise() }
 		this.DisplayFunctionsList()
 		oFunctionsList.setFocus(0)
+		oCheckAction4.setChecked(True)
 
 	func ActivateClassesListWindow
 		oDockClassesList { show() raise() }
 		this.DisplayClassesList()
 		oClassesList.setFocus(0)
+		oCheckAction5.setChecked(True)
 
 	func ActivateOutputWindow
 		oDockOutputWindow { show() raise() }
 		oProcessText.setFocus(0)
+		oCheckAction6.setChecked(True)
 
 	func ActivateFormDesignerWindow
 		oDockFormDesigner { show() raise() }
+		oCheckAction7.setChecked(True)
 
 	func ProjectWindowStatus
 		oDockProjectFiles { if isvisible() hide() else Show() ok }
