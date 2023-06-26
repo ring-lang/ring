@@ -19,7 +19,15 @@ class RNoteProgramMenu
 		oDockOutputWindow { show() raise() }		
 		RunGUIOperation(cActiveFileName)
 
+	func checkWebApplication cFileName
+		if left(read(cFileName),2) != "#!"
+			msginfo("Sorry","The current file is not a web application (CGI)")
+			return false 
+		ok
+		return true 
+
 	func RunInBrowser
 		if cActiveFileName = Null return Nofileopened() ok
 		Save()	
-		RunWebApplication(this.cActiveFileName)
+		if ! checkWebApplication(cActiveFileName) return ok
+		RunWebApplication(cActiveFileName)

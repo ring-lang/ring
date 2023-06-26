@@ -41,5 +41,6 @@ class RNoteMainFileToolbar
 		if cMainFileName = Null return Nofileopened() ok
 		if not fexists(FileNameEncoding(cMainFileName)) return ok
 		Save()
+		if ! checkWebApplication(cMainFileName) return ok
 		RunWebApplication(cMainFileName)
 
