@@ -1,4 +1,4 @@
-oSelectFile 	  = NULL
+oSelectFile       = NULL
 oSelectFileList   = NULL
 oSelectFileFilter = NULL
 
@@ -69,16 +69,22 @@ class RNoteSelectFile
 	func SelectFileOkAction
 
 		nIndex = oSelectFileList.currentRow()+1
-		if nIndex <= len(aFilesLines)
+		if (nIndex > 0) and (nIndex <= len(aFilesLines))
 			cFile = aFilesLines[nIndex][1]
+			nRow  = aFilesLines[nIndex][2]		
 			CheckSaveBeforeChange()
-			this.openFile(cFile)
-			this.oDockSourceCode.raise()
+			cActiveFileName = cFile 
+			openFile(cFile)
+			GotoLine(nRow)		
+			displayFunctionsList()
+			displayClassesList()
+			lAsktoSave = False
+			cTextHash  = sha256(textedit1.toplaintext())
+			oDockSourceCode.raise()
 			SelectFileCancelAction()
 		ok
 
 	func SelectFileCancelAction
-
 		oSelectFile.close()
 
 	func SelectFileKeyPress
