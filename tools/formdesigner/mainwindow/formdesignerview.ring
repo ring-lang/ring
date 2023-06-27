@@ -7,6 +7,15 @@
 
 package formdesigner
 
+class FDDesktop
+
+	func width 
+		return 1400
+
+	func height 
+		return 600
+
+
 Class FormDesignerView from WindowsViewParent
 
 	oForm oSub oFilter oArea win
@@ -24,7 +33,7 @@ Class FormDesignerView from WindowsViewParent
 
 	oDesignDock
 
-	oDesktop = new QDesktopWidget()
+	oDesktop = new FDDesktop
 
 	lUseWebAssemblyMEMFS = ! isWebAssembly()
 
