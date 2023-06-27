@@ -5,7 +5,7 @@ class RNoteMainWindow
 
 	func CreateMainWindow 
 
-		oDesktop = new qDesktopWidget()
+		oDesktop = new RNoteDesktop
 
 		win1 = new qMainWindow() {
 			if isWindows() and T_LAYOUTDIRECTION
@@ -1210,14 +1210,21 @@ class RNoteMainWindow
 		this.oFilterTextEdit.setEventoutput(False)
 
 
-
 class RingNotepadQTextEdit from QTextEdit 
 
-		func init oParent 
-			super.init(oParent) 
-			return self
+	func init oParent 
+		super.init(oParent) 
+		return self
 
-		func setLineWrapMode p1
-		func setLineNumbersAreaColor p1
-		func setLineNumbersAreaBackColor p1
-		func setCompleter p1
+	func setLineWrapMode p1
+	func setLineNumbersAreaColor p1
+	func setLineNumbersAreaBackColor p1
+	func setCompleter p1
+
+class RNoteDesktop
+
+	func width 
+		return 1366
+
+	func height 
+		return 768
