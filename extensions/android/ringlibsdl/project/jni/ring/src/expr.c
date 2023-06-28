@@ -1060,6 +1060,10 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
                 return 1 ;
             }
         }
+        else {
+            ring_parser_error(pParser,RING_PARSER_ERROR_BRACEISMISSINGTOSTARTANONFUNC);
+            return 0 ;
+        }
     }
     /* Factor --> Call Identifier ( parameters ) */
     if ( ring_parser_iskeyword(pParser,K_CALL) ) {
