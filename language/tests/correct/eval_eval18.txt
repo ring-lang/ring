@@ -1,0 +1,6 @@
+5
+x value = 10
+
+_ring_anonymous_func_134
+_ring_anonymous_func_134
+Msg: Hi

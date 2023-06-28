@@ -1,0 +1,9 @@
+5
+x value = 10
+
+
+eval Line (1) Error (C29) : Braces are missing to define anonymous function!
+eval errors count : 1 
+
+Line 6 Error (R42) : Error in eval() function 
+In eval() in file eval/eval16.ring 
