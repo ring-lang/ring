@@ -34,8 +34,11 @@
 // 31 QuinticSolve(Eq)             // Solve Quintic equation format x^5 x^4 + x^3 + x^2 + x + c
 // 32 EigenValue2(A)               // EigenValues calculated for a 2x2 matrix
 // 33 EigenValue3(A)               // EigenValues calculated for a 3x3 matrix
-
-  
+// 34 PolyMultiply(A,B)            // Polynomial Multiple [A]*[B] ascending powers left to right
+// 35 PolyAdd(A,B)                 // Polynomial Add [A]+[B] ascending powers left to right
+// 35 PolySub(A,B)                 // Polynomial Subtract [A]-[B] ascending powers left to right
+// 36 CharEquation(N)              // Characteristic Polynomial of 4x4 Matrix [A - λI] format -12 -44x -46x2 -10x3 +x4
+// 37 EigenValue4(N)               // Finf EigenValues for a 4x4 matrix
 
 //--------------------------------------------
 // GLOBAL Constants
@@ -1149,6 +1152,19 @@ Func CubicSolve(Eq)
    b  = Eq[1][2]  //   1
    c  = Eq[1][3]  // -13
    d  = Eq[1][4]  //   6
+   
+   // ERROR can NOT SOLVE Cubic eqaution that  ends with Zer0
+   if (d = 0)                 // 4x3 +5x2  -x +0 => Can NOT solve
+      
+      quad = [[a,b,c]]      // drop last term
+      QS   = QuadSolve(cube)
+ 
+      S[1][1] = 0          // Insert 0 solution
+      S[2][1] = QS[1][1]   // Insert Cubic solution
+      S[3][1] = QS[2][1]
+
+      return S   //  Matrix 3x1
+   ok
 
    P = []         // d = 1..6
    Q = []         // a = 1..2
@@ -1309,30 +1325,30 @@ Func SyntheticFactor(Eq)
    Q = []         // a = 1..2
    R = []         // P/Q
    T = []         // +-R
-//----------
+   //----------
    for i = 1 to fabs(d)
        if !(fabs(d) % i)       // D Last Possible factors of D -> P
          Add(P,i)
        ok
    next
-//----------
+   //----------
    for i = 1 to fabs(a)
        if !(fabs(a) % i)       // A 1st Possible factors of A -> Q
          Add(Q,i)
        ok
    next
-//----------
+   //----------
    for k = 1 to len(P)         // R = Add all P factors
        Add(R,P[k])
    next 
-//----------
+   //----------
    for k = 1 to len(Q)         // R = Add all unique Q factors
        found = Find(P,Q[k])
        if !found
           Add(R,P[k])
        ok
    next
-//----------
+   //----------
    for m = 1 to len(Q)
       for k = 1 to len(P)
 
@@ -1343,7 +1359,7 @@ Func SyntheticFactor(Eq)
           ok
       next
    next
-//-------------------
+   //-------------------
    for k = 1 to len(R)        // T = +- R factors
        posNbr =  R[k]         // Final possible list-T
        negNbr = -R[k]
@@ -1371,35 +1387,35 @@ return T  // 1xk array of Factors for Eq
 
 Func SyntheticDiv(Eq,T)
 
-   last = len(Eq[1])          // a,b,c,..d.. e...f
-   S    = list(last-1,1)      // Row-Column
+    last = len(Eq[1])          // a,b,c,..d.. e...f
+    S    = list(last-1,1)      // Row-Column
    
-F = []
-for i = 1 to len(T)
-   X     = T[i]               // Try each factor
+    F = []
+    for i = 1 to len(T)
+       X     = T[i]               // Try each factor
 
-   Add(F,X) 
-   for k = 1 to last-1       // Each term in the equatiom abcd..
-       ma  = X * F[k]
-       a2  = Eq[1][k+1] + ma
-       Add(F,a2)
-   next
-   
-   if F[last] = 0            // FOUND Possible Solution
-      Del(F,last)            // x^4 => x^3   reduce polynomial by 1 power
-      
-      Q2 = QuadSolve([F])
-      See "Q2 QuadSolve F[1]"+F[1]  MatrixPrint(Q2)
-      
-      S[1][1] = F[1] 
-      S[2][1] = q2[1][1]
-      S[3][1] = q2[2][1]
-      return S
-   ok
-   
-   F = []       // Clear for next try
-   
-next
+       Add(F,X) 
+       for k = 1 to last-1       // Each term in the equatiom abcd..
+           ma  = X * F[k]
+           a2  = Eq[1][k+1] + ma
+           Add(F,a2)
+       next
+       
+       if F[last] = 0            // FOUND Possible Solution
+          Del(F,last)            // x^4 => x^3   reduce polynomial by 1 power
+          
+          Q2 = QuadSolve([F])
+          See "Q2 QuadSolve F[1]"+F[1]  MatrixPrint(Q2)
+          
+          S[1][1] = F[1] 
+          S[2][1] = q2[1][1]
+          S[3][1] = q2[2][1]
+          return S
+       ok
+       
+       F = []       // Clear for next try
+       
+    next
 
 return S        // 4x1 matrix, if (0,0,0,0) Not solution
 
@@ -1421,31 +1437,45 @@ Func QuarticSolve(Eq)
    c  = Eq[1][3]  //   5
    d  = Eq[1][4]  // -74
    e  = Eq[1][5]  //-120
+   
+   // ERROR can NOT SOLVE Quadritic eqaution that  ends with Zer0
+   if (e = 0)                 // x4 -4x3 +5x2  -x +0 => Can NOT solve
+      
+      cube = [[a,b,c,d]]      // drop last term
+      CS   = CubicSolve(cube)
+ 
+      S[1][1] = 0          // Insert 0 solution
+      S[2][1] = CS[1][1]   // Insert Cubic solution
+      S[3][1] = CS[2][1]
+      S[4][1] = CS[3][1]
+      
+      return S   //  Matrix 4x1
+   ok
 
    P = []         // e = 1..-120
    Q = []         // a = 1..2
    R = []         // P/Q      other fractions
    T = []         // +-R
-//----------
+   //----------
 
    for i = 1 to fabs(e)
        if !(fabs(e) % i)       // Possible factors of |E| -> P
          Add(P,i)
        ok
    next
-//----------
+   //----------
 
    for i = 1 to fabs(a)
        if !(fabs(a) % i)       // Possible factors of |A| -> Q
          Add(Q,i)
        ok
    next
-//----------
+   //----------
 
    for k = 1 to len(P)         // R = Add all +P factors
        Add(R,P[k])
    next 
-//----------
+   //----------
 
    for k = 1 to len(Q)         // R = Add all Unique +Q factors
        found = Find(P,Q[k])
@@ -1453,7 +1483,7 @@ Func QuarticSolve(Eq)
           Add(R,P[k])
        ok
    next
-//----------
+   //----------
 
    for m = 1 to len(Q)
       for k = 1 to len(P)
@@ -1465,7 +1495,7 @@ Func QuarticSolve(Eq)
           ok
       next
    next
-//-------------------
+   //-------------------
 
    for k = 1 to len(R)        // T = +- R factors
        posNbr =  R[k]         // Final possible => T
@@ -1474,54 +1504,53 @@ Func QuarticSolve(Eq)
        Add(T,negNbr)          // - factors
    next
 
-//See "Factors "  MatrixFlatPrint(T)
+   //See "Factors "  MatrixFlatPrint(T)
 
 
-//------------------------
-// Synthetic Division
-// Factor a Quartic Equation to a Cubic Equation
-// Try All possible solution of X in T[]
-//
-// T = list of possible solutions to try as X
-// X   a  b    c  d  e 
-// 2 | 2  1  -13  6        1-row1
-//   | v  4   10             mul   X*row2
-//     2  5   -3           2-row2  add col(1row + mul)
+    //------------------------
+    // Synthetic Division
+    // Factor a Quartic Equation to a Cubic Equation
+    // Try All possible solution of X in T[]
+    //
+    // T = list of possible solutions to try as X
+    // X   a  b    c  d  e 
+    // 2 | 2  1  -13  6        1-row1
+    //   | v  4   10             mul   X*row2
+    //     2  5   -3           2-row2  add col(1row + mul)
 
-for i = 1 to len(T)
-   X     = T[i]        // Try X as multiplier
-   a2    = a           // a  = Eq[1][1]
+    for i = 1 to len(T)
+       X     = T[i]        // Try X as multiplier
+       a2    = a           // a  = Eq[1][1]
 
-   mb    = X * a2
-   b2    = b + mb
+       mb    = X * a2
+       b2    = b + mb
 
-   mc    = X * b2
-   c2    = c + mc
+       mc    = X * b2
+       c2    = c + mc
 
-   md    = X * c2
-   d2    = d + md
-   
-   me    = X * d2
-   e2    = e + me       // if last e2 result = 0, Possible solution
-   
+       md    = X * c2
+       d2    = d + md
+       
+       me    = X * d2
+       e2    = e + me       // if last e2 result = 0, Possible solution
+       
 
-   if (e2 = 0 )            // Remainder R=0 then X is a solution  
-   
-      //See "i: "+i +" X: "+X +" abcde "+ a2 +" "+ b2 +" "+ c2 +" "+ d2 +" "+ e2  +nl 
-      //See "Call CubicSolve [["+ a2 +" "+ b2 +" "+ c2 +" "+ d2 +"]]" +nl
-      
-      CS = CubicSolve([[a2,b2,c2,d2]])
- 
-      S[1][1] = X          // Insert X solution
-      S[2][1] = CS[1][1]   // Insert Cubic solution
-      S[3][1] = CS[2][1]
-      S[4][1] = CS[3][1]
-      
-      //See "CubicReturn: " MatrixPrint(S)  
-      
-     exit
-   ok
-next
+       if (e2 = 0 )         // Remainder R=0 then X is a solution  
+       
+          //See "Call CubicSolve [["+ a2 +" "+ b2 +" "+ c2 +" "+ d2 +"]]" +nl
+          
+          CS = CubicSolve([[a2,b2,c2,d2]])
+     
+          S[1][1] = X          // Insert X solution
+          S[2][1] = CS[1][1]   // Insert Cubic solution
+          S[3][1] = CS[2][1]
+          S[4][1] = CS[3][1]
+          
+          //See "CubicReturn: " MatrixPrint(S)  
+          
+         exit
+       ok
+    next
 
 return S  // 4x1 matrix
 
@@ -1726,3 +1755,216 @@ Func EigenValue2(A)
 
 return S   // Solution 2x1 matix 
 
+//===================================
+// PolyMultiply of 2 polynomials of X
+// Format is Pwr 0,1,2,3 etc 
+// Put 0's in places not used
+// Returns flat matrix in same ascending power
+// Bert Mariani 2023/06/26
+
+Func PolyMultiply(A,B)
+
+   Alen = len(A)
+   Blen = len(B)
+
+   Prod = List(Alen + Blen -1)
+
+   for i=1 to Alen
+      for j=1 to Blen
+         Prod[i+j-1] += A[i] * B[j]
+      next
+   next
+   
+return Prod   //   Flat Matrix [1,2,3] Pwr 0,1,2,3 etc
+  
+  
+//===================================
+// PolyAdd of 2 polynomials of X
+// Format is Pwr 0,1,2,3 etc 
+// Put 0's in places not used
+// Returns flat matrix in same ascending power
+// Bert Mariani 2023/06/26
+
+Func PolyAdd(A,B)
+
+   Alen   = len(A)
+   Blen   = len(B)
+   maxLen = max(len(A), len(B))
+
+   P = list(maxLen)    // Make same lenght
+   Q = list(maxLen)
+   R = list(maxLen)    // Result of Add
+
+   for i = 1 to Alen   // Zer0's will be at end if needed
+      P[i] = A[i]
+   next
+
+   for j = 1 to Blen   // Zer0's will be at end
+      Q[j] = B[j]
+   next
+
+   for k = 1 to maxLen
+      R[k] = P[k] + Q[k]
+   next
+
+
+return R   //   Flat Matrix [1,2,3] Pwr 0,1,2,3 etc
+  
+//===================================
+// PolySub of 2 polynomials of X
+// Format is Pwr 0,1,2,3 etc 
+// Put 0's in places not used
+// Returns flat matrix in same ascending power
+// Bert Mariani 2023/06/26
+
+Func PolySub(A,B)
+
+   Alen   = len(A)
+   Blen   = len(B)
+   maxLen = max(len(A), len(B))
+
+   P = list(maxLen)    // Make same lenght
+   Q = list(maxLen)
+   R = list(maxLen)    // Result of Add
+
+
+   for i = 1 to Alen   // Zer0's will be at end if needed
+      P[i] = A[i]
+   next
+
+   for j = 1 to Blen   // Zer0's will be at end
+      Q[j] = B[j]
+   next
+
+   for k = 1 to maxLen
+      R[k] = P[k] - Q[k]
+   next
+   
+return R   //   Flat Matrix [1,2,3] Pwr 0,1,2,3 etc
+  
+//========================
+//===========================
+// Func CharEquation(N) 4x4 Matrix
+// Characteristic Polynomial of a 4x4 Matrix [A - λI]
+// Return format -12 -44x -46x2 -10x3 +x4
+// Bert MAriani 2023/06/23
+
+Func CharEquation(N)
+    // Assign Letters 4x4                                  //   [ A - λI ] format
+    a1 = N[1][1]  a2 = N[1][2]  a3 = N[1][3]  a4 = N[1][4] //   [ 1-x, 2,   1,    3  ]
+    b1 = N[2][1]  b2 = N[2][2]  b3 = N[2][3]  b4 = N[2][4] //   [ 2,   2-x, 1,    3  ]
+    c1 = N[3][1]  c2 = N[3][2]  c3 = N[3][3]  c4 = N[3][4] //   [ 1,   1,   2-x,  3  ] 
+    d1 = N[4][1]  d2 = N[4][2]  d3 = N[4][3]  d4 = N[4][4] //   [ 3,   3,   3,   20-x]
+    
+    // Convert to Flat Array and Lamda on Diagonal         //   [ A - λI ] format
+    a1A = [a1,-1]  a2A = [a2]     a3A = [a3]     a4A = [a4]
+    b1A = [b1]     b2A = [b2,-1]  b3A = [b3]     b4A = [b4]
+    c1A = [c1]     c2A = [c2]     c3A = [c3,-1]  c4A = [c4]
+    d1A = [d1]     d2A = [d2]     d3A = [d3]     d4A = [d4,-1]
+   
+    //================================================================================   
+    // 3x3 SumMatrix:  Characteristic Equations
+    //
+    // +(a1)                                                                              
+    //      ( b2, b3, b4)
+    //      ( c2, c3, c4)
+    //      ( d2, d3, d4)   
+    //                   (b2)[(c3)(d4)-(d3)(c4)] 
+    //                   (b3)[(c2)(d4)-(d2)(c4)] 
+    //                   (b4)[(c2)(d3)-(d2)(c3)] 
+    //                                           
+ 
+
+    K  = PolyMultiply(b2A, (PolySub( PolyMultiply(c3A,d4A), PolyMultiply(d3A,c4A) ) ) ) 
+    L  = PolyMultiply(b3A, (PolySub( PolyMultiply(c2A,d4A), PolyMultiply(d2A,c4A) ) ) ) 
+    L  = PolyMultiply(L,[-1])  // FlipSign 
+    M  = PolyMultiply(b4A, (PolySub( PolyMultiply(c2A,d3A), PolyMultiply(d2A,c3A) ) ) )
+
+    N1 = PolyAdd(M, PolyAdd(K,L))    // Add 3 Sum
+    P1 = PolyMultiply(a1A, N1)       // Multipyl by Row-1
+         
+    //  ------------------------------------------------------------------------------                                       1    2    3    4                                              
+    // -(a2) = (flip sign on even position)                                             
+    //      ( b1, b3, b4)                                                               
+    //      ( c1, c3, c4)                                                               
+    //      ( d1, d3, d4)                                                               
+    //                   (b1)[(c3)(d4)-(d3)(c4) 
+    //                   (b3)[(c1)(d4)-(d1)(c4) 
+    //                   (b4)[(c1)(d3)-(d1)(c3) 
+    //                                          
+
+    K  = PolyMultiply(b1A, (PolySub( PolyMultiply(c3A,d4A), PolyMultiply(d3A,c4A) ) ) ) 
+    L  = PolyMultiply(b3A, (PolySub( PolyMultiply(c1A,d4A), PolyMultiply(d1A,c4A) ) ) )  
+    L  = PolyMultiply(L,[-1])  // FlipSign 
+    M  = PolyMultiply(b4A, (PolySub( PolyMultiply(c1A,d3A), PolyMultiply(d1A,c3A) ) ) )
+
+    N2 = PolyAdd(M, PolyAdd(K,L))    // Add 3 Sums
+    P2 = PolyMultiply(a2A, N2)       // Multipl by Row-1
+    P2 = PolyMultiply(P2,[-1])       // FlipSign
+                                               
+    //   ----------------------------------------------------------------------------                                      
+    // +(a3)                                                                              
+    //      ( b1, b2, b4)                                                                 
+    //      ( c1, c2, c4)
+    //      ( d1, d2, d4)      
+    //                   (b1)[(c2)(d4)-(d2)(c4)] 
+    //                   (b2)[(c1)(d4)-(d1)(c4)] 
+    //                   (b4)[(c1)(d2)-(d1)(c2)] 
+    //                                           
+    //                          
+    K  = PolyMultiply(b1A, (PolySub( PolyMultiply(c2A,d4A), PolyMultiply(d2A,c4A) ) ) ) 
+    L  = PolyMultiply(b2A, (PolySub( PolyMultiply(c1A,d4A), PolyMultiply(d1A,c4A) ) ) )  
+    L  = PolyMultiply(L,[-1])  // FlipSign 
+    M  = PolyMultiply(b4A, (PolySub( PolyMultiply(c1A,d2A), PolyMultiply(d1A,c2A) ) ) )
+
+    N3 = PolyAdd(M, PolyAdd(K,L))    // Add 3 Sums
+    P3 = PolyMultiply(a3A, N3)        // Multipl by Row-1 
+                                              
+
+    //     ----------------------------------------------- -----------------------------                                
+    //                                                                                     
+    //  -(a4) (flip sign on even position)                                                 
+    //       ( b1, b2, b3)                                                                 
+    //       ( c1, c2, c3)
+    //       ( d1, d2, d3)                   
+    //                    (b1)[(c2)(d3)-(d2)(c3)] 
+    //                    (b2)[(c1)(d3)-(d1)(c3)] 
+    //                    (b3)[(c1)(d2)-(d1)(c2)] 
+    //                                                                                                 
+
+    K  = PolyMultiply(b1A, (PolySub( PolyMultiply(c2A,d3A), PolyMultiply(d2A,c3A) ) ) ) 
+    L  = PolyMultiply(b2A, (PolySub( PolyMultiply(c1A,d3A), PolyMultiply(d1A,c3A) ) ) )  
+    L  = PolyMultiply(L,[-1])  // FlipSign 
+    M  = PolyMultiply(b3A, (PolySub( PolyMultiply(c1A,d2A), PolyMultiply(d1A,c2A) ) ) )
+
+    N4 = PolyAdd(M, PolyAdd(K,L))    // Add 3 Sums
+    P4 = PolyMultiply(a4A, N4)       // Multipl by Row-1
+    P4 = PolyMultiply(P4,[-1])       // FlipSign
+
+                                              
+    //==========================================================================
+    // Add ALL the 4 results of  Row-1  results 
+    // c x^1 x^2 x^3 x^5                                                                                                             
+
+    S1 = PolyAdd( PolyAdd(P1, P2), PolyAdd(P3, P4))
+    R1 = [S1[5], S1[4], S1[3], S1[2], S1[1]]
+                   
+return R1  // Characteristic Eqution: high to low [] 1x4: x^5 ... x^1 c
+
+//=================================
+//=================================
+// Func EigenValue4(N)
+// EigenValues for 4x4 Matrix 
+// Calls CharEquation to solve Polynomial
+// Call QuarticSolve to find EigenValues
+// Return matrix 4x1
+// Bert MAriani 2023/06/28
+
+Func EigenValue4(N)
+
+  S1 = CharEquation(N)
+  L1 = QuarticSolve([S1])
+
+return L1  // Matrix 4x1
+
+//===================================
