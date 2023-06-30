@@ -1059,6 +1059,10 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
                 puts("Rule : AnonymousFunction --> Func ParaList '{' Statement '}'");
                 return 1 ;
             }
+            else {
+                ring_parser_error(pParser,RING_PARSER_ERROR_BRACESNOTCLOSED);
+                return 0 ;
+            }
         }
         else {
             ring_parser_error(pParser,RING_PARSER_ERROR_BRACEISMISSINGTOSTARTANONFUNC);
