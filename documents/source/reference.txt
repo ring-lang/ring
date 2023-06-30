@@ -392,6 +392,9 @@ Compiler Errors
 * Error (C24) : The parent class name is identical to the subclass name
 * Error (C25) : Trying to access the self reference after the object name
 * Error (C26) : Class redefinition, class is already defined!
+* Error (C27) : Syntax Error!
+* Error (C28) : Expression is expected!
+* Error (C29) : Braces are missing to define anonymous function!
 
 * Error (S1) : Literal not closed!
 
