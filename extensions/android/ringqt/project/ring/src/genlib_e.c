@@ -1594,6 +1594,7 @@ void ring_vm_generallib_pointer2object ( void *pPointer )
         RING_API_ERROR(RING_API_NULLPOINTER);
         return ;
     }
+    ring_list_disabledontref(pList);
     RING_API_RETNEWREF(pList);
 }
 
