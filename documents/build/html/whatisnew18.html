@@ -207,6 +207,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#better-citpre-application">Better CitPre application</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-tools">Better Tools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#matrixlib">MatrixLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#syntax-files">Syntax Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#the-power-operator">The Power Operator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-references">Using References</a></li>
@@ -304,8 +305,9 @@
 <li><p>Read Files application</p></li>
 <li><p>Random User application</p></li>
 <li><p>Better CitPre application</p></li>
-<li><p>More Samples</p></li>
 <li><p>Better Tools</p></li>
+<li><p>More Samples</p></li>
+<li><p>MatrixLib</p></li>
 <li><p>Syntax Files</p></li>
 <li><p>The Power Operator</p></li>
 <li><p>Using References</p></li>
@@ -395,8 +397,15 @@
 </ul>
 <img alt="lagrange" src="_images/lagrange.png" />
 </div>
+<div class="section" id="matrixlib">
+<span id="index-7"></span><h2>MatrixLib<a class="headerlink" href="#matrixlib" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.18 comes with the MatrixLib library</p>
+<p>This library comes with matrix functions</p>
+<p>You will find the source code in ring/libraries/matrixlib folder</p>
+<p>The samples exist in the ring/samples/UsingMatrixLib folder</p>
+</div>
 <div class="section" id="syntax-files">
-<span id="index-7"></span><h2>Syntax Files<a class="headerlink" href="#syntax-files" title="Permalink to this headline">¶</a></h2>
+<span id="index-8"></span><h2>Syntax Files<a class="headerlink" href="#syntax-files" title="Permalink to this headline">¶</a></h2>
 <p>Ring 1.18 provide another step towards better syntax flexibility</p>
 <ul class="simple">
 <li><p>Support running source code files with any extension</p></li>
@@ -411,7 +420,7 @@
 <img alt="autoloadsyntax" src="_images/autoloadsyntax.png" />
 </div>
 <div class="section" id="the-power-operator">
-<span id="index-8"></span><h2>The Power Operator<a class="headerlink" href="#the-power-operator" title="Permalink to this headline">¶</a></h2>
+<span id="index-9"></span><h2>The Power Operator<a class="headerlink" href="#the-power-operator" title="Permalink to this headline">¶</a></h2>
 <p>Ring 1.18 Support (**) and (^^) as the power operator</p>
 <p>Example:</p>
 <div class="highlight-Ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="mi">3</span><span class="o">**</span><span class="mi">4</span>                  <span class="c"># 81.00</span>
@@ -426,7 +435,7 @@
 </div>
 </div>
 <div class="section" id="using-references">
-<span id="index-9"></span><h2>Using References<a class="headerlink" href="#using-references" title="Permalink to this headline">¶</a></h2>
+<span id="index-10"></span><h2>Using References<a class="headerlink" href="#using-references" title="Permalink to this headline">¶</a></h2>
 <p>Ring as a language is designed to reduce references usage</p>
 <p>The assignment operator (=) copy lists/objects by value</p>
 <p>This release comes with the next functions to create and use managed references</p>
@@ -446,7 +455,7 @@ refcount(variable) ---&gt; Number (References Count)
 <p>Check the chapter (Using References) to learn more about using this feature!</p>
 </div>
 <div class="section" id="ring-for-ms-dos">
-<span id="index-10"></span><h2>Ring for MS-DOS<a class="headerlink" href="#ring-for-ms-dos" title="Permalink to this headline">¶</a></h2>
+<span id="index-11"></span><h2>Ring for MS-DOS<a class="headerlink" href="#ring-for-ms-dos" title="Permalink to this headline">¶</a></h2>
 <p>Starting from Ring 1.18, We can build Ring Compiler/VM on MS-DOS</p>
 <p>Tested using</p>
 <ul class="simple">
@@ -466,7 +475,7 @@ refcount(variable) ---&gt; Number (References Count)
 <img alt="ringfordos" src="_images/ringfordos.png" />
 </div>
 <div class="section" id="faster-for-in-loop">
-<span id="index-11"></span><h2>Faster (For-In) Loop<a class="headerlink" href="#faster-for-in-loop" title="Permalink to this headline">¶</a></h2>
+<span id="index-12"></span><h2>Faster (For-In) Loop<a class="headerlink" href="#faster-for-in-loop" title="Permalink to this headline">¶</a></h2>
 <p>The (For-In) Loop implementation is revised in Ring 1.18</p>
 <p>It’s six times (6x) faster than Ring 1.17</p>
 <p>Example:</p>
@@ -498,7 +507,7 @@ refcount(variable) ---&gt; Number (References Count)
 <p>Time using Ring 1.17: 0.28 second</p>
 </div>
 <div class="section" id="faster-braceerror">
-<span id="index-12"></span><h2>Faster BraceError()<a class="headerlink" href="#faster-braceerror" title="Permalink to this headline">¶</a></h2>
+<span id="index-13"></span><h2>Faster BraceError()<a class="headerlink" href="#faster-braceerror" title="Permalink to this headline">¶</a></h2>
 <p>Using BraceError() we can handle errors that happens inside braces</p>
 <p>In Ring 1.18 - Calling BraceError() is faster and we can
 return values from this method</p>
@@ -538,7 +547,7 @@ z: 3000
 </div>
 </div>
 <div class="section" id="better-ringraylib">
-<span id="index-13"></span><h2>Better RingRayLib<a class="headerlink" href="#better-ringraylib" title="Permalink to this headline">¶</a></h2>
+<span id="index-14"></span><h2>Better RingRayLib<a class="headerlink" href="#better-ringraylib" title="Permalink to this headline">¶</a></h2>
 <p>The next functions are added to the extension</p>
 <ul class="simple">
 <li><p>SetShaderInt(shader, Location, nValue)</p></li>
@@ -564,7 +573,7 @@ z: 3000
 <img alt="raylibshader2" src="_images/raylibshader2.png" />
 </div>
 <div class="section" id="better-ringsockets">
-<span id="index-14"></span><h2>Better RingSockets<a class="headerlink" href="#better-ringsockets" title="Permalink to this headline">¶</a></h2>
+<span id="index-15"></span><h2>Better RingSockets<a class="headerlink" href="#better-ringsockets" title="Permalink to this headline">¶</a></h2>
 <p>The next functions are added to the extension</p>
 <ul class="simple">
 <li><p>inet_pton()</p></li>
@@ -573,13 +582,13 @@ z: 3000
 </ul>
 </div>
 <div class="section" id="heroku-better-support">
-<span id="index-15"></span><h2>Heroku (Better support)<a class="headerlink" href="#heroku-better-support" title="Permalink to this headline">¶</a></h2>
+<span id="index-16"></span><h2>Heroku (Better support)<a class="headerlink" href="#heroku-better-support" title="Permalink to this headline">¶</a></h2>
 <p>In Ring 1.18 We updated the packages to use a modern Ring version</p>
 <p>The project is tested using Heroku-22 (Ubuntu 22.04)</p>
 <p>URL: <a class="reference external" href="https://github.com/ring-lang/RingWebAppOnHeroku">https://github.com/ring-lang/RingWebAppOnHeroku</a></p>
 </div>
 <div class="section" id="command-new-from">
-<span id="index-16"></span><h2>Command: New From<a class="headerlink" href="#command-new-from" title="Permalink to this headline">¶</a></h2>
+<span id="index-17"></span><h2>Command: New From<a class="headerlink" href="#command-new-from" title="Permalink to this headline">¶</a></h2>
 <p>Using (new) we can create a new object from a specific class</p>
 <p>In Ring 1.18 we have (new from) where we provide a variable which contains the class name</p>
 <p>Using this command we can avoid using Eval() for this common case</p>
@@ -604,7 +613,7 @@ z: 3000
 </div>
 </div>
 <div class="section" id="importpackage-function">
-<span id="index-17"></span><h2>ImportPackage() Function<a class="headerlink" href="#importpackage-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-18"></span><h2>ImportPackage() Function<a class="headerlink" href="#importpackage-function" title="Permalink to this headline">¶</a></h2>
 <p>Instead of using the import command we can use the importpackage() function</p>
 <p>This function get the package name through a string or variable</p>
 <p>This is useful if the package name will be known only during the runtime</p>
@@ -624,7 +633,7 @@ z: 3000
 </div>
 </div>
 <div class="section" id="more-low-level-functions">
-<span id="index-18"></span><h2>More Low Level Functions<a class="headerlink" href="#more-low-level-functions" title="Permalink to this headline">¶</a></h2>
+<span id="index-19"></span><h2>More Low Level Functions<a class="headerlink" href="#more-low-level-functions" title="Permalink to this headline">¶</a></h2>
 <p>The next functions are added to the Low Level functions</p>
 <ul class="simple">
 <li><p>ringvm_ismempool()</p></li>
@@ -636,7 +645,7 @@ z: 3000
 <p>See the chapter (Low Level Functions) for more information.</p>
 </div>
 <div class="section" id="better-weblib">
-<span id="index-19"></span><h2>Better WebLib<a class="headerlink" href="#better-weblib" title="Permalink to this headline">¶</a></h2>
+<span id="index-20"></span><h2>Better WebLib<a class="headerlink" href="#better-weblib" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>HTTP Post - Better Code</p></li>
 <li><dl class="simple">
@@ -673,7 +682,7 @@ z: 3000
 </ol>
 </div>
 <div class="section" id="better-ring-api">
-<span id="index-20"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this headline">¶</a></h2>
+<span id="index-21"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Added: RING_API_GETFLOATPOINTER(nParameter)</p></li>
 <li><p>Added: RING_API_ACCEPTFLOATVALUE(nParameter)</p></li>
@@ -734,7 +743,7 @@ Hello from C Code
 </div>
 </div>
 <div class="section" id="better-documentation">
-<span id="index-21"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this headline">¶</a></h2>
+<span id="index-22"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this headline">¶</a></h2>
 <p>The next chapters are improved!</p>
 <ol class="arabic simple">
 <li><p>Building RingQt applications for Mobile</p></li>
@@ -743,7 +752,7 @@ Hello from C Code
 </ol>
 </div>
 <div class="section" id="more-improvements">
-<span id="index-22"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
+<span id="index-23"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>NaturalLib - RunString() Method - Ignore braces inside commands</p></li>
 <li><p>FindInFiles Application: Better Code (Check Read() function output)</p></li>

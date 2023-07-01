@@ -18,8 +18,9 @@ Ring 1.18 comes with the next features!
 * Read Files application
 * Random User application
 * Better CitPre application
-* More Samples
 * Better Tools
+* More Samples
+* MatrixLib 
 * Syntax Files 
 * The Power Operator
 * Using References 
@@ -134,6 +135,20 @@ More Samples
 
 .. image:: lagrange.png
 	:alt: lagrange
+
+.. index:: 
+	pair: What is new in Ring  1.18; MatrixLib
+
+MatrixLib
+=========
+
+Ring 1.18 comes with the MatrixLib library
+
+This library comes with matrix functions
+
+You will find the source code in ring/libraries/matrixlib folder
+
+The samples exist in the ring/samples/UsingMatrixLib folder
 
 .. index:: 
 	pair: What is new in Ring  1.18; Syntax Files
