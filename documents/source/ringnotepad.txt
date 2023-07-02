@@ -7,7 +7,9 @@ Using Ring Notepad
 
 In this chapter we will learn about using Ring Notepad to write and execute Ring programs quickly
 
-Ring Notepad is just a simple application developed using the Ring language.
+Ring Notepad is just an application developed using the Ring programming language.
+
+The source code exist in the ring/tools/ringnotepad folder.
 
 .. index:: 
 	pair: Ring Notepad; Ring Notepad - Main Window
