@@ -86,6 +86,8 @@ In Ring 1.18 the Citations Prediction application is updated
 Better Tools
 ============
 
+* Ring2EXE: Better code when distributing GUI applications
+* Form Designer: Correct drawing for new controls after moving Ring Notepad
 * Ring Notepad: Output Window - Correct cursor position while using unicode 
 * Ring Notepad: Set the default font when opening the Font dialog
 * Ring Notepad: Preserve editing history after text insertion
@@ -101,8 +103,9 @@ Better Tools
 * Ring Notepad: Check if we have web application before running
 * Ring Notepad: Better icon for closing the application
 * Ring Notepad: Select file window (Quick navigation between opened files)
-* Form Designer: Correct drawing for new controls after moving Ring Notepad
-* Ring2EXE: Better code when distributing GUI applications
+
+.. image:: rnoteselectfile.png
+	:alt: selectfile
 
 .. index:: 
 	pair: What is new in Ring  1.18; More Samples
@@ -143,11 +146,9 @@ More Samples
 MatrixLib
 =========
 
-Ring 1.18 comes with the MatrixLib library
+Ring 1.18 comes with the MatrixLib library (Contains the Matrix functions). 
 
-This library comes with matrix functions
-
-You will find the source code in ring/libraries/matrixlib folder
+The source code exist in the ring/libraries/matrixlib folder
 
 The samples exist in the ring/samples/UsingMatrixLib folder
 
