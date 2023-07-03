@@ -15,6 +15,7 @@ Contents:
 * ref()/reference() function
 * refcount() function
 * The Tree Class
+* Circular references
 
 .. index:: 
 	pair: Using References; Introduction
@@ -191,4 +192,29 @@ Example:
 
 .. tip:: The Tree class already exist in the StdLib 
 
+.. index:: 
+	pair: Using References; Circular References
 
+Circular References
+===================
+
+Using Ref() we can create circular references
+
+Ring VM can detect them and free memory when the variable is deleted.
+
+Example:
+
+.. code-block:: ring
+
+	aList = [ 10,20,30, ref(aList) ]        
+	? aList[4][1]                           
+	? aList[4][4][4][4][4][2]               
+	? refcount(aList)                       
+
+Output:
+
+.. code-block:: ring
+
+	10
+	20
+	2
