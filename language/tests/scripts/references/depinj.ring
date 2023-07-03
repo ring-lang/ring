@@ -33,7 +33,7 @@ class myclass2
 
 	func test 
 
-		? :myclass1
+		? :myclass2
 
 class cont
 
