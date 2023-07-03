@@ -234,9 +234,9 @@ Example:
 
 	func main
 
-		v1 = new myclass1  v2 = new myclass2
+		v1 = new MyClass1  v2 = new MyClass2
 
-		oCont = new Cont(v1,v2)
+		oCont = new Controller(v1,v2)
 
 		v1.value = "one"  v2.value = "two"
 
@@ -246,11 +246,11 @@ Example:
 
 		oCont.test()
 
-	class myclass1 value func test ? :myclass1
+	class MyClass1 value func test ? :myclass1
 
-	class myclass2 value func test ? :myclass2
+	class MyClass2 value func test ? :myclass2
 
-	class cont o1 o2
+	class Controller o1 o2
 
 		func init myo1,myo2
 
