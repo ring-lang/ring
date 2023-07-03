@@ -16,7 +16,8 @@ Contents:
 * refcount() function
 * The Tree Class
 * Circular references
-* Dependency Injection
+* Dependency injection
+* Linked list
 
 .. index:: 
 	pair: Using References; Introduction
@@ -221,9 +222,9 @@ Output:
 	2
 
 .. index:: 
-	pair: Using References; Dependency Injection
+	pair: Using References; Dependency injection
 
-Dependency Injection
+Dependency injection
 ====================
 
 The next example demonstrates how to apply dependency injection using the Ref() function
@@ -275,3 +276,83 @@ Output:
 	myclass2
 	one
 	two
+
+
+.. index:: 
+	pair: Using References; Linked list
+
+Linked list
+===========
+
+The next example demonstrates how to create a linked list using the Ref() function.
+
+.. tip:: In practice we don't need to do this since Ring comes with lists
+
+Example:
+
+.. code-block:: ring
+
+	func main
+	
+		n1 = new node(:one)
+		n2 = new node(:two)
+		n3 = new node(:three)
+		n4 = new node(:four)
+		n5 = new node(:five)
+		
+		n1 { pNext = ref(n2) "No Previous Node" }
+		n2 { pNext = ref(n3) pPrev = ref(n1)    }
+		n3 { pNext = ref(n4) pPrev = ref(n2)    }
+		n4 { pNext = ref(n5) pPrev = ref(n3)    }
+		n5 { "No Next Node"  pPrev = ref(n4)    }
+		
+		n3 { 
+			toTheEnd()
+			? Copy("=",20)
+			toTheStart()
+		}
+	
+	class node
+	
+		pPrev pNext
+	
+		func init value
+			data = value
+	
+		func toTheEnd
+	
+			print()
+			pCurrent = pNext
+			while isObject(pCurrent)
+				pCurrent.print()
+				pCurrent = pCurrent.pNext
+			end
+	
+		func toTheStart
+	
+			print()
+			pCurrent = pPrev
+			while isObject(pCurrent)
+				pCurrent.print()
+				pCurrent = pCurrent.pPrev
+			end
+
+		func print
+	
+			? data
+	
+		private
+	
+			data  pCurrent
+
+Output:
+
+.. code-block:: ring
+
+	three
+	four
+	five
+	====================
+	three
+	two
+	one
