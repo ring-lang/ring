@@ -176,6 +176,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Using References</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ref-reference-function">ref()/reference() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#refcount-function">refcount() function</a></li>
 </ul>
@@ -277,14 +278,33 @@
   <div class="section" id="using-references">
 <span id="index-0"></span><h1>Using References<a class="headerlink" href="#using-references" title="Permalink to this headline">¶</a></h1>
 <p>In this chapter we will learn about using references.</p>
+<p>This feature is added to the Ring language starting from Ring 1.18.</p>
+<p>Contents:</p>
+<ul class="simple">
+<li><p>Introduction</p></li>
+<li><p>ref()/reference() function</p></li>
+<li><p>refcount() function</p></li>
+</ul>
+<div class="section" id="introduction">
+<span id="index-1"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>In Ring, Using the Assignment (=) operator copy variables by value.
+Also, Adding a List/Object to another List create a new copy.
+To change this behavior, We can use the Ref()/Reference() function.
+This function doesn’t create the reference directly.
+It’s a flag setter, And Ring VM will decide when to create the reference.</p>
+<p>Once we have more than one reference, No need to use the Ref() again with the same list/object
+Because Ring will use Copy by Reference with this list/object.
+If the reference count drop to one again then Ring will change the behavior and
+will use the default rule (copy lists/objects by value).</p>
+<p>In general Ring as a language is designed to reduce references usage.
+This feature is added to be used in special cases
+like teaching data structures and implementing specific design patterns.</p>
+</div>
 <div class="section" id="ref-reference-function">
-<span id="index-1"></span><h2>ref()/reference() function<a class="headerlink" href="#ref-reference-function" title="Permalink to this headline">¶</a></h2>
-<p>In Ring, Using the Assignment (=) operator copy variables by value.</p>
-<p>Also, Adding a List/Object to another List create a new copy.</p>
-<p>To change this behavior, We can use the Ref()/Reference() function.</p>
+<span id="index-2"></span><h2>ref()/reference() function<a class="headerlink" href="#ref-reference-function" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ref</span><span class="p">(</span><span class="n">aList</span><span class="o">|</span><span class="n">oObject</span><span class="p">)</span>       <span class="o">---&gt;</span> <span class="n">aList</span><span class="o">|</span><span class="n">oObject</span> <span class="p">(</span><span class="n">Reference</span><span class="p">)</span> <span class="c"># Short name</span>
-<span class="n">reference</span><span class="p">(</span><span class="n">aList</span><span class="o">|</span><span class="n">oObject</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">aList</span><span class="o">|</span><span class="n">oObject</span> <span class="p">(</span><span class="n">Reference</span><span class="p">)</span> <span class="c"># Long name</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ref</span><span class="p">(</span><span class="n">aList</span><span class="o">|</span><span class="n">oObject</span><span class="p">)</span>       <span class="o">---&gt;</span> <span class="n">aList</span><span class="o">|</span><span class="n">oObject</span> <span class="p">(</span><span class="n">Enable</span> <span class="n">Reference</span> <span class="n">Flag</span><span class="p">)</span> <span class="c"># Short name</span>
+<span class="n">reference</span><span class="p">(</span><span class="n">aList</span><span class="o">|</span><span class="n">oObject</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">aList</span><span class="o">|</span><span class="n">oObject</span> <span class="p">(</span><span class="n">Enable</span> <span class="n">Reference</span> <span class="n">Flag</span><span class="p">)</span> <span class="c"># Long name</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -297,12 +317,29 @@
 <span class="k">next</span>
 <span class="o">?</span> <span class="n">aList3</span>                <span class="c"># 10 20 30</span>
 <span class="o">?</span> <span class="n">aListCopy</span>             <span class="c"># 1 2 3</span>
+<span class="n">aList2</span>    <span class="o">=</span> <span class="kp">NULL</span>
+<span class="n">aList3</span>    <span class="o">=</span> <span class="kp">NULL</span>
+<span class="n">aList2</span>    <span class="o">=</span> <span class="n">aList</span>       <span class="c"># Copy by Value</span>
+<span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">aList2</span>
+        <span class="n">item</span> <span class="o">/=</span> <span class="mi">10</span>
+<span class="k">next</span>
+<span class="o">?</span> <span class="n">aList</span>                 <span class="c"># 10 20 30</span>
+<span class="o">?</span> <span class="n">aList2</span>                <span class="c"># 1  2  3</span>
 </pre></div>
 </div>
 <p>Output:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>10
 20
 30
+
+1
+2
+3
+
+10
+20
+30
+
 1
 2
 3
@@ -310,7 +347,7 @@
 </div>
 </div>
 <div class="section" id="refcount-function">
-<span id="index-2"></span><h2>refcount() function<a class="headerlink" href="#refcount-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><h2>refcount() function<a class="headerlink" href="#refcount-function" title="Permalink to this headline">¶</a></h2>
 <p>Using the refcount() function we can know how many references exist.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">refcount</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Number</span> <span class="p">(</span><span class="n">References</span> <span class="n">Count</span><span class="p">)</span>

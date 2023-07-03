@@ -7,24 +7,47 @@ Using References
 
 In this chapter we will learn about using references.
 
+This feature is added to the Ring language starting from Ring 1.18.
+
+Contents:
+
+* Introduction
+* ref()/reference() function
+* refcount() function
+
+.. index:: 
+	pair: Using References; Introduction
+
+Introduction
+============
+
+In Ring, Using the Assignment (=) operator copy variables by value.
+Also, Adding a List/Object to another List create a new copy.
+To change this behavior, We can use the Ref()/Reference() function.
+This function doesn't create the reference directly. 
+It's a flag setter, And Ring VM will decide when to create the reference. 
+
+Once we have more than one reference, No need to use the Ref() again with the same list/object
+Because Ring will use Copy by Reference with this list/object.
+If the reference count drop to one again then Ring will change the behavior and
+will use the default rule (copy lists/objects by value).
+
+In general Ring as a language is designed to reduce references usage. 
+This feature is added to be used in special cases 
+like teaching data structures and implementing specific design patterns.
+
 .. index:: 
 	pair: Using References; ref()
 
 ref()/reference() function
 ==========================
 
-In Ring, Using the Assignment (=) operator copy variables by value.
-
-Also, Adding a List/Object to another List create a new copy.
-
-To change this behavior, We can use the Ref()/Reference() function.
-
 Syntax:
 
 .. code-block:: ring
 
-	ref(aList|oObject) 	 ---> aList|oObject (Reference)	# Short name
-	reference(aList|oObject) ---> aList|oObject (Reference)	# Long name
+	ref(aList|oObject) 	 ---> aList|oObject (Enable Reference Flag) # Short name
+	reference(aList|oObject) ---> aList|oObject (Enable Reference Flag) # Long name
 
 Example:
 
@@ -39,6 +62,15 @@ Example:
 	next
 	? aList3		# 10 20 30
 	? aListCopy		# 1 2 3
+	aList2    = NULL
+	aList3    = NULL
+	aList2    = aList	# Copy by Value
+	for item in aList2
+		item /= 10
+	next
+	? aList			# 10 20 30
+	? aList2		# 1  2  3 
+	
 
 Output:
 
@@ -47,6 +79,15 @@ Output:
 	10
 	20
 	30
+
+	1
+	2
+	3
+
+	10
+	20
+	30
+
 	1
 	2
 	3
