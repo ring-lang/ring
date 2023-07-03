@@ -181,6 +181,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#refcount-function">refcount() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#the-tree-class">The Tree Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#circular-references">Circular References</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dependency-injection">Dependency Injection</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
@@ -288,6 +289,7 @@
 <li><p>refcount() function</p></li>
 <li><p>The Tree Class</p></li>
 <li><p>Circular references</p></li>
+<li><p>Dependency Injection</p></li>
 </ul>
 <div class="section" id="introduction">
 <span id="index-1"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
@@ -448,6 +450,54 @@ to the parent object.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span>
 <span class="mi">20</span>
 <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dependency-injection">
+<span id="index-6"></span><h2>Dependency Injection<a class="headerlink" href="#dependency-injection" title="Permalink to this headline">¶</a></h2>
+<p>The next example demonstrates how to apply dependency injection using the Ref() function</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
+
+        <span class="n">v1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">myclass1</span>  <span class="n">v2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">myclass2</span>
+
+        <span class="n">oCont</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Cont</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">)</span>
+
+        <span class="n">v1</span><span class="p">.</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;one&quot;</span>  <span class="n">v2</span><span class="p">.</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;two&quot;</span>
+
+        <span class="n">oCont</span><span class="p">.</span><span class="n">test</span><span class="p">()</span>
+
+        <span class="n">v1</span> <span class="o">=</span> <span class="mi">10</span> <span class="n">v2</span> <span class="o">=</span> <span class="mi">20</span>  <span class="o">?</span> <span class="n">v1</span> <span class="o">?</span> <span class="n">v2</span>
+
+        <span class="n">oCont</span><span class="p">.</span><span class="n">test</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="n">myclass1</span> <span class="n">value</span> <span class="k">func</span> <span class="n">test</span> <span class="o">?</span> <span class="p">:</span><span class="n">myclass1</span>
+
+<span class="k">class</span> <span class="n">myclass2</span> <span class="n">value</span> <span class="k">func</span> <span class="n">test</span> <span class="o">?</span> <span class="p">:</span><span class="n">myclass2</span>
+
+<span class="k">class</span> <span class="n">cont</span> <span class="n">o1</span> <span class="n">o2</span>
+
+        <span class="k">func</span> <span class="n">init</span> <span class="n">myo1</span><span class="p">,</span><span class="n">myo2</span>
+
+                <span class="n">o1</span><span class="o">=</span><span class="n">ref</span><span class="p">(</span><span class="n">myo1</span><span class="p">)</span> <span class="n">o2</span><span class="o">=</span><span class="n">ref</span><span class="p">(</span><span class="n">myo2</span><span class="p">)</span>
+
+        <span class="k">func</span> <span class="n">test</span>
+
+                <span class="n">o1</span><span class="p">.</span><span class="n">test</span><span class="p">()</span>   <span class="n">o2</span><span class="p">.</span><span class="n">test</span><span class="p">()</span>
+                <span class="o">?</span> <span class="n">o1</span><span class="p">.</span><span class="n">value</span>  <span class="o">?</span> <span class="n">o2</span><span class="p">.</span><span class="n">value</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">myclass1</span>
+<span class="n">myclass2</span>
+<span class="n">one</span>
+<span class="n">two</span>
+<span class="mi">10</span>
+<span class="mi">20</span>
+<span class="n">myclass1</span>
+<span class="n">myclass2</span>
+<span class="n">one</span>
+<span class="n">two</span>
 </pre></div>
 </div>
 </div>
