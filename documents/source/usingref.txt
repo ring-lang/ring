@@ -14,6 +14,7 @@ Contents:
 * Introduction
 * ref()/reference() function
 * refcount() function
+* The Tree Class
 
 .. index:: 
 	pair: Using References; Introduction
@@ -141,3 +142,53 @@ Output:
 	5
 	2
 	2
+
+.. index:: 
+	pair: Using References; The Tree Class
+
+The Tree Class
+==============
+
+The Tree class is a good example about using the Ref() function.
+
+In this class each object contains a group of objects and these objects have a reference
+to the parent object.
+
+Example:
+
+.. code-block:: ring
+
+	Class tree
+	
+		data parent
+		children = []
+	
+		func set x
+			data = x
+	
+		func value
+			return data
+	
+		func add x
+			children + new tree
+			nMax = len(children)
+			children[nMax].parent = ref(self)
+			children[nMax].data = x
+			return children[nMax]
+	
+		func parent
+			if ! isObject(parent)
+				raise("This node is the root!")
+				return
+			ok
+			return parent
+	
+		func print
+			for x in children
+				? x.data
+				x.print()
+			next
+
+.. tip:: The Tree class already exist in the StdLib 
+
+
