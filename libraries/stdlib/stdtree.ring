@@ -13,7 +13,7 @@ ok
 func tree_class_test
 
 	otree = new tree
-	See "Test the tree Class Methods" + nl
+	? "Test the tree Class Methods" 
 	otree {
 		set("The first step")	# set the root node value
 		see value() + nl
