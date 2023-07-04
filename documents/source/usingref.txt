@@ -516,7 +516,8 @@ Ref() and sub lists
 ===================
 
 Using Ref() with a sub list will create a strong reference to this sub list
-But if the sub list contains other references, we will get weak references to them.
+
+.. tip:: if the sub list contains other references, we will get weak references to them.
 
 Example:
 
