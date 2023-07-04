@@ -21,6 +21,7 @@ Contents:
 * Passing lists to functions
 * Ref() and temp. lists
 * Nested Ref()
+* Ref() in left side
 
 .. index:: 
 	pair: Using References; Introduction
@@ -472,10 +473,36 @@ Nested Ref()
 
 Since Ref() function is a flag setter, nested Ref() usage is not useful.
 
-example:
+Example:
 
 .. code-block:: ring
 
 	aList  = [1,2,3]
 	aList2 = ref(ref(ref(ref(aList))))  # The same as aList2 = ref(aList)
 	? refcount(aList)                   # 2
+
+
+.. index:: 
+	pair: Using References; Ref() in left side
+
+Ref() in left side
+==================
+
+Using Ref() in left side of an assignment is not useful and will disable the assignment
+i.e. will not change the value.
+
+Example:
+
+.. code-block:: ring
+
+	aList = [1,2,3]
+	ref(aList) = [4,5]	
+	? aList
+
+Output:
+
+.. code-block:: none
+
+	1
+	2
+	3
