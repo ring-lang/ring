@@ -22,6 +22,8 @@ Contents:
 * Ref() and temp. lists
 * Nested Ref()
 * Ref() in left side
+* Ref() and sub lists
+
 
 .. index:: 
 	pair: Using References; Introduction
@@ -506,3 +508,64 @@ Output:
 	1
 	2
 	3
+
+.. index:: 
+	pair: Using References; Ref() and sub lists
+
+Ref() and sub lists
+===================
+
+Using Ref() with a sub list will create a strong reference to this sub list
+But if the sub list contains other references, we will get weak references to them.
+
+Example:
+
+.. code-block:: ring
+
+	a = [[ref(a),ref(a),3],[4,5,6]]
+	? a
+	b = ref(a[1])	# Get Weak references to References inside a[1]  
+	? b     
+	b = NULL
+	? a
+	c = a[1]	# Get Strong references to References inside a[1]  
+	? c
+	c = NULL
+	? a
+	? :done
+
+Output:
+
+.. code-block:: none
+
+	[...] (RC:3)
+	[...] (RC:3)
+	3
+	4
+	5
+	6
+	
+	[...] (RC:3)
+	[...] (RC:3)
+	3
+	
+	[...] (RC:3)
+	[...] (RC:3)
+	3
+	4
+	5
+	6
+	
+	[...] (RC:5)
+	[...] (RC:5)
+	3
+	
+	[...] (RC:3)
+	[...] (RC:3)
+	3
+	4
+	5
+	6
+	
+	done
+ 
