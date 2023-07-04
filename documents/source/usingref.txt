@@ -12,12 +12,12 @@ This feature is added to the Ring language starting from Ring 1.18.
 Contents:
 
 * Introduction
-* ref()/reference() function
-* refcount() function
-* The Tree Class
+* Ref()/Reference() function
+* Refcount() function
 * Circular references
-* Dependency injection
+* The Tree class
 * Linked list
+* Dependency injection
 
 .. index:: 
 	pair: Using References; Introduction
@@ -147,6 +147,33 @@ Output:
 	2
 
 .. index:: 
+	pair: Using References; Circular References
+
+Circular References
+===================
+
+Using Ref() we can create circular references
+
+Ring VM can detect them and free memory when the variable is deleted.
+
+Example:
+
+.. code-block:: ring
+
+	aList = [ 10,20,30, ref(aList) ]        
+	? aList[4][1]                           
+	? aList[4][4][4][4][4][2]               
+	? refcount(aList)                       
+
+Output:
+
+.. code-block:: ring
+
+	10
+	20
+	2
+
+.. index:: 
 	pair: Using References; The Tree Class
 
 The Tree Class
@@ -193,89 +220,6 @@ Example:
 			next
 
 .. tip:: The Tree class already exist in the StdLib 
-
-.. index:: 
-	pair: Using References; Circular References
-
-Circular References
-===================
-
-Using Ref() we can create circular references
-
-Ring VM can detect them and free memory when the variable is deleted.
-
-Example:
-
-.. code-block:: ring
-
-	aList = [ 10,20,30, ref(aList) ]        
-	? aList[4][1]                           
-	? aList[4][4][4][4][4][2]               
-	? refcount(aList)                       
-
-Output:
-
-.. code-block:: ring
-
-	10
-	20
-	2
-
-.. index:: 
-	pair: Using References; Dependency injection
-
-Dependency injection
-====================
-
-The next example demonstrates how to apply dependency injection using the Ref() function
-
-Example:
-
-.. code-block:: ring
-
-	func main
-
-		v1 = new MyClass1  v2 = new MyClass2
-
-		oCont = new Controller(v1,v2)
-
-		v1.value = "one"  v2.value = "two"
-
-		oCont.test()
-
-		v1 = 10 v2 = 20  ? v1 ? v2
-
-		oCont.test()
-
-	class MyClass1 value func test ? :myclass1
-
-	class MyClass2 value func test ? :myclass2
-
-	class Controller o1 o2
-
-		func init myo1,myo2
-
-			o1=ref(myo1) o2=ref(myo2)
-
-		func test
-
-			o1.test()   o2.test()
-			? o1.value  ? o2.value
-
-Output:
-
-.. code-block:: ring
-
-	myclass1
-	myclass2
-	one
-	two
-	10
-	20
-	myclass1
-	myclass2
-	one
-	two
 
 
 .. index:: 
@@ -356,3 +300,59 @@ Output:
 	three
 	two
 	one
+
+.. index:: 
+	pair: Using References; Dependency injection
+
+Dependency injection
+====================
+
+The next example demonstrates how to apply dependency injection using the Ref() function
+
+Example:
+
+.. code-block:: ring
+
+	func main
+
+		v1 = new MyClass1  v2 = new MyClass2
+
+		oCont = new Controller(v1,v2)
+
+		v1.value = "one"  v2.value = "two"
+
+		oCont.test()
+
+		v1 = 10 v2 = 20  ? v1 ? v2
+
+		oCont.test()
+
+	class MyClass1 value func test ? :myclass1
+
+	class MyClass2 value func test ? :myclass2
+
+	class Controller o1 o2
+
+		func init myo1,myo2
+
+			o1=ref(myo1) o2=ref(myo2)
+
+		func test
+
+			o1.test()   o2.test()
+			? o1.value  ? o2.value
+
+Output:
+
+.. code-block:: ring
+
+	myclass1
+	myclass2
+	one
+	two
+	10
+	20
+	myclass1
+	myclass2
+	one
+	two

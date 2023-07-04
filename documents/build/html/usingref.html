@@ -179,10 +179,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ref-reference-function">ref()/reference() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#refcount-function">refcount() function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#the-tree-class">The Tree Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#circular-references">Circular References</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#dependency-injection">Dependency injection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-tree-class">The Tree Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#linked-list">Linked list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dependency-injection">Dependency injection</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
@@ -286,12 +286,12 @@
 <p>Contents:</p>
 <ul class="simple">
 <li><p>Introduction</p></li>
-<li><p>ref()/reference() function</p></li>
-<li><p>refcount() function</p></li>
-<li><p>The Tree Class</p></li>
+<li><p>Ref()/Reference() function</p></li>
+<li><p>Refcount() function</p></li>
 <li><p>Circular references</p></li>
-<li><p>Dependency injection</p></li>
+<li><p>The Tree class</p></li>
 <li><p>Linked list</p></li>
+<li><p>Dependency injection</p></li>
 </ul>
 <div class="section" id="introduction">
 <span id="index-1"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
@@ -394,8 +394,26 @@ like teaching data structures and implementing specific design patterns.</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="circular-references">
+<span id="index-4"></span><h2>Circular References<a class="headerlink" href="#circular-references" title="Permalink to this headline">¶</a></h2>
+<p>Using Ref() we can create circular references</p>
+<p>Ring VM can detect them and free memory when the variable is deleted.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span> <span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span> <span class="n">ref</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span> <span class="o">]</span>
+<span class="o">?</span> <span class="n">aList</span><span class="o">[</span><span class="mi">4</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span>
+<span class="o">?</span> <span class="n">aList</span><span class="o">[</span><span class="mi">4</span><span class="o">][</span><span class="mi">4</span><span class="o">][</span><span class="mi">4</span><span class="o">][</span><span class="mi">4</span><span class="o">][</span><span class="mi">4</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span>
+<span class="o">?</span> <span class="n">refcount</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span>
+<span class="mi">20</span>
+<span class="mi">2</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="the-tree-class">
-<span id="index-4"></span><h2>The Tree Class<a class="headerlink" href="#the-tree-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-5"></span><h2>The Tree Class<a class="headerlink" href="#the-tree-class" title="Permalink to this headline">¶</a></h2>
 <p>The Tree class is a good example about using the Ref() function.</p>
 <p>In this class each object contains a group of objects and these objects have a reference
 to the parent object.</p>
@@ -437,74 +455,8 @@ to the parent object.</p>
 <p>The Tree class already exist in the StdLib</p>
 </div>
 </div>
-<div class="section" id="circular-references">
-<span id="index-5"></span><h2>Circular References<a class="headerlink" href="#circular-references" title="Permalink to this headline">¶</a></h2>
-<p>Using Ref() we can create circular references</p>
-<p>Ring VM can detect them and free memory when the variable is deleted.</p>
-<p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span> <span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span> <span class="n">ref</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span> <span class="o">]</span>
-<span class="o">?</span> <span class="n">aList</span><span class="o">[</span><span class="mi">4</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span>
-<span class="o">?</span> <span class="n">aList</span><span class="o">[</span><span class="mi">4</span><span class="o">][</span><span class="mi">4</span><span class="o">][</span><span class="mi">4</span><span class="o">][</span><span class="mi">4</span><span class="o">][</span><span class="mi">4</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span>
-<span class="o">?</span> <span class="n">refcount</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span>
-<span class="mi">20</span>
-<span class="mi">2</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="dependency-injection">
-<span id="index-6"></span><h2>Dependency injection<a class="headerlink" href="#dependency-injection" title="Permalink to this headline">¶</a></h2>
-<p>The next example demonstrates how to apply dependency injection using the Ref() function</p>
-<p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
-
-        <span class="n">v1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyClass1</span>  <span class="n">v2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyClass2</span>
-
-        <span class="n">oCont</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Controller</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">)</span>
-
-        <span class="n">v1</span><span class="p">.</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;one&quot;</span>  <span class="n">v2</span><span class="p">.</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;two&quot;</span>
-
-        <span class="n">oCont</span><span class="p">.</span><span class="n">test</span><span class="p">()</span>
-
-        <span class="n">v1</span> <span class="o">=</span> <span class="mi">10</span> <span class="n">v2</span> <span class="o">=</span> <span class="mi">20</span>  <span class="o">?</span> <span class="n">v1</span> <span class="o">?</span> <span class="n">v2</span>
-
-        <span class="n">oCont</span><span class="p">.</span><span class="n">test</span><span class="p">()</span>
-
-<span class="k">class</span> <span class="n">MyClass1</span> <span class="n">value</span> <span class="k">func</span> <span class="n">test</span> <span class="o">?</span> <span class="p">:</span><span class="n">myclass1</span>
-
-<span class="k">class</span> <span class="n">MyClass2</span> <span class="n">value</span> <span class="k">func</span> <span class="n">test</span> <span class="o">?</span> <span class="p">:</span><span class="n">myclass2</span>
-
-<span class="k">class</span> <span class="n">Controller</span> <span class="n">o1</span> <span class="n">o2</span>
-
-        <span class="k">func</span> <span class="n">init</span> <span class="n">myo1</span><span class="p">,</span><span class="n">myo2</span>
-
-                <span class="n">o1</span><span class="o">=</span><span class="n">ref</span><span class="p">(</span><span class="n">myo1</span><span class="p">)</span> <span class="n">o2</span><span class="o">=</span><span class="n">ref</span><span class="p">(</span><span class="n">myo2</span><span class="p">)</span>
-
-        <span class="k">func</span> <span class="n">test</span>
-
-                <span class="n">o1</span><span class="p">.</span><span class="n">test</span><span class="p">()</span>   <span class="n">o2</span><span class="p">.</span><span class="n">test</span><span class="p">()</span>
-                <span class="o">?</span> <span class="n">o1</span><span class="p">.</span><span class="n">value</span>  <span class="o">?</span> <span class="n">o2</span><span class="p">.</span><span class="n">value</span>
-</pre></div>
-</div>
-<p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">myclass1</span>
-<span class="n">myclass2</span>
-<span class="n">one</span>
-<span class="n">two</span>
-<span class="mi">10</span>
-<span class="mi">20</span>
-<span class="n">myclass1</span>
-<span class="n">myclass2</span>
-<span class="n">one</span>
-<span class="n">two</span>
-</pre></div>
-</div>
-</div>
 <div class="section" id="linked-list">
-<span id="index-7"></span><h2>Linked list<a class="headerlink" href="#linked-list" title="Permalink to this headline">¶</a></h2>
+<span id="index-6"></span><h2>Linked list<a class="headerlink" href="#linked-list" title="Permalink to this headline">¶</a></h2>
 <p>The next example demonstrates how to create a linked list using the Ref() function.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -573,6 +525,54 @@ to the parent object.</p>
 <span class="n">three</span>
 <span class="n">two</span>
 <span class="n">one</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dependency-injection">
+<span id="index-7"></span><h2>Dependency injection<a class="headerlink" href="#dependency-injection" title="Permalink to this headline">¶</a></h2>
+<p>The next example demonstrates how to apply dependency injection using the Ref() function</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
+
+        <span class="n">v1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyClass1</span>  <span class="n">v2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyClass2</span>
+
+        <span class="n">oCont</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Controller</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">)</span>
+
+        <span class="n">v1</span><span class="p">.</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;one&quot;</span>  <span class="n">v2</span><span class="p">.</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;two&quot;</span>
+
+        <span class="n">oCont</span><span class="p">.</span><span class="n">test</span><span class="p">()</span>
+
+        <span class="n">v1</span> <span class="o">=</span> <span class="mi">10</span> <span class="n">v2</span> <span class="o">=</span> <span class="mi">20</span>  <span class="o">?</span> <span class="n">v1</span> <span class="o">?</span> <span class="n">v2</span>
+
+        <span class="n">oCont</span><span class="p">.</span><span class="n">test</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="n">MyClass1</span> <span class="n">value</span> <span class="k">func</span> <span class="n">test</span> <span class="o">?</span> <span class="p">:</span><span class="n">myclass1</span>
+
+<span class="k">class</span> <span class="n">MyClass2</span> <span class="n">value</span> <span class="k">func</span> <span class="n">test</span> <span class="o">?</span> <span class="p">:</span><span class="n">myclass2</span>
+
+<span class="k">class</span> <span class="n">Controller</span> <span class="n">o1</span> <span class="n">o2</span>
+
+        <span class="k">func</span> <span class="n">init</span> <span class="n">myo1</span><span class="p">,</span><span class="n">myo2</span>
+
+                <span class="n">o1</span><span class="o">=</span><span class="n">ref</span><span class="p">(</span><span class="n">myo1</span><span class="p">)</span> <span class="n">o2</span><span class="o">=</span><span class="n">ref</span><span class="p">(</span><span class="n">myo2</span><span class="p">)</span>
+
+        <span class="k">func</span> <span class="n">test</span>
+
+                <span class="n">o1</span><span class="p">.</span><span class="n">test</span><span class="p">()</span>   <span class="n">o2</span><span class="p">.</span><span class="n">test</span><span class="p">()</span>
+                <span class="o">?</span> <span class="n">o1</span><span class="p">.</span><span class="n">value</span>  <span class="o">?</span> <span class="n">o2</span><span class="p">.</span><span class="n">value</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">myclass1</span>
+<span class="n">myclass2</span>
+<span class="n">one</span>
+<span class="n">two</span>
+<span class="mi">10</span>
+<span class="mi">20</span>
+<span class="n">myclass1</span>
+<span class="n">myclass2</span>
+<span class="n">one</span>
+<span class="n">two</span>
 </pre></div>
 </div>
 </div>
