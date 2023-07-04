@@ -18,6 +18,7 @@ Contents:
 * The Tree class
 * Linked list
 * Dependency injection
+* Passing lists to functions
 
 .. index:: 
 	pair: Using References; Introduction
@@ -356,3 +357,85 @@ Output:
 	myclass2
 	one
 	two
+
+.. index:: 
+	pair: Using References; Passing lists to functions
+
+Passing lists to functions
+==========================
+
+In Ring, when we pass a list/object to a function, This function will have full
+ownership on the list/object variable. 
+
+This means it can delete it and change the variable type.
+
+Example:
+
+.. code-block:: ring
+
+	func main
+		? "Hello from Main() function"
+		aList = [1,2,3]
+		? aList
+		sub(aList)
+		? "Hello from Main() function (Again)"
+		if ! isList(aList)
+			? "We don't have a list!"
+		ok
+
+	func sub aList
+		? "Hello from Sub() function"
+		aList = NULL
+
+Output:
+
+.. code-block:: ring
+
+	Hello from Main() function
+	1
+	2
+	3
+	
+	Hello from Sub() function
+	Hello from Main() function (Again)
+	We don't have a list!
+
+Using Ref() function we can change this behavior and pass a reference to the list/object
+instead of sharing it.
+
+Example:
+
+.. code-block:: ring
+
+	func main
+		? "Hello from Main() function"
+		aList = [1,2,3]
+		? aList
+		sub(Ref(aList))
+		? "Hello from Main() function (Again)"
+		if ! isList(aList)
+			? "We don't have a list!"
+		else
+			? "We still have our list!"
+			? aList
+		ok
+
+	func sub aList
+		? "Hello from Sub() function"
+		aList = NULL
+
+Output:
+
+.. code-block:: none
+
+	Hello from Main() function
+	1
+	2
+	3
+	
+	Hello from Sub() function
+	Hello from Main() function (Again)
+	We still have our list!
+	1
+	2
+	3

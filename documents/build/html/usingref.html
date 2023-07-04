@@ -183,6 +183,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#the-tree-class">The Tree Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#linked-list">Linked list</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dependency-injection">Dependency injection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#passing-lists-to-functions">Passing lists to functions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
@@ -292,6 +293,7 @@
 <li><p>The Tree class</p></li>
 <li><p>Linked list</p></li>
 <li><p>Dependency injection</p></li>
+<li><p>Passing lists to functions</p></li>
 </ul>
 <div class="section" id="introduction">
 <span id="index-1"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
@@ -573,6 +575,74 @@ to the parent object.</p>
 <span class="n">myclass2</span>
 <span class="n">one</span>
 <span class="n">two</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="passing-lists-to-functions">
+<span id="index-8"></span><h2>Passing lists to functions<a class="headerlink" href="#passing-lists-to-functions" title="Permalink to this headline">¶</a></h2>
+<p>In Ring, when we pass a list/object to a function, This function will have full
+ownership on the list/object variable.</p>
+<p>This means it can delete it and change the variable type.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
+        <span class="o">?</span> <span class="s">&quot;Hello from Main() function&quot;</span>
+        <span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span>
+        <span class="o">?</span> <span class="n">aList</span>
+        <span class="n">sub</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+        <span class="o">?</span> <span class="s">&quot;Hello from Main() function (Again)&quot;</span>
+        <span class="k">if</span> <span class="o">!</span> <span class="n">isList</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+                <span class="o">?</span> <span class="s">&quot;We don&#39;t have a list!&quot;</span>
+        <span class="k">ok</span>
+
+<span class="k">func</span> <span class="n">sub</span> <span class="n">aList</span>
+        <span class="o">?</span> <span class="s">&quot;Hello from Sub() function&quot;</span>
+        <span class="n">aList</span> <span class="o">=</span> <span class="kp">NULL</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Hello</span> <span class="k">from</span> <span class="n">Main</span><span class="p">()</span> <span class="k">function</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+
+<span class="n">Hello</span> <span class="k">from</span> <span class="n">Sub</span><span class="p">()</span> <span class="k">function</span>
+<span class="n">Hello</span> <span class="k">from</span> <span class="n">Main</span><span class="p">()</span> <span class="k">function</span> <span class="p">(</span><span class="k">Again</span><span class="p">)</span>
+<span class="n">We</span> <span class="n">don</span><span class="sc">&#39;t have a list!</span>
+</pre></div>
+</div>
+<p>Using Ref() function we can change this behavior and pass a reference to the list/object
+instead of sharing it.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
+        <span class="o">?</span> <span class="s">&quot;Hello from Main() function&quot;</span>
+        <span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span>
+        <span class="o">?</span> <span class="n">aList</span>
+        <span class="n">sub</span><span class="p">(</span><span class="n">Ref</span><span class="p">(</span><span class="n">aList</span><span class="p">))</span>
+        <span class="o">?</span> <span class="s">&quot;Hello from Main() function (Again)&quot;</span>
+        <span class="k">if</span> <span class="o">!</span> <span class="n">isList</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+                <span class="o">?</span> <span class="s">&quot;We don&#39;t have a list!&quot;</span>
+        <span class="k">else</span>
+                <span class="o">?</span> <span class="s">&quot;We still have our list!&quot;</span>
+                <span class="o">?</span> <span class="n">aList</span>
+        <span class="k">ok</span>
+
+<span class="k">func</span> <span class="n">sub</span> <span class="n">aList</span>
+        <span class="o">?</span> <span class="s">&quot;Hello from Sub() function&quot;</span>
+        <span class="n">aList</span> <span class="o">=</span> <span class="kp">NULL</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Hello from Main() function
+1
+2
+3
+
+Hello from Sub() function
+Hello from Main() function (Again)
+We still have our list!
+1
+2
+3
 </pre></div>
 </div>
 </div>
