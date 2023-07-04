@@ -20,6 +20,7 @@ Contents:
 * Dependency injection
 * Passing lists to functions
 * Ref() and temp. lists
+* Nested Ref()
 
 .. index:: 
 	pair: Using References; Introduction
@@ -462,3 +463,19 @@ Example:
 	myobj = ref(new point)  # The same as myobj = new point
 	? refcount(myobj)       # 1
 	class point x y z
+
+.. index:: 
+	pair: Using References; Nested Ref()
+
+Nested Ref()
+============
+
+Since Ref() function is a flag setter, nested Ref() usage is not useful.
+
+example:
+
+.. code-block:: ring
+
+	aList  = [1,2,3]
+	aList2 = ref(ref(ref(ref(aList))))  # The same as aList2 = ref(aList)
+	? refcount(aList)                   # 2

@@ -185,6 +185,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#dependency-injection">Dependency injection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#passing-lists-to-functions">Passing lists to functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ref-and-temp-lists">Ref() and temp. lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nested-ref">Nested Ref()</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
@@ -296,6 +297,7 @@
 <li><p>Dependency injection</p></li>
 <li><p>Passing lists to functions</p></li>
 <li><p>Ref() and temp. lists</p></li>
+<li><p>Nested Ref()</p></li>
 </ul>
 <div class="section" id="introduction">
 <span id="index-1"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
@@ -661,6 +663,16 @@ We still have our list!
 <span class="n">myobj</span> <span class="o">=</span> <span class="n">ref</span><span class="p">(</span><span class="k">new</span> <span class="n">point</span><span class="p">)</span>  <span class="c"># The same as myobj = new point</span>
 <span class="o">?</span> <span class="n">refcount</span><span class="p">(</span><span class="n">myobj</span><span class="p">)</span>       <span class="c"># 1</span>
 <span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="nested-ref">
+<span id="index-10"></span><h2>Nested Ref()<a class="headerlink" href="#nested-ref" title="Permalink to this headline">¶</a></h2>
+<p>Since Ref() function is a flag setter, nested Ref() usage is not useful.</p>
+<p>example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span>  <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span>
+<span class="n">aList2</span> <span class="o">=</span> <span class="n">ref</span><span class="p">(</span><span class="n">ref</span><span class="p">(</span><span class="n">ref</span><span class="p">(</span><span class="n">ref</span><span class="p">(</span><span class="n">aList</span><span class="p">))))</span>  <span class="c"># The same as aList2 = ref(aList)</span>
+<span class="o">?</span> <span class="n">refcount</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>                   <span class="c"># 2</span>
 </pre></div>
 </div>
 </div>
