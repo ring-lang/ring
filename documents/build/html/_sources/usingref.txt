@@ -19,6 +19,7 @@ Contents:
 * Linked list
 * Dependency injection
 * Passing lists to functions
+* Ref() and temp. lists
 
 .. index:: 
 	pair: Using References; Introduction
@@ -439,3 +440,25 @@ Output:
 	1
 	2
 	3
+
+.. index:: 
+	pair: Using References; Ref() and temp. lists
+
+Ref() and temp. lists
+=====================
+
+Using Ref() and temp. lists/objects does nothing. 
+
+Example:
+
+.. code-block:: ring
+
+	aList = ref([1,2,3])	# The same as aList = [1,2,3]
+	? refcount(aList)	# 1
+	aList = ref(1:10)	# The same as aList = 1:10
+	? refcount(aList)	# 1
+	aList = ref(list(10))	# The same as aList = list(10)
+	? refcount(aList)	# 1
+	myobj = ref(new point)  # The same as myobj = new point
+	? refcount(myobj)       # 1
+	class point x y z
