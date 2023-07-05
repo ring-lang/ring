@@ -1,0 +1,3 @@
+
+Line 1 Error (R24) : Using uninitialized variable: iwantruntimeerrorheretotesttheerrorline 
+in file natural/testsyntax2.ring 

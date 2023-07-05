@@ -1,2 +1,2 @@
 x = 10
-loadsyntax "syntax2.ring"
+loadsyntax "natural/syntax2.ring"

@@ -1,4 +1,4 @@
 x = 10
-loadsyntax "syntax3.ring"
+loadsyntax "natural/syntax3.ring"
 print "hello"
 iwantruntimeerrorheretotesttheerrorline
