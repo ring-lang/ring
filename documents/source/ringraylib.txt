@@ -1838,7 +1838,6 @@ Screen Shot:
 	
 .. image:: raylib_cubicmap.png
 	:alt: RayLib Example	
-	
 
 .. index:: 
 	pair: Using RingRayLib; Functions
@@ -2359,3 +2358,25 @@ Functions
 	void GuiLoadStyleDefault(void)
 	void GuiUpdateStyleComplete(void)
 	const char *GuiIconText(int iconId, const char *text)
+
+
+.. index:: 
+	pair: Using RingRayLib; Functions
+
+More Functions
+==============
+
+The next functions are added by the RingRayLib extension
+
+.. code-block:: none
+
+	* SetShaderInt(shader, Location, nValue)
+	* SetShaderFloat(shader, Location, nValue)
+	* SetShaderVec2(shader, Location, aValue)
+	* SetShaderVec3(shader, Location, aValue)
+	* SetShaderVec4(shader, Location, aValue)
+	* SetShaderIVec2(shader, Location, aValue)
+	* SetShaderIVec3(shader, Location, aValue)
+	* SetShaderIVec4(shader, Location, aValue)
+	* SetModelMaterialShader(model, nID, shader)
+

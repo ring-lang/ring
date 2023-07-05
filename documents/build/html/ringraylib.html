@@ -168,6 +168,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#geometric-shapes">Geometric Shapes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#cubic-map">Cubic Map</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-functions">More Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
@@ -204,6 +205,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingref.html">Using References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
@@ -2448,6 +2450,21 @@ void GuiLoadStyleProps(const int *props, int count)
 void GuiLoadStyleDefault(void)
 void GuiUpdateStyleComplete(void)
 const char *GuiIconText(int iconId, const char *text)
+</pre></div>
+</div>
+</div>
+<div class="section" id="more-functions">
+<span id="index-28"></span><h2>More Functions<a class="headerlink" href="#more-functions" title="Permalink to this headline">¶</a></h2>
+<p>The next functions are added by the RingRayLib extension</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* SetShaderInt(shader, Location, nValue)
+* SetShaderFloat(shader, Location, nValue)
+* SetShaderVec2(shader, Location, aValue)
+* SetShaderVec3(shader, Location, aValue)
+* SetShaderVec4(shader, Location, aValue)
+* SetShaderIVec2(shader, Location, aValue)
+* SetShaderIVec3(shader, Location, aValue)
+* SetShaderIVec4(shader, Location, aValue)
+* SetModelMaterialShader(model, nID, shader)
 </pre></div>
 </div>
 </div>
