@@ -32,14 +32,13 @@
 // 29 CubicSolve(Eq)               // Cubic equation solve format x^3 + x^2 + x + c
 // 30 QuarticSolve(Eq)             // Solve Quartic equation format x^4 + x^3 + x^2 + x + c
 // 31 QuinticSolve(Eq)             // Solve Quintic equation format x^5 x^4 + x^3 + x^2 + x + c
-// 32 EigenValue2(A)               // EigenValues calculated for a 2x2 matrix
-// 33 EigenValue3(A)               // EigenValues calculated for a 3x3 matrix
-// 34 PolyMultiply(A,B)            // Polynomial Multiple [A]*[B] ascending powers left to right
-// 35 PolyAdd(A,B)                 // Polynomial Add [A]+[B] ascending powers left to right
-// 35 PolySub(A,B)                 // Polynomial Subtract [A]-[B] ascending powers left to right
-// 36 CharEquation(N)              // Characteristic Polynomial of 4x4 Matrix [A - λI] format -12 -44x -46x2 -10x3 +x4
-// 37 EigenValue4(N)               // Finf EigenValues for a 4x4 matrix
-
+// 31 PolyMultiply(A,B)            // Polynomial Multiple [A]*[B] ascending powers left to right
+// 32 PolyAdd(A,B)                 // Polynomial Add [A]+[B] ascending powers left to right
+// 33 PolySub(A,B)                 // Polynomial Subtract [A]-[B] ascending powers left to right
+// 34 CharEquation(N)              // Characteristic Polynomial of 4x4 Matrix [A - λI] format -12 -44x -46x2 -10x3 +x4
+// 34 EigenValueN)                 // Find EigenValues 2x2, 3x3, 4x4 Matrix
+// 35 EigenVectors(A)              // Find EigenVectors 2x2, 3x3 Matrix
+//
 //--------------------------------------------
 // GLOBAL Constants
 RAD = 57.295779513                             // 180/Pi=1  Radian=57.3 degress
@@ -1701,16 +1700,9 @@ return S  // 5x1 matrix
 //  s2 -> Sum of CoFactors of main diagonal
 //  s3 -> Determinant|A|"
 
-Func EigenValue3(A)
+Func bEigenValue3(A)
 
-    vertU = len(A)    horzU = len(A[1])
 
-    if vertU != horzU
-        See "Error: EigenValue3: "+vertU +"x"+ horzU nl
-        See "VertU: "+ vertU +" HorzU: "+ horzU +" MUST BE Equal "+ nl
-        MatrixPrint(Mat)
-        return 1
-    OK
 
     s1  = A[1][1] + A[2][2] + A[3][3]        // Sum of Diagonal = TRACE
     Cof = MatrixCoFactor(A)                  // CoFactors of Matrix 
@@ -1722,39 +1714,6 @@ Func EigenValue3(A)
 return S   // Solution 3x1 matix 
 
 //=====================================
-// EigenValue2(A)
-//
-// Calculate EigenValues for a 2x2 Matrix
-// Return matrix 2x1 with EigenValues
-// Bert Mariani 2023-06-11
-//
-//------------------------------------------------
-// Simple Method to solve EigenValues for a 2x2 Matrix
-// Characteristic equation"
-// Quaddratic formula 
-
-
-Func EigenValue2(A)
-
-    vertU = len(A)    horzU = len(A[1])
-
-    if vertU != horzU
-        See "Error: EigenValue2: "+vertU +"x"+ horzU nl
-        See "VertU: "+ vertU +" HorzU: "+ horzU +" MUST BE Equal "+ nl
-        MatrixPrint(Mat)
-        return 1
-    OK
-
-    t1  = A[1][1] + A[2][2]        // Trace = Sum of Diagonal
-    d2  = MatrixDetCalc(A)         // Determinant of Matrrix 2x2
-   
-    p3  = (t1 + sqrt( (t1*t1) -(4*d2) )) / 2    // pos Polynomial Quadratic
-    p4  = (t1 - sqrt( (t1*t1) -(4*d2) )) / 2    // neg Polynomial Quadratic
-    
-    S = [[p3],[p4]]
-
-return S   // Solution 2x1 matix 
-
 //===================================
 // PolyMultiply of 2 polynomials of X
 // Format is Pwr 0,1,2,3 etc 
@@ -1842,14 +1801,64 @@ Func PolySub(A,B)
    
 return R   //   Flat Matrix [1,2,3] Pwr 0,1,2,3 etc
   
-//========================
-//===========================
+//=================================
+//=================================
 // Func CharEquation(N) 4x4 Matrix
 // Characteristic Polynomial of a 4x4 Matrix [A - λI]
 // Return format -12 -44x -46x2 -10x3 +x4
 // Bert MAriani 2023/06/23
 
 Func CharEquation(N)
+
+    Alen = len(N)
+    
+    // 2x2 MATRIX ==========================
+    
+    if len(N) = 2   // 2x2 matrix
+        a1 = N[1][1]  a2 = N[1][2]
+        b1 = N[2][1]  b2 = N[2][2]
+    
+        a1A = [a1,-1]  a2A = [a2]   
+        b1A = [b1]     b2A = [b2,-1]
+    
+        K1 = PolySub( PolyMultiply(a1A,b2A), PolyMultiply(b1A,a2A) ) 
+        
+        R1 = [ K1[3], K1[2], K1[1] ]                
+        return R1     // Characteristic Eqution: x^2 x^1 c
+    ok
+    
+    
+    //=======================================
+    //=======================================
+    // 3x3 MATRIX
+ 
+    if len(N) = 3   // 3x3 matrix
+
+        // Assign Letters 3x3                   
+        a1 = N[1][1]  a2 = N[1][2]  a3 = N[1][3]
+        b1 = N[2][1]  b2 = N[2][2]  b3 = N[2][3]        
+        c1 = N[3][1]  c2 = N[3][2]  c3 = N[3][3]    
+
+        // Convert to Flat Array and Lamda on Diagonal
+        a1A = [a1,-1]  a2A = [a2]     a3A = [a3]    
+        b1A = [b1]     b2A = [b2,-1]  b3A = [b3]    
+        c1A = [c1]     c2A = [c2]     c3A = [c3,-1] 
+
+        K  = PolyMultiply(a1A, (PolySub( PolyMultiply(b2A,c3A), PolyMultiply(c2A,b3A) ) ) ) 
+        L  = PolyMultiply(a2A, (PolySub( PolyMultiply(b1A,c3A), PolyMultiply(c1A,b3A) ) ) ) 
+        L  = PolyMultiply(L,[-1])  // FlipSign 
+        M  = PolyMultiply(a3A, (PolySub( PolyMultiply(b1A,c2A), PolyMultiply(c1A,b2A) ) ) )
+
+        N1 = PolyAdd(M, PolyAdd(K,L))    // Add 3 Sum
+        
+        R1 = [ N1[4], N1[3], N1[2], N1[1] ]     //  x^3  x^2  x^1  c
+
+        return R1     // Characteristic Eqution: x^2 x^1 c
+    ok
+ 
+    //=======================================
+    //=======================================
+
     // Assign Letters 4x4                                  //   [ A - λI ] format
     a1 = N[1][1]  a2 = N[1][2]  a3 = N[1][3]  a4 = N[1][4] //   [ 1-x, 2,   1,    3  ]
     b1 = N[2][1]  b2 = N[2][2]  b3 = N[2][3]  b4 = N[2][4] //   [ 2,   2-x, 1,    3  ]
@@ -1953,18 +1962,258 @@ return R1  // Characteristic Eqution: high to low [] 1x4: x^5 ... x^1 c
 
 //=================================
 //=================================
-// Func EigenValue4(N)
-// EigenValues for 4x4 Matrix 
-// Calls CharEquation to solve Polynomial
-// Call QuarticSolve to find EigenValues
-// Return matrix 4x1
-// Bert MAriani 2023/06/28
+// Manual Method to solve EigenValue works for 2x2, 3x3, 4x4
+// Call Characteristic equation"
+// Call Quaddratic formula 
+// Return 2x1 matrix og EignenVales
+// Bert Mariani 2023/07/01
 
-Func EigenValue4(N)
+Func EigenValue(A)
 
-  S1 = CharEquation(N)
-  L1 = QuarticSolve([S1])
+    vertU = len(A)    horzU = len(A[1])
 
-return L1  // Matrix 4x1
+    if vertU != horzU
+        See "Error: EigenValue: "+vertU +"x"+ horzU nl
+        See "VertU: "+ vertU +" HorzU: "+ horzU +" MUST BE Equal "+ nl
+        MatrixPrint(Mat)
+        return 1
+    OK
+    
+    //--------------------------
+    if vertU = 2   // 2x2 MATRIX
+       R1 = CharEquation(A)
+       S1 = QuadSolve([R1])
 
-//===================================
+       return S1   // 2x1 matrix for EigenValues
+    ok
+
+    //--------------------------    
+    if vertU = 3   // 3x3 MATRIX
+       R1 = CharEquation(A)
+       S1 = CubicSolve([R1])
+
+       return S1   // 2x1 matrix for EigenValues
+    ok
+
+    //--------------------------
+    if vertU = 4   // 4x4 MATRIX
+       R1 = CharEquation(A)
+       S1 = QuarticSolve([R1])
+
+       return S1   // 2x1 matrix for EigenValues
+    ok  
+    //--------------------------
+    
+    See "Error: EigenValue: Cannot solve matrix larger than 4x4"+nl
+return 1  // Error matrix too big
+    
+//=================================
+//=================================
+// EigenVector 2x2 matrix 
+// First calculates EigenValue of the matrix
+// For each EigenValue it calculates the EigenVector
+// Returna array of the 2 Vectors
+// Bert Mariani 2023-07-04
+
+Func EigenVector(A)
+
+
+    vertU = len(A)    horzU = len(A[1])
+
+    if vertU != horzU
+        See "Error: EigenVector: "+vertU +"x"+ horzU nl
+        See "VertU: "+ vertU +" HorzU: "+ horzU +" MUST BE Equal "+ nl
+        MatrixPrint(Mat)
+        return 1
+    OK
+    
+    //-----------------------------
+    //-----------------------------
+    
+if vertU = 2   // 2x2 MATRIX
+    
+    S = EigenValue(A)    // First  calc EigenValue Flat 1x2 
+
+    x = S[1][1]          // First EigenValue
+    B = [[x,0],
+         [0,x]]
+
+    C = MatrixSub(A,B)   // A - Lamda
+
+    // Assign Letters 4x4     
+    a1 = C[1][1]  a2 = C[1][2]
+    b1 = C[2][1]  b2 = C[2][2]
+
+    minZ = min( fabs(a1), fabs(a2) ) // Use smaller
+
+        if ( ((a1 % minZ) = 0) && ((a2 % minZ) = 0) ) 
+           x1 = a1 / minZ   
+           y1 = a2 / minZ
+        ok
+
+    x2 =  x1  
+    y2 =  y1  
+
+    D1 = [ [y2],[-x2] ]  // Retrun D1,  Swap, FlipSign 
+ 
+    See "D1" MatrixPrint(D1)
+    // E = MatrixMultiply(A,D1)
+    // See "Proof EigenVector E=AD (6,24) / X: "+x +" => (1,4)"  MatrixPrint(E)
+
+    //-------------------------
+
+    x = S[2][1]                     // 2nd EigenValue to handle
+    B = [[x,0],
+         [0,x]]
+
+    C = MatrixSub(A,B)
+
+    // Assign Letters 4x4     
+    a1 = C[1][1]  a2 = C[1][2]
+    b1 = C[2][1]  b2 = C[2][2]
+
+    minZ = min( fabs(a1), fabs(a2) ) // Use smaller
+
+        if ( ((a1 % minZ) = 0) && ((a2 % minZ) = 0) ) 
+           x1 = a1 / minZ   
+           y1 = a2 / minZ
+        ok
+
+    x2 =  x1  
+    y2 =  y1  
+
+    D2 = [ [y2],[-x2] ]  // Return 2nd vector 2x1 matrix, Swap, FlipSign
+
+    //See "D2" MatrixPrint(D2)
+    //E = MatrixMultiply(A,D2)
+    //See "Proof EigenVector E=AD (-21,7) / X: "+x +" => (-3,1)"  MatrixPrint(E)
+
+   // AssignLetters
+    
+    p1 = D1[1][1]  p2 = D1[2][1]
+    q1 = D2[1][1]  q2 = D2[2][1]
+    
+    D3 = [[p1,q1],
+          [p2,q2]]
+    
+    return D3    // return 2 vertical EigenVectors of 2x1 as 2x2
+ok
+
+  //==================================
+  //==================================
+  
+if vertU = 3   // 3x3 MATRIX
+
+    S = EigenValue(A)              // Find EigenValues
+
+    x = S[1][1]                    // EigenValue position 1
+    B = [[x,0,0],
+         [0,x,0],
+         [0,0,x]]
+
+    C = MatrixSub(A,B)
+
+    // Assign Letters 4x4                   
+    a1 = C[1][1]  a2 = C[1][2]  a3 = C[1][3]
+    b1 = C[2][1]  b2 = C[2][2]  b3 = C[2][3]        
+    c1 = C[3][1]  c2 = C[3][2]  c3 = C[3][3]
+
+    x1 =   (a2*b3) - (b2*a3)   // Cross multiply
+    y1 = -((a1*b3) - (b1*a3))  // FlipSign even position
+    z1 =   (a1*b2) - (b1*a2)
+
+    minXY = fabs(min(x1,y1))
+    minZ  = fabs(min(z1,minXY))
+    
+    if ( ((x1 % minz) = 0) && ((y1 % minz) = 0) && ((z1 % minz) = 0) )
+       x2 = x1 / minZ   
+       y2 = y1 / minZ
+       z2 = Z1 / minZ
+    ok
+   
+    D1 = [[x2],[y2],[z2]]       // First EigenVector
+    
+    // E = MatrixMultiply(A,D1) 
+    // See "Proof E = A*D" MatrixPrint(E)
+    //-----------------------------------
+    
+    x = S[2][1]                     // EigenValue position 2
+    B = [[x,0,0],
+         [0,x,0],
+         [0,0,x]]
+
+    C = MatrixSub(A,B)
+    // Assign Letters 4x4                   
+    a1 = C[1][1]  a2 = C[1][2]  a3 = C[1][3]
+    b1 = C[2][1]  b2 = C[2][2]  b3 = C[2][3]        
+    c1 = C[3][1]  c2 = C[3][2]  c3 = C[3][3]
+
+    x1 =   (a2*b3) - (b2*a3)
+    y1 = -((a1*b3) - (b1*a3))  // FlipSign
+    z1 =   (a1*b2) - (b1*a2)
+
+    minXY = fabs(min(x1,y1))
+    minZ  = fabs(min(z1,minXY))
+    
+    if ( ((x1 % minz) = 0) && ((y1 % minz) = 0) && ((z1 % minz) = 0) )
+       x2 = -x1 / minZ   // Flip even eigenvector
+       y2 = -y1 / minZ
+       z2 = -z1 / minZ
+    ok
+  
+    D2 = [[x2],[y2],[z2]]       // Second EigenVector
+   
+   // E = MatrixMultiply(A,D2)
+   // See "Proof E = A*D" MatrixPrint(E)   
+   //--------------------------
+
+    x = S[3][1]                     // EigenValue position 2
+    B = [[x,0,0],
+         [0,x,0],
+         [0,0,x]]
+
+    C = MatrixSub(A,B)
+    
+    // Assign Letters 4x4                   
+    a1 = C[1][1]  a2 = C[1][2]  a3 = C[1][3]
+    b1 = C[2][1]  b2 = C[2][2]  b3 = C[2][3]        
+    c1 = C[3][1]  c2 = C[3][2]  c3 = C[3][3]
+
+    x1 =   (a2*b3) - (b2*a3)
+    y1 = -((a1*b3) - (b1*a3))  // FlipSign
+    z1 =   (a1*b2) - (b1*a2)
+
+    minXY = fabs(min(x1,y1))
+    minZ  = fabs(min(z1,minXY))
+    
+    if ( ((x1 % minz) = 0) && ((y1 % minz) = 0) && ((z1 % minz) = 0) )
+       x2 = x1 / minZ   
+       y2 = y1 / minZ
+       z2 = x1 / minZ
+    ok
+
+    D3 = [[x2],[y2],[z2]]        // Third EigenVector
+    
+    // E = MatrixMultiply(A,D) 
+    //See "Proof E = A*D" MatrixPrint(E)
+    
+    // Assign Letters
+    
+    p1 = D1[1][1]  p2 = D1[2][1]  p3 = D1[3][1]
+    q1 = D2[1][1]  q2 = D2[2][1]  q3 = D2[3][1]
+    r1 = D3[1][1]  r2 = D3[2][1]  r3 = D3[3][1]
+    
+    D4 = [[p1,q1,r1],
+          [p2,q2,r2],
+          [p3,q3,r3]]
+    
+    return D4    // return 3 vertical EigenVectors of 3x1 as 3x3
+ok
+  
+    See "Error: EigenVector: Cannot solve matrix larger than 3x3"+nl
+return 1  // Error matrix too big  
+  
+//=================================
+//=================================  
+
+    
