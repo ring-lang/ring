@@ -391,8 +391,8 @@ Better RingSockets
 
 The next functions are added to the extension
 
-* inet_pton()
-* inet_ntop()
+* inet_pton(AdressFamily, IP) ->  packed_address
+* inet_ntop(AdressFamily, packed_address) -> IP
 * socketsCleanup()
 
 .. index:: 

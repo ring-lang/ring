@@ -78,6 +78,10 @@ The next functions are provided by this extension
 	gethostname() -> cHostName
 	getservbyname(cName) -> nPort
 	getservbyport(nPort) -> cName
+	inet_pton(AdressFamily, IP) ->  packed_address
+	inet_ntop(AdressFamily, packed_address) -> IP
+	socketsCleanup()
+
 
 Example:
 
