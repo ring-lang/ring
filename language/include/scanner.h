@@ -205,4 +205,6 @@
     void ring_scanner_readtwoparameters ( Scanner *pScanner,const char *cStr ) ;
 
     const char * ring_scanner_processtoken ( Scanner *pScanner,int nType ) ;
+
+    void ring_scanner_setandgenendofline ( Scanner *pScanner,int nLine ) ;
 #endif

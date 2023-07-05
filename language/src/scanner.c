@@ -868,9 +868,7 @@ void ring_scanner_loadsyntax ( Scanner *pScanner )
     ring_string_set_gc(pScanner->pRingState,pScanner->ActiveToken,"");
     nLine = pScanner->LinesCount ;
     /* Set the Line Number (To be 1) */
-    pScanner->LinesCount = 1 ;
-    ring_string_setfromint_gc(pScanner->pRingState,pScanner->ActiveToken,pScanner->LinesCount);
-    ring_scanner_addtoken(pScanner,SCANNER_TOKEN_ENDLINE);
+    ring_scanner_setandgenendofline(pScanner,1);
     RING_READCHAR(fp,c,nSize);
     while ( (c != EOF) && (nSize != 0) ) {
         ring_scanner_readchar(pScanner,c);
@@ -879,6 +877,11 @@ void ring_scanner_loadsyntax ( Scanner *pScanner )
     RING_CLOSEFILE(fp);
     ring_scanner_readchar(pScanner,'\n');
     /* Restore the Line Number (After loading the file) */
+    ring_scanner_setandgenendofline(pScanner,nLine);
+}
+
+void ring_scanner_setandgenendofline ( Scanner *pScanner,int nLine )
+{
     pScanner->LinesCount = nLine ;
     ring_string_setfromint_gc(pScanner->pRingState,pScanner->ActiveToken,pScanner->LinesCount);
     ring_scanner_addtoken(pScanner,SCANNER_TOKEN_ENDLINE);

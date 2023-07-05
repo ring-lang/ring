@@ -233,6 +233,7 @@ Type: char
 cFileName2[RING_PATHSIZE]
 Type: unsigned int
 x
+ring_scanner_setandgenendofline
 ring_scanner_readtwoparameters
 Type: int
 x,nSize,nSpaces
