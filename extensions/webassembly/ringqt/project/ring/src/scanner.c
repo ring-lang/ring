@@ -830,7 +830,7 @@ void ring_scanner_loadsyntax ( Scanner *pScanner )
     RING_FILE fp  ;
     /* Must be signed char to work fine on Android, because it uses -1 as NULL instead of Zero */
     signed char c  ;
-    int nSize  ;
+    int nSize,nLine  ;
     char cFileName2[RING_PATHSIZE]  ;
     unsigned int x  ;
     cFileName = ring_string_get(pScanner->ActiveToken) ;
@@ -866,6 +866,11 @@ void ring_scanner_loadsyntax ( Scanner *pScanner )
     }
     nSize = 1 ;
     ring_string_set_gc(pScanner->pRingState,pScanner->ActiveToken,"");
+    nLine = pScanner->LinesCount ;
+    /* Set the Line Number (To be 1) */
+    pScanner->LinesCount = 1 ;
+    ring_string_setfromint_gc(pScanner->pRingState,pScanner->ActiveToken,pScanner->LinesCount);
+    ring_scanner_addtoken(pScanner,SCANNER_TOKEN_ENDLINE);
     RING_READCHAR(fp,c,nSize);
     while ( (c != EOF) && (nSize != 0) ) {
         ring_scanner_readchar(pScanner,c);
@@ -873,6 +878,10 @@ void ring_scanner_loadsyntax ( Scanner *pScanner )
     }
     RING_CLOSEFILE(fp);
     ring_scanner_readchar(pScanner,'\n');
+    /* Restore the Line Number (After loading the file) */
+    pScanner->LinesCount = nLine ;
+    ring_string_setfromint_gc(pScanner->pRingState,pScanner->ActiveToken,pScanner->LinesCount);
+    ring_scanner_addtoken(pScanner,SCANNER_TOKEN_ENDLINE);
 }
 
 void ring_scanner_readtwoparameters ( Scanner *pScanner,const char *cStr )

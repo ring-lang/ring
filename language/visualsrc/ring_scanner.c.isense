@@ -228,7 +228,7 @@ Type: RING_FILE
 fp
 c
 Type: int
-nSize
+nSize,nLine
 Type: char
 cFileName2[RING_PATHSIZE]
 Type: unsigned int
