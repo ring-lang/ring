@@ -546,6 +546,11 @@ int ring_scanner_checklasttoken ( Scanner *pScanner )
             ring_scanner_addtoken(pScanner,SCANNER_TOKEN_COMMENT);
         }
     }
+    else if ( pScanner->state ==SCANNER_STATE_LOADSYNTAX ) {
+        pScanner->state = SCANNER_STATE_GENERAL ;
+        ring_scanner_loadsyntax(pScanner);
+        ring_string_set_gc(pScanner->pRingState,pScanner->ActiveToken,"");
+    }
     return 1 ;
 }
 
@@ -858,6 +863,10 @@ void ring_scanner_loadsyntax ( Scanner *pScanner )
                 strcpy(cFileName,cFileName2);
             }
         }
+    }
+    if ( ring_general_fexists(cFileName2) == 0 ) {
+        printf( "\nFile: %s doesn't exist!\n",cFileName ) ;
+        return ;
     }
     fp = RING_OPENFILE(cFileName2 , "r");
     if ( fp==NULL ) {
