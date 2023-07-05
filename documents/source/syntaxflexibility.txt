@@ -195,6 +195,8 @@ File : UseStyleBasic.ring
 .. note:: Using this feature you can create many styles that you can use in the same project and you can support Ring translation to other languages like Arabic, French and so on.
 
 .. tip:: The effect of LoadSyntax command is related to the current source code file only.
+
+.. tip:: Using LoadSyntax command is optional, See the (Automatic loading for syntax files) section.
 	
 Using "()" around the function parameters
 =========================================
@@ -743,3 +745,30 @@ Output:
 
 
 	        Hello from the Test function
+
+.. index:: 
+	pair: Syntax Flexibility; Automatic loading for syntax files
+
+Automatic loading for syntax files
+==================================
+
+Starting from Ring 1.18 we have better syntax flexibility
+
+* Support running source code files with any extension 
+
+* Automatic loading for (ringsyntax.ring) file that exist in the current folder
+
+For example in the the next screen shot
+
+We have (ringsyntax.ring) that translate some of the Ring keywords to Arabic language
+
+When we execute (سلام.رينج) which means in english (hello.ring)
+
+Ring will automatically execute (ringsyntax.ring) using Load Syntax command
+
+Each Folder in the program could have it's optional (ringsyntax.ring) file
+
+We can mix styles in the same project 
+
+.. image:: autoloadsyntax.png
+	:alt: autoloadsyntax

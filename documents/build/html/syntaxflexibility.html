@@ -143,6 +143,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#using-endif-endfor-endwhile-endswitch-endtry-keywords">Using ‘endif’/’endfor’/’endwhile’/’endswitch’/’endtry’ keywords</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-endpackage-endclass-endfunc-keywords-after-packages-classes-functions">Using ‘endpackage’/’endclass’/’endfunc’ keywords after Packages/Classes/Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ignore-new-lines-after-keywords">Ignore new lines after keywords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#automatic-loading-for-syntax-files">Automatic loading for syntax files</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
@@ -197,6 +198,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingref.html">Using References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
@@ -454,6 +456,10 @@ in many source files. You can’t use the Load command to call these files becau
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>The effect of LoadSyntax command is related to the current source code file only.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Using LoadSyntax command is optional, See the (Automatic loading for syntax files) section.</p>
 </div>
 </div>
 <div class="section" id="using-around-the-function-parameters">
@@ -875,6 +881,21 @@ Then you can use the ‘else’ keyword.</p>
 Hello from the Test function
 </pre></div>
 </div>
+</div>
+<div class="section" id="automatic-loading-for-syntax-files">
+<span id="index-21"></span><h2>Automatic loading for syntax files<a class="headerlink" href="#automatic-loading-for-syntax-files" title="Permalink to this headline">¶</a></h2>
+<p>Starting from Ring 1.18 we have better syntax flexibility</p>
+<ul class="simple">
+<li><p>Support running source code files with any extension</p></li>
+<li><p>Automatic loading for (ringsyntax.ring) file that exist in the current folder</p></li>
+</ul>
+<p>For example in the the next screen shot</p>
+<p>We have (ringsyntax.ring) that translate some of the Ring keywords to Arabic language</p>
+<p>When we execute (سلام.رينج) which means in english (hello.ring)</p>
+<p>Ring will automatically execute (ringsyntax.ring) using Load Syntax command</p>
+<p>Each Folder in the program could have it’s optional (ringsyntax.ring) file</p>
+<p>We can mix styles in the same project</p>
+<img alt="autoloadsyntax" src="_images/autoloadsyntax.png" />
 </div>
 </div>
 
