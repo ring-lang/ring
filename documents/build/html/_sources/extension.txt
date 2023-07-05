@@ -269,6 +269,18 @@ We can get parameters values using the next functions
 	void *RING_API_GETCPOINTER(int nParameterNumber, const char *cPoinerType);
 	int RING_API_GETPOINTERTYPE(int nParameterNumber);
 
+If we would like to get pointers to char, int, float & double 
+
+We can use the next functions
+
+.. code-block:: C
+
+	char *RING_API_GETCHARPOINTER(int nParameterNumber);
+	int *RING_API_GETINTPOINTER(int nParameterNumber);
+	void RING_API_ACCEPTINTVALUE(int nParameterNumber);
+	float *RING_API_GETFLOATPOINTER(int nParameterNumber);
+	void RING_API_ACCEPTFLOATVALUE(int nParameterNumber);
+	double *RING_API_GETDOUBLEPOINTER(int nParameterNumber);
 	
 .. index:: 
 	pair: Extension; Return Value

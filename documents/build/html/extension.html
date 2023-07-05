@@ -175,6 +175,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingref.html">Using References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Extension using the C/C++ languages</a><ul>
@@ -488,6 +489,16 @@ using Try/Catch/Done statements, so in your C code, use Return after this functi
 <span class="n">List</span> <span class="o">*</span><span class="nf">RING_API_GETLIST</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
 <span class="kt">void</span> <span class="o">*</span><span class="nf">RING_API_GETCPOINTER</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cPoinerType</span><span class="p">);</span>
 <span class="kt">int</span> <span class="nf">RING_API_GETPOINTERTYPE</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If we would like to get pointers to char, int, float &amp; double</p>
+<p>We can use the next functions</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span> <span class="o">*</span><span class="nf">RING_API_GETCHARPOINTER</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
+<span class="kt">int</span> <span class="o">*</span><span class="nf">RING_API_GETINTPOINTER</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">RING_API_ACCEPTINTVALUE</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
+<span class="kt">float</span> <span class="o">*</span><span class="nf">RING_API_GETFLOATPOINTER</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">RING_API_ACCEPTFLOATVALUE</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
+<span class="kt">double</span> <span class="o">*</span><span class="nf">RING_API_GETDOUBLEPOINTER</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
