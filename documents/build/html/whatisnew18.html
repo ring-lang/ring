@@ -207,7 +207,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#better-citpre-application">Better CitPre application</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-tools">Better Tools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#matrixlib">MatrixLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#syntax-files">Syntax Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#the-power-operator">The Power Operator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-references">Using References</a></li>
@@ -223,6 +222,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#better-weblib">Better WebLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ring-api">Better Ring API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-documentation">Better Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#matrixlib-library">MatrixLib Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
 </li>
@@ -307,7 +307,6 @@
 <li><p>Better CitPre application</p></li>
 <li><p>Better Tools</p></li>
 <li><p>More Samples</p></li>
-<li><p>MatrixLib</p></li>
 <li><p>Syntax Files</p></li>
 <li><p>The Power Operator</p></li>
 <li><p>Using References</p></li>
@@ -323,6 +322,7 @@
 <li><p>Better WebLib</p></li>
 <li><p>Better Ring API</p></li>
 <li><p>Better Documentation</p></li>
+<li><p>MatrixLib Library</p></li>
 <li><p>More Improvements</p></li>
 </ul>
 </div>
@@ -399,14 +399,8 @@
 </ul>
 <img alt="lagrange" src="_images/lagrange.png" />
 </div>
-<div class="section" id="matrixlib">
-<span id="index-7"></span><h2>MatrixLib<a class="headerlink" href="#matrixlib" title="Permalink to this headline">¶</a></h2>
-<p>Ring 1.18 comes with the MatrixLib library (Contains the Matrix functions).</p>
-<p>The source code exist in the ring/libraries/matrixlib folder</p>
-<p>The samples exist in the ring/samples/UsingMatrixLib folder</p>
-</div>
 <div class="section" id="syntax-files">
-<span id="index-8"></span><h2>Syntax Files<a class="headerlink" href="#syntax-files" title="Permalink to this headline">¶</a></h2>
+<span id="index-7"></span><h2>Syntax Files<a class="headerlink" href="#syntax-files" title="Permalink to this headline">¶</a></h2>
 <p>Ring 1.18 provide another step towards better syntax flexibility</p>
 <ul class="simple">
 <li><p>Support running source code files with any extension</p></li>
@@ -421,7 +415,7 @@
 <img alt="autoloadsyntax" src="_images/autoloadsyntax.png" />
 </div>
 <div class="section" id="the-power-operator">
-<span id="index-9"></span><h2>The Power Operator<a class="headerlink" href="#the-power-operator" title="Permalink to this headline">¶</a></h2>
+<span id="index-8"></span><h2>The Power Operator<a class="headerlink" href="#the-power-operator" title="Permalink to this headline">¶</a></h2>
 <p>Ring 1.18 Support (**) and (^^) as the power operator</p>
 <p>Example:</p>
 <div class="highlight-Ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="mi">3</span><span class="o">**</span><span class="mi">4</span>                  <span class="c"># 81.00</span>
@@ -436,7 +430,7 @@
 </div>
 </div>
 <div class="section" id="using-references">
-<span id="index-10"></span><h2>Using References<a class="headerlink" href="#using-references" title="Permalink to this headline">¶</a></h2>
+<span id="index-9"></span><h2>Using References<a class="headerlink" href="#using-references" title="Permalink to this headline">¶</a></h2>
 <p>Ring as a language is designed to reduce references usage</p>
 <p>The assignment operator (=) copy lists/objects by value</p>
 <p>This release comes with the next functions to create and use managed references</p>
@@ -456,7 +450,7 @@ refcount(variable) ---&gt; Number (References Count)
 <p>Check the chapter (Using References) to learn more about using this feature!</p>
 </div>
 <div class="section" id="ring-for-ms-dos">
-<span id="index-11"></span><h2>Ring for MS-DOS<a class="headerlink" href="#ring-for-ms-dos" title="Permalink to this headline">¶</a></h2>
+<span id="index-10"></span><h2>Ring for MS-DOS<a class="headerlink" href="#ring-for-ms-dos" title="Permalink to this headline">¶</a></h2>
 <p>Starting from Ring 1.18, We can build Ring Compiler/VM on MS-DOS</p>
 <p>Tested using</p>
 <ul class="simple">
@@ -476,7 +470,7 @@ refcount(variable) ---&gt; Number (References Count)
 <img alt="ringfordos" src="_images/ringfordos.png" />
 </div>
 <div class="section" id="faster-for-in-loop">
-<span id="index-12"></span><h2>Faster (For-In) Loop<a class="headerlink" href="#faster-for-in-loop" title="Permalink to this headline">¶</a></h2>
+<span id="index-11"></span><h2>Faster (For-In) Loop<a class="headerlink" href="#faster-for-in-loop" title="Permalink to this headline">¶</a></h2>
 <p>The (For-In) Loop implementation is revised in Ring 1.18</p>
 <p>It’s six times (6x) faster than Ring 1.17</p>
 <p>Example:</p>
@@ -508,7 +502,7 @@ refcount(variable) ---&gt; Number (References Count)
 <p>Time using Ring 1.17: 0.28 second</p>
 </div>
 <div class="section" id="faster-braceerror">
-<span id="index-13"></span><h2>Faster BraceError()<a class="headerlink" href="#faster-braceerror" title="Permalink to this headline">¶</a></h2>
+<span id="index-12"></span><h2>Faster BraceError()<a class="headerlink" href="#faster-braceerror" title="Permalink to this headline">¶</a></h2>
 <p>Using BraceError() we can handle errors that happens inside braces</p>
 <p>In Ring 1.18 - Calling BraceError() is faster and we can
 return values from this method</p>
@@ -548,7 +542,7 @@ z: 3000
 </div>
 </div>
 <div class="section" id="better-ringraylib">
-<span id="index-14"></span><h2>Better RingRayLib<a class="headerlink" href="#better-ringraylib" title="Permalink to this headline">¶</a></h2>
+<span id="index-13"></span><h2>Better RingRayLib<a class="headerlink" href="#better-ringraylib" title="Permalink to this headline">¶</a></h2>
 <p>The next functions are added to the extension</p>
 <ul class="simple">
 <li><p>SetShaderInt(shader, Location, nValue)</p></li>
@@ -574,7 +568,7 @@ z: 3000
 <img alt="raylibshader2" src="_images/raylibshader2.png" />
 </div>
 <div class="section" id="better-ringsockets">
-<span id="index-15"></span><h2>Better RingSockets<a class="headerlink" href="#better-ringsockets" title="Permalink to this headline">¶</a></h2>
+<span id="index-14"></span><h2>Better RingSockets<a class="headerlink" href="#better-ringsockets" title="Permalink to this headline">¶</a></h2>
 <p>The next functions are added to the extension</p>
 <ul class="simple">
 <li><p>inet_pton(AdressFamily, IP) -&gt;  packed_address</p></li>
@@ -583,13 +577,13 @@ z: 3000
 </ul>
 </div>
 <div class="section" id="heroku-better-support">
-<span id="index-16"></span><h2>Heroku (Better support)<a class="headerlink" href="#heroku-better-support" title="Permalink to this headline">¶</a></h2>
+<span id="index-15"></span><h2>Heroku (Better support)<a class="headerlink" href="#heroku-better-support" title="Permalink to this headline">¶</a></h2>
 <p>In Ring 1.18 We updated the packages to use a modern Ring version</p>
 <p>The project is tested using Heroku-22 (Ubuntu 22.04)</p>
 <p>URL: <a class="reference external" href="https://github.com/ring-lang/RingWebAppOnHeroku">https://github.com/ring-lang/RingWebAppOnHeroku</a></p>
 </div>
 <div class="section" id="command-new-from">
-<span id="index-17"></span><h2>Command: New From<a class="headerlink" href="#command-new-from" title="Permalink to this headline">¶</a></h2>
+<span id="index-16"></span><h2>Command: New From<a class="headerlink" href="#command-new-from" title="Permalink to this headline">¶</a></h2>
 <p>Using (new) we can create a new object from a specific class</p>
 <p>In Ring 1.18 we have (new from) where we provide a variable which contains the class name</p>
 <p>Using this command we can avoid using Eval() for this common case</p>
@@ -614,7 +608,7 @@ z: 3000
 </div>
 </div>
 <div class="section" id="importpackage-function">
-<span id="index-18"></span><h2>ImportPackage() Function<a class="headerlink" href="#importpackage-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-17"></span><h2>ImportPackage() Function<a class="headerlink" href="#importpackage-function" title="Permalink to this headline">¶</a></h2>
 <p>Instead of using the import command we can use the importpackage() function</p>
 <p>This function get the package name through a string or variable</p>
 <p>This is useful if the package name will be known only during the runtime</p>
@@ -634,7 +628,7 @@ z: 3000
 </div>
 </div>
 <div class="section" id="more-low-level-functions">
-<span id="index-19"></span><h2>More Low Level Functions<a class="headerlink" href="#more-low-level-functions" title="Permalink to this headline">¶</a></h2>
+<span id="index-18"></span><h2>More Low Level Functions<a class="headerlink" href="#more-low-level-functions" title="Permalink to this headline">¶</a></h2>
 <p>The next functions are added to the Low Level functions</p>
 <ul class="simple">
 <li><p>ringvm_ismempool()</p></li>
@@ -646,7 +640,7 @@ z: 3000
 <p>See the chapter (Low Level Functions) for more information.</p>
 </div>
 <div class="section" id="better-weblib">
-<span id="index-20"></span><h2>Better WebLib<a class="headerlink" href="#better-weblib" title="Permalink to this headline">¶</a></h2>
+<span id="index-19"></span><h2>Better WebLib<a class="headerlink" href="#better-weblib" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>HTTP Post - Better Code</p></li>
 <li><dl class="simple">
@@ -683,7 +677,7 @@ z: 3000
 </ol>
 </div>
 <div class="section" id="better-ring-api">
-<span id="index-21"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this headline">¶</a></h2>
+<span id="index-20"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Added: RING_API_GETFLOATPOINTER(nParameter)</p></li>
 <li><p>Added: RING_API_ACCEPTFLOATVALUE(nParameter)</p></li>
@@ -744,13 +738,59 @@ Hello from C Code
 </div>
 </div>
 <div class="section" id="better-documentation">
-<span id="index-22"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this headline">¶</a></h2>
+<span id="index-21"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this headline">¶</a></h2>
 <p>The next chapters are improved!</p>
 <ol class="arabic simple">
 <li><p>Building RingQt applications for Mobile</p></li>
 <li><p>Building RingQt applications for WebAssembly</p></li>
 <li><p>How to compile Ring from source code?</p></li>
 </ol>
+</div>
+<div class="section" id="matrixlib-library">
+<span id="index-22"></span><h2>MatrixLib Library<a class="headerlink" href="#matrixlib-library" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.18 comes with the MatrixLib library (Contains the Matrix functions).</p>
+<p>The source code exist in the ring/libraries/matrixlib folder</p>
+<p>The samples exist in the ring/samples/UsingMatrixLib folder</p>
+<p>The library comes with the next functions</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1  MatrixMulti(A,B)             // Exists, aka MatrixMultiply(U,V)
+2  MatrixTrans(A)               // Exists, aka MatrixTranspose(U)
+3  MatrixPrint(U)
+4  MatrixFlatPrint(U)
+5  DotProduct(U,V)
+6  MatrixAdd(U,V)
+7  MatrixSub(U,V)
+8  ScalarMultiply(k,U)
+9  VectorAngle(U,V)
+10 CrossProduct(U,V)
+11 MatrixCofactor(U)
+12 MatrixAdjoint(U)
+13 MatrixInverse(U)
+14 MatrixDetCalc(U)             // Calls MatrixDeterminantReduce(U)
+15 MatrixDeterminantReduce(U)   // Any 2x2 to 10x10 Recursive
+16 Determinant(U)               // Calls 16a-16e Determinant2x2,3x3,4x4,5x5,6x6
+17 MatrixProjection(U,V)        // ProjvU = (U.V)/(V.V)xV
+18 MatrixOrthoDistance(U,V)
+19 VectorLength(U)
+20 VectorNorm(U)                // Same as VectorLength - different name
+21 VectorUnit(U)                // Vector Norm to a Unit Matrix
+22 VectorDistance(U,V)
+23 MatricOrthoNormal2(U,V)      // Gram-Schmidt method for 2 Vectors in R2 Space
+24 MatrixOrthoNormal3(V1,V2,V3) // Gram-Schmidt method for 3 Vectors in R3 Space
+25 MatrixLuDecompose(U)         // LU Decompose Matrix to Lower and Upper Matrix
+26 SyntheticFactor(Eq)          // Find Factors of Quartric Equation
+27 SyntheticDiv(Eq,Factors)     // Synthetic Division using Factors to try possible solutions the Quartic equation
+28 QuadSolve(Eq)                // Quadratric equation solve format x^2 + x + c
+29 CubicSolve(Eq)               // Cubic equation solve format x^3 + x^2 + x + c
+30 QuarticSolve(Eq)             // Solve Quartic equation format x^4 + x^3 + x^2 + x + c
+31 QuinticSolve(Eq)             // Solve Quintic equation format x^5 x^4 + x^3 + x^2 + x + c
+31 PolyMultiply(A,B)            // Polynomial Multiple [A]*[B] ascending powers left to right
+32 PolyAdd(A,B)                 // Polynomial Add [A]+[B] ascending powers left to right
+33 PolySub(A,B)                 // Polynomial Subtract [A]-[B] ascending powers left to right
+34 CharEquation(N)              // Characteristic Polynomial of 4x4 Matrix [A - λI] format -12 -44x -46x2 -10x3 +x4
+34 EigenValueN)                 // Find EigenValues 2x2, 3x3, 4x4 Matrix
+35 EigenVectors(A)              // Find EigenVectors 2x2, 3x3 Matrix
+</pre></div>
+</div>
 </div>
 <div class="section" id="more-improvements">
 <span id="index-23"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>

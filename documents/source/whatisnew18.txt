@@ -20,7 +20,6 @@ Ring 1.18 comes with the next features!
 * Better CitPre application
 * Better Tools
 * More Samples
-* MatrixLib 
 * Syntax Files 
 * The Power Operator
 * Using References 
@@ -36,6 +35,7 @@ Ring 1.18 comes with the next features!
 * Better WebLib
 * Better Ring API
 * Better Documentation
+* MatrixLib Library
 * More Improvements
 
 .. index:: 
@@ -139,18 +139,6 @@ More Samples
 
 .. image:: lagrange.png
 	:alt: lagrange
-
-.. index:: 
-	pair: What is new in Ring  1.18; MatrixLib
-
-MatrixLib
-=========
-
-Ring 1.18 comes with the MatrixLib library (Contains the Matrix functions). 
-
-The source code exist in the ring/libraries/matrixlib folder
-
-The samples exist in the ring/samples/UsingMatrixLib folder
 
 .. index:: 
 	pair: What is new in Ring  1.18; Syntax Files
@@ -600,6 +588,60 @@ The next chapters are improved!
 (1) Building RingQt applications for Mobile
 (2) Building RingQt applications for WebAssembly
 (3) How to compile Ring from source code?
+
+.. index:: 
+	pair: What is new in Ring  1.18; MatrixLib Library
+
+MatrixLib Library
+=================
+
+Ring 1.18 comes with the MatrixLib library (Contains the Matrix functions). 
+
+The source code exist in the ring/libraries/matrixlib folder
+
+The samples exist in the ring/samples/UsingMatrixLib folder
+
+The library comes with the next functions
+
+.. code-block:: none
+
+	1  MatrixMulti(A,B)             // Exists, aka MatrixMultiply(U,V)
+	2  MatrixTrans(A)               // Exists, aka MatrixTranspose(U)
+	3  MatrixPrint(U)
+	4  MatrixFlatPrint(U)
+	5  DotProduct(U,V)
+	6  MatrixAdd(U,V)
+	7  MatrixSub(U,V)
+	8  ScalarMultiply(k,U)
+	9  VectorAngle(U,V)
+	10 CrossProduct(U,V)
+	11 MatrixCofactor(U)
+	12 MatrixAdjoint(U)
+	13 MatrixInverse(U)
+	14 MatrixDetCalc(U)             // Calls MatrixDeterminantReduce(U)
+	15 MatrixDeterminantReduce(U)   // Any 2x2 to 10x10 Recursive
+	16 Determinant(U)               // Calls 16a-16e Determinant2x2,3x3,4x4,5x5,6x6
+	17 MatrixProjection(U,V)        // ProjvU = (U.V)/(V.V)xV
+	18 MatrixOrthoDistance(U,V)
+	19 VectorLength(U)
+	20 VectorNorm(U)                // Same as VectorLength - different name
+	21 VectorUnit(U)                // Vector Norm to a Unit Matrix
+	22 VectorDistance(U,V)
+	23 MatricOrthoNormal2(U,V)      // Gram-Schmidt method for 2 Vectors in R2 Space
+	24 MatrixOrthoNormal3(V1,V2,V3) // Gram-Schmidt method for 3 Vectors in R3 Space
+	25 MatrixLuDecompose(U)         // LU Decompose Matrix to Lower and Upper Matrix
+	26 SyntheticFactor(Eq)          // Find Factors of Quartric Equation
+	27 SyntheticDiv(Eq,Factors)     // Synthetic Division using Factors to try possible solutions the Quartic equation
+	28 QuadSolve(Eq)                // Quadratric equation solve format x^2 + x + c
+	29 CubicSolve(Eq)               // Cubic equation solve format x^3 + x^2 + x + c
+	30 QuarticSolve(Eq)             // Solve Quartic equation format x^4 + x^3 + x^2 + x + c
+	31 QuinticSolve(Eq)             // Solve Quintic equation format x^5 x^4 + x^3 + x^2 + x + c
+	31 PolyMultiply(A,B)            // Polynomial Multiple [A]*[B] ascending powers left to right
+	32 PolyAdd(A,B)                 // Polynomial Add [A]+[B] ascending powers left to right
+	33 PolySub(A,B)                 // Polynomial Subtract [A]-[B] ascending powers left to right
+	34 CharEquation(N)              // Characteristic Polynomial of 4x4 Matrix [A - λI] format -12 -44x -46x2 -10x3 +x4
+	34 EigenValueN)                 // Find EigenValues 2x2, 3x3, 4x4 Matrix
+	35 EigenVectors(A)              // Find EigenVectors 2x2, 3x3 Matrix
 
 .. index:: 
 	pair: What is new in Ring  1.18; More Improvements
