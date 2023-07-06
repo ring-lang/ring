@@ -2205,6 +2205,8 @@ ScriptLibs 		None					Add JavaScript Libraries like BootStrap
 Print			None					Print Page Content
 Style 			cStyle					Add cStyle to page CSS content
 StartHTML		None					Add HTTP Header	to page content		
+Redirect		cLocation				Will redirect the webpage
+NoJavaScript		None					Avoid JavaScript links
 =====================	=======================================	=====================================================================
 
 The method DecodeString is used to get HTTP request parameters.
@@ -2280,6 +2282,12 @@ CellStart		aPara					HTML <td>
 CellEnd			None					HTML </td>
 HeaderStart		aPara					HTML <th>
 HeaderEnd		None					HTML </th>
+theadStart		aPara					HTML <thead>
+theadEnd		None					HTML </thead>
+tbodyStart		aPara					HTML <tbody>
+tbodyEnd		None					HTML </tbody>
+tfootStart		aPara					HTML <tfoot>
+tfootEnd		None					HTML </tfoot>
 =====================	=======================================	=====================================================================
 
 aPara in the page methods is a list contains attributes and values.
@@ -2449,6 +2457,9 @@ Video			Wraps HTML Video.
 Nav			Wraps HTML Nav.
 Span			Wraps HTML Span.
 Button			Wraps HTML Button.
+THead			Wraps HTML THEAD.
+TBody			Wraps HTML TBODY.
+TFoot			Wraps HTML TFOOT.
 =====================	========================================================
 
 .. index:: 

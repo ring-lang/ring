@@ -212,6 +212,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingref.html">Using References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
@@ -2365,6 +2366,14 @@ like username &amp; email.</p>
 <td><p>None</p></td>
 <td><p>Add HTTP Header to page content</p></td>
 </tr>
+<tr class="row-odd"><td><p>Redirect</p></td>
+<td><p>cLocation</p></td>
+<td><p>Will redirect the webpage</p></td>
+</tr>
+<tr class="row-even"><td><p>NoJavaScript</p></td>
+<td><p>None</p></td>
+<td><p>Avoid JavaScript links</p></td>
+</tr>
 </tbody>
 </table>
 <p>The method DecodeString is used to get HTTP request parameters.</p>
@@ -2603,6 +2612,30 @@ like username &amp; email.</p>
 <tr class="row-odd"><td><p>HeaderEnd</p></td>
 <td><p>None</p></td>
 <td><p>HTML &lt;/th&gt;</p></td>
+</tr>
+<tr class="row-even"><td><p>theadStart</p></td>
+<td><p>aPara</p></td>
+<td><p>HTML &lt;thead&gt;</p></td>
+</tr>
+<tr class="row-odd"><td><p>theadEnd</p></td>
+<td><p>None</p></td>
+<td><p>HTML &lt;/thead&gt;</p></td>
+</tr>
+<tr class="row-even"><td><p>tbodyStart</p></td>
+<td><p>aPara</p></td>
+<td><p>HTML &lt;tbody&gt;</p></td>
+</tr>
+<tr class="row-odd"><td><p>tbodyEnd</p></td>
+<td><p>None</p></td>
+<td><p>HTML &lt;/tbody&gt;</p></td>
+</tr>
+<tr class="row-even"><td><p>tfootStart</p></td>
+<td><p>aPara</p></td>
+<td><p>HTML &lt;tfoot&gt;</p></td>
+</tr>
+<tr class="row-odd"><td><p>tfootEnd</p></td>
+<td><p>None</p></td>
+<td><p>HTML &lt;/tfoot&gt;</p></td>
 </tr>
 </tbody>
 </table>
@@ -2941,6 +2974,15 @@ Page class, so we can use the next methods with page objects directly.</p>
 </tr>
 <tr class="row-even"><td><p>Button</p></td>
 <td><p>Wraps HTML Button.</p></td>
+</tr>
+<tr class="row-odd"><td><p>THead</p></td>
+<td><p>Wraps HTML THEAD.</p></td>
+</tr>
+<tr class="row-even"><td><p>TBody</p></td>
+<td><p>Wraps HTML TBODY.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TFoot</p></td>
+<td><p>Wraps HTML TFOOT.</p></td>
 </tr>
 </tbody>
 </table>
