@@ -76,6 +76,8 @@ This operation called `Deep Copy <http://en.wikipedia.org/wiki/Object_copy#Deep_
 	See "********" + nl
 	See list2	# print the second list - contains 5 items
 
+.. note:: To copy lists/objects by reference, See the (Using References) chapter about the Ref() function
+
 .. index:: 
 	pair: Variables; Implicit Conversion
 
