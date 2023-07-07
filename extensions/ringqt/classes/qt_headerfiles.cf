@@ -162,7 +162,7 @@ extern "C" {
 </filter>
 
 
-<filter> (iswindows() or ismacosx()) and sysget("RINGQT_NOQML") = ""
+<filter> sysget("RINGQT_NOQML") = ""
 #include "gquickwidget.h"
 #include <QQuickWidget>
 #include <QQmlError>
