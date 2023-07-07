@@ -216,10 +216,11 @@ win32 {
 
 macx {
 	LIBS +=  ../../lib/libring.dylib
-	QT   += quick quickwidgets qml
-	SOURCES += cpp/src/gquickwidget.cpp 
-	HEADERS += cpp/include/gquickwidget.h 
 }
+
+QT   += quick quickwidgets qml
+SOURCES += cpp/src/gquickwidget.cpp 
+HEADERS += cpp/include/gquickwidget.h 
 
 unix:!macx {
   	LIBS +=  /usr/lib/libring.so
