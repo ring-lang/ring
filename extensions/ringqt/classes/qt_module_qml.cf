@@ -2,8 +2,5 @@
 				Module (qml)
 </comment>
 
-
-<filter> (iswindows() or ismacosx()) 
 <loadfile> qml/qqmlerror.cf
 <loadfile> qml/qqmlengine.cf
-</filter>
