@@ -1,4 +1,3 @@
-export RINGQT_QT512=1
 export RINGQT_WEBASSEMBLY=
 export RINGQT_ANDROID=
 export RINGQT_NOCORE=
@@ -29,4 +28,3 @@ export RINGQT_NOCHARTS=1
 cd events
 ../../../bin/ring qtevents.ring
 cd ..
-export RINGQT_QT512=

@@ -1,4 +1,3 @@
-set RINGQT_QT512=1
 set RINGQT_QT515=1
 
 set RINGQT_WEBASSEMBLY=
@@ -34,7 +33,6 @@ ring ..\codegen\parsec.ring classes\qt.cf cpp\src\ring_qtcore.cpp ..\..\librarie
 cd events
 ring qtevents.ring
 cd ..
-set RINGQT_QT512=
 set RINGQT_QT515=
 set RINGQT_CORE_ALONE= 
 set RINGQT_NOWIDGETS=
