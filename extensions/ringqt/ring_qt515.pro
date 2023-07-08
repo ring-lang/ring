@@ -207,20 +207,20 @@ HEADERS  += \
 INCLUDEPATH += ../../language/include
 INCLUDEPATH += cpp/include
 
+QT      += quick quickwidgets qml
+SOURCES += cpp/src/gquickwidget.cpp 
+HEADERS += cpp/include/gquickwidget.h 
+
 win32 {
 	LIBS +=  ../../lib/ring.lib
-	QT   += axcontainer quick quickwidgets qml
-	SOURCES += cpp/src/openglwidget.cpp cpp/src/gquickwidget.cpp 
-	HEADERS += cpp/include/openglwidget.h cpp/include/gquickwidget.h 
+	QT   += axcontainer 
+	SOURCES += cpp/src/openglwidget.cpp 
+	HEADERS += cpp/include/openglwidget.h 
 }
 
 macx {
 	LIBS +=  ../../lib/libring.dylib
 }
-
-QT   += quick quickwidgets qml
-SOURCES += cpp/src/gquickwidget.cpp 
-HEADERS += cpp/include/gquickwidget.h 
 
 unix:!macx {
   	LIBS +=  /usr/lib/libring.so
