@@ -68,14 +68,14 @@
 <loadfile> qt_module_bluetooth.cf
 </filter>
 
-<filter> sysget("RINGQT_QT512") = "1" and sysget("RINGQT_NOSPEECH") = ""
+<filter> sysget("RINGQT_NOSPEECH") = ""
 <loadfile> qt_module_speech.cf
 </filter>
 
-<filter> sysget("RINGQT_QT512") = "1" and sysget("RINGQT_NOQT3D") = ""
+<filter> sysget("RINGQT_NOQT3D") = ""
 <loadfile> qt_module_qt3d.cf
 </filter>
 
-<filter> sysget("RINGQT_QT512") = "1" and sysget("RINGQT_NOCHARTS") = ""
+<filter> sysget("RINGQT_NOCHARTS") = ""
 <loadfile> qt_module_charts.cf
 </filter>

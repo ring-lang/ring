@@ -9,12 +9,12 @@ Previously, Qt provided a version of bitmap() which returned the bitmap by-point
 That version is now deprecated
 </comment>
 
-<filter> sysget("RINGQT_QT515") = "" or sysget("RINGQT_ANDROID_QT512") = "1"
+<filter> sysget("RINGQT_ANDROID_QT512") = "1"
 QBitmap *bitmap(void)
 QBitmap *mask(void)
 </filter>
 
-<filter> sysget("RINGQT_QT515") = "1" and sysget("RINGQT_ANDROID_QT512") = ""
+<filter> sysget("RINGQT_ANDROID_QT512") = ""
 
 <register>
 QBitmap bitmap(void)

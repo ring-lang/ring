@@ -5,14 +5,14 @@ codename: QString
 managed
 </class>
 
-<filter> sysget("RINGQT_QT515") = "" or sysget("RINGQT_ANDROID_QT512") = "1"
+<filter> sysget("RINGQT_ANDROID_QT512") = "1"
 QStringList split( QString  sep, QString::SplitBehavior behavior , Qt::CaseSensitivity cs )
 QStringList split@2(QChar sep, QString::SplitBehavior behavior , Qt::CaseSensitivity cs )
 QStringList split@3( QRegExp  rx, QString::SplitBehavior behavior )
 QStringList split@4( QRegularExpression  re, QString::SplitBehavior behavior )
 </filter>
 
-<filter> sysget("RINGQT_QT515") = "1" and sysget("RINGQT_ANDROID_QT512") = ""
+<filter> sysget("RINGQT_ANDROID_QT512") = ""
 QStringList split( QString  sep, Qt::SplitBehavior behavior , Qt::CaseSensitivity cs )
 QStringList split@2(QChar sep, Qt::SplitBehavior behavior , Qt::CaseSensitivity cs )
 QStringList split@3( QRegExp  rx, Qt::SplitBehavior behavior )

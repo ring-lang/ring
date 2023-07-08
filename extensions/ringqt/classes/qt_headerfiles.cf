@@ -217,13 +217,13 @@ extern "C" {
 #include <QAxWidget>
 </filter>
 
-<filter> sysget("RINGQT_QT512") = "1" and sysget("RINGQT_NOSPEECH") = ""
+<filter> sysget("RINGQT_NOSPEECH") = ""
 #include "gtexttospeech.h"
 #include <QTextToSpeech>
 #include <QVoice>
 </filter>
 
-<filter> sysget("RINGQT_QT512") = "1" and sysget("RINGQT_NOQT3D") = ""
+<filter> sysget("RINGQT_NOQT3D") = ""
 #include "gobjectpicker.h"
 #include "gframeaction.h"
 #include <Qt3DCore/QAbstractAspect>
@@ -276,7 +276,7 @@ extern "C" {
 #include <QViewport>
 </filter>
 
-<filter> sysget("RINGQT_QT512") = "1" and sysget("RINGQT_NOCHARTS") = ""
+<filter> sysget("RINGQT_NOCHARTS") = ""
 #include "gabstractbarseries.h"
 #include "gabstractaxis.h"
 #include "gabstractseries.h"

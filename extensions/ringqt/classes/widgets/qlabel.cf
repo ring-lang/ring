@@ -13,12 +13,12 @@ To maintain compatibility with old code, you can explicitly differentiate
 between the by-pointer function and the by-value function
 </comment>
 
-<filter> sysget("RINGQT_QT515") = "" or sysget("RINGQT_ANDROID_QT512") = "1"
+<filter> sysget("RINGQT_ANDROID_QT512") = "1"
 QPicture *picture(void)
 QPixmap *pixmap(void)
 </filter>
 
-<filter> sysget("RINGQT_QT515") = "1" and sysget("RINGQT_ANDROID_QT512") = ""
+<filter> sysget("RINGQT_ANDROID_QT512") = ""
 
 <register>
 QPicture picture(void)
