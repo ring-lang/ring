@@ -14796,7 +14796,7 @@ RING_FUNC(ring_QString2_split)
 	{
 		QStringList *pValue ; 
 		pValue = new QStringList() ;
-		*pValue = pObject->split(RING_API_GETSTRING(2), (Qt::SplitBehavior )  (int) RING_API_GETNUMBER(3), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(4));
+		*pValue = pObject->split(RING_API_GETSTRING(2), (QString::SplitBehavior )  (int) RING_API_GETNUMBER(3), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(4));
 		RING_API_RETMANAGEDCPOINTER(pValue,"QStringList",ring_QStringList_freefunc);
 	}
 }
@@ -14826,7 +14826,7 @@ RING_FUNC(ring_QString2_split_2)
 	{
 		QStringList *pValue ; 
 		pValue = new QStringList() ;
-		*pValue = pObject->split(* (QChar  *) RING_API_GETCPOINTER(2,"QChar"), (Qt::SplitBehavior )  (int) RING_API_GETNUMBER(3), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(4));
+		*pValue = pObject->split(* (QChar  *) RING_API_GETCPOINTER(2,"QChar"), (QString::SplitBehavior )  (int) RING_API_GETNUMBER(3), (Qt::CaseSensitivity )  (int) RING_API_GETNUMBER(4));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		RING_API_FREE(RING_API_GETCPOINTER(2,"QChar"));
 		RING_API_RETMANAGEDCPOINTER(pValue,"QStringList",ring_QStringList_freefunc);
@@ -14854,7 +14854,7 @@ RING_FUNC(ring_QString2_split_3)
 	{
 		QStringList *pValue ; 
 		pValue = new QStringList() ;
-		*pValue = pObject->split(* (QRegExp   *) RING_API_GETCPOINTER(2,"QRegExp"), (Qt::SplitBehavior )  (int) RING_API_GETNUMBER(3));
+		*pValue = pObject->split(* (QRegExp   *) RING_API_GETCPOINTER(2,"QRegExp"), (QString::SplitBehavior )  (int) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		RING_API_FREE(RING_API_GETCPOINTER(2,"QRegExp"));
 		RING_API_RETMANAGEDCPOINTER(pValue,"QStringList",ring_QStringList_freefunc);
@@ -14882,7 +14882,7 @@ RING_FUNC(ring_QString2_split_4)
 	{
 		QStringList *pValue ; 
 		pValue = new QStringList() ;
-		*pValue = pObject->split(* (QRegularExpression   *) RING_API_GETCPOINTER(2,"QRegularExpression"), (Qt::SplitBehavior )  (int) RING_API_GETNUMBER(3));
+		*pValue = pObject->split(* (QRegularExpression   *) RING_API_GETCPOINTER(2,"QRegularExpression"), (QString::SplitBehavior )  (int) RING_API_GETNUMBER(3));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		RING_API_FREE(RING_API_GETCPOINTER(2,"QRegularExpression"));
 		RING_API_RETMANAGEDCPOINTER(pValue,"QStringList",ring_QStringList_freefunc);
@@ -39524,6 +39524,7 @@ RING_FUNC(ring_QGradient_type)
 	RING_API_RETNUMBER(pObject->type());
 }
 
+
 RING_FUNC(ring_QCursor_bitmap)
 {
 	QCursor *pObject ;
@@ -39537,13 +39538,9 @@ RING_FUNC(ring_QCursor_bitmap)
 		return ;
 	}
 	pObject = (QCursor *) RING_API_GETCPOINTER(1,"QCursor");
-	{
-		QBitmap *pValue ;
-		pValue = new QBitmap() ;
-		*pValue = pObject->bitmap(Qt::ReturnByValue);
-		RING_API_RETMANAGEDCPOINTER(pValue,"QBitmap",ring_QBitmap_freefunc);
-	}
+	RING_API_RETCPOINTER(pObject->bitmap(),"QBitmap");
 }
+
 
 RING_FUNC(ring_QCursor_mask)
 {
@@ -39558,13 +39555,9 @@ RING_FUNC(ring_QCursor_mask)
 		return ;
 	}
 	pObject = (QCursor *) RING_API_GETCPOINTER(1,"QCursor");
-	{
-		QBitmap *pValue ;
-		pValue = new QBitmap() ;
-		*pValue = pObject->mask(Qt::ReturnByValue);
-		RING_API_RETMANAGEDCPOINTER(pValue,"QBitmap",ring_QBitmap_freefunc);
-	}
+	RING_API_RETCPOINTER(pObject->mask(),"QBitmap");
 }
+
 
 RING_FUNC(ring_QCursor_hotSpot)
 {
@@ -73357,6 +73350,7 @@ RING_FUNC(ring_QWidget_createWindowContainer)
 	RING_API_RETCPOINTER(pObject->createWindowContainer((QWindow *) RING_API_GETCPOINTER(2,"QWindow"),(QWidget *) RING_API_GETCPOINTER(3,"QWidget"), (Qt::WindowFlags )  (int) RING_API_GETNUMBER(4)),"QWidget");
 }
 
+
 RING_FUNC(ring_QLabel_picture)
 {
 	QLabel *pObject ;
@@ -73370,12 +73364,7 @@ RING_FUNC(ring_QLabel_picture)
 		return ;
 	}
 	pObject = (QLabel *) RING_API_GETCPOINTER(1,"QLabel");
-	{
-		QPicture *pValue ;
-		pValue = new QPicture() ;
-		*pValue = pObject->picture(Qt::ReturnByValue);
-		RING_API_RETMANAGEDCPOINTER(pValue,"QPicture",ring_QPicture_freefunc);
-	}
+	RING_API_RETCPOINTER(pObject->picture(),"QPicture");
 }
 
 
@@ -73392,12 +73381,7 @@ RING_FUNC(ring_QLabel_pixmap)
 		return ;
 	}
 	pObject = (QLabel *) RING_API_GETCPOINTER(1,"QLabel");
-	{
-		QPixmap *pValue ;
-		pValue = new QPixmap() ;
-		*pValue = pObject->pixmap(Qt::ReturnByValue);
-		RING_API_RETMANAGEDCPOINTER(pValue,"QPixmap",ring_QPixmap_freefunc);
-	}
+	RING_API_RETCPOINTER(pObject->pixmap(),"QPixmap");
 }
 
 
