@@ -19,9 +19,9 @@ How to study this extension
 How to build this extension using Qt 5.15.0
 ===========================================
 
-(1) Run the code generator : gencodeqt515_nobluetooth.bat
+(1) Run the code generator : gencode_nobluetooth.bat
 
-(2) Build the extension : buildqt515_nobluetooth.bat
+(2) Build the extension : buildvc_nobluetooth.bat
 
 Runtime Files
 =============
