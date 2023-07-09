@@ -9,63 +9,8 @@ Previously, Qt provided a version of bitmap() which returned the bitmap by-point
 That version is now deprecated
 </comment>
 
-<filter> sysget("RINGQT_ANDROID_QT512") = "1"
 QBitmap *bitmap(void)
 QBitmap *mask(void)
-</filter>
-
-<filter> sysget("RINGQT_ANDROID_QT512") = ""
-
-<register>
-QBitmap bitmap(void)
-QBitmap mask(void)
-</register>
-
-<code>
-RING_FUNC(ring_QCursor_bitmap)
-{
-	QCursor *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QCursor *) RING_API_GETCPOINTER(1,"QCursor");
-	{
-		QBitmap *pValue ; 
-		pValue = new QBitmap() ;
-		*pValue = pObject->bitmap(Qt::ReturnByValue);
-		RING_API_RETMANAGEDCPOINTER(pValue,"QBitmap",ring_QBitmap_freefunc);
-	}
-}
-
-RING_FUNC(ring_QCursor_mask)
-{
-	QCursor *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QCursor *) RING_API_GETCPOINTER(1,"QCursor");
-	{
-		QBitmap *pValue ; 
-		pValue = new QBitmap() ;
-		*pValue = pObject->mask(Qt::ReturnByValue);
-		RING_API_RETMANAGEDCPOINTER(pValue,"QBitmap",ring_QBitmap_freefunc);
-	}
-}
-</code>
-
-</filter>
 
 QPoint hotSpot(void)
 QPixmap pixmap(void)

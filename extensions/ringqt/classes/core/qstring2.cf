@@ -5,27 +5,16 @@ codename: QString
 managed
 </class>
 
-<filter> sysget("RINGQT_ANDROID_QT512") = "1"
 QStringList split( QString  sep, QString::SplitBehavior behavior , Qt::CaseSensitivity cs )
 QStringList split@2(QChar sep, QString::SplitBehavior behavior , Qt::CaseSensitivity cs )
 QStringList split@3( QRegExp  rx, QString::SplitBehavior behavior )
 QStringList split@4( QRegularExpression  re, QString::SplitBehavior behavior )
-</filter>
-
-<filter> sysget("RINGQT_ANDROID_QT512") = ""
-QStringList split( QString  sep, Qt::SplitBehavior behavior , Qt::CaseSensitivity cs )
-QStringList split@2(QChar sep, Qt::SplitBehavior behavior , Qt::CaseSensitivity cs )
-QStringList split@3( QRegExp  rx, Qt::SplitBehavior behavior )
-QStringList split@4( QRegularExpression  re, Qt::SplitBehavior behavior )
-</filter>
-
 
 QString append(QString  str)
 QString append@2(QChar ch)
 QByteArray toUtf8(void)
 QByteArray toLatin1(void)
 QByteArray toLocal8Bit(void)
-
 
 QChar * unicode(void)
 QString number(ulong n, int base)

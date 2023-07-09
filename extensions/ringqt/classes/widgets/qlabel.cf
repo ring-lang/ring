@@ -13,64 +13,8 @@ To maintain compatibility with old code, you can explicitly differentiate
 between the by-pointer function and the by-value function
 </comment>
 
-<filter> sysget("RINGQT_ANDROID_QT512") = "1"
 QPicture *picture(void)
 QPixmap *pixmap(void)
-</filter>
-
-<filter> sysget("RINGQT_ANDROID_QT512") = ""
-
-<register>
-QPicture picture(void)
-QPixmap pixmap(void)
-</register>
-
-<code>
-RING_FUNC(ring_QLabel_picture)
-{
-	QLabel *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QLabel *) RING_API_GETCPOINTER(1,"QLabel");
-	{
-		QPicture *pValue ; 
-		pValue = new QPicture() ;
-		*pValue = pObject->picture(Qt::ReturnByValue);
-		RING_API_RETMANAGEDCPOINTER(pValue,"QPicture",ring_QPicture_freefunc);
-	}
-}
-
-
-RING_FUNC(ring_QLabel_pixmap)
-{
-	QLabel *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QLabel *) RING_API_GETCPOINTER(1,"QLabel");
-	{
-		QPixmap *pValue ; 
-		pValue = new QPixmap() ;
-		*pValue = pObject->pixmap(Qt::ReturnByValue);
-		RING_API_RETMANAGEDCPOINTER(pValue,"QPixmap",ring_QPixmap_freefunc);
-	}
-}
-
-</code>
-</filter>
 
 int alignment(void)
 QWidget *buddy(void)
