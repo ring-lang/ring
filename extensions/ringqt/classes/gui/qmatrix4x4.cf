@@ -3,10 +3,6 @@ name: QMatrix4x4
 para: qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal
 </class>
 
-<filter> sysget("RINGQT_QT515") = ""
-QMatrix toAffine(void)
-</filter>
-
 QVector4D column(int index)
 qreal * constData(void)
 <comment>

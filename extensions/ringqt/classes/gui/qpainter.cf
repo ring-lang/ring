@@ -3,10 +3,6 @@ name: QPainter
 para: void
 </class>
 
-<filter> sysget("RINGQT_QT515") = ""
-void initFrom(QWidget *widget)
-</filter>
-
 QBrush background(void)
 int backgroundMode(void)
 bool begin(QPaintDevice *device)

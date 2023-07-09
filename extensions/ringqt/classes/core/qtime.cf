@@ -3,12 +3,6 @@ name: QTime
 para: void
 </class>
 
-<filter> sysget("RINGQT_QT515") = ""
-int elapsed(void)
-int restart(void)
-void start(void)
-</filter>
-
 QTime addMSecs(int ms)
 QTime addSecs(int s)
 

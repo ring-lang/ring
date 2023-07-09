@@ -6,15 +6,8 @@ codename: GTextEdit
 passvmpointer
 </class>
 
-<filter> sysget("RINGQT_QT515") = ""
-void setTabStopWidth(int width)
-int tabStopWidth(void)  
-</filter>
-
 void setTabStopDistance(qreal width)
 qreal tabStopDistance(void)  
-
-
 bool acceptRichText(void)
 int alignment(void)
 QString anchorAt(QPoint)

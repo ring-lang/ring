@@ -4,12 +4,6 @@ para: QWidget *
 parent: QAbstractScrollArea
 </class>
  
-<filter> sysget("RINGQT_QT515") = ""
-QMatrix matrix(void)
-void resetMatrix(void)
-void setMatrix(QMatrix matrix, bool combine)
-</filter>
-
 Qt::Alignment alignment(void)
 QBrush backgroundBrush(void)
 QGraphicsView::CacheMode cacheMode(void)

@@ -3,10 +3,6 @@ name: QFileInfo
 para: void
 </class>
 
-<filter> sysget("RINGQT_QT515") = ""
-QDateTime created(void)
-</filter>
-
 QDir absoluteDir(void)
 QString absoluteFilePath(void)
 QString absolutePath(void)

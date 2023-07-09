@@ -1,4 +1,3 @@
-set RINGQT_QT515=1
 set RINGQT_WEBASSEMBLY=
 set RINGQT_ANDROID=
 set RINGQT_NOCORE=
@@ -28,4 +27,3 @@ ring ..\codegen\parsec.ring classes\qt.cf cpp\src\ring_qt_light.cpp ..\..\librar
 cd events
 ring qtevents.ring
 cd ..
-set RINGQT_QT515=

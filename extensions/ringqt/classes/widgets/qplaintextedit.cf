@@ -6,11 +6,6 @@ codename: GPlainTextEdit
 passvmpointer
 </class>
 
-<filter> sysget("RINGQT_QT515") = ""
-void setTabStopWidth(int width)
-int tabStopWidth(void)
-</filter>
-
 void setTabStopDistance(qreal width)
 qreal tabStopDistance(void)  
 

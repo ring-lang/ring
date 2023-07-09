@@ -6,11 +6,6 @@ codename: GTreeWidget
 passvmpointer
 </class>
 
-<filter> sysget("RINGQT_QT515") = ""
-bool isFirstItemColumnSpanned( QTreeWidgetItem *item)
-void setFirstItemColumnSpanned(QTreeWidgetItem *item, bool span)
-</filter>
-
 void addTopLevelItem(QTreeWidgetItem *item)
 void closePersistentEditor(QTreeWidgetItem *item, int column)
 int columnCount(void)

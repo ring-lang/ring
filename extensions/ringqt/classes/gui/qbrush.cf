@@ -3,11 +3,6 @@ name: QBrush
 para: void
 </class>
 
-<filter> sysget("RINGQT_QT515") = ""
-QMatrix matrix(void)
-void setMatrix(QMatrix)
-</filter>
-
 QColor color(void)
 QGradient *gradient(void)
 bool isOpaque(void)

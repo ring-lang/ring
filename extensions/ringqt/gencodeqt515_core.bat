@@ -1,5 +1,3 @@
-set RINGQT_QT515=1
-
 set RINGQT_WEBASSEMBLY=
 set RINGQT_ANDROID=
 set RINGQT_ANDROID_QT512=
@@ -33,7 +31,6 @@ ring ..\codegen\parsec.ring classes\qt.cf cpp\src\ring_qtcore.cpp ..\..\librarie
 cd events
 ring qtevents.ring
 cd ..
-set RINGQT_QT515=
 set RINGQT_CORE_ALONE= 
 set RINGQT_NOWIDGETS=
 set RINGQT_NOGUI=

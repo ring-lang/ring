@@ -3,12 +3,6 @@ name: QDateTime
 para: void
 </class>
 
-<filter> sysget("RINGQT_QT515") = ""
-uint toTime_t(void)
-QDateTime fromTime_t(uint seconds)
-void setTime_t(uint seconds)
-</filter>
-
 QDateTime addDays(int ndays)
 QDateTime addMSecs(qint64 msecs)
 QDateTime addMonths(int nmonths)

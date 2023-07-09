@@ -3,10 +3,6 @@ name: QRegion
 para: void
 </class>
 
-<filter> sysget("RINGQT_QT515") = ""
-QVector<QRect> rects(void)
-</filter>
-
 QRect boundingRect(void)
 bool contains(QPoint p)
 bool contains@2(QRect r)

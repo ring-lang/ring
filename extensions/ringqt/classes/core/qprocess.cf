@@ -6,10 +6,6 @@ codename: GProcess
 passvmpointer
 </class>
 
-<filter> sysget("RINGQT_QT515") = ""
-void start@2( QString  command, QIODevice::OpenMode mode )
-</filter>
-
 QStringList arguments(void)
 void closeReadChannel(QProcess::ProcessChannel channel)
 void closeWriteChannel(void)

@@ -46,7 +46,6 @@
 <loadfile> widgets/qaction.cf
 <loadfile> widgets/qmessagebox.cf
 <loadfile> widgets/qfiledialog.cf
-<loadfile> widgets/qdirmodel.cf
 <loadfile> widgets/qfontdialog.cf
 <loadfile> widgets/qdialog.cf
 <loadfile> widgets/qcolordialog.cf

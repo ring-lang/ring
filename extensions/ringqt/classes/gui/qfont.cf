@@ -4,15 +4,6 @@ para: QString, int, int, bool
 managed
 </class>
 
-<filter> sysget("RINGQT_QT515") = ""
-void setRawMode(bool enable)
-void setRawName(QString)
-bool rawMode(void)
-QString rawName(void)
-QString lastResortFamily(void)
-QString lastResortFont(void)
-</filter>
-
 bool bold(void)
 int capitalization(void)
 QString defaultFamily(void)

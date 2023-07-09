@@ -3,10 +3,6 @@ name: QSerialPortInfo
 para: void
 </class>
 
-<filter> sysget("RINGQT_QT515") = ""
-bool isBusy(void)
-</filter>
-
 QString description(void)
 bool hasProductIdentifier(void)
 bool hasVendorIdentifier(void)

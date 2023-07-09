@@ -6,10 +6,6 @@ codename: GLineEdit
 passvmpointer
 </class>
 
-<filter> sysget("RINGQT_QT515") = ""
-void getTextMargins(int *left, int *top, int *right, int *bottom)
-</filter>
-
 int alignment(void)
 void backspace(void)
 QCompleter *completer(void)
