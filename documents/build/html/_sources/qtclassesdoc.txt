@@ -1728,8 +1728,6 @@ C++ Reference : http://doc.qt.io/qt-5/qbrush.html
 
 Parameters : void
 
-* QMatrix matrix(void)
-* void setMatrix(QMatrix)
 * QColor color(void)
 * QGradient *gradient(void)
 * bool isOpaque(void)
@@ -2993,8 +2991,8 @@ C++ Reference : http://doc.qt.io/qt-5/qcursor.html
 
 Parameters : void
 
-* QBitmap bitmap(void)
-* QBitmap mask(void)
+* QBitmap *bitmap(void)
+* QBitmap *mask(void)
 * QPoint hotSpot(void)
 * QPixmap pixmap(void)
 * void setShape(Qt::CursorShape shape)
@@ -3039,10 +3037,6 @@ C++ Reference : http://doc.qt.io/qt-5/qdate.html
 
 Parameters : void
 
-* QString longDayName(int weekday)
-* QString longMonthName(int month)
-* QString shortDayName(int weekday)
-* QString shortMonthName(int month)
 * QDate addDays(int ndays)
 * QDate addMonths(int nmonths)
 * QDate addYears(int nyears)
@@ -3094,9 +3088,6 @@ C++ Reference : http://doc.qt.io/qt-5/qdatetime.html
 
 Parameters : void
 
-* uint toTime_t(void)
-* QDateTime fromTime_t(uint seconds)
-* void setTime_t(uint seconds)
 * QDateTime addDays(int ndays)
 * QDateTime addMSecs(qint64 msecs)
 * QDateTime addMonths(int nmonths)
@@ -3265,9 +3256,6 @@ Parameters : void
 
 Parent Class : QWidget
 
-* bool isVirtualDesktop(void)
-* int primaryScreen(void)
-* int screenCount(void)
 * QRect availableGeometry(QWidget *)
 * QScreen *screen(void)
 * QRect screenGeometry(QWidget *)
@@ -3433,43 +3421,6 @@ Parameters : void
 * QDir temp(void)
 * QString tempPath(void)
 * QString toNativeSeparators(QString pathName)
-
-.. index::
-	pair: RingQt Classes Reference; QDirModel Class
-
-QDirModel Class
-===============
-
-
-C++ Reference : http://doc.qt.io/qt-5/qdirmodel.html
-
-
-Parameters : void
-
-* QIcon fileIcon(QModelIndex)
-* QFileInfo fileInfo(QModelIndex)
-* QString fileName(QModelIndex)
-* QString filePath(QModelIndex)
-* int filter(void)
-* QFileIconProvider *iconProvider(void)
-* QModelIndex index(QString path, int column)
-* bool isDir(QModelIndex)
-* bool isReadOnly(void)
-* bool lazyChildCount(void)
-* QModelIndex mkdir(QModelIndex parent, QString name)
-* QStringList nameFilters(void)
-* bool remove(QModelIndex index)
-* bool resolveSymlinks(void)
-* bool rmdir(QModelIndex index)
-* void setFilter(QDir::Filter filters)
-* void setIconProvider(QFileIconProvider *provider)
-* void setLazyChildCount(bool enable)
-* void setNameFilters(QStringList filters)
-* void setReadOnly(bool enable)
-* void setResolveSymlinks(bool enable)
-* void setSorting(QDir::SortFlag sort)
-* int sorting(void)
-* void refresh(QModelIndex parent)
 
 .. index::
 	pair: RingQt Classes Reference; QDockWidget Class
@@ -3883,7 +3834,6 @@ C++ Reference : http://doc.qt.io/qt-5/qfileinfo.html
 
 Parameters : void
 
-* QDateTime created(void)
 * QDir absoluteDir(void)
 * QString absoluteFilePath(void)
 * QString absolutePath(void)
@@ -4013,12 +3963,6 @@ C++ Reference : http://doc.qt.io/qt-5/qfont.html
 
 Parameters : QString, int, int, bool
 
-* void setRawMode(bool enable)
-* void setRawName(QString)
-* bool rawMode(void)
-* QString rawName(void)
-* QString lastResortFamily(void)
-* QString lastResortFont(void)
 * bool bold(void)
 * int capitalization(void)
 * QString defaultFamily(void)
@@ -4118,8 +4062,6 @@ C++ Reference : http://doc.qt.io/qt-5/qfontmetrics.html
 
 Parameters : QFont
 
-* int width( QString   text, int len )
-* int width_2(QChar ch)
 * int ascent(void)
 * int averageCharWidth(void)
 * QRect boundingRect(QChar ch)
@@ -4684,9 +4626,6 @@ Parameters : QWidget *
 
 Parent Class : QAbstractScrollArea
 
-* QMatrix matrix(void)
-* void resetMatrix(void)
-* void setMatrix(QMatrix matrix, bool combine)
 * Qt::Alignment alignment(void)
 * QBrush backgroundBrush(void)
 * QGraphicsView::CacheMode cacheMode(void)
@@ -5372,7 +5311,6 @@ C++ Reference : http://doc.qt.io/qt-5/qimage.html
 
 Parameters : void
 
-* int byteCount(void)
 * bool allGray(void)
 * int bitPlaneCount(void)
 * uchar *bits(void)
@@ -5544,10 +5482,6 @@ C++ Reference : http://doc.qt.io/qt-5/qjsondocument.html
 
 Parameters : void
 
-* const char * rawData(int * size)
-* QByteArray toBinaryData(void)
-* QJsonDocument fromBinaryData( QByteArray  data, QJsonDocument::DataValidation validation)
-* QJsonDocument fromRawData( char * data, int size, QJsonDocument::DataValidation validation)
 * QJsonArray array(void)
 * bool isArray(void)
 * bool isEmpty(void)
@@ -5691,8 +5625,8 @@ Parameters : QWidget *
 
 Parent Class : QFrame
 
-* QPicture picture(void)
-* QPixmap pixmap(void)
+* QPicture *picture(void)
+* QPixmap *pixmap(void)
 * int alignment(void)
 * QWidget *buddy(void)
 * bool hasScaledContents(void)
@@ -5868,7 +5802,6 @@ Parameters : QWidget *
 
 Parent Class : QWidget
 
-* void getTextMargins(int *left, int *top, int *right, int *bottom)
 * int alignment(void)
 * void backspace(void)
 * QCompleter *completer(void)
@@ -6352,7 +6285,6 @@ QMatrix4x4 Class
 
 Parameters : qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal
 
-* QMatrix toAffine(void)
 * QVector4D column(int index)
 * qreal * constData(void)
 * qreal * data_2(void)
@@ -8112,7 +8044,6 @@ C++ Reference : http://doc.qt.io/qt-5/qpainter.html
 
 Parameters : void
 
-* void initFrom(QWidget *widget)
 * QBrush background(void)
 * int backgroundMode(void)
 * bool begin(QPaintDevice *device)
@@ -8616,8 +8547,6 @@ Parameters : QWidget *
 
 Parent Class : QAbstractScrollArea
 
-* void setTabStopWidth(int width)
-* int tabStopWidth(void)
 * void setTabStopDistance(qreal width)
 * qreal tabStopDistance(void)
 * QString anchorAt(QPoint pos)
@@ -8980,7 +8909,6 @@ Parameters : QObject *
 
 Parent Class : QIODevice
 
-* void start_2( QString  command, QIODevice::OpenMode mode )
 * QStringList arguments(void)
 * void closeReadChannel(QProcess::ProcessChannel channel)
 * void closeWriteChannel(void)
@@ -9346,7 +9274,6 @@ C++ Reference : http://doc.qt.io/qt-5/qregion.html
 
 Parameters : void
 
-* QVector<QRect> rects(void)
 * QRect boundingRect(void)
 * bool contains(QPoint p)
 * bool contains_2(QRect r)
@@ -9688,7 +9615,6 @@ C++ Reference : http://doc.qt.io/qt-5/qserialportinfo.html
 
 Parameters : void
 
-* bool isBusy(void)
 * QString description(void)
 * bool hasProductIdentifier(void)
 * bool hasVendorIdentifier(void)
@@ -9995,11 +9921,6 @@ C++ Reference : http://doc.qt.io/qt-5/qsqlerror.html
 
 Parameters : QString, QString, QSqlError::ErrorType
 
-* int number(void)
-* void setNumber(int number)
-* void setType(QSqlError::ErrorType type)
-* void setDriverText(QString)
-* void setDatabaseText(QString)
 * QString databaseText(void)
 * QString driverText(void)
 * bool isValid(void)
@@ -10246,10 +10167,10 @@ QString2 Class
 
 Parameters : void
 
-* QStringList split( QString  sep, Qt::SplitBehavior behavior , Qt::CaseSensitivity cs )
-* QStringList split_2(QChar sep, Qt::SplitBehavior behavior , Qt::CaseSensitivity cs )
-* QStringList split_3( QRegExp  rx, Qt::SplitBehavior behavior )
-* QStringList split_4( QRegularExpression  re, Qt::SplitBehavior behavior )
+* QStringList split( QString  sep, QString::SplitBehavior behavior , Qt::CaseSensitivity cs )
+* QStringList split_2(QChar sep, QString::SplitBehavior behavior , Qt::CaseSensitivity cs )
+* QStringList split_3( QRegExp  rx, QString::SplitBehavior behavior )
+* QStringList split_4( QRegularExpression  re, QString::SplitBehavior behavior )
 * QString append(QString  str)
 * QString append_2(QChar ch)
 * QByteArray toUtf8(void)
@@ -10301,7 +10222,6 @@ C++ Reference : http://doc.qt.io/qt-5/qstringlist.html
 
 Parameters : void
 
-* void swap(int,int)
 * QString join(QString)
 * void sort(void)
 * int removeDuplicates(void)
@@ -11307,8 +11227,6 @@ Parameters : QWidget *
 
 Parent Class : QAbstractScrollArea
 
-* void setTabStopWidth(int width)
-* int tabStopWidth(void)
 * void setTabStopDistance(qreal width)
 * qreal tabStopDistance(void)
 * bool acceptRichText(void)
@@ -11695,9 +11613,6 @@ C++ Reference : http://doc.qt.io/qt-5/qtime.html
 
 Parameters : void
 
-* int elapsed(void)
-* int restart(void)
-* void start(void)
 * QTime addMSecs(int ms)
 * QTime addSecs(int s)
 * int hour(void)
@@ -11973,8 +11888,6 @@ Parameters : QWidget *
 
 Parent Class : QTreeView
 
-* bool isFirstItemColumnSpanned( QTreeWidgetItem *item)
-* void setFirstItemColumnSpanned(QTreeWidgetItem *item, bool span)
 * void addTopLevelItem(QTreeWidgetItem *item)
 * void closePersistentEditor(QTreeWidgetItem *item, int column)
 * int columnCount(void)
@@ -12123,7 +12036,6 @@ C++ Reference : http://doc.qt.io/qt-5/qurl.html
 
 Parameters : QString
 
-* QString topLevelDomain(QUrl::ComponentFormattingOption options)
 * void clear(void)
 * QString errorString(void)
 * QString fileName(QUrl::ComponentFormattingOption options)
@@ -12980,22 +12892,6 @@ C++ Reference : http://doc.qt.io/qt-5/qwebview.html
 Parameters : QWidget *parent
 
 
-Parent Class : QWebEngineView
-
-
-.. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/qt-5/qwebview.html
-
-
-Parameters : QWidget *parent
-
-
 Parent Class : QWidget
 
 * QWebHistory *history(void)
@@ -13025,6 +12921,22 @@ Parent Class : QWidget
 * const char *geturlChangedEvent(void)
 
 .. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/qt-5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWebEngineView
+
+
+.. index::
 	pair: RingQt Classes Reference; QWidget Class
 
 QWidget Class
@@ -13039,7 +12951,6 @@ Parameters : void
 
 Parent Class : QObject
 
-* void getContentsMargins(int *left, int *top, int *right, int *bottom)
 * bool acceptDrops(void)
 * QString accessibleDescription(void)
 * QString accessibleName(void)
