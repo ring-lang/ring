@@ -43,6 +43,7 @@
 
 #include <QSyntaxHighlighter>
 #include <QTextCharFormat>
+#include <QStringList>
 
 QT_BEGIN_NAMESPACE
 class QTextDocument;
@@ -57,7 +58,12 @@ public:
     Highlighter(QTextDocument *parent = 0);
     void setColors(QColor c1,QColor c2,QColor c3,QColor c4,QColor c5);
     void setKeywordsBold(int nStatus);
+    void setUseDefaultKeywords(int nStatus);
+    void setCustomKeywords(QStringList aKeywords);
     int nKeywordsBold = 0 ;
+    int nUseDefaultKeywords = 1;
+    int nUseCustomKeywords  = 0;
+    QStringList customKeywords;
 
 protected:
     void highlightBlock(const QString &text) Q_DECL_OVERRIDE;
