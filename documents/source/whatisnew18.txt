@@ -156,7 +156,7 @@ For example in the the next screen shot
 
 We have (ringsyntax.ring) that translate some of the Ring keywords to Arabic language
 
-When we execute (سلام.رينج) which means in english (hello.ring)
+When we execute the file with Arabic name which means in English (hello.ring)
 
 Ring will automatically execute (ringsyntax.ring) using Load Syntax command
 
