@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.2",
+	:version = "1.0.5",
 	:ringversion = "1.18",
 	:versions = 	[
 		[
-			:version = "1.0.2",
+			:version = "1.0.5",
 			:branch = "master"
 		]
 	],
@@ -22,18 +22,19 @@ aPackageInfo = [
 	],
 	:files = 	[
 		"main.ring",
-		"applications/README.md"
+		"README.md"
 	],
 	:ringfolderfiles = 	[
-		"applications/designer.ring",
-		"applications/fonts/pirulen.ttf",
-		"applications/images/door.jpg",
-		"applications/images/empty.jpg",
-		"applications/images/player.jpg",
-		"applications/images/wall.jpg",
-		"applications/level.ring",
-		"applications/maze.png",
-		"applications/maze.ring"
+		"applications/maze/designer.ring",
+		"applications/maze/fonts/pirulen.ttf",
+		"applications/maze/images/door.jpg",
+		"applications/maze/images/empty.jpg",
+		"applications/maze/images/player.jpg",
+		"applications/maze/images/wall.jpg",
+		"applications/maze/level.ring",
+		"applications/maze/maze.png",
+		"applications/maze/maze.ring",
+		"applications/maze/README.md"
 	],
 	:windowsfiles = 	[
 
