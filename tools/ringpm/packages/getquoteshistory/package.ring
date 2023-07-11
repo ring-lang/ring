@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.0",
-	:ringversion = "1.10",
+	:version = "1.0.1",
+	:ringversion = "1.18",
 	:versions = 	[
 		[
-			:version = "1.0.0",
+			:version = "1.0.1",
 			:branch = "master"
 		]
 	],
@@ -31,7 +31,9 @@ aPackageInfo = [
 	],
 	:ringfolderfiles = 	[
 		"applications/getquoteshistory/GetQuotesHistoryDraw-v1.3.ring",
-		"applications/getquoteshistory/GetTkr1-1500.tickers"
+		"applications/getquoteshistory/GetTkr1-1500.tickers",
+		"applications/getquoteshistory/appicon.png",
+		"applications/getquoteshistory/README.md"
 	],
 	:windowsfiles = 	[
 
