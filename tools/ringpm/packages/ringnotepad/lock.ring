@@ -2,14 +2,14 @@ aLockInfo = [
 	[
 		:name = "ringnotepad",
 		:branch = "master",
-		:version = "1.0.20",
+		:version = "1.0.22",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "stdlib",
 		:branch = "master",
-		:version = "1.0.13",
+		:version = "1.0.14",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -37,20 +37,6 @@ aLockInfo = [
 	[
 		:name = "internetlib",
 		:branch = "master",
-		:version = "1.0.3",
-		:providerusername = "ringpackages",
-		:providerwebsite = ""
-	],
-	[
-		:name = "ringcurl",
-		:branch = "master",
-		:version = "1.0.3",
-		:providerusername = "ringpackages",
-		:providerwebsite = ""
-	],
-	[
-		:name = "codegen",
-		:branch = "master",
 		:version = "1.0.4",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
@@ -58,28 +44,28 @@ aLockInfo = [
 	[
 		:name = "ringodbc",
 		:branch = "master",
-		:version = "1.0.3",
+		:version = "1.0.4",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "ringsqlite",
 		:branch = "master",
-		:version = "1.0.3",
+		:version = "1.0.4",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "ringmysql",
 		:branch = "master",
-		:version = "1.0.3",
+		:version = "1.0.4",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "ringpostgresql",
 		:branch = "master",
-		:version = "1.0.3",
+		:version = "1.0.4",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -94,6 +80,13 @@ aLockInfo = [
 		:name = "ringzip",
 		:branch = "master",
 		:version = "1.0.3",
+		:providerusername = "ringpackages",
+		:providerwebsite = ""
+	],
+	[
+		:name = "codegen",
+		:branch = "master",
+		:version = "1.0.4",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -149,70 +142,63 @@ aLockInfo = [
 	[
 		:name = "findinfiles",
 		:branch = "master",
-		:version = "1.0.1",
+		:version = "1.0.2",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "stdlib",
 		:branch = "master",
-		:version = "1.0.3",
+		:version = "1.0.13",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
-		:name = "ringopenssl",
+		:name = "internetlib",
 		:branch = "master",
 		:version = "1.0.3",
-		:providerusername = "ringpackages",
-		:providerwebsite = ""
-	],
-	[
-		:name = "ringqt",
-		:branch = "master",
-		:version = "1.0.14",
-		:providerusername = "ringpackages",
-		:providerwebsite = ""
-	],
-	[
-		:name = "formdesigner",
-		:branch = "master",
-		:version = "1.0.12",
-		:providerusername = "ringpackages",
-		:providerwebsite = ""
-	],
-	[
-		:name = "stdlib",
-		:branch = "master",
-		:version = "1.0.12",
-		:providerusername = "ringpackages",
-		:providerwebsite = ""
-	],
-	[
-		:name = "ringopenssl",
-		:branch = "master",
-		:version = "1.0.4",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "ringcurl",
 		:branch = "master",
-		:version = "1.0.7",
+		:version = "1.0.3",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
-		:name = "codegen",
+		:name = "ringodbc",
 		:branch = "master",
-		:version = "1.0.8",
+		:version = "1.0.3",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
-		:name = "ringqt",
+		:name = "ringsqlite",
 		:branch = "master",
-		:version = "1.0.30",
+		:version = "1.0.3",
+		:providerusername = "ringpackages",
+		:providerwebsite = ""
+	],
+	[
+		:name = "ringmysql",
+		:branch = "master",
+		:version = "1.0.3",
+		:providerusername = "ringpackages",
+		:providerwebsite = ""
+	],
+	[
+		:name = "ringpostgresql",
+		:branch = "master",
+		:version = "1.0.3",
+		:providerusername = "ringpackages",
+		:providerwebsite = ""
+	],
+	[
+		:name = "formdesigner",
+		:branch = "master",
+		:version = "1.0.13",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
