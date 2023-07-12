@@ -726,5 +726,9 @@ aPackagesRegistry = [
 	[ :name = "readfiles",
 	  :description = "ReadFiles package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
-	]
+	],
+	[ :name = "matrixlib",
+          :description = "MatrixLib library for the Ring programming language",
+          :ProviderUserName = "ringpackages"
+        ]
 ]
