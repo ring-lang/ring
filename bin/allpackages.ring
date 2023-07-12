@@ -38,8 +38,8 @@ aAllPackagesInfo = [
 		"qt515runtime",
 		"qt515qmlruntime",
 		"webassemblyringqt",
-		"libdepwin_allegro5271",
-		"RandomUser"
+		"RandomUser",
+		"libdepwin_allegro528"
 	],
 	:ringopenssl = 	[
 		"stdlib"
@@ -328,5 +328,8 @@ aAllPackagesInfo = [
 	],
 	:httplib = 	[
 		"RandomUser"
+	],
+	:libdepwin_allegro5271 = 	[
+
 	]
 ]
