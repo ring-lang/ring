@@ -60,6 +60,7 @@
           </li>	
 	  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentation<span class="caret"></span></a>
             <ul class="dropdown-menu">
+		  <li><a href="doc1.18/index.html" >Ring 1.18 Documentation</a></li>
 		  <li><a href="doc1.17/index.html" >Ring 1.17 Documentation</a></li>
 		  <li><a href="doc1.16/index.html" >Ring 1.16 Documentation</a></li>
 		  <li><a href="doc1.15/index.html" >Ring 1.15 Documentation</a></li>
@@ -92,7 +93,7 @@
     </ul>
 
 	<div style="float:right ; margin-top:0.5% ; margin-right: 1%">
-		<form class="search" action="doc1.17/search.html" method="get" style="width:200px" >
+		<form class="search" action="doc1.18/search.html" method="get" style="width:200px" >
 			<div class="input-group">
 				<input name="q" type="text" class="form-control" placeholder="Search for...">
 				<span class="input-group-btn">
@@ -137,7 +138,7 @@
 				</div>
 				
 				<div class="col-sm-12 col-md-2">
-					<a href="doc1.17/index.html" class="btn btn-default btn-block" style="">Documentation</a>
+					<a href="doc1.18/index.html" class="btn btn-default btn-block" style="">Documentation</a>
 				</div>
 
 				<div class="col-sm-12 col-md-2">
