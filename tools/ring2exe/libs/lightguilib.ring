@@ -31,7 +31,7 @@ aLibrary = [:name = :lightguilib ,
 	 :macosxfiles = [
 		"libringqt_light.dylib"
 	 ],
-	 :ubuntudep = "qt5-default qtbase5-dev",
+	 :ubuntudep = "qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools",
 	 :fedoradep = "qt5-qtbase-devel",
 	 :macosxdep = "qt@5"
 	]
