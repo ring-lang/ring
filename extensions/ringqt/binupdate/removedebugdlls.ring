@@ -33,5 +33,5 @@ DeleteFiles(aFiles)
 func DeleteFiles aFiles
 	for cFile in aFiles
 		? "Delete File: " + cFile
-		remove(cFile)
+		remove(exefolder()+"\"+cFile)
 	next
