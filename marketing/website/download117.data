@@ -1,0 +1,37 @@
+﻿aDownload = [
+		["Ring 1.17 All Platforms",[
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.17/Fayed_Ring_1.17_Windows.exe"  >Ring 1.17 For Windows (32bit and 64bit)</a>',
+							'388 MB'						
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.17/Fayed_Ring_1.17_Ubuntu.zip">Ring 1.17 For Ubuntu Linux (64bit)</a>',
+							'457 MB</a>'						
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.17/Fayed_Ring_1.17_macOS.zip">Ring 1.17 For macOS (64bit)</a>',
+							'462 MB'						
+						 ],	
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.17/Fayed_RingDoc_1.17.pdf">Ring 1.17 Documentation (PDF)</a> ',
+							'45 MB'
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.17/Fayed_RingDoc_1.17.chm">Ring 1.17 Documentation (CHM)</a>',
+							'43 MB'							
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.17/Fayed_RingDoc_1.17.zip">Ring 1.17 Documentation (HTML)</a>',
+							'54 MB'							
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.17/Fayed_Ring_1.17_LightRelease_Windows_Binary.zip">Ring 1.17 (Light Release - Windows Binary)</a>',
+							'3.4 MB'
+						 ],	
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.17/Fayed_Ring_1.17_LightRelease_SourceCode.zip">Ring 1.17 (Light Release - Source Code - All Platforms)</a>',
+							'713 KB'
+						 ]
+			]
+		]
+]
