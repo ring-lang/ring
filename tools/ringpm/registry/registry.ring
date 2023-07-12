@@ -718,5 +718,9 @@ aPackagesRegistry = [
 	[ :name = "randomuser",
 	  :description = "RandomUser package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "libdepwin_allegro528",
+	  :description = "LibDepWin_Allegro528 package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
