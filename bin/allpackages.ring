@@ -340,5 +340,8 @@ aAllPackagesInfo = [
 	],
 	:libdepwin_allegro5271 = 	[
 
+	],
+	:readfiles = 	[
+
 	]
 ]
