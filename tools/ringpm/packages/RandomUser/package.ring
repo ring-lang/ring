@@ -1,15 +1,15 @@
 aPackageInfo = [
 	:name = "The RandomUser Application Package",
 	:description = "Our RandomUser Application package using the Ring programming language",
-	:folder = "RandomUser",
+	:folder = "randomuser",
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.3",
+	:version = "1.0.4",
 	:ringversion = "1.18",
 	:versions = 	[
 		[
-			:version = "1.0.3",
+			:version = "1.0.4",
 			:branch = "master"
 		]
 	],
@@ -117,7 +117,7 @@ aPackageInfo = [
 	:macosremove = "",
 	:ubunturemove = "",
 	:fedoraremove = "",
-	:remotefolder = "RandomUser",
+	:remotefolder = "randomuser",
 	:branch = "master",
 	:providerusername = "ringpackages",
 	:providerwebsite = "github.com"

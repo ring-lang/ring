@@ -39,14 +39,16 @@ aAllPackagesInfo = [
 		"qt515qmlruntime",
 		"webassemblyringqt",
 		"RandomUser",
-		"libdepwin_allegro528"
+		"libdepwin_allegro528",
+		"randomuser"
 	],
 	:ringopenssl = 	[
 		"stdlib"
 	],
 	:internetlib = 	[
 		"stdlib",
-		"RandomUser"
+		"RandomUser",
+		"randomuser"
 	],
 	:ringodbc = 	[
 		"stdlib"
@@ -130,7 +132,8 @@ aAllPackagesInfo = [
 		"CitationsPrediction",
 		"mergetwofiles",
 		"poetryanalysis",
-		"RandomUser"
+		"RandomUser",
+		"randomuser"
 	],
 	:ringallegro = 	[
 		"gameengine",
@@ -216,7 +219,8 @@ aAllPackagesInfo = [
 		"CitationsPrediction",
 		"mergetwofiles",
 		"poetryanalysis",
-		"RandomUser"
+		"RandomUser",
+		"randomuser"
 	],
 	:findinfiles = 	[
 		"ringnotepad"
@@ -249,7 +253,8 @@ aAllPackagesInfo = [
 		"tetris",
 		"escape",
 		"towersofhanoi",
-		"RandomUser"
+		"RandomUser",
+		"randomuser"
 	],
 	:ringallegro = 	[
 		"squarespuzzle"
@@ -258,7 +263,8 @@ aAllPackagesInfo = [
 		"typingquiz",
 		"pong2game",
 		"spaceshootergame",
-		"RandomUser"
+		"RandomUser",
+		"randomuser"
 	],
 	:zerolib = 	[
 
@@ -320,14 +326,17 @@ aAllPackagesInfo = [
 	],
 	:jsonlib = 	[
 		"CitationsPrediction",
-		"RandomUser"
+		"RandomUser",
+		"randomuser"
 	],
 	:weblib = 	[
 		"httplib",
-		"RandomUser"
+		"RandomUser",
+		"randomuser"
 	],
 	:httplib = 	[
-		"RandomUser"
+		"RandomUser",
+		"randomuser"
 	],
 	:libdepwin_allegro5271 = 	[
 
