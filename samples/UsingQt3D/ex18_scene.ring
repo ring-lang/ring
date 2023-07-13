@@ -1,6 +1,6 @@
 load "guilib.ring"
 
-new qApp {
+oApp = new qApp {
 
 	oWidget = new QWidget()
 
@@ -185,6 +185,7 @@ func pKeyPress
 			ok
 		on Qt_Key_Escape
 			oWidget.close()
+			oApp.Quit()
 	off
 
 	oRobotTransform.setTranslation(new QVector3D(robotX, robotY, robotZ))

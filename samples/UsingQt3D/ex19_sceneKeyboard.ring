@@ -7,9 +7,10 @@ cVCx=0  cVCy=0  cVCz=0
 
 nRotation = 0
 
-new qApp {
+oApp = new qApp {
 
 	oWidget = new QWidget()
+	oWidget.installEventFilter( new QAllEvents(oWidget) { setCloseEvent("oApp.Quit()") } ) 
 
 	oView = new Qt3DWindow() 
 	oView.defaultFrameGraph().setClearColor(new QColor() {setRGB(0,0,0,255)})
@@ -174,6 +175,7 @@ func pKeyPress
 			aKey[3] = False
 		on Qt_Key_Escape
 			oWidget.close()
+			oApp.Quit()
 	off
 	oFilter.Accept()
 
@@ -211,22 +213,22 @@ func pEvent
 
 	if aKey[1]
 	  	oCameraEntity.setPosition(new QVector3D(cX+0.1, cY, cZ))
-	    oCameraEntity.setViewCenter(new QVector3D(cVCx+nSpeed, cVCy, cVCz))	
+		oCameraEntity.setViewCenter(new QVector3D(cVCx+nSpeed, cVCy, cVCz))	
 		updateLocation()
 	ok
 	if aKey[2]
 	  	oCameraEntity.setPosition(new QVector3D(cX-0.1, cY, cZ))
-	    oCameraEntity.setViewCenter(new QVector3D(cVCx-nSpeed, cVCy, cVCz))	
+		oCameraEntity.setViewCenter(new QVector3D(cVCx-nSpeed, cVCy, cVCz))	
 		updateLocation()
 	ok
 	if aKey[3]
 	  	oCameraEntity.setPosition(new QVector3D(cX, cY, cZ))
-	    oCameraEntity.setViewCenter(new QVector3D(cVCx, cVCy+nSpeed, cVCz))	
+		oCameraEntity.setViewCenter(new QVector3D(cVCx, cVCy+nSpeed, cVCz))	
 		updateLocation()
 	ok
 	if aKey[4]
 	  	oCameraEntity.setPosition(new QVector3D(cX, cY, cZ))
-	    oCameraEntity.setViewCenter(new QVector3D(cVCx, cVCy-nSpeed, cVCz))	
+		oCameraEntity.setViewCenter(new QVector3D(cVCx, cVCy-nSpeed, cVCz))	
 		updateLocation()
 	ok
 

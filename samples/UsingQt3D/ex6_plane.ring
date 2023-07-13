@@ -1,10 +1,12 @@
 load "guilib.ring"
 
-new qApp {
+oApp = new qApp {
 
 	oView = new Qt3dwindow() 
 
 	oWidget = new QWidget()	
+	oWidget.installEventFilter( new QAllEvents(oWidget) { setCloseEvent("oApp.Quit()") } ) 
+
 	oContainer = oWidget.createWindowContainer(oView,oWidget,0)
 
 	oRootEntity = new QEntity(oContainer) 
