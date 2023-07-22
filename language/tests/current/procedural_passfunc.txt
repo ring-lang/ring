@@ -1,0 +1,4 @@
+Hello from one() function
+Hello from two() function
+Hello from three() function
+Hello from mymethod()
