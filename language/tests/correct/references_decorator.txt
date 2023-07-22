@@ -1,0 +1,2 @@
+Component operation
+Decorator operation
