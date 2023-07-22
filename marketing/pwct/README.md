@@ -34,7 +34,7 @@ In this document we talk about the progress in PWCT 2.0 development.
 
 PWCT is a General-Purpose Visual Programming Language (http://pwct.org)
 
-The current generation (PWCT 1.0 - PWCT 1.9) works under Microsoft Windows 
+The first generation (PWCT 1.0 - PWCT 1.9) works under Microsoft Windows 
 
 We started this generation fifteen years ago (In Dec. 2005)
 
