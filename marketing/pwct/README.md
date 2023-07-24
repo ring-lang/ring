@@ -3,7 +3,7 @@ Programming Without Coding Technology (PWCT) 2.0
 
 * Posted: 30 April 2021
 
-* Date last Updated: 22 July 2023
+* Date last Updated: 24 July 2023
 
 # Contents:
 
@@ -36,7 +36,7 @@ PWCT is a General-Purpose Visual Programming Language (http://pwct.org)
 
 The first generation (PWCT 1.0 - PWCT 1.9) works under Microsoft Windows 
 
-We started this generation fifteen years ago (In Dec. 2005)
+We started this generation seventeen years ago (In Dec. 2005)
 
 Video about the First Generation (In 2013) : https://www.youtube.com/watch?v=wpxbfPxNHqg
 
@@ -49,7 +49,7 @@ We used the first generation (PWCT 1.9) to develop the Ring language Compiler an
 
 ## The Concept of The First Generation
 
-Fifteen years ago (In Dec. 2005) I started to think about developing PWCT.
+Seventeen years ago (In Dec. 2005) I started to think about developing PWCT.
 
 I started with many ideas and I tested each idea through practical development
 
@@ -169,7 +169,7 @@ I discovered that I need a new programming language (Ring) that could help me to
 
 # The Second Generation
 
-The second generation (PWCT 2.0) is under development using the Ring programming language
+The second generation (PWCT 2.0) is developed using the Ring programming language
 
 Our goal is to provide a more powerful version of the software that satisfy two conditions
 
@@ -373,7 +373,7 @@ More videos
 
 PWCT 2.0 was released on 1 March 2023
 
-The current release is PWCT 2.0 Rev. 2023.07.22
+The current release is PWCT 2.0 Rev. 2023.07.24
 
 URL: https://store.steampowered.com/app/1953110/Programming_Without_Coding_Technology_20/
 
