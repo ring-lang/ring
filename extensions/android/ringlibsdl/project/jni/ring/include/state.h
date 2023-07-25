@@ -72,7 +72,7 @@
         int nInstructionsCount  ;
     } RingState ;
     /* Constants */
-    #define RING_STATE_VERSION "1.18"
+    #define RING_STATE_VERSION "1.19"
     /* MACRO */
     #define RING_STATE_CHECKPRINTRULES if ( pParser->pRingState->nPrintRules )
     /* General Options (Only for ring_state_main()) */

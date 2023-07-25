@@ -122,6 +122,8 @@ Ring 1.17 is released on May 14, 2022
 
 Ring 1.18 is released on July 12, 2023
 
+Ring 1.19 is under development
+
 .. index:: 
 	pair: Introduction; Features
 
@@ -252,7 +254,7 @@ The Ring Programming Language
 
 http://ring-lang.net/
 
-Version 1.18
+Version 1.19
 
 The MIT License (MIT)
 

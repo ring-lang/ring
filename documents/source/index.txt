@@ -128,6 +128,7 @@ Contents:
    Release Notes: Version 1.16 <whatisnew16>
    Release Notes: Version 1.17 <whatisnew17>
    Release Notes: Version 1.18 <whatisnew18>
+   Release Notes: Version 1.19 <whatisnew19>
    Using Other Code Editors <codeeditors>
    Frequently Asked Questions (FAQ) <faq>
    How to Compile Ring From Source Code? <sourcecode>
