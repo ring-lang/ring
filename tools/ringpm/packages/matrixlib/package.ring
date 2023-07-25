@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "",
 	:email = "",
 	:license = "MIT License",
-	:version = "1.0.0",
+	:version = "1.0.1",
 	:ringversion = "1.18",
 	:versions = 	[
 		[
-			:version = "1.0.0",
+			:version = "1.0.1",
 			:branch = "master"
 		]
 	],
@@ -84,7 +84,8 @@ aPackageInfo = [
 		"samples/UsingMatrixLib/54-Characteristic-Equation.ring",
 		"samples/UsingMatrixLib/55-EigenVector-2x2-3.ring",
 		"samples/UsingMatrixLib/56-EigenVector-3x3-2.ring",
-		"samples/UsingMatrixLib/57-EigenVector-3x3-4.ring"
+		"samples/UsingMatrixLib/57-EigenVector-3x3-4.ring",
+		"samples/UsingMatrixLib/58-ReducedRowEchelonForm.ring"
 	],
 	:windowsfiles = 	[
 
