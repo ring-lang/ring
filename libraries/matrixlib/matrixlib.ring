@@ -38,6 +38,7 @@
 // 34 CharEquation(N)              // Characteristic Polynomial of 4x4 Matrix [A - λI] format -12 -44x -46x2 -10x3 +x4
 // 34 EigenValueN)                 // Find EigenValues 2x2, 3x3, 4x4 Matrix
 // 35 EigenVectors(A)              // Find EigenVectors 2x2, 3x3 Matrix
+// 36 RowReduceEchelonForm(M)      // Row Reduce Echelon Form, Gausian-Jordan Elimination
 //
 //--------------------------------------------
 // GLOBAL Constants
@@ -2213,7 +2214,98 @@ ok
     See "Error: EigenVector: Cannot solve matrix larger than 3x3"+nl
 return 1  // Error matrix too big  
   
-//=================================
-//=================================  
 
+//=====================================================
+//=====================================================
+// Row Reduce Echelon Form, Gaussian-Jordan Elimination
+// Ones in a pivotColumn have ALL ZEROS BELOW && ABOVE
+// 
+// Bert MAriani 2023-Jul-25
+
+Func RowReduceEchelonForm(M)
+
+    lastRow  = len(M)
+    lastCol  = len(M[1])
     
+    pivotRow = 1                      // pivotCol Position in curRow
+    pivotCol = 1                      // pivotCol Position in curRow
+    pivotVal = 1
+    
+for Row = 1 to lastRow
+    
+    // Func Sort(M,pivotRow, pivotCol)
+    // Sort based on pivotCol = curCol
+    // From Small to Large
+    // Move "0" value Down
+
+    curRow  = pivotRow
+    curCol  = pivotCol
+    nxtRow  = curRow+1
+
+    for i = curRow to lastRow-1
+        curVal  = M[i  ][curCol]
+        nxtVal  = M[i+1][curCol]
+        
+        if ( ((curVal > nxtVal) AND (nxtVal != 0))  OR ((curVal = 0) AND  nxtVal != 0 ) )      
+
+            for j = curCol to lastCol                          
+               temp       = M[i  ][j]     // temp   <= CurRow
+               M[i  ][j]  = M[i+1][j]     // CurRow <= NxtRow 
+               M[i+1][j]  = temp     
+            next
+        ok  
+    next
+
+
+    // Func ScaleReplace(M,pivotRow,pivotCol)
+    // Scale-Replace based on PivotRow and PivotCol
+    // curRow = curRow] - pivotRow * Scalar
+    // Scalar = curRow / pivotRow for pivotCol 
+
+    lastRow  = len(M)
+    lastCol  = len(M[1])
+
+    pivVal = M[pivotRow][pivotCol]        // Fixed value
+    
+    for j = pivotCol to lastCol-1 
+        if pivVal = 0                     // Goto Next privotCol
+           pivotCol++                     
+           pivVal = M[pivotRow][pivotCol] 
+        else
+           exit
+        ok
+    next
+      
+    if (pivVal = 0) AND (pivotCol = lastCol)  // Row of 0's
+        return M    
+    ok
+
+    for j = pivotCol to lastCol               // Scale FlipSign on pivotRow-pivotCol
+       M[pivotRow][j] = M[pivotRow][j] * ( 1 / pivVal)        
+    next
+   
+    pivVal = M[pivotRow][pivotCol]            // Fixed value (Row SignFliped if Negative)
+
+        j = pivotCol
+        for i = 1 to lastRow
+
+            if i != pivotRow
+                nxtVal  = M[i][pivotCol]      
+                Scale   = nxtVal  / pivVal
+                M[i][pivotCol] = M[i][pivotCol] - ( M[pivotRow][pivotCol] * Scale )
+                                       
+                for j = pivotCol+1 to lastCol
+                    M[i][j] = M[i][j] - ( M[pivotRow][j] * Scale )      
+                next                 
+            ok
+        next
+       
+
+    pivotRow++
+    pivotCol++  
+next
+
+return M
+
+//========================================
+//========================================
