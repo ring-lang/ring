@@ -22,3 +22,6 @@ Ring 1.19 comes with the next features!
 
 More Improvements
 =================
+
+* Better Qt3D Samples - Use Quit() method when closing the application
+* MatrixLib - Added: RowReduceEchelonForm() function
