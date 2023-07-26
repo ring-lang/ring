@@ -15,7 +15,13 @@ List of changes and new features
 
 Ring 1.19 comes with the next features!
 
+* More Samples
 * More Improvements
+
+More Samples
+============
+
+* Added: samples/Language/Constants
 
 .. index:: 
 	pair: What is new in Ring  1.19; More Improvements
