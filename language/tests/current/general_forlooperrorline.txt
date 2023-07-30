@@ -1,0 +1,4 @@
+1
+
+Line 2 Bad parameter type! 
+In len() in file general/forlooperrorline.ring 
