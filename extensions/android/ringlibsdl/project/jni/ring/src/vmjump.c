@@ -38,6 +38,8 @@ void ring_vm_jumpzero ( VM *pVM )
 void ring_vm_jumpfor ( VM *pVM )
 {
     double nNum1,nNum2,nNum3  ;
+    /* CALL FreeTempLists */
+    ring_vm_freetemplists(pVM,& RING_VM_IR_READIVALUE(2), & RING_VM_IR_READIVALUE(3));
     /* Check Data */
     if ( RING_VM_STACK_ISNUMBER ) {
         nNum1 = RING_VM_STACK_READN ;
