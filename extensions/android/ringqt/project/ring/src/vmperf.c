@@ -89,6 +89,7 @@ void ring_vm_incjump ( VM *pVM )
     ring_list_setdouble_gc(pVM->pRingState,pVar,RING_VAR_VALUE,nNum2 +nNum1);
     /* Jump */
     pVM->nPC = RING_VM_IR_READIVALUE(2) ;
+    RING_VM_STACK_PUSHNVALUE(ring_list_getdouble(pVar,RING_VAR_VALUE));
 }
 
 void ring_vm_incpjump ( VM *pVM )
@@ -111,6 +112,7 @@ void ring_vm_incpjump ( VM *pVM )
     ring_list_setdouble_gc(pVM->pRingState,pVar,RING_VAR_VALUE,nNum2 + nNum1);
     /* Jump */
     pVM->nPC = RING_VM_IR_READIVALUE(2) ;
+    RING_VM_STACK_PUSHNVALUE(ring_list_getdouble(pVar,RING_VAR_VALUE));
 }
 
 void ring_vm_inclpjump ( VM *pVM )
@@ -139,6 +141,7 @@ void ring_vm_inclpjump ( VM *pVM )
     ring_list_setdouble_gc(pVM->pRingState,pVar,RING_VAR_VALUE,nNum2 + nNum1);
     /* Jump */
     pVM->nPC = RING_VM_IR_READIVALUE(2) ;
+    RING_VM_STACK_PUSHNVALUE(ring_list_getdouble(pVar,RING_VAR_VALUE));
 }
 
 void ring_vm_jumpvarlenum ( VM *pVM )
@@ -304,6 +307,7 @@ void ring_vm_incpjumpstep1 ( VM *pVM )
     ring_list_setdouble_gc(pVM->pRingState,pVar,RING_VAR_VALUE,nNum1 + 1);
     /* Jump */
     pVM->nPC = RING_VM_IR_READIVALUE(2) ;
+    RING_VM_STACK_PUSHNVALUE(ring_list_getdouble(pVar,RING_VAR_VALUE));
 }
 
 void ring_vm_jumpvarplenumstep1 ( VM *pVM )
