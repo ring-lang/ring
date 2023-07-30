@@ -737,7 +737,12 @@ List * ring_vm_prevtempmem ( VM *pVM )
     return pList ;
 }
 
-void ring_vm_freetemplists ( VM *pVM )
+void ring_vm_freetemplistsins ( VM *pVM )
+{
+    ring_vm_freetemplists(pVM, & RING_VM_IR_READI, & RING_VM_IR_READIVALUE(2));
+}
+
+void ring_vm_freetemplists ( VM *pVM, int *nTempCount, int *nScopeID )
 {
     List *pTempMem, *pList, *pList2  ;
     int x,x2,lFound,nStart,lMutex  ;
@@ -778,11 +783,11 @@ void ring_vm_freetemplists ( VM *pVM )
         lMutex = 1 ;
         pTempMem = pVM->pTempMem ;
     }
-    if ( (RING_VM_IR_READI == 0) || (RING_VM_IR_READIVALUE(2) !=pVM->nActiveScopeID) ) {
-        RING_VM_IR_READI = ring_list_getsize(pTempMem) + 1 ;
-        RING_VM_IR_READIVALUE(2) = pVM->nActiveScopeID ;
+    if ( ( *nTempCount == 0) || (*nScopeID !=pVM->nActiveScopeID) ) {
+        *nTempCount = ring_list_getsize(pTempMem) + 1 ;
+        *nScopeID = pVM->nActiveScopeID ;
     }
-    nStart = RING_VM_IR_READI ;
+    nStart = *nTempCount ;
     /* Lock (Important for Threads Support) */
     if ( lMutex ) {
         ring_vm_mutexlock(pVM);

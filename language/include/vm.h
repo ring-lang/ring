@@ -864,7 +864,9 @@
     List * ring_vm_getglobalscope ( VM *pVM ) ;
     /* Temp Lists */
 
-    void ring_vm_freetemplists ( VM *pVM ) ;
+    void ring_vm_freetemplistsins ( VM *pVM ) ;
+
+    void ring_vm_freetemplists ( VM *pVM,int *nTempCount, int *nScopeID ) ;
     /* Fast Functions */
 
     void ring_vm_len ( VM *pVM ) ;

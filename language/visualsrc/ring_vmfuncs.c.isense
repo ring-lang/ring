@@ -57,6 +57,7 @@ Type: List *
 pList
 Type: int
 x
+ring_vm_freetemplistsins
 ring_vm_freetemplists
 Type: List *
 pTempMem, *pList, *pList2
