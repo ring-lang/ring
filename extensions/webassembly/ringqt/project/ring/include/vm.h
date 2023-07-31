@@ -149,23 +149,23 @@
     #define RING_VM_SP_INC pVM->nSP++ ;
     #define RING_VM_SP_VALUE pVM->nSP
     /* Add */
-    #define RING_VM_STACK_PUSHC pVM->nSP++ ; ring_itemarray_setstring2(pVM->aStack, pVM->nSP, ring_string_get(pVM->pByteCodeIR->aReg[0].pString), ring_string_size(pVM->pByteCodeIR->aReg[0].pString)  )
-    #define RING_VM_STACK_PUSHN pVM->nSP++ ; ring_itemarray_setdouble(pVM->aStack, pVM->nSP , pVM->pByteCodeIR->aReg[0].dNumber)
-    #define RING_VM_STACK_PUSHP pVM->nSP++ ; ring_itemarray_setpointer(pVM->aStack, pVM->nSP , pVM->pByteCodeIR->aReg[0].pPointer )
+    #define RING_VM_STACK_PUSHC RING_VM_SP_INC ; ring_itemarray_setstring2(pVM->aStack, pVM->nSP, ring_string_get(pVM->pByteCodeIR->aReg[0].pString), ring_string_size(pVM->pByteCodeIR->aReg[0].pString)  )
+    #define RING_VM_STACK_PUSHN RING_VM_SP_INC ; ring_itemarray_setdouble(pVM->aStack, pVM->nSP , pVM->pByteCodeIR->aReg[0].dNumber)
+    #define RING_VM_STACK_PUSHP RING_VM_SP_INC ; ring_itemarray_setpointer(pVM->aStack, pVM->nSP , pVM->pByteCodeIR->aReg[0].pPointer )
     /* Note, use RING_VM_STACK_OBJTYPE to read/write the pointer type */
     #define RING_VM_STACK_TRUE ring_itemarray_setdouble(pVM->aStack,pVM->nSP, 1)
     #define RING_VM_STACK_FALSE ring_itemarray_setdouble(pVM->aStack,pVM->nSP, 0)
     #define RING_VM_STACK_PUSHCVAR ring_itemarray_setstring2(pVM->aStack,pVM->nSP,ring_list_getstring(pVar,3),ring_list_getstringsize(pVar,3))
     #define RING_VM_STACK_PUSHNVAR ring_itemarray_setdouble(pVM->aStack,pVM->nSP,ring_list_getdouble(pVar,3))
-    #define RING_VM_STACK_PUSHPVALUE(x) pVM->nSP++ ; ring_itemarray_setpointer(pVM->aStack, pVM->nSP , x )
-    #define RING_VM_STACK_PUSHCVALUE(x) pVM->nSP++ ; ring_itemarray_setstring(pVM->aStack, pVM->nSP, x)
-    #define RING_VM_STACK_PUSHNVALUE(x) pVM->nSP++ ; ring_itemarray_setdouble(pVM->aStack, pVM->nSP , x)
+    #define RING_VM_STACK_PUSHPVALUE(x) RING_VM_SP_INC ; ring_itemarray_setpointer(pVM->aStack, pVM->nSP, x)
+    #define RING_VM_STACK_PUSHCVALUE(x) RING_VM_SP_INC ; ring_itemarray_setstring(pVM->aStack, pVM->nSP, x)
+    #define RING_VM_STACK_PUSHNVALUE(x) RING_VM_SP_INC ; ring_itemarray_setdouble(pVM->aStack, pVM->nSP, x)
     #define RING_VM_STACK_SETCVALUE(x) ring_itemarray_setstring(pVM->aStack, pVM->nSP, x)
-    #define RING_VM_STACK_SETNVALUE(x) ring_itemarray_setdouble(pVM->aStack, pVM->nSP , x)
-    #define RING_VM_STACK_SETPVALUE(x) ring_itemarray_setpointer(pVM->aStack, pVM->nSP , x )
+    #define RING_VM_STACK_SETNVALUE(x) ring_itemarray_setdouble(pVM->aStack, pVM->nSP, x)
+    #define RING_VM_STACK_SETPVALUE(x) ring_itemarray_setpointer(pVM->aStack, pVM->nSP, x)
     #define RING_VM_STACK_SETCVALUE2(x,y) ring_itemarray_setstring2(pVM->aStack, pVM->nSP, x,y)
     #define RING_VM_STACK_SETCSIZE(x) ring_itemarray_setstring2(pVM->aStack, pVM->nSP, NULL,x)
-    #define RING_VM_STACK_PUSHCVALUE2(x,y) pVM->nSP++ ; ring_itemarray_setstring2(pVM->aStack, pVM->nSP, x,y)
+    #define RING_VM_STACK_PUSHCVALUE2(x,y) RING_VM_SP_INC ; ring_itemarray_setstring2(pVM->aStack, pVM->nSP, x,y)
     /* Check */
     #define RING_VM_STACK_ISSTRING ring_itemarray_isstring(pVM->aStack,pVM->nSP)
     #define RING_VM_STACK_ISNUMBER ring_itemarray_isnumber(pVM->aStack,pVM->nSP)
