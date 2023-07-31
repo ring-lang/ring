@@ -59,10 +59,6 @@ void ring_vm_jumpfor ( VM *pVM )
         nNum3 = RING_VM_STACK_READN ;
         RING_VM_STACK_POP ;
     }
-    else if ( RING_VM_STACK_ISSTRING ) {
-        nNum3 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
-        RING_VM_STACK_POP ;
-    }
     else {
         ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);
         return ;

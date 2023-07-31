@@ -75,17 +75,11 @@ void ring_vm_incjump ( VM *pVM )
     pVar = (List *) RING_VM_STACK_READP ;
     RING_VM_STACK_POP ;
     /* Check Data */
-    if ( ring_list_isstring(pVar,RING_VAR_VALUE) ) {
-        nNum2 = ring_vm_stringtonum(pVM,ring_list_getstring(pVar,RING_VAR_VALUE));
-        ring_list_setdouble_gc(pVM->pRingState,pVar,RING_VAR_VALUE,nNum2);
-    }
-    else if ( ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
-        nNum2 = ring_list_getdouble(pVar,RING_VAR_VALUE) ;
-    }
-    else {
+    if ( ! ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
         ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);
         return ;
     }
+    nNum2 = ring_list_getdouble(pVar,RING_VAR_VALUE) ;
     ring_list_setdouble_gc(pVM->pRingState,pVar,RING_VAR_VALUE,nNum2 +nNum1);
     /* Jump */
     pVM->nPC = RING_VM_IR_READIVALUE(2) ;
@@ -99,16 +93,11 @@ void ring_vm_incpjump ( VM *pVM )
     pVar = (List *) RING_VM_IR_READP ;
     nNum1 = ring_list_getdouble(pVM->aForStep,ring_list_getsize(pVM->aForStep));
     /* Check Data */
-    if ( ring_list_isstring(pVar,RING_VAR_VALUE) ) {
-        nNum2 = ring_vm_stringtonum(pVM,ring_list_getstring(pVar,RING_VAR_VALUE));
-    }
-    else if ( ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
-        nNum2 = ring_list_getdouble(pVar,RING_VAR_VALUE) ;
-    }
-    else {
+    if ( ! ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
         ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);
         return ;
     }
+    nNum2 = ring_list_getdouble(pVar,RING_VAR_VALUE) ;
     ring_list_setdouble_gc(pVM->pRingState,pVar,RING_VAR_VALUE,nNum2 + nNum1);
     /* Jump */
     pVM->nPC = RING_VM_IR_READIVALUE(2) ;
@@ -128,16 +117,11 @@ void ring_vm_inclpjump ( VM *pVM )
     pVar = (List *) RING_VM_IR_READPVALUEATINS(RING_VM_PC_PREVINS,1) ;
     nNum1 = ring_list_getdouble(pVM->aForStep,ring_list_getsize(pVM->aForStep));
     /* Check Data */
-    if ( ring_list_isstring(pVar,RING_VAR_VALUE) ) {
-        nNum2 = ring_vm_stringtonum(pVM,ring_list_getstring(pVar,RING_VAR_VALUE));
-    }
-    else if ( ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
-        nNum2 = ring_list_getdouble(pVar,RING_VAR_VALUE) ;
-    }
-    else {
+    if ( ! ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
         ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);
         return ;
     }
+    nNum2 = ring_list_getdouble(pVar,RING_VAR_VALUE) ;
     ring_list_setdouble_gc(pVM->pRingState,pVar,RING_VAR_VALUE,nNum2 + nNum1);
     /* Jump */
     pVM->nPC = RING_VM_IR_READIVALUE(2) ;
@@ -301,6 +285,11 @@ void ring_vm_incpjumpstep1 ( VM *pVM )
     }
     /* Jump */
     pVM->nPC = RING_VM_IR_READIVALUE(2) ;
+    /* Check Data */
+    if ( ! ring_list_isnumber((List *) RING_VM_IR_READP,RING_VAR_VALUE) ) {
+        ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);
+        return ;
+    }
     RING_VM_STACK_PUSHNVALUE(ring_list_incdouble((List *) RING_VM_IR_READP,RING_VAR_VALUE));
 }
 
