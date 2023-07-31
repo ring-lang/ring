@@ -1,0 +1,4 @@
+1
+
+Line 4 Error (R29) : Using bad data type in for loop 
+in file general/forlooperrorline3.ring 

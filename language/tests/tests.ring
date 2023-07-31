@@ -493,6 +493,8 @@ aTests = [
 	[ :name = "General Tests (Part 191)", :Command = "ring general/reduceclass.ring" ],
 	[ :name = "General Tests (Part 192)", :Command = "ring general/keyvaluelist.ring" ],
 	[ :name = "General Tests (Part 193)", :Command = "ring general/forlooperrorline.ring" ],
+	[ :name = "General Tests (Part 194)", :Command = "ring general/forlooperrorline2.ring" ],
+	[ :name = "General Tests (Part 195)", :Command = "ring general/forlooperrorline3.ring" ],
 	[ :name = "Using lists during definition (Part 1)", :Command = "ring listsduringdef/usinglistduringdef.ring" ],
 	[ :name = "Using lists during definition (Part 2)", :Command = "ring listsduringdef/usinglistduringdef2.ring" ],
 	[ :name = "Using lists during definition (Part 3)", :Command = "ring listsduringdef/usinglistduringdef3.ring" ],
