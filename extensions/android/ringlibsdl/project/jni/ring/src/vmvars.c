@@ -149,7 +149,7 @@ int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr )
         x = RING_VARSCOPE_NEWOBJSTATE ;
     }
     pVM->nVarScope = x ;
-    pVM->nSP++ ;
+    RING_VM_SP_INC ;
     if ( ring_list_getint(pList2,RING_VAR_TYPE) == RING_VM_POINTER ) {
         if ( pVM->nFirstAddress  == 1 ) {
             RING_VM_STACK_SETPVALUE(pList2);
@@ -258,7 +258,7 @@ void ring_vm_newvar ( VM *pVM,const char *cStr )
     List *pList  ;
     assert(pVM->pActiveMem != NULL);
     pList = ring_vm_newvar2(pVM,cStr,pVM->pActiveMem);
-    pVM->nSP++ ;
+    RING_VM_SP_INC ;
     RING_VM_STACK_SETPVALUE(pList);
     RING_VM_STACK_OBJTYPE = RING_OBJTYPE_VARIABLE ;
     /* Set the scope of the new variable */
@@ -355,7 +355,7 @@ void ring_vm_newtempvar ( VM *pVM,const char *cStr, List *TempList )
 {
     List *pList  ;
     pList = ring_vm_newvar2(pVM,cStr,TempList);
-    pVM->nSP++ ;
+    RING_VM_SP_INC ;
     RING_VM_STACK_SETPVALUE(pList);
     RING_VM_STACK_OBJTYPE = RING_OBJTYPE_VARIABLE ;
 }

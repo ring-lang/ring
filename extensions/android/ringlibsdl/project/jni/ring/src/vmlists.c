@@ -284,7 +284,7 @@ void ring_vm_loadindexaddress ( VM *pVM )
                     pVar = ring_list_getlist(pVar,RING_VAR_VALUE);
                     /* Check that it's list not object */
                     if ( ring_vm_oop_isobject(pVar) == 1 ) {
-                        pVM->nSP++ ;
+                        RING_VM_SP_INC ;
                         ring_vm_expr_spoo(pVM,"[]",ring_string_get(pString),ring_string_size(pString));
                     }
                     else {
@@ -302,7 +302,7 @@ void ring_vm_loadindexaddress ( VM *pVM )
                     pVar = ring_item_getlist(pItem);
                     /* Check that it's list not object */
                     if ( ring_vm_oop_isobject(pVar) == 1 ) {
-                        pVM->nSP++ ;
+                        RING_VM_SP_INC ;
                         ring_vm_expr_spoo(pVM,"[]",ring_string_get(pString),ring_string_size(pString));
                     }
                     else {
@@ -342,7 +342,7 @@ void ring_vm_listpushv ( VM *pVM )
             pVM->nRetItemRef-- ;
             return ;
         }
-        pVM->nSP++ ;
+        RING_VM_SP_INC ;
         RING_VM_STACK_SETCVALUE2(ring_string_get(ring_item_getstring(pItem)),ring_string_size(ring_item_getstring(pItem)));
     }
     else if ( ring_item_gettype(pItem) == ITEMTYPE_NUMBER ) {
@@ -369,7 +369,7 @@ void ring_vm_listpushv ( VM *pVM )
             pVM->nRetItemRef-- ;
             return ;
         }
-        pVM->nSP++ ;
+        RING_VM_SP_INC ;
         sprintf( cPointer , "%p" , ring_item_getpointer(pItem) ) ;
         RING_VM_STACK_SETCVALUE2(cPointer,strlen(cPointer));
     }
