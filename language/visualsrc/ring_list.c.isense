@@ -47,6 +47,7 @@ ring_list_getstringobject(pList,index)
 ring_list_getstringsize(pList,index)
 ring_list_getsize(x)
 ring_list_deletelastitem_gc(s,x)
+ring_list_incdouble(pList,index)
 ring_list_new_gc
 Type: List *
 pList

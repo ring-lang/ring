@@ -38,10 +38,6 @@ ring_vm_loadfuncp
 Type: List *
 pList
 ring_vm_incpjumpstep1
-Type: List *
-pVar
-Type: double
-nNum1
 ring_vm_jumpvarplenumstep1
 Type: List *
 pVar

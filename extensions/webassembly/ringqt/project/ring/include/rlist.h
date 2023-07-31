@@ -35,6 +35,7 @@
     #define ring_list_getstringsize(pList,index) ( ring_string_size(ring_item_getstring(ring_list_getitem(pList,index))) )
     #define ring_list_getsize(x) (x->nSize)
     #define ring_list_deletelastitem_gc(s,x) ring_list_deleteitem_gc(s,x,ring_list_getsize(x))
+    #define ring_list_incdouble(pList,index) ++ring_list_getitem(pList,index)->data.dNumber
     /*
     **  Functions 
     **  Main List Functions 

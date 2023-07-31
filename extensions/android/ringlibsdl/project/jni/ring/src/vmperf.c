@@ -293,21 +293,15 @@ void ring_vm_loadfuncp ( VM *pVM )
 
 void ring_vm_incpjumpstep1 ( VM *pVM )
 {
-    List *pVar  ;
-    double nNum1  ;
     /* Be sure that the Step is one */
     if ( ring_list_getdouble(pVM->aForStep,ring_list_getsize(pVM->aForStep)) != 1.0 ) {
         RING_VM_IR_OPCODE = ICO_INCPJUMP ;
         ring_vm_incpjump(pVM);
         return ;
     }
-    pVar = (List *) RING_VM_IR_READP ;
-    /* We Don't Check Data Type */
-    nNum1 = ring_list_getdouble(pVar,RING_VAR_VALUE) ;
-    ring_list_setdouble_gc(pVM->pRingState,pVar,RING_VAR_VALUE,nNum1 + 1);
     /* Jump */
     pVM->nPC = RING_VM_IR_READIVALUE(2) ;
-    RING_VM_STACK_PUSHNVALUE(ring_list_getdouble(pVar,RING_VAR_VALUE));
+    RING_VM_STACK_PUSHNVALUE(ring_list_incdouble((List *) RING_VM_IR_READP,RING_VAR_VALUE));
 }
 
 void ring_vm_jumpvarplenumstep1 ( VM *pVM )
