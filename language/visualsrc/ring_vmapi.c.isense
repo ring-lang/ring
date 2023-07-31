@@ -140,12 +140,12 @@ Type: List *
 pList2
 ring_vm_api_retcpointer
 ring_vm_api_retlist2
+Type: int
+nType
 Type: List *
 pRealList,*pTempMem,*pVariableList, *pObjectVariable
 Type: VM *
 pVM
-Type: int
-nType
 ring_vm_api_intvalue
 ring_vm_api_floatvalue
 ring_vm_api_islistornull

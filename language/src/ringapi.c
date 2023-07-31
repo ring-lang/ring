@@ -361,7 +361,7 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
             ring_list_enabledontrefagain(pList);
             pVM->lDontMoveToPrevScope = ring_vm_oop_isobject(pList) ;
             /* Keep the same object (Ref() parameter) on the Stack (i.e. Return para. as output) */
-            RING_VM_STACK_PUSH ;
+            RING_VM_SP_INC ;
             return ;
         }
     }
