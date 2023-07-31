@@ -507,6 +507,10 @@ int ring_parser_stmt ( Parser *pParser )
                                 ring_parser_icg_newoperandint(pParser,0);
                                 pParser->ActiveGenCodeList = ring_list_getlist(pParser->GenCode,ring_parser_icg_instructionslistsize(pParser)) ;
                             } else {
+                                if ( ring_parser_icg_getlastoperation(pParser) == ICO_NEWLINE ) {
+                                    nLine = ring_parser_icg_getoperandint(pParser,2) ;
+                                    ring_parser_icg_deletelastoperation(pParser);
+                                }
                                 ring_parser_icg_newoperation(pParser,ICO_JUMPFOR);
                                 nJumpFor = 1 ;
                             }
