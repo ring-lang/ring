@@ -535,13 +535,7 @@ int ring_parser_stmt ( Parser *pParser )
                             if ( ring_parser_iskeyword(pParser,K_NEXT) || ring_parser_iskeyword(pParser,K_ENDFOR) || ring_parser_iskeyword(pParser,K_END) || ring_parser_csbraceend(pParser) ) {
                                 /* Generate Code */
                                 nMark3 = ring_parser_icg_newlabel(pParser);
-                                /*
-                                **  Increment Jump 
-                                **  Add Locations needed for instruction change for performance 
-                                */
-                                ring_parser_icg_newoperation(pParser,ICO_EXTRAPARA);
-                                ring_parser_icg_newoperandint(pParser,0);
-                                ring_parser_icg_newoperandint(pParser,0);
+                                /* Increment Jump */
                                 ring_parser_icg_newoperation(pParser,ICO_INCJUMP);
                                 ring_parser_icg_newoperand(pParser,ring_string_get(pString));
                                 ring_parser_icg_newoperandint(pParser,nMark1+1);
@@ -667,13 +661,7 @@ int ring_parser_stmt ( Parser *pParser )
                         ring_parser_nexttoken(pParser);
                         /* Generate Code */
                         nMark3 = ring_parser_icg_newlabel(pParser);
-                        /*
-                        **  Increment Jump 
-                        **  Add Locations needed for instruction change for performance 
-                        */
-                        ring_parser_icg_newoperation(pParser,ICO_EXTRAPARA);
-                        ring_parser_icg_newoperandint(pParser,0);
-                        ring_parser_icg_newoperandint(pParser,0);
+                        /* Increment Jump */
                         ring_parser_icg_newoperation(pParser,ICO_INCJUMP);
                         ring_parser_icg_newoperand(pParser,cStr);
                         ring_parser_icg_newoperandint(pParser,nMark1+1);
