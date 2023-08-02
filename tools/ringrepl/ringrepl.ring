@@ -17,7 +17,7 @@ cHelp = " Linck To Documention : https://ring-lang.github.io/doc1.18/introductio
           and  the command directly
 Example:
  .../ring:>>echo Hello Ring > text.txt   == To create a file and write to it  
- .../ring:>>cd ..\                       == Touch to change
+ .../ring:>>cd ..\                       == To change Path
  .../ring:>>type text.txt                == To display the content of a file
  .../ring:>>md Html Css Js               == To create a folder or folders
  .../ring:>>rd Html Css Js               == To delete a folder or folders
