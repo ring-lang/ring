@@ -175,7 +175,6 @@ func pKeyPress
 			aKey[3] = False
 		on Qt_Key_Escape
 			oWidget.close()
-			oApp.Quit()
 	off
 	oFilter.Accept()
 
