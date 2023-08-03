@@ -3,7 +3,7 @@ Programming Without Coding Technology (PWCT) 2.0
 
 * Posted: 30 April 2021
 
-* Date last Updated: 24 July 2023
+* Date last Updated: 3 August 2023
 
 # Contents:
 
@@ -360,6 +360,7 @@ Tutorials
 * [29- Using Date/Time](https://www.youtube.com/watch?v=d8GhoeTm1WE)
 * [30- Check Data Type](https://www.youtube.com/watch?v=w2S48C2QXvw)
 * [31- Math Functions](https://www.youtube.com/watch?v=p3OP676l_W4)
+* [32- Using Files](https://www.youtube.com/watch?v=0M1I2llBLrc)
 
 More videos
 
@@ -373,7 +374,7 @@ More videos
 
 PWCT 2.0 was released on 1 March 2023
 
-The current release is PWCT 2.0 Rev. 2023.07.24
+The current release is PWCT 2.0 Rev. 2023.08.03
 
 URL: https://store.steampowered.com/app/1953110/Programming_Without_Coding_Technology_20/
 
