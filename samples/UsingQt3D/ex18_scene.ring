@@ -3,6 +3,7 @@ load "guilib.ring"
 oApp = new qApp {
 
 	oWidget = new QWidget()
+	oWidget.installEventFilter( new QAllEvents(oWidget) { setCloseEvent("oApp.Quit()") } ) 
 
 	oView = new Qt3DWindow() 
 	oView.defaultFrameGraph().setClearColor(new QColor() {setRGB(0,0,0,255)})
