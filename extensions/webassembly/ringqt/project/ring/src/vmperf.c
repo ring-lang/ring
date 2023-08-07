@@ -150,8 +150,8 @@ void ring_vm_jumpvarlenum ( VM *pVM )
     else if ( pVM->nVarScope == RING_VARSCOPE_LOCAL ) {
         /* Replace JumpVarLENum with JumpVarLPLENum for better performance */
         RING_VM_IR_OPCODE = ICO_JUMPVARLPLENUM ;
-        RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEMATINS(RING_VM_PC_PREVINS,1),RING_VM_STACK_READP);
-        RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEMATINS(RING_VM_PC_PREVINS,2),ring_list_getint(pVM->aScopeID,ring_list_getsize(pVM->aScopeID)));
+        RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(4),RING_VM_STACK_READP);
+        RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(5),ring_list_getint(pVM->aScopeID,ring_list_getsize(pVM->aScopeID)));
     }
     pVar = (List *) RING_VM_STACK_READP ;
     RING_VM_STACK_POP ;
@@ -217,12 +217,12 @@ void ring_vm_jumpvarlplenum ( VM *pVM )
     List *pVar  ;
     double nNum1,nNum2  ;
     /* Check Scope Life Time */
-    if ( RING_VM_IR_READIVALUEATINS(RING_VM_PC_PREVINS,2)  != pVM->nActiveScopeID ) {
+    if ( RING_VM_IR_READIVALUE(5)  != pVM->nActiveScopeID ) {
         RING_VM_IR_OPCODE = ICO_JUMPVARLENUM ;
         pVM->nPC-- ;
         return ;
     }
-    pVar = (List *) RING_VM_IR_READPVALUEATINS(RING_VM_PC_PREVINS,1) ;
+    pVar = (List *) RING_VM_IR_READPVALUE(4) ;
     nNum1 = ring_list_getdouble(pVM->aForStep,ring_list_getsize(pVM->aForStep));
     /* Check Data */
     if ( ring_list_isstring(pVar,RING_VAR_VALUE) ) {
