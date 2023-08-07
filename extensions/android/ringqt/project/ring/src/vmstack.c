@@ -103,8 +103,8 @@ void ring_vm_loadaddress ( VM *pVM )
         if ( pVM->lUsePushPLocal ) {
             /* Replace LoadAddress with PUSHPLOCAL for better performance */
             RING_VM_IR_OPCODE = ICO_PUSHPLOCAL ;
-            RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEMATINS(RING_VM_PC_PREVINS,1),RING_VM_STACK_READP);
-            RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEMATINS(RING_VM_PC_PREVINS,2),ring_list_getint(pVM->aScopeID,ring_list_getsize(pVM->aScopeID)));
+            RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(4),RING_VM_STACK_READP);
+            RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(5),ring_list_getint(pVM->aScopeID,ring_list_getsize(pVM->aScopeID)));
         }
     }
     /* Save Scope in nLoadAddressScope */
