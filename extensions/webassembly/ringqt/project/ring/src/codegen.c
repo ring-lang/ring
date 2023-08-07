@@ -144,10 +144,6 @@ void ring_parser_icg_loadfunction ( Parser *pParser,const char *cFunctionName )
 void ring_parser_icg_loadaddress ( Parser *pParser,const char *cVariableName )
 {
     assert(pParser != NULL);
-    /* Extra Parameters */
-    ring_parser_icg_newoperation(pParser,ICO_EXTRAPARA);
-    ring_parser_icg_newoperandint(pParser,0);
-    ring_parser_icg_newoperandint(pParser,0);
     ring_parser_icg_newoperation(pParser,ICO_LOADADDRESS);
     ring_parser_icg_newoperand(pParser,cVariableName);
     ring_parser_icg_newoperandint(pParser,0);
@@ -165,13 +161,6 @@ void ring_parser_icg_loadaddresstoloadfunction ( Parser *pParser )
     RING_PARSER_ICG_INSTRUCTIONSLISTTYPE *pList  ;
     assert(pParser != NULL);
     ring_parser_icg_setlastoperation(pParser,ICO_LOADFUNC);
-    /*
-    **  The ICO_LOADADDRESS uses 3 operands after the Variable Name 
-    **  While the ICO_LOADFUNC uses 4 operands after the function name 
-    **  So we add another operand 
-    */
-    pList = ring_parser_icg_getoperationlist(pParser,ring_list_getsize(pParser->GenCode)-1) ;
-    ring_parser_icg_addoperandint(pParser,pList,0);
 }
 
 void ring_parser_icg_freestack ( Parser *pParser )
