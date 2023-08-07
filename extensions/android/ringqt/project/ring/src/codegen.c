@@ -136,14 +136,6 @@ void ring_parser_icg_deleteoperand ( Parser *pParser , int nPos )
 void ring_parser_icg_loadfunction ( Parser *pParser,const char *cFunctionName )
 {
     assert(pParser != NULL);
-    /*
-    **  Extra Parameters 
-    **  We Add these operands to allow changing ICO_LOADFUNC to ICO_LOADFUNCP 
-    */
-    ring_parser_icg_newoperation(pParser,ICO_EXTRAPARA);
-    ring_parser_icg_newoperandint(pParser,0);
-    ring_parser_icg_newoperandint(pParser,0);
-    ring_parser_icg_newoperandint(pParser,0);
     ring_parser_icg_newoperation(pParser,ICO_LOADFUNC);
     ring_parser_icg_newoperand(pParser,cFunctionName);
     ring_parser_icg_newoperandint(pParser,0);
