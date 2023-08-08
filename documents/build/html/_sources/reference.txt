@@ -732,14 +732,10 @@ ICO_INCP			Increment variable value using pointer
 ICO_PUSHPV			Push value of variable using variable pointer
 ICO_INCJUMP			Increment then jump
 ICO_INCPJUMP			Increment using pointer then jump
-ICO_JUMPVARLENUM		Jump if variable value is <= numeric value
-ICO_JUMPVARPLENUM		Jump if variable value (using pointer) <= numeric value 
 ICO_LOADFUNCP			Push function pointer
 ICO_PUSHPLOCAL			Push pointer to local variable
 ICO_INCLPJUMP			Increment value using pointer to local variable then jump
-ICO_JUMPVARLPLENUM		Jump if the variable value (using pointer) <= numeric value
 ICO_INCPJUMPSTEP1	 	Increment value using variable pointer then jump (for loop step = 1)
-ICO_JUMPVARPLENUMSTEP1		Increment value using variable pointer then jump (for loop step = 1)
 ICO_LEN				Remove list from the stack and push the list size
 ========================	============================================================================
 
@@ -790,7 +786,6 @@ ICO_SETREFERENCE	Copy by reference
 ICO_KILLREFERENCE	Remove reference
 ICO_ASSIGNMENTPOINTER 	Determine the left side variable
 ICO_BEFOREEQUAL		Determine operators like += , -= , ... etc
-ICO_EXTRAPARA		More parameters for the next VM instruction
 =======================	============================================================================
 
 (Bitwise Operators)
