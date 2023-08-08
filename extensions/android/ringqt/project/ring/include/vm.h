@@ -13,7 +13,7 @@
         #define RING_VM_STACK_CHECKOVERFLOW 1000
     #endif
     #define RING_VM_FREE_STACK_IN_CLASS_REGION_AFTER 100
-    #define RING_VM_BC_ITEMS_COUNT 6
+    #define RING_VM_BC_ITEMS_COUNT 5
     #define RING_VM_STATE_NUMBERS_COUNT 35
     #define RING_VM_STATE_POINTERS_COUNT 10
     #define RING_VM_MAXDIGITSINNUMBER 15
@@ -35,6 +35,7 @@
         unsigned int nReg1Type:3  ;
         unsigned int nReg2Type:3  ;
         unsigned int nReg3Type:3  ;
+        char nFlagReg  ;
         Register aReg[RING_VM_BC_ITEMS_COUNT]  ;
     } ByteCode ;
     typedef struct VM {
@@ -234,6 +235,8 @@
     #define RING_VM_IR_SETREG1TYPE(x) pVM->pByteCodeIR->nReg1Type = x
     #define RING_VM_IR_SETREG1TOPOINTERFROMSTACK ring_vm_setreg1topointerfromstack(pVM)
     #define RING_VM_PUSHNULLTHENJUMP RING_VM_STACK_PUSHCVALUE(""); RING_VM_JUMP
+    #define RING_VM_IR_SETFLAGREG(x) pVM->pByteCodeIR->nFlagReg = x
+    #define RING_VM_IR_GETFLAGREG pVM->pByteCodeIR->nFlagReg
     /*
     **  Calling Functions 
     **  Note : When you insert items check performance functions for update too! 
