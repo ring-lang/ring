@@ -487,9 +487,6 @@ void ring_vm_tobytecode ( VM *pVM,int nIns )
         case ICO_PUSHPLOCAL :
             pItem->data.iNumber = ICO_LOADADDRESS ;
             break ;
-        case ICO_JUMPVARLPLENUM :
-            pItem->data.iNumber = ICO_JUMPVARLENUM ;
-            break ;
         case ICO_INCLPJUMP :
             pItem->data.iNumber = ICO_INCJUMP ;
             break ;
@@ -894,12 +891,6 @@ void ring_vm_execute ( VM *pVM )
         case ICO_INCPJUMP :
             ring_vm_incpjump(pVM);
             break ;
-        case ICO_JUMPVARLENUM :
-            ring_vm_jumpvarlenum(pVM);
-            break ;
-        case ICO_JUMPVARPLENUM :
-            ring_vm_jumpvarplenum(pVM);
-            break ;
         case ICO_LOADFUNCP :
             ring_vm_loadfuncp(pVM);
             break ;
@@ -909,14 +900,8 @@ void ring_vm_execute ( VM *pVM )
         case ICO_INCLPJUMP :
             ring_vm_inclpjump(pVM);
             break ;
-        case ICO_JUMPVARLPLENUM :
-            ring_vm_jumpvarlplenum(pVM);
-            break ;
         case ICO_INCPJUMPSTEP1 :
             ring_vm_incpjumpstep1(pVM);
-            break ;
-        case ICO_JUMPVARPLENUMSTEP1 :
-            ring_vm_jumpvarplenumstep1(pVM);
             break ;
         /* Try-Catch-Done */
         case ICO_TRY :

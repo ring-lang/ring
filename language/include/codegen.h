@@ -81,8 +81,6 @@
         ICO_EXIT ,
         ICO_INCJUMP ,
         ICO_INCPJUMP ,
-        ICO_JUMPVARLENUM ,
-        ICO_JUMPVARPLENUM ,
         ICO_TRY ,
         ICO_DONE ,
         ICO_RANGE ,
@@ -97,7 +95,6 @@
         ICO_LOOP ,
         /* Loop optimization in functions (local scope) */
         ICO_INCLPJUMP ,
-        ICO_JUMPVARLPLENUM ,
         /* Packages */
         ICO_PACKAGE ,
         ICO_IMPORT ,
@@ -124,7 +121,6 @@
         ICO_POPSTEP ,
         ICO_LOADAFIRST ,
         ICO_INCPJUMPSTEP1 ,
-        ICO_JUMPVARPLENUMSTEP1 ,
         /* Anonymous Functions */
         ICO_ANONYMOUS ,
         /* Class Init */
@@ -135,8 +131,6 @@
         ICO_SETGLOBALSCOPE ,
         /* Temp Lists */
         ICO_FREETEMPLISTS ,
-        /* Extra Para */
-        ICO_EXTRAPARA ,
         /* Fast Functions */
         ICO_LEN 
     } IC_OPERATIONS ;
@@ -151,17 +145,17 @@
     
     "BlockFlag","FuncExE","EndFuncExe","Bye","ExitMark","POPExitMark","Exit","IncJump","IncPJump", 
     
-    "JumpVarLENum","JumpVarPLENum","Try","Done","Range","LoadMethod","SetScope","AfterCallMethod", 
+    "Try","Done","Range","LoadMethod","SetScope","AfterCallMethod", 
     
-    "BraceStart","BraceEnd","LoadFuncP","FreeLoadAScope","Loop","IncLPJump","JumpVarLPLENum","Package","Import", 
+    "BraceStart","BraceEnd","LoadFuncP","FreeLoadAScope","Loop","IncLPJump","Package","Import", 
     
     "SetProperty","NoOperation","AfterCallMethod2","SetReference","KillReference","AssignmentPointer","BeforeEqual","++","--", 
     
     "BITAND","BITOR","BITNOT","BITXOR","BITSHL","BITSHR","StepNumber","POPStep","LoadAFirst", 
     
-    "INCPJUMPSTEP1","JUMPVARPLENUMSTEP1","ANONYMOUS","CallClassInit", 
+    "INCPJUMPSTEP1","ANONYMOUS","CallClassInit", 
     
-    "NewGlobalScope","EndGlobalScope","SetGlobalScope","FreeTempLists","ExtraPara","Len"} ;
+    "NewGlobalScope","EndGlobalScope","SetGlobalScope","FreeTempLists","Len"} ;
     /* Macro */
     #define RING_PARSER_ICG_GOTOLASTOP pParser->ActiveGenCodeList = ring_list_getlist(pParser->GenCode,ring_list_getsize(pParser->GenCode))
     #define ring_parser_icg_newlabel(x) ( ring_list_getsize(x->GenCode) + 1 + pParser->pRingState->nInstructionsCount)

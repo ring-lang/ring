@@ -772,21 +772,13 @@
 
     void ring_vm_incpjump ( VM *pVM ) ;
 
-    void ring_vm_jumpvarlenum ( VM *pVM ) ;
-
-    void ring_vm_jumpvarplenum ( VM *pVM ) ;
-
     void ring_vm_loadfuncp ( VM *pVM ) ;
 
     void ring_vm_pushplocal ( VM *pVM ) ;
 
     void ring_vm_inclpjump ( VM *pVM ) ;
 
-    void ring_vm_jumpvarlplenum ( VM *pVM ) ;
-
     void ring_vm_incpjumpstep1 ( VM *pVM ) ;
-
-    void ring_vm_jumpvarplenumstep1 ( VM *pVM ) ;
     /* End Program / Exit from Loop / Loop (Continue) */
 
     void ring_vm_bye ( VM *pVM ) ;
