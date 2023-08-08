@@ -225,7 +225,7 @@ int ring_parser_class ( Parser *pParser )
 
 int ring_parser_stmt ( Parser *pParser )
 {
-    int x,nMark1,nMark2,nMark3,nStart,nEnd,nFlag,nLoadPackage,nLoopOrExitCommand,nLoadAgain,nForInVarsCount,nVar,nLine,nJumpFor  ;
+    int x,nMark1,nMark2,nMark3,nStart,nEnd,nFlag,nLoadPackage,nLoopOrExitCommand,nLoadAgain,nForInVarsCount,nVar,nLine  ;
     String *pString  ;
     List *pMark,*pMark2,*pMark3,*pList2  ;
     double nNum1  ;
@@ -235,7 +235,6 @@ int ring_parser_stmt ( Parser *pParser )
     nLoadPackage = 0 ;
     nLoopOrExitCommand = 0 ;
     nLoadAgain = 0 ;
-    nJumpFor = 0 ;
     assert(pParser != NULL);
     /* Statement --> Load Literal */
     if ( ring_parser_iskeyword(pParser,K_LOAD) ) {
@@ -492,28 +491,12 @@ int ring_parser_stmt ( Parser *pParser )
                                 nLine = ring_parser_icg_getoperandint(pParser,2) ;
                                 ring_parser_icg_deletelastoperation(pParser);
                             }
-                            if ( (ring_parser_icg_getlastoperation(pParser) == ICO_PUSHN) && (ring_parser_icg_newlabel(pParser) == (nMark1+2)) ) {
-                                /*
-                                **  We check nMark2+2 to avoid executing next instructions when we have expr 
-                                **  for example for x = 1 to 10+5 
-                                */
-                                nNum1 = ring_parser_icg_getoperanddouble(pParser,2) ;
+                            /* Generate ICO_JUMPFOR */
+                            if ( ring_parser_icg_getlastoperation(pParser) == ICO_NEWLINE ) {
+                                nLine = ring_parser_icg_getoperandint(pParser,2) ;
                                 ring_parser_icg_deletelastoperation(pParser);
-                                ring_parser_icg_setlastoperation(pParser,ICO_JUMPVARLENUM);
-                                ring_parser_icg_newoperanddouble(pParser,nNum1);
-                                /* Add Locations Needed for Instruction change for performance */
-                                ring_parser_icg_insertoperation(pParser,ring_parser_icg_instructionslistsize(pParser)-1,ICO_EXTRAPARA);
-                                ring_parser_icg_newoperandint(pParser,0);
-                                ring_parser_icg_newoperandint(pParser,0);
-                                pParser->ActiveGenCodeList = ring_list_getlist(pParser->GenCode,ring_parser_icg_instructionslistsize(pParser)) ;
-                            } else {
-                                if ( ring_parser_icg_getlastoperation(pParser) == ICO_NEWLINE ) {
-                                    nLine = ring_parser_icg_getoperandint(pParser,2) ;
-                                    ring_parser_icg_deletelastoperation(pParser);
-                                }
-                                ring_parser_icg_newoperation(pParser,ICO_JUMPFOR);
-                                nJumpFor = 1 ;
                             }
+                            ring_parser_icg_newoperation(pParser,ICO_JUMPFOR);
                             pMark = ring_parser_icg_getactiveoperation(pParser);
                             if ( nLine != 0 ) {
                                 ring_parser_icg_newline(pParser,nLine);
@@ -542,11 +525,9 @@ int ring_parser_stmt ( Parser *pParser )
                                 nMark2 = ring_parser_icg_newlabel(pParser);
                                 /* Complete JumpFor instruction */
                                 ring_parser_icg_addoperandint(pParser,pMark,nMark2);
-                                if ( nJumpFor ) {
-                                    /* Add parameters for ICO_FREETEMPLISTS called by ICO_JUMPFOR */
-                                    ring_parser_icg_addoperandint(pParser,pMark,0);
-                                    ring_parser_icg_addoperandint(pParser,pMark,0);
-                                }
+                                /* Add parameters for ICO_FREETEMPLISTS called by ICO_JUMPFOR */
+                                ring_parser_icg_addoperandint(pParser,pMark,0);
+                                ring_parser_icg_addoperandint(pParser,pMark,0);
                                 /* Restore Loop|Exit Commands Status */
                                 if ( pParser->nLoopOrExitCommand || ! pParser->nCheckLoopAndExit ) {
                                     /* Set Exit Mark */
