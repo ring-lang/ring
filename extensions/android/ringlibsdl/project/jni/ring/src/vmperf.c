@@ -64,7 +64,7 @@ void ring_vm_incjump ( VM *pVM )
         else {
             RING_VM_IR_OPCODE = ICO_INCPJUMP ;
         }
-        RING_VM_IR_SETREG1TOPOINTERFROMSTACK ;
+        RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(4),RING_VM_STACK_READP);
     }
     else if ( pVM->nVarScope == RING_VARSCOPE_LOCAL ) {
         /* Replace ICO_INCJUMP with IncLPJUMP for better performance */
@@ -90,7 +90,7 @@ void ring_vm_incpjump ( VM *pVM )
 {
     List *pVar  ;
     double nNum1,nNum2  ;
-    pVar = (List *) RING_VM_IR_READP ;
+    pVar = (List *) RING_VM_IR_READPVALUE(4) ;
     nNum1 = ring_list_getdouble(pVM->aForStep,ring_list_getsize(pVM->aForStep));
     /* Check Data */
     if ( ! ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
@@ -165,9 +165,17 @@ void ring_vm_incpjumpstep1 ( VM *pVM )
     /* Jump */
     pVM->nPC = RING_VM_IR_READIVALUE(2) ;
     /* Check Data */
-    if ( ! ring_list_isnumber((List *) RING_VM_IR_READP,RING_VAR_VALUE) ) {
+    if ( ! ring_list_isnumber((List *) RING_VM_IR_READPVALUE(4),RING_VAR_VALUE) ) {
         ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);
         return ;
     }
-    RING_VM_STACK_PUSHNVALUE(ring_list_incdouble((List *) RING_VM_IR_READP,RING_VAR_VALUE));
+    RING_VM_STACK_PUSHNVALUE(ring_list_incdouble((List *) RING_VM_IR_READPVALUE(4),RING_VAR_VALUE));
+}
+
+void ring_vm_setopcode ( VM *pVM )
+{
+    int nIns,nOPCode  ;
+    nIns = RING_VM_IR_READIVALUE(2) - 1 ;
+    nOPCode = RING_VM_IR_READI ;
+    RING_VM_IR_OPCODEVALUE(nIns) = nOPCode ;
 }

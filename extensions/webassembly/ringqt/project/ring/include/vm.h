@@ -760,7 +760,7 @@
     int ring_vm_oop_callingclassmethodfromclassregion ( VM *pVM, List *pMethods ) ;
 
     void ring_vm_oop_callclassinit ( VM *pVM ) ;
-    /* For Better Performance */
+    /* Faster instructions */
 
     void ring_vm_pushp ( VM *pVM ) ;
 
@@ -864,9 +864,11 @@
     void ring_vm_freetemplistsins ( VM *pVM ) ;
 
     void ring_vm_freetemplists ( VM *pVM,int *nTempCount, int *nScopeID ) ;
-    /* Fast Functions */
+    /* Better Performance */
 
     void ring_vm_len ( VM *pVM ) ;
+
+    void ring_vm_setopcode ( VM *pVM ) ;
     /* Protecting Lists */
 
     int ring_vm_checkvarerroronassignment ( VM *pVM,List *pVar ) ;

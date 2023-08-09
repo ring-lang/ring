@@ -227,7 +227,7 @@ int ring_parser_stmt ( Parser *pParser )
 {
     int x,nMark1,nMark2,nMark3,nStart,nEnd,nFlag,nLoadPackage,nLoopOrExitCommand,nLoadAgain,nForInVarsCount,nVar,nLine  ;
     String *pString  ;
-    List *pMark,*pMark2,*pMark3,*pList2  ;
+    List *pMark,*pMark2,*pMark3,*pMark4,*pList2  ;
     double nNum1  ;
     char cStr[50]  ;
     char cFileName[RING_PATHSIZE]  ;
@@ -454,6 +454,10 @@ int ring_parser_stmt ( Parser *pParser )
         ring_parser_nexttoken(pParser);
         RING_PARSER_IGNORENEWLINE ;
         if ( ring_parser_isidentifier(pParser) ) {
+            /* Mark for SETOPCODE command */
+            ring_parser_icg_newoperation(pParser,ICO_SETOPCODE);
+            ring_parser_icg_newoperandint(pParser,ICO_INCJUMP);
+            pMark4 = ring_parser_icg_getactiveoperation(pParser);
             pString = ring_string_new_gc(pParser->pRingState,pParser->TokenText);
             ring_parser_nexttoken(pParser);
             if ( ring_parser_isoperator2(pParser,OP_EQUAL) ) {
@@ -528,6 +532,8 @@ int ring_parser_stmt ( Parser *pParser )
                                 /* Add parameters for ICO_FREETEMPLISTS called by ICO_JUMPFOR */
                                 ring_parser_icg_addoperandint(pParser,pMark,0);
                                 ring_parser_icg_addoperandint(pParser,pMark,0);
+                                /* Complete SETOPCODE instruction */
+                                ring_parser_icg_addoperandint(pParser,pMark4,nMark2-1);
                                 /* Restore Loop|Exit Commands Status */
                                 if ( pParser->nLoopOrExitCommand || ! pParser->nCheckLoopAndExit ) {
                                     /* Set Exit Mark */
@@ -647,6 +653,8 @@ int ring_parser_stmt ( Parser *pParser )
                         ring_parser_icg_newoperand(pParser,cStr);
                         ring_parser_icg_newoperandint(pParser,nMark1+1);
                         nMark2 = ring_parser_icg_newlabel(pParser);
+                        /* Complete SETOPCODE instruction */
+                        ring_parser_icg_addoperandint(pParser,pMark4,nMark2-1);
                         /* Complete JumpFor instruciton */
                         ring_parser_icg_addoperandint(pParser,pMark,nMark2);
                         /* Add parameters for ICO_FREETEMPLISTS called by ICO_JUMPFOR */

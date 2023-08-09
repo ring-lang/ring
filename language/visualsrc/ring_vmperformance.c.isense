@@ -19,27 +19,10 @@ Type: List *
 pVar
 Type: double
 nNum1,nNum2
-ring_vm_jumpvarlenum
-Type: List *
-pVar
-Type: double
-nNum1,nNum2
-ring_vm_jumpvarplenum
-Type: List *
-pVar
-Type: double
-nNum1,nNum2
-ring_vm_jumpvarlplenum
-Type: List *
-pVar
-Type: double
-nNum1,nNum2
 ring_vm_loadfuncp
 Type: List *
 pList
 ring_vm_incpjumpstep1
-ring_vm_jumpvarplenumstep1
-Type: List *
-pVar
-Type: double
-nNum1
+ring_vm_setopcode
+Type: int
+nIns,nOPCode
