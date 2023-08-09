@@ -106,26 +106,13 @@ void ring_vm_incpjump ( VM *pVM )
 
 void ring_vm_inclpjump ( VM *pVM )
 {
-    List *pVar  ;
-    double nNum1,nNum2  ;
     /* Check Scope Life Time */
     if ( RING_VM_IR_READIVALUE(5) != pVM->nActiveScopeID ) {
         RING_VM_IR_OPCODE = ICO_INCJUMP ;
         pVM->nPC-- ;
         return ;
     }
-    pVar = (List *) RING_VM_IR_READPVALUE(4) ;
-    nNum1 = ring_list_getdouble(pVM->aForStep,ring_list_getsize(pVM->aForStep));
-    /* Check Data */
-    if ( ! ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
-        ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);
-        return ;
-    }
-    nNum2 = ring_list_getdouble(pVar,RING_VAR_VALUE) ;
-    ring_list_setdouble_gc(pVM->pRingState,pVar,RING_VAR_VALUE,nNum2 + nNum1);
-    /* Jump */
-    pVM->nPC = RING_VM_IR_READIVALUE(2) ;
-    RING_VM_STACK_PUSHNVALUE(ring_list_getdouble(pVar,RING_VAR_VALUE));
+    ring_vm_incpjump(pVM);
 }
 
 void ring_vm_loadfuncp ( VM *pVM )

@@ -15,10 +15,6 @@ pVar
 Type: double
 nNum1,nNum2
 ring_vm_inclpjump
-Type: List *
-pVar
-Type: double
-nNum1,nNum2
 ring_vm_loadfuncp
 Type: List *
 pList
