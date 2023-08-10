@@ -145,12 +145,6 @@ void ring_vm_incpjumpstep1 ( VM *pVM )
 {
     List *pVar  ;
     pVar = (List *) RING_VM_IR_READPVALUE(3) ;
-    /* Be sure that the Step is one */
-    if ( ring_list_getdouble(pVM->aForStep,ring_list_getsize(pVM->aForStep)) != 1.0 ) {
-        RING_VM_IR_OPCODE = ICO_INCPJUMP ;
-        ring_vm_incpjump(pVM);
-        return ;
-    }
     /* Jump */
     pVM->nPC = RING_VM_IR_READIVALUE(2) ;
     /* Check Data */
