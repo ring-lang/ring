@@ -67,7 +67,12 @@ void ring_vm_incjump ( VM *pVM )
     }
     else if ( pVM->nVarScope == RING_VARSCOPE_LOCAL ) {
         /* Replace ICO_INCJUMP with IncLPJUMP for better performance */
-        RING_VM_IR_OPCODE = ICO_INCLPJUMP ;
+        if ( nNum1 == 1.0 ) {
+            RING_VM_IR_OPCODE = ICO_INCLPJUMPSTEP1 ;
+        }
+        else {
+            RING_VM_IR_OPCODE = ICO_INCLPJUMP ;
+        }
         RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(3),RING_VM_STACK_READP);
         RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(4),ring_list_getint(pVM->aScopeID,ring_list_getsize(pVM->aScopeID)));
     }
@@ -151,6 +156,16 @@ void ring_vm_incpjumpstep1 ( VM *pVM )
         return ;
     }
     RING_VM_STACK_PUSHNVALUE(ring_list_incdouble(pVar,RING_VAR_VALUE));
+}
+
+void ring_vm_inclpjumpstep1 ( VM *pVM )
+{
+    /* Check Scope Life Time */
+    if ( RING_VM_IR_READIVALUE(4) != pVM->nActiveScopeID ) {
+        ring_vm_incjump(pVM);
+        return ;
+    }
+    ring_vm_incpjumpstep1(pVM);
 }
 
 void ring_vm_setopcode ( VM *pVM )

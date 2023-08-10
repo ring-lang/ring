@@ -21,6 +21,7 @@ pList
 ring_vm_incpjumpstep1
 Type: List *
 pVar
+ring_vm_inclpjumpstep1
 ring_vm_setopcode
 Type: int
 nIns,nOPCode

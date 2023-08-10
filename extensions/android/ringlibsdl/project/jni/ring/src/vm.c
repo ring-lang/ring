@@ -903,6 +903,9 @@ void ring_vm_execute ( VM *pVM )
         case ICO_INCPJUMPSTEP1 :
             ring_vm_incpjumpstep1(pVM);
             break ;
+        case ICO_INCLPJUMPSTEP1 :
+            ring_vm_inclpjumpstep1(pVM);
+            break ;
         /* Try-Catch-Done */
         case ICO_TRY :
             ring_vm_try(pVM);

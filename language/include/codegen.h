@@ -121,6 +121,7 @@
         ICO_POPSTEP ,
         ICO_LOADAFIRST ,
         ICO_INCPJUMPSTEP1 ,
+        ICO_INCLPJUMPSTEP1 ,
         /* Anonymous Functions */
         ICO_ANONYMOUS ,
         /* Class Init */
@@ -154,7 +155,7 @@
     
     "BITAND","BITOR","BITNOT","BITXOR","BITSHL","BITSHR","StepNumber","POPStep","LoadAFirst", 
     
-    "INCPJUMPSTEP1","ANONYMOUS","CallClassInit", 
+    "INCPJUMPSTEP1","INCLPJUMPSTEP1","ANONYMOUS","CallClassInit", 
     
     "NewGlobalScope","EndGlobalScope","SetGlobalScope","FreeTempLists","Len","SetOPCode"} ;
     /* Macro */
