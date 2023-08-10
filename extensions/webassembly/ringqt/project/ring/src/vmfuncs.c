@@ -846,10 +846,11 @@ void ring_vm_retitemref ( VM *pVM )
 
 int ring_vm_timetofreetemplists ( VM *pVM )
 {
-    if ( RING_VM_IR_READIVALUE(4) == RING_VM_TEMPLISTSCOUNTERMAX ) {
-        RING_VM_IR_READIVALUE(4) = 0 ;
+    /* We must start by executing the instruction for the first time (So we use decrement) */
+    if ( RING_VM_IR_READIVALUE(4) == 0 ) {
+        RING_VM_IR_READIVALUE(4) = RING_VM_TEMPLISTSCOUNTERMAX ;
         return 1 ;
     }
-    RING_VM_IR_READIVALUE(4)++ ;
+    RING_VM_IR_READIVALUE(4)-- ;
     return 0 ;
 }
