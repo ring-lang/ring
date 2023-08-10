@@ -739,7 +739,9 @@ List * ring_vm_prevtempmem ( VM *pVM )
 
 void ring_vm_freetemplistsins ( VM *pVM )
 {
-    ring_vm_freetemplists(pVM, & RING_VM_IR_READI, & RING_VM_IR_READIVALUE(2));
+    if ( ring_vm_timetofreetemplists(pVM) ) {
+        ring_vm_freetemplists(pVM, & RING_VM_IR_READI, & RING_VM_IR_READIVALUE(2));
+    }
 }
 
 void ring_vm_freetemplists ( VM *pVM, int *nTempCount, int *nScopeID )
@@ -840,4 +842,14 @@ void ring_vm_retitemref ( VM *pVM )
             pVM->nRetItemRef++ ;
         }
     }
+}
+
+int ring_vm_timetofreetemplists ( VM *pVM )
+{
+    if ( RING_VM_IR_READIVALUE(4) == RING_VM_TEMPLISTSCOUNTERMAX ) {
+        RING_VM_IR_READIVALUE(4) = 0 ;
+        return 1 ;
+    }
+    RING_VM_IR_READIVALUE(4)++ ;
+    return 0 ;
 }

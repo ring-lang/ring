@@ -67,3 +67,4 @@ ring_vm_endfuncexec
 ring_vm_retitemref
 Type: List *
 pList
+ring_vm_timetofreetemplists

@@ -354,6 +354,8 @@
     #define RING_EVALOUTPUT_NUMBER 1
     #define RING_EVALOUTPUT_STRING 2
     #define RING_EVALOUTPUT_POINTER 3
+    /* Temp Lists */
+    #define RING_VM_TEMPLISTSCOUNTERMAX 100
     /* Runtime Error Messages */
     #define RING_VM_ERROR_DIVIDEBYZERO "Error (R1) : Can't divide by zero"
     #define RING_VM_ERROR_INDEXOUTOFRANGE "Error (R2) : Array Access (Index out of range)"
@@ -866,6 +868,8 @@
     void ring_vm_freetemplistsins ( VM *pVM ) ;
 
     void ring_vm_freetemplists ( VM *pVM,int *nTempCount, int *nScopeID ) ;
+
+    int ring_vm_timetofreetemplists ( VM *pVM ) ;
     /* Better Performance */
 
     void ring_vm_len ( VM *pVM ) ;
