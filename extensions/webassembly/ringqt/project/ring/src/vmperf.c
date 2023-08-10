@@ -19,8 +19,7 @@ void ring_vm_pushplocal ( VM *pVM )
 {
     /* Check Scope Life Time */
     if ( RING_VM_IR_READIVALUE(5) != pVM->nActiveScopeID ) {
-        RING_VM_IR_OPCODE = ICO_LOADADDRESS ;
-        pVM->nPC-- ;
+        ring_vm_loadaddress(pVM);
         return ;
     }
     RING_VM_STACK_PUSHPVALUE(RING_VM_IR_READPVALUE(4)) ;
