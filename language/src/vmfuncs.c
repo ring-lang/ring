@@ -739,7 +739,13 @@ List * ring_vm_prevtempmem ( VM *pVM )
 
 void ring_vm_freetemplistsins ( VM *pVM )
 {
-    ring_vm_freetemplists(pVM, & RING_VM_IR_READI, & RING_VM_IR_READIVALUE(2));
+    if ( RING_VM_IR_READIVALUE(4) == 100 ) {
+        ring_vm_freetemplists(pVM, & RING_VM_IR_READI, & RING_VM_IR_READIVALUE(2));
+        RING_VM_IR_READIVALUE(4) = 0 ;
+    }
+    else {
+        RING_VM_IR_READIVALUE(4)++ ;
+    }
 }
 
 void ring_vm_freetemplists ( VM *pVM, int *nTempCount, int *nScopeID )
