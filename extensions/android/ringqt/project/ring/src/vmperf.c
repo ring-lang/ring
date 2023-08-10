@@ -108,8 +108,7 @@ void ring_vm_inclpjump ( VM *pVM )
 {
     /* Check Scope Life Time */
     if ( RING_VM_IR_READIVALUE(4) != pVM->nActiveScopeID ) {
-        RING_VM_IR_OPCODE = ICO_INCJUMP ;
-        pVM->nPC-- ;
+        ring_vm_incjump(pVM);
         return ;
     }
     ring_vm_incpjump(pVM);
