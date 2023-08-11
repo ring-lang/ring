@@ -35,7 +35,7 @@
         unsigned int nReg1Type:3  ;
         unsigned int nReg2Type:3  ;
         unsigned int nReg3Type:3  ;
-        char nFlagReg  ;
+        char nCharReg  ;
         Register aReg[RING_VM_BC_ITEMS_COUNT]  ;
     } ByteCode ;
     typedef struct VM {
@@ -235,8 +235,8 @@
     #define RING_VM_IR_SETREG1TYPE(x) pVM->pByteCodeIR->nReg1Type = x
     #define RING_VM_IR_SETREG1TOPOINTERFROMSTACK ring_vm_setreg1topointerfromstack(pVM)
     #define RING_VM_PUSHNULLTHENJUMP RING_VM_STACK_PUSHCVALUE(""); RING_VM_JUMP
-    #define RING_VM_IR_SETFLAGREG(x) pVM->pByteCodeIR->nFlagReg = x
-    #define RING_VM_IR_GETFLAGREG pVM->pByteCodeIR->nFlagReg
+    #define RING_VM_IR_SETCHARREG(x) pVM->pByteCodeIR->nCharReg = x
+    #define RING_VM_IR_GETCHARREG pVM->pByteCodeIR->nCharReg
     /*
     **  Calling Functions 
     **  Note : When you insert items check performance functions for update too! 

@@ -91,7 +91,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
                         RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(2),ring_list_getint(pList2,RING_FUNCMAP_PC));
                         RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(4),ring_list_getstring(pList2,RING_FUNCMAP_FILENAME));
                         RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(5),ring_list_getint(pList3,RING_FUNCCL_LINENUMBER));
-                        RING_VM_IR_SETFLAGREG((char) ring_list_getint(pList3,RING_FUNCCL_METHODORFUNC));
+                        RING_VM_IR_SETCHARREG((char) ring_list_getint(pList3,RING_FUNCCL_METHODORFUNC));
                     }
                 }
                 else {
@@ -847,10 +847,10 @@ void ring_vm_retitemref ( VM *pVM )
 int ring_vm_timetofreetemplists ( VM *pVM )
 {
     /* We must start by executing the instruction for the first time (So we use decrement) */
-    if ( RING_VM_IR_READIVALUE(4) == 0 ) {
-        RING_VM_IR_READIVALUE(4) = RING_VM_TEMPLISTSCOUNTERMAX ;
+    if ( RING_VM_IR_GETCHARREG == 0 ) {
+        RING_VM_IR_SETCHARREG(RING_VM_TEMPLISTSCOUNTERMAX);
         return 1 ;
     }
-    RING_VM_IR_READIVALUE(4)-- ;
+    RING_VM_IR_SETCHARREG(RING_VM_IR_GETCHARREG -1);
     return 0 ;
 }
