@@ -225,7 +225,7 @@ int ring_parser_class ( Parser *pParser )
 
 int ring_parser_stmt ( Parser *pParser )
 {
-    int x,nMark1,nMark2,nMark3,nStart,nEnd,nFlag,nLoadPackage,nLoopOrExitCommand,nLoadAgain,nForInVarsCount,nVar,nLine  ;
+    int x,nMark1,nMark2,nMark3,nStart,nEnd,nFlag,nLoadPackage,nLoopOrExitCommand,nLoadAgain,nForInVarsCount,nVar,nLine,nLine2  ;
     String *pString  ;
     List *pMark,*pMark2,*pMark3,*pMark4,*pList2  ;
     double nNum1  ;
@@ -235,6 +235,7 @@ int ring_parser_stmt ( Parser *pParser )
     nLoadPackage = 0 ;
     nLoopOrExitCommand = 0 ;
     nLoadAgain = 0 ;
+    nLine2 = 0 ;
     assert(pParser != NULL);
     /* Statement --> Load Literal */
     if ( ring_parser_iskeyword(pParser,K_LOAD) ) {
@@ -479,10 +480,11 @@ int ring_parser_stmt ( Parser *pParser )
                     ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
                     ring_parser_icg_newoperandint(pParser,0);
                     ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
+                    nLine2 = pParser->nLineNumber ;
+                    ring_parser_icg_newline(pParser,pParser->nLineNumber);
                     nMark1 = ring_parser_icg_newlabel(pParser);
                     ring_parser_icg_newoperation(pParser,ICO_LOADAPUSHV);
                     ring_parser_icg_newoperand(pParser,ring_string_get(pString));
-                    ring_parser_icg_newline(pParser,pParser->nLineNumber);
                     if ( ring_parser_iskeyword(pParser,K_TO) ) {
                         ring_parser_nexttoken(pParser);
                         RING_PARSER_IGNORENEWLINE ;
@@ -526,6 +528,7 @@ int ring_parser_stmt ( Parser *pParser )
                                 ring_parser_icg_newoperation(pParser,ICO_INCJUMP);
                                 ring_parser_icg_newoperand(pParser,ring_string_get(pString));
                                 ring_parser_icg_newoperandint(pParser,nMark1+1);
+                                ring_parser_icg_newoperandint(pParser,nLine2);
                                 nMark2 = ring_parser_icg_newlabel(pParser);
                                 /* Complete JumpFor instruction */
                                 ring_parser_icg_addoperandint(pParser,pMark,nMark2);
@@ -588,10 +591,11 @@ int ring_parser_stmt ( Parser *pParser )
                 ring_parser_icg_newoperandint(pParser,0);
                 ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
                 /* Generate Code */
+                nLine2 = pParser->nLineNumber ;
+                ring_parser_icg_newline(pParser,pParser->nLineNumber);
                 nMark1 = ring_parser_icg_newlabel(pParser);
                 ring_parser_icg_newoperation(pParser,ICO_LOADAPUSHV);
                 ring_parser_icg_newoperand(pParser,cStr);
-                ring_parser_icg_newline(pParser,pParser->nLineNumber);
                 nStart = ring_parser_icg_instructionslistsize(pParser) + 1 ;
                 ring_parser_nexttoken(pParser);
                 RING_PARSER_IGNORENEWLINE ;
@@ -652,6 +656,7 @@ int ring_parser_stmt ( Parser *pParser )
                         ring_parser_icg_newoperation(pParser,ICO_INCJUMP);
                         ring_parser_icg_newoperand(pParser,cStr);
                         ring_parser_icg_newoperandint(pParser,nMark1+1);
+                        ring_parser_icg_newoperandint(pParser,nLine2);
                         nMark2 = ring_parser_icg_newlabel(pParser);
                         /* Complete SETOPCODE instruction */
                         ring_parser_icg_addoperandint(pParser,pMark4,nMark2-1);
