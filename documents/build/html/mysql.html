@@ -1,88 +1,49 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MySQL Functions &mdash; Ring 1.19 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="SQLite Functions" href="sqlite.html" />
     <link rel="prev" title="ODBC Functions" href="odbc.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html">
           
-
-          
+          <a href="index.html">
             
-            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
-          
+              <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
@@ -233,69 +194,31 @@
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Ring</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>MySQL Functions</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">MySQL Functions</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="mysql-functions">
-<span id="index-0"></span><h1>MySQL Functions<a class="headerlink" href="#mysql-functions" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="mysql-functions">
+<span id="index-0"></span><h1>MySQL Functions<a class="headerlink" href="#mysql-functions" title="Permalink to this heading"></a></h1>
 <p>In this chapter we are going to learn about the MySQL functions provided by the Ring programming language.</p>
 <ul class="simple">
 <li><p>MySQL_Info()</p></li>
@@ -319,8 +242,8 @@
 <span class="c"># Use MySQL functions</span>
 </pre></div>
 </div>
-<div class="section" id="mysql-info-function">
-<span id="index-1"></span><h2>MySQL_Info() Function<a class="headerlink" href="#mysql-info-function" title="Permalink to this headline">¶</a></h2>
+<section id="mysql-info-function">
+<span id="index-1"></span><h2>MySQL_Info() Function<a class="headerlink" href="#mysql-info-function" title="Permalink to this heading"></a></h2>
 <p>We can get the MySQL Client version using the MySQL_Info() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_Info</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">string</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">MySQL</span> <span class="n">Client</span> <span class="n">version</span>
@@ -334,49 +257,49 @@
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL</span> <span class="n">Client</span> <span class="n">Version</span> <span class="p">:</span> <span class="mf">6.1.5</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="mysql-init-function">
-<span id="index-2"></span><h2>MySQL_Init() Function<a class="headerlink" href="#mysql-init-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="mysql-init-function">
+<span id="index-2"></span><h2>MySQL_Init() Function<a class="headerlink" href="#mysql-init-function" title="Permalink to this heading"></a></h2>
 <p>We can start using MySQL Client through the MySQL_Init() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_Init</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">MySQL</span> <span class="n">Handle</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="mysql-error-function">
-<span id="index-3"></span><h2>MySQL_Error() Function<a class="headerlink" href="#mysql-error-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="mysql-error-function">
+<span id="index-3"></span><h2>MySQL_Error() Function<a class="headerlink" href="#mysql-error-function" title="Permalink to this heading"></a></h2>
 <p>We can get the error message from the MySQL Client using the MySQL_Error() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_Error</span><span class="p">(</span><span class="n">MySQL</span> <span class="n">Handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Error</span> <span class="n">message</span> <span class="n">as</span> <span class="kt">string</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="mysql-connect-function">
-<span id="index-4"></span><h2>MySQL_Connect() Function<a class="headerlink" href="#mysql-connect-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="mysql-connect-function">
+<span id="index-4"></span><h2>MySQL_Connect() Function<a class="headerlink" href="#mysql-connect-function" title="Permalink to this heading"></a></h2>
 <p>We can connect to the MySQL database server using the MySQL_Connect() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_Connect</span><span class="p">(</span><span class="n">MySQL</span> <span class="n">Handle</span><span class="p">,</span> <span class="n">cServer</span><span class="p">,</span> <span class="n">cUserName</span><span class="p">,</span> <span class="n">cPassword</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">lStatus</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="mysql-close-function">
-<span id="index-5"></span><h2>MySQL_Close() Function<a class="headerlink" href="#mysql-close-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="mysql-close-function">
+<span id="index-5"></span><h2>MySQL_Close() Function<a class="headerlink" href="#mysql-close-function" title="Permalink to this heading"></a></h2>
 <p>We can close the connection to the MySQL database using the MySQL_Close() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_Close</span><span class="p">(</span><span class="n">MySQL</span> <span class="n">Handle</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="mysql-query-function">
-<span id="index-6"></span><h2>MySQL_Query() Function<a class="headerlink" href="#mysql-query-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="mysql-query-function">
+<span id="index-6"></span><h2>MySQL_Query() Function<a class="headerlink" href="#mysql-query-function" title="Permalink to this heading"></a></h2>
 <p>We can execute SQL queries using the MySQL_Query() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_Query</span><span class="p">(</span><span class="n">MySQL</span> <span class="n">Handle</span><span class="p">,</span> <span class="n">cSQLQuery</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="create-database">
-<span id="index-7"></span><h2>Create Database<a class="headerlink" href="#create-database" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="create-database">
+<span id="index-7"></span><h2>Create Database<a class="headerlink" href="#create-database" title="Permalink to this heading"></a></h2>
 <p>The next example connect to MySQL Server then create new database.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;MySQL Test - Create Database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 <span class="n">con</span> <span class="o">=</span> <span class="n">mysql_init</span><span class="p">()</span>
@@ -403,9 +326,9 @@
 <span class="n">Close</span> <span class="n">Connection</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="create-table-and-insert-data">
-<span id="index-8"></span><h2>Create Table and Insert Data<a class="headerlink" href="#create-table-and-insert-data" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="create-table-and-insert-data">
+<span id="index-8"></span><h2>Create Table and Insert Data<a class="headerlink" href="#create-table-and-insert-data" title="Permalink to this heading"></a></h2>
 <p>The next example create new table and insert records</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
         <span class="k">see</span> <span class="s">&quot;Create Table and Insert Records&quot;</span> <span class="o">+</span> <span class="n">nl</span>
@@ -449,9 +372,9 @@
 <span class="n">Close</span> <span class="n">connection</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="mysql-insert-id-function">
-<span id="index-9"></span><h2>MySQL_Insert_ID() Function<a class="headerlink" href="#mysql-insert-id-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="mysql-insert-id-function">
+<span id="index-9"></span><h2>MySQL_Insert_ID() Function<a class="headerlink" href="#mysql-insert-id-function" title="Permalink to this heading"></a></h2>
 <p>We can get the inserted row id using the MySQL_Insert_ID() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_Insert_ID</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Inserted</span> <span class="n">row</span> <span class="n">id</span> <span class="n">as</span> <span class="n">number</span>
@@ -491,26 +414,26 @@
 <span class="n">close</span> <span class="n">database</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="mysql-result-function">
-<span id="index-10"></span><h2>MySQL_Result() Function<a class="headerlink" href="#mysql-result-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="mysql-result-function">
+<span id="index-10"></span><h2>MySQL_Result() Function<a class="headerlink" href="#mysql-result-function" title="Permalink to this heading"></a></h2>
 <p>We can get the query result (data without column names) using the MySQL_Result() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_Result</span><span class="p">(</span><span class="n">MySQL</span> <span class="n">Handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">query</span> <span class="n">result</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="mysql-next-result-function">
-<span id="index-11"></span><h2>MySQL_Next_Result() Function<a class="headerlink" href="#mysql-next-result-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="mysql-next-result-function">
+<span id="index-11"></span><h2>MySQL_Next_Result() Function<a class="headerlink" href="#mysql-next-result-function" title="Permalink to this heading"></a></h2>
 <p>We can move to the next query result using the MySQL_Next_Result() function.
 We use this function when we have multiple SQL statements in the same query.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_Next_Result</span><span class="p">(</span><span class="n">MySQL</span> <span class="n">Handle</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="print-query-result">
-<span id="index-12"></span><h2>Print Query Result<a class="headerlink" href="#print-query-result" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="print-query-result">
+<span id="index-12"></span><h2>Print Query Result<a class="headerlink" href="#print-query-result" title="Permalink to this heading"></a></h2>
 <p>The next example execute a query on the database then print the result.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">con</span> <span class="o">=</span> <span class="n">mysql_init</span><span class="p">()</span>
 <span class="k">see</span> <span class="s">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
@@ -535,9 +458,9 @@ We use this function when we have multiple SQL statements in the same query.</p>
 <span class="n">close</span> <span class="n">database</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="mysql-columns-function">
-<span id="index-13"></span><h2>MySQL_Columns() Function<a class="headerlink" href="#mysql-columns-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="mysql-columns-function">
+<span id="index-13"></span><h2>MySQL_Columns() Function<a class="headerlink" href="#mysql-columns-function" title="Permalink to this heading"></a></h2>
 <p>We can get a list of columns names using the MySQL_Columns() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_Columns</span><span class="p">(</span><span class="n">MySQL</span> <span class="n">Handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span> <span class="n">contains</span> <span class="n">columns</span> <span class="n">information</span>
@@ -574,9 +497,9 @@ We use this function when we have multiple SQL statements in the same query.</p>
 <span class="n">Close</span> <span class="n">database</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="mysql-result2-function">
-<span id="index-14"></span><h2>MySQL_Result2() Function<a class="headerlink" href="#mysql-result2-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="mysql-result2-function">
+<span id="index-14"></span><h2>MySQL_Result2() Function<a class="headerlink" href="#mysql-result2-function" title="Permalink to this heading"></a></h2>
 <p>Instead of using MySQL_Result() to get the result data without columns names, we can use the MySQL_Result2() to get all of the
 column names then the query result in one list.</p>
 <p>Syntax:</p>
@@ -614,18 +537,18 @@ column names then the query result in one list.</p>
 <span class="n">Close</span> <span class="n">database</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="mysql-escape-string-function">
-<span id="index-15"></span><h2>MySQL_Escape_String() Function<a class="headerlink" href="#mysql-escape-string-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="mysql-escape-string-function">
+<span id="index-15"></span><h2>MySQL_Escape_String() Function<a class="headerlink" href="#mysql-escape-string-function" title="Permalink to this heading"></a></h2>
 <p>We can store binary data and special characters in the database after
 processing using MySQL_Escape_String() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_Escape_String</span><span class="p">(</span><span class="n">MySQL</span> <span class="n">Handle</span><span class="p">,</span> <span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">after</span> <span class="n">processing</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="save-image-inside-the-database">
-<span id="index-16"></span><h2>Save Image inside the database<a class="headerlink" href="#save-image-inside-the-database" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="save-image-inside-the-database">
+<span id="index-16"></span><h2>Save Image inside the database<a class="headerlink" href="#save-image-inside-the-database" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Read file&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 <span class="n">cFile</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s">&quot;tests\mahmoud.jpg&quot;</span><span class="p">)</span>
@@ -649,9 +572,9 @@ processing using MySQL_Escape_String() function</p>
 <span class="n">Close</span> <span class="n">database</span><span class="p">...</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="restore-image-from-the-database">
-<span id="index-17"></span><h2>Restore Image From The Database<a class="headerlink" href="#restore-image-from-the-database" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="restore-image-from-the-database">
+<span id="index-17"></span><h2>Restore Image From The Database<a class="headerlink" href="#restore-image-from-the-database" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">con</span> <span class="o">=</span> <span class="n">mysql_init</span><span class="p">()</span>
 <span class="k">See</span> <span class="s">&quot;Connect to database...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
@@ -672,33 +595,33 @@ processing using MySQL_Escape_String() function</p>
 <span class="n">Close</span> <span class="n">database</span><span class="p">...</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="mysql-autocommit-function">
-<span id="index-18"></span><h2>MySQL_AutoCommit() Function<a class="headerlink" href="#mysql-autocommit-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="mysql-autocommit-function">
+<span id="index-18"></span><h2>MySQL_AutoCommit() Function<a class="headerlink" href="#mysql-autocommit-function" title="Permalink to this heading"></a></h2>
 <p>We can enable or disable the auto commit feature using the MySQL_AutoCommit() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_AutoCommit</span><span class="p">(</span><span class="n">MySQL</span> <span class="n">Handle</span><span class="p">,</span> <span class="n">lStatus</span><span class="p">)</span>  <span class="c"># lstatus can be True/False</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="mysql-commit-function">
-<span id="index-19"></span><h2>MySQL_Commit() Function<a class="headerlink" href="#mysql-commit-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="mysql-commit-function">
+<span id="index-19"></span><h2>MySQL_Commit() Function<a class="headerlink" href="#mysql-commit-function" title="Permalink to this heading"></a></h2>
 <p>We can commit updates to the database using the MySQL_Commit() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_Commit</span><span class="p">(</span><span class="n">MySQL</span> <span class="n">Handle</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="mysql-rollback-function">
-<span id="index-20"></span><h2>MySQL_Rollback() Function<a class="headerlink" href="#mysql-rollback-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="mysql-rollback-function">
+<span id="index-20"></span><h2>MySQL_Rollback() Function<a class="headerlink" href="#mysql-rollback-function" title="Permalink to this heading"></a></h2>
 <p>We can rollback updates to the database using the MySQL_Rollback() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_Rollback</span><span class="p">(</span><span class="n">MySQL</span> <span class="n">Handle</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="transaction-example">
-<span id="index-21"></span><h2>Transaction Example<a class="headerlink" href="#transaction-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="transaction-example">
+<span id="index-21"></span><h2>Transaction Example<a class="headerlink" href="#transaction-example" title="Permalink to this heading"></a></h2>
 <p>The next example presents the usage of MySQL_Autocommit(), MySQL_Commit()
 &amp; MySQL_RollBack() functions.</p>
 <p>Example:</p>
@@ -758,63 +681,38 @@ processing using MySQL_Escape_String() function</p>
 <span class="n">Close</span> <span class="n">connection</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="sqlite.html" class="btn btn-neutral float-right" title="SQLite Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="odbc.html" class="btn btn-neutral float-left" title="ODBC Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="odbc.html" class="btn btn-neutral float-left" title="ODBC Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sqlite.html" class="btn btn-neutral float-right" title="SQLite Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2016-2023, Ring Team
-
-    </p>
+    <p>&#169; Copyright 2016-2023, Ring Team.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(false);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

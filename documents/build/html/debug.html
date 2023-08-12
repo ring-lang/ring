@@ -1,88 +1,49 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Trace Library and the Interactive Debugger &mdash; Ring 1.19 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Embedding Ring in Ring" href="ringemb.html" />
     <link rel="prev" title="Introduction to the Type Hints Library" href="typehints.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html">
           
-
-          
+          <a href="index.html">
             
-            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
-          
+              <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
@@ -221,79 +182,41 @@
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Ring</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>The Trace Library and the Interactive Debugger</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">The Trace Library and the Interactive Debugger</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="the-trace-library-and-the-interactive-debugger">
-<span id="index-0"></span><h1>The Trace Library and the Interactive Debugger<a class="headerlink" href="#the-trace-library-and-the-interactive-debugger" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="the-trace-library-and-the-interactive-debugger">
+<span id="index-0"></span><h1>The Trace Library and the Interactive Debugger<a class="headerlink" href="#the-trace-library-and-the-interactive-debugger" title="Permalink to this heading"></a></h1>
 <p>In this chapter we will learn about the Trace Library and the Interactive Debugger</p>
-<div class="section" id="loading-the-trace-library">
-<span id="index-1"></span><h2>Loading the Trace library<a class="headerlink" href="#loading-the-trace-library" title="Permalink to this headline">¶</a></h2>
+<section id="loading-the-trace-library">
+<span id="index-1"></span><h2>Loading the Trace library<a class="headerlink" href="#loading-the-trace-library" title="Permalink to this heading"></a></h2>
 <p>To start using the Trace library, We must load it first!</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tracelib.ring&quot;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="trace-all-events">
-<span id="index-2"></span><h2>Trace All Events<a class="headerlink" href="#trace-all-events" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="trace-all-events">
+<span id="index-2"></span><h2>Trace All Events<a class="headerlink" href="#trace-all-events" title="Permalink to this heading"></a></h2>
 <p>The next example demonstrates the Trace library usage to trace all events.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># Trace All Events</span>
 <span class="n">trace</span><span class="p">(:</span><span class="n">AllEvents</span><span class="p">)</span>
@@ -314,9 +237,9 @@
                 <span class="k">see</span> <span class="s">&quot;Message from mymethod&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="trace-control-flow-between-functions">
-<span id="index-3"></span><h2>Trace control flow between functions<a class="headerlink" href="#trace-control-flow-between-functions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="trace-control-flow-between-functions">
+<span id="index-3"></span><h2>Trace control flow between functions<a class="headerlink" href="#trace-control-flow-between-functions" title="Permalink to this heading"></a></h2>
 <p>The next example demonstrates the Trace library usage
 to trace the control flow between functions.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Trace</span><span class="p">(:</span><span class="n">Functions</span><span class="p">)</span>
@@ -336,9 +259,9 @@ to trace the control flow between functions.</p>
         <span class="k">return</span> <span class="s">&quot;test 3 output&quot;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="pass-error">
-<span id="index-4"></span><h2>Pass Error<a class="headerlink" href="#pass-error" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="pass-error">
+<span id="index-4"></span><h2>Pass Error<a class="headerlink" href="#pass-error" title="Permalink to this heading"></a></h2>
 <p>The next example demonstrates the Trace library usage
 to pass an error!</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Trace</span><span class="p">(:</span><span class="n">PassError</span><span class="p">)</span>
@@ -352,9 +275,9 @@ to pass an error!</p>
         <span class="k">see</span> <span class="s">&quot;We can continue!&quot;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="interactive-debugger">
-<span id="index-5"></span><h2>Interactive Debugger<a class="headerlink" href="#interactive-debugger" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="interactive-debugger">
+<span id="index-5"></span><h2>Interactive Debugger<a class="headerlink" href="#interactive-debugger" title="Permalink to this heading"></a></h2>
 <p>The next example demonstrates the Trace library usage
 to use the Interactive Debugger</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Trace</span><span class="p">(:</span><span class="n">Debugger</span><span class="p">)</span>
@@ -372,9 +295,9 @@ to use the Interactive Debugger</p>
         <span class="k">see</span> <span class="s">&quot;x = &quot;</span> <span class="k">see</span> <span class="n">x</span> <span class="k">see</span> <span class="n">nl</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="execute-program-line-by-line">
-<span id="index-6"></span><h2>Execute Program Line by Line<a class="headerlink" href="#execute-program-line-by-line" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="execute-program-line-by-line">
+<span id="index-6"></span><h2>Execute Program Line by Line<a class="headerlink" href="#execute-program-line-by-line" title="Permalink to this heading"></a></h2>
 <p>The next example demonstrates the Trace library usage
 to execute the program line by line!</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Trace</span><span class="p">(:</span><span class="n">LineByLine</span><span class="p">)</span>
@@ -390,9 +313,9 @@ to execute the program line by line!</p>
         <span class="k">see</span> <span class="s">&quot;t = &quot;</span> <span class="o">+</span> <span class="n">t</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="breakpoint">
-<span id="index-7"></span><h2>BreakPoint<a class="headerlink" href="#breakpoint" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="breakpoint">
+<span id="index-7"></span><h2>BreakPoint<a class="headerlink" href="#breakpoint" title="Permalink to this heading"></a></h2>
 <p>The next example demonstrates the Trace library usage
 to stop at a breakpoint!</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">test1</span><span class="p">()</span>
@@ -407,9 +330,9 @@ to stop at a breakpoint!</p>
         <span class="k">see</span> <span class="s">&quot;End of program!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="disable-breakpoints">
-<span id="index-8"></span><h2>Disable BreakPoints<a class="headerlink" href="#disable-breakpoints" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="disable-breakpoints">
+<span id="index-8"></span><h2>Disable BreakPoints<a class="headerlink" href="#disable-breakpoints" title="Permalink to this heading"></a></h2>
 <p>The next example demonstrates the Trace library usage
 and how to disable the Breakpoints!</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">NoBreakPoints</span><span class="p">()</span>
@@ -426,9 +349,9 @@ and how to disable the Breakpoints!</p>
         <span class="k">see</span> <span class="s">&quot;End of program!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-the-interactive-debugger">
-<span id="index-9"></span><h2>Using the Interactive Debugger<a class="headerlink" href="#using-the-interactive-debugger" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-the-interactive-debugger">
+<span id="index-9"></span><h2>Using the Interactive Debugger<a class="headerlink" href="#using-the-interactive-debugger" title="Permalink to this heading"></a></h2>
 <p>The next example uses a Breakpoint to open the Interactive Debugger!</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tracelib.ring&quot;</span>
 
@@ -453,63 +376,38 @@ and how to disable the Breakpoints!</p>
 <img alt="Interactive Debugger" src="_images/debugshot3.png" />
 <p>We can run the Interactive Debugger in the Output Window</p>
 <img alt="Interactive Debugger" src="_images/debugshot4.png" />
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="ringemb.html" class="btn btn-neutral float-right" title="Embedding Ring in Ring" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="typehints.html" class="btn btn-neutral float-left" title="Introduction to the Type Hints Library" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="typehints.html" class="btn btn-neutral float-left" title="Introduction to the Type Hints Library" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ringemb.html" class="btn btn-neutral float-right" title="Embedding Ring in Ring" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2016-2023, Ring Team
-
-    </p>
+    <p>&#169; Copyright 2016-2023, Ring Team.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(false);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

@@ -1,88 +1,49 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Using the Natural Library &mdash; Ring 1.19 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Scope Rules for Variables and Attributes" href="scope.html" />
     <link rel="prev" title="Natural Language Programming" href="natural.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html">
           
-
-          
+          <a href="index.html">
             
-            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
-          
+              <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
@@ -216,69 +177,31 @@
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Ring</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Using the Natural Library</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Using the Natural Library</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="using-the-natural-library">
-<span id="index-0"></span><h1>Using the Natural Library<a class="headerlink" href="#using-the-natural-library" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="using-the-natural-library">
+<span id="index-0"></span><h1>Using the Natural Library<a class="headerlink" href="#using-the-natural-library" title="Permalink to this heading"></a></h1>
 <p>In this chapter we will learn how to use the Natural Library to quickly define a language
 that contains a group of commands.</p>
 <p>To start using the library, We need to call naturallib.ring</p>
@@ -296,8 +219,8 @@ next methods :-</p>
 <li><p>RunFile(cFileName)</p></li>
 <li><p>RunString(cString)</p></li>
 </ul>
-<div class="section" id="natural-library-demo-program">
-<span id="index-1"></span><h2>Natural Library - Demo Program<a class="headerlink" href="#natural-library-demo-program" title="Permalink to this headline">¶</a></h2>
+<section id="natural-library-demo-program">
+<span id="index-1"></span><h2>Natural Library - Demo Program<a class="headerlink" href="#natural-library-demo-program" title="Permalink to this heading"></a></h2>
 <p>We will write the natural code in a Text file, for example program.txt</p>
 <p>File: program.txt</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Welcome to the Ring programming language!
@@ -417,9 +340,9 @@ I will count Again!
 <span class="o">]</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="defining-commands">
-<span id="index-2"></span><h2>Defining Commands<a class="headerlink" href="#defining-commands" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="defining-commands">
+<span id="index-2"></span><h2>Defining Commands<a class="headerlink" href="#defining-commands" title="Permalink to this heading"></a></h2>
 <p>To define new command we can use the DefineNaturalCommand object</p>
 <p>This object provides the next methods :-</p>
 <ul class="simple">
@@ -537,9 +460,9 @@ user will write after the keyword.</p>
 Command: Window title is Hello World
 </pre></div>
 </div>
-</div>
-<div class="section" id="natural-library-operators">
-<span id="index-3"></span><h2>Natural Library - Operators<a class="headerlink" href="#natural-library-operators" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="natural-library-operators">
+<span id="index-3"></span><h2>Natural Library - Operators<a class="headerlink" href="#natural-library-operators" title="Permalink to this heading"></a></h2>
 <p>In the next example we uses the Count command without using operators</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;mylanguage.ring&quot;</span>
 
@@ -572,9 +495,9 @@ Command: Window title is Hello World
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="defining-commands-using-classes">
-<span id="index-4"></span><h2>Defining commands using classes<a class="headerlink" href="#defining-commands-using-classes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="defining-commands-using-classes">
+<span id="index-4"></span><h2>Defining commands using classes<a class="headerlink" href="#defining-commands-using-classes" title="Permalink to this heading"></a></h2>
 <p>This section is related to the implementation details.</p>
 <p>When we define new command, Each command is defined by the Natural Library as a class.</p>
 <p>We have the choice to define commands using the simple interface provided by the
@@ -639,63 +562,38 @@ DefineNaturalCommand object or by defining new class as in the next examples.</p
                 <span class="n">CommandReturn</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="scope.html" class="btn btn-neutral float-right" title="Scope Rules for Variables and Attributes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="natural.html" class="btn btn-neutral float-left" title="Natural Language Programming" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="natural.html" class="btn btn-neutral float-left" title="Natural Language Programming" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="scope.html" class="btn btn-neutral float-right" title="Scope Rules for Variables and Attributes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2016-2023, Ring Team
-
-    </p>
+    <p>&#169; Copyright 2016-2023, Ring Team.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(false);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

@@ -1,88 +1,49 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Developing Games using RingRayLib &mdash; Ring 1.19 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Using RingOpenGL and RingFreeGLUT for 3D Graphics" href="usingopengl.html" />
     <link rel="prev" title="Building Games For Android" href="gameengineandorid.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html">
           
-
-          
+          <a href="index.html">
             
-            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
-          
+              <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
@@ -240,77 +201,39 @@
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Ring</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Developing Games using RingRayLib</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Developing Games using RingRayLib</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="developing-games-using-ringraylib">
-<span id="index-0"></span><h1>Developing Games using RingRayLib<a class="headerlink" href="#developing-games-using-ringraylib" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="developing-games-using-ringraylib">
+<span id="index-0"></span><h1>Developing Games using RingRayLib<a class="headerlink" href="#developing-games-using-ringraylib" title="Permalink to this heading"></a></h1>
 <p>In this chapter we will learn how to use the RingRayLib extension.</p>
-<div class="section" id="introduction">
-<span id="index-1"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<section id="introduction">
+<span id="index-1"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
 <p>RingRayLib is an extension for the RayLib game programming library.</p>
 <p>Also RayGUI functions are supported by this extension.</p>
-</div>
-<div class="section" id="basic-window">
-<span id="index-2"></span><h2>Basic Window<a class="headerlink" href="#basic-window" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="basic-window">
+<span id="index-2"></span><h2>Basic Window<a class="headerlink" href="#basic-window" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
 <span class="n">screenWidth</span>     <span class="o">=</span> <span class="mi">800</span>
@@ -332,9 +255,9 @@
 </div>
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_basicwindow.png" />
-</div>
-<div class="section" id="input-keys">
-<span id="index-3"></span><h2>Input Keys<a class="headerlink" href="#input-keys" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="input-keys">
+<span id="index-3"></span><h2>Input Keys<a class="headerlink" href="#input-keys" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
 <span class="n">screenWidth</span>  <span class="o">=</span> <span class="mi">800</span>
@@ -361,9 +284,9 @@
 </div>
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_inputkeys.png" />
-</div>
-<div class="section" id="input-mouse">
-<span id="index-4"></span><h2>Input Mouse<a class="headerlink" href="#input-mouse" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="input-mouse">
+<span id="index-4"></span><h2>Input Mouse<a class="headerlink" href="#input-mouse" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
 <span class="n">screenWidth</span>  <span class="o">=</span> <span class="mi">800</span>
@@ -402,9 +325,9 @@
 </div>
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_inputmouse.png" />
-</div>
-<div class="section" id="d-camera">
-<span id="index-5"></span><h2>3D Camera<a class="headerlink" href="#d-camera" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="d-camera">
+<span id="index-5"></span><h2>3D Camera<a class="headerlink" href="#d-camera" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
 <span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
@@ -451,9 +374,9 @@
 </div>
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_3dcamera.png" />
-</div>
-<div class="section" id="d-camera-free">
-<span id="index-6"></span><h2>3D Camera Free<a class="headerlink" href="#d-camera-free" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="d-camera-free">
+<span id="index-6"></span><h2>3D Camera Free<a class="headerlink" href="#d-camera-free" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
 <span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
@@ -512,9 +435,9 @@
 </div>
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_3dcamerafree.png" />
-</div>
-<div class="section" id="mouse-wheel">
-<span id="index-7"></span><h2>Mouse Wheel<a class="headerlink" href="#mouse-wheel" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="mouse-wheel">
+<span id="index-7"></span><h2>Mouse Wheel<a class="headerlink" href="#mouse-wheel" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
 <span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
@@ -547,9 +470,9 @@
 </div>
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_mousewheel.png" />
-</div>
-<div class="section" id="input-multi-touch">
-<span id="index-8"></span><h2>Input Multi-touch<a class="headerlink" href="#input-multi-touch" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="input-multi-touch">
+<span id="index-8"></span><h2>Input Multi-touch<a class="headerlink" href="#input-multi-touch" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
 <span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
@@ -613,9 +536,9 @@
 </div>
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_inputmt.png" />
-</div>
-<div class="section" id="camera-first-person">
-<span id="index-9"></span><h2>Camera First Person<a class="headerlink" href="#camera-first-person" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="camera-first-person">
+<span id="index-9"></span><h2>Camera First Person<a class="headerlink" href="#camera-first-person" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
 
 MAX_COLUMNS = 20
@@ -687,9 +610,9 @@ CloseWindow()
 </div>
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_camerafirstperson.png" />
-</div>
-<div class="section" id="d-picking">
-<span id="index-10"></span><h2>3D Picking<a class="headerlink" href="#d-picking" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="d-picking">
+<span id="index-10"></span><h2>3D Picking<a class="headerlink" href="#d-picking" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
 
 screenWidth = 800
@@ -770,9 +693,9 @@ CloseWindow()
 </div>
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_3dpicking.png" />
-</div>
-<div class="section" id="full-screen">
-<span id="index-11"></span><h2>Full Screen<a class="headerlink" href="#full-screen" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="full-screen">
+<span id="index-11"></span><h2>Full Screen<a class="headerlink" href="#full-screen" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
 <span class="n">screenWidth</span>     <span class="o">=</span> <span class="mi">1024</span>
@@ -798,9 +721,9 @@ CloseWindow()
 </div>
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_fullscreen.png" />
-</div>
-<div class="section" id="two-cubes">
-<span id="index-12"></span><h2>Two Cubes<a class="headerlink" href="#two-cubes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="two-cubes">
+<span id="index-12"></span><h2>Two Cubes<a class="headerlink" href="#two-cubes" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
 
 screenWidth  = 800
@@ -928,9 +851,9 @@ CloseWindow()
 </div>
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_twocubes.png" />
-</div>
-<div class="section" id="basic-shapes">
-<span id="index-13"></span><h2>Basic Shapes<a class="headerlink" href="#basic-shapes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="basic-shapes">
+<span id="index-13"></span><h2>Basic Shapes<a class="headerlink" href="#basic-shapes" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
 <span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
@@ -976,9 +899,9 @@ CloseWindow()
 </div>
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_basicshapes.png" />
-</div>
-<div class="section" id="draw-ring">
-<span id="index-14"></span><h2>Draw Ring<a class="headerlink" href="#draw-ring" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="draw-ring">
+<span id="index-14"></span><h2>Draw Ring<a class="headerlink" href="#draw-ring" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
 <span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>       <span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
@@ -1049,9 +972,9 @@ CloseWindow()
 <img alt="RayLib Example" src="_images/raylib_drawring.png" />
 <p>Screen Shot (2):</p>
 <img alt="RayLib Example" src="_images/raylib_drawring2.png" />
-</div>
-<div class="section" id="bezier-lines">
-<span id="index-15"></span><h2>Bezier Lines<a class="headerlink" href="#bezier-lines" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="bezier-lines">
+<span id="index-15"></span><h2>Bezier Lines<a class="headerlink" href="#bezier-lines" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
 <span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
@@ -1090,9 +1013,9 @@ CloseWindow()
 </div>
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_bezierlines.png" />
-</div>
-<div class="section" id="collision-area">
-<span id="index-16"></span><h2>Collision Area<a class="headerlink" href="#collision-area" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="collision-area">
+<span id="index-16"></span><h2>Collision Area<a class="headerlink" href="#collision-area" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
 <span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
@@ -1196,9 +1119,9 @@ CloseWindow()
 </div>
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_collisionarea.png" />
-</div>
-<div class="section" id="following-eyes">
-<span id="index-17"></span><h2>Following Eyes<a class="headerlink" href="#following-eyes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="following-eyes">
+<span id="index-17"></span><h2>Following Eyes<a class="headerlink" href="#following-eyes" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
 <span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
@@ -1277,9 +1200,9 @@ CloseWindow()
 </div>
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_followingeyes.png" />
-</div>
-<div class="section" id="colors-palette">
-<span id="index-18"></span><h2>Colors Palette<a class="headerlink" href="#colors-palette" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="colors-palette">
+<span id="index-18"></span><h2>Colors Palette<a class="headerlink" href="#colors-palette" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
 
 MAX_COLORS_COUNT = 21          // Number of colors available
@@ -1375,9 +1298,9 @@ CloseWindow()
 </div>
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_colorspalette.png" />
-</div>
-<div class="section" id="rectangle-scaling">
-<span id="index-19"></span><h2>Rectangle Scaling<a class="headerlink" href="#rectangle-scaling" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="rectangle-scaling">
+<span id="index-19"></span><h2>Rectangle Scaling<a class="headerlink" href="#rectangle-scaling" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
 
 MOUSE_SCALE_MARK_SIZE = 12
@@ -1455,9 +1378,9 @@ CloseWindow()
 </div>
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_rectanglescaling.png" />
-</div>
-<div class="section" id="music-playing">
-<span id="index-20"></span><h2>Music Playing<a class="headerlink" href="#music-playing" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="music-playing">
+<span id="index-20"></span><h2>Music Playing<a class="headerlink" href="#music-playing" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
 <span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
@@ -1529,9 +1452,9 @@ CloseWindow()
 </div>
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_musicplaying.png" />
-</div>
-<div class="section" id="sound-loading">
-<span id="index-21"></span><h2>Sound Loading<a class="headerlink" href="#sound-loading" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="sound-loading">
+<span id="index-21"></span><h2>Sound Loading<a class="headerlink" href="#sound-loading" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
 <span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
@@ -1574,9 +1497,9 @@ CloseWindow()
 </div>
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_soundloading.png" />
-</div>
-<div class="section" id="image-drawing">
-<span id="index-22"></span><h2>Image Drawing<a class="headerlink" href="#image-drawing" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="image-drawing">
+<span id="index-22"></span><h2>Image Drawing<a class="headerlink" href="#image-drawing" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
 <span class="n">screenWidth</span>  <span class="o">=</span> <span class="mi">800</span>
@@ -1638,9 +1561,9 @@ CloseWindow()
 </div>
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_imagedrawing.png" />
-</div>
-<div class="section" id="image-generation">
-<span id="index-23"></span><h2>Image Generation<a class="headerlink" href="#image-generation" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="image-generation">
+<span id="index-23"></span><h2>Image Generation<a class="headerlink" href="#image-generation" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
 <span class="n">NUM_TEXTURES</span> <span class="o">=</span> <span class="mi">7</span>
@@ -1725,9 +1648,9 @@ CloseWindow()
 </div>
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_imagegeneration.png" />
-</div>
-<div class="section" id="texture-source">
-<span id="index-24"></span><h2>Texture Source<a class="headerlink" href="#texture-source" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="texture-source">
+<span id="index-24"></span><h2>Texture Source<a class="headerlink" href="#texture-source" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
 <span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
@@ -1786,9 +1709,9 @@ CloseWindow()
 </div>
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_texturesource.png" />
-</div>
-<div class="section" id="geometric-shapes">
-<span id="index-25"></span><h2>Geometric Shapes<a class="headerlink" href="#geometric-shapes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="geometric-shapes">
+<span id="index-25"></span><h2>Geometric Shapes<a class="headerlink" href="#geometric-shapes" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
 <span class="n">FOVY_PERSPECTIVE</span>   <span class="o">=</span>  <span class="mf">45.0</span>
@@ -1870,9 +1793,9 @@ CloseWindow()
 </div>
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_geometricshapes.png" />
-</div>
-<div class="section" id="cubic-map">
-<span id="index-26"></span><h2>Cubic Map<a class="headerlink" href="#cubic-map" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="cubic-map">
+<span id="index-26"></span><h2>Cubic Map<a class="headerlink" href="#cubic-map" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
 <span class="n">screenWidth</span>  <span class="o">=</span> <span class="mi">800</span>
@@ -1937,9 +1860,9 @@ CloseWindow()
 </div>
 <p>Screen Shot:</p>
 <img alt="RayLib Example" src="_images/raylib_cubicmap.png" />
-</div>
-<div class="section" id="functions">
-<span id="index-27"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="functions">
+<span id="index-27"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>void InitWindow(int width, int height, const char *title)
 bool WindowShouldClose(void)
 void CloseWindow(void)
@@ -2453,9 +2376,9 @@ void GuiUpdateStyleComplete(void)
 const char *GuiIconText(int iconId, const char *text)
 </pre></div>
 </div>
-</div>
-<div class="section" id="more-functions">
-<span id="index-28"></span><h2>More Functions<a class="headerlink" href="#more-functions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="more-functions">
+<span id="index-28"></span><h2>More Functions<a class="headerlink" href="#more-functions" title="Permalink to this heading"></a></h2>
 <p>The next functions are added by the RingRayLib extension</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* SetShaderInt(shader, Location, nValue)
 * SetShaderFloat(shader, Location, nValue)
@@ -2468,63 +2391,38 @@ const char *GuiIconText(int iconId, const char *text)
 * SetModelMaterialShader(model, nID, shader)
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="usingopengl.html" class="btn btn-neutral float-right" title="Using RingOpenGL and RingFreeGLUT for 3D Graphics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="gameengineandorid.html" class="btn btn-neutral float-left" title="Building Games For Android" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="gameengineandorid.html" class="btn btn-neutral float-left" title="Building Games For Android" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="usingopengl.html" class="btn btn-neutral float-right" title="Using RingOpenGL and RingFreeGLUT for 3D Graphics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2016-2023, Ring Team
-
-    </p>
+    <p>&#169; Copyright 2016-2023, Ring Team.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(false);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

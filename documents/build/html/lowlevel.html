@@ -1,88 +1,49 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Low Level Functions &mdash; Ring 1.19 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Tutorial: Ring Extensions in C/C++" href="extension_tutorial.html" />
     <link rel="prev" title="Using References" href="usingref.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html">
           
-
-          
+          <a href="index.html">
             
-            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
-          
+              <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
@@ -248,69 +209,31 @@
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Ring</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Low Level Functions</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Low Level Functions</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="low-level-functions">
-<span id="index-0"></span><h1>Low Level Functions<a class="headerlink" href="#low-level-functions" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="low-level-functions">
+<span id="index-0"></span><h1>Low Level Functions<a class="headerlink" href="#low-level-functions" title="Permalink to this heading"></a></h1>
 <p>In this chapter we will learn about the low level functions provided by Ring</p>
 <p>It’s not recommended to use these functions in your application code</p>
 <p>These functions exist for C/C++ developers who are developing Ring libraries/tools</p>
@@ -350,8 +273,8 @@
 * ringvm_codelist()
 </pre></div>
 </div>
-<div class="section" id="callgc-function">
-<span id="index-1"></span><h2>callgc() function<a class="headerlink" href="#callgc-function" title="Permalink to this headline">¶</a></h2>
+<section id="callgc-function">
+<span id="index-1"></span><h2>callgc() function<a class="headerlink" href="#callgc-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">callgc</span><span class="p">()</span>                        <span class="c"># Short name</span>
 <span class="n">callgarbagecollector</span><span class="p">()</span>          <span class="c"># Long name</span>
@@ -377,9 +300,9 @@ for your game engine and start creating lists on the fly when you call functions
 <p>In Ring the garbage collector works automatically in the end of function execution or
 when you use the assignment statement.</p>
 </div>
-</div>
-<div class="section" id="varptr-function">
-<span id="index-2"></span><h2>varptr() function<a class="headerlink" href="#varptr-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="varptr-function">
+<span id="index-2"></span><h2>varptr() function<a class="headerlink" href="#varptr-function" title="Permalink to this heading"></a></h2>
 <p>Use the varptr() function when you need to pass a pointer to a C/C++ function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">varptr</span><span class="p">(</span><span class="n">cVariableName</span><span class="p">,</span><span class="n">cPointerType</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span> <span class="p">(</span><span class="n">C</span> <span class="n">Pointer</span><span class="p">)</span>
@@ -408,9 +331,9 @@ int
 <p class="admonition-title">Note</p>
 <p>the low level object is a list contains three items (The Pointer, The Type, The Status)</p>
 </div>
-</div>
-<div class="section" id="space-function">
-<span id="index-3"></span><h2>space() function<a class="headerlink" href="#space-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="space-function">
+<span id="index-3"></span><h2>space() function<a class="headerlink" href="#space-function" title="Permalink to this heading"></a></h2>
 <p>Use the space function to allocate a specific number of bytes in Memory.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Space</span><span class="p">(</span><span class="n">nBytesCount</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span>
@@ -448,9 +371,9 @@ char
 <p class="admonition-title">Note</p>
 <p>We don’t need to free the memory if it’s a local variable that will be deleted after the function execution.</p>
 </div>
-</div>
-<div class="section" id="nullpointer-function">
-<span id="index-4"></span><h2>nullpointer() function<a class="headerlink" href="#nullpointer-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="nullpointer-function">
+<span id="index-4"></span><h2>nullpointer() function<a class="headerlink" href="#nullpointer-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">nullptr</span><span class="p">()</span>               <span class="c"># Short name</span>
 <span class="n">nullpointer</span><span class="p">()</span>           <span class="c"># Long name</span>
@@ -476,9 +399,9 @@ Also the function accept NULL pointers, so we can pass them using the NULLPointe
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SDL_BlitSurface</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">,</span> <span class="n">surface</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="object2pointer-function">
-<span id="index-5"></span><h2>object2pointer() function<a class="headerlink" href="#object2pointer-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="object2pointer-function">
+<span id="index-5"></span><h2>object2pointer() function<a class="headerlink" href="#object2pointer-function" title="Permalink to this heading"></a></h2>
 <p>Use this function to get a C pointer for Ring lists and objects</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">obj2ptr</span><span class="p">(</span><span class="kt">List</span><span class="o">|</span><span class="n">Object</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span> <span class="p">(</span> <span class="n">C</span> <span class="n">Pointer</span> <span class="p">)</span>         <span class="c"># Short name</span>
@@ -489,9 +412,9 @@ Also the function accept NULL pointers, so we can pass them using the NULLPointe
 <p class="admonition-title">Note</p>
 <p>You have to be sure that the Pointer still valid (Doesn’t point to deallocated memory)</p>
 </div>
-</div>
-<div class="section" id="pointer2object-function">
-<span id="index-6"></span><h2>pointer2object() function<a class="headerlink" href="#pointer2object-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="pointer2object-function">
+<span id="index-6"></span><h2>pointer2object() function<a class="headerlink" href="#pointer2object-function" title="Permalink to this heading"></a></h2>
 <p>Use this function to get the Ring list and/or object from the low level object (C Pointer)</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ptr2obj</span><span class="p">(</span><span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">ListReference</span><span class="o">|</span><span class="n">ObjectReference</span>            <span class="c"># Short name</span>
@@ -553,9 +476,9 @@ Just use the object2pointer() and pointer2object() functions.</p>
 <p>If you will use pointers (Using Object2Pointer() or Pointer2Object()) then never use pointers that point to the memory that are deallocated.</p>
 <p>In simple words, Keep the memory (Don’t delete it if you still need it)</p>
 <p>i.e. instead of using (Local Variables) that will be deleted, You can use Class Attributes or Global Variables.</p>
-</div>
-<div class="section" id="ispointer-function">
-<span id="index-7"></span><h2>ispointer() function<a class="headerlink" href="#ispointer-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ispointer-function">
+<span id="index-7"></span><h2>ispointer() function<a class="headerlink" href="#ispointer-function" title="Permalink to this heading"></a></h2>
 <p>Check if the parameter is a pointer (C Object) or not.</p>
 <p>Syntax:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>IsPointer(vPara) ---&gt; True|False        # Long name
@@ -574,9 +497,9 @@ Just use the object2pointer() and pointer2object() functions.</p>
 1
 </pre></div>
 </div>
-</div>
-<div class="section" id="ptrcmp-function">
-<span id="index-8"></span><h2>ptrcmp() function<a class="headerlink" href="#ptrcmp-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ptrcmp-function">
+<span id="index-8"></span><h2>ptrcmp() function<a class="headerlink" href="#ptrcmp-function" title="Permalink to this heading"></a></h2>
 <p>We can compare between two pointers (C Objects) using the ptrcmp() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ptrcmp</span><span class="p">(</span><span class="n">oObject1</span><span class="p">,</span><span class="n">oObject2</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">oObject1</span> <span class="o">=</span> <span class="n">oObject2</span>
@@ -602,9 +525,9 @@ Just use the object2pointer() and pointer2object() functions.</p>
 <span class="mi">0</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="setpointer-function">
-<span id="index-9"></span><h2>setpointer() function<a class="headerlink" href="#setpointer-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="setpointer-function">
+<span id="index-9"></span><h2>setpointer() function<a class="headerlink" href="#setpointer-function" title="Permalink to this heading"></a></h2>
 <p>Set the pointer address to another address</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">setptr</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">nNewAddress</span><span class="p">)</span>             <span class="c"># Short name</span>
@@ -615,9 +538,9 @@ Just use the object2pointer() and pointer2object() functions.</p>
 <p class="admonition-title">Note</p>
 <p>Using setPointer() and getPointer() functions we can change the Memory Address</p>
 </div>
-</div>
-<div class="section" id="getpointer-function">
-<span id="index-10"></span><h2>getpointer() function<a class="headerlink" href="#getpointer-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="getpointer-function">
+<span id="index-10"></span><h2>getpointer() function<a class="headerlink" href="#getpointer-function" title="Permalink to this heading"></a></h2>
 <p>Get the pointer address</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">getptr</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">nAddress</span>           <span class="c"># Short name</span>
@@ -665,9 +588,9 @@ Address: 26E2BA9
 ==================================================
 </pre></div>
 </div>
-</div>
-<div class="section" id="pointer2string-function">
-<span id="index-11"></span><h2>pointer2string() function<a class="headerlink" href="#pointer2string-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="pointer2string-function">
+<span id="index-11"></span><h2>pointer2string() function<a class="headerlink" href="#pointer2string-function" title="Permalink to this heading"></a></h2>
 <p>Convert a pointer to a string of binary data</p>
 <p>If you want to convert the string to a pointer again use VarPtr() function</p>
 <p>Syntax:</p>
@@ -712,9 +635,9 @@ Address: 26E2BA9
 <span class="k">in</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="memcpy-function">
-<span id="index-12"></span><h2>memcpy() function<a class="headerlink" href="#memcpy-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="memcpy-function">
+<span id="index-12"></span><h2>memcpy() function<a class="headerlink" href="#memcpy-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">memcpy</span><span class="p">(</span><span class="n">pDestinationPointer</span><span class="p">,</span><span class="n">cSourceString</span><span class="p">,</span><span class="n">nSize</span><span class="p">)</span>         <span class="c"># Short name</span>
 <span class="n">memorycopy</span><span class="p">(</span><span class="n">pDestinationPointer</span><span class="p">,</span><span class="n">cSourceString</span><span class="p">,</span><span class="n">nSize</span><span class="p">)</span>     <span class="c"># Long name</span>
@@ -739,9 +662,9 @@ Address: 26E2BA9
 <span class="n">oneoneone</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="ringvm-cfunctionslist-function">
-<span id="index-13"></span><h2>ringvm_cfunctionslist() function<a class="headerlink" href="#ringvm-cfunctionslist-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ringvm-cfunctionslist-function">
+<span id="index-13"></span><h2>ringvm_cfunctionslist() function<a class="headerlink" href="#ringvm-cfunctionslist-function" title="Permalink to this heading"></a></h2>
 <p>The Function return a list of functions written in C.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RingVM_CFunctionsList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span>
@@ -751,9 +674,9 @@ Address: 26E2BA9
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="n">RingVM_CFunctionsList</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="ringvm-functionslist-function">
-<span id="index-14"></span><h2>ringvm_functionslist() function<a class="headerlink" href="#ringvm-functionslist-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ringvm-functionslist-function">
+<span id="index-14"></span><h2>ringvm_functionslist() function<a class="headerlink" href="#ringvm-functionslist-function" title="Permalink to this heading"></a></h2>
 <p>The Function return a list of functions written in Ring.</p>
 <p>Each List Member is a list contains the next items</p>
 <ul class="simple">
@@ -780,9 +703,9 @@ Address: 26E2BA9
 <span class="mi">0</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="ringvm-classeslist-function">
-<span id="index-15"></span><h2>ringvm_classeslist() function<a class="headerlink" href="#ringvm-classeslist-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ringvm-classeslist-function">
+<span id="index-15"></span><h2>ringvm_classeslist() function<a class="headerlink" href="#ringvm-classeslist-function" title="Permalink to this heading"></a></h2>
 <p>The Function return a list of Classes.</p>
 <p>Each List Member is a list contains the next items</p>
 <ul class="simple">
@@ -828,9 +751,9 @@ Address: 26E2BA9
 <span class="mi">00000000</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="ringvm-packageslist-function">
-<span id="index-16"></span><h2>ringvm_packageslist() function<a class="headerlink" href="#ringvm-packageslist-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ringvm-packageslist-function">
+<span id="index-16"></span><h2>ringvm_packageslist() function<a class="headerlink" href="#ringvm-packageslist-function" title="Permalink to this heading"></a></h2>
 <p>The Function return a list of Packages.</p>
 <p>Each List Member is a list contains the next items</p>
 <ul class="simple">
@@ -875,9 +798,9 @@ class1
 00FEFF68
 </pre></div>
 </div>
-</div>
-<div class="section" id="ringvm-memorylist-function">
-<span id="index-17"></span><h2>ringvm_memorylist() function<a class="headerlink" href="#ringvm-memorylist-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ringvm-memorylist-function">
+<span id="index-17"></span><h2>ringvm_memorylist() function<a class="headerlink" href="#ringvm-memorylist-function" title="Permalink to this heading"></a></h2>
 <p>The Function return a list of Memory Scopes and Variables.</p>
 <p>Each List Member is a list contains variables in a different scope.</p>
 <p>Each Item in the scope list is a list contains the next items</p>
@@ -986,9 +909,9 @@ y
 0
 </pre></div>
 </div>
-</div>
-<div class="section" id="ringvm-calllist-function">
-<span id="index-18"></span><h2>ringvm_calllist() function<a class="headerlink" href="#ringvm-calllist-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ringvm-calllist-function">
+<span id="index-18"></span><h2>ringvm_calllist() function<a class="headerlink" href="#ringvm-calllist-function" title="Permalink to this heading"></a></h2>
 <p>The Function return a list of the functions call list.</p>
 <p>Each List Member is a list contains the next items</p>
 <ul class="simple">
@@ -1026,9 +949,9 @@ y
 <span class="n">ringvm_calllist</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="ringvm-fileslist-function">
-<span id="index-19"></span><h2>ringvm_fileslist() function<a class="headerlink" href="#ringvm-fileslist-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ringvm-fileslist-function">
+<span id="index-19"></span><h2>ringvm_fileslist() function<a class="headerlink" href="#ringvm-fileslist-function" title="Permalink to this heading"></a></h2>
 <p>Function return a list of the Ring Files.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RingVM_FilesList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span>
@@ -1067,9 +990,9 @@ y
 <span class="n">stdtree</span><span class="p">.</span><span class="n">ring</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="ringvm-settrace">
-<span id="index-20"></span><h2>ringvm_settrace()<a class="headerlink" href="#ringvm-settrace" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ringvm-settrace">
+<span id="index-20"></span><h2>ringvm_settrace()<a class="headerlink" href="#ringvm-settrace" title="Permalink to this heading"></a></h2>
 <p>The function ringvm_settrace() determine the Trace function name</p>
 <p>The trace function is a Ring
 function that will be called for each event</p>
@@ -1077,9 +1000,9 @@ function that will be called for each event</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RingVM_SetTrace</span><span class="p">(</span><span class="n">cCode</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="ringvm-tracedata">
-<span id="index-21"></span><h2>ringvm_tracedata()<a class="headerlink" href="#ringvm-tracedata" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ringvm-tracedata">
+<span id="index-21"></span><h2>ringvm_tracedata()<a class="headerlink" href="#ringvm-tracedata" title="Permalink to this heading"></a></h2>
 <p>Inside the function that we will use for tracing events</p>
 <p>We can use the ringvm_tracedata() function to get the event
 data.</p>
@@ -1094,9 +1017,9 @@ data.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RingVM_TraceData</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">aDataList</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="ringvm-traceevent">
-<span id="index-22"></span><h2>ringvm_traceevent()<a class="headerlink" href="#ringvm-traceevent" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ringvm-traceevent">
+<span id="index-22"></span><h2>ringvm_traceevent()<a class="headerlink" href="#ringvm-traceevent" title="Permalink to this heading"></a></h2>
 <p>Inside the function that we will use for tracing events</p>
 <p>We can use ringvm_traceevent() to know the event type</p>
 <ul class="simple">
@@ -1111,18 +1034,18 @@ data.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RingVM_TraceEvent</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">nTraceEvent</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="ringvm-tracefunc">
-<span id="index-23"></span><h2>ringvm_tracefunc()<a class="headerlink" href="#ringvm-tracefunc" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ringvm-tracefunc">
+<span id="index-23"></span><h2>ringvm_tracefunc()<a class="headerlink" href="#ringvm-tracefunc" title="Permalink to this heading"></a></h2>
 <p>The function return the name of the function that we
 are using for tracing events.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RingVM_TraceEvent</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">cCode</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="ringvm-scopescount">
-<span id="index-24"></span><h2>ringvm_scopescount()<a class="headerlink" href="#ringvm-scopescount" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ringvm-scopescount">
+<span id="index-24"></span><h2>ringvm_scopescount()<a class="headerlink" href="#ringvm-scopescount" title="Permalink to this heading"></a></h2>
 <p>We can use the RingVM_ScopesCount() function to know
 the number of scopes used in the application.</p>
 <p>In the start of the program, We have the (global scope only)</p>
@@ -1132,9 +1055,9 @@ the number of scopes used in the application.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RingVM_ScopesCount</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">nScopes</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="ringvm-evalinscope">
-<span id="index-25"></span><h2>ringvm_evalinscope()<a class="headerlink" href="#ringvm-evalinscope" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ringvm-evalinscope">
+<span id="index-25"></span><h2>ringvm_evalinscope()<a class="headerlink" href="#ringvm-evalinscope" title="Permalink to this heading"></a></h2>
 <p>The function ringvm_evalinscope() is similar to the eval() function</p>
 <p>Unlike eval() which execute the code in the current scope</p>
 <p>Using RingVM_EvalInScope() we can execute the code in a specific scope.</p>
@@ -1142,9 +1065,9 @@ the number of scopes used in the application.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RingVM_EvalInScope</span><span class="p">(</span><span class="n">nScope</span><span class="p">,</span><span class="n">cCode</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="ringvm-passerror">
-<span id="index-26"></span><h2>ringvm_passerror()<a class="headerlink" href="#ringvm-passerror" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ringvm-passerror">
+<span id="index-26"></span><h2>ringvm_passerror()<a class="headerlink" href="#ringvm-passerror" title="Permalink to this heading"></a></h2>
 <p>When we have runtime error, After printing the Error message, Ring
 will end the execution of the program.</p>
 <p>Using ringvm_passerror() we can avoid that, and continue the
@@ -1153,27 +1076,27 @@ execution of our program.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RingVM_PassError</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="ringvm-hideerrormsg">
-<span id="index-27"></span><h2>ringvm_hideerrormsg()<a class="headerlink" href="#ringvm-hideerrormsg" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ringvm-hideerrormsg">
+<span id="index-27"></span><h2>ringvm_hideerrormsg()<a class="headerlink" href="#ringvm-hideerrormsg" title="Permalink to this heading"></a></h2>
 <p>We can disable/enable displaying the runtime error messages using the
 RingVM_HideErrorMsg() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RingVM_HideErrorMsg</span><span class="p">(</span><span class="n">lStatus</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="ringvm-callfunc">
-<span id="index-28"></span><h2>ringvm_callfunc()<a class="headerlink" href="#ringvm-callfunc" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ringvm-callfunc">
+<span id="index-28"></span><h2>ringvm_callfunc()<a class="headerlink" href="#ringvm-callfunc" title="Permalink to this heading"></a></h2>
 <p>We can call a function from a string without using eval() using
 the ringvm_callfunc()</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RingVM_CallFunc</span><span class="p">(</span><span class="n">cFuncName</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="example-using-the-trace-functions">
-<span id="index-29"></span><h2>Example - Using the Trace Functions<a class="headerlink" href="#example-using-the-trace-functions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="example-using-the-trace-functions">
+<span id="index-29"></span><h2>Example - Using the Trace Functions<a class="headerlink" href="#example-using-the-trace-functions" title="Permalink to this heading"></a></h2>
 <p>The next example use the Trace Functions to trace the program Events!</p>
 <p>In practical, We will use the Trace Library instead of
 these low level functions!</p>
@@ -1400,9 +1323,9 @@ Method or Function : Command
 ==========================================
 </pre></div>
 </div>
-</div>
-<div class="section" id="example-the-trace-library">
-<span id="index-30"></span><h2>Example - The Trace Library<a class="headerlink" href="#example-the-trace-library" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="example-the-trace-library">
+<span id="index-30"></span><h2>Example - The Trace Library<a class="headerlink" href="#example-the-trace-library" title="Permalink to this heading"></a></h2>
 <p>The next example uses the Trace functions provided by the Ring language
 to create the Trace library.</p>
 <p>Using the Trace library we have nice Tracing
@@ -1595,9 +1518,9 @@ func PrintLocalsData nScope
         next
 </pre></div>
 </div>
-</div>
-<div class="section" id="ringvm-see-function">
-<span id="index-31"></span><h2>ringvm_see() function<a class="headerlink" href="#ringvm-see-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ringvm-see-function">
+<span id="index-31"></span><h2>ringvm_see() function<a class="headerlink" href="#ringvm-see-function" title="Permalink to this heading"></a></h2>
 <p>Using the ringvm_see() function we can redefine the behavior of the See command</p>
 <p>Also we can use ring_see() to have the original behavior</p>
 <p>Example:</p>
@@ -1624,9 +1547,9 @@ y: 20.000000
 z: 30.000000
 </pre></div>
 </div>
-</div>
-<div class="section" id="ringvm-give-function">
-<span id="index-32"></span><h2>ringvm_give() function<a class="headerlink" href="#ringvm-give-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ringvm-give-function">
+<span id="index-32"></span><h2>ringvm_give() function<a class="headerlink" href="#ringvm-give-function" title="Permalink to this heading"></a></h2>
 <p>Using the ringvm_give() function we can redefine the behavior of the Give command</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;Name: &quot;</span> <span class="k">give</span> <span class="n">name</span>
@@ -1642,33 +1565,33 @@ z: 30.000000
 <span class="n">Hello</span> <span class="n">Mahmoud</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="ringvm-codelist-function">
-<span id="index-33"></span><h2>ringvm_codelist() function<a class="headerlink" href="#ringvm-codelist-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ringvm-codelist-function">
+<span id="index-33"></span><h2>ringvm_codelist() function<a class="headerlink" href="#ringvm-codelist-function" title="Permalink to this heading"></a></h2>
 <p>The Function return a list contains the Byte Code of the current program.</p>
 <p>Each item is a sub list that represent an instruction</p>
 <p>This sub list starts with the operation code (A Number) then the parameters</p>
-</div>
-<div class="section" id="ringvm-info-function">
-<span id="index-34"></span><h2>ringvm_info() function<a class="headerlink" href="#ringvm-info-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ringvm-info-function">
+<span id="index-34"></span><h2>ringvm_info() function<a class="headerlink" href="#ringvm-info-function" title="Permalink to this heading"></a></h2>
 <p>The ringvm_info() is an internal function that return a list of information about the Ring VM structure.</p>
 <p>It’s used only by the Ring Team in advanced tests to check the VM status.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ringvm_info</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span> <span class="n">of</span> <span class="n">information</span> <span class="n">about</span> <span class="n">the</span> <span class="n">VM</span> <span class="n">structure</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="ringvm-ismempool-function">
-<span id="index-35"></span><h2>ringvm_ismempool() function<a class="headerlink" href="#ringvm-ismempool-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ringvm-ismempool-function">
+<span id="index-35"></span><h2>ringvm_ismempool() function<a class="headerlink" href="#ringvm-ismempool-function" title="Permalink to this heading"></a></h2>
 <p>Check if we still have items in the memory pool or not</p>
 <p>This function is used to write tests that could detect a memory leak</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ringvm_ismempool</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">lStatus</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="ringvm-runcode-function">
-<span id="index-36"></span><h2>ringvm_runcode() function<a class="headerlink" href="#ringvm-runcode-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ringvm-runcode-function">
+<span id="index-36"></span><h2>ringvm_runcode() function<a class="headerlink" href="#ringvm-runcode-function" title="Permalink to this heading"></a></h2>
 <p>Similar to the Eval() function</p>
 <p>1 - Used for GUI events like RingQt applications</p>
 <p>2 - Execute the Main Loop (i.e. Eval + MainLoop in one function)</p>
@@ -1678,63 +1601,38 @@ z: 30.000000
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ringvm_runcode</span><span class="p">(</span><span class="n">cCode</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="extension_tutorial.html" class="btn btn-neutral float-right" title="Tutorial: Ring Extensions in C/C++" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="usingref.html" class="btn btn-neutral float-left" title="Using References" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="usingref.html" class="btn btn-neutral float-left" title="Using References" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="extension_tutorial.html" class="btn btn-neutral float-right" title="Tutorial: Ring Extensions in C/C++" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2016-2023, Ring Team
-
-    </p>
+    <p>&#169; Copyright 2016-2023, Ring Team.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(false);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

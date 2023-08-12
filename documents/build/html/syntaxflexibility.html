@@ -1,88 +1,49 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Syntax Flexibility &mdash; Ring 1.19 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Introduction to the Type Hints Library" href="typehints.html" />
     <link rel="prev" title="Scope Rules for Functions and Methods" href="scope2.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html">
           
-
-          
+          <a href="index.html">
             
-            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
-          
+              <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
@@ -233,73 +194,35 @@
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Ring</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Syntax Flexibility</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Syntax Flexibility</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="syntax-flexibility">
-<span id="index-0"></span><h1>Syntax Flexibility<a class="headerlink" href="#syntax-flexibility" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="syntax-flexibility">
+<span id="index-0"></span><h1>Syntax Flexibility<a class="headerlink" href="#syntax-flexibility" title="Permalink to this heading"></a></h1>
 <p>In this chapter we will learn about some options that are provided automatically by the Ring
 compiler for syntax flexibility.</p>
-<div class="section" id="change-language-keywords">
-<span id="index-1"></span><h2>Change Language Keywords<a class="headerlink" href="#change-language-keywords" title="Permalink to this headline">¶</a></h2>
+<section id="change-language-keywords">
+<span id="index-1"></span><h2>Change Language Keywords<a class="headerlink" href="#change-language-keywords" title="Permalink to this heading"></a></h2>
 <p>We can change any keyword using the ChangeRingKeyword command.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -354,9 +277,9 @@ compiler for syntax flexibility.</p>
 <span class="k">ChangeRingKeyword</span>  <span class="k">endwhile</span> <span class="k">end</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="change-language-operators">
-<span id="index-2"></span><h2>Change Language Operators<a class="headerlink" href="#change-language-operators" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="change-language-operators">
+<span id="index-2"></span><h2>Change Language Operators<a class="headerlink" href="#change-language-operators" title="Permalink to this heading"></a></h2>
 <p>We can change any operator using the ChangeRingOperator command.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -394,9 +317,9 @@ changeringoperator _+ +
 <span class="k">changeringkeyword</span> <span class="n">PRINT</span> <span class="k">SEE</span>
 </pre></div>
 </div>
-<span class="target" id="index-3"></span></div>
-<div class="section" id="load-syntax-files">
-<span id="index-4"></span><h2>Load Syntax Files<a class="headerlink" href="#load-syntax-files" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-3"></span></section>
+<section id="load-syntax-files">
+<span id="index-4"></span><h2>Load Syntax Files<a class="headerlink" href="#load-syntax-files" title="Permalink to this heading"></a></h2>
 <p>You may store a group of ChangeRingKeyword and ChangeRingOperator commands in a file to use later
 in many source files. You can’t use the Load command to call these files because</p>
 <ul class="simple">
@@ -462,9 +385,9 @@ in many source files. You can’t use the Load command to call these files becau
 <p class="admonition-title">Tip</p>
 <p>Using LoadSyntax command is optional, See the (Automatic loading for syntax files) section.</p>
 </div>
-</div>
-<div class="section" id="using-around-the-function-parameters">
-<h2>Using “()” around the function parameters<a class="headerlink" href="#using-around-the-function-parameters" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-around-the-function-parameters">
+<h2>Using “()” around the function parameters<a class="headerlink" href="#using-around-the-function-parameters" title="Permalink to this heading"></a></h2>
 <p>We can use () around the function parameters (optional).</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">hello</span><span class="p">()</span>
@@ -497,9 +420,9 @@ in many source files. You can’t use the Load command to call these files becau
 <span class="mi">7</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-semi-colon-after-and-between-statements">
-<span id="index-5"></span><h2>Using Semi-colon after and between statements<a class="headerlink" href="#using-semi-colon-after-and-between-statements" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-semi-colon-after-and-between-statements">
+<span id="index-5"></span><h2>Using Semi-colon after and between statements<a class="headerlink" href="#using-semi-colon-after-and-between-statements" title="Permalink to this heading"></a></h2>
 <p>In Ring we can use semi-colon after and between statements (optional).</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># Using semi-colon is optional</span>
@@ -520,9 +443,9 @@ in many source files. You can’t use the Load command to call these files becau
 <span class="n">three</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-and-in-the-start-of-the-variable-name">
-<span id="index-6"></span><h2>Using $ and &#64; in the start of the variable name<a class="headerlink" href="#using-and-in-the-start-of-the-variable-name" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-and-in-the-start-of-the-variable-name">
+<span id="index-6"></span><h2>Using $ and &#64; in the start of the variable name<a class="headerlink" href="#using-and-in-the-start-of-the-variable-name" title="Permalink to this heading"></a></h2>
 <p>You can use any unicode character in the variable name also we can use $ and &#64; in the name.</p>
 <p>This feature may help, for example we can start global variables with $ and the object attributes
 with &#64;.</p>
@@ -552,9 +475,9 @@ any force from the Compiler.</p>
 <span class="n">Local</span>    <span class="p">:</span> <span class="mi">15</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-the-elseif-keyword-as-but-in-if-statement">
-<span id="index-7"></span><h2>Using the ‘elseif’ keyword as ‘but’ in if statement<a class="headerlink" href="#using-the-elseif-keyword-as-but-in-if-statement" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-the-elseif-keyword-as-but-in-if-statement">
+<span id="index-7"></span><h2>Using the ‘elseif’ keyword as ‘but’ in if statement<a class="headerlink" href="#using-the-elseif-keyword-as-but-in-if-statement" title="Permalink to this heading"></a></h2>
 <p>if you don’t like the ‘but’ keyword in if statement
 Then you can use the ‘elseif’ keyword.</p>
 <p>Example:</p>
@@ -568,9 +491,9 @@ Then you can use the ‘elseif’ keyword.</p>
 <span class="k">see</span> <span class="n">nl</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-the-else-keyword-as-other-in-switch-statement">
-<span id="index-8"></span><h2>Using the ‘else’ keyword as ‘other’ in switch statement<a class="headerlink" href="#using-the-else-keyword-as-other-in-switch-statement" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-the-else-keyword-as-other-in-switch-statement">
+<span id="index-8"></span><h2>Using the ‘else’ keyword as ‘other’ in switch statement<a class="headerlink" href="#using-the-else-keyword-as-other-in-switch-statement" title="Permalink to this heading"></a></h2>
 <p>if you don’t like the ‘other’ keyword in switch statement
 Then you can use the ‘else’ keyword.</p>
 <p>Also you can replace ‘else’ with ‘other’ in if statement.</p>
@@ -589,9 +512,9 @@ Then you can use the ‘else’ keyword.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="ow">not</span> <span class="mi">10</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-the-end-keyword-in-different-control-structures">
-<span id="index-9"></span><h2>Using the ‘end’ keyword in different control structures<a class="headerlink" href="#using-the-end-keyword-in-different-control-structures" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-the-end-keyword-in-different-control-structures">
+<span id="index-9"></span><h2>Using the ‘end’ keyword in different control structures<a class="headerlink" href="#using-the-end-keyword-in-different-control-structures" title="Permalink to this heading"></a></h2>
 <p>We can use the ‘end’ keyword to close different control structures</p>
 <ul class="simple">
 <li><p>If statement</p></li>
@@ -642,9 +565,9 @@ Then you can use the ‘else’ keyword.</p>
 <span class="n">catching</span> <span class="n">error</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-braces-to-start-and-end-different-control-structures">
-<span id="index-10"></span><h2>Using braces to start and end different control structures<a class="headerlink" href="#using-braces-to-start-and-end-different-control-structures" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-braces-to-start-and-end-different-control-structures">
+<span id="index-10"></span><h2>Using braces to start and end different control structures<a class="headerlink" href="#using-braces-to-start-and-end-different-control-structures" title="Permalink to this heading"></a></h2>
 <p>We can use braces { } to start and end different control structures</p>
 <ul class="simple">
 <li><p>If statement</p></li>
@@ -695,9 +618,9 @@ Then you can use the ‘else’ keyword.</p>
 <span class="n">catching</span> <span class="n">error</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-put-and-get-as-see-and-give">
-<span id="index-11"></span><h2>Using ‘put’ and ‘get’ as ‘see’ and ‘give’<a class="headerlink" href="#using-put-and-get-as-see-and-give" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-put-and-get-as-see-and-give">
+<span id="index-11"></span><h2>Using ‘put’ and ‘get’ as ‘see’ and ‘give’<a class="headerlink" href="#using-put-and-get-as-see-and-give" title="Permalink to this heading"></a></h2>
 <p>We can replace the ‘see’ keyword with the ‘put’ keyword.</p>
 <p>Also we can replace the ‘give’ keyword with the ‘get’ keyword.</p>
 <p>Example:</p>
@@ -706,9 +629,9 @@ Then you can use the ‘else’ keyword.</p>
 <span class="k">Put</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">Name</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-case-as-on-in-switch-statements">
-<span id="index-12"></span><h2>Using ‘case’ as ‘on’ in switch statements<a class="headerlink" href="#using-case-as-on-in-switch-statements" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-case-as-on-in-switch-statements">
+<span id="index-12"></span><h2>Using ‘case’ as ‘on’ in switch statements<a class="headerlink" href="#using-case-as-on-in-switch-statements" title="Permalink to this heading"></a></h2>
 <p>We can replace the ‘on’ keyword with ‘case’ keyword in the switch statement.</p>
 <p>Example (1) :</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
@@ -732,9 +655,9 @@ Then you can use the ‘else’ keyword.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-def-as-func-in-functions-methods-definition">
-<span id="index-13"></span><h2>Using ‘def’ as ‘func’ in functions/methods definition<a class="headerlink" href="#using-def-as-func-in-functions-methods-definition" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-def-as-func-in-functions-methods-definition">
+<span id="index-13"></span><h2>Using ‘def’ as ‘func’ in functions/methods definition<a class="headerlink" href="#using-def-as-func-in-functions-methods-definition" title="Permalink to this heading"></a></h2>
 <p>We can use the ‘def’ keyword as the ‘func’ keyword to define functions and methods.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">one</span><span class="p">()</span> <span class="n">two</span><span class="p">()</span>
@@ -743,9 +666,9 @@ Then you can use the ‘else’ keyword.</p>
 <span class="k">def</span> <span class="n">two</span> <span class="k">put</span> <span class="s">&quot;two&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-braces-in-packages-classes-functions">
-<span id="index-14"></span><h2>Using braces { } in Packages/Classes/Functions<a class="headerlink" href="#using-braces-in-packages-classes-functions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-braces-in-packages-classes-functions">
+<span id="index-14"></span><h2>Using braces { } in Packages/Classes/Functions<a class="headerlink" href="#using-braces-in-packages-classes-functions" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
@@ -767,9 +690,9 @@ Then you can use the ‘else’ keyword.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-break-continue-keywords">
-<span id="index-15"></span><h2>Using ‘break’/’continue’ keywords<a class="headerlink" href="#using-break-continue-keywords" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-break-continue-keywords">
+<span id="index-15"></span><h2>Using ‘break’/’continue’ keywords<a class="headerlink" href="#using-break-continue-keywords" title="Permalink to this heading"></a></h2>
 <p>Instead of using Exit/Loop commands we can use Break/Continue</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span> <span class="p">{</span>
@@ -788,9 +711,9 @@ Then you can use the ‘else’ keyword.</p>
 4
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-end-keyword-after-packages-classes-functions">
-<span id="index-16"></span><h2>Using ‘end’ keyword after Packages/Classes/Functions<a class="headerlink" href="#using-end-keyword-after-packages-classes-functions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-end-keyword-after-packages-classes-functions">
+<span id="index-16"></span><h2>Using ‘end’ keyword after Packages/Classes/Functions<a class="headerlink" href="#using-end-keyword-after-packages-classes-functions" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="n">mypackage</span>
 
@@ -807,9 +730,9 @@ Then you can use the ‘else’ keyword.</p>
 <span class="k">end</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-function-endfunction-keywords">
-<span id="index-17"></span><h2>Using ‘function’/’endfunction’ keywords<a class="headerlink" href="#using-function-endfunction-keywords" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-function-endfunction-keywords">
+<span id="index-17"></span><h2>Using ‘function’/’endfunction’ keywords<a class="headerlink" href="#using-function-endfunction-keywords" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">one</span><span class="p">()</span> <span class="n">two</span><span class="p">()</span> <span class="n">three</span><span class="p">()</span>
 <span class="k">function</span> <span class="n">one</span>
@@ -823,9 +746,9 @@ Then you can use the ‘else’ keyword.</p>
 <span class="k">endfunction</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-endif-endfor-endwhile-endswitch-endtry-keywords">
-<span id="index-18"></span><h2>Using ‘endif’/’endfor’/’endwhile’/’endswitch’/’endtry’ keywords<a class="headerlink" href="#using-endif-endfor-endwhile-endswitch-endtry-keywords" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-endif-endfor-endwhile-endswitch-endtry-keywords">
+<span id="index-18"></span><h2>Using ‘endif’/’endfor’/’endwhile’/’endswitch’/’endtry’ keywords<a class="headerlink" href="#using-endif-endfor-endwhile-endswitch-endtry-keywords" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
         <span class="k">if</span> <span class="n">t</span><span class="o">=</span><span class="mi">3</span>
@@ -834,9 +757,9 @@ Then you can use the ‘else’ keyword.</p>
 <span class="k">endfor</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-endpackage-endclass-endfunc-keywords-after-packages-classes-functions">
-<span id="index-19"></span><h2>Using ‘endpackage’/’endclass’/’endfunc’ keywords after Packages/Classes/Functions<a class="headerlink" href="#using-endpackage-endclass-endfunc-keywords-after-packages-classes-functions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-endpackage-endclass-endfunc-keywords-after-packages-classes-functions">
+<span id="index-19"></span><h2>Using ‘endpackage’/’endclass’/’endfunc’ keywords after Packages/Classes/Functions<a class="headerlink" href="#using-endpackage-endclass-endfunc-keywords-after-packages-classes-functions" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="n">mypackage</span>
 
@@ -851,9 +774,9 @@ Then you can use the ‘else’ keyword.</p>
 <span class="k">endpackage</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="ignore-new-lines-after-keywords">
-<span id="index-20"></span><h2>Ignore new lines after keywords<a class="headerlink" href="#ignore-new-lines-after-keywords" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ignore-new-lines-after-keywords">
+<span id="index-20"></span><h2>Ignore new lines after keywords<a class="headerlink" href="#ignore-new-lines-after-keywords" title="Permalink to this heading"></a></h2>
 <p>Starting from Ring 1.8 the compiler will ignore new lines after keywords that expect tokens after it</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span>
@@ -882,9 +805,9 @@ Then you can use the ‘else’ keyword.</p>
 Hello from the Test function
 </pre></div>
 </div>
-</div>
-<div class="section" id="automatic-loading-for-syntax-files">
-<span id="index-21"></span><h2>Automatic loading for syntax files<a class="headerlink" href="#automatic-loading-for-syntax-files" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="automatic-loading-for-syntax-files">
+<span id="index-21"></span><h2>Automatic loading for syntax files<a class="headerlink" href="#automatic-loading-for-syntax-files" title="Permalink to this heading"></a></h2>
 <p>Starting from Ring 1.18 we have better syntax flexibility</p>
 <ul class="simple">
 <li><p>Support running source code files with any extension</p></li>
@@ -897,63 +820,38 @@ Hello from the Test function
 <p>Each Folder in the program could have it’s optional (ringsyntax.ring) file</p>
 <p>We can mix styles in the same project</p>
 <img alt="autoloadsyntax" src="_images/autoloadsyntax.png" />
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="typehints.html" class="btn btn-neutral float-right" title="Introduction to the Type Hints Library" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="scope2.html" class="btn btn-neutral float-left" title="Scope Rules for Functions and Methods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="scope2.html" class="btn btn-neutral float-left" title="Scope Rules for Functions and Methods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="typehints.html" class="btn btn-neutral float-right" title="Introduction to the Type Hints Library" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2016-2023, Ring Team
-
-    </p>
+    <p>&#169; Copyright 2016-2023, Ring Team.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(false);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

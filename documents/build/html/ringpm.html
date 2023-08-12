@@ -1,88 +1,49 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Ring Package Manager (RingPM) &mdash; Ring 1.19 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Using ZeroLib" href="zerolib.html" />
     <link rel="prev" title="Distributing Ring Applications using Ring2EXE" href="distribute_ring2exe.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html">
           
-
-          
+          <a href="index.html">
             
-            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
-          
+              <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
@@ -225,73 +186,35 @@
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Ring</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>The Ring Package Manager (RingPM)</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">The Ring Package Manager (RingPM)</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="the-ring-package-manager-ringpm">
-<span id="index-0"></span><h1>The Ring Package Manager (RingPM)<a class="headerlink" href="#the-ring-package-manager-ringpm" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="the-ring-package-manager-ringpm">
+<span id="index-0"></span><h1>The Ring Package Manager (RingPM)<a class="headerlink" href="#the-ring-package-manager-ringpm" title="Permalink to this heading"></a></h1>
 <p>In this chapter we will learn about using the Ring Package Manager (RingPM)</p>
 <p>RingPM is a tool for discovering, installing and updating Ring packages.</p>
-<div class="section" id="features">
-<span id="index-1"></span><h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<section id="features">
+<span id="index-1"></span><h2>Features<a class="headerlink" href="#features" title="Permalink to this heading"></a></h2>
 <p>The Package Manager uses Semantic Versioning to check compatibility between packages</p>
 <p>The Package Manager comes with the next options</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Usage   : ringpm [command]
@@ -307,9 +230,9 @@ Command : new     &lt;packagename&gt;
 Command : package : Create package in the current folder
 </pre></div>
 </div>
-</div>
-<div class="section" id="discovering-packages">
-<span id="index-2"></span><h2>Discovering Packages<a class="headerlink" href="#discovering-packages" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="discovering-packages">
+<span id="index-2"></span><h2>Discovering Packages<a class="headerlink" href="#discovering-packages" title="Permalink to this heading"></a></h2>
 <p>We can discover new packages using the Search command</p>
 <p>Using this command we can search in the RingPM Registry (Packages Index)</p>
 <p>The RingPM Registry is a local copy of all registered packages.</p>
@@ -330,9 +253,9 @@ Package : notepadppeditorextension (Notepad++ Editor Extension package)
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm search
 </pre></div>
 </div>
-</div>
-<div class="section" id="updating-the-ringpm-registry">
-<span id="index-3"></span><h2>Updating the RingPM Registry<a class="headerlink" href="#updating-the-ringpm-registry" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="updating-the-ringpm-registry">
+<span id="index-3"></span><h2>Updating the RingPM Registry<a class="headerlink" href="#updating-the-ringpm-registry" title="Permalink to this heading"></a></h2>
 <p>The RingPM Registry is a local copy of all registered packages.</p>
 <p>We can update the local copy using the Refresh command</p>
 <p>Example:</p>
@@ -347,9 +270,9 @@ Package : notepadppeditorextension (Notepad++ Editor Extension package)
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>The Registry is updated from revision 110 (2019/01/13) to revision 112 (2019/01/15)
 </pre></div>
 </div>
-</div>
-<div class="section" id="installing-packages">
-<span id="index-4"></span><h2>Installing Packages<a class="headerlink" href="#installing-packages" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="installing-packages">
+<span id="index-4"></span><h2>Installing Packages<a class="headerlink" href="#installing-packages" title="Permalink to this heading"></a></h2>
 <p>We can install new packages using the Install command</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install [ &lt;packagename&gt; [from &lt;UserName&gt;] [branch &lt;branchname&gt;] ]
 </pre></div>
@@ -383,9 +306,9 @@ we can determine the user name (GitHub) and the branch name of the github projec
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install
 </pre></div>
 </div>
-</div>
-<div class="section" id="printing-list-of-installed-packages">
-<span id="index-5"></span><h2>Printing List of Installed Packages<a class="headerlink" href="#printing-list-of-installed-packages" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="printing-list-of-installed-packages">
+<span id="index-5"></span><h2>Printing List of Installed Packages<a class="headerlink" href="#printing-list-of-installed-packages" title="Permalink to this heading"></a></h2>
 <p>We can know the installed packages using the List command</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm list [-u : check updates]
 </pre></div>
@@ -411,9 +334,9 @@ we can determine the user name (GitHub) and the branch name of the github projec
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm list -u
 </pre></div>
 </div>
-</div>
-<div class="section" id="run-package">
-<span id="index-6"></span><h2>Run Package<a class="headerlink" href="#run-package" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="run-package">
+<span id="index-6"></span><h2>Run Package<a class="headerlink" href="#run-package" title="Permalink to this heading"></a></h2>
 <p>After installing a package, we can run it using the Run command.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm run [packagename]
 </pre></div>
@@ -435,9 +358,9 @@ we can determine the user name (GitHub) and the branch name of the github projec
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm run
 </pre></div>
 </div>
-</div>
-<div class="section" id="update-package">
-<span id="index-7"></span><h2>Update Package<a class="headerlink" href="#update-package" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="update-package">
+<span id="index-7"></span><h2>Update Package<a class="headerlink" href="#update-package" title="Permalink to this heading"></a></h2>
 <p>We can update a package using the Update command</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm update &lt;packagename&gt;
 </pre></div>
@@ -446,9 +369,9 @@ we can determine the user name (GitHub) and the branch name of the github projec
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm update ringnotepad
 </pre></div>
 </div>
-</div>
-<div class="section" id="remove-package">
-<span id="index-8"></span><h2>Remove Package<a class="headerlink" href="#remove-package" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="remove-package">
+<span id="index-8"></span><h2>Remove Package<a class="headerlink" href="#remove-package" title="Permalink to this heading"></a></h2>
 <p>We can remove a package using the Remove command</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm remove &lt;packagename&gt;
 </pre></div>
@@ -457,17 +380,17 @@ we can determine the user name (GitHub) and the branch name of the github projec
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm remove ringnotepad
 </pre></div>
 </div>
-</div>
-<div class="section" id="deleting-all-packages">
-<span id="index-9"></span><h2>Deleting All Packages<a class="headerlink" href="#deleting-all-packages" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="deleting-all-packages">
+<span id="index-9"></span><h2>Deleting All Packages<a class="headerlink" href="#deleting-all-packages" title="Permalink to this heading"></a></h2>
 <p>We can delete all packages using the Format command</p>
 <p>Example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm format
 </pre></div>
 </div>
-</div>
-<div class="section" id="creating-new-package">
-<span id="index-10"></span><h2>Creating New Package<a class="headerlink" href="#creating-new-package" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="creating-new-package">
+<span id="index-10"></span><h2>Creating New Package<a class="headerlink" href="#creating-new-package" title="Permalink to this heading"></a></h2>
 <p>We can create new package using the New command</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm new &lt;packagename&gt;
 </pre></div>
@@ -578,15 +501,11 @@ we can determine the user name (GitHub) and the branch name of the github projec
 <span class="o">]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="the-package-description-file">
-<span id="index-11"></span><h2>The Package Description File<a class="headerlink" href="#the-package-description-file" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="the-package-description-file">
+<span id="index-11"></span><h2>The Package Description File<a class="headerlink" href="#the-package-description-file" title="Permalink to this heading"></a></h2>
 <p>The package description file contains the package information defined in the list aPackageInfo</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 22%" />
-<col style="width: 78%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Attribute</p></th>
 <th class="head"><p>Description</p></th>
@@ -715,9 +634,9 @@ we can determine the user name (GitHub) and the branch name of the github projec
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="create-package-in-the-current-folder">
-<span id="index-12"></span><h2>Create Package in the Current Folder<a class="headerlink" href="#create-package-in-the-current-folder" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="create-package-in-the-current-folder">
+<span id="index-12"></span><h2>Create Package in the Current Folder<a class="headerlink" href="#create-package-in-the-current-folder" title="Permalink to this heading"></a></h2>
 <p>To create a package for an application that already exists, go to the application folder then type</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm package
 </pre></div>
@@ -838,9 +757,9 @@ we can determine the user name (GitHub) and the branch name of the github projec
 <span class="o">]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="the-ringpm-registry-file">
-<span id="index-13"></span><h2>The RingPM Registry File<a class="headerlink" href="#the-ringpm-registry-file" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="the-ringpm-registry-file">
+<span id="index-13"></span><h2>The RingPM Registry File<a class="headerlink" href="#the-ringpm-registry-file" title="Permalink to this heading"></a></h2>
 <p>The RingPM Registry is a local copy of all registered packages.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aPackagesRegistry</span> <span class="o">=</span> <span class="o">[</span>
         <span class="o">[</span> <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;ringpresentation&quot;</span><span class="p">,</span>
@@ -859,63 +778,38 @@ we can determine the user name (GitHub) and the branch name of the github projec
 </ul>
 <p>We can register new packages by updating the registry file then sending a Pull Request</p>
 <p>URL : <a class="reference external" href="https://github.com/ring-lang/ring/blob/master/tools/ringpm/registry/registry.ring">https://github.com/ring-lang/ring/blob/master/tools/ringpm/registry/registry.ring</a></p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="zerolib.html" class="btn btn-neutral float-right" title="Using ZeroLib" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="distribute_ring2exe.html" class="btn btn-neutral float-left" title="Distributing Ring Applications using Ring2EXE" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="distribute_ring2exe.html" class="btn btn-neutral float-left" title="Distributing Ring Applications using Ring2EXE" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="zerolib.html" class="btn btn-neutral float-right" title="Using ZeroLib" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2016-2023, Ring Team
-
-    </p>
+    <p>&#169; Copyright 2016-2023, Ring Team.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(false);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

@@ -1,88 +1,49 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Object Oriented Programming (OOP) &mdash; Ring 1.19 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Functional Programming" href="fp.html" />
     <link rel="prev" title="Security and Internet Functions" href="secfunc.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html">
           
-
-          
+          <a href="index.html">
             
-            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
-          
+              <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
@@ -229,69 +190,31 @@
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Ring</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Object Oriented Programming (OOP)</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Object Oriented Programming (OOP)</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="object-oriented-programming-oop">
-<span id="index-0"></span><h1>Object Oriented Programming (OOP)<a class="headerlink" href="#object-oriented-programming-oop" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="object-oriented-programming-oop">
+<span id="index-0"></span><h1>Object Oriented Programming (OOP)<a class="headerlink" href="#object-oriented-programming-oop" title="Permalink to this heading"></a></h1>
 <p>In this chapter we are going to learn how to use the Object-Oriented programming paradigm
 inside the Ring programming language.</p>
 <p>We will learn about</p>
@@ -312,8 +235,8 @@ inside the Ring programming language.</p>
 <li><p>Using This.Attribute and This.Method()</p></li>
 <li><p>Command: New From</p></li>
 </ul>
-<div class="section" id="classes-and-objects">
-<span id="index-1"></span><h2>Classes and Objects<a class="headerlink" href="#classes-and-objects" title="Permalink to this headline">¶</a></h2>
+<section id="classes-and-objects">
+<span id="index-1"></span><h2>Classes and Objects<a class="headerlink" href="#classes-and-objects" title="Permalink to this heading"></a></h2>
 <p>We can define new classes using the next syntax</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Class</span> <span class="o">&lt;</span><span class="k">Class</span> <span class="n">Name</span><span class="o">&gt;</span> <span class="o">[</span><span class="k">From</span><span class="o">|&lt;|</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Parent</span> <span class="k">Class</span> <span class="n">Name</span><span class="o">&gt;]</span>
@@ -416,9 +339,9 @@ inside the Ring programming language.</p>
 <p>using Hash for passing method parameters enable us to create optional
 parameters and change the order of parameters when adding them to the Hash.</p>
 </div>
-</div>
-<div class="section" id="access-objects-using-braces">
-<span id="index-2"></span><h2>Access Objects Using Braces<a class="headerlink" href="#access-objects-using-braces" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="access-objects-using-braces">
+<span id="index-2"></span><h2>Access Objects Using Braces<a class="headerlink" href="#access-objects-using-braces" title="Permalink to this heading"></a></h2>
 <p>We can access the object at any time using braces { }</p>
 <p>Inside the braces we can use the object attributes and methods directly</p>
 <p>This can be done when we create the object using the New keyword or at any time using the next syntax</p>
@@ -462,9 +385,9 @@ parameters and change the order of parameters when adding them to the Hash.</p>
         <span class="k">func</span> <span class="n">print</span> <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">z</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="composition">
-<span id="index-3"></span><h2>Composition<a class="headerlink" href="#composition" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="composition">
+<span id="index-3"></span><h2>Composition<a class="headerlink" href="#composition" title="Permalink to this heading"></a></h2>
 <p>The object may contains other objects as attributes.</p>
 <p>Using braces to access objects can be nested.</p>
 <p>Example:</p>
@@ -509,9 +432,9 @@ parameters and change the order of parameters when adding them to the Hash.</p>
 <span class="n">P2</span>   <span class="p">:</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="setter-and-getter">
-<span id="index-4"></span><h2>Setter and Getter<a class="headerlink" href="#setter-and-getter" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="setter-and-getter">
+<span id="index-4"></span><h2>Setter and Getter<a class="headerlink" href="#setter-and-getter" title="Permalink to this heading"></a></h2>
 <p>We can define methods to be used when we set and get object attributes.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Class</span> <span class="n">ClassName</span>
@@ -555,9 +478,9 @@ parameters and change the order of parameters when adding them to the Hash.</p>
 <span class="n">Mr</span><span class="p">.</span> <span class="n">Ahmed</span> <span class="n">Fayed</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="private-attributes-and-methods">
-<span id="index-5"></span><h2>Private Attributes and Methods<a class="headerlink" href="#private-attributes-and-methods" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="private-attributes-and-methods">
+<span id="index-5"></span><h2>Private Attributes and Methods<a class="headerlink" href="#private-attributes-and-methods" title="Permalink to this heading"></a></h2>
 <p>We can define private attributes and methods after the keyword private inside the class body</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">person</span> <span class="p">{</span>
@@ -606,9 +529,9 @@ parameters and change the order of parameters when adding them to the Hash.</p>
 <span class="n">Error</span> <span class="p">(</span><span class="n">R26</span><span class="p">)</span> <span class="p">:</span> <span class="n">Calling</span> <span class="n">private</span> <span class="n">method</span> <span class="k">from</span> <span class="n">outside</span> <span class="n">the</span> <span class="k">class</span> <span class="p">:</span> <span class="n">increasesalary</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="operator-overloading">
-<span id="index-6"></span><h2>Operator Overloading<a class="headerlink" href="#operator-overloading" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="operator-overloading">
+<span id="index-6"></span><h2>Operator Overloading<a class="headerlink" href="#operator-overloading" title="Permalink to this heading"></a></h2>
 <p>We can add the operator method to our class to enable using operators with the class objects.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Class</span> <span class="n">ClassName</span>
@@ -754,9 +677,9 @@ items.</p>
         <span class="o">?</span> <span class="n">nl</span><span class="o">+</span><span class="s">&quot;ClassPrint aData: &quot;</span> <span class="o">?</span> <span class="n">aData</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="inheritance">
-<span id="index-7"></span><h2>Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="inheritance">
+<span id="index-7"></span><h2>Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this heading"></a></h2>
 <p>We can create class from another class in the class definition using the keyword from.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Class</span> <span class="o">&lt;</span><span class="k">Class</span> <span class="n">Name</span><span class="o">&gt;</span> <span class="o">[</span><span class="k">From</span> <span class="o">&lt;</span><span class="n">Parent</span> <span class="k">Class</span> <span class="n">Name</span><span class="o">&gt;]</span>
@@ -800,9 +723,9 @@ items.</p>
 <span class="n">Salary</span> <span class="p">:</span> <span class="mi">20000000</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="dynamic-attributes">
-<span id="index-8"></span><h2>Dynamic Attributes<a class="headerlink" href="#dynamic-attributes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="dynamic-attributes">
+<span id="index-8"></span><h2>Dynamic Attributes<a class="headerlink" href="#dynamic-attributes" title="Permalink to this heading"></a></h2>
 <p>We can write instructions after the class name to be executed when we create new objects</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">dynamicClass</span>
@@ -828,9 +751,9 @@ items.</p>
 <p>we can write class definitions inside a string then
 using eval() we can execute the string to define the classes</p>
 </div>
-</div>
-<div class="section" id="packages">
-<span id="index-9"></span><h2>Packages<a class="headerlink" href="#packages" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="packages">
+<span id="index-9"></span><h2>Packages<a class="headerlink" href="#packages" title="Permalink to this heading"></a></h2>
 <p>We can create a package (a group of classes under a common name) using the next syntax</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">PackageName</span>
         <span class="k">Class</span> <span class="n">Class1</span>
@@ -869,9 +792,9 @@ using eval() we can execute the string to define the classes</p>
                         <span class="k">see</span> <span class="n">cText</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="printing-objects">
-<span id="index-10"></span><h2>Printing Objects<a class="headerlink" href="#printing-objects" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="printing-objects">
+<span id="index-10"></span><h2>Printing Objects<a class="headerlink" href="#printing-objects" title="Permalink to this heading"></a></h2>
 <p>We can print the object state (attributes and values) using the see command.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="p">}</span>
@@ -884,9 +807,9 @@ using eval() we can execute the string to define the classes</p>
 <span class="n">z</span><span class="p">:</span> <span class="mf">30.000000</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="find-and-list-of-objects">
-<span id="index-11"></span><h2>Find() and List of Objects<a class="headerlink" href="#find-and-list-of-objects" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="find-and-list-of-objects">
+<span id="index-11"></span><h2>Find() and List of Objects<a class="headerlink" href="#find-and-list-of-objects" title="Permalink to this heading"></a></h2>
 <p>We can use the find() function to search inside a list of objects.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Find</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">,</span><span class="n">nColumn</span><span class="p">,</span><span class="n">cAttribute</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Item</span> <span class="n">Index</span>
@@ -929,9 +852,9 @@ using eval() we can execute the string to define the classes</p>
 <span class="mi">0</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="sort-and-list-of-objects">
-<span id="index-12"></span><h2>Sort() and List of Objects<a class="headerlink" href="#sort-and-list-of-objects" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="sort-and-list-of-objects">
+<span id="index-12"></span><h2>Sort() and List of Objects<a class="headerlink" href="#sort-and-list-of-objects" title="Permalink to this heading"></a></h2>
 <p>We can sort a list of objects based on an object attribute using the Sort() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Sort</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">nColumn</span><span class="p">,</span><span class="n">cAttribute</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Sorted</span> <span class="kt">List</span> <span class="n">based</span> <span class="k">on</span> <span class="n">Object</span> <span class="n">Attribute</span>
@@ -1035,9 +958,9 @@ using eval() we can execute the string to define the classes</p>
 <span class="n">symbol</span><span class="p">:</span> <span class="n">CHR</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-self-attribute-and-self-method">
-<span id="index-13"></span><h2>Using Self.Attribute and Self.Method()<a class="headerlink" href="#using-self-attribute-and-self-method" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-self-attribute-and-self-method">
+<span id="index-13"></span><h2>Using Self.Attribute and Self.Method()<a class="headerlink" href="#using-self-attribute-and-self-method" title="Permalink to this heading"></a></h2>
 <p>Inside the class region (After the class name and before any method) and the class methods we can
 use self.attribute and self.method()</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Class</span> <span class="n">Point</span>
@@ -1071,9 +994,9 @@ use self.attribute and self.method()</p>
 <p class="admonition-title">Tip</p>
 <p>In large programs protect your classes and define their members using self.attribute</p>
 </div>
-</div>
-<div class="section" id="using-this-attribute-and-this-method">
-<span id="index-14"></span><h2>Using This.Attribute and This.Method()<a class="headerlink" href="#using-this-attribute-and-this-method" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-this-attribute-and-this-method">
+<span id="index-14"></span><h2>Using This.Attribute and This.Method()<a class="headerlink" href="#using-this-attribute-and-this-method" title="Permalink to this heading"></a></h2>
 <p>Inside class methods we have access to the object scope directly. we don’t need to use Self.attribute
 or Self.method to read/write attribute and call methods.</p>
 <p>But we can use braces {} while we are inside methods to access another object, In this case the current
@@ -1096,9 +1019,9 @@ object scope will be changed while we are inside the brace.</p>
                 <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-this-in-the-class-region-as-self">
-<span id="index-15"></span><h2>Using This in the class region as Self<a class="headerlink" href="#using-this-in-the-class-region-as-self" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-this-in-the-class-region-as-self">
+<span id="index-15"></span><h2>Using This in the class region as Self<a class="headerlink" href="#using-this-in-the-class-region-as-self" title="Permalink to this heading"></a></h2>
 <p>The class region is the region that comes after the class name and before any method.</p>
 <p>We can use This in the class region as Self.</p>
 <p>Example:</p>
@@ -1151,9 +1074,9 @@ version: 1.0
 <p class="admonition-title">Note</p>
 <p>We use This or Self in the class region just to avoid conflict with global variables that are defined with the same name.</p>
 </div>
-</div>
-<div class="section" id="default-value-for-object-attributes">
-<span id="index-16"></span><h2>Default value for object attributes<a class="headerlink" href="#default-value-for-object-attributes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="default-value-for-object-attributes">
+<span id="index-16"></span><h2>Default value for object attributes<a class="headerlink" href="#default-value-for-object-attributes" title="Permalink to this heading"></a></h2>
 <p>The default value for object attributes is NULL</p>
 <p>In Ring, the NULL value is just an empty string or a string that contains “NULL”</p>
 <p>We can check for NULL values using the isNULL() function</p>
@@ -1184,9 +1107,9 @@ name: My Application
 version: 1.0
 </pre></div>
 </div>
-</div>
-<div class="section" id="command-new-from">
-<span id="index-17"></span><h2>Command: New From<a class="headerlink" href="#command-new-from" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="command-new-from">
+<span id="index-17"></span><h2>Command: New From<a class="headerlink" href="#command-new-from" title="Permalink to this heading"></a></h2>
 <p>Using (new) we can create a new object from a specific class</p>
 <p>Using (new from) we provide a variable which contains the class name</p>
 <p>Example:</p>
@@ -1208,63 +1131,38 @@ version: 1.0
 <span class="n">hello</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="fp.html" class="btn btn-neutral float-right" title="Functional Programming" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="secfunc.html" class="btn btn-neutral float-left" title="Security and Internet Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="secfunc.html" class="btn btn-neutral float-left" title="Security and Internet Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fp.html" class="btn btn-neutral float-right" title="Functional Programming" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2016-2023, Ring Team
-
-    </p>
+    <p>&#169; Copyright 2016-2023, Ring Team.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(false);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

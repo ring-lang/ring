@@ -1,88 +1,49 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Performance Tips &mdash; Ring 1.19 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Command Line Options" href="compiler.html" />
     <link rel="prev" title="RingTilengine Extension" href="tilengine.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html">
           
-
-          
+          <a href="index.html">
             
-            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
-          
+              <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
@@ -217,72 +178,34 @@
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Ring</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Performance Tips</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Performance Tips</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="performance-tips">
-<span id="index-0"></span><h1>Performance Tips<a class="headerlink" href="#performance-tips" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="performance-tips">
+<span id="index-0"></span><h1>Performance Tips<a class="headerlink" href="#performance-tips" title="Permalink to this heading"></a></h1>
 <p>In this chapter we will learn more about the Ring performance.</p>
-<div class="section" id="introduction">
-<span id="index-1"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<section id="introduction">
+<span id="index-1"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
 <p>Ring is designed to be a simple, small and flexible language in the first place, but also it is fast enough for many applications.</p>
 <p>Ring can do each of the next tasks in around 1 second using normal computers in the market during the last 5 years</p>
 <ol class="arabic simple">
@@ -352,9 +275,9 @@ Time: 0.87 seconds
 </div>
 <p>Output:</p>
 <img alt="Many Tree Items" src="_images/manytreeitems.png" />
-</div>
-<div class="section" id="creating-lists">
-<span id="index-2"></span><h2>Creating Lists<a class="headerlink" href="#creating-lists" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="creating-lists">
+<span id="index-2"></span><h2>Creating Lists<a class="headerlink" href="#creating-lists" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Create the list using the Range operator&quot;</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
@@ -391,9 +314,9 @@ Time : 1.56 seconds
 <p class="admonition-title">Note</p>
 <p>Creating lists using the Range operator is faster than using the For loop or the list() function</p>
 </div>
-</div>
-<div class="section" id="arithmetic-operations">
-<span id="index-3"></span><h2>Arithmetic Operations<a class="headerlink" href="#arithmetic-operations" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="arithmetic-operations">
+<span id="index-3"></span><h2>Arithmetic Operations<a class="headerlink" href="#arithmetic-operations" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Using * operator&quot;</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
@@ -422,9 +345,9 @@ Time : 0.47 seconds
 <p class="admonition-title">Note</p>
 <p>Using the <a href="#id1"><span class="problematic" id="id2">*</span></a>= operator is faster that using the * operator</p>
 </div>
-</div>
-<div class="section" id="using-len-and-for-loops">
-<span id="index-4"></span><h2>Using len() and For Loops<a class="headerlink" href="#using-len-and-for-loops" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-len-and-for-loops">
+<span id="index-4"></span><h2>Using len() and For Loops<a class="headerlink" href="#using-len-and-for-loops" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">1000000</span>
 
@@ -453,9 +376,9 @@ Time : 0.24 seconds
 <p class="admonition-title">Note</p>
 <p>Using len() before the For loop is faster than using len() in the For loop.</p>
 </div>
-</div>
-<div class="section" id="calling-functions-and-methods">
-<span id="index-5"></span><h2>Calling Functions and Methods<a class="headerlink" href="#calling-functions-and-methods" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="calling-functions-and-methods">
+<span id="index-5"></span><h2>Calling Functions and Methods<a class="headerlink" href="#calling-functions-and-methods" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;calling 100000 functions&quot;</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
@@ -504,63 +427,38 @@ Time : 1.19 seconds
 <p class="admonition-title">Note</p>
 <p>Using the dot operator to call methods is faster than using braces.</p>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="compiler.html" class="btn btn-neutral float-right" title="Command Line Options" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="tilengine.html" class="btn btn-neutral float-left" title="RingTilengine Extension" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tilengine.html" class="btn btn-neutral float-left" title="RingTilengine Extension" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="compiler.html" class="btn btn-neutral float-right" title="Command Line Options" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2016-2023, Ring Team
-
-    </p>
+    <p>&#169; Copyright 2016-2023, Ring Team.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(false);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

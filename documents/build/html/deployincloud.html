@@ -1,88 +1,49 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deploying Web Applications in the Cloud &mdash; Ring 1.19 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Graphics and 2D Games programming using RingAllegro" href="allegro.html" />
     <link rel="prev" title="Web Development (CGI Library)" href="web.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html">
           
-
-          
+          <a href="index.html">
             
-            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
-          
+              <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
@@ -219,79 +180,41 @@
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Ring</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Deploying Web Applications in the Cloud</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Deploying Web Applications in the Cloud</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="deploying-web-applications-in-the-cloud">
-<span id="index-0"></span><h1>Deploying Web Applications in the Cloud<a class="headerlink" href="#deploying-web-applications-in-the-cloud" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="deploying-web-applications-in-the-cloud">
+<span id="index-0"></span><h1>Deploying Web Applications in the Cloud<a class="headerlink" href="#deploying-web-applications-in-the-cloud" title="Permalink to this heading"></a></h1>
 <p>In this chapter we will learn about deploying Ring Web Applications in the Cloud using Heroku</p>
-<div class="section" id="introduction">
-<span id="index-1"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<section id="introduction">
+<span id="index-1"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
 <p>We created a new project and tutorial to explain how to deploy Ring web applications in the Cloud using Heroku</p>
 <p>Project : <a class="reference external" href="https://github.com/ring-lang/RingWebAppOnHeroku">https://github.com/ring-lang/RingWebAppOnHeroku</a></p>
 <p>Heroku Website : <a class="reference external" href="https://www.heroku.com/">https://www.heroku.com/</a></p>
 <img alt="Ring Web Application in the Cloud" src="_images/ringincloud.png" />
-</div>
-<div class="section" id="usage">
-<span id="index-2"></span><h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="usage">
+<span id="index-2"></span><h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
 <p>To use this project and deploy it on Heroku</p>
 <ol class="arabic simple">
 <li><p>Create Heroku account</p></li>
@@ -349,9 +272,9 @@ heroku buildpacks:add --index 2 https://github.com/ring-lang/heroku-buildpack-ri
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>heroku open
 </pre></div>
 </div>
-</div>
-<div class="section" id="ring-source-code-files-and-permissions">
-<span id="index-3"></span><h2>Ring source code files and permissions<a class="headerlink" href="#ring-source-code-files-and-permissions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ring-source-code-files-and-permissions">
+<span id="index-3"></span><h2>Ring source code files and permissions<a class="headerlink" href="#ring-source-code-files-and-permissions" title="Permalink to this heading"></a></h2>
 <p>To be able to run your new Ring scripts, Set the permission of the file to be executable using Git</p>
 <p>For example, if you created a file : myscript.ring</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git update-index --chmod=+x myscript.ring
@@ -361,9 +284,9 @@ git commit -m &quot;Update file permission&quot;
 <p>If you are using TortoiseGit, From windows explorer, select the file</p>
 <p>Right click —&gt; Properties —&gt; Git —&gt; Executable (+x)</p>
 <p>Then commit and deploy!</p>
-</div>
-<div class="section" id="hello-world-program">
-<span id="index-4"></span><h2>Hello World program<a class="headerlink" href="#hello-world-program" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="hello-world-program">
+<span id="index-4"></span><h2>Hello World program<a class="headerlink" href="#hello-world-program" title="Permalink to this heading"></a></h2>
 <p>file : ringapp/helloworld.ring</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c">#!/app/runring.sh -cgi</span>
 
@@ -380,9 +303,9 @@ git commit -m &quot;Update file permission&quot;
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="application-database">
-<span id="index-5"></span><h2>Application Database<a class="headerlink" href="#application-database" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="application-database">
+<span id="index-5"></span><h2>Application Database<a class="headerlink" href="#application-database" title="Permalink to this heading"></a></h2>
 <p>When you deploy the application, Everything will works directly!</p>
 <p>No change is required, but in practice, You will need to update the next files to use your database</p>
 <p>There are two scripts to interact with the database (We are using PostgreSQL in the cloud)</p>
@@ -394,9 +317,9 @@ git commit -m &quot;Update file permission&quot;
 <p>In your practical projects, You can write better code (To be able to change the database)</p>
 <p>Also you can create configuration file (To write the connection string in one place)</p>
 <p>Database service : <a class="reference external" href="https://www.heroku.com/postgres">https://www.heroku.com/postgres</a></p>
-</div>
-<div class="section" id="deploying-after-updates">
-<span id="index-6"></span><h2>Deploying after updates<a class="headerlink" href="#deploying-after-updates" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="deploying-after-updates">
+<span id="index-6"></span><h2>Deploying after updates<a class="headerlink" href="#deploying-after-updates" title="Permalink to this heading"></a></h2>
 <p>Just use Git and commit then push to heroku</p>
 <p>file: build.bat contains the next commands for quick tests</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git add .
@@ -405,72 +328,47 @@ git push heroku master
 heroku open
 </pre></div>
 </div>
-</div>
-<div class="section" id="local-tests">
-<span id="index-7"></span><h2>Local Tests<a class="headerlink" href="#local-tests" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="local-tests">
+<span id="index-7"></span><h2>Local Tests<a class="headerlink" href="#local-tests" title="Permalink to this heading"></a></h2>
 <p>Local tests using Ring Notepad on Windows (Using local Apache Web Server)</p>
 <p>Replace the first line in the file : ringapp/index.ring with</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 </pre></div>
 </div>
 <p>Then run it from Ring Notepad (Ctrl+F6)</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="allegro.html" class="btn btn-neutral float-right" title="Graphics and 2D Games programming using RingAllegro" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="web.html" class="btn btn-neutral float-left" title="Web Development (CGI Library)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="web.html" class="btn btn-neutral float-left" title="Web Development (CGI Library)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="allegro.html" class="btn btn-neutral float-right" title="Graphics and 2D Games programming using RingAllegro" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2016-2023, Ring Team
-
-    </p>
+    <p>&#169; Copyright 2016-2023, Ring Team.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(false);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

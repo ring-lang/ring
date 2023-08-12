@@ -1,88 +1,49 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Desktop, WebAssembly and Mobile Development using RingQt &mdash; Ring 1.19 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Using the Form Designer" href="formdesigner.html" />
     <link rel="prev" title="Stdlib Classes" href="stdlibclasses.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html">
           
-
-          
+          <a href="index.html">
             
-            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
-          
+              <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
@@ -276,73 +237,35 @@
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Ring</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Desktop, WebAssembly and Mobile Development using RingQt</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Desktop, WebAssembly and Mobile Development using RingQt</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="desktop-webassembly-and-mobile-development-using-ringqt">
-<span id="index-0"></span><h1>Desktop, WebAssembly and Mobile Development using RingQt<a class="headerlink" href="#desktop-webassembly-and-mobile-development-using-ringqt" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="desktop-webassembly-and-mobile-development-using-ringqt">
+<span id="index-0"></span><h1>Desktop, WebAssembly and Mobile Development using RingQt<a class="headerlink" href="#desktop-webassembly-and-mobile-development-using-ringqt" title="Permalink to this heading"></a></h1>
 <p>In this chapter we will learn how to use the Qt framework classes
 in our Ring applications to create Desktop, WebAssembly and Mobile Applications.</p>
-<div class="section" id="the-first-gui-application">
-<span id="index-1"></span><h2>The First GUI Application<a class="headerlink" href="#the-first-gui-application" title="Permalink to this headline">¶</a></h2>
+<section id="the-first-gui-application">
+<span id="index-1"></span><h2>The First GUI Application<a class="headerlink" href="#the-first-gui-application" title="Permalink to this heading"></a></h2>
 <p>In this example we will create an application to ask the user about his/her name.
 When the user type the name in the textbox then click on “Say Hello” button, the textbox
 value will be updated by adding “Hello ” to the name.</p>
@@ -395,9 +318,9 @@ value will be updated by adding “Hello ” to the name.</p>
 <img alt="Enter the name in the textbox" src="_images/ringqt_shot1.jpg" />
 <p>Then we click on the say hello button</p>
 <img alt="Click on the button" src="_images/ringqt_shot2.jpg" />
-</div>
-<div class="section" id="the-events-loop">
-<span id="index-2"></span><h2>The Events Loop<a class="headerlink" href="#the-events-loop" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="the-events-loop">
+<span id="index-2"></span><h2>The Events Loop<a class="headerlink" href="#the-events-loop" title="Permalink to this heading"></a></h2>
 <p>Qt uses Event-Driven and the events loop get the control when we call the exec() method from the qApp class.</p>
 <p>Once we call exec(), The events loop starts, and the Widgets starts responding to the different events (Mouse, Keyboard, Timers, etc).</p>
 <p>You get the control back again when an event is fired and your callback function is called.</p>
@@ -423,9 +346,9 @@ to avoid stopping the GUI.</p>
         <span class="k">end</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-layout">
-<span id="index-3"></span><h2>Using Layout<a class="headerlink" href="#using-layout" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-layout">
+<span id="index-3"></span><h2>Using Layout<a class="headerlink" href="#using-layout" title="Permalink to this heading"></a></h2>
 <p>The next example is just an upgrade to the previous application to use the vertical layout.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -476,9 +399,9 @@ to avoid stopping the GUI.</p>
 </div>
 <p>The application during the runtime!</p>
 <img alt="Vertical Layout" src="_images/ringqt_shot3.jpg" />
-</div>
-<div class="section" id="using-the-qtextedit-class">
-<span id="index-4"></span><h2>Using the QTextEdit Class<a class="headerlink" href="#using-the-qtextedit-class" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-the-qtextedit-class">
+<span id="index-4"></span><h2>Using the QTextEdit Class<a class="headerlink" href="#using-the-qtextedit-class" title="Permalink to this heading"></a></h2>
 <p>In this example we will use the QTextEdit Class</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -503,9 +426,9 @@ to avoid stopping the GUI.</p>
 </div>
 <p>During the runtime we can paste rich text in the qtextedit widget</p>
 <img alt="QTextEdit Class" src="_images/ringqt_shot4.jpg" />
-</div>
-<div class="section" id="using-the-qlistwidget-class">
-<span id="index-5"></span><h2>Using the QListWidget Class<a class="headerlink" href="#using-the-qlistwidget-class" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-the-qlistwidget-class">
+<span id="index-5"></span><h2>Using the QListWidget Class<a class="headerlink" href="#using-the-qlistwidget-class" title="Permalink to this heading"></a></h2>
 <p>In this example we will use the QListWidget Class</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -615,9 +538,9 @@ to avoid stopping the GUI.</p>
         <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-qtreeview-and-qfilesystemmodel">
-<span id="index-6"></span><h2>Using QTreeView and QFileSystemModel<a class="headerlink" href="#using-qtreeview-and-qfilesystemmodel" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-qtreeview-and-qfilesystemmodel">
+<span id="index-6"></span><h2>Using QTreeView and QFileSystemModel<a class="headerlink" href="#using-qtreeview-and-qfilesystemmodel" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn how to use the QTreeView widget to represent the File System</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -645,9 +568,9 @@ to avoid stopping the GUI.</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="QTreeView and QFileSystemModel" src="_images/ringqt_shot6.jpg" />
-</div>
-<div class="section" id="using-qtreewidget-and-qtreewidgetitem">
-<span id="index-7"></span><h2>Using QTreeWidget and QTreeWidgetItem<a class="headerlink" href="#using-qtreewidget-and-qtreewidgetitem" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-qtreewidget-and-qtreewidgetitem">
+<span id="index-7"></span><h2>Using QTreeWidget and QTreeWidgetItem<a class="headerlink" href="#using-qtreewidget-and-qtreewidgetitem" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn about using the QTreeWidget and QTreeWidgetItem classes</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -691,9 +614,9 @@ to avoid stopping the GUI.</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="QTreeWidget and QTreeWidgetItem" src="_images/ringqt_shot7.jpg" />
-</div>
-<div class="section" id="using-qcombobox-class">
-<span id="index-8"></span><h2>Using QComboBox Class<a class="headerlink" href="#using-qcombobox-class" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-qcombobox-class">
+<span id="index-8"></span><h2>Using QComboBox Class<a class="headerlink" href="#using-qcombobox-class" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn about using the QComboBox class</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -719,9 +642,9 @@ to avoid stopping the GUI.</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="QComboBox" src="_images/ringqt_shot8.jpg" />
-</div>
-<div class="section" id="creating-menubar">
-<span id="index-9"></span><h2>Creating Menubar<a class="headerlink" href="#creating-menubar" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="creating-menubar">
+<span id="index-9"></span><h2>Creating Menubar<a class="headerlink" href="#creating-menubar" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn about using the QMenuBar class</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -814,9 +737,9 @@ to avoid stopping the GUI.</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="QMenuBar" src="_images/ringqt_shot9.jpg" />
-</div>
-<div class="section" id="context-menu">
-<span id="index-10"></span><h2>Context Menu<a class="headerlink" href="#context-menu" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="context-menu">
+<span id="index-10"></span><h2>Context Menu<a class="headerlink" href="#context-menu" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -862,9 +785,9 @@ to avoid stopping the GUI.</p>
         <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="creating-toolbar">
-<span id="index-11"></span><h2>Creating Toolbar<a class="headerlink" href="#creating-toolbar" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="creating-toolbar">
+<span id="index-11"></span><h2>Creating Toolbar<a class="headerlink" href="#creating-toolbar" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn about using the QToolBar class</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -900,9 +823,9 @@ to avoid stopping the GUI.</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="QToolBar" src="_images/ringqt_shot10.jpg" />
-</div>
-<div class="section" id="creating-statusbar">
-<span id="index-12"></span><h2>Creating StatusBar<a class="headerlink" href="#creating-statusbar" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="creating-statusbar">
+<span id="index-12"></span><h2>Creating StatusBar<a class="headerlink" href="#creating-statusbar" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn about using the QStatusBar class</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -927,9 +850,9 @@ to avoid stopping the GUI.</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="QStatusBar" src="_images/ringqt_shot11.jpg" />
-</div>
-<div class="section" id="using-qdockwidget">
-<span id="index-13"></span><h2>Using QDockWidget<a class="headerlink" href="#using-qdockwidget" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-qdockwidget">
+<span id="index-13"></span><h2>Using QDockWidget<a class="headerlink" href="#using-qdockwidget" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn about using the QDockWidget class</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -971,9 +894,9 @@ to avoid stopping the GUI.</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="QDockWidget" src="_images/ringqt_shot12.jpg" />
-</div>
-<div class="section" id="using-qtabwidget">
-<span id="index-14"></span><h2>Using QTabWidget<a class="headerlink" href="#using-qtabwidget" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-qtabwidget">
+<span id="index-14"></span><h2>Using QTabWidget<a class="headerlink" href="#using-qtabwidget" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn about using the QTabWidget class</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -1023,9 +946,9 @@ to avoid stopping the GUI.</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="QTabWidget" src="_images/ringqt_shot13.jpg" />
-</div>
-<div class="section" id="using-qtablewidget">
-<span id="index-15"></span><h2>Using QTableWidget<a class="headerlink" href="#using-qtablewidget" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-qtablewidget">
+<span id="index-15"></span><h2>Using QTableWidget<a class="headerlink" href="#using-qtablewidget" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn about using the QTableWidget class</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -1062,9 +985,9 @@ to avoid stopping the GUI.</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="QTableWidget" src="_images/ringqt_shot14.jpg" />
-</div>
-<div class="section" id="using-qprogressbar">
-<span id="index-16"></span><h2>Using QProgressBar<a class="headerlink" href="#using-qprogressbar" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-qprogressbar">
+<span id="index-16"></span><h2>Using QProgressBar<a class="headerlink" href="#using-qprogressbar" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn about using the QProgressBar class</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -1089,9 +1012,9 @@ to avoid stopping the GUI.</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="QProgressBar" src="_images/ringqt_shot15.jpg" />
-</div>
-<div class="section" id="using-qspinbox">
-<span id="index-17"></span><h2>Using QSpinBox<a class="headerlink" href="#using-qspinbox" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-qspinbox">
+<span id="index-17"></span><h2>Using QSpinBox<a class="headerlink" href="#using-qspinbox" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn about using the QSpinBox class</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -1111,9 +1034,9 @@ to avoid stopping the GUI.</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="QSpinBox" src="_images/ringqt_shot16.jpg" />
-</div>
-<div class="section" id="using-qslider">
-<span id="index-18"></span><h2>Using QSlider<a class="headerlink" href="#using-qslider" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-qslider">
+<span id="index-18"></span><h2>Using QSlider<a class="headerlink" href="#using-qslider" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn about using the QSlider class</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -1145,9 +1068,9 @@ to avoid stopping the GUI.</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="QSlider" src="_images/ringqt_shot17.jpg" />
-</div>
-<div class="section" id="using-qdateedit">
-<span id="index-19"></span><h2>Using QDateEdit<a class="headerlink" href="#using-qdateedit" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-qdateedit">
+<span id="index-19"></span><h2>Using QDateEdit<a class="headerlink" href="#using-qdateedit" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn about using the QDateEdit class</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -1166,9 +1089,9 @@ to avoid stopping the GUI.</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="QDateEdit" src="_images/ringqt_shot18.jpg" />
-</div>
-<div class="section" id="using-qdial">
-<span id="index-20"></span><h2>Using QDial<a class="headerlink" href="#using-qdial" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-qdial">
+<span id="index-20"></span><h2>Using QDial<a class="headerlink" href="#using-qdial" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn about using the QDial class</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -1242,9 +1165,9 @@ to avoid stopping the GUI.</p>
 </pre></div>
 </div>
 <img alt="QDial - Second Example" src="_images/usingqdial.png" />
-</div>
-<div class="section" id="using-qwebview">
-<span id="index-21"></span><h2>Using QWebView<a class="headerlink" href="#using-qwebview" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-qwebview">
+<span id="index-21"></span><h2>Using QWebView<a class="headerlink" href="#using-qwebview" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn about using the QWebView class</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -1264,9 +1187,9 @@ to avoid stopping the GUI.</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="QWebView" src="_images/ringqt_shot20.jpg" />
-</div>
-<div class="section" id="using-qcheckbox">
-<span id="index-22"></span><h2>Using QCheckBox<a class="headerlink" href="#using-qcheckbox" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-qcheckbox">
+<span id="index-22"></span><h2>Using QCheckBox<a class="headerlink" href="#using-qcheckbox" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn about using the QCheckBox class</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -1315,9 +1238,9 @@ to avoid stopping the GUI.</p>
     <span class="k">ok</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-qradiobutton-and-qbuttongroup">
-<span id="index-23"></span><h2>Using QRadioButton and QButtonGroup<a class="headerlink" href="#using-qradiobutton-and-qbuttongroup" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-qradiobutton-and-qbuttongroup">
+<span id="index-23"></span><h2>Using QRadioButton and QButtonGroup<a class="headerlink" href="#using-qradiobutton-and-qbuttongroup" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn about using the QRadioButton and QButtonGroup classes</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -1364,9 +1287,9 @@ to avoid stopping the GUI.</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="QRadioButton and QButtonGroup classes" src="_images/ringqt_shot22.jpg" />
-</div>
-<div class="section" id="adding-hyperlink-to-qlabel">
-<span id="index-24"></span><h2>Adding Hyperlink to QLabel<a class="headerlink" href="#adding-hyperlink-to-qlabel" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="adding-hyperlink-to-qlabel">
+<span id="index-24"></span><h2>Adding Hyperlink to QLabel<a class="headerlink" href="#adding-hyperlink-to-qlabel" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn about creating Hyperlink using the QLabel class</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -1386,9 +1309,9 @@ to avoid stopping the GUI.</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="Hyperlink" src="_images/ringqt_shot23.jpg" />
-</div>
-<div class="section" id="qvideowidget-and-qmediaplayer">
-<span id="index-25"></span><h2>QVideoWidget and QMediaPlayer<a class="headerlink" href="#qvideowidget-and-qmediaplayer" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="qvideowidget-and-qmediaplayer">
+<span id="index-25"></span><h2>QVideoWidget and QMediaPlayer<a class="headerlink" href="#qvideowidget-and-qmediaplayer" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn about using the QVideoWidget and QMediaPlayer classes to play
 a group of movies from different positions at the same time</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
@@ -1463,9 +1386,9 @@ a group of movies from different positions at the same time</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="QVideoWidget" src="_images/ringqt_shot24.jpg" />
-</div>
-<div class="section" id="using-qframe">
-<span id="index-26"></span><h2>Using QFrame<a class="headerlink" href="#using-qframe" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-qframe">
+<span id="index-26"></span><h2>Using QFrame<a class="headerlink" href="#using-qframe" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn about using the QFrame class</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -1486,9 +1409,9 @@ a group of movies from different positions at the same time</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="QFrame" src="_images/ringqt_shot25.jpg" />
-</div>
-<div class="section" id="display-image-using-qlabel">
-<span id="index-27"></span><h2>Display Image using QLabel<a class="headerlink" href="#display-image-using-qlabel" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="display-image-using-qlabel">
+<span id="index-27"></span><h2>Display Image using QLabel<a class="headerlink" href="#display-image-using-qlabel" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn about displaying an image using the QLabel widget</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -1508,9 +1431,9 @@ a group of movies from different positions at the same time</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="Display Image" src="_images/ringqt_shot26.jpg" />
-</div>
-<div class="section" id="menubar-and-stylesheet-example">
-<span id="index-28"></span><h2>Menubar and StyleSheet Example<a class="headerlink" href="#menubar-and-stylesheet-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="menubar-and-stylesheet-example">
+<span id="index-28"></span><h2>Menubar and StyleSheet Example<a class="headerlink" href="#menubar-and-stylesheet-example" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn about creating menubar and setting the window stylesheet</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -1570,9 +1493,9 @@ a group of movies from different positions at the same time</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="Menubar" src="_images/ringqt_shot27.jpg" />
-</div>
-<div class="section" id="qlineedit-events-and-qmessagebox">
-<span id="index-29"></span><h2>QLineEdit Events and QMessageBox<a class="headerlink" href="#qlineedit-events-and-qmessagebox" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="qlineedit-events-and-qmessagebox">
+<span id="index-29"></span><h2>QLineEdit Events and QMessageBox<a class="headerlink" href="#qlineedit-events-and-qmessagebox" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn about using QLineEdit Events and displaying a Messagebox</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -1635,9 +1558,9 @@ a group of movies from different positions at the same time</p>
 <p>The application during the runtime</p>
 <img alt="qLineEdit events and qMessagebox" src="_images/ringqt_shot28.jpg" />
 <img alt="qLineEdit events and qMessagebox" src="_images/ringqt_shot29.jpg" />
-</div>
-<div class="section" id="other-widgets-events">
-<span id="index-30"></span><h2>Other Widgets Events<a class="headerlink" href="#other-widgets-events" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="other-widgets-events">
+<span id="index-30"></span><h2>Other Widgets Events<a class="headerlink" href="#other-widgets-events" title="Permalink to this heading"></a></h2>
 <p>Each Qt signal can be used in RingQt, just add Set before the signal name and add event after
 the signal name to get the method that can be used to determine the event code.</p>
 <p>For example the QProgressBar class contains a signal named valueChanged()
@@ -1705,9 +1628,9 @@ To use it just use the function setValueChangedEvent()</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="qProgressBar valueChanged event" src="_images/ringqt_shot31.jpg" />
-</div>
-<div class="section" id="using-the-qtimer-class">
-<span id="index-31"></span><h2>Using the QTimer Class<a class="headerlink" href="#using-the-qtimer-class" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-the-qtimer-class">
+<span id="index-31"></span><h2>Using the QTimer Class<a class="headerlink" href="#using-the-qtimer-class" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn about using the QTimer class</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -1738,9 +1661,9 @@ To use it just use the function setValueChangedEvent()</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="QTimer Class" src="_images/ringqt_shot32.jpg" />
-</div>
-<div class="section" id="using-qprogressbar-and-timer">
-<span id="index-32"></span><h2>Using QProgressBar and Timer<a class="headerlink" href="#using-qprogressbar-and-timer" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-qprogressbar-and-timer">
+<span id="index-32"></span><h2>Using QProgressBar and Timer<a class="headerlink" href="#using-qprogressbar-and-timer" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn about using the “animated” QProgressBar class and Timer</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="sd">###------------------------------------</span>
 <span class="sd">### ProgressBar and Timer Example</span>
@@ -1792,9 +1715,9 @@ To use it just use the function setValueChangedEvent()</p>
 </pre></div>
 </div>
 <img alt="QProgressBar" src="_images/ringqt_shot15-B.jpg" />
-</div>
-<div class="section" id="display-scaled-image-using-qlabel">
-<span id="index-33"></span><h2>Display Scaled Image using QLabel<a class="headerlink" href="#display-scaled-image-using-qlabel" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="display-scaled-image-using-qlabel">
+<span id="index-33"></span><h2>Display Scaled Image using QLabel<a class="headerlink" href="#display-scaled-image-using-qlabel" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn about displaying and scaling an image so that it looks “animated” using the QLabel widget</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -1873,9 +1796,9 @@ To use it just use the function setValueChangedEvent()</p>
         <span class="n">imageStock</span><span class="p">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="n">PosLeft</span><span class="p">,</span><span class="n">PosTop</span><span class="p">,</span><span class="n">imageW</span><span class="p">,</span><span class="n">imageH</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-the-qfiledialog-class">
-<span id="index-34"></span><h2>Using the QFileDialog Class<a class="headerlink" href="#using-the-qfiledialog-class" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-the-qfiledialog-class">
+<span id="index-34"></span><h2>Using the QFileDialog Class<a class="headerlink" href="#using-the-qfiledialog-class" title="Permalink to this heading"></a></h2>
 <p>Example</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -1902,9 +1825,9 @@ To use it just use the function setValueChangedEvent()</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="QFileDialog Class" src="_images/ringqt_shot33.jpg" />
-</div>
-<div class="section" id="drawing-using-qpainter">
-<span id="index-35"></span><h2>Drawing using QPainter<a class="headerlink" href="#drawing-using-qpainter" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="drawing-using-qpainter">
+<span id="index-35"></span><h2>Drawing using QPainter<a class="headerlink" href="#drawing-using-qpainter" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn about drawing using the QPainter class</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 <span class="k">New</span> <span class="n">qapp</span> <span class="p">{</span>
@@ -1947,9 +1870,9 @@ To use it just use the function setValueChangedEvent()</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="QPainter Class" src="_images/ringqt_shot34.jpg" />
-</div>
-<div class="section" id="printing-using-qprinter">
-<span id="index-36"></span><h2>Printing using QPrinter<a class="headerlink" href="#printing-using-qprinter" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="printing-using-qprinter">
+<span id="index-36"></span><h2>Printing using QPrinter<a class="headerlink" href="#printing-using-qprinter" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn how to print to PDF file using QPrinter</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 <span class="k">new</span> <span class="n">qApp</span> <span class="p">{</span>
@@ -1995,9 +1918,9 @@ To use it just use the function setValueChangedEvent()</p>
         <span class="n">system</span> <span class="p">(</span><span class="s">&quot;test.pdf&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-qprintpreviewdialog">
-<span id="index-37"></span><h2>Using QPrintPreviewDialog<a class="headerlink" href="#using-qprintpreviewdialog" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-qprintpreviewdialog">
+<span id="index-37"></span><h2>Using QPrintPreviewDialog<a class="headerlink" href="#using-qprintpreviewdialog" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn how to use the QPrintPreviewDialog class.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
@@ -2040,9 +1963,9 @@ To use it just use the function setValueChangedEvent()</p>
 </div>
 <p>Screen Shot:</p>
 <img alt="Print Preview Dialog" src="_images/printpreviewdialog.png" />
-</div>
-<div class="section" id="creating-more-than-one-window">
-<span id="index-38"></span><h2>Creating More than one Window<a class="headerlink" href="#creating-more-than-one-window" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="creating-more-than-one-window">
+<span id="index-38"></span><h2>Creating More than one Window<a class="headerlink" href="#creating-more-than-one-window" title="Permalink to this heading"></a></h2>
 <p>The next example demonstrates how to create more than one window</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 <span class="n">app1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qapp</span> <span class="p">{</span>
@@ -2078,9 +2001,9 @@ To use it just use the function setValueChangedEvent()</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="More than one window" src="_images/ringqt_shot35.jpg" />
-</div>
-<div class="section" id="playing-sound">
-<span id="index-39"></span><h2>Playing Sound<a class="headerlink" href="#playing-sound" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="playing-sound">
+<span id="index-39"></span><h2>Playing Sound<a class="headerlink" href="#playing-sound" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 <span class="k">new</span> <span class="n">qapp</span> <span class="p">{</span>
@@ -2095,9 +2018,9 @@ To use it just use the function setValueChangedEvent()</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-the-qcolordialog-class">
-<span id="index-40"></span><h2>Using the QColorDialog Class<a class="headerlink" href="#using-the-qcolordialog-class" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-the-qcolordialog-class">
+<span id="index-40"></span><h2>Using the QColorDialog Class<a class="headerlink" href="#using-the-qcolordialog-class" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -2135,9 +2058,9 @@ To use it just use the function setValueChangedEvent()</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="QColorDialog Class" src="_images/ringqt_shot37.jpg" />
-</div>
-<div class="section" id="using-qlcdnumber-class">
-<span id="index-41"></span><h2>Using qLCDNumber Class<a class="headerlink" href="#using-qlcdnumber-class" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-qlcdnumber-class">
+<span id="index-41"></span><h2>Using qLCDNumber Class<a class="headerlink" href="#using-qlcdnumber-class" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn about using the qLCDNumber class</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -2171,9 +2094,9 @@ To use it just use the function setValueChangedEvent()</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="QLCDNumber Class" src="_images/ringqt_shot38.jpg" />
-</div>
-<div class="section" id="movable-label-example">
-<span id="index-42"></span><h2>Movable Label Example<a class="headerlink" href="#movable-label-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="movable-label-example">
+<span id="index-42"></span><h2>Movable Label Example<a class="headerlink" href="#movable-label-example" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
 <span class="k">new</span> <span class="n">qApp</span> <span class="p">{</span>
@@ -2217,9 +2140,9 @@ To use it just use the function setValueChangedEvent()</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="Movable label" src="_images/ringqt_shot39.jpg" />
-</div>
-<div class="section" id="qmessagebox-example">
-<span id="index-43"></span><h2>QMessagebox Example<a class="headerlink" href="#qmessagebox-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="qmessagebox-example">
+<span id="index-43"></span><h2>QMessagebox Example<a class="headerlink" href="#qmessagebox-example" title="Permalink to this heading"></a></h2>
 <p>In this section we will learn how to check the output of the Message box</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -2263,9 +2186,9 @@ To use it just use the function setValueChangedEvent()</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="QMessageBox output" src="_images/ringqt_shot40.jpg" />
-</div>
-<div class="section" id="using-qinputdialog-class">
-<span id="index-44"></span><h2>Using QInputDialog Class<a class="headerlink" href="#using-qinputdialog-class" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-qinputdialog-class">
+<span id="index-44"></span><h2>Using QInputDialog Class<a class="headerlink" href="#using-qinputdialog-class" title="Permalink to this heading"></a></h2>
 <p>In the next example we will learn about using the QInputDialog class</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -2304,9 +2227,9 @@ To use it just use the function setValueChangedEvent()</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="QInputDialog" src="_images/ringqt_shot41.jpg" />
-</div>
-<div class="section" id="dialog-functions">
-<span id="index-45"></span><h2>Dialog Functions<a class="headerlink" href="#dialog-functions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="dialog-functions">
+<span id="index-45"></span><h2>Dialog Functions<a class="headerlink" href="#dialog-functions" title="Permalink to this heading"></a></h2>
 <p>We have the next functions</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SetDialogIcon(cIconFile)
 MsgInfo(cTitle,cMessage)
@@ -2332,9 +2255,9 @@ InputBoxPass(cTitle,cMessage) --&gt; cValue
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="keypress-and-mouse-move-events">
-<span id="index-46"></span><h2>KeyPress and Mouse Move Events<a class="headerlink" href="#keypress-and-mouse-move-events" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="keypress-and-mouse-move-events">
+<span id="index-46"></span><h2>KeyPress and Mouse Move Events<a class="headerlink" href="#keypress-and-mouse-move-events" title="Permalink to this heading"></a></h2>
 <p>In this example we will learn how to use the Events Filter to know about KeyPress and Mouse Move
 Events</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
@@ -2379,9 +2302,9 @@ Events</p>
 </div>
 <p>The application during the runtime</p>
 <img alt="KeyPress and Mouse Move Events" src="_images/ringqt_shot42.jpg" />
-</div>
-<div class="section" id="moving-objects-using-the-mouse">
-<span id="index-47"></span><h2>Moving Objects using the Mouse<a class="headerlink" href="#moving-objects-using-the-mouse" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="moving-objects-using-the-mouse">
+<span id="index-47"></span><h2>Moving Objects using the Mouse<a class="headerlink" href="#moving-objects-using-the-mouse" title="Permalink to this heading"></a></h2>
 <p>In the next example we will learn how to program movable objects where the user can move a label</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;guilib.ring&quot;
 
@@ -2453,9 +2376,9 @@ Func pMove
 <img alt="Moving object using the mouse" src="_images/ringqt_shot43.jpg" />
 <img alt="Moving object using the mouse" src="_images/ringqt_shot44.jpg" />
 <img alt="Moving object using the mouse" src="_images/ringqt_shot45.jpg" />
-</div>
-<div class="section" id="inheritance-from-gui-classes">
-<span id="index-48"></span><h2>Inheritance from GUI Classes<a class="headerlink" href="#inheritance-from-gui-classes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="inheritance-from-gui-classes">
+<span id="index-48"></span><h2>Inheritance from GUI Classes<a class="headerlink" href="#inheritance-from-gui-classes" title="Permalink to this heading"></a></h2>
 <p>Example :</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -2475,9 +2398,9 @@ Func pMove
 </div>
 <p>The application during the runtime</p>
 <img alt="Inheritance from GUI Classes" src="_images/ringqt_shot46.jpg" />
-</div>
-<div class="section" id="using-qdesktopwidget-class">
-<span id="index-49"></span><h2>Using QDesktopWidget Class<a class="headerlink" href="#using-qdesktopwidget-class" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="using-qdesktopwidget-class">
+<span id="index-49"></span><h2>Using QDesktopWidget Class<a class="headerlink" href="#using-qdesktopwidget-class" title="Permalink to this heading"></a></h2>
 <p>In the next example we will learn about using the QDesktopWidget class</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -2507,9 +2430,9 @@ Func pMove
 </div>
 <p>The application during the runtime</p>
 <img alt="Using QDesktopWidget Class" src="_images/ringqt_shot47.jpg" />
-</div>
-<div class="section" id="rotate-text">
-<span id="index-50"></span><h2>Rotate Text<a class="headerlink" href="#rotate-text" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="rotate-text">
+<span id="index-50"></span><h2>Rotate Text<a class="headerlink" href="#rotate-text" title="Permalink to this heading"></a></h2>
 <p>The next example rotate text using a Timer.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -2575,9 +2498,9 @@ Func pMove
 </div>
 <p>The application during the runtime</p>
 <img alt="Rotate Text Example" src="_images/shotrotatetext.png" />
-</div>
-<div class="section" id="change-focus">
-<span id="index-51"></span><h2>Change Focus<a class="headerlink" href="#change-focus" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="change-focus">
+<span id="index-51"></span><h2>Change Focus<a class="headerlink" href="#change-focus" title="Permalink to this heading"></a></h2>
 <p>The next example change the focus using the ENTER key.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -2620,9 +2543,9 @@ Func pMove
         <span class="k">ok</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="regular-expressions">
-<span id="index-52"></span><h2>Regular Expressions<a class="headerlink" href="#regular-expressions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="regular-expressions">
+<span id="index-52"></span><h2>Regular Expressions<a class="headerlink" href="#regular-expressions" title="Permalink to this heading"></a></h2>
 <p>The next example uses the Regular Expressions classes.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -2676,9 +2599,9 @@ Func pMove
 <span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="simple-client-and-server-example">
-<span id="index-53"></span><h2>Simple Client and Server Example<a class="headerlink" href="#simple-client-and-server-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="simple-client-and-server-example">
+<span id="index-53"></span><h2>Simple Client and Server Example<a class="headerlink" href="#simple-client-and-server-example" title="Permalink to this heading"></a></h2>
 <p>In this section we will learn about creating simple Client and Server Application</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -2782,9 +2705,9 @@ Func pMove
 </div>
 <p>The application during the runtime</p>
 <img alt="Client and Server Example" src="_images/ringqt_shot36.jpg" />
-</div>
-<div class="section" id="dynamic-objects">
-<span id="index-54"></span><h2>Dynamic Objects<a class="headerlink" href="#dynamic-objects" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="dynamic-objects">
+<span id="index-54"></span><h2>Dynamic Objects<a class="headerlink" href="#dynamic-objects" title="Permalink to this heading"></a></h2>
 <p>We may create objects in the runtime and add them to windows.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
@@ -2842,9 +2765,9 @@ Func pMove
         <span class="n">nIndex</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="weight-history-application">
-<span id="index-55"></span><h2>Weight History Application<a class="headerlink" href="#weight-history-application" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="weight-history-application">
+<span id="index-55"></span><h2>Weight History Application<a class="headerlink" href="#weight-history-application" title="Permalink to this heading"></a></h2>
 <p>The next sample help in recording (Date, Time and Weight).</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -3024,9 +2947,9 @@ Func pMove
 </div>
 <p>The next screen shot for the application during the runtime</p>
 <img alt="Weight History Application" src="_images/weighthistory_app.png" />
-</div>
-<div class="section" id="notepad-application">
-<span id="index-56"></span><h2>Notepad Application<a class="headerlink" href="#notepad-application" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="notepad-application">
+<span id="index-56"></span><h2>Notepad Application<a class="headerlink" href="#notepad-application" title="Permalink to this heading"></a></h2>
 <p>In the next example we will see simple Notepad developed using the RingQt</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -3816,9 +3739,9 @@ Func pMove
 <p>the functions pDebug(), pRun() and pRunNoConsole() in the previous sample are not portable!
 They are written in this sample for MS-Windows and we can update them for other operating systems.</p>
 </div>
-<span class="target" id="index-57"></span></div>
-<div class="section" id="the-cards-game">
-<span id="index-58"></span><h2>The Cards Game<a class="headerlink" href="#the-cards-game" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="index-57"></span></section>
+<section id="the-cards-game">
+<span id="index-58"></span><h2>The Cards Game<a class="headerlink" href="#the-cards-game" title="Permalink to this heading"></a></h2>
 <p>In the next example we will see a simple Cards game developed using RingQt</p>
 <p>Each player get 5 cards, the cards are unknown to any one. each time one player click on one card
 to see it. if the card is identical to another card the play get point for each card.
@@ -4083,15 +4006,11 @@ is not increased because he opened this card while no other cards are visible!</
 <p class="admonition-title">Note</p>
 <p>using Qt we can run the same application on other Mobile systems</p>
 </div>
-</div>
-<div class="section" id="classes-and-their-methods-to-use-the-default-events">
-<span id="index-59"></span><h2>Classes and their Methods to use the default events<a class="headerlink" href="#classes-and-their-methods-to-use-the-default-events" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="classes-and-their-methods-to-use-the-default-events">
+<span id="index-59"></span><h2>Classes and their Methods to use the default events<a class="headerlink" href="#classes-and-their-methods-to-use-the-default-events" title="Permalink to this heading"></a></h2>
 <p>The next table present the class name and the methods that we have to use the default events.</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 34%" />
-<col style="width: 66%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Class Name</p></th>
 <th class="head"><p>Methods to use the default Events</p></th>
@@ -4511,16 +4430,12 @@ is not increased because he opened this card while no other cards are visible!</
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="methods-to-use-events-with-events-filter">
-<span id="index-60"></span><h2>Methods to use Events with Events Filter<a class="headerlink" href="#methods-to-use-events-with-events-filter" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="methods-to-use-events-with-events-filter">
+<span id="index-60"></span><h2>Methods to use Events with Events Filter<a class="headerlink" href="#methods-to-use-events-with-events-filter" title="Permalink to this heading"></a></h2>
 <p>RingQt define a new class called QAllEvents that help you in using Events Filter</p>
 <p>The next table presents the methods that we have</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 59%" />
-<col style="width: 41%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Methods to get parameters</p></th>
 <th class="head"><p>Class Name</p></th>
@@ -4552,10 +4467,6 @@ is not increased because he opened this card while no other cards are visible!</
 </table>
 <p>The next table presents the methods that we have to use events.</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 70%" />
-<col style="width: 30%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Method Name</p></th>
 <th class="head"><p>Class Name</p></th>
@@ -4645,9 +4556,9 @@ is not increased because he opened this card while no other cards are visible!</
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="the-difference-between-qt-and-ringqt">
-<span id="index-61"></span><h2>The Difference between Qt and RingQt<a class="headerlink" href="#the-difference-between-qt-and-ringqt" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="the-difference-between-qt-and-ringqt">
+<span id="index-61"></span><h2>The Difference between Qt and RingQt<a class="headerlink" href="#the-difference-between-qt-and-ringqt" title="Permalink to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>RingQt use simple methods to set the code that will be executed for events.</p></li>
 </ol>
@@ -4660,11 +4571,6 @@ is not increased because he opened this card while no other cards are visible!</
 </ol>
 <p>The next table present these little changes</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 43%" />
-<col style="width: 31%" />
-<col style="width: 26%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Class Name</p></th>
 <th class="head"><p>Qt Method Name</p></th>
@@ -4738,14 +4644,14 @@ is not increased because he opened this card while no other cards are visible!</
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="ringqt-classes-and-their-qt-documentation">
-<span id="index-62"></span><h2>RingQt Classes and their Qt Documentation<a class="headerlink" href="#ringqt-classes-and-their-qt-documentation" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ringqt-classes-and-their-qt-documentation">
+<span id="index-62"></span><h2>RingQt Classes and their Qt Documentation<a class="headerlink" href="#ringqt-classes-and-their-qt-documentation" title="Permalink to this heading"></a></h2>
 <p>Qt Documentation : <a class="reference external" href="http://doc.qt.io/qt-5/classes.html">http://doc.qt.io/qt-5/classes.html</a></p>
 <p>See the “RingQt Classes and Methods Reference” chapter for supported classes and methods.</p>
-</div>
-<div class="section" id="new-classes-names-index-start-from-1">
-<span id="index-63"></span><h2>New Classes names - Index Start from 1<a class="headerlink" href="#new-classes-names-index-start-from-1" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="new-classes-names-index-start-from-1">
+<span id="index-63"></span><h2>New Classes names - Index Start from 1<a class="headerlink" href="#new-classes-names-index-start-from-1" title="Permalink to this heading"></a></h2>
 <p>We added new classes to RingQt - another version of classes where the class names doesn’t start with the “q” letter
 Also updated methods so the index start from 1 when we deal with the GUI controls like</p>
 <ul class="simple">
@@ -4768,9 +4674,9 @@ Also updated methods so the index start from 1 when we deal with the GUI control
 <li><p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/samples/UsingFormDesigner/indexstart/indexstartView.ring">https://github.com/ring-lang/ring/blob/master/samples/UsingFormDesigner/indexstart/indexstartView.ring</a></p></li>
 <li><p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/samples/UsingFormDesigner/indexstart/indexstartController.ring">https://github.com/ring-lang/ring/blob/master/samples/UsingFormDesigner/indexstart/indexstartController.ring</a></p></li>
 </ol>
-</div>
-<div class="section" id="tablewidget-addlist-method">
-<span id="index-64"></span><h2>TableWidget - AddList() Method<a class="headerlink" href="#tablewidget-addlist-method" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="tablewidget-addlist-method">
+<span id="index-64"></span><h2>TableWidget - AddList() Method<a class="headerlink" href="#tablewidget-addlist-method" title="Permalink to this heading"></a></h2>
 <p>Using this method we can add Ring List to the TableWidget</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -4804,9 +4710,9 @@ Also updated methods so the index start from 1 when we deal with the GUI control
 </div>
 <p>Screen Shot:</p>
 <img alt="addlisttotablewidget" src="_images/addlisttotablewidget.png" />
-</div>
-<div class="section" id="creating-reports-using-the-weblib-and-the-guilib">
-<span id="index-65"></span><h2>Creating Reports using the WebLib and the GUILib<a class="headerlink" href="#creating-reports-using-the-weblib-and-the-guilib" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="creating-reports-using-the-weblib-and-the-guilib">
+<span id="index-65"></span><h2>Creating Reports using the WebLib and the GUILib<a class="headerlink" href="#creating-reports-using-the-weblib-and-the-guilib" title="Permalink to this heading"></a></h2>
 <p>The WebLib comes with a class called HtmlPage</p>
 <p>Using this class we can create reports quickly using WebLib &amp; GUILib together</p>
 <p>Example:</p>
@@ -4905,63 +4811,38 @@ Also updated methods so the index start from 1 when we deal with the GUI control
 </div>
 <p>Screen Shot:</p>
 <img alt="Customers Report" src="_images/ring15reportshot.png" />
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="formdesigner.html" class="btn btn-neutral float-right" title="Using the Form Designer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="stdlibclasses.html" class="btn btn-neutral float-left" title="Stdlib Classes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="stdlibclasses.html" class="btn btn-neutral float-left" title="Stdlib Classes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="formdesigner.html" class="btn btn-neutral float-right" title="Using the Form Designer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2016-2023, Ring Team
-
-    </p>
+    <p>&#169; Copyright 2016-2023, Ring Team.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(false);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

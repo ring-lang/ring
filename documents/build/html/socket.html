@@ -1,88 +1,49 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RingSockets Extension &mdash; Ring 1.19 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Threads Extension" href="threads.html" />
     <link rel="prev" title="RingLibCurl Functions Reference" href="ringlibcurlfuncsdoc.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html">
           
-
-          
+          <a href="index.html">
             
-            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
-          
+              <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
@@ -216,72 +177,34 @@
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Ring</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>RingSockets Extension</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">RingSockets Extension</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="ringsockets-extension">
-<span id="index-0"></span><h1>RingSockets Extension<a class="headerlink" href="#ringsockets-extension" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="ringsockets-extension">
+<span id="index-0"></span><h1>RingSockets Extension<a class="headerlink" href="#ringsockets-extension" title="Permalink to this heading"></a></h1>
 <p>In this chapter we will learn about using the RingSockets extension.</p>
-<div class="section" id="tcp-server">
-<span id="index-1"></span><h2>TCP Server<a class="headerlink" href="#tcp-server" title="Permalink to this headline">¶</a></h2>
+<section id="tcp-server">
+<span id="index-1"></span><h2>TCP Server<a class="headerlink" href="#tcp-server" title="Permalink to this heading"></a></h2>
 <p>Example (TCP Server Code):</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;sockets.ring&quot;</span>
 
@@ -298,9 +221,9 @@
 <span class="o">?</span> <span class="s">&quot;socket connection closed&quot;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="tcp-client">
-<span id="index-2"></span><h2>TCP Client<a class="headerlink" href="#tcp-client" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="tcp-client">
+<span id="index-2"></span><h2>TCP Client<a class="headerlink" href="#tcp-client" title="Permalink to this heading"></a></h2>
 <p>Example (TCP Client Code):</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;sockets.ring&quot;</span>
 
@@ -315,9 +238,9 @@
 <span class="o">?</span> <span class="s">&quot;socket connection closed&quot;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="functions">
-<span id="index-3"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="functions">
+<span id="index-3"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h2>
 <p>The next functions are provided by this extension</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>socket(nAddressFamily, nConnectionType) -&gt; SocketHandle
 bind(pSocketHandle, cHost , nPort)
@@ -356,9 +279,9 @@ socketsCleanup()
 <span class="k">func</span> <span class="n">line</span> <span class="o">?</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="constants">
-<span id="index-4"></span><h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="constants">
+<span id="index-4"></span><h2>Constants<a class="headerlink" href="#constants" title="Permalink to this heading"></a></h2>
 <p>Address Family:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>AF_INET       #  mean use IPV4
 AF_INET6      #  ........ IPV6
@@ -369,63 +292,38 @@ AF_INET6      #  ........ IPV6
 SOCK_DGRAM    #  ........ UDP ........
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="threads.html" class="btn btn-neutral float-right" title="Threads Extension" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="ringlibcurlfuncsdoc.html" class="btn btn-neutral float-left" title="RingLibCurl Functions Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ringlibcurlfuncsdoc.html" class="btn btn-neutral float-left" title="RingLibCurl Functions Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="threads.html" class="btn btn-neutral float-right" title="Threads Extension" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2016-2023, Ring Team
-
-    </p>
+    <p>&#169; Copyright 2016-2023, Ring Team.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(false);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

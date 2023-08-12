@@ -1,88 +1,49 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Language Specification &mdash; Ring 1.19 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Resources" href="resources.html" />
     <link rel="prev" title="How to contribute?" href="contribute.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html">
           
-
-          
+          <a href="index.html">
             
-            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
-          
+              <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
@@ -219,69 +180,31 @@
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Ring</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Language Specification</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Language Specification</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="language-specification">
-<span id="index-0"></span><h1>Language Specification<a class="headerlink" href="#language-specification" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="language-specification">
+<span id="index-0"></span><h1>Language Specification<a class="headerlink" href="#language-specification" title="Permalink to this heading"></a></h1>
 <p>In this chapter we will learn about</p>
 <ul class="simple">
 <li><p>Language keywords</p></li>
@@ -292,8 +215,8 @@
 <li><p>Language Grammar</p></li>
 <li><p>Virtual Machine (VM) Instructions</p></li>
 </ul>
-<div class="section" id="language-keywords">
-<span id="index-1"></span><h2>Language Keywords<a class="headerlink" href="#language-keywords" title="Permalink to this headline">¶</a></h2>
+<section id="language-keywords">
+<span id="index-1"></span><h2>Language Keywords<a class="headerlink" href="#language-keywords" title="Permalink to this heading"></a></h2>
 <p>Keywords Count : 58</p>
 <ul class="simple">
 <li><p>again</p></li>
@@ -355,9 +278,9 @@
 <li><p>break</p></li>
 <li><p>continue</p></li>
 </ul>
-</div>
-<div class="section" id="language-functions">
-<span id="index-2"></span><h2>Language Functions<a class="headerlink" href="#language-functions" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="language-functions">
+<span id="index-2"></span><h2>Language Functions<a class="headerlink" href="#language-functions" title="Permalink to this heading"></a></h2>
 <p>Functions Count : 251</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">acos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">principal</span> <span class="n">value</span> <span class="n">of</span> <span class="n">the</span> <span class="n">arc</span> <span class="n">cosine</span> <span class="n">of</span> <span class="n">x</span><span class="p">,</span> <span class="n">expressed</span> <span class="k">in</span> <span class="n">radians</span>
 <span class="n">add</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">Item</span><span class="p">)</span>
@@ -628,9 +551,9 @@
 <span class="n">write</span><span class="p">(</span><span class="n">cFileName</span><span class="p">,</span><span class="n">cString</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="compiler-errors">
-<span id="index-3"></span><h2>Compiler Errors<a class="headerlink" href="#compiler-errors" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="compiler-errors">
+<span id="index-3"></span><h2>Compiler Errors<a class="headerlink" href="#compiler-errors" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Error (C1)  : Error in parameters list, expected identifier</p></li>
 <li><p>Error (C2)  : Error in class name</p></li>
@@ -654,7 +577,7 @@
 <li><p>Error (C20) : Error in package name</p></li>
 <li><p>Error (C21) : Unclosed control structure, ‘again’ is missing</p></li>
 <li><p>Error (C22) : Function redefinition, function is already defined!</p></li>
-<li><p>Error (C23) : Using ‘(‘ after number!</p></li>
+<li><p>Error (C23) : Using ‘(’ after number!</p></li>
 <li><p>Error (C24) : The parent class name is identical to the subclass name</p></li>
 <li><p>Error (C25) : Trying to access the self reference after the object name</p></li>
 <li><p>Error (C26) : Class redefinition, class is already defined!</p></li>
@@ -670,9 +593,9 @@
 <li><p>Warning (W6) : Using the EXIT command outside loop!”</p></li>
 <li><p>Warning (W7) : Using the LOOP command outside loop!”</p></li>
 </ul>
-</div>
-<div class="section" id="runtime-errors">
-<span id="index-4"></span><h2>Runtime Errors<a class="headerlink" href="#runtime-errors" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="runtime-errors">
+<span id="index-4"></span><h2>Runtime Errors<a class="headerlink" href="#runtime-errors" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Error (R1)  : Can’t divide by zero</p></li>
 <li><p>Error (R2)  : Array Access (Index out of range)</p></li>
@@ -720,9 +643,9 @@
 <li><p>Error (R44) : Maximum nested Eval()</p></li>
 <li><p>Error (R45) : Variable is not a list</p></li>
 </ul>
-</div>
-<div class="section" id="environment-errors">
-<span id="index-5"></span><h2>Environment Errors<a class="headerlink" href="#environment-errors" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="environment-errors">
+<span id="index-5"></span><h2>Environment Errors<a class="headerlink" href="#environment-errors" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Error (E1) : Caught SegFault</p></li>
 <li><p>Error (E2) : Out of Memory</p></li>
@@ -733,13 +656,13 @@
 <li><p>Error (E7) : Internal error in using sscanf() function!</p></li>
 <li><p>Error (E8) : Internal error in using fscanf() function!</p></li>
 </ul>
-</div>
-<div class="section" id="language-grammar">
-<span id="index-6"></span><h2>Language Grammar<a class="headerlink" href="#language-grammar" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="language-grammar">
+<span id="index-6"></span><h2>Language Grammar<a class="headerlink" href="#language-grammar" title="Permalink to this heading"></a></h2>
 <p>Program —&gt; {statement}</p>
-<p>Statement —&gt; ‘package’ &lt;Identifier&gt; { ‘.’ &lt;Identifier&gt; } [‘{‘ {statement} ‘}’] [‘end’|’endpackage’]</p>
-<p>Statement —&gt; ‘class’ &lt;Identifier&gt; [ ‘from’|’:’|’&lt;’ &lt;Identifier&gt; ] [‘{‘ {statement} ‘}’][‘end’|’endclass’]</p>
-<p>Statement —&gt; ‘func’|’def’|’function’ &lt;Identifier&gt; [ParaList] [‘{‘ {statement} ‘}’][‘end’|’endfunc’|’endfunction’]</p>
+<p>Statement —&gt; ‘package’ &lt;Identifier&gt; { ‘.’ &lt;Identifier&gt; } [‘{’ {statement} ‘}’] [‘end’|’endpackage’]</p>
+<p>Statement —&gt; ‘class’ &lt;Identifier&gt; [ ‘from’|’:’|’&lt;’ &lt;Identifier&gt; ] [‘{’ {statement} ‘}’][‘end’|’endclass’]</p>
+<p>Statement —&gt; ‘func’|’def’|’function’ &lt;Identifier&gt; [ParaList] [‘{’ {statement} ‘}’][‘end’|’endfunc’|’endfunction’]</p>
 <p>Statement —&gt; ‘import’ &lt;Identifier&gt; { ‘.’ &lt;Identifier&gt; }</p>
 <p>Statement —&gt; ‘private’</p>
 <p>Statement —&gt; ‘load’ [‘package’|’again’] &lt;Literal&gt;</p>
@@ -748,13 +671,13 @@
 <p>Statement —&gt; ‘changeringoperator’ &lt;OldOperator&gt; &lt;NewOperator&gt;</p>
 <p>Statement —&gt; ‘see’|’put’ &lt;Expr&gt;</p>
 <p>Statement —&gt; ‘give’|’get’ &lt;Identifier&gt;</p>
-<p>Statement —&gt; ‘if’ &lt;Expr&gt; [‘{‘] {statement} [ {‘but’|’elseif’ &lt;Expr&gt; {Statement} } ] [‘else’ {Statement} ] ‘ok’|’end’|’}’|’endif’</p>
-<p>Statement —&gt; ‘Switch’ &lt;Expr&gt; [‘{‘] { ‘on’|’case’ &lt;Expr&gt; {statement} } [‘other’ {Statement} ]  ‘off’|’end’|’}’|’endswitch’</p>
-<p>Statement —&gt; ‘for’ &lt;Identifier&gt; ‘=’ &lt;Expr&gt; ‘to’ &lt;Expr&gt; [ ‘step’ &lt;Expr&gt; ] [‘{‘] {Statement} ‘next’|’end’|’}’|’endfor’</p>
-<p>Statement —&gt; ‘for’ &lt;Identifier&gt; ‘in’ &lt;Expr&gt;  [ ‘step’ &lt;Expr&gt; ] [‘{‘] {statement} ‘next’|’end’|’}’|’endfor’</p>
-<p>Statement —&gt; ‘while’ &lt;Expr&gt; [‘{‘] {statement} ‘end’|’}’|’endwhile’</p>
+<p>Statement —&gt; ‘if’ &lt;Expr&gt; [‘{’] {statement} [ {‘but’|’elseif’ &lt;Expr&gt; {Statement} } ] [‘else’ {Statement} ] ‘ok’|’end’|’}’|’endif’</p>
+<p>Statement —&gt; ‘Switch’ &lt;Expr&gt; [‘{’] { ‘on’|’case’ &lt;Expr&gt; {statement} } [‘other’ {Statement} ]  ‘off’|’end’|’}’|’endswitch’</p>
+<p>Statement —&gt; ‘for’ &lt;Identifier&gt; ‘=’ &lt;Expr&gt; ‘to’ &lt;Expr&gt; [ ‘step’ &lt;Expr&gt; ] [‘{’] {Statement} ‘next’|’end’|’}’|’endfor’</p>
+<p>Statement —&gt; ‘for’ &lt;Identifier&gt; ‘in’ &lt;Expr&gt;  [ ‘step’ &lt;Expr&gt; ] [‘{’] {statement} ‘next’|’end’|’}’|’endfor’</p>
+<p>Statement —&gt; ‘while’ &lt;Expr&gt; [‘{’] {statement} ‘end’|’}’|’endwhile’</p>
 <p>Statement —&gt; ‘do’ {statement} ‘again’ &lt;Expr&gt;</p>
-<p>Statement —&gt; ‘try’ {statement} [‘{‘] ‘catch’ {statement} ‘done’|’end’|’}’|’endtry’</p>
+<p>Statement —&gt; ‘try’ {statement} [‘{’] ‘catch’ {statement} ‘done’|’end’|’}’|’endtry’</p>
 <p>Statement —&gt; ‘return’ &lt;Expr&gt;</p>
 <p>Statement —&gt; ‘bye’</p>
 <p>Statement —&gt; ‘exit’|’break’</p>
@@ -762,7 +685,7 @@
 <p>Statement —&gt; &lt;Expr&gt;</p>
 <p>Statement —&gt; epsilon</p>
 <p>ParaList —&gt; epsilon</p>
-<p>ParaList —&gt; [‘(‘] &lt;Identifier&gt; [{ ‘,’ &lt;Identifier&gt; }] [‘)’]</p>
+<p>ParaList —&gt; [‘(’] &lt;Identifier&gt; [{ ‘,’ &lt;Identifier&gt; }] [‘)’]</p>
 <p>Expr —&gt; &lt;LogicNot&gt; [{ ‘and’|’or’ &lt;LogicNot&gt; }]</p>
 <p>LogicNot –&gt; [‘not’] &lt;EqualOrNot&gt;</p>
 <p>EqualOrNot –&gt; [ ‘=’|’!=’ ] &lt;Compare&gt;</p>
@@ -770,28 +693,28 @@
 <p>BitOrXor —&gt; &lt;BitAnd&gt; [ { ‘|’ | ‘^’ &lt;BitAnd&gt; } ]</p>
 <p>BitAnd —&gt; &lt;BitShift&gt; [ { ‘&amp;’ &lt;BitShift&gt; } ]</p>
 <p>BitShift —&gt; &lt;Arithmetic&gt; [ { ‘&lt;&lt;’ | ‘&gt;&gt;’ &lt;Arithmetic&gt; } ]</p>
-<p>Arithmetic —&gt; &lt;Term&gt; [ { ‘+’ | ‘-‘  &lt;Term&gt;  } ]</p>
+<p>Arithmetic —&gt; &lt;Term&gt; [ { ‘+’ | ‘-’  &lt;Term&gt;  } ]</p>
 <p>Term —&gt; &lt;Range&gt; [ { ‘*’ | ‘/’ | ‘%’ | ‘**’ | ‘^^’ &lt;Range&gt; } ]</p>
 <p>Range —&gt; &lt;Factor&gt; [ ‘:’ &lt;Factor&gt; ]</p>
 <p>Factor —&gt; &lt;Identifier&gt; [ {Mixer} ] [ ‘=’ &lt;Expr&gt; ]</p>
 <p>Factor —&gt; &lt;Number&gt;</p>
 <p>Factor —&gt; &lt;Literal&gt;</p>
 <p>Factor —&gt; ‘:’ &lt;Identifier&gt;</p>
-<p>Factor —&gt; ‘-‘ &lt;Factor&gt;</p>
-<p>Factor —&gt; ‘(‘ &lt;Expr&gt; ‘)’</p>
+<p>Factor —&gt; ‘-’ &lt;Factor&gt;</p>
+<p>Factor —&gt; ‘(’ &lt;Expr&gt; ‘)’</p>
 <p>Factor —&gt; &lt;List&gt;</p>
 <p>Factor —&gt; ‘new’ [‘from’] &lt;Identifier&gt;</p>
 <p>Factor —&gt; &lt;AnonymousFunction&gt;</p>
-<p>Factor —&gt; ‘call’ &lt;identifier&gt; { ‘.’ &lt;Identifier&gt; } ‘(‘ &lt;Parameters&gt; ‘)’</p>
-<p>List —&gt; ‘[‘ [ &lt;Expr&gt; { ‘,’ &lt;Expr&gt; } ] ‘]’</p>
+<p>Factor —&gt; ‘call’ &lt;identifier&gt; { ‘.’ &lt;Identifier&gt; } ‘(’ &lt;Parameters&gt; ‘)’</p>
+<p>List —&gt; ‘[’ [ &lt;Expr&gt; { ‘,’ &lt;Expr&gt; } ] ‘]’</p>
 <p>Mixer —&gt; { ‘.’ &lt;Identifier&gt; }</p>
-<p>Mixer —&gt; ‘[‘ &lt;Expr&gt; ‘]’</p>
-<p>Mixer —&gt; ‘(‘ [ &lt;Expr&gt; [ { ‘,’ &lt;Expr&gt; }] ]  ‘)’</p>
-<p>Mixer —&gt; ‘{‘ {Statement} ‘}’</p>
-<p>AnonymousFunction —&gt; ‘func’|’def’|’function’ [&lt;ParaList&gt;] ‘{‘ {Statement} ‘}’</p>
-</div>
-<div class="section" id="virtual-machine-vm-instructions">
-<span id="index-7"></span><h2>Virtual Machine (VM) Instructions<a class="headerlink" href="#virtual-machine-vm-instructions" title="Permalink to this headline">¶</a></h2>
+<p>Mixer —&gt; ‘[’ &lt;Expr&gt; ‘]’</p>
+<p>Mixer —&gt; ‘(’ [ &lt;Expr&gt; [ { ‘,’ &lt;Expr&gt; }] ]  ‘)’</p>
+<p>Mixer —&gt; ‘{’ {Statement} ‘}’</p>
+<p>AnonymousFunction —&gt; ‘func’|’def’|’function’ [&lt;ParaList&gt;] ‘{’ {Statement} ‘}’</p>
+</section>
+<section id="virtual-machine-vm-instructions">
+<span id="index-7"></span><h2>Virtual Machine (VM) Instructions<a class="headerlink" href="#virtual-machine-vm-instructions" title="Permalink to this heading"></a></h2>
 <p>Definitions :-</p>
 <ul class="simple">
 <li><p>VM : Virtual Machine</p></li>
@@ -804,10 +727,6 @@
 </ul>
 <p>(Stack and Variables)</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 77%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Operation</p></th>
 <th class="head"><p>Description</p></th>
@@ -851,10 +770,6 @@
 </table>
 <p>(Jump)</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 77%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Operation</p></th>
 <th class="head"><p>Description</p></th>
@@ -883,10 +798,6 @@
 </table>
 <p>(Compare)</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 18%" />
-<col style="width: 82%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Operation</p></th>
 <th class="head"><p>Description</p></th>
@@ -915,10 +826,6 @@
 </table>
 <p>(Math)</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 77%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Operation</p></th>
 <th class="head"><p>Description</p></th>
@@ -956,10 +863,6 @@
 </table>
 <p>(Logic)</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 77%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Operation</p></th>
 <th class="head"><p>Description</p></th>
@@ -979,10 +882,6 @@
 </table>
 <p>(Lists)</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 77%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Operation</p></th>
 <th class="head"><p>Description</p></th>
@@ -1005,10 +904,6 @@
 </table>
 <p>(Functions)</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 77%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Operation</p></th>
 <th class="head"><p>Description</p></th>
@@ -1055,10 +950,6 @@
 </table>
 <p>(User Interface)</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 77%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Operation</p></th>
 <th class="head"><p>Description</p></th>
@@ -1075,10 +966,6 @@
 </table>
 <p>(End Program/Loop)</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 77%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Operation</p></th>
 <th class="head"><p>Description</p></th>
@@ -1104,10 +991,6 @@
 </table>
 <p>(For Better Performance)</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 24%" />
-<col style="width: 76%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Operation</p></th>
 <th class="head"><p>Description</p></th>
@@ -1148,10 +1031,6 @@
 </table>
 <p>(Try-Catch-Done)</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 77%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Operation</p></th>
 <th class="head"><p>Description</p></th>
@@ -1168,10 +1047,6 @@
 </table>
 <p>(Duplicate and Range)</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 77%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Operation</p></th>
 <th class="head"><p>Description</p></th>
@@ -1188,10 +1063,6 @@
 </table>
 <p>(OOP)</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 22%" />
-<col style="width: 78%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Operation</p></th>
 <th class="head"><p>Description</p></th>
@@ -1241,10 +1112,6 @@
 </table>
 <p>(Other)</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 77%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Operation</p></th>
 <th class="head"><p>Description</p></th>
@@ -1267,10 +1134,6 @@
 </table>
 <p>(Bitwise Operators)</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 77%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Operation</p></th>
 <th class="head"><p>Description</p></th>
@@ -1299,10 +1162,6 @@
 </table>
 <p>(For Step)</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 77%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Operation</p></th>
 <th class="head"><p>Description</p></th>
@@ -1322,10 +1181,6 @@
 </table>
 <p>(Custom Global Scope)</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 77%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Operation</p></th>
 <th class="head"><p>Description</p></th>
@@ -1343,63 +1198,38 @@
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="resources.html" class="btn btn-neutral float-right" title="Resources" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="contribute.html" class="btn btn-neutral float-left" title="How to contribute?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="contribute.html" class="btn btn-neutral float-left" title="How to contribute?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="resources.html" class="btn btn-neutral float-right" title="Resources" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2016-2023, Ring Team
-
-    </p>
+    <p>&#169; Copyright 2016-2023, Ring Team.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(false);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

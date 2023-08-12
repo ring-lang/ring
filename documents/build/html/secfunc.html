@@ -1,88 +1,49 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Security and Internet Functions &mdash; Ring 1.19 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Object Oriented Programming (OOP)" href="oop.html" />
     <link rel="prev" title="PostgreSQL Functions" href="postgresql.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html">
           
-
-          
+          <a href="index.html">
             
-            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
-          
+              <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
@@ -249,69 +210,31 @@
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Ring</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Security and Internet Functions</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Security and Internet Functions</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="security-and-internet-functions">
-<span id="index-0"></span><h1>Security and Internet Functions<a class="headerlink" href="#security-and-internet-functions" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="security-and-internet-functions">
+<span id="index-0"></span><h1>Security and Internet Functions<a class="headerlink" href="#security-and-internet-functions" title="Permalink to this heading"></a></h1>
 <p>This chapter contains the security and internet functions provided by the Ring programming language
 for Hashing, Encryption &amp; Decryption.</p>
 <p>Before using the next functions load the openssllib.ring library</p>
@@ -368,8 +291,8 @@ for Hashing, Encryption &amp; Decryption.</p>
 <li><p>Download()</p></li>
 <li><p>SendEmail()</p></li>
 </ul>
-<div class="section" id="md5-function">
-<span id="index-1"></span><h2>MD5() Function<a class="headerlink" href="#md5-function" title="Permalink to this headline">¶</a></h2>
+<section id="md5-function">
+<span id="index-1"></span><h2>MD5() Function<a class="headerlink" href="#md5-function" title="Permalink to this heading"></a></h2>
 <p>We can calculate the MD5 hash using the MD5() Function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MD5</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">MD5</span> <span class="n">hash</span> <span class="n">of</span> <span class="n">the</span> <span class="kt">string</span> <span class="n">cString</span>
@@ -385,9 +308,9 @@ for Hashing, Encryption &amp; Decryption.</p>
 md5(&#39;Hello&#39;) = 8b1a9953c4611296a827abf8c47804d7
 </pre></div>
 </div>
-</div>
-<div class="section" id="sha1-function">
-<span id="index-2"></span><h2>SHA1() Function<a class="headerlink" href="#sha1-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="sha1-function">
+<span id="index-2"></span><h2>SHA1() Function<a class="headerlink" href="#sha1-function" title="Permalink to this heading"></a></h2>
 <p>We can calculate the SHA1 hash using the SHA1() Function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SHA1</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">SHA1</span> <span class="n">hash</span> <span class="n">of</span> <span class="n">the</span> <span class="kt">string</span> <span class="n">cString</span>
@@ -403,9 +326,9 @@ md5(&#39;Hello&#39;) = 8b1a9953c4611296a827abf8c47804d7
 <span class="n">sha1</span><span class="p">(</span><span class="sc">&#39;apple&#39;</span><span class="p">)</span> <span class="p">:</span> <span class="n">d0be2dc421be4fcd0172e5afceea3970e2f3d940</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="sha256-function">
-<span id="index-3"></span><h2>SHA256() Function<a class="headerlink" href="#sha256-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="sha256-function">
+<span id="index-3"></span><h2>SHA256() Function<a class="headerlink" href="#sha256-function" title="Permalink to this heading"></a></h2>
 <p>We can calculate the SHA256 hash using the SHA256() Function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SHA256</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">SHA256</span> <span class="n">hash</span> <span class="n">of</span> <span class="n">the</span> <span class="kt">string</span> <span class="n">cString</span>
@@ -421,9 +344,9 @@ md5(&#39;Hello&#39;) = 8b1a9953c4611296a827abf8c47804d7
 sha256(&#39;apple&#39;) : 3a7bd3e2360a3d29eea436fcfb7e44c735d117c42d1c1835420b6b9942dd4f1b
 </pre></div>
 </div>
-</div>
-<div class="section" id="sha512-function">
-<span id="index-4"></span><h2>SHA512() Function<a class="headerlink" href="#sha512-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="sha512-function">
+<span id="index-4"></span><h2>SHA512() Function<a class="headerlink" href="#sha512-function" title="Permalink to this heading"></a></h2>
 <p>We can calculate the SHA512 hash using the SHA512() Function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SHA512</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">SHA512</span> <span class="n">hash</span> <span class="n">of</span> <span class="n">the</span> <span class="kt">string</span> <span class="n">cString</span>
@@ -444,9 +367,9 @@ sha512(&#39;hello world&#39;) : 309ecc489c12d6eb4cc40f50c902f2b4d0ed77ee511a7c7a
 6d4cd86f989dd35bc5ff499670da34255b45b0cfd830e81f605dcf7dc5542e93ae9cd76f
 </pre></div>
 </div>
-</div>
-<div class="section" id="sha384-function">
-<span id="index-5"></span><h2>SHA384() Function<a class="headerlink" href="#sha384-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="sha384-function">
+<span id="index-5"></span><h2>SHA384() Function<a class="headerlink" href="#sha384-function" title="Permalink to this heading"></a></h2>
 <p>We can calculate the SHA384 hash using the SHA384() Function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SHA384</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">SHA384</span> <span class="n">hash</span> <span class="n">of</span> <span class="n">the</span> <span class="kt">string</span> <span class="n">cString</span>
@@ -467,9 +390,9 @@ sha384(&#39;hello world&#39;) : fdbd8e75a67f29f701a4e040385e2e23986303ea10239211
 b83578b3e417cb71ce646efd0819dd8c088de1bd
 </pre></div>
 </div>
-</div>
-<div class="section" id="sha224-function">
-<span id="index-6"></span><h2>SHA224() Function<a class="headerlink" href="#sha224-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="sha224-function">
+<span id="index-6"></span><h2>SHA224() Function<a class="headerlink" href="#sha224-function" title="Permalink to this heading"></a></h2>
 <p>We can calculate the SHA224 hash using the SHA224() Function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SHA224</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">SHA224</span> <span class="n">hash</span> <span class="n">of</span> <span class="n">the</span> <span class="kt">string</span> <span class="n">cString</span>
@@ -487,17 +410,17 @@ sha224(&#39;apple&#39;) : b7bbfdf1a1012999b3c466fdeb906a629caa5e3e022428d1eb7022
 sha224(&#39;hello world&#39;) : 2f05477fc24bb4faefd86517156dafdecec45b8ad3cf2522a563582b
 </pre></div>
 </div>
-</div>
-<div class="section" id="supportedciphers-function">
-<span id="index-7"></span><h2>SupportedCiphers() Function<a class="headerlink" href="#supportedciphers-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="supportedciphers-function">
+<span id="index-7"></span><h2>SupportedCiphers() Function<a class="headerlink" href="#supportedciphers-function" title="Permalink to this heading"></a></h2>
 <p>The function SupportedCiphers() retrieves the list of all algorithms supported by Encrypt()/Decrypt() functions.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SupportedCiphers</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span> <span class="n">of</span> <span class="n">names</span> <span class="n">of</span> <span class="n">cipher</span> <span class="n">algorithms</span> <span class="n">supported</span> <span class="n">by</span> <span class="n">Encrypt</span><span class="p">()</span><span class="o">/</span><span class="n">Decrypt</span><span class="p">()</span> <span class="n">functions</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="encrypt-function">
-<span id="index-8"></span><h2>Encrypt() Function<a class="headerlink" href="#encrypt-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="encrypt-function">
+<span id="index-8"></span><h2>Encrypt() Function<a class="headerlink" href="#encrypt-function" title="Permalink to this heading"></a></h2>
 <p>We can use the Encrypt() function to encrypt the data using the specified algorithm.
 If no algorithm is specified, Blowfish algorithm is used in CBC mode.
 Typical algorithm values: “bf”, “des”, “des3”, “aes128”, “aes192”, “aes256” which all use CBC mode.
@@ -506,9 +429,9 @@ The function CipherAlgorithms() return the list of all supported cipher algorith
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Encrypt</span><span class="p">(</span><span class="n">cString</span><span class="p">,</span> <span class="n">cKey</span><span class="p">,</span> <span class="n">cIV</span><span class="o">[</span><span class="p">,</span> <span class="n">cCipherAlgorithmName</span><span class="o">]</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Encrypted</span> <span class="kt">string</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="decrypt-function">
-<span id="index-9"></span><h2>Decrypt() Function<a class="headerlink" href="#decrypt-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="decrypt-function">
+<span id="index-9"></span><h2>Decrypt() Function<a class="headerlink" href="#decrypt-function" title="Permalink to this heading"></a></h2>
 <p>We can use the Decrypt() function to decrypt the data encrypted using the Encrypt() function.
 If no algorithm is specified, Blowfish algorithm is used in CBC mode.
 Typical algorithm values: “bf”, “des”, “des3”, “aes128”, “aes192”, “aes256” which all use CBC mode.
@@ -517,9 +440,9 @@ The function CipherAlgorithms() return the list of all supported cipher algorith
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Decrypt</span><span class="p">(</span><span class="n">cCipher</span><span class="p">,</span> <span class="n">cKey</span><span class="p">,</span> <span class="n">cIV</span><span class="o">[</span><span class="p">,</span> <span class="n">cCipherAlgorithm</span><span class="o">]</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Decrypted</span> <span class="kt">string</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="encryption-and-decryption-example">
-<span id="index-10"></span><h2>Encryption and Decryption Example<a class="headerlink" href="#encryption-and-decryption-example" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="encryption-and-decryption-example">
+<span id="index-10"></span><h2>Encryption and Decryption Example<a class="headerlink" href="#encryption-and-decryption-example" title="Permalink to this heading"></a></h2>
 <p>The next example demonstrates how to use the Encrypt() and Decrypt() functions.</p>
 <p>These functions use the AES-128 algorithm (AES with 128-bits key)</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Enter a string : &quot;</span> <span class="k">give</span> <span class="n">cStr</span>
@@ -573,9 +496,9 @@ The function CipherAlgorithms() return the list of all supported cipher algorith
     <span class="s">&quot;Plain Text     : &quot;</span> <span class="o">+</span> <span class="n">Decrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">,</span><span class="s">&quot;aes128&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="file-hash">
-<span id="index-11"></span><h2>File Hash<a class="headerlink" href="#file-hash" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="file-hash">
+<span id="index-11"></span><h2>File Hash<a class="headerlink" href="#file-hash" title="Permalink to this heading"></a></h2>
 <p>The next example demonstrates how to calculate the hash functions for files</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cStr</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s">&quot;myapp.exe&quot;</span><span class="p">)</span>
 <span class="k">see</span> <span class="s">&quot;Size : &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
@@ -599,9 +522,9 @@ sha512 : da3d5e997d06f8b2a7a9964b77f7d82eedb76b245c611082c1639f83f51d83880bcd08f
 cd53dcab1167bdca0b82fec5071971ac17c76479d76985ced4ab0d18e
 </pre></div>
 </div>
-</div>
-<div class="section" id="randbytes-function">
-<span id="index-12"></span><h2>Randbytes() Function<a class="headerlink" href="#randbytes-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="randbytes-function">
+<span id="index-12"></span><h2>Randbytes() Function<a class="headerlink" href="#randbytes-function" title="Permalink to this heading"></a></h2>
 <p>We can generate a string of cryptographically secure pseudo-random bytes using the Randbytes() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Randbytes</span><span class="p">(</span><span class="n">nSize</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">random</span> <span class="n">bytes</span> <span class="p">(</span><span class="n">bytes</span> <span class="n">count</span> <span class="o">=</span> <span class="n">nSize</span><span class="p">)</span>
@@ -614,9 +537,9 @@ cd53dcab1167bdca0b82fec5071971ac17c76479d76985ced4ab0d18e
 <span class="k">see</span> <span class="n">sha256</span><span class="p">(</span><span class="s">&quot;test&quot;</span> <span class="o">+</span> <span class="n">salt</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="rsa-generate-function">
-<span id="index-13"></span><h2>rsa_generate() Function<a class="headerlink" href="#rsa-generate-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="rsa-generate-function">
+<span id="index-13"></span><h2>rsa_generate() Function<a class="headerlink" href="#rsa-generate-function" title="Permalink to this heading"></a></h2>
 <p>We can generate a random RSA key pair using the rsa_generate() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_generate</span><span class="p">(</span><span class="n">nBits</span><span class="o">[</span><span class="p">,</span><span class="n">nPublicExponent</span><span class="o">]</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">a</span> <span class="n">random</span> <span class="n">RSA</span> <span class="n">key</span> <span class="n">pair</span> <span class="n">with</span> <span class="n">nBits</span> <span class="n">as</span> <span class="n">size</span> <span class="k">in</span> <span class="n">bits</span>
@@ -634,9 +557,9 @@ cd53dcab1167bdca0b82fec5071971ac17c76479d76985ced4ab0d18e
 <span class="k">done</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="rsa-export-params-function">
-<span id="index-14"></span><h2>rsa_export_params() Function<a class="headerlink" href="#rsa-export-params-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="rsa-export-params-function">
+<span id="index-14"></span><h2>rsa_export_params() Function<a class="headerlink" href="#rsa-export-params-function" title="Permalink to this heading"></a></h2>
 <p>We can export the parameters of an RSA key to a string-indexed list using the rsa_export_params() function.
 The list contains the following string indexes:</p>
 <blockquote>
@@ -678,9 +601,9 @@ The list contains the following string indexes:</p>
 <span class="k">done</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="rsa-import-params-function">
-<span id="index-15"></span><h2>rsa_import_params() Function<a class="headerlink" href="#rsa-import-params-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="rsa-import-params-function">
+<span id="index-15"></span><h2>rsa_import_params() Function<a class="headerlink" href="#rsa-import-params-function" title="Permalink to this heading"></a></h2>
 <p>We can create a new RSA key from parameters stored in a string-indexed list using the rsa_import_params() function.
 The format of the input list is the one described in the function rsa_export_params</p>
 <p>The indexes “n” and “e” must not be empty, otherwise an exception is thrown.
@@ -705,9 +628,9 @@ If we need to import only an RSA public key, then the indexes “d”, “p”, 
 <span class="k">done</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="rsa-export-pem-function">
-<span id="index-16"></span><h2>rsa_export_pem() Function<a class="headerlink" href="#rsa-export-pem-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="rsa-export-pem-function">
+<span id="index-16"></span><h2>rsa_export_pem() Function<a class="headerlink" href="#rsa-export-pem-function" title="Permalink to this heading"></a></h2>
 <p>We can export an RSA key to a string in PEM format using the rsa_export_pem() function.
 If the RSA key contains both public and private parts, then returned string  will start with “—–BEGIN PRIVATE KEY—–”
 If the RSA key contains only the public part, then returned string will start with “—–BEGIN PUBLIC KEY—–”</p>
@@ -735,9 +658,9 @@ If the RSA key contains only the public part, then returned string will start wi
 <span class="k">done</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="rsa-import-pem-function">
-<span id="index-17"></span><h2>rsa_import_pem() Function<a class="headerlink" href="#rsa-import-pem-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="rsa-import-pem-function">
+<span id="index-17"></span><h2>rsa_import_pem() Function<a class="headerlink" href="#rsa-import-pem-function" title="Permalink to this heading"></a></h2>
 <p>We can create an RSA key from PEM encoded string using the rsa_import_pem() function.
 If the PEM string starts with “—–BEGIN PRIVATE KEY—–”, then a full RSA key pair will be created.
 if the PEM string starts with “—–BEGIN PUBLIC KEY—–”, then an RSA public key will be created.</p>
@@ -758,9 +681,9 @@ if the PEM string starts with “—–BEGIN PUBLIC KEY—–”, then an RSA pu
 <span class="k">done</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="rsa-is-privatekey-function">
-<span id="index-18"></span><h2>rsa_is_privatekey() Function<a class="headerlink" href="#rsa-is-privatekey-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="rsa-is-privatekey-function">
+<span id="index-18"></span><h2>rsa_is_privatekey() Function<a class="headerlink" href="#rsa-is-privatekey-function" title="Permalink to this heading"></a></h2>
 <p>We can check whether an RSA key is a private key or public key using the rsa_is_privatekey() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_is_privatekey</span><span class="p">(</span><span class="n">pRsaKey</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">pRsaKey</span> <span class="n">is</span> <span class="n">an</span> <span class="n">RSA</span> <span class="n">private</span> <span class="n">key</span> <span class="ow">and</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span> <span class="n">is</span> <span class="n">an</span> <span class="n">RSA</span> <span class="n">public</span> <span class="n">key</span>
@@ -782,9 +705,9 @@ if the PEM string starts with “—–BEGIN PUBLIC KEY—–”, then an RSA pu
 <span class="k">done</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="rsa-encrypt-pkcs-function">
-<span id="index-19"></span><h2>rsa_encrypt_pkcs() Function<a class="headerlink" href="#rsa-encrypt-pkcs-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="rsa-encrypt-pkcs-function">
+<span id="index-19"></span><h2>rsa_encrypt_pkcs() Function<a class="headerlink" href="#rsa-encrypt-pkcs-function" title="Permalink to this heading"></a></h2>
 <p>We can encrypt data with an RSA key and PKCS#1 v1.5 padding using the rsa_encrypt_pkcs() function.
 The maximum size of data that can be encrypted by rsa_encrypt_pkcs is (modulusLen - 11), with modulusLen
 the length of the RSA key modulus in bytes.
@@ -821,9 +744,9 @@ key and RSA public key</p>
 <span class="k">done</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="rsa-decrypt-pkcs-function">
-<span id="index-20"></span><h2>rsa_decrypt_pkcs() Function<a class="headerlink" href="#rsa-decrypt-pkcs-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="rsa-decrypt-pkcs-function">
+<span id="index-20"></span><h2>rsa_decrypt_pkcs() Function<a class="headerlink" href="#rsa-decrypt-pkcs-function" title="Permalink to this heading"></a></h2>
 <p>We can decrypt data encrypted with an RSA key and PKCS#1 v1.5 padding using the rsa_decrypt_pkcs() function.
 The size of data that can be decrypted by rsa_decrypt_pkcs must be equal to modulusLen which is the length
 of the RSA key modulus in bytes.
@@ -874,9 +797,9 @@ For RSA decryption, the RSA key must contain the private key part.</p>
 <span class="k">done</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="rsa-encrypt-oaep-function">
-<span id="index-21"></span><h2>rsa_encrypt_oaep() Function<a class="headerlink" href="#rsa-encrypt-oaep-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="rsa-encrypt-oaep-function">
+<span id="index-21"></span><h2>rsa_encrypt_oaep() Function<a class="headerlink" href="#rsa-encrypt-oaep-function" title="Permalink to this heading"></a></h2>
 <p>We can encrypt data with an RSA key and OAEP padding using the rsa_encrypt_oaep() function.
 The maximum size of data that can be encrypted by rsa_encrypt_oaep is (modulusLen - 2*hashLen -2),
 with modulusLen the length of the RSA key modulus in bytes and hashLen and the length of hash algorithm used.
@@ -920,9 +843,9 @@ key and RSA public key.</p>
 <span class="k">done</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="rsa-decrypt-oaep-function">
-<span id="index-22"></span><h2>rsa_decrypt_oaep() Function<a class="headerlink" href="#rsa-decrypt-oaep-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="rsa-decrypt-oaep-function">
+<span id="index-22"></span><h2>rsa_decrypt_oaep() Function<a class="headerlink" href="#rsa-decrypt-oaep-function" title="Permalink to this heading"></a></h2>
 <p>We can decrypt data encrypted with an RSA key and OAEP padding using the rsa_decrypt_oaep() function.
 The size of data that can be decrypted by rsa_decrypt_oaep must be equal to modulusLen which is the length
 of the RSA key modulus in bytes.
@@ -981,9 +904,9 @@ The hash algorithm specified in rsa_decrypt_oaep() call must be the same as the 
 <span class="k">done</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="rsa-encrypt-raw-function">
-<span id="index-23"></span><h2>rsa_encrypt_raw() Function<a class="headerlink" href="#rsa-encrypt-raw-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="rsa-encrypt-raw-function">
+<span id="index-23"></span><h2>rsa_encrypt_raw() Function<a class="headerlink" href="#rsa-encrypt-raw-function" title="Permalink to this heading"></a></h2>
 <p>We can perform raw RSA encryption on data using the function rsa_encrypt_raw()
 The size of data must be equal to the length of the RSA key modulus in bytes.
 For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of input data
@@ -1037,9 +960,9 @@ raw RSA is insecure.</p>
 <span class="k">done</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="rsa-decrypt-raw-function">
-<span id="index-24"></span><h2>rsa_decrypt_raw() Function<a class="headerlink" href="#rsa-decrypt-raw-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="rsa-decrypt-raw-function">
+<span id="index-24"></span><h2>rsa_decrypt_raw() Function<a class="headerlink" href="#rsa-decrypt-raw-function" title="Permalink to this heading"></a></h2>
 <p>We can perform raw RSA decryption of data using the rsa_decrypt_pkcs() function.
 The size of data that can be decrypted by rsa_decrypt_raw must be equal to modulusLen which is the length
 of the RSA key modulus in bytes.
@@ -1119,9 +1042,9 @@ The size of the result of raw RSA decryption is equal to the length of RSA modul
 <span class="k">done</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="rsa-sign-pkcs-function">
-<span id="index-25"></span><h2>rsa_sign_pkcs() Function<a class="headerlink" href="#rsa-sign-pkcs-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="rsa-sign-pkcs-function">
+<span id="index-25"></span><h2>rsa_sign_pkcs() Function<a class="headerlink" href="#rsa-sign-pkcs-function" title="Permalink to this heading"></a></h2>
 <p>We can sign data with RSA PKCS#1 v1.5 padding using the function rsa_sign_pkcs()
 The maximum size of data that can be signed by rsa_sign_pkcs is (modulusLen - 11), with modulusLen
 the length of the RSA key modulus in bytes.
@@ -1163,9 +1086,9 @@ The size of the result of RSA PKCS signature is equal to the length of RSA modul
 <span class="k">done</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="rsa-signhash-pkcs-function">
-<span id="index-26"></span><h2>rsa_signhash_pkcs() Function<a class="headerlink" href="#rsa-signhash-pkcs-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="rsa-signhash-pkcs-function">
+<span id="index-26"></span><h2>rsa_signhash_pkcs() Function<a class="headerlink" href="#rsa-signhash-pkcs-function" title="Permalink to this heading"></a></h2>
 <p>We can sign a hash value with RSA PKCS#1 v1.5 padding using the function rsa_signhash_pkcs()
 This function infers the hash algorithm from hash value size and it automatically adds OID of hash
 algorithm before applying the PKCS#1 v1.5 padding.
@@ -1200,9 +1123,9 @@ The size of the result of RSA PKCS signature is equal to the length of RSA modul
 <span class="k">done</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="rsa-verify-pkcs-function">
-<span id="index-27"></span><h2>rsa_verify_pkcs() Function<a class="headerlink" href="#rsa-verify-pkcs-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="rsa-verify-pkcs-function">
+<span id="index-27"></span><h2>rsa_verify_pkcs() Function<a class="headerlink" href="#rsa-verify-pkcs-function" title="Permalink to this heading"></a></h2>
 <p>We can verify an RSA-PKCS signature of data using the function rsa_verify_pkcs()
 The size of signature must be equal to the length of the RSA key modulus in bytes.
 For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of input signature
@@ -1247,9 +1170,9 @@ RSA private key and RSA public key.</p>
 <span class="k">done</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="rsa-verifyhash-pkcs-function">
-<span id="index-28"></span><h2>rsa_verifyhash_pkcs() Function<a class="headerlink" href="#rsa-verifyhash-pkcs-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="rsa-verifyhash-pkcs-function">
+<span id="index-28"></span><h2>rsa_verifyhash_pkcs() Function<a class="headerlink" href="#rsa-verifyhash-pkcs-function" title="Permalink to this heading"></a></h2>
 <p>We can verify the RSA-PKCS signature of a hash value using the function rsa_verifyhash_pkcs()
 This function infers the hash algorithm from hash value size and it automatically uses the OID of hash
 algorithm during verification.
@@ -1291,9 +1214,9 @@ RSA private key and RSA public key.</p>
 <span class="k">done</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="rsa-sign-pss-function">
-<span id="index-29"></span><h2>rsa_sign_pss() Function<a class="headerlink" href="#rsa-sign-pss-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="rsa-sign-pss-function">
+<span id="index-29"></span><h2>rsa_sign_pss() Function<a class="headerlink" href="#rsa-sign-pss-function" title="Permalink to this heading"></a></h2>
 <p>We can sign data with RSA PSS using the function rsa_sign_pss()
 The input data will be first hashed using the specified hash algorithm then RSA PSS signing will
 be applied to the computed hash value.
@@ -1335,9 +1258,9 @@ The size of the result of RSA PSS signature is equal to the length of RSA modulu
 <span class="k">done</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="rsa-signhash-pss-function">
-<span id="index-30"></span><h2>rsa_signhash_pss() Function<a class="headerlink" href="#rsa-signhash-pss-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="rsa-signhash-pss-function">
+<span id="index-30"></span><h2>rsa_signhash_pss() Function<a class="headerlink" href="#rsa-signhash-pss-function" title="Permalink to this heading"></a></h2>
 <p>We can sign a hash value with RSA PSS using the function rsa_signhash_pss()
 This function infers the hash algorithm from hash value size.
 For RSA PSS signature, the RSA key must contain the private key part.
@@ -1374,9 +1297,9 @@ The size of the result of RSA PSS signature is equal to the length of RSA modulu
 <span class="k">done</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="rsa-verify-pss-function">
-<span id="index-31"></span><h2>rsa_verify_pss() Function<a class="headerlink" href="#rsa-verify-pss-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="rsa-verify-pss-function">
+<span id="index-31"></span><h2>rsa_verify_pss() Function<a class="headerlink" href="#rsa-verify-pss-function" title="Permalink to this heading"></a></h2>
 <p>We can verify the RSA-PSS signature of data using the function rsa_verify_pss()
 The input data will be first hashed using the specified hash algorithm then RSA PSS verification will
 be applied to the computed hash value and the given signature to check if they match or not.
@@ -1428,9 +1351,9 @@ RSA private key and RSA public key.</p>
 <span class="k">done</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="rsa-verifyhash-pss-function">
-<span id="index-32"></span><h2>rsa_verifyhash_pss() Function<a class="headerlink" href="#rsa-verifyhash-pss-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="rsa-verifyhash-pss-function">
+<span id="index-32"></span><h2>rsa_verifyhash_pss() Function<a class="headerlink" href="#rsa-verifyhash-pss-function" title="Permalink to this heading"></a></h2>
 <p>We can verify the RSA-PSS signature of a hash value using the function rsa_verifyhash_pss()
 This function infers the hash algorithm from hash value size.
 The size of signature must be equal to the length of the RSA key modulus in bytes.
@@ -1474,9 +1397,9 @@ RSA private key and RSA public key.</p>
 <span class="k">done</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="openssl-versiontext-function">
-<span id="index-33"></span><h2>openssl_versiontext() Function<a class="headerlink" href="#openssl-versiontext-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="openssl-versiontext-function">
+<span id="index-33"></span><h2>openssl_versiontext() Function<a class="headerlink" href="#openssl-versiontext-function" title="Permalink to this heading"></a></h2>
 <p>We can get the full version text of the OpenSSL library using the function openssl_versiontext().
 The returned string is equal to the value returned by the command “openssl.exe version”</p>
 <p>Syntax:</p>
@@ -1489,9 +1412,9 @@ The returned string is equal to the value returned by the command “openssl.exe
 <span class="k">See</span> <span class="s">&quot;Ring is using &quot;</span> <span class="o">+</span> <span class="n">openssl_versionText</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="openssl-version-function">
-<span id="index-34"></span><h2>openssl_version() Function<a class="headerlink" href="#openssl-version-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="openssl-version-function">
+<span id="index-34"></span><h2>openssl_version() Function<a class="headerlink" href="#openssl-version-function" title="Permalink to this heading"></a></h2>
 <p>We can get the version numbers (Major,Minor,Fix) of the OpenSSL library using the function openssl_version().
 The returned list contains three items corresponding to the the three part of the version.
 For example, for OpenSSL 1.0.2, openssl_version() returns the list [1,0,2]</p>
@@ -1512,9 +1435,9 @@ For example, for OpenSSL 1.0.2, openssl_version() returns the list [1,0,2]</p>
 <span class="k">See</span> <span class="s">&quot;Ring is using OpenSSL version &quot;</span> <span class="o">+</span> <span class="n">OpenSSLVersionMajor</span> <span class="o">+</span> <span class="s">&quot;.&quot;</span> <span class="o">+</span> <span class="n">OpenSSLVersionMinor</span> <span class="o">+</span> <span class="s">&quot;.&quot;</span> <span class="o">+</span> <span class="n">OpenSSLVersionFix</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="large-files-hash">
-<span id="index-35"></span><h2>Large Files Hash<a class="headerlink" href="#large-files-hash" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="large-files-hash">
+<span id="index-35"></span><h2>Large Files Hash<a class="headerlink" href="#large-files-hash" title="Permalink to this heading"></a></h2>
 <p>These functions compute the hash of large files/data without the need to load all of the content in a single string.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>md5init() -&gt; MD5_CTX
 md5update (MD5_CTX, string) -&gt; 1 for success or 0 for failure
@@ -1541,9 +1464,9 @@ sha512update (SHA512_CTX, string) -&gt; 1 for success or 0 for failure
 sha512final (SHA512_CTX) -&gt; string
 </pre></div>
 </div>
-</div>
-<div class="section" id="download-function">
-<span id="index-36"></span><h2>Download() Function<a class="headerlink" href="#download-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="download-function">
+<span id="index-36"></span><h2>Download() Function<a class="headerlink" href="#download-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Download</span><span class="p">(</span><span class="n">cURL</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">server</span> <span class="n">response</span>
 </pre></div>
@@ -1554,9 +1477,9 @@ sha512final (SHA512_CTX) -&gt; string
 <span class="n">write</span><span class="p">(</span><span class="s">&quot;download.txt&quot;</span><span class="p">,</span><span class="n">cStr</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="sendemail-function">
-<span id="index-37"></span><h2>SendEmail() Function<a class="headerlink" href="#sendemail-function" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="sendemail-function">
+<span id="index-37"></span><h2>SendEmail() Function<a class="headerlink" href="#sendemail-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SendEmail</span><span class="p">(</span><span class="n">cSMTPServer</span><span class="p">,</span><span class="n">cEmail</span><span class="p">,</span><span class="n">cPassword</span><span class="p">,</span><span class="n">cSender</span><span class="p">,</span><span class="n">cReceiver</span><span class="p">,</span><span class="n">cCC</span><span class="p">,</span><span class="n">cTitle</span><span class="p">,</span><span class="n">cContent</span><span class="p">)</span>
 </pre></div>
@@ -1579,63 +1502,38 @@ sha512final (SHA512_CTX) -&gt; string
 <span class="k">see</span> <span class="s">&quot;Done..&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="oop.html" class="btn btn-neutral float-right" title="Object Oriented Programming (OOP)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="postgresql.html" class="btn btn-neutral float-left" title="PostgreSQL Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="postgresql.html" class="btn btn-neutral float-left" title="PostgreSQL Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="oop.html" class="btn btn-neutral float-right" title="Object Oriented Programming (OOP)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2016-2023, Ring Team
-
-    </p>
+    <p>&#169; Copyright 2016-2023, Ring Team.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(false);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

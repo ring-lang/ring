@@ -1,88 +1,49 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Language Design &mdash; Ring 1.19 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="What is new in Ring 1.1?" href="whatisnew.html" />
     <link rel="prev" title="Create your first extension" href="ringbeep.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html">
           
-
-          
+          <a href="index.html">
             
-            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
-          
+              <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
           </a>
-
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
@@ -226,72 +187,34 @@
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Ring</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Language Design</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Language Design</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="language-design">
-<span id="index-0"></span><h1>Language Design<a class="headerlink" href="#language-design" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="language-design">
+<span id="index-0"></span><h1>Language Design<a class="headerlink" href="#language-design" title="Permalink to this heading"></a></h1>
 <p>In this chapter we will learn about the basic concepts behind the language design.</p>
-<div class="section" id="why-ring">
-<span id="index-1"></span><h2>Why Ring?<a class="headerlink" href="#why-ring" title="Permalink to this headline">¶</a></h2>
+<section id="why-ring">
+<span id="index-1"></span><h2>Why Ring?<a class="headerlink" href="#why-ring" title="Permalink to this heading"></a></h2>
 <p>The language is simple, trying to be natural, encourage organization and comes
 with transparent and visual implementation. It comes with compact syntax and a
 group of features that enable the programmer to create natural interfaces and
@@ -300,9 +223,9 @@ fast and comes with smart garbage collector that puts the memory under the
 programmer control. It supports many programming paradigms, comes with useful
 and practical libraries. The language is designed for productivity and developing
 high quality solutions that can scale.</p>
-</div>
-<div class="section" id="designed-for-a-clear-goal">
-<span id="index-2"></span><h2>Designed for a Clear Goal<a class="headerlink" href="#designed-for-a-clear-goal" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="designed-for-a-clear-goal">
+<span id="index-2"></span><h2>Designed for a Clear Goal<a class="headerlink" href="#designed-for-a-clear-goal" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Applications programming language.</p></li>
 <li><p>Productivity and developing high quality solutions that can scale.</p></li>
@@ -311,9 +234,9 @@ high quality solutions that can scale.</p>
 <li><p>General-Purpose language that can be used for creating domain-specific libraries, frameworks and tools.</p></li>
 <li><p>Practical language designed for creating the next version of the Programming Without Coding Technology software.</p></li>
 </ul>
-</div>
-<div class="section" id="simple">
-<span id="index-3"></span><h2>Simple<a class="headerlink" href="#simple" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="simple">
+<span id="index-3"></span><h2>Simple<a class="headerlink" href="#simple" title="Permalink to this heading"></a></h2>
 <p>Ring is a very simple language, and has a very straightforward syntax. It encourages programmers to program without boilerplate code</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Hello, World!&quot;</span>
 </pre></div>
@@ -331,9 +254,9 @@ You can use the ‘+’ operator for string concatenation and the language is we
         <span class="k">See</span> <span class="s">&quot;Count = &quot;</span> <span class="o">+</span> <span class="n">nCount</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="s">&quot; ID = &quot;</span> <span class="o">+</span> <span class="n">nID</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="trying-to-be-natural">
-<span id="index-4"></span><h2>Trying to be natural<a class="headerlink" href="#trying-to-be-natural" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="trying-to-be-natural">
+<span id="index-4"></span><h2>Trying to be natural<a class="headerlink" href="#trying-to-be-natural" title="Permalink to this heading"></a></h2>
 <p>Ring is not case-sensitive</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Enter your name ? &quot;</span>
 <span class="k">Give</span> <span class="n">name</span>
@@ -398,9 +321,9 @@ The for in loop can update the list items.</p>
 <span class="k">next</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="encourage-organization">
-<span id="index-5"></span><h2>Encourage Organization<a class="headerlink" href="#encourage-organization" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="encourage-organization">
+<span id="index-5"></span><h2>Encourage Organization<a class="headerlink" href="#encourage-organization" title="Permalink to this heading"></a></h2>
 <p>The language encourage organization, Forget bad days using languages where the programmer start with function then class then function and a strange mix between things!</p>
 <p>Each source file follow the next structure</p>
 <ul class="simple">
@@ -425,9 +348,9 @@ Multi-line comments are written between /* and <a href="#id1"><span class="probl
 <span class="o">//</span> <span class="k">See</span> <span class="s">&quot;Bye!&quot;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="data-representation">
-<span id="index-6"></span><h2>Data Representation<a class="headerlink" href="#data-representation" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="data-representation">
+<span id="index-6"></span><h2>Data Representation<a class="headerlink" href="#data-representation" title="Permalink to this heading"></a></h2>
 <p>Ring contains only 4 types that represent the program data</p>
 <p>These types are (String, Number, List &amp; Object)</p>
 <p>The idea is to have many use cases for each type which increase the flexibility and the ability
@@ -473,9 +396,9 @@ to write functions that are more usable in different situations.</p>
 </div>
 <p>The Object type is used to represent objects created from classes</p>
 <p>Using classes and operator overloading we can create custom types</p>
-</div>
-<div class="section" id="compact-syntax">
-<span id="index-7"></span><h2>Compact Syntax<a class="headerlink" href="#compact-syntax" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="compact-syntax">
+<span id="index-7"></span><h2>Compact Syntax<a class="headerlink" href="#compact-syntax" title="Permalink to this heading"></a></h2>
 <p>The language is not line sensitive, you don’t need to write ; after statements, also you don’t need to press ENTER or TAB, so we can write the next code</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;The First Message&quot;</span> <span class="k">See</span> <span class="s">&quot; Another message in the same line! &quot;</span> <span class="o">+</span> <span class="n">nl</span>
 <span class="k">See</span> <span class="s">&quot;Enter your name?&quot;</span> <span class="k">Give</span> <span class="n">Name</span> <span class="k">See</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">Name</span>
@@ -526,9 +449,9 @@ to write functions that are more usable in different situations.</p>
                 <span class="k">return</span> <span class="mi">3</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="define-natural-statements">
-<span id="index-8"></span><h2>Define Natural Statements<a class="headerlink" href="#define-natural-statements" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="define-natural-statements">
+<span id="index-8"></span><h2>Define Natural Statements<a class="headerlink" href="#define-natural-statements" title="Permalink to this heading"></a></h2>
 <p>After the object access using { } if the class contains a method called BraceEnd() it will be executed!</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">TimeForFun</span> <span class="o">=</span> <span class="k">new</span> <span class="n">journey</span>
 <span class="c"># The first surprise!</span>
@@ -613,9 +536,9 @@ Also keywords that can be ignored like the ‘the’ keyword</p>
 </div>
 <p>Then use eval() to execute the content of that file!.
 Also, you can update the methods GetWindow() and SetTitle() to create Real windows using the GUI Library</p>
-</div>
-<div class="section" id="define-declarative-languages">
-<span id="index-9"></span><h2>Define Declarative Languages<a class="headerlink" href="#define-declarative-languages" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="define-declarative-languages">
+<span id="index-9"></span><h2>Define Declarative Languages<a class="headerlink" href="#define-declarative-languages" title="Permalink to this heading"></a></h2>
 <p>We learned how to use Natural statements to execute our code and using the same features we can use nested structures to execute our code.</p>
 <p>The next example from the Web library, generate HTML document using the Bootstrap library. No HTML code is written directly in this example, we created a similar language (just as example) Then using this declarative language that uses nested structures, we generated the HTML Document..
 The idea in this example is that the GetDiv() and GetH1() methods return an object that we can access using {} and after each object access the method BraceEnd() will be executed to send the generated HTML to the parent object until we reach to the root where BraceEnd() will print the output.</p>
@@ -667,9 +590,9 @@ The idea in this example is that the GetDiv() and GetH1() methods return an obje
                 <span class="n">cOutput</span> <span class="o">=</span> <span class="n">TabMLString</span><span class="p">(</span><span class="n">cOutput</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="transparent-implementation">
-<span id="index-10"></span><h2>Transparent Implementation<a class="headerlink" href="#transparent-implementation" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="transparent-implementation">
+<span id="index-10"></span><h2>Transparent Implementation<a class="headerlink" href="#transparent-implementation" title="Permalink to this heading"></a></h2>
 <p>Ring comes with transparent implementation. We can know what is happening in each compiler stage and what is going on during the run-time by the Virtual Machine Example : ring helloworld.ring -tokens -rules -ic</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Hello, World!&quot;</span>
 </pre></div>
@@ -725,9 +648,9 @@ The idea in this example is that the GetDiv() and GetH1() methods return an obje
 <span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="o">!</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="visual-implementation">
-<span id="index-11"></span><h2>Visual Implementation<a class="headerlink" href="#visual-implementation" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="visual-implementation">
+<span id="index-11"></span><h2>Visual Implementation<a class="headerlink" href="#visual-implementation" title="Permalink to this heading"></a></h2>
 <p>The Ring programming language is designed using the PWCT visual programming tool
 and you will find the visual source of the language in the folder “language/visualsrc” - <a href="#id3"><span class="problematic" id="id4">*</span></a>.ssf
 files and the generated source code (In the C Language) in the  language/src folder and
@@ -736,9 +659,9 @@ the language/include folder.</p>
 <img alt="_images/visualsrc1.jpg" src="_images/visualsrc1.jpg" />
 <p>The next screen shot from the ring_list.ssf file (Generate ring_list.c and ring_list.h)</p>
 <img alt="_images/visualsrc2.JPG" src="_images/visualsrc2.JPG" />
-</div>
-<div class="section" id="smart-garbage-collector">
-<span id="index-12"></span><h2>Smart Garbage Collector<a class="headerlink" href="#smart-garbage-collector" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="smart-garbage-collector">
+<span id="index-12"></span><h2>Smart Garbage Collector<a class="headerlink" href="#smart-garbage-collector" title="Permalink to this heading"></a></h2>
 <p>Avoid memory problems :-</p>
 <ul class="simple">
 <li><p>Invalid Memory Access</p></li>
@@ -762,15 +685,15 @@ the language/include folder.</p>
 <li><p>The programmer can call the function callgc() to force running the garbage collector.</p></li>
 <li><p>If we have a reference to a variable (when we pass objects and lists to functions), then deleting variables will be based on reference counting, if no references everything will be deleted, but if we have a reference, the data will stay in memory.</p></li>
 </ul>
-</div>
-<div class="section" id="no-global-interpreter-vm-lock-no-gil">
-<span id="index-13"></span><h2>No Global Interpreter (VM) Lock - No GIL<a class="headerlink" href="#no-global-interpreter-vm-lock-no-gil" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="no-global-interpreter-vm-lock-no-gil">
+<span id="index-13"></span><h2>No Global Interpreter (VM) Lock - No GIL<a class="headerlink" href="#no-global-interpreter-vm-lock-no-gil" title="Permalink to this heading"></a></h2>
 <p>When we use threads in Ring applications, We don’t have global interpreter (VM) lock (No GIL)</p>
 <p>So threads can work in parallel and execute Ring instructions at the same time</p>
 <p>This is better for threads and concurrency (More Faster!)</p>
-</div>
-<div class="section" id="fast-enough-for-many-applications">
-<span id="index-14"></span><h2>Fast Enough For Many Applications<a class="headerlink" href="#fast-enough-for-many-applications" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="fast-enough-for-many-applications">
+<span id="index-14"></span><h2>Fast Enough For Many Applications<a class="headerlink" href="#fast-enough-for-many-applications" title="Permalink to this heading"></a></h2>
 <p>Ring is designed to be a simple, small and flexible language in the first place, but also it is fast enough for many applications.</p>
 <p>Ring can do each of the next tasks in around 1 second using normal computers in the market during the last 5 years</p>
 <ol class="arabic simple">
@@ -783,63 +706,38 @@ the language/include folder.</p>
 <li><p>Printing 10,000 messages to the terminal in Console applications</p></li>
 </ol>
 <p>Also when we need more speed we can use C/C++ extensions!</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="whatisnew.html" class="btn btn-neutral float-right" title="What is new in Ring 1.1?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="ringbeep.html" class="btn btn-neutral float-left" title="Create your first extension" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ringbeep.html" class="btn btn-neutral float-left" title="Create your first extension" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="whatisnew.html" class="btn btn-neutral float-right" title="What is new in Ring 1.1?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2016-2023, Ring Team
-
-    </p>
+    <p>&#169; Copyright 2016-2023, Ring Team.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(false);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
