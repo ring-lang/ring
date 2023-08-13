@@ -49,11 +49,22 @@ void ring_vm_pushpv ( VM *pVM )
 void ring_vm_incjump ( VM *pVM )
 {
     List *pVar  ;
+    Item *pItem  ;
     double nNum1,nNum2  ;
     if ( ring_vm_findvar(pVM, RING_VM_IR_READC ) == 0 ) {
         ring_vm_newvar(pVM, RING_VM_IR_READC);
     }
+    pVar = (List *) RING_VM_STACK_READP ;
+    RING_VM_STACK_POP ;
+    pItem = ring_list_getitem(pVar,RING_VAR_VALUE) ;
     nNum1 = ring_list_getdouble(pVM->aForStep,ring_list_getsize(pVM->aForStep));
+    /* Check Data */
+    if ( ! ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
+        ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);
+        return ;
+    }
+    nNum2 = ring_list_getdouble(pVar,RING_VAR_VALUE) ;
+    ring_list_setdouble_gc(pVM->pRingState,pVar,RING_VAR_VALUE,nNum2 +nNum1);
     /* Change Instruction for Performance */
     if ( pVM->nVarScope == RING_VARSCOPE_GLOBAL ) {
         /* Replace ICO_INCJUMP with IncPJUMP for better performance */
@@ -63,7 +74,7 @@ void ring_vm_incjump ( VM *pVM )
         else {
             RING_VM_IR_OPCODE = ICO_INCPJUMP ;
         }
-        RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(4),RING_VM_STACK_READP);
+        RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(4),pItem);
     }
     else if ( pVM->nVarScope == RING_VARSCOPE_LOCAL ) {
         /* Replace ICO_INCJUMP with IncLPJUMP for better performance */
@@ -73,18 +84,9 @@ void ring_vm_incjump ( VM *pVM )
         else {
             RING_VM_IR_OPCODE = ICO_INCLPJUMP ;
         }
-        RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(4),RING_VM_STACK_READP);
+        RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(4),pItem);
         RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(5),ring_list_getint(pVM->aScopeID,ring_list_getsize(pVM->aScopeID)));
     }
-    pVar = (List *) RING_VM_STACK_READP ;
-    RING_VM_STACK_POP ;
-    /* Check Data */
-    if ( ! ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
-        ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);
-        return ;
-    }
-    nNum2 = ring_list_getdouble(pVar,RING_VAR_VALUE) ;
-    ring_list_setdouble_gc(pVM->pRingState,pVar,RING_VAR_VALUE,nNum2 +nNum1);
     /* Jump */
     pVM->nPC = RING_VM_IR_READIVALUE(2) ;
     RING_VM_STACK_PUSHNVALUE(ring_list_getdouble(pVar,RING_VAR_VALUE));
@@ -93,20 +95,20 @@ void ring_vm_incjump ( VM *pVM )
 
 void ring_vm_incpjump ( VM *pVM )
 {
-    List *pVar  ;
+    Item *pItem  ;
     double nNum1,nNum2  ;
-    pVar = (List *) RING_VM_IR_READPVALUE(4) ;
+    pItem = (Item *) RING_VM_IR_READPVALUE(4) ;
     nNum1 = ring_list_getdouble(pVM->aForStep,ring_list_getsize(pVM->aForStep));
     /* Check Data */
-    if ( ! ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
+    if ( ! ring_item_isdouble(pItem) ) {
         ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);
         return ;
     }
-    nNum2 = ring_list_getdouble(pVar,RING_VAR_VALUE) ;
-    ring_list_setdouble_gc(pVM->pRingState,pVar,RING_VAR_VALUE,nNum2 + nNum1);
+    nNum2 = ring_item_getdouble(pItem) ;
+    ring_item_setdouble_gc(pVM->pRingState,pItem,nNum2 + nNum1);
     /* Jump */
     pVM->nPC = RING_VM_IR_READIVALUE(2) ;
-    RING_VM_STACK_PUSHNVALUE(ring_list_getdouble(pVar,RING_VAR_VALUE));
+    RING_VM_STACK_PUSHNVALUE(ring_item_getdouble(pItem));
     RING_VM_IR_SETLINENUMBER(RING_VM_IR_READIVALUE(3));
 }
 
@@ -148,16 +150,16 @@ void ring_vm_loadfuncp ( VM *pVM )
 
 void ring_vm_incpjumpstep1 ( VM *pVM )
 {
-    List *pVar  ;
-    pVar = (List *) RING_VM_IR_READPVALUE(4) ;
+    Item *pItem  ;
+    pItem = (Item *) RING_VM_IR_READPVALUE(4) ;
     /* Jump */
     pVM->nPC = RING_VM_IR_READIVALUE(2) ;
     /* Check Data */
-    if ( ! ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
+    if ( ! ring_item_isdouble(pItem) ) {
         ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);
         return ;
     }
-    RING_VM_STACK_PUSHNVALUE(ring_list_incdouble(pVar,RING_VAR_VALUE));
+    RING_VM_STACK_PUSHNVALUE(ring_item_incdouble_gc(pVM->pRingState,pItem));
     RING_VM_IR_SETLINENUMBER(RING_VM_IR_READIVALUE(3));
 }
 

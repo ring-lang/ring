@@ -7,11 +7,13 @@ ring_vm_pushpv
 ring_vm_incjump
 Type: List *
 pVar
+Type: Item *
+pItem
 Type: double
 nNum1,nNum2
 ring_vm_incpjump
-Type: List *
-pVar
+Type: Item *
+pItem
 Type: double
 nNum1,nNum2
 ring_vm_inclpjump
@@ -19,8 +21,8 @@ ring_vm_loadfuncp
 Type: List *
 pList
 ring_vm_incpjumpstep1
-Type: List *
-pVar
+Type: Item *
+pItem
 ring_vm_inclpjumpstep1
 ring_vm_setopcode
 Type: int
