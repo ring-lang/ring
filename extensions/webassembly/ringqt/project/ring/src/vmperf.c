@@ -159,7 +159,7 @@ void ring_vm_incpjumpstep1 ( VM *pVM )
         ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);
         return ;
     }
-    RING_VM_STACK_PUSHNVALUE(ring_item_incdouble_gc(pVM->pRingState,pItem));
+    RING_VM_STACK_PUSHNVALUE(ring_item_incdouble(pItem));
     RING_VM_IR_SETLINENUMBER(RING_VM_IR_READIVALUE(3));
 }
 

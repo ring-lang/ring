@@ -210,11 +210,6 @@ RING_API void ring_item_setint_gc ( void *pState,Item *pItem,int x )
     pItem->data.iNumber = x ;
     pItem->NumberFlag = ITEM_NUMBERFLAG_INT ;
 }
-
-RING_API double ring_item_incdouble_gc ( void *pState,Item *pItem )
-{
-    return ++pItem->data.dNumber ;
-}
 /* Functions without state pointer */
 
 RING_API Item * ring_item_new ( unsigned int ItemType )

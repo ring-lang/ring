@@ -56,6 +56,7 @@
     #define ring_item_isstring(x) (x->nType == ITEMTYPE_STRING)
     #define ring_item_islist(x) (x->nType == ITEMTYPE_LIST)
     #define ring_item_isdouble(x) ( (x->nType == ITEMTYPE_NUMBER) && ( x->NumberFlag == ITEM_NUMBERFLAG_DOUBLE ) )
+    #define ring_item_incdouble(x) ++x->data.dNumber
     /* Functions */
 
     RING_API Item * ring_item_new_gc ( void *pState,unsigned int ItemType ) ;
@@ -95,8 +96,6 @@
     RING_API void ring_item_setint_gc ( void *pState,Item *pItem,int x ) ;
 
     RING_API void ring_item_setstring2_gc ( void *pState,Item *pItem,const char *cStr,int nStrSize ) ;
-
-    RING_API double ring_item_incdouble_gc ( void *pState,Item *pItem ) ;
     /* Functions without state pointer */
 
     RING_API Item * ring_item_new ( unsigned int ItemType ) ;

@@ -42,7 +42,6 @@ ITEM_NUMBERFLAG_INT
 ITEM_NUMBERFLAG_DOUBLE
 ITEM_OBJTYPE_NOTHING
 ring_item_getstring(x)
-ring_item_getnumber(x)
 ring_item_getdouble(x)
 ring_item_getint(x)
 ring_item_getlist(x)
@@ -60,6 +59,7 @@ ring_itemarray_ispointer(pList,index)
 ring_item_isstring(x)
 ring_item_islist(x)
 ring_item_isdouble(x)
+ring_item_incdouble(x)
 ring_item_new_gc
 Type: Item *
 pItem
