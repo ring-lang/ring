@@ -22,6 +22,7 @@ More Samples
 ============
 
 * Added: samples/Language/Constants
+* Added: samples/UsingQt/CustomDragAndDrop/customdraganddrop.ring 
 
 .. index:: 
 	pair: What is new in Ring  1.19; More Improvements
