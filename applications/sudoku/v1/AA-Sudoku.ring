@@ -48,7 +48,7 @@ gHintArray       = [0,0,0, 0,0,0, 0,0,0, 0,0]   ### last 2 are Row-Col
 OldRow = 0
 OldCol = 0
 nMoves = 0
-gNbrRightClick = 99 ### RightMouse-SelectMenu-Nbr
+gNbrRightClick = 0 ### RightMouse-SelectMenu-Nbr
 gcountIter = 0                  // iteration
 
 aSQColor = [

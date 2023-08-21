@@ -79,8 +79,8 @@ gHintArray       = [0,0,0, 0,0,0, 0,0,0, 0,0]   ### last 2 are Row-Col
 OldRow = 0
 OldCol = 0
 nMoves = 0
-gNbrRightClick = 99 ### RightMouse-SelectMenu-Nbr
-gcountIter = 0                  // iteration
+gNbrRightClick = 0 ### RightMouse-SelectMenu-Nbr | Start with default "0" which means "clear" "no number"
+gcountIter = 0     //  iteration
 
 aSQColor = [
     [0,0,0, 1,1,1, 0,0,0],
@@ -647,7 +647,7 @@ Func RightClickMouse(Row, Col)
         exec(oCursor.pos())
     }
 
-    //See " RightClick: "+ Row +"-"+ Col  +" = "+ gNbrRightClick +nl
+    // See " RightClick: "+ Row +"-"+ Col  +" = "+ gNbrRightClick +nl
 
     ###--------------------------------------------
     ### Click() function called above RETURNS gNbrRightClick  Here
