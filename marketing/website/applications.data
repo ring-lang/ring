@@ -2,8 +2,8 @@ aApplications = [
 	["Arabic Applications",
 		[
 			[
-				'<a href="https://github.com/ring-lang/werdy" >Werdy Application</a>',
-				'<img src="werdy.png" width="100%">'
+				'<a href="https://github.com/ringpackages/werdy2" >Werdy Application</a>',
+				'<img src="werdy2.png" width="100%">'
 			],
 			[
 				'<a href="https://github.com/ring-lang/ring/blob/master/applications/poetryanalysis" >Arabic Poetry Analysis</a>',
