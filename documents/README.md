@@ -21,7 +21,7 @@ The documentation is created using Sphinx (A popular tool written in Python)
 	
 	python _mapping.py
 
-(6) Install rtd_theme
+(6) Install rtd_theme (Tested using v1.3.0)
 
 	pip install sphinx_rtd_theme
 
