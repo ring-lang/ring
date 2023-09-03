@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=39391842"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -204,17 +204,17 @@
            <div itemprop="articleBody">
              
   <section id="deploying-web-applications-in-the-cloud">
-<span id="index-0"></span><h1>Deploying Web Applications in the Cloud<a class="headerlink" href="#deploying-web-applications-in-the-cloud" title="Permalink to this heading"></a></h1>
+<span id="index-0"></span><h1>Deploying Web Applications in the Cloud<a class="headerlink" href="#deploying-web-applications-in-the-cloud" title="Link to this heading"></a></h1>
 <p>In this chapter we will learn about deploying Ring Web Applications in the Cloud using Heroku</p>
 <section id="introduction">
-<span id="index-1"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
+<span id="index-1"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
 <p>We created a new project and tutorial to explain how to deploy Ring web applications in the Cloud using Heroku</p>
 <p>Project : <a class="reference external" href="https://github.com/ring-lang/RingWebAppOnHeroku">https://github.com/ring-lang/RingWebAppOnHeroku</a></p>
 <p>Heroku Website : <a class="reference external" href="https://www.heroku.com/">https://www.heroku.com/</a></p>
 <img alt="Ring Web Application in the Cloud" src="_images/ringincloud.png" />
 </section>
 <section id="usage">
-<span id="index-2"></span><h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
+<span id="index-2"></span><h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
 <p>To use this project and deploy it on Heroku</p>
 <ol class="arabic simple">
 <li><p>Create Heroku account</p></li>
@@ -274,7 +274,7 @@ heroku buildpacks:add --index 2 https://github.com/ring-lang/heroku-buildpack-ri
 </div>
 </section>
 <section id="ring-source-code-files-and-permissions">
-<span id="index-3"></span><h2>Ring source code files and permissions<a class="headerlink" href="#ring-source-code-files-and-permissions" title="Permalink to this heading"></a></h2>
+<span id="index-3"></span><h2>Ring source code files and permissions<a class="headerlink" href="#ring-source-code-files-and-permissions" title="Link to this heading"></a></h2>
 <p>To be able to run your new Ring scripts, Set the permission of the file to be executable using Git</p>
 <p>For example, if you created a file : myscript.ring</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git update-index --chmod=+x myscript.ring
@@ -286,7 +286,7 @@ git commit -m &quot;Update file permission&quot;
 <p>Then commit and deploy!</p>
 </section>
 <section id="hello-world-program">
-<span id="index-4"></span><h2>Hello World program<a class="headerlink" href="#hello-world-program" title="Permalink to this heading"></a></h2>
+<span id="index-4"></span><h2>Hello World program<a class="headerlink" href="#hello-world-program" title="Link to this heading"></a></h2>
 <p>file : ringapp/helloworld.ring</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c">#!/app/runring.sh -cgi</span>
 
@@ -305,7 +305,7 @@ git commit -m &quot;Update file permission&quot;
 </div>
 </section>
 <section id="application-database">
-<span id="index-5"></span><h2>Application Database<a class="headerlink" href="#application-database" title="Permalink to this heading"></a></h2>
+<span id="index-5"></span><h2>Application Database<a class="headerlink" href="#application-database" title="Link to this heading"></a></h2>
 <p>When you deploy the application, Everything will works directly!</p>
 <p>No change is required, but in practice, You will need to update the next files to use your database</p>
 <p>There are two scripts to interact with the database (We are using PostgreSQL in the cloud)</p>
@@ -319,7 +319,7 @@ git commit -m &quot;Update file permission&quot;
 <p>Database service : <a class="reference external" href="https://www.heroku.com/postgres">https://www.heroku.com/postgres</a></p>
 </section>
 <section id="deploying-after-updates">
-<span id="index-6"></span><h2>Deploying after updates<a class="headerlink" href="#deploying-after-updates" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>Deploying after updates<a class="headerlink" href="#deploying-after-updates" title="Link to this heading"></a></h2>
 <p>Just use Git and commit then push to heroku</p>
 <p>file: build.bat contains the next commands for quick tests</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git add .
@@ -330,7 +330,7 @@ heroku open
 </div>
 </section>
 <section id="local-tests">
-<span id="index-7"></span><h2>Local Tests<a class="headerlink" href="#local-tests" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>Local Tests<a class="headerlink" href="#local-tests" title="Link to this heading"></a></h2>
 <p>Local tests using Ring Notepad on Windows (Using local Apache Web Server)</p>
 <p>Replace the first line in the file : ringapp/index.ring with</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>

@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=39391842"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -218,7 +218,7 @@
            <div itemprop="articleBody">
              
   <section id="odbc-functions">
-<span id="index-0"></span><h1>ODBC Functions<a class="headerlink" href="#odbc-functions" title="Permalink to this heading"></a></h1>
+<span id="index-0"></span><h1>ODBC Functions<a class="headerlink" href="#odbc-functions" title="Link to this heading"></a></h1>
 <p>This chapter contains the ODBC functions provided by the Ring programming language.</p>
 <ul class="simple">
 <li><p>odbc_init()</p></li>
@@ -243,7 +243,7 @@
 </pre></div>
 </div>
 <section id="odbc-init-function">
-<span id="index-1"></span><h2>odbc_init() Function<a class="headerlink" href="#odbc-init-function" title="Permalink to this heading"></a></h2>
+<span id="index-1"></span><h2>odbc_init() Function<a class="headerlink" href="#odbc-init-function" title="Link to this heading"></a></h2>
 <p>We can create ODBC Handle using the odbc_init() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">odbc_init</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">ODBC</span> <span class="n">Handle</span>
@@ -251,7 +251,7 @@
 </div>
 </section>
 <section id="odbc-drivers-function">
-<span id="index-2"></span><h2>odbc_drivers() Function<a class="headerlink" href="#odbc-drivers-function" title="Permalink to this heading"></a></h2>
+<span id="index-2"></span><h2>odbc_drivers() Function<a class="headerlink" href="#odbc-drivers-function" title="Link to this heading"></a></h2>
 <p>We can get a list of ODBC drivers using the odbc_drivers() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">odbc_drivers</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span> <span class="n">of</span> <span class="n">Drivers</span>
@@ -259,7 +259,7 @@
 </div>
 </section>
 <section id="odbc-datasources-function">
-<span id="index-3"></span><h2>odbc_datasources() Function<a class="headerlink" href="#odbc-datasources-function" title="Permalink to this heading"></a></h2>
+<span id="index-3"></span><h2>odbc_datasources() Function<a class="headerlink" href="#odbc-datasources-function" title="Link to this heading"></a></h2>
 <p>We can get a list of ODBC data sources using the odbc_datasources() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">odbc_datasources</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span> <span class="n">of</span> <span class="n">Data</span> <span class="n">sources</span>
@@ -267,7 +267,7 @@
 </div>
 </section>
 <section id="odbc-close-function">
-<span id="index-4"></span><h2>odbc_close() Function<a class="headerlink" href="#odbc-close-function" title="Permalink to this heading"></a></h2>
+<span id="index-4"></span><h2>odbc_close() Function<a class="headerlink" href="#odbc-close-function" title="Link to this heading"></a></h2>
 <p>After the end of using ODBC functions we can free resources using ODBC_Close() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">odbc_close</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">)</span>
@@ -275,7 +275,7 @@
 </div>
 </section>
 <section id="print-list-of-odbc-drivers">
-<span id="index-5"></span><h2>Print List of ODBC Drivers<a class="headerlink" href="#print-list-of-odbc-drivers" title="Permalink to this heading"></a></h2>
+<span id="index-5"></span><h2>Print List of ODBC Drivers<a class="headerlink" href="#print-list-of-odbc-drivers" title="Link to this heading"></a></h2>
 <p>The next example print a list of ODBC drivers.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;ODBC test 1&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 <span class="n">oODBC</span> <span class="o">=</span> <span class="n">odbc_init</span><span class="p">()</span>
@@ -323,7 +323,7 @@
 </div>
 </section>
 <section id="print-list-of-odbc-data-sources">
-<span id="index-6"></span><h2>Print List of ODBC Data Sources<a class="headerlink" href="#print-list-of-odbc-data-sources" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>Print List of ODBC Data Sources<a class="headerlink" href="#print-list-of-odbc-data-sources" title="Link to this heading"></a></h2>
 <p>The next example print a list of ODBC data sources.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;ODBC test 2&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 <span class="n">pODBC</span> <span class="o">=</span> <span class="n">odbc_init</span><span class="p">()</span>
@@ -360,7 +360,7 @@
 </div>
 </section>
 <section id="odbc-connect-function">
-<span id="index-7"></span><h2>odbc_connect() Function<a class="headerlink" href="#odbc-connect-function" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>odbc_connect() Function<a class="headerlink" href="#odbc-connect-function" title="Link to this heading"></a></h2>
 <p>We can connect to the database using the odbc_connect() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">odbc_connect</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">,</span> <span class="n">cConnectionString</span><span class="p">)</span>
@@ -368,7 +368,7 @@
 </div>
 </section>
 <section id="odbc-disconnect-function">
-<span id="index-8"></span><h2>odbc_disconnect() Function<a class="headerlink" href="#odbc-disconnect-function" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>odbc_disconnect() Function<a class="headerlink" href="#odbc-disconnect-function" title="Link to this heading"></a></h2>
 <p>We can close the connection to the database using the odbc_disconnect() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">odbc_disconnect</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">)</span>
@@ -376,7 +376,7 @@
 </div>
 </section>
 <section id="open-and-close-connection">
-<span id="index-9"></span><h2>Open and Close Connection<a class="headerlink" href="#open-and-close-connection" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>Open and Close Connection<a class="headerlink" href="#open-and-close-connection" title="Link to this heading"></a></h2>
 <p>The next example connect to the database then close the connection</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;ODBC test 3&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 <span class="n">pODBC</span> <span class="o">=</span> <span class="n">odbc_init</span><span class="p">()</span>
@@ -398,7 +398,7 @@
 </div>
 </section>
 <section id="odbc-execute-function">
-<span id="index-10"></span><h2>odbc_execute() Function<a class="headerlink" href="#odbc-execute-function" title="Permalink to this heading"></a></h2>
+<span id="index-10"></span><h2>odbc_execute() Function<a class="headerlink" href="#odbc-execute-function" title="Link to this heading"></a></h2>
 <p>We can execute SQL Statements on the database using the odbc_execute() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">odbc_execute</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">,</span> <span class="n">cSQLStatement</span><span class="p">)</span>
@@ -406,7 +406,7 @@
 </div>
 </section>
 <section id="odbc-colcount-function">
-<span id="index-11"></span><h2>odbc_colcount() Function<a class="headerlink" href="#odbc-colcount-function" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>odbc_colcount() Function<a class="headerlink" href="#odbc-colcount-function" title="Link to this heading"></a></h2>
 <p>We can get columns count in the query result using the odbc_colcount() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">odbc_colcount</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Columns</span> <span class="n">Count</span> <span class="n">as</span> <span class="n">Number</span>
@@ -414,7 +414,7 @@
 </div>
 </section>
 <section id="odbc-fetch-function">
-<span id="index-12"></span><h2>odbc_fetch() Function<a class="headerlink" href="#odbc-fetch-function" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>odbc_fetch() Function<a class="headerlink" href="#odbc-fetch-function" title="Link to this heading"></a></h2>
 <p>We can fetch a row from the query result using the odbc_fetch() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">odbc_fetch</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">)</span>
@@ -422,7 +422,7 @@
 </div>
 </section>
 <section id="odbc-getdata-function">
-<span id="index-13"></span><h2>odbc_getdata() Function<a class="headerlink" href="#odbc-getdata-function" title="Permalink to this heading"></a></h2>
+<span id="index-13"></span><h2>odbc_getdata() Function<a class="headerlink" href="#odbc-getdata-function" title="Link to this heading"></a></h2>
 <p>We can get column value from the fetched row using the odbc_getdata() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">odbc_getdata</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">,</span> <span class="n">nColumnNumber</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Column</span> <span class="n">Value</span>
@@ -430,7 +430,7 @@
 </div>
 </section>
 <section id="execute-query-and-print-result">
-<span id="index-14"></span><h2>Execute Query and Print Result<a class="headerlink" href="#execute-query-and-print-result" title="Permalink to this heading"></a></h2>
+<span id="index-14"></span><h2>Execute Query and Print Result<a class="headerlink" href="#execute-query-and-print-result" title="Link to this heading"></a></h2>
 <p>The next example execute query then print the query result.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;ODBC test 4&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 <span class="n">pODBC</span> <span class="o">=</span> <span class="n">odbc_init</span><span class="p">()</span>
@@ -453,7 +453,7 @@
 </div>
 </section>
 <section id="odbc-tables-function">
-<span id="index-15"></span><h2>odbc_tables() Function<a class="headerlink" href="#odbc-tables-function" title="Permalink to this heading"></a></h2>
+<span id="index-15"></span><h2>odbc_tables() Function<a class="headerlink" href="#odbc-tables-function" title="Link to this heading"></a></h2>
 <p>We can get a list of tables inside the database using the odbc_tables() function.</p>
 <p>We can access the result of this function as we get any query result.</p>
 <p>Syntax:</p>
@@ -495,7 +495,7 @@
 </div>
 </section>
 <section id="odbc-columns-function">
-<span id="index-16"></span><h2>odbc_columns() Function<a class="headerlink" href="#odbc-columns-function" title="Permalink to this heading"></a></h2>
+<span id="index-16"></span><h2>odbc_columns() Function<a class="headerlink" href="#odbc-columns-function" title="Link to this heading"></a></h2>
 <p>We can get a list of columns inside the table using the odbc_columns() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">odbc_columns</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">,</span> <span class="n">cTableName</span><span class="p">)</span>
@@ -536,7 +536,7 @@
 </div>
 </section>
 <section id="odbc-autocommit-function">
-<span id="index-17"></span><h2>odbc_autocommit() Function<a class="headerlink" href="#odbc-autocommit-function" title="Permalink to this heading"></a></h2>
+<span id="index-17"></span><h2>odbc_autocommit() Function<a class="headerlink" href="#odbc-autocommit-function" title="Link to this heading"></a></h2>
 <p>We can enable or disable the auto commit feature using the odbc_autocommit() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">odbc_autocommit</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">,</span> <span class="n">lStatus</span><span class="p">)</span>   <span class="c"># lStatus can be True or False</span>
@@ -544,7 +544,7 @@
 </div>
 </section>
 <section id="odbc-commit-function">
-<span id="index-18"></span><h2>odbc_commit() Function<a class="headerlink" href="#odbc-commit-function" title="Permalink to this heading"></a></h2>
+<span id="index-18"></span><h2>odbc_commit() Function<a class="headerlink" href="#odbc-commit-function" title="Link to this heading"></a></h2>
 <p>We can commit updates to the database using the odbc_commit() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">odbc_commit</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">)</span>
@@ -552,7 +552,7 @@
 </div>
 </section>
 <section id="odbc-rollback-function">
-<span id="index-19"></span><h2>odbc_rollback() Function<a class="headerlink" href="#odbc-rollback-function" title="Permalink to this heading"></a></h2>
+<span id="index-19"></span><h2>odbc_rollback() Function<a class="headerlink" href="#odbc-rollback-function" title="Link to this heading"></a></h2>
 <p>We can rollback updates to the database using the odbc_rollback() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">odbc_rollback</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">)</span>
@@ -560,7 +560,7 @@
 </div>
 </section>
 <section id="transactions-and-using-commit-and-rollback">
-<span id="index-20"></span><h2>Transactions and Using Commit and Rollback<a class="headerlink" href="#transactions-and-using-commit-and-rollback" title="Permalink to this heading"></a></h2>
+<span id="index-20"></span><h2>Transactions and Using Commit and Rollback<a class="headerlink" href="#transactions-and-using-commit-and-rollback" title="Link to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;ODBC Test - Transactions and using Commit and Rollback&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 <span class="n">pODBC</span> <span class="o">=</span> <span class="n">odbc_init</span><span class="p">()</span>
@@ -599,7 +599,7 @@
 </div>
 </section>
 <section id="save-and-restore-images">
-<span id="index-21"></span><h2>Save and Restore images<a class="headerlink" href="#save-and-restore-images" title="Permalink to this heading"></a></h2>
+<span id="index-21"></span><h2>Save and Restore images<a class="headerlink" href="#save-and-restore-images" title="Link to this heading"></a></h2>
 <p>The next example save an image inside the database</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;ODBC test - Save image in the database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 <span class="n">pODBC</span> <span class="o">=</span> <span class="n">odbc_init</span><span class="p">()</span>

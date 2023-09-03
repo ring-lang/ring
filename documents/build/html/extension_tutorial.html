@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=39391842"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -209,10 +209,10 @@
            <div itemprop="articleBody">
              
   <section id="tutorial-ring-extensions-in-c-c">
-<span id="index-0"></span><h1>Tutorial: Ring Extensions in C/C++<a class="headerlink" href="#tutorial-ring-extensions-in-c-c" title="Permalink to this heading"></a></h1>
+<span id="index-0"></span><h1>Tutorial: Ring Extensions in C/C++<a class="headerlink" href="#tutorial-ring-extensions-in-c-c" title="Link to this heading"></a></h1>
 <p>In this chapter we will see simple examples about using C code in Ring programs</p>
 <section id="hello-world">
-<span id="index-1"></span><h2>Hello World<a class="headerlink" href="#hello-world" title="Permalink to this heading"></a></h2>
+<span id="index-1"></span><h2>Hello World<a class="headerlink" href="#hello-world" title="Link to this heading"></a></h2>
 <p>Sample : ring/extensions/tutorial/helloworld</p>
 <p>The file mylib.c contains</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;ring.h&quot;</span>
@@ -264,7 +264,7 @@ Hello, World!
 </div>
 </section>
 <section id="build-the-extension-on-different-platforms">
-<span id="index-2"></span><h2>Build the extension on different platforms<a class="headerlink" href="#build-the-extension-on-different-platforms" title="Permalink to this heading"></a></h2>
+<span id="index-2"></span><h2>Build the extension on different platforms<a class="headerlink" href="#build-the-extension-on-different-platforms" title="Link to this heading"></a></h2>
 <p>Sample : ring/extensions/tutorial/helloworld2</p>
 <p>This extension is the same as the first one but in this time, we support Windows, Linux and macOS.</p>
 <p>We will use the next files</p>
@@ -318,7 +318,7 @@ Hello, World!
 </div>
 </section>
 <section id="sum-two-numbers">
-<span id="index-3"></span><h2>Sum Two Numbers<a class="headerlink" href="#sum-two-numbers" title="Permalink to this heading"></a></h2>
+<span id="index-3"></span><h2>Sum Two Numbers<a class="headerlink" href="#sum-two-numbers" title="Link to this heading"></a></h2>
 <p>Sample : ring/extensions/tutorial/sumtwonumbers</p>
 <p>In this extension we learn how to create a C function to sum two numbers</p>
 <p>This extension is an update to the (Hello World 2) extension in : ring/extensions/tutorial/helloworld2 folder</p>
@@ -379,7 +379,7 @@ Sum Two Numbers (3,5)
 </div>
 </section>
 <section id="say-hello">
-<span id="index-4"></span><h2>Say Hello<a class="headerlink" href="#say-hello" title="Permalink to this heading"></a></h2>
+<span id="index-4"></span><h2>Say Hello<a class="headerlink" href="#say-hello" title="Link to this heading"></a></h2>
 <p>Sample : ring/extensions/tutorial/sayhello</p>
 <p>In this extension we learn how to create a C function that get a name as string then say hello.</p>
 <p>This extension is an update to the (sumtwonumbers) extension in : ring/extensions/tutorial/sumtwonumbers folder</p>
@@ -434,7 +434,7 @@ Hello Mahmoud
 </div>
 </section>
 <section id="sum-list-of-numbers">
-<span id="index-5"></span><h2>Sum List of Numbers<a class="headerlink" href="#sum-list-of-numbers" title="Permalink to this heading"></a></h2>
+<span id="index-5"></span><h2>Sum List of Numbers<a class="headerlink" href="#sum-list-of-numbers" title="Link to this heading"></a></h2>
 <p>Sample : ring/extensions/tutorial/sumlist</p>
 <p>In this extension we learn how to create a C function that sum list of numbers.</p>
 <p>This extension is an update to the (sayhello) extension in : ring/extensions/tutorial/sayhello folder</p>
@@ -506,7 +506,7 @@ Sum List contains numbers from 1 to 10
 </div>
 </section>
 <section id="increment-list-items">
-<span id="index-6"></span><h2>Increment List Items<a class="headerlink" href="#increment-list-items" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>Increment List Items<a class="headerlink" href="#increment-list-items" title="Link to this heading"></a></h2>
 <p>Sample : ring/extensions/tutorial/incrementlist</p>
 <p>In this extension we learn how to create a C function that increment the list items.</p>
 <p>This extension is an update to the (sumlist) extension in : ring/extensions/tutorial/sumlist folder</p>
@@ -594,7 +594,7 @@ Sum List contains numbers from 1 to 10
 </div>
 </section>
 <section id="filter-list-items">
-<span id="index-7"></span><h2>Filter List Items<a class="headerlink" href="#filter-list-items" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>Filter List Items<a class="headerlink" href="#filter-list-items" title="Link to this heading"></a></h2>
 <p>Sample : ring/extensions/tutorial/filterlist</p>
 <p>In this extension we learn how to create a C function that filter the list items.</p>
 <p>This extension is an update to the (incrementlist) extension in : ring/extensions/tutorial/incrementlist folder</p>
@@ -690,7 +690,7 @@ Filter List Items (Items &gt; 15)
 </div>
 </section>
 <section id="replicate-list-items">
-<span id="index-8"></span><h2>Replicate List Items<a class="headerlink" href="#replicate-list-items" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>Replicate List Items<a class="headerlink" href="#replicate-list-items" title="Link to this heading"></a></h2>
 <p>Sample : ring/extensions/tutorial/replicatelist</p>
 <p>In this extension we learn how to create a C function that add more items to the list.</p>
 <p>This extension is an update to the (filterlist) extension in : ring/extensions/tutorial/filterlist folder</p>
@@ -810,7 +810,7 @@ Replicate list (1:3) three times then print the items (We expect 12 items)
 </div>
 </section>
 <section id="generate-list">
-<span id="index-9"></span><h2>Generate List<a class="headerlink" href="#generate-list" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>Generate List<a class="headerlink" href="#generate-list" title="Link to this heading"></a></h2>
 <p>Sample : ring/extensions/tutorial/generatelist</p>
 <p>In this extension we learn how to create a C function that create new list and add items to the list.</p>
 <p>This extension is an update to the (replicatelist) extension in : ring/extensions/tutorial/replicatelist folder</p>
@@ -938,7 +938,7 @@ Create list contains 5 items using C code
 </div>
 </section>
 <section id="display-list">
-<span id="index-10"></span><h2>Display List<a class="headerlink" href="#display-list" title="Permalink to this heading"></a></h2>
+<span id="index-10"></span><h2>Display List<a class="headerlink" href="#display-list" title="Link to this heading"></a></h2>
 <p>Sample : ring/extensions/tutorial/displaylist</p>
 <p>In this extension we learn how to create a C function that display all of the list items including nested lists</p>
 <p>In mylib.c we update the file to add</p>
@@ -1107,7 +1107,7 @@ String : R 3 C 2
 </div>
 </section>
 <section id="update-table">
-<span id="index-11"></span><h2>Update Table<a class="headerlink" href="#update-table" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>Update Table<a class="headerlink" href="#update-table" title="Link to this heading"></a></h2>
 <p>Sample : ring/extensions/tutorial/updatetable</p>
 <p>In this extension we learn how to create a C function that update a table contains rows and columns</p>
 <p>In mylib.c we update the file to add</p>
@@ -1293,7 +1293,7 @@ aList[2][2] : 10
 </div>
 </section>
 <section id="create-table">
-<span id="index-12"></span><h2>Create Table<a class="headerlink" href="#create-table" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>Create Table<a class="headerlink" href="#create-table" title="Link to this heading"></a></h2>
 <p>Sample : ring/extensions/tutorial/createtable</p>
 <p>In this extension we learn how to create a C function that create a table contains rows and columns</p>
 <p>In mylib.c we update the file to add</p>

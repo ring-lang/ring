@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=39391842"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -211,10 +211,10 @@
            <div itemprop="articleBody">
              
   <section id="language-design">
-<span id="index-0"></span><h1>Language Design<a class="headerlink" href="#language-design" title="Permalink to this heading"></a></h1>
+<span id="index-0"></span><h1>Language Design<a class="headerlink" href="#language-design" title="Link to this heading"></a></h1>
 <p>In this chapter we will learn about the basic concepts behind the language design.</p>
 <section id="why-ring">
-<span id="index-1"></span><h2>Why Ring?<a class="headerlink" href="#why-ring" title="Permalink to this heading"></a></h2>
+<span id="index-1"></span><h2>Why Ring?<a class="headerlink" href="#why-ring" title="Link to this heading"></a></h2>
 <p>The language is simple, trying to be natural, encourage organization and comes
 with transparent and visual implementation. It comes with compact syntax and a
 group of features that enable the programmer to create natural interfaces and
@@ -225,7 +225,7 @@ and practical libraries. The language is designed for productivity and developin
 high quality solutions that can scale.</p>
 </section>
 <section id="designed-for-a-clear-goal">
-<span id="index-2"></span><h2>Designed for a Clear Goal<a class="headerlink" href="#designed-for-a-clear-goal" title="Permalink to this heading"></a></h2>
+<span id="index-2"></span><h2>Designed for a Clear Goal<a class="headerlink" href="#designed-for-a-clear-goal" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Applications programming language.</p></li>
 <li><p>Productivity and developing high quality solutions that can scale.</p></li>
@@ -236,7 +236,7 @@ high quality solutions that can scale.</p>
 </ul>
 </section>
 <section id="simple">
-<span id="index-3"></span><h2>Simple<a class="headerlink" href="#simple" title="Permalink to this heading"></a></h2>
+<span id="index-3"></span><h2>Simple<a class="headerlink" href="#simple" title="Link to this heading"></a></h2>
 <p>Ring is a very simple language, and has a very straightforward syntax. It encourages programmers to program without boilerplate code</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Hello, World!&quot;</span>
 </pre></div>
@@ -256,7 +256,7 @@ You can use the ‘+’ operator for string concatenation and the language is we
 </div>
 </section>
 <section id="trying-to-be-natural">
-<span id="index-4"></span><h2>Trying to be natural<a class="headerlink" href="#trying-to-be-natural" title="Permalink to this heading"></a></h2>
+<span id="index-4"></span><h2>Trying to be natural<a class="headerlink" href="#trying-to-be-natural" title="Link to this heading"></a></h2>
 <p>Ring is not case-sensitive</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Enter your name ? &quot;</span>
 <span class="k">Give</span> <span class="n">name</span>
@@ -323,7 +323,7 @@ The for in loop can update the list items.</p>
 </div>
 </section>
 <section id="encourage-organization">
-<span id="index-5"></span><h2>Encourage Organization<a class="headerlink" href="#encourage-organization" title="Permalink to this heading"></a></h2>
+<span id="index-5"></span><h2>Encourage Organization<a class="headerlink" href="#encourage-organization" title="Link to this heading"></a></h2>
 <p>The language encourage organization, Forget bad days using languages where the programmer start with function then class then function and a strange mix between things!</p>
 <p>Each source file follow the next structure</p>
 <ul class="simple">
@@ -350,7 +350,7 @@ Multi-line comments are written between /* and <a href="#id1"><span class="probl
 </div>
 </section>
 <section id="data-representation">
-<span id="index-6"></span><h2>Data Representation<a class="headerlink" href="#data-representation" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>Data Representation<a class="headerlink" href="#data-representation" title="Link to this heading"></a></h2>
 <p>Ring contains only 4 types that represent the program data</p>
 <p>These types are (String, Number, List &amp; Object)</p>
 <p>The idea is to have many use cases for each type which increase the flexibility and the ability
@@ -398,7 +398,7 @@ to write functions that are more usable in different situations.</p>
 <p>Using classes and operator overloading we can create custom types</p>
 </section>
 <section id="compact-syntax">
-<span id="index-7"></span><h2>Compact Syntax<a class="headerlink" href="#compact-syntax" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>Compact Syntax<a class="headerlink" href="#compact-syntax" title="Link to this heading"></a></h2>
 <p>The language is not line sensitive, you don’t need to write ; after statements, also you don’t need to press ENTER or TAB, so we can write the next code</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;The First Message&quot;</span> <span class="k">See</span> <span class="s">&quot; Another message in the same line! &quot;</span> <span class="o">+</span> <span class="n">nl</span>
 <span class="k">See</span> <span class="s">&quot;Enter your name?&quot;</span> <span class="k">Give</span> <span class="n">Name</span> <span class="k">See</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">Name</span>
@@ -451,7 +451,7 @@ to write functions that are more usable in different situations.</p>
 </div>
 </section>
 <section id="define-natural-statements">
-<span id="index-8"></span><h2>Define Natural Statements<a class="headerlink" href="#define-natural-statements" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>Define Natural Statements<a class="headerlink" href="#define-natural-statements" title="Link to this heading"></a></h2>
 <p>After the object access using { } if the class contains a method called BraceEnd() it will be executed!</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">TimeForFun</span> <span class="o">=</span> <span class="k">new</span> <span class="n">journey</span>
 <span class="c"># The first surprise!</span>
@@ -538,7 +538,7 @@ Also keywords that can be ignored like the ‘the’ keyword</p>
 Also, you can update the methods GetWindow() and SetTitle() to create Real windows using the GUI Library</p>
 </section>
 <section id="define-declarative-languages">
-<span id="index-9"></span><h2>Define Declarative Languages<a class="headerlink" href="#define-declarative-languages" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>Define Declarative Languages<a class="headerlink" href="#define-declarative-languages" title="Link to this heading"></a></h2>
 <p>We learned how to use Natural statements to execute our code and using the same features we can use nested structures to execute our code.</p>
 <p>The next example from the Web library, generate HTML document using the Bootstrap library. No HTML code is written directly in this example, we created a similar language (just as example) Then using this declarative language that uses nested structures, we generated the HTML Document..
 The idea in this example is that the GetDiv() and GetH1() methods return an object that we can access using {} and after each object access the method BraceEnd() will be executed to send the generated HTML to the parent object until we reach to the root where BraceEnd() will print the output.</p>
@@ -592,7 +592,7 @@ The idea in this example is that the GetDiv() and GetH1() methods return an obje
 </div>
 </section>
 <section id="transparent-implementation">
-<span id="index-10"></span><h2>Transparent Implementation<a class="headerlink" href="#transparent-implementation" title="Permalink to this heading"></a></h2>
+<span id="index-10"></span><h2>Transparent Implementation<a class="headerlink" href="#transparent-implementation" title="Link to this heading"></a></h2>
 <p>Ring comes with transparent implementation. We can know what is happening in each compiler stage and what is going on during the run-time by the Virtual Machine Example : ring helloworld.ring -tokens -rules -ic</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Hello, World!&quot;</span>
 </pre></div>
@@ -650,7 +650,7 @@ The idea in this example is that the GetDiv() and GetH1() methods return an obje
 </div>
 </section>
 <section id="visual-implementation">
-<span id="index-11"></span><h2>Visual Implementation<a class="headerlink" href="#visual-implementation" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>Visual Implementation<a class="headerlink" href="#visual-implementation" title="Link to this heading"></a></h2>
 <p>The Ring programming language is designed using the PWCT visual programming tool
 and you will find the visual source of the language in the folder “language/visualsrc” - <a href="#id3"><span class="problematic" id="id4">*</span></a>.ssf
 files and the generated source code (In the C Language) in the  language/src folder and
@@ -661,7 +661,7 @@ the language/include folder.</p>
 <img alt="_images/visualsrc2.JPG" src="_images/visualsrc2.JPG" />
 </section>
 <section id="smart-garbage-collector">
-<span id="index-12"></span><h2>Smart Garbage Collector<a class="headerlink" href="#smart-garbage-collector" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>Smart Garbage Collector<a class="headerlink" href="#smart-garbage-collector" title="Link to this heading"></a></h2>
 <p>Avoid memory problems :-</p>
 <ul class="simple">
 <li><p>Invalid Memory Access</p></li>
@@ -687,13 +687,13 @@ the language/include folder.</p>
 </ul>
 </section>
 <section id="no-global-interpreter-vm-lock-no-gil">
-<span id="index-13"></span><h2>No Global Interpreter (VM) Lock - No GIL<a class="headerlink" href="#no-global-interpreter-vm-lock-no-gil" title="Permalink to this heading"></a></h2>
+<span id="index-13"></span><h2>No Global Interpreter (VM) Lock - No GIL<a class="headerlink" href="#no-global-interpreter-vm-lock-no-gil" title="Link to this heading"></a></h2>
 <p>When we use threads in Ring applications, We don’t have global interpreter (VM) lock (No GIL)</p>
 <p>So threads can work in parallel and execute Ring instructions at the same time</p>
 <p>This is better for threads and concurrency (More Faster!)</p>
 </section>
 <section id="fast-enough-for-many-applications">
-<span id="index-14"></span><h2>Fast Enough For Many Applications<a class="headerlink" href="#fast-enough-for-many-applications" title="Permalink to this heading"></a></h2>
+<span id="index-14"></span><h2>Fast Enough For Many Applications<a class="headerlink" href="#fast-enough-for-many-applications" title="Link to this heading"></a></h2>
 <p>Ring is designed to be a simple, small and flexible language in the first place, but also it is fast enough for many applications.</p>
 <p>Ring can do each of the next tasks in around 1 second using normal computers in the market during the last 5 years</p>
 <ol class="arabic simple">

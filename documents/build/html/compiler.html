@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=39391842"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -207,7 +207,7 @@
            <div itemprop="articleBody">
              
   <section id="command-line-options">
-<span id="index-0"></span><h1>Command Line Options<a class="headerlink" href="#command-line-options" title="Permalink to this heading"></a></h1>
+<span id="index-0"></span><h1>Command Line Options<a class="headerlink" href="#command-line-options" title="Link to this heading"></a></h1>
 <p>The ring language takes source code file (<em>.ring) or the object file (</em>.ringo) as input to execute,
 also the language provide other options like</p>
 <table class="docutils align-default">
@@ -253,7 +253,7 @@ also the language provide other options like</p>
 </tbody>
 </table>
 <section id="printing-tokens">
-<span id="index-1"></span><h2>Printing Tokens<a class="headerlink" href="#printing-tokens" title="Permalink to this heading"></a></h2>
+<span id="index-1"></span><h2>Printing Tokens<a class="headerlink" href="#printing-tokens" title="Link to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Func</span> <span class="n">Main</span>
         <span class="k">See</span> <span class="s">&quot;Hello World&quot;</span> <span class="o">+</span> <span class="n">nl</span>
@@ -344,7 +344,7 @@ also the language provide other options like</p>
 </div>
 </section>
 <section id="printing-rules">
-<span id="index-2"></span><h2>Printing Rules<a class="headerlink" href="#printing-rules" title="Permalink to this heading"></a></h2>
+<span id="index-2"></span><h2>Printing Rules<a class="headerlink" href="#printing-rules" title="Link to this heading"></a></h2>
 <p>Command:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">rules</span> <span class="o">-</span><span class="n">norun</span>
 </pre></div>
@@ -620,389 +620,389 @@ also the language provide other options like</p>
 </div>
 </section>
 <section id="printing-intermediate-code">
-<span id="index-3"></span><h2>Printing Intermediate Code<a class="headerlink" href="#printing-intermediate-code" title="Permalink to this heading"></a></h2>
+<span id="index-3"></span><h2>Printing Intermediate Code<a class="headerlink" href="#printing-intermediate-code" title="Link to this heading"></a></h2>
 <p>Command:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">ic</span> <span class="o">-</span><span class="n">norun</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>===================================================
-Byte Code - Before Execution by the VM
-===================================================
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">===================================================</span>
+<span class="n">Byte</span> <span class="n">Code</span> <span class="o">-</span> <span class="n">Before</span> <span class="n">Execution</span> <span class="n">by</span> <span class="n">the</span> <span class="n">VM</span>
+<span class="o">===================================================</span>
 
-         PC      OPCode        Data
+         <span class="n">PC</span>      <span class="n">OPCode</span>        <span class="n">Data</span>
 
-          1  ReturnNull
-          2        Func    main
-          3     NewLine       2
-          4     FuncExE
-          5       PushC   Hello World
-          6       LoadA      nl      0
-          7       PushV
-          8         SUM       0
-          9       Print
-         10     NewLine       3
-         11    ExitMark      29     28
-         12  LoadAFirst       x
-         13       PushN   1.000000
-         14  BeforeEqual       0
-         15  Assignment
-         16       PushN   1.000000
-         17  StepNumber
-         18  JumpVarLENum       x  10.000000    29
-         19     NewLine       4
-         20     FuncExE
-         21       LoadA       x      0
-         22       PushV
-         23       LoadA      nl      0
-         24       PushV
-         25         SUM       0
-         26       Print
-         27     NewLine       5
-         28     IncJump       x     18
-         29  POPExitMark
-         30     POPStep
-         31     NewLine       6
-         32    LoadFunc    test
-         33        Call       0
-         34  NoOperation
-         35     NewLine       8
-         36       PushV
-         37   FreeStack
-         38  ReturnNull
-         39        Func    test
-         40     NewLine       9
-         41     FuncExE
-         42       PushC   welcome
-         43       LoadA      nl      0
-         44       PushV
-         45         SUM       0
-         46       Print
-         47     NewLine      10
-         48       LoadA      o1      0
-         49  AssignmentPointer
-         50         New   point
-         51    SetScope
-         52       PushV
-         53  BraceStart
-         54       LoadA       x      0     58
-         55  AssignmentPointer
-         56       PushN   10.000000
-         57  BeforeEqual       0
-         58  Assignment       0      0
-         59   FreeStack
-         60       LoadA       y      0     64
-         61  AssignmentPointer
-         62       PushN   20.000000
-         63  BeforeEqual       0
-         64  Assignment       0      0
-         65   FreeStack
-         66       LoadA       z      0     70
-         67  AssignmentPointer
-         68       PushN   30.000000
-         69  BeforeEqual       0
-         70  Assignment       0      0
-         71   FreeStack
-         72    LoadFunc   ismethod
-         73       LoadA    self      0
-         74       PushV
-         75       PushC   braceend
-         76        Call
-         77  NoOperation
-         78       PushV
-         79       JumpZ      85
-         80    LoadFunc   braceend
-         81        Call
-         82  NoOperation
-         83       PushV
-         84   FreeStack
-         85    BraceEnd
-         86   FreeStack
-         87     NewLine      11
-         88     FuncExE
-         89       LoadA      o1      0
-         90       PushV
-         91       Print
-         92     NewLine      13
-         93  ReturnNull
-         94       Class   point  006E8BC0
-         95    NewLabel
-         96       LoadA       x      0
-         97       PushV
-         98   FreeStack
-         99       LoadA       y      0
-        100       PushV
-        101   FreeStack
-        102       LoadA       z      0
-        103       PushV
-        104   FreeStack
-        105  ReturnNull
+          <span class="mi">1</span>  <span class="n">ReturnNull</span>
+          <span class="mi">2</span>        <span class="k">Func</span>    <span class="n">main</span>
+          <span class="mi">3</span>     <span class="n">NewLine</span>       <span class="mi">2</span>
+          <span class="mi">4</span>     <span class="n">FuncExE</span>
+          <span class="mi">5</span>       <span class="n">PushC</span>   <span class="n">Hello</span> <span class="n">World</span>
+          <span class="mi">6</span>       <span class="n">LoadA</span>      <span class="n">nl</span>      <span class="mi">0</span>
+          <span class="mi">7</span>       <span class="n">PushV</span>
+          <span class="mi">8</span>         <span class="n">SUM</span>       <span class="mi">0</span>
+          <span class="mi">9</span>       <span class="n">Print</span>
+         <span class="mi">10</span>     <span class="n">NewLine</span>       <span class="mi">3</span>
+         <span class="mi">11</span>    <span class="n">ExitMark</span>      <span class="mi">29</span>     <span class="mi">28</span>
+         <span class="mi">12</span>  <span class="n">LoadAFirst</span>       <span class="n">x</span>
+         <span class="mi">13</span>       <span class="n">PushN</span>   <span class="mf">1.000000</span>
+         <span class="mi">14</span>  <span class="n">BeforeEqual</span>       <span class="mi">0</span>
+         <span class="mi">15</span>  <span class="n">Assignment</span>
+         <span class="mi">16</span>       <span class="n">PushN</span>   <span class="mf">1.000000</span>
+         <span class="mi">17</span>  <span class="n">StepNumber</span>
+         <span class="mi">18</span>  <span class="n">JumpVarLENum</span>       <span class="n">x</span>  <span class="mf">10.000000</span>    <span class="mi">29</span>
+         <span class="mi">19</span>     <span class="n">NewLine</span>       <span class="mi">4</span>
+         <span class="mi">20</span>     <span class="n">FuncExE</span>
+         <span class="mi">21</span>       <span class="n">LoadA</span>       <span class="n">x</span>      <span class="mi">0</span>
+         <span class="mi">22</span>       <span class="n">PushV</span>
+         <span class="mi">23</span>       <span class="n">LoadA</span>      <span class="n">nl</span>      <span class="mi">0</span>
+         <span class="mi">24</span>       <span class="n">PushV</span>
+         <span class="mi">25</span>         <span class="n">SUM</span>       <span class="mi">0</span>
+         <span class="mi">26</span>       <span class="n">Print</span>
+         <span class="mi">27</span>     <span class="n">NewLine</span>       <span class="mi">5</span>
+         <span class="mi">28</span>     <span class="n">IncJump</span>       <span class="n">x</span>     <span class="mi">18</span>
+         <span class="mi">29</span>  <span class="n">POPExitMark</span>
+         <span class="mi">30</span>     <span class="n">POPStep</span>
+         <span class="mi">31</span>     <span class="n">NewLine</span>       <span class="mi">6</span>
+         <span class="mi">32</span>    <span class="n">LoadFunc</span>    <span class="n">test</span>
+         <span class="mi">33</span>        <span class="k">Call</span>       <span class="mi">0</span>
+         <span class="mi">34</span>  <span class="n">NoOperation</span>
+         <span class="mi">35</span>     <span class="n">NewLine</span>       <span class="mi">8</span>
+         <span class="mi">36</span>       <span class="n">PushV</span>
+         <span class="mi">37</span>   <span class="n">FreeStack</span>
+         <span class="mi">38</span>  <span class="n">ReturnNull</span>
+         <span class="mi">39</span>        <span class="k">Func</span>    <span class="n">test</span>
+         <span class="mi">40</span>     <span class="n">NewLine</span>       <span class="mi">9</span>
+         <span class="mi">41</span>     <span class="n">FuncExE</span>
+         <span class="mi">42</span>       <span class="n">PushC</span>   <span class="n">welcome</span>
+         <span class="mi">43</span>       <span class="n">LoadA</span>      <span class="n">nl</span>      <span class="mi">0</span>
+         <span class="mi">44</span>       <span class="n">PushV</span>
+         <span class="mi">45</span>         <span class="n">SUM</span>       <span class="mi">0</span>
+         <span class="mi">46</span>       <span class="n">Print</span>
+         <span class="mi">47</span>     <span class="n">NewLine</span>      <span class="mi">10</span>
+         <span class="mi">48</span>       <span class="n">LoadA</span>      <span class="n">o1</span>      <span class="mi">0</span>
+         <span class="mi">49</span>  <span class="n">AssignmentPointer</span>
+         <span class="mi">50</span>         <span class="k">New</span>   <span class="n">point</span>
+         <span class="mi">51</span>    <span class="n">SetScope</span>
+         <span class="mi">52</span>       <span class="n">PushV</span>
+         <span class="mi">53</span>  <span class="n">BraceStart</span>
+         <span class="mi">54</span>       <span class="n">LoadA</span>       <span class="n">x</span>      <span class="mi">0</span>     <span class="mi">58</span>
+         <span class="mi">55</span>  <span class="n">AssignmentPointer</span>
+         <span class="mi">56</span>       <span class="n">PushN</span>   <span class="mf">10.000000</span>
+         <span class="mi">57</span>  <span class="n">BeforeEqual</span>       <span class="mi">0</span>
+         <span class="mi">58</span>  <span class="n">Assignment</span>       <span class="mi">0</span>      <span class="mi">0</span>
+         <span class="mi">59</span>   <span class="n">FreeStack</span>
+         <span class="mi">60</span>       <span class="n">LoadA</span>       <span class="n">y</span>      <span class="mi">0</span>     <span class="mi">64</span>
+         <span class="mi">61</span>  <span class="n">AssignmentPointer</span>
+         <span class="mi">62</span>       <span class="n">PushN</span>   <span class="mf">20.000000</span>
+         <span class="mi">63</span>  <span class="n">BeforeEqual</span>       <span class="mi">0</span>
+         <span class="mi">64</span>  <span class="n">Assignment</span>       <span class="mi">0</span>      <span class="mi">0</span>
+         <span class="mi">65</span>   <span class="n">FreeStack</span>
+         <span class="mi">66</span>       <span class="n">LoadA</span>       <span class="n">z</span>      <span class="mi">0</span>     <span class="mi">70</span>
+         <span class="mi">67</span>  <span class="n">AssignmentPointer</span>
+         <span class="mi">68</span>       <span class="n">PushN</span>   <span class="mf">30.000000</span>
+         <span class="mi">69</span>  <span class="n">BeforeEqual</span>       <span class="mi">0</span>
+         <span class="mi">70</span>  <span class="n">Assignment</span>       <span class="mi">0</span>      <span class="mi">0</span>
+         <span class="mi">71</span>   <span class="n">FreeStack</span>
+         <span class="mi">72</span>    <span class="n">LoadFunc</span>   <span class="n">ismethod</span>
+         <span class="mi">73</span>       <span class="n">LoadA</span>    <span class="n">self</span>      <span class="mi">0</span>
+         <span class="mi">74</span>       <span class="n">PushV</span>
+         <span class="mi">75</span>       <span class="n">PushC</span>   <span class="n">braceend</span>
+         <span class="mi">76</span>        <span class="k">Call</span>
+         <span class="mi">77</span>  <span class="n">NoOperation</span>
+         <span class="mi">78</span>       <span class="n">PushV</span>
+         <span class="mi">79</span>       <span class="n">JumpZ</span>      <span class="mi">85</span>
+         <span class="mi">80</span>    <span class="n">LoadFunc</span>   <span class="n">braceend</span>
+         <span class="mi">81</span>        <span class="k">Call</span>
+         <span class="mi">82</span>  <span class="n">NoOperation</span>
+         <span class="mi">83</span>       <span class="n">PushV</span>
+         <span class="mi">84</span>   <span class="n">FreeStack</span>
+         <span class="mi">85</span>    <span class="n">BraceEnd</span>
+         <span class="mi">86</span>   <span class="n">FreeStack</span>
+         <span class="mi">87</span>     <span class="n">NewLine</span>      <span class="mi">11</span>
+         <span class="mi">88</span>     <span class="n">FuncExE</span>
+         <span class="mi">89</span>       <span class="n">LoadA</span>      <span class="n">o1</span>      <span class="mi">0</span>
+         <span class="mi">90</span>       <span class="n">PushV</span>
+         <span class="mi">91</span>       <span class="n">Print</span>
+         <span class="mi">92</span>     <span class="n">NewLine</span>      <span class="mi">13</span>
+         <span class="mi">93</span>  <span class="n">ReturnNull</span>
+         <span class="mi">94</span>       <span class="k">Class</span>   <span class="n">point</span>  <span class="mf">006E8</span><span class="err">BC0</span>
+         <span class="mi">95</span>    <span class="n">NewLabel</span>
+         <span class="mi">96</span>       <span class="n">LoadA</span>       <span class="n">x</span>      <span class="mi">0</span>
+         <span class="mi">97</span>       <span class="n">PushV</span>
+         <span class="mi">98</span>   <span class="n">FreeStack</span>
+         <span class="mi">99</span>       <span class="n">LoadA</span>       <span class="n">y</span>      <span class="mi">0</span>
+        <span class="mi">100</span>       <span class="n">PushV</span>
+        <span class="mi">101</span>   <span class="n">FreeStack</span>
+        <span class="mi">102</span>       <span class="n">LoadA</span>       <span class="n">z</span>      <span class="mi">0</span>
+        <span class="mi">103</span>       <span class="n">PushV</span>
+        <span class="mi">104</span>   <span class="n">FreeStack</span>
+        <span class="mi">105</span>  <span class="n">ReturnNull</span>
 
-===================================================
+<span class="o">===================================================</span>
 </pre></div>
 </div>
 </section>
 <section id="printing-final-intermediate-code">
-<span id="index-4"></span><h2>Printing Final Intermediate Code<a class="headerlink" href="#printing-final-intermediate-code" title="Permalink to this heading"></a></h2>
+<span id="index-4"></span><h2>Printing Final Intermediate Code<a class="headerlink" href="#printing-final-intermediate-code" title="Link to this heading"></a></h2>
 <p>Command:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">icfinal</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Hello World
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-welcome
-x: 10.000000
-y: 20.000000
-z: 30.000000
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Hello</span> <span class="n">World</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">4</span>
+<span class="mi">5</span>
+<span class="mi">6</span>
+<span class="mi">7</span>
+<span class="mi">8</span>
+<span class="mi">9</span>
+<span class="mi">10</span>
+<span class="n">welcome</span>
+<span class="n">x</span><span class="p">:</span> <span class="mf">10.000000</span>
+<span class="n">y</span><span class="p">:</span> <span class="mf">20.000000</span>
+<span class="n">z</span><span class="p">:</span> <span class="mf">30.000000</span>
 
 
-===================================================
-Byte Code - After Execution by the VM
-===================================================
+<span class="o">===================================================</span>
+<span class="n">Byte</span> <span class="n">Code</span> <span class="o">-</span> <span class="n">After</span> <span class="n">Execution</span> <span class="n">by</span> <span class="n">the</span> <span class="n">VM</span>
+<span class="o">===================================================</span>
 
-         PC      OPCode        Data
+         <span class="n">PC</span>      <span class="n">OPCode</span>        <span class="n">Data</span>
 
-          1  ReturnNull
-          2        Func    main
-          3     NewLine       2
-          4     FuncExE
-          5       PushC   Hello World
-          6       PushP   007D3670      0
-          7       PushV
-          8         SUM       0
-          9       Print
-         10     NewLine       3
-         11    ExitMark      29     28
-         12  LoadAFirst       x
-         13       PushN   1.000000
-         14  BeforeEqual       0
-         15  Assignment
-         16       PushN   1.000000
-         17  StepNumber
-         18  JumpVarLPLENum       x  10.000000    29
-         19     NewLine       4
-         20     FuncExE
-         21  PushPLocal       x      0
-         22       PushV
-         23       PushP   007D3670      0
-         24       PushV
-         25         SUM       0
-         26       Print
-         27     NewLine       5
-         28   IncLPJump       x     18
-         29  POPExitMark
-         30     POPStep
-         31     NewLine       6
-         32   LoadFuncP    test
-         33        Call       0
-         34  NoOperation
-         35     NewLine       8
-         36       PushV
-         37   FreeStack
-         38  ReturnNull
-         39        Func    test
-         40     NewLine       9
-         41     FuncExE
-         42       PushC   welcome
-         43       PushP   007D3670      0
-         44       PushV
-         45         SUM       0
-         46       Print
-         47     NewLine      10
-         48  PushPLocal      o1      0
-         49  AssignmentPointer
-         50         New   point
-         51    SetScope
-         52       PushV
-         53  BraceStart
-         54       LoadA       x      0     58
-         55  AssignmentPointer
-         56       PushN   10.000000
-         57  BeforeEqual       0
-         58  SetProperty       0    106
-         59   FreeStack
-         60       LoadA       y      0     64
-         61  AssignmentPointer
-         62       PushN   20.000000
-         63  BeforeEqual       0
-         64  SetProperty       0    141
-         65   FreeStack
-         66       LoadA       z      0     70
-         67  AssignmentPointer
-         68       PushN   30.000000
-         69  BeforeEqual       0
-         70  SetProperty       0    176
-         71   FreeStack
-         72    LoadFunc   ismethod
-         73       LoadA    self      0
-         74       PushV
-         75       PushC   braceend
-         76        Call
-         77  NoOperation
-         78       PushV
-         79       JumpZ      85
-         80    LoadFunc   braceend
-         81        Call
-         82  NoOperation
-         83       PushV
-         84   FreeStack
-         85    BraceEnd
-         86   FreeStack
-         87     NewLine      11
-         88     FuncExE
-         89  PushPLocal      o1      0
-         90       PushV
-         91       Print
-         92     NewLine      13
-         93  ReturnNull
-         94       Class   point  007D8470
-         95    NewLabel
-         96       LoadA       x      0
-         97       PushV
-         98   FreeStack
-         99       LoadA       y      0
-        100       PushV
-        101   FreeStack
-        102       LoadA       z      0
-        103       PushV
-        104   FreeStack
-        105  ReturnNull
-        106    LoadFunc   ismethod
-        107       LoadA   ring_gettemp_var      0
-        108       PushV
-        109       PushC    setx
-        110        Call       0
-        111  NoOperation
-        112       PushV
-        113       JumpZ     132
-        114     NewLine       2
-        115       LoadA   ring_gettemp_var      0
-        116  LoadMethod    setx
-        117       LoadA   ring_settemp_var      0
-        118       PushV
-        119        Call       0      1
-        120  AfterCallMethod
-        121       PushV
-        122   FreeStack
-        123     NewLine       3
-        124       LoadA   ring_tempflag_var      0    128
-        125  AssignmentPointer
-        126       PushN   0.000000
-        127  BeforeEqual       0
-        128  Assignment       0      0
-        129   FreeStack
-        130     NewLine       4
-        131        Jump     140
-        132     NewLine       5
-        133       PushP   007D37D8      0    137
-        134  AssignmentPointer
-        135       PushN   1.000000
-        136  BeforeEqual       0
-        137  Assignment       0      0
-        138   FreeStack
-        139     NewLine       6
-        140      Return
-        141    LoadFunc   ismethod
-        142       LoadA   ring_gettemp_var      0
-        143       PushV
-        144       PushC    sety
-        145        Call       0
-        146  NoOperation
-        147       PushV
-        148       JumpZ     167
-        149     NewLine       2
-        150       LoadA   ring_gettemp_var      0
-        151  LoadMethod    sety
-        152       LoadA   ring_settemp_var      0
-        153       PushV
-        154        Call       0      1
-        155  AfterCallMethod
-        156       PushV
-        157   FreeStack
-        158     NewLine       3
-        159       LoadA   ring_tempflag_var      0    163
-        160  AssignmentPointer
-        161       PushN   0.000000
-        162  BeforeEqual       0
-        163  Assignment       0      0
-        164   FreeStack
-        165     NewLine       4
-        166        Jump     175
-        167     NewLine       5
-        168       PushP   007D37D8      0    172
-        169  AssignmentPointer
-        170       PushN   1.000000
-        171  BeforeEqual       0
-        172  Assignment       0      0
-        173   FreeStack
-        174     NewLine       6
-        175      Return
-        176    LoadFunc   ismethod
-        177       LoadA   ring_gettemp_var      0
-        178       PushV
-        179       PushC    setz
-        180        Call       0
-        181  NoOperation
-        182       PushV
-        183       JumpZ     202
-        184     NewLine       2
-        185       LoadA   ring_gettemp_var      0
-        186  LoadMethod    setz
-        187       LoadA   ring_settemp_var      0
-        188       PushV
-        189        Call       0      1
-        190  AfterCallMethod
-        191       PushV
-        192   FreeStack
-        193     NewLine       3
-        194       LoadA   ring_tempflag_var      0    198
-        195  AssignmentPointer
-        196       PushN   0.000000
-        197  BeforeEqual       0
-        198  Assignment       0      0
-        199   FreeStack
-        200     NewLine       4
-        201        Jump     210
-        202     NewLine       5
-        203       PushP   007D37D8      0    207
-        204  AssignmentPointer
-        205       PushN   1.000000
-        206  BeforeEqual       0
-        207  Assignment       0      0
-        208   FreeStack
-        209     NewLine       6
-        210      Return
+          <span class="mi">1</span>  <span class="n">ReturnNull</span>
+          <span class="mi">2</span>        <span class="k">Func</span>    <span class="n">main</span>
+          <span class="mi">3</span>     <span class="n">NewLine</span>       <span class="mi">2</span>
+          <span class="mi">4</span>     <span class="n">FuncExE</span>
+          <span class="mi">5</span>       <span class="n">PushC</span>   <span class="n">Hello</span> <span class="n">World</span>
+          <span class="mi">6</span>       <span class="n">PushP</span>   <span class="mi">007</span><span class="err">D3670      0</span>
+          <span class="mi">7</span>       <span class="n">PushV</span>
+          <span class="mi">8</span>         <span class="n">SUM</span>       <span class="mi">0</span>
+          <span class="mi">9</span>       <span class="n">Print</span>
+         <span class="mi">10</span>     <span class="n">NewLine</span>       <span class="mi">3</span>
+         <span class="mi">11</span>    <span class="n">ExitMark</span>      <span class="mi">29</span>     <span class="mi">28</span>
+         <span class="mi">12</span>  <span class="n">LoadAFirst</span>       <span class="n">x</span>
+         <span class="mi">13</span>       <span class="n">PushN</span>   <span class="mf">1.000000</span>
+         <span class="mi">14</span>  <span class="n">BeforeEqual</span>       <span class="mi">0</span>
+         <span class="mi">15</span>  <span class="n">Assignment</span>
+         <span class="mi">16</span>       <span class="n">PushN</span>   <span class="mf">1.000000</span>
+         <span class="mi">17</span>  <span class="n">StepNumber</span>
+         <span class="mi">18</span>  <span class="n">JumpVarLPLENum</span>       <span class="n">x</span>  <span class="mf">10.000000</span>    <span class="mi">29</span>
+         <span class="mi">19</span>     <span class="n">NewLine</span>       <span class="mi">4</span>
+         <span class="mi">20</span>     <span class="n">FuncExE</span>
+         <span class="mi">21</span>  <span class="n">PushPLocal</span>       <span class="n">x</span>      <span class="mi">0</span>
+         <span class="mi">22</span>       <span class="n">PushV</span>
+         <span class="mi">23</span>       <span class="n">PushP</span>   <span class="mi">007</span><span class="err">D3670      0</span>
+         <span class="mi">24</span>       <span class="n">PushV</span>
+         <span class="mi">25</span>         <span class="n">SUM</span>       <span class="mi">0</span>
+         <span class="mi">26</span>       <span class="n">Print</span>
+         <span class="mi">27</span>     <span class="n">NewLine</span>       <span class="mi">5</span>
+         <span class="mi">28</span>   <span class="n">IncLPJump</span>       <span class="n">x</span>     <span class="mi">18</span>
+         <span class="mi">29</span>  <span class="n">POPExitMark</span>
+         <span class="mi">30</span>     <span class="n">POPStep</span>
+         <span class="mi">31</span>     <span class="n">NewLine</span>       <span class="mi">6</span>
+         <span class="mi">32</span>   <span class="n">LoadFuncP</span>    <span class="n">test</span>
+         <span class="mi">33</span>        <span class="k">Call</span>       <span class="mi">0</span>
+         <span class="mi">34</span>  <span class="n">NoOperation</span>
+         <span class="mi">35</span>     <span class="n">NewLine</span>       <span class="mi">8</span>
+         <span class="mi">36</span>       <span class="n">PushV</span>
+         <span class="mi">37</span>   <span class="n">FreeStack</span>
+         <span class="mi">38</span>  <span class="n">ReturnNull</span>
+         <span class="mi">39</span>        <span class="k">Func</span>    <span class="n">test</span>
+         <span class="mi">40</span>     <span class="n">NewLine</span>       <span class="mi">9</span>
+         <span class="mi">41</span>     <span class="n">FuncExE</span>
+         <span class="mi">42</span>       <span class="n">PushC</span>   <span class="n">welcome</span>
+         <span class="mi">43</span>       <span class="n">PushP</span>   <span class="mi">007</span><span class="err">D3670      0</span>
+         <span class="mi">44</span>       <span class="n">PushV</span>
+         <span class="mi">45</span>         <span class="n">SUM</span>       <span class="mi">0</span>
+         <span class="mi">46</span>       <span class="n">Print</span>
+         <span class="mi">47</span>     <span class="n">NewLine</span>      <span class="mi">10</span>
+         <span class="mi">48</span>  <span class="n">PushPLocal</span>      <span class="n">o1</span>      <span class="mi">0</span>
+         <span class="mi">49</span>  <span class="n">AssignmentPointer</span>
+         <span class="mi">50</span>         <span class="k">New</span>   <span class="n">point</span>
+         <span class="mi">51</span>    <span class="n">SetScope</span>
+         <span class="mi">52</span>       <span class="n">PushV</span>
+         <span class="mi">53</span>  <span class="n">BraceStart</span>
+         <span class="mi">54</span>       <span class="n">LoadA</span>       <span class="n">x</span>      <span class="mi">0</span>     <span class="mi">58</span>
+         <span class="mi">55</span>  <span class="n">AssignmentPointer</span>
+         <span class="mi">56</span>       <span class="n">PushN</span>   <span class="mf">10.000000</span>
+         <span class="mi">57</span>  <span class="n">BeforeEqual</span>       <span class="mi">0</span>
+         <span class="mi">58</span>  <span class="n">SetProperty</span>       <span class="mi">0</span>    <span class="mi">106</span>
+         <span class="mi">59</span>   <span class="n">FreeStack</span>
+         <span class="mi">60</span>       <span class="n">LoadA</span>       <span class="n">y</span>      <span class="mi">0</span>     <span class="mi">64</span>
+         <span class="mi">61</span>  <span class="n">AssignmentPointer</span>
+         <span class="mi">62</span>       <span class="n">PushN</span>   <span class="mf">20.000000</span>
+         <span class="mi">63</span>  <span class="n">BeforeEqual</span>       <span class="mi">0</span>
+         <span class="mi">64</span>  <span class="n">SetProperty</span>       <span class="mi">0</span>    <span class="mi">141</span>
+         <span class="mi">65</span>   <span class="n">FreeStack</span>
+         <span class="mi">66</span>       <span class="n">LoadA</span>       <span class="n">z</span>      <span class="mi">0</span>     <span class="mi">70</span>
+         <span class="mi">67</span>  <span class="n">AssignmentPointer</span>
+         <span class="mi">68</span>       <span class="n">PushN</span>   <span class="mf">30.000000</span>
+         <span class="mi">69</span>  <span class="n">BeforeEqual</span>       <span class="mi">0</span>
+         <span class="mi">70</span>  <span class="n">SetProperty</span>       <span class="mi">0</span>    <span class="mi">176</span>
+         <span class="mi">71</span>   <span class="n">FreeStack</span>
+         <span class="mi">72</span>    <span class="n">LoadFunc</span>   <span class="n">ismethod</span>
+         <span class="mi">73</span>       <span class="n">LoadA</span>    <span class="n">self</span>      <span class="mi">0</span>
+         <span class="mi">74</span>       <span class="n">PushV</span>
+         <span class="mi">75</span>       <span class="n">PushC</span>   <span class="n">braceend</span>
+         <span class="mi">76</span>        <span class="k">Call</span>
+         <span class="mi">77</span>  <span class="n">NoOperation</span>
+         <span class="mi">78</span>       <span class="n">PushV</span>
+         <span class="mi">79</span>       <span class="n">JumpZ</span>      <span class="mi">85</span>
+         <span class="mi">80</span>    <span class="n">LoadFunc</span>   <span class="n">braceend</span>
+         <span class="mi">81</span>        <span class="k">Call</span>
+         <span class="mi">82</span>  <span class="n">NoOperation</span>
+         <span class="mi">83</span>       <span class="n">PushV</span>
+         <span class="mi">84</span>   <span class="n">FreeStack</span>
+         <span class="mi">85</span>    <span class="n">BraceEnd</span>
+         <span class="mi">86</span>   <span class="n">FreeStack</span>
+         <span class="mi">87</span>     <span class="n">NewLine</span>      <span class="mi">11</span>
+         <span class="mi">88</span>     <span class="n">FuncExE</span>
+         <span class="mi">89</span>  <span class="n">PushPLocal</span>      <span class="n">o1</span>      <span class="mi">0</span>
+         <span class="mi">90</span>       <span class="n">PushV</span>
+         <span class="mi">91</span>       <span class="n">Print</span>
+         <span class="mi">92</span>     <span class="n">NewLine</span>      <span class="mi">13</span>
+         <span class="mi">93</span>  <span class="n">ReturnNull</span>
+         <span class="mi">94</span>       <span class="k">Class</span>   <span class="n">point</span>  <span class="mi">007</span><span class="err">D8470</span>
+         <span class="mi">95</span>    <span class="n">NewLabel</span>
+         <span class="mi">96</span>       <span class="n">LoadA</span>       <span class="n">x</span>      <span class="mi">0</span>
+         <span class="mi">97</span>       <span class="n">PushV</span>
+         <span class="mi">98</span>   <span class="n">FreeStack</span>
+         <span class="mi">99</span>       <span class="n">LoadA</span>       <span class="n">y</span>      <span class="mi">0</span>
+        <span class="mi">100</span>       <span class="n">PushV</span>
+        <span class="mi">101</span>   <span class="n">FreeStack</span>
+        <span class="mi">102</span>       <span class="n">LoadA</span>       <span class="n">z</span>      <span class="mi">0</span>
+        <span class="mi">103</span>       <span class="n">PushV</span>
+        <span class="mi">104</span>   <span class="n">FreeStack</span>
+        <span class="mi">105</span>  <span class="n">ReturnNull</span>
+        <span class="mi">106</span>    <span class="n">LoadFunc</span>   <span class="n">ismethod</span>
+        <span class="mi">107</span>       <span class="n">LoadA</span>   <span class="n">ring_gettemp_var</span>      <span class="mi">0</span>
+        <span class="mi">108</span>       <span class="n">PushV</span>
+        <span class="mi">109</span>       <span class="n">PushC</span>    <span class="n">setx</span>
+        <span class="mi">110</span>        <span class="k">Call</span>       <span class="mi">0</span>
+        <span class="mi">111</span>  <span class="n">NoOperation</span>
+        <span class="mi">112</span>       <span class="n">PushV</span>
+        <span class="mi">113</span>       <span class="n">JumpZ</span>     <span class="mi">132</span>
+        <span class="mi">114</span>     <span class="n">NewLine</span>       <span class="mi">2</span>
+        <span class="mi">115</span>       <span class="n">LoadA</span>   <span class="n">ring_gettemp_var</span>      <span class="mi">0</span>
+        <span class="mi">116</span>  <span class="n">LoadMethod</span>    <span class="n">setx</span>
+        <span class="mi">117</span>       <span class="n">LoadA</span>   <span class="n">ring_settemp_var</span>      <span class="mi">0</span>
+        <span class="mi">118</span>       <span class="n">PushV</span>
+        <span class="mi">119</span>        <span class="k">Call</span>       <span class="mi">0</span>      <span class="mi">1</span>
+        <span class="mi">120</span>  <span class="n">AfterCallMethod</span>
+        <span class="mi">121</span>       <span class="n">PushV</span>
+        <span class="mi">122</span>   <span class="n">FreeStack</span>
+        <span class="mi">123</span>     <span class="n">NewLine</span>       <span class="mi">3</span>
+        <span class="mi">124</span>       <span class="n">LoadA</span>   <span class="n">ring_tempflag_var</span>      <span class="mi">0</span>    <span class="mi">128</span>
+        <span class="mi">125</span>  <span class="n">AssignmentPointer</span>
+        <span class="mi">126</span>       <span class="n">PushN</span>   <span class="mf">0.000000</span>
+        <span class="mi">127</span>  <span class="n">BeforeEqual</span>       <span class="mi">0</span>
+        <span class="mi">128</span>  <span class="n">Assignment</span>       <span class="mi">0</span>      <span class="mi">0</span>
+        <span class="mi">129</span>   <span class="n">FreeStack</span>
+        <span class="mi">130</span>     <span class="n">NewLine</span>       <span class="mi">4</span>
+        <span class="mi">131</span>        <span class="n">Jump</span>     <span class="mi">140</span>
+        <span class="mi">132</span>     <span class="n">NewLine</span>       <span class="mi">5</span>
+        <span class="mi">133</span>       <span class="n">PushP</span>   <span class="mi">007</span><span class="err">D37D8      0    137</span>
+        <span class="mi">134</span>  <span class="n">AssignmentPointer</span>
+        <span class="mi">135</span>       <span class="n">PushN</span>   <span class="mf">1.000000</span>
+        <span class="mi">136</span>  <span class="n">BeforeEqual</span>       <span class="mi">0</span>
+        <span class="mi">137</span>  <span class="n">Assignment</span>       <span class="mi">0</span>      <span class="mi">0</span>
+        <span class="mi">138</span>   <span class="n">FreeStack</span>
+        <span class="mi">139</span>     <span class="n">NewLine</span>       <span class="mi">6</span>
+        <span class="mi">140</span>      <span class="k">Return</span>
+        <span class="mi">141</span>    <span class="n">LoadFunc</span>   <span class="n">ismethod</span>
+        <span class="mi">142</span>       <span class="n">LoadA</span>   <span class="n">ring_gettemp_var</span>      <span class="mi">0</span>
+        <span class="mi">143</span>       <span class="n">PushV</span>
+        <span class="mi">144</span>       <span class="n">PushC</span>    <span class="n">sety</span>
+        <span class="mi">145</span>        <span class="k">Call</span>       <span class="mi">0</span>
+        <span class="mi">146</span>  <span class="n">NoOperation</span>
+        <span class="mi">147</span>       <span class="n">PushV</span>
+        <span class="mi">148</span>       <span class="n">JumpZ</span>     <span class="mi">167</span>
+        <span class="mi">149</span>     <span class="n">NewLine</span>       <span class="mi">2</span>
+        <span class="mi">150</span>       <span class="n">LoadA</span>   <span class="n">ring_gettemp_var</span>      <span class="mi">0</span>
+        <span class="mi">151</span>  <span class="n">LoadMethod</span>    <span class="n">sety</span>
+        <span class="mi">152</span>       <span class="n">LoadA</span>   <span class="n">ring_settemp_var</span>      <span class="mi">0</span>
+        <span class="mi">153</span>       <span class="n">PushV</span>
+        <span class="mi">154</span>        <span class="k">Call</span>       <span class="mi">0</span>      <span class="mi">1</span>
+        <span class="mi">155</span>  <span class="n">AfterCallMethod</span>
+        <span class="mi">156</span>       <span class="n">PushV</span>
+        <span class="mi">157</span>   <span class="n">FreeStack</span>
+        <span class="mi">158</span>     <span class="n">NewLine</span>       <span class="mi">3</span>
+        <span class="mi">159</span>       <span class="n">LoadA</span>   <span class="n">ring_tempflag_var</span>      <span class="mi">0</span>    <span class="mi">163</span>
+        <span class="mi">160</span>  <span class="n">AssignmentPointer</span>
+        <span class="mi">161</span>       <span class="n">PushN</span>   <span class="mf">0.000000</span>
+        <span class="mi">162</span>  <span class="n">BeforeEqual</span>       <span class="mi">0</span>
+        <span class="mi">163</span>  <span class="n">Assignment</span>       <span class="mi">0</span>      <span class="mi">0</span>
+        <span class="mi">164</span>   <span class="n">FreeStack</span>
+        <span class="mi">165</span>     <span class="n">NewLine</span>       <span class="mi">4</span>
+        <span class="mi">166</span>        <span class="n">Jump</span>     <span class="mi">175</span>
+        <span class="mi">167</span>     <span class="n">NewLine</span>       <span class="mi">5</span>
+        <span class="mi">168</span>       <span class="n">PushP</span>   <span class="mi">007</span><span class="err">D37D8      0    172</span>
+        <span class="mi">169</span>  <span class="n">AssignmentPointer</span>
+        <span class="mi">170</span>       <span class="n">PushN</span>   <span class="mf">1.000000</span>
+        <span class="mi">171</span>  <span class="n">BeforeEqual</span>       <span class="mi">0</span>
+        <span class="mi">172</span>  <span class="n">Assignment</span>       <span class="mi">0</span>      <span class="mi">0</span>
+        <span class="mi">173</span>   <span class="n">FreeStack</span>
+        <span class="mi">174</span>     <span class="n">NewLine</span>       <span class="mi">6</span>
+        <span class="mi">175</span>      <span class="k">Return</span>
+        <span class="mi">176</span>    <span class="n">LoadFunc</span>   <span class="n">ismethod</span>
+        <span class="mi">177</span>       <span class="n">LoadA</span>   <span class="n">ring_gettemp_var</span>      <span class="mi">0</span>
+        <span class="mi">178</span>       <span class="n">PushV</span>
+        <span class="mi">179</span>       <span class="n">PushC</span>    <span class="n">setz</span>
+        <span class="mi">180</span>        <span class="k">Call</span>       <span class="mi">0</span>
+        <span class="mi">181</span>  <span class="n">NoOperation</span>
+        <span class="mi">182</span>       <span class="n">PushV</span>
+        <span class="mi">183</span>       <span class="n">JumpZ</span>     <span class="mi">202</span>
+        <span class="mi">184</span>     <span class="n">NewLine</span>       <span class="mi">2</span>
+        <span class="mi">185</span>       <span class="n">LoadA</span>   <span class="n">ring_gettemp_var</span>      <span class="mi">0</span>
+        <span class="mi">186</span>  <span class="n">LoadMethod</span>    <span class="n">setz</span>
+        <span class="mi">187</span>       <span class="n">LoadA</span>   <span class="n">ring_settemp_var</span>      <span class="mi">0</span>
+        <span class="mi">188</span>       <span class="n">PushV</span>
+        <span class="mi">189</span>        <span class="k">Call</span>       <span class="mi">0</span>      <span class="mi">1</span>
+        <span class="mi">190</span>  <span class="n">AfterCallMethod</span>
+        <span class="mi">191</span>       <span class="n">PushV</span>
+        <span class="mi">192</span>   <span class="n">FreeStack</span>
+        <span class="mi">193</span>     <span class="n">NewLine</span>       <span class="mi">3</span>
+        <span class="mi">194</span>       <span class="n">LoadA</span>   <span class="n">ring_tempflag_var</span>      <span class="mi">0</span>    <span class="mi">198</span>
+        <span class="mi">195</span>  <span class="n">AssignmentPointer</span>
+        <span class="mi">196</span>       <span class="n">PushN</span>   <span class="mf">0.000000</span>
+        <span class="mi">197</span>  <span class="n">BeforeEqual</span>       <span class="mi">0</span>
+        <span class="mi">198</span>  <span class="n">Assignment</span>       <span class="mi">0</span>      <span class="mi">0</span>
+        <span class="mi">199</span>   <span class="n">FreeStack</span>
+        <span class="mi">200</span>     <span class="n">NewLine</span>       <span class="mi">4</span>
+        <span class="mi">201</span>        <span class="n">Jump</span>     <span class="mi">210</span>
+        <span class="mi">202</span>     <span class="n">NewLine</span>       <span class="mi">5</span>
+        <span class="mi">203</span>       <span class="n">PushP</span>   <span class="mi">007</span><span class="err">D37D8      0    207</span>
+        <span class="mi">204</span>  <span class="n">AssignmentPointer</span>
+        <span class="mi">205</span>       <span class="n">PushN</span>   <span class="mf">1.000000</span>
+        <span class="mi">206</span>  <span class="n">BeforeEqual</span>       <span class="mi">0</span>
+        <span class="mi">207</span>  <span class="n">Assignment</span>       <span class="mi">0</span>      <span class="mi">0</span>
+        <span class="mi">208</span>   <span class="n">FreeStack</span>
+        <span class="mi">209</span>     <span class="n">NewLine</span>       <span class="mi">6</span>
+        <span class="mi">210</span>      <span class="k">Return</span>
 
-===================================================
+<span class="o">===================================================</span>
 </pre></div>
 </div>
 </section>
 <section id="cgi-support">
-<span id="index-5"></span><h2>CGI Support<a class="headerlink" href="#cgi-support" title="Permalink to this heading"></a></h2>
+<span id="index-5"></span><h2>CGI Support<a class="headerlink" href="#cgi-support" title="Link to this heading"></a></h2>
 <p>Command:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">cgi</span>
 </pre></div>
 </div>
 </section>
 <section id="no-run">
-<span id="index-6"></span><h2>No Run<a class="headerlink" href="#no-run" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>No Run<a class="headerlink" href="#no-run" title="Link to this heading"></a></h2>
 <p>Command:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">norun</span>
 </pre></div>
 </div>
 </section>
 <section id="printing-instruction-operation-code">
-<span id="index-7"></span><h2>Printing Instruction Operation Code<a class="headerlink" href="#printing-instruction-operation-code" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>Printing Instruction Operation Code<a class="headerlink" href="#printing-instruction-operation-code" title="Link to this heading"></a></h2>
 <p>Command:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">ins</span>
 </pre></div>
@@ -1028,7 +1028,7 @@ Byte Code - After Execution by the VM
 </div>
 </section>
 <section id="performance">
-<span id="index-8"></span><h2>Performance<a class="headerlink" href="#performance" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>Performance<a class="headerlink" href="#performance" title="Link to this heading"></a></h2>
 <p>Command:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">performance</span>
 </pre></div>
@@ -1062,7 +1062,7 @@ Byte Code - After Execution by the VM
 </div>
 </section>
 <section id="generate-object-file">
-<span id="index-9"></span><h2>Generate Object File<a class="headerlink" href="#generate-object-file" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>Generate Object File<a class="headerlink" href="#generate-object-file" title="Link to this heading"></a></h2>
 <p>You can generate object file (<em>.ringo) from your source code file (</em>.ring)
 using -go option</p>
 <div class="admonition tip">
@@ -1080,7 +1080,7 @@ ring source files that you can keep or distribute based on the application (comm
 </div>
 </section>
 <section id="generate-embedded-object-file">
-<span id="index-10"></span><h2>Generate Embedded Object File<a class="headerlink" href="#generate-embedded-object-file" title="Permalink to this heading"></a></h2>
+<span id="index-10"></span><h2>Generate Embedded Object File<a class="headerlink" href="#generate-embedded-object-file" title="Link to this heading"></a></h2>
 <p>You can generate embedded object file (C source code) from your source code file (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ring)
 using -geo option</p>
 <p>Command:</p>

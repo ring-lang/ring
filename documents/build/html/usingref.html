@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=39391842"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -209,7 +209,7 @@
            <div itemprop="articleBody">
              
   <section id="using-references">
-<span id="index-0"></span><h1>Using References<a class="headerlink" href="#using-references" title="Permalink to this heading"></a></h1>
+<span id="index-0"></span><h1>Using References<a class="headerlink" href="#using-references" title="Link to this heading"></a></h1>
 <p>In this chapter we will learn about using references.</p>
 <p>This feature is added to the Ring language starting from Ring 1.18.</p>
 <p>Contents:</p>
@@ -228,7 +228,7 @@
 <li><p>Ref() and sub lists</p></li>
 </ul>
 <section id="introduction">
-<span id="index-1"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
+<span id="index-1"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
 <p>In Ring, Using the Assignment (=) operator copy variables by value.
 Also, Adding a List/Object to another List create a new copy.
 To change this behavior, We can use the Ref()/Reference() function.
@@ -243,7 +243,7 @@ This feature is added to be used in special cases
 like teaching data structures and implementing specific design patterns.</p>
 </section>
 <section id="ref-reference-function">
-<span id="index-2"></span><h2>ref()/reference() function<a class="headerlink" href="#ref-reference-function" title="Permalink to this heading"></a></h2>
+<span id="index-2"></span><h2>ref()/reference() function<a class="headerlink" href="#ref-reference-function" title="Link to this heading"></a></h2>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ref</span><span class="p">(</span><span class="n">aList</span><span class="o">|</span><span class="n">oObject</span><span class="p">)</span>       <span class="o">---&gt;</span> <span class="n">aList</span><span class="o">|</span><span class="n">oObject</span> <span class="p">(</span><span class="n">Enable</span> <span class="n">Reference</span> <span class="n">Flag</span><span class="p">)</span> <span class="c"># Short name</span>
 <span class="n">reference</span><span class="p">(</span><span class="n">aList</span><span class="o">|</span><span class="n">oObject</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">aList</span><span class="o">|</span><span class="n">oObject</span> <span class="p">(</span><span class="n">Enable</span> <span class="n">Reference</span> <span class="n">Flag</span><span class="p">)</span> <span class="c"># Long name</span>
@@ -289,7 +289,7 @@ like teaching data structures and implementing specific design patterns.</p>
 </div>
 </section>
 <section id="refcount-function">
-<span id="index-3"></span><h2>refcount() function<a class="headerlink" href="#refcount-function" title="Permalink to this heading"></a></h2>
+<span id="index-3"></span><h2>refcount() function<a class="headerlink" href="#refcount-function" title="Link to this heading"></a></h2>
 <p>Using the refcount() function we can know how many references exist.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">refcount</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Number</span> <span class="p">(</span><span class="n">References</span> <span class="n">Count</span><span class="p">)</span>
@@ -329,7 +329,7 @@ like teaching data structures and implementing specific design patterns.</p>
 </div>
 </section>
 <section id="circular-references">
-<span id="index-4"></span><h2>Circular References<a class="headerlink" href="#circular-references" title="Permalink to this heading"></a></h2>
+<span id="index-4"></span><h2>Circular References<a class="headerlink" href="#circular-references" title="Link to this heading"></a></h2>
 <p>Using Ref() we can create circular references</p>
 <p>Ring VM can detect them and free memory when the variable is deleted.</p>
 <p>Example:</p>
@@ -347,7 +347,7 @@ like teaching data structures and implementing specific design patterns.</p>
 </div>
 </section>
 <section id="the-tree-class">
-<span id="index-5"></span><h2>The Tree Class<a class="headerlink" href="#the-tree-class" title="Permalink to this heading"></a></h2>
+<span id="index-5"></span><h2>The Tree Class<a class="headerlink" href="#the-tree-class" title="Link to this heading"></a></h2>
 <p>The Tree class is a good example about using the Ref() function.</p>
 <p>In this class each object contains a group of objects and these objects have a reference
 to the parent object.</p>
@@ -390,7 +390,7 @@ to the parent object.</p>
 </div>
 </section>
 <section id="linked-list">
-<span id="index-6"></span><h2>Linked list<a class="headerlink" href="#linked-list" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>Linked list<a class="headerlink" href="#linked-list" title="Link to this heading"></a></h2>
 <p>The next example demonstrates how to create a linked list using the Ref() function.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -463,7 +463,7 @@ to the parent object.</p>
 </div>
 </section>
 <section id="dependency-injection">
-<span id="index-7"></span><h2>Dependency injection<a class="headerlink" href="#dependency-injection" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>Dependency injection<a class="headerlink" href="#dependency-injection" title="Link to this heading"></a></h2>
 <p>The next example demonstrates how to apply dependency injection using the Ref() function</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
@@ -511,7 +511,7 @@ to the parent object.</p>
 </div>
 </section>
 <section id="passing-lists-to-functions">
-<span id="index-8"></span><h2>Passing lists to functions<a class="headerlink" href="#passing-lists-to-functions" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>Passing lists to functions<a class="headerlink" href="#passing-lists-to-functions" title="Link to this heading"></a></h2>
 <p>In Ring, when we pass a list/object to a function, This function will have full
 ownership on the list/object variable.</p>
 <p>This means it can delete it and change the variable type.</p>
@@ -579,7 +579,7 @@ We still have our list!
 </div>
 </section>
 <section id="ref-and-temp-lists">
-<span id="index-9"></span><h2>Ref() and temp. lists<a class="headerlink" href="#ref-and-temp-lists" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>Ref() and temp. lists<a class="headerlink" href="#ref-and-temp-lists" title="Link to this heading"></a></h2>
 <p>Using Ref() and temp. lists/objects does nothing.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="n">ref</span><span class="p">(</span><span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span><span class="p">)</span>    <span class="c"># The same as aList = [1,2,3]</span>
@@ -595,7 +595,7 @@ We still have our list!
 </div>
 </section>
 <section id="nested-ref">
-<span id="index-10"></span><h2>Nested Ref()<a class="headerlink" href="#nested-ref" title="Permalink to this heading"></a></h2>
+<span id="index-10"></span><h2>Nested Ref()<a class="headerlink" href="#nested-ref" title="Link to this heading"></a></h2>
 <p>Since Ref() function is a flag setter, nested Ref() usage is not useful.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span>  <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span>
@@ -605,7 +605,7 @@ We still have our list!
 </div>
 </section>
 <section id="ref-in-left-side">
-<span id="index-11"></span><h2>Ref() in left side<a class="headerlink" href="#ref-in-left-side" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>Ref() in left side<a class="headerlink" href="#ref-in-left-side" title="Link to this heading"></a></h2>
 <p>Using Ref() in left side of an assignment is not useful and will disable the assignment
 i.e. will not change the value.</p>
 <p>Example:</p>
@@ -622,7 +622,7 @@ i.e. will not change the value.</p>
 </div>
 </section>
 <section id="ref-and-sub-lists">
-<span id="index-12"></span><h2>Ref() and sub lists<a class="headerlink" href="#ref-and-sub-lists" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>Ref() and sub lists<a class="headerlink" href="#ref-and-sub-lists" title="Link to this heading"></a></h2>
 <p>Using Ref() with a sub list will create a strong reference to this sub list</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>

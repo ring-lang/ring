@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=39391842"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -210,11 +210,11 @@
            <div itemprop="articleBody">
              
   <section id="the-ring-package-manager-ringpm">
-<span id="index-0"></span><h1>The Ring Package Manager (RingPM)<a class="headerlink" href="#the-ring-package-manager-ringpm" title="Permalink to this heading"></a></h1>
+<span id="index-0"></span><h1>The Ring Package Manager (RingPM)<a class="headerlink" href="#the-ring-package-manager-ringpm" title="Link to this heading"></a></h1>
 <p>In this chapter we will learn about using the Ring Package Manager (RingPM)</p>
 <p>RingPM is a tool for discovering, installing and updating Ring packages.</p>
 <section id="features">
-<span id="index-1"></span><h2>Features<a class="headerlink" href="#features" title="Permalink to this heading"></a></h2>
+<span id="index-1"></span><h2>Features<a class="headerlink" href="#features" title="Link to this heading"></a></h2>
 <p>The Package Manager uses Semantic Versioning to check compatibility between packages</p>
 <p>The Package Manager comes with the next options</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Usage   : ringpm [command]
@@ -232,7 +232,7 @@ Command : package : Create package in the current folder
 </div>
 </section>
 <section id="discovering-packages">
-<span id="index-2"></span><h2>Discovering Packages<a class="headerlink" href="#discovering-packages" title="Permalink to this heading"></a></h2>
+<span id="index-2"></span><h2>Discovering Packages<a class="headerlink" href="#discovering-packages" title="Link to this heading"></a></h2>
 <p>We can discover new packages using the Search command</p>
 <p>Using this command we can search in the RingPM Registry (Packages Index)</p>
 <p>The RingPM Registry is a local copy of all registered packages.</p>
@@ -255,7 +255,7 @@ Package : notepadppeditorextension (Notepad++ Editor Extension package)
 </div>
 </section>
 <section id="updating-the-ringpm-registry">
-<span id="index-3"></span><h2>Updating the RingPM Registry<a class="headerlink" href="#updating-the-ringpm-registry" title="Permalink to this heading"></a></h2>
+<span id="index-3"></span><h2>Updating the RingPM Registry<a class="headerlink" href="#updating-the-ringpm-registry" title="Link to this heading"></a></h2>
 <p>The RingPM Registry is a local copy of all registered packages.</p>
 <p>We can update the local copy using the Refresh command</p>
 <p>Example:</p>
@@ -272,7 +272,7 @@ Package : notepadppeditorextension (Notepad++ Editor Extension package)
 </div>
 </section>
 <section id="installing-packages">
-<span id="index-4"></span><h2>Installing Packages<a class="headerlink" href="#installing-packages" title="Permalink to this heading"></a></h2>
+<span id="index-4"></span><h2>Installing Packages<a class="headerlink" href="#installing-packages" title="Link to this heading"></a></h2>
 <p>We can install new packages using the Install command</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install [ &lt;packagename&gt; [from &lt;UserName&gt;] [branch &lt;branchname&gt;] ]
 </pre></div>
@@ -308,7 +308,7 @@ we can determine the user name (GitHub) and the branch name of the github projec
 </div>
 </section>
 <section id="printing-list-of-installed-packages">
-<span id="index-5"></span><h2>Printing List of Installed Packages<a class="headerlink" href="#printing-list-of-installed-packages" title="Permalink to this heading"></a></h2>
+<span id="index-5"></span><h2>Printing List of Installed Packages<a class="headerlink" href="#printing-list-of-installed-packages" title="Link to this heading"></a></h2>
 <p>We can know the installed packages using the List command</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm list [-u : check updates]
 </pre></div>
@@ -336,7 +336,7 @@ we can determine the user name (GitHub) and the branch name of the github projec
 </div>
 </section>
 <section id="run-package">
-<span id="index-6"></span><h2>Run Package<a class="headerlink" href="#run-package" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>Run Package<a class="headerlink" href="#run-package" title="Link to this heading"></a></h2>
 <p>After installing a package, we can run it using the Run command.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm run [packagename]
 </pre></div>
@@ -360,7 +360,7 @@ we can determine the user name (GitHub) and the branch name of the github projec
 </div>
 </section>
 <section id="update-package">
-<span id="index-7"></span><h2>Update Package<a class="headerlink" href="#update-package" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>Update Package<a class="headerlink" href="#update-package" title="Link to this heading"></a></h2>
 <p>We can update a package using the Update command</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm update &lt;packagename&gt;
 </pre></div>
@@ -371,7 +371,7 @@ we can determine the user name (GitHub) and the branch name of the github projec
 </div>
 </section>
 <section id="remove-package">
-<span id="index-8"></span><h2>Remove Package<a class="headerlink" href="#remove-package" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>Remove Package<a class="headerlink" href="#remove-package" title="Link to this heading"></a></h2>
 <p>We can remove a package using the Remove command</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm remove &lt;packagename&gt;
 </pre></div>
@@ -382,7 +382,7 @@ we can determine the user name (GitHub) and the branch name of the github projec
 </div>
 </section>
 <section id="deleting-all-packages">
-<span id="index-9"></span><h2>Deleting All Packages<a class="headerlink" href="#deleting-all-packages" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>Deleting All Packages<a class="headerlink" href="#deleting-all-packages" title="Link to this heading"></a></h2>
 <p>We can delete all packages using the Format command</p>
 <p>Example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm format
@@ -390,7 +390,7 @@ we can determine the user name (GitHub) and the branch name of the github projec
 </div>
 </section>
 <section id="creating-new-package">
-<span id="index-10"></span><h2>Creating New Package<a class="headerlink" href="#creating-new-package" title="Permalink to this heading"></a></h2>
+<span id="index-10"></span><h2>Creating New Package<a class="headerlink" href="#creating-new-package" title="Link to this heading"></a></h2>
 <p>We can create new package using the New command</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm new &lt;packagename&gt;
 </pre></div>
@@ -503,7 +503,7 @@ we can determine the user name (GitHub) and the branch name of the github projec
 </div>
 </section>
 <section id="the-package-description-file">
-<span id="index-11"></span><h2>The Package Description File<a class="headerlink" href="#the-package-description-file" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>The Package Description File<a class="headerlink" href="#the-package-description-file" title="Link to this heading"></a></h2>
 <p>The package description file contains the package information defined in the list aPackageInfo</p>
 <table class="docutils align-default">
 <thead>
@@ -636,7 +636,7 @@ we can determine the user name (GitHub) and the branch name of the github projec
 </table>
 </section>
 <section id="create-package-in-the-current-folder">
-<span id="index-12"></span><h2>Create Package in the Current Folder<a class="headerlink" href="#create-package-in-the-current-folder" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>Create Package in the Current Folder<a class="headerlink" href="#create-package-in-the-current-folder" title="Link to this heading"></a></h2>
 <p>To create a package for an application that already exists, go to the application folder then type</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm package
 </pre></div>
@@ -759,7 +759,7 @@ we can determine the user name (GitHub) and the branch name of the github projec
 </div>
 </section>
 <section id="the-ringpm-registry-file">
-<span id="index-13"></span><h2>The RingPM Registry File<a class="headerlink" href="#the-ringpm-registry-file" title="Permalink to this heading"></a></h2>
+<span id="index-13"></span><h2>The RingPM Registry File<a class="headerlink" href="#the-ringpm-registry-file" title="Link to this heading"></a></h2>
 <p>The RingPM Registry is a local copy of all registered packages.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aPackagesRegistry</span> <span class="o">=</span> <span class="o">[</span>
         <span class="o">[</span> <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;ringpresentation&quot;</span><span class="p">,</span>

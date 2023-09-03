@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=39391842"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -212,7 +212,7 @@
            <div itemprop="articleBody">
              
   <section id="scope-rules-for-variables-and-attributes">
-<span id="index-0"></span><h1>Scope Rules for Variables and Attributes<a class="headerlink" href="#scope-rules-for-variables-and-attributes" title="Permalink to this heading"></a></h1>
+<span id="index-0"></span><h1>Scope Rules for Variables and Attributes<a class="headerlink" href="#scope-rules-for-variables-and-attributes" title="Link to this heading"></a></h1>
 <p>In this chapter we will learn about scope rules and how Ring find variables.</p>
 <p>Also we will learn about conflicts and how to solve/avoid them.</p>
 <p>The next information are important once you start developing large applications using Ring</p>
@@ -225,7 +225,7 @@
 <li><p>Natural Programming</p></li>
 </ul>
 <section id="three-scopes">
-<span id="index-1"></span><h2>Three Scopes<a class="headerlink" href="#three-scopes" title="Permalink to this heading"></a></h2>
+<span id="index-1"></span><h2>Three Scopes<a class="headerlink" href="#three-scopes" title="Link to this heading"></a></h2>
 <p>In Ring we have three scopes :-</p>
 <ol class="arabic simple">
 <li><p>Public/Global Scope - Each variable you define in the statements part (before functions and classes)</p></li>
@@ -234,7 +234,7 @@
 </ol>
 </section>
 <section id="defining-variables-and-variables-access">
-<span id="index-2"></span><h2>Defining Variables and Variables Access<a class="headerlink" href="#defining-variables-and-variables-access" title="Permalink to this heading"></a></h2>
+<span id="index-2"></span><h2>Defining Variables and Variables Access<a class="headerlink" href="#defining-variables-and-variables-access" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>Ring uses lexical scoping, i.e. the scope of the variable is based on where we defined the variable.</p></li>
 <li><p>Inside braces {  } when you access an object, You will change the current active object scope to this object scope but you still can access the global scope and the local scope.</p></li>
@@ -265,7 +265,7 @@
 </ol>
 </section>
 <section id="how-ring-find-the-variable">
-<span id="index-3"></span><h2>How Ring find the variable?<a class="headerlink" href="#how-ring-find-the-variable" title="Permalink to this heading"></a></h2>
+<span id="index-3"></span><h2>How Ring find the variable?<a class="headerlink" href="#how-ring-find-the-variable" title="Link to this heading"></a></h2>
 <p>1 - Search First in the Local Scope</p>
 <p>if not found !</p>
 <p>2 - Search in the Object Scope</p>
@@ -276,7 +276,7 @@
 searching next time (Cache / Pointers for performance).</p>
 </section>
 <section id="using-object-attribute">
-<span id="index-4"></span><h2>Using Object.Attribute<a class="headerlink" href="#using-object-attribute" title="Permalink to this heading"></a></h2>
+<span id="index-4"></span><h2>Using Object.Attribute<a class="headerlink" href="#using-object-attribute" title="Link to this heading"></a></h2>
 <p>When we use object.attribute the search will be in the object attributes only.</p>
 <p>I.e. no search will be done in the local scope or in the global scope for the object attribute.</p>
 <div class="admonition note">
@@ -285,7 +285,7 @@ searching next time (Cache / Pointers for performance).</p>
 </div>
 </section>
 <section id="the-self-object">
-<span id="index-5"></span><h2>The Self Object<a class="headerlink" href="#the-self-object" title="Permalink to this heading"></a></h2>
+<span id="index-5"></span><h2>The Self Object<a class="headerlink" href="#the-self-object" title="Link to this heading"></a></h2>
 <p>The self object is a reference to the current object that we can use from the class methods.</p>
 <p>When we are inside class method and use Self we mean the object that will be created from this class.</p>
 <p>Inside the class methods if we used Braces { } this will change the current object scope and self will
@@ -303,7 +303,7 @@ we already access using braces) because in the class region we have :-</p>
 it will search in the Local Scope first so it will find self in the class that we are inside.</p>
 </section>
 <section id="how-ring-define-variables-and-attributes">
-<span id="index-6"></span><h2>How Ring Define Variables and Attributes<a class="headerlink" href="#how-ring-define-variables-and-attributes" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>How Ring Define Variables and Attributes<a class="headerlink" href="#how-ring-define-variables-and-attributes" title="Link to this heading"></a></h2>
 <p>Ring will use the variable name in the Assignment operation</p>
 <p>1 - Search using the variable name</p>
 <p>2 - If not found —&gt; Avoid the runtime error and define the variable in the current scope</p>
@@ -315,7 +315,7 @@ it will search in the Local Scope first so it will find self in the class that w
 </ul>
 </section>
 <section id="conflict-between-global-variables-and-class-attributes">
-<h2>Conflict between Global Variables and Class Attributes<a class="headerlink" href="#conflict-between-global-variables-and-class-attributes" title="Permalink to this heading"></a></h2>
+<h2>Conflict between Global Variables and Class Attributes<a class="headerlink" href="#conflict-between-global-variables-and-class-attributes" title="Link to this heading"></a></h2>
 <p>Look at this example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;test&quot;</span>
 <span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">person</span>
@@ -390,7 +390,7 @@ will try to find it.</p>
 </ul>
 </section>
 <section id="conflict-between-class-attributes-and-local-variables">
-<span id="index-7"></span><h2>Conflict between Class Attributes and Local Variables<a class="headerlink" href="#conflict-between-class-attributes-and-local-variables" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>Conflict between Class Attributes and Local Variables<a class="headerlink" href="#conflict-between-class-attributes-and-local-variables" title="Link to this heading"></a></h2>
 <p>This conflict may happen when we access the object using braces</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
@@ -447,7 +447,7 @@ will try to find it.</p>
 </div>
 </section>
 <section id="using-braces-to-access-objects-inside-class-methods">
-<span id="index-8"></span><h2>Using Braces to access objects inside Class Methods<a class="headerlink" href="#using-braces-to-access-objects-inside-class-methods" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>Using Braces to access objects inside Class Methods<a class="headerlink" href="#using-braces-to-access-objects-inside-class-methods" title="Link to this heading"></a></h2>
 <p>Remember that we have Three scopes (Local Scope, Object Scope and Global Scope) and when we
 are inside a class method, we expect that we have access to the object attributes and methods and
 this is true until we use braces to access another object attributes and methods because in this case
@@ -581,7 +581,7 @@ and if you copied the self object you will work on a copy and the new controls t
 related to the copy and you can’t access them.</p>
 </section>
 <section id="accessing-the-class-attributes-from-braces-inside-class-methods">
-<span id="index-9"></span><h2>Accessing the class attributes from braces inside class methods<a class="headerlink" href="#accessing-the-class-attributes-from-braces-inside-class-methods" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>Accessing the class attributes from braces inside class methods<a class="headerlink" href="#accessing-the-class-attributes-from-braces-inside-class-methods" title="Link to this heading"></a></h2>
 <p>We access the class attributes directly from the class methods, also we have the choice to use the Self
 reference before the attribute/method name. Using Braces {} inside class method change the active object
 scope and prevent us from getting direct access to the class attributes. Also using Self will not help because
@@ -655,7 +655,7 @@ we copied that variable to the oCon attribute.</p>
 </div>
 </section>
 <section id="creating-a-class-for-each-window-in-gui-applications">
-<span id="index-10"></span><h2>Creating a Class for each Window in GUI applications<a class="headerlink" href="#creating-a-class-for-each-window-in-gui-applications" title="Permalink to this heading"></a></h2>
+<span id="index-10"></span><h2>Creating a Class for each Window in GUI applications<a class="headerlink" href="#creating-a-class-for-each-window-in-gui-applications" title="Link to this heading"></a></h2>
 <p>A good way for creating classes for windows is to define the window directly after the class name</p>
 <p>In this area you can use nested braces without problems to define the window and the controls, and
 they will be attributes that you can access from methods.</p>
@@ -725,7 +725,7 @@ they will be attributes that you can access from methods.</p>
 </div>
 </section>
 <section id="conflict-between-self-inside-braces-and-self-in-the-class-region">
-<span id="index-11"></span><h2>Conflict between self inside braces and self in the class region<a class="headerlink" href="#conflict-between-self-inside-braces-and-self-in-the-class-region" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>Conflict between self inside braces and self in the class region<a class="headerlink" href="#conflict-between-self-inside-braces-and-self-in-the-class-region" title="Link to this heading"></a></h2>
 <p>In the class region (after the class name and before any methods) we define the attributes.</p>
 <p>In this region we have access to the global scope and the local scope will point to the object scope.</p>
 <p>Three Scopes</p>
@@ -887,7 +887,7 @@ name: Bert
 </div>
 </section>
 <section id="using-braces-to-escape-from-the-current-object-scope">
-<span id="index-12"></span><h2>Using braces to escape from the current object scope<a class="headerlink" href="#using-braces-to-escape-from-the-current-object-scope" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>Using braces to escape from the current object scope<a class="headerlink" href="#using-braces-to-escape-from-the-current-object-scope" title="Link to this heading"></a></h2>
 <p>Since braces change the current object scope to another object. we can use it to do some work without
 modifying the class attributes and using the same variable names.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">point</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="n">start</span><span class="p">()</span> <span class="p">}</span>
@@ -935,7 +935,7 @@ z: 30.000000
 </div>
 </section>
 <section id="the-for-loops-uses-the-local-scope">
-<span id="index-13"></span><h2>The For Loops uses the local scope<a class="headerlink" href="#the-for-loops-uses-the-local-scope" title="Permalink to this heading"></a></h2>
+<span id="index-13"></span><h2>The For Loops uses the local scope<a class="headerlink" href="#the-for-loops-uses-the-local-scope" title="Link to this heading"></a></h2>
 <p>Starting from Ring 1.8, when the For Loop defines new identifier (variable) it will define it in the local scope.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
@@ -967,7 +967,7 @@ z: 30.000000
 </div>
 </section>
 <section id="summary-of-scope-rules">
-<span id="index-14"></span><h2>Summary of Scope Rules<a class="headerlink" href="#summary-of-scope-rules" title="Permalink to this heading"></a></h2>
+<span id="index-14"></span><h2>Summary of Scope Rules<a class="headerlink" href="#summary-of-scope-rules" title="Link to this heading"></a></h2>
 <p>At first remember that</p>
 <p>1 - Each programming language comes with it’s scope rules based on the language goals</p>
 <p>2 - Programming in the small is different than Programming in the Large</p>

@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=39391842"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -200,7 +200,7 @@
            <div itemprop="articleBody">
              
   <section id="scope-rules-for-functions-and-methods">
-<span id="index-0"></span><h1>Scope Rules for Functions and Methods<a class="headerlink" href="#scope-rules-for-functions-and-methods" title="Permalink to this heading"></a></h1>
+<span id="index-0"></span><h1>Scope Rules for Functions and Methods<a class="headerlink" href="#scope-rules-for-functions-and-methods" title="Link to this heading"></a></h1>
 <p>In this chapter we will learn about the scope rules for functions and methods.</p>
 <p>You need to know the next information once you started using Ring for large applications.</p>
 <p>These applications may contains and use</p>
@@ -211,7 +211,7 @@
 <li><p>Functions and Classes written in C/C++ languages</p></li>
 </ul>
 <section id="how-ring-find-the-functions-and-methods">
-<span id="index-1"></span><h2>How Ring find the Functions and Methods?<a class="headerlink" href="#how-ring-find-the-functions-and-methods" title="Permalink to this heading"></a></h2>
+<span id="index-1"></span><h2>How Ring find the Functions and Methods?<a class="headerlink" href="#how-ring-find-the-functions-and-methods" title="Link to this heading"></a></h2>
 <p>When you call a method or function, Ring will start a search process to find this function</p>
 <p>If found –&gt; Call the function and store the function pointer in the cache so Ring can use it again with doing another search.</p>
 <p>If not found —&gt; Runtime error message (That you can avoid using Try/Catch)</p>
@@ -234,7 +234,7 @@
 </div>
 </section>
 <section id="example-about-sharing-names-between-functions-and-methods">
-<span id="index-2"></span><h2>Example about Sharing Names between Functions and Methods<a class="headerlink" href="#example-about-sharing-names-between-functions-and-methods" title="Permalink to this heading"></a></h2>
+<span id="index-2"></span><h2>Example about Sharing Names between Functions and Methods<a class="headerlink" href="#example-about-sharing-names-between-functions-and-methods" title="Link to this heading"></a></h2>
 <p>Look at the next example</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
         <span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">myclass</span> <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="n">test2</span><span class="p">()</span> <span class="p">}</span>
@@ -314,7 +314,7 @@ f3 method
 </div>
 </section>
 <section id="calling-a-function-sharing-the-name-with-a-method-in-the-current-class">
-<span id="index-3"></span><h2>Calling a function sharing the name with a method in the current class<a class="headerlink" href="#calling-a-function-sharing-the-name-with-a-method-in-the-current-class" title="Permalink to this heading"></a></h2>
+<span id="index-3"></span><h2>Calling a function sharing the name with a method in the current class<a class="headerlink" href="#calling-a-function-sharing-the-name-with-a-method-in-the-current-class" title="Link to this heading"></a></h2>
 <p>In the previous example we have a function called f3() and we have a method called f3()</p>
 <p>How we can call the f3() function from the test() method ?</p>
 <p>Solution (1) : Change the current object scope to another object scope</p>

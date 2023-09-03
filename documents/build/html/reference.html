@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=39391842"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -204,7 +204,7 @@
            <div itemprop="articleBody">
              
   <section id="language-specification">
-<span id="index-0"></span><h1>Language Specification<a class="headerlink" href="#language-specification" title="Permalink to this heading"></a></h1>
+<span id="index-0"></span><h1>Language Specification<a class="headerlink" href="#language-specification" title="Link to this heading"></a></h1>
 <p>In this chapter we will learn about</p>
 <ul class="simple">
 <li><p>Language keywords</p></li>
@@ -216,7 +216,7 @@
 <li><p>Virtual Machine (VM) Instructions</p></li>
 </ul>
 <section id="language-keywords">
-<span id="index-1"></span><h2>Language Keywords<a class="headerlink" href="#language-keywords" title="Permalink to this heading"></a></h2>
+<span id="index-1"></span><h2>Language Keywords<a class="headerlink" href="#language-keywords" title="Link to this heading"></a></h2>
 <p>Keywords Count : 58</p>
 <ul class="simple">
 <li><p>again</p></li>
@@ -280,7 +280,7 @@
 </ul>
 </section>
 <section id="language-functions">
-<span id="index-2"></span><h2>Language Functions<a class="headerlink" href="#language-functions" title="Permalink to this heading"></a></h2>
+<span id="index-2"></span><h2>Language Functions<a class="headerlink" href="#language-functions" title="Link to this heading"></a></h2>
 <p>Functions Count : 251</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">acos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">principal</span> <span class="n">value</span> <span class="n">of</span> <span class="n">the</span> <span class="n">arc</span> <span class="n">cosine</span> <span class="n">of</span> <span class="n">x</span><span class="p">,</span> <span class="n">expressed</span> <span class="k">in</span> <span class="n">radians</span>
 <span class="n">add</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">Item</span><span class="p">)</span>
@@ -553,7 +553,7 @@
 </div>
 </section>
 <section id="compiler-errors">
-<span id="index-3"></span><h2>Compiler Errors<a class="headerlink" href="#compiler-errors" title="Permalink to this heading"></a></h2>
+<span id="index-3"></span><h2>Compiler Errors<a class="headerlink" href="#compiler-errors" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Error (C1)  : Error in parameters list, expected identifier</p></li>
 <li><p>Error (C2)  : Error in class name</p></li>
@@ -595,7 +595,7 @@
 </ul>
 </section>
 <section id="runtime-errors">
-<span id="index-4"></span><h2>Runtime Errors<a class="headerlink" href="#runtime-errors" title="Permalink to this heading"></a></h2>
+<span id="index-4"></span><h2>Runtime Errors<a class="headerlink" href="#runtime-errors" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Error (R1)  : Can’t divide by zero</p></li>
 <li><p>Error (R2)  : Array Access (Index out of range)</p></li>
@@ -645,7 +645,7 @@
 </ul>
 </section>
 <section id="environment-errors">
-<span id="index-5"></span><h2>Environment Errors<a class="headerlink" href="#environment-errors" title="Permalink to this heading"></a></h2>
+<span id="index-5"></span><h2>Environment Errors<a class="headerlink" href="#environment-errors" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Error (E1) : Caught SegFault</p></li>
 <li><p>Error (E2) : Out of Memory</p></li>
@@ -658,7 +658,7 @@
 </ul>
 </section>
 <section id="language-grammar">
-<span id="index-6"></span><h2>Language Grammar<a class="headerlink" href="#language-grammar" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>Language Grammar<a class="headerlink" href="#language-grammar" title="Link to this heading"></a></h2>
 <p>Program —&gt; {statement}</p>
 <p>Statement —&gt; ‘package’ &lt;Identifier&gt; { ‘.’ &lt;Identifier&gt; } [‘{’ {statement} ‘}’] [‘end’|’endpackage’]</p>
 <p>Statement —&gt; ‘class’ &lt;Identifier&gt; [ ‘from’|’:’|’&lt;’ &lt;Identifier&gt; ] [‘{’ {statement} ‘}’][‘end’|’endclass’]</p>
@@ -714,7 +714,7 @@
 <p>AnonymousFunction —&gt; ‘func’|’def’|’function’ [&lt;ParaList&gt;] ‘{’ {Statement} ‘}’</p>
 </section>
 <section id="virtual-machine-vm-instructions">
-<span id="index-7"></span><h2>Virtual Machine (VM) Instructions<a class="headerlink" href="#virtual-machine-vm-instructions" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>Virtual Machine (VM) Instructions<a class="headerlink" href="#virtual-machine-vm-instructions" title="Link to this heading"></a></h2>
 <p>Definitions :-</p>
 <ul class="simple">
 <li><p>VM : Virtual Machine</p></li>

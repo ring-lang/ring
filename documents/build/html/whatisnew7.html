@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=39391842"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -209,10 +209,10 @@
            <div itemprop="articleBody">
              
   <section id="what-is-new-in-ring-1-7">
-<span id="index-0"></span><h1>What is new in Ring 1.7?<a class="headerlink" href="#what-is-new-in-ring-1-7" title="Permalink to this heading"></a></h1>
+<span id="index-0"></span><h1>What is new in Ring 1.7?<a class="headerlink" href="#what-is-new-in-ring-1-7" title="Link to this heading"></a></h1>
 <p>In this chapter we will learn about the changes and new features in Ring 1.7 release.</p>
 <section id="list-of-changes-and-new-features">
-<span id="index-1"></span><h2>List of changes and new features<a class="headerlink" href="#list-of-changes-and-new-features" title="Permalink to this heading"></a></h2>
+<span id="index-1"></span><h2>List of changes and new features<a class="headerlink" href="#list-of-changes-and-new-features" title="Link to this heading"></a></h2>
 <p>Ring 1.7 comes with many new features!</p>
 <ul class="simple">
 <li><p>New Command: Load Package</p></li>
@@ -229,7 +229,7 @@
 </ul>
 </section>
 <section id="new-command-load-package">
-<span id="index-2"></span><h2>New Command: Load Package<a class="headerlink" href="#new-command-load-package" title="Permalink to this heading"></a></h2>
+<span id="index-2"></span><h2>New Command: Load Package<a class="headerlink" href="#new-command-load-package" title="Link to this heading"></a></h2>
 <p>Using the ‘load’ command we can use many ring source files in the same project</p>
 <p>But all of these files will share the same global scope</p>
 <p>Now we have the “Load Package” command too</p>
@@ -266,7 +266,7 @@ Hello from testloadpackage.ring
 </div>
 </section>
 <section id="ringvm-see-and-ringvm-give-functions">
-<span id="index-3"></span><h2>ringvm_see() and ringvm_give() functions<a class="headerlink" href="#ringvm-see-and-ringvm-give-functions" title="Permalink to this heading"></a></h2>
+<span id="index-3"></span><h2>ringvm_see() and ringvm_give() functions<a class="headerlink" href="#ringvm-see-and-ringvm-give-functions" title="Link to this heading"></a></h2>
 <p>Using the ringvm_see() function we can redefine the behavior of the See command</p>
 <p>Also we can use ring_see() to have the original behavior</p>
 <p>Example:</p>
@@ -311,7 +311,7 @@ z: 30.000000
 </div>
 </section>
 <section id="ring-state-new-and-ring-state-mainfile-functions">
-<span id="index-4"></span><h2>ring_state_new() and ring_state_mainfile() functions<a class="headerlink" href="#ring-state-new-and-ring-state-mainfile-functions" title="Permalink to this heading"></a></h2>
+<span id="index-4"></span><h2>ring_state_new() and ring_state_mainfile() functions<a class="headerlink" href="#ring-state-new-and-ring-state-mainfile-functions" title="Link to this heading"></a></h2>
 <p>Using ring_state_new() and ring_state_mainfile() we can run Ring programs from Ring programs</p>
 <p>But unlike ring_state_main(), Here we can control when to delete the Ring state!</p>
 <p>This is important when we run GUI programs from GUI programs</p>
@@ -322,7 +322,7 @@ z: 30.000000
 <p>So keeping the state is important for sub GUI programs hosted in GUI programs.</p>
 </section>
 <section id="better-trace-library">
-<span id="index-5"></span><h2>Better Trace Library<a class="headerlink" href="#better-trace-library" title="Permalink to this heading"></a></h2>
+<span id="index-5"></span><h2>Better Trace Library<a class="headerlink" href="#better-trace-library" title="Link to this heading"></a></h2>
 <p>The Trace library is updated, In the Debugger at break points we have now the “callstack” command</p>
 <p>This command will print the functions call stack.</p>
 <p>Example:</p>
@@ -348,7 +348,7 @@ z: 30.000000
 <img alt="Call Stack" src="_images/callstack.png" />
 </section>
 <section id="better-ring-notepad">
-<span id="index-6"></span><h2>Better Ring Notepad<a class="headerlink" href="#better-ring-notepad" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>Better Ring Notepad<a class="headerlink" href="#better-ring-notepad" title="Link to this heading"></a></h2>
 <p>Ring Notepad comes with the next updates</p>
 <ol class="arabic simple">
 <li><p>Support <a href="#id3"><span class="problematic" id="id4">*</span></a>.cf extension</p></li>
@@ -357,7 +357,7 @@ z: 30.000000
 </ol>
 </section>
 <section id="better-ringqt">
-<span id="index-7"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Link to this heading"></a></h2>
 <p>The next classes are added to RingQt</p>
 <ol class="arabic simple">
 <li><p>QStackedWidget</p></li>
@@ -386,22 +386,22 @@ z: 30.000000
 </ol>
 </section>
 <section id="better-ring2exe">
-<span id="index-8"></span><h2>Better Ring2EXE<a class="headerlink" href="#better-ring2exe" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>Better Ring2EXE<a class="headerlink" href="#better-ring2exe" title="Link to this heading"></a></h2>
 <p>Ring2EXE is updated to works as expected when we don’t have a C/C++ compiler</p>
 <p>Where we can distribute applications and get (exe file and ringo file) in this case.</p>
 </section>
 <section id="better-ringzip">
-<span id="index-9"></span><h2>Better RingZip<a class="headerlink" href="#better-ringzip" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>Better RingZip<a class="headerlink" href="#better-ringzip" title="Link to this heading"></a></h2>
 <p>The library is updated to support extracting files contains sub folders!</p>
 </section>
 <section id="better-documentation">
-<span id="index-10"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this heading"></a></h2>
+<span id="index-10"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>RingQt Classes Chapter - The classes are sorted.</p></li>
 </ol>
 </section>
 <section id="better-ring-vm">
-<span id="index-11"></span><h2>Better Ring VM<a class="headerlink" href="#better-ring-vm" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>Better Ring VM<a class="headerlink" href="#better-ring-vm" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>Better Error Message</p></li>
 <li><p>List2Str() function support lists contains numbers</p></li>
@@ -418,7 +418,7 @@ z: 30.000000
 </ol>
 </section>
 <section id="ringlibuv-extension">
-<span id="index-12"></span><h2>RingLibuv Extension<a class="headerlink" href="#ringlibuv-extension" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>RingLibuv Extension<a class="headerlink" href="#ringlibuv-extension" title="Link to this heading"></a></h2>
 <p>Ring 1.7 comes with the RingLibuv extension</p>
 <p>Libuv is a multi-platform support library with a focus on asynchronous I/O.</p>
 <p>Example (Events Loop):</p>

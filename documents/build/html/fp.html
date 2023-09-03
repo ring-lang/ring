@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=39391842"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -202,7 +202,7 @@
            <div itemprop="articleBody">
              
   <section id="functional-programming">
-<span id="index-0"></span><h1>Functional Programming<a class="headerlink" href="#functional-programming" title="Permalink to this heading"></a></h1>
+<span id="index-0"></span><h1>Functional Programming<a class="headerlink" href="#functional-programming" title="Link to this heading"></a></h1>
 <p>In previous chapters we learned about Functions and Recursion.</p>
 <p>In this chapter we are going to learn about more Functional Programming (FP) concepts like</p>
 <ul class="simple">
@@ -213,7 +213,7 @@
 <li><p>Equality of functions</p></li>
 </ul>
 <section id="pure-functions">
-<span id="index-1"></span><h2>Pure Functions<a class="headerlink" href="#pure-functions" title="Permalink to this heading"></a></h2>
+<span id="index-1"></span><h2>Pure Functions<a class="headerlink" href="#pure-functions" title="Link to this heading"></a></h2>
 <p>We can create pure functions (functions that doesn’t change the state) by the help of the assignment operator to
 copy variables (Lists &amp; Objects) by value to create new variables instead of working on the original data that are passed
 to the function by reference.</p>
@@ -251,7 +251,7 @@ to the function by reference.</p>
 </div>
 </section>
 <section id="first-class-functions">
-<span id="index-2"></span><h2>First-class Functions<a class="headerlink" href="#first-class-functions" title="Permalink to this heading"></a></h2>
+<span id="index-2"></span><h2>First-class Functions<a class="headerlink" href="#first-class-functions" title="Link to this heading"></a></h2>
 <p>Functions inside the Ring programming language are first-class citizens, you can pass functions as parameters, return them as
 value or store them in variables.</p>
 <p>We can pass/return the function by typing the function name as literal like “FunctionName” or :FunctionName for example.</p>
@@ -287,7 +287,7 @@ value or store them in variables.</p>
 </div>
 </section>
 <section id="higher-order-functions">
-<span id="index-3"></span><h2>Higher-order Functions<a class="headerlink" href="#higher-order-functions" title="Permalink to this heading"></a></h2>
+<span id="index-3"></span><h2>Higher-order Functions<a class="headerlink" href="#higher-order-functions" title="Link to this heading"></a></h2>
 <p>Higher-order functions are the functions that takes other functions as parameters.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Func</span> <span class="n">Main</span>
@@ -313,7 +313,7 @@ value or store them in variables.</p>
 </div>
 </section>
 <section id="anonymous-and-nested-functions">
-<span id="index-4"></span><h2>Anonymous and Nested Functions<a class="headerlink" href="#anonymous-and-nested-functions" title="Permalink to this heading"></a></h2>
+<span id="index-4"></span><h2>Anonymous and Nested Functions<a class="headerlink" href="#anonymous-and-nested-functions" title="Link to this heading"></a></h2>
 <p>Anonymous Functions are functions without names that can be passed as parameters to other functions or stored in variables.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Func</span> <span class="o">[</span><span class="n">Parameters</span><span class="o">]</span> <span class="p">{</span> <span class="o">[</span><span class="n">statements</span><span class="o">]</span> <span class="p">}</span>
@@ -406,7 +406,7 @@ value or store them in variables.</p>
 </div>
 </section>
 <section id="equality-of-functions">
-<span id="index-5"></span><h2>Equality of functions<a class="headerlink" href="#equality-of-functions" title="Permalink to this heading"></a></h2>
+<span id="index-5"></span><h2>Equality of functions<a class="headerlink" href="#equality-of-functions" title="Link to this heading"></a></h2>
 <p>We can test if function = function or not using the ‘=’ or ‘!=’ operators</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">f1</span> <span class="o">=</span> <span class="k">func</span> <span class="p">{</span> <span class="k">see</span> <span class="s">&quot;hello&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="p">}</span>
