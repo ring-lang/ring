@@ -29,6 +29,8 @@ The documentation is created using Sphinx (A popular tool written in Python)
 
 	Tested using HTML Help Workshop 4.74.8702
 
+	Note: Update source/conf.py to use the classic theme.
+
 (8) To generate PDF file, Install MiKTeX (https://miktex.org/download) then LyX (https://www.lyx.org/Download)
 
 	Tested using MiKTeX 23.4
