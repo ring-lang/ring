@@ -5,11 +5,11 @@ In this folder we have the Ring programming language documentation
 
 The documentation is created using Sphinx (A popular tool written in Python)
 
-(1) Install Python (Tested using Python 3.11.4)
+(1) Install Python (Tested using Python 3.11.5)
 
 (2) Install Sphinx (Tested using v6.2.1) 
 
-	pip install sphinix
+	pip install -U sphinx
 
 (3) To use the pygments lexer, copy ring.py to Python\Lib\site-packages\pygments\lexers
 
