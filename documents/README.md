@@ -7,9 +7,9 @@ The documentation is created using Sphinx (A popular tool written in Python)
 
 (1) Install Python (Tested using Python 3.11.5)
 
-(2) Install Sphinx (Tested using v7.2.5) 
+(2) Install Sphinx (Tested using v6.2.1) 
 
-	pip install -U sphinx
+	pip install -U sphinx==6.2.1
 
 (3) To use the pygments lexer, copy ring.py to Python\Lib\site-packages\pygments\lexers
 
