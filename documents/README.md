@@ -25,7 +25,9 @@ The documentation is created using Sphinx (A popular tool written in Python)
 
 	pip install sphinx_rtd_theme
 
-(7) To generate CHM file, Use Microsoft Help Workshop (from WayBack Machine): https://web.archive.org/web/20200918004813/http://download.microsoft.com/download/0/A/9/0A939EF6-E31C-430F-A3DF-DFAE7960D564/htmlhelp.exe
+(7) To generate CHM file, Use Microsoft Help Workshop. 
+
+	Tested using HTML Help Workshop 4.74.8702
 
 (8) To generate PDF file, Install MiKTeX (https://miktex.org/download) then LyX (https://www.lyx.org/Download)
 
