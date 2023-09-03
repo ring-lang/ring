@@ -7,7 +7,7 @@ The documentation is created using Sphinx (A popular tool written in Python)
 
 (1) Install Python (Tested using Python 3.11.5)
 
-(2) Install Sphinx (Tested using v6.2.1) 
+(2) Install Sphinx (Tested using v7.2.5) 
 
 	pip install -U sphinx
 
