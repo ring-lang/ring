@@ -19,7 +19,7 @@ Tested using
 
 * Qt (5.15.2)
 
-* Qt Creator (6.0.1)
+* Qt Creator (11.0.2)
 
 * Emscripten (1.39.8) : https://emscripten.org/docs/getting_started/index.html
 
