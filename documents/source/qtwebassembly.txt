@@ -23,10 +23,22 @@ Tested using
 
 * Emscripten (1.39.8) : https://emscripten.org/docs/getting_started/index.html
 
+Use Git to have emsdk 
+
 .. code-block:: ring
 
-	emsdk install sdk-fastcomp-1.39.8-64bit
-	emsdk activate sdk-fastcomp-1.39.8-64bit
+	# Get the emsdk repo
+	git clone https://github.com/emscripten-core/emsdk.git
+
+	# Enter that directory
+	cd emsdk
+
+Use emsdk to install and activate the required version for Qt 5.15
+
+.. code-block:: ring
+
+	emsdk install 1.39.8
+	emsdk activate --embedded 1.39.8
 
 Check Emscripten installation
 

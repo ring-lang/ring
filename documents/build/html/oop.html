@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=39391842"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -214,7 +214,7 @@
            <div itemprop="articleBody">
              
   <section id="object-oriented-programming-oop">
-<span id="index-0"></span><h1>Object Oriented Programming (OOP)<a class="headerlink" href="#object-oriented-programming-oop" title="Link to this heading"></a></h1>
+<span id="index-0"></span><h1>Object Oriented Programming (OOP)<a class="headerlink" href="#object-oriented-programming-oop" title="Permalink to this heading"></a></h1>
 <p>In this chapter we are going to learn how to use the Object-Oriented programming paradigm
 inside the Ring programming language.</p>
 <p>We will learn about</p>
@@ -236,7 +236,7 @@ inside the Ring programming language.</p>
 <li><p>Command: New From</p></li>
 </ul>
 <section id="classes-and-objects">
-<span id="index-1"></span><h2>Classes and Objects<a class="headerlink" href="#classes-and-objects" title="Link to this heading"></a></h2>
+<span id="index-1"></span><h2>Classes and Objects<a class="headerlink" href="#classes-and-objects" title="Permalink to this heading"></a></h2>
 <p>We can define new classes using the next syntax</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Class</span> <span class="o">&lt;</span><span class="k">Class</span> <span class="n">Name</span><span class="o">&gt;</span> <span class="o">[</span><span class="k">From</span><span class="o">|&lt;|</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Parent</span> <span class="k">Class</span> <span class="n">Name</span><span class="o">&gt;]</span>
@@ -341,7 +341,7 @@ parameters and change the order of parameters when adding them to the Hash.</p>
 </div>
 </section>
 <section id="access-objects-using-braces">
-<span id="index-2"></span><h2>Access Objects Using Braces<a class="headerlink" href="#access-objects-using-braces" title="Link to this heading"></a></h2>
+<span id="index-2"></span><h2>Access Objects Using Braces<a class="headerlink" href="#access-objects-using-braces" title="Permalink to this heading"></a></h2>
 <p>We can access the object at any time using braces { }</p>
 <p>Inside the braces we can use the object attributes and methods directly</p>
 <p>This can be done when we create the object using the New keyword or at any time using the next syntax</p>
@@ -387,7 +387,7 @@ parameters and change the order of parameters when adding them to the Hash.</p>
 </div>
 </section>
 <section id="composition">
-<span id="index-3"></span><h2>Composition<a class="headerlink" href="#composition" title="Link to this heading"></a></h2>
+<span id="index-3"></span><h2>Composition<a class="headerlink" href="#composition" title="Permalink to this heading"></a></h2>
 <p>The object may contains other objects as attributes.</p>
 <p>Using braces to access objects can be nested.</p>
 <p>Example:</p>
@@ -434,7 +434,7 @@ parameters and change the order of parameters when adding them to the Hash.</p>
 </div>
 </section>
 <section id="setter-and-getter">
-<span id="index-4"></span><h2>Setter and Getter<a class="headerlink" href="#setter-and-getter" title="Link to this heading"></a></h2>
+<span id="index-4"></span><h2>Setter and Getter<a class="headerlink" href="#setter-and-getter" title="Permalink to this heading"></a></h2>
 <p>We can define methods to be used when we set and get object attributes.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Class</span> <span class="n">ClassName</span>
@@ -480,7 +480,7 @@ parameters and change the order of parameters when adding them to the Hash.</p>
 </div>
 </section>
 <section id="private-attributes-and-methods">
-<span id="index-5"></span><h2>Private Attributes and Methods<a class="headerlink" href="#private-attributes-and-methods" title="Link to this heading"></a></h2>
+<span id="index-5"></span><h2>Private Attributes and Methods<a class="headerlink" href="#private-attributes-and-methods" title="Permalink to this heading"></a></h2>
 <p>We can define private attributes and methods after the keyword private inside the class body</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">person</span> <span class="p">{</span>
@@ -531,7 +531,7 @@ parameters and change the order of parameters when adding them to the Hash.</p>
 </div>
 </section>
 <section id="operator-overloading">
-<span id="index-6"></span><h2>Operator Overloading<a class="headerlink" href="#operator-overloading" title="Link to this heading"></a></h2>
+<span id="index-6"></span><h2>Operator Overloading<a class="headerlink" href="#operator-overloading" title="Permalink to this heading"></a></h2>
 <p>We can add the operator method to our class to enable using operators with the class objects.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Class</span> <span class="n">ClassName</span>
@@ -679,7 +679,7 @@ items.</p>
 </div>
 </section>
 <section id="inheritance">
-<span id="index-7"></span><h2>Inheritance<a class="headerlink" href="#inheritance" title="Link to this heading"></a></h2>
+<span id="index-7"></span><h2>Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this heading"></a></h2>
 <p>We can create class from another class in the class definition using the keyword from.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Class</span> <span class="o">&lt;</span><span class="k">Class</span> <span class="n">Name</span><span class="o">&gt;</span> <span class="o">[</span><span class="k">From</span> <span class="o">&lt;</span><span class="n">Parent</span> <span class="k">Class</span> <span class="n">Name</span><span class="o">&gt;]</span>
@@ -725,7 +725,7 @@ items.</p>
 </div>
 </section>
 <section id="dynamic-attributes">
-<span id="index-8"></span><h2>Dynamic Attributes<a class="headerlink" href="#dynamic-attributes" title="Link to this heading"></a></h2>
+<span id="index-8"></span><h2>Dynamic Attributes<a class="headerlink" href="#dynamic-attributes" title="Permalink to this heading"></a></h2>
 <p>We can write instructions after the class name to be executed when we create new objects</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">dynamicClass</span>
@@ -753,7 +753,7 @@ using eval() we can execute the string to define the classes</p>
 </div>
 </section>
 <section id="packages">
-<span id="index-9"></span><h2>Packages<a class="headerlink" href="#packages" title="Link to this heading"></a></h2>
+<span id="index-9"></span><h2>Packages<a class="headerlink" href="#packages" title="Permalink to this heading"></a></h2>
 <p>We can create a package (a group of classes under a common name) using the next syntax</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">PackageName</span>
         <span class="k">Class</span> <span class="n">Class1</span>
@@ -794,7 +794,7 @@ using eval() we can execute the string to define the classes</p>
 </div>
 </section>
 <section id="printing-objects">
-<span id="index-10"></span><h2>Printing Objects<a class="headerlink" href="#printing-objects" title="Link to this heading"></a></h2>
+<span id="index-10"></span><h2>Printing Objects<a class="headerlink" href="#printing-objects" title="Permalink to this heading"></a></h2>
 <p>We can print the object state (attributes and values) using the see command.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="p">}</span>
@@ -809,7 +809,7 @@ using eval() we can execute the string to define the classes</p>
 </div>
 </section>
 <section id="find-and-list-of-objects">
-<span id="index-11"></span><h2>Find() and List of Objects<a class="headerlink" href="#find-and-list-of-objects" title="Link to this heading"></a></h2>
+<span id="index-11"></span><h2>Find() and List of Objects<a class="headerlink" href="#find-and-list-of-objects" title="Permalink to this heading"></a></h2>
 <p>We can use the find() function to search inside a list of objects.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Find</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">,</span><span class="n">nColumn</span><span class="p">,</span><span class="n">cAttribute</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Item</span> <span class="n">Index</span>
@@ -854,7 +854,7 @@ using eval() we can execute the string to define the classes</p>
 </div>
 </section>
 <section id="sort-and-list-of-objects">
-<span id="index-12"></span><h2>Sort() and List of Objects<a class="headerlink" href="#sort-and-list-of-objects" title="Link to this heading"></a></h2>
+<span id="index-12"></span><h2>Sort() and List of Objects<a class="headerlink" href="#sort-and-list-of-objects" title="Permalink to this heading"></a></h2>
 <p>We can sort a list of objects based on an object attribute using the Sort() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Sort</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">nColumn</span><span class="p">,</span><span class="n">cAttribute</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Sorted</span> <span class="kt">List</span> <span class="n">based</span> <span class="k">on</span> <span class="n">Object</span> <span class="n">Attribute</span>
@@ -960,7 +960,7 @@ using eval() we can execute the string to define the classes</p>
 </div>
 </section>
 <section id="using-self-attribute-and-self-method">
-<span id="index-13"></span><h2>Using Self.Attribute and Self.Method()<a class="headerlink" href="#using-self-attribute-and-self-method" title="Link to this heading"></a></h2>
+<span id="index-13"></span><h2>Using Self.Attribute and Self.Method()<a class="headerlink" href="#using-self-attribute-and-self-method" title="Permalink to this heading"></a></h2>
 <p>Inside the class region (After the class name and before any method) and the class methods we can
 use self.attribute and self.method()</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Class</span> <span class="n">Point</span>
@@ -996,7 +996,7 @@ use self.attribute and self.method()</p>
 </div>
 </section>
 <section id="using-this-attribute-and-this-method">
-<span id="index-14"></span><h2>Using This.Attribute and This.Method()<a class="headerlink" href="#using-this-attribute-and-this-method" title="Link to this heading"></a></h2>
+<span id="index-14"></span><h2>Using This.Attribute and This.Method()<a class="headerlink" href="#using-this-attribute-and-this-method" title="Permalink to this heading"></a></h2>
 <p>Inside class methods we have access to the object scope directly. we don’t need to use Self.attribute
 or Self.method to read/write attribute and call methods.</p>
 <p>But we can use braces {} while we are inside methods to access another object, In this case the current
@@ -1021,7 +1021,7 @@ object scope will be changed while we are inside the brace.</p>
 </div>
 </section>
 <section id="using-this-in-the-class-region-as-self">
-<span id="index-15"></span><h2>Using This in the class region as Self<a class="headerlink" href="#using-this-in-the-class-region-as-self" title="Link to this heading"></a></h2>
+<span id="index-15"></span><h2>Using This in the class region as Self<a class="headerlink" href="#using-this-in-the-class-region-as-self" title="Permalink to this heading"></a></h2>
 <p>The class region is the region that comes after the class name and before any method.</p>
 <p>We can use This in the class region as Self.</p>
 <p>Example:</p>
@@ -1076,7 +1076,7 @@ version: 1.0
 </div>
 </section>
 <section id="default-value-for-object-attributes">
-<span id="index-16"></span><h2>Default value for object attributes<a class="headerlink" href="#default-value-for-object-attributes" title="Link to this heading"></a></h2>
+<span id="index-16"></span><h2>Default value for object attributes<a class="headerlink" href="#default-value-for-object-attributes" title="Permalink to this heading"></a></h2>
 <p>The default value for object attributes is NULL</p>
 <p>In Ring, the NULL value is just an empty string or a string that contains “NULL”</p>
 <p>We can check for NULL values using the isNULL() function</p>
@@ -1109,7 +1109,7 @@ version: 1.0
 </div>
 </section>
 <section id="command-new-from">
-<span id="index-17"></span><h2>Command: New From<a class="headerlink" href="#command-new-from" title="Link to this heading"></a></h2>
+<span id="index-17"></span><h2>Command: New From<a class="headerlink" href="#command-new-from" title="Permalink to this heading"></a></h2>
 <p>Using (new) we can create a new object from a specific class</p>
 <p>Using (new from) we provide a variable which contains the class name</p>
 <p>Example:</p>

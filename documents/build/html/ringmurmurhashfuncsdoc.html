@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=39391842"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -201,15 +201,15 @@
            <div itemprop="articleBody">
              
   <section id="ringmurmurhash-functions-reference">
-<span id="index-0"></span><h1>RingMurmurHash Functions Reference<a class="headerlink" href="#ringmurmurhash-functions-reference" title="Link to this heading"></a></h1>
+<span id="index-0"></span><h1>RingMurmurHash Functions Reference<a class="headerlink" href="#ringmurmurhash-functions-reference" title="Permalink to this heading"></a></h1>
 <p>Murmurhash extension is an extension written to implement a full implementation for the MurmurHash library.</p>
 <section id="murmurhash1-functions">
-<span id="index-1"></span><h2>MurmurHash1 functions<a class="headerlink" href="#murmurhash1-functions" title="Link to this heading"></a></h2>
+<span id="index-1"></span><h2>MurmurHash1 functions<a class="headerlink" href="#murmurhash1-functions" title="Permalink to this heading"></a></h2>
 <p>uint32_t murmurhash1(string key, int seed, [bool return_type]);</p>
 <p>uint32_t murmurhash1_aligned(string key, int seed, [bool return_type]);</p>
 </section>
 <section id="murmurhash2-functions">
-<span id="index-2"></span><h2>MurmurHash2 functions<a class="headerlink" href="#murmurhash2-functions" title="Link to this heading"></a></h2>
+<span id="index-2"></span><h2>MurmurHash2 functions<a class="headerlink" href="#murmurhash2-functions" title="Permalink to this heading"></a></h2>
 <p>uint32_t murmurhash2(string key, int seed, [bool return_type]);</p>
 <p>uint32_t murmurhash2a(string key, int seed, [bool return_type]);</p>
 <p>uint64_t murmurhash64a(string key, int seed, [bool return_type]);</p>
@@ -218,20 +218,20 @@
 <p>uint32_t murmurhash_aligned2(string key, int seed, [bool return_type]);</p>
 </section>
 <section id="murmurhash3-functions">
-<span id="index-3"></span><h2>MurmurHash3 functions<a class="headerlink" href="#murmurhash3-functions" title="Link to this heading"></a></h2>
+<span id="index-3"></span><h2>MurmurHash3 functions<a class="headerlink" href="#murmurhash3-functions" title="Permalink to this heading"></a></h2>
 <p>uint32_t murmurhash3_x86_32(string key, int seed, [bool return_type]);</p>
 <p>list murmurhash3_x86_128(string key, int seed, [bool return_type]);</p>
 <p>list murmurhash3_x64_128(string key, int seed, [bool return_type]);</p>
 <p>The third optional parameter is to set the type of the returned value, this parameter accepts a bool value [ true, false ], true will return a Hex value, while false will return a integer value.</p>
 </section>
 <section id="example">
-<span id="index-4"></span><h2>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;murmurhashlib.ring&quot;</span>
+<span id="index-4"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this heading"></a></h2>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;murmurhashlib.ring&quot;
 
-<span class="n">key</span> <span class="o">=</span> <span class="s">&quot;Ring Language&quot;</span>
+key = &quot;Ring Language&quot;
 
-<span class="k">see</span> <span class="n">murmurhash3_x86_32</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">//</span> <span class="n">Output</span><span class="p">:</span> <span class="mi">1894444853</span>
-<span class="k">see</span> <span class="n">murmurhash3_x86_32</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">//</span> <span class="n">Output</span><span class="p">:</span> <span class="mf">70</span><span class="err">eaef35</span>
+see murmurhash3_x86_32(key, 0, 0) + nl // Output: 1894444853
+see murmurhash3_x86_32(key, 0, 1) + nl // Output: 70eaef35
 </pre></div>
 </div>
 </section>

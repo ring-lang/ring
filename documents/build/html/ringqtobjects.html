@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=39391842"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -204,7 +204,7 @@
            <div itemprop="articleBody">
              
   <section id="objects-library-for-ringqt-application">
-<span id="index-0"></span><h1>Objects Library for RingQt Application<a class="headerlink" href="#objects-library-for-ringqt-application" title="Link to this heading"></a></h1>
+<span id="index-0"></span><h1>Objects Library for RingQt Application<a class="headerlink" href="#objects-library-for-ringqt-application" title="Permalink to this heading"></a></h1>
 <p>In this chapter we will learn about the objects library and using it in GUI applications.</p>
 <p>Instead of using global variables for windows objects and connecting events to objects using the object name, the
 Objects Library will manage a list of the GUI objects and will provide a more natural API to quickly
@@ -223,7 +223,7 @@ an easy way for communication between these classes.</p>
 <p>The ObjectsLib provide functions like openObject(), lastObject() and a class called ObjectsParent</p>
 <p>The GUILib provide a new specific API for GUI applications like openWindow(), lastWindow(), etc.</p>
 <section id="library-usage-with-gui-applications">
-<span id="index-1"></span><h2>Library Usage with GUI Applications<a class="headerlink" href="#library-usage-with-gui-applications" title="Link to this heading"></a></h2>
+<span id="index-1"></span><h2>Library Usage with GUI Applications<a class="headerlink" href="#library-usage-with-gui-applications" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Use the openWindow(cWindowControllerClassName) function to open new Windows</p></li>
 <li><p>Create at least Two Classes for each window, The Controller Class and the View Class</p></li>
@@ -241,7 +241,7 @@ an easy way for communication between these classes.</p>
 </ul>
 </section>
 <section id="example">
-<span id="index-2"></span><h2>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
+<span id="index-2"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this heading"></a></h2>
 <p>In the next example we will create two types of windows.</p>
 <ul class="simple">
 <li><p>Main Window contains a button. When the user click on the button a sub window will be opened.</p></li>
@@ -301,7 +301,7 @@ an easy way for communication between these classes.</p>
 <img alt="Objects Library Example - Shot 2" src="_images/objectslib2.png" />
 </section>
 <section id="openwindowandlink-function">
-<span id="index-3"></span><h2>openWindowAndLink() Function<a class="headerlink" href="#openwindowandlink-function" title="Link to this heading"></a></h2>
+<span id="index-3"></span><h2>openWindowAndLink() Function<a class="headerlink" href="#openwindowandlink-function" title="Permalink to this heading"></a></h2>
 <p>We can use the openWindowAndLink() function to connect between the application
 windows, pass messages (call methods) between the objects.</p>
 <p>This function uses Meta-programming to define dynamic methods in the
@@ -345,7 +345,7 @@ SetParentObject() methods.</p>
 </div>
 </section>
 <section id="openwindowinpackages-function">
-<span id="index-4"></span><h2>openWindowInPackages() Function<a class="headerlink" href="#openwindowinpackages-function" title="Link to this heading"></a></h2>
+<span id="index-4"></span><h2>openWindowInPackages() Function<a class="headerlink" href="#openwindowinpackages-function" title="Permalink to this heading"></a></h2>
 <p>The openWindowInPackages() function is the same as openWindow()
 but takes an extra list that determine the packages
 to import before opening the window.</p>
@@ -366,7 +366,7 @@ using the openWindowInPackages() function.</p>
 </div>
 </section>
 <section id="using-objectid-and-getwindowbyid">
-<span id="index-5"></span><h2>Using ObjectID() and GetWindowByID()<a class="headerlink" href="#using-objectid-and-getwindowbyid" title="Link to this heading"></a></h2>
+<span id="index-5"></span><h2>Using ObjectID() and GetWindowByID()<a class="headerlink" href="#using-objectid-and-getwindowbyid" title="Permalink to this heading"></a></h2>
 <p>Each window created using the Objects Library have a unique ID</p>
 <p>We can get the window ID using the ObjectID() Method in the Controller Class</p>
 <p>The Objects Library comes with the GetWindowByID() function</p>
@@ -449,7 +449,7 @@ using the openWindowInPackages() function.</p>
 <img alt="Objects Library Example - Shot 3" src="_images/objectslib3.png" />
 </section>
 <section id="using-objectid-and-openwindowandlink">
-<span id="index-6"></span><h2>Using ObjectID() and OpenWindowAndLink()<a class="headerlink" href="#using-objectid-and-openwindowandlink" title="Link to this heading"></a></h2>
+<span id="index-6"></span><h2>Using ObjectID() and OpenWindowAndLink()<a class="headerlink" href="#using-objectid-and-openwindowandlink" title="Permalink to this heading"></a></h2>
 <p>The next example demonstrates using OpenWindowAndLink() instead of GetWindowByID()</p>
 <p>This introduce an interesting question: When to use OpenWindowAndLink()?</p>
 <p>If the parent window will call one object of the sub window then use OpenWindowAndLink()</p>
@@ -512,7 +512,7 @@ using the openWindowInPackages() function.</p>
 <img alt="Objects Library Example - Shot 4" src="_images/objectslib4.png" />
 </section>
 <section id="objects-library-source-code">
-<span id="index-7"></span><h2>Objects Library Source Code<a class="headerlink" href="#objects-library-source-code" title="Link to this heading"></a></h2>
+<span id="index-7"></span><h2>Objects Library Source Code<a class="headerlink" href="#objects-library-source-code" title="Permalink to this heading"></a></h2>
 <p>The library source code is very simple, You can check the source code files</p>
 <p>The source code for the Objects Library (can be used without GUILib)</p>
 <ul class="simple">

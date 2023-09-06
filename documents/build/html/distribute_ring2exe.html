@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=39391842"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -211,7 +211,7 @@
            <div itemprop="articleBody">
              
   <section id="distributing-ring-applications-using-ring2exe">
-<span id="index-0"></span><h1>Distributing Ring Applications using Ring2EXE<a class="headerlink" href="#distributing-ring-applications-using-ring2exe" title="Link to this heading"></a></h1>
+<span id="index-0"></span><h1>Distributing Ring Applications using Ring2EXE<a class="headerlink" href="#distributing-ring-applications-using-ring2exe" title="Permalink to this heading"></a></h1>
 <p>In this chapter we will learn about distributing Ring applications.</p>
 <p>Starting from Ring 1.6 we have a nice tool called Ring2EXE (Written in Ring itself)</p>
 <p>Using Ring2EXE we can distribute applications quickly for Windows, Linux, macOS, WebAssembly and Mobile devices</p>
@@ -220,7 +220,7 @@
 <p>We can use the Distribute Menu in the Ring Notepad application (More Easy)</p>
 </div>
 <section id="using-ring2exe">
-<span id="index-1"></span><h2>Using Ring2EXE<a class="headerlink" href="#using-ring2exe" title="Link to this heading"></a></h2>
+<span id="index-1"></span><h2>Using Ring2EXE<a class="headerlink" href="#using-ring2exe" title="Permalink to this heading"></a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ring2exe filename.ring [Options]
 </pre></div>
 </div>
@@ -240,7 +240,7 @@ filename                (Executable File - On Linux &amp; MacOS X platforms)
 </div>
 </section>
 <section id="how-ring2exe-works">
-<span id="index-2"></span><h2>How Ring2EXE works?<a class="headerlink" href="#how-ring2exe-works" title="Link to this heading"></a></h2>
+<span id="index-2"></span><h2>How Ring2EXE works?<a class="headerlink" href="#how-ring2exe-works" title="Permalink to this heading"></a></h2>
 <p>At first the Ring compiler will be used to generate the Ring object file (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ringo)</p>
 <p>If we have a C compiler (optional), This object file will be embedded inside a C source code file</p>
 <p>Then using the C compiler and the Ring library (Contains the Ring Virtual Machine) the executable file</p>
@@ -250,7 +250,7 @@ filename                (Executable File - On Linux &amp; MacOS X platforms)
 <p>So it’s better and easy to have a C compiler on your machine to be used by Ring2EXE.</p>
 </section>
 <section id="example">
-<span id="index-3"></span><h2>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
+<span id="index-3"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this heading"></a></h2>
 <p>We have test.ring contains the next code</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;Hello, World!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
@@ -269,7 +269,7 @@ filename                (Executable File - On Linux &amp; MacOS X platforms)
 </div>
 </section>
 <section id="options">
-<span id="index-4"></span><h2>Options<a class="headerlink" href="#options" title="Link to this heading"></a></h2>
+<span id="index-4"></span><h2>Options<a class="headerlink" href="#options" title="Permalink to this heading"></a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>-keep            : Don&#39;t delete Temp. Files
 -static          : Build Standalone Executable File
                    (Don&#39;t use ring.dll/ring.so/ring.dylib)
@@ -310,7 +310,7 @@ filename                (Executable File - On Linux &amp; MacOS X platforms)
 </div>
 </section>
 <section id="building-standalone-console-application">
-<span id="index-5"></span><h2>Building standalone console application<a class="headerlink" href="#building-standalone-console-application" title="Link to this heading"></a></h2>
+<span id="index-5"></span><h2>Building standalone console application<a class="headerlink" href="#building-standalone-console-application" title="Permalink to this heading"></a></h2>
 <p>Using the “-static” option we can build executable console application</p>
 <p>So we don’t have to use ring.dll, ring.so or ring.dylib</p>
 <p>This avoid only the need to Ring dynamic link library</p>
@@ -320,7 +320,7 @@ filename                (Executable File - On Linux &amp; MacOS X platforms)
 </div>
 </section>
 <section id="distributing-ringallegro-applications">
-<span id="index-6"></span><h2>Distributing RingAllegro Applications<a class="headerlink" href="#distributing-ringallegro-applications" title="Link to this heading"></a></h2>
+<span id="index-6"></span><h2>Distributing RingAllegro Applications<a class="headerlink" href="#distributing-ringallegro-applications" title="Permalink to this heading"></a></h2>
 <p>We have test2.ring contains the next code</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># Just a simple program to test Ring2EXE Tool!</span>
 <span class="c"># Using RingAllegro</span>
@@ -357,7 +357,7 @@ filename                (Executable File - On Linux &amp; MacOS X platforms)
 </div>
 </section>
 <section id="distributing-ringqt-applications">
-<span id="index-7"></span><h2>Distributing RingQt Applications<a class="headerlink" href="#distributing-ringqt-applications" title="Link to this heading"></a></h2>
+<span id="index-7"></span><h2>Distributing RingQt Applications<a class="headerlink" href="#distributing-ringqt-applications" title="Permalink to this heading"></a></h2>
 <p>We have test3.ring contains the next code</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># Just a simple program to test Ring2EXE Tool!</span>
 <span class="c"># Using RingQt</span>
@@ -396,7 +396,7 @@ filename                (Executable File - On Linux &amp; MacOS X platforms)
 </div>
 </section>
 <section id="distributing-applications-for-mobile-using-ringqt">
-<span id="index-8"></span><h2>Distributing Applications for Mobile using RingQt<a class="headerlink" href="#distributing-applications-for-mobile-using-ringqt" title="Link to this heading"></a></h2>
+<span id="index-8"></span><h2>Distributing Applications for Mobile using RingQt<a class="headerlink" href="#distributing-applications-for-mobile-using-ringqt" title="Permalink to this heading"></a></h2>
 <p>To prepare a Qt project for your RingQt application (test3.ring) use the “-mobileqt” option</p>
 <p>Example :</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ring2exe test3.ring -dist -mobileqt
@@ -408,7 +408,7 @@ filename                (Executable File - On Linux &amp; MacOS X platforms)
 <p>Another important file is our C++ main file : main.cpp</p>
 </section>
 <section id="distributing-applications-for-webassembly-using-ringqt">
-<span id="index-9"></span><h2>Distributing Applications for WebAssembly using RingQt<a class="headerlink" href="#distributing-applications-for-webassembly-using-ringqt" title="Link to this heading"></a></h2>
+<span id="index-9"></span><h2>Distributing Applications for WebAssembly using RingQt<a class="headerlink" href="#distributing-applications-for-webassembly-using-ringqt" title="Permalink to this heading"></a></h2>
 <p>To prepare a Qt project (WebAssembly) for your RingQt application (myapp.ring) use the “-webassemblyqt” option</p>
 <p>Example :</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ring2exe myapp.ring -dist -webassemblyqt
@@ -420,7 +420,7 @@ filename                (Executable File - On Linux &amp; MacOS X platforms)
 <p>Another important file is our C++ main file : main.cpp</p>
 </section>
 <section id="building-the-cards-game-for-mobile-using-ringqt">
-<span id="index-10"></span><h2>Building the Cards Game for Mobile using RingQt<a class="headerlink" href="#building-the-cards-game-for-mobile-using-ringqt" title="Link to this heading"></a></h2>
+<span id="index-10"></span><h2>Building the Cards Game for Mobile using RingQt<a class="headerlink" href="#building-the-cards-game-for-mobile-using-ringqt" title="Permalink to this heading"></a></h2>
 <p>For a better example, consider building an Android package for the Cards game that comes with the</p>
 <p>Ring language in this folder : ring/application/cards</p>
 <p>The Cards game folder contains three files</p>
@@ -464,7 +464,7 @@ filename                (Executable File - On Linux &amp; MacOS X platforms)
 <p>So all what you need is using AppFile() function around your image files!</p>
 </section>
 <section id="building-the-weight-history-application-for-mobile-using-ringqt">
-<span id="index-11"></span><h2>Building the Weight History Application for Mobile using RingQt<a class="headerlink" href="#building-the-weight-history-application-for-mobile-using-ringqt" title="Link to this heading"></a></h2>
+<span id="index-11"></span><h2>Building the Weight History Application for Mobile using RingQt<a class="headerlink" href="#building-the-weight-history-application-for-mobile-using-ringqt" title="Permalink to this heading"></a></h2>
 <p>Another example to distribute your application for Mobile Devices using Ring2EXE and Qt</p>
 <p>consider building an Android package for the Weight History application that comes with the</p>
 <p>Ring language in this folder : ring/application/weighthistory</p>
@@ -508,7 +508,7 @@ QFile::copy(&quot;:/weighthistory.db&quot;,path3);
 <p>So Use Ring2EXE to generate these files, Then copy them to your application folder when you update them.</p>
 </section>
 <section id="building-the-form-designer-for-mobile-using-ringqt">
-<span id="index-12"></span><h2>Building the Form Designer for Mobile using RingQt<a class="headerlink" href="#building-the-form-designer-for-mobile-using-ringqt" title="Link to this heading"></a></h2>
+<span id="index-12"></span><h2>Building the Form Designer for Mobile using RingQt<a class="headerlink" href="#building-the-form-designer-for-mobile-using-ringqt" title="Permalink to this heading"></a></h2>
 <p>To build the Form Designer application (ring/tools/formdesigner) for Mobile</p>
 <ol class="arabic simple">
 <li><p>Run the next command</p></li>
@@ -605,7 +605,7 @@ name of the Image files.</p>
 <p>From this example, We know that we can use sub folders for images.</p>
 </section>
 <section id="creating-the-qt-resource-file-using-folder2qrc">
-<span id="index-13"></span><h2>Creating the Qt resource file using Folder2qrc<a class="headerlink" href="#creating-the-qt-resource-file-using-folder2qrc" title="Link to this heading"></a></h2>
+<span id="index-13"></span><h2>Creating the Qt resource file using Folder2qrc<a class="headerlink" href="#creating-the-qt-resource-file-using-folder2qrc" title="Permalink to this heading"></a></h2>
 <p>When we have large RingQt project that contains a lot of images and files, We need to add these files
 to the resource file ( <a href="#id5"><span class="problematic" id="id6">*</span></a>.qrc ) when distributing applications for Mobile devices.</p>
 <p>Instead of adding these files one by one, Ring 1.6 comes with a simple tool that save our time, It’s
@@ -621,7 +621,7 @@ mainfile.ringo (In our example this will be formdesigner.ringo)</p>
 <p>You can open it and remove the files that you don’t need in the resources!</p>
 </section>
 <section id="important-information-about-ring2exe">
-<span id="index-14"></span><h2>Important Information about Ring2EXE<a class="headerlink" href="#important-information-about-ring2exe" title="Link to this heading"></a></h2>
+<span id="index-14"></span><h2>Important Information about Ring2EXE<a class="headerlink" href="#important-information-about-ring2exe" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Using Ring2EXE to prepare distribution will delete all of the files in the old distribution</p></li>
 </ul>

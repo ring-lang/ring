@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=39391842"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -207,11 +207,11 @@
            <div itemprop="articleBody">
              
   <section id="control-structures-first-style">
-<span id="index-0"></span><h1>Control Structures - First Style<a class="headerlink" href="#control-structures-first-style" title="Link to this heading"></a></h1>
+<span id="index-0"></span><h1>Control Structures - First Style<a class="headerlink" href="#control-structures-first-style" title="Permalink to this heading"></a></h1>
 <p>In this chapter we are going to learn about the control structures provided by
 the Ring programming language.</p>
 <section id="branching">
-<span id="index-1"></span><h2>Branching<a class="headerlink" href="#branching" title="Link to this heading"></a></h2>
+<span id="index-1"></span><h2>Branching<a class="headerlink" href="#branching" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>If Statement</p></li>
 </ul>
@@ -274,7 +274,7 @@ the Ring programming language.</p>
 </div>
 </section>
 <section id="looping">
-<span id="index-3"></span><h2>Looping<a class="headerlink" href="#looping" title="Link to this heading"></a></h2>
+<span id="index-3"></span><h2>Looping<a class="headerlink" href="#looping" title="Permalink to this heading"></a></h2>
 <ul class="simple" id="index-4">
 <li><p>While Loop</p></li>
 </ul>
@@ -365,7 +365,7 @@ the Ring programming language.</p>
 </div>
 </section>
 <section id="using-the-step-option-with-for-in">
-<span id="index-7"></span><h2>Using The Step option with For in<a class="headerlink" href="#using-the-step-option-with-for-in" title="Link to this heading"></a></h2>
+<span id="index-7"></span><h2>Using The Step option with For in<a class="headerlink" href="#using-the-step-option-with-for-in" title="Permalink to this heading"></a></h2>
 <p>We can use the Step option with For in to skip number of items in each iteration</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span>    <span class="c"># create list contains numbers from 1 to 10</span>
@@ -377,7 +377,7 @@ the Ring programming language.</p>
 </div>
 </section>
 <section id="using-for-in-to-modify-lists">
-<span id="index-8"></span><h2>Using For in to modify lists<a class="headerlink" href="#using-for-in-to-modify-lists" title="Link to this heading"></a></h2>
+<span id="index-8"></span><h2>Using For in to modify lists<a class="headerlink" href="#using-for-in-to-modify-lists" title="Permalink to this heading"></a></h2>
 <p>When we use (For in) we get items by reference.</p>
 <p>This means that we can read/edit items inside the loop.</p>
 <p>Example:</p>
@@ -397,7 +397,7 @@ the Ring programming language.</p>
 </div>
 </section>
 <section id="do-again-loop">
-<span id="index-9"></span><h2>Do Again Loop<a class="headerlink" href="#do-again-loop" title="Link to this heading"></a></h2>
+<span id="index-9"></span><h2>Do Again Loop<a class="headerlink" href="#do-again-loop" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">do</span>
         <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
@@ -414,7 +414,7 @@ the Ring programming language.</p>
 </div>
 </section>
 <section id="exit-command">
-<span id="index-10"></span><h2>Exit Command<a class="headerlink" href="#exit-command" title="Link to this heading"></a></h2>
+<span id="index-10"></span><h2>Exit Command<a class="headerlink" href="#exit-command" title="Permalink to this heading"></a></h2>
 <p>Used to go outside one or more of loops.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">exit</span> <span class="o">[</span><span class="n">expression</span><span class="o">]</span>       <span class="c"># inside loop</span>
@@ -429,7 +429,7 @@ the Ring programming language.</p>
 </div>
 </section>
 <section id="exit-from-two-loops">
-<span id="index-11"></span><h2>Exit from two loops<a class="headerlink" href="#exit-from-two-loops" title="Link to this heading"></a></h2>
+<span id="index-11"></span><h2>Exit from two loops<a class="headerlink" href="#exit-from-two-loops" title="Permalink to this heading"></a></h2>
 <p>The next example presents how to use the exit command to exit from two loops in one jump.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
@@ -444,7 +444,7 @@ the Ring programming language.</p>
 </div>
 </section>
 <section id="loop-command">
-<span id="index-12"></span><h2>Loop Command<a class="headerlink" href="#loop-command" title="Link to this heading"></a></h2>
+<span id="index-12"></span><h2>Loop Command<a class="headerlink" href="#loop-command" title="Permalink to this heading"></a></h2>
 <p>Used to jump to the next iteration in the loop.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">loop</span> <span class="o">[</span><span class="n">expression</span><span class="o">]</span>       <span class="c"># inside loop</span>
@@ -462,7 +462,7 @@ the Ring programming language.</p>
 </div>
 </section>
 <section id="short-circuit-evaluation">
-<span id="index-13"></span><h2>Short-circuit evaluation<a class="headerlink" href="#short-circuit-evaluation" title="Link to this heading"></a></h2>
+<span id="index-13"></span><h2>Short-circuit evaluation<a class="headerlink" href="#short-circuit-evaluation" title="Permalink to this heading"></a></h2>
 <p>The logical operators and/or follow the <a class="reference external" href="http://en.wikipedia.org/wiki/Short-circuit_evaluation">short-circuit evaluation</a>.</p>
 <p>If the first argument of the AND operator is zero, then there is no need to evaluate the second
 argument and the result will be zero.</p>
@@ -513,7 +513,7 @@ argument and the result will be one.</p>
 </div>
 </section>
 <section id="comments-about-evaluation">
-<span id="index-14"></span><h2>Comments about evaluation<a class="headerlink" href="#comments-about-evaluation" title="Link to this heading"></a></h2>
+<span id="index-14"></span><h2>Comments about evaluation<a class="headerlink" href="#comments-about-evaluation" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>True, False, nl &amp; NULL are variables defined by the language</p></li>
 <li><p>True = 1</p></li>

@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=39391842"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -205,7 +205,7 @@
            <div itemprop="articleBody">
              
   <section id="using-ringlibuv">
-<span id="index-0"></span><h1>Using RingLibuv<a class="headerlink" href="#using-ringlibuv" title="Link to this heading"></a></h1>
+<span id="index-0"></span><h1>Using RingLibuv<a class="headerlink" href="#using-ringlibuv" title="Permalink to this heading"></a></h1>
 <p>In this chapter we will learn about using RingLibuv</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -229,7 +229,7 @@
 <li><p>Threading and synchronization primitives</p></li>
 </ul>
 <section id="first-application-using-ringlibuv">
-<span id="index-1"></span><h2>First Application using RingLibuv<a class="headerlink" href="#first-application-using-ringlibuv" title="Link to this heading"></a></h2>
+<span id="index-1"></span><h2>First Application using RingLibuv<a class="headerlink" href="#first-application-using-ringlibuv" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
 
@@ -249,7 +249,7 @@
 </div>
 </section>
 <section id="the-events-loop">
-<span id="index-2"></span><h2>The Events Loop<a class="headerlink" href="#the-events-loop" title="Link to this heading"></a></h2>
+<span id="index-2"></span><h2>The Events Loop<a class="headerlink" href="#the-events-loop" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
 
@@ -278,7 +278,7 @@
 </div>
 </section>
 <section id="server-example">
-<span id="index-3"></span><h2>Server Example<a class="headerlink" href="#server-example" title="Link to this heading"></a></h2>
+<span id="index-3"></span><h2>Server Example<a class="headerlink" href="#server-example" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
 
@@ -352,7 +352,7 @@ hello from the client
 </div>
 </section>
 <section id="client-example">
-<span id="index-4"></span><h2>Client Example<a class="headerlink" href="#client-example" title="Link to this heading"></a></h2>
+<span id="index-4"></span><h2>Client Example<a class="headerlink" href="#client-example" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
 
@@ -418,7 +418,7 @@ message from the server to the client
 </div>
 </section>
 <section id="server-example-using-classes">
-<span id="index-5"></span><h2>Server Example Using Classes<a class="headerlink" href="#server-example-using-classes" title="Link to this heading"></a></h2>
+<span id="index-5"></span><h2>Server Example Using Classes<a class="headerlink" href="#server-example-using-classes" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
 <span class="k">load</span> <span class="s">&quot;objectslib.ring&quot;</span>
@@ -498,7 +498,7 @@ hello from the client
 </div>
 </section>
 <section id="client-example-using-classes">
-<span id="index-6"></span><h2>Client Example Using Classes<a class="headerlink" href="#client-example-using-classes" title="Link to this heading"></a></h2>
+<span id="index-6"></span><h2>Client Example Using Classes<a class="headerlink" href="#client-example-using-classes" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
 <span class="k">load</span> <span class="s">&quot;objectslib.ring&quot;</span>
@@ -569,7 +569,7 @@ message from the server to the client
 </div>
 </section>
 <section id="threads-example">
-<span id="index-7"></span><h2>Threads Example<a class="headerlink" href="#threads-example" title="Link to this heading"></a></h2>
+<span id="index-7"></span><h2>Threads Example<a class="headerlink" href="#threads-example" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
 
@@ -600,7 +600,7 @@ Message from the Second Thread!
 </div>
 </section>
 <section id="threads-example-using-classes">
-<span id="index-8"></span><h2>Threads Example - Using Classes<a class="headerlink" href="#threads-example-using-classes" title="Link to this heading"></a></h2>
+<span id="index-8"></span><h2>Threads Example - Using Classes<a class="headerlink" href="#threads-example-using-classes" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
 <span class="k">load</span> <span class="s">&quot;objectslib.ring&quot;</span>

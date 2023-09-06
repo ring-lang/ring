@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=39391842"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -200,7 +200,7 @@
            <div itemprop="articleBody">
              
   <section id="embedding-ring-language-in-c-c-programs">
-<span id="index-0"></span><h1>Embedding Ring Language in C/C++ Programs<a class="headerlink" href="#embedding-ring-language-in-c-c-programs" title="Link to this heading"></a></h1>
+<span id="index-0"></span><h1>Embedding Ring Language in C/C++ Programs<a class="headerlink" href="#embedding-ring-language-in-c-c-programs" title="Permalink to this heading"></a></h1>
 <p>We can use the Ring language from C/C++ programs using the next functions</p>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">RingState</span><span class="w"> </span><span class="o">*</span><span class="nf">ring_state_init</span><span class="p">();</span>
 <span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">RingState</span><span class="w"> </span><span class="o">*</span><span class="n">pState</span><span class="p">,</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">cCode</span><span class="p">);</span>
@@ -208,7 +208,7 @@
 </pre></div>
 </div>
 <section id="ring-state">
-<span id="index-1"></span><h2>Ring State<a class="headerlink" href="#ring-state" title="Link to this heading"></a></h2>
+<span id="index-1"></span><h2>Ring State<a class="headerlink" href="#ring-state" title="Permalink to this heading"></a></h2>
 <p>The idea is to use the ring_state_init() to create new state for the Ring Language
 then call the ring_state_runcode() function to execute Ring code using the same state.
 When we are done, we call the ring_state_delete() to free the memory.</p>
@@ -231,7 +231,7 @@ When we are done, we call the ring_state_delete() to free the memory.</p>
 </div>
 </section>
 <section id="ring-state-functions">
-<span id="index-2"></span><h2>Ring State Functions<a class="headerlink" href="#ring-state-functions" title="Link to this heading"></a></h2>
+<span id="index-2"></span><h2>Ring State Functions<a class="headerlink" href="#ring-state-functions" title="Permalink to this heading"></a></h2>
 <p>The Ring API comes with the next functions to create and delete the state.
 Also we have functions to create new variables and get variables values.</p>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">RingState</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">ring_state_init</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">;</span>
@@ -247,7 +247,7 @@ Also we have functions to create new variables and get variables values.</p>
 </div>
 </section>
 <section id="ring-state-variables">
-<span id="index-3"></span><h2>Ring State Variables<a class="headerlink" href="#ring-state-variables" title="Link to this heading"></a></h2>
+<span id="index-3"></span><h2>Ring State Variables<a class="headerlink" href="#ring-state-variables" title="Permalink to this heading"></a></h2>
 <p>We can create more than one ring state in the same program and we can create and modify variable values.</p>
 <p>To get the variable list we can use the ring_state_findvar() function.</p>
 <p>To create new variable we can use the ring_state_newvar() function.</p>

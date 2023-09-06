@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=39391842"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -220,11 +220,11 @@
            <div itemprop="articleBody">
              
   <section id="code-generator-for-wrapping-c-c-libraries">
-<span id="index-0"></span><h1>Code Generator for wrapping C/C++ Libraries<a class="headerlink" href="#code-generator-for-wrapping-c-c-libraries" title="Link to this heading"></a></h1>
+<span id="index-0"></span><h1>Code Generator for wrapping C/C++ Libraries<a class="headerlink" href="#code-generator-for-wrapping-c-c-libraries" title="Permalink to this heading"></a></h1>
 <p>In this chapter we will learn how to use the code generator to wrap C/C++ Libraries
 to use it in our Ring applications.</p>
 <section id="using-the-tool">
-<span id="index-1"></span><h2>Using the tool<a class="headerlink" href="#using-the-tool" title="Link to this heading"></a></h2>
+<span id="index-1"></span><h2>Using the tool<a class="headerlink" href="#using-the-tool" title="Permalink to this heading"></a></h2>
 <p>The code generator program is parsec.ring that can be executed as any ring code using the
 ring language.</p>
 <p>URL : <a class="reference external" href="https://github.com/ring-lang/ring/tree/master/extensions/codegen">https://github.com/ring-lang/ring/tree/master/extensions/codegen</a></p>
@@ -235,13 +235,13 @@ run parsec.ring as in the next command</p>
 </div>
 </section>
 <section id="configuration-file">
-<span id="index-2"></span><h2>Configuration file<a class="headerlink" href="#configuration-file" title="Link to this heading"></a></h2>
+<span id="index-2"></span><h2>Configuration file<a class="headerlink" href="#configuration-file" title="Permalink to this heading"></a></h2>
 <p>The configuration file (<a href="#id1"><span class="problematic" id="id2">*</span></a>.cf) is the input file that we pass to the code generator. This file
 determine the functions prototypes that we need to use from a C/C++ library.</p>
 <p>Writing configuration files is simple according to the next rules</p>
 </section>
 <section id="using-the-function-prototype">
-<span id="index-3"></span><h2>Using the function prototype<a class="headerlink" href="#using-the-function-prototype" title="Link to this heading"></a></h2>
+<span id="index-3"></span><h2>Using the function prototype<a class="headerlink" href="#using-the-function-prototype" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>To generate code that wraps a C function, we just write the C function prototype</p></li>
 </ul>
@@ -337,7 +337,7 @@ and al_get_new_display_option() functions.</p>
 <p>from the previous example we can see how much of time and effort is saved using the Code Generator.</p>
 </section>
 <section id="adding-code-to-the-generated-code">
-<span id="index-4"></span><h2>Adding code to the generated code<a class="headerlink" href="#adding-code-to-the-generated-code" title="Link to this heading"></a></h2>
+<span id="index-4"></span><h2>Adding code to the generated code<a class="headerlink" href="#adding-code-to-the-generated-code" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>To generate code directly type it between &lt;code&gt; and &lt;/code&gt;</p></li>
 </ul>
@@ -351,7 +351,7 @@ and al_get_new_display_option() functions.</p>
 example including header files and defining constants using Macro.</p>
 </section>
 <section id="prefix-for-functions-names">
-<span id="index-5"></span><h2>Prefix for Functions Names<a class="headerlink" href="#prefix-for-functions-names" title="Link to this heading"></a></h2>
+<span id="index-5"></span><h2>Prefix for Functions Names<a class="headerlink" href="#prefix-for-functions-names" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt>To determine a prefix in all of the functions names type it between &lt;funcstart&gt; and &lt;/funcstart&gt;</dt><dd><p>for example when we wrap the Allegro game programming library and we need all of the library
@@ -367,7 +367,7 @@ functions to start with “al” we type the next code in the configuration file
 </div>
 </section>
 <section id="generate-function-to-wrap-structures">
-<span id="index-6"></span><h2>Generate function to wrap structures<a class="headerlink" href="#generate-function-to-wrap-structures" title="Link to this heading"></a></h2>
+<span id="index-6"></span><h2>Generate function to wrap structures<a class="headerlink" href="#generate-function-to-wrap-structures" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>To generate functions that wrap structures (create/delete/get structure members)</p></li>
 </ul>
@@ -385,7 +385,7 @@ Also we will generate two functions to create/delete the structure ALLEGRO_EVENT
 to get the structure ALLEGRO_EVENT members (type, keyboard.keycode, mouse.x, mouse.y).</p>
 </section>
 <section id="determine-structure-members-types">
-<span id="index-7"></span><h2>Determine Structure Members Types<a class="headerlink" href="#determine-structure-members-types" title="Link to this heading"></a></h2>
+<span id="index-7"></span><h2>Determine Structure Members Types<a class="headerlink" href="#determine-structure-members-types" title="Permalink to this heading"></a></h2>
 <p>You can determine the pointer name before the structure member name.</p>
 <p>Example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SDL_Surface {flags,SDL_PixelFormat *format,w,h,pitch,void *pixels}
@@ -393,7 +393,7 @@ to get the structure ALLEGRO_EVENT members (type, keyboard.keycode, mouse.x, mou
 </div>
 </section>
 <section id="defining-constants">
-<span id="index-8"></span><h2>Defining Constants<a class="headerlink" href="#defining-constants" title="Link to this heading"></a></h2>
+<span id="index-8"></span><h2>Defining Constants<a class="headerlink" href="#defining-constants" title="Permalink to this heading"></a></h2>
 <p>You can define constants using &lt;constant&gt; and &lt;/constant&gt;</p>
 <p>The generator will generate the required functions to get the constant values</p>
 <p>And will define the constants to be used with the same name in Ring code using <a href="#id3"><span class="problematic" id="id4">*</span></a>.rh file that
@@ -419,7 +419,7 @@ will be generated too.</p>
 </div>
 </section>
 <section id="register-new-functions">
-<span id="index-9"></span><h2>Register New Functions<a class="headerlink" href="#register-new-functions" title="Link to this heading"></a></h2>
+<span id="index-9"></span><h2>Register New Functions<a class="headerlink" href="#register-new-functions" title="Permalink to this heading"></a></h2>
 <p>We can register functions by typing the function prototype between &lt;register&gt; and &lt;/register&gt;
 We need this feature only when we don’t provide the function prototype as input directly where
 we need to write the code of this function.</p>
@@ -445,7 +445,7 @@ Library, it’s just an extra function that we need to add. Then the code if thi
 inside &lt;code&gt; and &lt;/code&gt;. This function call the exit() function from the C language library.</p>
 </section>
 <section id="writing-comments-in-the-configuration-file">
-<span id="index-10"></span><h2>Writing comments in the configuration file<a class="headerlink" href="#writing-comments-in-the-configuration-file" title="Link to this heading"></a></h2>
+<span id="index-10"></span><h2>Writing comments in the configuration file<a class="headerlink" href="#writing-comments-in-the-configuration-file" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>To type comments just type it between &lt;comment&gt; and &lt;/comment&gt;</p></li>
 </ul>
@@ -457,7 +457,7 @@ inside &lt;code&gt; and &lt;/code&gt;. This function call the exit() function fr
 </div>
 </section>
 <section id="executing-code-during-code-generation">
-<span id="index-11"></span><h2>Executing code during code generation<a class="headerlink" href="#executing-code-during-code-generation" title="Link to this heading"></a></h2>
+<span id="index-11"></span><h2>Executing code during code generation<a class="headerlink" href="#executing-code-during-code-generation" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>To ask from the code generator to execute Ring code during reading the configuration file, just</p></li>
 </ul>
@@ -472,7 +472,7 @@ inside &lt;code&gt; and &lt;/code&gt;. This function call the exit() function fr
 types that can be considered as numbers when the code generator find it in the function prototype.</p>
 </section>
 <section id="enum-and-numbers">
-<span id="index-12"></span><h2>Enum and Numbers<a class="headerlink" href="#enum-and-numbers" title="Link to this heading"></a></h2>
+<span id="index-12"></span><h2>Enum and Numbers<a class="headerlink" href="#enum-and-numbers" title="Permalink to this heading"></a></h2>
 <p>We have the list aEnumTypes to use for adding each Enumeration we uses in the functions prototype.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">runcode</span><span class="o">&gt;</span>
@@ -485,7 +485,7 @@ types that can be considered as numbers when the code generator find it in the f
 </div>
 </section>
 <section id="filtering-using-expressions">
-<span id="index-13"></span><h2>Filtering using Expressions<a class="headerlink" href="#filtering-using-expressions" title="Link to this heading"></a></h2>
+<span id="index-13"></span><h2>Filtering using Expressions<a class="headerlink" href="#filtering-using-expressions" title="Permalink to this heading"></a></h2>
 <p>using &lt;filter&gt; and &lt;/filter&gt; we can include/exclude parts of the configuration file
 based on a condition, for example</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">filter</span><span class="o">&gt;</span> <span class="n">iswindows</span><span class="p">()</span>
@@ -495,7 +495,7 @@ based on a condition, for example</p>
 </div>
 </section>
 <section id="constants-type">
-<span id="index-14"></span><h2>Constants Type<a class="headerlink" href="#constants-type" title="Link to this heading"></a></h2>
+<span id="index-14"></span><h2>Constants Type<a class="headerlink" href="#constants-type" title="Permalink to this heading"></a></h2>
 <p>The default type for constant is Number
 But Some constants may be another type, for example (pointer : void <a href="#id7"><span class="problematic" id="id8">*</span></a>)</p>
 <p>before using &lt;constant&gt; and &lt;/constant&gt; we can use &lt;runcode&gt; and &lt;/runcode&gt;
@@ -527,7 +527,7 @@ which is $cDefaultConstantPointerType to determine the pointer type.</p>
 </div>
 </section>
 <section id="configuration-file-for-the-allegro-library">
-<span id="index-15"></span><h2>Configuration file for the Allegro Library<a class="headerlink" href="#configuration-file-for-the-allegro-library" title="Link to this heading"></a></h2>
+<span id="index-15"></span><h2>Configuration file for the Allegro Library<a class="headerlink" href="#configuration-file-for-the-allegro-library" title="Permalink to this heading"></a></h2>
 <p>The next configuration file enable us to use the Allegro library functions.
 The configuration file size is less than 1000 lines. when the code generator take this file as input
 the generated source code file in the C language will be 12000 lines of code!</p>
@@ -604,7 +604,7 @@ code distribution.</p>
 </div>
 </section>
 <section id="threads-support">
-<span id="index-16"></span><h2>Threads Support<a class="headerlink" href="#threads-support" title="Link to this heading"></a></h2>
+<span id="index-16"></span><h2>Threads Support<a class="headerlink" href="#threads-support" title="Permalink to this heading"></a></h2>
 <p>Next, another part of the configuration file, it’s important because we can learn from it how to add
 threads to our Ring applications by using a threads library.</p>
 <p>The idea is using ring_vm_mutexfunctions() and ring_vm_runcodefromthread() to execute Ring code.</p>
@@ -690,7 +690,7 @@ threads to our Ring applications by using a threads library.</p>
 </div>
 </section>
 <section id="code-generator-rules-for-wrapping-c-classes">
-<span id="index-17"></span><h2>Code Generator Rules for Wrapping C++ Classes<a class="headerlink" href="#code-generator-rules-for-wrapping-c-classes" title="Link to this heading"></a></h2>
+<span id="index-17"></span><h2>Code Generator Rules for Wrapping C++ Classes<a class="headerlink" href="#code-generator-rules-for-wrapping-c-classes" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>We can define classes between &lt;class&gt; and &lt;/class&gt;</p></li>
 <li><p>Between &lt;class&gt; and &lt;class&gt; we set attributes like
@@ -722,7 +722,7 @@ different parameters (As in C++)</p></li>
 </ul>
 </section>
 <section id="using-configuration-file-that-wrap-c-library">
-<span id="index-18"></span><h2>Using configuration file that wrap C++ Library<a class="headerlink" href="#using-configuration-file-that-wrap-c-library" title="Link to this heading"></a></h2>
+<span id="index-18"></span><h2>Using configuration file that wrap C++ Library<a class="headerlink" href="#using-configuration-file-that-wrap-c-library" title="Permalink to this heading"></a></h2>
 <p>To run the code generator to generate code for using C++ library in the Ring application, we can do
 that as we did with using C libraries but here we will generate <em>.cpp file instead of *.c file. Also
 we will determine another file to be generated (</em>.ring). This file will contains classes in Ring code
@@ -732,7 +732,7 @@ that wraps C++ functions for using C++ classes and objects.</p>
 </div>
 </section>
 <section id="configuration-file-for-the-qt-framework">
-<span id="index-19"></span><h2>Configuration file for the Qt Framework<a class="headerlink" href="#configuration-file-for-the-qt-framework" title="Link to this heading"></a></h2>
+<span id="index-19"></span><h2>Configuration file for the Qt Framework<a class="headerlink" href="#configuration-file-for-the-qt-framework" title="Permalink to this heading"></a></h2>
 <p>The next configuration file is used to wrap many Qt classes
 The configuration file is around 3500 lines and generate C++ code around 56000 lines and generate
 also Ring code around 9000 lines.</p>
@@ -1290,7 +1290,7 @@ for a complete version see the Ring source code distribution.</p>
 </div>
 </section>
 <section id="static-methods">
-<span id="index-20"></span><h2>Static Methods<a class="headerlink" href="#static-methods" title="Link to this heading"></a></h2>
+<span id="index-20"></span><h2>Static Methods<a class="headerlink" href="#static-methods" title="Permalink to this heading"></a></h2>
 <p>Starting from Ring 1.8 the code generator support the staticmethods option.</p>
 <p>So the code generator can know that the class doesn’t need an object to call the methods.</p>
 <p>Example:</p>
@@ -1307,7 +1307,7 @@ QString findExecutable(QString executableName, QStringList paths))
 </div>
 </section>
 <section id="loading-files">
-<span id="index-21"></span><h2>Loading Files<a class="headerlink" href="#loading-files" title="Link to this heading"></a></h2>
+<span id="index-21"></span><h2>Loading Files<a class="headerlink" href="#loading-files" title="Permalink to this heading"></a></h2>
 <p>Starting from Ring 1.9 the code generator support the &lt;loadfile&gt; command.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">filename</span><span class="p">.</span><span class="n">cf</span>
 </pre></div>
@@ -1332,7 +1332,7 @@ QString findExecutable(QString executableName, QStringList paths))
 </div>
 </section>
 <section id="managed-classes">
-<span id="index-22"></span><h2>Managed Classes<a class="headerlink" href="#managed-classes" title="Link to this heading"></a></h2>
+<span id="index-22"></span><h2>Managed Classes<a class="headerlink" href="#managed-classes" title="Permalink to this heading"></a></h2>
 <p>Starting from Ring 1.9 the code generator support the &lt;managed&gt; option when defining classes.</p>
 <p>Using this option, the generator will use RING_API_RETMANAGEDCPOINTER() to return the C pointer.</p>
 <p>So the Garbage Collector will manage these C pointers.</p>
@@ -1346,7 +1346,7 @@ QString findExecutable(QString executableName, QStringList paths))
 </div>
 </section>
 <section id="configuration-files-examples">
-<span id="index-23"></span><h2>Configuration Files Examples<a class="headerlink" href="#configuration-files-examples" title="Link to this heading"></a></h2>
+<span id="index-23"></span><h2>Configuration Files Examples<a class="headerlink" href="#configuration-files-examples" title="Permalink to this heading"></a></h2>
 <p>You can learn from the next examples</p>
 <ul class="simple">
 <li><p>RingAllegro : <a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/allegro.cf">https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/allegro.cf</a></p></li>

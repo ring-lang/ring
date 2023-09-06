@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=39391842"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -201,10 +201,10 @@
            <div itemprop="articleBody">
              
   <section id="program-structure">
-<span id="index-0"></span><h1>Program Structure<a class="headerlink" href="#program-structure" title="Link to this heading"></a></h1>
+<span id="index-0"></span><h1>Program Structure<a class="headerlink" href="#program-structure" title="Permalink to this heading"></a></h1>
 <p>In this chapter we will learn about using many source code files in the same project.</p>
 <section id="source-code-file-sections">
-<span id="index-1"></span><h2>Source Code File Sections<a class="headerlink" href="#source-code-file-sections" title="Link to this heading"></a></h2>
+<span id="index-1"></span><h2>Source Code File Sections<a class="headerlink" href="#source-code-file-sections" title="Permalink to this heading"></a></h2>
 <p>Each source code file may contains the next sections (in the same order).</p>
 <table class="docutils align-default">
 <thead>
@@ -225,7 +225,7 @@
 <p>The application maybe one or more of files.</p>
 </section>
 <section id="using-many-source-code-files">
-<span id="index-2"></span><h2>Using Many Source Code Files<a class="headerlink" href="#using-many-source-code-files" title="Link to this heading"></a></h2>
+<span id="index-2"></span><h2>Using Many Source Code Files<a class="headerlink" href="#using-many-source-code-files" title="Permalink to this heading"></a></h2>
 <p>To include another source file in the project, just use the load command.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span>  <span class="s">&quot;filename.ring&quot;</span>
@@ -255,7 +255,7 @@
 </div>
 </section>
 <section id="load-package">
-<span id="index-3"></span><h2>Load Package<a class="headerlink" href="#load-package" title="Link to this heading"></a></h2>
+<span id="index-3"></span><h2>Load Package<a class="headerlink" href="#load-package" title="Permalink to this heading"></a></h2>
 <p>Using the ‘load’ command we can use many ring source files in the same project</p>
 <p>But all of these files will share the same global scope</p>
 <p>We have also the “Load Package” command</p>
@@ -292,7 +292,7 @@ Hello from testloadpackage.ring
 </div>
 </section>
 <section id="load-again">
-<span id="index-4"></span><h2>Load Again<a class="headerlink" href="#load-again" title="Link to this heading"></a></h2>
+<span id="index-4"></span><h2>Load Again<a class="headerlink" href="#load-again" title="Permalink to this heading"></a></h2>
 <p>Ring 1.12 comes with the Load Again command</p>
 <p>Using this command we can load the Ring source file which contains constants more than one time.</p>
 <p>This is useful when using Ring source files for translations through global constants.</p>

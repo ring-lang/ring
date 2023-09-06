@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=39391842"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -205,10 +205,10 @@
            <div itemprop="articleBody">
              
   <section id="date-and-time">
-<span id="index-0"></span><h1>Date and Time<a class="headerlink" href="#date-and-time" title="Link to this heading"></a></h1>
+<span id="index-0"></span><h1>Date and Time<a class="headerlink" href="#date-and-time" title="Permalink to this heading"></a></h1>
 <p>In this chapter we are going to learn about the date and time functions.</p>
 <section id="clock-function">
-<span id="index-1"></span><h2>Clock() Function<a class="headerlink" href="#clock-function" title="Link to this heading"></a></h2>
+<span id="index-1"></span><h2>Clock() Function<a class="headerlink" href="#clock-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Clock</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">number</span> <span class="n">of</span> <span class="n">clock</span> <span class="n">ticks</span> <span class="k">from</span> <span class="n">program</span> <span class="n">start</span>
 </pre></div>
@@ -222,7 +222,7 @@
 </div>
 </section>
 <section id="clockspersecond-function">
-<span id="index-2"></span><h2>ClocksPerSecond() Function<a class="headerlink" href="#clockspersecond-function" title="Link to this heading"></a></h2>
+<span id="index-2"></span><h2>ClocksPerSecond() Function<a class="headerlink" href="#clockspersecond-function" title="Permalink to this heading"></a></h2>
 <p>Return how many clocks in one second</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">clockspersecond</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">clocks</span> <span class="k">in</span> <span class="n">one</span> <span class="n">second</span>
@@ -236,7 +236,7 @@
 </div>
 </section>
 <section id="time-function">
-<span id="index-3"></span><h2>Time() Function<a class="headerlink" href="#time-function" title="Link to this heading"></a></h2>
+<span id="index-3"></span><h2>Time() Function<a class="headerlink" href="#time-function" title="Permalink to this heading"></a></h2>
 <p>We can get the system time using the Time() function.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Time : &quot;</span> <span class="o">+</span> <span class="n">time</span><span class="p">()</span>
@@ -244,7 +244,7 @@
 </div>
 </section>
 <section id="date-function">
-<span id="index-4"></span><h2>Date() Function<a class="headerlink" href="#date-function" title="Link to this heading"></a></h2>
+<span id="index-4"></span><h2>Date() Function<a class="headerlink" href="#date-function" title="Permalink to this heading"></a></h2>
 <p>We can get the date using the Date() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Date</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">date</span> <span class="s">&quot;dd/mm/yyyy&quot;</span>
@@ -256,7 +256,7 @@
 </div>
 </section>
 <section id="timelist-function">
-<span id="index-5"></span><h2>TimeList() Function<a class="headerlink" href="#timelist-function" title="Link to this heading"></a></h2>
+<span id="index-5"></span><h2>TimeList() Function<a class="headerlink" href="#timelist-function" title="Permalink to this heading"></a></h2>
 <p>We can print the date and the time information using the TimeList() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">TimeList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">time</span> <span class="ow">and</span> <span class="n">date</span> <span class="n">information</span><span class="p">.</span>
@@ -373,7 +373,7 @@
 </div>
 </section>
 <section id="adddays-function">
-<span id="index-6"></span><h2>AddDays() Function<a class="headerlink" href="#adddays-function" title="Link to this heading"></a></h2>
+<span id="index-6"></span><h2>AddDays() Function<a class="headerlink" href="#adddays-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">AddDays</span><span class="p">(</span><span class="n">cDate</span><span class="p">,</span><span class="n">nDays</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Date</span> <span class="k">from</span> <span class="n">cDate</span> <span class="ow">and</span> <span class="n">after</span> <span class="n">nDays</span>
 </pre></div>
@@ -387,7 +387,7 @@
 </div>
 </section>
 <section id="diffdays-function">
-<span id="index-7"></span><h2>DiffDays() Function<a class="headerlink" href="#diffdays-function" title="Link to this heading"></a></h2>
+<span id="index-7"></span><h2>DiffDays() Function<a class="headerlink" href="#diffdays-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DiffDays</span><span class="p">(</span><span class="n">cDate1</span><span class="p">,</span><span class="n">cDate2</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span> <span class="n">of</span> <span class="n">days</span> <span class="p">(</span><span class="n">Date1</span> <span class="o">-</span> <span class="n">Date2</span><span class="p">)</span>
 </pre></div>
@@ -403,7 +403,7 @@
 </div>
 </section>
 <section id="epochtime-function">
-<span id="index-8"></span><h2>EpochTime() Function<a class="headerlink" href="#epochtime-function" title="Link to this heading"></a></h2>
+<span id="index-8"></span><h2>EpochTime() Function<a class="headerlink" href="#epochtime-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">EpochTime</span><span class="p">(</span> <span class="n">cDate</span><span class="p">,</span> <span class="n">cTime</span> <span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Epoch</span> <span class="n">Seconds</span>
 </pre></div>

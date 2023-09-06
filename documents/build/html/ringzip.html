@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=39391842"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -203,10 +203,10 @@
            <div itemprop="articleBody">
              
   <section id="using-ringzip">
-<span id="index-0"></span><h1>Using RingZip<a class="headerlink" href="#using-ringzip" title="Link to this heading"></a></h1>
+<span id="index-0"></span><h1>Using RingZip<a class="headerlink" href="#using-ringzip" title="Permalink to this heading"></a></h1>
 <p>In this chapter we will learn about using RingZip</p>
 <section id="create-zip-file">
-<span id="index-1"></span><h2>Create Zip File<a class="headerlink" href="#create-zip-file" title="Link to this heading"></a></h2>
+<span id="index-1"></span><h2>Create Zip File<a class="headerlink" href="#create-zip-file" title="Permalink to this heading"></a></h2>
 <p>Example : Create myfile.zip contains 4 files</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;ziplib.ring&quot;</span>
 <span class="n">oZip</span> <span class="o">=</span> <span class="n">zip_openfile</span><span class="p">(</span><span class="s">&quot;myfile.zip&quot;</span><span class="p">,</span><span class="sc">&#39;w&#39;</span><span class="p">)</span>
@@ -219,7 +219,7 @@
 </div>
 </section>
 <section id="extract-zip-file">
-<span id="index-2"></span><h2>Extract Zip File<a class="headerlink" href="#extract-zip-file" title="Link to this heading"></a></h2>
+<span id="index-2"></span><h2>Extract Zip File<a class="headerlink" href="#extract-zip-file" title="Permalink to this heading"></a></h2>
 <p>Example : Extract myfile.zip to myfolder folder.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;ziplib.ring&quot;</span>
 <span class="n">zip_extract_allfiles</span><span class="p">(</span><span class="s">&quot;myfile.zip&quot;</span><span class="p">,</span><span class="s">&quot;myfolder&quot;</span><span class="p">)</span>
@@ -227,7 +227,7 @@
 </div>
 </section>
 <section id="print-files-in-zip-file">
-<span id="index-3"></span><h2>Print Files in Zip file<a class="headerlink" href="#print-files-in-zip-file" title="Link to this heading"></a></h2>
+<span id="index-3"></span><h2>Print Files in Zip file<a class="headerlink" href="#print-files-in-zip-file" title="Permalink to this heading"></a></h2>
 <p>Example : Print file names in the myfile.zip</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;ziplib.ring&quot;</span>
 <span class="n">oZip</span> <span class="o">=</span> <span class="n">zip_openfile</span><span class="p">(</span><span class="s">&quot;myfile.zip&quot;</span><span class="p">,</span><span class="sc">&#39;r&#39;</span><span class="p">)</span>
@@ -239,7 +239,7 @@
 </div>
 </section>
 <section id="using-ringzip-classes">
-<span id="index-4"></span><h2>Using RingZip Classes<a class="headerlink" href="#using-ringzip-classes" title="Link to this heading"></a></h2>
+<span id="index-4"></span><h2>Using RingZip Classes<a class="headerlink" href="#using-ringzip-classes" title="Permalink to this heading"></a></h2>
 <p>The RingZip library comes with two classes. The Zip class and the ZipEntry class.</p>
 <p>Example (1):</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;ziplib.ring&quot;</span>
@@ -305,7 +305,7 @@
 </div>
 </section>
 <section id="zip-class-reference">
-<span id="index-5"></span><h2>Zip Class Reference<a class="headerlink" href="#zip-class-reference" title="Link to this heading"></a></h2>
+<span id="index-5"></span><h2>Zip Class Reference<a class="headerlink" href="#zip-class-reference" title="Permalink to this heading"></a></h2>
 <p>Methods:</p>
 <table class="docutils align-default">
 <thead>
@@ -345,7 +345,7 @@
 </table>
 </section>
 <section id="zipentry-class-reference">
-<span id="index-6"></span><h2>ZipEntry Class Reference<a class="headerlink" href="#zipentry-class-reference" title="Link to this heading"></a></h2>
+<span id="index-6"></span><h2>ZipEntry Class Reference<a class="headerlink" href="#zipentry-class-reference" title="Permalink to this heading"></a></h2>
 <p>Methods:</p>
 <table class="docutils align-default">
 <thead>

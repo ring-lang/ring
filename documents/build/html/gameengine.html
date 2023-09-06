@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=39391842"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -226,12 +226,12 @@
            <div itemprop="articleBody">
              
   <section id="demo-project-game-engine-for-2d-games">
-<span id="index-0"></span><h1>Demo Project - Game Engine for 2D Games<a class="headerlink" href="#demo-project-game-engine-for-2d-games" title="Link to this heading"></a></h1>
+<span id="index-0"></span><h1>Demo Project - Game Engine for 2D Games<a class="headerlink" href="#demo-project-game-engine-for-2d-games" title="Permalink to this heading"></a></h1>
 <p>In this chapter we will learn about using the different programming paradigms in the same project.</p>
 <p>We will create a simple Game Engine for 2D Games.</p>
 <p>You can use the Engine directly to create 2D Games for Desktop or Mobile.</p>
 <section id="project-layers">
-<span id="index-1"></span><h2>Project Layers<a class="headerlink" href="#project-layers" title="Link to this heading"></a></h2>
+<span id="index-1"></span><h2>Project Layers<a class="headerlink" href="#project-layers" title="Permalink to this heading"></a></h2>
 <p>The project contains the next layers</p>
 <ul class="simple">
 <li><p>Games Layer (Here we will use declarative programming)</p></li>
@@ -241,7 +241,7 @@
 </ul>
 </section>
 <section id="graphics-library-bindings">
-<span id="index-2"></span><h2>Graphics Library bindings<a class="headerlink" href="#graphics-library-bindings" title="Link to this heading"></a></h2>
+<span id="index-2"></span><h2>Graphics Library bindings<a class="headerlink" href="#graphics-library-bindings" title="Permalink to this heading"></a></h2>
 <p>We already have RingAllegro to use the Allegro game programming library and we have RingLibSDL
 to use the LibSDL game programming library.</p>
 <p>Both of RingAllegro and RingLibSDL are created using the C language with the help of the
@@ -259,7 +259,7 @@ you have the same functions but we can build on that using the Ring language fea
 </ul>
 </section>
 <section id="interface-to-graphics-library">
-<span id="index-3"></span><h2>Interface to graphics library<a class="headerlink" href="#interface-to-graphics-library" title="Link to this heading"></a></h2>
+<span id="index-3"></span><h2>Interface to graphics library<a class="headerlink" href="#interface-to-graphics-library" title="Permalink to this heading"></a></h2>
 <p>In this layer we have gl_allegro.ring and gl_libsdl.ring</p>
 <p>Each library provides the same functions to be used with interacting with the Graphics Library.</p>
 <p>This layer hides the details and the difference between RingAllegro and RingLibSDL.</p>
@@ -279,7 +279,7 @@ you have the same functions but we can build on that using the Ring language fea
 </ul>
 </section>
 <section id="game-engine-classes">
-<span id="index-4"></span><h2>Game Engine Classes<a class="headerlink" href="#game-engine-classes" title="Link to this heading"></a></h2>
+<span id="index-4"></span><h2>Game Engine Classes<a class="headerlink" href="#game-engine-classes" title="Permalink to this heading"></a></h2>
 <p>The Engine comes with the next classes</p>
 <ul class="simple">
 <li><p>GameBase class</p></li>
@@ -295,7 +295,7 @@ you have the same functions but we can build on that using the Ring language fea
 </ul>
 </section>
 <section id="games-layer">
-<span id="index-5"></span><h2>Games Layer<a class="headerlink" href="#games-layer" title="Link to this heading"></a></h2>
+<span id="index-5"></span><h2>Games Layer<a class="headerlink" href="#games-layer" title="Permalink to this heading"></a></h2>
 <p>In this layer we create our games using the Game Engine classes</p>
 <p>The classes are designed to be used through Declarative Programming.</p>
 <p>In our games we will use the next classes</p>
@@ -319,7 +319,7 @@ you have the same functions but we can build on that using the Ring language fea
 </ul>
 </section>
 <section id="game-class">
-<span id="index-6"></span><h2>Game Class<a class="headerlink" href="#game-class" title="Link to this heading"></a></h2>
+<span id="index-6"></span><h2>Game Class<a class="headerlink" href="#game-class" title="Permalink to this heading"></a></h2>
 <p>The next table present the class attributes.</p>
 <table class="docutils align-default">
 <thead>
@@ -400,7 +400,7 @@ you have the same functions but we can build on that using the Ring language fea
 </table>
 </section>
 <section id="gameobject-class">
-<span id="index-7"></span><h2>GameObject Class<a class="headerlink" href="#gameobject-class" title="Link to this heading"></a></h2>
+<span id="index-7"></span><h2>GameObject Class<a class="headerlink" href="#gameobject-class" title="Permalink to this heading"></a></h2>
 <p>The next table present the class attributes.</p>
 <table class="docutils align-default">
 <thead>
@@ -474,7 +474,7 @@ you have the same functions but we can build on that using the Ring language fea
 </table>
 </section>
 <section id="sprite-class">
-<span id="index-8"></span><h2>Sprite Class<a class="headerlink" href="#sprite-class" title="Link to this heading"></a></h2>
+<span id="index-8"></span><h2>Sprite Class<a class="headerlink" href="#sprite-class" title="Permalink to this heading"></a></h2>
 <p>Parent Class : GameObject Class</p>
 <p>The next table present the class attributes.</p>
 <table class="docutils align-default">
@@ -519,7 +519,7 @@ you have the same functions but we can build on that using the Ring language fea
 </table>
 </section>
 <section id="text-class">
-<span id="index-9"></span><h2>Text Class<a class="headerlink" href="#text-class" title="Link to this heading"></a></h2>
+<span id="index-9"></span><h2>Text Class<a class="headerlink" href="#text-class" title="Permalink to this heading"></a></h2>
 <p>Parent Class : Sprite Class</p>
 <p>The next table present the class attributes.</p>
 <table class="docutils align-default">
@@ -558,7 +558,7 @@ you have the same functions but we can build on that using the Ring language fea
 </table>
 </section>
 <section id="animate-class">
-<span id="index-10"></span><h2>Animate Class<a class="headerlink" href="#animate-class" title="Link to this heading"></a></h2>
+<span id="index-10"></span><h2>Animate Class<a class="headerlink" href="#animate-class" title="Permalink to this heading"></a></h2>
 <p>Parent Class : Sprite Class</p>
 <p>The next table present the class attributes.</p>
 <table class="docutils align-default">
@@ -600,7 +600,7 @@ you have the same functions but we can build on that using the Ring language fea
 </table>
 </section>
 <section id="sound-class">
-<span id="index-11"></span><h2>Sound Class<a class="headerlink" href="#sound-class" title="Link to this heading"></a></h2>
+<span id="index-11"></span><h2>Sound Class<a class="headerlink" href="#sound-class" title="Permalink to this heading"></a></h2>
 <p>Parent Class : GameObject Class</p>
 <p>The next table present the class attributes.</p>
 <table class="docutils align-default">
@@ -633,7 +633,7 @@ you have the same functions but we can build on that using the Ring language fea
 </table>
 </section>
 <section id="map-class">
-<span id="index-12"></span><h2>Map Class<a class="headerlink" href="#map-class" title="Link to this heading"></a></h2>
+<span id="index-12"></span><h2>Map Class<a class="headerlink" href="#map-class" title="Permalink to this heading"></a></h2>
 <p>Parent Class : Sprite Class</p>
 <p>The next table present the class attributes.</p>
 <table class="docutils align-default">
@@ -675,7 +675,7 @@ you have the same functions but we can build on that using the Ring language fea
 </table>
 </section>
 <section id="using-the-game-engine-creating-the-game-window">
-<span id="index-13"></span><h2>Using the Game Engine - Creating the Game Window<a class="headerlink" href="#using-the-game-engine-creating-the-game-window" title="Link to this heading"></a></h2>
+<span id="index-13"></span><h2>Using the Game Engine - Creating the Game Window<a class="headerlink" href="#using-the-game-engine-creating-the-game-window" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;gameengine.ring&quot;</span>  <span class="c"># Give Control to the Game Engine</span>
 
 <span class="k">func</span> <span class="n">main</span>               <span class="c"># Called by the Game Engine</span>
@@ -695,7 +695,7 @@ because this instruction will give the control to the game engine.</p>
 <img alt="screen shot" src="_images/gameengineshot1.png" />
 </section>
 <section id="using-the-game-engine-drawing-text">
-<span id="index-14"></span><h2>Using the Game Engine - Drawing Text<a class="headerlink" href="#using-the-game-engine-drawing-text" title="Link to this heading"></a></h2>
+<span id="index-14"></span><h2>Using the Game Engine - Drawing Text<a class="headerlink" href="#using-the-game-engine-drawing-text" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;gameengine.ring&quot;</span>  <span class="c"># Give Control to the Game Engine</span>
 
 <span class="k">func</span> <span class="n">main</span>               <span class="c"># Called by the Game Engine</span>
@@ -718,7 +718,7 @@ because this instruction will give the control to the game engine.</p>
 <img alt="screen shot" src="_images/gameengineshot2.png" />
 </section>
 <section id="using-the-game-engine-moving-text">
-<span id="index-15"></span><h2>Using the Game Engine - Moving Text<a class="headerlink" href="#using-the-game-engine-moving-text" title="Link to this heading"></a></h2>
+<span id="index-15"></span><h2>Using the Game Engine - Moving Text<a class="headerlink" href="#using-the-game-engine-moving-text" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;gameengine.ring&quot;</span>  <span class="c"># Give Control to the Game Engine</span>
 
 <span class="k">func</span> <span class="n">main</span>               <span class="c"># Called by the Game Engine</span>
@@ -754,7 +754,7 @@ because this instruction will give the control to the game engine.</p>
 <img alt="screen shot" src="_images/gameengineshot3.png" />
 </section>
 <section id="using-the-game-engine-playing-sound">
-<span id="index-16"></span><h2>Using the Game Engine - Playing Sound<a class="headerlink" href="#using-the-game-engine-playing-sound" title="Link to this heading"></a></h2>
+<span id="index-16"></span><h2>Using the Game Engine - Playing Sound<a class="headerlink" href="#using-the-game-engine-playing-sound" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;gameengine.ring&quot;</span>  <span class="c"># Give Control to the Game Engine</span>
 
 <span class="k">func</span> <span class="n">main</span>               <span class="c"># Called by the Game Engine</span>
@@ -791,7 +791,7 @@ because this instruction will give the control to the game engine.</p>
 </div>
 </section>
 <section id="using-the-game-engine-animation">
-<span id="index-17"></span><h2>Using the Game Engine - Animation<a class="headerlink" href="#using-the-game-engine-animation" title="Link to this heading"></a></h2>
+<span id="index-17"></span><h2>Using the Game Engine - Animation<a class="headerlink" href="#using-the-game-engine-animation" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;gameengine.ring&quot;</span>  <span class="c"># Give Control to the Game Engine</span>
 
 <span class="k">func</span> <span class="n">main</span>               <span class="c"># Called by the Game Engine</span>
@@ -830,7 +830,7 @@ because this instruction will give the control to the game engine.</p>
 <img alt="screen shot" src="_images/gameengineshot5.png" />
 </section>
 <section id="using-the-game-engine-animation-and-functions">
-<span id="index-18"></span><h2>Using the Game Engine - Animation and Functions<a class="headerlink" href="#using-the-game-engine-animation-and-functions" title="Link to this heading"></a></h2>
+<span id="index-18"></span><h2>Using the Game Engine - Animation and Functions<a class="headerlink" href="#using-the-game-engine-animation-and-functions" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;gameengine.ring&quot;</span>  <span class="c"># Give Control to the Game Engine</span>
 
 <span class="k">func</span> <span class="n">main</span>               <span class="c"># Called by the Game Engine</span>
@@ -876,7 +876,7 @@ because this instruction will give the control to the game engine.</p>
 <img alt="screen shot" src="_images/gameengineshot6.png" />
 </section>
 <section id="using-the-game-engine-sprite-automatic-movement-using-keyboard">
-<span id="index-19"></span><h2>Using the Game Engine - Sprite - Automatic Movement using Keyboard<a class="headerlink" href="#using-the-game-engine-sprite-automatic-movement-using-keyboard" title="Link to this heading"></a></h2>
+<span id="index-19"></span><h2>Using the Game Engine - Sprite - Automatic Movement using Keyboard<a class="headerlink" href="#using-the-game-engine-sprite-automatic-movement-using-keyboard" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;gameengine.ring&quot;</span>                          <span class="c"># Give control to the game engine</span>
 
 <span class="k">func</span> <span class="n">main</span>                                       <span class="c"># Called by the Game Engine</span>
@@ -900,7 +900,7 @@ because this instruction will give the control to the game engine.</p>
 <img alt="screen shot" src="_images/gameengineshot7.png" />
 </section>
 <section id="using-the-game-engine-sprite-keypress-event">
-<span id="index-20"></span><h2>Using the Game Engine - Sprite - Keypress event<a class="headerlink" href="#using-the-game-engine-sprite-keypress-event" title="Link to this heading"></a></h2>
+<span id="index-20"></span><h2>Using the Game Engine - Sprite - Keypress event<a class="headerlink" href="#using-the-game-engine-sprite-keypress-event" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;gameengine.ring&quot;</span>                          <span class="c"># Give control to the game engine</span>
 
 <span class="k">func</span> <span class="n">main</span>                                       <span class="c"># Called by the Game Engine</span>
@@ -937,7 +937,7 @@ because this instruction will give the control to the game engine.</p>
 </div>
 </section>
 <section id="using-the-game-engine-sprite-mouse-event">
-<span id="index-21"></span><h2>Using the Game Engine - Sprite - Mouse event<a class="headerlink" href="#using-the-game-engine-sprite-mouse-event" title="Link to this heading"></a></h2>
+<span id="index-21"></span><h2>Using the Game Engine - Sprite - Mouse event<a class="headerlink" href="#using-the-game-engine-sprite-mouse-event" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;gameengine.ring&quot;</span>                          <span class="c"># Give control to the game engine</span>
 
 <span class="k">func</span> <span class="n">main</span>                                       <span class="c"># Called by the Game Engine</span>
@@ -982,7 +982,7 @@ because this instruction will give the control to the game engine.</p>
 </div>
 </section>
 <section id="using-the-game-engine-sprite-state-event">
-<span id="index-22"></span><h2>Using the Game Engine - Sprite - State event<a class="headerlink" href="#using-the-game-engine-sprite-state-event" title="Link to this heading"></a></h2>
+<span id="index-22"></span><h2>Using the Game Engine - Sprite - State event<a class="headerlink" href="#using-the-game-engine-sprite-state-event" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;gameengine.ring&quot;</span>                          <span class="c"># Give control to the game engine</span>
 
 <span class="k">func</span> <span class="n">main</span>                                       <span class="c"># Called by the Game Engine</span>
@@ -1037,7 +1037,7 @@ because this instruction will give the control to the game engine.</p>
 </div>
 </section>
 <section id="using-the-game-engine-animate-events">
-<span id="index-23"></span><h2>Using the Game Engine - Animate - Events<a class="headerlink" href="#using-the-game-engine-animate-events" title="Link to this heading"></a></h2>
+<span id="index-23"></span><h2>Using the Game Engine - Animate - Events<a class="headerlink" href="#using-the-game-engine-animate-events" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;gameengine.ring&quot;</span>                          <span class="c"># Give control to the game engine</span>
 
 <span class="k">func</span> <span class="n">main</span>                                       <span class="c"># Called by the Game Engine</span>
@@ -1103,7 +1103,7 @@ because this instruction will give the control to the game engine.</p>
 <img alt="screen shot" src="_images/gameengineshot11.png" />
 </section>
 <section id="using-the-game-engine-map">
-<span id="index-24"></span><h2>Using the Game Engine - Map<a class="headerlink" href="#using-the-game-engine-map" title="Link to this heading"></a></h2>
+<span id="index-24"></span><h2>Using the Game Engine - Map<a class="headerlink" href="#using-the-game-engine-map" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;gameengine.ring&quot;</span>        <span class="c"># Give control to the game engine</span>
 
 <span class="k">func</span> <span class="n">main</span>          <span class="c"># Called by the Game Engine</span>
@@ -1147,7 +1147,7 @@ because this instruction will give the control to the game engine.</p>
 <img alt="screen shot" src="_images/gameengineshot12.png" />
 </section>
 <section id="using-the-game-engine-map-events">
-<span id="index-25"></span><h2>Using the Game Engine - Map Events<a class="headerlink" href="#using-the-game-engine-map-events" title="Link to this heading"></a></h2>
+<span id="index-25"></span><h2>Using the Game Engine - Map Events<a class="headerlink" href="#using-the-game-engine-map-events" title="Permalink to this heading"></a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;gameengine.ring&quot;</span>        <span class="c"># Give control to the game engine</span>
 
 <span class="k">func</span> <span class="n">main</span>          <span class="c"># Called by the Game Engine</span>
@@ -1209,7 +1209,7 @@ because this instruction will give the control to the game engine.</p>
 <img alt="screen shot" src="_images/gameengineshot13.png" />
 </section>
 <section id="using-the-game-engine-object-and-drawing">
-<span id="index-26"></span><h2>Using the Game Engine - Object and Drawing<a class="headerlink" href="#using-the-game-engine-object-and-drawing" title="Link to this heading"></a></h2>
+<span id="index-26"></span><h2>Using the Game Engine - Object and Drawing<a class="headerlink" href="#using-the-game-engine-object-and-drawing" title="Permalink to this heading"></a></h2>
 <p>We can use the Object keyword (defined by the game engine) to create objects from the GameObject class.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;gameengine.ring&quot;</span>                          <span class="c"># Give control to the game engine</span>
@@ -1307,7 +1307,7 @@ because this instruction will give the control to the game engine.</p>
 <img alt="screen shot" src="_images/gameengineshot15.png" />
 </section>
 <section id="stars-fighter-game">
-<span id="index-27"></span><h2>Stars Fighter Game<a class="headerlink" href="#stars-fighter-game" title="Link to this heading"></a></h2>
+<span id="index-27"></span><h2>Stars Fighter Game<a class="headerlink" href="#stars-fighter-game" title="Permalink to this heading"></a></h2>
 <p>The Stars Fighter source code</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># The Ring Standard Library</span>
 <span class="c"># Game Engine for 2D Games</span>
@@ -1711,7 +1711,7 @@ because this instruction will give the control to the game engine.</p>
 <img alt="Stars Fighter" src="_images/starsfighter.png" />
 </section>
 <section id="flappy-bird-3000-game">
-<span id="index-28"></span><h2>Flappy Bird 3000 Game<a class="headerlink" href="#flappy-bird-3000-game" title="Link to this heading"></a></h2>
+<span id="index-28"></span><h2>Flappy Bird 3000 Game<a class="headerlink" href="#flappy-bird-3000-game" title="Permalink to this heading"></a></h2>
 <p>The Flappy Bird 3000 Game source code</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># The Ring Standard Library</span>
 <span class="c"># Game Engine for 2D Games</span>
@@ -2056,7 +2056,7 @@ because this instruction will give the control to the game engine.</p>
 <img alt="Flappy Bird 300" src="_images/flappybird.png" />
 </section>
 <section id="super-man-2016-game">
-<span id="index-29"></span><h2>Super Man 2016 Game<a class="headerlink" href="#super-man-2016-game" title="Link to this heading"></a></h2>
+<span id="index-29"></span><h2>Super Man 2016 Game<a class="headerlink" href="#super-man-2016-game" title="Permalink to this heading"></a></h2>
 <p>The Super Man 2016 Game source code</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># The Ring Standard Library</span>
 <span class="c"># Game Engine for 2D Games</span>

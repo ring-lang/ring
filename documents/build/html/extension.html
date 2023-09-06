@@ -12,11 +12,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=39391842"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -215,14 +215,14 @@
            <div itemprop="articleBody">
              
   <section id="extension-using-the-c-c-languages">
-<span id="index-0"></span><h1>Extension using the C/C++ languages<a class="headerlink" href="#extension-using-the-c-c-languages" title="Link to this heading"></a></h1>
+<span id="index-0"></span><h1>Extension using the C/C++ languages<a class="headerlink" href="#extension-using-the-c-c-languages" title="Permalink to this heading"></a></h1>
 <p>We can extend the Ring Virtual Machine (RingVM) by adding new functions written in the C programming language or C++.
 The RingVM comes with many functions written in C that we can call like any Ring function.</p>
 <p>We can extend the language by writing new functions then rebuilding the RingVM again, or we can create shared
 library (DLL/So/Dylib) file to extend the RingVM without the need to rebuild it.</p>
 <p>The Ring language source code comes with two files to add new modules to the RingVM, ring_ext.h and ring_ext.c</p>
 <section id="ring-ext-h">
-<span id="index-1"></span><h2>ring_ext.h<a class="headerlink" href="#ring-ext-h" title="Link to this heading"></a></h2>
+<span id="index-1"></span><h2>ring_ext.h<a class="headerlink" href="#ring-ext-h" title="Permalink to this heading"></a></h2>
 <p>The file ring_ext.h contains constants that we can change to include/exclude modules during the build process.</p>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef ringext_h</span>
 <span class="cp">#define ringext_h</span>
@@ -242,7 +242,7 @@ library (DLL/So/Dylib) file to extend the RingVM without the need to rebuild it.
 </div>
 </section>
 <section id="ring-ext-c">
-<span id="index-2"></span><h2>ring_ext.c<a class="headerlink" href="#ring-ext-c" title="Link to this heading"></a></h2>
+<span id="index-2"></span><h2>ring_ext.c<a class="headerlink" href="#ring-ext-c" title="Permalink to this heading"></a></h2>
 <p>The file ring_ext.c check constants defined in ring_ext.h before calling the start-up function in each module.</p>
 <p>Each module contains a function that register the module functions in the RingVM.</p>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;ring.h&quot;</span>
@@ -294,7 +294,7 @@ library (DLL/So/Dylib) file to extend the RingVM without the need to rebuild it.
 </div>
 </section>
 <section id="module-organization">
-<span id="index-3"></span><h2>Module Organization<a class="headerlink" href="#module-organization" title="Link to this heading"></a></h2>
+<span id="index-3"></span><h2>Module Organization<a class="headerlink" href="#module-organization" title="Permalink to this heading"></a></h2>
 <p>Each module starts by include the ring header file (ring.h).
 This files contains the Ring API that we can use to extend the RingVM.</p>
 <p>Each module comes with a function to register the module functions in the RingVM
@@ -338,7 +338,7 @@ ring_vm_extension() function (in the ring_ext.c file).</p>
 </div>
 </section>
 <section id="function-structure">
-<span id="index-4"></span><h2>Function Structure<a class="headerlink" href="#function-structure" title="Link to this heading"></a></h2>
+<span id="index-4"></span><h2>Function Structure<a class="headerlink" href="#function-structure" title="Permalink to this heading"></a></h2>
 <p>Each module function may contains the next steps</p>
 <p>1 - Check Parameters Count</p>
 <p>2 - Check Parameters Type</p>
@@ -349,7 +349,7 @@ ring_vm_extension() function (in the ring_ext.c file).</p>
 But here we will use the Ring API for the steps 1,2,3 and 5.</p>
 </section>
 <section id="check-parameters-count">
-<span id="index-5"></span><h2>Check Parameters Count<a class="headerlink" href="#check-parameters-count" title="Link to this heading"></a></h2>
+<span id="index-5"></span><h2>Check Parameters Count<a class="headerlink" href="#check-parameters-count" title="Permalink to this heading"></a></h2>
 <p>We can check the parameters count using the RING_API_PARACOUNT macro.</p>
 <p>We can compare RING_API_PARACOUNT with any numeric value using == or != operators.</p>
 <p>Example:</p>
@@ -366,7 +366,7 @@ But here we will use the Ring API for the steps 1,2,3 and 5.</p>
 </div>
 </section>
 <section id="display-error-message">
-<span id="index-6"></span><h2>Display Error Message<a class="headerlink" href="#display-error-message" title="Link to this heading"></a></h2>
+<span id="index-6"></span><h2>Display Error Message<a class="headerlink" href="#display-error-message" title="Permalink to this heading"></a></h2>
 <p>We can display error messages using the RING_API_ERROR() function.</p>
 <p>The function will display the error and end the execution of the program.</p>
 <div class="admonition note">
@@ -393,7 +393,7 @@ using Try/Catch/Done statements, so in your C code, use Return after this functi
 </div>
 </section>
 <section id="check-parameters-type">
-<span id="index-7"></span><h2>Check Parameters Type<a class="headerlink" href="#check-parameters-type" title="Link to this heading"></a></h2>
+<span id="index-7"></span><h2>Check Parameters Type<a class="headerlink" href="#check-parameters-type" title="Permalink to this heading"></a></h2>
 <p>We can check the parameter type using the next functions</p>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">RING_API_ISNUMBER</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nParameterNumber</span><span class="p">);</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">RING_API_ISSTRING</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nParameterNumber</span><span class="p">);</span>
@@ -405,7 +405,7 @@ using Try/Catch/Done statements, so in your C code, use Return after this functi
 <p>The output of these functions will be 1 (True) or 0 (False).</p>
 </section>
 <section id="get-parameters-values">
-<span id="index-8"></span><h2>Get Parameters Values<a class="headerlink" href="#get-parameters-values" title="Link to this heading"></a></h2>
+<span id="index-8"></span><h2>Get Parameters Values<a class="headerlink" href="#get-parameters-values" title="Permalink to this heading"></a></h2>
 <p>We can get parameters values using the next functions</p>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span><span class="w"> </span><span class="nf">RING_API_GETNUMBER</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nParameterNumber</span><span class="p">);</span>
 <span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">RING_API_GETSTRING</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nParameterNumber</span><span class="p">);</span>
@@ -427,7 +427,7 @@ using Try/Catch/Done statements, so in your C code, use Return after this functi
 </div>
 </section>
 <section id="return-value">
-<span id="index-9"></span><h2>Return Value<a class="headerlink" href="#return-value" title="Link to this heading"></a></h2>
+<span id="index-9"></span><h2>Return Value<a class="headerlink" href="#return-value" title="Permalink to this heading"></a></h2>
 <p>We can return values from our function using the next functions.</p>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">RING_API_RETNUMBER</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">nValue</span><span class="p">);</span>
 <span class="n">RING_API_RETSTRING</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">cString</span><span class="p">);</span>
@@ -440,7 +440,7 @@ using Try/Catch/Done statements, so in your C code, use Return after this functi
 </div>
 </section>
 <section id="function-prototype">
-<span id="index-10"></span><h2>Function Prototype<a class="headerlink" href="#function-prototype" title="Link to this heading"></a></h2>
+<span id="index-10"></span><h2>Function Prototype<a class="headerlink" href="#function-prototype" title="Permalink to this heading"></a></h2>
 <p>When we define new function to be used for RingVM extension, we use the next prototype</p>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">my_function_name</span><span class="p">(</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">pPointer</span><span class="w"> </span><span class="p">);</span>
 </pre></div>
@@ -451,7 +451,7 @@ using Try/Catch/Done statements, so in your C code, use Return after this functi
 </div>
 </section>
 <section id="sin-function-implementation">
-<span id="index-11"></span><h2>Sin() Function Implementation<a class="headerlink" href="#sin-function-implementation" title="Link to this heading"></a></h2>
+<span id="index-11"></span><h2>Sin() Function Implementation<a class="headerlink" href="#sin-function-implementation" title="Permalink to this heading"></a></h2>
 <p>The next code represents the sin() function implementation using the Ring API and
 the sin() C function.</p>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">ring_vm_math_sin</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">pPointer</span><span class="w"> </span><span class="p">)</span>
@@ -470,7 +470,7 @@ the sin() C function.</p>
 </div>
 </section>
 <section id="fopen-and-fclose-functions-implementation">
-<span id="index-12"></span><h2>Fopen() and Fclose() Functions Implementation<a class="headerlink" href="#fopen-and-fclose-functions-implementation" title="Link to this heading"></a></h2>
+<span id="index-12"></span><h2>Fopen() and Fclose() Functions Implementation<a class="headerlink" href="#fopen-and-fclose-functions-implementation" title="Permalink to this heading"></a></h2>
 <p>The next code represents the fopen() function implementation
 using the Ring API and the fopen() C Function.</p>
 <p>The function takes two parameters, the first parameter is the file name as string.
@@ -524,7 +524,7 @@ The second parameter is the mode as string.</p>
 <p>4 - how to set the C pointer variable (in RingVM) to NULL using the RING_API_SETNULLPOINTER() function</p>
 </section>
 <section id="ring-api-list-functions">
-<span id="index-13"></span><h2>Ring API - List Functions<a class="headerlink" href="#ring-api-list-functions" title="Link to this heading"></a></h2>
+<span id="index-13"></span><h2>Ring API - List Functions<a class="headerlink" href="#ring-api-list-functions" title="Permalink to this heading"></a></h2>
 <p>In this section we will learn about the list functions provided by the Ring API to create new lists and
 manipulate the list items.</p>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">ring_list_new</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nSize</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">;</span>
@@ -599,7 +599,7 @@ manipulate the list items.</p>
 </div>
 </section>
 <section id="ring-api-string-functions">
-<span id="index-14"></span><h2>Ring API - String Functions<a class="headerlink" href="#ring-api-string-functions" title="Link to this heading"></a></h2>
+<span id="index-14"></span><h2>Ring API - String Functions<a class="headerlink" href="#ring-api-string-functions" title="Permalink to this heading"></a></h2>
 <p>In this section we will learn about the string functions provided by the Ring API to create new string and
 manipulate the string content.</p>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">ring_string_new</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">;</span>
@@ -626,7 +626,7 @@ manipulate the string content.</p>
 </div>
 </section>
 <section id="mysql-columns-function-implementation">
-<span id="index-15"></span><h2>MySQL_Columns() Function Implementation<a class="headerlink" href="#mysql-columns-function-implementation" title="Link to this heading"></a></h2>
+<span id="index-15"></span><h2>MySQL_Columns() Function Implementation<a class="headerlink" href="#mysql-columns-function-implementation" title="Permalink to this heading"></a></h2>
 <p>The next code presents the MySQL_Columns() function implementation.</p>
 <p>This function returns table columns information.</p>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">ring_vm_mysql_columns</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">pPointer</span><span class="w"> </span><span class="p">)</span>
@@ -690,7 +690,7 @@ and added to the list using ring_list_adddouble() function.</p>
 <p>We return the list from the extension function using the RING_API_RETLIST() function.</p>
 </section>
 <section id="dynamic-shared-libraries-dll-so-dylib-and-loadlib-function">
-<span id="index-16"></span><h2>Dynamic/Shared Libraries (DLL/So/Dylib) and LoadLib() function<a class="headerlink" href="#dynamic-shared-libraries-dll-so-dylib-and-loadlib-function" title="Link to this heading"></a></h2>
+<span id="index-16"></span><h2>Dynamic/Shared Libraries (DLL/So/Dylib) and LoadLib() function<a class="headerlink" href="#dynamic-shared-libraries-dll-so-dylib-and-loadlib-function" title="Permalink to this heading"></a></h2>
 <p>Instead of rebuilding the RingVM after writing new functions using C/C++ and the Ring API, we can create
 a DLL/So/Dylib file and dynamically use the functions provided by this file in the runtime using the LoadLib() function.</p>
 <p>Dynamic library example in C</p>
@@ -726,7 +726,7 @@ for all of the module functions.</p>
 </div>
 </section>
 <section id="using-ring-api-retmanagedcpointer">
-<span id="index-17"></span><h2>Using RING_API_RETMANAGEDCPOINTER()<a class="headerlink" href="#using-ring-api-retmanagedcpointer" title="Link to this heading"></a></h2>
+<span id="index-17"></span><h2>Using RING_API_RETMANAGEDCPOINTER()<a class="headerlink" href="#using-ring-api-retmanagedcpointer" title="Permalink to this heading"></a></h2>
 <p>Using RING_API_RETMANAGEDCPOINTER() the Ring extensions written in C/C++ languages can return a managed
 pointer to Ring. This pointer can be controlled by the Ring VM using reference counting.</p>
 <p>This is important to avoid the need to write code that free the unmanaged resources like QPixMap objects in RingQt.</p>
@@ -791,7 +791,7 @@ pointer to Ring. This pointer can be controlled by the Ring VM using reference c
 </div>
 </section>
 <section id="memory-functions">
-<span id="index-18"></span><h2>Memory Functions<a class="headerlink" href="#memory-functions" title="Link to this heading"></a></h2>
+<span id="index-18"></span><h2>Memory Functions<a class="headerlink" href="#memory-functions" title="Permalink to this heading"></a></h2>
 <p>Ring API provides the next functions for Memory Management</p>
 <p>These functions uses the Memory pool provided by Ring VM</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>RING_API_MALLOC(nSize)
