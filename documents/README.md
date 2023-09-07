@@ -36,5 +36,7 @@ The documentation is created using Sphinx (A popular tool written in Python)
 	buildlatex.bat
 	cd build/latex
 	pdflatex Ring.tex
+	makeindex Ring -s python.ist
+	pdflatex Ring.tex
 
 	
