@@ -31,7 +31,10 @@ The documentation is created using Sphinx (A popular tool written in Python)
 
 	Note: Update source/conf.py to use the classic theme.
 
-(8) To generate PDF file, Install MiKTeX (https://miktex.org/download) then LyX (https://www.lyx.org/Download)
+(8) To generate PDF file, Install MiKTeX (https://miktex.org/download) - Tested using MiKTeX 23.4
 
-	Tested using MiKTeX 23.4
-	Tested using LyX 2.3.7
+	buildlatex.bat
+	cd build/latex
+	pdflatex Ring.tex
+
+	
