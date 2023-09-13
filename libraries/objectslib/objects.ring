@@ -63,28 +63,15 @@ func Open_Window cClass
 			 "[C_RINGQT_OBJECTSLIST_OBJECT]"
 
 
-	if C_RINGVERSION < 1.18	
-		cCode = ""
-		if packagename() != NULL {
-			cCode += "import " + packagename()  + nl
-			cCode += "import System.GUI" + nl
-		}
-		cCode += $RingQt_ObjName + " = new " + cClass + nl + 
-			"if isMethod(" + $RingQt_ObjName + ",:start)" + nl +
-			  $RingQt_ObjName + ".start()" + nl + "ok"
-		eval(cCode)	
-	else 
-		cPackage = packagename()
-		if cPackage != NULL
-			importpackage(cPackage)
-			importpackage("system.gui")
-		ok
-		nPos = Get_Window_Pos($RingQt_ObjectID)
-		$RingQt_ObjectsList[nPos][C_RINGQT_OBJECTSLIST_OBJECT] = new from cClass
-		if isMethod($RingQt_ObjectsList[nPos][C_RINGQT_OBJECTSLIST_OBJECT],:start)
-			$RingQt_ObjectsList[nPos][C_RINGQT_OBJECTSLIST_OBJECT].start() 
-		ok
-	ok
+	cCode = ""
+	if packagename() != NULL {
+		cCode += "import " + packagename()  + nl
+		cCode += "import System.GUI" + nl
+	}
+	cCode += $RingQt_ObjName + " = new " + cClass + nl + 
+		"if isMethod(" + $RingQt_ObjName + ",:start)" + nl +
+		  $RingQt_ObjName + ".start()" + nl + "ok"
+	eval(cCode)	
 	
 	if cRingQt_ObjName != NULL {
 		$RingQt_ObjName = cRingQt_ObjName	# Restore the current Object
@@ -132,23 +119,13 @@ func Open_WindowNoShow cClass
 	$RingQt_ObjName = "$RingQt_ObjectsList[Get_Window_Pos("+$RingQt_ObjectID+")]" +
 			 "[C_RINGQT_OBJECTSLIST_OBJECT]"
 
-	if C_RINGVERSION < 1.18	
-		cCode = ""
-		if packagename() != NULL {
-			cCode += "import " + packagename()  + nl
-			cCode += "import System.GUI" + nl
-		}
-		cCode += $RingQt_ObjName + " = new " + cClass 
-		eval(cCode)	
-	else	
-		cPackage = packagename()
-		if cPackage != NULL
-			importpackage(cPackage)
-			importpackage("system.gui")
-		ok
-		nPos = Get_Window_Pos($RingQt_ObjectID)
-		$RingQt_ObjectsList[nPos][C_RINGQT_OBJECTSLIST_OBJECT] = new from cClass
-	ok
+	cCode = ""
+	if packagename() != NULL {
+		cCode += "import " + packagename()  + nl
+		cCode += "import System.GUI" + nl
+	}
+	cCode += $RingQt_ObjName + " = new " + cClass 
+	eval(cCode)	
 	
 	$RingQt_ObjName = cRingQt_ObjName	# Restore the current Object
 
