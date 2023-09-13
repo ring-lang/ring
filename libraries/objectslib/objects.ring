@@ -103,31 +103,17 @@ func Open_WindowInPackages cClass,aPackages
 	$RingQt_ObjName = "$RingQt_ObjectsList[Get_Window_Pos("+$RingQt_ObjectID+")]" +
 			 "[C_RINGQT_OBJECTSLIST_OBJECT]"
 
-	if C_RINGVERSION < 1.18	
-		cCode = ""
-		if packagename() != NULL {
-			cCode += "import " + packagename()  + nl
-			cCode += "import System.GUI" + nl
-		}
-		for cPackage in aPackages {
-			cCode += "import " + cPackage  + nl
-		}
-		cCode += $RingQt_ObjName + " = new " + cClass + nl + 
-			  $RingQt_ObjName + ".start()"
-		eval(cCode)	
-	else
-		cPackage = packagename()
-		if cPackage != NULL
-			importpackage(cPackage)
-			importpackage("system.gui")
-		ok
-		for cPackage in aPackages {
-			importpackage(cPackage)
-		}
-		nPos = Get_Window_Pos($RingQt_ObjectID)
-		$RingQt_ObjectsList[nPos][C_RINGQT_OBJECTSLIST_OBJECT] = new from cClass
-		$RingQt_ObjectsList[nPos][C_RINGQT_OBJECTSLIST_OBJECT].start() 
-	ok
+	cCode = ""
+	if packagename() != NULL {
+		cCode += "import " + packagename()  + nl
+		cCode += "import System.GUI" + nl
+	}
+	for cPackage in aPackages {
+		cCode += "import " + cPackage  + nl
+	}
+	cCode += $RingQt_ObjName + " = new " + cClass + nl + 
+		  $RingQt_ObjName + ".start()"
+	eval(cCode)	
 	
 	if cRingQt_ObjName != NULL {
 		$RingQt_ObjName = cRingQt_ObjName	# Restore the current Object
