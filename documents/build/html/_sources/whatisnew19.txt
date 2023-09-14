@@ -31,4 +31,6 @@ More Improvements
 =================
 
 * Better Qt3D Samples - Use Quit() method when closing the application
+* Form Designer - Better behavior when displaying the MenuBar editor
 * MatrixLib - Added: RowReduceEchelonForm() function
+* ObjectsLib - Better Code
