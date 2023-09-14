@@ -15,8 +15,36 @@ List of changes and new features
 
 Ring 1.19 comes with the next features!
 
+* Faster For Loop
 * More Samples
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring  1.19; Faster For Loop
+
+Faster For Loop
+===============
+
+The For Loop in Ring 1.19 is 2.6 times faster than Ring 1.18
+
+Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]
+
+Example:
+
+.. code-block:: ring
+
+	t1= clock()
+	for t=1 to 100_000_000
+	next
+	t2 = clock()
+	? (t2-t1)/clockspersecond()
+
+Time using Ring 1.18: 4 seconds
+
+Time using Ring 1.19: 1.6 seconds
+
+.. index:: 
+	pair: What is new in Ring  1.19; More Samples
 
 More Samples
 ============
