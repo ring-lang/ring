@@ -12,3 +12,5 @@ md translations
 xcopy C:\Qt\5.15.15\msvc2019\translations translations /E /H /C /R /Q /Y
 md resources
 xcopy C:\Qt\5.15.15\msvc2019\resources resources /E /H /C /R /Q /Y
+
+cd ..\extensions\ringqt\binupdate
