@@ -52,6 +52,7 @@ More Samples
 
 * Added: samples/Language/Constants
 * Added: samples/UsingQt/CustomDragAndDrop/customdraganddrop.ring 
+* samples/AQuickStart/ODBC - Better Code
 
 .. index:: 
 	pair: What is new in Ring  1.19; More Improvements
