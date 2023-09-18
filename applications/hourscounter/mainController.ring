@@ -51,7 +51,12 @@ class mainController from windowsControllerParent
 
 	func AddHours
 		oView {
-			
+			nIndex = TableWidget1.currentRow()
+			nHours = 0 + txtHours.text()
+			this.aData[nIndex][2] += 1
+			this.aData[nIndex][3] += nHours 
+			TableWidget1.item(nIndex,2).setText(""+this.aData[nIndex][2])
+			TableWidget1.item(nIndex,3).setText(""+this.aData[nIndex][3])
 		}
 
 

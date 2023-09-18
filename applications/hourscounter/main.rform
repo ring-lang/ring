@@ -1,7 +1,7 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = -321 , : y = 20  , 
+		 :x = 20 , : y = -201  , 
 		 :width =  1247 , :height = 935 , 
 		 :title =  "Teaching Hours Counter" , 
 		 :backcolor =  "" , 
@@ -121,7 +121,7 @@ aObjectsList = [
 		 :setitemSelectionChangedEvent =  ""
 		]
 	],
-	[ :name = "Button1" , :id = 8 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnAddHours" , :id = 8 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 276 , : y = 735  , 
 		 :width =  159 , :height = 41 , 
 		 :textcolor =  "" , 
