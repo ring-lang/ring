@@ -39,4 +39,11 @@ class mainController from windowsControllerParent
 	func AddHours
 		oView {
 			
+		SelectedHoursChanged}
+
+
+	func SelectedHoursChanged
+		oView {
+			txtHours.setText(listHours.item(listHours.currentrow()).text())
+
 		}
