@@ -1,7 +1,7 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = -376 , : y = 20  , 
+		 :x = -428 , : y = 20  , 
 		 :width =  1247 , :height = 693 , 
 		 :title =  "Teaching Hours Counter" , 
 		 :backcolor =  "" , 
@@ -47,8 +47,8 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Label1" , :id = 3 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 955 , : y = 56  , 
-		 :width =  279 , :height = 40 , 
+		 :x = 953 , : y = 376  , 
+		 :width =  279 , :height = 20 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
@@ -58,7 +58,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "txtSum" , :id = 4 , :classname = "formdesigner_qlineedit" , :data = [
-		 :x = 955 , : y = 100  , 
+		 :x = 953 , : y = 400  , 
 		 :width =  279 , :height = 47 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "white" , 
@@ -74,7 +74,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Label2" , :id = 5 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 955 , : y = 184  , 
+		 :x = 955 , : y = 57  , 
 		 :width =  52 , :height = 41 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "" , 
@@ -85,7 +85,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "txtHours" , :id = 6 , :classname = "formdesigner_qlineedit" , :data = [
-		 :x = 1024 , : y = 394  , 
+		 :x = 1024 , : y = 254  , 
 		 :width =  210 , :height = 47 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "white" , 
@@ -101,7 +101,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "ListHours" , :id = 7 , :classname = "formdesigner_qlistwidget" , :data = [
-		 :x = 1024 , : y = 184  , 
+		 :x = 1024 , : y = 57  , 
 		 :width =  210 , :height = 194 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "white" , 
@@ -122,7 +122,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "btnAddHours" , :id = 8 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 1024 , : y = 464  , 
+		 :x = 1024 , : y = 304  , 
 		 :width =  210 , :height = 41 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "" , 
@@ -145,7 +145,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "btnAddHours9" , :id = 10 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 955 , : y = 542  , 
+		 :x = 953 , : y = 542  , 
 		 :width =  279 , :height = 41 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "" , 
@@ -157,7 +157,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "btnAddHours10" , :id = 11 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 955 , : y = 595  , 
+		 :x = 953 , : y = 595  , 
 		 :width =  279 , :height = 38 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "" , 
@@ -166,6 +166,33 @@ aObjectsList = [
 		 :text =  "Close Application",
 		 :BtnImage =  "",
 		 :setClickEvent =  "CloseApplication"
+		]
+	],
+	[ :name = "Label11" , :id = 12 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 953 , : y = 458  , 
+		 :width =  279 , :height = 20 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Total Hours:",
+		 :textalign =  0
+		]
+	],
+	[ :name = "txtTotal" , :id = 13 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 953 , : y = 482  , 
+		 :width =  279 , :height = 47 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
 		]
 	]
 ]

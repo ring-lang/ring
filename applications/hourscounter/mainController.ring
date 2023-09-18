@@ -29,6 +29,9 @@ class mainController from windowsControllerParent
 			tableType.item(nIndex,2).setText(""+this.aData[nIndex][2])
 			tableType.item(nIndex,3).setText(""+this.aData[nIndex][3])
 			txtSum.setText(""+(this.aData[1][3]+this.aData[2][3]+this.aData[3][3]))
+			nTotal=0
+			for aRecord in this.aData  nTotal += aRecord[3] next 
+			txtTotal.setText(""+nTotal)
 		}
 
 
@@ -70,6 +73,10 @@ class mainController from windowsControllerParent
 				setText("0")
 			}
 			txtSum { 
+				setText("0")
+				setEnabled(False)
+			}
+			txtTotal { 
 				setText("0")
 				setEnabled(False)
 			}
