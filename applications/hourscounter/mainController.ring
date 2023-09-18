@@ -42,21 +42,21 @@ class mainController from windowsControllerParent
 	func Reset
 
 		aData = [
-			["Undergraduate Lecture",0,0],
-			["Undergraduate Exercise",0,0],
-			["Undergraduate Lab",0,0],
-			["Undergraduate Project 1",0,0],
-			["Undergraduate Project 2",0,0],
-			["Master Lecture",0,0],
-			["Master Project 1",0,0],
-			["Master Project 2",0,0],
-			["Master Research Plan",0,0],
-			["Master Thesis",0,0],
-			["PhD Lecture",0,0],
-			["PhD Independent Study 1",0,0],
-			["PhD Independent Study 2",0,0],
-			["PhD Research Plan",0,0],
-			["PhD Thesis",0,0]
+			["Undergraduate - Lecture",0,0],
+			["Undergraduate - Exercise",0,0],
+			["Undergraduate - Lab",0,0],
+			["Undergraduate - Project 1",0,0],
+			["Undergraduate - Project 2",0,0],
+			["Master - Lecture",0,0],
+			["Master - Project 1",0,0],
+			["Master - Project 2",0,0],
+			["Master - Research Plan",0,0],
+			["Master - Thesis",0,0],
+			["PhD - Lecture",0,0],
+			["PhD - Independent Study 1",0,0],
+			["PhD - Independent Study 2",0,0],
+			["PhD - Research Plan",0,0],
+			["PhD - Thesis",0,0]
 		]
 	
 		oView { 
