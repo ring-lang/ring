@@ -5,7 +5,7 @@ aObjectsList = [
 		 :width =  1247 , :height = 693 , 
 		 :title =  "Teaching Hours Counter" , 
 		 :backcolor =  "" , 
-		 :windowflags =  "Qt_Window | Qt_WindowTitleHint | Qt_WindowCloseButtonHint | Qt_CustomizeWindowHint" , 
+		 :windowflags =  "Qt_Window | Qt_WindowTitleHint | Qt_CustomizeWindowHint" , 
 		 :mainlayout =  "" ,
 		 :WindowIcon =  "" , 
 		 :Menubar =  ""  ,
