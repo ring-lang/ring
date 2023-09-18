@@ -16,38 +16,9 @@ class mainController from windowsControllerParent
 
 	oView = new mainView
 
-	aData = [
-		["Undergraduate Lecture",0,0],
-		["Undergraduate Exercise",0,0],
-		["Undergraduate Lab",0,0],
-		["Undergraduate Project 1",0,0],
-		["Undergraduate Project 2",0,0],
-		["Master Lecture",0,0],
-		["Master Project 1",0,0],
-		["Master Project 2",0,0],
-		["Master Research Plan",0,0],
-		["Master Thesis",0,0],
-		["PhD Lecture",0,0],
-		["PhD Independent Study 1",0,0],
-		["PhD Independent Study 2",0,0],
-		["PhD Research Plan",0,0],
-		["PhD Thesis",0,0]
-	]
+	aData 
 
-	oView { 
-		tableType { 
-			setSelectionMode(QAbstractItemView_SingleSelection)
-			addList(aData)
-		}
-		txtHours {
-			setinputmask("99.99")
-			setText("0")
-		}
-		txtSum { 
-			setText("0")
-			setEnabled(False)
-		}
-	}
+	Reset() 
 
 	func AddHours
 		oView {
@@ -65,4 +36,47 @@ class mainController from windowsControllerParent
 		oView {
 			txtHours.setText(listHours.item(listHours.currentrow()).text())
 
+		}
+
+
+	func Reset
+
+		aData = [
+			["Undergraduate Lecture",0,0],
+			["Undergraduate Exercise",0,0],
+			["Undergraduate Lab",0,0],
+			["Undergraduate Project 1",0,0],
+			["Undergraduate Project 2",0,0],
+			["Master Lecture",0,0],
+			["Master Project 1",0,0],
+			["Master Project 2",0,0],
+			["Master Research Plan",0,0],
+			["Master Thesis",0,0],
+			["PhD Lecture",0,0],
+			["PhD Independent Study 1",0,0],
+			["PhD Independent Study 2",0,0],
+			["PhD Research Plan",0,0],
+			["PhD Thesis",0,0]
+		]
+	
+		oView { 
+			tableType { 
+				setSelectionMode(QAbstractItemView_SingleSelection)
+				setRowCount(0)
+				addList(this.aData)
+			}
+			txtHours {
+				setinputmask("99.99")
+				setText("0")
+			}
+			txtSum { 
+				setText("0")
+				setEnabled(False)
+			}
+		}
+
+
+	func CloseApplication
+		oView {
+			win.close() 
 		}
