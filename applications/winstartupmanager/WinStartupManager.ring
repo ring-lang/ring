@@ -8,11 +8,11 @@ Author 	: Majdi Sobain <Majdi.Sobain@Gmail.com>
 
 
 Load "guilib.ring"
-Load "stdlib.ring"
+Load "stdlibcore.ring"
 
 # Load Libraries
-Load "libs\WinCReg.ring"
-Load "libs\WINAPI.ring"
+Load "WinCReg.ring"
+Load "WINAPI.ring"
 
 # Load windows
 Load "forms\winstartupmanagerController.ring"

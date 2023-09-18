@@ -2,14 +2,15 @@
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
 		 :x = 171 , : y = 102  , 
-		 :width =  800 , :height = 473 , 
+		 :width =  800 , :height = 512 , 
 		 :title =  "Windows Startup Manager" , 
 		 :backcolor =  "" , 
 		 :windowflags =  "Qt_Window | Qt_WindowMinimizeButtonHint | Qt_WindowCloseButtonHint" , 
 		 :mainlayout =  "" ,
 		 :WindowIcon =  "" , 
 		 :Menubar =  ""  ,
-		 :IndexType =  0  
+		 :IndexType =  0  ,
+		 :GUILibrary =  0  
 
 		]
 	],
