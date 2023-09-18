@@ -1,7 +1,7 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = 20 , : y = -201  , 
+		 :x = 20 , : y = 20  , 
 		 :width =  1247 , :height = 935 , 
 		 :title =  "Teaching Hours Counter" , 
 		 :backcolor =  "" , 
@@ -14,7 +14,7 @@ aObjectsList = [
 
 		]
 	],
-	[ :name = "TableWidget1" , :id = 2 , :classname = "formdesigner_qtablewidget" , :data = [
+	[ :name = "TableType" , :id = 2 , :classname = "formdesigner_qtablewidget" , :data = [
 		 :x = 24 , : y = 57  , 
 		 :width =  916 , :height = 581 , 
 		 :textcolor =  "" , 

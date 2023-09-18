@@ -35,7 +35,7 @@ class mainController from windowsControllerParent
 	]
 
 	oView { 
-		TableWidget1 { 
+		tableType { 
 			setSelectionMode(QAbstractItemView_SingleSelection)
 			addList(aData)
 		}
@@ -51,12 +51,13 @@ class mainController from windowsControllerParent
 
 	func AddHours
 		oView {
-			nIndex = TableWidget1.currentRow()
+			nIndex = tableType.currentRow()
 			nHours = 0 + txtHours.text()
 			this.aData[nIndex][2] += 1
 			this.aData[nIndex][3] += nHours 
-			TableWidget1.item(nIndex,2).setText(""+this.aData[nIndex][2])
-			TableWidget1.item(nIndex,3).setText(""+this.aData[nIndex][3])
+			tableType.item(nIndex,2).setText(""+this.aData[nIndex][2])
+			tableType.item(nIndex,3).setText(""+this.aData[nIndex][3])
+			txtSum.setText(""+(this.aData[1][3]+this.aData[2][3]+this.aData[3][3]))
 		}
 
 
