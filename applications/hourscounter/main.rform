@@ -1,0 +1,137 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 20 , : y = -151  , 
+		 :width =  1247 , :height = 885 , 
+		 :title =  "Teaching Hours Counter" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "Qt_Window | Qt_WindowTitleHint | Qt_WindowCloseButtonHint | Qt_CustomizeWindowHint" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  ,
+		 :GUILibrary =  0  
+
+		]
+	],
+	[ :name = "TableWidget1" , :id = 2 , :classname = "formdesigner_qtablewidget" , :data = [
+		 :x = 24 , : y = 27  , 
+		 :width =  916 , :height = 581 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :RowCount =  "",
+		 :ColumnCount =  "3",
+		 :HorizontalHeaders =  "Type,Count,Hours",
+		 :ColumnsWidth =  "400,240,250",
+		 :HorizontalHeaderStyle =  "",
+		 :VerticalHeaderStyle =  "",
+		 :selectionbehavior =  1,
+		 :alternatingcolors =  0,
+		 :setcellActivatedEvent =  "",
+		 :setcellChangedEvent =  "",
+		 :setcellClickedEvent =  "",
+		 :setcellDoubleClickedEvent =  "",
+		 :setcellEnteredEvent =  "",
+		 :setcellPressedEvent =  "",
+		 :setcurrentCellChangedEvent =  "",
+		 :setcurrentItemChangedEvent =  "",
+		 :setitemActivatedEvent =  "",
+		 :setitemChangedEvent =  "",
+		 :setitemClickedEvent =  "",
+		 :setitemDoubleClickedEvent =  "",
+		 :setitemEnteredEvent =  "",
+		 :setitemPressedEvent =  "",
+		 :setitemSelectionChangedEvent =  ""
+		]
+	],
+	[ :name = "Label1" , :id = 3 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 955 , : y = 16  , 
+		 :width =  279 , :height = 40 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Undergraduate (Lectures, Exercise and Labs) :",
+		 :textalign =  0
+		]
+	],
+	[ :name = "LineEdit1" , :id = 4 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 955 , : y = 60  , 
+		 :width =  279 , :height = 47 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "Label2" , :id = 5 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 35 , : y = 635  , 
+		 :width =  52 , :height = 41 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Hours",
+		 :textalign =  0
+		]
+	],
+	[ :name = "LineEdit2" , :id = 6 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 296 , : y = 636  , 
+		 :width =  159 , :height = 47 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "ListWidget1" , :id = 7 , :classname = "formdesigner_qlistwidget" , :data = [
+		 :x = 91 , : y = 635  , 
+		 :width =  190 , :height = 194 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :cItems =  "Type,0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0",
+		 :cCurrentRow =  "",
+		 :setcurrentItemChangedEvent =  "",
+		 :setcurrentRowChangedEvent =  "",
+		 :setcurrentTextChangedEvent =  "",
+		 :setitemActivatedEvent =  "",
+		 :setitemChangedEvent =  "",
+		 :setitemClickedEvent =  "",
+		 :setitemDoubleClickedEvent =  "",
+		 :setitemEnteredEvent =  "",
+		 :setitemPressedEvent =  "",
+		 :setitemSelectionChangedEvent =  ""
+		]
+	],
+	[ :name = "Button1" , :id = 8 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 296 , : y = 705  , 
+		 :width =  159 , :height = 41 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "AddHours",
+		 :BtnImage =  "",
+		 :setClickEvent =  "AddHours"
+		]
+	]
+]
+# End Form Designer File
