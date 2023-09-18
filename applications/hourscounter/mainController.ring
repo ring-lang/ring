@@ -34,12 +34,25 @@ class mainController from windowsControllerParent
 		["PhD Thesis",0,0]
 	]
 
-	oView.TableWidget1.addList(aData)
+	oView { 
+		TableWidget1 { 
+			setSelectionMode(QAbstractItemView_SingleSelection)
+			addList(aData)
+		}
+		txtHours {
+			setinputmask("99.99")
+			setText("0")
+		}
+		txtSum { 
+			setText("0")
+			setEnabled(False)
+		}
+	}
 
 	func AddHours
 		oView {
 			
-		SelectedHoursChanged}
+		}
 
 
 	func SelectedHoursChanged
