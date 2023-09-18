@@ -52,7 +52,6 @@ More Samples
 
 * Added: samples/Language/Constants
 * Added: samples/UsingQt/CustomDragAndDrop/customdraganddrop.ring 
-* samples/AQuickStart/ODBC - Better Code
 
 .. index:: 
 	pair: What is new in Ring  1.19; More Improvements
@@ -60,6 +59,8 @@ More Samples
 More Improvements
 =================
 
+* WinStartupManager application - Use extensions that comes with Ring
+* samples/AQuickStart/ODBC - Better Code
 * Better Qt3D Samples - Use Quit() method when closing the application
 * Form Designer - Better behavior when displaying the MenuBar editor
 * MatrixLib - Added: RowReduceEchelonForm() function
