@@ -10,7 +10,7 @@ nMax = odbc_colcount(pODBC)
 See "Columns Count : " + nMax + nl
 while odbc_fetch(pODBC)
         See "Write image file" + nl
-        write("tests\great.jpg",hex2str( odbc_getdata(pODBC,3) ) )
+        write("great.jpg",hex2str( odbc_getdata(pODBC,3) ) )
 end
 See "Close database..." + nl
 odbc_disconnect(pODBC)
