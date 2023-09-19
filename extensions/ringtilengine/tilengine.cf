@@ -32,7 +32,6 @@ TLN_OVERLAY_SHADOWMASK
 TLN_OVERLAY_APERTURE
 TLN_OVERLAY_SCANLINES
 TLN_OVERLAY_CUSTOM
-TLN_MAX_OVERLAY
 PLAYER1
 PLAYER2
 PLAYER3
@@ -184,7 +183,9 @@ void TLN_DrawFrame(int frame)
 void TLN_WaitRedraw(void)
 void TLN_DeleteWindow(void)
 void TLN_EnableBlur(bool mode)
+<comment>
 void TLN_EnableCRTEffect(TLN_Overlay overlay, uint8_t overlay_factor, uint8_t threshold, uint8_t v0, uint8_t v1, uint8_t v2, uint8_t v3, bool blur, uint8_t glow_factor)
+</comment>
 void TLN_DisableCRTEffect(void)
 void TLN_Delay(uint32_t msecs)
 uint32_t TLN_GetTicks(void)

@@ -128,11 +128,6 @@ RING_FUNC(ring_get_tln_overlay_custom)
 	RING_API_RETNUMBER(TLN_OVERLAY_CUSTOM);
 }
 
-RING_FUNC(ring_get_tln_max_overlay)
-{
-	RING_API_RETNUMBER(TLN_MAX_OVERLAY);
-}
-
 RING_FUNC(ring_get_player1)
 {
 	RING_API_RETNUMBER(PLAYER1);
@@ -3427,53 +3422,6 @@ RING_FUNC(ring_TLN_EnableBlur)
 }
 
 
-RING_FUNC(ring_TLN_EnableCRTEffect)
-{
-	if ( RING_API_PARACOUNT != 9 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISNUMBER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(4) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(5) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(6) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(7) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(8) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(9) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	TLN_EnableCRTEffect( (TLN_Overlay )  (int) RING_API_GETNUMBER(1), (uint8_t ) RING_API_GETNUMBER(2), (uint8_t ) RING_API_GETNUMBER(3), (uint8_t ) RING_API_GETNUMBER(4), (uint8_t ) RING_API_GETNUMBER(5), (uint8_t ) RING_API_GETNUMBER(6), (uint8_t ) RING_API_GETNUMBER(7), (bool ) RING_API_GETNUMBER(8), (uint8_t ) RING_API_GETNUMBER(9));
-}
-
-
 RING_FUNC(ring_TLN_DisableCRTEffect)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
@@ -6114,7 +6062,6 @@ RING_LIBINIT
 	RING_API_REGISTER("tln_waitredraw",ring_TLN_WaitRedraw);
 	RING_API_REGISTER("tln_deletewindow",ring_TLN_DeleteWindow);
 	RING_API_REGISTER("tln_enableblur",ring_TLN_EnableBlur);
-	RING_API_REGISTER("tln_enablecrteffect",ring_TLN_EnableCRTEffect);
 	RING_API_REGISTER("tln_disablecrteffect",ring_TLN_DisableCRTEffect);
 	RING_API_REGISTER("tln_delay",ring_TLN_Delay);
 	RING_API_REGISTER("tln_getticks",ring_TLN_GetTicks);
@@ -6274,7 +6221,6 @@ RING_LIBINIT
 	RING_API_REGISTER("get_tln_overlay_aperture",ring_get_tln_overlay_aperture);
 	RING_API_REGISTER("get_tln_overlay_scanlines",ring_get_tln_overlay_scanlines);
 	RING_API_REGISTER("get_tln_overlay_custom",ring_get_tln_overlay_custom);
-	RING_API_REGISTER("get_tln_max_overlay",ring_get_tln_max_overlay);
 	RING_API_REGISTER("get_player1",ring_get_player1);
 	RING_API_REGISTER("get_player2",ring_get_player2);
 	RING_API_REGISTER("get_player3",ring_get_player3);
