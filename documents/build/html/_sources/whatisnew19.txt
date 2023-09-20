@@ -15,9 +15,22 @@ List of changes and new features
 
 Ring 1.19 comes with the next features!
 
+* Hours Counter application
 * Faster For Loop
 * More Samples
 * More Improvements
+
+
+.. index:: 
+	pair: What is new in Ring  1.19; Hours Counter application
+
+Hours Counter application
+=========================
+
+This is a simple calculator for teaching hours
+
+.. image:: hourscounter.png
+	:alt: hourscounter
 
 .. index:: 
 	pair: What is new in Ring  1.19; Faster For Loop
