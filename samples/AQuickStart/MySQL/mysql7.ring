@@ -1,7 +1,7 @@
 load "mysqllib.ring"
 
 See "Read file" + nl
-cFile = read("tests\mahmoud.jpg")
+cFile = read("ringlogo.jpg")
 con = mysql_init()
 See "Connect to database..." + nl
 mysql_connect(con, "localhost", "root", "root","mahdb")
