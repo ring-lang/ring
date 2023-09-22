@@ -1,6 +1,6 @@
 load "postgresqllib.ring"
 
-conninfo = "user=postgres password=sa dbname = mahdb"
+conninfo = "user=postgres password=sa"
 
 exit_nicely = func conn {
 	PQfinish(conn)
@@ -8,28 +8,22 @@ exit_nicely = func conn {
 }
 
 conn = PQconnectdb(conninfo)
-
 if (PQstatus(conn) != CONNECTION_OK)
 	fputs(stderr, "Connection to database failed: "+PQerrorMessage(conn))
         call exit_nicely(conn)
 ok
 
-res = PQexec(conn, "
-	DROP DATABASE mahdb;
-")
+res = PQexec(conn, "DROP DATABASE IF EXISTS mahdb;")
 if PQresultStatus(res) != PGRES_TUPLES_OK
 	fputs(stderr, "Remove failed: " + PQerrorMessage(conn))
-	PQclear(res)
 ok
 PQclear(res)
-
 
 res = PQexec(conn, "CREATE DATABASE mahdb;")
 if PQresultStatus(res) != PGRES_TUPLES_OK
 	fputs(stderr, "Create database failed: " + PQerrorMessage(conn))
-	PQclear(res)
 ok
-
+PQclear(res)
 
 res = PQexec(conn, "
 CREATE TABLE COMPANY (
@@ -41,7 +35,6 @@ CREATE TABLE COMPANY (
 ")
 if PQresultStatus(res) != PGRES_TUPLES_OK
 	fputs(stderr, "Create Table failed: " + PQerrorMessage(conn))
-	PQclear(res)
 ok
 PQclear(res)
 
@@ -54,7 +47,6 @@ res = PQexec(conn, "
 ")
 if PQresultStatus(res) != PGRES_TUPLES_OK
 	fputs(stderr, "Insert Table failed: " + PQerrorMessage(conn))
-	PQclear(res)
 ok
 PQclear(res)
 
