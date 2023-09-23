@@ -284,7 +284,7 @@ mahdb 10 6 English_United States.1252 English_United States.1252
 <p>Example(2):</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;postgresqllib.ring&quot;</span>
 
-<span class="n">conninfo</span> <span class="o">=</span> <span class="s">&quot;user=postgres password=sa dbname = mahdb&quot;</span>
+<span class="n">conninfo</span> <span class="o">=</span> <span class="s">&quot;user=postgres password=sa&quot;</span>
 
 <span class="n">exit_nicely</span> <span class="o">=</span> <span class="k">func</span> <span class="n">conn</span> <span class="p">{</span>
         <span class="n">PQfinish</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
@@ -298,12 +298,9 @@ mahdb 10 6 English_United States.1252 English_United States.1252
                 <span class="k">call</span> <span class="n">exit_nicely</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
 <span class="k">ok</span>
 
-<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s">&quot;</span>
-        <span class="n">DROP</span> <span class="n">DATABASE</span> <span class="n">mahdb</span><span class="p">;</span>
-<span class="s">&quot;)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s">&quot;DROP DATABASE IF EXISTS mahdb;&quot;</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
         <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Remove failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
-        <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 <span class="k">ok</span>
 <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 
@@ -311,8 +308,8 @@ mahdb 10 6 English_United States.1252 English_United States.1252
 <span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s">&quot;CREATE DATABASE mahdb;&quot;</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
         <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Create database failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
-        <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 <span class="k">ok</span>
+<span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 
 
 <span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s">&quot;</span>
@@ -325,7 +322,6 @@ mahdb 10 6 English_United States.1252 English_United States.1252
 <span class="s">&quot;)</span>
 <span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
         <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Create Table failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
-        <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 <span class="k">ok</span>
 <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 
@@ -338,7 +334,6 @@ mahdb 10 6 English_United States.1252 English_United States.1252
 <span class="s">&quot;)</span>
 <span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
         <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Insert Table failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
-        <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 <span class="k">ok</span>
 <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 
