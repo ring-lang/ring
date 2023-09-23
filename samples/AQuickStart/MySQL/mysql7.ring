@@ -5,6 +5,10 @@ cFile = read("ringlogo.jpg")
 con = mysql_init()
 See "Connect to database..." + nl
 mysql_connect(con, "localhost", "root", "root","mahdb")
+see "drop table" + nl
+mysql_query(con, "DROP TABLE IF EXISTS photo")
+see "create table" + nl
+mysql_query(con, "CREATE TABLE photo(Id INT PRIMARY KEY AUTO_INCREMENT, Data TEXT)")
 See "Escape string..." + nl
 cFile = mysql_escape_string(con,cFile)
 stmt = "INSERT INTO photo(id, data) VALUES(1, '" + cFile + "')"
