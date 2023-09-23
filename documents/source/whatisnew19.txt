@@ -76,6 +76,7 @@ More Improvements
 * samples/AQuickStart/ODBC - Better Code
 * Better Qt3D samples - Use Quit() method when closing the application
 * Better RingPostgreSQL samples
+* Better RingMySQL sample - samples/AQuickStart/MySQL/mysql7.ring
 * Form Designer - Better behavior when displaying the MenuBar editor
 * MatrixLib - Added: RowReduceEchelonForm() function
 * ObjectsLib - Better Code
