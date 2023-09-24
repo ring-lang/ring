@@ -17,8 +17,6 @@ func main
 
 	? :Done
 
-	shutdown()
-
 func Hello x
 
 	for r=1 to 100
