@@ -168,6 +168,7 @@ call buildvc
 cd ..
 cd ..
 
+rem build Tools
 cd tools
 cd ring2exe
 call build
@@ -187,6 +188,13 @@ cd tests
 call build
 cd ..
 cd ..
+
+rem build Sudoku
+cd applications\sudoku\v2
+call buildvc
+cd ..\v3
+call buildvc
+cd ..\..\..\
 
 rem copy dll files
 copy B:\ring\extensions\libdepwin\Allegro5.2.8\bin\*.dll b:\ring\bin
