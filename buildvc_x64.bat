@@ -179,6 +179,38 @@ cd ..\v3
 call buildvc_x64
 cd ..\..\..\
 
+rem build extensions/tutorial 
+cd extensions/tutorial/createtable
+call buildvc_x64
+cd ../displaylist
+call buildvc_x64
+cd ../filterlist
+call buildvc_x64
+cd ../generatelist
+call buildvc_x64
+cd ../helloworld
+call buildvc_x64
+cd ../helloworld2
+call buildvc_x64
+cd ../incrementlist
+call buildvc_x64
+cd ../integerpointer
+call buildvc_x64
+cd ../mandelbrot
+call buildvc_x64
+cd ../replicatelist
+call buildvc_x64
+cd ../sayhello
+call buildvc_x64
+cd ../stringpointer
+call buildvc_x64
+cd ../sumlist
+call buildvc_x64
+cd ../sumtwonumbers
+call buildvc_x64
+cd ../updatetable
+call buildvc_x64
+
 rem copy dll files
 copy B:\ring\extensions\libdepwin\Allegro5.2.8\bin\x64\*.dll b:\ring\bin
 copy B:\ring\extensions\libdepwin\freeglut\bin\x64\*.dll b:\ring\bin

@@ -180,6 +180,38 @@ cd ..\v3
 call buildvc
 cd ..\..\..\
 
+rem build extensions/tutorial 
+cd extensions/tutorial/createtable
+call buildvc
+cd ../displaylist
+call buildvc
+cd ../filterlist
+call buildvc
+cd ../generatelist
+call buildvc
+cd ../helloworld
+call buildvc
+cd ../helloworld2
+call buildvc
+cd ../incrementlist
+call buildvc
+cd ../integerpointer
+call buildvc
+cd ../mandelbrot
+call buildvc
+cd ../replicatelist
+call buildvc
+cd ../sayhello
+call buildvc
+cd ../stringpointer
+call buildvc
+cd ../sumlist
+call buildvc
+cd ../sumtwonumbers
+call buildvc
+cd ../updatetable
+call buildvc
+
 rem copy dll files
 copy B:\ring\extensions\libdepwin\Allegro5.2.8\bin\*.dll b:\ring\bin
 copy B:\ring\extensions\libdepwin\freeglut\bin\*.dll b:\ring\bin
