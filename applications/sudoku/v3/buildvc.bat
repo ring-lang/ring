@@ -7,5 +7,4 @@ cl /c /DEBUG mylibSudokuGenerator.c -I"..\..\..\language\include"
 link /DEBUG mylibSudokuGenerator.obj  ..\..\..\lib\ring.lib /DLL /OUT:mylibSudokuGenerator.dll /SUBSYSTEM:CONSOLE,"5.01"
 
 del mylibSudoku.obj
-pause
 
