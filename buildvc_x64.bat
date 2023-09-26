@@ -1,12 +1,10 @@
 setlocal
 
 rem build Ring Compiler/VM
-cd language
-cd src
+cd language\src
 call buildvc_x64
 call buildvcw_x64
-cd ..
-cd ..
+cd ..\..
 
 rem open extensions folder
 cd extensions
@@ -16,12 +14,9 @@ cd ringallegro
 call buildvc_x64.bat
 
 rem build Ring OpenGL
-cd ..
-cd ringopengl
-cd opengl21
+cd ..\ringopengl\opengl21
 call buildvc_x64.bat
-cd ..
-cd ..
+cd ..\..
 
 rem build Ring CJSON
 cd ringcjson
@@ -49,11 +44,9 @@ call buildvc_x64
 cd ..
 
 rem build Ring RayLib
-cd ringraylib
-cd src
+cd ringraylib\src
 call buildvc_x64
-cd ..
-cd ..
+cd ..\..
 
 rem build Ring Qt
 cd ringqt
@@ -64,8 +57,7 @@ call buildvc_light_x64
 call buildvc_nobluetooth_x64
 cd binupdate
 call installqt515_x64
-cd ..
-cd ..
+cd ..\..
 
 rem build RingLibuv
 cd ringlibuv
@@ -165,29 +157,20 @@ cd ..
 rem build RingPostgreSQL
 cd ringpostgresql
 call buildvc_x64
-cd ..
-cd ..
+cd ..\..
 
 rem build Tools 
-cd tools
-cd ring2exe
+cd tools\ring2exe
 call build
-cd ..
-cd ringpm
+cd ..\ringpm
 call build
-cd ..
-cd ringrepl
+cd ..\ringrepl
 call build
-cd ..
-cd folder2qrc
+cd ..\folder2qrc
 call build
-cd ..
-cd ..
-cd language
-cd tests
+cd ..\..\language\tests
 call build
-cd ..
-cd ..
+cd ..\..
 
 rem build Sudoku
 cd applications\sudoku\v2
