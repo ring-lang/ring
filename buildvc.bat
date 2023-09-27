@@ -1,3 +1,6 @@
+SET RING_QT_DIR=C:\Qt
+SET RING_QT_VERSION=5.15.15
+
 setlocal
 
 rem build Ring Compiler/VM
