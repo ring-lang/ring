@@ -1,5 +1,5 @@
-SET RING_QT_DIR=C:\Qt
-SET RING_QT_VERSION=5.15.15
+IF "%RING_QT_DIR%"=="" SET RING_QT_DIR=C:\Qt
+IF "%RING_QT_VERSION%"=="" SET RING_QT_VERSION=5.15.15
 
 setlocal
 
@@ -213,21 +213,23 @@ cd ../sumtwonumbers
 call buildvc_x64
 cd ../updatetable
 call buildvc_x64
+cd ..\..\..\
 
 rem copy dll files
-copy B:\ring\extensions\libdepwin\Allegro5.2.8\bin\x64\*.dll b:\ring\bin
-copy B:\ring\extensions\libdepwin\freeglut\bin\x64\*.dll b:\ring\bin
-copy B:\ring\extensions\libdepwin\glew\bin\Release\x64\*.dll b:\ring\bin
-copy B:\ring\extensions\libdepwin\raylib2.5_x64\bin\*.dll b:\ring\bin
-copy B:\ring\extensions\libdepwin\libuishared_x64\*.dll b:\ring\bin
-copy B:\ring\extensions\libdepwin\tilengine_x64\lib\*.dll b:\ring\bin
-copy B:\ring\extensions\libdepwin\libsdl\SDL2_vc\lib\x64\*.dll b:\ring\bin
-copy B:\ring\extensions\libdepwin\libsdl\SDL2_image\lib\x64\*.dll b:\ring\bin
-copy B:\ring\extensions\libdepwin\libsdl\SDL2_mixer\lib\x64\*.dll b:\ring\bin
-copy B:\ring\extensions\libdepwin\libsdl\SDL2_net\lib\x64\*.dll b:\ring\bin
-copy B:\ring\extensions\libdepwin\libsdl\SDL2_ttf\lib\x64\*.dll b:\ring\bin
-copy B:\ring\extensions\libdepwin\mysql_x64\lib\*.dll b:\ring\bin
-copy B:\ring\extensions\libdepwin\pgsql_x64\lib\*.dll b:\ring\bin
+cd bin
+copy ..\extensions\libdepwin\Allegro5.2.8\bin\x64\*.dll .
+copy ..\extensions\libdepwin\freeglut\bin\x64\*.dll .
+copy ..\extensions\libdepwin\glew\bin\Release\x64\*.dll .
+copy ..\extensions\libdepwin\raylib2.5_x64\bin\*.dll .
+copy ..\extensions\libdepwin\libuishared_x64\*.dll .
+copy ..\extensions\libdepwin\tilengine_x64\lib\*.dll .
+copy ..\extensions\libdepwin\libsdl\SDL2_vc\lib\x64\*.dll .
+copy ..\extensions\libdepwin\libsdl\SDL2_image\lib\x64\*.dll .
+copy ..\extensions\libdepwin\libsdl\SDL2_mixer\lib\x64\*.dll .
+copy ..\extensions\libdepwin\libsdl\SDL2_net\lib\x64\*.dll .
+copy ..\extensions\libdepwin\libsdl\SDL2_ttf\lib\x64\*.dll .
+copy ..\extensions\libdepwin\mysql_x64\lib\*.dll .
+copy ..\extensions\libdepwin\pgsql_x64\lib\*.dll .
 
 
 endlocal
