@@ -1,4 +1,4 @@
-#1 Sample : Top-Down View - Many Levels of Cubes
+# Sample : Top-Down View - Many Levels of Cubes
 # 2018, Mahmoud Fayed <msfclipper@yahoo.com>
 # 2020, port to RayLib, Ilir Liburn <iliribur@gmail.com>  
 
