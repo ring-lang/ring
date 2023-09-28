@@ -52,9 +52,9 @@ Better batch files for building Ring
 
 Using ring/buildvc.bat and ring/buildvc_x64.bat we can build everything (Ring Compiler/VM, Extensions, Tools, etc.) for Windows 32bit or 64bit
 
-Ring comes will all of the dependencies except Qt
+Ring comes with all of the dependencies except Qt
 
-These batch file assume that we have Qt 5.15.15 (We can change the used Qt 5.15 version using the environment variables). 
+These batch files assume that we have Qt 5.15.15 (We can change the used Qt 5.15 version using the environment variables). 
 
 .. index:: 
 	pair: What is new in Ring  1.19; Faster For Loop
