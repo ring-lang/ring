@@ -147,5 +147,27 @@ In this folder we will store simple examples about using C code in Ring programs
 			 Using C Code, Get integer pointer from Ring code using the variable name
 		</td>
 	</tr>
+	<tr>
+		<td>
+			14
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/tutorial/stringpointer"> String Pointer</a>
+		</td>
+		<td>
+			 Using C Code, Get string pointer (char *) from Ring code using the variable name
+		</td>
+	</tr>
+	<tr>
+		<td>
+			15
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/tutorial/mandelbrot"> Mandelbrot</a>
+		</td>
+		<td>
+			 Mandelbrot set
+		</td>
+	</tr>
 
 </table>
