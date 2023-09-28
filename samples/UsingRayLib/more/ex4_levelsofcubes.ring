@@ -56,7 +56,7 @@ camera = Camera3D(
 
 SetCameraMode(camera, CAMERA_CUSTOM) 
 
-SetTargetFPS(60)
+SetTargetFPS(1500)
 
 while !WindowShouldClose()
 
