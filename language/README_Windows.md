@@ -10,15 +10,21 @@
 
 ### Complete Build (Compiler/VM, Extensions, Tools, etc.)
 
-	Install Qt 5.15.15  (in C:\Qt) so we have the folder (c:\qt\5.15.15)
+	Install Qt 5.15.15  (in C:\Qt) so we have the folder (C:\Qt\5.15.15)
 
 	If you have another version from Qt 5.15 (like Qt 5.15.2) - Or Qt is installed in another folder 
-	The next batch files uses an environment variable to set the path
+	The next batch files uses environment variable to set the path
 
 	To build 32bit version: ring/buildvc.bat
 	To build 64bit version: ring/buildvc_x64.bat
 
 ### Custom Build
+
+#### 64bit version
+
+The next steps demonstrates how to build the 32bit version
+
+To build the 64bit version use _x64 to the batch file name like buildvc_x64.bat instead of buildvc.bat
 
 #### Build Ring (Compiler/VM)
 	
@@ -173,7 +179,3 @@ Also, We can run Ring Notepad using Ring Package Manager
 The previous steps demonstrates building Ring and some of the Ring extensions.
 
 There are more extensions in ring/extensions folder like RingCJSON, RingHTTPLib, etc.
-
-#### 64bit version
-
-To build 64bit version use buildvc_x64.bat files instead of buildvc.bat
