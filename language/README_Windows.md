@@ -13,7 +13,7 @@
 	Install Qt 5.15.15  (in C:\Qt) so we have the folder (C:\Qt\5.15.15)
 
 	If you have another version from Qt 5.15 (like Qt 5.15.2) - Or Qt is installed in another folder 
-	The next batch files uses environment variable to set the path
+	The next batch files uses environment variables (RING_QT_DIR & RING_QT_VERSION) to set the path
 
 	To build 32bit version: ring/buildvc.bat
 	To build 64bit version: ring/buildvc_x64.bat
