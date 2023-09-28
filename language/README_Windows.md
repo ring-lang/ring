@@ -7,106 +7,118 @@
 ### Get the source code
 
 	git clone http://github.com/ring-lang/ring.git
-	
-### Build Ring (Compiler/VM)
+
+### Complete Build (Compiler/VM, Extensions, Tools, etc.)
+
+	Install Qt 5.15.15  (in C:\Qt) so we have the folder (c:\qt\5.15.15)
+
+	If you have another version from Qt 5.15 (like Qt 5.15.2) - Or Qt is installed in another folder 
+	The next batch files uses an environment variable to set the path
+
+	To build 32bit version: ring/buildvc.bat
+	To build 64bit version: ring/buildvc_x64.bat
+
+### Custom Build
+
+#### Build Ring (Compiler/VM)
 	
 	cd ring/language/src
 	buildvc.bat
 	buildvcw.bat
 
-### Build Ring2EXE 
+#### Build Ring2EXE 
 
 	cd ring/tools/ring2exe
 	build.bat 
 
-### Generate RingConsoleColors Source Code and Build 
+#### Generate RingConsoleColors Source Code and Build 
 	
 	cd ring/extensions/ringconsolecolors
 	gencode.bat
 	buildvc.bat
 
-### Build RingInternet
+#### Build RingInternet
 	
 	cd ring/extensions/ringinternet
 	buildvc.bat
 
-### Generate RingLibCurl Source Code and Build 
+#### Generate RingLibCurl Source Code and Build 
 	
 	cd ring/extensions/ringcurl
 	gencode.bat
 	buildvc.bat
 
-### Generate RingZip Source Code and Build 
+#### Generate RingZip Source Code and Build 
 	
 	cd ring/extensions/ringzip
 	gencode.bat
 	buildvc.bat
 
-### Build RingPM
+#### Build RingPM
 
 	cd ring/tools/ringpm
 	build.bat 
 
-### Build RingREPL
+#### Build RingREPL
 
 	cd ring/tools/ringrepl
 	build.bat 
 
-### Build Folder2QRC
+#### Build Folder2QRC
 
 	cd ring/tools/folder2qrc
 	build.bat 
 	
-### Build RingODBC
+#### Build RingODBC
 	
 	cd ring/extensions/ringodbc
 	buildvc.bat
 
-### Build RingMySQL
+#### Build RingMySQL
 	
 	cd ring/extensions/ringmysql
 	buildvc.bat
 
-### Build RingSQLite
+#### Build RingSQLite
 	
 	cd ring/extensions/ringsqlite
 	buildvc.bat
 
-### Build RingPostgreSQL
+#### Build RingPostgreSQL
 	
 	cd ring/extensions/ringpostgresql
 	gencode.bat
 	buildvc.bat
 
-### Build RingOpenSSL
+#### Build RingOpenSSL
 	
 	cd ring/extensions/ringopenssl
 	buildvc.bat
 
-### Build RingMurmurHash
+#### Build RingMurmurHash
 	
 	cd ring/extensions/ringmurmurhash
 	buildvc.bat
 	
-### Generate RingAllegro Source Code and Build 
+#### Generate RingAllegro Source Code and Build 
 	
 	cd ring/extensions/ringallegro
 	gencode.bat
 	buildvc.bat
 	
-### Generate RingLibuv Source Code and Build 
+#### Generate RingLibuv Source Code and Build 
 	
 	cd ring/extensions/ringlibuv
 	gencode.bat
 	buildvc.bat
 
-### Generate RingFreeGLUT Source Code and Build 
+#### Generate RingFreeGLUT Source Code and Build 
 	
 	cd ring/extensions/ringfreeglut
 	gencode.bat
 	buildvc.bat
 
-### Generate RingOpenGL Source Code and Build 
+#### Generate RingOpenGL Source Code and Build 
 
 The ringopengl folder contains many sub folders for different OpenGL versions
 Starting from OpenGL 1.1 to OpenGL 4.6
@@ -132,12 +144,12 @@ To Copy the Qt runtime files to ring/bin folder
 	installqt515.bat
 
 
-### To be able to call ring from any folder 
+#### To be able to call ring from any folder 
 	
 	cd ring/bin
 	install.bat
 	
-#### Add Ring/bin to System path
+##### Add Ring/bin to System path
 
 	Hit "windows key".
 	Type "Edit the System environment variables"
@@ -147,7 +159,7 @@ To Copy the Qt runtime files to ring/bin folder
 	Add at the end the new path separated by semicolon. 
 		;C:\Ring\Bin
 	
-### Run Ring Notepad
+#### Run Ring Notepad
 	
 	cd ring/tools/ringnotepad
 	ring rnote.ring
@@ -156,9 +168,12 @@ Also, We can run Ring Notepad using Ring Package Manager
 
 	ringpm run ringnotepad
 
-### More Extensions
+#### More Extensions
 
 The previous steps demonstrates building Ring and some of the Ring extensions.
 
 There are more extensions in ring/extensions folder like RingCJSON, RingHTTPLib, etc.
 
+#### 64bit version
+
+To build 64bit version use buildvc_x64.bat files instead of buildvc.bat
