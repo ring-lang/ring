@@ -15,6 +15,7 @@ List of changes and new features
 
 Ring 1.19 comes with the next features!
 
+* Planetary Orbits application
 * Hours Counter application
 * Ring for Windows 64bit
 * Better batch files for building Ring 
@@ -22,6 +23,16 @@ Ring 1.19 comes with the next features!
 * More Samples
 * More Improvements
 
+.. index:: 
+	pair: What is new in Ring  1.19; Planetary Orbits applications
+
+Planetary Orbits applications
+=============================
+
+An example about drawing and using the Matrix library
+
+.. image:: planetaryorbits.png
+	:alt: planetaryorbits
 
 .. index:: 
 	pair: What is new in Ring  1.19; Hours Counter application
