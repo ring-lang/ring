@@ -183,7 +183,7 @@ brushE      = new qbrush() { setstyle(0)  setcolor (colorYellow)}   ### Empty
             // SOLARSYSTEM3
             imageStock = new qlabel(win)                              // Place at top center of screen
             {
-                    image = new qPixMap("SolarSystem4.png")          // image width 1264 height 213
+                    image = new qPixMap("images/SolarSystem4.png")          // image width 1264 height 213
                     AspectRatio = image.width() / image.height()
                     
                     setpixmap(image.scaled(image.Width() , image.Height() ,0,0))   ### Size-H, Siz-V, Aspect, Transform
@@ -197,14 +197,14 @@ brushE      = new qbrush() { setstyle(0)  setcolor (colorYellow)}   ### Empty
             // SUN3 - 200x200
             imageStockX = new qlabel(win) 
             {
-                image = new qPixMap("Sun4.png")         
+                image = new qPixMap("images/Sun4.png")         
                 setpixmap( image.scaled(image.width() / ImageScale, image.height() / ImageScale , 0, 0) ) 
             }
 
             // PLANET Planet - 200x200
             imageStockP = new qlabel(win) 
             {
-                image = new qPixMap("Mercury4.png")
+                image = new qPixMap("images/Mercury4.png")
                 setpixmap( image.scaled(image.width() / ImageScale, image.height() / ImageScale , 0, 0) )                            
             }
 
@@ -212,84 +212,84 @@ brushE      = new qbrush() { setstyle(0)  setcolor (colorYellow)}   ### Empty
             // PLANET MERCURY3 - 200x200
             imageStockM = new qlabel(win) 
             {
-                image = new qPixMap("Mercury4.png")
+                image = new qPixMap("images/Mercury4.png")
                 setpixmap( image.scaled(image.width() / ImageScale, image.height() / ImageScale , 0, 0) )                           
             }
             
             // PLANET VENUS3 - 200x200
             imageStockV = new qlabel(win) 
             {
-                image = new qPixMap("VENUS4.png")
+                image = new qPixMap("images/VENUS4.png")
                 setpixmap( image.scaled(image.width() / ImageScale, image.height() / ImageScale , 0, 0) )                           
             }
 
             // PLANET EARTH3 - 200x200
             imageStockE = new qlabel(win) 
             {
-                image = new qPixMap("Earth4.png")
+                image = new qPixMap("images/Earth4.png")
                 setpixmap( image.scaled(image.width() / ImageScale, image.height() / ImageScale , 0, 0) )                           
             }
             
             // PLANET MARS3 - 200x200
             imageStockMa = new qlabel(win) 
             {
-                image = new qPixMap("Mars4.png")
+                image = new qPixMap("images/Mars4.png")
                 setpixmap( image.scaled(image.width() / ImageScale, image.height() / ImageScale , 0, 0) )                            
             }           
 
             // PLANET Ceres3 - 200x200
             imageStockC = new qlabel(win) 
             {
-                image = new qPixMap("Ceres4.png")
+                image = new qPixMap("images/Ceres4.png")
                 setpixmap( image.scaled(image.width() / ImageScale, image.height() / ImageScale , 0, 0) )                            
             }
             
             // PLANET Jupiter3 - 200x200
             imageStockJ = new qlabel(win) 
             {
-                image = new qPixMap("Jupiter4.png")
+                image = new qPixMap("images/Jupiter4.png")
                 setpixmap( image.scaled(image.width() / ImageScale, image.height() / ImageScale , 0, 0) )                           
             }
             
             // PLANET Saturn3 - 200x200
             imageStockS = new qlabel(win) 
             {
-                image = new qPixMap("Saturn4.png")
+                image = new qPixMap("images/Saturn4.png")
                 setpixmap( image.scaled(image.width() / ImageScale, image.height() / ImageScale , 0, 0) )                            
             }
 
             // PLANET Uranus3 - 200x200
             imageStockU = new qlabel(win) 
             {
-                image = new qPixMap("Uranus4.png")
+                image = new qPixMap("images/Uranus4.png")
                 setpixmap( image.scaled(image.width() / ImageScale, image.height() / ImageScale , 0, 0) )                            
             }
 
             // PLANET Neptune3 - 200x200
             imageStockN = new qlabel(win) 
             {
-                image = new qPixMap("Neptune4.png")
+                image = new qPixMap("images/Neptune4.png")
                 setpixmap( image.scaled(image.width() / ImageScale, image.height() / ImageScale , 0, 0) )                            
             }
 
             // PLANET Pluto3 - 200x200
             imageStockPl = new qlabel(win) 
             {
-                image = new qPixMap("Pluto4.png")
+                image = new qPixMap("images/Pluto4.png")
                 setpixmap( image.scaled(image.width() / ImageScale, image.height() / ImageScale , 0, 0) )                            
             }           
             
             // PLANET HALLEY3
             imageStockH = new qlabel(win) 
             {
-                image = new qPixMap("Halley4.png")
+                image = new qPixMap("images/Halley4.png")
                 setpixmap( image.scaled(image.width() / ImageScale, image.height() / ImageScale , 0, 0) )                            
             }           
 
             // PLANET ICARUS3
             imageStockI = new qlabel(win) 
             {
-                image = new qPixMap("Icarus4.png")
+                image = new qPixMap("images/Icarus4.png")
                 setpixmap( image.scaled(image.width() / ImageScale, image.height() / ImageScale , 0, 0) )                            
             }           
 
