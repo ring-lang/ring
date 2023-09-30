@@ -1,4 +1,5 @@
 aNews = [
+  ["September 30, 2023",'<a href="https://github.com/ring-lang/ring/tree/master/applications/planetaryorbits"> Application: Planetary Orbits</a>'],
   ["September 20, 2023",'<a href="https://github.com/ring-lang/ring/tree/master/applications/hourscounter"> Application: Hours Counter</a>'],
   ["July 12, 2023",'<a href="doc1.18/whatisnew18.html"> Ring 1.18 Released!</a>'],
   ["June 18, 2023",'<a href="https://www.mdpi.com/2079-9292/12/12/2720"> Journal Paper uses PWCT, Ring & Azure ML- Machine Learning and Cochlear Implantation</a>'],
