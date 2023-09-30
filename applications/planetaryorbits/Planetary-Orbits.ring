@@ -124,10 +124,6 @@ imageStockH    = null      // Halley
 imageStockI    = null      // Icarus
 
 
-//imageStockP.image = new qPixMap("Mercury3.jpg")   ???
-//image         = new qPixMap("Sun1.jpg")  // ???
-
-
 ###-------------------------------
 ### Define Colours, Pens, Brushes
 
