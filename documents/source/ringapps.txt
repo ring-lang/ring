@@ -262,7 +262,8 @@ Quotes about Ring
 |		, Jose Luis Cuesta (Spain)
 
 
-
+|	**"Ring is a breath of fresh air in language designs for application development."**
+|		, Gary Chike
 
 .. index:: 
 	pair: Applications developed in a few hours; FetchStockData Application
