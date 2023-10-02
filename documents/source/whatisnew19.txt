@@ -100,6 +100,7 @@ More Samples
 
 * Added: samples/Language/Constants
 * Added: samples/UsingQt/CustomDragAndDrop/customdraganddrop.ring 
+* Added: samples/UsingMatrixLib/59-Matrix-Transform-Draw-Rotation.ring
 
 .. index:: 
 	pair: What is new in Ring  1.19; More Improvements
@@ -114,4 +115,5 @@ More Improvements
 * Better RingMySQL sample - samples/AQuickStart/MySQL/mysql7.ring
 * Form Designer - Better behavior when displaying the MenuBar editor
 * MatrixLib - Added: RowReduceEchelonForm() function
+* MatrixLib - Added: MatrixTransform() function
 * ObjectsLib - Better Code
