@@ -38,8 +38,9 @@
 // 34 CharEquation(N)              // Characteristic Polynomial of 4x4 Matrix [A - λI] format -12 -44x -46x2 -10x3 +x4
 // 34 EigenValueN)                 // Find EigenValues 2x2, 3x3, 4x4 Matrix
 // 35 EigenVectors(A)              // Find EigenVectors 2x2, 3x3 Matrix
-// 36 RowReduceEchelonForm(M)      // Row Reduce Echelon Form, Gausian-Jordan Elimination
-//
+// 36 RowReduceEchelonForm(M)      // Row Reduce Echelon Form, Gausian-Jordan Elimination                       
+// 37 MatrixTransform(Rx,Ry,Rz, Sx,Sy,Sz, Tx,Ty,Tz, Hx,Hy,Hz, Fx,Fy,Fz ) //  Rotate,Scale,Translate,sHear,reFlection
+
 //--------------------------------------------
 // GLOBAL Constants
 RAD = 57.295779513                             // 180/Pi=1  Radian=57.3 degress
@@ -92,8 +93,9 @@ return
 // Alternate Name
 
 Func MatrixMultiply(U,V)
-     W = MatrixMulti(U,V)
+    W = MatrixMulti(U,V)
 return W
+
 
 Func MatrixTranspose(U)
      W = MatrixTrans(U)
@@ -153,12 +155,16 @@ Func MatrixAdd(U,V)
         See "Error: Matrix ADD Dimension: "+ nl
         See "vertU: "+ vertU +" vertV: "+ vertV +" MUST BE EQUAL " +nl
         See "horzU: "+ horzU +" horzV: "+ horzV +" MUST BE EQUAL "+ nl
+        
+        See "U" MatrixPrint(U)
+        See "V" MatrixPrint(V)
+        
         return 1
     ok 
     
     for i = 1 to vertU
         for j = 1 to horzV
-            W[i][j] = U[i][j] + V[i][j]      
+            W[i][j] = (0 + U[i][j]) + (0 + V[i][j])      
         next
     next
     
@@ -186,7 +192,7 @@ Func MatrixSub(U,V)
     
     for i = 1 to vertU
         for j = 1 to horzV
-            W[i][j] = U[i][j] - V[i][j]      
+            W[i][j] = number(U[i][j]) - number(V[i][j])      
         next
     next
     
@@ -2307,5 +2313,131 @@ next
 
 return M
 
-//========================================
-//========================================
+
+##==========================================================================
+###==========================================================================
+// MATRIX-TRANSFORM
+// Input  Parameters 5-combos, Angles etc for Rotate-Scale-Translate-Sheare-Reflecte
+// Return Matrix 4x4 combo matrix of the parameters
+//
+//  Useage:
+//  aPoints = [[1], // X   // Points x-y-x-0  4x1
+//             [2], // Y
+//             [3], // Z
+//             [1]] // MUST be =1 for Translate to work.   
+//                                                
+//  MT = MatrixTransform(Rx,Ry,Rz, Sx,Sy,Sz, Tx,Ty,Tz, Hx,Hy,Hz, Fx,Fy,Fz )   // MT 4x4
+//  MR = MatrixMultiply( MT, aPoints)                                         // Matrix Result 4x1
+//  See "Matrix Result"    MatrixPrint(MR)                                     
+//
+// EXAMPLE:
+//      MT = MatrixTransform(Rx,Ry,Rz, Sx,Sy,Sz, Tx,Ty,Tz, Hx,Hy,Hz, Fx,Fy,Fz )
+//
+//      VShape = Points    
+//      k = 100                                 //  K = SCALAR MULTIPLY to increase size
+//      ShapeObj  = ScalarMultiply(k,VShape)
+//      ShapeLen  = len(ShapeObj)               // How many Points to Tranform-Draw
+//      Corners   = ShapeObj                    // Initial Points allocation for Draw
+//  
+//      for i = 1 to ShapeLen
+//           
+//          A =[[ ShapeObj[i][1] ],          // X // X Y Z => 4x1  (Points convert Horz to Vert)
+//              [ ShapeObj[i][2] ],          // Y
+//              [ ShapeObj[i][3] ],          // Z
+//              [             1  ]]          // MUST =1 for Tranlate to work.
+//
+//
+//          FC = MatrixMultiply(MT,A)        // USAGE:  MatrixTranform-Combo 4x4 * Points 4x1 (Point Horz to Vert)
+//
+//              Corners[i][1] = FC[1][1]     // Point Result 4x1 - Vert format
+//              Corners[i][2] = FC[2][1]     // Put them back from Vert to Horz for Image Draw of the Array of Points
+//              Corners[i][3] = FC[3][1]
+//           
+//      next
+//--------------------------------------------- 
+//
+//----------------------------------------------------------------------------
+//                   Rotate    Scale     Translate sHear     reFlection
+Func MatrixTransform(Rx,Ry,Rz, Sx,Sy,Sz, Tx,Ty,Tz, Hx,Hy,Hz, Fx,Fy,Fz )
+        
+        //========================================
+        // SCALE
+        
+        S =[[ Sx,  0,  0, 0 ],            // Scale - size         
+            [  0, Sy,  0, 0 ],
+            [  0,  0, Sz, 0 ],
+            [  0,  0,  0, 1 ]]           
+
+
+        //========================================      
+        // ROTATION MATRIX EQUATIONS  Matrix  X-Y-Z-0,  4x4         
+
+        X =[[    1,        0,        0,     0 ],     // Rx Rotation: 
+            [    0,      cos(Rx), -sin(Rx), 0 ],
+            [    0,      sin(Rx),  cos(Rx), 0 ],  
+            [    0,        0,        0,     1 ]]    
+
+        Y =[[  cos(Ry),    0,      sin(Ry), 0 ],     // Ry Rotation
+            [    0,        1,        0,     0 ],
+            [ -sin(Ry),    0,      cos(Ry), 0 ],
+            [    0,        0,        0,     1 ]]     
+
+        Z =[[  cos(Rz), -sin(Rz),    0,     0 ],     // Rz Rotation         
+            [  sin(Rz),  cos(Rz),    0,     0 ],
+            [    0,        0,        1,     0 ],
+            [    0,        0,        0,     1 ]]     
+
+        //=========================================
+        // TRANSLATE -400 to +400
+
+        TM =[[ 1, 0, 0, Tx ],             // Translate - move 
+             [ 0, 1, 0, Ty ], 
+             [ 0, 0, 1, Tz ],
+             [ 0, 0, 0,  1 ]]             
+             
+        //=========================================
+        // SHEAR 
+       
+       
+        H = [[  1,  Hx,  Hx, 0],          // Shear - distort
+             [ Hy,   1,  Hy, 0], 
+             [ Hz,  Hz,   1, 0], 
+             [  0,   0,   0, 1]]          
+
+
+        //=========================================
+        // REFLECTION  1 or -1   not 0
+       
+        RF  =  [[  Fx,   0,   0, 0],      // Reflection - mirror 
+                [   0,  Fy,   0, 0],
+                [   0,   0,  Fz, 0],
+                [   0,   0,   0, 1]]      
+
+        //=========================================     
+        //-----------------------------------------
+        // SRT  Scale, Rotate, Translate, (Shear, Reflextion)
+        // Any combination of the order S*R*T gives a valid transformation matrix. 
+        // However, it is pretty common to first scale the object, then rotate it, then translate it:
+
+
+        CX = MatrixMultiply(X,S)     // ROTATION-3D X * SCALE       
+        CY = MatrixMultiply(Y,CX)    // ROTATION-3D Y   
+        CZ = MatrixMultiply(Z,CY)    // ROTATION-3D z
+
+        CT = MatrixMultiply(TM,CZ)   // TRANSLATE  -- Change Position       
+        CH = MatrixMultiply(H,CT)    // SHEAR      -- Distort
+        CR = MatrixMultiply(RF,CH)   // REFLECTION -- Mirror -1, 0, 1    
+  
+        FC = CR                      // FINAL FC transform - SRT - Vertical 4x1  
+
+    //=========================================
+         
+return FC    //  Modified  Matrix-Transform 4x$  from Input Parameters
+
+
+###==========================================================================
+###==========================================================================
+
+
+
+
