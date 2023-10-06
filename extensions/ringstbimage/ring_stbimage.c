@@ -119,8 +119,6 @@ RING_FUNC(ring_stbi_load)
 	RING_API_ACCEPTINTVALUE(4) ;
 }
 
-
-
 RING_FUNC(ring_stbi_load_from_file)
 {
 	unsigned char *pData;
@@ -159,6 +157,45 @@ RING_FUNC(ring_stbi_load_from_file)
 	RING_API_ACCEPTINTVALUE(3) ;
 	RING_API_ACCEPTINTVALUE(4) ;
 }
+
+RING_FUNC(ring_stbi_bytes2list)
+{
+	unsigned char *pData;
+	List *pList, *pSubList;
+	int nIndex;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pData  = RING_API_GETSTRING(1);
+	nIndex = 0;
+	pList = RING_API_NEWLIST;
+	for (int x=1 ; x <= ((int) RING_API_GETNUMBER(2)) ; x++ ) {
+		for (int y=1 ; y <= ((int) RING_API_GETNUMBER(3)) ; y++ ) {
+			pSubList = ring_list_newlist(pList);
+			ring_list_adddouble(pSubList,(double) x);
+			ring_list_adddouble(pSubList,(double) y);
+			ring_list_adddouble(pSubList,(double) pData[nIndex++]);
+			ring_list_adddouble(pSubList,(double) pData[nIndex++]);	
+			ring_list_adddouble(pSubList,(double) pData[nIndex++]);
+			ring_list_adddouble(pSubList,(double) 1.0);		
+		}
+	}
+	RING_API_RETLIST(pList);
+}
+
 
 RING_FUNC(ring_stbi_load_16_from_memory)
 {
@@ -831,6 +868,7 @@ RING_LIBINIT
 	RING_API_REGISTER("stbi_load_from_memory",ring_stbi_load_from_memory);
 	RING_API_REGISTER("stbi_load",ring_stbi_load);
 	RING_API_REGISTER("stbi_load_from_file",ring_stbi_load_from_file);
+	RING_API_REGISTER("stbi_bytes2list",ring_stbi_bytes2list);
 	RING_API_REGISTER("stbi_load_16_from_memory",ring_stbi_load_16_from_memory);
 	RING_API_REGISTER("stbi_load_16",ring_stbi_load_16);
 	RING_API_REGISTER("stbi_load_from_file_16",ring_stbi_load_from_file_16);
