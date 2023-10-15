@@ -566,7 +566,7 @@ int ring_parser_range ( Parser *pParser )
 
 int ring_parser_factor ( Parser *pParser,int *nFlag )
 {
-    int x,x2,x3,nLastOperation,nCount,nNOOP,nToken,nMark,nFlag2,nThisOrSelfLoadA,nThisLoadA,lNewFrom  ;
+    int x,x2,x3,nLastOperation,nCount,nNOOP,nToken,nMark,nFlag2,nThisOrSelfLoadA,nThisLoadA,lNewFrom,lAfterListEnd  ;
     List *pLoadAPos, *pLoadAMark,*pList, *pMark,*pAssignmentPointerPos  ;
     char lSetProperty,lequal,nBeforeEqual  ;
     char cFuncName[100]  ;
@@ -693,14 +693,16 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
                 **  We do this when we are not inside Brace 
                 */
                 nNOOP = 0 ;
-                if ( (ring_parser_icg_getlastoperation(pParser) == ICO_LISTEND) && (pParser->nBraceFlag == 0) ) {
+                lAfterListEnd = (ring_parser_icg_getlastoperation(pParser) == ICO_NEWLINE) && ring_parser_icg_getoperationbeforelastoperation(pParser) == ICO_LISTEND ;
+                lAfterListEnd = lAfterListEnd || (ring_parser_icg_getlastoperation(pParser) == ICO_LISTEND) ;
+                if ( lAfterListEnd && (pParser->nBraceFlag == 0) ) {
                     if ( (lSetProperty == 0) || pParser->nThisOrSelfLoadA ) {
                         return x ;
                     }
                     /* Disable Assignment Pointer */
                     ring_parser_icg_addoperandint(pParser,pAssignmentPointerPos,0);
                 }
-                else if ( (ring_parser_icg_getlastoperation(pParser) == ICO_LISTEND) && (pParser->nBraceFlag >= 1) ) {
+                else if ( lAfterListEnd && (pParser->nBraceFlag >= 1) ) {
                     nNOOP = 1 ;
                     /*
                     **  No Assignment is required but we add ICO_NOOP instead 
