@@ -3,7 +3,7 @@ Programming Without Coding Technology (PWCT) 2.0
 
 * Posted: 30 April 2021
 
-* Date last Updated: 04 October 2023
+* Date last Updated: 20 October 2023
 
 # Contents:
 
@@ -369,6 +369,8 @@ More videos
 * [GUI - Button & Click Event](https://www.youtube.com/watch?v=eqQpzzSDq5k)
 * [RayLib Library & FlappyBird3000](https://www.youtube.com/watch?v=8a75XWfFhKc)
 * [Read-only TextEdit](https://www.youtube.com/watch?v=DNW3Iu5-Mns)
+* [Creating a Menubar](https://www.youtube.com/watch?v=bT9yKd6O38g)
+
 
 ## Get PWCT2
 
