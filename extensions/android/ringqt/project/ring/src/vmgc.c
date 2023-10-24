@@ -549,6 +549,10 @@ RING_API int ring_list_checkrefinleftside ( void *pState,List *pList )
 
 RING_API int ring_list_checkrefvarinleftside ( void *pState,List *pVar )
 {
+    /* Check Temp. variable */
+    if ( strcmp(ring_list_getstring(pVar,RING_VAR_NAME),RING_TEMP_VARIABLE) == 0 ) {
+        return 1 ;
+    }
     if ( ring_list_getint(pVar,RING_VAR_TYPE) == RING_VM_LIST ) {
         if ( ring_list_islist(pVar,RING_VAR_VALUE) ) {
             return ring_list_checkrefinleftside(pState,ring_list_getlist(pVar,RING_VAR_VALUE)) ;
