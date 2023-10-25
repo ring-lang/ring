@@ -721,20 +721,20 @@ int ring_vm_isstackpointertoobjstate ( VM *pVM )
 
 List * ring_vm_prevtempmem ( VM *pVM )
 {
-    List *pList  ;
+    List *pList, *pTemp  ;
     int x  ;
     /* We use the general temp. memory as the default parent */
-    pList = pVM->pTempMem ;
+    pTemp = pVM->pTempMem ;
     /* Get Temp Memory of the previous function */
     for ( x = ring_list_getsize(pVM->pFuncCallList)-1 ; x >= 1 ; x-- ) {
         pList = ring_list_getlist(pVM->pFuncCallList,x);
-        if ( ring_list_getsize(pList) >= RING_FUNCCL_TEMPMEM ) {
+        if ( ring_list_getsize(pList) >= RING_FUNCCL_CALLERPC ) {
             /* Get Temp Mem */
-            pList = ring_list_getlist(pList,RING_FUNCCL_TEMPMEM);
+            pTemp = ring_list_getlist(pList,RING_FUNCCL_TEMPMEM);
             break ;
         }
     }
-    return pList ;
+    return pTemp ;
 }
 
 void ring_vm_freetemplistsins ( VM *pVM )
