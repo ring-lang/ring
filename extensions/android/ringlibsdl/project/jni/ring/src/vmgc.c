@@ -1041,3 +1041,16 @@ void ring_poolmanager_deleteblockfromsubthread ( RingState *pSubRingState,RingSt
         pMemory = pSubRingState->vPoolManager.pCurrentItem ;
     }
 }
+/* VMState Memory Functions */
+
+VMState * ring_vmstate_new ( RingState *pRingState )
+{
+    VMState *pVMState  ;
+    pVMState = (VMState *) ring_state_malloc(pRingState,sizeof(VMState)) ;
+    return pVMState ;
+}
+
+void ring_vmstate_delete ( void *pState,void *pMemory )
+{
+    ring_state_free(pState,pMemory);
+}

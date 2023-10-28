@@ -8,9 +8,9 @@ void ring_vm_savestate ( VM *pVM,List *pList )
     VMState *pVMState  ;
     Item *pItem  ;
     /* Using VMState */
-    pVMState = (VMState *) ring_state_malloc(pVM->pRingState,sizeof(VMState));
+    pVMState = ring_vmstate_new(pVM->pRingState);
     /* Save the state as Managed C Pointer */
-    ring_list_addringpointer_gc(pVM->pRingState,pList,pVMState);
+    ring_list_addcustomringpointer_gc(pVM->pRingState,pList,pVMState,ring_vmstate_delete);
     pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
     /* Save the data */
     pVMState->aNumbers[0] = ring_list_getsize(pVM->pMem) ;
@@ -227,10 +227,10 @@ void ring_vm_savestateforfunctions ( VM *pVM,List *pList )
     VMState *pVMState  ;
     Item *pItem  ;
     /* Using VMState */
-    pVMState = (VMState *) ring_state_malloc(pVM->pRingState,sizeof(VMState));
+    pVMState = ring_vmstate_new(pVM->pRingState);
     pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
     /* Save the state as Managed C Pointer */
-    ring_list_addringpointer_gc(pVM->pRingState,pList,pVMState);
+    ring_list_addcustomringpointer_gc(pVM->pRingState,pList,pVMState,ring_vmstate_delete);
     /* Save the Data */
     pVMState->aNumbers[0] = ring_list_getsize(pVM->pExitMark) ;
     pVMState->aNumbers[1] = ring_list_getsize(pVM->pLoopMark) ;
@@ -345,9 +345,9 @@ void ring_vm_savestatefornewobjects ( VM *pVM )
     VMState *pVMState  ;
     Item *pItem  ;
     /* Using VMState */
-    pVMState = (VMState *) ring_state_malloc(pVM->pRingState,sizeof(VMState));
+    pVMState = ring_vmstate_new(pVM->pRingState);
     /* Save the state as Managed C Pointer */
-    ring_list_addringpointer_gc(pVM->pRingState,pVM->aScopeNewObj,pVMState);
+    ring_list_addcustomringpointer_gc(pVM->pRingState,pVM->aScopeNewObj,pVMState,ring_vmstate_delete);
     /*
     **  Save the Data 
     **  Save the Active Memory 

@@ -1376,3 +1376,16 @@ RING_API int ring_list_cpointercmp ( List *pList,List *pList2 )
 {
     return ring_list_getpointer(pList,RING_CPOINTER_POINTER) == ring_list_getpointer(pList2,RING_CPOINTER_POINTER) ;
 }
+
+RING_API void ring_list_addcustomringpointer_gc ( void *pState,List *pList,void *pValue,void (* pFreeFunc)(void *,void *) )
+{
+    List *pPointerList  ;
+    Item *pItem  ;
+    assert(pList != NULL);
+    pPointerList = ring_list_newlist_gc(pState,pList);
+    ring_list_addpointer_gc(pState,pPointerList,pValue);
+    ring_list_addstring_gc(pState,pPointerList,"RingPointer");
+    ring_list_addint_gc(pState,pPointerList,RING_CPOINTERSTATUS_NOTASSIGNED);
+    pItem = ring_list_getitem(pPointerList,RING_CPOINTER_POINTER);
+    ring_vm_gc_setfreefunc(pItem,pFreeFunc);
+}

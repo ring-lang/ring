@@ -139,4 +139,9 @@
     void ring_poolmanager_newblockfromsubthread ( RingState *pSubRingState,int nCount,RingState *pMainRingState ) ;
 
     void ring_poolmanager_deleteblockfromsubthread ( RingState *pSubRingState,RingState *pMainRingState ) ;
+    /* VMState Memory Functions */
+
+    VMState * ring_vmstate_new ( RingState *pRingState ) ;
+
+    void ring_vmstate_delete ( void *pState,void *pMemory ) ;
 #endif
