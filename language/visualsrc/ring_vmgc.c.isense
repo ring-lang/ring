@@ -51,6 +51,8 @@ RING_POOLMANAGER_ITEMSINBLOCK
 RING_POOLMANAGER_ITEMSTRINGSIZE
 RING_POOLMANAGER_ITEMSTRINGSIZEL2
 RING_POOLMANAGER_ITEMSINBLOCKL2
+RING_VM_STATE_NUMBERS_COUNT
+RING_VM_STATE_POINTERS_COUNT
 Parent: PoolData
 Parent: PoolDataTypes
 Type: String
@@ -79,9 +81,27 @@ struct PoolData *
 Type: PoolData
 Mark: ->
 PoolData *
+Parent: VMState
+Type: int
+aNumbers[RING_VM_STATE_NUMBERS_COUNT]
+Type: void *
+aPointers[RING_VM_STATE_POINTERS_COUNT]
+END:
+Type: VMState
+struct VMState
+Type: VMState
+Mark: ->
+struct VMState *
+Type: VMState
+Mark: ->
+VMState *
 Parent: PoolDataL2
+Parent: PoolDataL2Types
+Type: VMState
+vHashItem
 Type: char
 cChar[RING_POOLMANAGER_ITEMSTRINGSIZEL2]
+END:
 Type: struct PoolDataL2 *
 pNext
 END:

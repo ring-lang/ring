@@ -13,8 +13,10 @@
     #define RING_TRACKALLOCATIONS 0
     #define RING_POOLMANAGER_ITEMSINBLOCK 2000000
     #define RING_POOLMANAGER_ITEMSTRINGSIZE 80
-    #define RING_POOLMANAGER_ITEMSTRINGSIZEL2 256
+    #define RING_POOLMANAGER_ITEMSTRINGSIZEL2 220
     #define RING_POOLMANAGER_ITEMSINBLOCKL2 1000
+    #define RING_VM_STATE_NUMBERS_COUNT 35
+    #define RING_VM_STATE_POINTERS_COUNT 10
     /* Data */
     typedef struct PoolData {
         union PoolDataTypes {
@@ -28,8 +30,15 @@
         } PoolDataTypes ;
         struct PoolData *pNext  ;
     } PoolData ;
+    typedef struct VMState {
+        int aNumbers[RING_VM_STATE_NUMBERS_COUNT]  ;
+        void *aPointers[RING_VM_STATE_POINTERS_COUNT]  ;
+    } VMState ;
     typedef struct PoolDataL2 {
-        char cChar[RING_POOLMANAGER_ITEMSTRINGSIZEL2]  ;
+        union PoolDataL2Types {
+            VMState vVMState  ;
+            char cChar[RING_POOLMANAGER_ITEMSTRINGSIZEL2]  ;
+        } PoolDataL2Types ;
         struct PoolDataL2 *pNext  ;
     } PoolDataL2 ;
     typedef struct PoolManager {

@@ -14,8 +14,6 @@
     #endif
     #define RING_VM_FREE_STACK_IN_CLASS_REGION_AFTER 100
     #define RING_VM_BC_ITEMS_COUNT 5
-    #define RING_VM_STATE_NUMBERS_COUNT 35
-    #define RING_VM_STATE_POINTERS_COUNT 10
     #define RING_VM_MAXDIGITSINNUMBER 15
     /* Register Type */
     #define RING_VM_REGTYPE_NOTHING 0
@@ -138,10 +136,6 @@
         unsigned char lSelfLoadA  ;
         List *aDeleteLater  ;
     } VM ;
-    typedef struct VMState {
-        int aNumbers[RING_VM_STATE_NUMBERS_COUNT]  ;
-        void *aPointers[RING_VM_STATE_POINTERS_COUNT]  ;
-    } VMState ;
     /*
     **  Macro & Constants 
     **  Stack 
