@@ -900,14 +900,19 @@ void ring_poolmanager_new ( RingState *pRingState )
     pRingState->vPoolManager.pCurrentItem = NULL ;
     pRingState->vPoolManager.pBlockStart = NULL ;
     pRingState->vPoolManager.pBlockEnd = NULL ;
+    pRingState->vPoolManager.pCurrentItemL2 = NULL ;
+    pRingState->vPoolManager.pBlockStartL2 = NULL ;
+    pRingState->vPoolManager.pBlockEndL2 = NULL ;
     pRingState->vPoolManager.aBlocks = ring_list_new(0) ;
     pRingState->vPoolManager.nItemsInBlock = RING_POOLMANAGER_ITEMSINBLOCK ;
+    pRingState->vPoolManager.nItemsInBlockL2 = RING_POOLMANAGER_ITEMSINBLOCKL2 ;
     pRingState->vPoolManager.lDeleteMemory = 1 ;
 }
 
 void ring_poolmanager_newblock ( RingState *pRingState )
 {
     PoolData *pMemory  ;
+    PoolDataL2 *pMemoryL2  ;
     int x  ;
     /* Get Block Memory */
     pMemory = (PoolData *) ring_calloc(pRingState->vPoolManager.nItemsInBlock,sizeof(PoolData));
@@ -929,6 +934,24 @@ void ring_poolmanager_newblock ( RingState *pRingState )
     pRingState->vPoolManager.nFreeCount = 0 ;
     pRingState->vPoolManager.nSmallAllocCount = 0 ;
     pRingState->vPoolManager.nSmallFreeCount = 0 ;
+    /*
+    **  Level 2 
+    **  Get Block Memory 
+    */
+    pMemoryL2 = (PoolDataL2 *) ring_calloc(pRingState->vPoolManager.nItemsInBlockL2,sizeof(PoolDataL2));
+    /* Set Linked Lists (pNext values) */
+    for ( x = 0 ; x < pRingState->vPoolManager.nItemsInBlockL2 - 1 ; x++ ) {
+        pMemoryL2[x].pNext = pMemoryL2+x+1 ;
+    }
+    pMemoryL2[pRingState->vPoolManager.nItemsInBlockL2-1].pNext = NULL ;
+    /*
+    **  Set Values in Ring State 
+    **  Set First Item in Ring State 
+    */
+    pRingState->vPoolManager.pCurrentItemL2 = pMemoryL2 ;
+    /* Set Block Start and End */
+    pRingState->vPoolManager.pBlockStartL2 = (void *) pMemoryL2 ;
+    pRingState->vPoolManager.pBlockEndL2 = (void *) (pMemoryL2 + pRingState->vPoolManager.nItemsInBlockL2 - 1) ;
 }
 
 void * ring_poolmanager_allocate ( RingState *pRingState,size_t size )
@@ -994,6 +1017,12 @@ void ring_poolmanager_delete ( RingState *pRingState )
                 pRingState->vPoolManager.pBlockEnd = NULL ;
                 pRingState->vPoolManager.pCurrentItem = NULL ;
             }
+            if ( pRingState->vPoolManager.pBlockStartL2 != NULL ) {
+                free( pRingState->vPoolManager.pBlockStartL2 ) ;
+                pRingState->vPoolManager.pBlockStartL2 = NULL ;
+                pRingState->vPoolManager.pBlockEndL2 = NULL ;
+                pRingState->vPoolManager.pCurrentItemL2 = NULL ;
+            }
         }
     }
 }
@@ -1046,11 +1075,36 @@ void ring_poolmanager_deleteblockfromsubthread ( RingState *pSubRingState,RingSt
 VMState * ring_vmstate_new ( RingState *pRingState )
 {
     VMState *pVMState  ;
-    pVMState = (VMState *) ring_state_malloc(pRingState,sizeof(VMState)) ;
+    #if RING_USEPOOLMANAGER
+        if ( pRingState != NULL ) {
+            /* Get Item from the Pool Manager */
+            if ( pRingState->vPoolManager.pCurrentItemL2 != NULL ) {
+                pVMState = (VMState *) pRingState->vPoolManager.pCurrentItemL2 ;
+                pRingState->vPoolManager.pCurrentItemL2 = pRingState->vPoolManager.pCurrentItemL2->pNext ;
+                return pVMState ;
+            }
+        }
+    #endif
+    pVMState = (VMState *) ring_malloc(sizeof(VMState)) ;
     return pVMState ;
 }
 
 void ring_vmstate_delete ( void *pState,void *pMemory )
 {
-    ring_state_free(pState,pMemory);
+    RingState *pRingState  ;
+    PoolDataL2 *pPoolDataL2  ;
+    #if RING_USEPOOLMANAGER
+        if ( pState != NULL ) {
+            pRingState = (RingState *) pState ;
+            if ( pRingState->vPoolManager.pBlockStartL2 != NULL ) {
+                if ( (pMemory >= pRingState->vPoolManager.pBlockStartL2) && (pMemory <= pRingState->vPoolManager.pBlockEndL2 ) ) {
+                    pPoolDataL2 = (PoolDataL2 *) pMemory ;
+                    pPoolDataL2->pNext = pRingState->vPoolManager.pCurrentItemL2 ;
+                    pRingState->vPoolManager.pCurrentItemL2 = pPoolDataL2 ;
+                    return ;
+                }
+            }
+        }
+    #endif
+    ring_free(pMemory);
 }
