@@ -256,6 +256,8 @@
 
     RING_API void ring_list_addringpointer_gc ( void *pState,List *pList,void *pValue ) ;
 
+    RING_API void ring_list_addcustomringpointer_gc ( void *pState,List *pList,void *pValue,void (* pFreeFunc)(void *,void *) ) ;
+
     RING_API int ring_list_isobject ( List *pList ) ;
 
     RING_API void ring_list_printobj ( List *pList, unsigned int nDecimals ) ;
@@ -263,6 +265,4 @@
     RING_API int ring_list_iscpointerlist ( List *pList ) ;
 
     RING_API int ring_list_cpointercmp ( List *pList,List *pList2 ) ;
-
-    RING_API void ring_list_addcustomringpointer_gc ( void *pState,List *pList,void *pValue,void (* pFreeFunc)(void *,void *) ) ;
 #endif
