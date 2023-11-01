@@ -149,9 +149,10 @@
         unsigned int nFuncExec  ;
         unsigned int nTempMemSizeAtStart  ;
         unsigned int nListStart  ;
-        List *pNestedList  ;
+        List *pNestedLists  ;
         List *pTempMem  ;
         List *pVMState  ;
+        void (*pFunc)(void *) ;
     } FuncCall ;
     /*
     **  Macro & Constants 

@@ -4,6 +4,8 @@ Type: List *
 pList,*pList2,*pList3
 Type: int
 y
+Type: FuncCall *
+pFuncCall
 ring_vm_call
 Type: List *
 pList

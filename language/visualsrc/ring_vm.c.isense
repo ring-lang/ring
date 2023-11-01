@@ -273,7 +273,7 @@ nTempMemSizeAtStart
 Type: unsigned int
 nListStart
 Type: List *
-pNestedList
+pNestedLists
 Type: List *
 pTempMem
 Type: List *
