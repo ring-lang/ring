@@ -5,8 +5,6 @@ RING_VM_STACK_SIZE
 RING_VM_STACK_CHECKOVERFLOW
 RING_VM_FREE_STACK_IN_CLASS_REGION_AFTER
 RING_VM_BC_ITEMS_COUNT
-RING_VM_STATE_NUMBERS_COUNT
-RING_VM_STATE_POINTERS_COUNT
 RING_VM_MAXDIGITSINNUMBER
 RING_VM_REGTYPE_NOTHING
 RING_VM_REGTYPE_INT
@@ -249,6 +247,46 @@ struct VM *
 Type: VM
 Mark: ->
 VM *
+Parent: FuncCall
+Type: char
+nType
+Type: char
+nMethodOrFunc
+Type: const char *
+cName
+Type: const char *
+cFileName
+Type: const char *
+cNewFileName
+Type: unsigned int
+nPC
+Type: unsigned int
+nSP
+Type: unsigned int
+nLineNumber
+Type: unsigned int
+nCallerPC
+Type: unsigned int
+nFuncExec
+Type: unsigned int
+nTempMemSizeAtStart
+Type: unsigned int
+nListStart
+Type: List *
+pNestedList
+Type: List *
+pTempMem
+Type: List *
+pState
+END:
+Type: FuncCall
+struct FuncCall
+Type: FuncCall
+Mark: ->
+struct FuncCall *
+Type: FuncCall
+Mark: ->
+FuncCall *
 RING_VM_SP_INC
 RING_VM_SP_VALUE
 RING_VM_STACK_PUSHC

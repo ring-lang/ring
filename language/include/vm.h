@@ -136,6 +136,23 @@
         unsigned char lSelfLoadA  ;
         List *aDeleteLater  ;
     } VM ;
+    typedef struct FuncCall {
+        const char *cName  ;
+        const char *cFileName  ;
+        const char *cNewFileName  ;
+        char nType  ;
+        char nMethodOrFunc  ;
+        unsigned int nPC  ;
+        unsigned int nSP  ;
+        unsigned int nLineNumber  ;
+        unsigned int nCallerPC  ;
+        unsigned int nFuncExec  ;
+        unsigned int nTempMemSizeAtStart  ;
+        unsigned int nListStart  ;
+        List *pNestedList  ;
+        List *pTempMem  ;
+        List *pVMState  ;
+    } FuncCall ;
     /*
     **  Macro & Constants 
     **  Stack 
