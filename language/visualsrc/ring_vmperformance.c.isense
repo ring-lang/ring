@@ -20,6 +20,8 @@ ring_vm_inclpjump
 ring_vm_loadfuncp
 Type: List *
 pList
+Type: FuncCall *
+pFuncCall
 ring_vm_incpjumpstep1
 Type: Item *
 pItem
