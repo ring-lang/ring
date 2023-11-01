@@ -56,7 +56,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
             }
             pList3 = ring_list_newlist_gc(pVM->pRingState,pVM->pFuncCallList);
             /* Add FuncCall Structure */
-            ring_list_addpointer_gc(pVM->pRingState,pList3,NULL);
+            ring_vm_newfunccall(pVM,pList3);
             ring_list_addint_gc(pVM->pRingState,pList3,RING_FUNCTYPE_SCRIPT);
             /* Add the function name */
             ring_list_addstring_gc(pVM->pRingState,pList3,cStr);
@@ -136,7 +136,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
     if ( pList != NULL ) {
         pList2 = ring_list_newlist_gc(pVM->pRingState,pVM->pFuncCallList);
         /* Add FuncCall Structure */
-        ring_list_addpointer_gc(pVM->pRingState,pList2,NULL);
+        ring_vm_newfunccall(pVM,pList2);
         ring_list_addint_gc(pVM->pRingState,pList2,RING_FUNCTYPE_C);
         ring_list_addstring_gc(pVM->pRingState,pList2,cStr);
         ring_list_addfuncpointer_gc(pVM->pRingState,pList2,ring_list_getfuncpointer(pList,RING_FUNCMAP_PC));
@@ -857,4 +857,12 @@ int ring_vm_timetofreetemplists ( VM *pVM )
     }
     RING_VM_IR_SETCHARREG(RING_VM_IR_GETCHARREG -1);
     return 0 ;
+}
+
+FuncCall * ring_vm_newfunccall ( VM *pVM,List *pFuncCallList )
+{
+    FuncCall *pFuncCall  ;
+    pFuncCall = ring_state_malloc(pVM->pRingState,sizeof(FuncCall));
+    ring_list_addcustomringpointer_gc(pVM->pRingState,pFuncCallList,pFuncCall,ring_state_free);
+    return pFuncCall ;
 }

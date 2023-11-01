@@ -68,3 +68,6 @@ ring_vm_retitemref
 Type: List *
 pList
 ring_vm_timetofreetemplists
+ring_vm_newfunccall
+Type: FuncCall *
+pFuncCall

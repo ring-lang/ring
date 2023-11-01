@@ -663,6 +663,8 @@
     List * ring_vm_prevtempmem ( VM *pVM ) ;
 
     void ring_vm_cleanevalcode ( VM *pVM,int nCodeSize ) ;
+
+    FuncCall * ring_vm_newfunccall ( VM *pVM,List *pFuncCallList ) ;
     /* User Interface */
 
     void ring_vm_see ( VM *pVM ) ;
