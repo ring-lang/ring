@@ -98,7 +98,7 @@ VMState *
 Parent: PoolDataL2
 Parent: PoolDataL2Types
 Type: VMState
-vHashItem
+vVMState
 Type: char
 cChar[RING_POOLMANAGER_ITEMSTRINGSIZEL2]
 END:

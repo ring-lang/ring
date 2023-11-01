@@ -248,16 +248,16 @@ Type: VM
 Mark: ->
 VM *
 Parent: FuncCall
-Type: char
-nType
-Type: char
-nMethodOrFunc
 Type: const char *
 cName
 Type: const char *
 cFileName
 Type: const char *
 cNewFileName
+Type: char
+nType
+Type: char
+nMethodOrFunc
 Type: unsigned int
 nPC
 Type: unsigned int
@@ -277,7 +277,7 @@ pNestedList
 Type: List *
 pTempMem
 Type: List *
-pState
+pVMState
 END:
 Type: FuncCall
 struct FuncCall
@@ -368,6 +368,7 @@ RING_VM_IR_SETCHARREG(x)
 RING_VM_IR_GETCHARREG
 RING_FUNCTYPE_SCRIPT
 RING_FUNCTYPE_C
+RING_FUNCCL_STRUCT
 RING_FUNCCL_TYPE
 RING_FUNCCL_NAME
 RING_FUNCCL_PC

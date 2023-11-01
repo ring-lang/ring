@@ -128,6 +128,8 @@ void ring_vm_loadfuncp ( VM *pVM )
     pVM->nFuncExecute++ ;
     pVM->nFuncExecute2++ ;
     pList = ring_list_newlist_gc(pVM->pRingState,pVM->pFuncCallList);
+    /* Add FuncCall Structure */
+    ring_list_addpointer_gc(pVM->pRingState,pList,NULL);
     ring_list_addint_gc(pVM->pRingState,pList,RING_FUNCTYPE_SCRIPT);
     ring_list_addstring_gc(pVM->pRingState,pList,RING_VM_IR_READC);
     ring_list_addint_gc(pVM->pRingState,pList,RING_VM_IR_READIVALUE(2));

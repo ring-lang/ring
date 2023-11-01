@@ -55,6 +55,8 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
                 }
             }
             pList3 = ring_list_newlist_gc(pVM->pRingState,pVM->pFuncCallList);
+            /* Add FuncCall Structure */
+            ring_list_addpointer_gc(pVM->pRingState,pList3,NULL);
             ring_list_addint_gc(pVM->pRingState,pList3,RING_FUNCTYPE_SCRIPT);
             /* Add the function name */
             ring_list_addstring_gc(pVM->pRingState,pList3,cStr);
@@ -133,6 +135,8 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
     pList = (List *) ring_hashtable_findpointer(ring_list_gethashtable(pVM->pCFunctionsList),cStr);
     if ( pList != NULL ) {
         pList2 = ring_list_newlist_gc(pVM->pRingState,pVM->pFuncCallList);
+        /* Add FuncCall Structure */
+        ring_list_addpointer_gc(pVM->pRingState,pList2,NULL);
         ring_list_addint_gc(pVM->pRingState,pList2,RING_FUNCTYPE_C);
         ring_list_addstring_gc(pVM->pRingState,pList2,cStr);
         ring_list_addfuncpointer_gc(pVM->pRingState,pList2,ring_list_getfuncpointer(pList,RING_FUNCMAP_PC));
