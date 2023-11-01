@@ -138,8 +138,8 @@
     } VM ;
     typedef struct FuncCall {
         const char *cName  ;
-        const char *cFileName  ;
-        const char *cNewFileName  ;
+        char *cFileName  ;
+        char *cNewFileName  ;
         char nType  ;
         char nMethodOrFunc  ;
         unsigned int nPC  ;

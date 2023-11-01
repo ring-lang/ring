@@ -248,11 +248,11 @@ Type: VM
 Mark: ->
 VM *
 Parent: FuncCall
-Type: const char *
+Type: char *
 cName
-Type: const char *
+Type: char *
 cFileName
-Type: const char *
+Type: char *
 cNewFileName
 Type: char
 nType

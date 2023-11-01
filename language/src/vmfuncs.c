@@ -103,10 +103,10 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
                         /* Replace Instruction with ICO_LOADFUNCP for better performance */
                         RING_VM_IR_OPCODE = ICO_LOADFUNCP ;
                         /* Leave the first parameter (contains the function name as wanted) */
-                        RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(2),ring_list_getint(pList2,RING_FUNCMAP_PC));
-                        RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(4),ring_list_getstring(pList2,RING_FUNCMAP_FILENAME));
-                        RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(5),ring_list_getint(pList3,RING_FUNCCL_LINENUMBER));
-                        RING_VM_IR_SETCHARREG((char) ring_list_getint(pList3,RING_FUNCCL_METHODORFUNC));
+                        RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(2),pFuncCall->nPC);
+                        RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(4),pFuncCall->cFileName);
+                        RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(5),pFuncCall->nLineNumber);
+                        RING_VM_IR_SETCHARREG(pFuncCall->nMethodOrFunc);
                     }
                 }
                 else {
