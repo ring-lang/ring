@@ -20,6 +20,9 @@ TRACEDATA_METHODORFUNC 	= 4
 TRACEDATA_METHODORFUNC_METHOD 		= TRUE
 TRACEDATA_METHODORFUNC_NOTMETHOD	= FALSE
 
+# CALL List
+TRACEDATA_CALLLIST_FUNCNAME = 3
+
 TRACE_BREAKPOINTS = TRUE
 
 TRACE_TEMPLIST = []
@@ -156,10 +159,10 @@ func _BreakPoint
 				aCallList = ringvm_calllist()
 				aCallList2 = []
 			        for t in aCallList
-					if t[2] = :breakPoint 
+					if t[TRACEDATA_CALLLIST_FUNCNAME] = :breakPoint 
 						exit
 					ok
-					aCallList2 + t[2]  
+					aCallList2 + t[TRACEDATA_CALLLIST_FUNCNAME]  
 				next
 				aCallList2 = reverse(aCallList2)
 				for t in aCallList2
