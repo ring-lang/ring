@@ -40,6 +40,7 @@ tracedata_funcname
 tracedata_methodorfunc
 tracedata_methodorfunc_method
 tracedata_methodorfunc_notmethod
+tracedata_calllist_funcname
 trace_breakpoints
 trace_templist
 
@@ -209,6 +210,7 @@ tracedata_funcname
 tracedata_methodorfunc
 tracedata_methodorfunc_method
 tracedata_methodorfunc_notmethod
+tracedata_calllist_funcname
 trace_breakpoints
 trace_templist
 
