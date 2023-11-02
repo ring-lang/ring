@@ -558,8 +558,8 @@ void ring_vm_newfunc ( VM *pVM )
         return ;
     }
     /* Set the Temp. Memory size at start */
-    ring_list_addint_gc(pVM->pRingState,pList,ring_list_getsize(ring_list_getlist(pList,RING_FUNCCL_TEMPMEM)));
-    pFuncCall->nTempMemSizeAtStart = ring_list_getsize(ring_list_getlist(pList,RING_FUNCCL_TEMPMEM)) ;
+    ring_list_addint_gc(pVM->pRingState,pList,ring_list_getsize(pFuncCall->pTempMem));
+    pFuncCall->nTempMemSizeAtStart = ring_list_getsize(pFuncCall->pTempMem) ;
     /* Support this in the method */
     ring_vm_oop_setthethisvariable(pVM);
     /* Trace */
