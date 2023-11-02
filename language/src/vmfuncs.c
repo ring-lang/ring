@@ -867,6 +867,7 @@ void ring_vm_endfuncexec ( VM *pVM )
 void ring_vm_retitemref ( VM *pVM )
 {
     List *pList  ;
+    FuncCall *pFuncCall  ;
     pVM->nRetItemRef++ ;
     /* We free the stack to avoid effects on nLoadAddressScope which is used by isstackpointertoobjstate */
     ring_vm_freestack(pVM);
@@ -879,7 +880,8 @@ void ring_vm_retitemref ( VM *pVM )
     */
     if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
         pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
-        if ( strcmp(ring_list_getstring(pList,RING_FUNCCL_NAME),"operator") == 0 ) {
+        pFuncCall = (FuncCall *) ring_list_getpointer(ring_list_getlist(pList,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
+        if ( strcmp(pFuncCall->cName,"operator") == 0 ) {
             pVM->nRetItemRef++ ;
         }
     }

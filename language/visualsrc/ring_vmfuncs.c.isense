@@ -77,6 +77,8 @@ ring_vm_endfuncexec
 ring_vm_retitemref
 Type: List *
 pList
+Type: FuncCall *
+pFuncCall
 ring_vm_timetofreetemplists
 ring_vm_newfunccall
 Type: FuncCall *
