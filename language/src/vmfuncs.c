@@ -903,9 +903,9 @@ int ring_vm_timetofreetemplists ( VM *pVM )
 FuncCall * ring_vm_newfunccall ( VM *pVM,List *pFuncCallList )
 {
     FuncCall *pFuncCall  ;
-    pFuncCall = ring_state_malloc(pVM->pRingState,sizeof(FuncCall));
+    pFuncCall = (FuncCall *) ring_vmstate_new(pVM->pRingState) ;
     pFuncCall->pTempMem = NULL ;
     pFuncCall->nCallerPC = 0 ;
-    ring_list_addcustomringpointer_gc(pVM->pRingState,pFuncCallList,pFuncCall,ring_state_free);
+    ring_list_addcustomringpointer_gc(pVM->pRingState,pFuncCallList,pFuncCall,ring_vmstate_delete);
     return pFuncCall ;
 }
