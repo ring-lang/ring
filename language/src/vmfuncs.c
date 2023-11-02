@@ -267,7 +267,7 @@ void ring_vm_call2 ( VM *pVM )
     nFuncEx = pVM->nFuncExecute ;
     pVM->nFuncExecute = 0 ;
     /* Call Function */
-    if ( ring_list_getint(pList,RING_FUNCCL_TYPE) == RING_FUNCTYPE_SCRIPT ) {
+    if ( pFuncCall->nType == RING_FUNCTYPE_SCRIPT ) {
         /* Clear List/Nested Lists State */
         pVM->nListStart = 0 ;
         pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
