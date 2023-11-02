@@ -84,6 +84,7 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
     List *pList, *pList2  ;
     const char *cFile, *cFile2  ;
     const char *cOldFile  ;
+    FuncCall *pFuncCall  ;
     /* CGI Support */
     ring_state_cgiheader(pVM->pRingState);
     /* Print the Error Message */
@@ -94,15 +95,16 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
     nRecursion = 0 ;
     for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
         pList = ring_list_getlist(pVM->pFuncCallList,x);
+        pFuncCall = (FuncCall *) ring_list_getpointer(ring_list_getlist(pList,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
         /*
         **  If we have ICO_LOADFUNC but not ICO_CALL then we need to pass 
         **  ICO_LOADFUNC is executed, but still ICO_CALL is not executed! 
         */
-        if ( ring_list_getsize(pList) < RING_FUNCCL_CALLERPC ) {
-            cOldFile = (const char *) ring_list_getpointer(pList,RING_FUNCCL_FILENAME) ;
+        if ( pFuncCall->nCallerPC == 0 ) {
+            cOldFile = (const char *) pFuncCall->cFileName ;
             continue ;
         }
-        if ( ring_list_getint(pList,RING_FUNCCL_TYPE) == RING_FUNCTYPE_SCRIPT ) {
+        if ( pFuncCall->nType == RING_FUNCTYPE_SCRIPT ) {
             cStr2 = ring_list_getstring(pList,RING_FUNCCL_NAME) ;
             if ( strcmp("",cStr2) == 0 ) {
                 break ;
@@ -136,7 +138,7 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
             */
             printf( "In " ) ;
             /* Method or Function */
-            if ( ring_list_getint(pList,RING_FUNCCL_METHODORFUNC) ) {
+            if ( pFuncCall->nMethodOrFunc ) {
                 printf( "method " ) ;
             }
             else {
@@ -148,7 +150,7 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
             printf( "() in file " ) ;
             /* File Name */
             if ( lFunctionCall == 1 ) {
-                cFile = (const char *) ring_list_getpointer(pList,RING_FUNCCL_NEWFILENAME) ;
+                cFile = (const char *) pFuncCall->cNewFileName ;
             }
             else {
                 if ( pVM->nInClassRegion ) {
@@ -160,10 +162,10 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
             }
             printf( "%s",cFile ) ;
             /* Called From */
-            printf( "\ncalled from line %d  ",ring_list_getint(pList,RING_FUNCCL_LINENUMBER) ) ;
+            printf( "\ncalled from line %d  ",pFuncCall->nLineNumber ) ;
         }
         else {
-            printf( "In %s() ",ring_list_getstring(pList,RING_FUNCCL_NAME) ) ;
+            printf( "In %s() ",pFuncCall->cName ) ;
         }
         lFunctionCall = 1 ;
     }
