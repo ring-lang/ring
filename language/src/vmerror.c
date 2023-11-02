@@ -208,6 +208,7 @@ void ring_vm_setfilename ( VM *pVM )
 void ring_vm_traceevent ( VM *pVM,char nEvent )
 {
     List *pList  ;
+    FuncCall *pFuncCall  ;
     if ( (pVM->lTrace == 1) && (pVM->lTraceActive == 0) ) {
         pVM->lTraceActive = 1 ;
         pVM->nTraceEvent = nEvent ;
@@ -220,9 +221,10 @@ void ring_vm_traceevent ( VM *pVM,char nEvent )
         /* Add Function/Method Name */
         if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
             pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList)) ;
-            ring_list_addstring_gc(pVM->pRingState,pVM->pTraceData,ring_list_getstring(pList,RING_FUNCCL_NAME));
+            pFuncCall = (FuncCall *) ring_list_getpointer(ring_list_getlist(pList,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
+            ring_list_addstring_gc(pVM->pRingState,pVM->pTraceData,pFuncCall->cName);
             /* Method of Function */
-            ring_list_adddouble_gc(pVM->pRingState,pVM->pTraceData,ring_list_getint(pList,RING_FUNCCL_METHODORFUNC));
+            ring_list_adddouble_gc(pVM->pRingState,pVM->pTraceData,pFuncCall->nMethodOrFunc);
         }
         else {
             ring_list_addstring_gc(pVM->pRingState,pVM->pTraceData,"");

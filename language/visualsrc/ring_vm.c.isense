@@ -248,7 +248,7 @@ Type: VM
 Mark: ->
 VM *
 Parent: FuncCall
-Type: char *
+Type: const char *
 cName
 Type: char *
 cFileName
@@ -590,6 +590,8 @@ ring_vm_setfilename
 ring_vm_traceevent
 Type: List *
 pList
+Type: FuncCall *
+pFuncCall
 ring_vm_eval
 Type: int
 nPC,nCont,nLastPC,nRunVM,x,nSize,nMark,lUpdate
