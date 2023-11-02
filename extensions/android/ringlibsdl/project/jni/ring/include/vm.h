@@ -136,6 +136,25 @@
         unsigned char lSelfLoadA  ;
         List *aDeleteLater  ;
     } VM ;
+    typedef struct FuncCall {
+        const char *cName  ;
+        char *cFileName  ;
+        char *cNewFileName  ;
+        char nType  ;
+        char nMethodOrFunc  ;
+        char nStatus  ;
+        unsigned int nPC  ;
+        unsigned int nSP  ;
+        unsigned int nLineNumber  ;
+        unsigned int nCallerPC  ;
+        unsigned int nFuncExec  ;
+        unsigned int nTempMemSizeAtStart  ;
+        unsigned int nListStart  ;
+        List *pNestedLists  ;
+        List *pTempMem  ;
+        List *pVMState  ;
+        void (*pFunc)(void *) ;
+    } FuncCall ;
     /*
     **  Macro & Constants 
     **  Stack 
@@ -239,21 +258,13 @@
     */
     #define RING_FUNCTYPE_SCRIPT 1
     #define RING_FUNCTYPE_C 2
-    #define RING_FUNCCL_TYPE 1
-    #define RING_FUNCCL_NAME 2
-    #define RING_FUNCCL_PC 3
-    #define RING_FUNCCL_SP 4
-    #define RING_FUNCCL_TEMPMEM 5
-    #define RING_FUNCCL_FILENAME 6
-    #define RING_FUNCCL_NEWFILENAME 7
-    #define RING_FUNCCL_METHODORFUNC 8
-    #define RING_FUNCCL_LINENUMBER 9
-    #define RING_FUNCCL_LISTSTART 10
-    #define RING_FUNCCL_NESTEDLISTS 11
-    #define RING_FUNCCL_CALLERPC 12
-    #define RING_FUNCCL_FUNCEXE 13
-    #define RING_FUNCCL_STATE 14
-    #define RING_FUNCCL_TEMPMEMSIZEATSTART 15
+    /* Status */
+    #define RING_FUNCSTATUS_LOAD 1
+    #define RING_FUNCSTATUS_CALL 2
+    #define RING_FUNCSTATUS_STARTED 3
+    /* List Members */
+    #define RING_FUNCCL_STRUCT 1
+    #define RING_FUNCCL_STATE 2
     /* pFunctionsMap ( Func Name , Position , File Name, Private Flag) */
     #define RING_FUNCMAP_NAME 1
     #define RING_FUNCMAP_PC 2
@@ -645,6 +656,10 @@
     List * ring_vm_prevtempmem ( VM *pVM ) ;
 
     void ring_vm_cleanevalcode ( VM *pVM,int nCodeSize ) ;
+
+    FuncCall * ring_vmfunccall_new ( VM *pVM,List *pFuncCallList ) ;
+
+    void ring_vmfunccall_delete ( void *pState,void *pMemory ) ;
     /* User Interface */
 
     void ring_vm_see ( VM *pVM ) ;

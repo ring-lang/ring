@@ -62,6 +62,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
     VMState *pVMState, *pVMStateForFunc, *pVMStateForObj  ;
     int x  ;
     List *aListsToDelete, *pListPointer  ;
+    FuncCall *pFuncCall  ;
     pList = ring_list_getlist(pList,nPos);
     /* Using VMState */
     pVMState = (VMState *) ring_list_getpointer(pList,1);
@@ -116,8 +117,9 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
         */
         for ( x = pVMState->aNumbers[1]+1 ; x <= ring_list_getsize(pVM->pFuncCallList) ; x++ ) {
             pFuncList = ring_list_getlist(pVM->pFuncCallList,x) ;
+            pFuncCall = (FuncCall *) ring_list_getpointer(ring_list_getlist(pFuncList,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
             /* Delete pNestedLists */
-            pListPointer = (List *) ring_list_getpointer(pFuncList,RING_FUNCCL_NESTEDLISTS) ;
+            pListPointer = pFuncCall->pNestedLists ;
             if ( ! ring_list_findpointer(aListsToDelete,pListPointer) ) {
                 /* Remove protection from opened lists */
                 ring_vm_removelistprotection(pVM,pListPointer);

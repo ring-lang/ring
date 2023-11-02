@@ -267,6 +267,7 @@ void ring_vm_generallib_filename ( void *pPointer )
 {
     VM *pVM  ;
     List *pList  ;
+    FuncCall *pFuncCall  ;
     int lFunctionCall,x  ;
     const char *cOldFile  ;
     const char *cFile  ;
@@ -277,15 +278,16 @@ void ring_vm_generallib_filename ( void *pPointer )
     lFunctionCall = 0 ;
     for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
         pList = ring_list_getlist(pVM->pFuncCallList,x);
+        pFuncCall = (FuncCall *) ring_list_getpointer(ring_list_getlist(pList,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
         /*
         **  If we have ICO_LoadFunc but not ICO_CALL then we need to pass 
         **  ICO_LOADFUNC is executed, but still ICO_CALL is not executed! 
         */
-        if ( ring_list_getsize(pList) < RING_FUNCCL_CALLERPC ) {
-            cOldFile = (const char *) ring_list_getpointer(pList,RING_FUNCCL_FILENAME) ;
+        if ( pFuncCall->nCallerPC != 0 ) {
+            cOldFile = pFuncCall->cFileName ;
             continue ;
         }
-        if ( ring_list_getint(pList,RING_FUNCCL_TYPE) == RING_FUNCTYPE_SCRIPT ) {
+        if ( pFuncCall->nType == RING_FUNCTYPE_SCRIPT ) {
             lFunctionCall = 1 ;
         }
     }
