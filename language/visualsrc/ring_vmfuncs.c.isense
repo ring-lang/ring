@@ -59,6 +59,8 @@ ring_vm_isstackpointertoobjstate
 ring_vm_prevtempmem
 Type: List *
 pList, *pTemp
+Type: FuncCall *
+pFuncCall
 Type: int
 x
 ring_vm_freetemplistsins

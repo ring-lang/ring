@@ -69,7 +69,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
             ring_list_addint_gc(pVM->pRingState,pList3,pVM->nSP);
             /* Create Temp Memory */
             ring_list_newlist_gc(pVM->pRingState,pList3);
-            pFuncCall->pTempMem = ring_list_getlist(pList3,ring_list_getsize(pList2)) ;
+            pFuncCall->pTempMem = ring_list_getlist(pList3,ring_list_getsize(pList3)) ;
             /* File Name */
             pFuncCall->cFileName = pVM->cFileName ;
             ring_list_addpointer_gc(pVM->pRingState,pList3,pVM->cFileName);
@@ -755,15 +755,17 @@ int ring_vm_isstackpointertoobjstate ( VM *pVM )
 List * ring_vm_prevtempmem ( VM *pVM )
 {
     List *pList, *pTemp  ;
+    FuncCall *pFuncCall  ;
     int x  ;
     /* We use the general temp. memory as the default parent */
     pTemp = pVM->pTempMem ;
     /* Get Temp Memory of the previous function */
     for ( x = ring_list_getsize(pVM->pFuncCallList)-1 ; x >= 1 ; x-- ) {
         pList = ring_list_getlist(pVM->pFuncCallList,x);
+        pFuncCall = (FuncCall *) ring_list_getpointer(ring_list_getlist(pList,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
         if ( ring_list_getsize(pList) >= RING_FUNCCL_CALLERPC ) {
             /* Get Temp Mem */
-            pTemp = ring_list_getlist(pList,RING_FUNCCL_TEMPMEM);
+            pTemp = pFuncCall->pTempMem ;
             break ;
         }
     }
@@ -892,6 +894,7 @@ FuncCall * ring_vm_newfunccall ( VM *pVM,List *pFuncCallList )
 {
     FuncCall *pFuncCall  ;
     pFuncCall = ring_state_malloc(pVM->pRingState,sizeof(FuncCall));
+    pFuncCall->pTempMem = NULL ;
     ring_list_addcustomringpointer_gc(pVM->pRingState,pFuncCallList,pFuncCall,ring_state_free);
     return pFuncCall ;
 }
