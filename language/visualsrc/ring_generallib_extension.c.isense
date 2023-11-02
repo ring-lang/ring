@@ -41,6 +41,8 @@ Type: VM *
 pVM
 Type: List *
 pList
+Type: FuncCall *
+pFuncCall
 Type: int
 lFunctionCall,x
 Type: const char *
