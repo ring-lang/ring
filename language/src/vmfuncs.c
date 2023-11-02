@@ -252,7 +252,7 @@ void ring_vm_call2 ( VM *pVM )
         pVM->pNestedLists = (List *) pFuncCall->pNestedLists ;
     }
     /* Calling Method from brace */
-    if ( ring_list_getsize(pList) >= RING_FUNCCL_METHODORFUNC ) {
+    if ( pFuncCall->nType == RING_FUNCTYPE_SCRIPT ) {
         /* The first test to be sure it's not a C Function Call */
         if ( pFuncCall->nMethodOrFunc == 1 ) {
             ring_vm_oop_callmethodfrombrace(pVM);
