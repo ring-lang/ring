@@ -746,6 +746,7 @@ void ring_vm_oop_deletepackagesafter ( VM *pVM,int x )
 int ring_vm_oop_callmethodinsideclass ( VM *pVM )
 {
     List *pList, *pList2  ;
+    FuncCall *pFuncCall  ;
     int x  ;
     /*
     **  This function tell us if we are inside Class method during runtime or not 
@@ -760,9 +761,10 @@ int ring_vm_oop_callmethodinsideclass ( VM *pVM )
     if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
         for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
             pList = ring_list_getlist(pVM->pFuncCallList,x);
+            pFuncCall = (FuncCall *) ring_list_getpointer(ring_list_getlist(pList,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
             /* Be sure that the function is already called using ICO_CALL */
-            if ( ring_list_getsize(pList) >= RING_FUNCCL_CALLERPC ) {
-                if ( ring_list_getint(pList,RING_FUNCCL_METHODORFUNC) == 0 ) {
+            if ( pFuncCall->nCallerPC != 0 ) {
+                if ( pFuncCall->nMethodOrFunc == 0 ) {
                     return 0 ;
                 }
                 else {
@@ -1135,6 +1137,7 @@ void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int 
 void ring_vm_oop_callmethodfrombrace ( VM *pVM )
 {
     List *pList,*pList2  ;
+    FuncCall *pFuncCall  ;
     const char *cStr  ;
     /*
     **  We uses AfterCallMethod2 instead of AfterCallMethod to avoid conflict with normal method call 
@@ -1149,7 +1152,8 @@ void ring_vm_oop_callmethodfrombrace ( VM *pVM )
         if ( (ring_list_getsize(pVM->pObjState) > 1) && (pVM->nCallClassInit) ) {
             if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
                 pList2 = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
-                cStr = ring_list_getstring(pList2,RING_FUNCCL_NAME);
+                pFuncCall = (FuncCall *) ring_list_getpointer(ring_list_getlist(pList2,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
+                cStr = pFuncCall->cName ;
                 if ( strcmp(cStr,"init") != 0 ) {
                     pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState)-1) ;
                 }

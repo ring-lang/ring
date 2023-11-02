@@ -107,6 +107,8 @@ t
 ring_vm_oop_callmethodinsideclass
 Type: List *
 pList, *pList2
+Type: FuncCall *
+pFuncCall
 Type: int
 x
 ring_vm_oop_setget
@@ -154,6 +156,8 @@ nObjType, nIns
 ring_vm_oop_callmethodfrombrace
 Type: List *
 pList,*pList2
+Type: FuncCall *
+pFuncCall
 Type: const char *
 cStr
 ring_vm_oop_ismethod
