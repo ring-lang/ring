@@ -587,7 +587,7 @@ cFile, *cFile2
 Type: const char *
 cOldFile
 Type: FuncCall *
-pFuncCall
+pFuncCall, *pFuncCall2
 ring_vm_setfilename
 ring_vm_traceevent
 Type: List *

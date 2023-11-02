@@ -84,7 +84,7 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
     List *pList, *pList2  ;
     const char *cFile, *cFile2  ;
     const char *cOldFile  ;
-    FuncCall *pFuncCall  ;
+    FuncCall *pFuncCall, *pFuncCall2  ;
     /* CGI Support */
     ring_state_cgiheader(pVM->pRingState);
     /* Print the Error Message */
@@ -113,19 +113,21 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
             if ( x != 1 ) {
                 nPos = x-1 ;
                 pList2 = ring_list_getlist(pVM->pFuncCallList,x-1);
-                while ( ring_list_getint(pList2,RING_FUNCCL_TYPE) != RING_FUNCTYPE_SCRIPT ) {
+                pFuncCall2 = (FuncCall *) ring_list_getpointer(ring_list_getlist(pList2,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
+                while ( pFuncCall2->nType != RING_FUNCTYPE_SCRIPT ) {
                     nPos-- ;
                     if ( nPos > 0 ) {
                         pList2 = ring_list_getlist(pVM->pFuncCallList,nPos);
+                        pFuncCall2 = (FuncCall *) ring_list_getpointer(ring_list_getlist(pList2,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
                     }
                     else {
                         break ;
                     }
                 }
                 if ( ring_list_getsize(pList) == ring_list_getsize(pList2) ) {
-                    cStr3 = ring_list_getstring(pList2,RING_FUNCCL_NAME) ;
-                    cFile = (const char *) ring_list_getpointer(pList,RING_FUNCCL_NEWFILENAME) ;
-                    cFile2 = (const char *) ring_list_getpointer(pList2,RING_FUNCCL_NEWFILENAME) ;
+                    cStr3 = (char *) pFuncCall2->cName ;
+                    cFile = (const char *) pFuncCall->cNewFileName ;
+                    cFile2 = (const char *) pFuncCall2->cNewFileName ;
                     if ( (cFile == cFile2 ) && (strcmp(cStr2,cStr3) == 0) ) {
                         nRecursion++ ;
                         continue ;
