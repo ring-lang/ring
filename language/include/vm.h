@@ -142,6 +142,7 @@
         char *cNewFileName  ;
         char nType  ;
         char nMethodOrFunc  ;
+        char nStatus  ;
         unsigned int nPC  ;
         unsigned int nSP  ;
         unsigned int nLineNumber  ;

@@ -124,7 +124,7 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
                         break ;
                     }
                 }
-                if ( ring_list_getsize(pList) == ring_list_getsize(pList2) ) {
+                if ( pFuncCall->nStatus == pFuncCall2->nStatus ) {
                     cStr3 = (char *) pFuncCall2->cName ;
                     cFile = (const char *) pFuncCall->cNewFileName ;
                     cFile2 = (const char *) pFuncCall2->cNewFileName ;

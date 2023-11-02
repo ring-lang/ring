@@ -258,6 +258,8 @@ Type: char
 nType
 Type: char
 nMethodOrFunc
+Type: char
+nStatus
 Type: unsigned int
 nPC
 Type: unsigned int

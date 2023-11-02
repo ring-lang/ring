@@ -221,6 +221,7 @@ void ring_vm_call2 ( VM *pVM )
     ring_vm_restoreloadaddressscope(pVM);
     pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
     pFuncCall = (FuncCall *) ring_list_getpointer(ring_list_getlist(pList,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
+    pFuncCall->nStatus = 2 ;
     /* Restore List Status */
     pVM->nListStart = pFuncCall->nListStart ;
     if ( pVM->pNestedLists != pFuncCall->pNestedLists ) {
@@ -459,6 +460,7 @@ void ring_vm_newfunc ( VM *pVM )
     pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
     assert(pList != NULL);
     pFuncCall = (FuncCall *) ring_list_getpointer(ring_list_getlist(pList,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
+    pFuncCall->nStatus = 3 ;
     nSP = pFuncCall->nSP ;
     pVM->nFuncSP = nSP ;
     if ( RING_VM_IR_PARACOUNT > 2 ) {
@@ -879,6 +881,7 @@ FuncCall * ring_vmfunccall_new ( VM *pVM,List *pFuncCallList )
     pFuncCall = (FuncCall *) ring_vmstate_new(pVM->pRingState) ;
     pFuncCall->pTempMem = NULL ;
     pFuncCall->nCallerPC = 0 ;
+    pFuncCall->nStatus = 1 ;
     ring_list_addcustomringpointer_gc(pVM->pRingState,pFuncCallList,pFuncCall,ring_vmfunccall_delete);
     return pFuncCall ;
 }
