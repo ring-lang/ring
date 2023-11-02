@@ -475,12 +475,14 @@ void ring_vm_newfunc ( VM *pVM )
     String *pParameter  ;
     char *cParameters  ;
     char cStr[2]  ;
+    FuncCall *pFuncCall  ;
     assert(pVM != NULL);
     ring_vm_newscope(pVM);
     /* Set the SP then Check Parameters */
     pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
     assert(pList != NULL);
-    nSP = ring_list_getint(pList,RING_FUNCCL_SP) ;
+    pFuncCall = (FuncCall *) ring_list_getpointer(ring_list_getlist(pList,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
+    nSP = pFuncCall->nSP ;
     pVM->nFuncSP = nSP ;
     if ( RING_VM_IR_PARACOUNT > 2 ) {
         /* Read Parameters (Separated by Space) */
@@ -554,6 +556,7 @@ void ring_vm_newfunc ( VM *pVM )
     }
     /* Set the Temp. Memory size at start */
     ring_list_addint_gc(pVM->pRingState,pList,ring_list_getsize(ring_list_getlist(pList,RING_FUNCCL_TEMPMEM)));
+    pFuncCall->nTempMemSizeAtStart = ring_list_getsize(ring_list_getlist(pList,RING_FUNCCL_TEMPMEM)) ;
     /* Support this in the method */
     ring_vm_oop_setthethisvariable(pVM);
     /* Trace */

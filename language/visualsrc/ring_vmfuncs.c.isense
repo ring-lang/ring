@@ -33,6 +33,8 @@ Type: char *
 cParameters
 Type: char
 cStr[2]
+Type: FuncCall *
+pFuncCall
 ring_vm_blockflag
 ring_vm_blockflag2
 Type: List *
