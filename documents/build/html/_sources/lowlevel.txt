@@ -852,13 +852,8 @@ Each List Member is a list contains the next items
 * Function Name
 * Program Counter (PC)
 * Stack Pointer (SP)
-* Temp. Memory List
 * Method or Function Flag
 * Caller PC
-* FuncExec Flag
-* ListStart Flag
-* Nested Lists Pointer
-* State List
 
 Syntax:
 
