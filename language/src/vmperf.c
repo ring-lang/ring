@@ -130,7 +130,7 @@ void ring_vm_loadfuncp ( VM *pVM )
     pVM->nFuncExecute2++ ;
     pList = ring_list_newlist_gc(pVM->pRingState,pVM->pFuncCallList);
     /* Add FuncCall Structure */
-    pFuncCall = ring_vm_newfunccall(pVM,pList);
+    pFuncCall = ring_vmfunccall_new(pVM,pList);
     pFuncCall->nType = RING_FUNCTYPE_SCRIPT ;
     pFuncCall->cName = RING_VM_IR_READC ;
     pFuncCall->nPC = RING_VM_IR_READIVALUE(2) ;
@@ -139,8 +139,7 @@ void ring_vm_loadfuncp ( VM *pVM )
     ring_list_addstring_gc(pVM->pRingState,pList,RING_VM_IR_READC);
     ring_list_addint_gc(pVM->pRingState,pList,RING_VM_IR_READIVALUE(2));
     ring_list_addint_gc(pVM->pRingState,pList,pVM->nSP);
-    ring_list_newlist_gc(pVM->pRingState,pList);
-    pFuncCall->pTempMem = ring_list_getlist(pList,ring_list_getsize(pList)) ;
+    pFuncCall->pTempMem = ring_list_new_gc(pVM->pRingState,0) ;
     pFuncCall->cFileName = pVM->cFileName ;
     ring_list_addpointer_gc(pVM->pRingState,pList,pVM->cFileName);
     pVM->cPrevFileName = pVM->cFileName ;

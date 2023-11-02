@@ -57,7 +57,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
             }
             pList3 = ring_list_newlist_gc(pVM->pRingState,pVM->pFuncCallList);
             /* Add FuncCall Structure */
-            pFuncCall = ring_vm_newfunccall(pVM,pList3);
+            pFuncCall = ring_vmfunccall_new(pVM,pList3);
             pFuncCall->nType = RING_FUNCTYPE_SCRIPT ;
             pFuncCall->cName = cStr ;
             pFuncCall->nPC = ring_list_getint(pList2,RING_FUNCMAP_PC) ;
@@ -68,8 +68,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
             ring_list_addint_gc(pVM->pRingState,pList3,ring_list_getint(pList2,RING_FUNCMAP_PC));
             ring_list_addint_gc(pVM->pRingState,pList3,pVM->nSP);
             /* Create Temp Memory */
-            ring_list_newlist_gc(pVM->pRingState,pList3);
-            pFuncCall->pTempMem = ring_list_getlist(pList3,ring_list_getsize(pList3)) ;
+            pFuncCall->pTempMem = ring_list_new_gc(pVM->pRingState,0) ;
             /* File Name */
             pFuncCall->cFileName = pVM->cFileName ;
             ring_list_addpointer_gc(pVM->pRingState,pList3,pVM->cFileName);
@@ -149,7 +148,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
     if ( pList != NULL ) {
         pList2 = ring_list_newlist_gc(pVM->pRingState,pVM->pFuncCallList);
         /* Add FuncCall Structure */
-        pFuncCall = ring_vm_newfunccall(pVM,pList2);
+        pFuncCall = ring_vmfunccall_new(pVM,pList2);
         pFuncCall->nType = RING_FUNCTYPE_C ;
         pFuncCall->cName = cStr ;
         pFuncCall->pFunc = ring_list_getfuncpointer(pList,RING_FUNCMAP_PC) ;
@@ -159,8 +158,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
         ring_list_addfuncpointer_gc(pVM->pRingState,pList2,ring_list_getfuncpointer(pList,RING_FUNCMAP_PC));
         ring_list_addint_gc(pVM->pRingState,pList2,pVM->nSP);
         /* Create Temp Memory */
-        ring_list_newlist_gc(pVM->pRingState,pList2);
-        pFuncCall->pTempMem = ring_list_getlist(pList2,ring_list_getsize(pList2)) ;
+        pFuncCall->pTempMem = ring_list_new_gc(pVM->pRingState,0) ;
         /*
         **  File Name 
         **  The old source file name 
@@ -900,12 +898,22 @@ int ring_vm_timetofreetemplists ( VM *pVM )
     return 0 ;
 }
 
-FuncCall * ring_vm_newfunccall ( VM *pVM,List *pFuncCallList )
+FuncCall * ring_vmfunccall_new ( VM *pVM,List *pFuncCallList )
 {
     FuncCall *pFuncCall  ;
     pFuncCall = (FuncCall *) ring_vmstate_new(pVM->pRingState) ;
     pFuncCall->pTempMem = NULL ;
     pFuncCall->nCallerPC = 0 ;
-    ring_list_addcustomringpointer_gc(pVM->pRingState,pFuncCallList,pFuncCall,ring_vmstate_delete);
+    ring_list_addcustomringpointer_gc(pVM->pRingState,pFuncCallList,pFuncCall,ring_vmfunccall_delete);
     return pFuncCall ;
+}
+
+void ring_vmfunccall_delete ( void *pState,void *pMemory )
+{
+    FuncCall *pFuncCall  ;
+    pFuncCall = (FuncCall *) pMemory ;
+    if ( pFuncCall->pTempMem != NULL ) {
+        ring_list_delete_gc(pState,pFuncCall->pTempMem);
+    }
+    ring_vmstate_delete(pState,pMemory);
 }

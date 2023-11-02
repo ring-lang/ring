@@ -262,17 +262,16 @@
     #define RING_FUNCCL_NAME 3
     #define RING_FUNCCL_PC 4
     #define RING_FUNCCL_SP 5
-    #define RING_FUNCCL_TEMPMEM 6
-    #define RING_FUNCCL_FILENAME 7
-    #define RING_FUNCCL_NEWFILENAME 8
-    #define RING_FUNCCL_METHODORFUNC 9
-    #define RING_FUNCCL_LINENUMBER 10
-    #define RING_FUNCCL_LISTSTART 11
-    #define RING_FUNCCL_NESTEDLISTS 12
-    #define RING_FUNCCL_CALLERPC 13
-    #define RING_FUNCCL_FUNCEXE 14
-    #define RING_FUNCCL_STATE 15
-    #define RING_FUNCCL_TEMPMEMSIZEATSTART 16
+    #define RING_FUNCCL_FILENAME 6
+    #define RING_FUNCCL_NEWFILENAME 7
+    #define RING_FUNCCL_METHODORFUNC 8
+    #define RING_FUNCCL_LINENUMBER 9
+    #define RING_FUNCCL_LISTSTART 10
+    #define RING_FUNCCL_NESTEDLISTS 11
+    #define RING_FUNCCL_CALLERPC 12
+    #define RING_FUNCCL_FUNCEXE 13
+    #define RING_FUNCCL_STATE 14
+    #define RING_FUNCCL_TEMPMEMSIZEATSTART 15
     /* pFunctionsMap ( Func Name , Position , File Name, Private Flag) */
     #define RING_FUNCMAP_NAME 1
     #define RING_FUNCMAP_PC 2
@@ -665,7 +664,9 @@
 
     void ring_vm_cleanevalcode ( VM *pVM,int nCodeSize ) ;
 
-    FuncCall * ring_vm_newfunccall ( VM *pVM,List *pFuncCallList ) ;
+    FuncCall * ring_vmfunccall_new ( VM *pVM,List *pFuncCallList ) ;
+
+    void ring_vmfunccall_delete ( void *pState,void *pMemory ) ;
     /* User Interface */
 
     void ring_vm_see ( VM *pVM ) ;

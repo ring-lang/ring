@@ -82,6 +82,9 @@ pList
 Type: FuncCall *
 pFuncCall
 ring_vm_timetofreetemplists
-ring_vm_newfunccall
+ring_vmfunccall_new
+Type: FuncCall *
+pFuncCall
+ring_vmfuncall_delete
 Type: FuncCall *
 pFuncCall
