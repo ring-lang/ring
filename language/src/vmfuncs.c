@@ -763,7 +763,7 @@ List * ring_vm_prevtempmem ( VM *pVM )
     for ( x = ring_list_getsize(pVM->pFuncCallList)-1 ; x >= 1 ; x-- ) {
         pList = ring_list_getlist(pVM->pFuncCallList,x);
         pFuncCall = (FuncCall *) ring_list_getpointer(ring_list_getlist(pList,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
-        if ( ring_list_getsize(pList) >= RING_FUNCCL_CALLERPC ) {
+        if ( pFuncCall->nCallerPC != 0 ) {
             /* Get Temp Mem */
             pTemp = pFuncCall->pTempMem ;
             break ;
@@ -895,6 +895,7 @@ FuncCall * ring_vm_newfunccall ( VM *pVM,List *pFuncCallList )
     FuncCall *pFuncCall  ;
     pFuncCall = ring_state_malloc(pVM->pRingState,sizeof(FuncCall));
     pFuncCall->pTempMem = NULL ;
+    pFuncCall->nCallerPC = 0 ;
     ring_list_addcustomringpointer_gc(pVM->pRingState,pFuncCallList,pFuncCall,ring_state_free);
     return pFuncCall ;
 }
