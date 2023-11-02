@@ -14,6 +14,8 @@ Type: List *
 pList, *pActiveMem
 Type: int
 x,nSP,nMax1,nFuncEx
+Type: FuncCall *
+pFuncCall
 ring_vm_return
 Type: List *
 pList

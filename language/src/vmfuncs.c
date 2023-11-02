@@ -235,6 +235,7 @@ void ring_vm_call2 ( VM *pVM )
 {
     List *pList, *pActiveMem  ;
     int x,nSP,nMax1,nFuncEx  ;
+    FuncCall *pFuncCall  ;
     /* Decrement FuncExecute Counter */
     if ( pVM->nFuncExecute > 0 ) {
         pVM->nFuncExecute-- ;
@@ -243,22 +244,25 @@ void ring_vm_call2 ( VM *pVM )
     /* Restore nLoadAddressScope from aAddressScope */
     ring_vm_restoreloadaddressscope(pVM);
     pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
+    pFuncCall = (FuncCall *) ring_list_getpointer(ring_list_getlist(pList,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
     /* Restore List Status */
-    pVM->nListStart = ring_list_getint(pList,RING_FUNCCL_LISTSTART) ;
-    if ( pVM->pNestedLists != ring_list_getpointer(pList,RING_FUNCCL_NESTEDLISTS) ) {
+    pVM->nListStart = pFuncCall->nListStart ;
+    if ( pVM->pNestedLists != pFuncCall->pNestedLists ) {
         pVM->pNestedLists = ring_list_delete_gc(pVM->pRingState,pVM->pNestedLists);
-        pVM->pNestedLists = (List *) ring_list_getpointer(pList,RING_FUNCCL_NESTEDLISTS) ;
+        pVM->pNestedLists = (List *) pFuncCall->pNestedLists ;
     }
     /* Calling Method from brace */
     if ( ring_list_getsize(pList) >= RING_FUNCCL_METHODORFUNC ) {
         /* The first test to be sure it's not a C Function Call */
-        if ( ring_list_getint(pList,RING_FUNCCL_METHODORFUNC) == 1 ) {
+        if ( pFuncCall->nMethodOrFunc == 1 ) {
             ring_vm_oop_callmethodfrombrace(pVM);
         }
     }
     /* Store the Caller Position */
+    pFuncCall->nCallerPC = pVM->nPC ;
     ring_list_addint_gc(pVM->pRingState,pList,pVM->nPC);
     /* Store FuncExe Counter Value */
+    pFuncCall->nFuncExec = pVM->nFuncExecute ;
     ring_list_addint_gc(pVM->pRingState,pList,pVM->nFuncExecute);
     nFuncEx = pVM->nFuncExecute ;
     pVM->nFuncExecute = 0 ;
@@ -267,11 +271,11 @@ void ring_vm_call2 ( VM *pVM )
         /* Clear List/Nested Lists State */
         pVM->nListStart = 0 ;
         pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
-        pVM->nPC = ring_list_getint(pList,RING_FUNCCL_PC) ;
+        pVM->nPC = pFuncCall->nPC ;
         /* Save State */
         ring_vm_savestateforfunctions(pVM,pList);
         /* Avoid accessing object data or methods */
-        if ( ring_list_getint(pList,RING_FUNCCL_METHODORFUNC) == 0 ) {
+        if ( pFuncCall->nMethodOrFunc == 0 ) {
             pList = ring_list_newlist_gc(pVM->pRingState,pVM->pObjState);
             ring_list_addpointer_gc(pVM->pRingState,pList,NULL);
             ring_list_addpointer_gc(pVM->pRingState,pList,NULL);
@@ -280,7 +284,7 @@ void ring_vm_call2 ( VM *pVM )
         /* Clear nLoadAddressScope */
         pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
     }
-    else if ( ring_list_getint(pList,RING_FUNCCL_TYPE) == RING_FUNCTYPE_C ) {
+    else if ( pFuncCall->nType == RING_FUNCTYPE_C ) {
         /* Trace */
         ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_BEFORECFUNC);
         /*
@@ -294,7 +298,7 @@ void ring_vm_call2 ( VM *pVM )
         ring_vm_newscope(pVM);
         /* Get Parameters */
         pVM->nCFuncParaCount = 0 ;
-        nSP = ring_list_getint(pList,RING_FUNCCL_SP) ;
+        nSP = pFuncCall->nSP ;
         /* Use Order (First In - First Out) As Queue , the first parameter comes first */
         if ( nSP < pVM->nSP ) {
             nMax1 = pVM->nSP ;
@@ -318,7 +322,7 @@ void ring_vm_call2 ( VM *pVM )
         /* Enable C Pointer Type Check */
         pVM->nIgnoreCPointerTypeCheck = 0 ;
         /* Call Function */
-        ring_list_callfuncpointer(pList,RING_FUNCCL_PC,pVM);
+        pFuncCall->pFunc(pVM) ;
         /* Trace */
         ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_AFTERCFUNC);
         /* Restore nFuncEx state */
@@ -359,7 +363,8 @@ void ring_vm_call2 ( VM *pVM )
         /* Restore nFuncSP value */
         if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
             pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
-            pVM->nFuncSP = ring_list_getint(pList,RING_FUNCCL_SP) ;
+            pFuncCall = (FuncCall *) ring_list_getpointer(ring_list_getlist(pList,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
+            pVM->nFuncSP = pFuncCall->nSP ;
         }
         else {
             pVM->nFuncSP = 0 ;
