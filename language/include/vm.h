@@ -258,6 +258,11 @@
     */
     #define RING_FUNCTYPE_SCRIPT 1
     #define RING_FUNCTYPE_C 2
+    /* Status */
+    #define RING_FUNCSTATUS_LOAD 1
+    #define RING_FUNCSTATUS_CALL 2
+    #define RING_FUNCSTATUS_STARTED 3
+    /* List Members */
     #define RING_FUNCCL_STRUCT 1
     #define RING_FUNCCL_STATE 2
     /* pFunctionsMap ( Func Name , Position , File Name, Private Flag) */
