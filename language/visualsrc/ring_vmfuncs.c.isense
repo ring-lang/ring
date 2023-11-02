@@ -73,6 +73,8 @@ Type: List *
 pTempMem, *pList, *pList2
 Type: int
 x,x2,lFound,nStart,lMutex
+Type: FuncCall *
+pFuncCall
 ring_vm_endfuncexec
 ring_vm_retitemref
 Type: List *

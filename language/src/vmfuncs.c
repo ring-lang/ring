@@ -789,6 +789,7 @@ void ring_vm_freetemplists ( VM *pVM, int *nTempCount, int *nScopeID )
 {
     List *pTempMem, *pList, *pList2  ;
     int x,x2,lFound,nStart,lMutex  ;
+    FuncCall *pFuncCall  ;
     nStart = 1 ;
     lMutex = 0 ;
     /* Clear lists inside aDeleteLater */
@@ -820,7 +821,8 @@ void ring_vm_freetemplists ( VM *pVM, int *nTempCount, int *nScopeID )
     /* Get the current temp. list */
     if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
         pTempMem = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList)) ;
-        pTempMem = ring_list_getlist(pTempMem,RING_FUNCCL_TEMPMEM) ;
+        pFuncCall = (FuncCall *) ring_list_getpointer(ring_list_getlist(pTempMem,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
+        pTempMem = pFuncCall->pTempMem ;
     }
     else {
         lMutex = 1 ;
