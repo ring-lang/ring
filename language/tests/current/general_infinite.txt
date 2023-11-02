@@ -1,5 +1,6 @@
 
 Line 7 Error (R4) : Stack Overflow 
 In function rec() in file general/infinite.ring
+called from line 7  In function rec() in file general/infinite.ring
 called from line 4  in file general/infinite.ring 
----{ Recursion Depth: 999 }---
+---{ Recursion Depth: 998 }---
