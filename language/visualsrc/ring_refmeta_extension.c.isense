@@ -214,7 +214,11 @@ ring_vm_refmeta_ringvmcalllist
 Type: VM *
 pVM
 Type: List *
-pList
+pList, *pFuncCallList, *pList2
+Type: int
+x
+Type: FuncCall *
+pFuncCall
 ring_vm_refmeta_ringvmmemorylist
 Type: VM *
 pVM
