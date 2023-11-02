@@ -1,6 +1,5 @@
 
 Line 6 Error (R4) : Stack Overflow 
 In method myfunc() in file stack/rec_overflow2.ring
-called from line 6  In method myfunc() in file stack/rec_overflow2.ring
 called from line 2  in file stack/rec_overflow2.ring 
----{ Recursion Depth: 998 }---
+---{ Recursion Depth: 999 }---

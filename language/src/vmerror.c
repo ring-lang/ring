@@ -105,7 +105,7 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
             continue ;
         }
         if ( pFuncCall->nType == RING_FUNCTYPE_SCRIPT ) {
-            cStr2 = ring_list_getstring(pList,RING_FUNCCL_NAME) ;
+            cStr2 = (char *) pFuncCall->cName ;
             if ( strcmp("",cStr2) == 0 ) {
                 break ;
             }

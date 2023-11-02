@@ -258,20 +258,7 @@
     #define RING_FUNCTYPE_SCRIPT 1
     #define RING_FUNCTYPE_C 2
     #define RING_FUNCCL_STRUCT 1
-    #define RING_FUNCCL_TYPE 2
-    #define RING_FUNCCL_NAME 3
-    #define RING_FUNCCL_PC 4
-    #define RING_FUNCCL_SP 5
-    #define RING_FUNCCL_FILENAME 6
-    #define RING_FUNCCL_NEWFILENAME 7
-    #define RING_FUNCCL_METHODORFUNC 8
-    #define RING_FUNCCL_LINENUMBER 9
-    #define RING_FUNCCL_LISTSTART 10
-    #define RING_FUNCCL_NESTEDLISTS 11
-    #define RING_FUNCCL_CALLERPC 12
-    #define RING_FUNCCL_FUNCEXE 13
-    #define RING_FUNCCL_STATE 14
-    #define RING_FUNCCL_TEMPMEMSIZEATSTART 15
+    #define RING_FUNCCL_STATE 2
     /* pFunctionsMap ( Func Name , Position , File Name, Private Flag) */
     #define RING_FUNCMAP_NAME 1
     #define RING_FUNCMAP_PC 2

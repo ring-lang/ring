@@ -31,6 +31,9 @@ USA
 
 code:> Call Stack
 ==========
-Called From: test1
 
-code:> 
+Line 161 Error (R2) : Array Access (Index out of range) 
+In function _breakpoint() in file b:\ring\bin\load//../../libraries/tracelib/tracelib.ring
+called from line 121  In function breakpoint() in file b:\ring\bin\load//../../libraries/tracelib/tracelib.ring
+called from line 10  In function test1() in file tracelib/test8.ring
+called from line 3  in file tracelib/test8.ring 
