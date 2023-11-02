@@ -21,6 +21,8 @@ Type: List *
 pList
 Type: Item
 oTempItem
+Type: FuncCall *
+pFuncCall
 ring_vm_returnnull
 ring_vm_newfunc
 Type: int
