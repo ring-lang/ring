@@ -130,3 +130,4 @@ More Improvements
 * MatrixLib - Added: RowReduceEchelonForm() function
 * MatrixLib - Added: MatrixTransform() function
 * ObjectsLib - Better Code
+* Low Level Functions - ringvm_calllist() - Better Output
