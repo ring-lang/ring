@@ -95,7 +95,7 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
     nRecursion = 0 ;
     for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
         pList = ring_list_getlist(pVM->pFuncCallList,x);
-        pFuncCall = (FuncCall *) ring_list_getpointer(ring_list_getlist(pList,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
+        pFuncCall = (FuncCall *) ring_list_getpointer(pList,RING_FUNCCL_STRUCT) ;
         /*
         **  If we have ICO_LOADFUNC but not ICO_CALL then we need to pass 
         **  ICO_LOADFUNC is executed, but still ICO_CALL is not executed! 
@@ -113,12 +113,12 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
             if ( x != 1 ) {
                 nPos = x-1 ;
                 pList2 = ring_list_getlist(pVM->pFuncCallList,x-1);
-                pFuncCall2 = (FuncCall *) ring_list_getpointer(ring_list_getlist(pList2,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
+                pFuncCall2 = (FuncCall *) ring_list_getpointer(pList2,RING_FUNCCL_STRUCT) ;
                 while ( pFuncCall2->nType != RING_FUNCTYPE_SCRIPT ) {
                     nPos-- ;
                     if ( nPos > 0 ) {
                         pList2 = ring_list_getlist(pVM->pFuncCallList,nPos);
-                        pFuncCall2 = (FuncCall *) ring_list_getpointer(ring_list_getlist(pList2,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
+                        pFuncCall2 = (FuncCall *) ring_list_getpointer(pList2,RING_FUNCCL_STRUCT) ;
                     }
                     else {
                         break ;
@@ -225,7 +225,7 @@ void ring_vm_traceevent ( VM *pVM,char nEvent )
         /* Add Function/Method Name */
         if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
             pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList)) ;
-            pFuncCall = (FuncCall *) ring_list_getpointer(ring_list_getlist(pList,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
+            pFuncCall = (FuncCall *) ring_list_getpointer(pList,RING_FUNCCL_STRUCT) ;
             ring_list_addstring_gc(pVM->pRingState,pVM->pTraceData,pFuncCall->cName);
             /* Method of Function */
             ring_list_adddouble_gc(pVM->pRingState,pVM->pTraceData,pFuncCall->nMethodOrFunc);

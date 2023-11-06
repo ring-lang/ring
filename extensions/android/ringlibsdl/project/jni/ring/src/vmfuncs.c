@@ -220,7 +220,7 @@ void ring_vm_call2 ( VM *pVM )
     /* Restore nLoadAddressScope from aAddressScope */
     ring_vm_restoreloadaddressscope(pVM);
     pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
-    pFuncCall = (FuncCall *) ring_list_getpointer(ring_list_getlist(pList,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
+    pFuncCall = (FuncCall *) ring_list_getpointer(pList,RING_FUNCCL_STRUCT) ;
     pFuncCall->nStatus = RING_FUNCSTATUS_CALL ;
     /* Restore List Status */
     pVM->nListStart = pFuncCall->nListStart ;
@@ -338,7 +338,7 @@ void ring_vm_call2 ( VM *pVM )
         /* Restore nFuncSP value */
         if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
             pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
-            pFuncCall = (FuncCall *) ring_list_getpointer(ring_list_getlist(pList,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
+            pFuncCall = (FuncCall *) ring_list_getpointer(pList,RING_FUNCCL_STRUCT) ;
             pVM->nFuncSP = pFuncCall->nSP ;
         }
         else {
@@ -373,7 +373,7 @@ void ring_vm_return ( VM *pVM )
     }
     if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
         pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
-        pFuncCall = (FuncCall *) ring_list_getpointer(ring_list_getlist(pList,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
+        pFuncCall = (FuncCall *) ring_list_getpointer(pList,RING_FUNCCL_STRUCT) ;
         pVM->nPC = pFuncCall->nCallerPC ;
         pVM->nFuncExecute = pFuncCall->nFuncExec ;
         /* Restore List Status */
@@ -415,7 +415,7 @@ void ring_vm_return ( VM *pVM )
         /* Restore nFuncSP value */
         if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
             pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
-            pFuncCall = (FuncCall *) ring_list_getpointer(ring_list_getlist(pList,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
+            pFuncCall = (FuncCall *) ring_list_getpointer(pList,RING_FUNCCL_STRUCT) ;
             pVM->nFuncSP = pFuncCall->nSP ;
         }
         else {
@@ -459,7 +459,7 @@ void ring_vm_newfunc ( VM *pVM )
     /* Set the SP then Check Parameters */
     pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
     assert(pList != NULL);
-    pFuncCall = (FuncCall *) ring_list_getpointer(ring_list_getlist(pList,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
+    pFuncCall = (FuncCall *) ring_list_getpointer(pList,RING_FUNCCL_STRUCT) ;
     pFuncCall->nStatus = RING_FUNCSTATUS_STARTED ;
     nSP = pFuncCall->nSP ;
     pVM->nFuncSP = nSP ;
@@ -743,7 +743,7 @@ List * ring_vm_prevtempmem ( VM *pVM )
     /* Get Temp Memory of the previous function */
     for ( x = ring_list_getsize(pVM->pFuncCallList)-1 ; x >= 1 ; x-- ) {
         pList = ring_list_getlist(pVM->pFuncCallList,x);
-        pFuncCall = (FuncCall *) ring_list_getpointer(ring_list_getlist(pList,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
+        pFuncCall = (FuncCall *) ring_list_getpointer(pList,RING_FUNCCL_STRUCT) ;
         if ( pFuncCall->nCallerPC != 0 ) {
             /* Get Temp Mem */
             pTemp = pFuncCall->pTempMem ;
@@ -796,7 +796,7 @@ void ring_vm_freetemplists ( VM *pVM, int *nTempCount, int *nScopeID )
     /* Get the current temp. list */
     if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
         pTempMem = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList)) ;
-        pFuncCall = (FuncCall *) ring_list_getpointer(ring_list_getlist(pTempMem,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
+        pFuncCall = (FuncCall *) ring_list_getpointer(pTempMem,RING_FUNCCL_STRUCT) ;
         pTempMem = pFuncCall->pTempMem ;
     }
     else {
@@ -857,7 +857,7 @@ void ring_vm_retitemref ( VM *pVM )
     */
     if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
         pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
-        pFuncCall = (FuncCall *) ring_list_getpointer(ring_list_getlist(pList,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
+        pFuncCall = (FuncCall *) ring_list_getpointer(pList,RING_FUNCCL_STRUCT) ;
         if ( strcmp(pFuncCall->cName,"operator") == 0 ) {
             pVM->nRetItemRef++ ;
         }

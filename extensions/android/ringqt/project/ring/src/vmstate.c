@@ -58,14 +58,13 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 
 void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 {
-    List *pThis,*pFuncList,*pNewObj  ;
+    List *pThis,*pFuncList  ;
     VMState *pVMState, *pVMStateForFunc, *pVMStateForObj  ;
     int x  ;
     List *aListsToDelete, *pListPointer  ;
     FuncCall *pFuncCall  ;
-    pList = ring_list_getlist(pList,nPos);
     /* Using VMState */
-    pVMState = (VMState *) ring_list_getpointer(pList,1);
+    pVMState = (VMState *) ring_list_getpointer(pList,nPos);
     aListsToDelete = ring_list_new_gc(pVM->pRingState,0);
     /*
     **  Set Scope 
@@ -117,7 +116,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
         */
         for ( x = pVMState->aNumbers[1]+1 ; x <= ring_list_getsize(pVM->pFuncCallList) ; x++ ) {
             pFuncList = ring_list_getlist(pVM->pFuncCallList,x) ;
-            pFuncCall = (FuncCall *) ring_list_getpointer(ring_list_getlist(pFuncList,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
+            pFuncCall = (FuncCall *) ring_list_getpointer(pFuncList,RING_FUNCCL_STRUCT) ;
             /* Delete pNestedLists */
             pListPointer = pFuncCall->pNestedLists ;
             if ( ! ring_list_findpointer(aListsToDelete,pListPointer) ) {
@@ -126,8 +125,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
                 ring_list_addpointer_gc(pVM->pRingState,aListsToDelete,pListPointer);
             }
             if ( ring_list_getsize(pFuncList) >= RING_FUNCCL_STATE ) {
-                pFuncList = ring_list_getlist(pFuncList,RING_FUNCCL_STATE);
-                pVMStateForFunc = (VMState *) ring_list_getpointer(pFuncList,1);
+                pVMStateForFunc = (VMState *) ring_list_getpointer(pFuncList,RING_FUNCCL_STATE);
                 /* Delete aPCBlockFlag */
                 pListPointer = (List *) pVMStateForFunc->aPointers[2] ;
                 if ( pListPointer != pVM->aPCBlockFlag ) {
@@ -149,8 +147,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
         **  Like pNestedLists, aPCBlocFlag & aSetProperty 
         */
         for ( x = pVMState->aNumbers[9]+1 ; x <= ring_list_getsize(pVM->aScopeNewObj) ; x++ ) {
-            pNewObj = ring_list_getlist(pVM->aScopeNewObj,x) ;
-            pVMStateForObj = (VMState *) ring_list_getpointer(pNewObj,1);
+            pVMStateForObj = (VMState *) ring_list_getpointer(pVM->aScopeNewObj,x);
             /* Delete pNestedLists */
             pListPointer = (List *) pVMStateForObj->aPointers[1] ;
             if ( ! ring_list_findpointer(aListsToDelete,pListPointer) ) {
@@ -294,8 +291,7 @@ void ring_vm_restorestateforfunctions ( VM *pVM,List *pList,int x )
     List *pThis  ;
     VMState *pVMState  ;
     /* Using VMState */
-    pList = ring_list_getlist(pList,x);
-    pVMState = (VMState *) ring_list_getpointer(pList,1);
+    pVMState = (VMState *) ring_list_getpointer(pList,x);
     /* Restore State */
     ring_vm_backstate(pVM,pVMState->aNumbers[0],pVM->pExitMark);
     ring_vm_backstate(pVM,pVMState->aNumbers[1],pVM->pLoopMark);
@@ -343,7 +339,7 @@ void ring_vm_restorestateforfunctions ( VM *pVM,List *pList,int x )
 
 void ring_vm_savestatefornewobjects ( VM *pVM )
 {
-    List *pList, *pThis  ;
+    List *pThis  ;
     VMState *pVMState  ;
     Item *pItem  ;
     /* Using VMState */
@@ -451,11 +447,10 @@ void ring_vm_savestatefornewobjects ( VM *pVM )
 
 void ring_vm_restorestatefornewobjects ( VM *pVM )
 {
-    List *pList, *pThis  ;
+    List *pThis  ;
     VMState *pVMState  ;
-    pList = ring_list_getlist(pVM->aScopeNewObj,ring_list_getsize(pVM->aScopeNewObj)) ;
     /* Using VMState */
-    pVMState = (VMState *) ring_list_getpointer(pList,1);
+    pVMState = (VMState *) ring_list_getpointer(pVM->aScopeNewObj,ring_list_getsize(pVM->aScopeNewObj));
     /*
     **  Restore State 
     **  Restore the scope (before creating the object using new) 
@@ -549,10 +544,8 @@ void ring_vm_restorestatefornewobjects ( VM *pVM )
 
 int ring_vm_newobjectstackpointer ( VM *pVM )
 {
-    List *pList  ;
     VMState *pVMState  ;
-    pList = ring_list_getlist(pVM->aScopeNewObj,ring_list_getsize(pVM->aScopeNewObj));
-    pVMState = (VMState *) ring_list_getpointer(pList,1);
+    pVMState = (VMState *) ring_list_getpointer(pVM->aScopeNewObj,ring_list_getsize(pVM->aScopeNewObj));
     return pVMState->aNumbers[RING_ASCOPENEWOBJ_SP] ;
 }
 /* Save/Restore State 4 - Used by BraceStart & BraceEnd */
