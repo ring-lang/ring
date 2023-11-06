@@ -30,19 +30,17 @@ Type: VMState *
 pVMState
 ring_vm_savestatefornewobjects
 Type: List *
-pList, *pThis
+pThis
 Type: VMState *
 pVMState
 Type: Item *
 pItem
 ring_vm_restorestatefornewobjects
 Type: List *
-pList, *pThis
+pThis
 Type: VMState *
 pVMState
 ring_vm_newobjectstackpointer
-Type: List *
-pList
 Type: VMState *
 pVMState
 ring_vm_savestateforbraces

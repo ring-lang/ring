@@ -282,6 +282,7 @@ Type: static char
 nullstring[]
 ring_list_addringpointer
 ring_list_addringpointer_gc
+ring_list_addcustomringpointer_gc
 Type: List *
 pPointerList
 Type: Item *
@@ -296,8 +297,3 @@ Type: char
 cStr[100]
 ring_list_iscpointerlist
 ring_list_cpointercmp
-ring_list_addcustomringpointer_gc
-Type: List *
-pPointerList
-Type: Item *
-pItem

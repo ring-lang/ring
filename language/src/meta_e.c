@@ -901,7 +901,7 @@ void ring_vm_refmeta_ringvmcalllist ( void *pPointer )
     /* Copy Important Information */
     for ( x = 1 ; x <= ring_list_getsize(pVM->pFuncCallList ) ; x++ ) {
         pFuncCallList = ring_list_getlist(pVM->pFuncCallList,x);
-        pFuncCall = (FuncCall *) ring_list_getpointer(ring_list_getlist(pFuncCallList,RING_FUNCCL_STRUCT),RING_CPOINTER_POINTER) ;
+        pFuncCall = (FuncCall *) ring_list_getpointer(pFuncCallList,RING_FUNCCL_STRUCT) ;
         pList2 = ring_list_newlist_gc(pVM->pRingState,pList);
         ring_list_addint_gc(pVM->pRingState,pList2,pFuncCall->nType);
         ring_list_addstring_gc(pVM->pRingState,pList2,pFuncCall->cName);
