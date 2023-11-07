@@ -88,3 +88,4 @@ pFuncCall
 ring_vmfunccall_delete
 Type: FuncCall *
 pFuncCall
+ring_vmfunccall_useloadfuncp
