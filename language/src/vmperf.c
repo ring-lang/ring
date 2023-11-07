@@ -135,6 +135,7 @@ void ring_vm_loadfuncp ( VM *pVM )
     pFuncCall->cName = RING_VM_IR_READC ;
     pFuncCall->nPC = RING_VM_IR_READIVALUE(2) ;
     pFuncCall->nSP = pVM->nSP ;
+    pFuncCall->pFunc = RING_VM_IR_READPVALUE(3) ;
     pFuncCall->pTempMem = ring_list_new_gc(pVM->pRingState,0) ;
     pFuncCall->cFileName = pVM->cFileName ;
     pVM->cPrevFileName = pVM->cFileName ;
