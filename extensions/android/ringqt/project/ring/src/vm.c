@@ -185,7 +185,7 @@ VM * ring_vm_new ( RingState *pRingState )
     /* File name in the class region */
     pVM->cFileNameInClassRegion = NULL ;
     /* Control Performance Instructions */
-    pVM->lUsePushPLocal = 0 ;
+    pVM->lUsePushPLocal = 1 ;
     /* To know if we are inside eval() or not */
     pVM->nInsideEval = 0 ;
     /* Dynamic Libraries */
