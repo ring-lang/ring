@@ -62,6 +62,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
             pFuncCall->cName = cStr ;
             pFuncCall->nPC = ring_list_getint(pList2,RING_FUNCMAP_PC) ;
             pFuncCall->nSP = pVM->nSP ;
+            pFuncCall->pFunc = NULL ;
             /* Create Temp Memory */
             pFuncCall->pTempMem = ring_list_new_gc(pVM->pRingState,0) ;
             /* File Name */
@@ -86,15 +87,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
             if ( (strcmp(cStr,"main") != 0 ) && (pVM->nCallMethod != 1) && (y != 2) ) {
                 /* We check that we will convert Functions only, not methods */
                 if ( pVM->nInsideBraceFlag == 0 ) {
-                    if ( nPerformance == 1 ) {
-                        /* Replace Instruction with ICO_LOADFUNCP for better performance */
-                        RING_VM_IR_OPCODE = ICO_LOADFUNCP ;
-                        /* Leave the first parameter (contains the function name as wanted) */
-                        RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(2),pFuncCall->nPC);
-                        RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(4),pFuncCall->cFileName);
-                        RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(5),pFuncCall->nLineNumber);
-                        RING_VM_IR_SETCHARREG(pFuncCall->nMethodOrFunc);
-                    }
+                    ring_vmfunccall_useloadfuncp(pVM,pFuncCall,nPerformance);
                 }
                 else {
                     /*
@@ -161,6 +154,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
         pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
         /* Add nLoadAddressScope to aAddressScope */
         ring_vm_saveloadaddressscope(pVM);
+        ring_vmfunccall_useloadfuncp(pVM,pFuncCall,nPerformance);
         return 1 ;
     }
     /* Avoid Error if it is automatic call to the main function */
@@ -894,4 +888,19 @@ void ring_vmfunccall_delete ( void *pState,void *pMemory )
         ring_list_delete_gc(pState,pFuncCall->pTempMem);
     }
     ring_vmstate_delete(pState,pMemory);
+}
+
+void ring_vmfunccall_useloadfuncp ( VM *pVM,FuncCall *pFuncCall,int nPerformance )
+{
+    if ( nPerformance == 1 ) {
+        /* Replace Instruction with ICO_LOADFUNCP for better performance */
+        RING_VM_IR_OPCODE = ICO_LOADFUNCP ;
+        /* Leave the first parameter (contains the function name as wanted) */
+        RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(2),pFuncCall->nPC);
+        RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(3),pFuncCall->pFunc);
+        RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(4),pFuncCall->cFileName);
+        RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(5),pFuncCall->nLineNumber);
+        RING_VM_IR_SETCHARREG(pFuncCall->nMethodOrFunc);
+        RING_VM_IR_SETFLAGREG(pFuncCall->nType);
+    }
 }

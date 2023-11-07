@@ -131,14 +131,17 @@ void ring_vm_loadfuncp ( VM *pVM )
     pList = ring_list_newlist_gc(pVM->pRingState,pVM->pFuncCallList);
     /* Add FuncCall Structure */
     pFuncCall = ring_vmfunccall_new(pVM,pList);
-    pFuncCall->nType = RING_FUNCTYPE_SCRIPT ;
+    pFuncCall->nType = RING_VM_IR_GETFLAGREG ;
     pFuncCall->cName = RING_VM_IR_READC ;
     pFuncCall->nPC = RING_VM_IR_READIVALUE(2) ;
     pFuncCall->nSP = pVM->nSP ;
+    pFuncCall->pFunc = RING_VM_IR_READPVALUE(3) ;
     pFuncCall->pTempMem = ring_list_new_gc(pVM->pRingState,0) ;
     pFuncCall->cFileName = pVM->cFileName ;
-    pVM->cPrevFileName = pVM->cFileName ;
-    pVM->cFileName = (char *) RING_VM_IR_READPVALUE(4) ;
+    if ( pFuncCall->nType == RING_FUNCTYPE_SCRIPT ) {
+        pVM->cFileName = (char *) RING_VM_IR_READPVALUE(4) ;
+        pVM->cPrevFileName = pVM->cFileName ;
+    }
     pFuncCall->cNewFileName = pVM->cFileName ;
     pFuncCall->nMethodOrFunc = RING_VM_IR_GETCHARREG ;
     pFuncCall->nLineNumber = RING_VM_IR_READIVALUE(5) ;
