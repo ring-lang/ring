@@ -122,7 +122,7 @@ More Improvements
 =================
 
 * WinStartupManager application - Use extensions that comes with Ring
-* TicTacToe3D game - Better Code 
+* EightPuzzleGame3D game - Better Code 
 * SuperMan2016 game - Reset FPS and player speed
 * TowersOfHanoi simulation - higher speed
 * samples/AQuickStart/ODBC - Better Code
