@@ -131,8 +131,8 @@ func main
 func playstart oGame
 
 	oGame {
-		FPS = 15
-		FixedFPS = 15
+		FPS = 30
+		FixedFPS = 30
 		nTimeOut = 0
 		Title = "Super Man 2016"
 		Sprite {
@@ -251,7 +251,7 @@ func playstart oGame
 						but nKey = key_right and checkwall(oGame,oSelf,10,0)
 							file = "images/supermanright.png"
 							dotransparent()
-							x += 10
+							x += 7
 							if x >= 440
 								if oGame.aObjects[2].x > -4500
 									oGame.aObjects[2].x -= 50
@@ -273,7 +273,7 @@ func playstart oGame
 						but nKey = key_left and checkwall(oGame,oSelf,-10,0)
 							file = "images/supermanleft.png"
 							dotransparent()
-							x -= 10
+							x -= 7
 							if x <= 0
 								x += 10
 								if oGame.aObjects[2].x != 0
