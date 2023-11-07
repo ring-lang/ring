@@ -4,18 +4,41 @@
 Items * ring_items_new_gc ( void *pState )
 {
     Items *pItems  ;
-    pItems = (Items *) ring_state_malloc(pState,sizeof(Items));
-    pItems->pValue = ring_item_new_gc(pState,ITEMTYPE_NOTHING) ;
+    char *pMem  ;
+    Item *pItem  ;
+    pMem = (char *) ring_state_malloc(pState,sizeof(Item)+sizeof(Items));
+    pItem = (Item *) pMem ;
+    /* Clear Item */
+    pItem->nType = ITEMTYPE_NOTHING ;
+    pItem->data.pPointer = NULL ;
+    pItem->nObjectType = 0 ;
+    pItem->data.dNumber = 0 ;
+    pItem->data.iNumber = 0 ;
+    pItem->NumberFlag = ITEM_NUMBERFLAG_NOTHING ;
+    ring_vm_gc_cleardata(pItem);
+    ring_vm_gc_newitemreference(pItem);
+    pMem = pMem + sizeof(Item) ;
+    pItems = (Items *) pMem ;
+    pItems->pValue = pItem ;
     pItems->pNext = NULL ;
     pItems->pPrev = NULL ;
+    pItems->lDelete = 1 ;
     return pItems ;
 }
 
 Items * ring_items_delete_gc ( void *pState,Items *pItems )
 {
+    char *pMem  ;
+    Item *pItem  ;
     assert(pItems != NULL);
+    if ( ! pItems->lDelete ) {
+        return NULL ;
+    }
     pItems->pValue = ring_item_delete_gc(pState,pItems->pValue);
-    ring_state_free(pState,pItems);
+    pMem = (char *) pItems ;
+    pMem = pMem - sizeof(Item) ;
+    pItem = (Item *) pMem ;
+    pItem = ring_item_delete_gc(pState,pItem);
     pItems = NULL ;
     return pItems ;
 }

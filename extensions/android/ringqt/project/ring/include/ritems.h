@@ -6,6 +6,7 @@
         struct Item *pValue  ;
         struct Items *pNext  ;
         struct Items *pPrev  ;
+        unsigned char lDelete  ;
     } Items ;
     /* Functions */
 
