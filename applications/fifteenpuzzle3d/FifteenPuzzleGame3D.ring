@@ -50,11 +50,11 @@ next
 #==============================================================
 
 func main
-	new TicTacToe3D {
+	new FifteenPuzzle3D {
 		start()
 	}
 
-class TicTacToe3D from GameLogic
+class FifteenPuzzle3D from GameLogic
 
 	FPS	= 120
 	TITLE	= "CalmoSoft Fifteen Puzzle Game 3D"
