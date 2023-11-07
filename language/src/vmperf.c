@@ -131,7 +131,7 @@ void ring_vm_loadfuncp ( VM *pVM )
     pList = ring_list_newlist_gc(pVM->pRingState,pVM->pFuncCallList);
     /* Add FuncCall Structure */
     pFuncCall = ring_vmfunccall_new(pVM,pList);
-    pFuncCall->nType = RING_FUNCTYPE_SCRIPT ;
+    pFuncCall->nType = RING_VM_IR_GETFLAGREG ;
     pFuncCall->cName = RING_VM_IR_READC ;
     pFuncCall->nPC = RING_VM_IR_READIVALUE(2) ;
     pFuncCall->nSP = pVM->nSP ;

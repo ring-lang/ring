@@ -94,6 +94,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
                         RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(4),pFuncCall->cFileName);
                         RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(5),pFuncCall->nLineNumber);
                         RING_VM_IR_SETCHARREG(pFuncCall->nMethodOrFunc);
+                        RING_VM_IR_SETFLAGREG(pFuncCall->nType);
                     }
                 }
                 else {
