@@ -164,6 +164,17 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
         pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
         /* Add nLoadAddressScope to aAddressScope */
         ring_vm_saveloadaddressscope(pVM);
+        if ( nPerformance == 1 ) {
+            /* Replace Instruction with ICO_LOADFUNCP for better performance */
+            RING_VM_IR_OPCODE = ICO_LOADFUNCP ;
+            /* Leave the first parameter (contains the function name as wanted) */
+            RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(2),pFuncCall->nPC);
+            RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(3),pFuncCall->pFunc);
+            RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(4),pFuncCall->cFileName);
+            RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(5),pFuncCall->nLineNumber);
+            RING_VM_IR_SETCHARREG(pFuncCall->nMethodOrFunc);
+            RING_VM_IR_SETFLAGREG(pFuncCall->nType);
+        }
         return 1 ;
     }
     /* Avoid Error if it is automatic call to the main function */

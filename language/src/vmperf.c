@@ -138,8 +138,10 @@ void ring_vm_loadfuncp ( VM *pVM )
     pFuncCall->pFunc = RING_VM_IR_READPVALUE(3) ;
     pFuncCall->pTempMem = ring_list_new_gc(pVM->pRingState,0) ;
     pFuncCall->cFileName = pVM->cFileName ;
-    pVM->cPrevFileName = pVM->cFileName ;
-    pVM->cFileName = (char *) RING_VM_IR_READPVALUE(4) ;
+    if ( pFuncCall->nType == RING_FUNCTYPE_SCRIPT ) {
+        pVM->cFileName = (char *) RING_VM_IR_READPVALUE(4) ;
+        pVM->cPrevFileName = pVM->cFileName ;
+    }
     pFuncCall->cNewFileName = pVM->cFileName ;
     pFuncCall->nMethodOrFunc = RING_VM_IR_GETCHARREG ;
     pFuncCall->nLineNumber = RING_VM_IR_READIVALUE(5) ;
