@@ -6,6 +6,8 @@ Type: struct Items *
 pNext
 Type: struct Items *
 pPrev
+Type: unsigned char
+lDelete
 END:
 Type: Items
 struct Items
@@ -18,7 +20,15 @@ Items *
 ring_items_new_gc
 Type: Items *
 pItems
+Type: char *
+pMem
+Type: Item *
+pItem
 ring_items_delete_gc
+Type: char *
+pMem
+Type: Item *
+pItem
 ring_items_print
 ring_items_new
 ring_items_delete
