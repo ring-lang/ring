@@ -137,3 +137,4 @@ More Improvements
 * Ring Compiler/VM - Items structure functions - Better Performance
 * Ring VM - Function Call - Replace some Ring lists with C Structures
 * Ring VM - Memory Pool - Allocate 1,000,000 items at startup  
+* Ring VM - Byte Code - Added: Flag Register
