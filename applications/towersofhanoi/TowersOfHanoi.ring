@@ -85,7 +85,7 @@ Func Main                                   # Called by the Game Engine
      oGame = New Game                       # Create the Game Object
      {
           title    = "Towers of Hanoi"
-          FixedFPS = 240                    # Very high speed
+          FixedFPS = 480                    # Very high speed
 	  icon     = "images/TowersOfHanoi.jpg"
           //====================================================== SG SB SY
 			 // Background images/D1
