@@ -1,6 +1,6 @@
 /*
 **
-**	Game  	: CalmoSoft Fifteen Puzzle Game 3D 
+**	Game  	: CalmoSoft Eight Puzzle Game 3D 
 **	Date   	: 2017/09/01
 **  	Author 	: CalmoSoft <calmosoft@gmail.com>
 **
@@ -50,14 +50,14 @@ next
 #==============================================================
 
 func main
-	new FifteenPuzzle3D {
+	new EightPuzzle3D {
 		start()
 	}
 
-class FifteenPuzzle3D from GameLogic
+class EightPuzzle3D from GameLogic
 
 	FPS	= 120
-	TITLE	= "CalmoSoft Fifteen Puzzle Game 3D"
+	TITLE	= "CalmoSoft Eight Puzzle Game 3D"
 	ICON	= "image/n1.jpg"
 
 	oBackground	= new GameBackground
