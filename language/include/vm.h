@@ -186,6 +186,8 @@
     #define RING_VM_STACK_ISSTRING ring_itemarray_isstring(pVM->aStack,pVM->nSP)
     #define RING_VM_STACK_ISNUMBER ring_itemarray_isnumber(pVM->aStack,pVM->nSP)
     #define RING_VM_STACK_ISPOINTER ring_itemarray_ispointer(pVM->aStack,pVM->nSP)
+    #define RING_VM_STACK_ISSTRINGVALUE(x) ring_itemarray_isstring(pVM->aStack,x)
+    #define RING_VM_STACK_ISNUMBERVALUE(x) ring_itemarray_isnumber(pVM->aStack,x)
     #define RING_VM_STACK_ISPOINTERVALUE(x) ring_itemarray_ispointer(pVM->aStack,x)
     /* Read */
     #define RING_VM_STACK_READC ring_itemarray_getstring(pVM->aStack,pVM->nSP)
@@ -195,6 +197,11 @@
     #define RING_VM_STACK_READP ring_itemarray_getpointer(pVM->aStack,pVM->nSP)
     #define RING_VM_STACK_OBJTYPE pVM->aStack[pVM->nSP].nObjectType
     #define RING_VM_STACK_PREVOBJTYPE pVM->aStack[pVM->nSP-1].nObjectType
+    #define RING_VM_STACK_READCVALUE(x) ring_itemarray_getstring(pVM->aStack,x)
+    #define RING_VM_STACK_STRINGSIZEVALUE(x) ring_itemarray_getstringsize(pVM->aStack,x)
+    #define RING_VM_STACK_READNVALUE(x) ring_itemarray_getdouble(pVM->aStack,x)
+    #define RING_VM_STACK_READPVALUE(x) ring_itemarray_getpointer(pVM->aStack,x)
+    #define RING_VM_STACK_OBJTYPEVALUE(x) pVM->aStack[x].nObjectType
     /* Delete */
     #define RING_VM_STACK_POP pVM->nSP--
     /* Objects/Pointer  - Type */
