@@ -139,3 +139,4 @@ More Improvements
 * Ring VM - Use ICO_LOADFUNCP when loading C functions
 * Ring VM - Memory Pool - Allocate 1,000,000 items at startup  
 * Ring VM - Byte Code - Added: Flag Register
+* Ring VM - Use ring_list_getarray() with global scope variables When using threads 
