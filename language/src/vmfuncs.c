@@ -266,8 +266,9 @@ void ring_vm_call2 ( VM *pVM )
         /* Create New Scope */
         ring_vm_newscope(pVM);
         /* Get Parameters */
-        pVM->nCFuncParaCount = 0 ;
         nSP = pFuncCall->nSP ;
+        pVM->nCFuncParaCount = pVM->nSP - nSP ;
+        pVM->nCFuncSPStart = nSP ;
         /* Use Order (First In - First Out) As Queue , the first parameter comes first */
         if ( nSP < pVM->nSP ) {
             nMax1 = pVM->nSP ;
@@ -282,7 +283,6 @@ void ring_vm_call2 ( VM *pVM )
                 else if ( RING_VM_STACK_ISPOINTER ) {
                     ring_vm_addnewpointervar(pVM,"",RING_VM_STACK_READP,RING_VM_STACK_OBJTYPE);
                 }
-                pVM->nCFuncParaCount++ ;
             }
             pVM->nSP = nSP ;
         }

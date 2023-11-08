@@ -240,6 +240,8 @@ Type: unsigned char
 lSelfLoadA
 Type: List *
 aDeleteLater
+Type: int
+nCFuncSPStart
 END:
 Type: VM
 struct VM

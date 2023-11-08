@@ -208,6 +208,8 @@ VM * ring_vm_new ( RingState *pRingState )
     pVM->lSelfLoadA = 0 ;
     /* List of pointers that contains lists that will be deleted later */
     pVM->aDeleteLater = ring_list_new_gc(pVM->pRingState,0);
+    /* SP start when calling a C function */
+    pVM->nCFuncSPStart = 0 ;
     return pVM ;
 }
 
