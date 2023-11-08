@@ -186,6 +186,7 @@
     #define RING_VM_STACK_ISSTRING ring_itemarray_isstring(pVM->aStack,pVM->nSP)
     #define RING_VM_STACK_ISNUMBER ring_itemarray_isnumber(pVM->aStack,pVM->nSP)
     #define RING_VM_STACK_ISPOINTER ring_itemarray_ispointer(pVM->aStack,pVM->nSP)
+    #define RING_VM_STACK_PREVISPOINTER ring_itemarray_ispointer(pVM->aStack,pVM->nSP-1)
     #define RING_VM_STACK_ISSTRINGVALUE(x) ring_itemarray_isstring(pVM->aStack,x)
     #define RING_VM_STACK_ISNUMBERVALUE(x) ring_itemarray_isnumber(pVM->aStack,x)
     #define RING_VM_STACK_ISPOINTERVALUE(x) ring_itemarray_ispointer(pVM->aStack,x)
