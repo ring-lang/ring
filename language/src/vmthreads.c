@@ -41,7 +41,7 @@ RING_API void ring_vm_mutexdestroy ( VM *pVM )
 RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 {
     RingState *pState  ;
-    List *pList,*pList2,*pList3,*pList4,*pList5  ;
+    List *pList,*pList2,*pList3,*pList4,*pList5,*pGlobal, *pVarList  ;
     Item *pItem  ;
     unsigned int nMemoryBlocksCount, x  ;
     Items *pItems  ;
@@ -65,6 +65,13 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
     /* Share the global scope between threads */
     pItem = pState->pVM->pMem->pFirst->pValue ;
     pState->pVM->pMem->pFirst->pValue = pVM->pMem->pFirst->pValue ;
+    pGlobal = ring_item_getlist(pVM->pMem->pFirst->pValue ) ;
+    for ( x = 1 ; x <= ring_list_getsize(pGlobal) ; x++ ) {
+        pVarList = ring_list_getlist(pGlobal,x) ;
+        if ( pVarList->pItemsArray == NULL ) {
+            ring_list_genarray(pVarList);
+        }
+    }
     /* Get Items for the Memory Pool From the Main Thread */
     ring_poolmanager_newblockfromsubthread(pState,100000,pVM->pRingState);
     /* Share Memory Blocks (Could be used for Lists in Global Scope) */
