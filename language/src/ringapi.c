@@ -259,11 +259,13 @@ RING_API int ring_vm_api_ispointer ( void *pPointer,int x )
     VM *pVM  ;
     Item *pItem  ;
     pVM = (VM *) pPointer ;
-    pList = ring_list_getlist(RING_API_PARALIST,x) ;
-    if ( ring_list_ispointer(pList,RING_VAR_VALUE) ) {
-        return 1 ;
+    if ( ring_list_islist(RING_API_PARALIST,x) ) {
+        pList = ring_list_getlist(RING_API_PARALIST,x) ;
+        if ( ring_list_ispointer(pList,RING_VAR_VALUE) ) {
+            return 1 ;
+        }
     }
-    else if ( RING_API_ISSTRING(x) ) {
+    if ( RING_API_ISSTRING(x) ) {
         /* Treat NULL Strings as NULL Pointers - so we can use NULL instead of NULLPOINTER() */
         if ( (strcmp(RING_API_GETSTRING(x),"") == 0) || (strcmp(RING_API_GETSTRING(x),"NULL") == 0) ) {
             /* Create the list for the NULL Pointer */
