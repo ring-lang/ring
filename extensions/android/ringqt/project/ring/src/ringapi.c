@@ -27,7 +27,7 @@ int ring_vm_api_islist ( void *pPointer,int x )
     VM *pVM  ;
     pVM = (VM *) pPointer ;
     pList = ring_list_getlist(RING_API_PARALIST,x) ;
-    if ( ring_list_ispointer(pList,RING_VAR_VALUE) ) {
+    if ( ring_list_ispointer(pList,1) ) {
         nType = RING_API_GETPOINTERTYPE(x);
         if ( nType == RING_OBJTYPE_VARIABLE || nType == RING_OBJTYPE_LISTITEM ) {
             return 1 ;
@@ -261,7 +261,7 @@ RING_API int ring_vm_api_ispointer ( void *pPointer,int x )
     pVM = (VM *) pPointer ;
     if ( ring_list_islist(RING_API_PARALIST,x) ) {
         pList = ring_list_getlist(RING_API_PARALIST,x) ;
-        if ( ring_list_ispointer(pList,RING_VAR_VALUE) ) {
+        if ( ring_list_ispointer(pList,1) ) {
             return 1 ;
         }
     }
@@ -269,13 +269,12 @@ RING_API int ring_vm_api_ispointer ( void *pPointer,int x )
         /* Treat NULL Strings as NULL Pointers - so we can use NULL instead of NULLPOINTER() */
         if ( (strcmp(RING_API_GETSTRING(x),"") == 0) || (strcmp(RING_API_GETSTRING(x),"NULL") == 0) ) {
             /* Create the list for the NULL Pointer */
-            ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_POINTER);
             pList2 = RING_API_NEWLIST ;
             pItem = ring_list_getitem(pVM->pActiveMem,ring_list_getsize(pVM->pActiveMem));
             /* Increase the References count for the item */
             ring_vm_gc_newitemreference(pItem);
-            ring_list_setpointer_gc(pVM->pRingState,pList,RING_VAR_VALUE,pItem);
-            ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_PVALUETYPE,RING_OBJTYPE_LISTITEM);
+            ring_list_setpointer_gc(pVM->pRingState,pList,1,pItem);
+            ring_list_setint_gc(pVM->pRingState,pList,2,RING_OBJTYPE_LISTITEM);
             /* The variable value will be a list contains the pointer */
             ring_list_addpointer_gc(pVM->pRingState,pList2,NULL);
             /* Add the pointer type */
