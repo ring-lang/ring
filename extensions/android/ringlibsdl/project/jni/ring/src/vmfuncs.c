@@ -278,7 +278,8 @@ void ring_vm_call2 ( VM *pVM )
                     ring_vm_addnewstringvar2(pVM,"",RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
                 }
                 else if ( RING_VM_STACK_ISNUMBER ) {
-                    ring_vm_addnewnumbervar(pVM,"",RING_VM_STACK_READN);
+                    pList = ring_list_newlist_gc(pVM->pRingState,pVM->pActiveMem);
+                    ring_list_adddouble_gc(pVM->pRingState,pList,RING_VM_STACK_READN);
                 }
                 else if ( RING_VM_STACK_ISPOINTER ) {
                     ring_vm_addnewpointervar(pVM,"",RING_VM_STACK_READP,RING_VM_STACK_OBJTYPE);
