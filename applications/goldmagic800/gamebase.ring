@@ -7,7 +7,7 @@ class GameBase
 	display event_queue ev timeout timer  redraw = true   lFlipDisplay = True 
 	lExitFromMainLoop = False
 
-	nFPS = 10 	nRuntimeFPS = nFPS	lCalculateRunTimeFPS = False
+	nFPS = 14 	nRuntimeFPS = nFPS	lCalculateRunTimeFPS = False
 
 	lUseFixedResolution = False
 	lFULLSCREEN	= True
