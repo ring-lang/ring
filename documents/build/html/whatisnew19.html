@@ -169,7 +169,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#hours-counter-application">Hours Counter application</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ring-for-windows-64bit">Ring for Windows 64bit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-batch-files-for-building-ring">Better batch files for building Ring</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#faster-for-loop">Faster For Loop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#for-loop-better-performance">For Loop - Better Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#calling-functions-better-performance">Calling Functions - Better Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
@@ -217,7 +218,8 @@
 <li><p>Hours Counter application</p></li>
 <li><p>Ring for Windows 64bit</p></li>
 <li><p>Better batch files for building Ring</p></li>
-<li><p>Faster For Loop</p></li>
+<li><p>For Loop - Better Performance</p></li>
+<li><p>Calling Functions - Better Performance</p></li>
 <li><p>More Samples</p></li>
 <li><p>More Improvements</p></li>
 </ul>
@@ -248,9 +250,9 @@
 <p>Ring comes with all of the dependencies except Qt</p>
 <p>These batch files assume that we have Qt 5.15.15 (We can change the used Qt 5.15 version using the environment variables).</p>
 </section>
-<section id="faster-for-loop">
-<span id="index-7"></span><h2>Faster For Loop<a class="headerlink" href="#faster-for-loop" title="Permalink to this heading"></a></h2>
-<p>The For Loop in Ring 1.19 (32 bit) is 2.9 times faster than Ring 1.18 (32 bit)</p>
+<section id="for-loop-better-performance">
+<span id="index-7"></span><h2>For Loop - Better Performance<a class="headerlink" href="#for-loop-better-performance" title="Permalink to this heading"></a></h2>
+<p>The For Loop in Ring 1.19 is three times (3x) faster than Ring 1.18.</p>
 <p>Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">t1</span><span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
@@ -263,8 +265,13 @@
 <p>Time using Ring 1.19 (32bit) : 1.31 seconds</p>
 <p>Time using Ring 1.19 (64bit) : 1.12 seconds</p>
 </section>
+<section id="calling-functions-better-performance">
+<span id="index-8"></span><h2>Calling Functions - Better Performance<a class="headerlink" href="#calling-functions-better-performance" title="Permalink to this heading"></a></h2>
+<p>Calling functions written in Ring code in Ring 1.19 is two times (2x) faster than Ring 1.18.</p>
+<p>While calling functions written in C code in Ring 1.19 is four times (4x) faster than Ring 1.18.</p>
+</section>
 <section id="more-samples">
-<span id="index-8"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Added: samples/Language/Constants</p></li>
 <li><p>Added: samples/UsingQt/CustomDragAndDrop/customdraganddrop.ring</p></li>
@@ -272,7 +279,7 @@
 </ul>
 </section>
 <section id="more-improvements">
-<span id="index-9"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-10"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>WinStartupManager application - Use extensions that comes with Ring</p></li>
 <li><p>EightPuzzleGame3D game - Better Code</p></li>

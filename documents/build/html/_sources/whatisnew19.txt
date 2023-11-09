@@ -20,7 +20,8 @@ Ring 1.19 comes with the next features!
 * Hours Counter application
 * Ring for Windows 64bit
 * Better batch files for building Ring 
-* Faster For Loop
+* For Loop - Better Performance
+* Calling Functions - Better Performance
 * More Samples
 * More Improvements
 
@@ -81,12 +82,12 @@ Ring comes with all of the dependencies except Qt
 These batch files assume that we have Qt 5.15.15 (We can change the used Qt 5.15 version using the environment variables). 
 
 .. index:: 
-	pair: What is new in Ring  1.19; Faster For Loop
+	pair: What is new in Ring  1.19; For Loop - Better Performance
 
-Faster For Loop
-===============
+For Loop - Better Performance
+=============================
 
-The For Loop in Ring 1.19 (32 bit) is 2.9 times faster than Ring 1.18 (32 bit)
+The For Loop in Ring 1.19 is three times (3x) faster than Ring 1.18.
 
 Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]
 
@@ -104,6 +105,17 @@ Time using Ring 1.18 (32bit) : 3.78 seconds
 Time using Ring 1.19 (32bit) : 1.31 seconds
 
 Time using Ring 1.19 (64bit) : 1.12 seconds
+
+
+.. index:: 
+	pair: What is new in Ring  1.19; For Loop - Better Performance
+
+Calling Functions - Better Performance
+======================================
+
+Calling functions written in Ring code in Ring 1.19 is two times (2x) faster than Ring 1.18.
+
+While calling functions written in C code in Ring 1.19 is four times (4x) faster than Ring 1.18.
 
 .. index:: 
 	pair: What is new in Ring  1.19; More Samples
