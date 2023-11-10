@@ -67,7 +67,7 @@ Ring for Windows 64bit
 
 Starting from Ring 1.19 the default Ring for Windows version is 64bit
 
-This provide access to more memory. Also, most of our tests indicates an increase of performance by 25%
+This provide access to more memory. Also, most of our tests indicates an increase of performance from 15% to 25%
 
 .. index:: 
 	pair: What is new in Ring  1.19; Better batch files for building Ring
@@ -116,6 +116,25 @@ Calling Functions - Better Performance
 Calling functions written in Ring code in Ring 1.19 is two times (2x) faster than Ring 1.18.
 
 While calling functions written in C code in Ring 1.19 is four times (4x) faster than Ring 1.18.
+
+Example:
+
+.. code-block:: ring
+
+	t1=clock()
+	for t=1 to 1_000_000
+		result = max(t,t*2)
+	next
+	? result
+	t2 = clock()
+	? (t2-t1)/clockspersecond() 
+
+Time using Ring 1.18 (32bit) :  1.45 seconds
+
+Time using Ring 1.19 (32bit) :  0.38 seconds
+
+Time using Ring 1.19 (64bit) :  0.32 seconds
+
 
 These improvements let the Stars animation sample works at 1975 FPS in Ring 1.19 instead of 500FPS in Ring 1.18
 

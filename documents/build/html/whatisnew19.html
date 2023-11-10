@@ -242,7 +242,7 @@
 <section id="ring-for-windows-64bit">
 <span id="index-5"></span><h2>Ring for Windows 64bit<a class="headerlink" href="#ring-for-windows-64bit" title="Permalink to this heading"></a></h2>
 <p>Starting from Ring 1.19 the default Ring for Windows version is 64bit</p>
-<p>This provide access to more memory. Also, most of our tests indicates an increase of performance by 25%</p>
+<p>This provide access to more memory. Also, most of our tests indicates an increase of performance from 15% to 25%</p>
 </section>
 <section id="better-batch-files-for-building-ring">
 <span id="index-6"></span><h2>Better batch files for building Ring<a class="headerlink" href="#better-batch-files-for-building-ring" title="Permalink to this heading"></a></h2>
@@ -269,6 +269,19 @@
 <span id="index-8"></span><h2>Calling Functions - Better Performance<a class="headerlink" href="#calling-functions-better-performance" title="Permalink to this heading"></a></h2>
 <p>Calling functions written in Ring code in Ring 1.19 is two times (2x) faster than Ring 1.18.</p>
 <p>While calling functions written in C code in Ring 1.19 is four times (4x) faster than Ring 1.18.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">t1</span><span class="o">=</span><span class="n">clock</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">1_000_000</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">t</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">next</span>
+<span class="o">?</span> <span class="n">result</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
+<span class="o">?</span> <span class="p">(</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clockspersecond</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Time using Ring 1.18 (32bit) :  1.45 seconds</p>
+<p>Time using Ring 1.19 (32bit) :  0.38 seconds</p>
+<p>Time using Ring 1.19 (64bit) :  0.32 seconds</p>
 <p>These improvements let the Stars animation sample works at 1975 FPS in Ring 1.19 instead of 500FPS in Ring 1.18</p>
 <img alt="stars3d" src="_images/stars3d.png" />
 </section>
