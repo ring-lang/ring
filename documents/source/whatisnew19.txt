@@ -117,7 +117,7 @@ Calling functions written in Ring code in Ring 1.19 is two times (2x) faster tha
 
 While calling functions written in C code in Ring 1.19 is four times (4x) faster than Ring 1.18.
 
-These improvements let the Stars animation sample works at 1750 FPS in Ring 1.19 instead of 500FPS in Ring 1.18
+These improvements let the Stars animation sample works at 1975 FPS in Ring 1.19 instead of 500FPS in Ring 1.18
 
 .. image:: stars3d.png
 	:alt: stars3d
