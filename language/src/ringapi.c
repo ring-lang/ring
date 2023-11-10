@@ -33,16 +33,12 @@ RING_API int ring_vm_api_isnumber ( void *pPointer,int x )
 RING_API int ring_vm_api_islist ( void *pPointer,int x )
 {
     int nType  ;
-    List *pList  ;
     VM *pVM  ;
     pVM = (VM *) pPointer ;
-    if ( ring_list_islist(RING_API_PARALIST,x) ) {
-        pList = ring_list_getlist(RING_API_PARALIST,x) ;
-        if ( ring_list_ispointer(pList,1) ) {
-            nType = RING_API_GETPOINTERTYPE(x);
-            if ( nType == RING_OBJTYPE_VARIABLE || nType == RING_OBJTYPE_LISTITEM ) {
-                return 1 ;
-            }
+    if ( ring_list_ispointer(RING_API_PARALIST,x) ) {
+        nType = RING_API_GETPOINTERTYPE(x);
+        if ( nType == RING_OBJTYPE_VARIABLE || nType == RING_OBJTYPE_LISTITEM ) {
+            return 1 ;
         }
     }
     return 0 ;
@@ -66,11 +62,8 @@ RING_API int ring_vm_api_ispointer ( void *pPointer,int x )
     VM *pVM  ;
     Item *pItem  ;
     pVM = (VM *) pPointer ;
-    if ( ring_list_islist(RING_API_PARALIST,x) ) {
-        pList = ring_list_getlist(RING_API_PARALIST,x) ;
-        if ( ring_list_ispointer(pList,1) ) {
-            return 1 ;
-        }
+    if ( ring_list_ispointer(RING_API_PARALIST,x) ) {
+        return 1 ;
     }
     if ( RING_API_ISSTRING(x) ) {
         /* Treat NULL Strings as NULL Pointers - so we can use NULL instead of NULLPOINTER() */
@@ -80,8 +73,7 @@ RING_API int ring_vm_api_ispointer ( void *pPointer,int x )
             pItem = ring_list_getitem(pVM->pActiveMem,ring_list_getsize(pVM->pActiveMem));
             /* Increase the References count for the item */
             ring_vm_gc_newitemreference(pItem);
-            ring_list_setpointer_gc(pVM->pRingState,pList,1,pItem);
-            ring_list_addint_gc(pVM->pRingState,pList,RING_OBJTYPE_LISTITEM);
+            ring_list_setpointerandtype_gc(pVM->pRingState,RING_API_PARALIST,x,pItem,RING_OBJTYPE_LISTITEM);
             /* The variable value will be a list contains the pointer */
             ring_list_addpointer_gc(pVM->pRingState,pList2,NULL);
             /* Add the pointer type */
@@ -111,12 +103,12 @@ RING_API double ring_vm_api_getnumber ( void *pPointer,int x )
 
 RING_API void * ring_vm_api_getpointer ( void *pPointer,int x )
 {
-    return ring_list_getpointer(ring_list_getlist(RING_API_PARALIST,x),1) ;
+    return ring_list_getpointer(RING_API_PARALIST,x) ;
 }
 
 RING_API int ring_vm_api_getpointertype ( void *pPointer,int x )
 {
-    return ring_list_getint(ring_list_getlist(RING_API_PARALIST,x),2) ;
+    return ring_list_getpointertype(RING_API_PARALIST,x) ;
 }
 
 RING_API List * ring_vm_api_getlist ( void *pPointer,int x )
