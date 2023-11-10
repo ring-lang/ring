@@ -67,6 +67,7 @@ ring_item_delete_gc
 ring_item_print
 Type: unsigned int
 ItemType
+ring_item_init
 ring_item_deletecontent_gc
 Type: int
 nType
@@ -81,7 +82,6 @@ ring_item_setstring2_gc
 ring_item_setdouble_gc
 ring_item_setpointer_gc
 ring_item_setint_gc
-ring_item_incdouble_gc
 ring_item_new
 ring_item_delete
 ring_item_settype

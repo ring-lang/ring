@@ -63,15 +63,20 @@ RING_API void ring_item_print ( Item *pItem )
     }
 }
 
+RING_API void ring_item_init ( Item *pItem )
+{
+    pItem->nType = ITEMTYPE_NOTHING ;
+    pItem->NumberFlag = ITEM_NUMBERFLAG_NOTHING ;
+    pItem->nObjectType = ITEM_OBJTYPE_NOTHING ;
+}
+
 RING_API void ring_item_deletecontent_gc ( void *pState,Item *pItem )
 {
     int nType  ;
     assert(pItem != NULL);
     nType = pItem->nType ;
     /* Set Type */
-    pItem->nType = ITEMTYPE_NOTHING ;
-    pItem->NumberFlag = ITEM_NUMBERFLAG_NOTHING ;
-    pItem->nObjectType = ITEM_OBJTYPE_NOTHING ;
+    ring_item_init(pItem);
     switch ( nType ) {
         case ITEMTYPE_STRING :
             /* Work */
