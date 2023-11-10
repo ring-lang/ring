@@ -22,12 +22,18 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 
 RING_API int ring_vm_api_isstring ( void *pPointer,int x )
 {
-    return ring_list_isstring(ring_list_getlist(RING_API_PARALIST,x),1) ;
+    if ( ring_list_islist(RING_API_PARALIST,x) ) {
+        return ring_list_isstring(ring_list_getlist(RING_API_PARALIST,x),1) ;
+    }
+    return 0 ;
 }
 
 RING_API int ring_vm_api_isnumber ( void *pPointer,int x )
 {
-    return (ring_list_isnumber(ring_list_getlist(RING_API_PARALIST,x),1)) ;
+    if ( ring_list_islist(RING_API_PARALIST,x) ) {
+        return (ring_list_isnumber(ring_list_getlist(RING_API_PARALIST,x),1)) ;
+    }
+    return 0 ;
 }
 
 RING_API int ring_vm_api_islist ( void *pPointer,int x )
@@ -36,11 +42,13 @@ RING_API int ring_vm_api_islist ( void *pPointer,int x )
     List *pList  ;
     VM *pVM  ;
     pVM = (VM *) pPointer ;
-    pList = ring_list_getlist(RING_API_PARALIST,x) ;
-    if ( ring_list_ispointer(pList,1) ) {
-        nType = RING_API_GETPOINTERTYPE(x);
-        if ( nType == RING_OBJTYPE_VARIABLE || nType == RING_OBJTYPE_LISTITEM ) {
-            return 1 ;
+    if ( ring_list_islist(RING_API_PARALIST,x) ) {
+        pList = ring_list_getlist(RING_API_PARALIST,x) ;
+        if ( ring_list_ispointer(pList,1) ) {
+            nType = RING_API_GETPOINTERTYPE(x);
+            if ( nType == RING_OBJTYPE_VARIABLE || nType == RING_OBJTYPE_LISTITEM ) {
+                return 1 ;
+            }
         }
     }
     return 0 ;
