@@ -22,18 +22,12 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 
 RING_API int ring_vm_api_isstring ( void *pPointer,int x )
 {
-    if ( ring_list_islist(RING_API_PARALIST,x) ) {
-        return ring_list_isstring(ring_list_getlist(RING_API_PARALIST,x),1) ;
-    }
-    return 0 ;
+    return ring_list_isstring(RING_API_PARALIST,x) ;
 }
 
 RING_API int ring_vm_api_isnumber ( void *pPointer,int x )
 {
-    if ( ring_list_islist(RING_API_PARALIST,x) ) {
-        return (ring_list_isnumber(ring_list_getlist(RING_API_PARALIST,x),1)) ;
-    }
-    return 0 ;
+    return ring_list_isdouble(RING_API_PARALIST,x) ;
 }
 
 RING_API int ring_vm_api_islist ( void *pPointer,int x )
@@ -102,12 +96,17 @@ RING_API int ring_vm_api_ispointer ( void *pPointer,int x )
 
 RING_API char * ring_vm_api_getstring ( void *pPointer,int x )
 {
-    return ring_list_getstring(ring_list_getlist(RING_API_PARALIST,x),1) ;
+    return ring_list_getstring(RING_API_PARALIST,x) ;
+}
+
+RING_API int ring_vm_api_getstringsize ( void *pPointer,int x )
+{
+    return ring_list_getstringsize(RING_API_PARALIST,x) ;
 }
 
 RING_API double ring_vm_api_getnumber ( void *pPointer,int x )
 {
-    return ring_list_getdouble(ring_list_getlist(RING_API_PARALIST,x),1) ;
+    return ring_list_getdouble(RING_API_PARALIST,x) ;
 }
 
 RING_API void * ring_vm_api_getpointer ( void *pPointer,int x )

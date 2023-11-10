@@ -93,6 +93,7 @@ pVM
 Type: Item *
 pItem
 ring_vm_api_getstring
+ring_vm_api_getstringsize
 ring_vm_api_getnumber
 ring_vm_api_getpointer
 ring_vm_api_getpointertype
