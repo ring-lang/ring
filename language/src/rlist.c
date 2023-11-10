@@ -182,7 +182,7 @@ RING_API void ring_list_clear ( List *pList )
 }
 /* List Items */
 
-RING_API void ring_list_newitem_gc ( void *pState,List *pList )
+RING_API Item * ring_list_newitem_gc ( void *pState,List *pList )
 {
     Items *pItems  ;
     assert(pList != NULL);
@@ -200,6 +200,7 @@ RING_API void ring_list_newitem_gc ( void *pState,List *pList )
     /* Refresh The Cache */
     pList->nNextItemAfterLastAccess = 0 ;
     pList->pLastItemLastAccess = NULL ;
+    return pItems->pValue ;
 }
 
 RING_API Item * ring_list_getitem ( List *pList,unsigned int index )
@@ -397,6 +398,15 @@ RING_API void ring_list_addpointer_gc ( void *pState,List *pList,void *pValue )
     assert(pList != NULL);
     ring_list_newitem_gc(pState,pList);
     ring_list_setpointer_gc(pState,pList,ring_list_getsize(pList),pValue);
+}
+
+RING_API void ring_list_addpointerandtype_gc ( void *pState,List *pList,void *pValue,int nType )
+{
+    Item *pItem  ;
+    assert(pList != NULL);
+    pItem = ring_list_newitem_gc(pState,pList);
+    ring_list_setpointer_gc(pState,pList,ring_list_getsize(pList),pValue);
+    pItem->nObjectType = nType ;
 }
 /* double */
 

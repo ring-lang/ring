@@ -48,6 +48,7 @@ ring_list_getstringsize(pList,index)
 ring_list_getsize(x)
 ring_list_deletelastitem_gc(s,x)
 ring_list_incdouble(pList,index)
+ring_list_getpointer(pList,index)
 ring_list_new_gc
 Type: List *
 pList
@@ -102,6 +103,9 @@ ring_list_setpointer_gc
 Type: Item *
 pItem
 ring_list_addpointer_gc
+ring_list_addpointerandtype_gc
+Type: Item *
+pItem
 ring_list_setdouble_gc
 Type: Item *
 pItem
