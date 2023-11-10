@@ -140,6 +140,7 @@ More Improvements
 * TowersOfHanoi simulation - higher speed
 * samples/AQuickStart/ODBC - Better Code
 * samples/UsingOpenGL/LevelsOfCubes - Reset FPS
+* samples/UsingOpenGL - Set the window icon
 * Better Qt3D samples - Use Quit() method when closing the application
 * Better RingPostgreSQL samples
 * Better RingMySQL sample - samples/AQuickStart/MySQL/mysql7.ring
