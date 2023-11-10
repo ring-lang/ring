@@ -24,6 +24,8 @@
 
     RING_API char * ring_vm_api_getstring ( void *pPointer,int x ) ;
 
+    RING_API int ring_vm_api_getstringsize ( void *pPointer,int x ) ;
+
     RING_API double ring_vm_api_getnumber ( void *pPointer,int x ) ;
 
     RING_API void * ring_vm_api_getpointer ( void *pPointer,int x ) ;
@@ -109,7 +111,7 @@
     #define RING_API_PUSHPVALUE(x) ((VM *) pPointer)->nSP++ ; ring_itemarray_setpointer(((VM *) pPointer)->aStack, ((VM *) pPointer)->nSP , x )
     #define RING_API_OBJTYPE ((VM *) pPointer)->aStack[((VM *) pPointer)->nSP].nObjectType
     #define RING_API_GETSTRINGRAW ring_itemarray_getstringraw(((VM *) pPointer)->aStack,((VM *) pPointer)->nSP)
-    #define RING_API_GETSTRINGSIZE(x) (ring_list_getstringsize(ring_list_getlist(RING_API_PARALIST,x),1))
+    #define RING_API_GETSTRINGSIZE(x) (ring_vm_api_getstringsize((VM *) pPointer,x))
     #define RING_API_SETNULLPOINTER(x) (ring_vm_api_setcpointernull((VM *) pPointer,x))
     #define RING_API_GETCPOINTERSTATUS(x) ring_list_getint(RING_API_GETLIST(x),RING_CPOINTER_STATUS)
     #define RING_API_ISCPOINTERNOTASSIGNED(x) (RING_API_GETCPOINTERSTATUS(x) == RING_CPOINTERSTATUS_NOTASSIGNED)

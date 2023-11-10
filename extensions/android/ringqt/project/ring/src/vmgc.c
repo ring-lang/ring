@@ -16,6 +16,9 @@ void ring_vm_gc_checkreferences ( VM *pVM )
     /* Check References (Called when we delete a scope) */
     pList = ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem));
     for ( x = ring_list_getsize(pList) ; x >= 1 ; x-- ) {
+        if ( ! ring_list_islist(pList,x) ) {
+            continue ;
+        }
         pList2 = ring_list_getlist(pList,x);
         if ( ring_list_getsize(pList2) == RING_VAR_LISTSIZE ) {
             if ( ring_list_getint(pList2,RING_VAR_TYPE) == RING_VM_POINTER ) {

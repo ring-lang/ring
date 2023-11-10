@@ -42,15 +42,17 @@ int ring_vm_checknull ( VM *pVM,int lShowError )
                 **  So we check pVM->pActiveMem before calling ring_vm_error2() function 
                 */
                 pString = ring_string_new2_gc(pVM->pRingState,ring_list_getstring(pVar,RING_VAR_NAME),ring_list_getstringsize(pVar,RING_VAR_NAME));
-                if ( ring_list_getlist(pVM->pActiveMem,ring_list_getsize(pVM->pActiveMem)) == pVar ) {
-                    /* Delete the Item from the HashTable */
-                    ring_hashtable_deleteitem_gc(pVM->pRingState,pVM->pActiveMem->pHashTable,ring_list_getstring(pVar,RING_VAR_NAME));
-                    /* Delete the variable from the active scope */
-                    ring_list_deletelastitem_gc(pVM->pRingState,pVM->pActiveMem);
-                    /* We deleted the variable, so we remove it from the Stack to avoid usage after delete */
-                    RING_VM_STACK_POP ;
-                    /* We replace it with NULL */
-                    RING_VM_STACK_PUSHCVALUE("");
+                if ( ring_list_islist(pVM->pActiveMem,ring_list_getsize(pVM->pActiveMem)) ) {
+                    if ( ring_list_getlist(pVM->pActiveMem,ring_list_getsize(pVM->pActiveMem)) == pVar ) {
+                        /* Delete the Item from the HashTable */
+                        ring_hashtable_deleteitem_gc(pVM->pRingState,pVM->pActiveMem->pHashTable,ring_list_getstring(pVar,RING_VAR_NAME));
+                        /* Delete the variable from the active scope */
+                        ring_list_deletelastitem_gc(pVM->pRingState,pVM->pActiveMem);
+                        /* We deleted the variable, so we remove it from the Stack to avoid usage after delete */
+                        RING_VM_STACK_POP ;
+                        /* We replace it with NULL */
+                        RING_VM_STACK_PUSHCVALUE("");
+                    }
                 }
                 ring_vm_error2(pVM,RING_VM_ERROR_USINGNULLVARIABLE,ring_string_get(pString));
                 ring_string_delete_gc(pVM->pRingState,pString);

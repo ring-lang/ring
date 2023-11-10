@@ -275,17 +275,13 @@ void ring_vm_call2 ( VM *pVM )
             for ( x = nSP+1 ; x <= nMax1 ; x++ ) {
                 pVM->nSP = x ;
                 if ( RING_VM_STACK_ISSTRING ) {
-                    pList = ring_list_newlist_gc(pVM->pRingState,pVM->pActiveMem);
-                    ring_list_addstring2_gc(pVM->pRingState,pList,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
+                    ring_list_addstring2_gc(pVM->pRingState,pVM->pActiveMem,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
                 }
                 else if ( RING_VM_STACK_ISNUMBER ) {
-                    pList = ring_list_newlist_gc(pVM->pRingState,pVM->pActiveMem);
-                    ring_list_adddouble_gc(pVM->pRingState,pList,RING_VM_STACK_READN);
+                    ring_list_adddouble_gc(pVM->pRingState,pVM->pActiveMem,RING_VM_STACK_READN);
                 }
                 else if ( RING_VM_STACK_ISPOINTER ) {
-                    pList = ring_list_newlist_gc(pVM->pRingState,pVM->pActiveMem);
-                    ring_list_addpointer_gc(pVM->pRingState,pList,RING_VM_STACK_READP);
-                    ring_list_addint_gc(pVM->pRingState,pList,RING_VM_STACK_OBJTYPE);
+                    ring_list_addpointerandtype_gc(pVM->pRingState,pVM->pActiveMem,RING_VM_STACK_READP,RING_VM_STACK_OBJTYPE);
                 }
             }
             pVM->nSP = nSP ;

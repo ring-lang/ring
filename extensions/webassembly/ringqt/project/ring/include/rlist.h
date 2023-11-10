@@ -27,6 +27,7 @@
     #define ring_list_gethashtable(x) (x->pHashTable)
     #define ring_list_getint(pList,index) ( ring_list_getitem(pList,index)->data.iNumber )
     #define ring_list_getpointer(pList,index) ( ring_list_getitem(pList,index)->data.pPointer )
+    #define ring_list_getpointertype(pList,index) ( ring_list_getitem(pList,index)->nObjectType )
     #define ring_list_getfuncpointer(pList,index) ( ring_list_getitem(pList,index)->data.pFunc )
     #define ring_list_callfuncpointer(pList,index,x) ( ring_list_getitem(pList,index)->data.pFunc(x) )
     #define ring_list_getdouble(pList,index) ring_list_getitem(pList,index)->data.dNumber
@@ -45,7 +46,7 @@
 
     RING_API List * ring_list_new2_gc ( void *pState,List *pList,unsigned int nSize ) ;
 
-    RING_API void ring_list_newitem_gc ( void *pState,List *pList ) ;
+    RING_API Item * ring_list_newitem_gc ( void *pState,List *pList ) ;
 
     RING_API Item * ring_list_getitem ( List *pList,unsigned int index ) ;
 
@@ -67,7 +68,11 @@
 
     RING_API void ring_list_setpointer_gc ( void *pState,List *pList, unsigned int index ,void *pValue ) ;
 
+    RING_API void ring_list_setpointerandtype_gc ( void *pState,List *pList, unsigned int index ,void *pValue,int nType ) ;
+
     RING_API void ring_list_addpointer_gc ( void *pState,List *pList,void *pValue ) ;
+
+    RING_API void ring_list_addpointerandtype_gc ( void *pState,List *pList,void *pValue,int nType ) ;
     /* Function Pointers */
 
     RING_API void ring_list_setfuncpointer_gc ( void *pState,List *pList, unsigned int index ,void (*pFunc)(void *) ) ;
