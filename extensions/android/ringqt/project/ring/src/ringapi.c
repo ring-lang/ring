@@ -274,7 +274,7 @@ RING_API int ring_vm_api_ispointer ( void *pPointer,int x )
             /* Increase the References count for the item */
             ring_vm_gc_newitemreference(pItem);
             ring_list_setpointer_gc(pVM->pRingState,pList,1,pItem);
-            ring_list_setint_gc(pVM->pRingState,pList,2,RING_OBJTYPE_LISTITEM);
+            ring_list_addint_gc(pVM->pRingState,pList,RING_OBJTYPE_LISTITEM);
             /* The variable value will be a list contains the pointer */
             ring_list_addpointer_gc(pVM->pRingState,pList2,NULL);
             /* Add the pointer type */

@@ -275,7 +275,8 @@ void ring_vm_call2 ( VM *pVM )
             for ( x = nSP+1 ; x <= nMax1 ; x++ ) {
                 pVM->nSP = x ;
                 if ( RING_VM_STACK_ISSTRING ) {
-                    ring_vm_addnewstringvar2(pVM,"",RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
+                    pList = ring_list_newlist_gc(pVM->pRingState,pVM->pActiveMem);
+                    ring_list_addstring2_gc(pVM->pRingState,pList,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
                 }
                 else if ( RING_VM_STACK_ISNUMBER ) {
                     pList = ring_list_newlist_gc(pVM->pRingState,pVM->pActiveMem);
