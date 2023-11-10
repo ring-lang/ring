@@ -393,6 +393,15 @@ RING_API void ring_list_setpointer_gc ( void *pState,List *pList, unsigned int i
     pItem->data.pPointer = pValue ;
 }
 
+RING_API void ring_list_setpointerandtype_gc ( void *pState,List *pList, unsigned int index ,void *pValue,int nType )
+{
+    Item *pItem  ;
+    assert(pList != NULL);
+    ring_list_setpointer_gc(pState,pList,index,pValue);
+    pItem = ring_list_getitem(pList,index);
+    pItem->nObjectType = nType ;
+}
+
 RING_API void ring_list_addpointer_gc ( void *pState,List *pList,void *pValue )
 {
     assert(pList != NULL);

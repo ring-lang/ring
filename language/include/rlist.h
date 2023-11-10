@@ -68,6 +68,8 @@
 
     RING_API void ring_list_setpointer_gc ( void *pState,List *pList, unsigned int index ,void *pValue ) ;
 
+    RING_API void ring_list_setpointerandtype_gc ( void *pState,List *pList, unsigned int index ,void *pValue,int nType ) ;
+
     RING_API void ring_list_addpointer_gc ( void *pState,List *pList,void *pValue ) ;
 
     RING_API void ring_list_addpointerandtype_gc ( void *pState,List *pList,void *pValue,int nType ) ;

@@ -39,6 +39,7 @@ ring_list_deletelastitem(x)
 ring_list_gethashtable(x)
 ring_list_getint(pList,index)
 ring_list_getpointer(pList,index)
+ring_list_getpointertype(pList,index)
 ring_list_getfuncpointer(pList,index)
 ring_list_callfuncpointer(pList,index,x)
 ring_list_getdouble(pList,index)
@@ -48,7 +49,6 @@ ring_list_getstringsize(pList,index)
 ring_list_getsize(x)
 ring_list_deletelastitem_gc(s,x)
 ring_list_incdouble(pList,index)
-ring_list_getpointer(pList,index)
 ring_list_new_gc
 Type: List *
 pList
@@ -100,6 +100,9 @@ Type: Item *
 pItem
 ring_list_addint_gc
 ring_list_setpointer_gc
+Type: Item *
+pItem
+ring_list_setpointerandtype_gc
 Type: Item *
 pItem
 ring_list_addpointer_gc
