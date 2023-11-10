@@ -27,9 +27,7 @@ VM * ring_vm_new ( RingState *pRingState )
     pVM->aScopeID = ring_list_new_gc(pVM->pRingState,0);
     ring_vm_newscope(pVM);
     for ( x = 0 ; x < RING_VM_STACK_SIZE ; x++ ) {
-        pVM->aStack[x].nType = ITEMTYPE_NOTHING ;
-        pVM->aStack[x].nObjectType = 0 ;
-        pVM->aStack[x].NumberFlag = ITEM_NUMBERFLAG_NOTHING ;
+        ring_item_init(&(pVM->aStack[x]));
     }
     /*
     **  Flag ( 0 = check NULL variable in PUSHV  , greater than 0 = Ignore null variable ) 
