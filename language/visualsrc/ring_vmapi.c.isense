@@ -73,6 +73,8 @@ ring_vm_funcregister2
 Type: List *
 pList
 ring_vm_loadcfunctions
+ring_vm_api_isstring
+ring_vm_api_isnumber
 ring_vm_api_islist
 Type: int
 nType
@@ -80,6 +82,20 @@ Type: List *
 pList
 Type: VM *
 pVM
+ring_vm_api_islistornull
+Type: int
+nType
+ring_vm_api_ispointer
+Type: List *
+pList, *pList2
+Type: VM *
+pVM
+Type: Item *
+pItem
+ring_vm_api_getstring
+ring_vm_api_getnumber
+ring_vm_api_getpointer
+ring_vm_api_getpointertype
 ring_vm_api_getlist
 Type: int
 nType
@@ -123,13 +139,6 @@ ring_vm_api_iscpointerlist
 ring_vm_api_iscpointer
 ring_vm_api_isobject
 ring_vm_api_cpointercmp
-ring_vm_api_ispointer
-Type: List *
-pList, *pList2
-Type: VM *
-pVM
-Type: Item *
-pItem
 ring_vm_api_getcpointer2pointer
 Type: List *
 pList
@@ -148,6 +157,3 @@ Type: VM *
 pVM
 ring_vm_api_intvalue
 ring_vm_api_floatvalue
-ring_vm_api_islistornull
-Type: int
-nType
