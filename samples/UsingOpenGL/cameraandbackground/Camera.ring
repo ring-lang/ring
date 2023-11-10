@@ -274,6 +274,7 @@ class GraphicsAppBase
 
 		SetUp()
 		loadResources()
+		al_set_display_icon(display,bitmap1) 
 		eventsLoop()
 		destroy()
 

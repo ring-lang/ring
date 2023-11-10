@@ -19,7 +19,8 @@ al_clear_to_color(al_map_rgb(0,0,255))
 
 bitmap = al_load_bitmap("star.bmp")
 texture = al_get_opengl_texture(bitmap)
- 
+al_set_display_icon(display,bitmap) 
+
 xrot = 0.0
 yrot = 0.0
 zrot = 0.0
