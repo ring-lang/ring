@@ -157,6 +157,7 @@ More Samples
 More Improvements
 =================
 
+* Better Documentation - Chapter: Extension using C/C++ code
 * WinStartupManager application - Use extensions that comes with Ring
 * EightPuzzleGame3D game - Better Code 
 * SuperMan2016 game - Reset FPS and player speed
