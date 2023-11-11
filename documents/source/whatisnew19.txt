@@ -174,7 +174,7 @@ More Improvements
 * MatrixLib - Added: MatrixTransform() function
 * ObjectsLib - Better Code
 * Low Level Functions - ringvm_calllist() - Better Output
-* Ring API - Added: RING_API_RINGSTATE to get a pointer to Ring State 
+* Ring API - Added: RING_API_STATE to get a pointer to Ring State 
 * Ring Compiler/VM - Items structure functions - Better Performance
 * Ring VM - Function Call - Replace some Ring lists with C Structures
 * Ring VM - Use ICO_LOADFUNCP when loading C functions

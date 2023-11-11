@@ -432,7 +432,7 @@ In mylib.c we update the file to add
 			pList = RING_API_GETLIST(1);
 			for(x=1 ; x <= ring_list_getsize(pList) ; x++) {
 				if ( ring_list_isdouble(pList,x) ) {
-					ring_list_setdouble_gc(RING_API_RINGSTATE,pList,x,
+					ring_list_setdouble_gc(RING_API_STATE,pList,x,
 						ring_list_getdouble(pList,x)+
 						RING_API_GETNUMBER(2)) ;
 				}	
@@ -537,7 +537,7 @@ In mylib.c we update the file to add
 				if ( ring_list_isdouble(pList,x) ) 
 					if ( ! (ring_list_getdouble(pList,x) >
 							 RING_API_GETNUMBER(2)) )
-						ring_list_deleteitem_gc(RING_API_RINGSTATE,pList,x) ;
+						ring_list_deleteitem_gc(RING_API_STATE,pList,x) ;
 		// Return Output
 			RING_API_RETLIST(pList);
 	}
@@ -654,7 +654,7 @@ In mylib.c we update the file to add
 			for(x = 1 ; x <= nTimes ; x++) 
 				for(y = 1 ; y <= nSize ; y++) 
 					if ( ring_list_isdouble(pList,y) ) 
-						ring_list_adddouble_gc(RING_API_RINGSTATE,pList,
+						ring_list_adddouble_gc(RING_API_STATE,pList,
 							ring_list_getdouble(pList,y));
 		// Return Output
 			RING_API_RETLIST(pList);
@@ -789,7 +789,7 @@ In mylib.c we update the file to add
 				return;
 			}
 			for(x = 1 ; x <= nSize ; x++) 
-				ring_list_adddouble_gc(RING_API_RINGSTATE,pList,(double) x);
+				ring_list_adddouble_gc(RING_API_STATE,pList,(double) x);
 		// Return Output
 			RING_API_RETLIST(pList);
 	}
@@ -1115,7 +1115,7 @@ In mylib.c we update the file to add
 			pRow = ring_list_getlist(pList,nRow);
 			for (nCol = 1 ; nCol <= ring_list_getsize(pRow) ; nCol++ ) {
 				if ( ring_list_isdouble(pRow,nCol) ) {
-					ring_list_setdouble_gc(RING_API_RINGSTATE,pRow,nCol,RING_API_GETNUMBER(2));
+					ring_list_setdouble_gc(RING_API_STATE,pRow,nCol,RING_API_GETNUMBER(2));
 				} else {
 					RING_API_ERROR("Error : We expect numbers!\n");
 					return ;
@@ -1320,7 +1320,7 @@ In mylib.c we update the file to add
 			for(x = 1 ; x <= nRows ; x++) {
 				pRow = ring_list_newlist(pList);
 				for(y = 1 ; y <= nCols ; y++) 
-					ring_list_adddouble_gc(RING_API_RINGSTATE,pRow,0.0);
+					ring_list_adddouble_gc(RING_API_STATE,pRow,0.0);
 			}
 		// Return Output
 			RING_API_RETLIST(pList);
