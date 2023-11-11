@@ -264,6 +264,8 @@ Type: char
 nMethodOrFunc
 Type: char
 nStatus
+Type: char
+nLoadAddressScope
 Type: unsigned int
 nPC
 Type: unsigned int

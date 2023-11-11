@@ -150,7 +150,7 @@ void ring_vm_loadfuncp ( VM *pVM )
     pFuncCall->pNestedLists = pVM->pNestedLists ;
     pVM->nListStart = 0 ;
     pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
-    ring_vm_saveloadaddressscope(pVM);
+    ring_vm_saveloadaddressscope(pVM,pFuncCall);
 }
 /* For Loop Optimization When Step = 1 */
 
