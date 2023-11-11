@@ -88,7 +88,7 @@ RING_FUNC(ring_inclist)
 		pList = RING_API_GETLIST(1);
 		for(x=1 ; x <= ring_list_getsize(pList) ; x++) {
 			if ( ring_list_isdouble(pList,x) ) {
-				ring_list_setdouble_gc(RING_API_RINGSTATE,pList,x,ring_list_getdouble(pList,x)+RING_API_GETNUMBER(2)) ;
+				ring_list_setdouble_gc(RING_API_STATE,pList,x,ring_list_getdouble(pList,x)+RING_API_GETNUMBER(2)) ;
 			}
 		}
 	// Return Output
@@ -114,7 +114,7 @@ RING_FUNC(ring_filterlist)
 		for(x = ring_list_getsize(pList) ; x >= 1 ; x--) 
 			if ( ring_list_isdouble(pList,x) ) 
 				if ( ! (ring_list_getdouble(pList,x) > RING_API_GETNUMBER(2)) )
-					ring_list_deleteitem_gc(RING_API_RINGSTATE,pList,x) ;
+					ring_list_deleteitem_gc(RING_API_STATE,pList,x) ;
 	// Return Output
 		RING_API_RETLIST(pList);
 }
@@ -144,7 +144,7 @@ RING_FUNC(ring_replicatelist)
 		for(x = 1 ; x <= nTimes ; x++) 
 			for(y = 1 ; y <= nSize ; y++) 
 				if ( ring_list_isdouble(pList,y) ) 
-					ring_list_adddouble_gc(RING_API_RINGSTATE,pList,ring_list_getdouble(pList,y));
+					ring_list_adddouble_gc(RING_API_STATE,pList,ring_list_getdouble(pList,y));
 	// Return Output
 		RING_API_RETLIST(pList);
 }
@@ -172,7 +172,7 @@ RING_FUNC(ring_generatelist)
 			return;
 		}
 		for(x = 1 ; x <= nSize ; x++) 
-			ring_list_adddouble_gc(RING_API_RINGSTATE,pList,(double) x);
+			ring_list_adddouble_gc(RING_API_STATE,pList,(double) x);
 	// Return Output
 		RING_API_RETLIST(pList);
 }

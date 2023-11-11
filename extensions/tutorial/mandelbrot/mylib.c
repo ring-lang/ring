@@ -69,7 +69,7 @@ RING_FUNC(ring_mandel)
 
 			}  
 			
-			ring_list_setdouble_gc(RING_API_RINGSTATE,pCol, x,  N);	 // N -> aList[][]
+			ring_list_setdouble_gc(RING_API_STATE,pCol, x,  N);	 // N -> aList[][]
 														
 		}
 
