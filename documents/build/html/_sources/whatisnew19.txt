@@ -179,3 +179,5 @@ More Improvements
 * Ring VM - Memory Pool - Allocate 1,000,000 items at startup  
 * Ring VM - Byte Code - Added: Flag Register
 * Ring VM - Use ring_list_genarray() with global scope variables When using threads 
+* Ring VM - Remove aAddressScope from VM structure
+* Ring VM - New instructions (ICO_PUSH2N, ICO_PUSH3N & ICO_PUSH4N)
