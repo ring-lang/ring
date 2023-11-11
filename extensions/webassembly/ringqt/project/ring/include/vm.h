@@ -91,7 +91,6 @@
         RingState *pRingState  ;
         unsigned int nLoadAddressScope  ;
         List *aBeforeObjState  ;
-        List *aAddressScope  ;
         unsigned int nFuncExecute2  ;
         List *pCLibraries  ;
         unsigned char nEvalCalledFromRingCode  ;
@@ -145,6 +144,7 @@
         char nType  ;
         char nMethodOrFunc  ;
         char nStatus  ;
+        char nLoadAddressScope  ;
         unsigned int nPC  ;
         unsigned int nSP  ;
         unsigned int nLineNumber  ;
@@ -654,10 +654,6 @@
     void ring_vm_movetoprevscope ( VM *pVM,int nFuncType ) ;
 
     void ring_vm_createtemplist ( VM *pVM ) ;
-
-    void ring_vm_saveloadaddressscope ( VM *pVM ) ;
-
-    void ring_vm_restoreloadaddressscope ( VM *pVM ) ;
 
     void ring_vm_anonymous ( VM *pVM ) ;
 

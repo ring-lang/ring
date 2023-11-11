@@ -109,8 +109,9 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
                     }
                 }
             }
-            /* Add nLoadAddressScope to aAddressScope */
-            ring_vm_saveloadaddressscope(pVM);
+            /* Add nLoadAddressScope to pFuncCall */
+            pFuncCall->nLoadAddressScope = pVM->nLoadAddressScope ;
+            pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
             return 1 ;
         }
     }
@@ -152,8 +153,9 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
         pFuncCall->pNestedLists = pVM->pNestedLists ;
         pVM->nListStart = 0 ;
         pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
-        /* Add nLoadAddressScope to aAddressScope */
-        ring_vm_saveloadaddressscope(pVM);
+        /* Add nLoadAddressScope to pFuncCall */
+        pFuncCall->nLoadAddressScope = pVM->nLoadAddressScope ;
+        pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
         ring_vmfunccall_useloadfuncp(pVM,pFuncCall,nPerformance);
         return 1 ;
     }
@@ -211,11 +213,11 @@ void ring_vm_call2 ( VM *pVM )
         pVM->nFuncExecute-- ;
         pVM->nFuncExecute2-- ;
     }
-    /* Restore nLoadAddressScope from aAddressScope */
-    ring_vm_restoreloadaddressscope(pVM);
     pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
     pFuncCall = (FuncCall *) ring_list_getpointer(pList,RING_FUNCCL_STRUCT) ;
     pFuncCall->nStatus = RING_FUNCSTATUS_CALL ;
+    /* Restore nLoadAddressScope from pFuncCall */
+    pVM->nLoadAddressScope = pFuncCall->nLoadAddressScope ;
     /* Restore List Status */
     pVM->nListStart = pFuncCall->nListStart ;
     if ( pVM->pNestedLists != pFuncCall->pNestedLists ) {
@@ -688,18 +690,6 @@ void ring_vm_createtemplist ( VM *pVM )
     if ( pVM->nLoadAddressScope == RING_VARSCOPE_NOTHING ) {
         pVM->nLoadAddressScope = RING_VARSCOPE_LOCAL ;
     }
-}
-
-void ring_vm_saveloadaddressscope ( VM *pVM )
-{
-    ring_list_addint_gc(pVM->pRingState,pVM->aAddressScope,pVM->nLoadAddressScope);
-    pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
-}
-
-void ring_vm_restoreloadaddressscope ( VM *pVM )
-{
-    pVM->nLoadAddressScope = ring_list_getint(pVM->aAddressScope,ring_list_getsize(pVM->aAddressScope));
-    ring_list_deleteitem_gc(pVM->pRingState,pVM->aAddressScope,ring_list_getsize(pVM->aAddressScope));
 }
 
 void ring_vm_anonymous ( VM *pVM )

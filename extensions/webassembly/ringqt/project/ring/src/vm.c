@@ -100,9 +100,8 @@ VM * ring_vm_new ( RingState *pRingState )
     **  With this list as parameter stored in temp memory 
     */
     pVM->nNOAssignment = 0 ;
-    /* List contains the scope of the result of Load Address */
+    /* The scope of the result of Load Address */
     pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
-    pVM->aAddressScope = ring_list_new_gc(pVM->pRingState,0);
     /* List contains what to add  later to pObjState, prepare by loadmethod, add before call */
     pVM->aBeforeObjState = ring_list_new_gc(pVM->pRingState,0) ;
     /* Another flag like nFuncExec but not used by see command or return command */
@@ -255,7 +254,6 @@ VM * ring_vm_delete ( VM *pVM )
         ring_vm_dll_closealllibs(pVM);
     #endif
     pVM->pCLibraries = ring_list_delete_gc(pVM->pRingState,pVM->pCLibraries);
-    pVM->aAddressScope = ring_list_delete_gc(pVM->pRingState,pVM->aAddressScope);
     pVM->aDeleteLater = ring_list_delete_gc(pVM->pRingState,pVM->aDeleteLater);
     pVM->pRingState->pVM = NULL ;
     ring_state_free(pVM->pRingState,pVM);

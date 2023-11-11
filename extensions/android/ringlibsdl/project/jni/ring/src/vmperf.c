@@ -145,12 +145,13 @@ void ring_vm_loadfuncp ( VM *pVM )
     pFuncCall->cNewFileName = pVM->cFileName ;
     pFuncCall->nMethodOrFunc = RING_VM_IR_GETCHARREG ;
     pFuncCall->nLineNumber = RING_VM_IR_READIVALUE(5) ;
+    pFuncCall->nLoadAddressScope = pVM->nLoadAddressScope ;
+    pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
     /* Store List information */
     pFuncCall->nListStart = pVM->nListStart ;
     pFuncCall->pNestedLists = pVM->pNestedLists ;
     pVM->nListStart = 0 ;
     pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
-    ring_vm_saveloadaddressscope(pVM);
 }
 /* For Loop Optimization When Step = 1 */
 
