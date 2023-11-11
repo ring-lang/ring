@@ -41,6 +41,9 @@
         /* Data */
         ICO_PUSHC ,
         ICO_PUSHN ,
+        ICO_PUSH2N ,
+        ICO_PUSH3N ,
+        ICO_PUSH4N ,
         ICO_PUSHV ,
         ICO_PUSHP ,
         ICO_PUSHPV ,
@@ -141,7 +144,7 @@
     
     "Jump","JumpZ","Jump1","JumpFOR","JZ2","J12","PUSHNULLTHENJUMP","LoadA","Assignment","LoadSA","LoadIA","LoadAPushV","==","<",">","!=","<=",">=", 
     
-    "PushC","PushN","PushV","PushP","PushPV","PushPLocal", "SUM","SUB","MUL","DIV","MOD","Negative","Inc","IncP","POW", 
+    "PushC","PushN","Push2N","Push3N","Push4N","PushV","PushP","PushPV","PushPLocal", "SUM","SUB","MUL","DIV","MOD","Negative","Inc","IncP","POW", 
     
     "LoadFunc","Call", "Return","ReturnNull","RetFromEval","RetItemRef","ListStart","ListItem","ListEnd","And","Or","Not","FreeStack", 
     

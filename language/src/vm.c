@@ -697,6 +697,21 @@ void ring_vm_execute ( VM *pVM )
         case ICO_PUSHN :
             RING_VM_STACK_PUSHN ;
             break ;
+        case ICO_PUSH2N :
+            RING_VM_STACK_PUSHN ;
+            RING_VM_STACK_PUSHNVALUE(RING_VM_IR_READDVALUE(2)) ;
+            break ;
+        case ICO_PUSH3N :
+            RING_VM_STACK_PUSHN ;
+            RING_VM_STACK_PUSHNVALUE(RING_VM_IR_READDVALUE(2)) ;
+            RING_VM_STACK_PUSHNVALUE(RING_VM_IR_READDVALUE(3)) ;
+            break ;
+        case ICO_PUSH4N :
+            RING_VM_STACK_PUSHN ;
+            RING_VM_STACK_PUSHNVALUE(RING_VM_IR_READDVALUE(2)) ;
+            RING_VM_STACK_PUSHNVALUE(RING_VM_IR_READDVALUE(3)) ;
+            RING_VM_STACK_PUSHNVALUE(RING_VM_IR_READDVALUE(4)) ;
+            break ;
         case ICO_PUSHV :
             ring_vm_pushv(pVM);
             break ;

@@ -30,6 +30,9 @@ ICO_LESSEQUAL
 ICO_GREATEREQUAL
 ICO_PUSHC
 ICO_PUSHN
+ICO_PUSH2N
+ICO_PUSH3N
+ICO_PUSH4N
 ICO_PUSHV
 ICO_PUSHP
 ICO_PUSHPV
@@ -155,6 +158,8 @@ ring_parser_icg_newline
 ring_parser_icg_parentclassname
 ring_parser_icg_newpackagename
 ring_parser_icg_pushn
+Type: int
+nLastOperation, lChange
 ring_parser_icg_showoutput
 Type: int
 x,y,nCount,nCount2

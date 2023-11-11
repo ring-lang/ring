@@ -156,8 +156,6 @@ Type: unsigned int
 nLoadAddressScope
 Type: List *
 aBeforeObjState
-Type: List *
-aAddressScope
 Type: unsigned int
 nFuncExecute2
 Type: List *
