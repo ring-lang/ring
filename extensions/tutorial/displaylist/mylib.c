@@ -114,7 +114,7 @@ RING_FUNC(ring_filterlist)
 		for(x = ring_list_getsize(pList) ; x >= 1 ; x--) 
 			if ( ring_list_isdouble(pList,x) ) 
 				if ( ! (ring_list_getdouble(pList,x) > RING_API_GETNUMBER(2)) )
-					ring_list_deleteitem(pList,x) ;
+					ring_list_deleteitem_gc(RING_API_RINGSTATE,pList,x) ;
 	// Return Output
 		RING_API_RETLIST(pList);
 }
