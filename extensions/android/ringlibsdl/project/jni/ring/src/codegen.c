@@ -189,6 +189,13 @@ char * ring_parser_icg_newpackagename ( Parser *pParser,List *pPos )
 {
     return ring_list_getstring(pPos,2) ;
 }
+
+void ring_parser_icg_pushn ( Parser *pParser,double nValue )
+{
+    assert(pParser != NULL);
+    ring_parser_icg_newoperation(pParser,ICO_PUSHN);
+    ring_parser_icg_newoperanddouble(pParser,nValue);
+}
 /* Show the Intermediate Code */
 
 void ring_parser_icg_showoutput ( List *pListGenCode )
