@@ -149,6 +149,10 @@ class findinfilesController from WindowsControllerParent
 
 	func Replace 
 		nIndex	  = oView.TableOutput.currentrow()
+		if nIndex = 0
+			msginfo("Sorry","Please select a line first!")
+			return
+		ok
 		cFile  	  = aResult[nIndex][1]
 		nRow 	  = aResult[nIndex][2]
 		cText     = oView.txtFind.text()		
