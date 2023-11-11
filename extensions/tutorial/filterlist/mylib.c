@@ -88,7 +88,7 @@ RING_FUNC(ring_inclist)
 		pList = RING_API_GETLIST(1);
 		for(x=1 ; x <= ring_list_getsize(pList) ; x++) {
 			if ( ring_list_isdouble(pList,x) ) {
-				ring_list_setdouble(pList,x,ring_list_getdouble(pList,x)+RING_API_GETNUMBER(2)) ;
+				ring_list_setdouble_gc(RING_API_RINGSTATE,pList,x,ring_list_getdouble(pList,x)+RING_API_GETNUMBER(2)) ;
 			}
 		}
 	// Return Output
