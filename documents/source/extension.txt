@@ -569,7 +569,7 @@ This function returns table columns information.
 			nColumns = mysql_num_fields(result);
 			if ( row = mysql_fetch_row(result) ) {
 				while ( field = mysql_fetch_field(result) ) {
-					pList2 = ring_list_newlist(pList);
+					pList2 = ring_list_newlist_gc(RING_API_STATE,pList);
 					ring_list_addstring(pList2,field->name);
 					ring_list_adddouble(pList2,field->length);
 					ring_list_adddouble(pList2,field->type);
@@ -592,7 +592,7 @@ using List *pList, *pList2;
 		  a variable by Ring Code it will be saved, if not it will be automatically deleted by RingVM.
 		  
 
-The list can contains sub lists, we used the function ring_list_newlist() to create a sublist.
+The list can contains sub lists, we used the function ring_list_newlist_gc() to create a sublist.
 
 The function ring_list_addstring() is used to add string items to the list/sublist.
 

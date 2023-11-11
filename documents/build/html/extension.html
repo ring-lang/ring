@@ -657,7 +657,7 @@ manipulate the string content.</p>
 <span class="w">                </span><span class="n">nColumns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mysql_num_fields</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
 <span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mysql_fetch_row</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mysql_fetch_field</span><span class="p">(</span><span class="n">result</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                                </span><span class="n">pList2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ring_list_newlist</span><span class="p">(</span><span class="n">pList</span><span class="p">);</span>
+<span class="w">                                </span><span class="n">pList2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ring_list_newlist_gc</span><span class="p">(</span><span class="n">RING_API_STATE</span><span class="p">,</span><span class="n">pList</span><span class="p">);</span>
 <span class="w">                                </span><span class="n">ring_list_addstring</span><span class="p">(</span><span class="n">pList2</span><span class="p">,</span><span class="n">field</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">);</span>
 <span class="w">                                </span><span class="n">ring_list_adddouble</span><span class="p">(</span><span class="n">pList2</span><span class="p">,</span><span class="n">field</span><span class="o">-&gt;</span><span class="n">length</span><span class="p">);</span>
 <span class="w">                                </span><span class="n">ring_list_adddouble</span><span class="p">(</span><span class="n">pList2</span><span class="p">,</span><span class="n">field</span><span class="o">-&gt;</span><span class="n">type</span><span class="p">);</span>
@@ -681,7 +681,7 @@ to create the list in Temp. Memory related to the function scope. This way we ca
 return the list from the function. Also we don’t delete the list, if it’s stored in
 a variable by Ring Code it will be saved, if not it will be automatically deleted by RingVM.</p>
 </div>
-<p>The list can contains sub lists, we used the function ring_list_newlist() to create a sublist.</p>
+<p>The list can contains sub lists, we used the function ring_list_newlist_gc() to create a sublist.</p>
 <p>The function ring_list_addstring() is used to add string items to the list/sublist.</p>
 <p>The function ring_list_adddouble() is used to add numeric items to the list/sublist.</p>
 <div class="admonition note">
