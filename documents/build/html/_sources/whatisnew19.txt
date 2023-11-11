@@ -158,7 +158,9 @@ More Improvements
 =================
 
 * Better Documentation - Chapter: Extension using C/C++ code
+* FindInFiles Application - Replace Button - Check line selection
 * WinStartupManager application - Use extensions that comes with Ring
+* FindInFiles Application - Check line selection before replacing text
 * EightPuzzleGame3D game - Better Code 
 * SuperMan2016 game - Reset FPS and player speed
 * GoldMagic800 game - Reset FPS and player speed
