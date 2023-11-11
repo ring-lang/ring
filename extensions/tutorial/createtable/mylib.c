@@ -272,7 +272,7 @@ RING_FUNC(ring_createtable)
 			return;
 		}
 		for(x = 1 ; x <= nRows ; x++) {
-			pRow = ring_list_newlist(pList);
+			pRow = ring_list_newlist_gc(RING_API_STATE,pList);
 			for(y = 1 ; y <= nCols ; y++) 
 				ring_list_adddouble_gc(RING_API_STATE,pRow,0.0);
 		}
