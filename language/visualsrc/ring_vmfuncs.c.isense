@@ -54,8 +54,6 @@ Type: List *
 pList, *pList2
 Type: int
 x,lFound
-ring_vm_saveloadaddressscope
-ring_vm_restoreloadaddressscope
 ring_vm_anonymous
 Type: char *
 cStr

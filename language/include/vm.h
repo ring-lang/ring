@@ -655,10 +655,6 @@
 
     void ring_vm_createtemplist ( VM *pVM ) ;
 
-    void ring_vm_saveloadaddressscope ( VM *pVM, FuncCall *pFuncCall ) ;
-
-    void ring_vm_restoreloadaddressscope ( VM *pVM, FuncCall *pFuncCall ) ;
-
     void ring_vm_anonymous ( VM *pVM ) ;
 
     int ring_vm_isstackpointertoobjstate ( VM *pVM ) ;
