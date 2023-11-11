@@ -114,7 +114,7 @@ class GraphicsAppBase
 	display event_queue ev timeout 
 	timer  redraw 	= true
 
-	FPS 		= 60 
+	FPS 		= 300 
 
 	SCREEN_W 	= 800
 	SCREEN_H 	= 600
