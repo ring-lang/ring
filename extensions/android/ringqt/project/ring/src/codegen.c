@@ -192,8 +192,28 @@ char * ring_parser_icg_newpackagename ( Parser *pParser,List *pPos )
 
 void ring_parser_icg_pushn ( Parser *pParser,double nValue )
 {
+    int nLastOperation, lChange  ;
     assert(pParser != NULL);
-    ring_parser_icg_newoperation(pParser,ICO_PUSHN);
+    /* Optimizations */
+    lChange = 0 ;
+    if ( pParser->ActiveGenCodeList != NULL ) {
+        nLastOperation = ring_parser_icg_getlastoperation(pParser) ;
+        if ( nLastOperation == ICO_PUSHN ) {
+            ring_parser_icg_setlastoperation(pParser,ICO_PUSH2N);
+            lChange = 1 ;
+        }
+        else if ( nLastOperation == ICO_PUSH2N ) {
+            ring_parser_icg_setlastoperation(pParser,ICO_PUSH3N);
+            lChange = 1 ;
+        }
+        else if ( nLastOperation == ICO_PUSH3N ) {
+            ring_parser_icg_setlastoperation(pParser,ICO_PUSH4N);
+            lChange = 1 ;
+        }
+    }
+    if ( lChange == 0 ) {
+        ring_parser_icg_newoperation(pParser,ICO_PUSHN);
+    }
     ring_parser_icg_newoperanddouble(pParser,nValue);
 }
 /* Show the Intermediate Code */
