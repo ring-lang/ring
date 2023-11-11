@@ -88,6 +88,7 @@
     #define RING_OUTPUT_RETLISTBYREF 1
     #define RING_OUTPUT_RETNEWREF 2
     /* API For C Functions */
+    #define RING_API_RINGSTATE (((VM *) pPointer)->pRingState)
     #define RING_API_PARALIST (((VM *) pPointer)->pActiveMem)
     #define RING_API_PARACOUNT (((VM *) pPointer)->nCFuncParaCount)
     #define RING_API_GETSTRING(x) (ring_vm_api_getstring((VM *) pPointer,x))
