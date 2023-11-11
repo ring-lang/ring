@@ -165,6 +165,7 @@ More Improvements
 * samples/AQuickStart/ODBC - Better Code
 * samples/UsingOpenGL/LevelsOfCubes - Reset FPS
 * samples/UsingOpenGL - Set the window icon
+* extensions/tutorial - filterlist() updated to use ring_list_deleteitem_gc() 
 * Better Qt3D samples - Use Quit() method when closing the application
 * Better RingPostgreSQL samples
 * Better RingMySQL sample - samples/AQuickStart/MySQL/mysql7.ring
@@ -173,6 +174,7 @@ More Improvements
 * MatrixLib - Added: MatrixTransform() function
 * ObjectsLib - Better Code
 * Low Level Functions - ringvm_calllist() - Better Output
+* Ring API - Added: RING_API_RINGSTATE to get a pointer to Ring State 
 * Ring Compiler/VM - Items structure functions - Better Performance
 * Ring VM - Function Call - Replace some Ring lists with C Structures
 * Ring VM - Use ICO_LOADFUNCP when loading C functions
