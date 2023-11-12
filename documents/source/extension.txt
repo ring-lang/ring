@@ -426,77 +426,165 @@ Ring API - List Functions
 In this section we will learn about the list functions provided by the Ring API to create new lists and 
 manipulate the list items.
 
+This section contains the most important functions required for common use-cases
+For a complete list of function (Including functions that store integers & pointers inside lists)
+See the file: ring/language/include/rlist.h
+
+It's required to use the _gc version of functions if your list will be modified by Ring code.
+
 .. code-block:: C
 
+	
+	// Create and delete lists
+
 	List * RING_API_NEWLIST
-	List * ring_list_new ( int nSize ) ;
-	void ring_list_newitem ( List *pList ) ;
-	Item * ring_list_getitem ( List *pList,int index ) ;
+	List * ring_list_new_gc ( void *pState,unsigned int nSize ) ;
+	List * ring_list_delete_gc ( void *pState,List *pList ) ; 
+
+	List * ring_list_new ( unsigned int nSize ) ;
 	List * ring_list_delete ( List *pList ) ;
-	void ring_list_deleteitem ( List *pList,int index ) ;
-	void ring_list_print ( List *pList ) ;
-	int ring_list_gettype ( List *pList, int index ) ;
-	void ring_list_setint ( List *pList, int index ,int number ) ;
-	void ring_list_addint ( List *pList,int x ) ;
-	void ring_list_setpointer ( List *pList, int index ,void *pValue ) ;
-	void ring_list_addpointer ( List *pList,void *pValue ) ;
-	void ring_list_setfuncpointer ( List *pList, int index ,void (*pFunc)(void *) ) ;
-	void ring_list_addfuncpointer ( List *pList,void (*pFunc)(void *) ) ;
-	int ring_list_isfuncpointer ( List *pList, int index ) ;
-	void ring_list_setdouble ( List *pList, int index ,double number ) ;
+
+	// Add Items 
+
+	void ring_list_adddouble_gc ( void *pState,List *pList,double x ) ;
+	void ring_list_addstring_gc ( void *pState,List *pList,const char *str ) ;
+	void ring_list_addstring2_gc ( void *pState,List *pList,const char *str,int nStrSize ) ;
+	List * ring_list_newlist_gc ( void *pState,List *pList ) ;
+
 	void ring_list_adddouble ( List *pList,double x ) ;
-	void ring_list_setstring ( List *pList, int index ,const char *str ) ;
-	void ring_list_setstring2 ( List *pList, int index ,const char *str,int nStrSize ) ;
 	void ring_list_addstring ( List *pList,const char *str ) ;
 	void ring_list_addstring2 ( List *pList,const char *str,int nStrSize ) ;
 	List * ring_list_newlist ( List *pList ) ;
-	List * ring_list_getlist ( List *pList, int index ) ;
-	void ring_list_setlist ( List *pList, int index ) ;
-	void ring_list_setactiveitem ( List *pList, Items *pItems, int index ) ;
-	void ring_list_copy ( List *pNewList, List *pList ) ;
-	int ring_list_isnumber ( List *pList, int index ) ;
-	int ring_list_isstring ( List *pList, int index ) ;
-	int ring_list_islist ( List *pList, int index ) ;
-	int ring_list_ispointer ( List *pList, int index ) ;
+	
+	// Get List Size
+
+	int ring_list_getsize( List *pList );
+
+	// Check Item Type
+
+	int ring_list_isdouble ( List *pList, unsigned int index ) ;
+	int ring_list_isstring ( List *pList, unsigned int index ) ;
+	int ring_list_islist ( List *pList, unsigned int index ) ;
+	int ring_list_isobject ( List *pList ) ;
+
+	// Get Items
+
+	double ring_list_getdouble ( List *pList, unsigned int index ) ;
+	char * ring_list_getstring ( List *pList, unsigned int index ) ;
+	int ring_list_getstringsize ( List *pList, unsigned int index ) ;
+	String * ring_list_getstringobject ( List *pList, unsigned int index ) ;
+	List * ring_list_getlist ( List *pList, unsigned int index ) ;
+
+	// Insert Items 
+
+	void ring_list_insertdouble_gc ( void *pState,List *pList,unsigned int nPos,double x ) ;
+	void ring_list_insertstring_gc ( void *pState,List *pList,unsigned int nPos,const char *str ) ;
+	void ring_list_insertstring2_gc ( void *pState,List *pList,unsigned int nPos,const char *str,int nStrSize ) ;
+	List * ring_list_insertlist_gc ( void *pState,List *pList,unsigned int nPos ) ;
+
+	void ring_list_insertdouble ( List *pList,unsigned int nPos,double x ) ;
+	void ring_list_insertstring ( List *pList,unsigned int nPos,const char *str ) ;
+	void ring_list_insertstring2 ( List *pList,unsigned int nPos,const char *str,int nStrSize ) ;
+	List * ring_list_insertlist ( List *pList,unsigned int nPos ) ;
+
+	// Set Items
+	
+	void ring_list_setdouble_gc ( void *pState,List *pList, unsigned int index ,double number ) ;
+	void ring_list_setstring_gc ( void *pState,List *pList, unsigned int index ,const char *str ) ;
+	void ring_list_setstring2_gc ( void *pState,List *pList, unsigned int index ,const char *str,int nStrSize ) ;
+	void ring_list_setlist_gc ( void *pState,List *pList, unsigned int index ) ;
+	
+	void ring_list_setdouble ( List *pList, unsigned int index ,double number ) ;
+	void ring_list_setstring ( List *pList, unsigned int index ,const char *str ) ;
+	void ring_list_setstring2 ( List *pList, unsigned int index ,const char *str,int nStrSize ) ;
+	void ring_list_setlist ( List *pList, unsigned int index ) ;
+	
+	// Delete Items 
+	
+	void ring_list_deleteitem_gc ( void *pState,List *pList,unsigned int index ) ;
+	void ring_list_deleteallitems_gc ( void *pState,List *pList ) ;
+
+	void ring_list_deleteitem ( List *pList,unsigned int index ) ;
 	void ring_list_deleteallitems ( List *pList ) ;
-	void ring_list_insertitem ( List *pList,int x ) ;
-	void ring_list_insertint ( List *pList,int nPos,int x ) ;
-	void ring_list_insertdouble ( List *pList,int nPos,double x ) ;
-	void ring_list_insertpointer ( List *pList,int nPos,void *pValue ) ;
-	void ring_list_insertstring ( List *pList,int nPos,const char *str ) ;
-	void ring_list_insertstring2 ( List *pList,int nPos,const char *str,int nStrSize ) ;
-	void ring_list_insertfuncpointer ( List *pList,int nPos,void (*pFunc)(void *) ) ;
-	List * ring_list_insertlist ( List *pList,int nPos ) ;
-	int ring_list_isiteminsidelist ( List *pList,Item *pItem ) ;
-	int ring_list_findstring ( List *pList,const char *str,int nColumn ) ;
-	int ring_list_finddouble ( List *pList,double nNum1,int nColumn ) ;
-	void ring_list_sortnum ( List *pList,int left,int right,int nColumn ) ;
-	void ring_list_sortstr ( List *pList,int left,int right,int nColumn ) ;
-	int ring_list_binarysearchnum ( List *pList,double nNum1,int nColumn ) ;
-	int ring_list_binarysearchstr ( List *pList,const char *cFind,int nColumn ) ;
-	void ring_list_swap ( List *pList,int x,int y ) ;
-	double ring_list_getdoublecolumn ( List *pList,int nIndex,int nColumn ) ;
-	char * ring_list_getstringcolumn ( List *pList,int nIndex,int nColumn ) ;
-	void ring_list_genarray ( List *pList ) ;
-	void ring_list_deletearray ( List *pList ) ;
-	void ring_list_genhashtable ( List *pList ) ;
-	void ring_list_genhashtable2 ( List *pList ) ;
-	void ring_list_refcopy ( List *pNewList, List *pList ) ;
-	void ring_list_clear ( List *pList ) ;
-	/* Macro */
-	ring_list_isdouble(pList,index)
-	ring_list_isint(pList,index) 
-	ring_list_deletelastitem(x)
-	ring_list_gethashtable(x) 
-	ring_list_getint(pList,index)
-	ring_list_getpointer(pList,index)
-	ring_list_getfuncpointer(pList,index)
-	ring_list_callfuncpointer(pList,index,x)
-	ring_list_getdouble(pList,index) 
-	ring_list_getstring(pList,index) 
-	ring_list_getstringobject(pList,index) 
-	ring_list_getstringsize(pList,index)
-	ring_list_getsize(x) (x->nSize)
+	
+	// Copy Lists 
+
+	void ring_list_copy_gc ( void *pState,List *pNewList, List *pList ) ;
+	void ring_list_copy ( List *pNewList, List *pList ) ;
+	
+	// Find Items 
+	
+	int ring_list_findstring ( List *pList,const char *str,unsigned int nColumn ) ;
+	int ring_list_finddouble ( List *pList,double nNum1,unsigned int nColumn ) ;  
+	
+	// Swap 
+	
+	void ring_list_swap ( List *pList,unsigned int x,unsigned int y ) ;
+	void ring_list_swaptwolists ( List *pList1, List *pList2 ) ;
+	
+	// Print 
+	
+	void ring_list_print ( List *pList ) ;
+	void ring_list_print2 ( List *pList,unsigned int nDecimals ) ;
+	void ring_list_printobj ( List *pList, unsigned int nDecimals ) ;
+
+
+.. index:: 
+	pair: Extension; RING_API_STATE
+
+RING_API_STATE
+==============
+
+To modify or delete the Lists and Strings created using Ring code, We have to use specific Lists/Strings functions.
+These functions requires that the Ring State to be passed as the first parameter.
+
+Also, these functions add _gc to the function name which means that it uses the Ring Garbage Collector.
+
+Some of these functions are
+
+.. code-block:: none
+
+	void ring_list_setdouble_gc ( void *pState, List *pList, int index , double number ) ;
+	void ring_list_adddouble_gc ( void *pState, List *pList, double x ) ;
+	void ring_list_deleteitem_gc ( void *pState, List *pList, int index ) ;
+
+Example:
+
+The next C code implement the filterList() function
+
+We pass a list and a number to this function and it will check each item in the list.
+
+If the item value is not greater than the passed number, then the item will be deleted.
+
+In the implementation we uses ring_list_deleteitem_gc() function to delete the item and we pass Ring state as the first parameter using RING_API_STATE.
+
+
+.. code-block:: ring
+
+	RING_FUNC(ring_filterlist)
+	{
+		List *pList;
+		int x;
+		// Check Parameters Count
+			if (RING_API_PARACOUNT != 2) {
+				RING_API_ERROR(RING_API_MISS2PARA);
+				return;
+			}
+		// Check Parameters Type
+			if ( ! ( RING_API_ISLIST(1) && RING_API_ISNUMBER(2) ) ) {
+				RING_API_ERROR(RING_API_BADPARATYPE);
+				return;
+			}
+		// Filter List Items
+			pList = RING_API_GETLIST(1);
+			for(x = ring_list_getsize(pList) ; x >= 1 ; x--) 
+				if ( ring_list_isdouble(pList,x) ) 
+					if ( ! (ring_list_getdouble(pList,x) >
+							 RING_API_GETNUMBER(2)) )
+						ring_list_deleteitem_gc(RING_API_STATE,pList,x) ;
+		// Return Output
+			RING_API_RETLIST(pList);
+	}
 
 .. index:: 
 	pair: Extension; RING API - String Functions
@@ -757,59 +845,4 @@ These functions uses the Memory pool provided by Ring VM
 * Use RING_API_FREE() instead of the free() function.
 * RING_API_FREEFUNC provides a function pointer to the ring_state_free() function
 
-.. index:: 
-	pair: Extension; RING_API_STATE
 
-RING_API_STATE
-==============
-
-To modify or delete the Lists and Strings created using Ring code, We have to use specific Lists/Strings functions.
-These functions requires that the Ring State to be passed as the first parameter.
-
-Also, these functions add _gc to the function name which means that it uses the Ring Garbage Collector.
-
-Some of these functions are
-
-.. code-block:: none
-
-	void ring_list_setdouble_gc ( void *pState, List *pList, int index , double number ) ;
-	void ring_list_adddouble_gc ( void *pState, List *pList, double x ) ;
-	void ring_list_deleteitem_gc ( void *pState, List *pList, int index ) ;
-
-Example:
-
-The next C code implement the filterList() function
-
-We pass a list and a number to this function and it will check each item in the list.
-
-If the item value is not greater than the passed number, then the item will be deleted.
-
-In the implementation we uses ring_list_deleteitem_gc() function to delete the item and we pass Ring state as the first parameter using RING_API_STATE.
-
-
-.. code-block:: ring
-
-	RING_FUNC(ring_filterlist)
-	{
-		List *pList;
-		int x;
-		// Check Parameters Count
-			if (RING_API_PARACOUNT != 2) {
-				RING_API_ERROR(RING_API_MISS2PARA);
-				return;
-			}
-		// Check Parameters Type
-			if ( ! ( RING_API_ISLIST(1) && RING_API_ISNUMBER(2) ) ) {
-				RING_API_ERROR(RING_API_BADPARATYPE);
-				return;
-			}
-		// Filter List Items
-			pList = RING_API_GETLIST(1);
-			for(x = ring_list_getsize(pList) ; x >= 1 ; x--) 
-				if ( ring_list_isdouble(pList,x) ) 
-					if ( ! (ring_list_getdouble(pList,x) >
-							 RING_API_GETNUMBER(2)) )
-						ring_list_deleteitem_gc(RING_API_STATE,pList,x) ;
-		// Return Output
-			RING_API_RETLIST(pList);
-	}
