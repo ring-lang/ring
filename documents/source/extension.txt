@@ -427,10 +427,16 @@ In this section we will learn about the list functions provided by the Ring API 
 manipulate the list items.
 
 This section contains the most important functions required for common use-cases
-For a complete list of function (Including functions that store integers & pointers inside lists)
-See the file: ring/language/include/rlist.h
 
-It's required to use the _gc version of functions if your list will be modified by Ring code.
+For a complete list of function, including functions that store and process integers, pointers & objects, 
+see this file: ring/language/include/rlist.h
+
+If your list will be modified by Ring code then it's required to use the _gc version of the functions 
+
+Lists created using ring_list_new()/ring_list_new_gc() must be deleted using ring_list_delete()/ring_list_delete_gc().
+
+If we created a list using RING_API_NEWLIST then deleting the list is not required and may cause problems, because 
+Ring VM will delete it automatically after the end of the caller scope.
 
 .. code-block:: C
 
