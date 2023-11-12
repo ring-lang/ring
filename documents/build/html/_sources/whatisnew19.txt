@@ -158,7 +158,7 @@ More Improvements
 =================
 
 * Better Documentation - Chapter: Extension using C/C++ languages
-* Better Documentation - Chapter: Tutorial: Ring Extension in C/C++
+* Better Documentation - Chapter: Tutorial: Ring Extensions in C/C++
 * Better Documentation - Support search in CHM file
 * FindInFiles Application - Replace Button - Check line selection
 * WinStartupManager application - Use extensions that comes with Ring
