@@ -168,6 +168,7 @@ More Improvements
 * samples/AQuickStart/ODBC - Better Code
 * samples/UsingOpenGL/LevelsOfCubes - Reset FPS
 * samples/UsingOpenGL - Set the window icon
+* samples/General/TimeServer - Replace RingThreads with GameLib 
 * extensions/tutorial - filterlist() updated to use ring_list_deleteitem_gc() 
 * Better Qt3D samples - Use Quit() method when closing the application
 * Better RingPostgreSQL samples
