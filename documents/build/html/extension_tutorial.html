@@ -235,12 +235,15 @@
 <p>Then we have the function RING_LIBINIT that will be called when the extension is loaded by the Ring VM</p>
 <p>In this function we use the RING_API_REGISTER() function to register the new functions in Ring VM</p>
 <p>Then we build the extension using :</p>
-<p>buildvc.bat</p>
-<p>The file buildvc.bat contains the next commands to build the extension using Visual C/C++</p>
+<blockquote>
+<div><p>buildvc.bat     // Ring for Windows 32-bit
+buildvc_x64.bat // Ring for windows 64-bit</p>
+</div></blockquote>
+<p>The file buildvc_x64.bat contains the next commands to build the extension using Visual C/C++ (64bit)</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cls
-call ../../../src/locatevc.bat
+call ../../../src/locatevc.bat x64
 cl /c /DEBUG mylib.c -I&quot;..\..\..\include&quot;
-link /DEBUG mylib.obj  ..\..\..\lib\ring.lib /DLL /OUT:mylib.dll /SUBSYSTEM:CONSOLE,&quot;5.01&quot;
+link /DEBUG mylib.obj  ..\..\..\lib\ring.lib /DLL /OUT:mylib.dll
 del mylib.obj
 </pre></div>
 </div>
@@ -269,11 +272,12 @@ Hello, World!
 <p>This extension is the same as the first one but in this time, we support Windows, Linux and macOS.</p>
 <p>We will use the next files</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>buildvc.bat
+buildvc_x64.bat
 buildgcc.sh
 buildclang.sh
 </pre></div>
 </div>
-<p>Where we use buildvc.bat in Windows, buildgcc.sh in Linux and buildclang.sh in macOS</p>
+<p>Where we use buildvc.bat/buildvc_x64.bat in Windows, buildgcc.sh in Linux and buildclang.sh in macOS</p>
 <p>The file buildgcc.sh contains the next commands</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>gcc -c -fpic mylib.c -I $PWD/../../../include
 gcc -shared -o libmylib.so mylib.o -L $PWD/../../../lib -lring

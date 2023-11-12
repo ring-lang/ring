@@ -43,17 +43,18 @@ In this function we use the RING_API_REGISTER() function to register the new fun
 
 Then we build the extension using :
 
-buildvc.bat
+	buildvc.bat     // Ring for Windows 32-bit
+	buildvc_x64.bat // Ring for windows 64-bit 
 
-The file buildvc.bat contains the next commands to build the extension using Visual C/C++
+The file buildvc_x64.bat contains the next commands to build the extension using Visual C/C++ (64bit)
 
 
 .. code-block:: none
 
 	cls
-	call ../../../src/locatevc.bat
+	call ../../../src/locatevc.bat x64
 	cl /c /DEBUG mylib.c -I"..\..\..\include"
-	link /DEBUG mylib.obj  ..\..\..\lib\ring.lib /DLL /OUT:mylib.dll /SUBSYSTEM:CONSOLE,"5.01" 
+	link /DEBUG mylib.obj  ..\..\..\lib\ring.lib /DLL /OUT:mylib.dll  
 	del mylib.obj
 
 Then we test the function using
@@ -95,10 +96,11 @@ We will use the next files
 .. code-block:: none
 
 	buildvc.bat
+	buildvc_x64.bat
 	buildgcc.sh
 	buildclang.sh
 
-Where we use buildvc.bat in Windows, buildgcc.sh in Linux and buildclang.sh in macOS
+Where we use buildvc.bat/buildvc_x64.bat in Windows, buildgcc.sh in Linux and buildclang.sh in macOS
 
 The file buildgcc.sh contains the next commands
 
