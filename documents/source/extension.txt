@@ -601,28 +601,60 @@ Ring API - String Functions
 In this section we will learn about the string functions provided by the Ring API to create new string and 
 manipulate the string content.
 
+As in List functions, the GC version of these functions (which add _gc to the name) exist.
+
+Here, Using the GC version of the functions is not necessary for stability but it could be helpful for performance.
+
+Why it's not necessary for stability as we have in the List functions?
+
+Because Ring API uses List * to pass lists from Ring VM to C code and also uses List * to return lists from C code to Ring.
+These lists are passed by pointers, They are the same lists, and we need the same memory functions to process the list items. 
+
+While when using Strings, Ring API create new strings when using RING_API_GETSTRING() or RING_API_RETSTRING()
+
+For a complete list of function, including functions that uses the GC, see this file: ring/language/include/rstring.h
+
 .. code-block:: C
+
+	// Create and delete strings
 
 	String * ring_string_new ( const char *str ) ;
 	String * ring_string_new2 ( const char *str,int nStrSize ) ;
 	String * ring_string_delete ( String *pString ) ;
+
+	// Get string 
+
+	char * ring_string_get ( String *pString ) ;
 	int ring_string_size ( String *pString ) ;
-	void ring_string_set ( String *pString,const char *str ) ;
-	void ring_string_set2 ( String *pString,const char *str,int nStrSize ) ;
+
+	// Add text to the string
+
 	void ring_string_add ( String *pString,const char *str ) ;
 	void ring_string_add2 ( String *pString,const char *str,int nStrSize ) ;
-	void ring_string_print ( String *pString ) ;
+
+	// Change the string 
+
+	void ring_string_set ( String *pString,const char *str ) ;
+	void ring_string_set2 ( String *pString,const char *str,int nStrSize ) ;
 	void ring_string_setfromint ( String *pString,int x ) ;
+
+	// Print the string 
+
+	void ring_string_print ( String *pString ) ;
+
+	// Convert to lower/UPPER case
+
+	void ring_string_tolower(String *pString)
+	void ring_string_toupper(String *pString)
 	char * ring_string_lower ( char *cStr ) ;
 	char * ring_string_upper ( char *cStr ) ;
 	char * ring_string_lower2 ( char *cStr,int nStrSize ) ;
 	char * ring_string_upper2 ( char *cStr,int nStrSize ) ;
+
+	// Find
+
 	char * ring_string_find ( char *cStr1,char *cStr2 ) ;
 	char * ring_string_find2 ( char *cStr1,int nStrSize1,char *cStr2,int nStrSize2 ) ;
-	/* Macro */
-	ring_string_tolower(x)
-	ring_string_toupper(x)
-	ring_string_get(x)
 
 
 .. index:: 
