@@ -25,7 +25,7 @@
 load "stdlibcore.ring"
 load "guilib.ring"
 load "objectslib.ring"
-load "threads.ring"
+load "gamelib.ring"
 load "sockets.ring"
 
 load "TcpServer.ring"
