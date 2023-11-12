@@ -235,10 +235,10 @@
 <p>Then we have the function RING_LIBINIT that will be called when the extension is loaded by the Ring VM</p>
 <p>In this function we use the RING_API_REGISTER() function to register the new functions in Ring VM</p>
 <p>Then we build the extension using :</p>
-<blockquote>
-<div><p>buildvc.bat     // Ring for Windows 32-bit
-buildvc_x64.bat // Ring for windows 64-bit</p>
-</div></blockquote>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>buildvc.bat     // Ring for Windows 32-bit
+buildvc_x64.bat // Ring for windows 64-bit
+</pre></div>
+</div>
 <p>The file buildvc_x64.bat contains the next commands to build the extension using Visual C/C++ (64bit)</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cls
 call ../../../src/locatevc.bat x64

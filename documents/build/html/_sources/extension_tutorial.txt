@@ -43,6 +43,8 @@ In this function we use the RING_API_REGISTER() function to register the new fun
 
 Then we build the extension using :
 
+.. code-block:: none
+
 	buildvc.bat     // Ring for Windows 32-bit
 	buildvc_x64.bat // Ring for windows 64-bit 
 
