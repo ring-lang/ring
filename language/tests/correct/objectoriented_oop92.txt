@@ -1,0 +1,18 @@
+Before using aList
+Counter: 0
+After using aList
+Before using aList
+x_getter
+x_getter
+x_getter
+x_getter
+Counter: 4
+After using aList
+Before using aList
+alist_getter
+x_getter
+x_getter
+x_getter
+x_getter
+Counter: 18
+After using aList
