@@ -1,6 +1,6 @@
 # The Ring Standard Library
 # Game Engine for 2D Games
-# Flappy Bird 300 Game
+# Flappy Bird 3000 Game
 # 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 
 oGameState = NULL
