@@ -3,7 +3,7 @@ Programming Without Coding Technology (PWCT) 2.0
 
 * Posted: 30 April 2021
 
-* Date last Updated: 20 October 2023
+* Date last Updated: 15 November 2023
 
 # Contents:
 
@@ -376,7 +376,7 @@ More videos
 
 PWCT 2.0 was released on 1 March 2023
 
-The current release is PWCT 2.0 Rev. 2023.10.04
+The current release is PWCT 2.0 Rev. 2023.11.15
 
 URL: https://store.steampowered.com/app/1953110/Programming_Without_Coding_Technology_20/
 
