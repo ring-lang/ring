@@ -71,12 +71,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
             pVM->cFileName = ring_list_getstring(pList2,RING_FUNCMAP_FILENAME) ;
             pFuncCall->cNewFileName = pVM->cFileName ;
             /* Method or Function */
-            if ( (y == 1) && (pVM->nCallMethod != 1) ) {
-                pFuncCall->nMethodOrFunc = 0 ;
-            }
-            else {
-                pFuncCall->nMethodOrFunc = 1 ;
-            }
+            pFuncCall->nMethodOrFunc = ! ( (y == 1) && (pVM->nCallMethod != 1) ) ;
             /* Line Number */
             pFuncCall->nLineNumber = RING_VM_IR_GETLINENUMBER ;
             /* Store List information */
