@@ -1,5 +1,6 @@
 for t=1 to 10
 	myfunc(t).test()
+	myfunc(t) { test() }
 	eval("return myfunc(t)").test()
 	eval("return myfunc(t)") { test() }
 next
