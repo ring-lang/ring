@@ -213,7 +213,6 @@ VM * ring_vm_delete ( VM *pVM )
     int x  ;
     List *pRecord  ;
     Item *pItem  ;
-    assert(pVM != NULL);
     pVM->pMem = ring_list_delete_gc(pVM->pRingState,pVM->pMem);
     pVM->pNestedLists = ring_list_delete_gc(pVM->pRingState,pVM->pNestedLists);
     pVM->pFuncCallList = ring_list_delete_gc(pVM->pRingState,pVM->pFuncCallList);

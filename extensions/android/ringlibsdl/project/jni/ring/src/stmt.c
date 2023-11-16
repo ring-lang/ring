@@ -236,7 +236,6 @@ int ring_parser_stmt ( Parser *pParser )
     nLoopOrExitCommand = 0 ;
     nLoadAgain = 0 ;
     nLine2 = 0 ;
-    assert(pParser != NULL);
     /* Statement --> Load Literal */
     if ( ring_parser_iskeyword(pParser,K_LOAD) ) {
         ring_parser_nexttoken(pParser);

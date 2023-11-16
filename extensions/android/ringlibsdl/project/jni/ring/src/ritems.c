@@ -30,7 +30,6 @@ Items * ring_items_delete_gc ( void *pState,Items *pItems )
 {
     char *pMem  ;
     Item *pItem  ;
-    assert(pItems != NULL);
     if ( ! pItems->lDelete ) {
         return NULL ;
     }
@@ -45,7 +44,6 @@ Items * ring_items_delete_gc ( void *pState,Items *pItems )
 
 void ring_items_print ( Items *pItems )
 {
-    assert(pItems != NULL);
     ring_item_print(pItems->pValue);
 }
 /* Functions without State pointer */

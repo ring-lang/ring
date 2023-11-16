@@ -384,10 +384,8 @@ void ring_vm_listassignment ( VM *pVM )
     pVar = NULL ;
     if ( (RING_VM_STACK_ISSTRING) && (pVM->nBeforeEqual <= 1) ) {
         cStr1 = RING_VM_STACK_GETSTRINGRAW ;
-        assert(cStr1 != NULL);
         RING_VM_STACK_POP ;
         pItem = (Item *) RING_VM_STACK_READP ;
-        assert(pItem != NULL);
         RING_VM_STACK_POP ;
         /* Check error on assignment */
         if ( ring_vm_checkitemerroronassignment(pVM,pItem) ) {
@@ -410,7 +408,6 @@ void ring_vm_listassignment ( VM *pVM )
         nNum1 = RING_VM_STACK_READN ;
         RING_VM_STACK_POP ;
         pItem = (Item *) RING_VM_STACK_READP ;
-        assert(pItem != NULL);
         RING_VM_STACK_POP ;
         /* Check error on assignment */
         if ( ring_vm_checkitemerroronassignment(pVM,pItem) ) {

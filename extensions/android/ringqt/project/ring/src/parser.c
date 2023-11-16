@@ -79,7 +79,6 @@ Parser * ring_parser_new ( List *pTokens,RingState *pRingState )
 
 Parser * ring_parser_delete ( Parser *pParser )
 {
-    assert(pParser != NULL);
     pParser->pForInVars = ring_list_delete_gc(pParser->pRingState,pParser->pForInVars);
     ring_state_free(pParser->pRingState,pParser);
     return NULL ;
@@ -89,7 +88,6 @@ Parser * ring_parser_delete ( Parser *pParser )
 void ring_parser_loadtoken ( Parser *pParser )
 {
     List *pList  ;
-    assert(pParser != NULL);
     pList = ring_list_getlist(pParser->Tokens,pParser->ActiveToken);
     pParser->TokenType = ring_list_getint(pList,1) ;
     pParser->TokenText = ring_list_getstring(pList,2) ;
@@ -98,7 +96,6 @@ void ring_parser_loadtoken ( Parser *pParser )
 
 int ring_parser_nexttoken ( Parser *pParser )
 {
-    assert(pParser != NULL);
     if ( pParser->ActiveToken < pParser->TokensCount ) {
         pParser->ActiveToken++ ;
         ring_parser_loadtoken(pParser);
@@ -109,7 +106,6 @@ int ring_parser_nexttoken ( Parser *pParser )
 
 int ring_parser_iskeyword ( Parser *pParser,SCANNER_KEYWORD x )
 {
-    assert(pParser != NULL);
     if ( pParser->TokenType == SCANNER_TOKEN_KEYWORD ) {
         if ( ((unsigned int) atoi(pParser->TokenText)) == ((unsigned int) x) ) {
             return 1 ;
@@ -120,37 +116,31 @@ int ring_parser_iskeyword ( Parser *pParser,SCANNER_KEYWORD x )
 
 int ring_parser_isoperator ( Parser *pParser,const char *cStr )
 {
-    assert(pParser != NULL);
     return (pParser->TokenType == SCANNER_TOKEN_OPERATOR) && (strcmp( pParser->TokenText,cStr) == 0 ) ;
 }
 
 int ring_parser_isliteral ( Parser *pParser )
 {
-    assert(pParser != NULL);
     return (pParser->TokenType == SCANNER_TOKEN_LITERAL) ;
 }
 
 int ring_parser_isnumber ( Parser *pParser )
 {
-    assert(pParser != NULL);
     return (pParser->TokenType ==SCANNER_TOKEN_NUMBER) ;
 }
 
 int ring_parser_isidentifier ( Parser *pParser )
 {
-    assert(pParser != NULL);
     return (pParser->TokenType ==SCANNER_TOKEN_IDENTIFIER) ;
 }
 
 int ring_parser_isendline ( Parser *pParser )
 {
-    assert(pParser != NULL);
     return (pParser->TokenType == SCANNER_TOKEN_ENDLINE) ;
 }
 
 int ring_parser_settoken ( Parser *pParser,int x )
 {
-    assert(pParser != NULL);
     if ( (x >= 1) && (x <= pParser->TokensCount) ) {
         pParser->ActiveToken = x ;
         ring_parser_loadtoken(pParser);
@@ -161,13 +151,11 @@ int ring_parser_settoken ( Parser *pParser,int x )
 
 int ring_parser_isanykeyword ( Parser *pParser )
 {
-    assert(pParser != NULL);
     return (pParser->TokenType == SCANNER_TOKEN_KEYWORD) ;
 }
 
 int ring_parser_isoperator2 ( Parser *pParser,SCANNER_OPERATOR nType )
 {
-    assert(pParser != NULL);
     return (pParser->TokenType == SCANNER_TOKEN_OPERATOR) && ( pParser->nTokenIndex == (int) nType ) ;
 }
 /* Display Errors */

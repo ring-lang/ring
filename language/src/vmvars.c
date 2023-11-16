@@ -60,7 +60,6 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 {
     int x,nPos,nMax1  ;
     List *pList,*pList2  ;
-    assert(pVM->pMem != NULL);
     pVM->lSelfLoadA = 0 ;
     nMax1 = ring_list_getsize(pVM->pMem);
     /* The scope of the search result */
@@ -256,7 +255,6 @@ int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr )
 void ring_vm_newvar ( VM *pVM,const char *cStr )
 {
     List *pList  ;
-    assert(pVM->pActiveMem != NULL);
     pList = ring_vm_newvar2(pVM,cStr,pVM->pActiveMem);
     RING_VM_SP_INC ;
     RING_VM_STACK_SETPVALUE(pList);

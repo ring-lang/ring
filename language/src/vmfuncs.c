@@ -444,11 +444,9 @@ void ring_vm_newfunc ( VM *pVM )
     char *cParameters  ;
     char cStr[2]  ;
     FuncCall *pFuncCall  ;
-    assert(pVM != NULL);
     ring_vm_newscope(pVM);
     /* Set the SP then Check Parameters */
     pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
-    assert(pList != NULL);
     pFuncCall = (FuncCall *) ring_list_getpointer(pList,RING_FUNCCL_STRUCT) ;
     pFuncCall->nStatus = RING_FUNCSTATUS_STARTED ;
     nSP = pFuncCall->nSP ;

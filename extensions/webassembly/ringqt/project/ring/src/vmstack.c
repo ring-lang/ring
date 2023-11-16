@@ -354,7 +354,6 @@ void ring_vm_list_copy ( VM *pVM,List *pNewList, List *pList )
     int x,nMax  ;
     List *pNewList2, *pSourceList  ;
     Item *pItem  ;
-    assert(pList != NULL);
     /* Copy Items */
     nMax = ring_list_getsize(pList) ;
     if ( nMax == 0 ) {
@@ -410,7 +409,6 @@ void ring_vm_list_copy ( VM *pVM,List *pNewList, List *pList )
 void ring_vm_list_simpointercopy ( VM *pVM,List *pList )
 {
     int x  ;
-    assert(pList != NULL);
     /* Copy Items */
     if ( ring_list_getsize(pList) == 0 ) {
         return ;

@@ -21,7 +21,6 @@ Scanner * ring_scanner_new ( RingState *pRingState )
 
 Scanner * ring_scanner_delete ( Scanner *pScanner )
 {
-    assert(pScanner != NULL);
     pScanner->Keywords = ring_list_delete_gc(pScanner->pRingState,pScanner->Keywords);
     pScanner->Operators = ring_list_delete_gc(pScanner->pRingState,pScanner->Operators);
     if ( pScanner->Tokens != NULL ) {
@@ -38,7 +37,6 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
     List *pList  ;
     String *pString  ;
     int nTokenIndex  ;
-    assert(pScanner != NULL);
     /* Set Variables */
     cStr[0] = c ;
     cStr[1] = '\0' ;
@@ -329,7 +327,6 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 
 void ring_scanner_keywords ( Scanner *pScanner )
 {
-    assert(pScanner != NULL);
     pScanner->Keywords = ring_list_new_gc(pScanner->pRingState,0);
     ring_list_addstring_gc(pScanner->pRingState,pScanner->Keywords,"if");
     ring_list_addstring_gc(pScanner->pRingState,pScanner->Keywords,"to");
@@ -403,7 +400,6 @@ void ring_scanner_keywords ( Scanner *pScanner )
 void ring_scanner_addtoken ( Scanner *pScanner,int nType )
 {
     List *pList  ;
-    assert(pScanner != NULL);
     pList = ring_list_newlist_gc(pScanner->pRingState,pScanner->Tokens);
     /* Add Token Type */
     ring_list_addint_gc(pScanner->pRingState,pList,nType);
@@ -421,9 +417,10 @@ void ring_scanner_checktoken ( Scanner *pScanner )
     int nResult  ;
     char cStr[5]  ;
     char *cActiveStr  ;
-    /* This function determine if the TOKEN is a Keyword or Identifier or Number */
-    assert(pScanner != NULL);
-    /* Not Case Sensitive */
+    /*
+    **  This function determine if the TOKEN is a Keyword or Identifier or Number 
+    **  Not Case Sensitive 
+    */
     if ( pScanner->pRingState->lNotCaseSensitive ) {
         ring_string_tolower(pScanner->ActiveToken);
         cActiveStr = ring_string_get(pScanner->ActiveToken) ;
@@ -516,7 +513,6 @@ int ring_scanner_isnumber ( char *cStr )
 
 int ring_scanner_checklasttoken ( Scanner *pScanner )
 {
-    assert(pScanner != NULL);
     if ( ring_list_getsize(pScanner->Tokens) == 0 ) {
         if ( pScanner->state == SCANNER_STATE_COMMENT ) {
             if ( pScanner->pRingState->lCommentsAsTokens ) {
@@ -557,7 +553,6 @@ int ring_scanner_checklasttoken ( Scanner *pScanner )
 int ring_scanner_isoperator ( Scanner *pScanner, const char *cStr )
 {
     int nPos  ;
-    assert(pScanner != NULL);
     nPos = ring_hashtable_findnumber(ring_list_gethashtable(pScanner->Operators),cStr) ;
     if ( nPos > 0 ) {
         pScanner->nTokenIndex = nPos ;
@@ -568,7 +563,6 @@ int ring_scanner_isoperator ( Scanner *pScanner, const char *cStr )
 
 void ring_scanner_operators ( Scanner *pScanner )
 {
-    assert(pScanner != NULL);
     pScanner->Operators = ring_list_new_gc(pScanner->pRingState,0);
     ring_list_addstring_gc(pScanner->pRingState,pScanner->Operators,"+");
     ring_list_addstring_gc(pScanner->pRingState,pScanner->Operators,"-");
@@ -600,7 +594,6 @@ int ring_scanner_lasttokentype ( Scanner *pScanner )
 {
     int x  ;
     List *pList  ;
-    assert(pScanner != NULL);
     x = ring_list_getsize(pScanner->Tokens);
     if ( x > 0 ) {
         pList = ring_list_getlist(pScanner->Tokens,x);
@@ -613,7 +606,6 @@ const char * ring_scanner_lasttokenvalue ( Scanner *pScanner )
 {
     int x  ;
     List *pList  ;
-    assert(pScanner != NULL);
     x = ring_list_getsize(pScanner->Tokens);
     if ( x > 0 ) {
         pList = ring_list_getlist(pScanner->Tokens,x);
@@ -626,7 +618,6 @@ void ring_scanner_floatmark ( Scanner *pScanner,int nType )
 {
     List *pList  ;
     String *pString  ;
-    assert(pScanner != NULL);
     switch ( pScanner->FloatMark ) {
         case 0 :
             if ( nType == SCANNER_TOKEN_NUMBER ) {

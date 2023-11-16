@@ -27,7 +27,6 @@ RING_API String * ring_string_new2_gc ( void *pState,const char *str,int nStrSiz
 
 RING_API String * ring_string_delete_gc ( void *pState,String *pString )
 {
-    assert(pString != NULL);
     ring_state_free(pState,pString->cStr);
     pString->cStr = NULL ;
     ring_state_free(pState,pString);
@@ -36,14 +35,12 @@ RING_API String * ring_string_delete_gc ( void *pState,String *pString )
 
 RING_API int ring_string_size ( String *pString )
 {
-    assert(pString != NULL);
     return pString->nSize ;
 }
 
 RING_API void ring_string_set_gc ( void *pState,String *pString,const char *str )
 {
     int x  ;
-    assert(pString != NULL);
     if ( pString->cStr == str ) {
         /* Setting the string by itself - Do nothing! */
         return ;
@@ -55,8 +52,6 @@ RING_API void ring_string_set_gc ( void *pState,String *pString,const char *str 
 RING_API void ring_string_set2_gc ( void *pState,String *pString,const char *str,int nStrSize )
 {
     int x  ;
-    assert(pString != NULL);
-    assert(pString->cStr != NULL);
     if ( (pString->nSize == nStrSize) && (pString->cStr == str) ) {
         /* Setting the string by itself - Do nothing! */
         return ;
@@ -86,7 +81,6 @@ RING_API void ring_string_add2_gc ( void *pState,String *pString,const char *str
 {
     int x,x2,nOriginalSize  ;
     char *cStr  ;
-    assert(pString != NULL);
     if ( nStrSize == 0 ) {
         /* Adding empty string ---> Do Nothing! */
         return ;
@@ -102,14 +96,12 @@ RING_API void ring_string_add2_gc ( void *pState,String *pString,const char *str
 
 RING_API void ring_string_print ( String *pString )
 {
-    assert(pString != NULL);
     printf( "%s \n",pString->cStr ) ;
 }
 
 RING_API void ring_string_setfromint_gc ( void *pState,String *pString,int x )
 {
     char cStr[20]  ;
-    assert(pString != NULL);
     sprintf( cStr , "%d" , x ) ;
     ring_string_set_gc(pState,pString,cStr);
 }
