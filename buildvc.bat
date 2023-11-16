@@ -216,6 +216,10 @@ cd ../updatetable
 call buildvc
 cd ..\..\..\
 
+cd samples\Drawing\Mandelbrot
+call buildvc_x64
+cd ..\..\..\
+
 cd bin
 
 rem copy dll files

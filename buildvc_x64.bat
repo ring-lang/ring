@@ -215,6 +215,10 @@ cd ../updatetable
 call buildvc_x64
 cd ..\..\..\
 
+cd samples\Drawing\Mandelbrot
+call buildvc_x64
+cd ..\..\..\
+
 rem copy dll files
 cd bin
 copy ..\extensions\libdepwin\cruntime_x64\*.dll .
