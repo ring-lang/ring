@@ -126,6 +126,11 @@ void ring_vm_loadfuncp ( VM *pVM )
 {
     List *pList  ;
     FuncCall *pFuncCall  ;
+    /* Check not defining a Ring function that replace a C function */
+    if ( (RING_VM_IR_GETFLAGREG == RING_FUNCTYPE_C) && (ring_list_getsize(pVM->pFunctionsMap) != RING_VM_IR_READIVALUE(6)) ) {
+        ring_vm_loadfunc(pVM);
+        return ;
+    }
     pVM->nFuncExecute++ ;
     pVM->nFuncExecute2++ ;
     pList = ring_list_newlist_gc(pVM->pRingState,pVM->pFuncCallList);

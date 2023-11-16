@@ -886,5 +886,6 @@ void ring_vmfunccall_useloadfuncp ( VM *pVM,FuncCall *pFuncCall,int nPerformance
         RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(5),pFuncCall->nLineNumber);
         RING_VM_IR_SETCHARREG(pFuncCall->nMethodOrFunc);
         RING_VM_IR_SETFLAGREG(pFuncCall->nType);
+        RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(6),ring_list_getsize(pVM->pFunctionsMap));
     }
 }
