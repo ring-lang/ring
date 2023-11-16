@@ -629,12 +629,8 @@ void ring_vm_restorestateforbraces ( VM *pVM,List *pList )
 
 void ring_vm_backstate ( VM *pVM,int x,List *pList )
 {
-    int nLimit,y  ;
-    if ( x < ring_list_getsize(pList) ) {
-        nLimit = ring_list_getsize(pList) ;
-        for ( y = x + 1 ; y <= nLimit ; y++ ) {
-            ring_list_deleteitem_gc(pVM->pRingState,pList,ring_list_getsize(pList));
-        }
+    while ( ring_list_getsize(pList) > x ) {
+        ring_list_deleteitem_gc(pVM->pRingState,pList,ring_list_getsize(pList));
     }
 }
 /* Save/Restore Stack */
