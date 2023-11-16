@@ -135,7 +135,6 @@
         unsigned char lDontMoveToPrevScope  ;
         unsigned char lSelfLoadA  ;
         List *aDeleteLater  ;
-        int nCFuncSPStart  ;
     } VM ;
     typedef struct FuncCall {
         const char *cName  ;

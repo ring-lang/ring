@@ -265,7 +265,6 @@ void ring_vm_call2 ( VM *pVM )
         /* Get Parameters */
         nSP = pFuncCall->nSP ;
         pVM->nCFuncParaCount = pVM->nSP - nSP ;
-        pVM->nCFuncSPStart = nSP ;
         /* Use Order (First In - First Out) As Queue , the first parameter comes first */
         if ( nSP < pVM->nSP ) {
             nMax1 = pVM->nSP ;
