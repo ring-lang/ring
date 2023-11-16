@@ -146,6 +146,7 @@ aTests = [
 	[ :name = "Eval() Function (Part 23)", :Command = "ring eval/eval16.ring" ],
 	[ :name = "Eval() Function (Part 24)", :Command = "ring eval/eval17.ring" ],
 	[ :name = "Eval() Function (Part 25)", :Command = "ring eval/eval18.ring" ],
+	[ :name = "Eval() Function (Part 26)", :Command = "ring eval/eval19.ring" ],
 	[ :name = "Using Self (Part 1)"	, :Command = "ring self/self1.ring" ],
 	[ :name = "Using Self (Part 2)"	, :Command = "ring self/self2.ring" ],
 	[ :name = "Using Self (Part 3)"	, :Command = "ring self/self3.ring" ],
