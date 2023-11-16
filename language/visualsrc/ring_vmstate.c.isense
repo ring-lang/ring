@@ -52,8 +52,6 @@ pObject
 Type: int
 lDontRef,lDontRefAgain
 ring_vm_backstate
-Type: int
-nLimit,y
 ring_vm_savestack
 Type: int
 nSP

@@ -91,7 +91,6 @@
         RingState *pRingState  ;
         unsigned int nLoadAddressScope  ;
         List *aBeforeObjState  ;
-        unsigned int nFuncExecute2  ;
         List *pCLibraries  ;
         unsigned char nEvalCalledFromRingCode  ;
         unsigned char nDecimals  ;

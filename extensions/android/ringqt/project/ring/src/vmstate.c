@@ -40,7 +40,6 @@ void ring_vm_savestate ( VM *pVM,List *pList )
     pVMState->aNumbers[24] = pVM->nGetSetObjType ;
     pVMState->aNumbers[25] = pVM->nBeforeEqual ;
     pVMState->aNumbers[26] = pVM->nNOAssignment ;
-    pVMState->aNumbers[27] = pVM->nFuncExecute2 ;
     pVMState->aNumbers[28] = pVM->nCallClassInit ;
     pVMState->aNumbers[29] = pVM->lNoSetterMethod ;
     pVMState->aNumbers[30] = ring_list_getint(pThis,RING_VAR_PVALUETYPE) ;
@@ -200,7 +199,6 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
     pVM->pAssignment = (void *) pVMState->aPointers[6] ;
     pVM->nBeforeEqual = pVMState->aNumbers[25] ;
     pVM->nNOAssignment = pVMState->aNumbers[26] ;
-    pVM->nFuncExecute2 = pVMState->aNumbers[27] ;
     pVM->nCallClassInit = pVMState->aNumbers[28] ;
     pVM->lNoSetterMethod = pVMState->aNumbers[29] ;
     /* We restore the global scope before the This variable, because This use global scope */
@@ -236,7 +234,6 @@ void ring_vm_savestateforfunctions ( VM *pVM,List *pList )
     pVMState->aNumbers[4] = ring_list_getsize(pVM->pObjState) ;
     pVMState->aNumbers[5] = pVM->nInsideBraceFlag ;
     pVMState->aNumbers[6] = ring_list_getsize(pVM->aForStep) ;
-    pVMState->aNumbers[7] = pVM->nFuncExecute2 ;
     pVMState->aNumbers[8] = pVM->nBlockFlag ;
     pVMState->aNumbers[9] = pVM->nPrivateFlag ;
     pVMState->aNumbers[10] = pVM->nCallClassInit ;
@@ -276,7 +273,6 @@ void ring_vm_savestateforfunctions ( VM *pVM,List *pList )
     pVM->pBraceObject = NULL ;
     pVM->nBeforeEqual = 0 ;
     pVM->nFuncExecute = 0 ;
-    pVM->nFuncExecute2 = 0 ;
     pVM->nGetSetProperty = 0 ;
     pVM->pGetSetObject = NULL ;
     pVM->nGetSetObjType = 0 ;
@@ -299,7 +295,6 @@ void ring_vm_restorestateforfunctions ( VM *pVM,List *pList,int x )
     pVM->nInsideBraceFlag = pVMState->aNumbers[5] ;
     ring_vm_backstate(pVM,pVMState->aNumbers[6],pVM->aForStep);
     pVM->pActiveMem = (List *) pVMState->aPointers[1] ;
-    pVM->nFuncExecute2 = pVMState->aNumbers[7] ;
     /* Restore BlockFLag */
     pVM->aPCBlockFlag = ring_list_delete_gc(pVM->pRingState,pVM->aPCBlockFlag);
     pVM->nBlockFlag = pVMState->aNumbers[8] ;
@@ -383,9 +378,6 @@ void ring_vm_savestatefornewobjects ( VM *pVM )
     pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
     pVMState->aPointers[5] = ring_list_getpointer(pThis,RING_VAR_VALUE) ;
     pVMState->aNumbers[10] = ring_list_getint(pThis,RING_VAR_PVALUETYPE) ;
-    /* Save FuncExecute2 */
-    pVMState->aNumbers[11] = pVM->nFuncExecute2 ;
-    pVM->nFuncExecute2 = 0 ;
     /* Save nNoAssignment */
     pVMState->aNumbers[12] = pVM->nNOAssignment ;
     pVM->nNOAssignment = 0 ;
@@ -486,8 +478,6 @@ void ring_vm_restorestatefornewobjects ( VM *pVM )
     pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
     ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,pVMState->aPointers[5]);
     ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,pVMState->aNumbers[10]);
-    /* Restore FuncExecute2 */
-    pVM->nFuncExecute2 = pVMState->aNumbers[11] ;
     /* Restore nNoAssignment */
     pVM->nNOAssignment = pVMState->aNumbers[12] ;
     /* Restore ExitMark */

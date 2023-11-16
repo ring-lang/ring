@@ -104,8 +104,6 @@ VM * ring_vm_new ( RingState *pRingState )
     pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
     /* List contains what to add  later to pObjState, prepare by loadmethod, add before call */
     pVM->aBeforeObjState = ring_list_new_gc(pVM->pRingState,0) ;
-    /* Another flag like nFuncExec but not used by see command or return command */
-    pVM->nFuncExecute2 = 0 ;
     /* Eval can be called from C code (OOP Set/Get/Operator Overloading) or from ring code using eval() */
     pVM->nEvalCalledFromRingCode = 0 ;
     /* Number of decimals after the point */

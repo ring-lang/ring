@@ -132,7 +132,6 @@ void ring_vm_loadfuncp ( VM *pVM )
         return ;
     }
     pVM->nFuncExecute++ ;
-    pVM->nFuncExecute2++ ;
     pList = ring_list_newlist_gc(pVM->pRingState,pVM->pFuncCallList);
     /* Add FuncCall Structure */
     pFuncCall = ring_vmfunccall_new(pVM,pList);

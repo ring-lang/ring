@@ -16,9 +16,8 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
     List *pList,*pList2,*pList3  ;
     int y  ;
     FuncCall *pFuncCall  ;
-    /* nFuncExecute is used also by See command while nFuncExecute2 is not */
+    /* Increment nFuncExecute */
     pVM->nFuncExecute++ ;
-    pVM->nFuncExecute2++ ;
     /* Search */
     for ( y = 2 ; y >= 1 ; y-- ) {
         /* For OOP Support - Search in the Class Methods */
@@ -116,7 +115,6 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
         pVM->nPC += 2 ;
         /* Decrement FuncExecute Counter */
         pVM->nFuncExecute-- ;
-        pVM->nFuncExecute2-- ;
         ring_vm_error2(pVM,RING_VM_ERROR_METHODNOTFOUND,cStr);
         return 0 ;
     }
@@ -172,7 +170,6 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
     **  Decrement FuncExecute Counter 
     */
     pVM->nFuncExecute-- ;
-    pVM->nFuncExecute2-- ;
     ring_vm_error2(pVM,RING_VM_ERROR_FUNCNOTFOUND,cStr);
     return 0 ;
 }
@@ -206,7 +203,6 @@ void ring_vm_call2 ( VM *pVM )
     /* Decrement FuncExecute Counter */
     if ( pVM->nFuncExecute > 0 ) {
         pVM->nFuncExecute-- ;
-        pVM->nFuncExecute2-- ;
     }
     pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
     pFuncCall = (FuncCall *) ring_list_getpointer(pList,RING_FUNCCL_STRUCT) ;
