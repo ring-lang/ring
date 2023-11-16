@@ -127,5 +127,4 @@ class RNoteFileMenu
 		}
 
 	func Quit
-		SaveSettings()
-		win1.close()
+		RingNotepadXButton()
