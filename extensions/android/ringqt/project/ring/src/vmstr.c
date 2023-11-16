@@ -26,15 +26,14 @@ void ring_vm_string_assignment ( VM *pVM )
         nSize = RING_VM_STACK_STRINGSIZE ;
         if ( nSize == 1 ) {
             cChar = RING_VM_STACK_READC[0] ;
-        }
-        RING_VM_STACK_POP ;
-        if ( nSize == 1 ) {
+            RING_VM_STACK_POP ;
             newstr = (char *) RING_VM_STACK_READP ;
             RING_VM_STACK_POP ;
             newstr[0] = cChar ;
             return ;
         }
         else {
+            RING_VM_STACK_POP ;
             ring_vm_error(pVM,RING_VM_ERROR_VALUEMORETHANONECHAR);
             return ;
         }
