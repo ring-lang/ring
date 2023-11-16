@@ -189,3 +189,5 @@ More Improvements
 * Ring VM - Use ring_list_genarray() with global scope variables When using threads 
 * Ring VM - Remove aAddressScope from VM structure
 * Ring VM - New instructions (ICO_PUSH2N, ICO_PUSH3N & ICO_PUSH4N)
+* Ring VM - Byte Code items count is changed to 6
+* Ring VM - ICO_LOADFUNCP instruction support replacing C function with Ring function
