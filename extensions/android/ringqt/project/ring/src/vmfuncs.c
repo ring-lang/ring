@@ -700,13 +700,7 @@ void ring_vm_anonymous ( VM *pVM )
 
 int ring_vm_isstackpointertoobjstate ( VM *pVM )
 {
-    /* if the variable belong to the object state, return 1 */
-    if ( pVM->nLoadAddressScope != RING_VARSCOPE_NOTHING ) {
-        if ( (pVM->nLoadAddressScope == RING_VARSCOPE_OBJSTATE) || (pVM->nLoadAddressScope ==RING_VARSCOPE_GLOBAL) ) {
-            return 1 ;
-        }
-    }
-    return 0 ;
+    return (pVM->nLoadAddressScope == RING_VARSCOPE_OBJSTATE) || (pVM->nLoadAddressScope ==RING_VARSCOPE_GLOBAL) ;
 }
 
 List * ring_vm_prevtempmem ( VM *pVM )
