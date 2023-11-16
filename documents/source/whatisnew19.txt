@@ -160,7 +160,7 @@ More Improvements
 * Better Documentation - Chapter: Extension using C/C++ languages
 * Better Documentation - Chapter: Tutorial: Ring Extensions in C/C++
 * Better Documentation - Support search in CHM file
-* Ring Notepad - Close Button - For closing the web browser 
+* Ring Notepad - Close Button - Force closing the web browser 
 * FindInFiles Application - Replace Button - Check line selection
 * WinStartupManager application - Use extensions that comes with Ring
 * EightPuzzleGame3D game - Better Code 
