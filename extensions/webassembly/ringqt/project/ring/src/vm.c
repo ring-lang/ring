@@ -581,7 +581,7 @@ void ring_vm_showbytecode ( VM *pVM )
     /* Print the ByteCode */
     nCount = RING_VM_INSTRUCTIONSCOUNT ;
     if ( nCount > 0 ) {
-        printf( "\n %6s  %18s  %29s\n", "PC","OPCode","Data" ) ;
+        printf( "\n %6s  %18s  %19s\n", "PC","OPCode","Data" ) ;
         for ( x = 1 ; x <= nCount ; x++ ) {
             /* Get the Instruction */
             pByteCode = pVM->pByteCode + x - 1 ;
@@ -602,16 +602,16 @@ void ring_vm_showbytecode ( VM *pVM )
                     /* Display the Register Value */
                     switch ( nType ) {
                         case RING_VM_REGTYPE_STRING :
-                            printf( " %12s ",ring_string_get(pByteCode->aReg[y].pString) ) ;
+                            printf( " %18s ",ring_string_get(pByteCode->aReg[y].pString) ) ;
                             break ;
                         case RING_VM_REGTYPE_INT :
-                            printf( " %12d ",pByteCode->aReg[y].iNumber ) ;
+                            printf( " %18d ",pByteCode->aReg[y].iNumber ) ;
                             break ;
                         case RING_VM_REGTYPE_DOUBLE :
-                            printf( " %12f",pByteCode->aReg[y].dNumber ) ;
+                            printf( " %18f",pByteCode->aReg[y].dNumber ) ;
                             break ;
                         case RING_VM_REGTYPE_POINTER :
-                            printf( " %12p ",pByteCode->aReg[y].pPointer ) ;
+                            printf( " %18p ",pByteCode->aReg[y].pPointer ) ;
                             break ;
                     }
                 }

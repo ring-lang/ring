@@ -118,8 +118,6 @@ Type: unsigned int
 nVarScope
 Type: unsigned int
 nScopeID
-Type: List *
-aScopeID
 Type: unsigned int
 nActiveScopeID
 Type: unsigned int
