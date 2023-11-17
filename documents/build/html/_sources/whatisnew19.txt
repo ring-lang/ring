@@ -151,6 +151,9 @@ More Samples
 * Added: samples/UsingQt/CustomDragAndDrop/customdraganddrop.ring 
 * Added: samples/UsingMatrixLib/59-Matrix-Transform-Draw-Rotation.ring
 
+.. image:: drawrotation.png
+	:alt: drawrotation
+
 .. index:: 
 	pair: What is new in Ring  1.19; More Improvements
 
