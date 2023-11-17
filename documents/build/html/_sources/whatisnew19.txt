@@ -174,6 +174,7 @@ More Improvements
 * samples/UsingOpenGL/LevelsOfCubes - Reset FPS
 * samples/UsingOpenGL - Set the window icon
 * samples/General/TimeServer - Replace RingThreads with GameLib 
+* samples/UsingQt/ListWidget/listwidgetitemvalue.ring - Better Code
 * extensions/tutorial - filterlist() updated to use ring_list_deleteitem_gc() 
 * Better Qt3D samples - Use Quit() method when closing the application
 * Better RingPostgreSQL samples
@@ -195,3 +196,4 @@ More Improvements
 * Ring VM - Byte Code items count is changed to 6
 * Ring VM - ICO_LOADFUNCP instruction support replacing C function with Ring function
 * Ring VM - Better performance when deleting a scope - Avoid: ring_vm_gc_checkreferences()
+* Ring VM - Better format when printing the byte code
