@@ -191,3 +191,4 @@ More Improvements
 * Ring VM - New instructions (ICO_PUSH2N, ICO_PUSH3N & ICO_PUSH4N)
 * Ring VM - Byte Code items count is changed to 6
 * Ring VM - ICO_LOADFUNCP instruction support replacing C function with Ring function
+* Ring VM - Better performance when deleting a scope - Avoid: ring_vm_gc_checkreferences()
