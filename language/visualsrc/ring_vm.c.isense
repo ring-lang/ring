@@ -39,8 +39,6 @@ nReg4Type:3
 Type: unsigned int
 nReg5Type:3
 Type: unsigned int
-nReg6Type:3
-Type: unsigned int
 nFlagReg:4
 Type: char
 nCharReg
@@ -386,7 +384,6 @@ RING_VM_IR_SETREG2TYPE(x)
 RING_VM_IR_SETREG3TYPE(x)
 RING_VM_IR_SETREG4TYPE(x)
 RING_VM_IR_SETREG5TYPE(x)
-RING_VM_IR_SETREG6TYPE(x)
 RING_FUNCTYPE_SCRIPT
 RING_FUNCTYPE_C
 RING_FUNCSTATUS_LOAD

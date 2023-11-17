@@ -13,7 +13,7 @@
         #define RING_VM_STACK_CHECKOVERFLOW 1000
     #endif
     #define RING_VM_FREE_STACK_IN_CLASS_REGION_AFTER 100
-    #define RING_VM_BC_ITEMS_COUNT 6
+    #define RING_VM_BC_ITEMS_COUNT 5
     #define RING_VM_MAXDIGITSINNUMBER 15
     /* Register Type */
     #define RING_VM_REGTYPE_NOTHING 0
@@ -35,7 +35,6 @@
         unsigned int nReg3Type:3  ;
         unsigned int nReg4Type:3  ;
         unsigned int nReg5Type:3  ;
-        unsigned int nReg6Type:3  ;
         unsigned int nFlagReg:4  ;
         char nCharReg  ;
         Register aReg[RING_VM_BC_ITEMS_COUNT]  ;
@@ -266,19 +265,18 @@
     #define RING_VM_IR_SETREG3TYPE(x) pVM->pByteCodeIR->nReg3Type = x
     #define RING_VM_IR_SETREG4TYPE(x) pVM->pByteCodeIR->nReg4Type = x
     #define RING_VM_IR_SETREG5TYPE(x) pVM->pByteCodeIR->nReg5Type = x
-    #define RING_VM_IR_SETREG6TYPE(x) pVM->pByteCodeIR->nReg6Type = x
     /*
     **  Calling Functions 
     **  Note : When you insert items check performance functions for update too! 
     **  pFuncCallList ( Type, Func Name , Position(PC) , Stack Pointer , TempMem, ... 
     **  Types 
     */
-    #define RING_FUNCTYPE_SCRIPT 1
-    #define RING_FUNCTYPE_C 2
+    #define RING_FUNCTYPE_SCRIPT 0
+    #define RING_FUNCTYPE_C 1
     /* Status */
-    #define RING_FUNCSTATUS_LOAD 1
-    #define RING_FUNCSTATUS_CALL 2
-    #define RING_FUNCSTATUS_STARTED 3
+    #define RING_FUNCSTATUS_LOAD 0
+    #define RING_FUNCSTATUS_CALL 1
+    #define RING_FUNCSTATUS_STARTED 2
     /* List Members */
     #define RING_FUNCCL_STRUCT 1
     #define RING_FUNCCL_STATE 2
