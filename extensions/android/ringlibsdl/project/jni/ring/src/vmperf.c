@@ -85,7 +85,7 @@ void ring_vm_incjump ( VM *pVM )
             RING_VM_IR_OPCODE = ICO_INCLPJUMP ;
         }
         RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(4),pItem);
-        RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(5),ring_list_getint(pVM->aScopeID,ring_list_getsize(pVM->aScopeID)));
+        RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(5),pVM->nActiveScopeID);
     }
     /* Jump */
     pVM->nPC = RING_VM_IR_READIVALUE(2) ;
