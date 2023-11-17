@@ -139,16 +139,18 @@ void ring_vm_loadfuncp ( VM *pVM )
     pFuncCall->cName = RING_VM_IR_READC ;
     pFuncCall->nPC = RING_VM_IR_READIVALUE(2) ;
     pFuncCall->nSP = pVM->nSP ;
-    pFuncCall->pFunc = (void(*)(void *)) RING_VM_IR_READPVALUE(5) ;
+    pFuncCall->nLineNumber = RING_VM_IR_READIVALUE(3) ;
+    pFuncCall->pFunc = (void(*)(void *)) RING_VM_IR_READPVALUE(4) ;
     pFuncCall->pTempMem = ring_list_new_gc(pVM->pRingState,0) ;
+    /* Store the file name */
     pFuncCall->cFileName = pVM->cFileName ;
     if ( pFuncCall->nType == RING_FUNCTYPE_SCRIPT ) {
-        pVM->cFileName = (char *) RING_VM_IR_READPVALUE(4) ;
+        pVM->cFileName = (char *) RING_VM_IR_READPVALUE(5) ;
         pVM->cPrevFileName = pVM->cFileName ;
     }
     pFuncCall->cNewFileName = pVM->cFileName ;
+    /* Method/Function & Scope */
     pFuncCall->nMethodOrFunc = RING_VM_IR_GETCHARREG ;
-    pFuncCall->nLineNumber = RING_VM_IR_READIVALUE(3) ;
     pFuncCall->nLoadAddressScope = pVM->nLoadAddressScope ;
     pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
     /* Store List information */

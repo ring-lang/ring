@@ -868,8 +868,8 @@ void ring_vmfunccall_useloadfuncp ( VM *pVM,FuncCall *pFuncCall,int nPerformance
         /* Leave the first parameter (contains the function name as wanted) */
         RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(2),pFuncCall->nPC);
         RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(3),pFuncCall->nLineNumber);
-        RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(5),(void *) pFuncCall->pFunc);
-        RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(4),pFuncCall->cFileName);
+        RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(4),(void *) pFuncCall->pFunc);
+        RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(5),pFuncCall->cFileName);
         RING_VM_IR_SETCHARREG(pFuncCall->nMethodOrFunc);
         RING_VM_IR_SETFLAGREG(pFuncCall->nType);
         RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(6),ring_list_getsize(pVM->pFunctionsMap));
