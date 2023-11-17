@@ -831,11 +831,11 @@ void ring_vm_retitemref ( VM *pVM )
 int ring_vm_timetofreetemplists ( VM *pVM )
 {
     /* We must start by executing the instruction for the first time (So we use decrement) */
-    if ( RING_VM_IR_GETCHARREG == 0 ) {
-        RING_VM_IR_SETCHARREG(RING_VM_TEMPLISTSCOUNTERMAX);
+    if ( RING_VM_IR_GETINTREG == 0 ) {
+        RING_VM_IR_SETINTREG(RING_VM_TEMPLISTSCOUNTERMAX);
         return 1 ;
     }
-    RING_VM_IR_SETCHARREG(RING_VM_IR_GETCHARREG -1);
+    RING_VM_IR_SETINTREG(RING_VM_IR_GETINTREG -1);
     return 0 ;
 }
 
@@ -869,7 +869,7 @@ void ring_vmfunccall_useloadfuncp ( VM *pVM,FuncCall *pFuncCall,int nPerformance
         RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(2),pFuncCall->nPC);
         RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(3),ring_list_getsize(pVM->pFunctionsMap));
         RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(4),(void *) pFuncCall->pFunc);
-        RING_VM_IR_SETCHARREG(pFuncCall->nMethodOrFunc);
+        RING_VM_IR_SETINTREG(pFuncCall->nMethodOrFunc);
         RING_VM_IR_SETFLAGREG(pFuncCall->nType);
         RING_VM_IR_SETREG4TYPE(RING_VM_REGTYPE_POINTER);
         RING_VM_IR_PARACOUNT = 5 ;

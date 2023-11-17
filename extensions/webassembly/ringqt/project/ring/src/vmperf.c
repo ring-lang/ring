@@ -18,7 +18,7 @@ void ring_vm_pushp ( VM *pVM )
 void ring_vm_pushplocal ( VM *pVM )
 {
     /* Check Scope Life Time */
-    if ( RING_VM_IR_GETCHARREG != pVM->nActiveScopeID ) {
+    if ( RING_VM_IR_GETINTREG != pVM->nActiveScopeID ) {
         ring_vm_loadaddress(pVM);
         return ;
     }
@@ -85,7 +85,7 @@ void ring_vm_incjump ( VM *pVM )
             RING_VM_IR_OPCODE = ICO_INCLPJUMP ;
         }
         RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(4),pItem);
-        RING_VM_IR_SETCHARREG(pVM->nActiveScopeID);
+        RING_VM_IR_SETINTREG(pVM->nActiveScopeID);
     }
     /* Jump */
     pVM->nPC = RING_VM_IR_READIVALUE(2) ;
@@ -115,7 +115,7 @@ void ring_vm_incpjump ( VM *pVM )
 void ring_vm_inclpjump ( VM *pVM )
 {
     /* Check Scope Life Time */
-    if ( RING_VM_IR_GETCHARREG != pVM->nActiveScopeID ) {
+    if ( RING_VM_IR_GETINTREG != pVM->nActiveScopeID ) {
         ring_vm_incjump(pVM);
         return ;
     }
@@ -149,7 +149,7 @@ void ring_vm_loadfuncp ( VM *pVM )
     }
     pFuncCall->cNewFileName = pVM->cFileName ;
     /* Method/Function & Scope */
-    pFuncCall->nMethodOrFunc = RING_VM_IR_GETCHARREG ;
+    pFuncCall->nMethodOrFunc = RING_VM_IR_GETINTREG ;
     pFuncCall->nLoadAddressScope = pVM->nLoadAddressScope ;
     pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
     /* Store List information */
@@ -178,7 +178,7 @@ void ring_vm_incpjumpstep1 ( VM *pVM )
 void ring_vm_inclpjumpstep1 ( VM *pVM )
 {
     /* Check Scope Life Time */
-    if ( RING_VM_IR_GETCHARREG != pVM->nActiveScopeID ) {
+    if ( RING_VM_IR_GETINTREG != pVM->nActiveScopeID ) {
         ring_vm_incjump(pVM);
         return ;
     }

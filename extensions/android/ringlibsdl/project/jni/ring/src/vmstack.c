@@ -106,7 +106,7 @@ void ring_vm_loadaddress ( VM *pVM )
             /* Replace LoadAddress with PUSHPLOCAL for better performance */
             RING_VM_IR_OPCODE = ICO_PUSHPLOCAL ;
             RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(4),RING_VM_STACK_READP);
-            RING_VM_IR_SETCHARREG(pVM->nActiveScopeID);
+            RING_VM_IR_SETINTREG(pVM->nActiveScopeID);
             RING_VM_IR_PARACOUNT = 5 ;
             RING_VM_IR_SETREG4TYPE(RING_VM_REGTYPE_POINTER);
         }

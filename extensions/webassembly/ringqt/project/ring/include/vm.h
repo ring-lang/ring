@@ -35,7 +35,7 @@
         unsigned int nReg3Type:3  ;
         unsigned int nReg4Type:3  ;
         unsigned char nFlagReg  ;
-        unsigned int nCharReg  ;
+        unsigned int nIntReg  ;
         Register aReg[RING_VM_BC_ITEMS_COUNT]  ;
     } ByteCode ;
     typedef struct VM {
@@ -254,8 +254,8 @@
     #define RING_VM_PC_PREVINS pVM->nPC - 3
     #define RING_VM_IR_CLEARREG1STRING ring_vm_clearregisterstring(pVM,1)
     #define RING_VM_PUSHNULLTHENJUMP RING_VM_STACK_PUSHCVALUE(""); RING_VM_JUMP
-    #define RING_VM_IR_SETCHARREG(x) pVM->pByteCodeIR->nCharReg = x
-    #define RING_VM_IR_GETCHARREG pVM->pByteCodeIR->nCharReg
+    #define RING_VM_IR_SETINTREG(x) pVM->pByteCodeIR->nIntReg = x
+    #define RING_VM_IR_GETINTREG pVM->pByteCodeIR->nIntReg
     #define RING_VM_IR_SETFLAGREG(x) pVM->pByteCodeIR->nFlagReg = x
     #define RING_VM_IR_GETFLAGREG pVM->pByteCodeIR->nFlagReg
     #define RING_VM_IR_SETREG1TOPOINTERFROMSTACK ring_vm_setreg1topointerfromstack(pVM)
