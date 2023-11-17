@@ -1,14 +1,16 @@
 load "guilib.ring"
-new qApp {
 
-	oDesktop = new qDesktopWidget()
+new QApp {
 
-	new qWidget() {
-		resize(400,400)
-		setwindowtitle("Desktop Width:" + oDesktop.width() + 
-			         " Desktop Height : " + oDesktop.height() )
+	oDesktop = new QDesktopWidget()
+
+	new QWidget() {
+		resize(600,400)
+		setwindowtitle( "Desktop Width:" + oDesktop.width() + 
+				" Desktop Height : " + oDesktop.height() )
 		show()
 	}
 
 	exec()
+
 }
