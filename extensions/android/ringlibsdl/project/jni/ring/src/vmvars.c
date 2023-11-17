@@ -344,7 +344,7 @@ void ring_vm_addnewpointervar ( VM *pVM,const char *cStr,void *x,int y )
     ring_list_setpointer_gc(pVM->pRingState,pList,RING_VAR_VALUE,x);
     ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_PVALUETYPE,y);
     /* Reference Counting */
-    ring_vm_gc_checknewreference(x,y);
+    ring_vm_gc_checknewreference(x,y,pList,RING_VAR_VALUE);
 }
 
 void ring_vm_newtempvar ( VM *pVM,const char *cStr, List *TempList )
@@ -377,8 +377,6 @@ void ring_vm_deletescope ( VM *pVM )
         printf( RING_NOSCOPE ) ;
         exit(1);
     }
-    /* Check References */
-    ring_vm_gc_checkreferences(pVM);
     ring_list_deleteitem_gc(pVM->pRingState,pVM->pMem,ring_list_getsize(pVM->pMem));
     pVM->pActiveMem = ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem));
     /* Delete Local Scope information */

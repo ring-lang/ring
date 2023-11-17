@@ -8,33 +8,7 @@ void ring_vm_gc_cleardata ( Item *pItem )
     pItem->gc.pFreeFunc = NULL ;
 }
 
-void ring_vm_gc_checkreferences ( VM *pVM )
-{
-    int x  ;
-    List *pList, *pList2  ;
-    Item *pItem  ;
-    /* Check References (Called when we delete a scope) */
-    pList = ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem));
-    for ( x = ring_list_getsize(pList) ; x >= 1 ; x-- ) {
-        if ( ! ring_list_islist(pList,x) ) {
-            continue ;
-        }
-        pList2 = ring_list_getlist(pList,x);
-        if ( ring_list_getsize(pList2) == RING_VAR_LISTSIZE ) {
-            if ( ring_list_getint(pList2,RING_VAR_TYPE) == RING_VM_POINTER ) {
-                if ( ring_list_getint(pList2,RING_VAR_PVALUETYPE) == RING_OBJTYPE_LISTITEM ) {
-                    pItem = (Item *) ring_list_getpointer(pList2,RING_VAR_VALUE) ;
-                    #if GCLog
-                        printf( "GC CheckReferences - Free Memory %p \n",pItem ) ;
-                    #endif
-                    ring_item_delete_gc(pVM->pRingState,pItem);
-                }
-            }
-        }
-    }
-}
-
-void ring_vm_gc_checknewreference ( void *pPointer,int nType )
+void ring_vm_gc_checknewreference ( void *pPointer,int nType, List *pContainer, int nIndex )
 {
     Item *pItem  ;
     /*
@@ -45,6 +19,9 @@ void ring_vm_gc_checknewreference ( void *pPointer,int nType )
     if ( nType == RING_OBJTYPE_LISTITEM ) {
         pItem = (Item *) pPointer ;
         pItem->gc.nReferenceCount++ ;
+        /* Set the Free Function */
+        pItem = ring_list_getitem(pContainer,nIndex) ;
+        ring_vm_gc_setfreefunc(pItem,ring_vm_gc_deleteitem_gc);
         #if GCLog
             printf( "\nGC CheckNewReference - To Pointer %p \n",pItem ) ;
         #endif
