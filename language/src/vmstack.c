@@ -346,7 +346,7 @@ void ring_vm_setreference ( VM *pVM )
     ring_list_setpointer_gc(pVM->pRingState,pList,RING_VAR_VALUE,pPointer);
     ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_PVALUETYPE,nType);
     /* Reference Counting (To Source After copy to Destination) */
-    ring_vm_gc_checknewreference(pPointer,nType);
+    ring_vm_gc_checknewreference(pPointer,nType,pList,RING_VAR_VALUE);
 }
 
 void ring_vm_list_copy ( VM *pVM,List *pNewList, List *pList )

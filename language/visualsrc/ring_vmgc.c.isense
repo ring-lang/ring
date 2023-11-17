@@ -154,13 +154,6 @@ PoolManager *
 ring_gc_h
 GCLog
 ring_vm_gc_cleardata
-ring_vm_gc_checkreferences
-Type: int
-x
-Type: List *
-pList, *pList2
-Type: Item *
-pItem
 ring_vm_gc_checknewreference
 Type: Item *
 pItem

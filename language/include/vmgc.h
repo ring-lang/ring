@@ -8,9 +8,7 @@
 
     void ring_vm_gc_cleardata ( Item *pItem ) ;
 
-    void ring_vm_gc_checkreferences ( VM *pVM ) ;
-
-    void ring_vm_gc_checknewreference ( void *pPointer,int nType ) ;
+    void ring_vm_gc_checknewreference ( void *pPointer,int nType,List *pContainer, int nIndex ) ;
 
     void ring_vm_gc_checkupdatereference ( VM *pVM,List *pList ) ;
 

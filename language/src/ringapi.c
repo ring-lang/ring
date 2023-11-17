@@ -71,8 +71,6 @@ RING_API int ring_vm_api_ispointer ( void *pPointer,int x )
             /* Create the list for the NULL Pointer */
             pList2 = RING_API_NEWLIST ;
             pItem = ring_list_getitem(pVM->pActiveMem,ring_list_getsize(pVM->pActiveMem));
-            /* Increase the References count for the item */
-            ring_vm_gc_newitemreference(pItem);
             ring_list_setpointerandtype_gc(pVM->pRingState,RING_API_PARALIST,x,pItem,RING_OBJTYPE_LISTITEM);
             /* The variable value will be a list contains the pointer */
             ring_list_addpointer_gc(pVM->pRingState,pList2,NULL);
