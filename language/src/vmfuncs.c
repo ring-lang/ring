@@ -16,8 +16,6 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
     List *pList,*pList2,*pList3  ;
     int y  ;
     FuncCall *pFuncCall  ;
-    /* Increment nFuncExecute */
-    pVM->nFuncExecute++ ;
     /* Search */
     for ( y = 2 ; y >= 1 ; y-- ) {
         /* For OOP Support - Search in the Class Methods */
@@ -106,6 +104,8 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
             /* Add nLoadAddressScope to pFuncCall */
             pFuncCall->nLoadAddressScope = pVM->nLoadAddressScope ;
             pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
+            /* Increment nFuncExecute */
+            pVM->nFuncExecute++ ;
             return 1 ;
         }
     }
@@ -113,8 +113,6 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
     if ( pVM->nCallMethod == 1 ) {
         /* Pass The Call Instruction and the AfterCallMethod Instruction */
         pVM->nPC += 2 ;
-        /* Decrement FuncExecute Counter */
-        pVM->nFuncExecute-- ;
         ring_vm_error2(pVM,RING_VM_ERROR_METHODNOTFOUND,cStr);
         return 0 ;
     }
@@ -150,6 +148,8 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
         pFuncCall->nLoadAddressScope = pVM->nLoadAddressScope ;
         pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
         ring_vmfunccall_useloadfuncp(pVM,pFuncCall,nPerformance);
+        /* Increment nFuncExecute */
+        pVM->nFuncExecute++ ;
         return 1 ;
     }
     /* Avoid Error if it is automatic call to the main function */
@@ -165,11 +165,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
     **  So it's correct to use pVM->nPC++ 
     */
     pVM->nPC++ ;
-    /*
-    **  Display Error Message 
-    **  Decrement FuncExecute Counter 
-    */
-    pVM->nFuncExecute-- ;
+    /* Display Error Message */
     ring_vm_error2(pVM,RING_VM_ERROR_FUNCNOTFOUND,cStr);
     return 0 ;
 }
