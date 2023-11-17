@@ -156,8 +156,6 @@ Type: unsigned int
 nLoadAddressScope
 Type: List *
 aBeforeObjState
-Type: unsigned int
-nFuncExecute2
 Type: List *
 pCLibraries
 Type: unsigned char

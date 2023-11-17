@@ -1065,7 +1065,6 @@ void ring_vm_refmeta_ringvmevalinscope ( void *pPointer )
             pVM->pMem->pLast = pVM->pMem->pLastItemLastAccess ;
             pVM->pMem->pLast->pNext = NULL ;
         }
-        ring_list_adddouble_gc(pVM->pRingState,pVM->aScopeID,pVM->nActiveScopeID);
         pVM->nEvalInScope++ ;
         /* Save State */
         pState = ring_list_new_gc(((VM *) pPointer)->pRingState,0);
@@ -1137,13 +1136,12 @@ void ring_vm_refmeta_ringvminfo ( void *pPointer )
     pList = ring_list_new_gc(pVM->pRingState,0);
     /*
     **  Add the list items 
-    **  Lists Size (14 Items) 
+    **  Lists Size (12 Items) 
     */
     ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->pRingState->pRingFilesList));
     ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->pRingState->pRingFilesStack));
     ring_list_adddouble_gc(pVM->pRingState, pList, (double) RING_VM_INSTRUCTIONSCOUNT);
     ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->pMem));
-    ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->aScopeID));
     ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->pTempMem));
     ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->aPCBlockFlag));
     ring_list_adddouble_gc(pVM->pRingState, pList, pVM->nLoadAddressScope);
