@@ -493,7 +493,6 @@ void ring_vm_tobytecode ( VM *pVM,int nIns )
     pByteCode->nReg2Type = RING_VM_REGTYPE_NOTHING ;
     pByteCode->nReg3Type = RING_VM_REGTYPE_NOTHING ;
     pByteCode->nReg4Type = RING_VM_REGTYPE_NOTHING ;
-    pByteCode->nReg5Type = RING_VM_REGTYPE_NOTHING ;
     for ( x = 2 ; x <= ring_list_getsize(pIR) ; x++ ) {
         pItem = ring_list_getitem(pIR,x) ;
         /* Copy the item data */
@@ -604,11 +603,8 @@ void ring_vm_showbytecode ( VM *pVM )
                     else if ( y == 2 ) {
                         nType = pByteCode->nReg3Type ;
                     }
-                    else if ( y == 3 ) {
-                        nType = pByteCode->nReg4Type ;
-                    }
                     else {
-                        nType = pByteCode->nReg5Type ;
+                        nType = pByteCode->nReg4Type ;
                     }
                     /* Display the Register Value */
                     switch ( nType ) {

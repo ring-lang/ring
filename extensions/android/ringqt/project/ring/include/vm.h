@@ -13,7 +13,7 @@
         #define RING_VM_STACK_CHECKOVERFLOW 1000
     #endif
     #define RING_VM_FREE_STACK_IN_CLASS_REGION_AFTER 100
-    #define RING_VM_BC_ITEMS_COUNT 5
+    #define RING_VM_BC_ITEMS_COUNT 4
     #define RING_VM_MAXDIGITSINNUMBER 15
     /* Register Type */
     #define RING_VM_REGTYPE_NOTHING 0
@@ -28,15 +28,14 @@
         void *pPointer  ;
     } Register ;
     typedef struct ByteCode {
-        char nOPCode  ;
-        unsigned int nInsSize:3  ;
+        unsigned char nOPCode  ;
+        unsigned int nInsSize:4  ;
         unsigned int nReg1Type:3  ;
         unsigned int nReg2Type:3  ;
         unsigned int nReg3Type:3  ;
         unsigned int nReg4Type:3  ;
-        unsigned int nReg5Type:3  ;
-        unsigned int nFlagReg:4  ;
-        char nCharReg  ;
+        unsigned char nFlagReg  ;
+        unsigned int nCharReg  ;
         Register aReg[RING_VM_BC_ITEMS_COUNT]  ;
     } ByteCode ;
     typedef struct VM {
@@ -264,7 +263,6 @@
     #define RING_VM_IR_SETREG2TYPE(x) pVM->pByteCodeIR->nReg2Type = x
     #define RING_VM_IR_SETREG3TYPE(x) pVM->pByteCodeIR->nReg3Type = x
     #define RING_VM_IR_SETREG4TYPE(x) pVM->pByteCodeIR->nReg4Type = x
-    #define RING_VM_IR_SETREG5TYPE(x) pVM->pByteCodeIR->nReg5Type = x
     /*
     **  Calling Functions 
     **  Note : When you insert items check performance functions for update too! 
