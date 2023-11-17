@@ -205,7 +205,7 @@ RING_API Item * ring_list_getitem ( List *pList,unsigned int index )
     Items *pItems  ;
     Item *pItem  ;
     pItem = NULL ;
-    if ( index > 0 && ( ring_list_getsize(pList) > 0 ) && index <= ring_list_getsize(pList) ) {
+    if ( index > 0 && index <= ring_list_getsize(pList) ) {
         /* Quickly get item from ItemsArray */
         if ( pList->pItemsArray != NULL ) {
             return pList->pItemsArray[index-1] ;
@@ -278,7 +278,7 @@ RING_API void ring_list_deleteitem_gc ( void *pState,List *pList,unsigned int in
     unsigned int x  ;
     Items *pItems,*pItemsPrev  ;
     /* Goto the Item */
-    if ( index > 0 && ( ring_list_getsize(pList) > 0 ) && index <= ring_list_getsize(pList) ) {
+    if ( index > 0 && index <= ring_list_getsize(pList) ) {
         /* Quickly Get the Last Item */
         if ( index == ring_list_getsize(pList) ) {
             pItems = pList->pLast ;
