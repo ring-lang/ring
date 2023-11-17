@@ -50,10 +50,6 @@ void ring_vm_newscope ( VM *pVM )
         exit(1);
     }
     pVM->pActiveMem = ring_list_newlist_gc(pVM->pRingState,pVM->pMem);
-    /* Save Local Scope Information */
-    pVM->nScopeID++ ;
-    ring_list_addint_gc(pVM->pRingState,pVM->aScopeID,pVM->nScopeID);
-    pVM->nActiveScopeID = pVM->nScopeID ;
 }
 
 int ring_vm_findvar ( VM *pVM,const char *cStr )
@@ -379,9 +375,6 @@ void ring_vm_deletescope ( VM *pVM )
     }
     ring_list_deleteitem_gc(pVM->pRingState,pVM->pMem,ring_list_getsize(pVM->pMem));
     pVM->pActiveMem = ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem));
-    /* Delete Local Scope information */
-    ring_list_deleteitem_gc(pVM->pRingState,pVM->aScopeID,ring_list_getsize(pVM->aScopeID));
-    pVM->nActiveScopeID = ring_list_getint(pVM->aScopeID,ring_list_getsize(pVM->aScopeID)) ;
 }
 /* Custom Global Scope */
 

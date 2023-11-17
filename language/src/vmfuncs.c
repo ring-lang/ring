@@ -437,6 +437,8 @@ void ring_vm_newfunc ( VM *pVM )
     char cStr[2]  ;
     FuncCall *pFuncCall  ;
     ring_vm_newscope(pVM);
+    /* Set the Local Scope ID */
+    pVM->nActiveScopeID = ++ pVM->nScopeID ;
     /* Set the SP then Check Parameters */
     pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
     pFuncCall = (FuncCall *) ring_list_getpointer(pList,RING_FUNCCL_STRUCT) ;
