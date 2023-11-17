@@ -3,10 +3,10 @@ load "guilib.ring"
 new qApp
 {
 	win = new qwidget(){
-		move(100,100) resize(600,600) 
+		move(100,100) resize(800,600) 
 		setWindowTitle("Using Camera!")
 		viewfinder = new qCameraViewFinder(win) {
-			move(0,0) resize(500,500)
+			move(0,0) resize(800,600)
 		}
 		camera = new QCamera() {
 			setViewfinder(viewfinder)
