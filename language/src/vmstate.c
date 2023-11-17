@@ -24,6 +24,7 @@ void ring_vm_savestate ( VM *pVM,List *pList )
     pVMState->aNumbers[8] = pVM->nBlockFlag ;
     pVMState->aNumbers[9] = ring_list_getsize(pVM->aScopeNewObj) ;
     pVMState->aNumbers[10] = ring_list_getsize(pVM->aActivePackage) ;
+    pVMState->aNumbers[11] = pVM->lNoSetterMethod ;
     pVMState->aNumbers[12] = pVM->nActiveScopeID ;
     pVMState->aNumbers[13] = ring_list_getsize(pVM->pExitMark) ;
     pVMState->aNumbers[14] = ring_list_getsize(pVM->pLoopMark) ;
@@ -41,8 +42,7 @@ void ring_vm_savestate ( VM *pVM,List *pList )
     pVMState->aNumbers[26] = pVM->nNOAssignment ;
     pVMState->aNumbers[27] = pVM->nCurrentGlobalScope ;
     pVMState->aNumbers[28] = pVM->nCallClassInit ;
-    pVMState->aNumbers[29] = pVM->lNoSetterMethod ;
-    pVMState->aNumbers[30] = ring_list_getint(pThis,RING_VAR_PVALUETYPE) ;
+    pVMState->aNumbers[29] = ring_list_getint(pThis,RING_VAR_PVALUETYPE) ;
     pVMState->aPointers[0] = pVM->pBraceObject ;
     pVMState->aPointers[1] = pVM->cFileName ;
     pVMState->aPointers[2] = pVM->pActiveMem ;
@@ -102,6 +102,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
     ring_vm_backstate(pVM,pVMState->aNumbers[7],pVM->aPCBlockFlag);
     pVM->nBlockFlag = pVMState->aNumbers[8] ;
     ring_vm_backstate(pVM,pVMState->aNumbers[10],pVM->aActivePackage);
+    pVM->lNoSetterMethod = pVMState->aNumbers[11] ;
     pVM->nActiveScopeID = pVMState->aNumbers[12] ;
     /* We also return to the function call list */
     if ( nFlag == RING_STATE_TRYCATCH ) {
@@ -200,11 +201,10 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
     /* We restore the global scope before the This variable, because This use global scope */
     pVM->nCurrentGlobalScope = pVMState->aNumbers[27] ;
     pVM->nCallClassInit = pVMState->aNumbers[28] ;
-    pVM->lNoSetterMethod = pVMState->aNumbers[29] ;
     /* Restore This variable */
     pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
     ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,pVMState->aPointers[7]);
-    ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,pVMState->aNumbers[30]);
+    ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,pVMState->aNumbers[29]);
     /* Process aListsToDelete */
     for ( x = 1 ; x <= ring_list_getsize(aListsToDelete) ; x++ ) {
         pListPointer = (List *) ring_list_getpointer(aListsToDelete, x);
@@ -240,13 +240,13 @@ void ring_vm_savestateforfunctions ( VM *pVM,List *pList )
     pVMState->aNumbers[12] = pVM->nInClassRegion ;
     pVMState->aNumbers[13] = pVM->nActiveScopeID ;
     pVMState->aNumbers[14] = ring_list_getsize(pVM->aScopeNewObj) ;
+    pVMState->aNumbers[15] = pVM->lNoSetterMethod ;
     pVMState->aNumbers[16] = RING_VM_IR_GETLINENUMBER ;
     pVMState->aNumbers[17] = pVM->nBeforeEqual ;
     pVMState->aNumbers[18] = pVM->nNOAssignment ;
     pVMState->aNumbers[19] = pVM->nGetSetProperty ;
     pVMState->aNumbers[20] = pVM->nGetSetObjType ;
-    pVMState->aNumbers[21] = pVM->lNoSetterMethod ;
-    pVMState->aNumbers[22] = ring_list_getint(pThis,RING_VAR_PVALUETYPE) ;
+    pVMState->aNumbers[21] = ring_list_getint(pThis,RING_VAR_PVALUETYPE) ;
     pVMState->aPointers[0] = pVM->pBraceObject ;
     pVMState->aPointers[1] = pVM->pActiveMem ;
     pVMState->aPointers[2] = pVM->aPCBlockFlag ;
@@ -312,12 +312,12 @@ void ring_vm_restorestateforfunctions ( VM *pVM,List *pList,int x )
     pVM->nNOAssignment = pVMState->aNumbers[18] ;
     pVM->nGetSetProperty = pVMState->aNumbers[19] ;
     pVM->nGetSetObjType = pVMState->aNumbers[20] ;
-    pVM->lNoSetterMethod = pVMState->aNumbers[21] ;
+    pVM->lNoSetterMethod = pVMState->aNumbers[15] ;
     pVM->pGetSetObject = (void *) pVMState->aPointers[4] ;
     /* Restore This variable */
     pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
     ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,pVMState->aPointers[5]);
-    ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,pVMState->aNumbers[22]);
+    ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,pVMState->aNumbers[21]);
     /* Restore aSetProperty */
     pVM->aSetProperty = ring_list_delete_gc(pVM->pRingState,pVM->aSetProperty);
     pVM->aSetProperty = (List *)  pVMState->aPointers[6] ;
@@ -403,6 +403,8 @@ void ring_vm_savestatefornewobjects ( VM *pVM )
     /* Save pGetSetObject */
     pVMState->aPointers[6] = pVM->pGetSetObject ;
     pVM->pGetSetObject = NULL ;
+    /* Save pFuncClassList */
+    pVMState->aNumbers[22] = ring_list_getsize(pVM->pFuncCallList) ;
     /* Save lNoSetterMethod */
     pVMState->aNumbers[23] = pVM->lNoSetterMethod ;
     pVM->lNoSetterMethod = 0 ;
@@ -418,8 +420,6 @@ void ring_vm_savestatefornewobjects ( VM *pVM )
     pVM->nInClassRegion = 0 ;
     /* Save aBeforeObjState */
     pVMState->aNumbers[27] = ring_list_getsize(pVM->aBeforeObjState) ;
-    /* Save pFuncClassList */
-    pVMState->aNumbers[28] = ring_list_getsize(pVM->pFuncCallList) ;
     /* Save aSetProperty */
     pVMState->aPointers[8] = pVM->aSetProperty ;
     pVM->aSetProperty = ring_list_new_gc(pVM->pRingState,0);
@@ -496,6 +496,8 @@ void ring_vm_restorestatefornewobjects ( VM *pVM )
     pVM->nGetSetObjType = pVMState->aNumbers[21] ;
     /* Restore pGetSetObject */
     pVM->pGetSetObject = (List *) pVMState->aPointers[6] ;
+    /* Restore pFuncCallList */
+    ring_vm_backstate(pVM,pVMState->aNumbers[22],pVM->pFuncCallList);
     /* Restore lNoSetterMethod */
     pVM->lNoSetterMethod = pVMState->aNumbers[23] ;
     /* Restore the BlockFlag */
@@ -508,8 +510,6 @@ void ring_vm_restorestatefornewobjects ( VM *pVM )
     pVM->nInClassRegion = pVMState->aNumbers[26] ;
     /* Restore aBeforeObjState */
     ring_vm_backstate(pVM,pVMState->aNumbers[27],pVM->aBeforeObjState);
-    /* Restore pFuncCallList */
-    ring_vm_backstate(pVM,pVMState->aNumbers[28],pVM->pFuncCallList);
     /* Restore aSetProperty */
     pVM->aSetProperty = ring_list_delete_gc(pVM->pRingState,pVM->aSetProperty);
     pVM->aSetProperty = (List *)  pVMState->aPointers[8] ;
