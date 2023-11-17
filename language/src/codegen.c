@@ -195,7 +195,7 @@ void ring_parser_icg_showoutput ( List *pListGenCode )
     ring_general_printline();
     nCount = ring_list_getsize(pListGenCode);
     if ( nCount > 0 ) {
-        printf( "\n %6s  %18s  %29s\n", "PC","OPCode","Data" ) ;
+        printf( "\n %6s  %18s  %19s\n", "PC","OPCode","Data" ) ;
         for ( x = 1 ; x <= nCount ; x++ ) {
             pList = ring_list_getlist(pListGenCode,x);
             nCount2 = ring_list_getsize(pList);
@@ -203,18 +203,18 @@ void ring_parser_icg_showoutput ( List *pListGenCode )
             if ( nCount2 > 1 ) {
                 for ( y = 2 ; y <= nCount2 ; y++ ) {
                     if ( ring_list_isstring(pList,y) ) {
-                        printf( " %12s ",ring_list_getstring(pList,y) ) ;
+                        printf( " %18s ",ring_list_getstring(pList,y) ) ;
                     }
                     else if ( ring_list_isnumber(pList,y) ) {
                         if ( ring_list_isdouble(pList,y) ) {
-                            printf( " %12f",ring_list_getdouble(pList,y) ) ;
+                            printf( " %18f",ring_list_getdouble(pList,y) ) ;
                         }
                         else {
-                            printf( " %12d ",ring_list_getint(pList,y) ) ;
+                            printf( " %18d ",ring_list_getint(pList,y) ) ;
                         }
                     }
                     else {
-                        printf( " %12p ",ring_list_getpointer(pList,y) ) ;
+                        printf( " %18p ",ring_list_getpointer(pList,y) ) ;
                     }
                 }
             }

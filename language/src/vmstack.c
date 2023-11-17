@@ -107,6 +107,9 @@ void ring_vm_loadaddress ( VM *pVM )
             RING_VM_IR_OPCODE = ICO_PUSHPLOCAL ;
             RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(4),RING_VM_STACK_READP);
             RING_VM_IR_ITEMSETINT(RING_VM_IR_ITEM(5),pVM->nActiveScopeID);
+            RING_VM_IR_PARACOUNT = 6 ;
+            RING_VM_IR_SETREG4TYPE(RING_VM_REGTYPE_POINTER);
+            RING_VM_IR_SETREG5TYPE(RING_VM_REGTYPE_INT);
         }
     }
     /* Save Scope in nLoadAddressScope */
