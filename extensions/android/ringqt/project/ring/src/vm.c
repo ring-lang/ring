@@ -481,6 +481,9 @@ void ring_vm_tobytecode ( VM *pVM,int nIns )
         case ICO_INCLPJUMP :
             pItem->data.iNumber = ICO_INCJUMP ;
             break ;
+        case ICO_INCLPJUMPSTEP1 :
+            pItem->data.iNumber = ICO_INCJUMP ;
+            break ;
     }
     pByteCode->nOPCode = pItem->data.iNumber ;
     /* Get Instruction Parameters Count */
@@ -489,6 +492,9 @@ void ring_vm_tobytecode ( VM *pVM,int nIns )
     pByteCode->nReg1Type = RING_VM_REGTYPE_NOTHING ;
     pByteCode->nReg2Type = RING_VM_REGTYPE_NOTHING ;
     pByteCode->nReg3Type = RING_VM_REGTYPE_NOTHING ;
+    pByteCode->nReg4Type = RING_VM_REGTYPE_NOTHING ;
+    pByteCode->nReg5Type = RING_VM_REGTYPE_NOTHING ;
+    pByteCode->nReg6Type = RING_VM_REGTYPE_NOTHING ;
     for ( x = 2 ; x <= ring_list_getsize(pIR) ; x++ ) {
         pItem = ring_list_getitem(pIR,x) ;
         /* Copy the item data */
@@ -596,8 +602,17 @@ void ring_vm_showbytecode ( VM *pVM )
                     else if ( y == 1 ) {
                         nType = pByteCode->nReg2Type ;
                     }
-                    else {
+                    else if ( y == 2 ) {
                         nType = pByteCode->nReg3Type ;
+                    }
+                    else if ( y == 3 ) {
+                        nType = pByteCode->nReg4Type ;
+                    }
+                    else if ( y == 4 ) {
+                        nType = pByteCode->nReg5Type ;
+                    }
+                    else {
+                        nType = pByteCode->nReg6Type ;
                     }
                     /* Display the Register Value */
                     switch ( nType ) {
