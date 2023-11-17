@@ -842,7 +842,7 @@ int ring_vm_timetofreetemplists ( VM *pVM )
 FuncCall * ring_vmfunccall_new ( VM *pVM,List *pFuncCallList )
 {
     FuncCall *pFuncCall  ;
-    pFuncCall = (FuncCall *) ring_state_malloc(pVM->pRingState,sizeof(FuncCall)) ;
+    pFuncCall = (FuncCall *) ring_vmstate_new(pVM->pRingState) ;
     pFuncCall->pTempMem = NULL ;
     pFuncCall->nCallerPC = 0 ;
     pFuncCall->nStatus = RING_FUNCSTATUS_LOAD ;
@@ -857,7 +857,7 @@ void ring_vmfunccall_delete ( void *pState,void *pMemory )
     if ( pFuncCall->pTempMem != NULL ) {
         ring_list_delete_gc(pState,pFuncCall->pTempMem);
     }
-    ring_state_free(pState,pMemory);
+    ring_vmstate_delete(pState,pMemory);
 }
 
 void ring_vmfunccall_useloadfuncp ( VM *pVM,FuncCall *pFuncCall,int nPerformance )
