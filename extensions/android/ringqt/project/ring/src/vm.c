@@ -24,7 +24,6 @@ VM * ring_vm_new ( RingState *pRingState )
     pVM->nLineNumber = 1 ;
     /* Information to test the lifetime of the local scope */
     pVM->nScopeID = 0 ;
-    pVM->aScopeID = ring_list_new_gc(pVM->pRingState,0);
     ring_vm_newscope(pVM);
     for ( x = 0 ; x < RING_VM_STACK_SIZE ; x++ ) {
         ring_item_init(&(pVM->aStack[x]));
@@ -222,7 +221,6 @@ VM * ring_vm_delete ( VM *pVM )
     pVM->aScopeNewObj = ring_list_delete_gc(pVM->pRingState,pVM->aScopeNewObj);
     pVM->pObjState = ring_list_delete_gc(pVM->pRingState,pVM->pObjState);
     pVM->aBraceObjects = ring_list_delete_gc(pVM->pRingState,pVM->aBraceObjects);
-    pVM->aScopeID = ring_list_delete_gc(pVM->pRingState,pVM->aScopeID);
     pVM->aActivePackage = ring_list_delete_gc(pVM->pRingState,pVM->aActivePackage);
     pVM->aSetProperty = ring_list_delete_gc(pVM->pRingState,pVM->aSetProperty);
     pVM->aForStep = ring_list_delete_gc(pVM->pRingState,pVM->aForStep);

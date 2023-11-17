@@ -72,7 +72,6 @@
         List *aBraceObjects  ;
         unsigned int nVarScope  ;
         unsigned int nScopeID  ;
-        List *aScopeID  ;
         unsigned int nActiveScopeID  ;
         unsigned int nActiveCatch  ;
         unsigned char nInsideBraceFlag  ;
