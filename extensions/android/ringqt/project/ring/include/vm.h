@@ -275,9 +275,6 @@
     #define RING_FUNCSTATUS_LOAD 0
     #define RING_FUNCSTATUS_CALL 1
     #define RING_FUNCSTATUS_STARTED 2
-    /* List Members */
-    #define RING_FUNCCL_STRUCT 1
-    #define RING_FUNCCL_STATE 2
     /* pFunctionsMap ( Func Name , Position , File Name, Private Flag) */
     #define RING_FUNCMAP_NAME 1
     #define RING_FUNCMAP_PC 2
@@ -666,7 +663,7 @@
 
     void ring_vm_cleanevalcode ( VM *pVM,int nCodeSize ) ;
 
-    FuncCall * ring_vmfunccall_new ( VM *pVM,List *pFuncCallList ) ;
+    FuncCall * ring_vmfunccall_new ( VM *pVM ) ;
 
     void ring_vmfunccall_delete ( void *pState,void *pMemory ) ;
 

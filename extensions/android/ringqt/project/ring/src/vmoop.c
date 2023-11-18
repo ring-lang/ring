@@ -760,8 +760,7 @@ int ring_vm_oop_callmethodinsideclass ( VM *pVM )
     */
     if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
         for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
-            pList = ring_list_getlist(pVM->pFuncCallList,x);
-            pFuncCall = (FuncCall *) ring_list_getpointer(pList,RING_FUNCCL_STRUCT) ;
+            pFuncCall = (FuncCall *) ring_list_getpointer(pVM->pFuncCallList,x) ;
             /* Be sure that the function is already called using ICO_CALL */
             if ( pFuncCall->nCallerPC != 0 ) {
                 if ( pFuncCall->nMethodOrFunc == 0 ) {
@@ -1151,8 +1150,7 @@ void ring_vm_oop_callmethodfrombrace ( VM *pVM )
         /* Pass Brace when we call class init , using new object() */
         if ( (ring_list_getsize(pVM->pObjState) > 1) && (pVM->nCallClassInit) ) {
             if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
-                pList2 = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
-                pFuncCall = (FuncCall *) ring_list_getpointer(pList2,RING_FUNCCL_STRUCT) ;
+                pFuncCall = (FuncCall *) ring_list_getpointer(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList)) ;
                 cStr = pFuncCall->cName ;
                 if ( strcmp(cStr,"init") != 0 ) {
                     pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState)-1) ;

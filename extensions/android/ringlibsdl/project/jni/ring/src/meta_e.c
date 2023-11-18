@@ -893,15 +893,14 @@ void ring_vm_refmeta_ringvmfileslist ( void *pPointer )
 void ring_vm_refmeta_ringvmcalllist ( void *pPointer )
 {
     VM *pVM  ;
-    List *pList, *pFuncCallList, *pList2  ;
+    List *pList, *pList2  ;
     int x  ;
     FuncCall *pFuncCall  ;
     pVM = (VM *) pPointer ;
     pList = ring_list_new_gc(pVM->pRingState,0);
     /* Copy Important Information */
     for ( x = 1 ; x <= ring_list_getsize(pVM->pFuncCallList ) ; x++ ) {
-        pFuncCallList = ring_list_getlist(pVM->pFuncCallList,x);
-        pFuncCall = (FuncCall *) ring_list_getpointer(pFuncCallList,RING_FUNCCL_STRUCT) ;
+        pFuncCall = (FuncCall *) ring_list_getpointer(pVM->pFuncCallList,x) ;
         pList2 = ring_list_newlist_gc(pVM->pRingState,pList);
         ring_list_addint_gc(pVM->pRingState,pList2,pFuncCall->nType);
         ring_list_addstring_gc(pVM->pRingState,pList2,pFuncCall->cName);

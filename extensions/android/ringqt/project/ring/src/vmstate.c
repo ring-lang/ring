@@ -55,7 +55,7 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 
 void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 {
-    List *pThis,*pFuncList  ;
+    List *pThis  ;
     VMState *pVMState, *pVMStateForFunc, *pVMStateForObj  ;
     int x  ;
     List *aListsToDelete, *pListPointer  ;
@@ -112,8 +112,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
         **  Clean memory used for function calls 
         */
         for ( x = pVMState->aNumbers[1]+1 ; x <= ring_list_getsize(pVM->pFuncCallList) ; x++ ) {
-            pFuncList = ring_list_getlist(pVM->pFuncCallList,x) ;
-            pFuncCall = (FuncCall *) ring_list_getpointer(pFuncList,RING_FUNCCL_STRUCT) ;
+            pFuncCall = (FuncCall *) ring_list_getpointer(pVM->pFuncCallList,x) ;
             /* Delete pNestedLists */
             pListPointer = pFuncCall->pNestedLists ;
             if ( ! ring_list_findpointer(aListsToDelete,pListPointer) ) {

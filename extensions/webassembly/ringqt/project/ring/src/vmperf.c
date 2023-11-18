@@ -124,7 +124,6 @@ void ring_vm_inclpjump ( VM *pVM )
 
 void ring_vm_loadfuncp ( VM *pVM )
 {
-    List *pList  ;
     FuncCall *pFuncCall  ;
     /* Check not defining a Ring function that replace a C function */
     if ( (RING_VM_IR_GETFLAGREG == RING_FUNCTYPE_C) && (ring_list_getsize(pVM->pFunctionsMap) != RING_VM_IR_READIVALUE(3)) ) {
@@ -132,9 +131,8 @@ void ring_vm_loadfuncp ( VM *pVM )
         return ;
     }
     pVM->nFuncExecute++ ;
-    pList = ring_list_newlist_gc(pVM->pRingState,pVM->pFuncCallList);
     /* Add FuncCall Structure */
-    pFuncCall = ring_vmfunccall_new(pVM,pList);
+    pFuncCall = ring_vmfunccall_new(pVM);
     pFuncCall->nType = RING_VM_IR_GETFLAGREG ;
     pFuncCall->cName = RING_VM_IR_READC ;
     pFuncCall->nPC = RING_VM_IR_READIVALUE(2) ;
