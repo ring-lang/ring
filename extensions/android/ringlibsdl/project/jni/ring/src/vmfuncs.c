@@ -234,12 +234,10 @@ void ring_vm_call2 ( VM *pVM )
         /* Avoid accessing object data or methods */
         if ( pFuncCall->nMethodOrFunc == 0 ) {
             /* Check if we need this */
-            if ( ring_list_getsize(pVM->pObjState) > 0 ) {
-                if ( ring_list_getpointer(ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState)),1) == NULL ) {
-                    return ;
-                }
+            if ( ring_list_getsize(pVM->pObjState) == 0 ) {
+                return ;
             }
-            else {
+            if ( ring_list_getpointer(ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState)),1) == NULL ) {
                 return ;
             }
             pList = ring_list_newlist_gc(pVM->pRingState,pVM->pObjState);
