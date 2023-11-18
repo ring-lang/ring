@@ -278,7 +278,7 @@ Type: List *
 pNestedLists
 Type: List *
 pTempMem
-Type: List *
+Type: VMState *
 pVMState
 END:
 Type: FuncCall
@@ -386,8 +386,6 @@ RING_FUNCTYPE_C
 RING_FUNCSTATUS_LOAD
 RING_FUNCSTATUS_CALL
 RING_FUNCSTATUS_STARTED
-RING_FUNCCL_STRUCT
-RING_FUNCCL_STATE
 RING_FUNCMAP_NAME
 RING_FUNCMAP_PC
 RING_FUNCMAP_FILENAME
@@ -585,7 +583,7 @@ x,lFunctionCall,nRecursion,nPos
 Type: char *
 cStr2, *cStr3
 Type: List *
-pList, *pList2
+pList2
 Type: const char *
 cFile, *cFile2
 Type: const char *
@@ -594,8 +592,6 @@ Type: FuncCall *
 pFuncCall, *pFuncCall2
 ring_vm_setfilename
 ring_vm_traceevent
-Type: List *
-pList
 Type: FuncCall *
 pFuncCall
 ring_vm_eval

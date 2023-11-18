@@ -1,7 +1,7 @@
 ring_vm_loadfunc
 ring_vm_loadfunc2
 Type: List *
-pList,*pList2,*pList3
+pList,*pList2
 Type: int
 y
 Type: FuncCall *
