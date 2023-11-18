@@ -89,7 +89,7 @@ while true
 end
 
 al_destroy_display(display)
-
+al_exit()
 
 func DrawScene
 
