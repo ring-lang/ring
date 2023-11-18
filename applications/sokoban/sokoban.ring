@@ -74,7 +74,7 @@ func main
 
 			keypress = func oGame,oSelf,nkey {
 				# Avoid getting many keys in short time 
-					if (clock() - nKeyClock) < clockspersecond()/4 return ok
+					if (clock() - nKeyClock) < clockspersecond()/10 return ok
 					nKeyClock = Clock()
 				Switch nkey 
 					on Key_Esc
