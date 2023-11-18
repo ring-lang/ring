@@ -267,7 +267,7 @@
 </section>
 <section id="calling-functions-better-performance">
 <span id="index-8"></span><h2>Calling Functions - Better Performance<a class="headerlink" href="#calling-functions-better-performance" title="Permalink to this heading"></a></h2>
-<p>Calling functions written in Ring code in Ring 1.19 is two times (2x) faster than Ring 1.18.</p>
+<p>Calling functions written in Ring code in Ring 1.19 is three times (3x) faster than Ring 1.18.</p>
 <p>While calling functions written in C code in Ring 1.19 is four times (4x) faster than Ring 1.18.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">t1</span><span class="o">=</span><span class="n">clock</span><span class="p">()</span>
@@ -280,8 +280,8 @@
 </pre></div>
 </div>
 <p>Time using Ring 1.18 (32bit) :  1.45 seconds</p>
-<p>Time using Ring 1.19 (32bit) :  0.34 seconds</p>
-<p>Time using Ring 1.19 (64bit) :  0.27 seconds</p>
+<p>Time using Ring 1.19 (32bit) :  0.32 seconds</p>
+<p>Time using Ring 1.19 (64bit) :  0.25 seconds</p>
 <p>These improvements let the Stars animation sample works at 2125 FPS in Ring 1.19 instead of 500FPS in Ring 1.18</p>
 <img alt="stars3d" src="_images/stars3d.png" />
 </section>
@@ -329,10 +329,11 @@
 <li><p>Ring VM - Use ICO_LOADFUNCP when loading C functions</p></li>
 <li><p>Ring VM - Memory Pool - Allocate 1,000,000 items at startup</p></li>
 <li><p>Ring VM - Byte Code - Added: Flag Register</p></li>
+<li><p>Ring VM - Byte Code - Added: Integer Register</p></li>
 <li><p>Ring VM - Use ring_list_genarray() with global scope variables When using threads</p></li>
 <li><p>Ring VM - Remove aAddressScope from VM structure</p></li>
 <li><p>Ring VM - New instructions (ICO_PUSH2N, ICO_PUSH3N &amp; ICO_PUSH4N)</p></li>
-<li><p>Ring VM - Byte Code items count is changed to 6</p></li>
+<li><p>Ring VM - Byte Code items count is changed to 4</p></li>
 <li><p>Ring VM - ICO_LOADFUNCP instruction support replacing C function with Ring function</p></li>
 <li><p>Ring VM - Better performance when deleting a scope - Avoid: ring_vm_gc_checkreferences()</p></li>
 <li><p>Ring VM - Better format when printing the byte code</p></li>
