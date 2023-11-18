@@ -267,7 +267,7 @@ ring_vm_refmeta_ringvmevalinscope
 Type: VM *
 pVM
 Type: List *
-pActiveMem,*pState
+pActiveMem
 Type: const char *
 cStr
 Type: int
@@ -276,6 +276,8 @@ Type: Items *
 pLastItem
 Type: Items *
 pNextItem
+Type: VMState *
+pVMState
 ring_vm_refmeta_ringvmpasserror
 Type: VM *
 pVM

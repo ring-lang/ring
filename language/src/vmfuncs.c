@@ -231,7 +231,7 @@ void ring_vm_call2 ( VM *pVM )
         pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
         pVM->nPC = pFuncCall->nPC ;
         /* Save State */
-        ring_vm_savestateforfunctions(pVM,pList);
+        pFuncCall->pVMState = ring_vm_savestateforfunctions(pVM);
         /* Avoid accessing object data or methods */
         if ( pFuncCall->nMethodOrFunc == 0 ) {
             pList = ring_list_newlist_gc(pVM->pRingState,pVM->pObjState);
@@ -392,7 +392,7 @@ void ring_vm_return ( VM *pVM )
         }
         ring_vm_deletescope(pVM);
         /* Restore State */
-        ring_vm_restorestateforfunctions(pVM,pList,RING_FUNCCL_STATE);
+        ring_vm_restorestateforfunctions(pVM,pFuncCall->pVMState);
         ring_list_deleteitem_gc(pVM->pRingState,pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
         /* Restore nFuncSP value */
         if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
@@ -846,6 +846,7 @@ FuncCall * ring_vmfunccall_new ( VM *pVM,List *pFuncCallList )
     pFuncCall->pTempMem = NULL ;
     pFuncCall->nCallerPC = 0 ;
     pFuncCall->nStatus = RING_FUNCSTATUS_LOAD ;
+    pFuncCall->pVMState = NULL ;
     ring_list_addcustomringpointer_gc(pVM->pRingState,pFuncCallList,pFuncCall,ring_vmfunccall_delete);
     return pFuncCall ;
 }
@@ -856,6 +857,9 @@ void ring_vmfunccall_delete ( void *pState,void *pMemory )
     pFuncCall = (FuncCall *) pMemory ;
     if ( pFuncCall->pTempMem != NULL ) {
         ring_list_delete_gc(pState,pFuncCall->pTempMem);
+    }
+    if ( pFuncCall->pVMState != NULL ) {
+        ring_vmstate_delete(pState,pFuncCall->pVMState);
     }
     ring_vmstate_delete(pState,pMemory);
 }
