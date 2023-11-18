@@ -169,6 +169,7 @@ More Improvements
 * EightPuzzleGame3D game - Better Code 
 * SuperMan2016 game - Reset FPS and player speed
 * GoldMagic800 game - Reset FPS and player speed
+* Sokoban game - higher speed
 * TowersOfHanoi simulation - higher speed
 * samples/AQuickStart/ODBC - Better Code
 * samples/UsingOpenGL/LevelsOfCubes - Reset FPS
