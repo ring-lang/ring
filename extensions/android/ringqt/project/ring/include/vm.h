@@ -276,7 +276,7 @@
     #define RING_FUNCSTATUS_CALL 1
     #define RING_FUNCSTATUS_STARTED 2
     /* Util */
-    #define RING_VM_LASTFUNCCALL ( (FuncCall *) ring_list_getpointer(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList)) )
+    #define RING_VM_LASTFUNCCALL (FuncCall *) (pVM->pFuncCallList->pLast->pValue->data.pPointer)
     /* pFunctionsMap ( Func Name , Position , File Name, Private Flag) */
     #define RING_FUNCMAP_NAME 1
     #define RING_FUNCMAP_PC 2
