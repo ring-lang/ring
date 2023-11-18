@@ -192,7 +192,7 @@ void ring_vm_call ( VM *pVM )
 void ring_vm_call2 ( VM *pVM )
 {
     List *pList, *pActiveMem  ;
-    int x,nSP,nMax1,nFuncEx  ;
+    int x,nSP,nMax1  ;
     FuncCall *pFuncCall  ;
     /* Decrement FuncExecute Counter */
     if ( pVM->nFuncExecute > 0 ) {
@@ -217,7 +217,6 @@ void ring_vm_call2 ( VM *pVM )
     pFuncCall->nCallerPC = pVM->nPC ;
     /* Store FuncExe Counter Value */
     pFuncCall->nFuncExec = pVM->nFuncExecute ;
-    nFuncEx = pVM->nFuncExecute ;
     pVM->nFuncExecute = 0 ;
     /* Call Function */
     if ( pFuncCall->nType == RING_FUNCTYPE_SCRIPT ) {
@@ -285,7 +284,7 @@ void ring_vm_call2 ( VM *pVM )
         /* Trace */
         ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_AFTERCFUNC);
         /* Restore nFuncEx state */
-        pVM->nFuncExecute = nFuncEx ;
+        pVM->nFuncExecute = pFuncCall->nFuncExec ;
         /* Check for function termination by try/catch */
         if ( pVM->nActiveCatch == 1 ) {
             /*
