@@ -198,7 +198,7 @@ void ring_vm_call2 ( VM *pVM )
     if ( pVM->nFuncExecute > 0 ) {
         pVM->nFuncExecute-- ;
     }
-    pFuncCall = (FuncCall *) ring_list_getpointer(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList)) ;
+    pFuncCall = RING_VM_LASTFUNCCALL ;
     pFuncCall->nStatus = RING_FUNCSTATUS_CALL ;
     /* Restore nLoadAddressScope from pFuncCall */
     pVM->nLoadAddressScope = pFuncCall->nLoadAddressScope ;
@@ -323,7 +323,7 @@ void ring_vm_call2 ( VM *pVM )
         pVM->pActiveMem = pActiveMem ;
         /* Restore nFuncSP value */
         if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
-            pFuncCall = (FuncCall *) ring_list_getpointer(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList)) ;
+            pFuncCall = RING_VM_LASTFUNCCALL ;
             pVM->nFuncSP = pFuncCall->nSP ;
         }
         else {
@@ -357,7 +357,7 @@ void ring_vm_return ( VM *pVM )
         }
     }
     if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
-        pFuncCall = (FuncCall *) ring_list_getpointer(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList)) ;
+        pFuncCall = RING_VM_LASTFUNCCALL ;
         pVM->nPC = pFuncCall->nCallerPC ;
         pVM->nFuncExecute = pFuncCall->nFuncExec ;
         /* Restore List Status */
@@ -398,7 +398,7 @@ void ring_vm_return ( VM *pVM )
         ring_list_deleteitem_gc(pVM->pRingState,pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
         /* Restore nFuncSP value */
         if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
-            pFuncCall = (FuncCall *) ring_list_getpointer(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList)) ;
+            pFuncCall = RING_VM_LASTFUNCCALL ;
             pVM->nFuncSP = pFuncCall->nSP ;
         }
         else {
@@ -441,7 +441,7 @@ void ring_vm_newfunc ( VM *pVM )
     /* Set the Local Scope ID */
     pVM->nActiveScopeID = ++ pVM->nScopeID ;
     /* Set the SP then Check Parameters */
-    pFuncCall = (FuncCall *) ring_list_getpointer(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList)) ;
+    pFuncCall = RING_VM_LASTFUNCCALL ;
     pFuncCall->nStatus = RING_FUNCSTATUS_STARTED ;
     nSP = pFuncCall->nSP ;
     pVM->nFuncSP = nSP ;
@@ -758,7 +758,7 @@ void ring_vm_freetemplists ( VM *pVM, int *nTempCount, int *nScopeID )
     }
     /* Get the current temp. list */
     if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
-        pFuncCall = (FuncCall *) ring_list_getpointer(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList)) ;
+        pFuncCall = RING_VM_LASTFUNCCALL ;
         pTempMem = pFuncCall->pTempMem ;
     }
     else {
@@ -818,7 +818,7 @@ void ring_vm_retitemref ( VM *pVM )
     **  This to avoid using & two times like  &  & 
     */
     if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
-        pFuncCall = (FuncCall *) ring_list_getpointer(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList) ) ;
+        pFuncCall = RING_VM_LASTFUNCCALL ;
         if ( strcmp(pFuncCall->cName,"operator") == 0 ) {
             pVM->nRetItemRef++ ;
         }

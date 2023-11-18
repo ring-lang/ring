@@ -39,8 +39,6 @@ tm_info
 ring_vm_generallib_filename
 Type: VM *
 pVM
-Type: List *
-pList
 Type: FuncCall *
 pFuncCall
 Type: int

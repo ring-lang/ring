@@ -220,7 +220,7 @@ void ring_vm_traceevent ( VM *pVM,char nEvent )
         ring_list_addstring_gc(pVM->pRingState,pVM->pTraceData,pVM->cFileName);
         /* Add Function/Method Name */
         if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
-            pFuncCall = (FuncCall *) ring_list_getpointer(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList)) ;
+            pFuncCall = RING_VM_LASTFUNCCALL ;
             ring_list_addstring_gc(pVM->pRingState,pVM->pTraceData,pFuncCall->cName);
             /* Method of Function */
             ring_list_adddouble_gc(pVM->pRingState,pVM->pTraceData,pFuncCall->nMethodOrFunc);
