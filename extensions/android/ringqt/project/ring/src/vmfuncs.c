@@ -229,15 +229,24 @@ void ring_vm_call2 ( VM *pVM )
         pVM->nPC = pFuncCall->nPC ;
         /* Save State */
         pFuncCall->pVMState = ring_vm_savestateforfunctions(pVM);
+        /* Clear nLoadAddressScope */
+        pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
         /* Avoid accessing object data or methods */
         if ( pFuncCall->nMethodOrFunc == 0 ) {
+            /* Check if we need this */
+            if ( ring_list_getsize(pVM->pObjState) > 0 ) {
+                if ( ring_list_getpointer(ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState)),1) == NULL ) {
+                    return ;
+                }
+            }
+            else {
+                return ;
+            }
             pList = ring_list_newlist_gc(pVM->pRingState,pVM->pObjState);
             ring_list_addpointer_gc(pVM->pRingState,pList,NULL);
             ring_list_addpointer_gc(pVM->pRingState,pList,NULL);
             ring_list_addpointer_gc(pVM->pRingState,pList,NULL);
         }
-        /* Clear nLoadAddressScope */
-        pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
     }
     else if ( pFuncCall->nType == RING_FUNCTYPE_C ) {
         /* Trace */
