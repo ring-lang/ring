@@ -237,7 +237,7 @@ void ring_vm_call2 ( VM *pVM )
             if ( ring_list_getsize(pVM->pObjState) == 0 ) {
                 return ;
             }
-            if ( ring_list_getpointer(ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState)),1) == NULL ) {
+            if ( RING_VM_LASTOBJSTATE == NULL ) {
                 return ;
             }
             pList = ring_list_newlist_gc(pVM->pRingState,pVM->pObjState);
