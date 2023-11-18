@@ -209,11 +209,9 @@ void ring_vm_call2 ( VM *pVM )
         pVM->pNestedLists = (List *) pFuncCall->pNestedLists ;
     }
     /* Calling Method from brace */
-    if ( pFuncCall->nType == RING_FUNCTYPE_SCRIPT ) {
+    if ( (pFuncCall->nType == RING_FUNCTYPE_SCRIPT) && (pFuncCall->nMethodOrFunc == 1) ) {
         /* The first test to be sure it's not a C Function Call */
-        if ( pFuncCall->nMethodOrFunc == 1 ) {
-            ring_vm_oop_callmethodfrombrace(pVM);
-        }
+        ring_vm_oop_callmethodfrombrace(pVM);
     }
     /* Store the Caller Position */
     pFuncCall->nCallerPC = pVM->nPC ;
