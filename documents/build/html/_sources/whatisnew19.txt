@@ -176,6 +176,7 @@ More Improvements
 * samples/UsingOpenGL - Set the window icon
 * samples/General/TimeServer - Replace RingThreads with GameLib 
 * samples/UsingQt/ListWidget/listwidgetitemvalue.ring - Better Code
+* samples/UsingOpenGL/stars - Using al_exit() function
 * extensions/tutorial - filterlist() updated to use ring_list_deleteitem_gc() 
 * Better Qt3D samples - Use Quit() method when closing the application
 * Better RingPostgreSQL samples
