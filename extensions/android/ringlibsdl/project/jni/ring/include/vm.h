@@ -152,7 +152,7 @@
         unsigned int nListStart  ;
         List *pNestedLists  ;
         List *pTempMem  ;
-        List *pVMState  ;
+        VMState *pVMState  ;
         void (*pFunc)(void *) ;
     } FuncCall ;
     /*
@@ -820,9 +820,9 @@
 
     void ring_vm_backstate ( VM *pVM,int x,List *pList ) ;
 
-    void ring_vm_savestateforfunctions ( VM *pVM,List *pList ) ;
+    VMState * ring_vm_savestateforfunctions ( VM *pVM ) ;
 
-    void ring_vm_restorestateforfunctions ( VM *pVM,List *pList,int x ) ;
+    void ring_vm_restorestateforfunctions ( VM *pVM,VMState *pVMState ) ;
 
     void ring_vm_savestatefornewobjects ( VM *pVM ) ;
 

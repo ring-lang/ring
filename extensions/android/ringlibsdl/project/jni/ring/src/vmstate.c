@@ -121,8 +121,8 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
                 ring_vm_removelistprotection(pVM,pListPointer);
                 ring_list_addpointer_gc(pVM->pRingState,aListsToDelete,pListPointer);
             }
-            if ( ring_list_getsize(pFuncList) >= RING_FUNCCL_STATE ) {
-                pVMStateForFunc = (VMState *) ring_list_getpointer(pFuncList,RING_FUNCCL_STATE);
+            if ( pFuncCall->pVMState != NULL ) {
+                pVMStateForFunc = pFuncCall->pVMState ;
                 /* Delete aPCBlockFlag */
                 pListPointer = (List *) pVMStateForFunc->aPointers[2] ;
                 if ( pListPointer != pVM->aPCBlockFlag ) {
@@ -214,7 +214,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 }
 /* Save/Restore State 2 - Used by Function Call & Return */
 
-void ring_vm_savestateforfunctions ( VM *pVM,List *pList )
+VMState * ring_vm_savestateforfunctions ( VM *pVM )
 {
     List *pThis  ;
     VMState *pVMState  ;
@@ -222,8 +222,6 @@ void ring_vm_savestateforfunctions ( VM *pVM,List *pList )
     /* Using VMState */
     pVMState = ring_vmstate_new(pVM->pRingState);
     pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
-    /* Save the state as Managed C Pointer */
-    ring_list_addcustomringpointer_gc(pVM->pRingState,pList,pVMState,ring_vmstate_delete);
     /* Save the Data */
     pVMState->aNumbers[0] = ring_list_getsize(pVM->pExitMark) ;
     pVMState->aNumbers[1] = ring_list_getsize(pVM->pLoopMark) ;
@@ -274,14 +272,12 @@ void ring_vm_savestateforfunctions ( VM *pVM,List *pList )
     pVM->pGetSetObject = NULL ;
     pVM->nGetSetObjType = 0 ;
     pVM->lNoSetterMethod = 0 ;
+    return pVMState ;
 }
 
-void ring_vm_restorestateforfunctions ( VM *pVM,List *pList,int x )
+void ring_vm_restorestateforfunctions ( VM *pVM,VMState *pVMState )
 {
     List *pThis  ;
-    VMState *pVMState  ;
-    /* Using VMState */
-    pVMState = (VMState *) ring_list_getpointer(pList,x);
     /* Restore State */
     ring_vm_backstate(pVM,pVMState->aNumbers[0],pVM->pExitMark);
     ring_vm_backstate(pVM,pVMState->aNumbers[1],pVM->pLoopMark);
