@@ -85,3 +85,8 @@ ring_string_find2
 ring_string_find3
 ring_string_delete
 ring_string_setfromint
+ring_string_word
+Type: char *
+cString
+Type: int
+x,nStart,nEnd,nSize,nWord,nOutIndex
