@@ -1203,10 +1203,11 @@ int ring_parser_stmt ( Parser *pParser )
 
 int ring_parser_paralist ( Parser *pParser )
 {
-    int nStart  ;
+    int nStart, nParaCount  ;
     const char *cToken  ;
     /* Check ( */
     nStart = 0 ;
+    nParaCount = 0 ;
     if ( ring_parser_isoperator2(pParser,OP_FOPEN) ) {
         ring_parser_nexttoken(pParser);
         nStart = 1 ;
@@ -1233,6 +1234,7 @@ int ring_parser_paralist ( Parser *pParser )
         RING_STATE_CHECKPRINTRULES 
         
         puts("Rule : ParaList --> Identifier {',' Identifier}");
+        nParaCount++ ;
         while ( ring_parser_isoperator2(pParser,OP_COMMA) ) {
             ring_parser_nexttoken(pParser);
             RING_PARSER_IGNORENEWLINE ;
@@ -1247,6 +1249,7 @@ int ring_parser_paralist ( Parser *pParser )
                 /* Generate Code */
                 ring_parser_icg_addtooperand(pParser," ");
                 ring_parser_icg_addtooperand(pParser,cToken);
+                nParaCount++ ;
             } else {
                 ring_parser_error(pParser,RING_PARSER_ERROR_PARALIST);
                 return 0 ;
@@ -1255,6 +1258,7 @@ int ring_parser_paralist ( Parser *pParser )
         if ( nStart && ring_parser_isoperator2(pParser,OP_FCLOSE) ) {
             ring_parser_nexttoken(pParser);
         }
+        ring_parser_icg_newoperandint(pParser,nParaCount);
         return 1 ;
     } else {
         ring_parser_error(pParser,RING_PARSER_ERROR_PARALIST);

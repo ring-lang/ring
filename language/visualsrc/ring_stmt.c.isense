@@ -21,7 +21,7 @@ Type: char
 cCurrentDir[RING_PATHSIZE]
 ring_parser_paralist
 Type: int
-nStart
+nStart, nParaCount
 Type: const char *
 cToken
 ring_parser_list
