@@ -568,5 +568,5 @@ Class GameState
 	playerwin = false
 	DoorKey = false
 	playerindex = 4
-	value = 1000
+	value = 5000
 	moveplayer = false
