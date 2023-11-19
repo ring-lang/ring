@@ -294,3 +294,31 @@ RING_API void ring_string_setfromint ( String *pString,int x )
 {
     ring_string_setfromint_gc(NULL,pString,x);
 }
+
+RING_API void ring_string_word ( const char *cStr,int nIndex,char *cOutput )
+{
+    char *cString  ;
+    int x,nStart,nEnd,nSize,nWord,nOutIndex  ;
+    /* This function will return a specific word from a string using the word index */
+    nSize = strlen(cStr) ;
+    /* Determine the start of the word */
+    nStart = 0 ;
+    if ( nIndex != 1 ) {
+        nWord = 1 ;
+        while ( nWord != nIndex ) {
+            if ( cStr[++nStart] == ' ' ) {
+                nStart++ ;
+                nWord++ ;
+            }
+        }
+    }
+    /* Determine the End of the word */
+    nEnd = nStart ;
+    nOutIndex = 0 ;
+    while ( (cStr[nEnd] != ' ') && (nEnd != nSize) ) {
+        cOutput[nOutIndex] = cStr[nEnd] ;
+        nEnd++ ;
+        nOutIndex++ ;
+    }
+    cOutput[nOutIndex] = '\0' ;
+}
