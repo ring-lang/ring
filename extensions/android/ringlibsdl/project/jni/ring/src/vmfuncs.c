@@ -867,9 +867,11 @@ void ring_vmfunccall_useloadfuncp ( VM *pVM,FuncCall *pFuncCall,int nPerformance
         RING_VM_IR_ITEMSETLOWINT(RING_VM_IR_ITEM(2),pFuncCall->nPC);
         RING_VM_IR_ITEMSETHIGHINT(RING_VM_IR_ITEM(2),ring_list_getsize(pVM->pFunctionsMap));
         RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(3),(void *) pFuncCall->pFunc);
+        RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(4),(void *) pFuncCall->cNewFileName);
         RING_VM_IR_SETINTREG(pFuncCall->nMethodOrFunc);
         RING_VM_IR_SETFLAGREG(pFuncCall->nType);
         RING_VM_IR_SETREG3TYPE(RING_VM_REGTYPE_POINTER);
-        RING_VM_IR_PARACOUNT = 4 ;
+        RING_VM_IR_SETREG4TYPE(RING_VM_REGTYPE_POINTER);
+        RING_VM_IR_PARACOUNT = 5 ;
     }
 }
