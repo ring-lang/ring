@@ -18,8 +18,6 @@ Type: double
 nNum1,nNum2
 ring_vm_inclpjump
 ring_vm_loadfuncp
-Type: List *
-pList
 Type: FuncCall *
 pFuncCall
 ring_vm_incpjumpstep1
