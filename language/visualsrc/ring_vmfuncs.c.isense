@@ -26,7 +26,7 @@ pFuncCall
 ring_vm_returnnull
 ring_vm_newfunc
 Type: int
-x,nSP,nMax
+x,nSP,nMax,lFreeParameter
 Type: List *
 pList,*aRefList,*pVar,*pRef
 Type: char *
@@ -34,7 +34,7 @@ pParameter
 Type: char *
 cParameters
 Type: char
-cStr[2]
+cPara[RING_FUNCPARA_EXPECTEDSIZE]
 Type: FuncCall *
 pFuncCall
 ring_vm_blockflag

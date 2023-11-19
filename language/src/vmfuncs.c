@@ -428,11 +428,11 @@ void ring_vm_returnnull ( VM *pVM )
 
 void ring_vm_newfunc ( VM *pVM )
 {
-    int x,nSP,nMax  ;
+    int x,nSP,nMax,lFreeParameter  ;
     List *pList,*aRefList,*pVar,*pRef  ;
     char *pParameter  ;
     char *cParameters  ;
-    char cStr[2]  ;
+    char cPara[RING_FUNCPARA_EXPECTEDSIZE]  ;
     FuncCall *pFuncCall  ;
     ring_vm_newscope(pVM);
     /* Set the Local Scope ID */
@@ -446,7 +446,13 @@ void ring_vm_newfunc ( VM *pVM )
         /* Read Parameters (Separated by Space) */
         cParameters = RING_VM_IR_READCVALUE(2) ;
         nMax = RING_VM_IR_READCVALUESIZE(2) ;
-        pParameter = ring_state_malloc(pVM->pRingState,nMax+1);
+        lFreeParameter = nMax > RING_FUNCPARA_EXPECTEDSIZE - 1 ;
+        if ( lFreeParameter ) {
+            pParameter = ring_state_malloc(pVM->pRingState,nMax+1);
+        }
+        else {
+            pParameter = (char *) cPara ;
+        }
         /* Set Parameters Value */
         aRefList = ring_list_new_gc(pVM->pRingState,0);
         for ( x = RING_VM_IR_READIVALUE(3) ; x >= 1 ; x-- ) {
@@ -480,7 +486,9 @@ void ring_vm_newfunc ( VM *pVM )
             else {
                 pVM->cFileName = pVM->cPrevFileName ;
                 ring_list_deleteitem_gc(pVM->pRingState,pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
-                ring_state_free(pVM->pRingState,pParameter);
+                if ( lFreeParameter ) {
+                    ring_state_free(pVM->pRingState,pParameter);
+                }
                 ring_vm_error(pVM,RING_VM_ERROR_LESSPARAMETERSCOUNT);
                 return ;
             }
@@ -492,7 +500,9 @@ void ring_vm_newfunc ( VM *pVM )
         }
         /* Clean Memory */
         ring_list_delete_gc(pVM->pRingState,aRefList);
-        ring_state_free(pVM->pRingState,pParameter);
+        if ( lFreeParameter ) {
+            ring_state_free(pVM->pRingState,pParameter);
+        }
     }
     if ( nSP < pVM->nSP ) {
         pVM->cFileName = pVM->cPrevFileName ;
