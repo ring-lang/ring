@@ -446,7 +446,7 @@ void ring_vm_newfunc ( VM *pVM )
         /* Read Parameters (Separated by Space) */
         pParameter = ring_string_new_gc(pVM->pRingState,"");
         cParameters = RING_VM_IR_READCVALUE(2) ;
-        nMax = strlen(cParameters) ;
+        nMax = RING_VM_IR_READCVALUESIZE(2) ;
         cStr[1] = '\0' ;
         aParameters = ring_list_new_gc(pVM->pRingState,0);
         for ( x = 0 ; x < nMax ; x++ ) {
@@ -462,7 +462,7 @@ void ring_vm_newfunc ( VM *pVM )
         ring_string_delete_gc(pVM->pRingState,pParameter);
         /* Set Parameters Value */
         aRefList = ring_list_new_gc(pVM->pRingState,0);
-        for ( x = ring_list_getsize(aParameters) ; x >= 1 ; x-- ) {
+        for ( x = RING_VM_IR_READIVALUE(3) ; x >= 1 ; x-- ) {
             if ( nSP < pVM->nSP ) {
                 if ( RING_VM_STACK_ISSTRING ) {
                     ring_vm_addnewstringvar2(pVM,ring_list_getstring(aParameters,x),RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);

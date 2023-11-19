@@ -231,6 +231,7 @@
     #define RING_VM_JUMP pVM->nPC = pVM->pByteCodeIR->aReg[0].iNumber
     #define RING_VM_IR_READC ring_string_get(pVM->pByteCodeIR->aReg[0].pString)
     #define RING_VM_IR_READCVALUE(x) ring_string_get(pVM->pByteCodeIR->aReg[x-1].pString)
+    #define RING_VM_IR_READCVALUESIZE(x) ring_string_size(pVM->pByteCodeIR->aReg[x-1].pString)
     #define RING_VM_IR_READP pVM->pByteCodeIR->aReg[0].pPointer
     #define RING_VM_IR_READPVALUE(x) pVM->pByteCodeIR->aReg[x-1].pPointer
     #define RING_VM_IR_READI pVM->pByteCodeIR->aReg[0].iNumber
