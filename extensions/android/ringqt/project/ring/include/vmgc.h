@@ -5,8 +5,7 @@
     **  Functions 
     **  Item GC Functions 
     */
-
-    void ring_vm_gc_cleardata ( Item *pItem ) ;
+    #define ring_vm_gc_cleardata(pItem) pItem->gc.nReferenceCount = 0; pItem->gc.pFreeFunc = NULL
 
     void ring_vm_gc_checknewreference ( void *pPointer,int nType,List *pContainer, int nIndex ) ;
 
@@ -17,8 +16,7 @@
     void ring_vm_gc_killreference ( VM *pVM ) ;
 
     void ring_vm_gc_deletetemplists ( VM *pVM ) ;
-
-    void ring_vm_gc_newitemreference ( Item *pItem ) ;
+    #define ring_vm_gc_newitemreference(pItem) pItem->gc.nReferenceCount++
 
     void ring_vm_gc_freefunc ( RingState *pState,Item *pItem ) ;
 

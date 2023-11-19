@@ -152,8 +152,9 @@ Type: PoolManager
 Mark: ->
 PoolManager *
 ring_gc_h
+void ring_vm_gc_cleardata(x)
+ring_vm_gc_newitemreference(pItem)
 GCLog
-ring_vm_gc_cleardata
 ring_vm_gc_checknewreference
 Type: Item *
 pItem
@@ -171,7 +172,6 @@ newstr
 Type: char
 cStr[2]
 ring_vm_gc_deletetemplists
-ring_vm_gc_newitemreference
 ring_vm_gc_freefunc
 ring_vm_gc_setfreefunc
 ring_vm_gc_deletelistinitem
