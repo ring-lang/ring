@@ -28,8 +28,8 @@ ring_vm_newfunc
 Type: int
 x,nSP,nMax
 Type: List *
-pList, *aParameters,*aRefList,*pVar,*pRef
-Type: String *
+pList,*aRefList,*pVar,*pRef
+Type: char *
 pParameter
 Type: char *
 cParameters
