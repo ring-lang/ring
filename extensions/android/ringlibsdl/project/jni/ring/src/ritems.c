@@ -10,10 +10,8 @@ Items * ring_items_new_gc ( void *pState )
     pItem = (Item *) pMem ;
     /* Clear Item */
     pItem->nType = ITEMTYPE_NOTHING ;
-    pItem->data.pPointer = NULL ;
     pItem->nObjectType = 0 ;
     pItem->data.dNumber = 0 ;
-    pItem->data.iNumber = 0 ;
     pItem->NumberFlag = ITEM_NUMBERFLAG_NOTHING ;
     ring_vm_gc_cleardata(pItem);
     ring_vm_gc_newitemreference(pItem);
@@ -38,8 +36,7 @@ Items * ring_items_delete_gc ( void *pState,Items *pItems )
     pMem = pMem - sizeof(Item) ;
     pItem = (Item *) pMem ;
     pItem = ring_item_delete_gc(pState,pItem);
-    pItems = NULL ;
-    return pItems ;
+    return NULL ;
 }
 
 void ring_items_print ( Items *pItems )
