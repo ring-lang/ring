@@ -69,6 +69,11 @@ Starting from Ring 1.19 the default Ring for Windows version is 64bit
 
 This provide access to more memory. Also, most of our tests indicates an increase of performance from 15% to 25%
 
+This increase of performance is measured when we compare Ring 1.19 (32bit) and Ring 1.19 (64bit)
+
+This is different from comparing Ring 1.19 (32bit) and Ring 1.18 (32bit) to see how much the new release is faster
+
+
 .. index:: 
 	pair: What is new in Ring  1.19; Better batch files for building Ring
 
@@ -188,6 +193,7 @@ More Improvements
 * Low Level Functions - ringvm_calllist() - Better Output
 * Ring API - Added: RING_API_STATE to get a pointer to Ring State 
 * Ring Compiler/VM - Items structure functions - Better Performance
+* Ring Compiler/VM - HashTable - Better default parameters
 * Ring VM - Function Call - Replace some Ring lists with C Structures
 * Ring VM - Use ICO_LOADFUNCP when loading C functions
 * Ring VM - Memory Pool - Allocate 1,000,000 items at startup  
@@ -200,5 +206,6 @@ More Improvements
 * Ring VM - ICO_LOADFUNCP instruction support replacing C function with Ring function
 * Ring VM - Better performance when deleting a scope - Avoid: ring_vm_gc_checkreferences()
 * Ring VM - Better format when printing the byte code
-* Ring VM - Reduce memory requirements by variables
+* Ring VM - Variables - Reduce the required memory to store a variable
+* Ring VM - Arguments - Reduce the required memory to pass a value
 * Ring VM - ring_state_calloc() - Use the memory pool if possible
