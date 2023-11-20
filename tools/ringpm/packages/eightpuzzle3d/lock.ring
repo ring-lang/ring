@@ -2,7 +2,7 @@ aLockInfo = [
 	[
 		:name = "eightpuzzle3d",
 		:branch = "master",
-		:version = "1.0.4",
+		:version = "1.0.5",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
