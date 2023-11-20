@@ -138,7 +138,6 @@ aAllPackagesInfo = [
 	:ringallegro = 	[
 		"gameengine",
 		"flappybird3000",
-		"fifteenpuzzle3d",
 		"goldmagic800",
 		"tictactoe3d",
 		"sample3dcamera",
@@ -232,7 +231,6 @@ aAllPackagesInfo = [
 		"ringnotepad"
 	],
 	:ringopengl21 = 	[
-		"fifteenpuzzle3d",
 		"goldmagic800",
 		"tictactoe3d",
 		"sample3dcamera",
