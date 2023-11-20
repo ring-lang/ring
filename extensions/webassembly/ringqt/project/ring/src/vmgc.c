@@ -547,9 +547,11 @@ RING_API int ring_list_isrefparameter ( VM *pVM,const char *cVariable )
             pRef = ring_list_getlist(pList,RING_VAR_VALUE);
             if ( pRef->gc.lNewRef ) {
                 lRef = 1 ;
-                pVar = ring_vm_newvar2(pVM,cVariable,pVM->pActiveMem);
-                ring_list_setint_gc(pVM->pRingState,pVar,RING_VAR_TYPE,RING_VM_LIST);
-                ring_list_setlist_gc(pVM->pRingState,pVar, RING_VAR_VALUE);
+                pVar = ring_list_newlist_gc(pVM->pRingState,pVM->pActiveMem);
+                ring_list_addstring_gc(pVM->pRingState,pVar,cVariable);
+                ring_list_addint_gc(pVM->pRingState,pVar,RING_VM_LIST);
+                ring_list_newlist_gc(pVM->pRingState,pVar);
+                ring_list_addint_gc(pVM->pRingState,pVar,0);
                 ring_list_assignreftovar_gc(pVM->pRingState,pRef,pVar,RING_VAR_VALUE);
                 /* If the same reference is passed as parameter multiple times then keep treating it as new reference */
                 pRef->gc.lNewRef = 1 ;

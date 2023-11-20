@@ -608,6 +608,12 @@
     void ring_vm_var_setprivateflag ( VM *pVM,List *pVar,int nFlag ) ;
 
     int ring_vm_var_getprivateflag ( VM *pVM,List *pVar ) ;
+
+    void ring_vm_addstringpara ( VM *pVM,const char *cVar,const char  *cStr,int nStrSize ) ;
+
+    void ring_vm_addnumberpara ( VM *pVM,const char *cVar,double nNumber ) ;
+
+    void ring_vm_addpointerpara ( VM *pVM,const char *cVar,void *pPointer,int nType ) ;
     /* Jump */
 
     void ring_vm_jumpzero ( VM *pVM ) ;
