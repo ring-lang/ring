@@ -2,8 +2,6 @@ ring_hashtable_h
 Parent: HashItem
 Type: char  *
 cKey
-Type: char
-nItemType
 Parent: HashValue
 Type: int
 nIndex
@@ -12,6 +10,8 @@ pValue
 END:
 Type: struct HashItem *
 pNext
+Type: char
+nItemType
 END:
 Type: HashItem
 struct HashItem

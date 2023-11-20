@@ -4,12 +4,12 @@
     /* Data */
     typedef struct HashItem {
         char  *cKey  ;
-        char nItemType  ;
         union HashValue {
             int nIndex  ;
             void *pValue  ;
         } HashValue ;
         struct HashItem *pNext  ;
+        char nItemType  ;
     } HashItem ;
     typedef struct HashTable {
         HashItem **pArray  ;
