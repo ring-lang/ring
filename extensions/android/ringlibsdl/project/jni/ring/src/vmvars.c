@@ -295,8 +295,6 @@ List * ring_vm_newvar2 ( VM *pVM,const char *cStr,List *pParent )
     ring_list_addstring_gc(pVM->pRingState,pList,"NULL");
     /* Pointer Type */
     ring_list_addint_gc(pVM->pRingState,pList,0);
-    /* Private Flag */
-    ring_list_addint_gc(pVM->pRingState,pList,0);
     /* HashTable & Array */
     if ( pParent != NULL ) {
         /* Add Pointer to the HashTable */
@@ -379,7 +377,10 @@ void ring_vm_deletescope ( VM *pVM )
 
 void ring_vm_var_setprivateflag ( VM *pVM,List *pVar,int nFlag )
 {
-    if ( ring_list_getsize(pVar) >= RING_VAR_PRIVATEFLAG ) {
+    if ( ring_list_getsize(pVar) == RING_VAR_PRIVATEFLAG - 1 ) {
+        ring_list_addint_gc(pVM->pRingState,pVar,nFlag);
+    }
+    else if ( ring_list_getsize(pVar) == RING_VAR_PRIVATEFLAG ) {
         ring_list_setint_gc(pVM->pRingState,pVar,RING_VAR_PRIVATEFLAG,nFlag);
     }
 }
