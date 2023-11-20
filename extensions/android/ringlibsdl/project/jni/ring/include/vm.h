@@ -614,6 +614,8 @@
     void ring_vm_addnumberpara ( VM *pVM,const char *cVar,double nNumber ) ;
 
     void ring_vm_addpointerpara ( VM *pVM,const char *cVar,void *pPointer,int nType ) ;
+
+    List * ring_vm_addlistpara ( VM *pVM,const char *cVar ) ;
     /* Jump */
 
     void ring_vm_jumpzero ( VM *pVM ) ;

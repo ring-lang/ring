@@ -439,6 +439,22 @@ void ring_vm_addpointerpara ( VM *pVM,const char *cVar,void *pPointer,int nType 
     }
     ring_hashtable_newpointer_gc(pVM->pRingState,pVM->pActiveMem->pHashTable,cVar,pList);
 }
+
+List * ring_vm_addlistpara ( VM *pVM,const char *cVar )
+{
+    List *pList  ;
+    pList = ring_list_newlist_gc(pVM->pRingState,pVM->pActiveMem);
+    ring_list_addstring_gc(pVM->pRingState,pList,cVar);
+    ring_list_addint_gc(pVM->pRingState,pList,RING_VM_LIST);
+    ring_list_newlist_gc(pVM->pRingState,pList);
+    ring_list_addint_gc(pVM->pRingState,pList,0);
+    /* Add Pointer to the HashTable */
+    if ( pVM->pActiveMem->pHashTable == NULL ) {
+        pVM->pActiveMem->pHashTable = ring_hashtable_new_gc(pVM->pRingState);
+    }
+    ring_hashtable_newpointer_gc(pVM->pRingState,pVM->pActiveMem->pHashTable,cVar,pList);
+    return pList ;
+}
 /* Custom Global Scope */
 
 void ring_vm_newglobalscope ( VM *pVM )

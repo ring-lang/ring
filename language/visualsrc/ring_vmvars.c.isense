@@ -52,6 +52,9 @@ pList
 ring_vm_addpointerpara
 Type: List *
 pList
+ring_vm_addlistpara
+Type: List *
+pList
 ring_vm_newglobalscope
 ring_vm_endglobalscope
 ring_vm_setglobalscope
