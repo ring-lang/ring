@@ -275,6 +275,10 @@ x
 Type: RingState *
 pRingState
 ring_state_calloc
+Type: void *
+pMem
+Type: size_t
+nTotal
 ring_state_realloc
 Type: void *
 pMemory

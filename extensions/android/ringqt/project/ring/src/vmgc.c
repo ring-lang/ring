@@ -776,11 +776,21 @@ RING_API void ring_state_free ( void *pState,void *pMemory )
 
 RING_API void * ring_state_calloc ( void *pState,size_t nitems, size_t size )
 {
+    void *pMem  ;
+    size_t nTotal  ;
     #if RING_USEPOOLMANAGER
         if ( pState != NULL ) {
             #if RING_TRACKALLOCATIONS
                 ((RingState *) pState)->vPoolManager.nAllocCount++ ;
             #endif
+            nTotal = nitems*size ;
+            if ( nTotal <= sizeof(PoolData) ) {
+                if ( ((RingState *) pState)->pVM != NULL ) {
+                    pMem = ring_poolmanager_allocate((RingState *) pState,nTotal) ;
+                    memset(pMem,0,nTotal);
+                    return pMem ;
+                }
+            }
         }
     #endif
     return ring_calloc(nitems,size) ;
