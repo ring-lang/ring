@@ -26,9 +26,7 @@ void ring_vm_addglobalvariables ( VM *pVM )
     ring_vm_addnewstringvar(pVM,"tab","\t");
     ring_vm_addnewstringvar(pVM,"cr","\r");
     /* Add Command Line Parameters */
-    pList = ring_vm_newvar2(pVM,"sysargv",pVM->pActiveMem);
-    ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_LIST);
-    ring_list_setlist_gc(pVM->pRingState,pList,RING_VAR_VALUE);
+    pList = ring_vm_addnewlistvar(pVM,"sysargv");
     pList = ring_list_getlist(pList,RING_VAR_VALUE);
     for ( x = 0 ; x < pVM->pRingState->argc ; x++ ) {
         ring_list_addstring_gc(pVM->pRingState,pList,pVM->pRingState->argv[x]);
@@ -339,6 +337,15 @@ void ring_vm_addnewpointervar ( VM *pVM,const char *cStr,void *x,int y )
     ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_PVALUETYPE,y);
     /* Reference Counting */
     ring_vm_gc_checknewreference(x,y,pList,RING_VAR_VALUE);
+}
+
+List * ring_vm_addnewlistvar ( VM *pVM,const char *cStr )
+{
+    List *pList  ;
+    pList = ring_vm_newvar2(pVM,cStr,pVM->pActiveMem);
+    ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_LIST);
+    ring_list_setlist_gc(pVM->pRingState,pList,RING_VAR_VALUE);
+    return pList ;
 }
 
 void ring_vm_newtempvar ( VM *pVM,const char *cStr, List *TempList )

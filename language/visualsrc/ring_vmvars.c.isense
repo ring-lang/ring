@@ -34,6 +34,9 @@ pList
 ring_vm_addnewpointervar
 Type: List *
 pList
+ring_vm_addnewlistvar
+Type: List *
+pList
 ring_vm_newtempvar
 Type: List *
 pList

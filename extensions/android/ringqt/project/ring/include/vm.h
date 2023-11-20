@@ -583,6 +583,8 @@
 
     void ring_vm_newscope ( VM *pVM ) ;
 
+    void ring_vm_deletescope ( VM *pVM ) ;
+
     int ring_vm_findvar ( VM *pVM,const char *cStr ) ;
 
     int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr ) ;
@@ -595,9 +597,9 @@
 
     void ring_vm_addnewstringvar ( VM *pVM,const char *cStr,const char *cStr2 ) ;
 
-    void ring_vm_deletescope ( VM *pVM ) ;
-
     void ring_vm_addnewpointervar ( VM *pVM,const char *cStr,void *x,int y ) ;
+
+    List * ring_vm_addnewlistvar ( VM *pVM,const char *cStr ) ;
 
     void ring_vm_newtempvar ( VM *pVM,const char *cStr, List *TempList ) ;
 
