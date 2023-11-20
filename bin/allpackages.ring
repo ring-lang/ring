@@ -151,7 +151,8 @@ aAllPackagesInfo = [
 		"ringsamples",
 		"sokoban",
 		"maze",
-		"snake"
+		"snake",
+		"eightpuzzle3d"
 	],
 	:ringlibsdl = 	[
 		"gameengine"
@@ -240,7 +241,8 @@ aAllPackagesInfo = [
 		"sample3dmovablecube",
 		"sample3dcube",
 		"sample3dstars",
-		"sample3dlevelsofcubes"
+		"sample3dlevelsofcubes",
+		"eightpuzzle3d"
 	],
 	:gameengine = 	[
 		"pong",
