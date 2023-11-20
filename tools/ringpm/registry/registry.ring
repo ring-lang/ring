@@ -219,8 +219,8 @@ aPackagesRegistry = [
 	  :description = "FifteenPuzzle game for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
 	],
-	[ :name = "fifteenpuzzle3d",
-	  :description = "FifteenPuzzle3D game for the Ring programming language",
+	[ :name = "eightpuzzle3d",
+	  :description = "EightPuzzle3D game for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
 	],
 	[ :name = "game2048",
