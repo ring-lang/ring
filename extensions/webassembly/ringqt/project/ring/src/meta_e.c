@@ -549,6 +549,8 @@ void ring_vm_refmeta_isprivateattribute ( void *pPointer )
     List *pList  ;
     int x  ;
     char *cStr  ;
+    VM *pVM  ;
+    pVM = (VM *) pPointer ;
     if ( RING_API_PARACOUNT != 2 ) {
         RING_API_ERROR(RING_API_BADPARACOUNT);
         return ;
@@ -560,7 +562,7 @@ void ring_vm_refmeta_isprivateattribute ( void *pPointer )
             pList = ring_list_getlist(pList,RING_OBJECT_OBJECTDATA);
             for ( x = 3 ; x <= ring_list_getsize(pList) ; x++ ) {
                 if ( strcmp(cStr,ring_list_getstring(ring_list_getlist(pList,x),RING_VAR_NAME))==0 ) {
-                    if ( ring_list_getint(ring_list_getlist(pList,x),RING_VAR_PRIVATEFLAG) == 1 ) {
+                    if ( ring_vm_var_getprivateflag(pVM,ring_list_getlist(pList,x)) == 1 ) {
                         RING_API_RETNUMBER(1);
                     }
                     else {

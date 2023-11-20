@@ -90,7 +90,7 @@ void ring_vm_loadaddress ( VM *pVM )
     if ( lFound == 0 ) {
         ring_vm_newvar(pVM, RING_VM_IR_READC);
         /* Support for private attributes */
-        ring_list_setint_gc(pVM->pRingState,(List *) RING_VM_STACK_READP,RING_VAR_PRIVATEFLAG,pVM->nPrivateFlag);
+        ring_vm_var_setprivateflag(pVM,(List *) RING_VM_STACK_READP,pVM->nPrivateFlag);
     }
     /* Don't change instruction if it's LoadAFirst */
     if ( (pVM->nFirstAddress == 1) || (lFound == 0) ) {

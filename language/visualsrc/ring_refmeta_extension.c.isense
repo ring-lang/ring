@@ -153,6 +153,8 @@ Type: int
 x
 Type: char *
 cStr
+Type: VM *
+pVM
 ring_vm_refmeta_isprivatemethod
 Type: List *
 pList
@@ -214,7 +216,7 @@ ring_vm_refmeta_ringvmcalllist
 Type: VM *
 pVM
 Type: List *
-pList, *pFuncCallList, *pList2
+pList, *pList2
 Type: int
 x
 Type: FuncCall *

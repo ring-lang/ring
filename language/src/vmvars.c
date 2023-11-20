@@ -38,7 +38,7 @@ void ring_vm_addglobalvariables ( VM *pVM )
 /*
 **  Variables 
 **  Memory is a List and each item inside the list is another List (Represent Scope) 
-**  The Variable is a List contains ( Name , Type , Value , [Pointer Type] ) 
+**  The Variable is a List contains ( Name , Type , Value , [Pointer Type] , [Private Flag] ) 
 **  When we find variable or create new variable we push variable pointer to the stack 
 */
 
@@ -168,7 +168,7 @@ int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr )
     }
     else {
         /* Check Private Attributes */
-        if ( ring_list_getint(pList2,RING_VAR_PRIVATEFLAG) == 1 ) {
+        if ( ring_vm_var_getprivateflag(pVM,pList2) == 1 ) {
             /* We check that we are not in the class region too (defining the private attribute then reusing it) */
             if ( ! ( (pVM->nVarScope == RING_VARSCOPE_NEWOBJSTATE) &&  (pVM->nInClassRegion == 1) ) ) {
                 if ( ring_vm_oop_callmethodinsideclass(pVM) == 0 ) {
@@ -375,6 +375,21 @@ void ring_vm_deletescope ( VM *pVM )
     }
     ring_list_deleteitem_gc(pVM->pRingState,pVM->pMem,ring_list_getsize(pVM->pMem));
     pVM->pActiveMem = ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem));
+}
+
+void ring_vm_var_setprivateflag ( VM *pVM,List *pVar,int nFlag )
+{
+    if ( ring_list_getsize(pVar) >= RING_VAR_PRIVATEFLAG ) {
+        ring_list_setint_gc(pVM->pRingState,pVar,RING_VAR_PRIVATEFLAG,nFlag);
+    }
+}
+
+int ring_vm_var_getprivateflag ( VM *pVM,List *pVar )
+{
+    if ( ring_list_getsize(pVar) >= RING_VAR_PRIVATEFLAG ) {
+        return ring_list_getint(pVar,RING_VAR_PRIVATEFLAG) ;
+    }
+    return 0 ;
 }
 /* Custom Global Scope */
 

@@ -337,7 +337,7 @@ void ring_vm_oop_property ( VM *pVM )
         if ( pVM->nInClassRegion ) {
             ring_vm_newvar(pVM, RING_VM_IR_READC);
             /* Support for Private Flag */
-            ring_list_setint_gc(pVM->pRingState,(List *) RING_VM_STACK_READP,RING_VAR_PRIVATEFLAG,pVM->nPrivateFlag);
+            ring_vm_var_setprivateflag(pVM,(List *) RING_VM_STACK_READP,pVM->nPrivateFlag);
             RING_VM_STACK_POP ;
             ring_vm_findvar(pVM, RING_VM_IR_READC);
             pVM->pActiveMem = pScope ;
