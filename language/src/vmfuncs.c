@@ -459,14 +459,14 @@ void ring_vm_newfunc ( VM *pVM )
             if ( nSP < pVM->nSP ) {
                 ring_string_word(cParameters,x,pParameter);
                 if ( RING_VM_STACK_ISSTRING ) {
-                    ring_vm_addnewstringvar2(pVM,pParameter,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
+                    ring_vm_addstringpara(pVM,pParameter,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
                 }
                 else if ( RING_VM_STACK_ISNUMBER ) {
-                    ring_vm_addnewnumbervar(pVM,pParameter,RING_VM_STACK_READN);
+                    ring_vm_addnumberpara(pVM,pParameter,RING_VM_STACK_READN);
                 }
                 else if ( RING_VM_STACK_ISPOINTER ) {
                     if ( ! ring_list_isrefparameter(pVM,pParameter) ) {
-                        ring_vm_addnewpointervar(pVM,pParameter,RING_VM_STACK_READP,RING_VM_STACK_OBJTYPE);
+                        ring_vm_addpointerpara(pVM,pParameter,RING_VM_STACK_READP,RING_VM_STACK_OBJTYPE);
                         if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
                             pVar = (List *) RING_VM_STACK_READP ;
                             if ( ring_list_islist(pVar,RING_VAR_VALUE) ) {
