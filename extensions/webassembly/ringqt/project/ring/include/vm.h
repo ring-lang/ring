@@ -608,12 +608,13 @@
     void ring_vm_var_setprivateflag ( VM *pVM,List *pVar,int nFlag ) ;
 
     int ring_vm_var_getprivateflag ( VM *pVM,List *pVar ) ;
+    /* Parameters */
 
-    void ring_vm_addstringpara ( VM *pVM,const char *cVar,const char  *cStr,int nStrSize ) ;
+    List * ring_vm_addstringpara ( VM *pVM,const char *cVar,const char  *cStr,int nStrSize ) ;
 
-    void ring_vm_addnumberpara ( VM *pVM,const char *cVar,double nNumber ) ;
+    List * ring_vm_addnumberpara ( VM *pVM,const char *cVar,double nNumber ) ;
 
-    void ring_vm_addpointerpara ( VM *pVM,const char *cVar,void *pPointer,int nType ) ;
+    List * ring_vm_addpointerpara ( VM *pVM,const char *cVar,void *pPointer,int nType ) ;
 
     List * ring_vm_addlistpara ( VM *pVM,const char *cVar ) ;
     /* Jump */
