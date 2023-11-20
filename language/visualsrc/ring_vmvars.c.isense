@@ -52,7 +52,7 @@ pList, *pParent
 ring_vm_addpointerarg
 Type: List *
 pList, *pParent
-ring_vm_addlistpara
+ring_vm_addlistarg
 Type: List *
 pList, *pParent
 ring_vm_newglobalscope
