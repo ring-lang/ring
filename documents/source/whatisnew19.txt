@@ -200,3 +200,4 @@ More Improvements
 * Ring VM - ICO_LOADFUNCP instruction support replacing C function with Ring function
 * Ring VM - Better performance when deleting a scope - Avoid: ring_vm_gc_checkreferences()
 * Ring VM - Better format when printing the byte code
+* Ring VM - Reduce memory requirements by variables
