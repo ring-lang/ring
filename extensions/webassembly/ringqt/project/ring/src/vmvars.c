@@ -392,9 +392,9 @@ int ring_vm_var_getprivateflag ( VM *pVM,List *pVar )
     }
     return 0 ;
 }
-/* Parameters */
+/* Arguments */
 
-List * ring_vm_addstringpara ( VM *pVM,const char *cVar,const char  *cStr,int nStrSize )
+List * ring_vm_addstringarg ( VM *pVM,const char *cVar,const char  *cStr,int nStrSize )
 {
     List *pList, *pParent  ;
     pParent = pVM->pActiveMem ;
@@ -411,7 +411,7 @@ List * ring_vm_addstringpara ( VM *pVM,const char *cVar,const char  *cStr,int nS
     return pList ;
 }
 
-List * ring_vm_addnumberpara ( VM *pVM,const char *cVar,double nNumber )
+List * ring_vm_addnumberarg ( VM *pVM,const char *cVar,double nNumber )
 {
     List *pList, *pParent  ;
     pParent = pVM->pActiveMem ;
@@ -428,7 +428,7 @@ List * ring_vm_addnumberpara ( VM *pVM,const char *cVar,double nNumber )
     return pList ;
 }
 
-List * ring_vm_addpointerpara ( VM *pVM,const char *cVar,void *pPointer,int nType )
+List * ring_vm_addpointerarg ( VM *pVM,const char *cVar,void *pPointer,int nType )
 {
     List *pList, *pParent  ;
     pParent = pVM->pActiveMem ;
@@ -447,7 +447,7 @@ List * ring_vm_addpointerpara ( VM *pVM,const char *cVar,void *pPointer,int nTyp
     return pList ;
 }
 
-List * ring_vm_addlistpara ( VM *pVM,const char *cVar )
+List * ring_vm_addlistarg ( VM *pVM,const char *cVar )
 {
     List *pList, *pParent  ;
     pParent = pVM->pActiveMem ;

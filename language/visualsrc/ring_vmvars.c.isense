@@ -43,13 +43,13 @@ pList, *pList2
 ring_vm_deletescope
 ring_vm_var_setprivateflag
 ring_vm_var_getprivateflag
-ring_vm_addstringpara
+ring_vm_addstringarg
 Type: List *
 pList, *pParent
-ring_vm_addnumberpara
+ring_vm_addnumberarg
 Type: List *
 pList, *pParent
-ring_vm_addpointerpara
+ring_vm_addpointerarg
 Type: List *
 pList, *pParent
 ring_vm_addlistpara
