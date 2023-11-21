@@ -264,6 +264,8 @@ void ring_vm_loadapushv ( VM *pVM )
 {
     if ( ring_vm_findvar(pVM, RING_VM_IR_READC  ) == 0 ) {
         ring_vm_newvar(pVM, RING_VM_IR_READC);
+        /* Support for private attributes */
+        ring_vm_var_setprivateflag(pVM,(List *) RING_VM_STACK_READP,pVM->nPrivateFlag);
     }
     if ( pVM->nVarScope == RING_VARSCOPE_GLOBAL ) {
         /* Replace LoadAPushV with PUSHPV for better performance */
