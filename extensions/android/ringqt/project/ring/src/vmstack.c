@@ -13,6 +13,9 @@ void ring_vm_pushv ( VM *pVM )
         RING_VM_STACK_PUSHCVALUE("") ;
         return ;
     }
+    if ( ! RING_VM_STACK_ISPOINTER ) {
+        return ;
+    }
     switch ( RING_VM_STACK_OBJTYPE ) {
         case RING_OBJTYPE_VARIABLE :
             if ( ! ring_vm_checknull(pVM,RING_CHECKNULL_SHOWERROR) ) {
