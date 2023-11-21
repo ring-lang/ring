@@ -154,7 +154,9 @@ More Samples
 
 * Added: samples/Language/Constants
 * Added: samples/UsingQt/CustomDragAndDrop/customdraganddrop.ring 
+* Added: samples/UsingArabic/ArabicInCommandPrompt/DisplayArabic.ring
 * Added: samples/UsingMatrixLib/59-Matrix-Transform-Draw-Rotation.ring
+* Added: samples/UsingRayLib/more/ex5_wavingcubes_withoutthreads.ring
 
 .. image:: drawrotation.png
 	:alt: drawrotation
