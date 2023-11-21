@@ -157,6 +157,8 @@ More Samples
 * Added: samples/UsingArabic/ArabicInCommandPrompt/DisplayArabic.ring
 * Added: samples/UsingMatrixLib/59-Matrix-Transform-Draw-Rotation.ring
 * Added: samples/UsingRayLib/more/ex5_wavingcubes_withoutthreads.ring
+* Added: samples/Language/OptionalFunc/Question.ring
+* Added: samples/Language/OptionalFunc/Answer.ring
 
 .. image:: drawrotation.png
 	:alt: drawrotation
