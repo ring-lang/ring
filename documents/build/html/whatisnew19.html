@@ -171,6 +171,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#better-batch-files-for-building-ring">Better batch files for building Ring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#for-loop-better-performance">For Loop - Better Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#calling-functions-better-performance">Calling Functions - Better Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nothing-function">Nothing() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optionalfunc-function">OptionalFunc() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
@@ -220,6 +222,8 @@
 <li><p>Better batch files for building Ring</p></li>
 <li><p>For Loop - Better Performance</p></li>
 <li><p>Calling Functions - Better Performance</p></li>
+<li><p>Nothing() function</p></li>
+<li><p>OptionalFunc() function</p></li>
 <li><p>More Samples</p></li>
 <li><p>More Improvements</p></li>
 </ul>
@@ -287,8 +291,55 @@
 <p>These improvements let the Stars animation sample works at 2350 FPS in Ring 1.19 instead of 500FPS in Ring 1.18</p>
 <img alt="stars3d" src="_images/stars3d.png" />
 </section>
+<section id="nothing-function">
+<span id="index-9"></span><h2>Nothing() function<a class="headerlink" href="#nothing-function" title="Permalink to this heading"></a></h2>
+<p>This function does nothing and can accept any number/type of parameters.
+The output will be Zero.</p>
+<p>Some of the Use Cases</p>
+<ol class="arabic simple">
+<li><p>Performance measurements, where we can test the performance of calling functions written in C and we can change the number of parameters during tests.</p></li>
+<li><p>In places of code that you want to write a function name, and it’s not defined yet.</p></li>
+<li><p>To disable some feature/code by just changing the function name to nothing without changing the parameters or commenting the code.</p></li>
+<li><p>In small programs, where you want to write a function that you can override from a Test program.</p></li>
+</ol>
+</section>
+<section id="optionalfunc-function">
+<span id="index-10"></span><h2>OptionalFunc() function<a class="headerlink" href="#optionalfunc-function" title="Permalink to this heading"></a></h2>
+<p>Using this function we can define functions similar to Nothing() but with a different name.</p>
+<p>Syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>OptionalFunc(cFunctionName)
+</pre></div>
+</div>
+<p>Example:</p>
+<p>File: Question.ring</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">optionalFunc</span><span class="p">(:</span><span class="n">reply</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s">&quot;I love Programming, What about you?&quot;</span>
+<span class="n">reply</span><span class="p">()</span>
+<span class="o">?</span> <span class="s">&quot;Ok, Thanks!&quot;</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>I love Programming, What about you?
+Ok, Thanks!
+</pre></div>
+</div>
+<p>File: Answer.ring</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;Question.ring&quot;</span>
+
+<span class="k">func</span> <span class="n">reply</span>
+        <span class="o">?</span> <span class="s">&quot;Me too!&quot;</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>I love Programming, What about you?
+Me too!
+Ok, Thanks!
+</pre></div>
+</div>
+</section>
 <section id="more-samples">
-<span id="index-9"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Added: samples/Language/Constants</p></li>
 <li><p>Added: samples/UsingQt/CustomDragAndDrop/customdraganddrop.ring</p></li>
@@ -301,7 +352,7 @@
 <img alt="drawrotation" src="_images/drawrotation.png" />
 </section>
 <section id="more-improvements">
-<span id="index-10"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Better Documentation - Chapter: Extension using C/C++ languages</p></li>
 <li><p>Better Documentation - Chapter: Tutorial: Ring Extensions in C/C++</p></li>
