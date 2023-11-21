@@ -84,6 +84,9 @@ aStringTypes 	= ["const char *","char const *","char *"]
 # When we have function callback type we add it to the next list to avoid treating it as struct 
 aFunctionCallback = []
 
+# Extra Function Name (i.e. another name for the same function)
+aExtraFunctionName = []		# list store other function name ["function name","new function name"]
+
 aNewMethodName 		= []	# list store new method name ["class name","method name","new method name"]
 C_NMN_CLASSNAME 	= 1
 C_NMN_METHODNAME 	= 2
@@ -505,6 +508,10 @@ Func GenFuncPrototype aList
 	for cFunc in $aStructFuncs
 			cCode += C_TABS_1 + 'RING_API_REGISTER("' + lower(cFunc) + '",' +
 				  "ring_"+cFunc + ");" + nl
+	next
+	for aExtraFunc in aExtraFunctionName
+			cCode += C_TABS_1 + 'RING_API_REGISTER("' + lower(aExtraFunc[1]) + '",' +
+				  "ring_"+aExtraFunc[2] + ");" + nl
 	next
 	cCode += "}" + nl
 	return cCode
