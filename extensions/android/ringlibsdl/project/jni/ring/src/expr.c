@@ -717,8 +717,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
                 **  Before Equal 
                 **  Generate Code 
                 */
-                ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
-                ring_parser_icg_newoperandint(pParser,nBeforeEqual);
+                ring_parser_icg_beforeequal(pParser,nBeforeEqual);
                 if ( lSetProperty == 0 ) {
                     if ( nNOOP == 0 ) {
                         ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
@@ -748,8 +747,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
                 **  Before Equal 
                 **  Generate Code 
                 */
-                ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
-                ring_parser_icg_newoperandint(pParser,nBeforeEqual);
+                ring_parser_icg_beforeequal(pParser,nBeforeEqual);
                 if ( lSetProperty == 0 ) {
                     ring_parser_icg_newoperation(pParser,ICO_NOOP);
                 }
@@ -1319,8 +1317,7 @@ int ring_parser_ppmm ( Parser *pParser )
             ring_parser_icg_pushn(pParser,nValue);
             ring_parser_icg_newoperation(pParser,ICO_SUM);
             ring_parser_icg_newoperandint(pParser,0);
-            ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
-            ring_parser_icg_newoperandint(pParser,0);
+            ring_parser_icg_beforeequal(pParser,0);
             nMark = ring_parser_icg_newlabel(pParser);
             ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
             ring_parser_icg_newoperandint(pParser,0);
@@ -1339,8 +1336,7 @@ int ring_parser_ppmm ( Parser *pParser )
             ring_parser_icg_pushn(pParser,nValue);
             ring_parser_icg_newoperation(pParser,ICO_SUM);
             ring_parser_icg_newoperandint(pParser,0);
-            ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
-            ring_parser_icg_newoperandint(pParser,0);
+            ring_parser_icg_beforeequal(pParser,0);
             ring_parser_icg_newoperation(pParser,ICO_SETPROPERTY);
             ring_parser_icg_newoperandint(pParser,0);
             ring_parser_icg_newoperandint(pParser,0);

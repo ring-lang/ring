@@ -182,6 +182,12 @@ void ring_parser_icg_pushn ( Parser *pParser,double nValue )
     }
     ring_parser_icg_newoperanddouble(pParser,nValue);
 }
+
+void ring_parser_icg_beforeequal ( Parser *pParser,int nBeforeEqual )
+{
+    ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
+    ring_parser_icg_newoperandint(pParser,nBeforeEqual);
+}
 /* Show the Intermediate Code */
 
 void ring_parser_icg_showoutput ( List *pListGenCode )

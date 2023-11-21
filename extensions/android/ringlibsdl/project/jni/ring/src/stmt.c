@@ -434,8 +434,7 @@ int ring_parser_stmt ( Parser *pParser )
             ring_parser_icg_newoperation(pParser,ICO_CALL);
             ring_parser_icg_newoperandint(pParser,0);
             ring_parser_icg_newoperation(pParser,ICO_NOOP);
-            ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
-            ring_parser_icg_newoperandint(pParser,0);
+            ring_parser_icg_beforeequal(pParser,0);
             ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
             ring_parser_icg_newoperandint(pParser,0);
             ring_parser_icg_newoperandint(pParser,0);
@@ -476,8 +475,7 @@ int ring_parser_stmt ( Parser *pParser )
                     **  Generate Code 
                     **  Before Equal ( = ) not += , -= ,... etc 
                     */
-                    ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
-                    ring_parser_icg_newoperandint(pParser,0);
+                    ring_parser_icg_beforeequal(pParser,0);
                     ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
                     nLine2 = pParser->nLineNumber ;
                     ring_parser_icg_newline(pParser,pParser->nLineNumber);
@@ -585,8 +583,7 @@ int ring_parser_stmt ( Parser *pParser )
                 ring_parser_icg_loadaddress(pParser,cStr);
                 ring_parser_icg_pushn(pParser,1.0);
                 /* Before Equal ( = ) not += , -= ,... etc */
-                ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
-                ring_parser_icg_newoperandint(pParser,0);
+                ring_parser_icg_beforeequal(pParser,0);
                 ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
                 /* Generate Code */
                 nLine2 = pParser->nLineNumber ;
