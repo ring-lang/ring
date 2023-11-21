@@ -71,8 +71,8 @@ while !WindowShouldClose()
 
 	cameraTime = GetTime()*0.3
 
-	raylib_set_Camera3D_position_x(cam,cos(cameraTime)*40.0)
-	raylib_set_Camera3D_position_z(cam,sin(cameraTime)*40.0)
+	setCamera3DPosX(cam,cos(cameraTime)*40.0)
+	setCamera3DPosZ(cam,sin(cameraTime)*40.0)
 
 	BeginDrawing()
 
