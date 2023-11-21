@@ -85,7 +85,7 @@ aStringTypes 	= ["const char *","char const *","char *"]
 aFunctionCallback = []
 
 # Extra Function Name (i.e. another name for the same function)
-aExtraFunctionName = []		# list store other function name ["function name","new function name"]
+aExtraFunctionName = []		# list store another function name ["function name","new function name"]
 
 aNewMethodName 		= []	# list store new method name ["class name","method name","new method name"]
 C_NMN_CLASSNAME 	= 1
