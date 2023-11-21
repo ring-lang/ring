@@ -19841,4 +19841,16 @@ RING_LIBINIT
 	RING_API_REGISTER("raylib_set_vrdeviceinfo_lensseparationdistance",ring_raylib_set_vrdeviceinfo_lensSeparationDistance);
 	RING_API_REGISTER("raylib_get_vrdeviceinfo_interpupillarydistance",ring_raylib_get_vrdeviceinfo_interpupillaryDistance);
 	RING_API_REGISTER("raylib_set_vrdeviceinfo_interpupillarydistance",ring_raylib_set_vrdeviceinfo_interpupillaryDistance);
+	RING_API_REGISTER("vec2",ring_raylib_new_managed_vector2);
+	RING_API_REGISTER("vec2setx",ring_raylib_set_vector2_x);
+	RING_API_REGISTER("vec2sety",ring_raylib_set_vector2_y);
+	RING_API_REGISTER("vec3",ring_raylib_new_managed_vector3);
+	RING_API_REGISTER("vec3setx",ring_raylib_set_vector3_x);
+	RING_API_REGISTER("vec3sety",ring_raylib_set_vector3_y);
+	RING_API_REGISTER("vec3setz",ring_raylib_set_vector3_z);
+	RING_API_REGISTER("vec4",ring_raylib_new_managed_vector4);
+	RING_API_REGISTER("vec4setx",ring_raylib_set_vector4_x);
+	RING_API_REGISTER("vec4sety",ring_raylib_set_vector4_y);
+	RING_API_REGISTER("vec4setz",ring_raylib_set_vector4_z);
+	RING_API_REGISTER("vec4setw",ring_raylib_set_vector4_w);
 }

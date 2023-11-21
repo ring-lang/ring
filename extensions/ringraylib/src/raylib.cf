@@ -733,3 +733,23 @@ int getimagepixelg_2(Color *p1,int y,int x,int width)
 int getimagepixelb_2(Color *p1,int y,int x,int width) 
 int getimagepixela_2(Color *p1,int y,int x,int width) 
 </register>
+
+
+<comment>
+Extra names for functions
+</comment>
+
+<runcode>
+aExtraFunctionName + ["vec2","raylib_new_managed_vector2"]
+aExtraFunctionName + ["vec2setx","raylib_set_vector2_x"]
+aExtraFunctionName + ["vec2sety","raylib_set_vector2_y"]
+aExtraFunctionName + ["vec3","raylib_new_managed_vector3"]
+aExtraFunctionName + ["vec3setx","raylib_set_vector3_x"]
+aExtraFunctionName + ["vec3sety","raylib_set_vector3_y"]
+aExtraFunctionName + ["vec3setz","raylib_set_vector3_z"]
+aExtraFunctionName + ["vec4","raylib_new_managed_vector4"]
+aExtraFunctionName + ["vec4setx","raylib_set_vector4_x"]
+aExtraFunctionName + ["vec4sety","raylib_set_vector4_y"]
+aExtraFunctionName + ["vec4setz","raylib_set_vector4_z"]
+aExtraFunctionName + ["vec4setw","raylib_set_vector4_w"]
+</runcode>
