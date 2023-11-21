@@ -27,6 +27,7 @@ RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState )
     RING_API_REGISTER("clockspersecond",ring_vm_generallib_clockspersecond);
     RING_API_REGISTER("prevfilename",ring_vm_generallib_prevfilename);
     RING_API_REGISTER("srandom",ring_vm_generallib_srandom);
+    RING_API_REGISTER("nothing",ring_vm_generallib_nothing);
     /* Check Data Type */
     RING_API_REGISTER("isstring",ring_vm_generallib_isstring);
     RING_API_REGISTER("isnumber",ring_vm_generallib_isnumber);
@@ -605,6 +606,15 @@ void ring_vm_generallib_srandom ( void *pPointer )
     else {
         RING_API_ERROR(RING_API_BADPARACOUNT);
     }
+}
+
+void ring_vm_generallib_nothing ( void *pPointer )
+{
+    /*
+    **  This function does nothig, could be used in performance measurements. 
+    **  Also, It doesn't check the number of parameters 
+    */
+    RING_API_RETNUMBER(0.0);
 }
 /* Check Data Type */
 

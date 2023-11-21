@@ -91,6 +91,7 @@ ring_vm_generallib_adddays_isleapyear
 ring_vm_generallib_srandom
 Type: int
 nNum1
+ring_vm_generallib_nothing
 ring_vm_generallib_isstring
 ring_vm_generallib_isnumber
 ring_vm_generallib_islist

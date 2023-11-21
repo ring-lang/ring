@@ -53,6 +53,8 @@
     int ring_vm_generallib_adddays_isleapyear ( int nYear ) ;
 
     void ring_vm_generallib_srandom ( void *pPointer ) ;
+
+    void ring_vm_generallib_nothing ( void *pPointer ) ;
     /* Check Data Type */
 
     void ring_vm_generallib_isstring ( void *pPointer ) ;
