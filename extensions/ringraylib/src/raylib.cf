@@ -741,18 +741,26 @@ Extra names for functions
 
 <runcode>
 aExtraFunctionName + ["vec2","raylib_new_managed_vector2"]
+aExtraFunctionName + ["vec2getx","raylib_get_vector2_x"]
 aExtraFunctionName + ["vec2setx","raylib_set_vector2_x"]
+aExtraFunctionName + ["vec2gety","raylib_get_vector2_y"]
 aExtraFunctionName + ["vec2sety","raylib_set_vector2_y"]
 aExtraFunctionName + ["vec3","raylib_new_managed_vector3"]
+aExtraFunctionName + ["vec3getx","raylib_get_vector3_x"]
 aExtraFunctionName + ["vec3setx","raylib_set_vector3_x"]
+aExtraFunctionName + ["vec3gety","raylib_get_vector3_y"]
 aExtraFunctionName + ["vec3sety","raylib_set_vector3_y"]
+aExtraFunctionName + ["vec3getz","raylib_get_vector3_z"]
 aExtraFunctionName + ["vec3setz","raylib_set_vector3_z"]
 aExtraFunctionName + ["vec4","raylib_new_managed_vector4"]
+aExtraFunctionName + ["vec4getx","raylib_get_vector4_x"]
 aExtraFunctionName + ["vec4setx","raylib_set_vector4_x"]
+aExtraFunctionName + ["vec4gety","raylib_get_vector4_y"]
 aExtraFunctionName + ["vec4sety","raylib_set_vector4_y"]
+aExtraFunctionName + ["vec4getz","raylib_get_vector4_z"]
 aExtraFunctionName + ["vec4setz","raylib_set_vector4_z"]
+aExtraFunctionName + ["vec4getw","raylib_get_vector4_w"]
 aExtraFunctionName + ["vec4setw","raylib_set_vector4_w"]
-
 
 aExtraFunctionName + ["getcamera3dposx","raylib_get_camera3d_position_x"]
 aExtraFunctionName + ["setcamera3dposx","raylib_set_camera3d_position_x"]
