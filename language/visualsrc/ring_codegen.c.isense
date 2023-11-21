@@ -160,6 +160,7 @@ ring_parser_icg_newpackagename
 ring_parser_icg_pushn
 Type: int
 nLastOperation, lChange
+ring_parser_icg_beforeequal
 ring_parser_icg_showoutput
 Type: int
 x,y,nCount,nCount2

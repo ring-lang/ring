@@ -231,6 +231,8 @@
     char * ring_parser_icg_newpackagename ( Parser *pParser,List *pPos ) ;
 
     void ring_parser_icg_pushn ( Parser *pParser,double nValue ) ;
+
+    void ring_parser_icg_beforeequal ( Parser *pParser,int nBeforeEqual ) ;
     /* Show the Intermediate Code */
 
     void ring_parser_icg_showoutput ( List *pListGenCode ) ;
