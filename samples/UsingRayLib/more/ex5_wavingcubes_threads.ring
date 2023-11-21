@@ -19,14 +19,17 @@ data = newlist(numThreads, qub)
 
 for j = 1 to numThreads
 	for k = 1 to qub
-		data[j][k] = [raylib_new_managed_vector3(), raylib_new_managed_vector3(), BLACK]
+		data[j][k] = [Vec3(), Vec3(), BLACK]
 	next
 next
 	
-color = Vector3(0, 0.75, 0.9).data()
+color = Vec3()
+Vec3SetY(color,0.75)
+Vec3SetZ(color,0.9)
+
 colors = []
 for c = 0 to 359
-	raylib_set_vector3_x(color, c)
+	Vec3SetX(color, c)
 	Add(colors, ColorFromHSV_2(color))
 next
 
@@ -116,13 +119,13 @@ func thread i
 				for z = 0 to cnt
 					blockScale = (x + y + z) / 30.0
 					scatter = sin(blockScale*20.0 + (time*4.0))
-					raylib_set_vector3_x(data[i][v][1], (x - numBlocks/2.0)*(scale*3.0) + scatter)
-					raylib_set_vector3_y(data[i][v][1], (y - numBlocks/2.0)*(scale*2.0) + scatter)
-					raylib_set_vector3_z(data[i][v][1], (z - numBlocks/2.0)*(scale*3.0) + scatter)
+					Vec3SetX(data[i][v][1], (x - numBlocks/2.0)*(scale*3.0) + scatter)
+					Vec3SetY(data[i][v][1], (y - numBlocks/2.0)*(scale*2.0) + scatter)
+					Vec3SetZ(data[i][v][1], (z - numBlocks/2.0)*(scale*3.0) + scatter)
 					size = (2.4 - scale)*blockScale
-					raylib_set_vector3_x(data[i][v][2], size)
-					raylib_set_vector3_y(data[i][v][2], size)
-					raylib_set_vector3_z(data[i][v][2], size)
+					Vec3SetX(data[i][v][2], size)
+					Vec3SetY(data[i][v][2], size)
+					Vec3SetZ(data[i][v][2], size)
 					data[i][v][3] = colors[((x + y + z)*18.0)%360 + 1]
 					v++
 				next
