@@ -88,7 +88,7 @@ RING_API void ring_item_deletecontent_gc ( void *pState,Item *pItem )
 
 RING_API void ring_item_settype_gc ( void *pState,Item *pItem,unsigned int ItemType )
 {
-    if ( (ItemType == ITEMTYPE_STRING) && (pItem->nType == ITEMTYPE_STRING) ) {
+    if ( (ItemType == pItem->nType) && ( (ItemType == ITEMTYPE_STRING) || (ItemType == ITEMTYPE_NUMBER)  ) ) {
         /*
         **  If the current item type is a String and the new type is also a String - We do nothing 
         **  In this case the item will contains the old data 
