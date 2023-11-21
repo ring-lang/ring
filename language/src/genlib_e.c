@@ -28,6 +28,7 @@ RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState )
     RING_API_REGISTER("prevfilename",ring_vm_generallib_prevfilename);
     RING_API_REGISTER("srandom",ring_vm_generallib_srandom);
     RING_API_REGISTER("nothing",ring_vm_generallib_nothing);
+    RING_API_REGISTER("optionalfunc",ring_vm_generallib_optionalfunc);
     /* Check Data Type */
     RING_API_REGISTER("isstring",ring_vm_generallib_isstring);
     RING_API_REGISTER("isnumber",ring_vm_generallib_isnumber);
@@ -615,6 +616,30 @@ void ring_vm_generallib_nothing ( void *pPointer )
     **  Also, It doesn't check the number of parameters 
     */
     RING_API_RETNUMBER(0.0);
+}
+
+void ring_vm_generallib_optionalfunc ( void *pPointer )
+{
+    RingState *pRingState  ;
+    VM *pVM  ;
+    const char *cFunc  ;
+    pVM = (VM *) pPointer ;
+    pRingState = pVM->pRingState ;
+    if ( RING_API_PARACOUNT != 1 ) {
+        RING_API_ERROR(RING_API_BADPARACOUNT);
+        return ;
+    }
+    if ( RING_API_ISSTRING(1) ) {
+        cFunc = RING_API_GETSTRING(1) ;
+        ring_list_deletearray_gc(pRingState,pRingState->pRingCFunctions);
+        RING_API_REGISTER(cFunc,ring_vm_generallib_nothing);
+        /* Refresh the HashTable */
+        ring_list_genarray(pRingState->pRingCFunctions);
+        ring_list_genhashtable2(pRingState->pRingCFunctions);
+    }
+    else {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+    }
 }
 /* Check Data Type */
 
