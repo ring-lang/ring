@@ -1264,6 +1264,30 @@ Example
 
 
 .. index:: 
+	pair: Code Generator; Extra names for functions
+
+Extra names for functions
+=========================
+
+Starting from Ring 1.19
+
+The code generator is updated and support defining extra names for functions
+
+Using the predefined list (aExtraFunctionName) we can define the extra names
+
+Example:
+
+To define vec2() as another name for raylib_new_managed_vector2()
+
+.. code-block:: none
+
+	<runcode>
+	aExtraFunctionName + ["vec2","raylib_new_managed_vector2"]
+	aExtraFunctionName + ["vec2setx","raylib_set_vector2_x"]
+	aExtraFunctionName + ["vec2sety","raylib_set_vector2_y"]
+	</runcode>
+
+.. index:: 
 	pair: Code Generator; Configuration Files Examples
 
 Configuration Files Examples

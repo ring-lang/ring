@@ -164,6 +164,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#static-methods">Static Methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#loading-files">Loading Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#managed-classes">Managed Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#extra-names-for-functions">Extra names for functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#configuration-files-examples">Configuration Files Examples</a></li>
 </ul>
 </li>
@@ -1345,8 +1346,23 @@ QString findExecutable(QString executableName, QStringList paths))
 </pre></div>
 </div>
 </section>
+<section id="extra-names-for-functions">
+<span id="index-23"></span><h2>Extra names for functions<a class="headerlink" href="#extra-names-for-functions" title="Permalink to this heading"></a></h2>
+<p>Starting from Ring 1.19</p>
+<p>The code generator is updated and support defining extra names for functions</p>
+<p>Using the predefined list (aExtraFunctionName) we can define the extra names</p>
+<p>Example:</p>
+<p>To define vec2() as another name for raylib_new_managed_vector2()</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;runcode&gt;
+aExtraFunctionName + [&quot;vec2&quot;,&quot;raylib_new_managed_vector2&quot;]
+aExtraFunctionName + [&quot;vec2setx&quot;,&quot;raylib_set_vector2_x&quot;]
+aExtraFunctionName + [&quot;vec2sety&quot;,&quot;raylib_set_vector2_y&quot;]
+&lt;/runcode&gt;
+</pre></div>
+</div>
+</section>
 <section id="configuration-files-examples">
-<span id="index-23"></span><h2>Configuration Files Examples<a class="headerlink" href="#configuration-files-examples" title="Permalink to this heading"></a></h2>
+<span id="index-24"></span><h2>Configuration Files Examples<a class="headerlink" href="#configuration-files-examples" title="Permalink to this heading"></a></h2>
 <p>You can learn from the next examples</p>
 <ul class="simple">
 <li><p>RingAllegro : <a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/allegro.cf">https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/allegro.cf</a></p></li>
