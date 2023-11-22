@@ -2379,4 +2379,46 @@ The next functions are added by the RingRayLib extension
 	* SetShaderIVec3(shader, Location, aValue)
 	* SetShaderIVec4(shader, Location, aValue)
 	* SetModelMaterialShader(model, nID, shader)
-
+	* vec2() --> Vector2
+	* vec2getx() --> double
+	* vec2setx(double)
+	* vec2gety() --> double
+	* vec2sety(double)
+	* vec3() --> Vector3
+	* vec3getx() --> double
+	* vec3setx(double)
+	* vec3gety() --> double
+	* vec3sety(double)
+	* vec3getz() --> double
+	* vec3setz(double)
+	* vec4() --> Vector4
+	* vec4getx() --> double
+	* vec4setx(double)
+	* vec4gety() --> double
+	* vec4sety(double)
+	* vec4getz() --> double
+	* vec4setz(double)
+	* vec4getw() --> double
+	* vec4setw(double)
+	* getcamera3dposx() --> double
+	* setcamera3dposx(double)
+	* getcamera3dposy() --> double
+	* setcamera3dposy(double)
+	* getcamera3dposz() --> double
+	* setcamera3dposz(double)
+	* getcamera3dtarx() --> double
+	* setcamera3dtarx(double)
+	* getcamera3dtary() --> double
+	* setcamera3dtary(double)
+	* getcamera3dtarz() --> double
+	* setcamera3dtarz(double)
+	* getcamera3dupx() --> double
+	* setcamera3dupx(double)
+	* getcamera3dupy() --> double
+	* setcamera3dupy(double)
+	* getcamera3dupz() --> double
+	* setcamera3dupz(double)
+	* getcamera3fovy() --> double
+	* setcamera3fovy(double)
+	* getcamera3type() --> double
+	* setcamera3type(double)
