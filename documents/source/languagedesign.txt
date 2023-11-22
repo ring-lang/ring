@@ -627,15 +627,5 @@ Fast Enough For Many Applications
 
 Ring is designed to be a simple, small and flexible language in the first place, but also it is fast enough for many applications.
 
-Ring can do each of the next tasks in around 1 second using normal computers in the market during the last 5 years
-
-(1) Compiling 100,000 lines of code
-(2) Executing empty loop that count from 1 to 10,000,000
-(3) Executing 1000 search operation using linear search in a list contains 100,000 items, trying to find the last item (The worst case)
-(4) Creating list contains 1,000,000 items then summing all of the list items
-(5) Adding 20,000 items to the ListWidget in GUI applications
-(6) Adding 5,000 nodes to the TreeWidget in GUI applications
-(7) Printing 10,000 messages to the terminal in Console applications
-
 Also when we need more speed we can use C/C++ extensions! 
 
