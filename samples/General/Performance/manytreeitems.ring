@@ -1,5 +1,7 @@
 load "guilib.ring"
 
+C_NODESCOUNT = 50000
+
 func main
 	new qApp {
 		win = new qWidget() { 
@@ -10,13 +12,13 @@ func main
 				root = new qTreeWidgetItem()
 				root.setText(0,"The Root Node")
 				t1 = clock()
-				for t = 1 to 5000
+				for t = 1 to C_NODESCOUNT
 					oItem = new qTreeWidgetItem()
 					oItem.settext(0,"Item " + t)
 					root.addchild(oItem)
 				next
 				cTime = (clock()-t1)/clockspersecond()
-				setHeaderLabel("Creating 5000 nodes in " + cTime + " seconds.")
+				setHeaderLabel("Creating "+C_NODESCOUNT+" nodes in " + cTime + " seconds.")
 				addTopLevelItem(root)
 				expanditem(root)
 				blocksignals(False) setUpdatesEnabled(True)
