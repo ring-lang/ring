@@ -18,13 +18,14 @@ Ring 1.19 comes with the next features!
 * Planetary Orbits application
 * Image Pixel application
 * Hours Counter application
+* More Samples
 * Ring for Windows 64bit
 * Better batch files for building Ring 
 * For Loop - Better Performance
 * Calling Functions - Better Performance
 * Nothing() function
 * OptionalFunc() function
-* More Samples
+* Better code generator for extensions
 * More Improvements
 
 .. index:: 
@@ -60,6 +61,24 @@ This is a simple calculator for teaching hours
 
 .. image:: hourscounter.png
 	:alt: hourscounter
+
+
+.. index:: 
+	pair: What is new in Ring  1.19; More Samples
+
+More Samples
+============
+
+* Added: samples/Language/Constants
+* Added: samples/UsingQt/CustomDragAndDrop/customdraganddrop.ring 
+* Added: samples/UsingArabic/ArabicInCommandPrompt/DisplayArabic.ring
+* Added: samples/UsingMatrixLib/59-Matrix-Transform-Draw-Rotation.ring
+* Added: samples/UsingRayLib/more/ex5_wavingcubes_withoutthreads.ring
+* Added: samples/Language/OptionalFunc/Question.ring
+* Added: samples/Language/OptionalFunc/Answer.ring
+
+.. image:: drawrotation.png
+	:alt: drawrotation
 
 .. index:: 
 	pair: What is new in Ring  1.19; Ring for Windows 64bit 
@@ -224,21 +243,26 @@ Output:
 
 
 .. index:: 
-	pair: What is new in Ring  1.19; More Samples
+	pair: What is new in Ring  1.19; Better code generator for extensions
 
-More Samples
-============
+Better code generator for extensions
+====================================
 
-* Added: samples/Language/Constants
-* Added: samples/UsingQt/CustomDragAndDrop/customdraganddrop.ring 
-* Added: samples/UsingArabic/ArabicInCommandPrompt/DisplayArabic.ring
-* Added: samples/UsingMatrixLib/59-Matrix-Transform-Draw-Rotation.ring
-* Added: samples/UsingRayLib/more/ex5_wavingcubes_withoutthreads.ring
-* Added: samples/Language/OptionalFunc/Question.ring
-* Added: samples/Language/OptionalFunc/Answer.ring
+The code generator is updated and support defining extra names for functions
 
-.. image:: drawrotation.png
-	:alt: drawrotation
+Using the predefined list (aExtraFunctionName) we can define the extra names
+
+Example:
+
+To define vec2() as another name for raylib_new_managed_vector2()
+
+.. code-block:: none
+
+	<runcode>
+	aExtraFunctionName + ["vec2","raylib_new_managed_vector2"]
+	aExtraFunctionName + ["vec2setx","raylib_set_vector2_x"]
+	aExtraFunctionName + ["vec2sety","raylib_set_vector2_y"]
+	</runcode>
 
 .. index:: 
 	pair: What is new in Ring  1.19; More Improvements
