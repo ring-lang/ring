@@ -831,6 +831,14 @@ Ring can do each of the next tasks in around 1 second
 
 Also, when we need more speed we can use C/C++ extensions! 
 
+![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/ringdemo1_speed.png)
+
+![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/ringdemo2_speed.png)
+
+![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/ringdemo3_speed.png)
+
+![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/ringdemo4_speed.png)
+
 
 # Features
 
