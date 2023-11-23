@@ -129,7 +129,7 @@ cStartup
 Type: int
 x,nSize
 Type: char
-cFileName2[200]
+cFileName2[RING_PATHSIZE]
 ring_state_runobjectfile
 ring_state_runobjectstring
 ring_state_runprogram
