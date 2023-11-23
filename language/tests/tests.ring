@@ -521,6 +521,7 @@ aTests = [
 	[ :name = "Stack Overflow (Part 1)", :Command = "ring stack/rec_overflow.ring" ],
 	[ :name = "Stack Overflow (Part 2)", :Command = "ring stack/rec_overflow2.ring" ],
 	[ :name = "Stack Overflow (Part 3)", :Command = "ring stack/rec_overflow3.ring" ],
+	[ :name = "Type Hints (Part 1)", :Command = "ring typehints/override.ring" ],
 	[ :name = "Using References (Part 1)", :Command = "ring references/pointer.ring" ],
 	[ :name = "Using References (Part 2)", :Command = "ring references/pointer2.ring" ],
 	[ :name = "Using References (Part 3)", :Command = "ring references/tree.ring" ],
