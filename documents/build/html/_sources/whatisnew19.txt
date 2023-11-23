@@ -355,6 +355,7 @@ More Improvements
 * Better RingPostgreSQL samples
 * Better RingMySQL sample - samples/AQuickStart/MySQL/mysql7.ring
 * Form Designer - Better behavior when displaying the MenuBar editor
+* TypeHints - Added: Byte, Boolean and @override
 * MatrixLib - Added: RowReduceEchelonForm() function
 * MatrixLib - Added: MatrixTransform() function
 * ObjectsLib - Better Code
