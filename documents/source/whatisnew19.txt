@@ -15,9 +15,9 @@ List of changes and new features
 
 Ring 1.19 comes with the next features!
 
-* Planetary Orbits application
 * Image Pixel application
 * Hours Counter application
+* Planetary Orbits application
 * More Samples
 * Ring for Windows 64bit
 * Better batch files for building Ring 
@@ -28,18 +28,6 @@ Ring 1.19 comes with the next features!
 * Better RingRayLib
 * Better code generator for extensions
 * More Improvements
-
-.. index:: 
-	pair: What is new in Ring  1.19; Planetary Orbits applications
-
-Planetary Orbits applications
-=============================
-
-An example about drawing and using the Matrix library
-
-.. image:: planetaryorbits.png
-	:alt: planetaryorbits
-
 
 .. index:: 
 	pair: What is new in Ring  1.19; Image Pixel applications
@@ -63,6 +51,16 @@ This is a simple calculator for teaching hours
 .. image:: hourscounter.png
 	:alt: hourscounter
 
+.. index:: 
+	pair: What is new in Ring  1.19; Planetary Orbits applications
+
+Planetary Orbits applications
+=============================
+
+An example about drawing and using the Matrix library
+
+.. image:: planetaryorbits.png
+	:alt: planetaryorbits
 
 .. index:: 
 	pair: What is new in Ring  1.19; More Samples
