@@ -2,11 +2,11 @@
 # Then sum the list items!
 
 t1 = clock()
-aList = list(7000000)
+aList = 1:7_000_000
 
 nSum = 0
 nMax = len(aList)
-for x=nMax to 1 step -1
+for x=1 to nMax
 	nSum += aList[x]
 next
 
