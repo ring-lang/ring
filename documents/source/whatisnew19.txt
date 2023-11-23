@@ -426,6 +426,7 @@ More Improvements
 * Low Level Functions - ringvm_calllist() - Better Output
 * Ring API - Added: RING_API_STATE to get a pointer to Ring State 
 * Ring Compiler - Remove unnecessary ICO_FREESTACK after For-Loops
+* Ring Compiler - When we run ringsyntax.ring don't load the same file again
 * Ring Compiler/VM - Items structure functions - Better Performance
 * Ring Compiler/VM - HashTable - Better default parameters
 * Ring VM - Function Call - Replace some Ring lists with C Structures
