@@ -3,11 +3,11 @@ load "guilib.ring"
 C_NODESCOUNT = 50000
 
 func main
-	new qApp {
-		win = new qWidget() { 
+	new QApp {
+		win = new QWidget() { 
 			move(100,100) resize(500,500)
 			setWindowTitle("Many Tree Items - Testing Performance")
-			tree = new qTreeWidget(win) { 
+			tree = new QTreeWidget(win) { 
 				blocksignals(True) setUpdatesEnabled(False)
 				root = new qTreeWidgetItem()
 				root.setText(0,"The Root Node")
@@ -23,7 +23,7 @@ func main
 				expanditem(root)
 				blocksignals(False) setUpdatesEnabled(True)
 			}
-			oLayout = new qVBoxLayout() {
+			oLayout = new QVBoxLayout() {
 				addWidget(tree)
 			}
 			setLayout(oLayout)
