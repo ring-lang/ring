@@ -1,6 +1,6 @@
 load "typehints.ring"
 
-o = new mynewlib {
+o = new MyNewLib {
 	? isGreaterThanTwo(10)
 	? isGreaterThanTwo(1)
 }
@@ -18,7 +18,7 @@ class MyLib {
 class MyNewLib < MyLib {
 	@override
 	boolean func isGreaterThanTwo(int x) {
-		? "using override"
+		? "Using override"
 		return x>2
 	}
 }
