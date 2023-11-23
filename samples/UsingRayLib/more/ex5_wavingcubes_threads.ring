@@ -6,7 +6,6 @@
 #===================================================================#
 
 load "raylib.ring"
-load "stdlib.ring"
 load "libuv.ring"
 
 numBlocks = 15
