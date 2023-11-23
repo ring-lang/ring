@@ -15,6 +15,8 @@ long 		= :long
 float 		= :float 
 double 		= :double 
 void 		= :void 
+byte		= :byte
+boolean		= :boolean
 
 # High Level Types 
 string 		= :string 
@@ -28,6 +30,7 @@ static		= :static
 abstract	= :abstract 
 protected	= :protected
 override	= :override 
+@override	= :override
 
 # Add User Types (Define Application Classes As Types)
 # We use the eval() function two times 
