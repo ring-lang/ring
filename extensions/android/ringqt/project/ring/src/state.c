@@ -280,8 +280,8 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
     int x,nSize  ;
     char cFileName2[RING_PATHSIZE]  ;
     /* Check Path Size */
-    if ( strlen(cFileName) > RING_PATHSIZE ) {
-        printf( "\nVery long path! Can't open %s  The maximum path size is %d \n",cFileName,RING_PATHSIZE ) ;
+    if ( strlen(cFileName) > RING_PATHLIMIT ) {
+        printf( "\nVery long path! Can't open %s  The maximum path size is %d \n",cFileName,RING_PATHLIMIT ) ;
         return 0 ;
     }
     /* Check file */
@@ -415,8 +415,8 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 RING_API void ring_state_runobjectfile ( RingState *pRingState,char *cFileName )
 {
     /* Check Path Size */
-    if ( strlen(cFileName) > RING_PATHSIZE ) {
-        printf( "\nVery long path! Can't open %s  The maximum path size is %d \n",cFileName,RING_PATHSIZE ) ;
+    if ( strlen(cFileName) > RING_PATHLIMIT ) {
+        printf( "\nVery long path! Can't open %s  The maximum path size is %d \n",cFileName,RING_PATHLIMIT ) ;
         return ;
     }
     /* Files List */

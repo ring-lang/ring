@@ -103,7 +103,8 @@
     #define RING_SSCANFERROR "\nError (E7) : Internal error in using sscanf() function!\n"
     #define RING_FSCANFERROR "\nError (E8) : Internal error in using fscanf() function!\n"
     /* General */
-    #define RING_PATHSIZE 512
+    #define RING_PATHSIZE 8192
+    #define RING_PATHLIMIT 4096
     /* See and Give - use ringvm_see() and ringvm_give() */
     #define RING_USESEEFUNCTION 1
     #define RING_USEGIVEFUNCTION 1
