@@ -36,12 +36,12 @@ Example:
 
 	? "Create list contains 100,000 items"
 	aList = 1:100000
+	
+	? "Do 3000 search operation - Find the last item (Worst Case!)"
+	c = clock()
 
-	? "Do 1000 search operation - Find the last item (Worst Case!)"
-	c = clock() 
-
-	for t = 1 to 1000
-		find(alist,100000)
+	for t = 1 to 3000
+        	find(alist,100000)
 	next
 
 	? "Time: " + ( clock() - c ) / clockspersecond() + " seconds"
@@ -51,8 +51,8 @@ Output:
 .. code-block:: none
 
 	Create list contains 100,000 items
-	Do 1000 search operation - Find the last item (Worst Case!)
-	Time: 0.87 seconds
+	Do 3000 search operation - Find the last item (Worst Case!)
+	Time: 0.83 seconds
 
 Example:
 
@@ -60,29 +60,30 @@ Example:
 
 	load "guilib.ring"
 
-	func main
+	C_NODESCOUNT = 50000
 
-	new qApp {
-		win = new qWidget() { 
+	func main
+	new QApp {
+		win = new QWidget() { 
 			move(100,100) resize(500,500)
 			setWindowTitle("Many Tree Items - Testing Performance")
-			tree = new qTreeWidget(win) { 
+			tree = new QTreeWidget(win) { 
 				blocksignals(True) setUpdatesEnabled(False)
 				root = new qTreeWidgetItem()
 				root.setText(0,"The Root Node")
 				t1 = clock()
-				for t = 1 to 5000
+				for t = 1 to C_NODESCOUNT
 					oItem = new qTreeWidgetItem()
 					oItem.settext(0,"Item " + t)
 					root.addchild(oItem)
 				next
 				cTime = (clock()-t1)/clockspersecond()
-				setHeaderLabel("Creating 5000 nodes in " + cTime + " seconds.")
+				setHeaderLabel("Creating "+C_NODESCOUNT+" nodes in " + cTime + " seconds.")
 				addTopLevelItem(root)
 				expanditem(root)
 				blocksignals(False) setUpdatesEnabled(True)
 			}
-			oLayout = new qVBoxLayout() {
+			oLayout = new QVBoxLayout() {
 				addWidget(tree)
 			}
 			setLayout(oLayout)
@@ -90,7 +91,7 @@ Example:
 		}
 		exec()
 	}
-	
+		
 
 Output:
 
@@ -108,23 +109,25 @@ Example:
 
 .. code-block:: ring
 
+	C_COUNT = 1_000_000
+	
 	? "Create the list using the Range operator"
 	t1 = clock()
-	aList = 1:1000000
+	aList = 1:C_COUNT
 	? "Time : " + ((clock()-t1)/clockspersecond()) + " seconds"
-
+	
 	? "Create the list using the For loop"
 	t1 = clock()
 	aList = []
-	for x = 1 to 1000000
+	for x = 1 to C_COUNT
 		aList + x
 	next
 	? "Time : " + ((clock()-t1)/clockspersecond()) + " seconds"
-
+	
 	? "Create the list using the list() function and the For loop"
 	t1 = clock()
-	aList = list(1000000)
-	for x = 1 to 1000000
+	aList = list(C_COUNT)
+	for x = 1 to C_COUNT
 		aList[x] = x
 	next
 	? "Time : " + ((clock()-t1)/clockspersecond()) + " seconds"
@@ -134,11 +137,12 @@ Output:
 .. code-block:: none
 
 	Create the list using the Range operator
-	Time : 0.48 seconds
+	Time : 0.01 seconds
 	Create the list using the For loop
-	Time : 0.79 seconds
+	Time : 0.11 seconds
 	Create the list using the list() function and the For loop
-	Time : 1.56 seconds
+	Time : 0.13 seconds
+
 
 .. note:: Creating lists using the Range operator is faster than using the For loop or the list() function
 
@@ -153,17 +157,19 @@ Example:
 
 .. code-block:: ring
 
+	C_COUNT = 1_000_000
+
 	? "Using * operator"
 	t1 = clock()
-	for x = 1 to 1000000
-		out = x * 2
+	out = 10
+	for x = 1 to C_COUNT
+		out = out * 2
 	next
 	? "Time : " + ((clock()-t1)/clockspersecond()) + " seconds"
 
 	? "Using *= operator"
 	t1 = clock()
-	for x = 1 to 1000000
-		out = x
+	for x = 1 to C_COUNT
 		out *= 2
 	next
 	? "Time : " + ((clock()-t1)/clockspersecond()) + " seconds"
@@ -173,9 +179,10 @@ Output:
 .. code-block:: none
 
 	Using * operator
-	Time : 1.34 seconds
+	Time : 0.11 seconds
 	Using *= operator
-	Time : 0.47 seconds
+	Time : 0.09 seconds
+
 
 .. note:: Using the *= operator is faster that using the * operator
 
@@ -210,9 +217,9 @@ Output:
 .. code-block:: none
 
 	Using len() in the For loop
-	Time : 5.50 seconds
+	Time : 0.32 seconds
 	Using len() before the For loop
-	Time : 0.24 seconds
+	Time : 0.03 seconds
 
 .. note:: Using len() before the For loop is faster than using len() in the For loop.
 
@@ -262,13 +269,13 @@ Output:
 .. code-block:: none
 
 	calling 100000 functions
-	Time : 0.28 seconds
+	Time : 0.03 seconds
 	calling 100000 methods using the dot operator
-	Time : 0.36 seconds
-	calling 100000 methods using braces
-	Time : 1.19 seconds
+	Time : 0.07 seconds
+	calling 100000 methods using braces 
+	Time : 0.18 seconds
 
-.. note:: Calling functions is faster than calling methods but the difference is very small.
+.. note:: Calling functions is faster than calling methods.
 
 .. note:: Using the dot operator to call methods is faster than using braces.
 
