@@ -34,6 +34,21 @@ Example:
 
 .. code-block:: ring
 
+	t1=clock()
+	for t=1 to 100_000_000 next
+	? (clock()-t1)/clockspersecond()
+
+Output:
+
+.. code-block:: none
+
+	1.12
+
+
+Example:
+
+.. code-block:: ring
+
 	? "Create list contains 100,000 items"
 	aList = 1:100000
 	
