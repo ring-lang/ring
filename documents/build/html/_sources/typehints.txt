@@ -127,7 +127,10 @@ The next types are defined by the library
 	long 		 
 	float 		 
 	double 		 
-	void 		 
+	void
+	byte
+	boolean
+	 		 
 
 	# High Level Types 
 	string 		 
@@ -140,6 +143,7 @@ The next types are defined by the library
 	static		 
 	abstract	 
 	protected	 
-	override	 
+	override
+	@override	 
 
 
