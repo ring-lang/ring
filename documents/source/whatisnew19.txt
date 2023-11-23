@@ -77,6 +77,14 @@ More Samples
 * Added: samples/UsingRayLib/more/ex5_wavingcubes_withoutthreads.ring
 * Added: samples/Language/OptionalFunc/Question.ring
 * Added: samples/Language/OptionalFunc/Answer.ring
+* Added: samples/General/Performance/emptyloop.ring
+* Added: samples/General/Performance/print.ring
+* Added: samples/General/Performance/math.ring
+* Added: samples/General/Performance/createlists.ring
+* Added: samples/General/Performance/len.ring
+* Added: samples/General/Performance/methods.ring
+* Added: samples/General/Performance/manylistitems.ring
+* Added: samples/General/Performance/search.ring
 
 .. image:: drawrotation.png
 	:alt: drawrotation
