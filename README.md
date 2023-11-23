@@ -827,7 +827,7 @@ Ring can do each of the next tasks in around 1 second
 
 (7) Adding 60,000 items to the ListWidget in GUI applications
 
-(8) Executing 3000 search operation using linear search in a list contains 100,000 items, trying to find the last item (The worst case)
+(8) Executing 3000 search operations using linear search in a list contains 100,000 items, trying to find the last item (The worst case)
 
 Also, when we need more speed we can use C/C++ extensions! 
 

@@ -26,7 +26,7 @@ Ring can do each of the next tasks in around 1 second
 (5) Printing numbers from 1 to 400,000 using output redirection and Ring Notepad
 (6) Adding 50,000 nodes to the TreeWidget in GUI applications
 (7) Adding 60,000 items to the ListWidget in GUI applications
-(8) Executing 3000 search operation using linear search in a list contains 100,000 items, trying to find the last item (The worst case)
+(8) Executing 3000 search operations using linear search in a list contains 100,000 items, trying to find the last item (The worst case)
 
 Also when we need more speed we can use C/C++ extensions! 
 
@@ -52,7 +52,7 @@ Example:
 	? "Create list contains 100,000 items"
 	aList = 1:100000
 	
-	? "Do 3000 search operation - Find the last item (Worst Case!)"
+	? "Do 3000 search operations - Find the last item (Worst Case!)"
 	c = clock()
 
 	for t = 1 to 3000
@@ -66,7 +66,7 @@ Output:
 .. code-block:: none
 
 	Create list contains 100,000 items
-	Do 3000 search operation - Find the last item (Worst Case!)
+	Do 3000 search operations - Find the last item (Worst Case!)
 	Time: 0.83 seconds
 
 Example:
