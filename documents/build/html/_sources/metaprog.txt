@@ -40,6 +40,8 @@ In this chapter we will learn about this and the available functions to use.
 * mergemethods()
 * packagename()
 * importpackage()
+* nothing()
+* optionalfunc()
 
 .. index:: 
 	pair: Reflection and Meta-programming; locals()
@@ -1292,3 +1294,78 @@ Example:
 		class myclass
 			function myfunction
 				? "Hello, World!"
+
+
+.. index:: 
+	pair: Reflection and Meta-programming; Nothing() function
+
+Nothing() function
+==================
+
+This function does nothing and can accept any number/type of parameters. 
+The output will be Zero.
+
+Some of the Use Cases
+
+(1) Performance measurements, where we can test the performance of calling functions written in C and we can change the number of parameters during tests.
+
+
+(2) In places of code that you want to write a function name, and it's not defined yet.
+
+
+(3) To disable some feature/code by just changing the function name to nothing without changing the parameters or commenting the code.
+
+
+(4) In small programs, where you want to write a function that you can override from a Test program.
+
+
+.. index:: 
+	pair: Reflection and Meta-programming; OptionalFunc() function
+
+OptionalFunc() function
+=======================
+
+Using this function we can define functions similar to Nothing() but with a different name.
+
+Syntax:
+
+.. code-block:: none
+
+	OptionalFunc(cFunctionName)
+
+Example:
+
+File: Question.ring
+
+.. code-block:: ring
+
+	optionalFunc(:reply)
+
+	? "I love Programming, What about you?"
+	reply()
+	? "Ok, Thanks!"
+
+Output:
+
+.. code-block:: none
+
+	I love Programming, What about you?
+	Ok, Thanks!
+
+File: Answer.ring
+
+.. code-block:: ring
+
+
+	load "Question.ring"
+
+	func reply
+		? "Me too!"
+
+Output:
+
+.. code-block:: none
+
+	I love Programming, What about you?
+	Me too!
+	Ok, Thanks!

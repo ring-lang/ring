@@ -108,6 +108,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#mergemethods-function">mergemethods() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#packagename-function">packagename() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#importpackage-function">importpackage() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nothing-function">Nothing() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#optionalfunc-function">OptionalFunc() function</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
@@ -262,6 +264,8 @@ the program code and we can modify our code during the runtime.</p>
 <li><p>mergemethods()</p></li>
 <li><p>packagename()</p></li>
 <li><p>importpackage()</p></li>
+<li><p>nothing()</p></li>
+<li><p>optionalfunc()</p></li>
 </ul>
 <section id="locals-function">
 <span id="index-1"></span><h2>locals() Function<a class="headerlink" href="#locals-function" title="Permalink to this heading"></a></h2>
@@ -1196,6 +1200,53 @@ The Find uses the member name, rather than the column number</p>
         <span class="k">class</span> <span class="n">myclass</span>
                 <span class="k">function</span> <span class="n">myfunction</span>
                         <span class="o">?</span> <span class="s">&quot;Hello, World!&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="nothing-function">
+<span id="index-31"></span><h2>Nothing() function<a class="headerlink" href="#nothing-function" title="Permalink to this heading"></a></h2>
+<p>This function does nothing and can accept any number/type of parameters.
+The output will be Zero.</p>
+<p>Some of the Use Cases</p>
+<ol class="arabic simple">
+<li><p>Performance measurements, where we can test the performance of calling functions written in C and we can change the number of parameters during tests.</p></li>
+<li><p>In places of code that you want to write a function name, and it’s not defined yet.</p></li>
+<li><p>To disable some feature/code by just changing the function name to nothing without changing the parameters or commenting the code.</p></li>
+<li><p>In small programs, where you want to write a function that you can override from a Test program.</p></li>
+</ol>
+</section>
+<section id="optionalfunc-function">
+<span id="index-32"></span><h2>OptionalFunc() function<a class="headerlink" href="#optionalfunc-function" title="Permalink to this heading"></a></h2>
+<p>Using this function we can define functions similar to Nothing() but with a different name.</p>
+<p>Syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>OptionalFunc(cFunctionName)
+</pre></div>
+</div>
+<p>Example:</p>
+<p>File: Question.ring</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">optionalFunc</span><span class="p">(:</span><span class="n">reply</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s">&quot;I love Programming, What about you?&quot;</span>
+<span class="n">reply</span><span class="p">()</span>
+<span class="o">?</span> <span class="s">&quot;Ok, Thanks!&quot;</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>I love Programming, What about you?
+Ok, Thanks!
+</pre></div>
+</div>
+<p>File: Answer.ring</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;Question.ring&quot;</span>
+
+<span class="k">func</span> <span class="n">reply</span>
+        <span class="o">?</span> <span class="s">&quot;Me too!&quot;</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>I love Programming, What about you?
+Me too!
+Ok, Thanks!
 </pre></div>
 </div>
 </section>
