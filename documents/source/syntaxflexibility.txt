@@ -772,3 +772,11 @@ We can mix styles in the same project
 
 .. image:: autoloadsyntax.png
 	:alt: autoloadsyntax
+
+For Windows users, To use Arabic source code files with Ring, Set the language settings.
+
+.. image:: winlangsettings.png
+	:alt: winlangsettings
+
+
+
