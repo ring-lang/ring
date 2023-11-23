@@ -1,6 +1,6 @@
 load "guilib.ring"
 
-C_NODESCOUNT = 60000
+C_ITEMSCOUNT = 60000
 
 func main
 	new qApp {
@@ -10,7 +10,7 @@ func main
 			tree = new qListWidget(win) { 
 				blocksignals(True) setUpdatesEnabled(False)
 				t1 = clock()
-				for t = 1 to C_NODESCOUNT
+				for t = 1 to C_ITEMSCOUNT
 					AddItem("Item " + t)
 				next
 				cTime = (clock()-t1)/clockspersecond()
@@ -22,7 +22,7 @@ func main
 			setLayout(oLayout)
 			show() 
 		}
-		? ("Adding "+C_NODESCOUNT+" items in " + cTime + " seconds.")
+		? ("Adding "+C_ITEMSCOUNT+" items in " + cTime + " seconds.")
 		exec()
 	}
 	
