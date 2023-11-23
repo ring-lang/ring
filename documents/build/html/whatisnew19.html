@@ -174,6 +174,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#calling-functions-better-performance">Calling Functions - Better Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#nothing-function">Nothing() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#optionalfunc-function">OptionalFunc() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-typehints">Better TypeHints</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ringraylib">Better RingRayLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-code-generator-for-extensions">Better code generator for extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
@@ -227,6 +228,7 @@
 <li><p>Calling Functions - Better Performance</p></li>
 <li><p>Nothing() function</p></li>
 <li><p>OptionalFunc() function</p></li>
+<li><p>Better TypeHints</p></li>
 <li><p>Better RingRayLib</p></li>
 <li><p>Better code generator for extensions</p></li>
 <li><p>More Improvements</p></li>
@@ -251,6 +253,7 @@
 <span id="index-5"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Added: samples/Language/Constants</p></li>
+<li><p>Added: samples/UsingTypeHints/test6.ring</p></li>
 <li><p>Added: samples/UsingQt/CustomDragAndDrop/customdraganddrop.ring</p></li>
 <li><p>Added: samples/UsingArabic/ArabicInCommandPrompt/DisplayArabic.ring</p></li>
 <li><p>Added: samples/UsingMatrixLib/59-Matrix-Transform-Draw-Rotation.ring</p></li>
@@ -363,8 +366,51 @@ Ok, Thanks!
 </pre></div>
 </div>
 </section>
+<section id="better-typehints">
+<span id="index-12"></span><h2>Better TypeHints<a class="headerlink" href="#better-typehints" title="Permalink to this heading"></a></h2>
+<p>Added the next definitions:</p>
+<ul class="simple">
+<li><p>Byte</p></li>
+<li><p>Boolean</p></li>
+<li><p>&#64;override</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;typehints.ring&quot;</span>
+
+<span class="n">o</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyNewLib</span> <span class="p">{</span>
+        <span class="o">?</span> <span class="n">isGreaterThanTwo</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        <span class="o">?</span> <span class="n">isGreaterThanTwo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="n">MyLib</span> <span class="p">{</span>
+        <span class="n">boolean</span> <span class="k">func</span> <span class="n">isGreaterThanTwo</span><span class="p">(</span><span class="n">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span>
+                        <span class="k">return</span> <span class="kp">true</span>
+                <span class="k">else</span>
+                        <span class="k">return</span> <span class="kp">false</span>
+                <span class="k">ok</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="n">MyNewLib</span> <span class="o">&lt;</span> <span class="n">MyLib</span> <span class="p">{</span>
+        <span class="o">@</span><span class="n">override</span>
+        <span class="n">boolean</span> <span class="k">func</span> <span class="n">isGreaterThanTwo</span><span class="p">(</span><span class="n">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+                <span class="o">?</span> <span class="s">&quot;Using override&quot;</span>
+                <span class="k">return</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Using override
+1
+Using override
+0
+</pre></div>
+</div>
+</section>
 <section id="better-ringraylib">
-<span id="index-12"></span><h2>Better RingRayLib<a class="headerlink" href="#better-ringraylib" title="Permalink to this heading"></a></h2>
+<span id="index-13"></span><h2>Better RingRayLib<a class="headerlink" href="#better-ringraylib" title="Permalink to this heading"></a></h2>
 <p>The next functions are added to the RingRayLib extension</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">vec2</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">Vector2</span>
 <span class="o">*</span> <span class="n">vec2getx</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">double</span>
@@ -413,7 +459,7 @@ Ok, Thanks!
 </div>
 </section>
 <section id="better-code-generator-for-extensions">
-<span id="index-13"></span><h2>Better code generator for extensions<a class="headerlink" href="#better-code-generator-for-extensions" title="Permalink to this heading"></a></h2>
+<span id="index-14"></span><h2>Better code generator for extensions<a class="headerlink" href="#better-code-generator-for-extensions" title="Permalink to this heading"></a></h2>
 <p>The code generator is updated and support defining extra names for functions</p>
 <p>Using the predefined list (aExtraFunctionName) we can define the extra names</p>
 <p>Example:</p>
@@ -427,7 +473,7 @@ aExtraFunctionName + [&quot;vec2sety&quot;,&quot;raylib_set_vector2_y&quot;]
 </div>
 </section>
 <section id="more-improvements">
-<span id="index-14"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-15"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Better Documentation - Chapter: Extension using C/C++ languages</p></li>
 <li><p>Better Documentation - Chapter: Tutorial: Ring Extensions in C/C++</p></li>
@@ -453,7 +499,6 @@ aExtraFunctionName + [&quot;vec2sety&quot;,&quot;raylib_set_vector2_y&quot;]
 <li><p>Better RingPostgreSQL samples</p></li>
 <li><p>Better RingMySQL sample - samples/AQuickStart/MySQL/mysql7.ring</p></li>
 <li><p>Form Designer - Better behavior when displaying the MenuBar editor</p></li>
-<li><p>TypeHints - Added: Byte, Boolean and &#64;override</p></li>
 <li><p>MatrixLib - Added: RowReduceEchelonForm() function</p></li>
 <li><p>MatrixLib - Added: MatrixTransform() function</p></li>
 <li><p>ObjectsLib - Better Code</p></li>

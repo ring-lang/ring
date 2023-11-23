@@ -25,6 +25,7 @@ Ring 1.19 comes with the next features!
 * Calling Functions - Better Performance
 * Nothing() function
 * OptionalFunc() function
+* Better TypeHints
 * Better RingRayLib
 * Better code generator for extensions
 * More Improvements
@@ -69,6 +70,7 @@ More Samples
 ============
 
 * Added: samples/Language/Constants
+* Added: samples/UsingTypeHints/test6.ring
 * Added: samples/UsingQt/CustomDragAndDrop/customdraganddrop.ring 
 * Added: samples/UsingArabic/ArabicInCommandPrompt/DisplayArabic.ring
 * Added: samples/UsingMatrixLib/59-Matrix-Transform-Draw-Rotation.ring
@@ -249,6 +251,56 @@ Output:
 	Ok, Thanks!
 
 .. index:: 
+	pair: What is new in Ring  1.19; Better TypeHints
+
+Better TypeHints
+================
+
+Added the next definitions:
+
+* Byte
+* Boolean
+* @override
+
+Example:
+
+.. code-block:: ring
+
+	load "typehints.ring"
+
+	o = new MyNewLib {
+		? isGreaterThanTwo(10)
+		? isGreaterThanTwo(1)
+	}
+
+	class MyLib {
+		boolean func isGreaterThanTwo(int x) {
+			if x > 2
+				return true
+			else
+				return false
+			ok
+		}
+	}
+
+	class MyNewLib < MyLib {
+		@override
+		boolean func isGreaterThanTwo(int x) {
+			? "Using override"
+			return x > 2
+		}
+	}
+
+Output:
+
+.. code-block:: none
+
+	Using override
+	1
+	Using override
+	0
+
+.. index:: 
 	pair: What is new in Ring  1.19; Better RingRayLib
 
 Better RingRayLib
@@ -355,7 +407,6 @@ More Improvements
 * Better RingPostgreSQL samples
 * Better RingMySQL sample - samples/AQuickStart/MySQL/mysql7.ring
 * Form Designer - Better behavior when displaying the MenuBar editor
-* TypeHints - Added: Byte, Boolean and @override
 * MatrixLib - Added: RowReduceEchelonForm() function
 * MatrixLib - Added: MatrixTransform() function
 * ObjectsLib - Better Code

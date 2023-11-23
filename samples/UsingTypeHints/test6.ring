@@ -19,6 +19,6 @@ class MyNewLib < MyLib {
 	@override
 	boolean func isGreaterThanTwo(int x) {
 		? "Using override"
-		return x>2
+		return x > 2
 	}
 }
