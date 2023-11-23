@@ -15,7 +15,7 @@ numThreads = 2 // including main thread, min = 1, max = 2 due to race conditions
 SetTraceLogLevel(LOG_NONE)
 
 qub = pow(numBlocks, 3)
-data = newlist(numThreads, qub)
+data = list(numThreads, qub)
 
 for j = 1 to numThreads
 	for k = 1 to qub
@@ -36,20 +36,20 @@ next
 INT_SIZE = len(int2bytes(0))
 
 pr = space(INT_SIZE)
-parent = varptr(:pr, "uv_sem_t")
+parent = varptr(:pr, :uv_sem_t)
 uv_sem_init(parent, 0)
 
 ch = space(INT_SIZE)
-child = varptr(:ch, "uv_sem_t")
+child = varptr(:ch, :uv_sem_t)
 uv_sem_init(child, 0)
 
 mt = space(INT_SIZE)
-mute = varptr(:mt, "uv_mutex_t")
+mute = varptr(:mt, :uv_mutex_t)
 uv_mutex_init(mute)
 
 for t = 2 to numThreads
 	thread = new_uv_thread_t()
-	cCall = uv_callback(thread,"thread","thread("+t+")")
+	cCall = uv_callback(thread,:thread,"thread("+t+")")
 	uv_thread_create_2(thread,cCall,thread)
 next
 
