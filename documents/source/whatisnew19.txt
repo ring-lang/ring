@@ -27,7 +27,8 @@ Ring 1.19 comes with the next features!
 * OptionalFunc() function
 * Better TypeHints
 * Better RingRayLib
-* Better code generator for extensions
+* Better Extensions Generator 
+* Better Documentation
 * More Improvements
 
 .. index:: 
@@ -356,12 +357,12 @@ The next functions are added to the RingRayLib extension
 
 
 .. index:: 
-	pair: What is new in Ring  1.19; Better code generator for extensions
+	pair: What is new in Ring  1.19; Better Extensions Generator
 
-Better code generator for extensions
-====================================
+Better Extensions Generator
+===========================
 
-The code generator is updated and support defining extra names for functions
+The code generator for C/C++ extensions is updated and support defining extra names for functions
 
 Using the predefined list (aExtraFunctionName) we can define the extra names
 
@@ -378,17 +379,28 @@ To define vec2() as another name for raylib_new_managed_vector2()
 	</runcode>
 
 .. index:: 
+	pair: What is new in Ring  1.19; Better Documentation
+
+Better Documentation
+====================
+
+The CHM file is updated to support search
+
+Also, The next chapters are revised and improved 
+
+* Performance Tips
+* Syntax Flexibility
+* The Type Hints Library
+* Extension using C/C++ languages
+* Tutorial: Ring Extensions in C/C++
+ 
+.. index:: 
 	pair: What is new in Ring  1.19; More Improvements
 
 More Improvements
 =================
 
-* Better Documentation - Chapter: Extension using C/C++ languages
-* Better Documentation - Chapter: Tutorial: Ring Extensions in C/C++
-* Better Documentation - Chapter: Performance Tips
-* Better Documentation - Chapter: Syntax Flexibility
-* Better Documentation - Chapter: The Type Hints Library
-* Better Documentation - Support search in CHM file
+
 * Ring Notepad - Close Button - Force closing the web browser 
 * FindInFiles Application - Replace Button - Check line selection
 * WinStartupManager application - Use extensions that comes with Ring
