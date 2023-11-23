@@ -88,7 +88,7 @@ Keywords Count : 58
 Language Functions
 ==================
 
-Functions Count : 251
+Functions Count : 253
 
 .. code-block:: ring
 
@@ -242,12 +242,14 @@ Functions Count : 251
         newlist(nSize) ---> aList
         newlist(nRows,nCols) ---> aList
         nofprocessors() ---> nProcessors
+	nothing(Any number/type of parameters) ---> Zero (0)
         nullpointer() ---> pPointer
         nullptr() ---> pPointer
         number(string) ---> Number
         obj2ptr(List|Object) --> Low Level Object ( C Pointer )
         object2pointer(List|Object) --> Low Level Object ( C Pointer )
         objectid(object) ---> Returns the object id
+	optionalfunc(cFuncName)
         packageclasses() cPackageName) ---> a list contains classes names inside the package
         packagename() ---> Returns the package name of the latest successful import
         packages() ---> a list contains packages names
