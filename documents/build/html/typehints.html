@@ -89,6 +89,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#user-types">User Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-types-inside-code">Using Types inside Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-override">Using Override</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rules">Rules</a></li>
 </ul>
 </li>
@@ -283,8 +284,46 @@ very useful for tools like</p>
 </pre></div>
 </div>
 </section>
+<section id="using-override">
+<span id="index-5"></span><h2>Using Override<a class="headerlink" href="#using-override" title="Permalink to this heading"></a></h2>
+<p>We can use override or &#64;override</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;typehints.ring&quot;</span>
+
+<span class="n">o</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyNewLib</span> <span class="p">{</span>
+        <span class="o">?</span> <span class="n">isGreaterThanTwo</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        <span class="o">?</span> <span class="n">isGreaterThanTwo</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="n">MyLib</span> <span class="p">{</span>
+        <span class="n">boolean</span> <span class="k">func</span> <span class="n">isGreaterThanTwo</span><span class="p">(</span><span class="n">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span>
+                        <span class="k">return</span> <span class="kp">true</span>
+                <span class="k">else</span>
+                        <span class="k">return</span> <span class="kp">false</span>
+                <span class="k">ok</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="n">MyNewLib</span> <span class="o">&lt;</span> <span class="n">MyLib</span> <span class="p">{</span>
+        <span class="o">@</span><span class="n">override</span>
+        <span class="n">boolean</span> <span class="k">func</span> <span class="n">isGreaterThanTwo</span><span class="p">(</span><span class="n">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+                <span class="o">?</span> <span class="s">&quot;Using override&quot;</span>
+                <span class="k">return</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">2</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Using override
+1
+Using override
+0
+</pre></div>
+</div>
+</section>
 <section id="rules">
-<span id="index-5"></span><h2>Rules<a class="headerlink" href="#rules" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>Rules<a class="headerlink" href="#rules" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>To use the types in the function prototype you must use ‘(’ and ‘)’ around parameters</p></li>
 <li><p>To use the types in the function code, You must set the variable value (Assignment).</p></li>

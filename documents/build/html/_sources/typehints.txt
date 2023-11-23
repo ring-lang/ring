@@ -106,6 +106,53 @@ Example:
 	}
 
 .. index:: 
+	pair: The Type Hints Library; Using Override
+
+Using Override
+==============
+
+We can use override or @override 
+
+Example:
+
+.. code-block:: ring
+
+	load "typehints.ring"
+
+	o = new MyNewLib {
+		? isGreaterThanTwo(10)
+		? isGreaterThanTwo(1)
+	}
+
+	class MyLib {
+		boolean func isGreaterThanTwo(int x) {
+			if x > 2
+				return true
+			else
+				return false
+			ok
+		}
+	}
+
+	class MyNewLib < MyLib {
+		@override
+		boolean func isGreaterThanTwo(int x) {
+			? "Using override"
+			return x > 2
+		}
+	}
+
+Output:
+
+.. code-block:: none
+
+	Using override
+	1
+	Using override
+	0
+
+
+.. index:: 
 	pair: The Type Hints Library; Rules
 
 Rules
