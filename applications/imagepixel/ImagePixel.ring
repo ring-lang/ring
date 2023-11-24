@@ -243,7 +243,7 @@ Func GetImagePixels()
     Canvas.setPixMap(MonaLisa)          ### Need this setPixMap to display imageLabel               
     MyApp.ProcessEvents()               ### EXEC the Draw
        
-    DrawRGBAImagePixels(MCOrigF)        // Draw ORIGINAL First - Side by Side  
+    DrawRGBAImagePixels(MCOrigF,0,0)        // Draw ORIGINAL First - Side by Side  
     
     label2.setText(" Fin ...")
     
@@ -351,7 +351,7 @@ Func ChangeColorValue()
     
     if Alpha < 255                         // Alpha Intensity overlays Image, need to blank it out first
        MonaLisa.fill(colorBlack)           // ===<<< BLANK OUT OLD IMAGE !!!
-       DrawRGBAImagePixels(MCOrig)         // RE-DRAWD Orig First (with offsets) - Side by Side
+       DrawRGBAImagePixels(MCOrig,0,0)         // RE-DRAWD Orig First (with offsets) - Side by Side
            Canvas.setPixMap(MonaLisa)          ### Need this setPixMap to display imageLabel               
        MyApp.ProcessEvents()               ### EXEC the Draw  
     ok
@@ -361,7 +361,7 @@ Func ChangeColorValue()
 
 
     
-    DrawRGBAImagePixels(MCRgbA)         // MCRgbA as per FRACTION of SLIDER Values
+    DrawRGBAImagePixels(MCRgbA,0,0)         // MCRgbA as per FRACTION of SLIDER Values
 
     label2.setText(" Fin ....")
     
@@ -374,7 +374,7 @@ Func ConvertRGBtoGray()
 
 //====================================================
 
-Func DrawRGBAImagePixels(MCImage)
+Func DrawRGBAImagePixels(MCImage,nXStart,nYStart)
 
     
    #=====================================================================#
@@ -382,7 +382,7 @@ Func DrawRGBAImagePixels(MCImage)
    t1 = clock()
    #=====================================================================#
    
-    daVinci.drawRGBFList(MCImage)        // <<<=== DOUBLE OFFSET,i=400,  MCImage Linear List (60000) = list[i,j,R,G,B,V)
+    daVinci.drawRGBFListAtXY(MCImage,nXStart,nYStart)        // <<<=== DOUBLE OFFSET,i=400,  MCImage Linear List (60000) = list[i,j,R,G,B,V)
     
     Canvas.setPixMap(MonaLisa)          ### Need this setPixMap to display imageLabel               
     MyApp.ProcessEvents()               ### EXEC the Draw
