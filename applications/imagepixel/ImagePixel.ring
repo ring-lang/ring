@@ -60,7 +60,7 @@ FilePicked = " "    // From FileOpen()
         Canvas = new qlabel(win)
         {
             ### daVinci paints the MonaLisa on the Canvas
-            MonaLisa  = new qPixMap2( xWidth, yHeight)
+            MonaLisa  = new qPixMap2( 2000, 2000)
                 color = new qcolor(){ setrgb(255,255,255,0) }
                   pen = new qpen()  { setwidth(1) } 
 
