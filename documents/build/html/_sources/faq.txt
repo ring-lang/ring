@@ -888,9 +888,11 @@ approach to deep vs. shallow copies is to prefer deep copies until proven otherw
 	at any time using the Assignment operator too. Reducing references usage or using them through
 	managers helps a lot to achieve this goal. by doing this we have full control.
 
-(11) If you want to create references and avoid creating a manager, 
+(11) If you want to create unmanaged pointers and avoid creating a manager, 
 	You can use Object2Pointer() and Pointer2Object() functions
 	But It's not the Ring way "Spirit" to do things.
+
+(12) Starting from Ring 1.18, Ring comes with the Ref() function that can be used to create safe references. 
 
 .. index:: 
 	pair: Frequently Asked Questions; Constructor methods in Ring
@@ -1142,12 +1144,11 @@ In this use case we have
 
 3 - The Attributes are defined in the class region that allows writing code and using global variables
 
-If I will accepted your proposal about changing how Ring find variables in the class region I must break one of the previous three features which will lead to more problems that are more important than this problem.
+If I will accepted your proposal about changing how Ring find variables in the class region I must break one of the previous three features which will lead to more problems.
 
 I don't like changing the feature number (1) because I would like to keep Ring code more clean and let the programmer decide when to use $ or not.
 
-I don't like changing the feature number (2) because I like this feature and I don't like forcing the programmer to type
-self.attribute 
+I don't like changing the feature number (2) because I like this feature and I don't like forcing the programmer to type self.attribute 
 
 I don't like changing the feature number (3) because it's very important in many applications to access global variables in the class region.
 
@@ -1161,8 +1162,12 @@ I decided to leave this case for the programmer who will decide what to do to av
 
 3 - The programmer can use self.attribute after the class name to define the attributes 
 
+4 - Ring have a nice feature through the (load package) command which load a Ring source file in a new global scope different from the global scope used by the caller.
+
 In general, for small programs you can use global variables and functions.
 For large programs, use classes and objects and small number of global variables or avoid them at all.
+
+
 
 .. index:: 
 	pair: Frequently Asked Questions; Where can I write a program and execute it?
@@ -1236,6 +1241,8 @@ then we can add the path variable to the file name
 		next
 		return cFileName
 
+
+.. note:: We can use the function JustFilePath() from the stdlibcore.ring
 
 .. index:: 
 	pair: Frequently Asked Questions; What about predefined parameters or optional parameters in functions?
