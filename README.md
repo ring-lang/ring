@@ -817,7 +817,7 @@ Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]
 
 (1) Compiling 100,000 lines of code
 
-(2) Executing empty loop that count from 1 to 100,000,000
+(2) Executing an empty loop that count from 1 to 100,000,000
 
 (3) Creating list contains 7,000,000 items then summing all of the list items
 
