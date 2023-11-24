@@ -17,7 +17,7 @@ Introduction
 
 Ring is designed to be a simple, small and flexible language in the first place, but also it is fast enough for many applications.
 
-Ring can do each of the following tasks in around 1 second 
+Ring can do each of the following tasks in around one second. 
 
 (1) Compiling 100,000 lines of code
 (2) Executing an empty loop that count from 1 to 100,000,000
