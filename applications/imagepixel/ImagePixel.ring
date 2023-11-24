@@ -99,7 +99,7 @@ FilePicked = " "    // From FileOpen()
  
         btn1 = new qPushButton(win) { 
                 setGeometry(101,01,95,20)  
-                setText("GetImagePixels")  
+                setText("Get Pixels")  
                 setStyleSheet("background-color: aqua")
                 setClickEvent("GetImagePixels()") 
         }
@@ -108,7 +108,7 @@ FilePicked = " "    // From FileOpen()
   
         btn2 = new qPushButton(win) { 
                 setGeometry(201,01,95,20)  
-                setText("ChangeColorValues")  
+                setText("Change Colors")  
                 setStyleSheet("background-color: aqua")
                 setClickEvent("ChangeColorValue()") 
         }     
