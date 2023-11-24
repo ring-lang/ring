@@ -286,7 +286,7 @@ Output:
 	calling 100000 functions
 	Time : 0.03 seconds
 	calling 100000 methods using the dot operator
-	Time : 0.07 seconds
+	Time : 0.06 seconds
 	calling 100000 methods using braces 
 	Time : 0.18 seconds
 
