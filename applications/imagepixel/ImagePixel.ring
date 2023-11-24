@@ -344,11 +344,6 @@ return
 
 //====================================================
 
-Func ConvertRGBtoGray()
-        
-
-//====================================================
-
 Func DrawRGBAImagePixels(MCImage,nXStart,nYStart)
 
     
