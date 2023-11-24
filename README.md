@@ -873,7 +873,7 @@ Also, when we need more speed we can use C/C++ extensions!
 
 * Hybrid Implementation (Compiler+VM)
 
-* The compiler + The Virtual Machine are 20,000 lines of C code
+* The compiler + The Virtual Machine + Standard functions are less than 25,000 lines of C code
 
 * The other 500,000 lines of code are related to libraries!
 
