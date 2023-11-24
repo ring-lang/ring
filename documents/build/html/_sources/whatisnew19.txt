@@ -391,6 +391,7 @@ Also, The next chapters are revised and improved
 * Performance Tips
 * Syntax Flexibility
 * The Type Hints Library
+* Building From Source Code
 * Extension using C/C++ languages
 * Tutorial: Ring Extensions in C/C++
  
