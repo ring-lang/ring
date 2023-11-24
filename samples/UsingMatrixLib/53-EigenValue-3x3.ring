@@ -51,7 +51,7 @@ A  = [[ 2, 1, 0],  //(1,21,2)
       [ 0, 0, 2]] 
 
 See "A - Matrix to solve for EigenValues"  MatrixPrint(A)
-S = EigenValue3(A)
+S = EigenValue(A)
 See "EigenValues (2,2,2): "  MAtrixPrint(S)
 
 See nl+"====================="+nl
@@ -63,7 +63,7 @@ A  = [[ 2, 0, 0],  //(1,21,2)
 
 
 See "A - Matrix to solve for EigenValues"  MatrixPrint(A)
-S = EigenValue3(A)
+S = EigenValue(A)
 See "EigenValues (2,1,-3): "  MAtrixPrint(S)
 
 See nl+"====================="+nl
@@ -74,7 +74,7 @@ A  = [[ 1, 3, 0],  //(1,21,2)
       [ 0, 0,-2]] 
 
 See "A - Matrix to solve for EigenValues"  MatrixPrint(A)
-S = EigenValue3(A)
+S = EigenValue(A)
 See "EigenValues (-2,4,-2): "  MAtrixPrint(S)
 
 See nl+"====================="+nl
@@ -84,7 +84,7 @@ A  = [[-2, 2,-3],  //(1,21,2)
       [-1,-2, 0]] 
 
 See "A - Matrix to solve for EigenValues"  MatrixPrint(A)
-S = EigenValue3(A)
+S = EigenValue(A)
 See "EigenValues (-3,5,-3): "  MAtrixPrint(S)
 
 See nl+"====================="+nl
@@ -96,7 +96,7 @@ A  = [[ 4,-1, 3],  //(1,21,2)
 
 
 See "A - Matrix to solve for EigenValues"  MatrixPrint(A)
-S = EigenValue3(A)
+S = EigenValue(A)
 See "EigenValues (2,4,3): "  MAtrixPrint(S)
 
 See nl+"====================="+nl
@@ -107,7 +107,7 @@ A  = [[ 1, 2, 3],  //(1,21,2)
 
 
 See "A - Matrix to solve for EigenValues"  MatrixPrint(A)
-S = EigenValue3(A)
+S = EigenValue(A)
 See "EigenValues (6 -2^12, +2^1/2): "  MAtrixPrint(S)
 
 See nl+"====================="+nl
