@@ -305,6 +305,7 @@ Func pDrawObjects()
 
    but ShapeType   = "Shape-Train"
        ShapePoints =  ShapeTrain
+       gNbrSteps   = 7                 // Fast processing
 	
    but ShapeType   = "Shape-Treble"
        ShapePoints =  ShapeTreble	
