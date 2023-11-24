@@ -104,7 +104,7 @@ new qApp
         Canvas = new qlabel(win)
         {
             ### daVinci paints the MonaLisa on the Canvas
-            MonaLisa  = new qPixMap2( xWidth, yHeight)
+            MonaLisa  = new qPixMap2( 2000, 2000)
 
             daVinci = new qpainter()
             {
