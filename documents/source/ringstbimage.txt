@@ -5,6 +5,10 @@
 RingStbImage Functions Reference
 ================================
 
+
+.. index:: 
+	pair: RingStbImage Functions Reference; Introduction
+
 Introduction
 ============
 
@@ -36,6 +40,9 @@ Output:
 	Channels: 3
 
 
+.. index:: 
+	pair: RingStbImage Functions Reference; Constants
+
 Constants
 =========
 
@@ -44,6 +51,9 @@ Constants
 * STBI_grey_alpha
 * STBI_rgb
 * STBI_rgb_alpha 
+
+.. index:: 
+	pair: RingStbImage Functions Reference; Functions
 
 Functions
 =========
@@ -82,3 +92,10 @@ Functions
 * char *stbi_zlib_decode_noheader_malloc(const char *buffer, int len, int *outlen) 
 * int stbi_zlib_decode_noheader_buffer(char *obuffer, int olen, const char *ibuffer, int ilen)
 
+.. index:: 
+	pair: RingStbImage Functions Reference; Extra Functions
+
+Extra Functions
+===============
+
+* stbi_bytes2list(stbi_uc *, int width, int height) --> Ring List [[x,y,r,g,b,],...]
