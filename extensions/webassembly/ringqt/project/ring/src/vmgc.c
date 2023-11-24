@@ -15,7 +15,7 @@ void ring_vm_gc_checknewreference ( void *pPointer,int nType, List *pContainer, 
         pItem->gc.nReferenceCount++ ;
         /* Set the Free Function */
         pItem = ring_list_getitem(pContainer,nIndex) ;
-        ring_vm_gc_setfreefunc(pItem,ring_vm_gc_deleteitem_gc);
+        ring_vm_gc_setfreefunc(pItem, (void(*)(void *, void*)) ring_vm_gc_deleteitem_gc);
         #if GCLog
             printf( "\nGC CheckNewReference - To Pointer %p \n",pItem ) ;
         #endif

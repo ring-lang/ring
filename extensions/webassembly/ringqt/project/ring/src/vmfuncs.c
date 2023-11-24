@@ -448,7 +448,7 @@ void ring_vm_newfunc ( VM *pVM )
         nMax = RING_VM_IR_READCVALUESIZE(2) ;
         lFreeParameter = nMax > RING_FUNCPARA_EXPECTEDSIZE - 1 ;
         if ( lFreeParameter ) {
-            pParameter = ring_state_malloc(pVM->pRingState,nMax+1);
+            pParameter = (char *) ring_state_malloc(pVM->pRingState,nMax+1);
         }
         else {
             pParameter = (char *) cPara ;
