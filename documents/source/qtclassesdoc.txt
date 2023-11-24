@@ -8131,6 +8131,8 @@ Parameters : void
 * void drawPolyline(List *pPoints)
 * void drawHSVFList(List *pPoints)
 * void drawRGBFList(List *pPoints)
+* void drawHSVFListAtXY(List *pPoints, int x, int y)
+* void drawRGBFListAtXY(List *pPoints, int x, int y)
 
 .. index::
 	pair: RingQt Classes Reference; QPainter2 Class
