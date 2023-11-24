@@ -147,14 +147,6 @@ FilePicked = " "    // From FileOpen()
     exec()
 }
 
-//=============================
-// Do Nothing But Wait
-
-while True
-  // Infinite loop
-  count = 2
-end
-
 ###==========================================================================
 // Max 100/10 = 10 
 
