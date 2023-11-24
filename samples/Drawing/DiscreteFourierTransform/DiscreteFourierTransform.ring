@@ -73,6 +73,7 @@ MyApp = new qApp
                 myfilter.setMouseButtonPressEvent("pPress()")
                 myfilter.setMouseButtonReleaseEvent("pRelease()")
                 myfilter.setMouseMoveEvent("pMove()")
+                myfilter.setCloseEvent("MyApp.Quit()")
 
                 installeventfilter(myfilter)
 
