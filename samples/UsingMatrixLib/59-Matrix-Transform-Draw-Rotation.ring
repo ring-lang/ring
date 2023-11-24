@@ -194,7 +194,7 @@ Func StartApp()
         //Sy = eScaleYV.text()  
         //Sz = eScaleZV.text()
         
-         lScale   =  new qLabel(win)  { setgeometry( 0, 120 , 60, 20)  settext("Scale 0.1-10") setStyleSheet("background-color: yellow")}
+         lScale   =  new qLabel(win)  { setgeometry( 0, 120 , 80, 20)  settext("Scale 0.1-10") setStyleSheet("background-color: yellow")}
 
          lScaleX  =  new qLabel(win)     { setgeometry( 0, 140 , 30, 20)  settext("X:")  setStyleSheet("background-color: yellow")}
          eScaleXV =  new qlineedit(win)  { setgeometry(30, 140 , 30, 20)  settext("1") }           
@@ -213,7 +213,7 @@ Func StartApp()
         //Sy = eScaleYV.text()  
         //Sz = eScaleZV.text()
         
-         lTranslate  =  new qLabel(win)  { setgeometry( 0, 210 , 60, 20)  settext("Trans 0-400") setStyleSheet("background-color: yellow")}
+         lTranslate  =  new qLabel(win)  { setgeometry( 0, 210 , 80, 20)  settext("Trans 0-400") setStyleSheet("background-color: yellow")}
 
          lTransX  =  new qLabel(win)     { setgeometry( 0, 230 , 30, 20)  settext("X:")  setStyleSheet("background-color: yellow")}
          eTransXV =  new qlineedit(win)  { setgeometry(30, 230 , 30, 20)  settext("0") }           
@@ -228,7 +228,7 @@ Func StartApp()
         ###-------------------------------------------------------------      
         ### Draw LABELS and LINEEDIT for REFLECTION
       
-         lReflection =  new qLabel(win)    { setgeometry( 0, 300 , 60, 20)  settext("REF:-1,1") setStyleSheet("background-color: yellow")}
+         lReflection =  new qLabel(win)    { setgeometry( 0, 300 , 80, 20)  settext("REF:-1,1") setStyleSheet("background-color: yellow")}
 
          lReflX      =  new qLabel(win)    { setgeometry( 0, 320 , 30, 20)  settext("X:")  setStyleSheet("background-color: yellow")}
          eReflXV     =  new qlineedit(win) { setgeometry(30, 320 , 30, 20)  settext("1") }          
@@ -243,7 +243,7 @@ Func StartApp()
         ###-------------------------------------------------------------      
         ###  Draw LABELS and LINEEDIT for SHEAR
       
-         lShear   =  new qLabel(win)    { setgeometry( 0, 390 , 60, 20)  settext("SHEAR 0-5") setStyleSheet("background-color: yellow")}
+         lShear   =  new qLabel(win)    { setgeometry( 0, 390 , 80, 20)  settext("SHEAR 0-5") setStyleSheet("background-color: yellow")}
 
          lShearX  =  new qLabel(win)    { setgeometry( 0, 410 , 30, 20)  settext("X:")  setStyleSheet("background-color: yellow")}
          eShearXV =  new qlineedit(win) { setgeometry(30, 410 , 30, 20)  settext("0") }          
