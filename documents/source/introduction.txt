@@ -150,7 +150,7 @@ The Ring language comes with the next features
 * A small language
 	* The Compiler + The Virtual Machine + Standard Functions are less than 25,000 lines of C code
 	* The other 500,000 lines of code are related to libraries!
-* Portable (Windows, Linux, macOS, Android, etc)
+* Portable (MS-DOS, Windows, Linux, macOS, Android, WebAssembly, etc)
 * Comments (One line & Multi-lines)
 * Not Case-Sensitive
 * Dynamic Typing
@@ -160,7 +160,7 @@ The Ring language comes with the next features
 * Default scope for variables outside functions (global)
 * We can have separate global scope for each library or sub project
 * Garbage Collector - Automatic Memory Management (Escape Analysis and Reference Counting)
-* In most cases (90%) using Escape Analysis we don't need to run the Garbage Collector (Faster)
+* In most cases (90%) Ring VM uses Escape Analysis an no need to run the Garbage Collector (Faster)
 * Structure Programming
 * Rich control structures & Operators
 * For in get item by reference not value, you can read/edit the item
@@ -177,6 +177,7 @@ The Ring language comes with the next features
 * First Class Variables, Lists, Objects and Functions
 * Store/Copy Lists/Objects by value (Deep Copy)
 * Pass Lists/Objects by reference
+* Create references at any time using Ref() function
 * Native Object-Oriented Support
 
 	* Encapsulation
@@ -232,7 +233,7 @@ The Ring language comes with the next features
 * RingFreeGLUT Extension
 * RingRayLib Extension
 * RingTilengine Extension
-* Create GUI Applications for Desktop and Mobile (Using the Qt Framework)
+* Create GUI Applications for Desktop, WebAssembly and Mobile (Using the Qt Framework)
 * Comes with IDE contains the Code Editor (Ring Notepad) and the Form Designer
 * RingREPL (Read-Eval-Print-Loop)
 * Tracing and Debugging
