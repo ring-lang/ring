@@ -92,6 +92,8 @@ void drawPoints(List *pPoints)
 void drawPolyline(List *pPoints)
 void drawHSVFList(List *pPoints)
 void drawRGBFList(List *pPoints)
+void drawHSVFListAtXY(List *pPoints,int x,int y)
+void drawRGBFListAtXY(List *pPoints,int x,int y)
 </register>
 
 <code>
@@ -290,4 +292,13 @@ RING_FUNC(ring_QPainter_drawRGBFList)
 	ring_QPainter_drawList(pPointer,2);
 }
 
+RING_FUNC(ring_QPainter_drawHSVFListAtXY)
+{
+	ring_QPainter_drawList(pPointer,1);
+}
+
+RING_FUNC(ring_QPainter_drawRGBFListAtXY)
+{
+	ring_QPainter_drawList(pPointer,2);
+}
 </code>

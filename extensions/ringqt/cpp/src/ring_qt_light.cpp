@@ -28383,9 +28383,11 @@ void ring_QPainter_drawList(void *pPointer,int nType) {
 	QColor oColor;
 	QPen oPen;
 	List *pList,*pList2;
-	int x,nSize;
+	int x,nSize,nXStart,nYStart;
+	nXStart = 0;
+	nYStart = 0;
 	RING_API_IGNORECPOINTERTYPE ;
-	if ( RING_API_PARACOUNT != 2 ) {
+	if ( RING_API_PARACOUNT < 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
@@ -28396,6 +28398,16 @@ void ring_QPainter_drawList(void *pPointer,int nType) {
 	if ( ! RING_API_ISPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
+	}
+	if (RING_API_PARACOUNT >= 3) {
+		if (RING_API_ISNUMBER(3) ) {
+			nXStart = (int) RING_API_GETNUMBER(3);
+		}
+	}
+	if (RING_API_PARACOUNT == 4) {
+		if (RING_API_ISNUMBER(4) ) {
+			nYStart = (int) RING_API_GETNUMBER(4);
+		}
 	}
 	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
 	pList = (List *) RING_API_GETLIST(2);
@@ -28418,8 +28430,8 @@ void ring_QPainter_drawList(void *pPointer,int nType) {
 		}
 		oPen.setColor(oColor);
 		pObject->setPen(oPen);
-		pObject->drawPoint( ring_list_getdouble(pList2,1),
-			    ring_list_getdouble(pList2,2));	
+		pObject->drawPoint( nXStart + ring_list_getdouble(pList2,1),
+			    nYStart + ring_list_getdouble(pList2,2));	
 	}
 }
 
@@ -28433,6 +28445,15 @@ RING_FUNC(ring_QPainter_drawRGBFList)
 	ring_QPainter_drawList(pPointer,2);
 }
 
+RING_FUNC(ring_QPainter_drawHSVFListAtXY)
+{
+	ring_QPainter_drawList(pPointer,1);
+}
+
+RING_FUNC(ring_QPainter_drawRGBFListAtXY)
+{
+	ring_QPainter_drawList(pPointer,2);
+}
 
 RING_FUNC(ring_QPicture_boundingRect)
 {
@@ -131014,6 +131035,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qpainter_drawpolyline",ring_QPainter_drawPolyline);
 	RING_API_REGISTER("qpainter_drawhsvflist",ring_QPainter_drawHSVFList);
 	RING_API_REGISTER("qpainter_drawrgbflist",ring_QPainter_drawRGBFList);
+	RING_API_REGISTER("qpainter_drawhsvflistatxy",ring_QPainter_drawHSVFListAtXY);
+	RING_API_REGISTER("qpainter_drawrgbflistatxy",ring_QPainter_drawRGBFListAtXY);
 	RING_API_REGISTER("qpicture_boundingrect",ring_QPicture_boundingRect);
 	RING_API_REGISTER("qpicture_data",ring_QPicture_data);
 	RING_API_REGISTER("qpicture_isnull",ring_QPicture_isNull);

@@ -5236,6 +5236,12 @@ Class QPainter
 	Func drawRGBFList P1
 		return QPainter_drawRGBFList(pObject,GetObjectPointerFromRingObject(P1))
 
+	Func drawHSVFListAtXY P1,P2,P3
+		return QPainter_drawHSVFListAtXY(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+
+	Func drawRGBFListAtXY P1,P2,P3
+		return QPainter_drawRGBFListAtXY(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+
 Class QPicture
 
 	pObject
