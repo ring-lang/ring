@@ -239,6 +239,8 @@ The other solution
 
 * Use self before the attribute name or use AddAttribute()
 
+.. note:: Ring have a nice feature through the (load package) command which load a Ring source code file in a new global scope different from the current global scope used by the caller.
+
 .. index:: 
 	pair: Scope Rules; Conflict between Class Attributes and Local Variables
 
