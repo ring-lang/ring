@@ -169,7 +169,7 @@ Func StartApp()
         // Ry = (eRotYV.text()
         // Rz = (eRotZV.text() 
         
-        lRotation =  new qLabel(win)  { setgeometry( 0, 30 , 60, 20)  settext("RotateAngle") setStyleSheet("background-color: yellow")}
+        lRotation =  new qLabel(win)  { setgeometry( 0, 30 , 80, 20)  settext("RotateAngle") setStyleSheet("background-color: yellow")}
         lRotX  =  new qLabel(win)     { setgeometry( 0, 50 , 30, 20)  settext("X:")  setStyleSheet("background-color: yellow")}
         eRotXV =  new qlineedit(win)  { setgeometry(30, 50 , 30, 20)  settext("210") }           
           
@@ -182,10 +182,10 @@ Func StartApp()
         ###---------------------
         ### INCREMENT ANGELE EDIT
 
-         iRotation =  new qLabel(win)  { setgeometry( 66, 30 , 60, 20)  settext("IncAngle") setStyleSheet("background-color: yellow")}        
-         iRotXV =  new qlineedit(win)  { setgeometry( 66, 50 , 30, 20)  settext("0") }     
-         iRotYV =  new qlineedit(win)  { setgeometry( 66, 70 , 30, 20)  settext("0") }  
-         iRotZV =  new qlineedit(win)  { setgeometry( 66, 90 , 30, 20)  settext("0") }   
+         iRotation =  new qLabel(win)  { setgeometry( 86, 30 , 60, 20)  settext("IncAngle") setStyleSheet("background-color: yellow")}        
+         iRotXV =  new qlineedit(win)  { setgeometry( 86, 50 , 30, 20)  settext("0") }     
+         iRotYV =  new qlineedit(win)  { setgeometry( 86, 70 , 30, 20)  settext("0") }  
+         iRotZV =  new qlineedit(win)  { setgeometry( 86, 90 , 30, 20)  settext("0") }   
 
         ###------------------------------------------------
         ### Draw LABELS and LINEEDIT for SCALE
