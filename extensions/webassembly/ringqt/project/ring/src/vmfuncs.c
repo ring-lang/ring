@@ -181,7 +181,7 @@ void ring_vm_call ( VM *pVM )
             */
             if ( ring_list_getsize(pVM->aBeforeObjState) > 0 ) {
                 pList = ring_list_newlist_gc(pVM->pRingState,pVM->pObjState);
-                ring_list_copy_gc(pVM->pRingState,pList,ring_list_getlist(pVM->aBeforeObjState,ring_list_getsize(pVM->aBeforeObjState)));
+                ring_list_swaptwolists(pList,ring_list_getlist(pVM->aBeforeObjState,ring_list_getsize(pVM->aBeforeObjState)));
                 ring_list_deleteitem_gc(pVM->pRingState,pVM->aBeforeObjState,ring_list_getsize(pVM->aBeforeObjState));
             }
         }
