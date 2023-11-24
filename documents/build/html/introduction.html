@@ -47,7 +47,7 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#motivation">Motivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#motivation-1">Motivation (1)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ring-and-other-languages">Ring and other languages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#history">History</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#features">Features</a></li>
@@ -215,8 +215,8 @@ Flexible. Also, It’s fast enough for many applications. Its Dynamic Language t
 code to byte code then execute it by the Ring Virtual Machine, which is integrated with the Ring
 Compiler in one program.</p>
 <p>In this chapter we are going to discuss the goals behind the language design and implementation.</p>
-<section id="motivation">
-<span id="index-1"></span><h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this heading"></a></h2>
+<section id="motivation-1">
+<span id="index-1"></span><h2>Motivation (1)<a class="headerlink" href="#motivation-1" title="Permalink to this heading"></a></h2>
 <p>In Nov. 2011, I started to think about creating a new version of the
 <a class="reference external" href="https://doublesvsoop.sourceforge.net/">Programming Without Coding Technology (PWCT)</a> software from scratch.</p>
 <p>I was interested in creating multi-platform edition of the software beside adding support for
@@ -226,6 +226,10 @@ environment, provides multi-platform support, more productivity, better performa
 <p>Instead of using a mix of programming languages, I decided to use one programming language.</p>
 <p>I looked at many programming languages, but I discovered that I need
 a different language that comes with new ideas and intelligent implementation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The importance of the PWCT project to the Ring language design is similar to the importance of the Unix operating system to the C language design. Having a specific project in the mind of a programming language designer help a lot in taking the right decisions towards a clear goal. For example, We know that the PWCT visual programming language will provide readability, this let us focus in Ring design on writability. So, we can get maximum readability and maximum writability at the same time since both languages are designed together. Also, PWCT as a visual language requires powerful GUI library and fast graphics. That’s why Ring comes with support for the Qt framework as it’s primary GUI toolkit.</p>
+</div>
 </section>
 <section id="ring-and-other-languages">
 <span id="index-2"></span><h2>Ring and other languages<a class="headerlink" href="#ring-and-other-languages" title="Permalink to this heading"></a></h2>

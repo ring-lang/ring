@@ -23,10 +23,10 @@ Compiler in one program.
 In this chapter we are going to discuss the goals behind the language design and implementation.
 
 .. index:: 
-	pair: Introduction; Motivation
+	pair: Introduction; Motivation (1)
 
-Motivation
-==========
+Motivation (1)
+==============
 
 In Nov. 2011, I started to think about creating a new version of the 
 `Programming Without Coding Technology (PWCT) <https://doublesvsoop.sourceforge.net/>`_ software from scratch.
@@ -42,6 +42,8 @@ Instead of using a mix of programming languages, I decided to use one programmin
 I looked at many programming languages, but I discovered that I need 
 a different language that comes with new ideas and intelligent implementation.
 
+
+.. note:: The importance of the PWCT project to the Ring language design is similar to the importance of the Unix operating system to the C language design. Having a specific project in the mind of a programming language designer help a lot in taking the right decisions towards a clear goal. For example, We know that the PWCT visual programming language will provide readability, this let us focus in Ring design on writability. So, we can get maximum readability and maximum writability at the same time since both languages are designed together. Also, PWCT as a visual language requires powerful GUI library and fast graphics. That's why Ring comes with support for the Qt framework as it's primary GUI toolkit.   
 
 .. index:: 
 	pair: Introduction; Ring and other languages
