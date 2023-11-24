@@ -423,7 +423,8 @@ More Improvements
 * Form Designer - Better behavior when displaying the MenuBar editor
 * MatrixLib - Added: RowReduceEchelonForm() function
 * MatrixLib - Added: MatrixTransform() function
-* ObjectsLib - Better Code
+* BigNumber - Better code for the power function
+* ObjectsLib - Better Code when opening new windows
 * Low Level Functions - ringvm_calllist() - Better Output
 * Ring API - Added: RING_API_STATE to get a pointer to Ring State 
 * Ring Compiler - Remove unnecessary ICO_FREESTACK after For-Loops
