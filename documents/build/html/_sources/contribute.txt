@@ -33,7 +33,7 @@ Special thanks to contributors
 Throughout the creation of this project, Ring relied heavily on contributions from experts along with college students.  
 Their input was invaluable, and we want to take a moment to thank them and recognize them for all of their hard work.
 
-Ring Team: http://ring-lang.sf.net/team.html
+Ring Team: https://ring-lang.github.io/team.html
 
 .. index:: 
 	pair: How to contribute?; Documentation
