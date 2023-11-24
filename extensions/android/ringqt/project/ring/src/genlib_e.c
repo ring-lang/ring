@@ -841,6 +841,9 @@ void ring_vm_generallib_string ( void *pPointer )
         RING_API_ERROR(RING_API_MISS1PARA);
         return ;
     }
+    if ( RING_API_ISSTRING(1) ) {
+        RING_API_RETSTRING(RING_API_GETSTRING(1));
+    }
     if ( RING_API_ISNUMBER(1) ) {
         nNum1 = RING_API_GETNUMBER(1);
         ring_vm_numtostring((VM *) pPointer, nNum1,cStr);
