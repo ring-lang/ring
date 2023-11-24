@@ -33,7 +33,7 @@ A = [[ 7,1],
      [-4,3]]
 
 See "A solve " MatrixPrint(A)
-S = EigenValue2(A)
+S = EigenValue(A)
 See "Solution (5,5) " MatrixPrint(S)
 
 See nl+"========================="+nl
@@ -42,7 +42,7 @@ A = [[ 2,-3],
      [ 0, 2]]
 
 See "A solve " MatrixPrint(A)
-S = EigenValue2(A)
+S = EigenValue(A)
 See "Solution (2,2) " MatrixPrint(S)
 
 See nl+"========================="+nl
@@ -51,14 +51,14 @@ A = [[ 2, 2],
      [ 1, 3]]
 
 See "A solve " MatrixPrint(A)
-S = EigenValue2(A)
+S = EigenValue(A)
 See "Solution (2,2) " MatrixPrint(S)
 
 See nl+"========================="+nl
 
 
 See "A solve " MatrixPrint(A)
-S = EigenValue2(A)
+S = EigenValue(A)
 See "Solution (2,2) " MatrixPrint(S)
 
 See nl+"========================="+nl
