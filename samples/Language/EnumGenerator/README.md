@@ -61,7 +61,7 @@ list = Alignment.GetNamedValues()
 ```
 
 I found this useful, but it will be hard to write such a class every time I need a 2-value enum!
-So, I decided to auto-generate it. I crated the `GenerateEnum` function in the file `EnumGenerator.ring`, to return a string containing the definition of the enum class and the global variable. You can output this string to the output window, copy it to a ring project, or save it in a file. It's up to you.
+So, I decided to auto-generate it. I created the `GenerateEnum` function in the file `EnumGenerator.ring`, to return a string containing the definition of the enum class and the global variable. You can output this string to the output window, copy it to a ring project, or save it in a file. It's up to you.
 
 # Sample code:
 The `GenerateEnum` function can be used like this:
