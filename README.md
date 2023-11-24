@@ -811,7 +811,7 @@ This is better for threads and concurrency (More Faster!)
 
 Ring is designed to be a simple, small, and flexible language in the first place, but also it is fast enough for many applications.
 
-Ring can do each of the next tasks in around 1 second
+Ring can do each of the following tasks in around 1 second
 
 Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]
 
