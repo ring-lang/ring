@@ -1664,7 +1664,7 @@ aList = "nice"
 		<ul>
 		<li>Free Open Source (MIT License)</li>			
 		<li>Hybrid Implementation (Compiler+VM)</li>
-		<li>The compiler + The Virtual Machine + Standard Functions are less than 25,000 lines of C code</li>
+		<li>The Compiler + The Virtual Machine + Standard Functions are less than 25,000 lines of C code</li>
 		<li>The other 500,000 lines of code are related to libraries!</li>
 		<li>Transparent Implementation provides optional printing for Tokens/Grammar/Byte-Code during execution</li>		
 		<li>Written in ANSI C (The code is generated)</li>
