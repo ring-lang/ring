@@ -1694,7 +1694,7 @@ aList = "nice"
 		</div>
 	
 
-  <div id="fastenough" class="panel-group collapse">
+  <div id="fastenough" class="panel-group">
     <div class="panel panel-primary">
       <div class="panel-heading"><h4>Fast Enough For Many Applications</h4></div>
       <div class="panel-body">
@@ -1705,15 +1705,24 @@ aList = "nice"
 		Ring is designed to be a simple, small and flexible language in the first place, but also it is fast enough for many applications.
 		</p>
 		<p>
-		<b>Ring can do each of the next tasks in around 1 second</b> using normal computers in the market during the last 5 years  <br><br>
+		Ring can do each of the next tasks in around 1 second. </br> 
+		Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11, Ring 1.19]  <br><br>
 		
 		(1) Compiling 100,000 lines of code <br>
-		(2) Executing empty loop that count from 1 to 10,000,000  <br>
-		(3) Executing 1000 search operation using linear search in a list contains 100,000 items, trying to find the last item (The worst case) <br>
-		(4) Creating list contains 1,000,000 items then summing all of the list items<br>
-		(5) Adding 20,000 items to the ListWidget in GUI applications <br>
-		(6) Adding 5,000 nodes to the TreeWidget in GUI applications <br> 
-		(7) Printing 10,000 messages to the terminal in Console applications <br><br>		
+
+		(2) Executing an empty loop that count from 1 to 100,000,000 <br>
+
+		(3) Creating list contains 7,000,000 items then summing all of the list items <br>
+
+		(4) Printing numbers from 1 to 30,000 using command prompt <br>
+
+		(5) Printing numbers from 1 to 400,000 using output redirection and Ring Notepad <br>
+
+		(6) Adding 50,000 nodes to the TreeWidget in GUI applications <br>
+
+		(7) Adding 60,000 items to the ListWidget in GUI applications <br>
+
+		(8) Executing 3000 search operations using linear search in a list contains 100,000 items, trying to find the last item (The worst case) <br><br>		
 		
 		Also when we need more speed we can use C/C++ extensions! <br>
 		
@@ -1830,7 +1839,7 @@ aList = "nice"
 		<ul>
 		<li>Free Open Source (MIT License)</li>			
 		<li>Hybrid Implementation (Compiler+VM)</li>
-		<li>The compiler + The Virtual Machine are 20,000 lines of C code</li>
+		<li>The compiler + The Virtual Machine + Standard Functions are less than 25,000 lines of C code</li>
 		<li>The other 500,000 lines of code are related to libraries!</li>
 		<li>Transparent Implementation provides optional printing for Tokens/Grammar/Byte-Code during execution</li>		
 		<li>Written in ANSI C (The code is generated)</li>
