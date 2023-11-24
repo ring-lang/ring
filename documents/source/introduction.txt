@@ -46,6 +46,21 @@ a different language that comes with new ideas and intelligent implementation.
 .. note:: The importance of the PWCT project to the Ring language design is similar to the importance of the Unix operating system to the C language design. Having a specific project in the mind of a programming language designer help a lot in taking the right decisions towards a clear goal. For example, We know that the PWCT visual programming language will provide readability, this let us focus in Ring design on writability. So, we can get maximum readability and maximum writability at the same time since both languages are designed together. Also, PWCT as a visual language requires powerful GUI library and fast graphics. That's why Ring comes with support for the Qt framework as it's primary GUI toolkit.   
 
 .. index:: 
+	pair: Introduction; Motivation (2)
+
+Motivation (2)
+==============
+
+In 2009-2010, I developed a small domain-specific programming language for GUI development called Supernova.
+I invested many months of my time to create this language and get something that I can use for small programs.
+After creating Supernova, I realized that if the programming language have some new features on the top of object-oriented programming, it could help me to create a domain-specific language like Supernova in days instead of many months. So Ring as a language provide these features, and using Ring we can create Supernova and enjoy it's features in real-world applications development. Ring is designed to be a superset of Supernova and enable us to create many domain-specific languages.
+
+
+.. note:: The role that Supernova language played for the Ring language design is similar to the role played by the ABC language for the Python language design. When you create a programming language and try to use it in practical, you will learn a lot of lessons that help a lot when designing another language influnced by this language.
+
+
+
+.. index:: 
 	pair: Introduction; Ring and other languages
 
 Ring and other languages
