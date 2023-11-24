@@ -61,6 +61,11 @@ MyApp = New qapp
         setwindowtitle("Draw Modulo Multiply Tables: ")
         setgeometry(100,50,WinX, WinY)      ### On Screen
 
+        oAllEvents = new QAllEvents(win1) {
+              setCloseEvent("MyApp.Quit()")
+	}
+        installeventfilter(oAllEvents)
+
         new qpushbutton(win1)
         {
               setgeometry(50,ButtonX, ButtonW, ButtonH)
