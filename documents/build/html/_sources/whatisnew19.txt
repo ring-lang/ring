@@ -428,6 +428,7 @@ More Improvements
 * RingStbImage - Added: stbi_bytes2list()
 * RingQt - QPainter class - Added: drawRGBFListAtXY() & drawHSVFListAtXY()
 * Number() function - Don't produce an error when the input is already a number
+* String() function - Don't produce an error when the input is already a string
 * Low Level Functions - ringvm_calllist() - Better Output
 * Ring API - Added: RING_API_STATE to get a pointer to Ring State 
 * Ring Compiler - Remove unnecessary ICO_FREESTACK after For-Loops
