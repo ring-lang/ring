@@ -813,7 +813,7 @@ Ring is designed to be a simple, small, and flexible language in the first place
 
 Ring can do each of the following tasks in around 1 second
 
-Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]
+Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11, Ring 1.19]
 
 (1) Compiling 100,000 lines of code
 
