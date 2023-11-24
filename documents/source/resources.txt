@@ -15,7 +15,7 @@ Ring Language Website
 
 For news about the language check the website
 
-	 http://ring-lang.net
+URL: http://ring-lang.net
 
 .. index:: 
 	pair: Resources; Source Code
@@ -25,7 +25,17 @@ Source Code
 
 Ring is Free-Open Source (MIT License)
 
-Source Code : https://github.com/ring-lang/ring
+URL: https://github.com/ring-lang/ring
+
+.. index:: 
+	pair: Resources; Ring Group
+
+Ring Group
+==========
+
+If you have any question or would like to send a bug report
+
+URL: https://groups.google.com/g/ring-lang
 
 .. index:: 
 	pair: Resources; Ring Team
@@ -33,4 +43,4 @@ Source Code : https://github.com/ring-lang/ring
 Ring Team
 =========
 
-URL : http://ring-lang.net/team.html
+URL: http://ring-lang.net/team.html
