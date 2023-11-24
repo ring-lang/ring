@@ -51,6 +51,7 @@ app = new qApp
 			
 			myFilter = new qAllEvents(win)
 			myFilter.setKeyPressEvent("pWork()")
+			myFilter.setCloseevent("app.Quit()")
 			installEventFilter(myFilter)
 
         setWindowTitle('Peg Solitaire: ')
