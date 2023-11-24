@@ -823,6 +823,7 @@ void ring_vm_generallib_number ( void *pPointer )
     }
     if ( RING_API_ISNUMBER(1) ) {
         RING_API_RETNUMBER(RING_API_GETNUMBER(1));
+        return ;
     }
     if ( RING_API_ISSTRING(1) ) {
         x = ring_vm_stringtonum((VM *) pPointer,RING_API_GETSTRING(1));
@@ -843,6 +844,7 @@ void ring_vm_generallib_string ( void *pPointer )
     }
     if ( RING_API_ISSTRING(1) ) {
         RING_API_RETSTRING(RING_API_GETSTRING(1));
+        return ;
     }
     if ( RING_API_ISNUMBER(1) ) {
         nNum1 = RING_API_GETNUMBER(1);
