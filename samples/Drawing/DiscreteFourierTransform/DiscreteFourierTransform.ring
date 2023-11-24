@@ -4,6 +4,7 @@
 
 Load "guilib.ring"
 load "stdlib.ring"
+load "data.ring"
 
 PI       = 3.1415926535  // Circle is 2*PI radians
 TWO_PI   = PI * 2
@@ -19,8 +20,6 @@ gDegree  = PI / 180      // 2*PI = 360 degrees  Radians to Degrees
 //----------------------------
 //DFT - Test Pattern
 YY = [100,100,100, -100,-100,-100, 100,100,100, -100,-100,-100]
-
-load "data.ring"
 
 //----------------------------
 
