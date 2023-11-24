@@ -5,8 +5,8 @@
 # This example doesn't use threads
 # Vector3(x,y,z) --> Accept 3 parameters and Return a Ring object 
 # Vec3() --> Doesn't accept parameters and Return a C pointer
-# Performacne using Ring 1.18 ---> 10 FPS
-# Performance using Ring 1.19 ---> 30 FPS  (Three times (3x) faster)
+# Performacne using Ring 1.18 ---> 12 FPS
+# Performance using Ring 1.19 ---> 35 FPS  (Three times (3x) faster)
 #===================================================================#
 
 load "raylib.ring"
