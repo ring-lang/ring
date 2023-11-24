@@ -218,19 +218,8 @@ Func GetImagePixels()
 
     //-------------------------------
       
-    aList = ExtractImageRGB(DisplayImage)   // Extract RGB to aList
-    
-    MCOrig  = aList
-    MCOrigF = aList
-    
-    for k = 1 to len(MCorigF)
-        MCOrigF[k][1] = MCOrigF[k][1]+imageOffsetX
-        MCOrigF[k][2] = MCOrigF[k][2]+imageOffsetY    // Offset X-Y  
-    next     
-
-    MCOrig = MCOrigF     // Modifired X-Y  as + 1-40    offset
-   
-    
+    MCOrig = ExtractImageRGB(DisplayImage)   // Extract RGB to aList
+  
    #=====================================================================#
    t3 = clock()
    See "GetPixelColors.....:   Total Time: " + ( (t3-t1)/ClocksPerSecond() ) + " seconds " +nl
@@ -243,7 +232,7 @@ Func GetImagePixels()
     Canvas.setPixMap(MonaLisa)          ### Need this setPixMap to display imageLabel               
     MyApp.ProcessEvents()               ### EXEC the Draw
        
-    DrawRGBAImagePixels(MCOrigF,0,0)        // Draw ORIGINAL First - Side by Side  
+    DrawRGBAImagePixels(MCOrig,imageOffsetX,imageOffsetY)        // Draw ORIGINAL First - Side by Side  
     
     label2.setText(" Fin ...")
     
@@ -297,10 +286,7 @@ Func ChangeColorValue()
        
        //====================================================================
        // FRACTION of COLOR of ORIGINAL -- Display Color RBG 
-       
-       MCRgbA[i][1] = MCOrig[i][1]  + offSetX         // Double Width Position
-       MCRgbA[i][2] = MCOrig[i][2]                    // + offSett // Y+40 Already done in MCOrig
-                            
+                                 
        MCRgbA[i][3] = MCOrig[i][3]  * (Red   / 100 )   //  Slider : Fraction of Color   00  100  200
        MCRgbA[i][4] = MCOrig[i][4]  * (Green / 100 )
        MCRgbA[i][5] = MCOrig[i][5]  * (Blue  / 100 )
@@ -351,17 +337,14 @@ Func ChangeColorValue()
     
     if Alpha < 255                         // Alpha Intensity overlays Image, need to blank it out first
        MonaLisa.fill(colorBlack)           // ===<<< BLANK OUT OLD IMAGE !!!
-       DrawRGBAImagePixels(MCOrig,0,0)         // RE-DRAWD Orig First (with offsets) - Side by Side
+       DrawRGBAImagePixels(MCOrig,imageOffsetX,imageOffsetY)         // RE-DRAWD Orig First (with offsets) - Side by Side
            Canvas.setPixMap(MonaLisa)          ### Need this setPixMap to display imageLabel               
-       MyApp.ProcessEvents()               ### EXEC the Draw  
     ok
     
     Canvas.setPixMap(MonaLisa)          ### Need this setPixMap to display imageLabel               
     MyApp.ProcessEvents()               ### EXEC the Draw   
-
-
-    
-    DrawRGBAImagePixels(MCRgbA,0,0)         // MCRgbA as per FRACTION of SLIDER Values
+  
+    DrawRGBAImagePixels(MCRgbA,imageOffsetX+imageStock.Width()+10,imageOffsetY)         // MCRgbA as per FRACTION of SLIDER Values
 
     label2.setText(" Fin ....")
     
