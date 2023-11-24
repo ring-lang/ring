@@ -388,12 +388,14 @@ The CHM file is updated to support search
 
 Also, The next chapters are revised and improved 
 
+* Introduction
 * Performance Tips
 * Syntax Flexibility
 * The Type Hints Library
 * Building From Source Code
 * Extension using C/C++ languages
 * Tutorial: Ring Extensions in C/C++
+* Frequently Asked Questions (FAQ)
  
 .. index:: 
 	pair: What is new in Ring  1.19; More Improvements
