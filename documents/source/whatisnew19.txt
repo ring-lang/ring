@@ -426,6 +426,7 @@ More Improvements
 * BigNumber - Better code for the power function
 * ObjectsLib - Better Code when opening new windows
 * RingStbImage - Added: stbi_bytes2list()
+* RingQt - QPainter class - Added: drawRGBFListAtXY() & drawHSVFListAtXY()
 * Low Level Functions - ringvm_calllist() - Better Output
 * Ring API - Added: RING_API_STATE to get a pointer to Ring State 
 * Ring Compiler - Remove unnecessary ICO_FREESTACK after For-Loops
