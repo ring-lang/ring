@@ -59,6 +59,38 @@ After creating Supernova, I realized that if the programming language have some 
 .. note:: The role that Supernova language played for the Ring language design is similar to the role played by the ABC language for the Python language design. When We create a programming language and try to use it in practical, We will learn a lot of lessons that help us when designing the next language.
 
 
+.. index:: 
+	pair: Introduction; Motivation (3)
+
+Motivation (3)
+==============
+
+Many programming languages for application development come and go. i.e., Becomes no longer under development!
+
+I remember having a good time while using Clipper, Classic Visual Basic, Visual FoxPro, etc.
+
+Ring is designed to be a language for application development that can stay for many decades in the future (I will not say forever, but I hope that I can say this!).
+
+To achieve this, Ring is a free and open-source project that works on different platforms and has a small implementation that other programmers could understand and improve. It comes with a visual implementation  that could help in this process. Ring is designed and implemented in a way that enables other programmers to easily understand its design and implementation in a short time.
+
+The selection of data types, How the Garbage Collector works, How does the language support threads? All of these decisions are made in a specific way to keep the language very portable and ready for the future (ss much as we can, Since we don't know the future, but we can try to invent it!).
+
+.. note:: We can run Ring on a very old operating system like MS-DOS. Also, we can run it using a modern platform like WebAssembly. 
+
+
+.. index:: 
+	pair: Introduction; Motivation (4)
+
+Motivation (4)
+==============
+
+I love programming languages, and I have used a lot of them during my work. When I think about a programming language, I feel something. It's not about the language features; it's about the language spirit and the unique things that can be done using this language. I am not talking about the final result, where we can use many languages in the same group to achieve the same goal. I am talking about the solution itself. the design and the code. How does it look like? Is it beautiful? What about the code size? Is it simple or complex? and things like that, which have a direct effect on source code comprehension and software development productivity.
+
+Ring is designed to include the spirit of many other languages. We don't do this by copying features or mixing things that don't match together! Our technique is different. It's similar to how a child could look like his or her parents. You get the feeling, not a copy!
+
+ 
+.. note:: Ring is designed to be small in size, like Lua, but it comes with standard support for many programming paradigms, like Python and Ruby. This is a challenge when we talk about implementation and development. 
+
 
 .. index:: 
 	pair: Introduction; Ring and other languages
