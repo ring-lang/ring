@@ -27,6 +27,37 @@ Get the source code
 
 	git clone http://github.com/ring-lang/ring.git
 
+
+.. index:: 
+	pair: Building From Source Code; Complete Build
+
+Complete Build (Compiler/VM, Extensions, Tools, etc.)
+=====================================================
+
+Install Qt 5.15.15  (in C:\Qt) so we have the folder (C:\Qt\5.15.15)
+
+If you have another version from Qt 5.15 (like Qt 5.15.2) - Or Qt is installed in another folder 
+The next batch files uses environment variables (RING_QT_DIR & RING_QT_VERSION) to set the path
+
+To build 32bit version: ring/buildvc.bat
+To build 64bit version: ring/buildvc_x64.bat
+
+.. index:: 
+	pair: Building From Source Code; 64bit version
+
+64bit version
+=============
+
+The next steps demonstrates how to build the 32bit version
+
+To build the 64bit version add _x64 to the batch file name (i.e. use buildvc_x64.bat instead of buildvc.bat)
+
+.. index:: 
+	pair: Building From Source Code; Custom Build
+
+Custom Build
+============
+
 Build Ring (Compiler/VM)
 
 .. code-block:: none
