@@ -92,7 +92,7 @@ ring_vm_generallib_srandom
 Type: int
 nNum1
 ring_vm_generallib_nothing
-ring_vm_generallib_nothingfunc
+ring_vm_generallib_optionalfunc
 Type: RingState *
 pRingState
 Type: VM *
