@@ -19,7 +19,7 @@ S1 = CharEquation(N)
 See "Matrix " MatrixPrint(N)			   
 See "Characteristic Equation: x4 -4x3 -8x2 -3x  0 "  MatrixFlatPrint(S1)
 
-E1 = EigenValue4(N)
+E1 = EigenValue(N)
 See "EigenValue 0, -1, 5.54, -0.54"  MatrixPrint(E1)
 
 See nl+"==========================="+nl
@@ -33,7 +33,7 @@ Solution = CharEquation(A)
 See "Matrix " MatrixPrint(A)			   
 See "Characteristic Equation: x4 -4x3 +4x2 -x  0 "  MatrixFlatPrint(Solution)
 
-E1 = EigenValue4(A)
+E1 = EigenValue(A)
 See "EigenValue 0, 1, 2.62, -.38"  MatrixPrint(E1)
 
 See nl+"==========================="+nl
