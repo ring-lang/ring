@@ -457,8 +457,8 @@ RING_API List * ring_vm_api_newlistusingblocks ( VM *pVM, int nSize, int nSize2 
     int x,y  ;
     Items *pItems  ;
     Item *pItem  ;
+    pList = ring_vm_api_newlist(pVM) ;
     if ( (nSize > 0) && (nSize2 == -1) ) {
-        pList = ring_vm_api_newlist(pVM) ;
         /*
         **  Allocate Memory 
         **  We allocate an extra item (nSize+1) to avoid using the block address as the first item 
@@ -495,10 +495,8 @@ RING_API List * ring_vm_api_newlistusingblocks ( VM *pVM, int nSize, int nSize2 
         }
         /* Set the List Data */
         pList->nSize = nSize ;
-        return pList ;
     }
     else if ( (nSize > 0) && (nSize2 > 0) ) {
-        pList = ring_vm_api_newlist(pVM) ;
         /* Allocate Memory */
         pItems = (Items *) ring_calloc((nSize*nSize2)+1,sizeof(Items));
         pList->pItemsBlock = pItems ;
@@ -537,7 +535,6 @@ RING_API List * ring_vm_api_newlistusingblocks ( VM *pVM, int nSize, int nSize2 
         /* Set the List Data */
         pList->nNextItemAfterLastAccess = 0 ;
         pList->pLastItemLastAccess = NULL ;
-        return pList ;
     }
-    return NULL ;
+    return pList ;
 }
