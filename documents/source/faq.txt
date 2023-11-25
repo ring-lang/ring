@@ -101,6 +101,29 @@ we have a plan to present a new paradigm for network programming and concurrency
 new paradigm through simple prototypes during the last years and we will integrate it with Ring 
 in future releases.
 
+
+.. index:: 
+	pair: Frequently Asked Questions; Which of 3 coding styles are commonly used or recommended by the community?
+
+Which of 3 coding styles are commonly used or recommended by the community?
+===========================================================================
+
+(1) Just select any style of them but don't mix between the different styles in the same project
+     or at least in the same context (Implementation, Tests, Scripts, etc)
+
+.. Note:: State the rules in the start of each project and follow it.
+
+(2) You can create your style (by changing keywords) - The idea is about customization and freedom.
+
+.. Note:: It's better to change keywords and create new style only for a clear reason like using another natural  language (Arabic, French, etc.)
+
+(3) The First style is better (IMHO) for questions, tutorials and small applications/programs (Less than 5,000 LOC)
+      Example : Ring Book, Most of Ring Samples and Applications.
+
+(4) The Third style is better(IMHO) for large applications and mainstream programmers
+
+	Example (Form Designer) : https://github.com/ring-lang/ring/tree/master/tools/formdesigner
+
 .. index:: 
 	pair: Frequently Asked Questions; What is the Ring Architecture?
 
@@ -546,10 +569,10 @@ The Answer:
 
 
 .. index:: 
-	pair: Frequently Asked Questions; Why the ability to define your own languages Instead of just handing over the syntax so you can parse it using whatever code you like?
+	pair: Frequently Asked Questions; Why the ability to define your own languages Instead of parsing?
 
-Why the ability to define your own languages Instead of just handing over the syntax so you can parse it using whatever code you like?
-======================================================================================================================================
+Why the ability to define your own languages Instead of parsing?
+================================================================
 
 It's innovation - You create natural statements without the need to learn about parsing. 
 You just use Classes which is intelligent decision (where later we can mix between classes to
@@ -1683,6 +1706,83 @@ if we want to print other characters we can use the char(nASCII) function
 	See char(109) + nl +    # print m
 	    char(77)            # print M
 
+
+.. index:: 
+	pair: Frequently Asked Questions; Why I get Calling Function without definition Error?
+
+Why I get Calling Function without definition Error?
+====================================================
+
+Each program follow the next order 
+
+1 - Loading Files
+2 - Global Variables and Statements
+3 - Functions
+4 - Packages, Classes and Methods
+
+So what does that mean ?
+
+(1) **** No Functions comes After Classes ****
+(2) **** No command is required to end functions/methods/classes/packages ****
+
+Look at this example
+
+.. code-block:: ring
+
+	See "Hello"
+	test()
+	func test 
+	    see "message from the test function!" + nl
+	class test 
+ 
+In the previous example we have a function called test() so we can call it directly using test()
+
+In the next example, test() will become a method
+
+.. code-block:: ring
+
+	See"Hello"
+	test()    # runtime error message
+	class test
+		func test # Test() now is a method (not a function)
+			see "message from the test method!" + nl
+
+The errors comes when you define a method then try calling it directly as a function.
+
+The previous program must be
+
+.. code-block:: ring
+
+	See"Hello"
+	new test { test() }   # now will call the method
+	class test
+		func test # Test() now is a method (not a function)
+			see "message from the test method!" + nl
+
+
+.. index:: 
+	pair: Frequently Asked Questions; Can Ring work on Windows XP?
+
+Can Ring work on Windows XP?
+============================
+
+Ring can work on Windows XP and load extensions without problems.
+
+Just be sure that the extension can work on Windows XP and your compiler version support that (modern compilers requires some flags to support XP)
+
+Check this topic
+https://blogs.msdn.microsoft.com/vcblog/2012/10/08/windows-xp-targeting-with-c-in-visual-studio-2012/
+
+For example, We added 
+
+.. code-block:: none
+
+	/link /SUBSYSTEM:CONSOLE,"5.01" 
+
+To the batch file to support Windows XP
+
+See : https://github.com/ring-lang/ring/blob/master/language/src/buildvc.bat
+
 .. index:: 
 	pair: Frequently Asked Questions; Why we don't use () after the QApp class name?
 
@@ -1955,133 +2055,6 @@ Use the method setWindowFlags()
 
 
 .. index:: 
-	pair: Frequently Asked Questions; How to use SQLite using ODBC?
-
-How to use SQLite using ODBC?
-=============================
-
-In Ring 1.1 and later versions we have native support for SQLite, so you don't need to use it through ODBC.
-
-Also we can access SQLite through RingQt.
-
-The answer to your question
-
-.. code-block:: ring
-
-	pODBC = odbc_init()
-	odbc_connect(pODBC,"DRIVER=SQLite3 ODBC Driver;Database=mydb.db;LongNames=0;"+
-			   "Timeout=1000;NoTXN=0;SyncPragma=NORMAL;StepAPI=0;")
-	odbc_execute(pODBC,"create table 'tel' ('ID','NAME','PHONE');")
-	odbc_execute(pODBC,"insert into 'tel' values ('1','Mahmoud','123456');")
-	odbc_execute(pODBC,"insert into 'tel' values ('2','Ahmed','123456');")
-	odbc_execute(pODBC,"insert into 'tel' values ('3','Ibrahim','123456');")
-	odbc_execute(pODBC,"select * from tel") + nl
-	nMax = odbc_colcount(pODBC)
-	See "Columns Count : " + nMax + nl
-	while odbc_fetch(pODBC)
-        	See nl
-	        for x = 1 to nMax
-        	        see odbc_getdata(pODBC,x) 
-			if x != nMax see " - " ok
-	        next
-	end
-	odbc_disconnect(pODBC)
-	odbc_close(pODBC)
-
-Output:
-
-.. code-block:: none
-
-	Columns Count : 3
-
-	1 - Mahmoud - 123456
-	2 - Ahmed - 123456
-	3 - Ibrahim - 123456
-
-The program will create the file : mydb.db
-
-Note : when I print the odbc drivers I see the long list that includes
-
-.. code-block:: none
-
-	SQLite3 ODBC Driver - UsageCount=1
-	SQLite ODBC Driver - UsageCount=1	
-	SQLite ODBC (UTF-8) Driver - UsageCount=1
-
-And I'm using "SQLite3 ODBC Driver".
-
-
-.. index:: 
-	pair: Frequently Asked Questions; Can I connect to dbase/harbour database?
-
-Can I connect to dbase/harbour database?
-========================================
-
-You can connect to any database using ODBC
-
-To connect to xbase files (*.DBF)
-
-.. code-block:: ring
-
-	See "Using DBF Files using ODBC" + nl
-	pODBC = odbc_init()
-	See "Connect to database" + nl
-	odbc_connect(pODBC,"Driver={Microsoft dBase Driver (*.dbf)};"+
-			   "datasource=dBase Files;DriverID=277")
-	See "Select data" + nl
-	odbc_execute(pODBC,"select * from tel.dbf") 
-	nMax = odbc_colcount(pODBC)
-	See "Columns Count : " + nMax + nl
-	while odbc_fetch(pODBC)
-		   See "Row data:" + nl
-		   for x = 1 to nMax
-				   see odbc_getdata(pODBC,x) + " - "
-		   next
-	end
-	See "Close database..." + nl
-	odbc_disconnect(pODBC)
-	odbc_close(pODBC)
-
-Output 
-
-.. code-block:: none
-
-	Using DBF Files using ODBC
-	Connect to database
-	Select data
-	Columns Count : 3
-	Row data:
-	Ahmad - Egypt - 234567 - Row data:
-	Fady - Egypt - 345678 - Row data:
-	Shady - Egypt - 456789 - Row data:
-	Mahmoud - Egypt - 123456 - Close database...
-
-
-Also you can connect to a Visual FoxPro database (requires installing Visual FoxPro driver)
-
-.. code-block:: ring
-
-
-	See "ODBC test 6" + nl
-	pODBC = odbc_init()
-	See "Connect to database" + nl
-	odbc_connect(pODBC,"Driver={Microsoft Visual FoxPro Driver};"+
-		"SourceType=DBC;SourceDB=C:\PWCT19\ssbuild\PWCTDATA\CH1\Data\mydata.dbc;") 
-	See "Select data" + nl
-	see odbc_execute(pODBC,"select * from t38") + nl
-	nMax = odbc_colcount(pODBC)
-	See "Columns Count : " + nMax + nl
-	while odbc_fetch(pODBC)
-		See "Row data:" + nl
-		for x = 1 to nMax
-			see odbc_getdata(pODBC,x) + " - "
-		next
-	end
-	See "Close database..." + nl
-	odbc_disconnect(pODBC)
-	odbc_close(pODBC)
-
-.. index:: 
 	pair: Frequently Asked Questions; Why setClickEvent() doesn't see the object methods directly?
 
 Why setClickEvent() doesn't see the object methods directly?
@@ -2109,81 +2082,6 @@ Also some other languages uses anonymous functions that may get parameters like 
 Now we have the general solution (not restricted with any paradigm), In the future we may 
 add specific solutions that match specific paradigms (OOP, Functional, Declarative and Natural).
 
-.. index:: 
-	pair: Frequently Asked Questions; Why I get Calling Function without definition Error?
-
-Why I get Calling Function without definition Error?
-====================================================
-
-Each program follow the next order 
-
-1 - Loading Files
-2 - Global Variables and Statements
-3 - Functions
-4 - Packages, Classes and Methods
-
-So what does that mean ?
-
-(1) **** No Functions comes After Classes ****
-(2) **** No command is required to end functions/methods/classes/packages ****
-
-Look at this example
-
-.. code-block:: ring
-
-	See "Hello"
-	test()
-	func test 
-	    see "message from the test function!" + nl
-	class test 
- 
-In the previous example we have a function called test() so we can call it directly using test()
-
-In the next example, test() will become a method
-
-.. code-block:: ring
-
-	See"Hello"
-	test()    # runtime error message
-	class test
-		func test # Test() now is a method (not a function)
-			see "message from the test method!" + nl
-
-The errors comes when you define a method then try calling it directly as a function.
-
-The previous program must be
-
-.. code-block:: ring
-
-	See"Hello"
-	new test { test() }   # now will call the method
-	class test
-		func test # Test() now is a method (not a function)
-			see "message from the test method!" + nl
-
-
-.. index:: 
-	pair: Frequently Asked Questions; Can Ring work on Windows XP?
-
-Can Ring work on Windows XP?
-============================
-
-Ring can work on Windows XP and load extensions without problems.
-
-Just be sure that the extension can work on Windows XP and your compiler version support that (modern compilers requires some flags to support XP)
-
-Check this topic
-https://blogs.msdn.microsoft.com/vcblog/2012/10/08/windows-xp-targeting-with-c-in-visual-studio-2012/
-
-For example, We added 
-
-.. code-block:: none
-
-	/link /SUBSYSTEM:CONSOLE,"5.01" 
-
-To the batch file to support Windows XP
-
-See : https://github.com/ring-lang/ring/blob/master/language/src/buildvc.bat
 
 
 .. index:: 
@@ -2447,24 +2345,130 @@ Check the next sample
 			next
 		next
 
+
 .. index:: 
-	pair: Frequently Asked Questions; Which of 3 coding styles are commonly used or recommended by the community?
+	pair: Frequently Asked Questions; How to use SQLite using ODBC?
 
-Which of 3 coding styles are commonly used or recommended by the community?
-===========================================================================
+How to use SQLite using ODBC?
+=============================
 
-(1) Just select any style of them but don't mix between the different styles in the same project
-     or at least in the same context (Implementation, Tests, Scripts, etc)
+In Ring 1.1 and later versions we have native support for SQLite, so you don't need to use it through ODBC.
 
-.. Note:: State the rules in the start of each project and follow it.
+Also we can access SQLite through RingQt.
 
-(2) You can create your style (by changing keywords) - The idea is about customization and freedom.
+The answer to your question
 
-.. Note:: It's better to change keywords and create new style only for a clear reason like using another natural  language (Arabic, French, etc.)
+.. code-block:: ring
 
-(3) The First style is better (IMHO) for questions, tutorials and small applications/programs (Less than 5,000 LOC)
-      Example : Ring Book, Most of Ring Samples and Applications.
+	pODBC = odbc_init()
+	odbc_connect(pODBC,"DRIVER=SQLite3 ODBC Driver;Database=mydb.db;LongNames=0;"+
+			   "Timeout=1000;NoTXN=0;SyncPragma=NORMAL;StepAPI=0;")
+	odbc_execute(pODBC,"create table 'tel' ('ID','NAME','PHONE');")
+	odbc_execute(pODBC,"insert into 'tel' values ('1','Mahmoud','123456');")
+	odbc_execute(pODBC,"insert into 'tel' values ('2','Ahmed','123456');")
+	odbc_execute(pODBC,"insert into 'tel' values ('3','Ibrahim','123456');")
+	odbc_execute(pODBC,"select * from tel") + nl
+	nMax = odbc_colcount(pODBC)
+	See "Columns Count : " + nMax + nl
+	while odbc_fetch(pODBC)
+        	See nl
+	        for x = 1 to nMax
+        	        see odbc_getdata(pODBC,x) 
+			if x != nMax see " - " ok
+	        next
+	end
+	odbc_disconnect(pODBC)
+	odbc_close(pODBC)
 
-(4) The Third style is better(IMHO) for large applications and mainstream programmers
+Output:
 
-	Example (Form Designer) : https://github.com/ring-lang/ring/tree/master/tools/formdesigner
+.. code-block:: none
+
+	Columns Count : 3
+
+	1 - Mahmoud - 123456
+	2 - Ahmed - 123456
+	3 - Ibrahim - 123456
+
+The program will create the file : mydb.db
+
+Note : when I print the odbc drivers I see the long list that includes
+
+.. code-block:: none
+
+	SQLite3 ODBC Driver - UsageCount=1
+	SQLite ODBC Driver - UsageCount=1	
+	SQLite ODBC (UTF-8) Driver - UsageCount=1
+
+And I'm using "SQLite3 ODBC Driver".
+
+
+.. index:: 
+	pair: Frequently Asked Questions; Can I connect to dbase/harbour database?
+
+Can I connect to dbase/harbour database?
+========================================
+
+You can connect to any database using ODBC
+
+To connect to xbase files (*.DBF)
+
+.. code-block:: ring
+
+	See "Using DBF Files using ODBC" + nl
+	pODBC = odbc_init()
+	See "Connect to database" + nl
+	odbc_connect(pODBC,"Driver={Microsoft dBase Driver (*.dbf)};"+
+			   "datasource=dBase Files;DriverID=277")
+	See "Select data" + nl
+	odbc_execute(pODBC,"select * from tel.dbf") 
+	nMax = odbc_colcount(pODBC)
+	See "Columns Count : " + nMax + nl
+	while odbc_fetch(pODBC)
+		   See "Row data:" + nl
+		   for x = 1 to nMax
+				   see odbc_getdata(pODBC,x) + " - "
+		   next
+	end
+	See "Close database..." + nl
+	odbc_disconnect(pODBC)
+	odbc_close(pODBC)
+
+Output 
+
+.. code-block:: none
+
+	Using DBF Files using ODBC
+	Connect to database
+	Select data
+	Columns Count : 3
+	Row data:
+	Ahmad - Egypt - 234567 - Row data:
+	Fady - Egypt - 345678 - Row data:
+	Shady - Egypt - 456789 - Row data:
+	Mahmoud - Egypt - 123456 - Close database...
+
+
+Also you can connect to a Visual FoxPro database (requires installing Visual FoxPro driver)
+
+.. code-block:: ring
+
+
+	See "ODBC test 6" + nl
+	pODBC = odbc_init()
+	See "Connect to database" + nl
+	odbc_connect(pODBC,"Driver={Microsoft Visual FoxPro Driver};"+
+		"SourceType=DBC;SourceDB=C:\PWCT19\ssbuild\PWCTDATA\CH1\Data\mydata.dbc;") 
+	See "Select data" + nl
+	see odbc_execute(pODBC,"select * from t38") + nl
+	nMax = odbc_colcount(pODBC)
+	See "Columns Count : " + nMax + nl
+	while odbc_fetch(pODBC)
+		See "Row data:" + nl
+		for x = 1 to nMax
+			see odbc_getdata(pODBC,x) + " - "
+		next
+	end
+	See "Close database..." + nl
+	odbc_disconnect(pODBC)
+	odbc_close(pODBC)
