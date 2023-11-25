@@ -7,7 +7,7 @@ Performance Tips
 
 In this chapter we will learn more about the Ring performance.
 
-Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]
+Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11, Ring 1.19]
 
 .. index:: 
      pair: Performance Tips; Introduction
