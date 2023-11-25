@@ -450,3 +450,94 @@ RING_API void ring_vm_api_floatvalue ( void *pPointer,const char  *cStr )
 {
     ring_vm_api_varvalue(pPointer,cStr,2);
 }
+
+RING_API List * ring_vm_api_newlistusingblocks ( VM *pVM, int nSize, int nSize2 )
+{
+    List *pList, *pList2  ;
+    int x,y  ;
+    Items *pItems  ;
+    Item *pItem  ;
+    if ( (nSize > 0) && (nSize2 == -1) ) {
+        pList = ring_vm_api_newlist(pVM) ;
+        /*
+        **  Allocate Memory 
+        **  We allocate an extra item (nSize+1) to avoid using the block address as the first item 
+        **  Because we may delete the first item (And we need to avoid deleting the block too) 
+        */
+        pItems = (Items *) ring_calloc(nSize+1,sizeof(Items));
+        pList->pItemsBlock = pItems ;
+        ring_state_registerblock(pVM->pRingState,pItems+1,pItems+nSize);
+        pItem = (Item *) ring_calloc(nSize+1,sizeof(Item));
+        pList->pItemBlock = pItem ;
+        ring_state_registerblock(pVM->pRingState,pItem+1,pItem+nSize);
+        for ( x = 1 ; x <=nSize ; x++ ) {
+            /*
+            **  Add the Items 
+            **  Prepare the Item pointer 
+            */
+            pItems++ ;
+            pItem++ ;
+            /* Add Item */
+            if ( x > 1 ) {
+                pList->pLast->pNext = pItems ;
+                pItems->pPrev = pList->pLast ;
+                pList->pLast = pItems ;
+            }
+            else {
+                pList->pFirst = pItems ;
+                pList->pLast = pItems ;
+            }
+            /* Add Item Value */
+            pItems->pValue = pItem ;
+            pItem->nType = ITEMTYPE_NUMBER ;
+            pItem->data.dNumber = 0 ;
+            pItem->NumberFlag = ITEM_NUMBERFLAG_DOUBLE ;
+        }
+        /* Set the List Data */
+        pList->nSize = nSize ;
+        return pList ;
+    }
+    else if ( (nSize > 0) && (nSize2 > 0) ) {
+        pList = ring_vm_api_newlist(pVM) ;
+        /* Allocate Memory */
+        pItems = (Items *) ring_calloc((nSize*nSize2)+1,sizeof(Items));
+        pList->pItemsBlock = pItems ;
+        ring_state_registerblock(pVM->pRingState,pItems+1,pItems+(nSize*nSize2));
+        pItem = (Item *) ring_calloc((nSize*nSize2)+1,sizeof(Item));
+        pList->pItemBlock = pItem ;
+        ring_state_registerblock(pVM->pRingState,pItem+1,pItem+(nSize*nSize2));
+        for ( x = 1 ; x <=nSize ; x++ ) {
+            pList2 = ring_list_newlist(pList);
+            for ( y = 1 ; y <=nSize2 ; y++ ) {
+                /*
+                **  Add the Items 
+                **  Prepare the Item pointer 
+                */
+                pItems++ ;
+                pItem++ ;
+                /* Add Item */
+                if ( y > 1 ) {
+                    pList2->pLast->pNext = pItems ;
+                    pItems->pPrev = pList2->pLast ;
+                    pList2->pLast = pItems ;
+                }
+                else {
+                    pList2->pFirst = pItems ;
+                    pList2->pLast = pItems ;
+                }
+                /* Add Item Value */
+                pItems->pValue = pItem ;
+                pItem->nType = ITEMTYPE_NUMBER ;
+                pItem->data.dNumber = 0 ;
+                pItem->NumberFlag = ITEM_NUMBERFLAG_DOUBLE ;
+            }
+            /* Set the Sub List Data */
+            pList2->nSize = nSize2 ;
+        }
+        /* Set the List Data */
+        pList->nNextItemAfterLastAccess = 0 ;
+        pList->pLastItemLastAccess = NULL ;
+        return pList ;
+    }
+    return NULL ;
+}
