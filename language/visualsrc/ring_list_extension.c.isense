@@ -12,6 +12,8 @@ Type: List *
 pList
 Type: double
 nNum1
+Type: VM *
+pVM
 ring_vm_listfuncs_swap
 Type: List *
 pList
@@ -19,6 +21,8 @@ Type: double
 nNum1,nNum2
 Type: unsigned int
 nSize
+Type: VM *
+pVM
 ring_vm_listfuncs_list
 Type: List *
 pList, *pList2
@@ -35,6 +39,8 @@ Type: unsigned int
 nNum1, nColumn
 Type: List *
 pList
+Type: VM *
+pVM
 ring_vm_listfuncs_min
 Type: double
 nNum1
@@ -42,6 +48,8 @@ Type: List *
 pList
 Type: unsigned int
 x
+Type: VM *
+pVM
 ring_vm_listfuncs_max
 Type: double
 nNum1
@@ -49,6 +57,8 @@ Type: List *
 pList
 Type: unsigned int
 x
+Type: VM *
+pVM
 ring_vm_listfuncs_insert
 Type: List *
 pList, *pList2

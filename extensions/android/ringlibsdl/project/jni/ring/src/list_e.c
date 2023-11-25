@@ -192,7 +192,6 @@ void ring_vm_listfuncs_list ( void *pPointer )
                     pItems->pValue = pItem ;
                     pItem->nType = ITEMTYPE_NUMBER ;
                     pItem->data.dNumber = 0 ;
-                    pItem->data.iNumber = 0 ;
                     pItem->NumberFlag = ITEM_NUMBERFLAG_DOUBLE ;
                 }
                 /* Set the List Data */
@@ -239,7 +238,6 @@ void ring_vm_listfuncs_list ( void *pPointer )
                         pItems->pValue = pItem ;
                         pItem->nType = ITEMTYPE_NUMBER ;
                         pItem->data.dNumber = 0 ;
-                        pItem->data.iNumber = 0 ;
                         pItem->NumberFlag = ITEM_NUMBERFLAG_DOUBLE ;
                     }
                     /* Set the Sub List Data */
