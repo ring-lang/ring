@@ -162,7 +162,7 @@ RING_FUNC(ring_stbi_bytes2list)
 {
 	unsigned char *pData;
 	List *pList, *pSubList;
-	int nIndex;
+	int nIndex,nPoint;
 	VM *pVM;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -182,17 +182,18 @@ RING_FUNC(ring_stbi_bytes2list)
 	}
 	pData  = RING_API_GETSTRING(1);
 	nIndex = 0;
-	pList = RING_API_NEWLIST;
+	nPoint = 1;
+	pList = RING_API_NEWLISTUSINGBLOCKS(RING_API_GETNUMBER(3)*RING_API_GETNUMBER(2),6);
 	pVM = (VM *) pPointer;
 	for (int y=1 ; y <= ((int) RING_API_GETNUMBER(3)) ; y++ ) {
 		for (int x=1 ; x <= ((int) RING_API_GETNUMBER(2)) ; x++ ) {
-			pSubList = ring_list_newlist_gc(pVM->pRingState,pList);
-			ring_list_adddouble_gc(pVM->pRingState,pSubList,(double) x);
-			ring_list_adddouble_gc(pVM->pRingState,pSubList,(double) y);
-			ring_list_adddouble_gc(pVM->pRingState,pSubList,(double) pData[nIndex++]);
-			ring_list_adddouble_gc(pVM->pRingState,pSubList,(double) pData[nIndex++]);	
-			ring_list_adddouble_gc(pVM->pRingState,pSubList,(double) pData[nIndex++]);
-			ring_list_adddouble_gc(pVM->pRingState,pSubList,(double) 1.0);		
+			pSubList = ring_list_getlist(pList,nPoint++);
+			ring_list_setdouble_gc(pVM->pRingState,pSubList,1,(double) x);
+			ring_list_setdouble_gc(pVM->pRingState,pSubList,2,(double) y);
+			ring_list_setdouble_gc(pVM->pRingState,pSubList,3,(double) pData[nIndex++]);
+			ring_list_setdouble_gc(pVM->pRingState,pSubList,4,(double) pData[nIndex++]);	
+			ring_list_setdouble_gc(pVM->pRingState,pSubList,5,(double) pData[nIndex++]);
+			ring_list_setdouble_gc(pVM->pRingState,pSubList,6,(double) 1.0);		
 		}
 	}
 	RING_API_RETLIST(pList);
