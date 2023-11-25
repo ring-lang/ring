@@ -58,11 +58,22 @@ After creating Supernova, I realized that if the programming language have some 
 
 .. note:: The role that Supernova language played for the Ring language design is similar to the role played by the ABC language for the Python language design. When we create a programming language and try to use it in practical, we will learn a lot of lessons that help us when designing the next language.
 
-
 .. index:: 
 	pair: Introduction; Motivation (3)
 
 Motivation (3)
+==============
+
+We can think of a programming language as a user interface between the user and the machine. The user could be a programmer have deep knowledge about the machine architecture, a developer interested in the application and the requirements of his/her users, or a child wants to discover programming. Also, we have many types of other users like researchers, people with deep knowledge about specific domains and so on.
+
+Providing a programming language that uses just a specific syntax doesn't match what we learned about user interfaces. Ring is a language designed to bring translation, and customization at the level of the language syntax. It's not about providing multiple versions of the software where each version uses a different human language. It's about the ability to change the syntax at the project level, where using one version of Ring, we can switch between different human languages, and different customization of syntax. Instead of developing different programming languages that uses the same VM, Ring uses one compiler that support changing the syntax and this can be done many times in the same project.
+
+.. note:: Choosing the programming language syntax is a huge power and provide a great joy. Using Ring we transfer this power from the programming language designer to the language users.
+
+.. index:: 
+	pair: Introduction; Motivation (4)
+
+Motivation (4)
 ==============
 
 Many programming languages for application development come and go. i.e., Becomes no longer under development!
@@ -79,9 +90,9 @@ The selection of data types, How the Garbage Collector works, How does the langu
 
 
 .. index:: 
-	pair: Introduction; Motivation (4)
+	pair: Introduction; Motivation (5)
 
-Motivation (4)
+Motivation (5)
 ==============
 
 I love programming languages, and I have used a lot of them during my work. When I think about a programming language, I feel something. It's not about the language features; it's about the language spirit and the unique things that can be done using this language. I am not talking about the final result, where we can use many languages in the same group to achieve the same goal. I am talking about the solution itself. the design and the code. How does it look like? Is it beautiful? What about the code size? Is it simple or complex? and things like that, which have a direct effect on source code comprehension and software development productivity.
