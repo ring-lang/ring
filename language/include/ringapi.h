@@ -144,7 +144,7 @@
     #define RING_LIBINIT RING_API void ringlib_init(RingState *pRingState)
     #define RING_API_GETCHARPOINTER(x) RING_API_VARPOINTER(RING_API_GETSTRING(x),"char")
     #define RING_API_ISLISTORNULL(x) (ring_vm_api_islistornull((VM *) pPointer,x))
-    #define RING_API_NEWLISTUSINGBLOCKS(x,y) ring_vm_api_newlist((VM *) pPointer,x,y)
+    #define RING_API_NEWLISTUSINGBLOCKS(x,y) ring_vm_api_newlistusingblocks((VM *) pPointer,x,y)
     /*
     **  Note : The C Function Get Lists as pointers because of (List Pass by Reference) 
     **  The List Maybe a Variable/ListItem or may represent Object or C Pointer inside a List 
