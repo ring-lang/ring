@@ -919,6 +919,8 @@ Also, when we need more speed we can use C/C++ extensions!
 
 * Pass Lists/Objects by reference
 
+* Create references at any time using Ref() function
+
 * 8-bit clean, work on binary data directly
 
 ## Dynamic
