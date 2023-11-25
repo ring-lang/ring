@@ -114,7 +114,7 @@ FilePicked = " "    // From FileOpen()
         }     
         
 
-        eCheckGrayScale  =  new qCheckBox(win)  { setgeometry( 700, 01 , 80, 20) settext("GrayScale") setStyleSheet("background-color: yellow")}         
+        eCheckGrayScale  =  new qCheckBox(win)  { setcheckstate(2) setgeometry( 700, 01 , 80, 20) settext("GrayScale") setStyleSheet("background-color: yellow")}         
         eCheckColorize   =  new qCheckBox(win)  { setgeometry( 800, 01 , 80, 20) settext("Colorize")  setStyleSheet("background-color: yellow")}         
  
         
