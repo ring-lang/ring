@@ -217,7 +217,7 @@ call buildvc
 cd ..\..\..\
 
 cd samples\Drawing\Mandelbrot
-call buildvc_x64
+call buildvc
 cd ..\..\..\
 
 cd bin
