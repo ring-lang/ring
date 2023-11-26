@@ -27,11 +27,11 @@ MCOrig  = list(10)  // Linear List 1   => 1D list(60000)
 
 FilePicked = " "    // From FileOpen()
 
-oPixMap       = NULL      // Used for storing the selected image
-cData         = ""        // Image Bytes
-nDataWidth    = 0
-nDataHeight   = 0
-nDataChannels = 0
+oPixMap        = NULL      // Used for storing the selected image
+cImageData     = ""        // Image Bytes
+nImageWidth    = 0
+nImageHeight   = 0
+nImageChannels = 0
 
 //============================================================
 
@@ -233,21 +233,17 @@ return
 Func ChangeColorValue()
 
    # Convert to [x,y,r,g,b] List
-   # Using :cData pass the variable name "cdata" and STBI_Bytes2List we get a pointer for it
+   # Using :cImageData pass the variable name "cImageData" and STBI_Bytes2List we get a pointer for it
    # We pass channels (could be 3 or 4) and STBI_Bytes2List always return the RGB values only
    # We pass 255 which mean Divide each RGB by 255
    
    # We keep calling STBI_Bytes2List() to get the List which is faster than copying it using assignment 
-   MCOrig = STBI_Bytes2List(:cData,nDataWidth,nDataHeight,nDataChannels,255)
+   MCOrig = STBI_Bytes2List(:cImageData,nImageWidth,nImageHeight,nImageChannels,255)
 
     if !MCOrig                          // Fails on GIF ,Does NotExist ,  Image W-H: 0-0 Size: 0
        return
     ok
   
-    if MCOrig[1] = 0                    // Read Image NOT DONE yet.
-       return
-    ok
-
     btnOpenFile.setEnabled(False)
     btnChangeColors.setEnabled(False)
 
@@ -279,7 +275,7 @@ Func ChangeColorValue()
    nGreenUpdate = 1.1232 * 0.8 * nNewGreen
    nBlueUpdate  = 1.6347 * 0.5 * nNewBlue   
  
-   nMax = len( MCOrig)  
+   nMax      = len( MCOrig)  
    lColorize = (eCheckColorize.isChecked()  = 1 ) 
    lGray     = (eCheckGrayScale.isChecked() = 1 )   
 
@@ -428,22 +424,22 @@ return
 Func ExtractImageRGB(ImageFile)
 
    # Image Information
-    nDataWidth=0 nDataHeight=0 nDataChannels=0
+    nImageWidth=0 nImageHeight=0 nImageChannels=0
     
-    stbi_info(ImageFile,:nDataWidth,:nDataHeight,:nDataChannels)
+    stbi_info(ImageFile,:nImageWidth,:nImageHeight,:nImageChannels)
 
-   # Ring will Free cData automatically in the end of the program
-    if nDataChannels = 3
-        cData = stbi_load(ImageFile,:nDataWidth,:nDataHeight,:nDataChannels,STBI_rgb)
+   # Ring will Free cImageData automatically in the end of the program
+    if nImageChannels = 3
+        cImageData = stbi_load(ImageFile,:nImageWidth,:nImageHeight,:nImageChannels,STBI_rgb)
     else
-        cData = stbi_load(ImageFile,:nDataWidth,:nDataHeight,:nDataChannels,STBI_rgb_alpha)
+        cImageData = stbi_load(ImageFile,:nImageWidth,:nImageHeight,:nImageChannels,STBI_rgb_alpha)
     ok
     
    # Display the output
-    ? "Size (bytes): " + len(cData)
-    ? "Width : " + nDataWidth
-    ? "Height: " + nDataHeight
-    ? "Channels: " + nDataChannels
+    ? "Size (bytes): " + len(cImageData)
+    ? "Width : "       + nImageWidth
+    ? "Height: "       + nImageHeight
+    ? "Channels: "     + nImageChannels
     
 
 return 	
