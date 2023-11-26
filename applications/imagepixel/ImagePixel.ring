@@ -32,6 +32,11 @@ nImageWidth    = 0
 nImageHeight   = 0
 nImageChannels = 0
 
+RVALUE         = 3
+GVALUE         = 4
+BVALUE         = 5
+AVALUE         = 6
+
 //============================================================
 
 myApp = new QApp 
@@ -73,9 +78,7 @@ myApp = new QApp
             ### Change Pen Color
             daVinci.setPen(penBlue)  
         }
-                    
-
-        
+                          
         //===================================================
             
 
@@ -257,7 +260,7 @@ return
 // MCOrig[k] =  x=410 y=338 r=0.78  g=0.66 b=0.44 b  a=1 
 // These weights are: 0.2989, 0.5870, 0.1140.
 // Gamma Corrected: 
-// TotalGray = ((MCOrig[i][3] * 0.2989) +  (MCOrig[i][4] * 0.5870) + (MCOrig[i][5] * 0.1140)) / 3 
+// TotalGray = ((MCOrig[i][RVALUE] * 0.2989) +  (MCOrig[i][GVALUE] * 0.5870) + (MCOrig[i][BVALUE] * 0.1140)) / 3 
 //--------------------------------------------                                
                 
 Func ChangeColorValue()
@@ -318,10 +321,10 @@ Func ChangeColorValue()
         
         if lColorize
         
-            AvgGray = MCOrig[i][3]             //   Corrected   Reverse       13.819   %Total                                                      
-            MCOrig[i][3] = AvgGray  * nRedUpdate         //   RC = 1 / 0.299    => 3.344    0.2419        
-            MCOrig[i][4] = AvgGray  * nGreenUpdate       //   GC = 1 / 0.587       1.703    0.1232          
-            MCOrig[i][5] = AvgGray  * nBlueUpdate        //   BC = 1 / 0.114       8.772    0.6347   
+            AvgGray = MCOrig[i][RVALUE]             //   Corrected   Reverse       13.819   %Total                                                      
+            MCOrig[i][RVALUE] = AvgGray  * nRedUpdate         //   RC = 1 / 0.299    => 3.344    0.2419        
+            MCOrig[i][GVALUE] = AvgGray  * nGreenUpdate       //   GC = 1 / 0.587       1.703    0.1232          
+            MCOrig[i][BVALUE] = AvgGray  * nBlueUpdate        //   BC = 1 / 0.114       8.772    0.6347   
       
         //====================================================================
         // GRAY SCALE -- Display Color RBG in GRAY Scale  
@@ -330,22 +333,22 @@ Func ChangeColorValue()
         
         elseif lGray  
               
-           AvgGray = ( (0.3 * MCOrig[i][3]) + (0.59 * MCOrig[i][4]) 
-                     + (0.11 * MCOrig[i][5]) )   // Color Corrected
+           AvgGray = ( (0.3 * MCOrig[i][RVALUE]) + (0.59 * MCOrig[i][GVALUE]) 
+                     + (0.11 * MCOrig[i][BVALUE]) )   // Color Corrected
            
-           MCOrig[i][3] = AvgGray        // RGB set to Same Value => Gray shadeed
-           MCOrig[i][4] = AvgGray
-           MCOrig[i][5] = AvgGray
+           MCOrig[i][RVALUE] = AvgGray        // RGB set to Same Value => Gray shadeed
+           MCOrig[i][GVALUE] = AvgGray
+           MCOrig[i][BVALUE] = AvgGray
 
         else
 
         //====================================================================
         // FRACTION of COLOR of ORIGINAL -- Display Color RBG 
                                  
-           MCOrig[i][3] *= nNewRed    //  Slider : Fraction of Color   00  100  200
-           MCOrig[i][4] *= nNewGreen
-           MCOrig[i][5] *= nNewBlue
-           MCOrig[i][6] *= nNewAlpha  // Alpha Max 1.0
+           MCOrig[i][RVALUE] *= nNewRed    //  Slider : Fraction of Color   00  100  200
+           MCOrig[i][GVALUE] *= nNewGreen
+           MCOrig[i][BVALUE] *= nNewBlue
+           MCOrig[i][AVALUE] *= nNewAlpha  // Alpha Max 1.0
 
         ok         
         
