@@ -36,7 +36,7 @@ oPixMap = NULL      // Used for storing the selected image
  {
     win = new qWidget()
     {
-        setWindowTitle("Get Pixel Color")
+        setWindowTitle("Image Pixel")
         setGeometry(xPos, yPos, xWidth, yHeight)    ### Window Pos and Size
         setStyleSheet("background-color: white")
         setWinIcon(self,"images/colors.png")
