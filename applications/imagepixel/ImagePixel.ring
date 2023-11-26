@@ -24,11 +24,14 @@ colorBlack = new qcolor() { setrgb(000,000,000,255) }
 penBlue    = new qpen()   { setcolor(colorBlue)   setwidth(1) }
  
 MCOrig  = list(10)  // Linear List 1   => 1D list(60000)
-MCRgbA  = list(10)  // Linear List 1   => 1D list(60000)
 
 FilePicked = " "    // From FileOpen()
 
-oPixMap = NULL      // Used for storing the selected image
+oPixMap       = NULL      // Used for storing the selected image
+cData         = ""        // Image Bytes
+nDataWidth    = 0
+nDataHeight   = 0
+nDataChannels = 0
 
 //============================================================
 
@@ -206,7 +209,7 @@ Func GetImagePixels()
                  
     //-------------------------------
       
-    MCOrig = ExtractImageRGB(DisplayImage)   // Extract RGB to aList
+   ExtractImageRGB(DisplayImage)   // Extract RGB to aList
   
    #=====================================================================#
    t3 = clock()
@@ -220,14 +223,22 @@ return
 //================================================================
 //================================================================
 // daVinci.drawHSVFList(aList)          
-// daVinci.drawRGBFList(MCRgbA)    Format x,y, 0.0-1.0 for rgba
+// daVinci.drawRGBFList(MCOrig)    Format x,y, 0.0-1.0 for rgba
 // MCOrig[k] = [x, y, R, G, B, A]
-// MCRgbA[k] =  x=410 y=338 r=0.78  g=0.66 b=0.44 b  a=1 
+// MCOrig[k] =  x=410 y=338 r=0.78  g=0.66 b=0.44 b  a=1 
 // These weights are: 0.2989, 0.5870, 0.1140.
-// Gamma Corrected: TotalGray = ((MCRgbA[i][3] * 0.2989) +  (MCRgbA[i][4] * 0.5870) + (MCRgbA[i][5] * 0.1140)) / 3 
+// Gamma Corrected: TotalGray = ((MCOrig[i][3] * 0.2989) +  (MCOrig[i][4] * 0.5870) + (MCOrig[i][5] * 0.1140)) / 3 
 //--------------------------------------------                                
                 
 Func ChangeColorValue()
+
+   # Convert to [x,y,r,g,b] List
+   # Using :cData pass the variable name "cdata" and STBI_Bytes2List we get a pointer for it
+   # We pass channels (could be 3 or 4) and STBI_Bytes2List always return the RGB values only
+   # We pass 255 which mean Divide each RGB by 255
+   
+   # We keep calling STBI_Bytes2List() to get the List which is faster than copying it using assignment 
+   MCOrig = STBI_Bytes2List(:cData,nDataWidth,nDataHeight,nDataChannels,255)
 
     if !MCOrig                          // Fails on GIF ,Does NotExist ,  Image W-H: 0-0 Size: 0
        return
@@ -251,8 +262,6 @@ Func ChangeColorValue()
    t1 = clock()
    #=====================================================================#
 
-   MCRgbA  = MCOrig          // Do Not modify original
-  
    Red   = eRed.Text()
    Green = eGreen.Text()
    Blue  = eBlue.Text()
@@ -270,7 +279,7 @@ Func ChangeColorValue()
    nGreenUpdate = 1.1232 * 0.8 * nNewGreen
    nBlueUpdate  = 1.6347 * 0.5 * nNewBlue   
  
-   nMax = len( MCRgbA)  
+   nMax = len( MCOrig)  
    lColorize = (eCheckColorize.isChecked()  = 1 ) 
    lGray     = (eCheckGrayScale.isChecked() = 1 )   
 
@@ -283,10 +292,10 @@ Func ChangeColorValue()
         
         if lColorize
         
-            AvgGray = MCRgbA[i][3]             //   Corrected   Reverse       13.819   %Total                                                      
-            MCRgbA[i][3] = AvgGray  * nRedUpdate         //   RC = 1 / 0.299    => 3.344    0.2419        
-            MCRgbA[i][4] = AvgGray  * nGreenUpdate       //   GC = 1 / 0.587       1.703    0.1232          
-            MCRgbA[i][5] = AvgGray  * nBlueUpdate        //   BC = 1 / 0.114       8.772    0.6347   
+            AvgGray = MCOrig[i][3]             //   Corrected   Reverse       13.819   %Total                                                      
+            MCOrig[i][3] = AvgGray  * nRedUpdate         //   RC = 1 / 0.299    => 3.344    0.2419        
+            MCOrig[i][4] = AvgGray  * nGreenUpdate       //   GC = 1 / 0.587       1.703    0.1232          
+            MCOrig[i][5] = AvgGray  * nBlueUpdate        //   BC = 1 / 0.114       8.772    0.6347   
       
         //====================================================================
         // GRAY SCALE -- Display Color RBG in GRAY Scale  
@@ -295,21 +304,21 @@ Func ChangeColorValue()
         
         elseif lGray  
               
-           AvgGray = ( (0.3 * MCRgbA[i][3]) + (0.59 * MCRgbA[i][4]) + (0.11 * MCRgbA[i][5]) )  // Color Corrected
+           AvgGray = ( (0.3 * MCOrig[i][3]) + (0.59 * MCOrig[i][4]) + (0.11 * MCOrig[i][5]) )  // Color Corrected
            
-           MCRgbA[i][3] = AvgGray        // RGB set to Same Value => Gray shadeed
-           MCRgbA[i][4] = AvgGray
-           MCRgbA[i][5] = AvgGray
+           MCOrig[i][3] = AvgGray        // RGB set to Same Value => Gray shadeed
+           MCOrig[i][4] = AvgGray
+           MCOrig[i][5] = AvgGray
 
         else
 
         //====================================================================
         // FRACTION of COLOR of ORIGINAL -- Display Color RBG 
                                  
-           MCRgbA[i][3] *= nNewRed    //  Slider : Fraction of Color   00  100  200
-           MCRgbA[i][4] *= nNewGreen
-           MCRgbA[i][5] *= nNewBlue
-           MCRgbA[i][6] *= nNewAlpha  // Alpha Max 1.0
+           MCOrig[i][3] *= nNewRed    //  Slider : Fraction of Color   00  100  200
+           MCOrig[i][4] *= nNewGreen
+           MCOrig[i][5] *= nNewBlue
+           MCOrig[i][6] *= nNewAlpha  // Alpha Max 1.0
 
         ok         
         
@@ -333,7 +342,7 @@ Func ChangeColorValue()
     Canvas.setPixMap(MonaLisa)          ### Need this setPixMap to display imageLabel               
     MyApp.ProcessEvents()               ### EXEC the Draw   
   
-    DrawRGBAImagePixels(MCRgbA,imageOffsetX+imageStock.Width()+10,imageOffsetY)         // MCRgbA as per FRACTION of SLIDER Values
+    DrawRGBAImagePixels(MCOrig,imageOffsetX+imageStock.Width()+10,imageOffsetY)         // MCOrig as per FRACTION of SLIDER Values
 
     label2.setText(" Fin ....")
     btnOpenFile.setEnabled(True)
@@ -419,29 +428,24 @@ return
 Func ExtractImageRGB(ImageFile)
 
    # Image Information
-    width=0 height=0 channels=0
+    nDataWidth=0 nDataHeight=0 nDataChannels=0
     
-    stbi_info(ImageFile,:width,:height,:channels)
+    stbi_info(ImageFile,:nDataWidth,:nDataHeight,:nDataChannels)
 
    # Ring will Free cData automatically in the end of the program
-    if channels = 3
-        cData = stbi_load(ImageFile,:width,:height,:channels,STBI_rgb)
+    if nDataChannels = 3
+        cData = stbi_load(ImageFile,:nDataWidth,:nDataHeight,:nDataChannels,STBI_rgb)
     else
-        cData = stbi_load(ImageFile,:width,:height,:channels,STBI_rgb_alpha)
+        cData = stbi_load(ImageFile,:nDataWidth,:nDataHeight,:nDataChannels,STBI_rgb_alpha)
     ok
     
    # Display the output
     ? "Size (bytes): " + len(cData)
-    ? "Width : " + width
-    ? "Height: " + height
-    ? "Channels: " + channels
+    ? "Width : " + nDataWidth
+    ? "Height: " + nDataHeight
+    ? "Channels: " + nDataChannels
     
-   # Convert to [x,y,r,g,b] List
-   # Using :cData pass the variable name "cdata" and STBI_Bytes2List we get a pointer for it
-   # We pass channels (could be 3 or 4) and STBI_Bytes2List always return the RGB values only
-   # We pass 255 which mean Divide each RGB by 255
-   # We return the output directly which is faster
 
-return STBI_Bytes2List(:cData,width,height,channels,255)	
+return 	
 
 //============================================
