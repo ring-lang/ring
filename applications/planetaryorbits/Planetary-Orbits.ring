@@ -168,6 +168,11 @@ brushE      = new qbrush() { setstyle(0)  setcolor (colorYellow)}   ### Empty
         setGeometry(xPos, yPos, xWidth, yHeight)    ### Window Pos and Size
         setWinIcon(self,"images/Earth4.png")
 
+        oAllEvents = new QAllEvents(win) {
+            setCloseEvent("myApp.quit()")
+        }
+        installEventFilter(oAllEvents)
+
         Canvas = new qlabel(win)
         {
             ### daVinci Paints the MonaLisa on the Canvas
