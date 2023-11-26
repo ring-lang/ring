@@ -178,16 +178,17 @@ Func GetImagePixels()
       
 
         imageStock = new qlabel(win)                                        // Place at top center of screen
-        {   image = new qPixMap(DisplayImage )                              // Pixel 1x1 black dot       
-            setpixmap(image.scaled(image.Width() , image.Height(), 0, 0))   // Display picture. Size-H, Siz-V, Aspect, Transform
+        {   
+            oPixMap = new qPixMap(DisplayImage )                              // Pixel 1x1 black dot       
+            setpixmap(oPixMap.scaled(oPixMap.Width() , oPixMap.Height(), 0, 0))   // Display picture. Size-H, Siz-V, Aspect, Transform
             
             PosLeft =  1 
             PosTop  =  imageOffsetY        
 	    // Slider value changed for color value                                 // From Top
-            setGeometry(PosLeft,PosTop,image.Width(),image.Height())        // Position Display 
+            setGeometry(PosLeft,PosTop,oPixMap.Width(),oPixMap.Height())        // Position Display 
         } 
     
-    See "Image W-H: "+ image.Width() +"-"+ image.Height() +" Size: "+ (image.Width() * image.Height()) +nl
+    See "Image W-H: "+ oPixMap.Width() +"-"+ oPixMap.Height() +" Size: "+ (oPixMap.Width() * oPixMap.Height()) +nl
 
 
    #=====================================================================#
@@ -198,11 +199,7 @@ Func GetImagePixels()
    
            offSetX = imageStock.Width() +10
            offSetY = 40
-           
-           pixmap = image
-           image  = pixmap.toimage()
-       
-
+                 
     //-------------------------------
       
     MCOrig = ExtractImageRGB(DisplayImage)   // Extract RGB to aList
