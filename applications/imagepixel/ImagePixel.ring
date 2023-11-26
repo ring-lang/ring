@@ -443,7 +443,7 @@ Func ExtractImageRGB(ImageFile)
     
    # Convert to [x,y,r,g,b] List
 
-    aList = STBI_Bytes2List(cData,width,height,255)	// Divide each RGB by 255
+    aList = STBI_Bytes2List(:cData,width,height,channels,255)	// Divide each RGB by 255
 
 return aList
 
