@@ -166,6 +166,7 @@ brushE      = new qbrush() { setstyle(0)  setcolor (colorYellow)}   ### Empty
     {
         setWindowTitle("Planet Orbits - 3D Rotations: ")
         setGeometry(xPos, yPos, xWidth, yHeight)    ### Window Pos and Size
+        setWinIcon(self,"images/Earth4.png")
 
         Canvas = new qlabel(win)
         {
