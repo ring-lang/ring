@@ -261,7 +261,6 @@ Func ChangeColorValue()
    #=====================================================================#
 
    MCRgbA  = MCOrig          // Do Not modify original
-   MCOrigF = MCOrig          // Original in 0.0 -1 ,0 format
   
    Red   = eRed.Text()
    Green = eGreen.Text()
