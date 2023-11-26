@@ -39,6 +39,7 @@ oPixMap = NULL      // Used for storing the selected image
         setWindowTitle("Get Pixel Color")
         setGeometry(xPos, yPos, xWidth, yHeight)    ### Window Pos and Size
         setStyleSheet("background-color: white")
+        setWinIcon(self,"images/colors.png")
         
         
         myfilter = new qallevents(win)
