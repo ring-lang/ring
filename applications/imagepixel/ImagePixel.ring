@@ -81,7 +81,7 @@ oPixMap = NULL      // Used for storing the selected image
             settext(" ")                                 // Image File opened goes here
         }
         
-        btn3 =  new qPushButton(win) {
+        btnOpenFile =  new qPushButton(win) {
                     setGeometry(001,01,195,20)
                     setText("Open file")
                     setStyleSheet("background-color: aqua")
@@ -93,11 +93,12 @@ oPixMap = NULL      // Used for storing the selected image
             settext(" ")                                 // "Working ...." "Fin .."
         }               
  
-        btn1 = new qPushButton(win) { 
+        btnChangeColors = new qPushButton(win) { 
                 setGeometry(201,01,95,20)  
                 setText("Change Colors")  
                 setStyleSheet("background-color: aqua")
                 setClickEvent("ChangeColorValue()") 
+		setEnabled(False)
         }     
         
 
@@ -154,7 +155,9 @@ Func pOpenFile()
         if FilePicked 
 		chdir(JustFilePath(FilePicked))
 	        label1.setText(JustFileName(FilePicked))    // Save Name for loading image later
+		btnChangeColors.setEnabled(False)
         	GetImagePixels()              // Display Image
+		btnChangeColors.setEnabled(True)
 	ok
         
 return 
