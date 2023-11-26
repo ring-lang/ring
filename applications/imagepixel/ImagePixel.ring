@@ -82,7 +82,7 @@ oPixMap = NULL      // Used for storing the selected image
         }
         
         btn3 =  new qPushButton(win) {
-                    setGeometry(001,01,95,20)
+                    setGeometry(001,01,195,20)
                     setText("Open file")
                     setStyleSheet("background-color: aqua")
                     setclickevent("pOpenFile()")
@@ -94,15 +94,6 @@ oPixMap = NULL      // Used for storing the selected image
         }               
  
         btn1 = new qPushButton(win) { 
-                setGeometry(101,01,95,20)  
-                setText("Get Pixels")  
-                setStyleSheet("background-color: aqua")
-                setClickEvent("GetImagePixels()") 
-        }
-  
-
-  
-        btn2 = new qPushButton(win) { 
                 setGeometry(201,01,95,20)  
                 setText("Change Colors")  
                 setStyleSheet("background-color: aqua")
@@ -157,11 +148,10 @@ Func changeAlpha()  nbr = floor(sAlpha.value() / 1.0)    eAlpha.setText(""+nbr) 
 Func pOpenFile()
 
         new qfiledialog(win) {
-             cName = getopenfilename(win,"Open file", ".", "source files(*.jpg | *.png | *.bmp | *.gif)" )
-             FilePicked = cName
+             FilePicked = getopenfilename(win,"Open file", ".", "source files(*.jpg | *.png | *.bmp | *.gif)" )
         }
         
-        label1.setText(FilePicked)    // Save Name for loading image later
+        label1.setText(JustFileName(FilePicked))    // Save Name for loading image later
         
         GetImagePixels()              // Display Image
         
