@@ -438,12 +438,17 @@ Lists created using ring_list_new()/ring_list_new_gc() must be deleted using rin
 If we created a list using RING_API_NEWLIST then deleting the list is not required and may cause problems, because 
 Ring VM will delete it automatically after the end of the caller scope.
 
+Using RING_API_NEWLISTUSINGBLOCKS1D and RING_API_NEWLISTUSINGBLOCKS2D is similar to RING_API_NEWLIST but we 
+have better performance when we create large lists.
+
 .. code-block:: C
 
 	
 	// Create and delete lists
 
 	List * RING_API_NEWLIST
+	List * RING_API_NEWLISTUSINGBLOCKS1D(int nItems) 
+	List * RING_API_NEWLISTUSINGBLOCKS2D(int nRows,int nColumns) 
 	List * ring_list_new_gc ( void *pState,unsigned int nSize ) ;
 	List * ring_list_delete_gc ( void *pState,List *pList ) ; 
 

@@ -434,6 +434,8 @@ More Improvements
 * String() function - Don't produce an error when the input is already a string
 * Low Level Functions - ringvm_calllist() - Better Output
 * Ring API - Added: RING_API_STATE to get a pointer to Ring State 
+* Ring API - Added: RING_API_NEWLISTUSINGBLOCKS1D(int nItems) --> List
+* Ring API - Added: RING_API_NEWLISTUSINGBLOCKS2D(int nRows,int nColumns) --> List
 * Ring Compiler - Remove unnecessary ICO_FREESTACK after For-Loops
 * Ring Compiler - When we run ringsyntax.ring don't load the same file again
 * Ring Compiler/VM - Check the path limit (4096 characters) before execution

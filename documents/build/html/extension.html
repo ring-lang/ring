@@ -535,9 +535,13 @@ see this file: ring/language/include/rlist.h</p>
 <p>Lists created using ring_list_new()/ring_list_new_gc() must be deleted using ring_list_delete()/ring_list_delete_gc().</p>
 <p>If we created a list using RING_API_NEWLIST then deleting the list is not required and may cause problems, because
 Ring VM will delete it automatically after the end of the caller scope.</p>
+<p>Using RING_API_NEWLISTUSINGBLOCKS1D and RING_API_NEWLISTUSINGBLOCKS2D is similar to RING_API_NEWLIST but we
+have better performance when we create large lists.</p>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="c1">// Create and delete lists</span>
 
 <span class="n">List</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">RING_API_NEWLIST</span>
+<span class="n">List</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">RING_API_NEWLISTUSINGBLOCKS1D</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nItems</span><span class="p">)</span>
+<span class="n">List</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">RING_API_NEWLISTUSINGBLOCKS2D</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nRows</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">nColumns</span><span class="p">)</span>
 <span class="n">List</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ring_list_new_gc</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">pState</span><span class="p">,</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nSize</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">;</span>
 <span class="n">List</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">ring_list_delete_gc</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">pState</span><span class="p">,</span><span class="n">List</span><span class="w"> </span><span class="o">*</span><span class="n">pList</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">;</span>
 
