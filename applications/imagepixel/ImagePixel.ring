@@ -212,11 +212,7 @@ Func GetImagePixels()
    t3 = clock()
    See "GetPixelColors.....:   Total Time: " + ( (t3-t1)/ClocksPerSecond() ) + " seconds " +nl
    #=====================================================================#  
-      
-    // We will not draw using DrawRGBAImagePixels()
-    // We already did that using drawPixMap() 
-    // DrawRGBAImagePixels(MCOrig,imageOffsetX,imageOffsetY)        // Draw ORIGINAL First - Side by Side  
-    
+          
     label2.setText(" Fin ...")
     
 return
@@ -388,8 +384,6 @@ Func WhereAreWe()
     WinRight  = Rec.right()
     WinBottom = Rec.bottom()
 
-    win{ setwindowtitle("Window ReSize: Win " +  WinWidth + "x" + WinHeight + 
-            " --- LT " +  WinLeft + "-"   + WinTop  + " --- RB " + WinRight + "-" + WinBottom      ) }
 return
 
 ###=========================================================
@@ -402,8 +396,6 @@ Func WhereMoved()
 
     xPos = win.x() //  +8     ### <<< QT FIX because of Win Title
     yPos = win.y() +30        ### <<< QT FIX because of Win Title
-
-    win{ setwindowtitle("Window Moved: xPos: " + xPos +" yPos: "+ yPos ) }  
 
     fX = myfilter.getx()      ### Screen co-ord, NOT Canvas
     fY = myfilter.gety()
