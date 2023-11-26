@@ -28,6 +28,8 @@ MCRgbA  = list(10)  // Linear List 1   => 1D list(60000)
 
 FilePicked = " "    // From FileOpen()
 
+oPixMap = NULL      // Used for storing the selected image
+
 //============================================================
 
  myApp = new qApp 
@@ -321,11 +323,12 @@ Func ChangeColorValue()
 
     //----------------------------
     // Draw UPDATED IMAGE Change Color
-    
+
+    MonaLisa.fill(colorBlack)           // ===<<< BLANK OUT OLD IMAGE !!!
+  
     if Alpha < 255                         // Alpha Intensity overlays Image, need to blank it out first
-       MonaLisa.fill(colorBlack)           // ===<<< BLANK OUT OLD IMAGE !!!
-       DrawRGBAImagePixels(MCOrig,imageOffsetX,imageOffsetY)         // RE-DRAWD Orig First (with offsets) - Side by Side
-           Canvas.setPixMap(MonaLisa)          ### Need this setPixMap to display imageLabel               
+      // RE-DRAWD Orig First (with offsets) - Side by Side
+      davinci.drawPixmap(imageOffsetX,imageOffsetY,oPixMap) 
     ok
     
     Canvas.setPixMap(MonaLisa)          ### Need this setPixMap to display imageLabel               
