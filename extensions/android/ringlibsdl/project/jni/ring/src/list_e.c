@@ -159,7 +159,7 @@ void ring_vm_listfuncs_list ( void *pPointer )
         if ( RING_API_ISNUMBER(1) ) {
             nSize = RING_API_GETNUMBER(1) ;
             if ( nSize > 0 ) {
-                pList = RING_API_NEWLISTUSINGBLOCKS(nSize,-1) ;
+                pList = RING_API_NEWLISTUSINGBLOCKS1D(nSize) ;
                 RING_API_RETLISTBYREF(pList);
                 return ;
             }
@@ -171,7 +171,7 @@ void ring_vm_listfuncs_list ( void *pPointer )
             nSize = RING_API_GETNUMBER(1) ;
             nSize2 = RING_API_GETNUMBER(2) ;
             if ( (nSize > 0) && (nSize2 > 0) ) {
-                pList = RING_API_NEWLISTUSINGBLOCKS(nSize,nSize2) ;
+                pList = RING_API_NEWLISTUSINGBLOCKS2D(nSize,nSize2) ;
                 RING_API_RETLISTBYREF(pList);
                 return ;
             }
