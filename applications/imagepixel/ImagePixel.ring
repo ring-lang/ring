@@ -190,6 +190,10 @@ Func GetImagePixels()
     
     See "Image W-H: "+ oPixMap.Width() +"-"+ oPixMap.Height() +" Size: "+ (oPixMap.Width() * oPixMap.Height()) +nl
 
+    MonaLisa.fill(colorBlack)           // ===<<< BLANK OUT OLD IMAGE !!!
+    daVinci.drawPixMap(imageOffsetX,imageOffsetY,oPixMap)        
+    Canvas.setPixMap(MonaLisa)          ### Need this setPixMap to display imageLabel               
+    MyApp.ProcessEvents()               ### EXEC the Draw
 
    #=====================================================================#
    // See "GetPixelColors.....: "
@@ -209,14 +213,9 @@ Func GetImagePixels()
    See "GetPixelColors.....:   Total Time: " + ( (t3-t1)/ClocksPerSecond() ) + " seconds " +nl
    #=====================================================================#  
       
-    //--------------------------------------------------------------------
-    // Draw Original ONCE in TopLeft 1-40 - Black Out background first
-    
-    MonaLisa.fill(colorBlack)           // ===<<< BLANK OUT OLD IMAGE !!!
-    Canvas.setPixMap(MonaLisa)          ### Need this setPixMap to display imageLabel               
-    MyApp.ProcessEvents()               ### EXEC the Draw
-       
-    DrawRGBAImagePixels(MCOrig,imageOffsetX,imageOffsetY)        // Draw ORIGINAL First - Side by Side  
+    // We will not draw using DrawRGBAImagePixels()
+    // We already did that using drawPixMap() 
+    // DrawRGBAImagePixels(MCOrig,imageOffsetX,imageOffsetY)        // Draw ORIGINAL First - Side by Side  
     
     label2.setText(" Fin ...")
     
