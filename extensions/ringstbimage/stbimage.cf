@@ -160,7 +160,7 @@ RING_FUNC(ring_stbi_bytes2list)
 {
 	unsigned char *pData;
 	List *pList, *pSubList;
-	int nIndex,nPoint;
+	int nIndex,nPoint,nChannel,nPointsCount,nChannelDiff;
 	VM *pVM;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -181,7 +181,12 @@ RING_FUNC(ring_stbi_bytes2list)
 	pData  = RING_API_GETSTRING(1);
 	nIndex = 0;
 	nPoint = 1;
-	pList = RING_API_NEWLISTUSINGBLOCKS2D(RING_API_GETNUMBER(3)*RING_API_GETNUMBER(2),6);
+	nPointsCount = RING_API_GETNUMBER(3)*RING_API_GETNUMBER(2);
+	nChannel = RING_API_GETSTRINGSIZE(1)/nPointsCount;
+	nChannelDiff = 0;
+	if (nChannel > 3)
+		nChannelDiff = nChannel - 3;
+	pList = RING_API_NEWLISTUSINGBLOCKS2D(nPointsCount,6);
 	pVM = (VM *) pPointer;
 	for (int y=1 ; y <= ((int) RING_API_GETNUMBER(3)) ; y++ ) {
 		for (int x=1 ; x <= ((int) RING_API_GETNUMBER(2)) ; x++ ) {
@@ -191,7 +196,8 @@ RING_FUNC(ring_stbi_bytes2list)
 			ring_list_setdouble_gc(pVM->pRingState,pSubList,3,(double) pData[nIndex++]);
 			ring_list_setdouble_gc(pVM->pRingState,pSubList,4,(double) pData[nIndex++]);	
 			ring_list_setdouble_gc(pVM->pRingState,pSubList,5,(double) pData[nIndex++]);
-			ring_list_setdouble_gc(pVM->pRingState,pSubList,6,(double) 1.0);		
+			ring_list_setdouble_gc(pVM->pRingState,pSubList,6,(double) 1.0);
+			nIndex += nChannelDiff;	
 		}
 	}
 	RING_API_RETLIST(pList);
