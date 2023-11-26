@@ -442,9 +442,11 @@ Func ExtractImageRGB(ImageFile)
     ? "Channels: " + channels
     
    # Convert to [x,y,r,g,b] List
+   # Using :cData pass the variable name "cdata" and STBI_Bytes2List we get a pointer for it
+   # We pass channels (could be 3 or 4) and STBI_Bytes2List always return the RGB values only
+   # We pass 255 which mean Divide each RGB by 255
+   # We return the output directly which is faster
 
-    aList = STBI_Bytes2List(:cData,width,height,channels,255)	// Divide each RGB by 255
-
-return aList
+return STBI_Bytes2List(:cData,width,height,channels,255)	
 
 //============================================
