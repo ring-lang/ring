@@ -151,9 +151,9 @@ Func pOpenFile()
              FilePicked = getopenfilename(win,"Open file", ".", "source files(*.jpg | *.png | *.bmp | *.gif)" )
         }
         
-        label1.setText(JustFileName(FilePicked))    // Save Name for loading image later
-
         if FilePicked 
+		chdir(JustFilePath(FilePicked))
+	        label1.setText(JustFileName(FilePicked))    // Save Name for loading image later
         	GetImagePixels()              // Display Image
 	ok
         
