@@ -443,18 +443,7 @@ Func ExtractImageRGB(ImageFile)
     
    # Convert to [x,y,r,g,b] List
 
-    if channels = 3
-        aList = STBI_Bytes2List(cData,width,height)
-    else
-        size = len(cData)
-        cData2 = ""
-        for i = 1 to size step 4
-            cdata2 += cData[i]
-            cdata2 += cData[i+1]
-            cdata2 += cData[i+2]
-        next
-        aList = STBI_Bytes2List(cData2,width,height)
-    ok
+    aList = STBI_Bytes2List(cData,width,height)
 
     for aPoint in aList
         aPoint[3] /= 255
