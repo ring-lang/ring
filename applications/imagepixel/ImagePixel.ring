@@ -152,8 +152,10 @@ Func pOpenFile()
         }
         
         label1.setText(JustFileName(FilePicked))    // Save Name for loading image later
-        
-        GetImagePixels()              // Display Image
+
+        if FilePicked 
+        	GetImagePixels()              // Display Image
+	ok
         
 return 
 
