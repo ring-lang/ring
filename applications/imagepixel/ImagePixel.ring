@@ -270,18 +270,20 @@ Func ChangeColorValue()
    //-----------------------------------------------------
    // Change RGBA to FRACTION of Original as per Slider
    
- 
-      
+   nNewRed   = Red   / 100
+   nNewGreen = Green / 100
+   nNewBlue  = Blue  / 100
+   nNewAlpha = Alpha / 100   
  
     for i = 1 to len( MCRgbA)
        
        //====================================================================
        // FRACTION of COLOR of ORIGINAL -- Display Color RBG 
                                  
-       MCRgbA[i][3] *= (Red   / 100 )   //  Slider : Fraction of Color   00  100  200
-       MCRgbA[i][4] *= (Green / 100 )
-       MCRgbA[i][5] *= (Blue  / 100 )
-       MCRgbA[i][6] *= (Alpha / 100 )  // Alpha Max 1.0
+       MCRgbA[i][3] *= nNewRed    //  Slider : Fraction of Color   00  100  200
+       MCRgbA[i][4] *= nNewGreen
+       MCRgbA[i][5] *= nNewBlue
+       MCRgbA[i][6] *= nNewAlpha  // Alpha Max 1.0
    
         //====================================================================
         // GRAY SCALE -- Display Color RBG in GRAY Scale  
@@ -305,9 +307,9 @@ Func ChangeColorValue()
         if (eCheckColorize.isChecked() = 1 ) 
         
           AvgGray = MCRgbA[i][3]                       //   Corrected   Reverse       13.819   %Total                                                      
-             RC = AvgGray  * 1.2419 * 1.4 * (Red   / 100 )        //   RC = 1 / 0.299    => 3.344    0.2419        
-             GC = AvgGray  * 1.1232 * 0.8 * (Green / 100 )        //   GC = 1 / 0.587       1.703    0.1232          
-             BC = AvgGray  * 1.6347 * 0.5 * (Blue  / 100 )        //   BC = 1 / 0.114       8.772    0.6347   
+             RC = AvgGray  * 1.2419 * 1.4 * nNewRed       //   RC = 1 / 0.299    => 3.344    0.2419        
+             GC = AvgGray  * 1.1232 * 0.8 * nNewGreen        //   GC = 1 / 0.587       1.703    0.1232          
+             BC = AvgGray  * 1.6347 * 0.5 * nNewBlue        //   BC = 1 / 0.114       8.772    0.6347   
 
             MCRgbA[i][3] = RC
             MCRgbA[i][4] = GC
