@@ -1,12 +1,6 @@
 //
 // Authors: Bert Mariani, Ilir Liburn 
 //
-// Steps
-// (1) Get Screen Shot ---> Image
-// (2) Get the pixel color from the Image
-// 
-// Example : https://github.com/ring-lang/ring/blob/337eb96ac082bed25ce0c9cfe4dfc25847bddf70/samples/other/pixelcolor.ring
-//
 
 load "stdlibcore.ring"
 load "lightguilib.ring"
@@ -159,6 +153,7 @@ Func changeAlpha()  nbr = floor(sAlpha.value() / 1.0)    eAlpha.setText(""+nbr) 
 //===============================================================================
 
 Func pOpenFile()
+
         new qfiledialog(win) {
              cName = getopenfilename(win,"Open file", ".", "source files(*.jpg | *.png | *.bmp | *.gif)" )
              FilePicked = cName
