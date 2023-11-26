@@ -274,30 +274,10 @@ Func ChangeColorValue()
    nGreenUpdate = 1.1232 * 0.8 * nNewGreen
    nBlueUpdate  = 1.6347 * 0.5 * nNewBlue   
  
-    for i = 1 to len( MCRgbA)
-       
-       //====================================================================
-       // FRACTION of COLOR of ORIGINAL -- Display Color RBG 
-                                 
-       MCRgbA[i][3] *= nNewRed    //  Slider : Fraction of Color   00  100  200
-       MCRgbA[i][4] *= nNewGreen
-       MCRgbA[i][5] *= nNewBlue
-       MCRgbA[i][6] *= nNewAlpha  // Alpha Max 1.0
-   
-        //====================================================================
-        // GRAY SCALE -- Display Color RBG in GRAY Scale  
-        // Average looks better brighter than Gamma Corrected
-        // Color corrected is for eye sensitivity Red 30%, Green 59% Blue 11%.
-        
-        if (eCheckGrayScale.isChecked() = 1 )   
-              
-           AvgGray = ( (0.3 * MCRgbA[i][3]) + (0.59 * MCRgbA[i][4]) + (0.11 * MCRgbA[i][5]) )  // Color Corrected
-           
-           MCRgbA[i][3] = AvgGray        // RGB set to Same Value => Gray shadeed
-           MCRgbA[i][4] = AvgGray
-           MCRgbA[i][5] = AvgGray
-        ok 
-        
+   nMax = len( MCRgbA)  
+
+    for i = 1 to nMax
+
         //====================================================================
         // COLORIZE-- Display GrayScale Image in Color 
         // Color corrected is for eye sensitivity Red 30%, Green 59% Blue 11%.
@@ -309,9 +289,32 @@ Func ChangeColorValue()
             MCRgbA[i][3] = AvgGray  * nRedUpdate         //   RC = 1 / 0.299    => 3.344    0.2419        
             MCRgbA[i][4] = AvgGray  * nGreenUpdate       //   GC = 1 / 0.587       1.703    0.1232          
             MCRgbA[i][5] = AvgGray  * nBlueUpdate        //   BC = 1 / 0.114       8.772    0.6347   
-
-        ok
+      
+        //====================================================================
+        // GRAY SCALE -- Display Color RBG in GRAY Scale  
+        // Average looks better brighter than Gamma Corrected
+        // Color corrected is for eye sensitivity Red 30%, Green 59% Blue 11%.
         
+        elseif (eCheckGrayScale.isChecked() = 1 )   
+              
+           AvgGray = ( (0.3 * MCRgbA[i][3]) + (0.59 * MCRgbA[i][4]) + (0.11 * MCRgbA[i][5]) )  // Color Corrected
+           
+           MCRgbA[i][3] = AvgGray        // RGB set to Same Value => Gray shadeed
+           MCRgbA[i][4] = AvgGray
+           MCRgbA[i][5] = AvgGray
+
+        else
+
+        //====================================================================
+        // FRACTION of COLOR of ORIGINAL -- Display Color RBG 
+                                 
+           MCRgbA[i][3] *= nNewRed    //  Slider : Fraction of Color   00  100  200
+           MCRgbA[i][4] *= nNewGreen
+           MCRgbA[i][5] *= nNewBlue
+           MCRgbA[i][6] *= nNewAlpha  // Alpha Max 1.0
+
+
+        ok         
         
     next    
 
