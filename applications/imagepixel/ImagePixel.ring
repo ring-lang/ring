@@ -264,6 +264,8 @@ Func ChangeColorValue()
    nBlueUpdate  = 1.6347 * 0.5 * nNewBlue   
  
    nMax = len( MCRgbA)  
+   lColorize = (eCheckColorize.isChecked()  = 1 ) 
+   lGray     = (eCheckGrayScale.isChecked() = 1 )   
 
     for i = 1 to nMax
 
@@ -272,7 +274,7 @@ Func ChangeColorValue()
         // Color corrected is for eye sensitivity Red 30%, Green 59% Blue 11%.
         // Reverse Gray to RGB   1/0.3 R   1/0.59 G  1/0.11 B.  Max value 255
         
-        if (eCheckColorize.isChecked() = 1 ) 
+        if lColorize
         
             AvgGray = MCRgbA[i][3]             //   Corrected   Reverse       13.819   %Total                                                      
             MCRgbA[i][3] = AvgGray  * nRedUpdate         //   RC = 1 / 0.299    => 3.344    0.2419        
@@ -284,7 +286,7 @@ Func ChangeColorValue()
         // Average looks better brighter than Gamma Corrected
         // Color corrected is for eye sensitivity Red 30%, Green 59% Blue 11%.
         
-        elseif (eCheckGrayScale.isChecked() = 1 )   
+        elseif lGray  
               
            AvgGray = ( (0.3 * MCRgbA[i][3]) + (0.59 * MCRgbA[i][4]) + (0.11 * MCRgbA[i][5]) )  // Color Corrected
            
@@ -301,7 +303,6 @@ Func ChangeColorValue()
            MCRgbA[i][4] *= nNewGreen
            MCRgbA[i][5] *= nNewBlue
            MCRgbA[i][6] *= nNewAlpha  // Alpha Max 1.0
-
 
         ok         
         
