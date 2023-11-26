@@ -32,10 +32,10 @@ Ring 1.19 comes with the next features!
 * More Improvements
 
 .. index:: 
-	pair: What is new in Ring  1.19; Image Pixel applications
+	pair: What is new in Ring  1.19; Image Pixel application
 
-Image Pixel applications
-=============================
+Image Pixel application
+=======================
 
 An example about processing an image pixels.
 
@@ -54,10 +54,10 @@ This is a simple calculator for teaching hours
 	:alt: hourscounter
 
 .. index:: 
-	pair: What is new in Ring  1.19; Planetary Orbits applications
+	pair: What is new in Ring  1.19; Planetary Orbits application
 
-Planetary Orbits applications
-=============================
+Planetary Orbits application
+============================
 
 An example about drawing and using the Matrix library
 
