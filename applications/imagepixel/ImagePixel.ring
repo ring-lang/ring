@@ -311,13 +311,9 @@ Func ChangeColorValue()
         if (eCheckColorize.isChecked() = 1 ) 
         
             AvgGray = MCRgbA[i][3]             //   Corrected   Reverse       13.819   %Total                                                      
-            RC = AvgGray  * nRedUpdate         //   RC = 1 / 0.299    => 3.344    0.2419        
-            GC = AvgGray  * nGreenUpdate       //   GC = 1 / 0.587       1.703    0.1232          
-            BC = AvgGray  * nBlueUpdate        //   BC = 1 / 0.114       8.772    0.6347   
-
-            MCRgbA[i][3] = RC
-            MCRgbA[i][4] = GC
-            MCRgbA[i][5] = BC       
+            MCRgbA[i][3] = AvgGray  * nRedUpdate         //   RC = 1 / 0.299    => 3.344    0.2419        
+            MCRgbA[i][4] = AvgGray  * nGreenUpdate       //   GC = 1 / 0.587       1.703    0.1232          
+            MCRgbA[i][5] = AvgGray  * nBlueUpdate        //   BC = 1 / 0.114       8.772    0.6347   
 
         ok
         
