@@ -164,7 +164,7 @@ RING_FUNC(ring_stbi_bytes2list)
 	List *pList, *pSubList;
 	int nIndex,nPoint,nChannel,nPointsCount,nChannelDiff,nDivide;
 	VM *pVM;
-	if ( RING_API_PARACOUNT < 3 ) {
+	if ( RING_API_PARACOUNT < 4 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
@@ -180,18 +180,22 @@ RING_FUNC(ring_stbi_bytes2list)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pData  = RING_API_GETSTRING(1);
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pData  = (unsigned char *) RING_API_GETCHARPOINTER(1);
 	nIndex = 0;
 	nPoint = 1;
 	nPointsCount = RING_API_GETNUMBER(3)*RING_API_GETNUMBER(2);
-	nChannel = RING_API_GETSTRINGSIZE(1)/nPointsCount;
+	nChannel = (int) RING_API_GETNUMBER(4);
 	nChannelDiff = 0;
 	if (nChannel > 3)
 		nChannelDiff = nChannel - 3;
 	nDivide = 0;
-	if (RING_API_PARACOUNT > 3)
-		if (RING_API_ISNUMBER(4))
-			nDivide = (int) RING_API_GETNUMBER(4) ;
+	if (RING_API_PARACOUNT > 4)
+		if (RING_API_ISNUMBER(5))
+			nDivide = (int) RING_API_GETNUMBER(5) ;
 	pList = RING_API_NEWLISTUSINGBLOCKS2D(nPointsCount,6);
 	pVM = (VM *) pPointer;
 	for (int y=1 ; y <= ((int) RING_API_GETNUMBER(3)) ; y++ ) {
