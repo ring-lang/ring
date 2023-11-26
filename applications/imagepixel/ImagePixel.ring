@@ -156,8 +156,10 @@ Func pOpenFile()
 		chdir(JustFilePath(FilePicked))
 	        label1.setText(JustFileName(FilePicked))    // Save Name for loading image later
 		btnChangeColors.setEnabled(False)
+		btnOpenFile.setEnabled(False)
         	GetImagePixels()              // Display Image
 		btnChangeColors.setEnabled(True)
+		btnOpenFile.setEnabled(True)
 	ok
         
 return 
@@ -237,6 +239,9 @@ Func ChangeColorValue()
     if MCOrig[1] = 0                    // Read Image NOT DONE yet.
        return
     ok
+
+    btnOpenFile.setEnabled(False)
+    btnChangeColors.setEnabled(False)
 
     label2.setText(" Changing Colors")
     MyApp.ProcessEvents()   
@@ -334,6 +339,8 @@ Func ChangeColorValue()
     DrawRGBAImagePixels(MCRgbA,imageOffsetX+imageStock.Width()+10,imageOffsetY)         // MCRgbA as per FRACTION of SLIDER Values
 
     label2.setText(" Fin ....")
+    btnOpenFile.setEnabled(True)
+    btnChangeColors.setEnabled(True)
     
 return
 
