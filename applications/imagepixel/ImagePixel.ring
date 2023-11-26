@@ -278,10 +278,10 @@ Func ChangeColorValue()
        //====================================================================
        // FRACTION of COLOR of ORIGINAL -- Display Color RBG 
                                  
-       MCRgbA[i][3] = MCOrig[i][3]  * (Red   / 100 )   //  Slider : Fraction of Color   00  100  200
-       MCRgbA[i][4] = MCOrig[i][4]  * (Green / 100 )
-       MCRgbA[i][5] = MCOrig[i][5]  * (Blue  / 100 )
-       MCRgbA[i][6] = MCOrig[i][6]  * (Alpha / 100 )  // Alpha Max 1.0
+       MCRgbA[i][3] *= (Red   / 100 )   //  Slider : Fraction of Color   00  100  200
+       MCRgbA[i][4] *= (Green / 100 )
+       MCRgbA[i][5] *= (Blue  / 100 )
+       MCRgbA[i][6] *= (Alpha / 100 )  // Alpha Max 1.0
    
         //====================================================================
         // GRAY SCALE -- Display Color RBG in GRAY Scale  
