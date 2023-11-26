@@ -244,7 +244,8 @@ Func ChangeColorValue()
     ok
 
     label2.setText(" Changing Colors")
-       
+    MyApp.ProcessEvents()   
+ 
     offSetX = imageStock.Width() +10     // Double Width Position
     offSetY = 40
 
