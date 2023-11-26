@@ -46,7 +46,7 @@ myApp = new QApp
         setWindowTitle("Image Pixel")
         setGeometry(xPos, yPos, xWidth, yHeight)    ### Window Pos and Size
         setStyleSheet("background-color: white")
-        setWinIcon(self,"images/colors.png")
+        setWinIcon(self,"resources/colors.png")
         
         
         myfilter = new QAllevents(win)

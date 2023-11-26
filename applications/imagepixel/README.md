@@ -9,4 +9,4 @@ Authors : Bert Mariani & Ilir Liburn
 
 # Screen Shot
 
-![imagepixel](https://raw.githubusercontent.com/ring-lang/ring/master/applications/imagepixel/images/imagepixel.png)
+![imagepixel](https://raw.githubusercontent.com/ring-lang/ring/master/applications/imagepixel/resources/imagepixel.png)
