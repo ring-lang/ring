@@ -15,15 +15,14 @@ yHeight        = 800
 imageStock     = NULL          // Default image-picture
 ImageScale     = 1             // Divide by 4 to reduce image size 
 
-
 imageOffsetX   = 1             // image position displayed on screen
 imageOffsetY   = 40
 
-colorBlue      = new qcolor() { setrgb(000,000,255,255) }
-colorBlack     = new qcolor() { setrgb(000,000,000,255) }
-penBlue        = new qpen()   { setcolor(colorBlue)   setwidth(1) }
+colorBlue      = new QColor() { setRGB(000,000,255,255) }
+colorBlack     = new QColor() { setRGB(000,000,000,255) }
+penBlue        = new QPen()   { setColor(colorBlue)   setWidth(1) }
  
-MCOrig         = list(10)      // Linear List 1   => 1D list(60000)
+MCOrig         = NULL          // Linear List 1   => 1D list(60000)
 
 FilePicked     = " "           // From FileOpen()
 
