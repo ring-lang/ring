@@ -936,7 +936,9 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
         case 201 :
             /* Add to Row */
             for ( x = nStart ; x <= nEnd ; x++ ) {
-                ring_list_setdouble_gc(pVM->pRingState,pRow,x,ring_list_getdouble(pRow,x)+nValue);
+                if ( ring_list_isdouble(pRow,x) ) {
+                    ring_list_setdouble_gc(pVM->pRingState,pRow,x,ring_list_getdouble(pRow,x)+nValue);
+                }
             }
             break ;
         case 202 :
@@ -965,7 +967,9 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
         case 301 :
             /* Sub from Row */
             for ( x = nStart ; x <= nEnd ; x++ ) {
-                ring_list_setdouble_gc(pVM->pRingState,pRow,x,ring_list_getdouble(pRow,x)-nValue);
+                if ( ring_list_isdouble(pRow,x) ) {
+                    ring_list_setdouble_gc(pVM->pRingState,pRow,x,ring_list_getdouble(pRow,x)-nValue);
+                }
             }
             break ;
         case 302 :
@@ -994,7 +998,9 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
         case 401 :
             /* Mul Row */
             for ( x = nStart ; x <= nEnd ; x++ ) {
-                ring_list_setdouble_gc(pVM->pRingState,pRow,x,ring_list_getdouble(pRow,x)*nValue);
+                if ( ring_list_isdouble(pRow,x) ) {
+                    ring_list_setdouble_gc(pVM->pRingState,pRow,x,ring_list_getdouble(pRow,x)*nValue);
+                }
             }
             break ;
         case 402 :
@@ -1023,7 +1029,9 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
         case 501 :
             /* Div Row */
             for ( x = nStart ; x <= nEnd ; x++ ) {
-                ring_list_setdouble_gc(pVM->pRingState,pRow,x,ring_list_getdouble(pRow,x)/nValue);
+                if ( ring_list_isdouble(pRow,x) ) {
+                    ring_list_setdouble_gc(pVM->pRingState,pRow,x,ring_list_getdouble(pRow,x)/nValue);
+                }
             }
             break ;
         case 502 :
