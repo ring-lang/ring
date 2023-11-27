@@ -727,7 +727,7 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
 {
     char *cOperation  ;
     char *cSelection  ;
-    List *pList, *pSubList, *pRow  ;
+    List *pList, *pSubList, *pRow, *pRow2  ;
     int nOPCode,nRow,nCol,nStart,nEnd,iValue  ;
     int x,y  ;
     double nValue  ;
@@ -767,6 +767,7 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
                 nOPCode = 1 ;
                 nRow = (int) RING_API_GETNUMBER(4) ;
                 nValue = RING_API_GETNUMBER(5) ;
+                iValue = (int) RING_API_GETNUMBER(5) ;
                 if ( (nRow < 1) || (nRow > ring_list_getsize(pList)) ) {
                     RING_API_ERROR("The selected row is outside the range of the list");
                     return ;
@@ -1198,6 +1199,18 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
         /* Copy */
         case 601 :
             /* Copy Row */
+            if ( (iValue < 1) ||  (iValue > ring_list_getsize(pList) ) ) {
+                RING_API_ERROR("The selected row is outside the range of the list");
+                return ;
+            }
+            if ( ring_list_islist(pList,iValue) ) {
+                pRow2 = ring_list_getlist(pList,iValue) ;
+                for ( x = nStart ; x <= nEnd ; x++ ) {
+                    if ( x <= ring_list_getsize(pRow2) ) {
+                        ring_list_setdouble_gc(pVM->pRingState,pRow2,x,ring_list_getdouble(pRow,x));
+                    }
+                }
+            }
             break ;
         case 602 :
             /* Copy Col */

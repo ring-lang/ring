@@ -109,7 +109,7 @@ cOperation
 Type: char *
 cSelection
 Type: List *
-pList, *pSubList, *pRow
+pList, *pSubList, *pRow, *pRow2
 Type: int
 nOPCode,nRow,nCol,nStart,nEnd,iValue
 Type: int
