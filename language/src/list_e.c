@@ -863,7 +863,7 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
     else if ( strcmp(cOperation,"copy") == 0 ) {
         nOPCode += 600 ;
     }
-    else if ( strcmp(cOperation,"sum") == 0 ) {
+    else if ( strcmp(cOperation,"merge") == 0 ) {
         nOPCode += 700 ;
     }
     /* Execute */
@@ -1024,12 +1024,12 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
         case 605 :
             /* Copy Items */
             break ;
-        /* Sum (Using two rows/cols) */
+        /* Merge (Using two rows/cols) */
         case 701 :
-            /* Sum two rows */
+            /* merge two rows */
             break ;
         case 702 :
-            /* Sum two columns */
+            /* merge two columns */
             for ( x = nStart ; x <= nEnd ; x++ ) {
                 if ( ring_list_islist(pList,x) ) {
                     pSubList = ring_list_getlist(pList,x) ;
@@ -1042,13 +1042,13 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             }
             break ;
         case 703 :
-            /* Sum Row Cells */
+            /* Merge Row Cells */
             break ;
         case 704 :
-            /* Sum Col Cells */
+            /* Merge Col Cells */
             break ;
         case 705 :
-            /* Sum Items */
+            /* Merge Items */
             break ;
     }
 }
