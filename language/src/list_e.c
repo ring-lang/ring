@@ -808,7 +808,7 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
     else if ( strcmp(cSelection,"rowcells") == 0 ) {
         if ( RING_API_PARACOUNT == 7 ) {
             if ( RING_API_ISNUMBER(4) && RING_API_ISNUMBER(5) && RING_API_ISNUMBER(6)  && RING_API_ISNUMBER(7) ) {
-                nOPCode = 3 ;
+                nOPCode = 1 ;
                 nRow = (int) RING_API_GETNUMBER(4) ;
                 nStart = (int) RING_API_GETNUMBER(5) ;
                 nEnd = (int) RING_API_GETNUMBER(6) ;
@@ -827,7 +827,7 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
     else if ( strcmp(cSelection,"colcells") == 0 ) {
         if ( RING_API_PARACOUNT == 7 ) {
             if ( RING_API_ISNUMBER(4) && RING_API_ISNUMBER(5) && RING_API_ISNUMBER(6)  && RING_API_ISNUMBER(7) ) {
-                nOPCode = 4 ;
+                nOPCode = 2 ;
                 nCol = (int) RING_API_GETNUMBER(4) ;
                 nStart = (int) RING_API_GETNUMBER(5) ;
                 nEnd = (int) RING_API_GETNUMBER(6) ;
@@ -846,7 +846,7 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
     else if ( strcmp(cSelection,"items") == 0 ) {
         if ( RING_API_PARACOUNT == 4 ) {
             if ( RING_API_ISNUMBER(4) ) {
-                nOPCode = 5 ;
+                nOPCode = 3 ;
                 nValue = RING_API_GETNUMBER(4) ;
             }
             else {
@@ -924,12 +924,6 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             }
             break ;
         case 103 :
-            /* Set Row Cells */
-            break ;
-        case 104 :
-            /* Set Col Cells */
-            break ;
-        case 105 :
             /* Set Items */
             break ;
         /* Add */
@@ -955,12 +949,6 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             }
             break ;
         case 203 :
-            /* Add to Row Cells */
-            break ;
-        case 204 :
-            /* Add to Col Cells */
-            break ;
-        case 205 :
             /* Add to Items */
             break ;
         /* Sub */
@@ -986,12 +974,6 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             }
             break ;
         case 303 :
-            /* Sub from Row Cells */
-            break ;
-        case 304 :
-            /* Sub from Col Cells */
-            break ;
-        case 305 :
             /* Sub from Items */
             break ;
         /* Mul */
@@ -1017,12 +999,6 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             }
             break ;
         case 403 :
-            /* Mul Row Cells */
-            break ;
-        case 404 :
-            /* Mul Col Cells */
-            break ;
-        case 405 :
             /* Mul Items */
             break ;
         /* Div */
@@ -1048,12 +1024,6 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             }
             break ;
         case 503 :
-            /* Div Row Cells */
-            break ;
-        case 504 :
-            /* Div Col Cells */
-            break ;
-        case 505 :
             /* Div Items */
             break ;
         /* Copy */
@@ -1074,12 +1044,6 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             }
             break ;
         case 603 :
-            /* Copy Row Cells */
-            break ;
-        case 604 :
-            /* Copy Col Cells */
-            break ;
-        case 605 :
             /* Copy Items */
             break ;
         /* Merge (Using two rows/cols) */
@@ -1100,12 +1064,6 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             }
             break ;
         case 703 :
-            /* Merge Row Cells */
-            break ;
-        case 704 :
-            /* Merge Col Cells */
-            break ;
-        case 705 :
             /* Merge Items */
             break ;
     }
