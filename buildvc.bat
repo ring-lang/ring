@@ -163,6 +163,12 @@ call buildvc
 cd ..
 cd ..
 
+rem build RingListPro
+cd ringlistpro
+call buildvc
+cd ..
+cd ..
+
 rem build Tools
 cd tools\ring2exe
 call build
