@@ -161,13 +161,11 @@ rem build RingPostgreSQL
 cd ringpostgresql
 call buildvc
 cd ..
-cd ..
 
 rem build RingListPro
 cd ringlistpro
 call buildvc
-cd ..
-cd ..
+cd ..\..\
 
 rem build Tools
 cd tools\ring2exe
