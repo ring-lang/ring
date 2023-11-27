@@ -338,8 +338,8 @@ Func ChangeColorValue()
         updateList(MCOrig,:mul,:col,RVALUE,0.3)             # R *= 0.3
         updateList(MCOrig,:mul,:col,GVALUE,0.59)            # G *= 0.59
         updateList(MCOrig,:mul,:col,BVALUE,0.11)            # B *= 0.11
-        updateList(MCOrig,:sum,:col,RVALUE,GVALUE)          # R = R + G
-        updateList(MCOrig,:sum,:col,RVALUE,BVALUE)          # R = R + B
+        updateList(MCOrig,:sum,:col,RVALUE,GVALUE)          # R += G
+        updateList(MCOrig,:sum,:col,RVALUE,BVALUE)          # R += B
         updateList(MCOrig,:copy,:col,RVALUE,GVALUE)         # G = R
         updateList(MCOrig,:copy,:col,RVALUE,BVALUE)         # B = R
 
