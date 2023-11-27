@@ -729,13 +729,13 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
     char *cSelection  ;
     List *pList, *pSubList, *pRow  ;
     int nOPCode,nRow,nCol,nStart,nEnd,iValue  ;
-    int x  ;
+    int x,y  ;
     double nValue  ;
     VM *pVM  ;
     /* Get VM pointer */
     pVM = (VM *) pPointer ;
     /* Check Parameters */
-    if ( (RING_API_PARACOUNT < 4) || (RING_API_PARACOUNT > 7) ) {
+    if ( (RING_API_PARACOUNT < 4) || (RING_API_PARACOUNT > 6) ) {
         RING_API_ERROR(RING_API_BADPARACOUNT);
         return ;
     }
@@ -809,14 +809,17 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             return ;
         }
     }
-    else if ( strcmp(cSelection,"rowcells") == 0 ) {
-        if ( RING_API_PARACOUNT == 7 ) {
-            if ( RING_API_ISNUMBER(4) && RING_API_ISNUMBER(5) && RING_API_ISNUMBER(6)  && RING_API_ISNUMBER(7) ) {
-                nOPCode = 1 ;
-                nRow = (int) RING_API_GETNUMBER(4) ;
-                nStart = (int) RING_API_GETNUMBER(5) ;
-                nEnd = (int) RING_API_GETNUMBER(6) ;
-                nValue = RING_API_GETNUMBER(7) ;
+    else if ( strcmp(cSelection,"manyrows") == 0 ) {
+        if ( RING_API_PARACOUNT == 6 ) {
+            if ( RING_API_ISNUMBER(4) && RING_API_ISNUMBER(5) && RING_API_ISNUMBER(6) ) {
+                nOPCode = 3 ;
+                nStart = (int) RING_API_GETNUMBER(4) ;
+                nEnd = (int) RING_API_GETNUMBER(5) ;
+                nValue = RING_API_GETNUMBER(6) ;
+                if ( (nStart < 1) || (nStart > ring_list_getsize(pList)) || (nEnd < 1) || (nEnd > ring_list_getsize(pList)) || (nEnd < nStart) ) {
+                    RING_API_ERROR("The selected row is outside the range of the list");
+                    return ;
+                }
             }
             else {
                 RING_API_ERROR(RING_API_BADPARATYPE);
@@ -828,14 +831,13 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             return ;
         }
     }
-    else if ( strcmp(cSelection,"colcells") == 0 ) {
-        if ( RING_API_PARACOUNT == 7 ) {
-            if ( RING_API_ISNUMBER(4) && RING_API_ISNUMBER(5) && RING_API_ISNUMBER(6)  && RING_API_ISNUMBER(7) ) {
-                nOPCode = 2 ;
-                nCol = (int) RING_API_GETNUMBER(4) ;
-                nStart = (int) RING_API_GETNUMBER(5) ;
-                nEnd = (int) RING_API_GETNUMBER(6) ;
-                nValue = RING_API_GETNUMBER(7) ;
+    else if ( strcmp(cSelection,"manycols") == 0 ) {
+        if ( RING_API_PARACOUNT == 6 ) {
+            if ( RING_API_ISNUMBER(4) && RING_API_ISNUMBER(5) && RING_API_ISNUMBER(6) ) {
+                nOPCode = 4 ;
+                nStart = (int) RING_API_GETNUMBER(4) ;
+                nEnd = (int) RING_API_GETNUMBER(5) ;
+                nValue = RING_API_GETNUMBER(6) ;
             }
             else {
                 RING_API_ERROR(RING_API_BADPARATYPE);
@@ -850,7 +852,7 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
     else if ( strcmp(cSelection,"items") == 0 ) {
         if ( RING_API_PARACOUNT == 4 ) {
             if ( RING_API_ISNUMBER(4) ) {
-                nOPCode = 3 ;
+                nOPCode = 5 ;
                 nValue = RING_API_GETNUMBER(4) ;
                 nStart = 1 ;
                 nEnd = ring_list_getsize(pList) ;
@@ -866,7 +868,7 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
         }
     }
     else {
-        RING_API_ERROR("The third parameter must be a string: [ Row | Col | RowCells | ColCells | Items ]");
+        RING_API_ERROR("The third parameter must be a string: [ Row | Col | ManyRows | ManyCols | Items ]");
         return ;
     }
     /* Set the operation code */
@@ -930,6 +932,19 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             }
             break ;
         case 103 :
+            /* Set Many Rows */
+            for ( x = nStart ; x <= nEnd ; x++ ) {
+                if ( ring_list_islist(pList,x) ) {
+                    pRow = ring_list_getlist(pList,x) ;
+                    for ( y = 1 ; y <= ring_list_getsize(pRow) ; y++ ) {
+                        ring_list_setdouble_gc(pVM->pRingState,pRow,y,nValue);
+                    }
+                }
+            }
+            break ;
+        case 104 :
+            break ;
+        case 105 :
             /* Set Items */
             for ( x = nStart ; x <= nEnd ; x++ ) {
                 ring_list_setdouble_gc(pVM->pRingState,pList,x,nValue);
@@ -958,6 +973,21 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             }
             break ;
         case 203 :
+            /* Add to Many Rows */
+            for ( x = nStart ; x <= nEnd ; x++ ) {
+                if ( ring_list_islist(pList,x) ) {
+                    pRow = ring_list_getlist(pList,x) ;
+                    for ( y = 1 ; y <= ring_list_getsize(pRow) ; y++ ) {
+                        if ( ring_list_isdouble(pRow,y) ) {
+                            ring_list_setdouble_gc(pVM->pRingState,pRow,y,ring_list_getdouble(pRow,y)+nValue);
+                        }
+                    }
+                }
+            }
+            break ;
+        case 204 :
+            break ;
+        case 205 :
             /* Add to Items */
             for ( x = nStart ; x <= nEnd ; x++ ) {
                 if ( ring_list_isdouble(pList,x) ) {
@@ -988,6 +1018,21 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             }
             break ;
         case 303 :
+            /* Sub from Many Rows */
+            for ( x = nStart ; x <= nEnd ; x++ ) {
+                if ( ring_list_islist(pList,x) ) {
+                    pRow = ring_list_getlist(pList,x) ;
+                    for ( y = 1 ; y <= ring_list_getsize(pRow) ; y++ ) {
+                        if ( ring_list_isdouble(pRow,y) ) {
+                            ring_list_setdouble_gc(pVM->pRingState,pRow,y,ring_list_getdouble(pRow,y)-nValue);
+                        }
+                    }
+                }
+            }
+            break ;
+        case 304 :
+            break ;
+        case 305 :
             /* Sub from Items */
             for ( x = nStart ; x <= nEnd ; x++ ) {
                 if ( ring_list_isdouble(pList,x) ) {
@@ -1018,6 +1063,21 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             }
             break ;
         case 403 :
+            /* Mul cells in Many Rows */
+            for ( x = nStart ; x <= nEnd ; x++ ) {
+                if ( ring_list_islist(pList,x) ) {
+                    pRow = ring_list_getlist(pList,x) ;
+                    for ( y = 1 ; y <= ring_list_getsize(pRow) ; y++ ) {
+                        if ( ring_list_isdouble(pRow,y) ) {
+                            ring_list_setdouble_gc(pVM->pRingState,pRow,y,ring_list_getdouble(pRow,y)*nValue);
+                        }
+                    }
+                }
+            }
+            break ;
+        case 404 :
+            break ;
+        case 405 :
             /* Mul Items */
             for ( x = nStart ; x <= nEnd ; x++ ) {
                 if ( ring_list_isdouble(pList,x) ) {
@@ -1048,6 +1108,21 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             }
             break ;
         case 503 :
+            /* Div cells in Many Rows */
+            for ( x = nStart ; x <= nEnd ; x++ ) {
+                if ( ring_list_islist(pList,x) ) {
+                    pRow = ring_list_getlist(pList,x) ;
+                    for ( y = 1 ; y <= ring_list_getsize(pRow) ; y++ ) {
+                        if ( ring_list_isdouble(pRow,y) ) {
+                            ring_list_setdouble_gc(pVM->pRingState,pRow,y,ring_list_getdouble(pRow,y)/nValue);
+                        }
+                    }
+                }
+            }
+            break ;
+        case 504 :
+            break ;
+        case 505 :
             /* Div Items */
             for ( x = nStart ; x <= nEnd ; x++ ) {
                 if ( ring_list_isdouble(pList,x) ) {
@@ -1073,6 +1148,11 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             }
             break ;
         case 603 :
+            /* Copy to Many Rows */
+            break ;
+        case 604 :
+            break ;
+        case 605 :
             /* Copy Items */
             break ;
         /* Merge (Using two rows/cols) */
@@ -1093,6 +1173,11 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             }
             break ;
         case 703 :
+            /* Merge and Many Rows */
+            break ;
+        case 704 :
+            break ;
+        case 705 :
             /* Merge Items */
             break ;
     }
