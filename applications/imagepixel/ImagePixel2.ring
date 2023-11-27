@@ -321,11 +321,11 @@ Func ChangeColorValue()
     
     if lColorize
 
-        updateList(MCOrig,:copy,:col,RVALUE,GVALUE)
-        updateList(MCOrig,:copy,:col,RVALUE,BVALUE)
-        updatelist(MCOrig,:mul,:col,RVALUE,nRedUpdate)
-        updatelist(MCOrig,:mul,:col,GVALUE,nGreenUpdate)
-        updatelist(MCOrig,:mul,:col,BVALUE,nBlueUpdate)
+        updateList(MCOrig,:copy,:col,RVALUE,GVALUE)         # G = R
+        updateList(MCOrig,:copy,:col,RVALUE,BVALUE)         # B = R
+        updatelist(MCOrig,:mul,:col,RVALUE,nRedUpdate)      # R *= nRedUpdate
+        updatelist(MCOrig,:mul,:col,GVALUE,nGreenUpdate)    # G *= nGreenUpdate
+        updatelist(MCOrig,:mul,:col,BVALUE,nBlueUpdate)     # B *= nBlueUpdate
 
 
     //====================================================================
@@ -335,23 +335,23 @@ Func ChangeColorValue()
         
     elseif lGray  
            
-        updateList(MCOrig,:mul,:col,RVALUE,0.3)
-        updateList(MCOrig,:mul,:col,GVALUE,0.59)
-        updateList(MCOrig,:mul,:col,BVALUE,0.11)
-        updateList(MCOrig,:sum,:col,RVALUE,GVALUE)
-        updateList(MCOrig,:sum,:col,RVALUE,BVALUE)
-        updateList(MCOrig,:copy,:col,RVALUE,GVALUE)
-        updateList(MCOrig,:copy,:col,RVALUE,BVALUE)
+        updateList(MCOrig,:mul,:col,RVALUE,0.3)             # R *= 0.3
+        updateList(MCOrig,:mul,:col,GVALUE,0.59)            # G *= 0.59
+        updateList(MCOrig,:mul,:col,BVALUE,0.11)            # B *= 0.11
+        updateList(MCOrig,:sum,:col,RVALUE,GVALUE)          # R = R + G
+        updateList(MCOrig,:sum,:col,RVALUE,BVALUE)          # R = R + B
+        updateList(MCOrig,:copy,:col,RVALUE,GVALUE)         # G = R
+        updateList(MCOrig,:copy,:col,RVALUE,BVALUE)         # B = R
 
     else
 
     //====================================================================
     // FRACTION of COLOR of ORIGINAL -- Display Color RBG 
 
-        updatelist(MCOrig,:mul,:Col,RVALUE,nNewRed)
-        updatelist(MCOrig,:mul,:Col,GVALUE,nNewGREEN)
-        updatelist(MCOrig,:mul,:Col,BVALUE,nNewBLUE)
-        updatelist(MCOrig,:mul,:Col,AVALUE,nNewALPHA)
+        updatelist(MCOrig,:mul,:Col,RVALUE,nNewRed)         # R *= nNewRed
+        updatelist(MCOrig,:mul,:Col,GVALUE,nNewGreen)       # G *= nNewGreen
+        updatelist(MCOrig,:mul,:Col,BVALUE,nNewBlue)        # B *= nNewBlue
+        updatelist(MCOrig,:mul,:Col,AVALUE,nNewAlpha)       # A *= nNewAlpha
 
     ok         
         
