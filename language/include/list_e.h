@@ -31,7 +31,4 @@
     void ring_vm_listfuncs_reference ( void *pPointer ) ;
 
     void ring_vm_listfuncs_refcount ( void *pPointer ) ;
-    /* Update List */
-
-    void ring_vm_listfuncs_updatelist ( void *pPointer ) ;
 #endif

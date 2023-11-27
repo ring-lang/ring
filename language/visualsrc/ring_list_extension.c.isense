@@ -103,18 +103,3 @@ pList
 ring_vm_listfuncs_refcount
 Type: List *
 pList
-ring_vm_listfuncs_updatelist
-Type: char *
-cOperation
-Type: char *
-cSelection
-Type: List *
-pList, *pSubList, *pRow, *pRow2
-Type: int
-nOPCode,nRow,nCol,nStart,nEnd,iValue
-Type: int
-x,y
-Type: double
-nValue
-Type: VM *
-pVM
