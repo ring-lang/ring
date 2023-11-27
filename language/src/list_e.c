@@ -817,7 +817,7 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
                 nEnd = (int) RING_API_GETNUMBER(5) ;
                 nValue = RING_API_GETNUMBER(6) ;
                 if ( (nStart < 1) || (nStart > ring_list_getsize(pList)) || (nEnd < 1) || (nEnd > ring_list_getsize(pList)) || (nEnd < nStart) ) {
-                    RING_API_ERROR("The selected row is outside the range of the list");
+                    RING_API_ERROR("The selected rows are outside the range of the list");
                     return ;
                 }
             }
@@ -838,6 +838,10 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
                 nStart = (int) RING_API_GETNUMBER(4) ;
                 nEnd = (int) RING_API_GETNUMBER(5) ;
                 nValue = RING_API_GETNUMBER(6) ;
+                if ( (nStart < 1) || (nEnd < 1)  || (nEnd < nStart) ) {
+                    RING_API_ERROR("The selected columns are outside the range of the list");
+                    return ;
+                }
             }
             else {
                 RING_API_ERROR(RING_API_BADPARATYPE);
@@ -943,6 +947,19 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             }
             break ;
         case 104 :
+            /* Set many columns */
+            for ( nCol = nStart ; nCol <= nEnd ; nCol++ ) {
+                for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
+                    if ( ring_list_islist(pList,x) ) {
+                        pSubList = ring_list_getlist(pList,x) ;
+                        if ( ring_list_getsize(pSubList) >= nCol ) {
+                            if ( ring_list_isdouble(pSubList,nCol) ) {
+                                ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,nValue);
+                            }
+                        }
+                    }
+                }
+            }
             break ;
         case 105 :
             /* Set Items */
