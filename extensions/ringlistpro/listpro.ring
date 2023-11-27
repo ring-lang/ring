@@ -1,7 +1,7 @@
 if iswindows()
-	LoadLib("listpro.dll")
+	LoadLib("ring_listpro.dll")
 but ismacosx()
-	LoadLib("liblistpro.dylib")
+	LoadLib("libring_listpro.dylib")
 else
-	LoadLib("liblistpro.so")
+	LoadLib("libring_listpro.so")
 ok
