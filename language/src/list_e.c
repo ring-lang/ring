@@ -945,7 +945,7 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             }
             break ;
         case 104 :
-            /* Set many columns */
+            /* Set Many Columns */
             for ( nCol = nStart ; nCol <= nEnd ; nCol++ ) {
                 for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
                     if ( ring_list_islist(pList,x) ) {
@@ -1216,16 +1216,17 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             /* Copy to Many Rows */
             break ;
         case 604 :
+            /* Copy to Many Columns */
             break ;
         case 605 :
             /* Copy Items */
             break ;
-        /* Merge (Using two rows/cols) */
+        /* Merge */
         case 701 :
-            /* merge two rows */
+            /* Merge two rows */
             break ;
         case 702 :
-            /* merge two columns */
+            /* Merge two columns */
             for ( x = nStart ; x <= nEnd ; x++ ) {
                 if ( ring_list_islist(pList,x) ) {
                     pSubList = ring_list_getlist(pList,x) ;
@@ -1241,6 +1242,7 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             /* Merge and Many Rows */
             break ;
         case 704 :
+            /* Merge and Many Columns */
             break ;
         case 705 :
             /* Merge Items */
