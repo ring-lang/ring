@@ -725,8 +725,8 @@ void ring_vm_listfuncs_refcount ( void *pPointer )
 
 void ring_vm_listfuncs_updatelist ( void *pPointer )
 {
-    const char *cOperation  ;
-    const char *cSelection  ;
+    char *cOperation  ;
+    char *cSelection  ;
     List *pList, *pSubList  ;
     int nOPCode,nRow,nCol,nStart,nEnd,iValue  ;
     int x  ;
@@ -744,8 +744,10 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
     }
     /* Get Parameters */
     pList = RING_API_GETLIST(1) ;
-    cOperation = RING_API_GETSTRING(2) ;
-    cSelection = RING_API_GETSTRING(3) ;
+    cOperation = (char *) RING_API_GETSTRING(2) ;
+    cSelection = (char * ) RING_API_GETSTRING(3) ;
+    cOperation = ring_string_lower(cOperation);
+    cSelection = ring_string_lower(cSelection);
     /* Set instruction values */
     nOPCode = 0 ;
     nRow = 0 ;
@@ -844,6 +846,10 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             return ;
         }
     }
+    else {
+        RING_API_ERROR("The third parameter must be a string: [ Row | Col | RowCells | ColCells | Items ]");
+        return ;
+    }
     /* Set the operation code */
     if ( strcmp(cOperation,"set") == 0 ) {
         nOPCode += 100 ;
@@ -865,6 +871,10 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
     }
     else if ( strcmp(cOperation,"merge") == 0 ) {
         nOPCode += 700 ;
+    }
+    else {
+        RING_API_ERROR("The second parameter must be a string: [Set | Add | Sub | Mul | Div | Copy | Merge ]");
+        return ;
     }
     /* Execute */
     switch ( nOPCode ) {

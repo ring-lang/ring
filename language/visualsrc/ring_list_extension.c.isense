@@ -104,9 +104,9 @@ ring_vm_listfuncs_refcount
 Type: List *
 pList
 ring_vm_listfuncs_updatelist
-Type: const char *
+Type: char *
 cOperation
-Type: const char *
+Type: char *
 cSelection
 Type: List *
 pList, *pSubList
