@@ -732,9 +732,8 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
     int x  ;
     double nValue  ;
     VM *pVM  ;
-    /* Default values */
+    /* Get VM pointer */
     pVM = (VM *) pPointer ;
-    pRow = NULL ;
     /* Check Parameters */
     if ( (RING_API_PARACOUNT < 4) || (RING_API_PARACOUNT > 7) ) {
         RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -750,12 +749,17 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
     cSelection = (char *) RING_API_GETSTRING(3) ;
     cOperation = ring_string_lower(cOperation);
     cSelection = ring_string_lower(cSelection);
+    if ( ring_list_getsize(pList) == 0 ) {
+        /* For empty lists, we does nothing! */
+        return ;
+    }
     /* Set instruction values */
     nOPCode = 0 ;
     nRow = 0 ;
     nCol = 0 ;
     nStart = 0 ;
     nEnd = 0 ;
+    pRow = NULL ;
     /* Check Selection */
     if ( strcmp(cSelection,"row") == 0 ) {
         if ( RING_API_PARACOUNT == 5 ) {
@@ -848,6 +852,8 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             if ( RING_API_ISNUMBER(4) ) {
                 nOPCode = 3 ;
                 nValue = RING_API_GETNUMBER(4) ;
+                nStart = 1 ;
+                nEnd = ring_list_getsize(pList) ;
             }
             else {
                 RING_API_ERROR(RING_API_BADPARATYPE);
@@ -925,6 +931,9 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             break ;
         case 103 :
             /* Set Items */
+            for ( x = nStart ; x <= nEnd ; x++ ) {
+                ring_list_setdouble_gc(pVM->pRingState,pList,x,nValue);
+            }
             break ;
         /* Add */
         case 201 :
@@ -950,6 +959,11 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             break ;
         case 203 :
             /* Add to Items */
+            for ( x = nStart ; x <= nEnd ; x++ ) {
+                if ( ring_list_isdouble(pList,x) ) {
+                    ring_list_setdouble_gc(pVM->pRingState,pList,x,ring_list_getdouble(pList,x)+nValue);
+                }
+            }
             break ;
         /* Sub */
         case 301 :
@@ -975,6 +989,11 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             break ;
         case 303 :
             /* Sub from Items */
+            for ( x = nStart ; x <= nEnd ; x++ ) {
+                if ( ring_list_isdouble(pList,x) ) {
+                    ring_list_setdouble_gc(pVM->pRingState,pList,x,ring_list_getdouble(pList,x)-nValue);
+                }
+            }
             break ;
         /* Mul */
         case 401 :
@@ -1000,6 +1019,11 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             break ;
         case 403 :
             /* Mul Items */
+            for ( x = nStart ; x <= nEnd ; x++ ) {
+                if ( ring_list_isdouble(pList,x) ) {
+                    ring_list_setdouble_gc(pVM->pRingState,pList,x,ring_list_getdouble(pList,x)*nValue);
+                }
+            }
             break ;
         /* Div */
         case 501 :
@@ -1025,6 +1049,11 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             break ;
         case 503 :
             /* Div Items */
+            for ( x = nStart ; x <= nEnd ; x++ ) {
+                if ( ring_list_isdouble(pList,x) ) {
+                    ring_list_setdouble_gc(pVM->pRingState,pList,x,ring_list_getdouble(pList,x)/nValue);
+                }
+            }
             break ;
         /* Copy */
         case 601 :
