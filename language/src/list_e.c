@@ -727,12 +727,14 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
 {
     char *cOperation  ;
     char *cSelection  ;
-    List *pList, *pSubList  ;
+    List *pList, *pSubList, *pRow  ;
     int nOPCode,nRow,nCol,nStart,nEnd,iValue  ;
     int x  ;
     double nValue  ;
     VM *pVM  ;
+    /* Default values */
     pVM = (VM *) pPointer ;
+    pRow = NULL ;
     /* Check Parameters */
     if ( (RING_API_PARACOUNT < 4) || (RING_API_PARACOUNT > 7) ) {
         RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -745,7 +747,7 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
     /* Get Parameters */
     pList = RING_API_GETLIST(1) ;
     cOperation = (char *) RING_API_GETSTRING(2) ;
-    cSelection = (char * ) RING_API_GETSTRING(3) ;
+    cSelection = (char *) RING_API_GETSTRING(3) ;
     cOperation = ring_string_lower(cOperation);
     cSelection = ring_string_lower(cSelection);
     /* Set instruction values */
@@ -761,6 +763,17 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
                 nOPCode = 1 ;
                 nRow = (int) RING_API_GETNUMBER(4) ;
                 nValue = RING_API_GETNUMBER(5) ;
+                if ( (nRow < 1) || (nRow > ring_list_getsize(pList)) ) {
+                    RING_API_ERROR("The selected row is outside the range of the list");
+                    return ;
+                }
+                if ( ! ring_list_islist(pList,nRow) ) {
+                    RING_API_ERROR("The selected row is not a list");
+                    return ;
+                }
+                nStart = 1 ;
+                pRow = ring_list_getlist(pList,nRow) ;
+                nEnd = ring_list_getsize(pRow) ;
             }
             else {
                 RING_API_ERROR(RING_API_BADPARATYPE);
@@ -865,12 +878,24 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
     }
     else if ( strcmp(cOperation,"div") == 0 ) {
         nOPCode += 500 ;
+        if ( nValue == 0 ) {
+            RING_API_ERROR("Can't divide by zero");
+            return ;
+        }
     }
     else if ( strcmp(cOperation,"copy") == 0 ) {
         nOPCode += 600 ;
+        if ( nValue <= 0 ) {
+            RING_API_ERROR("Wrong column index.");
+            return ;
+        }
     }
     else if ( strcmp(cOperation,"merge") == 0 ) {
         nOPCode += 700 ;
+        if ( nValue <= 0 ) {
+            RING_API_ERROR("Wrong column index.");
+            return ;
+        }
     }
     else {
         RING_API_ERROR("The second parameter must be a string: [Set | Add | Sub | Mul | Div | Copy | Merge ]");
@@ -881,6 +906,9 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
         /* Set */
         case 101 :
             /* Set Row */
+            for ( x = nStart ; x <= nEnd ; x++ ) {
+                ring_list_setdouble_gc(pVM->pRingState,pRow,x,nValue);
+            }
             break ;
         case 102 :
             /* Set Col */
@@ -907,6 +935,9 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
         /* Add */
         case 201 :
             /* Add to Row */
+            for ( x = nStart ; x <= nEnd ; x++ ) {
+                ring_list_setdouble_gc(pVM->pRingState,pRow,x,ring_list_getdouble(pRow,x)+nValue);
+            }
             break ;
         case 202 :
             /* Add to Col */
@@ -933,6 +964,9 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
         /* Sub */
         case 301 :
             /* Sub from Row */
+            for ( x = nStart ; x <= nEnd ; x++ ) {
+                ring_list_setdouble_gc(pVM->pRingState,pRow,x,ring_list_getdouble(pRow,x)-nValue);
+            }
             break ;
         case 302 :
             /* Sub from Col */
@@ -959,6 +993,9 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
         /* Mul */
         case 401 :
             /* Mul Row */
+            for ( x = nStart ; x <= nEnd ; x++ ) {
+                ring_list_setdouble_gc(pVM->pRingState,pRow,x,ring_list_getdouble(pRow,x)*nValue);
+            }
             break ;
         case 402 :
             /* Mul Col */
@@ -985,6 +1022,9 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
         /* Div */
         case 501 :
             /* Div Row */
+            for ( x = nStart ; x <= nEnd ; x++ ) {
+                ring_list_setdouble_gc(pVM->pRingState,pRow,x,ring_list_getdouble(pRow,x)/nValue);
+            }
             break ;
         case 502 :
             /* Div Col */
