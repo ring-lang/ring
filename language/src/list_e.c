@@ -928,9 +928,7 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
                 if ( ring_list_islist(pList,x) ) {
                     pSubList = ring_list_getlist(pList,x) ;
                     if ( ring_list_getsize(pSubList) >= nCol ) {
-                        if ( ring_list_isdouble(pSubList,nCol) ) {
-                            ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,nValue);
-                        }
+                        ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,nValue);
                     }
                 }
             }
@@ -953,9 +951,7 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
                     if ( ring_list_islist(pList,x) ) {
                         pSubList = ring_list_getlist(pList,x) ;
                         if ( ring_list_getsize(pSubList) >= nCol ) {
-                            if ( ring_list_isdouble(pSubList,nCol) ) {
-                                ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,nValue);
-                            }
+                            ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,nValue);
                         }
                     }
                 }
@@ -1003,6 +999,19 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             }
             break ;
         case 204 :
+            /* Add to Many Columns */
+            for ( nCol = nStart ; nCol <= nEnd ; nCol++ ) {
+                for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
+                    if ( ring_list_islist(pList,x) ) {
+                        pSubList = ring_list_getlist(pList,x) ;
+                        if ( ring_list_getsize(pSubList) >= nCol ) {
+                            if ( ring_list_isdouble(pSubList,nCol) ) {
+                                ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,ring_list_getdouble(pSubList,nCol)+nValue);
+                            }
+                        }
+                    }
+                }
+            }
             break ;
         case 205 :
             /* Add to Items */
@@ -1048,6 +1057,19 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             }
             break ;
         case 304 :
+            /* Sub from Many Columns */
+            for ( nCol = nStart ; nCol <= nEnd ; nCol++ ) {
+                for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
+                    if ( ring_list_islist(pList,x) ) {
+                        pSubList = ring_list_getlist(pList,x) ;
+                        if ( ring_list_getsize(pSubList) >= nCol ) {
+                            if ( ring_list_isdouble(pSubList,nCol) ) {
+                                ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,ring_list_getdouble(pSubList,nCol)-nValue);
+                            }
+                        }
+                    }
+                }
+            }
             break ;
         case 305 :
             /* Sub from Items */
@@ -1093,6 +1115,19 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             }
             break ;
         case 404 :
+            /* Mul cells in Many Columns */
+            for ( nCol = nStart ; nCol <= nEnd ; nCol++ ) {
+                for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
+                    if ( ring_list_islist(pList,x) ) {
+                        pSubList = ring_list_getlist(pList,x) ;
+                        if ( ring_list_getsize(pSubList) >= nCol ) {
+                            if ( ring_list_isdouble(pSubList,nCol) ) {
+                                ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,ring_list_getdouble(pSubList,nCol)*nValue);
+                            }
+                        }
+                    }
+                }
+            }
             break ;
         case 405 :
             /* Mul Items */
@@ -1138,6 +1173,19 @@ void ring_vm_listfuncs_updatelist ( void *pPointer )
             }
             break ;
         case 504 :
+            /* Div cells in Many Columns */
+            for ( nCol = nStart ; nCol <= nEnd ; nCol++ ) {
+                for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
+                    if ( ring_list_islist(pList,x) ) {
+                        pSubList = ring_list_getlist(pList,x) ;
+                        if ( ring_list_getsize(pSubList) >= nCol ) {
+                            if ( ring_list_isdouble(pSubList,nCol) ) {
+                                ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,ring_list_getdouble(pSubList,nCol)/nValue);
+                            }
+                        }
+                    }
+                }
+            }
             break ;
         case 505 :
             /* Div Items */
