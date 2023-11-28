@@ -25,6 +25,7 @@
 The next steps demonstrates how to build the 32bit version
 
 To build the 64bit version add _x64 to the batch file name (i.e. use buildvc_x64.bat instead of buildvc.bat)
+Also, use ring/bin/install_x64.bat instead of ring/bin/install.bat
 
 #### Build Ring (Compiler/VM)
 	
