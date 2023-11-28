@@ -63,7 +63,7 @@ myApp = new QApp
         //------------------------------
 
         oScroll = new QScrollArea(win) {
-            move(0,40)
+            move(0,0)
             resize(xWidth,yHeight-40)
             Canvas = new QLabel(win)
             {
@@ -433,7 +433,7 @@ Func WhereAreWe()
     WinRight  = Rec.right()
     WinBottom = Rec.bottom()
 
-    oScroll.resize(WinWidth,WinHeight-80)
+    oScroll.resize(WinWidth,WinHeight-40)
 
 return
 
