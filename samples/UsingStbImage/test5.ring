@@ -9,9 +9,9 @@ channels = 3
 t1 = clock()
 for x=1 to height
     for y=1 to width
-        cData += Char((x*x)%255)
-        cData += Char((x*y)%255)
-        cData += Char((x*2)%255)
+        cData += Char((x*x)%256)
+        cData += Char((x*y)%256)
+        cData += Char((x*2)%256)
     next
 next
 t2 = clock()
