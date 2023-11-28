@@ -10,10 +10,9 @@
 		? "Width : " + width
 		? "Height: " + height
 		? "Channels: " + channels
-		# End of program
-		? :done
 	else 
 		? stbi_failure_reason()
+		return
 	ok
 
 # Write the image
