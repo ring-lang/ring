@@ -1,4 +1,7 @@
 ListPro Extension
 =================
 
-Contains the updateList() function
+Contains the next function
+
+* bytes2List()
+* updateList()
