@@ -4,12 +4,17 @@
 #define STB_IMAGE_IMPLEMENTATION
 #define STBI_WINDOWS_UTF8
 #include "stb_image.h"
+
+#define STB_IMAGE_WRITE_IMPLEMENTATION
+#include "stb_image_write.h"
 </code>
 
 <runcode>
 aStringTypes + "char const *"
 aStringTypes + "stbi_uc const *"
 aStringTypes + "stbi_uc *"
+aStringTypes + "const float *"
+aStringTypes + "const void *"
 </runcode>
 
 <constant>
@@ -264,3 +269,17 @@ int stbi_is_hdr_from_callbacks(stbi_io_callbacks const *clbk, void *user)
 int stbi_info_from_callbacks(stbi_io_callbacks const *clbk, void *user, int *x, int *y, int *comp) 
 int stbi_is_16_bit_from_callbacks(stbi_io_callbacks const *clbk, void *user) 
 </commment>
+
+
+<comment>
+Functions for writing images
+</comment>
+
+int stbi_write_png(char const *filename, int w, int h, int comp, const void *data, int stride_in_bytes)
+int stbi_write_bmp(char const *filename, int w, int h, int comp, const void *data)
+int stbi_write_tga(char const *filename, int w, int h, int comp, const void *data)
+int stbi_write_jpg(char const *filename, int w, int h, int comp, const void *data, int quality)
+<comment>
+int stbi_write_hdr(char const *filename, int w, int h, int comp, const float *data)
+</comment>
+void stbi_flip_vertically_on_write(int flag)
