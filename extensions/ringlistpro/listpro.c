@@ -103,7 +103,7 @@ RING_FUNC(ring_list2bytes)
     nListSize = ring_list_getsize(pList);
     if ( nListSize < 1 ) return ;
 
-    nDataSize = nListSize * 3;
+    nDataSize = nListSize * nChannel;
     cData = (char *) malloc(nDataSize);
     nIndex = 0;
     lError = 0;
