@@ -4,7 +4,7 @@
 //
 
 load "stdlibcore.ring"
-load "lightguilib.ring"
+load "guilib.ring"
 load "stbimage.ring"           // Extract Image to RBG
 load "listpro.ring"            // Contains bytes2List() & updateList() functions 
 
@@ -401,8 +401,16 @@ Func DrawRGBAImagePixels(MCImage,nXStart,nYStart)
    
    // <<<=== DOUBLE OFFSET,i=400,  MCImage Linear List (60000) = list[i,j,R,G,B,V)
 
-   daVinci.drawRGBFListAtXY(MCImage,nXStart,nYStart)        
-    
+   if false 
+       daVinci.drawRGBFListAtXY(MCImage,nXStart,nYStart)
+   else 
+       // Better Performance 
+       nBytesChannels = 4
+       cNewData = list2Bytes(MCImage,nBytesChannels,255)
+       daVinci.drawBytes(nXStart,nYStart,cNewData,nImageWidth,nImageHeight,nBytesChannels)    
+   ok
+
+
    Canvas.setPixMap(MonaLisa)          ### Need this setPixMap to display imageLabel               
    myApp.processEvents()               ### EXEC the Draw
 
