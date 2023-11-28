@@ -4,7 +4,6 @@
 */
 
 #include "ring.h"
-
 #include "stdlib.h"
 
 RING_FUNC(ring_bytes2list)
@@ -66,6 +65,90 @@ RING_FUNC(ring_bytes2list)
 		}
 	}
 	RING_API_RETLISTBYREF(pList);
+}
+
+RING_FUNC(ring_list2bytes)
+{
+
+    VM *pVM;
+    char *cData;
+    List *pList, *pPointList;
+    int nDataSize,nListSize,nIndex,x,lError,nPointListSize,nChannel,nMul;
+    pVM = (VM *) pPointer;
+    nMul = 1;
+    nChannel = 3;
+    if ( RING_API_PARACOUNT < 2 ) {
+        RING_API_ERROR(RING_API_BADPARACOUNT);
+        return ;
+    }
+    if ( ! RING_API_ISLIST(1) ) {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+	return ;
+    }
+    if ( ! RING_API_ISNUMBER(2) ) {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+	return ;
+    }
+    nChannel = (int) RING_API_GETNUMBER(2);
+    if ( (nChannel != 3) && (nChannel != 4) )  {
+        RING_API_ERROR("Wrong channel value (Pass 3 or 4)");
+	return ;
+    }
+
+    if ( RING_API_PARACOUNT == 3 ) 
+        if ( RING_API_ISNUMBER(3) ) 
+            nMul = (int) RING_API_GETNUMBER(3);
+
+    pList = RING_API_GETLIST(1);
+    nListSize = ring_list_getsize(pList);
+    if ( nListSize < 1 ) return ;
+
+    nDataSize = nListSize * 3;
+    cData = (char *) malloc(nDataSize);
+    nIndex = 0;
+    lError = 0;
+
+    for ( x=1 ; x <= nListSize ; x++ ) {
+
+        if ( ! ring_list_islist(pList,x) ){
+            lError = 1;
+            break;
+        }
+
+        pPointList = ring_list_getlist(pList,x);
+        nPointListSize = ring_list_getsize(pPointList);
+        if ( nPointListSize < 6 ) {
+            lError = 1;
+            break;
+        }
+
+        if ( ring_list_isdouble(pPointList,3) && ring_list_isdouble(pPointList,4) && 
+             ring_list_isdouble(pPointList,5) ) {
+             cData[nIndex++] = (char) (ring_list_getdouble(pPointList,3)*nMul);
+             cData[nIndex++] = (char) (ring_list_getdouble(pPointList,4)*nMul);
+             cData[nIndex++] = (char) (ring_list_getdouble(pPointList,5)*nMul);
+        } else {
+            lError = 1;
+            break;
+        }
+
+        if ( nChannel == 4) 
+            if ( ring_list_isdouble(pPointList,6) ) { 
+                 cData[nIndex++] = (char) (ring_list_getdouble(pPointList,6)*nMul);
+            } else {
+                lError = 1;
+                break;
+            }
+    }
+
+    if ( lError == 1 ) {
+            free(cData);
+            RING_API_ERROR(RING_API_BADPARATYPE);
+	    return ;
+    }
+
+    RING_API_RETSTRING2(cData,nDataSize);
+    free(cData);
 }
 
 
@@ -611,6 +694,7 @@ RING_FUNC(ring_updatelist)
 
 RING_LIBINIT
 {
-	RING_API_REGISTER("updatelist",ring_updatelist);
-	RING_API_REGISTER("bytes2list",ring_bytes2list);
+    RING_API_REGISTER("updatelist",ring_updatelist);
+    RING_API_REGISTER("bytes2list",ring_bytes2list);
+    RING_API_REGISTER("list2bytes",ring_list2bytes);
 }
