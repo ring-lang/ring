@@ -1,5 +1,6 @@
 //
-// Authors: Bert Mariani, Ilir Liburn & Mahmoud Fayed
+// Authors: Bert Mariani & Ilir Liburn 
+// Added some UI/Performance improvements by Mahmoud Fayed
 //
 
 load "stdlibcore.ring"
