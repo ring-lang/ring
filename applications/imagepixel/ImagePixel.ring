@@ -1,5 +1,5 @@
 //
-// Authors: Bert Mariani, Ilir Liburn 
+// Authors: Bert Mariani, Ilir Liburn & Mahmoud Fayed
 //
 
 load "stdlibcore.ring"
@@ -62,22 +62,27 @@ myApp = new QApp
 
         //------------------------------
 
-        Canvas = new QLabel(win)
-        {
-            ### daVinci paints the MonaLisa on the Canvas
-            MonaLisa  = new QPixMap2( 2000, 2000)
-                color = new QColor(){ setrgb(255,255,255,0) }
-                  pen = new QPen()  { setwidth(1) } 
-
-            daVinci = new QPainter()
+        oScroll = new QScrollArea(win) {
+            move(0,40)
+            resize(xWidth,yHeight-40)
+            Canvas = new QLabel(win)
             {
-               begin(MonaLisa)
+                ### daVinci paints the MonaLisa on the Canvas
+                MonaLisa  = new QPixMap2( 4000, 4000)
+                    color = new QColor(){ setrgb(255,255,255,0) }
+                      pen = new QPen()  { setwidth(1) } 
+
+                daVinci = new QPainter()
+                {
+                   begin(MonaLisa)
+                }
+            
+                setPixMap(MonaLisa)
+            
+                ### Change Pen Color
+                daVinci.setPen(penBlue)  
             }
-            
-            setPixMap(MonaLisa)
-            
-            ### Change Pen Color
-            daVinci.setPen(penBlue)  
+            setWidget(Canvas)
         }
                           
         //===================================================
@@ -427,6 +432,8 @@ Func WhereAreWe()
     WinTop    = Rec.top()  +30          ### <<< QT FIX because of Win Title
     WinRight  = Rec.right()
     WinBottom = Rec.bottom()
+
+    oScroll.resize(WinWidth,WinHeight-80)
 
 return
 
