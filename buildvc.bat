@@ -243,6 +243,8 @@ copy ..\extensions\libdepwin\libsdl\SDL2_net\lib\x86\*.dll .
 copy ..\extensions\libdepwin\libsdl\SDL2_ttf\lib\x86\*.dll .
 copy ..\extensions\libdepwin\mysql\lib\*.dll .
 copy ..\extensions\libdepwin\pgsql\lib\*.dll .
+copy ..\extensions\libdepwin\libuv\*.dll .
+
 
 
 endlocal
