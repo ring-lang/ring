@@ -428,7 +428,6 @@ More Improvements
 * MatrixLib - Added: MatrixTransform() function
 * BigNumber - Better code for the power function
 * ObjectsLib - Better Code when opening new windows
-* RingStbImage - Added: stbi_bytes2list()
 * RingStbImage - Support UTF-8 file names on Windows
 * RingQt - QPainter class - Added: drawRGBFListAtXY() & drawHSVFListAtXY()
 * Number() function - Don't produce an error when the input is already a number
