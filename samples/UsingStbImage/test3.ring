@@ -10,7 +10,8 @@
 	? "Height: " + height
 	? "Channels: " + channels
 # Convert to [x,y,r,g,b] List 
-	aList = stbi_bytes2list(:cData,width,height,channels,255)
+	load "listpro.ring"
+	aList = bytes2list(:cData,width,height,channels,255)
 
 load "guilib.ring"
  
