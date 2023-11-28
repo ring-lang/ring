@@ -5,6 +5,7 @@
 load "stdlibcore.ring"
 load "lightguilib.ring"
 load "stbimage.ring"           // Extract Image to RBG
+load "listpro.ring"            // Contains updateList() function 
 
 xPos           = 100           ### Canvas position on Screen 
 yPos           = 100           ### Window Moved: xPos: 107 yPos: 99  --- Screen getx: 0 gety:  0
@@ -312,47 +313,49 @@ Func ChangeColorValue()
     lColorize = (eCheckColorize.isChecked()  = 1 ) 
     lGray     = (eCheckGrayScale.isChecked() = 1 )   
 
-    for i = 1 to nMax
 
-        //====================================================================
-        // COLORIZE-- Display GrayScale Image in Color 
-        // Color corrected is for eye sensitivity Red 30%, Green 59% Blue 11%.
-        // Reverse Gray to RGB   1/0.3 R   1/0.59 G  1/0.11 B.  Max value 255
+    //====================================================================
+    // COLORIZE-- Display GrayScale Image in Color 
+    // Color corrected is for eye sensitivity Red 30%, Green 59% Blue 11%.
+    // Reverse Gray to RGB   1/0.3 R   1/0.59 G  1/0.11 B.  Max value 255
+    
+    if lColorize
+
+        updateList(MCOrig,:copy,:col,RVALUE,GVALUE)         # G = R
+        updateList(MCOrig,:copy,:col,RVALUE,BVALUE)         # B = R
+        updatelist(MCOrig,:mul,:col,RVALUE,nRedUpdate)      # R *= nRedUpdate
+        updatelist(MCOrig,:mul,:col,GVALUE,nGreenUpdate)    # G *= nGreenUpdate
+        updatelist(MCOrig,:mul,:col,BVALUE,nBlueUpdate)     # B *= nBlueUpdate
+
+
+    //====================================================================
+    // GRAY SCALE -- Display Color RBG in GRAY Scale  
+    // Average looks better brighter than Gamma Corrected
+    // Color corrected is for eye sensitivity Red 30%, Green 59% Blue 11%.
         
-        if lColorize
-        
-            AvgGray = MCOrig[i][RVALUE]             //   Corrected   Reverse       13.819   %Total                                                      
-            MCOrig[i][RVALUE] = AvgGray  * nRedUpdate         //   RC = 1 / 0.299    => 3.344    0.2419        
-            MCOrig[i][GVALUE] = AvgGray  * nGreenUpdate       //   GC = 1 / 0.587       1.703    0.1232          
-            MCOrig[i][BVALUE] = AvgGray  * nBlueUpdate        //   BC = 1 / 0.114       8.772    0.6347   
-      
-        //====================================================================
-        // GRAY SCALE -- Display Color RBG in GRAY Scale  
-        // Average looks better brighter than Gamma Corrected
-        // Color corrected is for eye sensitivity Red 30%, Green 59% Blue 11%.
-        
-        elseif lGray  
-              
-           AvgGray = ( (0.3 * MCOrig[i][RVALUE]) + (0.59 * MCOrig[i][GVALUE]) 
-                     + (0.11 * MCOrig[i][BVALUE]) )   // Color Corrected
+    elseif lGray  
            
-           MCOrig[i][RVALUE] = AvgGray        // RGB set to Same Value => Gray shadeed
-           MCOrig[i][GVALUE] = AvgGray
-           MCOrig[i][BVALUE] = AvgGray
+        updateList(MCOrig,:mul,:col,RVALUE,0.3)             # R *= 0.3
+        updateList(MCOrig,:mul,:col,GVALUE,0.59)            # G *= 0.59
+        updateList(MCOrig,:mul,:col,BVALUE,0.11)            # B *= 0.11
+        updateList(MCOrig,:merge,:col,RVALUE,GVALUE)        # R += G
+        updateList(MCOrig,:merge,:col,RVALUE,BVALUE)        # R += B
+        updateList(MCOrig,:copy,:col,RVALUE,GVALUE)         # G = R
+        updateList(MCOrig,:copy,:col,RVALUE,BVALUE)         # B = R
 
-        else
+    else
 
-        //====================================================================
-        // FRACTION of COLOR of ORIGINAL -- Display Color RBG 
-                                 
-           MCOrig[i][RVALUE] *= nNewRed    //  Slider : Fraction of Color   00  100  200
-           MCOrig[i][GVALUE] *= nNewGreen
-           MCOrig[i][BVALUE] *= nNewBlue
-           MCOrig[i][AVALUE] *= nNewAlpha  // Alpha Max 1.0
+    //====================================================================
+    // FRACTION of COLOR of ORIGINAL -- Display Color RBG 
 
-        ok         
+        updatelist(MCOrig,:mul,:Col,RVALUE,nNewRed)         # R *= nNewRed
+        updatelist(MCOrig,:mul,:Col,GVALUE,nNewGreen)       # G *= nNewGreen
+        updatelist(MCOrig,:mul,:Col,BVALUE,nNewBlue)        # B *= nNewBlue
+        updatelist(MCOrig,:mul,:Col,AVALUE,nNewAlpha)       # A *= nNewAlpha
+
+    ok         
         
-    next    
+       
 
     #=====================================================================#
     t3 = clock()
