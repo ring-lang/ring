@@ -5,7 +5,7 @@
 load "stdlibcore.ring"
 load "lightguilib.ring"
 load "stbimage.ring"           // Extract Image to RBG
-load "listpro.ring"            // Contains updateList() function 
+load "listpro.ring"            // Contains Bytes2List() & updateList() functions 
 
 xPos           = 100           ### Canvas position on Screen 
 yPos           = 100           ### Window Moved: xPos: 107 yPos: 99  --- Screen getx: 0 gety:  0
@@ -272,12 +272,12 @@ return
 Func ChangeColorValue()
 
     # Convert to [x,y,r,g,b] List
-    # Using :cImageData pass the variable name "cImageData" and STBI_Bytes2List we get a pointer for it
-    # We pass channels (could be 3 or 4) and STBI_Bytes2List always return the RGB values only
+    # Using :cImageData pass the variable name "cImageData" and Bytes2List we get a pointer for it
+    # We pass channels (could be 3 or 4) and Bytes2List always return the RGB values only
     # We pass 255 which mean Divide each RGB by 255
    
-    # We keep calling STBI_Bytes2List() to get the List which is faster than copying it using assignment 
-    MCOrig = STBI_Bytes2List(:cImageData,nImageWidth,nImageHeight,nImageChannels,255)
+    # We keep calling Bytes2List() to get the List which is faster than copying it using assignment 
+    MCOrig = Bytes2List(:cImageData,nImageWidth,nImageHeight,nImageChannels,255)
 
     if !MCOrig                          // Fails on GIF ,Does NotExist ,  Image W-H: 0-0 Size: 0
        return

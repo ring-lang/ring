@@ -162,66 +162,6 @@ RING_FUNC(ring_stbi_load_from_file)
 	RING_API_ACCEPTINTVALUE(4) ;
 }
 
-RING_FUNC(ring_stbi_bytes2list)
-{
-	unsigned char *pData;
-	List *pList, *pSubList;
-	int nIndex,nPoint,nChannel,nPointsCount,nChannelDiff,nDivide,nWidth,nHeight;
-	VM *pVM;
-	if ( RING_API_PARACOUNT < 4 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(4) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pData   = (unsigned char *) RING_API_GETCHARPOINTER(1);
-	nIndex  = 0;
-	nPoint  = 1;
-	nWidth  = (int) RING_API_GETNUMBER(2);
-	nHeight = (int) RING_API_GETNUMBER(3);
-	nPointsCount = nWidth*nHeight;
-	nChannel = (int) RING_API_GETNUMBER(4);
-	nChannelDiff = 0;
-	if (nChannel > 3)
-		nChannelDiff = nChannel - 3;
-	nDivide = 0;
-	if (RING_API_PARACOUNT > 4)
-		if (RING_API_ISNUMBER(5))
-			nDivide = (int) RING_API_GETNUMBER(5) ;
-	pList = RING_API_NEWLISTUSINGBLOCKS2D(nPointsCount,6);
-	pVM = (VM *) pPointer;
-	for (int y=1 ; y <= nHeight ; y++ ) {
-		for (int x=1 ; x <= nWidth ; x++ ) {
-			pSubList = ring_list_getlist(pList,nPoint++);
-			ring_list_setdouble_gc(pVM->pRingState,pSubList,1,(double) x);
-			ring_list_setdouble_gc(pVM->pRingState,pSubList,2,(double) y);
-			if (nDivide == 0) {
-				ring_list_setdouble_gc(pVM->pRingState,pSubList,3,(double) pData[nIndex++]);
-				ring_list_setdouble_gc(pVM->pRingState,pSubList,4,(double) pData[nIndex++]);						ring_list_setdouble_gc(pVM->pRingState,pSubList,5,(double) pData[nIndex++]);
-			} else {
-				ring_list_setdouble_gc(pVM->pRingState,pSubList,3,( (double) pData[nIndex++] ) / nDivide);
-				ring_list_setdouble_gc(pVM->pRingState,pSubList,4,( (double) pData[nIndex++] ) / nDivide);				ring_list_setdouble_gc(pVM->pRingState,pSubList,5,( (double) pData[nIndex++] ) / nDivide);
-			}
-			ring_list_setdouble_gc(pVM->pRingState,pSubList,6,(double) 1.0);
-			nIndex += nChannelDiff;	
-		}
-	}
-	RING_API_RETLISTBYREF(pList);
-}
 
 
 RING_FUNC(ring_stbi_load_16_from_memory)
@@ -1037,7 +977,6 @@ RING_LIBINIT
 	RING_API_REGISTER("stbi_load_from_memory",ring_stbi_load_from_memory);
 	RING_API_REGISTER("stbi_load",ring_stbi_load);
 	RING_API_REGISTER("stbi_load_from_file",ring_stbi_load_from_file);
-	RING_API_REGISTER("stbi_bytes2list",ring_stbi_bytes2list);
 	RING_API_REGISTER("stbi_load_16_from_memory",ring_stbi_load_16_from_memory);
 	RING_API_REGISTER("stbi_load_16",ring_stbi_load_16);
 	RING_API_REGISTER("stbi_load_from_file_16",ring_stbi_load_from_file_16);
