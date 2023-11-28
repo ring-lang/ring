@@ -28455,6 +28455,62 @@ RING_FUNC(ring_QPainter_drawRGBFListAtXY)
 	ring_QPainter_drawList(pPointer,2);
 }
 
+RING_FUNC(ring_QPainter_drawBytes)
+{
+	QPainter *pObject;
+int nChannel, nFormat, nWidth, nHeight;
+	unsigned char *cData;
+	QPixmap pixmap;
+
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! (RING_API_ISPOINTER(1) && RING_API_ISNUMBER(2) && RING_API_ISNUMBER(3) &&
+		RING_API_ISSTRING(4)  && RING_API_ISNUMBER(5) && RING_API_ISNUMBER(6) &&
+		RING_API_ISNUMBER(7)  )  ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
+
+	cData    = (unsigned char *) RING_API_GETSTRING(4);
+	nWidth   = (int) RING_API_GETNUMBER(5);
+	nHeight  = (int) RING_API_GETNUMBER(6);
+	nChannel = (int) RING_API_GETNUMBER(7);
+
+
+	// In Qt5, Using nWidth*nChannel is optional
+	// But if we don't use it, we will get wrong results
+	// where image drawing starts after many x positions
+	if (nChannel == 3) {
+		pixmap = QPixmap::fromImage (
+			QImage(
+				cData,
+				nWidth,
+				nHeight,
+				nWidth*nChannel,
+				QImage::Format_RGB888
+			)
+		);
+	} else {
+		pixmap = QPixmap::fromImage (
+			QImage(
+				cData,
+				nWidth,
+				nHeight,
+				nWidth*nChannel,
+				QImage::Format_RGBA8888
+			)
+		);
+	}
+
+	pObject->drawPixmap((int) RING_API_GETNUMBER(2),(int) RING_API_GETNUMBER(3),pixmap);
+}
+
+
 RING_FUNC(ring_QPicture_boundingRect)
 {
 	QPicture *pObject ;
@@ -131037,6 +131093,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qpainter_drawrgbflist",ring_QPainter_drawRGBFList);
 	RING_API_REGISTER("qpainter_drawhsvflistatxy",ring_QPainter_drawHSVFListAtXY);
 	RING_API_REGISTER("qpainter_drawrgbflistatxy",ring_QPainter_drawRGBFListAtXY);
+	RING_API_REGISTER("qpainter_drawbytes",ring_QPainter_drawBytes);
 	RING_API_REGISTER("qpicture_boundingrect",ring_QPicture_boundingRect);
 	RING_API_REGISTER("qpicture_data",ring_QPicture_data);
 	RING_API_REGISTER("qpicture_isnull",ring_QPicture_isNull);

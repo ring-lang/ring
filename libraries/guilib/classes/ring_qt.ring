@@ -5242,6 +5242,9 @@ Class QPainter
 	Func drawRGBFListAtXY P1,P2,P3
 		return QPainter_drawRGBFListAtXY(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
 
+	Func drawBytes P1,P2,P3,P4,P5,P6
+		return QPainter_drawBytes(pObject,P1,P2,P3,P4,P5,P6)
+
 Class QPicture
 
 	pObject
