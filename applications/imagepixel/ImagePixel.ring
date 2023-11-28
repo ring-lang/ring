@@ -5,7 +5,7 @@
 load "stdlibcore.ring"
 load "lightguilib.ring"
 load "stbimage.ring"           // Extract Image to RBG
-load "listpro.ring"            // Contains Bytes2List() & updateList() functions 
+load "listpro.ring"            // Contains bytes2List() & updateList() functions 
 
 xPos           = 100           ### Canvas position on Screen 
 yPos           = 100           ### Window Moved: xPos: 107 yPos: 99  --- Screen getx: 0 gety:  0
