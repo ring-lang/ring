@@ -224,6 +224,8 @@ cd samples\Drawing\Mandelbrot
 call buildvc
 cd ..\..\..\
 
+copy tools\ringnotepad\rnoteexe\RingNotepad.exe .
+
 cd bin
 
 rem copy dll files
