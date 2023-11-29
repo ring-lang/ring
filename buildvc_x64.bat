@@ -226,6 +226,7 @@ cd ..\..\..\
 
 rem copy dll files
 cd bin
+copy ..\extensions\libdepwin\extra\*.dll .
 copy ..\extensions\libdepwin\cruntime_x64\*.dll .
 copy ..\extensions\libdepwin\Allegro5.2.8\bin\x64\*.dll .
 copy ..\extensions\libdepwin\freeglut\bin\x64\*.dll .

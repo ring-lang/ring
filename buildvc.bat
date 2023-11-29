@@ -227,6 +227,7 @@ cd ..\..\..\
 cd bin
 
 rem copy dll files
+copy ..\extensions\libdepwin\extra\*.dll .
 copy ..\extensions\libdepwin\cruntime\*.dll .
 copy ..\extensions\libdepwin\libcurl\bin\*.dll .
 copy ..\extensions\libdepwin\openssl\bin\*.dll .
