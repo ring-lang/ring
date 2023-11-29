@@ -55,10 +55,12 @@ RING_FUNC(ring_bytes2list)
 			ring_list_setdouble_gc(pVM->pRingState,pSubList,2,(double) y);
 			if (nDivide == 0) {
 				ring_list_setdouble_gc(pVM->pRingState,pSubList,3,(double) pData[nIndex++]);
-				ring_list_setdouble_gc(pVM->pRingState,pSubList,4,(double) pData[nIndex++]);						ring_list_setdouble_gc(pVM->pRingState,pSubList,5,(double) pData[nIndex++]);
+				ring_list_setdouble_gc(pVM->pRingState,pSubList,4,(double) pData[nIndex++]);						
+				ring_list_setdouble_gc(pVM->pRingState,pSubList,5,(double) pData[nIndex++]);
 			} else {
 				ring_list_setdouble_gc(pVM->pRingState,pSubList,3,( (double) pData[nIndex++] ) / nDivide);
-				ring_list_setdouble_gc(pVM->pRingState,pSubList,4,( (double) pData[nIndex++] ) / nDivide);				ring_list_setdouble_gc(pVM->pRingState,pSubList,5,( (double) pData[nIndex++] ) / nDivide);
+				ring_list_setdouble_gc(pVM->pRingState,pSubList,4,( (double) pData[nIndex++] ) / nDivide);				
+				ring_list_setdouble_gc(pVM->pRingState,pSubList,5,( (double) pData[nIndex++] ) / nDivide);
 			}
 			ring_list_setdouble_gc(pVM->pRingState,pSubList,6,(double) 1.0);
 			nIndex += nChannelDiff;	
@@ -228,6 +230,10 @@ RING_FUNC(ring_updatelist)
                 nStart = 1 ;
                 nEnd = ring_list_getsize(pList) ;
                 iValue = (int) RING_API_GETNUMBER(5) ;
+                if ( nCol < 1 ) {
+                    RING_API_ERROR("The selected column is outside the range of the list");
+                    return ;
+                }
             }
             else {
                 RING_API_ERROR(RING_API_BADPARATYPE);
@@ -246,7 +252,8 @@ RING_FUNC(ring_updatelist)
                 nStart = (int) RING_API_GETNUMBER(4) ;
                 nEnd = (int) RING_API_GETNUMBER(5) ;
                 nValue = RING_API_GETNUMBER(6) ;
-                if ( (nStart < 1) || (nStart > ring_list_getsize(pList)) || (nEnd < 1) || (nEnd > ring_list_getsize(pList)) || (nEnd < nStart) ) {
+                if ( (nStart < 1) || (nStart > ring_list_getsize(pList)) || (nEnd < 1) || 
+			(nEnd > ring_list_getsize(pList)) || (nEnd < nStart) ) {
                     RING_API_ERROR("The selected rows are outside the range of the list");
                     return ;
                 }
@@ -674,7 +681,8 @@ RING_FUNC(ring_updatelist)
                     pSubList = ring_list_getlist(pList,x) ;
                     if ( (ring_list_getsize(pSubList) >= nCol) && (ring_list_getsize(pSubList) >= nValue) ) {
                         if ( ring_list_isdouble(pSubList,nCol) && ring_list_isdouble(pSubList,nValue) ) {
-                            ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,ring_list_getdouble(pSubList,nCol)+ring_list_getdouble(pSubList,nValue));
+                            ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
+			    ring_list_getdouble(pSubList,nCol)+ring_list_getdouble(pSubList,nValue));
                         }
                     }
                 }
