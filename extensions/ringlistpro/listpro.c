@@ -32,7 +32,7 @@ RING_FUNC(ring_bytes2list)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pData   = (unsigned char *) RING_API_GETCHARPOINTER(1);
+	pData   = (unsigned char *) RING_API_GETSTRING(1);
 	nIndex  = 0;
 	nPoint  = 1;
 	nWidth  = (int) RING_API_GETNUMBER(2);
