@@ -14,7 +14,7 @@ CIMAGE = "ring.jpg"
 	cData = stbi_load(CIMAGE,:width,:height,:channels,STBI_rgb)
 
 t1 = clock()
-aList = bytes2list(:cData,width,height,channels)
+aList = bytes2list(cData,width,height,channels)
 t2 = clock()
 
 # Convert to Gray

@@ -11,7 +11,7 @@
 	? "Channels: " + channels
 # Convert to [x,y,r,g,b] List 
 	load "listpro.ring"
-	aList = bytes2list(:cData,width,height,channels,255)
+	aList = bytes2list(cData,width,height,channels,255)
 
 load "guilib.ring"
  
