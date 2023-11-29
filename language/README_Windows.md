@@ -18,6 +18,10 @@
 	To build 32bit version: ring/buildvc.bat
 	To build 64bit version: ring/buildvc_x64.bat
 
+	Add ring/bin folder to your system path 
+
+	Run ring/RingNotepad.exe or ringpm run ringnotepad
+
 ### Custom Build
 
 #### 64bit version
