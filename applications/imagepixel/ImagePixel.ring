@@ -328,10 +328,9 @@ Func ChangeColorValue()
 
         updateList(MCOrig,:copy,:col,RVALUE,GVALUE)         # G = R
         updateList(MCOrig,:copy,:col,RVALUE,BVALUE)         # B = R
-
-        if nRedUpdate   != 1 updatelist(MCOrig,:mul,:col,RVALUE,nRedUpdate)   ok      # R *= nRedUpdate
-        if nGreenUpdate != 1 updatelist(MCOrig,:mul,:col,GVALUE,nGreenUpdate) ok      # G *= nGreenUpdate
-        if nBlueUpdate  != 1 updatelist(MCOrig,:mul,:col,BVALUE,nBlueUpdate)  ok      # B *= nBlueUpdate
+        updatelist(MCOrig,:mul,:col,RVALUE,nRedUpdate)      # R *= nRedUpdate
+        updatelist(MCOrig,:mul,:col,GVALUE,nGreenUpdate)    # G *= nGreenUpdate
+        updatelist(MCOrig,:mul,:col,BVALUE,nBlueUpdate)     # B *= nBlueUpdate
 
     //====================================================================
     // GRAY SCALE -- Display Color RBG in GRAY Scale  
