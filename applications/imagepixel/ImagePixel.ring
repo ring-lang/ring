@@ -353,14 +353,10 @@ Func ChangeColorValue()
     //====================================================================
     // FRACTION of COLOR of ORIGINAL -- Display Color RBG 
 
-    updatelist(MCOrig,:mul,:Col,RVALUE,nNewRed)         # R *= nNewRed
-    updatelist(MCOrig,:mul,:Col,GVALUE,nNewGreen)       # G *= nNewGreen
-    updatelist(MCOrig,:mul,:Col,BVALUE,nNewBlue)        # B *= nNewBlue
-    updatelist(MCOrig,:mul,:Col,AVALUE,nNewAlpha)       # A *= nNewAlpha
-
-             
-        
-       
+    if nNewRed   != 1 updatelist(MCOrig,:mul,:Col,RVALUE,nNewRed)   ok       # R *= nNewRed
+    if nNewGreen != 1 updatelist(MCOrig,:mul,:Col,GVALUE,nNewGreen) ok       # G *= nNewGreen
+    if nNewBlue  != 1 updatelist(MCOrig,:mul,:Col,BVALUE,nNewBlue)  ok       # B *= nNewBlue
+    if nNewAlpha != 1 updatelist(MCOrig,:mul,:Col,AVALUE,nNewAlpha) ok       # A *= nNewAlpha
 
     #=====================================================================#
     t3 = clock()
