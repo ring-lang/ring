@@ -669,6 +669,7 @@ RING_FUNC(ring_updatelist)
             break ;
         case 605 :
             /* Copy Items */
+                RING_API_ERROR("The copy operation is not defined for all of the list items");
             break ;
         /* Merge */
         case 701 :
