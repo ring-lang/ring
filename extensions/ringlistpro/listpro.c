@@ -663,9 +663,11 @@ RING_FUNC(ring_updatelist)
             break ;
         case 603 :
             /* Copy to Many Rows */
+		RING_API_ERROR("The copy operation is not defined for many rows");
             break ;
         case 604 :
             /* Copy to Many Columns */
+		RING_API_ERROR("The copy operation is not defined for many columns");
             break ;
         case 605 :
             /* Copy Items */
@@ -674,6 +676,21 @@ RING_FUNC(ring_updatelist)
         /* Merge */
         case 701 :
             /* Merge two rows */
+            if ( (iValue < 1) ||  (iValue > ring_list_getsize(pList) ) ) {
+                RING_API_ERROR("The selected row is outside the range of the list");
+                return ;
+            }
+            if ( ring_list_islist(pList,iValue) ) {
+                pRow2 = ring_list_getlist(pList,iValue) ;
+                for ( x = nStart ; x <= nEnd ; x++ ) {
+                    if ( x <= ring_list_getsize(pRow2) ) {
+			if (ring_list_isdouble(pRow2,x)) {
+                            ring_list_setdouble_gc(pVM->pRingState,pRow,x,ring_list_getdouble(pRow,x)+
+									ring_list_getdouble(pRow2,x));
+			}
+                    }
+                }
+            }
             break ;
         case 702 :
             /* Merge two columns */
@@ -691,12 +708,15 @@ RING_FUNC(ring_updatelist)
             break ;
         case 703 :
             /* Merge and Many Rows */
+		RING_API_ERROR("The merge operation is not defined for many rows");
             break ;
         case 704 :
             /* Merge and Many Columns */
+		RING_API_ERROR("The merge operation is not defined for many columns");
             break ;
         case 705 :
             /* Merge Items */
+		RING_API_ERROR("The merge operation is not defined for all of the list items");
             break ;
     }
 }
