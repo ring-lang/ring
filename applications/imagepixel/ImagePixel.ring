@@ -310,10 +310,6 @@ Func ChangeColorValue()
     nNewBlue  = Blue  / 100
     nNewAlpha = Alpha / 100   
 
-    nRedUpdate   = 1.2419 * 1.4 * nNewRed   
-    nGreenUpdate = 1.1232 * 0.8 * nNewGreen
-    nBlueUpdate  = 1.6347 * 0.5 * nNewBlue   
- 
     nMax      = len( MCOrig)  
     lColorize = (eCheckColorize.isChecked()  = 1 ) 
     lGray     = (eCheckGrayScale.isChecked() = 1 )   
@@ -326,12 +322,16 @@ Func ChangeColorValue()
     
     if lColorize
 
+        nRedUpdate   = 1.2419 * 1.4 * nNewRed   
+        nGreenUpdate = 1.1232 * 0.8 * nNewGreen
+        nBlueUpdate  = 1.6347 * 0.5 * nNewBlue   
+
         updateList(MCOrig,:copy,:col,RVALUE,GVALUE)         # G = R
         updateList(MCOrig,:copy,:col,RVALUE,BVALUE)         # B = R
-        updatelist(MCOrig,:mul,:col,RVALUE,nRedUpdate)      # R *= nRedUpdate
-        updatelist(MCOrig,:mul,:col,GVALUE,nGreenUpdate)    # G *= nGreenUpdate
-        updatelist(MCOrig,:mul,:col,BVALUE,nBlueUpdate)     # B *= nBlueUpdate
 
+        if nRedUpdate   != 1 updatelist(MCOrig,:mul,:col,RVALUE,nRedUpdate)   ok      # R *= nRedUpdate
+        if nGreenUpdate != 1 updatelist(MCOrig,:mul,:col,GVALUE,nGreenUpdate) ok      # G *= nGreenUpdate
+        if nBlueUpdate  != 1 updatelist(MCOrig,:mul,:col,BVALUE,nBlueUpdate)  ok      # B *= nBlueUpdate
 
     //====================================================================
     // GRAY SCALE -- Display Color RBG in GRAY Scale  
