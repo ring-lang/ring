@@ -348,17 +348,17 @@ Func ChangeColorValue()
         updateList(MCOrig,:copy,:col,RVALUE,GVALUE)         # G = R
         updateList(MCOrig,:copy,:col,RVALUE,BVALUE)         # B = R
 
-    else
+    ok
 
     //====================================================================
     // FRACTION of COLOR of ORIGINAL -- Display Color RBG 
 
-        updatelist(MCOrig,:mul,:Col,RVALUE,nNewRed)         # R *= nNewRed
-        updatelist(MCOrig,:mul,:Col,GVALUE,nNewGreen)       # G *= nNewGreen
-        updatelist(MCOrig,:mul,:Col,BVALUE,nNewBlue)        # B *= nNewBlue
-        updatelist(MCOrig,:mul,:Col,AVALUE,nNewAlpha)       # A *= nNewAlpha
+    updatelist(MCOrig,:mul,:Col,RVALUE,nNewRed)         # R *= nNewRed
+    updatelist(MCOrig,:mul,:Col,GVALUE,nNewGreen)       # G *= nNewGreen
+    updatelist(MCOrig,:mul,:Col,BVALUE,nNewBlue)        # B *= nNewBlue
+    updatelist(MCOrig,:mul,:Col,AVALUE,nNewAlpha)       # A *= nNewAlpha
 
-    ok         
+             
         
        
 
