@@ -1,0 +1,1 @@
+load "/../../extensions/ringfastpro/fastpro.ring"
