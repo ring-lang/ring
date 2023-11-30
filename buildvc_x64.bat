@@ -163,7 +163,7 @@ call buildvc_x64
 cd ..
 
 rem build RingFastPro
-cd ringlistpro
+cd ringfastpro
 call buildvc_x64
 cd ..\..\
 
