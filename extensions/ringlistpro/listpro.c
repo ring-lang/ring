@@ -810,14 +810,34 @@ RING_FUNC(ring_updatecolumn)
  		
 				// Execute Instruction
 				if ( aInsOPCode[nCurrentIns] == INS_SET ) {
+					if ( ring_list_isdouble(pSubList,nCol) ) {
+						ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
+						dValue);
+					}
 				} else if ( aInsOPCode[nCurrentIns] == INS_ADD ) {
+					if ( ring_list_isdouble(pSubList,nCol) ) {
+						ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
+						ring_list_getdouble(pSubList,nCol)+dValue);
+					}
 				} else if ( aInsOPCode[nCurrentIns] == INS_SUB ) {
+					if ( ring_list_isdouble(pSubList,nCol) ) {
+						ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
+						ring_list_getdouble(pSubList,nCol)-dValue);
+					}
 				} else if ( aInsOPCode[nCurrentIns] == INS_MUL ) {
 					if ( ring_list_isdouble(pSubList,nCol) ) {
 						ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
 						ring_list_getdouble(pSubList,nCol)*dValue);
 					}
 				} else if ( aInsOPCode[nCurrentIns] == INS_DIV ) {
+        				if ( dValue == 0 ) {
+            					RING_API_ERROR("Can't divide by zero");
+            					return ;
+        				}
+					if ( ring_list_isdouble(pSubList,nCol) ) {
+						ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
+						ring_list_getdouble(pSubList,nCol)/dValue);
+					}
 				} else if ( aInsOPCode[nCurrentIns] == INS_MERGE ) {
 					if ( (ring_list_getsize(pSubList) >= nCol) && (ring_list_getsize(pSubList) >= iValue) ) {
 						if ( ring_list_isdouble(pSubList,nCol) && ring_list_isdouble(pSubList,iValue) ) {
