@@ -745,7 +745,14 @@ RING_FUNC(ring_updatecolumn)
 	int nPos,nCol,iValue;
 	char *cCommand;
 	double dValue;
+	int aInsOPCode[100];
+	int aInsCol[100];
+	int aInsiValue[100];
+	double aInsdValue[100];
+	int nCurrentIns,nInsCount;
 	VM *pVM  ;
+	nCurrentIns = 0;
+	nInsCount   = 0;
 	pVM = (VM *) pPointer ;
 
 	if (RING_API_PARACOUNT < 1) {
@@ -757,28 +764,63 @@ RING_FUNC(ring_updatecolumn)
 		return ;
 	}
 
-	nPos = 2;	// Start getting new instruction from the second parameter 
 	pList = RING_API_GETLIST(1);
+
+	// Get Instructions
+	nPos = 2;	// Start getting new instruction from the second parameter 
+	while ( ring_getnewinstruciton(pPointer, &nPos, &cCommand, &nCol, &iValue, &dValue) ) {
+		if ( strcmp(cCommand,"set") == 0 ) {
+			aInsOPCode[nCurrentIns] = 1;
+		} else if ( strcmp(cCommand,"add") == 0 ) {
+			aInsOPCode[nCurrentIns] = 2;
+		} else if ( strcmp(cCommand,"sub") == 0 ) {
+			aInsOPCode[nCurrentIns] = 3;
+		} else if ( strcmp(cCommand,"mul") == 0 ) {
+			aInsOPCode[nCurrentIns] = 4;
+		} else if ( strcmp(cCommand,"div") == 0 ) {
+			aInsOPCode[nCurrentIns] = 5;
+		} else if ( strcmp(cCommand,"merge") == 0 ) {
+			aInsOPCode[nCurrentIns] = 6;
+		} else if ( strcmp(cCommand,"copy") == 0 ) {
+			aInsOPCode[nCurrentIns] = 7;
+		}
+		aInsCol[nCurrentIns]    = nCol;
+		aInsiValue[nCurrentIns] = iValue;
+		aInsdValue[nCurrentIns] = dValue;
+		nCurrentIns++; 
+	}
+			
+	nInsCount = nCurrentIns ;
+
 	for ( int x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 		if ( ring_list_islist(pList,x) ) {
 			pSubList = ring_list_getlist(pList,x) ;
-			// Get Instruction
-			while ( ring_getnewinstruciton(pPointer, &nPos, &cCommand, &nCol, &iValue, &dValue) ) {
-				
+
+			nCurrentIns = 0;
+			while ( nCurrentIns < nInsCount ) {
+		
+				nCol   = aInsCol[nCurrentIns];
+				iValue = aInsiValue[nCurrentIns];
+				dValue = aInsdValue[nCurrentIns];
+ 		
 			// Execute Instruction
-			if ( strcmp(cCommand,"merge") == 0 ) {
+			if ( aInsOPCode[nCurrentIns] == 1 ) {
+			} else if ( aInsOPCode[nCurrentIns] == 2 ) {
+			} else if ( aInsOPCode[nCurrentIns] == 3 ) {
+			} else if ( aInsOPCode[nCurrentIns] == 4 ) {
+				if ( ring_list_isdouble(pSubList,nCol) ) {
+					ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
+					ring_list_getdouble(pSubList,nCol)*dValue);
+				}
+			} else if ( aInsOPCode[nCurrentIns] == 5 ) {
+			} else if ( aInsOPCode[nCurrentIns] == 6 ) {
 				if ( (ring_list_getsize(pSubList) >= nCol) && (ring_list_getsize(pSubList) >= iValue) ) {
 					if ( ring_list_isdouble(pSubList,nCol) && ring_list_isdouble(pSubList,iValue) ) {
 						ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
 						ring_list_getdouble(pSubList,nCol)+ring_list_getdouble(pSubList,iValue));
 					}
 				}
-			} else if ( strcmp(cCommand,"mul") == 0 ) {
-				if ( ring_list_isdouble(pSubList,nCol) ) {
-					ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
-					ring_list_getdouble(pSubList,nCol)*dValue);
-				}
-			} else if ( strcmp(cCommand,"copy") == 0 ) {
+			} else if ( aInsOPCode[nCurrentIns] == 7 ) {
 				if ( (ring_list_getsize(pSubList) >= nCol) && (ring_list_getsize(pSubList) >= iValue) ) {
 					if ( ring_list_isdouble(pSubList,nCol) ) {
 						ring_list_setdouble_gc(pVM->pRingState,pSubList,iValue,
@@ -787,6 +829,7 @@ RING_FUNC(ring_updatecolumn)
 				}
 			}
 
+			nCurrentIns++;
 			}
 
 			nPos = 2;
