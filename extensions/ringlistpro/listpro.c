@@ -775,19 +775,19 @@ RING_FUNC(ring_updatecolumn)
 			return;
 		}
 		if ( strcmp(cCommand,"set") == 0 ) {
-			aInsOPCode[nCurrentIns] = 1;
+			aInsOPCode[nCurrentIns] = INS_SET;
 		} else if ( strcmp(cCommand,"add") == 0 ) {
-			aInsOPCode[nCurrentIns] = 2;
+			aInsOPCode[nCurrentIns] = INS_ADD;
 		} else if ( strcmp(cCommand,"sub") == 0 ) {
-			aInsOPCode[nCurrentIns] = 3;
+			aInsOPCode[nCurrentIns] = INS_SUB;
 		} else if ( strcmp(cCommand,"mul") == 0 ) {
-			aInsOPCode[nCurrentIns] = 4;
+			aInsOPCode[nCurrentIns] = INS_MUL;
 		} else if ( strcmp(cCommand,"div") == 0 ) {
-			aInsOPCode[nCurrentIns] = 5;
+			aInsOPCode[nCurrentIns] = INS_DIV;
 		} else if ( strcmp(cCommand,"merge") == 0 ) {
-			aInsOPCode[nCurrentIns] = 6;
+			aInsOPCode[nCurrentIns] = INS_MERGE;
 		} else if ( strcmp(cCommand,"copy") == 0 ) {
-			aInsOPCode[nCurrentIns] = 7;
+			aInsOPCode[nCurrentIns] = INS_COPY;
 		}
 		aInsCol[nCurrentIns]    = nCol;
 		aInsiValue[nCurrentIns] = iValue;
@@ -809,23 +809,23 @@ RING_FUNC(ring_updatecolumn)
 				dValue = aInsdValue[nCurrentIns];
  		
 				// Execute Instruction
-				if ( aInsOPCode[nCurrentIns] == 1 ) {
-				} else if ( aInsOPCode[nCurrentIns] == 2 ) {
-				} else if ( aInsOPCode[nCurrentIns] == 3 ) {
-				} else if ( aInsOPCode[nCurrentIns] == 4 ) {
+				if ( aInsOPCode[nCurrentIns] == INS_SET ) {
+				} else if ( aInsOPCode[nCurrentIns] == INS_ADD ) {
+				} else if ( aInsOPCode[nCurrentIns] == INS_SUB ) {
+				} else if ( aInsOPCode[nCurrentIns] == INS_MUL ) {
 					if ( ring_list_isdouble(pSubList,nCol) ) {
 						ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
 						ring_list_getdouble(pSubList,nCol)*dValue);
 					}
-				} else if ( aInsOPCode[nCurrentIns] == 5 ) {
-				} else if ( aInsOPCode[nCurrentIns] == 6 ) {
+				} else if ( aInsOPCode[nCurrentIns] == INS_DIV ) {
+				} else if ( aInsOPCode[nCurrentIns] == INS_MERGE ) {
 					if ( (ring_list_getsize(pSubList) >= nCol) && (ring_list_getsize(pSubList) >= iValue) ) {
 						if ( ring_list_isdouble(pSubList,nCol) && ring_list_isdouble(pSubList,iValue) ) {
 							ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
 							ring_list_getdouble(pSubList,nCol)+ring_list_getdouble(pSubList,iValue));
 						}
 					}
-				} else if ( aInsOPCode[nCurrentIns] == 7 ) {
+				} else if ( aInsOPCode[nCurrentIns] == INS_COPY ) {
 					if ( (ring_list_getsize(pSubList) >= nCol) && (ring_list_getsize(pSubList) >= iValue) ) {
 						if ( ring_list_isdouble(pSubList,nCol) ) {
 							ring_list_setdouble_gc(pVM->pRingState,pSubList,iValue,
