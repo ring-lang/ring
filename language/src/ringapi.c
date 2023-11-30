@@ -412,7 +412,7 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
         pTempMem = ring_vm_prevtempmem(pVM);
     }
     /* Create the container variable */
-    pVariableList = ring_vm_newvar2(pVM,RING_TEMP_VARIABLE,pTempMem);
+    pVariableList = ring_vm_newvar2(pVM,RING_TEMP_REF,pTempMem);
     ring_list_setint_gc(((VM *) pPointer)->pRingState,pVariableList,RING_VAR_TYPE,RING_VM_LIST);
     ring_list_setlist_gc(((VM *) pPointer)->pRingState,pVariableList,RING_VAR_VALUE);
     pRealList = ring_list_getlist(pVariableList,RING_VAR_VALUE);
