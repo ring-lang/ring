@@ -10,6 +10,8 @@ Type: char
 cChar
 Type: int
 nSize
+Type: double
+nNum
 ring_vm_string_index
 Type: char *
 newstr

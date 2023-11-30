@@ -22,6 +22,7 @@ void ring_vm_string_assignment ( VM *pVM )
     char *newstr  ;
     char cChar  ;
     int nSize  ;
+    double nNum  ;
     if ( RING_VM_STACK_ISSTRING ) {
         nSize = RING_VM_STACK_STRINGSIZE ;
         if ( nSize == 1 ) {
@@ -37,6 +38,13 @@ void ring_vm_string_assignment ( VM *pVM )
             ring_vm_error(pVM,RING_VM_ERROR_VALUEMORETHANONECHAR);
             return ;
         }
+    }
+    else if ( RING_VM_STACK_ISNUMBER ) {
+        nNum = RING_VM_STACK_READN ;
+        cChar = (char) nNum ;
+        RING_VM_STACK_POP ;
+        newstr = (char *) RING_VM_STACK_READP ;
+        newstr[0] = cChar ;
     }
     else {
         ring_vm_error(pVM,RING_VM_ERROR_VARISNOTSTRING);
