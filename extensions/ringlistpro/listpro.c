@@ -721,9 +721,83 @@ RING_FUNC(ring_updatelist)
     }
 }
 
+int ring_getnewinstruciton(void *pPointer, int *nStart,char **cCommand,int *nCol, int *iValue, double *dValue) {
+	int nPos,nCount;
+	nPos = *nStart;
+	nCount = nPos + 2 ;
+	if (RING_API_PARACOUNT < nCount) {
+		return 0;
+	}
+	if ( ! ( RING_API_ISSTRING(nPos) && RING_API_ISNUMBER(nPos+1) && RING_API_ISNUMBER(nPos+2) ) ) {
+		return 0;
+	}
+	*cCommand = RING_API_GETSTRING(nPos);
+	*nCol = (int) RING_API_GETNUMBER(nPos+1);
+	*iValue = (int) RING_API_GETNUMBER(nPos+2);
+	*dValue = RING_API_GETNUMBER(nPos+2);
+	*nStart = nPos+3;
+	return 1;
+}
+
+RING_FUNC(ring_updatecolumn)
+{
+	List *pList, *pSubList;
+	int nPos,nCol,iValue;
+	char *cCommand;
+	double dValue;
+	VM *pVM  ;
+	pVM = (VM *) pPointer ;
+
+	if (RING_API_PARACOUNT < 1) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);	
+		return ;
+	}
+	if ( ! RING_API_ISLIST(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	nPos = 2;	// Start getting new instruction from the second parameter 
+	pList = RING_API_GETLIST(1);
+	for ( int x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
+		if ( ring_list_islist(pList,x) ) {
+			pSubList = ring_list_getlist(pList,x) ;
+			// Get Instruction
+			while ( ring_getnewinstruciton(pPointer, &nPos, &cCommand, &nCol, &iValue, &dValue) ) {
+				
+			// Execute Instruction
+			if ( strcmp(cCommand,"merge") == 0 ) {
+				if ( (ring_list_getsize(pSubList) >= nCol) && (ring_list_getsize(pSubList) >= iValue) ) {
+					if ( ring_list_isdouble(pSubList,nCol) && ring_list_isdouble(pSubList,iValue) ) {
+						ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
+						ring_list_getdouble(pSubList,nCol)+ring_list_getdouble(pSubList,iValue));
+					}
+				}
+			} else if ( strcmp(cCommand,"mul") == 0 ) {
+				if ( ring_list_isdouble(pSubList,nCol) ) {
+					ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
+					ring_list_getdouble(pSubList,nCol)*dValue);
+				}
+			} else if ( strcmp(cCommand,"copy") == 0 ) {
+				if ( (ring_list_getsize(pSubList) >= nCol) && (ring_list_getsize(pSubList) >= iValue) ) {
+					if ( ring_list_isdouble(pSubList,nCol) ) {
+						ring_list_setdouble_gc(pVM->pRingState,pSubList,iValue,
+						ring_list_getdouble(pSubList,nCol));
+					}
+				}
+			}
+
+			}
+
+			nPos = 2;
+		}
+	}
+}
+
 RING_LIBINIT
 {
-    RING_API_REGISTER("updatelist",ring_updatelist);
     RING_API_REGISTER("bytes2list",ring_bytes2list);
     RING_API_REGISTER("list2bytes",ring_list2bytes);
+    RING_API_REGISTER("updatelist",ring_updatelist);
+    RING_API_REGISTER("updatecolumn",ring_updatecolumn);
 }
