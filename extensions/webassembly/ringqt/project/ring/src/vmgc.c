@@ -518,8 +518,13 @@ RING_API int ring_list_checkrefinleftside ( void *pState,List *pList )
 
 RING_API int ring_list_checkrefvarinleftside ( void *pState,List *pVar )
 {
-    /* Check Temp. variable */
-    if ( strcmp(ring_list_getstring(pVar,RING_VAR_NAME),RING_TEMP_VARIABLE) == 0 ) {
+    /*
+    **  Check Temp. Reference variable 
+    **  Because of this function, we have RING_TEMP_VAR & RING_TEMP_REF 
+    **  If we used RING_TEMP_VAR in all cases (Even when we create var using Ref()) 
+    **  This could prevent assignment to variables contains temp. lists created while passing para. to functions 
+    */
+    if ( strcmp(ring_list_getstring(pVar,RING_VAR_NAME),RING_TEMP_REF) == 0 ) {
         return 1 ;
     }
     if ( ring_list_getint(pVar,RING_VAR_TYPE) == RING_VM_LIST ) {

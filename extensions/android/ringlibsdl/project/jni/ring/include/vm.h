@@ -361,7 +361,8 @@
     #define RING_CPOINTERSTATUS_COPIED 1
     #define RING_CPOINTERSTATUS_NOTASSIGNED 2
     /* Temp Object */
-    #define RING_TEMP_VARIABLE "ring_sys_temp"
+    #define RING_TEMP_VAR "ring_sys_tempvar"
+    #define RING_TEMP_REF "ring_sys_tempref"
     /* Trace */
     #define RING_VM_TRACEEVENT_NEWLINE 1
     #define RING_VM_TRACEEVENT_NEWFUNC 2

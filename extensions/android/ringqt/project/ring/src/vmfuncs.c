@@ -666,7 +666,7 @@ void ring_vm_createtemplist ( VM *pVM )
         pList = ring_list_newlist_gc(pVM->pRingState,pList2);
     }
     /* Create the variable */
-    ring_vm_newtempvar(pVM,RING_TEMP_VARIABLE,pList);
+    ring_vm_newtempvar(pVM,RING_TEMP_VAR,pList);
     /* Set the Address scope as local */
     if ( pVM->nLoadAddressScope == RING_VARSCOPE_NOTHING ) {
         pVM->nLoadAddressScope = RING_VARSCOPE_LOCAL ;

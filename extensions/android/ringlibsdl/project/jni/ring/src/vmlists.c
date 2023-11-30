@@ -57,7 +57,7 @@ void ring_vm_liststart ( VM *pVM )
         else {
             if ( RING_VM_STACK_ISPOINTER == 0 ) {
                 /* Create the List in the Temp Memory. */
-                ring_vm_newtempvar(pVM, RING_TEMP_VARIABLE ,ring_vm_prevtempmem(pVM));
+                ring_vm_newtempvar(pVM, RING_TEMP_VAR,ring_vm_prevtempmem(pVM));
                 if ( pVM->nLoadAddressScope == RING_VARSCOPE_NOTHING ) {
                     pVM->nLoadAddressScope = RING_VARSCOPE_LOCAL ;
                 }
