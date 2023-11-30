@@ -5,6 +5,7 @@
 
 #include "ring.h"
 #include "stdlib.h"
+#include "listpro.h"
 
 RING_FUNC(ring_bytes2list)
 {
@@ -739,8 +740,6 @@ int ring_getnewinstruciton(void *pPointer, int *nStart,char **cCommand,int *nCol
 	return 1;
 }
 
-#define C_INSCOUNT 1000
-
 RING_FUNC(ring_updatecolumn)
 {
 	List *pList, *pSubList;
@@ -771,6 +770,10 @@ RING_FUNC(ring_updatecolumn)
 	// Get Instructions
 	nPos = 2;	// Start getting new instruction from the second parameter 
 	while ( ring_getnewinstruciton(pPointer, &nPos, &cCommand, &nCol, &iValue, &dValue) ) {
+		if (nCurrentIns >= C_INSCOUNT) {
+			RING_API_ERROR("Extra number of commands!");
+			return;
+		}
 		if ( strcmp(cCommand,"set") == 0 ) {
 			aInsOPCode[nCurrentIns] = 1;
 		} else if ( strcmp(cCommand,"add") == 0 ) {
@@ -789,11 +792,7 @@ RING_FUNC(ring_updatecolumn)
 		aInsCol[nCurrentIns]    = nCol;
 		aInsiValue[nCurrentIns] = iValue;
 		aInsdValue[nCurrentIns] = dValue;
-		nCurrentIns++; 
-		if (nCurrentIns >= C_INSCOUNT) {
-			RING_API_ERROR("Extra number of commands!");
-			return;
-		}		
+		nCurrentIns++; 		
 	}
 			
 	nInsCount = nCurrentIns ;
@@ -809,33 +808,33 @@ RING_FUNC(ring_updatecolumn)
 				iValue = aInsiValue[nCurrentIns];
 				dValue = aInsdValue[nCurrentIns];
  		
-			// Execute Instruction
-			if ( aInsOPCode[nCurrentIns] == 1 ) {
-			} else if ( aInsOPCode[nCurrentIns] == 2 ) {
-			} else if ( aInsOPCode[nCurrentIns] == 3 ) {
-			} else if ( aInsOPCode[nCurrentIns] == 4 ) {
-				if ( ring_list_isdouble(pSubList,nCol) ) {
-					ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
-					ring_list_getdouble(pSubList,nCol)*dValue);
-				}
-			} else if ( aInsOPCode[nCurrentIns] == 5 ) {
-			} else if ( aInsOPCode[nCurrentIns] == 6 ) {
-				if ( (ring_list_getsize(pSubList) >= nCol) && (ring_list_getsize(pSubList) >= iValue) ) {
-					if ( ring_list_isdouble(pSubList,nCol) && ring_list_isdouble(pSubList,iValue) ) {
-						ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
-						ring_list_getdouble(pSubList,nCol)+ring_list_getdouble(pSubList,iValue));
-					}
-				}
-			} else if ( aInsOPCode[nCurrentIns] == 7 ) {
-				if ( (ring_list_getsize(pSubList) >= nCol) && (ring_list_getsize(pSubList) >= iValue) ) {
+				// Execute Instruction
+				if ( aInsOPCode[nCurrentIns] == 1 ) {
+				} else if ( aInsOPCode[nCurrentIns] == 2 ) {
+				} else if ( aInsOPCode[nCurrentIns] == 3 ) {
+				} else if ( aInsOPCode[nCurrentIns] == 4 ) {
 					if ( ring_list_isdouble(pSubList,nCol) ) {
-						ring_list_setdouble_gc(pVM->pRingState,pSubList,iValue,
-						ring_list_getdouble(pSubList,nCol));
+						ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
+						ring_list_getdouble(pSubList,nCol)*dValue);
+					}
+				} else if ( aInsOPCode[nCurrentIns] == 5 ) {
+				} else if ( aInsOPCode[nCurrentIns] == 6 ) {
+					if ( (ring_list_getsize(pSubList) >= nCol) && (ring_list_getsize(pSubList) >= iValue) ) {
+						if ( ring_list_isdouble(pSubList,nCol) && ring_list_isdouble(pSubList,iValue) ) {
+							ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
+							ring_list_getdouble(pSubList,nCol)+ring_list_getdouble(pSubList,iValue));
+						}
+					}
+				} else if ( aInsOPCode[nCurrentIns] == 7 ) {
+					if ( (ring_list_getsize(pSubList) >= nCol) && (ring_list_getsize(pSubList) >= iValue) ) {
+						if ( ring_list_isdouble(pSubList,nCol) ) {
+							ring_list_setdouble_gc(pVM->pRingState,pSubList,iValue,
+							ring_list_getdouble(pSubList,nCol));
+						}
 					}
 				}
-			}
 
-			nCurrentIns++;
+				nCurrentIns++;
 			}
 
 			nPos = 2;
