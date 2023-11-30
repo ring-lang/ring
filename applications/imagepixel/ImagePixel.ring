@@ -326,11 +326,11 @@ Func ChangeColorValue()
         nGreenUpdate = 1.1232 * 0.8 * nNewGreen
         nBlueUpdate  = 1.6347 * 0.5 * nNewBlue   
 
-        updateList(MCOrig,:copy,:col,RVALUE,GVALUE)         # G = R
-        updateList(MCOrig,:copy,:col,RVALUE,BVALUE)         # B = R
-        updatelist(MCOrig,:mul,:col,RVALUE,nRedUpdate)      # R *= nRedUpdate
-        updatelist(MCOrig,:mul,:col,GVALUE,nGreenUpdate)    # G *= nGreenUpdate
-        updatelist(MCOrig,:mul,:col,BVALUE,nBlueUpdate)     # B *= nBlueUpdate
+        updateColumn(MCOrig,:copy,RVALUE,GVALUE,         # G = R
+                            :copy,RVALUE,BVALUE,         # B = R
+                            :mul,RVALUE,nRedUpdate,      # R *= nRedUpdate
+                            :mul,GVALUE,nGreenUpdate,    # G *= nGreenUpdate
+                            :mul,BVALUE,nBlueUpdate)     # B *= nBlueUpdate
 
     //====================================================================
     // GRAY SCALE -- Display Color RBG in GRAY Scale  
@@ -339,23 +339,23 @@ Func ChangeColorValue()
         
     elseif lGray  
            
-        updateList(MCOrig,:mul,:col,RVALUE,0.3)             # R *= 0.3
-        updateList(MCOrig,:mul,:col,GVALUE,0.59)            # G *= 0.59
-        updateList(MCOrig,:mul,:col,BVALUE,0.11)            # B *= 0.11
-        updateList(MCOrig,:merge,:col,RVALUE,GVALUE)        # R += G
-        updateList(MCOrig,:merge,:col,RVALUE,BVALUE)        # R += B
-        updateList(MCOrig,:copy,:col,RVALUE,GVALUE)         # G = R
-        updateList(MCOrig,:copy,:col,RVALUE,BVALUE)         # B = R
+        updateColumn(MCOrig,:mul,RVALUE,0.3,             # R *= 0.3
+                            :mul,GVALUE,0.59,            # G *= 0.59
+                            :mul,BVALUE,0.11,            # B *= 0.11
+                            :merge,RVALUE,GVALUE,        # R += G
+                            :merge,RVALUE,BVALUE,        # R += B
+                            :copy,RVALUE,GVALUE,         # G = R
+                            :copy,RVALUE,BVALUE)         # B = R
 
     ok
 
     //====================================================================
     // FRACTION of COLOR of ORIGINAL -- Display Color RBG 
 
-    if nNewRed   != 1 updatelist(MCOrig,:mul,:Col,RVALUE,nNewRed)   ok       # R *= nNewRed
-    if nNewGreen != 1 updatelist(MCOrig,:mul,:Col,GVALUE,nNewGreen) ok       # G *= nNewGreen
-    if nNewBlue  != 1 updatelist(MCOrig,:mul,:Col,BVALUE,nNewBlue)  ok       # B *= nNewBlue
-    if nNewAlpha != 1 updatelist(MCOrig,:mul,:Col,AVALUE,nNewAlpha) ok       # A *= nNewAlpha
+    updateColumn(MCOrig,:mul,RVALUE,nNewRed,          # R *= nNewRed
+                        :mul,GVALUE,nNewGreen,        # G *= nNewGreen
+                        :mul,BVALUE,nNewBlue,         # B *= nNewBlue
+                        :mul,AVALUE,nNewAlpha)        # A *= nNewAlpha
 
     #=====================================================================#
     t3 = clock()
