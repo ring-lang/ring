@@ -162,7 +162,7 @@ cd ringpostgresql
 call buildvc_x64
 cd ..
 
-rem build RingListPro
+rem build RingFastPro
 cd ringlistpro
 call buildvc_x64
 cd ..\..\
