@@ -756,6 +756,7 @@ RING_FUNC(ring_updatecolumn)
 	nInsCount   = 0;
 	pVM = (VM *) pPointer ;
 
+	// Get the list
 	if (RING_API_PARACOUNT < 1) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);	
 		return ;
@@ -764,7 +765,6 @@ RING_FUNC(ring_updatecolumn)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-
 	pList = RING_API_GETLIST(1);
 
 	// Get Instructions
@@ -793,21 +793,17 @@ RING_FUNC(ring_updatecolumn)
 		aInsiValue[nCurrentIns] = iValue;
 		aInsdValue[nCurrentIns] = dValue;
 		nCurrentIns++; 		
-	}
-			
+	}			
 	nInsCount = nCurrentIns ;
 
+	// Execute instructions
 	for ( int x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 		if ( ring_list_islist(pList,x) ) {
-			pSubList = ring_list_getlist(pList,x) ;
-
-			nCurrentIns = 0;
-			while ( nCurrentIns < nInsCount ) {
-		
+			pSubList = ring_list_getlist(pList,x) ;			
+			for (nCurrentIns = 0 ; nCurrentIns < nInsCount ; nCurrentIns++) {		
 				nCol   = aInsCol[nCurrentIns];
 				iValue = aInsiValue[nCurrentIns];
-				dValue = aInsdValue[nCurrentIns];
- 		
+				dValue = aInsdValue[nCurrentIns]; 		
 				// Execute Instruction
 				if ( aInsOPCode[nCurrentIns] == INS_SET ) {
 					if ( ring_list_isdouble(pSubList,nCol) ) {
@@ -852,12 +848,8 @@ RING_FUNC(ring_updatecolumn)
 							ring_list_getdouble(pSubList,nCol));
 						}
 					}
-				}
-
-				nCurrentIns++;
+				}				
 			}
-
-			nPos = 2;
 		}
 	}
 }
