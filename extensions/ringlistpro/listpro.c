@@ -739,16 +739,18 @@ int ring_getnewinstruciton(void *pPointer, int *nStart,char **cCommand,int *nCol
 	return 1;
 }
 
+#define C_INSCOUNT 1000
+
 RING_FUNC(ring_updatecolumn)
 {
 	List *pList, *pSubList;
 	int nPos,nCol,iValue;
 	char *cCommand;
 	double dValue;
-	int aInsOPCode[100];
-	int aInsCol[100];
-	int aInsiValue[100];
-	double aInsdValue[100];
+	int aInsOPCode[C_INSCOUNT];
+	int aInsCol[C_INSCOUNT];
+	int aInsiValue[C_INSCOUNT];
+	double aInsdValue[C_INSCOUNT];
 	int nCurrentIns,nInsCount;
 	VM *pVM  ;
 	nCurrentIns = 0;
@@ -788,6 +790,10 @@ RING_FUNC(ring_updatecolumn)
 		aInsiValue[nCurrentIns] = iValue;
 		aInsdValue[nCurrentIns] = dValue;
 		nCurrentIns++; 
+		if (nCurrentIns >= C_INSCOUNT) {
+			RING_API_ERROR("Extra number of commands!");
+			return;
+		}		
 	}
 			
 	nInsCount = nCurrentIns ;
