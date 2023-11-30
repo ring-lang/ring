@@ -10,7 +10,7 @@
 	? "Height: " + height
 	? "Channels: " + channels
 # Convert to [x,y,r,g,b] List 
-	load "listpro.ring"
+	load "fastpro.ring"
 	aList = bytes2list(cData,width,height,channels,255)
 
 load "guilib.ring"

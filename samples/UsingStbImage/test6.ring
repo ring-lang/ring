@@ -1,5 +1,5 @@
 load "stbimage.ring"
-load "listpro.ring"
+load "fastpro.ring"
 
 RVALUE = 3
 GVALUE = 4
