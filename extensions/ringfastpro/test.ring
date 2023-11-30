@@ -1,5 +1,5 @@
 ? "Loading Library"
-load "listpro.ring"
+load "fastpro.ring"
 
 aList = [
 1:5,

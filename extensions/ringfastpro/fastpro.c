@@ -5,7 +5,7 @@
 
 #include "ring.h"
 #include "stdlib.h"
-#include "listpro.h"
+#include "fastpro.h"
 
 RING_FUNC(ring_bytes2list)
 {
