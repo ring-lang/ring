@@ -47,7 +47,7 @@ func pTime
         for y=1 to width
             cData[nIndex++] = (x*x*nRandom)%256
             cData[nIndex++] = (x*y*nRandom)%256
-            cData[nIndex++] = (nRandom)%256
+            cData[nIndex++] = clock()%256
         next
     next
 
