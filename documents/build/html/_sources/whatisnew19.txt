@@ -115,7 +115,7 @@ Using ring/buildvc.bat and ring/buildvc_x64.bat we can build everything (Ring Co
 
 Ring comes with all of the dependencies except Qt
 
-These batch files assume that we have Qt 5.15.15 (We can change the used Qt 5.15 version using the environment variables). 
+These batch files assume that we have Qt 5.15.16 (We can change the used Qt 5.15 version using the environment variables). 
 
 .. index:: 
 	pair: What is new in Ring  1.19; For Loop - Better Performance
@@ -430,6 +430,7 @@ More Improvements
 * ObjectsLib - Better Code when opening new windows
 * RingStbImage - Support UTF-8 file names on Windows
 * RingQt - QPainter class - Added: drawRGBFListAtXY() & drawHSVFListAtXY()
+* RingQt - Qt version is updated to Qt 5.15.16
 * Number() function - Don't produce an error when the input is already a number
 * String() function - Don't produce an error when the input is already a string
 * Low Level Functions - ringvm_calllist() - Better Output
