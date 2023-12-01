@@ -403,7 +403,6 @@ Also, The next chapters are revised and improved
 More Improvements
 =================
 
-
 * Ring Notepad - Close Button - Force closing the web browser 
 * FindInFiles Application - Replace Button - Check line selection
 * WinStartupManager application - Use extensions that comes with Ring
@@ -419,6 +418,7 @@ More Improvements
 * samples/UsingQt/ListWidget/listwidgetitemvalue.ring - Better Code
 * samples/UsingOpenGL/stars - Using al_exit() function
 * samples/Drawing - Many samples are revised to use the Quit() method
+* samples/UsingQt/PrintPreview/printpreivewdialog.ring - Better Code
 * extensions/tutorial - filterlist() updated to use ring_list_deleteitem_gc() 
 * Better Qt3D samples - Use Quit() method when closing the application
 * Better RingPostgreSQL samples
