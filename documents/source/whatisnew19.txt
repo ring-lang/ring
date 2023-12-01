@@ -73,6 +73,7 @@ More Samples
 * Added: samples/Language/Constants
 * Added: samples/UsingTypeHints/test6.ring
 * Added: samples/UsingQt/CustomDragAndDrop/customdraganddrop.ring 
+* Added: samples/UsingQt/PrintPreview/simplereport.ring
 * Added: samples/UsingArabic/ArabicInCommandPrompt/DisplayArabic.ring
 * Added: samples/UsingMatrixLib/59-Matrix-Transform-Draw-Rotation.ring
 * Added: samples/UsingRayLib/more/ex5_wavingcubes_withoutthreads.ring
