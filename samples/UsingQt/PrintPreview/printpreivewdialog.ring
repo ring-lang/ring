@@ -1,12 +1,12 @@
 load "guilib.ring"
 
 new QApp {
-        win1 = new QWidget() {
+        win = new QWidget() {
                 setWindowTitle("Printer Preview Dialog")
                 setGeometry(100,100,800,880)
 		printer1 = new QPrinter(0)
 		oPreview = new QPrintPreviewDialog(printer1) {
-			setParent(win1)
+			setParent(win)
 			move(10,10) 
 			setPaintRequestedEvent("printPreview()")
 		}
