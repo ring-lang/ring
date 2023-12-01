@@ -16,7 +16,7 @@ How to study this extension
 
 (2) Then look at events/qtevents.ring 
 
-How to build this extension using Qt 5.15.15
+How to build this extension using Qt 5.15.16
 ============================================
 
 (1) Run the code generator : gencode_nobluetooth.bat
@@ -30,4 +30,4 @@ The ring/bin folder must contains the Qt runtime files
 
 To copy Qt runtime files to ring/bin folder use the next batch files
 
-File: ring/extensions/ringqt/binupdate/installqt515.bat (For Qt 5.15.15)
+File: ring/extensions/ringqt/binupdate/installqt515.bat (For Qt 5.15.16)
