@@ -23,7 +23,7 @@ new qApp
 
 Func pDownload
 
-	oUrl = new QUrl("http://ring-lang.sourceforge.net")
+	oUrl = new QUrl("https://ring-lang.github.io")
 
 	request = new qNetworkRequest(oUrl)
 	request.setrawheader(new qbytearray().append("User-Agent"), new qbytearray().append("Application"))
