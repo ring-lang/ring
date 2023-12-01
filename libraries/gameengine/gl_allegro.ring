@@ -61,7 +61,7 @@ func gl_game_start
 	al_init_image_addon()
 	al_install_audio()
 	al_init_acodec_addon()
-	al_reserve_samples(1)
+	al_reserve_samples(8)
 	al_init_primitives_addon()
 
 	# colors
