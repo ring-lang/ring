@@ -428,6 +428,7 @@ More Improvements
 * MatrixLib - Added: MatrixTransform() function
 * BigNumber - Better code for the power function
 * ObjectsLib - Better Code when opening new windows
+* GameEngine - Support playing many sound files at the same time
 * RingStbImage - Support UTF-8 file names on Windows
 * RingQt - QPainter class - Added: drawRGBFListAtXY() & drawHSVFListAtXY()
 * RingQt - Qt version is updated to Qt 5.15.16
