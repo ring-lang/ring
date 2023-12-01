@@ -2,32 +2,33 @@
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
 		 :x = -724 , : y = 61  , 
-		 :width =  1317 , :height = 586 , 
+		 :width =  1418 , :height = 586 , 
 		 :title =  "Chess Endgame Data Set" , 
 		 :backcolor =  "" , 
 		 :windowflags =  "" , 
 		 :mainlayout =  "" ,
 		 :WindowIcon =  "images/chessboard.png" , 
-		 :Menubar =  "aMenuData = [ :Text = 'The Menubar' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [[ :Text = 'File' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [[ :Text = 'Exit' , :Image = '' ,
-			         :Shortcut = '' , :Action = 'closeapp' ,
-				:Children = [] ]] ],[ :Text = 'Options' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [[ :Text = 'Statistics' , :Image = '' ,
-			         :Shortcut = '' , :Action = 'openStats' ,
-				:Children = [] ],[ :Text = 'Prediction' , :Image = '' ,
-			         :Shortcut = '' , :Action = 'openPrediction' ,
+		 :Menubar =  "aMenuData = [ :Text = 'The Menubar' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [[ :Text = 'File' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [[ :Text = 'Exit' , :Image = '' ,
+			         :Shortcut = '' , :Action = 'closeapp' ,
+				:Children = [] ]] ],[ :Text = 'Options' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [[ :Text = 'Statistics' , :Image = '' ,
+			         :Shortcut = '' , :Action = 'openStats' ,
+				:Children = [] ],[ :Text = 'Prediction' , :Image = '' ,
+			         :Shortcut = '' , :Action = 'openPrediction' ,
 				:Children = [] ]] ]] ]"  ,
-		 :IndexType =  0  
+		 :IndexType =  0  ,
+		 :GUILibrary =  0  
 
 		]
 	],
 	[ :name = "ChessTableWidget" , :id = 2 , :classname = "formdesigner_qtablewidget" , :data = [
-		 :x = 27 , : y = 45  , 
-		 :width =  755 , :height = 529 , 
+		 :x = 28 , : y = 44  , 
+		 :width =  951 , :height = 549 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
@@ -68,7 +69,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Board" , :id = 4 , :classname = "formdesigner_qimage" , :data = [
-		 :x = 859 , : y = 71  , 
+		 :x = 999 , : y = 71  , 
 		 :width =  400 , :height = 400 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -78,7 +79,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "WK" , :id = 5 , :classname = "formdesigner_qimage" , :data = [
-		 :x = 883 , : y = 483  , 
+		 :x = 1023 , : y = 483  , 
 		 :width =  50 , :height = 50 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -88,7 +89,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "WR" , :id = 6 , :classname = "formdesigner_qimage" , :data = [
-		 :x = 1003 , : y = 483  , 
+		 :x = 1143 , : y = 483  , 
 		 :width =  50 , :height = 50 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -98,7 +99,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "BK" , :id = 7 , :classname = "formdesigner_qimage" , :data = [
-		 :x = 1126 , : y = 483  , 
+		 :x = 1266 , : y = 483  , 
 		 :width =  50 , :height = 50 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 

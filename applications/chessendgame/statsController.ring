@@ -36,7 +36,7 @@ class statsController from windowsControllerParent
 
 	# Chart Control 
 		oQuick = new qQuickWidget(oView.win) {
-			move(350,10)
+			move(450,10)
 			engine().AddImportPath(exefolder()+"qml")
 			setSource(new qURL("hello.qml") )
 		}

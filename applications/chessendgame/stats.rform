@@ -1,21 +1,22 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = -9 , : y = -39  , 
-		 :width =  1000 , :height = 634 , 
+		 :x = -139 , : y = -39  , 
+		 :width =  1079 , :height = 634 , 
 		 :title =  "Statistics" , 
 		 :backcolor =  "" , 
 		 :windowflags =  "Qt_Window | Qt_WindowTitleHint | Qt_WindowCloseButtonHint | Qt_CustomizeWindowHint" , 
 		 :mainlayout =  "" ,
 		 :WindowIcon =  "images/chessboard.png" , 
 		 :Menubar =  ""  ,
-		 :IndexType =  0  
+		 :IndexType =  0  ,
+		 :GUILibrary =  0  
 
 		]
 	],
 	[ :name = "StatsTableWidget" , :id = 2 , :classname = "formdesigner_qtablewidget" , :data = [
 		 :x = 12 , : y = 28  , 
-		 :width =  325 , :height = 564 , 
+		 :width =  422 , :height = 564 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
