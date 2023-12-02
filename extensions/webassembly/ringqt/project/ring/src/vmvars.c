@@ -155,9 +155,9 @@ int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr )
         **  Here we don't know the correct scope of the result 
         **  because a global variable may be a reference to local variable 
         **  And this case happens with setter/getter of the attributes using eval() 
-        **  Here we avoid this change if the variable name is "Self" to return self by reference 
+        **  Here we avoid this change if the variable name is "Self"|"This" to return self|this by reference 
         */
-        if ( strcmp(cStr,"self") != 0 ) {
+        if ( (strcmp(cStr,"self") != 0) && (strcmp(cStr,"this") != 0) ) {
             pVM->nVarScope = RING_VARSCOPE_NOTHING ;
         }
         else {
