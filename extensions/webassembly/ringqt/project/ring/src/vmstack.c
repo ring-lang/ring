@@ -100,9 +100,11 @@ void ring_vm_loadaddress ( VM *pVM )
         return ;
     }
     if ( pVM->nVarScope == RING_VARSCOPE_GLOBAL ) {
-        /* Replace LoadAddress with PUSHP for better performance */
-        RING_VM_IR_OPCODE = ICO_PUSHP ;
-        RING_VM_IR_SETREG1TOPOINTERFROMSTACK ;
+        if ( strcmp(RING_VM_IR_READC,"this") != 0 ) {
+            /* Replace LoadAddress with PUSHP for better performance */
+            RING_VM_IR_OPCODE = ICO_PUSHP ;
+            RING_VM_IR_SETREG1TOPOINTERFROMSTACK ;
+        }
     }
     else if ( pVM->nVarScope == RING_VARSCOPE_LOCAL ) {
         if ( pVM->lUsePushPLocal ) {
