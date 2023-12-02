@@ -460,3 +460,4 @@ More Improvements
 * Ring VM - Variables - Reduce the required memory to store a variable
 * Ring VM - Arguments - Reduce the required memory to pass a value
 * Ring VM - ring_state_calloc() - Use the memory pool if possible
+* Ring VM - Better implementation for using (Return This)
