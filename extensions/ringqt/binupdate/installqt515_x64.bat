@@ -1,4 +1,4 @@
-Rem Simple Batch File to copy Qt 5.15.15 DLL files to the bin folder
+Rem Simple Batch File to copy Qt 5.15.16 DLL files to the bin folder
 Rem 2020-2023, Mahmoud Fayed <msfclipper@yahoo.com>
 
 IF "%RING_QT_DIR%"=="" SET RING_QT_DIR=C:\Qt
