@@ -22,11 +22,24 @@ Contents:
 Bytes2List() function
 =====================
 
+Syntax:
+
+.. code-block:: none
+
+	Bytes2List(cBytes) —> aList // [[x,y,R,G,B,A],…]
+
+
 .. index:: 
 	pair: Using FastPro; List2Bytes()
 
 List2Bytes() function
 =====================
+
+Syntax:
+
+.. code-block:: none
+
+	List2Bytes(aList) —> cBytes // “RGBA….”
 
 
 .. index:: 
@@ -35,8 +48,21 @@ List2Bytes() function
 UpdateList() function
 =====================
 
+Syntax:
+
+.. code-block:: none
+
+	updateList(<aList>,<cCommand>,<cSelection>,<nPara1>,<nPara2>,[nPara3])
+
+
 .. index:: 
 	pair: Using FastPro; UpdateColumn()
 
 UpdateColumn() function
 =======================
+
+Syntax:
+
+.. code-block:: none
+
+	updateColumn(<aList>, [<cCommand>,<nPara1>,<nPara2>,[nPara3]],…)
