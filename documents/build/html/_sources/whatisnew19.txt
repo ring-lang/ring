@@ -366,7 +366,7 @@ Better RingStbImage
 The extension is improved to support the next features
 
 * Support UTF-8 file names on Windows
-* Added function for writing images
+* Added functions for writing images
 
 .. code-block:: none
 

@@ -14,7 +14,7 @@ Introduction
 
 In this chapter we have a list of the supported functions by this extension 
 
-Example:
+Example (1):
 
 .. code-block:: ring
 
@@ -39,6 +39,53 @@ Output:
 	Height: 330
 	Channels: 3
 
+
+Example (2):
+
+.. code-block:: ring
+
+	load "stbimage.ring"
+	
+	width    = 640
+	height   = 480
+	channels = 3
+	cData    = space(width*height*channels)
+	
+	? "Creating the image..."
+	t1 = clock()
+	nIndex=0
+	for x=1 to height
+   		for y=1 to width
+        		cData[nIndex++] = x*x
+        		cData[nIndex++] = x*y
+        		cData[nIndex++] = x*2
+    		next
+	next
+	t2 = clock()
+	
+	# Write the image
+	? "Writing mynewimage.bmp"
+	stbi_write_bmp("mynewimage.bmp", width, height, channels, cData)
+	t3 = clock()
+
+	? "Time to create the image : " + ((t2-t1)/clockspersecond()) + " seconds"
+	? "Time to save the image   : " + ((t3-t2)/clockspersecond()) + " seconds"
+
+	system("mynewimage.bmp")
+
+Output:
+
+.. code-block:: none
+
+	Creating the image...
+	Writing mynewimage.bmp
+	Time to create the image : 0.12 seconds
+	Time to save the image   : 0.00 seconds
+
+Screen Shot:
+
+.. image:: generateimage.png
+	:alt: generateimage
 
 .. index:: 
 	pair: RingStbImage Functions Reference; Constants
@@ -91,3 +138,8 @@ Functions
 * int stbi_zlib_decode_buffer(char *obuffer,int olen, const char *ibuffer, int ilen) 
 * char *stbi_zlib_decode_noheader_malloc(const char *buffer, int len, int *outlen) 
 * int stbi_zlib_decode_noheader_buffer(char *obuffer, int olen, const char *ibuffer, int ilen)
+* int stbi_write_png(char const *filename, int w, int h, int comp, const void *data, int stride_in_bytes)
+* int stbi_write_bmp(char const *filename, int w, int h, int comp, const void *data)
+* int stbi_write_tga(char const *filename, int w, int h, int comp, const void *data)
+* int stbi_write_jpg(char const *filename, int w, int h, int comp, const void *data, int quality)
+* void stbi_flip_vertically_on_write(int flag)

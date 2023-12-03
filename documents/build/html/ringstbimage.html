@@ -204,7 +204,7 @@
 <section id="introduction">
 <span id="index-1"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
 <p>In this chapter we have a list of the supported functions by this extension</p>
-<p>Example:</p>
+<p>Example (1):</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># Load the library</span>
         <span class="k">load</span> <span class="s">&quot;stbimage.ring&quot;</span>
 <span class="c"># Image Information</span>
@@ -225,6 +225,46 @@
 <span class="n">Channels</span><span class="p">:</span> <span class="mi">3</span>
 </pre></div>
 </div>
+<p>Example (2):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stbimage.ring&quot;</span>
+
+<span class="n">width</span>    <span class="o">=</span> <span class="mi">640</span>
+<span class="n">height</span>   <span class="o">=</span> <span class="mi">480</span>
+<span class="n">channels</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">cData</span>    <span class="o">=</span> <span class="n">space</span><span class="p">(</span><span class="n">width</span><span class="o">*</span><span class="n">height</span><span class="o">*</span><span class="n">channels</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s">&quot;Creating the image...&quot;</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
+<span class="n">nIndex</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">height</span>
+        <span class="k">for</span> <span class="n">y</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">width</span>
+                <span class="n">cData</span><span class="o">[</span><span class="n">nIndex</span><span class="o">++]</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
+                <span class="n">cData</span><span class="o">[</span><span class="n">nIndex</span><span class="o">++]</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span>
+                <span class="n">cData</span><span class="o">[</span><span class="n">nIndex</span><span class="o">++]</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span>
+        <span class="k">next</span>
+<span class="k">next</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
+
+<span class="c"># Write the image</span>
+<span class="o">?</span> <span class="s">&quot;Writing mynewimage.bmp&quot;</span>
+<span class="n">stbi_write_bmp</span><span class="p">(</span><span class="s">&quot;mynewimage.bmp&quot;</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">cData</span><span class="p">)</span>
+<span class="n">t3</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
+
+<span class="o">?</span> <span class="s">&quot;Time to create the image : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="n">t2</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot; seconds&quot;</span>
+<span class="o">?</span> <span class="s">&quot;Time to save the image   : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="n">t3</span><span class="o">-</span><span class="n">t2</span><span class="p">)</span><span class="o">/</span><span class="n">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot; seconds&quot;</span>
+
+<span class="n">system</span><span class="p">(</span><span class="s">&quot;mynewimage.bmp&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Creating the image...
+Writing mynewimage.bmp
+Time to create the image : 0.12 seconds
+Time to save the image   : 0.00 seconds
+</pre></div>
+</div>
+<p>Screen Shot:</p>
+<img alt="generateimage" src="_images/generateimage.png" />
 </section>
 <section id="constants">
 <span id="index-2"></span><h2>Constants<a class="headerlink" href="#constants" title="Permalink to this heading"></a></h2>
@@ -272,6 +312,11 @@
 <li><p>int stbi_zlib_decode_buffer(char <a href="#id147"><span class="problematic" id="id148">*</span></a>obuffer,int olen, const char <a href="#id149"><span class="problematic" id="id150">*</span></a>ibuffer, int ilen)</p></li>
 <li><p>char <a href="#id151"><span class="problematic" id="id152">*</span></a>stbi_zlib_decode_noheader_malloc(const char <a href="#id153"><span class="problematic" id="id154">*</span></a>buffer, int len, int <a href="#id155"><span class="problematic" id="id156">*</span></a>outlen)</p></li>
 <li><p>int stbi_zlib_decode_noheader_buffer(char <a href="#id157"><span class="problematic" id="id158">*</span></a>obuffer, int olen, const char <a href="#id159"><span class="problematic" id="id160">*</span></a>ibuffer, int ilen)</p></li>
+<li><p>int stbi_write_png(char const <a href="#id161"><span class="problematic" id="id162">*</span></a>filename, int w, int h, int comp, const void <a href="#id163"><span class="problematic" id="id164">*</span></a>data, int stride_in_bytes)</p></li>
+<li><p>int stbi_write_bmp(char const <a href="#id165"><span class="problematic" id="id166">*</span></a>filename, int w, int h, int comp, const void <a href="#id167"><span class="problematic" id="id168">*</span></a>data)</p></li>
+<li><p>int stbi_write_tga(char const <a href="#id169"><span class="problematic" id="id170">*</span></a>filename, int w, int h, int comp, const void <a href="#id171"><span class="problematic" id="id172">*</span></a>data)</p></li>
+<li><p>int stbi_write_jpg(char const <a href="#id173"><span class="problematic" id="id174">*</span></a>filename, int w, int h, int comp, const void <a href="#id175"><span class="problematic" id="id176">*</span></a>data, int quality)</p></li>
+<li><p>void stbi_flip_vertically_on_write(int flag)</p></li>
 </ul>
 </section>
 </section>
