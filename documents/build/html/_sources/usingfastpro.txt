@@ -1,0 +1,42 @@
+.. index:: 
+	single: Using FastPro; Introduction
+
+================
+Using FastPro
+================
+
+In this chapter we will learn about Using the FastPro extension.
+
+This extension is added to the Ring language starting from Ring 1.19.
+
+Contents:
+
+* Bytes2List() function
+* List2Bytes() function
+* UpdateList() function
+* UpdateColumn() function
+
+.. index:: 
+	pair: Using FastPro; Bytes2List() function
+
+Bytes2List() function
+=====================
+
+.. index:: 
+	pair: Using FastPro; List2Bytes()
+
+List2Bytes() function
+=====================
+
+
+.. index:: 
+	pair: Using FastPro; UpdateList()
+
+UpdateList() function
+=====================
+
+.. index:: 
+	pair: Using FastPro; UpdateColumn()
+
+UpdateColumn() function
+=======================

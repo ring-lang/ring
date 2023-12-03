@@ -102,6 +102,7 @@ Contents:
    RingStbImage Functions Reference <ringstbimage>	
    RingOpenGL (OpenGL 3.2) Functions Reference <ringopengl32funcsdoc>
    RingQt Classes and Methods Reference <qtclassesdoc>
+   Using FastPro Extension <usingfastpro>
    Using References <usingref>
    Low Level Functions <lowlevel>
    Tutorial: Ring Extensions in C/C++  <extension_tutorial>
