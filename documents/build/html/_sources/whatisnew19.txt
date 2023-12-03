@@ -25,6 +25,7 @@ Ring 1.19 comes with the next features!
 * Calling Functions - Better Performance
 * Nothing() function
 * OptionalFunc() function
+* FastPro Extension
 * Better TypeHints
 * Better RingRayLib
 * Better RingStbImage
@@ -252,6 +253,31 @@ Output:
 	I love Programming, What about you?
 	Me too!
 	Ok, Thanks!
+
+.. index:: 
+	pair: What is new in Ring  1.19; FastPro Extension
+
+FastPro Extension
+=================
+
+This new extension comes with the next functions
+
+* Bytes2List(cBytes) ---> aList
+* List2Bytes(aList)  ---> cBytes
+* updateList(<aList>,<cCommand>,<cSelection>,<nPara1>,<nPara2>,[nPara3])
+* updateColumn(<aList>, [<cCommand>,<nPara1>,<nPara2>,[nPara3]],...)
+
+Using the updateColumn() function we can update the list columns in one function call
+
+Example from the ImagePixel application that convert the image to Gray
+
+.. image:: updatecolumncode.png
+	:alt: updatecolumncode
+
+This also provides better performance compared to calling updateList() many times.
+
+.. image:: updatecolumnperformance.png
+	:alt: updatecolumnperformance
 
 .. index:: 
 	pair: What is new in Ring  1.19; Better TypeHints
