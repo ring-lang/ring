@@ -26,9 +26,9 @@ set RINGQT_NOCHARTS=1
 
 set RINGQT_CORE_ALONE=1
 
-ring ..\codegen\parsec.ring classes\qt.cf cpp\src\ring_qtcore.cpp ..\..\libraries\guilib\classes\ring_qtcore.ring
+..\..\bin\ring ..\codegen\parsec.ring classes\qt.cf cpp\src\ring_qtcore.cpp ..\..\libraries\guilib\classes\ring_qtcore.ring
 cd events
-ring qtevents.ring
+..\..\bin\ring qtevents.ring
 cd ..
 set RINGQT_CORE_ALONE= 
 set RINGQT_NOWIDGETS=

@@ -20,8 +20,8 @@ set RINGQT_NOQT3D=
 set RINGQT_NOCHARTS=
 
 
-ring ..\codegen\parsec.ring classes\qt.cf cpp\src\ring_qt.cpp ..\..\libraries\guilib\classes\ring_qt.ring
+..\..\bin\ring ..\codegen\parsec.ring classes\qt.cf cpp\src\ring_qt.cpp ..\..\libraries\guilib\classes\ring_qt.ring
 cd events
-ring qtevents.ring
+..\..\bin\ring qtevents.ring
 cd ..
 set RINGQT_QT515=
