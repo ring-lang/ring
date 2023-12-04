@@ -48,6 +48,8 @@ Syntax:
 UpdateList() function
 =====================
 
+A function that could update 1D and 2D lists and provide very high performance.
+
 Syntax:
 
 .. code-block:: none
@@ -63,7 +65,7 @@ The required parameters depend on the cCommand/cSelection
 
 The parameters could be columns/rows numbers 
 
-Also, some command requires a value like the set command
+Also, some commands requires a value like the set command
 
 Example:
 
@@ -109,6 +111,68 @@ The list will be [ [75,75,75], [75,75,75], [82,83,84] ]
 	83
 	84
 	
+
+Using :col as the third parameter we can do operations on the list columns
+
+Example:
+
+.. code-block:: ring
+
+	load "fastpro.ring"
+
+	# Store [ [1,2,3], [4,5,6], [7,8,9] ] in aList
+	aList = [ 1:3,
+		  4:6,
+		  7:9 ]
+
+	updateList(aList,:set,:col,1,100)
+	updateList(aList,:mul,:col,2,10)
+	updateList(aList,:div,:col,3,3)
+
+	? aList
+
+Output:
+
+The list will be [ [100,20,1], [100,50,2], [100,80,3] ]
+
+.. code-block:: none
+
+	100
+	20
+	1
+	100
+	50
+	2
+	100
+	80
+	3
+
+
+Using :items as the third parameter we can do operations on 1D lists.
+
+Example:
+
+.. code-block:: ring
+
+	load "fastpro.ring"
+
+	aList = 1:5
+
+	updateList(aList,:set,:items,1000)
+	? aList
+
+Output:
+
+The list will be [1000,1000,1000,1000,1000]
+
+.. code-block:: none
+
+	1000
+	1000
+	1000
+	1000
+	1000
+
 
 .. index:: 
 	pair: Using FastPro; UpdateColumn()
