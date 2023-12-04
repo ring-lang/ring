@@ -229,15 +229,28 @@
 <section id="updatelist-function">
 <span id="index-3"></span><h2>UpdateList() function<a class="headerlink" href="#updatelist-function" title="Permalink to this heading"></a></h2>
 <p>A function that could update 1D and 2D lists and provide very high performance.</p>
+<p>This function support using numbers only.</p>
 <p>Syntax:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>updateList(&lt;aList&gt;,&lt;cCommand&gt;,&lt;cSelection&gt;,&lt;nPara1&gt;,&lt;nPara2&gt;,[nPara3])
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>updateList(&lt;aList&gt;,&lt;cCommand&gt;,&lt;cSelection&gt;,&lt;nPara1&gt;,[&lt;nPara2&gt;],[nPara3])
 </pre></div>
 </div>
 <p>cCommand could be :set, :add, :sub, :mul, :div, :merge and :copy</p>
 <p>cSelection could be :col, :row, :manycols, :manyrows and :items</p>
-<p>The required parameters depend on the cCommand/cSelection</p>
-<p>The parameters could be columns/rows numbers</p>
-<p>Also, some commands requires a value like the set command</p>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>updateList(&lt;aList&gt;,:set,:row,&lt;nRow&gt;,&lt;nValue&gt;)
+updateList(&lt;aList&gt;,:set,:col,&lt;nCol&gt;,&lt;nValue&gt;)
+updateList(&lt;aList&gt;,:set,:manyrows,&lt;nRowStart&gt;,&lt;nRowEnd&gt;,&lt;nValue&gt;)
+updateList(&lt;aList&gt;,:set,:manycols,&lt;nColStart&gt;,&lt;nColEnd&gt;,&lt;nValue&gt;)
+updateList(&lt;aList&gt;,:set,:items,&lt;nValue&gt;)
+updateList(&lt;aList&gt;,:copy,:row,&lt;nRowSrc&gt;,&lt;nRowDest&gt;)
+updateList(&lt;aList&gt;,:copy,:col,&lt;nColSrc&gt;,&lt;nColDest&gt;)
+updateList(&lt;aList&gt;,:merge,:row,&lt;nRowDest&gt;,&lt;nRow&gt;)
+updateList(&lt;aList&gt;,:merge,:col,&lt;nColDest&gt;,&lt;nCol&gt;)
+</pre></div>
+</div>
+<p>The required parameters depend on the cCommand/cSelection.</p>
+<p>The parameters could be columns/rows numbers.</p>
+<p>Also, some commands requires a value like the set command.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;fastpro.ring&quot;</span>
 
@@ -277,7 +290,7 @@
 84
 </pre></div>
 </div>
-<p>Using :col as the third parameter we can do operations on the list columns</p>
+<p>Using :col as the third parameter we can do operations on the list columns.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;fastpro.ring&quot;</span>
 
@@ -363,9 +376,10 @@
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>updateColumn(&lt;aList&gt;, [&lt;cCommand&gt;,&lt;nPara1&gt;,&lt;nPara2&gt;,[nPara3]],…)
 </pre></div>
 </div>
-<p>Using this function we can execute many commands on the list columns</p>
-<p>Instead of using updateList() many times and each time we pass :col as the third parameter, we can use updateColumn()</p>
-<p>Example from the ImagePixel application that convert the image to Gray</p>
+<p>Using this function we can execute many commands on the list columns.</p>
+<p>Instead of using updateList() many times and each time we pass :col as the third parameter, we can use updateColumn().</p>
+<p>This function support using numbers only.</p>
+<p>Example from the ImagePixel application that convert the image to Gray.</p>
 <img alt="updatecolumncode" src="_images/updatecolumncode.png" />
 </section>
 </section>

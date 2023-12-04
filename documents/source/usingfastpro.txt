@@ -50,22 +50,37 @@ UpdateList() function
 
 A function that could update 1D and 2D lists and provide very high performance.
 
+This function support using numbers only.
+
 Syntax:
 
 .. code-block:: none
 
-	updateList(<aList>,<cCommand>,<cSelection>,<nPara1>,<nPara2>,[nPara3])
-
+	updateList(<aList>,<cCommand>,<cSelection>,<nPara1>,[<nPara2>],[nPara3])
 
 cCommand could be :set, :add, :sub, :mul, :div, :merge and :copy
 
 cSelection could be :col, :row, :manycols, :manyrows and :items
 
-The required parameters depend on the cCommand/cSelection 
+Example:
 
-The parameters could be columns/rows numbers 
+.. code-block:: none
 
-Also, some commands requires a value like the set command
+	updateList(<aList>,:set,:row,<nRow>,<nValue>)
+	updateList(<aList>,:set,:col,<nCol>,<nValue>)
+	updateList(<aList>,:set,:manyrows,<nRowStart>,<nRowEnd>,<nValue>)
+	updateList(<aList>,:set,:manycols,<nColStart>,<nColEnd>,<nValue>)
+	updateList(<aList>,:set,:items,<nValue>)
+	updateList(<aList>,:copy,:row,<nRowSrc>,<nRowDest>)
+	updateList(<aList>,:copy,:col,<nColSrc>,<nColDest>)
+	updateList(<aList>,:merge,:row,<nRowDest>,<nRow>)
+	updateList(<aList>,:merge,:col,<nColDest>,<nCol>)
+
+The required parameters depend on the cCommand/cSelection. 
+
+The parameters could be columns/rows numbers. 
+
+Also, some commands requires a value like the set command.
 
 Example:
 
@@ -112,7 +127,7 @@ The list will be [ [75,75,75], [75,75,75], [82,83,84] ]
 	84
 	
 
-Using :col as the third parameter we can do operations on the list columns
+Using :col as the third parameter we can do operations on the list columns.
 
 Example:
 
@@ -225,11 +240,13 @@ Syntax:
 
 	updateColumn(<aList>, [<cCommand>,<nPara1>,<nPara2>,[nPara3]],…)
 
-Using this function we can execute many commands on the list columns
+Using this function we can execute many commands on the list columns.
 
-Instead of using updateList() many times and each time we pass :col as the third parameter, we can use updateColumn()
+Instead of using updateList() many times and each time we pass :col as the third parameter, we can use updateColumn().
 
-Example from the ImagePixel application that convert the image to Gray
+This function support using numbers only.
+
+Example from the ImagePixel application that convert the image to Gray.
 
 .. image:: updatecolumncode.png
 	:alt: updatecolumncode
