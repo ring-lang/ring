@@ -148,6 +148,44 @@ The list will be [ [100,20,1], [100,50,2], [100,80,3] ]
 	3
 
 
+Using :manyrows or :manycols we can do operations on many rows/columns
+
+
+
+Example:
+
+.. code-block:: ring
+
+	load "fastpro.ring"
+
+	aList = [ 
+		1:3, 
+		4:6, 
+		7:9
+	]
+
+	# Starting from row 1 to row 2, set each value to 100 
+	updateList(aList,:set,:manyrows,1,2,100)
+	# Starting from row 2 to row 3, multiply each value by 10
+	updateList(aList,:mul,:manyrows,2,3,10)
+
+	? aList
+
+Output:
+
+.. code-block:: none
+
+	100
+	100
+	100
+	1000
+	1000
+	1000
+	70
+	80
+	90	
+
+
 Using :items as the third parameter we can do operations on 1D lists.
 
 Example:
@@ -159,19 +197,20 @@ Example:
 	aList = 1:5
 
 	updateList(aList,:set,:items,1000)
+	updateList(aList,:mul,:items,2)
 	? aList
 
 Output:
 
-The list will be [1000,1000,1000,1000,1000]
+The list will be [2000,2000,2000,2000,2000]
 
 .. code-block:: none
 
-	1000
-	1000
-	1000
-	1000
-	1000
+	2000
+	2000
+	2000
+	2000
+	2000
 
 
 .. index:: 

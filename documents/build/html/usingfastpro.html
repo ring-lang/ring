@@ -306,6 +306,36 @@
 3
 </pre></div>
 </div>
+<p>Using :manyrows or :manycols we can do operations on many rows/columns</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;fastpro.ring&quot;</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span>
+        <span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span>
+        <span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span>
+        <span class="mi">7</span><span class="p">:</span><span class="mi">9</span>
+<span class="o">]</span>
+
+<span class="c"># Starting from row 1 to row 2, set each value to 100</span>
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">set</span><span class="p">,:</span><span class="n">manyrows</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="c"># Starting from row 2 to row 3, multiply each value by 10</span>
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">mul</span><span class="p">,:</span><span class="n">manyrows</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="n">aList</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>100
+100
+100
+1000
+1000
+1000
+70
+80
+90
+</pre></div>
+</div>
 <p>Using :items as the third parameter we can do operations on 1D lists.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;fastpro.ring&quot;</span>
@@ -313,16 +343,17 @@
 <span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">5</span>
 
 <span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">set</span><span class="p">,:</span><span class="n">items</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">mul</span><span class="p">,:</span><span class="n">items</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="o">?</span> <span class="n">aList</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<p>The list will be [1000,1000,1000,1000,1000]</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1000
-1000
-1000
-1000
-1000
+<p>The list will be [2000,2000,2000,2000,2000]</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2000
+2000
+2000
+2000
+2000
 </pre></div>
 </div>
 </section>
