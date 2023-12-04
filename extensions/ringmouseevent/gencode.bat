@@ -1,1 +1,1 @@
-ring ..\codegen\parsec.ring ringmouseevent.cf ringmouseevent.c
+..\..\bin\ring ..\codegen\parsec.ring ringmouseevent.cf ringmouseevent.c

@@ -1,1 +1,1 @@
-ring ..\codegen\parsec.ring freeglut.cf ring_freeglut.c ring_freeglut.rh
+..\..\bin\ring ..\codegen\parsec.ring freeglut.cf ring_freeglut.c ring_freeglut.rh

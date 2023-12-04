@@ -1,1 +1,1 @@
-ring ..\codegen\parsec.ring ringbeep.cf ringbeep.c
+..\..\bin\ring ..\codegen\parsec.ring ringbeep.cf ringbeep.c

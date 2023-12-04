@@ -1,1 +1,1 @@
-ring ..\codegen\parsec.ring ringwinlib.cf ringwinlib.c constants.ring
+..\..\bin\ring ..\codegen\parsec.ring ringwinlib.cf ringwinlib.c constants.ring
