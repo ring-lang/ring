@@ -232,6 +232,50 @@
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>updateList(&lt;aList&gt;,&lt;cCommand&gt;,&lt;cSelection&gt;,&lt;nPara1&gt;,&lt;nPara2&gt;,[nPara3])
 </pre></div>
 </div>
+<p>cCommand could be :set, :add, :sub, :mul, :div, :merge and :copy</p>
+<p>cSelection could be :col, :row, :manycols, :manyrows and :items</p>
+<p>The required parameters depend on the cCommand/cSelection</p>
+<p>The parameters could be columns/rows numbers</p>
+<p>Also, some command requires a value like the set command</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;fastpro.ring&quot;</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span><span class="p">,</span>
+          <span class="o">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="o">]</span><span class="p">,</span>
+          <span class="mi">7</span><span class="p">:</span><span class="mi">9</span> <span class="o">]</span>
+
+<span class="c"># Set the values of the first row to 10</span>
+        <span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">set</span><span class="p">,:</span><span class="n">row</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="c"># Add 10 to each value in the first row</span>
+        <span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">add</span><span class="p">,:</span><span class="n">row</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="c"># Sub 5 from each value in the first row</span>
+        <span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">sub</span><span class="p">,:</span><span class="n">row</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="c"># Multiply each value in the first row by 10</span>
+        <span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">mul</span><span class="p">,:</span><span class="n">row</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="c"># Divide each value in the first row by 2</span>
+        <span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">div</span><span class="p">,:</span><span class="n">row</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="c"># Copy the first row values to the second row</span>
+        <span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">copy</span><span class="p">,:</span><span class="n">row</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="c"># Sum the third row and the second row</span>
+<span class="c"># And the result will be in the third row</span>
+        <span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">merge</span><span class="p">,:</span><span class="n">row</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="n">aList</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p>The list will be [ [75,75,75], [75,75,75], [82,83,84] ]</p>
+<div class="highlight-one notranslate"><div class="highlight"><pre><span></span>75
+75
+75
+75
+75
+75
+82
+83
+84
+</pre></div>
+</div>
 </section>
 <section id="updatecolumn-function">
 <span id="index-4"></span><h2>UpdateColumn() function<a class="headerlink" href="#updatecolumn-function" title="Permalink to this heading"></a></h2>
@@ -239,6 +283,10 @@
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>updateColumn(&lt;aList&gt;, [&lt;cCommand&gt;,&lt;nPara1&gt;,&lt;nPara2&gt;,[nPara3]],…)
 </pre></div>
 </div>
+<p>Using this function we can execute many commands on the list columns</p>
+<p>Instead of using updateList() many times and each time we pass :col as the third parameter, we can use updateColumn()</p>
+<p>Example from the ImagePixel application that convert the image to Gray</p>
+<img alt="updatecolumncode" src="_images/updatecolumncode.png" />
 </section>
 </section>
 
