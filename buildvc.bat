@@ -55,8 +55,17 @@ rem build Ring Qt
 cd ringqt
 del /q debug\*.*
 del /q release\*.*
+call gencode_core
 call buildvc_core
+
+del /q debug\*.*
+del /q release\*.*
+call gencode_light
 call buildvc_light
+
+del /q debug\*.*
+del /q release\*.*
+call gencode_nobluetooth
 call buildvc_nobluetooth
 cd binupdate
 call installqt515
