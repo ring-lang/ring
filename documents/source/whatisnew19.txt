@@ -540,6 +540,7 @@ More Improvements
 * Number() function - Don't produce an error when the input is already a number
 * String() function - Don't produce an error when the input is already a string
 * Low Level Functions - ringvm_calllist() - Better Output
+* Ring2EXE - Better Output
 * Ring API - Added: RING_API_STATE to get a pointer to Ring State 
 * Ring API - Added: RING_API_NEWLISTUSINGBLOCKS1D(int nItems) --> List
 * Ring API - Added: RING_API_NEWLISTUSINGBLOCKS2D(int nRows,int nColumns) --> List
