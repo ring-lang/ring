@@ -376,11 +376,13 @@ func DistributeForWindows cBaseFolder,cFileName,aOptions
 					msg("Copy library files: "+aLibrary[:title])
 					if islist(aLibrary[:windowsfolders])
 						for cLibFolder in aLibrary[:windowsfolders]
+							msg("Copy folder: "+cLibFolder)
 							OSCopyFolder(exefolder(),cLibFolder)
 						next
 					ok
 					if islist(aLibrary[:windowsfiles])
 						for cLibFile in aLibrary[:windowsfiles]
+							msg("Copy file: "+cLibFile)
 							custom_OSCopyFile(exefolder(),cLibFile)
 						next
 					ok
