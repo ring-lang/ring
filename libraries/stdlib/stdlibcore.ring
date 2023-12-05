@@ -958,7 +958,7 @@ func OSCopyFolder cParentFolder,cFolder
 	cCurrentFolder = currentdir()
 	OSCreateOpenFolder(cFolder)
 	if isWindows()
-		systemsilent("xcopy /e " + cParentFolder + cFolder)
+		systemsilent("xcopy /e /y /j " + cParentFolder + cFolder)
 	else 
 		systemsilent("cp -R " + cParentFolder + cFolder + " ./")
 	ok
