@@ -373,6 +373,7 @@ func DistributeForWindows cBaseFolder,cFileName,aOptions
 			msg("Copy all libraries to target/windows")	
 			for aLibrary in aLibsInfo 
 				if not find(aOptions,"-no"+aLibrary[:name])
+					msg("Copy library files: "+aLibrary[:title])
 					if islist(aLibrary[:windowsfolders])
 						for cLibFolder in aLibrary[:windowsfolders]
 							OSCopyFolder(exefolder(),cLibFolder)
