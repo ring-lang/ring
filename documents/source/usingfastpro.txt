@@ -237,7 +237,7 @@ Syntax:
 
 .. code-block:: none
 
-	updateColumn(<aList>, [<cCommand>,<nPara1>,<nPara2>,[nPara3]],…)
+	updateColumn(<aList>, [<cCommand>,<nPara1>,[<nPara2>],[nPara3]],…)
 
 Using this function we can execute many commands on the list columns.
 

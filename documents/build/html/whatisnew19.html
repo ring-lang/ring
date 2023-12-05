@@ -136,6 +136,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingfastpro.html">Using FastPro Extension</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usingref.html">Using References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
@@ -377,10 +378,10 @@ Ok, Thanks!
 <span id="index-12"></span><h2>FastPro Extension<a class="headerlink" href="#fastpro-extension" title="Permalink to this heading"></a></h2>
 <p>This new extension comes with the next functions</p>
 <ul class="simple">
-<li><p>Bytes2List(cBytes) —&gt; aList // [[x,y,R,G,B,A],…]</p></li>
-<li><p>List2Bytes(aList)  —&gt; cBytes // “RGBA….”</p></li>
-<li><p>updateList(&lt;aList&gt;,&lt;cCommand&gt;,&lt;cSelection&gt;,&lt;nPara1&gt;,&lt;nPara2&gt;,[nPara3])</p></li>
-<li><p>updateColumn(&lt;aList&gt;, [&lt;cCommand&gt;,&lt;nPara1&gt;,&lt;nPara2&gt;,[nPara3]],…)</p></li>
+<li><p>Bytes2List(cBytes,nWidth,nHeight,nChannels) —&gt; aList // [[x,y,R,G,B,A],…]</p></li>
+<li><p>List2Bytes(aList,nChannels) —&gt; cBytes // “RGBA….”</p></li>
+<li><p>updateList(&lt;aList&gt;,&lt;cCommand&gt;,&lt;cSelection&gt;,&lt;nPara1&gt;,[&lt;nPara2&gt;],[nPara3])</p></li>
+<li><p>updateColumn(&lt;aList&gt;, [&lt;cCommand&gt;,&lt;nPara1&gt;,[&lt;nPara2&gt;],[nPara3]],…)</p></li>
 </ul>
 <p>Using the updateColumn() function we can update the list columns in one function call</p>
 <p>Example from the ImagePixel application that convert the image to Gray</p>
