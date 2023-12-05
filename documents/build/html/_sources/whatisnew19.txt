@@ -72,6 +72,7 @@ An example about drawing and using the Matrix library
 More Samples
 ============
 
+* Added: samples/UsingFastPro
 * Added: samples/Language/Constants
 * Added: samples/UsingTypeHints/test6.ring
 * Added: samples/UsingQt/CustomDragAndDrop/customdraganddrop.ring 
@@ -487,6 +488,8 @@ Better Documentation
 ====================
 
 The CHM file is updated to support search
+
+We added a new chapter: Using FastPro Extension
 
 Also, The next chapters are revised and improved 
 
