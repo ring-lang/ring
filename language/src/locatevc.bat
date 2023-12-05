@@ -25,12 +25,13 @@ if /I ["%1"]==["arm32"] (
 	set ringbuildtarget=arm
 )
 if /I ["%1"]==["auto"] (
-	if exist "%RINGEXEPATH%" (
+	if exist %RINGEXEPATH% (
 		rem run buildarch.ring to get ring.exe architecture
 		rem we use trick documented at https://devblogs.microsoft.com/oldnewthing/20120731-00/?p=7003
-		for /f %%i in ('call "%RINGEXEPATH%" "%RINGARCHPATH%"') do set ringbuildtarget=%%i
+		for /f %%i in ('call %RINGEXEPATH% %RINGARCHPATH%') do set ringbuildtarget=%%i
 	)
 )
+
 if /I ["%ringbuildtarget%"]==["x64"] (
 	set ringsubsystem=5.02
 )
