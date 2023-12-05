@@ -73,97 +73,113 @@ if exist "C:\Program Files\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" (
 )
 
 if exist "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\VsDevCmd.bat" (
-    set VSCMD_START_DIR="%cd%"
-    call "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
-    exit /b
+	pushd "%cd%" 
+	call "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+	popd   
+	exit /b
 )
 
 if exist "C:\Program Files\Microsoft Visual Studio\2017\Community\Common7\Tools\VsDevCmd.bat" (
-	set VSCMD_START_DIR="%cd%"
+	pushd "%cd%"
 	call "C:\Program Files\Microsoft Visual Studio\2017\Community\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+	popd
 	exit /b
 )
 
 if exist "C:\Program Files\Microsoft Visual Studio\2017\Enterprise\Common7\Tools\VsDevCmd.bat" (
-	set VSCMD_START_DIR="%cd%"
+	pushd "%cd%"
 	call "C:\Program Files\Microsoft Visual Studio\2017\Enterprise\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+	popd
 	exit /b
 )
 
 if exist "C:\Program Files\Microsoft Visual Studio\2017\Professional\Common7\Tools\VsDevCmd.bat" (
-	set VSCMD_START_DIR="%cd%"
+	pushd "%cd%"
 	call "C:\Program Files\Microsoft Visual Studio\2017\Professional\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+	popd
 	exit /b
 )
 
 if exist "C:\Program Files\Microsoft Visual Studio\2019\Community\Common7\Tools\VsDevCmd.bat" (
-	set VSCMD_START_DIR="%cd%"
+	pushd "%cd%"
 	call "C:\Program Files\Microsoft Visual Studio\2019\Community\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+	popd
 	exit /b
 )
 
 if exist "C:\Program Files\Microsoft Visual Studio\2019\Enterprise\Common7\Tools\VsDevCmd.bat" (
-	set VSCMD_START_DIR="%cd%"
+	pushd "%cd%"
 	call "C:\Program Files\Microsoft Visual Studio\2019\Enterprise\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+	popd
 	exit /b
 )
 
 if exist "C:\Program Files\Microsoft Visual Studio\2019\Professional\Common7\Tools\VsDevCmd.bat" (
-	set VSCMD_START_DIR="%cd%"
+	pushd "%cd%"
 	call "C:\Program Files\Microsoft Visual Studio\2019\Professional\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+	popd
 	exit /b
 )
 
 if exist "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\VsDevCmd.bat" (
-	set VSCMD_START_DIR="%cd%"
+	pushd "%cd%"
 	call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+	popd
 	exit /b
 )
 
 if exist "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\Tools\VsDevCmd.bat" (
-	set VSCMD_START_DIR="%cd%"
+	pushd "%cd%"
 	call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+	popd
 	exit /b
 )
 
 if exist "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\Tools\VsDevCmd.bat" (
-	set VSCMD_START_DIR="%cd%"
+	pushd "%cd%"
 	call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+	popd
 	exit /b
 )
 
 if exist "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\Tools\VsDevCmd.bat" (
-	set VSCMD_START_DIR="%cd%"
+	pushd "%cd%"
 	call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+	popd
 	exit /b
 )
 
 if exist "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\Tools\VsDevCmd.bat" (
-	set VSCMD_START_DIR="%cd%"
+	pushd "%cd%"
 	call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+	popd
 	exit /b
 )
 
 if exist "C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\Tools\VsDevCmd.bat" (
-	set VSCMD_START_DIR="%cd%"
+	pushd "%cd%"
 	call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+	popd
 	exit /b
 )
 
 if exist "C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\Tools\VsDevCmd.bat" (
-	set VSCMD_START_DIR="%cd%"
+	pushd "%cd%"
 	call "C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+	popd
 	exit /b
 )
 
 if exist "C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\Tools\VsDevCmd.bat" (
-	set VSCMD_START_DIR="%cd%"
+	pushd "%cd%"
 	call "C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+	popd
 	exit /b
 )
 
 if exist "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\VsDevCmd.bat" (
-	set VSCMD_START_DIR="%cd%"
+	pushd "%cd%"
 	call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\VsDevCmd.bat" -arch=%ringbuildtarget%
+	popd
 	exit /b
 )
