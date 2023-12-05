@@ -529,6 +529,7 @@ More Improvements
 * Better RingPostgreSQL samples
 * Better RingMySQL sample - samples/AQuickStart/MySQL/mysql7.ring
 * Form Designer - Better behavior when displaying the MenuBar editor
+* StdLib - OSCopyFolder() - Better Implementation
 * MatrixLib - Added: RowReduceEchelonForm() function
 * MatrixLib - Added: MatrixTransform() function
 * BigNumber - Better code for the power function
