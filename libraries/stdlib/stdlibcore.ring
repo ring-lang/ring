@@ -957,10 +957,16 @@ func OSCreateOpenFolder cFolder
 func OSCopyFolder cParentFolder,cFolder
 	cCurrentFolder = currentdir()
 	OSCreateOpenFolder(cFolder)
+	cCompleteFolderPath = cParentFolder + cFolder
+	if len(cCompleteFolderPath) >= 1
+		if cCompleteFolderPath[1] != '"'
+			cCompleteFolderPath = '"' + cCompleteFolderPath + '"'
+		ok
+	ok
 	if isWindows()
-		systemsilent("xcopy /e /y /j " + cParentFolder + cFolder)
+		systemsilent("xcopy /e /y /j " + cCompleteFolderPath)
 	else 
-		systemsilent("cp -R " + cParentFolder + cFolder + " ./")
+		systemsilent("cp -R " + cCompleteFolderPath + " ./")
 	ok
 	chdir(cCurrentFolder)
 
@@ -979,6 +985,11 @@ func OSDeleteFolder cFolder
 	Copy File to the current directory
 */
 func OSCopyFile cFile
+	if len(cFile) >= 1
+		if cFile[1] != '"'
+			cFile = '"' + cFile + '"'
+		ok
+	ok
 	if isWindows()
 		cFile = substr(cFile,"/","\")
 		systemSilent("copy " + cFile)
