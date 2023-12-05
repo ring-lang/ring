@@ -141,6 +141,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#list2bytes-function">List2Bytes() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#updatelist-function">UpdateList() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#updatecolumn-function">UpdateColumn() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generate-image">Generate Image</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="usingref.html">Using References</a></li>
@@ -381,6 +382,82 @@ updateList(&lt;aList&gt;,:merge,:col,&lt;nColDest&gt;,&lt;nCol&gt;)
 <p>This function support using numbers only.</p>
 <p>Example from the ImagePixel application that convert the image to Gray.</p>
 <img alt="updatecolumncode" src="_images/updatecolumncode.png" />
+</section>
+<section id="generate-image">
+<h2>Generate Image<a class="headerlink" href="#generate-image" title="Permalink to this heading"></a></h2>
+<p>The next example generate an image using a string that contain bytes</p>
+<p>Then uses Bytes2List() to convert the generated image to Ring List</p>
+<p>Using updateColumn() the list is updated and the colors are converted to Gray</p>
+<p>Then using List2Bytes() we get another string contains bytes that represent the Gray Image</p>
+<p>Then using the drawBytes() method in RingQt - QPainter class we draw the generated images</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We can update the string bytes directly without conversion to a Ring list</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Converting the string to a Ring list enable us to use the updateColumn() function</p>
+</div>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stbimage.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;fastpro.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;lightguilib.ring&quot;</span>
+
+<span class="n">width</span>    <span class="o">=</span> <span class="mi">640</span>
+<span class="n">height</span>   <span class="o">=</span> <span class="mi">480</span>
+<span class="n">channels</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">cImage</span>   <span class="o">=</span> <span class="n">space</span><span class="p">(</span><span class="n">width</span><span class="o">*</span><span class="n">height</span><span class="o">*</span><span class="n">channels</span><span class="p">)</span>
+
+<span class="n">RVALUE</span>   <span class="o">=</span> <span class="mi">3</span>
+<span class="n">GVALUE</span>   <span class="o">=</span> <span class="mi">4</span>
+<span class="n">BVALUE</span>   <span class="o">=</span> <span class="mi">5</span>
+
+<span class="n">WindowWidth</span> <span class="o">=</span> <span class="n">Width</span><span class="o">*</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">100</span>
+
+<span class="n">nIndex</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">height</span>
+        <span class="k">for</span> <span class="n">y</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">width</span>
+                <span class="n">cImage</span><span class="o">[</span><span class="n">nIndex</span><span class="o">++]</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
+                <span class="n">cImage</span><span class="o">[</span><span class="n">nIndex</span><span class="o">++]</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span>
+                <span class="n">cImage</span><span class="o">[</span><span class="n">nIndex</span><span class="o">++]</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span>
+        <span class="k">next</span>
+<span class="k">next</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="n">Bytes2List</span><span class="p">(</span><span class="n">cImage</span><span class="p">,</span><span class="n">Width</span><span class="p">,</span><span class="n">Height</span><span class="p">,</span><span class="n">Channels</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>
+<span class="n">updateColumn</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">mul</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span>              <span class="c"># R *= 0.3</span>
+                   <span class="p">:</span><span class="n">mul</span><span class="p">,</span><span class="n">GVALUE</span><span class="p">,</span><span class="mf">0.59</span><span class="p">,</span>            <span class="c"># G *= 0.59</span>
+                   <span class="p">:</span><span class="n">mul</span><span class="p">,</span><span class="n">BVALUE</span><span class="p">,</span><span class="mf">0.11</span><span class="p">,</span>            <span class="c"># B *= 0.11</span>
+                   <span class="p">:</span><span class="n">merge</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">GVALUE</span><span class="p">,</span>        <span class="c"># R += G</span>
+                   <span class="p">:</span><span class="n">merge</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">BVALUE</span><span class="p">,</span>        <span class="c"># R += B</span>
+                   <span class="p">:</span><span class="n">copy</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">GVALUE</span><span class="p">,</span>         <span class="c"># G = R</span>
+                   <span class="p">:</span><span class="n">copy</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">BVALUE</span><span class="p">)</span>         <span class="c"># B = R</span>
+<span class="n">cGrayImage</span> <span class="o">=</span> <span class="n">list2Bytes</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">Channels</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>
+
+<span class="n">MyApp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QApp</span>
+<span class="p">{</span>
+        <span class="n">win1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QWidget</span><span class="p">()</span>
+        <span class="p">{</span>
+                <span class="n">setwindowtitle</span><span class="p">(</span><span class="s">&quot;Generate Image &amp; Convert it to Gray&quot;</span><span class="p">)</span>
+                <span class="n">setgeometry</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">WindowWidth</span><span class="p">,</span><span class="n">Height</span><span class="p">)</span>
+                <span class="n">Canvas</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QLabel</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="n">MonaLisa</span>  <span class="o">=</span> <span class="k">new</span> <span class="n">QPixMap2</span><span class="p">(</span> <span class="n">WindowWidth</span><span class="p">,</span> <span class="n">Height</span><span class="p">)</span>
+                        <span class="n">daVinci</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QPainter</span><span class="p">()</span>
+                        <span class="p">{</span>
+                                <span class="n">begin</span><span class="p">(</span><span class="n">MonaLisa</span><span class="p">)</span>
+                                <span class="n">drawbytes</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">cImage</span><span class="p">,</span><span class="n">width</span><span class="p">,</span><span class="n">Height</span><span class="p">,</span><span class="n">channels</span><span class="p">)</span>
+                                <span class="n">drawbytes</span><span class="p">(</span><span class="n">width</span><span class="o">+</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">cGrayImage</span><span class="p">,</span><span class="n">width</span><span class="p">,</span><span class="n">Height</span><span class="p">,</span><span class="n">channels</span><span class="p">)</span>
+                                <span class="n">endpaint</span><span class="p">()</span>
+                        <span class="p">}</span>
+                        <span class="n">setPixMap</span><span class="p">(</span><span class="n">MonaLisa</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">show</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="n">exec</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<img alt="gengrayimage" src="_images/gengrayimage.png" />
 </section>
 </section>
 
