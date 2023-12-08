@@ -512,7 +512,7 @@ RING_API int ring_list_isfuncpointer ( List *pList, unsigned int index )
 RING_API void ring_list_insertitem_gc ( void *pState,List *pList,unsigned int x )
 {
     Items *pItems  ;
-    if ( ( x < 0 ) || ( x > ring_list_getsize(pList) ) ) {
+    if ( x > ring_list_getsize(pList) ) {
         return ;
     }
     else if ( x == ring_list_getsize(pList) ) {
@@ -1086,9 +1086,6 @@ RING_API void ring_list_print2 ( List *pList,unsigned int nDecimals )
     char cOptions[10]  ;
     char cString[100]  ;
     /* Print Items */
-    if ( ring_list_getsize(pList) < 0 ) {
-        return ;
-    }
     for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
         if ( ring_list_isstring(pList,x) ) {
             cStr = ring_list_getstring(pList,x) ;
