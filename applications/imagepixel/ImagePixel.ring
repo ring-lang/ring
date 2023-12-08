@@ -376,8 +376,8 @@ Func ChangeColorValue()
     // MCOrig as per FRACTION of SLIDER Values
     DrawRGBAImagePixels(MCOrig,imageOffsetX+imageStock.Width()+10,imageOffsetY)  
 
-    // Delete large allocated memory directly since it's not longer required
-    // Doing this before other allocations help in avoiding memory fragmentation       
+    // Delete large allocated memory directly since it's no longer required
+    // Doing this before other allocations (Maybe by Qt) help in avoiding memory fragmentation       
     MCOrig = NULL
 
     label2.setText(" Fin ....")
