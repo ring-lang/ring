@@ -80,6 +80,7 @@ RING_FUNC(ring_list2bytes)
     pVM = (VM *) pPointer;
     nMul = 1;
     nChannel = 3;
+    double nRed,nGreen,nBlue;
     if ( RING_API_PARACOUNT < 2 ) {
         RING_API_ERROR(RING_API_BADPARACOUNT);
         return ;
@@ -127,9 +128,15 @@ RING_FUNC(ring_list2bytes)
 
         if ( ring_list_isdouble(pPointList,3) && ring_list_isdouble(pPointList,4) && 
              ring_list_isdouble(pPointList,5) ) {
-             cData[nIndex++] = (char) (ring_list_getdouble(pPointList,3)*nMul);
-             cData[nIndex++] = (char) (ring_list_getdouble(pPointList,4)*nMul);
-             cData[nIndex++] = (char) (ring_list_getdouble(pPointList,5)*nMul);
+             nRed   = ring_list_getdouble(pPointList,3);
+             nGreen = ring_list_getdouble(pPointList,4);
+             nBlue  = ring_list_getdouble(pPointList,5);
+             if (nRed   > 1) nRed   = 1;
+             if (nGreen > 1) nGreen = 1;
+             if (nBlue  > 1) nBlue  = 1;	     
+             cData[nIndex++] = (char) (nRed*nMul);
+             cData[nIndex++] = (char) (nGreen*nMul);
+             cData[nIndex++] = (char) (nBlue*nMul);
         } else {
             lError = 1;
             break;
