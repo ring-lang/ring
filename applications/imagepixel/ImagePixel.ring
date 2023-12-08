@@ -310,10 +310,16 @@ Func ChangeColorValue()
     nNewBlue  = Blue  / 100
     nNewAlpha = Alpha / 100   
 
-    nMax      = len( MCOrig)  
     lColorize = (eCheckColorize.isChecked()  = 1 ) 
     lGray     = (eCheckGrayScale.isChecked() = 1 )   
 
+    //====================================================================
+    // FRACTION of COLOR of ORIGINAL -- Display Color RBG 
+
+    updateColumn(MCOrig,:mul,RVALUE,nNewRed,          # R *= nNewRed
+                        :mul,GVALUE,nNewGreen,        # G *= nNewGreen
+                        :mul,BVALUE,nNewBlue,         # B *= nNewBlue
+                        :mul,AVALUE,nNewAlpha)        # A *= nNewAlpha
 
     //====================================================================
     // COLORIZE-- Display GrayScale Image in Color 
@@ -348,14 +354,6 @@ Func ChangeColorValue()
                             :copy,RVALUE,BVALUE)         # B = R
 
     ok
-
-    //====================================================================
-    // FRACTION of COLOR of ORIGINAL -- Display Color RBG 
-
-    updateColumn(MCOrig,:mul,RVALUE,nNewRed,          # R *= nNewRed
-                        :mul,GVALUE,nNewGreen,        # G *= nNewGreen
-                        :mul,BVALUE,nNewBlue,         # B *= nNewBlue
-                        :mul,AVALUE,nNewAlpha)        # A *= nNewAlpha
 
     #=====================================================================#
     t3 = clock()
