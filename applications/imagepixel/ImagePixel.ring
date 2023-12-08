@@ -393,9 +393,8 @@ Func DrawRGBAImagePixels(MCImage,nXStart,nYStart)
    
    // <<<=== DOUBLE OFFSET,i=400,  MCImage Linear List (60000) = list[i,j,R,G,B,V)
 
-   nBytesChannels = 4
-   cNewData = list2Bytes(MCImage,nBytesChannels,255)
-   daVinci.drawBytes(nXStart,nYStart,cNewData,nImageWidth,nImageHeight,nBytesChannels)    
+   cNewData = list2Bytes(MCImage,nImageChannels,255)
+   daVinci.drawBytes(nXStart,nYStart,cNewData,nImageWidth,nImageHeight,nImageChannels)    
 
    Canvas.setPixMap(MonaLisa)          ### Need this setPixMap to display imageLabel               
    myApp.processEvents()               ### EXEC the Draw
