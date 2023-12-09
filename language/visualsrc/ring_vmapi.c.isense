@@ -161,7 +161,7 @@ ring_vm_api_intvalue
 ring_vm_api_floatvalue
 ring_vm_api_newlistusingblocks
 Type: List *
-pList, *pList2
+pList, *pList2, *pList3
 Type: int
 x,y
 Type: Items *
