@@ -730,7 +730,7 @@ RING_API void * ring_state_malloc ( void *pState,size_t size )
             #if RING_TRACKALLOCATIONS
                 ((RingState *) pState)->vPoolManager.nAllocCount++ ;
             #endif
-            if ( size <= sizeof(PoolData) ) {
+            if ( (size <= sizeof(PoolData)) && (! ((RingState *) pState)->lDisablePoolManager) ) {
                 if ( ((RingState *) pState)->pVM != NULL ) {
                     return ring_poolmanager_allocate((RingState *) pState,size) ;
                 }
@@ -789,7 +789,7 @@ RING_API void * ring_state_calloc ( void *pState,size_t nitems, size_t size )
                 ((RingState *) pState)->vPoolManager.nAllocCount++ ;
             #endif
             nTotal = nitems*size ;
-            if ( nTotal <= sizeof(PoolData) ) {
+            if ( (nTotal <= sizeof(PoolData) ) && (! ((RingState *) pState)->lDisablePoolManager) ) {
                 if ( ((RingState *) pState)->pVM != NULL ) {
                     pMem = ring_poolmanager_allocate((RingState *) pState,nTotal) ;
                     memset(pMem,0,nTotal);
