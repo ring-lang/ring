@@ -27073,6 +27073,10 @@ int nChannel, nFormat, nWidth, nHeight;
 				QImage::Format_RGBA8888
 			);
 	}
+	if ( temp == NULL ) {
+		RING_API_ERROR(RING_OOM);
+		return;
+	}
 	pObject->drawPixmap((int) RING_API_GETNUMBER(2),(int) RING_API_GETNUMBER(3),QPixmap::fromImage (*temp));
 	delete temp;
 }
