@@ -271,7 +271,6 @@ void ring_hashtable_test ( void )
 void ring_structuressize ( void )
 {
     printf( "Stucture (RingState) size: %d \n",sizeof(RingState) ) ;
-    printf( "Stucture (GCData) size: %d \n",sizeof(GCData) ) ;
     printf( "Stucture (PoolData) size: %d \n",sizeof(PoolData) ) ;
     printf( "Stucture (PoolManager) size: %d \n",sizeof(PoolManager) ) ;
     printf( "Stucture (String) size: %d \n",sizeof(String) ) ;
