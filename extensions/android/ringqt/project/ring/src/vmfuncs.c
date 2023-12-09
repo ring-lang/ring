@@ -265,6 +265,7 @@ void ring_vm_call2 ( VM *pVM )
                 pVM->nSP = x ;
                 if ( RING_VM_STACK_ISSTRING ) {
                     ring_list_addstring2_gc(pVM->pRingState,pVM->pActiveMem,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
+                    RING_VM_STACK_SETNVALUE(0.0);
                 }
                 else if ( RING_VM_STACK_ISNUMBER ) {
                     ring_list_adddouble_gc(pVM->pRingState,pVM->pActiveMem,RING_VM_STACK_READN);
@@ -460,6 +461,7 @@ void ring_vm_newfunc ( VM *pVM )
                 ring_string_word(cParameters,x,pParameter);
                 if ( RING_VM_STACK_ISSTRING ) {
                     ring_vm_addstringarg(pVM,pParameter,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
+                    RING_VM_STACK_SETNVALUE(0.0);
                 }
                 else if ( RING_VM_STACK_ISNUMBER ) {
                     ring_vm_addnumberarg(pVM,pParameter,RING_VM_STACK_READN);
