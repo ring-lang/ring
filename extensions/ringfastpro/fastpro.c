@@ -109,7 +109,7 @@ RING_FUNC(ring_list2bytes)
     if ( nListSize < 1 ) return ;
 
     nDataSize = sizeof(char) * nListSize * nChannel;
-    cData = (char *) ring_malloc(nDataSize);
+    cData = (char *) RING_API_MALLOC(nDataSize);
 
     nIndex = 0;
     lError = 0;
@@ -154,13 +154,13 @@ RING_FUNC(ring_list2bytes)
     }
 
     if ( lError == 1 ) {
-            ring_free(cData);
+            RING_API_FREE(cData);
             RING_API_ERROR(RING_API_BADPARATYPE);
 	    return ;
     }
 
     RING_API_RETSTRING2(cData,nDataSize);
-    ring_free(cData);
+    RING_API_FREE(cData);
 }
 
 
