@@ -27030,7 +27030,6 @@ RING_FUNC(ring_QPainter_drawBytes)
 	QPainter *pObject;
 int nChannel, nFormat, nWidth, nHeight;
 	unsigned char *cData;
-	QPixmap pixmap;
 
 	if ( RING_API_PARACOUNT != 7 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -27055,29 +27054,27 @@ int nChannel, nFormat, nWidth, nHeight;
 	// In Qt5, Using nWidth*nChannel is optional
 	// But if we don't use it, we will get wrong results
 	// where image drawing starts after many x positions
+	
+	QImage *temp;
 	if (nChannel == 3) {
-		pixmap = QPixmap::fromImage (
-			QImage(
+		temp = new QImage(
 				cData,
 				nWidth,
 				nHeight,
 				nWidth*nChannel,
 				QImage::Format_RGB888
-			)
-		);
+			);
 	} else {
-		pixmap = QPixmap::fromImage (
-			QImage(
+		temp = new QImage(
 				cData,
 				nWidth,
 				nHeight,
 				nWidth*nChannel,
 				QImage::Format_RGBA8888
-			)
-		);
+			);
 	}
-
-	pObject->drawPixmap((int) RING_API_GETNUMBER(2),(int) RING_API_GETNUMBER(3),pixmap);
+	pObject->drawPixmap((int) RING_API_GETNUMBER(2),(int) RING_API_GETNUMBER(3),QPixmap::fromImage (*temp));
+	delete temp;
 }
 
 
