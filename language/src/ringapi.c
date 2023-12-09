@@ -552,8 +552,8 @@ RING_API List * ring_vm_api_newlistusingblocks ( VM *pVM, int nSize, int nSize2 
         for ( x = 1 ; x <= nSize ; x++ ) {
             pList2 = ring_list_newlist(pList);
             pList3 = ring_list_new_gc(pVM->pRingState,nSize2);
-            for ( x = 1 ; x <= nSize2 ; x++ ) {
-                ring_list_setdouble_gc(pVM->pRingState,pList3,x,0);
+            for ( y = 1 ; y <= nSize2 ; y++ ) {
+                ring_list_setdouble_gc(pVM->pRingState,pList3,y,0);
             }
             ring_list_swaptwolists(pList2,pList3);
             ring_list_delete_gc(pVM->pRingState,pList3);
