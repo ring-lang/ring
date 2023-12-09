@@ -272,6 +272,11 @@ return
                 
 Func ChangeColorValue()
 
+    btnOpenFile.setEnabled(False)
+    btnChangeColors.setEnabled(False)
+    label2.setText(" Changing Colors")
+    MyApp.ProcessEvents()  
+
     # Convert to [x,y,r,g,b] List
     # We pass channels (could be 3 or 4) and Bytes2List always return the RGB values only
     # We pass 255 which mean Divide each RGB by 255
@@ -280,15 +285,12 @@ Func ChangeColorValue()
     MCOrig = Bytes2List(cImageData,nImageWidth,nImageHeight,nImageChannels,255)
 
     if !MCOrig                          // Fails on GIF ,Does NotExist ,  Image W-H: 0-0 Size: 0
+    	label2.setText(" Fail ....")
+    	btnOpenFile.setEnabled(True)
+    	btnChangeColors.setEnabled(True)
        return
     ok
   
-    btnOpenFile.setEnabled(False)
-    btnChangeColors.setEnabled(False)
-
-    label2.setText(" Changing Colors")
-    MyApp.ProcessEvents()   
- 
     offSetX = imageStock.Width() +10     // Double Width Position
     offSetY = 40
 
