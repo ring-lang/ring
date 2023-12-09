@@ -322,3 +322,11 @@ RING_API void ring_string_word ( const char *cStr,int nIndex,char *cOutput )
     }
     cOutput[nOutIndex] = '\0' ;
 }
+
+RING_API void ring_string_swaptwostrings ( String *pString1,String *pString2 )
+{
+    String TempString  ;
+    memcpy(&TempString,pString1,sizeof(String));
+    memcpy(pString1,pString2,sizeof(String));
+    memcpy(pString2,&TempString,sizeof(String));
+}

@@ -90,3 +90,6 @@ Type: char *
 cString
 Type: int
 x,nStart,nEnd,nSize,nWord,nOutIndex
+ring_string_swaptwostrings
+Type: String
+TempString
