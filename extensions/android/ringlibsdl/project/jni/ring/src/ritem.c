@@ -112,6 +112,7 @@ RING_API void ring_item_settype_gc ( void *pState,Item *pItem,unsigned int ItemT
         case ITEMTYPE_NUMBER :
             pItem->nType = ITEMTYPE_NUMBER ;
             pItem->data.dNumber = 0 ;
+            pItem->NumberFlag = ITEM_NUMBERFLAG_DOUBLE ;
             break ;
         case ITEMTYPE_POINTER :
             pItem->nType = ITEMTYPE_POINTER ;

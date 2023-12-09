@@ -19,6 +19,8 @@ RING_API List * ring_list_new2_gc ( void *pState,List *pList,unsigned int nSize 
     pList->nSize = nSize ;
     if ( nSize > 0 ) {
         pItems = ring_items_new_gc(pState);
+        /* Set Item type and value */
+        ring_item_settype_gc(pState,pItems->pValue,ITEMTYPE_NUMBER);
         pList->pFirst = pItems ;
         pItemsLast = pItems ;
         for ( x = 2 ; x <= nSize ; x++ ) {
@@ -27,6 +29,8 @@ RING_API List * ring_list_new2_gc ( void *pState,List *pList,unsigned int nSize 
                 printf( RING_OOM ) ;
                 exit(1);
             }
+            /* Set Item type and value */
+            ring_item_settype_gc(pState,pItems->pValue,ITEMTYPE_NUMBER);
             pItemsLast->pNext = pItems ;
             pItems->pPrev = pItemsLast ;
             pItemsLast = pItems ;

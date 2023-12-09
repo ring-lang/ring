@@ -57,6 +57,8 @@ Type: unsigned int
 x
 Type: Items *
 pItems,*pItemsLast
+Type: Item *
+pItem
 ring_list_delete_gc
 ring_list_deletecontent_gc
 ring_list_copy_gc
