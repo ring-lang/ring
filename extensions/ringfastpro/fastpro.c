@@ -76,7 +76,8 @@ RING_FUNC(ring_list2bytes)
     VM *pVM;
     char *cData;
     List *pList, *pPointList;
-    int nDataSize,nListSize,nIndex,x,lError,nPointListSize,nChannel,nMul;
+    size_t nDataSize;
+    int nListSize,nIndex,x,lError,nPointListSize,nChannel,nMul;
     pVM = (VM *) pPointer;
     nMul = 1;
     nChannel = 3;
@@ -107,8 +108,9 @@ RING_FUNC(ring_list2bytes)
     nListSize = ring_list_getsize(pList);
     if ( nListSize < 1 ) return ;
 
-    nDataSize = nListSize * nChannel;
-    cData = (char *) malloc(nDataSize);
+    nDataSize = sizeof(char) * nListSize * nChannel;
+    cData = (char *) ring_malloc(nDataSize);
+
     nIndex = 0;
     lError = 0;
 
@@ -152,13 +154,13 @@ RING_FUNC(ring_list2bytes)
     }
 
     if ( lError == 1 ) {
-            free(cData);
+            ring_free(cData);
             RING_API_ERROR(RING_API_BADPARATYPE);
 	    return ;
     }
 
     RING_API_RETSTRING2(cData,nDataSize);
-    free(cData);
+    ring_free(cData);
 }
 
 
