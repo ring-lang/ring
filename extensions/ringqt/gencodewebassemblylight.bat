@@ -19,9 +19,9 @@ set RINGQT_NOMULTIMEDIA=1
 set RINGQT_NOMULTIMEDIAWIDGETS=1
 
 
-ring ..\codegen\parsec.ring classes\qt.cf cpp\src\ring_qt.cpp ..\..\libraries\guilib\classes\ring_qt.ring
+..\..\bin\ring ..\codegen\parsec.ring classes\qt.cf cpp\src\ring_qt.cpp ..\..\libraries\guilib\classes\ring_qt.ring
 cd events
-ring qtevents.ring
+..\..\..\bin\ring qtevents.ring
 cd ..
 copy cpp\src\*.cpp ..\..\webassembly\ringqt\project
 copy cpp\include\*.h ..\..\webassembly\ringqt\project

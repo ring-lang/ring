@@ -25,5 +25,5 @@ set RINGQT_NOCHARTS=1
 
 ..\..\bin\ring ..\codegen\parsec.ring classes\qt.cf cpp\src\ring_qt_light.cpp ..\..\libraries\guilib\classes\ring_qt_light.ring
 cd events
-..\..\bin\ring qtevents.ring
+..\..\..\bin\ring qtevents.ring
 cd ..
