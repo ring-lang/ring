@@ -7,9 +7,9 @@ height   = 480
 channels = 3
 cImage   = space(width*height*channels)
 
-RVALUE   = 3
-GVALUE   = 4
-BVALUE   = 5
+RVALUE   = 1
+GVALUE   = 2
+BVALUE   = 3
 
 WindowWidth = Width*2 + 100
 	
