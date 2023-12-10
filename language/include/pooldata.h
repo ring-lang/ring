@@ -11,10 +11,13 @@
         #define RING_USEPOOLMANAGER 1
     #endif
     #define RING_TRACKALLOCATIONS 0
-    #define RING_POOLMANAGER_ITEMSINBLOCK 1000000
     #define RING_POOLMANAGER_ITEMSTRINGSIZE 64
+    #define RING_POOLMANAGER_ITEMSINBLOCK 1000000
     #define RING_POOLMANAGER_ITEMSTRINGSIZEL2 192
     #define RING_POOLMANAGER_ITEMSINBLOCKL2 2048
+    #define RING_POOLMANAGER_ITEMSTRINGSIZEL3 1024
+    #define RING_POOLMANAGER_MINL3STRING 64
+    #define RING_POOLMANAGER_ITEMSINBLOCKL3 4096
     #define RING_VM_STATE_NUMBERS_COUNT 30
     #define RING_VM_STATE_POINTERS_COUNT 9
     /* Data */
@@ -41,6 +44,10 @@
         } PoolDataL2Types ;
         struct PoolDataL2 *pNext  ;
     } PoolDataL2 ;
+    typedef struct PoolDataL3 {
+        char cChar[RING_POOLMANAGER_ITEMSTRINGSIZEL3]  ;
+        struct PoolDataL3 *pNext  ;
+    } PoolDataL3 ;
     typedef struct PoolManager {
         PoolData *pCurrentItem  ;
         void *pBlockStart  ;
@@ -48,6 +55,9 @@
         PoolDataL2 *pCurrentItemL2  ;
         void *pBlockStartL2  ;
         void *pBlockEndL2  ;
+        PoolDataL3 *pCurrentItemL3  ;
+        void *pBlockStartL3  ;
+        void *pBlockEndL3  ;
         List *aBlocks  ;
         unsigned int nAllocCount  ;
         unsigned int nFreeCount  ;
@@ -55,6 +65,7 @@
         unsigned int nSmallFreeCount  ;
         unsigned int nItemsInBlock  ;
         unsigned int nItemsInBlockL2  ;
+        unsigned int nItemsInBlockL3  ;
         unsigned int lDeleteMemory  ;
     } PoolManager ;
 #endif
