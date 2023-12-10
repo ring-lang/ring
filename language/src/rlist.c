@@ -103,6 +103,7 @@ RING_API void ring_list_copy_gc ( void *pState,List *pNewList, List *pList )
 RING_API void ring_list_deleteallitems_gc ( void *pState,List *pList )
 {
     Items *pItems,*pItemsNext  ;
+    ListBlocks *pBlocks  ;
     pItems = pList->pFirst ;
     if ( pItems != NULL ) {
         pItemsNext = pItems ;
@@ -145,7 +146,9 @@ RING_API void ring_list_deleteallitems_gc ( void *pState,List *pList )
                 ring_state_unregisterblock(pState,((struct Items *) pList->pBlocks->pValue ) + 1);
             }
             ring_state_free(pState,pList->pBlocks->pValue);
+            pBlocks = pList->pBlocks ;
             pList->pBlocks = pList->pBlocks->pNext ;
+            ring_state_free(pState,pBlocks);
         }
     }
 }

@@ -87,6 +87,8 @@ pNewList2
 ring_list_deleteallitems_gc
 Type: Items *
 pItems,*pItemsNext
+Type: ListBlocks *
+pBlocks
 ring_list_copy_tohighlevel_gc
 Type: unsigned int
 x
