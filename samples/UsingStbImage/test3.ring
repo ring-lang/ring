@@ -9,9 +9,6 @@
 	? "Width : " + width
 	? "Height: " + height
 	? "Channels: " + channels
-# Convert to [x,y,r,g,b] List 
-	load "fastpro.ring"
-	aList = bytes2list(cData,width,height,channels,255)
 
 load "guilib.ring"
  
@@ -32,7 +29,7 @@ MyApp = new qapp
          daVinci = new qpainter()
          {  
 		begin(MonaLisa)
-		drawRGBFList(aList)
+		drawbytes(0,0,cData,width,height,Channels)
             	endpaint()           ### This will Stop the Painting. For Animation comment it out
          }
          

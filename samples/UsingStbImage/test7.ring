@@ -16,18 +16,18 @@ MyApp = new QApp
 {
    win1 = new QWidget() 
    {  setwindowtitle("Draw Pixels")
-      setgeometry(0,0,Width,Height)
+      setgeometry(0,0,Width*2,Height*2)
       
       Canvas = new QLabel(win1)
       {  
 
 	 ### daVinci paints the MonaLisa on the Canvas
-         MonaLisa  = new QPixMap2( Width, Height)
+         MonaLisa  = new QPixMap2( Width*2, Height*2)
 
          daVinci = new QPainter()
          {  
 		begin(MonaLisa)
-		drawbytes(0,0,cData,width,Height,channels)
+		drawbytes(100,100,cData,width,Height,channels)
             	endpaint()           ### This will Stop the Painting. For Animation comment it out
          }
          
