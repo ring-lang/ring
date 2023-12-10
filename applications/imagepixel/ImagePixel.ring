@@ -15,7 +15,6 @@ xWidth         = 1400          ### Canvas size on Screen
 yHeight        = 800 
 
 imageStock     = NULL          // Default image-picture
-ImageScale     = 1             // Divide by 4 to reduce image size 
 
 imageOffsetX   = 1             // image position displayed on screen
 imageOffsetY   = 40
