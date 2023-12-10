@@ -64,7 +64,7 @@ camera = Camera3D( 0.0, 20.0, 0.0,
 
 cam = camera.data()
 
-SetTargetFPS(60)
+SetTargetFPS(200)
 
 while !WindowShouldClose()
 
