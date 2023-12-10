@@ -821,9 +821,9 @@ Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11, Ri
 
 (3) Creating list contains 7,000,000 items then summing all of the list items
 
-(4) Printing numbers from 1 to 30,000 using command prompt
+(4) Printing numbers from 1 to 40,000 using command prompt
 
-(5) Printing numbers from 1 to 400,000 using output redirection and Ring Notepad
+(5) Printing numbers from 1 to 500,000 using output redirection and Ring Notepad
 
 (6) Adding 50,000 nodes to the TreeWidget in GUI applications
 

@@ -22,8 +22,8 @@ Ring can do each of the following tasks in around one second.
 (1) Compiling 100,000 lines of code
 (2) Executing an empty loop that count from 1 to 100,000,000
 (3) Creating list contains 7,000,000 items then summing all of the list items
-(4) Printing numbers from 1 to 30,000 using command prompt
-(5) Printing numbers from 1 to 400,000 using output redirection and Ring Notepad
+(4) Printing numbers from 1 to 40,000 using command prompt
+(5) Printing numbers from 1 to 500,000 using output redirection and Ring Notepad
 (6) Adding 50,000 nodes to the TreeWidget in GUI applications
 (7) Adding 60,000 items to the ListWidget in GUI applications
 (8) Executing 3000 search operations using linear search in a list contains 100,000 items, trying to find the last item (The worst case)
