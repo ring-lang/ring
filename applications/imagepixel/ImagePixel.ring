@@ -34,10 +34,10 @@ nImageWidth    = 0
 nImageHeight   = 0
 nImageChannels = 0
 
-RVALUE         = 3
-GVALUE         = 4
-BVALUE         = 5
-AVALUE         = 6
+RVALUE         = 1
+GVALUE         = 2
+BVALUE         = 3
+AVALUE         = 4
 
 //============================================================
 
@@ -262,8 +262,8 @@ return
 //================================================================
 //================================================================
 // daVinci.drawHSVFList(aList)          
-// daVinci.drawRGBFList(MCOrig)    Format x,y, 0.0-1.0 for rgba
-// MCOrig[k] = [x, y, R, G, B, A]
+// daVinci.drawRGBFList(MCOrig)    Format 0.0-1.0 for rgba
+// MCOrig[k] = [R, G, B]
 // MCOrig[k] =  x=410 y=338 r=0.78  g=0.66 b=0.44 b  a=1 
 // These weights are: 0.2989, 0.5870, 0.1140.
 // Gamma Corrected: 
@@ -277,7 +277,7 @@ Func ChangeColorValue()
     label2.setText(" Changing Colors")
     MyApp.ProcessEvents()  
 
-    # Convert to [x,y,r,g,b] List
+    # Convert to [r,g,b] List
     # We pass channels (could be 3 or 4) and Bytes2List always return the RGB values only
     # We pass 255 which mean Divide each RGB by 255
    
@@ -320,8 +320,7 @@ Func ChangeColorValue()
 
     updateColumn(MCOrig,:mul,RVALUE,nNewRed,          # R *= nNewRed
                         :mul,GVALUE,nNewGreen,        # G *= nNewGreen
-                        :mul,BVALUE,nNewBlue,         # B *= nNewBlue
-                        :mul,AVALUE,nNewAlpha)        # A *= nNewAlpha
+                        :mul,BVALUE,nNewBlue)         # B *= nNewBlue
 
     //====================================================================
     // COLORIZE-- Display GrayScale Image in Color 
@@ -376,7 +375,7 @@ Func ChangeColorValue()
     MyApp.ProcessEvents()               ### EXEC the Draw   
   
     // MCOrig as per FRACTION of SLIDER Values
-    DrawRGBAImagePixels(MCOrig,imageOffsetX+imageStock.Width()+10,imageOffsetY)  
+    DrawRGBAImagePixels(MCOrig,imageOffsetX+imageStock.Width()+10,imageOffsetY,nNewAlpha)  
 
     // Delete large allocated memory directly since it's no longer required
     // Doing this before other allocations (Maybe by Qt) help in avoiding memory fragmentation       
@@ -390,16 +389,16 @@ return
 
 //====================================================
 
-Func DrawRGBAImagePixels(MCImage,nXStart,nYStart)
+Func DrawRGBAImagePixels(MCImage,nXStart,nYStart,nNewAlpha)
     
    #=====================================================================#
    See "DrawRBGAImagePixels: "
    t1 = clock()
    #=====================================================================#
    
-   // <<<=== DOUBLE OFFSET,i=400,  MCImage Linear List (60000) = list[i,j,R,G,B,V)
+   // <<<=== DOUBLE OFFSET,i=400,  MCImage Linear List (60000) = list[R,G,B]
 
-   daVinci.drawBytes(nXStart,nYStart,list2Bytes(MCImage,4,255),nImageWidth,nImageHeight,4)    
+   daVinci.drawBytes(nXStart,nYStart,list2Bytes(MCImage,4,255,nNewAlpha),nImageWidth,nImageHeight,4)    
 
    Canvas.setPixMap(MonaLisa)          ### Need this setPixMap to display imageLabel               
    myApp.processEvents()               ### EXEC the Draw
