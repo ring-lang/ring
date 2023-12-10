@@ -231,9 +231,11 @@ void ring_QPainter_drawList(void *pPointer,int nType) {
 	QColor oColor;
 	QPen oPen;
 	List *pList,*pList2;
-	int x,nSize,nXStart,nYStart;
+	int x,y,nSize,nXStart,nYStart,nWidth,nHeight;
 	nXStart = 0;
 	nYStart = 0;
+	nWidth  = 0;
+	nHeight = 0;
 	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT < 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -252,34 +254,70 @@ void ring_QPainter_drawList(void *pPointer,int nType) {
 			nXStart = (int) RING_API_GETNUMBER(3);
 		}
 	}
-	if (RING_API_PARACOUNT == 4) {
+	if (RING_API_PARACOUNT >= 4) {
 		if (RING_API_ISNUMBER(4) ) {
 			nYStart = (int) RING_API_GETNUMBER(4);
+		}
+	}
+	if (RING_API_PARACOUNT >= 5) {
+		if (RING_API_ISNUMBER(5) ) {
+			nWidth = (int) RING_API_GETNUMBER(5);
+		}
+	}
+	if (RING_API_PARACOUNT >= 6) {
+		if (RING_API_ISNUMBER(6) ) {
+			nHeight = (int) RING_API_GETNUMBER(6);
 		}
 	}
 	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
 	pList = (List *) RING_API_GETLIST(2);
 	nSize = ring_list_getsize(pList);
 	for (x=1 ; x <= nSize ; x++) {
-		pList2 = ring_list_getlist(pList,x);
-		switch (nType) {
-			case 1:
-				oColor.setHsvF((float) ring_list_getdouble(pList2,3),
-				(float) ring_list_getdouble(pList2,4),
-				(float) ring_list_getdouble(pList2,5),
-				(float) ring_list_getdouble(pList2,6));
-				break;
-			case 2:
-				oColor.setRgbF((float) ring_list_getdouble(pList2,3),
-				(float) ring_list_getdouble(pList2,4),
-				(float) ring_list_getdouble(pList2,5),
-				(float) ring_list_getdouble(pList2,6));
-				break;
-		} 
-		oPen.setColor(oColor);
-		pObject->setPen(oPen);
-		pObject->drawPoint( nXStart + ring_list_getdouble(pList2,1), 
-			    nYStart + ring_list_getdouble(pList2,2));	
+		if ( ring_list_getsize(pList) == 6) {
+
+			pList2 = ring_list_getlist(pList,x);
+			switch (nType) {
+				case 1:
+					oColor.setHsvF((float) ring_list_getdouble(pList2,3),
+					(float) ring_list_getdouble(pList2,4),
+					(float) ring_list_getdouble(pList2,5),
+					(float) ring_list_getdouble(pList2,6));
+					break;
+				case 2:
+					oColor.setRgbF((float) ring_list_getdouble(pList2,3),
+					(float) ring_list_getdouble(pList2,4),
+					(float) ring_list_getdouble(pList2,5),
+					(float) ring_list_getdouble(pList2,6));
+					break;
+			} 
+			oPen.setColor(oColor);
+			pObject->setPen(oPen);
+			pObject->drawPoint( nXStart + ring_list_getdouble(pList2,1), 
+				    nYStart + ring_list_getdouble(pList2,2));	
+
+		} else if ( ring_list_getsize(pList) == 3) {
+			for (x=1 ; x <= nWidth ; x++) {
+				for (y=1 ; y <= nHeight ; y++) {
+					pList2 = ring_list_getlist(pList,(x*nWidth)+y);
+					switch (nType) {
+						case 1:
+							oColor.setHsvF((float) ring_list_getdouble(pList2,1),
+							(float) ring_list_getdouble(pList2,1),
+							(float) ring_list_getdouble(pList2,3),1.0);
+							break;
+						case 2:
+							oColor.setRgbF((float) ring_list_getdouble(pList2,1),
+							(float) ring_list_getdouble(pList2,1),
+							(float) ring_list_getdouble(pList2,2),1.0);
+							break;
+					} 
+					oPen.setColor(oColor);
+					pObject->setPen(oPen);
+					pObject->drawPoint( nXStart + x, 
+						    nYStart + y);	
+				}
+			}
+		}
 	}
 }
 
