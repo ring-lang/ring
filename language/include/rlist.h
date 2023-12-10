@@ -15,8 +15,6 @@
         struct Items *pLastItemLastAccess  ;
         struct Item **pItemsArray  ;
         struct HashTable *pHashTable  ;
-        struct Item *pItemBlock  ;
-        struct Items *pItemsBlock  ;
         struct ListBlocks *pBlocks  ;
         /* Garbage Collector Data (Reference Counting) */
         ListGCData gc  ;
