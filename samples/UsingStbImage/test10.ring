@@ -1,9 +1,9 @@
 load "stbimage.ring"
 load "fastpro.ring"
 
-RVALUE = 3
-GVALUE = 4
-BVALUE = 5
+RVALUE = 1
+GVALUE = 2
+BVALUE = 3
 
 CIMAGE = "ring.jpg"
 
@@ -14,7 +14,7 @@ CIMAGE = "ring.jpg"
 	cData = stbi_load(CIMAGE,:width,:height,:channels,STBI_rgb)
 
 t1 = clock()
-aList = bytes2list(cData,width,height,channels)
+aList = bytes2list(cData,width,height,channels,255)
 t2 = clock()
 
 # Convert to Gray
@@ -27,7 +27,7 @@ t2 = clock()
         		   :copy,RVALUE,BVALUE)         # B = R
 
 t3 = clock()
-cNewData = list2bytes(aList,channels)
+cNewData = list2bytes(aList,channels,255,1)
 t4 = clock()
 
 load "guilib.ring"
