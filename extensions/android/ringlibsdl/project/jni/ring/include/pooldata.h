@@ -13,11 +13,10 @@
     #define RING_TRACKALLOCATIONS 0
     #define RING_POOLMANAGER_ITEMSTRINGSIZE 64
     #define RING_POOLMANAGER_ITEMSINBLOCK 1000000
-    #define RING_POOLMANAGER_ITEMSTRINGSIZEL2 192
-    #define RING_POOLMANAGER_ITEMSINBLOCKL2 2048
-    #define RING_POOLMANAGER_ITEMSTRINGSIZEL3 1024
-    #define RING_POOLMANAGER_MINL3STRING 64
-    #define RING_POOLMANAGER_ITEMSINBLOCKL3 4096
+    #define RING_POOLMANAGER_ITEMSTRINGSIZEL2 1024
+    #define RING_POOLMANAGER_ITEMSINBLOCKL2 4096
+    #define RING_POOLMANAGER_ITEMSTRINGSIZEL3 192
+    #define RING_POOLMANAGER_ITEMSINBLOCKL3 2048
     #define RING_VM_STATE_NUMBERS_COUNT 30
     #define RING_VM_STATE_POINTERS_COUNT 9
     /* Data */
@@ -33,39 +32,39 @@
         } PoolDataTypes ;
         struct PoolData *pNext  ;
     } PoolData ;
+    typedef struct PoolDataL2 {
+        char cChar[RING_POOLMANAGER_ITEMSTRINGSIZEL2]  ;
+        struct PoolDataL2 *pNext  ;
+    } PoolDataL2 ;
     typedef struct VMState {
         int aNumbers[RING_VM_STATE_NUMBERS_COUNT]  ;
         void *aPointers[RING_VM_STATE_POINTERS_COUNT]  ;
     } VMState ;
-    typedef struct PoolDataL2 {
-        union PoolDataL2Types {
-            VMState vVMState  ;
-            char cChar[RING_POOLMANAGER_ITEMSTRINGSIZEL2]  ;
-        } PoolDataL2Types ;
-        struct PoolDataL2 *pNext  ;
-    } PoolDataL2 ;
     typedef struct PoolDataL3 {
-        char cChar[RING_POOLMANAGER_ITEMSTRINGSIZEL3]  ;
+        union PoolDataL3Types {
+            VMState vVMState  ;
+            char cChar[RING_POOLMANAGER_ITEMSTRINGSIZEL3]  ;
+        } PoolDataL3Types ;
         struct PoolDataL3 *pNext  ;
     } PoolDataL3 ;
     typedef struct PoolManager {
         PoolData *pCurrentItem  ;
         void *pBlockStart  ;
         void *pBlockEnd  ;
-        PoolDataL2 *pCurrentItemL2  ;
-        void *pBlockStartL2  ;
-        void *pBlockEndL2  ;
         PoolDataL3 *pCurrentItemL3  ;
         void *pBlockStartL3  ;
         void *pBlockEndL3  ;
+        PoolDataL2 *pCurrentItemL2  ;
+        void *pBlockStartL2  ;
+        void *pBlockEndL2  ;
         List *aBlocks  ;
         unsigned int nAllocCount  ;
         unsigned int nFreeCount  ;
         unsigned int nSmallAllocCount  ;
         unsigned int nSmallFreeCount  ;
         unsigned int nItemsInBlock  ;
-        unsigned int nItemsInBlockL2  ;
         unsigned int nItemsInBlockL3  ;
+        unsigned int nItemsInBlockL2  ;
         unsigned int lDeleteMemory  ;
     } PoolManager ;
 #endif
