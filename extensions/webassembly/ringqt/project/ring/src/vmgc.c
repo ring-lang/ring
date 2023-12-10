@@ -730,14 +730,11 @@ RING_API void * ring_state_malloc ( void *pState,size_t size )
             #if RING_TRACKALLOCATIONS
                 ((RingState *) pState)->vPoolManager.nAllocCount++ ;
             #endif
-            if ( (size <= sizeof(PoolData)) && (! ((RingState *) pState)->lDisablePoolManager) ) {
+            if ( ! ((RingState *) pState)->lDisablePoolManager ) {
                 if ( ((RingState *) pState)->pVM != NULL ) {
-                    return ring_poolmanager_allocate((RingState *) pState,size) ;
-                }
-            }
-            else if ( ( (size > sizeof(PoolData) ) && (size <= sizeof(PoolDataL2)) ) && (! ((RingState *) pState)->lDisablePoolManager) ) {
-                if ( ((RingState *) pState)->pVM != NULL ) {
-                    return ring_poolmanager_allocate((RingState *) pState,size) ;
+                    if ( size <= sizeof(PoolDataL2) ) {
+                        return ring_poolmanager_allocate((RingState *) pState,size) ;
+                    }
                 }
             }
         }
@@ -794,7 +791,7 @@ RING_API void * ring_state_calloc ( void *pState,size_t nitems, size_t size )
                 ((RingState *) pState)->vPoolManager.nAllocCount++ ;
             #endif
             nTotal = nitems*size ;
-            if ( (nTotal <= sizeof(PoolData) ) && (! ((RingState *) pState)->lDisablePoolManager) ) {
+            if ( (nTotal <= sizeof(PoolDataL2) ) && (! ((RingState *) pState)->lDisablePoolManager) ) {
                 if ( ((RingState *) pState)->pVM != NULL ) {
                     pMem = ring_poolmanager_allocate((RingState *) pState,nTotal) ;
                     memset(pMem,0,nTotal);
@@ -831,7 +828,7 @@ RING_API void * ring_state_realloc ( void *pState,void *ptr,size_t nAllocatedSiz
                     }
                     else {
                         /* Allocate new buffer, copy data to it and then free existing pointer from pool */
-                        pMemory = ring_malloc(size);
+                        pMemory = ring_state_malloc(pState,size);
                         /* Copy existing data */
                         for ( x = 0 ; x < nAllocatedSize ; x++ ) {
                             ((unsigned char*) pMemory)[x] = ((unsigned char*) ptr)[x] ;
@@ -842,7 +839,7 @@ RING_API void * ring_state_realloc ( void *pState,void *ptr,size_t nAllocatedSiz
                 }
                 else if ( nLevel == 2 ) {
                     pPoolDataL2 = (PoolDataL2*) ptr ;
-                    if ( (size > sizeof(PoolData)) && (size <= sizeof(PoolDataL2) ) ) {
+                    if ( size <= sizeof(PoolDataL2) ) {
                         return ptr ;
                     }
                     else {
