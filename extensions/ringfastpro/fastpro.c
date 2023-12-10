@@ -47,23 +47,20 @@ RING_FUNC(ring_bytes2list)
 	if (RING_API_PARACOUNT > 4)
 		if (RING_API_ISNUMBER(5))
 			nDivide = (int) RING_API_GETNUMBER(5) ;
-	pList = RING_API_NEWLISTUSINGBLOCKS2D(nPointsCount,6);
+	pList = RING_API_NEWLISTUSINGBLOCKS2D(nPointsCount,3);
 	pVM = (VM *) pPointer;
 	for (int y=1 ; y <= nHeight ; y++ ) {
 		for (int x=1 ; x <= nWidth ; x++ ) {
 			pSubList = ring_list_getlist(pList,nPoint++);
-			ring_list_setdouble_gc(pVM->pRingState,pSubList,1,(double) x);
-			ring_list_setdouble_gc(pVM->pRingState,pSubList,2,(double) y);
 			if (nDivide == 0) {
+				ring_list_setdouble_gc(pVM->pRingState,pSubList,1,(double) pData[nIndex++]);
+				ring_list_setdouble_gc(pVM->pRingState,pSubList,2,(double) pData[nIndex++]);						
 				ring_list_setdouble_gc(pVM->pRingState,pSubList,3,(double) pData[nIndex++]);
-				ring_list_setdouble_gc(pVM->pRingState,pSubList,4,(double) pData[nIndex++]);						
-				ring_list_setdouble_gc(pVM->pRingState,pSubList,5,(double) pData[nIndex++]);
 			} else {
+				ring_list_setdouble_gc(pVM->pRingState,pSubList,1,( (double) pData[nIndex++] ) / nDivide);
+				ring_list_setdouble_gc(pVM->pRingState,pSubList,2,( (double) pData[nIndex++] ) / nDivide);				
 				ring_list_setdouble_gc(pVM->pRingState,pSubList,3,( (double) pData[nIndex++] ) / nDivide);
-				ring_list_setdouble_gc(pVM->pRingState,pSubList,4,( (double) pData[nIndex++] ) / nDivide);				
-				ring_list_setdouble_gc(pVM->pRingState,pSubList,5,( (double) pData[nIndex++] ) / nDivide);
 			}
-			ring_list_setdouble_gc(pVM->pRingState,pSubList,6,(double) 1.0);
 			nIndex += nChannelDiff;	
 		}
 	}
@@ -81,7 +78,8 @@ RING_FUNC(ring_list2bytes)
     pVM = (VM *) pPointer;
     nMul = 1;
     nChannel = 3;
-    double nRed,nGreen,nBlue;
+    double nRed,nGreen,nBlue,nAlpha;
+    nAlpha = 1.0;
     if ( RING_API_PARACOUNT < 2 ) {
         RING_API_ERROR(RING_API_BADPARACOUNT);
         return ;
@@ -100,9 +98,13 @@ RING_FUNC(ring_list2bytes)
 	return ;
     }
 
-    if ( RING_API_PARACOUNT == 3 ) 
+    if ( RING_API_PARACOUNT >= 3 ) 
         if ( RING_API_ISNUMBER(3) ) 
             nMul = (int) RING_API_GETNUMBER(3);
+
+    if ( RING_API_PARACOUNT >= 4 ) 
+        if ( RING_API_ISNUMBER(4) ) 
+            nAlpha = RING_API_GETNUMBER(4);
 
     pList = RING_API_GETLIST(1);
     nListSize = ring_list_getsize(pList);
@@ -123,16 +125,16 @@ RING_FUNC(ring_list2bytes)
 
         pPointList = ring_list_getlist(pList,x);
         nPointListSize = ring_list_getsize(pPointList);
-        if ( nPointListSize < 6 ) {
+        if ( nPointListSize < 3 ) {
             lError = 1;
             break;
         }
 
-        if ( ring_list_isdouble(pPointList,3) && ring_list_isdouble(pPointList,4) && 
-             ring_list_isdouble(pPointList,5) ) {
-             nRed   = ring_list_getdouble(pPointList,3);
-             nGreen = ring_list_getdouble(pPointList,4);
-             nBlue  = ring_list_getdouble(pPointList,5);
+        if ( ring_list_isdouble(pPointList,1) && ring_list_isdouble(pPointList,2) && 
+             ring_list_isdouble(pPointList,2) ) {
+             nRed   = ring_list_getdouble(pPointList,1);
+             nGreen = ring_list_getdouble(pPointList,2);
+             nBlue  = ring_list_getdouble(pPointList,3);
              if (nRed   > 1) nRed   = 1;
              if (nGreen > 1) nGreen = 1;
              if (nBlue  > 1) nBlue  = 1;	     
@@ -145,12 +147,7 @@ RING_FUNC(ring_list2bytes)
         }
 
         if ( nChannel == 4) 
-            if ( ring_list_isdouble(pPointList,6) ) { 
-                 cData[nIndex++] = (char) (ring_list_getdouble(pPointList,6)*nMul);
-            } else {
-                lError = 1;
-                break;
-            }
+            cData[nIndex++] = (char) (nAlpha*nMul);
     }
 
     if ( lError == 1 ) {
