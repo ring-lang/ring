@@ -263,7 +263,7 @@ FastPro Extension
 
 This new extension comes with the next functions
 
-* Bytes2List(cBytes,nWidth,nHeight,nChannels) —> aList // [[x,y,R,G,B,A],…]
+* Bytes2List(cBytes,nWidth,nHeight,nChannels) —> aList // [[R,G,B],…]
 * List2Bytes(aList,nChannels) —> cBytes // “RGBA….”
 * updateList(<aList>,<cCommand>,<cSelection>,<nPara1>,[<nPara2>],[nPara3])
 * updateColumn(<aList>, [<cCommand>,<nPara1>,[<nPara2>],[nPara3]],…)

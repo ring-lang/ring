@@ -26,7 +26,7 @@ Syntax:
 
 .. code-block:: none
 
-	Bytes2List(cBytes,nWidth,nHeight,nChannels) —> aList // [[x,y,R,G,B,A],…]
+	Bytes2List(cBytes,nWidth,nHeight,nChannels) —> aList // [[R,G,B],…]
 
 .. index:: 
 	pair: Using FastPro; List2Bytes()
