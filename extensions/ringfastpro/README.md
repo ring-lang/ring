@@ -3,7 +3,7 @@ FastPro Extension
 
 Contains the next function
 
-* Bytes2List(cBytes) —> aList // [[x,y,R,G,B,A],...]
+* Bytes2List(cBytes) —> aList // [[R,G,B],...]
 
 * List2Bytes(aList) —> cBytes // "RGBA...."
 
