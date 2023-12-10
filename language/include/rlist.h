@@ -2,6 +2,11 @@
 #ifndef ring_list_h
     #define ring_list_h
     /* Data */
+    typedef struct ListBlocks {
+        void *pValue  ;
+        struct ListBlocks *pNext  ;
+        int nType  ;
+    } ListBlocks ;
     typedef struct List {
         struct Items *pFirst  ;
         struct Items *pLast  ;
@@ -12,6 +17,7 @@
         struct HashTable *pHashTable  ;
         struct Item *pItemBlock  ;
         struct Items *pItemsBlock  ;
+        struct ListBlocks *pBlocks  ;
         /* Garbage Collector Data (Reference Counting) */
         ListGCData gc  ;
     } List ;
@@ -20,6 +26,8 @@
     #define RING_LISTOFOBJS_FINDNUMBER 0
     #define RING_LISTREF_INC 1
     #define RING_LISTREF_DEC -1
+    #define RING_LISTBLOCKTYPE_ITEM 1
+    #define RING_LISTBLOCKTYPE_ITEMS 2
     /* Macro */
     #define ring_list_isdouble(pList,index) ( ring_list_getitem(pList,index)->NumberFlag == ITEM_NUMBERFLAG_DOUBLE)
     #define ring_list_isint(pList,index) ( ring_list_getitem(pList,index)->NumberFlag == ITEM_NUMBERFLAG_INT )
@@ -59,6 +67,8 @@
     RING_API int ring_list_gettype ( List *pList, unsigned int index ) ;
 
     RING_API void ring_list_clear ( List *pList ) ;
+
+    RING_API void ring_list_addblock_gc ( void *pState,List *pList,void *pMemory,int nType ) ;
     /* int */
 
     RING_API void ring_list_setint_gc ( void *pState,List *pList, unsigned int index ,int number ) ;

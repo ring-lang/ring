@@ -1,4 +1,20 @@
 ring_list_h
+Parent: ListBlocks
+Type: void *
+pValue
+Type: struct ListBlocks *
+pNext
+Type: int
+nType
+END:
+Type: ListBlocks
+struct ListBlocks
+Type: ListBlocks
+Mark: ->
+struct ListBlocks *
+Type: ListBlocks
+Mark: ->
+ListBlocks *
 Parent: List
 Type: struct Items *
 pFirst
@@ -18,6 +34,8 @@ Type: struct Item *
 pItemBlock
 Type: struct Items *
 pItemsBlock
+Type: struct ListBlocks *
+pBlocks
 Type: ListGCData
 gc
 END:
@@ -33,6 +51,8 @@ RING_LISTOFOBJS_FINDSTRING
 RING_LISTOFOBJS_FINDNUMBER
 RING_LISTREF_INC
 RING_LISTREF_DEC
+RING_LISTBLOCKTYPE_ITEM
+RING_LISTBLOCKTYPE_ITEMS
 ring_list_isdouble(pList,index)
 ring_list_isint(pList,index)
 ring_list_deletelastitem(x)
@@ -57,8 +77,6 @@ Type: unsigned int
 x
 Type: Items *
 pItems,*pItemsLast
-Type: Item *
-pItem
 ring_list_delete_gc
 ring_list_deletecontent_gc
 ring_list_copy_gc
@@ -75,6 +93,9 @@ x
 Type: List *
 pNewList2
 ring_list_clear
+ring_list_addblock_gc
+Type: ListBlocks *
+pBlocks
 ring_list_newitem_gc
 Type: Items *
 pItems
