@@ -45,8 +45,7 @@ RING_API List * ring_list_new2_gc ( void *pState,List *pList,unsigned int nSize 
     pList->pLastItemLastAccess = NULL ;
     pList->pItemsArray = NULL ;
     pList->pHashTable = NULL ;
-    pList->pItemBlock = NULL ;
-    pList->pItemsBlock = NULL ;
+    pList->pBlocks = NULL ;
     ring_list_clearrefdata(pList);
     return pList ;
 }
@@ -102,6 +101,7 @@ RING_API void ring_list_copy_gc ( void *pState,List *pNewList, List *pList )
 RING_API void ring_list_deleteallitems_gc ( void *pState,List *pList )
 {
     Items *pItems,*pItemsNext  ;
+    ListBlocks *pBlocks  ;
     pItems = pList->pFirst ;
     if ( pItems != NULL ) {
         pItemsNext = pItems ;
@@ -124,15 +124,20 @@ RING_API void ring_list_deleteallitems_gc ( void *pState,List *pList )
         pList->pHashTable = ring_hashtable_delete_gc(pState,pList->pHashTable);
     }
     /* Delete Blocks (if we have allocated large block of memory) */
-    if ( pList->pItemBlock != NULL ) {
-        ring_state_unregisterblock(pState,pList->pItemBlock+1);
-        ring_state_free(pState,pList->pItemBlock);
-        pList->pItemBlock = NULL ;
-    }
-    if ( pList->pItemsBlock != NULL ) {
-        ring_state_unregisterblock(pState,pList->pItemsBlock+1);
-        ring_state_free(pState,pList->pItemsBlock);
-        pList->pItemsBlock = NULL ;
+    if ( pList->pBlocks != NULL ) {
+        while ( pList->pBlocks != NULL ) {
+            /* Unregister the block */
+            if ( pList->pBlocks->nType == RING_LISTBLOCKTYPE_ITEM ) {
+                ring_state_unregisterblock(pState,((struct Item *) pList->pBlocks->pValue ) + 1);
+            }
+            else if ( pList->pBlocks->nType == RING_LISTBLOCKTYPE_ITEMS ) {
+                ring_state_unregisterblock(pState,((struct Items *) pList->pBlocks->pValue ) + 1);
+            }
+            ring_state_free(pState,pList->pBlocks->pValue);
+            pBlocks = pList->pBlocks ;
+            pList->pBlocks = pList->pBlocks->pNext ;
+            ring_state_free(pState,pBlocks);
+        }
     }
 }
 
@@ -177,9 +182,30 @@ RING_API void ring_list_clear ( List *pList )
     pList->pLastItemLastAccess = NULL ;
     pList->pItemsArray = NULL ;
     pList->pHashTable = NULL ;
-    pList->pItemBlock = NULL ;
-    pList->pItemsBlock = NULL ;
+    pList->pBlocks = NULL ;
     ring_list_clearrefdata(pList);
+}
+
+RING_API void ring_list_addblock_gc ( void *pState,List *pList,void *pMemory,int nType )
+{
+    ListBlocks *pBlocks  ;
+    /* Check if we will add the first block */
+    if ( pList->pBlocks == NULL ) {
+        pList->pBlocks = (ListBlocks *) ring_state_malloc(pState,sizeof(ListBlocks)) ;
+        pList->pBlocks->pValue = pMemory ;
+        pList->pBlocks->pNext = NULL ;
+        pList->pBlocks->nType = nType ;
+        return ;
+    }
+    /* Add more blocks */
+    pBlocks = pList->pBlocks ;
+    while ( pBlocks->pNext != NULL ) {
+        pBlocks = pBlocks->pNext ;
+    }
+    pBlocks->pNext = (ListBlocks *) ring_state_malloc(pState,sizeof(ListBlocks)) ;
+    pBlocks->pNext->pValue = pMemory ;
+    pBlocks->pNext->pNext = NULL ;
+    pBlocks->pNext->nType = nType ;
 }
 /* List Items */
 

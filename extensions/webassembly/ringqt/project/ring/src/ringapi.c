@@ -467,10 +467,10 @@ RING_API List * ring_vm_api_newlistusingblocks ( VM *pVM, int nSize, int nSize2 
             **  Because we may delete the first item (And we need to avoid deleting the block too) 
             */
             pItems = (Items *) ring_calloc(nSize+1,sizeof(Items));
-            pList->pItemsBlock = pItems ;
+            ring_list_addblock_gc(pVM->pRingState,pList,pItems,RING_LISTBLOCKTYPE_ITEMS);
             ring_state_registerblock(pVM->pRingState,pItems+1,pItems+nSize);
             pItem = (Item *) ring_calloc(nSize+1,sizeof(Item));
-            pList->pItemBlock = pItem ;
+            ring_list_addblock_gc(pVM->pRingState,pList,pItem,RING_LISTBLOCKTYPE_ITEM);
             ring_state_registerblock(pVM->pRingState,pItem+1,pItem+nSize);
             for ( x = 1 ; x <=nSize ; x++ ) {
                 /*
@@ -501,10 +501,10 @@ RING_API List * ring_vm_api_newlistusingblocks ( VM *pVM, int nSize, int nSize2 
         else if ( (nSize > 0) && (nSize2 > 0) ) {
             /* Allocate Memory */
             pItems = (Items *) ring_calloc((nSize*nSize2)+1,sizeof(Items));
-            pList->pItemsBlock = pItems ;
+            ring_list_addblock_gc(pVM->pRingState,pList,pItems,RING_LISTBLOCKTYPE_ITEMS);
             ring_state_registerblock(pVM->pRingState,pItems+1,pItems+(nSize*nSize2));
             pItem = (Item *) ring_calloc((nSize*nSize2)+1,sizeof(Item));
-            pList->pItemBlock = pItem ;
+            ring_list_addblock_gc(pVM->pRingState,pList,pItem,RING_LISTBLOCKTYPE_ITEM);
             ring_state_registerblock(pVM->pRingState,pItem+1,pItem+(nSize*nSize2));
             for ( x = 1 ; x <=nSize ; x++ ) {
                 pList2 = ring_list_newlist(pList);
