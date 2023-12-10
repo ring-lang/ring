@@ -536,7 +536,7 @@ More Improvements
 * BigNumber - Better code for the power function
 * ObjectsLib - Better Code when opening new windows
 * GameEngine - Support playing many sound files at the same time
-* RingQt - QPainter class - Added: drawRGBFListAtXY() & drawHSVFListAtXY()
+* RingQt - QPainter class - Added: drawRGBFListAtXY(), drawHSVFListAtXY() & drawBytes()
 * RingQt - Qt version is updated to Qt 5.15.16
 * Number() function - Don't produce an error when the input is already a number
 * String() function - Don't produce an error when the input is already a string

@@ -8133,6 +8133,7 @@ Parameters : void
 * void drawRGBFList(List *pPoints)
 * void drawHSVFListAtXY(List *pPoints, int x, int y)
 * void drawRGBFListAtXY(List *pPoints, int x, int y)
+* void drawBytes(int x, int y,const char *cData,int Width,int Height,int channels)
 
 .. index::
 	pair: RingQt Classes Reference; QPainter2 Class
