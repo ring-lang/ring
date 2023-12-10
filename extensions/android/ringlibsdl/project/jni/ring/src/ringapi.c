@@ -458,8 +458,8 @@ RING_API List * ring_vm_api_newlistusingblocks ( VM *pVM, int nSize, int nSize2 
     Items *pItems  ;
     Item *pItem  ;
     pList = ring_vm_api_newlist(pVM) ;
-    /* Check if we have 64-bit version of Ring (OR More!) */
-    if ( sizeof(char *) >= 8 ) {
+    /* Check if we can use blocks */
+    if ( pVM->pRingState->lCreateListsUsingBlocks ) {
         if ( (nSize > 0) && (nSize2 == -1) ) {
             /*
             **  Allocate Memory 
