@@ -764,7 +764,7 @@ RING_API void ring_state_free ( void *pState,void *pMemory )
     /* Check sections inside Memory Blocks */
     if ( pRingState != NULL ) {
         pBlocks = pRingState->vPoolManager.aBlocks ;
-        if ( pBlocks != NULL ) {
+        if ( (pBlocks != NULL) && (! pRingState->lDontCheckStateBlocks) ) {
             if ( ring_list_getsize(pBlocks) > 0 ) {
                 for ( x = 1 ; x <= ring_list_getsize(pBlocks) ; x++ ) {
                     pBlock = ring_list_getlist(pBlocks,x) ;
@@ -864,13 +864,11 @@ RING_API void ring_state_registerblock ( void *pState,void *pStart, void *pEnd )
     List *pList  ;
     RingState *pRingState  ;
     pRingState = (RingState *) pState ;
-    /*
-    **  Here we don't use ring_list_newlist_gc() or ring_list_addpointer_gc() functions 
-    **  To avoid checking the pRingState->vPoolManager.aBlocks list while we are updating it 
-    */
-    pList = ring_list_newlist(pRingState->vPoolManager.aBlocks);
-    ring_list_addpointer(pList,pStart);
-    ring_list_addpointer(pList,pEnd);
+    pRingState->lDontCheckStateBlocks = 1 ;
+    pList = ring_list_newlist_gc(pRingState,pRingState->vPoolManager.aBlocks);
+    ring_list_addpointer_gc(pRingState,pList,pStart);
+    ring_list_addpointer_gc(pRingState,pList,pEnd);
+    pRingState->lDontCheckStateBlocks = 0 ;
 }
 
 RING_API void ring_state_unregisterblock ( void *pState,void *pStart )
@@ -879,6 +877,7 @@ RING_API void ring_state_unregisterblock ( void *pState,void *pStart )
     List *pList  ;
     RingState *pRingState  ;
     pRingState = (RingState *) pState ;
+    pRingState->lDontCheckStateBlocks = 1 ;
     for ( x = 1 ; x <= ring_list_getsize(pRingState->vPoolManager.aBlocks) ; x++ ) {
         pList = ring_list_getlist(pRingState->vPoolManager.aBlocks,x);
         if ( ring_list_getpointer(pList,1) == pStart ) {
@@ -886,10 +885,11 @@ RING_API void ring_state_unregisterblock ( void *pState,void *pStart )
             **  Here we don't use ring_list_deleteitem_gc() function 
             **  To avoid checking the pRingState->vPoolManager.aBlocks list while we are updating it 
             */
-            ring_list_deleteitem(pRingState->vPoolManager.aBlocks,x);
+            ring_list_deleteitem_gc(pRingState,pRingState->vPoolManager.aBlocks,x);
             return ;
         }
     }
+    pRingState->lDontCheckStateBlocks = 0 ;
 }
 
 void ring_vm_gc_deleteitem ( Item *pItem )

@@ -59,6 +59,8 @@ lDisablePoolManager : 1
 Type: unsigned int
 lCreateListsUsingBlocks : 1
 Type: unsigned int
+lDontCheckStateBlocks : 1
+Type: unsigned int
 lNoLineNumber : 1
 Type: int
 nCustomGlobalScopeCounter
