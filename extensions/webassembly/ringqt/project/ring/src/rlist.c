@@ -133,6 +133,9 @@ RING_API void ring_list_deleteallitems_gc ( void *pState,List *pList )
             else if ( pList->pBlocks->nType == RING_LISTBLOCKTYPE_ITEMS ) {
                 ring_state_unregisterblock(pState,((struct Items *) pList->pBlocks->pValue ) + 1);
             }
+            else if ( pList->pBlocks->nType == RING_LISTBLOCKTYPE_LIST ) {
+                ring_state_unregisterblock(pState,((struct List *) pList->pBlocks->pValue ) + 1);
+            }
             ring_state_free(pState,pList->pBlocks->pValue);
             pBlocks = pList->pBlocks ;
             pList->pBlocks = pList->pBlocks->pNext ;
