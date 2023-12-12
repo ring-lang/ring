@@ -234,7 +234,6 @@ Func GetImagePixels()
     MonaLisa.fill(colorBlack)                               // ===<<< BLANK OUT OLD IMAGE !!!
     daVinci.drawPixMap(imageOffsetX,imageOffsetY,oPixMap)        
     Canvas.setPixMap(MonaLisa)                              ### Need this setPixMap to display imageLabel               
-    MyApp.processEvents()                                   ### EXEC the Draw
 
    #=====================================================================#
    // See "GetPixelColors.....: "
