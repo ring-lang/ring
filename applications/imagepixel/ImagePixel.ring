@@ -371,7 +371,6 @@ Func ChangeColorValue()
     ok
     
     Canvas.setPixMap(MonaLisa)          ### Need this setPixMap to display imageLabel               
-    MyApp.ProcessEvents()               ### EXEC the Draw   
   
     // MCOrig as per FRACTION of SLIDER Values
     DrawRGBAImagePixels(MCOrig,imageOffsetX+imageStock.Width()+10,imageOffsetY,nNewAlpha)  
@@ -400,7 +399,6 @@ Func DrawRGBAImagePixels(MCImage,nXStart,nYStart,nNewAlpha)
    daVinci.drawBytes(nXStart,nYStart,list2Bytes(MCImage,4,255,nNewAlpha),nImageWidth,nImageHeight,4)    
 
    Canvas.setPixMap(MonaLisa)          ### Need this setPixMap to display imageLabel               
-   myApp.processEvents()               ### EXEC the Draw
 
    #=====================================================================#
    t3 = clock()
