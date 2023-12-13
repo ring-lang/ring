@@ -236,8 +236,6 @@ Type: unsigned char
 lPassError
 Type: unsigned char
 lHideErrorMsg
-Type: unsigned char
-lHideErrorMsg
 Type: Item
 aStack[RING_VM_STACK_SIZE]
 END:
