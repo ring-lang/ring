@@ -92,6 +92,13 @@
     RING_API void ring_list_enabledontrefagain ( List *pList ) ;
 
     RING_API void ring_list_disabledontrefagain ( List *pList ) ;
+    /* Error on assignment */
+
+    RING_API void ring_list_enableerroronassignment ( List *pList ) ;
+
+    RING_API void ring_list_disableerroronassignment ( List *pList ) ;
+
+    RING_API int ring_list_iserroronassignment ( List *pList ) ;
     /* Memory Functions (General) */
 
     RING_API void * ring_malloc ( size_t size ) ;

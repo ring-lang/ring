@@ -612,12 +612,27 @@ RING_API void ring_list_disabledontrefagain ( List *pList )
 }
 /* Protecting lists */
 
+RING_API void ring_list_enableerroronassignment ( List *pList )
+{
+    pList->gc.lErrorOnAssignment = 1 ;
+}
+
+RING_API void ring_list_disableerroronassignment ( List *pList )
+{
+    pList->gc.lErrorOnAssignment = 0 ;
+}
+
+RING_API int ring_list_iserroronassignment ( List *pList )
+{
+    return pList->gc.lErrorOnAssignment ;
+}
+
 int ring_vm_checkvarerroronassignment ( VM *pVM,List *pVar )
 {
     List *pList  ;
     if ( ring_list_islist(pVar,RING_VAR_VALUE) ) {
         pList = ring_list_getlist(pVar,RING_VAR_VALUE) ;
-        if ( pList->gc.lErrorOnAssignment ) {
+        if ( ring_list_iserroronassignment(pList) ) {
             ring_vm_error(pVM,RING_VM_ERROR_PROTECTEDVALUE);
             return 1 ;
         }
@@ -630,7 +645,7 @@ int ring_vm_checkitemerroronassignment ( VM *pVM,Item *pItem )
     List *pList  ;
     if ( ring_item_gettype(pItem) == ITEMTYPE_LIST ) {
         pList = ring_item_getlist(pItem) ;
-        if ( pList->gc.lErrorOnAssignment ) {
+        if ( ring_list_iserroronassignment(pList) ) {
             ring_vm_error(pVM,RING_VM_ERROR_PROTECTEDVALUE);
             return 1 ;
         }
@@ -669,7 +684,7 @@ void ring_vm_removelistprotectionat ( VM *pVM,List *pNestedLists,int nPos )
     List *pList  ;
     /* Disable Error on Assignment */
     pList = (List *) ring_list_getpointer(pNestedLists,nPos);
-    pList->gc.lErrorOnAssignment = 0 ;
+    ring_list_disableerroronassignment(pList);
     /* Check if list is deleted by Parent */
     if ( pList->gc.lDeletedByParent ) {
         pList->gc.lDeletedByParent = 0 ;
