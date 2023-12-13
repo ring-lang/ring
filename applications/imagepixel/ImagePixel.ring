@@ -68,7 +68,7 @@ myApp = new QApp
             Canvas = new QLabel(win)
             {
                 ### daVinci paints the MonaLisa on the Canvas
-                MonaLisa  = new QPixMap2( 4000, 4000)
+                MonaLisa  = new QPixMap2( 6000, 6000)
                     color = new QColor(){ setrgb(255,255,255,0) }
                       pen = new QPen()  { setwidth(1) } 
 
