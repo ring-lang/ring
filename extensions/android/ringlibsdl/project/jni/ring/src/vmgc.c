@@ -12,7 +12,7 @@ void ring_vm_gc_checknewreference ( void *pPointer,int nType, List *pContainer, 
     */
     if ( nType == RING_OBJTYPE_LISTITEM ) {
         pItem = (Item *) pPointer ;
-        pItem->gc.nReferenceCount++ ;
+        pItem->gcnReferenceCount++ ;
         /* Set the Free Function */
         pItem = ring_list_getitem(pContainer,nIndex) ;
         ring_vm_gc_setfreefunc(pItem, (void(*)(void *, void*)) ring_vm_gc_deleteitem_gc);
@@ -36,7 +36,7 @@ void ring_vm_gc_checkupdatereference ( VM *pVM,List *pList )
 
 void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem )
 {
-    if ( pItem->gc.nReferenceCount == 0 ) {
+    if ( pItem->gcnReferenceCount == 0 ) {
         #if GCLog
             printf( "GC Delete Item - Free Memory %p \n",pItem ) ;
         #endif
@@ -48,7 +48,7 @@ void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem )
         ring_state_free(pState,pItem);
     }
     else {
-        pItem->gc.nReferenceCount-- ;
+        pItem->gcnReferenceCount-- ;
     }
 }
 
@@ -171,16 +171,16 @@ void ring_vm_gc_deletetemplists ( VM *pVM )
 
 void ring_vm_gc_freefunc ( RingState *pState,Item *pItem )
 {
-    if ( pItem->gc.pFreeFunc != NULL ) {
+    if ( pItem->gcpFreeFunc != NULL ) {
         if ( pItem->data.pPointer  != NULL ) {
-            pItem->gc.pFreeFunc(pState,pItem->data.pPointer);
+            pItem->gcpFreeFunc(pState,pItem->data.pPointer);
         }
     }
 }
 
 void ring_vm_gc_setfreefunc ( Item *pItem, void (* pFreeFunc)(void *,void *) )
 {
-    pItem->gc.pFreeFunc = pFreeFunc ;
+    pItem->gcpFreeFunc = pFreeFunc ;
 }
 
 void ring_vm_gc_deletelistinitem ( void *pState,void *pList )
