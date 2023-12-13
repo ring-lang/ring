@@ -1,10 +1,11 @@
 /* Copyright (c) 2013-2023 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_vmgcdata
     #define ring_vmgcdata
+    #define RING_VM_BITSFORREFCOUNT 24
     typedef struct ListGCData {
         void *pContainer  ;
-        int nReferenceCount: 24  ;
-        int nTempRC: 24  ;
+        int nReferenceCount: RING_VM_BITSFORREFCOUNT  ;
+        int nTempRC: RING_VM_BITSFORREFCOUNT  ;
         unsigned int lCopyByRef: 1  ;
         unsigned int lNewRef: 1  ;
         unsigned int lDontDelete: 1  ;

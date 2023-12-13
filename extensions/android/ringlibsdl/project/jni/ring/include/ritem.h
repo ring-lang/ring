@@ -23,7 +23,7 @@
         */
         unsigned int nObjectType:2  ;
         /* Garbage Collector Data (Reference Counting) */
-        unsigned int gcnReferenceCount: 24  ;
+        unsigned int gcnReferenceCount: RING_VM_BITSFORREFCOUNT  ;
         void (*gcpFreeFunc)(void *,void *) ;
     } Item ;
     /* Constants */

@@ -20,8 +20,6 @@ Type: unsigned int
 NumberFlag:2
 Type: unsigned int
 nObjectType:2
-Type: ItemGCData
-gc
 Type: unsigned int
 gcnReferenceCount: 24
 END:

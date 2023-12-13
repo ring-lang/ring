@@ -1,11 +1,12 @@
 ring_vmgcdata
+RING_VM_BITSFORREFCOUNT
 Parent: ListGCData
 Type: void *
 pContainer
 Type: int
-nReferenceCount: 24
+nReferenceCount: RING_VM_BITSFORREFCOUNT
 Type: int
-nTempRC
+nTempRC: 24
 Type: unsigned int
 lCopyByRef: 1
 Type: unsigned int
