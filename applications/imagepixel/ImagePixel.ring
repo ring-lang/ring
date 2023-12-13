@@ -4,7 +4,7 @@
 //
 
 load "stdlibcore.ring"
-load "guilib.ring"
+load "lightguilib.ring"
 load "stbimage.ring"           // Extract Image to RBG
 load "fastpro.ring"            // Contains bytes2List() & updateList() functions 
 
