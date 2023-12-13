@@ -6,7 +6,7 @@ pContainer
 Type: int
 nReferenceCount: RING_VM_BITSFORREFCOUNT
 Type: int
-nTempRC: 24
+nTempRC: RING_VM_BITSFORREFCOUNT
 Type: unsigned int
 lCopyByRef: 1
 Type: unsigned int
