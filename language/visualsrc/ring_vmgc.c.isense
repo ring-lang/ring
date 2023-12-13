@@ -218,15 +218,15 @@ nItemsInBlock
 Type: unsigned int
 nItemsInBlockL2
 Type: unsigned int
-nItemsInBlockL6
-Type: unsigned int
-lDeleteMemory
-Type: unsigned int
 nItemsInBlockL3
 Type: unsigned int
 nItemsInBlockL4
 Type: unsigned int
-nItemsInBlockL2
+nItemsInBlockL5
+Type: unsigned int
+nItemsInBlockL6
+Type: unsigned int
+lDeleteMemory
 END:
 Type: PoolManager
 struct PoolManager
