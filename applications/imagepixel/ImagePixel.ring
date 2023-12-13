@@ -273,7 +273,7 @@ Func ChangeColorValue()
     btnOpenFile.setEnabled(False)
     btnChangeColors.setEnabled(False)
     label2.setText(" Changing Colors")
-    MyApp.ProcessEvents()  
+    win.repaint()
 
     # Convert to [r,g,b] List
     # We pass channels (could be 3 or 4) and Bytes2List always return the RGB values only
