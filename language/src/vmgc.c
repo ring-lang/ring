@@ -1161,55 +1161,46 @@ int ring_poolmanager_free ( RingState *pRingState,void *pMemory )
     PoolDataL3 *pPoolDataL3  ;
     PoolDataL4 *pPoolDataL4  ;
     PoolDataL5 *pPoolDataL5  ;
-    int nLevel  ;
+    int nLevel, lRet  ;
+    lRet = 0 ;
     nLevel = ring_poolmanager_find(pRingState, pMemory) ;
     if ( nLevel == 1 ) {
         pPoolData = (PoolData *) pMemory ;
         pPoolData->pNext = pRingState->vPoolManager.pCurrentItem ;
         pRingState->vPoolManager.pCurrentItem = pPoolData ;
-        #if RING_TRACKALLOCATIONS
-            pRingState->vPoolManager.nSmallFreeCount++ ;
-        #endif
-        return 1 ;
+        lRet = 1 ;
     }
     else if ( nLevel == 2 ) {
         pPoolDataL2 = (PoolDataL2 *) pMemory ;
         pPoolDataL2->pNext = pRingState->vPoolManager.pCurrentItemL2 ;
         pRingState->vPoolManager.pCurrentItemL2 = pPoolDataL2 ;
-        #if RING_TRACKALLOCATIONS
-            pRingState->vPoolManager.nSmallFreeCount++ ;
-        #endif
-        return 1 ;
+        lRet = 1 ;
     }
     else if ( nLevel == 3 ) {
         pPoolDataL3 = (PoolDataL3 *) pMemory ;
         pPoolDataL3->pNext = pRingState->vPoolManager.pCurrentItemL3 ;
         pRingState->vPoolManager.pCurrentItemL3 = pPoolDataL3 ;
-        #if RING_TRACKALLOCATIONS
-            pRingState->vPoolManager.nSmallFreeCount++ ;
-        #endif
-        return 1 ;
+        lRet = 1 ;
     }
     else if ( nLevel == 4 ) {
         pPoolDataL4 = (PoolDataL4 *) pMemory ;
         pPoolDataL4->pNext = pRingState->vPoolManager.pCurrentItemL4 ;
         pRingState->vPoolManager.pCurrentItemL4 = pPoolDataL4 ;
-        #if RING_TRACKALLOCATIONS
-            pRingState->vPoolManager.nSmallFreeCount++ ;
-        #endif
-        return 1 ;
+        lRet = 1 ;
     }
     else if ( nLevel == 5 ) {
         pPoolDataL5 = (PoolDataL5 *) pMemory ;
         pPoolDataL5->pNext = pRingState->vPoolManager.pCurrentItemL5 ;
         pRingState->vPoolManager.pCurrentItemL5 = pPoolDataL5 ;
-        #if RING_TRACKALLOCATIONS
-            pRingState->vPoolManager.nSmallFreeCount++ ;
-        #endif
-        return 1 ;
+        lRet = 1 ;
     }
-    /* Reaching this point means that the Pool Manager doesn't own this memory to free it! */
-    return 0 ;
+    #if RING_TRACKALLOCATIONS
+        if ( lRet ) {
+            pRingState->vPoolManager.nSmallFreeCount++ ;
+        }
+    #endif
+    /* Reaching this point and lRet=0 means that the Pool Manager doesn't own this memory to free it! */
+    return lRet ;
 }
 
 void ring_poolmanager_delete ( RingState *pRingState )

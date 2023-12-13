@@ -423,7 +423,7 @@ pPoolDataL4
 Type: PoolDataL5 *
 pPoolDataL5
 Type: int
-nLevel
+nLevel, lRet
 ring_poolmanager_delete
 ring_poolmanager_newblockfromsubthread
 Type: int
