@@ -17,6 +17,15 @@
     /* Level 2 */
     #define RING_POOLMANAGER_ITEMSTRINGSIZEL2 512
     #define RING_POOLMANAGER_ITEMSINBLOCKL2 4096
+    /* Level 3 */
+    #define RING_POOLMANAGER_ITEMSTRINGSIZEL3 1024
+    #define RING_POOLMANAGER_ITEMSINBLOCKL3 2048
+    /* Level 4 */
+    #define RING_POOLMANAGER_ITEMSTRINGSIZEL4 8192
+    #define RING_POOLMANAGER_ITEMSINBLOCKL4 128
+    /* Level 5 */
+    #define RING_POOLMANAGER_ITEMSTRINGSIZEL5 1024*1024
+    #define RING_POOLMANAGER_ITEMSINBLOCKL5 8
     /* Level 6 */
     #define RING_POOLMANAGER_ITEMSTRINGSIZEL6 192
     #define RING_POOLMANAGER_ITEMSINBLOCKL6 2048
@@ -39,6 +48,18 @@
         char cChar[RING_POOLMANAGER_ITEMSTRINGSIZEL2]  ;
         struct PoolDataL2 *pNext  ;
     } PoolDataL2 ;
+    typedef struct PoolDataL3 {
+        char cChar[RING_POOLMANAGER_ITEMSTRINGSIZEL3]  ;
+        struct PoolDataL3 *pNext  ;
+    } PoolDataL3 ;
+    typedef struct PoolDataL4 {
+        char cChar[RING_POOLMANAGER_ITEMSTRINGSIZEL4]  ;
+        struct PoolDataL4 *pNext  ;
+    } PoolDataL4 ;
+    typedef struct PoolDataL5 {
+        char cChar[RING_POOLMANAGER_ITEMSTRINGSIZEL5]  ;
+        struct PoolDataL5 *pNext  ;
+    } PoolDataL5 ;
     typedef struct VMState {
         int aNumbers[RING_VM_STATE_NUMBERS_COUNT]  ;
         void *aPointers[RING_VM_STATE_POINTERS_COUNT]  ;
@@ -59,6 +80,18 @@
         PoolDataL2 *pCurrentItemL2  ;
         void *pBlockStartL2  ;
         void *pBlockEndL2  ;
+        /* Level 3 */
+        PoolDataL3 *pCurrentItemL3  ;
+        void *pBlockStartL3  ;
+        void *pBlockEndL3  ;
+        /* Level 4 */
+        PoolDataL4 *pCurrentItemL4  ;
+        void *pBlockStartL4  ;
+        void *pBlockEndL4  ;
+        /* Level 5 */
+        PoolDataL5 *pCurrentItemL5  ;
+        void *pBlockStartL5  ;
+        void *pBlockEndL5  ;
         /* Level 6 */
         PoolDataL6 *pCurrentItemL6  ;
         void *pBlockStartL6  ;
@@ -70,6 +103,9 @@
         unsigned int nSmallFreeCount  ;
         unsigned int nItemsInBlock  ;
         unsigned int nItemsInBlockL2  ;
+        unsigned int nItemsInBlockL3  ;
+        unsigned int nItemsInBlockL4  ;
+        unsigned int nItemsInBlockL5  ;
         unsigned int nItemsInBlockL6  ;
         unsigned int lDeleteMemory  ;
     } PoolManager ;

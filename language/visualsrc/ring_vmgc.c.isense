@@ -40,6 +40,12 @@ RING_POOLMANAGER_ITEMSTRINGSIZE
 RING_POOLMANAGER_ITEMSINBLOCK
 RING_POOLMANAGER_ITEMSTRINGSIZEL2
 RING_POOLMANAGER_ITEMSINBLOCKL2
+RING_POOLMANAGER_ITEMSTRINGSIZEL3
+RING_POOLMANAGER_ITEMSINBLOCKL3
+RING_POOLMANAGER_ITEMSTRINGSIZEL4
+RING_POOLMANAGER_ITEMSINBLOCKL4
+RING_POOLMANAGER_ITEMSTRINGSIZEL5
+RING_POOLMANAGER_ITEMSINBLOCKL5
 RING_POOLMANAGER_ITEMSTRINGSIZEL6
 RING_POOLMANAGER_ITEMSINBLOCKL6
 RING_VM_STATE_NUMBERS_COUNT
@@ -86,6 +92,48 @@ struct PoolDataL2 *
 Type: PoolDataL2
 Mark: ->
 PoolDataL2 *
+Parent: PoolDataL3
+Type: char
+cChar[RING_POOLMANAGER_ITEMSTRINGSIZEL3]
+Type: struct PoolDataL3 *
+pNext
+END:
+Type: PoolDataL3
+struct PoolDataL3
+Type: PoolDataL3
+Mark: ->
+struct PoolDataL3 *
+Type: PoolDataL3
+Mark: ->
+PoolDataL3 *
+Parent: PoolDataL4
+Type: char
+cChar[RING_POOLMANAGER_ITEMSTRINGSIZEL4]
+Type: struct PoolDataL4 *
+pNext
+END:
+Type: PoolDataL4
+struct PoolDataL4
+Type: PoolDataL4
+Mark: ->
+struct PoolDataL4 *
+Type: PoolDataL4
+Mark: ->
+PoolDataL4 *
+Parent: PoolDataL5
+Type: char
+cChar[RING_POOLMANAGER_ITEMSTRINGSIZEL5]
+Type: struct PoolDataL5 *
+pNext
+END:
+Type: PoolDataL5
+struct PoolDataL5
+Type: PoolDataL5
+Mark: ->
+struct PoolDataL5 *
+Type: PoolDataL5
+Mark: ->
+PoolDataL5 *
 Parent: VMState
 Type: int
 aNumbers[RING_VM_STATE_NUMBERS_COUNT]
@@ -131,6 +179,24 @@ Type: void *
 pBlockStartL2
 Type: void *
 pBlockEndL2
+Type: PoolDataL3 *
+pCurrentItemL3
+Type: void *
+pBlockStartL3
+Type: void *
+pBlockEndL3
+Type: PoolDataL4 *
+pCurrentItemL4
+Type: void *
+pBlockStartL4
+Type: void *
+pBlockEndL4
+Type: PoolDataL5 *
+pCurrentItemL5
+Type: void *
+pBlockStartL5
+Type: void *
+pBlockEndL5
 Type: PoolDataL6 *
 pCurrentItemL6
 Type: void *
@@ -155,6 +221,12 @@ Type: unsigned int
 nItemsInBlockL6
 Type: unsigned int
 lDeleteMemory
+Type: unsigned int
+nItemsInBlockL3
+Type: unsigned int
+nItemsInBlockL4
+Type: unsigned int
+nItemsInBlockL2
 END:
 Type: PoolManager
 struct PoolManager
@@ -325,6 +397,12 @@ Type: PoolData *
 pMemory
 Type: PoolDataL2 *
 pMemoryL2
+Type: PoolDataL3 *
+pMemoryL3
+Type: PoolDataL4 *
+pMemoryL4
+Type: PoolDataL5 *
+pMemoryL5
 Type: PoolDataL6 *
 pMemoryL6
 Type: int
@@ -338,6 +416,12 @@ Type: PoolData *
 pPoolData
 Type: PoolDataL2 *
 pPoolDataL2
+Type: PoolDataL3 *
+pPoolDataL3
+Type: PoolDataL4 *
+pPoolDataL4
+Type: PoolDataL5 *
+pPoolDataL5
 Type: int
 nLevel
 ring_poolmanager_delete
