@@ -270,19 +270,19 @@ void ring_hashtable_test ( void )
 
 void ring_structuressize ( void )
 {
-    printf( "Stucture (RingState) size: %d \n",sizeof(RingState) ) ;
-    printf( "Stucture (PoolData) size: %d \n",sizeof(PoolData) ) ;
-    printf( "Stucture (PoolManager) size: %d \n",sizeof(PoolManager) ) ;
-    printf( "Stucture (String) size: %d \n",sizeof(String) ) ;
-    printf( "Stucture (Item) size: %d \n",sizeof(Item) ) ;
-    printf( "Stucture (Items) size: %d \n",sizeof(Items) ) ;
-    printf( "Stucture (List) size: %d \n",sizeof(List) ) ;
-    printf( "Stucture (HashItem) size: %d \n",sizeof(HashItem) ) ;
-    printf( "Stucture (HashTable) size: %d \n",sizeof(HashTable) ) ;
-    printf( "Stucture (Scanner) size: %d \n",sizeof(Scanner) ) ;
-    printf( "Stucture (Parser) size: %d \n",sizeof(Parser) ) ;
-    printf( "Stucture (ByteCode) size: %d \n",sizeof(ByteCode) ) ;
-    printf( "Stucture (VMState) size: %d \n",sizeof(VMState) ) ;
-    printf( "Stucture (VM) size: %d \n",sizeof(VM) ) ;
-    printf( "Stucture (Item)  + Strucutre (Items) size: %d \n",sizeof(Item)+sizeof(Items) ) ;
+    printf( "(RingState) stucture size: %d \n",sizeof(RingState) ) ;
+    printf( "(PoolData) stucture size: %d \n",sizeof(PoolData) ) ;
+    printf( "(PoolManager) stucture  size: %d \n",sizeof(PoolManager) ) ;
+    printf( "(String) stucture size: %d \n",sizeof(String) ) ;
+    printf( "(Item) stucture size: %d \n",sizeof(Item) ) ;
+    printf( "(Items) stucture size: %d \n",sizeof(Items) ) ;
+    printf( "(List) stucture size: %d \n",sizeof(List) ) ;
+    printf( "(HashItem) stucture size: %d \n",sizeof(HashItem) ) ;
+    printf( "(HashTable) stucture size: %d \n",sizeof(HashTable) ) ;
+    printf( "(Scanner) stucture size: %d \n",sizeof(Scanner) ) ;
+    printf( "(Parser) stucture size: %d \n",sizeof(Parser) ) ;
+    printf( "(ByteCode) stucture size: %d \n",sizeof(ByteCode) ) ;
+    printf( "(VMState) stucture size: %d \n",sizeof(VMState) ) ;
+    printf( "(VM) stucture size: %d \n",sizeof(VM) ) ;
+    printf( "(Item) structure size + (Items) structure size: %d \n",sizeof(Item)+sizeof(Items) ) ;
 }

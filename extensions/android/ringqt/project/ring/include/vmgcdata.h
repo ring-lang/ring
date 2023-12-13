@@ -3,8 +3,8 @@
     #define ring_vmgcdata
     typedef struct ListGCData {
         void *pContainer  ;
-        int nReferenceCount  ;
-        int nTempRC  ;
+        int nReferenceCount: 24  ;
+        int nTempRC: 24  ;
         unsigned int lCopyByRef: 1  ;
         unsigned int lNewRef: 1  ;
         unsigned int lDontDelete: 1  ;

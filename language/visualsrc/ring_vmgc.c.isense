@@ -1,21 +1,9 @@
 ring_vmgcdata
-Parent: ItemGCData
-Type: unsigned int
-nReferenceCount
-END:
-Type: ItemGCData
-struct ItemGCData
-Type: ItemGCData
-Mark: ->
-struct ItemGCData *
-Type: ItemGCData
-Mark: ->
-ItemGCData *
 Parent: ListGCData
 Type: void *
 pContainer
 Type: int
-nReferenceCount
+nReferenceCount: 24
 Type: int
 nTempRC
 Type: unsigned int
