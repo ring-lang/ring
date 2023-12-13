@@ -49,7 +49,7 @@ RING_LISTREF_INC
 RING_LISTREF_DEC
 RING_LISTBLOCKTYPE_ITEM
 RING_LISTBLOCKTYPE_ITEMS
-RING_LISTBLOCKTYPE_LISTS
+RING_LISTBLOCKTYPE_LIST
 ring_list_isdouble(pList,index)
 ring_list_isint(pList,index)
 ring_list_deletelastitem(x)

@@ -124,23 +124,21 @@ RING_API void ring_list_deleteallitems_gc ( void *pState,List *pList )
         pList->pHashTable = ring_hashtable_delete_gc(pState,pList->pHashTable);
     }
     /* Delete Blocks (if we have allocated large block of memory) */
-    if ( pList->pBlocks != NULL ) {
-        while ( pList->pBlocks != NULL ) {
-            /* Unregister the block */
-            if ( pList->pBlocks->nType == RING_LISTBLOCKTYPE_ITEM ) {
-                ring_state_unregisterblock(pState,((struct Item *) pList->pBlocks->pValue ) + 1);
-            }
-            else if ( pList->pBlocks->nType == RING_LISTBLOCKTYPE_ITEMS ) {
-                ring_state_unregisterblock(pState,((struct Items *) pList->pBlocks->pValue ) + 1);
-            }
-            else if ( pList->pBlocks->nType == RING_LISTBLOCKTYPE_LIST ) {
-                ring_state_unregisterblock(pState,((struct List *) pList->pBlocks->pValue ) + 1);
-            }
-            ring_state_free(pState,pList->pBlocks->pValue);
-            pBlocks = pList->pBlocks ;
-            pList->pBlocks = pList->pBlocks->pNext ;
-            ring_state_free(pState,pBlocks);
+    while ( pList->pBlocks != NULL ) {
+        /* Unregister the block */
+        if ( pList->pBlocks->nType == RING_LISTBLOCKTYPE_ITEM ) {
+            ring_state_unregisterblock(pState,((struct Item *) pList->pBlocks->pValue ) + 1);
         }
+        else if ( pList->pBlocks->nType == RING_LISTBLOCKTYPE_ITEMS ) {
+            ring_state_unregisterblock(pState,((struct Items *) pList->pBlocks->pValue ) + 1);
+        }
+        else if ( pList->pBlocks->nType == RING_LISTBLOCKTYPE_LIST ) {
+            ring_state_unregisterblock(pState,((struct List *) pList->pBlocks->pValue ) + 1);
+        }
+        ring_state_free(pState,pList->pBlocks->pValue);
+        pBlocks = pList->pBlocks ;
+        pList->pBlocks = pList->pBlocks->pNext ;
+        ring_state_free(pState,pBlocks);
     }
 }
 
