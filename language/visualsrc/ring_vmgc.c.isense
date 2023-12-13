@@ -40,8 +40,8 @@ RING_POOLMANAGER_ITEMSTRINGSIZE
 RING_POOLMANAGER_ITEMSINBLOCK
 RING_POOLMANAGER_ITEMSTRINGSIZEL2
 RING_POOLMANAGER_ITEMSINBLOCKL2
-RING_POOLMANAGER_ITEMSTRINGSIZEL3
-RING_POOLMANAGER_ITEMSINBLOCKL3
+RING_POOLMANAGER_ITEMSTRINGSIZEL6
+RING_POOLMANAGER_ITEMSINBLOCKL6
 RING_VM_STATE_NUMBERS_COUNT
 RING_VM_STATE_POINTERS_COUNT
 Parent: PoolData
@@ -100,24 +100,24 @@ struct VMState *
 Type: VMState
 Mark: ->
 VMState *
-Parent: PoolDataL3
-Parent: PoolDataL3Types
+Parent: PoolDataL6
+Parent: PoolDataL6Types
 Type: VMState
 vVMState
 Type: char
-cChar[RING_POOLMANAGER_ITEMSTRINGSIZEL3]
+cChar[RING_POOLMANAGER_ITEMSTRINGSIZEL6]
 END:
-Type: struct PoolDataL3 *
+Type: struct PoolDataL6 *
 pNext
 END:
-Type: PoolDataL3
-struct PoolDataL3
-Type: PoolDataL3
+Type: PoolDataL6
+struct PoolDataL6
+Type: PoolDataL6
 Mark: ->
-struct PoolDataL3 *
-Type: PoolDataL3
+struct PoolDataL6 *
+Type: PoolDataL6
 Mark: ->
-PoolDataL3 *
+PoolDataL6 *
 Parent: PoolManager
 Type: PoolData *
 pCurrentItem
@@ -125,18 +125,18 @@ Type: void *
 pBlockStart
 Type: void *
 pBlockEnd
-Type: PoolDataL3 *
-pCurrentItemL3
-Type: void *
-pBlockStartL3
-Type: void *
-pBlockEndL3
 Type: PoolDataL2 *
 pCurrentItemL2
 Type: void *
 pBlockStartL2
 Type: void *
 pBlockEndL2
+Type: PoolDataL6 *
+pCurrentItemL6
+Type: void *
+pBlockStartL6
+Type: void *
+pBlockEndL6
 Type: List *
 aBlocks
 Type: unsigned int
@@ -150,9 +150,9 @@ nSmallFreeCount
 Type: unsigned int
 nItemsInBlock
 Type: unsigned int
-nItemsInBlockL3
-Type: unsigned int
 nItemsInBlockL2
+Type: unsigned int
+nItemsInBlockL6
 Type: unsigned int
 lDeleteMemory
 END:
@@ -323,10 +323,10 @@ ring_poolmanager_new
 ring_poolmanager_newblock
 Type: PoolData *
 pMemory
-Type: PoolDataL3 *
-pMemoryL3
 Type: PoolDataL2 *
 pMemoryL2
+Type: PoolDataL6 *
+pMemoryL6
 Type: int
 x
 ring_poolmanager_allocate
@@ -355,5 +355,5 @@ pVMState
 ring_vmstate_delete
 Type: RingState *
 pRingState
-Type: PoolDataL3 *
-pPoolDataL3
+Type: PoolDataL6 *
+pPoolDataL6
