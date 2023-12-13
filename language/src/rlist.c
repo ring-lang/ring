@@ -137,7 +137,7 @@ RING_API void ring_list_deleteallitems_gc ( void *pState,List *pList )
         }
         ring_state_free(pState,pList->pBlocks->pValue);
         pBlocks = pList->pBlocks ;
-        pList->pBlocks = pList->pBlocks->pNext ;
+        pList->pBlocks = pBlocks->pNext ;
         ring_state_free(pState,pBlocks);
     }
 }
