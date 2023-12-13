@@ -941,7 +941,7 @@ void ring_poolmanager_new ( RingState *pRingState )
     pRingState->vPoolManager.pBlockStartL6 = NULL ;
     pRingState->vPoolManager.pBlockEndL6 = NULL ;
     pRingState->vPoolManager.nItemsInBlockL6 = RING_POOLMANAGER_ITEMSINBLOCKL6 ;
-    pRingState->vPoolManager.aBlocks = ring_list_new(0) ;
+    pRingState->vPoolManager.aBlocks = ring_list_new_gc(pRingState,0) ;
     pRingState->vPoolManager.lDeleteMemory = 1 ;
 }
 
@@ -1203,7 +1203,7 @@ void ring_poolmanager_delete ( RingState *pRingState )
 {
     if ( pRingState != NULL ) {
         if ( pRingState->vPoolManager.lDeleteMemory ) {
-            pRingState->vPoolManager.aBlocks = ring_list_delete(pRingState->vPoolManager.aBlocks) ;
+            pRingState->vPoolManager.aBlocks = ring_list_delete_gc(pRingState,pRingState->vPoolManager.aBlocks) ;
             /* Level 1 */
             if ( pRingState->vPoolManager.pBlockStart != NULL ) {
                 free( pRingState->vPoolManager.pBlockStart ) ;
