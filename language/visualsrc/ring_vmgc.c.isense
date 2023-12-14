@@ -42,8 +42,8 @@ RING_POOLMANAGER_ITEMSTRINGSIZEL2
 RING_POOLMANAGER_ITEMSINBLOCKL2
 RING_POOLMANAGER_ITEMSTRINGSIZEL3
 RING_POOLMANAGER_ITEMSINBLOCKL3
-RING_POOLMANAGER_ITEMSTRINGSIZEL6
-RING_POOLMANAGER_ITEMSINBLOCKL6
+RING_POOLMANAGER_ITEMSTRINGSIZEStateLevel
+RING_POOLMANAGER_ITEMSINBLOCKStateLevel
 RING_VM_STATE_NUMBERS_COUNT
 RING_VM_STATE_POINTERS_COUNT
 Parent: PoolData
@@ -116,24 +116,24 @@ struct VMState *
 Type: VMState
 Mark: ->
 VMState *
-Parent: PoolDataL6
-Parent: PoolDataL6Types
+Parent: PoolDataStateLevel
+Parent: PoolDataStateLevelTypes
 Type: VMState
 vVMState
 Type: char
-cChar[RING_POOLMANAGER_ITEMSTRINGSIZEL6]
+cChar[RING_POOLMANAGER_ITEMSTRINGSIZEStateLevel]
 END:
-Type: struct PoolDataL6 *
+Type: struct PoolDataStateLevel *
 pNext
 END:
-Type: PoolDataL6
-struct PoolDataL6
-Type: PoolDataL6
+Type: PoolDataStateLevel
+struct PoolDataStateLevel
+Type: PoolDataStateLevel
 Mark: ->
-struct PoolDataL6 *
-Type: PoolDataL6
+struct PoolDataStateLevel *
+Type: PoolDataStateLevel
 Mark: ->
-PoolDataL6 *
+PoolDataStateLevel *
 Parent: PoolManager
 Type: PoolData *
 pCurrentItem
@@ -153,12 +153,12 @@ Type: void *
 pBlockStartL3
 Type: void *
 pBlockEndL3
-Type: PoolDataL6 *
-pCurrentItemL6
+Type: PoolDataStateLevel *
+pCurrentItemStateLevel
 Type: void *
-pBlockStartL6
+pBlockStartStateLevel
 Type: void *
-pBlockEndL6
+pBlockEndStateLevel
 Type: List *
 aBlocks
 Type: unsigned int
@@ -176,7 +176,7 @@ nItemsInBlockL2
 Type: unsigned int
 nItemsInBlockL3
 Type: unsigned int
-nItemsInBlockL6
+nItemsInBlockStateLevel
 Type: unsigned int
 lDeleteMemory
 END:
@@ -329,7 +329,7 @@ pPoolDataL2
 Type: PoolDataL3 *
 pPoolDataL3
 Type: int
-x, nLevel, nUseMalloc
+x, nLevel
 ring_state_registerblock
 Type: List *
 pList
@@ -351,8 +351,8 @@ Type: PoolDataL2 *
 pMemoryL2
 Type: PoolDataL3 *
 pMemoryL3
-Type: PoolDataL6 *
-pMemoryL6
+Type: PoolDataStateLevel *
+pMemoryStateLevel
 Type: int
 x
 ring_poolmanager_allocate
@@ -383,5 +383,5 @@ pVMState
 ring_vmstate_delete
 Type: RingState *
 pRingState
-Type: PoolDataL6 *
-pPoolDataL6
+Type: PoolDataStateLevel *
+pPoolDataStateLevel
