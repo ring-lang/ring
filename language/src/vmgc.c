@@ -747,7 +747,7 @@ RING_API void * ring_state_malloc ( void *pState,size_t size )
             #endif
             if ( ! ((RingState *) pState)->lDisablePoolManager ) {
                 if ( ((RingState *) pState)->pVM != NULL ) {
-                    if ( size <= sizeof(PoolDataL5) ) {
+                    if ( size <= sizeof(PoolDataL3) ) {
                         return ring_poolmanager_allocate((RingState *) pState,size) ;
                     }
                 }
@@ -806,7 +806,7 @@ RING_API void * ring_state_calloc ( void *pState,size_t nitems, size_t size )
                 ((RingState *) pState)->vPoolManager.nAllocCount++ ;
             #endif
             nTotal = nitems*size ;
-            if ( (nTotal <= sizeof(PoolDataL5) ) && (! ((RingState *) pState)->lDisablePoolManager) ) {
+            if ( (nTotal <= sizeof(PoolDataL3) ) && (! ((RingState *) pState)->lDisablePoolManager) ) {
                 if ( ((RingState *) pState)->pVM != NULL ) {
                     pMem = ring_poolmanager_allocate((RingState *) pState,nTotal) ;
                     memset(pMem,0,nTotal);
@@ -825,8 +825,6 @@ RING_API void * ring_state_realloc ( void *pState,void *ptr,size_t nAllocatedSiz
         PoolData *pPoolData  ;
         PoolDataL2 *pPoolDataL2  ;
         PoolDataL3 *pPoolDataL3  ;
-        PoolDataL4 *pPoolDataL4  ;
-        PoolDataL5 *pPoolDataL5  ;
         int x, nLevel, nUseMalloc  ;
         nUseMalloc = 0 ;
         if ( pState != NULL ) {
@@ -863,26 +861,6 @@ RING_API void * ring_state_realloc ( void *pState,void *ptr,size_t nAllocatedSiz
                 else if ( nLevel == 3 ) {
                     pPoolDataL3 = (PoolDataL3*) ptr ;
                     if ( size <= sizeof(PoolDataL3) ) {
-                        return ptr ;
-                    }
-                    else {
-                        nUseMalloc = 1 ;
-                    }
-                }
-                /* Level 3 */
-                else if ( nLevel == 4 ) {
-                    pPoolDataL4 = (PoolDataL4*) ptr ;
-                    if ( size <= sizeof(PoolDataL4) ) {
-                        return ptr ;
-                    }
-                    else {
-                        nUseMalloc = 1 ;
-                    }
-                }
-                /* Level 5 */
-                else if ( nLevel == 5 ) {
-                    pPoolDataL5 = (PoolDataL5*) ptr ;
-                    if ( size <= sizeof(PoolDataL5) ) {
                         return ptr ;
                     }
                     else {
@@ -957,16 +935,6 @@ void ring_poolmanager_new ( RingState *pRingState )
     pRingState->vPoolManager.pBlockStartL3 = NULL ;
     pRingState->vPoolManager.pBlockEndL3 = NULL ;
     pRingState->vPoolManager.nItemsInBlockL3 = RING_POOLMANAGER_ITEMSINBLOCKL3 ;
-    /* Level 4 */
-    pRingState->vPoolManager.pCurrentItemL4 = NULL ;
-    pRingState->vPoolManager.pBlockStartL4 = NULL ;
-    pRingState->vPoolManager.pBlockEndL4 = NULL ;
-    pRingState->vPoolManager.nItemsInBlockL4 = RING_POOLMANAGER_ITEMSINBLOCKL4 ;
-    /* Level 5 */
-    pRingState->vPoolManager.pCurrentItemL5 = NULL ;
-    pRingState->vPoolManager.pBlockStartL5 = NULL ;
-    pRingState->vPoolManager.pBlockEndL5 = NULL ;
-    pRingState->vPoolManager.nItemsInBlockL5 = RING_POOLMANAGER_ITEMSINBLOCKL5 ;
     /* Level 6 */
     pRingState->vPoolManager.pCurrentItemL6 = NULL ;
     pRingState->vPoolManager.pBlockStartL6 = NULL ;
@@ -981,8 +949,6 @@ void ring_poolmanager_newblock ( RingState *pRingState )
     PoolData *pMemory  ;
     PoolDataL2 *pMemoryL2  ;
     PoolDataL3 *pMemoryL3  ;
-    PoolDataL4 *pMemoryL4  ;
-    PoolDataL5 *pMemoryL5  ;
     PoolDataL6 *pMemoryL6  ;
     int x  ;
     /*
@@ -1040,42 +1006,6 @@ void ring_poolmanager_newblock ( RingState *pRingState )
     pRingState->vPoolManager.pBlockStartL3 = (void *) pMemoryL3 ;
     pRingState->vPoolManager.pBlockEndL3 = (void *) (pMemoryL3 + pRingState->vPoolManager.nItemsInBlockL3 - 1) ;
     /*
-    **  Level 4 
-    **  Get Block Memory 
-    */
-    pMemoryL4 = (PoolDataL4 *) ring_calloc(pRingState->vPoolManager.nItemsInBlockL4,sizeof(PoolDataL4));
-    /* Set Linked Lists (pNext values) */
-    for ( x = 0 ; x < pRingState->vPoolManager.nItemsInBlockL4 - 1 ; x++ ) {
-        pMemoryL4[x].pNext = pMemoryL4+x+1 ;
-    }
-    pMemoryL4[pRingState->vPoolManager.nItemsInBlockL4-1].pNext = NULL ;
-    /*
-    **  Set Values in Ring State 
-    **  Set First Item in Ring State 
-    */
-    pRingState->vPoolManager.pCurrentItemL4 = pMemoryL4 ;
-    /* Set Block Start and End */
-    pRingState->vPoolManager.pBlockStartL4 = (void *) pMemoryL4 ;
-    pRingState->vPoolManager.pBlockEndL4 = (void *) (pMemoryL4 + pRingState->vPoolManager.nItemsInBlockL4 - 1) ;
-    /*
-    **  Level 5 
-    **  Get Block Memory 
-    */
-    pMemoryL5 = (PoolDataL5 *) ring_calloc(pRingState->vPoolManager.nItemsInBlockL5,sizeof(PoolDataL5));
-    /* Set Linked Lists (pNext values) */
-    for ( x = 0 ; x < pRingState->vPoolManager.nItemsInBlockL5 - 1 ; x++ ) {
-        pMemoryL5[x].pNext = pMemoryL5+x+1 ;
-    }
-    pMemoryL5[pRingState->vPoolManager.nItemsInBlockL5-1].pNext = NULL ;
-    /*
-    **  Set Values in Ring State 
-    **  Set First Item in Ring State 
-    */
-    pRingState->vPoolManager.pCurrentItemL5 = pMemoryL5 ;
-    /* Set Block Start and End */
-    pRingState->vPoolManager.pBlockStartL5 = (void *) pMemoryL5 ;
-    pRingState->vPoolManager.pBlockEndL5 = (void *) (pMemoryL5 + pRingState->vPoolManager.nItemsInBlockL5 - 1) ;
-    /*
     **  Level 6 
     **  Get Block Memory 
     */
@@ -1123,16 +1053,6 @@ void * ring_poolmanager_allocate ( RingState *pRingState,size_t size )
         pMemory = pRingState->vPoolManager.pCurrentItemL3 ;
         pRingState->vPoolManager.pCurrentItemL3 = pRingState->vPoolManager.pCurrentItemL3->pNext ;
     }
-    /* Get Item from Pool Manager Level 4 */
-    else if ( ( (size > sizeof(PoolDataL3)) &&  (size <= sizeof(PoolDataL4)) ) && (pRingState->vPoolManager.pCurrentItemL4 != NULL) ) {
-        pMemory = pRingState->vPoolManager.pCurrentItemL4 ;
-        pRingState->vPoolManager.pCurrentItemL4 = pRingState->vPoolManager.pCurrentItemL4->pNext ;
-    }
-    /* Get Item from Pool Manager Level 5 */
-    else if ( ( (size > sizeof(PoolDataL4)) &&  (size <= sizeof(PoolDataL5)) ) && (pRingState->vPoolManager.pCurrentItemL5 != NULL) ) {
-        pMemory = pRingState->vPoolManager.pCurrentItemL5 ;
-        pRingState->vPoolManager.pCurrentItemL5 = pRingState->vPoolManager.pCurrentItemL5->pNext ;
-    }
     /* If no free items, Allocate new item */
     else {
         pMemory = ring_malloc(size);
@@ -1164,18 +1084,6 @@ int ring_poolmanager_find ( RingState *pRingState,void *pMemory )
                 return 3 ;
             }
         }
-        /* Level 4 */
-        if ( pRingState->vPoolManager.pBlockStartL4 != NULL ) {
-            if ( (pMemory >= pRingState->vPoolManager.pBlockStartL4) && (pMemory <= pRingState->vPoolManager.pBlockEndL4) ) {
-                return 4 ;
-            }
-        }
-        /* Level 5 */
-        if ( pRingState->vPoolManager.pBlockStartL5 != NULL ) {
-            if ( (pMemory >= pRingState->vPoolManager.pBlockStartL5) && (pMemory <= pRingState->vPoolManager.pBlockEndL5) ) {
-                return 5 ;
-            }
-        }
     }
     /* Reaching this point means that the Pool Manager doesn't own this memory to free it! */
     return 0 ;
@@ -1186,8 +1094,6 @@ int ring_poolmanager_free ( RingState *pRingState,void *pMemory )
     PoolData *pPoolData  ;
     PoolDataL2 *pPoolDataL2  ;
     PoolDataL3 *pPoolDataL3  ;
-    PoolDataL4 *pPoolDataL4  ;
-    PoolDataL5 *pPoolDataL5  ;
     int nLevel, lRet  ;
     lRet = 0 ;
     nLevel = ring_poolmanager_find(pRingState, pMemory) ;
@@ -1207,18 +1113,6 @@ int ring_poolmanager_free ( RingState *pRingState,void *pMemory )
         pPoolDataL3 = (PoolDataL3 *) pMemory ;
         pPoolDataL3->pNext = pRingState->vPoolManager.pCurrentItemL3 ;
         pRingState->vPoolManager.pCurrentItemL3 = pPoolDataL3 ;
-        lRet = 1 ;
-    }
-    else if ( nLevel == 4 ) {
-        pPoolDataL4 = (PoolDataL4 *) pMemory ;
-        pPoolDataL4->pNext = pRingState->vPoolManager.pCurrentItemL4 ;
-        pRingState->vPoolManager.pCurrentItemL4 = pPoolDataL4 ;
-        lRet = 1 ;
-    }
-    else if ( nLevel == 5 ) {
-        pPoolDataL5 = (PoolDataL5 *) pMemory ;
-        pPoolDataL5->pNext = pRingState->vPoolManager.pCurrentItemL5 ;
-        pRingState->vPoolManager.pCurrentItemL5 = pPoolDataL5 ;
         lRet = 1 ;
     }
     #if RING_TRACKALLOCATIONS
@@ -1255,20 +1149,6 @@ void ring_poolmanager_delete ( RingState *pRingState )
                 pRingState->vPoolManager.pBlockStartL3 = NULL ;
                 pRingState->vPoolManager.pBlockEndL3 = NULL ;
                 pRingState->vPoolManager.pCurrentItemL3 = NULL ;
-            }
-            /* Level 4 */
-            if ( pRingState->vPoolManager.pBlockStartL4 != NULL ) {
-                free( pRingState->vPoolManager.pBlockStartL4 ) ;
-                pRingState->vPoolManager.pBlockStartL4 = NULL ;
-                pRingState->vPoolManager.pBlockEndL4 = NULL ;
-                pRingState->vPoolManager.pCurrentItemL4 = NULL ;
-            }
-            /* Level 5 */
-            if ( pRingState->vPoolManager.pBlockStartL5 != NULL ) {
-                free( pRingState->vPoolManager.pBlockStartL5 ) ;
-                pRingState->vPoolManager.pBlockStartL5 = NULL ;
-                pRingState->vPoolManager.pBlockEndL5 = NULL ;
-                pRingState->vPoolManager.pCurrentItemL5 = NULL ;
             }
             /* Level 6 */
             if ( pRingState->vPoolManager.pBlockStartL6 != NULL ) {
