@@ -21,8 +21,8 @@
     #define RING_POOLMANAGER_ITEMSTRINGSIZEL3 512
     #define RING_POOLMANAGER_ITEMSINBLOCKL3 2048
     /* Level 6 */
-    #define RING_POOLMANAGER_ITEMSTRINGSIZEL6 192
-    #define RING_POOLMANAGER_ITEMSINBLOCKL6 2048
+    #define RING_POOLMANAGER_ITEMSTRINGSIZEStateLevel 192
+    #define RING_POOLMANAGER_ITEMSINBLOCKStateLevel 2048
     #define RING_VM_STATE_NUMBERS_COUNT 30
     #define RING_VM_STATE_POINTERS_COUNT 9
     /* Data */
@@ -50,13 +50,13 @@
         int aNumbers[RING_VM_STATE_NUMBERS_COUNT]  ;
         void *aPointers[RING_VM_STATE_POINTERS_COUNT]  ;
     } VMState ;
-    typedef struct PoolDataL6 {
-        union PoolDataL6Types {
+    typedef struct PoolDataStateLevel {
+        union PoolDataStateLevelTypes {
             VMState vVMState  ;
-            char cChar[RING_POOLMANAGER_ITEMSTRINGSIZEL6]  ;
-        } PoolDataL6Types ;
-        struct PoolDataL6 *pNext  ;
-    } PoolDataL6 ;
+            char cChar[RING_POOLMANAGER_ITEMSTRINGSIZEStateLevel]  ;
+        } PoolDataStateLevelTypes ;
+        struct PoolDataStateLevel *pNext  ;
+    } PoolDataStateLevel ;
     typedef struct PoolManager {
         /* Level 1 */
         PoolData *pCurrentItem  ;
@@ -70,10 +70,10 @@
         PoolDataL3 *pCurrentItemL3  ;
         void *pBlockStartL3  ;
         void *pBlockEndL3  ;
-        /* Level 6 */
-        PoolDataL6 *pCurrentItemL6  ;
-        void *pBlockStartL6  ;
-        void *pBlockEndL6  ;
+        /* State Level */
+        PoolDataStateLevel *pCurrentItemStateLevel  ;
+        void *pBlockStartStateLevel  ;
+        void *pBlockEndStateLevel  ;
         List *aBlocks  ;
         unsigned int nAllocCount  ;
         unsigned int nFreeCount  ;
@@ -82,7 +82,7 @@
         unsigned int nItemsInBlock  ;
         unsigned int nItemsInBlockL2  ;
         unsigned int nItemsInBlockL3  ;
-        unsigned int nItemsInBlockL6  ;
+        unsigned int nItemsInBlockStateLevel  ;
         unsigned int lDeleteMemory  ;
     } PoolManager ;
 #endif

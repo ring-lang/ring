@@ -935,11 +935,11 @@ void ring_poolmanager_new ( RingState *pRingState )
     pRingState->vPoolManager.pBlockStartL3 = NULL ;
     pRingState->vPoolManager.pBlockEndL3 = NULL ;
     pRingState->vPoolManager.nItemsInBlockL3 = RING_POOLMANAGER_ITEMSINBLOCKL3 ;
-    /* Level 6 */
-    pRingState->vPoolManager.pCurrentItemL6 = NULL ;
-    pRingState->vPoolManager.pBlockStartL6 = NULL ;
-    pRingState->vPoolManager.pBlockEndL6 = NULL ;
-    pRingState->vPoolManager.nItemsInBlockL6 = RING_POOLMANAGER_ITEMSINBLOCKL6 ;
+    /* State Level */
+    pRingState->vPoolManager.pCurrentItemStateLevel = NULL ;
+    pRingState->vPoolManager.pBlockStartStateLevel = NULL ;
+    pRingState->vPoolManager.pBlockEndStateLevel = NULL ;
+    pRingState->vPoolManager.nItemsInBlockStateLevel = RING_POOLMANAGER_ITEMSINBLOCKStateLevel ;
     pRingState->vPoolManager.aBlocks = ring_list_new_gc(pRingState,0) ;
     pRingState->vPoolManager.lDeleteMemory = 1 ;
 }
@@ -949,7 +949,7 @@ void ring_poolmanager_newblock ( RingState *pRingState )
     PoolData *pMemory  ;
     PoolDataL2 *pMemoryL2  ;
     PoolDataL3 *pMemoryL3  ;
-    PoolDataL6 *pMemoryL6  ;
+    PoolDataStateLevel *pMemoryStateLevel  ;
     int x  ;
     /*
     **  Level 1 
@@ -1006,23 +1006,23 @@ void ring_poolmanager_newblock ( RingState *pRingState )
     pRingState->vPoolManager.pBlockStartL3 = (void *) pMemoryL3 ;
     pRingState->vPoolManager.pBlockEndL3 = (void *) (pMemoryL3 + pRingState->vPoolManager.nItemsInBlockL3 - 1) ;
     /*
-    **  Level 6 
+    **  State Level 
     **  Get Block Memory 
     */
-    pMemoryL6 = (PoolDataL6 *) ring_calloc(pRingState->vPoolManager.nItemsInBlockL6,sizeof(PoolDataL6));
+    pMemoryStateLevel = (PoolDataStateLevel *) ring_calloc(pRingState->vPoolManager.nItemsInBlockStateLevel,sizeof(PoolDataStateLevel));
     /* Set Linked Lists (pNext values) */
-    for ( x = 0 ; x < pRingState->vPoolManager.nItemsInBlockL6 - 1 ; x++ ) {
-        pMemoryL6[x].pNext = pMemoryL6+x+1 ;
+    for ( x = 0 ; x < pRingState->vPoolManager.nItemsInBlockStateLevel - 1 ; x++ ) {
+        pMemoryStateLevel[x].pNext = pMemoryStateLevel+x+1 ;
     }
-    pMemoryL6[pRingState->vPoolManager.nItemsInBlockL6-1].pNext = NULL ;
+    pMemoryStateLevel[pRingState->vPoolManager.nItemsInBlockStateLevel-1].pNext = NULL ;
     /*
     **  Set Values in Ring State 
     **  Set First Item in Ring State 
     */
-    pRingState->vPoolManager.pCurrentItemL6 = pMemoryL6 ;
+    pRingState->vPoolManager.pCurrentItemStateLevel = pMemoryStateLevel ;
     /* Set Block Start and End */
-    pRingState->vPoolManager.pBlockStartL6 = (void *) pMemoryL6 ;
-    pRingState->vPoolManager.pBlockEndL6 = (void *) (pMemoryL6 + pRingState->vPoolManager.nItemsInBlockL6 - 1) ;
+    pRingState->vPoolManager.pBlockStartStateLevel = (void *) pMemoryStateLevel ;
+    pRingState->vPoolManager.pBlockEndStateLevel = (void *) (pMemoryStateLevel + pRingState->vPoolManager.nItemsInBlockStateLevel - 1) ;
     /* Set Values For Tracking Allocations */
     pRingState->vPoolManager.nAllocCount = 0 ;
     pRingState->vPoolManager.nFreeCount = 0 ;
@@ -1150,12 +1150,12 @@ void ring_poolmanager_delete ( RingState *pRingState )
                 pRingState->vPoolManager.pBlockEndL3 = NULL ;
                 pRingState->vPoolManager.pCurrentItemL3 = NULL ;
             }
-            /* Level 6 */
-            if ( pRingState->vPoolManager.pBlockStartL6 != NULL ) {
-                free( pRingState->vPoolManager.pBlockStartL6 ) ;
-                pRingState->vPoolManager.pBlockStartL6 = NULL ;
-                pRingState->vPoolManager.pBlockEndL6 = NULL ;
-                pRingState->vPoolManager.pCurrentItemL6 = NULL ;
+            /* State Level */
+            if ( pRingState->vPoolManager.pBlockStartStateLevel != NULL ) {
+                free( pRingState->vPoolManager.pBlockStartStateLevel ) ;
+                pRingState->vPoolManager.pBlockStartStateLevel = NULL ;
+                pRingState->vPoolManager.pBlockEndStateLevel = NULL ;
+                pRingState->vPoolManager.pCurrentItemStateLevel = NULL ;
             }
         }
     }
@@ -1212,9 +1212,9 @@ VMState * ring_vmstate_new ( RingState *pRingState )
     #if RING_USEPOOLMANAGER
         if ( pRingState != NULL ) {
             /* Get Item from the Pool Manager */
-            if ( pRingState->vPoolManager.pCurrentItemL6 != NULL ) {
-                pVMState = (VMState *) pRingState->vPoolManager.pCurrentItemL6 ;
-                pRingState->vPoolManager.pCurrentItemL6 = pRingState->vPoolManager.pCurrentItemL6->pNext ;
+            if ( pRingState->vPoolManager.pCurrentItemStateLevel != NULL ) {
+                pVMState = (VMState *) pRingState->vPoolManager.pCurrentItemStateLevel ;
+                pRingState->vPoolManager.pCurrentItemStateLevel = pRingState->vPoolManager.pCurrentItemStateLevel->pNext ;
                 return pVMState ;
             }
         }
@@ -1226,15 +1226,15 @@ VMState * ring_vmstate_new ( RingState *pRingState )
 void ring_vmstate_delete ( void *pState,void *pMemory )
 {
     RingState *pRingState  ;
-    PoolDataL6 *pPoolDataL6  ;
+    PoolDataStateLevel *pPoolDataStateLevel  ;
     #if RING_USEPOOLMANAGER
         if ( pState != NULL ) {
             pRingState = (RingState *) pState ;
-            if ( pRingState->vPoolManager.pBlockStartL6 != NULL ) {
-                if ( (pMemory >= pRingState->vPoolManager.pBlockStartL6) && (pMemory <= pRingState->vPoolManager.pBlockEndL6 ) ) {
-                    pPoolDataL6 = (PoolDataL6 *) pMemory ;
-                    pPoolDataL6->pNext = pRingState->vPoolManager.pCurrentItemL6 ;
-                    pRingState->vPoolManager.pCurrentItemL6 = pPoolDataL6 ;
+            if ( pRingState->vPoolManager.pBlockStartStateLevel != NULL ) {
+                if ( (pMemory >= pRingState->vPoolManager.pBlockStartStateLevel) && (pMemory <= pRingState->vPoolManager.pBlockEndStateLevel ) ) {
+                    pPoolDataStateLevel = (PoolDataStateLevel *) pMemory ;
+                    pPoolDataStateLevel->pNext = pRingState->vPoolManager.pCurrentItemStateLevel ;
+                    pRingState->vPoolManager.pCurrentItemStateLevel = pPoolDataStateLevel ;
                     return ;
                 }
             }
