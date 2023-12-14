@@ -747,7 +747,7 @@ RING_API void * ring_state_malloc ( void *pState,size_t size )
             #endif
             if ( ! ((RingState *) pState)->lDisablePoolManager ) {
                 if ( ((RingState *) pState)->pVM != NULL ) {
-                    if ( size <= sizeof(PoolDataL2) ) {
+                    if ( size <= sizeof(PoolDataL5) ) {
                         return ring_poolmanager_allocate((RingState *) pState,size) ;
                     }
                 }
@@ -806,7 +806,7 @@ RING_API void * ring_state_calloc ( void *pState,size_t nitems, size_t size )
                 ((RingState *) pState)->vPoolManager.nAllocCount++ ;
             #endif
             nTotal = nitems*size ;
-            if ( (nTotal <= sizeof(PoolDataL2) ) && (! ((RingState *) pState)->lDisablePoolManager) ) {
+            if ( (nTotal <= sizeof(PoolDataL5) ) && (! ((RingState *) pState)->lDisablePoolManager) ) {
                 if ( ((RingState *) pState)->pVM != NULL ) {
                     pMem = ring_poolmanager_allocate((RingState *) pState,nTotal) ;
                     memset(pMem,0,nTotal);
@@ -820,18 +820,22 @@ RING_API void * ring_state_calloc ( void *pState,size_t nitems, size_t size )
 
 RING_API void * ring_state_realloc ( void *pState,void *ptr,size_t nAllocatedSize,size_t size )
 {
-    int nLevel  ;
     #if RING_USEPOOLMANAGER
         void *pMemory  ;
         PoolData *pPoolData  ;
         PoolDataL2 *pPoolDataL2  ;
-        int x  ;
+        PoolDataL3 *pPoolDataL3  ;
+        PoolDataL4 *pPoolDataL4  ;
+        PoolDataL5 *pPoolDataL5  ;
+        int x, nLevel, nUseMalloc  ;
+        nUseMalloc = 0 ;
         if ( pState != NULL ) {
             #if RING_TRACKALLOCATIONS
                 ((RingState *) pState)->vPoolManager.nAllocCount++ ;
             #endif
             if ( ((RingState *) pState)->pVM != NULL ) {
                 nLevel = ring_poolmanager_find((RingState *) pState,ptr) ;
+                /* Level 1 */
                 if ( nLevel == 1 ) {
                     pPoolData = (PoolData*) ptr ;
                     if ( size <= sizeof(PoolData) ) {
@@ -842,31 +846,58 @@ RING_API void * ring_state_realloc ( void *pState,void *ptr,size_t nAllocatedSiz
                         return ptr ;
                     }
                     else {
-                        /* Allocate new buffer, copy data to it and then free existing pointer from pool */
-                        pMemory = ring_state_malloc(pState,size);
-                        /* Copy existing data */
-                        for ( x = 0 ; x < nAllocatedSize ; x++ ) {
-                            ((unsigned char*) pMemory)[x] = ((unsigned char*) ptr)[x] ;
-                        }
-                        ring_poolmanager_free(((RingState *) pState),ptr);
-                        return pMemory ;
+                        nUseMalloc = 1 ;
                     }
                 }
+                /* Level 2 */
                 else if ( nLevel == 2 ) {
                     pPoolDataL2 = (PoolDataL2*) ptr ;
                     if ( size <= sizeof(PoolDataL2) ) {
                         return ptr ;
                     }
                     else {
-                        /* Allocate new buffer, copy data to it and then free existing pointer from pool */
-                        pMemory = ring_malloc(size);
-                        /* Copy existing data */
-                        for ( x = 0 ; x < nAllocatedSize ; x++ ) {
-                            ((unsigned char*) pMemory)[x] = ((unsigned char*) ptr)[x] ;
-                        }
-                        ring_poolmanager_free(((RingState *) pState),ptr);
-                        return pMemory ;
+                        nUseMalloc = 1 ;
                     }
+                }
+                /* Level 3 */
+                else if ( nLevel == 3 ) {
+                    pPoolDataL3 = (PoolDataL3*) ptr ;
+                    if ( size <= sizeof(PoolDataL3) ) {
+                        return ptr ;
+                    }
+                    else {
+                        nUseMalloc = 1 ;
+                    }
+                }
+                /* Level 3 */
+                else if ( nLevel == 4 ) {
+                    pPoolDataL4 = (PoolDataL4*) ptr ;
+                    if ( size <= sizeof(PoolDataL4) ) {
+                        return ptr ;
+                    }
+                    else {
+                        nUseMalloc = 1 ;
+                    }
+                }
+                /* Level 5 */
+                else if ( nLevel == 5 ) {
+                    pPoolDataL5 = (PoolDataL5*) ptr ;
+                    if ( size <= sizeof(PoolDataL5) ) {
+                        return ptr ;
+                    }
+                    else {
+                        nUseMalloc = 1 ;
+                    }
+                }
+                if ( nUseMalloc ) {
+                    /* Allocate new buffer, copy data to it and then free existing pointer from pool */
+                    pMemory = ring_state_malloc(pState,size);
+                    /* Copy existing data */
+                    for ( x = 0 ; x < nAllocatedSize ; x++ ) {
+                        ((unsigned char*) pMemory)[x] = ((unsigned char*) ptr)[x] ;
+                    }
+                    ring_poolmanager_free(((RingState *) pState),ptr);
+                    return pMemory ;
                 }
             }
         }

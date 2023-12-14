@@ -368,16 +368,20 @@ pMem
 Type: size_t
 nTotal
 ring_state_realloc
-Type: int
-nLevel
 Type: void *
 pMemory
 Type: PoolData *
 pPoolData
 Type: PoolDataL2 *
 pPoolDataL2
+Type: PoolDataL3 *
+pPoolDataL3
+Type: PoolDataL4 *
+pPoolDataL4
 Type: int
-x
+x, nLevel, nUseMalloc
+Type: PoolDataL2 *
+var100
 ring_state_registerblock
 Type: List *
 pList
