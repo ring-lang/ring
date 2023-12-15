@@ -6,7 +6,7 @@
 load "stdlibcore.ring"
 load "lightguilib.ring"
 load "stbimage.ring"           // Extract Image to RBG
-load "fastpro.ring"            // Contains bytes2List() & updateList() functions 
+load "fastpro.ring"            // Contains updateBytesColumn() functions 
 
 xPos           = 100           ### Canvas position on Screen 
 yPos           = 100           ### Window Moved: xPos: 107 yPos: 99  --- Screen getx: 0 gety:  0
@@ -23,7 +23,7 @@ colorBlue      = new QColor() { setRGB(000,000,255,255) }
 colorBlack     = new QColor() { setRGB(000,000,000,255) }
 penBlue        = new QPen()   { setColor(colorBlue)   setWidth(1) }
  
-MCOrig         = NULL          // Linear List 1   => 1D list(60000)
+MCOrig         = NULL          
 
 FilePicked     = " "           // From FileOpen()
 
@@ -259,14 +259,6 @@ return
 
 //================================================================
 //================================================================
-// daVinci.drawHSVFList(aList)          
-// daVinci.drawRGBFList(MCOrig)    Format 0.0-1.0 for rgba
-// MCOrig[k] = [R, G, B]
-// MCOrig[k] =  x=410 y=338 r=0.78  g=0.66 b=0.44 b  a=1 
-// These weights are: 0.2989, 0.5870, 0.1140.
-// Gamma Corrected: 
-// TotalGray = ((MCOrig[i][RVALUE] * 0.2989) +  (MCOrig[i][GVALUE] * 0.5870) + (MCOrig[i][BVALUE] * 0.1140)) / 3 
-//--------------------------------------------                                
                 
 Func ChangeColorValue()
 
@@ -372,10 +364,6 @@ Func ChangeColorValue()
     // MCOrig as per FRACTION of SLIDER Values
     DrawRGBAImagePixels(MCOrig,imageOffsetX+imageStock.Width()+10,imageOffsetY,nNewAlpha)  
 
-    // Delete large allocated memory directly since it's no longer required
-    // Doing this before other allocations (Maybe by Qt) help in avoiding memory fragmentation       
-    MCOrig = NULL
-
     label2.setText(" Fin ....")
     btnOpenFile.setEnabled(True)
     btnChangeColors.setEnabled(True)
@@ -391,7 +379,6 @@ Func DrawRGBAImagePixels(MCImage,nXStart,nYStart,nNewAlpha)
    t1 = clock()
    #=====================================================================#
    
-   // <<<=== DOUBLE OFFSET,i=400,  MCImage Linear List (60000) = list[R,G,B]
    daVinci.drawBytes(nXStart,nYStart,MCImage,nImageWidth,nImageHeight,nImageChannels)    
 
    Canvas.setPixMap(MonaLisa)          ### Need this setPixMap to display imageLabel               
