@@ -860,10 +860,144 @@ RING_FUNC(ring_updatecolumn)
 	}
 }
 
+RING_FUNC(ring_updatebytescolumn)
+{
+	unsigned char *pBytes;
+	int nBytesSize,nColumns,nSize,nDec,nPos,nCol,iValue;
+	char *cCommand;
+	double dCalc,dValue;
+	int aInsOPCode[C_INSCOUNT];
+	int aInsCol[C_INSCOUNT];
+	int aInsiValue[C_INSCOUNT];
+	double aInsdValue[C_INSCOUNT];
+	int nCurrentIns,nInsCount;
+	VM *pVM  ;
+	nCurrentIns = 0;
+	nInsCount   = 0;
+	pVM = (VM *) pPointer ;
+
+	if (RING_API_PARACOUNT < 4) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);	
+		return ;
+	}
+
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pBytes = RING_API_GETSTRING(1);
+	nBytesSize = RING_API_GETSTRINGSIZE(1);
+
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	nColumns = (int) RING_API_GETNUMBER(2);
+
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	nSize = (int) RING_API_GETNUMBER(3);
+
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	nDec = (int) RING_API_GETNUMBER(4);
+
+	// Get Instructions
+	nPos = 5;	// Start getting new instruction from the second parameter 
+	while ( ring_getnewinstruciton(pPointer, &nPos, &cCommand, &nCol, &iValue, &dValue) ) {
+		if (nCurrentIns >= C_INSCOUNT) {
+			RING_API_ERROR("Extra number of commands!");
+			return;
+		}
+		if ( strcmp(cCommand,"set") == 0 ) {
+			aInsOPCode[nCurrentIns] = INS_SET;
+		} else if ( strcmp(cCommand,"add") == 0 ) {
+			aInsOPCode[nCurrentIns] = INS_ADD;
+		} else if ( strcmp(cCommand,"sub") == 0 ) {
+			aInsOPCode[nCurrentIns] = INS_SUB;
+		} else if ( strcmp(cCommand,"mul") == 0 ) {
+			aInsOPCode[nCurrentIns] = INS_MUL;
+		} else if ( strcmp(cCommand,"div") == 0 ) {
+			aInsOPCode[nCurrentIns] = INS_DIV;
+		} else if ( strcmp(cCommand,"merge") == 0 ) {
+			aInsOPCode[nCurrentIns] = INS_MERGE;
+		} else if ( strcmp(cCommand,"copy") == 0 ) {
+			aInsOPCode[nCurrentIns] = INS_COPY;
+		}
+		aInsCol[nCurrentIns]    = nCol;
+		aInsiValue[nCurrentIns] = iValue;
+		aInsdValue[nCurrentIns] = dValue;
+		nCurrentIns++; 		
+	}			
+	nInsCount = nCurrentIns ;
+
+	// Execute instructions
+	for ( int x = 1 ; x <= nBytesSize ; x += nColumns  ) {
+		for (nCurrentIns = 0 ; nCurrentIns < nInsCount ; nCurrentIns++) {		
+			nCol   = aInsCol[nCurrentIns];
+			iValue = aInsiValue[nCurrentIns];
+			dValue = aInsdValue[nCurrentIns]; 		
+			// Execute Instruction
+			if ( aInsOPCode[nCurrentIns] == INS_SET ) {
+				pBytes[(x-1)+(nCol-1)] = (char) dValue;
+			} else if ( aInsOPCode[nCurrentIns] == INS_ADD ) {
+				dCalc = (double) pBytes[(x-1)+(nCol-1)];
+				dCalc /= nDec;
+				dCalc += dValue;
+				if ( dCalc > 1 ) dCalc = 1;
+				dCalc *= nDec;
+				pBytes[(x-1)+(nCol-1)] = (char) dCalc;
+			} else if ( aInsOPCode[nCurrentIns] == INS_SUB ) {
+				dCalc = (double) pBytes[(x-1)+(nCol-1)];
+				dCalc /= nDec;
+				dCalc -= dValue;
+				if ( dCalc > 1 ) dCalc = 1;
+				dCalc *= nDec;
+				pBytes[(x-1)+(nCol-1)] = (char) dCalc;
+			} else if ( aInsOPCode[nCurrentIns] == INS_MUL ) {
+				dCalc = (double) pBytes[(x-1)+(nCol-1)];
+				dCalc = dCalc / nDec;
+				dCalc = dCalc * dValue;
+				if ( dCalc > 1 ) dCalc = 1;
+				dCalc = dCalc * nDec;
+				pBytes[(x-1)+(nCol-1)] = (char) dCalc;
+			} else if ( aInsOPCode[nCurrentIns] == INS_DIV ) {
+       				if ( dValue == 0 ) {
+           					RING_API_ERROR("Can't divide by zero");
+           					return ;
+       				}
+				dCalc = (double) pBytes[(x-1)+(nCol-1)];
+				dCalc /= nDec;
+				dCalc /= dValue;
+				if ( dCalc > 1 ) dCalc = 1;
+				dCalc *= nDec;
+				pBytes[(x-1)+(nCol-1)] = (char) dCalc;
+			} else if ( aInsOPCode[nCurrentIns] == INS_MERGE ) {
+				dCalc = (double) pBytes[(x-1)+(nCol-1)] / nDec;
+				dCalc += ( (double) pBytes[(x-1)+(iValue-1)] / nDec ) ;
+				if ( dCalc > 1 ) dCalc = 1;
+				dCalc *= nDec;
+				pBytes[(x-1)+(nCol-1)] = (char) dCalc;
+			} else if ( aInsOPCode[nCurrentIns] == INS_COPY ) {
+				dCalc = (double) pBytes[(x-1)+(nCol-1)] / nDec;
+				if ( dCalc > 1 ) dCalc = 1;
+				dCalc *= nDec;
+				pBytes[(x-1)+(iValue-1)] = (char) dCalc;
+			}				
+		}
+	}
+	RING_API_RETSTRING2(pBytes,nBytesSize);
+}
+
 RING_LIBINIT
 {
     RING_API_REGISTER("bytes2list",ring_bytes2list);
     RING_API_REGISTER("list2bytes",ring_list2bytes);
     RING_API_REGISTER("updatelist",ring_updatelist);
     RING_API_REGISTER("updatecolumn",ring_updatecolumn);
+    RING_API_REGISTER("updatebytescolumn",ring_updatebytescolumn);
 }
