@@ -470,6 +470,16 @@ Func ExtractImageRGB(ImageFile)
    ? "Width : "       + nImageWidth
    ? "Height: "       + nImageHeight
    ? "Channels: "     + nImageChannels
+
+   if nImageChannels = 4
+       sAlpha.show()
+       lAlpha.show()
+       eAlpha.show()
+   else 
+       sAlpha.hide()
+       lAlpha.hide()
+       eAlpha.hide()
+   ok
     
 
 return 	
