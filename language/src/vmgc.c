@@ -825,7 +825,8 @@ RING_API void * ring_state_realloc ( void *pState,void *ptr,size_t nAllocatedSiz
         PoolData *pPoolData  ;
         PoolDataL2 *pPoolDataL2  ;
         PoolDataL3 *pPoolDataL3  ;
-        int x, nLevel  ;
+        int x, nLevel, nUseMalloc  ;
+        nUseMalloc = 0 ;
         if ( pState != NULL ) {
             #if RING_TRACKALLOCATIONS
                 ((RingState *) pState)->vPoolManager.nAllocCount++ ;
@@ -842,12 +843,18 @@ RING_API void * ring_state_realloc ( void *pState,void *ptr,size_t nAllocatedSiz
                         */
                         return ptr ;
                     }
+                    else {
+                        nUseMalloc = 1 ;
+                    }
                 }
                 /* Level 2 */
                 else if ( nLevel == 2 ) {
                     pPoolDataL2 = (PoolDataL2*) ptr ;
                     if ( size <= sizeof(PoolDataL2) ) {
                         return ptr ;
+                    }
+                    else {
+                        nUseMalloc = 1 ;
                     }
                 }
                 /* Level 3 */
@@ -856,8 +863,11 @@ RING_API void * ring_state_realloc ( void *pState,void *ptr,size_t nAllocatedSiz
                     if ( size <= sizeof(PoolDataL3) ) {
                         return ptr ;
                     }
+                    else {
+                        nUseMalloc = 1 ;
+                    }
                 }
-                if ( nLevel == 0 ) {
+                if ( nUseMalloc == 1 ) {
                     /* Allocate new buffer, copy data to it and then free existing pointer from pool */
                     pMemory = ring_state_malloc(pState,size);
                     /* Copy existing data */

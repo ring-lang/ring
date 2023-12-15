@@ -329,7 +329,7 @@ pPoolDataL2
 Type: PoolDataL3 *
 pPoolDataL3
 Type: int
-x, nLevel
+x, nLevel, nUseMalloc
 ring_state_registerblock
 Type: List *
 pList
