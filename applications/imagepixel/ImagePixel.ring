@@ -305,8 +305,14 @@ Func ChangeColorValue()
     MCOrig = updateBytesColumn(MCOrig,nImageChannels,nImageWidth*nImageHeight,255,
                         :mul,RVALUE,nNewRed,          # R *= nNewRed
                         :mul,GVALUE,nNewGreen,        # G *= nNewGreen
-                        :mul,BVALUE,nNewBlue,         # B *= nNewBlue
+                        :mul,BVALUE,nNewBlue)         # B *= nNewBlue
+
+    if nImageChannels=4
+	MCOrig = updateBytesColumn(
+			MCOrig,nImageChannels,
+			nImageWidth*nImageHeight,255,
 			:mul,AVALUE,nNewAlpha)
+    ok
 
     //====================================================================
     // COLORIZE-- Display GrayScale Image in Color 
