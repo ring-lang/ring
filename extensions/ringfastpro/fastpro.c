@@ -948,21 +948,24 @@ RING_FUNC(ring_updatebytescolumn)
 				dCalc = (double) pBytes[(x-1)+(nCol-1)];
 				dCalc /= nDec;
 				dCalc += dValue;
-				if ( dCalc > 1 ) dCalc = 1;
+				if ( nDec != 1 )
+					if ( dCalc > 1 ) dCalc = 1;
 				dCalc *= nDec;
 				pBytes[(x-1)+(nCol-1)] = (char) dCalc;
 			} else if ( aInsOPCode[nCurrentIns] == INS_SUB ) {
 				dCalc = (double) pBytes[(x-1)+(nCol-1)];
 				dCalc /= nDec;
 				dCalc -= dValue;
-				if ( dCalc > 1 ) dCalc = 1;
+				if ( nDec != 1 )
+					if ( dCalc > 1 ) dCalc = 1;
 				dCalc *= nDec;
 				pBytes[(x-1)+(nCol-1)] = (char) dCalc;
 			} else if ( aInsOPCode[nCurrentIns] == INS_MUL ) {
 				dCalc = (double) pBytes[(x-1)+(nCol-1)];
 				dCalc = dCalc / nDec;
 				dCalc = dCalc * dValue;
-				if ( dCalc > 1 ) dCalc = 1;
+				if ( nDec != 1 )
+					if ( dCalc > 1 ) dCalc = 1;
 				dCalc = dCalc * nDec;
 				pBytes[(x-1)+(nCol-1)] = (char) dCalc;
 			} else if ( aInsOPCode[nCurrentIns] == INS_DIV ) {
@@ -973,18 +976,21 @@ RING_FUNC(ring_updatebytescolumn)
 				dCalc = (double) pBytes[(x-1)+(nCol-1)];
 				dCalc /= nDec;
 				dCalc /= dValue;
-				if ( dCalc > 1 ) dCalc = 1;
+				if ( nDec != 1 )
+					if ( dCalc > 1 ) dCalc = 1;
 				dCalc *= nDec;
 				pBytes[(x-1)+(nCol-1)] = (char) dCalc;
 			} else if ( aInsOPCode[nCurrentIns] == INS_MERGE ) {
 				dCalc = (double) pBytes[(x-1)+(nCol-1)] / nDec;
 				dCalc += ( (double) pBytes[(x-1)+(iValue-1)] / nDec ) ;
-				if ( dCalc > 1 ) dCalc = 1;
+				if ( nDec != 1 )
+					if ( dCalc > 1 ) dCalc = 1;
 				dCalc *= nDec;
 				pBytes[(x-1)+(nCol-1)] = (char) dCalc;
 			} else if ( aInsOPCode[nCurrentIns] == INS_COPY ) {
 				dCalc = (double) pBytes[(x-1)+(nCol-1)] / nDec;
-				if ( dCalc > 1 ) dCalc = 1;
+				if ( nDec != 1 )
+					if ( dCalc > 1 ) dCalc = 1;
 				dCalc *= nDec;
 				pBytes[(x-1)+(iValue-1)] = (char) dCalc;
 			}				
