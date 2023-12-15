@@ -826,7 +826,6 @@ RING_API void * ring_state_realloc ( void *pState,void *ptr,size_t nAllocatedSiz
         PoolDataL2 *pPoolDataL2  ;
         PoolDataL3 *pPoolDataL3  ;
         int x, nLevel  ;
-        nUseMalloc = 0 ;
         if ( pState != NULL ) {
             #if RING_TRACKALLOCATIONS
                 ((RingState *) pState)->vPoolManager.nAllocCount++ ;
