@@ -274,15 +274,9 @@ Func ChangeColorValue()
     btnChangeColors.setEnabled(False)
     label2.setText(" Changing Colors")
     win.repaint()
-
-    # Convert to [r,g,b] List
-    # We pass channels (could be 3 or 4) and Bytes2List always return the RGB values only
-    # We pass 255 which mean Divide each RGB by 255
-   
-    # We keep calling Bytes2List() to get the List which is faster than copying it using assignment 
-    MCOrig = Bytes2List(cImageData,nImageWidth,nImageHeight,nImageChannels,255)
-
-    if !MCOrig                          // Fails on GIF ,Does NotExist ,  Image W-H: 0-0 Size: 0
+  
+    MCOrig = cImageData
+    if MCOrig = NULL                        // Fails on GIF ,Does NotExist ,  Image W-H: 0-0 Size: 0
     	label2.setText(" Fail ....")
     	btnOpenFile.setEnabled(True)
     	btnChangeColors.setEnabled(True)
@@ -316,9 +310,11 @@ Func ChangeColorValue()
     //====================================================================
     // FRACTION of COLOR of ORIGINAL -- Display Color RBG 
 
-    updateColumn(MCOrig,:mul,RVALUE,nNewRed,          # R *= nNewRed
+    MCOrig = updateBytesColumn(MCOrig,nImageChannels,nImageWidth*nImageHeight,255,
+                        :mul,RVALUE,nNewRed,          # R *= nNewRed
                         :mul,GVALUE,nNewGreen,        # G *= nNewGreen
-                        :mul,BVALUE,nNewBlue)         # B *= nNewBlue
+                        :mul,BVALUE,nNewBlue,         # B *= nNewBlue
+			:mul,AVALUE,nNewAlpha)
 
     //====================================================================
     // COLORIZE-- Display GrayScale Image in Color 
@@ -331,7 +327,8 @@ Func ChangeColorValue()
         nGreenUpdate = 1.1232 * 0.8 * nNewGreen
         nBlueUpdate  = 1.6347 * 0.5 * nNewBlue   
 
-        updateColumn(MCOrig,:copy,RVALUE,GVALUE,         # G = R
+        MCOrig = updateBytesColumn(MCOrig,nImageChannels,nImageWidth*nImageHeight,255,
+                            :copy,RVALUE,GVALUE,         # G = R
                             :copy,RVALUE,BVALUE,         # B = R
                             :mul,RVALUE,nRedUpdate,      # R *= nRedUpdate
                             :mul,GVALUE,nGreenUpdate,    # G *= nGreenUpdate
@@ -344,7 +341,8 @@ Func ChangeColorValue()
         
     elseif lGray  
            
-        updateColumn(MCOrig,:mul,RVALUE,0.3,             # R *= 0.3
+        MCOrig = updateBytesColumn(MCOrig,nImageChannels,nImageWidth*nImageHeight,255,
+                            :mul,RVALUE,0.3,             # R *= 0.3
                             :mul,GVALUE,0.59,            # G *= 0.59
                             :mul,BVALUE,0.11,            # B *= 0.11
                             :merge,RVALUE,GVALUE,        # R += G
@@ -394,8 +392,7 @@ Func DrawRGBAImagePixels(MCImage,nXStart,nYStart,nNewAlpha)
    #=====================================================================#
    
    // <<<=== DOUBLE OFFSET,i=400,  MCImage Linear List (60000) = list[R,G,B]
-
-   daVinci.drawBytes(nXStart,nYStart,list2Bytes(MCImage,4,255,nNewAlpha),nImageWidth,nImageHeight,4)    
+   daVinci.drawBytes(nXStart,nYStart,MCImage,nImageWidth,nImageHeight,nImageChannels)    
 
    Canvas.setPixMap(MonaLisa)          ### Need this setPixMap to display imageLabel               
 
