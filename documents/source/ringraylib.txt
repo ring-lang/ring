@@ -2380,11 +2380,13 @@ The next functions are added by the RingRayLib extension
 	* SetShaderIVec4(shader, Location, aValue)
 	* SetModelMaterialShader(model, nID, shader)
 	* vec2() --> Vector2
+	* vec2set(Vector 2,double x, double y)
 	* vec2getx() --> double
 	* vec2setx(double)
 	* vec2gety() --> double
 	* vec2sety(double)
 	* vec3() --> Vector3
+	* vec3set(Vector 3,double x, double y,double z)
 	* vec3getx() --> double
 	* vec3setx(double)
 	* vec3gety() --> double
@@ -2392,6 +2394,7 @@ The next functions are added by the RingRayLib extension
 	* vec3getz() --> double
 	* vec3setz(double)
 	* vec4() --> Vector4
+	* vec4set(Vector 4,double x, double y,double z,double w)
 	* vec4getx() --> double
 	* vec4setx(double)
 	* vec4gety() --> double
