@@ -38,6 +38,9 @@ GVALUE         = 2
 BVALUE         = 3
 AVALUE         = 4
 
+MCImage        = NULL
+cNewData       = NULL
+
 //============================================================
 
 myApp = new QApp 
@@ -94,10 +97,17 @@ myApp = new QApp
         }
         
         btnOpenFile =  new QPushButton(win) {
-                    setGeometry(001,01,195,20)
+                    setGeometry(001,01,95,20)
                     setText("Open file")
                     setStyleSheet("background-color: aqua")
                     setClickEvent("pOpenFile()")
+        }  
+
+        btnSaveAsFile =  new QPushButton(win) {
+                    setGeometry(100,01,95,20)
+                    setText("SaveAs file")
+                    setStyleSheet("background-color: aqua")
+                    setClickEvent("pSaveAsFile()")
         }       
 
         label2 = new QLabel(win)
@@ -176,33 +186,75 @@ myApp = new QApp
 // Max 100/10 = 10 
 
 Func   changeRed()  nbr = floor(  sRed.value() / 0.5)      eRed.setText(""+nbr)    return       
-
 Func changeGreen()  nbr = floor(sGreen.value() / 0.5)    eGreen.setText(""+nbr)    return       
-
 Func  changeBlue()  nbr = floor( sBlue.value() / 0.5)     eBlue.setText(""+nbr)    return       
-
 Func changeAlpha()  nbr = floor(sAlpha.value() / 1.0)    eAlpha.setText(""+nbr)    return       
 
 //===============================================================================
 
 Func pOpenFile()
 
-        new QFileDialog(win) {
-             FilePicked = getopenfilename(win,"Open file", ".",
-                                          "source files(*.jpg | *.png | *.bmp | *.gif)" )
-        }
+    new QFileDialog(win) {
+         FilePicked = getopenfilename(win,"Open file", ".",
+                                      "source files(*.jpg | *.png | *.bmp | *.gif)" )
+    }
         
-        if FilePicked 
-		chdir(JustFilePath(FilePicked))
-	        label1.setText(JustFileName(FilePicked))    // Save Name for loading image later
-		btnChangeColors.setEnabled(False)
-		btnOpenFile.setEnabled(False)
-        	getImagePixels()                            // Display Image
-		btnChangeColors.setEnabled(True)
-		btnOpenFile.setEnabled(True)
-	ok
+    if FilePicked 
+        See"Open ImageFile: "+ FilePicked +nl
+        chdir(JustFilePath(FilePicked))
+            label1.setText(JustFileName(FilePicked))    // Save Name for loading image later
+        btnChangeColors.setEnabled(False)
+        btnOpenFile.setEnabled(False)
+        
+            getImagePixels()                            // Display Image
+            
+        btnChangeColors.setEnabled(True)
+        btnOpenFile.setEnabled(True)
+    ok
         
 return 
+
+//==========================================================================================
+//
+// int stbi_write_jpg(char const *filename, int w, int h, int comp, const void *data, int quality)
+// int stbi_write_png(char const *filename, int w, int h, int comp, const void *data, int stride_in_bytes)
+// int stbi_write_bmp(char const *filename, int w, int h, int comp, const void *data)
+// int stbi_write_tga(char const *filename, int w, int h, int comp, const void *data)
+//
+//-----------------------
+
+Func pSaveAsFile()
+
+   new qFileDialog(win) 
+   {	
+        cFileName = getsavefilename(win,"SaveAs", ".",
+                              "source files(*.jpg | *.png | *.bmp | *.gif | *.tga)")
+                              
+        if cFileName
+            fileType = Right(cFileName,4)          
+            See "SaveAs ImageFile: "+ cFileName +nl	
+	
+			//--------------------------
+          
+            if fileType = ".jpg"
+                stbi_write_jpg(cFileName, nImageWidth, nImageHeight, nImageChannels, MCOrig, 100)   // 100 = Quality
+          
+            elseif fileType = ".png"
+                stbi_write_png(cFileName, nImageWidth, nImageHeight, nImageChannels, MCOrig, nImageWidth * nImageChannels) // Stride_in_bytes
+          
+            elseif fileType = ".bmp"
+                stbi_write_bmp(cFileName, nImageWidth, nImageHeight, nImageChannels, MCOrig)    
+             
+            elseif fileType = ".tga"
+                stbi_write_tga(cFileName, nImageWidth, nImageHeight, nImageChannels, MCOrig)
+          
+            elseif fileType = ".gif"
+                stbi_write_png(cFileName, nImageWidth, nImageHeight, nImageChannels, MCOrig, nImageWidth * nImageChannels)
+            ok   
+        ok          
+    }
+
+return
 
 //===============================================================================
 // Read Image from Window, Extract the colors
@@ -224,7 +276,7 @@ Func GetImagePixels()
             
             PosLeft =  1 
             PosTop  =  imageOffsetY        
-	    // Slider value changed for color value                             // From Top
+        // Slider value changed for color value                             // From Top
             setGeometry(PosLeft,PosTop,oPixMap.Width(),oPixMap.Height())        // Position Display 
         } 
     
@@ -257,6 +309,9 @@ Func GetImagePixels()
     
 return
 
+
+
+
 //================================================================
 //================================================================
                 
@@ -269,9 +324,9 @@ Func ChangeColorValue()
   
     MCOrig = cImageData
     if MCOrig = NULL                        // Fails on GIF ,Does NotExist ,  Image W-H: 0-0 Size: 0
-    	label2.setText(" Fail ....")
-    	btnOpenFile.setEnabled(True)
-    	btnChangeColors.setEnabled(True)
+        label2.setText(" Fail ....")
+        btnOpenFile.setEnabled(True)
+        btnChangeColors.setEnabled(True)
        return
     ok
   
@@ -307,11 +362,11 @@ Func ChangeColorValue()
                         :mul,GVALUE,nNewGreen,        # G *= nNewGreen
                         :mul,BVALUE,nNewBlue)         # B *= nNewBlue
 
-    if nImageChannels=4
-	MCOrig = updateBytesColumn(
-			MCOrig,nImageChannels,
-			nImageWidth*nImageHeight,255,
-			:mul,AVALUE,nNewAlpha)
+    if nImageChannels=4             // OR  nImageChannels=3   // Alpha Intensity
+    MCOrig = updateBytesColumn(
+            MCOrig,nImageChannels,
+            nImageWidth*nImageHeight,255,
+            :mul,AVALUE,nNewAlpha)
     ok
 
     //====================================================================
@@ -326,11 +381,11 @@ Func ChangeColorValue()
         nBlueUpdate  = 1.6347 * 0.5 * nNewBlue   
 
         MCOrig = updateBytesColumn(MCOrig,nImageChannels,nImageWidth*nImageHeight,255,
-                            :copy,RVALUE,GVALUE,         # G = R
-                            :copy,RVALUE,BVALUE,         # B = R
-                            :mul,RVALUE,nRedUpdate,      # R *= nRedUpdate
-                            :mul,GVALUE,nGreenUpdate,    # G *= nGreenUpdate
-                            :mul,BVALUE,nBlueUpdate)     # B *= nBlueUpdate
+                            :copy,RVALUE,GVALUE,          # G  = R
+                            :copy,RVALUE,BVALUE,          # B  = R
+                             :mul,RVALUE,nRedUpdate,      # R *= nRedUpdate
+                             :mul,GVALUE,nGreenUpdate,    # G *= nGreenUpdate
+                             :mul,BVALUE,nBlueUpdate)     # B *= nBlueUpdate
 
     //====================================================================
     // GRAY SCALE -- Display Color RBG in GRAY Scale  
@@ -340,16 +395,17 @@ Func ChangeColorValue()
     elseif lGray  
            
         MCOrig = updateBytesColumn(MCOrig,nImageChannels,nImageWidth*nImageHeight,255,
-                            :mul,RVALUE,0.3,             # R *= 0.3
-                            :mul,GVALUE,0.59,            # G *= 0.59
-                            :mul,BVALUE,0.11,            # B *= 0.11
-                            :merge,RVALUE,GVALUE,        # R += G
-                            :merge,RVALUE,BVALUE,        # R += B
-                            :copy,RVALUE,GVALUE,         # G = R
-                            :copy,RVALUE,BVALUE)         # B = R
+                              :mul,RVALUE,0.3,             # R *= 0.3
+                              :mul,GVALUE,0.59,            # G *= 0.59
+                              :mul,BVALUE,0.11,            # B *= 0.11
+                            :merge,RVALUE,GVALUE,          # R += G
+                            :merge,RVALUE,BVALUE,          # R += B
+                             :copy,RVALUE,GVALUE,          # G  = R
+                             :copy,RVALUE,BVALUE)          # B  = R
 
     ok
 
+			
     #=====================================================================#
     t3 = clock()
     See "  Total Time: " + ( (t3-t1)/ClocksPerSecond() ) + " seconds " +nl
@@ -379,7 +435,7 @@ return
 //====================================================
 
 Func DrawRGBAImagePixels(MCImage,nXStart,nYStart,nNewAlpha)
-    
+ 
    #=====================================================================#
    See "DrawRBGAImagePixels: "
    t1 = clock()
@@ -439,14 +495,7 @@ return
 
 
 ###=====================================================================================================
-### ImageFile = PictureBD = "BlackDot1.png"
-//              PicturePG = "PotatoGirl.png"
-//              PictureFL = "Flower.png"
-//              PictureAG = "AfghanGirl.png"
-//              PictureTI = "Tiger.png"
-//              PictureTIJ = "Tiger.jpg"
-//              PictureBF = "Butterfly.png"
-//
+### ImageFile = PictureFL = "Flower.png"
 //  ring/extensions/ringstbimage/stbimage.cf 
 //  ring/samples/UsingStbImage/test3.ring
 //--------------------------------------------
@@ -476,12 +525,12 @@ Func ExtractImageRGB(ImageFile)
        lAlpha.show()
        eAlpha.show()
    else 
-       sAlpha.hide()
-       lAlpha.hide()
-       eAlpha.hide()
+    //   sAlpha.hide()   // Alpha Slider
+    //   lAlpha.hide()
+    //   eAlpha.hide()
    ok
     
 
-return 	
+return  
 
 //============================================
