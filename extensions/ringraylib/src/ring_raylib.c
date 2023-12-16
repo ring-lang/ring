@@ -18750,6 +18750,34 @@ RING_FUNC(ring_getimagepixela_2) {
 }
 
 
+RING_FUNC(ring_vec3set)
+{
+	Vector3 *pMyPointer ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Vector3");
+	pMyPointer->x = RING_API_GETNUMBER(2);
+	pMyPointer->y = RING_API_GETNUMBER(3);
+	pMyPointer->z = RING_API_GETNUMBER(4);
+}
 RING_LIBINIT
 {
 	RING_API_REGISTER("initwindow",ring_InitWindow);
@@ -19295,6 +19323,7 @@ RING_LIBINIT
 	RING_API_REGISTER("getimagepixelg_2",ring_getimagepixelg_2);
 	RING_API_REGISTER("getimagepixelb_2",ring_getimagepixelb_2);
 	RING_API_REGISTER("getimagepixela_2",ring_getimagepixela_2);
+	RING_API_REGISTER("vec3set",ring_vec3set);
 	RING_API_REGISTER("raylib_new_vector2",ring_raylib_new_vector2);
 	RING_API_REGISTER("raylib_new_managed_vector2",ring_raylib_new_managed_vector2);
 	RING_API_REGISTER("raylib_destroy_vector2",ring_raylib_destroy_vector2);

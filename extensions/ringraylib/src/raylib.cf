@@ -786,3 +786,38 @@ aExtraFunctionName + ["getcamera3type","raylib_get_camera3d_type"]
 aExtraFunctionName + ["setcamera3type","raylib_set_camera3d_type"]
 
 </runcode>
+
+<register>
+void vec3set(Vector3 v,double x,double y,double z)
+</register>
+
+<code>
+RING_FUNC(ring_vec3set)
+{
+	Vector3 *pMyPointer ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Vector3");
+	pMyPointer->x = RING_API_GETNUMBER(2);
+	pMyPointer->y = RING_API_GETNUMBER(3);
+	pMyPointer->z = RING_API_GETNUMBER(4);
+}
+</code>
