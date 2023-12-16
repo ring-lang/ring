@@ -7,10 +7,10 @@ Contains the next function
 
 * List2Bytes(aList) —> cBytes // "RGBA...."
 
-* updateList(<aList>,<cCommand>,<cSelection>,<nPara1>,<nPara2>,[nPara3])
+* updateList(aList,cCommand,cSelection,nPara1,nPara2,[nPara3])
 
-* updateColumn(<aList>, [<cCommand>,<nPara1>,<nPara2>,[nPara3]],…)
+* updateColumn(aList, [cCommand,nPara1,nPara2,[nPara3]],…)
 
-* updateBytesColumn(cBytes, nColumns, nCount, nDiv, [<cCommand>,<nPara1>,<nPara2>,[nPara3]],…) —> cNewBytes 
+* updateBytesColumn(cBytes, nColumns, nCount, nDiv, [cCommand,nPara1,nPara2,[nPara3]],…) —> cNewBytes 
 
 * addBytesColumn(cBytes, nColumns, nCount) —> cNewBytes 
