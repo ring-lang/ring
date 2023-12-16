@@ -118,13 +118,12 @@ func thread i
 				for z = 0 to cnt
 					blockScale = (x + y + z) / 30.0
 					scatter = sin(blockScale*20.0 + (time*4.0))
-					Vec3SetX(data[i][v][1], (x - numBlocks/2.0)*(scale*3.0) + scatter)
-					Vec3SetY(data[i][v][1], (y - numBlocks/2.0)*(scale*2.0) + scatter)
-					Vec3SetZ(data[i][v][1], (z - numBlocks/2.0)*(scale*3.0) + scatter)
+					Vec3Set(data[i][v][1],  (x - numBlocks/2.0)*(scale*3.0) + scatter,
+								(y - numBlocks/2.0)*(scale*2.0) + scatter,
+								(z - numBlocks/2.0)*(scale*3.0) + scatter)
 					size = (2.4 - scale)*blockScale
-					Vec3SetX(data[i][v][2], size)
-					Vec3SetY(data[i][v][2], size)
-					Vec3SetZ(data[i][v][2], size)
+					Vec3Set(data[i][v][2],size,size,size)
+
 					data[i][v][3] = colors[((x + y + z)*18.0)%360 + 1]
 					v++
 				next
