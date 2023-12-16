@@ -142,6 +142,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#updatelist-function">UpdateList() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#updatecolumn-function">UpdateColumn() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#generate-image">Generate Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#updatebytescolumn-function">UpdateBytesColumn() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#addbytescolumn-function">AddBytesColumn() function</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="usingref.html">Using References</a></li>
@@ -212,6 +214,8 @@
 <li><p>List2Bytes() function</p></li>
 <li><p>UpdateList() function</p></li>
 <li><p>UpdateColumn() function</p></li>
+<li><p>UpdateBytesColumn() function</p></li>
+<li><p>AddBytesColumn() function</p></li>
 </ul>
 <section id="bytes2list-function">
 <span id="index-1"></span><h2>Bytes2List() function<a class="headerlink" href="#bytes2list-function" title="Permalink to this heading"></a></h2>
@@ -380,8 +384,12 @@ updateList(&lt;aList&gt;,:merge,:col,&lt;nColDest&gt;,&lt;nCol&gt;)
 <p>Using this function we can execute many commands on the list columns.</p>
 <p>Instead of using updateList() many times and each time we pass :col as the third parameter, we can use updateColumn().</p>
 <p>This function support using numbers only.</p>
-<p>Example from the ImagePixel application that convert the image to Gray.</p>
+<p>The function could be used in the ImagePixel application to convert the image to Gray.</p>
 <img alt="updatecolumncode" src="_images/updatecolumncode.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The ImagePixel application uses a similar function called updateBytesColumn() to process bytes directly.</p>
+</div>
 </section>
 <section id="generate-image">
 <h2>Generate Image<a class="headerlink" href="#generate-image" title="Permalink to this heading"></a></h2>
@@ -396,7 +404,7 @@ updateList(&lt;aList&gt;,:merge,:col,&lt;nColDest&gt;,&lt;nCol&gt;)
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Converting the string to a Ring list enable us to use the updateColumn() function</p>
+<p>It’s better to use the updateBytesColumn() function to reduce memory usage and have better performance</p>
 </div>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stbimage.ring&quot;</span>
 <span class="k">load</span> <span class="s">&quot;fastpro.ring&quot;</span>
@@ -458,6 +466,72 @@ updateList(&lt;aList&gt;,:merge,:col,&lt;nColDest&gt;,&lt;nCol&gt;)
 </div>
 <p>Output:</p>
 <img alt="gengrayimage" src="_images/gengrayimage.png" />
+</section>
+<section id="updatebytescolumn-function">
+<span id="index-5"></span><h2>UpdateBytesColumn() function<a class="headerlink" href="#updatebytescolumn-function" title="Permalink to this heading"></a></h2>
+<p>Using this function we can process the Bytes directly instead of using Bytes2List() &amp; List2Bytes()</p>
+<p>Syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>updateBytesColumn(cBytes, nColumns, nCount, nDiv, [cCommand,nPara1,nPara2,[nPara3]],…) —&gt; cNewBytes
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stbimage.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;fastpro.ring&quot;</span>
+
+<span class="n">RVALUE</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">GVALUE</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">BVALUE</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="n">CIMAGE</span> <span class="o">=</span> <span class="s">&quot;ring.jpg&quot;</span>
+
+<span class="c"># Image Information</span>
+        <span class="n">width</span><span class="o">=</span><span class="mi">0</span> <span class="n">height</span><span class="o">=</span><span class="mi">0</span> <span class="n">channels</span><span class="o">=</span><span class="mi">0</span>
+<span class="c"># Ring will Free cData automatically in the end of the program</span>
+        <span class="o">?</span> <span class="s">&quot;Load image: &quot;</span> <span class="o">+</span> <span class="n">CIMAGE</span>
+        <span class="n">cData</span> <span class="o">=</span> <span class="n">stbi_load</span><span class="p">(</span><span class="n">CIMAGE</span><span class="p">,:</span><span class="n">width</span><span class="p">,:</span><span class="n">height</span><span class="p">,:</span><span class="n">channels</span><span class="p">,</span><span class="n">STBI_rgb</span><span class="p">)</span>
+
+<span class="c"># Convert to Gray</span>
+        <span class="n">cNewData</span> <span class="o">=</span> <span class="n">updateBytesColumn</span><span class="p">(</span><span class="n">cData</span><span class="p">,</span><span class="n">channels</span><span class="p">,</span><span class="n">width</span><span class="o">*</span><span class="n">height</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span>
+                  <span class="p">:</span><span class="n">mul</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span>             <span class="c"># R *= 0.3</span>
+                  <span class="p">:</span><span class="n">mul</span><span class="p">,</span><span class="n">GVALUE</span><span class="p">,</span><span class="mf">0.59</span><span class="p">,</span>            <span class="c"># G *= 0.59</span>
+                  <span class="p">:</span><span class="n">mul</span><span class="p">,</span><span class="n">BVALUE</span><span class="p">,</span><span class="mf">0.11</span><span class="p">,</span>            <span class="c"># B *= 0.11</span>
+                  <span class="p">:</span><span class="n">merge</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">GVALUE</span><span class="p">,</span>        <span class="c"># R += G</span>
+                  <span class="p">:</span><span class="n">merge</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">BVALUE</span><span class="p">,</span>        <span class="c"># R += B</span>
+                  <span class="p">:</span><span class="n">copy</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">GVALUE</span><span class="p">,</span>         <span class="c"># G = R</span>
+                  <span class="p">:</span><span class="n">copy</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">BVALUE</span><span class="p">)</span>         <span class="c"># B = R</span>
+
+<span class="c"># Write the image</span>
+        <span class="o">?</span> <span class="s">&quot;Writing mynewimage.bmp&quot;</span>
+        <span class="n">stbi_write_bmp</span><span class="p">(</span><span class="s">&quot;mynewimage.bmp&quot;</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">cNewData</span><span class="p">)</span>
+        <span class="n">system</span><span class="p">(</span><span class="s">&quot;mynewimage.bmp&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="addbytescolumn-function">
+<span id="index-6"></span><h2>AddBytesColumn() function<a class="headerlink" href="#addbytescolumn-function" title="Permalink to this heading"></a></h2>
+<p>If we have an image that uses three channels (R,G,B) and is represented through a string of bytes</p>
+<p>We can use AddBytesColumn() function to add an extra channel like the Alpha channel.</p>
+<p>Syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>addBytesColumn(cBytes, nColumns, nCount) —&gt; cNewBytes
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cImageFile</span>     <span class="o">=</span> <span class="s">&quot;ring.jpg&quot;</span>
+<span class="n">nImageWidth</span>    <span class="o">=</span> <span class="mi">0</span>
+<span class="n">nImageHeight</span>   <span class="o">=</span> <span class="mi">0</span>
+<span class="n">nImageChannels</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">stbi_info</span><span class="p">(</span><span class="n">cImageFile</span><span class="p">,:</span><span class="n">nImageWidth</span><span class="p">,:</span><span class="n">nImageHeight</span><span class="p">,:</span><span class="n">nImageChannels</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">nImageChannels</span> <span class="o">=</span> <span class="mi">3</span>
+        <span class="n">cImageData</span>     <span class="o">=</span> <span class="n">stbi_load</span><span class="p">(</span><span class="n">cImageFile</span><span class="p">,:</span><span class="n">nImageWidth</span><span class="p">,:</span><span class="n">nImageHeight</span><span class="p">,:</span><span class="n">nImageChannels</span><span class="p">,</span><span class="n">STBI_rgb</span><span class="p">)</span>
+        <span class="n">cImageData</span>     <span class="o">=</span> <span class="n">addBytesColumn</span><span class="p">(</span><span class="n">cImageData</span><span class="p">,</span><span class="n">nImageChannels</span><span class="p">,</span><span class="n">nImageWidth</span><span class="o">*</span><span class="n">nImageHeight</span><span class="p">)</span>
+        <span class="n">nImageChannels</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="k">else</span>
+        <span class="n">cImageData</span> <span class="o">=</span> <span class="n">stbi_load</span><span class="p">(</span><span class="n">cImageFile</span><span class="p">,:</span><span class="n">nImageWidth</span><span class="p">,:</span><span class="n">nImageHeight</span><span class="p">,:</span><span class="n">nImageChannels</span><span class="p">,</span><span class="n">STBI_rgb_alpha</span><span class="p">)</span>
+<span class="k">ok</span>
+</pre></div>
+</div>
 </section>
 </section>
 

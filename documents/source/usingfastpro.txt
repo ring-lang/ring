@@ -15,6 +15,8 @@ Contents:
 * List2Bytes() function
 * UpdateList() function
 * UpdateColumn() function
+* UpdateBytesColumn() function
+* AddBytesColumn() function
 
 .. index:: 
 	pair: Using FastPro; Bytes2List() function
@@ -245,11 +247,13 @@ Instead of using updateList() many times and each time we pass :col as the third
 
 This function support using numbers only.
 
-Example from the ImagePixel application that convert the image to Gray.
+The function could be used in the ImagePixel application to convert the image to Gray.
 
 .. image:: updatecolumncode.png
 	:alt: updatecolumncode
 
+
+.. note:: The ImagePixel application uses a similar function called updateBytesColumn() to process bytes directly.
 
 Generate Image
 ==============
@@ -266,7 +270,7 @@ Then using the drawBytes() method in RingQt - QPainter class we draw the generat
 
 .. note:: We can update the string bytes directly without conversion to a Ring list
 
-.. tip:: Converting the string to a Ring list enable us to use the updateColumn() function
+.. tip:: It's better to use the updateBytesColumn() function to reduce memory usage and have better performance
 
 .. code-block:: ring
 
@@ -331,3 +335,90 @@ Output:
 
 .. image:: gengrayimage.png
 	:alt: gengrayimage
+
+.. index:: 
+	pair: Using FastPro; UpdateBytesColumn()
+
+UpdateBytesColumn() function
+============================
+
+Using this function we can process the Bytes directly instead of using Bytes2List() & List2Bytes()
+
+Syntax:
+
+.. code-block:: none
+
+	updateBytesColumn(cBytes, nColumns, nCount, nDiv, [cCommand,nPara1,nPara2,[nPara3]],…) —> cNewBytes
+
+Example:
+
+.. code-block:: ring
+
+	load "stbimage.ring"
+	load "fastpro.ring"
+
+	RVALUE = 1
+	GVALUE = 2
+	BVALUE = 3
+
+	CIMAGE = "ring.jpg"
+
+	# Image Information
+		width=0	height=0 channels=0
+	# Ring will Free cData automatically in the end of the program
+        	? "Load image: " + CIMAGE
+		cData = stbi_load(CIMAGE,:width,:height,:channels,STBI_rgb)
+
+	# Convert to Gray
+		cNewData = updateBytesColumn(cData,channels,width*height,255,
+			  :mul,RVALUE,0.3,             # R *= 0.3
+        		  :mul,GVALUE,0.59,            # G *= 0.59
+        		  :mul,BVALUE,0.11,            # B *= 0.11
+        		  :merge,RVALUE,GVALUE,        # R += G
+        		  :merge,RVALUE,BVALUE,        # R += B
+        		  :copy,RVALUE,GVALUE,         # G = R
+        		  :copy,RVALUE,BVALUE)         # B = R
+
+	# Write the image
+		? "Writing mynewimage.bmp"
+		stbi_write_bmp("mynewimage.bmp", width, height, channels, cNewData)
+		system("mynewimage.bmp")
+
+.. index:: 
+	pair: Using FastPro; AddBytesColumn()
+
+AddBytesColumn() function
+=========================
+
+If we have an image that uses three channels (R,G,B) and is represented through a string of bytes 
+
+We can use AddBytesColumn() function to add an extra channel like the Alpha channel.
+
+Syntax:
+
+.. code-block:: none
+
+	addBytesColumn(cBytes, nColumns, nCount) —> cNewBytes  
+
+
+Example:
+
+.. code-block:: ring
+
+	cImageFile     = "ring.jpg"
+	nImageWidth    = 0 
+	nImageHeight   = 0 
+	nImageChannels = 0
+    
+	stbi_info(cImageFile,:nImageWidth,:nImageHeight,:nImageChannels)
+
+	if nImageChannels = 3
+		cImageData     = stbi_load(cImageFile,:nImageWidth,:nImageHeight,:nImageChannels,STBI_rgb)
+		cImageData     = addBytesColumn(cImageData,nImageChannels,nImageWidth*nImageHeight)
+		nImageChannels = 4
+	else
+		cImageData = stbi_load(cImageFile,:nImageWidth,:nImageHeight,:nImageChannels,STBI_rgb_alpha)
+	ok    
+
+
+    
