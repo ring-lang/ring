@@ -75,4 +75,4 @@ The RingCJSON folder contains the Ring binding to CJSON library
 
 The RingHTTPLib folder contains the Ring binding to CPPHTTPLib library
 
-The RingListPro folder contains extra list functions likst updateList()
+The RingFastPro folder contains functions for bytes/list processing
