@@ -32,7 +32,6 @@ nMax      = numBlocks-1
 halfBlocks= numBlocks/2
 
 cubepos    = Vec3()
-cubesize   = Vec3()
 cubeColorV = Vec3()
 Vec3SetY(cubeColorV, 0.75)
 Vec3SetZ(cubeColorV, 0.9)
@@ -73,9 +72,8 @@ while !WindowShouldClose()
 				cubeColor = ColorFromHSV(cubeColorV)
 
 				newcubeSize = (2.4 - scale)*blockScale
-				Vec3Set(cubeSize,newcubeSize,newcubeSize,newcubeSize)
 				
-				DrawCubeV_2(cubePos,cubeSize,cubeColor)
+				DrawCube_2(cubePos,newcubeSize,newcubeSize,newcubeSize,cubeColor)
 
 			next
 		next
