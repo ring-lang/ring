@@ -12,3 +12,5 @@ Contains the next function
 * updateColumn(<aList>, [<cCommand>,<nPara1>,<nPara2>,[nPara3]],…)
 
 * updateBytesColumn(cBytes, nColumns, nCount, nDiv, [<cCommand>,<nPara1>,<nPara2>,[nPara3]],…) —> cNewBytes 
+
+* addBytesColumn(cBytes, nColumns, nCount) —> cNewBytes 
