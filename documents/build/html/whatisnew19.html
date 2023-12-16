@@ -381,8 +381,10 @@ Ok, Thanks!
 <ul class="simple">
 <li><p>Bytes2List(cBytes,nWidth,nHeight,nChannels) —&gt; aList // [[R,G,B],…]</p></li>
 <li><p>List2Bytes(aList,nChannels) —&gt; cBytes // “RGBA….”</p></li>
-<li><p>updateList(&lt;aList&gt;,&lt;cCommand&gt;,&lt;cSelection&gt;,&lt;nPara1&gt;,[&lt;nPara2&gt;],[nPara3])</p></li>
-<li><p>updateColumn(&lt;aList&gt;, [&lt;cCommand&gt;,&lt;nPara1&gt;,[&lt;nPara2&gt;],[nPara3]],…)</p></li>
+<li><p>updateList(aList,cCommand,cSelection,nPara1,[nPara2],[nPara3])</p></li>
+<li><p>updateColumn(aList, [cCommand,nPara1,[nPara2],[nPara3]],…)</p></li>
+<li><p>updateBytesColumn(cBytes, nColumns, nCount, nDiv, [cCommand,nPara1,nPara2,[nPara3]],…) —&gt; cNewBytes</p></li>
+<li><p>addBytesColumn(cBytes, nColumns, nCount) —&gt; cNewBytes</p></li>
 </ul>
 <p>Using the updateColumn() function we can update the list columns in one function call</p>
 <p>Example from the ImagePixel application that convert the image to Gray</p>
