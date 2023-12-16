@@ -64,18 +64,16 @@ while !WindowShouldClose()
 
 				scatter = sin(blockScale*20 + (time*4))
 
-				Vec3SetX(cubepos,(x - halfBlocks)*(scale*3) + scatter)
-				Vec3SetY(cubepos,(y - halfBlocks)*(scale*2) + scatter)
-				Vec3SetZ(cubepos,(z - halfBlocks)*(scale*3) + scatter)
+				Vec3Set(cubepos,(x - halfBlocks)*(scale*3) + scatter,
+						(y - halfBlocks)*(scale*2) + scatter,
+						(z - halfBlocks)*(scale*3) + scatter)
 
 				Vec3SetX(cubeColorV,  (((x + y + z)*18)%360))
 
 				cubeColor = ColorFromHSV(cubeColorV)
 
 				newcubeSize = (2.4 - scale)*blockScale
-				Vec3SetX(cubeSize,newcubeSize)
-				Vec3SetY(cubeSize,newcubeSize)
-				Vec3SetZ(cubeSize,newcubeSize)
+				Vec3Set(cubeSize,newcubeSize,newcubeSize,newcubeSize)
 				
 				DrawCubeV_2(cubePos,cubeSize,cubeColor)
 
