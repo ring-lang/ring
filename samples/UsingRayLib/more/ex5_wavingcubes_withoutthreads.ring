@@ -69,11 +69,9 @@ while !WindowShouldClose()
 
 				Vec3SetX(cubeColorV,  (((x + y + z)*18)%360))
 
-				cubeColor = ColorFromHSV(cubeColorV)
-
 				newcubeSize = (2.4 - scale)*blockScale
 				
-				DrawCube_2(cubePos,newcubeSize,newcubeSize,newcubeSize,cubeColor)
+				DrawCube_2(cubePos,newcubeSize,newcubeSize,newcubeSize,ColorFromHSV(cubeColorV))
 
 			next
 		next
