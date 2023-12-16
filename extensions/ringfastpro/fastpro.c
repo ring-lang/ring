@@ -999,6 +999,51 @@ RING_FUNC(ring_updatebytescolumn)
 	RING_API_RETSTRING2(pBytes,nBytesSize);
 }
 
+RING_FUNC(ring_addbytescolumn)
+{
+	unsigned char *pBytes, *pNewBytes;
+	int nBytesSize,nColumns,nSize,nNewBytesSize,nIndex;
+
+	if (RING_API_PARACOUNT < 3) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);	
+		return ;
+	}
+
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pBytes = RING_API_GETSTRING(1);
+	nBytesSize = RING_API_GETSTRINGSIZE(1);
+
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	nColumns = (int) RING_API_GETNUMBER(2);
+
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	nSize = (int) RING_API_GETNUMBER(3);
+
+
+	nNewBytesSize = (nColumns+1)*nSize;
+	pNewBytes = RING_API_MALLOC(nNewBytesSize);
+	
+	nIndex = 0;
+	for ( int x = 1 ; x <= nBytesSize ; x += nColumns  ) {
+		for ( int t=0 ; t < nColumns ; t++) {
+			pNewBytes[nIndex++] = pBytes[x-1+t];
+		}
+		pNewBytes[nIndex++] = (char) 255;
+	}
+	
+	RING_API_RETSTRING2(pNewBytes,nNewBytesSize);
+
+}
+
 RING_LIBINIT
 {
     RING_API_REGISTER("bytes2list",ring_bytes2list);
@@ -1006,4 +1051,5 @@ RING_LIBINIT
     RING_API_REGISTER("updatelist",ring_updatelist);
     RING_API_REGISTER("updatecolumn",ring_updatecolumn);
     RING_API_REGISTER("updatebytescolumn",ring_updatebytescolumn);
+    RING_API_REGISTER("addbytescolumn",ring_addbytescolumn);
 }
