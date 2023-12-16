@@ -387,6 +387,8 @@ Ok, Thanks!
 <li><p>addBytesColumn(cBytes, nColumns, nCount) —&gt; cNewBytes</p></li>
 </ul>
 <p>Using the updateColumn() function we can update the list columns in one function call</p>
+<p>We have a similar function called updateBytesColumn() that process bytes directly instead of
+using Bytes2List() and List2Bytes() functions.</p>
 <p>Example from the ImagePixel application that convert the image to Gray</p>
 <img alt="updatecolumncode" src="_images/updatecolumncode.png" />
 <p>This also provides better performance compared to calling updateList() many times.</p>

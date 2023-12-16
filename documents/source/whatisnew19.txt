@@ -272,6 +272,9 @@ This new extension comes with the next functions
 
 Using the updateColumn() function we can update the list columns in one function call
 
+We have a similar function called updateBytesColumn() that process bytes directly instead of 
+using Bytes2List() and List2Bytes() functions.
+
 Example from the ImagePixel application that convert the image to Gray
 
 .. image:: updatecolumncode.png
