@@ -520,14 +520,9 @@ Func ExtractImageRGB(ImageFile)
    ? "Height: "       + nImageHeight
    ? "Channels: "     + nImageChannels
 
-   if nImageChannels = 4
-       sAlpha.show()
-       lAlpha.show()
-       eAlpha.show()
-   else 
-    //   sAlpha.hide()   // Alpha Slider
-    //   lAlpha.hide()
-    //   eAlpha.hide()
+   if nImageChannels = 3
+	cImageData = addBytesColumn(cImageData,nImageChannels,nImageWidth*nImageHeight)
+	nImageChannels = 4
    ok
     
 
