@@ -801,15 +801,7 @@ RING_FUNC(ring_vec2set)
 		RING_API_ERROR(RING_API_MISS4PARA) ;
 		return ;
 	}
-	if ( ! RING_API_ISCPOINTER(1) ) { 
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(2) ) { 
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(3) ) { 
+	if ( (! RING_API_ISCPOINTER(1)) || (! RING_API_ISNUMBER(2)) || (! RING_API_ISNUMBER(3)) ) { 
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
@@ -826,19 +818,8 @@ RING_FUNC(ring_vec3set)
 		RING_API_ERROR(RING_API_MISS4PARA) ;
 		return ;
 	}
-	if ( ! RING_API_ISCPOINTER(1) ) { 
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(2) ) { 
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(3) ) { 
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(4) ) { 
+	if ( (! RING_API_ISCPOINTER(1)) || (! RING_API_ISNUMBER(2)) ||
+	       (! RING_API_ISNUMBER(3)) || (! RING_API_ISNUMBER(4)) ) { 
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
@@ -855,23 +836,8 @@ RING_FUNC(ring_vec4set)
 		RING_API_ERROR(RING_API_MISS4PARA) ;
 		return ;
 	}
-	if ( ! RING_API_ISCPOINTER(1) ) { 
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(2) ) { 
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(3) ) { 
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(4) ) { 
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(5) ) { 
+	if ( (! RING_API_ISCPOINTER(1)) || (! RING_API_ISNUMBER(2)) ||
+	     (! RING_API_ISNUMBER(3))   || (! RING_API_ISNUMBER(4)) || (! RING_API_ISNUMBER(5)) ) { 
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
