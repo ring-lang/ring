@@ -579,6 +579,20 @@ sudo ln -sf "`pwd`/lib/libring_httplib.so" /usr/lib
 sudo ln -sf "`pwd`/lib/libring_httplib.so" /usr/lib64
 fi
 
+# Make the RingStbImage library ready for use directly
+
+if [ -f lib/libring_stbimage.dylib ];
+then
+ln -sf "`pwd`/lib/libring_stbimage.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_stbimage.dylib
+fi
+
+if [ -f lib/libring_stbimage.so ];
+then
+sudo ln -sf "`pwd`/lib/libring_stbimage.so" /usr/lib
+sudo ln -sf "`pwd`/lib/libring_stbimage.so" /usr/lib64
+fi
+
 # Make the RingFastPro library ready for use directly
 
 if [ -f lib/libring_fastpro.dylib ];
