@@ -100,7 +100,7 @@ More Samples
 Ring for Windows 64bit 
 ======================
 
-Starting from Ring 1.19 the default Ring for Windows version is 64bit
+Starting from Ring 1.19 we provide 64bit version of Ring for Windows.
 
 This provide access to more memory. Also, most of our tests indicates an increase of performance from 15% to 25%
 
@@ -562,7 +562,8 @@ More Improvements
 * Ring VM - For-Loop will produce a runtime error if used with wrong data-type
 * Ring VM - Function Call - Replace some Ring lists with C Structures
 * Ring VM - Use ICO_LOADFUNCP when loading C functions
-* Ring VM - Memory Pool - Allocate 1,000,000 items at startup  
+* Ring VM - Memory Pool - Three levels based on the allocation size
+* Ring VM - Memory Pool - Allocate 1,000,000 items at startup for level 1
 * Ring VM - Byte Code - Added: Flag Register
 * Ring VM - Byte Code - Added: Integer Register
 * Ring VM - Use ring_list_genarray() with global scope variables When using threads 

@@ -282,7 +282,7 @@
 </section>
 <section id="ring-for-windows-64bit">
 <span id="index-6"></span><h2>Ring for Windows 64bit<a class="headerlink" href="#ring-for-windows-64bit" title="Permalink to this heading"></a></h2>
-<p>Starting from Ring 1.19 the default Ring for Windows version is 64bit</p>
+<p>Starting from Ring 1.19 we provide 64bit version of Ring for Windows.</p>
 <p>This provide access to more memory. Also, most of our tests indicates an increase of performance from 15% to 25%</p>
 <p>This increase of performance is measured when we compare Ring 1.19 (32bit) and Ring 1.19 (64bit)</p>
 <p>This is different from comparing Ring 1.19 (32bit) and Ring 1.18 (32bit) to see how much the new release is faster</p>
@@ -628,7 +628,8 @@ aExtraFunctionName + [&quot;vec2sety&quot;,&quot;raylib_set_vector2_y&quot;]
 <li><p>Ring VM - For-Loop will produce a runtime error if used with wrong data-type</p></li>
 <li><p>Ring VM - Function Call - Replace some Ring lists with C Structures</p></li>
 <li><p>Ring VM - Use ICO_LOADFUNCP when loading C functions</p></li>
-<li><p>Ring VM - Memory Pool - Allocate 1,000,000 items at startup</p></li>
+<li><p>Ring VM - Memory Pool - Three levels based on the allocation size</p></li>
+<li><p>Ring VM - Memory Pool - Allocate 1,000,000 items at startup for level 1</p></li>
 <li><p>Ring VM - Byte Code - Added: Flag Register</p></li>
 <li><p>Ring VM - Byte Code - Added: Integer Register</p></li>
 <li><p>Ring VM - Use ring_list_genarray() with global scope variables When using threads</p></li>
