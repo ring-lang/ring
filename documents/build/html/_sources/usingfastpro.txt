@@ -247,13 +247,11 @@ Instead of using updateList() many times and each time we pass :col as the third
 
 This function support using numbers only.
 
-The function could be used in the ImagePixel application to convert the image to Gray.
-
-.. image:: updatecolumncode.png
-	:alt: updatecolumncode
-
-
 .. note:: The ImagePixel application uses a similar function called updateBytesColumn() to process bytes directly.
+
+
+.. index:: 
+	pair: Using FastPro; Generate Image
 
 Generate Image
 ==============
@@ -299,7 +297,7 @@ Then using the drawBytes() method in RingQt - QPainter class we draw the generat
 	next
 	
 	aList = Bytes2List(cImage,Width,Height,Channels,255)
-	updateColumn(aList,:mul,RVALUE,0.3,              # R *= 0.3
+	updateColumn(aList,:mul,RVALUE,0.3,             # R *= 0.3
                     	   :mul,GVALUE,0.59,            # G *= 0.59
                     	   :mul,BVALUE,0.11,            # B *= 0.11
                     	   :merge,RVALUE,GVALUE,        # R += G
@@ -335,6 +333,34 @@ Output:
 
 .. image:: gengrayimage.png
 	:alt: gengrayimage
+
+A faster version of the previous sample could be written by replacing the next code
+
+.. code-block:: ring
+
+	aList = Bytes2List(cImage,Width,Height,Channels,255)
+	updateColumn(aList,:mul,RVALUE,0.3,             # R *= 0.3
+                    	   :mul,GVALUE,0.59,            # G *= 0.59
+                    	   :mul,BVALUE,0.11,            # B *= 0.11
+                    	   :merge,RVALUE,GVALUE,        # R += G
+                    	   :merge,RVALUE,BVALUE,        # R += B
+                    	   :copy,RVALUE,GVALUE,         # G = R
+                    	   :copy,RVALUE,BVALUE)         # B = R	
+	cGrayImage = list2Bytes(aList,Channels,255)
+
+With this code
+
+.. code-block:: ring
+
+	cGrayImage = updateBytesColumn(cImage,Channels,Width*Height,255,
+		   :mul,RVALUE,0.3,             # R *= 0.3
+               	   :mul,GVALUE,0.59,            # G *= 0.59
+               	   :mul,BVALUE,0.11,            # B *= 0.11
+               	   :merge,RVALUE,GVALUE,        # R += G
+               	   :merge,RVALUE,BVALUE,        # R += B
+               	   :copy,RVALUE,GVALUE,         # G = R
+               	   :copy,RVALUE,BVALUE)         # B = R	
+
 
 .. index:: 
 	pair: Using FastPro; UpdateBytesColumn()
@@ -383,6 +409,11 @@ Example:
 		? "Writing mynewimage.bmp"
 		stbi_write_bmp("mynewimage.bmp", width, height, channels, cNewData)
 		system("mynewimage.bmp")
+
+This function is used in the ImagePixel application to convert the image to Gray.
+
+.. image:: updatecolumncode.png
+	:alt: updatecolumncode
 
 .. index:: 
 	pair: Using FastPro; AddBytesColumn()

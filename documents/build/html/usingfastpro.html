@@ -384,15 +384,13 @@ updateList(&lt;aList&gt;,:merge,:col,&lt;nColDest&gt;,&lt;nCol&gt;)
 <p>Using this function we can execute many commands on the list columns.</p>
 <p>Instead of using updateList() many times and each time we pass :col as the third parameter, we can use updateColumn().</p>
 <p>This function support using numbers only.</p>
-<p>The function could be used in the ImagePixel application to convert the image to Gray.</p>
-<img alt="updatecolumncode" src="_images/updatecolumncode.png" />
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The ImagePixel application uses a similar function called updateBytesColumn() to process bytes directly.</p>
 </div>
 </section>
 <section id="generate-image">
-<h2>Generate Image<a class="headerlink" href="#generate-image" title="Permalink to this heading"></a></h2>
+<span id="index-5"></span><h2>Generate Image<a class="headerlink" href="#generate-image" title="Permalink to this heading"></a></h2>
 <p>The next example generate an image using a string that contain bytes</p>
 <p>Then uses Bytes2List() to convert the generated image to Ring List</p>
 <p>Using updateColumn() the list is updated and the colors are converted to Gray</p>
@@ -431,7 +429,7 @@ updateList(&lt;aList&gt;,:merge,:col,&lt;nColDest&gt;,&lt;nCol&gt;)
 <span class="k">next</span>
 
 <span class="n">aList</span> <span class="o">=</span> <span class="n">Bytes2List</span><span class="p">(</span><span class="n">cImage</span><span class="p">,</span><span class="n">Width</span><span class="p">,</span><span class="n">Height</span><span class="p">,</span><span class="n">Channels</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>
-<span class="n">updateColumn</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">mul</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span>              <span class="c"># R *= 0.3</span>
+<span class="n">updateColumn</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">mul</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span>             <span class="c"># R *= 0.3</span>
                    <span class="p">:</span><span class="n">mul</span><span class="p">,</span><span class="n">GVALUE</span><span class="p">,</span><span class="mf">0.59</span><span class="p">,</span>            <span class="c"># G *= 0.59</span>
                    <span class="p">:</span><span class="n">mul</span><span class="p">,</span><span class="n">BVALUE</span><span class="p">,</span><span class="mf">0.11</span><span class="p">,</span>            <span class="c"># B *= 0.11</span>
                    <span class="p">:</span><span class="n">merge</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">GVALUE</span><span class="p">,</span>        <span class="c"># R += G</span>
@@ -466,9 +464,32 @@ updateList(&lt;aList&gt;,:merge,:col,&lt;nColDest&gt;,&lt;nCol&gt;)
 </div>
 <p>Output:</p>
 <img alt="gengrayimage" src="_images/gengrayimage.png" />
+<p>A faster version of the previous sample could be written by replacing the next code</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="n">Bytes2List</span><span class="p">(</span><span class="n">cImage</span><span class="p">,</span><span class="n">Width</span><span class="p">,</span><span class="n">Height</span><span class="p">,</span><span class="n">Channels</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>
+<span class="n">updateColumn</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">mul</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span>             <span class="c"># R *= 0.3</span>
+                   <span class="p">:</span><span class="n">mul</span><span class="p">,</span><span class="n">GVALUE</span><span class="p">,</span><span class="mf">0.59</span><span class="p">,</span>            <span class="c"># G *= 0.59</span>
+                   <span class="p">:</span><span class="n">mul</span><span class="p">,</span><span class="n">BVALUE</span><span class="p">,</span><span class="mf">0.11</span><span class="p">,</span>            <span class="c"># B *= 0.11</span>
+                   <span class="p">:</span><span class="n">merge</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">GVALUE</span><span class="p">,</span>        <span class="c"># R += G</span>
+                   <span class="p">:</span><span class="n">merge</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">BVALUE</span><span class="p">,</span>        <span class="c"># R += B</span>
+                   <span class="p">:</span><span class="n">copy</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">GVALUE</span><span class="p">,</span>         <span class="c"># G = R</span>
+                   <span class="p">:</span><span class="n">copy</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">BVALUE</span><span class="p">)</span>         <span class="c"># B = R</span>
+<span class="n">cGrayImage</span> <span class="o">=</span> <span class="n">list2Bytes</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">Channels</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>With this code</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cGrayImage</span> <span class="o">=</span> <span class="n">updateBytesColumn</span><span class="p">(</span><span class="n">cImage</span><span class="p">,</span><span class="n">Channels</span><span class="p">,</span><span class="n">Width</span><span class="o">*</span><span class="n">Height</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span>
+           <span class="p">:</span><span class="n">mul</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span>             <span class="c"># R *= 0.3</span>
+           <span class="p">:</span><span class="n">mul</span><span class="p">,</span><span class="n">GVALUE</span><span class="p">,</span><span class="mf">0.59</span><span class="p">,</span>            <span class="c"># G *= 0.59</span>
+           <span class="p">:</span><span class="n">mul</span><span class="p">,</span><span class="n">BVALUE</span><span class="p">,</span><span class="mf">0.11</span><span class="p">,</span>            <span class="c"># B *= 0.11</span>
+           <span class="p">:</span><span class="n">merge</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">GVALUE</span><span class="p">,</span>        <span class="c"># R += G</span>
+           <span class="p">:</span><span class="n">merge</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">BVALUE</span><span class="p">,</span>        <span class="c"># R += B</span>
+           <span class="p">:</span><span class="n">copy</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">GVALUE</span><span class="p">,</span>         <span class="c"># G = R</span>
+           <span class="p">:</span><span class="n">copy</span><span class="p">,</span><span class="n">RVALUE</span><span class="p">,</span><span class="n">BVALUE</span><span class="p">)</span>         <span class="c"># B = R</span>
+</pre></div>
+</div>
 </section>
 <section id="updatebytescolumn-function">
-<span id="index-5"></span><h2>UpdateBytesColumn() function<a class="headerlink" href="#updatebytescolumn-function" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>UpdateBytesColumn() function<a class="headerlink" href="#updatebytescolumn-function" title="Permalink to this heading"></a></h2>
 <p>Using this function we can process the Bytes directly instead of using Bytes2List() &amp; List2Bytes()</p>
 <p>Syntax:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>updateBytesColumn(cBytes, nColumns, nCount, nDiv, [cCommand,nPara1,nPara2,[nPara3]],…) —&gt; cNewBytes
@@ -506,9 +527,11 @@ updateList(&lt;aList&gt;,:merge,:col,&lt;nColDest&gt;,&lt;nCol&gt;)
         <span class="n">system</span><span class="p">(</span><span class="s">&quot;mynewimage.bmp&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>This function is used in the ImagePixel application to convert the image to Gray.</p>
+<img alt="updatecolumncode" src="_images/updatecolumncode.png" />
 </section>
 <section id="addbytescolumn-function">
-<span id="index-6"></span><h2>AddBytesColumn() function<a class="headerlink" href="#addbytescolumn-function" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>AddBytesColumn() function<a class="headerlink" href="#addbytescolumn-function" title="Permalink to this heading"></a></h2>
 <p>If we have an image that uses three channels (R,G,B) and is represented through a string of bytes</p>
 <p>We can use AddBytesColumn() function to add an extra channel like the Alpha channel.</p>
 <p>Syntax:</p>
