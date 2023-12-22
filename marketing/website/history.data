@@ -1,4 +1,5 @@
 aNews = [
+  ["December 23, 2023",'<a href="https://github.com/mohannad-aldulaimi/quran_ring"> Application: Listen to Quran</a>'],
   ["October 19, 2023",'<a href="https://github.com/ring-lang/ring/tree/master/applications/imagepixel"> Application: Image Pixel</a>'],
   ["September 30, 2023",'<a href="https://github.com/ring-lang/ring/tree/master/applications/planetaryorbits"> Application: Planetary Orbits</a>'],
   ["September 20, 2023",'<a href="https://github.com/ring-lang/ring/tree/master/applications/hourscounter"> Application: Hours Counter</a>'],
