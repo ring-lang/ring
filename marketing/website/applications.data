@@ -8,6 +8,10 @@ aApplications = [
 			[
 				'<a href="https://github.com/ring-lang/ring/blob/master/applications/poetryanalysis" >Arabic Poetry Analysis</a>',
 				'<img src="poetryanalysis.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/mohannad-aldulaimi/quran_ring" >Listen to Quran</a>',
+				'<img src="listentoquran.png" width="100%">'
 			]
 		]
 	],
