@@ -895,7 +895,7 @@ class RNoteMainWindow
 				setclickedEvent(Method(:ChangeFile))
 				setActivatedEvent(Method(:ChangeFile))
 				setGeometry(00,00,200,400)
-				setminimumwidth(floor(this.oDesktop.width()*0.2))
+				setminimumwidth(floor(this.oDesktop.width()*this.oDesktop.nProjectFilesPer))
                 		chdir(this.cStartUpFolder)
 				oDir = new QDir()
 				this.ofile = new QFileSystemModel() {
@@ -1227,8 +1227,18 @@ class RingNotepadQTextEdit from QTextEdit
 
 class RNoteDesktop
 
+	oDeskWidget = new QDesktopWidget()
+	nDeskWidgetWidth  = oDeskWidget.width()
+	nDeskWidgetHeight = oDeskWidget.height()
+
+	if nDeskWidgetWidth >= 1920
+		nProjectFilesPer = 0.2
+	else 
+		nProjectFilesPer = 0.26
+	ok
+
 	func width 
-		return 1366
+		return min(1920,nDeskWidgetWidth)
 
 	func height 
-		return 768
+		return min(1080,nDeskWidgetHeight)
