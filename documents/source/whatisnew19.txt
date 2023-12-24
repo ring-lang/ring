@@ -516,7 +516,8 @@ Also, The next chapters are revised and improved
 More Improvements
 =================
 
-* Ring Notepad - Close Button - Force closing the web browser 
+* Ring Notepad - Close Button - Force closing the web browser
+* Ring Notepad - Projects Files - Larger width 
 * FindInFiles Application - Replace Button - Check line selection
 * WinStartupManager application - Use extensions that comes with Ring
 * EightPuzzleGame3D game - Better Code 
