@@ -258,12 +258,12 @@ Func WindowSizeChanged()
                     
     analogClock()
 
-    imageClock.setGeometry(0,0,WinWidth-16, WinHeight-38)    
+    imageClock.setGeometry(0,0,WinWidth, WinHeight-38)    
 
 return
 
 
 func analogClock
-        oScaledImage = image.scaled(WinWidth-16 , WinHeight-38 ,0,0)
+        oScaledImage = image.scaled(WinWidth , WinHeight-38 ,0,0)
         imageClock.setpixmap(oScaledImage)   ### Size-H, Size-V, Aspect, Transform
 return
