@@ -518,8 +518,9 @@ More Improvements
 
 * Ring Notepad - Close Button - Force closing the web browser
 * Ring Notepad - Projects Files - Larger width 
-* FindInFiles Application - Replace Button - Check line selection
+* FindInFiles application - Replace Button - Check line selection
 * WinStartupManager application - Use extensions that comes with Ring
+* AnalogClock application - Set the image width to be like the window width
 * EightPuzzleGame3D game - Better Code 
 * SuperMan2016 game - Reset FPS, energy value and player speed
 * GoldMagic800 game - Reset FPS and player speed
