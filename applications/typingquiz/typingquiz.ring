@@ -13,10 +13,6 @@ func main
 InitWindow(screenWidth, screenHeight, "Typing Quiz")
 SetTargetFPS(60)
 
-if iswindows()
-	system("cls")
-ok
-
 # quiz characters
 chars = [['j', 'f'], ['c', 'k'], ['d', 'k'], ['e', 'o']]
 
