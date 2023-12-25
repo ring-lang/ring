@@ -579,3 +579,4 @@ More Improvements
 * Ring VM - Arguments - Reduce the required memory to pass a value
 * Ring VM - ring_state_calloc() - Use the memory pool if possible
 * Ring VM - Better implementation for using (Return This)
+* Ring VM - Support adding items to a list during assignment using plus operator
