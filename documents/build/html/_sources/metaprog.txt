@@ -25,6 +25,7 @@ In this chapter we will learn about this and the available functions to use.
 * packageclasses()
 * ispackageclass()
 * classname()
+* parentclassname()
 * objectid()
 * isobject() 
 * attributes()
@@ -185,7 +186,7 @@ Output:
 
 .. code-block:: ring
 
-	Count : 251
+	Count : 254
 	len() 
 	add() 
 	del() 
@@ -625,6 +626,39 @@ Example:
 
 	class point
 	class rect
+
+
+.. index:: 
+	pair: Reflection and Meta-programming; parentclassname()
+
+parentclassname() Function
+==========================
+		
+We can know the parent class name of an object using the parentclassname() function
+
+Syntax:
+
+.. code-block:: none
+
+	parentclassname(object) --> Returns the parent class name of the object class 
+
+
+Example:
+
+.. code-block:: ring
+
+	new Child  { test() }
+
+	class Parent
+	class Child from Parent
+		func test
+			? "Parent: " + parentClassName(self)
+
+Output:
+
+.. code-block:: none
+
+	Parent: parent
 
 .. index:: 
 	pair: Reflection and Meta-programming; objectid()

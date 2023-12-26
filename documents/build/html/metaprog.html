@@ -93,6 +93,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#packageclasses-function">packageclasses() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ispackageclass-function">ispackageclass() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#classname-function">classname() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parentclassname-function">parentclassname() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#objectid-function">objectid() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#isobject-function">isobject() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#attributes-function">attributes() Function</a></li>
@@ -250,6 +251,7 @@ the program code and we can modify our code during the runtime.</p>
 <li><p>packageclasses()</p></li>
 <li><p>ispackageclass()</p></li>
 <li><p>classname()</p></li>
+<li><p>parentclassname()</p></li>
 <li><p>objectid()</p></li>
 <li><p>isobject()</p></li>
 <li><p>attributes()</p></li>
@@ -367,7 +369,7 @@ the program code and we can modify our code during the runtime.</p>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Count</span> <span class="p">:</span> <span class="mi">251</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Count</span> <span class="p">:</span> <span class="mi">254</span>
 <span class="n">len</span><span class="p">()</span>
 <span class="n">add</span><span class="p">()</span>
 <span class="n">del</span><span class="p">()</span>
@@ -701,8 +703,29 @@ the program code and we can modify our code during the runtime.</p>
 </pre></div>
 </div>
 </section>
+<section id="parentclassname-function">
+<span id="index-16"></span><h2>parentclassname() Function<a class="headerlink" href="#parentclassname-function" title="Permalink to this heading"></a></h2>
+<p>We can know the parent class name of an object using the parentclassname() function</p>
+<p>Syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>parentclassname(object) --&gt; Returns the parent class name of the object class
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">Child</span>  <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
+
+<span class="k">class</span> <span class="n">Parent</span>
+<span class="k">class</span> <span class="n">Child</span> <span class="k">from</span> <span class="n">Parent</span>
+        <span class="k">func</span> <span class="n">test</span>
+                <span class="o">?</span> <span class="s">&quot;Parent: &quot;</span> <span class="o">+</span> <span class="n">parentClassName</span><span class="p">(</span><span class="n">self</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Parent: parent
+</pre></div>
+</div>
+</section>
 <section id="objectid-function">
-<span id="index-16"></span><h2>objectid() Function<a class="headerlink" href="#objectid-function" title="Permalink to this heading"></a></h2>
+<span id="index-17"></span><h2>objectid() Function<a class="headerlink" href="#objectid-function" title="Permalink to this heading"></a></h2>
 <p>We can know the object id using the objectid() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">objectid</span><span class="p">(</span><span class="n">object</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="n">the</span> <span class="n">object</span> <span class="n">id</span>
@@ -726,7 +749,7 @@ the program code and we can modify our code during the runtime.</p>
 </div>
 </section>
 <section id="isobject-function">
-<span id="index-17"></span><h2>isobject() Function<a class="headerlink" href="#isobject-function" title="Permalink to this heading"></a></h2>
+<span id="index-18"></span><h2>isobject() Function<a class="headerlink" href="#isobject-function" title="Permalink to this heading"></a></h2>
 <p>We can check the variable to know if it’s an object or not using the isobject() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">isobject</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="kp">True</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s an object, False if it&#39;</span><span class="n">s</span> <span class="ow">not</span>
@@ -734,7 +757,7 @@ the program code and we can modify our code during the runtime.</p>
 </div>
 </section>
 <section id="attributes-function">
-<span id="index-18"></span><h2>attributes() Function<a class="headerlink" href="#attributes-function" title="Permalink to this heading"></a></h2>
+<span id="index-19"></span><h2>attributes() Function<a class="headerlink" href="#attributes-function" title="Permalink to this heading"></a></h2>
 <p>We can get the object attributes using the attributes() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">attributes</span><span class="p">(</span><span class="n">object</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="n">a</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">object</span> <span class="n">attributes</span>
@@ -749,7 +772,7 @@ the program code and we can modify our code during the runtime.</p>
 </div>
 </section>
 <section id="methods-function">
-<span id="index-19"></span><h2>methods() Function<a class="headerlink" href="#methods-function" title="Permalink to this heading"></a></h2>
+<span id="index-20"></span><h2>methods() Function<a class="headerlink" href="#methods-function" title="Permalink to this heading"></a></h2>
 <p>We can get the object methods using the methods() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">methods</span><span class="p">(</span><span class="n">object</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="n">a</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">object</span> <span class="n">methods</span>
@@ -784,7 +807,7 @@ the program code and we can modify our code during the runtime.</p>
 </div>
 </section>
 <section id="isattribute-function">
-<span id="index-20"></span><h2>isattribute() Function<a class="headerlink" href="#isattribute-function" title="Permalink to this heading"></a></h2>
+<span id="index-21"></span><h2>isattribute() Function<a class="headerlink" href="#isattribute-function" title="Permalink to this heading"></a></h2>
 <p>We can test if the object contains an attribute or not using the isattribute() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">isattribute</span><span class="p">(</span><span class="n">object</span><span class="p">,</span><span class="n">cAttributeName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="kp">True</span> <span class="k">if</span> <span class="n">the</span> <span class="n">object</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">attribute</span>
@@ -803,7 +826,7 @@ the program code and we can modify our code during the runtime.</p>
 </div>
 </section>
 <section id="isprivateattribute-function">
-<span id="index-21"></span><h2>isprivateattribute() Function<a class="headerlink" href="#isprivateattribute-function" title="Permalink to this heading"></a></h2>
+<span id="index-22"></span><h2>isprivateattribute() Function<a class="headerlink" href="#isprivateattribute-function" title="Permalink to this heading"></a></h2>
 <p>We can test if the object contains a private attribute or not using the isprivateattribute() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">isprivateattribute</span><span class="p">(</span><span class="n">object</span><span class="p">,</span><span class="n">cAttributeName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="kp">True</span> <span class="k">if</span> <span class="n">the</span> <span class="n">object</span>
@@ -835,7 +858,7 @@ the program code and we can modify our code during the runtime.</p>
 </div>
 </section>
 <section id="ismethod-function">
-<span id="index-22"></span><h2>ismethod() Function<a class="headerlink" href="#ismethod-function" title="Permalink to this heading"></a></h2>
+<span id="index-23"></span><h2>ismethod() Function<a class="headerlink" href="#ismethod-function" title="Permalink to this heading"></a></h2>
 <p>We can test if the object class contains a method or not using the ismethod() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ismethod</span><span class="p">(</span><span class="n">object</span><span class="p">,</span><span class="n">cMethodName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="kp">True</span> <span class="k">if</span> <span class="n">the</span> <span class="n">object</span> <span class="k">class</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">method</span>
@@ -858,7 +881,7 @@ the program code and we can modify our code during the runtime.</p>
 </div>
 </section>
 <section id="isprivatemethod-function">
-<span id="index-23"></span><h2>isprivatemethod() Function<a class="headerlink" href="#isprivatemethod-function" title="Permalink to this heading"></a></h2>
+<span id="index-24"></span><h2>isprivatemethod() Function<a class="headerlink" href="#isprivatemethod-function" title="Permalink to this heading"></a></h2>
 <p>We can test if the object class contains a private method or not using the isprivatemethod() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">isprivatemethod</span><span class="p">(</span><span class="n">object</span><span class="p">,</span><span class="n">cMethodName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="kp">True</span> <span class="k">if</span> <span class="n">the</span> <span class="n">object</span> <span class="k">class</span> <span class="n">contains</span>
@@ -886,7 +909,7 @@ the program code and we can modify our code during the runtime.</p>
 </div>
 </section>
 <section id="addattribute-function">
-<span id="index-24"></span><h2>addattribute() Function<a class="headerlink" href="#addattribute-function" title="Permalink to this heading"></a></h2>
+<span id="index-25"></span><h2>addattribute() Function<a class="headerlink" href="#addattribute-function" title="Permalink to this heading"></a></h2>
 <p>We can add an attribute (or a group of attributes) to the object state (not the class) using
 the addattribute() function</p>
 <p>Syntax:</p>
@@ -916,7 +939,7 @@ the addattribute() function</p>
 </div>
 </section>
 <section id="addmethod-function">
-<span id="index-25"></span><h2>addmethod() Function<a class="headerlink" href="#addmethod-function" title="Permalink to this heading"></a></h2>
+<span id="index-26"></span><h2>addmethod() Function<a class="headerlink" href="#addmethod-function" title="Permalink to this heading"></a></h2>
 <p>We can add a method to the object class using the addmethod() function
 This method can be used with any object from the same class.</p>
 <p>Syntax:</p>
@@ -1000,7 +1023,7 @@ This method can be used with any object from the same class.</p>
 </div>
 </section>
 <section id="getattribute-function">
-<span id="index-26"></span><h2>getattribute() function<a class="headerlink" href="#getattribute-function" title="Permalink to this heading"></a></h2>
+<span id="index-27"></span><h2>getattribute() function<a class="headerlink" href="#getattribute-function" title="Permalink to this heading"></a></h2>
 <p>We can get the object attribute value using the getattribute() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">GetAttribute</span><span class="p">(</span><span class="n">oObject</span><span class="p">,</span><span class="n">cAttributeName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Attribute</span> <span class="n">Value</span>
@@ -1083,7 +1106,7 @@ The Find uses the member name, rather than the column number</p>
 </div>
 </section>
 <section id="setattribute-function">
-<span id="index-27"></span><h2>setattribute() function<a class="headerlink" href="#setattribute-function" title="Permalink to this heading"></a></h2>
+<span id="index-28"></span><h2>setattribute() function<a class="headerlink" href="#setattribute-function" title="Permalink to this heading"></a></h2>
 <p>We can set the object attribute value using the setattribute() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SetAttribute</span><span class="p">(</span><span class="n">oObject</span><span class="p">,</span><span class="n">cAttributeName</span><span class="p">,</span><span class="n">Value</span><span class="p">)</span>
@@ -1115,7 +1138,7 @@ The Find uses the member name, rather than the column number</p>
 </div>
 </section>
 <section id="mergemethods-function">
-<span id="index-28"></span><h2>mergemethods() Function<a class="headerlink" href="#mergemethods-function" title="Permalink to this heading"></a></h2>
+<span id="index-29"></span><h2>mergemethods() Function<a class="headerlink" href="#mergemethods-function" title="Permalink to this heading"></a></h2>
 <p>We can share methods between classes without inheritance using the MergeMethods() function</p>
 <p>This function merge class methods to another class.</p>
 <p>Syntax:</p>
@@ -1171,7 +1194,7 @@ The Find uses the member name, rather than the column number</p>
 </div>
 </section>
 <section id="packagename-function">
-<span id="index-29"></span><h2>packagename() Function<a class="headerlink" href="#packagename-function" title="Permalink to this heading"></a></h2>
+<span id="index-30"></span><h2>packagename() Function<a class="headerlink" href="#packagename-function" title="Permalink to this heading"></a></h2>
 <p>We can know the package name of the latest successful import command using the packagename() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">packagename</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="n">the</span> <span class="n">package</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">latest</span> <span class="n">successful</span> <span class="k">import</span>
@@ -1185,7 +1208,7 @@ The Find uses the member name, rather than the column number</p>
 </div>
 </section>
 <section id="importpackage-function">
-<span id="index-30"></span><h2>importpackage() Function<a class="headerlink" href="#importpackage-function" title="Permalink to this heading"></a></h2>
+<span id="index-31"></span><h2>importpackage() Function<a class="headerlink" href="#importpackage-function" title="Permalink to this heading"></a></h2>
 <p>Instead of using the import command we can use the importpackage() function</p>
 <p>This function get the package name through a string or variable</p>
 <p>This is useful if the package name will be known only during the runtime</p>
@@ -1205,7 +1228,7 @@ The Find uses the member name, rather than the column number</p>
 </div>
 </section>
 <section id="nothing-function">
-<span id="index-31"></span><h2>Nothing() function<a class="headerlink" href="#nothing-function" title="Permalink to this heading"></a></h2>
+<span id="index-32"></span><h2>Nothing() function<a class="headerlink" href="#nothing-function" title="Permalink to this heading"></a></h2>
 <p>This function does nothing and can accept any number/type of parameters.
 The output will be Zero.</p>
 <p>Some of the Use Cases</p>
@@ -1217,7 +1240,7 @@ The output will be Zero.</p>
 </ol>
 </section>
 <section id="optionalfunc-function">
-<span id="index-32"></span><h2>OptionalFunc() function<a class="headerlink" href="#optionalfunc-function" title="Permalink to this heading"></a></h2>
+<span id="index-33"></span><h2>OptionalFunc() function<a class="headerlink" href="#optionalfunc-function" title="Permalink to this heading"></a></h2>
 <p>Using this function we can define functions similar to Nothing() but with a different name.</p>
 <p>Syntax:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>OptionalFunc(cFunctionName)

@@ -25,6 +25,7 @@ Ring 1.19 comes with the next features!
 * Calling Functions - Better Performance
 * Nothing() function
 * OptionalFunc() function
+* ParentClassName() function
 * FastPro Extension
 * Better TypeHints
 * Better RingRayLib
@@ -254,6 +255,39 @@ Output:
 	I love Programming, What about you?
 	Me too!
 	Ok, Thanks!
+
+
+.. index:: 
+	pair: What is new in Ring  1.19; parentclassname()
+
+parentclassname() Function
+==========================
+		
+We can know the parent class name of an object using the parentclassname() function
+
+Syntax:
+
+.. code-block:: none
+
+	parentclassname(object) --> Returns the parent class name of the object class 
+
+
+Example:
+
+.. code-block:: ring
+
+	new Child  { test() }
+	class Parent
+
+	class Child from Parent
+		func test
+			? "Parent: " + parentClassName(self)
+
+Output:
+
+.. code-block:: none
+
+	Parent: parent
 
 .. index:: 
 	pair: What is new in Ring  1.19; FastPro Extension

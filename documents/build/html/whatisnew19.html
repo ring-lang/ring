@@ -175,6 +175,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#calling-functions-better-performance">Calling Functions - Better Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#nothing-function">Nothing() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#optionalfunc-function">OptionalFunc() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parentclassname-function">parentclassname() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#fastpro-extension">FastPro Extension</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-typehints">Better TypeHints</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ringraylib">Better RingRayLib</a></li>
@@ -232,6 +233,7 @@
 <li><p>Calling Functions - Better Performance</p></li>
 <li><p>Nothing() function</p></li>
 <li><p>OptionalFunc() function</p></li>
+<li><p>ParentClassName() function</p></li>
 <li><p>FastPro Extension</p></li>
 <li><p>Better TypeHints</p></li>
 <li><p>Better RingRayLib</p></li>
@@ -375,8 +377,29 @@ Ok, Thanks!
 </pre></div>
 </div>
 </section>
+<section id="parentclassname-function">
+<span id="index-12"></span><h2>parentclassname() Function<a class="headerlink" href="#parentclassname-function" title="Permalink to this heading"></a></h2>
+<p>We can know the parent class name of an object using the parentclassname() function</p>
+<p>Syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>parentclassname(object) --&gt; Returns the parent class name of the object class
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">Child</span>  <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
+<span class="k">class</span> <span class="n">Parent</span>
+
+<span class="k">class</span> <span class="n">Child</span> <span class="k">from</span> <span class="n">Parent</span>
+        <span class="k">func</span> <span class="n">test</span>
+                <span class="o">?</span> <span class="s">&quot;Parent: &quot;</span> <span class="o">+</span> <span class="n">parentClassName</span><span class="p">(</span><span class="n">self</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Parent: parent
+</pre></div>
+</div>
+</section>
 <section id="fastpro-extension">
-<span id="index-12"></span><h2>FastPro Extension<a class="headerlink" href="#fastpro-extension" title="Permalink to this heading"></a></h2>
+<span id="index-13"></span><h2>FastPro Extension<a class="headerlink" href="#fastpro-extension" title="Permalink to this heading"></a></h2>
 <p>This new extension comes with the next functions</p>
 <ul class="simple">
 <li><p>Bytes2List(cBytes,nWidth,nHeight,nChannels) —&gt; aList // [[R,G,B],…]</p></li>
@@ -395,7 +418,7 @@ using Bytes2List() and List2Bytes() functions.</p>
 <img alt="updatecolumnperformance" src="_images/updatecolumnperformance.png" />
 </section>
 <section id="better-typehints">
-<span id="index-13"></span><h2>Better TypeHints<a class="headerlink" href="#better-typehints" title="Permalink to this heading"></a></h2>
+<span id="index-14"></span><h2>Better TypeHints<a class="headerlink" href="#better-typehints" title="Permalink to this heading"></a></h2>
 <p>Added the next definitions:</p>
 <ul class="simple">
 <li><p>Byte</p></li>
@@ -438,7 +461,7 @@ Using override
 </div>
 </section>
 <section id="better-ringraylib">
-<span id="index-14"></span><h2>Better RingRayLib<a class="headerlink" href="#better-ringraylib" title="Permalink to this heading"></a></h2>
+<span id="index-15"></span><h2>Better RingRayLib<a class="headerlink" href="#better-ringraylib" title="Permalink to this heading"></a></h2>
 <p>The next functions are added to the RingRayLib extension</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">vec2</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">Vector2</span>
 <span class="o">*</span> <span class="n">vec2set</span><span class="p">(</span><span class="n">Vector2</span> <span class="n">vec</span><span class="p">,</span><span class="n">double</span> <span class="n">x</span><span class="p">,</span><span class="n">double</span> <span class="n">y</span><span class="p">)</span>
@@ -490,7 +513,7 @@ Using override
 </div>
 </section>
 <section id="better-ringstbimage">
-<span id="index-15"></span><h2>Better RingStbImage<a class="headerlink" href="#better-ringstbimage" title="Permalink to this heading"></a></h2>
+<span id="index-16"></span><h2>Better RingStbImage<a class="headerlink" href="#better-ringstbimage" title="Permalink to this heading"></a></h2>
 <p>The extension is improved to support the next features</p>
 <ul class="simple">
 <li><p>Support UTF-8 file names on Windows</p></li>
@@ -550,7 +573,7 @@ Time to save the image   : 0.00 seconds
 <img alt="generateimage" src="_images/generateimage.png" />
 </section>
 <section id="better-extensions-generator">
-<span id="index-16"></span><h2>Better Extensions Generator<a class="headerlink" href="#better-extensions-generator" title="Permalink to this heading"></a></h2>
+<span id="index-17"></span><h2>Better Extensions Generator<a class="headerlink" href="#better-extensions-generator" title="Permalink to this heading"></a></h2>
 <p>The code generator for C/C++ extensions is updated and support defining extra names for functions</p>
 <p>Using the predefined list (aExtraFunctionName) we can define the extra names</p>
 <p>Example:</p>
@@ -564,7 +587,7 @@ aExtraFunctionName + [&quot;vec2sety&quot;,&quot;raylib_set_vector2_y&quot;]
 </div>
 </section>
 <section id="better-documentation">
-<span id="index-17"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this heading"></a></h2>
+<span id="index-18"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this heading"></a></h2>
 <p>The CHM file is updated to support search</p>
 <p>We added a new chapter: Using FastPro Extension</p>
 <p>Also, The next chapters are revised and improved</p>
@@ -580,7 +603,7 @@ aExtraFunctionName + [&quot;vec2sety&quot;,&quot;raylib_set_vector2_y&quot;]
 </ul>
 </section>
 <section id="more-improvements">
-<span id="index-18"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-19"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Ring Notepad - Close Button - Force closing the web browser</p></li>
 <li><p>Ring Notepad - Projects Files - Larger width</p></li>

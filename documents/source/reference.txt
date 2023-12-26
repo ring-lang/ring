@@ -88,7 +88,7 @@ Keywords Count : 58
 Language Functions
 ==================
 
-Functions Count : 253
+Functions Count : 254
 
 .. code-block:: ring
 
@@ -253,6 +253,7 @@ Functions Count : 253
         packageclasses() cPackageName) ---> a list contains classes names inside the package
         packagename() ---> Returns the package name of the latest successful import
         packages() ---> a list contains packages names
+	parentclassname(object) ---> Returns the parent class name of the object class
         perror(cErrorMessage)
         pointer2object(Low Level Object) ---> List|Object
         pointer2string(pointer,nStart,nCount) ---> cString   
