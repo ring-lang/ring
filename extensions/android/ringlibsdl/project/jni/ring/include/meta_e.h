@@ -64,6 +64,8 @@
     void ring_vm_refmeta_packagename ( void *pPointer ) ;
 
     void ring_vm_refmeta_importpackage ( void *pPointer ) ;
+
+    void ring_vm_refmeta_parentclassname ( void *pPointer ) ;
     /* VM */
 
     void ring_vm_refmeta_ringvmfileslist ( void *pPointer ) ;

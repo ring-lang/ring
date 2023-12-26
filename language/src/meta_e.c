@@ -38,6 +38,7 @@ void ring_vm_refmeta_loadfunctions ( RingState *pRingState )
     RING_API_REGISTER("mergemethods",ring_vm_refmeta_mergemethods);
     RING_API_REGISTER("packagename",ring_vm_refmeta_packagename);
     RING_API_REGISTER("importpackage",ring_vm_refmeta_importpackage);
+    RING_API_REGISTER("parentclassname",ring_vm_refmeta_parentclassname);
     /* VM */
     RING_API_REGISTER("ringvm_fileslist",ring_vm_refmeta_ringvmfileslist);
     RING_API_REGISTER("ringvm_calllist",ring_vm_refmeta_ringvmcalllist);
@@ -874,6 +875,29 @@ void ring_vm_refmeta_importpackage ( void *pPointer )
     }
     if ( RING_API_ISSTRING(1) ) {
         ring_vm_oop_import2(pVM,RING_API_GETSTRING(1));
+    }
+    else {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+    }
+}
+
+void ring_vm_refmeta_parentclassname ( void *pPointer )
+{
+    List *pList  ;
+    char *cStr  ;
+    if ( RING_API_PARACOUNT != 1 ) {
+        RING_API_ERROR(RING_API_BADPARACOUNT);
+        return ;
+    }
+    if ( RING_API_ISLIST(1) ) {
+        pList = RING_API_GETLIST(1) ;
+        if ( ring_vm_oop_isobject(pList) ) {
+            cStr = ring_list_getstring((List *) ring_list_getpointer(pList,RING_OBJECT_CLASSPOINTER),RING_CLASSMAP_PARENTCLASS);
+            RING_API_RETSTRING(cStr);
+        }
+        else {
+            RING_API_ERROR(RING_API_BADPARATYPE);
+        }
     }
     else {
         RING_API_ERROR(RING_API_BADPARATYPE);

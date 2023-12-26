@@ -207,6 +207,11 @@ pVM
 ring_vm_refmeta_importpackage
 Type: VM *
 pVM
+ring_vm_refmeta_parentclassname
+Type: List *
+pList
+Type: char *
+cStr
 ring_vm_refmeta_ringvmfileslist
 Type: VM *
 pVM
