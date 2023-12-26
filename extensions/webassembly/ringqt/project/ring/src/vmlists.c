@@ -443,6 +443,10 @@ void ring_vm_listassignment ( VM *pVM )
             ring_item_settype_gc(pVM->pRingState,pItem,ITEMTYPE_LIST);
         }
         pList = ring_item_getlist(pItem);
+        /* Check if we are assigning the same item to itself, i.e. aList[x] = aList[x] */
+        if ( pList == pVar ) {
+            return ;
+        }
         if ( ring_list_isref(pVar) ) {
             ring_list_assignreftoitem_gc(pVM->pRingState,pVar,pItem);
         }
