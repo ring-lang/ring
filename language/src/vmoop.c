@@ -57,12 +57,12 @@ void ring_vm_oop_newobj ( VM *pVM )
     if ( nLimit > 0 ) {
         for ( x = 1 ; x <= nLimit ; x++ ) {
             pList = ring_vm_oop_visibleclassitem(pVM,x);
-            cClassName2 = ring_list_getstring(pList,1);
+            cClassName2 = ring_list_getstring(pList,RING_CLASSMAP_CLASSNAME);
             pList = ring_vm_oop_checkpointertoclassinpackage(pVM,pList);
             if ( pList == NULL ) {
                 continue ;
             }
-            nClassPC = ring_list_getint(pList,2);
+            nClassPC = ring_list_getint(pList,RING_CLASSMAP_PC);
             if ( strcmp(cClassName,cClassName2) == 0 ) {
                 /* Check Assignment */
                 nCont = 1 ;
@@ -143,7 +143,7 @@ void ring_vm_oop_newobj ( VM *pVM )
                 /* Jump to Class INIT Method */
                 ring_vm_blockflag2(pVM,pVM->nPC);
                 /* Execute Parent Classes Init first */
-                if ( strcmp(ring_list_getstring(pList,3),"") != 0 ) {
+                if ( strcmp(ring_list_getstring(pList,RING_CLASSMAP_PARENTCLASS),"") != 0 ) {
                     ring_vm_blockflag2(pVM,nClassPC);
                     ring_vm_oop_parentinit(pVM,pList);
                 }
@@ -175,7 +175,7 @@ void ring_vm_oop_parentinit ( VM *pVM,List *pList )
     List *pList2, *pClassesList  ;
     String *pString  ;
     /* Get the parent class name from the Class List Pointer */
-    cClassName = ring_list_getstring(pList,3) ;
+    cClassName = ring_list_getstring(pList,RING_CLASSMAP_PARENTCLASS) ;
     /* Create List for Classes Pointers */
     pClassesList = ring_list_new_gc(pVM->pRingState,0);
     ring_list_addpointer_gc(pVM->pRingState,pClassesList,pList);
@@ -185,7 +185,7 @@ void ring_vm_oop_parentinit ( VM *pVM,List *pList )
         nFound = 0 ;
         for ( x = 1 ; x <= ring_vm_oop_visibleclassescount(pVM) ; x++ ) {
             pList2 = ring_vm_oop_visibleclassitem(pVM,x);
-            cClassName2 = ring_list_getstring(pList2,1) ;
+            cClassName2 = ring_list_getstring(pList2,RING_CLASSMAP_CLASSNAME) ;
             pList2 = ring_vm_oop_checkpointertoclassinpackage(pVM,pList2);
             if ( pList2 == NULL ) {
                 continue ;
@@ -195,7 +195,7 @@ void ring_vm_oop_parentinit ( VM *pVM,List *pList )
                 for ( x2 = 1 ; x2  <= ring_list_getsize(pClassesList) ; x2++ ) {
                     if ( ((List *) ring_list_getpointer(pClassesList,x2)) == pList2 ) {
                         pString = ring_string_new_gc(pVM->pRingState,"When creating class ");
-                        ring_string_add_gc(pVM->pRingState,pString,ring_list_getstring(pList,1));
+                        ring_string_add_gc(pVM->pRingState,pString,ring_list_getstring(pList,RING_CLASSMAP_CLASSNAME));
                         ring_string_add_gc(pVM->pRingState,pString," from class ");
                         ring_string_add_gc(pVM->pRingState,pString,cClassName);
                         ring_vm_error2(pVM,RING_VM_ERROR_PARENTCLASSLIKESUBCLASS,ring_string_get(pString));
@@ -208,13 +208,13 @@ void ring_vm_oop_parentinit ( VM *pVM,List *pList )
                 ring_list_addpointer_gc(pVM->pRingState,pClassesList,pList2);
                 /* Push Class Package */
                 ring_vm_oop_pushclasspackage(pVM,pList2);
-                cClassName = ring_list_getstring(pList2,3) ;
+                cClassName = ring_list_getstring(pList2,RING_CLASSMAP_PARENTCLASS) ;
                 if ( strcmp(cClassName,"") != 0 ) {
                     /* Add Class Init Method to be called */
                     ring_vm_blockflag2(pVM,ring_list_getint(pList2,2));
                 }
                 else {
-                    pVM->nPC = ring_list_getint(pList2,2) ;
+                    pVM->nPC = ring_list_getint(pList2,RING_CLASSMAP_PC) ;
                 }
                 nFound = 1 ;
                 break ;
@@ -434,7 +434,7 @@ void ring_vm_oop_parentmethods ( VM *pVM,List *pList )
     pList3 = ring_list_getlist(pList,4);
     if ( ring_list_getint(pList,5) == 0 ) {
         ring_list_setint_gc(pVM->pRingState,pList,5,1);
-        cClassName = ring_list_getstring(pList,3) ;
+        cClassName = ring_list_getstring(pList,RING_CLASSMAP_PARENTCLASS) ;
         /* Mark Packages Count */
         nMark = ring_list_getsize(pVM->aActivePackage);
         while ( strcmp(cClassName,"") != 0 ) {
@@ -443,7 +443,7 @@ void ring_vm_oop_parentmethods ( VM *pVM,List *pList )
             nFound = 0 ;
             for ( x = 1 ; x <= ring_vm_oop_visibleclassescount(pVM) ; x++ ) {
                 pList4 = ring_vm_oop_visibleclassitem(pVM,x);
-                cClassName2 = ring_list_getstring(pList4,1) ;
+                cClassName2 = ring_list_getstring(pList4,RING_CLASSMAP_CLASSNAME) ;
                 /* Prev. Step must be before Next. step - We check the name include the package */
                 pList4 = ring_vm_oop_checkpointertoclassinpackage(pVM,pList4);
                 if ( pList4 == NULL ) {
@@ -453,7 +453,7 @@ void ring_vm_oop_parentmethods ( VM *pVM,List *pList )
                     /* Push Class Package */
                     ring_vm_oop_pushclasspackage(pVM,pList4);
                     ring_list_copy_gc(pVM->pRingState,pList3,ring_list_getlist(pList4,4));
-                    cClassName = ring_list_getstring(pList4,3) ;
+                    cClassName = ring_list_getstring(pList4,RING_CLASSMAP_PARENTCLASS) ;
                     nFound = 1 ;
                     break ;
                 }
