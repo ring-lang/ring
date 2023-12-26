@@ -1,0 +1,3 @@
+Hello from Parent
+OBJECT
+Hello from Child
