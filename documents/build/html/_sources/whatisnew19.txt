@@ -258,9 +258,9 @@ Output:
 
 
 .. index:: 
-	pair: What is new in Ring  1.19; parentclassname()
+	pair: What is new in Ring  1.19; ParentClassName()
 
-parentclassname() Function
+ParentClassName() Function
 ==========================
 		
 We can know the parent class name of an object using the parentclassname() function
@@ -542,6 +542,7 @@ Also, The next chapters are revised and improved
 * Building From Source Code
 * Extension using C/C++ languages
 * Tutorial: Ring Extensions in C/C++
+* Object Oriented Programming (OOP)
 * Frequently Asked Questions (FAQ)
  
 .. index:: 
@@ -614,3 +615,4 @@ More Improvements
 * Ring VM - ring_state_calloc() - Use the memory pool if possible
 * Ring VM - Better implementation for using (Return This)
 * Ring VM - Support adding items to a list during assignment using plus operator
+* Ring VM - Don't allow deleting the Super variable (Used to access the parent class methods)
