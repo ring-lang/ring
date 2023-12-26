@@ -571,20 +571,20 @@ void ring_vm_oop_newsuperobj ( VM *pVM,List *pState,List *pClass )
     ring_list_setint_gc(pVM->pRingState,pSuper,RING_VAR_TYPE,RING_VM_LIST);
     ring_list_setlist_gc(pVM->pRingState,pSuper,RING_VAR_VALUE);
     pSuper2 = ring_list_getlist(pSuper,RING_VAR_VALUE);
-    pMethods = ring_list_getlist(pClass,4);
+    pMethods = ring_list_getlist(pClass,RING_CLASSMAP_METHODSLIST);
     ring_list_addpointer_gc(pVM->pRingState,pSuper2,pMethods);
-    cParentClassName = ring_list_getstring(pClass,3) ;
+    cParentClassName = ring_list_getstring(pClass,RING_CLASSMAP_PARENTCLASS) ;
     while ( strcmp(cParentClassName,"") != 0 ) {
         for ( x = 1 ; x <= ring_vm_oop_visibleclassescount(pVM) ; x++ ) {
             pList = ring_vm_oop_visibleclassitem(pVM,x);
-            cClassName = ring_list_getstring(pList,1) ;
+            cClassName = ring_list_getstring(pList,RING_CLASSMAP_CLASSNAME) ;
             pList = ring_vm_oop_checkpointertoclassinpackage(pVM,pList);
             if ( pList == NULL ) {
                 continue ;
             }
             if ( strcmp(cClassName,cParentClassName) == 0 ) {
-                cParentClassName = ring_list_getstring(pList,3) ;
-                pMethods = ring_list_getlist(pList,4);
+                cParentClassName = ring_list_getstring(pList,RING_CLASSMAP_PARENTCLASS) ;
+                pMethods = ring_list_getlist(pList,RING_CLASSMAP_METHODSLIST);
                 ring_list_addpointer_gc(pVM->pRingState,pSuper2,pMethods);
                 break ;
             }
@@ -598,8 +598,8 @@ List * ring_vm_oop_getsuperobj ( VM *pVM )
     if ( ( RING_VM_STACK_ISPOINTER ) && ( ring_list_getsize(pVM->pObjState) != 0    ) ) {
         if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
             pVar = (List *) RING_VM_STACK_READP ;
-            if ( (ring_list_islist(pVar,3)) && (strcmp(ring_list_getstring(pVar,1),"super") == 0 ) ) {
-                pVar = ring_list_getlist(pVar,3);
+            if ( (ring_list_islist(pVar,RING_VAR_VALUE)) && (strcmp(ring_list_getstring(pVar,RING_VAR_NAME),"super") == 0 ) ) {
+                pVar = ring_list_getlist(pVar,RING_VAR_VALUE);
                 RING_VM_STACK_POP ;
                 return pVar ;
             }
