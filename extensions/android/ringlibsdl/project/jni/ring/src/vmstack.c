@@ -200,6 +200,11 @@ void ring_vm_assignment ( VM *pVM )
                     pItem = (Item *) RING_VM_STACK_READP ;
                     pVar = ring_item_getlist(pItem);
                 }
+                RING_VM_STACK_POP ;
+                /* Check if we are assigning the list to itself */
+                if ( ring_list_getlist((List *) RING_VM_STACK_READP,RING_VAR_VALUE) == pVar ) {
+                    return ;
+                }
                 if ( ring_list_isref(pVar) || ring_list_iscopybyref(pVar) ) {
                     pList = pVar ;
                 }
@@ -208,7 +213,6 @@ void ring_vm_assignment ( VM *pVM )
                     pList = ring_list_new_gc(pVM->pRingState,0);
                     ring_vm_list_copy(pVM,pList,pVar);
                 }
-                RING_VM_STACK_POP ;
                 pVar = (List *) RING_VM_STACK_READP ;
                 RING_VM_STACK_POP ;
                 /* Check Before Assignment */

@@ -749,7 +749,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
                 */
                 ring_parser_icg_beforeequal(pParser,nBeforeEqual);
                 if ( lSetProperty == 0 ) {
-                    ring_parser_icg_newoperation(pParser,ICO_NOOP);
+                    ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
                 }
                 else {
                     ring_parser_icg_newoperation(pParser,ICO_SETPROPERTY);
