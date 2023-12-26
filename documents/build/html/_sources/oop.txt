@@ -328,6 +328,11 @@ Private Attributes and Methods
 
 We can define private attributes and methods after the keyword private inside the class body
 
+.. note:: A subclass could access private attributes/methods defined in the parent class.
+
+.. tip:: Once we create an object, no other object (even from the same class) could access it's private attributes/methods directly.
+
+
 Example:
 
 .. code-block:: ring
@@ -559,7 +564,11 @@ Syntax:
 
 	Class <Class Name> [From <Parent Class Name>]
 
-We can call a method in the parent class from the child class using the super object.
+We can call a method in the parent class from the child class using Super.
+
+.. note:: Super provide access to the methods only (No access to the attributes).
+
+.. tip:: Using ParentClassName(self) we can know the parent class name or get an empty string if no parent class exists.
 
 Syntax:
 
@@ -897,7 +906,7 @@ use self.attribute and self.method()
 
 .. note:: using self.attribute in the class region to define the class attribute protect the class attributes from conflict with global variables.
 
-.. tip:: if you typed the class attributes with self.attribute and there are a global variable with the same name it will be used and the attribute will not be defined.
+.. tip:: if we defined the class attributes without using self or this and there are a global variable with the same name it will be used and the attribute will not be defined.
 
 Check the "Scope Rules" chapter to know about the conflict between the global variable name and the attribute name
 
@@ -911,6 +920,8 @@ Because
 .. note:: Try to avoid the global variables, use the main function and start their names with $ 
 
 .. tip:: In large programs protect your classes and define their members using self.attribute
+
+.. tip:: A better solution to avoid using self and this in the class region is to use different global scope and the load package command
 
 .. index:: 
 	pair: Object Oriented Programming; Using This.Attribute and This.Method()
