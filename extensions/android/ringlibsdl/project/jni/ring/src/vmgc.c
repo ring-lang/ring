@@ -315,6 +315,7 @@ RING_API void ring_list_clearrefdata ( List *pList )
     pList->gc.nReferenceCount = 0 ;
     pList->gc.lDontRef = 0 ;
     pList->gc.lErrorOnAssignment = 0 ;
+    pList->gc.lErrorOnAssignment2 = 0 ;
     pList->gc.lDeletedByParent = 0 ;
     pList->gc.lDontRefAgain = 0 ;
 }
@@ -329,7 +330,7 @@ RING_API List * ring_list_deleteref_gc ( void *pState,List *pList )
         return pList ;
     }
     /* Check lErrorOnAssignment used by lists during definition */
-    if ( pList->gc.lErrorOnAssignment ) {
+    if ( ring_list_iserroronassignment(pList) ) {
         /* We are trying to delete a sub list which is protected */
         nOPCode = ((RingState *) pState)->pVM->nOPCode ;
         if ( (nOPCode == ICO_ASSIGNMENT) || (nOPCode == ICO_LISTSTART) || (nOPCode == ICO_NEWOBJ) ) {
@@ -632,7 +633,7 @@ int ring_vm_checkvarerroronassignment ( VM *pVM,List *pVar )
     List *pList  ;
     if ( ring_list_islist(pVar,RING_VAR_VALUE) ) {
         pList = ring_list_getlist(pVar,RING_VAR_VALUE) ;
-        if ( ring_list_iserroronassignment(pList) ) {
+        if ( ring_list_iserroronassignment(pList) || ring_list_iserroronassignment2(pList) ) {
             ring_vm_error(pVM,RING_VM_ERROR_PROTECTEDVALUE);
             return 1 ;
         }
@@ -645,7 +646,7 @@ int ring_vm_checkitemerroronassignment ( VM *pVM,Item *pItem )
     List *pList  ;
     if ( ring_item_gettype(pItem) == ITEMTYPE_LIST ) {
         pList = ring_item_getlist(pItem) ;
-        if ( ring_list_iserroronassignment(pList) ) {
+        if ( ring_list_iserroronassignment(pList) || ring_list_iserroronassignment2(pList) ) {
             ring_vm_error(pVM,RING_VM_ERROR_PROTECTEDVALUE);
             return 1 ;
         }
@@ -690,6 +691,21 @@ void ring_vm_removelistprotectionat ( VM *pVM,List *pNestedLists,int nPos )
         pList->gc.lDeletedByParent = 0 ;
         ring_list_delete_gc(pVM->pRingState,pList);
     }
+}
+
+RING_API int ring_list_iserroronassignment2 ( List *pList )
+{
+    return pList->gc.lErrorOnAssignment2 ;
+}
+
+RING_API void ring_list_enableerroronassignment2 ( List *pList )
+{
+    pList->gc.lErrorOnAssignment2 = 1 ;
+}
+
+RING_API void ring_list_disableerroronassignment2 ( List *pList )
+{
+    pList->gc.lErrorOnAssignment2 = 0 ;
 }
 /* Memory Functions (General) */
 

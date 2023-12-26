@@ -20,6 +20,8 @@ lDontRef: 1
 Type: unsigned int
 lErrorOnAssignment: 1
 Type: unsigned int
+lErrorOnAssignment2: 1
+Type: unsigned int
 lDeletedByParent: 1
 Type: unsigned int
 lDontRefAgain: 1
@@ -292,6 +294,9 @@ pList
 ring_vm_removelistprotectionat
 Type: List *
 pList
+ring_list_iserroronassignment2
+ring_list_enableerroronassignment2
+ring_list_disableerroronassignment2
 ring_malloc
 Type: void *
 pMemory

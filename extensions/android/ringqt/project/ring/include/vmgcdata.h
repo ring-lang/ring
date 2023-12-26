@@ -12,6 +12,8 @@
         unsigned int lDeleteContainerVariable: 1  ;
         unsigned int lDontRef: 1  ;
         unsigned int lErrorOnAssignment: 1  ;
+        /* Prevent Assignment through Ring Code but Don't prevent deleting the List */
+        unsigned int lErrorOnAssignment2: 1  ;
         unsigned int lDeletedByParent: 1  ;
         unsigned int lDontRefAgain: 1  ;
     } ListGCData ;
