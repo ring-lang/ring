@@ -70,8 +70,8 @@ while !WindowShouldClose()
 		DrawTexture(backgroundTex, 0, 0, WHITE)
 		mainMenuScene.draw()
 		EndDrawing()
-
 	end
+	if mainMenuScene.lCloseGame exit ok
 
 	# Game play scene
 	UpdateMusicStream(mainMusic)

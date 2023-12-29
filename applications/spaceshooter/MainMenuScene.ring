@@ -3,7 +3,7 @@ load "Button.ring"
 class MainMenuScene from Scene
 	startButton
 	exitButton
-
+	lCloseGame = False
 	func init
 		# Start button in the scene
 		startButton = new Button("Assets/buttonRed.png",
@@ -49,5 +49,6 @@ class MainMenuScene from Scene
 		isDone = True
 
 	func exitTheGame
-		exit
+		isDone = True
+		lCloseGame = True
 		
