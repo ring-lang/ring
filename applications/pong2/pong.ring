@@ -168,6 +168,9 @@ class StartScene
 		"Assets/tileDown.png"
 		]
 
+	textures = []
+	loadTextures()
+
 	positions = [
 		:tileW = new Vector2(screenWidth * 0.15, screenHeight / 2 + MARGIN),
 		:tileS = new Vector2(screenWidth * 0.15 + 68, screenHeight / 2 + MARGIN),
@@ -176,6 +179,14 @@ class StartScene
 		]
 
 	func init
+
+	func loadTextures
+		for image in images
+			tileW = LoadImage(image)
+			ImageResize(tileW, 64, 64)
+			textures + LoadTextureFromImage(tileW)
+			UnloadImage(tileW)
+		next
 
 	func draw
 		ClearBackground(BLACK)
@@ -196,16 +207,12 @@ class StartScene
 		return isDone
 
 	func drawControls
-		i = 1
-		for image in images
-			tileW = LoadImage(image)
-			ImageResize(tileW, 64, 64)
-			texture = LoadTextureFromImage(tileW)
+		for i=1 to len(images)
+			texture = textures[i]
 			position = positions[i][2]
 			DrawTexture(texture, position.x, position.y, WHITE)
-			UnloadImage(tileW)
-			i++
 		next
+
 # Class to draw playing area
 class Arena
 	MARGIN = 40
