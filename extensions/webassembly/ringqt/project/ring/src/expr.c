@@ -568,7 +568,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 {
     int x,x2,x3,nLastOperation,nCount,nNOOP,nToken,nMark,nFlag2,nThisOrSelfLoadA,nThisLoadA,lNewFrom,lAfterListEnd  ;
     List *pLoadAPos, *pLoadAMark,*pList, *pMark,*pAssignmentPointerPos  ;
-    char lSetProperty,lequal,nBeforeEqual  ;
+    char lSetProperty,lequal,nBeforeEqual,lNewAfterEqual  ;
     char cFuncName[100]  ;
     char cKeyword[100]  ;
     /* Set Identifier Flag - is 1 when we have Factor -->Identifier */
@@ -673,6 +673,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
             RING_PARSER_IGNORENEWLINE ;
             pParser->nNewObject = 0 ;
             pParser->nAssignmentFlag = 0 ;
+            lNewAfterEqual = ring_parser_iskeyword(pParser,K_NEW) ;
             x = ring_parser_expr(pParser);
             pParser->nAssignmentFlag = 1 ;
             /* Check New Object and this.property or self.property to disable set property */
@@ -750,6 +751,10 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
                 ring_parser_icg_beforeequal(pParser,nBeforeEqual);
                 if ( lSetProperty == 0 ) {
                     ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
+                    if ( ! lNewAfterEqual ) {
+                        /* Disable Assignment Pointer */
+                        ring_parser_icg_addoperandint(pParser,pAssignmentPointerPos,0);
+                    }
                 }
                 else {
                     ring_parser_icg_newoperation(pParser,ICO_SETPROPERTY);
