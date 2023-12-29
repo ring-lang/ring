@@ -2,20 +2,21 @@
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
 		 :x = 111 , : y = 91  , 
-		 :width =  400 , :height = 400 , 
+		 :width =  578 , :height = 400 , 
 		 :title =  "The Second Window" , 
 		 :backcolor =  "#00007f" , 
 		 :windowflags =  "" , 
 		 :mainlayout =  "" ,
 		 :WindowIcon =  "" , 
 		 :Menubar =  ""  ,
-		 :IndexType =  0  
+		 :IndexType =  0  ,
+		 :GUILibrary =  0  
 
 		]
 	],
 	[ :name = "Button1" , :id = 2 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 56 , : y = 81  , 
-		 :width =  277 , :height = 61 , 
+		 :width =  467 , :height = 61 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "#ffff7f" , 
 		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
@@ -27,7 +28,7 @@ aObjectsList = [
 	],
 	[ :name = "Label1" , :id = 3 , :classname = "formdesigner_qlabel" , :data = [
 		 :x = 57 , : y = 181  , 
-		 :width =  279 , :height = 56 , 
+		 :width =  469 , :height = 56 , 
 		 :textcolor =  "#ffffff" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
@@ -38,7 +39,7 @@ aObjectsList = [
 	],
 	[ :name = "Button3" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 58 , : y = 255  , 
-		 :width =  277 , :height = 61 , 
+		 :width =  467 , :height = 61 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "#ffff7f" , 
 		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
