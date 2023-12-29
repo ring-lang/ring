@@ -575,6 +575,8 @@ More Improvements
 * WinStartupManager application - Use extensions that comes with Ring
 * AnalogClock application - Set the image width to be like the window width
 * EightPuzzleGame3D game - Better Code 
+* SpaceShooter game - Better Code to close the game using the main menu
+* Pong2 game - Using CloseAudioDevice()
 * SuperMan2016 game - Reset FPS, energy value and player speed
 * GoldMagic800 game - Reset FPS and player speed
 * Sokoban game - higher speed
