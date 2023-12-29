@@ -105,12 +105,16 @@ while !WindowShouldClose()
 
 end
 
+unloadSound(hitSound)
+unloadMusicStream(music)
+
 unloadTexture(MusicOnTex)
 unloadTexture(MusicOffTex)
 
 startScene.UnloadTextures()
 
 CloseWindow()
+ShutDown()
 
 # Function to handle game music and sounds
 func musicHandler
@@ -223,18 +227,25 @@ class StartScene
 
 # Class to draw playing area
 class Arena
+
 	MARGIN = 40
+
+	func init
+		return self
 
 	func draw
 		DrawRectangle(20, 20, screenWidth - MARGIN,
 			 screenHeight - MARGIN, BLACK)
 
 class Player
+
 	position  w h speed = 4 score = 0 keyUp keyDown Type = 1 
+
 	func init
 		position = new Vector2(100, screenHeight / 2 - 50)
 		w = 30 h = 100
 		return self
+
 	func draw
 		DrawRectangle(position.x, position.y, w, h, WHITE)
 		
@@ -263,6 +274,7 @@ class Player
 		keyDown = key
 
 class Ball
+
 	position radius = 20  velocity = new Vector2(6, 6)
 
 	func init
@@ -270,6 +282,7 @@ class Ball
 		DrawCircleV(position, radius, BLUE)
 		rand = random(1)
 		if rand = 0 velocity.x = -velocity.x ok
+		return self
 
 	func draw
 		DrawCircleV(position, radius, BLUE)
