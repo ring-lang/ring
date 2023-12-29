@@ -1216,13 +1216,13 @@ void ring_vm_expr_npoo ( VM *pVM,const char *cStr,double nNum1 )
         }
     }
     else if ( strcmp(cStr,"=") == 0 ) {
-        if ( ring_vm_oop_isobject(pList) == 0 ) {
+        if ( (ring_vm_oop_isobject(pList) == 0) || ( ! ring_vm_oop_ismethod(pVM,pList,"operator") ) ) {
             RING_VM_STACK_SETNVALUE(0.0);
             return ;
         }
     }
     else if ( strcmp(cStr,"!=") == 0 ) {
-        if ( ring_vm_oop_isobject(pList) == 0 ) {
+        if ( ( ring_vm_oop_isobject(pList) == 0 )  || ( ! ring_vm_oop_ismethod(pVM,pList,"operator") ) ) {
             RING_VM_STACK_SETNVALUE(1.0);
             return ;
         }
@@ -1261,13 +1261,13 @@ void ring_vm_expr_spoo ( VM *pVM,const char *cStr,const char *cStr2,int nSize )
         }
     }
     else if ( strcmp(cStr,"=") == 0 ) {
-        if ( ring_vm_oop_isobject(pList) == 0 ) {
+        if ( (ring_vm_oop_isobject(pList) == 0)  || ( ! ring_vm_oop_ismethod(pVM,pList,"operator") ) ) {
             RING_VM_STACK_SETNVALUE(0.0);
             return ;
         }
     }
     else if ( strcmp(cStr,"!=") == 0 ) {
-        if ( ring_vm_oop_isobject(pList) == 0 ) {
+        if ( (ring_vm_oop_isobject(pList) == 0)  || ( ! ring_vm_oop_ismethod(pVM,pList,"operator") ) ) {
             RING_VM_STACK_SETNVALUE(1.0);
             return ;
         }
