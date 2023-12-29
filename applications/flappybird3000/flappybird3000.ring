@@ -299,6 +299,10 @@ func playstart oGame
 			}
 		}
 
+		Sound {
+			file = "sound/music2.wav"
+		}
+
 	}
 
 func newmap aMap
