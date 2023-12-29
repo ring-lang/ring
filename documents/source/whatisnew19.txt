@@ -606,6 +606,8 @@ More Improvements
 * Ring API - Added: RING_API_NEWLISTUSINGBLOCKS2D(int nRows,int nColumns) --> List
 * Ring Compiler - Remove unnecessary ICO_FREESTACK after For-Loops
 * Ring Compiler - When we run ringsyntax.ring don't load the same file again
+* Ring Compiler - Support using braces { } after (expr) 
+* Ring Compiler/VM - Revise (Using objects during definition) implementation
 * Ring Compiler/VM - Check the path limit (4096 characters) before execution
 * Ring Compiler/VM - Items structure functions - Better Performance
 * Ring Compiler/VM - HashTable - Better default parameters
@@ -629,3 +631,4 @@ More Improvements
 * Ring VM - Better implementation for using (Return This)
 * Ring VM - Support adding items to a list during assignment using plus operator
 * Ring VM - Don't allow deleting the Super variable (Used to access the parent class methods)
+* Ring VM - Operator Overloading - Don't produce an error when it's not necessary
