@@ -1,4 +1,4 @@
-# Create a List contains 1000000 items
+# Create a List contains 7000000 items
 # Then sum the list items!
 
 t1 = clock()
