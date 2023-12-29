@@ -77,6 +77,11 @@ Listen to Quran application
 
 Arabic application that can be used to listen to Quran.
 
+.. code-block:: none
+
+	ringpm install listentoquran
+	ringpm run listentoquran
+
 .. image:: listentoquran.png
 	:alt: listentoquran
 
