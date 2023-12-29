@@ -113,8 +113,8 @@ unloadTexture(MusicOffTex)
 
 startScene.UnloadTextures()
 
+CloseAudioDevice()
 CloseWindow()
-ShutDown()
 
 # Function to handle game music and sounds
 func musicHandler
