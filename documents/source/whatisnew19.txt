@@ -18,6 +18,7 @@ Ring 1.19 comes with the next features!
 * Image Pixel application
 * Hours Counter application
 * Planetary Orbits application
+* Listen to Quran application
 * More Samples
 * Ring for Windows 64bit
 * Better batch files for building Ring 
@@ -66,6 +67,18 @@ An example about drawing and using the Matrix library
 
 .. image:: planetaryorbits.png
 	:alt: planetaryorbits
+
+
+.. index:: 
+	pair: What is new in Ring  1.19; Listen to Quran application
+
+Listen to Quran application
+===========================
+
+Arabic application that can be used to listen to Quran.
+
+.. image:: listentoquran.png
+	:alt: listentoquran
 
 .. index:: 
 	pair: What is new in Ring  1.19; More Samples
