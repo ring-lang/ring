@@ -929,7 +929,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
                 
                 puts("Rule : Factor --> '(' Expr ')'");
                 /* '(' Expression ')' then Dot Operator to access an object */
-                if ( ring_parser_isoperator2(pParser,OP_DOT) ) {
+                if ( ring_parser_isoperator2(pParser,OP_DOT) || ring_parser_isoperator2(pParser,OP_BRACEOPEN) ) {
                     /* Remove PUSHV */
                     if ( ring_parser_icg_getlastoperation(pParser)  == ICO_PUSHV ) {
                         ring_parser_icg_deletelastoperation(pParser);
