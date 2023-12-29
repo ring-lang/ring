@@ -107,6 +107,11 @@ end
 
 CloseWindow()
 
+unloadTexture(MusicOnTex)
+unloadTexture(MusicOffTex)
+
+startScene.UnloadTextures()
+
 # Function to handle game music and sounds
 func musicHandler
 
@@ -168,9 +173,6 @@ class StartScene
 		"Assets/tileDown.png"
 		]
 
-	textures = []
-	loadTextures()
-
 	positions = [
 		:tileW = new Vector2(screenWidth * 0.15, screenHeight / 2 + MARGIN),
 		:tileS = new Vector2(screenWidth * 0.15 + 68, screenHeight / 2 + MARGIN),
@@ -178,7 +180,8 @@ class StartScene
 		:tileDown = new Vector2(screenWidth * 0.75 + 68, screenHeight / 2 + MARGIN)
 		]
 
-	func init
+	textures = []
+	loadTextures()
 
 	func loadTextures
 		for image in images
@@ -186,6 +189,11 @@ class StartScene
 			ImageResize(tileW, 64, 64)
 			textures + LoadTextureFromImage(tileW)
 			UnloadImage(tileW)
+		next
+
+	func unloadTextures
+		for texture in textures
+			UnloadTexture(texture)
 		next
 
 	func draw
