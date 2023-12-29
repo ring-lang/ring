@@ -105,12 +105,12 @@ while !WindowShouldClose()
 
 end
 
-CloseWindow()
-
 unloadTexture(MusicOnTex)
 unloadTexture(MusicOffTex)
 
 startScene.UnloadTextures()
+
+CloseWindow()
 
 # Function to handle game music and sounds
 func musicHandler
