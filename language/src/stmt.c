@@ -225,7 +225,7 @@ int ring_parser_class ( Parser *pParser )
 
 int ring_parser_stmt ( Parser *pParser )
 {
-    int x,nMark1,nMark2,nMark3,nStart,nEnd,nFlag,nLoadPackage,nLoopOrExitCommand,nLoadAgain,nForInVarsCount,nVar,nLine,nLine2  ;
+    int x,nMark1,nMark2,nMark3,nStart,nEnd,nDiff,lFastLen,nFlag,nLoadPackage,nLoopOrExitCommand,nLoadAgain,nForInVarsCount,nVar,nLine,nLine2  ;
     String *pString  ;
     List *pMark,*pMark2,*pMark3,*pMark4,*pList2  ;
     double nNum1  ;
@@ -598,6 +598,19 @@ int ring_parser_stmt ( Parser *pParser )
                     pParser->nAssignmentFlag = 1 ;
                     /* Generate Code */
                     nEnd = ring_parser_icg_instructionslistsize(pParser) ;
+                    /* Check if we can avoid pushing the Variable to the Stack and avoid string copy */
+                    lFastLen = 0 ;
+                    nDiff = nEnd - nStart ;
+                    if ( nDiff == 1 ) {
+                        if ( (ring_parser_icg_getoperationatpos(pParser,nStart) == ICO_LOADADDRESS) && (ring_parser_icg_getoperationatpos(pParser,nEnd) == ICO_PUSHV) ) {
+                            lFastLen = 1 ;
+                        }
+                    }
+                    else if ( nDiff == 2 ) {
+                        if ( (ring_parser_icg_getoperationatpos(pParser,nStart) == ICO_LOADADDRESS) && (ring_parser_icg_getoperationatpos(pParser,nStart+1) == ICO_PUSHV) ) {
+                            lFastLen = 1 ;
+                        }
+                    }
                     /* Note (nEnd-1) , -1 to remove instruction PushV (avoid error with for x in string) */
                     switch ( ring_parser_icg_getlastoperation(pParser) ) {
                         case ICO_PUSHV :
@@ -615,6 +628,10 @@ int ring_parser_stmt ( Parser *pParser )
                     ring_parser_icg_newoperation(pParser,ICO_LEN);
                     /* Generate 0 For Operator OverLoading */
                     ring_parser_icg_newoperandint(pParser,0);
+                    /* Add the variable name */
+                    if ( lFastLen ) {
+                        ring_parser_icg_newoperand(pParser,ring_list_getstring(ring_parser_icg_getoperationlist(pParser,nStart),2));
+                    }
                     ring_parser_icg_newoperation(pParser,ICO_JUMPFOR);
                     pMark = ring_parser_icg_getactiveoperation(pParser);
                     ring_parser_icg_newoperation(pParser,ICO_LOADAFIRST);
