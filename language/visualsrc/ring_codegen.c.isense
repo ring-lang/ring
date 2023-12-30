@@ -127,6 +127,7 @@ ring_parser_icg_getoperandint(pParser,x)
 ring_parser_icg_getoperanddouble(pParser,x)
 RING_PARSER_ICG_PARENTCLASSPOS
 RING_PARSER_ICG_INSTRUCTIONSLISTTYPE
+ring_parser_icg_setoperationatpos(pParser,x,y)
 ring_parser_icg_newoperation
 ring_parser_icg_insertoperation
 ring_parser_icg_newoperand

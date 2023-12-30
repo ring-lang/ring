@@ -724,14 +724,24 @@ void ring_vm_len ( VM *pVM )
     else if ( RING_VM_STACK_ISPOINTER ) {
         if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
             pVar = (List *) RING_VM_STACK_READP ;
-            pList = ring_list_getlist(pVar,RING_VAR_VALUE) ;
-            if ( ring_vm_oop_isobject(pList) == 0 ) {
+            if ( ring_list_islist(pVar,RING_VAR_VALUE) ) {
+                pList = ring_list_getlist(pVar,RING_VAR_VALUE) ;
+                if ( ring_vm_oop_isobject(pList) == 0 ) {
+                    RING_VM_STACK_POP ;
+                    RING_VM_STACK_PUSHNVALUE(ring_list_getsize(pList));
+                }
+                else {
+                    ring_vm_expr_npoo(pVM,"len",0);
+                    pVM->nIgnoreNULL = 1 ;
+                }
+            }
+            else if ( ring_list_isstring(pVar,RING_VAR_VALUE) ) {
+                nSize = ring_list_getstringsize(pVar,RING_VAR_VALUE) ;
                 RING_VM_STACK_POP ;
-                RING_VM_STACK_PUSHNVALUE(ring_list_getsize(pList));
+                RING_VM_STACK_PUSHNVALUE(nSize);
             }
             else {
-                ring_vm_expr_npoo(pVM,"len",0);
-                pVM->nIgnoreNULL = 1 ;
+                ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);
             }
         }
         else if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM ) {
