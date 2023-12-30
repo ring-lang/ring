@@ -93,6 +93,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#using-this-in-the-class-region-as-self">Using This in the class region as Self</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#default-value-for-object-attributes">Default value for object attributes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#command-new-from">Command: New From</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-objects-during-definition">Using Objects During Definition</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
@@ -1151,6 +1152,26 @@ version: 1.0
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wow</span>
 <span class="n">hello</span>
 </pre></div>
+</div>
+</section>
+<section id="using-objects-during-definition">
+<span id="index-18"></span><h2>Using Objects During Definition<a class="headerlink" href="#using-objects-during-definition" title="Permalink to this heading"></a></h2>
+<p>Starting from Ring 1.19, The language provides better support for using objects during definition
+where we can mix between this feature and other features like operator overloading without missing the output</p>
+<p>Example:</p>
+<img alt="usingobjdurdef" src="_images/usingobjdurdef.png" />
+<ul class="simple">
+<li><p>The new point object will be stored directly in myVar during definition</p></li>
+<li><p>We can pass myVar as parameter to the print() method</p></li>
+<li><p>Using + 1 will call the operator() method</p></li>
+<li><p>The operator() method output will be stored in myVar</p></li>
+</ul>
+<p>This means that the Assignment operation is executed TWO TIMES!</p>
+<p>The first Assignment is executed to support (Using objects during definition) where myVar is an object contains the new point
+while in the second time, the Assignment is executed to support storing the Operator Overloading output.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>RingQt samples uses this feature to quickly pass the parent window object to the other widgets.</p>
 </div>
 </section>
 </section>

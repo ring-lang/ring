@@ -174,6 +174,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#better-batch-files-for-building-ring">Better batch files for building Ring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#for-loop-better-performance">For Loop - Better Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#calling-functions-better-performance">Calling Functions - Better Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-objects-during-definition">Using Objects During Definition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#nothing-function">Nothing() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#optionalfunc-function">OptionalFunc() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#parentclassname-function">ParentClassName() Function</a></li>
@@ -233,6 +234,7 @@
 <li><p>Better batch files for building Ring</p></li>
 <li><p>For Loop - Better Performance</p></li>
 <li><p>Calling Functions - Better Performance</p></li>
+<li><p>Using Objects During Definition</p></li>
 <li><p>Nothing() function</p></li>
 <li><p>OptionalFunc() function</p></li>
 <li><p>ParentClassName() function</p></li>
@@ -263,6 +265,7 @@
 <section id="listen-to-quran-application">
 <span id="index-5"></span><h2>Listen to Quran application<a class="headerlink" href="#listen-to-quran-application" title="Permalink to this heading"></a></h2>
 <p>Arabic application that can be used to listen to Quran.</p>
+<p>We can install and run the application using the Ring Package Manager (RingPM).</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install listentoquran
 ringpm run listentoquran
 </pre></div>
@@ -341,8 +344,28 @@ ringpm run listentoquran
 <p>These improvements let the Stars animation sample works at 2350 FPS in Ring 1.19 instead of 500FPS in Ring 1.18</p>
 <img alt="stars3d" src="_images/stars3d.png" />
 </section>
+<section id="using-objects-during-definition">
+<span id="index-11"></span><h2>Using Objects During Definition<a class="headerlink" href="#using-objects-during-definition" title="Permalink to this heading"></a></h2>
+<p>This release provides better support for using objects during definition
+where we can mix between this feature and other features like operator overloading without missing the output</p>
+<p>Example:</p>
+<img alt="usingobjdurdef" src="_images/usingobjdurdef.png" />
+<ul class="simple">
+<li><p>The new point object will be stored directly in myVar during definition</p></li>
+<li><p>We can pass myVar as parameter to the print() method</p></li>
+<li><p>Using + 1 will call the operator() method</p></li>
+<li><p>The operator() method output will be stored in myVar</p></li>
+</ul>
+<p>This means that the Assignment operation is executed TWO TIMES!</p>
+<p>The first Assignment is executed to support (Using objects during definition) where myVar is an object contains the new point
+while in the second time, the Assignment is executed to support storing the Operator Overloading output.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>RingQt samples uses this feature to quickly pass the parent window object to the other widgets.</p>
+</div>
+</section>
 <section id="nothing-function">
-<span id="index-11"></span><h2>Nothing() function<a class="headerlink" href="#nothing-function" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>Nothing() function<a class="headerlink" href="#nothing-function" title="Permalink to this heading"></a></h2>
 <p>This function does nothing and can accept any number/type of parameters.
 The output will be Zero.</p>
 <p>Some of the Use Cases</p>
@@ -354,7 +377,7 @@ The output will be Zero.</p>
 </ol>
 </section>
 <section id="optionalfunc-function">
-<span id="index-12"></span><h2>OptionalFunc() function<a class="headerlink" href="#optionalfunc-function" title="Permalink to this heading"></a></h2>
+<span id="index-13"></span><h2>OptionalFunc() function<a class="headerlink" href="#optionalfunc-function" title="Permalink to this heading"></a></h2>
 <p>Using this function we can define functions similar to Nothing() but with a different name.</p>
 <p>Syntax:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>OptionalFunc(cFunctionName)
@@ -389,7 +412,7 @@ Ok, Thanks!
 </div>
 </section>
 <section id="parentclassname-function">
-<span id="index-13"></span><h2>ParentClassName() Function<a class="headerlink" href="#parentclassname-function" title="Permalink to this heading"></a></h2>
+<span id="index-14"></span><h2>ParentClassName() Function<a class="headerlink" href="#parentclassname-function" title="Permalink to this heading"></a></h2>
 <p>We can know the parent class name of an object using the parentclassname() function</p>
 <p>Syntax:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>parentclassname(object) --&gt; Returns the parent class name of the object class
@@ -410,7 +433,7 @@ Ok, Thanks!
 </div>
 </section>
 <section id="fastpro-extension">
-<span id="index-14"></span><h2>FastPro Extension<a class="headerlink" href="#fastpro-extension" title="Permalink to this heading"></a></h2>
+<span id="index-15"></span><h2>FastPro Extension<a class="headerlink" href="#fastpro-extension" title="Permalink to this heading"></a></h2>
 <p>This new extension comes with the next functions</p>
 <ul class="simple">
 <li><p>Bytes2List(cBytes,nWidth,nHeight,nChannels) —&gt; aList // [[R,G,B],…]</p></li>
@@ -429,7 +452,7 @@ using Bytes2List() and List2Bytes() functions.</p>
 <img alt="updatecolumnperformance" src="_images/updatecolumnperformance.png" />
 </section>
 <section id="better-typehints">
-<span id="index-15"></span><h2>Better TypeHints<a class="headerlink" href="#better-typehints" title="Permalink to this heading"></a></h2>
+<span id="index-16"></span><h2>Better TypeHints<a class="headerlink" href="#better-typehints" title="Permalink to this heading"></a></h2>
 <p>Added the next definitions:</p>
 <ul class="simple">
 <li><p>Byte</p></li>
@@ -472,7 +495,7 @@ Using override
 </div>
 </section>
 <section id="better-ringraylib">
-<span id="index-16"></span><h2>Better RingRayLib<a class="headerlink" href="#better-ringraylib" title="Permalink to this heading"></a></h2>
+<span id="index-17"></span><h2>Better RingRayLib<a class="headerlink" href="#better-ringraylib" title="Permalink to this heading"></a></h2>
 <p>The next functions are added to the RingRayLib extension</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">vec2</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">Vector2</span>
 <span class="o">*</span> <span class="n">vec2set</span><span class="p">(</span><span class="n">Vector2</span> <span class="n">vec</span><span class="p">,</span><span class="n">double</span> <span class="n">x</span><span class="p">,</span><span class="n">double</span> <span class="n">y</span><span class="p">)</span>
@@ -524,7 +547,7 @@ Using override
 </div>
 </section>
 <section id="better-ringstbimage">
-<span id="index-17"></span><h2>Better RingStbImage<a class="headerlink" href="#better-ringstbimage" title="Permalink to this heading"></a></h2>
+<span id="index-18"></span><h2>Better RingStbImage<a class="headerlink" href="#better-ringstbimage" title="Permalink to this heading"></a></h2>
 <p>The extension is improved to support the next features</p>
 <ul class="simple">
 <li><p>Support UTF-8 file names on Windows</p></li>
@@ -584,7 +607,7 @@ Time to save the image   : 0.00 seconds
 <img alt="generateimage" src="_images/generateimage.png" />
 </section>
 <section id="better-extensions-generator">
-<span id="index-18"></span><h2>Better Extensions Generator<a class="headerlink" href="#better-extensions-generator" title="Permalink to this heading"></a></h2>
+<span id="index-19"></span><h2>Better Extensions Generator<a class="headerlink" href="#better-extensions-generator" title="Permalink to this heading"></a></h2>
 <p>The code generator for C/C++ extensions is updated and support defining extra names for functions</p>
 <p>Using the predefined list (aExtraFunctionName) we can define the extra names</p>
 <p>Example:</p>
@@ -598,7 +621,7 @@ aExtraFunctionName + [&quot;vec2sety&quot;,&quot;raylib_set_vector2_y&quot;]
 </div>
 </section>
 <section id="better-documentation">
-<span id="index-19"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this heading"></a></h2>
+<span id="index-20"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this heading"></a></h2>
 <p>The CHM file is updated to support search</p>
 <p>We added a new chapter: Using FastPro Extension</p>
 <p>Also, The next chapters are revised and improved</p>
@@ -615,7 +638,7 @@ aExtraFunctionName + [&quot;vec2sety&quot;,&quot;raylib_set_vector2_y&quot;]
 </ul>
 </section>
 <section id="more-improvements">
-<span id="index-20"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-21"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Ring Notepad - Close Button - Force closing the web browser</p></li>
 <li><p>Ring Notepad - Projects Files - Larger width</p></li>

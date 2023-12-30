@@ -24,6 +24,7 @@ Ring 1.19 comes with the next features!
 * Better batch files for building Ring 
 * For Loop - Better Performance
 * Calling Functions - Better Performance
+* Using Objects During Definition
 * Nothing() function
 * OptionalFunc() function
 * ParentClassName() function
@@ -76,6 +77,8 @@ Listen to Quran application
 ===========================
 
 Arabic application that can be used to listen to Quran.
+
+We can install and run the application using the Ring Package Manager (RingPM).
 
 .. code-block:: none
 
@@ -199,6 +202,32 @@ These improvements let the Stars animation sample works at 2350 FPS in Ring 1.19
 
 .. image:: stars3d.png
 	:alt: stars3d
+
+.. index:: 
+	pair: What is new in Ring  1.19; Using Objects During Definition
+
+Using Objects During Definition
+===============================
+
+This release provides better support for using objects during definition
+where we can mix between this feature and other features like operator overloading without missing the output
+
+Example:
+
+.. image:: usingobjdurdef.png
+	:alt: usingobjdurdef
+
+* The new point object will be stored directly in myVar during definition
+* We can pass myVar as parameter to the print() method
+* Using + 1 will call the operator() method
+* The operator() method output will be stored in myVar
+
+This means that the Assignment operation is executed TWO TIMES!
+
+The first Assignment is executed to support (Using objects during definition) where myVar is an object contains the new point 
+while in the second time, the Assignment is executed to support storing the Operator Overloading output. 
+
+.. note:: RingQt samples uses this feature to quickly pass the parent window object to the other widgets. 
 
 .. index:: 
 	pair: What is new in Ring  1.19; Nothing() function

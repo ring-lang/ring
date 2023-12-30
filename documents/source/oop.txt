@@ -1097,3 +1097,30 @@ Output:
 
 	wow
 	hello
+
+
+.. index:: 
+	pair: Object Oriented Programming; Using Objects During Definition
+
+Using Objects During Definition
+===============================
+
+Starting from Ring 1.19, The language provides better support for using objects during definition
+where we can mix between this feature and other features like operator overloading without missing the output
+
+Example:
+
+.. image:: usingobjdurdef.png
+	:alt: usingobjdurdef
+
+* The new point object will be stored directly in myVar during definition
+* We can pass myVar as parameter to the print() method
+* Using + 1 will call the operator() method
+* The operator() method output will be stored in myVar
+
+This means that the Assignment operation is executed TWO TIMES!
+
+The first Assignment is executed to support (Using objects during definition) where myVar is an object contains the new point 
+while in the second time, the Assignment is executed to support storing the Operator Overloading output. 
+
+.. note:: RingQt samples uses this feature to quickly pass the parent window object to the other widgets. 
