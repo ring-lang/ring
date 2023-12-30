@@ -574,6 +574,7 @@ More Improvements
 * FindInFiles application - Replace Button - Check line selection
 * WinStartupManager application - Use extensions that comes with Ring
 * AnalogClock application - Set the image width to be like the window width
+* AnalogClock application - Draw the Clock directly once the window appears
 * EightPuzzleGame3D game - Better Code 
 * SpaceShooter game - Better Code to close the game using the main menu
 * Pong2 game - Using CloseAudioDevice()
@@ -614,6 +615,7 @@ More Improvements
 * Ring Compiler - Remove unnecessary ICO_FREESTACK after For-Loops
 * Ring Compiler - When we run ringsyntax.ring don't load the same file again
 * Ring Compiler - Support using braces { } after (expr) 
+* Ring Compiler/VM - Better performance when using (for-in) loops and large strings
 * Ring Compiler/VM - Revise (Using objects during definition) implementation
 * Ring Compiler/VM - Check the path limit (4096 characters) before execution
 * Ring Compiler/VM - Items structure functions - Better Performance
