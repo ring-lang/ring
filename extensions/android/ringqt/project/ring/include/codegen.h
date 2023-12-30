@@ -176,6 +176,7 @@
     #define ring_parser_icg_getoperanddouble(pParser,x) ring_list_getdouble(pParser->ActiveGenCodeList,x)
     #define RING_PARSER_ICG_PARENTCLASSPOS 4
     #define RING_PARSER_ICG_INSTRUCTIONSLISTTYPE List
+    #define ring_parser_icg_setoperationatpos(pParser,x,y) ring_list_setint(ring_parser_icg_getoperationlist(pParser,x),RING_PARSER_ICG_OPERATIONCODE,y)
     /*
     **  Functions 
     **  Generate Intermediate Code 
