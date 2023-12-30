@@ -130,7 +130,7 @@ New qapp
             myfilter.setResizeEvent("WindowSizeChanged()")
             installeventfilter(myfilter)
 
-            
+       DrawCounter()     
        show()
     }
 
