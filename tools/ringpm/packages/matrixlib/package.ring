@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "",
 	:email = "",
 	:license = "MIT License",
-	:version = "1.0.1",
-	:ringversion = "1.18",
+	:version = "1.0.2",
+	:ringversion = "1.19",
 	:versions = 	[
 		[
-			:version = "1.0.1",
+			:version = "1.0.2",
 			:branch = "master"
 		]
 	],
@@ -85,7 +85,8 @@ aPackageInfo = [
 		"samples/UsingMatrixLib/55-EigenVector-2x2-3.ring",
 		"samples/UsingMatrixLib/56-EigenVector-3x3-2.ring",
 		"samples/UsingMatrixLib/57-EigenVector-3x3-4.ring",
-		"samples/UsingMatrixLib/58-ReducedRowEchelonForm.ring"
+		"samples/UsingMatrixLib/58-ReducedRowEchelonForm.ring",
+		"samples/UsingMatrixLib/59-Matrix-Transform-Draw-Rotation.ring"
 	],
 	:windowsfiles = 	[
 
