@@ -3,6 +3,7 @@ C_HEADER = "header.template"   C_FOOTER = "footer.template"
 
 # In the list aPages we define the website templates
 aPages = ["index.template","download.template",
+  	  "download118.template",
   	  "download117.template",
   	  "download116.template",
   	  "download115.template",

@@ -1,0 +1,41 @@
+﻿aDownload = [
+		["Ring 1.18 All Platforms",[
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.18/Fayed_Ring_1.18_Windows.exe"  >Ring 1.18 For Windows (32bit and 64bit)</a>',
+							'390 MB'						
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.18/Fayed_Ring_1.18_Ubuntu.zip">Ring 1.18 For Ubuntu Linux (64bit)</a>',
+							'462 MB</a>'						
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.18/Fayed_Ring_1.18_macOS.zip">Ring 1.18 For macOS (64bit)</a>',
+							'463 MB'						
+						 ],	
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.18/Fayed_RingDoc_1.18.pdf">Ring 1.18 Documentation (PDF)</a> ',
+							'45.3 MB'
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.18/Fayed_RingDoc_1.18.chm">Ring 1.18 Documentation (CHM)</a>',
+							'42.4 MB'							
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.18/Fayed_RingDoc_1.18.zip">Ring 1.18 Documentation (HTML)</a>',
+							'53.7 MB'							
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.18/Fayed_Ring_1.18_LightRelease_Windows_Binary.zip">Ring 1.18 (Light Release - Windows Binary)</a>',
+							'3.45 MB'
+						 ],	
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.18/Fayed_Ring_1.18_LightRelease_SourceCode.zip">Ring 1.18 (Light Release - Source Code - All Platforms)</a>',
+							'729 KB'
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.18/Fayed_Ring_1.18_MSDOS.zip">Ring 1.18 For MS-DOS</a>',
+							'469 KB</a>'						
+						 ]
+			]
+		]
+]
