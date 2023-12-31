@@ -734,5 +734,9 @@ aPackagesRegistry = [
 	[ :name = "listentoquran",
           :description = "ListenToQuran application for the Ring programming language",
           :ProviderUserName = "ringpackages"
+        ],
+	[ :name = "planetaryorbits",
+          :description = "PlantaryOrbits application for the Ring programming language",
+          :ProviderUserName = "ringpackages"
         ]
 ]
