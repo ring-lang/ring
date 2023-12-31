@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.5",
-	:ringversion = "1.18",
+	:version = "1.0.6",
+	:ringversion = "1.19",
 	:versions = 	[
 		[
-			:version = "1.0.5",
+			:version = "1.0.6",
 			:branch = "master"
 		]
 	],
@@ -29,8 +29,10 @@ aPackageInfo = [
 		"extensions/ringinternet/buildclang.sh",
 		"extensions/ringinternet/buildgcc.sh",
 		"extensions/ringinternet/buildvc.bat",
+		"extensions/ringinternet/buildvc_x64.bat",
 		"extensions/ringinternet/internetlib.ring",
 		"extensions/ringinternet/ring_internet.c",
+		"extensions/ringinternet/ring_internet_x64.c",
 		"extensions/ringinternet/ring_internet.h",
 		"tools/ring2exe/libs/internetlib.ring"
 	],
