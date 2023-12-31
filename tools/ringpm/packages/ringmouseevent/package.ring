@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "",
 	:email = "",
 	:license = "MIT License",
-	:version = "1.0.2",
-	:ringversion = "1.17",
+	:version = "1.0.4",
+	:ringversion = "1.19",
 	:versions = 	[
 		[
-			:version = "1.0.2",
+			:version = "1.0.4",
 			:branch = "master"
 		]
 	],
@@ -26,6 +26,7 @@ aPackageInfo = [
 	],
 	:ringfolderfiles = 	[
 		"extensions/ringmouseevent/buildvc.bat",
+		"extensions/ringmouseevent/buildvc_x64.bat",
 		"extensions/ringmouseevent/gencode.bat",
 		"extensions/ringmouseevent/README.md",
 		"extensions/ringmouseevent/ringmouseevent.c",
