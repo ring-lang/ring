@@ -343,5 +343,8 @@ aAllPackagesInfo = [
 	],
 	:readfiles = 	[
 
+	],
+	:matrixlib = 	[
+		"planetaryorbits"
 	]
 ]
