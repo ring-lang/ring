@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.3",
-	:ringversion = "1.18",
+	:version = "1.0.4",
+	:ringversion = "1.19",
 	:versions = 	[
 		[
-			:version = "1.0.3",
+			:version = "1.0.4",
 			:branch = "master"
 		]
 	],
@@ -38,12 +38,6 @@ aPackageInfo = [
 		"applications/winstartupmanager/forms/winstartupmanagerView.ring",
 		"applications/winstartupmanager/imgs/UsageImg.jpg",
 		"applications/winstartupmanager/imgs/WinStartupManager.jpg",
-		"applications/winstartupmanager/libs/ring_winapi.dll",
-		"applications/winstartupmanager/libs/ring_wincreg.dll",
-		"applications/winstartupmanager/libs/winapi.rh",
-		"applications/winstartupmanager/libs/winapi.ring",
-		"applications/winstartupmanager/libs/wincreg.rh",
-		"applications/winstartupmanager/libs/wincreg.ring",
 		"applications/winstartupmanager/LICENSE",
 		"applications/winstartupmanager/README.md",
 		"applications/winstartupmanager/WinStartupManager.ring"
