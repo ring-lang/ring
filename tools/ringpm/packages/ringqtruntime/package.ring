@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.22",
-	:ringversion = "1.18",
+	:version = "1.0.23",
+	:ringversion = "1.19",
 	:versions = 	[
 		[
-			:version = "1.0.22",
+			:version = "1.0.23",
 			:branch = "master"
 		]
 	],
@@ -35,6 +35,8 @@ aPackageInfo = [
 		"README.md"
 	],
 	:ringfolderfiles = 	[
+		"bin/load/guilib.ring",
+		"bin/load/lightguilib.ring",
 		"tools/ring2exe/libs/qt.ring",
 		"tools/ring2exe/libs/lightguilib.ring"
 	],
