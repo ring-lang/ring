@@ -1,4 +1,5 @@
 aNews = [
+  ["December 31, 2023",'<a href="doc1.19/whatisnew19.html"> Ring 1.19 Released!</a>'],
   ["December 23, 2023",'<a href="https://github.com/mohannad-aldulaimi/quran_ring"> Application: Listen to Quran</a>'],
   ["October 19, 2023",'<a href="https://github.com/ring-lang/ring/tree/master/applications/imagepixel"> Application: Image Pixel</a>'],
   ["September 30, 2023",'<a href="https://github.com/ring-lang/ring/tree/master/applications/planetaryorbits"> Application: Planetary Orbits</a>'],
