@@ -350,5 +350,8 @@ aAllPackagesInfo = [
 	],
 	:matrixlib = 	[
 		"planetaryorbits"
+	],
+	:ringhelpchm = 	[
+
 	]
 ]
