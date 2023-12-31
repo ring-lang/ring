@@ -758,5 +758,9 @@ aPackagesRegistry = [
 	[ :name = "ringthreads",
           :description = "RingThreads extension for the Ring programming language",
           :ProviderUserName = "ringpackages"
+        ],
+	[ :name = "extensionstutorials",
+          :description = "Extensions tutorials for the Ring programming language",
+          :ProviderUserName = "ringpackages"
         ]
 ]
