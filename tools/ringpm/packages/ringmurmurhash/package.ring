@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Hassan Ahmad",
 	:email = "hsn@outlook.hu",
 	:license = "MIT License",
-	:version = "1.0.5",
-	:ringversion = "1.18",
+	:version = "1.0.6",
+	:ringversion = "1.19",
 	:versions = 	[
 		[
-			:version = "1.0.5",
+			:version = "1.0.6",
 			:branch = "master"
 		]
 	],
@@ -29,6 +29,7 @@ aPackageInfo = [
 		"extensions/ringmurmurhash/buildclang.sh",
 		"extensions/ringmurmurhash/buildgcc.sh",
 		"extensions/ringmurmurhash/buildvc.bat",
+		"extensions/ringmurmurhash/buildvc_x64.bat",
 		"extensions/ringmurmurhash/libmurmurhash/MurmurHash1.c",
 		"extensions/ringmurmurhash/libmurmurhash/MurmurHash1.h",
 		"extensions/ringmurmurhash/libmurmurhash/MurmurHash2.c",
