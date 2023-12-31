@@ -738,5 +738,9 @@ aPackagesRegistry = [
 	[ :name = "planetaryorbits",
           :description = "PlantaryOrbits application for the Ring programming language",
           :ProviderUserName = "ringpackages"
+        ],
+	[ :name = "hourscounter",
+          :description = "HoursCounter application for the Ring programming language",
+          :ProviderUserName = "ringpackages"
         ]
 ]
