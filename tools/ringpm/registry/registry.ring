@@ -746,5 +746,9 @@ aPackagesRegistry = [
 	[ :name = "ringfastpro",
           :description = "RingFastPro extension for the Ring programming language",
           :ProviderUserName = "ringpackages"
+        ],
+	[ :name = "imagepixel",
+          :description = "ImagePixel application for the Ring programming language",
+          :ProviderUserName = "ringpackages"
         ]
 ]
