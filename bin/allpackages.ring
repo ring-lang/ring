@@ -133,7 +133,8 @@ aAllPackagesInfo = [
 		"mergetwofiles",
 		"poetryanalysis",
 		"RandomUser",
-		"randomuser"
+		"randomuser",
+		"planetaryorbits"
 	],
 	:ringallegro = 	[
 		"gameengine",
@@ -220,7 +221,8 @@ aAllPackagesInfo = [
 		"mergetwofiles",
 		"poetryanalysis",
 		"RandomUser",
-		"randomuser"
+		"randomuser",
+		"planetaryorbits"
 	],
 	:findinfiles = 	[
 		"ringnotepad"

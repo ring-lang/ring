@@ -5,15 +5,25 @@ aPackageInfo = [
 	:developer = "",
 	:email = "",
 	:license = "MIT License",
-	:version = "1.0.1",
+	:version = "1.0.2",
 	:ringversion = "1.19",
 	:versions = 	[
 		[
-			:version = "1.0.1",
+			:version = "1.0.2",
 			:branch = "master"
 		]
 	],
 	:libs = 	[
+		[
+			:name = "stdlib",
+			:version = "1.0",
+			:providerusername = ""
+		],
+		[
+			:name = "ringqt",
+			:version = "1.0",
+			:providerusername = ""
+		],
 		[
 			:name = "matrixlib",
 			:version = "1.0.2",
