@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.6",
-	:ringversion = "1.18",
+	:version = "1.0.7",
+	:ringversion = "1.19",
 	:versions = 	[
 		[
-			:version = "1.0.6",
+			:version = "1.0.7",
 			:branch = "master"
 		]
 	],
@@ -29,6 +29,7 @@ aPackageInfo = [
 		"extensions/ringopenssl/buildclang.sh",
 		"extensions/ringopenssl/buildgcc.sh",
 		"extensions/ringopenssl/buildvc.bat",
+		"extensions/ringopenssl/buildvc_x64.bat",
 		"extensions/ringopenssl/encrypt_v1.c",
 		"extensions/ringopenssl/encrypt_v2.c",
 		"extensions/ringopenssl/openssllib.ring",
