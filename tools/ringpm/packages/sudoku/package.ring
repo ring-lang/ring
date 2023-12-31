@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.2",
-	:ringversion = "1.18",
+	:version = "1.0.3",
+	:ringversion = "1.19",
 	:versions = 	[
 		[
-			:version = "1.0.2",
+			:version = "1.0.3",
 			:branch = "master"
 		]
 	],
@@ -40,6 +40,8 @@ aPackageInfo = [
 		"applications/sudoku/v2/mylibSudoku.dll",
 		"applications/sudoku/v2/mylibSudoku.ring",
 		"applications/sudoku/v2/SudokuPuzzles.ring",
+		"applications/sudoku/v2/buildvc.bat",
+		"applications/sudoku/v2/buildvc_x64.bat",
 		"applications/sudoku/v3/AA-Sudoku.ring",
 		"applications/sudoku/v3/buildvc-Sudoku.bat",
 		"applications/sudoku/v3/mylibSudoku.c",
@@ -48,7 +50,9 @@ aPackageInfo = [
 		"applications/sudoku/v3/mylibSudokuGenerator.c",
 		"applications/sudoku/v3/mylibSudokuGenerator.dll",
 		"applications/sudoku/v3/mylibSudokuGenerator.ring",
-		"applications/sudoku/v3/SudokuPuzzles.ring"
+		"applications/sudoku/v3/SudokuPuzzles.ring",
+		"applications/sudoku/v3/buildvc.bat",
+		"applications/sudoku/v3/buildvc_x64.bat"
 	],
 	:windowsfiles = 	[
 
