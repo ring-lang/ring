@@ -182,7 +182,7 @@ Ring 1.17 is released on May 14, 2022
 
 Ring 1.18 is released on July 12, 2023
 
-This is Ring 1.19 documentation.
+Ring 1.19 is released on December 31, 2023
 
 .. index:: 
 	pair: Introduction; Features
