@@ -135,7 +135,8 @@ aAllPackagesInfo = [
 		"RandomUser",
 		"randomuser",
 		"planetaryorbits",
-		"hourscounter"
+		"hourscounter",
+		"imagepixel"
 	],
 	:ringallegro = 	[
 		"gameengine",
@@ -224,7 +225,8 @@ aAllPackagesInfo = [
 		"RandomUser",
 		"randomuser",
 		"planetaryorbits",
-		"hourscounter"
+		"hourscounter",
+		"imagepixel"
 	],
 	:findinfiles = 	[
 		"ringnotepad"
@@ -352,6 +354,12 @@ aAllPackagesInfo = [
 		"planetaryorbits"
 	],
 	:ringhelpchm = 	[
+
+	],
+	:ringfastpro = 	[
+		"imagepixel"
+	],
+	:imagepixel = 	[
 
 	]
 ]
