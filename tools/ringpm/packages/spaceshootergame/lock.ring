@@ -2,35 +2,35 @@ aLockInfo = [
 	[
 		:name = "spaceshootergame",
 		:branch = "master",
-		:version = "1.0.1",
+		:version = "1.0.2",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "ringraylib",
 		:branch = "master",
-		:version = "1.0.42",
+		:version = "1.0.43",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "stdlib",
 		:branch = "master",
-		:version = "1.0.14",
+		:version = "1.0.15",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "ringopenssl",
 		:branch = "master",
-		:version = "1.0.5",
+		:version = "1.0.6",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "ringcurl",
 		:branch = "master",
-		:version = "1.0.8",
+		:version = "1.0.9",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -44,35 +44,35 @@ aLockInfo = [
 	[
 		:name = "internetlib",
 		:branch = "master",
-		:version = "1.0.4",
+		:version = "1.0.5",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "ringodbc",
 		:branch = "master",
-		:version = "1.0.4",
+		:version = "1.0.5",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "ringsqlite",
 		:branch = "master",
-		:version = "1.0.4",
+		:version = "1.0.5",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "ringmysql",
 		:branch = "master",
-		:version = "1.0.4",
+		:version = "1.0.5",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "ringpostgresql",
 		:branch = "master",
-		:version = "1.0.4",
+		:version = "1.0.5",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	]
