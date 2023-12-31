@@ -367,5 +367,11 @@ aAllPackagesInfo = [
 	],
 	:ringopengl32 = 	[
 
+	],
+	:ringwinapi = 	[
+		"winstartupmanager"
+	],
+	:ringwincreg = 	[
+		"winstartupmanager"
 	]
 ]

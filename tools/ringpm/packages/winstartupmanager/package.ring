@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.4",
+	:version = "1.0.5",
 	:ringversion = "1.19",
 	:versions = 	[
 		[
-			:version = "1.0.4",
+			:version = "1.0.5",
 			:branch = "master"
 		]
 	],
@@ -21,6 +21,16 @@ aPackageInfo = [
 		],
 		[
 			:name = "stdlib",
+			:version = "1.0",
+			:providerusername = ""
+		],
+		[
+			:name = "ringwinapi",
+			:version = "1.0",
+			:providerusername = ""
+		],
+		[
+			:name = "ringwincreg",
 			:version = "1.0",
 			:providerusername = ""
 		]

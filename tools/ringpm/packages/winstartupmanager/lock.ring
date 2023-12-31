@@ -2,28 +2,28 @@ aLockInfo = [
 	[
 		:name = "winstartupmanager",
 		:branch = "master",
-		:version = "1.0.4",
+		:version = "1.0.5",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "ringqt",
 		:branch = "master",
-		:version = "1.0.32",
+		:version = "1.0.33",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "ringzip",
 		:branch = "master",
-		:version = "1.0.5",
+		:version = "1.0.6",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "codegen",
 		:branch = "master",
-		:version = "1.0.12",
+		:version = "1.0.13",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -38,6 +38,13 @@ aLockInfo = [
 		:name = "guilib",
 		:branch = "master",
 		:version = "1.0.21",
+		:providerusername = "ringpackages",
+		:providerwebsite = ""
+	],
+	[
+		:name = "codegen",
+		:branch = "master",
+		:version = "1.0.12",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -127,6 +134,20 @@ aLockInfo = [
 	],
 	[
 		:name = "ringpostgresql",
+		:branch = "master",
+		:version = "1.0.5",
+		:providerusername = "ringpackages",
+		:providerwebsite = ""
+	],
+	[
+		:name = "ringwinapi",
+		:branch = "master",
+		:version = "1.0.5",
+		:providerusername = "ringpackages",
+		:providerwebsite = ""
+	],
+	[
+		:name = "ringwincreg",
 		:branch = "master",
 		:version = "1.0.5",
 		:providerusername = "ringpackages",
