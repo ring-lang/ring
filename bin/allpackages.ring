@@ -13,10 +13,10 @@ aAllPackagesInfo = [
 		"ringlibuv",
 		"ringopengl11",
 		"ringopengl21",
-		"ringopengl32",
 		"ringqt",
 		"ringlibsdl",
-		"guilib"
+		"guilib",
+		"ringopengl32"
 	],
 	:ringcurl = 	[
 		"internetlib",
@@ -364,5 +364,8 @@ aAllPackagesInfo = [
 	],
 	:ringstbimage = 	[
 		"imagepixel"
+	],
+	:ringopengl32 = 	[
+
 	]
 ]
