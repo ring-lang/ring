@@ -742,5 +742,9 @@ aPackagesRegistry = [
 	[ :name = "hourscounter",
           :description = "HoursCounter application for the Ring programming language",
           :ProviderUserName = "ringpackages"
+        ],
+	[ :name = "ringfastpro",
+          :description = "RingFastPro extension for the Ring programming language",
+          :ProviderUserName = "ringpackages"
         ]
 ]
