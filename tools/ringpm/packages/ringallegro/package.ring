@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.7",
-	:ringversion = "1.18",
+	:version = "1.0.8",
+	:ringversion = "1.19",
 	:versions = 	[
 		[
-			:version = "1.0.7",
+			:version = "1.0.8",
 			:branch = "master"
 		]
 	],
@@ -32,6 +32,8 @@ aPackageInfo = [
 		"extensions/ringallegro/buildgcc.sh",
 		"extensions/ringallegro/buildvc.bat",
 		"extensions/ringallegro/buildvc_allegro5.2.8.bat",
+		"extensions/ringallegro/buildvc_x64.bat",
+		"extensions/ringallegro/buildvc_allegro5.2.8_x64.bat",
 		"extensions/ringallegro/document.bat",
 		"extensions/ringallegro/gamelib.ring",
 		"extensions/ringallegro/gencode.bat",
