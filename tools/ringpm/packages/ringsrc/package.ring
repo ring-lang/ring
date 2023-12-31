@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.18.0",
-	:ringversion = "1.18",
+	:version = "1.19.0",
+	:ringversion = "1.19",
 	:versions = 	[
 		[
-			:version = "1.18.0",
+			:version = "1.19.0",
 			:branch = "master"
 		]
 	],
@@ -63,9 +63,12 @@ aPackageInfo = [
 		"language/src/buildgccstatic.sh",
 		"language/src/buildtccstatic.bat",
 		"language/src/buildtest.bat",
+		"language/src/buildtest_x64.bat",
 		"language/src/buildvc.bat",
+		"language/src/buildvc_x64.bat",
 		"language/src/buildvcstatic.bat",
 		"language/src/buildvcw.bat",
+		"language/src/buildvcw_x64.bat",
 		"language/src/buildvc_debug.bat",
 		"language/src/codegen.c",
 		"language/src/dll_e.c",
