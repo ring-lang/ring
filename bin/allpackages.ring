@@ -361,5 +361,8 @@ aAllPackagesInfo = [
 	],
 	:imagepixel = 	[
 
+	],
+	:ringstbimage = 	[
+		"imagepixel"
 	]
 ]

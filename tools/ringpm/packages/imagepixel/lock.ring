@@ -2,7 +2,7 @@ aLockInfo = [
 	[
 		:name = "imagepixel",
 		:branch = "master",
-		:version = "1.0.0",
+		:version = "1.0.1",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -136,6 +136,13 @@ aLockInfo = [
 		:name = "ringfastpro",
 		:branch = "master",
 		:version = "1.0.0",
+		:providerusername = "ringpackages",
+		:providerwebsite = ""
+	],
+	[
+		:name = "ringstbimage",
+		:branch = "master",
+		:version = "1.0.9",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	]
