@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.4",
-	:ringversion = "1.18",
+	:version = "1.0.5",
+	:ringversion = "1.19",
 	:versions = 	[
 		[
-			:version = "1.0.4",
+			:version = "1.0.5",
 			:branch = "master"
 		]
 	],
@@ -30,6 +30,7 @@ aPackageInfo = [
 		"extensions/ringconsolecolors/buildclang.sh",
 		"extensions/ringconsolecolors/buildgcc.sh",
 		"extensions/ringconsolecolors/buildvc.bat",
+		"extensions/ringconsolecolors/buildvc_x64.bat",
 		"extensions/ringconsolecolors/console-colors.c",
 		"extensions/ringconsolecolors/console-colors.h",
 		"extensions/ringconsolecolors/consolecolors.cf",
