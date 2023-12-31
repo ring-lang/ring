@@ -134,7 +134,8 @@ aAllPackagesInfo = [
 		"poetryanalysis",
 		"RandomUser",
 		"randomuser",
-		"planetaryorbits"
+		"planetaryorbits",
+		"hourscounter"
 	],
 	:ringallegro = 	[
 		"gameengine",
@@ -222,7 +223,8 @@ aAllPackagesInfo = [
 		"poetryanalysis",
 		"RandomUser",
 		"randomuser",
-		"planetaryorbits"
+		"planetaryorbits",
+		"hourscounter"
 	],
 	:findinfiles = 	[
 		"ringnotepad"
