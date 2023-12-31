@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "msfclipper@yahoo.com",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.4",
+	:version = "1.0.5",
 	:ringversion = "1.19",
 	:versions = 	[
 		[
-			:version = "1.0.4",
+			:version = "1.0.5",
 			:branch = "master"
 		]
 	],
@@ -110,7 +110,8 @@ aPackageInfo = [
 		"extensions/ringwincreg/README.md",
 		"extensions/ringwincreg/ring_wincreg.cpp",
 		"extensions/ringwincreg/ring_wincreg.dll.manifest",
-		"extensions/ringwincreg/ring_wincreg.h"
+		"extensions/ringwincreg/ring_wincreg.h",
+		"tools/ring2exe/libs/wincreg.ring"
 	],
 	:windowsfiles = 	[
 
