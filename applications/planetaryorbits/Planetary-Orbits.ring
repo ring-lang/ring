@@ -9,7 +9,7 @@
 
 load "stdlibcore.ring"
 load "lightguilib.ring"
-Load "MatrixLib.ring"
+Load "matrixlib.ring"
    
 //================================================
 EN             = 2.71828       // e = Euler's Number
