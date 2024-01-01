@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.7",
+	:version = "1.0.8",
 	:ringversion = "1.19",
 	:versions = 	[
 		[
-			:version = "1.0.7",
+			:version = "1.0.8",
 			:branch = "master"
 		]
 	],
@@ -26,6 +26,10 @@ aPackageInfo = [
 	],
 	:ringfolderfiles = 	[
 		"bin/load/mysqllib.ring",
+		"bin/libmysql.dll",
+		"bin/ring_mysql.dll",
+		"bin/libssl-3-x64.dll",
+		"bin/libssl-3-x64",
 		"extensions/ringmysql/buildclang.sh",
 		"extensions/ringmysql/buildgcc.sh",
 		"extensions/ringmysql/buildgccfedora.sh",
@@ -46,10 +50,7 @@ aPackageInfo = [
 
 	],
 	:windowsringfolderfiles = 	[
-		"bin/libmysql.dll",
-		"bin/ring_mysql.dll",
-		"bin/libssl-3-x64.dll",
-		"bin/libssl-3-x64"
+
 	],
 	:linuxringfolderfiles = 	[
 
