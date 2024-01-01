@@ -6,7 +6,7 @@
 
 load "stdlibcore.ring"
 load "lightguilib.ring"
-Load "MatrixLib.ring"
+Load "matrixlib.ring"
    
 // Shape to Draw
 //VTest = []
