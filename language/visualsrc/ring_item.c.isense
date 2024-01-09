@@ -21,7 +21,7 @@ NumberFlag:2
 Type: unsigned int
 nObjectType:2
 Type: unsigned int
-gcnReferenceCount: 24
+gcnReferenceCount: RING_VM_BITSFORREFCOUNT
 END:
 Type: Item
 struct Item

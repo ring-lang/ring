@@ -1,5 +1,5 @@
 /*
-**  Copyright (c) 2013-2023 Mahmoud Fayed <msfclipper@yahoo.com> 
+**  Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> 
 **  Include Files 
 */
 #include "ring.h"
@@ -219,7 +219,7 @@ RING_API void ring_state_main ( int argc, char *argv[] )
     /* Print Version */
     if ( (argc == 1) || (cStr == NULL) ) {
         ring_general_printline();
-        printf( "Ring version %s \n2013-2023, Mahmoud Fayed <msfclipper@yahoo.com>\n",RING_STATE_VERSION ) ;
+        printf( "Ring version %s \n2013-2024, Mahmoud Fayed <msfclipper@yahoo.com>\n",RING_STATE_VERSION ) ;
         puts("Usage : ring filename.ring [Options]");
         ring_general_printline();
         /* Options */
