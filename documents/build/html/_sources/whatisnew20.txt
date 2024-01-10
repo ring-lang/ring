@@ -23,3 +23,6 @@ Ring 1.20 comes with the next features!
 More Improvements
 =================
 
+* File: language/src/installdep.sh - Added: libqt5multimedia5-plugins
+* Added: samples/AQuickStart/GameLib/delay.ring - An example about using the al_rest() function
+
