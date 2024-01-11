@@ -112,8 +112,6 @@ RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState )
     RING_API_REGISTER("ring_state_scannererror",ring_vm_generallib_state_scannererror);
     /* Performance */
     RING_API_REGISTER("checkoverflow",ring_vm_generallib_checkoverflow);
-    RING_API_REGISTER("addsublistsbymove",ring_vm_generallib_bymoveaddsublists);
-    RING_API_REGISTER("addsublistsbyfastcopy",ring_vm_generallib_byfastcopyaddsublists);
     /*
     **  Ring See and Give 
     **  We will use ringvm_see() and ringvm_give() to change the behavior of see and give 
@@ -2295,44 +2293,6 @@ void ring_vm_generallib_checkoverflow ( void *pPointer )
         }
         else {
             ((VM *) pPointer)->lCheckOverFlow = 0 ;
-        }
-    }
-    else {
-        RING_API_ERROR(RING_API_BADPARATYPE);
-    }
-}
-
-void ring_vm_generallib_bymoveaddsublists ( void *pPointer )
-{
-    if ( RING_API_PARACOUNT != 1 ) {
-        RING_API_ERROR(RING_API_MISS1PARA);
-        return ;
-    }
-    if ( RING_API_ISNUMBER(1) ) {
-        if ( RING_API_GETNUMBER(1) == 1 ) {
-            ((VM *) pPointer)->lAddSubListsByMove = 1 ;
-        }
-        else {
-            ((VM *) pPointer)->lAddSubListsByMove = 0 ;
-        }
-    }
-    else {
-        RING_API_ERROR(RING_API_BADPARATYPE);
-    }
-}
-
-void ring_vm_generallib_byfastcopyaddsublists ( void *pPointer )
-{
-    if ( RING_API_PARACOUNT != 1 ) {
-        RING_API_ERROR(RING_API_MISS1PARA);
-        return ;
-    }
-    if ( RING_API_ISNUMBER(1) ) {
-        if ( RING_API_GETNUMBER(1) == 1 ) {
-            ((VM *) pPointer)->lAddSubListsByFastCopy = 1 ;
-        }
-        else {
-            ((VM *) pPointer)->lAddSubListsByFastCopy = 0 ;
         }
     }
     else {

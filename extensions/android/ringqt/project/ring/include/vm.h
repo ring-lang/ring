@@ -103,8 +103,6 @@
         unsigned char nInsideEval  ;
         unsigned char lNoSetterMethod  ;
         unsigned char lCheckOverFlow  ;
-        unsigned char lAddSubListsByMove  ;
-        unsigned char lAddSubListsByFastCopy  ;
         unsigned char lExitFlag  ;
         unsigned char lCheckBraceError  ;
         unsigned char lDontMoveToPrevScope  ;

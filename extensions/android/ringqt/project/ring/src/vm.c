@@ -188,10 +188,6 @@ VM * ring_vm_new ( RingState *pRingState )
     pVM->lNoSetterMethod = 0 ;
     /* Check OverFlow after arithmetic operations */
     pVM->lCheckOverFlow = 0 ;
-    /* Add Sub Lists to Lists by Move (Very Fast) */
-    pVM->lAddSubListsByMove = 0 ;
-    /* Add Sub Lists to Lists by Fast Copy */
-    pVM->lAddSubListsByFastCopy = 0 ;
     /* A Flag that the Exit command is used to terminate the (For-In) Loop */
     pVM->lExitFlag = 0 ;
     /* A flag to enable/disable BraceError() Method usage for the current Error */

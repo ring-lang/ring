@@ -1288,17 +1288,6 @@ void ring_vm_addlisttolist ( VM *pVM,List *pList,List *pList2 )
     List *pList3, *pList4  ;
     List TempList  ;
     Item *pItem  ;
-    /* Check Optimization Flags */
-    if ( pVM->lAddSubListsByMove ) {
-        pList3 = ring_list_newlist_gc(pVM->pRingState,pList2);
-        ring_list_swaptwolists(pList3,pList);
-        return ;
-    }
-    if ( pVM->lAddSubListsByFastCopy ) {
-        pList3 = ring_list_newlist_gc(pVM->pRingState,pList2);
-        ring_list_copy(pList3,pList);
-        return ;
-    }
     /*
     **  Here we are going to copy the list pList to the list pList2 
     **  We will copy to a temp list first (pList4) 
