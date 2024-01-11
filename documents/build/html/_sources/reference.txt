@@ -88,7 +88,7 @@ Keywords Count : 58
 Language Functions
 ==================
 
-Functions Count : 254
+Functions Count : 252
 
 .. code-block:: ring
 
@@ -97,8 +97,6 @@ Functions Count : 254
         addattribute(Object,cAttributeName|aAttributesList)
         adddays(cDate,nDays) ---> Date from cDate and after nDays
         addmethod(Object,cNewMethodName,cMethodName|AnonymousFunction)
-        addsublistsbyfastcopy(lFlag)
-        addsublistsbymove(lFlag)
         ascii(character) ---> ASCII Code
         asin(x) ---> The principal value of the arc sine of x, expressed in radians
         assert(condition)
