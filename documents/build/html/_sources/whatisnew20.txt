@@ -25,4 +25,4 @@ More Improvements
 
 * File: language/src/installdep.sh - Added: libqt5multimedia5-plugins
 * Added: samples/AQuickStart/GameLib/delay.ring - An example about using the al_rest() function
-
+* Ring VM - Remove old code related to lAddSubListsByMove and lAddSubListsByFastCopy in VM structure 
