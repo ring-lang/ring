@@ -31,6 +31,7 @@ LayoutButtonRow = list(size)
 app = new qApp 
 {
 	win = new qWidget() {
+		setWinIcon(self,"dot.png")
 		setWindowTitle('Dots and Boxes Game')
 		move(500,100)
 		reSize(600,600)
