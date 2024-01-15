@@ -31,6 +31,7 @@ app1 = new qapp {
         t1 = 0
 
         win1 = new qwidget() {
+                   setWinIcon(self,"fifteen.png")
                    move(0,0)
                    resize(380,760)
                    setwindowtitle("CalmoSoft Fifteen Puzzle Game")
