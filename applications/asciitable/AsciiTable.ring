@@ -14,7 +14,7 @@ app = new QApp {
 	styleFusion()
 
 	win = new QWidget() {
-
+		setWinIcon(win,"ascii.png")
 		setWindowTitle('ASCII Table')
 		resize(900,400)
 		setstylesheet('background-color:white')
