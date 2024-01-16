@@ -25480,6 +25480,26 @@ Class QAspectEngine from QObject
 	Func unregisterAspect_2 P1
 		return QAspectEngine_unregisterAspect_2(pObject,P1)
 
+Class QComponent from QNode
+
+	pObject
+
+	Func init P1
+		pObject = QComponent_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QComponent_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func isShareable 
+		return QComponent_isShareable(pObject)
+
+	Func setShareable P1
+		return QComponent_setShareable(pObject,P1)
+
 Class QTorusMesh
 
 	pObject
@@ -26774,7 +26794,7 @@ Class QTechnique
 	Func renderPasses 
 		return QTechnique_renderPasses(pObject)
 
-Class QMaterial from Qt3DCore::QComponent
+Class QMaterial from QComponent
 
 	pObject
 
@@ -32025,7 +32045,7 @@ Class QRenderAspect
 	Func ObjectPointer
 		return pObject
 
-Class QLogicAspect from Qt3DCore::QAbstractAspect
+Class QLogicAspect from QAbstractAspect
 
 	pObject
 

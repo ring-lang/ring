@@ -1,0 +1,9 @@
+<class>
+name: QComponent
+codename: Qt3DCore::QComponent
+para: Qt3DCore::QNode *
+parent: QNode
+</class>
+
+bool isShareable(void)
+void setShareable(bool isShareable)

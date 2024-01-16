@@ -2,7 +2,7 @@
 name: QMaterial
 codename: Qt3DRender::QMaterial
 para: Qt3DCore::QNode *
-parent:  Qt3DCore::QComponent
+parent: QComponent
 </class>
 
 void addParameter(Qt3DRender::QParameter *parameter)
