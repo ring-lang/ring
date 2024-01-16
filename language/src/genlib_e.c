@@ -2261,6 +2261,10 @@ void ring_vm_generallib_customprint ( void *pPointer,const char *cCommand )
                         continue ;
                     }
                     break ;
+                case '\'' :
+                    ring_string_add_gc(pVM->pRingState,pRingCode,"+`'`");
+                    continue ;
+                    break ;
             }
         }
         ring_string_add_gc(pVM->pRingState,pRingCode,"+'");

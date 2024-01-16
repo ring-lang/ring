@@ -393,5 +393,3 @@ pRingCode
 Type: VM *
 pVM
 ring_vm_generallib_checkoverflow
-ring_vm_generallib_bymoveaddsublists
-ring_vm_generallib_byfastcopyaddsublists
