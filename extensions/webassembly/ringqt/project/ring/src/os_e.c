@@ -58,6 +58,7 @@ void ring_vm_os_iswindows64 ( void *pPointer )
     int lSystem64  ;
     #ifdef _WIN64
         RING_API_RETNUMBER(1);
+        return ;
     #elif _WIN32
         HMODULE pModule  ;
         lSystem64 = 0 ;
