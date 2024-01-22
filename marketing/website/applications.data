@@ -122,6 +122,10 @@ aApplications = [
 	["General Tools",
 		[
 			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/imagepixel" >Image Pixel Application</a>',
+				'<img src="imagepixel.png" width="100%">'
+			],
+			[
 				'<a href="https://github.com/ring-lang/ring/tree/master/applications/desktopscreenshot" >Desktop Screen Shot Application</a>',
 				'<img src="dssapp.png" width="100%">'
 			],
