@@ -92,7 +92,11 @@ ring_vm_listfuncs_reverse
 Type: List *
 pList,*pList2,*pList3
 Type: unsigned int
-x
+x, nPos
+Type: int
+nSize
+Type: char *
+cStr, *cNewStr
 Type: Item *
 pItem
 Type: VM *

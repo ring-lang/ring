@@ -649,7 +649,9 @@ void ring_vm_listfuncs_binarysearch ( void *pPointer )
 void ring_vm_listfuncs_reverse ( void *pPointer )
 {
     List *pList,*pList2,*pList3  ;
-    unsigned int x  ;
+    unsigned int x, nPos  ;
+    int nSize  ;
+    char *cStr, *cNewStr  ;
     Item *pItem  ;
     VM *pVM  ;
     pVM = (VM *) pPointer ;
@@ -683,6 +685,26 @@ void ring_vm_listfuncs_reverse ( void *pPointer )
             }
         }
         RING_API_RETLIST(pList);
+    }
+    else if ( RING_API_ISSTRING(1) ) {
+        cStr = RING_API_GETSTRING(1) ;
+        nSize = RING_API_GETSTRINGSIZE(1) ;
+        if ( nSize == 0 ) {
+            RING_API_RETSTRING("");
+            return ;
+        }
+        else if ( nSize == 1 ) {
+            RING_API_RETSTRING(cStr);
+            return ;
+        }
+        cNewStr = (char *) RING_API_MALLOC(nSize+1) ;
+        cNewStr[nSize] = '\0' ;
+        nPos = 0 ;
+        for ( x = nSize ; x >= 1 ; x-- ) {
+            cNewStr[nPos++] = cStr[x-1] ;
+        }
+        RING_API_RETSTRING2(cNewStr,nSize+1);
+        RING_API_FREE(cNewStr);
     }
     else {
         RING_API_ERROR(RING_API_BADPARATYPE);
