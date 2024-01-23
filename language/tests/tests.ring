@@ -518,6 +518,7 @@ aTests = [
 	[ :name = "General Tests (Part 195)", :Command = "ring general/forlooperrorline3.ring" ],
 	[ :name = "General Tests (Part 196)", :Command = "ring general/numberandstring3.ring" ],
 	[ :name = "General Tests (Part 197)", :Command = "ring general/itemassigntoitself.ring" ],
+	[ :name = "General Tests (Part 198)", :Command = "ring general/revstr.ring" ],
 	[ :name = "Using lists during definition (Part 1)", :Command = "ring listsduringdef/usinglistduringdef.ring" ],
 	[ :name = "Using lists during definition (Part 2)", :Command = "ring listsduringdef/usinglistduringdef2.ring" ],
 	[ :name = "Using lists during definition (Part 3)", :Command = "ring listsduringdef/usinglistduringdef3.ring" ],

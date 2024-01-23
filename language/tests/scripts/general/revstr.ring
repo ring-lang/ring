@@ -1,7 +1,3 @@
-cStr = ""
-? reverse(cStr)
-cStr = "a"
-? reverse(cStr)
 cStr = "abc"
 ? reverse(cStr)
 cStr = "Hello, World!"
@@ -11,3 +7,7 @@ cStr = "I Love Programming!"
 cNewStr = reverse(cStr)
 ? cNewStr
 ? len(cStr)
+cStr = ""
+? reverse(cStr)
+cStr = "a"
+? reverse(cStr)
