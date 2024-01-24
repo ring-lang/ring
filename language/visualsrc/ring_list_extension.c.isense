@@ -5,6 +5,8 @@ Type: List *
 pList,*pList2
 Type: Item *
 pItem
+Type: int
+lMerge,x
 Type: VM *
 pVM
 ring_vm_listfuncs_del

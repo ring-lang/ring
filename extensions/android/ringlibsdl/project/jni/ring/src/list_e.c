@@ -31,9 +31,10 @@ void ring_vm_listfuncs_add ( void *pPointer )
 {
     List *pList,*pList2  ;
     Item *pItem  ;
+    int lMerge,x  ;
     VM *pVM  ;
     pVM = (VM *) pPointer ;
-    if ( RING_API_PARACOUNT != 2 ) {
+    if ( RING_API_PARACOUNT < 2 ) {
         RING_API_ERROR(RING_API_MISS2PARA);
         return ;
     }
@@ -58,9 +59,32 @@ void ring_vm_listfuncs_add ( void *pPointer )
             RING_API_RETNUMBER(RING_API_GETNUMBER(2));
         }
         else if ( RING_API_ISLIST(2) ) {
+            lMerge = 0 ;
+            if ( RING_API_PARACOUNT == 3 ) {
+                if ( ! RING_API_ISNUMBER(3) ) {
+                    RING_API_ERROR(RING_API_BADPARATYPE);
+                    return ;
+                }
+                lMerge = (RING_API_GETNUMBER(3) == 1.0) ;
+            }
             pList2 = RING_API_GETLIST(2) ;
-            /* The ring_vm_addlisttolist() function will check if pList2 is a Reference */
-            ring_vm_addlisttolist(pVM,pList2,pList);
+            if ( lMerge == 0 ) {
+                /* The ring_vm_addlisttolist() function will check if pList2 is a Reference */
+                ring_vm_addlisttolist(pVM,pList2,pList);
+            }
+            else {
+                for ( x = 1 ; x <= ring_list_getsize(pList2) ; x++ ) {
+                    if ( ring_list_isstring(pList2,x) ) {
+                        ring_list_addstring2_gc(pVM->pRingState,pList,ring_list_getstring(pList2,x),ring_list_getstringsize(pList2,x));
+                    }
+                    else if ( ring_list_isdouble(pList2,x) ) {
+                        ring_list_adddouble_gc(pVM->pRingState,pList,ring_list_getdouble(pList2,x));
+                    }
+                    else if ( ring_list_islist(pList2,x) ) {
+                        ring_vm_addlisttolist(pVM,ring_list_getlist(pList2,x),pList);
+                    }
+                }
+            }
         }
     }
     else {
