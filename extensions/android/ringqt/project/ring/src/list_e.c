@@ -59,14 +59,8 @@ void ring_vm_listfuncs_add ( void *pPointer )
         }
         else if ( RING_API_ISLIST(2) ) {
             pList2 = RING_API_GETLIST(2) ;
-            if ( ring_list_isref(pList2) ) {
-                ring_list_insertlist(pList,ring_list_getsize(pList));
-                pItem = ring_list_getitem(pList,ring_list_getsize(pList));
-                ring_list_assignreftoitem_gc(pVM->pRingState,pList2,pItem);
-            }
-            else {
-                ring_vm_addlisttolist(pVM,pList2,pList);
-            }
+            /* The ring_vm_addlisttolist() function will check if pList2 is a Reference */
+            ring_vm_addlisttolist(pVM,pList2,pList);
         }
     }
     else {
