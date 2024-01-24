@@ -30,6 +30,7 @@ More Improvements
 * isWindows64() function - Better Code
 * print() function - Better code to handle apostrophe inside text
 * reverse() function - Support strings
+* add() function - when adding a list support adding each item alone
 * RingQt - Correct parent class name for the QMaterial & QLogicAspect classes
 * RingQt - Added: QComponent class (Qt3DCore)
 * Ring VM - Remove old code related to lAddSubListsByMove and lAddSubListsByFastCopy in VM structure 
