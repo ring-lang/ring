@@ -57,9 +57,15 @@ RING_API void ring_string_set2_gc ( void *pState,String *pString,const char *str
         return ;
     }
     /* Allocate new buffer only if the new size is different from the current size */
+    x = nStrSize + 1 ;
     if ( pString->nSize != nStrSize ) {
-        ring_state_free(pState,pString->cStr);
-        pString->cStr = (char *) ring_state_malloc(pState,nStrSize+1);
+        if ( ! str ) {
+            pString->cStr = ring_state_realloc(pState,pString->cStr,pString->nSize,x) ;
+        }
+        else {
+            ring_state_free(pState,pString->cStr);
+            pString->cStr = (char *) ring_state_malloc(pState,x);
+        }
     }
     /* if str is NULL then the caller wants to adjust the preallocated memory */
     if ( str ) {
