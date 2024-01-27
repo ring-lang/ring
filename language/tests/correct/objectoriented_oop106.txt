@@ -1,0 +1,6 @@
+Catch!
+Error (R15) : Error in parent class name, class not found: c1
+hallo welt
+Catch!
+Error (R15) : Error in parent class name, class not found: c2
+hallo welt
