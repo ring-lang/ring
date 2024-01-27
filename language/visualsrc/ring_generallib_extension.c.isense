@@ -162,7 +162,7 @@ pList
 Type: String *
 pString
 Type: int
-x
+x,nStart,nMax
 cStr
 ring_vm_generallib_str2hexcstyle
 cStr

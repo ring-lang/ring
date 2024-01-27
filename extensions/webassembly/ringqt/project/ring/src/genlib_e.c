@@ -991,36 +991,65 @@ void ring_vm_generallib_list2str ( void *pPointer )
 {
     List *pList  ;
     String *pString  ;
-    int x  ;
+    int x,nStart,nMax  ;
     char cStr[100]  ;
-    if ( RING_API_PARACOUNT != 1 ) {
+    if ( RING_API_PARACOUNT < 1 ) {
         RING_API_ERROR(RING_API_MISS1PARA);
         return ;
     }
-    if ( RING_API_ISLIST(1) ) {
-        pList = RING_API_GETLIST(1) ;
-        pString = ring_string_new_gc(((VM *) pPointer)->pRingState,"");
-        for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
-            if ( ring_list_isstring(pList,x) ) {
-                if ( x != 1 ) {
-                    ring_string_add_gc(((VM *) pPointer)->pRingState,pString,"\n");
-                }
-                ring_string_add_gc(((VM *) pPointer)->pRingState,pString,ring_list_getstring(pList,x));
-            }
-            else if ( ring_list_isnumber(pList,x) ) {
-                if ( x != 1 ) {
-                    ring_string_add_gc(((VM *) pPointer)->pRingState,pString,"\n");
-                }
-                ring_vm_numtostring((VM *) pPointer,ring_list_getdouble(pList,x) ,cStr);
-                ring_string_add_gc(((VM *) pPointer)->pRingState,pString,cStr);
-            }
-        }
-        RING_API_RETSTRING(ring_string_get(pString));
-        ring_string_delete_gc(((VM *) pPointer)->pRingState,pString);
-    }
-    else {
+    if ( ! RING_API_ISLIST(1) ) {
         RING_API_ERROR(RING_API_BADPARATYPE);
+        return ;
     }
+    pList = RING_API_GETLIST(1) ;
+    pString = ring_string_new_gc(((VM *) pPointer)->pRingState,"");
+    /* Set nStart */
+    nStart = 1 ;
+    if ( RING_API_PARACOUNT >= 2 ) {
+        if ( RING_API_ISNUMBER(2) ) {
+            nStart = (int) RING_API_GETNUMBER(2) ;
+        }
+        else {
+            RING_API_ERROR(RING_API_BADPARATYPE);
+            return ;
+        }
+    }
+    if ( (nStart < 1) || (nStart > ring_list_getsize(pList)) ) {
+        RING_API_ERROR(RING_API_BADPARARANGE);
+        return ;
+    }
+    /* Set nMax */
+    nMax = ring_list_getsize(pList) ;
+    if ( RING_API_PARACOUNT == 3 ) {
+        if ( RING_API_ISNUMBER(3) ) {
+            nMax = (int) RING_API_GETNUMBER(3) ;
+        }
+        else {
+            RING_API_ERROR(RING_API_BADPARATYPE);
+            return ;
+        }
+    }
+    if ( (nMax < nStart) || (nMax > ring_list_getsize(pList)) ) {
+        RING_API_ERROR(RING_API_BADPARARANGE);
+        return ;
+    }
+    for ( x = nStart ; x <= nMax ; x++ ) {
+        if ( ring_list_isstring(pList,x) ) {
+            if ( x != 1 ) {
+                ring_string_add_gc(((VM *) pPointer)->pRingState,pString,"\n");
+            }
+            ring_string_add_gc(((VM *) pPointer)->pRingState,pString,ring_list_getstring(pList,x));
+        }
+        else if ( ring_list_isnumber(pList,x) ) {
+            if ( x != 1 ) {
+                ring_string_add_gc(((VM *) pPointer)->pRingState,pString,"\n");
+            }
+            ring_vm_numtostring((VM *) pPointer,ring_list_getdouble(pList,x) ,cStr);
+            ring_string_add_gc(((VM *) pPointer)->pRingState,pString,cStr);
+        }
+    }
+    RING_API_RETSTRING(ring_string_get(pString));
+    ring_string_delete_gc(((VM *) pPointer)->pRingState,pString);
 }
 
 void ring_vm_generallib_str2hexcstyle ( void *pPointer )
