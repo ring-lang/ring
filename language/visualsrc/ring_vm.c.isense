@@ -175,10 +175,6 @@ lNoSetterMethod
 Type: unsigned char
 lCheckOverFlow
 Type: unsigned char
-lAddSubListsByMove
-Type: unsigned char
-lAddSubListsByFastCopy
-Type: unsigned char
 lExitFlag
 Type: unsigned char
 lCheckBraceError

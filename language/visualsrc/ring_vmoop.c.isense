@@ -11,7 +11,7 @@ ring_vm_oop_parentinit
 Type: const char *
 cClassName,*cClassName2
 Type: int
-x,x2,nFound,nMark
+x,x2,nFound,nMark,lOutput
 Type: List *
 pList2, *pClassesList
 Type: String *

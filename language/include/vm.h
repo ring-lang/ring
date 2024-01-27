@@ -737,7 +737,7 @@
 
     void ring_vm_oop_printobj ( VM *pVM,List *pList ) ;
 
-    void ring_vm_oop_parentinit ( VM *pVM,List *pList ) ;
+    int ring_vm_oop_parentinit ( VM *pVM,List *pList ) ;
 
     void ring_vm_oop_parentmethods ( VM *pVM,List *pList ) ;
 

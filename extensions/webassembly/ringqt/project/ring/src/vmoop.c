@@ -146,7 +146,9 @@ void ring_vm_oop_newobj ( VM *pVM )
                 /* Execute Parent Classes Init first */
                 if ( strcmp(ring_list_getstring(pList,RING_CLASSMAP_PARENTCLASS),"") != 0 ) {
                     ring_vm_blockflag2(pVM,nClassPC);
-                    ring_vm_oop_parentinit(pVM,pList);
+                    if ( ! ring_vm_oop_parentinit(pVM,pList) ) {
+                        return ;
+                    }
                 }
                 else {
                     pVM->nPC = nClassPC ;
@@ -169,12 +171,13 @@ void ring_vm_oop_newobj ( VM *pVM )
     ring_vm_error2(pVM,RING_VM_ERROR_CLASSNOTFOUND,cClassName);
 }
 
-void ring_vm_oop_parentinit ( VM *pVM,List *pList )
+int ring_vm_oop_parentinit ( VM *pVM,List *pList )
 {
     const char *cClassName,*cClassName2  ;
-    int x,x2,nFound,nMark  ;
+    int x,x2,nFound,nMark,lOutput  ;
     List *pList2, *pClassesList  ;
     String *pString  ;
+    lOutput = 1 ;
     /* Get the parent class name from the Class List Pointer */
     cClassName = ring_list_getstring(pList,RING_CLASSMAP_PARENTCLASS) ;
     /* Create List for Classes Pointers */
@@ -203,7 +206,7 @@ void ring_vm_oop_parentinit ( VM *pVM,List *pList )
                         ring_string_delete_gc(pVM->pRingState,pString);
                         /* Delete Classes Pointers List */
                         ring_list_delete_gc(pVM->pRingState,pClassesList);
-                        return ;
+                        return 0 ;
                     }
                 }
                 ring_list_addpointer_gc(pVM->pRingState,pClassesList,pList2);
@@ -224,6 +227,7 @@ void ring_vm_oop_parentinit ( VM *pVM,List *pList )
         if ( nFound == 0 ) {
             /* Error Message */
             ring_vm_error2(pVM,RING_VM_ERROR_PARENTCLASSNOTFOUND,cClassName);
+            lOutput = 0 ;
             break ;
         }
         /* Restore Mark */
@@ -232,6 +236,7 @@ void ring_vm_oop_parentinit ( VM *pVM,List *pList )
     }
     /* Delete Classes Pointers List */
     ring_list_delete_gc(pVM->pRingState,pClassesList);
+    return lOutput ;
 }
 
 void ring_vm_oop_newclass ( VM *pVM )
