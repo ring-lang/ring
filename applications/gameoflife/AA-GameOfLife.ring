@@ -108,7 +108,7 @@ Func DrawWidget()
 	{
 	
 		PopulateArray()						### With Pattern Type in ComboBox
-
+		setWinIcon(self,"gameoflife.png")
 		setWindowTitle('Game of Life')
 		setStyleSheet('background-color:gray')
 
