@@ -22,6 +22,7 @@ LayoutButtonRow = list(size)
 app = new qApp 
 {
 	win = new qWidget() {
+		setWinIcon(self,"light.png")
 		setWindowTitle('Lights Out')
 		move(500,100)
 		reSize(600,600)
