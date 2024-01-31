@@ -96,7 +96,7 @@ Func DrawWidget()
 	 
 	workWidget = new qWidget()				### Global definition for workWidget
 	{
-	
+		setWinIcon(self,"Mine.jpg")
 		aArray	= newList(hSize, vSize)	### Internal Array with Letters
 		aButton = newlist(hSize, vSize)	### Button Array with Display Colors 
 	
