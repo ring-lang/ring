@@ -135,6 +135,7 @@ Func DrawWidget()
 
     win = new qWidget()
     {
+        setWinIcon(self,"White-T.png")
         setWindowTitle(" GO-Game ")
         setStyleSheet('background-color: rgba(220,177,107,255)')
         move(400,1)
