@@ -43,6 +43,7 @@ Load "gameengine.ring"
 func main
        oGame = New Game                      
        {
+                      icon = "diceblack6.jpg"
                       title = "Snakes And Ladders"
                       al_resize_display(display,650,593)
                       sprite
