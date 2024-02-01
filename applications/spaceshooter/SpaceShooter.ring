@@ -28,6 +28,8 @@ isFinished 	= False
 
 # RingRayLib window inti
 InitWindow(screenWidth, screenHeight, "Space Shooter")
+windowIcon = resources.Image("Assets/icon.png")
+SetWindowIcon(windowIcon)
 SetTargetFPS(60)
 	
 # Create the main ship (The player)
@@ -53,9 +55,6 @@ generateWave()
 backgroundImage = resources.Image("Assets/black.png")
 ImageResize(backgroundImage, screenWidth, screenHeight)
 backgroundTex = resources.texture(backgroundImage)
-
-windowIcon = resources.Image("Assets/icon.png")
-SetWindowIcon(windowIcon)
 
 # Scenes
 mainMenuScene = new MainMenuScene() {
