@@ -3,8 +3,8 @@
 # author  : Gal Zsolt (~ CalmoSoft ~)
 # email   : <calmosoft@gmail.com>
 
-load "guilib.ring"
-load "stdlib.ring"
+load "lightguilib.ring"
+load "stdlibcore.ring"
 
 actYear    = timelist()[19]
 aYears     = 1904:2099
@@ -40,7 +40,7 @@ new qapp
 
                    yearCmb = new qcombobox(win1) {
     	                     move(800,50)
-                             resize(85,30)
+                             resize(100,30)
                              setstylesheet("color:white;background-color:red;")
                              setFont(new qFont("Verdana",15,100,0))
                              for x in aYears additem(string(x),0) next
