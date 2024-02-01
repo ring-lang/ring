@@ -3,8 +3,8 @@
 // Date:   2020-03-07
 //
 
-load "stdlib.ring"
-load "guilib.ring"
+load "stdlibcore.ring"
+load "lightguilib.ring"
 
 //-------------------------------------
 // 2D Square Array
@@ -64,7 +64,7 @@ oPicColor = new QPixmap("images/MirrorBlack.png")
 bWidth    = sizeX / Size                    // oPicColor.width()    ### 80 
 bHeight   = sizeY / Size                    // oPicColor.height()   ### 80 
 
-Button          = newlist(Size,Size)
+Button          = list(Size,Size)
 LayoutButtonRow =    list(Size)
 
 LaserGun    = "images/LaserGun.png"     # G
@@ -913,7 +913,7 @@ Func RandomPlacement()
 
     //--------------------------------------------
    
-   aMirrors = newList(Size,Size)   // Zeros - 0 -
+   aMirrors = list(Size,Size)   // Zeros - 0 -
    
    for playRandomMirror = 1 to RandomCur
    
