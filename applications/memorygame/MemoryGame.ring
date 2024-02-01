@@ -21,6 +21,7 @@ app = new qApp {
           StyleFusion()
           processevents()
           win = new qWidget() {
+		  setWinIcon(self,"memory.png")
                   setWindowTitle('Memory Game')
                   setgeometry(100,100,600,600)
                   setminimumwidth(300)
