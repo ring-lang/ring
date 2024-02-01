@@ -15,7 +15,7 @@ if IsMainSourceFile() {
 class winstartupmanagerController from windowsControllerParent
 
 	oView = new winstartupmanagerView
-
+	setWinIcon(oView.win,"imgs/icon.png")
 
 Func LoadWinAction
 	oView.TableWidget1 {

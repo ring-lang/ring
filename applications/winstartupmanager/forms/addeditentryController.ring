@@ -27,6 +27,7 @@ Func PrepareWin wintitle, name, path, args, ausers, ProActiv
 	ProArgs = args
 	AllUsers = ausers
 	oView {
+		setWinIcon(win,"imgs/icon.png")
 		win.SetWindowTitle(wintitle)
 		NameLE.SetText(This.ProName)
 		PathLE.SetText(This.ProPath)
