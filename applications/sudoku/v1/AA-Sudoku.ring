@@ -203,7 +203,7 @@ Func DrawWidget()
 
     workWidget = new qWidget()
     {
-        setWinIcon(self,"icon.png")
+        setWinIcon(self,"../icon.png")
         setWindowTitle('Sudoku')
         setStyleSheet('background-color:White')
 
