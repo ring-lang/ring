@@ -3,8 +3,8 @@
 ### Date:	 2018-10-14
 ### Update:	 2018-11-11
 
-load "stdlib.ring"
-load "guilib.ring"	
+load "stdlibcore.ring"
+load "lightguilib.ring"	
 
 ###-------------------
 ### Track Moves
