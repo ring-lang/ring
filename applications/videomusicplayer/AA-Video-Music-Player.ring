@@ -152,6 +152,7 @@ MyApp = New qapp
             ###----------------------------------------------
             ### Position and Size on Screen
 
+            setWinIcon(self,"play.png")
             setwindowtitle("Video and Music Player")
             setgeometry( WinLeft, WinTop, WinWidth, WinHeight)
 
