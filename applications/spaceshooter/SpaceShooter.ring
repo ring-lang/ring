@@ -54,6 +54,8 @@ backgroundImage = resources.Image("Assets/black.png")
 ImageResize(backgroundImage, screenWidth, screenHeight)
 backgroundTex = resources.texture(backgroundImage)
 
+windowIcon = resources.Image("Assets/icon.png")
+SetWindowIcon(windowIcon)
 
 # Scenes
 mainMenuScene = new MainMenuScene() {
