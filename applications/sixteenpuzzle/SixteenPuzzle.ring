@@ -21,6 +21,7 @@ app1 = new qapp {
         stylefusionblack()  
  
         win1 = new qwidget() {
+		   setWinIcon(self,"sixteen.png")
                    move(0,0)
                    resize(360, 600)
                    setwindowtitle("Calmosoft Sixteen Puzzle Game")
