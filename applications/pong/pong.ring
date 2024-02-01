@@ -28,6 +28,7 @@ func main
 	GameObject {
 		al_hide_mouse_cursor(display)
 		FixedFPS = 180
+		icon = "pong.png"
 		title = "Pong"
 		Object {
 			draw = func GameObject, Self {
