@@ -15,8 +15,8 @@ C_ButtonBlueStyle   = 'border-radius:6px;color:black; background-color: blue'
 C_ButtonLightBlueStyle   = 'border-radius:6px;color:black; background-color: lightblue'
 C_ButtonOrangeStyle = 'border-radius:6px;color:black; background-color: orange'
 
-Button = newlist(size,size)
-btnLight = newlist(size,size)
+Button = list(size,size)
+btnLight = list(size,size)
 LayoutButtonRow = list(size)
 
 app = new qApp 
