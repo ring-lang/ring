@@ -29,6 +29,7 @@ LayoutButtonRow = list(size)
 app = new qApp 
 {
 	win = new qWidget() {
+		setWinIcon(self,"icon.png")
 		setWindowTitle('Sums Puzzle Game')
 		move(500,100)
 		reSize(100,300)
