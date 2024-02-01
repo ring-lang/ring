@@ -4,7 +4,7 @@
 # Author  : Gal Zsolt (~ CalmoSoft ~), Bert Mariani
 # Fix     : 24/10/2021  rgb -> fbga
 
-load "stdlib.ring"
+load "stdlibcore.ring"
 load "lightguilib.ring"
 
 Size    = 19               ### Start with 19, Played on 19, 13, or 11 intersections
