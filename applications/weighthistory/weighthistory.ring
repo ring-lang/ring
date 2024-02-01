@@ -19,6 +19,7 @@ class App
 
 	win1 = new qWidget()
 	{
+		setWinIcon(this.win1,"icon.png")
 		setWindowTitle("Weight History")
 		resize(600,600)
 		layoutButtons = new qhboxlayout()
