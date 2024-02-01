@@ -31,6 +31,7 @@ LayoutButtonRow = list(size)
 app = new qApp 
 {
 	win = new qWidget() {
+		setWinIcon(self,"icon.png")
 		setWindowTitle('Magic Four Game')
 		move(500,100)
 		reSize(600,600)
