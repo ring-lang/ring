@@ -5,8 +5,8 @@
 ###----------------------------------------------------------
 
 
-load "guilib.ring"
-load "stdlib.ring"
+load "lightguilib.ring"
+load "stdlibcore.ring"
 
 import System.GUI
 
