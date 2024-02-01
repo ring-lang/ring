@@ -24,6 +24,7 @@ buttonsum2 = newlist(size,size)
 app = new qApp {
          StyleFusion()
          win = new qWidget() {
+		  setWinIcon(self,"icon.png")
                   setWindowTitle('Wise Quadrat Game')
                   move(490,100)
                   resize(600,600)
