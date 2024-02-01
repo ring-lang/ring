@@ -11,6 +11,8 @@ screenHeight = 400
 func main
 
 InitWindow(screenWidth, screenHeight, "Typing Quiz")
+windowIcon = LoadImage("icon.png")
+SetWindowIcon(windowIcon)
 SetTargetFPS(60)
 
 # quiz characters
@@ -152,6 +154,7 @@ while !WindowShouldClose()
 end
 
 CloseWindow()
+unloadImage(windowIcon)
 
 # Function to generate string using a list of characters
 func generateString length, letters
