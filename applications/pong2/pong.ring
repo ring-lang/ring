@@ -14,6 +14,8 @@ TimePlayed 	= 0
 Start		= False
 
 InitWindow(screenWidth, screenHeight, "Pong Ring")
+windowIcon = LoadImage("Assets/icon.png")
+SetWindowIcon(windowIcon)
 
 # Load game textures
 MusicOnImage 	= LoadImage("Assets/musicOn.png")
@@ -104,6 +106,8 @@ while !WindowShouldClose()
         EndDrawing()
 
 end
+
+unloadImage(windowIcon)
 
 unloadSound(hitSound)
 unloadMusicStream(music)
