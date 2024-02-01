@@ -3,11 +3,11 @@
 # Author  : Gal Zsolt (CalmoSoft), Bert Mariani
 # Email   : calmosoft@gmail.com
 
-load "guilib.ring"
+load "lightguilib.ring"
 
-app1 = new qapp {
+app1 = new QApp {
 
-        stylefusionblack()
+        styleFusionBlack()
         empty = 16  
         nr_moves = 0
         nr_sleep = 1
@@ -30,11 +30,11 @@ app1 = new qapp {
         counter_man = 0 
         t1 = 0
 
-        win1 = new qwidget() {
+        win1 = new QWidget() {
                    setWinIcon(self,"fifteen.png")
                    move(0,0)
                    resize(380,760)
-                   setwindowtitle("CalmoSoft Fifteen Puzzle Game")
+                   setWindowTitle("CalmoSoft Fifteen Puzzle Game")
 
                   for n=1 to 52
                         for m=1 to 2
@@ -195,7 +195,6 @@ func scramble
        timebtn.settext("Elapsed Time : ")
        t1 = clock()
        rightPlace()
-       return
 
 func movetile current_button2
        if (current_button2 = button_size*button_size-1 and button[current_button2].text() = "In")
@@ -234,7 +233,6 @@ func movetile current_button2
       flag_move = 1
       pElapsedTime()
       rightPlace()
-      return
 
 func resettiles
         n_degree = 0  
@@ -364,7 +362,8 @@ func rotateright
         ok
 
 func newsize current_button
-        win1{ 
+
+        win1 { 
                 sizenew = current_button%4
                 win1.resize(360+sizenew*40,640+sizenew*40)
                 if flag_init != 0
@@ -526,7 +525,7 @@ func newsize current_button
                 timebtn.settext("Elapsed Time : ")
                 t1 = clock()
                 scramble()
-                }
+	}
 
 func pSave
         textedit1 = list2str(table1)
@@ -613,7 +612,6 @@ func sleep(x)
         nTime = x 
         oTest = new qTest
         oTest.qsleep(nTime)
-        return
 
 func isGameOver
         flagend = 1
@@ -645,7 +643,7 @@ func warning
                 setwindowtitle("Warning!") 
                 settext("First you must play and save the game.")
                 show()
-                }         
+	}         
 
 func pElapsedTime
         t2 = (clock() - t1)/1000
@@ -653,21 +651,19 @@ func pElapsedTime
 
 Class ButtonWithRotatedText
 
-         oButton oLabel  cText="We are here"  n_degree = 30  nTransX = 50   nTransY = 0
+	oButton oLabel  cText="We are here"  n_degree = 30  nTransX = 50   nTransY = 0
 
-func init( oParent)
+func init oParent
         oButton = new qPushButton(oParent)
         oLabel  = new qLabel(oParent)
         oLabel.setAttribute(Qt_WA_TransparentForMouseEvents,True)
         oLabel.setAttribute(Qt_WA_DeleteOnClose, True)
         oButton.setAttribute(Qt_WA_DeleteOnClose, True)
         oButton.Show()
-        return
     
 func close()
         oLabel.close()
         oButton.close()
-        return
 
 func setstylesheet(x)
         oButton.setstylesheet(x)
@@ -678,7 +674,6 @@ func setgeometry( x,y,width,height)
         
 func setText( cValue)
         cText = cValue
-        return
     
 func Text() 
          return cText
@@ -686,7 +681,6 @@ func Text()
 func setTranslate( x,y )    
          nTransX = x
          nTransY = y		
-         return
 
 func TranslateOffsetX()
         return nTransX 
@@ -696,27 +690,22 @@ func TranslateOffsetY()
 	
 func setRotation_degree( nValue)
         n_degree = nValue
-        return
     
 func Rotation_degree()
         return n_degree
 
 func setClickEvent( cEvent)
         oButton.setClickEvent(cEvent)
-        return
     
 func braceend()
         draw() 
-        return
 
 func setEnabled(value)        
         oButton.setenabled(value)
-        return	
 
- func setButtonColor(color)  
-         colorIt = "background-color:" + color  
-         oButton.setstylesheet(colorIt) 
-         return
+func setButtonColor(color)  
+	colorIt = "background-color:" + color  
+	oButton.setstylesheet(colorIt) 
     	
 func draw()
          picture = new qpicture()
@@ -758,9 +747,9 @@ func draw()
                        rotate(n_degree)
 	          drawtext(0,0,this.Text())   
                        endpaint()
-         }
-         oLabel {
-                    setpicture(picture)  
-                     show() 
-                    }
-         return
+	}
+	oLabel {
+		setPicture(picture)  
+		show() 
+	}
+
