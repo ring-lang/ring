@@ -18,7 +18,7 @@ isXTurn=true
 	stylefusionBlack()
         frmMain=new qMainWindow()
 		{
-			
+			setWinIcon(self,"icon.png")
 			setWindowTitle("TicTacToe!")
 			resize(300,320)
 			move(200,200)
