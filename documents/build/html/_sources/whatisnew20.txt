@@ -26,6 +26,7 @@ More Improvements
 * ring/applications - Added the window icon for many applications and games
 * Calculator application - Using sqlitelib.ring
 * File: language/src/installdep.sh - Added: libqt5multimedia5-plugins
+* Added: samples/UsingQt/PDF/CreatePDF.ring
 * Added: samples/AQuickStart/GameLib/delay.ring - An example about using the al_rest() function
 * isWindows64() function - Better Code
 * print() function - Better code to handle apostrophe inside text
