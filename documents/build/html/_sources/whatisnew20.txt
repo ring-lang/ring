@@ -36,4 +36,7 @@ More Improvements
 * RingQt - Correct parent class name for the QMaterial & QLogicAspect classes
 * RingQt - Added: QComponent class (Qt3DCore)
 * Ring VM - Remove old code related to lAddSubListsByMove and lAddSubListsByFastCopy in VM structure 
+* Ring VM - Return Command - Better code when we return an object passed to the function as parameter
+* Ring VM - OOP Support - Support try/catch when creating new object and the parent class doesn't exist
+* Ring Source Code - Better Format
 * Ring Source Code - language/src/rstring.c - ring_string_set2_gc() - Better code
