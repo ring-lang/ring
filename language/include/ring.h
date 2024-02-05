@@ -1,4 +1,5 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #ifndef ring_h
 	#define ring_h
 	#ifndef NDEBUG

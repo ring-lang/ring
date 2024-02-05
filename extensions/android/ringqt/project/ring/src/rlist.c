@@ -1,9 +1,6 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #include "ring.h"
-/*
-**  Functions 
-**  List 
-*/
 
 RING_API List * ring_list_new_gc ( void *pState,unsigned int nSize )
 {

@@ -1,9 +1,6 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #include "ring.h"
-/*
-**  Functions 
-**  Main Functions 
-*/
 
 VM * ring_vm_new ( RingState *pRingState )
 {
@@ -428,7 +425,6 @@ void ring_vm_updateclassespointers ( RingState *pRingState )
 		}
 	}
 }
-/* ByteCode Functions */
 
 RING_API void ring_vm_loadcode ( VM *pVM )
 {
@@ -627,7 +623,6 @@ void ring_vm_showbytecode ( VM *pVM )
 	ring_general_printline();
 	puts("");
 }
-/* Main Loop Functions */
 
 void ring_vm_mainloop ( VM *pVM )
 {

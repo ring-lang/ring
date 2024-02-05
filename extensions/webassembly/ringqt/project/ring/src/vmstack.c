@@ -1,6 +1,6 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #include "ring.h"
-/* Stack and Variables */
 
 void ring_vm_pushv ( VM *pVM )
 {

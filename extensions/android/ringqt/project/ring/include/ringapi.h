@@ -1,10 +1,8 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #ifndef ring_api_h
 	#define ring_api_h
-	/*
-	**  Functions 
-	**  Support for C Functions 
-	*/
+	/* Support for C Functions */
 
 	RING_API void ring_vm_funcregister2 ( RingState *pRingState,const char *cStr, void (*pFunc)(void *) ) ;
 

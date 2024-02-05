@@ -1,9 +1,6 @@
-/*
-**  Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> 
-**  Include Files 
-*/
+/* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #include "ring.h"
-/* Load Functions */
 
 void ring_vm_listfuncs_loadfunctions ( RingState *pRingState )
 {
@@ -25,7 +22,6 @@ void ring_vm_listfuncs_loadfunctions ( RingState *pRingState )
 	/* Instead of NewList() function from StdLib (Just to support Old Code until converting it to List() ) */
 	RING_API_REGISTER("newlist",ring_vm_listfuncs_list);
 }
-/* Functions */
 
 void ring_vm_listfuncs_add ( void *pPointer )
 {

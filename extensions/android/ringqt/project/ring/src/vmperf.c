@@ -1,6 +1,6 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #include "ring.h"
-/* For Better Performance */
 
 void ring_vm_pushp ( VM *pVM )
 {
@@ -157,7 +157,6 @@ void ring_vm_loadfuncp ( VM *pVM )
 	pVM->nListStart = 0 ;
 	pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
 }
-/* For Loop Optimization When Step = 1 */
 
 void ring_vm_incpjumpstep1 ( VM *pVM )
 {

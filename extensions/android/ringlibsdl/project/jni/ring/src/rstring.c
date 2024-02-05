@@ -1,6 +1,6 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #include "ring.h"
-/* Functions */
 
 RING_API String * ring_string_new_gc ( void *pState,const char *str )
 {
@@ -244,7 +244,6 @@ RING_API char * ring_string_strdup ( void *pState,const char *cStr )
 	cString[nSize] = '\0' ;
 	return cString ;
 }
-/* Functions without state pointer */
 
 RING_API String * ring_string_new2 ( const char *str,int nStrSize )
 {

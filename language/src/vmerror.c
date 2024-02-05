@@ -1,9 +1,6 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #include "ring.h"
-/*
-**  Functions 
-**  Error 
-*/
 
 RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 {
@@ -204,7 +201,6 @@ void ring_vm_setfilename ( VM *pVM )
 	pVM->cPrevFileName = pVM->cFileName ;
 	pVM->cFileName = RING_VM_IR_READC ;
 }
-/* Trace */
 
 void ring_vm_traceevent ( VM *pVM,char nEvent )
 {

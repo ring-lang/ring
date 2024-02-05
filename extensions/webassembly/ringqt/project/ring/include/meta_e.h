@@ -1,10 +1,9 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #ifndef ring_refmeta_extension_h
 	#define ring_refmeta_extension_h
-	/* Functions */
 
 	void ring_vm_refmeta_loadfunctions ( RingState *pRingState ) ;
-	/* Functions */
 
 	void ring_vm_refmeta_locals ( void *pPointer ) ;
 
@@ -21,7 +20,6 @@
 	void ring_vm_refmeta_isfunction ( void *pPointer ) ;
 
 	void ring_vm_refmeta_iscfunction ( void *pPointer ) ;
-	/* OOP */
 
 	void ring_vm_refmeta_packages ( void *pPointer ) ;
 
@@ -66,7 +64,6 @@
 	void ring_vm_refmeta_importpackage ( void *pPointer ) ;
 
 	void ring_vm_refmeta_parentclassname ( void *pPointer ) ;
-	/* VM */
 
 	void ring_vm_refmeta_ringvmfileslist ( void *pPointer ) ;
 

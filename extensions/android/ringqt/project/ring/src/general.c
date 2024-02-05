@@ -1,12 +1,9 @@
-/*
-**  Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> 
-**  Include Files 
-*/
+/* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #include "ring.h"
 #ifdef _WIN32
 	#include <windows.h>
 #endif
-/* General Functions */
 
 int ring_general_fexists ( const char *cFileName )
 {

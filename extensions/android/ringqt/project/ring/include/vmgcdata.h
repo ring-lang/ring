@@ -1,4 +1,5 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #ifndef ring_vmgcdata
 	#define ring_vmgcdata
 	#define RING_VM_BITSFORREFCOUNT 24

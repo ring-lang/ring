@@ -1,9 +1,6 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #include "ring.h"
-/*
-**  Functions 
-**  Eval 
-*/
 
 int ring_vm_eval ( VM *pVM,const char *cStr )
 {
@@ -309,7 +306,6 @@ void ring_vm_cleanevalcode ( VM *pVM,int nCodeSize )
 		pVM->nEvalReallocationSize = pVM->nEvalReallocationSize + nExtraSize ;
 	}
 }
-/* Fast Function Call for Extensions (Without Eval) */
 
 RING_API void ring_vm_callfunction ( VM *pVM,char *cFuncName )
 {

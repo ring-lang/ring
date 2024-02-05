@@ -1,4 +1,5 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #ifndef ring_hashtable_h
 	#define ring_hashtable_h
 	/* Data */

@@ -1,4 +1,5 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #include "ring.h"
 
 Items * ring_items_new_gc ( void *pState )
@@ -43,7 +44,6 @@ void ring_items_print ( Items *pItems )
 {
 	ring_item_print(pItems->pValue);
 }
-/* Functions without State pointer */
 
 Items * ring_items_new ( void )
 {

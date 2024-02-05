@@ -1,10 +1,8 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #ifndef ring_codegen_h
 	#define ring_codegen_h
-	/*
-	**  Data 
-	**  Intermediate Code 
-	*/
+	/* Intermediate Code */
 	typedef enum IC_OPERATIONS {
 		/* General */
 		ICO_NEWLINE=0 ,
@@ -177,10 +175,7 @@
 	#define RING_PARSER_ICG_PARENTCLASSPOS 4
 	#define RING_PARSER_ICG_INSTRUCTIONSLISTTYPE List
 	#define ring_parser_icg_setoperationatpos(pParser,x,y) ring_list_setint(ring_parser_icg_getoperationlist(pParser,x),RING_PARSER_ICG_OPERATIONCODE,y)
-	/*
-	**  Functions 
-	**  Generate Intermediate Code 
-	*/
+	/* Generate Intermediate Code */
 
 	void ring_parser_icg_newoperation ( Parser *pParser , IC_OPERATIONS opcode ) ;
 

@@ -1,6 +1,6 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #include "ring.h"
-/* Functions */
 
 HashTable * ring_hashtable_new_gc ( void *pRingState )
 {
@@ -199,7 +199,6 @@ void ring_hashtable_print ( HashTable *pHashTable )
 		}
 	}
 }
-/* Functions without the State pointer */
 
 HashTable * ring_hashtable_new ( void )
 {

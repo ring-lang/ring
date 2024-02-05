@@ -1,7 +1,7 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #ifndef ring_math_extension_h
 	#define ring_math_extension_h
-	/* Functions */
 
 	void ring_vm_math_loadfunctions ( RingState *pRingState ) ;
 
@@ -46,6 +46,5 @@
 	void ring_vm_math_decimals ( void *pPointer ) ;
 
 	void ring_vm_math_murmur3hash ( void *pPointer ) ;
-	/* Constants */
 	#define RING_VM_DECIMALSLIMIT 90
 #endif

@@ -1,10 +1,7 @@
-/*
-**  Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> 
-**  Include Files 
-*/
+/* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #include "ring.h"
 #include "test.h"
-/* Main Function */
 
 int main ( int argc, char *argv[] )
 {
@@ -16,7 +13,6 @@ int main ( int argc, char *argv[] )
 	ring_testallunits();
 	getchar();
 }
-/* Functions */
 
 void ring_testallunits ( void )
 {

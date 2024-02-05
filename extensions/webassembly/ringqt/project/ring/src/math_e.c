@@ -1,6 +1,6 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #include "ring.h"
-/* Functions */
 
 void ring_vm_math_loadfunctions ( RingState *pRingState )
 {
@@ -387,7 +387,6 @@ void ring_vm_math_decimals ( void *pPointer )
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 	}
 }
-/* Hash */
 
 void ring_vm_math_murmur3hash ( void *pPointer )
 {

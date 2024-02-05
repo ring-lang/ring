@@ -1,7 +1,7 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #ifndef ring_scanner_h
 	#define ring_scanner_h
-	/* Data */
 	typedef struct Scanner {
 		char state  ;
 		List *Keywords  ;
@@ -22,7 +22,6 @@
 		/* Literal Line */
 		unsigned int nLiteralLine  ;
 	} Scanner ;
-	/* Keywords Enum */
 	typedef enum SCANNER_KEYWORD {
 		K_IF=1 ,
 		K_TO ,
@@ -86,7 +85,6 @@
 		K_CHANGERINGIOPERATOR ,
 		K_LOADSYNTAX 
 	} SCANNER_KEYWORD ;
-	/* Keywords String */
 	static const char * RING_KEYWORDS[] = {"IF","TO","OR","AND","NOT","FOR","NEW","FUNC", 
 	
 	"FROM","NEXT","LOAD","ELSE","SEE","WHILE","OK","CLASS","RETURN","BUT", 
@@ -102,7 +100,6 @@
 	"FUNCTION","ENDFUNCTION","BREAK","CONTINUE", 
 	
 	"CHANGERINGKEYWORD","CHANGERINGOPERATOR","LOADSYNTAX"} ;
-	/* Operators */
 	typedef enum SCANNER_OPERATOR {
 		OP_PLUS = 1 ,
 		OP_MINUS ,
@@ -127,13 +124,8 @@
 		OP_BITNOT ,
 		OP_XOR 
 	} SCANNER_OPERATOR ;
-	/*
-	**  Constants 
-	**  General 
-	*/
 	#define RING_SCANNER_TOKENTYPE 1
 	#define RING_SCANNER_TOKENVALUE 2
-	/* Scanner Tokens Types */
 	#define SCANNER_TOKEN_KEYWORD 0
 	#define SCANNER_TOKEN_OPERATOR 1
 	#define SCANNER_TOKEN_LITERAL 2
@@ -142,7 +134,6 @@
 	#define SCANNER_TOKEN_ENDLINE 5
 	#define SCANNER_TOKEN_COMMENT 6
 	#define SCANNER_TOKEN_NOTOKEN 7
-	/* Scanner States */
 	#define SCANNER_STATE_GENERAL 0
 	#define SCANNER_STATE_LITERAL 1
 	#define SCANNER_STATE_COMMENT 2
@@ -150,13 +141,10 @@
 	#define SCANNER_STATE_CHANGEKEYWORD 4
 	#define SCANNER_STATE_CHANGEOPERATOR 5
 	#define SCANNER_STATE_LOADSYNTAX 6
-	/* Change Ring Keyword/Operator */
 	#define RING_SCANNER_CHANGERINGKEYWORD 56
 	#define RING_SCANNER_CHANGERINGOPERATOR 57
 	#define RING_SCANNER_LOADSYNTAX 58
-	/* MACRO */
 	#define RING_SCANNER_DELETELASTTOKEN ring_list_deleteitem_gc(pScanner->pRingState,pScanner->Tokens,ring_list_getsize(pScanner->Tokens))
-	/* Functions */
 
 	Scanner * ring_scanner_new ( RingState *pRingState ) ;
 

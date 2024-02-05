@@ -1,9 +1,6 @@
-/*
-**  Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> 
-**  Include Files 
-*/
+/* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #include "ring.h"
-/* API Functions */
 
 RING_API RingState * ring_state_new ( void )
 {

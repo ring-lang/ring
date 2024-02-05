@@ -16,7 +16,6 @@
 **  aSetProperty ( Object Pointer , Type (Variable/ListItem)  , Property Name, Property Variable , nBeforeEqual) 
 */
 #include "ring.h"
-/* Functions */
 
 void ring_vm_oop_newobj ( VM *pVM )
 {

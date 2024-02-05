@@ -1,9 +1,6 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #include "ring.h"
-/*
-**  Functions 
-**  Grammar 
-*/
 
 int ring_parser_expr ( Parser *pParser )
 {

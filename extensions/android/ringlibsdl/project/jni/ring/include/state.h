@@ -1,7 +1,7 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #ifndef ring_state_h
 	#define ring_state_h
-	/* Data */
 	typedef struct RingState {
 		/* First use by ring_state_runfile */
 		List *pRingFilesList  ;
@@ -74,14 +74,10 @@
 		/* VM Instructions Count */
 		int nInstructionsCount  ;
 	} RingState ;
-	/* Constants */
 	#define RING_STATE_VERSION "1.20"
-	/* MACRO */
 	#define RING_STATE_CHECKPRINTRULES if ( pParser->pRingState->nPrintRules )
-	/* General Options (Only for ring_state_main()) */
 	static int nRingStateDEBUGSEGFAULT  ;
 	static int nRingStateCGI  ;
-	/* Functions */
 
 	RING_API RingState * ring_state_new ( void ) ;
 

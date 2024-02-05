@@ -1,9 +1,6 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #include "ring.h"
-/*
-**  Functions 
-**  Mutex 
-*/
 
 RING_API void ring_vm_mutexfunctions ( VM *pVM,void *(*pFunc)(void),void (*pFuncLock)(void *),void (*pFuncUnlock)(void *),void (*pFuncDestroy)(void *) )
 {
@@ -36,7 +33,6 @@ RING_API void ring_vm_mutexdestroy ( VM *pVM )
 		pVM->pMutex = NULL ;
 	}
 }
-/* Threads */
 
 RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 {

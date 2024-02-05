@@ -1,9 +1,6 @@
-/*
-**  Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> 
-**  Include Files 
-*/
+/* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #include "ring.h"
-/* Functions */
 
 void ring_vm_refmeta_loadfunctions ( RingState *pRingState )
 {
@@ -62,7 +59,6 @@ void ring_vm_refmeta_loadfunctions ( RingState *pRingState )
 	RING_API_REGISTER("ringvm_ismempool",ring_vm_refmeta_ringvmismempool);
 	RING_API_REGISTER("ringvm_runcode",ring_vm_refmeta_ringvmruncode);
 }
-/* Functions */
 
 void ring_vm_refmeta_locals ( void *pPointer )
 {
@@ -236,7 +232,6 @@ void ring_vm_refmeta_iscfunction ( void *pPointer )
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
-/* OOP */
 
 void ring_vm_refmeta_packages ( void *pPointer )
 {
@@ -903,7 +898,6 @@ void ring_vm_refmeta_parentclassname ( void *pPointer )
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
-/* VM */
 
 void ring_vm_refmeta_ringvmfileslist ( void *pPointer )
 {

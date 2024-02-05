@@ -1,4 +1,5 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #ifndef ring_generallib_extension_h
 	#define ring_generallib_extension_h
 	#ifndef _WIN32
@@ -9,10 +10,7 @@
 	#endif
 
 	RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState ) ;
-	/*
-	**  Library Functions 
-	**  General 
-	*/
+	/* General */
 
 	void ring_vm_generallib_len ( void *pPointer ) ;
 

@@ -1,6 +1,6 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #include "ring.h"
-/* Global Variables */
 
 void ring_vm_addglobalvariables ( VM *pVM )
 {
@@ -34,7 +34,6 @@ void ring_vm_addglobalvariables ( VM *pVM )
 	pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
 }
 /*
-**  Variables 
 **  Memory is a List and each item inside the list is another List (Represent Scope) 
 **  The Variable is a List contains ( Name , Type , Value , [Pointer Type] , [Private Flag] ) 
 **  When we find variable or create new variable we push variable pointer to the stack 
@@ -399,7 +398,6 @@ int ring_vm_var_getprivateflag ( VM *pVM,List *pVar )
 	}
 	return 0 ;
 }
-/* Arguments */
 
 List * ring_vm_addstringarg ( VM *pVM,const char *cVar,const char  *cStr,int nStrSize )
 {
@@ -467,7 +465,6 @@ List * ring_vm_addlistarg ( VM *pVM,const char *cVar )
 	ring_hashtable_newpointer_gc(pVM->pRingState,pParent->pHashTable,cVar,pList);
 	return pList ;
 }
-/* Custom Global Scope */
 
 void ring_vm_newglobalscope ( VM *pVM )
 {

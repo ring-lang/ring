@@ -1,9 +1,6 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #include "ring.h"
-/*
-**  Functions 
-**  Generate Intermediate Code 
-*/
 
 void ring_parser_icg_newoperation ( Parser *pParser , IC_OPERATIONS opcode )
 {
@@ -105,7 +102,6 @@ void ring_parser_icg_deleteoperand ( Parser *pParser , int nPos )
 {
 	ring_list_deleteitem_gc(NULL,pParser->ActiveGenCodeList,nPos);
 }
-/* Specific Instructions */
 
 void ring_parser_icg_loadfunction ( Parser *pParser,const char *cFunctionName )
 {
@@ -188,7 +184,6 @@ void ring_parser_icg_beforeequal ( Parser *pParser,int nBeforeEqual )
 	ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
 	ring_parser_icg_newoperandint(pParser,nBeforeEqual);
 }
-/* Show the Intermediate Code */
 
 void ring_parser_icg_showoutput ( List *pListGenCode )
 {

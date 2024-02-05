@@ -1,7 +1,7 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #ifndef ring_os_extension_h
 	#define ring_os_extension_h
-	/* Functions */
 
 	void ring_vm_os_loadfunctions ( RingState *pRingState ) ;
 
@@ -52,7 +52,6 @@
 
 		void ring_vm_os_randomize ( void *pPointer ) ;
 	#endif
-	/* Constants */
 	#define RING_VM_POINTER_LIBNAME "os"
 	#define RING_VM_UNSUPPORTEDFUNCTION "Warning: This function is not supported in this build!"
 	#ifdef _WIN32

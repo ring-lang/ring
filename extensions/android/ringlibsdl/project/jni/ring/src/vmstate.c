@@ -1,6 +1,6 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #include "ring.h"
-/* Save/Restore State - Used by Try/Catch/Done & Loop/Exit */
 
 void ring_vm_savestate ( VM *pVM,List *pList )
 {
@@ -211,7 +211,6 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	}
 	ring_list_delete_gc(pVM->pRingState,aListsToDelete);
 }
-/* Save/Restore State 2 - Used by Function Call & Return */
 
 VMState * ring_vm_savestateforfunctions ( VM *pVM )
 {
@@ -317,7 +316,6 @@ void ring_vm_restorestateforfunctions ( VM *pVM,VMState *pVMState )
 	pVM->aSetProperty = ring_list_delete_gc(pVM->pRingState,pVM->aSetProperty);
 	pVM->aSetProperty = (List *)  pVMState->aPointers[6] ;
 }
-/* Save/Restore State 3 - Used by (ICO_NEWOBJ) and (ICO_SETSCOPE) */
 
 void ring_vm_savestatefornewobjects ( VM *pVM )
 {
@@ -517,7 +515,6 @@ int ring_vm_newobjectstackpointer ( VM *pVM )
 	pVMState = (VMState *) ring_list_getpointer(pVM->aScopeNewObj,ring_list_getsize(pVM->aScopeNewObj));
 	return pVMState->aNumbers[RING_ASCOPENEWOBJ_SP] ;
 }
-/* Save/Restore State 4 - Used by BraceStart & BraceEnd */
 
 void ring_vm_savestateforbraces ( VM *pVM,List *pObjState )
 {
@@ -602,7 +599,6 @@ void ring_vm_restorestateforbraces ( VM *pVM,List *pList )
 	ring_list_deleteitem_gc(pVM->pRingState,pVM->pObjState,ring_list_getsize(pVM->pObjState));
 	pVM->nInsideBraceFlag = ( ring_list_getsize(pVM->aBraceObjects) > 0 ) ;
 }
-/* Return to a Specific position in the array, delete all items after that position */
 
 void ring_vm_backstate ( VM *pVM,int x,List *pList )
 {
@@ -610,7 +606,6 @@ void ring_vm_backstate ( VM *pVM,int x,List *pList )
 		ring_list_deleteitem_gc(pVM->pRingState,pList,ring_list_getsize(pList));
 	}
 }
-/* Save/Restore Stack */
 
 List * ring_vm_savestack ( VM *pVM )
 {

@@ -1,10 +1,6 @@
-/*
-**  Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> 
-**  Remember, When we read from the stack LIFO 
-**  If we have two parameters, we read the second parameter first 
-*/
+/* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #include "ring.h"
-/* Math */
 
 void ring_vm_sum ( VM *pVM )
 {
@@ -323,11 +319,6 @@ void ring_vm_pow ( VM *pVM )
 	if ( ring_vm_checkoverflow(pVM,nNum1,nNum2)  ) return ;
 	RING_VM_STACK_SETNVALUE(pow(nNum2,nNum1));
 }
-/*
-**  compare 
-**  Here the conversion to string/number before comparing is not important 
-**  Because the result is always logical (True/False) i.e. 1 or 0 
-*/
 
 void ring_vm_equal ( VM *pVM )
 {
@@ -679,7 +670,6 @@ void ring_vm_notequal ( VM *pVM )
 		return ;
 	}
 }
-/* Logic */
 
 void ring_vm_and ( VM *pVM )
 {
@@ -793,7 +783,6 @@ void ring_vm_not ( VM *pVM )
 		return ;
 	}
 }
-/* Bitwise */
 
 void ring_vm_bitand ( VM *pVM )
 {
@@ -1029,7 +1018,6 @@ void ring_vm_bitnot ( VM *pVM )
 		return ;
 	}
 }
-/* Conversion */
 
 RING_API char * ring_vm_numtostring ( VM *pVM,double nNum1,char *cStr )
 {
@@ -1070,10 +1058,6 @@ RING_API double ring_vm_stringtonum ( VM *pVM,const char *cStr )
 	}
 	return nResult ;
 }
-/*
-**  Operator Overloading 
-**  Stack Pointer then Stack Pointer - Operator Overloading 
-*/
 
 void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
 {
@@ -1185,7 +1169,6 @@ void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
 		ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
 	}
 }
-/* Stack Number then Stack Pointer - Operator Overloading */
 
 void ring_vm_expr_npoo ( VM *pVM,const char *cStr,double nNum1 )
 {
@@ -1236,7 +1219,6 @@ void ring_vm_expr_npoo ( VM *pVM,const char *cStr,double nNum1 )
 		ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
 	}
 }
-/* Stack String then Stack Pointer - Operator Overloading */
 
 void ring_vm_expr_spoo ( VM *pVM,const char *cStr,const char *cStr2,int nSize )
 {
@@ -1281,7 +1263,6 @@ void ring_vm_expr_spoo ( VM *pVM,const char *cStr,const char *cStr2,int nSize )
 		ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
 	}
 }
-/* Add List to List */
 
 void ring_vm_addlisttolist ( VM *pVM,List *pList,List *pList2 )
 {
@@ -1325,7 +1306,6 @@ void ring_vm_addlisttolist ( VM *pVM,List *pList,List *pList2 )
 		ring_vm_oop_updateselfpointer(pVM,pList3,RING_OBJTYPE_LISTITEM,ring_list_getitem(pList2,ring_list_getsize(pList2)));
 	}
 }
-/* Check OverFlow */
 
 int ring_vm_checkoverflow ( VM *pVM,double nNum1,double nNum2 )
 {

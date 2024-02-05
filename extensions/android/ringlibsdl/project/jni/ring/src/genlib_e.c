@@ -1,9 +1,6 @@
-/*
-**  Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> 
-**  Include Files 
-*/
+/* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #include "ring.h"
-/* Load Functions */
 
 RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState )
 {
@@ -127,10 +124,7 @@ RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState )
 	RING_API_REGISTER("getstring",ring_vm_generallib_give);
 	RING_API_REGISTER("getnumber",ring_vm_generallib_getnumber);
 }
-/*
-**  Library Functions 
-**  General 
-*/
+/* General */
 
 void ring_vm_generallib_len ( void *pPointer )
 {

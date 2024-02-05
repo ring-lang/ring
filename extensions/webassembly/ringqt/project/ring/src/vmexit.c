@@ -1,6 +1,6 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #include "ring.h"
-/* End Program / Exit from Loop / Loop (Continue) */
 
 void ring_vm_bye ( VM *pVM )
 {
@@ -96,7 +96,6 @@ void ring_vm_exit ( VM *pVM,int nType )
 		return ;
 	}
 }
-/* For Loop - Step */
 
 void ring_vm_stepnumber ( VM *pVM )
 {
