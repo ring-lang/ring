@@ -5,7 +5,7 @@
 void ring_vm_string_pushv ( VM *pVM )
 {
 	char *newstr  ;
-	char cStr[2]  ;
+	char cStr[RING_CHARBUF]  ;
 	if ( (pVM->nRetItemRef>=1)  && (ring_vm_isstackpointertoobjstate(pVM)==1) ) {
 		pVM->nRetItemRef-- ;
 		return ;

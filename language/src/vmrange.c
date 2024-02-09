@@ -29,7 +29,7 @@ void ring_vm_range ( VM *pVM )
 {
 	double nNum1,nNum2  ;
 	int x,nSize1,nSize2  ;
-	char cStr[2]  ;
+	char cStr[RING_CHARBUF]  ;
 	List *pVar  ;
 	if ( RING_VM_STACK_ISNUMBER ) {
 		nNum1 = RING_VM_STACK_READN ;

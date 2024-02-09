@@ -21,19 +21,19 @@ ring_vm_generallib_char
 Type: int
 x
 Type: char
-cStr[2]
+cStr[RING_CHARBUF]
 ring_vm_generallib_date
 Type: time_t
 timer
 Type: char
-buffer[25]
+buffer[RING_SMALLBUF]
 Type: struct tm*
 tm_info
 ring_vm_generallib_time
 Type: time_t
 timer
 Type: char
-buffer[25]
+buffer[RING_SMALLBUF]
 Type: struct tm*
 tm_info
 ring_vm_generallib_filename
@@ -59,7 +59,7 @@ ring_vm_generallib_timelist
 Type: time_t
 timer
 Type: char
-buffer[25]
+buffer[RING_SMALLBUF]
 Type: struct tm*
 tm_info
 Type: List *
@@ -68,7 +68,7 @@ ring_vm_generallib_adddays
 Type: const unsigned char *
 cStr
 Type: char
-buffer[25]
+buffer[RING_SMALLBUF]
 Type: int
 x,nDay,nMonth,nYear,nDaysInMonth
 Type: int

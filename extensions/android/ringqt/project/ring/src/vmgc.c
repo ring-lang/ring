@@ -58,7 +58,7 @@ void ring_vm_gc_killreference ( VM *pVM )
 	List *pList, *pList2  ;
 	Item *pItem  ;
 	char *newstr  ;
-	char cStr[2]  ;
+	char cStr[RING_CHARBUF]  ;
 	/* Check usage before the For In Loop, If there are a reference, set it to NULL */
 	if ( RING_VM_IR_PARACOUNT > 1 ) {
 		if ( RING_VM_IR_READI == 1 ) {

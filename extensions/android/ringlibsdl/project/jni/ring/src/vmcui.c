@@ -56,11 +56,11 @@ void ring_vm_see ( VM *pVM )
 void ring_vm_give ( VM *pVM )
 {
 	int x  ;
-	char cLine[256]  ;
+	char cLine[RING_LARGEBUF]  ;
 	List *pVar  ;
 	Item *pItem  ;
 	/* Get Input From the User and save it in the variable */
-	fgets(cLine , 256 , stdin );
+	fgets(cLine , RING_LARGEBUF , stdin );
 	/* Remove New Line */
 	for ( x = 0 ; x <= 255 ; x++ ) {
 		if ( cLine[x] == '\n' ) {

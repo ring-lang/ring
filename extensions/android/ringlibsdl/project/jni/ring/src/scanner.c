@@ -33,7 +33,7 @@ Scanner * ring_scanner_delete ( Scanner *pScanner )
 
 void ring_scanner_readchar ( Scanner *pScanner,char c )
 {
-	char cStr[2]  ;
+	char cStr[RING_CHARBUF]  ;
 	List *pList  ;
 	String *pString  ;
 	int nTokenIndex  ;
@@ -733,7 +733,7 @@ void ring_scanner_changekeyword ( Scanner *pScanner )
 	char *cStr  ;
 	int x,nResult  ;
 	String *word1, *word2, *activeword  ;
-	char cStr2[2]  ;
+	char cStr2[RING_CHARBUF]  ;
 	cStr2[1] = '\0' ;
 	/* Create Strings */
 	word1 = ring_string_new_gc(pScanner->pRingState,"");
@@ -779,7 +779,7 @@ void ring_scanner_changeoperator ( Scanner *pScanner )
 	char *cStr  ;
 	int x,nResult  ;
 	String *word1, *word2, *activeword  ;
-	char cStr2[2]  ;
+	char cStr2[RING_CHARBUF]  ;
 	cStr2[1] = '\0' ;
 	/* Create Strings */
 	word1 = ring_string_new_gc(pScanner->pRingState,"");

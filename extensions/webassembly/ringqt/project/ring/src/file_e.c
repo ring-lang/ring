@@ -334,7 +334,7 @@ void ring_vm_file_remove ( void *pPointer )
 void ring_vm_file_fgetc ( void *pPointer )
 {
 	int c  ;
-	char cStr[2]  ;
+	char cStr[RING_CHARBUF]  ;
 	FILE *fp  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);

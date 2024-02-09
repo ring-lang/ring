@@ -183,7 +183,7 @@ void ring_vm_loadindexaddress ( VM *pVM )
 	double nNum1  ;
 	List *pVar  ;
 	Item *pItem  ;
-	char cStr2[2]  ;
+	char cStr2[RING_CHARBUF]  ;
 	String *pString  ;
 	if ( RING_VM_STACK_ISNUMBER ) {
 		nNum1 = RING_VM_STACK_READN ;
