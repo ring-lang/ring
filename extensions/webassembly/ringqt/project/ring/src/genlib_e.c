@@ -896,7 +896,6 @@ unsigned char ring_vm_generallib_hex2str_hex2nibble ( char cVal )
 
 void ring_vm_generallib_hex2str ( void *pPointer )
 {
-	char cStr[3]  ;
 	const char *cString  ;
 	char *cString2  ;
 	int x,i,nMax  ;
@@ -1048,7 +1047,7 @@ void ring_vm_generallib_list2str ( void *pPointer )
 
 void ring_vm_generallib_str2hexcstyle ( void *pPointer )
 {
-	char cStr[3]  ;
+	char cStr[RING_HEXCHARBUF]  ;
 	unsigned char *cString  ;
 	int x,nMax  ;
 	char *cString2  ;

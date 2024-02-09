@@ -105,6 +105,7 @@
 	#define RING_FSCANFERROR "\nError (E8) : Internal error in using fscanf() function!\n"
 	/* Buffer Size */
 	#define RING_CHARBUF 2
+	#define RING_HEXCHARBUF 3
 	#define RING_SMALLBUF 32
 	#define RING_MEDIUMBUF 128
 	#define RING_LARGEBUF 256

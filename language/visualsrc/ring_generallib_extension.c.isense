@@ -124,7 +124,7 @@ ring_vm_generallib_string
 Type: double
 nNum1
 Type: char
-cStr[100]
+cStr[RING_MEDIUMBUF]
 ring_vm_generallib_str2hex
 Type: unsigned char *
 cString
@@ -140,7 +140,6 @@ ring_vm_generallib_hex2str_hex2nibble
 Type: unsigned char
 bVal
 ring_vm_generallib_hex2str
-cStr
 Type: const char *
 cString
 Type: char *
@@ -364,7 +363,7 @@ ring_vm_generallib_print
 Type: List *
 pList
 Type: char
-cStr[100]
+cStr[RING_MEDIUMBUF]
 Type: VM *
 pVM
 ring_vm_generallib_print2str
@@ -372,7 +371,7 @@ ring_vm_generallib_puts
 Type: List *
 pList
 Type: char
-cStr[100]
+cStr[RING_MEDIUMBUF]
 Type: VM *
 pVM
 ring_vm_generallib_getnumber
