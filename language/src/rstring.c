@@ -107,7 +107,7 @@ RING_API void ring_string_print ( String *pString )
 
 RING_API void ring_string_setfromint_gc ( void *pState,String *pString,int x )
 {
-	char cStr[20]  ;
+	char cStr[RING_SMALLBUF]  ;
 	sprintf( cStr , "%d" , x ) ;
 	ring_string_set_gc(pState,pString,cStr);
 }

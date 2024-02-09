@@ -69,7 +69,7 @@ void ring_list_test ( void )
 	int x  ;
 	Item *pItem  ;
 	String *pString  ;
-	char mystr[20]  ;
+	char mystr[RING_SMALLBUF]  ;
 	printf( "Create new list, size = 10 \n" ) ;
 	pList = ring_list_new(10);
 	printf( "List(1) size %d    \n", ring_list_getsize(pList) ) ;
@@ -227,7 +227,7 @@ void ring_list_testfuncpointer ( void *pPointer )
 void ring_hashtable_test ( void )
 {
 	HashTable *pHashTable  ;
-	char cStr[20]  ;
+	char cStr[RING_SMALLBUF]  ;
 	int x  ;
 	puts("\nRing - HashTable Test");
 	pHashTable = ring_hashtable_new();

@@ -19,7 +19,7 @@ pItem
 Type: String *
 pString
 Type: char
-mystr[20]
+mystr[RING_SMALLBUF]
 ring_list_testfuncpointer
 Type: List *
 pList

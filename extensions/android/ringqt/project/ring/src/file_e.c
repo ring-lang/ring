@@ -936,7 +936,7 @@ void ring_vm_file_freefunc ( void *pRingState,void *pPointer )
 			RING_API_RETSTRING(tmpnam(NULL));
 			/* Linux */
 		#else
-			char _tmpfile[20] = "/tmp/ringtempXXXXXX" ;
+			char _tmpfile[RING_SMALLBUF] = "/tmp/ringtempXXXXXX" ;
 			RING_API_RETSTRING(mkdtemp(_tmpfile));
 		#endif
 	}
