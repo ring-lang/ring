@@ -428,6 +428,7 @@
 	#define RING_VM_ERROR_PROTECTEDVALUE "Error (R43) : The variable contains a protected value"
 	#define RING_VM_ERROR_MAXNESTEDEVAL "Error (R44) : Maximum nested Eval()"
 	#define RING_VM_ERROR_VARISNOTLIST "Error (R45) : Variable is not a list"
+	#define RING_VM_ERROR_NORINGLIBINIT "Error (R46) : The dynamic library doesn't contain the ringlib_init() function!"
 	/* Extra Size (for eval) */
 	#define RING_VM_EXTRASIZE 1000
 	#define RING_VM_MINVMINSTRUCTIONS 100000
