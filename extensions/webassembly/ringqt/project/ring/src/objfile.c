@@ -5,7 +5,7 @@
 void ring_objfile_writefile ( RingState *pRingState )
 {
 	FILE *fObj;
-	char cFileName[400]  ;
+	char cFileName[RING_HUGEBUF]  ;
 	/* Create File */
 	sprintf( cFileName , "%so" , ring_list_getstring(pRingState->pRingFilesList,1) ) ;
 	fObj = fopen(cFileName , "w+b" );
@@ -556,7 +556,7 @@ char ring_objfile_getc ( RingState *pRingState,char **cSource )
 void ring_objfile_writeCfile ( RingState *pRingState )
 {
 	FILE *fCode, *fCode2;
-	char cCodeFileName[400]  ;
+	char cCodeFileName[RING_HUGEBUF]  ;
 	int nSize,x,nFunction  ;
 	/*
 	**  Write C file 
@@ -621,7 +621,7 @@ int ring_objfile_writelistcode ( List *pList,FILE *fCode,int nList,int lSeparate
 	int x,x2,x3,nMax  ;
 	char cList[RING_SMALLBUF]  ;
 	char *cString  ;
-	char cFileName[400]  ;
+	char cFileName[RING_HUGEBUF]  ;
 	sprintf( cList , "pList%d" , nList+1 ) ;
 	if ( nList == 1 ) {
 		fprintf( fCode , "\tpList1 = ring_list_new_gc(pRingState,0) ; \n"  ) ;

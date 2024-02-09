@@ -37,7 +37,7 @@ cString
 Type: char
 cKey[11]
 Type: char
-cFileType[100]
+cFileType[RING_MEDIUMBUF]
 Type: List *
 pList
 ring_objfile_processstring
@@ -52,7 +52,7 @@ cString, *cData
 Type: char
 cKey[11]
 Type: char
-cFileType[100]
+cFileType[RING_MEDIUMBUF]
 Type: List *
 pList
 ring_objfile_updateclassespointers

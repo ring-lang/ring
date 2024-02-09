@@ -161,12 +161,12 @@ RING_API void ring_general_printline ( void )
 void ring_general_showtime ( void )
 {
 	time_t timer  ;
-	char buffer[50]  ;
+	char buffer[RING_MEDIUMBUF]  ;
 	struct tm*tm_info  ;
 	clock_t myclock  ;
 	time(&timer);
 	tm_info = localtime(&timer);
-	strftime(buffer,50,"Date  : %Y/%m/%d Time : %H:%M:%S", tm_info);
+	strftime(buffer,RING_MEDIUMBUF,"Date  : %Y/%m/%d Time : %H:%M:%S", tm_info);
 	printf( "\n" ) ;
 	ring_general_printline();
 	puts(buffer);

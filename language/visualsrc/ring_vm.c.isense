@@ -545,9 +545,9 @@ pList, *pList2, *pList3, *pPackageList
 Type: const char *
 cString
 Type: char
-cPackageName[400]
+cPackageName[RING_HUGEBUF]
 Type: char
-cClassName[400]
+cClassName[RING_HUGEBUF]
 ring_vm_loadcode
 Type: int
 x,nSize

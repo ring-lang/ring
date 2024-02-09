@@ -92,7 +92,7 @@ void ring_vm_range ( VM *pVM )
 
 List * ring_vm_range_newlist ( VM *pVM )
 {
-	char cVarName[50]  ;
+	char cVarName[RING_MEDIUMBUF]  ;
 	List *pVar  ;
 	/* Create List Variable */
 	sprintf( cVarName , "n_sys_var_%d" , pVM->nPC ) ;

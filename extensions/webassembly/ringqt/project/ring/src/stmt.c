@@ -233,7 +233,7 @@ int ring_parser_stmt ( Parser *pParser )
 	String *pString  ;
 	List *pMark,*pMark2,*pMark3,*pMark4,*pList2  ;
 	double nNum1  ;
-	char cStr[50]  ;
+	char cStr[RING_MEDIUMBUF]  ;
 	char cFileName[RING_PATHSIZE]  ;
 	char cCurrentDir[RING_PATHSIZE]  ;
 	nLoadPackage = 0 ;

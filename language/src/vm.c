@@ -335,8 +335,8 @@ void ring_vm_updateclassespointers ( RingState *pRingState )
 	int x,x2,x3,x4,lFound  ;
 	List *pList, *pList2, *pList3, *pPackageList  ;
 	const char *cString  ;
-	char cPackageName[400]  ;
-	char cClassName[400]  ;
+	char cPackageName[RING_HUGEBUF]  ;
+	char cClassName[RING_HUGEBUF]  ;
 	/* Update Package Pointers in Packages Classes */
 	for ( x = 1 ; x <= ring_list_getsize(pRingState->pRingPackagesMap) ; x++ ) {
 		pList = ring_list_getlist(pRingState->pRingPackagesMap,x);
@@ -354,8 +354,8 @@ void ring_vm_updateclassespointers ( RingState *pRingState )
 	for ( x = 1 ; x <= ring_list_getsize(pRingState->pRingClassesMap) ; x++ ) {
 		pList = ring_list_getlist(pRingState->pRingClassesMap,x);
 		cString = ring_list_getstring(pList,1);
-		if ( ring_list_getstringsize(pList,1)  > 400 ) {
-			/* Avoid large names - we have limits (400 letters per package name - 400 letters for class name) */
+		if ( ring_list_getstringsize(pList,1)  > RING_HUGEBUF ) {
+			/* Avoid large names */
 			continue ;
 		}
 		for ( x2 = ring_list_getstringsize(pList,1) - 1 ; x2 >= 0 ; x2-- ) {

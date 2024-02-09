@@ -57,7 +57,7 @@ Type: int
 x
 ring_general_numtostring
 Type: char
-cOptions[10]
+cOptions[RING_SMALLBUF]
 Type: int
 nNum2
 Type: RING_LONGLONG
