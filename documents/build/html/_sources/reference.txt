@@ -458,6 +458,7 @@ Runtime Errors
 * Error (R43) : The variable contains a protected value
 * Error (R44) : Maximum nested Eval()
 * Error (R45) : Variable is not a list
+* Error (R46) : The dynamic library doesn't contain the ringlib_init() function!
 
 .. index:: 
 	pair: Language Specification; Environment Errors
