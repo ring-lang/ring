@@ -290,7 +290,7 @@ pList2
 Type: char
 cOptions[10]
 Type: char
-cString[100]
+cString[RING_MEDIUMBUF]
 ring_list_findinlistofobjs
 Type: unsigned int
 x,nCount,nPos
@@ -323,6 +323,6 @@ pList2,*pList3
 Type: unsigned int
 x
 Type: char
-cStr[100]
+cStr[RING_MEDIUMBUF]
 ring_list_iscpointerlist
 ring_list_cpointercmp

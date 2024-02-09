@@ -156,7 +156,7 @@ int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pList
 	double dValue  ;
 	char *cString  ;
 	char cKey[11]  ;
-	char cFileType[100]  ;
+	char cFileType[RING_MEDIUMBUF]  ;
 	List *pList  ;
 	strcpy(cKey,"ringstring");
 	/* Set Active List (1=functions 2=classes 3=packages 4=code) */
@@ -335,7 +335,7 @@ int ring_objfile_processstring ( RingState *pRingState,char *cContent,List *pLis
 	double dValue  ;
 	char *cString, *cData  ;
 	char cKey[11]  ;
-	char cFileType[100]  ;
+	char cFileType[RING_MEDIUMBUF]  ;
 	List *pList  ;
 	strcpy(cKey,"ringstring");
 	/* Set Active List (1=functions 2=classes 3=packages 4=code) */

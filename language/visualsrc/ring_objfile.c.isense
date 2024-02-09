@@ -81,7 +81,7 @@ pList2
 Type: int
 x,x2,x3,nMax
 Type: char
-cList[20]
+cList[RING_SMALLBUF]
 Type: char *
 cString
 Type: char

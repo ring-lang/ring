@@ -106,6 +106,7 @@
 	/* Buffer Size */
 	#define RING_CHARBUF 2
 	#define RING_SMALLBUF 32
+	#define RING_MEDIUMBUF 128
 	#define RING_LARGEBUF 256
 	/* General */
 	#if RING_MSDOS

@@ -6,7 +6,7 @@ void ring_vm_sum ( VM *pVM )
 {
 	String *cStr1,*cStr2  ;
 	double nNum1,nNum2  ;
-	char cStr3[100]  ;
+	char cStr3[RING_MEDIUMBUF]  ;
 	int nSize,x  ;
 	char *cValue  ;
 	/*
@@ -324,7 +324,7 @@ void ring_vm_equal ( VM *pVM )
 {
 	String *cStr1,*cStr2  ;
 	double nNum1,nNum2  ;
-	char cStr3[100]  ;
+	char cStr3[RING_MEDIUMBUF]  ;
 	RING_LIST_CHECKOPERATIONONSUBLIST ;
 	if ( RING_VM_STACK_ISSTRING ) {
 		cStr1 = RING_VM_STACK_GETSTRINGRAW ;
@@ -594,7 +594,7 @@ void ring_vm_notequal ( VM *pVM )
 {
 	String *cStr1,*cStr2  ;
 	double nNum1,nNum2  ;
-	char cStr3[100]  ;
+	char cStr3[RING_MEDIUMBUF]  ;
 	RING_LIST_CHECKOPERATIONONSUBLIST ;
 	if ( RING_VM_STACK_ISSTRING ) {
 		cStr1 = RING_VM_STACK_GETSTRINGRAW ;
@@ -1309,8 +1309,8 @@ void ring_vm_addlisttolist ( VM *pVM,List *pList,List *pList2 )
 
 int ring_vm_checkoverflow ( VM *pVM,double nNum1,double nNum2 )
 {
-	char cStr1[100]  ;
-	char cStr2[100]  ;
+	char cStr1[RING_MEDIUMBUF]  ;
+	char cStr2[RING_MEDIUMBUF]  ;
 	if ( pVM->lCheckOverFlow ) {
 		/* We check the lCheckOverFlow flag first because the next operations decrease performance when we deal with millions of numbers */
 		if ( ( strlen(ring_vm_numtostring(pVM,nNum1,cStr1)) >= RING_VM_MAXDIGITSINNUMBER ) || (strlen(ring_vm_numtostring(pVM,nNum2,cStr2)) >= RING_VM_MAXDIGITSINNUMBER ) ) {

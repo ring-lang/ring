@@ -5,7 +5,7 @@
 void ring_vm_see ( VM *pVM )
 {
 	Item *pItem  ;
-	char cStr[100]  ;
+	char cStr[RING_MEDIUMBUF]  ;
 	List *pList  ;
 	char *cString  ;
 	int x  ;

@@ -448,7 +448,7 @@ void ring_vm_list_simpointercopy ( VM *pVM,List *pList )
 void ring_vm_beforeequallist ( VM *pVM,List *pVar,double nNum1 )
 {
 	String *pString  ;
-	char cStr[100]  ;
+	char cStr[RING_MEDIUMBUF]  ;
 	int nOutput  ;
 	if ( ring_list_isdouble(pVar,RING_VAR_VALUE) ) {
 		if ( pVM->nBeforeEqual == 1 ) {
@@ -499,7 +499,7 @@ void ring_vm_beforeequallist ( VM *pVM,List *pVar,double nNum1 )
 void ring_vm_beforeequalitem ( VM *pVM,Item *pItem,double nNum1 )
 {
 	String *pString  ;
-	char cStr[100]  ;
+	char cStr[RING_MEDIUMBUF]  ;
 	int nOutput  ;
 	if ( ring_item_isdouble(pItem) ) {
 		if ( pVM->nBeforeEqual == 1 ) {

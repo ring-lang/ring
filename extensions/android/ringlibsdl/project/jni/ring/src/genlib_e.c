@@ -770,7 +770,7 @@ void ring_vm_generallib_ispointer ( void *pPointer )
 
 void ring_vm_generallib_hex ( void *pPointer )
 {
-	char cStr[100]  ;
+	char cStr[RING_MEDIUMBUF]  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -829,7 +829,7 @@ void ring_vm_generallib_number ( void *pPointer )
 void ring_vm_generallib_string ( void *pPointer )
 {
 	double nNum1  ;
-	char cStr[100]  ;
+	char cStr[RING_MEDIUMBUF]  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -986,7 +986,7 @@ void ring_vm_generallib_list2str ( void *pPointer )
 	List *pList  ;
 	String *pString  ;
 	int x,nStart,nMax  ;
-	char cStr[100]  ;
+	char cStr[RING_MEDIUMBUF]  ;
 	if ( RING_API_PARACOUNT < 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -1872,8 +1872,8 @@ void ring_vm_generallib_state_main ( void *pPointer )
 	char *cStr  ;
 	int argc  ;
 	char *argv[2]  ;
-	argv[0] = (char *) RING_API_MALLOC(100);
-	argv[1] = (char *) RING_API_MALLOC(100);
+	argv[0] = (char *) RING_API_MALLOC(RING_MEDIUMBUF);
+	argv[1] = (char *) RING_API_MALLOC(RING_MEDIUMBUF);
 	cStr = RING_API_GETSTRING(1);
 	argc = 2 ;
 	strcpy(argv[0],"ring");
@@ -1940,8 +1940,8 @@ void ring_vm_generallib_state_mainfile ( void *pPointer )
 	char *cStr  ;
 	int argc  ;
 	char *argv[2]  ;
-	argv[0] = (char *) RING_API_MALLOC(100);
-	argv[1] = (char *) RING_API_MALLOC(100);
+	argv[0] = (char *) RING_API_MALLOC(RING_MEDIUMBUF);
+	argv[1] = (char *) RING_API_MALLOC(RING_MEDIUMBUF);
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -2061,7 +2061,7 @@ void ring_vm_generallib_see ( void *pPointer )
 {
 	char *cString  ;
 	int x  ;
-	char cStr[100]  ;
+	char cStr[RING_MEDIUMBUF]  ;
 	List *pList  ;
 	VM *pVM  ;
 	pVM = (VM *) pPointer ;
@@ -2111,7 +2111,7 @@ void ring_vm_generallib_give ( void *pPointer )
 void ring_vm_generallib_print ( void *pPointer )
 {
 	List *pList  ;
-	char cStr[100]  ;
+	char cStr[RING_MEDIUMBUF]  ;
 	VM *pVM  ;
 	pVM = (VM *) pPointer ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -2158,7 +2158,7 @@ void ring_vm_generallib_print2str ( void *pPointer )
 void ring_vm_generallib_puts ( void *pPointer )
 {
 	List *pList  ;
-	char cStr[100]  ;
+	char cStr[RING_MEDIUMBUF]  ;
 	VM *pVM  ;
 	pVM = (VM *) pPointer ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -2211,7 +2211,7 @@ void ring_vm_generallib_getnumber ( void *pPointer )
 
 void ring_vm_generallib_customprint ( void *pPointer,const char *cCommand )
 {
-	char cStr[100]  ;
+	char cStr[RING_MEDIUMBUF]  ;
 	int x,nSize,nPos  ;
 	char cCode[RING_LARGEBUF]  ;
 	char *cString  ;

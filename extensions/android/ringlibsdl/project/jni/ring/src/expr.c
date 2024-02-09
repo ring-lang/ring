@@ -533,8 +533,8 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 	int x,x2,x3,nLastOperation,nCount,nNOOP,nToken,nMark,nFlag2,nThisOrSelfLoadA,nThisLoadA,lNewFrom,lAfterListEnd  ;
 	List *pLoadAPos, *pLoadAMark,*pList, *pMark,*pAssignmentPointerPos  ;
 	char lSetProperty,lequal,nBeforeEqual,lNewAfterEqual  ;
-	char cFuncName[100]  ;
-	char cKeyword[100]  ;
+	char cFuncName[RING_MEDIUMBUF]  ;
+	char cKeyword[RING_MEDIUMBUF]  ;
 	/* Set Identifier Flag - is 1 when we have Factor -->Identifier */
 	*nFlag = 0 ;
 	pAssignmentPointerPos = NULL ;

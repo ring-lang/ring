@@ -415,7 +415,7 @@ void ring_vm_refmeta_classname ( void *pPointer )
 void ring_vm_refmeta_objectid ( void *pPointer )
 {
 	List *pList  ;
-	char cStr[100]  ;
+	char cStr[RING_MEDIUMBUF]  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;

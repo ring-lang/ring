@@ -49,7 +49,7 @@ Type: const char *
 cFile
 ring_vm_generallib_getchar
 Type: char
-cStr[2]
+cStr[RING_CHARBUF]
 Type: int
 nOutput
 ring_vm_generallib_random

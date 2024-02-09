@@ -241,7 +241,7 @@ int ring_general_folderexistinfilename ( const char *cFolderName,const char *cFi
 
 RING_API char * ring_general_numtostring ( double nNum1,char *cStr,int nDecimals )
 {
-	char cOptions[10]  ;
+	char cOptions[RING_SMALLBUF]  ;
 	int nNum2  ;
 	RING_LONGLONG nVal  ;
 	nVal = (RING_LONGLONG) nNum1 ;
@@ -254,10 +254,10 @@ RING_API char * ring_general_numtostring ( double nNum1,char *cStr,int nDecimals
 			sprintf(cStr, cOptions, nNum1);
 		#else
 			/* Avoid buffer overrun by using snprint() function */
-			nNum2 = snprintf(cStr , 100, cOptions , nNum1);
-			if ( nNum2 >= 100 ) {
+			nNum2 = snprintf(cStr , RING_MEDIUMBUF, cOptions , nNum1);
+			if ( nNum2 >= RING_MEDIUMBUF ) {
 				/* Result truncated so print in compact format with a precision of 90 */
-				nNum2 = snprintf(cStr , 100, "%.90e" , nNum1);
+				nNum2 = snprintf(cStr , RING_MEDIUMBUF, "%.90e" , nNum1);
 			}
 			if ( nNum2 < 0 ) {
 				/* Error */

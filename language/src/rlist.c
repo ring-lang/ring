@@ -1111,8 +1111,8 @@ RING_API void ring_list_print2 ( List *pList,unsigned int nDecimals )
 	double y  ;
 	const char *cStr  ;
 	List *pList2  ;
-	char cOptions[10]  ;
-	char cString[100]  ;
+	char cOptions[RING_SMALLBUF]  ;
+	char cString[RING_MEDIUMBUF]  ;
 	/* Print Items */
 	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 		if ( ring_list_isstring(pList,x) ) {
@@ -1134,7 +1134,7 @@ RING_API void ring_list_print2 ( List *pList,unsigned int nDecimals )
 					#if RING_MSDOS
 						sprintf(cString, cOptions, y);
 					#else
-						snprintf(cString, 100, cOptions, y);
+						snprintf(cString, RING_MEDIUMBUF, cOptions, y);
 					#endif
 					printf("%s\n",cString);
 				}
@@ -1345,7 +1345,7 @@ RING_API void ring_list_printobj ( List *pList,unsigned int nDecimals )
 {
 	List *pList2,*pList3  ;
 	unsigned int x  ;
-	char cStr[100]  ;
+	char cStr[RING_MEDIUMBUF]  ;
 	pList = ring_list_getlist(pList,2);
 	for ( x = 3 ; x <= ring_list_getsize(pList) ; x++ ) {
 		pList2 = ring_list_getlist(pList,x);
