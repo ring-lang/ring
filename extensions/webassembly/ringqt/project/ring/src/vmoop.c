@@ -13,7 +13,7 @@
 **  used in ring_vmvars , function ring_vm_findvar2() 
 **  pBraceObject : The list that represent the object directly (not variable/list item) 
 **  aBraceObjects ( pBraceObject, nSP, nListStart, pNestedLists) 
-**  aSetProperty ( Object Pointer , Type (Variable/ListItem)  , Property Name, Property Variable , nBeforeEqual) 
+**  aSetProperty ( Object Pointer , Type (Variable/ListItem)  , Property Name, Property Variable , nBeforeEqual,Value,PtrType) 
 */
 #include "ring.h"
 
@@ -949,8 +949,8 @@ void ring_vm_oop_setproperty ( VM *pVM )
 		nIns = pVM->nPC - 2 ;
 		/* Set Variable ring_gettemp_var */
 		pList2 = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_GLOBALVARPOS_GETTEMPVAR) ;
-		ring_list_setpointer_gc(pVM->pRingState,pList2,RING_VAR_VALUE,ring_list_getpointer(pList,1));
-		ring_list_setint_gc(pVM->pRingState,pList2,RING_VAR_PVALUETYPE,ring_list_getint(pList,2));
+		ring_list_setpointer_gc(pVM->pRingState,pList2,RING_VAR_VALUE,ring_list_getpointer(pList,RING_ASETPROPERTY_OBJPTR));
+		ring_list_setint_gc(pVM->pRingState,pList2,RING_VAR_PVALUETYPE,ring_list_getint(pList,RING_ASETPROPERTY_OBJTYPE));
 		/* Set Variable ring_settemp_var */
 		pList2 = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_GLOBALVARPOS_SETTEMPVAR) ;
 		if ( RING_VM_STACK_ISNUMBER ) {
@@ -1012,25 +1012,25 @@ void ring_vm_oop_setproperty ( VM *pVM )
 		RING_VM_IR_READIVALUE(1) = 0 ;
 		/* Get Variable ring_tempflag_var */
 		pList2 = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_GLOBALVARPOS_TEMPFALG) ;
-		if ( ring_list_getdouble(pList2,3) == 1.0 ) {
+		if ( ring_list_getdouble(pList2,RING_VAR_VALUE) == 1.0 ) {
 			/*
 			**  The set method is not found!, we have to do the assignment operation 
 			**  Push Variable Then Push Value then Assignment 
 			*/
-			RING_VM_STACK_PUSHPVALUE(ring_list_getpointer(pList,4));
+			RING_VM_STACK_PUSHPVALUE(ring_list_getpointer(pList,RING_ASETPROPERTY_ATTRVAR));
 			RING_VM_STACK_OBJTYPE = RING_OBJTYPE_VARIABLE ;
 			/* Restore Before Equal Flag */
-			pVM->nBeforeEqual = ring_list_getint(pList,5) ;
+			pVM->nBeforeEqual = ring_list_getint(pList,RING_ASETPROPERTY_NBEFOREEQUAL) ;
 			/* Push Value */
-			if ( ring_list_isdouble(pList,6) ) {
-				RING_VM_STACK_PUSHNVALUE(ring_list_getdouble(pList,6));
+			if ( ring_list_isdouble(pList,RING_ASETPROPERTY_VALUE) ) {
+				RING_VM_STACK_PUSHNVALUE(ring_list_getdouble(pList,RING_ASETPROPERTY_VALUE));
 			}
-			else if ( ring_list_isstring(pList,6) ) {
-				RING_VM_STACK_PUSHCVALUE2(ring_list_getstring(pList,6),ring_list_getstringsize(pList,6));
+			else if ( ring_list_isstring(pList,RING_ASETPROPERTY_VALUE) ) {
+				RING_VM_STACK_PUSHCVALUE2(ring_list_getstring(pList,RING_ASETPROPERTY_VALUE),ring_list_getstringsize(pList,RING_ASETPROPERTY_VALUE));
 			}
-			else if ( ring_list_ispointer(pList,6) ) {
-				RING_VM_STACK_PUSHPVALUE(ring_list_getpointer(pList,6));
-				RING_VM_STACK_OBJTYPE = ring_list_getint(pList,7) ;
+			else if ( ring_list_ispointer(pList,RING_ASETPROPERTY_VALUE) ) {
+				RING_VM_STACK_PUSHPVALUE(ring_list_getpointer(pList,RING_ASETPROPERTY_VALUE));
+				RING_VM_STACK_OBJTYPE = ring_list_getint(pList,RING_ASETPROPERTY_VALUEOBJTYPE) ;
 			}
 			ring_vm_assignment(pVM);
 		}
