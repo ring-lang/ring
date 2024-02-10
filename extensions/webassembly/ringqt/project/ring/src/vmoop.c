@@ -437,8 +437,8 @@ void ring_vm_oop_parentmethods ( VM *pVM,List *pList )
 	int x,nFound,nMark  ;
 	List *pList3,*pList4  ;
 	pList3 = ring_list_getlist(pList,4);
-	if ( ring_list_getint(pList,5) == 0 ) {
-		ring_list_setint_gc(pVM->pRingState,pList,5,1);
+	if ( ring_list_getint(pList,RING_CLASSMAP_ISPARENTINFO) == 0 ) {
+		ring_list_setint_gc(pVM->pRingState,pList,RING_CLASSMAP_ISPARENTINFO,1);
 		cClassName = ring_list_getstring(pList,RING_CLASSMAP_PARENTCLASS) ;
 		/* Mark Packages Count */
 		nMark = ring_list_getsize(pVM->aActivePackage);
@@ -468,7 +468,7 @@ void ring_vm_oop_parentmethods ( VM *pVM,List *pList )
 				break ;
 			}
 			/* Exit when the parent class already contains it's parent classes data */
-			if ( ring_list_getint(pList,5) == 1 ) {
+			if ( ring_list_getint(pList,RING_CLASSMAP_ISPARENTINFO) == 1 ) {
 				break ;
 			}
 		}
