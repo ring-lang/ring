@@ -208,6 +208,7 @@
 	#define RING_OBJTYPE_LISTITEM 2
 	#define RING_OBJTYPE_SUBSTRING 3
 	/* Variable Structure */
+	#define RING_VAR_LISTSIZE 5
 	#define RING_VAR_NAME 1
 	#define RING_VAR_TYPE 2
 	#define RING_VAR_VALUE 3
@@ -215,7 +216,12 @@
 	#define RING_VAR_PRIVATEFLAG 5
 	/* Number of global variables defined by the VM like True, False, cErrorMsg */
 	#define RING_VM_INTERNALGLOBALSCOUNT 15
-	#define RING_VAR_LISTSIZE 5
+	/* Global variable position */
+	#define RING_GLOBALVARPOS_GETTEMPVAR 5
+	#define RING_GLOBALVARPOS_ERRORMSG 6
+	#define RING_GLOBALVARPOS_SETTEMPVAR 7
+	#define RING_GLOBALVARPOS_TEMPFALG 8
+	#define RING_GLOBALVARPOS_THIS 12
 	/* Variable Type */
 	#define RING_VM_NULL 0
 	#define RING_VM_STRING 1
@@ -434,8 +440,6 @@
 	#define RING_VM_MINVMINSTRUCTIONS 100000
 	#define RING_MAX(a,b) (((a)>(b))?(a):(b))
 	#define RING_VM_MAXNESTEDEVAL 255
-	/* Variables Location */
-	#define RING_VM_STATICVAR_THIS 12
 	/*
 	**  Functions 
 	**  Main 
