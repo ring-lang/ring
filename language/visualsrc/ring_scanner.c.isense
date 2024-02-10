@@ -146,7 +146,7 @@ pScanner
 ring_scanner_delete
 ring_scanner_readchar
 Type: char
-cStr[RING_CHARBUG]
+cStr[RING_CHARBUF]
 Type: List *
 pList
 Type: String *
@@ -211,7 +211,7 @@ x,nResult
 Type: String *
 word1, *word2, *activeword
 Type: char
-cStr2[RING_CHARBUG]
+cStr2[RING_CHARBUF]
 ring_scanner_changeoperator
 Type: char *
 cStr
@@ -220,7 +220,7 @@ x,nResult
 Type: String *
 word1, *word2, *activeword
 Type: char
-cStr2[2]
+cStr2[RING_CHARBUF]
 ring_scanner_loadsyntax
 Type: char *
 cFileName

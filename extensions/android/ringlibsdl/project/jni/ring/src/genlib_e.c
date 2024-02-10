@@ -491,7 +491,7 @@ void ring_vm_generallib_diffdays ( void *pPointer )
 	const unsigned char *cStr, *cStr2  ;
 	struct tm tm_info,tm_info2  ;
 	time_t timer,timer2  ;
-	char buffer[5]  ;
+	char buffer[RING_SMALLBUF]  ;
 	double nResult  ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);

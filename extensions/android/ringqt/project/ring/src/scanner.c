@@ -415,7 +415,7 @@ void ring_scanner_addtoken ( Scanner *pScanner,int nType )
 void ring_scanner_checktoken ( Scanner *pScanner )
 {
 	int nResult  ;
-	char cStr[5]  ;
+	char cStr[RING_SMALLBUF]  ;
 	char *cActiveStr  ;
 	/*
 	**  This function determine if the TOKEN is a Keyword or Identifier or Number 
