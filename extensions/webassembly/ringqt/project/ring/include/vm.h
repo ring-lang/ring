@@ -214,7 +214,7 @@
 	#define RING_VAR_PVALUETYPE 4
 	#define RING_VAR_PRIVATEFLAG 5
 	/* Number of global variables defined by the VM like True, False, cErrorMsg */
-	#define RING_VM_INTERNALGLOBALSCOUNT 14
+	#define RING_VM_INTERNALGLOBALSCOUNT 15
 	#define RING_VAR_LISTSIZE 5
 	/* Variable Type */
 	#define RING_VM_NULL 0
