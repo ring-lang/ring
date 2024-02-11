@@ -38,9 +38,9 @@ pLoadAPos, *pLoadAMark,*pList, *pMark,*pAssignmentPointerPos
 Type: char
 lSetProperty,lequal,nBeforeEqual,lNewAfterEqual
 Type: char
-cFuncName[100]
+cFuncName[RING_MEDIUMBUF]
 Type: char
-cKeyword[100]
+cKeyword[RING_MEDIUMBUF]
 ring_parser_mixer
 Type: int
 x,nCallMethod,nStatus,nFlag,nNew

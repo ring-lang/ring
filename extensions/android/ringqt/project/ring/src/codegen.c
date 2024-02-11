@@ -120,7 +120,7 @@ void ring_parser_icg_loadaddress ( Parser *pParser,const char *cVariableName )
 
 void ring_parser_icg_loadaddressassignmentpos ( Parser *pParser,List *pLoadAPos,int nPos )
 {
-	ring_list_setint_gc(pParser->pRingState,pLoadAPos,4,nPos);
+	ring_list_setint_gc(pParser->pRingState,pLoadAPos,RING_PARSER_ICG_LOADAASSIGNPOS,nPos);
 }
 
 void ring_parser_icg_loadaddresstoloadfunction ( Parser *pParser )
