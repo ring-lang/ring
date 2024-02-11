@@ -89,9 +89,9 @@ void ring_parser_loadtoken ( Parser *pParser )
 {
 	List *pList  ;
 	pList = ring_list_getlist(pParser->Tokens,pParser->ActiveToken);
-	pParser->TokenType = ring_list_getint(pList,1) ;
-	pParser->TokenText = ring_list_getstring(pList,2) ;
-	pParser->nTokenIndex = ring_list_getint(pList,3) ;
+	pParser->TokenType = ring_list_getint(pList,RING_SCANNER_TOKENTYPE) ;
+	pParser->TokenText = ring_list_getstring(pList,RING_SCANNER_TOKENVALUE) ;
+	pParser->nTokenIndex = ring_list_getint(pList,RING_SCANNER_TOKENINDEX) ;
 }
 
 int ring_parser_nexttoken ( Parser *pParser )
