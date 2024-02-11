@@ -5,7 +5,7 @@
 void ring_vm_try ( VM *pVM )
 {
 	List *pList  ;
-	pList = ring_list_newlist_gc(pVM->pRingState,pVM->pTry);
+	pList = ring_list_newlist_gc(pVM->pRingState,pVM->aTry);
 	ring_list_addint_gc(pVM->pRingState,pList,RING_VM_IR_READI);
 	ring_list_addint_gc(pVM->pRingState,pList,pVM->nInsideEval);
 	ring_vm_savestate(pVM,pList);
@@ -15,7 +15,7 @@ void ring_vm_try ( VM *pVM )
 void ring_vm_catch ( VM *pVM,const char *cError )
 {
 	List *pList  ;
-	pList = ring_list_getlist(pVM->pTry,ring_list_getsize(pVM->pTry));
+	pList = ring_list_getlist(pVM->aTry,ring_list_getsize(pVM->aTry));
 	pVM->nPC = ring_list_getint(pList,1) ;
 	pVM->nInsideEval = ring_list_getint(pList,2) ;
 	/* Define variable cCatchError to contain the error message */
@@ -30,5 +30,5 @@ void ring_vm_catch ( VM *pVM,const char *cError )
 
 void ring_vm_done ( VM *pVM )
 {
-	ring_list_deleteitem_gc(pVM->pRingState,pVM->pTry,ring_list_getsize(pVM->pTry));
+	ring_list_deleteitem_gc(pVM->pRingState,pVM->aTry,ring_list_getsize(pVM->aTry));
 }

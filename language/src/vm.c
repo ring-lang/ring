@@ -51,7 +51,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->pExitMark = ring_list_new_gc(pVM->pRingState,0);
 	pVM->pLoopMark = ring_list_new_gc(pVM->pRingState,0);
 	/* Try-Catch-Done */
-	pVM->pTry = ring_list_new_gc(pVM->pRingState,0);
+	pVM->aTry = ring_list_new_gc(pVM->pRingState,0);
 	/* Saving scope when creating new objects and calling class init method */
 	pVM->aScopeNewObj = ring_list_new_gc(pVM->pRingState,0);
 	/* Flag ( 0 = Call Function  1 = Call Method After writing object name using dot ) */
@@ -210,7 +210,7 @@ VM * ring_vm_delete ( VM *pVM )
 	pVM->pTempMem = ring_list_delete_gc(pVM->pRingState,pVM->pTempMem);
 	pVM->pExitMark = ring_list_delete_gc(pVM->pRingState,pVM->pExitMark);
 	pVM->pLoopMark = ring_list_delete_gc(pVM->pRingState,pVM->pLoopMark);
-	pVM->pTry = ring_list_delete_gc(pVM->pRingState,pVM->pTry);
+	pVM->aTry = ring_list_delete_gc(pVM->pRingState,pVM->aTry);
 	pVM->aScopeNewObj = ring_list_delete_gc(pVM->pRingState,pVM->aScopeNewObj);
 	pVM->pObjState = ring_list_delete_gc(pVM->pRingState,pVM->pObjState);
 	pVM->aBraceObjects = ring_list_delete_gc(pVM->pRingState,pVM->aBraceObjects);

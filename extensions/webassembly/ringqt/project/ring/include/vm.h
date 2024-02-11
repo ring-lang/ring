@@ -54,7 +54,7 @@
 		List *pCFunctionsList  ;
 		List *pExitMark  ;
 		List *pLoopMark  ;
-		List *pTry  ;
+		List *aTry  ;
 		List *aScopeNewObj  ;
 		List *pObjState  ;
 		List *pBraceObject  ;
