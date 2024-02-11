@@ -12,6 +12,13 @@
 	/* Version */
 	#define RING_OBJFILE_VERSION "# OBJECT 1.19"
 	#define RING_OBJFILE_VERSIONSTRINGSIZE 13
+	/* Key */
+	#define RING_OBJFILE_KEYSIZE 10
+	#define RING_OBJFILE_KEYSTRSIZE 11
+	#define RING_OBJFILE_KEYSTRING "ringstring"
+	/* File Type */
+	#define RING_OBJFILE_FILETYPESTR "# Ring Object File"
+	#define RING_OBJFILE_FILETYPESTRCOUNT 18
 	/* Functions */
 
 	void ring_objfile_writefile ( RingState *pRingState ) ;

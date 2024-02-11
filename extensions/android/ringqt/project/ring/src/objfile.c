@@ -37,8 +37,8 @@ void ring_objfile_writelist ( List *pList,FILE *fObj )
 	List *pList2  ;
 	int x,x2,lCont  ;
 	char *cString  ;
-	char cKey[11]  ;
-	strcpy(cKey,"ringstring");
+	char cKey[RING_OBJFILE_KEYSTRSIZE]  ;
+	strcpy(cKey,RING_OBJFILE_KEYSTRING);
 	fprintf( fObj , "{\n"  ) ;
 	/* Write List Items */
 	lCont = 1 ;
@@ -57,10 +57,10 @@ void ring_objfile_writelist ( List *pList,FILE *fObj )
 				fprintf( fObj , "[S][%d]" , ring_list_getstringsize(pList2,x2) ) ;
 				/* Encrypt String */
 				cString = ring_list_getstring(pList2,x2) ;
-				ring_objfile_xorstring(cString,ring_list_getstringsize(pList2,x2),cKey,10);
+				ring_objfile_xorstring(cString,ring_list_getstringsize(pList2,x2),cKey,RING_OBJFILE_KEYSIZE);
 				fwrite( ring_list_getstring(pList2,x2) , 1 , ring_list_getstringsize(pList2,x2) , fObj );
 				/* Decrypt String */
-				ring_objfile_xorstring(cString,ring_list_getstringsize(pList2,x2),cKey,10);
+				ring_objfile_xorstring(cString,ring_list_getstringsize(pList2,x2),cKey,RING_OBJFILE_KEYSIZE);
 				fprintf( fObj , "\n"  ) ;
 			}
 			else if ( ring_list_isint(pList2,x2) ) {
@@ -155,10 +155,10 @@ int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pList
 	int nActiveList,nValue,nBraceEnd,nOutput  ;
 	double dValue  ;
 	char *cString  ;
-	char cKey[11]  ;
+	char cKey[RING_OBJFILE_KEYSTRSIZE]  ;
 	char cFileType[RING_MEDIUMBUF]  ;
 	List *pList  ;
-	strcpy(cKey,"ringstring");
+	strcpy(cKey,RING_OBJFILE_KEYSTRING);
 	/* Set Active List (1=functions 2=classes 3=packages 4=code) */
 	nActiveList = 0 ;
 	nBraceEnd = 0 ;
@@ -169,9 +169,9 @@ int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pList
 		printf( "Can't open file %s \n  ",cFileName ) ;
 		return 0 ;
 	}
-	fread( cFileType , 1 , 18 , fObj );
-	cFileType[18] = '\0' ;
-	if ( strcmp(cFileType,"# Ring Object File") != 0 ) {
+	fread( cFileType , 1 , RING_OBJFILE_FILETYPESTRCOUNT , fObj );
+	cFileType[RING_OBJFILE_FILETYPESTRCOUNT] = '\0' ;
+	if ( strcmp(cFileType,RING_OBJFILE_FILETYPESTR) != 0 ) {
 		printf( RING_OBJFILEWRONGTYPE ) ;
 		return 0 ;
 	}
@@ -233,7 +233,7 @@ int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pList
 						fread( cString , 1 , nValue , fObj );
 						cString[nValue] = '\0' ;
 						/* Decrypt String */
-						ring_objfile_xorstring(cString,nValue,cKey,10);
+						ring_objfile_xorstring(cString,nValue,cKey,RING_OBJFILE_KEYSIZE);
 						ring_list_addstring2_gc(pRingState,pList,cString,nValue);
 						ring_state_free(pRingState,cString);
 						#ifdef DEBUG_OBJFILE
@@ -334,19 +334,19 @@ int ring_objfile_processstring ( RingState *pRingState,char *cContent,List *pLis
 	int nActiveList,nValue,nBraceEnd,nOutput  ;
 	double dValue  ;
 	char *cString, *cData  ;
-	char cKey[11]  ;
+	char cKey[RING_OBJFILE_KEYSTRSIZE]  ;
 	char cFileType[RING_MEDIUMBUF]  ;
 	List *pList  ;
-	strcpy(cKey,"ringstring");
+	strcpy(cKey,RING_OBJFILE_KEYSTRING);
 	/* Set Active List (1=functions 2=classes 3=packages 4=code) */
 	nActiveList = 0 ;
 	nBraceEnd = 0 ;
 	pList = NULL ;
 	cData = cContent ;
 	/* Check Type and Version */
-	ring_objfile_readc(pRingState,&cData,cFileType,18);
-	cFileType[18] = '\0' ;
-	if ( strcmp(cFileType,"# Ring Object File") != 0 ) {
+	ring_objfile_readc(pRingState,&cData,cFileType,RING_OBJFILE_FILETYPESTRCOUNT);
+	cFileType[RING_OBJFILE_FILETYPESTRCOUNT] = '\0' ;
+	if ( strcmp(cFileType,RING_OBJFILE_FILETYPESTR) != 0 ) {
 		printf( RING_OBJFILEWRONGTYPE ) ;
 		return 0 ;
 	}
@@ -413,7 +413,7 @@ int ring_objfile_processstring ( RingState *pRingState,char *cContent,List *pLis
 						ring_objfile_readc(pRingState,&cData,cString,nValue);
 						cString[nValue] = '\0' ;
 						/* Decrypt String */
-						ring_objfile_xorstring(cString,nValue,cKey,10);
+						ring_objfile_xorstring(cString,nValue,cKey,RING_OBJFILE_KEYSIZE);
 						ring_list_addstring2_gc(pRingState,pList,cString,nValue);
 						#ifdef DEBUG_OBJFILE
 							printf( "Read String %s Size %d \n",cString,nValue ) ;
