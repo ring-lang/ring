@@ -121,6 +121,9 @@
 	/* See and Give - use ringvm_see() and ringvm_give() */
 	#define RING_USESEEFUNCTION 1
 	#define RING_USEGIVEFUNCTION 1
+	/* Logic */
+	#define RING_TRUE 1
+	#define RING_FALSE 0
 	/* Include Ring Headers */
 	#include "ext.h"
 	#include "rstring.h"

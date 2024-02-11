@@ -404,6 +404,10 @@
 	#define RING_APCBLOCKFLAG_EXITMARK 2
 	#define RING_APCBLOCKFLAG_LOOPMARK 3
 	#define RING_APCBLOCKFLAG_TRY 4
+	/* aTry */
+	#define RING_ATRY_PC 1
+	#define RING_ATRY_INSIDEEVAL 2
+	#define RING_ATRY_STATE 3
 	/* Runtime Error Messages */
 	#define RING_VM_ERROR_DIVIDEBYZERO "Error (R1) : Can't divide by zero"
 	#define RING_VM_ERROR_INDEXOUTOFRANGE "Error (R2) : Array Access (Index out of range)"
