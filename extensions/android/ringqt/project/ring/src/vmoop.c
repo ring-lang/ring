@@ -263,7 +263,7 @@ void ring_vm_oop_newclass ( VM *pVM )
 	pClass = ring_vm_oop_checkpointertoclassinpackage(pVM,pClass);
 	/* Make object methods visible while executing the Class Init method */
 	pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState));
-	ring_list_setpointer_gc(pVM->pRingState,pList,2,ring_list_getlist(pClass,4));
+	ring_list_setpointer_gc(pVM->pRingState,pList,RING_OBJSTATE_METHODS,ring_list_getlist(pClass,RING_CLASSMAP_METHODSLIST));
 	/* Get Parent Classes Methods */
 	ring_vm_oop_parentmethods(pVM,pClass);
 	/* Attributes Scope is Public */
@@ -389,14 +389,14 @@ void ring_vm_oop_loadmethod ( VM *pVM )
 		return ;
 	}
 	/* Get Object Class */
-	pList = (List *) ring_list_getpointer(pVar,1);
+	pList = (List *) ring_list_getpointer(pVar,RING_OBJECT_CLASSPOINTER);
 	/* Push Class Package */
 	ring_vm_oop_pushclasspackage(pVM,pList);
 	/* Get Object State */
 	pList2 = ring_list_newlist_gc(pVM->pRingState,pVM->pObjState);
-	ring_list_addpointer_gc(pVM->pRingState,pList2,ring_list_getlist(pVar,2));
+	ring_list_addpointer_gc(pVM->pRingState,pList2,ring_list_getlist(pVar,RING_OBJECT_OBJECTDATA));
 	/* Get Class Methods */
-	pList3 = ring_list_getlist(pList,4);
+	pList3 = ring_list_getlist(pList,RING_CLASSMAP_METHODSLIST);
 	ring_list_addpointer_gc(pVM->pRingState,pList2,pList3);
 	/* Add Pointer to Class */
 	ring_list_addpointer_gc(pVM->pRingState,pList2,pList);
@@ -436,7 +436,7 @@ void ring_vm_oop_parentmethods ( VM *pVM,List *pList )
 	const char *cClassName,*cClassName2  ;
 	int x,nFound,nMark  ;
 	List *pList3,*pList4  ;
-	pList3 = ring_list_getlist(pList,4);
+	pList3 = ring_list_getlist(pList,RING_CLASSMAP_METHODSLIST);
 	if ( ring_list_getint(pList,RING_CLASSMAP_ISPARENTINFO) == 0 ) {
 		ring_list_setint_gc(pVM->pRingState,pList,RING_CLASSMAP_ISPARENTINFO,1);
 		cClassName = ring_list_getstring(pList,RING_CLASSMAP_PARENTCLASS) ;
@@ -457,7 +457,7 @@ void ring_vm_oop_parentmethods ( VM *pVM,List *pList )
 				if ( strcmp(cClassName,cClassName2) == 0 ) {
 					/* Push Class Package */
 					ring_vm_oop_pushclasspackage(pVM,pList4);
-					ring_list_copy_gc(pVM->pRingState,pList3,ring_list_getlist(pList4,4));
+					ring_list_copy_gc(pVM->pRingState,pList3,ring_list_getlist(pList4,RING_CLASSMAP_METHODSLIST));
 					cClassName = ring_list_getstring(pList4,RING_CLASSMAP_PARENTCLASS) ;
 					nFound = 1 ;
 					break ;
@@ -1043,16 +1043,16 @@ List * ring_vm_oop_objvarfromobjlist ( List *pList )
 	int nType  ;
 	Item *pItem  ;
 	/* Get Object State List */
-	pList = ring_list_getlist(pList,2);
+	pList = ring_list_getlist(pList,RING_OBJECT_OBJECTDATA);
 	/* Get Self Attribute List */
-	pList = ring_list_getlist(pList,1);
+	pList = ring_list_getlist(pList,RING_OBJECT_SELFATTRIBUTE);
 	/* Get Object Pointer from Self Attribute List */
-	nType = ring_list_getint(pList,4) ;
+	nType = ring_list_getint(pList,RING_VAR_PVALUETYPE) ;
 	if ( nType == RING_OBJTYPE_VARIABLE ) {
-		pList = (List *) ring_list_getpointer(pList,3);
+		pList = (List *) ring_list_getpointer(pList,RING_VAR_VALUE);
 	}
 	else if ( nType == RING_OBJTYPE_LISTITEM ) {
-		pItem = (Item *) ring_list_getpointer(pList,3);
+		pItem = (Item *) ring_list_getpointer(pList,RING_VAR_VALUE);
 		pList = (List *) ring_item_getlist(pItem) ;
 	}
 	return pList ;
@@ -1062,11 +1062,11 @@ int ring_vm_oop_objtypefromobjlist ( List *pList )
 {
 	int nType  ;
 	/* Get Object State List */
-	pList = ring_list_getlist(pList,2);
+	pList = ring_list_getlist(pList,RING_OBJECT_OBJECTDATA);
 	/* Get Self Attribute List */
-	pList = ring_list_getlist(pList,1);
+	pList = ring_list_getlist(pList,RING_OBJECT_SELFATTRIBUTE);
 	/* Get Object Type from Self Attribute List */
-	nType = ring_list_getint(pList,4) ;
+	nType = ring_list_getint(pList,RING_VAR_PVALUETYPE) ;
 	return nType ;
 }
 
@@ -1183,9 +1183,9 @@ int ring_vm_oop_ismethod ( VM *pVM,List *pList,const char *cStr )
 	List *pList2,*pList3  ;
 	int x  ;
 	/* Get Object Class */
-	pList = (List *) ring_list_getpointer(pList,1);
+	pList = (List *) ring_list_getpointer(pList,RING_OBJECT_CLASSPOINTER);
 	/* Get Class Methods */
-	pList2 = ring_list_getlist(pList,4);
+	pList2 = ring_list_getlist(pList,RING_CLASSMAP_METHODSLIST);
 	/* Get Parent Classes Methods */
 	ring_vm_oop_parentmethods(pVM,pList);
 	/* Find the Method */
