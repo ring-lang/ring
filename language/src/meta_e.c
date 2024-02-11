@@ -1239,8 +1239,8 @@ void ring_vm_refmeta_ringvmismempool ( void *pPointer )
 	VM *pVM  ;
 	List *pList  ;
 	pVM = (VM *) pPointer ;
-	/* Try creating a list contains 10000 items */
-	pList = ring_list_new_gc(pVM->pRingState,10000);
+	/* Try creating a large list */
+	pList = ring_list_new_gc(pVM->pRingState,RING_REFMETA_ITEMSTOCHECKMEMPOOL);
 	if ( pVM->pRingState->vPoolManager.pCurrentItem != NULL ) {
 		RING_API_RETNUMBER(1);
 	}

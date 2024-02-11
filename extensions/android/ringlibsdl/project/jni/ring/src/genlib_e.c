@@ -1247,9 +1247,9 @@ void ring_vm_generallib_substr ( void *pPointer )
 	String *pString  ;
 	/*
 	**  Usage 
-	**  Substr(str,10) get substring from 10 to end 
+	**  Substr(str,nStart) get substring from nStart to end 
 	**  Substr(str,"nice") get position of "nice" inside str 
-	**  Substr(str,10,15) get substring from 10 , get 15 characters 
+	**  Substr(str,nStart,nCount) get substring from nStart , get nCount characters 
 	**  Substr(str,"nice","good") replace "nice" with "good" 
 	**  Substr(str,"nice","good",true) replace "nice" with "good" - not case sensitive 
 	**  Parameters Count 

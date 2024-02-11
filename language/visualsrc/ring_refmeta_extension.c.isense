@@ -1,4 +1,5 @@
 ring_refmeta_extension_h
+RING_REFMETA_ITEMSTOCHECKMEMPOOL
 ring_vm_refmeta_loadfunctions
 ring_vm_refmeta_locals
 Type: VM *
@@ -123,7 +124,7 @@ ring_vm_refmeta_objectid
 Type: List *
 pList
 Type: char
-cStr[100]
+cStr[RING_MEDIUMBUF]
 ring_vm_refmeta_attributes
 Type: List *
 pList, *pList2

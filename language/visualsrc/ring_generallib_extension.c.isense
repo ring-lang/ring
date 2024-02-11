@@ -81,7 +81,7 @@ tm_info,tm_info2
 Type: time_t
 timer,timer2
 Type: char
-buffer[5]
+buffer[RING_SMALLBUF]
 Type: double
 nResult
 ring_vm_generallib_version

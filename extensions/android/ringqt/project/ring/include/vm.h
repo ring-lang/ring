@@ -396,6 +396,9 @@
 	#define RING_EVALOUTPUT_POINTER 3
 	/* Temp Lists */
 	#define RING_VM_TEMPLISTSCOUNTERMAX 100
+	/* Threads */
+	#define RING_VM_ITEMSFORNEWTHREAD 100000
+	#define RING_VM_SCOPERANGEFORNEWTHREAD 10000
 	/* Runtime Error Messages */
 	#define RING_VM_ERROR_DIVIDEBYZERO "Error (R1) : Can't divide by zero"
 	#define RING_VM_ERROR_INDEXOUTOFRANGE "Error (R2) : Array Access (Index out of range)"

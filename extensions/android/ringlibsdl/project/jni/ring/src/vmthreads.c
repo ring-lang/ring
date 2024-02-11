@@ -69,7 +69,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 		}
 	}
 	/* Get Items for the Memory Pool From the Main Thread */
-	ring_poolmanager_newblockfromsubthread(pState,100000,pVM->pRingState);
+	ring_poolmanager_newblockfromsubthread(pState,RING_VM_ITEMSFORNEWTHREAD,pVM->pRingState);
 	/* Share Memory Blocks (Could be used for Lists in Global Scope) */
 	nMemoryBlocksCount = ring_list_getsize(pVM->pRingState->vPoolManager.aBlocks) ;
 	/*
@@ -121,7 +121,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	pState->pRingPackagesMap = pState->pVM->pPackagesMap ;
 	pState->pRingCFunctions = pState->pVM->pCFunctionsList ;
 	/* Get a copy from the byte code List */
-	pState->pVM->nScopeID = pVM->nScopeID + 10000 ;
+	pState->pVM->nScopeID = pVM->nScopeID + RING_VM_SCOPERANGEFORNEWTHREAD ;
 	pState->pVM->pCode = ring_list_new_gc(pState,0) ;
 	pState->pRingGenCode = pState->pVM->pCode ;
 	/* Get a copy from the Byte Code */

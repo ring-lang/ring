@@ -2,6 +2,8 @@
 
 #ifndef ring_refmeta_extension_h
 	#define ring_refmeta_extension_h
+	/* Constants */
+	#define RING_REFMETA_ITEMSTOCHECKMEMPOOL 10000
 
 	void ring_vm_refmeta_loadfunctions ( RingState *pRingState ) ;
 
