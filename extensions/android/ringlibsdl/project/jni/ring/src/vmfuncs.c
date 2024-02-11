@@ -541,12 +541,12 @@ void ring_vm_removeblockflag ( VM *pVM )
 {
 	List *pList  ;
 	pList = ring_list_getlist(pVM->aPCBlockFlag,ring_list_getsize(pVM->aPCBlockFlag));
-	pVM->nPC = ring_list_getint(pList,1);
+	pVM->nPC = ring_list_getint(pList,RING_APCBLOCKFLAG_PC);
 	pVM->nBlockFlag-- ;
 	/* Restore State */
-	ring_vm_backstate(pVM,ring_list_getint(pList,2),pVM->pExitMark);
-	ring_vm_backstate(pVM,ring_list_getint(pList,3),pVM->pLoopMark);
-	ring_vm_backstate(pVM,ring_list_getint(pList,4),pVM->pTry);
+	ring_vm_backstate(pVM,ring_list_getint(pList,RING_APCBLOCKFLAG_EXITMARK),pVM->pExitMark);
+	ring_vm_backstate(pVM,ring_list_getint(pList,RING_APCBLOCKFLAG_LOOPMARK),pVM->pLoopMark);
+	ring_vm_backstate(pVM,ring_list_getint(pList,RING_APCBLOCKFLAG_TRY),pVM->pTry);
 	ring_list_deleteitem_gc(pVM->pRingState,pVM->aPCBlockFlag,ring_list_getsize(pVM->aPCBlockFlag));
 }
 

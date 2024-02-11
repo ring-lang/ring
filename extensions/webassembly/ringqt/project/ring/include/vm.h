@@ -399,6 +399,11 @@
 	/* Threads */
 	#define RING_VM_ITEMSFORNEWTHREAD 100000
 	#define RING_VM_SCOPERANGEFORNEWTHREAD 10000
+	/* aPCBlockFlag */
+	#define RING_APCBLOCKFLAG_PC 1
+	#define RING_APCBLOCKFLAG_EXITMARK 2
+	#define RING_APCBLOCKFLAG_LOOPMARK 3
+	#define RING_APCBLOCKFLAG_TRY 4
 	/* Runtime Error Messages */
 	#define RING_VM_ERROR_DIVIDEBYZERO "Error (R1) : Can't divide by zero"
 	#define RING_VM_ERROR_INDEXOUTOFRANGE "Error (R2) : Array Access (Index out of range)"
