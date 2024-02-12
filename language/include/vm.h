@@ -257,7 +257,7 @@
 	#define RING_VM_IR_ITEMSETINT(x,y) (* x).iNumber  = y
 	#define RING_VM_IR_ITEMSETPOINTER(x,y) (* x).pPointer = y
 	#define RING_VM_IR_ITEMTYPE Register
-	#define RING_VM_IR_ITEMATINS(x,y) & ((pVM->pByteCode + x)->aReg[y-1])
+	#define RING_VM_IR_ITEMATINS(x,y) & ((pVM->pByteCode + x)->aReg[y])
 	#define RING_VM_IR_READIVALUEATINS(x,y) (pVM->pByteCode + x)->aReg[y-1].iNumber
 	#define RING_VM_IR_READPVALUEATINS(x,y) (pVM->pByteCode + x)->aReg[y-1].pPointer
 	#define RING_VM_PC_CURRENTINS pVM->nPC - 2

@@ -214,7 +214,7 @@ int ring_vm_oop_parentinit ( VM *pVM,List *pList )
 				cClassName = ring_list_getstring(pList2,RING_CLASSMAP_PARENTCLASS) ;
 				if ( strcmp(cClassName,"") != 0 ) {
 					/* Add Class Init Method to be called */
-					ring_vm_blockflag2(pVM,ring_list_getint(pList2,2));
+					ring_vm_blockflag2(pVM,ring_list_getint(pList2,RING_CLASSMAP_PC ));
 				}
 				else {
 					pVM->nPC = ring_list_getint(pList2,RING_CLASSMAP_PC) ;
@@ -247,10 +247,10 @@ void ring_vm_oop_newclass ( VM *pVM )
 	if ( pClass == NULL ) {
 		for ( x = 1 ; x <= ring_list_getsize(pVM->pRingState->pRingClassesMap) ; x++ ) {
 			pList = ring_list_getlist(pVM->pRingState->pRingClassesMap,x);
-			if ( strcmp(ring_list_getstring(pList,1),RING_VM_IR_READCVALUE(1)) == 0 ) {
-				if ( ring_list_getsize(pList) == 3 ) {
+			if ( strcmp(ring_list_getstring(pList,RING_CLASSMAP_CLASSNAME),RING_VM_IR_READCVALUE(1)) == 0 ) {
+				if ( ring_list_getsize(pList) == RING_CLASSMAP_IMPORTEDCLASSSIZE ) {
 					/* Here the class is stored inside a package - we have the class pointer (item 2) */
-					pClass = (List *) ring_list_getpointer(pList,2) ;
+					pClass = (List *) ring_list_getpointer(pList,RING_CLASSMAP_POINTERTOLISTOFCLASSINSIDEPACKAGE) ;
 				}
 				else {
 					pClass = pList ;
@@ -335,7 +335,7 @@ void ring_vm_oop_property ( VM *pVM )
 	}
 	/* Get Object State */
 	pScope = pVM->pActiveMem ;
-	pVM->pActiveMem = ring_list_getlist(pVar,2);
+	pVM->pActiveMem = ring_list_getlist(pVar,RING_OBJECT_OBJECTDATA);
 	pVM->nGetSetProperty = 1 ;
 	if ( ring_vm_findvar(pVM, RING_VM_IR_READC ) == 0 ) {
 		/* Create the attribute if we are in the class region after the class name */
@@ -660,10 +660,10 @@ void ring_vm_oop_import2 ( VM *pVM,const char *cPackage )
 	const char *cPackage2  ;
 	for ( x = 1 ; x <= ring_list_getsize(pVM->pPackagesMap) ; x++ ) {
 		pList = ring_list_getlist(pVM->pPackagesMap,x);
-		cPackage2 = ring_list_getstring(pList,1);
+		cPackage2 = ring_list_getstring(pList,RING_PACKAGENAME);
 		if ( strcmp(cPackage, cPackage2) == 0 ) {
 			/* Get Package Classes */
-			pList2 = ring_list_getlist(pList,2);
+			pList2 = ring_list_getlist(pList,RING_CLASSESLIST);
 			ring_vm_oop_import3(pVM,pList2);
 			/* Set Active Package Name */
 			ring_string_set_gc(pVM->pRingState,pVM->pPackageName,cPackage);
@@ -696,7 +696,7 @@ List * ring_vm_oop_checkpointertoclassinpackage ( VM *pVM,List *pList )
 				return NULL ;
 			}
 		}
-		return (List *) ring_list_getpointer(pList,2) ;
+		return (List *) ring_list_getpointer(pList,RING_CLASSMAP_POINTERTOLISTOFCLASSINSIDEPACKAGE) ;
 	}
 	return pList ;
 }
@@ -874,7 +874,7 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 			}
 			ring_vm_eval(pVM,ring_string_get(pString));
 			/* Note: Eval reallocation change mem. locations */
-			pItem2 = RING_VM_IR_ITEMATINS(nIns,2) ;
+			pItem2 = RING_VM_IR_ITEMATINS(nIns,RING_VM_IR_REG2) ;
 			RING_VM_IR_ITEMSETINT(pItem2,pVM->nPC);
 		}
 		else {
@@ -993,7 +993,7 @@ void ring_vm_oop_setproperty ( VM *pVM )
 			}
 			ring_vm_eval(pVM,ring_string_get(pString));
 			/* Note: Eval reallocation change mem. locations */
-			pItem = RING_VM_IR_ITEMATINS(nIns2,2) ;
+			pItem = RING_VM_IR_ITEMATINS(nIns2,RING_VM_IR_REG2) ;
 			RING_VM_IR_ITEMSETINT(pItem,pVM->nPC);
 			/* Delete String */
 			ring_string_delete_gc(pVM->pRingState,pString);
@@ -1003,7 +1003,7 @@ void ring_vm_oop_setproperty ( VM *pVM )
 			pVM->nPC = RING_VM_IR_READIVALUE(2) ;
 		}
 		/* Set Before/After SetProperty Flag To After */
-		pRegItem = RING_VM_IR_ITEMATINS(nIns,1) ;
+		pRegItem = RING_VM_IR_ITEMATINS(nIns,RING_VM_IR_REG1) ;
 		RING_VM_IR_ITEMSETINT(pRegItem,1);
 	}
 	/* After (Second Time) */
@@ -1129,7 +1129,7 @@ void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int 
 		}
 		ring_vm_eval(pVM,ring_string_get(pString));
 		/* Note: Eval reallocation change mem. locations */
-		pRegItem = RING_VM_IR_ITEMATINS(nIns,1) ;
+		pRegItem = RING_VM_IR_ITEMATINS(nIns,RING_VM_IR_REG1) ;
 		RING_VM_IR_ITEMSETINT(pRegItem,pVM->nPC);
 		/* Delete String */
 		ring_string_delete_gc(pVM->pRingState,pString);
