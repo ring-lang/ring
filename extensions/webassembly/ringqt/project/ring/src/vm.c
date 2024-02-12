@@ -529,29 +529,29 @@ void ring_vm_deletebytecode ( VM *pVM,int nIns )
 	int x  ;
 	ByteCode *pByteCode  ;
 	pVM->pByteCodeIR = pVM->pByteCode + nIns - 1 ;
-	ring_vm_clearregisterstring(pVM,1);
-	ring_vm_clearregisterstring(pVM,2);
-	ring_vm_clearregisterstring(pVM,3);
+	ring_vm_clearregisterstring(pVM,RING_VM_IR_REG1);
+	ring_vm_clearregisterstring(pVM,RING_VM_IR_REG2);
+	ring_vm_clearregisterstring(pVM,RING_VM_IR_REG3);
 }
 
 void ring_vm_clearregisterstring ( VM *pVM,int nReg )
 {
 	switch ( nReg ) {
-		case 1 :
+		case RING_VM_IR_REG1 :
 			if ( pVM->pByteCodeIR->nReg1Type == RING_VM_REGTYPE_STRING ) {
-				ring_string_delete_gc(pVM->pRingState,pVM->pByteCodeIR->aReg[0].pString);
+				ring_string_delete_gc(pVM->pRingState,pVM->pByteCodeIR->aReg[RING_VM_IR_REG1].pString);
 				pVM->pByteCodeIR->nReg1Type = RING_VM_REGTYPE_NOTHING ;
 			}
 			break ;
-		case 2 :
+		case RING_VM_IR_REG2 :
 			if ( pVM->pByteCodeIR->nReg2Type == RING_VM_REGTYPE_STRING ) {
-				ring_string_delete_gc(pVM->pRingState,pVM->pByteCodeIR->aReg[1].pString);
+				ring_string_delete_gc(pVM->pRingState,pVM->pByteCodeIR->aReg[RING_VM_IR_REG2].pString);
 				pVM->pByteCodeIR->nReg2Type = RING_VM_REGTYPE_NOTHING ;
 			}
 			break ;
-		case 3 :
+		case RING_VM_IR_REG3 :
 			if ( pVM->pByteCodeIR->nReg3Type == RING_VM_REGTYPE_STRING ) {
-				ring_string_delete_gc(pVM->pRingState,pVM->pByteCodeIR->aReg[2].pString);
+				ring_string_delete_gc(pVM->pRingState,pVM->pByteCodeIR->aReg[RING_VM_IR_REG3].pString);
 				pVM->pByteCodeIR->nReg3Type = RING_VM_REGTYPE_NOTHING ;
 			}
 			break ;
