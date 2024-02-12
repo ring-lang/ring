@@ -87,6 +87,8 @@
 	#define RING_OUTPUT_RETLIST 0
 	#define RING_OUTPUT_RETLISTBYREF 1
 	#define RING_OUTPUT_RETNEWREF 2
+	#define RING_VARVALUE_INT 1
+	#define RING_VARVALUE_FLOAT 2
 	/* API For C Functions */
 	#define RING_API_STATE (((VM *) pPointer)->pRingState)
 	#define RING_API_PARALIST (((VM *) pPointer)->pActiveMem)

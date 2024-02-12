@@ -76,7 +76,7 @@ RING_API int ring_vm_api_ispointer ( void *pPointer,int x )
 			ring_list_addpointer_gc(pVM->pRingState,pList2,NULL);
 			/* Add the pointer type */
 			ring_list_addstring_gc(pVM->pRingState,pList2,"NULLPOINTER");
-			/* Add the status number ( 0 = Not Copied ,1 = Copied  2 = Not Assigned yet) */
+			/* Add the status number ( 0 = Not Copied , 1 = Copied  2 = Not Assigned yet) */
 			ring_list_addint_gc(pVM->pRingState,pList2,RING_CPOINTERSTATUS_NOTASSIGNED);
 			return 1 ;
 		}
@@ -150,7 +150,7 @@ RING_API void ring_vm_api_retcpointer2 ( void *pPointer,void *pGeneral,const cha
 	ring_list_addpointer_gc(((VM *) pPointer)->pRingState,pList,pGeneral);
 	/* Add the pointer type */
 	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cType);
-	/* Add the status number ( 0 = Not Copied ,1 = Copied  2 = Not Assigned yet) */
+	/* Add the status number ( 0 = Not Copied , 1 = Copied  2 = Not Assigned yet) */
 	ring_list_addint_gc(((VM *) pPointer)->pRingState,pList,RING_CPOINTERSTATUS_NOTASSIGNED);
 	/* Set the Free Function */
 	if ( pFreeFunc != NULL ) {
@@ -278,7 +278,7 @@ RING_API void ring_vm_api_varvalue ( void *pPointer,const char  *cStr,int nType 
 	RING_VM_STACK_POP ;
 	if ( ring_list_getint(pList,RING_VAR_TYPE) == RING_VM_NUMBER ) {
 		pItem = ring_list_getitem(pList,RING_VAR_VALUE);
-		if ( nType == 1 ) {
+		if ( nType == RING_VARVALUE_INT ) {
 			pItem->data.dNumber = (double) pItem->data.iNumber ;
 		}
 		else {
@@ -296,8 +296,8 @@ RING_API void ring_list_addcpointer ( List *pList,void *pGeneral,const char *cTy
 	ring_list_addpointer(pList2,pGeneral);
 	/* Add the pointer type */
 	ring_list_addstring(pList2,cType);
-	/* Add the status number ( 0 = Not Copied ,1 = Copied  2 = Not Assigned yet) */
-	ring_list_addint(pList2,2);
+	/* Add the status number ( 0 = Not Copied , 1 = Copied  2 = Not Assigned yet) */
+	ring_list_addint(pList2,RING_CPOINTERSTATUS_NOTASSIGNED);
 }
 
 RING_API int ring_vm_api_iscpointerlist ( List *pList )
@@ -351,7 +351,7 @@ RING_API void * ring_vm_api_getcpointer2pointer ( void *pPointer,int x,const cha
 				return NULL ;
 			}
 			else {
-				if ( strcmp(ring_list_getstring(pList,2),"NULLPOINTER") == 0 ) {
+				if ( strcmp(ring_list_getstring(pList,RING_CPOINTER_TYPE),"NULLPOINTER") == 0 ) {
 					return NULL ;
 				}
 			}
@@ -372,8 +372,8 @@ RING_API void ring_list_addcpointer_gc ( void *pState,List *pList,void *pGeneral
 	ring_list_addpointer_gc(pState,pList2,pGeneral);
 	/* Add the pointer type */
 	ring_list_addstring_gc(pState,pList2,cType);
-	/* Add the status number ( 0 = Not Copied ,1 = Copied  2 = Not Assigned yet) */
-	ring_list_addint_gc(pState,pList2,2);
+	/* Add the status number ( 0 = Not Copied , 1 = Copied  2 = Not Assigned yet) */
+	ring_list_addint_gc(pState,pList2,RING_CPOINTERSTATUS_NOTASSIGNED);
 }
 
 RING_API void ring_vm_api_retcpointer ( void *pPointer,void *pGeneral,const char *cType )
@@ -443,12 +443,12 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
 
 RING_API void ring_vm_api_intvalue ( void *pPointer,const char  *cStr )
 {
-	ring_vm_api_varvalue(pPointer,cStr,1);
+	ring_vm_api_varvalue(pPointer,cStr,RING_VARVALUE_INT);
 }
 
 RING_API void ring_vm_api_floatvalue ( void *pPointer,const char  *cStr )
 {
-	ring_vm_api_varvalue(pPointer,cStr,2);
+	ring_vm_api_varvalue(pPointer,cStr,RING_VARVALUE_FLOAT);
 }
 
 RING_API List * ring_vm_api_newlistusingblocks ( VM *pVM, int nSize, int nSize2 )
