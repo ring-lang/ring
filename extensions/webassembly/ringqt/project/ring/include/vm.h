@@ -207,6 +207,9 @@
 	#define RING_OBJTYPE_VARIABLE 1
 	#define RING_OBJTYPE_LISTITEM 2
 	#define RING_OBJTYPE_SUBSTRING 3
+	/* Stack List */
+	#define RING_STACKLIST_POINTER 1
+	#define RING_STACKLIST_OBJTYPE 2
 	/* Variable Structure */
 	#define RING_VAR_LISTSIZE 5
 	#define RING_VAR_NAME 1

@@ -649,8 +649,8 @@ void ring_vm_restorestack ( VM *pVM,List *pList )
 		}
 		else if ( ring_list_islist(pList,x) ) {
 			pList2 = ring_list_getlist(pList,x);
-			RING_VM_STACK_PUSHPVALUE(ring_list_getpointer(pList2,1));
-			RING_VM_STACK_OBJTYPE = ring_list_getint(pList2,2) ;
+			RING_VM_STACK_PUSHPVALUE(ring_list_getpointer(pList2,RING_STACKLIST_POINTER));
+			RING_VM_STACK_OBJTYPE = ring_list_getint(pList2,RING_STACKLIST_OBJTYPE) ;
 		}
 	}
 }
