@@ -124,6 +124,10 @@
 	/* Logic */
 	#define RING_TRUE 1
 	#define RING_FALSE 0
+	/* Count/Status */
+	#define RING_ZERO 0
+	#define RING_ONE 1
+	#define RING_TWO 2
 	/* Include Ring Headers */
 	#include "ext.h"
 	#include "rstring.h"

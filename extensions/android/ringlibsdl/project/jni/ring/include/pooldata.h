@@ -24,8 +24,12 @@
 	/* Level 6 */
 	#define RING_POOLMANAGER_ITEMSTRINGSIZEStateLevel 192
 	#define RING_POOLMANAGER_ITEMSINBLOCKStateLevel 2048
+	/* State */
 	#define RING_VM_STATE_NUMBERS_COUNT 30
 	#define RING_VM_STATE_POINTERS_COUNT 9
+	/* Blocks List */
+	#define RING_VM_BLOCKSTART 1
+	#define RING_VM_BLOCKEND 2
 	/* Data */
 	typedef struct PoolData {
 		union PoolDataTypes {

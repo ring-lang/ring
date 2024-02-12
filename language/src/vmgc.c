@@ -800,8 +800,8 @@ RING_API void ring_state_free ( void *pState,void *pMemory )
 			if ( ring_list_getsize(pBlocks) > 0 ) {
 				for ( x = 1 ; x <= ring_list_getsize(pBlocks) ; x++ ) {
 					pBlock = ring_list_getlist(pBlocks,x) ;
-					pBlockStart = ring_list_getpointer(pBlock,1);
-					pBlockEnd = ring_list_getpointer(pBlock,2);
+					pBlockStart = ring_list_getpointer(pBlock,RING_VM_BLOCKSTART);
+					pBlockEnd = ring_list_getpointer(pBlock,RING_VM_BLOCKEND);
 					if ( (pMemory >= pBlockStart) && (pMemory <= pBlockEnd) ) {
 						/* We have the memory inside a block, so we will not delete it! */
 						return ;
@@ -921,7 +921,7 @@ RING_API void ring_state_unregisterblock ( void *pState,void *pStart )
 	pRingState->lDontCheckStateBlocks = 1 ;
 	for ( x = 1 ; x <= ring_list_getsize(pRingState->vPoolManager.aBlocks) ; x++ ) {
 		pList = ring_list_getlist(pRingState->vPoolManager.aBlocks,x);
-		if ( ring_list_getpointer(pList,1) == pStart ) {
+		if ( ring_list_getpointer(pList,RING_VM_BLOCKSTART) == pStart ) {
 			ring_list_deleteitem_gc(pRingState,pRingState->vPoolManager.aBlocks,x);
 			break ;
 		}
@@ -1189,7 +1189,7 @@ void ring_poolmanager_newblockfromsubthread ( RingState *pSubRingState,int nCoun
 	**  Set Values in Ring State 
 	**  Set First Item in Ring State 
 	*/
-	pSubRingState->vPoolManager.pCurrentItem = (PoolData *) ring_state_calloc(pMainRingState,1,sizeof(PoolData)) ;
+	pSubRingState->vPoolManager.pCurrentItem = (PoolData *) ring_state_calloc(pMainRingState,RING_ONE,sizeof(PoolData)) ;
 	/* Set Block Start and End */
 	pSubRingState->vPoolManager.pBlockStart = pMainRingState->vPoolManager.pBlockStart ;
 	pSubRingState->vPoolManager.pBlockEnd = pMainRingState->vPoolManager.pBlockEnd ;
@@ -1203,7 +1203,7 @@ void ring_poolmanager_newblockfromsubthread ( RingState *pSubRingState,int nCoun
 	/* Create the Items */
 	pMemory = pSubRingState->vPoolManager.pCurrentItem ;
 	for ( x = 1 ; x <= nCount-1 ; x++ ) {
-		pMemory->pNext = (PoolData *) ring_state_calloc(pMainRingState,1,sizeof(PoolData)) ;
+		pMemory->pNext = (PoolData *) ring_state_calloc(pMainRingState,RING_ONE,sizeof(PoolData)) ;
 		pMemory = pMemory->pNext ;
 	}
 	pMemory->pNext = NULL ;

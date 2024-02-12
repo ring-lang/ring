@@ -48,6 +48,8 @@ RING_POOLMANAGER_ITEMSTRINGSIZEStateLevel
 RING_POOLMANAGER_ITEMSINBLOCKStateLevel
 RING_VM_STATE_NUMBERS_COUNT
 RING_VM_STATE_POINTERS_COUNT
+RING_VM_BLOCKSTART
+RING_VM_BLOCKSEND
 Parent: PoolData
 Parent: PoolDataTypes
 Type: String
@@ -209,7 +211,7 @@ pItem
 Type: char *
 newstr
 Type: char
-cStr[2]
+cStr[RING_CHARBUF]
 ring_vm_gc_deletetemplists
 ring_vm_gc_freefunc
 ring_vm_gc_setfreefunc
