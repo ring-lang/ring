@@ -690,9 +690,9 @@ void ring_vm_oop_import3 ( VM *pVM,List *pList )
 
 List * ring_vm_oop_checkpointertoclassinpackage ( VM *pVM,List *pList )
 {
-	if ( ring_list_getsize(pList) == 3 ) {
-		if ( ring_list_getpointer(pList,3) != NULL ) {
-			if ( strcmp((char *) ring_list_getpointer(pList,3),pVM->cFileName) != 0 ) {
+	if ( ring_list_getsize(pList) == RING_CLASSMAP_IMPORTEDCLASSSIZE ) {
+		if ( ring_list_getpointer(pList,RING_CLASSMAP_POINTERTOFILENAME ) != NULL ) {
+			if ( strcmp((char *) ring_list_getpointer(pList,RING_CLASSMAP_POINTERTOFILENAME),pVM->cFileName) != 0 ) {
 				return NULL ;
 			}
 		}
@@ -978,9 +978,9 @@ void ring_vm_oop_setproperty ( VM *pVM )
 		if ( RING_VM_IR_READIVALUE(2)  == 0 ) {
 			/* Create String */
 			pString = ring_string_new_gc(pVM->pRingState,"if ismethod(ring_gettemp_var,'set");
-			ring_string_add_gc(pVM->pRingState,pString,ring_list_getstring(pList,3));
+			ring_string_add_gc(pVM->pRingState,pString,ring_list_getstring(pList,RING_ASETPROPERTY_ATTRNAME));
 			ring_string_add_gc(pVM->pRingState,pString,"')\nring_gettemp_var.'set");
-			ring_string_add_gc(pVM->pRingState,pString,ring_list_getstring(pList,3));
+			ring_string_add_gc(pVM->pRingState,pString,ring_list_getstring(pList,RING_ASETPROPERTY_ATTRNAME));
 			ring_string_add_gc(pVM->pRingState,pString,"'(ring_settemp_var)\nring_tempflag_var = 0\nelse\nring_tempflag_var = 1\nok");
 			/*
 			**  Eval the string 
@@ -1074,11 +1074,11 @@ Item * ring_vm_oop_objitemfromobjlist ( List *pList )
 {
 	Item *pItem  ;
 	/* Get Object State List */
-	pList = ring_list_getlist(pList,2);
+	pList = ring_list_getlist(pList,RING_OBJECT_OBJECTDATA);
 	/* Get Self Attribute List */
-	pList = ring_list_getlist(pList,1);
+	pList = ring_list_getlist(pList,RING_OBJECT_SELFATTRIBUTE);
 	/* Get Object Pointer from Self Attribute List */
-	pItem = (Item *) ring_list_getpointer(pList,3);
+	pItem = (Item *) ring_list_getpointer(pList,RING_VAR_VALUE);
 	return pItem ;
 }
 
