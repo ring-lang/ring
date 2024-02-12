@@ -169,8 +169,8 @@
 	/* Note, use RING_VM_STACK_OBJTYPE to read/write the pointer type */
 	#define RING_VM_STACK_TRUE ring_itemarray_setdouble(pVM->aStack,pVM->nSP, 1)
 	#define RING_VM_STACK_FALSE ring_itemarray_setdouble(pVM->aStack,pVM->nSP, 0)
-	#define RING_VM_STACK_PUSHCVAR ring_itemarray_setstring2(pVM->aStack,pVM->nSP,ring_list_getstring(pVar,3),ring_list_getstringsize(pVar,3))
-	#define RING_VM_STACK_PUSHNVAR ring_itemarray_setdouble(pVM->aStack,pVM->nSP,ring_list_getdouble(pVar,3))
+	#define RING_VM_STACK_PUSHCVAR ring_itemarray_setstring2(pVM->aStack,pVM->nSP,ring_list_getstring(pVar,RING_VAR_VALUE),ring_list_getstringsize(pVar,RING_VAR_VALUE))
+	#define RING_VM_STACK_PUSHNVAR ring_itemarray_setdouble(pVM->aStack,pVM->nSP,ring_list_getdouble(pVar,RING_VAR_VALUE))
 	#define RING_VM_STACK_PUSHPVALUE(x) RING_VM_SP_INC ; ring_itemarray_setpointer(pVM->aStack, pVM->nSP, x)
 	#define RING_VM_STACK_PUSHCVALUE(x) RING_VM_SP_INC ; ring_itemarray_setstring(pVM->aStack, pVM->nSP, x)
 	#define RING_VM_STACK_PUSHNVALUE(x) RING_VM_SP_INC ; ring_itemarray_setdouble(pVM->aStack, pVM->nSP, x)
