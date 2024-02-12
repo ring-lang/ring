@@ -651,11 +651,11 @@ void ring_vm_createtemplist ( VM *pVM )
 	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 		if ( ring_list_islist(pList,x) ) {
 			pList2 = ring_list_getlist(pList,x) ;
-			if ( ring_list_getsize(pList2) == 2 ) {
-				if ( ring_list_isint(pList2,1) && ring_list_islist(pList2,2) ) {
-					if ( ring_list_getint(pList2,1) == pVM->nPC ) {
+			if ( ring_list_getsize(pList2) == RING_TEMPLIST_SIZE ) {
+				if ( ring_list_isint(pList2,RING_TEMPLIST_PC) && ring_list_islist(pList2,RING_TEMPLIST_LIST) ) {
+					if ( ring_list_getint(pList2,RING_TEMPLIST_PC) == pVM->nPC ) {
 						lFound = 1 ;
-						pList = ring_list_getlist(pList2,2) ;
+						pList = ring_list_getlist(pList2,RING_TEMPLIST_LIST) ;
 						ring_list_deleteallitems_gc(pVM->pRingState,pList);
 					}
 				}
