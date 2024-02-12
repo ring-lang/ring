@@ -118,7 +118,7 @@ RING_API List * ring_vm_api_getlist ( void *pPointer,int x )
 		nType = RING_API_GETPOINTERTYPE(x);
 		if ( nType == RING_OBJTYPE_VARIABLE ) {
 			pList = (List *) RING_API_GETPOINTER(x) ;
-			return ring_list_getlist(pList,3) ;
+			return ring_list_getlist(pList,RING_VAR_VALUE) ;
 		}
 		else if ( nType == RING_OBJTYPE_LISTITEM ) {
 			pItem = (Item *) RING_API_GETPOINTER(x) ;
@@ -165,17 +165,17 @@ RING_API void * ring_vm_api_getcpointer ( void *pPointer,int x,const char *cType
 	List *pList  ;
 	if ( RING_API_ISLISTORNULL(x) ) {
 		pList = RING_API_GETLIST(x) ;
-		if ( ring_list_ispointer(pList,1) ) {
-			if ( ring_list_getpointer(pList,1) != NULL ) {
-				if ( (strcmp(ring_list_getstring(pList,2),cType) == 0) || (((VM *) pPointer)->nIgnoreCPointerTypeCheck==1) ) {
+		if ( ring_list_ispointer(pList,RING_CPOINTER_POINTER) ) {
+			if ( ring_list_getpointer(pList,RING_CPOINTER_POINTER) != NULL ) {
+				if ( (strcmp(ring_list_getstring(pList,RING_CPOINTER_TYPE),cType) == 0) || (((VM *) pPointer)->nIgnoreCPointerTypeCheck==1) ) {
 					/*
 					**  Check if the pointer is copied or not 
 					**  We check for 2 (not assigned) also, happens when f1 ( x , f2() ) and f2 return C pointer 
 					*/
-					if ( (ring_list_getint(pList,3) == 0) || (ring_list_getint(pList,3) == 2) ) {
-						return ring_list_getpointer(pList,1) ;
+					if ( (ring_list_getint(pList,RING_CPOINTER_STATUS) == RING_CPOINTERSTATUS_NOTCOPIED) || (ring_list_getint(pList,RING_CPOINTER_STATUS) == RING_CPOINTERSTATUS_NOTASSIGNED) ) {
+						return ring_list_getpointer(pList,RING_CPOINTER_POINTER) ;
 					}
-					ring_list_setpointer_gc(((VM *) pPointer)->pRingState,pList,1,NULL);
+					ring_list_setpointer_gc(((VM *) pPointer)->pRingState,pList,RING_CPOINTER_POINTER,NULL);
 					RING_API_ERROR(RING_API_NULLPOINTER);
 					return NULL ;
 				}
@@ -183,7 +183,7 @@ RING_API void * ring_vm_api_getcpointer ( void *pPointer,int x,const char *cType
 				return NULL ;
 			}
 			else {
-				if ( (strcmp(ring_list_getstring(pList,2),"NULLPOINTER") == 0) || (strcmp(ring_list_getstring(pList,2),cType) == 0) ) {
+				if ( (strcmp(ring_list_getstring(pList,RING_CPOINTER_TYPE),"NULLPOINTER") == 0) || (strcmp(ring_list_getstring(pList,RING_CPOINTER_TYPE),cType) == 0) ) {
 					return NULL ;
 				}
 			}
@@ -200,8 +200,8 @@ RING_API void ring_vm_api_setcpointernull ( void *pPointer,int x )
 	List *pList  ;
 	pList = (List *) RING_API_GETLIST(x) ;
 	/* Check pointer status ( 0 = Not copied , 1 = Copied ) */
-	if ( ring_list_getint(pList,3) == RING_CPOINTERSTATUS_NOTCOPIED ) {
-		ring_list_setpointer_gc(((VM *) pPointer)->pRingState,pList,1,NULL);
+	if ( ring_list_getint(pList,RING_CPOINTER_STATUS) == RING_CPOINTERSTATUS_NOTCOPIED ) {
+		ring_list_setpointer_gc(((VM *) pPointer)->pRingState,pList,RING_CPOINTER_POINTER,NULL);
 		return ;
 	}
 }
@@ -332,18 +332,18 @@ RING_API void * ring_vm_api_getcpointer2pointer ( void *pPointer,int x,const cha
 	Item *pItem  ;
 	if ( RING_API_ISLISTORNULL(x) ) {
 		pList = RING_API_GETLIST(x) ;
-		if ( ring_list_ispointer(pList,1) ) {
-			if ( ring_list_getpointer(pList,1) != NULL ) {
-				if ( (strcmp(ring_list_getstring(pList,2),cType) == 0) || (((VM *) pPointer)->nIgnoreCPointerTypeCheck==1) ) {
+		if ( ring_list_ispointer(pList,RING_CPOINTER_POINTER) ) {
+			if ( ring_list_getpointer(pList,RING_CPOINTER_POINTER) != NULL ) {
+				if ( (strcmp(ring_list_getstring(pList,RING_CPOINTER_TYPE),cType) == 0) || (((VM *) pPointer)->nIgnoreCPointerTypeCheck==1) ) {
 					/*
 					**  Check if the pointer is copied or not 
 					**  We check for 2 (not assigned) also, happens when f1 ( x , f2() ) and f2 return C pointer 
 					*/
-					if ( (ring_list_getint(pList,3) == 0) || (ring_list_getint(pList,3) == 2) ) {
-						pItem = ring_list_getitem(pList,1);
+					if ( (ring_list_getint(pList,RING_CPOINTER_STATUS) == RING_CPOINTERSTATUS_NOTCOPIED) || (ring_list_getint(pList,RING_CPOINTER_STATUS) == RING_CPOINTERSTATUS_NOTASSIGNED) ) {
+						pItem = ring_list_getitem(pList,RING_CPOINTER_POINTER);
 						return & (pItem->data.pPointer) ;
 					}
-					ring_list_setpointer_gc(((VM *) pPointer)->pRingState,pList,1,NULL);
+					ring_list_setpointer_gc(((VM *) pPointer)->pRingState,pList,RING_CPOINTER_POINTER,NULL);
 					RING_API_ERROR(RING_API_NULLPOINTER);
 					return NULL ;
 				}
