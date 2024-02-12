@@ -30,7 +30,8 @@ More Improvements
 * Added: samples/AQuickStart/GameLib/delay.ring - An example about using the al_rest() function
 * isWindows64() function - Better Code
 * print() function - Better code to handle apostrophe inside text
-* reverse() function - Support strings
+* random() function - Produce an error message when the parameter is a negative number or zero
+* reverse() function - Beside supporting lists, the function now support strings too
 * add() function - when adding a list support adding each item alone
 * list2str() function - Support more parameters: list2str(aList,[nStart],[nEnd])
 * RingQt - Correct parent class name for the QMaterial & QLogicAspect classes
