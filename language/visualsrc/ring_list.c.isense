@@ -288,7 +288,7 @@ cStr
 Type: List *
 pList2
 Type: char
-cOptions[10]
+cOptions[RING_SMALLBUF]
 Type: char
 cString[RING_MEDIUMBUF]
 ring_list_findinlistofobjs

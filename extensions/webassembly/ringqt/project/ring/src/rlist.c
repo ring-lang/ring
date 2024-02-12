@@ -1346,19 +1346,19 @@ RING_API void ring_list_printobj ( List *pList,unsigned int nDecimals )
 	List *pList2,*pList3  ;
 	unsigned int x  ;
 	char cStr[RING_MEDIUMBUF]  ;
-	pList = ring_list_getlist(pList,2);
+	pList = ring_list_getlist(pList,RING_OBJECT_OBJECTDATA);
 	for ( x = 3 ; x <= ring_list_getsize(pList) ; x++ ) {
 		pList2 = ring_list_getlist(pList,x);
-		printf( "%s: " , ring_list_getstring(pList2,1) ) ;
-		if ( ring_list_isstring(pList2,3) ) {
-			printf( "%s\n" , ring_list_getstring(pList2,3) ) ;
+		printf( "%s: " , ring_list_getstring(pList2,RING_VAR_NAME) ) ;
+		if ( ring_list_isstring(pList2,RING_VAR_VALUE) ) {
+			printf( "%s\n" , ring_list_getstring(pList2,RING_VAR_VALUE) ) ;
 		}
-		else if ( ring_list_isnumber(pList2,3) ) {
-			ring_general_numtostring(ring_list_getdouble(pList2,3),cStr,nDecimals);
+		else if ( ring_list_isnumber(pList2,RING_VAR_VALUE) ) {
+			ring_general_numtostring(ring_list_getdouble(pList2,RING_VAR_VALUE),cStr,nDecimals);
 			printf( "%s\n" ,cStr ) ;
 		}
-		else if ( ring_list_islist(pList2,3) ) {
-			pList3 = ring_list_getlist(pList2,3) ;
+		else if ( ring_list_islist(pList2,RING_VAR_VALUE) ) {
+			pList3 = ring_list_getlist(pList2,RING_VAR_VALUE) ;
 			if ( ring_list_isobject(pList3) ) {
 				printf( "Object...\n" ) ;
 			}
@@ -1371,10 +1371,10 @@ RING_API void ring_list_printobj ( List *pList,unsigned int nDecimals )
 
 RING_API int ring_list_iscpointerlist ( List *pList )
 {
-	if ( ring_list_getsize(pList) != 3 ) {
+	if ( ring_list_getsize(pList) != RING_CPOINTER_LISTSIZE ) {
 		return 0 ;
 	}
-	if ( ring_list_ispointer(pList,1) && ring_list_isstring(pList,2) && ring_list_isnumber(pList,3) ) {
+	if ( ring_list_ispointer(pList,RING_CPOINTER_POINTER) && ring_list_isstring(pList,RING_CPOINTER_TYPE) && ring_list_isnumber(pList,RING_CPOINTER_STATUS) ) {
 		return 1 ;
 	}
 	return 0 ;
