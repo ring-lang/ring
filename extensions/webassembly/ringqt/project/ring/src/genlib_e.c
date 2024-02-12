@@ -329,6 +329,9 @@ void ring_vm_generallib_random ( void *pPointer )
 			if ( nNum2 > 0 ) {
 				RING_API_RETNUMBER(nNum1 % ++nNum2);
 			}
+			else {
+				RING_API_ERROR(RING_API_BADPARARANGE);
+			}
 		}
 		else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
