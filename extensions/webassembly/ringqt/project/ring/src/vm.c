@@ -341,7 +341,7 @@ void ring_vm_updateclassespointers ( RingState *pRingState )
 	for ( x = 1 ; x <= ring_list_getsize(pRingState->pRingPackagesMap) ; x++ ) {
 		pList = ring_list_getlist(pRingState->pRingPackagesMap,x);
 		/* Get The Classes List */
-		pList2 = ring_list_getlist(pList,RING_CLASSESLIST);
+		pList2 = ring_list_getlist(pList,RING_PACKAGES_CLASSESLIST);
 		for ( x2 = 1 ; x2 <= ring_list_getsize(pList2) ; x2++ ) {
 			pList3 = ring_list_getlist(pList2,x2);
 			ring_list_setpointer(pList3,RING_CLASSMAP_POINTERTOPACKAGE,pList);
@@ -382,9 +382,9 @@ void ring_vm_updateclassespointers ( RingState *pRingState )
 				/* Get The Package List */
 				for ( x3 = 1 ; x3 <= ring_list_getsize(pRingState->pRingPackagesMap) ; x3++ ) {
 					pPackageList = ring_list_getlist(pRingState->pRingPackagesMap,x3);
-					if ( strcmp(ring_list_getstring(pPackageList,RING_PACKAGENAME),cPackageName) == 0 ) {
+					if ( strcmp(ring_list_getstring(pPackageList,RING_PACKAGES_PACKAGENAME),cPackageName) == 0 ) {
 						/* Get The Classes List */
-						pList2 = ring_list_getlist(pPackageList,RING_CLASSESLIST);
+						pList2 = ring_list_getlist(pPackageList,RING_PACKAGES_CLASSESLIST);
 						for ( x4 = 1 ; x4 <= ring_list_getsize(pList2) ; x4++ ) {
 							pList3 = ring_list_getlist(pList2,x4);
 							if ( strcmp(ring_list_getstring(pList3,RING_CLASSMAP_CLASSNAME),cClassName) == 0 ) {

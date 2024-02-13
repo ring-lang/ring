@@ -242,7 +242,7 @@ void ring_vm_refmeta_packages ( void *pPointer )
 	pList = RING_API_NEWLIST ;
 	for ( x = 1 ; x <= ring_list_getsize(pVM->pPackagesMap) ; x++ ) {
 		pList2 = ring_list_getlist(pVM->pPackagesMap,x);
-		ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,ring_list_getstring(pList2,RING_PACKAGENAME));
+		ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,ring_list_getstring(pList2,RING_PACKAGES_PACKAGENAME));
 	}
 	RING_API_RETLIST(pList);
 }
@@ -263,7 +263,7 @@ void ring_vm_refmeta_ispackage ( void *pPointer )
 		pList = pVM->pPackagesMap ;
 		for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 			pList2 = ring_list_getlist(pList,x);
-			if ( strcmp(ring_list_getstring(pList2,RING_PACKAGENAME),cStr) == 0 ) {
+			if ( strcmp(ring_list_getstring(pList2,RING_PACKAGES_PACKAGENAME),cStr) == 0 ) {
 				RING_API_RETNUMBER(1);
 				return ;
 			}
@@ -334,9 +334,9 @@ void ring_vm_refmeta_packageclasses ( void *pPointer )
 		pList = pVM->pPackagesMap ;
 		for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 			pList2 = ring_list_getlist(pList,x);
-			if ( strcmp(ring_list_getstring(pList2,RING_PACKAGENAME),cStr) == 0 ) {
+			if ( strcmp(ring_list_getstring(pList2,RING_PACKAGES_PACKAGENAME),cStr) == 0 ) {
 				pList3 = RING_API_NEWLIST ;
-				pList2 = ring_list_getlist(pList2,RING_CLASSESLIST) ;
+				pList2 = ring_list_getlist(pList2,RING_PACKAGES_CLASSESLIST) ;
 				/* We can use the variable x for the loop again because we have return */
 				for ( x = 1 ; x <= ring_list_getsize(pList2) ; x++ ) {
 					ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList3,ring_list_getstring(ring_list_getlist(pList2,x),RING_CLASSMAP_CLASSNAME));
@@ -369,8 +369,8 @@ void ring_vm_refmeta_ispackageclass ( void *pPointer )
 		pList = pVM->pPackagesMap ;
 		for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 			pList2 = ring_list_getlist(pList,x);
-			if ( strcmp(ring_list_getstring(pList2,RING_PACKAGENAME),cStr) == 0 ) {
-				pList2 = ring_list_getlist(pList2,RING_CLASSESLIST) ;
+			if ( strcmp(ring_list_getstring(pList2,RING_PACKAGES_PACKAGENAME),cStr) == 0 ) {
+				pList2 = ring_list_getlist(pList2,RING_PACKAGES_CLASSESLIST) ;
 				/* We can use the variable x for the loop again because we have return */
 				for ( x = 1 ; x <= ring_list_getsize(pList2) ; x++ ) {
 					if ( strcmp(ring_list_getstring(ring_list_getlist(pList2,x),RING_CLASSMAP_CLASSNAME),cStr2)==0 ) {
