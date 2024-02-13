@@ -128,6 +128,8 @@
 	#define RING_ZERO 0
 	#define RING_ONE 1
 	#define RING_TWO 2
+	/* Decimals */
+	#define RING_DECIMALS 2
 	/* Include Ring Headers */
 	#include "ext.h"
 	#include "rstring.h"

@@ -1102,7 +1102,7 @@ RING_API void ring_list_swaptwolists ( List *pList1, List *pList2 )
 
 RING_API void ring_list_print ( List *pList )
 {
-	ring_list_print2(pList,2);
+	ring_list_print2(pList,RING_DECIMALS);
 }
 
 RING_API void ring_list_print2 ( List *pList,unsigned int nDecimals )
@@ -1329,13 +1329,13 @@ RING_API int ring_list_isobject ( List *pList )
 	if ( pList == NULL ) {
 		return 0 ;
 	}
-	if ( ring_list_getsize(pList) != 2 ) {
+	if ( ring_list_getsize(pList) != RING_OBJECT_LISTSIZE ) {
 		return 0 ;
 	}
-	if ( ring_list_ispointer(pList,1) == 0 ) {
+	if ( ring_list_ispointer(pList,RING_OBJECT_CLASSPOINTER) == 0 ) {
 		return 0 ;
 	}
-	if ( ring_list_islist(pList,2) == 0 ) {
+	if ( ring_list_islist(pList,RING_OBJECT_OBJECTDATA) == 0 ) {
 		return 0 ;
 	}
 	return 1 ;
