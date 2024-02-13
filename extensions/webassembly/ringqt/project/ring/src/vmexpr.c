@@ -271,7 +271,7 @@ void ring_vm_neg ( VM *pVM )
 		RING_VM_STACK_SETNVALUE((nNum1)*(-1));
 	}
 	else if ( RING_VM_STACK_ISPOINTER ) {
-		ring_vm_expr_npoo(pVM,"neg",0);
+		ring_vm_expr_npoo(pVM,"neg",RING_NOVALUE);
 	}
 }
 
@@ -779,7 +779,7 @@ void ring_vm_not ( VM *pVM )
 		}
 	}
 	else if ( RING_VM_STACK_ISPOINTER ) {
-		ring_vm_expr_npoo(pVM,"not",0);
+		ring_vm_expr_npoo(pVM,"not",RING_NOVALUE);
 		return ;
 	}
 }
@@ -1014,7 +1014,7 @@ void ring_vm_bitnot ( VM *pVM )
 		RING_VM_STACK_SETNVALUE(~ (int) nNum1);
 	}
 	else if ( RING_VM_STACK_ISPOINTER ) {
-		ring_vm_expr_npoo(pVM,"~",0);
+		ring_vm_expr_npoo(pVM,"~",RING_NOVALUE);
 		return ;
 	}
 }
@@ -1281,7 +1281,7 @@ void ring_vm_addlisttolist ( VM *pVM,List *pList,List *pList2 )
 		ring_list_assignreftoitem_gc(pVM->pRingState,pList,pItem);
 		return ;
 	}
-	pList4 = ring_list_new_gc(pVM->pRingState,0);
+	pList4 = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	ring_vm_list_copy(pVM,pList4,pList);
 	pList3 = ring_list_newlist_gc(pVM->pRingState,pList2);
 	ring_vm_list_copy(pVM,pList3,pList4);

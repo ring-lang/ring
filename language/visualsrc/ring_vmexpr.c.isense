@@ -4,7 +4,7 @@ cStr1,*cStr2
 Type: double
 nNum1,nNum2
 Type: char
-cStr3[100]
+cStr3[RING_MEDIUMBUF]
 Type: int
 nSize,x
 Type: char *
@@ -43,7 +43,7 @@ cStr1,*cStr2
 Type: double
 nNum1,nNum2
 Type: char
-cStr3[100]
+cStr3[RING_MEDIUMBUF]
 ring_vm_lessequal
 Type: double
 nNum1=0,nNum2=0
@@ -70,7 +70,7 @@ cStr1,*cStr2
 Type: double
 nNum1,nNum2
 Type: char
-cStr3[100]
+cStr3[RING_MEDIUMBUF]
 ring_vm_and
 Type: double
 nNum1,nNum2
@@ -148,6 +148,6 @@ Type: Item *
 pItem
 ring_vm_checkoverflow
 Type: char
-cStr1[100]
+cStr1[RING_MEDIUMBUF]
 Type: char
-cStr2[100]
+cStr2[RING_MEDIUMBUF]

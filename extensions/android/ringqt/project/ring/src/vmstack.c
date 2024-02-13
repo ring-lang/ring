@@ -210,7 +210,7 @@ void ring_vm_assignment ( VM *pVM )
 				}
 				else {
 					/* We use (Temp) List - to avoid problems when coping from parent list to child list */
-					pList = ring_list_new_gc(pVM->pRingState,0);
+					pList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 					ring_vm_list_copy(pVM,pList,pVar);
 				}
 				pVar = (List *) RING_VM_STACK_READP ;
@@ -413,7 +413,7 @@ void ring_vm_list_copy ( VM *pVM,List *pNewList, List *pList )
 		ring_list_setint_gc(pVM->pRingState,pNewList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_NOTCOPIED);
 		/* Copy The Pointer by Reference */
 		pNewList->pFirst->pValue = ring_item_delete_gc(pVM->pRingState,pNewList->pFirst->pValue);
-		pItem = ring_list_getitem(pList,1) ;
+		pItem = ring_list_getitem(pList,RING_CPOINTER_POINTER) ;
 		pNewList->pFirst->pValue = pItem ;
 		ring_vm_gc_newitemreference(pItem);
 	}
@@ -731,7 +731,7 @@ void ring_vm_len ( VM *pVM )
 					RING_VM_STACK_PUSHNVALUE(ring_list_getsize(pList));
 				}
 				else {
-					ring_vm_expr_npoo(pVM,"len",0);
+					ring_vm_expr_npoo(pVM,"len",RING_NOVALUE);
 					pVM->nIgnoreNULL = 1 ;
 				}
 			}
@@ -759,7 +759,7 @@ void ring_vm_len ( VM *pVM )
 						RING_VM_STACK_PUSHNVALUE(ring_list_getsize(pList));
 					}
 					else {
-						ring_vm_expr_npoo(pVM,"len",0);
+						ring_vm_expr_npoo(pVM,"len",RING_NOVALUE);
 						pVM->nIgnoreNULL = 1 ;
 					}
 					break ;

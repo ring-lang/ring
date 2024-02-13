@@ -50,14 +50,14 @@ ring_vm_beforeequallist
 Type: String *
 pString
 Type: char
-cStr[100]
+cStr[RING_MEDIUMBUF]
 Type: int
 nOutput
 ring_vm_beforeequalitem
 Type: String *
 pString
 Type: char
-cStr[100]
+cStr[RING_MEDIUMBUF]
 Type: int
 nOutput
 ring_vm_plusplus

@@ -125,6 +125,7 @@
 	#define RING_TRUE 1
 	#define RING_FALSE 0
 	/* Count/Status */
+	#define RING_NOVALUE 0
 	#define RING_ZERO 0
 	#define RING_ONE 1
 	#define RING_TWO 2
