@@ -818,9 +818,9 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 	int nIns  ;
 	/* Create String */
 	pString = ring_string_new_gc(pVM->pRingState,"if ismethod(ring_gettemp_var,'get");
-	ring_string_add_gc(pVM->pRingState,pString,ring_list_getstring(pVar,1));
+	ring_string_add_gc(pVM->pRingState,pString,ring_list_getstring(pVar,RING_VAR_NAME));
 	ring_string_add_gc(pVM->pRingState,pString,"')\nreturn ring_gettemp_var.'get");
-	ring_string_add_gc(pVM->pRingState,pString,ring_list_getstring(pVar,1));
+	ring_string_add_gc(pVM->pRingState,pString,ring_list_getstring(pVar,RING_VAR_NAME));
 	ring_string_add_gc(pVM->pRingState,pString,"'() ok");
 	/* Set Variable ring_gettemp_var */
 	pList = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_GLOBALVARPOS_GETTEMPVAR) ;
@@ -835,7 +835,7 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 		**  Check to do a Stack POP for the Attribute List 
 		*/
 		pString2 = ring_string_new_gc(pVM->pRingState,"get");
-		ring_string_add_gc(pVM->pRingState,pString2,ring_list_getstring(pVar,1));
+		ring_string_add_gc(pVM->pRingState,pString2,ring_list_getstring(pVar,RING_VAR_NAME));
 		/* Check Type */
 		pList2 = NULL ;
 		if ( pVM->nGetSetObjType == RING_OBJTYPE_VARIABLE ) {
@@ -894,7 +894,7 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 		ring_list_addpointer_gc(pVM->pRingState,pList,pVM->pGetSetObject);
 		ring_list_addint_gc(pVM->pRingState,pList,pVM->nGetSetObjType);
 		/* Add property name */
-		ring_list_addstring_gc(pVM->pRingState,pList,ring_list_getstring(pVar,1));
+		ring_list_addstring_gc(pVM->pRingState,pList,ring_list_getstring(pVar,RING_VAR_NAME));
 		/* Property Variable */
 		ring_list_addpointer_gc(pVM->pRingState,pList,pVar);
 		/*
@@ -902,7 +902,7 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 		**  We do this to enable the Assignment Pointer and Disable Set Property for Lists and Objects 
 		*/
 		pString2 = ring_string_new_gc(pVM->pRingState,"set");
-		ring_string_add_gc(pVM->pRingState,pString2,ring_list_getstring(pVar,1));
+		ring_string_add_gc(pVM->pRingState,pString2,ring_list_getstring(pVar,RING_VAR_NAME));
 		/* Check Type */
 		pList2 = NULL ;
 		if ( pVM->nGetSetObjType == RING_OBJTYPE_VARIABLE ) {
