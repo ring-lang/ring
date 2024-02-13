@@ -353,12 +353,12 @@ void ring_vm_updateclassespointers ( RingState *pRingState )
 	*/
 	for ( x = 1 ; x <= ring_list_getsize(pRingState->pRingClassesMap) ; x++ ) {
 		pList = ring_list_getlist(pRingState->pRingClassesMap,x);
-		cString = ring_list_getstring(pList,1);
-		if ( ring_list_getstringsize(pList,1)  > RING_HUGEBUF ) {
+		cString = ring_list_getstring(pList,RING_CLASSMAP_CLASSNAME);
+		if ( ring_list_getstringsize(pList,RING_CLASSMAP_CLASSNAME)  > RING_HUGEBUF ) {
 			/* Avoid large names */
 			continue ;
 		}
-		for ( x2 = ring_list_getstringsize(pList,1) - 1 ; x2 >= 0 ; x2-- ) {
+		for ( x2 = ring_list_getstringsize(pList,RING_CLASSMAP_CLASSNAME) - 1 ; x2 >= 0 ; x2-- ) {
 			if ( cString[x2] == '.' ) {
 				/*
 				**  Now we have a class name stored as packagename.classname 
@@ -372,10 +372,10 @@ void ring_vm_updateclassespointers ( RingState *pRingState )
 					printf( "Package Name %s \n  ",cPackageName ) ;
 				#endif
 				/* Get Class Name */
-				for ( x3 = x2+1 ; x3 <= ring_list_getstringsize(pList,1) - 1 ; x3++ ) {
+				for ( x3 = x2+1 ; x3 <= ring_list_getstringsize(pList,RING_CLASSMAP_CLASSNAME) - 1 ; x3++ ) {
 					cClassName[x3-x2-1] = cString[x3] ;
 				}
-				cClassName[ring_list_getstringsize(pList,1) - 1 - x2] = '\0' ;
+				cClassName[ring_list_getstringsize(pList,RING_CLASSMAP_CLASSNAME) - 1 - x2] = '\0' ;
 				#ifdef DEBUG_OBJFILE
 					printf( "Class Name %s \n  ",cClassName ) ;
 				#endif
@@ -387,9 +387,9 @@ void ring_vm_updateclassespointers ( RingState *pRingState )
 						pList2 = ring_list_getlist(pPackageList,RING_CLASSESLIST);
 						for ( x4 = 1 ; x4 <= ring_list_getsize(pList2) ; x4++ ) {
 							pList3 = ring_list_getlist(pList2,x4);
-							if ( strcmp(ring_list_getstring(pList3,1),cClassName) == 0 ) {
+							if ( strcmp(ring_list_getstring(pList3,RING_CLASSMAP_CLASSNAME),cClassName) == 0 ) {
 								/* Now We have the Class - Update Pointer */
-								ring_list_setpointer(pList,2,(void *) pList3);
+								ring_list_setpointer(pList,RING_CLASSMAP_POINTERTOLISTOFCLASSINSIDEPACKAGE,(void *) pList3);
 								/* Update Package Pointer in the Class List */
 								ring_list_setpointer(pList3,RING_CLASSMAP_POINTERTOPACKAGE,(void *) pPackageList);
 								break ;
