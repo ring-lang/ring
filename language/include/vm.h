@@ -204,6 +204,7 @@
 	/* Delete */
 	#define RING_VM_STACK_POP pVM->nSP--
 	/* Objects/Pointer  - Type */
+	#define RING_OBJTYPE_NOTYPE 0
 	#define RING_OBJTYPE_VARIABLE 1
 	#define RING_OBJTYPE_LISTITEM 2
 	#define RING_OBJTYPE_SUBSTRING 3

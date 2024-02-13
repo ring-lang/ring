@@ -11,18 +11,18 @@ void ring_vm_addglobalvariables ( VM *pVM )
 	**  Add Variables 
 	**  We write variable name in lower case because Identifiers is converted to lower by Compiler(Scanner) 
 	*/
-	ring_vm_addnewnumbervar(pVM,"true",1);
-	ring_vm_addnewnumbervar(pVM,"false",0);
+	ring_vm_addnewnumbervar(pVM,"true",RING_TRUE);
+	ring_vm_addnewnumbervar(pVM,"false",RING_FALSE);
 	ring_vm_addnewstringvar(pVM,"nl","\n");
 	ring_vm_addnewstringvar(pVM,"null","");
-	ring_vm_addnewpointervar(pVM,"ring_gettemp_var",NULL,0);
+	ring_vm_addnewpointervar(pVM,"ring_gettemp_var",NULL,RING_OBJTYPE_NOTYPE);
 	ring_vm_addnewstringvar(pVM,"ccatcherror","NULL");
-	ring_vm_addnewpointervar(pVM,"ring_settemp_var",NULL,0);
-	ring_vm_addnewnumbervar(pVM,"ring_tempflag_var",0);
+	ring_vm_addnewpointervar(pVM,"ring_settemp_var",NULL,RING_OBJTYPE_NOTYPE);
+	ring_vm_addnewnumbervar(pVM,"ring_tempflag_var",RING_ZERO);
 	ring_vm_addnewcpointervar(pVM,"stdin",stdin,"file");
 	ring_vm_addnewcpointervar(pVM,"stdout",stdout,"file");
 	ring_vm_addnewcpointervar(pVM,"stderr",stderr,"file");
-	ring_vm_addnewpointervar(pVM,"this",NULL,0);
+	ring_vm_addnewpointervar(pVM,"this",NULL,RING_OBJTYPE_NOTYPE);
 	ring_vm_addnewstringvar(pVM,"tab","\t");
 	ring_vm_addnewstringvar(pVM,"cr","\r");
 	/* Add Command Line Parameters */
@@ -102,7 +102,7 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 			}
 			if ( ring_list_getsize(pList) < 10 ) {
 				/* Search Using Linear Search */
-				nPos = ring_list_findstring(pList,cStr,1);
+				nPos = ring_list_findstring(pList,cStr,RING_VAR_NAME);
 				if ( nPos != 0 ) {
 					if ( ring_list_islist(pList,nPos) ) {
 						pList2 = ring_list_getlist(pList,nPos);
@@ -279,7 +279,7 @@ List * ring_vm_newvar2 ( VM *pVM,const char *cStr,List *pParent )
 		pList = ring_list_newlist_gc(pVM->pRingState,pParent);
 	}
 	else {
-		pList = ring_list_new_gc(pVM->pRingState,0);
+		pList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	}
 	ring_list_addstring_gc(pVM->pRingState,pList,cStr);
 	/* Determine Type based on Region */
@@ -291,7 +291,7 @@ List * ring_vm_newvar2 ( VM *pVM,const char *cStr,List *pParent )
 	}
 	ring_list_addstring_gc(pVM->pRingState,pList,"NULL");
 	/* Pointer Type */
-	ring_list_addint_gc(pVM->pRingState,pList,0);
+	ring_list_addint_gc(pVM->pRingState,pList,RING_OBJTYPE_NOTYPE);
 	/* HashTable & Array */
 	if ( pParent != NULL ) {
 		/* Add Pointer to the HashTable */
@@ -477,7 +477,7 @@ void ring_vm_endglobalscope ( VM *pVM )
 {
 	ring_list_deletelastitem_gc(pVM->pRingState,pVM->aActiveGlobalScopes);
 	if ( ring_list_getsize(pVM->aActiveGlobalScopes) == 0 ) {
-		pVM->pActiveMem = ring_list_getlist(pVM->pMem,1);
+		pVM->pActiveMem = ring_list_getlist(pVM->pMem,RING_MEMORY_GLOBALSCOPE);
 	}
 	else {
 		pVM->pActiveMem = (List *) ring_list_getpointer(pVM->aActiveGlobalScopes,ring_list_getsize(pVM->aActiveGlobalScopes));
@@ -493,7 +493,7 @@ List * ring_vm_getglobalscope ( VM *pVM )
 {
 	List *pList  ;
 	if ( pVM->nCurrentGlobalScope == 0 ) {
-		pList = ring_list_getlist(pVM->pMem,1);
+		pList = ring_list_getlist(pVM->pMem,RING_MEMORY_GLOBALSCOPE);
 	}
 	else {
 		pList = ring_list_getlist(pVM->aGlobalScopes,pVM->nCurrentGlobalScope);
