@@ -95,7 +95,7 @@ int ring_parser_icg_newlabel2 ( Parser *pParser )
 
 void ring_parser_icg_setopcode ( Parser *pParser ,List *pList , int nValue )
 {
-	ring_list_setint_gc(NULL,pList,1,nValue);
+	ring_list_setint_gc(NULL,pList,RING_PARSER_ICG_OPERATIONCODE,nValue);
 }
 
 void ring_parser_icg_deleteoperand ( Parser *pParser , int nPos )
@@ -150,7 +150,7 @@ char * ring_parser_icg_parentclassname ( Parser *pParser )
 
 char * ring_parser_icg_newpackagename ( Parser *pParser,List *pPos )
 {
-	return ring_list_getstring(pPos,2) ;
+	return ring_list_getstring(pPos,RING_PARSER_ICG_PARA1) ;
 }
 
 void ring_parser_icg_pushn ( Parser *pParser,double nValue )
@@ -200,7 +200,7 @@ void ring_parser_icg_showoutput ( List *pListGenCode )
 		for ( x = 1 ; x <= nCount ; x++ ) {
 			pList = ring_list_getlist(pListGenCode,x);
 			nCount2 = ring_list_getsize(pList);
-			printf( "\n %6d  %18s  ", x , RING_IC_OP[ring_list_getint(pList,1)] ) ;
+			printf( "\n %6d  %18s  ", x , RING_IC_OP[ring_list_getint(pList,RING_PARSER_ICG_OPERATIONCODE)] ) ;
 			if ( nCount2 > 1 ) {
 				for ( y = 2 ; y <= nCount2 ; y++ ) {
 					if ( ring_list_isstring(pList,y) ) {
