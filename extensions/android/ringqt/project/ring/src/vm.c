@@ -69,8 +69,8 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->nActiveCatch = 0 ;
 	pVM->pPackagesMap = NULL ;
 	/* Set the main File Name */
-	pVM->cFileName = ring_list_getstring(pVM->pRingState->pRingFilesList,1) ;
-	pVM->cPrevFileName = ring_list_getstring(pVM->pRingState->pRingFilesList,1) ;
+	pVM->cFileName = ring_list_getstring(pVM->pRingState->pRingFilesList,RING_ONE) ;
+	pVM->cPrevFileName = ring_list_getstring(pVM->pRingState->pRingFilesList,RING_ONE) ;
 	/* We keep information about active package to access its classes directly with new/from */
 	pVM->aActivePackage = ring_list_new_gc(pVM->pRingState,0);
 	/* Scope of class attribute ( 0 = public 1 = private ) */
@@ -326,8 +326,8 @@ void ring_vm_defragmentation ( RingState *pRingState,VM *pVM )
 	/* Update Pointers */
 	ring_vm_updateclassespointers(pRingState);
 	/* Set the main File Name */
-	pVM->cFileName = ring_list_getstring(pVM->pRingState->pRingFilesList,1) ;
-	pVM->cPrevFileName = ring_list_getstring(pVM->pRingState->pRingFilesList,1) ;
+	pVM->cFileName = ring_list_getstring(pVM->pRingState->pRingFilesList,RING_ONE) ;
+	pVM->cPrevFileName = ring_list_getstring(pVM->pRingState->pRingFilesList,RING_ONE) ;
 }
 
 void ring_vm_updateclassespointers ( RingState *pRingState )
@@ -464,7 +464,7 @@ void ring_vm_tobytecode ( VM *pVM,int nIns )
 		exit(1);
 	}
 	/* Get the Operation Code */
-	pItem = ring_list_getitem(pIR,1) ;
+	pItem = ring_list_getitem(pIR,RING_PARSER_ICG_OPERATIONCODE) ;
 	/* Avoid Performance Instructions (Happens when called from New Thread) */
 	switch ( pItem->data.iNumber ) {
 		case ICO_PUSHPLOCAL :

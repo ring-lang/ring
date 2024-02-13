@@ -160,7 +160,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	/* Avoid deleting the Shared Memory Blocks */
 	if ( nMemoryBlocksCount > 0 ) {
 		for ( x = 1 ; x <=nMemoryBlocksCount ; x++ ) {
-			ring_list_deleteitem_gc(pState,pState->vPoolManager.aBlocks,1);
+			ring_list_deleteitem_gc(pState,pState->vPoolManager.aBlocks,RING_ONE);
 		}
 	}
 	ring_vm_mutexunlock(pVM);

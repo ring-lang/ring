@@ -314,7 +314,7 @@ RING_API void ring_vm_callfunction ( VM *pVM,char *cFuncName )
 	/* Prepare (Remove effects of the current function) */
 	ring_list_deletelastitem_gc(pVM->pRingState,pVM->pFuncCallList);
 	/* Load the function and call it */
-	ring_vm_loadfunc2(pVM,cFuncName,0);
+	ring_vm_loadfunc2(pVM,cFuncName,RING_FALSE);
 	ring_vm_call2(pVM);
 	/* Execute the function */
 	ring_vm_mainloopforeval(pVM);

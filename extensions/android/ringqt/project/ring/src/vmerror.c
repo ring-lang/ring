@@ -166,7 +166,7 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 		lFunctionCall = 1 ;
 	}
 	if ( lFunctionCall ) {
-		printf( "in file %s ",ring_list_getstring(pVM->pRingState->pRingFilesList,1) ) ;
+		printf( "in file %s ",ring_list_getstring(pVM->pRingState->pRingFilesList,RING_ONE) ) ;
 	}
 	else {
 		if ( pVM->nInClassRegion ) {
@@ -218,12 +218,12 @@ void ring_vm_traceevent ( VM *pVM,char nEvent )
 		if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
 			pFuncCall = RING_VM_LASTFUNCCALL ;
 			ring_list_addstring_gc(pVM->pRingState,pVM->pTraceData,pFuncCall->cName);
-			/* Method of Function */
+			/* Method or Function */
 			ring_list_adddouble_gc(pVM->pRingState,pVM->pTraceData,pFuncCall->nMethodOrFunc);
 		}
 		else {
 			ring_list_addstring_gc(pVM->pRingState,pVM->pTraceData,"");
-			/* Method of Function */
+			/* Method or Function */
 			ring_list_adddouble_gc(pVM->pRingState,pVM->pTraceData,0);
 		}
 		/* Execute Trace Function */

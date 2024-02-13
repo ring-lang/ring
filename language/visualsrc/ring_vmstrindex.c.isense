@@ -2,7 +2,7 @@ ring_vm_string_pushv
 Type: char *
 newstr
 Type: char
-cStr[2]
+cStr[RING_CHARBUF]
 ring_vm_string_assignment
 Type: char *
 newstr

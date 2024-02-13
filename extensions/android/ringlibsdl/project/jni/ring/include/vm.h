@@ -263,7 +263,7 @@
 	#define RING_VM_IR_READPVALUEATINS(x,y) (pVM->pByteCode + x)->aReg[y-1].pPointer
 	#define RING_VM_PC_CURRENTINS pVM->nPC - 2
 	#define RING_VM_PC_PREVINS pVM->nPC - 3
-	#define RING_VM_IR_CLEARREG1STRING ring_vm_clearregisterstring(pVM,1)
+	#define RING_VM_IR_CLEARREG1STRING ring_vm_clearregisterstring(pVM,RING_VM_IR_REG1)
 	#define RING_VM_PUSHNULLTHENJUMP RING_VM_STACK_PUSHCVALUE(""); RING_VM_JUMP
 	#define RING_VM_IR_SETINTREG(x) pVM->pByteCodeIR->nIntReg = x
 	#define RING_VM_IR_GETINTREG pVM->pByteCodeIR->nIntReg
