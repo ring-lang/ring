@@ -83,8 +83,8 @@ void ring_vm_exit ( VM *pVM,int nType )
 			}
 		}
 		pList = ring_list_getlist(pActiveList,x);
-		pVM->nPC = ring_list_getint(pList,1) ;
-		ring_vm_restorestate(pVM,pList,2,RING_STATE_EXIT);
+		pVM->nPC = ring_list_getint(pList,RING_MARKLIST_PC) ;
+		ring_vm_restorestate(pVM,pList,RING_MARKLIST_STATE,RING_STATE_EXIT);
 	}
 	else {
 		if ( nType == RING_COMMANDTYPE_EXIT ) {
@@ -93,7 +93,6 @@ void ring_vm_exit ( VM *pVM,int nType )
 		else {
 			ring_vm_error(pVM,RING_VM_ERROR_LOOPWITHOUTLOOP);
 		}
-		return ;
 	}
 }
 

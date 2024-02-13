@@ -417,6 +417,9 @@
 	#define RING_ATRY_PC 1
 	#define RING_ATRY_INSIDEEVAL 2
 	#define RING_ATRY_STATE 3
+	/* ExitMark/LoopMark */
+	#define RING_MARKLIST_PC 1
+	#define RING_MARKLIST_STATE 2
 	/* Runtime Error Messages */
 	#define RING_VM_ERROR_DIVIDEBYZERO "Error (R1) : Can't divide by zero"
 	#define RING_VM_ERROR_INDEXOUTOFRANGE "Error (R2) : Array Access (Index out of range)"
