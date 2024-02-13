@@ -99,6 +99,9 @@
 	#define RING_PARSER_CURRENTTOKEN pParser->ActiveToken
 	#define RING_PARSER_OPERATIONID ring_list_getsize(pParser->GenCode) + pParser->pRingState->nInstructionsCount
 	#define RING_PARSER_ACCEPTSTATEMENTS while ( ring_parser_stmt(pParser) ) if ( pParser->ActiveToken == pParser->TokensCount ) break ;
+	/* Packages List */
+	#define RING_PACKAGES_PACKAGENAME 1
+	#define RING_PACKAGES_CLASSESLIST 2
 	/* Functions */
 
 	int ring_parser_start ( List *pTokens,RingState *pRingState ) ;

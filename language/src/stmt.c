@@ -89,7 +89,7 @@ int ring_parser_class ( Parser *pParser )
 				ring_string_add_gc(pParser->pRingState,pString,ring_list_getstring(pList,1));
 				ring_list_setstring_gc(pParser->pRingState,pList2,1,ring_string_get(pString));
 				/* Set the class name as PackageName.ClassName in the Generated Code */
-				ring_list_setstring(pNewClass,2,ring_string_get(pString));
+				ring_list_setstring(pNewClass,RING_PARSER_ICG_PARA1,ring_string_get(pString));
 				ring_string_delete_gc(pParser->pRingState,pString);
 			}
 			else {
@@ -186,8 +186,8 @@ int ring_parser_class ( Parser *pParser )
 			/* Check early definition of the package */
 			for ( x = 1 ; x <= ring_list_getsize(pParser->pRingState->pRingPackagesMap) ; x++ ) {
 				pList3 = ring_list_getlist(pParser->pRingState->pRingPackagesMap,x);
-				if ( strcmp(ring_list_getstring(pList3,1),ring_parser_icg_newpackagename(pParser,pMark)) == 0 ) {
-					pParser->ClassesMap = ring_list_getlist(pList3,2);
+				if ( strcmp(ring_list_getstring(pList3,RING_PACKAGES_PACKAGENAME),ring_parser_icg_newpackagename(pParser,pMark)) == 0 ) {
+					pParser->ClassesMap = ring_list_getlist(pList3,RING_PACKAGES_CLASSESLIST);
 					return 1 ;
 				}
 			}
@@ -492,12 +492,12 @@ int ring_parser_stmt ( Parser *pParser )
 							/* Generate Code */
 							nLine = 0 ;
 							if ( (ring_parser_icg_getlastoperation(pParser) == ICO_NEWLINE) && (ring_parser_icg_newlabel(pParser) == (nMark1+3)) ) {
-								nLine = ring_parser_icg_getoperandint(pParser,2) ;
+								nLine = ring_parser_icg_getoperandint(pParser,RING_PARSER_ICG_PARA1) ;
 								ring_parser_icg_deletelastoperation(pParser);
 							}
 							/* Generate ICO_JUMPFOR */
 							if ( ring_parser_icg_getlastoperation(pParser) == ICO_NEWLINE ) {
-								nLine = ring_parser_icg_getoperandint(pParser,2) ;
+								nLine = ring_parser_icg_getoperandint(pParser,RING_PARSER_ICG_PARA1) ;
 								ring_parser_icg_deletelastoperation(pParser);
 							}
 							ring_parser_icg_newoperation(pParser,ICO_JUMPFOR);
