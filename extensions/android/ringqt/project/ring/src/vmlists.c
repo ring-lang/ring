@@ -127,7 +127,7 @@ void ring_vm_listitem ( VM *pVM )
 	}
 	else if ( RING_VM_STACK_ISPOINTER ) {
 		/* We use a Temp. list (pList4) to support adding the list to itself by value */
-		pList4 = ring_list_new_gc(pVM->pRingState,0);
+		pList4 = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 		if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
 			pList2 = (List *) RING_VM_STACK_READP ;
 			RING_VM_STACK_POP ;
@@ -264,7 +264,7 @@ void ring_vm_loadindexaddress ( VM *pVM )
 			}
 			cStr2[0] = RING_VM_STACK_READC[((int) nNum1)-1] ;
 			cStr2[1] = '\0' ;
-			RING_VM_STACK_SETCVALUE2(cStr2,1);
+			RING_VM_STACK_SETCVALUE2(cStr2,RING_ONE);
 			return ;
 		}
 		else {
@@ -457,7 +457,7 @@ void ring_vm_listassignment ( VM *pVM )
 				ring_list_swaptwolists(pList,pVar);
 			}
 			else {
-				pTempList = ring_list_new_gc(pVM->pRingState,0);
+				pTempList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 				ring_vm_list_copy(pVM,pTempList,pVar);
 				ring_list_swaptwolists(pList,pTempList);
 				ring_list_delete_gc(pVM->pRingState,pTempList);

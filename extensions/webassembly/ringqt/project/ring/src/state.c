@@ -336,7 +336,7 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 			ring_scanner_readchar(pScanner,cStartup[x]);
 		}
 		/* Set the line number */
-		ring_string_setfromint_gc(pRingState,pScanner->ActiveToken,1);
+		ring_string_setfromint_gc(pRingState,pScanner->ActiveToken,RING_ONE);
 		ring_scanner_addtoken(pScanner,SCANNER_TOKEN_ENDLINE);
 		pScanner->LinesCount = 1 ;
 	}
@@ -349,7 +349,7 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 		for ( x = 0 ; x < strlen(cStartup) ; x++ ) {
 			ring_scanner_readchar(pScanner,cStartup[x]);
 		}
-		ring_string_setfromint_gc(pRingState,pScanner->ActiveToken,1);
+		ring_string_setfromint_gc(pRingState,pScanner->ActiveToken,RING_ONE);
 		ring_scanner_addtoken(pScanner,SCANNER_TOKEN_ENDLINE);
 		pScanner->LinesCount = 1 ;
 	}

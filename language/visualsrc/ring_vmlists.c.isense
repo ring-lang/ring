@@ -25,7 +25,7 @@ pVar
 Type: Item *
 pItem
 Type: char
-cStr2[2]
+cStr2[RING_CHARBUF]
 Type: String *
 pString
 ring_vm_listpushv

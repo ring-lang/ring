@@ -50,6 +50,7 @@ RING_LISTREF_DEC
 RING_LISTBLOCKTYPE_ITEM
 RING_LISTBLOCKTYPE_ITEMS
 RING_LISTBLOCKTYPE_LIST
+RING_LIST_KEYINDEX
 ring_list_isdouble(pList,index)
 ring_list_isint(pList,index)
 ring_list_deletelastitem(x)

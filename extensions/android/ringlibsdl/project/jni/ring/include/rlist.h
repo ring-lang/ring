@@ -28,6 +28,7 @@
 	#define RING_LISTBLOCKTYPE_ITEM 1
 	#define RING_LISTBLOCKTYPE_ITEMS 2
 	#define RING_LISTBLOCKTYPE_LIST 3
+	#define RING_LIST_KEYINDEX 1
 	/* Macro */
 	#define ring_list_isdouble(pList,index) ( ring_list_getitem(pList,index)->NumberFlag == ITEM_NUMBERFLAG_DOUBLE)
 	#define ring_list_isint(pList,index) ( ring_list_getitem(pList,index)->NumberFlag == ITEM_NUMBERFLAG_INT )

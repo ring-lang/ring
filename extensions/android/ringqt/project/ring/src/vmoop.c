@@ -180,7 +180,7 @@ int ring_vm_oop_parentinit ( VM *pVM,List *pList )
 	/* Get the parent class name from the Class List Pointer */
 	cClassName = ring_list_getstring(pList,RING_CLASSMAP_PARENTCLASS) ;
 	/* Create List for Classes Pointers */
-	pClassesList = ring_list_new_gc(pVM->pRingState,0);
+	pClassesList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	ring_list_addpointer_gc(pVM->pRingState,pClassesList,pList);
 	while ( strcmp(cClassName,"") != 0 ) {
 		/* Mark Packages Count */
@@ -401,7 +401,7 @@ void ring_vm_oop_loadmethod ( VM *pVM )
 	/* Add Pointer to Class */
 	ring_list_addpointer_gc(pVM->pRingState,pList2,pList);
 	/* Add Logical Value (True) , That we are inside the class method */
-	ring_list_addint_gc(pVM->pRingState,pList2,1);
+	ring_list_addint_gc(pVM->pRingState,pList2,RING_TRUE);
 	/* Get Parent Classes Methods */
 	ring_vm_oop_parentmethods(pVM,pList);
 	/* Call Method */
@@ -437,8 +437,8 @@ void ring_vm_oop_parentmethods ( VM *pVM,List *pList )
 	int x,nFound,nMark  ;
 	List *pList3,*pList4  ;
 	pList3 = ring_list_getlist(pList,RING_CLASSMAP_METHODSLIST);
-	if ( ring_list_getint(pList,RING_CLASSMAP_ISPARENTINFO) == 0 ) {
-		ring_list_setint_gc(pVM->pRingState,pList,RING_CLASSMAP_ISPARENTINFO,1);
+	if ( ring_list_getint(pList,RING_CLASSMAP_ISPARENTINFO) == RING_FALSE ) {
+		ring_list_setint_gc(pVM->pRingState,pList,RING_CLASSMAP_ISPARENTINFO,RING_TRUE);
 		cClassName = ring_list_getstring(pList,RING_CLASSMAP_PARENTCLASS) ;
 		/* Mark Packages Count */
 		nMark = ring_list_getsize(pVM->aActivePackage);
@@ -682,7 +682,7 @@ void ring_vm_oop_import3 ( VM *pVM,List *pList )
 	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 		pList2 = ring_list_getlist(pList,x);
 		pList3 = ring_list_newlist_gc(pVM->pRingState,pVM->pClassesMap);
-		ring_list_addstring_gc(pVM->pRingState,pList3,ring_list_getstring(pList2,1));
+		ring_list_addstring_gc(pVM->pRingState,pList3,ring_list_getstring(pList2,RING_CLASSMAP_CLASSNAME));
 		ring_list_addpointer_gc(pVM->pRingState,pList3,pList2);
 		ring_list_addpointer_gc(pVM->pRingState,pList3,pVM->cFileName);
 	}
@@ -849,14 +849,14 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 			RING_VM_STACK_POP ;
 			if ( pVM->nGetSetProperty == 0 ) {
 				/* For Better Performance : Don't Eval() when we call Getter Method from Braces */
-				ring_vm_loadfunc2(pVM,ring_string_get(pString2),0);
+				ring_vm_loadfunc2(pVM,ring_string_get(pString2),RING_FALSE);
 				ring_vm_call2(pVM);
 				/* Prepare the Object State */
 				pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState)) ;
 				pList2 = ring_list_newlist_gc(pVM->pRingState,pVM->pObjState);
 				ring_list_copy_gc(pVM->pRingState,pList2,pList);
 				/* Add Logical Value (True) , That we are inside the class method */
-				ring_list_addint_gc(pVM->pRingState,pList2,1);
+				ring_list_addint_gc(pVM->pRingState,pList2,RING_TRUE);
 				/* Push Class Package */
 				pList = (List *) ring_list_getpointer(pList2,RING_OBJSTATE_CLASS);
 				ring_vm_oop_pushclasspackage(pVM,pList);
@@ -972,7 +972,7 @@ void ring_vm_oop_setproperty ( VM *pVM )
 		}
 		/* Set Variable ring_tempflag_var */
 		pList2 = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_GLOBALVARPOS_TEMPFALG) ;
-		ring_list_setdouble_gc(pVM->pRingState,pList2,RING_VAR_VALUE,0.0);
+		ring_list_setdouble_gc(pVM->pRingState,pList2,RING_VAR_VALUE,RING_ZEROF);
 		/* Execute the same instruction again (next time the part "After (Second Time)" will run ) */
 		pVM->nPC-- ;
 		if ( RING_VM_IR_READIVALUE(2)  == 0 ) {
@@ -1004,12 +1004,12 @@ void ring_vm_oop_setproperty ( VM *pVM )
 		}
 		/* Set Before/After SetProperty Flag To After */
 		pRegItem = RING_VM_IR_ITEMATINS(nIns,RING_VM_IR_REG1) ;
-		RING_VM_IR_ITEMSETINT(pRegItem,1);
+		RING_VM_IR_ITEMSETINT(pRegItem,RING_TRUE);
 	}
 	/* After (Second Time) */
 	else {
 		/* Set Before/After SetProperty Flag to Before */
-		RING_VM_IR_READIVALUE(1) = 0 ;
+		RING_VM_IR_READIVALUE(1) = RING_FALSE ;
 		/* Get Variable ring_tempflag_var */
 		pList2 = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_GLOBALVARPOS_TEMPFALG) ;
 		if ( ring_list_getdouble(pList2,RING_VAR_VALUE) == 1.0 ) {
@@ -1170,7 +1170,7 @@ void ring_vm_oop_callmethodfrombrace ( VM *pVM )
 		pList2 = ring_list_newlist_gc(pVM->pRingState,pVM->pObjState);
 		ring_list_copy_gc(pVM->pRingState,pList2,pList);
 		/* Add Logical Value (True) , That we are inside the class method */
-		ring_list_addint_gc(pVM->pRingState,pList2,1);
+		ring_list_addint_gc(pVM->pRingState,pList2,RING_TRUE);
 		/* Push Class Package */
 		pList = (List *) ring_list_getpointer(pList2,RING_OBJSTATE_CLASS);
 		ring_vm_oop_pushclasspackage(pVM,pList);
@@ -1222,7 +1222,7 @@ void ring_vm_oop_setthethisvariable ( VM *pVM )
 	pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_GLOBALVARPOS_THIS) ;
 	if ( (ring_list_getsize(pVM->pObjState) < 1) || (ring_vm_oop_callmethodinsideclass(pVM) == 0) ) {
 		ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,NULL);
-		ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,0);
+		ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,RING_OBJTYPE_NOTYPE);
 		return ;
 	}
 	pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState));
@@ -1230,11 +1230,11 @@ void ring_vm_oop_setthethisvariable ( VM *pVM )
 	pList = ring_list_getlist(pList,RING_OBJSTATE_SCOPE);
 	if ( pList == NULL ) {
 		ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,NULL);
-		ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,0);
+		ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,RING_OBJTYPE_NOTYPE);
 		return ;
 	}
 	/* Get Self Attribute List */
-	pList = ring_list_getlist(pList,1);
+	pList = ring_list_getlist(pList,RING_OBJECT_SELFATTRIBUTE);
 	/* Save this */
 	ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,ring_list_getpointer(pList,RING_VAR_VALUE));
 	ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,ring_list_getint(pList,RING_VAR_PVALUETYPE));
@@ -1248,7 +1248,7 @@ void ring_vm_oop_setthethisvariableinclassregion ( VM *pVM )
 	/* Get Object Scope */
 	pList = ring_list_getlist(pList,RING_OBJSTATE_SCOPE);
 	/* Get Self Attribute List */
-	pList = ring_list_getlist(pList,1);
+	pList = ring_list_getlist(pList,RING_OBJECT_SELFATTRIBUTE);
 	/* Save this */
 	ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,ring_list_getpointer(pList,RING_VAR_VALUE));
 	/* Create the Temp Variable for the new object */
