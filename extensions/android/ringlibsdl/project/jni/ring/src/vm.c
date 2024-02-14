@@ -15,9 +15,9 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->pFunctionsMap = NULL ;
 	pVM->nOPCode = 0 ;
 	pVM->nSP = 0 ;
-	pVM->pMem = ring_list_new_gc(pVM->pRingState,0);
+	pVM->pMem = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	pVM->pActiveMem = NULL ;
-	pVM->pTempMem = ring_list_new_gc(pVM->pRingState,0);
+	pVM->pTempMem = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	pVM->nLineNumber = 1 ;
 	/* Information to test the lifetime of the local scope */
 	pVM->nScopeID = 0 ;
@@ -34,33 +34,33 @@ VM * ring_vm_new ( RingState *pRingState )
 	ring_vm_addglobalvariables(pVM);
 	/* Lists */
 	pVM->nListStart = 0 ;
-	pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
+	pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Support for nested Load Instructions */
 	pVM->nBlockFlag = 0 ;
-	pVM->aPCBlockFlag = ring_list_new_gc(pVM->pRingState,0);
+	pVM->aPCBlockFlag = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Calling Functions */
-	pVM->pFuncCallList = ring_list_new_gc(pVM->pRingState,0);
+	pVM->pFuncCallList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	pVM->nFuncSP = 0 ;
 	pVM->nFuncExecute = 0 ;
 	if ( pRingState->pRingCFunctions == NULL ) {
-		pRingState->pRingCFunctions = ring_list_new_gc(pVM->pRingState,0);
+		pRingState->pRingCFunctions = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	}
 	pVM->pCFunctionsList = pRingState->pRingCFunctions ;
 	pVM->nCallMainFunction = 0 ;
 	/* Support for Exit/Loop Commands inside For/While loops. */
-	pVM->pExitMark = ring_list_new_gc(pVM->pRingState,0);
-	pVM->pLoopMark = ring_list_new_gc(pVM->pRingState,0);
+	pVM->pExitMark = ring_list_new_gc(pVM->pRingState,RING_ZERO);
+	pVM->pLoopMark = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Try-Catch-Done */
-	pVM->aTry = ring_list_new_gc(pVM->pRingState,0);
+	pVM->aTry = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Saving scope when creating new objects and calling class init method */
-	pVM->aScopeNewObj = ring_list_new_gc(pVM->pRingState,0);
+	pVM->aScopeNewObj = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Flag ( 0 = Call Function  1 = Call Method After writing object name using dot ) */
 	pVM->nCallMethod = 0 ;
 	/* List of Lists used like Stack, list structure [Pointer to State , Pointer to Methods] */
-	pVM->pObjState = ring_list_new_gc(pVM->pRingState,0);
+	pVM->pObjState = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Support for using Braces to access object state */
 	pVM->pBraceObject = NULL ;
-	pVM->aBraceObjects = ring_list_new_gc(pVM->pRingState,0);
+	pVM->aBraceObjects = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Used by BraceStart, BraceEnd & FreeStack */
 	pVM->nInsideBraceFlag = 0 ;
 	/* Variable scope, where is the variable (when we use findvar) */
@@ -72,18 +72,18 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->cFileName = ring_list_getstring(pVM->pRingState->pRingFilesList,RING_ONE) ;
 	pVM->cPrevFileName = ring_list_getstring(pVM->pRingState->pRingFilesList,RING_ONE) ;
 	/* We keep information about active package to access its classes directly with new/from */
-	pVM->aActivePackage = ring_list_new_gc(pVM->pRingState,0);
+	pVM->aActivePackage = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Scope of class attribute ( 0 = public 1 = private ) */
 	pVM->nPrivateFlag = 0 ;
 	/* Set/Get Property */
 	pVM->nGetSetProperty = 0 ;
 	pVM->pGetSetObject = NULL ;
 	pVM->nGetSetObjType = 0 ;
-	pVM->aSetProperty = ring_list_new_gc(pVM->pRingState,0);
+	pVM->aSetProperty = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Assignment Pointer */
 	pVM->pAssignment = NULL ;
 	/* For Loop - Step List */
-	pVM->aForStep = ring_list_new_gc(pVM->pRingState,0);
+	pVM->aForStep = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Flag for LoadA , when = 1 , if it's a pointer we get First Var. not the Pointer */
 	pVM->nFirstAddress = 0 ;
 	/* Used to know operator before = like += -= *= /= */
@@ -99,7 +99,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	/* The scope of the result of Load Address */
 	pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
 	/* List contains what to add  later to pObjState, prepare by loadmethod, add before call */
-	pVM->aBeforeObjState = ring_list_new_gc(pVM->pRingState,0) ;
+	pVM->aBeforeObjState = ring_list_new_gc(pVM->pRingState,RING_ZERO) ;
 	/* Eval can be called from C code (OOP Set/Get/Operator Overloading) or from ring code using eval() */
 	pVM->nEvalCalledFromRingCode = 0 ;
 	/* Number of decimals after the point */
@@ -162,7 +162,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->pTrace = ring_string_new_gc(pVM->pRingState,"");
 	pVM->lTraceActive = 0 ;
 	pVM->nTraceEvent = 0 ;
-	pVM->pTraceData = ring_list_new_gc(pVM->pRingState,0) ;
+	pVM->pTraceData = ring_list_new_gc(pVM->pRingState,RING_ZERO) ;
 	/* Eval In Scope function is Active : ringvm_evalinscope() */
 	pVM->nEvalInScope = 0 ;
 	/* Pass error in ring_vm_error() from ringvm_passerror() */
@@ -170,8 +170,8 @@ VM * ring_vm_new ( RingState *pRingState )
 	/* Hide Error message - don't display it in ring_vm_error() */
 	pVM->lHideErrorMsg = 0 ;
 	/* Custom Global Scopes (using load package) */
-	pVM->aGlobalScopes = ring_list_new_gc(pVM->pRingState,0);
-	pVM->aActiveGlobalScopes = ring_list_new_gc(pVM->pRingState,0);
+	pVM->aGlobalScopes = ring_list_new_gc(pVM->pRingState,RING_ZERO);
+	pVM->aActiveGlobalScopes = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	pVM->nCurrentGlobalScope = 0 ;
 	/* File name in the class region */
 	pVM->cFileNameInClassRegion = NULL ;
@@ -180,7 +180,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	/* To know if we are inside eval() or not */
 	pVM->nInsideEval = 0 ;
 	/* Dynamic Libraries */
-	pVM->pCLibraries = ring_list_new_gc(pVM->pRingState,0);
+	pVM->pCLibraries = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* No Setter Method (used by ring_vm_oop_setget() function) */
 	pVM->lNoSetterMethod = 0 ;
 	/* Check OverFlow after arithmetic operations */
@@ -194,7 +194,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	/* A flag if we are using LoadA to get the Self variable */
 	pVM->lSelfLoadA = 0 ;
 	/* List of pointers that contains lists that will be deleted later */
-	pVM->aDeleteLater = ring_list_new_gc(pVM->pRingState,0);
+	pVM->aDeleteLater = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	return pVM ;
 }
 
@@ -274,8 +274,8 @@ void ring_vm_init ( RingState *pRingState )
 	int nRunVM,nFreeFilesList = 0 ;
 	/* Check file */
 	if ( pRingState->pRingFilesList == NULL ) {
-		pRingState->pRingFilesList = ring_list_new_gc(pRingState,0);
-		pRingState->pRingFilesStack = ring_list_new_gc(pRingState,0);
+		pRingState->pRingFilesList = ring_list_new_gc(pRingState,RING_ZERO);
+		pRingState->pRingFilesStack = ring_list_new_gc(pRingState,RING_ZERO);
 		nFreeFilesList = 1 ;
 	}
 	ring_list_addstring_gc(pRingState,pRingState->pRingFilesList,"Ring_EmbeddedCode");

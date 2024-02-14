@@ -224,7 +224,7 @@ void ring_vm_traceevent ( VM *pVM,char nEvent )
 		else {
 			ring_list_addstring_gc(pVM->pRingState,pVM->pTraceData,"");
 			/* Method or Function */
-			ring_list_adddouble_gc(pVM->pRingState,pVM->pTraceData,0);
+			ring_list_adddouble_gc(pVM->pRingState,pVM->pTraceData,RING_NOVALUE);
 		}
 		/* Execute Trace Function */
 		ring_vm_runcode(pVM,ring_string_get(pVM->pTrace));
