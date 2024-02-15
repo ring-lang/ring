@@ -228,7 +228,7 @@ void ring_vm_generallib_char ( void *pPointer )
 		x = RING_API_GETNUMBER(1) ;
 		cStr[0] = (char) x ;
 		cStr[1] = '\0' ;
-		RING_API_RETSTRING2(cStr,1);
+		RING_API_RETSTRING2(cStr,RING_ONE);
 	}
 	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
@@ -284,7 +284,7 @@ void ring_vm_generallib_filename ( void *pPointer )
 		}
 	}
 	if ( lFunctionCall ) {
-		cFile = ring_list_getstring(pVM->pRingState->pRingFilesList,1) ;
+		cFile = ring_list_getstring(pVM->pRingState->pRingFilesList,RING_ONE) ;
 	}
 	else {
 		if ( pVM->nInClassRegion ) {
@@ -308,7 +308,7 @@ void ring_vm_generallib_getchar ( void *pPointer )
 	int nOutput  ;
 	nOutput = RING_SETBINARY ;
 	cStr[0] = getchar() ;
-	RING_API_RETSTRING2(cStr,1);
+	RING_API_RETSTRING2(cStr,RING_ONE);
 }
 /* 31 bit thread unsafe random generator using the seed (srand) */
 
@@ -1880,7 +1880,7 @@ void ring_vm_generallib_state_main ( void *pPointer )
 	argc = 2 ;
 	strcpy(argv[0],"ring");
 	strcpy(argv[1],cStr);
-	ring_state_execute(cStr,0,1,0,0,0,0,0,0,0,0,argc,argv);
+	ring_state_execute(cStr,RING_FALSE,RING_TRUE,RING_FALSE,RING_FALSE,RING_FALSE,RING_FALSE,RING_FALSE,RING_FALSE,RING_FALSE,RING_FALSE,argc,argv);
 	RING_API_FREE(argv[0]);
 	RING_API_FREE(argv[1]);
 }
