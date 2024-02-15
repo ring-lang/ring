@@ -306,10 +306,10 @@ void ring_vm_defragmentation ( RingState *pRingState,VM *pVM )
 {
 	List *pRingFilesList  ;
 	/* Create Lists */
-	pVM->pFunctionsMap = ring_list_new(0) ;
-	pVM->pClassesMap = ring_list_new(0) ;
-	pVM->pPackagesMap = ring_list_new(0) ;
-	pRingFilesList = ring_list_new(0) ;
+	pVM->pFunctionsMap = ring_list_new(RING_ZERO) ;
+	pVM->pClassesMap = ring_list_new(RING_ZERO) ;
+	pVM->pPackagesMap = ring_list_new(RING_ZERO) ;
+	pRingFilesList = ring_list_new(RING_ZERO) ;
 	/* Copy Lists */
 	ring_list_copy(pVM->pFunctionsMap,pRingState->pRingFunctionsMap);
 	ring_list_copy(pVM->pClassesMap,pRingState->pRingClassesMap);

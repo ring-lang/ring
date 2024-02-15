@@ -106,10 +106,10 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	**  Share the code between the VMs 
 	**  Copy Functions/Classes/Packages lists 
 	*/
-	pState->pVM->pFunctionsMap = ring_list_new(0) ;
-	pState->pVM->pClassesMap = ring_list_new(0) ;
-	pState->pVM->pPackagesMap = ring_list_new(0) ;
-	pState->pVM->pCFunctionsList = ring_list_new(0) ;
+	pState->pVM->pFunctionsMap = ring_list_new(RING_ZERO) ;
+	pState->pVM->pClassesMap = ring_list_new(RING_ZERO) ;
+	pState->pVM->pPackagesMap = ring_list_new(RING_ZERO) ;
+	pState->pVM->pCFunctionsList = ring_list_new(RING_ZERO) ;
 	ring_list_copy(pState->pVM->pFunctionsMap,pVM->pRingState->pRingFunctionsMap);
 	ring_list_copy(pState->pVM->pClassesMap,pVM->pRingState->pRingClassesMap);
 	ring_list_copy(pState->pVM->pPackagesMap,pVM->pRingState->pRingPackagesMap);

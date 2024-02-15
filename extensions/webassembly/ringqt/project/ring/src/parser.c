@@ -47,7 +47,7 @@ Parser * ring_parser_new ( List *pTokens,RingState *pRingState )
 	pParser->nErrorLine = 0 ;
 	pParser->nErrorsCount = 0 ;
 	if ( pRingState->pRingGenCode == NULL ) {
-		pRingState->pRingGenCode = ring_list_new(0);
+		pRingState->pRingGenCode = ring_list_new(RING_ZERO);
 		pRingState->pRingFunctionsMap = ring_list_new_gc(pRingState,RING_ZERO);
 		pRingState->pRingClassesMap = ring_list_new_gc(pRingState,RING_ZERO);
 		pRingState->pRingPackagesMap = ring_list_new_gc(pRingState,RING_ZERO);

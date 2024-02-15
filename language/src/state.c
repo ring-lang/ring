@@ -33,7 +33,7 @@ RING_API RingState * ring_state_new ( void )
 	pRingState->nRingInsideRing = 0 ;
 	pRingState->lNoLineNumber = 0 ;
 	pRingState->nCustomGlobalScopeCounter = 0 ;
-	pRingState->aCustomGlobalScopeStack = ring_list_new(0) ;
+	pRingState->aCustomGlobalScopeStack = ring_list_new(RING_ZERO) ;
 	pRingState->lStartPoolManager = 0 ;
 	pRingState->lDisablePoolManager = 0 ;
 	pRingState->lCreateListsUsingBlocks = 1 ;
