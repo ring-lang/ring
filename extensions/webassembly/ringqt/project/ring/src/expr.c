@@ -25,7 +25,7 @@ int ring_parser_expr ( Parser *pParser )
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_AND);
 				/* Generate Location for nPC for Operator Overloading */
-				ring_parser_icg_newoperandint(pParser,0);
+				ring_parser_icg_newoperandint(pParser,RING_ZERO);
 				nMark = ring_parser_icg_newlabel(pParser);
 				ring_parser_icg_addoperandint(pParser,pMark,nMark);
 				RING_STATE_CHECKPRINTRULES
@@ -52,7 +52,7 @@ int ring_parser_expr ( Parser *pParser )
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_OR);
 				/* Generate Location for nPC for Operator Overloading */
-				ring_parser_icg_newoperandint(pParser,0);
+				ring_parser_icg_newoperandint(pParser,RING_ZERO);
 				nMark = ring_parser_icg_newlabel(pParser);
 				ring_parser_icg_addoperandint(pParser,pMark,nMark);
 			}
@@ -77,7 +77,7 @@ int ring_parser_logicnot ( Parser *pParser )
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_NOT);
 		/* Generate Location for nPC for Operator Overloading */
-		ring_parser_icg_newoperandint(pParser,0);
+		ring_parser_icg_newoperandint(pParser,RING_ZERO);
 		return x ;
 	}
 	x = ring_parser_equalornot(pParser);
@@ -110,7 +110,7 @@ int ring_parser_equalornot ( Parser *pParser )
 					/* Generate Code */
 					ring_parser_icg_newoperation(pParser,ICO_NOTEQUAL);
 					/* Generate Location for nPC for Operator Overloading */
-					ring_parser_icg_newoperandint(pParser,0);
+					ring_parser_icg_newoperandint(pParser,RING_ZERO);
 					RING_STATE_CHECKPRINTRULES
 					{
 						puts("Rule : EqualOrNot --> Compare");
@@ -132,7 +132,7 @@ int ring_parser_equalornot ( Parser *pParser )
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_EQUAL);
 				/* Generate Location for nPC for Operator Overloading */
-				ring_parser_icg_newoperandint(pParser,0);
+				ring_parser_icg_newoperandint(pParser,RING_ZERO);
 				RING_STATE_CHECKPRINTRULES
 				{
 					puts("Rule : EqualOrNot --> Compare");
@@ -170,7 +170,7 @@ int ring_parser_compare ( Parser *pParser )
 					/* Generate Code */
 					ring_parser_icg_newoperation(pParser,ICO_LESS);
 					/* Generate Location for nPC for Operator Overloading */
-					ring_parser_icg_newoperandint(pParser,0);
+					ring_parser_icg_newoperandint(pParser,RING_ZERO);
 					RING_STATE_CHECKPRINTRULES
 					{
 						puts("Rule : Compare --> BitOrXOR");
@@ -181,7 +181,7 @@ int ring_parser_compare ( Parser *pParser )
 					/* Generate Code */
 					ring_parser_icg_newoperation(pParser,ICO_LESSEQUAL);
 					/* Generate Location for nPC for Operator Overloading */
-					ring_parser_icg_newoperandint(pParser,0);
+					ring_parser_icg_newoperandint(pParser,RING_ZERO);
 					RING_STATE_CHECKPRINTRULES
 					{
 						puts("Rule : Compare --> BitOrXOR");
@@ -205,7 +205,7 @@ int ring_parser_compare ( Parser *pParser )
 					/* Generate Code */
 					ring_parser_icg_newoperation(pParser,ICO_GREATER);
 					/* Generate Location for nPC for Operator Overloading */
-					ring_parser_icg_newoperandint(pParser,0);
+					ring_parser_icg_newoperandint(pParser,RING_ZERO);
 					RING_STATE_CHECKPRINTRULES
 					{
 						puts("Rule : Compare --> BitOrXOR");
@@ -216,7 +216,7 @@ int ring_parser_compare ( Parser *pParser )
 					/* Generate Code */
 					ring_parser_icg_newoperation(pParser,ICO_GREATEREQUAL);
 					/* Generate Location for nPC for Operator Overloading */
-					ring_parser_icg_newoperandint(pParser,0);
+					ring_parser_icg_newoperandint(pParser,RING_ZERO);
 					RING_STATE_CHECKPRINTRULES
 					{
 						puts("Rule : Compare --> BitOrXOR");
@@ -253,7 +253,7 @@ int ring_parser_bitorxor ( Parser *pParser )
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_BITOR);
 				/* Generate Location for nPC for Operator Overloading */
-				ring_parser_icg_newoperandint(pParser,0);
+				ring_parser_icg_newoperandint(pParser,RING_ZERO);
 				RING_STATE_CHECKPRINTRULES
 				{
 					puts("Rule : BitOrXOR --> BitAnd");
@@ -270,7 +270,7 @@ int ring_parser_bitorxor ( Parser *pParser )
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_BITXOR);
 				/* Generate Location for nPC for Operator Overloading */
-				ring_parser_icg_newoperandint(pParser,0);
+				ring_parser_icg_newoperandint(pParser,RING_ZERO);
 				RING_STATE_CHECKPRINTRULES
 				{
 					puts("Rule : BitOrXOR --> BitAnd");
@@ -301,7 +301,7 @@ int ring_parser_bitand ( Parser *pParser )
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_BITAND);
 			/* Generate Location for nPC for Operator Overloading */
-			ring_parser_icg_newoperandint(pParser,0);
+			ring_parser_icg_newoperandint(pParser,RING_ZERO);
 			RING_STATE_CHECKPRINTRULES
 			{
 				puts("Rule : BitAnd --> BitShift");
@@ -332,7 +332,7 @@ int ring_parser_bitshift ( Parser *pParser )
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_BITSHL);
 				/* Generate Location for nPC for Operator Overloading */
-				ring_parser_icg_newoperandint(pParser,0);
+				ring_parser_icg_newoperandint(pParser,RING_ZERO);
 				RING_STATE_CHECKPRINTRULES
 				{
 					puts("Rule : BitShift --> Arithmetic");
@@ -349,7 +349,7 @@ int ring_parser_bitshift ( Parser *pParser )
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_BITSHR);
 				/* Generate Location for nPC for Operator Overloading */
-				ring_parser_icg_newoperandint(pParser,0);
+				ring_parser_icg_newoperandint(pParser,RING_ZERO);
 				RING_STATE_CHECKPRINTRULES
 				{
 					puts("Rule : BitShift --> Arithmetic");
@@ -381,7 +381,7 @@ int ring_parser_arithmetic ( Parser *pParser )
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_SUM);
 				/* Generate Location for nPC for Operator Overloading */
-				ring_parser_icg_newoperandint(pParser,0);
+				ring_parser_icg_newoperandint(pParser,RING_ZERO);
 				RING_STATE_CHECKPRINTRULES
 				{
 					puts("Rule : Arithmetic --> Term");
@@ -398,7 +398,7 @@ int ring_parser_arithmetic ( Parser *pParser )
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_SUB);
 				/* Generate Location for nPC for Operator Overloading */
-				ring_parser_icg_newoperandint(pParser,0);
+				ring_parser_icg_newoperandint(pParser,RING_ZERO);
 				RING_STATE_CHECKPRINTRULES
 				{
 					puts("Rule : Arithmetic --> Term");
@@ -435,7 +435,7 @@ int ring_parser_term ( Parser *pParser )
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_MUL);
 				/* Generate Location for nPC for Operator Overloading */
-				ring_parser_icg_newoperandint(pParser,0);
+				ring_parser_icg_newoperandint(pParser,RING_ZERO);
 			}
 			else if ( ring_parser_isoperator2(pParser,OP_REM) ) {
 				ring_parser_nexttoken(pParser);
@@ -447,7 +447,7 @@ int ring_parser_term ( Parser *pParser )
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_MOD);
 				/* Generate Location for nPC for Operator Overloading */
-				ring_parser_icg_newoperandint(pParser,0);
+				ring_parser_icg_newoperandint(pParser,RING_ZERO);
 				RING_STATE_CHECKPRINTRULES
 				{
 					puts("Rule : Term --> Range");
@@ -464,7 +464,7 @@ int ring_parser_term ( Parser *pParser )
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_POW);
 				/* Generate Location for nPC for Operator Overloading */
-				ring_parser_icg_newoperandint(pParser,0);
+				ring_parser_icg_newoperandint(pParser,RING_ZERO);
 				RING_STATE_CHECKPRINTRULES
 				{
 					puts("Rule : Term --> Range");
@@ -481,7 +481,7 @@ int ring_parser_term ( Parser *pParser )
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_DIV);
 				/* Generate Location for nPC for Operator Overloading */
-				ring_parser_icg_newoperandint(pParser,0);
+				ring_parser_icg_newoperandint(pParser,RING_ZERO);
 				RING_STATE_CHECKPRINTRULES
 				{
 					puts("Rule : Term --> Range");
@@ -664,7 +664,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 						return x ;
 					}
 					/* Disable Assignment Pointer */
-					ring_parser_icg_addoperandint(pParser,pAssignmentPointerPos,0);
+					ring_parser_icg_addoperandint(pParser,pAssignmentPointerPos,RING_FALSE);
 				}
 				else if ( lAfterListEnd && (pParser->nBraceFlag >= 1) ) {
 					nNOOP = 1 ;
@@ -674,7 +674,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 					*/
 					if ( lSetProperty == 1 ) {
 						/* Disable Assignment Pointer */
-						ring_parser_icg_addoperandint(pParser,pAssignmentPointerPos,0);
+						ring_parser_icg_addoperandint(pParser,pAssignmentPointerPos,RING_FALSE);
 					}
 				}
 				/*
@@ -697,8 +697,8 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 				**  Generate Locations for Setproperty before/after Flag & nPC of Setter 
 				**  Locations is done also for Assignment because assignment can be changed to SetProperty by the VM 
 				*/
-				ring_parser_icg_newoperandint(pParser,0);
-				ring_parser_icg_newoperandint(pParser,0);
+				ring_parser_icg_newoperandint(pParser,RING_ZERO);
+				ring_parser_icg_newoperandint(pParser,RING_ZERO);
 				/* Add Assignment position to the LoadAddress Instruction */
 				if ( pLoadAPos != NULL ) {
 					ring_parser_icg_loadaddressassignmentpos(pParser,pLoadAPos,ring_parser_icg_instructionscount(pParser));
@@ -716,20 +716,20 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 					ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
 					if ( ! lNewAfterEqual ) {
 						/* Disable Assignment Pointer */
-						ring_parser_icg_addoperandint(pParser,pAssignmentPointerPos,0);
+						ring_parser_icg_addoperandint(pParser,pAssignmentPointerPos,RING_FALSE);
 					}
 				}
 				else {
 					ring_parser_icg_newoperation(pParser,ICO_SETPROPERTY);
 					/* Disable Assignment Pointer */
-					ring_parser_icg_addoperandint(pParser,pAssignmentPointerPos,0);
+					ring_parser_icg_addoperandint(pParser,pAssignmentPointerPos,RING_FALSE);
 				}
 				/*
 				**  Generate Locations for Setproperty before/after Flag & nPC of Setter 
 				**  Locations is done also for Assignment because assignment can be changed to SetProperty by the VM 
 				*/
-				ring_parser_icg_newoperandint(pParser,0);
-				ring_parser_icg_newoperandint(pParser,0);
+				ring_parser_icg_newoperandint(pParser,RING_ZERO);
+				ring_parser_icg_newoperandint(pParser,RING_ZERO);
 				/* Add Assignment position to the LoadAddress Instruction */
 				if ( pLoadAPos != NULL ) {
 					ring_parser_icg_loadaddressassignmentpos(pParser,pLoadAPos,ring_parser_icg_instructionscount(pParser));
@@ -839,7 +839,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_NEG);
 		/* Generate Location for nPC for Operator Overloading */
-		ring_parser_icg_newoperandint(pParser,0);
+		ring_parser_icg_newoperandint(pParser,RING_ZERO);
 		RING_STATE_CHECKPRINTRULES
 		puts("Rule : Factor --> '-' Factor");
 		return x ;
@@ -851,7 +851,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_BITNOT);
 		/* Generate Location for nPC for Operator Overloading */
-		ring_parser_icg_newoperandint(pParser,0);
+		ring_parser_icg_newoperandint(pParser,RING_ZERO);
 		RING_STATE_CHECKPRINTRULES
 		puts("Rule : Factor --> '~' Expr");
 		return x ;
@@ -946,7 +946,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 				ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 				ring_parser_icg_newoperation(pParser,ICO_BRACESTART);
 				ring_parser_icg_newoperation(pParser,ICO_CALLCLASSINIT);
-				ring_parser_icg_newoperandint(pParser,1);
+				ring_parser_icg_newoperandint(pParser,RING_TRUE);
 				/* Generate Code ( Call Function ) */
 				ring_parser_icg_loadaddress(pParser,"init");
 				/* Function Parameters */
@@ -955,7 +955,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 				pParser->nFuncCallOnly = 0 ;
 				/* Generate Code (End Brace) */
 				ring_parser_icg_newoperation(pParser,ICO_CALLCLASSINIT);
-				ring_parser_icg_newoperandint(pParser,0);
+				ring_parser_icg_newoperandint(pParser,RING_ZERO);
 				RING_PARSER_IGNORENEWLINE ;
 				x = ring_parser_mixer(pParser);
 				ring_parser_icg_newoperation(pParser,ICO_BRACEEND);
@@ -986,7 +986,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		/* Note +1 because instruction ICO_NEWFUNC will come next */
 		ring_list_addint_gc(pParser->pRingState,pList,RING_PARSER_OPERATIONID+1);
 		ring_list_addstring_gc(pParser->pRingState,pList,ring_list_getstring(pParser->pRingState->pRingFilesStack,ring_list_getsize(pParser->pRingState->pRingFilesStack)));
-		ring_list_addint_gc(pParser->pRingState,pList,0);
+		ring_list_addint_gc(pParser->pRingState,pList,RING_FALSE);
 		ring_parser_icg_newoperation(pParser,ICO_NEWFUNC);
 		ring_parser_icg_newoperand(pParser,cFuncName);
 		/* Get Function Parameters */
@@ -1071,7 +1071,7 @@ int ring_parser_mixer ( Parser *pParser )
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_LOADINDEXADDRESS);
 			/* Add 0 For Operator Overloading */
-			ring_parser_icg_newoperandint(pParser,0);
+			ring_parser_icg_newoperandint(pParser,RING_ZERO);
 			if ( ring_parser_isoperator2(pParser,OP_LCLOSE) ) {
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE ;
@@ -1196,14 +1196,14 @@ void ring_parser_gencall ( Parser *pParser,int nCallMethod )
 	ring_parser_icg_newoperation(pParser,ICO_CALL);
 	if ( nCallMethod == 1 ) {
 		/* Add 0 For Operator Overloading */
-		ring_parser_icg_newoperandint(pParser,0);
+		ring_parser_icg_newoperandint(pParser,RING_ZERO);
 		/* Add 1 so the call instruction move list from aBeforeObjState to pObjState */
-		ring_parser_icg_newoperandint(pParser,1);
+		ring_parser_icg_newoperandint(pParser,RING_TRUE);
 		ring_parser_icg_newoperation(pParser,ICO_AFTERCALLMETHOD);
 	}
 	else {
 		/* Add 0 For Operator Overloading */
-		ring_parser_icg_newoperandint(pParser,0);
+		ring_parser_icg_newoperandint(pParser,RING_ZERO);
 		/*
 		**  The No Operation Instruction may be converted to AfterCallMethod during runtime 
 		**  This happens when we call method like functions inside object { } 
@@ -1269,12 +1269,12 @@ int ring_parser_ppmm ( Parser *pParser )
 			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 			ring_parser_icg_pushn(pParser,nValue);
 			ring_parser_icg_newoperation(pParser,ICO_SUM);
-			ring_parser_icg_newoperandint(pParser,0);
-			ring_parser_icg_beforeequal(pParser,0);
+			ring_parser_icg_newoperandint(pParser,RING_ZERO);
+			ring_parser_icg_beforeequal(pParser,RING_ZERO);
 			nMark = ring_parser_icg_newlabel(pParser);
 			ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
-			ring_parser_icg_newoperandint(pParser,0);
-			ring_parser_icg_newoperandint(pParser,0);
+			ring_parser_icg_newoperandint(pParser,RING_ZERO);
+			ring_parser_icg_newoperandint(pParser,RING_ZERO);
 			ring_parser_icg_loadaddressassignmentpos(pParser,pMark,nMark);
 			/* Keep the value on the Stack (Maybe required in expressions) */
 			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
@@ -1288,11 +1288,11 @@ int ring_parser_ppmm ( Parser *pParser )
 			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 			ring_parser_icg_pushn(pParser,nValue);
 			ring_parser_icg_newoperation(pParser,ICO_SUM);
-			ring_parser_icg_newoperandint(pParser,0);
-			ring_parser_icg_beforeequal(pParser,0);
+			ring_parser_icg_newoperandint(pParser,RING_ZERO);
+			ring_parser_icg_beforeequal(pParser,RING_ZERO);
 			ring_parser_icg_newoperation(pParser,ICO_SETPROPERTY);
-			ring_parser_icg_newoperandint(pParser,0);
-			ring_parser_icg_newoperandint(pParser,0);
+			ring_parser_icg_newoperandint(pParser,RING_ZERO);
+			ring_parser_icg_newoperandint(pParser,RING_ZERO);
 			/* Keep the Value on the Stack (Maybe required in expressions) */
 			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 			break ;
@@ -1356,7 +1356,7 @@ int ring_parser_objattributes ( Parser *pParser )
 			ring_parser_icg_newoperation(pParser,ICO_LOADSUBADDRESS);
 			ring_parser_icg_newoperand(pParser,pParser->TokenText);
 			/* Generate Location for nPC of Getter - When we access object attribute using { } */
-			ring_parser_icg_newoperandint(pParser,0);
+			ring_parser_icg_newoperandint(pParser,RING_ZERO);
 			RING_STATE_CHECKPRINTRULES
 			puts("Rule : Mixer -> '.' Identifier ");
 			ring_parser_nexttoken(pParser);
