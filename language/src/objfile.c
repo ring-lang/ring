@@ -7,7 +7,7 @@ void ring_objfile_writefile ( RingState *pRingState )
 	FILE *fObj;
 	char cFileName[RING_HUGEBUF]  ;
 	/* Create File */
-	sprintf( cFileName , "%so" , ring_list_getstring(pRingState->pRingFilesList,1) ) ;
+	sprintf( cFileName , "%so" , ring_list_getstring(pRingState->pRingFilesList,RING_ONE) ) ;
 	fObj = fopen(cFileName , "w+b" );
 	fprintf( fObj , "# Ring Object File\n"  ) ;
 	fprintf( fObj , RING_OBJFILE_VERSION  ) ;
@@ -99,12 +99,12 @@ int ring_objfile_readfromsource ( RingState *pRingState,char *cSource,int nSourc
 {
 	List *pListFunctions, *pListClasses, *pListPackages, *pListCode, *pListFiles, *pListStack  ;
 	/* Create Lists */
-	pListFunctions = ring_list_new_gc(pRingState,0);
-	pListClasses = ring_list_new_gc(pRingState,0);
-	pListPackages = ring_list_new_gc(pRingState,0);
-	pListCode = ring_list_new_gc(pRingState,0);
-	pListFiles = ring_list_new_gc(pRingState,0);
-	pListStack = ring_list_new_gc(pRingState,0);
+	pListFunctions = ring_list_new_gc(pRingState,RING_ZERO);
+	pListClasses = ring_list_new_gc(pRingState,RING_ZERO);
+	pListPackages = ring_list_new_gc(pRingState,RING_ZERO);
+	pListCode = ring_list_new_gc(pRingState,RING_ZERO);
+	pListFiles = ring_list_new_gc(pRingState,RING_ZERO);
+	pListStack = ring_list_new_gc(pRingState,RING_ZERO);
 	/* Process Content (File or String) */
 	if ( nSource == RING_OBJFILE_READFROMFILE ) {
 		if ( ! ring_objfile_processfile(pRingState,cSource,pListFunctions, pListClasses, pListPackages, pListCode, pListFiles, pListStack) ) {
@@ -137,7 +137,7 @@ int ring_objfile_readfromsource ( RingState *pRingState,char *cSource,int nSourc
 	**  The List contains sub list - i.e. looks like  [  [ files ] ] - but we need [ files ] only 
 	**  So we get the first item using ring_list_getlist() function 
 	*/
-	ring_list_copy_gc(pRingState,pRingState->pRingFilesList,ring_list_getlist(pListFiles,1));
+	ring_list_copy_gc(pRingState,pRingState->pRingFilesList,ring_list_getlist(pListFiles,RING_ONE));
 	#ifdef DEBUG_OBJFILE
 		puts("Update Done! ");
 		puts("New Code List ");
@@ -562,7 +562,7 @@ void ring_objfile_writeCfile ( RingState *pRingState )
 	**  Write C file 
 	**  Set the file name 
 	*/
-	sprintf( cCodeFileName , "%s" , ring_list_getstring(pRingState->pRingFilesList,1) ) ;
+	sprintf( cCodeFileName , "%s" , ring_list_getstring(pRingState->pRingFilesList,RING_ONE) ) ;
 	nSize = strlen( cCodeFileName ) ;
 	cCodeFileName[nSize-4] = 'c' ;
 	cCodeFileName[nSize-3] = '\0' ;
@@ -577,10 +577,10 @@ void ring_objfile_writeCfile ( RingState *pRingState )
 	fprintf( fCode , "\tpRingState = ring_state_new();  \n"  ) ;
 	fprintf( fCode , "\tpRingState->argc = argc;  \n"  ) ;
 	fprintf( fCode , "\tpRingState->argv = argv;  \n"  ) ;
-	fprintf( fCode , "\tpRingState->pRingFilesList = ring_list_new_gc(pRingState,0);  \n"  ) ;
-	fprintf( fCode , "\tpRingState->pRingFilesStack = ring_list_new_gc(pRingState,0);  \n"  ) ;
-	fprintf( fCode , "\tring_list_addstring_gc(pRingState,pRingState->pRingFilesList,\"%so\");  \n",ring_list_getstring(pRingState->pRingFilesList,1)  ) ;
-	fprintf( fCode , "\tring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,\"%so\");  \n",ring_list_getstring(pRingState->pRingFilesList,1)  ) ;
+	fprintf( fCode , "\tpRingState->pRingFilesList = ring_list_new_gc(pRingState,RING_ZERO);  \n"  ) ;
+	fprintf( fCode , "\tpRingState->pRingFilesStack = ring_list_new_gc(pRingState,RING_ZERO);  \n"  ) ;
+	fprintf( fCode , "\tring_list_addstring_gc(pRingState,pRingState->pRingFilesList,\"%so\");  \n",ring_list_getstring(pRingState->pRingFilesList,RING_ONE)  ) ;
+	fprintf( fCode , "\tring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,\"%so\");  \n",ring_list_getstring(pRingState->pRingFilesList,RING_ONE)  ) ;
 	fprintf( fCode , "\tloadRingCode(pRingState);  \n"  ) ;
 	fprintf( fCode , "\tring_objfile_updateclassespointers(pRingState);  \n"  ) ;
 	fprintf( fCode , "\tring_state_runprogram(pRingState);  \n"  ) ;
@@ -594,13 +594,13 @@ void ring_objfile_writeCfile ( RingState *pRingState )
 	fprintf( fCode , "void loadRingCode(RingState *pRingState) {\n"  ) ;
 	fprintf( fCode , "\tList *pList1,*pList2,*pList3,*pList4,*pList5,*pList6 ;\n"  ) ;
 	/* Write Data */
-	nFunction = ring_objfile_writelistcode(pRingState->pRingFunctionsMap,fCode,1,1,0,RING_OBJFILE_ITEMSPERFUNCTION2);
+	nFunction = ring_objfile_writelistcode(pRingState->pRingFunctionsMap,fCode,RING_ONE,RING_TRUE,RING_ZERO,RING_OBJFILE_ITEMSPERFUNCTION2);
 	fprintf( fCode , "\tpRingState->pRingFunctionsMap = pList1;\n"  ) ;
-	nFunction = ring_objfile_writelistcode(pRingState->pRingClassesMap,fCode,1,1,nFunction,RING_OBJFILE_ITEMSPERFUNCTION2);
+	nFunction = ring_objfile_writelistcode(pRingState->pRingClassesMap,fCode,RING_ONE,RING_TRUE,nFunction,RING_OBJFILE_ITEMSPERFUNCTION2);
 	fprintf( fCode , "\tpRingState->pRingClassesMap = pList1;\n"  ) ;
-	nFunction = ring_objfile_writelistcode(pRingState->pRingPackagesMap,fCode,1,1,nFunction,RING_OBJFILE_ITEMSPERFUNCTION2);
+	nFunction = ring_objfile_writelistcode(pRingState->pRingPackagesMap,fCode,RING_ONE,RING_TRUE,nFunction,RING_OBJFILE_ITEMSPERFUNCTION2);
 	fprintf( fCode , "\tpRingState->pRingPackagesMap = pList1;\n"  ) ;
-	nFunction = ring_objfile_writelistcode(pRingState->pRingGenCode,fCode,1,1,nFunction,RING_OBJFILE_ITEMSPERFUNCTION);
+	nFunction = ring_objfile_writelistcode(pRingState->pRingGenCode,fCode,RING_ONE,RING_TRUE,nFunction,RING_OBJFILE_ITEMSPERFUNCTION);
 	fprintf( fCode , "\tpRingState->pRingGenCode = pList1;\n"  ) ;
 	fprintf( fCode , "}\n"  ) ;
 	/* Close File */
@@ -624,7 +624,7 @@ int ring_objfile_writelistcode ( List *pList,FILE *fCode,int nList,int lSeparate
 	char cFileName[RING_HUGEBUF]  ;
 	sprintf( cList , "pList%d" , nList+1 ) ;
 	if ( nList == 1 ) {
-		fprintf( fCode , "\tpList1 = ring_list_new_gc(pRingState,0) ; \n"  ) ;
+		fprintf( fCode , "\tpList1 = ring_list_new_gc(pRingState,RING_ZERO) ; \n"  ) ;
 	}
 	/* Write List Items */
 	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
