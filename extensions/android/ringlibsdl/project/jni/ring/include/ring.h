@@ -123,13 +123,14 @@
 	#define RING_USEGIVEFUNCTION 1
 	/* Logic */
 	#define RING_TRUE 1
+	#define RING_TRUEF 1.0
 	#define RING_FALSE 0
+	#define RING_FALSEF 0.0
 	/* Count/Status */
 	#define RING_NOVALUE 0
 	#define RING_ZERO 0
-	#define RING_ONE 1
-	#define RING_TWO 2
 	#define RING_ZEROF 0.0
+	#define RING_ONE 1
 	#define RING_ONEF 1.0
 	/* Decimals */
 	#define RING_DECIMALS 2

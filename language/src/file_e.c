@@ -488,7 +488,7 @@ void ring_vm_file_fread ( void *pPointer )
 				return ;
 			}
 			cStr = (char *) RING_API_MALLOC(nSize);
-			nResult = fread(cStr,1,nSize,fp);
+			nResult = fread(cStr,RING_ONE,nSize,fp);
 			if ( nResult == 0 ) {
 				RING_API_RETNUMBER(nResult);
 			}
@@ -514,7 +514,7 @@ void ring_vm_file_fwrite ( void *pPointer )
 	if ( RING_API_ISPOINTER(1) && RING_API_ISSTRING(2) ) {
 		fp = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
 		if ( fp != NULL ) {
-			nResult = fwrite(RING_API_GETSTRING(2),1,RING_API_GETSTRINGSIZE(2) ,fp);
+			nResult = fwrite(RING_API_GETSTRING(2),RING_ONE,RING_API_GETSTRINGSIZE(2) ,fp);
 			RING_API_RETNUMBER(nResult);
 		}
 	}
@@ -863,10 +863,10 @@ void ring_vm_file_freefunc ( void *pRingState,void *pPointer )
 							pList2 = ring_list_newlist_gc(((VM *) pPointer)->pRingState,pList);
 							ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList2,fdFile.cFileName);
 							if ( fdFile.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY ) {
-								ring_list_adddouble_gc(((VM *) pPointer)->pRingState,pList2,1.0);
+								ring_list_adddouble_gc(((VM *) pPointer)->pRingState,pList2,RING_TRUEF);
 							}
 							else {
-								ring_list_adddouble_gc(((VM *) pPointer)->pRingState,pList2,0.0);
+								ring_list_adddouble_gc(((VM *) pPointer)->pRingState,pList2,RING_ZEROF);
 							}
 						}
 					} while (FindNextFile(hFind, &fdFile))  ;
@@ -892,10 +892,10 @@ void ring_vm_file_freefunc ( void *pRingState,void *pPointer )
 							strcat(cPath,pDirent->d_name);
 							stat(cPath,&st);
 							if ( S_ISDIR(st.st_mode) ) {
-								ring_list_adddouble_gc(((VM *) pPointer)->pRingState,pList2,1.0);
+								ring_list_adddouble_gc(((VM *) pPointer)->pRingState,pList2,RING_TRUEF);
 							}
 							else {
-								ring_list_adddouble_gc(((VM *) pPointer)->pRingState,pList2,0.0);
+								ring_list_adddouble_gc(((VM *) pPointer)->pRingState,pList2,RING_ZEROF);
 							}
 						}
 					}
