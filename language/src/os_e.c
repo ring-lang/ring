@@ -254,7 +254,7 @@ void ring_vm_os_shutdown ( void *pPointer )
 			RING_API_ERROR(RING_API_BADPARATYPE);
 			return ;
 		}
-		if ( setenv (RING_API_GETSTRING(1),RING_API_GETSTRING(2),1) == 0 ) {
+		if ( setenv (RING_API_GETSTRING(1),RING_API_GETSTRING(2),RING_TRUE) == 0 ) {
 			RING_API_RETNUMBER(1);
 		}
 		else {
