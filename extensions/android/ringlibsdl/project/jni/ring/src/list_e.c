@@ -234,7 +234,7 @@ void ring_vm_listfuncs_find ( void *pPointer )
 			if ( RING_API_PARACOUNT == 4 ) {
 				if ( RING_API_ISSTRING(4) ) {
 					if ( RING_API_ISSTRING(2) ) {
-						nNum1 = ring_list_findinlistofobjs(pList,RING_LISTOFOBJS_FINDSTRING,0.0,RING_API_GETSTRING(2),nColumn,RING_API_GETSTRING(4));
+						nNum1 = ring_list_findinlistofobjs(pList,RING_LISTOFOBJS_FINDSTRING,RING_ZEROF,RING_API_GETSTRING(2),nColumn,RING_API_GETSTRING(4));
 					}
 					else if ( RING_API_ISNUMBER(2) ) {
 						nNum1 = ring_list_findinlistofobjs(pList,RING_LISTOFOBJS_FINDNUMBER,RING_API_GETNUMBER(2),"",nColumn,RING_API_GETSTRING(4));
@@ -291,8 +291,8 @@ void ring_vm_listfuncs_min ( void *pPointer )
 				return ;
 			}
 			if ( ring_list_getsize(pList) > 0 ) {
-				if ( ring_list_isnumber(pList,1) ) {
-					nNum1 = ring_list_getdouble(pList,1) ;
+				if ( ring_list_isnumber(pList,RING_ONE) ) {
+					nNum1 = ring_list_getdouble(pList,RING_ONE) ;
 				}
 				else {
 					RING_API_ERROR(RING_API_BADPARATYPE);
@@ -356,8 +356,8 @@ void ring_vm_listfuncs_max ( void *pPointer )
 				return ;
 			}
 			if ( ring_list_getsize(pList) > 0 ) {
-				if ( ring_list_isnumber(pList,1) ) {
-					nNum1 = ring_list_getdouble(pList,1) ;
+				if ( ring_list_isnumber(pList,RING_ONE) ) {
+					nNum1 = ring_list_getdouble(pList,RING_ONE) ;
 				}
 				else {
 					RING_API_ERROR(RING_API_BADPARATYPE);
@@ -492,7 +492,7 @@ void ring_vm_listfuncs_sort ( void *pPointer )
 			return ;
 		}
 		if ( nParaCount == 1 ) {
-			if ( ring_list_isnumber(pList,1) ) {
+			if ( ring_list_isnumber(pList,RING_ONE) ) {
 				/* Check that all items are numbers */
 				for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 					if ( ! ring_list_isnumber(pList,x) ) {
@@ -500,9 +500,9 @@ void ring_vm_listfuncs_sort ( void *pPointer )
 						return ;
 					}
 				}
-				ring_list_sortnum(pList,1,ring_list_getsize(pList),0,"");
+				ring_list_sortnum(pList,RING_ONE,ring_list_getsize(pList),RING_ZERO,"");
 			}
-			else if ( ring_list_isstring(pList,1) ) {
+			else if ( ring_list_isstring(pList,RING_ONE) ) {
 				/* Check that all items are strings */
 				for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 					if ( ! ring_list_isstring(pList,x) ) {
@@ -510,15 +510,15 @@ void ring_vm_listfuncs_sort ( void *pPointer )
 						return ;
 					}
 				}
-				ring_list_sortstr(pList,1,ring_list_getsize(pList),0,"");
+				ring_list_sortstr(pList,RING_ONE,ring_list_getsize(pList),RING_ZERO,"");
 			}
 			else {
 				RING_API_ERROR(RING_API_BADPARATYPE);
 			}
 		}
-		else if ( (nParaCount == 2) && RING_API_ISNUMBER(2) && ring_list_islist(pList,1) ) {
+		else if ( (nParaCount == 2) && RING_API_ISNUMBER(2) && ring_list_islist(pList,RING_ONE) ) {
 			nColumn = RING_API_GETNUMBER(2) ;
-			pList3 = ring_list_getlist(pList,1);
+			pList3 = ring_list_getlist(pList,RING_ONE);
 			if ( ring_list_isnumber(pList3,nColumn) ) {
 				/* Check that all items are numbers */
 				for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
@@ -528,7 +528,7 @@ void ring_vm_listfuncs_sort ( void *pPointer )
 						return ;
 					}
 				}
-				ring_list_sortnum(pList,1,ring_list_getsize(pList),nColumn,"");
+				ring_list_sortnum(pList,RING_ONE,ring_list_getsize(pList),nColumn,"");
 			}
 			else if ( ring_list_isstring(pList3,nColumn) ) {
 				/* Check that all items are strings */
@@ -539,17 +539,17 @@ void ring_vm_listfuncs_sort ( void *pPointer )
 						return ;
 					}
 				}
-				ring_list_sortstr(pList,1,ring_list_getsize(pList),nColumn,"");
+				ring_list_sortstr(pList,RING_ONE,ring_list_getsize(pList),nColumn,"");
 			}
 			else {
 				RING_API_ERROR(RING_API_BADPARATYPE);
 			}
 		}
-		else if ( (nParaCount == 3) && RING_API_ISNUMBER(2) && ring_list_islist(pList,1) && RING_API_ISSTRING(3) ) {
+		else if ( (nParaCount == 3) && RING_API_ISNUMBER(2) && ring_list_islist(pList,RING_ONE) && RING_API_ISSTRING(3) ) {
 			nColumn = RING_API_GETNUMBER(2) ;
 			cAttribute = RING_API_GETSTRING(3) ;
 			ring_string_lower(cAttribute);
-			pList3 = ring_list_getlist(pList,1);
+			pList3 = ring_list_getlist(pList,RING_ONE);
 			if ( nColumn > 1 ) {
 				pList3 = ring_list_getlist(pList3,nColumn);
 			}
@@ -562,10 +562,10 @@ void ring_vm_listfuncs_sort ( void *pPointer )
 				pList3 = ring_list_getlist(pList3,RING_OBJECT_OBJECTDATA) ;
 				pList3 = ring_list_getlist(pList3,nPos) ;
 				if ( ring_list_isstring(pList3,RING_VAR_VALUE) ) {
-					ring_list_sortstr(pList,1,ring_list_getsize(pList),nColumn,cAttribute);
+					ring_list_sortstr(pList,RING_ONE,ring_list_getsize(pList),nColumn,cAttribute);
 				}
 				else if ( ring_list_isnumber(pList3,RING_VAR_VALUE) ) {
-					ring_list_sortnum(pList,1,ring_list_getsize(pList),nColumn,cAttribute);
+					ring_list_sortnum(pList,RING_ONE,ring_list_getsize(pList),nColumn,cAttribute);
 				}
 				else {
 					RING_API_ERROR(RING_API_BADPARATYPE);
@@ -610,7 +610,7 @@ void ring_vm_listfuncs_binarysearch ( void *pPointer )
 						return ;
 					}
 				}
-				RING_API_RETNUMBER(ring_list_binarysearchstr(pList,RING_API_GETSTRING(2),0,""));
+				RING_API_RETNUMBER(ring_list_binarysearchstr(pList,RING_API_GETSTRING(2),RING_ZERO,""));
 			}
 			else if ( RING_API_ISNUMBER(2) ) {
 				/* Check that all items are numbers */
@@ -620,7 +620,7 @@ void ring_vm_listfuncs_binarysearch ( void *pPointer )
 						return ;
 					}
 				}
-				RING_API_RETNUMBER(ring_list_binarysearchnum(pList,RING_API_GETNUMBER(2),0,""));
+				RING_API_RETNUMBER(ring_list_binarysearchnum(pList,RING_API_GETNUMBER(2),RING_ZERO,""));
 			}
 			else {
 				RING_API_ERROR(RING_API_BADPARATYPE);

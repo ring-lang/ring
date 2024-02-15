@@ -102,6 +102,10 @@
 	/* Packages List */
 	#define RING_PACKAGES_PACKAGENAME 1
 	#define RING_PACKAGES_CLASSESLIST 2
+	/* Classes List */
+	#define RING_CLASSES_CLASSNAME 1
+	/* Functions List */
+	#define RING_FUNCTIONS_FUNCNAME 1
 	/* Functions */
 
 	int ring_parser_start ( List *pTokens,RingState *pRingState ) ;
