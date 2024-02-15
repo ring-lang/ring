@@ -139,7 +139,7 @@ void ring_vm_loadfuncp ( VM *pVM )
 	pFuncCall->nSP = pVM->nSP ;
 	pFuncCall->nLineNumber = RING_VM_IR_GETLINENUMBER ;
 	pFuncCall->pFunc = (void(*)(void *)) RING_VM_IR_READPVALUE(3) ;
-	pFuncCall->pTempMem = ring_list_new_gc(pVM->pRingState,0) ;
+	pFuncCall->pTempMem = ring_list_new_gc(pVM->pRingState,RING_ZERO) ;
 	/* Store the file name */
 	pFuncCall->cFileName = pVM->cFileName ;
 	if ( pFuncCall->nType == RING_FUNCTYPE_SCRIPT ) {
@@ -155,7 +155,7 @@ void ring_vm_loadfuncp ( VM *pVM )
 	pFuncCall->nListStart = pVM->nListStart ;
 	pFuncCall->pNestedLists = pVM->pNestedLists ;
 	pVM->nListStart = 0 ;
-	pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
+	pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 }
 
 void ring_vm_incpjumpstep1 ( VM *pVM )

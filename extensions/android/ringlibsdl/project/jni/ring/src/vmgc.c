@@ -382,7 +382,7 @@ RING_API List * ring_list_collectcycles_gc ( void *pState,List *pList )
 		return pList ;
 	}
 	/* Create the List */
-	aProcess = ring_list_new_gc(pState,0);
+	aProcess = ring_list_new_gc(pState,RING_ZERO);
 	/* Add the Root */
 	ring_list_addpointer_gc(pState,aProcess,pList);
 	/*
@@ -482,7 +482,7 @@ RING_API int ring_list_containssublist_gc ( void *pState,List *pList,List *pChec
 	int x,y,lFound  ;
 	/* Check if the List is a circular reference */
 	lFound = 0 ;
-	aProcess = ring_list_new_gc(pState,0);
+	aProcess = ring_list_new_gc(pState,RING_ZERO);
 	ring_list_addpointer_gc(pState,aProcess,pList);
 	for ( x = 1 ; x <= ring_list_getsize(aProcess) ; x++ ) {
 		pActiveList = (List *) ring_list_getpointer(aProcess,x);
@@ -826,7 +826,7 @@ RING_API void * ring_state_calloc ( void *pState,size_t nitems, size_t size )
 			if ( (nTotal <= sizeof(PoolDataL3) ) && (! ((RingState *) pState)->lDisablePoolManager) ) {
 				if ( ((RingState *) pState)->pVM != NULL ) {
 					pMem = ring_poolmanager_allocate((RingState *) pState,nTotal) ;
-					memset(pMem,0,nTotal);
+					memset(pMem,RING_ZERO,nTotal);
 					return pMem ;
 				}
 			}
@@ -957,7 +957,7 @@ void ring_poolmanager_new ( RingState *pRingState )
 	pRingState->vPoolManager.pBlockStartStateLevel = NULL ;
 	pRingState->vPoolManager.pBlockEndStateLevel = NULL ;
 	pRingState->vPoolManager.nItemsInBlockStateLevel = RING_POOLMANAGER_ITEMSINBLOCKStateLevel ;
-	pRingState->vPoolManager.aBlocks = ring_list_new_gc(pRingState,0) ;
+	pRingState->vPoolManager.aBlocks = ring_list_new_gc(pRingState,RING_ZERO) ;
 	pRingState->vPoolManager.lDeleteMemory = 1 ;
 }
 

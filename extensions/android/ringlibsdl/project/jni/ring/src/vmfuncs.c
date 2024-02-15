@@ -60,7 +60,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 			pFuncCall->nSP = pVM->nSP ;
 			pFuncCall->pFunc = NULL ;
 			/* Create Temp Memory */
-			pFuncCall->pTempMem = ring_list_new_gc(pVM->pRingState,0) ;
+			pFuncCall->pTempMem = ring_list_new_gc(pVM->pRingState,RING_ZERO) ;
 			/* File Name */
 			pFuncCall->cFileName = pVM->cFileName ;
 			pVM->cPrevFileName = pVM->cFileName ;
@@ -74,7 +74,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 			pFuncCall->nListStart = pVM->nListStart ;
 			pFuncCall->pNestedLists = pVM->pNestedLists ;
 			pVM->nListStart = 0 ;
-			pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
+			pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 			if ( (strcmp(cStr,"main") != 0 ) && (pVM->nCallMethod != 1) && (y != 2) ) {
 				/* We check that we will convert Functions only, not methods */
 				if ( pVM->nInsideBraceFlag == 0 ) {
@@ -125,7 +125,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 		pFuncCall->pFunc = ring_list_getfuncpointer(pList,RING_FUNCMAP_PC) ;
 		pFuncCall->nSP = pVM->nSP ;
 		/* Create Temp Memory */
-		pFuncCall->pTempMem = ring_list_new_gc(pVM->pRingState,0) ;
+		pFuncCall->pTempMem = ring_list_new_gc(pVM->pRingState,RING_ZERO) ;
 		/*
 		**  File Name 
 		**  The old source file name 
@@ -141,7 +141,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 		pFuncCall->nListStart = pVM->nListStart ;
 		pFuncCall->pNestedLists = pVM->pNestedLists ;
 		pVM->nListStart = 0 ;
-		pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
+		pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 		/* Add nLoadAddressScope to pFuncCall */
 		pFuncCall->nLoadAddressScope = pVM->nLoadAddressScope ;
 		pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
@@ -222,7 +222,7 @@ void ring_vm_call2 ( VM *pVM )
 	if ( pFuncCall->nType == RING_FUNCTYPE_SCRIPT ) {
 		/* Clear List/Nested Lists State */
 		pVM->nListStart = 0 ;
-		pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
+		pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 		pVM->nPC = pFuncCall->nPC ;
 		/* Save State */
 		pFuncCall->pVMState = ring_vm_savestateforfunctions(pVM);
@@ -410,7 +410,7 @@ void ring_vm_return ( VM *pVM )
 		if ( pVM->nCallMainFunction == 0 ) {
 			pVM->nPC-- ;
 			pVM->nSP = 0 ;
-			if ( ring_vm_loadfunc2(pVM,"main",0) ) {
+			if ( ring_vm_loadfunc2(pVM,"main",RING_FALSE) ) {
 				ring_vm_call(pVM);
 				pVM->nCallMainFunction = 1 ;
 				return ;
@@ -455,7 +455,7 @@ void ring_vm_newfunc ( VM *pVM )
 			pParameter = (char *) cPara ;
 		}
 		/* Set Parameters Value */
-		aRefList = ring_list_new_gc(pVM->pRingState,0);
+		aRefList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 		for ( x = RING_VM_IR_READIVALUE(3) ; x >= 1 ; x-- ) {
 			if ( nSP < pVM->nSP ) {
 				ring_string_word(cParameters,x,pParameter);
@@ -682,7 +682,7 @@ void ring_vm_anonymous ( VM *pVM )
 		cStr = RING_VM_STACK_READC ;
 		RING_VM_STACK_POP ;
 		ring_string_lower(cStr);
-		ring_vm_loadfunc2(pVM,cStr,0);
+		ring_vm_loadfunc2(pVM,cStr,RING_FALSE);
 	}
 	else {
 		ring_vm_error(pVM,RING_VM_ERROR_BADCALLPARA);

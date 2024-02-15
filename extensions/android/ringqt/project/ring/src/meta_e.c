@@ -904,7 +904,7 @@ void ring_vm_refmeta_ringvmfileslist ( void *pPointer )
 	VM *pVM  ;
 	List *pList  ;
 	pVM = (VM *) pPointer ;
-	pList = ring_list_new_gc(pVM->pRingState,0);
+	pList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	ring_list_copy_gc(pVM->pRingState,pList,pVM->pRingState->pRingFilesList);
 	RING_API_RETLIST(pList);
 	ring_list_delete_gc(pVM->pRingState,pList);
@@ -917,7 +917,7 @@ void ring_vm_refmeta_ringvmcalllist ( void *pPointer )
 	int x  ;
 	FuncCall *pFuncCall  ;
 	pVM = (VM *) pPointer ;
-	pList = ring_list_new_gc(pVM->pRingState,0);
+	pList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Copy Important Information */
 	for ( x = 1 ; x <= ring_list_getsize(pVM->pFuncCallList ) ; x++ ) {
 		pFuncCall = (FuncCall *) ring_list_getpointer(pVM->pFuncCallList,x) ;
@@ -938,7 +938,7 @@ void ring_vm_refmeta_ringvmmemorylist ( void *pPointer )
 	VM *pVM  ;
 	List *pList, *pList2  ;
 	pVM = (VM *) pPointer ;
-	pList = ring_list_new_gc(((VM *) pPointer)->pRingState,0) ;
+	pList = ring_list_new_gc(((VM *) pPointer)->pRingState,RING_ZERO) ;
 	ring_list_copy_gc(pVM->pRingState,pList,pVM->pMem);
 	pList2 = RING_API_NEWLIST ;
 	ring_list_copy_gc(pVM->pRingState,pList2,pList);
@@ -951,7 +951,7 @@ void ring_vm_refmeta_ringvmfunctionslist ( void *pPointer )
 	VM *pVM  ;
 	List *pList  ;
 	pVM = (VM *) pPointer ;
-	pList = ring_list_new_gc(pVM->pRingState,0);
+	pList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	ring_list_copy_gc(pVM->pRingState,pList,pVM->pFunctionsMap);
 	RING_API_RETLIST(pList);
 	ring_list_delete_gc(pVM->pRingState,pList);
@@ -962,7 +962,7 @@ void ring_vm_refmeta_ringvmclasseslist ( void *pPointer )
 	VM *pVM  ;
 	List *pList  ;
 	pVM = (VM *) pPointer ;
-	pList = ring_list_new_gc(pVM->pRingState,0);
+	pList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	ring_list_copy_gc(pVM->pRingState,pList,pVM->pClassesMap);
 	RING_API_RETLIST(pList);
 	ring_list_delete_gc(pVM->pRingState,pList);
@@ -973,7 +973,7 @@ void ring_vm_refmeta_ringvmpackageslist ( void *pPointer )
 	VM *pVM  ;
 	List *pList  ;
 	pVM = (VM *) pPointer ;
-	pList = ring_list_new_gc(pVM->pRingState,0);
+	pList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	ring_list_copy_gc(pVM->pRingState,pList,pVM->pPackagesMap);
 	RING_API_RETLIST(pList);
 	ring_list_delete_gc(pVM->pRingState,pList);
@@ -984,7 +984,7 @@ void ring_vm_refmeta_ringvmcfunctionslist ( void *pPointer )
 	VM *pVM  ;
 	List *pList  ;
 	pVM = (VM *) pPointer ;
-	pList = ring_list_new_gc(pVM->pRingState,0);
+	pList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	ring_list_copy_gc(pVM->pRingState,pList,pVM->pCFunctionsList);
 	RING_API_RETLIST(pList);
 	ring_list_delete_gc(pVM->pRingState,pList);
@@ -1020,7 +1020,7 @@ void ring_vm_refmeta_ringvmtracedata ( void *pPointer )
 	VM *pVM  ;
 	List *pList  ;
 	pVM = (VM *) pPointer ;
-	pList = ring_list_new_gc(pVM->pRingState,0);
+	pList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	ring_list_copy_gc(pVM->pRingState,pList,pVM->pTraceData);
 	RING_API_RETLIST(pList);
 	ring_list_delete_gc(pVM->pRingState,pList);
@@ -1152,7 +1152,7 @@ void ring_vm_refmeta_ringvminfo ( void *pPointer )
 	VM *pVM  ;
 	List *pList  ;
 	pVM = (VM *) pPointer ;
-	pList = ring_list_new_gc(pVM->pRingState,0);
+	pList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/*
 	**  Add the list items 
 	**  Lists Size (12 Items) 
@@ -1228,7 +1228,7 @@ void ring_vm_refmeta_ringvmcodelist ( void *pPointer )
 	VM *pVM  ;
 	List *pList  ;
 	pVM = (VM *) pPointer ;
-	pList = ring_list_new_gc(pVM->pRingState,0);
+	pList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	ring_list_copy_gc(pVM->pRingState,pList,pVM->pCode);
 	RING_API_RETLIST(pList);
 	ring_list_delete_gc(pVM->pRingState,pList);

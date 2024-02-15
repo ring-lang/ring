@@ -37,7 +37,7 @@ ring_general_showtime
 Type: time_t
 timer
 Type: char
-buffer[50]
+buffer[RING_MEDIUMBUF]
 Type: struct tm*
 tm_info
 Type: clock_t

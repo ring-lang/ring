@@ -48,9 +48,9 @@ Parser * ring_parser_new ( List *pTokens,RingState *pRingState )
 	pParser->nErrorsCount = 0 ;
 	if ( pRingState->pRingGenCode == NULL ) {
 		pRingState->pRingGenCode = ring_list_new(0);
-		pRingState->pRingFunctionsMap = ring_list_new_gc(pRingState,0);
-		pRingState->pRingClassesMap = ring_list_new_gc(pRingState,0);
-		pRingState->pRingPackagesMap = ring_list_new_gc(pRingState,0);
+		pRingState->pRingFunctionsMap = ring_list_new_gc(pRingState,RING_ZERO);
+		pRingState->pRingClassesMap = ring_list_new_gc(pRingState,RING_ZERO);
+		pRingState->pRingPackagesMap = ring_list_new_gc(pRingState,RING_ZERO);
 	}
 	pParser->GenCode = pRingState->pRingGenCode ;
 	pParser->FunctionsMap = pRingState->pRingFunctionsMap ;
@@ -73,7 +73,7 @@ Parser * ring_parser_new ( List *pTokens,RingState *pRingState )
 	pParser->nLoopOrExitCommand = 0 ;
 	pParser->nCheckLoopAndExit = 1 ;
 	pParser->nLoopFlag = 0 ;
-	pParser->pForInVars = ring_list_new_gc(pRingState,0);
+	pParser->pForInVars = ring_list_new_gc(pRingState,RING_ZERO);
 	return pParser ;
 }
 

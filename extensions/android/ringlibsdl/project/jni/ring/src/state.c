@@ -286,14 +286,14 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 	}
 	/* Check file */
 	if ( pRingState->pRingFilesList == NULL ) {
-		pRingState->pRingFilesList = ring_list_new_gc(pRingState,0);
-		pRingState->pRingFilesStack = ring_list_new_gc(pRingState,0);
+		pRingState->pRingFilesList = ring_list_new_gc(pRingState,RING_ZERO);
+		pRingState->pRingFilesStack = ring_list_new_gc(pRingState,RING_ZERO);
 		ring_list_addstring_gc(pRingState,pRingState->pRingFilesList,cFileName);
 		ring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,cFileName);
 		nFreeFilesList = 1 ;
 	}
 	else {
-		if ( ring_list_findstring(pRingState->pRingFilesList,cFileName,0) == 0 ) {
+		if ( ring_list_findstring(pRingState->pRingFilesList,cFileName,RING_ZERO) == 0 ) {
 			ring_list_addstring_gc(pRingState,pRingState->pRingFilesList,cFileName);
 			ring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,cFileName);
 		}
@@ -420,8 +420,8 @@ RING_API void ring_state_runobjectfile ( RingState *pRingState,char *cFileName )
 		return ;
 	}
 	/* Files List */
-	pRingState->pRingFilesList = ring_list_new_gc(pRingState,0);
-	pRingState->pRingFilesStack = ring_list_new_gc(pRingState,0);
+	pRingState->pRingFilesList = ring_list_new_gc(pRingState,RING_ZERO);
+	pRingState->pRingFilesStack = ring_list_new_gc(pRingState,RING_ZERO);
 	ring_list_addstring_gc(pRingState,pRingState->pRingFilesList,cFileName);
 	ring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,cFileName);
 	if ( ring_objfile_readfile(pRingState,cFileName) ) {
@@ -433,8 +433,8 @@ RING_API void ring_state_runobjectfile ( RingState *pRingState,char *cFileName )
 RING_API void ring_state_runobjectstring ( RingState *pRingState,char *cString,const char *cFileName )
 {
 	/* Files List */
-	pRingState->pRingFilesList = ring_list_new_gc(pRingState,0);
-	pRingState->pRingFilesStack = ring_list_new_gc(pRingState,0);
+	pRingState->pRingFilesList = ring_list_new_gc(pRingState,RING_ZERO);
+	pRingState->pRingFilesStack = ring_list_new_gc(pRingState,RING_ZERO);
 	ring_list_addstring_gc(pRingState,pRingState->pRingFilesList,cFileName);
 	ring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,cFileName);
 	if ( ring_objfile_readstring(pRingState,cString) ) {
@@ -503,14 +503,14 @@ RING_API int ring_state_runstring ( RingState *pRingState,char *cString )
 	const char *cFileName = "runstring" ;
 	/* Check file */
 	if ( pRingState->pRingFilesList == NULL ) {
-		pRingState->pRingFilesList = ring_list_new_gc(pRingState,0);
-		pRingState->pRingFilesStack = ring_list_new_gc(pRingState,0);
+		pRingState->pRingFilesList = ring_list_new_gc(pRingState,RING_ZERO);
+		pRingState->pRingFilesStack = ring_list_new_gc(pRingState,RING_ZERO);
 		ring_list_addstring_gc(pRingState,pRingState->pRingFilesList,cFileName);
 		ring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,cFileName);
 		nFreeFilesList = 1 ;
 	}
 	else {
-		if ( ring_list_findstring(pRingState->pRingFilesList,cFileName,0) == 0 ) {
+		if ( ring_list_findstring(pRingState->pRingFilesList,cFileName,RING_ZERO) == 0 ) {
 			ring_list_addstring_gc(pRingState,pRingState->pRingFilesList,cFileName);
 			ring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,cFileName);
 		}

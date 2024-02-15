@@ -44,7 +44,7 @@ int ring_general_exefilename ( char *cDirPath )
 		}
 	#elif __linux__
 		/* readlink() doesn't null terminate */
-		memset(cDirPath,0,nSize);
+		memset(cDirPath,RING_ZERO,nSize);
 		if ( ! readlink("/proc/self/exe",cDirPath,nSize) ) {
 			return 0 ;
 		}

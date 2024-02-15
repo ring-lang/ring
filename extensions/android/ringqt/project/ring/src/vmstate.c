@@ -62,7 +62,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	FuncCall *pFuncCall  ;
 	/* Using VMState */
 	pVMState = (VMState *) ring_list_getpointer(pList,nPos);
-	aListsToDelete = ring_list_new_gc(pVM->pRingState,0);
+	aListsToDelete = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/*
 	**  Set Scope 
 	**  Delete Scopes using the correct function 
@@ -186,7 +186,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 		ring_vm_removelistprotection(pVM,pListPointer);
 		ring_list_addpointer_gc(pVM->pRingState,aListsToDelete,pListPointer);
 	}
-	pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
+	pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	pVM->nInsideBraceFlag = pVMState->aNumbers[17] ;
 	ring_vm_backstate(pVM,pVMState->aNumbers[19],pVM->aBeforeObjState);
 	RING_VM_IR_SETLINENUMBER(pVMState->aNumbers[20]);
@@ -250,12 +250,12 @@ VMState * ring_vm_savestateforfunctions ( VM *pVM )
 	pVMState->aPointers[4] = pVM->pGetSetObject ;
 	pVMState->aPointers[5] = ring_list_getpointer(pThis,RING_VAR_VALUE) ;
 	pVMState->aPointers[6] = pVM->aSetProperty ;
-	pVM->aSetProperty = ring_list_new_gc(pVM->pRingState,0);
+	pVM->aSetProperty = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Save State */
 	pVM->nInsideBraceFlag = 0 ;
 	/* Save BlockFlag */
 	pVM->nBlockFlag = 0 ;
-	pVM->aPCBlockFlag = ring_list_new_gc(pVM->pRingState,0);
+	pVM->aPCBlockFlag = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Save nPrivateFlag, set it to 0 (public not private) */
 	pVM->nPrivateFlag = 0 ;
 	/* Save nCallClassInit */
@@ -335,7 +335,7 @@ void ring_vm_savestatefornewobjects ( VM *pVM )
 	pVMState->aNumbers[0] = pVM->nListStart ;
 	pVMState->aPointers[1] = pVM->pNestedLists ;
 	pVM->nListStart = 0 ;
-	pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
+	pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Save Stack Information */
 	pVMState->aNumbers[1] = pVM->nSP ;
 	/* Save FuncExecute */
@@ -405,7 +405,7 @@ void ring_vm_savestatefornewobjects ( VM *pVM )
 	pVMState->aNumbers[24] = pVM->nBlockFlag ;
 	pVMState->aPointers[7] = pVM->aPCBlockFlag ;
 	pVM->nBlockFlag = 0 ;
-	pVM->aPCBlockFlag = ring_list_new_gc(pVM->pRingState,0);
+	pVM->aPCBlockFlag = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Save aActivePackage */
 	pVMState->aNumbers[25] = ring_list_getsize(pVM->aActivePackage) ;
 	/* Save nInClassRegion */
@@ -415,7 +415,7 @@ void ring_vm_savestatefornewobjects ( VM *pVM )
 	pVMState->aNumbers[27] = ring_list_getsize(pVM->aBeforeObjState) ;
 	/* Save aSetProperty */
 	pVMState->aPointers[8] = pVM->aSetProperty ;
-	pVM->aSetProperty = ring_list_new_gc(pVM->pRingState,0);
+	pVM->aSetProperty = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 }
 
 void ring_vm_restorestatefornewobjects ( VM *pVM )
@@ -537,7 +537,7 @@ void ring_vm_savestateforbraces ( VM *pVM,List *pObjState )
 	ring_list_addint_gc(pVM->pRingState,pList,pVM->nListStart);
 	ring_list_addpointer_gc(pVM->pRingState,pList,pVM->pNestedLists);
 	pVM->nListStart = 0 ;
-	pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
+	pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Enable function for memory management */
 	ring_vm_gc_listpointerismine(pList,RING_ABRACEOBJECTS_PNESTEDLISTS);
 	/* Store nFuncExec */
@@ -613,7 +613,7 @@ List * ring_vm_savestack ( VM *pVM )
 	List *pList, *pList2  ;
 	nSP = pVM->nSP ;
 	/* Create List */
-	pList = ring_list_new_gc(pVM->pRingState,0);
+	pList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	while ( pVM->nSP  != 0 ) {
 		if ( RING_VM_STACK_ISSTRING ) {
 			ring_list_addstring2_gc(pVM->pRingState,pList,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);

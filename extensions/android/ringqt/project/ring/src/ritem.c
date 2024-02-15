@@ -112,7 +112,7 @@ RING_API void ring_item_settype_gc ( void *pState,Item *pItem,unsigned int ItemT
 			break ;
 		case ITEMTYPE_LIST :
 			pItem->nType = ITEMTYPE_LIST ;
-			pItem->data.pList = ring_list_new_gc(pState,0);
+			pItem->data.pList = ring_list_new_gc(pState,RING_ZERO);
 			break ;
 		case ITEMTYPE_FUNCPOINTER :
 			pItem->nType = ITEMTYPE_FUNCPOINTER ;

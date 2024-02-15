@@ -6,7 +6,7 @@ RING_API void ring_vm_funcregister2 ( RingState *pRingState,const char *cStr, vo
 {
 	List *pList  ;
 	if ( pRingState->pRingCFunctions == NULL ) {
-		pRingState->pRingCFunctions = ring_list_new_gc(pRingState,0);
+		pRingState->pRingCFunctions = ring_list_new_gc(pRingState,RING_ZERO);
 	}
 	pList = ring_list_newlist_gc(pRingState,pRingState->pRingCFunctions);
 	ring_list_addstring_gc(pRingState,pList,cStr);
@@ -535,7 +535,7 @@ RING_API List * ring_vm_api_newlistusingblocks ( VM *pVM, int nSize, int nSize2 
 					pItems->pValue = pItem ;
 					pItem->nType = ITEMTYPE_LIST ;
 					pItem->data.pList = pSubLists ;
-					ring_list_new2_gc(pVM->pRingState,pItem->data.pList,0);
+					ring_list_new2_gc(pVM->pRingState,pItem->data.pList,RING_ZERO);
 				}
 				/* Set the List Data */
 				pList->nSize = nSize ;

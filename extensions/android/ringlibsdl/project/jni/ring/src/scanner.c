@@ -9,7 +9,7 @@ Scanner * ring_scanner_new ( RingState *pRingState )
 	pScanner->pRingState = pRingState ;
 	pScanner->state = SCANNER_STATE_GENERAL ;
 	pScanner->ActiveToken = ring_string_new_gc(pRingState,"");
-	pScanner->Tokens = ring_list_new_gc(pRingState,0);
+	pScanner->Tokens = ring_list_new_gc(pRingState,RING_ZERO);
 	ring_scanner_keywords(pScanner);
 	ring_scanner_operators(pScanner);
 	pScanner->LinesCount = 1 ;
@@ -327,7 +327,7 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 
 void ring_scanner_keywords ( Scanner *pScanner )
 {
-	pScanner->Keywords = ring_list_new_gc(pScanner->pRingState,0);
+	pScanner->Keywords = ring_list_new_gc(pScanner->pRingState,RING_ZERO);
 	ring_list_addstring_gc(pScanner->pRingState,pScanner->Keywords,"if");
 	ring_list_addstring_gc(pScanner->pRingState,pScanner->Keywords,"to");
 	/* Logic */
@@ -563,7 +563,7 @@ int ring_scanner_isoperator ( Scanner *pScanner, const char *cStr )
 
 void ring_scanner_operators ( Scanner *pScanner )
 {
-	pScanner->Operators = ring_list_new_gc(pScanner->pRingState,0);
+	pScanner->Operators = ring_list_new_gc(pScanner->pRingState,RING_ZERO);
 	ring_list_addstring_gc(pScanner->pRingState,pScanner->Operators,"+");
 	ring_list_addstring_gc(pScanner->pRingState,pScanner->Operators,"-");
 	ring_list_addstring_gc(pScanner->pRingState,pScanner->Operators,"*");
