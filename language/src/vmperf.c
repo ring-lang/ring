@@ -126,7 +126,7 @@ void ring_vm_loadfuncp ( VM *pVM )
 {
 	FuncCall *pFuncCall  ;
 	/* Check not defining a Ring function that replace a C function */
-	if ( (RING_VM_IR_GETFLAGREG == RING_FUNCTYPE_C) && (ring_list_getsize(pVM->pFunctionsMap) != RING_VM_IR_READHIGHIVALUE(2)) ) {
+	if ( (RING_VM_IR_GETFLAGREG == RING_FUNCTYPE_C) && (ring_list_getsize(pVM->pFunctionsMap) != RING_VM_IR_READHIGHIVALUE(RING_VM_IR_REG2)) ) {
 		ring_vm_loadfunc(pVM);
 		return ;
 	}
@@ -135,7 +135,7 @@ void ring_vm_loadfuncp ( VM *pVM )
 	pFuncCall = ring_vmfunccall_new(pVM);
 	pFuncCall->nType = RING_VM_IR_GETFLAGREG ;
 	pFuncCall->cName = RING_VM_IR_READC ;
-	pFuncCall->nPC = RING_VM_IR_READLOWIVALUE(2) ;
+	pFuncCall->nPC = RING_VM_IR_READLOWIVALUE(RING_VM_IR_REG2) ;
 	pFuncCall->nSP = pVM->nSP ;
 	pFuncCall->nLineNumber = RING_VM_IR_GETLINENUMBER ;
 	pFuncCall->pFunc = (void(*)(void *)) RING_VM_IR_READPVALUE(3) ;

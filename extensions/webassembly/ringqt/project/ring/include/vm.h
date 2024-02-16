@@ -274,8 +274,8 @@
 	#define RING_VM_IR_SETREG2TYPE(x) pVM->pByteCodeIR->nReg2Type = x
 	#define RING_VM_IR_SETREG3TYPE(x) pVM->pByteCodeIR->nReg3Type = x
 	#define RING_VM_IR_SETREG4TYPE(x) pVM->pByteCodeIR->nReg4Type = x
-	#define RING_VM_IR_READLOWIVALUE(x) pVM->pByteCodeIR->aReg[x-1].aNumber[0]
-	#define RING_VM_IR_READHIGHIVALUE(x) pVM->pByteCodeIR->aReg[x-1].aNumber[1]
+	#define RING_VM_IR_READLOWIVALUE(x) pVM->pByteCodeIR->aReg[x].aNumber[0]
+	#define RING_VM_IR_READHIGHIVALUE(x) pVM->pByteCodeIR->aReg[x].aNumber[1]
 	#define RING_VM_IR_ITEMSETLOWINT(x,y) (* x).aNumber[0]  = y
 	#define RING_VM_IR_ITEMSETHIGHINT(x,y) (* x).aNumber[1]  = y
 	#define RING_VM_IR_REG1 0
