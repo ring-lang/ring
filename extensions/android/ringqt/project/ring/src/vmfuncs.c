@@ -173,7 +173,7 @@ void ring_vm_call ( VM *pVM )
 	List *pList  ;
 	/* Check if we call method using ObjName.MethodName() */
 	if ( RING_VM_IR_PARACOUNT == 3 ) {
-		if ( RING_VM_IR_READIVALUE(2) ) {
+		if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ) {
 			/*
 			**  Now we make the object state visible by moving it from aBeforeObjState to pObjState 
 			**  We do this here and not in LoadMethod to avoid accessing the object state when passing parameters 
@@ -456,7 +456,7 @@ void ring_vm_newfunc ( VM *pVM )
 		}
 		/* Set Parameters Value */
 		aRefList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
-		for ( x = RING_VM_IR_READIVALUE(3) ; x >= 1 ; x-- ) {
+		for ( x = RING_VM_IR_READIVALUE(RING_VM_IR_REG3) ; x >= 1 ; x-- ) {
 			if ( nSP < pVM->nSP ) {
 				ring_string_word(cParameters,x,pParameter);
 				if ( RING_VM_STACK_ISSTRING ) {
@@ -716,7 +716,7 @@ List * ring_vm_prevtempmem ( VM *pVM )
 void ring_vm_freetemplistsins ( VM *pVM )
 {
 	if ( ring_vm_timetofreetemplists(pVM) ) {
-		ring_vm_freetemplists(pVM, & RING_VM_IR_READI, & RING_VM_IR_READIVALUE(2));
+		ring_vm_freetemplists(pVM, & RING_VM_IR_READI, & RING_VM_IR_READIVALUE(RING_VM_IR_REG2));
 	}
 }
 

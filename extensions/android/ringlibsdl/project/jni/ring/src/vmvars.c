@@ -225,9 +225,9 @@ int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr )
 				pVM->nGetSetObjType = nType ;
 				/* Change Assignment Instruction to SetProperty */
 				if ( RING_VM_IR_PARACOUNT >= 4 ) {
-					if ( RING_VM_IR_READIVALUE(3) != 0 ) {
+					if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG3) != 0 ) {
 						nPC = pVM->nPC ;
-						pVM->nPC = RING_VM_IR_READIVALUE(3) ;
+						pVM->nPC = RING_VM_IR_READIVALUE(RING_VM_IR_REG3) ;
 						RING_VM_IR_LOAD ;
 						RING_VM_IR_OPCODE = ICO_SETPROPERTY ;
 						pVM->nPC = nPC ;

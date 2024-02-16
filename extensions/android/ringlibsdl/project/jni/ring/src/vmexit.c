@@ -21,7 +21,7 @@ void ring_vm_exitmark ( VM *pVM )
 	ring_vm_savestate(pVM,pList);
 	/* Loop Mark */
 	pList = ring_list_newlist_gc(pVM->pRingState,pVM->pLoopMark);
-	ring_list_addint_gc(pVM->pRingState,pList,RING_VM_IR_READIVALUE(2));
+	ring_list_addint_gc(pVM->pRingState,pList,RING_VM_IR_READIVALUE(RING_VM_IR_REG2));
 	ring_vm_savestate(pVM,pList);
 }
 

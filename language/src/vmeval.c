@@ -120,9 +120,9 @@ void ring_vm_returneval ( VM *pVM )
 	/* This function will always be called after each eval() execution */
 	ring_vm_return(pVM);
 	ring_vm_mutexlock(pVM);
-	aPara[0] = RING_VM_IR_READIVALUE(1) ;
-	aPara[1] = RING_VM_IR_READIVALUE(2) ;
-	aPara[2] = RING_VM_IR_READIVALUE(3) ;
+	aPara[0] = RING_VM_IR_READIVALUE(RING_VM_IR_REG1) ;
+	aPara[1] = RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ;
+	aPara[2] = RING_VM_IR_READIVALUE(RING_VM_IR_REG3) ;
 	if ( ( pVM->nRetEvalDontDelete == 0 ) && (aPara[1] == ring_list_getsize(pVM->pFunctionsMap)) && (aPara[2] == ring_list_getsize(pVM->pClassesMap)) ) {
 		/*
 		**  The code interpreted by eval doesn't add new functions or new classes 

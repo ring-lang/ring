@@ -244,7 +244,7 @@
 	#define RING_VM_IR_READP pVM->pByteCodeIR->aReg[0].pPointer
 	#define RING_VM_IR_READPVALUE(x) pVM->pByteCodeIR->aReg[x].pPointer
 	#define RING_VM_IR_READI pVM->pByteCodeIR->aReg[0].iNumber
-	#define RING_VM_IR_READIVALUE(x) pVM->pByteCodeIR->aReg[x-1].iNumber
+	#define RING_VM_IR_READIVALUE(x) pVM->pByteCodeIR->aReg[x].iNumber
 	#define RING_VM_IR_READD pVM->pByteCodeIR->aReg[0].dNumber
 	#define RING_VM_IR_READDVALUE(x) pVM->pByteCodeIR->aReg[x].dNumber
 	#define RING_VM_IR_PARACOUNT pVM->pByteCodeIR->nInsSize

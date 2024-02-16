@@ -88,9 +88,9 @@ void ring_vm_incjump ( VM *pVM )
 		RING_VM_IR_SETINTREG(pVM->nActiveScopeID);
 	}
 	/* Jump */
-	pVM->nPC = RING_VM_IR_READIVALUE(2) ;
+	pVM->nPC = RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ;
 	RING_VM_STACK_PUSHNVALUE(ring_list_getdouble(pVar,RING_VAR_VALUE));
-	RING_VM_IR_SETLINENUMBER(RING_VM_IR_READIVALUE(3));
+	RING_VM_IR_SETLINENUMBER(RING_VM_IR_READIVALUE(RING_VM_IR_REG3));
 }
 
 void ring_vm_incpjump ( VM *pVM )
@@ -107,7 +107,7 @@ void ring_vm_incpjump ( VM *pVM )
 	nNum2 = ring_item_getdouble(pItem) ;
 	ring_item_setdouble_gc(pVM->pRingState,pItem,nNum2 + nNum1);
 	/* Jump */
-	pVM->nPC = RING_VM_IR_READIVALUE(2) ;
+	pVM->nPC = RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ;
 	RING_VM_STACK_PUSHNVALUE(ring_item_getdouble(pItem));
 	RING_VM_IR_SETLINENUMBER(RING_VM_IR_READIVALUE(3));
 }
@@ -163,14 +163,14 @@ void ring_vm_incpjumpstep1 ( VM *pVM )
 	Item *pItem  ;
 	pItem = (Item *) RING_VM_IR_READPVALUE(RING_VM_IR_REG4) ;
 	/* Jump */
-	pVM->nPC = RING_VM_IR_READIVALUE(2) ;
+	pVM->nPC = RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ;
 	/* Check Data */
 	if ( ! ring_item_isdouble(pItem) ) {
 		ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);
 		return ;
 	}
 	RING_VM_STACK_PUSHNVALUE(ring_item_incdouble(pItem));
-	RING_VM_IR_SETLINENUMBER(RING_VM_IR_READIVALUE(3));
+	RING_VM_IR_SETLINENUMBER(RING_VM_IR_READIVALUE(RING_VM_IR_REG3));
 }
 
 void ring_vm_inclpjumpstep1 ( VM *pVM )
@@ -186,7 +186,7 @@ void ring_vm_inclpjumpstep1 ( VM *pVM )
 void ring_vm_setopcode ( VM *pVM )
 {
 	int nIns,nOPCode  ;
-	nIns = RING_VM_IR_READIVALUE(2) - 1 ;
+	nIns = RING_VM_IR_READIVALUE(RING_VM_IR_REG2) - 1 ;
 	nOPCode = RING_VM_IR_READI ;
 	RING_VM_IR_OPCODEVALUE(nIns) = nOPCode ;
 }

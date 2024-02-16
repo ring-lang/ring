@@ -28,7 +28,7 @@ void ring_vm_oop_newobj ( VM *pVM )
 	pItem = NULL ;
 	cClassName = RING_VM_IR_READC ;
 	/* Check using variable to get the class name */
-	if ( RING_VM_IR_READIVALUE(2) ) {
+	if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ) {
 		if ( ring_vm_findvar(pVM,cClassName) ) {
 			pVar = (List *) RING_VM_STACK_READP ;
 			if ( ring_list_isstring(pVar,RING_VAR_VALUE) ) {
@@ -866,7 +866,7 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 			}
 		}
 		ring_string_delete_gc(pVM->pRingState,pString2);
-		if ( RING_VM_IR_READIVALUE(2)  == 0 ) {
+		if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG2)  == 0 ) {
 			nIns = pVM->nPC - 2 ;
 			pVM->nEvalCalledFromRingCode = 0 ;
 			if ( pVM->nInsideEval ) {
@@ -879,7 +879,7 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 		}
 		else {
 			ring_vm_blockflag2(pVM,pVM->nPC);
-			pVM->nPC = RING_VM_IR_READIVALUE(2) ;
+			pVM->nPC = RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ;
 		}
 	}
 	else {
@@ -945,7 +945,7 @@ void ring_vm_oop_setproperty ( VM *pVM )
 		ring_list_addint_gc(pVM->pRingState,pList,pVM->nBeforeEqual);
 	}
 	/* Before (First Time) */
-	if ( RING_VM_IR_READIVALUE(1) == 0 ) {
+	if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG1) == 0 ) {
 		nIns = pVM->nPC - 2 ;
 		/* Set Variable ring_gettemp_var */
 		pList2 = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_GLOBALVARPOS_GETTEMPVAR) ;
@@ -975,7 +975,7 @@ void ring_vm_oop_setproperty ( VM *pVM )
 		ring_list_setdouble_gc(pVM->pRingState,pList2,RING_VAR_VALUE,RING_ZEROF);
 		/* Execute the same instruction again (next time the part "After (Second Time)" will run ) */
 		pVM->nPC-- ;
-		if ( RING_VM_IR_READIVALUE(2)  == 0 ) {
+		if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG2)  == 0 ) {
 			/* Create String */
 			pString = ring_string_new_gc(pVM->pRingState,"if ismethod(ring_gettemp_var,'set");
 			ring_string_add_gc(pVM->pRingState,pString,ring_list_getstring(pList,RING_ASETPROPERTY_ATTRNAME));
@@ -1000,7 +1000,7 @@ void ring_vm_oop_setproperty ( VM *pVM )
 		}
 		else {
 			ring_vm_blockflag2(pVM,pVM->nPC);
-			pVM->nPC = RING_VM_IR_READIVALUE(2) ;
+			pVM->nPC = RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ;
 		}
 		/* Set Before/After SetProperty Flag To After */
 		pRegItem = RING_VM_IR_ITEMATINS(nIns,RING_VM_IR_REG1) ;
@@ -1009,7 +1009,7 @@ void ring_vm_oop_setproperty ( VM *pVM )
 	/* After (Second Time) */
 	else {
 		/* Set Before/After SetProperty Flag to Before */
-		RING_VM_IR_READIVALUE(1) = RING_FALSE ;
+		RING_VM_IR_READIVALUE(RING_VM_IR_REG1) = RING_FALSE ;
 		/* Get Variable ring_tempflag_var */
 		pList2 = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_GLOBALVARPOS_TEMPFALG) ;
 		if ( ring_list_getdouble(pList2,RING_VAR_VALUE) == 1.0 ) {
@@ -1116,7 +1116,7 @@ void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int 
 		ring_list_setpointer_gc(pVM->pRingState,pList2,RING_VAR_VALUE,pPointer);
 		ring_list_setint_gc(pVM->pRingState,pList2,RING_VAR_PVALUETYPE,nPointerType);
 	}
-	if ( RING_VM_IR_READIVALUE(1) == 0 ) {
+	if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG1) == 0 ) {
 		/* Create String */
 		pString = ring_string_new_gc(pVM->pRingState,"if ismethod(ring_gettemp_var,'operator')\nreturn ring_gettemp_var.operator('");
 		ring_string_add_gc(pVM->pRingState,pString,cStr1);
@@ -1136,7 +1136,7 @@ void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int 
 	}
 	else {
 		ring_vm_blockflag2(pVM,pVM->nPC);
-		pVM->nPC = RING_VM_IR_READIVALUE(1) ;
+		pVM->nPC = RING_VM_IR_READIVALUE(RING_VM_IR_REG1) ;
 	}
 }
 
@@ -1301,7 +1301,7 @@ int ring_vm_oop_callingclassmethodfromclassregion ( VM *pVM, List *pMethods )
 
 void ring_vm_oop_callclassinit ( VM *pVM )
 {
-	if ( RING_VM_IR_READIVALUE(1) ) {
+	if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG1) ) {
 		pVM->nCallClassInit++ ;
 	}
 	else {
