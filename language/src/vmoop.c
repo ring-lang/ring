@@ -242,7 +242,7 @@ void ring_vm_oop_newclass ( VM *pVM )
 {
 	List *pClass,*pList  ;
 	int x  ;
-	pClass = (List *) RING_VM_IR_READPVALUE(2) ;
+	pClass = (List *) RING_VM_IR_READPVALUE(RING_VM_IR_REG2) ;
 	/* Find the Class Pointer using the Class Name */
 	if ( pClass == NULL ) {
 		for ( x = 1 ; x <= ring_list_getsize(pVM->pRingState->pRingClassesMap) ; x++ ) {
@@ -255,7 +255,7 @@ void ring_vm_oop_newclass ( VM *pVM )
 				else {
 					pClass = pList ;
 				}
-				RING_VM_IR_READPVALUE(2) = (void *) pClass ;
+				RING_VM_IR_READPVALUE(RING_VM_IR_REG2) = (void *) pClass ;
 				break ;
 			}
 		}

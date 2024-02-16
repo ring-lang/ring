@@ -22,7 +22,7 @@ void ring_vm_pushplocal ( VM *pVM )
 		ring_vm_loadaddress(pVM);
 		return ;
 	}
-	RING_VM_STACK_PUSHPVALUE(RING_VM_IR_READPVALUE(4)) ;
+	RING_VM_STACK_PUSHPVALUE(RING_VM_IR_READPVALUE(RING_VM_IR_REG4)) ;
 	RING_VM_STACK_OBJTYPE = RING_OBJTYPE_VARIABLE ;
 	/* Update Scope Information */
 	if ( pVM->nLoadAddressScope  == RING_VARSCOPE_NOTHING ) {
@@ -97,7 +97,7 @@ void ring_vm_incpjump ( VM *pVM )
 {
 	Item *pItem  ;
 	double nNum1,nNum2  ;
-	pItem = (Item *) RING_VM_IR_READPVALUE(4) ;
+	pItem = (Item *) RING_VM_IR_READPVALUE(RING_VM_IR_REG4) ;
 	nNum1 = ring_list_getdouble(pVM->aForStep,ring_list_getsize(pVM->aForStep));
 	/* Check Data */
 	if ( ! ring_item_isdouble(pItem) ) {
@@ -138,14 +138,14 @@ void ring_vm_loadfuncp ( VM *pVM )
 	pFuncCall->nPC = RING_VM_IR_READLOWIVALUE(RING_VM_IR_REG2) ;
 	pFuncCall->nSP = pVM->nSP ;
 	pFuncCall->nLineNumber = RING_VM_IR_GETLINENUMBER ;
-	pFuncCall->pFunc = (void(*)(void *)) RING_VM_IR_READPVALUE(3) ;
+	pFuncCall->pFunc = (void(*)(void *)) RING_VM_IR_READPVALUE(RING_VM_IR_REG3) ;
 	pFuncCall->pTempMem = ring_list_new_gc(pVM->pRingState,RING_ZERO) ;
 	/* Store the file name */
 	pFuncCall->cFileName = pVM->cFileName ;
 	if ( pFuncCall->nType == RING_FUNCTYPE_SCRIPT ) {
 		pVM->cPrevFileName = pVM->cFileName ;
 	}
-	pFuncCall->cNewFileName = (char *) RING_VM_IR_READPVALUE(4) ;
+	pFuncCall->cNewFileName = (char *) RING_VM_IR_READPVALUE(RING_VM_IR_REG4) ;
 	pVM->cFileName = pFuncCall->cNewFileName ;
 	/* Method/Function & Scope */
 	pFuncCall->nMethodOrFunc = RING_VM_IR_GETINTREG ;
@@ -161,7 +161,7 @@ void ring_vm_loadfuncp ( VM *pVM )
 void ring_vm_incpjumpstep1 ( VM *pVM )
 {
 	Item *pItem  ;
-	pItem = (Item *) RING_VM_IR_READPVALUE(4) ;
+	pItem = (Item *) RING_VM_IR_READPVALUE(RING_VM_IR_REG4) ;
 	/* Jump */
 	pVM->nPC = RING_VM_IR_READIVALUE(2) ;
 	/* Check Data */

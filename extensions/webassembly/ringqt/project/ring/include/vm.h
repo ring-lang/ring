@@ -242,7 +242,7 @@
 	#define RING_VM_IR_READCVALUE(x) ring_string_get(pVM->pByteCodeIR->aReg[x-1].pString)
 	#define RING_VM_IR_READCVALUESIZE(x) ring_string_size(pVM->pByteCodeIR->aReg[x-1].pString)
 	#define RING_VM_IR_READP pVM->pByteCodeIR->aReg[0].pPointer
-	#define RING_VM_IR_READPVALUE(x) pVM->pByteCodeIR->aReg[x-1].pPointer
+	#define RING_VM_IR_READPVALUE(x) pVM->pByteCodeIR->aReg[x].pPointer
 	#define RING_VM_IR_READI pVM->pByteCodeIR->aReg[0].iNumber
 	#define RING_VM_IR_READIVALUE(x) pVM->pByteCodeIR->aReg[x-1].iNumber
 	#define RING_VM_IR_READD pVM->pByteCodeIR->aReg[0].dNumber
@@ -279,6 +279,7 @@
 	#define RING_VM_IR_REG1 0
 	#define RING_VM_IR_REG2 1
 	#define RING_VM_IR_REG3 2
+	#define RING_VM_IR_REG4 3
 	/*
 	**  Calling Functions 
 	**  Note : When you insert items check performance functions for update too! 
