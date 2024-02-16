@@ -250,7 +250,7 @@
 	#define RING_VM_IR_PARACOUNT pVM->pByteCodeIR->nInsSize
 	#define RING_VM_IR_OPCODE pVM->pByteCodeIR->nOPCode
 	#define RING_VM_IR_OPCODEVALUE(x) (pVM->pByteCode + x)->nOPCode
-	#define RING_VM_IR_ITEM(x) & (pVM->pByteCodeIR->aReg[x-1])
+	#define RING_VM_IR_ITEM(x) & (pVM->pByteCodeIR->aReg[x])
 	#define RING_VM_IR_LOAD pVM->pByteCodeIR = pVM->pByteCode + pVM->nPC - 1
 	#define RING_VM_IR_UNLOAD pVM->pByteCodeIR = pVM->pByteCode +  pVM->nPC - 2
 	#define RING_VM_IR_GETLINENUMBER pVM->nLineNumber
