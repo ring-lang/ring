@@ -6,7 +6,7 @@
 
 load "internetlib.ring"
 load "jsonlib.ring"
-load "guilib.ring"
+load "lightguilib.ring"
 
 cFirstName = ""
 cLastName  = ""
