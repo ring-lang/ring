@@ -81,8 +81,8 @@ C_Spacing = 1
 C_ButtonEmptyStyle  = ' border-radius: 2px; border-width: 2px; border-style: outset; '
 
 
-Button          = newlist(Size,Size)
-LayoutButtonRow =    list(Size)
+Button          = list(Size,Size)
+LayoutButtonRow = list(Size)
 
 ballColors = [ "images/red.png",
                "images/yellow.png",
