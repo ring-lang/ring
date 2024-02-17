@@ -3,8 +3,8 @@
 # Author  : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
-load "stdlib.ring"
-load "guilib.ring"
+load "stdlibcore.ring"
+load "lightguilib.ring"
 
 limit = 4
 limit1 = 1
@@ -257,7 +257,7 @@ func pcMove()
      pcMove = 1
      for n = 1 to limit
          if match1 > 0
-            rnd = random(match1-1)+1
+            rnd = random(max(match1-1,1))+1
             for m = 1 to rnd
                 deleteRow1()
             next
@@ -265,7 +265,7 @@ func pcMove()
          ok
 
          if match2 > 0
-            rnd = random(match2-1)+1
+            rnd = random(max(match2-1,1))+1
             for m = 1 to rnd
                 deleteRow2()
             next
@@ -273,7 +273,7 @@ func pcMove()
          ok
 
          if match3 > 0
-             rnd = random(match3-1)+1
+             rnd = random(max(match3-1,1))+1
              for m = 1 to rnd
                  deleteRow3()
              next
@@ -281,7 +281,7 @@ func pcMove()
           ok
 
           if match4 > 0
-             rnd = random(match4-1)+1
+             rnd = random(max(match4-1,1))+1
              for m = 1 to rnd
                  deleteRow4()
              next
