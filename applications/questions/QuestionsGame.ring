@@ -3,8 +3,8 @@
 # Author  : Gal Zsolt (~ CalmoSoft ~)
 # Email   : calmosoft@gmail.com
 
-load "stdlib.ring"
-load "guilib.ring"
+load "stdlibcore.ring"
+load "lightguilib.ring"
 load "Questions.ring"
 
 # Constants for the Questions list
