@@ -3,8 +3,8 @@
 # Author  : Gal Zsolt (~ CalmoSoft ~)
 # Email   : calmosoft@gmail.com
 
-load "stdlib.ring"
-load "guilib.ring"
+load "stdlibcore.ring"
+load "lightguilib.ring"
 
 C_SPACING	= 1
 C_FONTSIZE	= 15
