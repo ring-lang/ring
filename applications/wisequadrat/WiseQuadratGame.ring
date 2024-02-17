@@ -3,8 +3,8 @@
 # Author : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
-load "stdlib.ring"
-load "guilib.ring"
+load "stdlibcore.ring"
+load "lightguilib.ring"
 
 size = 6
 player1 = 1
@@ -16,10 +16,10 @@ C_EMPTYBUTTONSTYLE =  'border-radius:17px;background-color:silver'
 C_BUTTONVIOLETSTYLE = 'border-radius:17px;color:black; background-color: violet'
 C_BUTTONBLUESTYLE = 'border-radius:17px;color:black; background-color: blue'
 C_BUTTONORANGESTYLE = 'border-radius:17px;color:black; background-color: orange'
-button = newlist(C_ROWCOUNT,C_COLCOUNT)
+button = list(C_ROWCOUNT,C_COLCOUNT)
 LayoutButtonRow = list(C_ROWCOUNT)
-buttonsum1 = newlist(size,size)
-buttonsum2 = newlist(size,size)
+buttonsum1 = list(size,size)
+buttonsum2 = list(size,size)
 
 app = new qApp {
          StyleFusion()
