@@ -19,10 +19,13 @@ class randomimageController from windowsControllerParent
 
 	aImages = listAllFiles("images","jpg")
 
+	TimerEvent()
+
 	func CloseApp
 		oView.win.close()
 	
 	func TimerEvent 
+		if len(aImages) < 1 return ok
 		nIndex = random(len(aImages))
 		if nIndex=0 nIndex=1 ok
 		cFile = AppFile(aImages[nIndex])
