@@ -3,8 +3,8 @@
 # Author : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
-load "stdlib.ring"
-load "guilib.ring"
+load "stdlibcore.ring"
+load "lightguilib.ring"
 
 size = 7
 player1 = 0
@@ -19,7 +19,7 @@ C_BUTTONREDSTYLE = 'border-radius:17px;color:black; background-color: red'
 C_BUTTONYELLOWSTYLE = 'border-radius:17px;color:black; background-color: yellow'
 C_BUTTONVIOLETSTYLE = 'border-radius:17px;color:black; background-color: violet'
 C_MENUSTYLE	= "color:white;background-color:rgb(50,50,50);border-radius:17px"
-button = newlist(C_ROWCOUNT,C_COLCOUNT)
+button = list(C_ROWCOUNT,C_COLCOUNT)
 LayoutButtonRow = list(C_ROWCOUNT+3)
 buttonsum1 = dimlist([size,size,1])
 buttonsum2 = dimlist([size,size,1])
