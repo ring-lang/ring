@@ -5,8 +5,8 @@
 ### TAB set to 3 Spaces
 ### aArray Letters: "."-Edge, e-empty, E-EmptyVisited, C-Chosen, M-Mine, B-Boom
 
-load "stdlib.ring"
-load "guilib.ring"
+load "stdlibcore.ring"
+load "lightguilib.ring"
 
 ###-------------------
 ### WINDOW SIZE
@@ -97,8 +97,8 @@ Func DrawWidget()
 	workWidget = new qWidget()				### Global definition for workWidget
 	{
 		setWinIcon(self,"Mine.jpg")
-		aArray	= newList(hSize, vSize)	### Internal Array with Letters
-		aButton = newlist(hSize, vSize)	### Button Array with Display Colors 
+		aArray	= List(hSize, vSize)	### Internal Array with Letters
+		aButton = list(hSize, vSize)	### Button Array with Display Colors 
 	
 		PopulateArray()
 
