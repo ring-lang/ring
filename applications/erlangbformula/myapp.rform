@@ -9,7 +9,8 @@ aObjectsList = [
 		 :mainlayout =  "" ,
 		 :WindowIcon =  "images/erlangb.png" , 
 		 :Menubar =  ""  ,
-		 :IndexType =  0  
+		 :IndexType =  0  ,
+		 :GUILibrary =  1  
 
 		]
 	],
