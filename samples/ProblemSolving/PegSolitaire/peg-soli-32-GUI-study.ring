@@ -30,7 +30,7 @@ width  = sizeX / N
 height = sizeY / N
        
 
-Button          = newlist(N,N)
+Button          = list(N,N)
 LayoutButtonRow =    list(N)
 
 C_ButtonInvalidStyle = 'border-radius: 2px; border-width: 2px; border-style: outset; color:black; background-color: rgb(255,102,102); '        ### Light Pink

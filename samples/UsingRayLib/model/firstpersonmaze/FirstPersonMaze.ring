@@ -43,7 +43,7 @@ func main
 
 	SetTargetFPS(60)               // Set our game to run at 60 frames-per-second
 
-	aList = newlist(cubicmap.height, cubicmap.width)
+	aList = list(cubicmap.height, cubicmap.width)
 
 	for y = 0 to cubicmap.height-1
 		for x = 0 to cubicmap.width-1

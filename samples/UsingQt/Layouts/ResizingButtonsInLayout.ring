@@ -4,7 +4,7 @@ load "guilib.ring"
 C_ROWCOUNT = 6
 C_COLCOUNT = 4
 C_SPACING = 5
-aButtons = newlist(C_ROWCOUNT,C_COLCOUNT)
+aButtons = list(C_ROWCOUNT,C_COLCOUNT)
 LayoutButtonRow = list(C_ROWCOUNT)
 
 app = new qApp {

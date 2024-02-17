@@ -13,7 +13,7 @@ load "guilib.ring"
 base = ["A","C","G","T"]
 dnaList = []
 dnaSeq = []
-Button = newlist(10,20)
+Button = list(10,20)
 ColLine = list(21)
 start = 0 
 C_Spacing = 2 

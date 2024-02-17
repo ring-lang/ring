@@ -108,7 +108,7 @@ decimals(12)
     offset   = 50             ### Draw on MonaLisa 50 pixels from border Width & Height
     grid     = offset -2      ### Notched grid
     
-    aList = newList(width,height)   ### Save X-Y Mandelbrot Point Values here
+    aList = list(width,height)   ### Save X-Y Mandelbrot Point Values here
 
 ###--------------------------------------------
 ### Madelbrot Min-Max Ranges: 
@@ -404,7 +404,7 @@ Func Draw()
 
     SEE "Range: "+nl +"MinI:"+ minI +" MinR:"+ minR +nl +"MaxI:"+ maxI +" MaxR:"+ maxR +" W: "+width +" H: "+height +nl
 
-    aList  = newlist(width, height)            ### Save N value here for each Pixel
+    aList  = list(width, height)            ### Save N value here for each Pixel
     
     startCalcClock = clock()
     
@@ -464,7 +464,7 @@ Func Draw()
     
     ###--------------------------------------------------------
     ### Draw the aList[x][y]  N-values that were calculated
-    ###          aList = newList(width,height)   
+    ###          aList = list(width,height)   
     ### (1) DrawHSVFList( Ring List of points where each item is a sub list contains x,y,h,s,v,f )
     ### (2) DrawRGBFList( Ring List of points where each item is a sub list contains x,y,r,g,b,f )
 
@@ -499,7 +499,7 @@ Func Draw()
                  ]                               
 
     startDrawClock = clock()
-    FList = newlist(i)
+    FList = list(i)
     nLastPenID = 0
     i = 0
 

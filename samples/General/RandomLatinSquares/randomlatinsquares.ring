@@ -10,7 +10,7 @@ load "guilib.ring"
 
 list    = 1:5
 lenList = len(list)
-per= newlist(factorial(lenList),lenList)
+per= list(factorial(lenList),lenList)
 permut  = []
 
 permut()
@@ -21,7 +21,7 @@ size= lenList
 nrCells   = 6
 C_SPACING = 1
 checkRC   = 0
-Button= newlist(size,size)
+Button= list(size,size)
 LayoutButtonRow= list(size)
 C_ButtonOrangeStyle = 'border-radius:1x;color:black; background-color: orange'
 
@@ -141,7 +141,7 @@ func newBoardSize()
 	ok
 	list    = 1: nrSize
 	lenList = len(list)
-	per= newlist(factorial(lenList),lenList)
+	per= list(factorial(lenList),lenList)
 	permut  = []
 
 	permut()
@@ -177,7 +177,7 @@ func newWindow(newSize)
 		setContentsmargins(0,0,0,0)
 	}
 
-	Button = newlist(size,size)
+	Button = list(size,size)
 	LayoutButtonRow = list(size)
 
 	for Row = 1 to size

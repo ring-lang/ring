@@ -1,6 +1,6 @@
 load "stdlib.ring"
 
-table = newlist(32, 2)
+table = list(32, 2)
 dividend = 580
 divisor = 34
  

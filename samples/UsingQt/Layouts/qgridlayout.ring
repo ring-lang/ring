@@ -15,7 +15,7 @@ new QApp {
 
 		g = new QGridLayout() 
 
-		aButtons = newlist(C_ROWS,C_COLS)
+		aButtons = list(C_ROWS,C_COLS)
 		for t = 1 to C_ROWS
 			for t2=1 to C_COLS
 				aButtons[t][t2] = new QPushButton(w) {

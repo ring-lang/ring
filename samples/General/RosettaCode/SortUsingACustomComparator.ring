@@ -1,6 +1,6 @@
 load "stdlib.ring"
 
-sList = newlist(8, 2)
+sList = list(8, 2)
 aList = ["Here", "are", "some", "sample", "strings", "to", "be", "sorted"]
 ind = len(aList)
 
@@ -10,7 +10,7 @@ for n = 1 to ind
 next
 
 nList = sortFirstSecond(sList, 2)
-oList = newlist(8, 2)
+oList = list(8, 2)
 count = 0
 
 for n = len(nList) to 1 step -1

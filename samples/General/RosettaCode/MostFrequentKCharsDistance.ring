@@ -13,7 +13,7 @@ MostFreqKHashing(str1,"str1")
 MostFreqKHashing(str2,"str2")
  
 func MostFreqKHashing(str3,strp)
-        chr = newlist(26,2)
+        chr = list(26,2)
         for n = 1 to 26
              str = char(n+64)
              cstr = count(str3,str)

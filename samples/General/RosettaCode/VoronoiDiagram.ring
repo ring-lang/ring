@@ -15,9 +15,9 @@ new qapp
  
         locx = list(spots)
         locy = list(spots)
-        rgb = newlist(spots,3)
-        seal = newlist(leftside, rightside)
-        reach = newlist(leftside, rightside)
+        rgb = list(spots,3)
+        seal = list(leftside, rightside)
+        reach = list(leftside, rightside)
  
         win1 = new qwidget() {
                   setwindowtitle("Voronoi diagram")

@@ -34,7 +34,7 @@ x2	= 0
 y1	= 0
 y2	= 0
 
-button		= newlist(sizex,sizey)
+button		= list(sizex,sizey)
 LayoutButtonRow	= list(sizey)
 
 app = new qApp {
