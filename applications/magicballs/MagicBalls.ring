@@ -24,8 +24,8 @@
 // Func BallsToZeroOne(myBalls)      Return myBalls01
 
 
-load "stdlib.ring"
-load "guilib.ring"
+load "stdlibcore.ring"
+load "lightguilib.ring"
 load "solveArrayPathDest.ring"
 
 //-------------------------------------------------------

@@ -10,7 +10,7 @@
 // RETURN: True / False
 //-----------------------------------------
 
-load "stdlib.ring"
+load "stdlibcore.ring"
 
 mySquare = [[]]
 Rows = 1
