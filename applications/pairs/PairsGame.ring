@@ -8,7 +8,7 @@
 #===================================================================================#
 
 	load "stdlibcore.ring"
-	load "guilib.ring"
+	load "lightguilib.ring"
 
 #===================================================================================#
 # Define variables & constants
@@ -66,10 +66,10 @@
 	
 	limit		= len(PLIST)
 	
-	Pairs		= newlist(size1,size2)
-	Pairs2		= newlist(size1,size2)
-	Button		= newlist(size1,size2)
-	PairsXY		= newlist(limit,2)
+	Pairs		= list(size1,size2)
+	Pairs2		= list(size1,size2)
+	Button		= list(size1,size2)
+	PairsXY		= list(limit,2)
 	Pairs6		= list(limit)
 	PairsList	= list(limit)
 	PairsRand	= []
@@ -255,7 +255,7 @@ func newGame
 	TimerMan.start()
 	move = 0
 	labelShowMove.settext("0")
-	PairsXY = newlist(limit,2)
+	PairsXY = list(limit,2)
 	randomPairs()
 
 func randomPairs
@@ -277,7 +277,7 @@ func randomPairs
 	next
 
 	for nr = 1 to limit
-		rand1 = random(len(randList)-1)+1
+		rand1 = random(max(len(randList)-1,1))+1
 		if len(randList) = 1
 			rand1 = 1
 		ok
