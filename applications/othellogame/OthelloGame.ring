@@ -4,7 +4,7 @@
 # Email   : <calmosoft@gmail.com>
 
 load "stdlibcore.ring"
-load "guilib.ring"
+load "lightguilib.ring"
 
 
 Size  = 8
@@ -32,7 +32,7 @@ C_ButtonYellowStyle = 'border-radius:6px;color:black; background-color: Yellow'
 C_ButtonOrangeStyle = 'border-radius:6px;color:black; background-color: Orange'
 C_ButtonGrayStyle   = 'border-radius:6px;color:black; background-color: darkGray'
 
-Button          = newlist(Size+1,Size)
+Button          = list(Size+1,Size)
 LayoutButtonRow =    list(Size+4)
 
 curColor    = "B"   ### "B" or "W"
@@ -43,8 +43,8 @@ FlagSkipTurn =  0    ### Player has No Possible Valid Move
 TransScript = list(1)
 MoveNumber  = 1
 dArray      = list(8)           ### Flat destination array for diagonal analysis
-bArray      = newList(8,8)      ### Internal button array
-oldArray    = newList(8,8)      ### Save bArray as oldArray, See who flip for Animation
+bArray      = List(8,8)      ### Internal button array
+oldArray    = List(8,8)      ### Save bArray as oldArray, See who flip for Animation
 
 ###=====================================================
 ###=====================================================
@@ -211,7 +211,7 @@ Func pStart()
 SEE nl+ "===== START START ====="+nl+nl
 
     FlagSkipTurn = 1
-    bArray  = newList(8,8)
+    bArray  = List(8,8)
 
     for Row = 1 to Size
         for Col = 1 to Size
