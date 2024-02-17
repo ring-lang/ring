@@ -19,7 +19,7 @@ new QApp
 		setwindowtitle("Calendar for Year " + actYear)
 		resize(850,800) 
 		day = list(12)
-		pos = newlist(12,37)
+		pos = list(12,37)
 		month = list(12)
 		week = list(7)
 		weekday = list(7)

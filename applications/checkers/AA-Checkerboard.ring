@@ -152,9 +152,9 @@ Func DrawWidget()
         # Set the Window Icon
         setWindowIcon(new qIcon(new qPixmap(King)))
 
-        aArray  = newList(hSize, vSize) ### Internal Array with Letters
-        aButton = newList(hSize, vSize) ### Internal Array with Letters
-        recordArray = newList(1, 2) ### Record the Moves ...  WN 8-7  to  6-6
+        aArray  = list(hSize, vSize) ### Internal Array with Letters
+        aButton = list(hSize, vSize) ### Internal Array with Letters
+        recordArray = list(1, 2) ### Record the Moves ...  WN 8-7  to  6-6
         
         setWindowTitle('Checkers 2 Players')
         setStyleSheet('background-color:White')

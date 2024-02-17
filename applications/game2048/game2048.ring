@@ -41,8 +41,8 @@ x2 = 0
 y1 = 0
 y2 = 0
 nScore = 0
-button = newlist(size,size)
-buttonsave = newlist(size,size)
+button = list(size,size)
+buttonsave = list(size,size)
 LayoutButtonRow = list(size+2)
 moveleft = []
 moveright = []
@@ -175,7 +175,7 @@ func keypress()
 
 func pbegin()
        numbers = [['2','2'],['2','4']]
-       randnew = newlist(2,2)
+       randnew = list(2,2)
        for n = 1 to size
             for m = 1 to size
                  button[n][m].setStylesheet(C_EMPTYBUTTONSTYLE)

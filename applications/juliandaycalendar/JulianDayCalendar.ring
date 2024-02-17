@@ -22,7 +22,7 @@ new qapp
 		   setWinIcon(win1,"calendar.png")
                    setwindowtitle("Julian Day Calendar")
                    resize(1200,700)
-                   button = newlist(31,31)
+                   button = list(31,31)
                    btndays = list(31)
                    btnmonths = list(12)
                    monthsnames = list(12)

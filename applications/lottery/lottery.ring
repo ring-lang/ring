@@ -28,15 +28,15 @@
 	limit = 6
 
 
-	Button		= newlist(size,size)
+	Button		= list(size,size)
 	PairsRand	= []
 
         score            = 0	
         click            = 0
         user             = 1
 	LayoutButtonRow2 = list(size)
-	PairsXY		 = newlist(size*size,2)
-        Lottery          = newlist(size,size)
+	PairsXY		 = list(size*size,2)
+        Lottery          = list(size,size)
         C_FONTSIZE 	 = 15
         C_StylePink	 = ' background-color: Pink; border-radius: 8px; '
         C_StyleGreen	 = ' background-color: Green; border-radius: 8px; '

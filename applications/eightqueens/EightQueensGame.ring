@@ -26,9 +26,9 @@ sizeX = 800 sizeY = 800		### Size of Window
 
 Button	= null
 cmbSize = null
-Pink = newlist(size,size)
+Pink = list(size,size)
 
-Tiles = newlist(size,size)
+Tiles = list(size,size)
 TitleMoves = null
 LayoutButtonRow = list(size)
 LayoutButtonMain = null
@@ -82,7 +82,7 @@ Func DrawWidget()
 		win.setminimumwidth(600)
 		win.setminimumheight(600)
 
-		Button = newList(size, size)	    ### Internal Array with Letters
+		Button = list(size, size)	    ### Internal Array with Letters
 		
 		setWindowTitle('Eight Queens Game')
 		setStyleSheet('background-color:White')
@@ -261,8 +261,8 @@ func newWindow(newSize)
 
                 win.resize(500,500)
 
-                Button = newlist(size,size)
-                Pink = newlist(size,size)
+                Button = list(size,size)
+                Pink = list(size,size)
 
 		LayoutButtonRow = list(size)	
 		

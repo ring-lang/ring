@@ -128,7 +128,7 @@ class GameData from GameBase
 		nRows = 20
 		nCols = 20
 	
-		aLevel = newlist(20,20)
+		aLevel = list(20,20)
 		for t1 = 1 to nRows 
 			for t2 = 1 to nCols 
 				aLevel[t1][t2] = C_GROUND

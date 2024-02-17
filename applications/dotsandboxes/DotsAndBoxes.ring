@@ -22,10 +22,10 @@ C_ButtonBlueStyle   = 'border-radius:6px;color:black; background-color: blue'
 C_ButtonBlackStyle   = 'border-radius:6px;color:black; background-color: black'
 C_ButtonOrangeStyle = 'border-radius:6px;color:black; background-color: orange'
 
-Button = newlist(size,size)
-redcells = newlist(size,size)
-bluecells = newlist(size,size)
-cellsok = newlist(size,size)
+Button = list(size,size)
+redcells = list(size,size)
+bluecells = list(size,size)
+cellsok = list(size,size)
 LayoutButtonRow = list(size)
 
 app = new qApp 
@@ -129,8 +129,8 @@ func pBegin()
        scorered = 0
        scoreblue = 0
        total = 0
-       redcells = newlist(size,size)
-       bluecells = newlist(size,size)
+       redcells = list(size,size)
+       bluecells = list(size,size)
        for n = 1 to size   
             for m = 1 to size
                  if n%2 = 1 and m%2 = 1

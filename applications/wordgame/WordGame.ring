@@ -50,8 +50,8 @@
         WordList4       = []
 	limit		= 6
 	
-	Button		= newlist(size1,size2)    // main buttons for letters
-	PairsXY		= newlist(size1*size2,2)  // store coordinates (x,y) of cells
+	Button		= list(size1,size2)    // main buttons for letters
+	PairsXY		= list(size1*size2,2)  // store coordinates (x,y) of cells
         rowWord         = list(size1)
         colWord         = list(size2)
         labelWord       = list(limit)
@@ -563,7 +563,7 @@ func newGame
         score = 0
         labelShowScore.settext(string(score))
         WordListScore   = WordList2
-	PairsXY = newlist(size1*size2,2)
+	PairsXY = list(size1*size2,2)
         for n = 1 to size1
             for m = 1 to size2
                 Button[n][m].settext("")

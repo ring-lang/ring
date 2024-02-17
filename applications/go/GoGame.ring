@@ -74,7 +74,7 @@ C_ButtonYellowStyle = 'border-radius:6px;color:black; background-color: Yellow'
 C_ButtonOrangeStyle = 'border-radius:6px;color:black; background-color: Orange'
 C_ButtonVioletStyle = 'border-radius:6px;color:black; background-color: Violet'
 
-Button          = newlist(Size+1,Size)
+Button          = list(Size+1,Size)
 LayoutButtonRow =    list(Size+4)
 
 radioButton1 = new QRadioButton(null)  ###  9 Squares Size
@@ -353,7 +353,7 @@ Func NewGame()
    win.Close()                         ### Close the current Layout
 
    RadioBtnToggled()                   ### Set the Size to play
-   Button = newlist(Size+1,Size)       ### Set Button List to New Size
+   Button = list(Size+1,Size)       ### Set Button List to New Size
 
    gBlackStones    =  Ceil(Size2 / 2)  ### 41  Start with 1/2 of Intersections
    gWhiteStones    = Floor(Size2 / 2)  ### 40

@@ -92,8 +92,8 @@ Func DrawWidget()
 		# Set the Window Icon
 		setWindowIcon(new qIcon(new qPixmap(KNIGHT)))
 
-		aArray	= newList(hSize, vSize)	### Internal Array with Letters
-		aButton = newList(hSize, vSize)	### Internal Array with Letters
+		aArray	= list(hSize, vSize)	### Internal Array with Letters
+		aButton = list(hSize, vSize)	### Internal Array with Letters
 		
 		setWindowTitle('Knight Tour')
 		setStyleSheet('background-color:White')

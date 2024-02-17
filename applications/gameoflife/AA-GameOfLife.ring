@@ -76,12 +76,12 @@ C_ButtonYellowStyle = 'border-radius:3px; color:black; background-color: Yellow;
 app = new qApp 
 {
 
-	aArray	= newList(hSize, vSize)		### Internal Array with Letters
-	bArray	= newlist(hSize, vSize)		### Working Array to check Live Cells, Extinguished Cells
-	pArray	= newList(hSize * vSize, 2)	### Populated Array - Cell-Soord ["11"][33"] 
-	qArray	= newList(hSize * vSize, 2)	### Populated Array - Cell-Soord ["11"][33"]
+	aArray	= list(hSize, vSize)		### Internal Array with Letters
+	bArray	= list(hSize, vSize)		### Working Array to check Live Cells, Extinguished Cells
+	pArray	= list(hSize * vSize, 2)	### Populated Array - Cell-Soord ["11"][33"] 
+	qArray	= list(hSize * vSize, 2)	### Populated Array - Cell-Soord ["11"][33"]
 		
-	aButton = newlist(hSize, vSize)		### Button Array with Display Colors
+	aButton = list(hSize, vSize)		### Button Array with Display Colors
 
 	DrawWidget()
 	
@@ -631,12 +631,12 @@ Func SliderSizeMove()
 
 	See "cellSize: "+ cellSize +nl
 	
-	aArray	= newList(hSize, vSize)			### Internal Array with Letters
-	bArray	= newList(hSize, vSize)			### Working Array - Live and Exploded
-	pArray	= newList((hSize * vSize), 2)	### Populated Array - Coordinate h and v
-	qArray	= newList((hSize * vSize), 2)	### Populated Array - Coordinate h and v
+	aArray	= list(hSize, vSize)			### Internal Array with Letters
+	bArray	= list(hSize, vSize)			### Working Array - Live and Exploded
+	pArray	= list((hSize * vSize), 2)	### Populated Array - Coordinate h and v
+	qArray	= list((hSize * vSize), 2)	### Populated Array - Coordinate h and v
 		
-	aButton = newlist(hSize, vSize)			### Button Array with Display Colors
+	aButton = list(hSize, vSize)			### Button Array with Display Colors
 		
 	workWidget.Close()	
 	DrawWidget()
