@@ -3,8 +3,8 @@
 # Author  : Gal Zsolt (CalmoSoft)
 # Email   : ---
 
-load "guilib.ring"
-load "stdlib.ring"
+load "lightguilib.ring"
+load "stdlibcore.ring"
 
 app1 = new qapp {
 
