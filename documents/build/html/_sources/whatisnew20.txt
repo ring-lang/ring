@@ -24,6 +24,9 @@ More Improvements
 =================
 
 * ring/applications - Added the window icon for many applications and games
+* ring/applications - Using list() instead of newlist() in many applications
+* ring/applications - Using stdlibcore.ring instead of stdlib.ring in many applications
+* ring/applications - Using lightguilib.ring instead of guilib.ring in many applications
 * Calculator application - Using sqlitelib.ring
 * File: language/src/installdep.sh - Added: libqt5multimedia5-plugins
 * Added: samples/UsingQt/PDF/CreatePDF.ring
