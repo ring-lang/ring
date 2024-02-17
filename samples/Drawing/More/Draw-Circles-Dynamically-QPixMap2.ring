@@ -127,6 +127,7 @@ New qapp {
             }
 
 
+	DrawStart()
         show()
     }
     exec()
@@ -140,6 +141,7 @@ New qapp {
 Func DrawStart()
 
     nbrOfCircles = number(lineedit1.text() )    ### Read text field. How many circles
+    if nbrOfCircles < 1 return ok
 
     arrayCol     = []
     arrayCol     = list(nbrOfCircles)   ### arrayOfCollisions

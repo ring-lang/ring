@@ -93,6 +93,7 @@ New qapp {
 Func draw nr
 
         nbrOfCircles = number(lineedit1.text() )        ### Read text field 
+	if nbrOfCircles < 1 return ok
         arrayCol     = []
         arrayCol     = list(nbrOfCircles)   ### arrayOfCollisions
         
