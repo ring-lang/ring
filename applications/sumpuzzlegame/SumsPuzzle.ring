@@ -3,8 +3,8 @@
 # Author : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
 
-load "stdlib.ring"
-load "guilib.ring"
+load "stdlibcore.ring"
+load "lightguilib.ring"
 
 size = 5
 sum = 0
@@ -20,9 +20,9 @@ C_ButtonBlueStyle   = 'border-radius:6px;Color:black; background-Color: blue'
 C_ButtonOrangeStyle = 'border-radius:6px;Color:black; background-Color: orange'
 C_ButtonVioletStyle = 'border-radius:6px;Color:black; background-Color: violet'
 
-Button = newlist(size,size)
-cellsok = newlist(size,size)
-cellsno = newlist(size,size)
+Button = list(size,size)
+cellsok = list(size,size)
+cellsno = list(size,size)
 bestscores = []
 LayoutButtonRow = list(size)
 
