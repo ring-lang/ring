@@ -1,6 +1,6 @@
 # Author : Abdulrahman - https://github.com/AbdelrahmanGIT/RingSamples
 
-Load "guilib.ring"
+Load "lightguilib.ring"
 
 #Provide a list to save each button status in numeric readable format
 #0=nothing 1=X 2=O
