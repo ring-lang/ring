@@ -7,7 +7,7 @@
 # Load the required libraries 
 #===================================================================================#
 
-	load "stdlib.ring"
+	load "stdlibcore.ring"
 	load "guilib.ring"
 
 #===================================================================================#
@@ -224,7 +224,7 @@ func lotteryDraw
 
         if user = 1 return ok
         if user = 2
-		PairsXY = newlist(size*size,2)
+		PairsXY = list(size*size,2)
 		randList = 1:6
 		randList = randomList(randList)
 		for n = 1 to size
@@ -235,10 +235,7 @@ func lotteryDraw
 			next
 		next
 		for nr = 1 to limit
-			rand1 = random(len(randList)-1)+1
-	                if len(randList) = 1
-				rand1 = 1
-	                ok
+			rand1   = randList[nr]
 			rand2	= randList[rand1]
 			row	= pairsXY[rand1][1]
 			col	= pairsXY[rand1][2]
@@ -250,7 +247,6 @@ func lotteryDraw
 				Button[rand1][rand2].setStylesheet(C_StyleBlack)
 	                ok
 			del(PairsXY,rand1)
-			del(randList,rand1)
 		next
         ok
         user = 0
