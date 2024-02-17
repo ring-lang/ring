@@ -9,7 +9,8 @@ aObjectsList = [
 		 :mainlayout =  "Layout1" ,
 		 :WindowIcon =  "images/stopwatch.png" , 
 		 :Menubar =  ""  ,
-		 :IndexType =  0  
+		 :IndexType =  0  ,
+		 :GUILibrary =  1  
 
 		]
 	],
