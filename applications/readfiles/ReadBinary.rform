@@ -1,8 +1,8 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = 3 , : y = 13  , 
-		 :width =  1133 , :height = 563 , 
+		 :x = -310 , : y = 13  , 
+		 :width =  1148 , :height = 563 , 
 		 :title =  "Read Binary Files" , 
 		 :backcolor =  "" , 
 		 :windowflags =  "" , 
@@ -10,7 +10,7 @@ aObjectsList = [
 		 :WindowIcon =  "icon.png" , 
 		 :Menubar =  ""  ,
 		 :IndexType =  0  ,
-		 :GUILibrary =  0  
+		 :GUILibrary =  1  
 
 		]
 	],
@@ -60,7 +60,7 @@ aObjectsList = [
 	],
 	[ :name = "btnChooseFile4" , :id = 5 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 892 , : y = 302  , 
-		 :width =  213 , :height = 35 , 
+		 :width =  243 , :height = 35 , 
 		 :textcolor =  "#dfdfdf" , 
 		 :backcolor =  "" , 
 		 :font =  "Consolas,14,-1,5,75,0,0,0,0,0,Bold" , 
@@ -72,7 +72,7 @@ aObjectsList = [
 	],
 	[ :name = "btnChooseFile5" , :id = 6 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 892 , : y = 359  , 
-		 :width =  213 , :height = 35 , 
+		 :width =  243 , :height = 35 , 
 		 :textcolor =  "#dfdfdf" , 
 		 :backcolor =  "" , 
 		 :font =  "Consolas,14,-1,5,75,0,0,0,0,0,Bold" , 
@@ -84,7 +84,7 @@ aObjectsList = [
 	],
 	[ :name = "btnChooseFile6" , :id = 7 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 892 , : y = 417  , 
-		 :width =  213 , :height = 34 , 
+		 :width =  243 , :height = 34 , 
 		 :textcolor =  "#dfdfdf" , 
 		 :backcolor =  "" , 
 		 :font =  "Consolas,14,-1,5,75,0,0,0,0,0,Bold" , 
@@ -118,7 +118,7 @@ aObjectsList = [
 	],
 	[ :name = "btnChooseFile9" , :id = 10 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 892 , : y = 470  , 
-		 :width =  213 , :height = 34 , 
+		 :width =  243 , :height = 34 , 
 		 :textcolor =  "#dfdfdf" , 
 		 :backcolor =  "" , 
 		 :font =  "Consolas,14,-1,5,75,0,0,0,0,0,Bold" , 
