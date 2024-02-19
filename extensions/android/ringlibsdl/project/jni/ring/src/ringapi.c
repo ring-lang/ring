@@ -494,7 +494,7 @@ RING_API List * ring_vm_api_newlistusingblocks ( VM *pVM, int nSize, int nSize2 
 					pItems->pValue = pItem ;
 					pItem->nType = ITEMTYPE_NUMBER ;
 					pItem->data.dNumber = 0 ;
-					pItem->NumberFlag = ITEM_NUMBERFLAG_DOUBLE ;
+					pItem->nNumberFlag = ITEM_NUMBERFLAG_DOUBLE ;
 				}
 				/* Set the List Data */
 				pList->nSize = nSize ;
@@ -569,7 +569,7 @@ RING_API List * ring_vm_api_newlistusingblocks ( VM *pVM, int nSize, int nSize2 
 						pItems->pValue = pItem ;
 						pItem->nType = ITEMTYPE_NUMBER ;
 						pItem->data.dNumber = 0 ;
-						pItem->NumberFlag = ITEM_NUMBERFLAG_DOUBLE ;
+						pItem->nNumberFlag = ITEM_NUMBERFLAG_DOUBLE ;
 					}
 					/* Set the Sub List Data */
 					pList2->nSize = nSize2 ;

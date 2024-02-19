@@ -13,7 +13,7 @@ Items * ring_items_new_gc ( void *pState )
 	pItem->nType = ITEMTYPE_NOTHING ;
 	pItem->nObjectType = 0 ;
 	pItem->data.dNumber = 0 ;
-	pItem->NumberFlag = ITEM_NUMBERFLAG_NOTHING ;
+	pItem->nNumberFlag = ITEM_NUMBERFLAG_NOTHING ;
 	ring_vm_gc_cleardata(pItem);
 	ring_vm_gc_newitemreference(pItem);
 	pMem = pMem + sizeof(Item) ;

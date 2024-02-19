@@ -17,7 +17,7 @@ END:
 Type: unsigned int
 nType:3
 Type: unsigned int
-NumberFlag:2
+nNumberFlag:2
 Type: unsigned int
 nObjectType:2
 Type: unsigned int

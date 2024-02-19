@@ -17,7 +17,7 @@
 		/* Item Type */
 		unsigned int nType:3  ;
 		/* The number type, 0 = Nothing , 1 = int , 2 = double */
-		unsigned int NumberFlag:2  ;
+		unsigned int nNumberFlag:2  ;
 		/*
 		**  what is the type of the object that the pointer refer to 
 		**  Used when putting the item in the stack to refer to list or listitem 
@@ -57,7 +57,7 @@
 	#define ring_itemarray_ispointer(pList,index) (pList[index].nType == ITEMTYPE_POINTER)
 	#define ring_item_isstring(x) (x->nType == ITEMTYPE_STRING)
 	#define ring_item_islist(x) (x->nType == ITEMTYPE_LIST)
-	#define ring_item_isdouble(x) ( (x->nType == ITEMTYPE_NUMBER) && ( x->NumberFlag == ITEM_NUMBERFLAG_DOUBLE ) )
+	#define ring_item_isdouble(x) ( (x->nType == ITEMTYPE_NUMBER) && ( x->nNumberFlag == ITEM_NUMBERFLAG_DOUBLE ) )
 	#define ring_item_incdouble(x) ++x->data.dNumber
 	/* Functions */
 

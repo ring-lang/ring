@@ -393,7 +393,7 @@ RING_API void ring_list_setint_gc ( void *pState,List *pList, unsigned int index
 	pItem = ring_list_getitem(pList,index);
 	ring_item_settype_gc(pState,pItem,ITEMTYPE_NUMBER);
 	pItem->data.iNumber = number ;
-	pItem->NumberFlag = ITEM_NUMBERFLAG_INT ;
+	pItem->nNumberFlag = ITEM_NUMBERFLAG_INT ;
 }
 
 RING_API void ring_list_addint_gc ( void *pState,List *pList,int x )
@@ -440,7 +440,7 @@ RING_API void ring_list_setdouble_gc ( void *pState,List *pList, unsigned int in
 	pItem = ring_list_getitem(pList,index);
 	ring_item_settype_gc(pState,pItem,ITEMTYPE_NUMBER);
 	pItem->data.dNumber = number ;
-	pItem->NumberFlag = ITEM_NUMBERFLAG_DOUBLE ;
+	pItem->nNumberFlag = ITEM_NUMBERFLAG_DOUBLE ;
 }
 
 RING_API void ring_list_adddouble_gc ( void *pState,List *pList,double x )
