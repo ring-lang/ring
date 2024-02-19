@@ -4,60 +4,65 @@
 	#define ring_parser_h
 	/* Data */
 	typedef struct Parser {
+		RingState *pRingState  ;
+		/* Tokens and Generated Code */
 		List *Tokens  ;
-		unsigned int ActiveToken  ;
-		unsigned int TokensCount  ;
-		unsigned char TokenType  ;
-		const char *TokenText  ;
-		unsigned int nTokenIndex  ;
-		unsigned int nLineNumber  ;
-		unsigned int nErrorLine  ;
-		unsigned int nErrorsCount  ;
 		List *GenCode  ;
 		List *ActiveGenCodeList  ;
-		/* Variable to select between = and == while using = only in the code */
-		unsigned char nAssignmentFlag  ;
-		/* Variable to determine the start of the class definition */
-		unsigned char nClassStart  ;
 		/* Lists of Lists, Functions in Program or in Class */
 		List *FunctionsMap  ;
 		/* Lists of Lists, Classes in Program or in Class */
 		List *ClassesMap  ;
 		/* List of Lists, Packages in the program */
 		List *PackagesMap  ;
+		/* Required by (For In Loops) to kill the reference when we exit from many loops */
+		List *pForInVars  ;
+		/* Token Text */
+		const char *TokenText  ;
 		/* Mark to class label to be used by Private */
 		int nClassMark  ;
-		/* Private Flag */
-		unsigned char nPrivateFlag  ;
 		/* Counter to know if we are inside { } or not */
 		unsigned int nBraceFlag  ;
-		/* required for For-Step , insert instructions */
-		unsigned char nInsertFlag  ;
-		unsigned int nInsertCounter  ;
-		/* required for using { } after using new object to avoid assignment */
-		unsigned char nNewObject  ;
-		/* Object Init() Uses mixer for one purpose only( function call)  - don't continue to get braces { } */
-		unsigned char nFuncCallOnly  ;
+		/* Active Token */
+		unsigned int ActiveToken  ;
+		unsigned int TokensCount  ;
+		unsigned int nTokenIndex  ;
+		/* Line Number */
+		unsigned int nLineNumber  ;
+		unsigned int nErrorLine  ;
+		unsigned int nErrorsCount  ;
 		/* Flag to tell { } that we are inside control structure (if/for/while/...) expression */
 		unsigned int nControlStructureExpr  ;
 		/* Flag - We started using braces {} in control structure - we have { */
 		unsigned int nControlStructureBrace  ;
-		/* Using Self or This with LoadAddress */
-		unsigned char nThisOrSelfLoadA  ;
-		unsigned char nThisLoadA  ;
+		/* required for For-Step, insert instructions */
+		unsigned int nInsertCounter  ;
 		/*
 		**  required in loops (for|while) for loop and exit commands 
-		**  To Know if the commands (Loop or Exit) are used 
+		**  Counter to know if we are inside a loop or not 
 		*/
+		unsigned int nLoopFlag  ;
+		/* To Know if the commands (Loop or Exit) are used */
 		unsigned char nLoopOrExitCommand  ;
 		/* Enable|Disable checking Loop & Exit commands before storing Loop & Exit marks */
 		unsigned char nCheckLoopAndExit  ;
-		/* Counter to know if we are inside a loop or not */
-		unsigned int nLoopFlag  ;
-		/* Required by (For In Loops) to kill the reference when we exit from many loops */
-		List *pForInVars  ;
-		/* Ring State */
-		RingState *pRingState  ;
+		/* Variable to select between = and == while using = only in the code */
+		unsigned char nAssignmentFlag  ;
+		/* Variable to determine the start of the class definition */
+		unsigned char nClassStart  ;
+		/* Private Flag */
+		unsigned char nPrivateFlag  ;
+		/* required for using { } after using new object to avoid assignment */
+		unsigned char nNewObject  ;
+		/* Object Init() Uses mixer for one purpose only( function call)  - don't continue to get braces { } */
+		unsigned char nFuncCallOnly  ;
+		/* Using Self or This with LoadAddress */
+		unsigned char nThisOrSelfLoadA  ;
+		unsigned char nThisLoadA  ;
+		/* Insert Flag */
+		unsigned char nInsertFlag  ;
+		/* Token Type */
+		unsigned char TokenType  ;
 	} Parser ;
 	/* Error Messages */
 	#define RING_PARSER_ERROR_PARALIST "Error (C1) : Error in parameters list, expected identifier"
