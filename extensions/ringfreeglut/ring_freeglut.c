@@ -896,7 +896,7 @@ RING_FUNC(ring_glutInit)
 		return ;
 	}
 	pVM = (VM *) pPointer ;
-	glutInit( & pVM->pRingState->argc, pVM->pRingState->argv);
+	glutInit( & pVM->pRingState->nArgc, pVM->pRingState->pArgv);
 }
 
 void displayFunction(void)
