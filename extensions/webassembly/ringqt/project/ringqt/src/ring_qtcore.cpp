@@ -39,7 +39,7 @@ extern "C" {
 
 	RING_LIBINIT
 	{
-		new QCoreApplication(pRingState->argc,pRingState->argv);
+		new QCoreApplication(pRingState->nArgc,pRingState->pArgv);
 	   	ring_qt_start(pRingState) ;
 	}
 

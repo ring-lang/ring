@@ -14,19 +14,19 @@ extern "C" {
 
 <filter> $globals[:AppType] = :Application
 <code>
-		new QApplication(pRingState->argc,pRingState->argv);
+		new QApplication(pRingState->nArgc,pRingState->pArgv);
 </code>
 </filter>
 
 <filter> $globals[:AppType] = :GUI
 <code>
-		new QGuiApplication(pRingState->argc,pRingState->argv);
+		new QGuiApplication(pRingState->nArgc,pRingState->pArgv);
 </code>
 </filter>
 
 <filter> $globals[:AppType] = :Core
 <code>
-		new QCoreApplication(pRingState->argc,pRingState->argv);
+		new QCoreApplication(pRingState->nArgc,pRingState->pArgv);
 </code>
 </filter>
 
