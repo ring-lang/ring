@@ -338,7 +338,7 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 		/* Set the line number */
 		ring_string_setfromint_gc(pRingState,pScanner->sActiveToken,RING_ONE);
 		ring_scanner_addtoken(pScanner,SCANNER_TOKEN_ENDLINE);
-		pScanner->LinesCount = 1 ;
+		pScanner->nLinesCount = 1 ;
 	}
 	/* Check Syntax File */
 	strcpy(cFileName2,cFileName);
@@ -351,7 +351,7 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 		}
 		ring_string_setfromint_gc(pRingState,pScanner->sActiveToken,RING_ONE);
 		ring_scanner_addtoken(pScanner,SCANNER_TOKEN_ENDLINE);
-		pScanner->LinesCount = 1 ;
+		pScanner->nLinesCount = 1 ;
 	}
 	nSize = 1 ;
 	while ( (c != EOF) && (nSize != 0) ) {

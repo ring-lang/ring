@@ -10,7 +10,7 @@
 		String *sActiveToken  ;
 		unsigned int nTokenIndex  ;
 		unsigned int nLiteralLine  ;
-		unsigned int LinesCount  ;
+		unsigned int nLinesCount  ;
 		char cState  ;
 		/* Float Identification (0 = Start 1 = Number  2 = Number Dot  3 = Number Dot Number ) */
 		char nFloatMark  ;

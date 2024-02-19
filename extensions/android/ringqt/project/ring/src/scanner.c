@@ -12,7 +12,7 @@ Scanner * ring_scanner_new ( RingState *pRingState )
 	pScanner->pTokens = ring_list_new_gc(pRingState,RING_ZERO);
 	ring_scanner_keywords(pScanner);
 	ring_scanner_operators(pScanner);
-	pScanner->LinesCount = 1 ;
+	pScanner->nLinesCount = 1 ;
 	pScanner->nFloatMark = 0 ;
 	pScanner->cMLComment = 0 ;
 	pScanner->nTokenIndex = 0 ;
@@ -194,17 +194,17 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 			if ( c == '"' ) {
 				pScanner->cState = SCANNER_STATE_LITERAL ;
 				pScanner->cLiteral = '"' ;
-				pScanner->nLiteralLine = pScanner->LinesCount ;
+				pScanner->nLiteralLine = pScanner->nLinesCount ;
 			}
 			else if ( c == '\'' ) {
 				pScanner->cState = SCANNER_STATE_LITERAL ;
 				pScanner->cLiteral = '\'' ;
-				pScanner->nLiteralLine = pScanner->LinesCount ;
+				pScanner->nLiteralLine = pScanner->nLinesCount ;
 			}
 			else if ( c == '`' ) {
 				pScanner->cState = SCANNER_STATE_LITERAL ;
 				pScanner->cLiteral = '`' ;
-				pScanner->nLiteralLine = pScanner->LinesCount ;
+				pScanner->nLiteralLine = pScanner->nLinesCount ;
 			}
 			else if ( c == '#' ) {
 				pScanner->cState = SCANNER_STATE_COMMENT ;
@@ -308,17 +308,17 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 			break ;
 	}
 	if ( c == '\n' ) {
-		pScanner->LinesCount++ ;
+		pScanner->nLinesCount++ ;
 	}
 	if ( ( c == ';' || c == '\n' ) && ( pScanner->cState == SCANNER_STATE_GENERAL ) ) {
 		if ( (ring_scanner_lasttokentype(pScanner) != SCANNER_TOKEN_ENDLINE ) ) {
-			ring_string_setfromint_gc(pScanner->pRingState,pScanner->sActiveToken,pScanner->LinesCount);
+			ring_string_setfromint_gc(pScanner->pRingState,pScanner->sActiveToken,pScanner->nLinesCount);
 			ring_scanner_addtoken(pScanner,SCANNER_TOKEN_ENDLINE);
 		}
 		else {
 			pList = ring_list_getlist(pScanner->pTokens,ring_list_getsize(pScanner->pTokens));
 			pString = ring_string_new_gc(pScanner->pRingState,"");
-			ring_string_setfromint_gc(pScanner->pRingState,pString,pScanner->LinesCount);
+			ring_string_setfromint_gc(pScanner->pRingState,pString,pScanner->nLinesCount);
 			ring_list_setstring_gc(pScanner->pRingState,pList,RING_SCANNER_TOKENVALUE,ring_string_get(pString));
 			ring_string_delete_gc(pScanner->pRingState,pString);
 		}
@@ -652,7 +652,7 @@ void ring_scanner_endofline ( Scanner *pScanner )
 {
 	/* Add Token "End of Line" to the end of any program */
 	if ( ring_scanner_lasttokentype(pScanner) != SCANNER_TOKEN_ENDLINE ) {
-		ring_string_setfromint_gc(pScanner->pRingState,pScanner->sActiveToken,pScanner->LinesCount);
+		ring_string_setfromint_gc(pScanner->pRingState,pScanner->sActiveToken,pScanner->nLinesCount);
 		ring_scanner_addtoken(pScanner,SCANNER_TOKEN_ENDLINE);
 	}
 }
@@ -866,7 +866,7 @@ void ring_scanner_loadsyntax ( Scanner *pScanner )
 	}
 	nSize = 1 ;
 	ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"");
-	nLine = pScanner->LinesCount ;
+	nLine = pScanner->nLinesCount ;
 	/* Set the Line Number (To be 1) */
 	ring_scanner_setandgenendofline(pScanner,RING_ONE);
 	RING_READCHAR(fp,c,nSize);
@@ -882,8 +882,8 @@ void ring_scanner_loadsyntax ( Scanner *pScanner )
 
 void ring_scanner_setandgenendofline ( Scanner *pScanner,int nLine )
 {
-	pScanner->LinesCount = nLine ;
-	ring_string_setfromint_gc(pScanner->pRingState,pScanner->sActiveToken,pScanner->LinesCount);
+	pScanner->nLinesCount = nLine ;
+	ring_string_setfromint_gc(pScanner->pRingState,pScanner->sActiveToken,pScanner->nLinesCount);
 	ring_scanner_addtoken(pScanner,SCANNER_TOKEN_ENDLINE);
 }
 
