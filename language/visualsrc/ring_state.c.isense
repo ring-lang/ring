@@ -1,9 +1,16 @@
 ring_state_h
 Parent: RingState
+Type: struct VM *
+pVM
+pLogFile
+Type: char  **
+argv
 Type: List *
 pRingFilesList
 Type: List *
 pRingFilesStack
+Type: List *
+pRingFileTokens
 Type: List *
 pRingGenCode
 Type: List *
@@ -13,9 +20,19 @@ pRingClassesMap
 Type: List *
 pRingPackagesMap
 Type: List *
+aCustomGlobalScopeStack
+Type: List *
 pRingCFunctions
+Type: int
+argc
 Type: unsigned int
-nISCGI : 1
+nScannerError
+Type: int
+nLoadAgain
+Type: int
+nCustomGlobalScopeCounter
+Type: int
+nInstructionsCount
 Type: unsigned int
 nRun : 1
 Type: unsigned int
@@ -35,23 +52,25 @@ nGenCObj : 1
 Type: unsigned int
 nWarning : 1
 Type: unsigned int
+nISCGI : 1
+Type: unsigned int
+lStartup : 1
+Type: unsigned int
 nDontDeleteTheVM : 1
 Type: unsigned int
 nRingInsideRing : 1
 Type: unsigned int
 nOnlyTokens : 1
-Type: List *
-pRingFileTokens
-Type: int
-argc
-Type: char  **
-argv
-Type: struct VM *
-pVM
 Type: unsigned int
-lStartup : 1
-Type: PoolManager
-vPoolManager
+lNoLineNumber : 1
+Type: unsigned int
+lRunFromThread : 1
+Type: unsigned int
+lNotCaseSensitive : 1
+Type: unsigned int
+lCommentsAsTokens : 1
+Type: unsigned int
+lRunFromObjectFile : 1
 Type: unsigned int
 lStartPoolManager : 1
 Type: unsigned int
@@ -60,27 +79,8 @@ Type: unsigned int
 lCreateListsUsingBlocks : 1
 Type: unsigned int
 lDontCheckStateBlocks : 1
-Type: unsigned int
-lNoLineNumber : 1
-Type: int
-nCustomGlobalScopeCounter
-Type: List *
-aCustomGlobalScopeStack
-Type: unsigned int
-lRunFromThread : 1
-Type: int
-nLoadAgain
-pLogFile
-Type: unsigned int
-lNotCaseSensitive : 1
-Type: unsigned int
-lCommentsAsTokens : 1
-Type: unsigned int
-lRunFromObjectFile : 1
-Type: unsigned int
-nScannerError
-Type: int
-nInstructionsCount
+Type: PoolManager
+vPoolManager
 END:
 Type: RingState
 struct RingState

@@ -4,16 +4,16 @@
 	#define ring_scanner_h
 	typedef struct Scanner {
 		RingState *pRingState  ;
-		List *Keywords  ;
-		List *Operators  ;
-		List *Tokens  ;
-		String *ActiveToken  ;
+		List *pKeywords  ;
+		List *pOperators  ;
+		List *pTokens  ;
+		String *sActiveToken  ;
 		unsigned int nTokenIndex  ;
 		unsigned int nLiteralLine  ;
 		unsigned int LinesCount  ;
-		char state  ;
+		char cState  ;
 		/* Float Identification (0 = Start 1 = Number  2 = Number Dot  3 = Number Dot Number ) */
-		char FloatMark  ;
+		char nFloatMark  ;
 		/* Literal Type "  or ' */
 		char cLiteral  ;
 		/* Multiline comment end ( 0 = start  1 = * ) */
@@ -142,7 +142,7 @@
 	#define RING_SCANNER_CHANGERINGKEYWORD 56
 	#define RING_SCANNER_CHANGERINGOPERATOR 57
 	#define RING_SCANNER_LOADSYNTAX 58
-	#define RING_SCANNER_DELETELASTTOKEN ring_list_deleteitem_gc(pScanner->pRingState,pScanner->Tokens,ring_list_getsize(pScanner->Tokens))
+	#define RING_SCANNER_DELETELASTTOKEN ring_list_deleteitem_gc(pScanner->pRingState,pScanner->pTokens,ring_list_getsize(pScanner->pTokens))
 
 	Scanner * ring_scanner_new ( RingState *pRingState ) ;
 

@@ -336,7 +336,7 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 			ring_scanner_readchar(pScanner,cStartup[x]);
 		}
 		/* Set the line number */
-		ring_string_setfromint_gc(pRingState,pScanner->ActiveToken,RING_ONE);
+		ring_string_setfromint_gc(pRingState,pScanner->sActiveToken,RING_ONE);
 		ring_scanner_addtoken(pScanner,SCANNER_TOKEN_ENDLINE);
 		pScanner->LinesCount = 1 ;
 	}
@@ -349,7 +349,7 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 		for ( x = 0 ; x < strlen(cStartup) ; x++ ) {
 			ring_scanner_readchar(pScanner,cStartup[x]);
 		}
-		ring_string_setfromint_gc(pRingState,pScanner->ActiveToken,RING_ONE);
+		ring_string_setfromint_gc(pRingState,pScanner->sActiveToken,RING_ONE);
 		ring_scanner_addtoken(pScanner,SCANNER_TOKEN_ENDLINE);
 		pScanner->LinesCount = 1 ;
 	}
@@ -375,7 +375,7 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 			ring_general_printline();
 			printf( "\nRule : Program --> {Statement}\n\nLine 1\n" ) ;
 		}
-		nRunVM = ring_parser_start(pScanner->Tokens,pRingState);
+		nRunVM = ring_parser_start(pScanner->pTokens,pRingState);
 		if ( pScanner->pRingState->nPrintRules ) {
 			printf( "\n" ) ;
 			ring_general_printline();
@@ -386,8 +386,8 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 		ring_list_deleteitem_gc(pRingState,pRingState->pRingFilesStack,ring_list_getsize(pRingState->pRingFilesStack));
 		/* Check if we need the tokens only */
 		if ( pRingState->nOnlyTokens ) {
-			pRingState->pRingFileTokens = pScanner->Tokens ;
-			pScanner->Tokens = NULL ;
+			pRingState->pRingFileTokens = pScanner->pTokens ;
+			pScanner->pTokens = NULL ;
 		}
 		ring_scanner_delete(pScanner);
 		return 0 ;
@@ -549,7 +549,7 @@ RING_API int ring_state_runstring ( RingState *pRingState,char *cString )
 			ring_general_printline();
 			printf( "\nRule : Program --> {Statement}\n\nLine 1\n" ) ;
 		}
-		nRunVM = ring_parser_start(pScanner->Tokens,pRingState);
+		nRunVM = ring_parser_start(pScanner->pTokens,pRingState);
 		if ( pScanner->pRingState->nPrintRules ) {
 			printf( "\n" ) ;
 			ring_general_printline();
@@ -560,8 +560,8 @@ RING_API int ring_state_runstring ( RingState *pRingState,char *cString )
 		ring_list_deleteitem_gc(pRingState,pRingState->pRingFilesStack,ring_list_getsize(pRingState->pRingFilesStack));
 		/* Check if we need the tokens only */
 		if ( pRingState->nOnlyTokens ) {
-			pRingState->pRingFileTokens = pScanner->Tokens ;
-			pScanner->Tokens = NULL ;
+			pRingState->pRingFileTokens = pScanner->pTokens ;
+			pScanner->pTokens = NULL ;
 		}
 		ring_scanner_delete(pScanner);
 		return 0 ;

@@ -1,6 +1,7 @@
 ring_scanner_h
 Parent: Scanner
-state
+Type: RingState *
+pRingState
 Type: List *
 Keywords
 Type: List *
@@ -10,18 +11,17 @@ Tokens
 Type: String *
 ActiveToken
 Type: unsigned int
+nTokenIndex
+Type: unsigned int
+nLiteralLine
+Type: unsigned int
 LinesCount
+state
 FloatMark
 Type: char
 cLiteral
 Type: char
 cMLComment
-Type: RingState *
-pRingState
-Type: unsigned int
-nTokenIndex
-Type: unsigned int
-nLiteralLine
 END:
 Type: Scanner
 struct Scanner
