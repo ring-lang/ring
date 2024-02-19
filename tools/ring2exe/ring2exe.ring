@@ -221,8 +221,8 @@ func GenerateCFile cFileName,aOptions
 
 	RingState *pRingState ;
 	pRingState = ring_state_new();	
-	pRingState->argc = argc;
-	pRingState->argv = argv;
+	pRingState->nArgc = argc;
+	pRingState->pArgv = argv;
 	ring_state_runobjectstring(pRingState,(char *) bytecode,"#{f1}");
 	ring_state_delete(pRingState);
 
