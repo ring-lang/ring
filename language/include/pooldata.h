@@ -79,7 +79,7 @@
 		PoolDataStateLevel *pCurrentItemStateLevel  ;
 		void *pBlockStartStateLevel  ;
 		void *pBlockEndStateLevel  ;
-		List *aBlocks  ;
+		List *pBlocks  ;
 		unsigned int nAllocCount  ;
 		unsigned int nFreeCount  ;
 		unsigned int nSmallAllocCount  ;

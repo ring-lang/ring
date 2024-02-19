@@ -71,14 +71,14 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	/* Get Items for the Memory Pool From the Main Thread */
 	ring_poolmanager_newblockfromsubthread(pState,RING_VM_ITEMSFORNEWTHREAD,pVM->pRingState);
 	/* Share Memory Blocks (Could be used for Lists in Global Scope) */
-	nMemoryBlocksCount = ring_list_getsize(pVM->pRingState->vPoolManager.aBlocks) ;
+	nMemoryBlocksCount = ring_list_getsize(pVM->pRingState->vPoolManager.pBlocks) ;
 	/*
-	**  Thread Safe Code instead of ring_list_copy(pState->vPoolManager.aBlocks,pVM->pRingState->vPoolManage 
+	**  Thread Safe Code instead of ring_list_copy(pState->vPoolManager.pBlocks,pVM->pRingState->vPoolManage 
 	**  Because the List structure contains (Cache) that we update when we access each item 
 	**  So we use the next code to avoid using/updating this cache 
 	*/
 	if ( nMemoryBlocksCount > 0 ) {
-		pItems = pVM->pRingState->vPoolManager.aBlocks->pFirst ;
+		pItems = pVM->pRingState->vPoolManager.pBlocks->pFirst ;
 		while ( pItems != NULL ) {
 			/* Copy the Sub List - Each sub list contains two items [ Pointer, Pointer ] */
 			if ( pItems->pValue != NULL ) {
@@ -86,7 +86,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 				if ( pList != NULL ) {
 					if ( (pList->pFirst != NULL) && (pList->pLast != NULL) ) {
 						if ( (pList->pFirst->pValue != NULL) && (pList->pLast->pValue != NULL) ) {
-							pList2 = ring_list_newlist_gc(pState,pState->vPoolManager.aBlocks);
+							pList2 = ring_list_newlist_gc(pState,pState->vPoolManager.pBlocks);
 							ring_list_addpointer_gc(pState,pList2,ring_item_getpointer(pList->pFirst->pValue));
 							ring_list_addpointer_gc(pState,pList2,ring_item_getpointer(pList->pLast->pValue));
 						}
@@ -160,7 +160,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	/* Avoid deleting the Shared Memory Blocks */
 	if ( nMemoryBlocksCount > 0 ) {
 		for ( x = 1 ; x <=nMemoryBlocksCount ; x++ ) {
-			ring_list_deleteitem_gc(pState,pState->vPoolManager.aBlocks,RING_ONE);
+			ring_list_deleteitem_gc(pState,pState->vPoolManager.pBlocks,RING_ONE);
 		}
 	}
 	ring_vm_mutexunlock(pVM);
