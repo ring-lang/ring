@@ -3,24 +3,24 @@
 #ifndef ring_scanner_h
 	#define ring_scanner_h
 	typedef struct Scanner {
-		char state  ;
+		/* Ring State */
+		RingState *pRingState  ;
 		List *Keywords  ;
 		List *Operators  ;
 		List *Tokens  ;
 		String *ActiveToken  ;
+		/* Index of Keyword/Operator */
+		unsigned int nTokenIndex  ;
+		/* Literal Line */
+		unsigned int nLiteralLine  ;
 		unsigned int LinesCount  ;
+		char state  ;
 		/* Float Identification (0 = Start 1 = Number  2 = Number Dot  3 = Number Dot Number ) */
 		char FloatMark  ;
 		/* Literal Type "  or ' */
 		char cLiteral  ;
 		/* Multiline comment end ( 0 = start  1 = * ) */
 		char cMLComment  ;
-		/* Ring State */
-		RingState *pRingState  ;
-		/* Index of Keyword/Operator */
-		unsigned int nTokenIndex  ;
-		/* Literal Line */
-		unsigned int nLiteralLine  ;
 	} Scanner ;
 	typedef enum SCANNER_KEYWORD {
 		K_IF=1 ,
