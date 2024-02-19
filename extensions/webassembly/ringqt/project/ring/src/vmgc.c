@@ -209,17 +209,17 @@ void ring_vm_gc_listpointerisnotmine ( List *pList,int nIndex )
 
 RING_API int ring_list_iscopybyref ( List *pList )
 {
-	return pList->gc.lCopyByRef ;
+	return pList->vGC.lCopyByRef ;
 }
 
 RING_API void ring_list_enablecopybyref ( List *pList )
 {
-	pList->gc.lCopyByRef = 1 ;
+	pList->vGC.lCopyByRef = 1 ;
 }
 
 RING_API void ring_list_disablecopybyref ( List *pList )
 {
-	pList->gc.lCopyByRef = 0 ;
+	pList->vGC.lCopyByRef = 0 ;
 }
 /* References */
 
@@ -246,41 +246,41 @@ RING_API void ring_list_setlistbyref_gc ( void *pState,List *pList, unsigned int
 
 RING_API void ring_list_updaterefcount_gc ( void *pState,List *pList, int nChange )
 {
-	pList->gc.nReferenceCount += nChange ;
+	pList->vGC.nReferenceCount += nChange ;
 }
 
 RING_API List * ring_list_newref_gc ( void *pState, List *pVariableList, List *pList )
 {
 	/* Note: The list may already have a container variable (Previous Reference) */
-	pList->gc.lNewRef = 1 ;
-	if ( pList->gc.pContainer == NULL ) {
+	pList->vGC.lNewRef = 1 ;
+	if ( pList->vGC.pContainer == NULL ) {
 		ring_list_acceptlistbyref_gc(pState,pVariableList,RING_VAR_VALUE,pList);
 		/* If we have a reference to an object, the Self attribute will stay pointing to the Container Variable */
 		if ( ring_vm_oop_isobject(pList) ) {
 			ring_vm_oop_updateselfpointer(((RingState *) pState)->pVM,pList,RING_OBJTYPE_VARIABLE,pVariableList);
 		}
 		/* We use lDontDelete to avoid deleting the container variable */
-		pVariableList->gc.lDontDelete = 1 ;
+		pVariableList->vGC.lDontDelete = 1 ;
 		/* When deleting the list (No other references exist) - It will delete the container variable */
-		pList->gc.lDeleteContainerVariable = 1 ;
-		pList->gc.pContainer = pVariableList ;
+		pList->vGC.lDeleteContainerVariable = 1 ;
+		pList->vGC.pContainer = pVariableList ;
 	}
 	else {
 		/* Delete the unused container */
 		ring_list_delete_gc(pState,pVariableList);
-		pVariableList = (List *) pList->gc.pContainer ;
+		pVariableList = (List *) pList->vGC.pContainer ;
 	}
 	return pVariableList ;
 }
 
 RING_API int ring_list_isref ( List *pList )
 {
-	return (pList->gc.nReferenceCount > 0 ) || ( pList->gc.lNewRef == 1) ;
+	return (pList->vGC.nReferenceCount > 0 ) || ( pList->vGC.lNewRef == 1) ;
 }
 
 RING_API void ring_list_assignreftovar_gc ( void *pState,List *pRef,List *pVar,unsigned int nPos )
 {
-	pRef->gc.lNewRef = 0 ;
+	pRef->vGC.lNewRef = 0 ;
 	if ( ring_list_islist(pVar,nPos) ) {
 		if ( ring_list_getlist(pVar,nPos) == pRef ) {
 			return ;
@@ -292,7 +292,7 @@ RING_API void ring_list_assignreftovar_gc ( void *pState,List *pRef,List *pVar,u
 RING_API void ring_list_assignreftoitem_gc ( void *pState,List *pRef,Item *pItem )
 {
 	List *pList  ;
-	pRef->gc.lNewRef = 0 ;
+	pRef->vGC.lNewRef = 0 ;
 	pList = ring_item_getlist(pItem);
 	if ( ! ( pList == pRef ) ) {
 		ring_list_delete_gc(pState,pList);
@@ -303,22 +303,22 @@ RING_API void ring_list_assignreftoitem_gc ( void *pState,List *pRef,Item *pItem
 
 RING_API int ring_list_isrefcontainer ( List *pList )
 {
-	return pList->gc.lDontDelete ;
+	return pList->vGC.lDontDelete ;
 }
 
 RING_API void ring_list_clearrefdata ( List *pList )
 {
-	pList->gc.pContainer = NULL ;
-	pList->gc.lCopyByRef = 0 ;
-	pList->gc.lNewRef = 0 ;
-	pList->gc.lDontDelete = 0 ;
-	pList->gc.lDeleteContainerVariable = 0 ;
-	pList->gc.nReferenceCount = 0 ;
-	pList->gc.lDontRef = 0 ;
-	pList->gc.lErrorOnAssignment = 0 ;
-	pList->gc.lErrorOnAssignment2 = 0 ;
-	pList->gc.lDeletedByParent = 0 ;
-	pList->gc.lDontRefAgain = 0 ;
+	pList->vGC.pContainer = NULL ;
+	pList->vGC.lCopyByRef = 0 ;
+	pList->vGC.lNewRef = 0 ;
+	pList->vGC.lDontDelete = 0 ;
+	pList->vGC.lDeleteContainerVariable = 0 ;
+	pList->vGC.nReferenceCount = 0 ;
+	pList->vGC.lDontRef = 0 ;
+	pList->vGC.lErrorOnAssignment = 0 ;
+	pList->vGC.lErrorOnAssignment2 = 0 ;
+	pList->vGC.lDeletedByParent = 0 ;
+	pList->vGC.lDontRefAgain = 0 ;
 }
 
 RING_API List * ring_list_deleteref_gc ( void *pState,List *pList )
@@ -326,7 +326,7 @@ RING_API List * ring_list_deleteref_gc ( void *pState,List *pList )
 	List *pVariable  ;
 	int nOPCode  ;
 	/* Check lDontDelete (Used by Container Variables) */
-	if ( pList->gc.lDontDelete ) {
+	if ( pList->vGC.lDontDelete ) {
 		/* This is a container that we will not delete, but will be deleted by that list that know about it */
 		return pList ;
 	}
@@ -335,14 +335,14 @@ RING_API List * ring_list_deleteref_gc ( void *pState,List *pList )
 		/* We are trying to delete a sub list which is protected */
 		nOPCode = ((RingState *) pState)->pVM->nOPCode ;
 		if ( (nOPCode == ICO_ASSIGNMENT) || (nOPCode == ICO_LISTSTART) || (nOPCode == ICO_NEWOBJ) ) {
-			pList->gc.lDeletedByParent = 1 ;
+			pList->vGC.lDeletedByParent = 1 ;
 			return pList ;
 		}
 	}
 	/* Avoid deleting objects when the list is just a reference */
 	if ( ring_list_isref(pList) ) {
 		/* We don't delete the list because there are other references */
-		pList->gc.lNewRef = 0 ;
+		pList->vGC.lNewRef = 0 ;
 		if ( ring_list_getrefcount(pList) > 1 ) {
 			ring_list_updaterefcount_gc(pState,pList,RING_LISTREF_DEC);
 			pList = ring_list_collectcycles_gc(pState,pList);
@@ -353,13 +353,13 @@ RING_API List * ring_list_deleteref_gc ( void *pState,List *pList )
 		return pList ;
 	}
 	/* Delete Container Variable (If the list have one) */
-	if ( pList->gc.lDeleteContainerVariable ) {
-		pVariable = (List *) pList->gc.pContainer ;
-		pList->gc.lDeleteContainerVariable = 0 ;
-		pList->gc.pContainer = NULL ;
+	if ( pList->vGC.lDeleteContainerVariable ) {
+		pVariable = (List *) pList->vGC.pContainer ;
+		pList->vGC.lDeleteContainerVariable = 0 ;
+		pList->vGC.pContainer = NULL ;
 		/* Delete the Container */
-		pVariable->gc.lDontDelete = 0 ;
-		pVariable->gc.nReferenceCount = 0 ;
+		pVariable->vGC.lDontDelete = 0 ;
+		pVariable->vGC.nReferenceCount = 0 ;
 		ring_list_delete_gc(pState,pVariable);
 		return NULL ;
 	}
@@ -369,7 +369,7 @@ RING_API List * ring_list_deleteref_gc ( void *pState,List *pList )
 
 RING_API List * ring_list_getrefcontainer ( List *pList )
 {
-	return (List *) pList->gc.pContainer ;
+	return (List *) pList->vGC.pContainer ;
 }
 
 RING_API List * ring_list_collectcycles_gc ( void *pState,List *pList )
@@ -394,7 +394,7 @@ RING_API List * ring_list_collectcycles_gc ( void *pState,List *pList )
 		for ( y = 1 ; y <= ring_list_getsize(pActiveList) ; y++ ) {
 			if ( ring_list_islist(pActiveList,y) ) {
 				pSubList = ring_list_getlist(pActiveList,y);
-				pSubList->gc.nTempRC = -1 ;
+				pSubList->vGC.nTempRC = -1 ;
 				if ( ! ring_list_findpointer(aProcess,pSubList) ) {
 					ring_list_addpointer_gc(pState,aProcess,pSubList);
 				}
@@ -411,7 +411,7 @@ RING_API List * ring_list_collectcycles_gc ( void *pState,List *pList )
 		for ( y = 1 ; y <= ring_list_getsize(pActiveList) ; y++ ) {
 			if ( ring_list_islist(pActiveList,y) ) {
 				pSubList = ring_list_getlist(pActiveList,y);
-				pSubList->gc.nTempRC++ ;
+				pSubList->vGC.nTempRC++ ;
 				if ( ! ring_list_findpointer(aProcess,pSubList) ) {
 					ring_list_addpointer_gc(pState,aProcess,pSubList);
 				}
@@ -430,7 +430,7 @@ RING_API List * ring_list_collectcycles_gc ( void *pState,List *pList )
 			if ( ring_list_islist(pActiveList,y) ) {
 				pSubList = ring_list_getlist(pActiveList,y);
 				if ( (pSubList != pList) && ring_list_containssublist_gc(pState,pSubList,pList) ) {
-					if ( pSubList->gc.nReferenceCount > pSubList->gc.nTempRC ) {
+					if ( pSubList->vGC.nReferenceCount > pSubList->vGC.nTempRC ) {
 						lDelete = 0 ;
 						break ;
 					}
@@ -442,7 +442,7 @@ RING_API List * ring_list_collectcycles_gc ( void *pState,List *pList )
 		}
 	}
 	/* Check if we can delete the Cycle */
-	if ( (pList->gc.nReferenceCount <= pList->gc.nTempRC ) && (lDelete==1) ) {
+	if ( (pList->vGC.nReferenceCount <= pList->vGC.nTempRC ) && (lDelete==1) ) {
 		/*
 		**  Delete the Cycle 
 		**  Delete all items in aProcess except the Root 
@@ -468,7 +468,7 @@ RING_API List * ring_list_collectcycles_gc ( void *pState,List *pList )
 			}
 		}
 		/* It's important to set nReferenceCount to 0 because the same reference may contains many circular references */
-		pList->gc.nReferenceCount = 0 ;
+		pList->vGC.nReferenceCount = 0 ;
 		pList = ring_list_delete_gc(pState,pList);
 	}
 	/* Delete the List */
@@ -511,8 +511,8 @@ RING_API int ring_list_iscircular_gc ( void *pState,List *pList )
 RING_API int ring_list_checkrefinleftside ( void *pState,List *pList )
 {
 	/* If we have Ref()/Reference() at the Left-Side then Delete the reference */
-	if ( pList->gc.lNewRef ) {
-		pList->gc.lNewRef = 0 ;
+	if ( pList->vGC.lNewRef ) {
+		pList->vGC.lNewRef = 0 ;
 		return 1 ;
 	}
 	return 0 ;
@@ -539,7 +539,7 @@ RING_API int ring_list_checkrefvarinleftside ( void *pState,List *pVar )
 
 RING_API int ring_list_getrefcount ( List *pList )
 {
-	return pList->gc.nReferenceCount + 1 ;
+	return pList->vGC.nReferenceCount + 1 ;
 }
 
 RING_API int ring_list_isrefparameter ( VM *pVM,const char *cVariable )
@@ -552,12 +552,12 @@ RING_API int ring_list_isrefparameter ( VM *pVM,const char *cVariable )
 		pList = (List *) RING_VM_STACK_READP ;
 		if ( ring_list_isrefcontainer(pList) ) {
 			pRef = ring_list_getlist(pList,RING_VAR_VALUE);
-			if ( pRef->gc.lNewRef ) {
+			if ( pRef->vGC.lNewRef ) {
 				lRef = 1 ;
 				pVar = ring_vm_addlistarg(pVM,cVariable);
 				ring_list_assignreftovar_gc(pVM->pRingState,pRef,pVar,RING_VAR_VALUE);
 				/* If the same reference is passed as parameter multiple times then keep treating it as new reference */
-				pRef->gc.lNewRef = 1 ;
+				pRef->vGC.lNewRef = 1 ;
 			}
 		}
 	}
@@ -566,22 +566,22 @@ RING_API int ring_list_isrefparameter ( VM *pVM,const char *cVariable )
 
 RING_API int ring_list_isdontref ( List *pList )
 {
-	return pList->gc.lDontRef ;
+	return pList->vGC.lDontRef ;
 }
 
 RING_API void ring_list_enabledontref ( List *pList )
 {
-	pList->gc.lDontRef = 1 ;
+	pList->vGC.lDontRef = 1 ;
 }
 
 RING_API void ring_list_disabledontref ( List *pList )
 {
-	pList->gc.lDontRef = 0 ;
+	pList->vGC.lDontRef = 0 ;
 }
 
 RING_API void ring_list_disablelnewref ( List *pRef )
 {
-	pRef->gc.lNewRef = 0 ;
+	pRef->vGC.lNewRef = 0 ;
 }
 
 RING_API void ring_list_resetlnewref ( List *pVar )
@@ -595,38 +595,38 @@ RING_API void ring_list_resetlnewref ( List *pVar )
 
 RING_API int ring_list_isnewref ( List *pList )
 {
-	return pList->gc.lNewRef ;
+	return pList->vGC.lNewRef ;
 }
 
 RING_API int ring_list_isdontrefagain ( List *pList )
 {
-	return pList->gc.lDontRefAgain ;
+	return pList->vGC.lDontRefAgain ;
 }
 
 RING_API void ring_list_enabledontrefagain ( List *pList )
 {
-	pList->gc.lDontRefAgain = 1 ;
+	pList->vGC.lDontRefAgain = 1 ;
 }
 
 RING_API void ring_list_disabledontrefagain ( List *pList )
 {
-	pList->gc.lDontRefAgain = 0 ;
+	pList->vGC.lDontRefAgain = 0 ;
 }
 /* Protecting lists */
 
 RING_API void ring_list_enableerroronassignment ( List *pList )
 {
-	pList->gc.lErrorOnAssignment = 1 ;
+	pList->vGC.lErrorOnAssignment = 1 ;
 }
 
 RING_API void ring_list_disableerroronassignment ( List *pList )
 {
-	pList->gc.lErrorOnAssignment = 0 ;
+	pList->vGC.lErrorOnAssignment = 0 ;
 }
 
 RING_API int ring_list_iserroronassignment ( List *pList )
 {
-	return pList->gc.lErrorOnAssignment ;
+	return pList->vGC.lErrorOnAssignment ;
 }
 
 int ring_vm_checkvarerroronassignment ( VM *pVM,List *pVar )
@@ -688,25 +688,25 @@ void ring_vm_removelistprotectionat ( VM *pVM,List *pNestedLists,int nPos )
 	pList = (List *) ring_list_getpointer(pNestedLists,nPos);
 	ring_list_disableerroronassignment(pList);
 	/* Check if list is deleted by Parent */
-	if ( pList->gc.lDeletedByParent ) {
-		pList->gc.lDeletedByParent = 0 ;
+	if ( pList->vGC.lDeletedByParent ) {
+		pList->vGC.lDeletedByParent = 0 ;
 		ring_list_delete_gc(pVM->pRingState,pList);
 	}
 }
 
 RING_API int ring_list_iserroronassignment2 ( List *pList )
 {
-	return pList->gc.lErrorOnAssignment2 ;
+	return pList->vGC.lErrorOnAssignment2 ;
 }
 
 RING_API void ring_list_enableerroronassignment2 ( List *pList )
 {
-	pList->gc.lErrorOnAssignment2 = 1 ;
+	pList->vGC.lErrorOnAssignment2 = 1 ;
 }
 
 RING_API void ring_list_disableerroronassignment2 ( List *pList )
 {
-	pList->gc.lErrorOnAssignment2 = 0 ;
+	pList->vGC.lErrorOnAssignment2 = 0 ;
 }
 /* Memory Functions (General) */
 

@@ -18,7 +18,7 @@
 		struct HashTable *pHashTable  ;
 		struct ListBlocks *pBlocks  ;
 		/* Garbage Collector Data (Reference Counting) */
-		ListGCData gc  ;
+		ListGCData vGC  ;
 	} List ;
 	/* Constants */
 	#define RING_LISTOFOBJS_FINDSTRING 1
