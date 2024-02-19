@@ -3,15 +3,12 @@
 #ifndef ring_scanner_h
 	#define ring_scanner_h
 	typedef struct Scanner {
-		/* Ring State */
 		RingState *pRingState  ;
 		List *Keywords  ;
 		List *Operators  ;
 		List *Tokens  ;
 		String *ActiveToken  ;
-		/* Index of Keyword/Operator */
 		unsigned int nTokenIndex  ;
-		/* Literal Line */
 		unsigned int nLiteralLine  ;
 		unsigned int LinesCount  ;
 		char state  ;
