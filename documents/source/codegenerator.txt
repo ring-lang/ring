@@ -768,7 +768,7 @@ also Ring code around 9000 lines.
 		RING_DLL void ringlib_init(RingState *pRingState)
 		{
 
-			new QApplication(pRingState->argc,pRingState->argv);
+			new QApplication(pRingState->nArgc,pRingState->pArgv);
 			ring_qt_start(pRingState) ;
 		}
 

@@ -876,7 +876,7 @@ also Ring code around 9000 lines.</p>
         <span class="n">RING_DLL</span> <span class="n">void</span> <span class="n">ringlib_init</span><span class="p">(</span><span class="n">RingState</span> <span class="o">*</span><span class="n">pRingState</span><span class="p">)</span>
         <span class="p">{</span>
 
-                <span class="k">new</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">pRingState</span><span class="o">-&gt;</span><span class="n">argc</span><span class="p">,</span><span class="n">pRingState</span><span class="o">-&gt;</span><span class="n">argv</span><span class="p">);</span>
+                <span class="k">new</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">pRingState</span><span class="o">-&gt;</span><span class="n">nArgc</span><span class="p">,</span><span class="n">pRingState</span><span class="o">-&gt;</span><span class="n">pArgv</span><span class="p">);</span>
                 <span class="n">ring_qt_start</span><span class="p">(</span><span class="n">pRingState</span><span class="p">)</span> <span class="p">;</span>
         <span class="p">}</span>
 
