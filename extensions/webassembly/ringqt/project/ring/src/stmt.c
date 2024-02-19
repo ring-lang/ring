@@ -105,7 +105,7 @@ int ring_parser_class ( Parser *pParser )
 			ring_parser_icg_newoperand(pParser,ring_list_getstring(pParser->pRingState->pRingFilesStack,ring_list_getsize(pParser->pRingState->pRingFilesStack)));
 			/* Set Global Scope */
 			ring_parser_icg_newoperation(pParser,ICO_SETGLOBALSCOPE);
-			ring_parser_icg_newoperandint(pParser,ring_list_getint(pParser->pRingState->aCustomGlobalScopeStack,ring_list_getsize(pParser->pRingState->aCustomGlobalScopeStack)));
+			ring_parser_icg_newoperandint(pParser,ring_list_getint(pParser->pRingState->pCustomGlobalScopeStack,ring_list_getsize(pParser->pRingState->pCustomGlobalScopeStack)));
 			/* Support using { } around the class code and using 'end' after the content */
 			return ring_parser_bracesandend(pParser,RING_TRUE,K_ENDCLASS) ;
 		}
@@ -156,7 +156,7 @@ int ring_parser_class ( Parser *pParser )
 			}
 			/* Set Global Scope */
 			ring_parser_icg_newoperation(pParser,ICO_SETGLOBALSCOPE);
-			ring_parser_icg_newoperandint(pParser,ring_list_getint(pParser->pRingState->aCustomGlobalScopeStack,ring_list_getsize(pParser->pRingState->aCustomGlobalScopeStack)));
+			ring_parser_icg_newoperandint(pParser,ring_list_getint(pParser->pRingState->pCustomGlobalScopeStack,ring_list_getsize(pParser->pRingState->pCustomGlobalScopeStack)));
 			if ( x ) {
 				/* Support using { } around the function code and using 'end' after the content */
 				return ring_parser_bracesandend(pParser,RING_FALSE,K_ENDFUNC) ;
@@ -248,7 +248,7 @@ int ring_parser_stmt ( Parser *pParser )
 			ring_parser_nexttoken(pParser);
 			nLoadPackage = 1 ;
 			pParser->pRingState->nCustomGlobalScopeCounter++ ;
-			ring_list_addint_gc(pParser->pRingState,pParser->pRingState->aCustomGlobalScopeStack,pParser->pRingState->nCustomGlobalScopeCounter);
+			ring_list_addint_gc(pParser->pRingState,pParser->pRingState->pCustomGlobalScopeStack,pParser->pRingState->nCustomGlobalScopeCounter);
 		}
 		else if ( ring_parser_iskeyword(pParser,K_AGAIN) ) {
 			ring_parser_nexttoken(pParser);
@@ -305,7 +305,7 @@ int ring_parser_stmt ( Parser *pParser )
 			puts("Rule : Statement  --> 'Load' Literal");
 			/* Set Global Scope */
 			ring_parser_icg_newoperation(pParser,ICO_SETGLOBALSCOPE);
-			ring_parser_icg_newoperandint(pParser,ring_list_getint(pParser->pRingState->aCustomGlobalScopeStack,ring_list_getsize(pParser->pRingState->aCustomGlobalScopeStack)));
+			ring_parser_icg_newoperandint(pParser,ring_list_getint(pParser->pRingState->pCustomGlobalScopeStack,ring_list_getsize(pParser->pRingState->pCustomGlobalScopeStack)));
 			/* No package at the start of the file */
 			pParser->ClassesMap = pParser->pRingState->pRingClassesMap ;
 			/* Save the Current Directory */
@@ -328,10 +328,10 @@ int ring_parser_stmt ( Parser *pParser )
 			/* Load Package - End Global Scope */
 			if ( nLoadPackage ) {
 				ring_parser_icg_newoperation(pParser,ICO_ENDGLOBALSCOPE);
-				ring_list_deletelastitem_gc(pParser->pRingState,pParser->pRingState->aCustomGlobalScopeStack);
+				ring_list_deletelastitem_gc(pParser->pRingState,pParser->pRingState->pCustomGlobalScopeStack);
 				/* Set Global Scope */
 				ring_parser_icg_newoperation(pParser,ICO_SETGLOBALSCOPE);
-				ring_parser_icg_newoperandint(pParser,ring_list_getint(pParser->pRingState->aCustomGlobalScopeStack,ring_list_getsize(pParser->pRingState->aCustomGlobalScopeStack)));
+				ring_parser_icg_newoperandint(pParser,ring_list_getint(pParser->pRingState->pCustomGlobalScopeStack,ring_list_getsize(pParser->pRingState->pCustomGlobalScopeStack)));
 			}
 			/* Set Active File */
 			ring_parser_icg_newoperation(pParser,ICO_FILENAME);

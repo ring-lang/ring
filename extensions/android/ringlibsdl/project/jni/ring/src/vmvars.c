@@ -28,8 +28,8 @@ void ring_vm_addglobalvariables ( VM *pVM )
 	/* Add Command Line Parameters */
 	pList = ring_vm_addnewlistvar(pVM,"sysargv");
 	pList = ring_list_getlist(pList,RING_VAR_VALUE);
-	for ( x = 0 ; x < pVM->pRingState->argc ; x++ ) {
-		ring_list_addstring_gc(pVM->pRingState,pList,pVM->pRingState->argv[x]);
+	for ( x = 0 ; x < pVM->pRingState->nArgc ; x++ ) {
+		ring_list_addstring_gc(pVM->pRingState,pList,pVM->pRingState->pArgv[x]);
 	}
 	pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
 }

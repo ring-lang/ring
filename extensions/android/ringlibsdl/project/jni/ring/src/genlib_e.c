@@ -1953,8 +1953,8 @@ void ring_vm_generallib_state_mainfile ( void *pPointer )
 	argc = 2 ;
 	strcpy(argv[0],"ring");
 	strcpy(argv[1],cStr);
-	pRingState->argc = argc ;
-	pRingState->argv = argv ;
+	pRingState->nArgc = argc ;
+	pRingState->pArgv = argv ;
 	/*
 	**  Don't Delete the VM after execution 
 	**  We may run GUI app from GUI app 

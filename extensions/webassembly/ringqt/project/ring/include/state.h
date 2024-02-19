@@ -8,7 +8,7 @@
 		/* Log File */
 		FILE *pLogFile;
 		/* Command line parameters */
-		char  **argv  ;
+		char  **pArgv  ;
 		/* First use by ring_state_runfile */
 		List *pRingFilesList  ;
 		List *pRingFilesStack  ;
@@ -20,11 +20,11 @@
 		List *pRingClassesMap  ;
 		List *pRingPackagesMap  ;
 		/* Custom global scope list */
-		List *aCustomGlobalScopeStack  ;
+		List *pCustomGlobalScopeStack  ;
 		/* First use by ring_vm_new */
 		List *pRingCFunctions  ;
 		/* Command line parameters count */
-		int argc  ;
+		int nArgc  ;
 		/* Scanner Error Code */
 		unsigned int nScannerError  ;
 		/* Counter to know if we are using (Load Again) command */

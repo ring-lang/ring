@@ -575,8 +575,8 @@ void ring_objfile_writeCfile ( RingState *pRingState )
 	/* main function code */
 	fprintf( fCode , "\tRingState *pRingState;  \n"  ) ;
 	fprintf( fCode , "\tpRingState = ring_state_new();  \n"  ) ;
-	fprintf( fCode , "\tpRingState->argc = argc;  \n"  ) ;
-	fprintf( fCode , "\tpRingState->argv = argv;  \n"  ) ;
+	fprintf( fCode , "\tpRingState->nArgc = argc;  \n"  ) ;
+	fprintf( fCode , "\tpRingState->pArgv = argv;  \n"  ) ;
 	fprintf( fCode , "\tpRingState->pRingFilesList = ring_list_new_gc(pRingState,RING_ZERO);  \n"  ) ;
 	fprintf( fCode , "\tpRingState->pRingFilesStack = ring_list_new_gc(pRingState,RING_ZERO);  \n"  ) ;
 	fprintf( fCode , "\tring_list_addstring_gc(pRingState,pRingState->pRingFilesList,\"%so\");  \n",ring_list_getstring(pRingState->pRingFilesList,RING_ONE)  ) ;

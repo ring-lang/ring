@@ -23,8 +23,8 @@ RING_API RingState * ring_state_new ( void )
 	pRingState->nGenObj = 0 ;
 	pRingState->nGenCObj = 0 ;
 	pRingState->nWarning = 0 ;
-	pRingState->argc = 0 ;
-	pRingState->argv = NULL ;
+	pRingState->nArgc = 0 ;
+	pRingState->pArgv = NULL ;
 	pRingState->pVM = NULL ;
 	pRingState->lStartup = 0 ;
 	/* Pool Manager */
@@ -33,14 +33,14 @@ RING_API RingState * ring_state_new ( void )
 	pRingState->nRingInsideRing = 0 ;
 	pRingState->lNoLineNumber = 0 ;
 	pRingState->nCustomGlobalScopeCounter = 0 ;
-	pRingState->aCustomGlobalScopeStack = ring_list_new(RING_ZERO) ;
+	pRingState->pCustomGlobalScopeStack = ring_list_new(RING_ZERO) ;
 	pRingState->lStartPoolManager = 0 ;
 	pRingState->lDisablePoolManager = 0 ;
 	pRingState->lCreateListsUsingBlocks = 1 ;
 	pRingState->lDontCheckStateBlocks = 0 ;
 	pRingState->lRunFromThread = 0 ;
 	pRingState->nLoadAgain = 0 ;
-	ring_list_addint(pRingState->aCustomGlobalScopeStack,pRingState->nCustomGlobalScopeCounter);
+	ring_list_addint(pRingState->pCustomGlobalScopeStack,pRingState->nCustomGlobalScopeCounter);
 	/* Log File */
 	#if RING_LOGFILE
 		pRingState->pLogFile = fopen("ringlog.txt" , "w+" );
@@ -75,7 +75,7 @@ RING_API RingState * ring_state_delete ( RingState *pRingState )
 	if ( pRingState->pVM != NULL ) {
 		ring_vm_delete(pRingState->pVM);
 	}
-	pRingState->aCustomGlobalScopeStack = ring_list_delete(pRingState->aCustomGlobalScopeStack);
+	pRingState->pCustomGlobalScopeStack = ring_list_delete(pRingState->pCustomGlobalScopeStack);
 	/* Log File */
 	#if RING_LOGFILE
 		fclose( pRingState->pLogFile ) ;
@@ -257,8 +257,8 @@ RING_API void ring_state_execute ( char *cFileName, int nISCGI,int nRun,int nPri
 	pRingState->nGenObj = nGenObj ;
 	pRingState->nGenCObj = nGenCObj ;
 	pRingState->nWarning = nWarn ;
-	pRingState->argc = argc ;
-	pRingState->argv = argv ;
+	pRingState->nArgc = argc ;
+	pRingState->pArgv = argv ;
 	if ( ring_general_isobjectfile(cFileName) ) {
 		ring_state_runobjectfile(pRingState,cFileName);
 	}
