@@ -588,7 +588,7 @@ int al_usr_main(int argc, char **argv)
 RING_FUNC(ring_al_run_main)
 {
 	globalVM = (VM *) pPointer ;
-	al_run_main(globalVM->pRingState->argc,globalVM->pRingState->argv,al_usr_main);	
+	al_run_main(globalVM->pRingState->nArgc,globalVM->pRingState->pArgv,al_usr_main);	
 }
 
 RING_FUNC(ring_al_init)
