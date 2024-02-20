@@ -348,7 +348,7 @@ RING_API List * ring_list_deleteref_gc ( void *pState,List *pList )
 			pList = ring_list_collectcycles_gc(pState,pList);
 		}
 		else {
-			ring_list_addpointer_gc(pState,((RingState *) pState)->pVM->aDeleteLater,pList);
+			ring_list_addpointer_gc(pState,((RingState *) pState)->pVM->pDeleteLater,pList);
 		}
 		return pList ;
 	}

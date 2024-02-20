@@ -194,7 +194,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	/* A flag if we are using LoadA to get the Self variable */
 	pVM->lSelfLoadA = 0 ;
 	/* List of pointers that contains lists that will be deleted later */
-	pVM->aDeleteLater = ring_list_new_gc(pVM->pRingState,RING_ZERO);
+	pVM->pDeleteLater = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	return pVM ;
 }
 
@@ -240,7 +240,7 @@ VM * ring_vm_delete ( VM *pVM )
 		ring_vm_dll_closealllibs(pVM);
 	#endif
 	pVM->pCLibraries = ring_list_delete_gc(pVM->pRingState,pVM->pCLibraries);
-	pVM->aDeleteLater = ring_list_delete_gc(pVM->pRingState,pVM->aDeleteLater);
+	pVM->pDeleteLater = ring_list_delete_gc(pVM->pRingState,pVM->pDeleteLater);
 	pVM->pRingState->pVM = NULL ;
 	ring_state_free(pVM->pRingState,pVM);
 	pVM = NULL ;

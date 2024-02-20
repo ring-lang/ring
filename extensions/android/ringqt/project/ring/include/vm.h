@@ -68,7 +68,7 @@
 		List *pTraceData  ;
 		List *aGlobalScopes  ;
 		List *aActiveGlobalScopes  ;
-		List *aDeleteLater  ;
+		List *pDeleteLater  ;
 		String *sPackageName  ;
 		String *sTrace  ;
 		ByteCode *pByteCode  ;
