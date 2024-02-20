@@ -3,9 +3,9 @@ Parent: Parser
 Type: RingState *
 pRingState
 Type: List *
-Tokens
+pTokens
 Type: List *
-GenCode
+pGenCode
 Type: List *
 ActiveGenCodeList
 Type: List *
@@ -18,7 +18,7 @@ Type: List *
 pForInVars
 Type: const char *
 TokenText
-Type: int
+Type: unsigned int
 nClassMark
 Type: unsigned int
 nBraceFlag

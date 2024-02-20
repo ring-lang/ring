@@ -6,9 +6,9 @@
 	typedef struct Parser {
 		RingState *pRingState  ;
 		/* Tokens and Generated Code */
-		List *Tokens  ;
-		List *GenCode  ;
-		List *ActiveGenCodeList  ;
+		List *pTokens  ;
+		List *pGenCode  ;
+		List *pActiveGenCodeList  ;
 		/* Lists of Lists, Functions in Program or in Class */
 		List *FunctionsMap  ;
 		/* Lists of Lists, Classes in Program or in Class */
@@ -102,7 +102,7 @@
 	#define RING_PARSER_IGNORENEWLINE while(ring_parser_epsilon(pParser));
 	#define RING_PARSER_PASSNEWLINE while(ring_parser_passepsilon(pParser));
 	#define RING_PARSER_CURRENTTOKEN pParser->nActiveToken
-	#define RING_PARSER_OPERATIONID ring_list_getsize(pParser->GenCode) + pParser->pRingState->nInstructionsCount
+	#define RING_PARSER_OPERATIONID ring_list_getsize(pParser->pGenCode) + pParser->pRingState->nInstructionsCount
 	#define RING_PARSER_ACCEPTSTATEMENTS while ( ring_parser_stmt(pParser) ) if ( pParser->nActiveToken == pParser->nTokensCount ) break ;
 	/* Packages List */
 	#define RING_PACKAGES_PACKAGENAME 1

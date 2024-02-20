@@ -9,46 +9,46 @@ void ring_parser_icg_newoperation ( Parser *pParser , IC_OPERATIONS opcode )
 		pParser->nInsertCounter++ ;
 		return ;
 	}
-	pParser->ActiveGenCodeList = ring_list_newlist_gc(NULL,pParser->GenCode);
-	ring_list_addint_gc(NULL,pParser->ActiveGenCodeList,opcode);
+	pParser->pActiveGenCodeList = ring_list_newlist_gc(NULL,pParser->pGenCode);
+	ring_list_addint_gc(NULL,pParser->pActiveGenCodeList,opcode);
 }
 
 void ring_parser_icg_insertoperation ( Parser *pParser , int nPos , IC_OPERATIONS opcode )
 {
-	pParser->ActiveGenCodeList = ring_list_insertlist(pParser->GenCode,nPos);
-	ring_list_addint_gc(NULL,pParser->ActiveGenCodeList,opcode);
+	pParser->pActiveGenCodeList = ring_list_insertlist(pParser->pGenCode,nPos);
+	ring_list_addint_gc(NULL,pParser->pActiveGenCodeList,opcode);
 }
 
 void ring_parser_icg_newoperand ( Parser *pParser , const char *cStr )
 {
-	ring_list_addstring_gc(NULL,pParser->ActiveGenCodeList,cStr);
+	ring_list_addstring_gc(NULL,pParser->pActiveGenCodeList,cStr);
 }
 
 void ring_parser_icg_addtooperand ( Parser *pParser , const char *cStr )
 {
 	String *pString  ;
-	pString = ring_item_getstring(ring_list_getitem(pParser->ActiveGenCodeList,ring_list_getsize(pParser->ActiveGenCodeList)));
+	pString = ring_item_getstring(ring_list_getitem(pParser->pActiveGenCodeList,ring_list_getsize(pParser->pActiveGenCodeList)));
 	ring_string_add_gc(NULL,pString,cStr);
 }
 
 void ring_parser_icg_newoperandint ( Parser *pParser , int nValue )
 {
-	ring_list_addint_gc(NULL,pParser->ActiveGenCodeList,nValue);
+	ring_list_addint_gc(NULL,pParser->pActiveGenCodeList,nValue);
 }
 
 void ring_parser_icg_newoperanddouble ( Parser *pParser , double nValue )
 {
-	ring_list_adddouble_gc(NULL,pParser->ActiveGenCodeList,nValue);
+	ring_list_adddouble_gc(NULL,pParser->pActiveGenCodeList,nValue);
 }
 
 void ring_parser_icg_newoperandpointer ( Parser *pParser , void *pValue )
 {
-	ring_list_addpointer_gc(NULL,pParser->ActiveGenCodeList,pValue);
+	ring_list_addpointer_gc(NULL,pParser->pActiveGenCodeList,pValue);
 }
 
 List * ring_parser_icg_getactiveoperation ( Parser *pParser )
 {
-	return pParser->ActiveGenCodeList ;
+	return pParser->pActiveGenCodeList ;
 }
 
 void ring_parser_icg_addoperand ( Parser *pParser ,List *pList , const char *cStr )
@@ -68,9 +68,9 @@ void ring_parser_icg_addoperandpointer ( Parser *pParser ,List *pList , void *pV
 
 void ring_parser_icg_deletelastoperation ( Parser *pParser )
 {
-	if ( ring_list_getsize(pParser->GenCode) > 0 ) {
-		ring_list_deleteitem_gc(NULL,pParser->GenCode,ring_list_getsize(pParser->GenCode));
-		pParser->ActiveGenCodeList = ring_list_getlist(pParser->GenCode,ring_list_getsize(pParser->GenCode));
+	if ( ring_list_getsize(pParser->pGenCode) > 0 ) {
+		ring_list_deleteitem_gc(NULL,pParser->pGenCode,ring_list_getsize(pParser->pGenCode));
+		pParser->pActiveGenCodeList = ring_list_getlist(pParser->pGenCode,ring_list_getsize(pParser->pGenCode));
 	}
 }
 
@@ -78,10 +78,10 @@ void ring_parser_icg_duplicate ( Parser *pParser,int nStart,int nEnd )
 {
 	List *pList,*pList2  ;
 	int x  ;
-	if ( (nStart <= nEnd) && ( nEnd <= ring_list_getsize(pParser->GenCode) ) ) {
+	if ( (nStart <= nEnd) && ( nEnd <= ring_list_getsize(pParser->pGenCode) ) ) {
 		for ( x = nStart ; x <= nEnd ; x++ ) {
-			pList = ring_list_newlist_gc(NULL,pParser->GenCode);
-			pList2 = ring_list_getlist(pParser->GenCode,x);
+			pList = ring_list_newlist_gc(NULL,pParser->pGenCode);
+			pList2 = ring_list_getlist(pParser->pGenCode,x);
 			ring_list_copy_gc(NULL,pList,pList2);
 		}
 	}
@@ -90,7 +90,7 @@ void ring_parser_icg_duplicate ( Parser *pParser,int nStart,int nEnd )
 int ring_parser_icg_newlabel2 ( Parser *pParser )
 {
 	ring_parser_icg_newoperation(pParser,ICO_NEWLABEL);
-	return ring_list_getsize(pParser->GenCode) + pParser->pRingState->nInstructionsCount ;
+	return ring_list_getsize(pParser->pGenCode) + pParser->pRingState->nInstructionsCount ;
 }
 
 void ring_parser_icg_setopcode ( Parser *pParser ,List *pList , int nValue )
@@ -100,7 +100,7 @@ void ring_parser_icg_setopcode ( Parser *pParser ,List *pList , int nValue )
 
 void ring_parser_icg_deleteoperand ( Parser *pParser , int nPos )
 {
-	ring_list_deleteitem_gc(NULL,pParser->ActiveGenCodeList,nPos);
+	ring_list_deleteitem_gc(NULL,pParser->pActiveGenCodeList,nPos);
 }
 
 void ring_parser_icg_loadfunction ( Parser *pParser,const char *cFunctionName )
@@ -145,7 +145,7 @@ void ring_parser_icg_newline ( Parser *pParser,int nLine )
 char * ring_parser_icg_parentclassname ( Parser *pParser )
 {
 	/* This function assume that the current instruction define new class and return the parent class name */
-	return ring_list_getstring(pParser->ActiveGenCodeList ,RING_PARSER_ICG_PARENTCLASSPOS) ;
+	return ring_list_getstring(pParser->pActiveGenCodeList ,RING_PARSER_ICG_PARENTCLASSPOS) ;
 }
 
 char * ring_parser_icg_newpackagename ( Parser *pParser,List *pPos )
@@ -158,7 +158,7 @@ void ring_parser_icg_pushn ( Parser *pParser,double nValue )
 	int nLastOperation, lChange  ;
 	/* Optimizations */
 	lChange = 0 ;
-	if ( pParser->ActiveGenCodeList != NULL ) {
+	if ( pParser->pActiveGenCodeList != NULL ) {
 		nLastOperation = ring_parser_icg_getlastoperation(pParser) ;
 		if ( nLastOperation == ICO_PUSHN ) {
 			ring_parser_icg_setlastoperation(pParser,ICO_PUSH2N);

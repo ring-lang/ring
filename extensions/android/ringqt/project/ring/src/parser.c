@@ -39,9 +39,9 @@ Parser * ring_parser_new ( List *pTokens,RingState *pRingState )
 	pParser = (Parser *) ring_state_malloc(pRingState,sizeof(Parser));
 	/* Ring State */
 	pParser->pRingState = pRingState ;
-	pParser->Tokens = pTokens ;
+	pParser->pTokens = pTokens ;
 	pParser->nActiveToken = 0 ;
-	pParser->nTokensCount = ring_list_getsize(pParser->Tokens) ;
+	pParser->nTokensCount = ring_list_getsize(pParser->pTokens) ;
 	pParser->nTokenIndex = 0 ;
 	pParser->nLineNumber = 1 ;
 	pParser->nErrorLine = 0 ;
@@ -52,9 +52,9 @@ Parser * ring_parser_new ( List *pTokens,RingState *pRingState )
 		pRingState->pRingClassesMap = ring_list_new_gc(pRingState,RING_ZERO);
 		pRingState->pRingPackagesMap = ring_list_new_gc(pRingState,RING_ZERO);
 	}
-	pParser->GenCode = pRingState->pRingGenCode ;
+	pParser->pGenCode = pRingState->pRingGenCode ;
 	pParser->FunctionsMap = pRingState->pRingFunctionsMap ;
-	pParser->ActiveGenCodeList = NULL ;
+	pParser->pActiveGenCodeList = NULL ;
 	pParser->nAssignmentFlag = 1 ;
 	pParser->nClassStart = 0 ;
 	pParser->ClassesMap = pRingState->pRingClassesMap ;
@@ -88,7 +88,7 @@ Parser * ring_parser_delete ( Parser *pParser )
 void ring_parser_loadtoken ( Parser *pParser )
 {
 	List *pList  ;
-	pList = ring_list_getlist(pParser->Tokens,pParser->nActiveToken);
+	pList = ring_list_getlist(pParser->pTokens,pParser->nActiveToken);
 	pParser->nTokenType = ring_list_getint(pList,RING_SCANNER_TOKENTYPE) ;
 	pParser->TokenText = ring_list_getstring(pList,RING_SCANNER_TOKENVALUE) ;
 	pParser->nTokenIndex = ring_list_getint(pList,RING_SCANNER_TOKENINDEX) ;

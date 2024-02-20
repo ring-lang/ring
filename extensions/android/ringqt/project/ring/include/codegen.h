@@ -169,17 +169,17 @@
 	#define RING_PARSER_ICG_LOADASETTERPOS 3
 	#define RING_PARSER_ICG_LOADAGETTERPOS 4
 	/* Macro */
-	#define RING_PARSER_ICG_GOTOLASTOP pParser->ActiveGenCodeList = ring_list_getlist(pParser->GenCode,ring_list_getsize(pParser->GenCode))
-	#define ring_parser_icg_newlabel(x) ( ring_list_getsize(x->GenCode) + 1 + pParser->pRingState->nInstructionsCount)
-	#define ring_parser_icg_getlastoperation(pParser) ring_list_getint(pParser->ActiveGenCodeList,RING_PARSER_ICG_OPERATIONCODE)
-	#define ring_parser_icg_setlastoperation(pParser,x) ring_list_setint_gc(pParser->pRingState,pParser->ActiveGenCodeList,RING_PARSER_ICG_OPERATIONCODE,x)
-	#define ring_parser_icg_instructionscount(pParser) ring_list_getsize(pParser->GenCode) + pParser->pRingState->nInstructionsCount
-	#define ring_parser_icg_instructionslistsize(pParser) ring_list_getsize(pParser->GenCode)
-	#define ring_parser_icg_getoperationlist(pParser,x) ring_list_getlist(pParser->GenCode,x)
-	#define ring_parser_icg_getoperationbeforelastoperation(pParser) ring_list_getint(ring_parser_icg_getoperationlist(pParser,ring_list_getsize(pParser->GenCode)-1),RING_PARSER_ICG_OPERATIONCODE)
+	#define RING_PARSER_ICG_GOTOLASTOP pParser->pActiveGenCodeList = ring_list_getlist(pParser->pGenCode,ring_list_getsize(pParser->pGenCode))
+	#define ring_parser_icg_newlabel(x) ( ring_list_getsize(x->pGenCode) + 1 + pParser->pRingState->nInstructionsCount)
+	#define ring_parser_icg_getlastoperation(pParser) ring_list_getint(pParser->pActiveGenCodeList,RING_PARSER_ICG_OPERATIONCODE)
+	#define ring_parser_icg_setlastoperation(pParser,x) ring_list_setint_gc(pParser->pRingState,pParser->pActiveGenCodeList,RING_PARSER_ICG_OPERATIONCODE,x)
+	#define ring_parser_icg_instructionscount(pParser) ring_list_getsize(pParser->pGenCode) + pParser->pRingState->nInstructionsCount
+	#define ring_parser_icg_instructionslistsize(pParser) ring_list_getsize(pParser->pGenCode)
+	#define ring_parser_icg_getoperationlist(pParser,x) ring_list_getlist(pParser->pGenCode,x)
+	#define ring_parser_icg_getoperationbeforelastoperation(pParser) ring_list_getint(ring_parser_icg_getoperationlist(pParser,ring_list_getsize(pParser->pGenCode)-1),RING_PARSER_ICG_OPERATIONCODE)
 	#define ring_parser_icg_getoperationatpos(pParser,x) ring_list_getint(ring_parser_icg_getoperationlist(pParser,x),RING_PARSER_ICG_OPERATIONCODE)
-	#define ring_parser_icg_getoperandint(pParser,x) ring_list_getint(pParser->ActiveGenCodeList,x)
-	#define ring_parser_icg_getoperanddouble(pParser,x) ring_list_getdouble(pParser->ActiveGenCodeList,x)
+	#define ring_parser_icg_getoperandint(pParser,x) ring_list_getint(pParser->pActiveGenCodeList,x)
+	#define ring_parser_icg_getoperanddouble(pParser,x) ring_list_getdouble(pParser->pActiveGenCodeList,x)
 	#define ring_parser_icg_setoperationatpos(pParser,x,y) ring_list_setint(ring_parser_icg_getoperationlist(pParser,x),RING_PARSER_ICG_OPERATIONCODE,y)
 	/* Generate Intermediate Code */
 
