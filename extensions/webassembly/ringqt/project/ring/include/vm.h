@@ -60,7 +60,7 @@
 		List *pBraceObject  ;
 		List *pBraceObjects  ;
 		List *pActiveMem  ;
-		List *aActivePackage  ;
+		List *pActivePackage  ;
 		List *aSetProperty  ;
 		List *aForStep  ;
 		List *aBeforeObjState  ;

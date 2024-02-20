@@ -72,7 +72,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->cFileName = ring_list_getstring(pVM->pRingState->pRingFilesList,RING_ONE) ;
 	pVM->cPrevFileName = ring_list_getstring(pVM->pRingState->pRingFilesList,RING_ONE) ;
 	/* We keep information about active package to access its classes directly with new/from */
-	pVM->aActivePackage = ring_list_new_gc(pVM->pRingState,RING_ZERO);
+	pVM->pActivePackage = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Scope of class attribute ( 0 = public 1 = private ) */
 	pVM->nPrivateFlag = 0 ;
 	/* Set/Get Property */
@@ -214,7 +214,7 @@ VM * ring_vm_delete ( VM *pVM )
 	pVM->pScopeNewObj = ring_list_delete_gc(pVM->pRingState,pVM->pScopeNewObj);
 	pVM->pObjState = ring_list_delete_gc(pVM->pRingState,pVM->pObjState);
 	pVM->pBraceObjects = ring_list_delete_gc(pVM->pRingState,pVM->pBraceObjects);
-	pVM->aActivePackage = ring_list_delete_gc(pVM->pRingState,pVM->aActivePackage);
+	pVM->pActivePackage = ring_list_delete_gc(pVM->pRingState,pVM->pActivePackage);
 	pVM->aSetProperty = ring_list_delete_gc(pVM->pRingState,pVM->aSetProperty);
 	pVM->aForStep = ring_list_delete_gc(pVM->pRingState,pVM->aForStep);
 	pVM->aBeforeObjState = ring_list_delete_gc(pVM->pRingState,pVM->aBeforeObjState);

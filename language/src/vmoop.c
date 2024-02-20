@@ -184,7 +184,7 @@ int ring_vm_oop_parentinit ( VM *pVM,List *pList )
 	ring_list_addpointer_gc(pVM->pRingState,pClassesList,pList);
 	while ( strcmp(cClassName,"") != 0 ) {
 		/* Mark Packages Count */
-		nMark = ring_list_getsize(pVM->aActivePackage);
+		nMark = ring_list_getsize(pVM->pActivePackage);
 		nFound = 0 ;
 		for ( x = 1 ; x <= ring_vm_oop_visibleclassescount(pVM) ; x++ ) {
 			pList2 = ring_vm_oop_visibleclassitem(pVM,x);
@@ -441,7 +441,7 @@ void ring_vm_oop_parentmethods ( VM *pVM,List *pList )
 		ring_list_setint_gc(pVM->pRingState,pList,RING_CLASSMAP_ISPARENTINFO,RING_TRUE);
 		cClassName = ring_list_getstring(pList,RING_CLASSMAP_PARENTCLASS) ;
 		/* Mark Packages Count */
-		nMark = ring_list_getsize(pVM->aActivePackage);
+		nMark = ring_list_getsize(pVM->pActivePackage);
 		while ( strcmp(cClassName,"") != 0 ) {
 			/* Push Class Package */
 			ring_vm_oop_pushclasspackage(pVM,pList);
@@ -704,8 +704,8 @@ List * ring_vm_oop_checkpointertoclassinpackage ( VM *pVM,List *pList )
 int ring_vm_oop_visibleclassescount ( VM *pVM )
 {
 	List *pList  ;
-	if ( ring_list_getsize(pVM->aActivePackage) > 0 ) {
-		pList = (List *) ring_list_getpointer(pVM->aActivePackage,ring_list_getsize(pVM->aActivePackage)) ;
+	if ( ring_list_getsize(pVM->pActivePackage) > 0 ) {
+		pList = (List *) ring_list_getpointer(pVM->pActivePackage,ring_list_getsize(pVM->pActivePackage)) ;
 		pList = ring_list_getlist(pList,RING_PACKAGES_CLASSESLIST) ;
 		return ring_list_getsize(pVM->pClassesMap) + ring_list_getsize(pList) ;
 	}
@@ -718,7 +718,7 @@ List * ring_vm_oop_visibleclassitem ( VM *pVM,int x )
 	if ( x <= ring_list_getsize(pVM->pClassesMap) ) {
 		return ring_list_getlist(pVM->pClassesMap,x) ;
 	}
-	pList = (List *) ring_list_getpointer(pVM->aActivePackage,ring_list_getsize(pVM->aActivePackage)) ;
+	pList = (List *) ring_list_getpointer(pVM->pActivePackage,ring_list_getsize(pVM->pActivePackage)) ;
 	pList = ring_list_getlist(pList,RING_PACKAGES_CLASSESLIST) ;
 	pList = ring_list_getlist(pList,x-ring_list_getsize(pVM->pClassesMap)) ;
 	return pList ;
@@ -729,23 +729,23 @@ void ring_vm_oop_pushclasspackage ( VM *pVM,List *pList )
 	List *pList2  ;
 	pList2 = ring_list_getlist(pList,RING_CLASSMAP_POINTERTOPACKAGE) ;
 	if ( pList2 != NULL ) {
-		ring_list_addpointer_gc(pVM->pRingState,pVM->aActivePackage,pList2);
+		ring_list_addpointer_gc(pVM->pRingState,pVM->pActivePackage,pList2);
 	}
 }
 
 void ring_vm_oop_popclasspackage ( VM *pVM )
 {
-	if ( ring_list_getsize(pVM->aActivePackage) > 0 ) {
-		ring_list_deleteitem_gc(pVM->pRingState,pVM->aActivePackage,ring_list_getsize(pVM->aActivePackage));
+	if ( ring_list_getsize(pVM->pActivePackage) > 0 ) {
+		ring_list_deleteitem_gc(pVM->pRingState,pVM->pActivePackage,ring_list_getsize(pVM->pActivePackage));
 	}
 }
 
 void ring_vm_oop_deletepackagesafter ( VM *pVM,int x )
 {
 	int t  ;
-	if ( x <= ring_list_getsize(pVM->aActivePackage) ) {
-		for ( t = ring_list_getsize(pVM->aActivePackage) ; t > x ; t-- ) {
-			ring_list_deleteitem_gc(pVM->pRingState,pVM->aActivePackage,t);
+	if ( x <= ring_list_getsize(pVM->pActivePackage) ) {
+		for ( t = ring_list_getsize(pVM->pActivePackage) ; t > x ; t-- ) {
+			ring_list_deleteitem_gc(pVM->pRingState,pVM->pActivePackage,t);
 		}
 	}
 }
