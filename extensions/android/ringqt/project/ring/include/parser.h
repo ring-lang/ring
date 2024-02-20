@@ -25,7 +25,7 @@
 		unsigned int nBraceFlag  ;
 		/* Active Token */
 		unsigned int ActiveToken  ;
-		unsigned int TokensCount  ;
+		unsigned int nTokensCount  ;
 		unsigned int nTokenIndex  ;
 		/* Line Number */
 		unsigned int nLineNumber  ;
@@ -103,7 +103,7 @@
 	#define RING_PARSER_PASSNEWLINE while(ring_parser_passepsilon(pParser));
 	#define RING_PARSER_CURRENTTOKEN pParser->ActiveToken
 	#define RING_PARSER_OPERATIONID ring_list_getsize(pParser->GenCode) + pParser->pRingState->nInstructionsCount
-	#define RING_PARSER_ACCEPTSTATEMENTS while ( ring_parser_stmt(pParser) ) if ( pParser->ActiveToken == pParser->TokensCount ) break ;
+	#define RING_PARSER_ACCEPTSTATEMENTS while ( ring_parser_stmt(pParser) ) if ( pParser->ActiveToken == pParser->nTokensCount ) break ;
 	/* Packages List */
 	#define RING_PACKAGES_PACKAGENAME 1
 	#define RING_PACKAGES_CLASSESLIST 2

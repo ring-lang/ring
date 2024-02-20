@@ -1,15 +1,31 @@
 ring_parser_h
 Parent: Parser
+Type: RingState *
+pRingState
 Type: List *
 Tokens
+Type: List *
+GenCode
+Type: List *
+ActiveGenCodeList
+Type: List *
+FunctionsMap
+Type: List *
+ClassesMap
+Type: List *
+PackagesMap
+Type: List *
+pForInVars
+Type: const char *
+TokenText
+Type: int
+nClassMark
+Type: unsigned int
+nBraceFlag
 Type: unsigned int
 ActiveToken
 Type: unsigned int
 TokensCount
-Type: unsigned char
-TokenType
-Type: const char *
-TokenText
 Type: unsigned int
 nTokenIndex
 Type: unsigned int
@@ -18,52 +34,36 @@ Type: unsigned int
 nErrorLine
 Type: unsigned int
 nErrorsCount
-Type: List *
-GenCode
-Type: List *
-ActiveGenCodeList
-Type: unsigned char
-nAssignmentFlag
-Type: unsigned char
-nClassStart
-Type: List *
-FunctionsMap
-Type: List *
-ClassesMap
-Type: List *
-PackagesMap
-Type: int
-nClassMark
-Type: unsigned char
-nPrivateFlag
-Type: unsigned int
-nBraceFlag
-Type: unsigned char
-nInsertFlag
-Type: unsigned int
-nInsertCounter
-Type: unsigned char
-nNewObject
-Type: unsigned char
-nFuncCallOnly
 Type: unsigned int
 nControlStructureExpr
 Type: unsigned int
 nControlStructureBrace
+Type: unsigned int
+nInsertCounter
+Type: unsigned int
+nLoopFlag
+Type: unsigned char
+nLoopOrExitCommand
+Type: unsigned char
+nCheckLoopAndExit
+Type: unsigned char
+nAssignmentFlag
+Type: unsigned char
+nClassStart
+Type: unsigned char
+nPrivateFlag
+Type: unsigned char
+nNewObject
+Type: unsigned char
+nFuncCallOnly
 Type: unsigned char
 nThisOrSelfLoadA
 Type: unsigned char
 nThisLoadA
 Type: unsigned char
-nLoopOrExitCommand
+nInsertFlag
 Type: unsigned char
-nCheckLoopAndExit
-Type: unsigned int
-nLoopFlag
-Type: List *
-pForInVars
-Type: RingState *
-pRingState
+TokenType
 END:
 Type: Parser
 struct Parser

@@ -19,7 +19,7 @@ int ring_parser_start ( List *pTokens,RingState *pRingState )
 				ring_parser_nexttoken(pParser);
 			}
 		}
-	} while (pParser->ActiveToken !=pParser->TokensCount)  ;
+	} while (pParser->ActiveToken !=pParser->nTokensCount)  ;
 	/* Display Errors Count */
 	RingActiveFile = ring_list_getsize(pParser->pRingState->pRingFilesStack);
 	if ( pParser->nErrorsCount == 0 ) {
@@ -41,7 +41,7 @@ Parser * ring_parser_new ( List *pTokens,RingState *pRingState )
 	pParser->pRingState = pRingState ;
 	pParser->Tokens = pTokens ;
 	pParser->ActiveToken = 0 ;
-	pParser->TokensCount = ring_list_getsize(pParser->Tokens) ;
+	pParser->nTokensCount = ring_list_getsize(pParser->Tokens) ;
 	pParser->nTokenIndex = 0 ;
 	pParser->nLineNumber = 1 ;
 	pParser->nErrorLine = 0 ;
@@ -96,7 +96,7 @@ void ring_parser_loadtoken ( Parser *pParser )
 
 int ring_parser_nexttoken ( Parser *pParser )
 {
-	if ( pParser->ActiveToken < pParser->TokensCount ) {
+	if ( pParser->ActiveToken < pParser->nTokensCount ) {
 		pParser->ActiveToken++ ;
 		ring_parser_loadtoken(pParser);
 		return 1 ;
@@ -141,7 +141,7 @@ int ring_parser_isendline ( Parser *pParser )
 
 int ring_parser_settoken ( Parser *pParser,int x )
 {
-	if ( (x >= 1) && (x <= pParser->TokensCount) ) {
+	if ( (x >= 1) && (x <= pParser->nTokensCount) ) {
 		pParser->ActiveToken = x ;
 		ring_parser_loadtoken(pParser);
 		return 1 ;

@@ -1317,7 +1317,7 @@ int ring_parser_epsilon ( Parser *pParser )
 		if ( ring_parser_nexttoken(pParser) ) {
 			return 1 ;
 		}
-		if ( pParser->TokensCount == 1 ) {
+		if ( pParser->nTokensCount == 1 ) {
 			return 1 ;
 		}
 	}
@@ -1436,7 +1436,7 @@ int ring_parser_bracesandend ( Parser *pParser,int lClass,SCANNER_KEYWORD nKeywo
 		ring_parser_nexttoken(pParser);
 		if ( lClass ) {
 			while ( ring_parser_class(pParser) ) {
-				if ( pParser->ActiveToken == pParser->TokensCount ) {
+				if ( pParser->ActiveToken == pParser->nTokensCount ) {
 					break ;
 				}
 			}
@@ -1452,7 +1452,7 @@ int ring_parser_bracesandend ( Parser *pParser,int lClass,SCANNER_KEYWORD nKeywo
 	}
 	/* Support using End */
 	while ( ring_parser_class(pParser) ) {
-		if ( pParser->ActiveToken == pParser->TokensCount ) {
+		if ( pParser->ActiveToken == pParser->nTokensCount ) {
 			break ;
 		}
 	}
