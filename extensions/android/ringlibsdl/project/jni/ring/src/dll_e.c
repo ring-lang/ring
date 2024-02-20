@@ -10,7 +10,7 @@ void ring_vm_dll_loadfunctions ( RingState *pRingState )
 
 void ring_vm_dll_loadlib ( void *pPointer )
 {
-	LpHandleType handle  ;
+	LpHandleType pHandle  ;
 	const char *cDLL  ;
 	loadlibfuncptr pFunc  ;
 	VM *pVM  ;
@@ -23,13 +23,13 @@ void ring_vm_dll_loadlib ( void *pPointer )
 	}
 	if ( RING_API_ISSTRING(1) ) {
 		cDLL = RING_API_GETSTRING(1);
-		handle = LoadDLL(cDLL);
-		if ( handle == NULL ) {
+		pHandle = LoadDLL(cDLL);
+		if ( pHandle == NULL ) {
 			printf( "\nLibrary File : %s",RING_API_GETSTRING(1) ) ;
 			RING_API_ERROR(RING_VM_ERROR_LIBLOADERROR);
 			return ;
 		}
-		pFunc = (loadlibfuncptr) GetDLLFunc(handle, "ringlib_init") ;
+		pFunc = (loadlibfuncptr) GetDLLFunc(pHandle, "ringlib_init") ;
 		if ( pFunc == NULL ) {
 			printf( "\nLibrary File : %s",RING_API_GETSTRING(1) ) ;
 			RING_API_ERROR(RING_VM_ERROR_NORINGLIBINIT);
@@ -40,8 +40,8 @@ void ring_vm_dll_loadlib ( void *pPointer )
 		/* Generate Hash Table */
 		ring_list_genarray(pRingState->pRingCFunctions);
 		ring_list_genhashtable2(pRingState->pRingCFunctions);
-		ring_list_addpointer_gc(pRingState,pVM->pCLibraries,handle);
-		RING_API_RETCPOINTER(handle,"DLL");
+		ring_list_addpointer_gc(pRingState,pVM->pCLibraries,pHandle);
+		RING_API_RETCPOINTER(pHandle,"DLL");
 	}
 	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
@@ -50,7 +50,7 @@ void ring_vm_dll_loadlib ( void *pPointer )
 
 void ring_vm_dll_closelib ( void *pPointer )
 {
-	LpHandleType handle  ;
+	LpHandleType pHandle  ;
 	int nIndex  ;
 	VM *pVM  ;
 	pVM = (VM *) pPointer ;
@@ -59,11 +59,11 @@ void ring_vm_dll_closelib ( void *pPointer )
 		return ;
 	}
 	if ( RING_API_ISPOINTER(1) ) {
-		handle = RING_API_GETCPOINTER(1,"DLL") ;
-		CloseDLL(handle);
+		pHandle = RING_API_GETCPOINTER(1,"DLL") ;
+		CloseDLL(pHandle);
 		RING_API_SETNULLPOINTER(1);
 		/* Remove the pointer */
-		nIndex = ring_list_findpointer(pVM->pCLibraries,handle);
+		nIndex = ring_list_findpointer(pVM->pCLibraries,pHandle);
 		if ( nIndex ) {
 			ring_list_deleteitem_gc(pVM->pRingState,pVM->pCLibraries,nIndex);
 		}
@@ -76,10 +76,10 @@ void ring_vm_dll_closelib ( void *pPointer )
 void ring_vm_dll_closealllibs ( VM *pVM )
 {
 	int x  ;
-	LpHandleType handle  ;
+	LpHandleType pHandle  ;
 	for ( x = 1 ; x <= ring_list_getsize(pVM->pCLibraries) ; x++ ) {
-		handle = ring_list_getpointer(pVM->pCLibraries,x);
-		CloseDLL(handle);
+		pHandle = ring_list_getpointer(pVM->pCLibraries,x);
+		CloseDLL(pHandle);
 	}
 	ring_list_deleteallitems_gc(pVM->pRingState,pVM->pCLibraries);
 }
