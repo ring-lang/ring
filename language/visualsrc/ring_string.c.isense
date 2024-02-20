@@ -43,7 +43,7 @@ Type: char *
 cStr
 ring_string_print
 ring_string_setfromint_gc
-cStr[20]
+cStr[RING_SMALLBUF]
 ring_string_lower
 Type: unsigned int
 x, nLen

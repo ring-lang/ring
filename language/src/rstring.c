@@ -60,7 +60,7 @@ RING_API void ring_string_set2_gc ( void *pState,String *pString,const char *str
 	x = nStrSize + 1 ;
 	if ( pString->nSize != nStrSize ) {
 		if ( ! str ) {
-			pString->cStr = ring_state_realloc(pState,pString->cStr,pString->nSize,x) ;
+			pString->cStr = (char *) ring_state_realloc(pState,pString->cStr,pString->nSize,x) ;
 		}
 		else {
 			ring_state_free(pState,pString->cStr);
