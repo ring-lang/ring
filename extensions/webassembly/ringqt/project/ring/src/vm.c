@@ -99,7 +99,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	/* The scope of the result of Load Address */
 	pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
 	/* List contains what to add  later to pObjState, prepare by loadmethod, add before call */
-	pVM->aBeforeObjState = ring_list_new_gc(pVM->pRingState,RING_ZERO) ;
+	pVM->pBeforeObjState = ring_list_new_gc(pVM->pRingState,RING_ZERO) ;
 	/* Eval can be called from C code (OOP Set/Get/Operator Overloading) or from ring code using eval() */
 	pVM->nEvalCalledFromRingCode = 0 ;
 	/* Number of decimals after the point */
@@ -217,7 +217,7 @@ VM * ring_vm_delete ( VM *pVM )
 	pVM->pActivePackage = ring_list_delete_gc(pVM->pRingState,pVM->pActivePackage);
 	pVM->aSetProperty = ring_list_delete_gc(pVM->pRingState,pVM->aSetProperty);
 	pVM->pForStep = ring_list_delete_gc(pVM->pRingState,pVM->pForStep);
-	pVM->aBeforeObjState = ring_list_delete_gc(pVM->pRingState,pVM->aBeforeObjState);
+	pVM->pBeforeObjState = ring_list_delete_gc(pVM->pRingState,pVM->pBeforeObjState);
 	/* Free Stack */
 	for ( x = 0 ; x < RING_VM_STACK_SIZE ; x++ ) {
 		ring_item_deletecontent(&(pVM->aStack[x]));

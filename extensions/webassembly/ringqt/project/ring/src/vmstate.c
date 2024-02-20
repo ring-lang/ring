@@ -32,7 +32,7 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 	pVMState->aNumbers[16] = pVM->nListStart ;
 	pVMState->aNumbers[17] = pVM->nInsideBraceFlag ;
 	pVMState->aNumbers[18] = ring_list_getsize(pVM->pForStep) ;
-	pVMState->aNumbers[19] = ring_list_getsize(pVM->aBeforeObjState) ;
+	pVMState->aNumbers[19] = ring_list_getsize(pVM->pBeforeObjState) ;
 	pVMState->aNumbers[20] = RING_VM_IR_GETLINENUMBER ;
 	pVMState->aNumbers[21] = pVM->nInClassRegion ;
 	pVMState->aNumbers[22] = pVM->nPrivateFlag ;
@@ -188,7 +188,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	}
 	pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	pVM->nInsideBraceFlag = pVMState->aNumbers[17] ;
-	ring_vm_backstate(pVM,pVMState->aNumbers[19],pVM->aBeforeObjState);
+	ring_vm_backstate(pVM,pVMState->aNumbers[19],pVM->pBeforeObjState);
 	RING_VM_IR_SETLINENUMBER(pVMState->aNumbers[20]);
 	pVM->nPrivateFlag = pVMState->aNumbers[22] ;
 	pVM->nGetSetProperty = pVMState->aNumbers[23] ;
@@ -411,8 +411,8 @@ void ring_vm_savestatefornewobjects ( VM *pVM )
 	/* Save nInClassRegion */
 	pVMState->aNumbers[26] = pVM->nInClassRegion ;
 	pVM->nInClassRegion = 0 ;
-	/* Save aBeforeObjState */
-	pVMState->aNumbers[27] = ring_list_getsize(pVM->aBeforeObjState) ;
+	/* Save pBeforeObjState */
+	pVMState->aNumbers[27] = ring_list_getsize(pVM->pBeforeObjState) ;
 	/* Save aSetProperty */
 	pVMState->aPointers[8] = pVM->aSetProperty ;
 	pVM->aSetProperty = ring_list_new_gc(pVM->pRingState,RING_ZERO);
@@ -501,8 +501,8 @@ void ring_vm_restorestatefornewobjects ( VM *pVM )
 	ring_vm_backstate(pVM,pVMState->aNumbers[25],pVM->pActivePackage);
 	/* Restore nInClassRegion */
 	pVM->nInClassRegion = pVMState->aNumbers[26] ;
-	/* Restore aBeforeObjState */
-	ring_vm_backstate(pVM,pVMState->aNumbers[27],pVM->aBeforeObjState);
+	/* Restore pBeforeObjState */
+	ring_vm_backstate(pVM,pVMState->aNumbers[27],pVM->pBeforeObjState);
 	/* Restore aSetProperty */
 	pVM->aSetProperty = ring_list_delete_gc(pVM->pRingState,pVM->aSetProperty);
 	pVM->aSetProperty = (List *)  pVMState->aPointers[8] ;

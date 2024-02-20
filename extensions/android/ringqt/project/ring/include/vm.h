@@ -63,7 +63,7 @@
 		List *pActivePackage  ;
 		List *aSetProperty  ;
 		List *pForStep  ;
-		List *aBeforeObjState  ;
+		List *pBeforeObjState  ;
 		List *pCLibraries  ;
 		List *pTraceData  ;
 		List *pGlobalScopes  ;

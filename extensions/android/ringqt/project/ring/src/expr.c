@@ -1197,7 +1197,7 @@ void ring_parser_gencall ( Parser *pParser,int nCallMethod )
 	if ( nCallMethod == 1 ) {
 		/* Add 0 For Operator Overloading */
 		ring_parser_icg_newoperandint(pParser,RING_ZERO);
-		/* Add 1 so the call instruction move list from aBeforeObjState to pObjState */
+		/* Add 1 so the call instruction move list from pBeforeObjState to pObjState */
 		ring_parser_icg_newoperandint(pParser,RING_TRUE);
 		ring_parser_icg_newoperation(pParser,ICO_AFTERCALLMETHOD);
 	}

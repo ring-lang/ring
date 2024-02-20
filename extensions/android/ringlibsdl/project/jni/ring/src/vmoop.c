@@ -379,7 +379,7 @@ void ring_vm_oop_loadmethod ( VM *pVM )
 	pSuper = ring_vm_oop_getsuperobj(pVM);
 	if ( pSuper != NULL ) {
 		ring_vm_oop_loadsuperobjmethod(pVM,pSuper);
-		/* Move list from pObjState to aBeforeObjState */
+		/* Move list from pObjState to pBeforeObjState */
 		ring_vm_oop_movetobeforeobjstate(pVM);
 		return ;
 	}
@@ -411,7 +411,7 @@ void ring_vm_oop_loadmethod ( VM *pVM )
 	lResult = ring_vm_loadfunc(pVM);
 	pVM->nCallMethod = 0 ;
 	pVM->pFunctionsMap = pVar ;
-	/* Move list from pObjState to aBeforeObjState */
+	/* Move list from pObjState to pBeforeObjState */
 	if ( lResult ) {
 		ring_vm_oop_movetobeforeobjstate(pVM);
 	}
@@ -424,8 +424,8 @@ void ring_vm_oop_movetobeforeobjstate ( VM *pVM )
 		/* Try/Catch restore aObjState and may become empty */
 		return ;
 	}
-	/* Move list from pObjState to aBeforeObjState */
-	pList = ring_list_newlist_gc(pVM->pRingState,pVM->aBeforeObjState);
+	/* Move list from pObjState to pBeforeObjState */
+	pList = ring_list_newlist_gc(pVM->pRingState,pVM->pBeforeObjState);
 	pList2 = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState));
 	ring_list_copy_gc(pVM->pRingState,pList,pList2);
 	ring_list_deleteitem_gc(pVM->pRingState,pVM->pObjState,ring_list_getsize(pVM->pObjState));

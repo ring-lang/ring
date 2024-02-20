@@ -175,14 +175,14 @@ void ring_vm_call ( VM *pVM )
 	if ( RING_VM_IR_PARACOUNT == 3 ) {
 		if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ) {
 			/*
-			**  Now we make the object state visible by moving it from aBeforeObjState to pObjState 
+			**  Now we make the object state visible by moving it from pBeforeObjState to pObjState 
 			**  We do this here and not in LoadMethod to avoid accessing the object state when passing parameters 
 			**  This fix a problem when we pass the self object to avoid passing ObjName that comes before the method 
 			*/
-			if ( ring_list_getsize(pVM->aBeforeObjState) > 0 ) {
+			if ( ring_list_getsize(pVM->pBeforeObjState) > 0 ) {
 				pList = ring_list_newlist_gc(pVM->pRingState,pVM->pObjState);
-				ring_list_swaptwolists(pList,ring_list_getlist(pVM->aBeforeObjState,ring_list_getsize(pVM->aBeforeObjState)));
-				ring_list_deleteitem_gc(pVM->pRingState,pVM->aBeforeObjState,ring_list_getsize(pVM->aBeforeObjState));
+				ring_list_swaptwolists(pList,ring_list_getlist(pVM->pBeforeObjState,ring_list_getsize(pVM->pBeforeObjState)));
+				ring_list_deleteitem_gc(pVM->pRingState,pVM->pBeforeObjState,ring_list_getsize(pVM->pBeforeObjState));
 			}
 		}
 	}
