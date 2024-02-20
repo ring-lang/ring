@@ -20,7 +20,7 @@
 		/* Token Text */
 		const char *TokenText  ;
 		/* Mark to class label to be used by Private */
-		int nClassMark  ;
+		unsigned int nClassMark  ;
 		/* Counter to know if we are inside { } or not */
 		unsigned int nBraceFlag  ;
 		/* Active Token */

@@ -23,7 +23,7 @@ nClassMark
 Type: unsigned int
 nBraceFlag
 Type: unsigned int
-ActiveToken
+nActiveToken
 Type: unsigned int
 nTokensCount
 Type: unsigned int
