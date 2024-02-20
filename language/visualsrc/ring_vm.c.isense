@@ -105,7 +105,7 @@ pCLibraries
 Type: List *
 pTraceData
 Type: List *
-aGlobalScopes
+pGlobalScopes
 Type: List *
 aActiveGlobalScopes
 Type: List *

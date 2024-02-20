@@ -67,7 +67,7 @@
 		List *pCLibraries  ;
 		List *pTraceData  ;
 		List *pGlobalScopes  ;
-		List *aActiveGlobalScopes  ;
+		List *pActiveGlobalScopes  ;
 		List *pDeleteLater  ;
 		String *sPackageName  ;
 		String *sTrace  ;

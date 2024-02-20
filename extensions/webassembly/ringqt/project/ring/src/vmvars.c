@@ -469,18 +469,18 @@ List * ring_vm_addlistarg ( VM *pVM,const char *cVar )
 void ring_vm_newglobalscope ( VM *pVM )
 {
 	pVM->pActiveMem = ring_list_newlist_gc(pVM->pRingState,pVM->pGlobalScopes);
-	ring_list_addpointer_gc(pVM->pRingState,pVM->aActiveGlobalScopes,pVM->pActiveMem);
+	ring_list_addpointer_gc(pVM->pRingState,pVM->pActiveGlobalScopes,pVM->pActiveMem);
 	ring_vm_addglobalvariables(pVM);
 }
 
 void ring_vm_endglobalscope ( VM *pVM )
 {
-	ring_list_deletelastitem_gc(pVM->pRingState,pVM->aActiveGlobalScopes);
-	if ( ring_list_getsize(pVM->aActiveGlobalScopes) == 0 ) {
+	ring_list_deletelastitem_gc(pVM->pRingState,pVM->pActiveGlobalScopes);
+	if ( ring_list_getsize(pVM->pActiveGlobalScopes) == 0 ) {
 		pVM->pActiveMem = ring_list_getlist(pVM->pMem,RING_MEMORY_GLOBALSCOPE);
 	}
 	else {
-		pVM->pActiveMem = (List *) ring_list_getpointer(pVM->aActiveGlobalScopes,ring_list_getsize(pVM->aActiveGlobalScopes));
+		pVM->pActiveMem = (List *) ring_list_getpointer(pVM->pActiveGlobalScopes,ring_list_getsize(pVM->pActiveGlobalScopes));
 	}
 }
 
