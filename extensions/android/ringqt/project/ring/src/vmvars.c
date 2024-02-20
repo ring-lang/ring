@@ -468,7 +468,7 @@ List * ring_vm_addlistarg ( VM *pVM,const char *cVar )
 
 void ring_vm_newglobalscope ( VM *pVM )
 {
-	pVM->pActiveMem = ring_list_newlist_gc(pVM->pRingState,pVM->aGlobalScopes);
+	pVM->pActiveMem = ring_list_newlist_gc(pVM->pRingState,pVM->pGlobalScopes);
 	ring_list_addpointer_gc(pVM->pRingState,pVM->aActiveGlobalScopes,pVM->pActiveMem);
 	ring_vm_addglobalvariables(pVM);
 }
@@ -496,7 +496,7 @@ List * ring_vm_getglobalscope ( VM *pVM )
 		pList = ring_list_getlist(pVM->pMem,RING_MEMORY_GLOBALSCOPE);
 	}
 	else {
-		pList = ring_list_getlist(pVM->aGlobalScopes,pVM->nCurrentGlobalScope);
+		pList = ring_list_getlist(pVM->pGlobalScopes,pVM->nCurrentGlobalScope);
 	}
 	return pList ;
 }

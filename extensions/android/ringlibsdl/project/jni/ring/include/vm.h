@@ -66,7 +66,7 @@
 		List *aBeforeObjState  ;
 		List *pCLibraries  ;
 		List *pTraceData  ;
-		List *aGlobalScopes  ;
+		List *pGlobalScopes  ;
 		List *aActiveGlobalScopes  ;
 		List *pDeleteLater  ;
 		String *sPackageName  ;
