@@ -14,8 +14,7 @@ unsigned ring_add_hash(unsigned char *key, int len)
 	unsigned h = 0;
 	int i;
 
-	for (i = 0; i < len; i++)
-	{
+	for (i = 0; i < len; i++) {
 		h += p[i];
 	}
 
@@ -28,8 +27,7 @@ unsigned ring_xor_hash(unsigned char *key, int len)
 	unsigned h = 0;
 	int i;
 
-	for (i = 0; i < len; i++)
-	{
+	for (i = 0; i < len; i++) {
 		h ^= p[i];
 	}
 
@@ -42,8 +40,7 @@ unsigned ring_rot_hash(unsigned char *key, int len)
 	unsigned h = 0;
 	int i;
 
-	for (i = 0; i < len; i++)
-	{
+	for (i = 0; i < len; i++) {
 		h = (h << 4) ^ (h >> 28) ^ p[i];
 	}
 
@@ -56,8 +53,7 @@ unsigned ring_djb_hash(unsigned char *key, int len)
 	unsigned h = 0;
 	int i;
 
-	for (i = 0; i < len; i++)
-	{
+	for (i = 0; i < len; i++) {
 		h = 33 * h ^ p[i];
 	}
 
@@ -70,8 +66,7 @@ unsigned ring_sax_hash(unsigned char *key, int len)
 	unsigned h = 0;
 	int i;
 
-	for (i = 0; i < len; i++)
-	{
+	for (i = 0; i < len; i++) {
 		h ^= (h << 5) + (h >> 2) + p[i];
 	}
 
@@ -84,8 +79,7 @@ unsigned ring_oat_hash(unsigned char *key, int len)
 	unsigned h = 0;
 	int i;
 
-	for (i = 0; i < len; i++)
-	{
+	for (i = 0; i < len; i++) {
 		h += p[i];
 		h += (h << 10);
 		h ^= (h >> 6);
@@ -103,8 +97,7 @@ unsigned ring_elf_hash(unsigned char *key, int len)
 	unsigned h = 0, g;
 	int i;
 
-	for (i = 0; i < len; i++)
-	{
+	for (i = 0; i < len; i++) {
 		h = (h << 4) + p[i];
 		g = h & 0xf0000000L;
 
@@ -143,8 +136,7 @@ unsigned ring_jen_hash(unsigned char *k, unsigned length, unsigned initval)
 
 	a = b = 0x9e3779b9;
 
-	while (len >= 12)
-	{
+	while (len >= 12) {
 		a += (k[0] + ((unsigned)k[1] << 8) + ((unsigned)k[2] << 16) + ((unsigned)k[3] << 24));
 		b += (k[4] + ((unsigned)k[5] << 8) + ((unsigned)k[6] << 16) + ((unsigned)k[7] << 24));
 		c += (k[8] + ((unsigned)k[9] << 8) + ((unsigned)k[10] << 16) + ((unsigned)k[11] << 24));
@@ -157,8 +149,7 @@ unsigned ring_jen_hash(unsigned char *k, unsigned length, unsigned initval)
 
 	c += length;
 
-	switch (len)
-	{
+	switch (len) {
 	case 11: c += ((unsigned)k[10] << 24);
 	case 10: c += ((unsigned)k[9] << 16);
 	case 9: c += ((unsigned)k[8] << 8);
@@ -178,7 +169,8 @@ unsigned ring_jen_hash(unsigned char *k, unsigned length, unsigned initval)
 	return c;
 }
 
-unsigned int ring_murmur3_32(const char *key, unsigned int len, unsigned int seed) {
+unsigned int ring_murmur3_32(const char *key, unsigned int len, unsigned int seed) 
+{
 	static const unsigned int c1 = 0xcc9e2d51;
 	static const unsigned int c2 = 0x1b873593;
 	static const unsigned int r1 = 15;
