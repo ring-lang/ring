@@ -164,7 +164,7 @@ pBlockStartStateLevel
 Type: void *
 pBlockEndStateLevel
 Type: List *
-aBlocks
+pBlocks
 Type: unsigned int
 nAllocCount
 Type: unsigned int

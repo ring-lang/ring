@@ -24,8 +24,8 @@
 		*/
 		unsigned int nObjectType:2  ;
 		/* Garbage Collector Data (Reference Counting) */
-		unsigned int gcnReferenceCount: RING_VM_BITSFORREFCOUNT  ;
-		void (*gcpFreeFunc)(void *,void *) ;
+		unsigned int nGCReferenceCount: RING_VM_BITSFORREFCOUNT  ;
+		void (*pGCFreeFunc)(void *,void *) ;
 	} Item ;
 	/* Constants */
 	#define ITEMTYPE_NOTHING 0
