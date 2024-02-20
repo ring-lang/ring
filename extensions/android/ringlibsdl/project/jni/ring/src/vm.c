@@ -83,7 +83,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	/* Assignment Pointer */
 	pVM->pAssignment = NULL ;
 	/* For Loop - Step List */
-	pVM->aForStep = ring_list_new_gc(pVM->pRingState,RING_ZERO);
+	pVM->pForStep = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Flag for LoadA , when = 1 , if it's a pointer we get First Var. not the Pointer */
 	pVM->nFirstAddress = 0 ;
 	/* Used to know operator before = like += -= *= /= */
@@ -216,7 +216,7 @@ VM * ring_vm_delete ( VM *pVM )
 	pVM->pBraceObjects = ring_list_delete_gc(pVM->pRingState,pVM->pBraceObjects);
 	pVM->pActivePackage = ring_list_delete_gc(pVM->pRingState,pVM->pActivePackage);
 	pVM->aSetProperty = ring_list_delete_gc(pVM->pRingState,pVM->aSetProperty);
-	pVM->aForStep = ring_list_delete_gc(pVM->pRingState,pVM->aForStep);
+	pVM->pForStep = ring_list_delete_gc(pVM->pRingState,pVM->pForStep);
 	pVM->aBeforeObjState = ring_list_delete_gc(pVM->pRingState,pVM->aBeforeObjState);
 	/* Free Stack */
 	for ( x = 0 ; x < RING_VM_STACK_SIZE ; x++ ) {

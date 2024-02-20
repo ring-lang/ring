@@ -51,7 +51,7 @@ void ring_vm_jumpfor ( VM *pVM )
 		ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);
 		return ;
 	}
-	nNum2 = ring_list_getdouble(pVM->aForStep,ring_list_getsize(pVM->aForStep));
+	nNum2 = ring_list_getdouble(pVM->pForStep,ring_list_getsize(pVM->pForStep));
 	/* Check Data */
 	if ( RING_VM_STACK_ISNUMBER ) {
 		nNum3 = RING_VM_STACK_READN ;

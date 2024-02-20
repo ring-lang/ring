@@ -100,12 +100,12 @@ void ring_vm_stepnumber ( VM *pVM )
 {
 	double nNum1  ;
 	if ( RING_VM_STACK_ISNUMBER ) {
-		ring_list_adddouble_gc(pVM->pRingState,pVM->aForStep,RING_VM_STACK_READN);
+		ring_list_adddouble_gc(pVM->pRingState,pVM->pForStep,RING_VM_STACK_READN);
 		RING_VM_STACK_POP ;
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
 		nNum1 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
-		ring_list_adddouble_gc(pVM->pRingState,pVM->aForStep,nNum1);
+		ring_list_adddouble_gc(pVM->pRingState,pVM->pForStep,nNum1);
 		RING_VM_STACK_POP ;
 	}
 	else {
@@ -115,5 +115,5 @@ void ring_vm_stepnumber ( VM *pVM )
 
 void ring_vm_popstep ( VM *pVM )
 {
-	ring_list_deleteitem_gc(pVM->pRingState,pVM->aForStep,ring_list_getsize(pVM->aForStep));
+	ring_list_deleteitem_gc(pVM->pRingState,pVM->pForStep,ring_list_getsize(pVM->pForStep));
 }

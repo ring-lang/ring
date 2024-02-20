@@ -57,7 +57,7 @@ void ring_vm_incjump ( VM *pVM )
 	pVar = (List *) RING_VM_STACK_READP ;
 	RING_VM_STACK_POP ;
 	pItem = ring_list_getitem(pVar,RING_VAR_VALUE) ;
-	nNum1 = ring_list_getdouble(pVM->aForStep,ring_list_getsize(pVM->aForStep));
+	nNum1 = ring_list_getdouble(pVM->pForStep,ring_list_getsize(pVM->pForStep));
 	/* Check Data */
 	if ( ! ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
 		ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);
@@ -98,7 +98,7 @@ void ring_vm_incpjump ( VM *pVM )
 	Item *pItem  ;
 	double nNum1,nNum2  ;
 	pItem = (Item *) RING_VM_IR_READPVALUE(RING_VM_IR_REG4) ;
-	nNum1 = ring_list_getdouble(pVM->aForStep,ring_list_getsize(pVM->aForStep));
+	nNum1 = ring_list_getdouble(pVM->pForStep,ring_list_getsize(pVM->pForStep));
 	/* Check Data */
 	if ( ! ring_item_isdouble(pItem) ) {
 		ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);

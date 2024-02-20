@@ -31,7 +31,7 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 	pVMState->aNumbers[15] = ring_list_getsize(pVM->pTry) ;
 	pVMState->aNumbers[16] = pVM->nListStart ;
 	pVMState->aNumbers[17] = pVM->nInsideBraceFlag ;
-	pVMState->aNumbers[18] = ring_list_getsize(pVM->aForStep) ;
+	pVMState->aNumbers[18] = ring_list_getsize(pVM->pForStep) ;
 	pVMState->aNumbers[19] = ring_list_getsize(pVM->aBeforeObjState) ;
 	pVMState->aNumbers[20] = RING_VM_IR_GETLINENUMBER ;
 	pVMState->aNumbers[21] = pVM->nInClassRegion ;
@@ -172,7 +172,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 		ring_vm_backstate(pVM,pVMState->aNumbers[13],pVM->pExitMark);
 		ring_vm_backstate(pVM,pVMState->aNumbers[14],pVM->pLoopMark);
 		/* For Step */
-		ring_vm_backstate(pVM,pVMState->aNumbers[18],pVM->aForStep);
+		ring_vm_backstate(pVM,pVMState->aNumbers[18],pVM->pForStep);
 	}
 	/* Try/Catch/Done */
 	if ( nFlag != RING_STATE_TRYCATCH ) {
@@ -227,7 +227,7 @@ VMState * ring_vm_savestateforfunctions ( VM *pVM )
 	pVMState->aNumbers[3] = ring_list_getsize(pVM->pBraceObjects) ;
 	pVMState->aNumbers[4] = ring_list_getsize(pVM->pObjState) ;
 	pVMState->aNumbers[5] = pVM->nInsideBraceFlag ;
-	pVMState->aNumbers[6] = ring_list_getsize(pVM->aForStep) ;
+	pVMState->aNumbers[6] = ring_list_getsize(pVM->pForStep) ;
 	pVMState->aNumbers[7] = pVM->nCurrentGlobalScope ;
 	pVMState->aNumbers[8] = pVM->nBlockFlag ;
 	pVMState->aNumbers[9] = pVM->nPrivateFlag ;
@@ -284,7 +284,7 @@ void ring_vm_restorestateforfunctions ( VM *pVM,VMState *pVMState )
 	pVM->pBraceObject = (List *) pVMState->aPointers[0] ;
 	ring_vm_backstate(pVM,pVMState->aNumbers[4],pVM->pObjState);
 	pVM->nInsideBraceFlag = pVMState->aNumbers[5] ;
-	ring_vm_backstate(pVM,pVMState->aNumbers[6],pVM->aForStep);
+	ring_vm_backstate(pVM,pVMState->aNumbers[6],pVM->pForStep);
 	/* Restore global scope, Must be before this because this depend on it */
 	pVM->nCurrentGlobalScope = pVMState->aNumbers[7] ;
 	pVM->pActiveMem = (List *) pVMState->aPointers[1] ;
@@ -380,8 +380,8 @@ void ring_vm_savestatefornewobjects ( VM *pVM )
 	pVMState->aNumbers[15] = ring_list_getsize(pVM->pTry) ;
 	/* Save pBraceObjects */
 	pVMState->aNumbers[16] = ring_list_getsize(pVM->pBraceObjects) ;
-	/* Save aForStep */
-	pVMState->aNumbers[17] = ring_list_getsize(pVM->aForStep) ;
+	/* Save pForStep */
+	pVMState->aNumbers[17] = ring_list_getsize(pVM->pForStep) ;
 	/* Save nActiveScopeID */
 	pVMState->aNumbers[18] = pVM->nActiveScopeID ;
 	/* Save nBeforeEqual */
@@ -477,8 +477,8 @@ void ring_vm_restorestatefornewobjects ( VM *pVM )
 	ring_vm_backstate(pVM,pVMState->aNumbers[15],pVM->pTry);
 	/* Restore pBraceObjects */
 	ring_vm_backstate(pVM,pVMState->aNumbers[16],pVM->pBraceObjects);
-	/* Restore aForStep */
-	ring_vm_backstate(pVM,pVMState->aNumbers[17],pVM->aForStep);
+	/* Restore pForStep */
+	ring_vm_backstate(pVM,pVMState->aNumbers[17],pVM->pForStep);
 	/* Restore nActiveScopeID */
 	pVM->nActiveScopeID = pVMState->aNumbers[18] ;
 	/* Restore nBeforeEqual */
