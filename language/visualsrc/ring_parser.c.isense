@@ -13,7 +13,7 @@ pFunctionsMap
 Type: List *
 pClassesMap
 Type: List *
-PackagesMap
+pPackagesMap
 Type: List *
 pForInVars
 Type: const char *

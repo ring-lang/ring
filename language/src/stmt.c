@@ -18,21 +18,21 @@ int ring_parser_class ( Parser *pParser )
 			*/
 			ring_parser_icg_newoperation(pParser,ICO_RETNULL);
 			ring_parser_icg_newoperation(pParser,ICO_NEWCLASS);
-			ring_parser_icg_newoperand(pParser,pParser->TokenText);
+			ring_parser_icg_newoperand(pParser,pParser->cTokenText);
 			pNewClass = ring_parser_icg_getactiveoperation(pParser) ;
 			/* Add Class to Classes Table */
 			pList = pParser->pClassesMap ;
 			/* Check Class Redefinition */
 			if ( ring_list_getsize(pList) > 0 ) {
 				for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
-					if ( strcmp(ring_list_getstring(ring_list_getlist(pList,x),RING_CLASSES_CLASSNAME),pParser->TokenText) == 0 ) {
+					if ( strcmp(ring_list_getstring(ring_list_getlist(pList,x),RING_CLASSES_CLASSNAME),pParser->cTokenText) == 0 ) {
 						ring_parser_error(pParser,RING_PARSER_ERROR_CLASSREDEFINE);
 						return 0 ;
 					}
 				}
 			}
 			pList = ring_list_newlist_gc(pParser->pRingState,pList);
-			ring_list_addstring_gc(pParser->pRingState,pList,pParser->TokenText);
+			ring_list_addstring_gc(pParser->pRingState,pList,pParser->cTokenText);
 			ring_list_addint_gc(pParser->pRingState,pList,ring_parser_icg_instructionscount(pParser));
 			/* Add class pointer to generated code */
 			ring_parser_icg_newoperandpointer(pParser,pList);
@@ -125,20 +125,20 @@ int ring_parser_class ( Parser *pParser )
 			*/
 			ring_parser_icg_newoperation(pParser,ICO_RETNULL);
 			ring_parser_icg_newoperation(pParser,ICO_NEWFUNC);
-			ring_parser_icg_newoperand(pParser,pParser->TokenText);
+			ring_parser_icg_newoperand(pParser,pParser->cTokenText);
 			/* Add function to Functions Table */
 			pList2 = pParser->pFunctionsMap ;
 			/* Check Function Redefinition */
 			if ( ring_list_getsize(pList2) > 0 ) {
 				for ( x = 1 ; x <= ring_list_getsize(pList2) ; x++ ) {
-					if ( strcmp(ring_list_getstring(ring_list_getlist(pList2,x),RING_FUNCTIONS_FUNCNAME),pParser->TokenText) == 0 ) {
+					if ( strcmp(ring_list_getstring(ring_list_getlist(pList2,x),RING_FUNCTIONS_FUNCNAME),pParser->cTokenText) == 0 ) {
 						ring_parser_error(pParser,RING_PARSER_ERROR_FUNCREDEFINE);
 						return 0 ;
 					}
 				}
 			}
 			pList2 = ring_list_newlist_gc(pParser->pRingState,pList2);
-			ring_list_addstring_gc(pParser->pRingState,pList2,pParser->TokenText);
+			ring_list_addstring_gc(pParser->pRingState,pList2,pParser->cTokenText);
 			ring_list_addint_gc(pParser->pRingState,pList2,ring_parser_icg_instructionscount(pParser));
 			ring_list_addstring_gc(pParser->pRingState,pList2,ring_list_getstring(pParser->pRingState->pRingFilesStack,ring_list_getsize(pParser->pRingState->pRingFilesStack)));
 			if ( pParser->nClassStart == 1 ) {
@@ -257,17 +257,17 @@ int ring_parser_stmt ( Parser *pParser )
 		}
 		if ( ring_parser_isliteral(pParser) ) {
 			/* Check File in the Ring/bin folder */
-			strcpy(cFileName,pParser->TokenText);
-			if ( ring_general_fexists(pParser->TokenText) == 0 ) {
+			strcpy(cFileName,pParser->cTokenText);
+			if ( ring_general_fexists(pParser->cTokenText) == 0 ) {
 				ring_general_exefolder(cFileName);
-				strcat(cFileName,pParser->TokenText);
+				strcat(cFileName,pParser->cTokenText);
 				if ( ring_general_fexists(cFileName) == 0 ) {
 					/* Try ring/bin/load folder */
 					ring_general_exefolder(cFileName);
 					strcat(cFileName,"load/");
-					strcat(cFileName,pParser->TokenText);
+					strcat(cFileName,pParser->cTokenText);
 					if ( ring_general_fexists(cFileName) == 0 ) {
-						strcpy(cFileName,pParser->TokenText);
+						strcpy(cFileName,pParser->cTokenText);
 					}
 				}
 			}
@@ -275,19 +275,19 @@ int ring_parser_stmt ( Parser *pParser )
 				/* Add the current folder to the file name */
 				ring_general_currentdir(cFileName);
 				/* Be Sure that we don't already have the current folder in the file name */
-				if ( ring_general_folderexistinfilename(cFileName,pParser->TokenText) ) {
+				if ( ring_general_folderexistinfilename(cFileName,pParser->cTokenText) ) {
 					strcpy(cFileName,"");
 				}
 				else {
 					ring_general_addosfileseparator(cFileName);
 				}
-				strcat(cFileName,pParser->TokenText);
+				strcat(cFileName,pParser->cTokenText);
 				/*
 				**  Check if we have the file after adding the folder - because we may have the file in a parent directory 
 				**  Like we are in myapp/myapp2 and the file exist in myapp folder 
 				*/
 				if ( ring_general_fexists(cFileName) == 0 ) {
-					strcpy(cFileName,pParser->TokenText);
+					strcpy(cFileName,pParser->cTokenText);
 				}
 			}
 			/*
@@ -418,7 +418,7 @@ int ring_parser_stmt ( Parser *pParser )
 		RING_PARSER_IGNORENEWLINE ;
 		if ( ring_parser_isidentifier(pParser) ) {
 			/* Generate Code */
-			ring_parser_icg_loadaddress(pParser,pParser->TokenText);
+			ring_parser_icg_loadaddress(pParser,pParser->cTokenText);
 			ring_parser_nexttoken(pParser);
 			x = ring_parser_mixer(pParser);
 			if ( x == 0 ) {
@@ -458,7 +458,7 @@ int ring_parser_stmt ( Parser *pParser )
 			ring_parser_icg_newoperation(pParser,ICO_SETOPCODE);
 			ring_parser_icg_newoperandint(pParser,ICO_INCJUMP);
 			pMark4 = ring_parser_icg_getactiveoperation(pParser);
-			pString = ring_string_new_gc(pParser->pRingState,pParser->TokenText);
+			pString = ring_string_new_gc(pParser->pRingState,pParser->cTokenText);
 			ring_parser_nexttoken(pParser);
 			if ( ring_parser_isoperator2(pParser,OP_EQUAL) ) {
 				/*
@@ -1210,11 +1210,11 @@ int ring_parser_paralist ( Parser *pParser )
 	}
 	/* ParaList --> [ Identifier { , Identifier }  ] */
 	if ( ring_parser_isidentifier(pParser) ) {
-		cToken = pParser->TokenText ;
+		cToken = pParser->cTokenText ;
 		ring_parser_nexttoken(pParser);
 		/* Support Type Identifier */
 		if ( nStart && ring_parser_isidentifier(pParser) ) {
-			cToken = pParser->TokenText ;
+			cToken = pParser->cTokenText ;
 			ring_parser_nexttoken(pParser);
 		}
 		/* Generate Code */
@@ -1226,11 +1226,11 @@ int ring_parser_paralist ( Parser *pParser )
 			ring_parser_nexttoken(pParser);
 			RING_PARSER_IGNORENEWLINE ;
 			if ( ring_parser_isidentifier(pParser) ) {
-				cToken = pParser->TokenText ;
+				cToken = pParser->cTokenText ;
 				ring_parser_nexttoken(pParser);
 				/* Support Type Identifier */
 				if ( nStart && ring_parser_isidentifier(pParser) ) {
-					cToken = pParser->TokenText ;
+					cToken = pParser->cTokenText ;
 					ring_parser_nexttoken(pParser);
 				}
 				/* Generate Code */
@@ -1309,7 +1309,7 @@ int ring_parser_list ( Parser *pParser )
 int ring_parser_epsilon ( Parser *pParser )
 {
 	if ( ring_parser_isendline(pParser) ) {
-		pParser->nLineNumber = atoi(pParser->TokenText) ;
+		pParser->nLineNumber = atoi(pParser->cTokenText) ;
 		/* Generate Code */
 		ring_parser_icg_newline(pParser,pParser->nLineNumber);
 		RING_STATE_CHECKPRINTRULES
@@ -1328,7 +1328,7 @@ int ring_parser_passepsilon ( Parser *pParser )
 {
 	/* used after factor - identifier to allow {  } in new line */
 	if ( ring_parser_isendline(pParser) ) {
-		pParser->nLineNumber = atoi(pParser->TokenText) ;
+		pParser->nLineNumber = atoi(pParser->cTokenText) ;
 		if ( ring_parser_nexttoken(pParser) ) {
 			return 1 ;
 		}
@@ -1341,13 +1341,13 @@ int ring_parser_namedotname ( Parser *pParser )
 	String *pString  ;
 	if ( ring_parser_isidentifier(pParser) ) {
 		/* Get Token Text */
-		pString = ring_string_new_gc(pParser->pRingState,pParser->TokenText);
+		pString = ring_string_new_gc(pParser->pRingState,pParser->cTokenText);
 		ring_parser_nexttoken(pParser);
 		while ( ring_parser_isoperator2(pParser,OP_DOT) ) {
 			ring_parser_nexttoken(pParser);
 			ring_string_add_gc(pParser->pRingState,pString,".");
 			if ( ring_parser_isidentifier(pParser) ) {
-				ring_string_add_gc(pParser->pRingState,pString,pParser->TokenText);
+				ring_string_add_gc(pParser->pRingState,pString,pParser->cTokenText);
 				ring_parser_nexttoken(pParser);
 			}
 			else {

@@ -90,7 +90,7 @@ void ring_parser_loadtoken ( Parser *pParser )
 	List *pList  ;
 	pList = ring_list_getlist(pParser->pTokens,pParser->nActiveToken);
 	pParser->nTokenType = ring_list_getint(pList,RING_SCANNER_TOKENTYPE) ;
-	pParser->TokenText = ring_list_getstring(pList,RING_SCANNER_TOKENVALUE) ;
+	pParser->cTokenText = ring_list_getstring(pList,RING_SCANNER_TOKENVALUE) ;
 	pParser->nTokenIndex = ring_list_getint(pList,RING_SCANNER_TOKENINDEX) ;
 }
 
@@ -107,7 +107,7 @@ int ring_parser_nexttoken ( Parser *pParser )
 int ring_parser_iskeyword ( Parser *pParser,SCANNER_KEYWORD x )
 {
 	if ( pParser->nTokenType == SCANNER_TOKEN_KEYWORD ) {
-		if ( ((unsigned int) atoi(pParser->TokenText)) == ((unsigned int) x) ) {
+		if ( ((unsigned int) atoi(pParser->cTokenText)) == ((unsigned int) x) ) {
 			return 1 ;
 		}
 	}
@@ -116,7 +116,7 @@ int ring_parser_iskeyword ( Parser *pParser,SCANNER_KEYWORD x )
 
 int ring_parser_isoperator ( Parser *pParser,const char *cStr )
 {
-	return (pParser->nTokenType == SCANNER_TOKEN_OPERATOR) && (strcmp( pParser->TokenText,cStr) == 0 ) ;
+	return (pParser->nTokenType == SCANNER_TOKEN_OPERATOR) && (strcmp( pParser->cTokenText,cStr) == 0 ) ;
 }
 
 int ring_parser_isliteral ( Parser *pParser )

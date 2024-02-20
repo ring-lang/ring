@@ -18,7 +18,7 @@
 		/* Required by (For In Loops) to kill the reference when we exit from many loops */
 		List *pForInVars  ;
 		/* Token Text */
-		const char *TokenText  ;
+		const char *cTokenText  ;
 		/* Mark to class label to be used by Private */
 		unsigned int nClassMark  ;
 		/* Counter to know if we are inside { } or not */

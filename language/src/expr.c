@@ -541,14 +541,14 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 	/* Factor --> Identifier  {mixer} [ '=' Expr ] */
 	if ( ring_parser_isidentifier(pParser) ) {
 		/* Generate Code */
-		ring_parser_icg_loadaddress(pParser,pParser->TokenText);
+		ring_parser_icg_loadaddress(pParser,pParser->cTokenText);
 		/* Check Loading Self or This */
 		pParser->nThisLoadA = 0 ;
-		if ( strcmp(pParser->TokenText ,"this") == 0 ) {
+		if ( strcmp(pParser->cTokenText ,"this") == 0 ) {
 			pParser->nThisLoadA = 1 ;
 		}
 		pParser->nThisOrSelfLoadA = 0 ;
-		if ( strcmp(pParser->TokenText,"self") == 0 || pParser->nThisLoadA ) {
+		if ( strcmp(pParser->cTokenText,"self") == 0 || pParser->nThisLoadA ) {
 			pParser->nThisOrSelfLoadA = 1 ;
 		}
 		ring_parser_nexttoken(pParser);
@@ -750,8 +750,8 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 	/* Factor --> Number */
 	if ( ring_parser_isnumber(pParser) ) {
 		/* Generate Code */
-		if ( strlen(pParser->TokenText) <= RING_PARSER_NUMBERLENGTH ) {
-			ring_parser_icg_pushn(pParser,atof(pParser->TokenText));
+		if ( strlen(pParser->cTokenText) <= RING_PARSER_NUMBERLENGTH ) {
+			ring_parser_icg_pushn(pParser,atof(pParser->cTokenText));
 		}
 		else {
 			ring_parser_error(pParser,RING_PARSER_ERROR_NUMERICOVERFLOW);
@@ -780,7 +780,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 	if ( ring_parser_isliteral(pParser) ) {
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_PUSHC);
-		ring_parser_icg_newoperand(pParser,pParser->TokenText);
+		ring_parser_icg_newoperand(pParser,pParser->cTokenText);
 		RING_STATE_CHECKPRINTRULES
 		puts("Rule : Factor --> Literal");
 		ring_parser_nexttoken(pParser);
@@ -798,12 +798,12 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_PUSHC);
 			if ( ring_parser_isanykeyword(pParser) ) {
-				strcpy(cKeyword,ring_scanner_getkeywordtext(pParser->TokenText));
+				strcpy(cKeyword,ring_scanner_getkeywordtext(pParser->cTokenText));
 				ring_string_lower(cKeyword);
 				ring_parser_icg_newoperand(pParser,cKeyword);
 			}
 			else {
-				ring_parser_icg_newoperand(pParser,pParser->TokenText);
+				ring_parser_icg_newoperand(pParser,pParser->cTokenText);
 			}
 			RING_STATE_CHECKPRINTRULES
 			{
@@ -1031,7 +1031,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		ring_parser_nexttoken(pParser);
 		if ( ring_parser_isidentifier(pParser) ) {
 			/* Generate Code */
-			ring_parser_icg_loadaddress(pParser,pParser->TokenText);
+			ring_parser_icg_loadaddress(pParser,pParser->cTokenText);
 			ring_parser_nexttoken(pParser);
 			/* Object Attributes */
 			if ( ring_parser_objattributes(pParser) == 0 ) {
@@ -1348,13 +1348,13 @@ int ring_parser_objattributes ( Parser *pParser )
 		/* we support literal to be able to call methods contains operators in the name */
 		if ( ring_parser_isidentifier(pParser) || ring_parser_isliteral(pParser) ) {
 			/* Prevent Accessing the self reference from outside the object */
-			if ( strcmp(pParser->TokenText,"self") == 0 ) {
+			if ( strcmp(pParser->cTokenText,"self") == 0 ) {
 				ring_parser_error(pParser,RING_PARSER_ERROR_ACCESSSELFREF);
 				return 0 ;
 			}
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_LOADSUBADDRESS);
-			ring_parser_icg_newoperand(pParser,pParser->TokenText);
+			ring_parser_icg_newoperand(pParser,pParser->cTokenText);
 			/* Generate Location for nPC of Getter - When we access object attribute using { } */
 			ring_parser_icg_newoperandint(pParser,RING_ZERO);
 			RING_STATE_CHECKPRINTRULES
