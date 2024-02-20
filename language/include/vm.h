@@ -49,7 +49,7 @@
 		List *pPackagesMap  ;
 		List *pTempMem  ;
 		List *pNestedLists  ;
-		List *aPCBlockFlag  ;
+		List *pPCBlockFlag  ;
 		List *pFuncCallList  ;
 		List *pCFunctionsList  ;
 		List *pExitMark  ;
@@ -406,11 +406,11 @@
 	/* Threads */
 	#define RING_VM_ITEMSFORNEWTHREAD 100000
 	#define RING_VM_SCOPERANGEFORNEWTHREAD 10000
-	/* aPCBlockFlag */
-	#define RING_APCBLOCKFLAG_PC 1
-	#define RING_APCBLOCKFLAG_EXITMARK 2
-	#define RING_APCBLOCKFLAG_LOOPMARK 3
-	#define RING_APCBLOCKFLAG_TRY 4
+	/* pPCBlockFlag */
+	#define RING_PCBLOCKFLAG_PC 1
+	#define RING_PCBLOCKFLAG_EXITMARK 2
+	#define RING_PCBLOCKFLAG_LOOPMARK 3
+	#define RING_PCBLOCKFLAG_TRY 4
 	/* aTry */
 	#define RING_ATRY_PC 1
 	#define RING_ATRY_INSIDEEVAL 2

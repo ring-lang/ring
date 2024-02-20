@@ -37,7 +37,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Support for nested Load Instructions */
 	pVM->nBlockFlag = 0 ;
-	pVM->aPCBlockFlag = ring_list_new_gc(pVM->pRingState,RING_ZERO);
+	pVM->pPCBlockFlag = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Calling Functions */
 	pVM->pFuncCallList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	pVM->nFuncSP = 0 ;
@@ -206,7 +206,7 @@ VM * ring_vm_delete ( VM *pVM )
 	pVM->pMem = ring_list_delete_gc(pVM->pRingState,pVM->pMem);
 	pVM->pNestedLists = ring_list_delete_gc(pVM->pRingState,pVM->pNestedLists);
 	pVM->pFuncCallList = ring_list_delete_gc(pVM->pRingState,pVM->pFuncCallList);
-	pVM->aPCBlockFlag = ring_list_delete_gc(pVM->pRingState,pVM->aPCBlockFlag);
+	pVM->pPCBlockFlag = ring_list_delete_gc(pVM->pRingState,pVM->pPCBlockFlag);
 	pVM->pTempMem = ring_list_delete_gc(pVM->pRingState,pVM->pTempMem);
 	pVM->pExitMark = ring_list_delete_gc(pVM->pRingState,pVM->pExitMark);
 	pVM->pLoopMark = ring_list_delete_gc(pVM->pRingState,pVM->pLoopMark);

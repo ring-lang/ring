@@ -529,7 +529,7 @@ void ring_vm_blockflag2 ( VM *pVM,int x )
 {
 	List *pList  ;
 	pVM->nBlockFlag++ ;
-	pList = ring_list_newlist_gc(pVM->pRingState,pVM->aPCBlockFlag);
+	pList = ring_list_newlist_gc(pVM->pRingState,pVM->pPCBlockFlag);
 	ring_list_addint_gc(pVM->pRingState,pList,x);
 	/* Save State */
 	ring_list_addint_gc(pVM->pRingState,pList,ring_list_getsize(pVM->pExitMark));
@@ -540,14 +540,14 @@ void ring_vm_blockflag2 ( VM *pVM,int x )
 void ring_vm_removeblockflag ( VM *pVM )
 {
 	List *pList  ;
-	pList = ring_list_getlist(pVM->aPCBlockFlag,ring_list_getsize(pVM->aPCBlockFlag));
-	pVM->nPC = ring_list_getint(pList,RING_APCBLOCKFLAG_PC);
+	pList = ring_list_getlist(pVM->pPCBlockFlag,ring_list_getsize(pVM->pPCBlockFlag));
+	pVM->nPC = ring_list_getint(pList,RING_PCBLOCKFLAG_PC);
 	pVM->nBlockFlag-- ;
 	/* Restore State */
-	ring_vm_backstate(pVM,ring_list_getint(pList,RING_APCBLOCKFLAG_EXITMARK),pVM->pExitMark);
-	ring_vm_backstate(pVM,ring_list_getint(pList,RING_APCBLOCKFLAG_LOOPMARK),pVM->pLoopMark);
-	ring_vm_backstate(pVM,ring_list_getint(pList,RING_APCBLOCKFLAG_TRY),pVM->aTry);
-	ring_list_deleteitem_gc(pVM->pRingState,pVM->aPCBlockFlag,ring_list_getsize(pVM->aPCBlockFlag));
+	ring_vm_backstate(pVM,ring_list_getint(pList,RING_PCBLOCKFLAG_EXITMARK),pVM->pExitMark);
+	ring_vm_backstate(pVM,ring_list_getint(pList,RING_PCBLOCKFLAG_LOOPMARK),pVM->pLoopMark);
+	ring_vm_backstate(pVM,ring_list_getint(pList,RING_PCBLOCKFLAG_TRY),pVM->aTry);
+	ring_list_deleteitem_gc(pVM->pRingState,pVM->pPCBlockFlag,ring_list_getsize(pVM->pPCBlockFlag));
 }
 
 void ring_vm_movetoprevscope ( VM *pVM,int nFuncType )
