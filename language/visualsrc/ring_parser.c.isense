@@ -63,7 +63,7 @@ nThisLoadA
 Type: unsigned char
 nInsertFlag
 Type: unsigned char
-TokenType
+nTokenType
 END:
 Type: Parser
 struct Parser
