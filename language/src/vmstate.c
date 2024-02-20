@@ -108,7 +108,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	if ( nFlag == RING_STATE_TRYCATCH ) {
 		/*
 		**  Since Try/Catch can terminate many function when error happens 
-		**  We need to clean memory and remove pNestedLists, pPCBlockFlag & aSetProperty 
+		**  We need to clean memory and remove pNestedLists, pPCBlockFlag & pSetProperty 
 		**  Clean memory used for function calls 
 		*/
 		for ( x = pVMState->aNumbers[1]+1 ; x <= ring_list_getsize(pVM->pFuncCallList) ; x++ ) {
@@ -129,7 +129,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 						ring_list_addpointer_gc(pVM->pRingState,aListsToDelete,pListPointer);
 					}
 				}
-				/* Delete aSetProperty */
+				/* Delete pSetProperty */
 				pListPointer = (List *) pVMStateForFunc->aPointers[6] ;
 				if ( ! ring_list_findpointer(aListsToDelete,pListPointer) ) {
 					ring_list_addpointer_gc(pVM->pRingState,aListsToDelete,pListPointer);
@@ -140,7 +140,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 		**  Clean memory used for new objects (class region) 
 		**  If we have error in the class region while try catch is used outside it 
 		**  Then we clean the memory used by the new object 
-		**  Like pNestedLists, aPCBlocFlag & aSetProperty 
+		**  Like pNestedLists, aPCBlocFlag & pSetProperty 
 		*/
 		for ( x = pVMState->aNumbers[9]+1 ; x <= ring_list_getsize(pVM->pScopeNewObj) ; x++ ) {
 			pVMStateForObj = (VMState *) ring_list_getpointer(pVM->pScopeNewObj,x);
@@ -158,7 +158,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 					ring_list_addpointer_gc(pVM->pRingState,aListsToDelete,pListPointer);
 				}
 			}
-			/* Delete aSetProperty */
+			/* Delete pSetProperty */
 			pListPointer = (List *) pVMStateForObj->aPointers[8] ;
 			if ( ! ring_list_findpointer(aListsToDelete,pListPointer) ) {
 				ring_list_addpointer_gc(pVM->pRingState,aListsToDelete,pListPointer);
@@ -249,8 +249,8 @@ VMState * ring_vm_savestateforfunctions ( VM *pVM )
 	pVMState->aPointers[3] = pVM->pAssignment ;
 	pVMState->aPointers[4] = pVM->pGetSetObject ;
 	pVMState->aPointers[5] = ring_list_getpointer(pThis,RING_VAR_VALUE) ;
-	pVMState->aPointers[6] = pVM->aSetProperty ;
-	pVM->aSetProperty = ring_list_new_gc(pVM->pRingState,RING_ZERO);
+	pVMState->aPointers[6] = pVM->pSetProperty ;
+	pVM->pSetProperty = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Save State */
 	pVM->nInsideBraceFlag = 0 ;
 	/* Save BlockFlag */
@@ -312,9 +312,9 @@ void ring_vm_restorestateforfunctions ( VM *pVM,VMState *pVMState )
 	pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_GLOBALVARPOS_THIS) ;
 	ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,pVMState->aPointers[5]);
 	ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,pVMState->aNumbers[21]);
-	/* Restore aSetProperty */
-	pVM->aSetProperty = ring_list_delete_gc(pVM->pRingState,pVM->aSetProperty);
-	pVM->aSetProperty = (List *)  pVMState->aPointers[6] ;
+	/* Restore pSetProperty */
+	pVM->pSetProperty = ring_list_delete_gc(pVM->pRingState,pVM->pSetProperty);
+	pVM->pSetProperty = (List *)  pVMState->aPointers[6] ;
 }
 
 void ring_vm_savestatefornewobjects ( VM *pVM )
@@ -413,9 +413,9 @@ void ring_vm_savestatefornewobjects ( VM *pVM )
 	pVM->nInClassRegion = 0 ;
 	/* Save pBeforeObjState */
 	pVMState->aNumbers[27] = ring_list_getsize(pVM->pBeforeObjState) ;
-	/* Save aSetProperty */
-	pVMState->aPointers[8] = pVM->aSetProperty ;
-	pVM->aSetProperty = ring_list_new_gc(pVM->pRingState,RING_ZERO);
+	/* Save pSetProperty */
+	pVMState->aPointers[8] = pVM->pSetProperty ;
+	pVM->pSetProperty = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 }
 
 void ring_vm_restorestatefornewobjects ( VM *pVM )
@@ -503,9 +503,9 @@ void ring_vm_restorestatefornewobjects ( VM *pVM )
 	pVM->nInClassRegion = pVMState->aNumbers[26] ;
 	/* Restore pBeforeObjState */
 	ring_vm_backstate(pVM,pVMState->aNumbers[27],pVM->pBeforeObjState);
-	/* Restore aSetProperty */
-	pVM->aSetProperty = ring_list_delete_gc(pVM->pRingState,pVM->aSetProperty);
-	pVM->aSetProperty = (List *)  pVMState->aPointers[8] ;
+	/* Restore pSetProperty */
+	pVM->pSetProperty = ring_list_delete_gc(pVM->pRingState,pVM->pSetProperty);
+	pVM->pSetProperty = (List *)  pVMState->aPointers[8] ;
 	ring_list_deleteitem_gc(pVM->pRingState,pVM->pScopeNewObj,ring_list_getsize(pVM->pScopeNewObj));
 }
 
@@ -518,7 +518,7 @@ int ring_vm_newobjectstackpointer ( VM *pVM )
 
 void ring_vm_savestateforbraces ( VM *pVM,List *pObjState )
 {
-	List *pList, *pClass,*aSetProperty  ;
+	List *pList, *pClass,*pSetProperty  ;
 	/*
 	**  Prepare to Access Object State 
 	**  Store Pointer to Object State 
@@ -544,9 +544,9 @@ void ring_vm_savestateforbraces ( VM *pVM,List *pObjState )
 	ring_list_addint_gc(pVM->pRingState,pList,pVM->nFuncExecute);
 	pVM->nFuncExecute = 0 ;
 	/* Store GetSet Object */
-	aSetProperty = ring_list_newlist_gc(pVM->pRingState,pList);
-	ring_list_copy_gc(pVM->pRingState,aSetProperty,pVM->aSetProperty);
-	ring_list_deleteallitems_gc(pVM->pRingState,pVM->aSetProperty);
+	pSetProperty = ring_list_newlist_gc(pVM->pRingState,pList);
+	ring_list_copy_gc(pVM->pRingState,pSetProperty,pVM->pSetProperty);
+	ring_list_deleteallitems_gc(pVM->pRingState,pVM->pSetProperty);
 	/* Store nLoadAddressScope */
 	ring_list_addint_gc(pVM->pRingState,pList,pVM->nLoadAddressScope);
 	/* Store lNoSetterMethod */
@@ -579,8 +579,8 @@ void ring_vm_restorestateforbraces ( VM *pVM,List *pList )
 	/* Restore Stack Status */
 	pVM->nSP = ring_list_getint(pList,RING_BRACEOBJECTS_NSP) ;
 	/* Restore GetSet Object */
-	ring_list_deleteallitems_gc(pVM->pRingState,pVM->aSetProperty);
-	ring_list_copy_gc(pVM->pRingState,pVM->aSetProperty,(List *) ring_list_getpointer(pList,RING_BRACEOBJECTS_ASETPROPERTY ));
+	ring_list_deleteallitems_gc(pVM->pRingState,pVM->pSetProperty);
+	ring_list_copy_gc(pVM->pRingState,pVM->pSetProperty,(List *) ring_list_getpointer(pList,RING_BRACEOBJECTS_SETPROPERTY ));
 	/* Restore nLoadAddressScope */
 	pVM->nLoadAddressScope = ring_list_getint(pList,RING_BRACEOBJECTS_NLOADASCOPE) ;
 	/* Restore lNoSetterMethod */

@@ -99,7 +99,7 @@ aSetProperty
 Type: List *
 pForStep
 Type: List *
-aBeforeObjState
+pBeforeObjState
 Type: List *
 pCLibraries
 Type: List *

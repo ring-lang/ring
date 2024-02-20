@@ -79,7 +79,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->nGetSetProperty = 0 ;
 	pVM->pGetSetObject = NULL ;
 	pVM->nGetSetObjType = 0 ;
-	pVM->aSetProperty = ring_list_new_gc(pVM->pRingState,RING_ZERO);
+	pVM->pSetProperty = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Assignment Pointer */
 	pVM->pAssignment = NULL ;
 	/* For Loop - Step List */
@@ -215,7 +215,7 @@ VM * ring_vm_delete ( VM *pVM )
 	pVM->pObjState = ring_list_delete_gc(pVM->pRingState,pVM->pObjState);
 	pVM->pBraceObjects = ring_list_delete_gc(pVM->pRingState,pVM->pBraceObjects);
 	pVM->pActivePackage = ring_list_delete_gc(pVM->pRingState,pVM->pActivePackage);
-	pVM->aSetProperty = ring_list_delete_gc(pVM->pRingState,pVM->aSetProperty);
+	pVM->pSetProperty = ring_list_delete_gc(pVM->pRingState,pVM->pSetProperty);
 	pVM->pForStep = ring_list_delete_gc(pVM->pRingState,pVM->pForStep);
 	pVM->pBeforeObjState = ring_list_delete_gc(pVM->pRingState,pVM->pBeforeObjState);
 	/* Free Stack */

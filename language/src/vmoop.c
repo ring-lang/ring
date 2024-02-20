@@ -13,7 +13,7 @@
 **  used in ring_vmvars , function ring_vm_findvar2() 
 **  pBraceObject : The list that represent the object directly (not variable/list item) 
 **  pBraceObjects ( pBraceObject, nSP, nListStart, pNestedLists) 
-**  aSetProperty ( Object Pointer , Type (Variable/ListItem)  , Property Name, Property Variable , nBeforeEqual,Value,PtrType) 
+**  pSetProperty ( Object Pointer , Type (Variable/ListItem)  , Property Name, Property Variable , nBeforeEqual,Value,PtrType) 
 */
 #include "ring.h"
 
@@ -888,8 +888,8 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 		**  Set Property 
 		**  Delete All Items to avoid a memory leak in real time applications 
 		*/
-		ring_list_deleteallitems_gc(pVM->pRingState,pVM->aSetProperty);
-		pList = ring_list_newlist_gc(pVM->pRingState,pVM->aSetProperty);
+		ring_list_deleteallitems_gc(pVM->pRingState,pVM->pSetProperty);
+		pList = ring_list_newlist_gc(pVM->pRingState,pVM->pSetProperty);
 		/* Add object pointer & Type */
 		ring_list_addpointer_gc(pVM->pRingState,pList,pVM->pGetSetObject);
 		ring_list_addint_gc(pVM->pRingState,pList,pVM->nGetSetObjType);
@@ -934,12 +934,12 @@ void ring_vm_oop_setproperty ( VM *pVM )
 		return ;
 	}
 	/* To Access Property Data */
-	if ( ring_list_getsize(pVM->aSetProperty) < 1 ) {
+	if ( ring_list_getsize(pVM->pSetProperty) < 1 ) {
 		/* This case happens when using This.Attribute inside nested braces in a class method */
 		ring_vm_assignment(pVM);
 		return ;
 	}
-	pList = ring_list_getlist(pVM->aSetProperty,ring_list_getsize(pVM->aSetProperty));
+	pList = ring_list_getlist(pVM->pSetProperty,ring_list_getsize(pVM->pSetProperty));
 	/* Add Before Equal Flag */
 	if ( ring_list_getsize(pList) == 4 ) {
 		ring_list_addint_gc(pVM->pRingState,pList,pVM->nBeforeEqual);
@@ -949,8 +949,8 @@ void ring_vm_oop_setproperty ( VM *pVM )
 		nIns = pVM->nPC - 2 ;
 		/* Set Variable ring_gettemp_var */
 		pList2 = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_GLOBALVARPOS_GETTEMPVAR) ;
-		ring_list_setpointer_gc(pVM->pRingState,pList2,RING_VAR_VALUE,ring_list_getpointer(pList,RING_ASETPROPERTY_OBJPTR));
-		ring_list_setint_gc(pVM->pRingState,pList2,RING_VAR_PVALUETYPE,ring_list_getint(pList,RING_ASETPROPERTY_OBJTYPE));
+		ring_list_setpointer_gc(pVM->pRingState,pList2,RING_VAR_VALUE,ring_list_getpointer(pList,RING_SETPROPERTY_OBJPTR));
+		ring_list_setint_gc(pVM->pRingState,pList2,RING_VAR_PVALUETYPE,ring_list_getint(pList,RING_SETPROPERTY_OBJTYPE));
 		/* Set Variable ring_settemp_var */
 		pList2 = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_GLOBALVARPOS_SETTEMPVAR) ;
 		if ( RING_VM_STACK_ISNUMBER ) {
@@ -978,9 +978,9 @@ void ring_vm_oop_setproperty ( VM *pVM )
 		if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG2)  == 0 ) {
 			/* Create String */
 			pString = ring_string_new_gc(pVM->pRingState,"if ismethod(ring_gettemp_var,'set");
-			ring_string_add_gc(pVM->pRingState,pString,ring_list_getstring(pList,RING_ASETPROPERTY_ATTRNAME));
+			ring_string_add_gc(pVM->pRingState,pString,ring_list_getstring(pList,RING_SETPROPERTY_ATTRNAME));
 			ring_string_add_gc(pVM->pRingState,pString,"')\nring_gettemp_var.'set");
-			ring_string_add_gc(pVM->pRingState,pString,ring_list_getstring(pList,RING_ASETPROPERTY_ATTRNAME));
+			ring_string_add_gc(pVM->pRingState,pString,ring_list_getstring(pList,RING_SETPROPERTY_ATTRNAME));
 			ring_string_add_gc(pVM->pRingState,pString,"'(ring_settemp_var)\nring_tempflag_var = 0\nelse\nring_tempflag_var = 1\nok");
 			/*
 			**  Eval the string 
@@ -1017,24 +1017,24 @@ void ring_vm_oop_setproperty ( VM *pVM )
 			**  The set method is not found!, we have to do the assignment operation 
 			**  Push Variable Then Push Value then Assignment 
 			*/
-			RING_VM_STACK_PUSHPVALUE(ring_list_getpointer(pList,RING_ASETPROPERTY_ATTRVAR));
+			RING_VM_STACK_PUSHPVALUE(ring_list_getpointer(pList,RING_SETPROPERTY_ATTRVAR));
 			RING_VM_STACK_OBJTYPE = RING_OBJTYPE_VARIABLE ;
 			/* Restore Before Equal Flag */
-			pVM->nBeforeEqual = ring_list_getint(pList,RING_ASETPROPERTY_NBEFOREEQUAL) ;
+			pVM->nBeforeEqual = ring_list_getint(pList,RING_SETPROPERTY_NBEFOREEQUAL) ;
 			/* Push Value */
-			if ( ring_list_isdouble(pList,RING_ASETPROPERTY_VALUE) ) {
-				RING_VM_STACK_PUSHNVALUE(ring_list_getdouble(pList,RING_ASETPROPERTY_VALUE));
+			if ( ring_list_isdouble(pList,RING_SETPROPERTY_VALUE) ) {
+				RING_VM_STACK_PUSHNVALUE(ring_list_getdouble(pList,RING_SETPROPERTY_VALUE));
 			}
-			else if ( ring_list_isstring(pList,RING_ASETPROPERTY_VALUE) ) {
-				RING_VM_STACK_PUSHCVALUE2(ring_list_getstring(pList,RING_ASETPROPERTY_VALUE),ring_list_getstringsize(pList,RING_ASETPROPERTY_VALUE));
+			else if ( ring_list_isstring(pList,RING_SETPROPERTY_VALUE) ) {
+				RING_VM_STACK_PUSHCVALUE2(ring_list_getstring(pList,RING_SETPROPERTY_VALUE),ring_list_getstringsize(pList,RING_SETPROPERTY_VALUE));
 			}
-			else if ( ring_list_ispointer(pList,RING_ASETPROPERTY_VALUE) ) {
-				RING_VM_STACK_PUSHPVALUE(ring_list_getpointer(pList,RING_ASETPROPERTY_VALUE));
-				RING_VM_STACK_OBJTYPE = ring_list_getint(pList,RING_ASETPROPERTY_VALUEOBJTYPE) ;
+			else if ( ring_list_ispointer(pList,RING_SETPROPERTY_VALUE) ) {
+				RING_VM_STACK_PUSHPVALUE(ring_list_getpointer(pList,RING_SETPROPERTY_VALUE));
+				RING_VM_STACK_OBJTYPE = ring_list_getint(pList,RING_SETPROPERTY_VALUEOBJTYPE) ;
 			}
 			ring_vm_assignment(pVM);
 		}
-		ring_list_deleteitem_gc(pVM->pRingState,pVM->aSetProperty,ring_list_getsize(pVM->aSetProperty));
+		ring_list_deleteitem_gc(pVM->pRingState,pVM->pSetProperty,ring_list_getsize(pVM->pSetProperty));
 	}
 }
 

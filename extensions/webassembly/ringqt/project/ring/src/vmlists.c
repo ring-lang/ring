@@ -521,8 +521,8 @@ int ring_vm_strcmpnotcasesensitive ( const char *cStr1,const char *cStr2 )
 
 void ring_vm_cleansetpropertylist ( VM *pVM )
 {
-	if ( ring_list_getsize(pVM->aSetProperty) > 0 ) {
-		ring_list_deleteitem_gc(pVM->pRingState,pVM->aSetProperty,ring_list_getsize(pVM->aSetProperty));
+	if ( ring_list_getsize(pVM->pSetProperty) > 0 ) {
+		ring_list_deleteitem_gc(pVM->pRingState,pVM->pSetProperty,ring_list_getsize(pVM->pSetProperty));
 	}
 }
 
