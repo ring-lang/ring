@@ -53,12 +53,12 @@ Parser * ring_parser_new ( List *pTokens,RingState *pRingState )
 		pRingState->pRingPackagesMap = ring_list_new_gc(pRingState,RING_ZERO);
 	}
 	pParser->pGenCode = pRingState->pRingGenCode ;
-	pParser->FunctionsMap = pRingState->pRingFunctionsMap ;
+	pParser->pFunctionsMap = pRingState->pRingFunctionsMap ;
 	pParser->pActiveGenCodeList = NULL ;
 	pParser->nAssignmentFlag = 1 ;
 	pParser->nClassStart = 0 ;
-	pParser->ClassesMap = pRingState->pRingClassesMap ;
-	pParser->PackagesMap = pRingState->pRingPackagesMap ;
+	pParser->pClassesMap = pRingState->pRingClassesMap ;
+	pParser->pPackagesMap = pRingState->pRingPackagesMap ;
 	pParser->nClassMark = 0 ;
 	pParser->nPrivateFlag = 0 ;
 	pParser->nBraceFlag = 0 ;

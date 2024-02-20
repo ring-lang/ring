@@ -10,11 +10,11 @@
 		List *pGenCode  ;
 		List *pActiveGenCodeList  ;
 		/* Lists of Lists, Functions in Program or in Class */
-		List *FunctionsMap  ;
+		List *pFunctionsMap  ;
 		/* Lists of Lists, Classes in Program or in Class */
-		List *ClassesMap  ;
+		List *pClassesMap  ;
 		/* List of Lists, Packages in the program */
-		List *PackagesMap  ;
+		List *pPackagesMap  ;
 		/* Required by (For In Loops) to kill the reference when we exit from many loops */
 		List *pForInVars  ;
 		/* Token Text */

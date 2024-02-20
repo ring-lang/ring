@@ -21,7 +21,7 @@ int ring_parser_class ( Parser *pParser )
 			ring_parser_icg_newoperand(pParser,pParser->TokenText);
 			pNewClass = ring_parser_icg_getactiveoperation(pParser) ;
 			/* Add Class to Classes Table */
-			pList = pParser->ClassesMap ;
+			pList = pParser->pClassesMap ;
 			/* Check Class Redefinition */
 			if ( ring_list_getsize(pList) > 0 ) {
 				for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
@@ -70,9 +70,9 @@ int ring_parser_class ( Parser *pParser )
 			/* Add Flag ( IS Parent Class information collected  ) */
 			ring_list_addint_gc(pParser->pRingState,pList,RING_FALSE);
 			/* Set Active Functions List to be Class Methods */
-			pParser->FunctionsMap = pList2 ;
+			pParser->pFunctionsMap = pList2 ;
 			/* Make class visible using PackageName.ClassName if we have package */
-			if ( pParser->ClassesMap != pParser->pRingState->pRingClassesMap ) {
+			if ( pParser->pClassesMap != pParser->pRingState->pRingClassesMap ) {
 				/* Get Package Name */
 				pList3 = ring_list_getlist(pParser->pRingState->pRingPackagesMap,ring_list_getsize(pParser->pRingState->pRingPackagesMap));
 				pString = ring_string_new_gc(pParser->pRingState,ring_list_getstring(pList3,RING_PACKAGES_PACKAGENAME));
@@ -127,7 +127,7 @@ int ring_parser_class ( Parser *pParser )
 			ring_parser_icg_newoperation(pParser,ICO_NEWFUNC);
 			ring_parser_icg_newoperand(pParser,pParser->TokenText);
 			/* Add function to Functions Table */
-			pList2 = pParser->FunctionsMap ;
+			pList2 = pParser->pFunctionsMap ;
 			/* Check Function Redefinition */
 			if ( ring_list_getsize(pList2) > 0 ) {
 				for ( x = 1 ; x <= ring_list_getsize(pList2) ; x++ ) {
@@ -187,7 +187,7 @@ int ring_parser_class ( Parser *pParser )
 			for ( x = 1 ; x <= ring_list_getsize(pParser->pRingState->pRingPackagesMap) ; x++ ) {
 				pList3 = ring_list_getlist(pParser->pRingState->pRingPackagesMap,x);
 				if ( strcmp(ring_list_getstring(pList3,RING_PACKAGES_PACKAGENAME),ring_parser_icg_newpackagename(pParser,pMark)) == 0 ) {
-					pParser->ClassesMap = ring_list_getlist(pList3,RING_PACKAGES_CLASSESLIST);
+					pParser->pClassesMap = ring_list_getlist(pList3,RING_PACKAGES_CLASSESLIST);
 					return 1 ;
 				}
 			}
@@ -195,7 +195,7 @@ int ring_parser_class ( Parser *pParser )
 			/* Add Package Name */
 			ring_list_addstring_gc(pParser->pRingState,pList2,ring_parser_icg_newpackagename(pParser,pMark));
 			/* Add Package Classes List */
-			pParser->ClassesMap = ring_list_newlist_gc(pParser->pRingState,pList2);
+			pParser->pClassesMap = ring_list_newlist_gc(pParser->pRingState,pList2);
 			/* Support using { } around the package code and using 'end' after the content */
 			return ring_parser_bracesandend(pParser,RING_TRUE,K_ENDPACKAGE) ;
 		}
@@ -307,7 +307,7 @@ int ring_parser_stmt ( Parser *pParser )
 			ring_parser_icg_newoperation(pParser,ICO_SETGLOBALSCOPE);
 			ring_parser_icg_newoperandint(pParser,ring_list_getint(pParser->pRingState->pCustomGlobalScopeStack,ring_list_getsize(pParser->pRingState->pCustomGlobalScopeStack)));
 			/* No package at the start of the file */
-			pParser->ClassesMap = pParser->pRingState->pRingClassesMap ;
+			pParser->pClassesMap = pParser->pRingState->pRingClassesMap ;
 			/* Save the Current Directory */
 			ring_general_currentdir(cCurrentDir);
 			/* Read The File */

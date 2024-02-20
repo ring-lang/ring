@@ -7,11 +7,11 @@ pTokens
 Type: List *
 pGenCode
 Type: List *
-ActiveGenCodeList
+pActiveGenCodeList
 Type: List *
-FunctionsMap
+pFunctionsMap
 Type: List *
-ClassesMap
+pClassesMap
 Type: List *
 PackagesMap
 Type: List *
