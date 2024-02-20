@@ -39,15 +39,15 @@ void ring_section ( const char *cTitle )
 void ring_string_test ( void )
 {
 	#define nMaxValue 10
-	String *mystr[nMaxValue]  ;
+	String *aString[nMaxValue]  ;
 	int x  ;
 	String *pString  ;
 	for ( x = 0 ; x < nMaxValue ; x++ ) {
-		mystr[x] = ring_string_new("Wow Really i like the c language so much");
-		ring_string_print(mystr[x]);
+		aString[x] = ring_string_new("Wow Really I like the C language so much!");
+		ring_string_print(aString[x]);
 	}
 	for ( x = 0 ; x < nMaxValue ; x++ ) {
-		mystr[x] = ring_string_delete(mystr[x]);
+		aString[x] = ring_string_delete(aString[x]);
 	}
 	/* Test String Add */
 	pString = ring_string_new("Hello ");
@@ -69,7 +69,7 @@ void ring_list_test ( void )
 	int x  ;
 	Item *pItem  ;
 	String *pString  ;
-	char mystr[RING_SMALLBUF]  ;
+	char cString[RING_SMALLBUF]  ;
 	printf( "Create new list, size = 10 \n" ) ;
 	pList = ring_list_new(10);
 	printf( "List(1) size %d    \n", ring_list_getsize(pList) ) ;
@@ -86,8 +86,8 @@ void ring_list_test ( void )
 		pItem = ring_list_getitem(pList2,x);
 		ring_item_settype(pItem,ITEMTYPE_STRING);
 		pString = ring_item_getstring(pItem);
-		sprintf( mystr , "The Item Number %d" , x ) ;
-		ring_string_set(pString,mystr);
+		sprintf( cString , "The Item Number %d" , x ) ;
+		ring_string_set(pString,cString);
 		ring_string_print(pString);
 	}
 	for ( x = 11 ; x <= 15 ; x++ ) {
@@ -133,7 +133,7 @@ void ring_list_test ( void )
 	pItem = ring_list_getitem(pList,1);
 	ring_item_settype(pItem,ITEMTYPE_STRING);
 	pString = ring_item_getstring(pItem);
-	ring_string_set(pString,mystr);
+	ring_string_set(pString,cString);
 	ring_string_print(pString);
 	/* Set Item 2 */
 	pItem = ring_list_getitem(pList,2);
@@ -145,22 +145,22 @@ void ring_list_test ( void )
 	pItem = ring_list_getitem(pList2,1);
 	ring_item_settype(pItem,ITEMTYPE_STRING);
 	pString = ring_item_getstring(pItem);
-	sprintf( mystr , "Item (2) Item (1) "  ) ;
-	ring_string_set(pString,mystr);
+	sprintf( cString , "Item (2) Item (1) "  ) ;
+	ring_string_set(pString,cString);
 	ring_string_print(pString);
 	/* Work on items */
 	pItem = ring_list_getitem(pList2,2);
 	ring_item_settype(pItem,ITEMTYPE_STRING);
 	pString = ring_item_getstring(pItem);
-	sprintf( mystr , "Item (2) Item (2) "  ) ;
-	ring_string_set(pString,mystr);
+	sprintf( cString , "Item (2) Item (2) "  ) ;
+	ring_string_set(pString,cString);
 	ring_string_print(pString);
 	/* Set Item 3 */
 	pItem = ring_list_getitem(pList,3);
 	ring_item_settype(pItem,ITEMTYPE_STRING);
 	pString = ring_item_getstring(pItem);
-	sprintf( mystr , "last item"  ) ;
-	ring_string_set(pString,mystr);
+	sprintf( cString , "last item"  ) ;
+	ring_string_set(pString,cString);
 	ring_string_print(pString);
 	/* set item 4 */
 	pItem = ring_list_getitem(pList,4);

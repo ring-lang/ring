@@ -27,7 +27,7 @@ ring_hashtable_test
 Type: HashTable *
 pHashTable
 Type: char
-cStr[20]
+cStr[RING_SMALLBUF]
 Type: int
 x
 ring_structuressize
