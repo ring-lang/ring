@@ -3,21 +3,21 @@ Parent: Scanner
 Type: RingState *
 pRingState
 Type: List *
-Keywords
+pKeywords
 Type: List *
-Operators
+pOperators
 Type: List *
-Tokens
+pTokens
 Type: String *
-ActiveToken
+sActiveToken
 Type: unsigned int
 nTokenIndex
 Type: unsigned int
 nLiteralLine
 Type: unsigned int
-LinesCount
-state
-FloatMark
+nLinesCount
+cState
+nFloatMark
 Type: char
 cLiteral
 Type: char

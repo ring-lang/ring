@@ -8,7 +8,7 @@ Scanner * ring_scanner_new ( RingState *pRingState )
 	pScanner = (Scanner *) ring_state_malloc(pRingState,sizeof(Scanner));
 	pScanner->pRingState = pRingState ;
 	pScanner->cState = SCANNER_STATE_GENERAL ;
-	pScanner->sActiveToken = ring_string_new_gc(pRingState,"");
+	pScanner->pActiveToken = ring_string_new_gc(pRingState,"");
 	pScanner->pTokens = ring_list_new_gc(pRingState,RING_ZERO);
 	ring_scanner_keywords(pScanner);
 	ring_scanner_operators(pScanner);
@@ -26,7 +26,7 @@ Scanner * ring_scanner_delete ( Scanner *pScanner )
 	if ( pScanner->pTokens != NULL ) {
 		pScanner->pTokens = ring_list_delete_gc(pScanner->pRingState,pScanner->pTokens);
 	}
-	pScanner->sActiveToken = ring_string_delete_gc(pScanner->pRingState,pScanner->sActiveToken);
+	pScanner->pActiveToken = ring_string_delete_gc(pScanner->pRingState,pScanner->pActiveToken);
 	ring_state_free(pScanner->pRingState,pScanner);
 	return NULL ;
 }
@@ -45,8 +45,8 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 			/* Check Unicode File */
 			if ( ring_list_getsize(pScanner->pTokens) == 0 ) {
 				/* UTF8 */
-				if ( strcmp(ring_string_get(pScanner->sActiveToken),"\xEF\xBB\xBF") == 0 ) {
-					ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"");
+				if ( strcmp(ring_string_get(pScanner->pActiveToken),"\xEF\xBB\xBF") == 0 ) {
+					ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"");
 					/* Don't use reading so the new character can be scanned */
 				}
 			}
@@ -55,7 +55,7 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 				if ( ring_scanner_isoperator(pScanner,cStr) ) {
 					nTokenIndex = pScanner->nTokenIndex ;
 					ring_scanner_checktoken(pScanner);
-					ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,cStr);
+					ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,cStr);
 					/* Check Operator Then Operator */
 					if ( ring_scanner_lasttokentype(pScanner) ==SCANNER_TOKEN_OPERATOR ) {
 						/* Check Multiline Comment */
@@ -64,7 +64,7 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 							if ( strcmp(ring_list_getstring(pList,RING_SCANNER_TOKENVALUE),"/") == 0 ) {
 								ring_list_deleteitem_gc(pScanner->pRingState,pScanner->pTokens,ring_list_getsize(pScanner->pTokens));
 								pScanner->cState = SCANNER_STATE_MLCOMMENT ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"/*");
+								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"/*");
 								return ;
 							}
 						}
@@ -73,7 +73,7 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 							if ( strcmp("/",ring_scanner_lasttokenvalue(pScanner)) ==  0 ) {
 								RING_SCANNER_DELETELASTTOKEN ;
 								pScanner->cState = SCANNER_STATE_COMMENT ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"//");
+								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"//");
 								return ;
 							}
 						}
@@ -82,13 +82,13 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 							if ( strcmp(cStr,ring_scanner_lasttokenvalue(pScanner)) ==  0 ) {
 								RING_SCANNER_DELETELASTTOKEN ;
 								if ( strcmp(cStr,"<") == 0 ) {
-									ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"<<");
+									ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"<<");
 								}
 								else if ( (strcmp(cStr,"*") == 0) | ( strcmp(cStr,"^") == 0 ) ) {
-									ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"**");
+									ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"**");
 								}
 								else {
-									ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,">>");
+									ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,">>");
 								}
 								nTokenIndex += 100 ;
 							}
@@ -98,47 +98,47 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 							nTokenIndex += 100 ;
 							if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"+") == 0 ) {
 								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"+=");
+								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"+=");
 							}
 							else if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"-") == 0 ) {
 								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"-=");
+								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"-=");
 							}
 							else if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"*") == 0 ) {
 								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"*=");
+								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"*=");
 							}
 							else if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"/") == 0 ) {
 								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"/=");
+								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"/=");
 							}
 							else if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"%") == 0 ) {
 								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"%=");
+								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"%=");
 							}
 							else if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"&") == 0 ) {
 								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"&=");
+								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"&=");
 							}
 							else if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"|") == 0 ) {
 								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"|=");
+								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"|=");
 							}
 							else if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"^") == 0 ) {
 								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set(pScanner->sActiveToken,"^=");
+								ring_string_set(pScanner->pActiveToken,"^=");
 							}
 							else if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"<<") == 0 ) {
 								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"<<=");
+								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"<<=");
 							}
 							else if ( strcmp(ring_scanner_lasttokenvalue(pScanner),">>") == 0 ) {
 								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,">>=");
+								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,">>=");
 							}
 							else if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"**") == 0 ) {
 								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"**=");
+								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"**=");
 							}
 							else {
 								nTokenIndex -= 100 ;
@@ -148,14 +148,14 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 						else if ( strcmp(cStr,"+") == 0 ) {
 							if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"+") == 0 ) {
 								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"++");
+								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"++");
 								nTokenIndex += 100 ;
 							}
 						}
 						else if ( strcmp(cStr,"-") == 0 ) {
 							if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"-") == 0 ) {
 								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"--");
+								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"--");
 								nTokenIndex += 100 ;
 							}
 						}
@@ -163,14 +163,14 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 						else if ( strcmp(cStr,"&") == 0 ) {
 							if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"&") == 0 ) {
 								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"&&");
+								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"&&");
 								nTokenIndex += 100 ;
 							}
 						}
 						else if ( strcmp(cStr,"|") == 0 ) {
 							if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"|") == 0 ) {
 								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"||");
+								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"||");
 								nTokenIndex += 100 ;
 							}
 						}
@@ -179,11 +179,11 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 					ring_scanner_addtoken(pScanner,SCANNER_TOKEN_OPERATOR);
 				}
 				else {
-					ring_string_add_gc(pScanner->pRingState,pScanner->sActiveToken,cStr);
+					ring_string_add_gc(pScanner->pRingState,pScanner->pActiveToken,cStr);
 				}
 			}
 			else {
-				if ( ring_scanner_isoperator(pScanner,ring_string_get(pScanner->sActiveToken)) ) {
+				if ( ring_scanner_isoperator(pScanner,ring_string_get(pScanner->pActiveToken)) ) {
 					ring_scanner_addtoken(pScanner,SCANNER_TOKEN_OPERATOR);
 				}
 				else {
@@ -217,7 +217,7 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 				ring_scanner_addtoken(pScanner,SCANNER_TOKEN_LITERAL);
 			}
 			else {
-				ring_string_add_gc(pScanner->pRingState,pScanner->sActiveToken,cStr);
+				ring_string_add_gc(pScanner->pRingState,pScanner->pActiveToken,cStr);
 			}
 			break ;
 		case SCANNER_STATE_COMMENT :
@@ -227,18 +227,18 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 				if ( pScanner->pRingState->lCommentsAsTokens ) {
 					ring_scanner_addtoken(pScanner,SCANNER_TOKEN_COMMENT);
 				}
-				ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"");
+				ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"");
 			}
 			else {
 				if ( pScanner->pRingState->lCommentsAsTokens ) {
-					ring_string_add_gc(pScanner->pRingState,pScanner->sActiveToken,cStr);
+					ring_string_add_gc(pScanner->pRingState,pScanner->pActiveToken,cStr);
 				}
 			}
 			break ;
 		case SCANNER_STATE_MLCOMMENT :
 			/* Check Multiline Comment */
 			if ( pScanner->pRingState->lCommentsAsTokens ) {
-				ring_string_add_gc(pScanner->pRingState,pScanner->sActiveToken,cStr);
+				ring_string_add_gc(pScanner->pRingState,pScanner->pActiveToken,cStr);
 			}
 			switch ( pScanner->cMLComment ) {
 				case 0 :
@@ -254,7 +254,7 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 							ring_scanner_addtoken(pScanner,SCANNER_TOKEN_COMMENT);
 						}
 						/* The next step is important to avoid storing * as identifier! */
-						ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"");
+						ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"");
 					}
 					pScanner->cMLComment = 0 ;
 					return ;
@@ -265,12 +265,12 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 			if ( c == '\n' ) {
 				pScanner->cState = SCANNER_STATE_GENERAL ;
 				ring_scanner_changekeyword(pScanner);
-				ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"");
+				ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"");
 			}
 			else if ( c == '#' || ring_scanner_isoperator(pScanner,cStr) ) {
 				pScanner->cState = SCANNER_STATE_GENERAL ;
 				ring_scanner_changekeyword(pScanner);
-				ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"");
+				ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"");
 				/* Read the character again (Don't ignore the operator) */
 				ring_scanner_readchar(pScanner,c);
 			}
@@ -278,7 +278,7 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 				ring_scanner_readtwoparameters(pScanner,cStr);
 			}
 			else {
-				ring_string_add_gc(pScanner->pRingState,pScanner->sActiveToken,cStr);
+				ring_string_add_gc(pScanner->pRingState,pScanner->pActiveToken,cStr);
 			}
 			break ;
 		case SCANNER_STATE_CHANGEOPERATOR :
@@ -286,13 +286,13 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 			if ( c == '\n' ) {
 				pScanner->cState = SCANNER_STATE_GENERAL ;
 				ring_scanner_changeoperator(pScanner);
-				ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"");
+				ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"");
 			}
 			else if ( (c == ' ') || (c == '\t') ) {
 				ring_scanner_readtwoparameters(pScanner,cStr);
 			}
 			else {
-				ring_string_add_gc(pScanner->pRingState,pScanner->sActiveToken,cStr);
+				ring_string_add_gc(pScanner->pRingState,pScanner->pActiveToken,cStr);
 			}
 			break ;
 		case SCANNER_STATE_LOADSYNTAX :
@@ -300,10 +300,10 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 			if ( c == '\n' ) {
 				pScanner->cState = SCANNER_STATE_GENERAL ;
 				ring_scanner_loadsyntax(pScanner);
-				ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"");
+				ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"");
 			}
 			else {
-				ring_string_add_gc(pScanner->pRingState,pScanner->sActiveToken,cStr);
+				ring_string_add_gc(pScanner->pRingState,pScanner->pActiveToken,cStr);
 			}
 			break ;
 	}
@@ -312,7 +312,7 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 	}
 	if ( ( c == ';' || c == '\n' ) && ( pScanner->cState == SCANNER_STATE_GENERAL ) ) {
 		if ( (ring_scanner_lasttokentype(pScanner) != SCANNER_TOKEN_ENDLINE ) ) {
-			ring_string_setfromint_gc(pScanner->pRingState,pScanner->sActiveToken,pScanner->nLinesCount);
+			ring_string_setfromint_gc(pScanner->pRingState,pScanner->pActiveToken,pScanner->nLinesCount);
 			ring_scanner_addtoken(pScanner,SCANNER_TOKEN_ENDLINE);
 		}
 		else {
@@ -409,7 +409,7 @@ void ring_scanner_addtoken ( Scanner *pScanner,int nType )
 	ring_list_addint_gc(pScanner->pRingState,pList,pScanner->nTokenIndex);
 	pScanner->nTokenIndex = 0 ;
 	ring_scanner_floatmark(pScanner,nType);
-	ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"");
+	ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"");
 }
 
 void ring_scanner_checktoken ( Scanner *pScanner )
@@ -422,12 +422,12 @@ void ring_scanner_checktoken ( Scanner *pScanner )
 	**  Not Case Sensitive 
 	*/
 	if ( pScanner->pRingState->lNotCaseSensitive ) {
-		ring_string_tolower(pScanner->sActiveToken);
-		cActiveStr = ring_string_get(pScanner->sActiveToken) ;
+		ring_string_tolower(pScanner->pActiveToken);
+		cActiveStr = ring_string_get(pScanner->pActiveToken) ;
 		nResult = ring_hashtable_findnumber(ring_list_gethashtable(pScanner->pKeywords),cActiveStr);
 	}
 	else {
-		cActiveStr = ring_string_strdup(pScanner->pRingState,ring_string_get(pScanner->sActiveToken));
+		cActiveStr = ring_string_strdup(pScanner->pRingState,ring_string_get(pScanner->pActiveToken));
 		cActiveStr = ring_string_lower(cActiveStr);
 		nResult = ring_hashtable_findnumber(ring_list_gethashtable(pScanner->pKeywords),cActiveStr);
 		ring_state_free(pScanner->pRingState,cActiveStr);
@@ -435,26 +435,26 @@ void ring_scanner_checktoken ( Scanner *pScanner )
 	if ( nResult > 0 ) {
 		if ( nResult < RING_SCANNER_CHANGERINGKEYWORD ) {
 			sprintf( cStr , "%d" , nResult ) ;
-			ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,cStr);
+			ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,cStr);
 			ring_scanner_addtoken(pScanner,SCANNER_TOKEN_KEYWORD);
 		}
 		else if ( nResult == RING_SCANNER_CHANGERINGOPERATOR ) {
-			ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"");
+			ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"");
 			pScanner->cState = SCANNER_STATE_CHANGEOPERATOR ;
 		}
 		else if ( nResult == RING_SCANNER_LOADSYNTAX ) {
-			ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"");
+			ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"");
 			pScanner->cState = SCANNER_STATE_LOADSYNTAX ;
 		}
 		else {
-			ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"");
+			ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"");
 			pScanner->cState = SCANNER_STATE_CHANGEKEYWORD ;
 		}
 	}
 	else {
 		/* Add Identifier */
-		if ( strcmp(ring_string_get(pScanner->sActiveToken),"") != 0 ) {
-			if ( ring_scanner_isnumber(ring_string_get(pScanner->sActiveToken) ) == 0 ) {
+		if ( strcmp(ring_string_get(pScanner->pActiveToken),"") != 0 ) {
+			if ( ring_scanner_isnumber(ring_string_get(pScanner->pActiveToken) ) == 0 ) {
 				ring_scanner_addtoken(pScanner,SCANNER_TOKEN_IDENTIFIER);
 			}
 			else {
@@ -545,7 +545,7 @@ int ring_scanner_checklasttoken ( Scanner *pScanner )
 	else if ( pScanner->cState ==SCANNER_STATE_LOADSYNTAX ) {
 		pScanner->cState = SCANNER_STATE_GENERAL ;
 		ring_scanner_loadsyntax(pScanner);
-		ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"");
+		ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"");
 	}
 	return 1 ;
 }
@@ -625,7 +625,7 @@ void ring_scanner_floatmark ( Scanner *pScanner,int nType )
 			}
 			break ;
 		case 1 :
-			if ( (nType == SCANNER_TOKEN_OPERATOR) && ( strcmp(ring_string_get(pScanner->sActiveToken) , "." ) == 0  ) ) {
+			if ( (nType == SCANNER_TOKEN_OPERATOR) && ( strcmp(ring_string_get(pScanner->pActiveToken) , "." ) == 0  ) ) {
 				pScanner->nFloatMark = 2 ;
 			}
 			else {
@@ -652,7 +652,7 @@ void ring_scanner_endofline ( Scanner *pScanner )
 {
 	/* Add Token "End of Line" to the end of any program */
 	if ( ring_scanner_lasttokentype(pScanner) != SCANNER_TOKEN_ENDLINE ) {
-		ring_string_setfromint_gc(pScanner->pRingState,pScanner->sActiveToken,pScanner->nLinesCount);
+		ring_string_setfromint_gc(pScanner->pRingState,pScanner->pActiveToken,pScanner->nLinesCount);
 		ring_scanner_addtoken(pScanner,SCANNER_TOKEN_ENDLINE);
 	}
 }
@@ -738,9 +738,9 @@ void ring_scanner_changekeyword ( Scanner *pScanner )
 	/* Create Strings */
 	word1 = ring_string_new_gc(pScanner->pRingState,"");
 	word2 = ring_string_new_gc(pScanner->pRingState,"");
-	cStr = ring_string_get(pScanner->sActiveToken) ;
+	cStr = ring_string_get(pScanner->pActiveToken) ;
 	activeword = word1 ;
-	for ( x = 0 ; x < ring_string_size(pScanner->sActiveToken) ; x++ ) {
+	for ( x = 0 ; x < ring_string_size(pScanner->pActiveToken) ; x++ ) {
 		if ( (cStr[x] == ' ') || (cStr[x] == '\t') ) {
 			if ( (activeword == word1) && (ring_string_size(activeword) >= 1) ) {
 				activeword = word2 ;
@@ -784,9 +784,9 @@ void ring_scanner_changeoperator ( Scanner *pScanner )
 	/* Create Strings */
 	word1 = ring_string_new_gc(pScanner->pRingState,"");
 	word2 = ring_string_new_gc(pScanner->pRingState,"");
-	cStr = ring_string_get(pScanner->sActiveToken) ;
+	cStr = ring_string_get(pScanner->pActiveToken) ;
 	activeword = word1 ;
-	for ( x = 0 ; x < ring_string_size(pScanner->sActiveToken) ; x++ ) {
+	for ( x = 0 ; x < ring_string_size(pScanner->pActiveToken) ; x++ ) {
 		if ( (cStr[x] == ' ') || (cStr[x] == '\t') ) {
 			if ( (activeword == word1) && (ring_string_size(activeword) >= 1) ) {
 				activeword = word2 ;
@@ -829,7 +829,7 @@ void ring_scanner_loadsyntax ( Scanner *pScanner )
 	int nSize,nLine  ;
 	char cFileName2[RING_PATHSIZE]  ;
 	unsigned int x  ;
-	cFileName = ring_string_get(pScanner->sActiveToken) ;
+	cFileName = ring_string_get(pScanner->pActiveToken) ;
 	/* Remove Spaces and " " from file name */
 	x = 0 ;
 	while ( ( (cFileName[x] == ' ') || (cFileName[x] == '"') ) && (x <= strlen(cFileName)) ) {
@@ -865,7 +865,7 @@ void ring_scanner_loadsyntax ( Scanner *pScanner )
 		return ;
 	}
 	nSize = 1 ;
-	ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"");
+	ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"");
 	nLine = pScanner->nLinesCount ;
 	/* Set the Line Number (To be 1) */
 	ring_scanner_setandgenendofline(pScanner,RING_ONE);
@@ -883,7 +883,7 @@ void ring_scanner_loadsyntax ( Scanner *pScanner )
 void ring_scanner_setandgenendofline ( Scanner *pScanner,int nLine )
 {
 	pScanner->nLinesCount = nLine ;
-	ring_string_setfromint_gc(pScanner->pRingState,pScanner->sActiveToken,pScanner->nLinesCount);
+	ring_string_setfromint_gc(pScanner->pRingState,pScanner->pActiveToken,pScanner->nLinesCount);
 	ring_scanner_addtoken(pScanner,SCANNER_TOKEN_ENDLINE);
 }
 
@@ -895,7 +895,7 @@ void ring_scanner_readtwoparameters ( Scanner *pScanner,const char *cStr )
 	x = 0 ;
 	nSize = 0 ;
 	nSpaces = 0 ;
-	cString = ring_string_get(pScanner->sActiveToken) ;
+	cString = ring_string_get(pScanner->pActiveToken) ;
 	nSize = strlen(cString) ;
 	if ( nSize > 0 ) {
 		if ( (cString[nSize-1] != ' ') && (cString[nSize-1] != '\t') ) {
@@ -906,19 +906,19 @@ void ring_scanner_readtwoparameters ( Scanner *pScanner,const char *cStr )
 				}
 			}
 			if ( nSpaces == 0 ) {
-				ring_string_add_gc(pScanner->pRingState,pScanner->sActiveToken,cStr);
+				ring_string_add_gc(pScanner->pRingState,pScanner->pActiveToken,cStr);
 			}
 			else {
 				/* Consider it the end of the instruction */
 				if ( pScanner->cState == SCANNER_STATE_CHANGEKEYWORD ) {
 					pScanner->cState = SCANNER_STATE_GENERAL ;
 					ring_scanner_changekeyword(pScanner);
-					ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"");
+					ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"");
 				}
 				else if ( pScanner->cState == SCANNER_STATE_CHANGEOPERATOR ) {
 					pScanner->cState = SCANNER_STATE_GENERAL ;
 					ring_scanner_changeoperator(pScanner);
-					ring_string_set_gc(pScanner->pRingState,pScanner->sActiveToken,"");
+					ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"");
 				}
 			}
 		}
@@ -929,7 +929,7 @@ const char * ring_scanner_processtoken ( Scanner *pScanner,int nType )
 {
 	char *pStart, *pChar  ;
 	int t,nPos,nSize,lXExist  ;
-	pStart = ring_string_get(pScanner->sActiveToken);
+	pStart = ring_string_get(pScanner->pActiveToken);
 	if ( nType == SCANNER_TOKEN_NUMBER ) {
 		/* Remove Many Zeros in the Start */
 		pChar = pStart ;

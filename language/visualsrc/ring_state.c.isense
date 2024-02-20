@@ -4,7 +4,7 @@ Type: struct VM *
 pVM
 pLogFile
 Type: char  **
-argv
+pArgv
 Type: List *
 pRingFilesList
 Type: List *
@@ -20,11 +20,11 @@ pRingClassesMap
 Type: List *
 pRingPackagesMap
 Type: List *
-aCustomGlobalScopeStack
+pCustomGlobalScopeStack
 Type: List *
 pRingCFunctions
 Type: int
-argc
+nArgc
 Type: unsigned int
 nScannerError
 Type: int

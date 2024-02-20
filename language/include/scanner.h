@@ -7,7 +7,7 @@
 		List *pKeywords  ;
 		List *pOperators  ;
 		List *pTokens  ;
-		String *sActiveToken  ;
+		String *pActiveToken  ;
 		unsigned int nTokenIndex  ;
 		unsigned int nLiteralLine  ;
 		unsigned int nLinesCount  ;
