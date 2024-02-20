@@ -62,7 +62,7 @@
 		/* Insert Flag */
 		unsigned char nInsertFlag  ;
 		/* Token Type */
-		unsigned char TokenType  ;
+		unsigned char nTokenType  ;
 	} Parser ;
 	/* Error Messages */
 	#define RING_PARSER_ERROR_PARALIST "Error (C1) : Error in parameters list, expected identifier"

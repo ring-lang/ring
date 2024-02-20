@@ -89,7 +89,7 @@ void ring_parser_loadtoken ( Parser *pParser )
 {
 	List *pList  ;
 	pList = ring_list_getlist(pParser->Tokens,pParser->ActiveToken);
-	pParser->TokenType = ring_list_getint(pList,RING_SCANNER_TOKENTYPE) ;
+	pParser->nTokenType = ring_list_getint(pList,RING_SCANNER_TOKENTYPE) ;
 	pParser->TokenText = ring_list_getstring(pList,RING_SCANNER_TOKENVALUE) ;
 	pParser->nTokenIndex = ring_list_getint(pList,RING_SCANNER_TOKENINDEX) ;
 }
@@ -106,7 +106,7 @@ int ring_parser_nexttoken ( Parser *pParser )
 
 int ring_parser_iskeyword ( Parser *pParser,SCANNER_KEYWORD x )
 {
-	if ( pParser->TokenType == SCANNER_TOKEN_KEYWORD ) {
+	if ( pParser->nTokenType == SCANNER_TOKEN_KEYWORD ) {
 		if ( ((unsigned int) atoi(pParser->TokenText)) == ((unsigned int) x) ) {
 			return 1 ;
 		}
@@ -116,27 +116,27 @@ int ring_parser_iskeyword ( Parser *pParser,SCANNER_KEYWORD x )
 
 int ring_parser_isoperator ( Parser *pParser,const char *cStr )
 {
-	return (pParser->TokenType == SCANNER_TOKEN_OPERATOR) && (strcmp( pParser->TokenText,cStr) == 0 ) ;
+	return (pParser->nTokenType == SCANNER_TOKEN_OPERATOR) && (strcmp( pParser->TokenText,cStr) == 0 ) ;
 }
 
 int ring_parser_isliteral ( Parser *pParser )
 {
-	return (pParser->TokenType == SCANNER_TOKEN_LITERAL) ;
+	return (pParser->nTokenType == SCANNER_TOKEN_LITERAL) ;
 }
 
 int ring_parser_isnumber ( Parser *pParser )
 {
-	return (pParser->TokenType ==SCANNER_TOKEN_NUMBER) ;
+	return (pParser->nTokenType ==SCANNER_TOKEN_NUMBER) ;
 }
 
 int ring_parser_isidentifier ( Parser *pParser )
 {
-	return (pParser->TokenType ==SCANNER_TOKEN_IDENTIFIER) ;
+	return (pParser->nTokenType ==SCANNER_TOKEN_IDENTIFIER) ;
 }
 
 int ring_parser_isendline ( Parser *pParser )
 {
-	return (pParser->TokenType == SCANNER_TOKEN_ENDLINE) ;
+	return (pParser->nTokenType == SCANNER_TOKEN_ENDLINE) ;
 }
 
 int ring_parser_settoken ( Parser *pParser,int x )
@@ -151,12 +151,12 @@ int ring_parser_settoken ( Parser *pParser,int x )
 
 int ring_parser_isanykeyword ( Parser *pParser )
 {
-	return (pParser->TokenType == SCANNER_TOKEN_KEYWORD) ;
+	return (pParser->nTokenType == SCANNER_TOKEN_KEYWORD) ;
 }
 
 int ring_parser_isoperator2 ( Parser *pParser,SCANNER_OPERATOR nType )
 {
-	return (pParser->TokenType == SCANNER_TOKEN_OPERATOR) && ( pParser->nTokenIndex == (int) nType ) ;
+	return (pParser->nTokenType == SCANNER_TOKEN_OPERATOR) && ( pParser->nTokenIndex == (int) nType ) ;
 }
 /* Display Errors */
 

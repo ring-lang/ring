@@ -25,7 +25,7 @@ nBraceFlag
 Type: unsigned int
 ActiveToken
 Type: unsigned int
-TokensCount
+nTokensCount
 Type: unsigned int
 nTokenIndex
 Type: unsigned int
