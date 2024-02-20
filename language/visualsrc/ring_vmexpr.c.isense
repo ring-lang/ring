@@ -1,6 +1,6 @@
 ring_vm_sum
 Type: String *
-cStr1,*cStr2
+pStr1,*pStr2
 Type: double
 nNum1,nNum2
 Type: char
@@ -13,22 +13,22 @@ ring_vm_sub
 Type: double
 nNum1=0,nNum2=0
 Type: String *
-cStr1
+pStr1
 ring_vm_mul
 Type: double
 nNum1=0,nNum2=0
 Type: String *
-cStr1
+pStr1
 ring_vm_div
 Type: double
 nNum1=0,nNum2=0
 Type: String *
-cStr1
+pStr1
 ring_vm_mod
 Type: double
 nNum1=0,nNum2=0
 Type: String *
-cStr1
+pStr1
 ring_vm_neg
 Type: double
 nNum1
@@ -36,10 +36,10 @@ ring_vm_pow
 Type: double
 nNum1=0,nNum2=0
 Type: String *
-cStr1
+pStr1
 ring_vm_equal
 Type: String *
-cStr1,*cStr2
+pStr1,*pStr2
 Type: double
 nNum1,nNum2
 Type: char
@@ -48,25 +48,25 @@ ring_vm_lessequal
 Type: double
 nNum1=0,nNum2=0
 Type: String *
-cStr1
+pStr1
 ring_vm_less
 Type: double
 nNum1=0,nNum2=0
 Type: String *
-cStr1
+pStr1
 ring_vm_greater
 Type: double
 nNum1=0,nNum2=0
 Type: String *
-cStr1
+pStr1
 ring_vm_greaterequal
 Type: double
 nNum1=0,nNum2=0
 Type: String *
-cStr1
+pStr1
 ring_vm_notequal
 Type: String *
-cStr1,*cStr2
+pStr1,*pStr2
 Type: double
 nNum1,nNum2
 Type: char
@@ -75,12 +75,12 @@ ring_vm_and
 Type: double
 nNum1,nNum2
 Type: String *
-cStr1
+pStr1
 ring_vm_or
 Type: double
 nNum1,nNum2
 Type: String *
-cStr1
+pStr1
 ring_vm_not
 Type: double
 nNum1
@@ -88,29 +88,29 @@ ring_vm_bitand
 Type: double
 nNum1,nNum2
 Type: String *
-cStr1
+pStr1
 ring_vm_bitor
 Type: double
 nNum1,nNum2
 Type: String *
-cStr1
+pStr1
 ring_vm_bitshl
 Type: double
 nNum1,nNum2
 Type: String *
-cStr1
+pStr1
 Type: int
 nNum3
 ring_vm_bitshr
 Type: double
 nNum1,nNum2
 Type: String *
-cStr1
+pStr1
 ring_vm_bitxor
 Type: double
 nNum1,nNum2
 Type: String *
-cStr1
+pStr1
 ring_vm_bitnot
 Type: double
 nNum1
