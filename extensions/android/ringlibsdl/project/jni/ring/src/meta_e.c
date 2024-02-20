@@ -1167,7 +1167,7 @@ void ring_vm_refmeta_ringvminfo ( void *pPointer )
 	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->aBeforeObjState));
 	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->pFuncCallList));
 	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->pTry));
-	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->aScopeNewObj));
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->pScopeNewObj));
 	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->aSetProperty));
 	/* Values */
 	ring_list_adddouble_gc(pVM->pRingState, pList, (double) pVM->nInsideEval);

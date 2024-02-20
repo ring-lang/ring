@@ -83,7 +83,7 @@ pLoopMark
 Type: List *
 pTry
 Type: List *
-aScopeNewObj
+pScopeNewObj
 Type: List *
 pObjState
 Type: List *
@@ -109,7 +109,7 @@ aGlobalScopes
 Type: List *
 aActiveGlobalScopes
 Type: List *
-aDeleteLater
+pDeleteLater
 Type: String *
 sPackageName
 Type: String *
@@ -492,7 +492,7 @@ RING_PCBLOCKFLAG_LOOPMARK
 RING_PCBLOCKFLAG_TRY
 RING_TRY_PC
 RING_TRY_INSIDEEVAL
-RING_ATRY_STATE
+RING_TRY_STATE
 RING_MARKLIST_PC
 RING_MARKLIST_STATE
 RING_VM_ERROR_DIVIDEBYZERO

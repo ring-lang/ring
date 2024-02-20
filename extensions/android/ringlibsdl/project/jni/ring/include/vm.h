@@ -55,7 +55,7 @@
 		List *pExitMark  ;
 		List *pLoopMark  ;
 		List *pTry  ;
-		List *aScopeNewObj  ;
+		List *pScopeNewObj  ;
 		List *pObjState  ;
 		List *pBraceObject  ;
 		List *aBraceObjects  ;
@@ -347,8 +347,8 @@
 	#define RING_ABRACEOBJECTS_NNOSETTERMETHOD 8
 	#define RING_ABRACEOBJECTS_ISDONTREF 9
 	#define RING_ABRACEOBJECTS_ISDONTREFAGAIN 10
-	/* aScopeNewObj */
-	#define RING_ASCOPENEWOBJ_SP 1
+	/* pScopeNewObj */
+	#define RING_SCOPENEWOBJ_SP 1
 	/* aSetProperty */
 	#define RING_ASETPROPERTY_OBJPTR 1
 	#define RING_ASETPROPERTY_OBJTYPE 2
