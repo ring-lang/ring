@@ -732,9 +732,9 @@ void ring_vm_freetemplists ( VM *pVM, int *nTempCount, int *nScopeID )
 		pList = (List *) ring_list_getpointer(pVM->pDeleteLater,x) ;
 		lFound = 0 ;
 		/* Be sure that the list doesn't exist in opened objects */
-		for ( x2 = 1 ; x2 <= ring_list_getsize(pVM->aBraceObjects) ; x2++ ) {
-			pList2 = ring_list_getlist(pVM->aBraceObjects,x2);
-			if ( ring_list_getpointer(pList2,RING_ABRACEOBJECTS_BRACEOBJECT) == pList ) {
+		for ( x2 = 1 ; x2 <= ring_list_getsize(pVM->pBraceObjects) ; x2++ ) {
+			pList2 = ring_list_getlist(pVM->pBraceObjects,x2);
+			if ( ring_list_getpointer(pList2,RING_BRACEOBJECTS_BRACEOBJECT) == pList ) {
 				lFound = 1 ;
 				break ;
 			}

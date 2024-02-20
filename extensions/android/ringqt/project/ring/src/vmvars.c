@@ -200,8 +200,8 @@ int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr )
 		}
 		else if ( ( x == RING_VARSCOPE_OBJSTATE ) && ( ring_vm_oop_callmethodinsideclass(pVM) == 0 ) ) {
 			/* Accessing Object Attribute Using { } */
-			if ( ring_list_getsize(pVM->aBraceObjects) > 0 ) {
-				pList = ring_list_getlist(pVM->aBraceObjects,ring_list_getsize(pVM->aBraceObjects));
+			if ( ring_list_getsize(pVM->pBraceObjects) > 0 ) {
+				pList = ring_list_getlist(pVM->pBraceObjects,ring_list_getsize(pVM->pBraceObjects));
 				/* Pass braces { } for class init() method */
 				if ( pVM->nCallClassInit ) {
 					/*
@@ -211,7 +211,7 @@ int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr )
 					return 1 ;
 				}
 				/* Get Object List */
-				pList = (List *) ring_list_getpointer(pList,RING_ABRACEOBJECTS_BRACEOBJECT);
+				pList = (List *) ring_list_getpointer(pList,RING_BRACEOBJECTS_BRACEOBJECT);
 				nType = ring_vm_oop_objtypefromobjlist(pList);
 				/* Set Object Pointer & Type */
 				if ( nType == RING_OBJTYPE_VARIABLE ) {

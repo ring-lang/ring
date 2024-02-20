@@ -107,7 +107,7 @@ pTraceData
 Type: List *
 pGlobalScopes
 Type: List *
-aActiveGlobalScopes
+pActiveGlobalScopes
 Type: List *
 pDeleteLater
 Type: String *

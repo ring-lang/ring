@@ -60,7 +60,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->pObjState = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Support for using Braces to access object state */
 	pVM->pBraceObject = NULL ;
-	pVM->aBraceObjects = ring_list_new_gc(pVM->pRingState,RING_ZERO);
+	pVM->pBraceObjects = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Used by BraceStart, BraceEnd & FreeStack */
 	pVM->nInsideBraceFlag = 0 ;
 	/* Variable scope, where is the variable (when we use findvar) */
@@ -213,7 +213,7 @@ VM * ring_vm_delete ( VM *pVM )
 	pVM->pTry = ring_list_delete_gc(pVM->pRingState,pVM->pTry);
 	pVM->pScopeNewObj = ring_list_delete_gc(pVM->pRingState,pVM->pScopeNewObj);
 	pVM->pObjState = ring_list_delete_gc(pVM->pRingState,pVM->pObjState);
-	pVM->aBraceObjects = ring_list_delete_gc(pVM->pRingState,pVM->aBraceObjects);
+	pVM->pBraceObjects = ring_list_delete_gc(pVM->pRingState,pVM->pBraceObjects);
 	pVM->aActivePackage = ring_list_delete_gc(pVM->pRingState,pVM->aActivePackage);
 	pVM->aSetProperty = ring_list_delete_gc(pVM->pRingState,pVM->aSetProperty);
 	pVM->aForStep = ring_list_delete_gc(pVM->pRingState,pVM->aForStep);

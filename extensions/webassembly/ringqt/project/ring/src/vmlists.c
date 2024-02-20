@@ -28,7 +28,7 @@ void ring_vm_liststart ( VM *pVM )
 					**  When we access object attribute from braces then create temp. variable for set property operation 
 					**  We do this if we are not inside the class region (after the class name where we define attributes) 
 					*/
-					if ( (ring_list_getsize(pVM->aBraceObjects) > 0) && ( ! ring_vm_oop_callmethodinsideclass(pVM)) && (! pVM->nInClassRegion) ) {
+					if ( (ring_list_getsize(pVM->pBraceObjects) > 0) && ( ! ring_vm_oop_callmethodinsideclass(pVM)) && (! pVM->nInClassRegion) ) {
 						nCont = 1 ;
 					}
 					ring_vm_cleansetpropertylist(pVM);

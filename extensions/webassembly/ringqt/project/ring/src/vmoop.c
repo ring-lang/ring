@@ -12,7 +12,7 @@
 **  used in ring_vmfuncs , function ring_vm_loadfunc2() 
 **  used in ring_vmvars , function ring_vm_findvar2() 
 **  pBraceObject : The list that represent the object directly (not variable/list item) 
-**  aBraceObjects ( pBraceObject, nSP, nListStart, pNestedLists) 
+**  pBraceObjects ( pBraceObject, nSP, nListStart, pNestedLists) 
 **  aSetProperty ( Object Pointer , Type (Variable/ListItem)  , Property Name, Property Variable , nBeforeEqual,Value,PtrType) 
 */
 #include "ring.h"
@@ -547,15 +547,15 @@ void ring_vm_oop_bracestart ( VM *pVM )
 void ring_vm_oop_braceend ( VM *pVM )
 {
 	List *pList  ;
-	pList = ring_list_getlist(pVM->aBraceObjects,ring_list_getsize(pVM->aBraceObjects)) ;
+	pList = ring_list_getlist(pVM->pBraceObjects,ring_list_getsize(pVM->pBraceObjects)) ;
 	ring_vm_restorestateforbraces(pVM,pList);
 }
 
 void ring_vm_oop_bracestack ( VM *pVM )
 {
 	List *pList  ;
-	pList = ring_list_getlist(pVM->aBraceObjects,ring_list_getsize(pVM->aBraceObjects)) ;
-	pVM->nSP = ring_list_getint(pList,RING_ABRACEOBJECTS_NSP) ;
+	pList = ring_list_getlist(pVM->pBraceObjects,ring_list_getsize(pVM->pBraceObjects)) ;
+	pVM->nSP = ring_list_getint(pList,RING_BRACEOBJECTS_NSP) ;
 	if ( pVM->nFuncSP > pVM->nSP ) {
 		/*
 		**  This fixes a problem when we use oObject {  eval(code) } return cString 
