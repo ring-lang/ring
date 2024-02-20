@@ -28,7 +28,7 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 	pVMState->aNumbers[12] = pVM->nActiveScopeID ;
 	pVMState->aNumbers[13] = ring_list_getsize(pVM->pExitMark) ;
 	pVMState->aNumbers[14] = ring_list_getsize(pVM->pLoopMark) ;
-	pVMState->aNumbers[15] = ring_list_getsize(pVM->aTry) ;
+	pVMState->aNumbers[15] = ring_list_getsize(pVM->pTry) ;
 	pVMState->aNumbers[16] = pVM->nListStart ;
 	pVMState->aNumbers[17] = pVM->nInsideBraceFlag ;
 	pVMState->aNumbers[18] = ring_list_getsize(pVM->aForStep) ;
@@ -176,7 +176,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	}
 	/* Try/Catch/Done */
 	if ( nFlag != RING_STATE_TRYCATCH ) {
-		ring_vm_backstate(pVM,pVMState->aNumbers[15],pVM->aTry);
+		ring_vm_backstate(pVM,pVMState->aNumbers[15],pVM->pTry);
 	}
 	/* List Status */
 	pVM->nListStart = pVMState->aNumbers[16] ;
@@ -223,7 +223,7 @@ VMState * ring_vm_savestateforfunctions ( VM *pVM )
 	/* Save the Data */
 	pVMState->aNumbers[0] = ring_list_getsize(pVM->pExitMark) ;
 	pVMState->aNumbers[1] = ring_list_getsize(pVM->pLoopMark) ;
-	pVMState->aNumbers[2] = ring_list_getsize(pVM->aTry) ;
+	pVMState->aNumbers[2] = ring_list_getsize(pVM->pTry) ;
 	pVMState->aNumbers[3] = ring_list_getsize(pVM->aBraceObjects) ;
 	pVMState->aNumbers[4] = ring_list_getsize(pVM->pObjState) ;
 	pVMState->aNumbers[5] = pVM->nInsideBraceFlag ;
@@ -279,7 +279,7 @@ void ring_vm_restorestateforfunctions ( VM *pVM,VMState *pVMState )
 	/* Restore State */
 	ring_vm_backstate(pVM,pVMState->aNumbers[0],pVM->pExitMark);
 	ring_vm_backstate(pVM,pVMState->aNumbers[1],pVM->pLoopMark);
-	ring_vm_backstate(pVM,pVMState->aNumbers[2],pVM->aTry);
+	ring_vm_backstate(pVM,pVMState->aNumbers[2],pVM->pTry);
 	ring_vm_backstate(pVM,pVMState->aNumbers[3],pVM->aBraceObjects);
 	pVM->pBraceObject = (List *) pVMState->aPointers[0] ;
 	ring_vm_backstate(pVM,pVMState->aNumbers[4],pVM->pObjState);
@@ -376,8 +376,8 @@ void ring_vm_savestatefornewobjects ( VM *pVM )
 	pVMState->aNumbers[13] = ring_list_getsize(pVM->pExitMark) ;
 	/* Save LoopMark */
 	pVMState->aNumbers[14] = ring_list_getsize(pVM->pLoopMark) ;
-	/* Save aTry */
-	pVMState->aNumbers[15] = ring_list_getsize(pVM->aTry) ;
+	/* Save pTry */
+	pVMState->aNumbers[15] = ring_list_getsize(pVM->pTry) ;
 	/* Save aBraceObjects */
 	pVMState->aNumbers[16] = ring_list_getsize(pVM->aBraceObjects) ;
 	/* Save aForStep */
@@ -473,8 +473,8 @@ void ring_vm_restorestatefornewobjects ( VM *pVM )
 	ring_vm_backstate(pVM,pVMState->aNumbers[13],pVM->pExitMark);
 	/* Restore LoopMark */
 	ring_vm_backstate(pVM,pVMState->aNumbers[14],pVM->pLoopMark);
-	/* Restore aTry */
-	ring_vm_backstate(pVM,pVMState->aNumbers[15],pVM->aTry);
+	/* Restore pTry */
+	ring_vm_backstate(pVM,pVMState->aNumbers[15],pVM->pTry);
 	/* Restore aBraceObjects */
 	ring_vm_backstate(pVM,pVMState->aNumbers[16],pVM->aBraceObjects);
 	/* Restore aForStep */

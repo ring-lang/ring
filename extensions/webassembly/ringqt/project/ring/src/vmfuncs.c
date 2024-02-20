@@ -534,7 +534,7 @@ void ring_vm_blockflag2 ( VM *pVM,int x )
 	/* Save State */
 	ring_list_addint_gc(pVM->pRingState,pList,ring_list_getsize(pVM->pExitMark));
 	ring_list_addint_gc(pVM->pRingState,pList,ring_list_getsize(pVM->pLoopMark));
-	ring_list_addint_gc(pVM->pRingState,pList,ring_list_getsize(pVM->aTry));
+	ring_list_addint_gc(pVM->pRingState,pList,ring_list_getsize(pVM->pTry));
 }
 
 void ring_vm_removeblockflag ( VM *pVM )
@@ -546,7 +546,7 @@ void ring_vm_removeblockflag ( VM *pVM )
 	/* Restore State */
 	ring_vm_backstate(pVM,ring_list_getint(pList,RING_PCBLOCKFLAG_EXITMARK),pVM->pExitMark);
 	ring_vm_backstate(pVM,ring_list_getint(pList,RING_PCBLOCKFLAG_LOOPMARK),pVM->pLoopMark);
-	ring_vm_backstate(pVM,ring_list_getint(pList,RING_PCBLOCKFLAG_TRY),pVM->aTry);
+	ring_vm_backstate(pVM,ring_list_getint(pList,RING_PCBLOCKFLAG_TRY),pVM->pTry);
 	ring_list_deleteitem_gc(pVM->pRingState,pVM->pPCBlockFlag,ring_list_getsize(pVM->pPCBlockFlag));
 }
 

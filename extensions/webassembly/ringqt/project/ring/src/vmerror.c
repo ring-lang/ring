@@ -29,7 +29,7 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 		}
 	}
 	pVM->lCheckBraceError = 1 ;
-	if ( ring_list_getsize(pVM->aTry) == 0 ) {
+	if ( ring_list_getsize(pVM->pTry) == 0 ) {
 		if ( pVM->lHideErrorMsg == 0 ) {
 			ring_vm_showerrormessage(pVM,cStr);
 		}

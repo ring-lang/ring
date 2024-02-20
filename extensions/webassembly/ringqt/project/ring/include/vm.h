@@ -54,7 +54,7 @@
 		List *pCFunctionsList  ;
 		List *pExitMark  ;
 		List *pLoopMark  ;
-		List *aTry  ;
+		List *pTry  ;
 		List *aScopeNewObj  ;
 		List *pObjState  ;
 		List *pBraceObject  ;
@@ -411,10 +411,10 @@
 	#define RING_PCBLOCKFLAG_EXITMARK 2
 	#define RING_PCBLOCKFLAG_LOOPMARK 3
 	#define RING_PCBLOCKFLAG_TRY 4
-	/* aTry */
-	#define RING_ATRY_PC 1
-	#define RING_ATRY_INSIDEEVAL 2
-	#define RING_ATRY_STATE 3
+	/* pTry */
+	#define RING_TRY_PC 1
+	#define RING_TRY_INSIDEEVAL 2
+	#define RING_TRY_STATE 3
 	/* ExitMark/LoopMark */
 	#define RING_MARKLIST_PC 1
 	#define RING_MARKLIST_STATE 2
