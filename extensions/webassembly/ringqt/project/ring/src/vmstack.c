@@ -125,7 +125,7 @@ void ring_vm_loadaddress ( VM *pVM )
 void ring_vm_assignment ( VM *pVM )
 {
 	List *pVar,*pList, *pList2  ;
-	String *cStr1, *pString  ;
+	String *pStr1, *pString  ;
 	double nNum1  ;
 	Item *pItem  ;
 	if ( RING_VM_STACK_PREVOBJTYPE == RING_OBJTYPE_SUBSTRING ) {
@@ -141,7 +141,7 @@ void ring_vm_assignment ( VM *pVM )
 	}
 	else if ( RING_VM_STACK_PREVOBJTYPE ==RING_OBJTYPE_VARIABLE ) {
 		if ( (RING_VM_STACK_ISSTRING) && (pVM->nBeforeEqual <= 1 ) ) {
-			cStr1 = RING_VM_STACK_GETSTRINGRAW ;
+			pStr1 = RING_VM_STACK_GETSTRINGRAW ;
 			RING_VM_STACK_POP ;
 			pVar = (List *) RING_VM_STACK_READP ;
 			RING_VM_STACK_POP ;
@@ -151,7 +151,7 @@ void ring_vm_assignment ( VM *pVM )
 			}
 			if ( pVM->nBeforeEqual == 0 ) {
 				ring_list_setint_gc(pVM->pRingState,pVar, RING_VAR_TYPE ,RING_VM_STRING);
-				ring_list_setstring2_gc(pVM->pRingState,pVar, RING_VAR_VALUE , ring_string_get(cStr1),ring_string_size(cStr1));
+				ring_list_setstring2_gc(pVM->pRingState,pVar, RING_VAR_VALUE , ring_string_get(pStr1),ring_string_size(pStr1));
 			}
 			else {
 				/* Check NULL Variable */
@@ -161,10 +161,10 @@ void ring_vm_assignment ( VM *pVM )
 				}
 				if ( ring_list_isstring(pVar,RING_VAR_VALUE) ) {
 					pString = ring_list_getstringobject(pVar,RING_VAR_VALUE);
-					ring_string_add2_gc(pVM->pRingState,pString,ring_string_get(cStr1),ring_string_size(cStr1));
+					ring_string_add2_gc(pVM->pRingState,pString,ring_string_get(pStr1),ring_string_size(pStr1));
 				}
 				else if ( ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
-					ring_list_setdouble_gc(pVM->pRingState,pVar, RING_VAR_VALUE ,ring_list_getdouble(pVar,RING_VAR_VALUE) +ring_vm_stringtonum(pVM,ring_string_get(cStr1)));
+					ring_list_setdouble_gc(pVM->pRingState,pVar, RING_VAR_VALUE ,ring_list_getdouble(pVar,RING_VAR_VALUE) +ring_vm_stringtonum(pVM,ring_string_get(pStr1)));
 				}
 			}
 		}
