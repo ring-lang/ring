@@ -857,7 +857,7 @@ void ring_vm_refmeta_packagename ( void *pPointer )
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
-	RING_API_RETSTRING(ring_string_get(pVM->pPackageName));
+	RING_API_RETSTRING(ring_string_get(pVM->sPackageName));
 }
 
 void ring_vm_refmeta_importpackage ( void *pPointer )
@@ -1003,11 +1003,11 @@ void ring_vm_refmeta_ringvmsettrace ( void *pPointer )
 		cStr = RING_API_GETSTRING(1) ;
 		if ( strcmp(cStr,"") == 0 ) {
 			pVM->lTrace = 0 ;
-			ring_string_set_gc(((VM *) pPointer)->pRingState,pVM->pTrace,"");
+			ring_string_set_gc(((VM *) pPointer)->pRingState,pVM->sTrace,"");
 		}
 		else {
 			pVM->lTrace = 1 ;
-			ring_string_set_gc(((VM *) pPointer)->pRingState,pVM->pTrace,cStr);
+			ring_string_set_gc(((VM *) pPointer)->pRingState,pVM->sTrace,cStr);
 		}
 	}
 	else {
@@ -1037,7 +1037,7 @@ void ring_vm_refmeta_ringvmtracefunc ( void *pPointer )
 {
 	VM *pVM  ;
 	pVM = (VM *) pPointer ;
-	RING_API_RETSTRING(ring_string_get(pVM->pTrace));
+	RING_API_RETSTRING(ring_string_get(pVM->sTrace));
 }
 
 void ring_vm_refmeta_ringvmscopescount ( void *pPointer )

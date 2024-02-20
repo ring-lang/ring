@@ -69,8 +69,8 @@
 		List *aGlobalScopes  ;
 		List *aActiveGlobalScopes  ;
 		List *aDeleteLater  ;
-		String *pPackageName  ;
-		String *pTrace  ;
+		String *sPackageName  ;
+		String *sTrace  ;
 		ByteCode *pByteCode  ;
 		ByteCode *pByteCodeIR  ;
 		char *cFileName  ;

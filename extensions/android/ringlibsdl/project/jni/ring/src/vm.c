@@ -150,7 +150,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	/* Flag that we have runtime error to avoid calling the error function again */
 	pVM->nActiveError = 0 ;
 	/* The active package name (after using import command) */
-	pVM->pPackageName = ring_string_new_gc(pVM->pRingState,"");
+	pVM->sPackageName = ring_string_new_gc(pVM->pRingState,"");
 	/*
 	**  Trace Program (After Each Line) 
 	**  lTrace = Logical Value (Trace is Active or Not) 
@@ -159,7 +159,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	**  nTraceEvent = The Trace Event (1 = New Line , etc) 
 	*/
 	pVM->lTrace = 0 ;
-	pVM->pTrace = ring_string_new_gc(pVM->pRingState,"");
+	pVM->sTrace = ring_string_new_gc(pVM->pRingState,"");
 	pVM->lTraceActive = 0 ;
 	pVM->nTraceEvent = 0 ;
 	pVM->pTraceData = ring_list_new_gc(pVM->pRingState,RING_ZERO) ;
@@ -229,8 +229,8 @@ VM * ring_vm_delete ( VM *pVM )
 	ring_state_free(pVM->pRingState,pVM->pByteCode);
 	/* Delete Mutex */
 	ring_vm_mutexdestroy(pVM);
-	pVM->pPackageName = ring_string_delete_gc(pVM->pRingState,pVM->pPackageName);
-	pVM->pTrace = ring_string_delete_gc(pVM->pRingState,pVM->pTrace);
+	pVM->sPackageName = ring_string_delete_gc(pVM->pRingState,pVM->sPackageName);
+	pVM->sTrace = ring_string_delete_gc(pVM->pRingState,pVM->sTrace);
 	pVM->pTraceData = ring_list_delete_gc(pVM->pRingState,pVM->pTraceData);
 	/* Custom Global Scope (using Load Package) */
 	pVM->aGlobalScopes = ring_list_delete_gc(pVM->pRingState,pVM->aGlobalScopes);

@@ -666,7 +666,7 @@ void ring_vm_oop_import2 ( VM *pVM,const char *cPackage )
 			pList2 = ring_list_getlist(pList,RING_PACKAGES_CLASSESLIST);
 			ring_vm_oop_import3(pVM,pList2);
 			/* Set Active Package Name */
-			ring_string_set_gc(pVM->pRingState,pVM->pPackageName,cPackage);
+			ring_string_set_gc(pVM->pRingState,pVM->sPackageName,cPackage);
 			return ;
 		}
 	}
