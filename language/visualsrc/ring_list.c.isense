@@ -33,7 +33,7 @@ pHashTable
 Type: struct ListBlocks *
 pBlocks
 Type: ListGCData
-gc
+vGC
 END:
 Type: List
 struct List
@@ -216,7 +216,7 @@ ring_list_sortstr_gc
 Type: unsigned int
 x,y,mid
 Type: String *
-midvalue
+pMidvalue
 ring_list_binarysearchnum
 Type: int
 nFirst,nMiddle,nLast
