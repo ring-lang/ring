@@ -450,36 +450,36 @@ RING_API void ring_list_adddouble_gc ( void *pState,List *pList,double x )
 }
 /* String */
 
-RING_API void ring_list_setstring_gc ( void *pState,List *pList, unsigned int nIndex ,const char *str )
+RING_API void ring_list_setstring_gc ( void *pState,List *pList, unsigned int nIndex ,const char *cStr )
 {
 	Item *pItem  ;
 	String *pString  ;
 	pItem = ring_list_getitem(pList,nIndex);
 	ring_item_settype_gc(pState,pItem,ITEMTYPE_STRING);
 	pString = ring_item_getstring(pItem);
-	ring_string_set_gc(pState,pString,str);
+	ring_string_set_gc(pState,pString,cStr);
 }
 
-RING_API void ring_list_setstring2_gc ( void *pState,List *pList, unsigned int nIndex ,const char *str,int nStrSize )
+RING_API void ring_list_setstring2_gc ( void *pState,List *pList, unsigned int nIndex ,const char *cStr,int nStrSize )
 {
 	Item *pItem  ;
 	String *pString  ;
 	pItem = ring_list_getitem(pList,nIndex);
 	ring_item_settype_gc(pState,pItem,ITEMTYPE_STRING);
 	pString = ring_item_getstring(pItem);
-	ring_string_set2_gc(pState,pString,str,nStrSize);
+	ring_string_set2_gc(pState,pString,cStr,nStrSize);
 }
 
-RING_API void ring_list_addstring_gc ( void *pState,List *pList,const char *str )
+RING_API void ring_list_addstring_gc ( void *pState,List *pList,const char *cStr )
 {
 	ring_list_newitem_gc(pState,pList);
-	ring_list_setstring_gc(pState,pList,ring_list_getsize(pList),str);
+	ring_list_setstring_gc(pState,pList,ring_list_getsize(pList),cStr);
 }
 
-RING_API void ring_list_addstring2_gc ( void *pState,List *pList,const char *str,int nStrSize )
+RING_API void ring_list_addstring2_gc ( void *pState,List *pList,const char *cStr,int nStrSize )
 {
 	ring_list_newitem_gc(pState,pList);
-	ring_list_setstring2_gc(pState,pList,ring_list_getsize(pList),str,nStrSize);
+	ring_list_setstring2_gc(pState,pList,ring_list_getsize(pList),cStr,nStrSize);
 }
 /* List */
 
@@ -584,16 +584,16 @@ RING_API void ring_list_insertpointer_gc ( void *pState,List *pList,unsigned int
 	ring_list_setpointer_gc(pState,pList,nPos+1,pValue);
 }
 
-RING_API void ring_list_insertstring_gc ( void *pState,List *pList,unsigned int nPos,const char *str )
+RING_API void ring_list_insertstring_gc ( void *pState,List *pList,unsigned int nPos,const char *cStr )
 {
 	ring_list_insertitem_gc(pState,pList,nPos);
-	ring_list_setstring_gc(pState,pList,nPos+1,str);
+	ring_list_setstring_gc(pState,pList,nPos+1,cStr);
 }
 
-RING_API void ring_list_insertstring2_gc ( void *pState,List *pList,unsigned int nPos,const char *str,int nStrSize )
+RING_API void ring_list_insertstring2_gc ( void *pState,List *pList,unsigned int nPos,const char *cStr,int nStrSize )
 {
 	ring_list_insertitem_gc(pState,pList,nPos);
-	ring_list_setstring2_gc(pState,pList,nPos+1,str,nStrSize);
+	ring_list_setstring2_gc(pState,pList,nPos+1,cStr,nStrSize);
 }
 
 RING_API void ring_list_insertfuncpointer_gc ( void *pState,List *pList,unsigned int nPos,void (*pFunc)(void *) )
@@ -657,7 +657,7 @@ RING_API int ring_list_deliteminsidelist_gc ( void *pState,List *pList,Item *pIt
 }
 /* Linear Search */
 
-RING_API int ring_list_findstring ( List *pList,const char *str,unsigned int nColumn )
+RING_API int ring_list_findstring ( List *pList,const char *cStr,unsigned int nColumn )
 {
 	unsigned int x,nCount  ;
 	List *pList2  ;
@@ -667,7 +667,7 @@ RING_API int ring_list_findstring ( List *pList,const char *str,unsigned int nCo
 		if ( nColumn == 0 ) {
 			for ( x = 1 ; x <= nCount ; x++ ) {
 				if ( ring_list_isstring(pList,x) ) {
-					if ( strcmp(str,ring_list_getstring(pList,x)) == 0 ) {
+					if ( strcmp(cStr,ring_list_getstring(pList,x)) == 0 ) {
 						return x ;
 					}
 				}
@@ -683,7 +683,7 @@ RING_API int ring_list_findstring ( List *pList,const char *str,unsigned int nCo
 					return -1 ;
 				}
 				if ( ring_list_isstring(pList2,nColumn) ) {
-					if ( strcmp(str,ring_list_getstring(pList2,nColumn)) == 0 ) {
+					if ( strcmp(cStr,ring_list_getstring(pList2,nColumn)) == 0 ) {
 						return x ;
 					}
 				}
@@ -989,24 +989,24 @@ RING_API void ring_list_adddouble ( List *pList,double x )
 }
 /* String */
 
-RING_API void ring_list_setstring ( List *pList, unsigned int nIndex ,const char *str )
+RING_API void ring_list_setstring ( List *pList, unsigned int nIndex ,const char *cStr )
 {
-	ring_list_setstring_gc(NULL,pList,nIndex,str);
+	ring_list_setstring_gc(NULL,pList,nIndex,cStr);
 }
 
-RING_API void ring_list_setstring2 ( List *pList, unsigned int nIndex ,const char *str,int nStrSize )
+RING_API void ring_list_setstring2 ( List *pList, unsigned int nIndex ,const char *cStr,int nStrSize )
 {
-	ring_list_setstring2_gc(NULL,pList,nIndex,str,nStrSize);
+	ring_list_setstring2_gc(NULL,pList,nIndex,cStr,nStrSize);
 }
 
-RING_API void ring_list_addstring ( List *pList,const char *str )
+RING_API void ring_list_addstring ( List *pList,const char *cStr )
 {
-	ring_list_addstring_gc(NULL,pList,str);
+	ring_list_addstring_gc(NULL,pList,cStr);
 }
 
-RING_API void ring_list_addstring2 ( List *pList,const char *str,int nStrSize )
+RING_API void ring_list_addstring2 ( List *pList,const char *cStr,int nStrSize )
 {
-	ring_list_addstring2_gc(NULL,pList,str,nStrSize);
+	ring_list_addstring2_gc(NULL,pList,cStr,nStrSize);
 }
 /* List */
 
@@ -1051,14 +1051,14 @@ RING_API void ring_list_insertpointer ( List *pList,unsigned int nPos,void *pVal
 	ring_list_insertpointer_gc(NULL,pList,nPos,pValue);
 }
 
-RING_API void ring_list_insertstring ( List *pList,unsigned int nPos,const char *str )
+RING_API void ring_list_insertstring ( List *pList,unsigned int nPos,const char *cStr )
 {
-	ring_list_insertstring_gc(NULL,pList,nPos,str);
+	ring_list_insertstring_gc(NULL,pList,nPos,cStr);
 }
 
-RING_API void ring_list_insertstring2 ( List *pList,unsigned int nPos,const char *str,int nStrSize )
+RING_API void ring_list_insertstring2 ( List *pList,unsigned int nPos,const char *cStr,int nStrSize )
 {
-	ring_list_insertstring2_gc(NULL,pList,nPos,str,nStrSize);
+	ring_list_insertstring2_gc(NULL,pList,nPos,cStr,nStrSize);
 }
 
 RING_API void ring_list_insertfuncpointer ( List *pList,unsigned int nPos,void (*pFunc)(void *) )
@@ -1166,7 +1166,7 @@ RING_API void ring_list_print2 ( List *pList,unsigned int nDecimals )
 	}
 }
 
-RING_API int ring_list_findinlistofobjs ( List *pList,int nType,double nNum1,const char *str,unsigned int nColumn,char *cAttribute )
+RING_API int ring_list_findinlistofobjs ( List *pList,int nType,double nNum1,const char *cStr,unsigned int nColumn,char *cAttribute )
 {
 	unsigned int x,nCount,nPos  ;
 	List *pList2  ;
@@ -1197,7 +1197,7 @@ RING_API int ring_list_findinlistofobjs ( List *pList,int nType,double nNum1,con
 			pList2 = ring_list_getlist(pList2,RING_OBJECT_OBJECTDATA) ;
 			pList2 = ring_list_getlist(pList2,nPos) ;
 			if ( nType  == RING_LISTOFOBJS_FINDSTRING ) {
-				if ( strcmp(str,ring_list_getstring(pList2,RING_VAR_VALUE)) == 0 ) {
+				if ( strcmp(cStr,ring_list_getstring(pList2,RING_VAR_VALUE)) == 0 ) {
 					return x ;
 				}
 			}

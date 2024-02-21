@@ -98,13 +98,13 @@
 	RING_API void ring_list_adddouble_gc ( void *pState,List *pList,double x ) ;
 	/* String */
 
-	RING_API void ring_list_setstring_gc ( void *pState,List *pList, unsigned int nIndex ,const char *str ) ;
+	RING_API void ring_list_setstring_gc ( void *pState,List *pList, unsigned int nIndex ,const char *cStr ) ;
 
-	RING_API void ring_list_setstring2_gc ( void *pState,List *pList, unsigned int nIndex ,const char *str,int nStrSize ) ;
+	RING_API void ring_list_setstring2_gc ( void *pState,List *pList, unsigned int nIndex ,const char *cStr,int nStrSize ) ;
 
-	RING_API void ring_list_addstring_gc ( void *pState,List *pList,const char *str ) ;
+	RING_API void ring_list_addstring_gc ( void *pState,List *pList,const char *cStr ) ;
 
-	RING_API void ring_list_addstring2_gc ( void *pState,List *pList,const char *str,int nStrSize ) ;
+	RING_API void ring_list_addstring2_gc ( void *pState,List *pList,const char *cStr,int nStrSize ) ;
 	/* List */
 
 	RING_API List * ring_list_newlist_gc ( void *pState,List *pList ) ;
@@ -134,9 +134,9 @@
 
 	RING_API void ring_list_insertpointer_gc ( void *pState,List *pList,unsigned int nPos,void *pValue ) ;
 
-	RING_API void ring_list_insertstring_gc ( void *pState,List *pList,unsigned int nPos,const char *str ) ;
+	RING_API void ring_list_insertstring_gc ( void *pState,List *pList,unsigned int nPos,const char *cStr ) ;
 
-	RING_API void ring_list_insertstring2_gc ( void *pState,List *pList,unsigned int nPos,const char *str,int nStrSize ) ;
+	RING_API void ring_list_insertstring2_gc ( void *pState,List *pList,unsigned int nPos,const char *cStr,int nStrSize ) ;
 
 	RING_API void ring_list_insertfuncpointer_gc ( void *pState,List *pList,unsigned int nPos,void (*pFunc)(void *) ) ;
 
@@ -146,7 +146,7 @@
 	RING_API int ring_list_isiteminsidelist ( List *pList,Item *pItem ) ;
 	/* Linear Search */
 
-	RING_API int ring_list_findstring ( List *pList,const char *str,unsigned int nColumn ) ;
+	RING_API int ring_list_findstring ( List *pList,const char *cStr,unsigned int nColumn ) ;
 
 	RING_API int ring_list_finddouble ( List *pList,double nNum1,unsigned int nColumn ) ;
 
@@ -214,13 +214,13 @@
 	RING_API void ring_list_adddouble ( List *pList,double x ) ;
 	/* String */
 
-	RING_API void ring_list_setstring ( List *pList, unsigned int nIndex ,const char *str ) ;
+	RING_API void ring_list_setstring ( List *pList, unsigned int nIndex ,const char *cStr ) ;
 
-	RING_API void ring_list_setstring2 ( List *pList, unsigned int nIndex ,const char *str,int nStrSize ) ;
+	RING_API void ring_list_setstring2 ( List *pList, unsigned int nIndex ,const char *cStr,int nStrSize ) ;
 
-	RING_API void ring_list_addstring ( List *pList,const char *str ) ;
+	RING_API void ring_list_addstring ( List *pList,const char *cStr ) ;
 
-	RING_API void ring_list_addstring2 ( List *pList,const char *str,int nStrSize ) ;
+	RING_API void ring_list_addstring2 ( List *pList,const char *cStr,int nStrSize ) ;
 	/* List */
 
 	RING_API List * ring_list_newlist ( List *pList ) ;
@@ -240,9 +240,9 @@
 
 	RING_API void ring_list_insertpointer ( List *pList,unsigned int nPos,void *pValue ) ;
 
-	RING_API void ring_list_insertstring ( List *pList,unsigned int nPos,const char *str ) ;
+	RING_API void ring_list_insertstring ( List *pList,unsigned int nPos,const char *cStr ) ;
 
-	RING_API void ring_list_insertstring2 ( List *pList,unsigned int nPos,const char *str,int nStrSize ) ;
+	RING_API void ring_list_insertstring2 ( List *pList,unsigned int nPos,const char *cStr,int nStrSize ) ;
 
 	RING_API void ring_list_insertfuncpointer ( List *pList,unsigned int nPos,void (*pFunc)(void *) ) ;
 
@@ -260,7 +260,7 @@
 
 	RING_API void ring_list_print2 ( List *pList,unsigned int nDecimals ) ;
 
-	RING_API int ring_list_findinlistofobjs ( List *pList,int nType,double nNum1,const char *str,unsigned int nColumn,char *cAttribute ) ;
+	RING_API int ring_list_findinlistofobjs ( List *pList,int nType,double nNum1,const char *cStr,unsigned int nColumn,char *cAttribute ) ;
 
 	RING_API int ring_list_findcpointer ( List *pList,List *pValue,unsigned int nColumn ) ;
 
