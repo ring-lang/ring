@@ -111,9 +111,9 @@ pActiveGlobalScopes
 Type: List *
 pDeleteLater
 Type: String *
-sPackageName
+pPackageName
 Type: String *
-sTrace
+pTrace
 Type: ByteCode *
 pByteCode
 Type: ByteCode *

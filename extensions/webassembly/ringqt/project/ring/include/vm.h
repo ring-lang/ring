@@ -622,21 +622,21 @@
 
 	int ring_vm_findvar ( VM *pVM,const char *cStr ) ;
 
-	int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr ) ;
+	int ring_vm_findvar2 ( VM *pVM,int nLevel,List *pList2,const char *cStr ) ;
 
 	void ring_vm_newvar ( VM *pVM,const char *cStr ) ;
 
 	List * ring_vm_newvar2 ( VM *pVM,const char *cStr,List *pParent ) ;
 
-	void ring_vm_addnewnumbervar ( VM *pVM,const char *cStr,double x ) ;
+	void ring_vm_addnewnumbervar ( VM *pVM,const char *cStr,double nNumber ) ;
 
 	void ring_vm_addnewstringvar ( VM *pVM,const char *cStr,const char *cStr2 ) ;
 
-	void ring_vm_addnewpointervar ( VM *pVM,const char *cStr,void *x,int y ) ;
+	void ring_vm_addnewpointervar ( VM *pVM,const char *cStr,void *pPointer,int nType ) ;
 
 	List * ring_vm_addnewlistvar ( VM *pVM,const char *cStr ) ;
 
-	void ring_vm_newtempvar ( VM *pVM,const char *cStr, List *TempList ) ;
+	void ring_vm_newtempvar ( VM *pVM,const char *cStr, List *pTempList ) ;
 
 	void ring_vm_addnewstringvar2 ( VM *pVM,const char *cStr,const char *cStr2,int nStrSize ) ;
 

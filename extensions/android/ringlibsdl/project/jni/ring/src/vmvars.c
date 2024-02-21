@@ -125,7 +125,7 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 	return 0 ;
 }
 
-int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr )
+int ring_vm_findvar2 ( VM *pVM,int nLevel,List *pList2,const char *cStr )
 {
 	int nPC,nType,lPrivateError  ;
 	Item *pItem  ;
@@ -134,13 +134,13 @@ int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr )
 	**  Now We have the variable List 
 	**  The Scope of the search result 
 	*/
-	if ( ( x == 1 ) && (pVM->pActiveMem == ring_vm_getglobalscope(pVM)) ) {
-		x = RING_VARSCOPE_GLOBAL ;
+	if ( ( nLevel == 1 ) && (pVM->pActiveMem == ring_vm_getglobalscope(pVM)) ) {
+		nLevel = RING_VARSCOPE_GLOBAL ;
 	}
-	else if ( (x == 1) && (pVM->pActiveMem != ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem))) ) {
-		x = RING_VARSCOPE_NEWOBJSTATE ;
+	else if ( (nLevel == 1) && (pVM->pActiveMem != ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem))) ) {
+		nLevel = RING_VARSCOPE_NEWOBJSTATE ;
 	}
-	pVM->nVarScope = x ;
+	pVM->nVarScope = nLevel ;
 	RING_VM_SP_INC ;
 	if ( ring_list_getint(pList2,RING_VAR_TYPE) == RING_VM_POINTER ) {
 		if ( pVM->nFirstAddress  == 1 ) {
@@ -198,7 +198,7 @@ int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr )
 			}
 			ring_vm_oop_setget(pVM,pList2);
 		}
-		else if ( ( x == RING_VARSCOPE_OBJSTATE ) && ( ring_vm_oop_callmethodinsideclass(pVM) == 0 ) ) {
+		else if ( ( nLevel == RING_VARSCOPE_OBJSTATE ) && ( ring_vm_oop_callmethodinsideclass(pVM) == 0 ) ) {
 			/* Accessing Object Attribute Using { } */
 			if ( ring_list_getsize(pVM->pBraceObjects) > 0 ) {
 				pList = ring_list_getlist(pVM->pBraceObjects,ring_list_getsize(pVM->pBraceObjects));
@@ -303,12 +303,12 @@ List * ring_vm_newvar2 ( VM *pVM,const char *cStr,List *pParent )
 	return pList ;
 }
 
-void ring_vm_addnewnumbervar ( VM *pVM,const char *cStr,double x )
+void ring_vm_addnewnumbervar ( VM *pVM,const char *cStr,double nNumber )
 {
 	List *pList  ;
 	pList = ring_vm_newvar2(pVM,cStr,pVM->pActiveMem);
 	ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_NUMBER);
-	ring_list_setdouble_gc(pVM->pRingState,pList,RING_VAR_VALUE,x);
+	ring_list_setdouble_gc(pVM->pRingState,pList,RING_VAR_VALUE,nNumber);
 }
 
 void ring_vm_addnewstringvar ( VM *pVM,const char *cStr,const char *cStr2 )
@@ -327,15 +327,15 @@ void ring_vm_addnewstringvar2 ( VM *pVM,const char *cStr,const char *cStr2,int n
 	ring_list_setstring2_gc(pVM->pRingState,pList,RING_VAR_VALUE,cStr2,nStrSize);
 }
 
-void ring_vm_addnewpointervar ( VM *pVM,const char *cStr,void *x,int y )
+void ring_vm_addnewpointervar ( VM *pVM,const char *cStr,void *pPointer,int nType )
 {
 	List *pList  ;
 	pList = ring_vm_newvar2(pVM,cStr,pVM->pActiveMem);
 	ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_POINTER);
-	ring_list_setpointer_gc(pVM->pRingState,pList,RING_VAR_VALUE,x);
-	ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_PVALUETYPE,y);
+	ring_list_setpointer_gc(pVM->pRingState,pList,RING_VAR_VALUE,pPointer);
+	ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_PVALUETYPE,nType);
 	/* Reference Counting */
-	ring_vm_gc_checknewreference(x,y,pList,RING_VAR_VALUE);
+	ring_vm_gc_checknewreference(pPointer,nType,pList,RING_VAR_VALUE);
 }
 
 List * ring_vm_addnewlistvar ( VM *pVM,const char *cStr )
@@ -347,10 +347,10 @@ List * ring_vm_addnewlistvar ( VM *pVM,const char *cStr )
 	return pList ;
 }
 
-void ring_vm_newtempvar ( VM *pVM,const char *cStr, List *TempList )
+void ring_vm_newtempvar ( VM *pVM,const char *cStr, List *pTempList )
 {
 	List *pList  ;
-	pList = ring_vm_newvar2(pVM,cStr,TempList);
+	pList = ring_vm_newvar2(pVM,cStr,pTempList);
 	RING_VM_SP_INC ;
 	RING_VM_STACK_SETPVALUE(pList);
 	RING_VM_STACK_OBJTYPE = RING_OBJTYPE_VARIABLE ;
