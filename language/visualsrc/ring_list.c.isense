@@ -209,12 +209,12 @@ Type: unsigned int
 x
 ring_list_sortnum
 Type: unsigned int
-x,y,mid
+x,y,nMid
 Type: double
-midvalue
+nMidvalue
 ring_list_sortstr_gc
 Type: unsigned int
-x,y,mid
+x,y,nMid
 Type: String *
 pMidvalue
 ring_list_binarysearchnum
@@ -277,7 +277,7 @@ ring_list_genhashtable
 ring_list_genhashtable2
 ring_list_swaptwolists
 Type: List
-TempList
+pTempList
 ring_list_print
 ring_list_print2
 Type: unsigned int

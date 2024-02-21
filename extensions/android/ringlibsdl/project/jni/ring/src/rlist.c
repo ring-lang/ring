@@ -745,17 +745,17 @@ RING_API int ring_list_findpointer ( List *pList,void *pPointer )
 
 RING_API void ring_list_sortnum ( List *pList,int left,int right,unsigned int nColumn,const char *cAttribute )
 {
-	unsigned int x,y,mid  ;
-	double midvalue  ;
+	unsigned int x,y,nMid  ;
+	double nMidvalue  ;
 	x = left ;
 	y = right ;
-	mid = (x+y)/2 ;
-	midvalue = ring_list_getdoublecolumn(pList,mid,nColumn,cAttribute);
+	nMid = (x+y)/2 ;
+	nMidvalue = ring_list_getdoublecolumn(pList,nMid,nColumn,cAttribute);
 	while ( x <= y ) {
-		while ( ring_list_getdoublecolumn(pList,x,nColumn,cAttribute) < midvalue ) {
+		while ( ring_list_getdoublecolumn(pList,x,nColumn,cAttribute) < nMidvalue ) {
 			x++ ;
 		}
-		while ( ring_list_getdoublecolumn(pList,y,nColumn,cAttribute) > midvalue ) {
+		while ( ring_list_getdoublecolumn(pList,y,nColumn,cAttribute) > nMidvalue ) {
 			y-- ;
 		}
 		if ( x <= y ) {
@@ -774,12 +774,12 @@ RING_API void ring_list_sortnum ( List *pList,int left,int right,unsigned int nC
 
 RING_API void ring_list_sortstr_gc ( void *pState,List *pList,int left,int right,unsigned int nColumn,const char *cAttribute )
 {
-	unsigned int x,y,mid  ;
+	unsigned int x,y,nMid  ;
 	String *pMidvalue  ;
 	x = left ;
 	y = right ;
-	mid = (x+y)/2 ;
-	pMidvalue = ring_string_new_gc(pState,ring_list_getstringcolumn(pList,mid,nColumn,cAttribute));
+	nMid = (x+y)/2 ;
+	pMidvalue = ring_string_new_gc(pState,ring_list_getstringcolumn(pList,nMid,nColumn,cAttribute));
 	while ( x <= y ) {
 		while ( strcmp(ring_list_getstringcolumn(pList,x,nColumn,cAttribute),ring_string_get(pMidvalue)) < 0 ) {
 			x++ ;
@@ -804,19 +804,19 @@ RING_API void ring_list_sortstr_gc ( void *pState,List *pList,int left,int right
 
 RING_API int ring_list_binarysearchnum ( List *pList,double nNum1,unsigned int nColumn,const char *cAttribute )
 {
-	int nFirst,nMiddle,nLast  ;
+	int nFirst,nMid,nLast  ;
 	nFirst = 1 ;
 	nLast = ring_list_getsize(pList) ;
 	while ( nFirst <= nLast ) {
-		nMiddle = (nFirst+nLast)/2 ;
-		if ( ring_list_getdoublecolumn(pList,nMiddle,nColumn,cAttribute) == nNum1 ) {
-			return nMiddle ;
+		nMid = (nFirst+nLast)/2 ;
+		if ( ring_list_getdoublecolumn(pList,nMid,nColumn,cAttribute) == nNum1 ) {
+			return nMid ;
 		}
-		else if ( ring_list_getdoublecolumn(pList,nMiddle,nColumn,cAttribute) < nNum1 ) {
-			nFirst = nMiddle + 1 ;
+		else if ( ring_list_getdoublecolumn(pList,nMid,nColumn,cAttribute) < nNum1 ) {
+			nFirst = nMid + 1 ;
 		}
 		else {
-			nLast = nMiddle - 1 ;
+			nLast = nMid - 1 ;
 		}
 	}
 	return 0 ;
@@ -824,20 +824,20 @@ RING_API int ring_list_binarysearchnum ( List *pList,double nNum1,unsigned int n
 
 RING_API int ring_list_binarysearchstr ( List *pList,const char *cFind,unsigned int nColumn,const char *cAttribute )
 {
-	int nFirst,nMiddle,nLast,nRes  ;
+	int nFirst,nMid,nLast,nRes  ;
 	nFirst = 1 ;
 	nLast = ring_list_getsize(pList) ;
 	while ( nFirst <= nLast ) {
-		nMiddle = (nFirst+nLast)/2 ;
-		nRes = strcmp(ring_list_getstringcolumn(pList,nMiddle,nColumn,cAttribute) ,cFind) ;
+		nMid = (nFirst+nLast)/2 ;
+		nRes = strcmp(ring_list_getstringcolumn(pList,nMid,nColumn,cAttribute) ,cFind) ;
 		if ( nRes == 0 ) {
-			return nMiddle ;
+			return nMid ;
 		}
 		else if ( nRes < 0 ) {
-			nFirst = nMiddle + 1 ;
+			nFirst = nMid + 1 ;
 		}
 		else {
-			nLast = nMiddle - 1 ;
+			nLast = nMid - 1 ;
 		}
 	}
 	return 0 ;
@@ -1090,13 +1090,13 @@ RING_API void ring_list_genhashtable2 ( List *pList )
 
 RING_API void ring_list_swaptwolists ( List *pList1, List *pList2 )
 {
-	List TempList  ;
-	/* Get data from pList1 to TempList */
-	memcpy(&TempList,pList1,sizeof(List));
+	List pTempList  ;
+	/* Get data from pList1 to pTempList */
+	memcpy(&pTempList,pList1,sizeof(List));
 	/* Get data from pList2 to pList1 */
 	memcpy(pList1,pList2,sizeof(List));
-	/* Get data from TempList to pList2 */
-	memcpy(pList2,&TempList,sizeof(List));
+	/* Get data from pTempList to pList2 */
+	memcpy(pList2,&pTempList,sizeof(List));
 }
 /* List Functions that know about using Lists for Ring Objects & C Pointers */
 
