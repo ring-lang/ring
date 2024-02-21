@@ -9,7 +9,7 @@ Type: int
 nCont
 ring_vm_listitem
 Type: String *
-cStr1
+pStr1
 Type: double
 nNum1
 Type: List *
@@ -37,7 +37,7 @@ ring_vm_listassignment
 Type: Item *
 pItem
 Type: String *
-cStr1, *pString
+pStr1, *pString
 Type: double
 nNum1
 Type: List *

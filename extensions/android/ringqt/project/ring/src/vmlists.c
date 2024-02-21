@@ -332,7 +332,7 @@ void ring_vm_loadindexaddress ( VM *pVM )
 void ring_vm_listpushv ( VM *pVM )
 {
 	Item *pItem  ;
-	char cPointer[17]  ;
+	char cPointer[RING_SMALLBUF]  ;
 	pItem = (Item *) RING_VM_STACK_READP ;
 	RING_VM_STACK_POP ;
 	/* Push Item Data */
