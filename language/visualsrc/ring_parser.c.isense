@@ -17,7 +17,7 @@ pPackagesMap
 Type: List *
 pForInVars
 Type: const char *
-TokenText
+cTokenText
 Type: unsigned int
 nClassMark
 Type: unsigned int
@@ -118,7 +118,7 @@ ring_parser_start
 Type: Parser *
 pParser
 Type: int
-nResult,RingActiveFile
+nResult,nRingActiveFile
 ring_parser_new
 Type: Parser *
 pParser
@@ -138,4 +138,4 @@ ring_parser_isanykeyword
 ring_parser_isoperator2
 ring_parser_error
 Type: int
-RingActiveFile
+nRingActiveFile

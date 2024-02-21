@@ -177,7 +177,7 @@
 
 	int ring_parser_nexttoken ( Parser *pParser ) ;
 
-	int ring_parser_iskeyword ( Parser *pParser,SCANNER_KEYWORD x ) ;
+	int ring_parser_iskeyword ( Parser *pParser,SCANNER_KEYWORD nKeyword ) ;
 
 	int ring_parser_isoperator ( Parser *pParser,const char *cStr ) ;
 
@@ -189,7 +189,7 @@
 
 	int ring_parser_isendline ( Parser *pParser ) ;
 
-	int ring_parser_settoken ( Parser *pParser,int x ) ;
+	int ring_parser_settoken ( Parser *pParser,int nToken ) ;
 
 	int ring_parser_isanykeyword ( Parser *pParser ) ;
 

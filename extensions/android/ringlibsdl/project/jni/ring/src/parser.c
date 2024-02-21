@@ -5,7 +5,7 @@
 int ring_parser_start ( List *pTokens,RingState *pRingState )
 {
 	Parser *pParser  ;
-	int nResult,RingActiveFile  ;
+	int nResult,nRingActiveFile  ;
 	pParser = ring_parser_new(pTokens,pRingState);
 	/* Parse Tokens */
 	ring_parser_nexttoken(pParser);
@@ -21,13 +21,13 @@ int ring_parser_start ( List *pTokens,RingState *pRingState )
 		}
 	} while (pParser->nActiveToken !=pParser->nTokensCount)  ;
 	/* Display Errors Count */
-	RingActiveFile = ring_list_getsize(pParser->pRingState->pRingFilesStack);
+	nRingActiveFile = ring_list_getsize(pParser->pRingState->pRingFilesStack);
 	if ( pParser->nErrorsCount == 0 ) {
 		ring_parser_delete(pParser);
 		return 1 ;
 	}
 	else {
-		printf( "\n%s errors count : %d \n",ring_list_getstring(pParser->pRingState->pRingFilesStack,RingActiveFile),pParser->nErrorsCount ) ;
+		printf( "\n%s errors count : %d \n",ring_list_getstring(pParser->pRingState->pRingFilesStack,nRingActiveFile),pParser->nErrorsCount ) ;
 	}
 	ring_parser_delete(pParser);
 	return 0 ;
@@ -104,10 +104,10 @@ int ring_parser_nexttoken ( Parser *pParser )
 	return 0 ;
 }
 
-int ring_parser_iskeyword ( Parser *pParser,SCANNER_KEYWORD x )
+int ring_parser_iskeyword ( Parser *pParser,SCANNER_KEYWORD nKeyword )
 {
 	if ( pParser->nTokenType == SCANNER_TOKEN_KEYWORD ) {
-		if ( ((unsigned int) atoi(pParser->cTokenText)) == ((unsigned int) x) ) {
+		if ( ((unsigned int) atoi(pParser->cTokenText)) == ((unsigned int) nKeyword) ) {
 			return 1 ;
 		}
 	}
@@ -139,10 +139,10 @@ int ring_parser_isendline ( Parser *pParser )
 	return (pParser->nTokenType == SCANNER_TOKEN_ENDLINE) ;
 }
 
-int ring_parser_settoken ( Parser *pParser,int x )
+int ring_parser_settoken ( Parser *pParser,int nToken )
 {
-	if ( (x >= 1) && (x <= pParser->nTokensCount) ) {
-		pParser->nActiveToken = x ;
+	if ( (nToken >= 1) && (nToken <= pParser->nTokensCount) ) {
+		pParser->nActiveToken = nToken ;
 		ring_parser_loadtoken(pParser);
 		return 1 ;
 	}
@@ -162,12 +162,12 @@ int ring_parser_isoperator2 ( Parser *pParser,SCANNER_OPERATOR nType )
 
 void ring_parser_error ( Parser *pParser,const char *cStr )
 {
-	int RingActiveFile  ;
+	int nRingActiveFile  ;
 	ring_state_cgiheader(pParser->pRingState);
-	RingActiveFile = ring_list_getsize(pParser->pRingState->pRingFilesStack);
+	nRingActiveFile = ring_list_getsize(pParser->pRingState->pRingFilesStack);
 	if ( pParser->nErrorLine != pParser->nLineNumber ) {
 		pParser->nErrorLine = pParser->nLineNumber ;
-		printf( "\n%s Line (%d) ",ring_list_getstring(pParser->pRingState->pRingFilesStack,RingActiveFile),pParser->nLineNumber ) ;
+		printf( "\n%s Line (%d) ",ring_list_getstring(pParser->pRingState->pRingFilesStack,nRingActiveFile),pParser->nLineNumber ) ;
 		pParser->nErrorsCount++ ;
 		if ( strcmp(cStr,"") != 0 ) {
 			printf( "%s",cStr ) ;
@@ -181,7 +181,7 @@ void ring_parser_error ( Parser *pParser,const char *cStr )
 		pParser->nErrorsCount++ ;
 	}
 	if ( strcmp(cStr,"") != 0 ) {
-		printf( "\n%s Line (%d) ",ring_list_getstring(pParser->pRingState->pRingFilesStack,RingActiveFile),pParser->nLineNumber ) ;
+		printf( "\n%s Line (%d) ",ring_list_getstring(pParser->pRingState->pRingFilesStack,nRingActiveFile),pParser->nLineNumber ) ;
 		printf( "%s",cStr ) ;
 	}
 }
