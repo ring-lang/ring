@@ -44,6 +44,6 @@ More Improvements
 * Ring VM - OOP Support - Support try/catch when creating new object and the parent class doesn't exist
 * Ring Source Code - Better Format
 * Ring Source Code - Using constants 
-* Ring Source Code - State structure - Better names for the structure members
-* Ring Source Code - Scanner structure - Better names for the structure members
+* Ring Source Code - Structures Members - Better names
+* Ring Source Code - Functions Parameters - Better names
 * Ring Source Code - language/src/rstring.c - ring_string_set2_gc() - Better code
