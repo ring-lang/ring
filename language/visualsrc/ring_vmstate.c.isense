@@ -45,7 +45,7 @@ Type: VMState *
 pVMState
 ring_vm_savestateforbraces
 Type: List *
-pList, *pClass,*aSetProperty
+pList, *pClass,*pSetProperty
 ring_vm_restorestateforbraces
 Type: List *
 pObject

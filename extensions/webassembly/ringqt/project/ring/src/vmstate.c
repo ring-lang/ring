@@ -600,9 +600,9 @@ void ring_vm_restorestateforbraces ( VM *pVM,List *pList )
 	pVM->nInsideBraceFlag = ( ring_list_getsize(pVM->pBraceObjects) > 0 ) ;
 }
 
-void ring_vm_backstate ( VM *pVM,int x,List *pList )
+void ring_vm_backstate ( VM *pVM,int nToSize,List *pList )
 {
-	while ( ring_list_getsize(pList) > x ) {
+	while ( ring_list_getsize(pList) > nToSize ) {
 		ring_list_deleteitem_gc(pVM->pRingState,pList,ring_list_getsize(pList));
 	}
 }

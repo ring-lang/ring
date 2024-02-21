@@ -647,7 +647,7 @@
 	int ring_vm_var_getprivateflag ( VM *pVM,List *pVar ) ;
 	/* Parameters */
 
-	List * ring_vm_addstringarg ( VM *pVM,const char *cVar,const char  *cStr,int nStrSize ) ;
+	List * ring_vm_addstringarg ( VM *pVM,const char *cVar,const char *cStr,int nStrSize ) ;
 
 	List * ring_vm_addnumberarg ( VM *pVM,const char *cVar,double nNumber ) ;
 
@@ -706,7 +706,7 @@
 
 	void ring_vm_blockflag ( VM *pVM ) ;
 
-	void ring_vm_blockflag2 ( VM *pVM,int x ) ;
+	void ring_vm_blockflag2 ( VM *pVM,int nPC ) ;
 
 	void ring_vm_removeblockflag ( VM *pVM ) ;
 
@@ -803,13 +803,13 @@
 
 	int ring_vm_oop_visibleclassescount ( VM *pVM ) ;
 
-	List * ring_vm_oop_visibleclassitem ( VM *pVM,int x ) ;
+	List * ring_vm_oop_visibleclassitem ( VM *pVM,int nIndex ) ;
 
 	void ring_vm_oop_pushclasspackage ( VM *pVM,List *pList ) ;
 
 	void ring_vm_oop_popclasspackage ( VM *pVM ) ;
 
-	void ring_vm_oop_deletepackagesafter ( VM *pVM,int x ) ;
+	void ring_vm_oop_deletepackagesafter ( VM *pVM,int nIndex ) ;
 
 	int ring_vm_oop_callmethodinsideclass ( VM *pVM ) ;
 
@@ -876,7 +876,7 @@
 
 	void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag ) ;
 
-	void ring_vm_backstate ( VM *pVM,int x,List *pList ) ;
+	void ring_vm_backstate ( VM *pVM,int nToSize,List *pList ) ;
 
 	VMState * ring_vm_savestateforfunctions ( VM *pVM ) ;
 

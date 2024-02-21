@@ -712,15 +712,15 @@ int ring_vm_oop_visibleclassescount ( VM *pVM )
 	return ring_list_getsize(pVM->pClassesMap) ;
 }
 
-List * ring_vm_oop_visibleclassitem ( VM *pVM,int x )
+List * ring_vm_oop_visibleclassitem ( VM *pVM,int nIndex )
 {
 	List *pList  ;
-	if ( x <= ring_list_getsize(pVM->pClassesMap) ) {
-		return ring_list_getlist(pVM->pClassesMap,x) ;
+	if ( nIndex <= ring_list_getsize(pVM->pClassesMap) ) {
+		return ring_list_getlist(pVM->pClassesMap,nIndex) ;
 	}
 	pList = (List *) ring_list_getpointer(pVM->pActivePackage,ring_list_getsize(pVM->pActivePackage)) ;
 	pList = ring_list_getlist(pList,RING_PACKAGES_CLASSESLIST) ;
-	pList = ring_list_getlist(pList,x-ring_list_getsize(pVM->pClassesMap)) ;
+	pList = ring_list_getlist(pList,nIndex-ring_list_getsize(pVM->pClassesMap)) ;
 	return pList ;
 }
 
@@ -740,11 +740,11 @@ void ring_vm_oop_popclasspackage ( VM *pVM )
 	}
 }
 
-void ring_vm_oop_deletepackagesafter ( VM *pVM,int x )
+void ring_vm_oop_deletepackagesafter ( VM *pVM,int nIndex )
 {
 	int t  ;
-	if ( x <= ring_list_getsize(pVM->pActivePackage) ) {
-		for ( t = ring_list_getsize(pVM->pActivePackage) ; t > x ; t-- ) {
+	if ( nIndex <= ring_list_getsize(pVM->pActivePackage) ) {
+		for ( t = ring_list_getsize(pVM->pActivePackage) ; t > nIndex ; t-- ) {
 			ring_list_deleteitem_gc(pVM->pRingState,pVM->pActivePackage,t);
 		}
 	}

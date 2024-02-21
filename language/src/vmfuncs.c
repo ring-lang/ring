@@ -344,7 +344,7 @@ void ring_vm_call2 ( VM *pVM )
 void ring_vm_return ( VM *pVM )
 {
 	List *pList  ;
-	Item oTempItem  ;
+	Item vTempItem  ;
 	FuncCall *pFuncCall  ;
 	/* Support for nested "Load" instructions */
 	if ( pVM->nBlockFlag >= 1 ) {
@@ -373,9 +373,9 @@ void ring_vm_return ( VM *pVM )
 			**  Happens when using Return inside braces like : new object { return } 
 			**  Swap Two Items in the Stack (Move the Function Output to Correct Position) 
 			*/
-			oTempItem = pVM->aStack[pVM->nFuncSP+1] ;
+			vTempItem = pVM->aStack[pVM->nFuncSP+1] ;
 			pVM->aStack[pVM->nFuncSP+1] = pVM->aStack[pVM->nSP] ;
-			pVM->aStack[pVM->nSP] = oTempItem ;
+			pVM->aStack[pVM->nSP] = vTempItem ;
 			/* Set the Stack Size to the correct value (Function Output Only) */
 			pVM->nSP = pVM->nFuncSP+1 ;
 		}
@@ -525,12 +525,12 @@ void ring_vm_blockflag ( VM *pVM )
 	ring_vm_blockflag2(pVM,RING_VM_IR_READI);
 }
 
-void ring_vm_blockflag2 ( VM *pVM,int x )
+void ring_vm_blockflag2 ( VM *pVM,int nPC )
 {
 	List *pList  ;
 	pVM->nBlockFlag++ ;
 	pList = ring_list_newlist_gc(pVM->pRingState,pVM->pPCBlockFlag);
-	ring_list_addint_gc(pVM->pRingState,pList,x);
+	ring_list_addint_gc(pVM->pRingState,pList,nPC);
 	/* Save State */
 	ring_list_addint_gc(pVM->pRingState,pList,ring_list_getsize(pVM->pExitMark));
 	ring_list_addint_gc(pVM->pRingState,pList,ring_list_getsize(pVM->pLoopMark));
