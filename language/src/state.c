@@ -270,7 +270,7 @@ RING_API void ring_state_execute ( char *cFileName, int nISCGI,int nRun,int nPri
 
 RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 {
-	RING_FILE fp  ;
+	RING_FILE pFile  ;
 	/* Must be signed char to work fine on Android. */
 	signed char c  ;
 	Scanner *pScanner  ;
@@ -313,19 +313,19 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 	/* Switch To File Folder */
 	strcpy(cFileName2,cFileName);
 	if ( nFreeFilesList == 0 ) {
-		fp = ring_custom_fopen(cFileName , "r");
+		pFile = ring_custom_fopen(cFileName , "r");
 		ring_general_switchtofilefolder(cFileName2);
 	}
 	else {
-		fp = RING_OPENFILE(cFileName , "r");
+		pFile = RING_OPENFILE(cFileName , "r");
 	}
 	/* Read File */
-	if ( fp==NULL ) {
+	if ( pFile==NULL ) {
 		printf( "\nCan't open file %s \n",cFileName ) ;
 		ring_list_deleteitem_gc(pRingState,pRingState->pRingFilesStack,ring_list_getsize(pRingState->pRingFilesStack));
 		return 0 ;
 	}
-	RING_READCHAR(fp,c,nSize);
+	RING_READCHAR(pFile,c,nSize);
 	pScanner = ring_scanner_new(pRingState);
 	/* Check Startup file */
 	if ( ring_general_fexists("startup.ring") && pScanner->pRingState->lStartup == 0 ) {
@@ -356,12 +356,12 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 	nSize = 1 ;
 	while ( (c != EOF) && (nSize != 0) ) {
 		ring_scanner_readchar(pScanner,c);
-		RING_READCHAR(fp,c,nSize);
+		RING_READCHAR(pFile,c,nSize);
 	}
 	nCont = ring_scanner_checklasttoken(pScanner);
 	/* Add Token "End of Line" to the end of any program */
 	ring_scanner_endofline(pScanner);
-	RING_CLOSEFILE(fp);
+	RING_CLOSEFILE(pFile);
 	/* Print Tokens */
 	if ( pRingState->nPrintTokens ) {
 		ring_scanner_printtokens(pScanner);
@@ -481,14 +481,14 @@ void ring_state_cgiheader ( RingState *pRingState )
 	}
 }
 
-void ring_state_segfaultaction ( int sig )
+void ring_state_segfaultaction ( int nSig )
 {
 	if ( nRingStateDEBUGSEGFAULT == 1 ) {
 		if ( nRingStateCGI == 1 ) {
 			printf( "Content-Type: text/plain\n\n" ) ;
 		}
 		printf( RING_SEGFAULT ) ;
-		printf( " : %d ",sig ) ;
+		printf( " : %d ",nSig ) ;
 	}
 	exit(0);
 }

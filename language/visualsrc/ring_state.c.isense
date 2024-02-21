@@ -124,7 +124,7 @@ Type: RingState *
 pRingState
 ring_state_runfile
 Type: RING_FILE
-fp
+pFile
 c
 Type: Scanner *
 pScanner

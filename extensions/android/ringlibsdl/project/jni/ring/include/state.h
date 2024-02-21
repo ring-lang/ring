@@ -113,5 +113,5 @@
 
 	void ring_state_cgiheader ( RingState *pRingState ) ;
 
-	void ring_state_segfaultaction ( int sig ) ;
+	void ring_state_segfaultaction ( int nSig ) ;
 #endif
