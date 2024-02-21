@@ -13,21 +13,21 @@
 	#define ring_string_get(x) (x->cStr)
 	#define RING_MEMCPY(cStrDest,cStrSrc,nSize) do { if ( (nSize) < RING_LOOP_THRESHOLD ) { for ( x = 0 ; x < (nSize) ; x++ ) { (cStrDest)[x] = (cStrSrc)[x] ; } } else { memcpy ((cStrDest), (cStrSrc), (nSize)); } } while (0)
 
-	RING_API String * ring_string_new_gc ( void *pState,const char *str ) ;
+	RING_API String * ring_string_new_gc ( void *pState,const char *cStr ) ;
 
-	RING_API String * ring_string_new2_gc ( void *pState,const char *str,int nStrSize ) ;
+	RING_API String * ring_string_new2_gc ( void *pState,const char *cStr,int nStrSize ) ;
 
 	RING_API String * ring_string_delete_gc ( void *pState,String *pString ) ;
 
 	RING_API int ring_string_size ( String *pString ) ;
 
-	RING_API void ring_string_set_gc ( void *pState,String *pString,const char *str ) ;
+	RING_API void ring_string_set_gc ( void *pState,String *pString,const char *cStr ) ;
 
-	RING_API void ring_string_set2_gc ( void *pState,String *pString,const char *str,int nStrSize ) ;
+	RING_API void ring_string_set2_gc ( void *pState,String *pString,const char *cStr,int nStrSize ) ;
 
-	RING_API void ring_string_add_gc ( void *pState,String *pString,const char *str ) ;
+	RING_API void ring_string_add_gc ( void *pState,String *pString,const char *cStr ) ;
 
-	RING_API void ring_string_add2_gc ( void *pState,String *pString,const char *str,int nStrSize ) ;
+	RING_API void ring_string_add2_gc ( void *pState,String *pString,const char *cStr,int nStrSize ) ;
 
 	RING_API void ring_string_print ( String *pString ) ;
 
@@ -49,17 +49,17 @@
 
 	RING_API char * ring_string_strdup ( void *pState,const char *cStr ) ;
 
-	RING_API String * ring_string_new2 ( const char *str,int nStrSize ) ;
+	RING_API String * ring_string_new2 ( const char *cStr,int nStrSize ) ;
 
-	RING_API String * ring_string_new ( const char *str ) ;
+	RING_API String * ring_string_new ( const char *cStr ) ;
 
-	RING_API void ring_string_add ( String *pString,const char *str ) ;
+	RING_API void ring_string_add ( String *pString,const char *cStr ) ;
 
-	RING_API void ring_string_add2 ( String *pString,const char *str,int nStrSize ) ;
+	RING_API void ring_string_add2 ( String *pString,const char *cStr,int nStrSize ) ;
 
-	RING_API void ring_string_set ( String *pString,const char *str ) ;
+	RING_API void ring_string_set ( String *pString,const char *cStr ) ;
 
-	RING_API void ring_string_set2 ( String *pString,const char *str,int nStrSize ) ;
+	RING_API void ring_string_set2 ( String *pString,const char *cStr,int nStrSize ) ;
 
 	RING_API char * ring_string_find ( char *cStr1,char *cStr2 ) ;
 
