@@ -24,18 +24,18 @@ Type: char
 cStr[RING_CHARBUF]
 ring_vm_generallib_date
 Type: time_t
-timer
+vTimer
 Type: char
-buffer[RING_SMALLBUF]
+cBuffer[RING_SMALLBUF]
 Type: struct tm*
-tm_info
+vTimeInfo
 ring_vm_generallib_time
 Type: time_t
-timer
+vTimer
 Type: char
-buffer[RING_SMALLBUF]
+cBuffer[RING_SMALLBUF]
 Type: struct tm*
-tm_info
+vTimeInfo
 ring_vm_generallib_filename
 Type: VM *
 pVM
@@ -57,18 +57,18 @@ Type: int
 nNum1,nNum2
 ring_vm_generallib_timelist
 Type: time_t
-timer
+vTimer
 Type: char
-buffer[RING_SMALLBUF]
+cBuffer[RING_SMALLBUF]
 Type: struct tm*
-tm_info
+vTimeInfo
 Type: List *
 pList
 ring_vm_generallib_adddays
 Type: const unsigned char *
 cStr
 Type: char
-buffer[RING_SMALLBUF]
+cBuffer[RING_SMALLBUF]
 Type: int
 x,nDay,nMonth,nYear,nDaysInMonth
 Type: int
@@ -77,11 +77,11 @@ ring_vm_generallib_diffdays
 Type: const unsigned char *
 cStr, *cStr2
 Type: struct tm
-tm_info,tm_info2
+vTimeInfo,vTimeInfo2
 Type: time_t
-timer,timer2
+vTimer,vTimer2
 Type: char
-buffer[RING_SMALLBUF]
+cBuffer[RING_SMALLBUF]
 Type: double
 nResult
 ring_vm_generallib_version
@@ -179,7 +179,7 @@ cStr
 Type: int
 x,nNewSize
 Type: char *
-pString
+cString
 ring_vm_generallib_right
 Type: double
 nNum1
@@ -188,7 +188,7 @@ cStr
 Type: int
 x,nSize,nNewSize
 Type: char *
-pString
+cString
 ring_vm_generallib_trim
 Type: const char *
 cStr
@@ -259,7 +259,7 @@ pList
 ring_vm_generallib_nullpointer
 ring_vm_generallib_space
 Type: char *
-pString
+cString
 Type: unsigned int
 nStrSize
 ring_vm_generallib_ptrcmp
@@ -278,11 +278,11 @@ Type: RING_UNSIGNEDINTEGERPOINTER
 nNum
 ring_vm_generallib_memcpy
 Type: void *
-dest
+pDest
 Type: const void *
-src
+pSrc
 Type: size_t
-num
+nNum
 Type: List *
 pList
 ring_vm_generallib_state_init
@@ -302,9 +302,9 @@ ring_vm_generallib_state_main
 Type: char *
 cStr
 Type: int
-argc
+nArgc
 Type: char *
-argv[2]
+pArgv[2]
 ring_vm_generallib_state_setvar
 Type: List *
 pList, *pList2, *pList3
@@ -321,9 +321,9 @@ pRingState
 Type: char *
 cStr
 Type: int
-argc
+nArgc
 Type: char *
-argv[2]
+pArgv[2]
 ring_vm_generallib_state_filetokens
 Type: RingState *
 pState

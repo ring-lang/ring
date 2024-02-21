@@ -237,24 +237,24 @@ void ring_vm_generallib_char ( void *pPointer )
 
 void ring_vm_generallib_date ( void *pPointer )
 {
-	time_t timer  ;
-	char buffer[RING_SMALLBUF]  ;
-	struct tm*tm_info  ;
-	time(&timer);
-	tm_info = localtime(&timer);
-	strftime(buffer,RING_SMALLBUF,"%d/%m/%Y", tm_info);
-	RING_API_RETSTRING(buffer);
+	time_t vTimer  ;
+	char cBuffer[RING_SMALLBUF]  ;
+	struct tm*vTimeInfo  ;
+	time(&vTimer);
+	vTimeInfo = localtime(&vTimer);
+	strftime(cBuffer,RING_SMALLBUF,"%d/%m/%Y", vTimeInfo);
+	RING_API_RETSTRING(cBuffer);
 }
 
 void ring_vm_generallib_time ( void *pPointer )
 {
-	time_t timer  ;
-	char buffer[RING_SMALLBUF]  ;
-	struct tm*tm_info  ;
-	time(&timer);
-	tm_info = localtime(&timer);
-	strftime(buffer,RING_SMALLBUF,"%H:%M:%S", tm_info);
-	RING_API_RETSTRING(buffer);
+	time_t vTimer  ;
+	char cBuffer[RING_SMALLBUF]  ;
+	struct tm*vTimeInfo  ;
+	time(&vTimer);
+	vTimeInfo = localtime(&vTimer);
+	strftime(cBuffer,RING_SMALLBUF,"%H:%M:%S", vTimeInfo);
+	RING_API_RETSTRING(cBuffer);
 }
 
 void ring_vm_generallib_filename ( void *pPointer )
@@ -344,86 +344,86 @@ void ring_vm_generallib_random ( void *pPointer )
 
 void ring_vm_generallib_timelist ( void *pPointer )
 {
-	time_t timer  ;
-	char buffer[RING_SMALLBUF]  ;
-	struct tm*tm_info  ;
+	time_t vTimer  ;
+	char cBuffer[RING_SMALLBUF]  ;
+	struct tm*vTimeInfo  ;
 	List *pList  ;
 	pList = RING_API_NEWLIST ;
-	time(&timer);
-	tm_info = localtime(&timer);
+	time(&vTimer);
+	vTimeInfo = localtime(&vTimer);
 	/*
 	**  Add List Items 
 	**  abbreviated weekday name 
 	*/
-	strftime(buffer,RING_SMALLBUF,"%a", tm_info);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
+	strftime(cBuffer,RING_SMALLBUF,"%a", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
 	/* full weekday name */
-	strftime(buffer,RING_SMALLBUF,"%A", tm_info);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
+	strftime(cBuffer,RING_SMALLBUF,"%A", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
 	/* abbreviated month name */
-	strftime(buffer,RING_SMALLBUF,"%b", tm_info);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
+	strftime(cBuffer,RING_SMALLBUF,"%b", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
 	/* full month name */
-	strftime(buffer,RING_SMALLBUF,"%B", tm_info);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
+	strftime(cBuffer,RING_SMALLBUF,"%B", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
 	/* Date & Time */
-	strftime(buffer,RING_SMALLBUF,"%c", tm_info);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
+	strftime(cBuffer,RING_SMALLBUF,"%c", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
 	/* Day of the month */
-	strftime(buffer,RING_SMALLBUF,"%d", tm_info);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
+	strftime(cBuffer,RING_SMALLBUF,"%d", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
 	/* Hour (24) */
-	strftime(buffer,RING_SMALLBUF,"%H", tm_info);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
+	strftime(cBuffer,RING_SMALLBUF,"%H", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
 	/* Hour (12) */
-	strftime(buffer,RING_SMALLBUF,"%I", tm_info);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
+	strftime(cBuffer,RING_SMALLBUF,"%I", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
 	/* Day of the year */
-	strftime(buffer,RING_SMALLBUF,"%j", tm_info);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
+	strftime(cBuffer,RING_SMALLBUF,"%j", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
 	/* Month of the year */
-	strftime(buffer,RING_SMALLBUF,"%m", tm_info);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
+	strftime(cBuffer,RING_SMALLBUF,"%m", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
 	/* Minutes after hour */
-	strftime(buffer,RING_SMALLBUF,"%M", tm_info);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
+	strftime(cBuffer,RING_SMALLBUF,"%M", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
 	/* AM or PM */
-	strftime(buffer,RING_SMALLBUF,"%p", tm_info);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
+	strftime(cBuffer,RING_SMALLBUF,"%p", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
 	/* Seconds after the hour */
-	strftime(buffer,RING_SMALLBUF,"%S", tm_info);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
+	strftime(cBuffer,RING_SMALLBUF,"%S", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
 	/* Week of the year (sun-sat) */
-	strftime(buffer,RING_SMALLBUF,"%U", tm_info);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
+	strftime(cBuffer,RING_SMALLBUF,"%U", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
 	/* day of the week */
-	strftime(buffer,RING_SMALLBUF,"%w", tm_info);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
+	strftime(cBuffer,RING_SMALLBUF,"%w", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
 	/* date */
-	strftime(buffer,RING_SMALLBUF,"%x", tm_info);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
+	strftime(cBuffer,RING_SMALLBUF,"%x", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
 	/* time */
-	strftime(buffer,RING_SMALLBUF,"%X", tm_info);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
+	strftime(cBuffer,RING_SMALLBUF,"%X", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
 	/* year of the century */
-	strftime(buffer,RING_SMALLBUF,"%y", tm_info);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
+	strftime(cBuffer,RING_SMALLBUF,"%y", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
 	/* year */
-	strftime(buffer,RING_SMALLBUF,"%Y", tm_info);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
+	strftime(cBuffer,RING_SMALLBUF,"%Y", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
 	/* time zone */
-	strftime(buffer,RING_SMALLBUF,"%Z", tm_info);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
+	strftime(cBuffer,RING_SMALLBUF,"%Z", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
 	/* percent sign */
-	strftime(buffer,RING_SMALLBUF,"%%", tm_info);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,buffer);
+	strftime(cBuffer,RING_SMALLBUF,"%%", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
 	RING_API_RETLIST(pList);
 }
 
 void ring_vm_generallib_adddays ( void *pPointer )
 {
 	const unsigned char *cStr  ;
-	char buffer[RING_SMALLBUF]  ;
+	char cBuffer[RING_SMALLBUF]  ;
 	int x,nDay,nMonth,nYear,nDaysInMonth  ;
 	int aDaysInMonth[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 } ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -437,12 +437,12 @@ void ring_vm_generallib_adddays ( void *pPointer )
 	cStr = (const unsigned char *) RING_API_GETSTRING(1) ;
 	if ( (RING_API_GETSTRINGSIZE(1) == 10) ) {
 		if ( isalnum(cStr[0]) && isalnum(cStr[1]) && isalnum(cStr[3]) && isalnum(cStr[4]) && isalnum(cStr[6]) && isalnum(cStr[7]) && isalnum(cStr[8]) && isalnum(cStr[9]) ) {
-			sprintf( buffer , "%c%c" , cStr[0],cStr[1] ) ;
-			nDay = atoi(buffer) + ((int) RING_API_GETNUMBER(2)) ;
-			sprintf( buffer , "%c%c" , cStr[3],cStr[4] ) ;
-			nMonth = atoi(buffer) ;
-			sprintf( buffer , "%c%c%c%c" , cStr[6],cStr[7],cStr[8],cStr[9] ) ;
-			nYear = atoi(buffer) ;
+			sprintf( cBuffer , "%c%c" , cStr[0],cStr[1] ) ;
+			nDay = atoi(cBuffer) + ((int) RING_API_GETNUMBER(2)) ;
+			sprintf( cBuffer , "%c%c" , cStr[3],cStr[4] ) ;
+			nMonth = atoi(cBuffer) ;
+			sprintf( cBuffer , "%c%c%c%c" , cStr[6],cStr[7],cStr[8],cStr[9] ) ;
+			nYear = atoi(cBuffer) ;
 			/* Fix Day Number */
 			nDaysInMonth = aDaysInMonth[nMonth-1] ;
 			/* Fix Leap Year */
@@ -475,13 +475,13 @@ void ring_vm_generallib_adddays ( void *pPointer )
 				}
 				nDay = nDaysInMonth - abs(nDay) ;
 			}
-			sprintf(buffer,"%2d/%2d/%4d", nDay,nMonth,nYear);
+			sprintf(cBuffer,"%2d/%2d/%4d", nDay,nMonth,nYear);
 			for ( x = 0 ; x <= 9 ; x++ ) {
-				if ( buffer[x] == ' ' ) {
-					buffer[x] = '0' ;
+				if ( cBuffer[x] == ' ' ) {
+					cBuffer[x] = '0' ;
 				}
 			}
-			RING_API_RETSTRING(buffer);
+			RING_API_RETSTRING(cBuffer);
 			return ;
 		}
 	}
@@ -492,9 +492,9 @@ void ring_vm_generallib_adddays ( void *pPointer )
 void ring_vm_generallib_diffdays ( void *pPointer )
 {
 	const unsigned char *cStr, *cStr2  ;
-	struct tm tm_info,tm_info2  ;
-	time_t timer,timer2  ;
-	char buffer[RING_SMALLBUF]  ;
+	struct tm vTimeInfo,vTimeInfo2  ;
+	time_t vTimer,vTimer2  ;
+	char cBuffer[RING_SMALLBUF]  ;
 	double nResult  ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -508,17 +508,17 @@ void ring_vm_generallib_diffdays ( void *pPointer )
 	cStr2 = (const unsigned char *) RING_API_GETSTRING(2) ;
 	if ( (RING_API_GETSTRINGSIZE(1) == 10) && (RING_API_GETSTRINGSIZE(2) == 10) ) {
 		if ( isalnum(cStr[0]) && isalnum(cStr[1]) && isalnum(cStr[3]) && isalnum(cStr[4]) && isalnum(cStr[6]) && isalnum(cStr[7]) && isalnum(cStr[8]) && isalnum(cStr[9]) ) {
-			tm_info.tm_hour = 0 ;
-			tm_info.tm_min = 0 ;
-			tm_info.tm_sec = 0 ;
-			sprintf( buffer , "%c%c" , cStr[0],cStr[1] ) ;
-			tm_info.tm_mday = atoi(buffer) ;
-			sprintf( buffer , "%c%c" , cStr[3],cStr[4] ) ;
-			tm_info.tm_mon = atoi(buffer)-1 ;
-			sprintf( buffer , "%c%c%c%c" , cStr[6],cStr[7],cStr[8],cStr[9] ) ;
-			tm_info.tm_year = atoi(buffer) - 1900 ;
-			timer = mktime(&tm_info);
-			if ( tm_info.tm_year > 1097 ) {
+			vTimeInfo.tm_hour = 0 ;
+			vTimeInfo.tm_min = 0 ;
+			vTimeInfo.tm_sec = 0 ;
+			sprintf( cBuffer , "%c%c" , cStr[0],cStr[1] ) ;
+			vTimeInfo.tm_mday = atoi(cBuffer) ;
+			sprintf( cBuffer , "%c%c" , cStr[3],cStr[4] ) ;
+			vTimeInfo.tm_mon = atoi(cBuffer)-1 ;
+			sprintf( cBuffer , "%c%c%c%c" , cStr[6],cStr[7],cStr[8],cStr[9] ) ;
+			vTimeInfo.tm_year = atoi(cBuffer) - 1900 ;
+			vTimer = mktime(&vTimeInfo);
+			if ( vTimeInfo.tm_year > 1097 ) {
 				/*
 				**  1097 + 1900 = 2997 
 				**  Values over limit may cause crash 
@@ -527,17 +527,17 @@ void ring_vm_generallib_diffdays ( void *pPointer )
 				return ;
 			}
 			if ( isalnum(cStr2[0]) && isalnum(cStr2[1]) && isalnum(cStr2[3]) && isalnum(cStr2[4]) && isalnum(cStr2[6]) && isalnum(cStr2[7]) && isalnum(cStr2[8]) && isalnum(cStr2[9]) ) {
-				tm_info2.tm_hour = 0 ;
-				tm_info2.tm_min = 0 ;
-				tm_info2.tm_sec = 0 ;
-				sprintf( buffer , "%c%c" , cStr2[0],cStr2[1] ) ;
-				tm_info2.tm_mday = atoi(buffer) ;
-				sprintf( buffer , "%c%c" , cStr2[3],cStr2[4] ) ;
-				tm_info2.tm_mon = atoi(buffer)-1 ;
-				sprintf( buffer , "%c%c%c%c" , cStr2[6],cStr2[7],cStr2[8],cStr2[9] ) ;
-				tm_info2.tm_year = atoi(buffer) - 1900 ;
-				timer2 = mktime(&tm_info2);
-				if ( tm_info2.tm_year > 1097 ) {
+				vTimeInfo2.tm_hour = 0 ;
+				vTimeInfo2.tm_min = 0 ;
+				vTimeInfo2.tm_sec = 0 ;
+				sprintf( cBuffer , "%c%c" , cStr2[0],cStr2[1] ) ;
+				vTimeInfo2.tm_mday = atoi(cBuffer) ;
+				sprintf( cBuffer , "%c%c" , cStr2[3],cStr2[4] ) ;
+				vTimeInfo2.tm_mon = atoi(cBuffer)-1 ;
+				sprintf( cBuffer , "%c%c%c%c" , cStr2[6],cStr2[7],cStr2[8],cStr2[9] ) ;
+				vTimeInfo2.tm_year = atoi(cBuffer) - 1900 ;
+				vTimer2 = mktime(&vTimeInfo2);
+				if ( vTimeInfo2.tm_year > 1097 ) {
 					/*
 					**  1097 + 1900 = 2997 
 					**  Values over limit may cause crash 
@@ -545,7 +545,7 @@ void ring_vm_generallib_diffdays ( void *pPointer )
 					RING_API_ERROR(RING_API_BADPARARANGE);
 					return ;
 				}
-				nResult = difftime(timer,timer2);
+				nResult = difftime(vTimer,vTimer2);
 				nResult  = ceil(ceil(nResult) / 86400 ) ;
 				RING_API_RETNUMBER(nResult);
 				return ;
@@ -1094,7 +1094,7 @@ void ring_vm_generallib_left ( void *pPointer )
 	double nNum1  ;
 	const char *cStr  ;
 	int x,nNewSize  ;
-	char *pString  ;
+	char *cString  ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -1107,8 +1107,8 @@ void ring_vm_generallib_left ( void *pPointer )
 				nNewSize = (int) nNum1 ;
 				/* Pre-allocated the return value on the stack */
 				RING_API_RETSTRINGSIZE(nNewSize);
-				pString = ring_string_get(RING_API_GETSTRINGRAW);
-				RING_MEMCPY(pString,cStr,nNewSize);
+				cString = ring_string_get(RING_API_GETSTRINGRAW);
+				RING_MEMCPY(cString,cStr,nNewSize);
 			}
 		}
 		else {
@@ -1126,7 +1126,7 @@ void ring_vm_generallib_right ( void *pPointer )
 	double nNum1  ;
 	const char *cStr  ;
 	int x,nSize,nNewSize  ;
-	char *pString  ;
+	char *cString  ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -1140,8 +1140,8 @@ void ring_vm_generallib_right ( void *pPointer )
 				nNewSize = (int) nNum1 ;
 				/* Pre-allocated the return value on the stack */
 				RING_API_RETSTRINGSIZE(nNewSize);
-				pString = ring_string_get(RING_API_GETSTRINGRAW);
-				RING_MEMCPY(pString,cStr+(nSize-nNewSize),nNewSize);
+				cString = ring_string_get(RING_API_GETSTRINGRAW);
+				RING_MEMCPY(cString,cStr+(nSize-nNewSize),nNewSize);
 			}
 		}
 		else {
@@ -1671,7 +1671,7 @@ void ring_vm_generallib_nullpointer ( void *pPointer )
 
 void ring_vm_generallib_space ( void *pPointer )
 {
-	char *pString  ;
+	char *cString  ;
 	unsigned int nStrSize  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -1683,10 +1683,10 @@ void ring_vm_generallib_space ( void *pPointer )
 			return ;
 		}
 		nStrSize = (unsigned int) RING_API_GETNUMBER(1) ;
-		pString = (char *) RING_API_MALLOC(nStrSize);
-		memset(pString,' ',nStrSize);
-		RING_API_RETSTRING2(pString,nStrSize);
-		RING_API_FREE(pString);
+		cString = (char *) RING_API_MALLOC(nStrSize);
+		memset(cString,' ',nStrSize);
+		RING_API_RETSTRING2(cString,nStrSize);
+		RING_API_FREE(cString);
 	}
 	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
@@ -1769,9 +1769,9 @@ void ring_vm_generallib_getpointer ( void *pPointer )
 
 void ring_vm_generallib_memcpy ( void *pPointer )
 {
-	void *dest  ;
-	const void *src  ;
-	size_t num  ;
+	void *pDest  ;
+	const void *pSrc  ;
+	size_t nNum  ;
 	List *pList  ;
 	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 3 ) {
@@ -1784,22 +1784,22 @@ void ring_vm_generallib_memcpy ( void *pPointer )
 	}
 	/* Get Parameters */
 	if ( RING_API_ISSTRING(1) ) {
-		dest = (void *) RING_API_GETSTRING(1) ;
+		pDest = (void *) RING_API_GETSTRING(1) ;
 	}
 	if ( RING_API_ISCPOINTER(1) ) {
 		pList = RING_API_GETLIST(1) ;
-		dest = (void *) ring_list_getpointer(pList,RING_CPOINTER_POINTER) ;
+		pDest = (void *) ring_list_getpointer(pList,RING_CPOINTER_POINTER) ;
 	}
 	if ( RING_API_ISSTRING(2) ) {
-		src = (const void *) RING_API_GETSTRING(2) ;
+		pSrc = (const void *) RING_API_GETSTRING(2) ;
 	}
 	if ( RING_API_ISCPOINTER(2) ) {
 		pList = RING_API_GETLIST(2) ;
-		src = (const void *) ring_list_getpointer(pList,RING_CPOINTER_POINTER) ;
+		pSrc = (const void *) ring_list_getpointer(pList,RING_CPOINTER_POINTER) ;
 	}
-	num = (size_t) RING_API_GETNUMBER(3) ;
+	nNum = (size_t) RING_API_GETNUMBER(3) ;
 	/* Call Function */
-	memcpy(dest,src,num);
+	memcpy(pDest,pSrc,nNum);
 }
 /* Ring State */
 
@@ -1872,17 +1872,17 @@ void ring_vm_generallib_state_runobjectfile ( void *pPointer )
 void ring_vm_generallib_state_main ( void *pPointer )
 {
 	char *cStr  ;
-	int argc  ;
-	char *argv[2]  ;
-	argv[0] = (char *) RING_API_MALLOC(RING_MEDIUMBUF);
-	argv[1] = (char *) RING_API_MALLOC(RING_MEDIUMBUF);
+	int nArgc  ;
+	char *pArgv[2]  ;
+	pArgv[0] = (char *) RING_API_MALLOC(RING_MEDIUMBUF);
+	pArgv[1] = (char *) RING_API_MALLOC(RING_MEDIUMBUF);
 	cStr = RING_API_GETSTRING(1);
-	argc = 2 ;
-	strcpy(argv[0],"ring");
-	strcpy(argv[1],cStr);
-	ring_state_execute(cStr,RING_FALSE,RING_TRUE,RING_FALSE,RING_FALSE,RING_FALSE,RING_FALSE,RING_FALSE,RING_FALSE,RING_FALSE,RING_FALSE,argc,argv);
-	RING_API_FREE(argv[0]);
-	RING_API_FREE(argv[1]);
+	nArgc = 2 ;
+	strcpy(pArgv[0],"ring");
+	strcpy(pArgv[1],cStr);
+	ring_state_execute(cStr,RING_FALSE,RING_TRUE,RING_FALSE,RING_FALSE,RING_FALSE,RING_FALSE,RING_FALSE,RING_FALSE,RING_FALSE,RING_FALSE,nArgc,pArgv);
+	RING_API_FREE(pArgv[0]);
+	RING_API_FREE(pArgv[1]);
 }
 
 void ring_vm_generallib_state_setvar ( void *pPointer )
@@ -1940,21 +1940,21 @@ void ring_vm_generallib_state_mainfile ( void *pPointer )
 {
 	RingState *pRingState  ;
 	char *cStr  ;
-	int argc  ;
-	char *argv[2]  ;
-	argv[0] = (char *) RING_API_MALLOC(RING_MEDIUMBUF);
-	argv[1] = (char *) RING_API_MALLOC(RING_MEDIUMBUF);
+	int nArgc  ;
+	char *pArgv[2]  ;
+	pArgv[0] = (char *) RING_API_MALLOC(RING_MEDIUMBUF);
+	pArgv[1] = (char *) RING_API_MALLOC(RING_MEDIUMBUF);
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
 	pRingState = (RingState *) RING_API_GETCPOINTER(1,"RINGSTATE") ;
 	cStr = RING_API_GETSTRING(2);
-	argc = 2 ;
-	strcpy(argv[0],"ring");
-	strcpy(argv[1],cStr);
-	pRingState->nArgc = argc ;
-	pRingState->pArgv = argv ;
+	nArgc = 2 ;
+	strcpy(pArgv[0],"ring");
+	strcpy(pArgv[1],cStr);
+	pRingState->nArgc = nArgc ;
+	pRingState->pArgv = pArgv ;
 	/*
 	**  Don't Delete the VM after execution 
 	**  We may run GUI app from GUI app 
