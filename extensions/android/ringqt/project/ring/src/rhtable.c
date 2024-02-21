@@ -49,22 +49,22 @@ HashItem * ring_hashtable_newitem_gc ( void *pRingState,HashTable *pHashTable,co
 	return pItem ;
 }
 
-void ring_hashtable_newnumber_gc ( void *pRingState,HashTable *pHashTable,const char *cKey,int x )
+void ring_hashtable_newnumber_gc ( void *pRingState,HashTable *pHashTable,const char *cKey,int nNumber )
 {
 	HashItem *pItem  ;
 	pItem = ring_hashtable_newitem_gc(pRingState,pHashTable,cKey);
 	pItem->nItemType = RING_HASHITEMTYPE_NUMBER ;
-	pItem->HashValue.nIndex = x ;
+	pItem->HashValue.nIndex = nNumber ;
 	/* Check Rebuilding the HashTable */
 	ring_hashtable_rebuild_gc(pRingState,pHashTable);
 }
 
-void ring_hashtable_newpointer_gc ( void *pRingState,HashTable *pHashTable,const char *cKey,void *x )
+void ring_hashtable_newpointer_gc ( void *pRingState,HashTable *pHashTable,const char *cKey,void *pPointer )
 {
 	HashItem *pItem  ;
 	pItem = ring_hashtable_newitem_gc(pRingState,pHashTable,cKey);
 	pItem->nItemType = RING_HASHITEMTYPE_POINTER ;
-	pItem->HashValue.pValue = x ;
+	pItem->HashValue.pValue = pPointer ;
 	/* Check Rebuilding the HashTable */
 	ring_hashtable_rebuild_gc(pRingState,pHashTable);
 }
@@ -225,12 +225,12 @@ void ring_hashtable_rebuild ( HashTable *pHashTable )
 	ring_hashtable_rebuild_gc(NULL,pHashTable);
 }
 
-void ring_hashtable_newnumber ( HashTable *pHashTable,const char *cKey,int x )
+void ring_hashtable_newnumber ( HashTable *pHashTable,const char *cKey,int nNumber )
 {
-	ring_hashtable_newnumber_gc(NULL,pHashTable,cKey,x);
+	ring_hashtable_newnumber_gc(NULL,pHashTable,cKey,nNumber);
 }
 
-void ring_hashtable_newpointer ( HashTable *pHashTable,const char *cKey,void *x )
+void ring_hashtable_newpointer ( HashTable *pHashTable,const char *cKey,void *pPointer )
 {
-	ring_hashtable_newpointer_gc(NULL,pHashTable,cKey,x);
+	ring_hashtable_newpointer_gc(NULL,pHashTable,cKey,pPointer);
 }
