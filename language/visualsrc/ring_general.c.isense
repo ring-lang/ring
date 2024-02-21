@@ -2,7 +2,7 @@ GetCurrentDir
 GetCurrentDir
 ring_general_fexists
 Type: FILE *
-fp
+pFile
 ring_general_currentdir
 Type: int
 nSize
@@ -35,16 +35,16 @@ x
 ring_general_printline
 ring_general_showtime
 Type: time_t
-timer
+vTimer
 Type: char
-buffer[RING_MEDIUMBUF]
+ccBuffer[RING_MEDIUMBUF]
 Type: struct tm*
 tm_info
 Type: clock_t
 myclock
 ring_custom_fopen
 Type: RING_FILE
-fp
+pFile
 Type: int
 nLen1,nLen2,nFileNameSize,nModeSize
 Type: wchar_t

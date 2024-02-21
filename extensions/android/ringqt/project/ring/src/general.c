@@ -7,10 +7,10 @@
 
 int ring_general_fexists ( const char *cFileName )
 {
-	FILE *fp  ;
-	fp = fopen(cFileName , "r" );
-	if ( fp ) {
-		fclose( fp ) ;
+	FILE *pFile  ;
+	pFile = fopen(cFileName , "r" );
+	if ( pFile ) {
+		fclose( pFile ) ;
 		return 1 ;
 	}
 	return 0 ;
@@ -160,18 +160,18 @@ RING_API void ring_general_printline ( void )
 
 void ring_general_showtime ( void )
 {
-	time_t timer  ;
-	char buffer[RING_MEDIUMBUF]  ;
-	struct tm*tm_info  ;
-	clock_t myclock  ;
-	time(&timer);
-	tm_info = localtime(&timer);
-	strftime(buffer,RING_MEDIUMBUF,"Date  : %Y/%m/%d Time : %H:%M:%S", tm_info);
+	time_t vTimer  ;
+	char cBuffer[RING_MEDIUMBUF]  ;
+	struct tm*vTimeInfo  ;
+	clock_t vClock  ;
+	time(&vTimer);
+	vTimeInfo = localtime(&vTimer);
+	strftime(cBuffer,RING_MEDIUMBUF,"Date  : %Y/%m/%d Time : %H:%M:%S", vTimeInfo);
 	printf( "\n" ) ;
 	ring_general_printline();
-	puts(buffer);
-	myclock = clock();
-	printf( "Clock : %ld \n", myclock ) ;
+	puts(cBuffer);
+	vClock = clock();
+	printf( "Clock : %ld \n", vClock ) ;
 	ring_general_printline();
 }
 
@@ -179,7 +179,7 @@ RING_FILE ring_custom_fopen ( const char*cFileName, const char*cMode )
 {
 	#if defined(_WIN32) && ! defined(__TINYC__)
 		/* Code For MS-Windows */
-		RING_FILE fp  ;
+		RING_FILE pFile  ;
 		int nLen1,nLen2,nFileNameSize,nModeSize  ;
 		wchar_t cPath[MAX_PATH]  ;
 		wchar_t cWMode[MAX_PATH]  ;
@@ -201,8 +201,8 @@ RING_FILE ring_custom_fopen ( const char*cFileName, const char*cMode )
 			return NULL ;
 		}
 		cWMode[nLen2] = L'\0' ;
-		fp = _wfopen(cPath, cWMode);
-		return fp ;
+		pFile = _wfopen(cPath, cWMode);
+		return pFile ;
 	#else
 		return RING_OPENFILE(cFileName, cMode) ;
 	#endif
