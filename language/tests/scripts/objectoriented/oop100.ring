@@ -1,7 +1,7 @@
 # When we create an object it will contains the Super attribute
 # We can't modify this attribute
 #
-# Also, if we have a global variabel called Super when can't access it
+# Also, if we have a global variable called Super then we can't access it
 # directly from the class 
 
 super = :GOOD
