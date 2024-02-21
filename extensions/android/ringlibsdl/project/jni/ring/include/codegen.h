@@ -183,7 +183,7 @@
 	#define ring_parser_icg_setoperationatpos(pParser,x,y) ring_list_setint(ring_parser_icg_getoperationlist(pParser,x),RING_PARSER_ICG_OPERATIONCODE,y)
 	/* Generate Intermediate Code */
 
-	void ring_parser_icg_newoperation ( Parser *pParser , IC_OPERATIONS opcode ) ;
+	void ring_parser_icg_newoperation ( Parser *pParser , IC_OPERATIONS nOPCode ) ;
 
 	void ring_parser_icg_newoperand ( Parser *pParser , const char *cStr ) ;
 
@@ -209,7 +209,7 @@
 
 	int ring_parser_icg_newlabel2 ( Parser *pParser ) ;
 
-	void ring_parser_icg_insertoperation ( Parser *pParser , int nPos , IC_OPERATIONS opcode ) ;
+	void ring_parser_icg_insertoperation ( Parser *pParser , int nPos , IC_OPERATIONS nOPCode ) ;
 
 	void ring_parser_icg_setopcode ( Parser *pParser ,List *pList , int nValue ) ;
 

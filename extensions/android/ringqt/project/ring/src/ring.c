@@ -2,8 +2,8 @@
 
 #include "ring.h"
 
-int main ( int argc, char *argv[] )
+int main ( int nArgc, char *pArgv[] )
 {
-	ring_state_main(argc,argv);
+	ring_state_main(nArgc,pArgv);
 	return 0 ;
 }

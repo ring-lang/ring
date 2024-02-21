@@ -2,21 +2,21 @@
 
 #include "ring.h"
 
-void ring_parser_icg_newoperation ( Parser *pParser , IC_OPERATIONS opcode )
+void ring_parser_icg_newoperation ( Parser *pParser , IC_OPERATIONS nOPCode )
 {
 	if ( pParser->nInsertFlag == 1 ) {
-		ring_parser_icg_insertoperation(pParser,pParser->nInsertCounter,opcode);
+		ring_parser_icg_insertoperation(pParser,pParser->nInsertCounter,nOPCode);
 		pParser->nInsertCounter++ ;
 		return ;
 	}
 	pParser->pActiveGenCodeList = ring_list_newlist_gc(NULL,pParser->pGenCode);
-	ring_list_addint_gc(NULL,pParser->pActiveGenCodeList,opcode);
+	ring_list_addint_gc(NULL,pParser->pActiveGenCodeList,nOPCode);
 }
 
-void ring_parser_icg_insertoperation ( Parser *pParser , int nPos , IC_OPERATIONS opcode )
+void ring_parser_icg_insertoperation ( Parser *pParser , int nPos , IC_OPERATIONS nOPCode )
 {
 	pParser->pActiveGenCodeList = ring_list_insertlist(pParser->pGenCode,nPos);
-	ring_list_addint_gc(NULL,pParser->pActiveGenCodeList,opcode);
+	ring_list_addint_gc(NULL,pParser->pActiveGenCodeList,nOPCode);
 }
 
 void ring_parser_icg_newoperand ( Parser *pParser , const char *cStr )
