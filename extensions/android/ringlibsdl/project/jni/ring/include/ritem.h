@@ -39,12 +39,12 @@
 	#define ITEM_NUMBERFLAG_DOUBLE 2
 	#define ITEM_OBJTYPE_NOTHING 0
 	/* Macro */
-	#define ring_item_getstring(x) x->data.pString
-	#define ring_item_getdouble(x) x->data.dNumber
-	#define ring_item_getint(x) x->data.iNumber
-	#define ring_item_getlist(x) x->data.pList
-	#define ring_item_getpointer(x) x->data.pPointer
-	#define ring_item_gettype(x) x->nType
+	#define ring_item_getstring(pItem) pItem->data.pString
+	#define ring_item_getdouble(pItem) pItem->data.dNumber
+	#define ring_item_getint(pItem) pItem->data.iNumber
+	#define ring_item_getlist(pItem) pItem->data.pList
+	#define ring_item_getpointer(pItem) pItem->data.pPointer
+	#define ring_item_gettype(pItem) pItem->nType
 	#define ring_itemarray_getint(pList,nIndex) ( pList[nIndex].data.iNumber )
 	#define ring_itemarray_getpointer(pList,nIndex) ( pList[nIndex].data.pPointer )
 	#define ring_itemarray_getdouble(pList,nIndex) pList[nIndex].data.dNumber
@@ -55,10 +55,10 @@
 	#define ring_itemarray_isstring(pList,nIndex) (pList[nIndex].nType == ITEMTYPE_STRING)
 	#define ring_itemarray_isnumber(pList,nIndex) (pList[nIndex].nType == ITEMTYPE_NUMBER)
 	#define ring_itemarray_ispointer(pList,nIndex) (pList[nIndex].nType == ITEMTYPE_POINTER)
-	#define ring_item_isstring(x) (x->nType == ITEMTYPE_STRING)
-	#define ring_item_islist(x) (x->nType == ITEMTYPE_LIST)
-	#define ring_item_isdouble(x) ( (x->nType == ITEMTYPE_NUMBER) && ( x->nNumberFlag == ITEM_NUMBERFLAG_DOUBLE ) )
-	#define ring_item_incdouble(x) ++x->data.dNumber
+	#define ring_item_isstring(pItem) (pItem->nType == ITEMTYPE_STRING)
+	#define ring_item_islist(pItem) (pItem->nType == ITEMTYPE_LIST)
+	#define ring_item_isdouble(pItem) ( (pItem->nType == ITEMTYPE_NUMBER) && ( pItem->nNumberFlag == ITEM_NUMBERFLAG_DOUBLE ) )
+	#define ring_item_incdouble(pItem) ++pItem->data.dNumber
 	/* Functions */
 
 	RING_API Item * ring_item_new_gc ( void *pState,unsigned int nItemType ) ;
