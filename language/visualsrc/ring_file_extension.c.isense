@@ -20,55 +20,55 @@ stat _stat
 ring_vm_file_loadfunctions
 ring_vm_file_fopen
 Type: FILE *
-fp
+pFile
 ring_vm_file_fclose
 Type: FILE *
-fp
+pFile
 ring_vm_file_fflush
 Type: FILE *
-fp
+pFile
 ring_vm_file_freopen
 Type: FILE *
-fp
+pFile
 Type: FILE *
-fp2
+pFile2
 ring_vm_file_tempfile
 Type: FILE *
-fp
+pFile
 ring_vm_file_fseek
 Type: int
 nResult
 Type: FILE *
-fp
+pFile
 ring_vm_file_ftell
 Type: FILE *
-fp
+pFile
 ring_vm_file_rewind
 Type: FILE *
-fp
+pFile
 ring_vm_file_fgetpos
 Type: fpos_t *
-pos
+pPos
 Type: int
 nResult
 Type: FILE *
-fp
+pFile
 ring_vm_file_fsetpos
 Type: int
 nResult
 Type: FILE *
-fp
+pFile
 Type: fpos_t *
-pos
+pPos
 ring_vm_file_clearerr
 Type: FILE *
-fp
+pFile
 ring_vm_file_feof
 Type: FILE *
-fp
+pFile
 ring_vm_file_ferror
 Type: FILE *
-fp
+pFile
 ring_vm_file_perror
 ring_vm_file_rename
 ring_vm_file_remove
@@ -77,31 +77,31 @@ Type: int
 c
 cStr
 Type: FILE *
-fp
+pFile
 ring_vm_file_fgets
 Type: char *
 cStr
 Type: int
 nSize
 Type: FILE *
-fp
+pFile
 Type: char *
 cResult
 ring_vm_file_fputc
 Type: int
 c
 Type: FILE *
-fp
+pFile
 ring_vm_file_fputs
 Type: int
 c
 Type: FILE *
-fp
+pFile
 ring_vm_file_ungetc
 Type: int
 c
 Type: FILE *
-fp
+pFile
 ring_vm_file_fread
 Type: char *
 cStr
@@ -110,22 +110,22 @@ nSize
 Type: int
 nResult
 Type: FILE *
-fp
+pFile
 ring_vm_file_fwrite
 Type: int
 nResult
 Type: FILE *
-fp
+pFile
 ring_vm_file_read
 Type: FILE *
-fp
+pFile
 Type: long int
 nSize
 Type: char *
 cBuffer
 ring_vm_file_write
 Type: FILE *
-fp
+pFile
 ring_vm_file_int2bytes
 Type: Ring_uData
 uData
@@ -152,7 +152,7 @@ Type: int
 x
 ring_vm_file_freefunc
 Type: FILE *
-fp
+pFile
 ring_fexists_general
 Type: struct _stat
 sb

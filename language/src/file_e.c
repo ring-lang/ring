@@ -49,14 +49,14 @@ void ring_vm_file_loadfunctions ( RingState *pRingState )
 
 void ring_vm_file_fopen ( void *pPointer )
 {
-	FILE *fp  ;
+	FILE *pFile  ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
 	if ( RING_API_ISSTRING(1) && RING_API_ISSTRING(2) ) {
-		fp = (FILE *) ring_custom_fopen(RING_API_GETSTRING(1),RING_API_GETSTRING(2));
-		RING_API_RETMANAGEDCPOINTER(fp,RING_VM_POINTER_FILE,ring_vm_file_freefunc);
+		pFile = (FILE *) ring_custom_fopen(RING_API_GETSTRING(1),RING_API_GETSTRING(2));
+		RING_API_RETMANAGEDCPOINTER(pFile,RING_VM_POINTER_FILE,ring_vm_file_freefunc);
 	}
 	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
@@ -65,15 +65,15 @@ void ring_vm_file_fopen ( void *pPointer )
 
 void ring_vm_file_fclose ( void *pPointer )
 {
-	FILE *fp  ;
+	FILE *pFile  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
 	if ( RING_API_ISPOINTER(1) ) {
-		fp = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
-		if ( fp != NULL ) {
-			RING_API_RETNUMBER(fclose(fp));
+		pFile = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
+		if ( pFile != NULL ) {
+			RING_API_RETNUMBER(fclose(pFile));
 			RING_API_SETNULLPOINTER(1);
 		}
 		else {
@@ -87,15 +87,15 @@ void ring_vm_file_fclose ( void *pPointer )
 
 void ring_vm_file_fflush ( void *pPointer )
 {
-	FILE *fp  ;
+	FILE *pFile  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
 	if ( RING_API_ISPOINTER(1) ) {
-		fp = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
-		if ( fp != NULL ) {
-			RING_API_RETNUMBER(fflush(fp));
+		pFile = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
+		if ( pFile != NULL ) {
+			RING_API_RETNUMBER(fflush(pFile));
 		}
 	}
 	else {
@@ -105,17 +105,17 @@ void ring_vm_file_fflush ( void *pPointer )
 
 void ring_vm_file_freopen ( void *pPointer )
 {
-	FILE *fp  ;
-	FILE *fp2  ;
+	FILE *pFile  ;
+	FILE *pFile2  ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
 	if ( RING_API_ISSTRING(1) && RING_API_ISSTRING(2) && RING_API_ISPOINTER(3) ) {
-		fp = (FILE *) RING_API_GETCPOINTER(3,RING_VM_POINTER_FILE) ;
-		if ( fp != NULL ) {
-			fp2 = freopen(RING_API_GETSTRING(1),RING_API_GETSTRING(2),fp);
-			RING_API_RETCPOINTER(fp2,RING_VM_POINTER_FILE);
+		pFile = (FILE *) RING_API_GETCPOINTER(3,RING_VM_POINTER_FILE) ;
+		if ( pFile != NULL ) {
+			pFile2 = freopen(RING_API_GETSTRING(1),RING_API_GETSTRING(2),pFile);
+			RING_API_RETCPOINTER(pFile2,RING_VM_POINTER_FILE);
 		}
 	}
 	else {
@@ -125,23 +125,23 @@ void ring_vm_file_freopen ( void *pPointer )
 
 void ring_vm_file_tempfile ( void *pPointer )
 {
-	FILE *fp  ;
-	fp = tmpfile();
-	RING_API_RETMANAGEDCPOINTER(fp,RING_VM_POINTER_FILE,ring_vm_file_freefunc);
+	FILE *pFile  ;
+	pFile = tmpfile();
+	RING_API_RETMANAGEDCPOINTER(pFile,RING_VM_POINTER_FILE,ring_vm_file_freefunc);
 }
 
 void ring_vm_file_fseek ( void *pPointer )
 {
 	int nResult  ;
-	FILE *fp  ;
+	FILE *pFile  ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
 	if ( RING_API_ISPOINTER(1) && RING_API_ISNUMBER(2) && RING_API_ISNUMBER(3) ) {
-		fp = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
-		if ( fp != NULL ) {
-			nResult = fseek(fp,RING_API_GETNUMBER(2),RING_API_GETNUMBER(3));
+		pFile = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
+		if ( pFile != NULL ) {
+			nResult = fseek(pFile,RING_API_GETNUMBER(2),RING_API_GETNUMBER(3));
 			RING_API_RETNUMBER(nResult);
 		}
 	}
@@ -152,15 +152,15 @@ void ring_vm_file_fseek ( void *pPointer )
 
 void ring_vm_file_ftell ( void *pPointer )
 {
-	FILE *fp  ;
+	FILE *pFile  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
 	if ( RING_API_ISPOINTER(1) ) {
-		fp = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
-		if ( fp != NULL ) {
-			RING_API_RETNUMBER(ftell(fp));
+		pFile = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
+		if ( pFile != NULL ) {
+			RING_API_RETNUMBER(ftell(pFile));
 		}
 	}
 	else {
@@ -170,15 +170,15 @@ void ring_vm_file_ftell ( void *pPointer )
 
 void ring_vm_file_rewind ( void *pPointer )
 {
-	FILE *fp  ;
+	FILE *pFile  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
 	if ( RING_API_ISPOINTER(1) ) {
-		fp = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
-		if ( fp != NULL ) {
-			rewind(fp);
+		pFile = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
+		if ( pFile != NULL ) {
+			rewind(pFile);
 		}
 	}
 	else {
@@ -188,20 +188,20 @@ void ring_vm_file_rewind ( void *pPointer )
 
 void ring_vm_file_fgetpos ( void *pPointer )
 {
-	fpos_t *pos  ;
+	fpos_t *pPos  ;
 	int nResult  ;
-	FILE *fp  ;
+	FILE *pFile  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
 	if ( RING_API_ISPOINTER(1) ) {
-		fp = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
-		if ( fp != NULL ) {
-			pos = (fpos_t *) RING_API_MALLOC(sizeof(fpos_t));
-			nResult = fgetpos(fp,pos);
+		pFile = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
+		if ( pFile != NULL ) {
+			pPos = (fpos_t *) RING_API_MALLOC(sizeof(fpos_t));
+			nResult = fgetpos(pFile,pPos);
 			if ( nResult == 0 ) {
-				RING_API_RETMANAGEDCPOINTER(pos,RING_VM_POINTER_FILEPOS,RING_API_FREEFUNC);
+				RING_API_RETMANAGEDCPOINTER(pPos,RING_VM_POINTER_FILEPOS,RING_API_FREEFUNC);
 			}
 			else {
 				RING_API_RETNUMBER(nResult);
@@ -216,17 +216,17 @@ void ring_vm_file_fgetpos ( void *pPointer )
 void ring_vm_file_fsetpos ( void *pPointer )
 {
 	int nResult  ;
-	FILE *fp  ;
-	fpos_t *pos  ;
+	FILE *pFile  ;
+	fpos_t *pPos  ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
 	if ( RING_API_ISPOINTER(1) && RING_API_ISPOINTER(2) ) {
-		fp = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
-		pos = (fpos_t *) RING_API_GETCPOINTER(2,RING_VM_POINTER_FILEPOS) ;
-		if ( (fp != NULL)  && (pos != NULL) ) {
-			nResult = fsetpos(fp,pos);
+		pFile = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
+		pPos = (fpos_t *) RING_API_GETCPOINTER(2,RING_VM_POINTER_FILEPOS) ;
+		if ( (pFile != NULL)  && (pPos != NULL) ) {
+			nResult = fsetpos(pFile,pPos);
 			RING_API_RETNUMBER(nResult);
 		}
 	}
@@ -237,15 +237,15 @@ void ring_vm_file_fsetpos ( void *pPointer )
 
 void ring_vm_file_clearerr ( void *pPointer )
 {
-	FILE *fp  ;
+	FILE *pFile  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
 	if ( RING_API_ISPOINTER(1) ) {
-		fp = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
-		if ( fp != NULL ) {
-			clearerr(fp);
+		pFile = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
+		if ( pFile != NULL ) {
+			clearerr(pFile);
 		}
 	}
 	else {
@@ -255,15 +255,15 @@ void ring_vm_file_clearerr ( void *pPointer )
 
 void ring_vm_file_feof ( void *pPointer )
 {
-	FILE *fp  ;
+	FILE *pFile  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
 	if ( RING_API_ISPOINTER(1) ) {
-		fp = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
-		if ( fp != NULL ) {
-			RING_API_RETNUMBER(feof(fp));
+		pFile = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
+		if ( pFile != NULL ) {
+			RING_API_RETNUMBER(feof(pFile));
 		}
 	}
 	else {
@@ -273,15 +273,15 @@ void ring_vm_file_feof ( void *pPointer )
 
 void ring_vm_file_ferror ( void *pPointer )
 {
-	FILE *fp  ;
+	FILE *pFile  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
 	if ( RING_API_ISPOINTER(1) ) {
-		fp = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
-		if ( fp != NULL ) {
-			RING_API_RETNUMBER(ferror(fp));
+		pFile = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
+		if ( pFile != NULL ) {
+			RING_API_RETNUMBER(ferror(pFile));
 		}
 	}
 	else {
@@ -335,15 +335,15 @@ void ring_vm_file_fgetc ( void *pPointer )
 {
 	int c  ;
 	char cStr[RING_CHARBUF]  ;
-	FILE *fp  ;
+	FILE *pFile  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
 	if ( RING_API_ISPOINTER(1) ) {
-		fp = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
-		if ( fp != NULL ) {
-			c = fgetc(fp);
+		pFile = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
+		if ( pFile != NULL ) {
+			c = fgetc(pFile);
 			if ( c != EOF ) {
 				cStr[0] = c ;
 				cStr[1] = '\0' ;
@@ -363,15 +363,15 @@ void ring_vm_file_fgets ( void *pPointer )
 {
 	char *cStr  ;
 	int nSize  ;
-	FILE *fp  ;
+	FILE *pFile  ;
 	char *cResult  ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
 	if ( RING_API_ISPOINTER(1) && RING_API_ISNUMBER(2) ) {
-		fp = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
-		if ( fp != NULL ) {
+		pFile = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
+		if ( pFile != NULL ) {
 			nSize = RING_API_GETNUMBER(2) ;
 			if ( nSize < 1 ) {
 				RING_API_ERROR(RING_VM_FILE_BUFFERSIZE);
@@ -379,7 +379,7 @@ void ring_vm_file_fgets ( void *pPointer )
 			}
 			nSize++ ;
 			cStr = (char *) RING_API_MALLOC(nSize);
-			cResult = fgets(cStr,nSize,fp);
+			cResult = fgets(cStr,nSize,pFile);
 			if ( cResult != NULL ) {
 				RING_API_RETSTRING(cStr);
 			}
@@ -397,15 +397,15 @@ void ring_vm_file_fgets ( void *pPointer )
 void ring_vm_file_fputc ( void *pPointer )
 {
 	int c  ;
-	FILE *fp  ;
+	FILE *pFile  ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
 	if ( RING_API_ISPOINTER(1) && RING_API_ISSTRING(2) ) {
-		fp = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
-		if ( fp != NULL ) {
-			c = fputc(RING_API_GETSTRING(2)[0],fp);
+		pFile = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
+		if ( pFile != NULL ) {
+			c = fputc(RING_API_GETSTRING(2)[0],pFile);
 			if ( c != EOF ) {
 				RING_API_RETNUMBER(1);
 			}
@@ -422,15 +422,15 @@ void ring_vm_file_fputc ( void *pPointer )
 void ring_vm_file_fputs ( void *pPointer )
 {
 	int c  ;
-	FILE *fp  ;
+	FILE *pFile  ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
 	if ( RING_API_ISPOINTER(1) && RING_API_ISSTRING(2) ) {
-		fp = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
-		if ( fp != NULL ) {
-			c = fputs(RING_API_GETSTRING(2),fp);
+		pFile = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
+		if ( pFile != NULL ) {
+			c = fputs(RING_API_GETSTRING(2),pFile);
 			if ( c != EOF ) {
 				RING_API_RETNUMBER(1);
 			}
@@ -447,15 +447,15 @@ void ring_vm_file_fputs ( void *pPointer )
 void ring_vm_file_ungetc ( void *pPointer )
 {
 	int c  ;
-	FILE *fp  ;
+	FILE *pFile  ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
 	if ( RING_API_ISPOINTER(1) && RING_API_ISSTRING(2) ) {
-		fp = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
-		if ( fp != NULL ) {
-			c = ungetc(RING_API_GETSTRING(2)[0],fp);
+		pFile = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
+		if ( pFile != NULL ) {
+			c = ungetc(RING_API_GETSTRING(2)[0],pFile);
 			if ( c != EOF ) {
 				RING_API_RETNUMBER(1);
 			}
@@ -474,21 +474,21 @@ void ring_vm_file_fread ( void *pPointer )
 	char *cStr  ;
 	int nSize  ;
 	int nResult  ;
-	FILE *fp  ;
+	FILE *pFile  ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
 	if ( RING_API_ISPOINTER(1) && RING_API_ISNUMBER(2) ) {
-		fp = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
-		if ( fp != NULL ) {
+		pFile = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
+		if ( pFile != NULL ) {
 			nSize = RING_API_GETNUMBER(2) ;
 			if ( nSize < 1 ) {
 				RING_API_ERROR(RING_VM_FILE_BUFFERSIZE);
 				return ;
 			}
 			cStr = (char *) RING_API_MALLOC(nSize);
-			nResult = fread(cStr,RING_ONE,nSize,fp);
+			nResult = fread(cStr,RING_ONE,nSize,pFile);
 			if ( nResult == 0 ) {
 				RING_API_RETNUMBER(nResult);
 			}
@@ -506,15 +506,15 @@ void ring_vm_file_fread ( void *pPointer )
 void ring_vm_file_fwrite ( void *pPointer )
 {
 	int nResult  ;
-	FILE *fp  ;
+	FILE *pFile  ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
 	if ( RING_API_ISPOINTER(1) && RING_API_ISSTRING(2) ) {
-		fp = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
-		if ( fp != NULL ) {
-			nResult = fwrite(RING_API_GETSTRING(2),RING_ONE,RING_API_GETSTRINGSIZE(2) ,fp);
+		pFile = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
+		if ( pFile != NULL ) {
+			nResult = fwrite(RING_API_GETSTRING(2),RING_ONE,RING_API_GETSTRINGSIZE(2) ,pFile);
 			RING_API_RETNUMBER(nResult);
 		}
 	}
@@ -525,7 +525,7 @@ void ring_vm_file_fwrite ( void *pPointer )
 
 void ring_vm_file_read ( void *pPointer )
 {
-	FILE *fp  ;
+	FILE *pFile  ;
 	long int nSize  ;
 	char *cBuffer  ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -533,17 +533,17 @@ void ring_vm_file_read ( void *pPointer )
 		return ;
 	}
 	if ( RING_API_ISSTRING(1) ) {
-		fp = (FILE *) ring_custom_fopen(RING_API_GETSTRING(1) , "rb");
-		if ( fp == NULL ) {
+		pFile = (FILE *) ring_custom_fopen(RING_API_GETSTRING(1) , "rb");
+		if ( pFile == NULL ) {
 			RING_API_ERROR(RING_VM_ERROR_CANTOPENFILE);
 			return ;
 		}
-		fseek( fp , 0 , SEEK_END );
-		nSize = ftell(fp);
-		fseek( fp , 0 , SEEK_SET );
+		fseek( pFile , 0 , SEEK_END );
+		nSize = ftell(pFile);
+		fseek( pFile , 0 , SEEK_SET );
 		cBuffer = (char *) RING_API_MALLOC(nSize);
-		fread( cBuffer , 1 , nSize , fp );
-		fclose( fp ) ;
+		fread( cBuffer , 1 , nSize , pFile );
+		fclose( pFile ) ;
 		RING_API_RETSTRING2(cBuffer,nSize);
 		RING_API_FREE(cBuffer);
 	}
@@ -554,21 +554,21 @@ void ring_vm_file_read ( void *pPointer )
 
 void ring_vm_file_write ( void *pPointer )
 {
-	FILE *fp  ;
+	FILE *pFile  ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
 	if ( RING_API_ISSTRING(1) ) {
 		if ( RING_API_ISSTRING(2) ) {
-			fp = (FILE *) ring_custom_fopen(RING_API_GETSTRING(1) , "w+b");
-			if ( fp == NULL ) {
+			pFile = (FILE *) ring_custom_fopen(RING_API_GETSTRING(1) , "w+b");
+			if ( pFile == NULL ) {
 				RING_API_ERROR(RING_VM_ERROR_CANTOPENFILE);
 				return ;
 			}
-			fwrite( RING_API_GETSTRING(2) , RING_API_GETSTRINGSIZE(2) , 1 , fp );
-			fflush(fp);
-			fclose( fp ) ;
+			fwrite( RING_API_GETSTRING(2) , RING_API_GETSTRINGSIZE(2) , 1 , pFile );
+			fflush(pFile);
+			fclose( pFile ) ;
 		}
 		else {
 			RING_API_ERROR("Error in second parameter, Function requires string !");
@@ -691,9 +691,9 @@ void ring_vm_file_bytes2double ( void *pPointer )
 
 void ring_vm_file_freefunc ( void *pRingState,void *pPointer )
 {
-	FILE *fp  ;
-	fp = (FILE *) pPointer ;
-	fclose( fp ) ;
+	FILE *pFile  ;
+	pFile = (FILE *) pPointer ;
+	fclose( pFile ) ;
 }
 #if RING_MSDOS
 #else
