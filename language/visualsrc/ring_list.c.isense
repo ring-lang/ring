@@ -53,8 +53,8 @@ RING_LISTBLOCKTYPE_LIST
 RING_LIST_KEYINDEX
 ring_list_isdouble(pList,nIndex)
 ring_list_isint(pList,nIndex)
-ring_list_deletelastitem(x)
-ring_list_gethashtable(x)
+ring_list_deletelastitem(pList)
+ring_list_gethashtable(pList)
 ring_list_getint(pList,nIndex)
 ring_list_getpointer(pList,nIndex)
 ring_list_getpointertype(pList,nIndex)
@@ -64,8 +64,8 @@ ring_list_getdouble(pList,nIndex)
 ring_list_getstring(pList,nIndex)
 ring_list_getstringobject(pList,nIndex)
 ring_list_getstringsize(pList,nIndex)
-ring_list_getsize(x)
-ring_list_deletelastitem_gc(s,x)
+ring_list_getsize(pList)
+ring_list_deletelastitem_gc(pState,pList)
 ring_list_incdouble(pList,nIndex)
 ring_list_new_gc
 Type: List *
@@ -219,10 +219,10 @@ Type: String *
 pMidvalue
 ring_list_binarysearchnum
 Type: int
-nFirst,nMiddle,nLast
+nFirst,nMid,nLast
 ring_list_binarysearchstr
 Type: int
-nFirst,nMiddle,nLast,nRes
+nFirst,nMid,nLast,nRes
 ring_list_swap
 Type: Item *
 pItem

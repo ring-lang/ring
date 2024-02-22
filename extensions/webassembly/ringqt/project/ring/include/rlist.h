@@ -32,19 +32,19 @@
 	/* Macro */
 	#define ring_list_isdouble(pList,nIndex) ( ring_list_getitem(pList,nIndex)->nNumberFlag == ITEM_NUMBERFLAG_DOUBLE)
 	#define ring_list_isint(pList,nIndex) ( ring_list_getitem(pList,nIndex)->nNumberFlag == ITEM_NUMBERFLAG_INT )
-	#define ring_list_deletelastitem(x) ring_list_deleteitem(x,ring_list_getsize(x))
-	#define ring_list_gethashtable(x) (x->pHashTable)
+	#define ring_list_deletelastitem(pList) ring_list_deleteitem(pList,ring_list_getsize(pList))
+	#define ring_list_gethashtable(pList) (pList->pHashTable)
 	#define ring_list_getint(pList,nIndex) ( ring_list_getitem(pList,nIndex)->data.iNumber )
 	#define ring_list_getpointer(pList,nIndex) ( ring_list_getitem(pList,nIndex)->data.pPointer )
 	#define ring_list_getpointertype(pList,nIndex) ( ring_list_getitem(pList,nIndex)->nObjectType )
 	#define ring_list_getfuncpointer(pList,nIndex) ( ring_list_getitem(pList,nIndex)->data.pFunc )
-	#define ring_list_callfuncpointer(pList,nIndex,x) ( ring_list_getitem(pList,nIndex)->data.pFunc(x) )
+	#define ring_list_callfuncpointer(pList,nIndex,pPointer) ( ring_list_getitem(pList,nIndex)->data.pFunc(pPointer) )
 	#define ring_list_getdouble(pList,nIndex) ring_list_getitem(pList,nIndex)->data.dNumber
 	#define ring_list_getstring(pList,nIndex) ( ring_string_get(ring_item_getstring(ring_list_getitem(pList,nIndex))) )
 	#define ring_list_getstringobject(pList,nIndex) ( ring_item_getstring(ring_list_getitem(pList,nIndex)) )
 	#define ring_list_getstringsize(pList,nIndex) ( ring_string_size(ring_item_getstring(ring_list_getitem(pList,nIndex))) )
-	#define ring_list_getsize(x) (x->nSize)
-	#define ring_list_deletelastitem_gc(s,x) ring_list_deleteitem_gc(s,x,ring_list_getsize(x))
+	#define ring_list_getsize(pList) (pList->nSize)
+	#define ring_list_deletelastitem_gc(pState,pList) ring_list_deleteitem_gc(pState,pList,ring_list_getsize(pList))
 	#define ring_list_incdouble(pList,nIndex) ++ring_list_getitem(pList,nIndex)->data.dNumber
 	/*
 	**  Functions 
