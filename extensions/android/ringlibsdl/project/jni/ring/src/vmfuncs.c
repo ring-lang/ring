@@ -544,9 +544,9 @@ void ring_vm_removeblockflag ( VM *pVM )
 	pVM->nPC = ring_list_getint(pList,RING_PCBLOCKFLAG_PC);
 	pVM->nBlockFlag-- ;
 	/* Restore State */
-	ring_vm_backstate(pVM,ring_list_getint(pList,RING_PCBLOCKFLAG_EXITMARK),pVM->pExitMark);
-	ring_vm_backstate(pVM,ring_list_getint(pList,RING_PCBLOCKFLAG_LOOPMARK),pVM->pLoopMark);
-	ring_vm_backstate(pVM,ring_list_getint(pList,RING_PCBLOCKFLAG_TRY),pVM->pTry);
+	ring_vm_backstate(pVM,pVM->pExitMark,ring_list_getint(pList,RING_PCBLOCKFLAG_EXITMARK));
+	ring_vm_backstate(pVM,pVM->pLoopMark,ring_list_getint(pList,RING_PCBLOCKFLAG_LOOPMARK));
+	ring_vm_backstate(pVM,pVM->pTry,ring_list_getint(pList,RING_PCBLOCKFLAG_TRY));
 	ring_list_deleteitem_gc(pVM->pRingState,pVM->pPCBlockFlag,ring_list_getsize(pVM->pPCBlockFlag));
 }
 

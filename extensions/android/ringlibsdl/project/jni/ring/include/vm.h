@@ -876,7 +876,7 @@
 
 	void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag ) ;
 
-	void ring_vm_backstate ( VM *pVM,int nToSize,List *pList ) ;
+	void ring_vm_backstate ( VM *pVM,List *pList,int nToSize ) ;
 
 	VMState * ring_vm_savestateforfunctions ( VM *pVM ) ;
 

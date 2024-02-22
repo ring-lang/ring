@@ -20,7 +20,7 @@ ring_vm_return
 Type: List *
 pList
 Type: Item
-oTempItem
+vTempItem
 Type: FuncCall *
 pFuncCall
 ring_vm_returnnull
