@@ -1,25 +1,9 @@
+/* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #ifndef ring_hashlib_h
 	#define ring_hashlib_h
 
-	unsigned ring_hash(unsigned pid);
+	unsigned ring_xor_hash(unsigned char *cKey, int nLen);
 
-	unsigned ring_add_hash(unsigned char *key, int len);
-
-	unsigned ring_xor_hash(unsigned char *key, int len);
-
-	unsigned ring_rot_hash(unsigned char *key, int len);
-
-	unsigned ring_djb_hash(unsigned char *key, int len);
-
-	unsigned ring_sax_hash(unsigned char *key, int len);
-
-	unsigned ring_fnv_hash(unsigned char *key, int len);
-
-	unsigned ring_oat_hash(unsigned char *key, int len);
-
-	unsigned ring_elf_hash(unsigned char *key, int len);
-
-	unsigned ring_jen_hash(unsigned char *k, unsigned length, unsigned initval);
-
-	unsigned int ring_murmur3_32(const char *key, unsigned int len, unsigned int seed) ;	
+	unsigned int ring_murmur3_32(const char *cKey, unsigned int nLen, unsigned int nSeed) ;	
 #endif
