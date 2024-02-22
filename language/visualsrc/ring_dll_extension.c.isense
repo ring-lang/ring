@@ -1,5 +1,5 @@
 ring_dll_extension_h
-LoadDLL(x)
+LoadDLL(cFileName)
 GetDLLFunc
 CloseDLL
 LpHandleType
@@ -10,7 +10,7 @@ LpHandleType
 ring_vm_dll_loadfunctions
 ring_vm_dll_loadlib
 Type: LpHandleType
-handle
+pHandle
 Type: const char *
 cDLL
 Type: loadlibfuncptr
@@ -21,7 +21,7 @@ Type: RingState *
 pRingState
 ring_vm_dll_closelib
 Type: LpHandleType
-handle
+pHandle
 Type: int
 nIndex
 Type: VM *
@@ -30,4 +30,4 @@ ring_vm_dll_closealllibs
 Type: int
 x
 Type: LpHandleType
-handle
+pHandle

@@ -4,7 +4,7 @@
 	#define ring_dll_extension_h
 	#ifdef _WIN32
 		#include <windows.h>
-		#define LoadDLL(x) LoadLibrary(x)
+		#define LoadDLL(cFileName) LoadLibrary(cFileName)
 		#define GetDLLFunc GetProcAddress
 		#define CloseDLL FreeLibrary
 		typedef HINSTANCE LpHandleType ;
@@ -13,7 +13,7 @@
 		#else
 			#include <dlfcn.h>
 		#endif
-		#define LoadDLL(x) dlopen(x, RTLD_LAZY)
+		#define LoadDLL(cFileName) dlopen(cFileName, RTLD_LAZY)
 		#define GetDLLFunc dlsym
 		#define CloseDLL dlclose
 		typedef void * LpHandleType ;
