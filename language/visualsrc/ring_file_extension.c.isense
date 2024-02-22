@@ -3,7 +3,8 @@ RING_VM_FILE_BUFFERSIZE
 RING_VM_POINTER_FILE
 RING_VM_POINTER_FILEPOS
 RING_API_BADDIRECTORY
-Parent: Ring_uData
+RING_NUMDATA_SIZE
+Parent: NumData
 Type: int
 iNumber
 Type: float
@@ -12,8 +13,8 @@ Type: double
 dNumber
 cBytes
 END:
-Type: Ring_uData
-Ring_uData
+Type: NumData
+NumData
 S_ISREG(m)
 S_ISDIR(m)
 stat _stat
@@ -127,26 +128,26 @@ ring_vm_file_write
 Type: FILE *
 pFile
 ring_vm_file_int2bytes
-Type: Ring_uData
+Type: NumData
 uData
 ring_vm_file_float2bytes
-Type: Ring_uData
+Type: NumData
 uData
 ring_vm_file_double2bytes
-Type: Ring_uData
+Type: NumData
 uData
 ring_vm_file_bytes2int
-Type: Ring_uData
+Type: NumData
 uData
 Type: int
 x
 ring_vm_file_bytes2float
-Type: Ring_uData
+Type: NumData
 uData
 Type: int
 x
 ring_vm_file_bytes2double
-Type: Ring_uData
+Type: NumData
 uData
 Type: int
 x

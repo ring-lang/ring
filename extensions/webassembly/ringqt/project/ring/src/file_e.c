@@ -583,7 +583,7 @@ void ring_vm_file_write ( void *pPointer )
 
 void ring_vm_file_int2bytes ( void *pPointer )
 {
-	Ring_uData uData  ;
+	NumData uData  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -599,7 +599,7 @@ void ring_vm_file_int2bytes ( void *pPointer )
 
 void ring_vm_file_float2bytes ( void *pPointer )
 {
-	Ring_uData uData  ;
+	NumData uData  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -615,7 +615,7 @@ void ring_vm_file_float2bytes ( void *pPointer )
 
 void ring_vm_file_double2bytes ( void *pPointer )
 {
-	Ring_uData uData  ;
+	NumData uData  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -631,7 +631,7 @@ void ring_vm_file_double2bytes ( void *pPointer )
 
 void ring_vm_file_bytes2int ( void *pPointer )
 {
-	Ring_uData uData  ;
+	NumData uData  ;
 	int x  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -651,7 +651,7 @@ void ring_vm_file_bytes2int ( void *pPointer )
 
 void ring_vm_file_bytes2float ( void *pPointer )
 {
-	Ring_uData uData  ;
+	NumData uData  ;
 	int x  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -671,7 +671,7 @@ void ring_vm_file_bytes2float ( void *pPointer )
 
 void ring_vm_file_bytes2double ( void *pPointer )
 {
-	Ring_uData uData  ;
+	NumData uData  ;
 	int x  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);

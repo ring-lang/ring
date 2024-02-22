@@ -90,13 +90,14 @@
 	#define RING_VM_POINTER_FILE "file"
 	#define RING_VM_POINTER_FILEPOS "filepos"
 	#define RING_API_BADDIRECTORY "Error, Couldn't open the directory"
+	#define RING_NUMDATA_SIZE 8
 	/* Data */
-	typedef union Ring_uData {
+	typedef union NumData {
 		int iNumber  ;
 		float fNumber  ;
 		double dNumber  ;
-		char cBytes[8]  ;
-	} Ring_uData ;
+		char cBytes[RING_NUMDATA_SIZE]  ;
+	} NumData ;
 	#include <sys/types.h>
 	#include <sys/stat.h>
 	#ifdef _WIN32
