@@ -109,22 +109,22 @@
 	RING_API int ring_list_iserroronassignment2 ( List *pList ) ;
 	/* Memory Functions (General) */
 
-	RING_API void * ring_malloc ( size_t size ) ;
+	RING_API void * ring_malloc ( size_t nSize ) ;
 
-	RING_API void ring_free ( void *ptr ) ;
+	RING_API void ring_free ( void *pPointer ) ;
 
-	RING_API void * ring_calloc ( size_t nitems, size_t size ) ;
+	RING_API void * ring_calloc ( size_t nItems, size_t nSize ) ;
 
-	RING_API void * ring_realloc ( void *ptr, size_t size ) ;
+	RING_API void * ring_realloc ( void *pPointer, size_t nSize ) ;
 	/* Memory Functions (Ring StateAware) */
 
-	RING_API void * ring_state_malloc ( void *pState,size_t size ) ;
+	RING_API void * ring_state_malloc ( void *pState,size_t nSize ) ;
 
 	RING_API void ring_state_free ( void *pState,void *pMemory ) ;
 
-	RING_API void * ring_state_calloc ( void *pState,size_t nitems, size_t size ) ;
+	RING_API void * ring_state_calloc ( void *pState,size_t nItems, size_t nSize ) ;
 
-	RING_API void * ring_state_realloc ( void *pState,void *ptr,size_t nAllocatedSize,size_t size ) ;
+	RING_API void * ring_state_realloc ( void *pState,void *pPointer,size_t nAllocatedSize,size_t nSize ) ;
 
 	void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem ) ;
 
@@ -137,7 +137,7 @@
 
 	void ring_poolmanager_newblock ( RingState *pRingState ) ;
 
-	void * ring_poolmanager_allocate ( RingState *pRingState,size_t size ) ;
+	void * ring_poolmanager_allocate ( RingState *pRingState,size_t nSize ) ;
 
 	int ring_poolmanager_find ( RingState *pRingState,void *pMemory ) ;
 

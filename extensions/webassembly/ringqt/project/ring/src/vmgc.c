@@ -710,52 +710,52 @@ RING_API void ring_list_disableerroronassignment2 ( List *pList )
 }
 /* Memory Functions (General) */
 
-RING_API void * ring_malloc ( size_t size )
+RING_API void * ring_malloc ( size_t nSize )
 {
 	void *pMemory  ;
-	pMemory = malloc(size) ;
+	pMemory = malloc(nSize) ;
 	/* Check Memory */
 	if ( pMemory == NULL ) {
 		printf( RING_OOM ) ;
-		printf( "Ring (MALLOC) - Can't allocate %lu bytes\n",(unsigned long) size ) ;
+		printf( "Ring (MALLOC) - Can't allocate %lu bytes\n",(unsigned long) nSize ) ;
 		exit(1);
 	}
 	return pMemory ;
 }
 
-RING_API void ring_free ( void *ptr )
+RING_API void ring_free ( void *pPointer )
 {
-	free( ptr ) ;
+	free( pPointer ) ;
 }
 
-RING_API void * ring_calloc ( size_t nitems, size_t size )
+RING_API void * ring_calloc ( size_t nItems, size_t nSize )
 {
 	void *pMemory  ;
-	pMemory = calloc(nitems,size) ;
+	pMemory = calloc(nItems,nSize) ;
 	/* Check Memory */
 	if ( pMemory == NULL ) {
 		printf( RING_OOM ) ;
-		printf( "Ring (CALLOC) - Can't allocate %lu bytes\n",(unsigned long) (nitems*size) ) ;
+		printf( "Ring (CALLOC) - Can't allocate %lu bytes\n",(unsigned long) (nItems*nSize) ) ;
 		exit(1);
 	}
 	return pMemory ;
 }
 
-RING_API void * ring_realloc ( void *ptr, size_t size )
+RING_API void * ring_realloc ( void *pPointer, size_t nSize )
 {
 	void *pMemory  ;
-	pMemory = realloc(ptr,size) ;
+	pMemory = realloc(pPointer,nSize) ;
 	/* Check Memory */
 	if ( pMemory == NULL ) {
 		printf( RING_OOM ) ;
-		printf( "Ring (REALLOC) - Can't allocate %lu bytes\n",(unsigned long) size ) ;
+		printf( "Ring (REALLOC) - Can't allocate %lu bytes\n",(unsigned long) nSize ) ;
 		exit(1);
 	}
 	return pMemory ;
 }
 /* Memory Functions (RingState Aware) */
 
-RING_API void * ring_state_malloc ( void *pState,size_t size )
+RING_API void * ring_state_malloc ( void *pState,size_t nSize )
 {
 	#if RING_USEPOOLMANAGER
 		if ( pState != NULL ) {
@@ -764,14 +764,14 @@ RING_API void * ring_state_malloc ( void *pState,size_t size )
 			#endif
 			if ( ! ((RingState *) pState)->lDisablePoolManager ) {
 				if ( ((RingState *) pState)->pVM != NULL ) {
-					if ( size <= sizeof(PoolDataL3) ) {
-						return ring_poolmanager_allocate((RingState *) pState,size) ;
+					if ( nSize <= sizeof(PoolDataL3) ) {
+						return ring_poolmanager_allocate((RingState *) pState,nSize) ;
 					}
 				}
 			}
 		}
 	#endif
-	return ring_malloc(size) ;
+	return ring_malloc(nSize) ;
 }
 
 RING_API void ring_state_free ( void *pState,void *pMemory )
@@ -813,7 +813,7 @@ RING_API void ring_state_free ( void *pState,void *pMemory )
 	ring_free(pMemory);
 }
 
-RING_API void * ring_state_calloc ( void *pState,size_t nitems, size_t size )
+RING_API void * ring_state_calloc ( void *pState,size_t nItems, size_t nSize )
 {
 	void *pMem  ;
 	size_t nTotal  ;
@@ -822,7 +822,7 @@ RING_API void * ring_state_calloc ( void *pState,size_t nitems, size_t size )
 			#if RING_TRACKALLOCATIONS
 				((RingState *) pState)->vPoolManager.nAllocCount++ ;
 			#endif
-			nTotal = nitems*size ;
+			nTotal = nItems*nSize ;
 			if ( (nTotal <= sizeof(PoolDataL3) ) && (! ((RingState *) pState)->lDisablePoolManager) ) {
 				if ( ((RingState *) pState)->pVM != NULL ) {
 					pMem = ring_poolmanager_allocate((RingState *) pState,nTotal) ;
@@ -832,10 +832,10 @@ RING_API void * ring_state_calloc ( void *pState,size_t nitems, size_t size )
 			}
 		}
 	#endif
-	return ring_calloc(nitems,size) ;
+	return ring_calloc(nItems,nSize) ;
 }
 
-RING_API void * ring_state_realloc ( void *pState,void *ptr,size_t nAllocatedSize,size_t size )
+RING_API void * ring_state_realloc ( void *pState,void *pPointer,size_t nAllocatedSize,size_t nSize )
 {
 	#if RING_USEPOOLMANAGER
 		void *pMemory  ;
@@ -849,16 +849,16 @@ RING_API void * ring_state_realloc ( void *pState,void *ptr,size_t nAllocatedSiz
 				((RingState *) pState)->vPoolManager.nAllocCount++ ;
 			#endif
 			if ( ((RingState *) pState)->pVM != NULL ) {
-				nLevel = ring_poolmanager_find((RingState *) pState,ptr) ;
+				nLevel = ring_poolmanager_find((RingState *) pState,pPointer) ;
 				/* Level 1 */
 				if ( nLevel == 1 ) {
-					pPoolData = (PoolData*) ptr ;
-					if ( size <= sizeof(PoolData) ) {
+					pPoolData = (PoolData*) pPointer ;
+					if ( nSize <= sizeof(PoolData) ) {
 						/*
 						**  The Pointer belong to memory pool and new size less than RING_POOLMANAGER_ITEMSIZE 
 						**  In this case, just return the same pointer since we have space for the new data 
 						*/
-						return ptr ;
+						return pPointer ;
 					}
 					else {
 						nUseMalloc = 1 ;
@@ -866,9 +866,9 @@ RING_API void * ring_state_realloc ( void *pState,void *ptr,size_t nAllocatedSiz
 				}
 				/* Level 2 */
 				else if ( nLevel == 2 ) {
-					pPoolDataL2 = (PoolDataL2*) ptr ;
-					if ( size <= sizeof(PoolDataL2) ) {
-						return ptr ;
+					pPoolDataL2 = (PoolDataL2*) pPointer ;
+					if ( nSize <= sizeof(PoolDataL2) ) {
+						return pPointer ;
 					}
 					else {
 						nUseMalloc = 1 ;
@@ -876,9 +876,9 @@ RING_API void * ring_state_realloc ( void *pState,void *ptr,size_t nAllocatedSiz
 				}
 				/* Level 3 */
 				else if ( nLevel == 3 ) {
-					pPoolDataL3 = (PoolDataL3*) ptr ;
-					if ( size <= sizeof(PoolDataL3) ) {
-						return ptr ;
+					pPoolDataL3 = (PoolDataL3*) pPointer ;
+					if ( nSize <= sizeof(PoolDataL3) ) {
+						return pPointer ;
 					}
 					else {
 						nUseMalloc = 1 ;
@@ -886,18 +886,18 @@ RING_API void * ring_state_realloc ( void *pState,void *ptr,size_t nAllocatedSiz
 				}
 				if ( nUseMalloc == 1 ) {
 					/* Allocate new buffer, copy data to it and then free existing pointer from pool */
-					pMemory = ring_state_malloc(pState,size);
+					pMemory = ring_state_malloc(pState,nSize);
 					/* Copy existing data */
 					for ( x = 0 ; x < nAllocatedSize ; x++ ) {
-						((unsigned char*) pMemory)[x] = ((unsigned char*) ptr)[x] ;
+						((unsigned char*) pMemory)[x] = ((unsigned char*) pPointer)[x] ;
 					}
-					ring_poolmanager_free(((RingState *) pState),ptr);
+					ring_poolmanager_free(((RingState *) pState),pPointer);
 					return pMemory ;
 				}
 			}
 		}
 	#endif
-	return ring_realloc(ptr,size) ;
+	return ring_realloc(pPointer,nSize) ;
 }
 
 RING_API void ring_state_registerblock ( void *pState,void *pStart, void *pEnd )
@@ -1047,7 +1047,7 @@ void ring_poolmanager_newblock ( RingState *pRingState )
 	pRingState->vPoolManager.nSmallFreeCount = 0 ;
 }
 
-void * ring_poolmanager_allocate ( RingState *pRingState,size_t size )
+void * ring_poolmanager_allocate ( RingState *pRingState,size_t nSize )
 {
 	void *pMemory  ;
 	pMemory = NULL ;
@@ -1056,23 +1056,23 @@ void * ring_poolmanager_allocate ( RingState *pRingState,size_t size )
 		ring_poolmanager_newblock(pRingState);
 	}
 	/* Get Item from the Pool Manager */
-	if ( (size <= sizeof(PoolData)) && pRingState->vPoolManager.pCurrentItem != NULL ) {
+	if ( (nSize <= sizeof(PoolData)) && pRingState->vPoolManager.pCurrentItem != NULL ) {
 		pMemory = pRingState->vPoolManager.pCurrentItem ;
 		pRingState->vPoolManager.pCurrentItem = pRingState->vPoolManager.pCurrentItem->pNext ;
 	}
 	/* Get Item from Pool Manager Level 2 */
-	else if ( ( (size > sizeof(PoolData)) &&  (size <= sizeof(PoolDataL2)) ) && (pRingState->vPoolManager.pCurrentItemL2 != NULL) ) {
+	else if ( ( (nSize > sizeof(PoolData)) &&  (nSize <= sizeof(PoolDataL2)) ) && (pRingState->vPoolManager.pCurrentItemL2 != NULL) ) {
 		pMemory = pRingState->vPoolManager.pCurrentItemL2 ;
 		pRingState->vPoolManager.pCurrentItemL2 = pRingState->vPoolManager.pCurrentItemL2->pNext ;
 	}
 	/* Get Item from Pool Manager Level 3 */
-	else if ( ( (size > sizeof(PoolDataL2)) &&  (size <= sizeof(PoolDataL3)) ) && (pRingState->vPoolManager.pCurrentItemL3 != NULL) ) {
+	else if ( ( (nSize > sizeof(PoolDataL2)) &&  (nSize <= sizeof(PoolDataL3)) ) && (pRingState->vPoolManager.pCurrentItemL3 != NULL) ) {
 		pMemory = pRingState->vPoolManager.pCurrentItemL3 ;
 		pRingState->vPoolManager.pCurrentItemL3 = pRingState->vPoolManager.pCurrentItemL3->pNext ;
 	}
 	/* If no free items, Allocate new item */
 	else {
-		pMemory = ring_malloc(size);
+		pMemory = ring_malloc(nSize);
 	}
 	#if RING_TRACKALLOCATIONS
 		pRingState->vPoolManager.nSmallAllocCount++ ;
