@@ -13,8 +13,8 @@ Type: String
 Mark: ->
 String *
 RING_LOOP_THRESHOLD
-ring_string_tolower(x)
-ring_string_toupper(x)
+ring_string_tolower(pString)
+ring_string_toupper(pString)
 ring_string_get(x)
 RING_MEMCPY(cStrDest,cStrSrc,nSize)
 ring_string_new_gc
@@ -39,8 +39,6 @@ x
 ring_string_add2_gc
 Type: int
 x,x2,nOriginalSize
-Type: char *
-cStr
 ring_string_print
 ring_string_setfromint_gc
 cStr[RING_SMALLBUF]

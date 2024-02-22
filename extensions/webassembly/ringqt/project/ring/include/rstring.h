@@ -8,9 +8,9 @@
 		/* Note : nSize is (Allocation Size - 1) */
 	} String ;
 	#define RING_LOOP_THRESHOLD 16
-	#define ring_string_tolower(x) ring_string_lower(x->cStr)
-	#define ring_string_toupper(x) ring_string_upper(x->cStr)
-	#define ring_string_get(x) (x->cStr)
+	#define ring_string_tolower(pString) ring_string_lower(pString->cStr)
+	#define ring_string_toupper(pString) ring_string_upper(pString->cStr)
+	#define ring_string_get(pString) (pString->cStr)
 	#define RING_MEMCPY(cStrDest,cStrSrc,nSize) do { if ( (nSize) < RING_LOOP_THRESHOLD ) { for ( x = 0 ; x < (nSize) ; x++ ) { (cStrDest)[x] = (cStrSrc)[x] ; } } else { memcpy ((cStrDest), (cStrSrc), (nSize)); } } while (0)
 
 	RING_API String * ring_string_new_gc ( void *pState,const char *cStr ) ;
