@@ -75,18 +75,18 @@
 	**  int 
 	*/
 
-	RING_API void ring_itemarray_setint_gc ( void *pState,Item pList[], unsigned int nIndex ,int nNumber ) ;
+	RING_API void ring_itemarray_setint_gc ( void *pState,Item aItems[], unsigned int nIndex ,int nNumber ) ;
 	/* Pointers */
 
-	RING_API void ring_itemarray_setpointer_gc ( void *pState,Item pList[], unsigned int nIndex ,void *pValue ) ;
+	RING_API void ring_itemarray_setpointer_gc ( void *pState,Item aItems[], unsigned int nIndex ,void *pValue ) ;
 	/* double */
 
-	RING_API void ring_itemarray_setdouble_gc ( void *pState,Item pList[], unsigned int nIndex ,double nNumber ) ;
+	RING_API void ring_itemarray_setdouble_gc ( void *pState,Item aItems[], unsigned int nIndex ,double nNumber ) ;
 	/* String */
 
-	RING_API void ring_itemarray_setstring_gc ( void *pState,Item pList[], unsigned int nIndex ,const char *cStr ) ;
+	RING_API void ring_itemarray_setstring_gc ( void *pState,Item aItems[], unsigned int nIndex ,const char *cStr ) ;
 
-	RING_API void ring_itemarray_setstring2_gc ( void *pState,Item pList[], unsigned int nIndex ,const char *cStr,int nStrSize ) ;
+	RING_API void ring_itemarray_setstring2_gc ( void *pState,Item aItems[], unsigned int nIndex ,const char *cStr,int nStrSize ) ;
 	/* Functions to deal with one item */
 
 	RING_API void ring_item_setstring_gc ( void *pState,Item *pItem,const char *cStr ) ;
@@ -114,18 +114,18 @@
 	**  int 
 	*/
 
-	RING_API void ring_itemarray_setint ( Item pList[], unsigned int nIndex ,int nNumber ) ;
+	RING_API void ring_itemarray_setint ( Item aItems[], unsigned int nIndex ,int nNumber ) ;
 	/* Pointers */
 
-	RING_API void ring_itemarray_setpointer ( Item pList[], unsigned int nIndex ,void *pValue ) ;
+	RING_API void ring_itemarray_setpointer ( Item aItems[], unsigned int nIndex ,void *pValue ) ;
 	/* double */
 
-	RING_API void ring_itemarray_setdouble ( Item pList[], unsigned int nIndex ,double nNumber ) ;
+	RING_API void ring_itemarray_setdouble ( Item aItems[], unsigned int nIndex ,double nNumber ) ;
 	/* String */
 
-	RING_API void ring_itemarray_setstring ( Item pList[], unsigned int nIndex ,const char *cStr ) ;
+	RING_API void ring_itemarray_setstring ( Item aItems[], unsigned int nIndex ,const char *cStr ) ;
 
-	RING_API void ring_itemarray_setstring2 ( Item pList[], unsigned int nIndex ,const char *cStr,int nStrSize ) ;
+	RING_API void ring_itemarray_setstring2 ( Item aItems[], unsigned int nIndex ,const char *cStr,int nStrSize ) ;
 	/* Functions to deal with one item */
 
 	RING_API void ring_item_setstring ( Item *pItem,const char *cStr ) ;

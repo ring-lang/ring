@@ -41,12 +41,12 @@ ITEM_NUMBERFLAG_NOTHING
 ITEM_NUMBERFLAG_INT
 ITEM_NUMBERFLAG_DOUBLE
 ITEM_OBJTYPE_NOTHING
-ring_item_getstring(x)
-ring_item_getdouble(x)
-ring_item_getint(x)
-ring_item_getlist(x)
-ring_item_getpointer(x)
-ring_item_gettype(x)
+ring_item_getstring(pItem)
+ring_item_getdouble(pItem)
+ring_item_getint(pItem)
+ring_item_getlist(pItem)
+ring_item_getpointer(pItem)
+ring_item_gettype(pItem)
 ring_itemarray_getint(pList,nIndex)
 ring_itemarray_getpointer(pList,nIndex)
 ring_itemarray_getdouble(pList,nIndex)
@@ -56,10 +56,10 @@ ring_itemarray_getstringsize(pList,nIndex)
 ring_itemarray_isstring(pList,nIndex)
 ring_itemarray_isnumber(pList,nIndex)
 ring_itemarray_ispointer(pList,nIndex)
-ring_item_isstring(x)
-ring_item_islist(x)
-ring_item_isdouble(x)
-ring_item_incdouble(x)
+ring_item_isstring(pItem)
+ring_item_islist(pItem)
+ring_item_isdouble(pItem)
+ring_item_incdouble(pItem)
 ring_item_new_gc
 Type: Item *
 pItem
