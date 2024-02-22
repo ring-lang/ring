@@ -95,9 +95,9 @@
 
 	RING_API List * ring_state_newvar ( RingState *pRingState,const char *cStr ) ;
 
-	RING_API void ring_state_main ( int argc, char *argv[] ) ;
+	RING_API void ring_state_main ( int nArgc, char *pArgv[] ) ;
 
-	RING_API void ring_state_execute ( char *cFileName, int nISCGI,int nRun,int nPrintIC,int nPrintICFinal,int nTokens,int nRules,int nIns,int nGenObj,int nGenCObj,int nWarn,int argc,char *argv[] ) ;
+	RING_API void ring_state_execute ( char *cFileName, int nISCGI,int nRun,int nPrintIC,int nPrintICFinal,int nTokens,int nRules,int nIns,int nGenObj,int nGenCObj,int nWarn,int nArgc,char *pArgv[] ) ;
 
 	RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName ) ;
 

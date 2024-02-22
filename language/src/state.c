@@ -124,7 +124,7 @@ RING_API List * ring_state_newvar ( RingState *pRingState,const char *cStr )
 	return pList ;
 }
 
-RING_API void ring_state_main ( int argc, char *argv[] )
+RING_API void ring_state_main ( int nArgc, char *pArgv[] )
 {
 	int x,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nPerformance,nSRC,nGenObj,nGenCObj,nWarn  ;
 	char *cStr  ;
@@ -145,56 +145,56 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 	nRingStateDEBUGSEGFAULT = 0 ;
 	nRingStateCGI = 0 ;
 	signal(SIGSEGV,ring_state_segfaultaction);
-	if ( argc > 1 ) {
-		for ( x = 1 ; x < argc ; x++ ) {
-			if ( strcmp(argv[x],"-cgi") == 0 ) {
+	if ( nArgc > 1 ) {
+		for ( x = 1 ; x < nArgc ; x++ ) {
+			if ( strcmp(pArgv[x],"-cgi") == 0 ) {
 				nCGI = 1 ;
 				nRingStateCGI = 1 ;
 			}
-			else if ( strcmp(argv[x],"-tokens") == 0 ) {
+			else if ( strcmp(pArgv[x],"-tokens") == 0 ) {
 				nTokens = 1 ;
 			}
-			else if ( strcmp(argv[x],"-rules") == 0 ) {
+			else if ( strcmp(pArgv[x],"-rules") == 0 ) {
 				nRules = 1 ;
 			}
-			else if ( strcmp(argv[x],"-ic") == 0 ) {
+			else if ( strcmp(pArgv[x],"-ic") == 0 ) {
 				nPrintIC = 1 ;
 			}
-			else if ( strcmp(argv[x],"-norun") == 0 ) {
+			else if ( strcmp(pArgv[x],"-norun") == 0 ) {
 				nRun = 0 ;
 			}
-			else if ( strcmp(argv[x],"-icfinal") == 0 ) {
+			else if ( strcmp(pArgv[x],"-icfinal") == 0 ) {
 				nPrintICFinal = 1 ;
 			}
-			else if ( strcmp(argv[x],"-ins") == 0 ) {
+			else if ( strcmp(pArgv[x],"-ins") == 0 ) {
 				nIns = 1 ;
 			}
-			else if ( strcmp(argv[x],"-clock") == 0 ) {
+			else if ( strcmp(pArgv[x],"-clock") == 0 ) {
 				nPerformance = 1 ;
 			}
-			else if ( strcmp(argv[x],"-go") == 0 ) {
+			else if ( strcmp(pArgv[x],"-go") == 0 ) {
 				nGenObj = 1 ;
 			}
-			else if ( strcmp(argv[x],"-geo") == 0 ) {
+			else if ( strcmp(pArgv[x],"-geo") == 0 ) {
 				nGenCObj = 1 ;
 			}
-			else if ( strcmp(argv[x],"-w") == 0 ) {
+			else if ( strcmp(pArgv[x],"-w") == 0 ) {
 				nWarn = 1 ;
 				nRingStateDEBUGSEGFAULT = 1 ;
 			}
-			else if ( ( ring_general_issourcefile(argv[x]) || ring_general_isobjectfile(argv[x])) && nSRC == 0 ) {
-				cStr = argv[x] ;
+			else if ( ( ring_general_issourcefile(pArgv[x]) || ring_general_isobjectfile(pArgv[x])) && nSRC == 0 ) {
+				cStr = pArgv[x] ;
 				nSRC = 1 ;
 			}
 			else {
 				if ( nSRC == 0 ) {
-					if ( ring_general_fexists(argv[x]) ) {
-						cStr = argv[x] ;
+					if ( ring_general_fexists(pArgv[x]) ) {
+						cStr = pArgv[x] ;
 						nSRC = 1 ;
 					}
 					else {
 						ring_general_printline();
-						printf( "WARNING: Unrecognized option: %s\n",argv[x] ) ;
+						printf( "WARNING: Unrecognized option: %s\n",pArgv[x] ) ;
 					}
 				}
 			}
@@ -205,16 +205,16 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 	}
 	srand(time(NULL));
 	/* Check Startup ring.ring */
-	if ( ring_general_fexists("ring.ring") && argc == 1 ) {
-		ring_state_execute((char *) "ring.ring",nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nGenCObj,nWarn,argc,argv);
+	if ( ring_general_fexists("ring.ring") && nArgc == 1 ) {
+		ring_state_execute((char *) "ring.ring",nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nGenCObj,nWarn,nArgc,pArgv);
 		exit(0);
 	}
-	if ( ring_general_fexists("ring.ringo") && argc == 1 ) {
-		ring_state_execute((char *) "ring.ringo",nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nGenCObj,nWarn,argc,argv);
+	if ( ring_general_fexists("ring.ringo") && nArgc == 1 ) {
+		ring_state_execute((char *) "ring.ringo",nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nGenCObj,nWarn,nArgc,pArgv);
 		exit(0);
 	}
 	/* Print Version */
-	if ( (argc == 1) || (cStr == NULL) ) {
+	if ( (nArgc == 1) || (cStr == NULL) ) {
 		ring_general_printline();
 		printf( "Ring version %s \n2013-2024, Mahmoud Fayed <msfclipper@yahoo.com>\n",RING_STATE_VERSION ) ;
 		puts("Usage : ring filename.ring [Options]");
@@ -237,13 +237,13 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 		ring_general_printline();
 		exit(0);
 	}
-	ring_state_execute(cStr,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nGenCObj,nWarn,argc,argv);
+	ring_state_execute(cStr,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nGenCObj,nWarn,nArgc,pArgv);
 	if ( nPerformance ) {
 		ring_general_showtime();
 	}
 }
 
-RING_API void ring_state_execute ( char *cFileName, int nISCGI,int nRun,int nPrintIC,int nPrintICFinal,int nTokens,int nRules,int nIns,int nGenObj,int nGenCObj,int nWarn,int argc,char *argv[] )
+RING_API void ring_state_execute ( char *cFileName, int nISCGI,int nRun,int nPrintIC,int nPrintICFinal,int nTokens,int nRules,int nIns,int nGenObj,int nGenCObj,int nWarn,int nArgc,char *pArgv[] )
 {
 	RingState *pRingState  ;
 	pRingState = ring_state_new();
@@ -257,8 +257,8 @@ RING_API void ring_state_execute ( char *cFileName, int nISCGI,int nRun,int nPri
 	pRingState->nGenObj = nGenObj ;
 	pRingState->nGenCObj = nGenCObj ;
 	pRingState->nWarning = nWarn ;
-	pRingState->nArgc = argc ;
-	pRingState->pArgv = argv ;
+	pRingState->nArgc = nArgc ;
+	pRingState->pArgv = pArgv ;
 	if ( ring_general_isobjectfile(cFileName) ) {
 		ring_state_runobjectfile(pRingState,cFileName);
 	}
