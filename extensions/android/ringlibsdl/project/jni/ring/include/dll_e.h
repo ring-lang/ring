@@ -30,5 +30,5 @@
 	/* Constants */
 	#define RING_DLL_INITFUNC "ringlib_init"
 	#define RING_DLL_LIBFILEMSG "Library File : "
-	#define RING_DLL_POINTERNAME "DLL"
+	#define RING_VM_POINTER_DLL "DLL"
 #endif

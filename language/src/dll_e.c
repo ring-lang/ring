@@ -41,7 +41,7 @@ void ring_vm_dll_loadlib ( void *pPointer )
 		ring_list_genarray(pRingState->pRingCFunctions);
 		ring_list_genhashtable2(pRingState->pRingCFunctions);
 		ring_list_addpointer_gc(pRingState,pVM->pCLibraries,pHandle);
-		RING_API_RETCPOINTER(pHandle,RING_DLL_POINTERNAME);
+		RING_API_RETCPOINTER(pHandle,RING_VM_POINTER_DLL);
 	}
 	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
@@ -59,7 +59,7 @@ void ring_vm_dll_closelib ( void *pPointer )
 		return ;
 	}
 	if ( RING_API_ISPOINTER(1) ) {
-		pHandle = RING_API_GETCPOINTER(1,RING_DLL_POINTERNAME) ;
+		pHandle = RING_API_GETCPOINTER(1,RING_VM_POINTER_DLL) ;
 		CloseDLL(pHandle);
 		RING_API_SETNULLPOINTER(1);
 		/* Remove the pointer */
