@@ -25,13 +25,13 @@ void ring_vm_dll_loadlib ( void *pPointer )
 		cDLL = RING_API_GETSTRING(1);
 		pHandle = LoadDLL(cDLL);
 		if ( pHandle == NULL ) {
-			printf( "\nLibrary File : %s",RING_API_GETSTRING(1) ) ;
+			printf( "\n%s%s",RING_DLL_LIBFILEMSG,RING_API_GETSTRING(1) ) ;
 			RING_API_ERROR(RING_VM_ERROR_LIBLOADERROR);
 			return ;
 		}
-		pFunc = (loadlibfuncptr) GetDLLFunc(pHandle, "ringlib_init") ;
+		pFunc = (loadlibfuncptr) GetDLLFunc(pHandle, RING_DLL_INITFUNC) ;
 		if ( pFunc == NULL ) {
-			printf( "\nLibrary File : %s",RING_API_GETSTRING(1) ) ;
+			printf( "\n%s%s",RING_DLL_LIBFILEMSG,RING_API_GETSTRING(1) ) ;
 			RING_API_ERROR(RING_VM_ERROR_NORINGLIBINIT);
 			return ;
 		}
@@ -41,7 +41,7 @@ void ring_vm_dll_loadlib ( void *pPointer )
 		ring_list_genarray(pRingState->pRingCFunctions);
 		ring_list_genhashtable2(pRingState->pRingCFunctions);
 		ring_list_addpointer_gc(pRingState,pVM->pCLibraries,pHandle);
-		RING_API_RETCPOINTER(pHandle,"DLL");
+		RING_API_RETCPOINTER(pHandle,RING_DLL_POINTERNAME);
 	}
 	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
@@ -59,7 +59,7 @@ void ring_vm_dll_closelib ( void *pPointer )
 		return ;
 	}
 	if ( RING_API_ISPOINTER(1) ) {
-		pHandle = RING_API_GETCPOINTER(1,"DLL") ;
+		pHandle = RING_API_GETCPOINTER(1,RING_DLL_POINTERNAME) ;
 		CloseDLL(pHandle);
 		RING_API_SETNULLPOINTER(1);
 		/* Remove the pointer */

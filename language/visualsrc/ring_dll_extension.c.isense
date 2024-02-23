@@ -3,10 +3,13 @@ LoadDLL(cFileName)
 GetDLLFunc
 CloseDLL
 LpHandleType
-LoadDLL(x)
+LoadDLL(cFileName)
 GetDLLFunc
 CloseDLL
 LpHandleType
+RING_DLL_INITFUNC
+RING_DLL_LIBFILEMSG
+RING_DLL_POINTERNAME
 ring_vm_dll_loadfunctions
 ring_vm_dll_loadlib
 Type: LpHandleType

@@ -27,4 +27,8 @@
 	void ring_vm_dll_closelib ( void *pPointer ) ;
 
 	void ring_vm_dll_closealllibs ( VM *pVM ) ;
+	/* Constants */
+	#define RING_DLL_INITFUNC "ringlib_init"
+	#define RING_DLL_LIBFILEMSG "Library File : "
+	#define RING_DLL_POINTERNAME "DLL"
 #endif
