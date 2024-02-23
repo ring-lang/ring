@@ -24,13 +24,13 @@ int ring_parser_start ( List *pTokens,RingState *pRingState )
 	nRingActiveFile = ring_list_getsize(pParser->pRingState->pRingFilesStack);
 	if ( pParser->nErrorsCount == 0 ) {
 		ring_parser_delete(pParser);
-		return 1 ;
+		return RING_PARSER_OK ;
 	}
 	else {
 		printf( "\n%s errors count : %d \n",ring_list_getstring(pParser->pRingState->pRingFilesStack,nRingActiveFile),pParser->nErrorsCount ) ;
 	}
 	ring_parser_delete(pParser);
-	return 0 ;
+	return RING_PARSER_FAIL ;
 }
 
 Parser * ring_parser_new ( List *pTokens,RingState *pRingState )
@@ -99,19 +99,19 @@ int ring_parser_nexttoken ( Parser *pParser )
 	if ( pParser->nActiveToken < pParser->nTokensCount ) {
 		pParser->nActiveToken++ ;
 		ring_parser_loadtoken(pParser);
-		return 1 ;
+		return RING_TRUE ;
 	}
-	return 0 ;
+	return RING_FALSE ;
 }
 
 int ring_parser_iskeyword ( Parser *pParser,SCANNER_KEYWORD nKeyword )
 {
 	if ( pParser->nTokenType == SCANNER_TOKEN_KEYWORD ) {
 		if ( ((unsigned int) atoi(pParser->cTokenText)) == ((unsigned int) nKeyword) ) {
-			return 1 ;
+			return RING_TRUE ;
 		}
 	}
-	return 0 ;
+	return RING_FALSE ;
 }
 
 int ring_parser_isoperator ( Parser *pParser,const char *cStr )
@@ -144,9 +144,9 @@ int ring_parser_settoken ( Parser *pParser,int nToken )
 	if ( (nToken >= 1) && (nToken <= pParser->nTokensCount) ) {
 		pParser->nActiveToken = nToken ;
 		ring_parser_loadtoken(pParser);
-		return 1 ;
+		return RING_TRUE ;
 	}
-	return 0 ;
+	return RING_FALSE ;
 }
 
 int ring_parser_isanykeyword ( Parser *pParser )
