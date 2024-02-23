@@ -152,18 +152,16 @@ int ring_parser_class ( Parser *pParser )
 				x = ring_parser_paralist(pParser);
 			}
 			else {
-				x = 1 ;
+				x = RING_PARSER_OK ;
 			}
 			/* Set Global Scope */
 			ring_parser_icg_newoperation(pParser,ICO_SETGLOBALSCOPE);
 			ring_parser_icg_newoperandint(pParser,ring_list_getint(pParser->pRingState->pCustomGlobalScopeStack,ring_list_getsize(pParser->pRingState->pCustomGlobalScopeStack)));
-			if ( x ) {
-				/* Support using { } around the function code and using 'end' after the content */
-				return ring_parser_bracesandend(pParser,RING_FALSE,K_ENDFUNC) ;
-			}
-			if ( x == 1 ) {
+			if ( x == RING_PARSER_OK ) {
 				RING_STATE_CHECKPRINTRULES
 				puts("Rule : Statement  --> 'Func' Identifier [ParaList]");
+				/* Support using { } around the function code and using 'end' after the content */
+				return ring_parser_bracesandend(pParser,RING_FALSE,K_ENDFUNC) ;
 			}
 			return x ;
 		}
@@ -913,7 +911,7 @@ int ring_parser_stmt ( Parser *pParser )
 	/* Statement --> Return Expr */
 	if ( ring_parser_iskeyword(pParser,K_RETURN) ) {
 		ring_parser_nexttoken(pParser);
-		x = 1 ;
+		x = RING_PARSER_OK ;
 		if ( ring_parser_isendline(pParser) == 0 ) {
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_FREELOADASCOPE);
@@ -923,7 +921,7 @@ int ring_parser_stmt ( Parser *pParser )
 			pParser->nAssignmentFlag = 1 ;
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_ENDFUNCEXE);
-			if ( x ) {
+			if ( x == RING_PARSER_OK ) {
 				ring_parser_icg_newoperation(pParser,ICO_RETURN);
 			}
 			else {
@@ -947,7 +945,7 @@ int ring_parser_stmt ( Parser *pParser )
 			ring_parser_icg_newoperand(pParser,"");
 			ring_parser_icg_newoperation(pParser,ICO_RETURN);
 		}
-		if ( x == 1 ) {
+		if ( x == RING_PARSER_OK ) {
 			RING_STATE_CHECKPRINTRULES
 			puts("Rule : Statement  --> 'Return'");
 		}
@@ -1024,7 +1022,7 @@ int ring_parser_stmt ( Parser *pParser )
 		}
 		/* Check Number  (Exit from more than one loop) */
 		if ( ring_parser_isnumber(pParser) || ring_parser_isidentifier(pParser) ) {
-			if ( ! ring_parser_expr(pParser) ) {
+			if ( ring_parser_expr(pParser) == RING_PARSER_FAIL ) {
 				return RING_PARSER_FAIL ;
 			}
 		}
@@ -1049,7 +1047,7 @@ int ring_parser_stmt ( Parser *pParser )
 		}
 		/* Check Number  (Continue from more than one loop) */
 		if ( ring_parser_isnumber(pParser) || ring_parser_isidentifier(pParser) ) {
-			if ( ! ring_parser_expr(pParser) ) {
+			if ( ring_parser_expr(pParser) == RING_PARSER_FAIL ) {
 				return RING_PARSER_FAIL ;
 			}
 		}
