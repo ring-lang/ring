@@ -98,12 +98,6 @@
 	#define RING_PARSER_WARNING_LOOPOUTSIDELOOP "Warning (W7) : Using the LOOP command outside loop"
 	/* Constants */
 	#define RING_PARSER_NUMBERLENGTH 97
-	/* MACRO */
-	#define RING_PARSER_IGNORENEWLINE while(ring_parser_epsilon(pParser));
-	#define RING_PARSER_PASSNEWLINE while(ring_parser_passepsilon(pParser));
-	#define RING_PARSER_CURRENTTOKEN pParser->nActiveToken
-	#define RING_PARSER_OPERATIONID ring_list_getsize(pParser->pGenCode) + pParser->pRingState->nInstructionsCount
-	#define RING_PARSER_ACCEPTSTATEMENTS while ( ring_parser_stmt(pParser) ) if ( pParser->nActiveToken == pParser->nTokensCount ) break ;
 	/* Packages List */
 	#define RING_PACKAGES_PACKAGENAME 1
 	#define RING_PACKAGES_CLASSESLIST 2
@@ -111,6 +105,15 @@
 	#define RING_CLASSES_CLASSNAME 1
 	/* Functions List */
 	#define RING_FUNCTIONS_FUNCNAME 1
+	/* Parsing Status */
+	#define RING_PARSER_OK 1
+	#define RING_PARSER_FAIL 0
+	/* MACRO */
+	#define RING_PARSER_IGNORENEWLINE while(ring_parser_epsilon(pParser));
+	#define RING_PARSER_PASSNEWLINE while(ring_parser_passepsilon(pParser));
+	#define RING_PARSER_CURRENTTOKEN pParser->nActiveToken
+	#define RING_PARSER_OPERATIONID ring_list_getsize(pParser->pGenCode) + pParser->pRingState->nInstructionsCount
+	#define RING_PARSER_ACCEPTSTATEMENTS while ( ring_parser_stmt(pParser) ) if ( pParser->nActiveToken == pParser->nTokensCount ) break ;
 	/* Functions */
 
 	int ring_parser_start ( List *pTokens,RingState *pRingState ) ;
