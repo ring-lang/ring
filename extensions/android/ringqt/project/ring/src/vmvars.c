@@ -44,7 +44,7 @@ void ring_vm_newscope ( VM *pVM )
 	/* Check scopes count */
 	if ( ring_list_getsize(pVM->pMem) >= RING_VM_STACK_CHECKOVERFLOW ) {
 		ring_vm_error(pVM,RING_VM_ERROR_STACKOVERFLOW);
-		exit(1);
+		exit(RING_EXIT_FAIL);
 	}
 	pVM->pActiveMem = ring_list_newlist_gc(pVM->pRingState,pVM->pMem);
 }
@@ -375,7 +375,7 @@ void ring_vm_deletescope ( VM *pVM )
 {
 	if ( ring_list_getsize(pVM->pMem) < 2 ) {
 		printf( RING_NOSCOPE ) ;
-		exit(1);
+		exit(RING_EXIT_FAIL);
 	}
 	ring_list_deleteitem_gc(pVM->pRingState,pVM->pMem,ring_list_getsize(pVM->pMem));
 	pVM->pActiveMem = ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem));

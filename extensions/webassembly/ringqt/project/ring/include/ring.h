@@ -134,6 +134,9 @@
 	#define RING_ONEF 1.0
 	/* Decimals */
 	#define RING_DECIMALS 2
+	/* Exit */
+	#define RING_EXIT_OK 0
+	#define RING_EXIT_FAIL 1
 	/* Include Ring Headers */
 	#include "ext.h"
 	#include "rstring.h"

@@ -207,11 +207,11 @@ RING_API void ring_state_main ( int nArgc, char *pArgv[] )
 	/* Check Startup ring.ring */
 	if ( ring_general_fexists("ring.ring") && nArgc == 1 ) {
 		ring_state_execute((char *) "ring.ring",nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nGenCObj,nWarn,nArgc,pArgv);
-		exit(0);
+		exit(RING_EXIT_OK);
 	}
 	if ( ring_general_fexists("ring.ringo") && nArgc == 1 ) {
 		ring_state_execute((char *) "ring.ringo",nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nGenCObj,nWarn,nArgc,pArgv);
-		exit(0);
+		exit(RING_EXIT_OK);
 	}
 	/* Print Version */
 	if ( (nArgc == 1) || (cStr == NULL) ) {
@@ -235,7 +235,7 @@ RING_API void ring_state_main ( int nArgc, char *pArgv[] )
 		#endif
 		puts("-w        :  Display Warnings");
 		ring_general_printline();
-		exit(0);
+		exit(RING_EXIT_OK);
 	}
 	ring_state_execute(cStr,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nGenCObj,nWarn,nArgc,pArgv);
 	if ( nPerformance ) {
@@ -490,7 +490,7 @@ void ring_state_segfaultaction ( int nSig )
 		printf( RING_SEGFAULT ) ;
 		printf( " : %d ",nSig ) ;
 	}
-	exit(0);
+	exit(RING_EXIT_OK);
 }
 
 RING_API int ring_state_runstring ( RingState *pRingState,char *cString )

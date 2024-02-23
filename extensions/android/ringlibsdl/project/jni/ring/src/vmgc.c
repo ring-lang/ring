@@ -718,7 +718,7 @@ RING_API void * ring_malloc ( size_t nSize )
 	if ( pMemory == NULL ) {
 		printf( RING_OOM ) ;
 		printf( "Ring (MALLOC) - Can't allocate %lu bytes\n",(unsigned long) nSize ) ;
-		exit(1);
+		exit(RING_EXIT_FAIL);
 	}
 	return pMemory ;
 }
@@ -736,7 +736,7 @@ RING_API void * ring_calloc ( size_t nItems, size_t nSize )
 	if ( pMemory == NULL ) {
 		printf( RING_OOM ) ;
 		printf( "Ring (CALLOC) - Can't allocate %lu bytes\n",(unsigned long) (nItems*nSize) ) ;
-		exit(1);
+		exit(RING_EXIT_FAIL);
 	}
 	return pMemory ;
 }
@@ -749,7 +749,7 @@ RING_API void * ring_realloc ( void *pPointer, size_t nSize )
 	if ( pMemory == NULL ) {
 		printf( RING_OOM ) ;
 		printf( "Ring (REALLOC) - Can't allocate %lu bytes\n",(unsigned long) nSize ) ;
-		exit(1);
+		exit(RING_EXIT_FAIL);
 	}
 	return pMemory ;
 }

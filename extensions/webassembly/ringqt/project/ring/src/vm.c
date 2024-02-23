@@ -461,7 +461,7 @@ void ring_vm_tobytecode ( VM *pVM,int nIns )
 	if ( ring_list_getsize(pIR) > RING_VM_BC_ITEMS_COUNT+1 ) {
 		printf( RING_LONGINSTRUCTION ) ;
 		printf( "In File : %s  - Byte-Code PC : %d  ",pVM->cFileName,nIns ) ;
-		exit(1);
+		exit(RING_EXIT_FAIL);
 	}
 	/* Get the Operation Code */
 	pItem = ring_list_getitem(pIR,RING_PARSER_ICG_OPERATIONCODE) ;

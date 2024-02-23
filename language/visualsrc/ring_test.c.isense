@@ -5,7 +5,7 @@ ring_section
 ring_string_test
 nMaxValue
 Type: String *
-mystr[nMaxValue]
+aString[nMaxValue]
 x
 Type: String *
 pString
@@ -19,7 +19,7 @@ pItem
 Type: String *
 pString
 Type: char
-mystr[RING_SMALLBUF]
+cString[RING_SMALLBUF]
 ring_list_testfuncpointer
 Type: List *
 pList

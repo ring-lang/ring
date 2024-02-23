@@ -12,6 +12,7 @@ int main ( int argc, char *argv[] )
 	printf( "Also we keep this file if we want to do some experiments! \n" ) ;
 	ring_testallunits();
 	getchar();
+	return RING_EXIT_OK ;
 }
 
 void ring_testallunits ( void )

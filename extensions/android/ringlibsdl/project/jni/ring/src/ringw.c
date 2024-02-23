@@ -5,5 +5,5 @@
 int WINAPI WinMain ( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd )
 {
 	ring_state_main(__argc,__argv);
-	return 0 ;
+	return RING_EXIT_OK ;
 }

@@ -5,5 +5,5 @@
 int main ( int nArgc, char *pArgv[] )
 {
 	ring_state_main(nArgc,pArgv);
-	return 0 ;
+	return RING_EXIT_OK ;
 }

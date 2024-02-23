@@ -186,7 +186,7 @@ void ring_vm_os_shutdown ( void *pPointer )
 			return ;
 		}
 	}
-	exit(0);
+	exit(RING_EXIT_OK);
 }
 #if RING_MSDOS
 #else

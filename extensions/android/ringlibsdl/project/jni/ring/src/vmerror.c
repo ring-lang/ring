@@ -42,7 +42,7 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 		}
 		pVM->nActiveError = 1 ;
 		if ( pVM->pRingState->nRingInsideRing == 0 ) {
-			exit(0);
+			exit(RING_EXIT_OK);
 		}
 		else {
 			ring_vm_bye(pVM);
