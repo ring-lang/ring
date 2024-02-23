@@ -19,8 +19,8 @@ int ring_parser_expr ( Parser *pParser )
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE ;
 				x = ring_parser_logicnot(pParser);
-				if ( x == 0 ) {
-					return 0 ;
+				if ( x == RING_PARSER_FAIL ) {
+					return RING_PARSER_FAIL ;
 				}
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_AND);
@@ -41,8 +41,8 @@ int ring_parser_expr ( Parser *pParser )
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE ;
 				x = ring_parser_logicnot(pParser);
-				if ( x == 0 ) {
-					return 0 ;
+				if ( x == RING_PARSER_FAIL ) {
+					return RING_PARSER_FAIL ;
 				}
 				RING_STATE_CHECKPRINTRULES
 				{
@@ -59,7 +59,7 @@ int ring_parser_expr ( Parser *pParser )
 		}
 		return x ;
 	}
-	return 0 ;
+	return RING_PARSER_FAIL ;
 }
 
 int ring_parser_logicnot ( Parser *pParser )
@@ -70,7 +70,7 @@ int ring_parser_logicnot ( Parser *pParser )
 		ring_parser_nexttoken(pParser);
 		RING_PARSER_IGNORENEWLINE ;
 		x = ring_parser_equalornot(pParser);
-		if ( x == 1 ) {
+		if ( x == RING_PARSER_OK ) {
 			RING_STATE_CHECKPRINTRULES
 			puts("Rule : LogicNot -> 'not' EqualOrNot ");
 		}
@@ -81,7 +81,7 @@ int ring_parser_logicnot ( Parser *pParser )
 		return x ;
 	}
 	x = ring_parser_equalornot(pParser);
-	if ( x == 1 ) {
+	if ( x == RING_PARSER_OK ) {
 		RING_STATE_CHECKPRINTRULES
 		puts("Rule : LogicNot -> EqualOrNot ");
 	}
@@ -104,8 +104,8 @@ int ring_parser_equalornot ( Parser *pParser )
 					ring_parser_nexttoken(pParser);
 					RING_PARSER_IGNORENEWLINE ;
 					x = ring_parser_compare(pParser);
-					if ( x == 0 ) {
-						return 0 ;
+					if ( x == RING_PARSER_FAIL ) {
+						return RING_PARSER_FAIL ;
 					}
 					/* Generate Code */
 					ring_parser_icg_newoperation(pParser,ICO_NOTEQUAL);
@@ -119,15 +119,15 @@ int ring_parser_equalornot ( Parser *pParser )
 				}
 				else {
 					ring_parser_error(pParser,RING_PARSER_ERROR_EXPROPERATOR);
-					return 0 ;
+					return RING_PARSER_FAIL ;
 				}
 			}
 			else {
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE ;
 				x = ring_parser_compare(pParser);
-				if ( x == 0 ) {
-					return 0 ;
+				if ( x == RING_PARSER_FAIL ) {
+					return RING_PARSER_FAIL ;
 				}
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_EQUAL);
@@ -142,7 +142,7 @@ int ring_parser_equalornot ( Parser *pParser )
 		}
 		return x ;
 	}
-	return 0 ;
+	return RING_PARSER_FAIL ;
 }
 
 int ring_parser_compare ( Parser *pParser )
@@ -163,8 +163,8 @@ int ring_parser_compare ( Parser *pParser )
 					ring_parser_nexttoken(pParser);
 				}
 				x = ring_parser_bitorxor(pParser);
-				if ( x == 0 ) {
-					return 0 ;
+				if ( x == RING_PARSER_FAIL ) {
+					return RING_PARSER_FAIL ;
 				}
 				if ( nEqual == 0 ) {
 					/* Generate Code */
@@ -198,8 +198,8 @@ int ring_parser_compare ( Parser *pParser )
 					RING_PARSER_IGNORENEWLINE ;
 				}
 				x = ring_parser_bitorxor(pParser);
-				if ( x == 0 ) {
-					return 0 ;
+				if ( x == RING_PARSER_FAIL ) {
+					return RING_PARSER_FAIL ;
 				}
 				if ( nEqual == 0 ) {
 					/* Generate Code */
@@ -225,13 +225,13 @@ int ring_parser_compare ( Parser *pParser )
 				}
 			}
 			/* Check <> */
-			if ( x == 0 ) {
-				return 0 ;
+			if ( x == RING_PARSER_FAIL ) {
+				return RING_PARSER_FAIL ;
 			}
 		}
 		return x ;
 	}
-	return 0 ;
+	return RING_PARSER_FAIL ;
 }
 
 int ring_parser_bitorxor ( Parser *pParser )
@@ -247,8 +247,8 @@ int ring_parser_bitorxor ( Parser *pParser )
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE ;
 				x = ring_parser_bitand(pParser);
-				if ( x == 0 ) {
-					return 0 ;
+				if ( x == RING_PARSER_FAIL ) {
+					return RING_PARSER_FAIL ;
 				}
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_BITOR);
@@ -264,8 +264,8 @@ int ring_parser_bitorxor ( Parser *pParser )
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE ;
 				x = ring_parser_bitand(pParser);
-				if ( x == 0 ) {
-					return 0 ;
+				if ( x == RING_PARSER_FAIL ) {
+					return RING_PARSER_FAIL ;
 				}
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_BITXOR);
@@ -280,7 +280,7 @@ int ring_parser_bitorxor ( Parser *pParser )
 		}
 		return x ;
 	}
-	return 0 ;
+	return RING_PARSER_FAIL ;
 }
 
 int ring_parser_bitand ( Parser *pParser )
@@ -295,8 +295,8 @@ int ring_parser_bitand ( Parser *pParser )
 			ring_parser_nexttoken(pParser);
 			RING_PARSER_IGNORENEWLINE ;
 			x = ring_parser_bitshift(pParser);
-			if ( x == 0 ) {
-				return 0 ;
+			if ( x == RING_PARSER_FAIL ) {
+				return RING_PARSER_FAIL ;
 			}
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_BITAND);
@@ -310,7 +310,7 @@ int ring_parser_bitand ( Parser *pParser )
 		}
 		return x ;
 	}
-	return 0 ;
+	return RING_PARSER_FAIL ;
 }
 
 int ring_parser_bitshift ( Parser *pParser )
@@ -326,8 +326,8 @@ int ring_parser_bitshift ( Parser *pParser )
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE ;
 				x = ring_parser_arithmetic(pParser);
-				if ( x == 0 ) {
-					return 0 ;
+				if ( x == RING_PARSER_FAIL ) {
+					return RING_PARSER_FAIL ;
 				}
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_BITSHL);
@@ -343,8 +343,8 @@ int ring_parser_bitshift ( Parser *pParser )
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE ;
 				x = ring_parser_arithmetic(pParser);
-				if ( x == 0 ) {
-					return 0 ;
+				if ( x == RING_PARSER_FAIL ) {
+					return RING_PARSER_FAIL ;
 				}
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_BITSHR);
@@ -359,7 +359,7 @@ int ring_parser_bitshift ( Parser *pParser )
 		}
 		return x ;
 	}
-	return 0 ;
+	return RING_PARSER_FAIL ;
 }
 
 int ring_parser_arithmetic ( Parser *pParser )
@@ -375,8 +375,8 @@ int ring_parser_arithmetic ( Parser *pParser )
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE ;
 				x = ring_parser_term(pParser);
-				if ( x == 0 ) {
-					return 0 ;
+				if ( x == RING_PARSER_FAIL ) {
+					return RING_PARSER_FAIL ;
 				}
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_SUM);
@@ -392,8 +392,8 @@ int ring_parser_arithmetic ( Parser *pParser )
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE ;
 				x = ring_parser_term(pParser);
-				if ( x == 0 ) {
-					return 0 ;
+				if ( x == RING_PARSER_FAIL ) {
+					return RING_PARSER_FAIL ;
 				}
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_SUB);
@@ -408,7 +408,7 @@ int ring_parser_arithmetic ( Parser *pParser )
 		}
 		return x ;
 	}
-	return 0 ;
+	return RING_PARSER_FAIL ;
 }
 
 int ring_parser_term ( Parser *pParser )
@@ -429,8 +429,8 @@ int ring_parser_term ( Parser *pParser )
 					puts("Rule : Term --> Term * Term ");
 				}
 				x = ring_parser_range(pParser);
-				if ( x == 0 ) {
-					return 0 ;
+				if ( x == RING_PARSER_FAIL ) {
+					return RING_PARSER_FAIL ;
 				}
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_MUL);
@@ -441,8 +441,8 @@ int ring_parser_term ( Parser *pParser )
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE ;
 				x = ring_parser_range(pParser);
-				if ( x == 0 ) {
-					return 0 ;
+				if ( x == RING_PARSER_FAIL ) {
+					return RING_PARSER_FAIL ;
 				}
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_MOD);
@@ -458,8 +458,8 @@ int ring_parser_term ( Parser *pParser )
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE ;
 				x = ring_parser_range(pParser);
-				if ( x == 0 ) {
-					return 0 ;
+				if ( x == RING_PARSER_FAIL ) {
+					return RING_PARSER_FAIL ;
 				}
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_POW);
@@ -475,8 +475,8 @@ int ring_parser_term ( Parser *pParser )
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE ;
 				x = ring_parser_range(pParser);
-				if ( x == 0 ) {
-					return 0 ;
+				if ( x == RING_PARSER_FAIL ) {
+					return RING_PARSER_FAIL ;
 				}
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_DIV);
@@ -491,7 +491,7 @@ int ring_parser_term ( Parser *pParser )
 		}
 		return x ;
 	}
-	return 0 ;
+	return RING_PARSER_FAIL ;
 }
 
 int ring_parser_range ( Parser *pParser )
@@ -510,8 +510,8 @@ int ring_parser_range ( Parser *pParser )
 			ring_parser_nexttoken(pParser);
 			RING_PARSER_IGNORENEWLINE ;
 			x = ring_parser_factor(pParser,&nFlag);
-			if ( x == 0 ) {
-				return 0 ;
+			if ( x == RING_PARSER_FAIL ) {
+				return RING_PARSER_FAIL ;
 			}
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_RANGE);
@@ -525,7 +525,7 @@ int ring_parser_range ( Parser *pParser )
 		}
 		return x ;
 	}
-	return 0 ;
+	return RING_PARSER_FAIL ;
 }
 
 int ring_parser_factor ( Parser *pParser,int *nFlag )
@@ -564,8 +564,8 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		}
 		/* Array Index & Object Dot */
 		x = ring_parser_mixer(pParser);
-		if ( x == 0 ) {
-			return 0 ;
+		if ( x == RING_PARSER_FAIL ) {
+			return RING_PARSER_FAIL ;
 		}
 		/*
 		**  [ [ = Expr  ] 
@@ -646,7 +646,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 					lSetProperty = 0 ;
 				}
 			}
-			if ( x == 1 ) {
+			if ( x == RING_PARSER_OK ) {
 				RING_STATE_CHECKPRINTRULES
 				puts("Rule : Assignment -> '=' Expr ");
 			}
@@ -739,13 +739,13 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		}
 		/* ++ & -- */
 		if ( ring_parser_ppmm(pParser) ) {
-			return 1 ;
+			return RING_PARSER_OK ;
 		}
 		/* Generate Code */
 		if ( (ring_parser_icg_getlastoperation(pParser) != ICO_CALL) && (ring_parser_icg_getlastoperation(pParser) != ICO_BRACEEND) ) {
 			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 		}
-		return 1 ;
+		return RING_PARSER_OK ;
 	}
 	/* Factor --> Number */
 	if ( ring_parser_isnumber(pParser) ) {
@@ -756,7 +756,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		else {
 			ring_parser_error(pParser,RING_PARSER_ERROR_NUMERICOVERFLOW);
 			ring_parser_nexttoken(pParser);
-			return 0 ;
+			return RING_PARSER_FAIL ;
 		}
 		RING_STATE_CHECKPRINTRULES
 		puts("Rule : Factor --> Number");
@@ -767,14 +767,14 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		}
 		/* ++ and -- */
 		if ( ring_parser_ppmm(pParser) ) {
-			return 1 ;
+			return RING_PARSER_OK ;
 		}
 		/* Check using '(' after number */
 		if ( ring_parser_isoperator2(pParser,OP_FOPEN) ) {
 			ring_parser_error(pParser,RING_PARSER_ERROR_USINGBRACTAFTERNUM);
-			return 0 ;
+			return RING_PARSER_FAIL ;
 		}
-		return 1 ;
+		return RING_PARSER_OK ;
 	}
 	/* Factor --> Literal */
 	if ( ring_parser_isliteral(pParser) ) {
@@ -788,7 +788,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		if ( pParser->nControlStructureExpr ) {
 			RING_PARSER_IGNORENEWLINE ;
 		}
-		return 1 ;
+		return RING_PARSER_OK ;
 	}
 	/* Factor --> Literal --> ':' Identifier */
 	if ( ring_parser_isoperator2(pParser,OP_RANGE) ) {
@@ -825,11 +825,11 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 						ring_parser_icg_newoperation(pParser,ICO_LISTITEM);
 					}
 					ring_parser_icg_newoperation(pParser,ICO_LISTEND);
-					return 1 ;
+					return RING_PARSER_OK ;
 				}
-				return 0 ;
+				return RING_PARSER_FAIL ;
 			}
-			return 1 ;
+			return RING_PARSER_OK ;
 		}
 	}
 	/* Factor --> Negative (-) Factor */
@@ -862,7 +862,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_RETITEMREF);
 		if ( ring_parser_expr(pParser) ) {
-			return 1 ;
+			return RING_PARSER_OK ;
 		}
 	}
 	/* Factor --> ( Expr ) */
@@ -873,7 +873,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			RING_PARSER_IGNORENEWLINE ;
 			RING_STATE_CHECKPRINTRULES
 			puts("Rule : Factor --> '()'");
-			return 1 ;
+			return RING_PARSER_OK ;
 		}
 		x = pParser->nAssignmentFlag ;
 		pParser->nAssignmentFlag = 0 ;
@@ -891,20 +891,20 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 						ring_parser_icg_deletelastoperation(pParser);
 					}
 					x = ring_parser_mixer(pParser);
-					if ( x == 0 ) {
-						return 0 ;
+					if ( x == RING_PARSER_FAIL ) {
+						return RING_PARSER_FAIL ;
 					}
 					/* Add PUSHV */
 					ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 				}
-				return 1 ;
+				return RING_PARSER_OK ;
 			}
 			else {
 				ring_parser_error(pParser,RING_PARSER_ERROR_MISSPARENTHESES);
-				return 0 ;
+				return RING_PARSER_FAIL ;
 			}
 		}
-		return 0 ;
+		return RING_PARSER_FAIL ;
 	}
 	/* Factor --> List */
 	if ( ring_parser_isoperator2(pParser,OP_LOPEN) ) {
@@ -963,7 +963,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 				return x ;
 			}
 			pParser->nNewObject = 1 ;
-			return 1 ;
+			return RING_PARSER_OK ;
 		}
 	}
 	/* Factor --> Anonymous Function */
@@ -991,7 +991,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		ring_parser_icg_newoperand(pParser,cFuncName);
 		/* Get Function Parameters */
 		if ( ring_parser_isidentifier(pParser) || ring_parser_isoperator2(pParser,OP_FOPEN) ) {
-			if (! ring_parser_paralist(pParser)) return 0 ;
+			if (! ring_parser_paralist(pParser)) return RING_PARSER_FAIL ;
 		}
 		RING_PARSER_PASSNEWLINE ;
 		/* Get Function Code */
@@ -1014,16 +1014,16 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 				ring_parser_icg_addoperandint(pParser,pMark,nMark);
 				RING_STATE_CHECKPRINTRULES
 				puts("Rule : AnonymousFunction --> Func ParaList '{' Statement '}'");
-				return 1 ;
+				return RING_PARSER_OK ;
 			}
 			else {
 				ring_parser_error(pParser,RING_PARSER_ERROR_BRACESNOTCLOSED);
-				return 0 ;
+				return RING_PARSER_FAIL ;
 			}
 		}
 		else {
 			ring_parser_error(pParser,RING_PARSER_ERROR_BRACEISMISSINGTOSTARTANONFUNC);
-			return 0 ;
+			return RING_PARSER_FAIL ;
 		}
 	}
 	/* Factor --> Call Identifier ( parameters ) */
@@ -1035,7 +1035,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			ring_parser_nexttoken(pParser);
 			/* Object Attributes */
 			if ( ring_parser_objattributes(pParser) == 0 ) {
-				return 0 ;
+				return RING_PARSER_FAIL ;
 			}
 			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 			ring_parser_icg_newoperation(pParser,ICO_ANONYMOUS);
@@ -1043,14 +1043,14 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 				return ring_parser_mixer(pParser) ;
 			}
 			else {
-				return 0 ;
+				return RING_PARSER_FAIL ;
 			}
 		}
 		else {
-			return 0 ;
+			return RING_PARSER_FAIL ;
 		}
 	}
-	return 0 ;
+	return RING_PARSER_FAIL ;
 }
 
 int ring_parser_mixer ( Parser *pParser )
@@ -1061,7 +1061,7 @@ int ring_parser_mixer ( Parser *pParser )
 	**  Object Attributes 
 	*/
 	if ( ring_parser_objattributes(pParser) == 0 ) {
-		return 0 ;
+		return RING_PARSER_FAIL ;
 	}
 	/* [Index]  to access array element, Index = Expression */
 	if ( ring_parser_isoperator2(pParser,OP_LOPEN) ) {
@@ -1078,17 +1078,17 @@ int ring_parser_mixer ( Parser *pParser )
 				RING_STATE_CHECKPRINTRULES
 				puts("Rule : Mixer -> '[' Expr ']' ");
 				x = ring_parser_mixer(pParser);
-				if ( x == 0 ) {
-					return 0 ;
+				if ( x == RING_PARSER_FAIL ) {
+					return RING_PARSER_FAIL ;
 				}
 			}
 			else {
 				ring_parser_error(pParser,RING_PARSER_ERROR_MISSBRACKETS);
-				return 0 ;
+				return RING_PARSER_FAIL ;
 			}
 		}
 		else {
-			return 0 ;
+			return RING_PARSER_FAIL ;
 		}
 	}
 	/* |  [ ( [ Expr { , Expr } ] ) ]  ] */
@@ -1140,18 +1140,18 @@ int ring_parser_mixer ( Parser *pParser )
 				}
 				else {
 					ring_parser_error(pParser,RING_PARSER_ERROR_MISSPARENTHESES);
-					return 0 ;
+					return RING_PARSER_FAIL ;
 				}
 			}
 			else {
-				return 0 ;
+				return RING_PARSER_FAIL ;
 			}
 			RING_PARSER_IGNORENEWLINE ;
 		}
 	}
 	/* Function Call Only */
 	if ( pParser->nFuncCallOnly == 1 ) {
-		return 1 ;
+		return RING_PARSER_OK ;
 	}
 	/* '{' {Statement} '}' */
 	if ( ring_parser_isoperator2(pParser,OP_BRACEOPEN) && pParser->nControlStructureExpr == 0 ) {
@@ -1186,8 +1186,8 @@ int ring_parser_mixer ( Parser *pParser )
 			ring_parser_error(pParser,RING_PARSER_ERROR_BRACESNOTCLOSED);
 		}
 	}
-	/* This function return 1 because the mixer is optional and comes after identifier */
-	return 1 ;
+	/* This function return RING_PARSER_OK because the mixer is optional and comes after identifier */
+	return RING_PARSER_OK ;
 }
 
 void ring_parser_gencall ( Parser *pParser,int nCallMethod )
@@ -1256,7 +1256,7 @@ int ring_parser_ppmm ( Parser *pParser )
 		}
 	}
 	else {
-		return 0 ;
+		return RING_PARSER_FAIL ;
 	}
 	/* Code Generation */
 	switch ( nMode ) {
@@ -1311,7 +1311,7 @@ int ring_parser_ppmm ( Parser *pParser )
 			puts("Rule : MinusMinus --> '--'");
 			break ;
 	}
-	return 1 ;
+	return RING_PARSER_OK ;
 }
 
 void ring_parser_gencallbracemethod ( Parser *pParser,const char *cMethod )
@@ -1350,7 +1350,7 @@ int ring_parser_objattributes ( Parser *pParser )
 			/* Prevent Accessing the self reference from outside the object */
 			if ( strcmp(pParser->cTokenText,"self") == 0 ) {
 				ring_parser_error(pParser,RING_PARSER_ERROR_ACCESSSELFREF);
-				return 0 ;
+				return RING_PARSER_FAIL ;
 			}
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_LOADSUBADDRESS);
@@ -1363,8 +1363,8 @@ int ring_parser_objattributes ( Parser *pParser )
 			RING_PARSER_IGNORENEWLINE ;
 		}
 		else {
-			return 0 ;
+			return RING_PARSER_FAIL ;
 		}
 	}
-	return 1 ;
+	return RING_PARSER_OK ;
 }
