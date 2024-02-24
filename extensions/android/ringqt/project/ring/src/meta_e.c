@@ -596,7 +596,7 @@ void ring_vm_refmeta_isprivatemethod ( void *pPointer )
 		if ( RING_API_ISSTRING(2) ) {
 			cStr = ring_string_lower(RING_API_GETSTRING(2)) ;
 			x = ring_vm_oop_ismethod((VM *) pPointer,pList,cStr) ;
-			if ( x==2 ) {
+			if ( x == RING_ISMETHOD_PRIVATEMETHOD ) {
 				RING_API_RETNUMBER(1);
 			}
 			else {

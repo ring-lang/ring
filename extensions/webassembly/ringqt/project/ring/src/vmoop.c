@@ -1194,13 +1194,13 @@ int ring_vm_oop_ismethod ( VM *pVM,List *pList,const char *cStr )
 			pList3 = ring_list_getlist(pList2,x);
 			if ( strcmp(ring_list_getstring(pList3,RING_FUNCMAP_NAME),cStr) == 0 ) {
 				if ( ring_list_getint(pList3,RING_FUNCMAP_PRIVATEFLAG) ) {
-					return 2 ;
+					return RING_ISMETHOD_PRIVATEMETHOD ;
 				}
-				return 1 ;
+				return RING_ISMETHOD_PUBLICMETHOD ;
 			}
 		}
 	}
-	return 0 ;
+	return RING_ISMETHOD_NOTFOUND ;
 }
 
 void ring_vm_oop_updateselfpointer ( VM *pVM,List *pObj,int nType,void *pContainer )
