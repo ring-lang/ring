@@ -756,7 +756,7 @@ void ring_scanner_changekeyword ( Scanner *pScanner )
 	ring_string_lower(ring_string_get(word2));
 	/* Change Keyword */
 	if ( (strcmp(ring_string_get(word1),"") == 0) || (strcmp(ring_string_get(word2),"") == 0) ) {
-		puts("Warning (W2) : The Compiler command  ChangeRingKeyword requires two words as parameters");
+		puts(RING_WARNING_CHANGEKEYWORDPARA);
 	}
 	else {
 		nResult = ring_hashtable_findnumber(ring_list_gethashtable(pScanner->pKeywords),ring_string_get(word1));
@@ -765,7 +765,7 @@ void ring_scanner_changekeyword ( Scanner *pScanner )
 			ring_list_genhashtable_gc(pScanner->pRingState,pScanner->pKeywords);
 		}
 		else {
-			puts("Warning (W3) : Compiler command ChangeRingKeyword - Keyword not found !");
+			puts(RING_WARNING_KEYWORDNOTFOUND);
 			printf( "Keyword :  %s\n",ring_string_get(word1) ) ;
 		}
 	}
@@ -802,7 +802,7 @@ void ring_scanner_changeoperator ( Scanner *pScanner )
 	ring_string_lower(ring_string_get(word2));
 	/* Change Operator */
 	if ( (strcmp(ring_string_get(word1),"") == 0) || (strcmp(ring_string_get(word2),"") == 0) ) {
-		puts("Warning (W4) : The Compiler command  ChangeRingOperator requires two words as parameters");
+		puts(RING_WARNING_CHANGEOPERATORPARA);
 	}
 	else {
 		nResult = ring_hashtable_findnumber(ring_list_gethashtable(pScanner->pOperators),ring_string_get(word1));
@@ -811,7 +811,7 @@ void ring_scanner_changeoperator ( Scanner *pScanner )
 			ring_list_genhashtable_gc(pScanner->pRingState,pScanner->pOperators);
 		}
 		else {
-			puts("Warning (W5) : Compiler command ChangeRingOperator - Operator not found !");
+			puts(RING_WARNING_OPERATORNOTFOUND);
 			printf( "Operator :  %s\n",ring_string_get(word1) ) ;
 		}
 	}

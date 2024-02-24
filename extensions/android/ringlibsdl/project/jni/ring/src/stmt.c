@@ -1017,7 +1017,7 @@ int ring_parser_stmt ( Parser *pParser )
 		/* Check usage outside loops */
 		if ( ! pParser->nLoopFlag ) {
 			if ( pParser->pRingState->nWarning ) {
-				puts(RING_PARSER_WARNING_EXITOUTSIDELOOP);
+				puts(RING_WARNING_EXITOUTSIDELOOP);
 			}
 		}
 		/* Check Number  (Exit from more than one loop) */
@@ -1042,7 +1042,7 @@ int ring_parser_stmt ( Parser *pParser )
 		/* Check usage outside loops */
 		if ( ! pParser->nLoopFlag ) {
 			if ( pParser->pRingState->nWarning ) {
-				puts(RING_PARSER_WARNING_LOOPOUTSIDELOOP);
+				puts(RING_WARNING_LOOPOUTSIDELOOP);
 			}
 		}
 		/* Check Number  (Continue from more than one loop) */

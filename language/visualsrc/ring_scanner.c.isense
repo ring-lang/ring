@@ -9,7 +9,7 @@ pOperators
 Type: List *
 pTokens
 Type: String *
-sActiveToken
+pActiveToken
 Type: unsigned int
 nTokenIndex
 Type: unsigned int

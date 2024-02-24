@@ -79,6 +79,16 @@
 		PoolManager vPoolManager  ;
 	} RingState ;
 	#define RING_STATE_VERSION "1.20"
+	#define RING_WARNING_UNKNOWNOPTION "Warning (W1): Unrecognized option: "
+	#define RING_WARNING_DUPLICATIONINFILENAME "Warning (W2) : Duplication in file name : "
+	#define RING_WARNING_CHANGEKEYWORDPARA "Warning (W3) : The Compiler command  ChangeRingKeyword requires two words as parameters"
+	#define RING_WARNING_KEYWORDNOTFOUND "Warning (W4) : Compiler command ChangeRingKeyword - Keyword not found!"
+	#define RING_WARNING_CHANGEOPERATORPARA "Warning (W5) : The Compiler command  ChangeRingOperator requires two words as parameters"
+	#define RING_WARNING_OPERATORNOTFOUND "Warning (W6) : Compiler command ChangeRingOperator - Operator not found!"
+	#define RING_WARNING_EXITOUTSIDELOOP "Warning (W7) : Using the EXIT command outside loop!"
+	#define RING_WARNING_LOOPOUTSIDELOOP "Warning (W8) : Using the LOOP command outside loop"
+	#define RING_STATE_PRINTRULES "Grammar Rules Used by The Parser "
+	#define RING_RULE_PROGRAM "Rule : Program --> {Statement}"
 	#define RING_STATE_CHECKPRINTRULES if ( pParser->pRingState->nPrintRules )
 	static int nRingStateDEBUGSEGFAULT  ;
 	static int nRingStateCGI  ;

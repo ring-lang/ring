@@ -194,7 +194,7 @@ RING_API void ring_state_main ( int nArgc, char *pArgv[] )
 					}
 					else {
 						ring_general_printline();
-						printf( "WARNING: Unrecognized option: %s\n",pArgv[x] ) ;
+						printf( "%s%s\n",RING_WARNING_UNKNOWNOPTION,pArgv[x] ) ;
 					}
 				}
 			}
@@ -301,7 +301,7 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 			/* Be Sure that we are not using the (Load Again) command */
 			if ( ! pRingState->nLoadAgain ) {
 				if ( pRingState->nWarning ) {
-					printf( "\nWarning (W1) : Duplication in file name : %s \n",cFileName ) ;
+					printf( "\n%s%s \n",RING_WARNING_DUPLICATIONINFILENAME,cFileName ) ;
 				}
 				return 1 ;
 			}
@@ -371,7 +371,7 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 		if ( pScanner->pRingState->nPrintRules ) {
 			printf( "\n" ) ;
 			ring_general_printline();
-			puts("Grammar Rules Used by The Parser ");
+			puts(RING_STATE_PRINTRULES);
 			ring_general_printline();
 			printf( "\nRule : Program --> {Statement}\n\nLine 1\n" ) ;
 		}
@@ -518,7 +518,7 @@ RING_API int ring_state_runstring ( RingState *pRingState,char *cString )
 			/* Be Sure that we are not using the (Load Again) command */
 			if ( ! pRingState->nLoadAgain ) {
 				if ( pRingState->nWarning ) {
-					printf( "\nWarning (W1) : Duplication in file name : %s \n",cFileName ) ;
+					printf( "\n%s%s \n",RING_WARNING_DUPLICATIONINFILENAME,cFileName ) ;
 				}
 				return 1 ;
 			}
@@ -545,9 +545,9 @@ RING_API int ring_state_runstring ( RingState *pRingState,char *cString )
 		if ( pScanner->pRingState->nPrintRules ) {
 			printf( "\n" ) ;
 			ring_general_printline();
-			puts("Grammar Rules Used by The Parser ");
+			puts(RING_STATE_PRINTRULES);
 			ring_general_printline();
-			printf( "\nRule : Program --> {Statement}\n\nLine 1\n" ) ;
+			printf( "\n%s\n\nLine 1\n",RING_RULE_PROGRAM ) ;
 		}
 		nRunVM = ring_parser_start(pScanner->pTokens,pRingState);
 		if ( pScanner->pRingState->nPrintRules ) {
