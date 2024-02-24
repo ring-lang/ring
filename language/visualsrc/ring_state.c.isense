@@ -165,3 +165,4 @@ Type: int
 x
 Type: const char *
 cFileName
+ring_state_usageinfo

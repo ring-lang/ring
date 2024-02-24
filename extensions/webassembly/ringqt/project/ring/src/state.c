@@ -215,27 +215,7 @@ RING_API void ring_state_main ( int nArgc, char *pArgv[] )
 	}
 	/* Print Version */
 	if ( (nArgc == 1) || (cStr == NULL) ) {
-		ring_general_printline();
-		printf( "Ring version %s \n2013-2024, Mahmoud Fayed <msfclipper@yahoo.com>\n",RING_STATE_VERSION ) ;
-		puts("Usage : ring filename.ring [Options]");
-		ring_general_printline();
-		/* Options */
-		puts("-tokens   :  Print a list of tokens in the source code file");
-		puts("-rules    :  Print grammar rules applied on the tokens");
-		puts("-ic       :  Print the intermediate byte code (before execution)");
-		puts("-icfinal  :  Print the final byte code (after execution)");
-		puts("-cgi      :  Print http response header before error messages");
-		puts("-norun    :  Don't run the program after compiling");
-		puts("-ins      :  Print instruction operation code before execution");
-		puts("-clock    :  Print clock before and after program execution");
-		#if RING_MSDOS
-		#else
-			puts("-go       :  Generate object file");
-			puts("-geo      :  Generate embedded object file (C source code)");
-		#endif
-		puts("-w        :  Display Warnings");
-		ring_general_printline();
-		exit(RING_EXIT_OK);
+		ring_state_usageinfo();
 	}
 	ring_state_execute(cStr,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nGenCObj,nWarn,nArgc,pArgv);
 	if ( nPerformance ) {
@@ -584,4 +564,29 @@ RING_API int ring_state_runstring ( RingState *pRingState,char *cString )
 		}
 	}
 	return nRunVM ;
+}
+
+void ring_state_usageinfo ( void )
+{
+	ring_general_printline();
+	printf( "Ring version %s \n2013-2024, Mahmoud Fayed <msfclipper@yahoo.com>\n",RING_STATE_VERSION ) ;
+	puts("Usage : ring filename.ring [Options]");
+	ring_general_printline();
+	/* Options */
+	puts("-tokens   :  Print a list of tokens in the source code file");
+	puts("-rules    :  Print grammar rules applied on the tokens");
+	puts("-ic       :  Print the intermediate byte code (before execution)");
+	puts("-icfinal  :  Print the final byte code (after execution)");
+	puts("-cgi      :  Print http response header before error messages");
+	puts("-norun    :  Don't run the program after compiling");
+	puts("-ins      :  Print instruction operation code before execution");
+	puts("-clock    :  Print clock before and after program execution");
+	#if RING_MSDOS
+	#else
+		puts("-go       :  Generate object file");
+		puts("-geo      :  Generate embedded object file (C source code)");
+	#endif
+	puts("-w        :  Display Warnings");
+	ring_general_printline();
+	exit(RING_EXIT_OK);
 }
