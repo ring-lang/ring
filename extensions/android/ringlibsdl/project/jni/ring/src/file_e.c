@@ -748,16 +748,16 @@ void ring_vm_file_freefunc ( void *pRingState,void *pPointer )
 		if ( stat(cDirPath, &sb) == 0 ) {
 			if ( S_ISREG(sb.st_mode) ) {
 				/* Path exists and it is a regular file */
-				return 1 ;
+				return RING_PATHTYPE_FILE ;
 			}
 			if ( S_ISDIR(sb.st_mode) ) {
 				/* Path exists and it is a directory */
-				return 2 ;
+				return RING_PATHTYPE_DIR ;
 			}
 			/* Unknown Type */
-			return -1 ;
+			return RING_PATHTYPE_NOTKNOWN ;
 		}
-		return 0 ;
+		return RING_PATHTYPE_NOTFOUND ;
 	}
 
 	RING_LONGLONG ring_getfilesize ( const char *cFilePath )

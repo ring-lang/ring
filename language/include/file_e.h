@@ -91,6 +91,10 @@
 	#define RING_VM_POINTER_FILEPOS "filepos"
 	#define RING_API_BADDIRECTORY "Error, Couldn't open the directory"
 	#define RING_NUMDATA_SIZE 8
+	#define RING_PATHTYPE_NOTKNOWN -1
+	#define RING_PATHTYPE_NOTFOUND 0
+	#define RING_PATHTYPE_FILE 1
+	#define RING_PATHTYPE_DIR 2
 	/* Data */
 	typedef union NumData {
 		int iNumber  ;
