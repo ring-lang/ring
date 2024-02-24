@@ -112,7 +112,7 @@
 	#define RING_RULE_LOAD "Rule : Statement  --> 'Load' Literal"
 	#define RING_RULE_IMPORT "Rule : Statement  --> 'Import' Identifier{'.'identifier}"
 	#define RING_RULE_PACKAGE "Rule : Statement  --> 'Package' Identifier{'.'identifier}"
-	#define RING_RULE_CLASS "Rule : Statement  --> 'Class' Identifier "
+	#define RING_RULE_CLASS "Rule : Statement  --> 'Class' Identifier"
 	#define RING_RULE_CLASSFROM "Rule : Statement  --> 'Class' Identifier 'From' [PackageName'.']Identifier"
 	#define RING_RULE_PRIVATE "Rule : Statement  --> 'Private'"
 	#define RING_RULE_FUNCANDPARA "Rule : Statement  --> 'Func' Identifier [ParaList]"
@@ -125,7 +125,7 @@
 	#define RING_RULE_FORINLOOP "Rule : Statement  --> 'For' Identifier 'in' Expr  ['step' Expr]"
 	#define RING_RULE_IFSTATEMENT "Rule : Statement  --> 'If' Expr {Statement} { But } [Else] Ok"
 	#define RING_RULE_BUT "Rule : But  --> 'But' Expr {Statement}"
-	#define RING_RULE_ELSE "Rule : Else  --> 'Else' {Statement} "
+	#define RING_RULE_ELSE "Rule : Else  --> 'Else' {Statement}"
 	#define RING_RULE_OK "Rule : Ok  --> 'OK'"
 	#define RING_RULE_WHILELOOP "Rule : Statement  --> 'While' Expr {Statement} End"
 	#define RING_RULE_END "Rule : End --> 'End'"
@@ -134,8 +134,8 @@
 	#define RING_RULE_TRYCATCHDONE "Rule : Statement  --> 'Try' {Statement} Catch Done"
 	#define RING_RULE_CATCH "Rule : Catch --> 'Catch' {Statement}"
 	#define RING_RULE_DONE "Rule : Done --> 'Done'"
-	#define RING_RULE_BYE "Rule : Statement  --> 'Bye' "
-	#define RING_RULE_EXIT "Rule : Statement  --> 'Exit' "
+	#define RING_RULE_BYE "Rule : Statement  --> 'Bye'"
+	#define RING_RULE_EXIT "Rule : Statement  --> 'Exit'"
 	#define RING_RULE_LOOP "Rule : Statement  --> 'Loop'"
 	#define RING_RULE_SWITCH "Rule : Statement  --> 'Switch' Expr {ON} [Other] OFF"
 	#define RING_RULE_ONEXPR "Rule : ON --> 'on' Expr {Statement}"
@@ -144,7 +144,7 @@
 	#define RING_RULE_EXPR "Rule : Statement  --> Expr"
 	#define RING_RULE_PARALISTEPSILON "Rule : ParaList --> Epsilon "
 	#define RING_RULE_PARALISTIDENTIFIER "Rule : ParaList --> Identifier {',' Identifier}"
-	#define RING_RULE_LIST "Rule : List --> '[' Expr { ',' Expr } ']' "
+	#define RING_RULE_LIST "Rule : List --> '[' Expr { ',' Expr } ']'"
 	/* MACRO */
 	#define RING_PARSER_IGNORENEWLINE while(ring_parser_epsilon(pParser));
 	#define RING_PARSER_PASSNEWLINE while(ring_parser_passepsilon(pParser));
