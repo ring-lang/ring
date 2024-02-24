@@ -89,6 +89,7 @@
 	#define RING_WARNING_LOOPOUTSIDELOOP "Warning (W8) : Using the LOOP command outside loop"
 	#define RING_STATE_PRINTRULES "Grammar Rules Used by The Parser "
 	#define RING_RULE_PROGRAM "Rule : Program --> {Statement}"
+	#define RING_CGI_START "Content-Type: text/plain\n\n"
 	#define RING_STATE_CHECKPRINTRULES if ( pParser->pRingState->nPrintRules )
 	static int nRingStateDEBUGSEGFAULT  ;
 	static int nRingStateCGI  ;

@@ -353,7 +353,7 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 			ring_general_printline();
 			puts(RING_STATE_PRINTRULES);
 			ring_general_printline();
-			printf( "\nRule : Program --> {Statement}\n\nLine 1\n" ) ;
+			printf( "\n%s\n\nLine 1\n",RING_RULE_PROGRAM ) ;
 		}
 		nRunVM = ring_parser_start(pScanner->pTokens,pRingState);
 		if ( pScanner->pRingState->nPrintRules ) {
@@ -454,25 +454,6 @@ RING_API void ring_state_log ( RingState *pRingState,const char *cStr )
 	#endif
 }
 
-void ring_state_cgiheader ( RingState *pRingState )
-{
-	if ( pRingState->nISCGI == 1 ) {
-		printf( "Content-Type: text/plain \n\n" ) ;
-	}
-}
-
-void ring_state_segfaultaction ( int nSig )
-{
-	if ( nRingStateDEBUGSEGFAULT == 1 ) {
-		if ( nRingStateCGI == 1 ) {
-			printf( "Content-Type: text/plain\n\n" ) ;
-		}
-		printf( RING_SEGFAULT ) ;
-		printf( " : %d ",nSig ) ;
-	}
-	exit(RING_EXIT_OK);
-}
-
 RING_API int ring_state_runstring ( RingState *pRingState,char *cString )
 {
 	signed char c  ;
@@ -564,6 +545,25 @@ RING_API int ring_state_runstring ( RingState *pRingState,char *cString )
 		}
 	}
 	return nRunVM ;
+}
+
+void ring_state_cgiheader ( RingState *pRingState )
+{
+	if ( pRingState->nISCGI == 1 ) {
+		printf( RING_CGI_START ) ;
+	}
+}
+
+void ring_state_segfaultaction ( int nSig )
+{
+	if ( nRingStateDEBUGSEGFAULT == 1 ) {
+		if ( nRingStateCGI == 1 ) {
+			printf( RING_CGI_START ) ;
+		}
+		printf( RING_SEGFAULT ) ;
+		printf( " : %d ",nSig ) ;
+	}
+	exit(RING_EXIT_OK);
 }
 
 void ring_state_usageinfo ( void )
