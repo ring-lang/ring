@@ -134,6 +134,9 @@
 	#define RING_ONEF 1.0
 	/* Decimals */
 	#define RING_DECIMALS 2
+	/* C Strings */
+	#define RING_CSTR_THIS "this"
+	#define RING_CSTR_SELF "self"
 	/* Exit */
 	#define RING_EXIT_OK 0
 	#define RING_EXIT_FAIL 1

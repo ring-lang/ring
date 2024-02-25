@@ -22,7 +22,7 @@ void ring_vm_addglobalvariables ( VM *pVM )
 	ring_vm_addnewcpointervar(pVM,"stdin",stdin,"file");
 	ring_vm_addnewcpointervar(pVM,"stdout",stdout,"file");
 	ring_vm_addnewcpointervar(pVM,"stderr",stderr,"file");
-	ring_vm_addnewpointervar(pVM,"this",NULL,RING_OBJTYPE_NOTYPE);
+	ring_vm_addnewpointervar(pVM,RING_CSTR_THIS,NULL,RING_OBJTYPE_NOTYPE);
 	ring_vm_addnewstringvar(pVM,"tab","\t");
 	ring_vm_addnewstringvar(pVM,"cr","\r");
 	/* Add Command Line Parameters */
@@ -154,9 +154,9 @@ int ring_vm_findvar2 ( VM *pVM,int nLevel,List *pList2,const char *cStr )
 		**  Here we don't know the correct scope of the result 
 		**  because a global variable may be a reference to local variable 
 		**  And this case happens with setter/getter of the attributes using eval() 
-		**  Here we avoid this change if the variable name is "Self"|"This" to return self|this by reference 
+		**  Here we avoid this change if the variable name is RING_CSTR_SELF|RING_CSTR_THIS to return self|this by reference 
 		*/
-		if ( (strcmp(cStr,"self") != 0) && (strcmp(cStr,"this") != 0) ) {
+		if ( (strcmp(cStr,RING_CSTR_SELF) != 0) && (strcmp(cStr,RING_CSTR_THIS) != 0) ) {
 			pVM->nVarScope = RING_VARSCOPE_NOTHING ;
 		}
 		else {

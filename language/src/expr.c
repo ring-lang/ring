@@ -544,11 +544,11 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		ring_parser_icg_loadaddress(pParser,pParser->cTokenText);
 		/* Check Loading Self or This */
 		pParser->nThisLoadA = 0 ;
-		if ( strcmp(pParser->cTokenText ,"this") == 0 ) {
+		if ( strcmp(pParser->cTokenText ,RING_CSTR_THIS) == 0 ) {
 			pParser->nThisLoadA = 1 ;
 		}
 		pParser->nThisOrSelfLoadA = 0 ;
-		if ( strcmp(pParser->cTokenText,"self") == 0 || pParser->nThisLoadA ) {
+		if ( strcmp(pParser->cTokenText,RING_CSTR_SELF) == 0 || pParser->nThisLoadA ) {
 			pParser->nThisOrSelfLoadA = 1 ;
 		}
 		ring_parser_nexttoken(pParser);
@@ -1320,7 +1320,7 @@ void ring_parser_gencallbracemethod ( Parser *pParser,const char *cMethod )
 	List *pMark  ;
 	/* if ismethod(self,cMethod) cMethod() ok */
 	ring_parser_icg_loadfunction(pParser,"ismethod");
-	ring_parser_icg_loadaddress(pParser,"self");
+	ring_parser_icg_loadaddress(pParser,RING_CSTR_SELF);
 	ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 	ring_parser_icg_newoperation(pParser,ICO_PUSHC);
 	ring_parser_icg_newoperand(pParser,cMethod);
@@ -1348,7 +1348,7 @@ int ring_parser_objattributes ( Parser *pParser )
 		/* we support literal to be able to call methods contains operators in the name */
 		if ( ring_parser_isidentifier(pParser) || ring_parser_isliteral(pParser) ) {
 			/* Prevent Accessing the self reference from outside the object */
-			if ( strcmp(pParser->cTokenText,"self") == 0 ) {
+			if ( strcmp(pParser->cTokenText,RING_CSTR_SELF) == 0 ) {
 				ring_parser_error(pParser,RING_PARSER_ERROR_ACCESSSELFREF);
 				return RING_PARSER_FAIL ;
 			}

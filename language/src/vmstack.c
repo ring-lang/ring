@@ -100,7 +100,7 @@ void ring_vm_loadaddress ( VM *pVM )
 		return ;
 	}
 	if ( pVM->nVarScope == RING_VARSCOPE_GLOBAL ) {
-		if ( strcmp(RING_VM_IR_READC,"this") != 0 ) {
+		if ( strcmp(RING_VM_IR_READC,RING_CSTR_THIS) != 0 ) {
 			/* Replace LoadAddress with PUSHP for better performance */
 			RING_VM_IR_OPCODE = ICO_PUSHP ;
 			RING_VM_IR_SETREG1TOPOINTERFROMSTACK ;

@@ -1162,7 +1162,7 @@ int ring_parser_stmt ( Parser *pParser )
 		if ( pParser->nBraceFlag ) {
 			/* if ismethod(self,"braceexpreval") braceexpreval() ok */
 			ring_parser_icg_loadfunction(pParser,"ismethod");
-			ring_parser_icg_loadaddress(pParser,"self");
+			ring_parser_icg_loadaddress(pParser,RING_CSTR_SELF);
 			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 			ring_parser_icg_newoperation(pParser,ICO_PUSHC);
 			ring_parser_icg_newoperand(pParser,"braceexpreval");
