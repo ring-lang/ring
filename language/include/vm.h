@@ -422,6 +422,9 @@
 	/* ExitMark/LoopMark */
 	#define RING_MARKLIST_PC 1
 	#define RING_MARKLIST_STATE 2
+	/* C Strings */
+	#define RING_CSTR_EMBEDDEDCODE "Ring_EmbeddedCode"
+	#define RING_CSTR_EVAL "eval"
 	/* Runtime Error Messages */
 	#define RING_VM_ERROR_DIVIDEBYZERO "Error (R1) : Can't divide by zero"
 	#define RING_VM_ERROR_INDEXOUTOFRANGE "Error (R2) : Array Access (Index out of range)"

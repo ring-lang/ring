@@ -278,8 +278,8 @@ void ring_vm_init ( RingState *pRingState )
 		pRingState->pRingFilesStack = ring_list_new_gc(pRingState,RING_ZERO);
 		nFreeFilesList = 1 ;
 	}
-	ring_list_addstring_gc(pRingState,pRingState->pRingFilesList,"Ring_EmbeddedCode");
-	ring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,"Ring_EmbeddedCode");
+	ring_list_addstring_gc(pRingState,pRingState->pRingFilesList,RING_CSTR_EMBEDDEDCODE);
+	ring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,RING_CSTR_EMBEDDEDCODE);
 	/* Read File */
 	pScanner = ring_scanner_new(pRingState);
 	/* Add Token "End of Line" to the end of any program */

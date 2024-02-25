@@ -14,8 +14,8 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 	}
 	nPC = pVM->nPC ;
 	/* Add virtual file name */
-	ring_list_addstring_gc(pVM->pRingState,pVM->pRingState->pRingFilesList,"eval");
-	ring_list_addstring_gc(pVM->pRingState,pVM->pRingState->pRingFilesStack,"eval");
+	ring_list_addstring_gc(pVM->pRingState,pVM->pRingState->pRingFilesList,RING_CSTR_EVAL);
+	ring_list_addstring_gc(pVM->pRingState,pVM->pRingState->pRingFilesStack,RING_CSTR_EVAL);
 	pScanner = ring_scanner_new(pVM->pRingState);
 	for ( x = 0 ; x < nSize ; x++ ) {
 		ring_scanner_readchar(pScanner,cStr[x]);
