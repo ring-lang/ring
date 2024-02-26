@@ -43,7 +43,7 @@ nInsertCounter
 Type: unsigned int
 nLoopCounter
 Type: unsigned char
-nLoopOrExitCommand
+lLoopOrExitCommand
 Type: unsigned char
 nCheckLoopAndExit
 Type: unsigned char
