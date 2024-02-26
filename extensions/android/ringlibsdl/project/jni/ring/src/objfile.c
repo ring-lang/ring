@@ -166,7 +166,7 @@ int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pList
 	/* Open File */
 	fObj = fopen(cFileName , "rb" );
 	if ( fObj==NULL ) {
-		printf( "Can't open file %s \n  ",cFileName ) ;
+		printf( "%s %s \n",RING_CANTOPENFILE,cFileName ) ;
 		return 0 ;
 	}
 	fread( cFileType , 1 , RING_OBJFILE_FILETYPESTRCOUNT , fObj );

@@ -103,6 +103,7 @@
 	#define RING_OBJFILEWRONGVERSION "\nError (E6) : The Ring Object File version is not correct!\n"
 	#define RING_SSCANFERROR "\nError (E7) : Internal error in using sscanf() function!\n"
 	#define RING_FSCANFERROR "\nError (E8) : Internal error in using fscanf() function!\n"
+	#define RING_CANTOPENFILE "\nError (E9) : Can't open file"
 	/* Buffer Size */
 	#define RING_CHARBUF 2
 	#define RING_HEXCHARBUF 3

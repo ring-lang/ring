@@ -861,7 +861,7 @@ void ring_scanner_loadsyntax ( Scanner *pScanner )
 	}
 	fp = RING_OPENFILE(cFileName2 , "r");
 	if ( fp==NULL ) {
-		printf( "\nCan't open file %s \n",cFileName ) ;
+		printf( "\n%s %s \n",RING_CANTOPENFILE,cFileName ) ;
 		return ;
 	}
 	nSize = 1 ;
