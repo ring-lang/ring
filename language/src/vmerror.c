@@ -6,10 +6,10 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 {
 	List *pList  ;
 	/* Check if we have active error */
-	if ( pVM->nActiveError ) {
+	if ( pVM->lActiveError ) {
 		return ;
 	}
-	pVM->nActiveError = 1 ;
+	pVM->lActiveError = 1 ;
 	/* Check BraceError() */
 	if ( pVM->lCheckBraceError  && (ring_list_getsize(pVM->pObjState) > 0) ) {
 		fflush(stdout);
@@ -19,7 +19,7 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 				RING_VM_STACK_POP ;
 				if ( ring_vm_oop_isobject(pList) ) {
 					if ( ring_vm_oop_ismethod(pVM, pList,"braceerror") ) {
-						pVM->nActiveError = 0 ;
+						pVM->lActiveError = 0 ;
 						ring_list_setstring_gc(pVM->pRingState,ring_list_getlist(ring_vm_getglobalscope(pVM),RING_GLOBALVARPOS_ERRORMSG),RING_VAR_VALUE,cStr);
 						ring_vm_eval(pVM,"return braceerror()");
 						return ;
@@ -34,13 +34,13 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 			ring_vm_showerrormessage(pVM,cStr);
 		}
 		/* Trace */
-		pVM->nActiveError = 0 ;
+		pVM->lActiveError = 0 ;
 		ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_ERROR);
 		if ( pVM->lPassError  == 1 ) {
 			pVM->lPassError = 0 ;
 			return ;
 		}
-		pVM->nActiveError = 1 ;
+		pVM->lActiveError = 1 ;
 		if ( pVM->pRingState->nRingInsideRing == 0 ) {
 			exit(RING_EXIT_OK);
 		}
@@ -56,12 +56,12 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 	*/
 	if ( pVM->nEvalInScope ) {
 		ring_vm_showerrormessage(pVM,cStr);
-		pVM->nActiveError = 0 ;
+		pVM->lActiveError = 0 ;
 		ring_vm_freestack(pVM);
 		return ;
 	}
 	ring_vm_catch(pVM,cStr);
-	pVM->nActiveError = 0 ;
+	pVM->lActiveError = 0 ;
 }
 
 void ring_vm_error2 ( VM *pVM,const char *cStr,const char *cStr2 )

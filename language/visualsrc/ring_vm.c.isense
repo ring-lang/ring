@@ -211,11 +211,11 @@ lIgnoreNULL
 Type: unsigned char
 nRetItemRef
 Type: unsigned char
-nIgnoreCPointerTypeCheck
+lIgnoreCPointerTypeCheck
 Type: unsigned char
 nCallClassInit
 Type: unsigned char
-nRetEvalDontDelete
+lRetEvalDontDelete
 Type: unsigned char
 nRunCode
 Type: unsigned char

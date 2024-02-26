@@ -126,7 +126,7 @@
 		unsigned char nCallClassInit  ;
 		unsigned char lRetEvalDontDelete  ;
 		unsigned char nRunCode  ;
-		unsigned char nActiveError  ;
+		unsigned char lActiveError  ;
 		unsigned char lTrace  ;
 		unsigned char lTraceActive  ;
 		unsigned char nTraceEvent  ;

@@ -148,7 +148,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	/* Counter to know if we are inside ring_vm_runcode() */
 	pVM->nRunCode = 0 ;
 	/* Flag that we have runtime error to avoid calling the error function again */
-	pVM->nActiveError = 0 ;
+	pVM->lActiveError = 0 ;
 	/* The active package name (after using import command) */
 	pVM->pPackageName = ring_string_new_gc(pVM->pRingState,"");
 	/*
