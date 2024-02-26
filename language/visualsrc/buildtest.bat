@@ -1,6 +1,5 @@
 del IGNORE
-cd ..
-cd src
+cd ..\build
 call buildtest.bat
 pause
 cls
