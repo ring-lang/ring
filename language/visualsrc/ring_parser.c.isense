@@ -35,34 +35,34 @@ nErrorLine
 Type: unsigned int
 nErrorsCount
 Type: unsigned int
-lControlStructureExpr
-Type: unsigned int
 nControlStructureBrace
 Type: unsigned int
 nInsertCounter
 Type: unsigned int
 nLoopCounter
-Type: unsigned char
-lLoopOrExitCommand
-Type: unsigned char
-lCheckLoopAndExit
-Type: unsigned char
-lAssignmentFlag
-Type: unsigned char
-lClassStart
-Type: unsigned char
-lPrivateFlag
-Type: unsigned char
-lNewObject
-Type: unsigned char
-lFuncCallOnly
-Type: unsigned char
-nThisOrSelfLoadA
-Type: unsigned char
-nThisLoadA
-Type: unsigned char
-lInsertFlag
-Type: unsigned char
+Type: unsigned int
+lLoopOrExitCommand: 1
+Type: unsigned int
+lCheckLoopAndExit: 1
+Type: unsigned int
+lControlStructureExpr: 1
+Type: unsigned int
+lAssignmentFlag: 1
+Type: unsigned int
+lClassStart: 1
+Type: unsigned int
+lPrivateFlag: 1
+Type: unsigned int
+lNewObject: 1
+Type: unsigned int
+lFuncCallOnly: 1
+Type: unsigned int
+lThisOrSelfLoadA: 1
+Type: unsigned int
+lThisLoadA: 1
+Type: unsigned int
+lInsertFlag: 1
+Type: unsigned int
 nTokenType
 END:
 Type: Parser

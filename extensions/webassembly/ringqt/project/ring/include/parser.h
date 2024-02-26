@@ -31,11 +31,9 @@
 		unsigned int nLineNumber  ;
 		unsigned int nErrorLine  ;
 		unsigned int nErrorsCount  ;
-		/* Flag to tell { } that we are inside control structure (if/for/while/...) expression */
-		unsigned int lControlStructureExpr  ;
 		/* Counter  - We started using braces {} in control structure - we have { */
 		unsigned int nControlStructureBrace  ;
-		/* required for For-Step, insert instructions */
+		/* Required for For-Step, insert instructions */
 		unsigned int nInsertCounter  ;
 		/*
 		**  required in loops (for|while) for loop and exit commands 
@@ -43,26 +41,28 @@
 		*/
 		unsigned int nLoopCounter  ;
 		/* To Know if the commands (Loop or Exit) are used */
-		unsigned char lLoopOrExitCommand  ;
+		unsigned int lLoopOrExitCommand: 1  ;
 		/* Enable|Disable checking Loop & Exit commands before storing Loop & Exit marks */
-		unsigned char lCheckLoopAndExit  ;
+		unsigned int lCheckLoopAndExit: 1  ;
+		/* Flag to tell { } that we are inside control structure (if/for/while/...) expression */
+		unsigned int lControlStructureExpr: 1  ;
 		/* Variable to select between = and == while using = only in the code */
-		unsigned char lAssignmentFlag  ;
+		unsigned int lAssignmentFlag: 1  ;
 		/* Variable to determine the start of the class definition */
-		unsigned char lClassStart  ;
+		unsigned int lClassStart: 1  ;
 		/* Private Flag */
-		unsigned char lPrivateFlag  ;
+		unsigned int lPrivateFlag: 1  ;
 		/* required for using { } after using new object to avoid assignment */
-		unsigned char lNewObject  ;
+		unsigned int lNewObject: 1  ;
 		/* Object Init() Uses mixer for one purpose only( function call)  - don't continue to get braces { } */
-		unsigned char lFuncCallOnly  ;
+		unsigned int lFuncCallOnly: 1  ;
 		/* Using Self or This with LoadAddress */
-		unsigned char lThisOrSelfLoadA  ;
-		unsigned char lThisLoadA  ;
+		unsigned int lThisOrSelfLoadA: 1  ;
+		unsigned int lThisLoadA: 1  ;
 		/* Insert Flag */
-		unsigned char lInsertFlag  ;
+		unsigned int lInsertFlag: 1  ;
 		/* Token Type */
-		unsigned char nTokenType  ;
+		unsigned int nTokenType: 3  ;
 	} Parser ;
 	/* Error Messages */
 	#define RING_PARSER_ERROR_PARALIST "Error (C1) : Error in parameters list, expected identifier"
