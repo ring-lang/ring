@@ -142,14 +142,14 @@ RING_API void ring_state_main ( int nArgc, char *pArgv[] )
 	lGenObj = 0 ;
 	lGenCObj = 0 ;
 	lWarn = 0 ;
-	nRingStateDEBUGSEGFAULT = 0 ;
-	nRingStateCGI = 0 ;
+	lRingStateDebugSegFault = 0 ;
+	lRingStateCGI = 0 ;
 	signal(SIGSEGV,ring_state_segfaultaction);
 	if ( nArgc > 1 ) {
 		for ( x = 1 ; x < nArgc ; x++ ) {
 			if ( strcmp(pArgv[x],"-cgi") == 0 ) {
 				lCGI = 1 ;
-				nRingStateCGI = 1 ;
+				lRingStateCGI = 1 ;
 			}
 			else if ( strcmp(pArgv[x],"-tokens") == 0 ) {
 				lTokens = 1 ;
@@ -180,7 +180,7 @@ RING_API void ring_state_main ( int nArgc, char *pArgv[] )
 			}
 			else if ( strcmp(pArgv[x],"-w") == 0 ) {
 				lWarn = 1 ;
-				nRingStateDEBUGSEGFAULT = 1 ;
+				lRingStateDebugSegFault = 1 ;
 			}
 			else if ( ( ring_general_issourcefile(pArgv[x]) || ring_general_isobjectfile(pArgv[x])) && lSrc == 0 ) {
 				cStr = pArgv[x] ;
@@ -556,8 +556,8 @@ void ring_state_cgiheader ( RingState *pRingState )
 
 void ring_state_segfaultaction ( int nSig )
 {
-	if ( nRingStateDEBUGSEGFAULT == 1 ) {
-		if ( nRingStateCGI == 1 ) {
+	if ( lRingStateDebugSegFault == 1 ) {
+		if ( lRingStateCGI == 1 ) {
 			printf( RING_CGI_START ) ;
 		}
 		printf( RING_SEGFAULT ) ;

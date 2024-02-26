@@ -92,8 +92,8 @@
 	#define RING_CGI_START "Content-Type: text/plain\n\n"
 	#define RING_VERYLONGPATH "Very long path! The maximum path size is"
 	#define RING_STATE_CHECKPRINTRULES if ( pParser->pRingState->lPrintRules )
-	static int nRingStateDEBUGSEGFAULT  ;
-	static int nRingStateCGI  ;
+	static int lRingStateDebugSegFault  ;
+	static int lRingStateCGI  ;
 
 	RING_API RingState * ring_state_new ( void ) ;
 
