@@ -22,7 +22,7 @@
 		/* Mark to class label to be used by Private */
 		unsigned int nClassMark  ;
 		/* Counter to know if we are inside { } or not */
-		unsigned int nBraceFlag  ;
+		unsigned int nBracesCounter  ;
 		/* Active Token */
 		unsigned int nActiveToken  ;
 		unsigned int nTokensCount  ;

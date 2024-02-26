@@ -642,7 +642,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			pParser->nAssignmentFlag = 1 ;
 			/* Check New Object and this.property or self.property to disable set property */
 			if ( pParser->nNewObject && lSetProperty ) {
-				if ( nThisLoadA || ( nThisOrSelfLoadA && (pParser->nBraceFlag == 0) ) ) {
+				if ( nThisLoadA || ( nThisOrSelfLoadA && (pParser->nBracesCounter == 0) ) ) {
 					lSetProperty = 0 ;
 				}
 			}
@@ -659,14 +659,14 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 				nNOOP = 0 ;
 				lAfterListEnd = (ring_parser_icg_getlastoperation(pParser) == ICO_NEWLINE) && ring_parser_icg_getoperationbeforelastoperation(pParser) == ICO_LISTEND ;
 				lAfterListEnd = lAfterListEnd || (ring_parser_icg_getlastoperation(pParser) == ICO_LISTEND) ;
-				if ( lAfterListEnd && (pParser->nBraceFlag == 0) ) {
+				if ( lAfterListEnd && (pParser->nBracesCounter == 0) ) {
 					if ( (lSetProperty == 0) || pParser->nThisOrSelfLoadA ) {
 						return x ;
 					}
 					/* Disable Assignment Pointer */
 					ring_parser_icg_addoperandint(pParser,pAssignmentPointerPos,RING_FALSE);
 				}
-				else if ( lAfterListEnd && (pParser->nBraceFlag >= 1) ) {
+				else if ( lAfterListEnd && (pParser->nBracesCounter >= 1) ) {
 					nNOOP = 1 ;
 					/*
 					**  No Assignment is required but we add ICO_NOOP instead 
@@ -999,13 +999,13 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			ring_parser_nexttoken(pParser);
 			x = pParser->nAssignmentFlag ;
 			x2 = pParser->nNewObject ;
-			x3 = pParser->nBraceFlag ;
+			x3 = pParser->nBracesCounter ;
 			pParser->nAssignmentFlag = 1 ;
-			pParser->nBraceFlag = 0 ;
+			pParser->nBracesCounter = 0 ;
 			RING_PARSER_ACCEPTSTATEMENTS ;
 			pParser->nAssignmentFlag = x ;
 			pParser->nNewObject = x2 ;
-			pParser->nBraceFlag = x3 ;
+			pParser->nBracesCounter = x3 ;
 			if ( ring_parser_isoperator2(pParser,OP_BRACECLOSE) ) {
 				ring_parser_nexttoken(pParser);
 				/* Generate Code */
@@ -1155,7 +1155,7 @@ int ring_parser_mixer ( Parser *pParser )
 	}
 	/* '{' {Statement} '}' */
 	if ( ring_parser_isoperator2(pParser,OP_BRACEOPEN) && pParser->nControlStructureExpr == 0 ) {
-		pParser->nBraceFlag++ ;
+		pParser->nBracesCounter++ ;
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 		ring_parser_icg_newoperation(pParser,ICO_BRACESTART);
@@ -1169,7 +1169,7 @@ int ring_parser_mixer ( Parser *pParser )
 		RING_PARSER_ACCEPTSTATEMENTS ;
 		pParser->nAssignmentFlag = nStatus ;
 		if ( ring_parser_isoperator2(pParser,OP_BRACECLOSE) ) {
-			pParser->nBraceFlag-- ;
+			pParser->nBracesCounter-- ;
 			/*
 			**  Generate Code 
 			**  if ismethod(self,"braceend") braceend() ok 
@@ -1224,7 +1224,7 @@ int ring_parser_ppmm ( Parser *pParser )
 		switch ( nLastOperation ) {
 			case ICO_LOADADDRESS :
 				nMode = 3 ;
-				if ( pParser->nBraceFlag ) {
+				if ( pParser->nBracesCounter ) {
 					nMode = 1 ;
 					nValue = 1.0 ;
 				}
@@ -1242,7 +1242,7 @@ int ring_parser_ppmm ( Parser *pParser )
 		switch ( nLastOperation ) {
 			case ICO_LOADADDRESS :
 				nMode = 4 ;
-				if ( pParser->nBraceFlag ) {
+				if ( pParser->nBracesCounter ) {
 					nMode = 1 ;
 					nValue = -1.0 ;
 				}

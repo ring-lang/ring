@@ -61,7 +61,7 @@ Parser * ring_parser_new ( List *pTokens,RingState *pRingState )
 	pParser->pPackagesMap = pRingState->pRingPackagesMap ;
 	pParser->nClassMark = 0 ;
 	pParser->nPrivateFlag = 0 ;
-	pParser->nBraceFlag = 0 ;
+	pParser->nBracesCounter = 0 ;
 	pParser->nInsertFlag = 0 ;
 	pParser->nInsertCounter = 0 ;
 	pParser->nNewObject = 0 ;

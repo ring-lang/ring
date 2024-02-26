@@ -1159,7 +1159,7 @@ int ring_parser_stmt ( Parser *pParser )
 		**  Generate Code 
 		**  Call expreval() if we are inside { } 
 		*/
-		if ( pParser->nBraceFlag ) {
+		if ( pParser->nBracesCounter ) {
 			/* if ismethod(self,"braceexpreval") braceexpreval() ok */
 			ring_parser_icg_loadfunction(pParser,"ismethod");
 			ring_parser_icg_loadaddress(pParser,RING_CSTR_SELF);
