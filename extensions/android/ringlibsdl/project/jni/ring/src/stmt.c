@@ -99,7 +99,7 @@ int ring_parser_class ( Parser *pParser )
 			pParser->lClassStart = 1 ;
 			/* Create label to be used by Private */
 			pParser->nClassMark = ring_parser_icg_newlabel2(pParser);
-			pParser->nPrivateFlag = 0 ;
+			pParser->lPrivateFlag = 0 ;
 			/* Generate Code - Set The File Name */
 			ring_parser_icg_newoperation(pParser,ICO_FILENAME);
 			ring_parser_icg_newoperand(pParser,ring_list_getstring(pParser->pRingState->pRingFilesStack,ring_list_getsize(pParser->pRingState->pRingFilesStack)));
@@ -142,7 +142,7 @@ int ring_parser_class ( Parser *pParser )
 			ring_list_addint_gc(pParser->pRingState,pList2,ring_parser_icg_instructionscount(pParser));
 			ring_list_addstring_gc(pParser->pRingState,pList2,ring_list_getstring(pParser->pRingState->pRingFilesStack,ring_list_getsize(pParser->pRingState->pRingFilesStack)));
 			if ( pParser->lClassStart == 1 ) {
-				ring_list_addint_gc(pParser->pRingState,pList2,pParser->nPrivateFlag);
+				ring_list_addint_gc(pParser->pRingState,pList2,pParser->lPrivateFlag);
 			}
 			else {
 				ring_list_addint_gc(pParser->pRingState,pList2,RING_FALSE);
@@ -214,7 +214,7 @@ int ring_parser_class ( Parser *pParser )
 			ring_parser_icg_newoperation(pParser,ICO_PRIVATE);
 			RING_STATE_CHECKPRINTRULES
 			puts(RING_RULE_PRIVATE);
-			pParser->nPrivateFlag = 1 ;
+			pParser->lPrivateFlag = 1 ;
 			return RING_PARSER_OK ;
 		}
 		else {

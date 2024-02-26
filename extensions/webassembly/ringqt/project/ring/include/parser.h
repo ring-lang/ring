@@ -51,7 +51,7 @@
 		/* Variable to determine the start of the class definition */
 		unsigned char lClassStart  ;
 		/* Private Flag */
-		unsigned char nPrivateFlag  ;
+		unsigned char lPrivateFlag  ;
 		/* required for using { } after using new object to avoid assignment */
 		unsigned char nNewObject  ;
 		/* Object Init() Uses mixer for one purpose only( function call)  - don't continue to get braces { } */
