@@ -34,33 +34,33 @@ nCustomGlobalScopeCounter
 Type: int
 nInstructionsCount
 Type: unsigned int
-nRun : 1
+lRun : 1
 Type: unsigned int
-nPrintIC : 1
+lPrintIC : 1
 Type: unsigned int
-nPrintICFinal : 1
+lPrintICFinal : 1
 Type: unsigned int
-nPrintTokens : 1
+lPrintTokens : 1
 Type: unsigned int
-nPrintRules : 1
+lPrintRules : 1
 Type: unsigned int
-nPrintInstruction : 1
+lPrintInstruction : 1
 Type: unsigned int
-nGenObj : 1
+lGenObj : 1
 Type: unsigned int
-nGenCObj : 1
+lGenCObj : 1
 Type: unsigned int
-nWarning : 1
+lWarning : 1
 Type: unsigned int
-nISCGI : 1
+lISCGI : 1
 Type: unsigned int
 lStartup : 1
 Type: unsigned int
-nDontDeleteTheVM : 1
+lDontDeleteTheVM : 1
 Type: unsigned int
 nRingInsideRing : 1
 Type: unsigned int
-nOnlyTokens : 1
+lOnlyTokens : 1
 Type: unsigned int
 lNoLineNumber : 1
 Type: unsigned int
@@ -127,26 +127,25 @@ Type: List *
 pList
 ring_state_main
 Type: int
-x,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nPerformance,nSRC,nGenObj,nGenCObj,nWarn
+x,lCGI,lRun,lPrintIC,lPrintICFinal,lTokens,lRules,lIns,lPerformance,lSrc,lGenObj,lGenCObj,lWarn
 Type: char *
 cStr
 ring_state_execute
 Type: RingState *
 pRingState
 ring_state_runfile
-Type: RING_FILE
-pFile
-c
 Type: Scanner *
 pScanner
 Type: VM *
 pVM
-nCont,nRunVM,nFreeFilesList
+Type: RING_FILE
+pFile
 cStartup
-Type: int
-x,nSize
 Type: char
 cFileName2[RING_PATHSIZE]
+Type: int
+lCont,lRunVM,lFreeFilesList,x,nSize
+c
 ring_state_runobjectfile
 ring_state_runobjectstring
 ring_state_runprogram
@@ -159,7 +158,7 @@ Type: Scanner *
 pScanner
 Type: VM *
 pVM
-nCont,nRunVM,nFreeFilesList
+lCont,lRunVM,lFreeFilesList
 Type: int
 x
 Type: const char *

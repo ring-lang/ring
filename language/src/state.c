@@ -126,36 +126,36 @@ RING_API List * ring_state_newvar ( RingState *pRingState,const char *cStr )
 
 RING_API void ring_state_main ( int nArgc, char *pArgv[] )
 {
-	int x,nCGI,lRun,lPrintIC,lPrintICFinal,nTokens,nRules,nIns,nPerformance,nSRC,lGenObj,lGenCObj,nWarn  ;
+	int x,lCGI,lRun,lPrintIC,lPrintICFinal,lTokens,lRules,lIns,lPerformance,lSrc,lGenObj,lGenCObj,lWarn  ;
 	char *cStr  ;
 	/* Init Values */
-	nCGI = 0 ;
+	lCGI = 0 ;
 	lRun = 1 ;
 	lPrintIC = 0 ;
 	lPrintICFinal = 0 ;
-	nTokens = 0 ;
-	nRules = 0 ;
-	nIns = 0 ;
-	nPerformance = 0 ;
+	lTokens = 0 ;
+	lRules = 0 ;
+	lIns = 0 ;
+	lPerformance = 0 ;
 	cStr = NULL ;
-	nSRC = 0 ;
+	lSrc = 0 ;
 	lGenObj = 0 ;
 	lGenCObj = 0 ;
-	nWarn = 0 ;
+	lWarn = 0 ;
 	nRingStateDEBUGSEGFAULT = 0 ;
 	nRingStateCGI = 0 ;
 	signal(SIGSEGV,ring_state_segfaultaction);
 	if ( nArgc > 1 ) {
 		for ( x = 1 ; x < nArgc ; x++ ) {
 			if ( strcmp(pArgv[x],"-cgi") == 0 ) {
-				nCGI = 1 ;
+				lCGI = 1 ;
 				nRingStateCGI = 1 ;
 			}
 			else if ( strcmp(pArgv[x],"-tokens") == 0 ) {
-				nTokens = 1 ;
+				lTokens = 1 ;
 			}
 			else if ( strcmp(pArgv[x],"-rules") == 0 ) {
-				nRules = 1 ;
+				lRules = 1 ;
 			}
 			else if ( strcmp(pArgv[x],"-ic") == 0 ) {
 				lPrintIC = 1 ;
@@ -167,10 +167,10 @@ RING_API void ring_state_main ( int nArgc, char *pArgv[] )
 				lPrintICFinal = 1 ;
 			}
 			else if ( strcmp(pArgv[x],"-ins") == 0 ) {
-				nIns = 1 ;
+				lIns = 1 ;
 			}
 			else if ( strcmp(pArgv[x],"-clock") == 0 ) {
-				nPerformance = 1 ;
+				lPerformance = 1 ;
 			}
 			else if ( strcmp(pArgv[x],"-go") == 0 ) {
 				lGenObj = 1 ;
@@ -179,18 +179,18 @@ RING_API void ring_state_main ( int nArgc, char *pArgv[] )
 				lGenCObj = 1 ;
 			}
 			else if ( strcmp(pArgv[x],"-w") == 0 ) {
-				nWarn = 1 ;
+				lWarn = 1 ;
 				nRingStateDEBUGSEGFAULT = 1 ;
 			}
-			else if ( ( ring_general_issourcefile(pArgv[x]) || ring_general_isobjectfile(pArgv[x])) && nSRC == 0 ) {
+			else if ( ( ring_general_issourcefile(pArgv[x]) || ring_general_isobjectfile(pArgv[x])) && lSrc == 0 ) {
 				cStr = pArgv[x] ;
-				nSRC = 1 ;
+				lSrc = 1 ;
 			}
 			else {
-				if ( nSRC == 0 ) {
+				if ( lSrc == 0 ) {
 					if ( ring_general_fexists(pArgv[x]) ) {
 						cStr = pArgv[x] ;
-						nSRC = 1 ;
+						lSrc = 1 ;
 					}
 					else {
 						ring_general_printline();
@@ -200,30 +200,30 @@ RING_API void ring_state_main ( int nArgc, char *pArgv[] )
 			}
 		}
 	}
-	if ( nPerformance ) {
+	if ( lPerformance ) {
 		ring_general_showtime();
 	}
 	srand(time(NULL));
 	/* Check Startup ring.ring */
 	if ( ring_general_fexists("ring.ring") && nArgc == 1 ) {
-		ring_state_execute((char *) "ring.ring",nCGI,lRun,lPrintIC,lPrintICFinal,nTokens,nRules,nIns,lGenObj,lGenCObj,nWarn,nArgc,pArgv);
+		ring_state_execute((char *) "ring.ring",lCGI,lRun,lPrintIC,lPrintICFinal,lTokens,lRules,lIns,lGenObj,lGenCObj,lWarn,nArgc,pArgv);
 		exit(RING_EXIT_OK);
 	}
 	if ( ring_general_fexists("ring.ringo") && nArgc == 1 ) {
-		ring_state_execute((char *) "ring.ringo",nCGI,lRun,lPrintIC,lPrintICFinal,nTokens,nRules,nIns,lGenObj,lGenCObj,nWarn,nArgc,pArgv);
+		ring_state_execute((char *) "ring.ringo",lCGI,lRun,lPrintIC,lPrintICFinal,lTokens,lRules,lIns,lGenObj,lGenCObj,lWarn,nArgc,pArgv);
 		exit(RING_EXIT_OK);
 	}
 	/* Print Version */
 	if ( (nArgc == 1) || (cStr == NULL) ) {
 		ring_state_usageinfo();
 	}
-	ring_state_execute(cStr,nCGI,lRun,lPrintIC,lPrintICFinal,nTokens,nRules,nIns,lGenObj,lGenCObj,nWarn,nArgc,pArgv);
-	if ( nPerformance ) {
+	ring_state_execute(cStr,lCGI,lRun,lPrintIC,lPrintICFinal,lTokens,lRules,lIns,lGenObj,lGenCObj,lWarn,nArgc,pArgv);
+	if ( lPerformance ) {
 		ring_general_showtime();
 	}
 }
 
-RING_API void ring_state_execute ( char *cFileName, int lISCGI,int lRun,int lPrintIC,int lPrintICFinal,int nTokens,int nRules,int nIns,int lGenObj,int lGenCObj,int nWarn,int nArgc,char *pArgv[] )
+RING_API void ring_state_execute ( char *cFileName, int lISCGI,int lRun,int lPrintIC,int lPrintICFinal,int lTokens,int lRules,int lIns,int lGenObj,int lGenCObj,int lWarn,int nArgc,char *pArgv[] )
 {
 	RingState *pRingState  ;
 	pRingState = ring_state_new();
@@ -231,12 +231,12 @@ RING_API void ring_state_execute ( char *cFileName, int lISCGI,int lRun,int lPri
 	pRingState->lRun = lRun ;
 	pRingState->lPrintIC = lPrintIC ;
 	pRingState->lPrintICFinal = lPrintICFinal ;
-	pRingState->lPrintTokens = nTokens ;
-	pRingState->lPrintRules = nRules ;
-	pRingState->lPrintInstruction = nIns ;
+	pRingState->lPrintTokens = lTokens ;
+	pRingState->lPrintRules = lRules ;
+	pRingState->lPrintInstruction = lIns ;
 	pRingState->lGenObj = lGenObj ;
 	pRingState->lGenCObj = lGenCObj ;
-	pRingState->lWarning = nWarn ;
+	pRingState->lWarning = lWarn ;
 	pRingState->nArgc = nArgc ;
 	pRingState->pArgv = pArgv ;
 	if ( ring_general_isobjectfile(cFileName) ) {
@@ -250,15 +250,15 @@ RING_API void ring_state_execute ( char *cFileName, int lISCGI,int lRun,int lPri
 
 RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 {
-	RING_FILE pFile  ;
-	/* Must be signed char to work fine on Android. */
-	signed char c  ;
 	Scanner *pScanner  ;
 	VM *pVM  ;
-	int nCont,lRunVM,nFreeFilesList = 0 ;
-	char cStartup[32]  ;
-	int x,nSize  ;
+	RING_FILE pFile  ;
+	char cStartup[RING_SMALLBUF]  ;
 	char cFileName2[RING_PATHSIZE]  ;
+	int lCont,lRunVM,lFreeFilesList,x,nSize  ;
+	/* Must be signed char to work fine on Android. */
+	signed char c  ;
+	lFreeFilesList = 0 ;
 	/* Check Path Size */
 	if ( strlen(cFileName) > RING_PATHLIMIT ) {
 		printf( "\nVery long path! Can't open %s  The maximum path size is %d \n",cFileName,RING_PATHLIMIT ) ;
@@ -270,7 +270,7 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 		pRingState->pRingFilesStack = ring_list_new_gc(pRingState,RING_ZERO);
 		ring_list_addstring_gc(pRingState,pRingState->pRingFilesList,cFileName);
 		ring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,cFileName);
-		nFreeFilesList = 1 ;
+		lFreeFilesList = 1 ;
 	}
 	else {
 		if ( ring_list_findstring(pRingState->pRingFilesList,cFileName,RING_ZERO) == 0 ) {
@@ -292,7 +292,7 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 	}
 	/* Switch To File Folder */
 	strcpy(cFileName2,cFileName);
-	if ( nFreeFilesList == 0 ) {
+	if ( lFreeFilesList == 0 ) {
 		pFile = ring_custom_fopen(cFileName , "r");
 		ring_general_switchtofilefolder(cFileName2);
 	}
@@ -338,7 +338,7 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 		ring_scanner_readchar(pScanner,c);
 		RING_READCHAR(pFile,c,nSize);
 	}
-	nCont = ring_scanner_checklasttoken(pScanner);
+	lCont = ring_scanner_checklasttoken(pScanner);
 	/* Add Token "End of Line" to the end of any program */
 	ring_scanner_endofline(pScanner);
 	RING_CLOSEFILE(pFile);
@@ -347,7 +347,7 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 		ring_scanner_printtokens(pScanner);
 	}
 	/* Call Parser */
-	if ( (nCont == 1) && (pRingState->lOnlyTokens == 0) ) {
+	if ( (lCont == 1) && (pRingState->lOnlyTokens == 0) ) {
 		if ( pScanner->pRingState->lPrintRules ) {
 			printf( "\n" ) ;
 			ring_general_printline();
@@ -375,7 +375,7 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 	ring_scanner_delete(pScanner);
 	/* Files List */
 	ring_list_deleteitem_gc(pRingState,pRingState->pRingFilesStack,ring_list_getsize(pRingState->pRingFilesStack));
-	if ( nFreeFilesList ) {
+	if ( lFreeFilesList ) {
 		/* Generate the Object File */
 		if ( pRingState->lGenObj ) {
 			ring_objfile_writefile(pRingState);
@@ -456,19 +456,19 @@ RING_API void ring_state_log ( RingState *pRingState,const char *cStr )
 
 RING_API int ring_state_runstring ( RingState *pRingState,char *cString )
 {
-	signed char c  ;
 	Scanner *pScanner  ;
 	VM *pVM  ;
-	int nCont,lRunVM,nFreeFilesList = 0 ;
-	int x  ;
 	const char *cFileName = "runstring" ;
+	int x,lCont,lRunVM,lFreeFilesList  ;
+	signed char c  ;
+	lFreeFilesList = 0 ;
 	/* Check file */
 	if ( pRingState->pRingFilesList == NULL ) {
 		pRingState->pRingFilesList = ring_list_new_gc(pRingState,RING_ZERO);
 		pRingState->pRingFilesStack = ring_list_new_gc(pRingState,RING_ZERO);
 		ring_list_addstring_gc(pRingState,pRingState->pRingFilesList,cFileName);
 		ring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,cFileName);
-		nFreeFilesList = 1 ;
+		lFreeFilesList = 1 ;
 	}
 	else {
 		if ( ring_list_findstring(pRingState->pRingFilesList,cFileName,RING_ZERO) == 0 ) {
@@ -494,7 +494,7 @@ RING_API int ring_state_runstring ( RingState *pRingState,char *cString )
 		c = cString[x] ;
 		ring_scanner_readchar(pScanner,c);
 	}
-	nCont = ring_scanner_checklasttoken(pScanner);
+	lCont = ring_scanner_checklasttoken(pScanner);
 	/* Add Token "End of Line" to the end of any program */
 	ring_scanner_endofline(pScanner);
 	/* Print Tokens */
@@ -502,7 +502,7 @@ RING_API int ring_state_runstring ( RingState *pRingState,char *cString )
 		ring_scanner_printtokens(pScanner);
 	}
 	/* Call Parser */
-	if ( (nCont == 1) && (pRingState->lOnlyTokens == 0) ) {
+	if ( (lCont == 1) && (pRingState->lOnlyTokens == 0) ) {
 		if ( pScanner->pRingState->lPrintRules ) {
 			printf( "\n" ) ;
 			ring_general_printline();
@@ -530,7 +530,7 @@ RING_API int ring_state_runstring ( RingState *pRingState,char *cString )
 	ring_scanner_delete(pScanner);
 	/* Files List */
 	ring_list_deleteitem_gc(pRingState,pRingState->pRingFilesStack,ring_list_getsize(pRingState->pRingFilesStack));
-	if ( nFreeFilesList ) {
+	if ( lFreeFilesList ) {
 		/* Generate the Object File */
 		if ( pRingState->lGenObj ) {
 			ring_objfile_writefile(pRingState);
