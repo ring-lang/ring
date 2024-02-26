@@ -1,6 +1,6 @@
 echo off
 setlocal enableextensions enabledelayedexpansion
-call ../../language/src/locatevc.bat x64
+call ../../language/build/locatevc.bat x64
 
 cl /c /DEBUG ring_winapi.c -I"..\..\language\include"
 

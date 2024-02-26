@@ -1,6 +1,6 @@
 cls
 setlocal enableextensions enabledelayedexpansion
-call ../../language/src/locatevc.bat auto %1
+call ../../language/build/locatevc.bat auto %1
 cl /c /DEBUG ring_murmurhash.c libmurmurhash/MurmurHash1.c ^
     libmurmurhash/MurmurHash2.c libmurmurhash/MurmurHash3.c ^
      -I"../../language/include" -I"libmurmurhash/"

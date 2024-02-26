@@ -1,6 +1,6 @@
 echo off
 setlocal enableextensions enabledelayedexpansion
-call ../../language/src/locatevc.bat auto %1
+call ../../language/build/locatevc.bat auto %1
 
 cl /c /DEBUG /EHsc creg_registry.cpp ring_wincreg.cpp -I"..\..\language\include"
 
