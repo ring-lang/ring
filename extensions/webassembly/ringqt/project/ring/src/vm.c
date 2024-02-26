@@ -55,7 +55,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	/* Saving scope when creating new objects and calling class init method */
 	pVM->pScopeNewObj = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Flag ( 0 = Call Function  1 = Call Method After writing object name using dot ) */
-	pVM->nCallMethod = 0 ;
+	pVM->lCallMethod = 0 ;
 	/* List of Lists used like Stack, list structure [Pointer to State , Pointer to Methods] */
 	pVM->pObjState = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Support for using Braces to access object state */

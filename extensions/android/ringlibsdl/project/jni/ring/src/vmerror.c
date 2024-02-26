@@ -13,7 +13,7 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 	/* Check BraceError() */
 	if ( pVM->lCheckBraceError  && (ring_list_getsize(pVM->pObjState) > 0) ) {
 		fflush(stdout);
-		if ( (ring_vm_oop_callmethodinsideclass(pVM) == 0 ) && (pVM->nCallMethod == 0) ) {
+		if ( (ring_vm_oop_callmethodinsideclass(pVM) == 0 ) && (pVM->lCallMethod == 0) ) {
 			if ( ring_vm_findvar(pVM,RING_CSTR_SELF) ) {
 				pList = ring_vm_oop_getobj(pVM);
 				RING_VM_STACK_POP ;

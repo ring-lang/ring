@@ -108,7 +108,7 @@
 		unsigned char lCheckBraceError  ;
 		unsigned char lDontMoveToPrevScope  ;
 		unsigned char lSelfLoadA  ;
-		unsigned char nCallMethod  ;
+		unsigned char lCallMethod  ;
 		unsigned char nInsideBraceFlag  ;
 		unsigned char nInClassRegion  ;
 		unsigned char nPrivateFlag  ;

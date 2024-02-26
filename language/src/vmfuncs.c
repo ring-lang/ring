@@ -21,7 +21,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 		/* For OOP Support - Search in the Class Methods */
 		if ( y == 2 ) {
 			/* Exit if we are  ( not inside class (no active object) ) or we call method after object name */
-			if ( ( ring_list_getsize(pVM->pObjState) == 0 ) || ( pVM->nCallMethod == 1 ) ) {
+			if ( ( ring_list_getsize(pVM->pObjState) == 0 ) || ( pVM->lCallMethod == 1 ) ) {
 				continue ;
 			}
 			pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState));
@@ -67,7 +67,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 			pVM->cFileName = ring_list_getstring(pList2,RING_FUNCMAP_FILENAME) ;
 			pFuncCall->cNewFileName = pVM->cFileName ;
 			/* Method or Function */
-			pFuncCall->nMethodOrFunc = ! ( (y == 1) && (pVM->nCallMethod != 1) ) ;
+			pFuncCall->nMethodOrFunc = ! ( (y == 1) && (pVM->lCallMethod != 1) ) ;
 			/* Line Number */
 			pFuncCall->nLineNumber = RING_VM_IR_GETLINENUMBER ;
 			/* Store List information */
@@ -75,7 +75,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 			pFuncCall->pNestedLists = pVM->pNestedLists ;
 			pVM->nListStart = 0 ;
 			pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,RING_ZERO);
-			if ( (strcmp(cStr,"main") != 0 ) && (pVM->nCallMethod != 1) && (y != 2) ) {
+			if ( (strcmp(cStr,"main") != 0 ) && (pVM->lCallMethod != 1) && (y != 2) ) {
 				/* We check that we will convert Functions only, not methods */
 				if ( pVM->nInsideBraceFlag == 0 ) {
 					ring_vmfunccall_useloadfuncp(pVM,pFuncCall,nPerformance);
@@ -109,7 +109,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 		}
 	}
 	/* For OOP Support - Check Method not found! */
-	if ( pVM->nCallMethod == 1 ) {
+	if ( pVM->lCallMethod == 1 ) {
 		/* Pass The Call Instruction and the AfterCallMethod Instruction */
 		pVM->nPC += 2 ;
 		ring_vm_error2(pVM,RING_VM_ERROR_METHODNOTFOUND,cStr);

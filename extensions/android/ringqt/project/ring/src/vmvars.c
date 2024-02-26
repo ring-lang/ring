@@ -173,7 +173,7 @@ int ring_vm_findvar2 ( VM *pVM,int nLevel,List *pList2,const char *cStr )
 					/* Pass Braces for Class Init() to be sure we are inside a method or not */
 					if ( (ring_list_getsize(pVM->pObjState) > pVM->nCallClassInit) && (pVM->nCallClassInit) ) {
 						pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState) - pVM->nCallClassInit) ;
-						if ( (ring_list_getsize(pList) == 4) && (pVM->nCallMethod == 0) ) {
+						if ( (ring_list_getsize(pList) == 4) && (pVM->lCallMethod == 0) ) {
 							/* Here we have a method, So we avoid the private attribute error! */
 							lPrivateError = 0 ;
 						}

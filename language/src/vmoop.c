@@ -407,9 +407,9 @@ void ring_vm_oop_loadmethod ( VM *pVM )
 	/* Call Method */
 	pVar = pVM->pFunctionsMap ;
 	pVM->pFunctionsMap = pList3 ;
-	pVM->nCallMethod = 1 ;
+	pVM->lCallMethod = 1 ;
 	lResult = ring_vm_loadfunc(pVM);
-	pVM->nCallMethod = 0 ;
+	pVM->lCallMethod = 0 ;
 	pVM->pFunctionsMap = pVar ;
 	/* Move list from pObjState to pBeforeObjState */
 	if ( lResult ) {
@@ -642,9 +642,9 @@ void ring_vm_oop_loadsuperobjmethod ( VM *pVM,List *pSuper )
 	/* Call Method */
 	pVar = pVM->pFunctionsMap ;
 	pVM->pFunctionsMap = pMethods ;
-	pVM->nCallMethod = 1 ;
+	pVM->lCallMethod = 1 ;
 	ring_vm_loadfunc(pVM);
-	pVM->nCallMethod = 0 ;
+	pVM->lCallMethod = 0 ;
 	pVM->pFunctionsMap = pVar ;
 }
 
@@ -786,7 +786,7 @@ int ring_vm_oop_callmethodinsideclass ( VM *pVM )
 	*/
 	if ( ring_list_getsize(pVM->pObjState) >= 1 ) {
 		pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState)) ;
-		if ( (ring_list_getsize(pList) == 4) && (pVM->nCallMethod == 0) ) {
+		if ( (ring_list_getsize(pList) == 4) && (pVM->lCallMethod == 0) ) {
 			return 1 ;
 		}
 	}

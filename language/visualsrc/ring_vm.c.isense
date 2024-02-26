@@ -141,13 +141,13 @@ nLineNumber
 Type: unsigned int
 nListStart
 Type: unsigned int
-nBlockFlag
+nBlockCounter
 Type: unsigned int
 nFuncSP
 Type: unsigned int
 nFuncExecute
 Type: unsigned int
-nCallMainFunction
+lCallMainFunction
 Type: unsigned int
 nVarScope
 Type: unsigned int
