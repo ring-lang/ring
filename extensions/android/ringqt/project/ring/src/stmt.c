@@ -227,7 +227,7 @@ int ring_parser_class ( Parser *pParser )
 
 int ring_parser_stmt ( Parser *pParser )
 {
-	int x,nMark1,nMark2,nMark3,nStart,nEnd,nDiff,lFastLen,nFlag,nLoadPackage,nLoopOrExitCommand,nLoadAgain,nForInVarsCount,nVar,nLine,nLine2  ;
+	int x,nMark1,nMark2,nMark3,nStart,nEnd,nDiff,lFastLen,nFlag,nLoadPackage,lLoopOrExitCommand,nLoadAgain,nForInVarsCount,nVar,nLine,nLine2  ;
 	String *pString  ;
 	List *pMark,*pMark2,*pMark3,*pMark4,*pList2  ;
 	double nNum1  ;
@@ -235,7 +235,7 @@ int ring_parser_stmt ( Parser *pParser )
 	char cFileName[RING_PATHSIZE]  ;
 	char cCurrentDir[RING_PATHSIZE]  ;
 	nLoadPackage = 0 ;
-	nLoopOrExitCommand = 0 ;
+	lLoopOrExitCommand = 0 ;
 	nLoadAgain = 0 ;
 	nLine2 = 0 ;
 	/* Statement --> Load Literal */
@@ -512,7 +512,7 @@ int ring_parser_stmt ( Parser *pParser )
 							RING_STATE_CHECKPRINTRULES
 							puts(RING_RULE_FORLOOP);
 							/* Save Loop|Exit commands status */
-							nLoopOrExitCommand = pParser->nLoopOrExitCommand ;
+							lLoopOrExitCommand = pParser->lLoopOrExitCommand ;
 							pParser->nLoopCounter++ ;
 							RING_PARSER_ACCEPTSTATEMENTS ;
 							pParser->nLoopCounter-- ;
@@ -533,7 +533,7 @@ int ring_parser_stmt ( Parser *pParser )
 								/* Complete SETOPCODE instruction */
 								ring_parser_icg_addoperandint(pParser,pMark4,nMark2-1);
 								/* Restore Loop|Exit Commands Status */
-								if ( pParser->nLoopOrExitCommand || ! pParser->nCheckLoopAndExit ) {
+								if ( pParser->lLoopOrExitCommand || ! pParser->nCheckLoopAndExit ) {
 									/* Set Exit Mark */
 									ring_parser_icg_addoperandint(pParser,pMark3,nMark2);
 									/* Set Loop Mark */
@@ -545,7 +545,7 @@ int ring_parser_stmt ( Parser *pParser )
 									ring_parser_icg_setopcode(pParser,pMark3,ICO_NOOP);
 								}
 								if ( pParser->nLoopCounter == 0 ) {
-									pParser->nLoopOrExitCommand = nLoopOrExitCommand ;
+									pParser->lLoopOrExitCommand = lLoopOrExitCommand ;
 								}
 								/* POP Step */
 								ring_parser_icg_newoperation(pParser,ICO_POPSTEP);
@@ -643,7 +643,7 @@ int ring_parser_stmt ( Parser *pParser )
 					RING_STATE_CHECKPRINTRULES
 					puts(RING_RULE_FORINLOOP);
 					/* Save Loop|Exit commands status */
-					nLoopOrExitCommand = pParser->nLoopOrExitCommand ;
+					lLoopOrExitCommand = pParser->lLoopOrExitCommand ;
 					pParser->nLoopCounter++ ;
 					RING_PARSER_ACCEPTSTATEMENTS ;
 					pParser->nLoopCounter-- ;
@@ -665,7 +665,7 @@ int ring_parser_stmt ( Parser *pParser )
 						ring_parser_icg_addoperandint(pParser,pMark,RING_ZERO);
 						ring_parser_icg_addoperandint(pParser,pMark,RING_ZERO);
 						/* Restore Loop|Exit Commands Status */
-						if ( pParser->nLoopOrExitCommand || ! pParser->nCheckLoopAndExit ) {
+						if ( pParser->lLoopOrExitCommand || ! pParser->nCheckLoopAndExit ) {
 							/* Set Exit Mark */
 							ring_parser_icg_addoperandint(pParser,pMark3,nMark2);
 							/* Set Loop Mark */
@@ -677,7 +677,7 @@ int ring_parser_stmt ( Parser *pParser )
 							ring_parser_icg_setopcode(pParser,pMark3,ICO_NOOP);
 						}
 						if ( pParser->nLoopCounter == 0 ) {
-							pParser->nLoopOrExitCommand = nLoopOrExitCommand ;
+							pParser->lLoopOrExitCommand = lLoopOrExitCommand ;
 						}
 						/* POP Step */
 						ring_parser_icg_newoperation(pParser,ICO_POPSTEP);
@@ -805,7 +805,7 @@ int ring_parser_stmt ( Parser *pParser )
 			RING_STATE_CHECKPRINTRULES
 			puts(RING_RULE_WHILELOOP);
 			/* Save Loop|Exit commands status */
-			nLoopOrExitCommand = pParser->nLoopOrExitCommand ;
+			lLoopOrExitCommand = pParser->lLoopOrExitCommand ;
 			pParser->nLoopCounter++ ;
 			RING_PARSER_ACCEPTSTATEMENTS ;
 			pParser->nLoopCounter-- ;
@@ -817,7 +817,7 @@ int ring_parser_stmt ( Parser *pParser )
 				nMark2 = ring_parser_icg_newlabel(pParser);
 				ring_parser_icg_addoperandint(pParser,pMark,nMark2);
 				/* Restore Loop|Exit Commands Status */
-				if ( pParser->nLoopOrExitCommand || ! pParser->nCheckLoopAndExit ) {
+				if ( pParser->lLoopOrExitCommand || ! pParser->nCheckLoopAndExit ) {
 					/* Set Exit Mark */
 					ring_parser_icg_addoperandint(pParser,pMark3,nMark2);
 					/* Set Loop Mark */
@@ -829,7 +829,7 @@ int ring_parser_stmt ( Parser *pParser )
 					ring_parser_icg_setopcode(pParser,pMark3,ICO_NOOP);
 				}
 				if ( pParser->nLoopCounter == 0 ) {
-					pParser->nLoopOrExitCommand = nLoopOrExitCommand ;
+					pParser->lLoopOrExitCommand = lLoopOrExitCommand ;
 				}
 				/* POP Step */
 				ring_parser_icg_newoperation(pParser,ICO_POPSTEP);
@@ -862,7 +862,7 @@ int ring_parser_stmt ( Parser *pParser )
 		puts(RING_RULE_DOAGAINLOOP);
 		ring_parser_nexttoken(pParser);
 		/* Save Loop|Exit commands status */
-		nLoopOrExitCommand = pParser->nLoopOrExitCommand ;
+		lLoopOrExitCommand = pParser->lLoopOrExitCommand ;
 		pParser->nLoopCounter++ ;
 		RING_PARSER_ACCEPTSTATEMENTS ;
 		pParser->nLoopCounter-- ;
@@ -881,7 +881,7 @@ int ring_parser_stmt ( Parser *pParser )
 				nMark2 = ring_parser_icg_newlabel(pParser);
 				ring_parser_icg_addoperandint(pParser,pMark,nMark2);
 				/* Restore Loop|Exit Commands Status */
-				if ( pParser->nLoopOrExitCommand || ! pParser->nCheckLoopAndExit ) {
+				if ( pParser->lLoopOrExitCommand || ! pParser->nCheckLoopAndExit ) {
 					/* Set Exit Mark */
 					ring_parser_icg_addoperandint(pParser,pMark3,nMark2);
 					/* Set Loop Mark */
@@ -893,7 +893,7 @@ int ring_parser_stmt ( Parser *pParser )
 					ring_parser_icg_setopcode(pParser,pMark3,ICO_NOOP);
 				}
 				if ( pParser->nLoopCounter == 0 ) {
-					pParser->nLoopOrExitCommand = nLoopOrExitCommand ;
+					pParser->lLoopOrExitCommand = lLoopOrExitCommand ;
 				}
 				/* POP Step */
 				ring_parser_icg_newoperation(pParser,ICO_POPSTEP);
@@ -1031,7 +1031,7 @@ int ring_parser_stmt ( Parser *pParser )
 		}
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_EXIT);
-		pParser->nLoopOrExitCommand = 1 ;
+		pParser->lLoopOrExitCommand = 1 ;
 		return RING_PARSER_OK ;
 	}
 	/* Statement --> Loop (Continue) */
@@ -1056,7 +1056,7 @@ int ring_parser_stmt ( Parser *pParser )
 		}
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_LOOP);
-		pParser->nLoopOrExitCommand = 1 ;
+		pParser->lLoopOrExitCommand = 1 ;
 		return RING_PARSER_OK ;
 	}
 	/* Statement --> Switch  Expr { ON|CASE Expr {Statement} } OFF */

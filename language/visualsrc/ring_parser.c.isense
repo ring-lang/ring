@@ -41,7 +41,7 @@ nControlStructureBrace
 Type: unsigned int
 nInsertCounter
 Type: unsigned int
-nLoopFlag
+nLoopCounter
 Type: unsigned char
 nLoopOrExitCommand
 Type: unsigned char

@@ -43,7 +43,7 @@
 		*/
 		unsigned int nLoopCounter  ;
 		/* To Know if the commands (Loop or Exit) are used */
-		unsigned char nLoopOrExitCommand  ;
+		unsigned char lLoopOrExitCommand  ;
 		/* Enable|Disable checking Loop & Exit commands before storing Loop & Exit marks */
 		unsigned char nCheckLoopAndExit  ;
 		/* Variable to select between = and == while using = only in the code */

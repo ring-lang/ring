@@ -70,7 +70,7 @@ Parser * ring_parser_new ( List *pTokens,RingState *pRingState )
 	pParser->nControlStructureBrace = 0 ;
 	pParser->nThisOrSelfLoadA = 0 ;
 	pParser->nThisLoadA = 0 ;
-	pParser->nLoopOrExitCommand = 0 ;
+	pParser->lLoopOrExitCommand = 0 ;
 	pParser->nCheckLoopAndExit = 1 ;
 	pParser->nLoopCounter = 0 ;
 	pParser->pForInVars = ring_list_new_gc(pRingState,RING_ZERO);
