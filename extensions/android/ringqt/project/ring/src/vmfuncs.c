@@ -347,7 +347,7 @@ void ring_vm_return ( VM *pVM )
 	Item vTempItem  ;
 	FuncCall *pFuncCall  ;
 	/* Support for nested "Load" instructions */
-	if ( pVM->nBlockFlag >= 1 ) {
+	if ( pVM->nBlockCounter >= 1 ) {
 		ring_vm_removeblockflag(pVM);
 		/* Be sure it's not a function call or method call */
 		if ( pVM->nPC != 0 ) {
@@ -528,7 +528,7 @@ void ring_vm_blockflag ( VM *pVM )
 void ring_vm_blockflag2 ( VM *pVM,int nPC )
 {
 	List *pList  ;
-	pVM->nBlockFlag++ ;
+	pVM->nBlockCounter++ ;
 	pList = ring_list_newlist_gc(pVM->pRingState,pVM->pPCBlockFlag);
 	ring_list_addint_gc(pVM->pRingState,pList,nPC);
 	/* Save State */
@@ -542,7 +542,7 @@ void ring_vm_removeblockflag ( VM *pVM )
 	List *pList  ;
 	pList = ring_list_getlist(pVM->pPCBlockFlag,ring_list_getsize(pVM->pPCBlockFlag));
 	pVM->nPC = ring_list_getint(pList,RING_PCBLOCKFLAG_PC);
-	pVM->nBlockFlag-- ;
+	pVM->nBlockCounter-- ;
 	/* Restore State */
 	ring_vm_backstate(pVM,pVM->pExitMark,ring_list_getint(pList,RING_PCBLOCKFLAG_EXITMARK));
 	ring_vm_backstate(pVM,pVM->pLoopMark,ring_list_getint(pList,RING_PCBLOCKFLAG_LOOPMARK));

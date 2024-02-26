@@ -21,7 +21,7 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 	pVMState->aNumbers[5] = ring_list_getsize(pVM->pObjState) ;
 	pVMState->aNumbers[6] = ring_list_getsize(pVM->pBraceObjects) ;
 	pVMState->aNumbers[7] = ring_list_getsize(pVM->pPCBlockFlag) ;
-	pVMState->aNumbers[8] = pVM->nBlockFlag ;
+	pVMState->aNumbers[8] = pVM->nBlockCounter ;
 	pVMState->aNumbers[9] = ring_list_getsize(pVM->pScopeNewObj) ;
 	pVMState->aNumbers[10] = ring_list_getsize(pVM->pActivePackage) ;
 	pVMState->aNumbers[11] = pVM->lNoSetterMethod ;
@@ -100,7 +100,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 		pVM->pPCBlockFlag = (List *) pVMState->aPointers[4] ;
 	}
 	ring_vm_backstate(pVM,pVM->pPCBlockFlag,pVMState->aNumbers[7]);
-	pVM->nBlockFlag = pVMState->aNumbers[8] ;
+	pVM->nBlockCounter = pVMState->aNumbers[8] ;
 	ring_vm_backstate(pVM,pVM->pActivePackage,pVMState->aNumbers[10]);
 	pVM->lNoSetterMethod = pVMState->aNumbers[11] ;
 	pVM->nActiveScopeID = pVMState->aNumbers[12] ;
@@ -229,7 +229,7 @@ VMState * ring_vm_savestateforfunctions ( VM *pVM )
 	pVMState->aNumbers[5] = pVM->nInsideBraceFlag ;
 	pVMState->aNumbers[6] = ring_list_getsize(pVM->pForStep) ;
 	pVMState->aNumbers[7] = pVM->nCurrentGlobalScope ;
-	pVMState->aNumbers[8] = pVM->nBlockFlag ;
+	pVMState->aNumbers[8] = pVM->nBlockCounter ;
 	pVMState->aNumbers[9] = pVM->nPrivateFlag ;
 	pVMState->aNumbers[10] = pVM->nCallClassInit ;
 	pVMState->aNumbers[11] = pVM->nFuncExecute ;
@@ -254,7 +254,7 @@ VMState * ring_vm_savestateforfunctions ( VM *pVM )
 	/* Save State */
 	pVM->nInsideBraceFlag = 0 ;
 	/* Save BlockFlag */
-	pVM->nBlockFlag = 0 ;
+	pVM->nBlockCounter = 0 ;
 	pVM->pPCBlockFlag = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Save nPrivateFlag, set it to 0 (public not private) */
 	pVM->nPrivateFlag = 0 ;
@@ -290,7 +290,7 @@ void ring_vm_restorestateforfunctions ( VM *pVM,VMState *pVMState )
 	pVM->pActiveMem = (List *) pVMState->aPointers[1] ;
 	/* Restore BlockFLag */
 	pVM->pPCBlockFlag = ring_list_delete_gc(pVM->pRingState,pVM->pPCBlockFlag);
-	pVM->nBlockFlag = pVMState->aNumbers[8] ;
+	pVM->nBlockCounter = pVMState->aNumbers[8] ;
 	pVM->pPCBlockFlag = (List *) pVMState->aPointers[2] ;
 	/* Restore nPrivateFlag */
 	pVM->nPrivateFlag = pVMState->aNumbers[9] ;
@@ -402,9 +402,9 @@ void ring_vm_savestatefornewobjects ( VM *pVM )
 	pVMState->aNumbers[23] = pVM->lNoSetterMethod ;
 	pVM->lNoSetterMethod = 0 ;
 	/* Save the BlockFlag */
-	pVMState->aNumbers[24] = pVM->nBlockFlag ;
+	pVMState->aNumbers[24] = pVM->nBlockCounter ;
 	pVMState->aPointers[7] = pVM->pPCBlockFlag ;
-	pVM->nBlockFlag = 0 ;
+	pVM->nBlockCounter = 0 ;
 	pVM->pPCBlockFlag = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Save pActivePackage */
 	pVMState->aNumbers[25] = ring_list_getsize(pVM->pActivePackage) ;
@@ -494,7 +494,7 @@ void ring_vm_restorestatefornewobjects ( VM *pVM )
 	/* Restore lNoSetterMethod */
 	pVM->lNoSetterMethod = pVMState->aNumbers[23] ;
 	/* Restore the BlockFlag */
-	pVM->nBlockFlag = pVMState->aNumbers[24] ;
+	pVM->nBlockCounter = pVMState->aNumbers[24] ;
 	pVM->pPCBlockFlag = ring_list_delete_gc(pVM->pRingState,pVM->pPCBlockFlag);
 	pVM->pPCBlockFlag = (List *)  pVMState->aPointers[7] ;
 	/* Restore pActivePackage */

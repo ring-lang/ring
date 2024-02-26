@@ -87,7 +87,7 @@
 		unsigned int nSP  ;
 		unsigned int nLineNumber  ;
 		unsigned int nListStart  ;
-		unsigned int nBlockFlag  ;
+		unsigned int nBlockCounter  ;
 		unsigned int nFuncSP  ;
 		unsigned int nFuncExecute  ;
 		unsigned int nCallMainFunction  ;

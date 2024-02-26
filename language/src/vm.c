@@ -36,7 +36,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->nListStart = 0 ;
 	pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Support for nested Load Instructions */
-	pVM->nBlockFlag = 0 ;
+	pVM->nBlockCounter = 0 ;
 	pVM->pPCBlockFlag = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Calling Functions */
 	pVM->pFuncCallList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
