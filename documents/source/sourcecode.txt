@@ -64,7 +64,7 @@ Build Ring (Compiler/VM)
 
 .. code-block:: none
 
-	cd ring/language/src
+	cd ring/language/build
 	buildvc.bat
 	buildvcw.bat
 
@@ -290,7 +290,7 @@ Install Libraries
 
 .. code-block:: none
 
-	cd ring/language/src
+	cd ring/language/build
 	./installdep.sh 
 
 Build Ring (Compiler/VM)
@@ -500,7 +500,7 @@ Install Libraries
 
 .. code-block:: none
 
-	cd ring/language/src
+	cd ring/language/build
 	./installdepmac.sh 
 
 Build Ring (Compiler/VM)
