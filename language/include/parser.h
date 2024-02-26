@@ -47,7 +47,7 @@
 		/* Enable|Disable checking Loop & Exit commands before storing Loop & Exit marks */
 		unsigned char lCheckLoopAndExit  ;
 		/* Variable to select between = and == while using = only in the code */
-		unsigned char nAssignmentFlag  ;
+		unsigned char lAssignmentFlag  ;
 		/* Variable to determine the start of the class definition */
 		unsigned char nClassStart  ;
 		/* Private Flag */
