@@ -1463,16 +1463,16 @@ void ring_vm_generallib_eval ( void *pPointer )
 	if ( RING_API_ISSTRING(1) ) {
 		cStr = RING_API_GETSTRING(1);
 		pVM = (VM *) pPointer ;
-		pVM->nEvalCalledFromRingCode = 1 ;
+		pVM->lEvalCalledFromRingCode = 1 ;
 		if ( pVM->nInsideEval == 0 ) {
 			pVM->nRetEvalDontDelete = 0 ;
 		}
 		if ( ring_vm_eval(pVM,cStr) == 0 ) {
-			pVM->nEvalCalledFromRingCode = 0 ;
+			pVM->lEvalCalledFromRingCode = 0 ;
 		}
 		/*
-		**  The CALL instruction will check nEvalCalledFromRingCode to execute the main loop again 
-		**  Before executing the main loop again, The CALL instruction will set nEvalCalledFromRingCode to 0 
+		**  The CALL instruction will check lEvalCalledFromRingCode to execute the main loop again 
+		**  Before executing the main loop again, The CALL instruction will set lEvalCalledFromRingCode to 0 
 		*/
 	}
 	else {
@@ -2299,12 +2299,12 @@ void ring_vm_generallib_customprint ( void *pPointer,const char *cCommand )
 		ring_string_add_gc(pVM->pRingState,pRingCode,"'");
 	}
 	/* Evaluate the code */
-	pVM->nEvalCalledFromRingCode = 1 ;
+	pVM->lEvalCalledFromRingCode = 1 ;
 	if ( pVM->nInsideEval == 0 ) {
 		pVM->nRetEvalDontDelete = 0 ;
 	}
 	if ( ring_vm_eval(pVM,ring_string_get(pRingCode) ) == 0 ) {
-		pVM->nEvalCalledFromRingCode = 0 ;
+		pVM->lEvalCalledFromRingCode = 0 ;
 	}
 	ring_string_delete_gc(pVM->pRingState,pRingCode);
 }

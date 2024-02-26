@@ -868,7 +868,7 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 		ring_string_delete_gc(pVM->pRingState,pString2);
 		if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG2)  == 0 ) {
 			nIns = pVM->nPC - 2 ;
-			pVM->nEvalCalledFromRingCode = 0 ;
+			pVM->lEvalCalledFromRingCode = 0 ;
 			if ( pVM->nInsideEval ) {
 				pVM->nRetEvalDontDelete = 1 ;
 			}
@@ -987,7 +987,7 @@ void ring_vm_oop_setproperty ( VM *pVM )
 			**  We use -1 instead of -2 because we already used pVM->nPC-- 
 			*/
 			nIns2 = pVM->nPC - 1 ;
-			pVM->nEvalCalledFromRingCode = 0 ;
+			pVM->lEvalCalledFromRingCode = 0 ;
 			if ( pVM->nInsideEval ) {
 				pVM->nRetEvalDontDelete = 1 ;
 			}
@@ -1123,7 +1123,7 @@ void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int 
 		ring_string_add_gc(pVM->pRingState,pString,"',ring_settemp_var)\nelse\nraise('Object does not support operator overloading')\nok\n");
 		/* Eval the string */
 		nIns = pVM->nPC - 2 ;
-		pVM->nEvalCalledFromRingCode = 0 ;
+		pVM->lEvalCalledFromRingCode = 0 ;
 		if ( pVM->nInsideEval ) {
 			pVM->nRetEvalDontDelete = 1 ;
 		}

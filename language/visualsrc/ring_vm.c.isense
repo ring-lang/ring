@@ -183,23 +183,23 @@ lDontMoveToPrevScope
 Type: unsigned char
 lSelfLoadA
 Type: unsigned char
-nCallMethod
+lCallMethod
 Type: unsigned char
-nInsideBraceFlag
+lInsideBraceFlag
 Type: unsigned char
 nInClassRegion
 Type: unsigned char
-nPrivateFlag
+lPrivateFlag
 Type: unsigned char
-nGetSetProperty
+lGetSetProperty
 Type: unsigned char
 nGetSetObjType
 Type: unsigned char
-nFirstAddress
+lFirstAddress
 Type: unsigned char
 nBeforeEqual
 Type: unsigned char
-nNOAssignment
+lNoAssignment
 Type: unsigned char
 nEvalCalledFromRingCode
 Type: unsigned char

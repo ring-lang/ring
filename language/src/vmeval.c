@@ -42,7 +42,7 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 		**  Generate  Hash Table 
 		*/
 		ring_list_genhashtable2(pVM->pFunctionsMap);
-		if ( pVM->nEvalCalledFromRingCode ) {
+		if ( pVM->lEvalCalledFromRingCode ) {
 			ring_scanner_addreturn3(pVM->pRingState,aPara);
 		}
 		else {
@@ -53,7 +53,7 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 		pVM->nPC = nLastPC+1 ;
 		if ( RING_VM_INSTRUCTIONSCOUNT  > pVM->nEvalReallocationSize ) {
 			pVM->pByteCode = (ByteCode *) ring_realloc(pVM->pByteCode , sizeof(ByteCode) * RING_VM_INSTRUCTIONSCOUNT);
-			if ( pVM->nEvalCalledFromRingCode ) {
+			if ( pVM->lEvalCalledFromRingCode ) {
 				/* Here eval() function is called from .ring files ( not by the VM for setter/getter/operator overloadi */
 				pVM->nEvalReallocationFlag = 1 ;
 			}
@@ -65,7 +65,7 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 		}
 		/* Load New Code */
 		nMark = pVM->pRingState->nInstructionsCount ;
-		lUpdate = pVM->nEvalCalledFromRingCode ;
+		lUpdate = pVM->lEvalCalledFromRingCode ;
 		pVM->pRingState->nInstructionsCount -= ring_list_getsize(pVM->pRingState->pRingGenCode) ;
 		for ( x = 1 ; x <= RING_VM_INSTRUCTIONSLISTSIZE ; x++ ) {
 			/* Let Return commands Jump to Return From Eval command */
@@ -258,13 +258,13 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 	pStackList = ring_vm_savestack(pVM);
 	nLineNumber = RING_VM_IR_GETLINENUMBER ;
 	ring_vm_mutexlock(pVM);
-	pVM->nEvalCalledFromRingCode = 1 ;
+	pVM->lEvalCalledFromRingCode = 1 ;
 	/* Take in mind nested events */
 	if ( pVM->nRunCode != 1 ) {
 		pVM->nRetEvalDontDelete = 1 ;
 	}
 	nRunVM = ring_vm_eval(pVM,cStr);
-	pVM->nEvalCalledFromRingCode = 0 ;
+	pVM->lEvalCalledFromRingCode = 0 ;
 	ring_vm_mutexunlock(pVM);
 	if ( nRunVM ) {
 		pVM->nFuncExecute = 0 ;

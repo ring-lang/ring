@@ -117,7 +117,7 @@
 		unsigned char lFirstAddress  ;
 		unsigned char nBeforeEqual  ;
 		unsigned char lNoAssignment  ;
-		unsigned char nEvalCalledFromRingCode  ;
+		unsigned char lEvalCalledFromRingCode  ;
 		unsigned char nDecimals  ;
 		unsigned char nEvalReallocationFlag  ;
 		unsigned char nIgnoreNULL  ;

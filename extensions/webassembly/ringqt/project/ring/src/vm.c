@@ -101,7 +101,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	/* List contains what to add  later to pObjState, prepare by loadmethod, add before call */
 	pVM->pBeforeObjState = ring_list_new_gc(pVM->pRingState,RING_ZERO) ;
 	/* Eval can be called from C code (OOP Set/Get/Operator Overloading) or from ring code using eval() */
-	pVM->nEvalCalledFromRingCode = 0 ;
+	pVM->lEvalCalledFromRingCode = 0 ;
 	/* Number of decimals after the point */
 	pVM->nDecimals = 2 ;
 	/*
