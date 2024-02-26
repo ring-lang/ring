@@ -45,23 +45,23 @@ nLoopCounter
 Type: unsigned char
 lLoopOrExitCommand
 Type: unsigned char
-nCheckLoopAndExit
+lCheckLoopAndExit
 Type: unsigned char
-nAssignmentFlag
+lAssignmentFlag
 Type: unsigned char
-nClassStart
+lClassStart
 Type: unsigned char
-nPrivateFlag
+lPrivateFlag
 Type: unsigned char
-nNewObject
+lNewObject
 Type: unsigned char
-nFuncCallOnly
+lFuncCallOnly
 Type: unsigned char
 nThisOrSelfLoadA
 Type: unsigned char
 nThisLoadA
 Type: unsigned char
-nInsertFlag
+lInsertFlag
 Type: unsigned char
 nTokenType
 END:

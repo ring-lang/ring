@@ -57,7 +57,7 @@
 		/* Object Init() Uses mixer for one purpose only( function call)  - don't continue to get braces { } */
 		unsigned char lFuncCallOnly  ;
 		/* Using Self or This with LoadAddress */
-		unsigned char nThisOrSelfLoadA  ;
+		unsigned char lThisOrSelfLoadA  ;
 		unsigned char nThisLoadA  ;
 		/* Insert Flag */
 		unsigned char lInsertFlag  ;

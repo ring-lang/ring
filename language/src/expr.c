@@ -530,7 +530,7 @@ int ring_parser_range ( Parser *pParser )
 
 int ring_parser_factor ( Parser *pParser,int *nFlag )
 {
-	int x,x2,x3,nLastOperation,nCount,nNOOP,nToken,nMark,nFlag2,nThisOrSelfLoadA,nThisLoadA,lNewFrom,lAfterListEnd  ;
+	int x,x2,x3,nLastOperation,nCount,nNOOP,nToken,nMark,nFlag2,lThisOrSelfLoadA,nThisLoadA,lNewFrom,lAfterListEnd  ;
 	List *pLoadAPos, *pLoadAMark,*pList, *pMark,*pAssignmentPointerPos  ;
 	char lSetProperty,lequal,nBeforeEqual,lNewAfterEqual  ;
 	char cFuncName[RING_MEDIUMBUF]  ;
@@ -547,9 +547,9 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		if ( strcmp(pParser->cTokenText ,RING_CSTR_THIS) == 0 ) {
 			pParser->nThisLoadA = 1 ;
 		}
-		pParser->nThisOrSelfLoadA = 0 ;
+		pParser->lThisOrSelfLoadA = 0 ;
 		if ( strcmp(pParser->cTokenText,RING_CSTR_SELF) == 0 || pParser->nThisLoadA ) {
-			pParser->nThisOrSelfLoadA = 1 ;
+			pParser->lThisOrSelfLoadA = 1 ;
 		}
 		ring_parser_nexttoken(pParser);
 		/* Set Identifier Flag */
@@ -618,7 +618,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		if ( (lequal == 1 ) && (pParser->lAssignmentFlag == 1) ) {
 			ring_parser_nexttoken(pParser);
 			/* Check if the Assignment after object attribute name */
-			nThisOrSelfLoadA = pParser->nThisOrSelfLoadA ;
+			lThisOrSelfLoadA = pParser->lThisOrSelfLoadA ;
 			nThisLoadA = pParser->nThisLoadA ;
 			pLoadAPos = NULL ;
 			if ( nLastOperation == ICO_LOADSUBADDRESS ) {
@@ -642,7 +642,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			pParser->lAssignmentFlag = 1 ;
 			/* Check New Object and this.property or self.property to disable set property */
 			if ( pParser->lNewObject && lSetProperty ) {
-				if ( nThisLoadA || ( nThisOrSelfLoadA && (pParser->nBracesCounter == 0) ) ) {
+				if ( nThisLoadA || ( lThisOrSelfLoadA && (pParser->nBracesCounter == 0) ) ) {
 					lSetProperty = 0 ;
 				}
 			}
@@ -660,7 +660,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 				lAfterListEnd = (ring_parser_icg_getlastoperation(pParser) == ICO_NEWLINE) && ring_parser_icg_getoperationbeforelastoperation(pParser) == ICO_LISTEND ;
 				lAfterListEnd = lAfterListEnd || (ring_parser_icg_getlastoperation(pParser) == ICO_LISTEND) ;
 				if ( lAfterListEnd && (pParser->nBracesCounter == 0) ) {
-					if ( (lSetProperty == 0) || pParser->nThisOrSelfLoadA ) {
+					if ( (lSetProperty == 0) || pParser->lThisOrSelfLoadA ) {
 						return x ;
 					}
 					/* Disable Assignment Pointer */
