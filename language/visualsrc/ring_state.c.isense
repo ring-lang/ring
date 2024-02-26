@@ -102,6 +102,7 @@ RING_WARNING_LOOPOUTSIDELOOP
 RING_STATE_PRINTRULES
 RING_RULE_PROGRAM
 RING_CGI_START
+RING_VERYLONGPATH
 RING_STATE_CHECKPRINTRULES
 Type: static int
 nRingStateDEBUGSEGFAULT
@@ -153,16 +154,15 @@ Type: VM *
 pVM
 ring_state_log
 ring_state_runstring
-c
 Type: Scanner *
 pScanner
 Type: VM *
 pVM
-lCont,lRunVM,lFreeFilesList
-Type: int
-x
 Type: const char *
 cFileName
+Type: int
+x,lCont,lRunVM,lFreeFilesList
+c
 ring_state_cgiheader
 ring_state_segfaultaction
 ring_state_usageinfo

@@ -261,7 +261,7 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 	lFreeFilesList = 0 ;
 	/* Check Path Size */
 	if ( strlen(cFileName) > RING_PATHLIMIT ) {
-		printf( "\nVery long path! Can't open %s  The maximum path size is %d \n",cFileName,RING_PATHLIMIT ) ;
+		printf( "%s %s %s %d \n",RING_CANTOPENFILE,cFileName,RING_VERYLONGPATH,RING_PATHLIMIT ) ;
 		return 0 ;
 	}
 	/* Check file */
@@ -301,7 +301,7 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 	}
 	/* Read File */
 	if ( pFile==NULL ) {
-		printf( "\nCan't open file %s \n",cFileName ) ;
+		printf( "\n%s %s \n",RING_CANTOPENFILE,cFileName ) ;
 		ring_list_deleteitem_gc(pRingState,pRingState->pRingFilesStack,ring_list_getsize(pRingState->pRingFilesStack));
 		return 0 ;
 	}
@@ -396,7 +396,7 @@ RING_API void ring_state_runobjectfile ( RingState *pRingState,char *cFileName )
 {
 	/* Check Path Size */
 	if ( strlen(cFileName) > RING_PATHLIMIT ) {
-		printf( "\nVery long path! Can't open %s  The maximum path size is %d \n",cFileName,RING_PATHLIMIT ) ;
+		printf( "%s %s %s %d \n",RING_CANTOPENFILE,cFileName,RING_VERYLONGPATH,RING_PATHLIMIT ) ;
 		return ;
 	}
 	/* Files List */

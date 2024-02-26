@@ -90,6 +90,7 @@
 	#define RING_STATE_PRINTRULES "Grammar Rules Used by The Parser "
 	#define RING_RULE_PROGRAM "Rule : Program --> {Statement}"
 	#define RING_CGI_START "Content-Type: text/plain\n\n"
+	#define RING_VERYLONGPATH "Very long path! The maximum path size is"
 	#define RING_STATE_CHECKPRINTRULES if ( pParser->pRingState->lPrintRules )
 	static int nRingStateDEBUGSEGFAULT  ;
 	static int nRingStateCGI  ;
