@@ -4,7 +4,7 @@ IF "%RING_QT_VERSION%"=="" SET RING_QT_VERSION=5.15.16
 setlocal
 
 rem build Ring Compiler/VM
-cd language\src
+cd language\build
 call buildvc_x64
 call buildvcw_x64
 cd ..\..
