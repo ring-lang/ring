@@ -110,7 +110,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	*/
 	pVM->nEvalReallocationSize = 0 ;
 	/* Flag ( 1 = we need space over allocated size so we have to do reallocation ) */
-	pVM->nEvalReallocationFlag = 0 ;
+	pVM->lEvalReallocationFlag = 0 ;
 	/* Parameters Count Passed to C Function */
 	pVM->nCFuncParaCount = 0 ;
 	/*

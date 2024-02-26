@@ -55,13 +55,13 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 			pVM->pByteCode = (ByteCode *) ring_realloc(pVM->pByteCode , sizeof(ByteCode) * RING_VM_INSTRUCTIONSCOUNT);
 			if ( pVM->lEvalCalledFromRingCode ) {
 				/* Here eval() function is called from .ring files ( not by the VM for setter/getter/operator overloadi */
-				pVM->nEvalReallocationFlag = 1 ;
+				pVM->lEvalReallocationFlag = 1 ;
 			}
 			/* Update the Eval Reallocation Size after Reallocation */
 			pVM->nEvalReallocationSize = RING_VM_INSTRUCTIONSCOUNT ;
 		}
 		else {
-			pVM->nEvalReallocationFlag = 0 ;
+			pVM->lEvalReallocationFlag = 0 ;
 		}
 		/* Load New Code */
 		nMark = pVM->pRingState->nInstructionsCount ;
@@ -246,12 +246,12 @@ void ring_vm_mainloopforeval ( VM *pVM )
 
 RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 {
-	int nEvalReturnPC,nEvalReallocationFlag,nPC,nRunVM,nSP,nFuncSP,nLineNumber  ;
+	int nEvalReturnPC,lEvalReallocationFlag,nPC,nRunVM,nSP,nFuncSP,nLineNumber  ;
 	List *pStackList  ;
 	/* Save state to take in mind nested events execution */
 	pVM->nRunCode++ ;
 	nEvalReturnPC = pVM->nEvalReturnPC ;
-	nEvalReallocationFlag = pVM->nEvalReallocationFlag ;
+	lEvalReallocationFlag = pVM->lEvalReallocationFlag ;
 	nPC = pVM->nPC ;
 	nSP = pVM->nSP ;
 	nFuncSP = pVM->nFuncSP ;
@@ -273,7 +273,7 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 	/* Restore state to take in mind nested events execution */
 	pVM->nRunCode-- ;
 	pVM->nEvalReturnPC = nEvalReturnPC ;
-	pVM->nEvalReallocationFlag = nEvalReallocationFlag ;
+	pVM->lEvalReallocationFlag = lEvalReallocationFlag ;
 	pVM->nPC = nPC ;
 	if ( pVM->nRunCode != 0 ) {
 		/* It's a nested event (Here we don't care about the output and we can restore the stack) */
@@ -295,8 +295,8 @@ void ring_vm_cleanevalcode ( VM *pVM,int nCodeSize )
 	while ( RING_VM_INSTRUCTIONSCOUNT != nCodeSize ) {
 		RING_VM_DELETELASTINSTRUCTION ;
 	}
-	if ( pVM->nEvalReallocationFlag == 1 ) {
-		pVM->nEvalReallocationFlag = 0 ;
+	if ( pVM->lEvalReallocationFlag == 1 ) {
+		pVM->lEvalReallocationFlag = 0 ;
 		pByteCode = (ByteCode *) ring_realloc(pVM->pByteCode , sizeof(ByteCode) * RING_VM_INSTRUCTIONSCOUNT);
 		pVM->pByteCode = pByteCode ;
 		/* Update the Eval Reallocation Size after Reallocation */

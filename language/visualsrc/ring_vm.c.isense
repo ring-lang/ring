@@ -201,7 +201,7 @@ nBeforeEqual
 Type: unsigned char
 lNoAssignment
 Type: unsigned char
-nEvalCalledFromRingCode
+lEvalCalledFromRingCode
 Type: unsigned char
 nDecimals
 Type: unsigned char
