@@ -120,7 +120,7 @@
 		unsigned char lEvalCalledFromRingCode  ;
 		unsigned char nDecimals  ;
 		unsigned char lEvalReallocationFlag  ;
-		unsigned char nIgnoreNULL  ;
+		unsigned char lIgnoreNULL  ;
 		unsigned char nRetItemRef  ;
 		unsigned char nIgnoreCPointerTypeCheck  ;
 		unsigned char nCallClassInit  ;

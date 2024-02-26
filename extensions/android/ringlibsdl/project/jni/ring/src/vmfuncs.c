@@ -299,11 +299,11 @@ void ring_vm_call2 ( VM *pVM )
 		/* Function Output */
 		if ( nSP == pVM->nSP ) {
 			/* IgnoreNULL is Used by len(object) to get output from operator overloading method */
-			if ( pVM->nIgnoreNULL  == 0 ) {
+			if ( pVM->lIgnoreNULL  == 0 ) {
 				RING_VM_STACK_PUSHCVALUE("");
 			}
 			else {
-				pVM->nIgnoreNULL = 0 ;
+				pVM->lIgnoreNULL = 0 ;
 			}
 		}
 		/*

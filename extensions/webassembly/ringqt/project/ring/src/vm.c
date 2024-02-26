@@ -118,7 +118,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	**  This flag is used by the len() function when we use len(object) 
 	**  So operator overloading can return the result from the method 
 	*/
-	pVM->nIgnoreNULL = 0 ;
+	pVM->lIgnoreNULL = 0 ;
 	/* If pVM->nPC <= nEvalReturnPC we end the main loop (used by evalreturn) */
 	pVM->nEvalReturnPC = 0 ;
 	/* Flag to return Item Reference (of object state) */

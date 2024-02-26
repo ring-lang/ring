@@ -732,7 +732,7 @@ void ring_vm_len ( VM *pVM )
 				}
 				else {
 					ring_vm_expr_npoo(pVM,"len",RING_NOVALUE);
-					pVM->nIgnoreNULL = 1 ;
+					pVM->lIgnoreNULL = 1 ;
 				}
 			}
 			else if ( ring_list_isstring(pVar,RING_VAR_VALUE) ) {
@@ -760,7 +760,7 @@ void ring_vm_len ( VM *pVM )
 					}
 					else {
 						ring_vm_expr_npoo(pVM,"len",RING_NOVALUE);
-						pVM->nIgnoreNULL = 1 ;
+						pVM->lIgnoreNULL = 1 ;
 					}
 					break ;
 				default :
