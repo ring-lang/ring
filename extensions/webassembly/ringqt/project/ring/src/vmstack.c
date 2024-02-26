@@ -614,7 +614,7 @@ void ring_vm_assignmentpointer ( VM *pVM )
 			**  We will accept this option only when we have the setter method 
 			*/
 			if ( pVM->lNoSetterMethod == 0 ) {
-				pVM->nNOAssignment = 1 ;
+				pVM->lNoAssignment = 1 ;
 			}
 			else {
 				/* Tell the ICO_SETPROPERTY instruction to be disabled */
@@ -622,7 +622,7 @@ void ring_vm_assignmentpointer ( VM *pVM )
 			}
 		}
 	}
-	if ( pVM->nNOAssignment == 0 ) {
+	if ( pVM->lNoAssignment == 0 ) {
 		pVM->pAssignment = RING_VM_STACK_READP ;
 		/* Check trying to change the self pointer */
 		pList = NULL ;
@@ -658,7 +658,7 @@ void ring_vm_assignmentpointer ( VM *pVM )
 		}
 	}
 	else {
-		pVM->nNOAssignment = 0 ;
+		pVM->lNoAssignment = 0 ;
 	}
 }
 

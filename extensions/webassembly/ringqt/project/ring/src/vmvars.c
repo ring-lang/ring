@@ -233,7 +233,7 @@ int ring_vm_findvar2 ( VM *pVM,int nLevel,List *pList2,const char *cStr )
 						pVM->nPC = nPC ;
 						RING_VM_IR_UNLOAD ;
 						/* Avoid AssignmentPointer , we don't have assignment */
-						pVM->nNOAssignment = 1 ;
+						pVM->lNoAssignment = 1 ;
 					}
 				}
 				ring_vm_oop_setget(pVM,pList2);

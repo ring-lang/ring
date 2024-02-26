@@ -95,7 +95,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	**  and try to set attribute value to a list and a function setproperty() will be called 
 	**  With this list as parameter stored in temp memory 
 	*/
-	pVM->nNOAssignment = 0 ;
+	pVM->lNoAssignment = 0 ;
 	/* The scope of the result of Load Address */
 	pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
 	/* List contains what to add  later to pObjState, prepare by loadmethod, add before call */

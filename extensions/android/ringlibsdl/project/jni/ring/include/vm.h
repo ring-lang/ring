@@ -116,7 +116,7 @@
 		unsigned char nGetSetObjType  ;
 		unsigned char lFirstAddress  ;
 		unsigned char nBeforeEqual  ;
-		unsigned char nNOAssignment  ;
+		unsigned char lNoAssignment  ;
 		unsigned char nEvalCalledFromRingCode  ;
 		unsigned char nDecimals  ;
 		unsigned char nEvalReallocationFlag  ;

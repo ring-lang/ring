@@ -39,7 +39,7 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 	pVMState->aNumbers[23] = pVM->lGetSetProperty ;
 	pVMState->aNumbers[24] = pVM->nGetSetObjType ;
 	pVMState->aNumbers[25] = pVM->nBeforeEqual ;
-	pVMState->aNumbers[26] = pVM->nNOAssignment ;
+	pVMState->aNumbers[26] = pVM->lNoAssignment ;
 	pVMState->aNumbers[27] = pVM->nCurrentGlobalScope ;
 	pVMState->aNumbers[28] = pVM->nCallClassInit ;
 	pVMState->aNumbers[29] = ring_list_getint(pThis,RING_VAR_PVALUETYPE) ;
@@ -196,7 +196,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	pVM->nGetSetObjType = pVMState->aNumbers[24] ;
 	pVM->pAssignment = (void *) pVMState->aPointers[6] ;
 	pVM->nBeforeEqual = pVMState->aNumbers[25] ;
-	pVM->nNOAssignment = pVMState->aNumbers[26] ;
+	pVM->lNoAssignment = pVMState->aNumbers[26] ;
 	/* We restore the global scope before the This variable, because This use global scope */
 	pVM->nCurrentGlobalScope = pVMState->aNumbers[27] ;
 	pVM->nCallClassInit = pVMState->aNumbers[28] ;
@@ -239,7 +239,7 @@ VMState * ring_vm_savestateforfunctions ( VM *pVM )
 	pVMState->aNumbers[15] = pVM->lNoSetterMethod ;
 	pVMState->aNumbers[16] = RING_VM_IR_GETLINENUMBER ;
 	pVMState->aNumbers[17] = pVM->nBeforeEqual ;
-	pVMState->aNumbers[18] = pVM->nNOAssignment ;
+	pVMState->aNumbers[18] = pVM->lNoAssignment ;
 	pVMState->aNumbers[19] = pVM->lGetSetProperty ;
 	pVMState->aNumbers[20] = pVM->nGetSetObjType ;
 	pVMState->aNumbers[21] = ring_list_getint(pThis,RING_VAR_PVALUETYPE) ;
@@ -262,7 +262,7 @@ VMState * ring_vm_savestateforfunctions ( VM *pVM )
 	pVM->nCallClassInit = 0 ;
 	pVM->nInClassRegion = 0 ;
 	pVM->pAssignment = NULL ;
-	pVM->nNOAssignment = 0 ;
+	pVM->lNoAssignment = 0 ;
 	pVM->pBraceObject = NULL ;
 	pVM->nBeforeEqual = 0 ;
 	pVM->nFuncExecute = 0 ;
@@ -303,7 +303,7 @@ void ring_vm_restorestateforfunctions ( VM *pVM,VMState *pVMState )
 	ring_vm_backstate(pVM,pVM->pScopeNewObj,pVMState->aNumbers[14]);
 	RING_VM_IR_SETLINENUMBER(pVMState->aNumbers[16]);
 	pVM->nBeforeEqual = pVMState->aNumbers[17] ;
-	pVM->nNOAssignment = pVMState->aNumbers[18] ;
+	pVM->lNoAssignment = pVMState->aNumbers[18] ;
 	pVM->lGetSetProperty = pVMState->aNumbers[19] ;
 	pVM->nGetSetObjType = pVMState->aNumbers[20] ;
 	pVM->lNoSetterMethod = pVMState->aNumbers[15] ;
@@ -369,9 +369,9 @@ void ring_vm_savestatefornewobjects ( VM *pVM )
 	pVMState->aNumbers[10] = ring_list_getint(pThis,RING_VAR_PVALUETYPE) ;
 	/* Save pObjState */
 	pVMState->aNumbers[11] = ring_list_getsize(pVM->pObjState) ;
-	/* Save nNoAssignment */
-	pVMState->aNumbers[12] = pVM->nNOAssignment ;
-	pVM->nNOAssignment = 0 ;
+	/* Save lNoAssignment */
+	pVMState->aNumbers[12] = pVM->lNoAssignment ;
+	pVM->lNoAssignment = 0 ;
 	/* Save ExitMark */
 	pVMState->aNumbers[13] = ring_list_getsize(pVM->pExitMark) ;
 	/* Save LoopMark */
@@ -467,8 +467,8 @@ void ring_vm_restorestatefornewobjects ( VM *pVM )
 	ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,pVMState->aNumbers[10]);
 	/* Restore pObjState */
 	ring_vm_backstate(pVM,pVM->pObjState,pVMState->aNumbers[11]);
-	/* Restore nNoAssignment */
-	pVM->nNOAssignment = pVMState->aNumbers[12] ;
+	/* Restore lNoAssignment */
+	pVM->lNoAssignment = pVMState->aNumbers[12] ;
 	/* Restore ExitMark */
 	ring_vm_backstate(pVM,pVM->pExitMark,pVMState->aNumbers[13]);
 	/* Restore LoopMark */
