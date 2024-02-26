@@ -60,7 +60,7 @@
 		unsigned char nThisOrSelfLoadA  ;
 		unsigned char nThisLoadA  ;
 		/* Insert Flag */
-		unsigned char nInsertFlag  ;
+		unsigned char lInsertFlag  ;
 		/* Token Type */
 		unsigned char nTokenType  ;
 	} Parser ;

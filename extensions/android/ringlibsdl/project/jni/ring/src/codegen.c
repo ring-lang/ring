@@ -4,7 +4,7 @@
 
 void ring_parser_icg_newoperation ( Parser *pParser , IC_OPERATIONS nOPCode )
 {
-	if ( pParser->nInsertFlag == 1 ) {
+	if ( pParser->lInsertFlag == 1 ) {
 		ring_parser_icg_insertoperation(pParser,pParser->nInsertCounter,nOPCode);
 		pParser->nInsertCounter++ ;
 		return ;
