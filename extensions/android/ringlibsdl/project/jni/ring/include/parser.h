@@ -53,7 +53,7 @@
 		/* Private Flag */
 		unsigned char lPrivateFlag  ;
 		/* required for using { } after using new object to avoid assignment */
-		unsigned char nNewObject  ;
+		unsigned char lNewObject  ;
 		/* Object Init() Uses mixer for one purpose only( function call)  - don't continue to get braces { } */
 		unsigned char nFuncCallOnly  ;
 		/* Using Self or This with LoadAddress */
