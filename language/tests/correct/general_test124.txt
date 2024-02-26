@@ -1,5 +1,6 @@
 
-Can't open file natural/ncesub.ring 
+
+Error (E9) : Can't open file natural/ncesub.ring 
 
 general/test124.ring Line (1) Error (C27) : Syntax Error!
 general/test124.ring errors count : 1 
