@@ -628,7 +628,7 @@ void ring_vm_mainloop ( VM *pVM )
 {
 	pVM->pRingState->lStartPoolManager = 1 ;
 	/* Allows showing the OPCODE */
-	if ( pVM->pRingState->nPrintInstruction ) {
+	if ( pVM->pRingState->lPrintInstruction ) {
 		do {
 			ring_vm_fetch2(pVM);
 		} while (pVM->nPC <= RING_VM_INSTRUCTIONSCOUNT)  ;
@@ -655,7 +655,7 @@ void ring_vm_fetch2 ( VM *pVM )
 {
 	pVM->pByteCodeIR = pVM->pByteCode + pVM->nPC - 1 ;
 	pVM->nOPCode = RING_VM_IR_OPCODE ;
-	if ( pVM->pRingState->nPrintInstruction ) {
+	if ( pVM->pRingState->lPrintInstruction ) {
 		ring_general_printline();
 		printf( "VM Pointer    : %p  " , (void *) pVM ) ;
 		printf( "\nVM IR Pointer : %p  " , (void *) pVM->pByteCodeIR ) ;
@@ -670,7 +670,7 @@ void ring_vm_fetch2 ( VM *pVM )
 	}
 	pVM->nPC++ ;
 	ring_vm_execute(pVM);
-	if ( pVM->pRingState->nPrintInstruction ) {
+	if ( pVM->pRingState->lPrintInstruction ) {
 		printf( "\nSP (After)    : %d  \nFuncSP        : %d \nLineNumber    : %d \n" , (int) pVM->nSP,pVM->nFuncSP,RING_VM_IR_GETLINENUMBER ) ;
 	}
 	if ( pVM->nSP > RING_VM_STACK_CHECKOVERFLOW ) {

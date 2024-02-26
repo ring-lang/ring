@@ -51,7 +51,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	**  And the lists of the hash table will be needed to be used by the main VM 
 	*/
 	pState->lRunFromThread = 1 ;
-	pState->nPrintInstruction = pVM->pRingState->nPrintInstruction ;
+	pState->lPrintInstruction = pVM->pRingState->lPrintInstruction ;
 	/* Share the same Mutex between VMs */
 	ring_vm_mutexlock(pVM);
 	pState->pVM->pMutex = pVM->pMutex ;

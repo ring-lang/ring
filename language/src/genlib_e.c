@@ -1963,7 +1963,7 @@ void ring_vm_generallib_state_mainfile ( void *pPointer )
 	**  Will lead to crash when we execute events (like button click) in the sub program 
 	**  So we keep the VM to avoid the Crash 
 	*/
-	pRingState->nDontDeleteTheVM = 1 ;
+	pRingState->lDontDeleteTheVM = 1 ;
 	ring_state_runfile(pRingState,cStr);
 }
 
@@ -1987,7 +1987,7 @@ void ring_vm_generallib_state_filetokens ( void *pPointer )
 		}
 	}
 	pState->lNotCaseSensitive = lCase ;
-	pState->nOnlyTokens = 1 ;
+	pState->lOnlyTokens = 1 ;
 	/* Check the (Comments As Tokens) feature */
 	lComments = 0 ;
 	if ( RING_API_PARACOUNT == 4 ) {
@@ -1998,7 +1998,7 @@ void ring_vm_generallib_state_filetokens ( void *pPointer )
 	pState->lCommentsAsTokens = lComments ;
 	ring_state_runfile(pState,cFile);
 	pState->lNotCaseSensitive = 1 ;
-	pState->nOnlyTokens = 0 ;
+	pState->lOnlyTokens = 0 ;
 	pState->lCommentsAsTokens = 0 ;
 	/* Copy The List */
 	pList = RING_API_NEWLIST ;
@@ -2027,7 +2027,7 @@ void ring_vm_generallib_state_stringtokens ( void *pPointer )
 		}
 	}
 	pState->lNotCaseSensitive = lCase ;
-	pState->nOnlyTokens = 1 ;
+	pState->lOnlyTokens = 1 ;
 	/* Check the (Comments As Tokens) feature */
 	lComments = 0 ;
 	if ( RING_API_PARACOUNT == 4 ) {
@@ -2038,7 +2038,7 @@ void ring_vm_generallib_state_stringtokens ( void *pPointer )
 	pState->lCommentsAsTokens = lComments ;
 	ring_state_runstring(pState,cString);
 	pState->lNotCaseSensitive = 1 ;
-	pState->nOnlyTokens = 0 ;
+	pState->lOnlyTokens = 0 ;
 	pState->lCommentsAsTokens = 0 ;
 	/* Copy The List */
 	pList = RING_API_NEWLIST ;

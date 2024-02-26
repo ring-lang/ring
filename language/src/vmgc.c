@@ -1052,7 +1052,7 @@ void * ring_poolmanager_allocate ( RingState *pRingState,size_t nSize )
 	void *pMemory  ;
 	pMemory = NULL ;
 	/* If No memory - Create new block */
-	if ( (pRingState->vPoolManager.pCurrentItem == NULL) && (pRingState->vPoolManager.pBlockStart == NULL)  && (pRingState->lStartPoolManager) && (pRingState->nOnlyTokens == 0) ) {
+	if ( (pRingState->vPoolManager.pCurrentItem == NULL) && (pRingState->vPoolManager.pBlockStart == NULL)  && (pRingState->lStartPoolManager) && (pRingState->lOnlyTokens == 0) ) {
 		ring_poolmanager_newblock(pRingState);
 	}
 	/* Get Item from the Pool Manager */

@@ -1016,7 +1016,7 @@ int ring_parser_stmt ( Parser *pParser )
 		puts(RING_RULE_EXIT);
 		/* Check usage outside loops */
 		if ( ! pParser->nLoopFlag ) {
-			if ( pParser->pRingState->nWarning ) {
+			if ( pParser->pRingState->lWarning ) {
 				puts(RING_WARNING_EXITOUTSIDELOOP);
 			}
 		}
@@ -1041,7 +1041,7 @@ int ring_parser_stmt ( Parser *pParser )
 		puts(RING_RULE_LOOP);
 		/* Check usage outside loops */
 		if ( ! pParser->nLoopFlag ) {
-			if ( pParser->pRingState->nWarning ) {
+			if ( pParser->pRingState->lWarning ) {
 				puts(RING_WARNING_LOOPOUTSIDELOOP);
 			}
 		}

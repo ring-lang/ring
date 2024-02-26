@@ -34,32 +34,32 @@
 		/* VM Instructions Count */
 		int nInstructionsCount  ;
 		/* set to 0 if we need to compile only */
-		unsigned int nRun : 1  ;
+		unsigned int lRun : 1  ;
 		/* set to 1 if we need to print byte code before execution */
-		unsigned int nPrintIC : 1  ;
+		unsigned int lPrintIC : 1  ;
 		/* set to 1 if we need to print the final byte code after execution */
-		unsigned int nPrintICFinal : 1  ;
+		unsigned int lPrintICFinal : 1  ;
 		/* set to 1 if we need to print the tokens */
-		unsigned int nPrintTokens : 1  ;
+		unsigned int lPrintTokens : 1  ;
 		/* set to 1 if we need to print the grammar rules */
-		unsigned int nPrintRules : 1  ;
+		unsigned int lPrintRules : 1  ;
 		/* set to 1 if we need to print the  current instruction executed */
-		unsigned int nPrintInstruction : 1  ;
+		unsigned int lPrintInstruction : 1  ;
 		/* set to 1 if we need to generate the object file (ringo) */
-		unsigned int nGenObj : 1  ;
-		unsigned int nGenCObj : 1  ;
+		unsigned int lGenObj : 1  ;
+		unsigned int lGenCObj : 1  ;
 		/* set to 1 if we need to display warnings */
-		unsigned int nWarning : 1  ;
+		unsigned int lWarning : 1  ;
 		/* ISCGI is 1 if we are using the language for CGI development */
-		unsigned int nISCGI : 1  ;
+		unsigned int lISCGI : 1  ;
 		/* Startup File */
 		unsigned int lStartup : 1  ;
 		/* Set to 1 to tell the scanner to don't delete the VM after execution */
-		unsigned int nDontDeleteTheVM : 1  ;
+		unsigned int lDontDeleteTheVM : 1  ;
 		/* Set to 1 to tell the state that we are running Ring from Ring (to avoid exit() on error) */
 		unsigned int nRingInsideRing : 1  ;
 		/* Set to 1 to tell the scanner that we need the tokens only */
-		unsigned int nOnlyTokens : 1  ;
+		unsigned int lOnlyTokens : 1  ;
 		/* Avoid line number ( when we use eval() from VM ) */
 		unsigned int lNoLineNumber : 1  ;
 		/* Flag to know if we are running from thread (Useful for the Pool Manager) */
@@ -90,7 +90,7 @@
 	#define RING_STATE_PRINTRULES "Grammar Rules Used by The Parser "
 	#define RING_RULE_PROGRAM "Rule : Program --> {Statement}"
 	#define RING_CGI_START "Content-Type: text/plain\n\n"
-	#define RING_STATE_CHECKPRINTRULES if ( pParser->pRingState->nPrintRules )
+	#define RING_STATE_CHECKPRINTRULES if ( pParser->pRingState->lPrintRules )
 	static int nRingStateDEBUGSEGFAULT  ;
 	static int nRingStateCGI  ;
 
@@ -108,7 +108,7 @@
 
 	RING_API void ring_state_main ( int nArgc, char *pArgv[] ) ;
 
-	RING_API void ring_state_execute ( char *cFileName, int nISCGI,int nRun,int nPrintIC,int nPrintICFinal,int nTokens,int nRules,int nIns,int nGenObj,int nGenCObj,int nWarn,int nArgc,char *pArgv[] ) ;
+	RING_API void ring_state_execute ( char *cFileName, int lISCGI,int lRun,int lPrintIC,int lPrintICFinal,int nTokens,int nRules,int nIns,int lGenObj,int lGenCObj,int nWarn,int nArgc,char *pArgv[] ) ;
 
 	RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName ) ;
 

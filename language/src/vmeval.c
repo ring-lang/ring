@@ -173,7 +173,7 @@ void ring_vm_mainloopforeval ( VM *pVM )
 	nInsideEval = pVM->nInsideEval ;
 	nStartPC = pVM->nPC ;
 	/* Allows showing the OPCODE */
-	if ( pVM->pRingState->nPrintInstruction ) {
+	if ( pVM->pRingState->lPrintInstruction ) {
 		do {
 			ring_vm_fetch2(pVM);
 			if ( pVM->nPC <= pVM->nEvalReturnPC ) {

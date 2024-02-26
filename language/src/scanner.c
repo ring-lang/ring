@@ -522,7 +522,7 @@ int ring_scanner_checklasttoken ( Scanner *pScanner )
 		}
 	}
 	if ( pScanner->cState == SCANNER_STATE_LITERAL ) {
-		if ( pScanner->pRingState->nOnlyTokens ) {
+		if ( pScanner->pRingState->lOnlyTokens ) {
 			pScanner->pRingState->nScannerError = 1 ;
 			return 0 ;
 		}
