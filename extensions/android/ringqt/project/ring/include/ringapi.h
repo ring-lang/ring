@@ -2,73 +2,6 @@
 
 #ifndef ring_api_h
 	#define ring_api_h
-	/* Support for C Functions */
-
-	RING_API void ring_vm_funcregister2 ( RingState *pRingState,const char *cStr, void (*pFunc)(void *) ) ;
-
-	RING_API void ring_vm_loadcfunctions ( RingState *pRingState ) ;
-
-	RING_API List * ring_vm_api_getlist ( void *pPointer,int nPara ) ;
-
-	RING_API int ring_vm_api_isstring ( void *pPointer,int nPara ) ;
-
-	RING_API int ring_vm_api_isnumber ( void *pPointer,int nPara ) ;
-
-	RING_API int ring_vm_api_islist ( void *pPointer,int nPara ) ;
-
-	RING_API int ring_vm_api_islistornull ( void *pPointer,int nPara ) ;
-
-	RING_API int ring_vm_api_ispointer ( void *pPointer,int nPara ) ;
-
-	RING_API char * ring_vm_api_getstring ( void *pPointer,int nPara ) ;
-
-	RING_API int ring_vm_api_getstringsize ( void *pPointer,int nPara ) ;
-
-	RING_API double ring_vm_api_getnumber ( void *pPointer,int nPara ) ;
-
-	RING_API void * ring_vm_api_getpointer ( void *pPointer,int nPara ) ;
-
-	RING_API int ring_vm_api_getpointertype ( void *pPointer,int nPara ) ;
-
-	RING_API void ring_vm_api_retlist ( void *pPointer,List *pList ) ;
-
-	RING_API List * ring_vm_api_newlist ( VM *pVM ) ;
-
-	RING_API void ring_vm_api_retcpointer ( void *pPointer,void *pGeneral,const char *cType ) ;
-
-	RING_API void * ring_vm_api_getcpointer ( void *pPointer,int nPara,const char *cType ) ;
-
-	RING_API void ring_vm_api_setcpointernull ( void *pPointer,int nPara ) ;
-
-	void ring_vm_extension ( RingState *pRingState ) ;
-
-	RING_API void * ring_vm_api_varptr ( void *pPointer,const char  *cStr,const char *cStr2 ) ;
-
-	RING_API void ring_vm_api_varvalue ( void *pPointer,const char  *cStr,int nType ) ;
-
-	RING_API void ring_list_addcpointer ( List *pList,void *pGeneral,const char *cType ) ;
-
-	RING_API int ring_vm_api_iscpointerlist ( List *pList ) ;
-
-	RING_API int ring_vm_api_iscpointer ( void *pPointer,int nPara ) ;
-
-	RING_API int ring_vm_api_isobject ( void *pPointer,int nPara ) ;
-
-	RING_API int ring_vm_api_cpointercmp ( List *pList,List *pList2 ) ;
-
-	RING_API void * ring_vm_api_getcpointer2pointer ( void *pPointer,int nPara,const char *cType ) ;
-
-	RING_API void ring_list_addcpointer_gc ( void *pState,List *pList,void *pGeneral,const char *cType ) ;
-
-	RING_API void ring_vm_api_retcpointer2 ( void *pPointer,void *pGeneral,const char *cType, void (* pFreeFunc)(void *,void *) ) ;
-
-	RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef ) ;
-
-	RING_API void ring_vm_api_intvalue ( void *pPointer,const char  *cStr ) ;
-
-	RING_API void ring_vm_api_floatvalue ( void *pPointer,const char  *cStr ) ;
-
-	RING_API List * ring_vm_api_newlistusingblocks ( VM *pVM, int nSize, int nSize2 ) ;
 	/* Constants/MACRO */
 	#define RING_API_MISS1PARA "Bad parameters count, the function expect one parameter"
 	#define RING_API_MISS2PARA "Bad parameters count, the function expect two parameters"
@@ -151,4 +84,71 @@
 	**  The List Maybe a Variable/ListItem or may represent Object or C Pointer inside a List 
 	**  C Pointer List , [ Pointer Value , Type String , Status Number 0=Not Copied 1=Copied 2= Not Assigned Yet] 
 	*/
+	/* Support for C Functions */
+
+	RING_API void ring_vm_funcregister2 ( RingState *pRingState,const char *cStr, void (*pFunc)(void *) ) ;
+
+	RING_API void ring_vm_loadcfunctions ( RingState *pRingState ) ;
+
+	RING_API List * ring_vm_api_getlist ( void *pPointer,int nPara ) ;
+
+	RING_API int ring_vm_api_isstring ( void *pPointer,int nPara ) ;
+
+	RING_API int ring_vm_api_isnumber ( void *pPointer,int nPara ) ;
+
+	RING_API int ring_vm_api_islist ( void *pPointer,int nPara ) ;
+
+	RING_API int ring_vm_api_islistornull ( void *pPointer,int nPara ) ;
+
+	RING_API int ring_vm_api_ispointer ( void *pPointer,int nPara ) ;
+
+	RING_API char * ring_vm_api_getstring ( void *pPointer,int nPara ) ;
+
+	RING_API int ring_vm_api_getstringsize ( void *pPointer,int nPara ) ;
+
+	RING_API double ring_vm_api_getnumber ( void *pPointer,int nPara ) ;
+
+	RING_API void * ring_vm_api_getpointer ( void *pPointer,int nPara ) ;
+
+	RING_API int ring_vm_api_getpointertype ( void *pPointer,int nPara ) ;
+
+	RING_API void ring_vm_api_retlist ( void *pPointer,List *pList ) ;
+
+	RING_API List * ring_vm_api_newlist ( VM *pVM ) ;
+
+	RING_API void ring_vm_api_retcpointer ( void *pPointer,void *pGeneral,const char *cType ) ;
+
+	RING_API void * ring_vm_api_getcpointer ( void *pPointer,int nPara,const char *cType ) ;
+
+	RING_API void ring_vm_api_setcpointernull ( void *pPointer,int nPara ) ;
+
+	void ring_vm_extension ( RingState *pRingState ) ;
+
+	RING_API void * ring_vm_api_varptr ( void *pPointer,const char  *cStr,const char *cStr2 ) ;
+
+	RING_API void ring_vm_api_varvalue ( void *pPointer,const char  *cStr,int nType ) ;
+
+	RING_API void ring_list_addcpointer ( List *pList,void *pGeneral,const char *cType ) ;
+
+	RING_API int ring_vm_api_iscpointerlist ( List *pList ) ;
+
+	RING_API int ring_vm_api_iscpointer ( void *pPointer,int nPara ) ;
+
+	RING_API int ring_vm_api_isobject ( void *pPointer,int nPara ) ;
+
+	RING_API int ring_vm_api_cpointercmp ( List *pList,List *pList2 ) ;
+
+	RING_API void * ring_vm_api_getcpointer2pointer ( void *pPointer,int nPara,const char *cType ) ;
+
+	RING_API void ring_list_addcpointer_gc ( void *pState,List *pList,void *pGeneral,const char *cType ) ;
+
+	RING_API void ring_vm_api_retcpointer2 ( void *pPointer,void *pGeneral,const char *cType, void (* pFreeFunc)(void *,void *) ) ;
+
+	RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef ) ;
+
+	RING_API void ring_vm_api_intvalue ( void *pPointer,const char  *cStr ) ;
+
+	RING_API void ring_vm_api_floatvalue ( void *pPointer,const char  *cStr ) ;
+
+	RING_API List * ring_vm_api_newlistusingblocks ( VM *pVM, int nSize, int nSize2 ) ;
 #endif

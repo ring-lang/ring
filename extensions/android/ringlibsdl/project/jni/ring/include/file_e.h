@@ -2,6 +2,44 @@
 
 #ifndef ring_file_extension_h
 	#define ring_file_extension_h
+	/* Constants */
+	#define RING_VM_FILE_BUFFERSIZE "Buffer size must be >= 1"
+	#define RING_VM_POINTER_FILE "file"
+	#define RING_VM_POINTER_FILEPOS "filepos"
+	#define RING_API_BADDIRECTORY "Error, Couldn't open the directory"
+	#define RING_NUMDATA_SIZE 8
+	#define RING_PATHTYPE_NOTKNOWN -1
+	#define RING_PATHTYPE_NOTFOUND 0
+	#define RING_PATHTYPE_FILE 1
+	#define RING_PATHTYPE_DIR 2
+	/* Data */
+	typedef union NumData {
+		int iNumber  ;
+		float fNumber  ;
+		double dNumber  ;
+		char cBytes[RING_NUMDATA_SIZE]  ;
+	} NumData ;
+	#include <sys/types.h>
+	#include <sys/stat.h>
+	#ifdef _WIN32
+		/* Windows Only */
+		#include <windows.h>
+		#ifdef _MSC_VER
+			#if !defined(S_ISREG) && defined(_S_IFMT) && defined(_S_IFREG)
+				#define S_ISREG(m) (((m) & _S_IFMT) == _S_IFREG)
+			#endif
+			#if !defined(S_ISDIR) && defined(_S_IFMT) && defined(_S_IFDIR)
+				#define S_ISDIR(m) (((m) & _S_IFMT) == _S_IFDIR)
+			#endif
+			#define stat _stat
+		#endif
+	#else
+		#if RING_MSDOS
+		#else
+			#include <dirent.h>
+			#include <unistd.h>
+		#endif
+	#endif
 
 	void ring_vm_file_loadfunctions ( RingState *pRingState ) ;
 
@@ -84,43 +122,5 @@
 		void ring_vm_file_dir ( void *pPointer ) ;
 
 		void ring_vm_file_tempname ( void *pPointer ) ;
-	#endif
-	/* Constants */
-	#define RING_VM_FILE_BUFFERSIZE "Buffer size must be >= 1"
-	#define RING_VM_POINTER_FILE "file"
-	#define RING_VM_POINTER_FILEPOS "filepos"
-	#define RING_API_BADDIRECTORY "Error, Couldn't open the directory"
-	#define RING_NUMDATA_SIZE 8
-	#define RING_PATHTYPE_NOTKNOWN -1
-	#define RING_PATHTYPE_NOTFOUND 0
-	#define RING_PATHTYPE_FILE 1
-	#define RING_PATHTYPE_DIR 2
-	/* Data */
-	typedef union NumData {
-		int iNumber  ;
-		float fNumber  ;
-		double dNumber  ;
-		char cBytes[RING_NUMDATA_SIZE]  ;
-	} NumData ;
-	#include <sys/types.h>
-	#include <sys/stat.h>
-	#ifdef _WIN32
-		/* Windows Only */
-		#include <windows.h>
-		#ifdef _MSC_VER
-			#if !defined(S_ISREG) && defined(_S_IFMT) && defined(_S_IFREG)
-				#define S_ISREG(m) (((m) & _S_IFMT) == _S_IFREG)
-			#endif
-			#if !defined(S_ISDIR) && defined(_S_IFMT) && defined(_S_IFDIR)
-				#define S_ISDIR(m) (((m) & _S_IFMT) == _S_IFDIR)
-			#endif
-			#define stat _stat
-		#endif
-	#else
-		#if RING_MSDOS
-		#else
-			#include <dirent.h>
-			#include <unistd.h>
-		#endif
 	#endif
 #endif

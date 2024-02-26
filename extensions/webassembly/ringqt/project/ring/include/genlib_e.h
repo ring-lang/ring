@@ -8,6 +8,8 @@
 			#include <stdint.h>
 		#endif
 	#endif
+	/* Constants */
+	#define C_EXPRCODESIZE 200
 
 	RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState ) ;
 	/* General */
@@ -209,6 +211,4 @@
 	/* Performance */
 
 	void ring_vm_generallib_checkoverflow ( void *pPointer ) ;
-	/* Constants */
-	#define C_EXPRCODESIZE 200
 #endif
