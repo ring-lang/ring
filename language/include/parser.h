@@ -33,7 +33,7 @@
 		unsigned int nErrorsCount  ;
 		/* Flag to tell { } that we are inside control structure (if/for/while/...) expression */
 		unsigned int lControlStructureExpr  ;
-		/* Flag - We started using braces {} in control structure - we have { */
+		/* Counter  - We started using braces {} in control structure - we have { */
 		unsigned int nControlStructureBrace  ;
 		/* required for For-Step, insert instructions */
 		unsigned int nInsertCounter  ;
@@ -41,7 +41,7 @@
 		**  required in loops (for|while) for loop and exit commands 
 		**  Counter to know if we are inside a loop or not 
 		*/
-		unsigned int nLoopFlag  ;
+		unsigned int nLoopCounter  ;
 		/* To Know if the commands (Loop or Exit) are used */
 		unsigned char nLoopOrExitCommand  ;
 		/* Enable|Disable checking Loop & Exit commands before storing Loop & Exit marks */

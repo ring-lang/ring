@@ -513,9 +513,9 @@ int ring_parser_stmt ( Parser *pParser )
 							puts(RING_RULE_FORLOOP);
 							/* Save Loop|Exit commands status */
 							nLoopOrExitCommand = pParser->nLoopOrExitCommand ;
-							pParser->nLoopFlag++ ;
+							pParser->nLoopCounter++ ;
 							RING_PARSER_ACCEPTSTATEMENTS ;
-							pParser->nLoopFlag-- ;
+							pParser->nLoopCounter-- ;
 							if ( ring_parser_iskeyword(pParser,K_NEXT) || ring_parser_iskeyword(pParser,K_ENDFOR) || ring_parser_iskeyword(pParser,K_END) || ring_parser_csbraceend(pParser) ) {
 								/* Generate Code */
 								nMark3 = ring_parser_icg_newlabel(pParser);
@@ -544,7 +544,7 @@ int ring_parser_stmt ( Parser *pParser )
 								else {
 									ring_parser_icg_setopcode(pParser,pMark3,ICO_NOOP);
 								}
-								if ( pParser->nLoopFlag == 0 ) {
+								if ( pParser->nLoopCounter == 0 ) {
 									pParser->nLoopOrExitCommand = nLoopOrExitCommand ;
 								}
 								/* POP Step */
@@ -644,9 +644,9 @@ int ring_parser_stmt ( Parser *pParser )
 					puts(RING_RULE_FORINLOOP);
 					/* Save Loop|Exit commands status */
 					nLoopOrExitCommand = pParser->nLoopOrExitCommand ;
-					pParser->nLoopFlag++ ;
+					pParser->nLoopCounter++ ;
 					RING_PARSER_ACCEPTSTATEMENTS ;
-					pParser->nLoopFlag-- ;
+					pParser->nLoopCounter-- ;
 					if ( ring_parser_iskeyword(pParser,K_NEXT) || ring_parser_iskeyword(pParser,K_ENDFOR) || ring_parser_iskeyword(pParser,K_END) || ring_parser_csbraceend(pParser) ) {
 						ring_parser_nexttoken(pParser);
 						/* Generate Code */
@@ -676,7 +676,7 @@ int ring_parser_stmt ( Parser *pParser )
 						else {
 							ring_parser_icg_setopcode(pParser,pMark3,ICO_NOOP);
 						}
-						if ( pParser->nLoopFlag == 0 ) {
+						if ( pParser->nLoopCounter == 0 ) {
 							pParser->nLoopOrExitCommand = nLoopOrExitCommand ;
 						}
 						/* POP Step */
@@ -806,9 +806,9 @@ int ring_parser_stmt ( Parser *pParser )
 			puts(RING_RULE_WHILELOOP);
 			/* Save Loop|Exit commands status */
 			nLoopOrExitCommand = pParser->nLoopOrExitCommand ;
-			pParser->nLoopFlag++ ;
+			pParser->nLoopCounter++ ;
 			RING_PARSER_ACCEPTSTATEMENTS ;
-			pParser->nLoopFlag-- ;
+			pParser->nLoopCounter-- ;
 			if ( ring_parser_iskeyword(pParser,K_END) || ring_parser_iskeyword(pParser,K_ENDWHILE) || ring_parser_csbraceend(pParser) ) {
 				/* Generate Code */
 				nMark3 = ring_parser_icg_newlabel(pParser);
@@ -828,7 +828,7 @@ int ring_parser_stmt ( Parser *pParser )
 				else {
 					ring_parser_icg_setopcode(pParser,pMark3,ICO_NOOP);
 				}
-				if ( pParser->nLoopFlag == 0 ) {
+				if ( pParser->nLoopCounter == 0 ) {
 					pParser->nLoopOrExitCommand = nLoopOrExitCommand ;
 				}
 				/* POP Step */
@@ -863,9 +863,9 @@ int ring_parser_stmt ( Parser *pParser )
 		ring_parser_nexttoken(pParser);
 		/* Save Loop|Exit commands status */
 		nLoopOrExitCommand = pParser->nLoopOrExitCommand ;
-		pParser->nLoopFlag++ ;
+		pParser->nLoopCounter++ ;
 		RING_PARSER_ACCEPTSTATEMENTS ;
-		pParser->nLoopFlag-- ;
+		pParser->nLoopCounter-- ;
 		if ( ring_parser_iskeyword(pParser,K_AGAIN) ) {
 			ring_parser_nexttoken(pParser);
 			RING_PARSER_IGNORENEWLINE ;
@@ -892,7 +892,7 @@ int ring_parser_stmt ( Parser *pParser )
 				else {
 					ring_parser_icg_setopcode(pParser,pMark3,ICO_NOOP);
 				}
-				if ( pParser->nLoopFlag == 0 ) {
+				if ( pParser->nLoopCounter == 0 ) {
 					pParser->nLoopOrExitCommand = nLoopOrExitCommand ;
 				}
 				/* POP Step */
@@ -1015,7 +1015,7 @@ int ring_parser_stmt ( Parser *pParser )
 		RING_STATE_CHECKPRINTRULES
 		puts(RING_RULE_EXIT);
 		/* Check usage outside loops */
-		if ( ! pParser->nLoopFlag ) {
+		if ( ! pParser->nLoopCounter ) {
 			if ( pParser->pRingState->lWarning ) {
 				puts(RING_WARNING_EXITOUTSIDELOOP);
 			}
@@ -1040,7 +1040,7 @@ int ring_parser_stmt ( Parser *pParser )
 		RING_STATE_CHECKPRINTRULES
 		puts(RING_RULE_LOOP);
 		/* Check usage outside loops */
-		if ( ! pParser->nLoopFlag ) {
+		if ( ! pParser->nLoopCounter ) {
 			if ( pParser->pRingState->lWarning ) {
 				puts(RING_WARNING_LOOPOUTSIDELOOP);
 			}

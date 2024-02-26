@@ -762,7 +762,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		puts(RING_RULE_FACTORISNUMBER);
 		ring_parser_nexttoken(pParser);
 		/* If we have condition - pass new lines */
-		if ( pParser->nControlStructureExpr ) {
+		if ( pParser->lControlStructureExpr ) {
 			RING_PARSER_IGNORENEWLINE ;
 		}
 		/* ++ and -- */
@@ -785,7 +785,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		puts(RING_RULE_FACTORISLITERAL);
 		ring_parser_nexttoken(pParser);
 		/* If we have condition - pass new lines */
-		if ( pParser->nControlStructureExpr ) {
+		if ( pParser->lControlStructureExpr ) {
 			RING_PARSER_IGNORENEWLINE ;
 		}
 		return RING_PARSER_OK ;
@@ -1154,7 +1154,7 @@ int ring_parser_mixer ( Parser *pParser )
 		return RING_PARSER_OK ;
 	}
 	/* '{' {Statement} '}' */
-	if ( ring_parser_isoperator2(pParser,OP_BRACEOPEN) && pParser->nControlStructureExpr == 0 ) {
+	if ( ring_parser_isoperator2(pParser,OP_BRACEOPEN) && pParser->lControlStructureExpr == 0 ) {
 		pParser->nBracesCounter++ ;
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_PUSHV);

@@ -66,13 +66,13 @@ Parser * ring_parser_new ( List *pTokens,RingState *pRingState )
 	pParser->nInsertCounter = 0 ;
 	pParser->nNewObject = 0 ;
 	pParser->nFuncCallOnly = 0 ;
-	pParser->nControlStructureExpr = 0 ;
+	pParser->lControlStructureExpr = 0 ;
 	pParser->nControlStructureBrace = 0 ;
 	pParser->nThisOrSelfLoadA = 0 ;
 	pParser->nThisLoadA = 0 ;
 	pParser->nLoopOrExitCommand = 0 ;
 	pParser->nCheckLoopAndExit = 1 ;
-	pParser->nLoopFlag = 0 ;
+	pParser->nLoopCounter = 0 ;
 	pParser->pForInVars = ring_list_new_gc(pRingState,RING_ZERO);
 	return pParser ;
 }

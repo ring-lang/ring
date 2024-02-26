@@ -35,7 +35,7 @@ nErrorLine
 Type: unsigned int
 nErrorsCount
 Type: unsigned int
-nControlStructureExpr
+lControlStructureExpr
 Type: unsigned int
 nControlStructureBrace
 Type: unsigned int
