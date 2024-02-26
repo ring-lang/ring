@@ -175,7 +175,7 @@ void ring_general_showtime ( void )
 	ring_general_printline();
 }
 
-RING_FILE ring_custom_fopen ( const char*cFileName, const char*cMode )
+RING_FILE ring_custom_fopen ( const char *cFileName, const char *cMode )
 {
 	#if defined(_WIN32) && ! defined(__TINYC__)
 		/* Code For MS-Windows */

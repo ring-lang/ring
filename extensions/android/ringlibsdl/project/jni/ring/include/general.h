@@ -41,7 +41,7 @@ RING_API void ring_general_printline ( void ) ;
 
 void ring_general_showtime ( void ) ;
 
-RING_FILE ring_custom_fopen ( const char*filename, const char*mode ) ;
+RING_FILE ring_custom_fopen ( const char *filename, const char *mode ) ;
 
 void ring_general_addosfileseparator ( char *cFileName ) ;
 

@@ -16,7 +16,7 @@ void ring_vm_gc_checknewreference ( void *pPointer,int nType, List *pContainer, 
 		pItem->nGCReferenceCount++ ;
 		/* Set the Free Function */
 		pItem = ring_list_getitem(pContainer,nIndex) ;
-		ring_vm_gc_setfreefunc(pItem, (void(*)(void *, void*)) ring_vm_gc_deleteitem_gc);
+		ring_vm_gc_setfreefunc(pItem, (void(*)(void *, void *)) ring_vm_gc_deleteitem_gc);
 		#if GCLog
 			printf( "\nGC CheckNewReference - To Pointer %p \n",pItem ) ;
 		#endif
@@ -889,7 +889,7 @@ RING_API void * ring_state_realloc ( void *pState,void *pPointer,size_t nAllocat
 					pMemory = ring_state_malloc(pState,nSize);
 					/* Copy existing data */
 					for ( x = 0 ; x < nAllocatedSize ; x++ ) {
-						((unsigned char*) pMemory)[x] = ((unsigned char*) pPointer)[x] ;
+						((unsigned char *) pMemory)[x] = ((unsigned char *) pPointer)[x] ;
 					}
 					ring_poolmanager_free(((RingState *) pState),pPointer);
 					return pMemory ;

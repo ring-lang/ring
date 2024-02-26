@@ -37,11 +37,11 @@ ring_general_showtime
 Type: time_t
 vTimer
 Type: char
-ccBuffer[RING_MEDIUMBUF]
+cBuffer[RING_MEDIUMBUF]
 Type: struct tm*
-tm_info
+vTimeInfo
 Type: clock_t
-myclock
+vClock
 ring_custom_fopen
 Type: RING_FILE
 pFile
