@@ -109,7 +109,7 @@
 		unsigned char lDontMoveToPrevScope  ;
 		unsigned char lSelfLoadA  ;
 		unsigned char lCallMethod  ;
-		unsigned char nInsideBraceFlag  ;
+		unsigned char lInsideBraceFlag  ;
 		unsigned char nInClassRegion  ;
 		unsigned char nPrivateFlag  ;
 		unsigned char nGetSetProperty  ;

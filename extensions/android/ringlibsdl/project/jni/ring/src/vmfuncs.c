@@ -77,7 +77,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 			pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 			if ( (strcmp(cStr,"main") != 0 ) && (pVM->lCallMethod != 1) && (y != 2) ) {
 				/* We check that we will convert Functions only, not methods */
-				if ( pVM->nInsideBraceFlag == 0 ) {
+				if ( pVM->lInsideBraceFlag == 0 ) {
 					ring_vmfunccall_useloadfuncp(pVM,pFuncCall,nPerformance);
 				}
 				else {

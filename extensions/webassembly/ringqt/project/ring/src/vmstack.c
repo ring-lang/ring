@@ -318,12 +318,12 @@ void ring_vm_freestack ( VM *pVM )
 		}
 		return ;
 	}
-	if ( ( ring_list_getsize(pVM->pFuncCallList) == 0 ) && (pVM->nInsideBraceFlag == 0) ) {
+	if ( ( ring_list_getsize(pVM->pFuncCallList) == 0 ) && (pVM->lInsideBraceFlag == 0) ) {
 		pVM->nSP = 0 ;
 		pVM->nFuncSP = 0 ;
 	}
 	else {
-		if ( pVM->nInsideBraceFlag == 0 ) {
+		if ( pVM->lInsideBraceFlag == 0 ) {
 			pVM->nSP = pVM->nFuncSP ;
 		}
 		else {

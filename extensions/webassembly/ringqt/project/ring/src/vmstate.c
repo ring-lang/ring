@@ -30,7 +30,7 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 	pVMState->aNumbers[14] = ring_list_getsize(pVM->pLoopMark) ;
 	pVMState->aNumbers[15] = ring_list_getsize(pVM->pTry) ;
 	pVMState->aNumbers[16] = pVM->nListStart ;
-	pVMState->aNumbers[17] = pVM->nInsideBraceFlag ;
+	pVMState->aNumbers[17] = pVM->lInsideBraceFlag ;
 	pVMState->aNumbers[18] = ring_list_getsize(pVM->pForStep) ;
 	pVMState->aNumbers[19] = ring_list_getsize(pVM->pBeforeObjState) ;
 	pVMState->aNumbers[20] = RING_VM_IR_GETLINENUMBER ;
@@ -187,7 +187,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 		ring_list_addpointer_gc(pVM->pRingState,aListsToDelete,pListPointer);
 	}
 	pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,RING_ZERO);
-	pVM->nInsideBraceFlag = pVMState->aNumbers[17] ;
+	pVM->lInsideBraceFlag = pVMState->aNumbers[17] ;
 	ring_vm_backstate(pVM,pVM->pBeforeObjState,pVMState->aNumbers[19]);
 	RING_VM_IR_SETLINENUMBER(pVMState->aNumbers[20]);
 	pVM->nPrivateFlag = pVMState->aNumbers[22] ;
@@ -226,7 +226,7 @@ VMState * ring_vm_savestateforfunctions ( VM *pVM )
 	pVMState->aNumbers[2] = ring_list_getsize(pVM->pTry) ;
 	pVMState->aNumbers[3] = ring_list_getsize(pVM->pBraceObjects) ;
 	pVMState->aNumbers[4] = ring_list_getsize(pVM->pObjState) ;
-	pVMState->aNumbers[5] = pVM->nInsideBraceFlag ;
+	pVMState->aNumbers[5] = pVM->lInsideBraceFlag ;
 	pVMState->aNumbers[6] = ring_list_getsize(pVM->pForStep) ;
 	pVMState->aNumbers[7] = pVM->nCurrentGlobalScope ;
 	pVMState->aNumbers[8] = pVM->nBlockCounter ;
@@ -252,7 +252,7 @@ VMState * ring_vm_savestateforfunctions ( VM *pVM )
 	pVMState->aPointers[6] = pVM->pSetProperty ;
 	pVM->pSetProperty = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Save State */
-	pVM->nInsideBraceFlag = 0 ;
+	pVM->lInsideBraceFlag = 0 ;
 	/* Save BlockFlag */
 	pVM->nBlockCounter = 0 ;
 	pVM->pPCBlockFlag = ring_list_new_gc(pVM->pRingState,RING_ZERO);
@@ -283,7 +283,7 @@ void ring_vm_restorestateforfunctions ( VM *pVM,VMState *pVMState )
 	ring_vm_backstate(pVM,pVM->pBraceObjects,pVMState->aNumbers[3]);
 	pVM->pBraceObject = (List *) pVMState->aPointers[0] ;
 	ring_vm_backstate(pVM,pVM->pObjState,pVMState->aNumbers[4]);
-	pVM->nInsideBraceFlag = pVMState->aNumbers[5] ;
+	pVM->lInsideBraceFlag = pVMState->aNumbers[5] ;
 	ring_vm_backstate(pVM,pVM->pForStep,pVMState->aNumbers[6]);
 	/* Restore global scope, Must be before this because this depend on it */
 	pVM->nCurrentGlobalScope = pVMState->aNumbers[7] ;
@@ -344,8 +344,8 @@ void ring_vm_savestatefornewobjects ( VM *pVM )
 	/* Save Private Flag Status */
 	pVMState->aNumbers[3] = pVM->nPrivateFlag ;
 	/* Save InsideBrace Flag */
-	pVMState->aNumbers[4] = pVM->nInsideBraceFlag ;
-	pVM->nInsideBraceFlag = 0 ;
+	pVMState->aNumbers[4] = pVM->lInsideBraceFlag ;
+	pVM->lInsideBraceFlag = 0 ;
 	pVMState->aPointers[2] = pVM->pBraceObject ;
 	pVM->pBraceObject = NULL ;
 	/* Save nCallClassInit */
@@ -446,7 +446,7 @@ void ring_vm_restorestatefornewobjects ( VM *pVM )
 	/* Restore Private Flag */
 	pVM->nPrivateFlag = pVMState->aNumbers[3] ;
 	/* Restore InsideBrace Flag */
-	pVM->nInsideBraceFlag = pVMState->aNumbers[4] ;
+	pVM->lInsideBraceFlag = pVMState->aNumbers[4] ;
 	pVM->pBraceObject = (List *) pVMState->aPointers[2] ;
 	/* Restore nCallClassInit */
 	pVM->nCallClassInit = pVMState->aNumbers[5] ;
@@ -555,7 +555,7 @@ void ring_vm_savestateforbraces ( VM *pVM,List *pObjState )
 	ring_list_addint_gc(pVM->pRingState,pList,ring_list_isdontref(pVM->pBraceObject));
 	ring_list_addint_gc(pVM->pRingState,pList,ring_list_isdontrefagain(pVM->pBraceObject));
 	pVM->pBraceObject = NULL ;
-	pVM->nInsideBraceFlag = 1 ;
+	pVM->lInsideBraceFlag = 1 ;
 }
 
 void ring_vm_restorestateforbraces ( VM *pVM,List *pList )
@@ -597,7 +597,7 @@ void ring_vm_restorestateforbraces ( VM *pVM,List *pList )
 	}
 	ring_list_deleteitem_gc(pVM->pRingState,pVM->pBraceObjects,ring_list_getsize(pVM->pBraceObjects));
 	ring_list_deleteitem_gc(pVM->pRingState,pVM->pObjState,ring_list_getsize(pVM->pObjState));
-	pVM->nInsideBraceFlag = ( ring_list_getsize(pVM->pBraceObjects) > 0 ) ;
+	pVM->lInsideBraceFlag = ( ring_list_getsize(pVM->pBraceObjects) > 0 ) ;
 }
 
 void ring_vm_backstate ( VM *pVM,List *pList,int nToSize )
