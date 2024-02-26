@@ -114,7 +114,7 @@
 		unsigned char lPrivateFlag  ;
 		unsigned char lGetSetProperty  ;
 		unsigned char nGetSetObjType  ;
-		unsigned char nFirstAddress  ;
+		unsigned char lFirstAddress  ;
 		unsigned char nBeforeEqual  ;
 		unsigned char nNOAssignment  ;
 		unsigned char nEvalCalledFromRingCode  ;

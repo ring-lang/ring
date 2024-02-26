@@ -85,7 +85,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	/* For Loop - Step List */
 	pVM->pForStep = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Flag for LoadA , when = 1 , if it's a pointer we get First Var. not the Pointer */
-	pVM->nFirstAddress = 0 ;
+	pVM->lFirstAddress = 0 ;
 	/* Used to know operator before = like += -= *= /= */
 	pVM->nBeforeEqual = 0 ;
 	/*

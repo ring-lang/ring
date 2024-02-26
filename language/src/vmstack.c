@@ -96,7 +96,7 @@ void ring_vm_loadaddress ( VM *pVM )
 		ring_vm_var_setprivateflag(pVM,(List *) RING_VM_STACK_READP,pVM->lPrivateFlag);
 	}
 	/* Don't change instruction if it's LoadAFirst */
-	if ( (pVM->nFirstAddress == 1) || (lFound == 0) ) {
+	if ( (pVM->lFirstAddress == 1) || (lFound == 0) ) {
 		return ;
 	}
 	if ( pVM->nVarScope == RING_VARSCOPE_GLOBAL ) {
@@ -670,9 +670,9 @@ void ring_vm_freeloadaddressscope ( VM *pVM )
 
 void ring_vm_loadaddressfirst ( VM *pVM )
 {
-	pVM->nFirstAddress = 1 ;
+	pVM->lFirstAddress = 1 ;
 	ring_vm_loadaddress(pVM);
-	pVM->nFirstAddress = 0 ;
+	pVM->lFirstAddress = 0 ;
 }
 
 void ring_vm_printstack ( VM *pVM )
