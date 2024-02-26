@@ -43,8 +43,10 @@ More Improvements
 * Ring VM - Return Command - Better code when we return an object passed to the function as parameter
 * Ring VM - OOP Support - Support try/catch when creating new object and the parent class doesn't exist
 * Ring Source Code - Better Format
-* Ring Source Code - Using constants 
+* Ring Source Code - Using constants
 * Ring Source Code - Structures Members - Better names
 * Ring Source Code - Functions Parameters - Better names
+* Ring Source Code - Use Bit Fields in structures
+* Ring Source Code - Better order for structures members 
 * Ring Source Code - language/src/rstring.c - ring_string_set2_gc() - Better code
 * Ring Source Code - Building scripts and batch files are moved to ring/language/build folder
