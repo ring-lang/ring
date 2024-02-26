@@ -1,5 +1,4 @@
-rem clang-format -style=Google ..\src\*.c -i
+rem Just if you want to format the C code.
 
-rem clang-format --style=file ..\src\*.c -i 
-
-clang-format --style=file:myformat.txt ..\src\*.c -i
+clang-format -style=Microsoft ..\src\*.c -i
+clang-format -style=Microsoft ..\include\*.h -i
