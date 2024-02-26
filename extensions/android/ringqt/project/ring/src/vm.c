@@ -76,7 +76,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	/* Scope of class attribute ( 0 = public 1 = private ) */
 	pVM->lPrivateFlag = 0 ;
 	/* Set/Get Property */
-	pVM->nGetSetProperty = 0 ;
+	pVM->lGetSetProperty = 0 ;
 	pVM->pGetSetObject = NULL ;
 	pVM->nGetSetObjType = 0 ;
 	pVM->pSetProperty = ring_list_new_gc(pVM->pRingState,RING_ZERO);

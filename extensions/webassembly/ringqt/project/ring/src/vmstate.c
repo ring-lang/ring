@@ -36,7 +36,7 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 	pVMState->aNumbers[20] = RING_VM_IR_GETLINENUMBER ;
 	pVMState->aNumbers[21] = pVM->nInClassRegion ;
 	pVMState->aNumbers[22] = pVM->lPrivateFlag ;
-	pVMState->aNumbers[23] = pVM->nGetSetProperty ;
+	pVMState->aNumbers[23] = pVM->lGetSetProperty ;
 	pVMState->aNumbers[24] = pVM->nGetSetObjType ;
 	pVMState->aNumbers[25] = pVM->nBeforeEqual ;
 	pVMState->aNumbers[26] = pVM->nNOAssignment ;
@@ -191,7 +191,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	ring_vm_backstate(pVM,pVM->pBeforeObjState,pVMState->aNumbers[19]);
 	RING_VM_IR_SETLINENUMBER(pVMState->aNumbers[20]);
 	pVM->lPrivateFlag = pVMState->aNumbers[22] ;
-	pVM->nGetSetProperty = pVMState->aNumbers[23] ;
+	pVM->lGetSetProperty = pVMState->aNumbers[23] ;
 	pVM->pGetSetObject = (void *) pVMState->aPointers[5] ;
 	pVM->nGetSetObjType = pVMState->aNumbers[24] ;
 	pVM->pAssignment = (void *) pVMState->aPointers[6] ;
@@ -240,7 +240,7 @@ VMState * ring_vm_savestateforfunctions ( VM *pVM )
 	pVMState->aNumbers[16] = RING_VM_IR_GETLINENUMBER ;
 	pVMState->aNumbers[17] = pVM->nBeforeEqual ;
 	pVMState->aNumbers[18] = pVM->nNOAssignment ;
-	pVMState->aNumbers[19] = pVM->nGetSetProperty ;
+	pVMState->aNumbers[19] = pVM->lGetSetProperty ;
 	pVMState->aNumbers[20] = pVM->nGetSetObjType ;
 	pVMState->aNumbers[21] = ring_list_getint(pThis,RING_VAR_PVALUETYPE) ;
 	pVMState->aPointers[0] = pVM->pBraceObject ;
@@ -266,7 +266,7 @@ VMState * ring_vm_savestateforfunctions ( VM *pVM )
 	pVM->pBraceObject = NULL ;
 	pVM->nBeforeEqual = 0 ;
 	pVM->nFuncExecute = 0 ;
-	pVM->nGetSetProperty = 0 ;
+	pVM->lGetSetProperty = 0 ;
 	pVM->pGetSetObject = NULL ;
 	pVM->nGetSetObjType = 0 ;
 	pVM->lNoSetterMethod = 0 ;
@@ -304,7 +304,7 @@ void ring_vm_restorestateforfunctions ( VM *pVM,VMState *pVMState )
 	RING_VM_IR_SETLINENUMBER(pVMState->aNumbers[16]);
 	pVM->nBeforeEqual = pVMState->aNumbers[17] ;
 	pVM->nNOAssignment = pVMState->aNumbers[18] ;
-	pVM->nGetSetProperty = pVMState->aNumbers[19] ;
+	pVM->lGetSetProperty = pVMState->aNumbers[19] ;
 	pVM->nGetSetObjType = pVMState->aNumbers[20] ;
 	pVM->lNoSetterMethod = pVMState->aNumbers[15] ;
 	pVM->pGetSetObject = (void *) pVMState->aPointers[4] ;
@@ -387,9 +387,9 @@ void ring_vm_savestatefornewobjects ( VM *pVM )
 	/* Save nBeforeEqual */
 	pVMState->aNumbers[19] = pVM->nBeforeEqual ;
 	pVM->nBeforeEqual = 0 ;
-	/* Save nGetSetProperty */
-	pVMState->aNumbers[20] = pVM->nGetSetProperty ;
-	pVM->nGetSetProperty = 0 ;
+	/* Save lGetSetProperty */
+	pVMState->aNumbers[20] = pVM->lGetSetProperty ;
+	pVM->lGetSetProperty = 0 ;
 	/* Save nGetSetObject */
 	pVMState->aNumbers[21] = pVM->nGetSetObjType ;
 	pVM->nGetSetObjType = 0 ;
@@ -483,8 +483,8 @@ void ring_vm_restorestatefornewobjects ( VM *pVM )
 	pVM->nActiveScopeID = pVMState->aNumbers[18] ;
 	/* Restore nBeforeEqual */
 	pVM->nBeforeEqual = pVMState->aNumbers[19] ;
-	/* Restore nGetSetProperty */
-	pVM->nGetSetProperty = pVMState->aNumbers[20] ;
+	/* Restore lGetSetProperty */
+	pVM->lGetSetProperty = pVMState->aNumbers[20] ;
 	/* Restore nGetSetObjType */
 	pVM->nGetSetObjType = pVMState->aNumbers[21] ;
 	/* Restore pGetSetObject */

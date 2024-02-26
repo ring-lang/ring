@@ -112,7 +112,7 @@
 		unsigned char lInsideBraceFlag  ;
 		unsigned char nInClassRegion  ;
 		unsigned char lPrivateFlag  ;
-		unsigned char nGetSetProperty  ;
+		unsigned char lGetSetProperty  ;
 		unsigned char nGetSetObjType  ;
 		unsigned char nFirstAddress  ;
 		unsigned char nBeforeEqual  ;

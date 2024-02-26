@@ -71,7 +71,7 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 				**  Also if we don't have object scope using { } we will pass 
 				**  Also If we are using ICO_LOADAFIRST (Used by For In) - we don't check object scope 
 				*/
-				if ( (pVM->nGetSetProperty == 1) || (ring_list_getsize(pVM->pObjState) == 0) || pVM->nFirstAddress ) {
+				if ( (pVM->lGetSetProperty == 1) || (ring_list_getsize(pVM->pObjState) == 0) || pVM->nFirstAddress ) {
 					continue ;
 				}
 				/* Search in Object State */
@@ -95,7 +95,7 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 				**  If we are using ICO_LOADAFIRST (Used by For In) - we don't check global scope 
 				**  Also IF obj.attribute - we did the search in local scope - pass others 
 				*/
-				if ( (pVM->nGetSetProperty == 1) || pVM->nFirstAddress ) {
+				if ( (pVM->lGetSetProperty == 1) || pVM->nFirstAddress ) {
 					continue ;
 				}
 				pList = ring_vm_getglobalscope(pVM);
@@ -188,7 +188,7 @@ int ring_vm_findvar2 ( VM *pVM,int nLevel,List *pList2,const char *cStr )
 		RING_VM_STACK_SETPVALUE(pList2);
 		RING_VM_STACK_OBJTYPE = RING_OBJTYPE_VARIABLE ;
 		/* Check Setter/Getter for Public Attributes */
-		if ( pVM->nGetSetProperty == 1 ) {
+		if ( pVM->lGetSetProperty == 1 ) {
 			/* Avoid executing Setter/Getter when we use self.attribute and this.attribute */
 			pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_GLOBALVARPOS_THIS) ;
 			if ( pThis != NULL ) {

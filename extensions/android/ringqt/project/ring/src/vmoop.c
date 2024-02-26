@@ -336,7 +336,7 @@ void ring_vm_oop_property ( VM *pVM )
 	/* Get Object State */
 	pScope = pVM->pActiveMem ;
 	pVM->pActiveMem = ring_list_getlist(pVar,RING_OBJECT_OBJECTDATA);
-	pVM->nGetSetProperty = 1 ;
+	pVM->lGetSetProperty = 1 ;
 	if ( ring_vm_findvar(pVM, RING_VM_IR_READC ) == 0 ) {
 		/* Create the attribute if we are in the class region after the class name */
 		if ( pVM->nInClassRegion ) {
@@ -346,12 +346,12 @@ void ring_vm_oop_property ( VM *pVM )
 			RING_VM_STACK_POP ;
 			ring_vm_findvar(pVM, RING_VM_IR_READC);
 			pVM->pActiveMem = pScope ;
-			pVM->nGetSetProperty = 0 ;
+			pVM->lGetSetProperty = 0 ;
 			pVM->pGetSetObject = NULL ;
 			return ;
 		}
 		pVM->pActiveMem = pScope ;
-		pVM->nGetSetProperty = 0 ;
+		pVM->lGetSetProperty = 0 ;
 		pVM->pGetSetObject = NULL ;
 		if ( pVM->nActiveCatch == 0 ) {
 			/*
@@ -367,7 +367,7 @@ void ring_vm_oop_property ( VM *pVM )
 		return ;
 	}
 	pVM->pActiveMem = pScope ;
-	pVM->nGetSetProperty = 0 ;
+	pVM->lGetSetProperty = 0 ;
 	pVM->pGetSetObject = NULL ;
 }
 
@@ -847,7 +847,7 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 		}
 		if ( ring_vm_oop_ismethod(pVM,pList2,ring_string_get(pString2)) ) {
 			RING_VM_STACK_POP ;
-			if ( pVM->nGetSetProperty == 0 ) {
+			if ( pVM->lGetSetProperty == 0 ) {
 				/* For Better Performance : Don't Eval() when we call Getter Method from Braces */
 				ring_vm_loadfunc2(pVM,ring_string_get(pString2),RING_FALSE);
 				ring_vm_call2(pVM);
