@@ -530,7 +530,7 @@ int ring_parser_range ( Parser *pParser )
 
 int ring_parser_factor ( Parser *pParser,int *nFlag )
 {
-	int x,x2,x3,nLastOperation,nCount,nNOOP,nToken,nMark,nFlag2,lThisOrSelfLoadA,nThisLoadA,lNewFrom,lAfterListEnd  ;
+	int x,x2,x3,nLastOperation,nCount,nNOOP,nToken,nMark,nFlag2,lThisOrSelfLoadA,lThisLoadA,lNewFrom,lAfterListEnd  ;
 	List *pLoadAPos, *pLoadAMark,*pList, *pMark,*pAssignmentPointerPos  ;
 	char lSetProperty,lequal,nBeforeEqual,lNewAfterEqual  ;
 	char cFuncName[RING_MEDIUMBUF]  ;
@@ -543,12 +543,12 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		/* Generate Code */
 		ring_parser_icg_loadaddress(pParser,pParser->cTokenText);
 		/* Check Loading Self or This */
-		pParser->nThisLoadA = 0 ;
+		pParser->lThisLoadA = 0 ;
 		if ( strcmp(pParser->cTokenText ,RING_CSTR_THIS) == 0 ) {
-			pParser->nThisLoadA = 1 ;
+			pParser->lThisLoadA = 1 ;
 		}
 		pParser->lThisOrSelfLoadA = 0 ;
-		if ( strcmp(pParser->cTokenText,RING_CSTR_SELF) == 0 || pParser->nThisLoadA ) {
+		if ( strcmp(pParser->cTokenText,RING_CSTR_SELF) == 0 || pParser->lThisLoadA ) {
 			pParser->lThisOrSelfLoadA = 1 ;
 		}
 		ring_parser_nexttoken(pParser);
@@ -619,7 +619,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			ring_parser_nexttoken(pParser);
 			/* Check if the Assignment after object attribute name */
 			lThisOrSelfLoadA = pParser->lThisOrSelfLoadA ;
-			nThisLoadA = pParser->nThisLoadA ;
+			lThisLoadA = pParser->lThisLoadA ;
 			pLoadAPos = NULL ;
 			if ( nLastOperation == ICO_LOADSUBADDRESS ) {
 				lSetProperty = 1 ;
@@ -642,7 +642,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			pParser->lAssignmentFlag = 1 ;
 			/* Check New Object and this.property or self.property to disable set property */
 			if ( pParser->lNewObject && lSetProperty ) {
-				if ( nThisLoadA || ( lThisOrSelfLoadA && (pParser->nBracesCounter == 0) ) ) {
+				if ( lThisLoadA || ( lThisOrSelfLoadA && (pParser->nBracesCounter == 0) ) ) {
 					lSetProperty = 0 ;
 				}
 			}

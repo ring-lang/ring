@@ -68,8 +68,8 @@ Parser * ring_parser_new ( List *pTokens,RingState *pRingState )
 	pParser->lFuncCallOnly = 0 ;
 	pParser->lControlStructureExpr = 0 ;
 	pParser->nControlStructureBrace = 0 ;
-	pParser->nThisOrSelfLoadA = 0 ;
-	pParser->nThisLoadA = 0 ;
+	pParser->lThisOrSelfLoadA = 0 ;
+	pParser->lThisLoadA = 0 ;
 	pParser->lLoopOrExitCommand = 0 ;
 	pParser->lCheckLoopAndExit = 1 ;
 	pParser->nLoopCounter = 0 ;

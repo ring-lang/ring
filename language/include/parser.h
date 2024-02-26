@@ -58,7 +58,7 @@
 		unsigned char lFuncCallOnly  ;
 		/* Using Self or This with LoadAddress */
 		unsigned char lThisOrSelfLoadA  ;
-		unsigned char nThisLoadA  ;
+		unsigned char lThisLoadA  ;
 		/* Insert Flag */
 		unsigned char lInsertFlag  ;
 		/* Token Type */
