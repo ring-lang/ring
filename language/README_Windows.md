@@ -33,7 +33,7 @@ Also, use ring/bin/install_x64.bat instead of ring/bin/install.bat
 
 #### Build Ring (Compiler/VM)
 	
-	cd ring/language/src
+	cd ring/language/build
 	buildvc.bat
 	buildvcw.bat
 

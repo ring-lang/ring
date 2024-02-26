@@ -20,7 +20,7 @@ This version is tested using Ubuntu 22.04 LTS
 	
 ### Install Libraries 
 	
-	cd ring/language/src
+	cd ring/language/build
 	./installdep.sh 
 	
 ### Build Ring (Compiler/VM)

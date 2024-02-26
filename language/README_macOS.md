@@ -14,7 +14,7 @@ This version is tested using macOS Catalina (version 10.15)
 	
 ### Install Libraries 
 	
-	cd ring/language/src
+	cd ring/language/build
 	./installdepmac.sh 
 	
 ### Build Ring (Compiler/VM)
