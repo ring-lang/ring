@@ -65,7 +65,7 @@ ring_vm_funcregister(cName,pFunc)
 RING_API_REGISTER(cName,pFunc)
 RING_API_MALLOC(nSize)
 RING_API_CALLOC(nCount,nSize)
-RING_API_REALLOC(pPointer,nOldSize,nNewSize)
+RING_API_REALLOC(pPtr,nOldSize,nNewSize)
 RING_API_FREE(pPtr)
 RING_API_FREEFUNC
 RING_FUNC(cName)

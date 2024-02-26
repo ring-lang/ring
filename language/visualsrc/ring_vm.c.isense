@@ -205,9 +205,9 @@ lEvalCalledFromRingCode
 Type: unsigned char
 nDecimals
 Type: unsigned char
-nEvalReallocationFlag
+lEvalReallocationFlag
 Type: unsigned char
-nIgnoreNULL
+lIgnoreNULL
 Type: unsigned char
 nRetItemRef
 Type: unsigned char
@@ -660,7 +660,7 @@ Type: void *
 pPointer, *pAssignment
 ring_vm_runcode
 Type: int
-nEvalReturnPC,nEvalReallocationFlag,nPC,nRunVM,nSP,nFuncSP,nLineNumber
+nEvalReturnPC,lEvalReallocationFlag,nPC,nRunVM,nSP,nFuncSP,nLineNumber
 Type: List *
 pStackList
 ring_vm_cleanevalcode

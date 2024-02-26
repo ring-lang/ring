@@ -129,7 +129,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->pFuncMutexDestroy = NULL ;
 	pVM->pMutex = NULL ;
 	/* Ignore C Pointer Type Check in extension functions */
-	pVM->nIgnoreCPointerTypeCheck = 0 ;
+	pVM->lIgnoreCPointerTypeCheck = 0 ;
 	/*
 	**  Flag when we call class init using new obj() 
 	**  Since we call init() using generated braces { } 

@@ -122,7 +122,7 @@
 		unsigned char lEvalReallocationFlag  ;
 		unsigned char lIgnoreNULL  ;
 		unsigned char nRetItemRef  ;
-		unsigned char nIgnoreCPointerTypeCheck  ;
+		unsigned char lIgnoreCPointerTypeCheck  ;
 		unsigned char nCallClassInit  ;
 		unsigned char nRetEvalDontDelete  ;
 		unsigned char nRunCode  ;

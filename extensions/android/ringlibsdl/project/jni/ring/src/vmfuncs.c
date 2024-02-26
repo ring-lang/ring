@@ -279,7 +279,7 @@ void ring_vm_call2 ( VM *pVM )
 		/* Prepare to check function termination by try/catch */
 		pVM->nActiveCatch = 0 ;
 		/* Enable C Pointer Type Check */
-		pVM->nIgnoreCPointerTypeCheck = 0 ;
+		pVM->lIgnoreCPointerTypeCheck = 0 ;
 		/* Call Function */
 		pFuncCall->pFunc(pVM) ;
 		/* Trace */

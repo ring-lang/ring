@@ -167,7 +167,7 @@ RING_API void * ring_vm_api_getcpointer ( void *pPointer,int nPara,const char *c
 		pList = RING_API_GETLIST(nPara) ;
 		if ( ring_list_ispointer(pList,RING_CPOINTER_POINTER) ) {
 			if ( ring_list_getpointer(pList,RING_CPOINTER_POINTER) != NULL ) {
-				if ( (strcmp(ring_list_getstring(pList,RING_CPOINTER_TYPE),cType) == 0) || (((VM *) pPointer)->nIgnoreCPointerTypeCheck==1) ) {
+				if ( (strcmp(ring_list_getstring(pList,RING_CPOINTER_TYPE),cType) == 0) || (((VM *) pPointer)->lIgnoreCPointerTypeCheck==1) ) {
 					/*
 					**  Check if the pointer is copied or not 
 					**  We check for 2 (not assigned) also, happens when f1 ( nPara , f2() ) and f2 return C pointer 
@@ -334,7 +334,7 @@ RING_API void * ring_vm_api_getcpointer2pointer ( void *pPointer,int nPara,const
 		pList = RING_API_GETLIST(nPara) ;
 		if ( ring_list_ispointer(pList,RING_CPOINTER_POINTER) ) {
 			if ( ring_list_getpointer(pList,RING_CPOINTER_POINTER) != NULL ) {
-				if ( (strcmp(ring_list_getstring(pList,RING_CPOINTER_TYPE),cType) == 0) || (((VM *) pPointer)->nIgnoreCPointerTypeCheck==1) ) {
+				if ( (strcmp(ring_list_getstring(pList,RING_CPOINTER_TYPE),cType) == 0) || (((VM *) pPointer)->lIgnoreCPointerTypeCheck==1) ) {
 					/*
 					**  Check if the pointer is copied or not 
 					**  We check for 2 (not assigned) also, happens when f1 ( x , f2() ) and f2 return C pointer 
