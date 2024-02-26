@@ -267,7 +267,7 @@ void ring_vm_oop_newclass ( VM *pVM )
 	/* Get Parent Classes Methods */
 	ring_vm_oop_parentmethods(pVM,pClass);
 	/* Attributes Scope is Public */
-	pVM->nPrivateFlag = 0 ;
+	pVM->lPrivateFlag = 0 ;
 	/* Support using This in the class region */
 	ring_vm_oop_setthethisvariableinclassregion(pVM);
 }
@@ -342,7 +342,7 @@ void ring_vm_oop_property ( VM *pVM )
 		if ( pVM->nInClassRegion ) {
 			ring_vm_newvar(pVM, RING_VM_IR_READC);
 			/* Support for Private Flag */
-			ring_vm_var_setprivateflag(pVM,(List *) RING_VM_STACK_READP,pVM->nPrivateFlag);
+			ring_vm_var_setprivateflag(pVM,(List *) RING_VM_STACK_READP,pVM->lPrivateFlag);
 			RING_VM_STACK_POP ;
 			ring_vm_findvar(pVM, RING_VM_IR_READC);
 			pVM->pActiveMem = pScope ;

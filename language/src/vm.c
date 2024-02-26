@@ -74,7 +74,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	/* We keep information about active package to access its classes directly with new/from */
 	pVM->pActivePackage = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Scope of class attribute ( 0 = public 1 = private ) */
-	pVM->nPrivateFlag = 0 ;
+	pVM->lPrivateFlag = 0 ;
 	/* Set/Get Property */
 	pVM->nGetSetProperty = 0 ;
 	pVM->pGetSetObject = NULL ;
@@ -947,7 +947,7 @@ void ring_vm_execute ( VM *pVM )
 			ring_vm_oop_import(pVM);
 			break ;
 		case ICO_PRIVATE :
-			pVM->nPrivateFlag = 1 ;
+			pVM->lPrivateFlag = 1 ;
 			break ;
 		case ICO_SETPROPERTY :
 			ring_vm_oop_setproperty(pVM);

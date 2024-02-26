@@ -111,7 +111,7 @@
 		unsigned char lCallMethod  ;
 		unsigned char lInsideBraceFlag  ;
 		unsigned char nInClassRegion  ;
-		unsigned char nPrivateFlag  ;
+		unsigned char lPrivateFlag  ;
 		unsigned char nGetSetProperty  ;
 		unsigned char nGetSetObjType  ;
 		unsigned char nFirstAddress  ;

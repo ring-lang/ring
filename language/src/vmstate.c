@@ -35,7 +35,7 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 	pVMState->aNumbers[19] = ring_list_getsize(pVM->pBeforeObjState) ;
 	pVMState->aNumbers[20] = RING_VM_IR_GETLINENUMBER ;
 	pVMState->aNumbers[21] = pVM->nInClassRegion ;
-	pVMState->aNumbers[22] = pVM->nPrivateFlag ;
+	pVMState->aNumbers[22] = pVM->lPrivateFlag ;
 	pVMState->aNumbers[23] = pVM->nGetSetProperty ;
 	pVMState->aNumbers[24] = pVM->nGetSetObjType ;
 	pVMState->aNumbers[25] = pVM->nBeforeEqual ;
@@ -190,7 +190,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	pVM->lInsideBraceFlag = pVMState->aNumbers[17] ;
 	ring_vm_backstate(pVM,pVM->pBeforeObjState,pVMState->aNumbers[19]);
 	RING_VM_IR_SETLINENUMBER(pVMState->aNumbers[20]);
-	pVM->nPrivateFlag = pVMState->aNumbers[22] ;
+	pVM->lPrivateFlag = pVMState->aNumbers[22] ;
 	pVM->nGetSetProperty = pVMState->aNumbers[23] ;
 	pVM->pGetSetObject = (void *) pVMState->aPointers[5] ;
 	pVM->nGetSetObjType = pVMState->aNumbers[24] ;
@@ -230,7 +230,7 @@ VMState * ring_vm_savestateforfunctions ( VM *pVM )
 	pVMState->aNumbers[6] = ring_list_getsize(pVM->pForStep) ;
 	pVMState->aNumbers[7] = pVM->nCurrentGlobalScope ;
 	pVMState->aNumbers[8] = pVM->nBlockCounter ;
-	pVMState->aNumbers[9] = pVM->nPrivateFlag ;
+	pVMState->aNumbers[9] = pVM->lPrivateFlag ;
 	pVMState->aNumbers[10] = pVM->nCallClassInit ;
 	pVMState->aNumbers[11] = pVM->nFuncExecute ;
 	pVMState->aNumbers[12] = pVM->nInClassRegion ;
@@ -256,8 +256,8 @@ VMState * ring_vm_savestateforfunctions ( VM *pVM )
 	/* Save BlockFlag */
 	pVM->nBlockCounter = 0 ;
 	pVM->pPCBlockFlag = ring_list_new_gc(pVM->pRingState,RING_ZERO);
-	/* Save nPrivateFlag, set it to 0 (public not private) */
-	pVM->nPrivateFlag = 0 ;
+	/* Save lPrivateFlag, set it to 0 (public not private) */
+	pVM->lPrivateFlag = 0 ;
 	/* Save nCallClassInit */
 	pVM->nCallClassInit = 0 ;
 	pVM->nInClassRegion = 0 ;
@@ -292,8 +292,8 @@ void ring_vm_restorestateforfunctions ( VM *pVM,VMState *pVMState )
 	pVM->pPCBlockFlag = ring_list_delete_gc(pVM->pRingState,pVM->pPCBlockFlag);
 	pVM->nBlockCounter = pVMState->aNumbers[8] ;
 	pVM->pPCBlockFlag = (List *) pVMState->aPointers[2] ;
-	/* Restore nPrivateFlag */
-	pVM->nPrivateFlag = pVMState->aNumbers[9] ;
+	/* Restore lPrivateFlag */
+	pVM->lPrivateFlag = pVMState->aNumbers[9] ;
 	/* Restore nCallClassInit */
 	pVM->nCallClassInit = pVMState->aNumbers[10] ;
 	pVM->nFuncExecute = pVMState->aNumbers[11] ;
@@ -342,7 +342,7 @@ void ring_vm_savestatefornewobjects ( VM *pVM )
 	pVMState->aNumbers[2] = pVM->nFuncExecute ;
 	pVM->nFuncExecute = 0 ;
 	/* Save Private Flag Status */
-	pVMState->aNumbers[3] = pVM->nPrivateFlag ;
+	pVMState->aNumbers[3] = pVM->lPrivateFlag ;
 	/* Save InsideBrace Flag */
 	pVMState->aNumbers[4] = pVM->lInsideBraceFlag ;
 	pVM->lInsideBraceFlag = 0 ;
@@ -444,7 +444,7 @@ void ring_vm_restorestatefornewobjects ( VM *pVM )
 	/* Restore FuncExecute */
 	pVM->nFuncExecute = pVMState->aNumbers[2] ;
 	/* Restore Private Flag */
-	pVM->nPrivateFlag = pVMState->aNumbers[3] ;
+	pVM->lPrivateFlag = pVMState->aNumbers[3] ;
 	/* Restore InsideBrace Flag */
 	pVM->lInsideBraceFlag = pVMState->aNumbers[4] ;
 	pVM->pBraceObject = (List *) pVMState->aPointers[2] ;
