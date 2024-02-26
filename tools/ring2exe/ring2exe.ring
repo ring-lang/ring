@@ -270,7 +270,7 @@ func GenerateBatchGeneral aPara,aOptions
 		if cBuildtarget = "unknown"
 			cBuildtarget = "x86"
 		ok
-		cCode = "setlocal enableextensions enabledelayedexpansion" + nl + 'call "'+exefolder()+'../language/src/locatevc.bat" ' + cBuildtarget + nl +
+		cCode = "setlocal enableextensions enabledelayedexpansion" + nl + 'call "'+exefolder()+'../language/build/locatevc.bat" ' + cBuildtarget + nl +
 			"#{f3}" + nl +
 			'cl /O2 "#{f1}.c" "#{f2}" #{f4} -I"#{f6}..\language\include" -I"#{f6}../language/src/" /link #{f5}' + nl +
 			"endlocal" + nl 
