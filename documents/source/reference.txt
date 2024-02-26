@@ -475,6 +475,7 @@ Environment Errors
 * Error (E6) : The Ring Object File version is not correct!
 * Error (E7) : Internal error in using sscanf() function!
 * Error (E8) : Internal error in using fscanf() function!
+* Error (E9) : Can't open file
 
 .. index:: 
 	pair: Language Specification; Language Grammar
