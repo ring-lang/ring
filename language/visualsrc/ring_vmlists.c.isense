@@ -32,7 +32,7 @@ ring_vm_listpushv
 Type: Item *
 pItem
 Type: char
-cPointer[17]
+cPointer[RING_SMALLBUF]
 ring_vm_listassignment
 Type: Item *
 pItem

@@ -24,7 +24,7 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 	pVMState->aNumbers[8] = pVM->nBlockCounter ;
 	pVMState->aNumbers[9] = ring_list_getsize(pVM->pScopeNewObj) ;
 	pVMState->aNumbers[10] = ring_list_getsize(pVM->pActivePackage) ;
-	pVMState->aNumbers[11] = pVM->lNoSetterMethod ;
+	pVMState->aNumbers[11] = pVM->nNoSetterMethod ;
 	pVMState->aNumbers[12] = pVM->nActiveScopeID ;
 	pVMState->aNumbers[13] = ring_list_getsize(pVM->pExitMark) ;
 	pVMState->aNumbers[14] = ring_list_getsize(pVM->pLoopMark) ;
@@ -102,7 +102,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	ring_vm_backstate(pVM,pVM->pPCBlockFlag,pVMState->aNumbers[7]);
 	pVM->nBlockCounter = pVMState->aNumbers[8] ;
 	ring_vm_backstate(pVM,pVM->pActivePackage,pVMState->aNumbers[10]);
-	pVM->lNoSetterMethod = pVMState->aNumbers[11] ;
+	pVM->nNoSetterMethod = pVMState->aNumbers[11] ;
 	pVM->nActiveScopeID = pVMState->aNumbers[12] ;
 	/* We also return to the function call list */
 	if ( nFlag == RING_STATE_TRYCATCH ) {
@@ -236,7 +236,7 @@ VMState * ring_vm_savestateforfunctions ( VM *pVM )
 	pVMState->aNumbers[12] = pVM->nInClassRegion ;
 	pVMState->aNumbers[13] = pVM->nActiveScopeID ;
 	pVMState->aNumbers[14] = ring_list_getsize(pVM->pScopeNewObj) ;
-	pVMState->aNumbers[15] = pVM->lNoSetterMethod ;
+	pVMState->aNumbers[15] = pVM->nNoSetterMethod ;
 	pVMState->aNumbers[16] = RING_VM_IR_GETLINENUMBER ;
 	pVMState->aNumbers[17] = pVM->nBeforeEqual ;
 	pVMState->aNumbers[18] = pVM->lNoAssignment ;
@@ -269,7 +269,7 @@ VMState * ring_vm_savestateforfunctions ( VM *pVM )
 	pVM->lGetSetProperty = 0 ;
 	pVM->pGetSetObject = NULL ;
 	pVM->nGetSetObjType = 0 ;
-	pVM->lNoSetterMethod = 0 ;
+	pVM->nNoSetterMethod = 0 ;
 	return pVMState ;
 }
 
@@ -306,7 +306,7 @@ void ring_vm_restorestateforfunctions ( VM *pVM,VMState *pVMState )
 	pVM->lNoAssignment = pVMState->aNumbers[18] ;
 	pVM->lGetSetProperty = pVMState->aNumbers[19] ;
 	pVM->nGetSetObjType = pVMState->aNumbers[20] ;
-	pVM->lNoSetterMethod = pVMState->aNumbers[15] ;
+	pVM->nNoSetterMethod = pVMState->aNumbers[15] ;
 	pVM->pGetSetObject = (void *) pVMState->aPointers[4] ;
 	/* Restore This variable */
 	pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_GLOBALVARPOS_THIS) ;
@@ -398,9 +398,9 @@ void ring_vm_savestatefornewobjects ( VM *pVM )
 	pVM->pGetSetObject = NULL ;
 	/* Save pFuncClassList */
 	pVMState->aNumbers[22] = ring_list_getsize(pVM->pFuncCallList) ;
-	/* Save lNoSetterMethod */
-	pVMState->aNumbers[23] = pVM->lNoSetterMethod ;
-	pVM->lNoSetterMethod = 0 ;
+	/* Save nNoSetterMethod */
+	pVMState->aNumbers[23] = pVM->nNoSetterMethod ;
+	pVM->nNoSetterMethod = 0 ;
 	/* Save the BlockFlag */
 	pVMState->aNumbers[24] = pVM->nBlockCounter ;
 	pVMState->aPointers[7] = pVM->pPCBlockFlag ;
@@ -491,8 +491,8 @@ void ring_vm_restorestatefornewobjects ( VM *pVM )
 	pVM->pGetSetObject = (List *) pVMState->aPointers[6] ;
 	/* Restore pFuncCallList */
 	ring_vm_backstate(pVM,pVM->pFuncCallList,pVMState->aNumbers[22]);
-	/* Restore lNoSetterMethod */
-	pVM->lNoSetterMethod = pVMState->aNumbers[23] ;
+	/* Restore nNoSetterMethod */
+	pVM->nNoSetterMethod = pVMState->aNumbers[23] ;
 	/* Restore the BlockFlag */
 	pVM->nBlockCounter = pVMState->aNumbers[24] ;
 	pVM->pPCBlockFlag = ring_list_delete_gc(pVM->pRingState,pVM->pPCBlockFlag);
@@ -549,8 +549,8 @@ void ring_vm_savestateforbraces ( VM *pVM,List *pObjState )
 	ring_list_deleteallitems_gc(pVM->pRingState,pVM->pSetProperty);
 	/* Store nLoadAddressScope */
 	ring_list_addint_gc(pVM->pRingState,pList,pVM->nLoadAddressScope);
-	/* Store lNoSetterMethod */
-	ring_list_addint_gc(pVM->pRingState,pList,pVM->lNoSetterMethod);
+	/* Store nNoSetterMethod */
+	ring_list_addint_gc(pVM->pRingState,pList,pVM->nNoSetterMethod);
 	/* Store DontRef Info */
 	ring_list_addint_gc(pVM->pRingState,pList,ring_list_isdontref(pVM->pBraceObject));
 	ring_list_addint_gc(pVM->pRingState,pList,ring_list_isdontrefagain(pVM->pBraceObject));
@@ -583,8 +583,8 @@ void ring_vm_restorestateforbraces ( VM *pVM,List *pList )
 	ring_list_copy_gc(pVM->pRingState,pVM->pSetProperty,(List *) ring_list_getpointer(pList,RING_BRACEOBJECTS_SETPROPERTY ));
 	/* Restore nLoadAddressScope */
 	pVM->nLoadAddressScope = ring_list_getint(pList,RING_BRACEOBJECTS_NLOADASCOPE) ;
-	/* Restore lNoSetterMethod */
-	pVM->lNoSetterMethod = ring_list_getint(pList,RING_BRACEOBJECTS_NNOSETTERMETHOD) ;
+	/* Restore nNoSetterMethod */
+	pVM->nNoSetterMethod = ring_list_getint(pList,RING_BRACEOBJECTS_NNOSETTERMETHOD) ;
 	/* Restore DontRef Info */
 	pObject = (List *) ring_list_getpointer(pList,RING_BRACEOBJECTS_BRACEOBJECT) ;
 	lDontRef = ring_list_getint(pList,RING_BRACEOBJECTS_ISDONTREF) ;

@@ -912,9 +912,9 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 			pGetSetItem = (Item *) pVM->pGetSetObject ;
 			pList2 = ring_item_getlist(pGetSetItem) ;
 		}
-		pVM->lNoSetterMethod = 0 ;
+		pVM->nNoSetterMethod = 0 ;
 		if ( ! ring_vm_oop_ismethod(pVM,pList2,ring_string_get(pString2)) ) {
-			pVM->lNoSetterMethod = 1 ;
+			pVM->nNoSetterMethod = 1 ;
 		}
 		ring_string_delete_gc(pVM->pRingState,pString2);
 	}
@@ -929,8 +929,8 @@ void ring_vm_oop_setproperty ( VM *pVM )
 	String *pString  ;
 	int nIns, nIns2  ;
 	/* If we don't have a setter method and we have a new list or new object */
-	if ( pVM->lNoSetterMethod == 2 ) {
-		pVM->lNoSetterMethod = 0 ;
+	if ( pVM->nNoSetterMethod == 2 ) {
+		pVM->nNoSetterMethod = 0 ;
 		return ;
 	}
 	/* To Access Property Data */

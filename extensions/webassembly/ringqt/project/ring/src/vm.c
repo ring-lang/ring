@@ -182,7 +182,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	/* Dynamic Libraries */
 	pVM->pCLibraries = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* No Setter Method (used by ring_vm_oop_setget() function) */
-	pVM->lNoSetterMethod = 0 ;
+	pVM->nNoSetterMethod = 0 ;
 	/* Check OverFlow after arithmetic operations */
 	pVM->lCheckOverFlow = 0 ;
 	/* A Flag that the Exit command is used to terminate the (For-In) Loop */
