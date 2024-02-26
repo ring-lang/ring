@@ -127,7 +127,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	/* Get a copy from the Byte Code */
 	ring_vm_bytecodefornewthread(pState->pVM,pVM);
 	/* Avoid the call to the main function */
-	pState->pVM->nCallMainFunction = 1 ;
+	pState->pVM->lCallMainFunction = 1 ;
 	ring_vm_mutexunlock(pVM);
 	/* Run the code */
 	ring_state_runcode(pState,cStr);

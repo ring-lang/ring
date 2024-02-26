@@ -90,7 +90,7 @@
 		unsigned int nBlockCounter  ;
 		unsigned int nFuncSP  ;
 		unsigned int nFuncExecute  ;
-		unsigned int nCallMainFunction  ;
+		unsigned int lCallMainFunction  ;
 		unsigned int nVarScope  ;
 		unsigned int nScopeID  ;
 		unsigned int nActiveScopeID  ;

@@ -151,7 +151,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 		return 1 ;
 	}
 	/* Avoid Error if it is automatic call to the main function */
-	if ( pVM->nCallMainFunction == 0 ) {
+	if ( pVM->lCallMainFunction == 0 ) {
 		if ( strcmp(cStr,"main") == 0 ) {
 			return 0 ;
 		}
@@ -407,12 +407,12 @@ void ring_vm_return ( VM *pVM )
 	}
 	else {
 		/* Call Main Function */
-		if ( pVM->nCallMainFunction == 0 ) {
+		if ( pVM->lCallMainFunction == 0 ) {
 			pVM->nPC-- ;
 			pVM->nSP = 0 ;
 			if ( ring_vm_loadfunc2(pVM,"main",RING_FALSE) ) {
 				ring_vm_call(pVM);
-				pVM->nCallMainFunction = 1 ;
+				pVM->lCallMainFunction = 1 ;
 				return ;
 			}
 		}
