@@ -1396,12 +1396,12 @@ int ring_parser_step ( Parser *pParser,int *nMark1 )
 int ring_parser_csexpr ( Parser *pParser )
 {
 	int nOutput  ;
-	pParser->nControlStructureExpr = 1 ;
+	pParser->lControlStructureExpr = 1 ;
 	nOutput = ring_parser_expr(pParser);
 	if ( nOutput == 0 ) {
 		ring_parser_error(pParser,RING_PARSER_ERROR_EXPRESSIONISEXPECTED);
 	}
-	pParser->nControlStructureExpr = 0 ;
+	pParser->lControlStructureExpr = 0 ;
 	RING_PARSER_IGNORENEWLINE ;
 	if ( ring_parser_isoperator2(pParser,OP_BRACEOPEN) ) {
 		ring_parser_nexttoken(pParser);

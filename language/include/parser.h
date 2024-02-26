@@ -32,7 +32,7 @@
 		unsigned int nErrorLine  ;
 		unsigned int nErrorsCount  ;
 		/* Flag to tell { } that we are inside control structure (if/for/while/...) expression */
-		unsigned int nControlStructureExpr  ;
+		unsigned int lControlStructureExpr  ;
 		/* Flag - We started using braces {} in control structure - we have { */
 		unsigned int nControlStructureBrace  ;
 		/* required for For-Step, insert instructions */

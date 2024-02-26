@@ -21,7 +21,7 @@ cTokenText
 Type: unsigned int
 nClassMark
 Type: unsigned int
-nBraceFlag
+nBracesCounter
 Type: unsigned int
 nActiveToken
 Type: unsigned int
