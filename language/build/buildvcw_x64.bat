@@ -2,6 +2,8 @@ echo off
 setlocal enableextensions enabledelayedexpansion
 call locatevc.bat x64
 
+cd ..\src
+
 cls
  
 cl /c %ringcflags% ringw.c  ^

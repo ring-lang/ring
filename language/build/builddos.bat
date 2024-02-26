@@ -1,3 +1,5 @@
+cd ..\src
+
 @echo off
 set __opath=%path%
 set path=C:\WATCOM\bin;C:\WATCOM\binb
