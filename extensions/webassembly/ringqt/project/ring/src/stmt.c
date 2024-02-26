@@ -96,7 +96,7 @@ int ring_parser_class ( Parser *pParser )
 				/* Add pointer to the Package in the Class List */
 				ring_list_addpointer_gc(pParser->pRingState,pList,NULL);
 			}
-			pParser->nClassStart = 1 ;
+			pParser->lClassStart = 1 ;
 			/* Create label to be used by Private */
 			pParser->nClassMark = ring_parser_icg_newlabel2(pParser);
 			pParser->nPrivateFlag = 0 ;
@@ -141,7 +141,7 @@ int ring_parser_class ( Parser *pParser )
 			ring_list_addstring_gc(pParser->pRingState,pList2,pParser->cTokenText);
 			ring_list_addint_gc(pParser->pRingState,pList2,ring_parser_icg_instructionscount(pParser));
 			ring_list_addstring_gc(pParser->pRingState,pList2,ring_list_getstring(pParser->pRingState->pRingFilesStack,ring_list_getsize(pParser->pRingState->pRingFilesStack)));
-			if ( pParser->nClassStart == 1 ) {
+			if ( pParser->lClassStart == 1 ) {
 				ring_list_addint_gc(pParser->pRingState,pList2,pParser->nPrivateFlag);
 			}
 			else {
@@ -204,7 +204,7 @@ int ring_parser_class ( Parser *pParser )
 	/* Statement --> Private */
 	if ( ring_parser_iskeyword(pParser,K_PRIVATE) ) {
 		ring_parser_nexttoken(pParser);
-		if ( pParser->nClassStart == 1 ) {
+		if ( pParser->lClassStart == 1 ) {
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_RETNULL);
 			/* Change Label After Class to BlockFlag to Jump to Private */

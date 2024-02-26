@@ -56,7 +56,7 @@ Parser * ring_parser_new ( List *pTokens,RingState *pRingState )
 	pParser->pFunctionsMap = pRingState->pRingFunctionsMap ;
 	pParser->pActiveGenCodeList = NULL ;
 	pParser->lAssignmentFlag = 1 ;
-	pParser->nClassStart = 0 ;
+	pParser->lClassStart = 0 ;
 	pParser->pClassesMap = pRingState->pRingClassesMap ;
 	pParser->pPackagesMap = pRingState->pRingPackagesMap ;
 	pParser->nClassMark = 0 ;

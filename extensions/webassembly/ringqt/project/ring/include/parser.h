@@ -49,7 +49,7 @@
 		/* Variable to select between = and == while using = only in the code */
 		unsigned char lAssignmentFlag  ;
 		/* Variable to determine the start of the class definition */
-		unsigned char nClassStart  ;
+		unsigned char lClassStart  ;
 		/* Private Flag */
 		unsigned char nPrivateFlag  ;
 		/* required for using { } after using new object to avoid assignment */
