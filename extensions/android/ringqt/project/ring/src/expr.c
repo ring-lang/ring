@@ -950,9 +950,9 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 				/* Generate Code ( Call Function ) */
 				ring_parser_icg_loadaddress(pParser,"init");
 				/* Function Parameters */
-				pParser->nFuncCallOnly = 1 ;
+				pParser->lFuncCallOnly = 1 ;
 				ring_parser_mixer(pParser);
-				pParser->nFuncCallOnly = 0 ;
+				pParser->lFuncCallOnly = 0 ;
 				/* Generate Code (End Brace) */
 				ring_parser_icg_newoperation(pParser,ICO_CALLCLASSINIT);
 				ring_parser_icg_newoperandint(pParser,RING_ZERO);
@@ -1150,7 +1150,7 @@ int ring_parser_mixer ( Parser *pParser )
 		}
 	}
 	/* Function Call Only */
-	if ( pParser->nFuncCallOnly == 1 ) {
+	if ( pParser->lFuncCallOnly == 1 ) {
 		return RING_PARSER_OK ;
 	}
 	/* '{' {Statement} '}' */

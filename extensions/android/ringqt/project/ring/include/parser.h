@@ -55,7 +55,7 @@
 		/* required for using { } after using new object to avoid assignment */
 		unsigned char lNewObject  ;
 		/* Object Init() Uses mixer for one purpose only( function call)  - don't continue to get braces { } */
-		unsigned char nFuncCallOnly  ;
+		unsigned char lFuncCallOnly  ;
 		/* Using Self or This with LoadAddress */
 		unsigned char nThisOrSelfLoadA  ;
 		unsigned char nThisLoadA  ;
