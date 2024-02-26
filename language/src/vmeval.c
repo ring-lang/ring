@@ -123,7 +123,7 @@ void ring_vm_returneval ( VM *pVM )
 	aPara[0] = RING_VM_IR_READIVALUE(RING_VM_IR_REG1) ;
 	aPara[1] = RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ;
 	aPara[2] = RING_VM_IR_READIVALUE(RING_VM_IR_REG3) ;
-	if ( ( pVM->nRetEvalDontDelete == 0 ) && (aPara[1] == ring_list_getsize(pVM->pFunctionsMap)) && (aPara[2] == ring_list_getsize(pVM->pClassesMap)) ) {
+	if ( ( pVM->lRetEvalDontDelete == 0 ) && (aPara[1] == ring_list_getsize(pVM->pFunctionsMap)) && (aPara[2] == ring_list_getsize(pVM->pClassesMap)) ) {
 		/*
 		**  The code interpreted by eval doesn't add new functions or new classes 
 		**  This means that the code can be deleted without any problems 
@@ -162,8 +162,8 @@ void ring_vm_mainloopforeval ( VM *pVM )
 	}
 	pVM->pRingState->lStartPoolManager = 1 ;
 	pVM->nInsideEval++ ;
-	nDontDelete = pVM->nRetEvalDontDelete ;
-	pVM->nRetEvalDontDelete = 0 ;
+	nDontDelete = pVM->lRetEvalDontDelete ;
+	pVM->lRetEvalDontDelete = 0 ;
 	/* Save Stack */
 	nSP = pVM->nSP ;
 	nFuncSP = pVM->nFuncSP ;
@@ -202,7 +202,7 @@ void ring_vm_mainloopforeval ( VM *pVM )
 	if ( pVM->nInsideEval == nInsideEval ) {
 		pVM->nInsideEval-- ;
 	}
-	pVM->nRetEvalDontDelete = nDontDelete ;
+	pVM->lRetEvalDontDelete = nDontDelete ;
 	/* Save Output */
 	nOut = RING_EVALOUTPUT_NULL ;
 	if ( RING_VM_STACK_ISNUMBER ) {
@@ -261,7 +261,7 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 	pVM->lEvalCalledFromRingCode = 1 ;
 	/* Take in mind nested events */
 	if ( pVM->nRunCode != 1 ) {
-		pVM->nRetEvalDontDelete = 1 ;
+		pVM->lRetEvalDontDelete = 1 ;
 	}
 	nRunVM = ring_vm_eval(pVM,cStr);
 	pVM->lEvalCalledFromRingCode = 0 ;

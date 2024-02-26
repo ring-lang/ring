@@ -144,7 +144,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	**  Then deleting byte code will cause a problem in setter/getter/operator overloading 
 	**  In this case we set this flag to avoid the delete operation and solve the problem 
 	*/
-	pVM->nRetEvalDontDelete = 0 ;
+	pVM->lRetEvalDontDelete = 0 ;
 	/* Counter to know if we are inside ring_vm_runcode() */
 	pVM->nRunCode = 0 ;
 	/* Flag that we have runtime error to avoid calling the error function again */

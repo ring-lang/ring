@@ -1465,7 +1465,7 @@ void ring_vm_generallib_eval ( void *pPointer )
 		pVM = (VM *) pPointer ;
 		pVM->lEvalCalledFromRingCode = 1 ;
 		if ( pVM->nInsideEval == 0 ) {
-			pVM->nRetEvalDontDelete = 0 ;
+			pVM->lRetEvalDontDelete = 0 ;
 		}
 		if ( ring_vm_eval(pVM,cStr) == 0 ) {
 			pVM->lEvalCalledFromRingCode = 0 ;
@@ -2301,7 +2301,7 @@ void ring_vm_generallib_customprint ( void *pPointer,const char *cCommand )
 	/* Evaluate the code */
 	pVM->lEvalCalledFromRingCode = 1 ;
 	if ( pVM->nInsideEval == 0 ) {
-		pVM->nRetEvalDontDelete = 0 ;
+		pVM->lRetEvalDontDelete = 0 ;
 	}
 	if ( ring_vm_eval(pVM,ring_string_get(pRingCode) ) == 0 ) {
 		pVM->lEvalCalledFromRingCode = 0 ;

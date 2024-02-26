@@ -124,7 +124,7 @@
 		unsigned char nRetItemRef  ;
 		unsigned char lIgnoreCPointerTypeCheck  ;
 		unsigned char nCallClassInit  ;
-		unsigned char nRetEvalDontDelete  ;
+		unsigned char lRetEvalDontDelete  ;
 		unsigned char nRunCode  ;
 		unsigned char nActiveError  ;
 		unsigned char lTrace  ;
