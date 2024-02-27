@@ -87,8 +87,8 @@
 	#define RING_WARNING_OPERATORNOTFOUND "Warning (W6) : Compiler command ChangeRingOperator - Operator not found!"
 	#define RING_WARNING_EXITOUTSIDELOOP "Warning (W7) : Using the EXIT command outside loop!"
 	#define RING_WARNING_LOOPOUTSIDELOOP "Warning (W8) : Using the LOOP command outside loop"
-	#define RING_STATE_PRINTRULES "Grammar Rules Used by The Parser "
-	#define RING_RULE_PROGRAM "\nRule : Program --> {Statement}\n\nLine 1\n"
+	#define RING_MSG_PRINTRULES "Grammar Rules Used by The Parser "
+	#define RING_MSG_PROGRAMRULE "\nRule : Program --> {Statement}\n\nLine 1\n"
 	#define RING_CGI_START "Content-Type: text/plain\n\n"
 	#define RING_VERYLONGPATH "Very long path! The maximum path size is"
 	#define RING_FILES_LOGFILE "ringlog.txt"
@@ -99,6 +99,8 @@
 	#define RING_FILES_STARTUP "startup.ring"
 	#define RING_FILES_LOADSTARTUPSTR "Load 'startup.ring'"
 	#define RING_STATE_CHECKPRINTRULES if ( pParser->pRingState->lPrintRules )
+	#define RING_STATE_PRINTRULE(cRule) RING_STATE_CHECKPRINTRULES puts(cRule)
+	#define RING_STATE_PRINTTWORULES(cRule1, cRule2) RING_STATE_CHECKPRINTRULES puts(cRule1 "\n" cRule2)
 	static int lRingStateDebugSegFault  ;
 	static int lRingStateCGI  ;
 

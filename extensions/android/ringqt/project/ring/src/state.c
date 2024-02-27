@@ -351,9 +351,9 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 		if ( pScanner->pRingState->lPrintRules ) {
 			printf( "\n" ) ;
 			ring_general_printline();
-			puts(RING_STATE_PRINTRULES);
+			puts(RING_MSG_PRINTRULES);
 			ring_general_printline();
-			printf( "%s",RING_RULE_PROGRAM ) ;
+			printf( "%s",RING_MSG_PROGRAMRULE ) ;
 		}
 		lRunVM = ring_parser_start(pScanner->pTokens,pRingState);
 		if ( pScanner->pRingState->lPrintRules ) {
@@ -506,9 +506,9 @@ RING_API int ring_state_runstring ( RingState *pRingState,char *cString )
 		if ( pScanner->pRingState->lPrintRules ) {
 			printf( "\n" ) ;
 			ring_general_printline();
-			puts(RING_STATE_PRINTRULES);
+			puts(RING_MSG_PRINTRULES);
 			ring_general_printline();
-			printf( "%s",RING_RULE_PROGRAM ) ;
+			printf( "%s",RING_MSG_PROGRAMRULE ) ;
 		}
 		lRunVM = ring_parser_start(pScanner->pTokens,pRingState);
 		if ( pScanner->pRingState->lPrintRules ) {
