@@ -91,6 +91,13 @@
 	#define RING_RULE_PROGRAM "Rule : Program --> {Statement}"
 	#define RING_CGI_START "Content-Type: text/plain\n\n"
 	#define RING_VERYLONGPATH "Very long path! The maximum path size is"
+	#define RING_FILES_LOGFILE "ringlog.txt"
+	#define RING_FILES_AUTOLOADSRC "ring.ring"
+	#define RING_FILES_AUTOLOADOBJ "ring.ringo"
+	#define RING_FILES_AUTOLOADSYNTAX "ringsyntax.ring"
+	#define RING_FILES_LOADSYNTAXSTR "LOADSYNTAX \"ringsyntax.ring\" \n"
+	#define RING_FILES_STARTUP "startup.ring"
+	#define RING_FILES_LOADSTARTUPSTR "Load 'startup.ring'"
 	#define RING_STATE_CHECKPRINTRULES if ( pParser->pRingState->lPrintRules )
 	static int lRingStateDebugSegFault  ;
 	static int lRingStateCGI  ;

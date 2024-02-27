@@ -43,7 +43,7 @@ RING_API RingState * ring_state_new ( void )
 	ring_list_addint(pRingState->pCustomGlobalScopeStack,pRingState->nCustomGlobalScopeCounter);
 	/* Log File */
 	#if RING_LOGFILE
-		pRingState->pLogFile = fopen("ringlog.txt" , "w+" );
+		pRingState->pLogFile = fopen(RING_FILES_LOGFILE , "w+" );
 	#endif
 	/* Tokens Only */
 	pRingState->lOnlyTokens = 0 ;
@@ -205,12 +205,12 @@ RING_API void ring_state_main ( int nArgc, char *pArgv[] )
 	}
 	srand(time(NULL));
 	/* Check Startup ring.ring */
-	if ( ring_general_fexists("ring.ring") && nArgc == 1 ) {
-		ring_state_execute((char *) "ring.ring",lCGI,lRun,lPrintIC,lPrintICFinal,lTokens,lRules,lIns,lGenObj,lGenCObj,lWarn,nArgc,pArgv);
+	if ( ring_general_fexists(RING_FILES_AUTOLOADSRC) && nArgc == 1 ) {
+		ring_state_execute((char *) RING_FILES_AUTOLOADSRC,lCGI,lRun,lPrintIC,lPrintICFinal,lTokens,lRules,lIns,lGenObj,lGenCObj,lWarn,nArgc,pArgv);
 		exit(RING_EXIT_OK);
 	}
-	if ( ring_general_fexists("ring.ringo") && nArgc == 1 ) {
-		ring_state_execute((char *) "ring.ringo",lCGI,lRun,lPrintIC,lPrintICFinal,lTokens,lRules,lIns,lGenObj,lGenCObj,lWarn,nArgc,pArgv);
+	if ( ring_general_fexists(RING_FILES_AUTOLOADOBJ) && nArgc == 1 ) {
+		ring_state_execute((char *) RING_FILES_AUTOLOADOBJ,lCGI,lRun,lPrintIC,lPrintICFinal,lTokens,lRules,lIns,lGenObj,lGenCObj,lWarn,nArgc,pArgv);
 		exit(RING_EXIT_OK);
 	}
 	/* Print Version */
@@ -308,10 +308,10 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 	RING_READCHAR(pFile,c,nSize);
 	pScanner = ring_scanner_new(pRingState);
 	/* Check Startup file */
-	if ( ring_general_fexists("startup.ring") && pScanner->pRingState->lStartup == 0 ) {
+	if ( ring_general_fexists(RING_FILES_STARTUP) && pScanner->pRingState->lStartup == 0 ) {
 		pScanner->pRingState->lStartup = 1 ;
-		strcpy(cStartup,"Load 'startup.ring'");
-		/* Load "startup.ring" */
+		strcpy(cStartup,RING_FILES_LOADSTARTUPSTR);
+		/* Execute Load Startup File */
 		for ( x = 0 ; x < strlen(cStartup) ; x++ ) {
 			ring_scanner_readchar(pScanner,cStartup[x]);
 		}
@@ -323,9 +323,9 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 	/* Check Syntax File */
 	strcpy(cFileName2,cFileName);
 	ring_general_justfilename(cFileName2);
-	if ( ring_general_fexists("ringsyntax.ring") && ! (strcmp(cFileName2,"ringsyntax.ring") == 0) ) {
-		strcpy(cStartup,"LOADSYNTAX \"ringsyntax.ring\" \n");
-		/* Load "ringsyntax.ring" */
+	if ( ring_general_fexists(RING_FILES_AUTOLOADSYNTAX) && ! (strcmp(cFileName2,RING_FILES_AUTOLOADSYNTAX) == 0) ) {
+		strcpy(cStartup,RING_FILES_LOADSYNTAXSTR);
+		/* Execute Load Syntax File */
 		for ( x = 0 ; x < strlen(cStartup) ; x++ ) {
 			ring_scanner_readchar(pScanner,cStartup[x]);
 		}
