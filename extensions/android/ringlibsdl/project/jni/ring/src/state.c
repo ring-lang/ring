@@ -353,7 +353,7 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 			ring_general_printline();
 			puts(RING_STATE_PRINTRULES);
 			ring_general_printline();
-			printf( "\n%s\n\nLine 1\n",RING_RULE_PROGRAM ) ;
+			printf( "%s",RING_RULE_PROGRAM ) ;
 		}
 		lRunVM = ring_parser_start(pScanner->pTokens,pRingState);
 		if ( pScanner->pRingState->lPrintRules ) {
@@ -508,7 +508,7 @@ RING_API int ring_state_runstring ( RingState *pRingState,char *cString )
 			ring_general_printline();
 			puts(RING_STATE_PRINTRULES);
 			ring_general_printline();
-			printf( "\n%s\n\nLine 1\n",RING_RULE_PROGRAM ) ;
+			printf( "%s",RING_RULE_PROGRAM ) ;
 		}
 		lRunVM = ring_parser_start(pScanner->pTokens,pRingState);
 		if ( pScanner->pRingState->lPrintRules ) {
