@@ -44,7 +44,6 @@ cKeyword[RING_MEDIUMBUF]
 ring_parser_mixer
 Type: int
 x,nCallMethod,nStatus,nFlag,nNew
-ring_parser_gencall
 ring_parser_ppmm
 Type: int
 nLastOperation,nMark,nMode,nValue

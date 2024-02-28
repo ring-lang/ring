@@ -1005,7 +1005,7 @@ int ring_parser_mixer ( Parser *pParser )
 		if ( ring_parser_isoperator2(pParser,OP_FCLOSE) ) {
 			ring_parser_nexttoken(pParser);
 			/* Generate Code */
-			ring_parser_gencall(pParser,nCallMethod);
+			ring_parser_icg_gencall(pParser,nCallMethod);
 			RING_STATE_PRINTRULE(RING_RULE_MIXERISGROUP) ;
 			RING_PARSER_IGNORENEWLINE ;
 			x = ring_parser_mixer(pParser);
@@ -1026,7 +1026,7 @@ int ring_parser_mixer ( Parser *pParser )
 					RING_STATE_PRINTRULE(RING_RULE_MIXERISGROUP) ;
 					ring_parser_nexttoken(pParser);
 					/* Generate Code */
-					ring_parser_gencall(pParser,nCallMethod);
+					ring_parser_icg_gencall(pParser,nCallMethod);
 					RING_PARSER_IGNORENEWLINE ;
 					x = ring_parser_mixer(pParser);
 					return x ;
@@ -1079,28 +1079,6 @@ int ring_parser_mixer ( Parser *pParser )
 	}
 	/* This function return RING_PARSER_OK because the mixer is optional and comes after identifier */
 	return RING_PARSER_OK ;
-}
-
-void ring_parser_gencall ( Parser *pParser,int nCallMethod )
-{
-	/* Generate Code */
-	ring_parser_icg_newoperation(pParser,ICO_CALL);
-	if ( nCallMethod == 1 ) {
-		/* Add 0 For Operator Overloading */
-		ring_parser_icg_newoperandint(pParser,RING_ZERO);
-		/* Add 1 so the call instruction move list from pBeforeObjState to pObjState */
-		ring_parser_icg_newoperandint(pParser,RING_TRUE);
-		ring_parser_icg_newoperation(pParser,ICO_AFTERCALLMETHOD);
-	}
-	else {
-		/* Add 0 For Operator Overloading */
-		ring_parser_icg_newoperandint(pParser,RING_ZERO);
-		/*
-		**  The No Operation Instruction may be converted to AfterCallMethod during runtime 
-		**  This happens when we call method like functions inside object { } 
-		*/
-		ring_parser_icg_newoperation(pParser,ICO_NOOP);
-	}
 }
 
 int ring_parser_ppmm ( Parser *pParser )

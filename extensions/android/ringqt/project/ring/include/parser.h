@@ -287,9 +287,4 @@
 	/* Display Errors */
 
 	void ring_parser_error ( Parser *pParser,const char *cStr ) ;
-	/* Generate Code */
-
-	void ring_parser_gencall ( Parser *pParser,int nCallMethod ) ;
-
-	void ring_parser_genfreetemplists ( Parser *pParser ) ;
 #endif

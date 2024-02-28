@@ -36,7 +36,6 @@ Type: int
 nOutput
 ring_parser_csbraceend
 ring_parser_bracesandend
-ring_parser_gencallringvmsee
+ring_parser_ringvmsee
 Type: int
 x,nFlag
-ring_parser_genfreetemplists

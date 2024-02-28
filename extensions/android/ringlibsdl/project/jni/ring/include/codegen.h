@@ -238,6 +238,10 @@
 	/* General Blocks of ByteCode */
 
 	void ring_parser_icg_gencallbracemethod ( Parser *pParser,const char *cMethod,int lDuplicateStackValue ) ;
+
+	void ring_parser_icg_gencall ( Parser *pParser,int nCallMethod ) ;
+
+	void ring_parser_icg_genfreetemplists ( Parser *pParser ) ;
 	/* Show the Intermediate Code */
 
 	void ring_parser_icg_showoutput ( List *pListGenCode ) ;
