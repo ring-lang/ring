@@ -1128,56 +1128,7 @@ int ring_parser_ppmm ( Parser *pParser )
 		return RING_PARSER_FAIL ;
 	}
 	/* Code Generation */
-	switch ( nMode ) {
-		case 1 :
-			/* Code Generation */
-			ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
-			/* Duplicate the address two times, one for the assignment (x = x+1) and one to keep the value on the */
-			ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
-			ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
-			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
-			ring_parser_icg_pushn(pParser,nValue);
-			ring_parser_icg_newoperation(pParser,ICO_SUM);
-			ring_parser_icg_newoperandint(pParser,RING_ZERO);
-			ring_parser_icg_beforeequal(pParser,RING_ZERO);
-			nMark = ring_parser_icg_newlabel(pParser);
-			ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
-			ring_parser_icg_newoperandint(pParser,RING_ZERO);
-			ring_parser_icg_newoperandint(pParser,RING_ZERO);
-			ring_parser_icg_loadaddressassignmentpos(pParser,pMark,nMark);
-			/* Keep the value on the Stack (Maybe required in expressions) */
-			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
-			break ;
-		case 2 :
-			/* Code Generation */
-			ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
-			/* Duplicate the address two times, One for the assignment (x=x+1) and one to  keep the value on the */
-			ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
-			ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
-			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
-			ring_parser_icg_pushn(pParser,nValue);
-			ring_parser_icg_newoperation(pParser,ICO_SUM);
-			ring_parser_icg_newoperandint(pParser,RING_ZERO);
-			ring_parser_icg_beforeequal(pParser,RING_ZERO);
-			ring_parser_icg_newoperation(pParser,ICO_SETPROPERTY);
-			ring_parser_icg_newoperandint(pParser,RING_ZERO);
-			ring_parser_icg_newoperandint(pParser,RING_ZERO);
-			/* Keep the Value on the Stack (Maybe required in expressions) */
-			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
-			break ;
-		case 3 :
-			/* Generate Code */
-			ring_parser_icg_newoperation(pParser,ICO_PLUSPLUS);
-			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
-			RING_STATE_PRINTRULE(RING_RULE_PLUSPLUS) ;
-			break ;
-		case 4 :
-			/* Generate Code */
-			ring_parser_icg_newoperation(pParser,ICO_MINUSMINUS);
-			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
-			RING_STATE_PRINTRULE(RING_RULE_MINUSMINUS) ;
-			break ;
-	}
+	ring_parser_icg_genppmm(pParser,nMode,nValue);
 	return RING_PARSER_OK ;
 }
 

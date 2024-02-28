@@ -242,6 +242,8 @@
 	void ring_parser_icg_gencall ( Parser *pParser,int nCallMethod ) ;
 
 	void ring_parser_icg_genfreetemplists ( Parser *pParser ) ;
+
+	void ring_parser_icg_genppmm ( Parser *pParser,int nMode,int nValue ) ;
 	/* Show the Intermediate Code */
 
 	void ring_parser_icg_showoutput ( List *pListGenCode ) ;

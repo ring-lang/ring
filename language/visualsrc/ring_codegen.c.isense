@@ -172,8 +172,13 @@ Type: int
 nMark1
 Type: List *
 pMark
-ring_parser_gencall
+ring_parser_icg_gencall
 ring_parser_icg_genfreetemplists
+ring_parser_icg_ppmm
+Type: List *
+pMark
+Type: int
+nMark
 ring_parser_icg_showoutput
 Type: int
 x,y,nCount,nCount2
