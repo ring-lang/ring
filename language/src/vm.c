@@ -368,17 +368,11 @@ void ring_vm_updateclassespointers ( RingState *pRingState )
 					cPackageName[x3] = cString[x3] ;
 				}
 				cPackageName[x2] = '\0' ;
-				#ifdef DEBUG_OBJFILE
-					printf( "Package Name %s \n  ",cPackageName ) ;
-				#endif
 				/* Get Class Name */
 				for ( x3 = x2+1 ; x3 <= ring_list_getstringsize(pList,RING_CLASSMAP_CLASSNAME) - 1 ; x3++ ) {
 					cClassName[x3-x2-1] = cString[x3] ;
 				}
 				cClassName[ring_list_getstringsize(pList,RING_CLASSMAP_CLASSNAME) - 1 - x2] = '\0' ;
-				#ifdef DEBUG_OBJFILE
-					printf( "Class Name %s \n  ",cClassName ) ;
-				#endif
 				/* Get The Package List */
 				for ( x3 = 1 ; x3 <= ring_list_getsize(pRingState->pRingPackagesMap) ; x3++ ) {
 					pPackageList = ring_list_getlist(pRingState->pRingPackagesMap,x3);
@@ -412,9 +406,6 @@ void ring_vm_updateclassespointers ( RingState *pRingState )
 				if ( strcmp(cString,ring_list_getstring(pList2,RING_CLASSMAP_CLASSNAME)) == 0 ) {
 					lFound = 1 ;
 					ring_list_setpointer(pList,RING_PARSER_ICG_PARA2,pList2);
-					#ifdef DEBUG_OBJFILE
-						puts("Pointer Updated ");
-					#endif
 					break ;
 				}
 			}
