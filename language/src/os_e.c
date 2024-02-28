@@ -340,7 +340,7 @@ void ring_vm_os_shutdown ( void *pPointer )
 			nNum1 = ( ( (RING_UNSIGNEDLONGLONG) ts.tv_sec * NANOSEC ) + ts.tv_nsec ) / 100 ;
 			/* Randomize by using high precision timer */
 			#if defined(__ANDROID__)
-				RING_API_ERROR("The Randomize() function is not supported on Android");
+				RING_API_ERROR(RING_VM_ERROR_FUNCNOTSUPPORTED);
 				return ;
 			#else
 				nNum1 = rand_r( (unsigned int *) &ts.tv_nsec ) | ( nNum1 << 32 ) ;

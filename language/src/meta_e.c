@@ -731,7 +731,7 @@ void ring_vm_refmeta_getattribute ( void *pPointer )
 					return ;
 				}
 			}
-			RING_API_ERROR("Error : Property is not found!");
+			RING_API_ERROR(RING_VM_ERROR_PROPERTYNOTFOUND);
 		}
 		else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
@@ -775,7 +775,7 @@ void ring_vm_refmeta_setattribute ( void *pPointer )
 					return ;
 				}
 			}
-			RING_API_ERROR("Error : Property is not found!");
+			RING_API_ERROR(RING_VM_ERROR_PROPERTYNOTFOUND);
 		}
 		else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
@@ -821,7 +821,7 @@ void ring_vm_refmeta_mergemethods ( void *pPointer )
 			}
 		}
 		if ( pList2 == NULL ) {
-			RING_API_ERROR("Error, Can't find the dest class!");
+			RING_API_ERROR(RING_VM_ERROR_CLASSNOTFOUND);
 			return ;
 		}
 		/* Get the Source Class Methods List */
@@ -838,7 +838,7 @@ void ring_vm_refmeta_mergemethods ( void *pPointer )
 			}
 		}
 		if ( pList3 == NULL ) {
-			RING_API_ERROR("Error, Can't find the source class!");
+			RING_API_ERROR(RING_VM_ERROR_CLASSNOTFOUND);
 			return ;
 		}
 		/* Copy Methods from Source to Dest */

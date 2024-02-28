@@ -571,7 +571,7 @@ void ring_vm_file_write ( void *pPointer )
 			fclose( pFile ) ;
 		}
 		else {
-			RING_API_ERROR("Error in second parameter, Function requires string !");
+			RING_API_ERROR(RING_API_BADPARATYPE);
 			return ;
 		}
 	}

@@ -188,7 +188,7 @@ void ring_vm_generallib_input ( void *pPointer )
 		RING_API_FREE(cLine);
 	}
 	else {
-		RING_API_ERROR("Error in first parameter,  input size < 1 !");
+		RING_API_ERROR(RING_API_BADPARARANGE);
 	}
 }
 
@@ -207,7 +207,7 @@ void ring_vm_generallib_ascii ( void *pPointer )
 			RING_API_RETNUMBER(x);
 		}
 		else {
-			RING_API_ERROR("Error in first parameter, the string size is not one letter !");
+			RING_API_ERROR(RING_API_BADPARALENGTH);
 			return ;
 		}
 	}
@@ -1112,7 +1112,7 @@ void ring_vm_generallib_left ( void *pPointer )
 			}
 		}
 		else {
-			RING_API_ERROR("Error in second parameter, Function requires number !");
+			RING_API_ERROR(RING_API_BADPARATYPE);
 			return ;
 		}
 	}
@@ -1145,7 +1145,7 @@ void ring_vm_generallib_right ( void *pPointer )
 			}
 		}
 		else {
-			RING_API_ERROR("Error in second parameter, Function requires number !");
+			RING_API_ERROR(RING_API_BADPARATYPE);
 			return ;
 		}
 	}
@@ -1233,7 +1233,7 @@ void ring_vm_generallib_copy ( void *pPointer )
 			}
 		}
 		else {
-			RING_API_ERROR("Error in second parameter, Function requires number !");
+			RING_API_ERROR(RING_API_BADPARATYPE);
 			return ;
 		}
 	}
@@ -1272,7 +1272,7 @@ void ring_vm_generallib_substr ( void *pPointer )
 		nSize = RING_API_GETSTRINGSIZE(1) ;
 	}
 	else {
-		RING_API_ERROR("Error in first parameter, Function requires string !");
+		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	/* Process */
@@ -1299,7 +1299,7 @@ void ring_vm_generallib_substr ( void *pPointer )
 			RING_API_RETNUMBER(nNum1);
 		}
 		else {
-			RING_API_ERROR("Error in second parameter type!");
+			RING_API_ERROR(RING_API_BADPARATYPE);
 			return ;
 		}
 	}
@@ -1322,7 +1322,7 @@ void ring_vm_generallib_substr ( void *pPointer )
 			nTransform = 1 ;
 		}
 		else {
-			RING_API_ERROR("Error in parameters type!");
+			RING_API_ERROR(RING_API_BADPARATYPE);
 			return ;
 		}
 	}
@@ -1333,19 +1333,19 @@ void ring_vm_generallib_substr ( void *pPointer )
 			}
 		}
 		else {
-			RING_API_ERROR("Error in parameters type!");
+			RING_API_ERROR(RING_API_BADPARATYPE);
 			return ;
 		}
 	}
 	else {
-		RING_API_ERROR("Error in parameters count!");
+		RING_API_ERROR(RING_API_BADPARACOUNT);
 	}
 	/* Transform/Replace */
 	if ( nTransform > 0 ) {
 		cStr2 = RING_API_GETSTRING(2) ;
 		nSize2 = RING_API_GETSTRINGSIZE(2) ;
 		if ( nSize2 == 0 ) {
-			RING_API_ERROR("Error in second parameter value!");
+			RING_API_ERROR(RING_API_BADPARAVALUE);
 			return ;
 		}
 		/* Search */
@@ -1503,7 +1503,7 @@ void ring_vm_generallib_assert ( void *pPointer )
 	}
 	if ( RING_API_ISNUMBER(1) ) {
 		if ( RING_API_GETNUMBER(1) != 1 ) {
-			RING_API_ERROR("Assertion Failed!");
+			RING_API_ERROR(RING_VM_ERROR_ASSERTIONFAILED);
 			return ;
 		}
 	}
@@ -1904,7 +1904,7 @@ void ring_vm_generallib_state_setvar ( void *pPointer )
 	pList = ring_state_findvar(pRingSubState,RING_API_GETSTRING(2));
 	/* Check Variable before usage */
 	if ( pList==NULL ) {
-		RING_API_ERROR("Variable doesn't exist!");
+		RING_API_ERROR(RING_VM_ERROR_NOTVARIABLE);
 		return ;
 	}
 	if ( RING_API_ISSTRING(3) ) {
@@ -2275,7 +2275,7 @@ void ring_vm_generallib_customprint ( void *pPointer,const char *cCommand )
 							x++ ;
 						}
 						if ( nPos > C_EXPRCODESIZE ) {
-							RING_API_ERROR("The Expression is too large, The size must be <= 200 characters!");
+							RING_API_ERROR(RING_API_BADPARALENGTH);
 							ring_string_delete_gc(pVM->pRingState,pRingCode);
 							return ;
 						}

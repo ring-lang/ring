@@ -108,13 +108,13 @@ void ring_vm_listfuncs_del ( void *pPointer )
 		if ( RING_API_ISNUMBER(2) ) {
 			nNum1 = RING_API_GETNUMBER(2) ;
 			if ( ( nNum1 < 1 ) || ( nNum1 > ring_list_getsize(pList) ) ) {
-				RING_API_ERROR("Error in second parameter, item number outside the list size range!");
+				RING_API_ERROR(RING_API_BADPARARANGE);
 				return ;
 			}
 			ring_list_deleteitem_gc(((VM *) pPointer)->pRingState,pList,nNum1);
 		}
 		else {
-			RING_API_ERROR("Error in second parameter, Function requires number!");
+			RING_API_ERROR(RING_API_BADPARATYPE);
 			return ;
 		}
 	}

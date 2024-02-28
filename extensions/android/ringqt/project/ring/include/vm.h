@@ -472,6 +472,8 @@
 	#define RING_VM_ERROR_MAXNESTEDEVAL "Error (R44) : Maximum nested Eval()"
 	#define RING_VM_ERROR_VARISNOTLIST "Error (R45) : Variable is not a list"
 	#define RING_VM_ERROR_NORINGLIBINIT "Error (R46) : The dynamic library doesn't contain the ringlib_init() function!"
+	#define RING_VM_ERROR_FUNCNOTSUPPORTED "Error (R47) : The function is not supported in this platform"
+	#define RING_VM_ERROR_ASSERTIONFAILED "Error (R48) : Assertion Failed!"
 	/* Extra Size (for eval) */
 	#define RING_VM_EXTRASIZE 1000
 	#define RING_VM_MINVMINSTRUCTIONS 100000
