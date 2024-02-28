@@ -235,6 +235,9 @@
 	void ring_parser_icg_pushn ( Parser *pParser,double nValue ) ;
 
 	void ring_parser_icg_beforeequal ( Parser *pParser,int nBeforeEqual ) ;
+	/* General Blocks of ByteCode */
+
+	void ring_parser_icg_gencallbracemethod ( Parser *pParser,const char *cMethod,int lDuplicateStackValue ) ;
 	/* Show the Intermediate Code */
 
 	void ring_parser_icg_showoutput ( List *pListGenCode ) ;

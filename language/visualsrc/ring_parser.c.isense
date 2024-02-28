@@ -63,7 +63,7 @@ lThisLoadA: 1
 Type: unsigned int
 lInsertFlag: 1
 Type: unsigned int
-nTokenType
+nTokenType: 3
 END:
 Type: Parser
 struct Parser

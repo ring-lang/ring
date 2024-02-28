@@ -50,9 +50,4 @@ Type: int
 nLastOperation,nMark,nMode,nValue
 Type: List *
 pMark
-ring_parser_gencallbracemethod
-Type: int
-nMark1
-Type: List *
-pMark
 ring_parser_objattributes

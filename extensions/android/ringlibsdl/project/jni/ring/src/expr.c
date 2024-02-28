@@ -1054,7 +1054,7 @@ int ring_parser_mixer ( Parser *pParser )
 		ring_parser_icg_newoperation(pParser,ICO_BRACESTART);
 		RING_STATE_PRINTRULE(RING_RULE_MIXERISBRACES) ;
 		/* if ismethod(self,"bracestart") bracestart() ok */
-		ring_parser_gencallbracemethod(pParser,"bracestart");
+		ring_parser_icg_gencallbracemethod(pParser,"bracestart",RING_FALSE);
 		ring_parser_nexttoken(pParser);
 		nStatus = pParser->lAssignmentFlag ;
 		pParser->lAssignmentFlag = 1 ;
@@ -1066,7 +1066,7 @@ int ring_parser_mixer ( Parser *pParser )
 			**  Generate Code 
 			**  if ismethod(self,"braceend") braceend() ok 
 			*/
-			ring_parser_gencallbracemethod(pParser,"braceend");
+			ring_parser_icg_gencallbracemethod(pParser,"braceend",RING_FALSE);
 			ring_parser_icg_newoperation(pParser,ICO_BRACEEND);
 			RING_STATE_PRINTRULE(RING_RULE_BRACEEND) ;
 			ring_parser_nexttoken(pParser);
@@ -1201,31 +1201,6 @@ int ring_parser_ppmm ( Parser *pParser )
 			break ;
 	}
 	return RING_PARSER_OK ;
-}
-
-void ring_parser_gencallbracemethod ( Parser *pParser,const char *cMethod )
-{
-	int nMark1  ;
-	List *pMark  ;
-	/* if ismethod(self,cMethod) cMethod() ok */
-	ring_parser_icg_loadfunction(pParser,"ismethod");
-	ring_parser_icg_loadaddress(pParser,RING_CSTR_SELF);
-	ring_parser_icg_newoperation(pParser,ICO_PUSHV);
-	ring_parser_icg_newoperation(pParser,ICO_PUSHC);
-	ring_parser_icg_newoperand(pParser,cMethod);
-	ring_parser_icg_newoperation(pParser,ICO_CALL);
-	ring_parser_icg_newoperation(pParser,ICO_NOOP);
-	ring_parser_icg_newoperation(pParser,ICO_PUSHV);
-	/* Jump */
-	ring_parser_icg_newoperation(pParser,ICO_JUMPZERO);
-	pMark = ring_parser_icg_getactiveoperation(pParser);
-	ring_parser_icg_loadfunction(pParser,cMethod);
-	ring_parser_icg_newoperation(pParser,ICO_CALL);
-	ring_parser_icg_newoperation(pParser,ICO_NOOP);
-	ring_parser_icg_newoperation(pParser,ICO_PUSHV);
-	ring_parser_icg_freestack(pParser);
-	nMark1 = ring_parser_icg_newlabel(pParser);
-	ring_parser_icg_addoperandint(pParser,pMark,nMark1);
 }
 
 int ring_parser_objattributes ( Parser *pParser )
