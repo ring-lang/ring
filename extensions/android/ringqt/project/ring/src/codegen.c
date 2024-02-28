@@ -258,55 +258,41 @@ void ring_parser_icg_genppmm ( Parser *pParser,int nMode,int nValue )
 	int nMark  ;
 	pMark = ring_parser_icg_getactiveoperation(pParser);
 	/* Code Generation */
-	switch ( nMode ) {
-		case RING_PARSER_ICG_USEASSIGNMENT :
-			/* Code Generation */
-			ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
-			/* Duplicate the address two times, one for the assignment (x = x+1) and one to keep the value on the */
-			ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
-			ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
-			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
-			ring_parser_icg_pushn(pParser,nValue);
-			ring_parser_icg_newoperation(pParser,ICO_SUM);
-			ring_parser_icg_newoperandint(pParser,RING_ZERO);
-			ring_parser_icg_beforeequal(pParser,RING_ZERO);
+	if ( (nMode == RING_PARSER_ICG_USEASSIGNMENT) || (nMode == RING_PARSER_ICG_USESETPROPERTY) ) {
+		/* Code Generation */
+		ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
+		/* Duplicate the address two times, one for the assignment (x = x+1) and one to keep the value */
+		ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
+		ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
+		ring_parser_icg_newoperation(pParser,ICO_PUSHV);
+		ring_parser_icg_pushn(pParser,nValue);
+		ring_parser_icg_newoperation(pParser,ICO_SUM);
+		ring_parser_icg_newoperandint(pParser,RING_ZERO);
+		ring_parser_icg_beforeequal(pParser,RING_ZERO);
+		if ( nMode == RING_PARSER_ICG_USEASSIGNMENT ) {
 			nMark = ring_parser_icg_newlabel(pParser);
 			ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
-			ring_parser_icg_newoperandint(pParser,RING_ZERO);
-			ring_parser_icg_newoperandint(pParser,RING_ZERO);
 			ring_parser_icg_loadaddressassignmentpos(pParser,pMark,nMark);
-			/* Keep the value on the Stack (Maybe required in expressions) */
-			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
-			break ;
-		case RING_PARSER_ICG_USESETPROPERTY :
-			/* Code Generation */
-			ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
-			/* Duplicate the address two times, One for the assignment (x=x+1) and one to  keep the value on the */
-			ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
-			ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
-			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
-			ring_parser_icg_pushn(pParser,nValue);
-			ring_parser_icg_newoperation(pParser,ICO_SUM);
-			ring_parser_icg_newoperandint(pParser,RING_ZERO);
-			ring_parser_icg_beforeequal(pParser,RING_ZERO);
+		}
+		else {
 			ring_parser_icg_newoperation(pParser,ICO_SETPROPERTY);
-			ring_parser_icg_newoperandint(pParser,RING_ZERO);
-			ring_parser_icg_newoperandint(pParser,RING_ZERO);
-			/* Keep the Value on the Stack (Maybe required in expressions) */
-			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
-			break ;
-		case RING_PARSER_ICG_NORMALPP :
-			/* Generate Code */
-			ring_parser_icg_newoperation(pParser,ICO_PLUSPLUS);
-			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
-			RING_STATE_PRINTRULE(RING_RULE_PLUSPLUS) ;
-			break ;
-		case RING_PARSER_ICG_NORMALMM :
-			/* Generate Code */
-			ring_parser_icg_newoperation(pParser,ICO_MINUSMINUS);
-			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
-			RING_STATE_PRINTRULE(RING_RULE_MINUSMINUS) ;
-			break ;
+		}
+		ring_parser_icg_newoperandint(pParser,RING_ZERO);
+		ring_parser_icg_newoperandint(pParser,RING_ZERO);
+		/* Keep the value on the Stack (Maybe required in expressions) */
+		ring_parser_icg_newoperation(pParser,ICO_PUSHV);
+	}
+	else if ( nMode == RING_PARSER_ICG_NORMALPP ) {
+		/* Generate Code */
+		ring_parser_icg_newoperation(pParser,ICO_PLUSPLUS);
+		ring_parser_icg_newoperation(pParser,ICO_PUSHV);
+		RING_STATE_PRINTRULE(RING_RULE_PLUSPLUS) ;
+	}
+	else if ( nMode == RING_PARSER_ICG_NORMALMM ) {
+		/* Generate Code */
+		ring_parser_icg_newoperation(pParser,ICO_MINUSMINUS);
+		ring_parser_icg_newoperation(pParser,ICO_PUSHV);
+		RING_STATE_PRINTRULE(RING_RULE_MINUSMINUS) ;
 	}
 }
 
