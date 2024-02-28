@@ -121,6 +121,10 @@ RING_PARSER_ICG_PARENTCLASSPOS
 RING_PARSER_ICG_LOADAASSIGNPOS
 RING_PARSER_ICG_LOADASETTERPOS
 RING_PARSER_ICG_LOADAGETTERPOS
+RING_PARSER_ICG_USEASSIGNMENT
+RING_PARSER_ICG_USESETPROPERTY
+RING_PARSER_ICG_NORMALPP
+RING_PARSER_ICG_NORMALMM
 RING_PARSER_ICG_GOTOLASTOP
 ring_parser_icg_newlabel(pParser)
 ring_parser_icg_getlastoperation(pParser)
@@ -174,7 +178,7 @@ Type: List *
 pMark
 ring_parser_icg_gencall
 ring_parser_icg_genfreetemplists
-ring_parser_icg_ppmm
+ring_parser_icg_genppmm
 Type: List *
 pMark
 Type: int

@@ -259,7 +259,7 @@ void ring_parser_icg_genppmm ( Parser *pParser,int nMode,int nValue )
 	pMark = ring_parser_icg_getactiveoperation(pParser);
 	/* Code Generation */
 	switch ( nMode ) {
-		case 1 :
+		case RING_PARSER_ICG_USEASSIGNMENT :
 			/* Code Generation */
 			ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
 			/* Duplicate the address two times, one for the assignment (x = x+1) and one to keep the value on the */
@@ -278,7 +278,7 @@ void ring_parser_icg_genppmm ( Parser *pParser,int nMode,int nValue )
 			/* Keep the value on the Stack (Maybe required in expressions) */
 			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 			break ;
-		case 2 :
+		case RING_PARSER_ICG_USESETPROPERTY :
 			/* Code Generation */
 			ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
 			/* Duplicate the address two times, One for the assignment (x=x+1) and one to  keep the value on the */
@@ -295,13 +295,13 @@ void ring_parser_icg_genppmm ( Parser *pParser,int nMode,int nValue )
 			/* Keep the Value on the Stack (Maybe required in expressions) */
 			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 			break ;
-		case 3 :
+		case RING_PARSER_ICG_NORMALPP :
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_PLUSPLUS);
 			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 			RING_STATE_PRINTRULE(RING_RULE_PLUSPLUS) ;
 			break ;
-		case 4 :
+		case RING_PARSER_ICG_NORMALMM :
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_MINUSMINUS);
 			ring_parser_icg_newoperation(pParser,ICO_PUSHV);

@@ -1092,36 +1092,36 @@ int ring_parser_ppmm ( Parser *pParser )
 		ring_parser_nexttoken(pParser);
 		switch ( nLastOperation ) {
 			case ICO_LOADADDRESS :
-				nMode = 3 ;
+				nMode = RING_PARSER_ICG_NORMALPP ;
 				if ( pParser->nBracesCounter ) {
-					nMode = 1 ;
+					nMode = RING_PARSER_ICG_USEASSIGNMENT ;
 					nValue = 1.0 ;
 				}
 				break ;
 			case ICO_LOADSUBADDRESS :
-				nMode = 2 ;
+				nMode = RING_PARSER_ICG_USESETPROPERTY ;
 				nValue = 1.0 ;
 				break ;
 			default :
-				nMode = 3 ;
+				nMode = RING_PARSER_ICG_NORMALPP ;
 		}
 	}
 	else if ( ring_parser_isoperator(pParser,"--") ) {
 		ring_parser_nexttoken(pParser);
 		switch ( nLastOperation ) {
 			case ICO_LOADADDRESS :
-				nMode = 4 ;
+				nMode = RING_PARSER_ICG_NORMALMM ;
 				if ( pParser->nBracesCounter ) {
-					nMode = 1 ;
+					nMode = RING_PARSER_ICG_USEASSIGNMENT ;
 					nValue = -1.0 ;
 				}
 				break ;
 			case ICO_LOADSUBADDRESS :
-				nMode = 2 ;
+				nMode = RING_PARSER_ICG_USESETPROPERTY ;
 				nValue = -1.0 ;
 				break ;
 			default :
-				nMode = 4 ;
+				nMode = RING_PARSER_ICG_NORMALMM ;
 		}
 	}
 	else {
