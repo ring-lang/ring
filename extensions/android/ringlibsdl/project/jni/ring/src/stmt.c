@@ -340,7 +340,7 @@ int ring_parser_stmt ( Parser *pParser )
 		RING_PARSER_IGNORENEWLINE ;
 		#if RING_USESEEFUNCTION
 			/* Generate code to use the SEE function */
-			x = ring_parser_gencallringvmsee(pParser);
+			x = ring_parser_ringvmsee(pParser);
 		#else
 			/*
 			**  Generate code using the SEE Command Instruction 
@@ -369,7 +369,7 @@ int ring_parser_stmt ( Parser *pParser )
 			**  Generate code to use the See function 
 			**  Print the Expression 
 			*/
-			x = ring_parser_gencallringvmsee(pParser);
+			x = ring_parser_ringvmsee(pParser);
 			/* Print the New Line */
 			ring_parser_icg_loadfunction(pParser,"ringvm_see");
 			/* Parameters */
@@ -1404,7 +1404,7 @@ int ring_parser_bracesandend ( Parser *pParser,int lClass,SCANNER_KEYWORD nKeywo
 	return RING_PARSER_OK ;
 }
 
-int ring_parser_gencallringvmsee ( Parser *pParser )
+int ring_parser_ringvmsee ( Parser *pParser )
 {
 	int x,nFlag  ;
 	/* Generate code to use the SEE function */

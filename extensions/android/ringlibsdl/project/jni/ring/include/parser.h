@@ -259,6 +259,8 @@
 	int ring_parser_objattributes ( Parser *pParser ) ;
 
 	int ring_parser_bracesandend ( Parser *pParser,int lClass,SCANNER_KEYWORD nKeyword ) ;
+
+	int ring_parser_ringvmsee ( Parser *pParser ) ;
 	/* Check Token */
 
 	void ring_parser_loadtoken ( Parser *pParser ) ;
@@ -288,8 +290,6 @@
 	/* Generate Code */
 
 	void ring_parser_gencall ( Parser *pParser,int nCallMethod ) ;
-
-	int ring_parser_gencallringvmsee ( Parser *pParser ) ;
 
 	void ring_parser_genfreetemplists ( Parser *pParser ) ;
 #endif
