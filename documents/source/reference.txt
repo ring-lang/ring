@@ -460,6 +460,9 @@ Runtime Errors
 * Error (R44) : Maximum nested Eval()
 * Error (R45) : Variable is not a list
 * Error (R46) : The dynamic library doesn't contain the ringlib_init() function!
+* Error (R47) : The function is not supported in this platform
+* Error (R48) : Assertion Failed!
+
 
 .. index:: 
 	pair: Language Specification; Environment Errors
