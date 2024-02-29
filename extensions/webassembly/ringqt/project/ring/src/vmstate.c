@@ -264,7 +264,7 @@ VMState * ring_vm_savestateforfunctions ( VM *pVM )
 	pVM->pAssignment = NULL ;
 	pVM->lNoAssignment = 0 ;
 	pVM->pBraceObject = NULL ;
-	pVM->nBeforeEqual = 0 ;
+	pVM->nBeforeEqual = OP_EQUAL ;
 	pVM->nFuncExecute = 0 ;
 	pVM->lGetSetProperty = 0 ;
 	pVM->pGetSetObject = NULL ;
@@ -386,7 +386,7 @@ void ring_vm_savestatefornewobjects ( VM *pVM )
 	pVMState->aNumbers[18] = pVM->nActiveScopeID ;
 	/* Save nBeforeEqual */
 	pVMState->aNumbers[19] = pVM->nBeforeEqual ;
-	pVM->nBeforeEqual = 0 ;
+	pVM->nBeforeEqual = OP_EQUAL ;
 	/* Save lGetSetProperty */
 	pVMState->aNumbers[20] = pVM->lGetSetProperty ;
 	pVM->lGetSetProperty = 0 ;

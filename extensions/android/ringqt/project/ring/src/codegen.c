@@ -268,7 +268,7 @@ void ring_parser_icg_genppmm ( Parser *pParser,int nMode,int nValue )
 		ring_parser_icg_pushn(pParser,nValue);
 		ring_parser_icg_newoperation(pParser,ICO_SUM);
 		ring_parser_icg_newoperandint(pParser,RING_ZERO);
-		ring_parser_icg_beforeequal(pParser,RING_ZERO);
+		ring_parser_icg_beforeequal(pParser,OP_EQUAL);
 		if ( nMode == RING_PARSER_ICG_USEASSIGNMENT ) {
 			nMark = ring_parser_icg_newlabel(pParser);
 			ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);

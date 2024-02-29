@@ -383,7 +383,7 @@ void ring_vm_listassignment ( VM *pVM )
 	double nNum1  ;
 	List *pList,*pVar, *pTempList  ;
 	pVar = NULL ;
-	if ( (RING_VM_STACK_ISSTRING) && (pVM->nBeforeEqual <= 1) ) {
+	if ( (RING_VM_STACK_ISSTRING) && (pVM->nBeforeEqual <= OP_PLUSEQUAL) ) {
 		pStr1 = RING_VM_STACK_GETSTRINGRAW ;
 		RING_VM_STACK_POP ;
 		pItem = (Item *) RING_VM_STACK_READP ;
@@ -392,7 +392,7 @@ void ring_vm_listassignment ( VM *pVM )
 		if ( ring_vm_checkitemerroronassignment(pVM,pItem) ) {
 			return ;
 		}
-		if ( pVM->nBeforeEqual == 0 ) {
+		if ( pVM->nBeforeEqual == OP_EQUAL ) {
 			ring_item_setstring2_gc(pVM->pRingState,pItem, ring_string_get(pStr1),ring_string_size(pStr1));
 		}
 		else {
@@ -414,14 +414,14 @@ void ring_vm_listassignment ( VM *pVM )
 		if ( ring_vm_checkitemerroronassignment(pVM,pItem) ) {
 			return ;
 		}
-		if ( pVM->nBeforeEqual == 0 ) {
+		if ( pVM->nBeforeEqual == OP_EQUAL ) {
 			ring_item_setdouble_gc(pVM->pRingState,pItem , nNum1);
 		}
 		else {
 			ring_vm_beforeequalitem(pVM,pItem,nNum1);
 		}
 	}
-	else if ( (RING_VM_STACK_ISPOINTER) && (pVM->nBeforeEqual == 0) ) {
+	else if ( (RING_VM_STACK_ISPOINTER) && (pVM->nBeforeEqual == OP_EQUAL) ) {
 		/* Get Source */
 		if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
 			pVar = (List *) RING_VM_STACK_READP ;

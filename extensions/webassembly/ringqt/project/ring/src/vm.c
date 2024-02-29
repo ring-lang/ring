@@ -87,7 +87,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	/* Flag for LoadA , when = 1 , if it's a pointer we get First Var. not the Pointer */
 	pVM->lFirstAddress = 0 ;
 	/* Used to know operator before = like += -= *= /= */
-	pVM->nBeforeEqual = 0 ;
+	pVM->nBeforeEqual = OP_EQUAL ;
 	/*
 	**  NOAssignment used to disable instruction AssignmentPointer 
 	**  We uses this when we change assignment to set property 

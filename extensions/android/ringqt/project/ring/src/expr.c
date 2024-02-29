@@ -486,44 +486,44 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		/* Check Operator */
 		lequal = 1 ;
 		if ( ring_parser_isoperator2(pParser,OP_EQUAL) ) {
-			nBeforeEqual = 0 ;
+			nBeforeEqual = OP_EQUAL ;
 		}
 		else if ( ring_parser_isoperator2(pParser,OP_PLUSEQUAL) ) {
-			nBeforeEqual = 1 ;
+			nBeforeEqual = OP_PLUSEQUAL ;
 		}
 		else if ( ring_parser_isoperator2(pParser,OP_MINUSEQUAL) ) {
-			nBeforeEqual = 2 ;
+			nBeforeEqual = OP_MINUSEQUAL ;
 		}
 		else if ( ring_parser_isoperator2(pParser,OP_MULEQUAL) ) {
-			nBeforeEqual = 3 ;
+			nBeforeEqual = OP_MULEQUAL ;
 		}
 		else if ( ring_parser_isoperator2(pParser,OP_DIVEQUAL) ) {
-			nBeforeEqual = 4 ;
+			nBeforeEqual = OP_DIVEQUAL ;
 		}
 		else if ( ring_parser_isoperator2(pParser,OP_MODEQUAL) ) {
-			nBeforeEqual = 5 ;
+			nBeforeEqual = OP_MODEQUAL ;
 		}
 		else if ( ring_parser_isoperator2(pParser,OP_BITANDEQUAL) ) {
-			nBeforeEqual = 6 ;
+			nBeforeEqual = OP_BITANDEQUAL ;
 		}
 		else if ( ring_parser_isoperator2(pParser,OP_BITOREQUAL) ) {
-			nBeforeEqual = 7 ;
+			nBeforeEqual = OP_BITOREQUAL ;
 		}
 		else if ( ring_parser_isoperator2(pParser,OP_BITXOREQUAL) ) {
-			nBeforeEqual = 8 ;
+			nBeforeEqual = OP_BITXOREQUAL ;
 		}
 		else if ( ring_parser_isoperator2(pParser,OP_SHLEQUAL) ) {
-			nBeforeEqual = 9 ;
+			nBeforeEqual = OP_SHLEQUAL ;
 		}
 		else if ( ring_parser_isoperator2(pParser,OP_SHREQUAL) ) {
-			nBeforeEqual = 10 ;
+			nBeforeEqual = OP_SHREQUAL ;
 		}
 		else if ( ring_parser_isoperator2(pParser,OP_POWEQUAL) ) {
-			nBeforeEqual = 11 ;
+			nBeforeEqual = OP_POWEQUAL ;
 		}
 		else {
 			lequal = 0 ;
-			nBeforeEqual = 0 ;
+			nBeforeEqual = OP_EQUAL ;
 		}
 		if ( (lequal == 1 ) && (pParser->lAssignmentFlag == 1) ) {
 			ring_parser_nexttoken(pParser);
