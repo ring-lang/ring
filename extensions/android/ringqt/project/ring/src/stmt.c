@@ -361,7 +361,7 @@ int ring_parser_stmt ( Parser *pParser )
 		return x ;
 	}
 	/* Statement --> ? Expr */
-	if ( ring_parser_isoperator(pParser,"?") ) {
+	if ( ring_parser_isoperator2(pParser,OP_QUES) ) {
 		ring_parser_nexttoken(pParser);
 		RING_PARSER_IGNORENEWLINE ;
 		#if RING_USESEEFUNCTION
