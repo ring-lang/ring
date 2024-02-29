@@ -352,7 +352,11 @@ void ring_vm_os_shutdown ( void *pPointer )
 				LARGE_INTEGER ElapsedMicroseconds  ;
 				unsigned int nNum  ;
 				QueryPerformanceCounter(&ElapsedMicroseconds);
-				rand_s(&nNum);
+				#ifdef rand_s
+					rand_s(&nNum);
+				#else
+					nNum = rand();
+				#endif
 				nNum1 = (RING_UNSIGNEDLONGLONG ) nNum | ( ElapsedMicroseconds.QuadPart << 32 ) ;
 			#endif
 		#endif
