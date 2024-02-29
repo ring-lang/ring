@@ -102,7 +102,7 @@
 		OP_MINUS ,
 		OP_MUL ,
 		OP_DIV ,
-		OP_REM ,
+		OP_MOD ,
 		OP_DOT ,
 		OP_FOPEN ,
 		OP_FCLOSE ,

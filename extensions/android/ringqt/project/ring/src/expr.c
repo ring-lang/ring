@@ -349,7 +349,7 @@ int ring_parser_term ( Parser *pParser )
 	if ( ring_parser_range(pParser) ) {
 		x = 1 ;
 		RING_STATE_PRINTRULE(RING_RULE_TERMISRANGE) ;
-		while ( ring_parser_isoperator2(pParser,OP_MUL) || ring_parser_isoperator2(pParser,OP_DIV) || ring_parser_isoperator2(pParser,OP_REM) || ring_parser_isoperator2(pParser,OP_POW) ) {
+		while ( ring_parser_isoperator2(pParser,OP_MUL) || ring_parser_isoperator2(pParser,OP_DIV) || ring_parser_isoperator2(pParser,OP_MOD) || ring_parser_isoperator2(pParser,OP_POW) ) {
 			if ( ring_parser_isoperator2(pParser,OP_MUL) ) {
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE ;
@@ -363,7 +363,7 @@ int ring_parser_term ( Parser *pParser )
 				/* Generate Location for nPC for Operator Overloading */
 				ring_parser_icg_newoperandint(pParser,RING_ZERO);
 			}
-			else if ( ring_parser_isoperator2(pParser,OP_REM) ) {
+			else if ( ring_parser_isoperator2(pParser,OP_MOD) ) {
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE ;
 				x = ring_parser_range(pParser);
