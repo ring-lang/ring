@@ -10,8 +10,8 @@ int ring_parser_expr ( Parser *pParser )
 	if ( ring_parser_logicnot(pParser) ) {
 		x = 1 ;
 		RING_STATE_PRINTRULE(RING_RULE_EXPRISLOGICNOT) ;
-		while ( ring_parser_iskeyword(pParser,K_AND) || ring_parser_isoperator(pParser,"&&")  || ring_parser_iskeyword(pParser,K_OR) || ring_parser_isoperator(pParser,"||") ) {
-			if ( ring_parser_iskeyword(pParser,K_AND) || ring_parser_isoperator(pParser,"&&") ) {
+		while ( ring_parser_iskeyword(pParser,K_AND) || ring_parser_isoperator2(pParser,OP_LOGAND)  || ring_parser_iskeyword(pParser,K_OR) || ring_parser_isoperator2(pParser,OP_LOGOR) ) {
+			if ( ring_parser_iskeyword(pParser,K_AND) || ring_parser_isoperator2(pParser,OP_LOGAND) ) {
 				/* Generate Code */
 				ring_parser_icg_newoperation(pParser,ICO_JUMPZERO2);
 				pMark = ring_parser_icg_getactiveoperation(pParser);
@@ -269,8 +269,8 @@ int ring_parser_bitshift ( Parser *pParser )
 	if ( ring_parser_arithmetic(pParser) ) {
 		x = 1 ;
 		RING_STATE_PRINTRULE(RING_RULE_BITSHIFTISARITHMETIC) ;
-		while ( ring_parser_isoperator(pParser,"<<") || ring_parser_isoperator(pParser,">>") ) {
-			if ( ring_parser_isoperator(pParser,"<<") ) {
+		while ( ring_parser_isoperator2(pParser,OP_SHL) || ring_parser_isoperator2(pParser,OP_SHR) ) {
+			if ( ring_parser_isoperator2(pParser,OP_SHL) ) {
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE ;
 				x = ring_parser_arithmetic(pParser);
@@ -349,7 +349,7 @@ int ring_parser_term ( Parser *pParser )
 	if ( ring_parser_range(pParser) ) {
 		x = 1 ;
 		RING_STATE_PRINTRULE(RING_RULE_TERMISRANGE) ;
-		while ( ring_parser_isoperator2(pParser,OP_MUL) || ring_parser_isoperator2(pParser,OP_DIV) || ring_parser_isoperator2(pParser,OP_REM) || ring_parser_isoperator(pParser,"**") ) {
+		while ( ring_parser_isoperator2(pParser,OP_MUL) || ring_parser_isoperator2(pParser,OP_DIV) || ring_parser_isoperator2(pParser,OP_REM) || ring_parser_isoperator2(pParser,OP_POW) ) {
 			if ( ring_parser_isoperator2(pParser,OP_MUL) ) {
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE ;
@@ -376,7 +376,7 @@ int ring_parser_term ( Parser *pParser )
 				ring_parser_icg_newoperandint(pParser,RING_ZERO);
 				RING_STATE_PRINTTWORULES(RING_RULE_TERMISRANGE,RING_RULE_MOD) ;
 			}
-			else if ( ring_parser_isoperator(pParser,"**") ) {
+			else if ( ring_parser_isoperator2(pParser,OP_POW) ) {
 				ring_parser_nexttoken(pParser);
 				RING_PARSER_IGNORENEWLINE ;
 				x = ring_parser_range(pParser);
@@ -488,37 +488,37 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		if ( ring_parser_isoperator2(pParser,OP_EQUAL) ) {
 			nBeforeEqual = 0 ;
 		}
-		else if ( ring_parser_isoperator(pParser,"+=") ) {
+		else if ( ring_parser_isoperator2(pParser,OP_PLUSEQUAL) ) {
 			nBeforeEqual = 1 ;
 		}
-		else if ( ring_parser_isoperator(pParser,"-=") ) {
+		else if ( ring_parser_isoperator2(pParser,OP_MINUSEQUAL) ) {
 			nBeforeEqual = 2 ;
 		}
-		else if ( ring_parser_isoperator(pParser,"*=") ) {
+		else if ( ring_parser_isoperator2(pParser,OP_MULEQUAL) ) {
 			nBeforeEqual = 3 ;
 		}
-		else if ( ring_parser_isoperator(pParser,"/=") ) {
+		else if ( ring_parser_isoperator2(pParser,OP_DIVEQUAL) ) {
 			nBeforeEqual = 4 ;
 		}
-		else if ( ring_parser_isoperator(pParser,"%=") ) {
+		else if ( ring_parser_isoperator2(pParser,OP_MODEQUAL) ) {
 			nBeforeEqual = 5 ;
 		}
-		else if ( ring_parser_isoperator(pParser,"&=") ) {
+		else if ( ring_parser_isoperator2(pParser,OP_BITANDEQUAL) ) {
 			nBeforeEqual = 6 ;
 		}
-		else if ( ring_parser_isoperator(pParser,"|=") ) {
+		else if ( ring_parser_isoperator2(pParser,OP_BITOREQUAL) ) {
 			nBeforeEqual = 7 ;
 		}
-		else if ( ring_parser_isoperator(pParser,"^=") ) {
+		else if ( ring_parser_isoperator2(pParser,OP_BITXOREQUAL) ) {
 			nBeforeEqual = 8 ;
 		}
-		else if ( ring_parser_isoperator(pParser,"<<=") ) {
+		else if ( ring_parser_isoperator2(pParser,OP_SHLEQUAL) ) {
 			nBeforeEqual = 9 ;
 		}
-		else if ( ring_parser_isoperator(pParser,">>=") ) {
+		else if ( ring_parser_isoperator2(pParser,OP_SHREQUAL) ) {
 			nBeforeEqual = 10 ;
 		}
-		else if ( ring_parser_isoperator(pParser,"**=") ) {
+		else if ( ring_parser_isoperator2(pParser,OP_POWEQUAL) ) {
 			nBeforeEqual = 11 ;
 		}
 		else {
@@ -1088,7 +1088,7 @@ int ring_parser_ppmm ( Parser *pParser )
 	nLastOperation = ring_parser_icg_getlastoperation(pParser) ;
 	pMark = ring_parser_icg_getactiveoperation(pParser);
 	/* ++ & -- */
-	if ( ring_parser_isoperator(pParser,"++") ) {
+	if ( ring_parser_isoperator2(pParser,OP_INC) ) {
 		ring_parser_nexttoken(pParser);
 		switch ( nLastOperation ) {
 			case ICO_LOADADDRESS :
@@ -1106,7 +1106,7 @@ int ring_parser_ppmm ( Parser *pParser )
 				nMode = RING_PARSER_ICG_NORMALPP ;
 		}
 	}
-	else if ( ring_parser_isoperator(pParser,"--") ) {
+	else if ( ring_parser_isoperator2(pParser,OP_DEC) ) {
 		ring_parser_nexttoken(pParser);
 		switch ( nLastOperation ) {
 			case ICO_LOADADDRESS :
