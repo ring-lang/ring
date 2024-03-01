@@ -926,7 +926,7 @@ void ring_vm_refmeta_ringvmcalllist ( void *pPointer )
 		ring_list_addstring_gc(pVM->pRingState,pList2,pFuncCall->cName);
 		ring_list_addint_gc(pVM->pRingState,pList2,pFuncCall->nPC);
 		ring_list_addint_gc(pVM->pRingState,pList2,pFuncCall->nSP);
-		ring_list_addint_gc(pVM->pRingState,pList2,pFuncCall->nMethodOrFunc);
+		ring_list_addint_gc(pVM->pRingState,pList2,pFuncCall->lMethod);
 		ring_list_addint_gc(pVM->pRingState,pList2,pFuncCall->nCallerPC);
 	}
 	RING_API_RETLIST(pList);

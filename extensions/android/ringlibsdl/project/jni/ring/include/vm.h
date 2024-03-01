@@ -151,9 +151,9 @@
 		unsigned int nTempMemSizeAtStart  ;
 		unsigned int nListStart  ;
 		char nType  ;
-		char nMethodOrFunc  ;
 		char nStatus  ;
 		char nLoadAddressScope  ;
+		char lMethod  ;
 	} FuncCall ;
 	/*
 	**  Macro & Constants 

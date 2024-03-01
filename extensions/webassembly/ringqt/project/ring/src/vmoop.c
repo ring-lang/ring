@@ -770,7 +770,7 @@ int ring_vm_oop_callmethodinsideclass ( VM *pVM )
 			pFuncCall = (FuncCall *) ring_list_getpointer(pVM->pFuncCallList,x) ;
 			/* Be sure that the function is already called using ICO_CALL */
 			if ( pFuncCall->nCallerPC != 0 ) {
-				if ( pFuncCall->nMethodOrFunc == 0 ) {
+				if ( pFuncCall->lMethod == 0 ) {
 					return 0 ;
 				}
 				else {

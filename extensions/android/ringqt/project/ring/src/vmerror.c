@@ -134,7 +134,7 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 			*/
 			printf( "In " ) ;
 			/* Method or Function */
-			if ( pFuncCall->nMethodOrFunc ) {
+			if ( pFuncCall->lMethod ) {
 				printf( "method " ) ;
 			}
 			else {
@@ -219,7 +219,7 @@ void ring_vm_traceevent ( VM *pVM,char nEvent )
 			pFuncCall = RING_VM_LASTFUNCCALL ;
 			ring_list_addstring_gc(pVM->pRingState,pVM->pTraceData,pFuncCall->cName);
 			/* Method or Function */
-			ring_list_adddouble_gc(pVM->pRingState,pVM->pTraceData,pFuncCall->nMethodOrFunc);
+			ring_list_adddouble_gc(pVM->pRingState,pVM->pTraceData,pFuncCall->lMethod);
 		}
 		else {
 			ring_list_addstring_gc(pVM->pRingState,pVM->pTraceData,"");

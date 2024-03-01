@@ -67,7 +67,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 			pVM->cFileName = ring_list_getstring(pList2,RING_FUNCMAP_FILENAME) ;
 			pFuncCall->cNewFileName = pVM->cFileName ;
 			/* Method or Function */
-			pFuncCall->nMethodOrFunc = ! ( (y == 1) && (pVM->lCallMethod != 1) ) ;
+			pFuncCall->lMethod = ! ( (y == 1) && (pVM->lCallMethod != 1) ) ;
 			/* Line Number */
 			pFuncCall->nLineNumber = RING_VM_IR_GETLINENUMBER ;
 			/* Store List information */
@@ -134,7 +134,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 		/* The new source file name */
 		pFuncCall->cNewFileName = pVM->cFileName ;
 		/* Method or Function */
-		pFuncCall->nMethodOrFunc = 0 ;
+		pFuncCall->lMethod = 0 ;
 		/* Line Number */
 		pFuncCall->nLineNumber = RING_VM_IR_GETLINENUMBER ;
 		/* Store List information */
@@ -209,7 +209,7 @@ void ring_vm_call2 ( VM *pVM )
 		pVM->pNestedLists = (List *) pFuncCall->pNestedLists ;
 	}
 	/* Calling Method from brace */
-	if ( (pFuncCall->nType == RING_FUNCTYPE_SCRIPT) && (pFuncCall->nMethodOrFunc == 1) ) {
+	if ( (pFuncCall->nType == RING_FUNCTYPE_SCRIPT) && (pFuncCall->lMethod == 1) ) {
 		/* The first test to be sure it's not a C Function Call */
 		ring_vm_oop_callmethodfrombrace(pVM);
 	}
@@ -229,7 +229,7 @@ void ring_vm_call2 ( VM *pVM )
 		/* Clear nLoadAddressScope */
 		pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
 		/* Avoid accessing object data or methods */
-		if ( pFuncCall->nMethodOrFunc == 0 ) {
+		if ( pFuncCall->lMethod == 0 ) {
 			/* Check if we need this */
 			if ( ring_list_getsize(pVM->pObjState) == 0 ) {
 				return ;
@@ -868,7 +868,7 @@ void ring_vmfunccall_useloadfuncp ( VM *pVM,FuncCall *pFuncCall,int nPerformance
 		RING_VM_IR_ITEMSETHIGHINT(RING_VM_IR_ITEM(RING_VM_IR_REG2),ring_list_getsize(pVM->pFunctionsMap));
 		RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(RING_VM_IR_REG3),(void *) pFuncCall->pFunc);
 		RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(RING_VM_IR_REG4),(void *) pFuncCall->cNewFileName);
-		RING_VM_IR_SETINTREG(pFuncCall->nMethodOrFunc);
+		RING_VM_IR_SETINTREG(pFuncCall->lMethod);
 		RING_VM_IR_SETFLAGREG(pFuncCall->nType);
 		RING_VM_IR_SETREG3TYPE(RING_VM_REGTYPE_POINTER);
 		RING_VM_IR_SETREG4TYPE(RING_VM_REGTYPE_POINTER);
