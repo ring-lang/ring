@@ -138,6 +138,13 @@
 	/* C Strings */
 	#define RING_CSTR_THIS "this"
 	#define RING_CSTR_SELF "self"
+	#define RING_CSTR_INIT "init"
+	#define RING_CSTR_BRACESTART "bracestart"
+	#define RING_CSTR_BRACEEXPREVAL "braceexpreval"
+	#define RING_CSTR_BRACEEND "braceend"
+	#define RING_CSTR_ANONFUNC "_ring_anonymous_func_"
+	#define RING_CSTR_RINGVMSEE "ringvm_see"
+	#define RING_CSTR_RINGVMGIVE "ringvm_give"
 	/* Exit */
 	#define RING_EXIT_OK 0
 	#define RING_EXIT_FAIL 1

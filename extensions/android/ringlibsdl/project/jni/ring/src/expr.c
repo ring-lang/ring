@@ -845,7 +845,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 				ring_parser_icg_newoperation(pParser,ICO_CALLCLASSINIT);
 				ring_parser_icg_newoperandint(pParser,RING_TRUE);
 				/* Generate Code ( Call Function ) */
-				ring_parser_icg_loadaddress(pParser,"init");
+				ring_parser_icg_loadaddress(pParser,RING_CSTR_INIT);
 				/* Function Parameters */
 				pParser->lFuncCallOnly = 1 ;
 				ring_parser_mixer(pParser);
@@ -873,7 +873,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		*/
 		ring_parser_icg_newoperation(pParser,ICO_PUSHC);
 		/* Note : the function name must be in lower case */
-		sprintf( cFuncName , "_ring_anonymous_func_%d" , RING_PARSER_OPERATIONID ) ;
+		sprintf( cFuncName , "%s%d" , RING_CSTR_ANONFUNC,RING_PARSER_OPERATIONID ) ;
 		ring_parser_icg_newoperand(pParser,cFuncName);
 		ring_parser_icg_newoperation(pParser,ICO_JUMP);
 		pMark = ring_parser_icg_getactiveoperation(pParser);
@@ -1054,7 +1054,7 @@ int ring_parser_mixer ( Parser *pParser )
 		ring_parser_icg_newoperation(pParser,ICO_BRACESTART);
 		RING_STATE_PRINTRULE(RING_RULE_MIXERISBRACES) ;
 		/* if ismethod(self,"bracestart") bracestart() ok */
-		ring_parser_icg_gencallbracemethod(pParser,"bracestart",RING_FALSE);
+		ring_parser_icg_gencallbracemethod(pParser,RING_CSTR_BRACESTART,RING_FALSE);
 		ring_parser_nexttoken(pParser);
 		nStatus = pParser->lAssignmentFlag ;
 		pParser->lAssignmentFlag = 1 ;
@@ -1066,7 +1066,7 @@ int ring_parser_mixer ( Parser *pParser )
 			**  Generate Code 
 			**  if ismethod(self,"braceend") braceend() ok 
 			*/
-			ring_parser_icg_gencallbracemethod(pParser,"braceend",RING_FALSE);
+			ring_parser_icg_gencallbracemethod(pParser,RING_CSTR_BRACEEND,RING_FALSE);
 			ring_parser_icg_newoperation(pParser,ICO_BRACEEND);
 			RING_STATE_PRINTRULE(RING_RULE_BRACEEND) ;
 			ring_parser_nexttoken(pParser);

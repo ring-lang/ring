@@ -371,7 +371,7 @@ int ring_parser_stmt ( Parser *pParser )
 			*/
 			x = ring_parser_ringvmsee(pParser);
 			/* Print the New Line */
-			ring_parser_icg_loadfunction(pParser,"ringvm_see");
+			ring_parser_icg_loadfunction(pParser,RING_CSTR_RINGVMSEE);
 			/* Parameters */
 			ring_parser_icg_newoperation(pParser,ICO_PUSHC);
 			ring_parser_icg_newoperand(pParser,"\n");
@@ -419,7 +419,7 @@ int ring_parser_stmt ( Parser *pParser )
 			#if RING_USEGIVEFUNCTION
 				/* Generate code to use the GIVE function */
 				ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
-				ring_parser_icg_loadfunction(pParser,"ringvm_give");
+				ring_parser_icg_loadfunction(pParser,RING_CSTR_RINGVMGIVE);
 				ring_parser_icg_newoperation(pParser,ICO_CALL);
 				ring_parser_icg_newoperandint(pParser,RING_ZERO);
 				ring_parser_icg_newoperation(pParser,ICO_NOOP);
@@ -1127,7 +1127,7 @@ int ring_parser_stmt ( Parser *pParser )
 		*/
 		if ( pParser->nBracesCounter ) {
 			/* if ismethod(self,"braceexpreval") braceexpreval() ok */
-			ring_parser_icg_gencallbracemethod(pParser,"braceexpreval",RING_TRUE);
+			ring_parser_icg_gencallbracemethod(pParser,RING_CSTR_BRACEEXPREVAL,RING_TRUE);
 		}
 		ring_parser_icg_freestack(pParser);
 		return RING_PARSER_OK ;
@@ -1408,7 +1408,7 @@ int ring_parser_ringvmsee ( Parser *pParser )
 {
 	int x,nFlag  ;
 	/* Generate code to use the SEE function */
-	ring_parser_icg_loadfunction(pParser,"ringvm_see");
+	ring_parser_icg_loadfunction(pParser,RING_CSTR_RINGVMSEE);
 	/* Parameters */
 	nFlag = pParser->lAssignmentFlag ;
 	pParser->lAssignmentFlag = 0 ;
