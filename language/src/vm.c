@@ -103,7 +103,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	/* Eval can be called from C code (OOP Set/Get/Operator Overloading) or from ring code using eval() */
 	pVM->lEvalCalledFromRingCode = 0 ;
 	/* Number of decimals after the point */
-	pVM->nDecimals = 2 ;
+	pVM->nDecimals = RING_DECIMALS_COUNT ;
 	/*
 	**  Do we need to reallocation for eval() or not ! 
 	**  Size of items that we can use without reallocation (double of the original size) 
