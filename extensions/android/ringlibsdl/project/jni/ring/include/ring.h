@@ -145,6 +145,8 @@
 	#define RING_CSTR_ANONFUNC "_ring_anonymous_func_"
 	#define RING_CSTR_RINGVMSEE "ringvm_see"
 	#define RING_CSTR_RINGVMGIVE "ringvm_give"
+	#define RING_CSTR_MAIN "main"
+	#define RING_CSTR_OPERATOR "operator"
 	/* Exit */
 	#define RING_EXIT_OK 0
 	#define RING_EXIT_FAIL 1

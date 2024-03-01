@@ -27,7 +27,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 			pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState));
 			/* Pass Braces for Class Init() method */
 			if ( (ring_list_getsize(pVM->pObjState) > 1) && (pVM->nCallClassInit) ) {
-				if ( strcmp(cStr,"init") != 0 ) {
+				if ( strcmp(cStr,RING_CSTR_INIT) != 0 ) {
 					pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState)-1) ;
 				}
 			}
@@ -75,7 +75,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 			pFuncCall->pNestedLists = pVM->pNestedLists ;
 			pVM->nListStart = 0 ;
 			pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,RING_ZERO);
-			if ( (strcmp(cStr,"main") != 0 ) && (pVM->lCallMethod != 1) && (y != 2) ) {
+			if ( (strcmp(cStr,RING_CSTR_MAIN) != 0 ) && (pVM->lCallMethod != 1) && (y != 2) ) {
 				/* We check that we will convert Functions only, not methods */
 				if ( pVM->lInsideBraceFlag == 0 ) {
 					ring_vmfunccall_useloadfuncp(pVM,pFuncCall,nPerformance);
@@ -152,7 +152,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 	}
 	/* Avoid Error if it is automatic call to the main function */
 	if ( pVM->lCallMainFunction == 0 ) {
-		if ( strcmp(cStr,"main") == 0 ) {
+		if ( strcmp(cStr,RING_CSTR_MAIN) == 0 ) {
 			return 0 ;
 		}
 	}
@@ -410,7 +410,7 @@ void ring_vm_return ( VM *pVM )
 		if ( pVM->lCallMainFunction == 0 ) {
 			pVM->nPC-- ;
 			pVM->nSP = 0 ;
-			if ( ring_vm_loadfunc2(pVM,"main",RING_FALSE) ) {
+			if ( ring_vm_loadfunc2(pVM,RING_CSTR_MAIN,RING_FALSE) ) {
 				ring_vm_call(pVM);
 				pVM->lCallMainFunction = 1 ;
 				return ;
@@ -816,7 +816,7 @@ void ring_vm_retitemref ( VM *pVM )
 	*/
 	if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
 		pFuncCall = RING_VM_LASTFUNCCALL ;
-		if ( strcmp(pFuncCall->cName,"operator") == 0 ) {
+		if ( strcmp(pFuncCall->cName,RING_CSTR_OPERATOR) == 0 ) {
 			pVM->nRetItemRef++ ;
 		}
 	}

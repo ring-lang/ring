@@ -1159,7 +1159,7 @@ void ring_vm_oop_callmethodfrombrace ( VM *pVM )
 			if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
 				pFuncCall = RING_VM_LASTFUNCCALL ;
 				cStr = pFuncCall->cName ;
-				if ( strcmp(cStr,"init") != 0 ) {
+				if ( strcmp(cStr,RING_CSTR_INIT) != 0 ) {
 					pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState)-1) ;
 				}
 			}

@@ -1123,7 +1123,7 @@ void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
 			}
 			lCompare = 1 ;
 			if ( ring_vm_oop_isobject(pList2) == 1 ) {
-				if ( ring_vm_oop_ismethod(pVM,pList2,"operator") ) {
+				if ( ring_vm_oop_ismethod(pVM,pList2,RING_CSTR_OPERATOR) ) {
 					lCompare = 0 ;
 				}
 			}
@@ -1199,13 +1199,13 @@ void ring_vm_expr_npoo ( VM *pVM,const char *cStr,double nNum1 )
 		}
 	}
 	else if ( strcmp(cStr,"=") == 0 ) {
-		if ( (ring_vm_oop_isobject(pList) == 0) || ( ! ring_vm_oop_ismethod(pVM,pList,"operator") ) ) {
+		if ( (ring_vm_oop_isobject(pList) == 0) || ( ! ring_vm_oop_ismethod(pVM,pList,RING_CSTR_OPERATOR) ) ) {
 			RING_VM_STACK_SETNVALUE(0.0);
 			return ;
 		}
 	}
 	else if ( strcmp(cStr,"!=") == 0 ) {
-		if ( ( ring_vm_oop_isobject(pList) == 0 )  || ( ! ring_vm_oop_ismethod(pVM,pList,"operator") ) ) {
+		if ( ( ring_vm_oop_isobject(pList) == 0 )  || ( ! ring_vm_oop_ismethod(pVM,pList,RING_CSTR_OPERATOR) ) ) {
 			RING_VM_STACK_SETNVALUE(1.0);
 			return ;
 		}
@@ -1243,13 +1243,13 @@ void ring_vm_expr_spoo ( VM *pVM,const char *cStr,const char *pStr2,int nSize )
 		}
 	}
 	else if ( strcmp(cStr,"=") == 0 ) {
-		if ( (ring_vm_oop_isobject(pList) == 0)  || ( ! ring_vm_oop_ismethod(pVM,pList,"operator") ) ) {
+		if ( (ring_vm_oop_isobject(pList) == 0)  || ( ! ring_vm_oop_ismethod(pVM,pList,RING_CSTR_OPERATOR) ) ) {
 			RING_VM_STACK_SETNVALUE(0.0);
 			return ;
 		}
 	}
 	else if ( strcmp(cStr,"!=") == 0 ) {
-		if ( (ring_vm_oop_isobject(pList) == 0)  || ( ! ring_vm_oop_ismethod(pVM,pList,"operator") ) ) {
+		if ( (ring_vm_oop_isobject(pList) == 0)  || ( ! ring_vm_oop_ismethod(pVM,pList,RING_CSTR_OPERATOR) ) ) {
 			RING_VM_STACK_SETNVALUE(1.0);
 			return ;
 		}
