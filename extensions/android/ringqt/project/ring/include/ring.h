@@ -147,6 +147,7 @@
 	#define RING_CSTR_RINGVMGIVE "ringvm_give"
 	#define RING_CSTR_MAIN "main"
 	#define RING_CSTR_OPERATOR "operator"
+	#define RING_CSTR_LEN "len"
 	/* Exit */
 	#define RING_EXIT_OK 0
 	#define RING_EXIT_FAIL 1
