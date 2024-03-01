@@ -13,7 +13,7 @@ Scanner * ring_scanner_new ( RingState *pRingState )
 	ring_scanner_keywords(pScanner);
 	ring_scanner_operators(pScanner);
 	pScanner->nLinesCount = 1 ;
-	pScanner->nFloatMark = 0 ;
+	pScanner->nFloatMark = SCANNER_FLOATMARK_START ;
 	pScanner->cMLComment = 0 ;
 	pScanner->nTokenIndex = 0 ;
 	return pScanner ;
@@ -628,20 +628,20 @@ void ring_scanner_floatmark ( Scanner *pScanner,int nType )
 	List *pList  ;
 	String *pString  ;
 	switch ( pScanner->nFloatMark ) {
-		case 0 :
+		case SCANNER_FLOATMARK_START :
 			if ( nType == SCANNER_TOKEN_NUMBER ) {
-				pScanner->nFloatMark = 1 ;
+				pScanner->nFloatMark = SCANNER_FLOATMARK_NUMBER ;
 			}
 			break ;
-		case 1 :
+		case SCANNER_FLOATMARK_NUMBER :
 			if ( (nType == SCANNER_TOKEN_OPERATOR) && ( strcmp(ring_string_get(pScanner->pActiveToken) , "." ) == 0  ) ) {
-				pScanner->nFloatMark = 2 ;
+				pScanner->nFloatMark = SCANNER_FLOATMARK_NUMBERDOT ;
 			}
 			else {
-				pScanner->nFloatMark = 0 ;
+				pScanner->nFloatMark = SCANNER_FLOATMARK_START ;
 			}
 			break ;
-		case 2 :
+		case SCANNER_FLOATMARK_NUMBERDOT :
 			if ( nType == SCANNER_TOKEN_NUMBER ) {
 				pList = ring_list_getlist(pScanner->pTokens,ring_list_getsize(pScanner->pTokens));
 				pString = ring_string_new_gc(pScanner->pRingState,ring_list_getstring(pList,RING_SCANNER_TOKENVALUE)) ;
@@ -652,7 +652,7 @@ void ring_scanner_floatmark ( Scanner *pScanner,int nType )
 				ring_string_add_gc(pScanner->pRingState,ring_item_getstring(ring_list_getitem(pList,RING_SCANNER_TOKENVALUE)),ring_string_get(pString));
 				ring_string_delete_gc(pScanner->pRingState,pString);
 			}
-			pScanner->nFloatMark = 0 ;
+			pScanner->nFloatMark = SCANNER_FLOATMARK_START ;
 			break ;
 	}
 }

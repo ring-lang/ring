@@ -161,6 +161,9 @@
 	#define RING_SCANNER_CHANGERINGKEYWORD 56
 	#define RING_SCANNER_CHANGERINGOPERATOR 57
 	#define RING_SCANNER_LOADSYNTAX 58
+	#define SCANNER_FLOATMARK_START 0
+	#define SCANNER_FLOATMARK_NUMBER 1
+	#define SCANNER_FLOATMARK_NUMBERDOT 2
 	#define RING_SCANNER_DELETELASTTOKEN ring_list_deleteitem_gc(pScanner->pRingState,pScanner->pTokens,ring_list_getsize(pScanner->pTokens))
 
 	Scanner * ring_scanner_new ( RingState *pRingState ) ;
