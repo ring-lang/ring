@@ -7,8 +7,8 @@ HashTable * ring_hashtable_new_gc ( void *pRingState )
 	HashTable *pHashTable  ;
 	pHashTable = (HashTable *) ring_state_malloc(pRingState,sizeof(HashTable));
 	pHashTable->nItems = 0 ;
-	pHashTable->nLinkedLists = 2 ;
-	pHashTable->nRebuildSize = 7 ;
+	pHashTable->nLinkedLists = RING_HASHTABLE_LINKEDLISTS ;
+	pHashTable->nRebuildSize = RING_HASHTABLE_REBUILDSIZE ;
 	pHashTable->pArray = (HashItem **) ring_state_calloc(pRingState,pHashTable->nLinkedLists,sizeof(HashItem *));
 	return pHashTable ;
 }
