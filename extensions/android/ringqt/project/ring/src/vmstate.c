@@ -269,7 +269,7 @@ VMState * ring_vm_savestateforfunctions ( VM *pVM )
 	pVM->lGetSetProperty = 0 ;
 	pVM->pGetSetObject = NULL ;
 	pVM->nGetSetObjType = 0 ;
-	pVM->nNoSetterMethod = 0 ;
+	pVM->nNoSetterMethod = RING_NOSETTERMETHOD_DEFAULT ;
 	return pVMState ;
 }
 
@@ -400,7 +400,7 @@ void ring_vm_savestatefornewobjects ( VM *pVM )
 	pVMState->aNumbers[22] = ring_list_getsize(pVM->pFuncCallList) ;
 	/* Save nNoSetterMethod */
 	pVMState->aNumbers[23] = pVM->nNoSetterMethod ;
-	pVM->nNoSetterMethod = 0 ;
+	pVM->nNoSetterMethod = RING_NOSETTERMETHOD_DEFAULT ;
 	/* Save the BlockFlag */
 	pVMState->aNumbers[24] = pVM->nBlockCounter ;
 	pVMState->aPointers[7] = pVM->pPCBlockFlag ;

@@ -613,12 +613,12 @@ void ring_vm_assignmentpointer ( VM *pVM )
 			**  We have this option with New Lists and  New Objects only 
 			**  We will accept this option only when we have the setter method 
 			*/
-			if ( pVM->nNoSetterMethod == 0 ) {
+			if ( pVM->nNoSetterMethod == RING_NOSETTERMETHOD_DEFAULT ) {
 				pVM->lNoAssignment = 1 ;
 			}
 			else {
 				/* Tell the ICO_SETPROPERTY instruction to be disabled */
-				pVM->nNoSetterMethod = 2 ;
+				pVM->nNoSetterMethod = RING_NOSETTERMETHOD_IGNORESETPROPERTY ;
 			}
 		}
 	}
