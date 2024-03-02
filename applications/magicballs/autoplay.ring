@@ -20,8 +20,7 @@
 // Func UserMove(RandomSqr(myBalls)       Return -
 
 
-load "stdlib.ring"
-load "guilib.ring"
+load "lightguilib.ring"
 load "solveArrayPathDest.ring"
 
 //-------------------------------------------------------
@@ -93,9 +92,10 @@ app = new qApp
 {
     win = new qWidget() 
     {
+	setWinIcon(win,"images\red.png")
         setWindowTitle('Magic Balls: ')
 
-          move(moveX, moveY)
+        move(moveX, moveY)
         reSize(sizeX, sizeY)
         winheight = win.height()
         fontSize = 8 + (winheight / 100)
