@@ -26,7 +26,7 @@ class editorController from windowsControllerParent
 	aButton = list(C_ROWS,C_COLS)
 
 	oView = new editorView
-	oView.tablewidget1.setenabled(False)
+
 	DrawButtons()
 
 	cCurrentFileName = ""

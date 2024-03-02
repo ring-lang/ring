@@ -1,7 +1,7 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = -739 , : y = 0  , 
+		 :x = 0 , : y = 0  , 
 		 :width =  1264 , :height = 738 , 
 		 :title =  "Gold Magic 800 Level Editor" , 
 		 :backcolor =  "#e4ff6c" , 
@@ -10,7 +10,7 @@ aObjectsList = [
 		 :WindowIcon =  "gold.ico" , 
 		 :Menubar =  ""  ,
 		 :IndexType =  0  ,
-		 :GUILibrary =  0  
+		 :GUILibrary =  1  
 
 		]
 	],
@@ -58,38 +58,6 @@ aObjectsList = [
 		 :setitemSelectionChangedEvent =  ""
 		]
 	],
-	[ :name = "TableWidget1" , :id = 5 , :classname = "formdesigner_qtablewidget" , :data = [
-		 :x = 20 , : y = 77  , 
-		 :width =  1030 , :height = 625 , 
-		 :textcolor =  "black" , 
-		 :backcolor =  "" , 
-		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
-		 :parent =  "win"  ,
-		 :RowCount =  "20",
-		 :ColumnCount =  "20",
-		 :HorizontalHeaders =  "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
-		 :ColumnsWidth =  "50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50",
-		 :HorizontalHeaderStyle =  "",
-		 :VerticalHeaderStyle =  "",
-		 :selectionbehavior =  0,
-		 :alternatingcolors =  1,
-		 :setcellActivatedEvent =  "",
-		 :setcellChangedEvent =  "",
-		 :setcellClickedEvent =  "",
-		 :setcellDoubleClickedEvent =  "",
-		 :setcellEnteredEvent =  "",
-		 :setcellPressedEvent =  "",
-		 :setcurrentCellChangedEvent =  "",
-		 :setcurrentItemChangedEvent =  "",
-		 :setitemActivatedEvent =  "",
-		 :setitemChangedEvent =  "",
-		 :setitemClickedEvent =  "",
-		 :setitemDoubleClickedEvent =  "",
-		 :setitemEnteredEvent =  "",
-		 :setitemPressedEvent =  "",
-		 :setitemSelectionChangedEvent =  ""
-		]
-	],
 	[ :name = "Button5" , :id = 6 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 1071 , : y = 483  , 
 		 :width =  174 , :height = 43 , 
@@ -115,7 +83,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "lblFile" , :id = 8 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 473 , : y = 14  , 
+		 :x = 474 , : y = 14  , 
 		 :width =  827 , :height = 46 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
