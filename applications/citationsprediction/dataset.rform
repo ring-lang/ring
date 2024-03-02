@@ -10,7 +10,7 @@ aObjectsList = [
 		 :WindowIcon =  "images/prediction.png" , 
 		 :Menubar =  ""  ,
 		 :IndexType =  0  ,
-		 :GUILibrary =  0  
+		 :GUILibrary =  1  
 
 		]
 	],
