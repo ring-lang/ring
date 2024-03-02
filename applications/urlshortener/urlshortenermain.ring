@@ -1,5 +1,5 @@
 load "guilib.ring"
-load "stdlib.ring"
+load "stdlibcore.ring"
 load "sqlitelib.ring"
 load "urlshortenersqliteclass.ring"
 load "urlshortenersqlbuilderclass.ring"
