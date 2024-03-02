@@ -329,8 +329,13 @@ void ring_vm_generallib_random ( void *pPointer )
 			if ( nNum2 > 0 ) {
 				RING_API_RETNUMBER(nNum1 % ++nNum2);
 			}
+			else if ( nNum2 == 0 ) {
+				RING_API_RETNUMBER(RING_ZEROF);
+			}
 			else {
-				RING_API_ERROR(RING_API_BADPARARANGE);
+				nNum2 = -1 * nNum2 ;
+				nNum2 = nNum1 % ++nNum2 ;
+				RING_API_RETNUMBER(-1 * nNum2);
 			}
 		}
 		else {
