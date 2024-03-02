@@ -1,4 +1,4 @@
-load "stdlib.ring"
+load "stdlibclasses.ring"
 
 new mytest { test() }
 

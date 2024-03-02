@@ -1,4 +1,4 @@
-load "stdlib.ring"
+load "stdlibcore.ring"
 import mypackage
 new myclass {
 	myfunc() 

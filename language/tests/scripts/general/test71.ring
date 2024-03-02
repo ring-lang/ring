@@ -1,4 +1,4 @@
-load "stdlib.ring"
+load "stdlibcore.ring"
 
 new point {
 	x=10 y=20 z=30

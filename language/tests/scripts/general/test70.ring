@@ -1,4 +1,4 @@
-load "stdlib.ring"
+load "stdlibcore.ring"
 
 func main
 	o1 = new point {

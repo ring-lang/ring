@@ -1,4 +1,4 @@
-load "stdlib.ring"
+load "stdlibcore.ring"
 load "naturallib.ring"
 
 New NaturalLanguage {

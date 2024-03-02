@@ -1,4 +1,4 @@
-load "stdlib.ring"
+load "stdlibclasses.ring"
 	oList = new list ( [1,2,3] )
 	oList.Add(4)
 	oList.print()

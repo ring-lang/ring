@@ -1,4 +1,4 @@
-load "stdlib.ring"
+load "stdlibcore.ring"
 package test
 
 if ismainsourcefile() {

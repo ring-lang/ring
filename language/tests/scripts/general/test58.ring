@@ -1,4 +1,4 @@
-	load "stdlib.ring"
+	load "stdlibcore.ring"
 
 	aList = 1:5	# create list contains numbers from 1 to 5
 	# replace list numbers with strings
