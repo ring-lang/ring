@@ -180,3 +180,8 @@ pList, *pThis, *pClass, *pVar
 Type: Item *
 pItem
 ring_vm_oop_callclassinit
+ring_vm_oop_checkbracemethod
+Type: List *
+pList
+Type: int
+lResult

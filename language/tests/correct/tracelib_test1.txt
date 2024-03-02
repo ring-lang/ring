@@ -156,22 +156,6 @@ Method or Function : Command
 ==========================================
 ====== The Trace function is Active ======
 Trace Function Name : TraceLib_AllEvents()
-Trace Event : Before C Function
-Line Number : 12
-File Name   : tracelib/test1.ring
-Function Name : ismethod
-Method or Function : Function
-==========================================
-====== The Trace function is Active ======
-Trace Function Name : TraceLib_AllEvents()
-Trace Event : After C Function
-Line Number : 12
-File Name   : tracelib/test1.ring
-Function Name : ismethod
-Method or Function : Function
-==========================================
-====== The Trace function is Active ======
-Trace Function Name : TraceLib_AllEvents()
 Trace Event : New Function
 Line Number : 12
 File Name   : tracelib/test1.ring
@@ -210,38 +194,6 @@ Line Number : 12
 File Name   : tracelib/test1.ring
 Function Name : 
 Method or Function : Command
-==========================================
-====== The Trace function is Active ======
-Trace Function Name : TraceLib_AllEvents()
-Trace Event : Before C Function
-Line Number : 12
-File Name   : tracelib/test1.ring
-Function Name : ismethod
-Method or Function : Function
-==========================================
-====== The Trace function is Active ======
-Trace Function Name : TraceLib_AllEvents()
-Trace Event : After C Function
-Line Number : 12
-File Name   : tracelib/test1.ring
-Function Name : ismethod
-Method or Function : Function
-==========================================
-====== The Trace function is Active ======
-Trace Function Name : TraceLib_AllEvents()
-Trace Event : Before C Function
-Line Number : 12
-File Name   : tracelib/test1.ring
-Function Name : ismethod
-Method or Function : Function
-==========================================
-====== The Trace function is Active ======
-Trace Function Name : TraceLib_AllEvents()
-Trace Event : After C Function
-Line Number : 12
-File Name   : tracelib/test1.ring
-Function Name : ismethod
-Method or Function : Function
 ==========================================
 ====== The Trace function is Active ======
 Trace Function Name : TraceLib_AllEvents()

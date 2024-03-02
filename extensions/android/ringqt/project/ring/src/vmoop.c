@@ -1308,3 +1308,12 @@ void ring_vm_oop_callclassinit ( VM *pVM )
 		pVM->nCallClassInit-- ;
 	}
 }
+
+void ring_vm_oop_checkbracemethod ( VM *pVM )
+{
+	List *pList  ;
+	int lResult  ;
+	pList = ring_list_getlist(pVM->pBraceObjects,ring_list_getsize(pVM->pBraceObjects)) ;
+	lResult = ring_vm_oop_ismethod(pVM,ring_list_getlist(pList,RING_BRACEOBJECTS_BRACEOBJECT),RING_VM_IR_READC);
+	RING_VM_STACK_PUSHNVALUE(lResult);
+}

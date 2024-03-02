@@ -1009,5 +1009,8 @@ void ring_vm_execute ( VM *pVM )
 		case ICO_SETOPCODE :
 			ring_vm_setopcode(pVM);
 			break ;
+		case ICO_CHECKBRACEMETHOD :
+			ring_vm_oop_checkbracemethod(pVM);
+			break ;
 	}
 }

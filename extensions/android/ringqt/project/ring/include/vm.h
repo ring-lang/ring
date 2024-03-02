@@ -855,6 +855,8 @@
 	int ring_vm_oop_callingclassmethodfromclassregion ( VM *pVM, List *pMethods ) ;
 
 	void ring_vm_oop_callclassinit ( VM *pVM ) ;
+
+	void ring_vm_oop_checkbracemethod ( VM *pVM ) ;
 	/* Faster instructions */
 
 	void ring_vm_pushp ( VM *pVM ) ;

@@ -273,11 +273,11 @@ nListStart
 Type: char
 nType
 Type: char
-nMethodOrFunc
-Type: char
 nStatus
 Type: char
 nLoadAddressScope
+Type: char
+lMethod
 END:
 Type: FuncCall
 struct FuncCall

@@ -136,7 +136,7 @@
 		/* Better Performance */
 		ICO_LEN ,
 		ICO_SETOPCODE ,
-		ICO_ISMETHOD 
+		ICO_CHECKBRACEMETHOD 
 	} IC_OPERATIONS ;
 	/* Operations Text (Array) */
 	static const char * RING_IC_OP[] = {"NewLine","FileName",
@@ -160,7 +160,7 @@
 	"INCPJUMPSTEP1","INCLPJUMPSTEP1","ANONYMOUS","CallClassInit", 
 	
 	"NewGlobalScope","EndGlobalScope","SetGlobalScope",
-	"FreeTempLists","Len","SetOPCode","IsMethod"} ;
+	"FreeTempLists","Len","SetOPCode","CheckBraceMethod"} ;
 	/* Constants */
 	#define RING_PARSER_ICG_INSTRUCTIONSLISTTYPE List
 	#define RING_PARSER_ICG_OPERATIONCODE 1
