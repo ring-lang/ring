@@ -10,7 +10,7 @@ aObjectsList = [
 		 :WindowIcon =  "FrmQaseedah/poetry.jpg" , 
 		 :Menubar =  ""  ,
 		 :IndexType =  1  ,
-		 :GUILibrary =  0  
+		 :GUILibrary =  1  
 
 		]
 	],
