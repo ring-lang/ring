@@ -135,30 +135,32 @@
 		ICO_FREETEMPLISTS ,
 		/* Better Performance */
 		ICO_LEN ,
-		ICO_SETOPCODE 
+		ICO_SETOPCODE ,
+		ICO_ISMETHOD 
 	} IC_OPERATIONS ;
 	/* Operations Text (Array) */
-	static const char * RING_IC_OP[] = {"NewLine","FileName","Print","Class","Func","Dup","New","Give","Private","NewLabel", 
-	
-	"Jump","JumpZ","Jump1","JumpFOR","JZ2","J12","PUSHNULLTHENJUMP","LoadA","Assignment","LoadSA","LoadIA","LoadAPushV","==","<",">","!=","<=",">=", 
-	
-	"PushC","PushN","Push2N","Push3N","Push4N","PushV","PushP","PushPV","PushPLocal", "SUM","SUB","MUL","DIV","MOD","Negative","Inc","IncP","POW", 
-	
-	"LoadFunc","Call", "Return","ReturnNull","RetFromEval","RetItemRef","ListStart","ListItem","ListEnd","And","Or","Not","FreeStack", 
-	
+	static const char * RING_IC_OP[] = {"NewLine","FileName",
+	"Print","Class","Func","Dup","New","Give","Private","NewLabel",
+	"Jump","JumpZ","Jump1","JumpFOR","JZ2","J12","PUSHNULLTHENJUMP",
+	"LoadA","Assignment","LoadSA","LoadIA","LoadAPushV","==","<",">","!=","<=",">=",
+	"PushC","PushN","Push2N","Push3N","Push4N","PushV","PushP","PushPV","PushPLocal",
+	"SUM","SUB","MUL","DIV","MOD","Negative","Inc","IncP","POW",
+	"LoadFunc","Call", "Return","ReturnNull","RetFromEval","RetItemRef",
+	"ListStart","ListItem","ListEnd","And","Or","Not","FreeStack",
 	"BlockFlag","FuncExE","EndFuncExe","Bye","ExitMark","POPExitMark","Exit","IncJump","IncPJump", 
 	
 	"Try","Done","Range","LoadMethod","SetScope","AfterCallMethod", 
 	
 	"BraceStart","BraceEnd","LoadFuncP","FreeLoadAScope","Loop","IncLPJump","Package","Import", 
 	
-	"SetProperty","NoOperation","AfterCallMethod2","SetReference","KillReference","AssignmentPointer","BeforeEqual","++","--", 
-	
+	"SetProperty","NoOperation","AfterCallMethod2","SetReference","KillReference",
+	"AssignmentPointer","BeforeEqual","++","--",
 	"BITAND","BITOR","BITNOT","BITXOR","BITSHL","BITSHR","StepNumber","POPStep","LoadAFirst", 
 	
 	"INCPJUMPSTEP1","INCLPJUMPSTEP1","ANONYMOUS","CallClassInit", 
 	
-	"NewGlobalScope","EndGlobalScope","SetGlobalScope","FreeTempLists","Len","SetOPCode"} ;
+	"NewGlobalScope","EndGlobalScope","SetGlobalScope",
+	"FreeTempLists","Len","SetOPCode","IsMethod"} ;
 	/* Constants */
 	#define RING_PARSER_ICG_INSTRUCTIONSLISTTYPE List
 	#define RING_PARSER_ICG_OPERATIONCODE 1
