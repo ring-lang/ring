@@ -475,7 +475,6 @@ return
 ### Knights Tour Version - 1  Nestor Kuka -- Derived from: C:\euphoria\myWork\kt-main.eux 
 ### Which is based on the py version recipe.
 ### Works Fine /  Version without graphics/	With Warnsdorff's rule (extended)
-### Load "stdlib.ring"
 
 Func ComputerPlay(horz,vert)
 
