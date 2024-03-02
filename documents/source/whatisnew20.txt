@@ -36,7 +36,7 @@ More Improvements
 * Added: samples/UsingGemini/chat3.ring
 * isWindows64() function - Better Code
 * print() function - Better code to handle apostrophe inside text
-* random() function - Produce an error message when the parameter is a negative number or zero
+* random() function - Produce numeric output when the parameter is a negative number or zero
 * reverse() function - Beside supporting lists, the function now support strings too
 * add() function - when adding a list support adding each item alone
 * list2str() function - Support more parameters: list2str(aList,[nStart],[nEnd])
