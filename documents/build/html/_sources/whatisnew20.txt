@@ -42,6 +42,7 @@ More Improvements
 * list2str() function - Support more parameters: list2str(aList,[nStart],[nEnd])
 * RingQt - Correct parent class name for the QMaterial & QLogicAspect classes
 * RingQt - Added: QComponent class (Qt3DCore)
+* Ring VM - Avoid infinite for loops when the step value is zero 
 * Ring VM - Remove old code related to lAddSubListsByMove and lAddSubListsByFastCopy in VM structure 
 * Ring VM - Return Command - Better code when we return an object passed to the function as parameter
 * Ring VM - OOP Support - Support try/catch when creating new object and the parent class doesn't exist
