@@ -195,6 +195,8 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->lSelfLoadA = 0 ;
 	/* List of pointers that contains lists that will be deleted later */
 	pVM->pDeleteLater = ring_list_new_gc(pVM->pRingState,RING_ZERO);
+	/* Flag used by string to number to know if all of the characters are converted or not */
+	pVM->lFullStringToNum = 0 ;
 	return pVM ;
 }
 

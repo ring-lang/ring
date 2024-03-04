@@ -340,7 +340,7 @@ void ring_vm_equal ( VM *pVM )
 		}
 		else if ( RING_VM_STACK_ISNUMBER ) {
 			nNum1 = RING_VM_STACK_READN ;
-			if ( ring_vm_stringtonum(pVM,ring_string_get(pStr1)) == nNum1 ) {
+			if ( (ring_vm_stringtonum(pVM,ring_string_get(pStr1)) == nNum1) && pVM->lFullStringToNum ) {
 				/* Check whether zero is result of non decimal or hexadecimal value */
 				if ( nNum1 == 0 && ring_string_get(pStr1)[0] != '\0' && sscanf(ring_string_get(pStr1),"%lf",&nNum2) != 1 ) {
 					RING_VM_STACK_FALSE ;
@@ -371,7 +371,7 @@ void ring_vm_equal ( VM *pVM )
 			}
 		}
 		else if ( RING_VM_STACK_ISSTRING ) {
-			if ( ring_vm_stringtonum(pVM,RING_VM_STACK_READC) == nNum1 ) {
+			if ( (ring_vm_stringtonum(pVM,RING_VM_STACK_READC) == nNum1)  && pVM->lFullStringToNum ) {
 				/* Check whether zero is result of non decimal or hexadecimal value */
 				if ( nNum1 == 0 && RING_VM_STACK_READC[0] != '\0' && sscanf(RING_VM_STACK_READC,"%lf",&nNum2) != 1 ) {
 					RING_VM_STACK_FALSE ;
@@ -613,7 +613,7 @@ void ring_vm_notequal ( VM *pVM )
 			nNum2 = RING_VM_STACK_READN ;
 			nNum1 = ring_vm_stringtonum(pVM,ring_string_get(pStr1)) ;
 			/* Compare */
-			if ( nNum1 == nNum2 ) {
+			if ( (nNum1 == nNum2)  && pVM->lFullStringToNum ) {
 				/* Check whether zero is result of non decimal or hexadecimal value */
 				if ( nNum1 == 0 && ring_string_get(pStr1)[0] != '\0' && sscanf(ring_string_get(pStr1),"%lf",&nNum2) != 1 ) {
 					RING_VM_STACK_TRUE ;
@@ -647,7 +647,7 @@ void ring_vm_notequal ( VM *pVM )
 		else if ( RING_VM_STACK_ISSTRING ) {
 			pStr2 = RING_VM_STACK_GETSTRINGRAW ;
 			/* Compare */
-			if ( ring_vm_stringtonum(pVM,ring_string_get(pStr2)) == nNum1 ) {
+			if ( (ring_vm_stringtonum(pVM,ring_string_get(pStr2)) == nNum1)  && pVM->lFullStringToNum ) {
 				/* Check whether zero is result of non decimal or hexadecimal value */
 				if ( nNum1 == 0 && ring_string_get(pStr2)[0] != '\0' && sscanf(ring_string_get(pStr2),"%lf",&nNum2) != 1 ) {
 					RING_VM_STACK_TRUE ;
@@ -1029,6 +1029,8 @@ RING_API double ring_vm_stringtonum ( VM *pVM,const char *cStr )
 	double nResult  ;
 	char *cEndStr  ;
 	errno = 0 ;
+	/* Assume that all of the string characters will be converted */
+	pVM->lFullStringToNum = 1 ;
 	/* Support converting NULL to Zero */
 	if ( strcmp(cStr,"") == 0 ) {
 		return 0.0 ;
@@ -1055,6 +1057,9 @@ RING_API double ring_vm_stringtonum ( VM *pVM,const char *cStr )
 		**  For example: ( if lineno = NULL ) 
 		*/
 		return 0.0 ;
+	}
+	else if ( (cEndStr > cStr) && ( cEndStr < (cStr+strlen(cStr)) ) ) {
+		pVM->lFullStringToNum = 0 ;
 	}
 	return nResult ;
 }

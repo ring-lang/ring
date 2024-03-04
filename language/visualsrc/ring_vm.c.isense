@@ -232,6 +232,8 @@ Type: unsigned int
 lPassError: 1
 Type: unsigned int
 lHideErrorMsg: 1
+Type: unsigned int
+lFullStringToNum: 1
 Type: Item
 aStack[RING_VM_STACK_SIZE]
 END:
