@@ -1193,6 +1193,7 @@ void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
 			}
 			else {
 				RING_VM_STACK_SETNVALUE(1.0);
+				return ;
 			}
 		}
 		ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
@@ -1223,6 +1224,7 @@ void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
 			}
 			else {
 				RING_VM_STACK_SETNVALUE(1.0);
+				return ;
 			}
 		}
 		ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
