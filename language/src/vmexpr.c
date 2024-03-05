@@ -1259,8 +1259,10 @@ void ring_vm_expr_npoo ( VM *pVM,const char *cStr,double nNum1 )
 			return ;
 		}
 		else {
-			RING_VM_STACK_SETNVALUE(RING_FALSEF);
-			return ;
+			if ( ! ring_vm_oop_ismethod(pVM,pList,RING_CSTR_OPERATOR) ) {
+				RING_VM_STACK_SETNVALUE(RING_FALSEF);
+				return ;
+			}
 		}
 	}
 	else if ( strcmp(cStr,"and") == 0 ) {
