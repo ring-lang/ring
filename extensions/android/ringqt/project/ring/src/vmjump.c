@@ -127,6 +127,7 @@ void ring_vm_jumpone2 ( VM *pVM )
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
 		if ( strcmp(RING_VM_STACK_READC,"") != 0 ) {
+			RING_VM_STACK_SETNVALUE(RING_TRUEF);
 			RING_VM_JUMP ;
 			return ;
 		}

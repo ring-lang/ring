@@ -141,7 +141,7 @@
 	/* Operations Text (Array) */
 	static const char * RING_IC_OP[] = {"NewLine","FileName",
 	"Print","Class","Func","Dup","New","Give","Private","NewLabel",
-	"Jump","JumpZ","Jump1","JumpFOR","JZ2","J12","PUSHNULLTHENJUMP",
+	"Jump","JumpZ","Jump1","JumpFOR","JumpZERO2","JumpONE2","PUSHNULLTHENJUMP",
 	"LoadA","Assignment","LoadSA","LoadIA","LoadAPushV","==","<",">","!=","<=",">=",
 	"PushC","PushN","Push2N","Push3N","Push4N","PushV","PushP","PushPV","PushPLocal",
 	"SUM","SUB","MUL","DIV","MOD","Negative","Inc","IncP","POW",

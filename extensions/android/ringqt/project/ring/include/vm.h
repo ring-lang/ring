@@ -604,10 +604,6 @@
 
 	void ring_vm_neg ( VM *pVM ) ;
 
-	RING_API char * ring_vm_numtostring ( VM *pVM,double nNum1,char *cStr ) ;
-
-	RING_API double ring_vm_stringtonum ( VM *pVM,const char *cStr ) ;
-
 	void ring_vm_expr_ppoo ( VM *pVM,const char *cStr ) ;
 
 	void ring_vm_expr_npoo ( VM *pVM,const char *cStr,double nNum1 ) ;
@@ -623,6 +619,10 @@
 	void ring_vm_addlisttolist ( VM *pVM,List *pList,List *pList2 ) ;
 
 	int ring_vm_checkoverflow ( VM *pVM,double nNum1,double nNum2 ) ;
+
+	RING_API char * ring_vm_numtostring ( VM *pVM,double nNum1,char *cStr ) ;
+
+	RING_API double ring_vm_stringtonum ( VM *pVM,const char *cStr ) ;
 	/* Logic */
 
 	void ring_vm_and ( VM *pVM ) ;
@@ -630,6 +630,8 @@
 	void ring_vm_or ( VM *pVM ) ;
 
 	void ring_vm_not ( VM *pVM ) ;
+
+	double ring_vm_stringtologicvalue ( VM *pVM,const char *cStr ) ;
 	/* Variables */
 
 	void ring_vm_newscope ( VM *pVM ) ;
