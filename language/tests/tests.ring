@@ -527,6 +527,7 @@ aTests = [
 	[ :name = "General Tests (Part 199)", :Command = "ring general/merge.ring" ],
 	[ :name = "General Tests (Part 200)", :Command = "ring general/list2stroptions.ring" ],
 	[ :name = "General Tests (Part 201)", :Command = "ring general/conversion2.ring" ],
+	[ :name = "General Tests (Part 202)", :Command = "ring general/conversion3.ring" ],
 	[ :name = "Using lists during definition (Part 1)", :Command = "ring listsduringdef/usinglistduringdef.ring" ],
 	[ :name = "Using lists during definition (Part 2)", :Command = "ring listsduringdef/usinglistduringdef2.ring" ],
 	[ :name = "Using lists during definition (Part 3)", :Command = "ring listsduringdef/usinglistduringdef3.ring" ],
