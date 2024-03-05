@@ -1167,7 +1167,7 @@ void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
 			ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
 		}
 	}
-	else {
+	else if ( RING_VM_STACK_ISNUMBER ) {
 		if ( strcmp(cStr,"=") == 0 ) {
 			RING_VM_STACK_SETNVALUE(0.0);
 			return ;
@@ -1181,11 +1181,48 @@ void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
 				RING_VM_STACK_SETNVALUE((double) ( (ring_list_getsize(pList) != 0) && RING_VM_STACK_READN ));
 				return ;
 			}
+			else {
+				RING_VM_STACK_SETNVALUE((double) ( 1 && RING_VM_STACK_READN ));
+				return ;
+			}
 		}
 		else if ( strcmp(cStr,"or") == 0 ) {
 			if ( ring_vm_oop_isobject(pList) == 0 ) {
 				RING_VM_STACK_SETNVALUE((double) ( (ring_list_getsize(pList) != 0) || RING_VM_STACK_READN ));
 				return ;
+			}
+			else {
+				RING_VM_STACK_SETNVALUE(1.0);
+			}
+		}
+		ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
+	}
+	else if ( RING_VM_STACK_ISSTRING ) {
+		if ( strcmp(cStr,"=") == 0 ) {
+			RING_VM_STACK_SETNVALUE(0.0);
+			return ;
+		}
+		else if ( strcmp(cStr,"!=") == 0 ) {
+			RING_VM_STACK_SETNVALUE(1.0);
+			return ;
+		}
+		else if ( strcmp(cStr,"and") == 0 ) {
+			if ( ring_vm_oop_isobject(pList) == 0 ) {
+				RING_VM_STACK_SETNVALUE((double) ( (ring_list_getsize(pList) != 0) && ( ! (strcmp(RING_VM_STACK_READC,"")==0) ) ));
+				return ;
+			}
+			else {
+				RING_VM_STACK_SETNVALUE((double) ( 1 && ( ! (strcmp(RING_VM_STACK_READC,"")==0) ) ));
+				return ;
+			}
+		}
+		else if ( strcmp(cStr,"or") == 0 ) {
+			if ( ring_vm_oop_isobject(pList) == 0 ) {
+				RING_VM_STACK_SETNVALUE((double) ( (ring_list_getsize(pList) != 0) || ( ! (strcmp(RING_VM_STACK_READC,"")==0) ) ));
+				return ;
+			}
+			else {
+				RING_VM_STACK_SETNVALUE(1.0);
 			}
 		}
 		ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
