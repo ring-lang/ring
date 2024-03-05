@@ -530,6 +530,8 @@ aTests = [
 	[ :name = "General Tests (Part 202)", :Command = "ring general/conversion3.ring" ],
 	[ :name = "General Tests (Part 203)", :Command = "ring general/conversion4.ring" ],
 	[ :name = "General Tests (Part 204)", :Command = "ring general/conversion5.ring" ],
+	[ :name = "General Tests (Part 205)", :Command = "ring general/conversion6.ring" ],
+	[ :name = "General Tests (Part 206)", :Command = "ring general/conversion7.ring" ],
 	[ :name = "Using lists during definition (Part 1)", :Command = "ring listsduringdef/usinglistduringdef.ring" ],
 	[ :name = "Using lists during definition (Part 2)", :Command = "ring listsduringdef/usinglistduringdef2.ring" ],
 	[ :name = "Using lists during definition (Part 3)", :Command = "ring listsduringdef/usinglistduringdef3.ring" ],
