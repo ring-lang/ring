@@ -1258,6 +1258,10 @@ void ring_vm_expr_npoo ( VM *pVM,const char *cStr,double nNum1 )
 			RING_VM_STACK_SETNVALUE((double)(ring_list_getsize(pList) == 0));
 			return ;
 		}
+		else {
+			RING_VM_STACK_SETNVALUE(RING_FALSEF);
+			return ;
+		}
 	}
 	else if ( strcmp(cStr,"and") == 0 ) {
 		if ( ring_vm_oop_isobject(pList) == 0 ) {
