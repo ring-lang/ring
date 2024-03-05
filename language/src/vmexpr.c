@@ -1066,10 +1066,7 @@ RING_API double ring_vm_stringtonum ( VM *pVM,const char *cStr )
 
 double ring_vm_stringtologicvalue ( VM *pVM,const char *cStr )
 {
-	if ( strcmp(cStr,"") == 0 ) {
-		return 0.0 ;
-	}
-	return 1.0 ;
+	return (double) (! (strcmp(cStr,"") == 0)) ;
 }
 
 void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
