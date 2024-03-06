@@ -1,0 +1,37 @@
++
+1
+
+len
+0
+
+[]
+10
+
+and
+1
+
+or
+1
+
+and
+Test
+
+or
+Test
+
+and
+20
+
+
+or
+30
+
+
+and
+name: GoodObj
+
+
+or
+name: GoodObj
+
+
