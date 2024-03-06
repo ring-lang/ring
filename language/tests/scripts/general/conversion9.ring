@@ -18,6 +18,9 @@ o = new myclass
 ? o and o
 ? o or o
 
+? ! o
+? not o
+
 class myclass
 	name = "GoodObj"
 	func operator cOp,vValue

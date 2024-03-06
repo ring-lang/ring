@@ -35,3 +35,9 @@ or
 name: GoodObj
 
 
+not
+0
+
+not
+0
+
