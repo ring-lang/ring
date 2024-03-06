@@ -137,8 +137,10 @@ void ring_vm_jumpone2 ( VM *pVM )
 			pList = (List *) RING_VM_STACK_READP ;
 			pList = ring_list_getlist(pList,RING_VAR_VALUE) ;
 			if ( ring_list_getsize(pList) != 0 ) {
-				RING_VM_STACK_SETNVALUE(RING_TRUEF);
-				RING_VM_JUMP ;
+				if ( ! ( ring_vm_oop_isobject(pList) && ring_vm_oop_ismethod(pVM,pList,RING_CSTR_OPERATOR) ) ) {
+					RING_VM_STACK_SETNVALUE(RING_TRUEF);
+					RING_VM_JUMP ;
+				}
 				return ;
 			}
 		}
@@ -183,6 +185,9 @@ void ring_vm_jumpzero2 ( VM *pVM )
 				RING_VM_JUMP ;
 				return ;
 			}
+			if ( ring_vm_oop_isobject(pList) && ring_vm_oop_ismethod(pVM,pList,RING_CSTR_OPERATOR) ) {
+				return ;
+			}
 		}
 		else if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM ) {
 			pItem = (Item *) RING_VM_STACK_READP ;
@@ -190,6 +195,9 @@ void ring_vm_jumpzero2 ( VM *pVM )
 			if ( ring_list_getsize(pList) == 0 ) {
 				RING_VM_STACK_SETNVALUE(RING_FALSEF);
 				RING_VM_JUMP ;
+				return ;
+			}
+			if ( ring_vm_oop_isobject(pList) && ring_vm_oop_ismethod(pVM,pList,RING_CSTR_OPERATOR) ) {
 				return ;
 			}
 		}
