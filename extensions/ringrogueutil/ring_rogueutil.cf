@@ -57,6 +57,9 @@ KEY_NUMPAD8
 KEY_NUMPAD9
 </constant>
 
+<runcode>
+aNumberTypes + "const int"
+</runcode>
 
 void locate(int x, int y)
 int getch(void)
