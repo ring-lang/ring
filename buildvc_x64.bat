@@ -171,6 +171,11 @@ cd ringpostgresql
 call buildvc_x64
 cd ..
 
+rem build RingRogueUtil
+cd ringrogueutil
+call buildvc_x64
+cd ..
+
 rem build RingFastPro
 cd ringfastpro
 call buildvc_x64

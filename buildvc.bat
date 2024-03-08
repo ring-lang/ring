@@ -171,6 +171,11 @@ cd ringpostgresql
 call buildvc
 cd ..
 
+rem build RingRogueUtil
+cd ringrogueutil
+call buildvc
+cd ..
+
 rem build RingFastPro
 cd ringfastpro
 call buildvc
