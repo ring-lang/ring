@@ -75,4 +75,6 @@ The RingCJSON folder contains the Ring binding to CJSON library
 
 The RingHTTPLib folder contains the Ring binding to CPPHTTPLib library
 
+The RingRogueUtil folder contains the Ring binding to RogueUtil library
+
 The RingFastPro folder contains functions for bytes/list processing
