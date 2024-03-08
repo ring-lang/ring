@@ -6,6 +6,181 @@ RING_FUNC(ring_get_key_escape)
 	RING_API_RETNUMBER(KEY_ESCAPE);
 }
 
+RING_FUNC(ring_get_key_enter)
+{
+	RING_API_RETNUMBER(KEY_ENTER);
+}
+
+RING_FUNC(ring_get_key_space)
+{
+	RING_API_RETNUMBER(KEY_SPACE);
+}
+
+RING_FUNC(ring_get_key_insert)
+{
+	RING_API_RETNUMBER(KEY_INSERT);
+}
+
+RING_FUNC(ring_get_key_home)
+{
+	RING_API_RETNUMBER(KEY_HOME);
+}
+
+RING_FUNC(ring_get_key_pgup)
+{
+	RING_API_RETNUMBER(KEY_PGUP);
+}
+
+RING_FUNC(ring_get_key_delete)
+{
+	RING_API_RETNUMBER(KEY_DELETE);
+}
+
+RING_FUNC(ring_get_key_end)
+{
+	RING_API_RETNUMBER(KEY_END);
+}
+
+RING_FUNC(ring_get_key_pgdown)
+{
+	RING_API_RETNUMBER(KEY_PGDOWN);
+}
+
+RING_FUNC(ring_get_key_up)
+{
+	RING_API_RETNUMBER(KEY_UP);
+}
+
+RING_FUNC(ring_get_key_down)
+{
+	RING_API_RETNUMBER(KEY_DOWN);
+}
+
+RING_FUNC(ring_get_key_left)
+{
+	RING_API_RETNUMBER(KEY_LEFT);
+}
+
+RING_FUNC(ring_get_key_right)
+{
+	RING_API_RETNUMBER(KEY_RIGHT);
+}
+
+RING_FUNC(ring_get_key_f1)
+{
+	RING_API_RETNUMBER(KEY_F1);
+}
+
+RING_FUNC(ring_get_key_f2)
+{
+	RING_API_RETNUMBER(KEY_F2);
+}
+
+RING_FUNC(ring_get_key_f3)
+{
+	RING_API_RETNUMBER(KEY_F3);
+}
+
+RING_FUNC(ring_get_key_f4)
+{
+	RING_API_RETNUMBER(KEY_F4);
+}
+
+RING_FUNC(ring_get_key_f5)
+{
+	RING_API_RETNUMBER(KEY_F5);
+}
+
+RING_FUNC(ring_get_key_f6)
+{
+	RING_API_RETNUMBER(KEY_F6);
+}
+
+RING_FUNC(ring_get_key_f7)
+{
+	RING_API_RETNUMBER(KEY_F7);
+}
+
+RING_FUNC(ring_get_key_f8)
+{
+	RING_API_RETNUMBER(KEY_F8);
+}
+
+RING_FUNC(ring_get_key_f9)
+{
+	RING_API_RETNUMBER(KEY_F9);
+}
+
+RING_FUNC(ring_get_key_f10)
+{
+	RING_API_RETNUMBER(KEY_F10);
+}
+
+RING_FUNC(ring_get_key_f11)
+{
+	RING_API_RETNUMBER(KEY_F11);
+}
+
+RING_FUNC(ring_get_key_f12)
+{
+	RING_API_RETNUMBER(KEY_F12);
+}
+
+RING_FUNC(ring_get_key_numdel)
+{
+	RING_API_RETNUMBER(KEY_NUMDEL);
+}
+
+RING_FUNC(ring_get_key_numpad0)
+{
+	RING_API_RETNUMBER(KEY_NUMPAD0);
+}
+
+RING_FUNC(ring_get_key_numpad1)
+{
+	RING_API_RETNUMBER(KEY_NUMPAD1);
+}
+
+RING_FUNC(ring_get_key_numpad2)
+{
+	RING_API_RETNUMBER(KEY_NUMPAD2);
+}
+
+RING_FUNC(ring_get_key_numpad3)
+{
+	RING_API_RETNUMBER(KEY_NUMPAD3);
+}
+
+RING_FUNC(ring_get_key_numpad4)
+{
+	RING_API_RETNUMBER(KEY_NUMPAD4);
+}
+
+RING_FUNC(ring_get_key_numpad5)
+{
+	RING_API_RETNUMBER(KEY_NUMPAD5);
+}
+
+RING_FUNC(ring_get_key_numpad6)
+{
+	RING_API_RETNUMBER(KEY_NUMPAD6);
+}
+
+RING_FUNC(ring_get_key_numpad7)
+{
+	RING_API_RETNUMBER(KEY_NUMPAD7);
+}
+
+RING_FUNC(ring_get_key_numpad8)
+{
+	RING_API_RETNUMBER(KEY_NUMPAD8);
+}
+
+RING_FUNC(ring_get_key_numpad9)
+{
+	RING_API_RETNUMBER(KEY_NUMPAD9);
+}
+
 
 RING_FUNC(ring_locate)
 {
@@ -346,4 +521,39 @@ RING_LIBINIT
 	RING_API_REGISTER("getusername",ring_getUsername);
 	RING_API_REGISTER("printxy",ring_printXY);
 	RING_API_REGISTER("get_key_escape",ring_get_key_escape);
+	RING_API_REGISTER("get_key_enter",ring_get_key_enter);
+	RING_API_REGISTER("get_key_space",ring_get_key_space);
+	RING_API_REGISTER("get_key_insert",ring_get_key_insert);
+	RING_API_REGISTER("get_key_home",ring_get_key_home);
+	RING_API_REGISTER("get_key_pgup",ring_get_key_pgup);
+	RING_API_REGISTER("get_key_delete",ring_get_key_delete);
+	RING_API_REGISTER("get_key_end",ring_get_key_end);
+	RING_API_REGISTER("get_key_pgdown",ring_get_key_pgdown);
+	RING_API_REGISTER("get_key_up",ring_get_key_up);
+	RING_API_REGISTER("get_key_down",ring_get_key_down);
+	RING_API_REGISTER("get_key_left",ring_get_key_left);
+	RING_API_REGISTER("get_key_right",ring_get_key_right);
+	RING_API_REGISTER("get_key_f1",ring_get_key_f1);
+	RING_API_REGISTER("get_key_f2",ring_get_key_f2);
+	RING_API_REGISTER("get_key_f3",ring_get_key_f3);
+	RING_API_REGISTER("get_key_f4",ring_get_key_f4);
+	RING_API_REGISTER("get_key_f5",ring_get_key_f5);
+	RING_API_REGISTER("get_key_f6",ring_get_key_f6);
+	RING_API_REGISTER("get_key_f7",ring_get_key_f7);
+	RING_API_REGISTER("get_key_f8",ring_get_key_f8);
+	RING_API_REGISTER("get_key_f9",ring_get_key_f9);
+	RING_API_REGISTER("get_key_f10",ring_get_key_f10);
+	RING_API_REGISTER("get_key_f11",ring_get_key_f11);
+	RING_API_REGISTER("get_key_f12",ring_get_key_f12);
+	RING_API_REGISTER("get_key_numdel",ring_get_key_numdel);
+	RING_API_REGISTER("get_key_numpad0",ring_get_key_numpad0);
+	RING_API_REGISTER("get_key_numpad1",ring_get_key_numpad1);
+	RING_API_REGISTER("get_key_numpad2",ring_get_key_numpad2);
+	RING_API_REGISTER("get_key_numpad3",ring_get_key_numpad3);
+	RING_API_REGISTER("get_key_numpad4",ring_get_key_numpad4);
+	RING_API_REGISTER("get_key_numpad5",ring_get_key_numpad5);
+	RING_API_REGISTER("get_key_numpad6",ring_get_key_numpad6);
+	RING_API_REGISTER("get_key_numpad7",ring_get_key_numpad7);
+	RING_API_REGISTER("get_key_numpad8",ring_get_key_numpad8);
+	RING_API_REGISTER("get_key_numpad9",ring_get_key_numpad9);
 }
