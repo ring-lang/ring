@@ -492,9 +492,11 @@ RING_FUNC(ring_msleep)
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	msleep(* (unsigned int  *) RING_API_GETCPOINTER(1,"unsigned int"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		RING_API_FREE(RING_API_GETCPOINTER(1,"unsigned int"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	msleep( (unsigned int ) RING_API_GETNUMBER(1));
 }
 
 

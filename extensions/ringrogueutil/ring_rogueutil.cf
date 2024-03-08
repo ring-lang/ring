@@ -59,6 +59,7 @@ KEY_NUMPAD9
 
 <runcode>
 aNumberTypes + "const int"
+aNumberTypes + "unsigned int"
 </runcode>
 
 void locate(int x, int y)
