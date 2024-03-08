@@ -1,0 +1,33 @@
+<code>
+#include "rogueutil/rogueutil.h"
+</code>
+
+<constant>
+KEY_ESCAPE
+</constant>
+
+void locate(int x, int y)
+int getch(void)
+int kbhit(void)
+void gotoxy(int x, int y)
+int getkey(void)
+int nb_getch(void)
+char *getANSIColor(const int c)
+char *getANSIBgColor(const int c)
+void setColor(int c)
+void setBackgroundColor(int c)
+int saveDefaultColor(void)
+void resetColor(void)
+void cls(void)
+void setString(char *str)
+void setChar(char ch)
+void setCursorVisibility(char visible)
+void hidecursor(void)
+void showcursor(void)
+void msleep(unsigned int ms)
+int trows(void)
+int tcols(void)
+void anykey(char *msg)
+void setConsoleTitle(char *title)
+char *getUsername(void)
+void printXY(int x, int y, char *msg)
