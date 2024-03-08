@@ -1,6 +1,86 @@
 #include "ring.h"
 
 #include "rogueutil/rogueutil.h"
+RING_FUNC(ring_get_black)
+{
+	RING_API_RETNUMBER(BLACK);
+}
+
+RING_FUNC(ring_get_blue)
+{
+	RING_API_RETNUMBER(BLUE);
+}
+
+RING_FUNC(ring_get_green)
+{
+	RING_API_RETNUMBER(GREEN);
+}
+
+RING_FUNC(ring_get_cyan)
+{
+	RING_API_RETNUMBER(CYAN);
+}
+
+RING_FUNC(ring_get_red)
+{
+	RING_API_RETNUMBER(RED);
+}
+
+RING_FUNC(ring_get_magenta)
+{
+	RING_API_RETNUMBER(MAGENTA);
+}
+
+RING_FUNC(ring_get_brown)
+{
+	RING_API_RETNUMBER(BROWN);
+}
+
+RING_FUNC(ring_get_grey)
+{
+	RING_API_RETNUMBER(GREY);
+}
+
+RING_FUNC(ring_get_darkgrey)
+{
+	RING_API_RETNUMBER(DARKGREY);
+}
+
+RING_FUNC(ring_get_lightblue)
+{
+	RING_API_RETNUMBER(LIGHTBLUE);
+}
+
+RING_FUNC(ring_get_lightgreen)
+{
+	RING_API_RETNUMBER(LIGHTGREEN);
+}
+
+RING_FUNC(ring_get_lightcyan)
+{
+	RING_API_RETNUMBER(LIGHTCYAN);
+}
+
+RING_FUNC(ring_get_lightred)
+{
+	RING_API_RETNUMBER(LIGHTRED);
+}
+
+RING_FUNC(ring_get_lightmagenta)
+{
+	RING_API_RETNUMBER(LIGHTMAGENTA);
+}
+
+RING_FUNC(ring_get_yellow)
+{
+	RING_API_RETNUMBER(YELLOW);
+}
+
+RING_FUNC(ring_get_white)
+{
+	RING_API_RETNUMBER(WHITE);
+}
+
 RING_FUNC(ring_get_key_escape)
 {
 	RING_API_RETNUMBER(KEY_ESCAPE);
@@ -520,6 +600,22 @@ RING_LIBINIT
 	RING_API_REGISTER("setconsoletitle",ring_setConsoleTitle);
 	RING_API_REGISTER("getusername",ring_getUsername);
 	RING_API_REGISTER("printxy",ring_printXY);
+	RING_API_REGISTER("get_black",ring_get_black);
+	RING_API_REGISTER("get_blue",ring_get_blue);
+	RING_API_REGISTER("get_green",ring_get_green);
+	RING_API_REGISTER("get_cyan",ring_get_cyan);
+	RING_API_REGISTER("get_red",ring_get_red);
+	RING_API_REGISTER("get_magenta",ring_get_magenta);
+	RING_API_REGISTER("get_brown",ring_get_brown);
+	RING_API_REGISTER("get_grey",ring_get_grey);
+	RING_API_REGISTER("get_darkgrey",ring_get_darkgrey);
+	RING_API_REGISTER("get_lightblue",ring_get_lightblue);
+	RING_API_REGISTER("get_lightgreen",ring_get_lightgreen);
+	RING_API_REGISTER("get_lightcyan",ring_get_lightcyan);
+	RING_API_REGISTER("get_lightred",ring_get_lightred);
+	RING_API_REGISTER("get_lightmagenta",ring_get_lightmagenta);
+	RING_API_REGISTER("get_yellow",ring_get_yellow);
+	RING_API_REGISTER("get_white",ring_get_white);
 	RING_API_REGISTER("get_key_escape",ring_get_key_escape);
 	RING_API_REGISTER("get_key_enter",ring_get_key_enter);
 	RING_API_REGISTER("get_key_space",ring_get_key_space);
