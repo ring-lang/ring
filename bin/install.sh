@@ -606,3 +606,17 @@ then
 sudo ln -sf "`pwd`/lib/libring_fastpro.so" /usr/lib
 sudo ln -sf "`pwd`/lib/libring_fastpro.so" /usr/lib64
 fi
+
+# Make the RingRogueUtil library ready for use directly
+
+if [ -f lib/libring_rogueutil.dylib ];
+then
+ln -sf "`pwd`/lib/libring_rogueutil.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_rogueutil.dylib
+fi
+
+if [ -f lib/libring_rogueutil.so ];
+then
+sudo ln -sf "`pwd`/lib/libring_rogueutil.so" /usr/lib
+sudo ln -sf "`pwd`/lib/libring_rogueutil.so" /usr/lib64
+fi
