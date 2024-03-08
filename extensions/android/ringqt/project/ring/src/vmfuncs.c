@@ -390,7 +390,7 @@ void ring_vm_return ( VM *pVM )
 				ring_vm_movetoprevscope(pVM,RING_FUNCTYPE_SCRIPT);
 			}
 			else {
-				if ( pVM->nRetItemRef == 0 ) {
+				if ( (pVM->nRetItemRef == 0) && (pVM->nLoadAddressScope == RING_VARSCOPE_OBJSTATE) ) {
 					pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
 				}
 			}
