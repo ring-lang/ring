@@ -389,6 +389,11 @@ void ring_vm_return ( VM *pVM )
 			if ( ring_vm_isstackpointertoobjstate(pVM) == 0 ) {
 				ring_vm_movetoprevscope(pVM,RING_FUNCTYPE_SCRIPT);
 			}
+			else {
+				if ( pVM->nRetItemRef == 0 ) {
+					pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
+				}
+			}
 		}
 		ring_vm_deletescope(pVM);
 		/* Restore State */
