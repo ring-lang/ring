@@ -197,6 +197,8 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->pDeleteLater = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Flag used by string to number to know if all of the characters are converted or not */
 	pVM->lFullStringToNum = 0 ;
+	/* A Flag to display error when only part of the string is converted to a number */
+	pVM->lSubStringToNumError = 1 ;
 	return pVM ;
 }
 

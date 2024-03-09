@@ -134,6 +134,7 @@
 		unsigned int lPassError: 1  ;
 		unsigned int lHideErrorMsg: 1  ;
 		unsigned int lFullStringToNum: 1  ;
+		unsigned int lSubStringToNumError: 1  ;
 		Item aStack[RING_VM_STACK_SIZE]  ;
 	} VM ;
 	typedef struct FuncCall {

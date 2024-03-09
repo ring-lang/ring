@@ -816,7 +816,9 @@ void ring_vm_generallib_dec ( void *pPointer )
 
 void ring_vm_generallib_number ( void *pPointer )
 {
+	VM *pVM  ;
 	double x  ;
+	pVM = (VM *) pPointer ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -826,7 +828,9 @@ void ring_vm_generallib_number ( void *pPointer )
 		return ;
 	}
 	if ( RING_API_ISSTRING(1) ) {
+		pVM->lSubStringToNumError = 0 ;
 		x = ring_vm_stringtonum((VM *) pPointer,RING_API_GETSTRING(1));
+		pVM->lSubStringToNumError = 1 ;
 		RING_API_RETNUMBER(x);
 	}
 	else {
