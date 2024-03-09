@@ -38,7 +38,11 @@ aList[2] = 255
 ? 0 >= "0x0"
 ? 255 >= "0xFF"
 ? 0 >= "0xFF"
-? 0 >= "red"
+try
+	? 0 >= "red"
+catch
+	? cCatchError
+done
 ? Copy("*",10)
 ? 0 <= "0"
 ? 0 <= ""
@@ -46,4 +50,9 @@ aList[2] = 255
 ? 0 <= "0x0"
 ? 255 <= "0xFF"
 ? 0 <= "0xFF"
-? 0 <= "red"
+try
+	? 0 <= "red"
+catch
+	? cCatchError
+done
+? Copy("*",10)
