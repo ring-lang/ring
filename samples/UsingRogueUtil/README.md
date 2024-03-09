@@ -67,6 +67,6 @@ In this folder we have samples about using RogueUtil through the Ring programmin
 Screen Shots:
 =============
 
-![Shot1](https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingRogueUtil/images/shot1.png)
+<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingRogueUtil/images/shot1.png" alt="shot1">
 
-![Shot2](https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingRogueUtil/images/shot2.png)
+<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingRogueUtil/images/shot2.png" alt="shot2">
