@@ -123,6 +123,22 @@ cd ../ringpostgresql
 cd ../ringsqlite
 ./buildgcc.sh
 
+# Build Ring2EXE
+cd ../../tools/ring2exe
+./build.sh
+
+# Build RingPM
+cd ../ringpm
+./build.sh
+
+# Build RingREPL
+cd ../ringrepl
+./build.sh
+
+# Build Folder2QRC
+cd ../folder2qrc
+./build.sh
+
 # Install
 cd ../../bin
 ./install.sh
