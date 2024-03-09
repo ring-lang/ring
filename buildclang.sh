@@ -86,7 +86,7 @@ cd ../ringopengl/opengl21
 ./buildclang.sh
 
 # Build RingCurl
-cd ../ringcurl
+cd ../../ringcurl
 ./gencode.sh
 ./buildclang.sh
 
