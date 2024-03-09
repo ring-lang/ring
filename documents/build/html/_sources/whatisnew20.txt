@@ -29,11 +29,11 @@ More Improvements
 * ring/applications - Using lightguilib.ring instead of guilib.ring in many applications
 * Calculator application - Using sqlitelib.ring
 * File: language/src/installdep.sh - Added: libqt5multimedia5-plugins
+* Added: samples/UsingGemini
+* Added: samples/General/NeuralNetwork
+* Added: samples/Drawing/CalculusConics
 * Added: samples/UsingQt/PDF/CreatePDF.ring
-* Added: samples/AQuickStart/GameLib/delay.ring - An example about using the al_rest() function
-* Added: samples/UsingGemini/chat1.ring
-* Added: samples/UsingGemini/chat2.ring
-* Added: samples/UsingGemini/chat3.ring
+* Added: samples/AQuickStart/GameLib/delay.ring
 * isWindows64() function - Better Code
 * print() function - Better code to handle apostrophe inside text
 * random() function - Produce numeric output when the parameter is a negative number or zero
@@ -44,15 +44,17 @@ More Improvements
 * RingQt - Added: QComponent class (Qt3DCore)
 * Ring VM - Avoid infinite for loops when the step value is zero 
 * Ring VM - Remove old code related to lAddSubListsByMove and lAddSubListsByFastCopy in VM structure 
-* Ring VM - Return Command - Better code when we return an object passed to the function as parameter
-* Ring VM - OOP Support - Support try/catch when creating new object and the parent class doesn't exist
+* Ring VM - Return command - Better code when we return an object passed to the function as parameter
+* Ring VM - Return command - Better code when we return class attribute by reference 
+* Ring VM - Better support for try/catch and different operators
+* Ring VM - Better support for try/catch when creating new object and the parent class doesn't exist
 * Ring VM - When we compare between a string and a number take in mind if the string contains extra characters
 * Ring Source Code - Better Format
 * Ring Source Code - Using constants
-* Ring Source Code - Structures Members - Better names
-* Ring Source Code - Functions Parameters - Better names
 * Ring Source Code - Use Bit Fields in structures
-* Ring Source Code - Better order for structures members 
+* Ring Source Code - Structures Members - Better names
+* Ring Source Code - Structures Members - Better order  
+* Ring Source Code - Functions Parameters - Better names
 * Ring Source Code - Added: ring/language/build/buildzig.bat
 * Ring Source Code - language/src/rstring.c - ring_string_set2_gc() - Better code
 * Ring Source Code - language/src/os_e.c - randomize() - Better code
