@@ -118,6 +118,8 @@ x
 Type: int
 nOutput
 ring_vm_generallib_number
+Type: VM *
+pVM
 Type: double
 x
 ring_vm_generallib_string
