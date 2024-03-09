@@ -19,7 +19,7 @@ cd ../ringmurmurhash
 # Build RingQt
 cd ../ringqt
 ./gencode_light.sh
-./buildgcc_light.sh
+./buildclang_light.sh
 ./gencode.sh
 ./buildclang.sh
 
@@ -45,7 +45,7 @@ cd ../ringmysql
 # Build RingRayLib
 cd ../ringraylib/src
 ./gencode.sh
-./buildclang.sh
+./buildgccmac.sh
 
 # Build RingThreads
 cd ../../ringthreads
@@ -82,11 +82,6 @@ cd ../ringlibui
 
 # Build RingOpenGL
 cd ../ringopengl/opengl21
-./gencode.sh
-./buildclang.sh
-
-# Build RingLibSDL
-cd ../../ringsdl
 ./gencode.sh
 ./buildclang.sh
 
