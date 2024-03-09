@@ -93,7 +93,6 @@
 		unsigned int nVarScope  ;
 		unsigned int nScopeID  ;
 		unsigned int nActiveScopeID  ;
-		unsigned int nActiveCatch  ;
 		unsigned int nLoadAddressScope  ;
 		unsigned int nEvalReallocationSize  ;
 		unsigned int nCFuncParaCount  ;
@@ -110,6 +109,7 @@
 		unsigned char nTraceEvent  ;
 		unsigned char nEvalInScope  ;
 		unsigned char nNoSetterMethod  ;
+		unsigned int lActiveCatch: 1  ;
 		unsigned int lCallMainFunction: 1  ;
 		unsigned int lUsePushPLocal: 1  ;
 		unsigned int lCheckOverFlow: 1  ;
@@ -425,7 +425,7 @@
 	#define RING_TRY_PC 1
 	#define RING_TRY_INSIDEEVAL 2
 	#define RING_TRY_STATE 3
-	#define RING_VM_RETURNIFACTIVECATCH if (pVM->nActiveCatch) return ;
+	#define RING_VM_RETURNIFACTIVECATCH if (pVM->lActiveCatch) return ;
 	/* ExitMark/LoopMark */
 	#define RING_MARKLIST_PC 1
 	#define RING_MARKLIST_STATE 2

@@ -353,9 +353,9 @@ void ring_vm_oop_property ( VM *pVM )
 		pVM->pActiveMem = pScope ;
 		pVM->lGetSetProperty = 0 ;
 		pVM->pGetSetObject = NULL ;
-		if ( pVM->nActiveCatch == 0 ) {
+		if ( pVM->lActiveCatch == 0 ) {
 			/*
-			**  We check nActiveCatch because we may have error "accessing private attribute' 
+			**  We check lActiveCatch because we may have error "accessing private attribute' 
 			**  while we are using ring_vm_findvar 
 			**  And we are using try catch done in the code 
 			**  In this case we don't add another error message 
@@ -420,7 +420,7 @@ void ring_vm_oop_loadmethod ( VM *pVM )
 void ring_vm_oop_movetobeforeobjstate ( VM *pVM )
 {
 	List *pList, *pList2  ;
-	if ( pVM->nActiveCatch == 1 ) {
+	if ( pVM->lActiveCatch == 1 ) {
 		/* Try/Catch restore aObjState and may become empty */
 		return ;
 	}

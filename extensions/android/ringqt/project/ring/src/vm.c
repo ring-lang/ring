@@ -66,7 +66,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	/* Variable scope, where is the variable (when we use findvar) */
 	pVM->nVarScope = RING_VARSCOPE_NOTHING ;
 	/* Flag used by Try/Catch to tell C-API that catch happens! */
-	pVM->nActiveCatch = 0 ;
+	pVM->lActiveCatch = 0 ;
 	pVM->pPackagesMap = NULL ;
 	/* Set the main File Name */
 	pVM->cFileName = ring_list_getstring(pVM->pRingState->pRingFilesList,RING_ONE) ;

@@ -153,8 +153,6 @@ nScopeID
 Type: unsigned int
 nActiveScopeID
 Type: unsigned int
-nActiveCatch
-Type: unsigned int
 nLoadAddressScope
 Type: unsigned int
 nEvalReallocationSize
@@ -186,6 +184,8 @@ Type: unsigned char
 nEvalInScope
 Type: unsigned char
 nNoSetterMethod
+Type: unsigned int
+lActiveCatch
 Type: unsigned int
 lCallMainFunction: 1
 Type: unsigned int
@@ -503,6 +503,7 @@ RING_PCBLOCKFLAG_TRY
 RING_TRY_PC
 RING_TRY_INSIDEEVAL
 RING_TRY_STATE
+RING_VM_RETURNIFACTIVECATCH
 RING_MARKLIST_PC
 RING_MARKLIST_STATE
 RING_CSTR_EMBEDDEDCODE

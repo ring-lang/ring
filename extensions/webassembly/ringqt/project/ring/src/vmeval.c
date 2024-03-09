@@ -321,5 +321,5 @@ RING_API void ring_vm_callfunction ( VM *pVM,char *cFuncName )
 	/* Free Stack */
 	ring_vm_freestack(pVM);
 	/* Avoid normal steps after this function, because we deleted the scope in Prepare */
-	pVM->nActiveCatch = 1 ;
+	pVM->lActiveCatch = 1 ;
 }

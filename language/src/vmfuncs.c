@@ -277,7 +277,7 @@ void ring_vm_call2 ( VM *pVM )
 			pVM->nSP = nSP ;
 		}
 		/* Prepare to check function termination by try/catch */
-		pVM->nActiveCatch = 0 ;
+		pVM->lActiveCatch = 0 ;
 		/* Enable C Pointer Type Check */
 		pVM->lIgnoreCPointerTypeCheck = 0 ;
 		/* Call Function */
@@ -287,7 +287,7 @@ void ring_vm_call2 ( VM *pVM )
 		/* Restore nFuncEx state */
 		pVM->nFuncExecute = pFuncCall->nFuncExec ;
 		/* Check for function termination by try/catch */
-		if ( pVM->nActiveCatch == 1 ) {
+		if ( pVM->lActiveCatch == 1 ) {
 			/*
 			**  We don't remove the function from call list because ring_vm_catch() do when restore state 
 			**  We don't delete the scope because ring_vm_catch() will do when restore state 
