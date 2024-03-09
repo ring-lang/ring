@@ -1,5 +1,3 @@
-# This file still under development/test
-
 # Build Ring Compiler/VM
 cd language/build
 sudo ./buildgcc.sh
@@ -143,4 +141,6 @@ cd ../folder2qrc
 cd ../../bin
 ./install.sh
 
+cd ../language/tests
+./build.sh
 
