@@ -1533,6 +1533,11 @@ void ring_vm_generallib_isfunc ( void *pPointer,int (*pFunc)(int) )
 	if ( RING_API_ISSTRING(1) ) {
 		cStr = RING_API_GETSTRING(1) ;
 		nSize = RING_API_GETSTRINGSIZE(1) ;
+		/* Check if the input is an empty string */
+		if ( strcmp(cStr,"") == 0 ) {
+			RING_API_RETNUMBER(0);
+			return ;
+		}
 		for ( x = 0 ; x < nSize ; x++ ) {
 			if ( ! (*pFunc)(cStr[x]) ) {
 				RING_API_RETNUMBER(0);
