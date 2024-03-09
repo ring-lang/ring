@@ -425,6 +425,7 @@
 	#define RING_TRY_PC 1
 	#define RING_TRY_INSIDEEVAL 2
 	#define RING_TRY_STATE 3
+	#define RING_VM_RETURNIFACTIVECATCH if (pVM->nActiveCatch) return ;
 	/* ExitMark/LoopMark */
 	#define RING_MARKLIST_PC 1
 	#define RING_MARKLIST_STATE 2
