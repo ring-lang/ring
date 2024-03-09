@@ -40,6 +40,7 @@ More Improvements
 * reverse() function - Beside supporting lists, the function now support strings too
 * add() function - when adding a list support adding each item alone
 * list2str() function - Support more parameters: list2str(aList,[nStart],[nEnd])
+* isDigit(), isAlpha(), isAlnum(), etc. will return False if the input is an empty string
 * RingQt - Correct parent class name for the QMaterial & QLogicAspect classes
 * RingQt - Added: QComponent class (Qt3DCore)
 * Ring VM - Avoid infinite for loops when the step value is zero 
