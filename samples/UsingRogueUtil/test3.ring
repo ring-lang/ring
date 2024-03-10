@@ -2,8 +2,8 @@ load "rogueutil.ring"
 
 setConsoleTitle("Using GotoXY()")
 
-setColor(Black)
-setBackgroundColor(Yellow)
+setColor(White)
+setBackgroundColor(Green)
 
 cls()
 
