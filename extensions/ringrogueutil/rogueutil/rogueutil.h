@@ -295,6 +295,11 @@ rutil_print(RUTIL_STRING st)
 int
 getkey(void)
 {
+
+int nOutput = 0;
+#ifndef _WIN32
+	int cnt = kbhit(); /* for ANSI escapes processing */
+
 	// Update the terminal - Don't Echo characters
 	// This update is required in Linux/macOS 
 	// To avoid showing characters when we press Arrows
@@ -304,9 +309,6 @@ getkey(void)
 	newt.c_lflag &= ~(ICANON | ECHO);
 	tcsetattr(STDIN_FILENO, TCSANOW, &newt);
 
-int nOutput = 0;
-#ifndef _WIN32
-	int cnt = kbhit(); /* for ANSI escapes processing */
 #endif
 	int k = getch();
 	switch(k) {
@@ -393,8 +395,11 @@ int nOutput = 0;
 		nOutput = k;
 	}
 
+#ifndef _WIN32
 	// Restore the terminal status
 	tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+#endif
+
 	return nOutput;
 }
 
