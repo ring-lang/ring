@@ -15,4 +15,5 @@ for t=1 to 10
 	print( "Number: " + t)
 next
 
-getch()
+gotoxy(10,22)
+anykey("Press any key to continue!")

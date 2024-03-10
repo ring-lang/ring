@@ -6,4 +6,4 @@ setBackgroundColor(Blue)
 
 cls()
 
-getch()
+anykey("Press any key to continue!")
