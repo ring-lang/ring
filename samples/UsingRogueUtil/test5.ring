@@ -9,6 +9,7 @@ C_SCREENCOLS = tCols()
 C_DEFAULTX = 10
 C_DEFAULTY = 10
 
+hideCursor()
 setConsoleTitle("Moving Text")
 
 nX = C_DEFAULTX
@@ -17,7 +18,7 @@ nY = C_DEFAULTY
 prepareScreen()
 showMsg()
 
-hideCursor()
+fflush(stdout)
 
 while True
 	if tRows() != C_SCREENROWS or tCols() != C_SCREENCOLS
