@@ -297,19 +297,22 @@ getkey(void)
 {
 
 int nOutput = 0;
+
 #ifndef _WIN32
 
 	// Update the terminal - Don't Echo characters
 	// This update is required in Linux/macOS 
 	// To avoid showing characters when we press Arrows
-	struct termios oldt, newt;
+	static struct termios oldt, newt;
 	tcgetattr(STDIN_FILENO, &oldt);
 	newt = oldt;
-	newt.c_lflag &= ~(ICANON | ECHO);
+	newt.c_lflag &= ~ECHO;
 	tcsetattr(STDIN_FILENO, TCSANOW, &newt);
 
 	int cnt = kbhit(); /* for ANSI escapes processing */
+
 #endif
+
 	int k = getch();
 	switch(k) {
 	case 0: {
@@ -317,60 +320,84 @@ int nOutput = 0;
 		switch (kk = getch()) {
 		case 71:
 			nOutput = KEY_NUMPAD7;
+			break;
 		case 72:
 			nOutput = KEY_NUMPAD8;
+			break;
 		case 73:
 			nOutput = KEY_NUMPAD9;
+			break;
 		case 75:
 			nOutput = KEY_NUMPAD4;
+			break;
 		case 77:
 			nOutput = KEY_NUMPAD6;
+			break;
 		case 79:
 			nOutput = KEY_NUMPAD1;
+			break;
 		case 80:
 			nOutput = KEY_NUMPAD2;
+			break;
 		case 81:
 			nOutput = KEY_NUMPAD3;
+			break;
 		case 82:
 			nOutput = KEY_NUMPAD0;
+			break;
 		case 83:
 			nOutput = KEY_NUMDEL;
+			break;
 		default:
 			nOutput = kk-59+KEY_F1; /* Function keys */
 		}
+		break;
 	}
 	case 224: {
 		int kk;
 		switch (kk = getch()) {
 		case 71:
 			nOutput = KEY_HOME;
+			break;
 		case 72:
 			nOutput = KEY_UP;
+			break;
 		case 73:
 			nOutput = KEY_PGUP;
+			break;
 		case 75:
 			nOutput = KEY_LEFT;
+			break;
 		case 77:
 			nOutput = KEY_RIGHT;
+			break;
 		case 79:
 			nOutput = KEY_END;
+			break;
 		case 80:
 			nOutput = KEY_DOWN;
+			break;
 		case 81:
 			nOutput = KEY_PGDOWN;
+			break;
 		case 82:
 			nOutput = KEY_INSERT;
+			break;
 		case 83:
 			nOutput = KEY_DELETE;
+			break;
 		default:
 			nOutput = kk-123+KEY_F1; /* Function keys */
 		}
+		break;
 	}
 	case 13:
 		nOutput = KEY_ENTER;
+		break;
 #ifdef _WIN32
 	case 27:
 		nOutput = KEY_ESCAPE;
+		break;
 #else /* _WIN32 */
 	case 155: /* single-character CSI */
 	case 27: {
@@ -379,16 +406,23 @@ int nOutput = 0;
 			switch (k = getch()) {
 			case 'A':
 				nOutput = KEY_UP;
+				break;
 			case 'B':
 				nOutput = KEY_DOWN;
+				break;
 			case 'C':
 				nOutput = KEY_RIGHT;
+				break;
 			case 'D':
 				nOutput = KEY_LEFT;
+				break;
 			default:
 				nOutput = KEY_ESCAPE;
 			}
-		} else nOutput = KEY_ESCAPE;
+		} else {
+			nOutput = KEY_ESCAPE;
+		}
+		break;
 	}
 #endif /* _WIN32 */
 	default:
