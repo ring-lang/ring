@@ -1534,7 +1534,7 @@ void ring_vm_generallib_isfunc ( void *pPointer,int (*pFunc)(int) )
 		cStr = RING_API_GETSTRING(1) ;
 		nSize = RING_API_GETSTRINGSIZE(1) ;
 		/* Check if the input is an empty string */
-		if ( strcmp(cStr,"") == 0 ) {
+		if ( nSize == 0 ) {
 			RING_API_RETNUMBER(0);
 			return ;
 		}
