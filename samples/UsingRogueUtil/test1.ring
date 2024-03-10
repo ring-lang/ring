@@ -2,4 +2,4 @@ load "rogueutil.ring"
 
 setConsoleTitle("I Love Programming")
 
-getch()
+anykey("Press any key to continue!")
