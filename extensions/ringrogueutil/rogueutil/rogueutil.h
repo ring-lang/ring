@@ -298,7 +298,6 @@ getkey(void)
 
 int nOutput = 0;
 #ifndef _WIN32
-	int cnt = kbhit(); /* for ANSI escapes processing */
 
 	// Update the terminal - Don't Echo characters
 	// This update is required in Linux/macOS 
@@ -309,6 +308,7 @@ int nOutput = 0;
 	newt.c_lflag &= ~(ICANON | ECHO);
 	tcsetattr(STDIN_FILENO, TCSANOW, &newt);
 
+	int cnt = kbhit(); /* for ANSI escapes processing */
 #endif
 	int k = getch();
 	switch(k) {
