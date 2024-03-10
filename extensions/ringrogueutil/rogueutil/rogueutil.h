@@ -2,6 +2,8 @@
  * @section LICENSE
  * Copyright 2020 Sergei Akhmatdinov
  *
+ * Copyright 2024 Mahmoud Fayed (Updated getkey() - Never show arrows in Linux/macOS)
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -293,6 +295,16 @@ rutil_print(RUTIL_STRING st)
 int
 getkey(void)
 {
+	// Update the terminal - Don't Echo characters
+	// This update is required in Linux/macOS 
+	// To avoid showing characters when we press Arrows
+	struct termios oldt, newt;
+	tcgetattr(STDIN_FILENO, &oldt);
+	newt = oldt;
+	newt.c_lflag &= ~(ICANON | ECHO);
+	tcsetattr(STDIN_FILENO, TCSANOW, &newt);
+
+int nOutput = 0;
 #ifndef _WIN32
 	int cnt = kbhit(); /* for ANSI escapes processing */
 #endif
@@ -302,61 +314,61 @@ getkey(void)
 		int kk;
 		switch (kk = getch()) {
 		case 71:
-			return KEY_NUMPAD7;
+			nOutput = KEY_NUMPAD7;
 		case 72:
-			return KEY_NUMPAD8;
+			nOutput = KEY_NUMPAD8;
 		case 73:
-			return KEY_NUMPAD9;
+			nOutput = KEY_NUMPAD9;
 		case 75:
-			return KEY_NUMPAD4;
+			nOutput = KEY_NUMPAD4;
 		case 77:
-			return KEY_NUMPAD6;
+			nOutput = KEY_NUMPAD6;
 		case 79:
-			return KEY_NUMPAD1;
+			nOutput = KEY_NUMPAD1;
 		case 80:
-			return KEY_NUMPAD2;
+			nOutput = KEY_NUMPAD2;
 		case 81:
-			return KEY_NUMPAD3;
+			nOutput = KEY_NUMPAD3;
 		case 82:
-			return KEY_NUMPAD0;
+			nOutput = KEY_NUMPAD0;
 		case 83:
-			return KEY_NUMDEL;
+			nOutput = KEY_NUMDEL;
 		default:
-			return kk-59+KEY_F1; /* Function keys */
+			nOutput = kk-59+KEY_F1; /* Function keys */
 		}
 	}
 	case 224: {
 		int kk;
 		switch (kk = getch()) {
 		case 71:
-			return KEY_HOME;
+			nOutput = KEY_HOME;
 		case 72:
-			return KEY_UP;
+			nOutput = KEY_UP;
 		case 73:
-			return KEY_PGUP;
+			nOutput = KEY_PGUP;
 		case 75:
-			return KEY_LEFT;
+			nOutput = KEY_LEFT;
 		case 77:
-			return KEY_RIGHT;
+			nOutput = KEY_RIGHT;
 		case 79:
-			return KEY_END;
+			nOutput = KEY_END;
 		case 80:
-			return KEY_DOWN;
+			nOutput = KEY_DOWN;
 		case 81:
-			return KEY_PGDOWN;
+			nOutput = KEY_PGDOWN;
 		case 82:
-			return KEY_INSERT;
+			nOutput = KEY_INSERT;
 		case 83:
-			return KEY_DELETE;
+			nOutput = KEY_DELETE;
 		default:
-			return kk-123+KEY_F1; /* Function keys */
+			nOutput = kk-123+KEY_F1; /* Function keys */
 		}
 	}
 	case 13:
-		return KEY_ENTER;
+		nOutput = KEY_ENTER;
 #ifdef _WIN32
 	case 27:
-		return KEY_ESCAPE;
+		nOutput = KEY_ESCAPE;
 #else /* _WIN32 */
 	case 155: /* single-character CSI */
 	case 27: {
@@ -364,22 +376,26 @@ getkey(void)
 		if (cnt >= 3 && getch() == '[') {
 			switch (k = getch()) {
 			case 'A':
-				return KEY_UP;
+				nOutput = KEY_UP;
 			case 'B':
-				return KEY_DOWN;
+				nOutput = KEY_DOWN;
 			case 'C':
-				return KEY_RIGHT;
+				nOutput = KEY_RIGHT;
 			case 'D':
-				return KEY_LEFT;
+				nOutput = KEY_LEFT;
 			default:
-				return KEY_ESCAPE;
+				nOutput = KEY_ESCAPE;
 			}
-		} else return KEY_ESCAPE;
+		} else nOutput = KEY_ESCAPE;
 	}
 #endif /* _WIN32 */
 	default:
-		return k;
+		nOutput = k;
 	}
+
+	// Restore the terminal status
+	tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+	return nOutput;
 }
 
 /**
