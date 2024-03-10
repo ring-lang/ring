@@ -306,7 +306,7 @@ int nOutput = 0;
 	static struct termios oldt, newt;
 	tcgetattr(STDIN_FILENO, &oldt);
 	newt = oldt;
-	newt.c_lflag &= ~ECHO;
+	newt.c_lflag &= ~(ICANON | ECHO);
 	tcsetattr(STDIN_FILENO, TCSANOW, &newt);
 
 	int cnt = kbhit(); /* for ANSI escapes processing */
