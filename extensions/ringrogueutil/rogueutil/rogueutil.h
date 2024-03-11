@@ -2,7 +2,7 @@
  * @section LICENSE
  * Copyright 2020 Sergei Akhmatdinov
  *
- * Copyright 2024 Mahmoud Fayed (Updated getkey() - Never show arrows in Linux/macOS)
+ * Copyright 2024 Mahmoud Fayed (Updated kbhit()/getkey() - Never show arrows in Linux/macOS)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -126,6 +126,7 @@ kbhit(void)
 	tv.tv_sec  = 0;
 	tv.tv_usec = 100;
 	select(STDIN_FILENO+1, NULL, NULL, NULL, &tv); /* A small time delay */
+	oldt.c_lflag &= ~ECHO;
 	tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
 	return cnt; /* Return number of characters */
 }
@@ -294,7 +295,7 @@ rutil_print(RUTIL_STRING st)
  */
 
 int
-old_getkey(void)
+internal_getkey(void)
 {
 #ifndef _WIN32
 	int cnt = kbhit(); /* for ANSI escapes processing */
@@ -391,16 +392,14 @@ getkey(void)
 	int nOutput;
 
 #ifndef _WIN32
-	struct termios oldt, newt;
+	struct termios oldt;
 	tcgetattr(STDIN_FILENO, &oldt);
-	newt = oldt;
-	newt.c_lflag &= ~(ICANON | ECHO);
-	tcsetattr(STDIN_FILENO, TCSANOW, &newt);
 #endif
 
-	nOutput = old_getkey();
+	nOutput = internal_getkey();
 
 #ifndef _WIN32
+	oldt.c_lflag |= (ICANON | ECHO);
 	tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
 #endif
 
