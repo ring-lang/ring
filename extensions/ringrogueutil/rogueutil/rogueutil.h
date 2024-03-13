@@ -274,7 +274,7 @@ typedef enum key_code {
 	KEY_NUMPAD8 = 134,
 	KEY_NUMPAD9 = 135,
 
-	KEY_MOUSEEVENT = 1000,
+	MOUSEEVENT = 1000,
 } key_code;
 
 /**
@@ -381,7 +381,7 @@ internal_getkey(void)
 			case 'D':
 				return KEY_LEFT;
 			case '<':
-				return KEY_MOUSEEVENT;
+				return MOUSEEVENT;
 			default:
 				return KEY_ESCAPE;
 			}
