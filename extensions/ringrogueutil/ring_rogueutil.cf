@@ -98,4 +98,6 @@ Extra Functions
 
 <register>
 List *getmouseinfo(void)
+void enablemouse(void)
+void disablemouse(void)
 </register>

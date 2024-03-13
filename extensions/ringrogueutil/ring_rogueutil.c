@@ -611,6 +611,8 @@ RING_LIBINIT
 	RING_API_REGISTER("getusername",ring_getUsername);
 	RING_API_REGISTER("printxy",ring_printXY);
 	RING_API_REGISTER("getmouseinfo",ring_getmouseinfo);
+	RING_API_REGISTER("enablemouse",ring_enablemouse);
+	RING_API_REGISTER("disablemouse",ring_disablemouse);
 	RING_API_REGISTER("get_black",ring_get_black);
 	RING_API_REGISTER("get_blue",ring_get_blue);
 	RING_API_REGISTER("get_green",ring_get_green);
