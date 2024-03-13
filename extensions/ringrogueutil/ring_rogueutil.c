@@ -265,6 +265,11 @@ RING_FUNC(ring_get_key_numpad9)
 	RING_API_RETNUMBER(KEY_NUMPAD9);
 }
 
+RING_FUNC(ring_get_key_mouseevent)
+{
+	RING_API_RETNUMBER(KEY_MOUSEEVENT);
+}
+
 
 RING_FUNC(ring_locate)
 {
@@ -665,4 +670,5 @@ RING_LIBINIT
 	RING_API_REGISTER("get_key_numpad7",ring_get_key_numpad7);
 	RING_API_REGISTER("get_key_numpad8",ring_get_key_numpad8);
 	RING_API_REGISTER("get_key_numpad9",ring_get_key_numpad9);
+	RING_API_REGISTER("get_key_mouseevent",ring_get_key_mouseevent);
 }
