@@ -2,7 +2,10 @@
  * @section LICENSE
  * Copyright 2020 Sergei Akhmatdinov
  *
- * Copyright 2024 Mahmoud Fayed (Updated kbhit()/getkey() - Never show arrows in Linux/macOS)
+ * Copyright 2024 Mahmoud Fayed  
+ *	- Updated kbhit()/getkey()
+ *	- Never show special characters when we press on arrows in Linux/macOS
+ *	- Don't treat mouse events (Mouse Move/Click) as ESC key
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -270,6 +273,8 @@ typedef enum key_code {
 	KEY_NUMPAD7 = 133,
 	KEY_NUMPAD8 = 134,
 	KEY_NUMPAD9 = 135,
+
+	KEY_MOUSEEVENT = 1000,
 } key_code;
 
 /**
@@ -375,6 +380,8 @@ internal_getkey(void)
 				return KEY_RIGHT;
 			case 'D':
 				return KEY_LEFT;
+			case '<':
+				return KEY_MOUSEEVENT;
 			default:
 				return KEY_ESCAPE;
 			}
