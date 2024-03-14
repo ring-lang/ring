@@ -306,6 +306,46 @@ rutil_print(RUTIL_STRING st)
 #endif
 }
 
+
+int
+internal_getmouseevents(int cnt) 
+{
+	int k;
+	int nMouseEvent = MOUSEEVENT_START;
+
+	if (cnt >= 4) {
+		switch (k = getch()) {
+			case '0':
+				nMouseEvent = MOUSEEVENT_CLICK;
+				break;
+			case '3':
+				if (cnt >= 5) {
+					switch (k = getch()) {
+						case '2':
+							nMouseEvent = MOUSEMOVE_LEFTBTNDOWN;
+							break;
+						case '4':
+							nMouseEvent = MOUSEMOVE_RIGHTBTNDOWN;
+							break;
+						case '5':
+							nMouseEvent = MOUSEMOVE_NOBUTTON;
+							break;								
+					}
+				}
+				break;
+			case '6':
+				// Scroll Event
+				if (cnt >= 5) 
+					getch();
+				nMouseEvent = MOUSEEVENT_SCROLL;
+				break;
+		}
+	}
+
+	return nMouseEvent;
+
+}
+
 /**
  * @brief Reads a key press (blocking)
  * @details At the moment, only Arrows, ESC, Enter and Space are working
@@ -394,35 +434,7 @@ internal_getkey(void)
 			case 'D':
 				return KEY_LEFT;
 			case '<':
-				int nMouseEvent = MOUSEEVENT_START;
-				if (cnt >= 4) {
-					switch (k = getch()) {
-						case '0':
-							nMouseEvent = MOUSEEVENT_CLICK;
-							break;
-						case '3':
-							if (cnt >= 5) {
-								switch (k = getch()) {
-									case '2':
-										nMouseEvent = MOUSEMOVE_LEFTBTNDOWN;
-										break;
-									case '4':
-										nMouseEvent = MOUSEMOVE_RIGHTBTNDOWN;
-										break;
-									case '5':
-										nMouseEvent = MOUSEMOVE_NOBUTTON;
-										break;								
-								}
-							}
-							break;
-						case '6':
-							// Scroll Event
-							if (cnt >= 5) getch();
-							nMouseEvent = MOUSEEVENT_SCROLL;
-							break;
-					}
-				}
-				return nMouseEvent;
+				return internal_getmouseevents(cnt);
 			default:
 				return KEY_ESCAPE;
 			}
