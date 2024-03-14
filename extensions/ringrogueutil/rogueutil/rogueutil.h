@@ -6,6 +6,7 @@
  *	- Updated kbhit()/getkey()
  *	- Never show special characters when we press on arrows in Linux/macOS
  *	- Don't treat mouse events (Mouse Move/Click) as ESC key
+ *	- Added: internal_getmouseevents(cnt)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -287,6 +288,8 @@ typedef enum mouse_events {
 	MOUSEMOVE_LEFTBTNDOWN     = 1003,
 	MOUSEMOVE_RIGHTBTNDOWN    = 1004,
 	MOUSEEVENT_SCROLL         = 1005,
+	MOUSEEVENT_SCROLLUP       = 1006,
+	MOUSEEVENT_SCROLLDOWN     = 1007,
 
 } mouse_events;
 
@@ -335,9 +338,13 @@ internal_getmouseevents(int cnt)
 				break;
 			case '6':
 				// Scroll Event
-				if (cnt >= 5) 
-					getch();
 				nMouseEvent = MOUSEEVENT_SCROLL;
+				if (cnt >= 5) 
+					if (getch() == '4') 
+						nMouseEvent = MOUSEEVENT_SCROLLUP;
+					else 
+						nMouseEvent = MOUSEEVENT_SCROLLDOWN;
+
 				break;
 		}
 	}
