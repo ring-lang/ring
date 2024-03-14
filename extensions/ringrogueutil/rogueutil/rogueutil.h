@@ -274,13 +274,21 @@ typedef enum key_code {
 	KEY_NUMPAD8 = 134,
 	KEY_NUMPAD9 = 135,
 
+} key_code;
+
+/**
+ * @brief Provides constants for mouse events
+ */
+typedef enum mouse_events {
+
 	MOUSEEVENT_START          = 1000,
 	MOUSEEVENT_CLICK          = 1001,
 	MOUSEMOVE_NOBUTTON        = 1002,
 	MOUSEMOVE_LEFTBTNDOWN     = 1003,
 	MOUSEMOVE_RIGHTBTNDOWN    = 1004,
 	MOUSEEVENT_SCROLL         = 1005,
-} key_code;
+
+} mouse_events;
 
 /**
  * @brief Printing wrapper independent of C/C++
