@@ -277,8 +277,8 @@ typedef enum key_code {
 	MOUSEEVENT                = 1000,
 	MOUSEEVENT_CLICK          = 1001,
 	MOUSEEVENT_LEFTBTNDOWN    = 1002,
-	MOUSEEVENT_RIGHTBTNDOWN   = 1002,
-	MOUSEEVENT_SCROLL         = 1003,
+	MOUSEEVENT_RIGHTBTNDOWN   = 1003,
+	MOUSEEVENT_SCROLL         = 1004,
 } key_code;
 
 /**
