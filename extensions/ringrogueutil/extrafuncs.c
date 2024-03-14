@@ -11,6 +11,7 @@ RING_FUNC(ring_enablemouse)
 {
 #ifndef _WIN32
 	printf("\x1b[?1049h\x1b[0m\x1b[2J\x1b[?1003h\x1b[?1015h\x1b[?1006h\x1b[?25l");
+	fflush(stdout);
 #endif
 }
 
@@ -18,6 +19,7 @@ RING_FUNC(ring_disablemouse)
 {
 #ifndef _WIN32
 	printf("\x1b[0m\x1b[2J\x1b[?1049l\x1b[?1003l\x1b[?1015l\x1b[?1006l\x1b[?25h");
+	fflush(stdout);
 #endif
 }
 
