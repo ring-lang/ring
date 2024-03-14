@@ -274,11 +274,12 @@ typedef enum key_code {
 	KEY_NUMPAD8 = 134,
 	KEY_NUMPAD9 = 135,
 
-	MOUSEEVENT                = 1000,
+	MOUSEEVENT_START          = 1000,
 	MOUSEEVENT_CLICK          = 1001,
-	MOUSEEVENT_LEFTBTNDOWN    = 1002,
-	MOUSEEVENT_RIGHTBTNDOWN   = 1003,
-	MOUSEEVENT_SCROLL         = 1004,
+	MOUSEMOVE_NOBUTTON        = 1002,
+	MOUSEMOVE_LEFTBTNDOWN     = 1003,
+	MOUSEMOVE_RIGHTBTNDOWN    = 1004,
+	MOUSEEVENT_SCROLL         = 1005,
 } key_code;
 
 /**
@@ -385,7 +386,7 @@ internal_getkey(void)
 			case 'D':
 				return KEY_LEFT;
 			case '<':
-				int nMouseEvent = MOUSEEVENT;
+				int nMouseEvent = MOUSEEVENT_START;
 				if (cnt >= 4) {
 					switch (k = getch()) {
 						case '0':
@@ -395,15 +396,14 @@ internal_getkey(void)
 							if (cnt >= 5) {
 								switch (k = getch()) {
 									case '2':
-										nMouseEvent = MOUSEEVENT_LEFTBTNDOWN;
-										break;
-									case '5':
-										nMouseEvent = MOUSEEVENT;
+										nMouseEvent = MOUSEMOVE_LEFTBTNDOWN;
 										break;
 									case '4':
-										nMouseEvent = MOUSEEVENT_RIGHTBTNDOWN;
+										nMouseEvent = MOUSEMOVE_RIGHTBTNDOWN;
 										break;
-								
+									case '5':
+										nMouseEvent = MOUSEMOVE_NOBUTTON;
+										break;								
 								}
 							}
 							break;

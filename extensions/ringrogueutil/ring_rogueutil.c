@@ -265,9 +265,9 @@ RING_FUNC(ring_get_key_numpad9)
 	RING_API_RETNUMBER(KEY_NUMPAD9);
 }
 
-RING_FUNC(ring_get_mouseevent)
+RING_FUNC(ring_get_mouseevent_start)
 {
-	RING_API_RETNUMBER(MOUSEEVENT);
+	RING_API_RETNUMBER(MOUSEEVENT_START);
 }
 
 RING_FUNC(ring_get_mouseevent_click)
@@ -275,14 +275,19 @@ RING_FUNC(ring_get_mouseevent_click)
 	RING_API_RETNUMBER(MOUSEEVENT_CLICK);
 }
 
-RING_FUNC(ring_get_mouseevent_leftbtndown)
+RING_FUNC(ring_get_mousemove_nobutton)
 {
-	RING_API_RETNUMBER(MOUSEEVENT_LEFTBTNDOWN);
+	RING_API_RETNUMBER(MOUSEMOVE_NOBUTTON);
 }
 
-RING_FUNC(ring_get_mouseevent_rightbtndown)
+RING_FUNC(ring_get_mousemove_leftbtndown)
 {
-	RING_API_RETNUMBER(MOUSEEVENT_RIGHTBTNDOWN);
+	RING_API_RETNUMBER(MOUSEMOVE_LEFTBTNDOWN);
+}
+
+RING_FUNC(ring_get_mousemove_rightbtndown)
+{
+	RING_API_RETNUMBER(MOUSEMOVE_RIGHTBTNDOWN);
 }
 
 RING_FUNC(ring_get_mouseevent_scroll)
@@ -690,9 +695,10 @@ RING_LIBINIT
 	RING_API_REGISTER("get_key_numpad7",ring_get_key_numpad7);
 	RING_API_REGISTER("get_key_numpad8",ring_get_key_numpad8);
 	RING_API_REGISTER("get_key_numpad9",ring_get_key_numpad9);
-	RING_API_REGISTER("get_mouseevent",ring_get_mouseevent);
+	RING_API_REGISTER("get_mouseevent_start",ring_get_mouseevent_start);
 	RING_API_REGISTER("get_mouseevent_click",ring_get_mouseevent_click);
-	RING_API_REGISTER("get_mouseevent_leftbtndown",ring_get_mouseevent_leftbtndown);
-	RING_API_REGISTER("get_mouseevent_rightbtndown",ring_get_mouseevent_rightbtndown);
+	RING_API_REGISTER("get_mousemove_nobutton",ring_get_mousemove_nobutton);
+	RING_API_REGISTER("get_mousemove_leftbtndown",ring_get_mousemove_leftbtndown);
+	RING_API_REGISTER("get_mousemove_rightbtndown",ring_get_mousemove_rightbtndown);
 	RING_API_REGISTER("get_mouseevent_scroll",ring_get_mouseevent_scroll);
 }
