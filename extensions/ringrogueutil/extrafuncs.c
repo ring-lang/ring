@@ -34,7 +34,7 @@ RING_FUNC(ring_getmouseinfo)
 	DWORD nRead;      
 	DWORD nEvents;                                          
   
-	int lMouseEvent,nMouseX,nMouseY,nMouseB;
+	int lMouseEvent,nMouseX,nMouseY,nMouseB,nMouseBtnState,nControlKey,nEventFlags,nWheelDirection;
 	List *pList;
 
 	lMouseEvent = 0;
@@ -60,7 +60,12 @@ RING_FUNC(ring_getmouseinfo)
 				nMouseX = ir[i].Event.MouseEvent.dwMousePosition.X + 1;
 				nMouseY = ir[i].Event.MouseEvent.dwMousePosition.Y + 1;
 				nMouseB = (int)ir[i].Event.MouseEvent.dwButtonState & 0x07 ;
-			}
+				nMouseBtnState = ir[i].Event.MouseEvent.dwButtonState ;
+				nControlKey = ir[i].Event.MouseEvent.dwControlKeyState;
+				nEventFlags = ir[i].Event.MouseEvent.dwEventFlags;
+				// Wheel Direction (0 = Down  1 = Up)
+				nWheelDirection = (nEventFlags == MOUSE_WHEELED) && (nMouseBtnState > 0);
+			} 
 		}
 
 	}
@@ -69,7 +74,10 @@ RING_FUNC(ring_getmouseinfo)
 	ring_list_adddouble_gc(RING_API_STATE,pList,nMouseX);
 	ring_list_adddouble_gc(RING_API_STATE,pList,nMouseY);
 	ring_list_adddouble_gc(RING_API_STATE,pList,nMouseB);
-
+	ring_list_adddouble_gc(RING_API_STATE,pList,nEventFlags);
+	ring_list_adddouble_gc(RING_API_STATE,pList,nWheelDirection);
+	ring_list_adddouble_gc(RING_API_STATE,pList,nMouseBtnState);
+	ring_list_adddouble_gc(RING_API_STATE,pList,nControlKey);
 	RING_API_RETLIST(pList);
 
 #endif
