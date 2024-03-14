@@ -270,6 +270,21 @@ RING_FUNC(ring_get_mouseevent)
 	RING_API_RETNUMBER(MOUSEEVENT);
 }
 
+RING_FUNC(ring_get_mouseevent_click)
+{
+	RING_API_RETNUMBER(MOUSEEVENT_CLICK);
+}
+
+RING_FUNC(ring_get_mouseevent_down)
+{
+	RING_API_RETNUMBER(MOUSEEVENT_DOWN);
+}
+
+RING_FUNC(ring_get_mouseevent_scroll)
+{
+	RING_API_RETNUMBER(MOUSEEVENT_SCROLL);
+}
+
 
 RING_FUNC(ring_locate)
 {
@@ -671,4 +686,7 @@ RING_LIBINIT
 	RING_API_REGISTER("get_key_numpad8",ring_get_key_numpad8);
 	RING_API_REGISTER("get_key_numpad9",ring_get_key_numpad9);
 	RING_API_REGISTER("get_mouseevent",ring_get_mouseevent);
+	RING_API_REGISTER("get_mouseevent_click",ring_get_mouseevent_click);
+	RING_API_REGISTER("get_mouseevent_down",ring_get_mouseevent_down);
+	RING_API_REGISTER("get_mouseevent_scroll",ring_get_mouseevent_scroll);
 }
