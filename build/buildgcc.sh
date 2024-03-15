@@ -1,3 +1,5 @@
+cd ..
+
 # Build Ring Compiler/VM
 cd language/build
 sudo ./buildgcc.sh
