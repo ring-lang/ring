@@ -25,6 +25,14 @@ RING_FUNC(ring_disablemouse)
 
 RING_FUNC(ring_getmouseinfo)
 {
+
+	int lMouseEvent,nMouseX,nMouseY,nMouseB,nMouseBtnState,nControlKey,nEventFlags,nWheelDirection;
+	List *pList;
+
+	lMouseEvent = 0;
+
+	pList = RING_API_NEWLIST ;
+
 #ifdef _WIN32
 
 	INPUT_RECORD ir[128];
@@ -34,13 +42,6 @@ RING_FUNC(ring_getmouseinfo)
 	DWORD nRead;      
 	DWORD nEvents;                                          
   
-	int lMouseEvent,nMouseX,nMouseY,nMouseB,nMouseBtnState,nControlKey,nEventFlags,nWheelDirection;
-	List *pList;
-
-	lMouseEvent = 0;
-
-	pList = RING_API_NEWLIST ;
-
 	hStdInput=GetStdHandle(STD_INPUT_HANDLE);
 	hStdOutput=GetStdHandle(STD_OUTPUT_HANDLE);
 
@@ -70,6 +71,8 @@ RING_FUNC(ring_getmouseinfo)
 
 	}
 
+#endif
+
 	ring_list_adddouble_gc(RING_API_STATE,pList,lMouseEvent);
 	ring_list_adddouble_gc(RING_API_STATE,pList,nMouseX);
 	ring_list_adddouble_gc(RING_API_STATE,pList,nMouseY);
@@ -80,5 +83,4 @@ RING_FUNC(ring_getmouseinfo)
 	ring_list_adddouble_gc(RING_API_STATE,pList,nControlKey);
 	RING_API_RETLIST(pList);
 
-#endif
 }
