@@ -7,6 +7,8 @@
 	#include "stdio.h"
 #endif
 
+#define INPUT_RECORD_SIZE 128
+
 RING_FUNC(ring_enablemouse)
 {
 #ifndef _WIN32
@@ -35,7 +37,7 @@ RING_FUNC(ring_getmouseinfo)
 
 #ifdef _WIN32
 
-	INPUT_RECORD ir[128];
+	INPUT_RECORD ir[INPUT_RECORD_SIZE];
 	HANDLE hStdInput  = NULL;
 	HANDLE hStdOutput = NULL;
 
@@ -51,7 +53,7 @@ RING_FUNC(ring_getmouseinfo)
 
 	if (nEvents > 0) {
 
-		PeekConsoleInput(hStdInput,ir,128,&nRead);   
+		PeekConsoleInput(hStdInput,ir,INPUT_RECORD_SIZE,&nRead);   
               
 		for(size_t i=0;i<nRead;i++)                                
 		{                                                          
