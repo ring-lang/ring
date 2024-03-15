@@ -1,5 +1,7 @@
 load "rogueutil.ring"
 
+cls()
+
 C_MSG = 'You Can Move Me Using Arrows/WSAD'
 
 if isWindows()
