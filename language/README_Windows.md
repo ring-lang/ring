@@ -15,8 +15,8 @@
 	If you have another version from Qt 5.15 (like Qt 5.15.2) - Or Qt is installed in another folder 
 	The next batch files uses environment variables (RING_QT_DIR & RING_QT_VERSION) to set the path
 
-	To build 32bit version: ring/buildvc.bat
-	To build 64bit version: ring/buildvc_x64.bat
+	To build 32bit version: ring/build/buildvc.bat
+	To build 64bit version: ring/build/buildvc_x64.bat
 
 	Add ring/bin folder to your system path 
 
