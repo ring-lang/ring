@@ -7,7 +7,7 @@
 	#include "stdio.h"
 #endif
 
-#define INPUT_RECORD_SIZE 128
+#define INPUT_RECORD_COUNT    128
 
 RING_FUNC(ring_enablemouse)
 {
@@ -37,7 +37,7 @@ RING_FUNC(ring_getmouseinfo)
 
 #ifdef _WIN32
 
-	INPUT_RECORD ir[INPUT_RECORD_SIZE];
+	INPUT_RECORD ir[INPUT_RECORD_COUNT];
 	HANDLE hStdInput  = NULL;
 	HANDLE hStdOutput = NULL;
 
@@ -51,9 +51,13 @@ RING_FUNC(ring_getmouseinfo)
 
 	GetNumberOfConsoleInputEvents(hStdInput,&nEvents);
 
+
 	if (nEvents > 0) {
 
-		PeekConsoleInput(hStdInput,ir,INPUT_RECORD_SIZE,&nRead);   
+		if (nEvents > INPUT_RECORD_COUNT) 
+			ReadConsoleInput(hStdInput,ir,INPUT_RECORD_COUNT,&nRead);  
+		else
+			PeekConsoleInput(hStdInput,ir,INPUT_RECORD_COUNT,&nRead);   
               
 		for(size_t i=0;i<nRead;i++)                                
 		{                                                          
@@ -83,6 +87,7 @@ RING_FUNC(ring_getmouseinfo)
 	ring_list_adddouble_gc(RING_API_STATE,pList,nWheelDirection);
 	ring_list_adddouble_gc(RING_API_STATE,pList,nMouseBtnState);
 	ring_list_adddouble_gc(RING_API_STATE,pList,nControlKey);
+	ring_list_adddouble_gc(RING_API_STATE,pList,nEvents);
 	RING_API_RETLIST(pList);
 
 }
