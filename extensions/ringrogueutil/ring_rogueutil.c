@@ -623,6 +623,26 @@ RING_FUNC(ring_printXY)
 	printXY( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2),RING_API_GETSTRING(3));
 }
 
+
+RING_FUNC(ring_echoon)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	echoon();
+}
+
+
+RING_FUNC(ring_echooff)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	echooff();
+}
+
 RING_LIBINIT
 {
 	RING_API_REGISTER("locate",ring_locate);
@@ -650,6 +670,8 @@ RING_LIBINIT
 	RING_API_REGISTER("setconsoletitle",ring_setConsoleTitle);
 	RING_API_REGISTER("getusername",ring_getUsername);
 	RING_API_REGISTER("printxy",ring_printXY);
+	RING_API_REGISTER("echoon",ring_echoon);
+	RING_API_REGISTER("echooff",ring_echooff);
 	RING_API_REGISTER("getmouseinfo",ring_getmouseinfo);
 	RING_API_REGISTER("enablemouse",ring_enablemouse);
 	RING_API_REGISTER("disablemouse",ring_disablemouse);

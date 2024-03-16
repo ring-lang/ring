@@ -7,6 +7,7 @@
  *	- Never show special characters when we press on arrows in Linux/macOS
  *	- Don't treat mouse events (Mouse Move/Click) as ESC key
  *	- Added: internal_getmouseevents(cnt)
+ *	- Added: echoon() and echooff()
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -466,12 +467,34 @@ getkey(void)
 	nOutput = internal_getkey();
 
 #ifndef _WIN32
-	oldt.c_lflag |= (ICANON | ECHO);
 	tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
 #endif
 
 	return nOutput;
 }
+
+void
+echoon(void)
+{
+#ifndef _WIN32
+	struct termios oldt;
+	tcgetattr(STDIN_FILENO, &oldt);
+	oldt.c_lflag |= (ICANON | ECHO);
+	tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+#endif
+}
+
+void
+echooff(void)
+{
+#ifndef _WIN32
+	struct termios oldt;
+	tcgetattr(STDIN_FILENO, &oldt);
+	oldt.c_lflag &= ~(ICANON | ECHO);
+	tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
+#endif
+}
+	
 
 /**
  * @brief Non-blocking version of getch()

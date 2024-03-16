@@ -104,6 +104,9 @@ void printXY(int x, int y, char *msg)
 Extra Functions
 </comment>
 
+void echoon(void)
+void echooff(void)
+
 <register>
 List *getmouseinfo(void)
 void enablemouse(void)
