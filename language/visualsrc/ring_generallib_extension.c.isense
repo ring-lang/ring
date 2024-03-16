@@ -122,6 +122,10 @@ Type: VM *
 pVM
 Type: double
 x
+Type: int
+y, nSize, lHex
+Type: const char *
+cStr
 ring_vm_generallib_string
 Type: double
 nNum1

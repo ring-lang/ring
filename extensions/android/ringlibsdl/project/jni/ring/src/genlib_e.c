@@ -818,6 +818,8 @@ void ring_vm_generallib_number ( void *pPointer )
 {
 	VM *pVM  ;
 	double x  ;
+	int y, nSize, lHex  ;
+	const char *cStr  ;
 	pVM = (VM *) pPointer ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -828,6 +830,28 @@ void ring_vm_generallib_number ( void *pPointer )
 		return ;
 	}
 	if ( RING_API_ISSTRING(1) ) {
+		/* Check if the string contains a number or a group of numbers */
+		cStr = RING_API_GETSTRING(1) ;
+		nSize = RING_API_GETSTRINGSIZE(1) ;
+		lHex = 0 ;
+		for ( y = 0 ; y < nSize ; y++ ) {
+			if ( isdigit(cStr[y]) ) {
+				/* Accept digits */
+			}
+			else if ( isspace(cStr[y]) ) {
+				lHex = 0 ;
+			}
+			else if ( (! lHex) && (y>0) && ( (cStr[y]=='x') || (cStr[y]=='X')  ) && (cStr[y-1]=='0') ) {
+				lHex = 1 ;
+			}
+			else if ( lHex && ( (cStr[y] >= 97 && cStr[y] <= 102) || (cStr[y] >= 65 && cStr[y] <= 70) ) ) {
+				/* Accept a-f and A-F for hex. values */
+			}
+			else {
+				ring_vm_error(pVM,RING_VM_ERROR_NUMERICINVALID);
+				return ;
+			}
+		}
 		pVM->lSubStringToNumError = 0 ;
 		x = ring_vm_stringtonum((VM *) pPointer,RING_API_GETSTRING(1));
 		pVM->lSubStringToNumError = 1 ;
