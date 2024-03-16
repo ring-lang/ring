@@ -1,6 +1,6 @@
 load "rogueutil.ring"
 
-enablemouse()
+enableMouse()
 
 cls()
 
@@ -42,7 +42,7 @@ while True
 	nBuffer = kbhit()
 	nKey    = 0
 	if nBuffer 
-		nKey = getkey() 
+		nKey = getKey() 
 		if nKey = KEY_ESCAPE exit ok
 		clearMsg()
 		if nKey = KEY_RIGHT or Upper(Char(nKey)) = "D"
@@ -93,7 +93,7 @@ while True
 
 end
 
-disablemouse()
+disableMouse()
 showCursor()
 echoON()
 
