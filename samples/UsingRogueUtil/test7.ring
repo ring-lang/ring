@@ -67,7 +67,7 @@ while True
 		aMouse = GetMouseInfo()
 	else
 		if nKbhit
-			aMouse = GetMouseInfo_Term(nKBhit,nKey)
+			aMouse = GetMouseInfo_Term(nKey)
 		else
 			aMouse = GetMouseInfo()
 		ok
@@ -115,7 +115,7 @@ func showMsg
 func clearMsg
 	printXY(nX,nY,Copy(" ",C_MSGLEN))
 	
-func getmouseinfo_term nKBHit, nKey
+func getmouseinfo_term nKey
 	aList = []
 	switch nKey
 		on MOUSEEVENT_START
