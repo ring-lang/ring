@@ -39,8 +39,9 @@ while True
 
 
 	# Using the Keyboard
-	nKbhit = kbhit()
-	if nKbhit 
+	nBuffer = kbhit()
+	nKey    = 0
+	if nBuffer 
 		nKey = getkey() 
 		if nKey = KEY_ESCAPE exit ok
 		clearMsg()
@@ -63,15 +64,7 @@ while True
 
 
 	# Using the Mouse 
-	if isWindows()
-		aMouse = GetMouseInfo()
-	else
-		if nKbhit
-			aMouse = GetMouseInfo_Term(nKey)
-		else
-			aMouse = GetMouseInfo()
-		ok
-	ok
+		aMouse = MouseInfo(nBuffer,nKey)
 
 	if aMouse[MOUSEINFO_ACTIVE]
 
