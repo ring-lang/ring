@@ -15,7 +15,7 @@ C_DEFAULTX = 10
 C_DEFAULTY = 10
 
 hideCursor()
-setConsoleTitle("Using Mouse (Windows/Linux)")
+setConsoleTitle("Using Mouse (Windows/Linux/macOS)")
 
 nX = C_DEFAULTX
 nY = C_DEFAULTY
