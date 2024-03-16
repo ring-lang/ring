@@ -123,7 +123,7 @@ pVM
 Type: double
 x
 Type: int
-y, nSize, lHex
+y, nSize, lHex, lNeg
 Type: const char *
 cStr
 ring_vm_generallib_string
