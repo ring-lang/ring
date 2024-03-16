@@ -90,6 +90,7 @@ while True
 end
 
 showCursor()
+echoON()
 
 func prepareScreen
 	setColor(White)
