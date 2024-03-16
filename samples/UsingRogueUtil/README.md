@@ -73,6 +73,18 @@ In this folder we have samples about using RogueUtil through the Ring programmin
 			 Respond to mouse events in Windows command prompt
 		</td>
 	</tr>
+	</tr>
+		<tr>
+		<td>
+			7
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/samples/UsingRogueUtil/test7.ring"> Using Mouse (Windows/Linux/macOS) </a>
+		</td>
+		<td>
+			 Respond to mouse events (Windows Command Prompt or Linux/macOS Terminal)
+		</td>
+	</tr>
 </table>
 
 
