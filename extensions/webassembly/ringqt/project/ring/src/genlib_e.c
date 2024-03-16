@@ -841,6 +841,8 @@ void ring_vm_generallib_number ( void *pPointer )
 			else if ( isspace(cStr[y]) ) {
 				lHex = 0 ;
 			}
+			else if ( cStr[y] == '.' ) {
+			}
 			else if ( (! lHex) && (y>0) && ( (cStr[y]=='x') || (cStr[y]=='X')  ) && (cStr[y-1]=='0') ) {
 				lHex = 1 ;
 			}
