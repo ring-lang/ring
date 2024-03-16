@@ -1,51 +1,63 @@
-func getmouseinfo_term nKey
+func MouseInfo nKbHit, nKey
+	if isWindows()
+		return GetMouseInfo()
+	else
+		if nKbhit
+			return GetMouseInfoTerm(nKey)
+		else
+			return GetMouseInfo()
+		ok
+	ok
+
+
+func getMouseInfoTerm nKey
 	aList = []
 	switch nKey
 		on MOUSEEVENT_START
 			aList + true
-			getmousepos_term(aList)
+			getMousePosTerm(aList)
 			aList + 2
 			aList + 0
 			aList + 0
 		on MOUSEMOVE_NOBUTTON
 			aList + true
-			getmousepos_term(aList)
+			getMousePosTerm(aList)
 			aList + 0
 			aList + 0
 			aList + 0
 		on MOUSEEVENT_CLICK
 			aList + true
-			getmousepos_term(aList)
+			getMousePosTerm(aList)
 			aList + 1
 			aList + 0
 			aList + 0
 		on MOUSEMOVE_LEFTBTNDOWN
 			aList + true
-			getmousepos_term(aList)
+			getMousePosTerm(aList)
 			aList + 1
 			aList + 0
 			aList + 0
 		on MOUSEMOVE_RIGHTBTNDOWN
 			aList + true
-			getmousepos_term(aList)
+			getMousePosTerm(aList)
 			aList + 2
 			aList + 0
 			aList + 0
 		on MOUSEEVENT_SCROLL
 			aList + true
-			getmousepos_term(aList)
+			getMousePosTerm(aList)
 			aList + 0
 			aList + 4
 			aList + 0
 		on MOUSEEVENT_SCROLLUP
 			aList + true
-			getmousepos_term(aList)
+			getMousePosTerm(aList)
 			aList + 0
 			aList + 4
 			aList + 1
 		on MOUSEEVENT_SCROLLDOWN
 			aList + true
-			getmousepos_term(aList)
+			getMousePosTerm(aList)
 			aList + 0
 			aList + 4
 			aList + 0
@@ -59,7 +71,7 @@ func getmouseinfo_term nKey
 	next
 	return aList
 
-func getmousepos_term aList
+func getMousePosTerm aList
 
 	c = char(getch())
 	cStr = ""
