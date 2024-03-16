@@ -859,6 +859,10 @@ void ring_vm_generallib_number ( void *pPointer )
 				/* Accept another negative number */
 				lNeg = 1 ;
 			}
+			else if ( (y>0) && (y < (nSize-1)) && (cStr[y] == 'e') && ( (cStr[y+1]=='+') || ( cStr[y+1]=='-') || isdigit(cStr[y+1]) ) ) {
+				/* Accept e in the number */
+				y++ ;
+			}
 			else {
 				ring_vm_error(pVM,RING_VM_ERROR_NUMERICINVALID);
 				return ;
