@@ -8,3 +8,4 @@ ok
 
 load "ring_rogueutil.rh"
 load "ring_mouseinfo.rh"
+load "ring_mouseinfo.ring"
