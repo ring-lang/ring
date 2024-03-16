@@ -87,7 +87,12 @@ RING_FUNC(ring_getmouseinfo)
 	ring_list_adddouble_gc(RING_API_STATE,pList,nWheelDirection);
 	ring_list_adddouble_gc(RING_API_STATE,pList,nMouseBtnState);
 	ring_list_adddouble_gc(RING_API_STATE,pList,nControlKey);
+
+#ifdef _WIN32
 	ring_list_adddouble_gc(RING_API_STATE,pList,nEvents);
+#else
+	ring_list_adddouble_gc(RING_API_STATE,pList,0.0);
+#endif
 	RING_API_RETLIST(pList);
 
 }
