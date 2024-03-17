@@ -1,0 +1,8 @@
+123
+123
+10
+123
+Error (R41) : Invalid numeric string
+Error (R41) : Invalid numeric string
+Error (R41) : Invalid numeric string
+done
