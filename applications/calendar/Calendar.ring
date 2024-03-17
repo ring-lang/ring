@@ -33,7 +33,7 @@ new QApp
 		mon = [31,29,31,30,31,30,31,31,30,31,30,31]
 
 		label1 = new qlabel(win1) {
-			setgeometry(360,5,65,30)
+			setgeometry(320,5,105,30)
 			setFont(new qFont("Verdana",15,100,0))
 			setstylesheet("color:white;background-color:violet;")
 			setAlignment(Qt_AlignVCenter | Qt_AlignHCenter)
@@ -42,7 +42,7 @@ new QApp
 
 		yearCmb = new qcombobox(win1) {
 			move(440,5)
-			resize(85,30)
+			resize(120,30)
 			setstylesheet("color:white;background-color:red;")
 			setFont(new qFont("Verdana",15,100,0))
 			for x in aYears  additem(string(x),0)  next						 
