@@ -864,7 +864,7 @@ void ring_vm_generallib_number ( void *pPointer )
 				y++ ;
 			}
 			else {
-				ring_vm_error(pVM,RING_VM_ERROR_NUMERICINVALID);
+				RING_API_ERROR(RING_VM_ERROR_NUMERICINVALID);
 				return ;
 			}
 		}
