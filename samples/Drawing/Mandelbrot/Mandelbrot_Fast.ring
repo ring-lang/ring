@@ -54,7 +54,7 @@
 # :: buildvc-2.bat
 # 
 # cls
-# call c:\ring\language\src\locatevc.bat   
+# call c:\ring\language\build\locatevc.bat   
 # cl /c /DEBUG mylibMandel.c -I"c:\ring\language\include"
 # link /DEBUG mylibMandel.obj c:\ring\lib\ring.lib /DLL /OUT:mylibMandel.dll /SUBSYSTEM:CONSOLE,"5.01"
 # del mylibMandel.obj
