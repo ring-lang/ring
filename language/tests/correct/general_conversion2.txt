@@ -1,4 +1,4 @@
-0
+Error (R41) : Invalid numeric string
 0
 25000
 Error (R41) : Invalid numeric string
@@ -6,7 +6,7 @@ Error (R41) : Invalid numeric string
 0
 1
 1
-12500
+Error (R41) : Invalid numeric string
 12500
 1
 0
