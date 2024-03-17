@@ -19,7 +19,6 @@ func showTimeClock()
 	h = (0+timeList()[7])
 	i = (0+timeList()[11])
 	s = (0+timeList()[13])
-	ap = (0+timelist()[12])
 
 	LCD_HClock.display(h) LCD_MClock.display(i) LCD_SClock.display(s)
 
