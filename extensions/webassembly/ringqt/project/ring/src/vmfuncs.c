@@ -284,8 +284,6 @@ void ring_vm_call2 ( VM *pVM )
 		pFuncCall->pFunc(pVM) ;
 		/* Trace */
 		ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_AFTERCFUNC);
-		/* Restore nFuncEx state */
-		pVM->nFuncExecute = pFuncCall->nFuncExec ;
 		/* Check for function termination by try/catch */
 		if ( pVM->lActiveCatch == 1 ) {
 			/*
@@ -296,6 +294,8 @@ void ring_vm_call2 ( VM *pVM )
 			*/
 			return ;
 		}
+		/* Restore nFuncEx state */
+		pVM->nFuncExecute = pFuncCall->nFuncExec ;
 		/* Function Output */
 		if ( nSP == pVM->nSP ) {
 			/* IgnoreNULL is Used by len(object) to get output from operator overloading method */
