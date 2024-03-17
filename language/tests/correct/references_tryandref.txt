@@ -1,0 +1,40 @@
+Error (R41) : Invalid numeric string
+12500
+1
+2
+3
+
+1
+2
+3
+
+Error (R41) : Invalid numeric string
+12500
+1
+2
+3
+
+1
+2
+3
+
+Error (R41) : Invalid numeric string
+12500
+1
+2
+3
+
+1
+2
+3
+
+Error (R35) : Can't create/open the file
+12500
+1
+2
+3
+
+1
+2
+3
+
