@@ -55,19 +55,11 @@ void ring_vm_see ( VM *pVM )
 
 void ring_vm_give ( VM *pVM )
 {
-	int x  ;
 	char cLine[RING_LARGEBUF]  ;
 	List *pVar  ;
 	Item *pItem  ;
 	/* Get Input From the User and save it in the variable */
-	fgets(cLine , RING_LARGEBUF , stdin );
-	/* Remove New Line */
-	for ( x = 0 ; x < RING_LARGEBUF ; x++ ) {
-		if ( cLine[x] == '\n' ) {
-			cLine[x] = '\0' ;
-			break ;
-		}
-	}
+	ring_general_readline(cLine, RING_LARGEBUF);
 	if ( RING_VM_STACK_ISPOINTER ) {
 		if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
 			pVar = (List *) RING_VM_STACK_READP ;

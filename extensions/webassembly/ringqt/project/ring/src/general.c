@@ -267,3 +267,16 @@ RING_API char * ring_general_numtostring ( double nNum1,char *cStr,int nDecimals
 	}
 	return cStr ;
 }
+
+void ring_general_readline ( char *cLine, unsigned int nSize )
+{
+	int x  ;
+	fgets(cLine,nSize,stdin);
+	/* Remove New Line */
+	for ( x = 0 ; x < nSize ; x++ ) {
+		if ( cLine[x] == '\n' ) {
+			cLine[x] = '\0' ;
+			break ;
+		}
+	}
+}

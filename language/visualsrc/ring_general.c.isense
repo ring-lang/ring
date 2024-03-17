@@ -62,3 +62,4 @@ Type: int
 nNum2
 Type: RING_LONGLONG
 nVal
+ring_general_readline

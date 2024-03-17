@@ -8,12 +8,12 @@ ring_vm_generallib_clock
 Type: clock_t
 nNum1
 ring_vm_generallib_input
+Type: char
+cInput[RING_LARGEBUF]
 Type: char *
 cLine
 Type: int
 nSize,nOutput
-Type: char
-cInput[RING_LARGEBUF]
 ring_vm_generallib_ascii
 Type: int
 x
