@@ -16,6 +16,7 @@ Scanner * ring_scanner_new ( RingState *pRingState )
 	pScanner->nFloatMark = SCANNER_FLOATMARK_START ;
 	pScanner->cMLComment = 0 ;
 	pScanner->nTokenIndex = 0 ;
+	pScanner->lHashComments = 1 ;
 	return pScanner ;
 }
 
@@ -215,7 +216,7 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 				pScanner->cLiteral = '`' ;
 				pScanner->nLiteralLine = pScanner->nLinesCount ;
 			}
-			else if ( c == '#' ) {
+			else if ( (c == '#') && pScanner->lHashComments ) {
 				pScanner->cState = SCANNER_STATE_COMMENT ;
 			}
 			break ;
@@ -403,6 +404,8 @@ void ring_scanner_keywords ( Scanner *pScanner )
 	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"changeringkeyword");
 	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"changeringoperator");
 	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"loadsyntax");
+	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"enablehashcomments");
+	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"disablehashcomments");
 	ring_list_genhashtable_gc(pScanner->pRingState,pScanner->pKeywords);
 }
 
@@ -458,6 +461,14 @@ void ring_scanner_checktoken ( Scanner *pScanner )
 		else if ( nResult == RING_SCANNER_LOADSYNTAX ) {
 			ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"");
 			pScanner->cState = SCANNER_STATE_LOADSYNTAX ;
+		}
+		else if ( nResult == RING_SCANNER_ENABLEHASHCOMMENTS ) {
+			ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"");
+			pScanner->lHashComments = 1 ;
+		}
+		else if ( nResult == RING_SCANNER_DISABLEHASHCOMMENTS ) {
+			ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"");
+			pScanner->lHashComments = 0 ;
 		}
 	}
 	else {
