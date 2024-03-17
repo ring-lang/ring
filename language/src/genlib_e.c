@@ -844,6 +844,7 @@ void ring_vm_generallib_number ( void *pPointer )
 				lNeg = 0 ;
 			}
 			else if ( cStr[y] == '.' ) {
+				/* Accept the dot operator */
 			}
 			else if ( (! lHex) && (y>0) && ( (cStr[y]=='x') || (cStr[y]=='X')  ) && (cStr[y-1]=='0') ) {
 				lHex = 1 ;
@@ -851,12 +852,12 @@ void ring_vm_generallib_number ( void *pPointer )
 			else if ( lHex && ( (cStr[y] >= 97 && cStr[y] <= 102) || (cStr[y] >= 65 && cStr[y] <= 70) ) ) {
 				/* Accept a-f and A-F for hex. values */
 			}
-			else if ( (y==0) && (! lNeg) &&(cStr[y] == '-') ) {
-				/* Accept the first negative number */
+			else if ( (y==0) && (! lNeg) &&( (cStr[y] == '-') ||  (cStr[y] == '+') ) ) {
+				/* Accept the first positive or negative number */
 				lNeg = 1 ;
 			}
-			else if ( (y > 0) && ( ! lNeg) && (cStr[y]=='-') && (cStr[y-1] == ' ') ) {
-				/* Accept another negative number */
+			else if ( (y > 0) && ( ! lNeg) && ( (cStr[y]=='-') || (cStr[y]=='+') ) && (cStr[y-1] == ' ') ) {
+				/* Accept another positive or negative number */
 				lNeg = 1 ;
 			}
 			else if ( (y>0) && (y < (nSize-1)) && (cStr[y] == 'e') && ( (cStr[y+1]=='+') || ( cStr[y+1]=='-') || isdigit(cStr[y+1]) ) ) {
