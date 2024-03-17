@@ -277,6 +277,7 @@ aTests = [
 	[ :name = "Natural Language Programming (Part 10)", :Command = "ring natural/testsyntax1.ring" ],
 	[ :name = "Natural Language Programming (Part 11)", :Command = "ring natural/testsyntax2.ring" ],
 	[ :name = "Natural Language Programming (Part 12)", :Command = "ring natural/testsyntax3.ring" ],
+	[ :name = "Natural Language Programming (Part 13)", :Command = "ring natural/hashcomments.ring" ],
 	[ :name = "Natural Language Programming Library (Part 1)", :Command = "ring naturallib/start.ring" ],
 	[ :name = "Natural Language Programming Library (Part 2)", :Command = "ring naturallib/program.ring" ],
 	[ :name = "Natural Language Programming Library (Part 3)", :Command = "ring naturallib/program2.ring" ],
