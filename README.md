@@ -1055,11 +1055,11 @@ Also, when we need more speed we can use C/C++ extensions!
 
 We provide instructions for building on the next platforms:-
 
-(1) [Microsoft Windows](language/README_Windows.md)
+-  [Microsoft Windows](language/README_Windows.md)
 
-(2) [Ubuntu Linux](language/README_UbuntuLinux.md)
+-  [Ubuntu Linux](language/README_UbuntuLinux.md)
 
-(3) [macOS](language/README_macOS.md)
+-  [macOS](language/README_macOS.md)
 
 # License 
 
