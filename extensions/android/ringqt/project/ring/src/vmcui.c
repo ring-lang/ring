@@ -62,7 +62,7 @@ void ring_vm_give ( VM *pVM )
 	/* Get Input From the User and save it in the variable */
 	fgets(cLine , RING_LARGEBUF , stdin );
 	/* Remove New Line */
-	for ( x = 0 ; x <= 255 ; x++ ) {
+	for ( x = 0 ; x < RING_LARGEBUF ; x++ ) {
 		if ( cLine[x] == '\n' ) {
 			cLine[x] = '\0' ;
 			break ;
