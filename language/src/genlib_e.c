@@ -164,19 +164,27 @@ void ring_vm_generallib_input ( void *pPointer )
 {
 	char *cLine  ;
 	int nSize,nOutput  ;
-	if ( RING_API_PARACOUNT != 1 ) {
+	char cInput[RING_LARGEBUF]  ;
+	if ( RING_API_PARACOUNT > 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	if ( RING_API_ISNUMBER(1) ) {
-		nSize = RING_API_GETNUMBER(1);
-	}
-	else if ( RING_API_ISSTRING(1) ) {
-		nSize = ring_vm_stringtonum((VM *) pPointer,RING_API_GETSTRING(1));
-	}
-	else {
-		RING_API_ERROR(RING_API_BADPARATYPE);
+	if ( RING_API_PARACOUNT == 0 ) {
+		fgets(cInput,RING_LARGEBUF,stdin);
+		RING_API_RETSTRING(cInput);
 		return ;
+	}
+	if ( RING_API_PARACOUNT == 1 ) {
+		if ( RING_API_ISNUMBER(1) ) {
+			nSize = RING_API_GETNUMBER(1);
+		}
+		else if ( RING_API_ISSTRING(1) ) {
+			nSize = ring_vm_stringtonum((VM *) pPointer,RING_API_GETSTRING(1));
+		}
+		else {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return ;
+		}
 	}
 	if ( nSize > 0 ) {
 		cLine = (char *) RING_API_MALLOC(nSize);

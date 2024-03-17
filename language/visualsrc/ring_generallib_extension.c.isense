@@ -12,6 +12,8 @@ Type: char *
 cLine
 Type: int
 nSize,nOutput
+Type: char
+cInput[RING_LARGEBUF]
 ring_vm_generallib_ascii
 Type: int
 x
@@ -123,7 +125,7 @@ pVM
 Type: double
 x
 Type: int
-y, nSize, lHex, lNeg, lDot
+y, nSize, lHex, lSign, lDot
 Type: const char *
 cStr
 ring_vm_generallib_string
