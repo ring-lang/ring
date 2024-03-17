@@ -447,6 +447,10 @@ void ring_scanner_checktoken ( Scanner *pScanner )
 			ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,cStr);
 			ring_scanner_addtoken(pScanner,SCANNER_TOKEN_KEYWORD);
 		}
+		else if ( nResult == RING_SCANNER_CHANGERINGKEYWORD ) {
+			ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"");
+			pScanner->cState = SCANNER_STATE_CHANGEKEYWORD ;
+		}
 		else if ( nResult == RING_SCANNER_CHANGERINGOPERATOR ) {
 			ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"");
 			pScanner->cState = SCANNER_STATE_CHANGEOPERATOR ;
@@ -454,10 +458,6 @@ void ring_scanner_checktoken ( Scanner *pScanner )
 		else if ( nResult == RING_SCANNER_LOADSYNTAX ) {
 			ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"");
 			pScanner->cState = SCANNER_STATE_LOADSYNTAX ;
-		}
-		else {
-			ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"");
-			pScanner->cState = SCANNER_STATE_CHANGEKEYWORD ;
 		}
 	}
 	else {
