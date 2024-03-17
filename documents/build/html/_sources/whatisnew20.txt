@@ -28,6 +28,8 @@ More Improvements
 * ring/applications - Using stdlibcore.ring instead of stdlib.ring in many applications
 * ring/applications - Using lightguilib.ring instead of guilib.ring in many applications
 * Calculator application - Using sqlitelib.ring
+* Customers application - Revise digital_clock.ring code
+* Calendar application - Revise controls size
 * File: language/src/installdep.sh - Added: libqt5multimedia5-plugins
 * Added: samples/UsingGemini
 * Added: samples/General/NeuralNetwork
@@ -41,6 +43,7 @@ More Improvements
 * add() function - when adding a list support adding each item alone
 * list2str() function - Support more parameters: list2str(aList,[nStart],[nEnd])
 * isDigit(), isAlpha(), isAlnum(), etc. will return False if the input is an empty string
+* number() function - Produce runtime error if the string contains invalid number
 * RingQt - Correct parent class name for the QMaterial & QLogicAspect classes
 * RingQt - Added: QComponent class (Qt3DCore)
 * Ring VM - Avoid infinite for loops when the step value is zero 
@@ -59,4 +62,5 @@ More Improvements
 * Ring Source Code - Added: ring/language/build/buildzig.bat
 * Ring Source Code - language/src/rstring.c - ring_string_set2_gc() - Better code
 * Ring Source Code - language/src/os_e.c - randomize() - Better code
-* Ring Source Code - Building scripts and batch files are moved to ring/language/build folder
+* Ring Source Code - Scripts for building Ring Compiler/VM are moved to ring/language/build folder
+* Ring Source Code - Scripts for building Ring, Extensions and Tools are moved to ring/build folder 
