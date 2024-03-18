@@ -11,7 +11,7 @@ To be sure about this, ask yourself, how many programmers are good at low-level 
 
 Also, this scenario assumes that AI tools will be successful and used to the level it becomes the mainstream tools.
 
-Until this section of the post I am talked about the current state of these AI tools. If I am going to talk about the future that we don't know but could try to predict/invent it. The complexity of software and the wide range of possibilities is too much a big problem for AI to solve. Any success in this way will be just in the form of new tools that help programmers, The better tools we have the more we can do, and the customers/competition will ask for more.
+Until this section of the post I am talking about the current state of these AI tools. If I am going to talk about the future that we don't know but could try to predict/invent it. The complexity of software and the wide range of possibilities is too much a big problem for AI to solve. Any success in this way will be just in the form of new tools that help programmers, The better tools we have the more we can do, and the customers/competition will ask for more.
 
 In 1980s-1990s - ONE PROGRAMMER could develop a very successful software/game ALONE- because the scope & size of software at this time allows this. and you know what? many of those programmers create everything from scratch (Game Engine, Game Code, etc) - Very GREAT PROGRAMMERS.
 
