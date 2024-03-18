@@ -69,6 +69,7 @@
 		List *pGlobalScopes  ;
 		List *pActiveGlobalScopes  ;
 		List *pDeleteLater  ;
+		List *pDefinedGlobals  ;
 		String *pPackageName  ;
 		String *pTrace  ;
 		ByteCode *pByteCode  ;
@@ -136,7 +137,6 @@
 		unsigned int lFullStringToNum: 1  ;
 		unsigned int lSubStringToNumError: 1  ;
 		Item aStack[RING_VM_STACK_SIZE]  ;
-		List *pDefinedGlobals  ;
 	} VM ;
 	typedef struct FuncCall {
 		const char *cName  ;
@@ -221,8 +221,6 @@
 	#define RING_VAR_VALUE 3
 	#define RING_VAR_PVALUETYPE 4
 	#define RING_VAR_PRIVATEFLAG 5
-	/* Number of global variables defined by the VM like True, False, cErrorMsg */
-	#define RING_VM_INTERNALGLOBALSCOUNT 15
 	/* Global variable position */
 	#define RING_GLOBALVARPOS_GETTEMPVAR 5
 	#define RING_GLOBALVARPOS_ERRORMSG 6
