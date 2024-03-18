@@ -44,7 +44,8 @@ More Improvements
 * list2str() function - Support more parameters: list2str(aList,[nStart],[nEnd])
 * isDigit(), isAlpha(), isAlnum(), etc. will return False if the input is an empty string
 * number() function - Produce runtime error if the string contains invalid number
-* input() function - if the size is not passed as parameter it will read a line
+* input() function - If the size is not passed as parameter it will read a line
+* locals() function - Usage in global scope will not return predefined globals like NL, True, etc.
 * RingQt - Correct parent class name for the QMaterial & QLogicAspect classes
 * RingQt - Added: QComponent class (Qt3DCore)
 * Ring Compiler - Scanner - Added: EnableHashComments & DisableHashComments
@@ -55,6 +56,7 @@ More Improvements
 * Ring VM - Better support for try/catch and different operators
 * Ring VM - Better support for try/catch when creating new object and the parent class doesn't exist
 * Ring VM - When we compare between a string and a number take in mind if the string contains extra characters
+* Ring VM - Each thread have it's copy from predefined globals like NL, True, etc.
 * Ring Source Code - Better Format
 * Ring Source Code - Using constants
 * Ring Source Code - Use Bit Fields in structures
