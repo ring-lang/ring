@@ -24,3 +24,31 @@ It's not that these tools will replace programmers, it that these tools will cha
 Also, the way we interact with AI tools (Chat, Voice, etc.) in natural language have its limits ---> Try to describe a feature in a software like Windows/Linux/macOS and you will know what I mean. To describe the unique thing that you really want in non-ambiguous language ---> THIS IS PART OF PROGRAMMING. and we still have more other parts (Testing, Documentation, Updates, etc.). All of this and we don't talk about responsibility/security part of the software. I know that AI can drive a plane, but if I will travel from my city to another one and heard a voice that says (Welcome, we will start our journey in minute, I am the autopilot) - I WILL LEAVE THIS PLANE IMEDIATLY.
 
 Finally, Thanks to the AI/ML developers who developed nice tools that helped me a lot to write this post.
+
+Related Articles
+================
+
+<table>
+	<tr>
+		<td>
+			1
+		</td>
+		<td>
+			 <a href="https://www.nature.com/articles/d41586-024-00478-x"> Environmental costs </a>
+		</td>
+		<td>
+			 Generative AI’s environmental costs are soaring — and mostly secret
+		</td>
+	</tr>
+	<tr>
+		<td>
+			2
+		</td>
+		<td>
+			 <a href="https://www.wired.com/story/openai-ceo-sam-altman-the-age-of-giant-ai-models-is-already-over/"> artificial intelligence will require new ideas </a>
+		</td>
+		<td>
+			 OpenAI’s CEO Says the Age of Giant AI Models Is Already Over
+		</td>
+	</tr>
+</table>
