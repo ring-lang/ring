@@ -823,7 +823,7 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 	ring_string_add_gc(pVM->pRingState,pString,ring_list_getstring(pVar,RING_VAR_NAME));
 	ring_string_add_gc(pVM->pRingState,pString,"'() ok");
 	/* Set Variable ring_gettemp_var */
-	pList = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_GLOBALVARPOS_GETTEMPVAR) ;
+	pList = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_GETTEMPVAR) ;
 	ring_list_setpointer_gc(pVM->pRingState,pList,RING_VAR_VALUE,pVM->pGetSetObject);
 	ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_PVALUETYPE ,pVM->nGetSetObjType);
 	/* Check Setter & Getter for Public Attributes */
@@ -948,11 +948,11 @@ void ring_vm_oop_setproperty ( VM *pVM )
 	if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG1) == 0 ) {
 		nIns = pVM->nPC - 2 ;
 		/* Set Variable ring_gettemp_var */
-		pList2 = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_GLOBALVARPOS_GETTEMPVAR) ;
+		pList2 = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_GETTEMPVAR) ;
 		ring_list_setpointer_gc(pVM->pRingState,pList2,RING_VAR_VALUE,ring_list_getpointer(pList,RING_SETPROPERTY_OBJPTR));
 		ring_list_setint_gc(pVM->pRingState,pList2,RING_VAR_PVALUETYPE,ring_list_getint(pList,RING_SETPROPERTY_OBJTYPE));
 		/* Set Variable ring_settemp_var */
-		pList2 = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_GLOBALVARPOS_SETTEMPVAR) ;
+		pList2 = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_SETTEMPVAR) ;
 		if ( RING_VM_STACK_ISNUMBER ) {
 			ring_list_setint_gc(pVM->pRingState,pList2,RING_VAR_TYPE,RING_VM_NUMBER);
 			ring_list_setdouble_gc(pVM->pRingState,pList2,RING_VAR_VALUE,RING_VM_STACK_READN);
@@ -971,7 +971,7 @@ void ring_vm_oop_setproperty ( VM *pVM )
 			ring_list_addint_gc(pVM->pRingState,pList,RING_VM_STACK_OBJTYPE);
 		}
 		/* Set Variable ring_tempflag_var */
-		pList2 = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_GLOBALVARPOS_TEMPFALG) ;
+		pList2 = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_TEMPFALG) ;
 		ring_list_setdouble_gc(pVM->pRingState,pList2,RING_VAR_VALUE,RING_ZEROF);
 		/* Execute the same instruction again (next time the part "After (Second Time)" will run ) */
 		pVM->nPC-- ;
@@ -1011,7 +1011,7 @@ void ring_vm_oop_setproperty ( VM *pVM )
 		/* Set Before/After SetProperty Flag to Before */
 		RING_VM_IR_READIVALUE(RING_VM_IR_REG1) = RING_FALSE ;
 		/* Get Variable ring_tempflag_var */
-		pList2 = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_GLOBALVARPOS_TEMPFALG) ;
+		pList2 = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_TEMPFALG) ;
 		if ( ring_list_getdouble(pList2,RING_VAR_VALUE) == 1.0 ) {
 			/*
 			**  The set method is not found!, we have to do the assignment operation 
@@ -1091,7 +1091,7 @@ void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int 
 	int nObjType, nIns  ;
 	nObjType = ring_vm_oop_objtypefromobjlist(pObj);
 	/* Set Variable ring_gettemp_var */
-	pList2 = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_GLOBALVARPOS_GETTEMPVAR) ;
+	pList2 = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_GETTEMPVAR) ;
 	if ( nObjType == RING_OBJTYPE_VARIABLE ) {
 		pObj = ring_vm_oop_objvarfromobjlist(pObj);
 		ring_list_setpointer_gc(pVM->pRingState,pList2,RING_VAR_VALUE,pObj);
@@ -1102,7 +1102,7 @@ void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int 
 	}
 	ring_list_setint_gc(pVM->pRingState,pList2,RING_VAR_PVALUETYPE,nObjType);
 	/* Set Variable ring_settemp_var */
-	pList2 = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_GLOBALVARPOS_SETTEMPVAR) ;
+	pList2 = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_SETTEMPVAR) ;
 	if ( nType == RING_OOPARA_STRING ) {
 		ring_list_setint_gc(pVM->pRingState,pList2,RING_VAR_TYPE,RING_VM_STRING);
 		ring_list_setstring_gc(pVM->pRingState,pList2,RING_VAR_VALUE,cStr2);
@@ -1219,7 +1219,7 @@ void ring_vm_oop_updateselfpointer ( VM *pVM,List *pObj,int nType,void *pContain
 void ring_vm_oop_setthethisvariable ( VM *pVM )
 {
 	List *pList, *pThis  ;
-	pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_GLOBALVARPOS_THIS) ;
+	pThis = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_THIS) ;
 	if ( (ring_list_getsize(pVM->pObjState) < 1) || (ring_vm_oop_callmethodinsideclass(pVM) == 0) ) {
 		ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,NULL);
 		ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,RING_OBJTYPE_NOTYPE);
@@ -1243,7 +1243,7 @@ void ring_vm_oop_setthethisvariable ( VM *pVM )
 void ring_vm_oop_setthethisvariableinclassregion ( VM *pVM )
 {
 	List *pList, *pThis  ;
-	pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_GLOBALVARPOS_THIS) ;
+	pThis = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_THIS) ;
 	pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState));
 	/* Get Object Scope */
 	pList = ring_list_getlist(pList,RING_OBJSTATE_SCOPE);
@@ -1261,7 +1261,7 @@ int ring_vm_oop_callingclassmethodfromclassregion ( VM *pVM, List *pMethods )
 	Item *pItem  ;
 	pItem = NULL ;
 	if ( pVM->nInClassRegion != 0 ) {
-		pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_GLOBALVARPOS_THIS) ;
+		pThis = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_THIS) ;
 		if ( pThis == NULL ) {
 			return 0 ;
 		}

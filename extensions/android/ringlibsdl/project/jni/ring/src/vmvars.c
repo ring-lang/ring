@@ -59,7 +59,7 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 	pVM->nVarScope = RING_VARSCOPE_NOTHING ;
 	if ( nMax1 > 0 ) {
 		/* Loop to search in each Scope */
-		for ( x = 1 ; x <= 3 ; x++ ) {
+		for ( x = 1 ; x <= 4 ; x++ ) {
 			/* 1 = last scope (function) , 2 = Object State , 3 = global scope */
 			if ( x == 1 ) {
 				pList = pVM->pActiveMem ;
@@ -98,7 +98,12 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 				if ( (pVM->lGetSetProperty == 1) || pVM->lFirstAddress ) {
 					continue ;
 				}
-				pList = ring_vm_getglobalscope(pVM);
+				if ( x == 3 ) {
+					pList = pVM->pDefinedGlobals ;
+				}
+				else {
+					pList = ring_vm_getglobalscope(pVM);
+				}
 			}
 			if ( ring_list_getsize(pList) < 10 ) {
 				/* Search Using Linear Search */
@@ -106,6 +111,9 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 				if ( nPos != 0 ) {
 					if ( ring_list_islist(pList,nPos) ) {
 						pList2 = ring_list_getlist(pList,nPos);
+						if ( x == 4 ) {
+							x = 3 ;
+						}
 						return ring_vm_findvar2(pVM,x,pList2,cStr) ;
 					}
 				}
@@ -117,6 +125,9 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 				}
 				pList2 = (List *) ring_hashtable_findpointer(pList->pHashTable,cStr);
 				if ( pList2 != NULL ) {
+					if ( x == 4 ) {
+						x = 3 ;
+					}
 					return ring_vm_findvar2(pVM,x,pList2,cStr) ;
 				}
 			}
@@ -190,7 +201,7 @@ int ring_vm_findvar2 ( VM *pVM,int nLevel,List *pList2,const char *cStr )
 		/* Check Setter/Getter for Public Attributes */
 		if ( pVM->lGetSetProperty == 1 ) {
 			/* Avoid executing Setter/Getter when we use self.attribute and this.attribute */
-			pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_GLOBALVARPOS_THIS) ;
+			pThis = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_THIS) ;
 			if ( pThis != NULL ) {
 				if ( ring_list_getpointer(pThis,RING_VAR_VALUE ) == pVM->pGetSetObject ) {
 					return 1 ;
@@ -470,7 +481,6 @@ void ring_vm_newglobalscope ( VM *pVM )
 {
 	pVM->pActiveMem = ring_list_newlist_gc(pVM->pRingState,pVM->pGlobalScopes);
 	ring_list_addpointer_gc(pVM->pRingState,pVM->pActiveGlobalScopes,pVM->pActiveMem);
-	ring_vm_addglobalvariables(pVM);
 }
 
 void ring_vm_endglobalscope ( VM *pVM )

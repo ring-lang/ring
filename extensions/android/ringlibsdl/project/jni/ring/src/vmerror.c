@@ -20,7 +20,7 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 				if ( ring_vm_oop_isobject(pList) ) {
 					if ( ring_vm_oop_ismethod(pVM, pList,RING_CSTR_BRACEERROR) ) {
 						pVM->lActiveError = 0 ;
-						ring_list_setstring_gc(pVM->pRingState,ring_list_getlist(ring_vm_getglobalscope(pVM),RING_GLOBALVARPOS_ERRORMSG),RING_VAR_VALUE,cStr);
+						ring_list_setstring_gc(pVM->pRingState,ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_ERRORMSG),RING_VAR_VALUE,cStr);
 						ring_vm_eval(pVM,RING_CSTR_RETBRACEERROR);
 						return ;
 					}

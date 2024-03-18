@@ -617,9 +617,14 @@ void ring_vm_movetoprevscope ( VM *pVM,int nFuncType )
 		else {
 			ring_vm_list_copy(pVM,pList2,pList);
 			ring_list_enabledontref(pList2);
-			/* When we return a local object - Swap Container Lists */
+			/*
+			**  When we return a local object - Swap Container Lists 
+			**  The idea is to return the same object (Keep the Object ID without change) 
+			*/
 			if ( ring_vm_oop_isobject(pList) ) {
 				if ( ring_vm_oop_objtypefromobjlist(pList) == RING_OBJTYPE_VARIABLE ) {
+					/* Take in mind that pList could be stored in a Global Variable - Then passed/returned from function */
+					ring_list_setstring_gc(pVM->pRingState,pList3,RING_VAR_NAME,ring_list_getstring(ring_vm_oop_objvarfromobjlist(pList),RING_VAR_NAME));
 					ring_list_swaptwolists(pList3,ring_vm_oop_objvarfromobjlist(pList));
 					ring_vm_oop_updateselfpointer(pVM,pList,RING_OBJTYPE_VARIABLE,pList3);
 					RING_VM_STACK_SETPVALUE(pList3);

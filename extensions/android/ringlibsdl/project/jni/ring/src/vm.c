@@ -6,6 +6,7 @@ VM * ring_vm_new ( RingState *pRingState )
 {
 	VM *pVM  ;
 	int x  ;
+	List *pActiveMem  ;
 	pVM = (VM *) ring_state_malloc(pRingState,sizeof(VM));
 	/* Ring State */
 	pVM->pRingState = pRingState ;
@@ -30,8 +31,13 @@ VM * ring_vm_new ( RingState *pRingState )
 	**  Class Region (After the Class Name) 
 	*/
 	pVM->nInClassRegion = 0 ;
+	/* Global variables defined by Ring - Specific copy for each thread */
+	pVM->pDefinedGlobals = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Add Variables */
+	pActiveMem = pVM->pActiveMem ;
+	pVM->pActiveMem = pVM->pDefinedGlobals ;
 	ring_vm_addglobalvariables(pVM);
+	pVM->pActiveMem = pActiveMem ;
 	/* Lists */
 	pVM->nListStart = 0 ;
 	pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,RING_ZERO);
@@ -245,6 +251,7 @@ VM * ring_vm_delete ( VM *pVM )
 	#endif
 	pVM->pCLibraries = ring_list_delete_gc(pVM->pRingState,pVM->pCLibraries);
 	pVM->pDeleteLater = ring_list_delete_gc(pVM->pRingState,pVM->pDeleteLater);
+	pVM->pDefinedGlobals = ring_list_delete_gc(pVM->pRingState,pVM->pDefinedGlobals);
 	pVM->pRingState->pVM = NULL ;
 	ring_state_free(pVM->pRingState,pVM);
 	pVM = NULL ;

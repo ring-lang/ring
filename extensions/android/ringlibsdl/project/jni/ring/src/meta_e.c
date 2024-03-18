@@ -85,7 +85,7 @@ void ring_vm_refmeta_globals ( void *pPointer )
 	pList = ring_vm_getglobalscope(pVM) ;
 	pList2 = RING_API_NEWLIST ;
 	/* We avoid internal global variables like true, false */
-	for ( x = RING_VM_INTERNALGLOBALSCOUNT + 1 ; x <= ring_list_getsize(pList) ; x++ ) {
+	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 		pList3 = ring_list_getlist(pList,x);
 		ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList2,ring_list_getstring(pList3,RING_VAR_NAME));
 	}
