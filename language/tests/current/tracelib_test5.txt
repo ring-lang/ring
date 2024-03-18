@@ -13,22 +13,7 @@ Command (CallStack)   : Print call stack
 We can execute Ring code
 ============================================================
 
-code:> true
-false
-nl
-null
-ring_gettemp_var
-ccatcherror
-ring_settemp_var
-ring_tempflag_var
-stdin
-stdout
-stderr
-this
-tab
-cr
-sysargv
-traceevent_newline
+code:> traceevent_newline
 traceevent_newfunc
 traceevent_return
 traceevent_error
@@ -183,22 +168,7 @@ Command (CallStack)   : Print call stack
 We can execute Ring code
 ============================================================
 
-code:> true
-false
-nl
-null
-ring_gettemp_var
-ccatcherror
-ring_settemp_var
-ring_tempflag_var
-stdin
-stdout
-stderr
-this
-tab
-cr
-sysargv
-traceevent_newline
+code:> traceevent_newline
 traceevent_newfunc
 traceevent_return
 traceevent_error
