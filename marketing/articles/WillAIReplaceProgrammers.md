@@ -24,3 +24,8 @@ It's not that these tools will replace programmers, it that these tools will cha
 Also, the way we interact with AI tools (Chat, Voice, etc.) in natural language have its limits ---> Try to describe a feature in a software like Windows/Linux/macOS and you will now what I mean. To describe the unique thing that you really want in non-ambiguous language ---> THIS IS PART OF PROGRAMMING. and we still have more other parts (Testing, Documentation, Updates, etc.). All of this and we don't talk about responsibility/security part of the software. I know that AI can drive a plane, but if I will travel from my city to another one and heard a voice that says (Welcome, we will start our journey in minute, I am the autopilot) - I WILL LEAVE THIS PLANE IMEDIATLY.
 
 Finally, Thanks to the AI/ML developers who developed nice tools that helped me a lot to write this post. If you find that this post is good, you can say thanks to me, if you don't like it - Please blame the AI/ML tools (Not Me). That's one of the reasons why I like AI tools, because if I did a mistake I can act as a manager and blame them.
+
+Your Opinion? (Comments/Experience with AI tools)
+=================================================
+
+- You can add them here and let us see what will happens in the future. 
