@@ -136,6 +136,7 @@
 		unsigned int lFullStringToNum: 1  ;
 		unsigned int lSubStringToNumError: 1  ;
 		Item aStack[RING_VM_STACK_SIZE]  ;
+		List *pDefinedGlobals  ;
 	} VM ;
 	typedef struct FuncCall {
 		const char *cName  ;

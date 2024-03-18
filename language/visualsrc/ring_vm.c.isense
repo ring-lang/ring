@@ -185,7 +185,7 @@ nEvalInScope
 Type: unsigned char
 nNoSetterMethod
 Type: unsigned int
-lActiveCatch
+lActiveCatch: 1
 Type: unsigned int
 lCallMainFunction: 1
 Type: unsigned int
@@ -238,6 +238,8 @@ Type: unsigned int
 lSubStringToNumError: 1
 Type: Item
 aStack[RING_VM_STACK_SIZE]
+Type: List *
+pDefinedGlobals
 END:
 Type: VM
 struct VM
@@ -566,6 +568,8 @@ Type: VM *
 pVM
 Type: int
 x
+Type: List *
+pActiveMem
 ring_vm_delete
 Type: int
 x
