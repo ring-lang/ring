@@ -45,7 +45,7 @@ Related Articles
 			2
 		</td>
 		<td>
-			 <a href="https://www.wired.com/story/openai-ceo-sam-altman-the-age-of-giant-ai-models-is-already-over/"> artificial intelligence will require new ideas </a>
+			 <a href="https://www.wired.com/story/openai-ceo-sam-altman-the-age-of-giant-ai-models-is-already-over/"> Artificial Intelligence will require new ideas </a>
 		</td>
 		<td>
 			 OpenAI’s CEO Says the Age of Giant AI Models Is Already Over
