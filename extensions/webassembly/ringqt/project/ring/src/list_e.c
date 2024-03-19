@@ -717,7 +717,7 @@ void ring_vm_listfuncs_reverse ( void *pPointer )
 		for ( x = nSize ; x >= 1 ; x-- ) {
 			cNewStr[nPos++] = cStr[x-1] ;
 		}
-		RING_API_RETSTRING2(cNewStr,nSize+1);
+		RING_API_RETSTRING2(cNewStr,nSize);
 		RING_API_FREE(cNewStr);
 	}
 	else {
