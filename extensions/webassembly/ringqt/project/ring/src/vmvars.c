@@ -6,7 +6,6 @@ void ring_vm_addglobalvariables ( VM *pVM )
 {
 	List *pList  ;
 	int x  ;
-	pVM->nLoadAddressScope = RING_VARSCOPE_GLOBAL ;
 	/*
 	**  Add Variables 
 	**  We write variable name in lower case because Identifiers is converted to lower by Compiler(Scanner) 
@@ -31,7 +30,7 @@ void ring_vm_addglobalvariables ( VM *pVM )
 	for ( x = 0 ; x < pVM->pRingState->nArgc ; x++ ) {
 		ring_list_addstring_gc(pVM->pRingState,pList,pVM->pRingState->pArgv[x]);
 	}
-	pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
+	pVM->nLoadAddressScope = RING_VARSCOPE_DEFINEDGLOBALS ;
 }
 /*
 **  Memory is a List and each item inside the list is another List (Represent Scope) 
@@ -111,9 +110,6 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 				if ( nPos != 0 ) {
 					if ( ring_list_islist(pList,nPos) ) {
 						pList2 = ring_list_getlist(pList,nPos);
-						if ( x == 4 ) {
-							x = 3 ;
-						}
 						return ring_vm_findvar2(pVM,x,pList2,cStr) ;
 					}
 				}
@@ -125,9 +121,6 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 				}
 				pList2 = (List *) ring_hashtable_findpointer(pList->pHashTable,cStr);
 				if ( pList2 != NULL ) {
-					if ( x == 4 ) {
-						x = 3 ;
-					}
 					return ring_vm_findvar2(pVM,x,pList2,cStr) ;
 				}
 			}
