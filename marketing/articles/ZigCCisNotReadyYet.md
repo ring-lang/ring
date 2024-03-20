@@ -41,6 +41,31 @@ A strange bug!
 
 After building Ring using Zig cc, the produced Ring executable suffer from a stange/funny bug
 
+Assume that we have the next Ring program (test.ring)
+
+	? 5--
+
+Output
+
+	4
+
+If we have a valid Ring executable then using Ring test.ring -ic will generate the next byte code
+
+	===========================================================================
+ 	Byte Code - Before Execution by the VM
+	===========================================================================
+
+     	PC              OPCode                 Data
+
+      	1            LoadFunc           ringvm_see                   0
+      	2               PushN             5.000000
+      	3                  --
+      	4               PushV
+      	5                Call                    0
+      	6         NoOperation
+      	7           FreeStack
+
+Now what we care about is that we have the (PushN) instruction that push the number five to the Stack then we have the decrement instruction (--) that decrese five to four then we print this result.
 
 
 
