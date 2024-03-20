@@ -107,4 +107,59 @@ So, why I am saying it's a funny bug?
 
 Let's see what Zig cc did in a wrong way to have this result
 
+In Ring implementation we have the next C code to generate the bytecode for increment/decrement operations (i.e. ++ and --)
+
+	int ring_parser_ppmm ( Parser *pParser ) {
+
+	int nLastOperation,nMark,nMode,nValue  ;
+	List *pMark  ;
+	nLastOperation = ring_parser_icg_getlastoperation(pParser) ;
+	pMark = ring_parser_icg_getactiveoperation(pParser);
+	/* ++ & -- */
+	if ( ring_parser_isoperator2(pParser,OP_INC) ) {
+		ring_parser_nexttoken(pParser);
+		switch ( nLastOperation ) {
+			case ICO_LOADADDRESS :
+				nMode = RING_PARSER_ICG_NORMALPP ;
+				if ( pParser->nBracesCounter ) {
+					nMode = RING_PARSER_ICG_USEASSIGNMENT ;
+					nValue = 1.0 ;
+				}
+				break ;
+			case ICO_LOADSUBADDRESS :
+				nMode = RING_PARSER_ICG_USESETPROPERTY ;
+				nValue = 1.0 ;
+				break ;
+			default :
+				nMode = RING_PARSER_ICG_NORMALPP ;
+		}
+	}
+	else if ( ring_parser_isoperator2(pParser,OP_DEC) ) {
+		ring_parser_nexttoken(pParser);
+		switch ( nLastOperation ) {
+			case ICO_LOADADDRESS :
+				nMode = RING_PARSER_ICG_NORMALMM ;
+				if ( pParser->nBracesCounter ) {
+					nMode = RING_PARSER_ICG_USEASSIGNMENT ;
+					nValue = -1.0 ;
+				}
+				break ;
+			case ICO_LOADSUBADDRESS :
+				nMode = RING_PARSER_ICG_USESETPROPERTY ;
+				nValue = -1.0 ;
+				break ;
+			default :
+				nMode = RING_PARSER_ICG_NORMALMM ;
+		}
+	}
+	else {
+		return RING_PARSER_FAIL ;
+	}
+	/* Code Generation */
+	ring_parser_icg_genppmm(pParser,nMode,nValue);
+	return RING_PARSER_OK ;
+	}
+
+So we have a SWITCH STATEMENT that check the value of (nLastOperation) and based on this value
+if will determine which byte code to generate.
 
