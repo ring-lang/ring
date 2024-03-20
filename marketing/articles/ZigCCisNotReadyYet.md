@@ -45,7 +45,7 @@ To discover it, At first run ring/language/tests/test.exe
 
 All of the tests PASS except one test!
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/articles/image/testringusingzigcc.png)
+![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/articles/images/testringusingzigcc.png)
 
 Assume that we have the next Ring program (test.ring)
 
