@@ -41,6 +41,12 @@ A strange bug!
 
 After building Ring using Zig cc, the produced Ring executable suffer from a stange/funny bug
 
+To discover it, At first run ring/language/tests/test.exe 
+
+All of the tests PASS except one test!
+
+![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/articles/image/testringusingzigcc.png)
+
 Assume that we have the next Ring program (test.ring)
 
 	? 5--
