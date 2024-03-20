@@ -11,8 +11,6 @@ load "libuv.ring"
 numBlocks = 15
 numThreads = 2 // including main thread, min = 1, max = 2 due to race conditions 
 
-SetTraceLogLevel(LOG_NONE)
-
 qub = pow(numBlocks, 3)
 data = list(numThreads, qub)
 
@@ -33,14 +31,6 @@ for c = 0 to 359
 next
 
 INT_SIZE = len(int2bytes(0))
-
-pr = space(INT_SIZE)
-parent = varptr(:pr, :uv_sem_t)
-uv_sem_init(parent, 0)
-
-ch = space(INT_SIZE)
-child = varptr(:ch, :uv_sem_t)
-uv_sem_init(child, 0)
 
 mt = space(INT_SIZE)
 mute = varptr(:mt, :uv_mutex_t)
@@ -81,9 +71,11 @@ while !WindowShouldClose()
 
 	DrawGrid(10, 5.0)
 
+	uv_mutex_lock(mute)
 	for i = 1 to qub
 		DrawCubeV_2(data[1][i][1], data[1][i][2], data[1][i][3])
 	next
+	uv_mutex_unlock(mute)
 
 	EndMode3D()
 
@@ -91,17 +83,9 @@ while !WindowShouldClose()
 
 	EndDrawing()
 
-	if uv_sem_trywait(child) = 0
-		uv_sem_post(parent)
-		uv_mutex_lock(mute)
-		uv_mutex_unlock(mute)
-	ok
-
 end
 
 uv_mutex_destroy(mute)
-uv_sem_destroy(child)
-uv_sem_destroy(parent)
 
 CloseWindow()
 Shutdown()
@@ -130,8 +114,6 @@ func thread i
 			next
 		next
 		uv_mutex_lock(mute)
-		uv_sem_post(child)
-		uv_sem_wait(parent)
 		swap(data, 1, i)
 		uv_mutex_unlock(mute)
 	end
