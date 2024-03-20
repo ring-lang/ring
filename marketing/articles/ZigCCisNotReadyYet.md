@@ -173,13 +173,13 @@ Just add a printf() after the switch statement like this
 
 And for some reason, Zig cc will do the right thing because (nLastOperation) is used after the switch.
 
-Another workaround is to avoid (-Ofast) flag when using (zig cc) which is unaccebtable solution
+Another workaround is to avoid (-Ofast) flag when using (zig cc) which is unacceptable solution
 because this will produce 10x slower Ring executable.
 
 Final Comments
 ==============
 
-All other compilers include Clang doesn't have this bug and produce valid Ring executable
+All other compilers including Clang doesn't have this bug and produce valid Ring executable
 
 This is important to know, because many people think that Zig cc is just a Clang wrapper
 
