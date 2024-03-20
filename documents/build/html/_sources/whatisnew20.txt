@@ -36,6 +36,7 @@ More Improvements
 * Added: samples/Drawing/CalculusConics
 * Added: samples/UsingQt/PDF/CreatePDF.ring
 * Added: samples/AQuickStart/GameLib/delay.ring
+* Updated: samples/UsingRayLib/more/ex5_wavingcubes_threads.ring - Better code 
 * isWindows64() function - Better Code
 * print() function - Better code to handle apostrophe inside text
 * random() function - Produce numeric output when the parameter is a negative number or zero
