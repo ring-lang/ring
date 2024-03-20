@@ -73,8 +73,38 @@ If we have a valid Ring executable then using Ring test.ring -ic will generate t
 
 Now what we care about is that we have the (PushN) instruction that push the number five to the Stack then we have the decrement instruction (--) that decrese five to four then we print this result.
 
+Using the wrong Ring executable produced by (Zig cc) will generate the next byte code!
 
 
+	===========================================================================
+ 	Byte Code - Before Execution by the VM
+	===========================================================================
 
+	     PC              OPCode                 Data
+	
+	      1            LoadFunc           ringvm_see                   0
+	      2               PushN             5.000000
+	      3   AssignmentPointer
+	      4                 Dup
+	      5                 Dup
+	      6               PushV
+	      7               PushN            -1.000000
+ 	      8                 SUM                    0
+ 	      9         BeforeEqual                    9
+ 	     10         SetProperty                    0                   0
+ 	     11               PushV
+ 	     12                Call                    0
+ 	     13         NoOperation
+ 	     14           FreeStack
+
+Executing such a wrong program will produce a runtime error instead of printing (4)
+
+We will get the next message
+
+	Line 1 Error (R34) : Variable is required for the assignment operation
+
+So, why I am saying it's a funny bug?
+
+Let's see what Zig cc did in a wrong way to have this result
 
 
