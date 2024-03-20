@@ -142,3 +142,49 @@ In Ring implementation we have the next C code to generate the bytecode for incr
 
 So we have a simple SWITCH STATEMENT that check the value of (nLastOperation) and based on this value determine which byte code to generate.
 
+Now, Look at this (nLastOperation = 29) while the value of (ICO_LOADSUBADDRESS = 19)
+And Zig cc decided for some reason that this (29) IS EQUAL TO (19) and executed the code after 
+(case ICO_LOADSUBADDRESS) which generated the SetProperty instruction
+That's why we get a runtime error says (Variable is required for the assignment operation
+) while we don't have an assignment operation at all!
+
+For debugging you can add the next printf() statements before the switch statement
+
+	printf("last op: %d before switch \n", nLastOperation);
+	printf("ICO_LOADSUBADDRESS value %d before switch \n",ICO_LOADSUBADDRESS);
+
+Output
+
+	last op: 29 before switch
+	ICO_LOADSUBADDRESS value 19 before switch
+
+So this let us be sure about the bug in Zig cc that generated wrong code for switch statement.
+
+
+Workaround!
+===========
+
+This is the funny part!
+
+Just add a printf() after the switch statement like this
+
+	printf("last op: %d after switch \n", nLastOperation);
+	printf("ICO_LOADSUBADDRESS value %d after switch \n",ICO_LOADSUBADDRESS);
+
+And for some reason, Zig cc will do the right thing because (nLastOperation) is used after the switch.
+
+Another workaround is to avoid (-Ofast) flag when using (zig cc) which is unaccebtable solution
+because this will produce 10x slower Ring executable.
+
+Final Comments
+==============
+
+All other compilers include Clang doesn't have this bug and produce valid Ring executable
+
+This is important to know, because many people think that Zig cc is just a Clang wrapper
+
+So this is the summary: IMHO, DON'T USE ZIG CC IN PRODUCTION, IT'S NOT THE SAME AS CLANG
+
+
+
+
