@@ -192,9 +192,42 @@ While it doesn't happen using older versions of Clang (i.e. version 12).
 
 So it's a Clang optimization issue (Not a Zig cc issue).
 
-To avoid the problem, I applied the next workaround: https://github.com/ring-lang/ring/commit/f9abf2376e61f0eea37091095f9c2de4eebbbd1e 
+To avoid the problem, I applied the next workaround: 
+- https://github.com/ring-lang/ring/commit/f9abf2376e61f0eea37091095f9c2de4eebbbd1e 
 
+This is a copy of the updated version of the ring_parser_ppmm() function	
 
+	int nLastOperation,nMark,nMode,nValue  ;
+	List *pMark  ;
+	nLastOperation = ring_parser_icg_getlastoperation(pParser) ;
+	pMark = ring_parser_icg_getactiveoperation(pParser);
+	/* ++ & -- */
+	if ( ring_parser_isoperator2(pParser,OP_INC) ) {
+		ring_parser_nexttoken(pParser);
+		nMode = RING_PARSER_ICG_NORMALPP ;
+		nValue = 1.0 ;
+	}
+	else if ( ring_parser_isoperator2(pParser,OP_DEC) ) {
+		ring_parser_nexttoken(pParser);
+		nMode = RING_PARSER_ICG_NORMALMM ;
+		nValue = -1.0 ;
+	}
+	else {
+		return RING_PARSER_FAIL ;
+	}
+	/* Code Generation */
+	switch ( nLastOperation ) {
+		case ICO_LOADADDRESS :
+			if ( pParser->nBracesCounter ) {
+				nMode = RING_PARSER_ICG_USEASSIGNMENT ;
+			}
+			break ;
+		case ICO_LOADSUBADDRESS :
+			nMode = RING_PARSER_ICG_USESETPROPERTY ;
+			break ;
+	}
+	ring_parser_icg_genppmm(pParser,nMode,nValue);
+	return RING_PARSER_OK ;
 
 
 
