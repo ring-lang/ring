@@ -192,6 +192,9 @@ While it doesn't happen using older versions of Clang (i.e. version 12).
 
 So it's a Clang optimization issue (Not a Zig cc issue).
 
+Applied Workaround!
+===================
+
 To avoid the problem, I applied the next workaround: 
 - https://github.com/ring-lang/ring/commit/f9abf2376e61f0eea37091095f9c2de4eebbbd1e 
 
@@ -228,9 +231,3 @@ This is a copy of the updated version of the ring_parser_ppmm() function
 	}
 	ring_parser_icg_genppmm(pParser,nMode,nValue);
 	return RING_PARSER_OK ;
-
-
-
-
-
-
