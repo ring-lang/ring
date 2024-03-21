@@ -122,6 +122,8 @@ Let's see what Zig cc did in a wrong way to have this result
 
 In Ring implementation we have the next C code to generate the bytecode for increment/decrement operations (i.e. ++ and --)
 
+This code is part of the ring_parser_ppmm() function that exist in ring/language/src/expr.c file
+
 ```C
 	int nLastOperation,nMark,nMode,nValue  ;
 	List *pMark  ;
