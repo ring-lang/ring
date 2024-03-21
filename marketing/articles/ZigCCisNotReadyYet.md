@@ -245,3 +245,5 @@ This is a copy of the updated version of the ring_parser_ppmm() function
 	ring_parser_icg_genppmm(pParser,nMode,nValue);
 	return RING_PARSER_OK ;
 ```
+
+Now, after this workaround, we can use Zig cc to build the Ring programming language and have valid Ring executable that pass all of the tests.
