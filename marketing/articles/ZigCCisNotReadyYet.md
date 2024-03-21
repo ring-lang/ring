@@ -179,13 +179,13 @@ because this will produce 10x slower Ring executable.
 Final Comments
 ==============
 
-I reported the bug to Zig project and received fast/useful feedback (Thanks to them).
+I reported the bug to the Zig project and received fast/useful feedback (Thanks to them).
 
 Now I can confirm that the bug happens when using a modern version of Clang too! 
 
 While it doesn't happen using older versions of Clang.
 
-So it's a Clang issue (Not Zig issue).
+So it's a Clang issue (Not a Zig cc issue).
 
 
 
