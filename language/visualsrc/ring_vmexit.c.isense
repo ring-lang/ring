@@ -8,6 +8,7 @@ Type: List *
 pList,*pActiveList
 Type: int
 x,y,nStep
+ring_vm_optionalloop
 ring_vm_stepnumber
 Type: double
 nNum1

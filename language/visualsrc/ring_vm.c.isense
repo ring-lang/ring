@@ -238,6 +238,8 @@ Type: unsigned int
 lFullStringToNum: 1
 Type: unsigned int
 lSubStringToNumError: 1
+Type: unsigned int
+lOptionalLoop: 1
 Type: Item
 aStack[RING_VM_STACK_SIZE]
 END:
