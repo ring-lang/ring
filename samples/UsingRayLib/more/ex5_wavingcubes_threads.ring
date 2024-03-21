@@ -30,9 +30,9 @@ for c = 0 to 359
 	Add(colors, ColorFromHSV_2(color))
 next
 
-INT_SIZE = len(int2bytes(0))
+MUTEX_SIZE = 32	# Allocat large space to be on the safe side
 
-mt = space(INT_SIZE)
+mt = space(MUTEX_SIZE)
 mute = varptr(:mt, :uv_mutex_t)
 uv_mutex_init(mute)
 
@@ -85,7 +85,7 @@ while !WindowShouldClose()
 
 end
 
-uv_mutex_destroy(mute)
+// uv_mutex_destroy(mute) // Keep it to be sure about safe shutdown 
 
 CloseWindow()
 Shutdown()
