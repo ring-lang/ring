@@ -205,6 +205,8 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->lFullStringToNum = 0 ;
 	/* A Flag to display error when only part of the string is converted to a number */
 	pVM->lSubStringToNumError = 1 ;
+	/* A Flag to activate the optional loop instruction */
+	pVM->lOptionalLoop = 0 ;
 	return pVM ;
 }
 
@@ -1022,6 +1024,10 @@ void ring_vm_execute ( VM *pVM )
 			break ;
 		case ICO_CHECKBRACEMETHOD :
 			ring_vm_oop_checkbracemethod(pVM);
+			break ;
+		/* Optional Loop */
+		case ICO_OPTIONALLOOP :
+			ring_vm_optionalloop(pVM);
 			break ;
 	}
 }

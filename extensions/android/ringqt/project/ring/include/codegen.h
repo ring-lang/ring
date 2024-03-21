@@ -71,7 +71,7 @@
 		ICO_AND ,
 		ICO_OR ,
 		ICO_NOT ,
-		/* More */
+		/* Stack and Jump */
 		ICO_FREESTACK ,
 		ICO_BLOCKFLAG ,
 		ICO_FUNCEXE ,
@@ -103,11 +103,13 @@
 		ICO_SETPROPERTY ,
 		ICO_NOOP ,
 		ICO_AFTERCALLMETHOD2 ,
-		/* Other */
+		/* For-In References */
 		ICO_SETREFERENCE ,
 		ICO_KILLREFERENCE ,
+		/* Assignment */
 		ICO_ASSIGNMENTPOINTER ,
 		ICO_BEFOREEQUAL ,
+		/* Increment and Decrement */
 		ICO_PLUSPLUS ,
 		ICO_MINUSMINUS ,
 		/* Bitwise Operators */
@@ -136,7 +138,9 @@
 		/* Better Performance */
 		ICO_LEN ,
 		ICO_SETOPCODE ,
-		ICO_CHECKBRACEMETHOD 
+		ICO_CHECKBRACEMETHOD ,
+		/* Optional Loop */
+		ICO_OPTIONALLOOP 
 	} IC_OPERATIONS ;
 	/* Operations Text (Array) */
 	static const char * RING_IC_OP[] = {"NewLine","FileName",
@@ -160,7 +164,7 @@
 	"INCPJUMPSTEP1","INCLPJUMPSTEP1","ANONYMOUS","CallClassInit", 
 	
 	"NewGlobalScope","EndGlobalScope","SetGlobalScope",
-	"FreeTempLists","Len","SetOPCode","CheckBraceMethod"} ;
+	"FreeTempLists","Len","SetOPCode","CheckBraceMethod","OptionalLoop"} ;
 	/* Constants */
 	#define RING_PARSER_ICG_INSTRUCTIONSLISTTYPE List
 	#define RING_PARSER_ICG_OPERATIONCODE 1

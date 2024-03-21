@@ -675,6 +675,7 @@ int ring_parser_stmt ( Parser *pParser )
 							ring_parser_icg_newoperand(pParser,ring_list_getstring(pParser->pForInVars,nVar));
 							ring_parser_icg_newoperation(pParser,ICO_KILLREFERENCE);
 						}
+						ring_parser_icg_newoperation(pParser,ICO_OPTIONALLOOP);
 						if ( nForInVarsCount == 1 ) {
 							ring_list_deleteallitems_gc(pParser->pRingState,pParser->pForInVars);
 						}

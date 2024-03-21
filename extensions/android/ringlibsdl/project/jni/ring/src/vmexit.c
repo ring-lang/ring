@@ -38,14 +38,6 @@ void ring_vm_exit ( VM *pVM,int nType )
 	List *pList,*pActiveList  ;
 	int x,y,nStep  ;
 	nStep = 0 ;
-	/* Set Active List */
-	if ( nType == RING_COMMANDTYPE_EXIT ) {
-		pActiveList = pVM->pExitMark ;
-		pVM->lExitFlag = 1 ;
-	}
-	else {
-		pActiveList = pVM->pLoopMark ;
-	}
 	/* Get the Number from the Stack */
 	if ( RING_VM_STACK_ISNUMBER ) {
 		nStep = RING_VM_STACK_READN ;
@@ -54,10 +46,26 @@ void ring_vm_exit ( VM *pVM,int nType )
 	else {
 		ring_vm_error(pVM,RING_VM_ERROR_LOOPNUMBEROUTSIDERANGE);
 	}
+	/* Set Active List */
+	if ( nType == RING_COMMANDTYPE_EXIT ) {
+		pActiveList = pVM->pExitMark ;
+		pVM->lExitFlag = 1 ;
+	}
+	else {
+		pActiveList = pVM->pLoopMark ;
+	}
 	if ( ring_list_getsize(pActiveList) > 0 ) {
 		x = ring_list_getsize(pActiveList) ;
 		/* Do Operation */
 		if ( (nStep > 0) && (nStep <= ring_list_getsize(pActiveList) ) ) {
+			/* Using commands like (loop 2) is just an implicit (exit 1) then (loop) */
+			if ( (nStep > 1) && (nType == RING_COMMANDTYPE_LOOP) ) {
+				nStep-- ;
+				pVM->lOptionalLoop = 1 ;
+				nType = RING_COMMANDTYPE_EXIT ;
+				pActiveList = pVM->pExitMark ;
+				pVM->lExitFlag = 1 ;
+			}
 			x = ring_list_getsize(pActiveList) - nStep + 1 ;
 			for ( y = x + 1 ; y <= ring_list_getsize(pActiveList) ; y++ ) {
 				ring_list_deleteitem_gc(pVM->pRingState,pActiveList,y);
@@ -93,6 +101,15 @@ void ring_vm_exit ( VM *pVM,int nType )
 		else {
 			ring_vm_error(pVM,RING_VM_ERROR_LOOPWITHOUTLOOP);
 		}
+	}
+}
+
+void ring_vm_optionalloop ( VM *pVM )
+{
+	if ( pVM->lOptionalLoop ) {
+		pVM->lOptionalLoop = 0 ;
+		RING_VM_STACK_PUSHNVALUE(1.0);
+		ring_vm_exit(pVM,RING_COMMANDTYPE_LOOP);
 	}
 }
 

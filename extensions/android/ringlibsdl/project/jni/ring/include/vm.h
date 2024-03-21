@@ -136,6 +136,7 @@
 		unsigned int lHideErrorMsg: 1  ;
 		unsigned int lFullStringToNum: 1  ;
 		unsigned int lSubStringToNumError: 1  ;
+		unsigned int lOptionalLoop: 1  ;
 		Item aStack[RING_VM_STACK_SIZE]  ;
 	} VM ;
 	typedef struct FuncCall {
@@ -894,6 +895,8 @@
 	void ring_vm_popexitmark ( VM *pVM ) ;
 
 	void ring_vm_exit ( VM *pVM,int nType ) ;
+
+	void ring_vm_optionalloop ( VM *pVM ) ;
 	/* State */
 
 	void ring_vm_savestate ( VM *pVM,List *pList ) ;
