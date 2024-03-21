@@ -6,6 +6,7 @@ Update: I applied a workaround to avoid this issue (Exist in the end of this art
 if you would like to reproduce this issue on your machine
 
 	git clone http://github.com/ring-lang/ring.git
+	cd ring
 	git reset --hard 5aee0b9
 
 So, You can have a copy from Ring source code before applying the workaround.
