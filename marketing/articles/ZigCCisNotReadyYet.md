@@ -1,5 +1,7 @@
 Zig cc is not ready yet for Ring when using Ofast flag because of Clang optimizations
-==========================================================================================
+=====================================================================================
+
+Update: I applied a workaround to avoid this issue.
 
 I love programming languages and tools and I like spending sometime every week to test and try what I can do using them in different ways. During the past 10 years you will notice that more programming languages try to provide a better replacement for C/C++. if you are interested in this idea these are a list of some programming 
 languages that you could check or read about (I assume that you already know about Rust, D, Go, etc.)
@@ -189,6 +191,8 @@ Now I can confirm that the bug happens when using a modern version of Clang too!
 While it doesn't happen using older versions of Clang (i.e. version 12).
 
 So it's a Clang optimization issue (Not a Zig cc issue).
+
+To avoid the problem, I applied the next workaround: https://github.com/ring-lang/ring/commit/f9abf2376e61f0eea37091095f9c2de4eebbbd1e 
 
 
 
