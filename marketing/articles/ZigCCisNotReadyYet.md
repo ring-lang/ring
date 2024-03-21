@@ -1,5 +1,5 @@
-Zig cc is not ready yet!
-========================
+Zig cc is not ready yet to build Ring when using Ofast flag because of Clang optimizations
+==========================================================================================
 
 I love programming languages and tools and I like spending sometime every week to test and try what I can do using them in different ways. During the past 10 years you will notice that more programming languages try to provide a better replacement for C/C++. if you are interested in this idea these are a list of some programming 
 languages that you could check or read about (I assume that you already know about Rust, D, Go, etc.)
