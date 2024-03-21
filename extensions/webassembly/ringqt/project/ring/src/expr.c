@@ -1084,23 +1084,20 @@ int ring_parser_mixer ( Parser *pParser )
 int ring_parser_ppmm ( Parser *pParser )
 {
 	int nLastOperation,nMark,nMode,nValue  ;
-	List *pMark  ;
 	nLastOperation = ring_parser_icg_getlastoperation(pParser) ;
-	pMark = ring_parser_icg_getactiveoperation(pParser);
 	/* ++ & -- */
 	if ( ring_parser_isoperator2(pParser,OP_INC) ) {
-		ring_parser_nexttoken(pParser);
 		nMode = RING_PARSER_ICG_NORMALPP ;
 		nValue = 1.0 ;
 	}
 	else if ( ring_parser_isoperator2(pParser,OP_DEC) ) {
-		ring_parser_nexttoken(pParser);
 		nMode = RING_PARSER_ICG_NORMALMM ;
 		nValue = -1.0 ;
 	}
 	else {
 		return RING_PARSER_FAIL ;
 	}
+	ring_parser_nexttoken(pParser);
 	/* Code Generation */
 	switch ( nLastOperation ) {
 		case ICO_LOADADDRESS :
