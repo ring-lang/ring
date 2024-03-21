@@ -182,6 +182,8 @@ Final Comments
 
 I reported the bug to the Zig project and received fast/useful feedback (Thanks to them).
 
+URL: https://github.com/ziglang/zig/issues/19369
+
 Now I can confirm that the bug happens when using a modern version of Clang too! (i.e. version 17)
 
 While it doesn't happen using older versions of Clang (i.e. version 12).
