@@ -1,0 +1,10 @@
+0
+NULLPOINTER
+0
+Ok, We have a C pointer = NULL
+0
+0
+1
+1
+1
+NULLPOINTER

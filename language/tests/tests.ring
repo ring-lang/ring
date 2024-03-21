@@ -218,6 +218,7 @@ aTests = [
 	[ :name = "NULL (Part 2)", :Command = "ring null/null2.ring" ],
 	[ :name = "NULL (Part 3)", :Command = "ring null/null3.ring" ],
 	[ :name = "NULL (Part 4)", :Command = "ring null/null4.ring" ],
+	[ :name = "NULL (Part 5)", :Command = "ring null/cptrnull.ring" ],
 	[ :name = "Init Method (Part 1)", :Command = "ring init/init.ring" ],
 	[ :name = "Init Method (Part 2)", :Command = "ring init/init2.ring" ],
 	[ :name = "Init Method (Part 3)", :Command = "ring init/init3.ring" ],
