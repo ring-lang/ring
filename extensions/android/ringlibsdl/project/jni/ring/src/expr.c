@@ -1083,7 +1083,7 @@ int ring_parser_mixer ( Parser *pParser )
 
 int ring_parser_ppmm ( Parser *pParser )
 {
-	int nLastOperation,nMark,nMode,nValue  ;
+	int nLastOperation,nMode,nValue  ;
 	nLastOperation = ring_parser_icg_getlastoperation(pParser) ;
 	/* ++ & -- */
 	if ( ring_parser_isoperator2(pParser,OP_INC) ) {

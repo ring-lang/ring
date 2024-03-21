@@ -203,7 +203,7 @@ To avoid the problem, I applied the next workaround:
 This is a copy of the updated version of the ring_parser_ppmm() function	
 
 ```C
-	int nLastOperation,nMark,nMode,nValue  ;
+	int nLastOperation,nMode,nValue  ;
 	nLastOperation = ring_parser_icg_getlastoperation(pParser) ;
 	/* ++ & -- */
 	if ( ring_parser_isoperator2(pParser,OP_INC) ) {
