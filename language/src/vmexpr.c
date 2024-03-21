@@ -1113,6 +1113,19 @@ double ring_vm_stringtologicvalue ( VM *pVM,const char *cStr )
 	return (double) (! (strcmp(cStr,"") == 0)) ;
 }
 
+int ring_vm_listtologicvalue ( VM *pVM, List *pList )
+{
+	if ( ring_list_getsize(pList) == 0 ) {
+		return 0 ;
+	}
+	if ( ring_list_iscpointerlist(pList) ) {
+		if ( ring_list_getpointer(pList,RING_CPOINTER_POINTER) == NULL ) {
+			return 0 ;
+		}
+	}
+	return 1 ;
+}
+
 void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
 {
 	List *pList,*pList2  ;
@@ -1307,7 +1320,7 @@ void ring_vm_expr_npoo ( VM *pVM,const char *cStr,double nNum1 )
 	}
 	else if ( strcmp(cStr,"not") == 0 ) {
 		if ( ring_vm_oop_isobject(pList) == 0 ) {
-			RING_VM_STACK_SETNVALUE((double)(ring_list_getsize(pList) == 0));
+			RING_VM_STACK_SETNVALUE((double) (ring_vm_listtologicvalue(pVM,pList) == 0));
 			return ;
 		}
 		else {

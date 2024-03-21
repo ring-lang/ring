@@ -121,6 +121,7 @@ nResult
 Type: char *
 cEndStr
 ring_vm_stringtologicvalue
+ring_vm_listtologicvalue
 ring_vm_expr_ppoo
 Type: List *
 pList,*pList2

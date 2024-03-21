@@ -634,6 +634,8 @@
 	void ring_vm_not ( VM *pVM ) ;
 
 	double ring_vm_stringtologicvalue ( VM *pVM,const char *cStr ) ;
+
+	int ring_vm_listtologicvalue ( VM *pVM,List *pList ) ;
 	/* Variables */
 
 	void ring_vm_newscope ( VM *pVM ) ;
