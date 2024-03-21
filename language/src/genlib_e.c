@@ -324,8 +324,10 @@ void ring_vm_generallib_random ( void *pPointer )
 	int nNum1,nNum2  ;
 	nNum1 = rand() ;
 	#ifdef _MSC_VER
-		rand_s(&nNum2);
-		nNum1 |= ( nNum2 & 0xFFFF ) << 15 ;
+		#ifdef rand_s
+			rand_s(&nNum2);
+			nNum1 |= ( nNum2 & 0xFFFF ) << 15 ;
+		#endif
 	#endif
 	if ( RING_API_PARACOUNT == 0 ) {
 		RING_API_RETNUMBER(nNum1);
@@ -341,7 +343,8 @@ void ring_vm_generallib_random ( void *pPointer )
 			}
 			else {
 				nNum2 = -1 * nNum2 ;
-				nNum2 = nNum1 % ++nNum2 ;
+				nNum2++ ;
+				nNum2 = nNum1 % nNum2 ;
 				RING_API_RETNUMBER(-1 * nNum2);
 			}
 		}
