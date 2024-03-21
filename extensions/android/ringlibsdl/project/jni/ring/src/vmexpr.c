@@ -710,7 +710,7 @@ void ring_vm_and ( VM *pVM )
 			RING_VM_STACK_SETNVALUE((nNum1 && (RING_VM_STACK_READN)));
 		}
 		else if ( RING_VM_STACK_ISSTRING ) {
-			nNum2 = ring_vm_stringtologicvalue(pVM,RING_VM_STACK_READC);
+			nNum2 = (double) ring_vm_stringtologicvalue(pVM,RING_VM_STACK_READC);
 			RING_VM_STACK_SETNVALUE((nNum1 && nNum2));
 		}
 		else if ( RING_VM_STACK_ISPOINTER ) {
@@ -721,14 +721,14 @@ void ring_vm_and ( VM *pVM )
 	else if ( RING_VM_STACK_ISSTRING ) {
 		pStr1 = RING_VM_STACK_GETSTRINGRAW ;
 		if ( ! RING_VM_STACK_PREVISPOINTER ) {
-			nNum1 = ring_vm_stringtologicvalue(pVM,RING_VM_STACK_READC);
+			nNum1 = (double) ring_vm_stringtologicvalue(pVM,RING_VM_STACK_READC);
 		}
 		RING_VM_STACK_POP ;
 		if ( RING_VM_STACK_ISNUMBER ) {
 			RING_VM_STACK_SETNVALUE((nNum1 && (RING_VM_STACK_READN)));
 		}
 		else if ( RING_VM_STACK_ISSTRING ) {
-			nNum2 = ring_vm_stringtologicvalue(pVM,RING_VM_STACK_READC);
+			nNum2 = (double) ring_vm_stringtologicvalue(pVM,RING_VM_STACK_READC);
 			RING_VM_STACK_SETNVALUE((nNum1 && nNum2));
 		}
 		else if ( RING_VM_STACK_ISPOINTER ) {
@@ -753,7 +753,7 @@ void ring_vm_or ( VM *pVM )
 			RING_VM_STACK_SETNVALUE((nNum1 || (RING_VM_STACK_READN)));
 		}
 		else if ( RING_VM_STACK_ISSTRING ) {
-			nNum2 = ring_vm_stringtologicvalue(pVM,RING_VM_STACK_READC);
+			nNum2 = (double) ring_vm_stringtologicvalue(pVM,RING_VM_STACK_READC);
 			RING_VM_STACK_SETNVALUE((nNum1 || nNum2));
 		}
 		else if ( RING_VM_STACK_ISPOINTER ) {
@@ -764,14 +764,14 @@ void ring_vm_or ( VM *pVM )
 	else if ( RING_VM_STACK_ISSTRING ) {
 		pStr1 = RING_VM_STACK_GETSTRINGRAW ;
 		if ( ! RING_VM_STACK_PREVISPOINTER ) {
-			nNum1 = ring_vm_stringtologicvalue(pVM,RING_VM_STACK_READC);
+			nNum1 = (double) ring_vm_stringtologicvalue(pVM,RING_VM_STACK_READC);
 		}
 		RING_VM_STACK_POP ;
 		if ( RING_VM_STACK_ISNUMBER ) {
 			RING_VM_STACK_SETNVALUE((nNum1 || (RING_VM_STACK_READN)));
 		}
 		else if ( RING_VM_STACK_ISSTRING ) {
-			nNum2 = ring_vm_stringtologicvalue(pVM,RING_VM_STACK_READC);
+			nNum2 = (double) ring_vm_stringtologicvalue(pVM,RING_VM_STACK_READC);
 			RING_VM_STACK_SETNVALUE((nNum1 || nNum2));
 		}
 		else if ( RING_VM_STACK_ISPOINTER ) {
@@ -797,7 +797,7 @@ void ring_vm_not ( VM *pVM )
 		}
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
-		nNum1 = ring_vm_stringtologicvalue(pVM,RING_VM_STACK_READC);
+		nNum1 = (double) ring_vm_stringtologicvalue(pVM,RING_VM_STACK_READC);
 		if ( nNum1 == 1.0 ) {
 			RING_VM_STACK_SETNVALUE(0.0);
 		}
@@ -1108,9 +1108,9 @@ RING_API double ring_vm_stringtonum ( VM *pVM,const char *cStr )
 	return nResult ;
 }
 
-double ring_vm_stringtologicvalue ( VM *pVM,const char *cStr )
+int ring_vm_stringtologicvalue ( VM *pVM,const char *cStr )
 {
-	return (double) (! (strcmp(cStr,"") == 0)) ;
+	return (! (strcmp(cStr,"") == 0)) ;
 }
 
 int ring_vm_listtologicvalue ( VM *pVM, List *pList )
