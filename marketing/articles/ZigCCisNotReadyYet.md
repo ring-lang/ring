@@ -179,11 +179,17 @@ because this will produce 10x slower Ring executable.
 Final Comments
 ==============
 
-All other compilers including Clang doesn't have this bug and produce valid Ring executable
+I reported the bug to Zig project and received fast/useful feedback (Thanks to them).
 
-This is important to know, because many people think that Zig cc is just a Clang wrapper
+Now I can confirm that the bug happens when using a modern version of Clang too! 
 
-So this is the summary: IMHO, DON'T USE ZIG CC IN PRODUCTION, IT'S NOT THE SAME AS CLANG
+While it doesn't happen using older versions of Clang.
+
+So it's a Clang issue (Not Zig issue).
+
+
+
+
 
 
 
