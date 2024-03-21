@@ -145,6 +145,7 @@ So we have a simple SWITCH STATEMENT that check the value of (nLastOperation) an
 Now, Look at this (nLastOperation = 29) while the value of (ICO_LOADSUBADDRESS = 19)
 And Zig cc decided for some reason that this (29) IS EQUAL TO (19) and executed the code after 
 (case ICO_LOADSUBADDRESS) which generated the SetProperty instruction
+
 That's why we get a runtime error says (Variable is required for the assignment operation
 ) while we don't have an assignment operation at all!
 
