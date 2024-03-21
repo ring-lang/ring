@@ -111,6 +111,7 @@ Let's see what Zig cc did in a wrong way to have this result
 
 In Ring implementation we have the next C code to generate the bytecode for increment/decrement operations (i.e. ++ and --)
 
+```C
 	int nLastOperation,nMark,nMode,nValue  ;
 	List *pMark  ;
 	nLastOperation = ring_parser_icg_getlastoperation(pParser) ;
@@ -141,6 +142,7 @@ In Ring implementation we have the next C code to generate the bytecode for incr
 	else {
 		return RING_PARSER_FAIL ;
 	}
+```
 
 So we have a simple SWITCH STATEMENT that check the value of (nLastOperation) and based on this value determine which byte code to generate.
 
@@ -200,6 +202,7 @@ To avoid the problem, I applied the next workaround:
 
 This is a copy of the updated version of the ring_parser_ppmm() function	
 
+```C
 	int nLastOperation,nMark,nMode,nValue  ;
 	List *pMark  ;
 	nLastOperation = ring_parser_icg_getlastoperation(pParser) ;
@@ -231,3 +234,4 @@ This is a copy of the updated version of the ring_parser_ppmm() function
 	}
 	ring_parser_icg_genppmm(pParser,nMode,nValue);
 	return RING_PARSER_OK ;
+```
