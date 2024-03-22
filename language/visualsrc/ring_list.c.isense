@@ -170,7 +170,7 @@ ring_list_addfuncpointer_gc
 ring_list_isfuncpointer
 ring_list_insertitem_gc
 Type: Items *
-pItems
+pItems, pPos
 ring_list_insertint_gc
 ring_list_insertdouble_gc
 ring_list_insertpointer_gc

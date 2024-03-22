@@ -541,7 +541,7 @@ RING_API int ring_list_isfuncpointer ( List *pList, unsigned int nIndex )
 
 RING_API void ring_list_insertitem_gc ( void *pState,List *pList,unsigned int x )
 {
-	Items *pItems  ;
+	Items *pItems, *pPos  ;
 	if ( x > ring_list_getsize(pList) ) {
 		return ;
 	}
@@ -560,12 +560,20 @@ RING_API void ring_list_insertitem_gc ( void *pState,List *pList,unsigned int x 
 		ring_list_clearcache(pList);
 		return ;
 	}
+	/*
+	**  Get the position 
+	**  When we get an item, pLastItemLastAccess will be changed to Items * of that item 
+	*/
 	ring_list_getitem(pList,x);
-	/* When we get an item, pLastItemLastAccess will be changed to Items * of that item */
-	pItems->pNext = pList->pLastItemLastAccess->pNext ;
+	pPos = pList->pLastItemLastAccess ;
+	if ( pPos == NULL ) {
+		/* This support making list cache optional without having problems here */
+		pPos = ring_list_getitemcontainer(pList,x) ;
+	}
+	pItems->pNext = pPos->pNext ;
 	pItems->pNext->pPrev = pItems ;
-	pItems->pPrev = pList->pLastItemLastAccess ;
-	pList->pLastItemLastAccess->pNext = pItems ;
+	pItems->pPrev = pPos ;
+	pPos->pNext = pItems ;
 	pList->nSize = pList->nSize + 1 ;
 	ring_list_setcache(pList, pItems, x+2);
 }
