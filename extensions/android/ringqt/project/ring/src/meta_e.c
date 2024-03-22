@@ -1054,8 +1054,7 @@ void ring_vm_refmeta_ringvmevalinscope ( void *pPointer )
 	List *pActiveMem  ;
 	const char *cStr  ;
 	int nScope,nSize  ;
-	Items *pLastItem  ;
-	Items *pNextItem  ;
+	Items *pLastItem, *pNextItem, *pScopeItem  ;
 	VMState *pVMState  ;
 	pVM = (VM *) pPointer ;
 	pNextItem = NULL ;
@@ -1076,12 +1075,12 @@ void ring_vm_refmeta_ringvmevalinscope ( void *pPointer )
 		nSize = pVM->pMem->nSize ;
 		pLastItem = pVM->pMem->pLast ;
 		ring_list_clearcache(pVM->pMem);
-		/* When we get the item, we will have a value for pVM->pMem->pLastItemLastAccess */
-		ring_list_getitem(pVM->pMem,nScope);
-		if ( pVM->pMem->pLastItemLastAccess != NULL ) {
-			pNextItem = pVM->pMem->pLastItemLastAccess->pNext ;
+		/* Get Items * for the required scope */
+		pScopeItem = ring_list_getitemcontainer(pVM->pMem,nScope);
+		if ( pScopeItem != NULL ) {
+			pNextItem = pScopeItem->pNext ;
 			pVM->pMem->nSize = nScope ;
-			pVM->pMem->pLast = pVM->pMem->pLastItemLastAccess ;
+			pVM->pMem->pLast = pScopeItem ;
 			pVM->pMem->pLast->pNext = NULL ;
 		}
 		pVM->nEvalInScope++ ;

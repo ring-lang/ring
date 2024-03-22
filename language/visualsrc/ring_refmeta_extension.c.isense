@@ -281,9 +281,7 @@ cStr
 Type: int
 nScope,nSize
 Type: Items *
-pLastItem
-Type: Items *
-pNextItem
+pLastItem, *pNextItem, *pScopeItem
 Type: VMState *
 pVMState
 ring_vm_refmeta_ringvmpasserror
