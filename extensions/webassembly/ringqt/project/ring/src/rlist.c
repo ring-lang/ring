@@ -38,11 +38,10 @@ RING_API List * ring_list_new2_gc ( void *pState,List *pList,unsigned int nSize 
 		pList->pFirst = NULL ;
 		pList->pLast = NULL ;
 	}
-	pList->nNextItemAfterLastAccess = 0 ;
-	pList->pLastItemLastAccess = NULL ;
 	pList->pItemsArray = NULL ;
 	pList->pHashTable = NULL ;
 	pList->pBlocks = NULL ;
+	ring_list_clearcache(pList);
 	ring_list_clearrefdata(pList);
 	return pList ;
 }
@@ -111,9 +110,8 @@ RING_API void ring_list_deleteallitems_gc ( void *pState,List *pList )
 	}
 	pList->pFirst = NULL ;
 	pList->pLast = NULL ;
-	pList->pLastItemLastAccess = NULL ;
 	pList->nSize = 0 ;
-	pList->nNextItemAfterLastAccess = 0 ;
+	ring_list_clearcache(pList);
 	/* Free Items Array */
 	ring_list_deletearray_gc(pState,pList);
 	/* Free HashTable */
@@ -176,11 +174,10 @@ RING_API void ring_list_clear ( List *pList )
 	pList->pFirst = NULL ;
 	pList->pLast = NULL ;
 	pList->nSize = 0 ;
-	pList->nNextItemAfterLastAccess = 0 ;
-	pList->pLastItemLastAccess = NULL ;
 	pList->pItemsArray = NULL ;
 	pList->pHashTable = NULL ;
 	pList->pBlocks = NULL ;
+	ring_list_clearcache(pList);
 	ring_list_clearrefdata(pList);
 }
 
@@ -205,6 +202,12 @@ RING_API void ring_list_addblock_gc ( void *pState,List *pList,void *pMemory,int
 	pBlocks->pNext->pNext = NULL ;
 	pBlocks->pNext->nType = nType ;
 }
+
+RING_API void ring_list_clearcache ( List *pList )
+{
+	pList->nNextItemAfterLastAccess = 0 ;
+	pList->pLastItemLastAccess = NULL ;
+}
 /* List Items */
 
 RING_API Item * ring_list_newitem_gc ( void *pState,List *pList )
@@ -222,8 +225,7 @@ RING_API Item * ring_list_newitem_gc ( void *pState,List *pList )
 	}
 	pList->nSize = pList->nSize + 1 ;
 	/* Refresh The Cache */
-	pList->nNextItemAfterLastAccess = 0 ;
-	pList->pLastItemLastAccess = NULL ;
+	ring_list_clearcache(pList);
 	return pItems->pValue ;
 }
 
@@ -340,8 +342,7 @@ RING_API void ring_list_deleteitem_gc ( void *pState,List *pList,unsigned int nI
 		}
 	}
 	/* Refresh The Cache */
-	pList->nNextItemAfterLastAccess = 0 ;
-	pList->pLastItemLastAccess = NULL ;
+	ring_list_clearcache(pList);
 }
 
 RING_API int ring_list_gettype ( List *pList, unsigned int nIndex )

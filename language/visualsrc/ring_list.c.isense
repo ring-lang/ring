@@ -96,6 +96,7 @@ ring_list_clear
 ring_list_addblock_gc
 Type: ListBlocks *
 pBlocks
+ring_list_clearcache
 ring_list_newitem_gc
 Type: Items *
 pItems
