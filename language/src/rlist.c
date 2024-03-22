@@ -557,6 +557,7 @@ RING_API void ring_list_insertitem_gc ( void *pState,List *pList,unsigned int x 
 		pList->pFirst->pPrev = pItems ;
 		pList->pFirst = pItems ;
 		pList->nSize = pList->nSize + 1 ;
+		ring_list_clearcache(pList);
 		return ;
 	}
 	ring_list_getitem(pList,x);
@@ -665,6 +666,13 @@ RING_API Items * ring_list_getitemcontainer ( List *pList,unsigned int nIndex )
 	unsigned int x  ;
 	pItems = NULL ;
 	if ( nIndex > 0 && nIndex <= ring_list_getsize(pList) ) {
+		/* Get First/Last item */
+		if ( nIndex == 1 ) {
+			return pList->pFirst ;
+		}
+		else if ( nIndex == ring_list_getsize(pList) ) {
+			return pList->pLast ;
+		}
 		pItems = pList->pFirst ;
 		for ( x = 1 ; x < nIndex ; x++ ) {
 			pItems = pItems->pNext ;
