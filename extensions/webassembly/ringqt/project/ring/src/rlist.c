@@ -208,6 +208,12 @@ RING_API void ring_list_clearcache ( List *pList )
 	pList->nNextItemAfterLastAccess = 0 ;
 	pList->pLastItemLastAccess = NULL ;
 }
+
+RING_API void ring_list_setcache ( List *pList, struct Items *pItems, unsigned int nNextItem )
+{
+	pList->pLastItemLastAccess = pItems ;
+	pList->nNextItemAfterLastAccess = nNextItem ;
+}
 /* List Items */
 
 RING_API Item * ring_list_newitem_gc ( void *pState,List *pList )
@@ -242,13 +248,11 @@ RING_API Item * ring_list_getitem ( List *pList,unsigned int nIndex )
 		}
 		/* Quickly Get The First or The Last Item */
 		if ( nIndex == 1 ) {
-			pList->pLastItemLastAccess = pList->pFirst ;
-			pList->nNextItemAfterLastAccess = nIndex + 1 ;
+			ring_list_setcache(pList,pList->pFirst,nIndex+1);
 			return pList->pFirst->pValue ;
 		}
 		else if ( nIndex == ring_list_getsize(pList) ) {
-			pList->pLastItemLastAccess = pList->pLast ;
-			pList->nNextItemAfterLastAccess = nIndex + 1 ;
+			ring_list_setcache(pList,pList->pLast,nIndex+1);
 			return pList->pLast->pValue ;
 		}
 		/* Quickly get the next item */
@@ -268,8 +272,7 @@ RING_API Item * ring_list_getitem ( List *pList,unsigned int nIndex )
 			pItems = pList->pLastItemLastAccess ;
 			for ( x = pList->nNextItemAfterLastAccess - 1 ; x <= nIndex ; x++ ) {
 				if ( x == nIndex ) {
-					pList->nNextItemAfterLastAccess = nIndex+1 ;
-					pList->pLastItemLastAccess = pItems ;
+					ring_list_setcache(pList,pItems,nIndex+1);
 				}
 				pItem = pItems->pValue ;
 				pItems = pItems->pNext ;
@@ -281,8 +284,7 @@ RING_API Item * ring_list_getitem ( List *pList,unsigned int nIndex )
 			pItems = pList->pLastItemLastAccess ;
 			for ( x = pList->nNextItemAfterLastAccess - 1 ; x >= nIndex ; x-- ) {
 				if ( x == nIndex ) {
-					pList->nNextItemAfterLastAccess = nIndex+1 ;
-					pList->pLastItemLastAccess = pItems ;
+					ring_list_setcache(pList,pItems,nIndex+1);
 				}
 				pItem = pItems->pValue ;
 				pItems = pItems->pPrev ;
@@ -293,8 +295,7 @@ RING_API Item * ring_list_getitem ( List *pList,unsigned int nIndex )
 		pItems = pList->pFirst ;
 		for ( x = 1 ; x <= nIndex ; x++ ) {
 			if ( x == nIndex ) {
-				pList->nNextItemAfterLastAccess = nIndex+1 ;
-				pList->pLastItemLastAccess = pItems ;
+				ring_list_setcache(pList,pItems,nIndex+1);
 			}
 			pItem = pItems->pValue ;
 			pItems = pItems->pNext ;
