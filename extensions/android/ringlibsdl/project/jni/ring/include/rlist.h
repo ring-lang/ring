@@ -74,6 +74,8 @@
 	RING_API void ring_list_clearcache ( List *pList ) ;
 
 	RING_API void ring_list_setcache ( List *pList, struct Items *pItems, unsigned int nNextItem ) ;
+
+	RING_API Items * ring_list_getitemcontainer ( List *pList,unsigned int nIndex ) ;
 	/* int */
 
 	RING_API void ring_list_setint_gc ( void *pState,List *pList, unsigned int nIndex ,int nNumber ) ;

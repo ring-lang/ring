@@ -102,12 +102,12 @@ ring_list_newitem_gc
 Type: Items *
 pItems
 ring_list_getitem
-Type: unsigned int
-x
 Type: Items *
 pItems
 Type: Item *
 pItem
+Type: unsigned int
+x
 ring_list_deleteitem_gc
 Type: unsigned int
 x
@@ -196,6 +196,11 @@ Type: Item *
 pItem2
 Type: List *
 pList2
+ring_list_getitemcontainer
+Type: Items *
+pItems
+Type: unsigned int
+x
 ring_list_findstring
 Type: unsigned int
 x,nCount
@@ -229,7 +234,7 @@ ring_list_swap
 Type: Item *
 pItem
 Type: Items *
-pItems
+pItems, *pItems2
 ring_list_genarray_gc
 Type: unsigned int
 x

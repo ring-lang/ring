@@ -237,9 +237,9 @@ RING_API Item * ring_list_newitem_gc ( void *pState,List *pList )
 
 RING_API Item * ring_list_getitem ( List *pList,unsigned int nIndex )
 {
-	unsigned int x  ;
 	Items *pItems  ;
 	Item *pItem  ;
+	unsigned int x  ;
 	pItem = NULL ;
 	if ( nIndex > 0 && nIndex <= ring_list_getsize(pList) ) {
 		/* Quickly get item from ItemsArray */
@@ -657,6 +657,21 @@ RING_API int ring_list_deliteminsidelist_gc ( void *pState,List *pList,Item *pIt
 	}
 	return 0 ;
 }
+/* Get Items * using item index */
+
+RING_API Items * ring_list_getitemcontainer ( List *pList,unsigned int nIndex )
+{
+	Items *pItems  ;
+	unsigned int x  ;
+	pItems = NULL ;
+	if ( nIndex > 0 && nIndex <= ring_list_getsize(pList) ) {
+		pItems = pList->pFirst ;
+		for ( x = 1 ; x < nIndex ; x++ ) {
+			pItems = pItems->pNext ;
+		}
+	}
+	return pItems ;
+}
 /* Linear Search */
 
 RING_API int ring_list_findstring ( List *pList,const char *cStr,unsigned int nColumn )
@@ -848,12 +863,12 @@ RING_API int ring_list_binarysearchstr ( List *pList,const char *cFind,unsigned 
 RING_API void ring_list_swap ( List *pList,unsigned int x,unsigned int y )
 {
 	Item *pItem  ;
-	Items *pItems  ;
+	Items *pItems, *pItems2  ;
 	pItem = ring_list_getitem(pList,x);
-	pItems = pList->pLastItemLastAccess ;
-	ring_list_getitem(pList,y);
-	pItems->pValue = pList->pLastItemLastAccess->pValue ;
-	pList->pLastItemLastAccess->pValue = pItem ;
+	pItems = ring_list_getitemcontainer(pList,x) ;
+	pItems2 = ring_list_getitemcontainer(pList,y);
+	pItems->pValue = pItems2->pValue ;
+	pItems2->pValue = pItem ;
 }
 /* List Items to Array */
 
