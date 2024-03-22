@@ -1075,8 +1075,7 @@ void ring_vm_refmeta_ringvmevalinscope ( void *pPointer )
 		ring_list_deletearray_gc(pVM->pRingState,pVM->pMem);
 		nSize = pVM->pMem->nSize ;
 		pLastItem = pVM->pMem->pLast ;
-		pVM->pMem->pLastItemLastAccess = NULL ;
-		pVM->pMem->nNextItemAfterLastAccess = 0 ;
+		ring_list_clearcache(pVM->pMem);
 		/* When we get the item, we will have a value for pVM->pMem->pLastItemLastAccess */
 		ring_list_getitem(pVM->pMem,nScope);
 		if ( pVM->pMem->pLastItemLastAccess != NULL ) {

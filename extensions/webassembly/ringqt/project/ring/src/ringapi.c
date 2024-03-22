@@ -575,8 +575,7 @@ RING_API List * ring_vm_api_newlistusingblocks ( VM *pVM, int nSize, int nSize2 
 					pList2->nSize = nSize2 ;
 				}
 				/* Set the List Data */
-				pList->nNextItemAfterLastAccess = 0 ;
-				pList->pLastItemLastAccess = NULL ;
+				ring_list_clearcache(pList);
 			}
 			return pList ;
 		}
@@ -595,7 +594,6 @@ RING_API List * ring_vm_api_newlistusingblocks ( VM *pVM, int nSize, int nSize2 
 		}
 	}
 	/* Set the List Data */
-	pList->nNextItemAfterLastAccess = 0 ;
-	pList->pLastItemLastAccess = NULL ;
+	ring_list_clearcache(pList);
 	return pList ;
 }
