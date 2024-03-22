@@ -1,0 +1,27 @@
+ SPY SP500 0
+ SDYL SPDivs 1
+ FB Facebook 2
+ AMZN Amazon 3
+ NVDA Nvidia 4
+ GOOGL Google 5
+
+SORT: 
+
+symbol: AMZN
+cmpname: Amazon
+position: 3
+symbol: FB
+cmpname: Facebook
+position: 2
+symbol: GOOGL
+cmpname: Google
+position: 5
+symbol: NVDA
+cmpname: Nvidia
+position: 4
+symbol: SDYL
+cmpname: SPDivs
+position: 1
+symbol: SPY
+cmpname: SP500
+position: 0
