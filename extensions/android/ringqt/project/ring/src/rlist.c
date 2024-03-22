@@ -567,6 +567,7 @@ RING_API void ring_list_insertitem_gc ( void *pState,List *pList,unsigned int x 
 	pItems->pPrev = pList->pLastItemLastAccess ;
 	pList->pLastItemLastAccess->pNext = pItems ;
 	pList->nSize = pList->nSize + 1 ;
+	ring_list_setcache(pList, pItems, x+2);
 }
 
 RING_API void ring_list_insertint_gc ( void *pState,List *pList,unsigned int nPos,int x )
