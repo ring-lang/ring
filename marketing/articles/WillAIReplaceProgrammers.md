@@ -57,6 +57,20 @@ Related Topics in Ring Group
 			 To get this result, Gemini used Python & Pandas in the background to generate the code and executed it too.
 		</td>
 	</tr>
+	<tr>
+		<td>
+			3
+		</td>
+		<td>
+			2024.02.09
+		</td>
+		<td>
+			 <a href="https://groups.google.com/g/ring-lang/c/_WCLUmnoLls/m/Gou_RFxBAAAJ"> Googe Gemini AI understands Softanza code in a picture </a>
+		</td>
+		<td>
+			 Using AI to explain Ring code.
+		</td>
+	</tr>
 </table>
 
 
