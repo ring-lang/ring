@@ -41,7 +41,6 @@ Related Topics in Ring Group
 		</td>
 		<td>
 			 To get this result, Gemini used Python & Pandas in the background to generate the code and executed it too.
-
 		</td>
 	</tr>
 </table>
