@@ -34,6 +34,21 @@ Related Topics in Ring Group
 			1
 		</td>
 		<td>
+			2024.03.01
+		</td>
+		<td>
+			 <a href="https://groups.google.com/g/ring-lang/c/4pwiHF_Q_pc"> Bing AI - Write a Ring Program to do a Transformation Matrix </a>
+		</td>
+		<td>
+			 Its definitely not there yet.
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			2
+		</td>
+		<td>
 			2024.02.19
 		</td>
 		<td>
@@ -45,7 +60,7 @@ Related Topics in Ring Group
 	</tr>
 	<tr>
 		<td>
-			2
+			3
 		</td>
 		<td>
 			2024.02.14
@@ -59,7 +74,7 @@ Related Topics in Ring Group
 	</tr>
 	<tr>
 		<td>
-			3
+			4
 		</td>
 		<td>
 			2024.02.09
