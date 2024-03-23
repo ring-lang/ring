@@ -125,11 +125,24 @@ void ring_vm_listfuncs_del ( void *pPointer )
 
 void ring_vm_listfuncs_swap ( void *pPointer )
 {
-	List *pList  ;
+	List *pList, *pList2  ;
 	double nNum1,nNum2  ;
 	unsigned int nSize  ;
 	VM *pVM  ;
 	pVM = (VM *) pPointer ;
+	/* Support Swap two lists */
+	if ( RING_API_PARACOUNT == 2 ) {
+		if ( RING_API_ISLIST(1) && RING_API_ISLIST(2) ) {
+			pList = RING_API_GETLIST(1) ;
+			pList2 = RING_API_GETLIST(2) ;
+			ring_list_swaptwolists(pList,pList2);
+			return ;
+		}
+		else {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return ;
+		}
+	}
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;

@@ -18,7 +18,7 @@ Type: VM *
 pVM
 ring_vm_listfuncs_swap
 Type: List *
-pList
+pList, *pList2
 Type: double
 nNum1,nNum2
 Type: unsigned int
