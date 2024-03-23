@@ -40,7 +40,7 @@ Related Topics in Ring Group
 			 <a href="https://groups.google.com/g/ring-lang/c/SwvVrVwdmbQ/m/ac04OMSMAAAJ"> Using Gemini to convert Ring code to C code </a>
 		</td>
 		<td>
-			 To get this result, Gemini used Python & Pandas in the background to generate the code and executed it too.
+			 I hope that this could be used in the future to develop Ring extensions.
 		</td>
 	</tr>
 	<tr>
