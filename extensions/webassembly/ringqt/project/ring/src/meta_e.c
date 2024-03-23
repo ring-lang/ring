@@ -1074,7 +1074,7 @@ void ring_vm_refmeta_ringvmevalinscope ( void *pPointer )
 		ring_list_deletearray_gc(pVM->pRingState,pVM->pMem);
 		nSize = pVM->pMem->nSize ;
 		pLastItem = pVM->pMem->pLast ;
-		ring_list_clearcache(pVM->pMem);
+		ring_list_clearcache(pVM->pRingState,pVM->pMem);
 		/* Get Items * for the required scope */
 		pScopeItem = ring_list_getitemcontainer(pVM->pMem,nScope);
 		if ( pScopeItem != NULL ) {
