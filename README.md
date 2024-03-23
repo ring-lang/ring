@@ -4,13 +4,6 @@
 
 ## Simple and flexible programming language for applications development
 
-| |*Resources*|
-|---|---|
-|Download |[![Download](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/graphics/binaryrelease.svg)](https://ring-lang.github.io/download.html)|
-|Help |[![Help](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/graphics/documentation.svg)](https://ring-lang.github.io/doc1.19/index.html)|
-|Try |[![Try](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/graphics//interactive%20ring-use%20online-green.svg)](https://tio.run/#Ring)|
-|Extra |[![Resources](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/graphics/resources-orange.svg)](https://ring-lang.github.io/resources.html)|
-
 # Contents:
 
 - [Welcome to Ring](#welcome-to-ring)
@@ -83,8 +76,6 @@ Also, you can start your software development by writing natural descriptions, t
 
 ![ScreenShot](https://ring-lang.github.io/newringdemo1.png)
 
-![ScreenShot](https://ring-lang.github.io/newringdemo2.png)
-
 
 ## GUI Applications Development And RAD Tools
 
@@ -93,8 +84,6 @@ Ring comes with Rapid Application Development (RAD) tools that we can use to qui
 Also, using the same source code we can distribute our applications for Desktop, Web, and Mobile platforms. 
 
 ![ScreenShot](https://ring-lang.github.io/newringdemo6.png)
-
-![ScreenShot](https://ring-lang.github.io/newringdemo5.png)
 
 ## First Class Support For Game Development
 
@@ -109,22 +98,12 @@ Also, Ring comes with a simple game engine for 2D game development using Declara
 
 ![ScreenShot](https://ring-lang.github.io/newringdemo3.png)
 
-![ScreenShot](https://ring-lang.github.io/snakegamecode.png)
-
-![ScreenShot](https://ring-lang.github.io/sokobangamecode.png)
-
 
 ## WebAssembly (Front-End Web Development)
 
 Using Ring we can quickly develop web applications using WebAssembly (Binary format that allows sand-boxed executable code in web pages. This format is nearly as fast as native machine code and is now supported by all major web browsers) 
 
 ![ScreenShot](https://ring-lang.github.io/wasm_demo4.png)
-
-![ScreenShot](https://ring-lang.github.io/wasm_demo1.png)
-
-![ScreenShot](https://ring-lang.github.io/wasm_demo2.png)
-
-![ScreenShot](https://ring-lang.github.io/wasm_demo3.png)
 
 ![ScreenShot](https://ring-lang.github.io/wasm_demo5.png)
 
@@ -133,10 +112,6 @@ Using Ring we can quickly develop web applications using WebAssembly (Binary for
 Using Ring we can quickly develop web applications using the MVC design pattern. 
 We can easily use HTML templates with embedded Ring code. 
 Also, we can generate HTML code from Ring programs using Declarative Programming.
-
-![ScreenShot](https://ring-lang.github.io/newringdemo9.png)
-
-![ScreenShot](https://ring-lang.github.io/newringdemo12.png)
 
 ![ScreenShot](https://ring-lang.github.io/mycoffee.png)
 
@@ -283,12 +258,6 @@ Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11, Ri
 (8) Executing 3000 search operations using linear search in a list contains 100,000 items, trying to find the last item (The worst case)
 
 Also, when we need more speed we can use C/C++ extensions! 
-
-![ScreenShot](https://ring-lang.github.io/ringdemo1_speed.png)
-
-![ScreenShot](https://ring-lang.github.io/ringdemo2_speed.png)
-
-![ScreenShot](https://ring-lang.github.io/ringdemo3_speed.png)
 
 ![ScreenShot](https://ring-lang.github.io/ringdemo4_speed.png)
 
