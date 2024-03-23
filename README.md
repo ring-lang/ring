@@ -46,6 +46,8 @@ The language support these paradigms with new practical techniques on top of Obj
 
 You get the language constructs ready for use to create domain-specific languages in a fraction of time. 
 
+* [Motivation](https://ring-lang.github.io/doc1.19/introduction.html#motivation-1)
+
 * [Ring Article](https://ring-lang.github.io/doc1.19/languagedesign.html)
 
 * [Syntax Flexibility](https://ring-lang.github.io/doc1.19/syntaxflexibility.html)
