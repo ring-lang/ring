@@ -193,8 +193,6 @@ The Ring programming language is designed using the PWCT visual programming tool
 
 ![ScreenShot](https://ring-lang.github.io/ringvisualsrc1.jpg)
 
-![ScreenShot](https://ring-lang.github.io/ringvisualsrc2.jpg)
-
 ## Smart Garbage Collector
 
 Avoid memory problems:-
