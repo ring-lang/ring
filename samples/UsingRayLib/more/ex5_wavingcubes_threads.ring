@@ -1,25 +1,21 @@
 #===================================================================#
 # Based on Original Sample from RayLib (https://www.raylib.com/)
 # Ported to RingRayLib by Ring Team  
-# Uses Threads from RingLibuv 
 # 2020, Ilir Liburn <iliribur@gmail.com>
 #===================================================================#
 
 load "raylib.ring"
-load "libuv.ring"
+load "gamelib.ring"
 
-numBlocks = 15
-numThreads = 2 // including main thread, min = 1, max = 2 due to race conditions 
+numBlocks    = 15
+numThreads   = 2 // including main thread, min = 1, max = 2 due to race conditions 
 
-qub = pow(numBlocks, 3)
-data = list(numThreads, qub)
+qub          = pow(numBlocks, 3)
+data         = list(numThreads, qub)
 	
-MUTEX_SIZE = 32	# Allocat large space to be on the safe side
-mt = space(MUTEX_SIZE)
-mute = varptr(:mt, :uv_mutex_t)
-uv_mutex_init(mute)
+mute         = al_create_mutex()
 
-screenWidth = 800
+screenWidth  = 800
 screenHeight = 450
 
 prepareData()
@@ -62,11 +58,11 @@ func startAnimation
 
 		DrawGrid(10, 5.0)
 
-		uv_mutex_lock(mute)
+		al_lock_mutex(mute)
 		for i = 1 to qub
 			DrawCubeV_2(data[1][i][1], data[1][i][2], data[1][i][3])
 		next
-		uv_mutex_unlock(mute)
+		al_unlock_mutex(mute)
 
 		EndMode3D()
 
@@ -82,9 +78,7 @@ func startAnimation
 func createThreads 
 
 	for t = 2 to numThreads
-		thread = new_uv_thread_t()
-		cCall = uv_callback(thread,:thread,"thread("+t+")")
-		uv_thread_create_2(thread,cCall,thread)
+		al_create_thread("thread("+t+")")
 	next
 
 func thread i
@@ -120,7 +114,7 @@ func thread i
 				next
 			next
 		next
-		uv_mutex_lock(mute)
+		al_lock_mutex(mute)
 		swap(data, 1, i)
-		uv_mutex_unlock(mute)
+		al_unlock_mutex(mute)
 	end
