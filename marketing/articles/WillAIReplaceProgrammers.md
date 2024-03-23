@@ -83,6 +83,20 @@ Related Videos
 			1
 		</td>
 		<td>
+			2024.03.12
+		</td>
+		<td>
+			 <a href="https://www.youtube.com/watch?v=fjHtjT7GO1c"> Introducing Devin </a>
+		</td>
+		<td>
+			 The first AI software engineer
+		</td>
+	</tr>
+	<tr>
+		<td>
+			2
+		</td>
+		<td>
 			2024.01.18
 		</td>
 		<td>
@@ -94,7 +108,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			2
+			3
 		</td>
 		<td>
 			2023.06.08
