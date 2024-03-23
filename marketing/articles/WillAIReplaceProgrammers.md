@@ -25,6 +25,28 @@ Also, the way we interact with AI tools (Chat, Voice, etc.) in natural language 
 
 Finally, Thanks to the AI/ML developers who developed nice tools that helped me a lot to write this post.
 
+Related Topics in Ring Group
+============================
+
+<table>
+	<tr>
+		<td>
+			1
+		</td>
+		<td>
+			2024.02.14
+		</td>
+		<td>
+			 <a href="https://groups.google.com/g/ring-lang/c/-1CERIbb23I/m/3L7tv3kzAQAJ"> Using Gemini to generate some data. </a>
+		</td>
+		<td>
+			 To get this result, Gemini used Python & Pandas in the background to generate the code and executed it too.
+
+		</td>
+	</tr>
+</table>
+
+
 Related Videos
 ==============
 
@@ -158,3 +180,4 @@ entirely.
 		</td>
 	</tr>
 </table>
+
