@@ -34,10 +34,24 @@ Related Topics in Ring Group
 			1
 		</td>
 		<td>
+			2024.02.19
+		</td>
+		<td>
+			 <a href="https://groups.google.com/g/ring-lang/c/SwvVrVwdmbQ/m/ac04OMSMAAAJ"> Using Gemini to convert Ring code to C code </a>
+		</td>
+		<td>
+			 To get this result, Gemini used Python & Pandas in the background to generate the code and executed it too.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			2
+		</td>
+		<td>
 			2024.02.14
 		</td>
 		<td>
-			 <a href="https://groups.google.com/g/ring-lang/c/-1CERIbb23I/m/3L7tv3kzAQAJ"> Using Gemini to generate some data. </a>
+			 <a href="https://groups.google.com/g/ring-lang/c/-1CERIbb23I/m/3L7tv3kzAQAJ"> Using Gemini to generate some data </a>
 		</td>
 		<td>
 			 To get this result, Gemini used Python & Pandas in the background to generate the code and executed it too.
