@@ -833,13 +833,13 @@ Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11, Ri
 
 Also, when we need more speed we can use C/C++ extensions! 
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/ringdemo1_speed.png)
+![ScreenShot](https://ring-lang.github.io/ringdemo1_speed.png)
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/ringdemo2_speed.png)
+![ScreenShot](https://ring-lang.github.io/ringdemo2_speed.png)
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/ringdemo3_speed.png)
+![ScreenShot](https://ring-lang.github.io/ringdemo3_speed.png)
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/ringdemo4_speed.png)
+![ScreenShot](https://ring-lang.github.io/ringdemo4_speed.png)
 
 
 # Features
