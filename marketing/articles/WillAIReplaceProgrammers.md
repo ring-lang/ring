@@ -48,20 +48,6 @@ Related Articles
 			2
 		</td>
 		<td>
-			2023.04.17
-		</td>
-		<td>
-			 <a href="https://www.wired.com/story/openai-ceo-sam-altman-the-age-of-giant-ai-models-is-already-over/"> Artificial Intelligence will require new ideas </a>
-		</td>
-		<td>
-			 OpenAI’s CEO Says the Age of Giant AI Models Is Already Over
-		</td>
-	</tr>
-	<tr>
-		<td>
-			3
-		</td>
-		<td>
 			2023.11.07
 		</td>
 		<td>
@@ -69,6 +55,20 @@ Related Articles
 		</td>
 		<td>
 			 Researchers warn we could run out of data to train AI by 2026. What then?
+		</td>
+	</tr>
+	<tr>
+		<td>
+			3
+		</td>
+		<td>
+			2023.04.17
+		</td>
+		<td>
+			 <a href="https://www.wired.com/story/openai-ceo-sam-altman-the-age-of-giant-ai-models-is-already-over/"> Artificial Intelligence will require new ideas </a>
+		</td>
+		<td>
+			 OpenAI’s CEO Says the Age of Giant AI Models Is Already Over
 		</td>
 	</tr>
 </table>
