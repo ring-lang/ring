@@ -89,7 +89,7 @@ You get the language constructs ready for use to create domain-specific language
 
 Ring comes with many high quality bindings for popular libraries 
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/libs.png)
+![ScreenShot](https://ring-lang.github.io/libs.png)
 
 # Practical
 
@@ -101,9 +101,9 @@ Using Ring you will feel that the language is yours! A lot of modern programming
 
 Also, you can start your software development by writing natural descriptions, then adding the implementation later. 
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/newringdemo1.png)
+![ScreenShot](https://ring-lang.github.io/newringdemo1.png)
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/newringdemo2.png)
+![ScreenShot](https://ring-lang.github.io/newringdemo2.png)
 
 
 ## GUI Applications Development And RAD Tools
@@ -112,9 +112,9 @@ Many developers reported that using Ring we can develop many GUI applications in
 Ring comes with Rapid Application Development (RAD) tools that we can use to quickly develop GUI applications using the MVC design pattern. 
 Also, using the same source code we can distribute our applications for Desktop, Web, and Mobile platforms. 
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/newringdemo6.png)
+![ScreenShot](https://ring-lang.github.io/newringdemo6.png)
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/newringdemo5.png)
+![ScreenShot](https://ring-lang.github.io/newringdemo5.png)
 
 ## First Class Support For Game Development
 
@@ -123,30 +123,30 @@ Ring comes with many game programming libraries in the standard library.
 Ring provides native support for Allegro, LibSDL, RayLib, OpenGL, FreeGLUT, Tilengine and Qt3D libraries.
 Also, Ring comes with a simple game engine for 2D game development using Declarative Programming.
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/ringdemo13.png)
+![ScreenShot](https://ring-lang.github.io/ringdemo13.png)
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/goldmagic800.png)
+![ScreenShot](https://ring-lang.github.io/goldmagic800.png)
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/newringdemo3.png)
+![ScreenShot](https://ring-lang.github.io/newringdemo3.png)
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/snakegamecode.png)
+![ScreenShot](https://ring-lang.github.io/snakegamecode.png)
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/sokobangamecode.png)
+![ScreenShot](https://ring-lang.github.io/sokobangamecode.png)
 
 
 ## WebAssembly (Front-End Web Development)
 
 Using Ring we can quickly develop web applications using WebAssembly (Binary format that allows sand-boxed executable code in web pages. This format is nearly as fast as native machine code and is now supported by all major web browsers) 
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/wasm_demo4.png)
+![ScreenShot](https://ring-lang.github.io/wasm_demo4.png)
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/wasm_demo1.png)
+![ScreenShot](https://ring-lang.github.io/wasm_demo1.png)
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/wasm_demo2.png)
+![ScreenShot](https://ring-lang.github.io/wasm_demo2.png)
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/wasm_demo3.png)
+![ScreenShot](https://ring-lang.github.io/wasm_demo3.png)
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/wasm_demo5.png)
+![ScreenShot](https://ring-lang.github.io/wasm_demo5.png)
 
 ## Back-End Web Development
 
@@ -154,17 +154,17 @@ Using Ring we can quickly develop web applications using the MVC design pattern.
 We can easily use HTML templates with embedded Ring code. 
 Also, we can generate HTML code from Ring programs using Declarative Programming.
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/newringdemo9.png)
+![ScreenShot](https://ring-lang.github.io/newringdemo9.png)
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/newringdemo12.png)
+![ScreenShot](https://ring-lang.github.io/newringdemo12.png)
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/mycoffee.png)
+![ScreenShot](https://ring-lang.github.io/mycoffee.png)
 
 ## Mobile Development
 
 Using Ring we can distribute our applications for mobile platforms (Android, iOS, etc.)
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/android_demo1.png)
+![ScreenShot](https://ring-lang.github.io/android_demo1.png)
 
 ## Building Tools (Command Line)
 
@@ -172,7 +172,7 @@ Using Ring we can whip up a CLI tool quickly and distribute it with ease.
 The Ring Package Manager is an example of a powerful tool that we developed using Ring in a few hours. 
 We recorded the development time (21 hours of development includes explaining each step) 
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/cmddemo2.png)
+![ScreenShot](https://ring-lang.github.io/cmddemo2.png)
 
 # Why Ring?
 
