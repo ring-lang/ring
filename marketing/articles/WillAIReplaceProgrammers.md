@@ -43,7 +43,6 @@ Related Topics in Ring Group
 			 Its definitely not there yet.
 		</td>
 	</tr>
-
 	<tr>
 		<td>
 			2
