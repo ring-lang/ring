@@ -3,16 +3,16 @@ Marketing Folder
 
 In this folder we have files related to the Ring language marketing
 
-(1) Ring Website (Generated using Ring code)
+- Ring Website (Generated using Ring code)
 
-(2) Presentation (Microsoft PowerPoint file)
+- Presentation (Microsoft PowerPoint file)
 
-(3) Graphics Files
+- Graphics Files
 
-(4) Sound Files
+- Sound Files
 
-(5) Course Files
+- Course Files
 
-(6) Chess 3D (Qt3D Sample)
+- Chess 3D (Qt3D Sample)
 
-(7) PWCT Development
+- PWCT Development
