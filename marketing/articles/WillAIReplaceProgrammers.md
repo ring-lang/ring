@@ -65,7 +65,7 @@ Related Topics in Ring Group
 			2024.02.09
 		</td>
 		<td>
-			 <a href="https://groups.google.com/g/ring-lang/c/_WCLUmnoLls/m/Gou_RFxBAAAJ"> Googe Gemini AI understands Softanza code in a picture </a>
+			 <a href="https://groups.google.com/g/ring-lang/c/_WCLUmnoLls/m/Gou_RFxBAAAJ"> Google Gemini AI understands Softanza code in a picture </a>
 		</td>
 		<td>
 			 Using AI to explain Ring code.
