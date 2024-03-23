@@ -86,7 +86,7 @@ Related Videos
 			2024.01.18
 		</td>
 		<td>
-			 <a href="https://www.youtube.com/watch?v=ltQ9pbFukUo"> Impact of AI on Programming </a>
+			 <a href="https://www.youtube.com/watch?v=VHHT6W-N0ak"> Impact of AI on Programming </a>
 		</td>
 		<td>
 			 Torvalds Speaks: Impact of Artificial Intelligence on Programming
