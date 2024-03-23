@@ -67,8 +67,6 @@
 
 	RING_API int ring_list_gettype ( List *pList, unsigned int nIndex ) ;
 
-	RING_API void ring_list_clear ( List *pList ) ;
-
 	RING_API void ring_list_addblock_gc ( void *pState,List *pList,void *pMemory,int nType ) ;
 
 	RING_API void ring_list_clearcache ( void *pState,List *pList ) ;

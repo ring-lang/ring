@@ -169,18 +169,6 @@ RING_API void ring_list_copy_tohighlevel_gc ( void *pState,List *pNewList, List 
 	}
 }
 
-RING_API void ring_list_clear ( List *pList )
-{
-	pList->pFirst = NULL ;
-	pList->pLast = NULL ;
-	pList->nSize = 0 ;
-	pList->pItemsArray = NULL ;
-	pList->pHashTable = NULL ;
-	pList->pBlocks = NULL ;
-	ring_list_clearcache(NULL,pList);
-	ring_list_clearrefdata(pList);
-}
-
 RING_API void ring_list_addblock_gc ( void *pState,List *pList,void *pMemory,int nType )
 {
 	ListBlocks *pBlocks  ;
