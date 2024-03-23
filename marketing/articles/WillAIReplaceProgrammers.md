@@ -132,6 +132,20 @@ Related Papers
 			1
 		</td>
 		<td>
+			2022
+		</td>
+		<td>
+			 <a href="https://arxiv.org/pdf/2203.07814.pdf"> Competition-Level Code Generation </a>
+		</td>
+		<td>
+			 AlphaCode
+		</td>
+	</tr>
+	<tr>
+		<td>
+			2
+		</td>
+		<td>
 			2017
 		</td>
 		<td>
