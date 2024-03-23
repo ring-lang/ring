@@ -13,84 +13,91 @@ numThreads = 2 // including main thread, min = 1, max = 2 due to race conditions
 
 qub = pow(numBlocks, 3)
 data = list(numThreads, qub)
-
-for j = 1 to numThreads
-	for k = 1 to qub
-		data[j][k] = [Vec3(), Vec3(), BLACK]
-	next
-next
 	
-color = Vec3()
-Vec3SetY(color,0.75)
-Vec3SetZ(color,0.9)
-
-colors = []
-for c = 0 to 359
-	Vec3SetX(color, c)
-	Add(colors, ColorFromHSV_2(color))
-next
-
 MUTEX_SIZE = 32	# Allocat large space to be on the safe side
-
 mt = space(MUTEX_SIZE)
 mute = varptr(:mt, :uv_mutex_t)
 uv_mutex_init(mute)
 
-for t = 2 to numThreads
-	thread = new_uv_thread_t()
-	cCall = uv_callback(thread,:thread,"thread("+t+")")
-	uv_thread_create_2(thread,cCall,thread)
-next
-
 screenWidth = 800
 screenHeight = 450
 
-InitWindow(screenWidth, screenHeight, "Waving Cubes")
+prepareData()
+createThreads()
+startAnimation()
 
-camera = Camera3D( 0.0, 20.0, 0.0,
-		   0.0, 0.0, 0.0,
-		   0.0, 1.0, 0.0, 
-		   75.0, 0 )
+func prepareData
 
-cam = camera.data()
-
-SetTargetFPS(200)
-
-while !WindowShouldClose()
-
-	cameraTime = GetTime()*0.3
-
-	setCamera3DPosX(cam,cos(cameraTime)*40.0)
-	setCamera3DPosZ(cam,sin(cameraTime)*40.0)
-
-	BeginDrawing()
-
-	ClearBackground_2(RAYWHITE)
-
-	BeginMode3D_2(cam)
-
-	DrawGrid(10, 5.0)
-
-	uv_mutex_lock(mute)
-	for i = 1 to qub
-		DrawCubeV_2(data[1][i][1], data[1][i][2], data[1][i][3])
+	for j = 1 to numThreads
+		for k = 1 to qub
+			data[j][k] = [Vec3(), Vec3(), BLACK]
+		next
 	next
-	uv_mutex_unlock(mute)
 
-	EndMode3D()
+func startAnimation 
 
-	DrawFPS(10, 10)
+	InitWindow(screenWidth, screenHeight, "Waving Cubes")
 
-	EndDrawing()
+	camera = Camera3D( 0.0, 20.0, 0.0,
+			   0.0, 0.0, 0.0,
+			   0.0, 1.0, 0.0, 
+			   75.0, 0 )
 
-end
+	cam = camera.data()
 
-// uv_mutex_destroy(mute) // Keep it to be sure about safe shutdown 
+	SetTargetFPS(200)
 
-CloseWindow()
-Shutdown()
+	while !WindowShouldClose()
+
+		cameraTime = GetTime()*0.3
+
+		setCamera3DPosX(cam,cos(cameraTime)*40.0)
+		setCamera3DPosZ(cam,sin(cameraTime)*40.0)
+
+		BeginDrawing()
+
+		ClearBackground_2(RAYWHITE)
+
+		BeginMode3D_2(cam)
+
+		DrawGrid(10, 5.0)
+
+		uv_mutex_lock(mute)
+		for i = 1 to qub
+			DrawCubeV_2(data[1][i][1], data[1][i][2], data[1][i][3])
+		next
+		uv_mutex_unlock(mute)
+
+		EndMode3D()
+
+		DrawFPS(10, 10)
+
+		EndDrawing()
+
+	end
+
+	CloseWindow()
+	Shutdown()
+
+func createThreads 
+
+	for t = 2 to numThreads
+		thread = new_uv_thread_t()
+		cCall = uv_callback(thread,:thread,"thread("+t+")")
+		uv_thread_create_2(thread,cCall,thread)
+	next
 
 func thread i
+
+	color = Vec3()
+	Vec3SetY(color,0.75)
+	Vec3SetZ(color,0.9)
+	
+	colors = []
+	for c = 0 to 359
+		Vec3SetX(color, c)
+		Add(colors, ColorFromHSV_2(color))
+	next
 
 	cnt = numBlocks - 1
 	while true
