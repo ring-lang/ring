@@ -25,55 +25,6 @@ Also, the way we interact with AI tools (Chat, Voice, etc.) in natural language 
 
 Finally, Thanks to the AI/ML developers who developed nice tools that helped me a lot to write this post.
 
-Related Articles
-================
-
-<table>
-	<tr>
-		<td>
-			1
-		</td>
-		<td>
-			2024.02.20
-		</td>
-		<td>
-			 <a href="https://www.nature.com/articles/d41586-024-00478-x"> Environmental costs </a>
-		</td>
-		<td>
-			 Generative AI’s environmental costs are soaring — and mostly secret
-		</td>
-	</tr>
-	<tr>
-		<td>
-			2
-		</td>
-		<td>
-			2023.11.07
-		</td>
-		<td>
-			 <a href="https://theconversation.com/researchers-warn-we-could-run-out-of-data-to-train-ai-by-2026-what-then-216741"> We could run out of data to train AI </a>
-		</td>
-		<td>
-			 Researchers warn we could run out of data to train AI by 2026. What then?
-		</td>
-	</tr>
-	<tr>
-		<td>
-			3
-		</td>
-		<td>
-			2023.04.17
-		</td>
-		<td>
-			 <a href="https://www.wired.com/story/openai-ceo-sam-altman-the-age-of-giant-ai-models-is-already-over/"> Artificial Intelligence will require new ideas </a>
-		</td>
-		<td>
-			 OpenAI’s CEO Says the Age of Giant AI Models Is Already Over
-		</td>
-	</tr>
-</table>
-
-
 Related Videos
 ==============
 
@@ -118,6 +69,55 @@ Related Videos
 		</td>
 		<td>
 			 Chris Lattner and Lex Fridman
+		</td>
+	</tr>
+</table>
+
+
+Related News
+============
+
+<table>
+	<tr>
+		<td>
+			1
+		</td>
+		<td>
+			2024.02.20
+		</td>
+		<td>
+			 <a href="https://www.nature.com/articles/d41586-024-00478-x"> Environmental costs </a>
+		</td>
+		<td>
+			 Generative AI’s environmental costs are soaring — and mostly secret
+		</td>
+	</tr>
+	<tr>
+		<td>
+			2
+		</td>
+		<td>
+			2023.11.07
+		</td>
+		<td>
+			 <a href="https://theconversation.com/researchers-warn-we-could-run-out-of-data-to-train-ai-by-2026-what-then-216741"> We could run out of data to train AI </a>
+		</td>
+		<td>
+			 Researchers warn we could run out of data to train AI by 2026. What then?
+		</td>
+	</tr>
+	<tr>
+		<td>
+			3
+		</td>
+		<td>
+			2023.04.17
+		</td>
+		<td>
+			 <a href="https://www.wired.com/story/openai-ceo-sam-altman-the-age-of-giant-ai-models-is-already-over/"> Artificial Intelligence will require new ideas </a>
+		</td>
+		<td>
+			 OpenAI’s CEO Says the Age of Giant AI Models Is Already Over
 		</td>
 	</tr>
 </table>
