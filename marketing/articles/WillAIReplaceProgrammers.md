@@ -195,6 +195,22 @@ Related Papers
 			1
 		</td>
 		<td>
+			2024
+		</td>
+		<td>
+			 <a href="https://arxiv.org/pdf/2402.12317.pdf"> ARKS: Active Retrieval in Knowledge Soup for Code Generation </a>
+		</td>
+		<td>
+			On the Ring dataset,
+this method showcases an impressive boost, elevating the
+performance of ChatGPT from 3.7% to 35.5%
+		</td>
+	</tr>
+	<tr>
+		<td>
+			2
+		</td>
+		<td>
 			2022
 		</td>
 		<td>
@@ -206,7 +222,7 @@ Related Papers
 	</tr>
 	<tr>
 		<td>
-			2
+			3
 		</td>
 		<td>
 			2017
