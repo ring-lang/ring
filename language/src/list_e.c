@@ -160,6 +160,7 @@ void ring_vm_listfuncs_swap ( void *pPointer )
 			nSize = ring_list_getsize(pList);
 			if ( (nNum1 > 0) && (nNum2 > 0) && (nNum1!= nNum2) && (nNum1<= nSize) && (nNum2 <= nSize) ) {
 				ring_list_swap(pList,(unsigned int) nNum1, (unsigned int) nNum2);
+				ring_list_clearcache(pVM->pRingState,pList);
 			}
 			else {
 				RING_API_ERROR(RING_API_BADPARARANGE);
