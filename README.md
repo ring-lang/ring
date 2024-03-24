@@ -99,8 +99,6 @@ Using Ring we can quickly develop web applications using WebAssembly (Binary for
 
 ![ScreenShot](https://ring-lang.github.io/wasm_demo4.png)
 
-![ScreenShot](https://ring-lang.github.io/wasm_demo5.png)
-
 ## Back-End Web Development
 
 Using Ring we can quickly develop web applications using the MVC design pattern. 
