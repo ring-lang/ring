@@ -92,7 +92,6 @@ Type: unsigned int
 x
 Type: List *
 pNewList2
-ring_list_clear
 ring_list_addblock_gc
 Type: ListBlocks *
 pBlocks

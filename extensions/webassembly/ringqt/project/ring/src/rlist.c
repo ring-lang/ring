@@ -195,6 +195,8 @@ RING_API void ring_list_clearcache ( void *pState,List *pList )
 {
 	pList->nNextItemAfterLastAccess = 0 ;
 	pList->pLastItemLastAccess = NULL ;
+	/* Free Items Array */
+	ring_list_deletearray_gc(pState,pList);
 }
 
 RING_API void ring_list_setcache ( void *pState,List *pList, struct Items *pItems, unsigned int nNextItem )
