@@ -135,8 +135,6 @@ Example:
 
 The Ring programming language is designed using the PWCT visual programming tool 
 
-![ScreenShot](https://ring-lang.github.io/ringvisualsrc1.jpg)
-
 ## Smart Garbage Collector
 
 Avoid memory problems:-
@@ -145,27 +143,6 @@ Avoid memory problems:-
     Memory leaks
     Uninitialized Memory Access
     Dangling pointer
-
-Rules:-
-
-* Global variables always stay in the memory, until you delete these variables using the assignment statement.
-
-* Local variables always deleted after the end of the function.
-
-* The programmer has full control over when to delete the variable from the memory using the Assignment statement.
-
-Example:
-
-```ring
-aList = [1,2,3,4,5]
-aList = "nice"
-```    			
-
-After the second line directly, The list [1,2,3,4,5] will be deleted from the memory and we will have a string "nice"
-
-The programmer can call the function callgc() to force running the garbage collector.
-
-If we have a reference to a variable (when we pass objects and lists to functions), then deleting variables will be based on reference counting, if no references everything will be deleted, but if we have a reference, the data will stay in memory.
 
 ## No Global Interpreter (VM) Lock - No GIL
 
@@ -178,26 +155,6 @@ This is better for threads and concurrency (More Faster!)
 ## Fast Enough For Many Applications
 
 Ring is designed to be a simple, small, and flexible language in the first place, but also it is fast enough for many applications.
-
-Ring can do each of the following tasks in around one second.
-
-Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11, Ring 1.19]
-
-(1) Compiling 100,000 lines of code
-
-(2) Executing an empty loop that count from 1 to 100,000,000
-
-(3) Creating list contains 7,000,000 items then summing all of the list items
-
-(4) Printing numbers from 1 to 40,000 using command prompt
-
-(5) Printing numbers from 1 to 500,000 using output redirection and Ring Notepad
-
-(6) Adding 50,000 nodes to the TreeWidget in GUI applications
-
-(7) Adding 60,000 items to the ListWidget in GUI applications
-
-(8) Executing 3000 search operations using linear search in a list contains 100,000 items, trying to find the last item (The worst case)
 
 Also, when we need more speed we can use C/C++ extensions! 
 
