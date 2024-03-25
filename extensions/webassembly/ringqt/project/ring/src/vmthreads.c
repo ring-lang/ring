@@ -39,8 +39,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	RingState *pState  ;
 	List *pList,*pList2,*pList3,*pList4,*pList5,*pGlobal, *pVarList, *pBlocks  ;
 	Item *pItem  ;
-	unsigned int nMemoryBlocksCount, x  ;
-	Items *pItems  ;
+	unsigned int x  ;
 	/* Create the RingState */
 	pState = ring_state_init();
 	/* Flag that we are running from thread */
