@@ -882,11 +882,12 @@ RING_API void ring_list_genarray_gc ( void *pState,List *pList )
 	unsigned int x  ;
 	Item **pArray  ;
 	Items *pItems  ;
-	if ( ring_list_getsize(pList) == 0 ) {
-		return ;
-	}
 	if ( pList->pItemsArray != NULL ) {
 		ring_state_free(pState,pList->pItemsArray);
+		pList->pItemsArray = NULL ;
+	}
+	if ( ring_list_getsize(pList) == 0 ) {
+		return ;
 	}
 	/*
 	**  Here we  don't use ring_list_getitem 
@@ -894,8 +895,8 @@ RING_API void ring_list_genarray_gc ( void *pState,List *pList )
 	*/
 	pArray = (Item **) ring_state_malloc(pState,ring_list_getsize(pList) * sizeof(Item *));
 	pItems = pList->pFirst ;
-	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
-		pArray[x-1] = pItems->pValue ;
+	for ( x = 0 ; x < ring_list_getsize(pList) ; x++ ) {
+		pArray[x] = pItems->pValue ;
 		pItems = pItems->pNext ;
 	}
 	pList->pItemsArray = pArray ;
