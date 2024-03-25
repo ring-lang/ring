@@ -419,32 +419,6 @@ void ring_vm_list_copy ( VM *pVM,List *pNewList, List *pList )
 	}
 }
 
-void ring_vm_list_simpointercopy ( VM *pVM,List *pList )
-{
-	int x  ;
-	/* Copy Items */
-	if ( ring_list_getsize(pList) == 0 ) {
-		return ;
-	}
-	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
-		if ( ring_list_islist(pList,x) ) {
-			ring_vm_list_simpointercopy(pVM,ring_list_getlist(pList,x));
-		}
-	}
-	/* Check if the List is a C Pointer List */
-	if ( ring_list_iscpointerlist(pList) ) {
-		/* Check value to avoid adding the pointer to the C Pointer list again */
-		if ( ring_list_getint(pList,RING_CPOINTER_STATUS) == RING_CPOINTERSTATUS_NOTCOPIED ) {
-			/* Mark C Pointer List As Copied */
-			ring_list_setint_gc(pVM->pRingState,pList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_COPIED);
-		}
-		else if ( ring_list_getint(pList,RING_CPOINTER_STATUS) == RING_CPOINTERSTATUS_NOTASSIGNED ) {
-			/* Mark the C Pointer List as Not Copied */
-			ring_list_setint_gc(pVM->pRingState,pList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_NOTCOPIED);
-		}
-	}
-}
-
 void ring_vm_beforeequallist ( VM *pVM,List *pVar,double nNum1 )
 {
 	String *pString  ;
