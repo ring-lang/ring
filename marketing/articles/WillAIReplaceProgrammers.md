@@ -111,6 +111,20 @@ Related Videos
 			2
 		</td>
 		<td>
+			2024.03.04
+		</td>
+		<td>
+			 <a href="https://www.youtube.com/watch?v=vEd-LqBCONg"> "Don't Learn to Code, But Study This Instead..." </a>
+		</td>
+		<td>
+			 <a href="https://en.wikipedia.org/wiki/Jensen_Huang"> NVIDIA CEO Jensen Huang </a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			3
+		</td>
+		<td>
 			2024.01.18
 		</td>
 		<td>
@@ -122,7 +136,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			3
+			4
 		</td>
 		<td>
 			2023.10.29
@@ -136,7 +150,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			4
+			5
 		</td>
 		<td>
 			2023.06.08
