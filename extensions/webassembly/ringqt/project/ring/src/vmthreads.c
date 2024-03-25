@@ -82,7 +82,8 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	*/
 	if ( nMemoryBlocksCount > 0 ) {
 		pItems = pVM->pRingState->vPoolManager.pBlocks->pFirst ;
-		while ( pItems != NULL ) {
+		/* We use a for-loop and avoid (while (pItems != NULL)) To be more thread safe */
+		for ( x = 1 ; x <= nMemoryBlocksCount ; x++ ) {
 			/* Copy the Sub List - Each sub list contains two items [ Pointer, Pointer ] */
 			if ( pItems->pValue != NULL ) {
 				pList = ring_item_getlist(pItems->pValue) ;
