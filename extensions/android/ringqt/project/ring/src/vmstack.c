@@ -416,6 +416,7 @@ void ring_vm_list_copy ( VM *pVM,List *pNewList, List *pList )
 		pItem = ring_list_getitem(pList,RING_CPOINTER_POINTER) ;
 		pNewList->pFirst->pValue = pItem ;
 		ring_vm_gc_newitemreference(pItem);
+		ring_list_genarray_gc(pVM->pRingState,pList);
 	}
 }
 

@@ -43,9 +43,6 @@ Type: List *
 pNewList2, *pSourceList
 Type: Item *
 pItem
-ring_vm_list_simpointercopy
-Type: int
-x
 ring_vm_beforeequallist
 Type: String *
 pString
