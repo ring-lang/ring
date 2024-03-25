@@ -346,34 +346,22 @@ RING_API int ring_list_gettype ( List *pList, unsigned int nIndex )
 
 RING_API int ring_list_isstring ( List *pList, unsigned int nIndex )
 {
-	if ( ring_list_gettype(pList,nIndex) == ITEMTYPE_STRING ) {
-		return 1 ;
-	}
-	return 0 ;
+	return (ring_list_gettype(pList,nIndex) == ITEMTYPE_STRING) ;
 }
 
 RING_API int ring_list_isnumber ( List *pList, unsigned int nIndex )
 {
-	if ( ring_list_gettype(pList,nIndex) == ITEMTYPE_NUMBER ) {
-		return 1 ;
-	}
-	return 0 ;
+	return (ring_list_gettype(pList,nIndex) == ITEMTYPE_NUMBER) ;
 }
 
 RING_API int ring_list_islist ( List *pList, unsigned int nIndex )
 {
-	if ( ring_list_gettype(pList,nIndex) == ITEMTYPE_LIST ) {
-		return 1 ;
-	}
-	return 0 ;
+	return (ring_list_gettype(pList,nIndex) == ITEMTYPE_LIST) ;
 }
 
 RING_API int ring_list_ispointer ( List *pList, unsigned int nIndex )
 {
-	if ( ring_list_gettype(pList,nIndex) == ITEMTYPE_POINTER ) {
-		return 1 ;
-	}
-	return 0 ;
+	return (ring_list_gettype(pList,nIndex) == ITEMTYPE_POINTER) ;
 }
 /* int */
 
@@ -517,10 +505,7 @@ RING_API void ring_list_addfuncpointer_gc ( void *pState,List *pList,void (*pFun
 
 RING_API int ring_list_isfuncpointer ( List *pList, unsigned int nIndex )
 {
-	if ( ring_list_gettype(pList,nIndex) == ITEMTYPE_FUNCPOINTER ) {
-		return 1 ;
-	}
-	return 0 ;
+	return (ring_list_gettype(pList,nIndex) == ITEMTYPE_FUNCPOINTER) ;
 }
 /*
 **  Insert Items 
