@@ -881,6 +881,7 @@ RING_API void ring_list_genarray_gc ( void *pState,List *pList )
 {
 	unsigned int x  ;
 	Item **pArray  ;
+	Items *pItems  ;
 	if ( ring_list_getsize(pList) == 0 ) {
 		return ;
 	}
@@ -888,13 +889,14 @@ RING_API void ring_list_genarray_gc ( void *pState,List *pList )
 		ring_state_free(pState,pList->pItemsArray);
 	}
 	/*
-	**  Here we save the pointer in pArray and not in pList->pItemsArray 
-	**  Because we will fill the array with items pointers using ring_list_getitem() 
-	**  And ring_list_getitem() check for using pList->pItemsArray 
+	**  Here we  don't use ring_list_getitem 
+	**  To be sure that this function is thread safe because ring_list_getitem() use/update Cache 
 	*/
 	pArray = (Item **) ring_state_malloc(pState,ring_list_getsize(pList) * sizeof(Item *));
+	pItems = pList->pFirst ;
 	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
-		pArray[x-1] = ring_list_getitem(pList,x);
+		pArray[x-1] = pItems->pValue ;
+		pItems = pItems->pNext ;
 	}
 	pList->pItemsArray = pArray ;
 }

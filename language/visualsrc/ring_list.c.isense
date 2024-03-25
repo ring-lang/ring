@@ -239,6 +239,8 @@ Type: unsigned int
 x
 Type: Item **
 pArray
+Type: Items *
+pItems
 ring_list_deletearray_gc
 ring_list_genhashtable_gc
 Type: unsigned int

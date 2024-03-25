@@ -62,6 +62,9 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	pItem = pState->pVM->pMem->pFirst->pValue ;
 	pState->pVM->pMem->pFirst->pValue = pVM->pMem->pFirst->pValue ;
 	pGlobal = ring_item_getlist(pVM->pMem->pFirst->pValue ) ;
+	if ( pGlobal->pItemsArray == NULL ) {
+		ring_list_genarray(pGlobal);
+	}
 	for ( x = 1 ; x <= ring_list_getsize(pGlobal) ; x++ ) {
 		pVarList = ring_list_getlist(pGlobal,x) ;
 		if ( pVarList->pItemsArray == NULL ) {

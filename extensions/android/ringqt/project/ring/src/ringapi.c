@@ -572,12 +572,12 @@ RING_API List * ring_vm_api_newlistusingblocks ( VM *pVM, int nSize, int nSize2 
 					pList2->nSize = nSize2 ;
 					/* Set the Sub List Cache */
 					ring_list_clearcache(pVM->pRingState,pList2);
-					ring_list_genarray_gc(pVM->pRingState,pList2);
+					ring_list_genarray(pList2);
 				}
 			}
 			/* Set the List Cache */
 			ring_list_clearcache(pVM->pRingState,pList);
-			ring_list_genarray_gc(pVM->pRingState,pList);
+			ring_list_genarray(pList);
 			return pList ;
 		}
 	#endif

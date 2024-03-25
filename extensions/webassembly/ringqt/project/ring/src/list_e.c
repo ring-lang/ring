@@ -613,7 +613,7 @@ void ring_vm_listfuncs_binarysearch ( void *pPointer )
 	if ( RING_API_ISLIST(1) ) {
 		pList = RING_API_GETLIST(1);
 		if ( pList->pItemsArray == NULL ) {
-			ring_list_genarray_gc(((VM *) pPointer)->pRingState,pList);
+			ring_list_genarray(pList);
 		}
 		if ( nParaCount == 2 ) {
 			if ( RING_API_ISSTRING(2) ) {

@@ -1213,7 +1213,7 @@ void ring_vm_refmeta_ringvmgenarray ( void *pPointer )
 		return ;
 	}
 	if ( RING_API_ISLIST(1) ) {
-		ring_list_genarray_gc(pVM->pRingState,RING_API_GETLIST(1));
+		ring_list_genarray(RING_API_GETLIST(1));
 	}
 	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
