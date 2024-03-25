@@ -1337,19 +1337,10 @@ RING_API void ring_list_addcustomringpointer_gc ( void *pState,List *pList,void 
 
 RING_API int ring_list_isobject ( List *pList )
 {
-	if ( pList == NULL ) {
-		return 0 ;
-	}
-	if ( ring_list_getsize(pList) != RING_OBJECT_LISTSIZE ) {
-		return 0 ;
-	}
-	if ( ring_list_ispointer(pList,RING_OBJECT_CLASSPOINTER) == 0 ) {
-		return 0 ;
-	}
-	if ( ring_list_islist(pList,RING_OBJECT_OBJECTDATA) == 0 ) {
-		return 0 ;
-	}
-	return 1 ;
+	return ( (pList != NULL) &&
+	(ring_list_getsize(pList) == RING_OBJECT_LISTSIZE) &&
+	ring_list_ispointer(pList,RING_OBJECT_CLASSPOINTER) &&
+	ring_list_islist(pList,RING_OBJECT_OBJECTDATA)  ) ;
 }
 
 RING_API void ring_list_printobj ( List *pList,unsigned int nDecimals )
