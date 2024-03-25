@@ -43,13 +43,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	Items *pItems  ;
 	/* Create the RingState */
 	pState = ring_state_init();
-	/*
-	**  Flag that we are running from thread 
-	**  We check this flag when generating hash tables of lists (for functions or scope) 
-	**  In this case we generate the hash table without the memory pool 
-	**  Because the memory of the current memory pool of this state will be deleted when deleting the state 
-	**  And the lists of the hash table will be needed to be used by the main VM 
-	*/
+	/* Flag that we are running from thread */
 	pState->lRunFromThread = 1 ;
 	pState->lPrintInstruction = pVM->pRingState->lPrintInstruction ;
 	/* Share the same Mutex between VMs */

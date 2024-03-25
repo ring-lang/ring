@@ -1184,8 +1184,8 @@ void ring_poolmanager_newblockfromsubthread ( RingState *pSubRingState,int nCoun
 	PoolData *pMemory  ;
 	/*
 	**  When we create a new thread - we share the memory pool information 
-	**  So we create the memory pool items in the sub thread using memory pool items from the main thread 
-	**  This avoid problems when memory pool items from different threads are used in shared global lists 
+	**  Because memory pool items from different threads could be used in shared global lists 
+	**  We use ring_calloc() instead of ring_state_calloc() to be thread safe 
 	**  Set Values in Ring State 
 	**  Set First Item in Ring State 
 	*/
