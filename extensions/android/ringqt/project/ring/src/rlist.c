@@ -563,6 +563,8 @@ RING_API void ring_list_insertitem_gc ( void *pState,List *pList,unsigned int x 
 	pItems->pPrev = pPos ;
 	pPos->pNext = pItems ;
 	pList->nSize = pList->nSize + 1 ;
+	/* Clear the cache to delete the array of items if it does exist */
+	ring_list_clearcache(pState,pList);
 	ring_list_setcache(pState,pList, pItems, x+2);
 }
 
