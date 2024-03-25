@@ -1382,13 +1382,8 @@ RING_API void ring_list_printobj ( List *pList,unsigned int nDecimals )
 
 RING_API int ring_list_iscpointerlist ( List *pList )
 {
-	if ( ring_list_getsize(pList) != RING_CPOINTER_LISTSIZE ) {
-		return 0 ;
-	}
-	if ( ring_list_ispointer(pList,RING_CPOINTER_POINTER) && ring_list_isstring(pList,RING_CPOINTER_TYPE) && ring_list_isnumber(pList,RING_CPOINTER_STATUS) ) {
-		return 1 ;
-	}
-	return 0 ;
+	return ( (ring_list_getsize(pList) == RING_CPOINTER_LISTSIZE) &&
+	ring_list_ispointer(pList,RING_CPOINTER_POINTER) && ring_list_isstring(pList,RING_CPOINTER_TYPE) && ring_list_isnumber(pList,RING_CPOINTER_STATUS) ) ;
 }
 
 RING_API int ring_list_cpointercmp ( List *pList,List *pList2 )
