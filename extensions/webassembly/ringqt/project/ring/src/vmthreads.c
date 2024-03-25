@@ -37,7 +37,7 @@ RING_API void ring_vm_mutexdestroy ( VM *pVM )
 RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 {
 	RingState *pState  ;
-	List *pList,*pList2,*pList3,*pList4,*pList5,*pGlobal, *pVarList  ;
+	List *pList,*pList2,*pList3,*pList4,*pList5,*pGlobal, *pVarList, *pBlocks  ;
 	Item *pItem  ;
 	unsigned int nMemoryBlocksCount, x  ;
 	Items *pItems  ;
@@ -68,32 +68,8 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	/* Get Items for the Memory Pool From the Main Thread */
 	ring_poolmanager_newblockfromsubthread(pState,RING_VM_ITEMSFORNEWTHREAD,pVM->pRingState);
 	/* Share Memory Blocks (Could be used for Lists in Global Scope) */
-	nMemoryBlocksCount = ring_list_getsize(pVM->pRingState->vPoolManager.pBlocks) ;
-	/*
-	**  Thread Safe Code instead of ring_list_copy(pState->vPoolManager.pBlocks,pVM->pRingState->vPoolManage 
-	**  Because the List structure contains (Cache) that we update when we access each item 
-	**  So we use the next code to avoid using/updating this cache 
-	*/
-	if ( nMemoryBlocksCount > 0 ) {
-		pItems = pVM->pRingState->vPoolManager.pBlocks->pFirst ;
-		/* We use a for-loop and avoid (while (pItems != NULL)) To be more thread safe */
-		for ( x = 1 ; x <= nMemoryBlocksCount ; x++ ) {
-			/* Copy the Sub List - Each sub list contains two items [ Pointer, Pointer ] */
-			if ( pItems->pValue != NULL ) {
-				pList = ring_item_getlist(pItems->pValue) ;
-				if ( pList != NULL ) {
-					if ( (pList->pFirst != NULL) && (pList->pLast != NULL) ) {
-						if ( (pList->pFirst->pValue != NULL) && (pList->pLast->pValue != NULL) ) {
-							pList2 = ring_list_newlist_gc(pState,pState->vPoolManager.pBlocks);
-							ring_list_addpointer_gc(pState,pList2,ring_item_getpointer(pList->pFirst->pValue));
-							ring_list_addpointer_gc(pState,pList2,ring_item_getpointer(pList->pLast->pValue));
-						}
-					}
-				}
-			}
-			pItems = pItems->pNext ;
-		}
-	}
+	pBlocks = pState->vPoolManager.pBlocks ;
+	pState->vPoolManager.pBlocks = pVM->pRingState->vPoolManager.pBlocks ;
 	/* Save the state */
 	pList = pState->pVM->pCode ;
 	pList2 = pState->pVM->pFunctionsMap ;
@@ -156,11 +132,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	pState->pVM->pFuncMutexLock = NULL ;
 	pState->pVM->pFuncMutexUnlock = NULL ;
 	/* Avoid deleting the Shared Memory Blocks */
-	if ( nMemoryBlocksCount > 0 ) {
-		for ( x = 1 ; x <=nMemoryBlocksCount ; x++ ) {
-			ring_list_deleteitem_gc(pState,pState->vPoolManager.pBlocks,RING_ONE);
-		}
-	}
+	pState->vPoolManager.pBlocks = pBlocks ;
 	ring_vm_mutexunlock(pVM);
 	/* Avoid deleting the Mutex */
 	pState->pVM->pMutex = NULL ;

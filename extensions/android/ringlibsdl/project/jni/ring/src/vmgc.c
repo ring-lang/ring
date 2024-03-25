@@ -907,9 +907,9 @@ RING_API void ring_state_registerblock ( void *pState,void *pStart, void *pEnd )
 	pRingState = (RingState *) pState ;
 	ring_vm_mutexlock(pRingState->pVM);
 	pRingState->lDontCheckStateBlocks = 1 ;
-	pList = ring_list_newlist_gc(pRingState,pRingState->vPoolManager.pBlocks);
-	ring_list_addpointer_gc(pRingState,pList,pStart);
-	ring_list_addpointer_gc(pRingState,pList,pEnd);
+	pList = ring_list_newlist(pRingState->vPoolManager.pBlocks);
+	ring_list_addpointer(pList,pStart);
+	ring_list_addpointer(pList,pEnd);
 	pRingState->lDontCheckStateBlocks = 0 ;
 	ring_list_genarray(pRingState->vPoolManager.pBlocks);
 	ring_vm_mutexunlock(pRingState->pVM);
@@ -926,7 +926,7 @@ RING_API void ring_state_unregisterblock ( void *pState,void *pStart )
 	for ( x = 1 ; x <= ring_list_getsize(pRingState->vPoolManager.pBlocks) ; x++ ) {
 		pList = ring_list_getlist(pRingState->vPoolManager.pBlocks,x);
 		if ( ring_list_getpointer(pList,RING_VM_BLOCKSTART) == pStart ) {
-			ring_list_deleteitem_gc(pRingState,pRingState->vPoolManager.pBlocks,x);
+			ring_list_deleteitem(pRingState->vPoolManager.pBlocks,x);
 			break ;
 		}
 	}
@@ -963,7 +963,7 @@ void ring_poolmanager_new ( RingState *pRingState )
 	pRingState->vPoolManager.pBlockStartStateLevel = NULL ;
 	pRingState->vPoolManager.pBlockEndStateLevel = NULL ;
 	pRingState->vPoolManager.nItemsInBlockStateLevel = RING_POOLMANAGER_ITEMSINBLOCKStateLevel ;
-	pRingState->vPoolManager.pBlocks = ring_list_new_gc(pRingState,RING_ZERO) ;
+	pRingState->vPoolManager.pBlocks = ring_list_new(RING_ZERO) ;
 	pRingState->vPoolManager.lDeleteMemory = 1 ;
 }
 
@@ -1151,7 +1151,7 @@ void ring_poolmanager_delete ( RingState *pRingState )
 {
 	if ( pRingState != NULL ) {
 		if ( pRingState->vPoolManager.lDeleteMemory ) {
-			pRingState->vPoolManager.pBlocks = ring_list_delete_gc(pRingState,pRingState->vPoolManager.pBlocks) ;
+			pRingState->vPoolManager.pBlocks = ring_list_delete(pRingState->vPoolManager.pBlocks) ;
 			/* Level 1 */
 			if ( pRingState->vPoolManager.pBlockStart != NULL ) {
 				free( pRingState->vPoolManager.pBlockStart ) ;
