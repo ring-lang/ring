@@ -125,6 +125,20 @@ Related Videos
 			3
 		</td>
 		<td>
+			2023.10.29
+		</td>
+		<td>
+			 <a href="https://www.youtube.com/watch?v=JhCl-GeT4jw"> Large Language Models and The End of Programming </a>
+		</td>
+		<td>
+			  CS50 Tech Talk with Dr. Matt Welsh
+		</td>
+	</tr>
+	<tr>
+		<td>
+			4
+		</td>
+		<td>
 			2023.06.08
 		</td>
 		<td>
