@@ -267,7 +267,5 @@ RING_API double ring_item_getnumber ( Item *pItem )
 	if ( pItem->nNumberFlag == ITEM_NUMBERFLAG_INT ) {
 		return (double) pItem->data.iNumber ;
 	}
-	else {
-		return pItem->data.dNumber ;
-	}
+	return pItem->data.dNumber ;
 }
