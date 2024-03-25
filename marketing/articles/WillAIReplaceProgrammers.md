@@ -131,7 +131,7 @@ Related Videos
 			 <a href="https://www.youtube.com/watch?v=JhCl-GeT4jw"> Large Language Models and The End of Programming </a>
 		</td>
 		<td>
-			  CS50 Tech Talk with <a href="Matt_Welsh_(computer_scientist)">Dr. Matt Welsh</a>
+			  CS50 Tech Talk with <a href="https://en.wikipedia.org/wiki/Matt_Welsh_(computer_scientist)">Dr. Matt Welsh</a>
 		</td>
 	</tr>
 	<tr>
