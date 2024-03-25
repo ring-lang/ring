@@ -117,7 +117,7 @@ Related Videos
 			 <a href="https://www.youtube.com/watch?v=VHHT6W-N0ak"> Impact of AI on Programming </a>
 		</td>
 		<td>
-			 Torvalds Speaks: Impact of Artificial Intelligence on Programming
+			 <a href="https://en.wikipedia.org/wiki/Linus_Torvalds">Torvalds</a> Speaks: Impact of Artificial Intelligence on Programming
 		</td>
 	</tr>
 	<tr>
@@ -131,7 +131,7 @@ Related Videos
 			 <a href="https://www.youtube.com/watch?v=JhCl-GeT4jw"> Large Language Models and The End of Programming </a>
 		</td>
 		<td>
-			  CS50 Tech Talk with Dr. Matt Welsh
+			  CS50 Tech Talk with <a href="Matt_Welsh_(computer_scientist)">Dr. Matt Welsh</a>
 		</td>
 	</tr>
 	<tr>
@@ -145,7 +145,7 @@ Related Videos
 			 <a href="https://www.youtube.com/watch?v=ltQ9pbFukUo"> Will ChatGPT replace programmers? </a>
 		</td>
 		<td>
-			 Chris Lattner and Lex Fridman
+			 <a href="https://en.wikipedia.org/wiki/Chris_Lattner">Chris Lattner</a> and <a href="https://en.wikipedia.org/wiki/Lex_Fridman">Lex Fridman</a>
 		</td>
 	</tr>
 </table>
