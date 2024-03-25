@@ -496,7 +496,6 @@ RING_API List * ring_vm_api_newlistusingblocks ( VM *pVM, int nSize, int nSize2 
 					pItem->data.dNumber = 0 ;
 					pItem->nNumberFlag = ITEM_NUMBERFLAG_DOUBLE ;
 				}
-				/* Set the List Data */
 				pList->nSize = nSize ;
 			}
 			else if ( (nSize > 0) && (nSize2 > 0) ) {
@@ -537,7 +536,6 @@ RING_API List * ring_vm_api_newlistusingblocks ( VM *pVM, int nSize, int nSize2 
 					pItem->data.pList = pSubLists ;
 					ring_list_new2_gc(pVM->pRingState,pItem->data.pList,RING_ZERO);
 				}
-				/* Set the List Data */
 				pList->nSize = nSize ;
 				/* Allocate Memory */
 				pItems = (Items *) ring_calloc((nSize*nSize2)+1,sizeof(Items));
@@ -571,12 +569,15 @@ RING_API List * ring_vm_api_newlistusingblocks ( VM *pVM, int nSize, int nSize2 
 						pItem->data.dNumber = 0 ;
 						pItem->nNumberFlag = ITEM_NUMBERFLAG_DOUBLE ;
 					}
-					/* Set the Sub List Data */
 					pList2->nSize = nSize2 ;
+					/* Set the Sub List Cache */
+					ring_list_clearcache(pVM->pRingState,pList2);
+					ring_list_genarray_gc(pVM->pRingState,pList2);
 				}
-				/* Set the List Data */
-				ring_list_clearcache(pVM->pRingState,pList);
 			}
+			/* Set the List Cache */
+			ring_list_clearcache(pVM->pRingState,pList);
+			ring_list_genarray_gc(pVM->pRingState,pList);
 			return pList ;
 		}
 	#endif
@@ -593,7 +594,7 @@ RING_API List * ring_vm_api_newlistusingblocks ( VM *pVM, int nSize, int nSize2 
 			ring_list_delete_gc(pVM->pRingState,pList3);
 		}
 	}
-	/* Set the List Data */
+	/* Set the List Cache */
 	ring_list_clearcache(pVM->pRingState,pList);
 	return pList ;
 }
