@@ -540,7 +540,7 @@ RING_API void ring_list_insertitem_gc ( void *pState,List *pList,unsigned int x 
 	*/
 	ring_list_getitem(pList,x);
 	pPos = pList->pLastItemLastAccess ;
-	if ( pPos == NULL ) {
+	if ( (pPos == NULL) || (pList->pItemsArray != NULL) ) {
 		/* This support making list cache optional without having problems here */
 		pPos = ring_list_getitemcontainer(pList,x) ;
 	}
