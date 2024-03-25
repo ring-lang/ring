@@ -522,8 +522,6 @@ RING_API void ring_list_insertitem_gc ( void *pState,List *pList,unsigned int x 
 		ring_list_newitem_gc(pState,pList);
 		return ;
 	}
-	/* Clear the cache to delete the array of items if it does exist */
-	ring_list_clearcache(pState,pList);
 	pItems = ring_items_new_gc(pState);
 	/* Insert Item at the first of the list */
 	if ( x==0 ) {
@@ -532,6 +530,8 @@ RING_API void ring_list_insertitem_gc ( void *pState,List *pList,unsigned int x 
 		pList->pFirst->pPrev = pItems ;
 		pList->pFirst = pItems ;
 		pList->nSize = pList->nSize + 1 ;
+		/* Clear the cache to delete the array of items if it does exist */
+		ring_list_clearcache(pState,pList);
 		return ;
 	}
 	/*
@@ -549,6 +549,8 @@ RING_API void ring_list_insertitem_gc ( void *pState,List *pList,unsigned int x 
 	pItems->pPrev = pPos ;
 	pPos->pNext = pItems ;
 	pList->nSize = pList->nSize + 1 ;
+	/* Clear the cache to delete the array of items if it does exist */
+	ring_list_clearcache(pState,pList);
 	ring_list_setcache(pState,pList, pItems, x+2);
 }
 
