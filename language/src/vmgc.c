@@ -905,11 +905,14 @@ RING_API void ring_state_registerblock ( void *pState,void *pStart, void *pEnd )
 	List *pList  ;
 	RingState *pRingState  ;
 	pRingState = (RingState *) pState ;
+	ring_vm_mutexlock(pRingState->pVM);
 	pRingState->lDontCheckStateBlocks = 1 ;
 	pList = ring_list_newlist_gc(pRingState,pRingState->vPoolManager.pBlocks);
 	ring_list_addpointer_gc(pRingState,pList,pStart);
 	ring_list_addpointer_gc(pRingState,pList,pEnd);
 	pRingState->lDontCheckStateBlocks = 0 ;
+	ring_list_genarray(pRingState->vPoolManager.pBlocks);
+	ring_vm_mutexunlock(pRingState->pVM);
 }
 
 RING_API void ring_state_unregisterblock ( void *pState,void *pStart )
@@ -918,6 +921,7 @@ RING_API void ring_state_unregisterblock ( void *pState,void *pStart )
 	List *pList  ;
 	RingState *pRingState  ;
 	pRingState = (RingState *) pState ;
+	ring_vm_mutexlock(pRingState->pVM);
 	pRingState->lDontCheckStateBlocks = 1 ;
 	for ( x = 1 ; x <= ring_list_getsize(pRingState->vPoolManager.pBlocks) ; x++ ) {
 		pList = ring_list_getlist(pRingState->vPoolManager.pBlocks,x);
@@ -927,6 +931,8 @@ RING_API void ring_state_unregisterblock ( void *pState,void *pStart )
 		}
 	}
 	pRingState->lDontCheckStateBlocks = 0 ;
+	ring_list_genarray(pRingState->vPoolManager.pBlocks);
+	ring_vm_mutexunlock(pRingState->pVM);
 }
 
 void ring_vm_gc_deleteitem ( Item *pItem )
