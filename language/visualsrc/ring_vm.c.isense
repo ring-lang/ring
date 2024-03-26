@@ -698,9 +698,7 @@ pList,*pList2,*pList3,*pList4,*pList5,*pGlobal, *pVarList, *pBlocks
 Type: Item *
 pItem
 Type: unsigned int
-nMemoryBlocksCount, x
-Type: Items *
-pItems
+x
 ring_vm_bytecodefornewthread
 Type: int
 x,y,nSize,nCount,nType

@@ -95,7 +95,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	pState->pRingCFunctions = pState->pVM->pCFunctionsList ;
 	/* Get a copy from the byte code List */
 	pState->pVM->nScopeID = pVM->nScopeID + RING_VM_SCOPERANGEFORNEWTHREAD ;
-	pState->pVM->pCode = ring_list_new_gc(pState,RING_ZERO) ;
+	pState->pVM->pCode = ring_list_new(RING_ZERO) ;
 	pState->pRingGenCode = pState->pVM->pCode ;
 	/* Get a copy from the Byte Code */
 	ring_vm_bytecodefornewthread(pState->pVM,pVM);
