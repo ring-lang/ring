@@ -169,6 +169,8 @@ Type: void *
 pBlockEndStateLevel
 Type: List *
 pBlocks
+Type: void *
+pMutex
 Type: unsigned int
 nAllocCount
 Type: unsigned int
