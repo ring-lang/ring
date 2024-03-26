@@ -79,6 +79,7 @@
 		char *cFileNameInClassRegion  ;
 		void *pGetSetObject  ;
 		void *pAssignment  ;
+		void *(*pFuncMutexCreate)(void) ;
 		void (*pFuncMutexDestroy)(void *) ;
 		void (*pFuncMutexLock)(void *) ;
 		void (*pFuncMutexUnlock)(void *) ;
@@ -138,7 +139,6 @@
 		unsigned int lSubStringToNumError: 1  ;
 		unsigned int lOptionalLoop: 1  ;
 		Item aStack[RING_VM_STACK_SIZE]  ;
-		void *(*pFuncMutexCreate)(void) ;
 	} VM ;
 	typedef struct FuncCall {
 		const char *cName  ;
