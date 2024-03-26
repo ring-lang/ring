@@ -11,6 +11,7 @@ RING_API void ring_vm_mutexfunctions ( VM *pVM,void *(*pFuncCreate)(void),void (
 		pVM->pFuncMutexDestroy = pFuncDestroy ;
 		if ( pFuncCreate != NULL ) {
 			pVM->pMutex = pFuncCreate() ;
+			pVM->pRingState->vPoolManager.pMutex = pFuncCreate() ;
 		}
 	}
 }
@@ -34,6 +35,8 @@ RING_API void ring_vm_mutexdestroy ( VM *pVM )
 	if ( (pVM->pMutex != NULL) && (pVM->pFuncMutexDestroy != NULL) ) {
 		pVM->pFuncMutexDestroy(pVM->pMutex);
 		pVM->pMutex = NULL ;
+		pVM->pFuncMutexDestroy(pVM->pRingState->vPoolManager.pMutex);
+		pVM->pRingState->vPoolManager.pMutex = NULL ;
 	}
 }
 
@@ -79,10 +82,12 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	pState->lPrintInstruction = pVM->pRingState->lPrintInstruction ;
 	/* Share the same Mutex between VMs */
 	ring_vm_mutexlock(pVM);
-	pState->pVM->pMutex = pVM->pMutex ;
+	pState->pVM->pFuncMutexCreate = pVM->pFuncMutexCreate ;
 	pState->pVM->pFuncMutexDestroy = pVM->pFuncMutexDestroy ;
 	pState->pVM->pFuncMutexLock = pVM->pFuncMutexLock ;
 	pState->pVM->pFuncMutexUnlock = pVM->pFuncMutexUnlock ;
+	pState->pVM->pMutex = pVM->pMutex ;
+	pState->vPoolManager.pMutex = pVM->pRingState->vPoolManager.pMutex ;
 	/* Share the global scope between threads */
 	pItem = pState->pVM->pMem->pFirst->pValue ;
 	pState->pVM->pMem->pFirst->pValue = pVM->pMem->pFirst->pValue ;
@@ -158,15 +163,15 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	pState->pRingClassesMap = pList3 ;
 	pState->pRingPackagesMap = pList4 ;
 	pState->pRingCFunctions = pList5 ;
-	pState->pVM->pMutex = NULL ;
+	pState->pVM->pFuncMutexCreate = NULL ;
 	pState->pVM->pFuncMutexDestroy = NULL ;
 	pState->pVM->pFuncMutexLock = NULL ;
 	pState->pVM->pFuncMutexUnlock = NULL ;
+	pState->pVM->pMutex = NULL ;
+	pState->vPoolManager.pMutex = NULL ;
 	/* Avoid deleting the Shared Memory Blocks */
 	pState->vPoolManager.pBlocks = pBlocks ;
 	ring_vm_mutexunlock(pVM);
-	/* Avoid deleting the Mutex */
-	pState->pVM->pMutex = NULL ;
 	/* Delete the RingState */
 	ring_state_delete(pState);
 }
