@@ -322,7 +322,7 @@ pBlockEnd
 Type: List *
 pBlocks, *pBlock
 Type: int
-x
+x, lFound
 Type: RingState *
 pRingState
 ring_state_calloc

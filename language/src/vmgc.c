@@ -779,7 +779,7 @@ RING_API void ring_state_free ( void *pState,void *pMemory )
 	void *pBlockStart  ;
 	void *pBlockEnd  ;
 	List *pBlocks, *pBlock  ;
-	int x  ;
+	int x, lFound  ;
 	RingState *pRingState  ;
 	pRingState = (RingState *) pState ;
 	#if RING_USEPOOLMANAGER
@@ -798,14 +798,19 @@ RING_API void ring_state_free ( void *pState,void *pMemory )
 		pBlocks = pRingState->vPoolManager.pBlocks ;
 		if ( (pBlocks != NULL) && (! pRingState->lDontCheckStateBlocks) ) {
 			if ( ring_list_getsize(pBlocks) > 0 ) {
+				lFound = 0 ;
 				for ( x = 1 ; x <= ring_list_getsize(pBlocks) ; x++ ) {
 					pBlock = ring_list_getlist(pBlocks,x) ;
 					pBlockStart = ring_list_getpointer(pBlock,RING_VM_BLOCKSTART);
 					pBlockEnd = ring_list_getpointer(pBlock,RING_VM_BLOCKEND);
 					if ( (pMemory >= pBlockStart) && (pMemory <= pBlockEnd) ) {
 						/* We have the memory inside a block, so we will not delete it! */
-						return ;
+						lFound = 1 ;
+						break ;
 					}
+				}
+				if ( lFound == 1 ) {
+					return ;
 				}
 			}
 		}
