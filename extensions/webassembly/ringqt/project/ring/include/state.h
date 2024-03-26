@@ -74,7 +74,6 @@
 		unsigned int lStartPoolManager : 1  ;
 		unsigned int lDisablePoolManager : 1  ;
 		unsigned int lCreateListsUsingBlocks : 1  ;
-		unsigned int lDontCheckStateBlocks : 1  ;
 		/* Pool Manager */
 		PoolManager vPoolManager  ;
 	} RingState ;

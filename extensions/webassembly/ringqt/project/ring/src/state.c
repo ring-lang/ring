@@ -37,7 +37,6 @@ RING_API RingState * ring_state_new ( void )
 	pRingState->lStartPoolManager = 0 ;
 	pRingState->lDisablePoolManager = 0 ;
 	pRingState->lCreateListsUsingBlocks = 1 ;
-	pRingState->lDontCheckStateBlocks = 0 ;
 	pRingState->lRunFromThread = 0 ;
 	pRingState->nLoadAgain = 0 ;
 	ring_list_addint(pRingState->pCustomGlobalScopeStack,pRingState->nCustomGlobalScopeCounter);

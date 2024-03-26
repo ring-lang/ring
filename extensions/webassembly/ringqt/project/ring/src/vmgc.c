@@ -796,9 +796,12 @@ RING_API void ring_state_free ( void *pState,void *pMemory )
 	/* Check sections inside Memory Blocks */
 	if ( pRingState != NULL ) {
 		pBlocks = pRingState->vPoolManager.pBlocks ;
-		if ( (pBlocks != NULL) && (! pRingState->lDontCheckStateBlocks) ) {
+		if ( pBlocks != NULL ) {
 			if ( ring_list_getsize(pBlocks) > 0 ) {
 				lFound = 0 ;
+				if ( pRingState->pVM != NULL ) {
+					ring_vm_mutexlock(pRingState->pVM);
+				}
 				for ( x = 1 ; x <= ring_list_getsize(pBlocks) ; x++ ) {
 					pBlock = ring_list_getlist(pBlocks,x) ;
 					pBlockStart = ring_list_getpointer(pBlock,RING_VM_BLOCKSTART);
@@ -808,6 +811,9 @@ RING_API void ring_state_free ( void *pState,void *pMemory )
 						lFound = 1 ;
 						break ;
 					}
+				}
+				if ( pRingState->pVM != NULL ) {
+					ring_vm_mutexunlock(pRingState->pVM);
 				}
 				if ( lFound == 1 ) {
 					return ;
@@ -911,11 +917,9 @@ RING_API void ring_state_registerblock ( void *pState,void *pStart, void *pEnd )
 	RingState *pRingState  ;
 	pRingState = (RingState *) pState ;
 	ring_vm_mutexlock(pRingState->pVM);
-	pRingState->lDontCheckStateBlocks = 1 ;
 	pList = ring_list_newlist(pRingState->vPoolManager.pBlocks);
 	ring_list_addpointer(pList,pStart);
 	ring_list_addpointer(pList,pEnd);
-	pRingState->lDontCheckStateBlocks = 0 ;
 	ring_list_genarray(pRingState->vPoolManager.pBlocks);
 	ring_vm_mutexunlock(pRingState->pVM);
 }
@@ -927,7 +931,6 @@ RING_API void ring_state_unregisterblock ( void *pState,void *pStart )
 	RingState *pRingState  ;
 	pRingState = (RingState *) pState ;
 	ring_vm_mutexlock(pRingState->pVM);
-	pRingState->lDontCheckStateBlocks = 1 ;
 	for ( x = 1 ; x <= ring_list_getsize(pRingState->vPoolManager.pBlocks) ; x++ ) {
 		pList = ring_list_getlist(pRingState->vPoolManager.pBlocks,x);
 		if ( ring_list_getpointer(pList,RING_VM_BLOCKSTART) == pStart ) {
@@ -935,7 +938,6 @@ RING_API void ring_state_unregisterblock ( void *pState,void *pStart )
 			break ;
 		}
 	}
-	pRingState->lDontCheckStateBlocks = 0 ;
 	ring_list_genarray(pRingState->vPoolManager.pBlocks);
 	ring_vm_mutexunlock(pRingState->pVM);
 }
