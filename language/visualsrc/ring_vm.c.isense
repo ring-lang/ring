@@ -690,6 +690,10 @@ ring_vm_mutexfunctions
 ring_vm_mutexlock
 ring_vm_mutexunlock
 ring_vm_mutexdestroy
+ring_vm_custmutexcreate
+ring_vm_custmutexlock
+ring_vm_custmutexunlock
+ring_vm_custmutexdestroy
 ring_vm_runcodefromthread
 Type: RingState *
 pState

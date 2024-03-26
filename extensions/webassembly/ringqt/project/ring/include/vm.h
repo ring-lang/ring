@@ -138,6 +138,7 @@
 		unsigned int lSubStringToNumError: 1  ;
 		unsigned int lOptionalLoop: 1  ;
 		Item aStack[RING_VM_STACK_SIZE]  ;
+		void *(*pFuncMutexCreate)(void) ;
 	} VM ;
 	typedef struct FuncCall {
 		const char *cName  ;
@@ -940,13 +941,21 @@
 	void ring_vm_popstep ( VM *pVM ) ;
 	/* Threads */
 
-	RING_API void ring_vm_mutexfunctions ( VM *pVM,void *(*pFunc)(void),void (*pFuncLock)(void *),void (*pFuncUnlock)(void *),void (*pFuncDestroy)(void *) ) ;
+	RING_API void ring_vm_mutexfunctions ( VM *pVM,void *(*pFuncCreate)(void),void (*pFuncLock)(void *),void (*pFuncUnlock)(void *),void (*pFuncDestroy)(void *) ) ;
 
 	RING_API void ring_vm_mutexlock ( VM *pVM ) ;
 
 	RING_API void ring_vm_mutexunlock ( VM *pVM ) ;
 
 	RING_API void ring_vm_mutexdestroy ( VM *pVM ) ;
+
+	RING_API void * ring_vm_custmutexcreate ( VM *pVM ) ;
+
+	RING_API void ring_vm_custmutexlock ( VM *pVM, void *pMutex ) ;
+
+	RING_API void ring_vm_custmutexunlock ( VM *pVM, void *pMutex ) ;
+
+	RING_API void ring_vm_custmutexdestroy ( VM *pVM, void *pMutex ) ;
 
 	RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr ) ;
 

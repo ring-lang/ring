@@ -2,35 +2,67 @@
 
 #include "ring.h"
 
-RING_API void ring_vm_mutexfunctions ( VM *pVM,void *(*pFunc)(void),void (*pFuncLock)(void *),void (*pFuncUnlock)(void *),void (*pFuncDestroy)(void *) )
+RING_API void ring_vm_mutexfunctions ( VM *pVM,void *(*pFuncCreate)(void),void (*pFuncLock)(void *),void (*pFuncUnlock)(void *),void (*pFuncDestroy)(void *) )
 {
 	if ( pVM->pMutex == NULL ) {
-		pVM->pMutex = pFunc() ;
+		pVM->pFuncMutexCreate = pFuncCreate ;
 		pVM->pFuncMutexLock = pFuncLock ;
 		pVM->pFuncMutexUnlock = pFuncUnlock ;
 		pVM->pFuncMutexDestroy = pFuncDestroy ;
+		if ( pFuncCreate != NULL ) {
+			pVM->pMutex = pFuncCreate() ;
+		}
 	}
 }
 
 RING_API void ring_vm_mutexlock ( VM *pVM )
 {
-	if ( pVM->pMutex != NULL ) {
+	if ( (pVM->pMutex != NULL) && (pVM->pFuncMutexLock != NULL) ) {
 		pVM->pFuncMutexLock(pVM->pMutex);
 	}
 }
 
 RING_API void ring_vm_mutexunlock ( VM *pVM )
 {
-	if ( pVM->pMutex != NULL ) {
+	if ( (pVM->pMutex != NULL) && (pVM->pFuncMutexUnlock != NULL) ) {
 		pVM->pFuncMutexUnlock(pVM->pMutex);
 	}
 }
 
 RING_API void ring_vm_mutexdestroy ( VM *pVM )
 {
-	if ( pVM->pMutex != NULL ) {
+	if ( (pVM->pMutex != NULL) && (pVM->pFuncMutexDestroy != NULL) ) {
 		pVM->pFuncMutexDestroy(pVM->pMutex);
 		pVM->pMutex = NULL ;
+	}
+}
+
+RING_API void * ring_vm_custmutexcreate ( VM *pVM )
+{
+	if ( pVM->pFuncMutexCreate != NULL ) {
+		return pVM->pFuncMutexCreate() ;
+	}
+	return NULL ;
+}
+
+RING_API void ring_vm_custmutexlock ( VM *pVM, void *pMutex )
+{
+	if ( (pMutex != NULL) && (pVM->pFuncMutexLock != NULL) ) {
+		pVM->pFuncMutexLock(pMutex);
+	}
+}
+
+RING_API void ring_vm_custmutexunlock ( VM *pVM, void *pMutex )
+{
+	if ( (pMutex != NULL) && (pVM->pFuncMutexUnlock != NULL) ) {
+		pVM->pFuncMutexUnlock(pMutex);
+	}
+}
+
+RING_API void ring_vm_custmutexdestroy ( VM *pVM, void *pMutex )
+{
+	if ( (pMutex != NULL) && (pVM->pFuncMutexDestroy != NULL) ) {
+		pVM->pFuncMutexDestroy(pMutex);
 	}
 }
 

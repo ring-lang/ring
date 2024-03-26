@@ -130,6 +130,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	/* Flag to return Item Reference (of object state) */
 	pVM->nRetItemRef = 0 ;
 	/* Mutex Functions Pointers - for threads/lock/unlock */
+	pVM->pFuncMutexCreate = NULL ;
 	pVM->pFuncMutexLock = NULL ;
 	pVM->pFuncMutexUnlock = NULL ;
 	pVM->pFuncMutexDestroy = NULL ;
