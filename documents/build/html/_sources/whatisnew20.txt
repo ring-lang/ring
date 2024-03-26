@@ -51,6 +51,7 @@ More Improvements
 * Swap() function - Support swaping any two Lists/Objects 
 * RingQt - Correct parent class name for the QMaterial & QLogicAspect classes
 * RingQt - Added: QComponent class (Qt3DCore)
+* RingThreads - Better code for creating the Mutex
 * Ring Compiler - Scanner - Added: EnableHashComments & DisableHashComments
 * Ring VM - Avoid infinite for loops when the step value is zero 
 * Ring VM - Remove old code related to lAddSubListsByMove and lAddSubListsByFastCopy in VM structure 
@@ -62,6 +63,7 @@ More Improvements
 * Ring VM - Each thread have it's copy from predefined globals like NL, True, etc.
 * Ring VM - Treat lists that wrap C pointers as FALSE if the C pointer value is NULL
 * Ring VM - Loop N command inside For-In loop will execute implicit Exit N-1 command then Loop 
+* Ring VM - Better implementation for threads support and sharing List blocks between threads
 * Ring Source Code - Better Format
 * Ring Source Code - Using constants
 * Ring Source Code - Use Bit Fields in structures
