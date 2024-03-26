@@ -210,21 +210,6 @@ RING_FUNC(ring_mtx_init)
 }
 
 
-RING_FUNC(ring_mtx_destroy)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	mtx_destroy((mtx_t *) RING_API_GETCPOINTER(1,"mtx_t"));
-}
-
-
 RING_FUNC(ring_mtx_lock)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -391,12 +376,16 @@ RING_FUNC(ring_cnd_timedwait)
 }
 
 
-mtx_t VM_Mutex;
-
 void *custom_mtx_init(void)
 {
-	mtx_init(&VM_Mutex,mtx_plain);
-	return &VM_Mutex;
+	mtx_t *pMutex;
+	pMutex = (mtx_t *) malloc(sizeof(mtx_t));
+	if (pMutex == NULL) {
+		printf(RING_OOM);
+		exit(0);
+	}
+	mtx_init(pMutex,mtx_plain);
+	return pMutex;
 }
 
 int custom_thrd_start_t(void *arg)
@@ -436,8 +425,27 @@ RING_FUNC(ring_thrd_create)
 	ring_list_addstring(pList,RING_API_GETSTRING(2));
 	ring_list_addpointer(pList,pPointer);
 	ring_vm_mutexfunctions((VM *) pPointer,custom_mtx_init,mtx_lock,mtx_unlock,mtx_destroy);
-	RING_API_RETNUMBER(thrd_create( (thrd_t *) RING_API_GETCPOINTER(1,"thrd_t"),custom_thrd_start_t,pList ));
+	RING_API_RETNUMBER(thrd_create( (thrd_t *) 	RING_API_GETCPOINTER(1,"thrd_t"),custom_thrd_start_t,pList ));
+
 }
+
+RING_FUNC(ring_mtx_destroy)
+{
+	mtx_t *pMutex;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMutex = (mtx_t *) RING_API_GETCPOINTER(1,"mtx_t");
+	mtx_destroy(pMutex);
+	free(pMutex);
+}
+
 
 RING_FUNC(ring_thrd_current)
 {
@@ -591,7 +599,6 @@ RING_FUNC(ring_tss_set)
 RING_LIBINIT
 {
 	RING_API_REGISTER("mtx_init",ring_mtx_init);
-	RING_API_REGISTER("mtx_destroy",ring_mtx_destroy);
 	RING_API_REGISTER("mtx_lock",ring_mtx_lock);
 	RING_API_REGISTER("mtx_timedlock",ring_mtx_timedlock);
 	RING_API_REGISTER("mtx_trylock",ring_mtx_trylock);
@@ -603,6 +610,7 @@ RING_LIBINIT
 	RING_API_REGISTER("cnd_wait",ring_cnd_wait);
 	RING_API_REGISTER("cnd_timedwait",ring_cnd_timedwait);
 	RING_API_REGISTER("thrd_create",ring_thrd_create);
+	RING_API_REGISTER("mtx_destroy",ring_mtx_destroy);
 	RING_API_REGISTER("thrd_current",ring_thrd_current);
 	RING_API_REGISTER("thrd_detach",ring_thrd_detach);
 	RING_API_REGISTER("thrd_equal",ring_thrd_equal);

@@ -39,7 +39,6 @@ aNumberTypes + "char"
 </runcode>
 
 int mtx_init(mtx_t *mtx, int type)
-void mtx_destroy(mtx_t *mtx)
 int mtx_lock(mtx_t *mtx)
 int mtx_timedlock(mtx_t *mtx, const struct timespec *ts)
 int mtx_trylock(mtx_t *mtx)
@@ -54,16 +53,21 @@ int cnd_timedwait(cnd_t *cond, mtx_t *mtx, const struct timespec *ts)
 
 <register>
 int thrd_create(thrd_t *thr, const char *cEvent)
+void mtx_destroy(mtx_t *mtx)
 <register>
 
 <code>
 
-mtx_t VM_Mutex;
-
 void *custom_mtx_init(void)
 {
-	mtx_init(&VM_Mutex,mtx_plain);
-	return &VM_Mutex;
+	mtx_t *pMutex;
+	pMutex = (mtx_t *) malloc(sizeof(mtx_t));
+	if (pMutex == NULL) {
+		printf(RING_OOM);
+		exit(0);
+	}
+	mtx_init(pMutex,mtx_plain);
+	return pMutex;
 }
 
 int custom_thrd_start_t(void *arg)
@@ -103,8 +107,27 @@ RING_FUNC(ring_thrd_create)
 	ring_list_addstring(pList,RING_API_GETSTRING(2));
 	ring_list_addpointer(pList,pPointer);
 	ring_vm_mutexfunctions((VM *) pPointer,custom_mtx_init,mtx_lock,mtx_unlock,mtx_destroy);
-	RING_API_RETNUMBER(thrd_create( (thrd_t *) RING_API_GETCPOINTER(1,"thrd_t"),custom_thrd_start_t,pList ));
+	RING_API_RETNUMBER(thrd_create( (thrd_t *) 	RING_API_GETCPOINTER(1,"thrd_t"),custom_thrd_start_t,pList ));
+
 }
+
+RING_FUNC(ring_mtx_destroy)
+{
+	mtx_t *pMutex;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMutex = (mtx_t *) RING_API_GETCPOINTER(1,"mtx_t");
+	mtx_destroy(pMutex);
+	free(pMutex);
+}
+
 </code>
 
 thrd_t thrd_current(void)
