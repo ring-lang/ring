@@ -2,12 +2,12 @@
 # Author: Azzeddine Remmal (azzeddine.remmal@gmail.com)
 # Date: 29-07-2023
 # Description:return result from thread
+
 load "stdlib.ring"
 load "threads.ring"
 
-
-
 func main
+
     res = 0
     thread = new_thrd_t()
     if thrd_create(thread, "roll_dice()") != 1
@@ -20,10 +20,9 @@ func main
         return 
     ok
     ? "thrd_exit Result : " + res
-    
-  
 
-func roll_dice() 
+func roll_dice 
+
     value = random(100) + 1
     result = value
     sleep(2)

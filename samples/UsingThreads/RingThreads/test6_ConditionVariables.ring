@@ -1,24 +1,22 @@
 # Condition Variables
 # Author: Azzeddine Remmal (azzeddine.remmal@gmail.com)
 # Date: 29-07-2023
-# Description: 
+
 load "stdlib.ring"
 load "threads.ring"
 
-
-
-aThreads = list(2)
+aThreads  = list(2)
 mutexFuel = new_mtx_t()
-condFuel = new_cnd_t()
-fuel = 0
-res= 0
+condFuel  = new_cnd_t()
+fuel      = 0
+res       = 0
 
 func main
     
     mtx_init(mutexFuel, res)
     cnd_init(condFuel)
     for i = 1 to 2
-				aThreads[i] = new_thrd_t()
+        aThreads[i] = new_thrd_t()
         if i = 1
             if thrd_create(aThreads[i],"fuel_filling()") != 1
                 see "Failed to create thread" + nl
@@ -38,9 +36,8 @@ func main
     mtx_destroy(mutexFuel)
     cnd_destroy(condFuel)
 
+func fuel_filling
 
-  
-func fuel_filling() 
     for i = 1 to 5
         mtx_lock(mutexFuel)
         fuel += 15
@@ -50,8 +47,8 @@ func fuel_filling()
         sleep(1)
     next
 
+func car
 
-func car()
     mtx_lock(mutexFuel)
     while fuel < 40
         see "No fuel. Waiting..." + nl
@@ -64,4 +61,3 @@ func car()
     fuel -= 40
     see "Got fuel. Now left:" + fuel + nl
     mtx_unlock(mutexFuel)
-

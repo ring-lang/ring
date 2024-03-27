@@ -1,28 +1,26 @@
 # Mutex Trylock.
 # Author: Azzeddine Remmal (azzeddine.remmal@gmail.com)
 # Date: 29-07-2023
-# Description:
+
 load "stdlib.ring"
 load "threads.ring"
-
-
 
 # chefs = threads
 # stove = shared data (+mutex)
 
-aThreads = list(10)
+aThreads    = list(10)
 aStoveMutex = list(4)
-aStoveFuel = [100, 100, 100, 100]
-res= 0
+aStoveFuel  = [100, 100, 100, 100]
+res         = 0
 
 func main
    
     for i = 1 to 4
-				aStoveMutex[i] = new_mtx_t()
+        aStoveMutex[i] = new_mtx_t()
         mtx_init(aStoveMutex[i], res)
     next
     for i = 1 to 10
-				aThreads[i] = new_thrd_t()
+        aThreads[i] = new_thrd_t()
         if thrd_create(aThreads[i],"routine()") != 1
             see"Failed to create thread"+ nl
         ok
@@ -37,8 +35,8 @@ func main
         mtx_destroy(aStoveMutex[i])
     next
 
+func routine
 
-func routine()
     for i = 1 to 4
         if mtx_trylock(aStoveMutex[i]) = 1
             nFuelNeeded = random(30)
@@ -59,7 +57,3 @@ func routine()
             ok
         ok
     next
-
-
-
-  

@@ -1,17 +1,13 @@
 # Detached Thread
 # Author: Azzeddine Remmal (azzeddine.remmal@gmail.com)
 # Date: 29-07-2023
-# Description:
+
 load "stdlib.ring"
 load "threads.ring"
 
-
-
-
 THREAD_NUM  = 2
-aThreads = list(THREAD_NUM)
-res= 0
-
+aThreads    = list(THREAD_NUM)
+res         = 0
 
 func main
     
@@ -31,7 +27,7 @@ func main
 
     thrd_exit(0)
 
+func routine
 
-func routine()
     sleep(2)
     ? "Finished execution ."
