@@ -879,7 +879,7 @@ RING_API void ring_list_genarray_gc ( void *pState,List *pList )
 	}
 	/*
 	**  Here we  don't use ring_list_getitem 
-	**  To be sure that this function is thread safe because ring_list_getitem() use/update Cache 
+	**  Because ring_list_getitem() use/update Cache 
 	*/
 	pArray = (Item **) ring_state_malloc(pState,ring_list_getsize(pList) * sizeof(Item *));
 	pItems = pList->pFirst ;
