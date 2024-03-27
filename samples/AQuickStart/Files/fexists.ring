@@ -1,2 +1,2 @@
-see fexists("b:\mahmoud\apps\ring\ring.exe") + nl +
-    fexists("b:\mahmoud\apps\ring\ring2.exe") + nl
+see fexists(exefolder()+"ring.exe") + nl +
+    fexists(exefolder()+"nothing.exe") + nl
