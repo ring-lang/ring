@@ -304,6 +304,8 @@ List * ring_vm_newvar2 ( VM *pVM,const char *cStr,List *pParent )
 		}
 		ring_hashtable_newpointer_gc(pVM->pRingState,pParent->pHashTable,cStr,pList);
 	}
+	/* Generate the Array */
+	ring_list_genarray_gc(pVM->pRingState,pList);
 	return pList ;
 }
 
@@ -389,6 +391,8 @@ void ring_vm_var_setprivateflag ( VM *pVM,List *pVar,int nFlag )
 {
 	if ( ring_list_getsize(pVar) == RING_VAR_PRIVATEFLAG - 1 ) {
 		ring_list_addint_gc(pVM->pRingState,pVar,nFlag);
+		/* Generate the Array */
+		ring_list_genarray_gc(pVM->pRingState,pVar);
 	}
 	else if ( ring_list_getsize(pVar) == RING_VAR_PRIVATEFLAG ) {
 		ring_list_setint_gc(pVM->pRingState,pVar,RING_VAR_PRIVATEFLAG,nFlag);
