@@ -6,63 +6,71 @@
 load "stdlib.ring"
 load "threads.ring"
 
+lDebug     = false
 nTaskCount = 1  
 THREAD_NUM = 4
-aTaskQueue = list(256)
-aThreads = list(THREAD_NUM)
+aTaskQueue = list(1024)
+aThreads   = list(THREAD_NUM)
 mutexQueue = new_mtx_t()
-condQueue = new_cnd_t()
-res = 0
-oTask = null
+condQueue  = new_cnd_t()
 
 func main 
+
     oTask = new Task
-    mtx_init(mutexQueue, res)
+    mtx_init(mutexQueue, false)
     cnd_init(condQueue)
 		
-		for i = 1 to THREAD_NUM
-				aThreads[i] = new_thrd_t()
-        if thrd_create(aThreads[i], "startThread()") != 1
-            ? "Failed to create the thread"
+    for i = 1 to THREAD_NUM
+        aThreads[i] = new_thrd_t()
+        if thrd_create(aThreads[i], "startThread("+i+")") != 1
+            if lDebug ? nl+"Failed to create the thread" ok
+        else 
+            if lDebug ? nl+"Creating thread: " + i ok
+            thrd_detach(aThreads[i])
         ok
     next
-		for i = 1 to 100
+
+    for i = 1 to 100
         oTask{
-						arg1 = random(100)+1
-					  arg2 = random(100)+1
-		        if i % 2 = 0  
-						    taskFunction = :sum
-						else 
-		            taskFunction = :product
-						ok
-         }
+            arg1 = random(100)
+            arg2 = random(100)
+            if i % 2 = 0  
+                taskFunction = :sum
+            else 
+                taskFunction = :product
+            ok
+        }
         submitTask(oTask)
     next
+
+    oTask.taskFunction = :bye
     for i = 1 to THREAD_NUM
-        if thrd_join(aThreads[i], :res) != 1
-           ? "Failed to join the thread"
-        ok
+        submitTask(oTask)
     next
-		
+
+    give wait
+
     destroy_mtx_t(mutexQueue)
     destroy_cnd_t(condQueue)
+
+    ? nl+"Thanks!"
   
 func sum(a,b) 
-    sleep(0.2)
+
     sum = a + b
-    see "Sum of "+ a +" and "+ b +" is :" + sum  + nl
+    ? nl+"Sum of "+ a +" and "+ b +" is :" + sum  
 		
 func product(a, b)
-    sleep(0.2)
-    prod = a * b
-    see "Product "+ a +" and "+ b +" is :" + prod + nl
 
+    prod = a * b
+    ? nl+"Product "+ a +" and "+ b +" is :" + prod 
 
 func executeTask(Task) 
+
     Task.StartTask(Task.arg1, Task.arg2)
-     sleep(1)
 
 func submitTask(Task)
+
     mtx_lock(mutexQueue)
     aTaskQueue[nTaskCount] = Task
     nTaskCount++
@@ -70,10 +78,14 @@ func submitTask(Task)
     cnd_signal(condQueue)
 	
 
-func startThread()
+func startThread(nThread)
+
+    if lDebug ? nl+"Start Thread: " + nThread ok
 
     while True
+
         mtx_lock(mutexQueue)
+
         while nTaskCount = 1
             cnd_wait(condQueue, mutexQueue)
         end
@@ -83,12 +95,25 @@ func startThread()
             aTaskQueue[i] = aTaskQueue[i + 1]
         next
         nTaskCount--
+
+	if Task.taskFunction = :bye 
+            if lDebug ? nl+"Terminate Thread: "+ nThread ok
+	    exit 
+	ok
+
         mtx_unlock(mutexQueue)
+
+	if lDebug ? nl+"Execute Task by Thread: " + nThread ok
         executeTask(Task)
+        sleep(0.01)
+
     end
 
+    if lDebug ? nl+"End of thread: " + nThread ok
+
 class Task 
+
     arg1 arg2 taskFunction
 
-func StartTask(ar1, ar2)
-	call taskFunction(ar1, ar2)
+    func StartTask(ar1, ar2)
+        call taskFunction(ar1, ar2)
