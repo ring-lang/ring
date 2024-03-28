@@ -292,9 +292,13 @@
 <ul class="simple">
 <li><p>Better code inside Ring VM for starting new threads</p></li>
 <li><p>Better code for sharing the Memory Pool information between threads</p></li>
-<li><p>Ring lists that wraps C pointers will not use internal cache (Safe Reading from many threads)</p></li>
-<li><p>Ring lists created using List() will not use internal cache if size is not changed</p></li>
+<li><p>Ring lists that wraps C pointers will not use internal dynamic cache</p></li>
+<li><p>Ring lists created using List() will not use internal dynamic cache if size is not changed</p></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ring Lists that avoid internal dynamic cache provide safe reading from many threads because accessing lists for reading will not include implicit writing to the internal cache.</p>
+</div>
 </section>
 <section id="better-scripts-for-building-ring">
 <span id="index-7"></span><h2>Better Scripts for Building Ring<a class="headerlink" href="#better-scripts-for-building-ring" title="Permalink to this heading"></a></h2>

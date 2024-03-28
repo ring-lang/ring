@@ -108,8 +108,10 @@ Better Support for Threads
 
 * Better code inside Ring VM for starting new threads 
 * Better code for sharing the Memory Pool information between threads 
-* Ring lists that wraps C pointers will not use internal cache (Safe Reading from many threads)
-* Ring lists created using List() will not use internal cache if size is not changed
+* Ring lists that wraps C pointers will not use internal dynamic cache
+* Ring lists created using List() will not use internal dynamic cache if size is not changed
+
+.. note:: Ring Lists that avoid internal dynamic cache provide safe reading from many threads because accessing lists for reading will not include implicit writing to the internal cache.
 
 .. index:: 
 	pair: What is new in Ring  1.20; Better Scripts for Building Ring
