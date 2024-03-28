@@ -111,6 +111,7 @@ Better Support for Threads
 * Each thread have it's copy from predefined globals like NL, True, etc.
 * Ring lists that wraps C pointers will not use internal dynamic cache
 * Ring lists created using List() will not use internal dynamic cache if size is not changed
+* RingThreads - Better code for creating the Mutex
 
 .. note:: Ring Lists that avoid internal dynamic cache provide safe reading from many threads because accessing lists for reading will not include implicit writing to the internal cache.
 
@@ -149,7 +150,6 @@ Improving Ring Compiler/VM Source Code
 Better Tools and Extensions
 ===========================
 
-* RingThreads - Better code for creating the Mutex
 * RingQt - Added: QComponent class (Qt3DCore)
 * RingQt - Correct parent class name for the QMaterial & QLogicAspect classes
 * Ring extension for VSCode is updated to support modern versions of VSCode
