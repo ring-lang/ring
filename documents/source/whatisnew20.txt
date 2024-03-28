@@ -108,7 +108,7 @@ Better Support for Threads
 
 * Better code inside Ring VM for starting new threads 
 * Better code for sharing the Memory Pool information between threads 
-* Ring lists that wraps C pointers will not use internal cache (Safe Reading)
+* Ring lists that wraps C pointers will not use internal cache (Safe Reading from many threads)
 * Ring lists created using List() will not use internal cache if size is not changed
 
 .. index:: 
