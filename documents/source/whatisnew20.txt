@@ -75,6 +75,19 @@ We added the next two commands to the Ring Scanner
 * EnableHashComments
 * DisableHashComments
 
+Example:
+
+.. code-block:: ring
+
+	DisableHashComments
+	#define = 10
+	EnableHashComments
+	# Just a comment
+	DisableHashComments
+	? #define
+	EnableHashComments
+	# End of program
+
 .. index:: 
 	pair: What is new in Ring  1.20; Better Scripts for Building Ring
 
