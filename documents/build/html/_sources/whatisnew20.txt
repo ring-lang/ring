@@ -54,6 +54,7 @@ More Improvements
 * RingQt - Correct parent class name for the QMaterial & QLogicAspect classes
 * RingQt - Added: QComponent class (Qt3DCore)
 * RingThreads - Better code for creating the Mutex
+* Ring extension for VSCode is update to support modern versions of VSCode
 * Ring Compiler - Scanner - Added: EnableHashComments & DisableHashComments
 * Ring VM - Avoid infinite for loops when the step value is zero 
 * Ring VM - Remove old code related to lAddSubListsByMove and lAddSubListsByFastCopy in VM structure 
