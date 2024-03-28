@@ -19,6 +19,7 @@ Ring 1.20 comes with the next features!
 * Better Functions
 * Enable/Disable Hash Comments
 * Better Performance when using Braces
+* Better Support for Threads
 * Better Scripts for Building Ring
 * Improving Ring Compiler/VM Source Code
 * Better Tools and Extensions
@@ -100,6 +101,17 @@ Using braces to access objects is 120% faster in Ring 1.20
 Using normal functions or using the dot operator still faster than using braces, but this update is a step forward towards reducing the gap.
 
 .. index:: 
+	pair: What is new in Ring  1.20; Better Support for Threads
+
+Better Support for Threads
+==========================
+
+* Better code inside Ring VM for starting new threads 
+* Better code for sharing the Memory Pool information between threads 
+* Ring lists that wraps C pointers will not use internal cache (Safe Reading)
+* Ring lists created using List() will not use internal cache if size is not changed
+
+.. index:: 
 	pair: What is new in Ring  1.20; Better Scripts for Building Ring
 
 Better Scripts for Building Ring
@@ -155,4 +167,3 @@ More Improvements
 * Ring VM - Each thread have it's copy from predefined globals like NL, True, etc.
 * Ring VM - Treat lists that wrap C pointers as FALSE if the C pointer value is NULL
 * Ring VM - Loop N command inside For-In loop will execute implicit Exit N-1 command then Loop 
-* Ring VM - Better implementation for threads support and sharing List blocks between threads
