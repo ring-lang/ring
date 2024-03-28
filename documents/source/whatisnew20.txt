@@ -17,6 +17,7 @@ Ring 1.20 comes with the next features!
 
 * Better Samples and Applications
 * Better Functions
+* Enable/Disable Hash Comments
 * Better Scripts for Building Ring
 * Improving Ring Compiler/VM Source Code
 * Better Tools and Extensions
@@ -64,6 +65,17 @@ Better Functions
 * Swap() function - Support swaping any two Lists/Objects 
 
 .. index:: 
+	pair: What is new in Ring  1.20; Enable/Disable Hash Comments
+
+Enable/Disable Hash Comments
+============================
+
+We added the next two commands to the Ring Scanner
+
+* EnableHashComments
+* DisableHashComments
+
+.. index:: 
 	pair: What is new in Ring  1.20; Better Scripts for Building Ring
 
 Better Scripts for Building Ring
@@ -109,7 +121,6 @@ Better Tools and Extensions
 More Improvements
 =================
 
-* Ring Compiler - Scanner - Added: EnableHashComments & DisableHashComments
 * Ring VM - Avoid infinite for loops when the step value is zero 
 * Ring VM - Remove old code related to lAddSubListsByMove and lAddSubListsByFastCopy in VM structure 
 * Ring VM - Return command - Better code when we return an object passed to the function as parameter

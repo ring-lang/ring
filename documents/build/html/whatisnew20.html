@@ -168,6 +168,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-samples-and-applications">Better Samples and Applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-functions">Better Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enable-disable-hash-comments">Enable/Disable Hash Comments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-scripts-for-building-ring">Better Scripts for Building Ring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#improving-ring-compiler-vm-source-code">Improving Ring Compiler/VM Source Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-tools-and-extensions">Better Tools and Extensions</a></li>
@@ -214,6 +215,7 @@
 <ul class="simple">
 <li><p>Better Samples and Applications</p></li>
 <li><p>Better Functions</p></li>
+<li><p>Enable/Disable Hash Comments</p></li>
 <li><p>Better Scripts for Building Ring</p></li>
 <li><p>Improving Ring Compiler/VM Source Code</p></li>
 <li><p>Better Tools and Extensions</p></li>
@@ -257,8 +259,16 @@
 <li><p>Swap() function - Support swaping any two Lists/Objects</p></li>
 </ul>
 </section>
+<section id="enable-disable-hash-comments">
+<span id="index-4"></span><h2>Enable/Disable Hash Comments<a class="headerlink" href="#enable-disable-hash-comments" title="Permalink to this heading"></a></h2>
+<p>We added the next two commands to the Ring Scanner</p>
+<ul class="simple">
+<li><p>EnableHashComments</p></li>
+<li><p>DisableHashComments</p></li>
+</ul>
+</section>
 <section id="better-scripts-for-building-ring">
-<span id="index-4"></span><h2>Better Scripts for Building Ring<a class="headerlink" href="#better-scripts-for-building-ring" title="Permalink to this heading"></a></h2>
+<span id="index-5"></span><h2>Better Scripts for Building Ring<a class="headerlink" href="#better-scripts-for-building-ring" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Scripts for building Ring Compiler/VM are moved to ring/language/build folder</p></li>
 <li><p>Scripts for building Ring, Extensions and Tools are moved to ring/build folder</p></li>
@@ -269,7 +279,7 @@
 </ul>
 </section>
 <section id="improving-ring-compiler-vm-source-code">
-<span id="index-5"></span><h2>Improving Ring Compiler/VM Source Code<a class="headerlink" href="#improving-ring-compiler-vm-source-code" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>Improving Ring Compiler/VM Source Code<a class="headerlink" href="#improving-ring-compiler-vm-source-code" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Better Format</p></li>
 <li><p>Using constants</p></li>
@@ -283,7 +293,7 @@
 </ul>
 </section>
 <section id="better-tools-and-extensions">
-<span id="index-6"></span><h2>Better Tools and Extensions<a class="headerlink" href="#better-tools-and-extensions" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>Better Tools and Extensions<a class="headerlink" href="#better-tools-and-extensions" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>RingThreads - Better code for creating the Mutex</p></li>
 <li><p>RingQt - Added: QComponent class (Qt3DCore)</p></li>
@@ -292,9 +302,8 @@
 </ul>
 </section>
 <section id="more-improvements">
-<span id="index-7"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
-<li><p>Ring Compiler - Scanner - Added: EnableHashComments &amp; DisableHashComments</p></li>
 <li><p>Ring VM - Avoid infinite for loops when the step value is zero</p></li>
 <li><p>Ring VM - Remove old code related to lAddSubListsByMove and lAddSubListsByFastCopy in VM structure</p></li>
 <li><p>Ring VM - Return command - Better code when we return an object passed to the function as parameter</p></li>
