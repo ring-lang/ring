@@ -17,6 +17,7 @@ Ring 1.20 comes with the next features!
 
 * Better Samples and Applications
 * Better Functions
+* Better Scripts for Building Ring
 * Improving Ring Compiler/VM Source Code
 * More Improvements
 
@@ -62,6 +63,19 @@ Better Functions
 * Swap() function - Support swaping any two Lists/Objects 
 
 .. index:: 
+	pair: What is new in Ring  1.20; Better Scripts for Building Ring
+
+Better Scripts for Building Ring
+================================
+
+* Scripts for building Ring Compiler/VM are moved to ring/language/build folder
+* Scripts for building Ring, Extensions and Tools are moved to ring/build folder 
+* File: language/src/installdep.sh - Added: libqt5multimedia5-plugins
+* Added: ring/language/build/buildzig.bat
+* Added: ring/build/buildgcc.sh
+* Added: ring/build/buildclang.sh
+
+.. index:: 
 	pair: What is new in Ring  1.20; Improving Ring Compiler/VM Source Code
 
 Improving Ring Compiler/VM Source Code
@@ -99,7 +113,3 @@ More Improvements
 * Ring VM - Treat lists that wrap C pointers as FALSE if the C pointer value is NULL
 * Ring VM - Loop N command inside For-In loop will execute implicit Exit N-1 command then Loop 
 * Ring VM - Better implementation for threads support and sharing List blocks between threads
-* Ring Source Code - Scripts for building Ring Compiler/VM are moved to ring/language/build folder
-* Ring Source Code - Scripts for building Ring, Extensions and Tools are moved to ring/build folder 
-* File: language/src/installdep.sh - Added: libqt5multimedia5-plugins
-* Added: ring/language/build/buildzig.bat
