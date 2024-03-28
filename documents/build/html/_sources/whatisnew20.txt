@@ -19,6 +19,7 @@ Ring 1.20 comes with the next features!
 * Better Functions
 * Better Scripts for Building Ring
 * Improving Ring Compiler/VM Source Code
+* Better Tools and Extensions
 * More Improvements
 
 .. index:: 
@@ -92,15 +93,22 @@ Improving Ring Compiler/VM Source Code
 * language/src/expr.c - ring_parser_ppmm() - Better code
 
 .. index:: 
+	pair: What is new in Ring  1.20; Better Tools and Extensions
+
+Better Tools and Extensions
+===========================
+
+* RingThreads - Better code for creating the Mutex
+* RingQt - Added: QComponent class (Qt3DCore)
+* RingQt - Correct parent class name for the QMaterial & QLogicAspect classes
+* Ring extension for VSCode is updated to support modern versions of VSCode
+
+.. index:: 
 	pair: What is new in Ring  1.20; More Improvements
 
 More Improvements
 =================
 
-* RingQt - Correct parent class name for the QMaterial & QLogicAspect classes
-* RingQt - Added: QComponent class (Qt3DCore)
-* RingThreads - Better code for creating the Mutex
-* Ring extension for VSCode is updated to support modern versions of VSCode
 * Ring Compiler - Scanner - Added: EnableHashComments & DisableHashComments
 * Ring VM - Avoid infinite for loops when the step value is zero 
 * Ring VM - Remove old code related to lAddSubListsByMove and lAddSubListsByFastCopy in VM structure 
