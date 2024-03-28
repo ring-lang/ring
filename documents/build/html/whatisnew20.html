@@ -168,6 +168,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-samples-and-applications">Better Samples and Applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-functions">Better Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improving-ring-compiler-vm-source-code">Improving Ring Compiler/VM Source Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
 </li>
@@ -211,6 +212,7 @@
 <ul class="simple">
 <li><p>Better Samples and Applications</p></li>
 <li><p>Better Functions</p></li>
+<li><p>Improving Ring Compiler/VM Source Code</p></li>
 <li><p>More Improvements</p></li>
 </ul>
 </section>
@@ -251,8 +253,22 @@
 <li><p>Swap() function - Support swaping any two Lists/Objects</p></li>
 </ul>
 </section>
+<section id="improving-ring-compiler-vm-source-code">
+<span id="index-4"></span><h2>Improving Ring Compiler/VM Source Code<a class="headerlink" href="#improving-ring-compiler-vm-source-code" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Better Format</p></li>
+<li><p>Using constants</p></li>
+<li><p>Use Bit Fields in structures</p></li>
+<li><p>Structures Members - Better names</p></li>
+<li><p>Structures Members - Better order</p></li>
+<li><p>Functions Parameters - Better names</p></li>
+<li><p>language/src/rstring.c - ring_string_set2_gc() - Better code</p></li>
+<li><p>language/src/os_e.c - randomize() - Better code</p></li>
+<li><p>language/src/expr.c - ring_parser_ppmm() - Better code</p></li>
+</ul>
+</section>
 <section id="more-improvements">
-<span id="index-4"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-5"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>RingQt - Correct parent class name for the QMaterial &amp; QLogicAspect classes</p></li>
 <li><p>RingQt - Added: QComponent class (Qt3DCore)</p></li>
@@ -270,19 +286,10 @@
 <li><p>Ring VM - Treat lists that wrap C pointers as FALSE if the C pointer value is NULL</p></li>
 <li><p>Ring VM - Loop N command inside For-In loop will execute implicit Exit N-1 command then Loop</p></li>
 <li><p>Ring VM - Better implementation for threads support and sharing List blocks between threads</p></li>
-<li><p>Ring Source Code - Better Format</p></li>
-<li><p>Ring Source Code - Using constants</p></li>
-<li><p>Ring Source Code - Use Bit Fields in structures</p></li>
-<li><p>Ring Source Code - Structures Members - Better names</p></li>
-<li><p>Ring Source Code - Structures Members - Better order</p></li>
-<li><p>Ring Source Code - Functions Parameters - Better names</p></li>
-<li><p>Ring Source Code - Added: ring/language/build/buildzig.bat</p></li>
-<li><p>Ring Source Code - language/src/rstring.c - ring_string_set2_gc() - Better code</p></li>
-<li><p>Ring Source Code - language/src/os_e.c - randomize() - Better code</p></li>
-<li><p>Ring Source Code - language/src/expr.c - ring_parser_ppmm() - Better code</p></li>
 <li><p>Ring Source Code - Scripts for building Ring Compiler/VM are moved to ring/language/build folder</p></li>
 <li><p>Ring Source Code - Scripts for building Ring, Extensions and Tools are moved to ring/build folder</p></li>
 <li><p>File: language/src/installdep.sh - Added: libqt5multimedia5-plugins</p></li>
+<li><p>Added: ring/language/build/buildzig.bat</p></li>
 </ul>
 </section>
 </section>

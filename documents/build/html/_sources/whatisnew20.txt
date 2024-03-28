@@ -17,6 +17,7 @@ Ring 1.20 comes with the next features!
 
 * Better Samples and Applications
 * Better Functions
+* Improving Ring Compiler/VM Source Code
 * More Improvements
 
 .. index:: 
@@ -60,6 +61,21 @@ Better Functions
 * locals() function - Usage in global scope will not return predefined globals like NL, True, etc.
 * Swap() function - Support swaping any two Lists/Objects 
 
+.. index:: 
+	pair: What is new in Ring  1.20; Improving Ring Compiler/VM Source Code
+
+Improving Ring Compiler/VM Source Code
+======================================
+
+* Better Format
+* Using constants
+* Use Bit Fields in structures
+* Structures Members - Better names
+* Structures Members - Better order  
+* Functions Parameters - Better names
+* language/src/rstring.c - ring_string_set2_gc() - Better code
+* language/src/os_e.c - randomize() - Better code
+* language/src/expr.c - ring_parser_ppmm() - Better code
 
 .. index:: 
 	pair: What is new in Ring  1.20; More Improvements
@@ -83,16 +99,7 @@ More Improvements
 * Ring VM - Treat lists that wrap C pointers as FALSE if the C pointer value is NULL
 * Ring VM - Loop N command inside For-In loop will execute implicit Exit N-1 command then Loop 
 * Ring VM - Better implementation for threads support and sharing List blocks between threads
-* Ring Source Code - Better Format
-* Ring Source Code - Using constants
-* Ring Source Code - Use Bit Fields in structures
-* Ring Source Code - Structures Members - Better names
-* Ring Source Code - Structures Members - Better order  
-* Ring Source Code - Functions Parameters - Better names
-* Ring Source Code - Added: ring/language/build/buildzig.bat
-* Ring Source Code - language/src/rstring.c - ring_string_set2_gc() - Better code
-* Ring Source Code - language/src/os_e.c - randomize() - Better code
-* Ring Source Code - language/src/expr.c - ring_parser_ppmm() - Better code
 * Ring Source Code - Scripts for building Ring Compiler/VM are moved to ring/language/build folder
 * Ring Source Code - Scripts for building Ring, Extensions and Tools are moved to ring/build folder 
 * File: language/src/installdep.sh - Added: libqt5multimedia5-plugins
+* Added: ring/language/build/buildzig.bat
