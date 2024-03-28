@@ -18,6 +18,7 @@ Ring 1.20 comes with the next features!
 * Better Samples and Applications
 * Better Functions
 * Enable/Disable Hash Comments
+* Better Performance when using Braces
 * Better Scripts for Building Ring
 * Improving Ring Compiler/VM Source Code
 * Better Tools and Extensions
@@ -87,6 +88,16 @@ Example:
 	? #define
 	EnableHashComments
 	# End of program
+
+.. index:: 
+	pair: What is new in Ring  1.20; Better Performance when using Braces
+
+Better Performance when using Braces
+====================================
+
+Using braces to access objects is 120% faster in Ring 1.20
+
+Using normal functions or using the dot operator still faster than using braces, but this update is a step forward towards reducing the gap.
 
 .. index:: 
 	pair: What is new in Ring  1.20; Better Scripts for Building Ring
