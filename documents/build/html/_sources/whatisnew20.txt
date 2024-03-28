@@ -20,6 +20,7 @@ Ring 1.20 comes with the next features!
 * Enable/Disable Hash Comments
 * Better Performance when using Braces
 * Better Support for Threads
+* RingRogueUtil Extension
 * Better Scripts for Building Ring
 * Improving Ring Compiler/VM Source Code
 * Better Tools and Extensions
@@ -114,6 +115,39 @@ Better Support for Threads
 * RingThreads - Better code for creating the Mutex
 
 .. note:: Ring Lists that avoid internal dynamic cache provide safe reading from many threads because accessing lists for reading will not include implicit writing to the internal cache.
+
+.. index:: 
+	pair: What is new in Ring  1.20; RingRogueUtil Extension
+
+RingRogueUtil Extension
+=======================
+
+Using this extension we can create text-based user interfaces (TUI) and console-based games
+
+The extension support Windows, Linux and macOS
+
+Also, we added support for Mouse events (Mouse move, Click, and Scroll)
+
+Example:
+
+.. code-block:: ring
+
+	load "rogueutil.ring"
+
+	setConsoleTitle("Using PrintXY()")
+
+	setColor(Black)
+	setBackgroundColor(Cyan)
+
+	cls()
+
+	printXY(10,2,'In Mathematics, we call multiplying a number by itself "squaring" the number.')
+
+	for t=1 to 12
+		printXY(10,10+t, "Number: " + t + " x " + t + " = " + (t*t) )
+	next
+
+	getch() 
 
 .. index:: 
 	pair: What is new in Ring  1.20; Better Scripts for Building Ring
