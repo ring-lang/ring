@@ -15,13 +15,14 @@ List of changes and new features
 
 Ring 1.20 comes with the next features!
 
-* Better samples and applications
+* Better Samples and Applications
+* Better Functions
 * More Improvements
 
 .. index:: 
-	pair: What is new in Ring  1.20; Better samples and applications
+	pair: What is new in Ring  1.20; Better Samples and Applications
 
-Better samples and applications
+Better Samples and Applications
 ===============================
 
 * Added: samples/UsingGemini
@@ -42,10 +43,10 @@ Better samples and applications
 * ring/applications - Using lightguilib.ring instead of guilib.ring in many applications
 
 .. index:: 
-	pair: What is new in Ring  1.20; More Improvements
+	pair: What is new in Ring  1.20; Better Functions
 
-More Improvements
-=================
+Better Functions
+================
 
 * isWindows64() function - Better Code
 * print() function - Better code to handle apostrophe inside text
@@ -58,6 +59,14 @@ More Improvements
 * input() function - If the size is not passed as parameter it will read a line
 * locals() function - Usage in global scope will not return predefined globals like NL, True, etc.
 * Swap() function - Support swaping any two Lists/Objects 
+
+
+.. index:: 
+	pair: What is new in Ring  1.20; More Improvements
+
+More Improvements
+=================
+
 * RingQt - Correct parent class name for the QMaterial & QLogicAspect classes
 * RingQt - Added: QComponent class (Qt3DCore)
 * RingThreads - Better code for creating the Mutex
