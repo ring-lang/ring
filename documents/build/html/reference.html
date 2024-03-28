@@ -170,6 +170,7 @@
 <li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Language Specification</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#scanner-commands">Scanner Commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#language-keywords">Language Keywords</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#language-functions">Language Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#compiler-errors">Compiler Errors</a></li>
@@ -209,6 +210,7 @@
 <span id="index-0"></span><h1>Language Specification<a class="headerlink" href="#language-specification" title="Permalink to this heading"></a></h1>
 <p>In this chapter we will learn about</p>
 <ul class="simple">
+<li><p>Scanner Commands</p></li>
 <li><p>Language keywords</p></li>
 <li><p>Language Functions</p></li>
 <li><p>Compiler Errors</p></li>
@@ -217,9 +219,20 @@
 <li><p>Language Grammar</p></li>
 <li><p>Virtual Machine (VM) Instructions</p></li>
 </ul>
+<section id="scanner-commands">
+<span id="index-1"></span><h2>Scanner Commands<a class="headerlink" href="#scanner-commands" title="Permalink to this heading"></a></h2>
+<p>Commands Count: 5</p>
+<ul class="simple">
+<li><p>ChangeRingKeyword</p></li>
+<li><p>ChangeRingOperator</p></li>
+<li><p>DisableHashComments</p></li>
+<li><p>EnableHashComments</p></li>
+<li><p>LoadSyntax</p></li>
+</ul>
+</section>
 <section id="language-keywords">
-<span id="index-1"></span><h2>Language Keywords<a class="headerlink" href="#language-keywords" title="Permalink to this heading"></a></h2>
-<p>Keywords Count : 58</p>
+<span id="index-2"></span><h2>Language Keywords<a class="headerlink" href="#language-keywords" title="Permalink to this heading"></a></h2>
+<p>Keywords Count: 55</p>
 <ul class="simple">
 <li><p>again</p></li>
 <li><p>and</p></li>
@@ -228,8 +241,6 @@
 <li><p>call</p></li>
 <li><p>case</p></li>
 <li><p>catch</p></li>
-<li><p>changeringkeyword</p></li>
-<li><p>changeringoperator</p></li>
 <li><p>class</p></li>
 <li><p>def</p></li>
 <li><p>do</p></li>
@@ -247,7 +258,6 @@
 <li><p>import</p></li>
 <li><p>in</p></li>
 <li><p>load</p></li>
-<li><p>loadsyntax</p></li>
 <li><p>loop</p></li>
 <li><p>new</p></li>
 <li><p>next</p></li>
@@ -282,8 +292,8 @@
 </ul>
 </section>
 <section id="language-functions">
-<span id="index-2"></span><h2>Language Functions<a class="headerlink" href="#language-functions" title="Permalink to this heading"></a></h2>
-<p>Functions Count : 252</p>
+<span id="index-3"></span><h2>Language Functions<a class="headerlink" href="#language-functions" title="Permalink to this heading"></a></h2>
+<p>Functions Count: 252</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">acos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">principal</span> <span class="n">value</span> <span class="n">of</span> <span class="n">the</span> <span class="n">arc</span> <span class="n">cosine</span> <span class="n">of</span> <span class="n">x</span><span class="p">,</span> <span class="n">expressed</span> <span class="k">in</span> <span class="n">radians</span>
 <span class="n">add</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">Item</span><span class="p">)</span>
 <span class="n">addattribute</span><span class="p">(</span><span class="n">Object</span><span class="p">,</span><span class="n">cAttributeName</span><span class="o">|</span><span class="n">aAttributesList</span><span class="p">)</span>
@@ -556,7 +566,7 @@
 </div>
 </section>
 <section id="compiler-errors">
-<span id="index-3"></span><h2>Compiler Errors<a class="headerlink" href="#compiler-errors" title="Permalink to this heading"></a></h2>
+<span id="index-4"></span><h2>Compiler Errors<a class="headerlink" href="#compiler-errors" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Error (C1)  : Error in parameters list, expected identifier</p></li>
 <li><p>Error (C2)  : Error in class name</p></li>
@@ -599,7 +609,7 @@
 </ul>
 </section>
 <section id="runtime-errors">
-<span id="index-4"></span><h2>Runtime Errors<a class="headerlink" href="#runtime-errors" title="Permalink to this heading"></a></h2>
+<span id="index-5"></span><h2>Runtime Errors<a class="headerlink" href="#runtime-errors" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Error (R1)  : Can’t divide by zero</p></li>
 <li><p>Error (R2)  : Array Access (Index out of range)</p></li>
@@ -652,7 +662,7 @@
 </ul>
 </section>
 <section id="environment-errors">
-<span id="index-5"></span><h2>Environment Errors<a class="headerlink" href="#environment-errors" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>Environment Errors<a class="headerlink" href="#environment-errors" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Error (E1) : Caught SegFault</p></li>
 <li><p>Error (E2) : Out of Memory</p></li>
@@ -666,7 +676,7 @@
 </ul>
 </section>
 <section id="language-grammar">
-<span id="index-6"></span><h2>Language Grammar<a class="headerlink" href="#language-grammar" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>Language Grammar<a class="headerlink" href="#language-grammar" title="Permalink to this heading"></a></h2>
 <p>Program —&gt; {statement}</p>
 <p>Statement —&gt; ‘package’ &lt;Identifier&gt; { ‘.’ &lt;Identifier&gt; } [‘{’ {statement} ‘}’] [‘end’|’endpackage’]</p>
 <p>Statement —&gt; ‘class’ &lt;Identifier&gt; [ ‘from’|’:’|’&lt;’ &lt;Identifier&gt; ] [‘{’ {statement} ‘}’][‘end’|’endclass’]</p>
@@ -722,7 +732,7 @@
 <p>AnonymousFunction —&gt; ‘func’|’def’|’function’ [&lt;ParaList&gt;] ‘{’ {Statement} ‘}’</p>
 </section>
 <section id="virtual-machine-vm-instructions">
-<span id="index-7"></span><h2>Virtual Machine (VM) Instructions<a class="headerlink" href="#virtual-machine-vm-instructions" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>Virtual Machine (VM) Instructions<a class="headerlink" href="#virtual-machine-vm-instructions" title="Permalink to this heading"></a></h2>
 <p>Definitions :-</p>
 <ul class="simple">
 <li><p>VM : Virtual Machine</p></li>

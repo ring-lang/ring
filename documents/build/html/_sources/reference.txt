@@ -7,6 +7,7 @@ Language Specification
 
 In this chapter we will learn about
 
+* Scanner Commands
 * Language keywords
 * Language Functions
 * Compiler Errors
@@ -16,12 +17,26 @@ In this chapter we will learn about
 * Virtual Machine (VM) Instructions
 
 .. index:: 
+	pair: Language Specification; Scanner Commands
+
+Scanner Commands
+================
+
+Commands Count: 5
+
+* ChangeRingKeyword
+* ChangeRingOperator
+* DisableHashComments
+* EnableHashComments
+* LoadSyntax
+
+.. index:: 
 	pair: Language Specification; Language Keywords
 
 Language Keywords
 =================
 
-Keywords Count : 58
+Keywords Count: 55
 
 * again
 * and
@@ -30,8 +45,6 @@ Keywords Count : 58
 * call
 * case
 * catch
-* changeringkeyword
-* changeringoperator
 * class
 * def
 * do
@@ -49,7 +62,6 @@ Keywords Count : 58
 * import
 * in
 * load
-* loadsyntax
 * loop
 * new
 * next
@@ -88,7 +100,7 @@ Keywords Count : 58
 Language Functions
 ==================
 
-Functions Count : 252
+Functions Count: 252
 
 .. code-block:: ring
 
