@@ -51,6 +51,8 @@ In this chapter we are going to learn about the system functions
 
 * Shutdown()
 
+* NofProcessors()
+
 .. index:: 
 	pair: System Functions; System() Function
 
