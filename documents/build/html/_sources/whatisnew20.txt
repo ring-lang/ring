@@ -32,6 +32,9 @@ Ring 1.20 comes with the next features!
 Better Samples and Applications
 ===============================
 
+.. image:: conics.png
+	:alt: Calculus Conics
+
 * Added: samples/UsingGemini
 * Added: samples/General/NeuralNetwork
 * Added: samples/Drawing/CalculusConics
