@@ -178,7 +178,7 @@ Func StartApp()
     {
         setWindowTitle("Calculus -Conics, Parametric Equations and Polar Coordinates")
         setGeometry(xPos, yPos, xWidth, yHeight)    ### Window Pos and Size
-
+        setWinIcon(self,"EllipticalCone.png")
 
         Canvas = new qlabel(win)
         {
@@ -207,7 +207,7 @@ Func StartApp()
             imageBlank = new qlabel(win) 
             {   image = new qPixMap("Blank.png")
                 setpixmap( image.scaled(image.width() / ImageScale, image.height() / ImageScale , 0, 0) )   
- 				setGeometry( -200, -200, image.Width(),image.Height() )
+ 				setGeometry( -250, -250, image.Width(),image.Height() )
             }			
 			
             imageConics = new qlabel(win) 
@@ -219,83 +219,83 @@ Func StartApp()
             imageCircle = new qlabel(win) 
             {   image = new qPixMap("Circle.png")
                 setpixmap( image.scaled(image.width() / ImageScale, image.height() / ImageScale , 0, 0) )   
- 				setGeometry( -200, -200, image.Width(),image.Height() )
+ 				setGeometry( -250, -250, image.Width(),image.Height() )
             }				
 
             imageEllipse = new qlabel(win) 
             {   image = new qPixMap("Ellipse.png")
                 setpixmap( image.scaled(image.width() / ImageScale, image.height() / ImageScale , 0, 0) )   
-                setGeometry( -200, -200, image.Width(),image.Height() )				
+                setGeometry( -250, -250, image.Width(),image.Height() )				
             }			
 
            imageCone = new qlabel(win) 
             {   image = new qPixMap("Cone.png")
                 setpixmap( image.scaled(image.width() / ImageScale, image.height() / ImageScale , 0, 0) )   
-                setGeometry( -200, -200, image.Width(),image.Height() )				
+                setGeometry( -250, -250, image.Width(),image.Height() )				
             }			
 			
             imageEllipsoid = new qlabel(win) 
             {   image = new qPixMap("Ellipsoid.png")
                 setpixmap( image.scaled(image.width() / ImageScale, image.height() / ImageScale , 0, 0) )   
-                setGeometry( -200, -200, image.Width(),image.Height() )				
+                setGeometry( -250, -250, image.Width(),image.Height() )				
             }			
 
             imageSpheroid = new qlabel(win) 
             {   image = new qPixMap("Spheroid.png")
                 setpixmap( image.scaled(image.width() / ImageScale, image.height() / ImageScale , 0, 0) )   
-                setGeometry( -200, -200, image.Width(),image.Height() )				
+                setGeometry( -250, -250, image.Width(),image.Height() )				
             }
 			
             imageEllipticalCone = new qlabel(win) 
             {   image = new qPixMap("EllipticalCone.png")
                 setpixmap( image.scaled(image.width() / ImageScale, image.height() / ImageScale , 0, 0) )   
-                setGeometry( -200, -200, image.Width(),image.Height() )				
+                setGeometry( -250, -250, image.Width(),image.Height() )				
             }			
 
             imageCylinder = new qlabel(win) 
             {   image = new qPixMap("Cylinder.png")
                 setpixmap( image.scaled(image.width() / ImageScale, image.height() / ImageScale , 0, 0) )   
-                setGeometry( -200, -200, image.Width(),image.Height() )				
+                setGeometry( -250, -250, image.Width(),image.Height() )				
             }	
 
             imageEllipticalParaboloid = new qlabel(win) 
             {   image = new qPixMap("EllipticalParaboloid.png")
                 setpixmap( image.scaled(image.width() / ImageScale, image.height() / ImageScale , 0, 0) )   
-                setGeometry( -200, -200, image.Width(),image.Height() )				
+                setGeometry( -250, -250, image.Width(),image.Height() )				
             }			
 				
 
             imageHyperbola = new qlabel(win) 
             {   image = new qPixMap("Hyperbola.png")
                 setpixmap( image.scaled(image.width() / ImageScale, image.height() / ImageScale , 0, 0) )   
-                setGeometry( -200, -200, image.Width(),image.Height() )				
+                setGeometry( -250, -250, image.Width(),image.Height() )				
             }			
 		
 
             imageHyperbolicParaboloid = new qlabel(win) 
             {   image = new qPixMap("HyperbolicParaboloid.png")
                 setpixmap( image.scaled(image.width() / ImageScale, image.height() / ImageScale , 0, 0) )   
-                setGeometry( -200, -200, image.Width(),image.Height() )				
+                setGeometry( -250, -250, image.Width(),image.Height() )				
             }			
 		
 
             imageHyperboloidOneSheet = new qlabel(win) 
             {   image = new qPixMap("HyperboloidOneSheet.png")
                 setpixmap( image.scaled(image.width() / ImageScale, image.height() / ImageScale , 0, 0) )   
-                setGeometry( -200, -200, image.Width(),image.Height() )				
+                setGeometry( -250, -250, image.Width(),image.Height() )				
             }			
 
 
             imageHyperboloidTwoSheet = new qlabel(win) 
             {   image = new qPixMap("HyperboloidTwoSheet.png")
                 setpixmap( image.scaled(image.width() / ImageScale, image.height() / ImageScale , 0, 0) )   
-                setGeometry( -200, -200, image.Width(),image.Height() )				
+                setGeometry( -250, -250, image.Width(),image.Height() )				
             }		
 
             imageParabola = new qlabel(win) 
             {   image = new qPixMap("Parabola.png")
                 setpixmap( image.scaled(image.width() / ImageScale, image.height() / ImageScale , 0, 0) )   
-                setGeometry( -200, -200, image.Width(),image.Height() )				
+                setGeometry( -250, -250, image.Width(),image.Height() )				
             }			
 	
 			
@@ -337,41 +337,41 @@ Func StartApp()
                                    }
 
         //-----------                
-        lValA  =  new qLabel(win)     { setGeometry(330,  2, 50, 20)  setText("X-a-Width")  setStyleSheet("background-color: yellow")}
-        eValA  =  new qLineEdit(win)  { setGeometry(330, 20, 50, 20)  setText("5") }          
+        lValA  =  new qLabel(win)     { setGeometry(330,  2, 70, 20)  setText("X-a-Width")  setStyleSheet("background-color: yellow")}
+        eValA  =  new qLineEdit(win)  { setGeometry(330, 20, 70, 20)  setText("5") }          
  
-        lValB  =  new qLabel(win)     { setGeometry(390,  2, 50, 20)  setText("Y-b-Height")  setStyleSheet("background-color: yellow")}
-        eValB  =  new qLineEdit(win)  { setGeometry(390, 20, 50, 20)  setText("3") }           
+        lValB  =  new qLabel(win)     { setGeometry(410,  2, 70, 20)  setText("Y-b-Height")  setStyleSheet("background-color: yellow")}
+        eValB  =  new qLineEdit(win)  { setGeometry(410, 20, 70, 20)  setText("3") }           
 
-        lValC  =  new qLabel(win)     { setGeometry(450,  2, 50, 20)  setText("Z-c-Depth")  setStyleSheet("background-color: yellow")}
-        eValC  =  new qLineEdit(win)  { setGeometry(450, 20, 50, 20)  setText("1") }           
+        lValC  =  new qLabel(win)     { setGeometry(490,  2, 70, 20)  setText("Z-c-Depth")  setStyleSheet("background-color: yellow")}
+        eValC  =  new qLineEdit(win)  { setGeometry(490, 20, 70, 20)  setText("1") }           
         //-----------
-        lValH  =  new qLabel(win)     { setGeometry(530,  2, 50, 20)  setText("X-h-CenterH")  setStyleSheet("background-color: yellow")}
-        eValH  =  new qLineEdit(win)  { setGeometry(530, 20, 50, 20)  setText("0") }           
+        lValH  =  new qLabel(win)     { setGeometry(570,  2, 70, 20)  setText("X-h-CenterH")  setStyleSheet("background-color: yellow")}
+        eValH  =  new qLineEdit(win)  { setGeometry(570, 20, 70, 20)  setText("0") }           
  
-        lValV  =  new qLabel(win)     { setGeometry(590,  2, 50, 20)  setText("Y-k-CenterV")  setStyleSheet("background-color: yellow")}
-        eValV  =  new qLineEdit(win)  { setGeometry(590, 20, 50, 20)  setText("0") }           
+        lValV  =  new qLabel(win)     { setGeometry(650,  2, 70, 20)  setText("Y-k-CenterV")  setStyleSheet("background-color: yellow")}
+        eValV  =  new qLineEdit(win)  { setGeometry(650, 20, 70, 20)  setText("0") }           
 
-        lValD  =  new qLabel(win)     { setGeometry(650,  2, 50, 20)  setText("Z-d-CenterD:")  setStyleSheet("background-color: yellow")}
-        eValD  =  new qLineEdit(win)  { setGeometry(650, 20, 50, 20)  setText("0") }           
+        lValD  =  new qLabel(win)     { setGeometry(730,  2, 70, 20)  setText("Z-d-CenterD:")  setStyleSheet("background-color: yellow")}
+        eValD  =  new qLineEdit(win)  { setGeometry(730, 20, 70, 20)  setText("0") }           
         //-----------
-        lValCyl  =  new qLabel(win)     { setGeometry(730,  2, 50, 20)  setText("Cylinders")  setStyleSheet("background-color: yellow")}
-        eValCyl  =  new qLineEdit(win)  { setGeometry(730, 20, 50, 20)  setText("0") }           
+        lValCyl  =  new qLabel(win)     { setGeometry(810,  2, 70, 20)  setText("Cylinders")  setStyleSheet("background-color: yellow")}
+        eValCyl  =  new qLineEdit(win)  { setGeometry(810, 20, 70, 20)  setText("0") }           
 
-        lValInc  =  new qLabel(win)     { setGeometry(790,  2, 50, 20)  setText("Inc-Space")  setStyleSheet("background-color: yellow")}
-        eValInc  =  new qLineEdit(win)  { setGeometry(790, 20, 50, 20)  setText("0.008") }          
+        lValInc  =  new qLabel(win)     { setGeometry(890,  2, 70, 20)  setText("Inc-Space")  setStyleSheet("background-color: yellow")}
+        eValInc  =  new qLineEdit(win)  { setGeometry(890, 20, 70, 20)  setText("0.008") }          
     
         //------------
         // EQUATION label boxed: Polar, Sine, Cos formats
         
-        lPolA  =  new qLabel(win)     { setGeometry(150, 60,  80, 20)  setText("Polar-Equation")  setStyleSheet("background-color: yellow")}
-        ePolA  =  new qLineEdit(win)  { setGeometry(220, 60, 280, 20)  setText("r = ---") }          
+        lPolA  =  new qLabel(win)     { setGeometry(150, 60,  100, 20)  setText("Polar-Equation")  setStyleSheet("background-color: yellow")}
+        ePolA  =  new qLineEdit(win)  { setGeometry(240, 60, 280, 20)  setText("r = ---") }          
  
-        lSinB  =  new qLabel(win)     { setGeometry(150, 80,  80, 20)  setText("Sin-Equation")    setStyleSheet("background-color: yellow")}
-        eSinB  =  new qLineEdit(win)  { setGeometry(220, 80, 280, 20)  setText("s = ---") }           
+        lSinB  =  new qLabel(win)     { setGeometry(150, 80,  100, 20)  setText("Sin-Equation")    setStyleSheet("background-color: yellow")}
+        eSinB  =  new qLineEdit(win)  { setGeometry(240, 80, 280, 20)  setText("s = ---") }           
 
-        lCosC  =  new qLabel(win)     { setGeometry(150, 100,  80, 20)  setText("Cos-Equation")   setStyleSheet("background-color: yellow")}
-        eCosC  =  new qLineEdit(win)  { setGeometry(220, 100, 280, 20)  setText("m = ---") }           
+        lCosC  =  new qLabel(win)     { setGeometry(150, 100,  100, 20)  setText("Cos-Equation")   setStyleSheet("background-color: yellow")}
+        eCosC  =  new qLineEdit(win)  { setGeometry(240, 100, 280, 20)  setText("m = ---") }           
         
 
         ###------------------------------------------------
@@ -381,7 +381,7 @@ Func StartApp()
         // Ry = (eRotYV.text()
         // Rz = (eRotZV.text() 
         
-        lRotation =  new qLabel(win)  { setgeometry( 0, 30 , 60, 20) settext("RotateAngle") setStyleSheet("background-color: yellow")}
+        lRotation =  new qLabel(win)  { setgeometry( 0, 30 , 60, 20) settext("Rotate") setStyleSheet("background-color: yellow")}
         lRotX  =  new qLabel(win)     { setgeometry( 0, 50 , 30, 20) settext("X:")   setStyleSheet("background-color: yellow")}
         eRotXV =  new qlineedit(win)  { setgeometry(30, 50 , 30, 20) settext("0") }        
           
@@ -391,21 +391,17 @@ Func StartApp()
         lRotZ  =  new qLabel(win)     { setgeometry( 0, 90 , 30, 20) settext("Z:")   setStyleSheet("background-color: yellow")}
         eRotZV =  new qlineedit(win)  { setgeometry(30, 90 , 30, 20) settext("0") }        
            
-            ###---------------------
-            ### INCREMENT ANGELE EDIT
+        ###---------------------
+        ### INCREMENT ANGELE EDIT
 
-        iRotation =  new qLabel(win)  { setgeometry( 70, 30 , 45, 20)   settext("Inc-Angle") setStyleSheet("background-color: yellow")}       
-//
-//       tRotXV =  new qlineedit(win)  { setgeometry(  66, 50 , 40, 20) settext("0") }      // was "Total/IncAngle"
-//       tRotYV =  new qlineedit(win)  { setgeometry(  66, 70 , 40, 20) settext("0") }   
-//       tRotZV =  new qlineedit(win)  { setgeometry(  66, 90 , 40, 20) settext("0") }    
+        iRotation =  new qLabel(win)  { setgeometry( 70, 30 , 45, 20)   settext("Inc") setStyleSheet("background-color: yellow")}       
          
          iRotXV =  new qlineedit(win)  { setgeometry( 70, 50 , 45, 20)  settext("0") }     // was 110
          iRotYV =  new qlineedit(win)  { setgeometry( 70, 70 , 45, 20)  settext("0") }  
          iRotZV =  new qlineedit(win)  { setgeometry( 70, 90 , 45, 20)  settext("0") }   
 
-         eCheckDefaults =  new qCheckBox(win)  { setgeometry( 150, 30 , 90, 20) settext("DefaultParms") setStyleSheet("background-color: yellow") setchecked(true)}         
-         eCheckDraw     =  new qCheckBox(win)  { setgeometry( 250, 30 , 70, 20) settext("OneDraw")      setStyleSheet("background-color: yellow") }         
+         eCheckDefaults =  new qCheckBox(win)  { setgeometry( 150, 30 , 90, 20) settext("Default")     setStyleSheet("background-color: yellow") setchecked(true)}         
+         eCheckDraw     =  new qCheckBox(win)  { setgeometry( 250, 30 , 70, 20) settext("1 Draw")      setStyleSheet("background-color: yellow") }         
                                                           
         ###------------------------------------------------
         ### Draw LABELS and LINEEDIT for SCALE
@@ -414,7 +410,7 @@ Func StartApp()
         //Sy = eScaleYV.text()  
         //Sz = eScaleZV.text()
         
-         lScale   =  new qLabel(win)  { setgeometry( 0, 120 , 60, 20)  settext("Scale 0.1-10") setStyleSheet("background-color: yellow")}
+         lScale   =  new qLabel(win)  { setgeometry( 0, 120 , 80, 20)  settext("Scale 0.1-10") setStyleSheet("background-color: yellow")}
 
          lScaleX  =  new qLabel(win)     { setgeometry( 0, 140 , 30, 20)  settext("X:")  setStyleSheet("background-color: yellow")}
          eScaleXV =  new qlineedit(win)  { setgeometry(30, 140 , 30, 20)  settext("50") }           
@@ -433,7 +429,7 @@ Func StartApp()
         //Sy = eScaleYV.text()  
         //Sz = eScaleZV.text()
         
-         lTranslate  =  new qLabel(win)  { setgeometry( 0, 210 , 60, 20)  settext("Trans 0-400") setStyleSheet("background-color: yellow")}
+         lTranslate  =  new qLabel(win)  { setgeometry( 0, 210 , 80, 20)  settext("Trans 0-400") setStyleSheet("background-color: yellow")}
 
          lTransX  =  new qLabel(win)     { setgeometry( 0, 230 , 30, 20)  settext("X:")  setStyleSheet("background-color: yellow")}
          eTransXV =  new qlineedit(win)  { setgeometry(30, 230 , 30, 20)  settext("0") }           
@@ -448,7 +444,7 @@ Func StartApp()
         ###-------------------------------------------------------------      
         ### Draw LABELS and LINEEDIT for REFLECTION
       
-         lReflection =  new qLabel(win)    { setgeometry( 0, 300 , 60, 20)  settext("REF:-1,1") setStyleSheet("background-color: yellow")}
+         lReflection =  new qLabel(win)    { setgeometry( 0, 300 , 80, 20)  settext("REF:-1,1") setStyleSheet("background-color: yellow")}
 
          lReflX      =  new qLabel(win)    { setgeometry( 0, 320 , 30, 20)  settext("X:")  setStyleSheet("background-color: yellow")}
          eReflXV     =  new qlineedit(win) { setgeometry(30, 320 , 30, 20)  settext("1") }          
@@ -463,7 +459,7 @@ Func StartApp()
         ###-------------------------------------------------------------      
         ###  Draw LABELS and LINEEDIT for SHEAR
       
-         lShear   =  new qLabel(win)    { setgeometry( 0, 390 , 60, 20)  settext("SHEAR 0-5") setStyleSheet("background-color: yellow")}
+         lShear   =  new qLabel(win)    { setgeometry( 0, 390 , 80, 20)  settext("SHEAR 0-5") setStyleSheet("background-color: yellow")}
 
          lShearX  =  new qLabel(win)    { setgeometry( 0, 410 , 30, 20)  settext("X:")  setStyleSheet("background-color: yellow")}
          eShearXV =  new qlineedit(win) { setgeometry(30, 410 , 30, 20)  settext("0") }          
