@@ -51,7 +51,7 @@ Better Samples and Applications
 * ring/applications - Using list() instead of newlist() in many applications
 * ring/applications - Using stdlibcore.ring instead of stdlib.ring in many applications
 * ring/applications - Using lightguilib.ring instead of guilib.ring in many applications
-* ring/applications - Use openWindow() method instead of open_window()
+* ring/applications - Using openWindow() instead of open_window() in Controller classes
 
 .. index:: 
 	pair: What is new in Ring  1.20; Better Functions
@@ -161,6 +161,19 @@ Example:
 	:alt: Using RogueUtil Shot2
 
 .. index:: 
+	pair: What is new in Ring  1.20; Better Tools and Extensions
+
+Better Tools and Extensions
+===========================
+
+* RingQt - Added: QComponent class (Qt3DCore)
+* RingQt - Correct parent class name for the QMaterial & QLogicAspect classes
+* Ring extension for VSCode is updated to support modern versions of VSCode
+
+.. image:: vscode2024.png
+	:alt: VSCode
+
+.. index:: 
 	pair: What is new in Ring  1.20; Better Scripts for Building Ring
 
 Better Scripts for Building Ring
@@ -188,19 +201,6 @@ Improving Ring Compiler/VM Source Code
 * language/src/rstring.c - ring_string_set2_gc() - Better code
 * language/src/os_e.c - randomize() - Better code
 * language/src/expr.c - ring_parser_ppmm() - Better code
-
-.. index:: 
-	pair: What is new in Ring  1.20; Better Tools and Extensions
-
-Better Tools and Extensions
-===========================
-
-* RingQt - Added: QComponent class (Qt3DCore)
-* RingQt - Correct parent class name for the QMaterial & QLogicAspect classes
-* Ring extension for VSCode is updated to support modern versions of VSCode
-
-.. image:: vscode2024.png
-	:alt: VSCode
 
 .. index:: 
 	pair: What is new in Ring  1.20; More Improvements
