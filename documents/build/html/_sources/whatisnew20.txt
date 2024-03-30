@@ -199,6 +199,9 @@ Better Tools and Extensions
 * RingQt - Correct parent class name for the QMaterial & QLogicAspect classes
 * Ring extension for VSCode is updated to support modern versions of VSCode
 
+.. image:: vscode2024.png
+	:alt: VSCode
+
 .. index:: 
 	pair: What is new in Ring  1.20; More Improvements
 
