@@ -89,9 +89,11 @@ Syntax:
 
 .. code-block:: ring
 
-	Input(nCount) ---> string
+	Input([nCount]) ---> string
 
 The function will wait until nCount characters (at least) are read
+
+.. tip:: If the nCount is not passed as parameter, the function will read a line.
 
 Example:
 
