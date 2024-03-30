@@ -149,9 +149,51 @@ Example:
 Better Performance when using Braces
 ====================================
 
-Using braces to access objects is 120% faster in Ring 1.20
+Using braces to access objects is faster in Ring 1.20 than Ring 1.19
+
+The performance gain could be from 120% to 160%
+
+Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]
 
 Using normal functions or using the dot operator still faster than using braces, but this update is a step forward towards reducing the gap.
+
+Example:
+
+.. code-block:: ring
+
+	oPoint = new Point
+
+	t1 = clock()
+	for t=1 to 100000
+		oPoint {
+			# Access object attributes|methods
+		}
+	next	
+	? (clock()-t1)/clocksPerSecond()
+
+	class point x y z
+
+* Time using Ring 1.20: 0.05 second
+* Time using Ring 1.19: 0.13 second
+* Time using Ring 1.18: 0.38 second
+
+.. note:: We have written this example in this slow way to do the test
+
+A very fast version of the sample will could be written by using braces before the loop
+
+.. code-block:: ring
+
+	oPoint = new Point
+
+	t1 = clock()
+	oPoint {
+		for t=1 to 100000
+			# Access object attributes|methods
+		next	
+	}
+	? (clock()-t1)/clocksPerSecond()
+
+	class point x y z
 
 .. index:: 
 	pair: What is new in Ring  1.20; Better Support for Threads

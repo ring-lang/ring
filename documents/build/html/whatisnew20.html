@@ -328,8 +328,47 @@
 </section>
 <section id="better-performance-when-using-braces">
 <span id="index-5"></span><h2>Better Performance when using Braces<a class="headerlink" href="#better-performance-when-using-braces" title="Permalink to this heading"></a></h2>
-<p>Using braces to access objects is 120% faster in Ring 1.20</p>
+<p>Using braces to access objects is faster in Ring 1.20 than Ring 1.19</p>
+<p>The performance gain could be from 120% to 160%</p>
+<p>Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]</p>
 <p>Using normal functions or using the dot operator still faster than using braces, but this update is a step forward towards reducing the gap.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">oPoint</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span>
+
+<span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">100000</span>
+        <span class="n">oPoint</span> <span class="p">{</span>
+                <span class="c"># Access object attributes|methods</span>
+        <span class="p">}</span>
+<span class="k">next</span>
+<span class="o">?</span> <span class="p">(</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clocksPerSecond</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Time using Ring 1.20: 0.05 second</p></li>
+<li><p>Time using Ring 1.19: 0.13 second</p></li>
+<li><p>Time using Ring 1.18: 0.38 second</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We have written this example in this slow way to do the test</p>
+</div>
+<p>A very fast version of the sample will could be written by using braces before the loop</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">oPoint</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span>
+
+<span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
+<span class="n">oPoint</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">100000</span>
+                <span class="c"># Access object attributes|methods</span>
+        <span class="k">next</span>
+<span class="p">}</span>
+<span class="o">?</span> <span class="p">(</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clocksPerSecond</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+</pre></div>
+</div>
 </section>
 <section id="better-support-for-threads">
 <span id="index-6"></span><h2>Better Support for Threads<a class="headerlink" href="#better-support-for-threads" title="Permalink to this heading"></a></h2>
