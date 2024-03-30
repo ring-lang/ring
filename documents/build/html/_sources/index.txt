@@ -93,6 +93,7 @@ Contents:
    RingLibZip Functions Reference <ringlibzipfuncsdoc>
    RingMurmurHash Functions Reference <ringmurmurhashfuncsdoc>
    RingConsoleColors Functions Reference <ringconsolecolorsfuncsdoc>
+   Using RingRogueUtil <usingrogueutil>
    RingAllegro Functions Reference <ringallegrofuncsdoc>
    Using RingLibSDL <libsdl>
    RingLibSDL Functions Reference <ringlibsdlfuncsdoc>

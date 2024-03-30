@@ -120,6 +120,12 @@ Example:
 	showCursor()
 	cls()
 
+Output:
+
+.. image:: conui1.png
+	:alt: Using RogueUtil Shot1
+
+
 .. index:: 
 	pair: Using RogueUtil; Respond to keypress events
 
@@ -431,3 +437,8 @@ Example:
 	func clearMsg
 		printXY(nX,nY,Copy(" ",C_MSGLEN))
 		
+
+Output:
+
+.. image:: conui2.png
+	:alt: Using RogueUtil Shot2
