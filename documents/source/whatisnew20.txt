@@ -51,6 +51,7 @@ Better Samples and Applications
 * ring/applications - Using list() instead of newlist() in many applications
 * ring/applications - Using stdlibcore.ring instead of stdlib.ring in many applications
 * ring/applications - Using lightguilib.ring instead of guilib.ring in many applications
+* ring/applications - Use openWindow() method instead of open_window()
 
 .. index:: 
 	pair: What is new in Ring  1.20; Better Functions
