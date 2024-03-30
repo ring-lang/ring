@@ -466,8 +466,9 @@ Using Substr() we can</p>
 <p>We can convert string lines to list items using the str2list() function.
 Also we can convert the list to a string using list2str() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">str2list</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">the</span> <span class="kt">string</span> <span class="n">lines</span>
-<span class="n">list2str</span><span class="p">(</span><span class="kt">list</span><span class="p">)</span>   <span class="o">---&gt;</span> <span class="kt">string</span> <span class="n">contains</span> <span class="n">the</span> <span class="kt">list</span> <span class="n">items</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">str2list</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span>               <span class="o">---&gt;</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">the</span> <span class="kt">string</span> <span class="n">lines</span>
+<span class="n">list2str</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>                 <span class="o">---&gt;</span> <span class="kt">string</span> <span class="n">contains</span> <span class="n">the</span> <span class="kt">list</span> <span class="n">items</span>
+<span class="n">list2str</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="o">[</span><span class="n">nStart</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="n">nEnd</span><span class="o">]</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">string</span> <span class="n">contains</span> <span class="n">the</span> <span class="kt">list</span> <span class="n">items</span> <span class="k">from</span> <span class="n">nStart</span> <span class="k">to</span> <span class="n">nEnd</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -504,6 +505,12 @@ Also we can convert the list to a string using list2str() function.</p>
 <span class="k">else</span>
         <span class="k">see</span> <span class="n">nl</span> <span class="o">+</span> <span class="s">&quot;Error!&quot;</span>
 <span class="k">ok</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span>
+<span class="n">cStr</span>  <span class="o">=</span> <span class="n">list2str</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">cStr</span>                          <span class="c"># 6 7 8 9 10</span>
 </pre></div>
 </div>
 </section>

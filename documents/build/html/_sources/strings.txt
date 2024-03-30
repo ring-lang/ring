@@ -390,8 +390,9 @@ Syntax:
 
 .. code-block:: ring
 
-	str2list(string) ---> list contains the string lines 
-	list2str(list)   ---> string contains the list items
+	str2list(cString) 		---> list contains the string lines 
+	list2str(aList)   		---> string contains the list items
+	list2str(aList,[nStart],[nEnd]) ---> string contains the list items from nStart to nEnd
 
 Example:
 
@@ -430,7 +431,15 @@ Example:
 	else
 		see nl + "Error!"
 	ok
-		
+
+Example:
+
+.. code-block:: ring
+
+	aList = 1:10
+	cStr  = list2str(aList,6,10)
+	? cStr				# 6 7 8 9 10
+			
 
 .. index:: 
 	pair: Strings; Merge binary characters
