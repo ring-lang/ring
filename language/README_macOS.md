@@ -30,11 +30,6 @@ This will build everything
 	
 ### Run Ring Notepad
 	
-	cd ring/tools/ringnotepad
-	sudo ring rnote.ring
-
-Also, We can run Ring Notepad using Ring Package Manager
-
 	ringpm run ringnotepad
 
 ## Custom Build
@@ -158,11 +153,6 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 	
 ### Run Ring Notepad
 	
-	cd ring/tools/ringnotepad
-	ring rnote.ring
-
-Also, We can run Ring Notepad using Ring Package Manager
-
 	ringpm run ringnotepad
 
 ### More Extensions

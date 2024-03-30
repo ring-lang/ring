@@ -13,6 +13,7 @@
 Install Qt 5.15.16  (in C:\Qt) so we have the folder (C:\Qt\5.15.16)
 
 If you have another version from Qt 5.15 (like Qt 5.15.2) - Or Qt is installed in another folder 
+
 The next batch files uses environment variables (RING_QT_DIR & RING_QT_VERSION) to set the path
 
 To build 32bit version: 
@@ -179,11 +180,6 @@ To Copy the Qt runtime files to ring/bin folder
 	
 #### Run Ring Notepad
 	
-	cd ring/tools/ringnotepad
-	ring rnote.ring
-
-Also, We can run Ring Notepad using Ring Package Manager
-
 	ringpm run ringnotepad
 
 #### More Extensions
