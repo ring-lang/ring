@@ -135,6 +135,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#respond-to-keypress-events">Respond to keypress events</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#respond-to-mouse-events-in-windows-command-prompt">Respond to mouse events in Windows command prompt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#respond-to-mouse-events-windows-command-prompt-or-linux-macos-terminal">Respond to mouse events (Windows Command Prompt or Linux/macOS Terminal)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#defined-constants">Defined Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list-of-functions">List of Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
@@ -219,6 +221,8 @@
 <li><p>Respond to keypress events</p></li>
 <li><p>Respond to mouse events in Windows command prompt</p></li>
 <li><p>Respond to mouse events (Windows Command Prompt or Linux/macOS Terminal)</p></li>
+<li><p>Defined Constants</p></li>
+<li><p>List of Functions</p></li>
 </ul>
 <section id="change-the-console-window-title">
 <span id="index-1"></span><h2>Change the Console window title<a class="headerlink" href="#change-the-console-window-title" title="Permalink to this heading"></a></h2>
@@ -599,6 +603,108 @@
 </div>
 <p>Output:</p>
 <img alt="Using RogueUtil Shot2" src="_images/conui2.png" />
+</section>
+<section id="defined-constants">
+<span id="index-8"></span><h2>Defined Constants<a class="headerlink" href="#defined-constants" title="Permalink to this heading"></a></h2>
+<p>This extension defines the next constants</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>BLACK
+BLUE
+GREEN
+CYAN
+RED
+MAGENTA
+BROWN
+GREY
+DARKGREY
+LIGHTBLUE
+LIGHTGREEN
+LIGHTCYAN
+LIGHTRED
+LIGHTMAGENTA
+YELLOW
+WHITE
+KEY_ESCAPE
+KEY_ENTER
+KEY_SPACE
+KEY_INSERT
+KEY_HOME
+KEY_PGUP
+KEY_DELETE
+KEY_END
+KEY_PGDOWN
+KEY_UP
+KEY_DOWN
+KEY_LEFT
+KEY_RIGHT
+KEY_F1
+KEY_F2
+KEY_F3
+KEY_F4
+KEY_F5
+KEY_F6
+KEY_F7
+KEY_F8
+KEY_F9
+KEY_F10
+KEY_F11
+KEY_F12
+KEY_NUMDEL
+KEY_NUMPAD0
+KEY_NUMPAD1
+KEY_NUMPAD2
+KEY_NUMPAD3
+KEY_NUMPAD4
+KEY_NUMPAD5
+KEY_NUMPAD6
+KEY_NUMPAD7
+KEY_NUMPAD8
+KEY_NUMPAD9
+MOUSEEVENT_START
+MOUSEEVENT_CLICK
+MOUSEMOVE_NOBUTTON
+MOUSEMOVE_LEFTBTNDOWN
+MOUSEMOVE_RIGHTBTNDOWN
+MOUSEEVENT_SCROLL
+MOUSEEVENT_SCROLLUP
+MOUSEEVENT_SCROLLDOWN
+</pre></div>
+</div>
+</section>
+<section id="list-of-functions">
+<span id="index-9"></span><h2>List of Functions<a class="headerlink" href="#list-of-functions" title="Permalink to this heading"></a></h2>
+<p>This extension provides the next functions</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>void locate(int x, int y)
+int getch(void)
+int kbhit(void)
+void gotoxy(int x, int y)
+int getkey(void)
+int nb_getch(void)
+char *getANSIColor(const int c)
+char *getANSIBgColor(const int c)
+void setColor(int c)
+void setBackgroundColor(int c)
+int saveDefaultColor(void)
+void resetColor(void)
+void cls(void)
+void setString(char *str)
+void setChar(char ch)
+void setCursorVisibility(char visible)
+void hidecursor(void)
+void showcursor(void)
+void msleep(unsigned int ms)
+int trows(void)
+int tcols(void)
+void anykey(char *msg)
+void setConsoleTitle(char *title)
+char *getUsername(void)
+void printXY(int x, int y, char *msg)
+void echoon(void)
+void echooff(void)
+List *getmouseinfo(void)
+void enablemouse(void)
+void disablemouse(void)
+</pre></div>
+</div>
 </section>
 </section>
 
