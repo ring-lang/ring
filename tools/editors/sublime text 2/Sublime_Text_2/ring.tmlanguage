@@ -221,7 +221,7 @@
 		<key>controlKeywords</key>
 		<dict>
 			<key>match</key>
-			<string>(?i:\b(see|nl|stdin|stdout|bye|true|false|and|or|not|if|but|else|ok|switch|on|off|while|end|for|next|to|in|do|again|return|load|import|new|try|catch|done|endif|endfor|endwhile|endswitch|endtry|break|continue|function|endfunction)\b)</string>
+			<string>(?i:\b(see|nl|stdin|stdout|bye|true|false|and|or|not|if|but|else|ok|switch|on|off|while|end|for|next|to|in|do|again|return|load|import|new|try|catch|done|endif|endfor|endwhile|endswitch|endtry|break|continue|function|endfunction|loadsyntax|changeringkeyword|changeringoperator|enablehashcomments|disablehashcomments)\b)</string>
 			<key>name</key>
 			<string>keyword.control.ring</string>
 		</dict>
