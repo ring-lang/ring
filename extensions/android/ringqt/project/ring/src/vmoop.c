@@ -275,7 +275,6 @@ void ring_vm_oop_newclass ( VM *pVM )
 void ring_vm_oop_setscope ( VM *pVM )
 {
 	/* This function will be called after creating a new object and executing the class init() method */
-	ring_list_genarray_gc(pVM->pRingState,pVM->pActiveMem);
 	/* Restore State */
 	ring_vm_restorestatefornewobjects(pVM);
 }

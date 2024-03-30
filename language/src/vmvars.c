@@ -304,8 +304,6 @@ List * ring_vm_newvar2 ( VM *pVM,const char *cStr,List *pParent )
 		}
 		ring_hashtable_newpointer_gc(pVM->pRingState,pParent->pHashTable,cStr,pList);
 	}
-	/* Generate the Array */
-	ring_list_genarray_gc(pVM->pRingState,pList);
 	return pList ;
 }
 
