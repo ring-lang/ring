@@ -105,6 +105,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#using-endpackage-endclass-endfunc-keywords-after-packages-classes-functions">Using ‘endpackage’/’endclass’/’endfunc’ keywords after Packages/Classes/Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ignore-new-lines-after-keywords">Ignore new lines after keywords</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#automatic-loading-for-syntax-files">Automatic loading for syntax files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enable-disable-hash-comments">Enable/Disable Hash Comments</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
@@ -824,6 +825,25 @@ Hello from the Test function
 <img alt="autoloadsyntax" src="_images/autoloadsyntax.png" />
 <p>For Windows users, To use Arabic source code files with Ring, Set the language settings.</p>
 <img alt="winlangsettings" src="_images/winlangsettings.png" />
+</section>
+<section id="enable-disable-hash-comments">
+<span id="index-22"></span><h2>Enable/Disable Hash Comments<a class="headerlink" href="#enable-disable-hash-comments" title="Permalink to this heading"></a></h2>
+<p>Starting from Ring 1.20 we have the next two commands supported by the Ring Scanner</p>
+<ul class="simple">
+<li><p>EnableHashComments</p></li>
+<li><p>DisableHashComments</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DisableHashComments</span>
+<span class="c">#define = 10</span>
+<span class="n">EnableHashComments</span>
+<span class="c"># Just a comment</span>
+<span class="n">DisableHashComments</span>
+<span class="o">?</span> <span class="c">#define</span>
+<span class="n">EnableHashComments</span>
+<span class="c"># End of program</span>
+</pre></div>
+</div>
 </section>
 </section>
 

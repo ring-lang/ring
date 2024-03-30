@@ -779,4 +779,27 @@ For Windows users, To use Arabic source code files with Ring, Set the language s
 	:alt: winlangsettings
 
 
+.. index:: 
+	pair: Syntax Flexibility; Enable/Disable Hash Comments
+
+Enable/Disable Hash Comments
+============================
+
+Starting from Ring 1.20 we have the next two commands supported by the Ring Scanner
+
+* EnableHashComments
+* DisableHashComments
+
+Example:
+
+.. code-block:: ring
+
+	DisableHashComments
+	#define = 10
+	EnableHashComments
+	# Just a comment
+	DisableHashComments
+	? #define
+	EnableHashComments
+	# End of program
 
