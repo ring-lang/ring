@@ -1,4 +1,4 @@
-![Ring](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/graphics/thering.jpg)
+![Ring](https://ring-lang.github.io/theringlogo.jpg)
 
 # Ring Programming Language
 
