@@ -2828,6 +2828,24 @@ Parent Class : QCompleter
 
 
 .. index::
+	pair: RingQt Classes Reference; QComponent Class
+
+QComponent Class
+================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qcomponent.html
+
+
+Parameters : Qt3DCore::QNode *
+
+
+Parent Class : QNode
+
+* bool isShareable(void)
+* void setShareable(bool isShareable)
+
+.. index::
 	pair: RingQt Classes Reference; QConeGeometry Class
 
 QConeGeometry Class
@@ -6192,7 +6210,7 @@ C++ Reference : http://doc.qt.io/qt-5/qt3dlogic-qlogicaspect.html
 Parameters : QObject *
 
 
-Parent Class : Qt3DCore::QAbstractAspect
+Parent Class : QAbstractAspect
 
 
 .. index::
@@ -6268,7 +6286,7 @@ C++ Reference : http://doc.qt.io/qt-5/qt3drender-qmaterial.html
 Parameters : Qt3DCore::QNode *
 
 
-Parent Class : Qt3DCore::QComponent
+Parent Class : QComponent
 
 * void addParameter(Qt3DRender::QParameter *parameter)
 * Qt3DRender::QEffect * effect(void)
@@ -8131,8 +8149,8 @@ Parameters : void
 * void drawPolyline(List *pPoints)
 * void drawHSVFList(List *pPoints)
 * void drawRGBFList(List *pPoints)
-* void drawHSVFListAtXY(List *pPoints, int x, int y)
-* void drawRGBFListAtXY(List *pPoints, int x, int y)
+* void drawHSVFListAtXY(List *pPoints,int x,int y)
+* void drawRGBFListAtXY(List *pPoints,int x,int y)
 * void drawBytes(int x, int y,const char *cData,int Width,int Height,int channels)
 
 .. index::
@@ -12881,47 +12899,6 @@ Parent Class : QWidget
 * const char *gettitleChangedEvent(void)
 * const char *geturlChangedEvent(void)
 * void print(QPrinter *printer,const char *cCode)
-
-.. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/qt-5/qwebview.html
-
-
-Parameters : QWidget *parent
-
-
-Parent Class : QWidget
-
-* QWebHistory *history(void)
-* QAction *pageAction(QWebPage::WebAction action)
-* void setContent(QByteArray,QString,QUrl)
-* void setHtml(QString,QUrl)
-* void setPage(QWebPage *page)
-* void setZoomFactor(qreal factor)
-* QWebSettings *settings(void)
-* void triggerPageAction(QWebPage::WebAction action, bool checked)
-* QUrl url(void)
-* qreal zoomFactor(void)
-* void back(void)
-* void forward(void)
-* void print(QPrinter *printer)
-* void reload(void)
-* void stop(void)
-* void setloadProgressEvent(const char *)
-* void setloadStartedEvent(const char *)
-* void setselectionChangedEvent(const char *)
-* void seturlChangedEvent(const char *)
-* const char *getloadFinishedEvent(void)
-* const char *getloadProgressEvent(void)
-* const char *getloadStartedEvent(void)
-* const char *getselectionChangedEvent(void)
-* const char *gettitleChangedEvent(void)
-* const char *geturlChangedEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QWebView Class
