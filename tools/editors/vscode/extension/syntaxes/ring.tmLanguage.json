@@ -22,7 +22,7 @@
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.ring",
-				"match": "\\b(again|and|but|bye|call|case|catch|changeringkeyword|changeringoperator|class|def|do|done|else|elseif|end|exit|for|from|func|get|give|if|import|in|load|loadsyntax|loop|new|next|not|off|ok|on|or|other|package|private|put|return|see|step|switch|to|try|while|endfunc|endclass|endpackage|endif|endfor|endwhile|endswitch|endtry|function|endfunction|break|continue)\\b"
+				"match": "\\b(again|and|but|bye|call|case|catch|changeringkeyword|changeringoperator|class|def|disablehashcomments|do|done|else|elseif|end|exit|for|from|func|get|give|if|import|in|load|loadsyntax|loop|new|next|not|off|ok|on|or|other|package|private|put|return|see|step|switch|to|try|while|enablehashcomments|endfunc|endclass|endpackage|endif|endfor|endwhile|endswitch|endtry|function|endfunction|break|continue)\\b"
 			}]
 		},
 		"strings": {
