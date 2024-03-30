@@ -22,6 +22,29 @@ This version is tested using Ubuntu 22.04 LTS
 	
 	cd ring/language/build
 	./installdep.sh 
+
+## Complete Build (Compiler/VM, Extensions, Tools, etc.)
+
+This will build everything
+
+	cd ring/build
+	./buildgcc.sh
+
+### To be able to call ring from any folder 
+	cd ring/bin
+	sudo ./install.sh
+	
+### Run Ring Notepad
+	
+	cd ring/tools/ringnotepad
+	sudo ring rnote.ring
+
+Also, We can run Ring Notepad using Ring Package Manager
+
+	ringpm run ringnotepad
+
+
+## Custom Build
 	
 ### Build Ring (Compiler/VM)
 	
