@@ -327,7 +327,9 @@ Example:
 strcmp() Function
 =================
 
-We can compare between two strings using the strcmp() function.
+In Ring we can use the = operator to compare between strings
+
+Also, we can compare between two strings using the strcmp() function.
 
 Syntax:
 
@@ -352,6 +354,28 @@ Output:
 	0
 	-1
 	1
+
+
+.. index:: 
+	pair: Strings; Reverse() Function
+
+Reverse() Function
+==================
+
+Using the Reverse() function we can reverse the string characters
+
+.. note:: This functions support lists too
+
+Syntax:
+
+.. code-block:: ring
+
+	Reverse(cString) ---> cReversedString 
+
+.. code-block:: ring
+
+	cStr = "Welcome to Ring"
+	? reverse(cStr)			# gniR ot emocleW
 
 .. index:: 
 	pair: Strings; str2list() and list2str()

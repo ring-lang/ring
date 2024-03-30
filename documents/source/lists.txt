@@ -325,6 +325,8 @@ Reverse
 
 We can reverse a list using the reverse() function.
 
+.. note:: This functions support strings too
+
 Syntax:
 
 .. code-block:: ring

@@ -78,6 +78,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#get-number-of-characters-from-position">Get Number of Characters From Position</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#transform-substring-to-another-substring">Transform Substring To Another Substring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#strcmp-function">strcmp() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reverse-function">Reverse() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#str2list-and-list2str-functions">str2list() and list2str() Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#merge-binary-characters">Merge binary characters</a></li>
 </ul>
@@ -423,7 +424,8 @@ Using Substr() we can</p>
 </section>
 <section id="strcmp-function">
 <span id="index-15"></span><h2>strcmp() Function<a class="headerlink" href="#strcmp-function" title="Permalink to this heading"></a></h2>
-<p>We can compare between two strings using the strcmp() function.</p>
+<p>In Ring we can use the = operator to compare between strings</p>
+<p>Also, we can compare between two strings using the strcmp() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">strcmp</span><span class="p">(</span><span class="n">cString1</span><span class="p">,</span><span class="n">cString2</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">cString1</span> <span class="o">=</span> <span class="n">cString2</span>
                                <span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">cString1</span> <span class="o">&lt;</span> <span class="n">cString2</span>
@@ -443,8 +445,24 @@ Using Substr() we can</p>
 </pre></div>
 </div>
 </section>
+<section id="reverse-function">
+<span id="index-16"></span><h2>Reverse() Function<a class="headerlink" href="#reverse-function" title="Permalink to this heading"></a></h2>
+<p>Using the Reverse() function we can reverse the string characters</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This functions support lists too</p>
+</div>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Reverse</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cReversedString</span>
+</pre></div>
+</div>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cStr</span> <span class="o">=</span> <span class="s">&quot;Welcome to Ring&quot;</span>
+<span class="o">?</span> <span class="n">reverse</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>                 <span class="c"># gniR ot emocleW</span>
+</pre></div>
+</div>
+</section>
 <section id="str2list-and-list2str-functions">
-<span id="index-16"></span><h2>str2list() and list2str() Functions<a class="headerlink" href="#str2list-and-list2str-functions" title="Permalink to this heading"></a></h2>
+<span id="index-17"></span><h2>str2list() and list2str() Functions<a class="headerlink" href="#str2list-and-list2str-functions" title="Permalink to this heading"></a></h2>
 <p>We can convert string lines to list items using the str2list() function.
 Also we can convert the list to a string using list2str() function.</p>
 <p>Syntax:</p>
@@ -490,7 +508,7 @@ Also we can convert the list to a string using list2str() function.</p>
 </div>
 </section>
 <section id="merge-binary-characters">
-<span id="index-17"></span><h2>Merge binary characters<a class="headerlink" href="#merge-binary-characters" title="Permalink to this heading"></a></h2>
+<span id="index-18"></span><h2>Merge binary characters<a class="headerlink" href="#merge-binary-characters" title="Permalink to this heading"></a></h2>
 <p>From Ring 1.0 we can create binary strings and do operations on these strings.</p>
 <p>Starting from Ring 1.8, we can get individual characters from these strings and merge them together using
 the ‘+’ operator.</p>
