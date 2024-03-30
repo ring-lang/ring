@@ -10,22 +10,22 @@
 
 ### Complete Build (Compiler/VM, Extensions, Tools, etc.)
 
-* Install Qt 5.15.16  (in C:\Qt) so we have the folder (C:\Qt\5.15.16)
+Install Qt 5.15.16  (in C:\Qt) so we have the folder (C:\Qt\5.15.16)
 
-* If you have another version from Qt 5.15 (like Qt 5.15.2) - Or Qt is installed in another folder 
+If you have another version from Qt 5.15 (like Qt 5.15.2) - Or Qt is installed in another folder 
 The next batch files uses environment variables (RING_QT_DIR & RING_QT_VERSION) to set the path
 
-* To build 32bit version: 
+To build 32bit version: 
 
 	ring/build/buildvc.bat
 	
-* To build 64bit version: 
+To build 64bit version: 
 
 	ring/build/buildvc_x64.bat
 
-* Add ring/bin folder to your system path 
+Add ring/bin folder to your system path 
 
-* Run Ring Notepad 
+Run Ring Notepad 
 
 	ringpm run ringnotepad
 
