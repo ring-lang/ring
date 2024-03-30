@@ -82,7 +82,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#passing-parameters-or-arguments-using-list-array">Passing Parameters or Arguments Using List Array</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#return-parameters-as-list-or-hash-table">Return Parameters as List or Hash Table</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#creating-a-multi-dimensional-array-using-list">Creating a Multi-Dimensional Array using  List</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#swap-items">Swap Items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#swap-lists-and-items">Swap Lists and Items</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
@@ -792,9 +792,14 @@ Where the order of parameters will not be important (we can change the order).</
 </pre></div>
 </div>
 </section>
-<section id="swap-items">
-<span id="index-21"></span><h2>Swap Items<a class="headerlink" href="#swap-items" title="Permalink to this heading"></a></h2>
-<p>We can swap the list items using the Swap() function.</p>
+<section id="swap-lists-and-items">
+<span id="index-21"></span><h2>Swap Lists and Items<a class="headerlink" href="#swap-lists-and-items" title="Permalink to this heading"></a></h2>
+<p>We can swap lists/items using the Swap() function.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">swap</span><span class="p">(</span><span class="n">aList1</span><span class="p">,</span><span class="n">aList2</span><span class="p">)</span>
+<span class="n">swap</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">nItem1</span><span class="p">,</span><span class="n">nItem2</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="p">:</span><span class="n">one</span><span class="p">,:</span><span class="n">two</span><span class="p">,:</span><span class="n">four</span><span class="p">,:</span><span class="n">three</span><span class="o">]</span>
 <span class="k">see</span> <span class="n">aList</span>
@@ -813,6 +818,24 @@ Where the order of parameters will not be important (we can change the order).</
 <span class="n">two</span>
 <span class="n">three</span>
 <span class="n">four</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList1</span> <span class="o">=</span> <span class="mi">4</span><span class="p">:</span><span class="mi">6</span>
+<span class="n">aList2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span>
+<span class="n">swap</span><span class="p">(</span><span class="n">aList1</span><span class="p">,</span><span class="n">aList2</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">aList1</span>                        <span class="c"># 1 2 3</span>
+<span class="o">?</span> <span class="n">aList2</span>                        <span class="c"># 4 5 6</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span> <span class="mi">4</span><span class="p">:</span><span class="mi">6</span> <span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span> <span class="o">]</span>
+<span class="o">?</span> <span class="n">aList</span>                         <span class="c"># 4 5 6 1 2 3</span>
+<span class="n">swap</span><span class="p">(</span><span class="n">aList</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span> <span class="n">aList</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">aList</span>                         <span class="c"># 1 2 3 4 5 6</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span> <span class="mi">4</span><span class="p">:</span><span class="mi">6</span> <span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span> <span class="o">]</span>
+<span class="o">?</span> <span class="n">aList</span>                         <span class="c"># 4 5 6 1 2 3</span>
+<span class="n">swap</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">aList</span>                         <span class="c"># 1 2 3 4 5 6</span>
 </pre></div>
 </div>
 </section>
