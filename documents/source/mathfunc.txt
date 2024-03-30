@@ -37,7 +37,7 @@ floor(x)		Returns the largest integer value less than or equal to x
 fabs(x)			Returns the absolute value of x.
 pow(x,y)		Returns x raised to the power of y 
 sqrt(x)			Returns the square root of x
-random(x)		Returns a random number in the range [0,x]
+random(x)		Returns a random number in the range [0,x] or [0,-x]
 srandom(x)		Initialize random number generator
 unsigned(n,n,c)		Perform operation using unsigned numbers 
 decimals(n)		Determine the decimals digits after the point in float/double numbers
