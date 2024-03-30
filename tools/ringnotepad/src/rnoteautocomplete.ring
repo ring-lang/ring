@@ -8,11 +8,11 @@ class RNoteAutoComplete
 		# Add Ring Keywords
 			aKeywords = ["again","and","but","bye","call","case","catch",
 				"changeringkeyword","changeringoperator","class",
-				"def","do","done","else","elseif","end","exit","for","from",
+				"def","disablehashcomments","do","done","else","elseif","end","exit","for","from",
 				"func","get","give","if","import","in","load","loadsyntax",
 				"loop","new","next","not","off","ok","on","or","other",
 				"package","private","put","return","see","step","switch",
-				"to","try","while","endfunc","endclass","endpackage",
+				"to","try","while","enablehashcomments","endfunc","endclass","endpackage",
 				"endif","endfor","endwhile","endswitch","endtry",
 				"function","endfunction","break","continue"]
 			AddItems(aKeywords,oAutoCompleteList)
