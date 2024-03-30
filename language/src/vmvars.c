@@ -389,8 +389,6 @@ void ring_vm_var_setprivateflag ( VM *pVM,List *pVar,int nFlag )
 {
 	if ( ring_list_getsize(pVar) == RING_VAR_PRIVATEFLAG - 1 ) {
 		ring_list_addint_gc(pVM->pRingState,pVar,nFlag);
-		/* Generate the Array */
-		ring_list_genarray_gc(pVM->pRingState,pVar);
 	}
 	else if ( ring_list_getsize(pVar) == RING_VAR_PRIVATEFLAG ) {
 		ring_list_setint_gc(pVM->pRingState,pVar,RING_VAR_PRIVATEFLAG,nFlag);
