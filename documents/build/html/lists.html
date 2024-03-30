@@ -265,8 +265,10 @@
 <section id="add-items">
 <span id="index-2"></span><h2>Add Items<a class="headerlink" href="#add-items" title="Permalink to this heading"></a></h2>
 <p>To add new items to the list, we can use the Add() function.</p>
+<p>When adding a list to another list it will be added as one item.</p>
+<p>If you want to change this and add each item in the added list alone pass the third parameter as True</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Add</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">Item</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Add</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">Item</span><span class="p">,</span><span class="o">[</span><span class="n">lManyItems</span><span class="o">]</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -284,6 +286,17 @@
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span>    <span class="c"># create list contains numbers from 1 to 10</span>
 <span class="n">aList</span> <span class="o">+</span> <span class="mi">11</span>      <span class="c"># add number 11 to the list</span>
 <span class="k">see</span> <span class="n">aList</span>       <span class="c"># print the list</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span>
+<span class="n">add</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">)</span>          <span class="c"># Add the list as one item</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>            <span class="c"># 4</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span>
+<span class="n">add</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="kp">True</span><span class="p">)</span>     <span class="c"># Add each item alone</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>            <span class="c"># 6</span>
+<span class="o">?</span> <span class="n">aList</span>
 </pre></div>
 </div>
 </section>
