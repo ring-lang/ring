@@ -153,6 +153,13 @@ Example:
 
 	getch() 
 
+
+.. image:: conui1.png
+	:alt: Using RogueUtil Shot1
+
+.. image:: conui2.png
+	:alt: Using RogueUtil Shot2
+
 .. index:: 
 	pair: What is new in Ring  1.20; Better Scripts for Building Ring
 
