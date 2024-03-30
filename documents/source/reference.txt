@@ -285,7 +285,7 @@ Functions Count: 252
 	refcount(aList|oObject) ---> References Count
 	remove(cFileName)
 	rename(cOldFileName,cNewFileName) ---> Zero for Success or -1 for Error
-	reverse(List) ---> Reversed List
+	reverse(List|String) ---> Reversed List|String
         rewind(FileHandle)
 	right(string,count) ---> get characters starting from the right
         ring_give(cVariable)
