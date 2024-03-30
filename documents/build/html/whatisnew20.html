@@ -266,6 +266,40 @@
 <li><p>locals() function - Usage in global scope will not return predefined globals like NL, True, etc.</p></li>
 <li><p>Swap() function - Support swaping any two Lists/Objects</p></li>
 </ul>
+<p>Example (1):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cStr</span> <span class="o">=</span> <span class="s">&quot;Welcome to Ring&quot;</span>
+<span class="o">?</span> <span class="n">reverse</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>                 <span class="c"># gniR ot emocleW</span>
+</pre></div>
+</div>
+<p>Example (2):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span>
+<span class="n">add</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">)</span>          <span class="c"># Add the list as one item</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>            <span class="c"># 4</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span>
+<span class="n">add</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="kp">True</span><span class="p">)</span>     <span class="c"># Add each item alone</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>            <span class="c"># 6</span>
+<span class="o">?</span> <span class="n">aList</span>
+</pre></div>
+</div>
+<p>Example (3):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList1</span> <span class="o">=</span> <span class="mi">4</span><span class="p">:</span><span class="mi">6</span>
+<span class="n">aList2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span>
+<span class="n">swap</span><span class="p">(</span><span class="n">aList1</span><span class="p">,</span><span class="n">aList2</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">aList1</span>                        <span class="c"># 1 2 3</span>
+<span class="o">?</span> <span class="n">aList2</span>                        <span class="c"># 4 5 6</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span> <span class="mi">4</span><span class="p">:</span><span class="mi">6</span> <span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span> <span class="o">]</span>
+<span class="o">?</span> <span class="n">aList</span>                         <span class="c"># 4 5 6 1 2 3</span>
+<span class="n">swap</span><span class="p">(</span><span class="n">aList</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span> <span class="n">aList</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">aList</span>                         <span class="c"># 1 2 3 4 5 6</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span> <span class="mi">4</span><span class="p">:</span><span class="mi">6</span> <span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span> <span class="o">]</span>
+<span class="o">?</span> <span class="n">aList</span>                         <span class="c"># 4 5 6 1 2 3</span>
+<span class="n">swap</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">aList</span>                         <span class="c"># 1 2 3 4 5 6</span>
+</pre></div>
+</div>
 </section>
 <section id="enable-disable-hash-comments">
 <span id="index-4"></span><h2>Enable/Disable Hash Comments<a class="headerlink" href="#enable-disable-hash-comments" title="Permalink to this heading"></a></h2>

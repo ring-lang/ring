@@ -71,6 +71,46 @@ Better Functions
 * locals() function - Usage in global scope will not return predefined globals like NL, True, etc.
 * Swap() function - Support swaping any two Lists/Objects 
 
+Example (1):
+
+.. code-block:: ring
+
+	cStr = "Welcome to Ring"
+	? reverse(cStr)			# gniR ot emocleW
+
+Example (2):
+
+.. code-block:: ring
+
+	aList = 1:3
+	add(aList,4:6)		# Add the list as one item
+	? len(aList)		# 4 
+
+	aList = 1:3
+	add(aList,4:6,True)	# Add each item alone
+	? len(aList)		# 6 
+	? aList
+
+Example (3):
+
+.. code-block:: ring
+
+	aList1 = 4:6
+	aList2 = 1:3
+	swap(aList1,aList2)
+	? aList1			# 1 2 3
+	? aList2			# 4 5 6
+
+	aList = [ 4:6 , 1:3 ]
+	? aList				# 4 5 6 1 2 3
+	swap(aList[1], aList[2])
+	? aList				# 1 2 3 4 5 6
+
+	aList = [ 4:6 , 1:3 ]
+	? aList				# 4 5 6 1 2 3
+	swap(aList,1,2)
+	? aList				# 1 2 3 4 5 6
+
 .. index:: 
 	pair: What is new in Ring  1.20; Enable/Disable Hash Comments
 
