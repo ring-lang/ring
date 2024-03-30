@@ -13,7 +13,7 @@ QAbstractItemView_InternalMove	= 4
 if IsMainSourceFile() {
 	new App {
 		StyleFusion()
-		open_window(:dragdropController)
+		openWindow(:dragdropController)
 		exec()
 	}
 }

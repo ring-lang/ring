@@ -10,7 +10,7 @@ import System.GUI
 if IsMainSourceFile() {
 	new App {
 		StyleFusion()
-		open_window(:frmProgramController)
+		openWindow(:frmProgramController)
 		exec()
 	}
 }
@@ -23,7 +23,7 @@ class frmProgramController from windowsControllerParent
 	t.icon("red_ring.png")
 
 	func dept()
-		open_window("frmDepartmentController")
+		openWindow("frmDepartmentController")
 
 	func emp()
-		open_window(:frmEmployeeController)
+		openWindow(:frmEmployeeController)

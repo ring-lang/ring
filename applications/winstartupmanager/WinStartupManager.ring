@@ -40,7 +40,7 @@ ProgramItems = RetrieveAppEntries()
 
 	new App {
 		StyleFusion()
-		open_window(:winstartupmanagerController)
+		openWindow(:winstartupmanagerController)
 		WinObj = Last_Window() {
 
 		SortProItems(2)

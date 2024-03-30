@@ -9,7 +9,7 @@ import System.Web
 import System.GUI
 
 new qApp {
-	open_window(:CustomersReportController)
+	openWindow(:CustomersReportController)
 	exec()
 }
 

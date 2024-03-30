@@ -10,6 +10,6 @@ import System.GUI
 
 new App {
 	StyleFusion()
-	open_window(:editorController)
+	openWindow(:editorController)
 	exec()
 }

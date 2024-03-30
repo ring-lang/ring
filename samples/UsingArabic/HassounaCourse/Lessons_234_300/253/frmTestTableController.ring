@@ -9,7 +9,7 @@ import System.GUI
 if IsMainSourceFile() {
 	new App {
 		StyleFusion()
-		open_window(:frmTestTableController)
+		openWindow(:frmTestTableController)
 		exec()
 	}
 }

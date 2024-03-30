@@ -13,7 +13,7 @@ End #If
 Func ShowfrmQaseedah()
 	new App {
 		StyleFusion()
-		open_window(:frmQaseedahController)
+		openWindow(:frmQaseedahController)
 		exec()
 	}
 End #Func

@@ -8,7 +8,7 @@ import System.GUI
 if IsMainSourceFile() {
 	oApp = new App {
 		StyleFusionBlack()
-		open_window(:moneyController)
+		openWindow(:moneyController)
 		exec()
 	}
 }

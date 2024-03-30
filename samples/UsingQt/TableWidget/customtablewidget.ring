@@ -18,8 +18,8 @@ app = new QApp {
 }
 
 func CreateTable oParent
-	# We use open_window() to be able to use the Method() function for events
-		open_window(:CustomTable)
+	# We use openWindow() to be able to use the Method() function for events
+		openWindow(:CustomTable)
 		last_window().init(oParent)
 	return last_window()
 
@@ -55,4 +55,4 @@ class CustomTable from QTableWidget
 
 	func start
 		# Keep this method empty
-		# called by open_window() before creating the GUI object
+		# called by openWindow() before creating the GUI object

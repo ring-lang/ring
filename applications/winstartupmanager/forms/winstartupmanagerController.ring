@@ -7,7 +7,7 @@ import System.GUI
 if IsMainSourceFile() {
 	new App {
 		StyleFusion()
-		open_window(:winstartupmanagerController)
+		openWindow(:winstartupmanagerController)
 		exec()
 	}
 }
@@ -27,7 +27,7 @@ Func LoadWinAction
 
 Func AddProgAction
 	if not SubWinOpened
-		Open_window( :addeditentryController )
+		openWindow( :addeditentryController )
 		SubWinObj = Last_Window() {
 			SetParentObject(WinObj)
 		
@@ -75,7 +75,7 @@ Func EditProgAction
 	lpath = trim(left(lappPath, substr(Lower(lappPath), ".exe") +3))
 	largs = trim(right(lappPath, len(lappPath) - substr(Lower(lappPath), ".exe") -3))
 	if not SubWinOpened
-		Open_window( :addeditentryController )
+		openWindow( :addeditentryController )
 		SubWinObj = Last_Window() {
 			SetParentObject(WinObj)
 			

@@ -10,7 +10,7 @@ import System.GUI
 if IsMainSourceFile() {
 	new App {
 		StyleFusion()
-		open_window(:frmMainController)
+		openWindow(:frmMainController)
 		exec()
 	}
 }
@@ -87,7 +87,7 @@ class frmMainController from windowsControllerParent
 		r = mysql_get("select count(*) from myusers where username='" + strUser + "' and password='" + strPass + "' ")
 		if r[2][1] = 1
 			t.win().close()
-			open_window(:frmProgramController)
+			openWindow(:frmProgramController)
 		else
 			t.msgbox("Username or password incorrect")
 		ok

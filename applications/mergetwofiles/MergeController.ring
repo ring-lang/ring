@@ -7,7 +7,7 @@ if isMainSourceFile() {
 	new App
 	{
 		StyleFusion()
-		open_window(:MergeController)
+		openWindow(:MergeController)
 		exec()
 	}
 }

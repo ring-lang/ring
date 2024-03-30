@@ -8,7 +8,7 @@ if IsMainSourceFile() {
 	new App {
 		StyleFusion()
 		setlayoutdirection(1)			# Right To Left
-		open_window(:rtlController)
+		openWindow(:rtlController)
 		exec()
 	}
 }

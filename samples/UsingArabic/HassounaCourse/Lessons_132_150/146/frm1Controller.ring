@@ -7,7 +7,7 @@ import System.GUI
 if IsMainSourceFile() {
 	new App {
 		StyleFusion()
-		open_window(:frm1Controller)
+		openWindow(:frm1Controller)
 		exec()
 	}
 }
@@ -18,9 +18,9 @@ class frm1Controller from windowsControllerParent
 
 	func f2()
 		load "frm2Controller.ring"
-		open_window(:frm2Controller)
+		openWindow(:frm2Controller)
 
 	func f3()
 		load "frm3Controller.ring"
-		open_window(:frm3Controller)
+		openWindow(:frm3Controller)
 

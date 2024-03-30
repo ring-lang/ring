@@ -8,7 +8,7 @@ import System.GUI
 if IsMainSourceFile() {
 	new App {
 		StyleFusion()
-		open_window(:testFormController)
+		openWindow(:testFormController)
 		exec()
 	}
 }

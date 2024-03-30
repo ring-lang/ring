@@ -4,11 +4,11 @@ new qApp {
 	MyWindow = new qWidget() {
 		setWindowTitle("My Control") move(100,100) resize(500,500) show()
 	}
-	open_WindowNoShow(:MyControl)
+	openWindowNoShow(:MyControl)
 	Last_Window().oView.win.setParent(MyWindow)
 	Last_Window().oView.win.move(10,10)
 	Last_Window().Start()
-	open_WindowNoShow(:MyControl)
+	openWindowNoShow(:MyControl)
 	Last_Window().oView.win.setParent(MyWindow)
 	Last_Window().oView.win.move(10,100)
 	Last_Window().Start()

@@ -13,7 +13,7 @@ if isMainSourceFile() {
 	new App
 	{
 		StyleFusion()
-		open_window(:datasetController)
+		openWindow(:datasetController)
 		exec()
 	}
 }

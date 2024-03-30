@@ -8,7 +8,7 @@ import System.GUI
 if IsMainSourceFile() {
 	new App {
 		StyleFusion()
-		open_window(:randomimageController)
+		openWindow(:randomimageController)
 		exec()
 	}
 }

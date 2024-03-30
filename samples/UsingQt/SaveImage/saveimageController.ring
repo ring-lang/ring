@@ -7,7 +7,7 @@ import System.GUI
 if IsMainSourceFile() {
 	new App {
 		StyleFusion()
-		open_window(:saveimageController)
+		openWindow(:saveimageController)
 		exec()
 	}
 }

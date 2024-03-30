@@ -7,7 +7,7 @@ import System.GUI
 if IsMainSourceFile() {
 	oApp = new App {
 		StyleFusion()
-		open_window(:desktopscreenshotController)
+		openWindow(:desktopscreenshotController)
 		exec()
 	}
 }
