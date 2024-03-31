@@ -228,10 +228,10 @@ Example (1):
 
 
 .. index:: 
-	pair: Operators; Mixing operators and Types
+	pair: Operators; Mixing Arithmetic Operators and Types
 
-Mixing operators and Types
-==========================
+Mixing Arithmetic Operators and Types
+=====================================
 
 
 The next table demonstrates what happens when mixing arithmetic operators and different types
@@ -336,7 +336,13 @@ Object      "--"         ...            Syntax Error/Runtime Error   x=new point
 =========== ============ ============== ============================ =======================
 
 
-Using relational operators like <, <=, >, >= could produce True, False OR runtime error.
+.. index:: 
+	pair: Operators; Mixing Relational Operators and Types
+
+Mixing Relational Operators and Types
+=====================================
+
+Using Relational Operators like <, <=, >, >= could produce True, False OR runtime error.
 
 When mixing Strings and Numbers with these operators, The string will be converted to a number.
 
@@ -353,7 +359,7 @@ Example (2):
 
 Using relational operators like = or != will only produce True OR False (i.e. no runtime error)
 
-When mixing Strings and Numbers with these operators, The string will be converted to a number.
+Also, when mixing Strings and Numbers with these operators, The string will be converted to a number.
 
 Example (3):
 
@@ -380,3 +386,29 @@ Example (3):
 	? "test" != 5	# 1 (True)
 
 
+.. index:: 
+	pair: Operators; Mixing Logical Operators and Types
+
+Mixing Logical Operators and Types
+==================================
+
+We have the next rules:
+
+* Logical operators always produce True/False
+* The Zero number is considered False
+* The Empty string is considered False
+* The Empty list is considered False
+* When we have a list that wrap C pointer and this pointer is NULL, this list is considered False
+* All other values are True
+
+Example (4):
+
+.. code-block:: ring
+
+	? 1 and 1			# 1 (True)
+	? "test" and "test"		# 1 (True)
+	? [1,2,3] and "test"		# 1 (True)
+	? 1 and "test" and [1,2,3]	# 1 (True)
+	? 1 and new point		# 1 (True)
+
+	class point 

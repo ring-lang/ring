@@ -60,7 +60,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#assignment-operators">Assignment Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#misc-operators">Misc Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#operators-precedence">Operators Precedence</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mixing-operators-and-types">Mixing operators and Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mixing-arithmetic-operators-and-types">Mixing Arithmetic Operators and Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mixing-relational-operators-and-types">Mixing Relational Operators and Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mixing-logical-operators-and-types">Mixing Logical Operators and Types</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
@@ -571,8 +573,8 @@ lower precedence.</p>
 </pre></div>
 </div>
 </section>
-<section id="mixing-operators-and-types">
-<span id="index-8"></span><h2>Mixing operators and Types<a class="headerlink" href="#mixing-operators-and-types" title="Permalink to this heading"></a></h2>
+<section id="mixing-arithmetic-operators-and-types">
+<span id="index-8"></span><h2>Mixing Arithmetic Operators and Types<a class="headerlink" href="#mixing-arithmetic-operators-and-types" title="Permalink to this heading"></a></h2>
 <p>The next table demonstrates what happens when mixing arithmetic operators and different types</p>
 <table class="docutils align-default">
 <thead>
@@ -1114,7 +1116,10 @@ lower precedence.</p>
 </tr>
 </tbody>
 </table>
-<p>Using relational operators like &lt;, &lt;=, &gt;, &gt;= could produce True, False OR runtime error.</p>
+</section>
+<section id="mixing-relational-operators-and-types">
+<span id="index-9"></span><h2>Mixing Relational Operators and Types<a class="headerlink" href="#mixing-relational-operators-and-types" title="Permalink to this heading"></a></h2>
+<p>Using Relational Operators like &lt;, &lt;=, &gt;, &gt;= could produce True, False OR runtime error.</p>
 <p>When mixing Strings and Numbers with these operators, The string will be converted to a number.</p>
 <p>Example (2):</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="mi">5</span> <span class="o">&lt;</span> <span class="mi">7</span>         <span class="c"># 1 (True)</span>
@@ -1125,7 +1130,7 @@ lower precedence.</p>
 </pre></div>
 </div>
 <p>Using relational operators like = or != will only produce True OR False (i.e. no runtime error)</p>
-<p>When mixing Strings and Numbers with these operators, The string will be converted to a number.</p>
+<p>Also, when mixing Strings and Numbers with these operators, The string will be converted to a number.</p>
 <p>Example (3):</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;5&quot;</span> <span class="o">=</span> <span class="mi">5</span>       <span class="c"># 1 (True)</span>
 <span class="o">?</span> <span class="mi">5</span> <span class="o">=</span> <span class="s">&quot;5&quot;</span>       <span class="c"># 1 (True)</span>
@@ -1146,6 +1151,28 @@ lower precedence.</p>
 <span class="o">?</span> <span class="mi">5</span> <span class="o">!=</span> <span class="s">&quot;7&quot;</span>      <span class="c"># 1 (True)</span>
 <span class="o">?</span> <span class="s">&quot;5&quot;</span> <span class="o">!=</span> <span class="s">&quot;7&quot;</span>    <span class="c"># 1 (True)</span>
 <span class="o">?</span> <span class="s">&quot;test&quot;</span> <span class="o">!=</span> <span class="mi">5</span>   <span class="c"># 1 (True)</span>
+</pre></div>
+</div>
+</section>
+<section id="mixing-logical-operators-and-types">
+<span id="index-10"></span><h2>Mixing Logical Operators and Types<a class="headerlink" href="#mixing-logical-operators-and-types" title="Permalink to this heading"></a></h2>
+<p>We have the next rules:</p>
+<ul class="simple">
+<li><p>Logical operators always produce True/False</p></li>
+<li><p>The Zero number is considered False</p></li>
+<li><p>The Empty string is considered False</p></li>
+<li><p>The Empty list is considered False</p></li>
+<li><p>When we have a list that wrap C pointer and this pointer is NULL, this list is considered False</p></li>
+<li><p>All other values are True</p></li>
+</ul>
+<p>Example (4):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="mi">1</span> <span class="ow">and</span> <span class="mi">1</span>                       <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="s">&quot;test&quot;</span> <span class="ow">and</span> <span class="s">&quot;test&quot;</span>             <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span> <span class="ow">and</span> <span class="s">&quot;test&quot;</span>            <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="mi">1</span> <span class="ow">and</span> <span class="s">&quot;test&quot;</span> <span class="ow">and</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span>      <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="mi">1</span> <span class="ow">and</span> <span class="k">new</span> <span class="n">point</span>               <span class="c"># 1 (True)</span>
+
+<span class="k">class</span> <span class="n">point</span>
 </pre></div>
 </div>
 </section>
