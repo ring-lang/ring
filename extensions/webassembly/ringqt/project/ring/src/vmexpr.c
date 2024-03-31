@@ -1235,7 +1235,7 @@ void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
 		}
 		else if ( strcmp(cStr,"and") == 0 ) {
 			if ( ring_vm_oop_isobject(pList) == 0 ) {
-				RING_VM_STACK_SETNVALUE((double) ( (ring_list_getsize(pList) != 0) && RING_VM_STACK_READN ));
+				RING_VM_STACK_SETNVALUE((double) ( (ring_vm_listtologicvalue(pVM,pList) != 0) && RING_VM_STACK_READN ));
 				return ;
 			}
 			else {
@@ -1247,7 +1247,7 @@ void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
 		}
 		else if ( strcmp(cStr,"or") == 0 ) {
 			if ( ring_vm_oop_isobject(pList) == 0 ) {
-				RING_VM_STACK_SETNVALUE((double) ( (ring_list_getsize(pList) != 0) || RING_VM_STACK_READN ));
+				RING_VM_STACK_SETNVALUE((double) ( (ring_vm_listtologicvalue(pVM,pList) != 0) || RING_VM_STACK_READN ));
 				return ;
 			}
 			else {
@@ -1270,7 +1270,7 @@ void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
 		}
 		else if ( strcmp(cStr,"and") == 0 ) {
 			if ( ring_vm_oop_isobject(pList) == 0 ) {
-				RING_VM_STACK_SETNVALUE((double) ( (ring_list_getsize(pList) != 0) && ( ! (strcmp(RING_VM_STACK_READC,"")==0) ) ));
+				RING_VM_STACK_SETNVALUE((double) ( (ring_vm_listtologicvalue(pVM,pList) != 0) && ( ! (strcmp(RING_VM_STACK_READC,"")==0) ) ));
 				return ;
 			}
 			else {
@@ -1282,7 +1282,7 @@ void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
 		}
 		else if ( strcmp(cStr,"or") == 0 ) {
 			if ( ring_vm_oop_isobject(pList) == 0 ) {
-				RING_VM_STACK_SETNVALUE((double) ( (ring_list_getsize(pList) != 0) || ( ! (strcmp(RING_VM_STACK_READC,"")==0) ) ));
+				RING_VM_STACK_SETNVALUE((double) ( (ring_vm_listtologicvalue(pVM,pList) != 0) || ( ! (strcmp(RING_VM_STACK_READC,"")==0) ) ));
 				return ;
 			}
 			else {
@@ -1332,13 +1332,13 @@ void ring_vm_expr_npoo ( VM *pVM,const char *cStr,double nNum1 )
 	}
 	else if ( strcmp(cStr,"and") == 0 ) {
 		if ( ring_vm_oop_isobject(pList) == 0 ) {
-			RING_VM_STACK_SETNVALUE((double) (  (ring_list_getsize(pList) != 0)  && nNum1 ));
+			RING_VM_STACK_SETNVALUE((double) (  (ring_vm_listtologicvalue(pVM,pList) != 0)  && nNum1 ));
 			return ;
 		}
 	}
 	else if ( strcmp(cStr,"or") == 0 ) {
 		if ( ring_vm_oop_isobject(pList) == 0 ) {
-			RING_VM_STACK_SETNVALUE((double) (  (ring_list_getsize(pList) != 0)  || nNum1 ));
+			RING_VM_STACK_SETNVALUE((double) (  (ring_vm_listtologicvalue(pVM,pList) != 0)  || nNum1 ));
 			return ;
 		}
 	}
