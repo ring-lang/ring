@@ -1162,7 +1162,7 @@ lower precedence.</p>
 <li><p>The Zero number is considered False</p></li>
 <li><p>The Empty string is considered False</p></li>
 <li><p>The Empty list is considered False</p></li>
-<li><p>When we have a list that wrap C pointer and this pointer is NULL, this list is considered False</p></li>
+<li><p>The list that wrap C pointer is considered False if the pointer is NULL</p></li>
 <li><p>All other values are True</p></li>
 </ul>
 <p>Example (4):</p>
@@ -1171,6 +1171,9 @@ lower precedence.</p>
 <span class="o">?</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span> <span class="ow">and</span> <span class="s">&quot;test&quot;</span>            <span class="c"># 1 (True)</span>
 <span class="o">?</span> <span class="mi">1</span> <span class="ow">and</span> <span class="s">&quot;test&quot;</span> <span class="ow">and</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span>      <span class="c"># 1 (True)</span>
 <span class="o">?</span> <span class="mi">1</span> <span class="ow">and</span> <span class="k">new</span> <span class="n">point</span>               <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="mi">1</span> <span class="ow">and</span> <span class="mi">0</span>                       <span class="c"># 0 (False)</span>
+<span class="o">?</span> <span class="mi">1</span> <span class="ow">and</span> <span class="s">&quot;&quot;</span>                      <span class="c"># 0 (False)</span>
+<span class="o">?</span> <span class="mi">1</span> <span class="ow">and</span> <span class="o">[]</span>                      <span class="c"># 0 (False)</span>
 
 <span class="k">class</span> <span class="n">point</span>
 </pre></div>

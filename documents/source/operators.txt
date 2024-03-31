@@ -398,7 +398,7 @@ We have the next rules:
 * The Zero number is considered False
 * The Empty string is considered False
 * The Empty list is considered False
-* When we have a list that wrap C pointer and this pointer is NULL, this list is considered False
+* The list that wrap C pointer is considered False if the pointer is NULL
 * All other values are True
 
 Example (4):
@@ -410,5 +410,8 @@ Example (4):
 	? [1,2,3] and "test"		# 1 (True)
 	? 1 and "test" and [1,2,3]	# 1 (True)
 	? 1 and new point		# 1 (True)
+	? 1 and 0			# 0 (False)
+	? 1 and ""			# 0 (False)
+	? 1 and []			# 0 (False)
 
 	class point 
