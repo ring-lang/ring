@@ -392,6 +392,198 @@ or for string concatenation.</p>
 <td><p>Check Operator Overloading</p></td>
 <td><p>new point + new point</p></td>
 </tr>
+<tr class="row-even"><td><p>Number</p></td>
+<td><p>“-”</p></td>
+<td><p>Number</p></td>
+<td><p>Number</p></td>
+<td><p>5-5</p></td>
+</tr>
+<tr class="row-odd"><td><p>Number</p></td>
+<td><p>“-”</p></td>
+<td><p>String</p></td>
+<td><p>Number</p></td>
+<td><p>5-“5”</p></td>
+</tr>
+<tr class="row-even"><td><p>String</p></td>
+<td><p>“-”</p></td>
+<td><p>Number</p></td>
+<td><p>Number</p></td>
+<td><p>“5”-5</p></td>
+</tr>
+<tr class="row-odd"><td><p>String</p></td>
+<td><p>“-”</p></td>
+<td><p>String</p></td>
+<td><p>Number</p></td>
+<td><p>“5”-“5”</p></td>
+</tr>
+<tr class="row-even"><td><p>List</p></td>
+<td><p>“-”</p></td>
+<td><p>Number</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>[1,2,3] - 4</p></td>
+</tr>
+<tr class="row-odd"><td><p>List</p></td>
+<td><p>“-”</p></td>
+<td><p>String</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>[1,2,3] - “four”</p></td>
+</tr>
+<tr class="row-even"><td><p>List</p></td>
+<td><p>“-”</p></td>
+<td><p>List</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>[1,2,3] - [“sub”]</p></td>
+</tr>
+<tr class="row-odd"><td><p>List</p></td>
+<td><p>“-”</p></td>
+<td><p>Object</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>[1,2,3] - new Point</p></td>
+</tr>
+<tr class="row-even"><td><p>Number</p></td>
+<td><p>“-”</p></td>
+<td><p>List</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>4 - [1,2,3]</p></td>
+</tr>
+<tr class="row-odd"><td><p>Number</p></td>
+<td><p>“-”</p></td>
+<td><p>Object</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>4 - new point</p></td>
+</tr>
+<tr class="row-even"><td><p>String</p></td>
+<td><p>“-”</p></td>
+<td><p>List</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>“4” - [1,2,3]</p></td>
+</tr>
+<tr class="row-odd"><td><p>String</p></td>
+<td><p>“-”</p></td>
+<td><p>Object</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>“4” - new point</p></td>
+</tr>
+<tr class="row-even"><td><p>Object</p></td>
+<td><p>“-”</p></td>
+<td><p>Number</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>new point - 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Object</p></td>
+<td><p>“-”</p></td>
+<td><p>String</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>new point - “test”</p></td>
+</tr>
+<tr class="row-even"><td><p>Object</p></td>
+<td><p>“-”</p></td>
+<td><p>List</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>new point - [10,10]</p></td>
+</tr>
+<tr class="row-odd"><td><p>Object</p></td>
+<td><p>“-”</p></td>
+<td><p>Object</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>new point - new point</p></td>
+</tr>
+<tr class="row-even"><td><p>Number</p></td>
+<td><p>“*”</p></td>
+<td><p>Number</p></td>
+<td><p>Number</p></td>
+<td><p>5*5</p></td>
+</tr>
+<tr class="row-odd"><td><p>Number</p></td>
+<td><p>“*”</p></td>
+<td><p>String</p></td>
+<td><p>Number</p></td>
+<td><p>5*”5”</p></td>
+</tr>
+<tr class="row-even"><td><p>String</p></td>
+<td><p>“*”</p></td>
+<td><p>Number</p></td>
+<td><p>Number</p></td>
+<td><p>“5”<a href="#id3"><span class="problematic" id="id4">*</span></a>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>String</p></td>
+<td><p>“*”</p></td>
+<td><p>String</p></td>
+<td><p>Number</p></td>
+<td><p>“5”*”5”</p></td>
+</tr>
+<tr class="row-even"><td><p>List</p></td>
+<td><p>“*”</p></td>
+<td><p>Number</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>[1,2,3] * 4</p></td>
+</tr>
+<tr class="row-odd"><td><p>List</p></td>
+<td><p>“*”</p></td>
+<td><p>String</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>[1,2,3] * “four”</p></td>
+</tr>
+<tr class="row-even"><td><p>List</p></td>
+<td><p>“*”</p></td>
+<td><p>List</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>[1,2,3] * [“sub”]</p></td>
+</tr>
+<tr class="row-odd"><td><p>List</p></td>
+<td><p>“*”</p></td>
+<td><p>Object</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>[1,2,3] * new Point</p></td>
+</tr>
+<tr class="row-even"><td><p>Number</p></td>
+<td><p>“*”</p></td>
+<td><p>List</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>4 * [1,2,3]</p></td>
+</tr>
+<tr class="row-odd"><td><p>Number</p></td>
+<td><p>“*”</p></td>
+<td><p>Object</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>4 * new point</p></td>
+</tr>
+<tr class="row-even"><td><p>String</p></td>
+<td><p>“*”</p></td>
+<td><p>List</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>“4” * [1,2,3]</p></td>
+</tr>
+<tr class="row-odd"><td><p>String</p></td>
+<td><p>“*”</p></td>
+<td><p>Object</p></td>
+<td><p>Runtime Error</p></td>
+<td><p>“4” * new point</p></td>
+</tr>
+<tr class="row-even"><td><p>Object</p></td>
+<td><p>“*”</p></td>
+<td><p>Number</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>new point * 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Object</p></td>
+<td><p>“*”</p></td>
+<td><p>String</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>new point * “test”</p></td>
+</tr>
+<tr class="row-even"><td><p>Object</p></td>
+<td><p>“*”</p></td>
+<td><p>List</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>new point * [10,10]</p></td>
+</tr>
+<tr class="row-odd"><td><p>Object</p></td>
+<td><p>“*”</p></td>
+<td><p>Object</p></td>
+<td><p>Check Operator Overloading</p></td>
+<td><p>new point * new point</p></td>
+</tr>
 </tbody>
 </table>
 </section>
