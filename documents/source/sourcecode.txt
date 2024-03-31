@@ -303,7 +303,7 @@ Install Libraries
 .. code-block:: none
 
 	cd ring/build
-	./installdep.sh 
+	./installdepubuntu.sh 
 
 Complete Build for Ubuntu Linux
 ===============================
