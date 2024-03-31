@@ -1,4 +1,5 @@
 
 Line 14 Error (R43) : The variable contains a protected value 
 In function test() in file listsduringdef/usinglistduringdef2.ring
-called from line 6  in file listsduringdef/usinglistduringdef2.ring 
+
+Called from line 6 in file listsduringdef/usinglistduringdef2.ring 

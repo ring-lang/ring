@@ -3,4 +3,5 @@
 
 Line 5 Error (R34) : Variable is required for the assignment operation 
 In function main() in file general/test111.ring
-called from line 1  in file general/test111.ring 
+
+Called from line 1 in file general/test111.ring 

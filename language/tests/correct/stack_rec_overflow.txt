@@ -1,6 +1,8 @@
 
 Line 4 Error (R4) : Stack Overflow 
 In function test() in file stack/rec_overflow.ring
-called from line 4  In function test() in file stack/rec_overflow.ring
-called from line 1  in file stack/rec_overflow.ring 
+
+Called from line 4 In function test() in file stack/rec_overflow.ring
+
+Called from line 1 in file stack/rec_overflow.ring 
 ---{ Recursion Depth: 998 }---

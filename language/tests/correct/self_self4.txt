@@ -10,4 +10,5 @@ z: 30
 
 Line 15 Error (R12) : Error in property name, property not found: extra 
 In method test() in file self/self4.ring
-called from line 7  in file self/self4.ring 
+
+Called from line 7 in file self/self4.ring 

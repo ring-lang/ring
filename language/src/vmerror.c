@@ -158,7 +158,7 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 			}
 			printf( "%s",cFile ) ;
 			/* Called From */
-			printf( "\ncalled from line %d  ",pFuncCall->nLineNumber ) ;
+			printf( "\n\nCalled from line %d ",pFuncCall->nLineNumber ) ;
 		}
 		else {
 			printf( "In %s() ",pFuncCall->cName ) ;

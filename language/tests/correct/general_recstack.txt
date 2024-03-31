@@ -2,6 +2,8 @@ Hello!
 
 Line 9 Error (R4) : Stack Overflow 
 In function test() in file general/recstack.ring
-called from line 3  In function main() in file general/recstack.ring
-called from line 1  in file general/recstack.ring 
+
+Called from line 3 In function main() in file general/recstack.ring
+
+Called from line 1 in file general/recstack.ring 
 ---{ Recursion Depth: 985 }---

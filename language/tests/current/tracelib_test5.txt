@@ -121,7 +121,8 @@ Called From: test1
 code:> 
 Line 10 Error (R3) : Calling Function without definition: test2 
 In function test1() in file tracelib/test5.ring
-called from line 4  in file tracelib/test5.ring Before Line : 11
+
+Called from line 4 in file tracelib/test5.ring Before Line : 11
 
 
 ============================================================
