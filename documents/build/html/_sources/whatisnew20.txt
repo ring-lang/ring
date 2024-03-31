@@ -308,3 +308,4 @@ More Improvements
 * Ring VM - When we compare between a string and a number take in mind if the string contains extra characters
 * Ring VM - Treat lists that wrap C pointers as FALSE if the C pointer value is NULL
 * Ring VM - Loop N command inside For-In loop will execute implicit Exit N-1 command then Loop 
+* Ring VM - Better format when displaying error messages
