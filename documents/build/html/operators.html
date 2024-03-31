@@ -63,6 +63,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#mixing-arithmetic-operators-and-types">Mixing Arithmetic Operators and Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mixing-relational-operators-and-types">Mixing Relational Operators and Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mixing-logical-operators-and-types">Mixing Logical Operators and Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mixing-bitwise-operators-and-types">Mixing Bitwise Operators and Types</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
@@ -1204,6 +1205,20 @@ lower precedence.</p>
 <span class="o">?</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">NULLPointer</span><span class="p">()</span>           <span class="c"># 0 (False)</span>
 
 <span class="k">class</span> <span class="n">point</span>
+</pre></div>
+</div>
+</section>
+<section id="mixing-bitwise-operators-and-types">
+<span id="index-11"></span><h2>Mixing Bitwise Operators and Types<a class="headerlink" href="#mixing-bitwise-operators-and-types" title="Permalink to this heading"></a></h2>
+<p>These operators support numbers. Also, it will automatically convert strings to numbers if this is possible or produce a runtime error if the string can’t be converted.</p>
+<p>Using these operators with lists or objects produce a runtime error with an exception to this rule.</p>
+<p>The exception is using objects that support operator overloading where the object comes first before the operator.</p>
+<p>Example (7):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="mi">1</span> <span class="o">&amp;</span> <span class="mi">1</span>                 <span class="c"># 1</span>
+<span class="o">?</span> <span class="s">&quot;1&quot;</span> <span class="o">&amp;</span> <span class="mi">1</span>               <span class="c"># 1</span>
+<span class="o">?</span> <span class="mi">1</span> <span class="o">&amp;</span> <span class="s">&quot;3&quot;</span>               <span class="c"># 1</span>
+<span class="o">?</span> <span class="s">&quot;3&quot;</span> <span class="o">&amp;</span> <span class="s">&quot;3&quot;</span>             <span class="c"># 3</span>
+<span class="o">?</span> <span class="s">&quot;123&quot;</span> <span class="o">&amp;</span> <span class="s">&quot;123&quot;</span>         <span class="c"># 123</span>
 </pre></div>
 </div>
 </section>

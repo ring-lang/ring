@@ -439,3 +439,25 @@ Example (6):
 	? 1 and NULLPointer()		# 0 (False)
 
 	class point 
+
+.. index:: 
+	pair: Operators; Mixing Bitwise Operators and Types
+
+Mixing Bitwise Operators and Types
+==================================
+
+These operators support numbers. Also, it will automatically convert strings to numbers if this is possible or produce a runtime error if the string can't be converted.
+
+Using these operators with lists or objects produce a runtime error with an exception to this rule.
+
+The exception is using objects that support operator overloading where the object comes first before the operator.
+
+Example (7):
+
+.. code-block:: ring
+
+	? 1 & 1			# 1
+	? "1" & 1		# 1
+	? 1 & "3"		# 1
+	? "3" & "3"		# 3
+	? "123" & "123"		# 123
