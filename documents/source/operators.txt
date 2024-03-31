@@ -220,7 +220,7 @@ lower precedence.
 | ?						 		 |
 +----------------------------------------------------------------+
 
-Example:
+Example (1):
 
 .. code-block:: ring
 
@@ -340,7 +340,7 @@ Using relational operators like <, <=, >, >= could produce True, False OR runtim
 
 When mixing Strings and Numbers with these operators, The string will be converted to a number.
 
-Example:
+Example (2):
 
 .. code-block:: ring
 
@@ -355,7 +355,7 @@ Using relational operators like = or != will only produce True OR False (i.e. no
 
 When mixing Strings and Numbers with these operators, The string will be converted to a number.
 
-Example:
+Example (3):
 
 .. code-block:: ring
 
@@ -378,3 +378,5 @@ Example:
 	? 5 != "7"	# 1 (True)
 	? "5" != "7"	# 1 (True)
 	? "test" != 5	# 1 (True)
+
+
