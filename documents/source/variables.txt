@@ -108,7 +108,7 @@ Example:
 	Msg = "Sum = " + sum 	# Msg is a string (sum will be converted to a string)
 	? Msg 
 
-The next table demonstrates what happens when mixing operators and different types
+The next table demonstrates what happens when mixing arithmetic operators and different types
 
 =========== ============ ============== ============================ =======================
 First Type  Operator	  Second Type    Output Type OR Behavior     Example
@@ -164,5 +164,47 @@ Object      "*"          String         Check Operator Overloading   new point *
 Object      "*"          List           Check Operator Overloading   new point * [10,10]
 Object      "*"          Object         Check Operator Overloading   new point * new point
 
+Number      "/"          Number         Number                       5/5
+Number      "/"          String         Number                       5/"5"
+String      "/"          Number         Number                       "5"/5
+String      "/"          String         Number                       "5"/"5"
+List        "/"          Number         Runtime Error                [1,2,3] / 4
+List        "/"          String         Runtime Error                [1,2,3] / "four"
+List        "/"          List           Runtime Error                [1,2,3] / ["sub"]
+List        "/"          Object         Runtime Error                [1,2,3] / new Point
+Number      "/"          List           Runtime Error                4 / [1,2,3]
+Number      "/"          Object         Runtime Error                4 / new point
+String      "/"          List           Runtime Error                "4" / [1,2,3]
+String      "/"          Object         Runtime Error                "4" / new point
+Object      "/"          Number         Check Operator Overloading   new point / 1
+Object      "/"          String         Check Operator Overloading   new point / "test"
+Object      "/"          List           Check Operator Overloading   new point / [10,10]
+Object      "/"          Object         Check Operator Overloading   new point / new point
 
+Number      "%"          Number         Number                       5%5
+Number      "%"          String         Number                       5%"5"
+String      "%"          Number         Number                       "5"%5
+String      "%"          String         Number                       "5"%"5"
+List        "%"          Number         Runtime Error                [1,2,3] % 4
+List        "%"          String         Runtime Error                [1,2,3] % "four"
+List        "%"          List           Runtime Error                [1,2,3] % ["sub"]
+List        "%"          Object         Runtime Error                [1,2,3] % new Point
+Number      "%"          List           Runtime Error                4 % [1,2,3]
+Number      "%"          Object         Runtime Error                4 % new point
+String      "%"          List           Runtime Error                "4" % [1,2,3]
+String      "%"          Object         Runtime Error                "4" % new point
+Object      "%"          Number         Check Operator Overloading   new point % 1
+Object      "%"          String         Check Operator Overloading   new point % "test"
+Object      "%"          List           Check Operator Overloading   new point % [10,10]
+Object      "%"          Object         Check Operator Overloading   new point % new point
+
+Number      "++"         ...            Number                       5++
+String      "++"         ...            Syntax Error/Runtime Error   x="5"  x++
+List        "++"         ...            Syntax Error/Runtime Error   x=[1,2,3]  x++
+Object      "++"         ...            Syntax Error/Runtime Error   x=new point x++
+
+Number      "--"         ...            Number                       5--
+String      "--"         ...            Syntax Error/Runtime Error   x="5"  x--
+List        "--"         ...            Syntax Error/Runtime Error   x=[1,2,3]  x--
+Object      "--"         ...            Syntax Error/Runtime Error   x=new point x--
 =========== ============ ============== ============================ =======================
