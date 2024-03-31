@@ -429,7 +429,7 @@ Comments about evaluation
 
 * NULL = empty string = ""
 
-* Everything evaluates to true except 0 (False), NULL (Empty String) and Empty List.
+* Everything evaluates to True except 0 (False), NULL (Empty String), Empty List and Lists that wrap C pointer where the pointer value is NULL.
 
 Example:
 
