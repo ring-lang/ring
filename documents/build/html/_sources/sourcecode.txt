@@ -302,7 +302,7 @@ Install Libraries
 
 .. code-block:: none
 
-	cd ring/language/build
+	cd ring/build
 	./installdep.sh 
 
 Complete Build for Ubuntu Linux
@@ -531,7 +531,7 @@ Install Libraries
 
 .. code-block:: none
 
-	cd ring/language/build
+	cd ring/build
 	./installdepmac.sh 
 
 Complete Build for macOS
