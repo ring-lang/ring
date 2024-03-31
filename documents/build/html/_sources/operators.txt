@@ -336,6 +336,8 @@ Object      "--"         ...            Syntax Error/Runtime Error   x=new point
 =========== ============ ============== ============================ =======================
 
 
+.. note:: The behavior of the power operator with respect to different types is similar to the -, *, / and % operators.
+
 .. index:: 
 	pair: Operators; Mixing Relational Operators and Types
 
