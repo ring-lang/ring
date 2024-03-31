@@ -171,10 +171,14 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">How to Compile Ring From Source Code?</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#building-using-microsoft-windows">Building using Microsoft Windows</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#complete-build-compiler-vm-extensions-tools-etc">Complete Build (Compiler/VM, Extensions, Tools, etc.)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bit-version">64bit version</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#custom-build">Custom Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-build-for-windows-64bit">Custom Build for Windows (64bit)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-build-for-windows-32bit">Custom Build for Windows (32bit)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#building-using-ubuntu-linux">Building using Ubuntu Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#complete-build-for-ubuntu-linux">Complete Build for Ubuntu Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-build-for-ubuntu-linux">Custom Build for Ubuntu Linux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#building-using-macos-x">Building using MacOS X</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#complete-build-for-macos">Complete Build for macOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-build-for-macos">Custom Build for macOS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#building-using-cmake">Building using CMake</a></li>
 </ul>
 </li>
@@ -209,10 +213,11 @@
   <section id="building-from-source-code">
 <span id="index-0"></span><h1>Building From Source Code<a class="headerlink" href="#building-from-source-code" title="Permalink to this heading"></a></h1>
 <p>The Ring programming language is a free open source product (MIT License).</p>
-<p>You can build Ring using CMake or using Scripts (Batch Files or Shell Scripts).</p>
-<p>The next steps explains building using scripts.</p>
-<p>The steps demonstrates building Ring and some of the Ring extensions.</p>
-<p>There are more extensions in ring/extensions folder like RingCJSON, RingHTTPLib, etc.</p>
+<p>You can build Ring Compiler/VM using CMake or using Scripts (Batch Files or Shell Scripts).</p>
+<p>The next steps explains building (Compiler/VM, Extensions &amp; Tools) using scripts.</p>
+<p>The Complete build will build everything.</p>
+<p>The Custom build contains steps that demonstrates building Ring and some of the Ring extensions as example.</p>
+<p>There are more extensions in ring/extensions folder like RingCJSON, RingHTTPLib, etc. You can build any of these extensions based on your choice if you would like to have a custom build.</p>
 <section id="building-using-microsoft-windows">
 <span id="index-1"></span><h2>Building using Microsoft Windows<a class="headerlink" href="#building-using-microsoft-windows" title="Permalink to this heading"></a></h2>
 <p>Get the source code</p>
@@ -222,20 +227,31 @@
 </section>
 <section id="complete-build-compiler-vm-extensions-tools-etc">
 <span id="index-2"></span><h2>Complete Build (Compiler/VM, Extensions, Tools, etc.)<a class="headerlink" href="#complete-build-compiler-vm-extensions-tools-etc" title="Permalink to this heading"></a></h2>
-<p>Install Qt 5.15.16  (in C:/Qt) so we have the folder (C:/Qt/5.15.16)</p>
-<p>If you have another version from Qt 5.15 (like Qt 5.15.2) - Or Qt is installed in another folder
-The next batch files uses environment variables (RING_QT_DIR &amp; RING_QT_VERSION) to set the path</p>
-<p>To build 32bit version: ring/build/buildvc.bat
-To build 64bit version: ring/build/buildvc_x64.bat</p>
+<p>Install Qt 5.15.16 (in C:/Qt) so we have the folder (C:/Qt/5.15.16)</p>
+<p>If you have another version from Qt 5.15 (like Qt 5.15.2) - Or Qt is installed in another folder</p>
+<p>The next batch files uses environment variables (RING_QT_DIR &amp; RING_QT_VERSION) to set the path</p>
+<p>To build 32bit version:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ring/build/buildvc.bat
+</pre></div>
+</div>
+<p>To build 64bit version:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ring/build/buildvc_x64.bat
+</pre></div>
+</div>
+<p>Add ring/bin folder to your system path</p>
+<p>Run Ring Notepad</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm run ringnotepad
+</pre></div>
+</div>
 </section>
-<section id="bit-version">
-<span id="index-3"></span><h2>64bit version<a class="headerlink" href="#bit-version" title="Permalink to this heading"></a></h2>
-<p>The next steps demonstrates how to build the 32bit version</p>
+<section id="custom-build-for-windows-64bit">
+<span id="index-3"></span><h2>Custom Build for Windows (64bit)<a class="headerlink" href="#custom-build-for-windows-64bit" title="Permalink to this heading"></a></h2>
+<p>The next steps for custom build demonstrates how to build the 32bit version</p>
 <p>To build the 64bit version add _x64 to the batch file name (i.e. use buildvc_x64.bat instead of buildvc.bat)</p>
 <p>Also, use ring/bin/install_x64.bat instead of ring/bin/install.bat</p>
 </section>
-<section id="custom-build">
-<span id="index-4"></span><h2>Custom Build<a class="headerlink" href="#custom-build" title="Permalink to this heading"></a></h2>
+<section id="custom-build-for-windows-32bit">
+<span id="index-4"></span><h2>Custom Build for Windows (32bit)<a class="headerlink" href="#custom-build-for-windows-32bit" title="Permalink to this heading"></a></h2>
 <p>Build Ring (Compiler/VM)</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/language/build
 buildvc.bat
@@ -373,11 +389,6 @@ Add at the end the new path separated by semicolon.
 </pre></div>
 </div>
 <p>Run Ring Notepad</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/tools/ringnotepad
-ring rnote.ring
-</pre></div>
-</div>
-<p>We can run Ring Notepad using Ring Package Manager</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm run ringnotepad
 </pre></div>
 </div>
@@ -402,6 +413,26 @@ ring rnote.ring
 ./installdep.sh
 </pre></div>
 </div>
+</section>
+<section id="complete-build-for-ubuntu-linux">
+<h2>Complete Build for Ubuntu Linux<a class="headerlink" href="#complete-build-for-ubuntu-linux" title="Permalink to this heading"></a></h2>
+<p>This will build everything (Compiler/VM, Extensions, Tools, etc.)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/build
+./buildgcc.sh
+</pre></div>
+</div>
+<p>To be able to call ring from any folder</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/bin
+sudo ./install.sh
+</pre></div>
+</div>
+<p>Run Ring Notepad</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm run ringnotepad
+</pre></div>
+</div>
+</section>
+<section id="custom-build-for-ubuntu-linux">
+<h2>Custom Build for Ubuntu Linux<a class="headerlink" href="#custom-build-for-ubuntu-linux" title="Permalink to this heading"></a></h2>
 <p>Build Ring (Compiler/VM)</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo ./buildgcc.sh
 </pre></div>
@@ -531,11 +562,6 @@ sudo ./install.sh
 </pre></div>
 </div>
 <p>Run Ring Notepad</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/tools/ringnotepad
-ring rnote.ring
-</pre></div>
-</div>
-<p>We can run Ring Notepad using Ring Package Manager</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm run ringnotepad
 </pre></div>
 </div>
@@ -553,6 +579,26 @@ Install Libraries</p>
 ./installdepmac.sh
 </pre></div>
 </div>
+</section>
+<section id="complete-build-for-macos">
+<h2>Complete Build for macOS<a class="headerlink" href="#complete-build-for-macos" title="Permalink to this heading"></a></h2>
+<p>This will build everything (Compiler/VM, Extensions, Tools, etc.)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/build
+./buildclang.sh
+</pre></div>
+</div>
+<p>To be able to call ring from any folder</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/bin
+sudo ./install.sh
+</pre></div>
+</div>
+<p>Run Ring Notepad</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm run ringnotepad
+</pre></div>
+</div>
+</section>
+<section id="custom-build-for-macos">
+<h2>Custom Build for macOS<a class="headerlink" href="#custom-build-for-macos" title="Permalink to this heading"></a></h2>
 <p>Build Ring (Compiler/VM)</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>./buildclang.sh
 </pre></div>
@@ -671,11 +717,6 @@ sudo ./install.sh
 </pre></div>
 </div>
 <p>Run Ring Notepad</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/tools/ringnotepad
-sudo ring rnote.ring
-</pre></div>
-</div>
-<p>We can run Ring Notepad using Ring Package Manager</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm run ringnotepad
 </pre></div>
 </div>

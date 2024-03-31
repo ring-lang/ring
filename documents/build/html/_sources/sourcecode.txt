@@ -7,13 +7,15 @@ Building From Source Code
 
 The Ring programming language is a free open source product (MIT License).
 
-You can build Ring using CMake or using Scripts (Batch Files or Shell Scripts).
+You can build Ring Compiler/VM using CMake or using Scripts (Batch Files or Shell Scripts).
 
-The next steps explains building using scripts.
+The next steps explains building (Compiler/VM, Extensions & Tools) using scripts.
 
-The steps demonstrates building Ring and some of the Ring extensions.
+The Complete build will build everything.
 
-There are more extensions in ring/extensions folder like RingCJSON, RingHTTPLib, etc.
+The Custom build contains steps that demonstrates building Ring and some of the Ring extensions as example.
+
+There are more extensions in ring/extensions folder like RingCJSON, RingHTTPLib, etc. You can build any of these extensions based on your choice if you would like to have a custom build.
 
 .. index:: 
 	pair: Building From Source Code; Building using Microsoft Windows
@@ -27,28 +29,45 @@ Get the source code
 
 	git clone http://github.com/ring-lang/ring.git
 
-
 .. index:: 
 	pair: Building From Source Code; Complete Build
 
 Complete Build (Compiler/VM, Extensions, Tools, etc.)
 =====================================================
 
-Install Qt 5.15.16  (in C:/Qt) so we have the folder (C:/Qt/5.15.16)
+Install Qt 5.15.16 (in C:/Qt) so we have the folder (C:/Qt/5.15.16)
 
 If you have another version from Qt 5.15 (like Qt 5.15.2) - Or Qt is installed in another folder 
+
 The next batch files uses environment variables (RING_QT_DIR & RING_QT_VERSION) to set the path
 
-To build 32bit version: ring/build/buildvc.bat
-To build 64bit version: ring/build/buildvc_x64.bat
+To build 32bit version: 
+
+.. code-block:: none
+
+	ring/build/buildvc.bat
+
+To build 64bit version: 
+
+.. code-block:: none
+
+	ring/build/buildvc_x64.bat
+
+Add ring/bin folder to your system path
+
+Run Ring Notepad
+
+.. code-block:: none
+
+	ringpm run ringnotepad
 
 .. index:: 
 	pair: Building From Source Code; 64bit version
 
-64bit version
-=============
+Custom Build for Windows (64bit)
+================================
 
-The next steps demonstrates how to build the 32bit version
+The next steps for custom build demonstrates how to build the 32bit version
 
 To build the 64bit version add _x64 to the batch file name (i.e. use buildvc_x64.bat instead of buildvc.bat)
 
@@ -57,8 +76,8 @@ Also, use ring/bin/install_x64.bat instead of ring/bin/install.bat
 .. index:: 
 	pair: Building From Source Code; Custom Build
 
-Custom Build
-============
+Custom Build for Windows (32bit)
+================================
 
 Build Ring (Compiler/VM)
 
@@ -251,13 +270,6 @@ Run Ring Notepad
 
 .. code-block:: none
 
-	cd ring/tools/ringnotepad
-	ring rnote.ring
-
-We can run Ring Notepad using Ring Package Manager
-
-.. code-block:: none
-
 	ringpm run ringnotepad
 
 .. index:: 
@@ -292,6 +304,32 @@ Install Libraries
 
 	cd ring/language/build
 	./installdep.sh 
+
+Complete Build for Ubuntu Linux
+===============================
+
+This will build everything (Compiler/VM, Extensions, Tools, etc.)
+
+.. code-block:: none
+
+	cd ring/build
+	./buildgcc.sh
+
+To be able to call ring from any folder
+
+.. code-block:: none
+
+	cd ring/bin
+	sudo ./install.sh
+
+Run Ring Notepad
+
+.. code-block:: none
+
+	ringpm run ringnotepad
+
+Custom Build for Ubuntu Linux
+=============================
 
 Build Ring (Compiler/VM)
 
@@ -472,13 +510,6 @@ Run Ring Notepad
 
 .. code-block:: none
 
-	cd ring/tools/ringnotepad
-	ring rnote.ring
-
-We can run Ring Notepad using Ring Package Manager
-
-.. code-block:: none
-
 	ringpm run ringnotepad
 
 .. index:: 
@@ -502,6 +533,32 @@ Install Libraries
 
 	cd ring/language/build
 	./installdepmac.sh 
+
+Complete Build for macOS
+========================
+
+This will build everything (Compiler/VM, Extensions, Tools, etc.)
+
+.. code-block:: none
+
+	cd ring/build
+	./buildclang.sh
+
+To be able to call ring from any folder
+
+.. code-block:: none
+
+	cd ring/bin
+	sudo ./install.sh
+
+Run Ring Notepad
+
+.. code-block:: none
+
+	ringpm run ringnotepad
+
+Custom Build for macOS
+======================
 
 Build Ring (Compiler/VM)
 
@@ -664,13 +721,6 @@ To be able to call ring from any folder
 	sudo ./install.sh
 
 Run Ring Notepad
-
-.. code-block:: none
-
-	cd ring/tools/ringnotepad
-	sudo ring rnote.ring
-
-We can run Ring Notepad using Ring Package Manager
 
 .. code-block:: none
 
