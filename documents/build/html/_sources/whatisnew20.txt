@@ -271,7 +271,8 @@ Better Scripts for Building Ring
 
 * Scripts for building Ring Compiler/VM are moved to ring/language/build folder
 * Scripts for building Ring, Extensions and Tools are moved to ring/build folder 
-* File: language/src/installdep.sh - Added: libqt5multimedia5-plugins
+* Files that install dependencies on Linux/macOS are moved to ring/build folder
+* Added: libqt5multimedia5-plugins to ring/build/installdepubuntu.sh
 * Added: ring/language/build/buildzig.bat
 * Added: ring/build/buildgcc.sh
 * Added: ring/build/buildclang.sh
