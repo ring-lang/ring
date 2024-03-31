@@ -470,7 +470,7 @@ The next example from the List class in the stdlib.ring
 The "len" operator is used with (for in) control structure.
 
 The "[]" operator is used when we try to access the list items, In this case we use the & operator
-to return the item values like strings an numbers by reference, so we can update it when we access the
+to return the item values like strings and numbers by reference, so we can update it when we access the
 items.
 
 Another Example
