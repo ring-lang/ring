@@ -413,5 +413,6 @@ Example (4):
 	? 1 and 0			# 0 (False)
 	? 1 and ""			# 0 (False)
 	? 1 and []			# 0 (False)
+	? 1 and NULLPointer()		# 0 (False)
 
 	class point 
