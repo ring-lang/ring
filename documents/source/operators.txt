@@ -356,6 +356,7 @@ Example (2):
 	? "5" < "7"	# 1 (True)
 	? "test" < 5	# Runtime Error (Invalid numeric string)
 
+.. note:: Using these operators with lists or objects will produce a runtime error, an exception to this rule is if we have an object the comes first and this object support operator overloading.
 
 Using relational operators like = or != will only produce True OR False (i.e. no runtime error)
 
@@ -385,6 +386,26 @@ Example (3):
 	? "5" != "7"	# 1 (True)
 	? "test" != 5	# 1 (True)
 
+Example (4):
+
+.. code-block:: ring
+
+	? 12500 = "0012500"		# 1 (True)
+	? 12500 = "0012500-PRY-09"	# 0 (False)
+
+.. note:: Using these operators to compare between objects or lists will compare between them at the reference level (not the value)
+
+Example (5):
+
+.. code-block:: ring
+
+	aList    = [1,2,3]
+	aList2   = [1,2,3]
+	? aList  = aList	# 1 (True)
+	? aList  = aList2	# 0 (False) 
+	
+	aList3   = ref(aList)
+	? aList3 = aList	# 1 (True)
 
 .. index:: 
 	pair: Operators; Mixing Logical Operators and Types
@@ -401,7 +422,7 @@ We have the next rules:
 * The list that wrap C pointer is considered False if the pointer is NULL
 * All other values are True
 
-Example (4):
+Example (6):
 
 .. code-block:: ring
 
