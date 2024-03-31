@@ -310,6 +310,7 @@ The Ring language comes with the next features
 * RingThreads Extension
 * RingHTTPLib Extension
 * RingFastPro Extension
+* RingRogueUtil Extension
 * No Global Interpreter (VM) lock (No GIL) - Better for threads and concurrency (Faster)
 * Comes with RingPM (Package Manager)
 * Many Samples and Applications
