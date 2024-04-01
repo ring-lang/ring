@@ -57,15 +57,18 @@ class RNoteFileMenu
 			msginfo(T_RINGNOTEPAD_FILEMENUSORRY,T_RINGNOTEPAD_FILEMENUCANTOPEN + cName)
 		done
 
-	func Save
-		if cActiveFileName = NULL return SaveAs() ok
-		writefile(cActiveFileName,textedit1.toplaintext())
-		StatusMessage(T_RINGNOTEPAD_FILEMENUFILE + cActiveFileName + T_RINGNOTEPAD_FILEMENUSAVE)
-		lAskToSave = false
+	func refereshFileInfo
+ 		lAskToSave = false
 		cTextHash  = sha256(textedit1.toplaintext())
 		AutoComplete()
 		displayFunctionsList()
 		displayClassesList()
+
+	func Save
+		if cActiveFileName = NULL return SaveAs() ok
+		writefile(cActiveFileName,textedit1.toplaintext())
+		StatusMessage(T_RINGNOTEPAD_FILEMENUFILE + cActiveFileName + T_RINGNOTEPAD_FILEMENUSAVE)
+		refereshFileInfo()
 		# Save Active Form in the Form Designer
 			if isFormDesigner()
 				FormDesigner().SaveIfOnlyFileIsOpened()
@@ -84,8 +87,7 @@ class RNoteFileMenu
 				this.StatusMessage(T_RINGNOTEPAD_FILEMENUFILE + this.cActiveFileName + T_RINGNOTEPAD_FILEMENUSAVE)
 				this.aFilesLines[this.cActiveFileName] = 1
 				this.SetActiveFileName()
-				lAskToSave = false
-				cTextHash  = sha256(this.textedit1.toplaintext())
+				this.refereshFileInfo()
 			ok
 		}
 
