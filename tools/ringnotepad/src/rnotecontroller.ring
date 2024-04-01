@@ -3,17 +3,17 @@
 
 class RNoteController from RNoteControllerBase 
 
-	LoadSettings()
+	loadSettings()
 
-	oApp = New qApp 
-	oApp.setlayoutdirection(T_RINGNOTEPAD_LAYOUTDIRECTION)
+	oApp = New QApp 
+	oApp.setLayoutDirection(T_RINGNOTEPAD_LAYOUTDIRECTION)
 	# Custom Editor Style Color
-		CheckCustomColors()
-		PrepareAutoComplete()	
+		checkCustomColors()
+		prepareAutoComplete()	
 	# Create the Main Window
-		CreateMainWindow()
+		createMainWindow()
 	# Default Settings
-		SetMode(nDefaultMode) 
-		RestoreSettings()
-		win1.showmaximized()
+		setMode(nDefaultMode) 
+		restoreSettings()
+		win1.showMaximized()
 	oApp.exec()

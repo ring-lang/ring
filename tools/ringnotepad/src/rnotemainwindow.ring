@@ -894,7 +894,7 @@ class RNoteMainWindow
 				setStylesheet("font-size: 30")
 				setclickedEvent(Method(:ChangeFile))
 				setActivatedEvent(Method(:ChangeFile))
-				setGeometry(00,00,200,400)
+				setGeometry(0,0,200,400)
 				setminimumwidth(floor(this.oDesktop.width()*this.oDesktop.nProjectFilesPer))
                 		chdir(this.cStartUpFolder)
 				oDir = new QDir()
