@@ -8,18 +8,18 @@ aObjectsList = [
 		 :windowflags =  "" , 
 		 :mainlayout =  "" ,
 		 :WindowIcon =  "images/chessboard.png" , 
-		 :Menubar =  "aMenuData = [ :Text = 'The Menubar' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [[ :Text = 'File' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [[ :Text = 'Exit' , :Image = '' ,
-			         :Shortcut = '' , :Action = 'closeapp' ,
-				:Children = [] ]] ],[ :Text = 'Options' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [[ :Text = 'Statistics' , :Image = '' ,
-			         :Shortcut = '' , :Action = 'openStats' ,
-				:Children = [] ],[ :Text = 'Prediction' , :Image = '' ,
-			         :Shortcut = '' , :Action = 'openPrediction' ,
+		 :Menubar =  "aMenuData = [ :Text = 'The Menubar' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [[ :Text = 'File' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [[ :Text = 'Exit' , :Image = '' ,
+			         :Shortcut = '' , :Action = 'closeapp' ,
+				:Children = [] ]] ],[ :Text = 'Options' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [[ :Text = 'Statistics' , :Image = '' ,
+			         :Shortcut = '' , :Action = 'openStats' ,
+				:Children = [] ],[ :Text = 'Prediction' , :Image = '' ,
+			         :Shortcut = '' , :Action = 'openPrediction' ,
 				:Children = [] ]] ]] ]"  ,
 		 :IndexType =  0  ,
 		 :GUILibrary =  0  

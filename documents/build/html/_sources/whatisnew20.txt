@@ -25,6 +25,7 @@ Ring 1.20 comes with the next features!
 * Better Scripts for Building Ring
 * Improving Ring Compiler/VM Source Code
 * Better Tools and Extensions
+* Better Documentation
 * More Improvements
 
 .. index:: 
@@ -337,6 +338,17 @@ Improving Ring Compiler/VM Source Code
 * language/src/rstring.c - ring_string_set2_gc() - Better code
 * language/src/os_e.c - randomize() - Better code
 * language/src/expr.c - ring_parser_ppmm() - Better code
+
+.. index:: 
+	pair: What is new in Ring  1.20; Better Documentation
+
+Better Documentation
+====================
+
+The next chapters are revised and improved
+
+* Operators
+* Building From Source Code
 
 .. index:: 
 	pair: What is new in Ring  1.20; More Improvements

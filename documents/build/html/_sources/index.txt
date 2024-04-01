@@ -134,7 +134,7 @@ Contents:
    Release Notes: Version 1.20 <whatisnew20>
    Using Other Code Editors <codeeditors>
    Frequently Asked Questions (FAQ) <faq>
-   How to Compile Ring From Source Code? <sourcecode>
+   Building From Source Code <sourcecode>
    How to contribute? <contribute>
    Language Specification <reference>
    Resources <resources>
