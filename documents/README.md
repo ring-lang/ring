@@ -5,33 +5,33 @@ In this folder we have the Ring programming language documentation
 
 The documentation is created using Sphinx (A popular tool written in Python)
 
-(1) Install Python (Tested using Python 3.11.5)
+-  Install Python (Tested using Python 3.11.5)
 
-(2) Install Sphinx (Tested using v6.2.1) 
+-  Install Sphinx (Tested using v6.2.1) 
 
 	pip install -U sphinx==6.2.1
 
-(3) To use the pygments lexer, copy ring.py to Python\Lib\site-packages\pygments\lexers
+-  To use the pygments lexer, copy ring.py to Python\Lib\site-packages\pygments\lexers
 
-(4) Add the next line to _mapping.py
+-  Add the next line to _mapping.py
 
 	'RingLexer': ('pygments.lexers.ring', 'Ring', ('ring',), ('*.ring',), ('text/ring',)),
 
-(5) Then run _mapping.py
+-  Then run _mapping.py
 	
 	python _mapping.py
 
-(6) Install rtd_theme (Tested using v1.3.0)
+-  Install rtd_theme (Tested using v1.3.0)
 
 	pip install sphinx_rtd_theme
 
-(7) To generate CHM file, Use Microsoft Help Workshop. 
+-  To generate CHM file, Use Microsoft Help Workshop. 
 
 	Tested using HTML Help Workshop 4.74.8702
 
 	Note: Update source/conf.py to use the classic theme.
 
-(8) To generate PDF file, Install MiKTeX (https://miktex.org/download) - Tested using MiKTeX 23.4
+-  To generate PDF file, Install MiKTeX (https://miktex.org/download) - Tested using MiKTeX 23.4
 
 	buildlatex.bat
 	cd build/latex
