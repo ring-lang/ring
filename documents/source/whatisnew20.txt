@@ -367,3 +367,4 @@ More Improvements
 * Ring VM - Treat lists that wrap C pointers as FALSE if the C pointer value is NULL
 * Ring VM - Loop N command inside For-In loop will execute implicit Exit N-1 command then Loop 
 * Ring VM - Better format when displaying error messages
+* Ring VM - Correct file name in the error message when the error happens at function arguments 
