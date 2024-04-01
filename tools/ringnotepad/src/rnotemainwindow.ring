@@ -1194,6 +1194,7 @@ class RNoteMainWindow
 			textedit1.setParent(oTabsAndText)
 			oLayoutTabsText.AddWidget(textedit1)
 			textedit1 { show() setfocus(7) }
+			this.win1.show() 
 		else 
 			oDockSourceCode.hide()
 			textedit1 { 
@@ -1201,15 +1202,32 @@ class RNoteMainWindow
 				showfullscreen()
 				setfocus(7)
 			}
+			this.win1.hide()
 		ok
 		lEditboxFullScreen = ! lEditboxFullScreen 
 
 	func TextEditKeyPress
-		nKeyCode = this.oFilterTextEdit.getkeycode()
+		nKeyCode  = this.oFilterTextEdit.getkeycode()
+		nModifier = this.oFilterTextEdit.getModifiers()
+		K_Ctrl    = 67108864
+
 		# Check CTRL+SHIFT+F1
-		if lEditboxFullScreen and nKeyCode = Qt_Key_Escape
-			EditFullScreen()
-			return
+		if lEditboxFullScreen 
+			if nKeyCode = Qt_Key_Escape
+				EditFullScreen()
+				return
+			but nModifier = K_Ctrl 
+				if nKeyCode = Qt_Key_G 
+					GoTo()
+					return
+				but nKeyCode = Qt_Key_F
+					OpenFindWindow()
+					return
+				but nKeyCode = Qt_Key_H
+					TabWidth()
+					return
+				ok 			
+			ok
 		ok
 		this.oFilterTextEdit.setEventoutput(False)
 
