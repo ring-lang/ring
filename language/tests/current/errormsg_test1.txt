@@ -1,0 +1,7 @@
+nice
+hello from sub1
+
+Line 4 Error (R24) : Using uninitialized variable: what 
+In function testsub1() in file B:\ring\language\tests\scripts\errormsg/sub1.ring
+
+Called from line 6 in file errormsg/test1.ring 

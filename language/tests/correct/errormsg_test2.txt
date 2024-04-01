@@ -1,0 +1,11 @@
+
+Line 13 Error (R1) : Can't divide by zero 
+In function test4() in file errormsg/test2.ring
+
+Called from line 10 In function test3() in file errormsg/test2.ring
+
+Called from line 7 In function test2() in file errormsg/test2.ring
+
+Called from line 4 In function test1() in file errormsg/test2.ring
+
+Called from line 1 in file errormsg/test2.ring 
