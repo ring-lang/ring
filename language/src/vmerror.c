@@ -145,16 +145,11 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 			/* Adding () */
 			printf( "() in file " ) ;
 			/* File Name */
-			if ( lFunctionCall == 1 ) {
-				cFile = (const char *) pFuncCall->cNewFileName ;
+			if ( pVM->nInClassRegion ) {
+				cFile = pVM->cFileNameInClassRegion ;
 			}
 			else {
-				if ( pVM->nInClassRegion ) {
-					cFile = pVM->cFileNameInClassRegion ;
-				}
-				else {
-					cFile = pVM->cFileName ;
-				}
+				cFile = (const char *) pFuncCall->cNewFileName ;
 			}
 			printf( "%s",cFile ) ;
 			/* Called From */
