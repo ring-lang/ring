@@ -17,16 +17,26 @@ Instead of using stdlib.ring we can use stdlibcore.ring
 
 Using stdlibcore.ring we can use the StdLib functions (Without Classes)
 
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+
 This is useful when developing standalone console applications
 
 Because using stdlib.ring (functions & classes) will load libraries like RingLibCurl, RingOpenSSL, etc.
+
+Also, Using stdlibclasses.ring we can load stdlib classes without loading functions or extensions like RingLibCurl, RingOpenSSL, etc.
+
+.. code-block:: ring
+
+	load "stdlibclasses.ring"
 
 
 .. index:: 
 	pair: Stdlib Functions; isappcompiled()
 
 IsAppCompiled() function
-==================
+========================
 
 check whether the application has been compiled using Ring2EXE
 

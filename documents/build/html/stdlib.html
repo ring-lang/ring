@@ -274,8 +274,15 @@
 </div>
 <p>Instead of using stdlib.ring we can use stdlibcore.ring</p>
 <p>Using stdlibcore.ring we can use the StdLib functions (Without Classes)</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlibcore.ring&quot;</span>
+</pre></div>
+</div>
 <p>This is useful when developing standalone console applications</p>
 <p>Because using stdlib.ring (functions &amp; classes) will load libraries like RingLibCurl, RingOpenSSL, etc.</p>
+<p>Also, Using stdlibclasses.ring we can load stdlib classes without loading functions or extensions like RingLibCurl, RingOpenSSL, etc.</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlibclasses.ring&quot;</span>
+</pre></div>
+</div>
 <section id="isappcompiled-function">
 <span id="index-1"></span><h2>IsAppCompiled() function<a class="headerlink" href="#isappcompiled-function" title="Permalink to this heading"></a></h2>
 <p>check whether the application has been compiled using Ring2EXE</p>
