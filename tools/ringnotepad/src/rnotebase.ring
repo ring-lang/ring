@@ -8,7 +8,7 @@ class RNoteControllerBase from WindowsControllerParent
 	aTextColor 		= [0,0,0]
 	aBackColor 		= [255,255,255]
 
-	cFont 			= 'Consolas,16,-1,5,50,0,0,0,0,0'
+	cFont 			= GetFontFamilyName(:Consolas) + ',16,-1,5,50,0,0,0,0,0'
 	oTFont 			= new qfont("",0,0,0)
 	lSetProjectFilesFont	= True
 
@@ -151,3 +151,16 @@ class RNoteControllerBase from WindowsControllerParent
 	# Apperance menu 
 		oCheckAction1 oCheckAction2 oCheckAction3 oCheckAction4
 		oCheckAction5 oCheckAction6 oCheckAction7
+
+	func GetFontFamilyName cFamily
+		if cFamily = :Consolas
+			cFontFamilyName = "Consolas"
+		else
+			cFontFamilyName = "Roboto"	
+		ok 		
+		if isMacosx()
+			cFontFamilyName = "Monaco"
+		but isLinux()
+			cFontFamilyName = "Ubuntu Mono"
+		ok
+		return cFontFamilyName
