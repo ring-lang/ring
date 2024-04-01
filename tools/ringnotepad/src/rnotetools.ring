@@ -41,7 +41,7 @@ class RNoteTools
 			cCommand = 'start cmd /K "cd ' + cStartupFolder + '"'
 		but isLinux()
 			cCommand = "gnome-terminal"
-		but isMacosx()
+		but isMacOSX()
 			cCommand = "open /Applications/Utilities/Terminal.app"
 		else 
 			return

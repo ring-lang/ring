@@ -158,7 +158,7 @@ class RNoteControllerBase from WindowsControllerParent
 		else
 			cFontFamilyName = "Roboto"	
 		ok 		
-		if isMacosx()
+		if isMacOSX()
 			cFontFamilyName = "Monaco"
 		but isLinux()
 			cFontFamilyName = "Ubuntu Mono"

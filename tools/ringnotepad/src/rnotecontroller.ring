@@ -18,6 +18,7 @@ class RNoteController from RNoteControllerBase
 		win1 {
 			move(0,0)
 			resize(800,600)
+			if isMacOSX() setMinimumSize(30, 20) ok
 			showMaximized()
 		}
 	oApp.exec()

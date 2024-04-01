@@ -84,7 +84,7 @@ Class RNoteRun
                                 apacheConfigTxt = substr(apacheConfigTxt, "#{RingWebAppPath}", cAppDir)
                                 apacheConfigTxt = substr(apacheConfigTxt, "#{RingApacheConfigDir}", apacheConfigPath)
                                 write(apacheConfigPath + "ringwebapp.local.conf", apacheConfigTxt)
-                                if IsMacOSX()
+                                if isMacOSX()
                                         system('osascript -e ' + char(39) + 'tell app "Terminal" to do script "'+cCurrentDir+'batch/apache_config/setwebappconf.sh ' + apacheConfigPath + ' ' + cAppDir + char(34) + char(39))
                                 else
                                         system("x-terminal-emulator -e "+cCurrentDir+ "batch/apache_config/setwebappconf.sh " + apacheConfigPath + " " + cAppDir)

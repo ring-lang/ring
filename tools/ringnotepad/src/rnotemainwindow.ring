@@ -933,7 +933,7 @@ class RNoteMainWindow
 				setexpanded(myindex,true)
 				header().hide()
 				chdir(exefolder())
-				if not ismacosx()
+				if not isMacOSX()
 					this.cWebsite = "file:///"+oDir.CurrentPath() + "/../documents/build/html/index.html"
 				ok
 			}
