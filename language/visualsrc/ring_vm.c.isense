@@ -698,11 +698,11 @@ ring_vm_runcodefromthread
 Type: RingState *
 pState
 Type: List *
-pList,*pList2,*pList3,*pList4,*pList5,*pGlobal, *pVarList, *pBlocks
+pList,*pList2,*pList3,*pList4,*pList5,*pGlobal, *pVarList, *pBlocks, *pGlobalScopes, *pScope
 Type: Item *
 pItem
 Type: unsigned int
-x
+x, y
 ring_vm_bytecodefornewthread
 Type: int
 x,y,nSize,nCount,nType

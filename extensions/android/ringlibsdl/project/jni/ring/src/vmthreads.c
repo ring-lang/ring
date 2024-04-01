@@ -72,9 +72,9 @@ RING_API void ring_vm_custmutexdestroy ( VM *pVM, void *pMutex )
 RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 {
 	RingState *pState  ;
-	List *pList,*pList2,*pList3,*pList4,*pList5,*pGlobal, *pVarList, *pBlocks  ;
+	List *pList,*pList2,*pList3,*pList4,*pList5,*pGlobal, *pVarList, *pBlocks, *pGlobalScopes, *pScope  ;
 	Item *pItem  ;
-	unsigned int x  ;
+	unsigned int x, y  ;
 	/* Create the RingState */
 	pState = ring_state_init();
 	/* Flag that we are running from thread */
@@ -99,6 +99,24 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 		pVarList = ring_list_getlist(pGlobal,x) ;
 		if ( pVarList->pItemsArray == NULL ) {
 			ring_list_genarray(pVarList);
+		}
+	}
+	/* Share the other global scopes */
+	pGlobalScopes = pState->pVM->pGlobalScopes ;
+	pState->pVM->pGlobalScopes = pVM->pGlobalScopes ;
+	if ( pVM->pGlobalScopes->pItemsArray  == NULL ) {
+		ring_list_genarray(pVM->pGlobalScopes);
+	}
+	for ( x = 1 ; x <= ring_list_getsize(pVM->pGlobalScopes) ; x++ ) {
+		pScope = ring_list_getlist(pVM->pGlobalScopes,x) ;
+		if ( pScope->pItemsArray == NULL ) {
+			ring_list_genarray(pScope);
+		}
+		for ( y = 1 ; y <= ring_list_getsize(pScope) ; y++ ) {
+			pVarList = ring_list_getlist(pScope,y) ;
+			if ( pVarList->pItemsArray == NULL ) {
+				ring_list_genarray(pVarList);
+			}
 		}
 	}
 	/* Get Items for the Memory Pool From the Main Thread */
@@ -152,6 +170,8 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	ring_list_delete_gc(pState,pState->pVM->pCFunctionsList);
 	/* Restore the first scope - global scope */
 	pState->pVM->pMem->pFirst->pValue = pItem ;
+	/* Restore other global scopes */
+	pState->pVM->pGlobalScopes = pGlobalScopes ;
 	/* Avoid deleting the shared lists and the Mutex */
 	pState->pVM->pCode = pList ;
 	pState->pVM->pFunctionsMap = pList2 ;
