@@ -1195,6 +1195,7 @@ class RNoteMainWindow
 			oLayoutTabsText.AddWidget(textedit1)
 			textedit1 { show() setfocus(7) }
 			this.win1.show() 
+			ActivateSourceCodeWindow()
 		else 
 			oDockSourceCode.hide()
 			textedit1 { 
