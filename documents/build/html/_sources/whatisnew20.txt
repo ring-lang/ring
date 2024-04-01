@@ -18,6 +18,7 @@ Ring 1.20 comes with the next features!
 * Better Samples and Applications
 * Better Functions
 * Enable/Disable Hash Comments
+* Better Files for Loading the StdLib
 * Better Performance when using Braces
 * Better Support for Threads
 * RingRogueUtil Extension
@@ -142,6 +143,47 @@ Example:
 	? #define
 	EnableHashComments
 	# End of program
+
+.. index:: 
+	pair: What is new in Ring  1.20; Better Files for Loading the StdLib
+
+Better Files for Loading the StdLib
+===================================
+
+Using stdlib.ring will load stdlib functions, classes and some extensions too like RingLibCurl, RingOpenSSL, etc.
+
+Using stdlibcore.ring we can only load stdlib functions.
+
+In this release we provide stdlibclasses.ring that can only load stdlib classes without loading stdlib functions or extensions. 
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlibclasses.ring"
+
+	oStack = new Stack {
+		push("A")
+		push("B")
+		push("C")
+		push("D")
+		push("E")
+		pop()
+		pop()
+		print()
+	}
+
+Output:
+
+.. code-block:: none
+
+	C
+	B
+	A
+
+.. note:: Also, we improved the files that load the library to load it in separate global scope.
+
+.. tip:: To load a library in separate global scope use the Load Package command.
 
 .. index:: 
 	pair: What is new in Ring  1.20; Better Performance when using Braces

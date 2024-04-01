@@ -170,6 +170,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#better-samples-and-applications">Better Samples and Applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-functions">Better Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#enable-disable-hash-comments">Enable/Disable Hash Comments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-files-for-loading-the-stdlib">Better Files for Loading the StdLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-performance-when-using-braces">Better Performance when using Braces</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-support-for-threads">Better Support for Threads</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringrogueutil-extension">RingRogueUtil Extension</a></li>
@@ -220,6 +221,7 @@
 <li><p>Better Samples and Applications</p></li>
 <li><p>Better Functions</p></li>
 <li><p>Enable/Disable Hash Comments</p></li>
+<li><p>Better Files for Loading the StdLib</p></li>
 <li><p>Better Performance when using Braces</p></li>
 <li><p>Better Support for Threads</p></li>
 <li><p>RingRogueUtil Extension</p></li>
@@ -327,8 +329,43 @@
 </pre></div>
 </div>
 </section>
+<section id="better-files-for-loading-the-stdlib">
+<span id="index-5"></span><h2>Better Files for Loading the StdLib<a class="headerlink" href="#better-files-for-loading-the-stdlib" title="Permalink to this heading"></a></h2>
+<p>Using stdlib.ring will load stdlib functions, classes and some extensions too like RingLibCurl, RingOpenSSL, etc.</p>
+<p>Using stdlibcore.ring we can only load stdlib functions.</p>
+<p>In this release we provide stdlibclasses.ring that can only load stdlib classes without loading stdlib functions or extensions.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlibclasses.ring&quot;</span>
+
+<span class="n">oStack</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">Stack</span> <span class="p">{</span>
+        <span class="n">push</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="p">)</span>
+        <span class="n">push</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">)</span>
+        <span class="n">push</span><span class="p">(</span><span class="s">&quot;C&quot;</span><span class="p">)</span>
+        <span class="n">push</span><span class="p">(</span><span class="s">&quot;D&quot;</span><span class="p">)</span>
+        <span class="n">push</span><span class="p">(</span><span class="s">&quot;E&quot;</span><span class="p">)</span>
+        <span class="n">pop</span><span class="p">()</span>
+        <span class="n">pop</span><span class="p">()</span>
+        <span class="n">print</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>C
+B
+A
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Also, we improved the files that load the library to load it in separate global scope.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To load a library in separate global scope use the Load Package command.</p>
+</div>
+</section>
 <section id="better-performance-when-using-braces">
-<span id="index-5"></span><h2>Better Performance when using Braces<a class="headerlink" href="#better-performance-when-using-braces" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>Better Performance when using Braces<a class="headerlink" href="#better-performance-when-using-braces" title="Permalink to this heading"></a></h2>
 <p>Using braces to access objects is faster in Ring 1.20 than Ring 1.19</p>
 <p>The performance gain could be from 120% to 160%</p>
 <p>Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]</p>
@@ -372,7 +409,7 @@
 </div>
 </section>
 <section id="better-support-for-threads">
-<span id="index-6"></span><h2>Better Support for Threads<a class="headerlink" href="#better-support-for-threads" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>Better Support for Threads<a class="headerlink" href="#better-support-for-threads" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Better code inside Ring VM for starting new threads</p></li>
 <li><p>Better code for sharing the Memory Pool information between threads</p></li>
@@ -387,7 +424,7 @@
 </div>
 </section>
 <section id="ringrogueutil-extension">
-<span id="index-7"></span><h2>RingRogueUtil Extension<a class="headerlink" href="#ringrogueutil-extension" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>RingRogueUtil Extension<a class="headerlink" href="#ringrogueutil-extension" title="Permalink to this heading"></a></h2>
 <p>Using this extension we can create text-based user interfaces (TUI) and console-based games</p>
 <p>The extension support Windows, Linux and macOS</p>
 <p>Also, we added support for Mouse events (Mouse move, Click, and Scroll)</p>
@@ -414,7 +451,7 @@
 <img alt="Using RogueUtil Shot2" src="_images/conui2.png" />
 </section>
 <section id="better-tools-and-extensions">
-<span id="index-8"></span><h2>Better Tools and Extensions<a class="headerlink" href="#better-tools-and-extensions" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>Better Tools and Extensions<a class="headerlink" href="#better-tools-and-extensions" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Ring Notepad - Full Screen Mode - Added support for opening Find/GoTo/SetTabWidth windows</p></li>
 <li><p>Ring Notepad - Activate source code window after the end of Full Screen mode</p></li>
@@ -426,7 +463,7 @@
 <img alt="VSCode" src="_images/vscode2024.png" />
 </section>
 <section id="better-scripts-for-building-ring">
-<span id="index-9"></span><h2>Better Scripts for Building Ring<a class="headerlink" href="#better-scripts-for-building-ring" title="Permalink to this heading"></a></h2>
+<span id="index-10"></span><h2>Better Scripts for Building Ring<a class="headerlink" href="#better-scripts-for-building-ring" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Scripts for building Ring Compiler/VM are moved to ring/language/build folder</p></li>
 <li><p>Scripts for building Ring, Extensions and Tools are moved to ring/build folder</p></li>
@@ -438,7 +475,7 @@
 </ul>
 </section>
 <section id="improving-ring-compiler-vm-source-code">
-<span id="index-10"></span><h2>Improving Ring Compiler/VM Source Code<a class="headerlink" href="#improving-ring-compiler-vm-source-code" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>Improving Ring Compiler/VM Source Code<a class="headerlink" href="#improving-ring-compiler-vm-source-code" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Better Format</p></li>
 <li><p>Using constants</p></li>
@@ -452,7 +489,7 @@
 </ul>
 </section>
 <section id="more-improvements">
-<span id="index-11"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Ring VM - Avoid infinite for loops when the step value is zero</p></li>
 <li><p>Ring VM - Remove old code related to lAddSubListsByMove and lAddSubListsByFastCopy in VM structure</p></li>
