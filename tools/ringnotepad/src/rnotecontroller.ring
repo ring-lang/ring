@@ -15,5 +15,9 @@ class RNoteController from RNoteControllerBase
 	# Default Settings
 		setMode(nDefaultMode) 
 		restoreSettings()
-		win1.showMaximized()
+		win1 {
+			move(0,0)
+			resize(800,600)
+			showMaximized()
+		}
 	oApp.exec()
