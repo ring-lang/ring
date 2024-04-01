@@ -257,6 +257,7 @@ Better Tools and Extensions
 ===========================
 
 * Ring Notepad - Full Screen Mode - Added support for opening Find/GoTo/SetTabWidth windows
+* Ring Notepad - Activate source code window after the end of Full Screen mode
 * RingQt - Added: QComponent class (Qt3DCore)
 * RingQt - Correct parent class name for the QMaterial & QLogicAspect classes
 * Ring extension for VSCode is updated to support modern versions of VSCode
