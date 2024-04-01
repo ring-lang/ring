@@ -59,7 +59,7 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 	if ( nMax1 > 0 ) {
 		/* Loop to search in each Scope */
 		for ( x = 1 ; x <= 4 ; x++ ) {
-			/* 1 = last scope (function) , 2 = Object State , 3 = global scope */
+			/* 1 = last scope (function) , 2 = Object State , 3 - Defined Globals , 4 = Global scope */
 			if ( x == 1 ) {
 				pList = pVM->pActiveMem ;
 			}
@@ -143,6 +143,18 @@ int ring_vm_findvar2 ( VM *pVM,int nLevel,List *pList2,const char *cStr )
 	}
 	else if ( (nLevel == 1) && (pVM->pActiveMem != ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem))) ) {
 		nLevel = RING_VARSCOPE_NEWOBJSTATE ;
+	}
+	else if ( nLevel == 1 ) {
+		nLevel = RING_VARSCOPE_LOCAL ;
+	}
+	else if ( nLevel == 2 ) {
+		nLevel = RING_VARSCOPE_OBJSTATE ;
+	}
+	else if ( nLevel == 3 ) {
+		nLevel = RING_VARSCOPE_DEFINEDGLOBALS ;
+	}
+	else if ( nLevel == 4 ) {
+		nLevel = RING_VARSCOPE_GLOBAL ;
 	}
 	pVM->nVarScope = nLevel ;
 	RING_VM_SP_INC ;
