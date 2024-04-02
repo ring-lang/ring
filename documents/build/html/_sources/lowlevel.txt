@@ -877,10 +877,8 @@ Output:
 
 .. code-block:: ring
 
-	function hello() in file B:/ring/tests/scripts/calllist.ring
-	called from line 1
-	function test() in file B:/ring/tests/scripts/calllist.ring
-	called from line 3
+	hello
+	test
 	ringvm_calllist
 
 
