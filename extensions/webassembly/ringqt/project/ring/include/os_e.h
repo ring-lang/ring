@@ -80,5 +80,9 @@
 			#endif
 			#define CLOCK_UPTIME CLOCK_MONOTONIC_RAW
 		#endif
+		/* For nanosleep */
+		#if _POSIX_C_SOURCE >= 199309L
+			#include <time.h>
+		#endif
 	#endif
 #endif

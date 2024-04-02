@@ -70,5 +70,7 @@ ElapsedMicroseconds
 Type: unsigned int
 nNum
 ring_vm_os_syssleep
-Type: double
+Type: int
 nTime
+Type: struct timespec
+sTimeSpec
