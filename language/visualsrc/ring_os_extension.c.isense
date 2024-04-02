@@ -69,3 +69,6 @@ Type: LARGE_INTEGER
 ElapsedMicroseconds
 Type: unsigned int
 nNum
+ring_vm_os_syssleep
+Type: double
+nTime

@@ -29,6 +29,7 @@ void ring_vm_os_loadfunctions ( RingState *pRingState )
 		RING_API_REGISTER("nofprocessors",ring_vm_os_nofprocessors);
 		RING_API_REGISTER("uptime",ring_vm_os_uptime);
 		RING_API_REGISTER("randomize",ring_vm_os_randomize);
+		RING_API_REGISTER("syssleep",ring_vm_os_syssleep);
 	#endif
 }
 
@@ -378,5 +379,26 @@ void ring_vm_os_shutdown ( void *pPointer )
 		else {
 			RING_API_ERROR(RING_API_BADPARACOUNT);
 		}
+	}
+
+	void ring_vm_os_syssleep ( void *pPointer )
+	{
+		double nTime  ;
+		if ( RING_API_PARACOUNT != 1 ) {
+			RING_API_ERROR(RING_API_BADPARACOUNT);
+			return ;
+		}
+		if ( ! RING_API_ISNUMBER(1) ) {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+		}
+		nTime = RING_API_GETNUMBER(1) ;
+		#ifdef _WIN32
+			Sleep(((int) nTime) * 1000);
+			RING_API_RETNUMBER(1.0);
+			return ;
+		#else
+			RING_API_RETNUMBER(0.0);
+			return ;
+		#endif
 	}
 #endif

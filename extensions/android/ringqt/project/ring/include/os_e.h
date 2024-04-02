@@ -51,6 +51,8 @@
 		void ring_vm_os_uptime ( void *pPointer ) ;
 
 		void ring_vm_os_randomize ( void *pPointer ) ;
+
+		void ring_vm_os_syssleep ( void *pPointer ) ;
 	#endif
 	#define RING_VM_POINTER_LIBNAME "os"
 	#define RING_VM_UNSUPPORTEDFUNCTION "Warning: This function is not supported in this build!"
