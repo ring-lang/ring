@@ -341,9 +341,11 @@ Improving Ring Compiler/VM Source Code
 * Structures Members - Better names
 * Structures Members - Better order  
 * Functions Parameters - Better names
-* language/src/rstring.c - ring_string_set2_gc() - Better code
 * language/src/os_e.c - randomize() - Better code
 * language/src/expr.c - ring_parser_ppmm() - Better code
+* language/src/rstring.c - ring_string_set2_gc() - Better code
+* language/src/vmlists.c - ring_vm_listpushv() - Avoid stack pop
+* language/src/vmfuncs.c - ring_vm_isstackpointertoobjstate() - Using simple condition
 
 .. index:: 
 	pair: What is new in Ring  1.20; Better Documentation
