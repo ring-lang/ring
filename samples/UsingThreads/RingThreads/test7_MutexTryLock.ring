@@ -21,18 +21,13 @@ func main
     next
     for i = 1 to 10
         aThreads[i] = new_thrd_t()
-        if thrd_create(aThreads[i],"routine()") != 1
-            see"Failed to create thread"+ nl
-        ok
+        thrd_create(aThreads[i],"routine()") 
     next
 
     for i = 1 to 10
         if thrd_join(aThreads[i], :res) != 1
             see "Failed to join thread" + nl
         ok
-    next
-    for i = 1 to 4
-        mtx_destroy(aStoveMutex[i])
     next
 
 func routine

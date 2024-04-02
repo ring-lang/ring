@@ -10,15 +10,8 @@ func main
 
     res = 0
     thread = new_thrd_t()
-    if thrd_create(thread, "roll_dice()") != 1
-				? "Failed to create thread"
-        return 
-    ok
-    # thrd_exit(0)
-    if thrd_join(thread, :res) != 1
-				? "Failed to join thread"
-        return 
-    ok
+    thrd_create(thread, "roll_dice()")    
+    thrd_join(thread, :res) 
     ? "thrd_exit Result : " + res
 
 func roll_dice 

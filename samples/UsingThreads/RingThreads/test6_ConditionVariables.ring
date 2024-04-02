@@ -18,23 +18,15 @@ func main
     for i = 1 to 2
         aThreads[i] = new_thrd_t()
         if i = 1
-            if thrd_create(aThreads[i],"fuel_filling()") != 1
-                see "Failed to create thread" + nl
-            ok
+            thrd_create(aThreads[i],"fuel_filling()") 
         else
-            if thrd_create(aThreads[i],"car()") != 1
-                see "Failed to create thread" + nl
-            ok
+            thrd_create(aThreads[i],"car()")
         ok
     next
 
     for i = 1 to 2
-        if thrd_join(aThreads[i], :res) != 1
-            see "Failed to join thread" + nl
-        ok
+        thrd_join(aThreads[i], :res) 
     next
-    mtx_destroy(mutexFuel)
-    cnd_destroy(condFuel)
 
 func fuel_filling
 
