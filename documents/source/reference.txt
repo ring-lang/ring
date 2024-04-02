@@ -100,7 +100,7 @@ Keywords Count: 55
 Language Functions
 ==================
 
-Functions Count: 252
+Functions Count: 253
 
 .. code-block:: ring
 
@@ -353,6 +353,7 @@ Functions Count: 252
         swap(aList,nItem1,nItem2)
         sysget(cVariable)
         sysset(cVariable,cValue) ---> Returns 1 for success and return 0 for failure
+	syssleep(nMilliSecs) ---> Returns 1 for success and return 0 for failure
         system(cCommand)
         sysunset(cVariable) ---> Returns 1 for success and return 0 for failure
         tan(x) ---> Tangent of an angle of x radians 
