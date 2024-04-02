@@ -36,7 +36,7 @@ oApp = new qApp {
 
 	oModel = new qmesh(oRootEntity)
 
-	oModel.setsource(new qURL("file:///"+currentdir()+"/assets/model/lucky_cat.obj") ) 
+	oModel.setsource(new qURL("file:///"+currentdir()+"/assets/model/Lucky_Cat.obj") ) 
 
 	oModelTransform = new  QTransform(oModel)
 	oModelTransform.setScale(0.1)
