@@ -71,7 +71,8 @@ Better Functions
 * number() function - Produce runtime error if the string contains invalid number
 * input() function - If the size is not passed as parameter it will read a line
 * locals() function - Usage in global scope will not return predefined globals like NL, True, etc.
-* Swap() function - Support swaping any two Lists/Objects 
+* swap() function - Support swaping any two Lists/Objects 
+* sleep() function (from stdlibcore.ring) - Better implementation 
 
 Example (1):
 
