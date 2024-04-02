@@ -2032,7 +2032,12 @@ void ring_vm_generallib_state_mainfile ( void *pPointer )
 	**  So we keep the VM to avoid the Crash 
 	*/
 	pRingState->lDontDeleteTheVM = 1 ;
-	ring_state_runfile(pRingState,cStr);
+	if ( ring_general_isobjectfile(cStr) ) {
+		ring_state_runobjectfile(pRingState,cStr);
+	}
+	else {
+		ring_state_runfile(pRingState,cStr);
+	}
 }
 
 void ring_vm_generallib_state_filetokens ( void *pPointer )
