@@ -26,9 +26,9 @@ void ring_vm_socket_init(void *pPointer) {
 
 #ifdef _WIN32
     if (!g_bWinsockInitialized) {
-		RING_API_ERROR("WSAStartup Failed");
-		return;
-	}
+        RING_API_ERROR("WSAStartup Failed");
+        return;
+    }
 #endif
 
     if(RING_API_PARACOUNT < 2) {
@@ -58,7 +58,7 @@ void ring_vm_socket_init(void *pPointer) {
 
 
     sock->addr = NULL;
-	memset(&sock->hints, 0, sizeof(sock->hints));
+    memset(&sock->hints, 0, sizeof(sock->hints));
     sock->sockfd = INVALID_SOCKET;
     sock->hints.ai_family = (int) RING_API_GETNUMBER(1);
     sock->hints.ai_socktype = (int) RING_API_GETNUMBER(2);
@@ -70,7 +70,7 @@ void ring_vm_socket_init(void *pPointer) {
     
     if((sock->sockfd = socket(sock->hints.ai_family, sock->hints.ai_socktype, sock->hints.ai_protocol)) == INVALID_SOCKET) {
         RING_API_ERROR("Sock Init Failed");
-		RING_API_FREE(sock);
+        RING_API_FREE(sock);
         return;
     }
     
@@ -84,10 +84,10 @@ void ring_vm_socket_setsockopt(void *pPointer) {
     int level, optname, value;
 
 #ifdef _WIN32
-	if (!g_bWinsockInitialized) {
-		RING_API_ERROR("WSAStartup failed");
-		return;
-	}
+    if (!g_bWinsockInitialized) {
+        RING_API_ERROR("WSAStartup failed");
+        return;
+    }
 #endif
 
     if(RING_API_PARACOUNT != 4) 
@@ -121,10 +121,10 @@ void ring_vm_socket_getsockopt(void *pPointer) {
     int level, optname, valsize, buffer = 0;
 
 #ifdef _WIN32
-	if (!g_bWinsockInitialized) {
-		RING_API_ERROR("WSAStartup failed");
-		return;
-	}
+    if (!g_bWinsockInitialized) {
+        RING_API_ERROR("WSAStartup failed");
+        return;
+    }
 #endif
 
     if(RING_API_PARACOUNT != 3) 
@@ -254,7 +254,7 @@ void ring_vm_socket_accept(void *pPointer) {
 
     if((newsock->sockfd = accept(sock->sockfd, (struct sockaddr *) sock->addr, (socklen_t *)&nSize)) == SOCKET_ERROR) {
         RING_API_ERROR("Accept Failed");
-		RING_API_FREE(newsock);
+        RING_API_FREE(newsock);
         return;
     }
 
@@ -994,16 +994,16 @@ RING_API void ringlib_init(RingState *pRingState) {
     RING_API_REGISTER("socketscleanup",ring_vm_socket_cleanup);
 	
 #ifdef _WIN32
-	{
-		/* initialize Winsock */
-		WSADATA data;
-		if (WSAStartup(MAKEWORD(2, 2), &data) == 0) {
-			g_bWinsockInitialized = TRUE;
-		}
-		else {
-			g_bWinsockInitialized = FALSE;
-		}
-	}
+    {
+        /* initialize Winsock */
+        WSADATA data;
+        if (WSAStartup(MAKEWORD(2, 2), &data) == 0) {
+            g_bWinsockInitialized = TRUE;
+        }
+        else {
+            g_bWinsockInitialized = FALSE;
+        }
+    }
 #endif
 
 }
