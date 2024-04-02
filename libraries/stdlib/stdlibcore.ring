@@ -688,8 +688,8 @@ Func permutationReverse a, first, last
 */          
      
 Func Sleep x
-
-	if SysSleep(x) return ok
+	if ! isNumber(x) raise("Bad parameter type!") return ok
+	if SysSleep(x*1000) return ok
 
 	nTime = x * C_SECONDSIZE
 	nClock = clock()

@@ -393,7 +393,7 @@ void ring_vm_os_shutdown ( void *pPointer )
 		}
 		nTime = RING_API_GETNUMBER(1) ;
 		#ifdef _WIN32
-			Sleep(((int) nTime) * 1000);
+			Sleep(((int) nTime));
 			RING_API_RETNUMBER(1.0);
 			return ;
 		#else
