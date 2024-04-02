@@ -688,6 +688,9 @@ Func permutationReverse a, first, last
 */          
      
 Func Sleep x
+
+	if SysSleep(x) return ok
+
 	nTime = x * C_SECONDSIZE
 	nClock = clock()
 	while clock() - nClock < nTime end
