@@ -26,12 +26,10 @@ END:
 Type: Register
 Register
 Parent: ByteCode
-Type: unsigned char
-nOPCode
-Type: unsigned char
-nFlagReg
+Type: Register
+aReg[RING_VM_BC_ITEMS_COUNT]
 Type: unsigned int
-nIntReg
+nIntReg: 32
 Type: unsigned int
 nInsSize:4
 Type: unsigned int
@@ -42,8 +40,10 @@ Type: unsigned int
 nReg3Type:3
 Type: unsigned int
 nReg4Type:3
-Type: Register
-aReg[RING_VM_BC_ITEMS_COUNT]
+Type: unsigned int
+nOPCode: 8
+Type: unsigned int
+nFlagReg: 8
 END:
 Type: ByteCode
 struct ByteCode
