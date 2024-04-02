@@ -69,6 +69,7 @@
 			/* Mac OS X */
 			#include <mach-o/dyld.h>
 			#include <mach/mach_time.h>
+			#include <unistd.h>
 		#else
 			#define ring_vm_os_gettime clock_gettime
 		#endif

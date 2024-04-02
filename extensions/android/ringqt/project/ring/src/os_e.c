@@ -403,6 +403,10 @@ void ring_vm_os_shutdown ( void *pPointer )
 			nanosleep(&sTimeSpec, NULL);
 			RING_API_RETNUMBER(1.0);
 			return ;
+		#elif __MACH__
+			usleep(nTime*1000);
+			RING_API_RETNUMBER(1.0);
+			return ;
 		#else
 			RING_API_RETNUMBER(0.0);
 			return ;
