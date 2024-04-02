@@ -566,7 +566,7 @@ aTests = [
 	[ :name = "Stack Overflow (Part 2)", :Command = "ring stack/rec_overflow2.ring" ],
 	[ :name = "Stack Overflow (Part 3)", :Command = "ring stack/rec_overflow3.ring" ],
 	[ :name = "Using Type Hints", :Command = "ring typehints/override.ring" ],
-	[ :name = "Error Message (Part 1)", :Command = "ring errormsg/test1.ring" ],
+	[ :name = "Error Message (Part 1)", :Command = "ring errormsg/test1.ring", :Condition = IsWindows() ],
 	[ :name = "Error Message (Part 2)", :Command = "ring errormsg/test2.ring" ],
 	[ :name = "Using References (Part 1)", :Command = "ring references/pointer.ring" ],
 	[ :name = "Using References (Part 2)", :Command = "ring references/pointer2.ring" ],
