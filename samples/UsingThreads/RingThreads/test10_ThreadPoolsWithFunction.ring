@@ -3,7 +3,7 @@
 # Date: 29-07-2023
 # Description: Thread Pools With Function
 
-load "stdlib.ring"
+load "stdlibcore.ring"
 load "threads.ring"
 
 lDebug     = false

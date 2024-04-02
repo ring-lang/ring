@@ -2,7 +2,7 @@
 # Author: Azzeddine Remmal (azzeddine.remmal@gmail.com)
 # Date: 29-07-2023
 
-load "stdlib.ring"
+load "stdlibcore.ring"
 load "threads.ring"
 
 # chefs = threads

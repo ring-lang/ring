@@ -3,7 +3,7 @@
 # Date: 29-07-2023
 # Description:return result from thread
 
-load "stdlib.ring"
+load "stdlibcore.ring"
 load "threads.ring"
 
 func main
