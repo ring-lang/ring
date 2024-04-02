@@ -303,6 +303,10 @@ Better Tools and Extensions
 * Ring Notepad - Activate source code window after the end of Full Screen mode
 * Ring Notepad - Select the Font Family based on the operating system
 * Ring Notepad - Using Load command will list the common libraries 
+
+.. image:: rnotefullscr.png
+	:alt: Ring Notepad in Full Screen Mode
+
 * RingQt - Added: QComponent class (Qt3DCore)
 * RingQt - Correct parent class name for the QMaterial & QLogicAspect classes
 * Ring extension for VSCode is updated to support modern versions of VSCode
