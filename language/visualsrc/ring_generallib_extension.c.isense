@@ -353,6 +353,11 @@ lCase,lComments
 ring_vm_generallib_state_scannererror
 Type: RingState *
 pState
+ring_vm_generallib_state_runcodeatins
+Type: RingState *
+pRingState
+Type: int
+nPC
 ring_vm_generallib_see
 Type: char *
 cString
