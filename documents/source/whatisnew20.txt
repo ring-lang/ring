@@ -43,6 +43,7 @@ Better Samples and Applications
 * Added: samples/UsingQt/PDF/CreatePDF.ring
 * Added: samples/AQuickStart/GameLib/delay.ring
 * Added: samples/UsingFastPro/updatelist5.ring
+* Added: samples/UsingFastPro/DestCol.ring
 * Updated: samples/UsingRayLib/more/ex5_wavingcubes_threads.ring - Better code 
 * Updated: samples/AQuickStart/Files/fexists.ring - Using EXEFolder() function
 * Updated: samples/AQuickStart/GUILib/gui25.ring - Using relative path
