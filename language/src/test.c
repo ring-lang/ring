@@ -282,4 +282,5 @@ void ring_structuressize ( void )
 	printf( "(VMState) stucture size: %d \n",sizeof(VMState) ) ;
 	printf( "(VM) stucture size: %d \n",sizeof(VM) ) ;
 	printf( "(Item) structure size + (Items) structure size: %d \n",sizeof(Item)+sizeof(Items) ) ;
+	printf( "(FuncCall) stucture size: %d \n",sizeof(FuncCall) ) ;
 }
