@@ -329,7 +329,7 @@ pRingState
 Type: char *
 cStr
 Type: int
-nArgc
+nArgc, lOutput
 Type: char *
 pArgv[2]
 ring_vm_generallib_state_filetokens

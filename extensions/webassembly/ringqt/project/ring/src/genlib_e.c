@@ -2033,7 +2033,7 @@ void ring_vm_generallib_state_mainfile ( void *pPointer )
 {
 	RingState *pRingState  ;
 	char *cStr  ;
-	int nArgc  ;
+	int nArgc, lOutput  ;
 	char *pArgv[2]  ;
 	pArgv[0] = (char *) RING_API_MALLOC(RING_MEDIUMBUF);
 	pArgv[1] = (char *) RING_API_MALLOC(RING_MEDIUMBUF);
@@ -2061,12 +2061,14 @@ void ring_vm_generallib_state_mainfile ( void *pPointer )
 	**  So we keep the VM to avoid the Crash 
 	*/
 	pRingState->lDontDeleteTheVM = 1 ;
+	lOutput = 1 ;
 	if ( ring_general_isobjectfile(cStr) ) {
 		ring_state_runobjectfile(pRingState,cStr);
 	}
 	else {
-		ring_state_runfile(pRingState,cStr);
+		lOutput = ring_state_runfile(pRingState,cStr);
 	}
+	RING_API_RETNUMBER(lOutput);
 }
 
 void ring_vm_generallib_state_filetokens ( void *pPointer )
