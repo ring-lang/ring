@@ -2178,6 +2178,10 @@ void ring_vm_generallib_state_runcodeatins ( void *pPointer )
 	}
 	pRingState = (RingState *) RING_API_GETCPOINTER(1,"RINGSTATE") ;
 	nPC = (int) RING_API_GETNUMBER(2) ;
+	ring_list_deleteallitems_gc(pRingState,pRingState->pVM->pPCBlockFlag);
+	ring_list_deleteallitems_gc(pRingState,pRingState->pVM->pFuncCallList);
+	pRingState->pVM->nSP = 0 ;
+	pRingState->pVM->nFuncSP = 0 ;
 	pRingState->pVM->nPC = nPC ;
 	ring_vm_mainloop(pRingState->pVM);
 }
