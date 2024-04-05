@@ -5,6 +5,7 @@
 
 load "tryView.ring"
 load "samples.ring"
+load "colors.ring"
 
 import System.GUI
 
@@ -34,6 +35,12 @@ class tryController from windowsControllerParent
 	nActiveExample = 1
 	loadExamples()
 	setExample(nActiveExample)
+
+
+	oSyntaxColors = new SyntaxColors { 
+		setStyleColors(:Black) 
+		ApplySyntaxColors(this.oView.txtCode)  
+	}
 
 	func run 
 
@@ -246,6 +253,9 @@ class tryController from windowsControllerParent
 		oView {
  
 			cStyle = comboStyle.currentText()
+
+			this.oSyntaxColors.setStyleColors(cStyle) 
+			this.oSyntaxColors.ApplySyntaxColors(txtCode)  
 			switch cStyle 
 				on "Black" 
 					oApp.styleFusionBlack() 
@@ -269,6 +279,7 @@ class tryController from windowsControllerParent
 					oApp.styleWindows()				
 			off
 
+		
 			 
 		}
 
@@ -312,3 +323,5 @@ class tryController from windowsControllerParent
 		nIndex = oView.comboSample.currentIndex()
 		setExample(nIndex)
 	
+
+
