@@ -2170,7 +2170,7 @@ void ring_vm_generallib_state_runcodeatins ( void *pPointer )
 {
 	RingState *pRingState  ;
 	int nPC  ;
-	if ( RING_API_PARACOUNT != 2 ) {
+	if ( RING_API_PARACOUNT < 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
@@ -2180,8 +2180,15 @@ void ring_vm_generallib_state_runcodeatins ( void *pPointer )
 	}
 	pRingState = (RingState *) RING_API_GETCPOINTER(1,"RINGSTATE") ;
 	nPC = (int) RING_API_GETNUMBER(2) ;
-	ring_list_deletelastitem_gc(pRingState,pRingState->pVM->pFuncCallList);
 	pRingState->pVM->nPC = nPC ;
+	if ( (RING_API_PARACOUNT == 3) && RING_API_ISSTRING(3) ) {
+		/* Restore PC value saved by Bye command */
+		pRingState->pVM->nPC = pRingState->pVM->nPausePC ;
+		/* Add the string to the Stack to return it from a function like ringvm_give */
+		pRingState->pVM->nSP++ ;
+		ring_itemarray_setstring2(pRingState->pVM->aStack, pRingState->pVM->nSP,RING_API_GETSTRING(3), RING_API_GETSTRINGSIZE(3));
+		ring_vm_return(pRingState->pVM);
+	}
 	ring_vm_mainloop(pRingState->pVM);
 }
 /* Ring See and Give */

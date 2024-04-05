@@ -9,6 +9,7 @@ void ring_vm_bye ( VM *pVM )
 		puts(RING_VM_ERROR_BADCOMMAND);
 		return ;
 	}
+	pVM->nPausePC = pVM->nPC ;
 	pVM->nPC = RING_VM_INSTRUCTIONSCOUNT  + 1 ;
 }
 

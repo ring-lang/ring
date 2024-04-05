@@ -139,6 +139,7 @@
 		unsigned int lSubStringToNumError: 1  ;
 		unsigned int lOptionalLoop: 1  ;
 		Item aStack[RING_VM_STACK_SIZE]  ;
+		unsigned int nPausePC  ;
 	} VM ;
 	typedef struct FuncCall {
 		const char *cName  ;

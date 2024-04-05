@@ -208,6 +208,8 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->lSubStringToNumError = 1 ;
 	/* A Flag to activate the optional loop instruction */
 	pVM->lOptionalLoop = 0 ;
+	/* Use to register the PC when we stop the VM */
+	pVM->nPausePC = 1 ;
 	return pVM ;
 }
 
