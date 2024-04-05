@@ -14,5 +14,6 @@ In this folder we have development tools for Ring
 * CLOC		  : Count lines of code 
 * String2Constant : Convert string literals in source code to constants
 * Help2Wiki	  : Convert text files in Ring documentation to WikiBooks
+* TryRingOnline   : Application similar to RingREPL for WebAssembly
 
 
