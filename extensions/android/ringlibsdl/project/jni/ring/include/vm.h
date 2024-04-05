@@ -100,6 +100,7 @@
 		unsigned int nCFuncParaCount  ;
 		unsigned int nEvalReturnPC  ;
 		unsigned int nPC  ;
+		unsigned int nPausePC  ;
 		unsigned char nInsideEval  ;
 		unsigned char nInClassRegion  ;
 		unsigned char nGetSetObjType  ;
@@ -139,7 +140,6 @@
 		unsigned int lSubStringToNumError: 1  ;
 		unsigned int lOptionalLoop: 1  ;
 		Item aStack[RING_VM_STACK_SIZE]  ;
-		unsigned int nPausePC  ;
 	} VM ;
 	typedef struct FuncCall {
 		const char *cName  ;
