@@ -80,3 +80,64 @@ class SyntaxColors
 		on :Windows 
 			setStyleColors(:White)
 		off 
+
+	func styleFusionBlue oApp
+
+		oApp.StylefusionCustom(
+			new qColor() { setrgb(0,0,167,255) },
+			new qColor() { setrgb(255,255,255,255) },
+			new qColor() { setrgb(0,0,167,255) },
+			new qColor() { setrgb(0,0,167,255) },
+			new qColor() { setrgb(255,255,255,255) },
+			new qColor() { setrgb(255,255,255,255) },
+			new qColor() { setrgb(255,255,255,255) },
+			new qColor() { setrgb(0,0,167,255) },
+			new qColor() { setrgb(255,255,255,255) },
+			new qColor() { setrgb(255,0,0,255) },
+			new qColor() { setrgb(0,0,132,255) },
+			new qColor() { setrgb(255,255,255,255)}
+		)
+
+	func styleModern oApp
+
+		oApp.StylefusionCustom(
+			new qColor() { setrgb(39,60,64,255) 	},
+			new qColor() { setrgb(255,255,255,255) 	},
+			new qColor() { setrgb(39,60,64,255) 	},
+			new qColor() { setrgb(39,60,64,255) 	},
+			new qColor() { setrgb(255,255,255,255) 	},
+			new qColor() { setrgb(255,255,255,255) 	},
+			new qColor() { setrgb(255,255,255,255) 	},
+			new qColor() { setrgb(39,60,64,255) 	},
+			new qColor() { setrgb(255,255,255,255) 	},
+			new qColor() { setrgb(255,0,0,255) 	},
+			new qColor() { setrgb(142,45,197,255) 	},
+			new qColor() { setrgb(39,60,64,255)	}
+		)
+
+	func style oApp,win,txtCode,cStyle 
+
+		setStyleColors(cStyle) 
+		ApplySyntaxColors(txtCode)  
+		switch cStyle 
+			on "Black" 
+				oApp.styleFusionBlack() 
+				win.show() 
+				oApp.styleFusionBlack()
+			on "White" 
+				oApp.styleFusion() 
+				win.show()				
+				oApp.styleFusion()
+			on "Blue"
+				styleFusionBlue(oApp) 
+				win.show()				
+				styleFusionBlue(oApp)		
+			on "Modern"
+				styleModern(oApp) 
+				win.show()				
+				styleModern(oApp)
+			on "Windows"
+				oApp.styleWindows() 
+				win.show()				
+				oApp.styleWindows()				
+		off

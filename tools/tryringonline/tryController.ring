@@ -250,72 +250,8 @@ class tryController from windowsControllerParent
 
 	func changeStyle
 
-		oView {
- 
-			cStyle = comboStyle.currentText()
-
-			this.oSyntaxColors.setStyleColors(cStyle) 
-			this.oSyntaxColors.ApplySyntaxColors(txtCode)  
-			switch cStyle 
-				on "Black" 
-					oApp.styleFusionBlack() 
-					win.show() 
-					oApp.styleFusionBlack()
-				on "White" 
-					oApp.styleFusion() 
-					win.show()				
-					oApp.styleFusion()
-				on "Blue"
-					this.styleFusionBlue() 
-					win.show()				
-					this.styleFusionBlue()		
-				on "Modern"
-					this.styleModern() 
-					win.show()				
-					this.styleModern()
-				on "Windows"
-					oApp.styleWindows() 
-					win.show()				
-					oApp.styleWindows()				
-			off
-
-		
-			 
-		}
-
-	func styleFusionBlue 
-
-		oApp.StylefusionCustom(
-			new qColor() { setrgb(0,0,167,255) },
-			new qColor() { setrgb(255,255,255,255) },
-			new qColor() { setrgb(0,0,167,255) },
-			new qColor() { setrgb(0,0,167,255) },
-			new qColor() { setrgb(255,255,255,255) },
-			new qColor() { setrgb(255,255,255,255) },
-			new qColor() { setrgb(255,255,255,255) },
-			new qColor() { setrgb(0,0,167,255) },
-			new qColor() { setrgb(255,255,255,255) },
-			new qColor() { setrgb(255,0,0,255) },
-			new qColor() { setrgb(0,0,132,255) },
-			new qColor() { setrgb(255,255,255,255)}
-		)
-
-	func styleModern
-
-		oApp.StylefusionCustom(
-			new qColor() { setrgb(39,60,64,255) 	},
-			new qColor() { setrgb(255,255,255,255) 	},
-			new qColor() { setrgb(39,60,64,255) 	},
-			new qColor() { setrgb(39,60,64,255) 	},
-			new qColor() { setrgb(255,255,255,255) 	},
-			new qColor() { setrgb(255,255,255,255) 	},
-			new qColor() { setrgb(255,255,255,255) 	},
-			new qColor() { setrgb(39,60,64,255) 	},
-			new qColor() { setrgb(255,255,255,255) 	},
-			new qColor() { setrgb(255,0,0,255) 	},
-			new qColor() { setrgb(142,45,197,255) 	},
-			new qColor() { setrgb(39,60,64,255)	}
-		)
+		cStyle = oView.comboStyle.currentText()
+		oSyntaxColors.style(oApp,oView.win,oView.txtCode,cStyle) 		
 
 
 	func changeSample
