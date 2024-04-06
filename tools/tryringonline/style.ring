@@ -3,7 +3,7 @@
 # 2024, Mahmoud Fayed 
 #====================================================#
 
-class SyntaxColors
+class Style
 	
 	# Define Colors
 	colordarkBlue   	= new qcolor() { setrgb(0,0,128,255) }

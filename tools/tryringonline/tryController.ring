@@ -5,7 +5,7 @@
 
 load "tryView.ring"
 load "samples.ring"
-load "colors.ring"
+load "style.ring"
 load "ringvm.ring"
 
 import System.GUI
@@ -31,7 +31,7 @@ class tryController from windowsControllerParent
 	setExample(nActiveExample)
 
 
-	oSyntaxColors = new SyntaxColors { 
+	oStyle = new Style { 
 		setStyleColors(:Black) 
 		ApplySyntaxColors(this.oView.txtCode)  
 	}
@@ -120,7 +120,7 @@ class tryController from windowsControllerParent
 	func changeStyle
 
 		cStyle = oView.comboStyle.currentText()
-		oSyntaxColors.style(oApp,oView.win,oView.txtCode,cStyle) 		
+		oStyle.style(oApp,oView.win,oView.txtCode,cStyle) 		
 
 	func changeSample
 
