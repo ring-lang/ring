@@ -139,14 +139,14 @@ class RingVM
 	func send cInput
 
 		if ! pState 
-			return 1
+			return :NoProgramIsRunning
 		ok
 
 		vVar = ring_state_findvar(pState,:lActiveGive)
 		lActiveGive = vVar[RING_VAR_VALUE]
 	
 		if ! lActiveGive 
-			return 2
+			return :NoInputIsRequired
 		ok
 
 		lActiveGive = False 
@@ -154,4 +154,4 @@ class RingVM
 
 		ring_state_runcodeatins(pState,0,cInput)
 
-		return 3
+		return :OutputIsReady

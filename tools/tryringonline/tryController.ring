@@ -65,10 +65,10 @@ class tryController from windowsControllerParent
 		nRes = oRingVM.send(cInput)
 
 		switch nRes
-		on 1 
+		on :NoProgramIsRunning 
 			oView.txtOutput.setText("Please run the program first!")
 			return
-		on 2 
+		on :NoInputIsRequired 
 			oView.txtOutput.setText("No input is required!")
 			return 
 		off
