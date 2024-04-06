@@ -22,7 +22,9 @@ class tryController from windowsControllerParent
 
 	oView = new tryView
 
-	oView.win.setStyleSheet("font-size:16pt;")
+	oStyle = new Style
+
+	prepareUI()
 
 	oRingVM = new RingVM
 		
@@ -30,12 +32,31 @@ class tryController from windowsControllerParent
 	loadExamples()
 	setExample(nActiveExample)
 
+	func prepareUI
 
-	oStyle = new Style { 
-		setStyleColors(:Black) 
-		ApplySyntaxColors(this.oView.txtCode)  
-	}
+		winCode    = new QWidget() { setLayout(this.oView.LayoutGroup1) }
+		winOutput  = new QWidget() { setLayout(this.oView.LayoutGroup2) }
+		oSplitter  = new QSplitter(oView.win) { addWidget(winCode) addWidget(winOutput) }
+		LayoutMain = new QHBoxLayout() {
+			addWidget(oSplitter)			
+		}
 
+		oMWLayoutWidget = new qWidget() { setLayout(LayoutMain) }
+		oView.win.setCentralWidget(oMWLayoutWidget) 
+		oView.win.show()
+
+		changeFontSize()
+
+		oStyle { 
+			setStyleColors(:Black) 
+			ApplySyntaxColors(this.oView.txtCode)  
+		}
+
+		nMaxWidth = oView.btnSend.width()*3
+		oView.btnClearOutput.setMaximumWidth(nMaxWidth)
+		oView.btnClearSourceCode.setMaximumWidth(nMaxWidth)
+		oView.btnRun.setMaximumWidth(nMaxWidth)
+	
 	func run 
 
 		cCode = oView.txtCode.toPlaintext()

@@ -6,7 +6,7 @@ aObjectsList = [
 		 :title =  "Try Online " , 
 		 :backcolor =  "" , 
 		 :windowflags =  "" , 
-		 :mainlayout =  "LayoutMain" ,
+		 :mainlayout =  "" ,
 		 :WindowIcon =  "" , 
 		 :Menubar =  ""  ,
 		 :IndexType =  0  ,
@@ -32,8 +32,8 @@ aObjectsList = [
 		]
 	],
 	[ :name = "comboSample" , :id = 3 , :classname = "formdesigner_qcombobox" , :data = [
-		 :x = 364 , : y = 316  , 
-		 :width =  117 , :height = 26 , 
+		 :x = 779 , : y = 240  , 
+		 :width =  117 , :height = 37 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
@@ -47,8 +47,8 @@ aObjectsList = [
 		]
 	],
 	[ :name = "lblSample" , :id = 4 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 224 , : y = 304  , 
-		 :width =  122 , :height = 36 , 
+		 :x = 618 , : y = 240  , 
+		 :width =  143 , :height = 37 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
@@ -58,7 +58,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "ComboStyle" , :id = 5 , :classname = "formdesigner_qcombobox" , :data = [
-		 :x = 438 , : y = 246  , 
+		 :x = 438 , : y = 240  , 
 		 :width =  161 , :height = 37 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "" , 
@@ -73,8 +73,8 @@ aObjectsList = [
 		]
 	],
 	[ :name = "lblStyle" , :id = 6 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 390 , : y = 245  , 
-		 :width =  45 , :height = 39 , 
+		 :x = 352 , : y = 240  , 
+		 :width =  83 , :height = 37 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
@@ -99,8 +99,8 @@ aObjectsList = [
 		]
 	],
 	[ :name = "lblFontSize" , :id = 8 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 157 , : y = 250  , 
-		 :width =  65 , :height = 34 , 
+		 :x = 157 , : y = 240  , 
+		 :width =  65 , :height = 37 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
@@ -287,17 +287,6 @@ aObjectsList = [
 		 :parent =  "win"  ,
 		 :LayoutType =  0,
 		 :LayoutObjects =  "Layout2,txtOutput,Layout3"
-		]
-	],
-	[ :name = "LayoutMain" , :id = 24 , :classname = "formdesigner_qlayout" , :data = [
-		 :x = 24 , : y = 348  , 
-		 :width =  74 , :height = 59 , 
-		 :textcolor =  "" , 
-		 :backcolor =  "" , 
-		 :font =  "Arial" , 
-		 :parent =  "win"  ,
-		 :LayoutType =  1,
-		 :LayoutObjects =  "LayoutGroup1,LayoutGroup2"
 		]
 	]
 ]
