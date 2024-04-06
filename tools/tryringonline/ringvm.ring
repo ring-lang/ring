@@ -1,7 +1,14 @@
 class RingVM 
 
-	fpSyntaxErrors    = NULL
+	pState = NULL
+
+	fpSyntaxErrors = NULL    
+
 	cSyntaxErrorsFile = "programoutput.txt"
+
+	prepareFiles()
+
+	RING_VAR_VALUE = 3
 
 	func prepareFiles()
 
@@ -102,4 +109,49 @@ class RingVM
 		ok
 		oView.txtOutput.setText(cError)
 
+	func run cCode
 
+		if pState 
+			pState = ring_state_delete(pState)
+		ok
+
+		pState = ring_state_new()
+
+		write("codetorun.ring",cCode+nl)
+
+		prepareSyntaxErrorsOutput()
+		if ring_state_mainfile(pState,"start.ring")
+			return True
+		ok 
+
+		getSyntaxErrors(oView)
+
+		return False 
+
+	func getOutput 
+
+		vVar = ring_state_findvar(pState,:cOutput)
+		cOutput = vVar[RING_VAR_VALUE]
+		ring_state_setvar(pState,:cOutput,"")
+
+		return cOutput 
+
+	func send cInput
+
+		if ! pState 
+			return 1
+		ok
+
+		vVar = ring_state_findvar(pState,:lActiveGive)
+		lActiveGive = vVar[RING_VAR_VALUE]
+	
+		if ! lActiveGive 
+			return 2
+		ok
+
+		lActiveGive = False 
+		ring_state_setvar(pState,:lActiveGive, False)
+
+		ring_state_runcodeatins(pState,0,cInput)
+
+		return 3

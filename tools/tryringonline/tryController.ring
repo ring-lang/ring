@@ -10,8 +10,6 @@ load "ringvm.ring"
 
 import System.GUI
 
-RING_VAR_VALUE = 3
-
 if IsMainSourceFile() {
 	oApp = new App {
 		StyleFusionBlack()
@@ -24,14 +22,10 @@ class tryController from windowsControllerParent
 
 	oView = new tryView
 
-	pState   = NULL
-
 	oView.win.setStyleSheet("font-size:16pt;")
 
-	oRingVM = new RingVM {
-		prepareFiles()
-	}
-
+	oRingVM = new RingVM
+		
 	nActiveExample = 1
 	loadExamples()
 	setExample(nActiveExample)
@@ -44,65 +38,43 @@ class tryController from windowsControllerParent
 
 	func run 
 
-		if pState 
-			pState = ring_state_delete(pState)
-		ok
-
-		pState = ring_state_new()
-
 		cCode = oView.txtCode.toPlaintext()
-
-		write("codetorun.ring",cCode+nl)
-
-		oRingVM.prepareSyntaxErrorsOutput()
-		if ring_state_mainfile(pState,"start.ring")
+		
+		if oRingVM.run(cCode)
 			clearOutput()
 			showOutput()
-		else 
-			oRingVM.getSyntaxErrors(oView)
+			oView.txtInput.setFocus(0)
 		ok
-
-		oView.txtInput.setFocus(0)
 
 	func showOutput
  
-		vVar = ring_state_findvar(pState,:cOutput)
-		cOutput = vVar[RING_VAR_VALUE]
-		oView.txtOutput.setText(oView.txtOutput.toPlainText() + cOutput)
-		ring_state_setvar(pState,:cOutput,"")
+		oView.txtOutput.setText(oView.txtOutput.toPlainText() + oRingVM.getOutput())
 
 		# Move to the End of the output 
-		oCursor = oView.txtOutput.textcursor()
-		nPos = max(len(oView.txtOutput.toplaintext())-1,0)
-		oCursor.setPosition(nPos,QTextCursor_KeepAnchor)
-		oCursor.setPosition(nPos,QTextCursor_MoveAnchor)
-		oView.txtOutput.setTextCursor(oCursor)
+			oCursor = oView.txtOutput.textcursor()
+			nPos = max(len(oView.txtOutput.toplaintext())-1,0)
+			oCursor.setPosition(nPos,QTextCursor_KeepAnchor)
+			oCursor.setPosition(nPos,QTextCursor_MoveAnchor)
+			oView.txtOutput.setTextCursor(oCursor)
 
 	func send 
-
-		if ! pState 
-			oView.txtOutput.setText("Please run the program first!")
-			return
-		ok
-
-		vVar = ring_state_findvar(pState,:lActiveGive)
-		lActiveGive = vVar[RING_VAR_VALUE]
 	
-		if ! lActiveGive 
-			oView.txtOutput.setText("No input is required!")
-			return 
-		ok
-
-		lActiveGive = False 
-		ring_state_setvar(pState,:lActiveGive, False)
-
 		cInput = oView.txtInput.text()
 		oView.txtOutput.setText(oView.txtOutput.toPlainText()+cInput+nl)
-		ring_state_runcodeatins(pState,0,cInput)
+
+		nRes = oRingVM.send(cInput)
+
+		switch nRes
+		on 1 
+			oView.txtOutput.setText("Please run the program first!")
+			return
+		on 2 
+			oView.txtOutput.setText("No input is required!")
+			return 
+		off
+
 		oView.txtInput.setText("")
-
 		showOutput()
-
 		oView.txtInput.setFocus(0)
 
 	func formatSample cCode 
