@@ -24,6 +24,7 @@ class tryController from windowsControllerParent
 
 	oStyle = new Style
 
+	oAllEvents = NULL
 	prepareUI()
 
 	oRingVM = new RingVM
@@ -31,6 +32,8 @@ class tryController from windowsControllerParent
 	nActiveExample = 1
 	loadExamples()
 	setExample(nActiveExample)
+
+		
 
 	func prepareUI
 
@@ -56,7 +59,29 @@ class tryController from windowsControllerParent
 		oView.btnClearOutput.setMaximumWidth(nMaxWidth)
 		oView.btnClearSourceCode.setMaximumWidth(nMaxWidth)
 		oView.btnRun.setMaximumWidth(nMaxWidth)
-	
+
+		oView.lblFontSize.setSizePolicy(0,1)
+		oView.comboFontSize.setSizePolicy(0,1)
+		oView.lblStyle.setSizePolicy(0,1)
+		oView.comboStyle.setSizePolicy(0,1)
+
+		// Since setTabChangesFocus(False) doesn't work in Qt for WASM
+		// We Change the behavior using an Event Filter		
+		oAllEvents = new QAllevents(oView.win) {
+			setKeypressevent(Method(:CodeKeyPress))
+		}
+		oView.txtCode.installEventFilter(oAllEvents)
+
+	func codeKeyPress
+
+		nKeyCode = oAllEvents.getKeyCode() 
+		if nKeyCode = Qt_Key_Tab
+			oView.txtCode.textcursor().insertText(Char(9))
+			oAllEvents.setEventOutput(True)
+			return
+		ok
+		oAllEvents.setEventOutput(False)
+
 	func run 
 
 		cCode = oView.txtCode.toPlaintext()
@@ -131,7 +156,7 @@ class tryController from windowsControllerParent
 	func ChangeFontSize
 
 		oView {
-			cFontSize = comboFont.currentText()	
+			cFontSize = comboFontSize.currentText()	
 			win { 
 				setStyleSheet("font-size:"+cFontSize+"pt;")
 				show()

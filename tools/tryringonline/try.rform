@@ -83,7 +83,7 @@ aObjectsList = [
 		 :textalign =  2
 		]
 	],
-	[ :name = "ComboFont" , :id = 7 , :classname = "formdesigner_qcombobox" , :data = [
+	[ :name = "ComboFontSize" , :id = 7 , :classname = "formdesigner_qcombobox" , :data = [
 		 :x = 251 , : y = 240  , 
 		 :width =  85 , :height = 37 , 
 		 :textcolor =  "" , 
@@ -231,7 +231,7 @@ aObjectsList = [
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :LayoutType =  1,
-		 :LayoutObjects =  "lblFontSize,ComboFont,lblStyle,comboStyle,lblSample,comboSample"
+		 :LayoutObjects =  "lblFontSize,ComboFontSize,lblStyle,comboStyle,lblSample,comboSample"
 		]
 	],
 	[ :name = "Layout1" , :id = 19 , :classname = "formdesigner_qlayout" , :data = [
