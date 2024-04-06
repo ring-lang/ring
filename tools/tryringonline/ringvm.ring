@@ -97,6 +97,9 @@ class RingVM
 				give thenewnumber
 				return 0+thenewnumber
 
+			func shutdown 
+				bye
+
 		`)		
 
 	func prepareSyntaxErrorsOutput
