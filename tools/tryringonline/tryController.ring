@@ -121,6 +121,7 @@ class tryController from windowsControllerParent
 		oView.txtInput.setFocus(0)
 
 	func formatSample cCode 
+
 		cCode = substr(cCode,2)
 		cCode = substr(cCode,Tab,"")
 		return cCode 
@@ -227,37 +228,28 @@ class tryController from windowsControllerParent
 
 	func clearSourceCode
 
-		oView {
-			txtCode.setText("")
-		}
-
+		oView.txtCode.setText("")
 
 	func clearOutput
 
-		oView {
-			txtOutput.setText("")
-		}
-
+		oView.txtOutput.setText("")
 
 	func ChangeFontSize
 
 		oView {
 			cFontSize = comboFont.currentText()	
-			win.setStyleSheet("font-size:"+cFontSize+"pt;")
-			win.show()
+			win { 
+				setStyleSheet("font-size:"+cFontSize+"pt;")
+				show()
+			}
 		}
-
 
 	func changeStyle
 
 		cStyle = oView.comboStyle.currentText()
 		oSyntaxColors.style(oApp,oView.win,oView.txtCode,cStyle) 		
 
-
 	func changeSample
 
 		nIndex = oView.comboSample.currentIndex()
 		setExample(nIndex)
-	
-
-
