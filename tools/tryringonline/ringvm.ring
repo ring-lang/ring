@@ -1,3 +1,8 @@
+#====================================================#
+# Try Ring Online (Using RingQt for WebAssembly)
+# 2024, Mahmoud Fayed 
+#====================================================#
+
 class RingVM 
 
 	pState = NULL

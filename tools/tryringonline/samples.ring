@@ -1,3 +1,8 @@
+#====================================================#
+# Try Ring Online (Using RingQt for WebAssembly)
+# 2024, Mahmoud Fayed 
+#====================================================#
+
 C_SAMPLENAME = 1
 C_SAMPLECODE = 2
 
