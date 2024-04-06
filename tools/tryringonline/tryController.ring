@@ -61,7 +61,7 @@ class tryController from windowsControllerParent
 
 		cCode = oView.txtCode.toPlaintext()
 		
-		if oRingVM.run(cCode)
+		if oRingVM.run(oView,cCode)
 			clearOutput()
 			showOutput()
 			oView.txtInput.setFocus(0)

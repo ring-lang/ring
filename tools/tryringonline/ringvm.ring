@@ -117,7 +117,7 @@ class RingVM
 		ok
 		oView.txtOutput.setText(cError)
 
-	func run cCode
+	func run oView,cCode
 
 		if pState 
 			pState = ring_state_delete(pState)
