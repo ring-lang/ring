@@ -74,6 +74,7 @@ Better Functions
 * locals() function - Usage in global scope will not return predefined globals like NL, True, etc.
 * swap() function - Support swaping any two Lists/Objects 
 * sleep() function (from stdlibcore.ring) - Better implementation 
+* ring_state_mainfile() function - Support Ring Object Files
 
 Example (1):
 
@@ -358,6 +359,7 @@ Better Documentation
 The next chapters are revised and improved
 
 * Operators
+* Embedding Ring in Ring
 * Building From Source Code
 
 .. index:: 
