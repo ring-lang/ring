@@ -1099,15 +1099,15 @@ RING_API double ring_vm_stringtonum ( VM *pVM,const char *cStr )
 		}
 		return 0.0 ;
 	}
-	else if ( (cEndStr > cStr) && ( cEndStr < (cStr+strlen(cStr)) ) ) {
+	else if ( (cEndStr > cStr) && ( cEndStr < cStr+strlen(cStr) ) ) {
 		/* Check Content */
 		nSize = strlen(cStr) ;
 		while ( cEndStr < cStr + nSize ) {
-			cEndStr++ ;
-			if ( isprint(cEndStr[0]) ) {
+			if ( ! ((cEndStr[0] == ' ' ) || (cEndStr[0] == '\r' ) || (cEndStr[0] == '\n' ) || (cEndStr[0] == '\t' ) ) ) {
 				pVM->lFullStringToNum = 0 ;
 				break ;
 			}
+			cEndStr++ ;
 		}
 		if ( (pVM->lSubStringToNumError) && (pVM->lFullStringToNum == 0) ) {
 			ring_vm_error(pVM,RING_VM_ERROR_NUMERICINVALID);
