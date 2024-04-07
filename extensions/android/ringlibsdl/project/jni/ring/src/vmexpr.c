@@ -1071,6 +1071,7 @@ RING_API double ring_vm_stringtonum ( VM *pVM,const char *cStr )
 {
 	double nResult  ;
 	char *cEndStr  ;
+	int x, nSize  ;
 	errno = 0 ;
 	/* Assume that all of the string characters will be converted */
 	pVM->lFullStringToNum = 1 ;
@@ -1099,8 +1100,16 @@ RING_API double ring_vm_stringtonum ( VM *pVM,const char *cStr )
 		return 0.0 ;
 	}
 	else if ( (cEndStr > cStr) && ( cEndStr < (cStr+strlen(cStr)) ) ) {
-		pVM->lFullStringToNum = 0 ;
-		if ( pVM->lSubStringToNumError ) {
+		/* Check Content */
+		nSize = strlen(cStr) ;
+		while ( cEndStr < cStr + nSize ) {
+			cEndStr++ ;
+			if ( isprint(cEndStr[0]) ) {
+				pVM->lFullStringToNum = 0 ;
+				break ;
+			}
+		}
+		if ( (pVM->lSubStringToNumError) && (pVM->lFullStringToNum == 0) ) {
 			ring_vm_error(pVM,RING_VM_ERROR_NUMERICINVALID);
 			return 0.0 ;
 		}
