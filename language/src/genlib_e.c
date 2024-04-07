@@ -2189,21 +2189,37 @@ void ring_vm_generallib_state_resume ( void *pPointer )
 {
 	RingState *pRingState  ;
 	int nPC  ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
+	if ( RING_API_PARACOUNT < 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	if ( ! (RING_API_ISPOINTER(1) && RING_API_ISSTRING(2)) ) {
+	if ( ! RING_API_ISPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	pRingState = (RingState *) RING_API_GETCPOINTER(1,"RINGSTATE") ;
 	/* Restore PC value saved by Bye command */
 	pRingState->pVM->nPC = pRingState->pVM->nPausePC ;
-	/* Add the string to the Stack to return it from a function like ringvm_give */
-	pRingState->pVM->nSP++ ;
-	ring_itemarray_setstring2(pRingState->pVM->aStack, pRingState->pVM->nSP,RING_API_GETSTRING(2), RING_API_GETSTRINGSIZE(2));
-	ring_vm_return(pRingState->pVM);
+	if ( RING_API_PARACOUNT == 3 ) {
+		if ( RING_API_ISNUMBER(3) ) {
+			if ( RING_API_GETNUMBER(3) == 1 ) {
+				ring_vm_return(pRingState->pVM);
+			}
+		}
+		else {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+		}
+	}
+	if ( RING_API_PARACOUNT >= 2 ) {
+		if ( RING_API_ISSTRING(2) ) {
+			/* Add the string to the Stack to return it from a function like ringvm_give */
+			pRingState->pVM->nSP++ ;
+			ring_itemarray_setstring2(pRingState->pVM->aStack, pRingState->pVM->nSP,RING_API_GETSTRING(2), RING_API_GETSTRINGSIZE(2));
+		}
+		else {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+		}
+	}
 	ring_vm_mainloop(pRingState->pVM);
 }
 /* Ring See and Give */
