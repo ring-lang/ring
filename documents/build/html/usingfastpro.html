@@ -253,7 +253,7 @@ updateList(&lt;aList&gt;,:copy,:row,&lt;nRowSrc&gt;,&lt;nRowDest&gt;)
 updateList(&lt;aList&gt;,:copy,:col,&lt;nColSrc&gt;,&lt;nColDest&gt;)
 updateList(&lt;aList&gt;,:merge,:row,&lt;nRowDest&gt;,&lt;nRow&gt;)
 updateList(&lt;aList&gt;,:merge,:col,&lt;nColDest&gt;,&lt;nCol&gt;)
-updateList(&lt;aList&gt;,:mul,:col,&lt;nCol1&gt;,&lt;nCol2&gt;,&lt;nColDest&gt;)
+updateList(&lt;aList&gt;,:mul,:col,&lt;nCol&gt;,&lt;nValue&gt;,&lt;nColDest&gt;)
 </pre></div>
 </div>
 <p>The required parameters depend on the cCommand/cSelection.</p>
@@ -325,6 +325,34 @@ updateList(&lt;aList&gt;,:mul,:col,&lt;nCol1&gt;,&lt;nCol2&gt;,&lt;nColDest&gt;)
 100
 80
 3
+</pre></div>
+</div>
+<p>We can determine a destination column through the six parameter.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;fastpro.ring&quot;</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span>
+        <span class="o">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+        <span class="o">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+        <span class="o">[</span><span class="mi">50</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">0</span><span class="o">]</span>
+<span class="o">]</span>
+
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">mul</span><span class="p">,:</span><span class="n">col</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="n">aList</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p>The list will be [ [10,20,100], [30,40,300], [50,60,500] ]</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>10
+20
+100
+30
+40
+300
+50
+60
+500
 </pre></div>
 </div>
 <p>Using :manyrows or :manycols we can do operations on many rows/columns</p>

@@ -76,7 +76,7 @@ Example:
 	updateList(<aList>,:copy,:col,<nColSrc>,<nColDest>)
 	updateList(<aList>,:merge,:row,<nRowDest>,<nRow>)
 	updateList(<aList>,:merge,:col,<nColDest>,<nCol>)
-	updateList(<aList>,:mul,:col,<nCol1>,<nCol2>,<nColDest>)
+	updateList(<aList>,:mul,:col,<nCol>,<nValue>,<nColDest>)
 
 The required parameters depend on the cCommand/cSelection. 
 
@@ -164,6 +164,39 @@ The list will be [ [100,20,1], [100,50,2], [100,80,3] ]
 	80
 	3
 
+We can determine a destination column through the six parameter.
+
+Example:
+
+.. code-block:: ring
+
+	load "fastpro.ring"
+
+	aList = [
+		[10,20,0],
+		[30,40,0],
+		[50,60,0]
+	]
+
+	updateList(aList,:mul,:col,1,10,3)
+
+	? aList
+
+Output:
+
+The list will be [ [10,20,100], [30,40,300], [50,60,500] ]
+
+.. code-block:: none
+
+	10
+	20
+	100
+	30
+	40
+	300
+	50
+	60
+	500
 
 Using :manyrows or :manycols we can do operations on many rows/columns
 
