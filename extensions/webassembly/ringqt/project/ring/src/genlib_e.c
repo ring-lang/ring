@@ -2216,6 +2216,11 @@ void ring_vm_generallib_state_resume ( void *pPointer )
 			pRingState->pVM->nSP++ ;
 			ring_itemarray_setstring2(pRingState->pVM->aStack, pRingState->pVM->nSP,RING_API_GETSTRING(2), RING_API_GETSTRINGSIZE(2));
 		}
+		else if ( RING_API_ISNUMBER(2) ) {
+			/* Add a number to the stack */
+			pRingState->pVM->nSP++ ;
+			ring_itemarray_setdouble(pRingState->pVM->aStack, pRingState->pVM->nSP,RING_API_GETNUMBER(2));
+		}
 		else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 		}
