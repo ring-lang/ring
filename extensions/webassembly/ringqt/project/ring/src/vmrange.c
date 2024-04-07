@@ -92,13 +92,9 @@ void ring_vm_range ( VM *pVM )
 
 List * ring_vm_range_newlist ( VM *pVM )
 {
-	char cVarName[RING_MEDIUMBUF]  ;
 	List *pVar  ;
 	/* Create List Variable */
-	sprintf( cVarName , "n_sys_var_%d" , pVM->nPC ) ;
-	if ( ring_vm_findvar(pVM, cVarName  ) == 0 ) {
-		ring_vm_newvar(pVM,cVarName);
-	}
+	ring_vm_createtemplist(pVM);
 	pVar = (List *) RING_VM_STACK_READP ;
 	ring_list_setint_gc(pVM->pRingState,pVar,RING_VAR_TYPE,RING_VM_LIST);
 	ring_list_setlist_gc(pVM->pRingState,pVar,RING_VAR_VALUE);
