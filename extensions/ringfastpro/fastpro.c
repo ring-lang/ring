@@ -1,6 +1,7 @@
 /*
 ** ListPro extension
-** 2023, Mahmoud Fayed 
+** 2023, Mahmoud Fayed
+** 2024, Bert Mariani (Added DestCol support in updateList() as a six parameter) 
 */
 
 #include "ring.h"
@@ -166,7 +167,7 @@ RING_FUNC(ring_updatelist)
     char *cSelection  ;
     List *pList, *pSubList, *pRow, *pRow2  ;
     int nOPCode,nRow,nCol,nStart,nEnd,iValue  ;
-	int dCol ;                                  //<<<=== Param-6 destination-Column
+    int dCol ;                               
     int x,y  ;
     double nValue  ;
     VM *pVM  ;
@@ -195,12 +196,11 @@ RING_FUNC(ring_updatelist)
     nOPCode = 0 ;
     nRow = 0 ;
     nCol = 0 ;
-	dCol = 0 ;        //<<<=== Param 6 dCol - destination Column
+    dCol = 0 ;     
     nStart = 0 ;
     nEnd = 0 ;
     pRow = NULL ;	
-    /* Check Selection */
-	/* ROW */ 
+
     if ( strcmp(cSelection,"row") == 0 ) {
        if ( RING_API_PARACOUNT == 5 ) {		
             if ( RING_API_ISNUMBER(4) && RING_API_ISNUMBER(5) ) {
@@ -231,26 +231,18 @@ RING_FUNC(ring_updatelist)
         }
     }
 	
-//---------------------------------------------------------------------	
-//<<<=== Param-6 Same as Mul with dCol, Col2 * 3.14 => Col 6
-// updateList(<aList>,:mulmerge,:col,<nCol>,<nValue>,<nColDest>,)   
-//             1       2         3    4      5        6
-//                                           iValue   dCol
-//--------------------------------------------------------------------
-    /* Check Selection */
-	//<<<=== COL */
-	
     else if ( strcmp(cSelection,"col") == 0 ) {
-		if ( RING_API_PARACOUNT == 5 || RING_API_PARACOUNT == 6) {    //<<<=== 5 default  6 destinationColumn
+	if ( RING_API_PARACOUNT == 5 || RING_API_PARACOUNT == 6) {   
             if ( RING_API_ISNUMBER(4) && RING_API_ISNUMBER(5) ) {
                 nOPCode = 2 ;
                 nCol = (int) RING_API_GETNUMBER(4) ;    
                 nValue = RING_API_GETNUMBER(5) ;        
 				
-				dCol = nCol ;                              //<<<=== default = nCol  else destinationColumn
-				if ( RING_API_PARACOUNT == 6 )             //<<<=== 6 parms  nCol, nValue, dCol
-				{    dCol = (int) RING_API_GETNUMBER(6) ;  //<<<=== dCol , 4=Col2 * 5=3.14 => 6=Col 6
-				}
+		dCol = nCol ;                              
+		if ( RING_API_PARACOUNT == 6 )             
+		{
+			dCol = (int) RING_API_GETNUMBER(6) ; 
+		}
 				
                 nStart = 1 ;
                 nEnd = ring_list_getsize(pList) ;
@@ -442,8 +434,7 @@ RING_FUNC(ring_updatelist)
                     pSubList = ring_list_getlist(pList,x) ;
                     if ( ring_list_getsize(pSubList) >= nCol ) {
                         if ( ring_list_isdouble(pSubList,nCol) ) {
-                    //add    ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol, ring_list_getdouble(pSubList,nCol) + nValue);
-					         ring_list_setdouble_gc(pVM->pRingState,pSubList,dCol, ring_list_getdouble(pSubList,nCol) + nValue);							
+            		    ring_list_setdouble_gc(pVM->pRingState,pSubList,dCol, ring_list_getdouble(pSubList,nCol) + nValue);							
                         }
                     }
                 }
@@ -501,8 +492,7 @@ RING_FUNC(ring_updatelist)
                     pSubList = ring_list_getlist(pList,x) ;
                     if ( ring_list_getsize(pSubList) >= nCol ) {
                         if ( ring_list_isdouble(pSubList,nCol) ) {
-                    //sub    ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol, ring_list_getdouble(pSubList,nCol) - nValue);
-							 ring_list_setdouble_gc(pVM->pRingState,pSubList,dCol, ring_list_getdouble(pSubList,nCol) - nValue);
+			    ring_list_setdouble_gc(pVM->pRingState,pSubList,dCol,ring_list_getdouble(pSubList,nCol) - nValue);
                         }
                     }
                 }
@@ -552,18 +542,7 @@ RING_FUNC(ring_updatelist)
                     ring_list_setdouble_gc(pVM->pRingState,pRow,x, ring_list_getdouble(pRow,x) * nValue);
                 }
             }
-            break ;
-			
-//-------------------------------------------------------------------------
-//<<<===       1       2         3    4          5         6
-// updateList(<aList>,:merge,:col,<nColDest>,<nCol>)	
-// updateList(<aList>,:mul,  :col,<nCol>,    <nValue>)
-// updateList(<aList>,:mul,  :col,<nCol>,    <nValue>, <nColDest>,)
-//             1       2      3    4          5         6
-//                                            iValue    dCol
-//<<<=== Same as Mul with dCol, nCol=Col2 *  nValue=3.14 =>  dCol=Col 6
-//-----------------------------------------------------------------------			
-			
+            break ;						
         case 402 :
             /* Mul Col */
             for ( x = nStart ; x <= nEnd ; x++ ) {
@@ -571,9 +550,7 @@ RING_FUNC(ring_updatelist)
                     pSubList = ring_list_getlist(pList,x) ;					
                     if ( ring_list_getsize(pSubList) >= nCol ) {						
                         if ( ring_list_isdouble(pSubList,nCol) ) {
-							
-                    //mul    ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol, ring_list_getdouble(pSubList,nCol) * nValue );
-							 ring_list_setdouble_gc(pVM->pRingState,pSubList,dCol, ring_list_getdouble(pSubList,nCol) * nValue);
+			    ring_list_setdouble_gc(pVM->pRingState,pSubList,dCol, ring_list_getdouble(pSubList,nCol) * nValue);
                         }
                     }
                 }
@@ -631,8 +608,7 @@ RING_FUNC(ring_updatelist)
                     pSubList = ring_list_getlist(pList,x) ;
                     if ( ring_list_getsize(pSubList) >= nCol ) {
                         if ( ring_list_isdouble(pSubList,nCol) ) {
-                    //div    ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol, ring_list_getdouble(pSubList,nCol) / nValue);
-							 ring_list_setdouble_gc(pVM->pRingState,pSubList,dCol, ring_list_getdouble(pSubList,nCol) / nValue);							
+			    ring_list_setdouble_gc(pVM->pRingState,pSubList,dCol, ring_list_getdouble(pSubList,nCol) / nValue);							
                         }
                     }
                 }
