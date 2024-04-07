@@ -100,9 +100,11 @@ Keywords Count: 55
 Language Functions
 ==================
 
-Functions Count: 253
+Functions Count: 254
 
-.. code-block:: ring
+.. note:: Some function could be used with different parameters type/count
+
+.. code-block:: none
 
         acos(x) ---> The principal value of the arc cosine of x, expressed in radians
         add(List,Item)
@@ -295,10 +297,12 @@ Functions Count: 253
         ring_state_findvar(oState,cVariableName) ---> aVariableList
         ring_state_init() ---> oState
         ring_state_main(cRingFileName)
-        ring_state_mainfile(oState,cRingFileName)
+        ring_state_mainfile(oState,cRingFileName|cRingoFileName)
         ring_state_new() ---> oState
         ring_state_newvar(oState,cVariableName) ---> aVariableList
+	ring_state_resume(oState,[cPara|nPara],[lUseReturn])
         ring_state_runcode(oState,cCode)
+	ring_state_runcodeatins(oState,nPC)
         ring_state_runfile(oState,cRingFileName)
         ring_state_runobjectfile(oState,cRingObjectFileName)
         ring_state_scannererror(oState) ---> nStatus
