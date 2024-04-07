@@ -138,6 +138,23 @@ Example (4):
 	swap(aList,1,2)
 	? aList				# 1 2 3 4 5 6
 
+Example (6):
+
+.. code-block:: ring
+
+	load "fastpro.ring"
+
+	aList = [
+		[10,20,0],
+		[30,40,0],
+		[50,60,0]
+	]
+
+	updateList(aList,:mul,:col,1,10,3)
+
+	? aList		# 10 20 100 30 40 300 50 60 500
+
+
 .. index:: 
 	pair: What is new in Ring  1.20; Enable/Disable Hash Comments
 
@@ -414,3 +431,4 @@ More Improvements
 * Ring VM - Loop N command inside For-In loop will execute implicit Exit N-1 command then Loop 
 * Ring VM - Better format when displaying error messages
 * Ring VM - Correct file name in the error message when the error happens at function arguments 
+* Ring VM - Temp. lists created using the Range operator will be added to the temp. memory 

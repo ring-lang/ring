@@ -324,6 +324,20 @@
 <span class="o">?</span> <span class="n">aList</span>                         <span class="c"># 1 2 3 4 5 6</span>
 </pre></div>
 </div>
+<p>Example (6):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;fastpro.ring&quot;</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span>
+        <span class="o">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+        <span class="o">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+        <span class="o">[</span><span class="mi">50</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">0</span><span class="o">]</span>
+<span class="o">]</span>
+
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">mul</span><span class="p">,:</span><span class="n">col</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="n">aList</span>         <span class="c"># 10 20 100 30 40 300 50 60 500</span>
+</pre></div>
+</div>
 </section>
 <section id="enable-disable-hash-comments">
 <span id="index-5"></span><h2>Enable/Disable Hash Comments<a class="headerlink" href="#enable-disable-hash-comments" title="Permalink to this heading"></a></h2>
@@ -545,6 +559,7 @@ the nPC value (Program Counter) so using ring_state_resume() we can continue the
 <li><p>Ring VM - Loop N command inside For-In loop will execute implicit Exit N-1 command then Loop</p></li>
 <li><p>Ring VM - Better format when displaying error messages</p></li>
 <li><p>Ring VM - Correct file name in the error message when the error happens at function arguments</p></li>
+<li><p>Ring VM - Temp. lists created using the Range operator will be added to the temp. memory</p></li>
 </ul>
 </section>
 </section>
