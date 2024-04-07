@@ -102,7 +102,7 @@ Language Functions
 
 Functions Count: 254
 
-.. note:: Some function could be used with different parameters type/count
+.. note:: Some functions could be used with different parameters type/count
 
 .. code-block:: none
 
