@@ -160,6 +160,6 @@ class RingVM
 		lActiveGive = False 
 		ring_state_setvar(pState,:lActiveGive, False)
 
-		ring_state_runcodeatins(pState,0,cInput)
+		ring_state_resume(pState,cInput)
 
 		return :OutputIsReady
