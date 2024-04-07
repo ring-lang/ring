@@ -173,11 +173,12 @@ AssertEqual(157, FixWord("خمسمائة").Text, "خمسمئة")
 AssertEqual(158, FixWord("الثلاثمائة").Text, "الثلاثمئة")
 AssertEqual(158, FixWord("وتسعمائتكم").Text, "وتسعمئتكم")
 
+PassedTest()
+
+? (clock() - t)
 
 Func FixWord(word)
 	return FixSpWord(new aString(word))
 EndFunc
 
-PassedTest()
 
-? (clock() - t)
