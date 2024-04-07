@@ -2202,7 +2202,7 @@ void ring_vm_generallib_state_resume ( void *pPointer )
 	pRingState->pVM->nPC = pRingState->pVM->nPausePC ;
 	/* Add the string to the Stack to return it from a function like ringvm_give */
 	pRingState->pVM->nSP++ ;
-	ring_itemarray_setstring2(pRingState->pVM->aStack, pRingState->pVM->nSP,RING_API_GETSTRING(3), RING_API_GETSTRINGSIZE(3));
+	ring_itemarray_setstring2(pRingState->pVM->aStack, pRingState->pVM->nSP,RING_API_GETSTRING(2), RING_API_GETSTRINGSIZE(2));
 	ring_vm_return(pRingState->pVM);
 	ring_vm_mainloop(pRingState->pVM);
 }
