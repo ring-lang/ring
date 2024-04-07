@@ -15,6 +15,7 @@ List of changes and new features
 
 Ring 1.20 comes with the next features!
 
+* Try Ring Online (WebAssembly)
 * Better Samples and Applications
 * Better Functions
 * Enable/Disable Hash Comments
@@ -27,6 +28,17 @@ Ring 1.20 comes with the next features!
 * Better Tools and Extensions
 * Better Documentation
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring  1.20; Better Samples and Applications
+
+Try Ring Online (WebAssembly)
+=============================
+
+Using Ring we developed an application to try Ring online using RingQt for WebAssembly
+
+.. image:: tryringonline.png
+	:alt: Try Ring Online
 
 .. index:: 
 	pair: What is new in Ring  1.20; Better Samples and Applications
