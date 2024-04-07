@@ -93,6 +93,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#ring-state-new-and-ring-state-mainfile">ring_state_new() and ring_state_mainfile()</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#runtime-errors-when-embedding-ring-in-ring">Runtime Errors when Embedding Ring in Ring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ring-state-filetokens-function">ring_state_filetokens() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ring-state-mainfile-and-ring-object-file">ring_state_mainfile() and Ring Object File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pause-resume-the-ring-vm">Pause/Resume the Ring VM</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
@@ -176,7 +178,7 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew20.html">Release Notes: Version 1.20</a></li>
 <li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">Building From Source Code</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
@@ -472,6 +474,99 @@ EndLine
 Operator    : ?
 Identifier  : name
 EndLine
+</pre></div>
+</div>
+</section>
+<section id="ring-state-mainfile-and-ring-object-file">
+<span id="index-7"></span><h2>ring_state_mainfile() and Ring Object File<a class="headerlink" href="#ring-state-mainfile-and-ring-object-file" title="Permalink to this heading"></a></h2>
+<p>Starting from Ring 1.20 the ring_state_mainfile() is updated and support Ring Object Files (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ringo)</p>
+<p>So, we can write a group of functions/classes then compile them to Ring Object File, send this file to another programmer who can use the functions/classes inside his program after loading it in isolated embedded Ring State.</p>
+<p>File: mylib.ring</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Hello from the object file&quot;</span>
+<span class="k">func</span> <span class="n">test</span>
+        <span class="o">?</span> <span class="s">&quot;Hello from test() function&quot;</span>
+</pre></div>
+</div>
+<p>Compiling the code to Ring Object File</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ring mylib.ring -go
+</pre></div>
+</div>
+<p>This will generate (mylib.ringo)</p>
+<p>File: use.ring</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">pState</span> <span class="o">=</span> <span class="n">ring_state_new</span><span class="p">()</span>
+<span class="n">ring_state_mainfile</span><span class="p">(</span><span class="n">pstate</span><span class="p">,</span><span class="s">&quot;mylib.ringo&quot;</span><span class="p">)</span>
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pstate</span><span class="p">,</span><span class="s">&quot;? &#39;We can call functions from Ring Object File!&#39; &quot;</span><span class="p">)</span>
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pstate</span><span class="p">,</span><span class="s">&quot;test()&quot;</span><span class="p">)</span>
+<span class="n">ring_state_delete</span><span class="p">(</span><span class="n">pState</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="p">:</span><span class="k">done</span>
+</pre></div>
+</div>
+<p>In practice it’s expected that the programmer who will distribute the (<a href="#id3"><span class="problematic" id="id4">*</span></a>.ringo) file will distribute a simple <a href="#id5"><span class="problematic" id="id6">*</span></a>.ring file that create the Ring state, load the Ring Object and call functions/methods.</p>
+<p>Something like this</p>
+<p>File: commercialLib.ring</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">mylib</span> <span class="o">=</span> <span class="k">new</span> <span class="n">mylib</span>
+
+<span class="k">class</span> <span class="n">mylib</span>
+
+        <span class="n">pState</span> <span class="o">=</span> <span class="n">ring_state_new</span><span class="p">()</span>
+        <span class="n">ring_state_mainfile</span><span class="p">(</span><span class="n">pstate</span><span class="p">,</span><span class="s">&quot;mylib.ringo&quot;</span><span class="p">)</span>
+
+        <span class="k">func</span> <span class="n">test</span>
+                <span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pstate</span><span class="p">,</span><span class="s">&quot;test()&quot;</span><span class="p">)</span>
+
+        <span class="k">func</span> <span class="n">destroy</span>
+                <span class="n">ring_state_delete</span><span class="p">(</span><span class="n">pState</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then we can use this library like this</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;commercialLib.ring&quot;</span>
+<span class="n">mylib</span><span class="p">.</span><span class="n">test</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="pause-resume-the-ring-vm">
+<span id="index-8"></span><h2>Pause/Resume the Ring VM<a class="headerlink" href="#pause-resume-the-ring-vm" title="Permalink to this heading"></a></h2>
+<p>Starting from Ring 1.20 we can pause/resume the embedded Ring VM</p>
+<p>To pause the VM, just use the (Bye) command which as expected will end the execution but will store
+the nPC value (Program Counter) so using ring_state_resume() we can continue the execution at any time starting from this nPC value.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring_state_resume</span><span class="p">(</span><span class="n">oState</span><span class="p">,</span><span class="o">[</span><span class="n">cPara</span><span class="o">|</span><span class="n">nPara</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="n">lUseReturn</span><span class="o">]</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The second parameter could be a string or number that we will push to the Stack</p>
+<p>The third parameter determine if we would like to execute the Return command before Resume or not.</p>
+<p>A common usage for this function exist in the (Try Ring Online) application which uses RingQt for WebAssembly.</p>
+<p>You will find the source code in the ring/tools/tryringonline folder.</p>
+<p>The usage of Pause/Resume using (Bye/ring_state_resume()) exist in the  ring/tools/tryringonline/ringvm.ring file.</p>
+<p>This application uses Embedded Ring VM, and replace the Give command with a function like this</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">ringvm_give</span>
+        <span class="n">lActiveGive</span> <span class="o">=</span> <span class="kp">True</span>
+        <span class="k">bye</span>
+</pre></div>
+</div>
+<p>Once Ring VM find ringvm_give() function is defined, it will call it every time we use the Give command. It’s expected from this function to return a string that represent the value entered by the user. What happens here is using the (bye) command to stop the embedded Ring VM execution.</p>
+<p>Now, the Ring application that have this embedded Ring VM could provide a UI to get the value from the user and when the user press ENTER or click (Send) the application will resume the execution of the embedded Ring VM</p>
+<p>The next send() method is part of the RingVM class in the TryRingOnline application</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">send</span> <span class="n">cInput</span>
+
+        <span class="k">if</span> <span class="o">!</span> <span class="n">pState</span>
+                <span class="k">return</span> <span class="p">:</span><span class="n">NoProgramIsRunning</span>
+        <span class="k">ok</span>
+
+        <span class="n">vVar</span> <span class="o">=</span> <span class="n">ring_state_findvar</span><span class="p">(</span><span class="n">pState</span><span class="p">,:</span><span class="n">lActiveGive</span><span class="p">)</span>
+        <span class="n">lActiveGive</span> <span class="o">=</span> <span class="n">vVar</span><span class="o">[</span><span class="n">RING_VAR_VALUE</span><span class="o">]</span>
+
+        <span class="k">if</span> <span class="o">!</span> <span class="n">lActiveGive</span>
+                <span class="k">return</span> <span class="p">:</span><span class="n">NoInputIsRequired</span>
+        <span class="k">ok</span>
+
+        <span class="n">lActiveGive</span> <span class="o">=</span> <span class="kp">False</span>
+        <span class="n">ring_state_setvar</span><span class="p">(</span><span class="n">pState</span><span class="p">,:</span><span class="n">lActiveGive</span><span class="p">,</span> <span class="kp">False</span><span class="p">)</span>
+
+        <span class="n">ring_state_resume</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="n">cInput</span><span class="p">,</span><span class="kp">True</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="p">:</span><span class="n">OutputIsReady</span>
 </pre></div>
 </div>
 </section>

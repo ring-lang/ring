@@ -331,3 +331,135 @@ Output:
 	Operator    : ?
 	Identifier  : name
 	EndLine
+
+
+.. index:: 
+	pair: Embedding Ring in Ring; ring_state_mainfile() and Ring Object File
+
+ring_state_mainfile() and Ring Object File
+==========================================
+
+Starting from Ring 1.20 the ring_state_mainfile() is updated and support Ring Object Files (*.ringo)
+
+So, we can write a group of functions/classes then compile them to Ring Object File, send this file to another programmer who can use the functions/classes inside his program after loading it in isolated embedded Ring State.
+
+File: mylib.ring
+
+.. code-block:: ring
+
+	? "Hello from the object file"
+	func test
+		? "Hello from test() function"
+
+Compiling the code to Ring Object File
+
+.. code-block:: none
+
+	ring mylib.ring -go
+
+This will generate (mylib.ringo)
+
+File: use.ring
+
+.. code-block:: ring
+
+	pState = ring_state_new()
+	ring_state_mainfile(pstate,"mylib.ringo")
+	ring_state_runcode(pstate,"? 'We can call functions from Ring Object File!' ")
+	ring_state_runcode(pstate,"test()")
+	ring_state_delete(pState)
+
+	? :done
+
+In practice it's expected that the programmer who will distribute the (*.ringo) file will distribute a simple *.ring file that create the Ring state, load the Ring Object and call functions/methods. 
+
+Something like this
+
+File: commercialLib.ring
+
+.. code-block:: ring
+
+	mylib = new mylib
+
+	class mylib
+
+		pState = ring_state_new()
+		ring_state_mainfile(pstate,"mylib.ringo")
+
+		func test
+			ring_state_runcode(pstate,"test()")
+
+		func destroy
+			ring_state_delete(pState)
+
+Then we can use this library like this
+
+.. code-block:: ring
+
+	load "commercialLib.ring"
+	mylib.test()
+
+
+.. index:: 
+	pair: Embedding Ring in Ring; Pause/Resume the Ring VM
+
+Pause/Resume the Ring VM
+========================
+
+Starting from Ring 1.20 we can pause/resume the embedded Ring VM
+
+To pause the VM, just use the (Bye) command which as expected will end the execution but will store
+the nPC value (Program Counter) so using ring_state_resume() we can continue the execution at any time starting from this nPC value.
+
+Syntax:
+
+.. code-block:: ring
+
+	ring_state_resume(oState,[cPara|nPara],[lUseReturn])
+
+The second parameter could be a string or number that we will push to the Stack 
+
+The third parameter determine if we would like to execute the Return command before Resume or not.
+
+
+A common usage for this function exist in the (Try Ring Online) application which uses RingQt for WebAssembly.
+
+You will find the source code in the ring/tools/tryringonline folder.
+
+The usage of Pause/Resume using (Bye/ring_state_resume()) exist in the  ring/tools/tryringonline/ringvm.ring file.
+
+This application uses Embedded Ring VM, and replace the Give command with a function like this
+
+.. code-block:: ring
+
+	func ringvm_give
+		lActiveGive = True 
+		bye
+
+Once Ring VM find ringvm_give() function is defined, it will call it every time we use the Give command. It's expected from this function to return a string that represent the value entered by the user. What happens here is using the (bye) command to stop the embedded Ring VM execution.
+
+Now, the Ring application that have this embedded Ring VM could provide a UI to get the value from the user and when the user press ENTER or click (Send) the application will resume the execution of the embedded Ring VM
+
+The next send() method is part of the RingVM class in the TryRingOnline application
+
+.. code-block:: ring
+
+	func send cInput
+
+		if ! pState 
+			return :NoProgramIsRunning
+		ok
+
+		vVar = ring_state_findvar(pState,:lActiveGive)
+		lActiveGive = vVar[RING_VAR_VALUE]
+	
+		if ! lActiveGive 
+			return :NoInputIsRequired
+		ok
+
+		lActiveGive = False 
+		ring_state_setvar(pState,:lActiveGive, False)
+
+		ring_state_resume(pState,cInput,True)
+
+		return :OutputIsReady
