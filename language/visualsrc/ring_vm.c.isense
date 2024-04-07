@@ -164,6 +164,8 @@ Type: unsigned int
 nEvalReturnPC
 Type: unsigned int
 nPC
+Type: unsigned int
+nPausePC
 Type: unsigned char
 nInsideEval
 Type: unsigned char
@@ -242,8 +244,6 @@ Type: unsigned int
 lOptionalLoop: 1
 Type: Item
 aStack[RING_VM_STACK_SIZE]
-Type: unsigned int
-nPausePC
 END:
 Type: VM
 struct VM
