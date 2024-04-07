@@ -4,7 +4,7 @@
 
 int ring_vm_eval ( VM *pVM,const char *cStr )
 {
-	int nPC,nCont,nLastPC,nRunVM,x,nSize,nMark,lUpdate  ;
+	int nPC,nCont,nLastPC,nRunVM,x,nSize,nMark,nIns,lUpdate  ;
 	Scanner *pScanner  ;
 	int aPara[3]  ;
 	List *pIR  ;
@@ -27,7 +27,7 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 	nRunVM = 0 ;
 	/* Get Functions/Classes Size before change by parser */
 	aPara[0] = nLastPC ;
-	aPara[1] = ring_list_getsize(pVM->pFunctionsMap) + ring_list_getsize(pVM->pClassesMap) ;
+	aPara[1] = ring_list_getsize(pVM->pFunctionsMap) + ring_list_getsize(pVM->pClassesMap) + ring_list_getsize(pVM->pPCBlockFlag) ;
 	/* Call Parser */
 	if ( nCont == 1 ) {
 		pVM->pRingState->lNoLineNumber = 1 ;
@@ -70,11 +70,12 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 			/* Let Return commands Jump to Return From Eval command */
 			if ( lUpdate ) {
 				pIR = ring_list_getlist(pVM->pCode,x);
-				if ( ring_list_getint(pIR,RING_PARSER_ICG_OPERATIONCODE) == ICO_RETURN ) {
+				nIns = ring_list_getint(pIR,RING_PARSER_ICG_OPERATIONCODE) ;
+				if ( (nIns == ICO_RETURN) || (nIns == ICO_RETNULL) ) {
 					ring_list_setint_gc(pVM->pRingState,pIR,RING_PARSER_ICG_OPERATIONCODE,ICO_JUMP);
 					ring_list_addint_gc(pVM->pRingState,pIR,nMark);
 				}
-				else if ( (ring_list_getint(pIR,RING_PARSER_ICG_OPERATIONCODE) == ICO_NEWFUNC) || (ring_list_getint(pIR,RING_PARSER_ICG_OPERATIONCODE) == ICO_NEWCLASS) ) {
+				else if ( (nIns == ICO_NEWFUNC) || (nIns == ICO_NEWCLASS) ) {
 					lUpdate = 0 ;
 				}
 			}
@@ -121,9 +122,9 @@ void ring_vm_returneval ( VM *pVM )
 	ring_vm_mutexlock(pVM);
 	aPara[0] = RING_VM_IR_READIVALUE(RING_VM_IR_REG1) ;
 	aPara[1] = RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ;
-	if ( ( pVM->lRetEvalDontDelete == 0 ) && (aPara[1] == ring_list_getsize(pVM->pFunctionsMap) + ring_list_getsize(pVM->pClassesMap)) ) {
+	if ( ( pVM->lRetEvalDontDelete == 0 ) && (aPara[1] == ring_list_getsize(pVM->pFunctionsMap) + ring_list_getsize(pVM->pClassesMap) + ring_list_getsize(pVM->pPCBlockFlag) ) ) {
 		/*
-		**  The code interpreted by eval doesn't add new functions or new classes 
+		**  The code interpreted by eval doesn't add new functions or new classes or load new files 
 		**  This means that the code can be deleted without any problems 
 		**  We do that to avoid memory leaks 
 		*/
