@@ -205,7 +205,7 @@
 
 	void ring_scanner_addreturn2 ( RingState *pRingState ) ;
 
-	void ring_scanner_addreturn3 ( RingState *pRingState,int aPara[3] ) ;
+	void ring_scanner_addreturn3 ( RingState *pRingState,int aPara[2] ) ;
 
 	void ring_scanner_printtokens ( Scanner *pScanner ) ;
 

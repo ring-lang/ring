@@ -6,7 +6,7 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 {
 	int nPC,nCont,nLastPC,nRunVM,x,nSize,nMark,nIns,lUpdate  ;
 	Scanner *pScanner  ;
-	int aPara[3]  ;
+	int aPara[2]  ;
 	List *pIR  ;
 	nSize = strlen( cStr ) ;
 	if ( nSize == 0 ) {
@@ -116,7 +116,7 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 
 void ring_vm_returneval ( VM *pVM )
 {
-	int aPara[3]  ;
+	int aPara[2]  ;
 	/* This function will always be called after each eval() execution */
 	ring_vm_return(pVM);
 	ring_vm_mutexlock(pVM);

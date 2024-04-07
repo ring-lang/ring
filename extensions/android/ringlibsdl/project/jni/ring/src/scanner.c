@@ -693,7 +693,7 @@ void ring_scanner_addreturn2 ( RingState *pRingState )
 	ring_list_addint_gc(pRingState,pList,ICO_RETURN);
 }
 
-void ring_scanner_addreturn3 ( RingState *pRingState, int aPara[3] )
+void ring_scanner_addreturn3 ( RingState *pRingState, int aPara[2] )
 {
 	List *pList  ;
 	/* Add return from eval to the end of the eval() code */
@@ -701,7 +701,6 @@ void ring_scanner_addreturn3 ( RingState *pRingState, int aPara[3] )
 	ring_list_addint_gc(pRingState,pList,ICO_RETFROMEVAL);
 	ring_list_addint_gc(pRingState,pList,aPara[0]);
 	ring_list_addint_gc(pRingState,pList,aPara[1]);
-	ring_list_addint_gc(pRingState,pList,aPara[2]);
 }
 
 void ring_scanner_printtokens ( Scanner *pScanner )
