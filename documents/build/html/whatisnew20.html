@@ -175,6 +175,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#better-performance-when-using-braces">Better Performance when using Braces</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-support-for-threads">Better Support for Threads</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringrogueutil-extension">RingRogueUtil Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pause-resume-embedded-ring-vm">Pause/Resume Embedded Ring VM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-tools-and-extensions">Better Tools and Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-scripts-for-building-ring">Better Scripts for Building Ring</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#improving-ring-compiler-vm-source-code">Improving Ring Compiler/VM Source Code</a></li>
@@ -228,6 +229,7 @@
 <li><p>Better Performance when using Braces</p></li>
 <li><p>Better Support for Threads</p></li>
 <li><p>RingRogueUtil Extension</p></li>
+<li><p>Pause/Resume Embedded Ring VM</p></li>
 <li><p>Better Scripts for Building Ring</p></li>
 <li><p>Improving Ring Compiler/VM Source Code</p></li>
 <li><p>Better Tools and Extensions</p></li>
@@ -463,8 +465,20 @@ A
 <img alt="Using RogueUtil Shot1" src="_images/conui1.png" />
 <img alt="Using RogueUtil Shot2" src="_images/conui2.png" />
 </section>
+<section id="pause-resume-embedded-ring-vm">
+<span id="index-10"></span><h2>Pause/Resume Embedded Ring VM<a class="headerlink" href="#pause-resume-embedded-ring-vm" title="Permalink to this heading"></a></h2>
+<p>Ring already supports embedding Ring VM in Ring programs to be able to execute Ring code in isloated Ring state.</p>
+<p>Starting from Ring 1.20 we can pause/resume the embedded Ring VM</p>
+<p>To pause the VM, just use the (Bye) command which as expected will end the execution but will store
+the nPC value (Program Counter) so using ring_state_resume() we can continue the execution at any time starting from this nPC value.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring_state_resume</span><span class="p">(</span><span class="n">oState</span><span class="p">,</span><span class="o">[</span><span class="n">cPara</span><span class="o">|</span><span class="n">nPara</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="n">lUseReturn</span><span class="o">]</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To learn more about this feature check the chapter: Embedding Ring in Ring</p>
+</section>
 <section id="better-tools-and-extensions">
-<span id="index-10"></span><h2>Better Tools and Extensions<a class="headerlink" href="#better-tools-and-extensions" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>Better Tools and Extensions<a class="headerlink" href="#better-tools-and-extensions" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Ring Notepad - Full Screen Mode - Added support for opening Find/GoTo/SetTabWidth windows</p></li>
 <li><p>Ring Notepad - Activate source code window after the end of Full Screen mode</p></li>
@@ -480,7 +494,7 @@ A
 <img alt="VSCode" src="_images/vscode2024.png" />
 </section>
 <section id="better-scripts-for-building-ring">
-<span id="index-11"></span><h2>Better Scripts for Building Ring<a class="headerlink" href="#better-scripts-for-building-ring" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>Better Scripts for Building Ring<a class="headerlink" href="#better-scripts-for-building-ring" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Scripts for building Ring Compiler/VM are moved to ring/language/build folder</p></li>
 <li><p>Scripts for building Ring, Extensions and Tools are moved to ring/build folder</p></li>
@@ -492,7 +506,7 @@ A
 </ul>
 </section>
 <section id="improving-ring-compiler-vm-source-code">
-<span id="index-12"></span><h2>Improving Ring Compiler/VM Source Code<a class="headerlink" href="#improving-ring-compiler-vm-source-code" title="Permalink to this heading"></a></h2>
+<span id="index-13"></span><h2>Improving Ring Compiler/VM Source Code<a class="headerlink" href="#improving-ring-compiler-vm-source-code" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Better Format</p></li>
 <li><p>Using constants</p></li>
@@ -508,7 +522,7 @@ A
 </ul>
 </section>
 <section id="better-documentation">
-<span id="index-13"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this heading"></a></h2>
+<span id="index-14"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this heading"></a></h2>
 <p>The next chapters are revised and improved</p>
 <ul class="simple">
 <li><p>Operators</p></li>
@@ -517,7 +531,7 @@ A
 </ul>
 </section>
 <section id="more-improvements">
-<span id="index-14"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-15"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Ring VM - Avoid infinite for loops when the step value is zero</p></li>
 <li><p>Ring VM - Remove old code related to lAddSubListsByMove and lAddSubListsByFastCopy in VM structure</p></li>

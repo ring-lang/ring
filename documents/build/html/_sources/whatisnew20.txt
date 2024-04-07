@@ -23,6 +23,7 @@ Ring 1.20 comes with the next features!
 * Better Performance when using Braces
 * Better Support for Threads
 * RingRogueUtil Extension
+* Pause/Resume Embedded Ring VM
 * Better Scripts for Building Ring
 * Improving Ring Compiler/VM Source Code
 * Better Tools and Extensions
@@ -308,6 +309,27 @@ Example:
 
 .. image:: conui2.png
 	:alt: Using RogueUtil Shot2
+
+.. index:: 
+	pair: What is new in Ring  1.20; Pause/Resume Embedded Ring VM
+
+Pause/Resume Embedded Ring VM
+=============================
+
+Ring already supports embedding Ring VM in Ring programs to be able to execute Ring code in isloated Ring state.
+
+Starting from Ring 1.20 we can pause/resume the embedded Ring VM
+
+To pause the VM, just use the (Bye) command which as expected will end the execution but will store
+the nPC value (Program Counter) so using ring_state_resume() we can continue the execution at any time starting from this nPC value.
+
+Syntax:
+
+.. code-block:: ring
+
+	ring_state_resume(oState,[cPara|nPara],[lUseReturn])
+
+To learn more about this feature check the chapter: Embedding Ring in Ring
 
 .. index:: 
 	pair: What is new in Ring  1.20; Better Tools and Extensions
