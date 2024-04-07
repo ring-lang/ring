@@ -76,6 +76,7 @@ Example:
 	updateList(<aList>,:copy,:col,<nColSrc>,<nColDest>)
 	updateList(<aList>,:merge,:row,<nRowDest>,<nRow>)
 	updateList(<aList>,:merge,:col,<nColDest>,<nCol>)
+	updateList(<aList>,:mul,:col,<nCol1>,<nCol2>,<nColDest>)
 
 The required parameters depend on the cCommand/cSelection. 
 

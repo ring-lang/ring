@@ -88,6 +88,7 @@ Better Functions
 * swap() function - Support swaping any two Lists/Objects 
 * sleep() function (from stdlibcore.ring) - Better implementation 
 * ring_state_mainfile() function - Support Ring Object Files
+* updateList() function (from fastpro.ring) - support dest. column as six parameter
 
 Example (1):
 
