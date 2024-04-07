@@ -195,6 +195,8 @@
 	void ring_vm_generallib_state_scannererror ( void *pPointer ) ;
 
 	void ring_vm_generallib_state_runcodeatins ( void *pPointer ) ;
+
+	void ring_vm_generallib_state_resume ( void *pPointer ) ;
 	/* Ring See and Give */
 
 	void ring_vm_generallib_see ( void *pPointer ) ;

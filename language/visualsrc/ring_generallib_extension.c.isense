@@ -358,6 +358,11 @@ Type: RingState *
 pRingState
 Type: int
 nPC
+ring_vm_generallib_state_resume
+Type: RingState *
+pRingState
+Type: int
+nPC
 ring_vm_generallib_see
 Type: char *
 cString
