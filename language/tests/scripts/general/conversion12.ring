@@ -19,3 +19,22 @@
 "				# 1
 
 ? 0 = " "			# 0 
+
+if 0
+	? :what
+else
+	? :good
+ok
+
+if ""
+	? :what
+else
+	? :good
+ok
+
+if " "
+	? :good
+else
+	? :what
+ok
+
