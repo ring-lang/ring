@@ -1,5 +1,5 @@
 load "internetlib.ring"
 
-cStr= download("http://doublesvsoop.sourceforge.net/")
+cStr= download("https://ring-lang.github.io/")
 see cStr
 write("download.txt",cStr)
