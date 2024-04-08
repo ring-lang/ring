@@ -49,6 +49,8 @@
 
 	RING_API char * ring_string_strdup ( void *pState,const char *cStr ) ;
 
+	RING_API int ring_string_looksempty ( const char *cStr,int nSize ) ;
+
 	RING_API String * ring_string_new2 ( const char *cStr,int nStrSize ) ;
 
 	RING_API String * ring_string_new ( const char *cStr ) ;

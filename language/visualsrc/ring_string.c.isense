@@ -15,7 +15,7 @@ String *
 RING_LOOP_THRESHOLD
 ring_string_tolower(pString)
 ring_string_toupper(pString)
-ring_string_get(x)
+ring_string_get(pString)
 RING_MEMCPY(cStrDest,cStrSrc,nSize)
 ring_string_new_gc
 Type: int
@@ -72,6 +72,9 @@ Type: char *
 cString
 Type: int
 x,nSize
+ring_string_looksempty
+Type: int
+x
 ring_string_new2
 ring_string_new
 ring_string_add

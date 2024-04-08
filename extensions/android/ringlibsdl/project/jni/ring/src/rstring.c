@@ -244,6 +244,20 @@ RING_API char * ring_string_strdup ( void *pState,const char *cStr )
 	return cString ;
 }
 
+RING_API int ring_string_looksempty ( const char *cStr,int nSize )
+{
+	int x  ;
+	if ( nSize == 0 ) {
+		return 1 ;
+	}
+	for ( x = 0 ; x < nSize ; x++ ) {
+		if ( ! ((cStr[x] == ' ' ) || (cStr[x] == '\r' ) || (cStr[x] == '\n' ) || (cStr[x] == '\t' ) ) ) {
+			return 0 ;
+		}
+	}
+	return 1 ;
+}
+
 RING_API String * ring_string_new2 ( const char *cStr,int nStrSize )
 {
 	return ring_string_new2_gc(NULL,cStr,nStrSize) ;

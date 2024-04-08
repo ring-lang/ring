@@ -120,8 +120,6 @@ Type: double
 nResult
 Type: char *
 cEndStr
-Type: int
-x, nSize
 ring_vm_stringtologicvalue
 ring_vm_listtologicvalue
 ring_vm_expr_ppoo
