@@ -479,6 +479,7 @@ Runtime Errors
 * Error (R46) : The dynamic library doesn't contain the ringlib_init() function!
 * Error (R47) : The function is not supported in this platform
 * Error (R48) : Assertion Failed!
+* Error (R49) : The Ring VM is not ready to execute Ring code
 
 
 .. index:: 
