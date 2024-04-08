@@ -95,6 +95,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#ring-state-filetokens-function">ring_state_filetokens() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ring-state-mainfile-and-ring-object-file">ring_state_mainfile() and Ring Object File</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pause-resume-the-ring-vm">Pause/Resume the Ring VM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rules">Rules</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
@@ -569,6 +570,17 @@ the nPC value (Program Counter) so using ring_state_resume() we can continue the
         <span class="k">return</span> <span class="p">:</span><span class="n">OutputIsReady</span>
 </pre></div>
 </div>
+</section>
+<section id="rules">
+<span id="index-9"></span><h2>Rules<a class="headerlink" href="#rules" title="Permalink to this heading"></a></h2>
+<p>These functions are considered advanced functions and exist for specific use-cases.</p>
+<p>If you are going to use these functions, you need to know the next rules.</p>
+<ol class="arabic simple">
+<li><p>ring_state_runcode() expect that the VM is already created and ready for use. So to be able to use this function you have to create the state and the VM using ring_state_init() function. So, using ring_state_new() alone will not be enough because this function doesn’t create the Ring VM.</p></li>
+<li><p>ring_state_runcode() is very similar to the Eval() function. It’s designed to delete the code after execution if this code doesn’t add new functions/classes.</p></li>
+<li><p>Using ring_state_new() then using ring_state_mainfile() will create the Ring State and the Ring VM too so we can use ring_state_runcode() after that. But it’s recommended to just use ring_state_mainfile() and generate the source code before using this function.</p></li>
+<li><p>The ring_state_resume() function is considered a low-level function and is designed to be used with ring_state_mainfile() function in the TryRingOnline application. i.e. using this function with the ring_state_runcode() is not recommended and not supported at the design level.</p></li>
+</ol>
 </section>
 </section>
 
