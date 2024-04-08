@@ -365,6 +365,7 @@ Better Tools and Extensions
 
 * RingQt - Added: QComponent class (Qt3DCore)
 * RingQt - Correct parent class name for the QMaterial & QLogicAspect classes
+* Ring2EXE - Set the stack size for executable files
 * Ring extension for VSCode is updated to support modern versions of VSCode
 
 .. image:: vscode2024.png
