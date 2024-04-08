@@ -414,22 +414,22 @@ Example (4):
 	? 0 = " "			# 0 (False)
 
 	if 0				# False
-		? :what
+		? :fail
 	else
-		? :good
-	ok				# good
+		? :pass
+	ok				# pass
 
 	if ""				# False
-		? :what
+		? :fail
 	else
-		? :good
-	ok				# good
+		? :pass
+	ok				# pass
 
 	if " "				# True
-		? :good
+		? :pass
 	else
-		? :what
-	ok				# good
+		? :fail
+	ok				# pass
 
 .. note:: Using these operators to compare between objects or lists will compare between them at the reference level (not the value)
 

@@ -1186,22 +1186,22 @@ lower precedence.</p>
 <span class="o">?</span> <span class="mi">0</span> <span class="o">=</span> <span class="s">&quot; &quot;</span>                       <span class="c"># 0 (False)</span>
 
 <span class="k">if</span> <span class="mi">0</span>                            <span class="c"># False</span>
-        <span class="o">?</span> <span class="p">:</span><span class="n">what</span>
+        <span class="o">?</span> <span class="p">:</span><span class="n">fail</span>
 <span class="k">else</span>
-        <span class="o">?</span> <span class="p">:</span><span class="n">good</span>
-<span class="k">ok</span>                              <span class="c"># good</span>
+        <span class="o">?</span> <span class="p">:</span><span class="n">pass</span>
+<span class="k">ok</span>                              <span class="c"># pass</span>
 
 <span class="k">if</span> <span class="s">&quot;&quot;</span>                           <span class="c"># False</span>
-        <span class="o">?</span> <span class="p">:</span><span class="n">what</span>
+        <span class="o">?</span> <span class="p">:</span><span class="n">fail</span>
 <span class="k">else</span>
-        <span class="o">?</span> <span class="p">:</span><span class="n">good</span>
-<span class="k">ok</span>                              <span class="c"># good</span>
+        <span class="o">?</span> <span class="p">:</span><span class="n">pass</span>
+<span class="k">ok</span>                              <span class="c"># pass</span>
 
 <span class="k">if</span> <span class="s">&quot; &quot;</span>                          <span class="c"># True</span>
-        <span class="o">?</span> <span class="p">:</span><span class="n">good</span>
+        <span class="o">?</span> <span class="p">:</span><span class="n">pass</span>
 <span class="k">else</span>
-        <span class="o">?</span> <span class="p">:</span><span class="n">what</span>
-<span class="k">ok</span>                              <span class="c"># good</span>
+        <span class="o">?</span> <span class="p">:</span><span class="n">fail</span>
+<span class="k">ok</span>                              <span class="c"># pass</span>
 </pre></div>
 </div>
 <div class="admonition note">
