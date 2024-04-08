@@ -22,3 +22,4 @@ class RNoteController from RNoteControllerBase
 			showMaximized()
 		}
 	oApp.exec()
+	shutdown()

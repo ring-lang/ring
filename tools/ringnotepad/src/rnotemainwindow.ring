@@ -1182,10 +1182,7 @@ class RNoteMainWindow
 		}
 
 	func RingNotepadXButton
-		SaveSettings() 
-		if isObject(oWebView)
-			oWebView.close()
-		ok
+		SaveSettings()
 		oApp.Quit()
 
 	func EditFullScreen
