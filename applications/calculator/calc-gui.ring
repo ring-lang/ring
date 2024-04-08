@@ -13,6 +13,7 @@ import System.GUI
 # Load Ring Libraries
     Load "lightguilib.ring"
     Load "sqlitelib.ring"
+    Load "stdlibcore.ring"
 
 UserIcons = CurrentDir() +"/"
 
