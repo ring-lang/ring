@@ -548,6 +548,7 @@ aTests = [
 	[ :name = "General Tests (Part 211)", :Command = "ring general/conversion11.ring" ],
 	[ :name = "General Tests (Part 212)", :Command = "ring general/bsthenupdate.ring" ],
 	[ :name = "General Tests (Part 213)", :Command = "ring general/teststack.ring" ],
+	[ :name = "General Tests (Part 214)", :Command = "ring general/conversion12.ring" ],
 	[ :name = "Using lists during definition (Part 1)", :Command = "ring listsduringdef/usinglistduringdef.ring" ],
 	[ :name = "Using lists during definition (Part 2)", :Command = "ring listsduringdef/usinglistduringdef2.ring" ],
 	[ :name = "Using lists during definition (Part 3)", :Command = "ring listsduringdef/usinglistduringdef3.ring" ],
