@@ -287,9 +287,9 @@ func GenerateBatchGeneral aPara,aOptions
 			ok
 		# GUI Application 
 			if find(aOptions,"-gui")
-				cCode = substr(cCode,"#{f5}",'advapi32.lib shell32.lib /SUBSYSTEM:WINDOWS,"5.01" ')
+				cCode = substr(cCode,"#{f5}",'advapi32.lib shell32.lib /STACK:8388608 /SUBSYSTEM:WINDOWS,"5.01" ')
 			else 
-				cCode = substr(cCode,"#{f5}",' /SUBSYSTEM:CONSOLE,"5.01" ')
+				cCode = substr(cCode,"#{f5}",' /STACK:8388608 /SUBSYSTEM:CONSOLE,"5.01" ')
 			ok
 		cCode = substr(cCode,"#{f6}",exefolder())
 		cWindowsBatch = cFile+"_buildvc.bat"
