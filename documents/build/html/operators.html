@@ -1166,6 +1166,42 @@ lower precedence.</p>
 <p>Example (4):</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="mi">12500</span> <span class="o">=</span> <span class="s">&quot;0012500&quot;</span>             <span class="c"># 1 (True)</span>
 <span class="o">?</span> <span class="mi">12500</span> <span class="o">=</span> <span class="s">&quot;0012500-PRY-09&quot;</span>      <span class="c"># 0 (False)</span>
+
+<span class="c"># When we compare between number and a string</span>
+<span class="c"># If we found the number --&gt; Then we ignore Space, Tab, \n, \r after that number</span>
+<span class="c"># We consider &quot;&quot; to be like Zero but we don&#39;t do that for Space, Tab, \n and \r</span>
+<span class="c"># Note: if 0 -&gt; False while if &quot; &quot; -&gt; True</span>
+
+<span class="o">?</span> <span class="mi">1</span> <span class="o">=</span>  <span class="s">&quot;1  x&quot;</span>                   <span class="c"># 0 (False)</span>
+<span class="o">?</span> <span class="mi">1</span> <span class="o">=</span> <span class="s">&quot;1     &quot;</span>                  <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="mi">0</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>                        <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="mi">0</span> <span class="o">=</span> <span class="s">&quot;       0        &quot;</span>        <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="mi">1</span> <span class="o">=</span> <span class="s">&quot;       1       &quot;</span>         <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="mi">0</span> <span class="o">=</span> <span class="s">&quot;000000&quot;</span>                  <span class="c"># 1 (True)</span>
+<span class="o">?</span> <span class="mi">0</span> <span class="o">=</span> <span class="s">&quot;00000</span>
+<span class="s">&quot;                               # 1 (True)</span>
+<span class="o">?</span> <span class="mi">1</span> <span class="o">=</span> <span class="s">&quot;       1</span>
+<span class="s">&quot;                               # 1 (True)</span>
+
+<span class="o">?</span> <span class="mi">0</span> <span class="o">=</span> <span class="s">&quot; &quot;</span>                       <span class="c"># 0 (False)</span>
+
+<span class="k">if</span> <span class="mi">0</span>                            <span class="c"># False</span>
+        <span class="o">?</span> <span class="p">:</span><span class="n">what</span>
+<span class="k">else</span>
+        <span class="o">?</span> <span class="p">:</span><span class="n">good</span>
+<span class="k">ok</span>                              <span class="c"># good</span>
+
+<span class="k">if</span> <span class="s">&quot;&quot;</span>                           <span class="c"># False</span>
+        <span class="o">?</span> <span class="p">:</span><span class="n">what</span>
+<span class="k">else</span>
+        <span class="o">?</span> <span class="p">:</span><span class="n">good</span>
+<span class="k">ok</span>                              <span class="c"># good</span>
+
+<span class="k">if</span> <span class="s">&quot; &quot;</span>                          <span class="c"># True</span>
+        <span class="o">?</span> <span class="p">:</span><span class="n">good</span>
+<span class="k">else</span>
+        <span class="o">?</span> <span class="p">:</span><span class="n">what</span>
+<span class="k">ok</span>                              <span class="c"># good</span>
 </pre></div>
 </div>
 <div class="admonition note">
