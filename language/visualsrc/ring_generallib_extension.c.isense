@@ -297,6 +297,8 @@ ring_vm_generallib_state_init
 Type: RingState *
 pState
 ring_vm_generallib_state_runcode
+Type: RingState *
+pRingState
 ring_vm_generallib_state_delete
 ring_vm_generallib_state_runfile
 ring_vm_generallib_state_findvar

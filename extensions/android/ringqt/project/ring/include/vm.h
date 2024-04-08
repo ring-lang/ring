@@ -486,6 +486,7 @@
 	#define RING_VM_ERROR_NORINGLIBINIT "Error (R46) : The dynamic library doesn't contain the ringlib_init() function!"
 	#define RING_VM_ERROR_FUNCNOTSUPPORTED "Error (R47) : The function is not supported in this platform"
 	#define RING_VM_ERROR_ASSERTIONFAILED "Error (R48) : Assertion Failed!"
+	#define RING_VM_ERROR_VMISNOTREADY "Error (R49) : The Ring VM is not ready to execute Ring code"
 	/* Extra Size (for eval) */
 	#define RING_VM_EXTRASIZE 1000
 	#define RING_VM_MINVMINSTRUCTIONS 100000

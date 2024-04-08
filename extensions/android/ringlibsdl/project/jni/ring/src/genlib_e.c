@@ -1883,6 +1883,7 @@ void ring_vm_generallib_state_init ( void *pPointer )
 
 void ring_vm_generallib_state_runcode ( void *pPointer )
 {
+	RingState *pRingState  ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -1891,7 +1892,13 @@ void ring_vm_generallib_state_runcode ( void *pPointer )
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	ring_state_runcode((RingState *) RING_API_GETCPOINTER(1,"RINGSTATE"),RING_API_GETSTRING(2));
+	pRingState = (RingState *) RING_API_GETCPOINTER(1,"RINGSTATE") ;
+	/* Check Ring VM */
+	if ( pRingState->pVM == NULL ) {
+		RING_API_ERROR(RING_VM_ERROR_VMISNOTREADY);
+		return ;
+	}
+	ring_state_runcode(pRingState,RING_API_GETSTRING(2));
 }
 
 void ring_vm_generallib_state_delete ( void *pPointer )
