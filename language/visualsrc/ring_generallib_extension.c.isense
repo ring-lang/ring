@@ -302,9 +302,13 @@ pRingState
 ring_vm_generallib_state_delete
 ring_vm_generallib_state_runfile
 ring_vm_generallib_state_findvar
+Type: RingState *
+pRingState
 Type: List *
 pList
 ring_vm_generallib_state_newvar
+Type: RingState *
+pRingState
 Type: List *
 pList
 ring_vm_generallib_state_runobjectfile

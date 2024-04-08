@@ -1929,6 +1929,7 @@ void ring_vm_generallib_state_runfile ( void *pPointer )
 
 void ring_vm_generallib_state_findvar ( void *pPointer )
 {
+	RingState *pRingState  ;
 	List *pList  ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -1938,12 +1939,19 @@ void ring_vm_generallib_state_findvar ( void *pPointer )
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pList = ring_state_findvar((RingState *) RING_API_GETCPOINTER(1,"RINGSTATE"),RING_API_GETSTRING(2));
+	pRingState = (RingState *) RING_API_GETCPOINTER(1,"RINGSTATE") ;
+	/* Check Ring VM */
+	if ( pRingState->pVM == NULL ) {
+		RING_API_ERROR(RING_VM_ERROR_VMISNOTREADY);
+		return ;
+	}
+	pList = ring_state_findvar(pRingState,RING_API_GETSTRING(2));
 	RING_API_RETLIST(pList);
 }
 
 void ring_vm_generallib_state_newvar ( void *pPointer )
 {
+	RingState *pRingState  ;
 	List *pList  ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -1953,7 +1961,13 @@ void ring_vm_generallib_state_newvar ( void *pPointer )
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pList = ring_state_newvar((RingState *) RING_API_GETCPOINTER(1,"RINGSTATE"),RING_API_GETSTRING(2));
+	pRingState = (RingState *) RING_API_GETCPOINTER(1,"RINGSTATE") ;
+	/* Check Ring VM */
+	if ( pRingState->pVM == NULL ) {
+		RING_API_ERROR(RING_VM_ERROR_VMISNOTREADY);
+		return ;
+	}
+	pList = ring_state_newvar(pRingState,RING_API_GETSTRING(2));
 	RING_API_RETLIST(pList);
 }
 
@@ -2002,6 +2016,11 @@ void ring_vm_generallib_state_setvar ( void *pPointer )
 	**  So we must create it with the Garbage Collector of this sub state 
 	*/
 	pRingSubState = (RingState *) RING_API_GETCPOINTER(1,"RINGSTATE") ;
+	/* Check Ring VM */
+	if ( pRingSubState->pVM == NULL ) {
+		RING_API_ERROR(RING_VM_ERROR_VMISNOTREADY);
+		return ;
+	}
 	pList = ring_state_findvar(pRingSubState,RING_API_GETSTRING(2));
 	/* Check Variable before usage */
 	if ( pList==NULL ) {
@@ -2187,6 +2206,11 @@ void ring_vm_generallib_state_runcodeatins ( void *pPointer )
 		return ;
 	}
 	pRingState = (RingState *) RING_API_GETCPOINTER(1,"RINGSTATE") ;
+	/* Check Ring VM */
+	if ( pRingState->pVM == NULL ) {
+		RING_API_ERROR(RING_VM_ERROR_VMISNOTREADY);
+		return ;
+	}
 	nPC = (int) RING_API_GETNUMBER(2) ;
 	pRingState->pVM->nPC = nPC ;
 	ring_vm_mainloop(pRingState->pVM);
@@ -2205,6 +2229,11 @@ void ring_vm_generallib_state_resume ( void *pPointer )
 		return ;
 	}
 	pRingState = (RingState *) RING_API_GETCPOINTER(1,"RINGSTATE") ;
+	/* Check Ring VM */
+	if ( pRingState->pVM == NULL ) {
+		RING_API_ERROR(RING_VM_ERROR_VMISNOTREADY);
+		return ;
+	}
 	/* Restore PC value saved by Bye command */
 	pRingState->pVM->nPC = pRingState->pVM->nPausePC ;
 	if ( RING_API_PARACOUNT == 3 ) {
