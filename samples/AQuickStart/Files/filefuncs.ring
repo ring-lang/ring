@@ -1,10 +1,10 @@
 See "testing file functions" + nl
 
 See "open file" + nl
-fp = fopen(exefolder() + "../tests/scripts/s65.ring","r")
+fp = fopen(exefolder() + "../language/tests/scripts/general/test65.ring","r")
 
 See "reopen" + nl
-fp = freopen(exefolder() + "../tests/scripts/s78.ring","r",fp)
+fp = freopen(exefolder() + "../language/tests/scripts/general/test78.ring","r",fp)
 See "close file" + nl
 fclose(fp)
 
@@ -15,12 +15,13 @@ fclose(fp)
 see "temp name" + nl
 see tempname() + nl
 
-remove(exefolder() + "../tests/scripts/mytest2.txt")
-write(exefolder() + "../tests/scripts/tests1.txt","hello")
-rename(exefolder() + "../tests/scripts/test1.txt",exefolder() + "../tests/scripts/mytests2.txt")
+write(exefolder() + "../language/tests/scripts/general/mytest2.txt","test")
+remove(exefolder() + "../language/tests/scripts/general/mytest2.txt")
+write(exefolder() + "../language/tests/scripts/general/tests1.txt","hello")
+rename(exefolder() + "../language/tests/scripts/general/test1.txt",exefolder() + "../language/tests/scripts/general/mytests2.txt")
 
 see "print file" + nl
-fp = fopen(exefolder() + "../samples/fromdoc/filefuncs.ring","r")
+fp = fopen(filename(),"r")
 r = fgetc(fp)
 while isstring(r)
         see r
@@ -29,11 +30,11 @@ end
 fclose(fp)
 
 see nl+"print line from the file" + nl
-fp = fopen(exefolder() + "../samples/fromdoc/filefuncs.ring","r")
+fp = fopen(filename(),"r")
 r = fgets(fp,33)
 see r + nl
 fclose(fp)
-fp = fopen(exefolder() + "../tests/scripts/test78.txt","w+")
+fp = fopen(exefolder() + "../language/tests/scripts/general/test78.txt","w+")
 fseek(fp,0,2) # goto end of file
 fputc(fp,"t")
 fputc(fp,"e")
@@ -43,9 +44,9 @@ fputs(fp,"tests2")
 fclose(fp)
 
 see "print file" + nl
-see read(exefolder() + "../tests/scripts/test78.txt")
+see read(exefolder() + "../language/tests/scripts/general/test78.txt")
 
-fp = fopen(exefolder() + "../tests/scripts/test78.txt","r")
+fp = fopen(exefolder() + "../language/tests/scripts/general/test78.txt","r")
 see "testing ungetc() " + nl
 for x = 1 to 3
         r = fgetc(fp)
@@ -61,6 +62,6 @@ see r + nl
 fclose(fp)
 
 see "testing fwrite() " + nl
-fp = fopen(exefolder() + "../tests/scripts/test1.txt","wb")
+fp = fopen(exefolder() + "../language/tests/scripts/general/test1.txt","wb")
 fwrite(fp,r)
 fclose(fp)
