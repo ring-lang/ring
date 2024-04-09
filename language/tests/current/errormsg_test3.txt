@@ -1,0 +1,27 @@
+Content-type: text/html
+
+<meta charset='UTF-8'>
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+		
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<title>Random User</title>
+<meta charset='UTF-8'>
+
+</head>
+<body> 
+	<h1>Random User Application</h1>
+	<img src="Test4" alt="image"> 
+	<br />
+	<br />
+	<br />
+	Test1&nbsp;Test2
+	<br />
+	Email:&nbsp;Test3
+	<br />
+	<br />
+	<a href='test3.ring'> Get Random User </a> 
+</body>
+</html>
