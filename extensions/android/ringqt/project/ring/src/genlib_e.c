@@ -279,7 +279,7 @@ void ring_vm_generallib_filename ( void *pPointer )
 	cFile = NULL ;
 	lFunctionCall = 0 ;
 	for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
-		pFuncCall = RING_VM_LASTFUNCCALL ;
+		pFuncCall = RING_VM_GETFUNCCALL(x) ;
 		/*
 		**  If we have ICO_LoadFunc but not ICO_CALL then we need to pass 
 		**  ICO_LOADFUNC is executed, but still ICO_CALL is not executed! 

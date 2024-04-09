@@ -298,6 +298,7 @@
 	#define RING_FUNCSTATUS_STARTED 2
 	/* Util */
 	#define RING_VM_LASTFUNCCALL (FuncCall *) (pVM->pFuncCallList->pLast->pValue->data.pPointer)
+	#define RING_VM_GETFUNCCALL(x) (FuncCall *) (ring_item_getpointer(ring_list_getitem(pVM->pFuncCallList,x)))
 	#define RING_VM_LASTOBJSTATE pVM->pObjState->pLast->pValue->data.pList->pFirst->pValue->data.pPointer
 	/* Parameters */
 	#define RING_FUNCPARA_EXPECTEDSIZE 32
