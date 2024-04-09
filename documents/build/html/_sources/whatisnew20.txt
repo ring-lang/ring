@@ -60,9 +60,13 @@ Better Samples and Applications
 * Updated: samples/UsingRayLib/more/ex5_wavingcubes_threads.ring - Better code 
 * Updated: samples/AQuickStart/Files/fexists.ring - Using EXEFolder() function
 * Updated: samples/AQuickStart/GUILib/gui25.ring - Using relative path
-* Calculator application - Using sqlitelib.ring
+* Calculator application - Using sqlitelib.ring and stdlibcore.ring
 * Customers application - Better digital_clock.ring code
 * Calendar application - Better controls size
+* Words game - Better window size
+* SnakesAndLadders game - Better window title
+* WiseQuadrat game - Better code to display the winner 
+* Memory game - Reduce delay time from 3 seconds to 1 second
 * ring/applications - Added the window icon for many applications and games
 * ring/applications - Using list() instead of newlist() in many applications
 * ring/applications - Using stdlibcore.ring instead of stdlib.ring in many applications
