@@ -4,7 +4,7 @@ new qapp {
                 setwindowtitle("play sound!") show()
         }
         new qmediaplayer()  {
-                setmedia(new qurl("footstep.wav"))
+                setmedia(new qurl("../GameLib/footstep.wav"))
                 setvolume(50) play()
         }
         exec()
