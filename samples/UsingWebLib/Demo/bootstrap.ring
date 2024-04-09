@@ -625,7 +625,7 @@ Func testbootstrap3
 		    <tr>
 		      <th scope="row">3</th>
 		      <td>Ring</td>
-		      <td>Mahmoud</td>
+		      <td>Mahmoud Fayed</td>
 		      <td>2016</td>
 		    </tr>
 		  </tbody>
