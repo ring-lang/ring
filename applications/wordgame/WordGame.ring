@@ -21,7 +21,7 @@
         letter2           = ""                   // letter to swap to
 	width		= 50
 	height	        = 50
-	xWidth		= 800
+	xWidth		= 1000
 	yHeight		= 600
 	
 	C_SPACING	= 1
