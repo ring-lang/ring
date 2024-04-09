@@ -102,7 +102,7 @@ func gameover()
 					app.processevents()
 					sleep(0.3)
 					button[n+p][m+p].setstylesheet(C_BUTTONVIOLETSTYLE)
-					msgBox(cWinMsg)
+					msgInfo("Memory Game",cWinMsg)
 					pbegin()
 				ok
 			next
@@ -110,14 +110,13 @@ func gameover()
         next
 	for n = 1 to size
 		for m = 1 to size
-			bool = (buttonsum1[n][m] = 1) or (buttonsum2[n][m] = 2)
-			if bool = 1
-				buttonsum = buttonsum + 1
+			if (buttonsum1[n][m] = 1) or (buttonsum2[n][m] = 2)
+				buttonsum++
 			ok
 		next
         next
         if buttonsum = size*size     
-		msgBox("Game Over!")
+		msgInfo("Memory Game","Game Over!")
         ok
 
 func pbegin()
@@ -135,11 +134,3 @@ func pbegin()
 		next
 	next
 
-func msgBox(cText) 
-	mb = new qMessageBox(win) {
-		setWindowTitle('Memory Game')
-		setText(cText)
-		setstandardbuttons(QMessageBox_OK) 
-		result = exec()
-		pbegin() 
-	}
