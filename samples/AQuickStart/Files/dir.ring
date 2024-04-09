@@ -1,5 +1,5 @@
 see "Testing DIR() " + nl
-mylist = dir("C:\myfolder")
+mylist = dir(CurrentDir())
 for x in mylist
         if x[2]
                 see "Directory : " + x[1] + nl
