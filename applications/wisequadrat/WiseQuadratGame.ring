@@ -90,6 +90,7 @@ func gameover()
 					cWinMsg = "Player2 won!"
 				ok
 				if cWinMsg
+					win.setEnabled(False)
 					app.processevents()
 					sleep(0.3)
 					button[n][m].setstylesheet(C_BUTTONVIOLETSTYLE)
@@ -104,6 +105,7 @@ func gameover()
 					button[n+p][m+p].setstylesheet(C_BUTTONVIOLETSTYLE)
 					msgInfo("Memory Game",cWinMsg)
 					pbegin()
+					win.setEnabled(True)
 				ok
 			next
 		next
