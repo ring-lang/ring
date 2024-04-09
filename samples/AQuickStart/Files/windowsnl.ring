@@ -1,3 +1,9 @@
+write("input.txt","
+Hello
+How are you?
+Are you fine?
+")
+
 cStr = read("input.txt")
 
 if iswindows()
@@ -13,3 +19,4 @@ if iswindows()
 ok
 
 write("output.txt",cStr)
+? read("output.txt")
