@@ -765,7 +765,7 @@ int ring_vm_oop_callmethodinsideclass ( VM *pVM )
 	*/
 	if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
 		for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
-			pFuncCall = (FuncCall *) ring_list_getpointer(pVM->pFuncCallList,x) ;
+			pFuncCall = RING_VM_GETFUNCCALL(x) ;
 			/* Be sure that the function is already called using ICO_CALL */
 			if ( pFuncCall->nCallerPC != 0 ) {
 				if ( pFuncCall->lMethod == 0 ) {

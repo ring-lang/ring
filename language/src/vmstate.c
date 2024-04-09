@@ -112,7 +112,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 		**  Clean memory used for function calls 
 		*/
 		for ( x = pVMState->aNumbers[1]+1 ; x <= ring_list_getsize(pVM->pFuncCallList) ; x++ ) {
-			pFuncCall = (FuncCall *) ring_list_getpointer(pVM->pFuncCallList,x) ;
+			pFuncCall = RING_VM_GETFUNCCALL(x) ;
 			/* Delete pNestedLists */
 			pListPointer = pFuncCall->pNestedLists ;
 			if ( ! ring_list_findpointer(aListsToDelete,pListPointer) ) {

@@ -714,7 +714,7 @@ List * ring_vm_prevtempmem ( VM *pVM )
 	pTemp = pVM->pTempMem ;
 	/* Get Temp Memory of the previous function */
 	for ( x = ring_list_getsize(pVM->pFuncCallList)-1 ; x >= 1 ; x-- ) {
-		pFuncCall = (FuncCall *) ring_list_getpointer(pVM->pFuncCallList,x) ;
+		pFuncCall = RING_VM_GETFUNCCALL(x) ;
 		if ( pFuncCall->nCallerPC != 0 ) {
 			/* Get Temp Mem */
 			pTemp = pFuncCall->pTempMem ;

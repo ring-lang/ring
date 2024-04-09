@@ -91,7 +91,7 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 	lFunctionCall = 0 ;
 	nRecursion = 0 ;
 	for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
-		pFuncCall = (FuncCall *) ring_list_getpointer(pVM->pFuncCallList,x) ;
+		pFuncCall = RING_VM_GETFUNCCALL(x) ;
 		/*
 		**  If we have ICO_LOADFUNC but not ICO_CALL then we need to pass 
 		**  ICO_LOADFUNC is executed, but still ICO_CALL is not executed! 
@@ -108,7 +108,7 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 			/* Don't repeat messages in case of recursion */
 			if ( x != 1 ) {
 				nPos = x-1 ;
-				pFuncCall2 = (FuncCall *) ring_list_getpointer(pVM->pFuncCallList,x-1) ;
+				pFuncCall2 = RING_VM_GETFUNCCALL(x-1) ;
 				while ( pFuncCall2->nType != RING_FUNCTYPE_SCRIPT ) {
 					nPos-- ;
 					if ( nPos > 0 ) {
