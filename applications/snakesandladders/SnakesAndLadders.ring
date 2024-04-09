@@ -44,7 +44,7 @@ func main
        oGame = New Game                      
        {
                       icon = "diceblack6.jpg"
-                      title = "Snakes And Ladders"
+                      title = "Snakes And Ladders (Press SPACE to play)"
                       al_resize_display(display,650,593)
                       sprite
                       {
