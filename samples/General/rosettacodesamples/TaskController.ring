@@ -17,7 +17,7 @@ if IsMainSourceFile() {
 
 class Rosetta_FormDesigner_TaskController from windowsControllerParent
 
-	oView = new Rosetta_FormDesigner_TaskView
+	oView = new TaskView
 
 //========================================================
 // Get List of Ring Tasks from Rosetta Code. Category Ring
