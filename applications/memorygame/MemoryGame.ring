@@ -113,7 +113,7 @@ func pbegin()
         next
         see nl
         app.processevents()
-        sleep(3)
+        sleep(1)
         for n = 1 to size
              for m = 1 to size
                   if buttonnew[n][m] = 1
