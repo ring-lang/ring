@@ -1,3 +1,3 @@
 # copy file
-cFile = read("ring.exe")
+cFile = read(exefolder()+"ring.exe")
 write("ring2.exe",cFile)
