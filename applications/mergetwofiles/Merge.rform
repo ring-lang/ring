@@ -1,8 +1,8 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = -283 , : y = -169  , 
-		 :width =  869 , :height = 627 , 
+		 :x = 0 , : y = -169  , 
+		 :width =  869 , :height = 652 , 
 		 :title =  "Merge Two Files Line By Line" , 
 		 :backcolor =  "" , 
 		 :windowflags =  "Qt_Window | Qt_WindowTitleHint | Qt_WindowCloseButtonHint | Qt_CustomizeWindowHint" , 
