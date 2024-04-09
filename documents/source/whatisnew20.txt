@@ -58,7 +58,7 @@ Better Samples and Applications
 * Added: samples/UsingFastPro/updatelist5.ring
 * Added: samples/UsingFastPro/DestCol.ring
 * Updated: samples/UsingRayLib/more/ex5_wavingcubes_threads.ring - Better code 
-* Updated: samples/AQuickStart/Files/fexists.ring - Using EXEFolder() function
+* Updated: samples/AQuickStart/Files - Using CurrentDir() and EXEFolder() functions
 * Updated: samples/AQuickStart/GUILib/gui25.ring - Using relative path
 * Calculator application - Using sqlitelib.ring and stdlibcore.ring
 * Customers application - Better digital_clock.ring code
