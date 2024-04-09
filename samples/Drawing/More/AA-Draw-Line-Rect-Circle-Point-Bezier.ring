@@ -18,7 +18,7 @@ height = 12
 
 xPos    = 100
 yPos    = 100
-xWidth  = 700
+xWidth  = 750
 yHeight = 700   ### Canvas position on Screen
 
 indent  = 30    ### Make Canvas smaller
