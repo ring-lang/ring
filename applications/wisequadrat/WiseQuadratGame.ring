@@ -78,27 +78,18 @@ func gameover()
 	for p = 1 to size-1
 		for n = 1 to size-p
 			for m = 1 to size-p
-				bool1 = (buttonsum1[n][m] = 1)   and (buttonsum1[n+p][m] = 1)
-				bool2 = (buttonsum1[n][m+p] = 1) and (buttonsum1[n+p][m+p] = 1)
-				bool3 = (buttonsum2[n][m] = 2)   and (buttonsum2[n+p][m] = 2)
-				bool4 = (buttonsum2[n][m+p] = 2) and (buttonsum2[n+p][m+p] = 2)
+				bool1    = (buttonsum1[n][m] = 1)   and (buttonsum1[n+p][m] = 1)
+				bool2    = (buttonsum1[n][m+p] = 1) and (buttonsum1[n+p][m+p] = 1)
+				bool3    = (buttonsum2[n][m] = 2)   and (buttonsum2[n+p][m] = 2)
+				bool4    = (buttonsum2[n][m+p] = 2) and (buttonsum2[n+p][m+p] = 2)
+				cWinMsg  = NULL
 				if bool1 and bool2
-					app.processevents()
-					sleep(0.3)
-					button[n][m].setstylesheet(C_BUTTONVIOLETSTYLE)
-					app.processevents()
-					sleep(0.3)
-					button[n+p][m].setstylesheet(C_BUTTONVIOLETSTYLE)
-					app.processevents()
-					sleep(0.3)
-					button[n][m+p].setstylesheet(C_BUTTONVIOLETSTYLE)
-					app.processevents()
-					sleep(0.3)
-					button[n+p][m+p].setstylesheet(C_BUTTONVIOLETSTYLE)
-					msgBox("Player1 won!")
-					pbegin()
+					cWinMsg = "Player1 won!"
 				ok
 				if bool3 and bool4
+					cWinMsg = "Player2 won!"
+				ok
+				if cWinMsg
 					app.processevents()
 					sleep(0.3)
 					button[n][m].setstylesheet(C_BUTTONVIOLETSTYLE)
@@ -111,7 +102,7 @@ func gameover()
 					app.processevents()
 					sleep(0.3)
 					button[n+p][m+p].setstylesheet(C_BUTTONVIOLETSTYLE)
-					msgBox("Player2 won!")
+					msgBox(cWinMsg)
 					pbegin()
 				ok
 			next
