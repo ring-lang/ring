@@ -1,1 +1,1 @@
-see read("myfile.txt")
+see read(filename())
