@@ -1,1 +1,1 @@
-see read("myapp.exe")
+see read(exefolder()+"ring.exe")
