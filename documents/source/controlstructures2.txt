@@ -158,9 +158,9 @@ Example:
 .. code-block:: ring
 
 	# Dynamic loop
-	Put "Start : " get nStart       
-	Put "End   : " get nEnd
-	Put "Step  : " get nStep
+	Put "Start : " get nStart  nStart= 0+nStart       
+	Put "End   : " get nEnd    nEnd  = 0+nEnd
+	Put "Step  : " get nStep   nStep = 0+nStep
 	For x = nStart to nEnd Step nStep
 		Put x + nl
 	End
