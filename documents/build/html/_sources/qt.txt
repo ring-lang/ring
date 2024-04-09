@@ -1143,7 +1143,7 @@ In this example we will learn about using the QCheckBox class
 		win1 = new qMainWindow() {
 			setwindowtitle("Using QCheckBox")
 			new qcheckbox(win1) {	
-				setGeometry(100,100,100,30)
+				setGeometry(100,100,150,30)
 				settext("New Customer!")
 			}
 			showMaximized()
@@ -1637,7 +1637,7 @@ Another example for the stateChanged event of the QCheckBox class
 		win1 = new qMainWindow() {
 			setwindowtitle("QCheckBox")
 			new qcheckbox(win1) {	
-				setGeometry(100,100,100,30)
+				setGeometry(100,100,150,30)
 				settext("New Customer!")
 				setstatechangedevent("pchange()")
 			}
