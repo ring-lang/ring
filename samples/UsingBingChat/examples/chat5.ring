@@ -20,14 +20,16 @@ next
 # Print all of the numbers in one line
 see "The numbers are: "
 for n in numbers
-    see n + " "
+    see n see " "
 next
 
 # Print a new line character for readability
 see nl
 
 # Declare variables for minimum, maximum and average values and assign them to zero
-min = max = avg = 0 
+min = 0
+max = 0
+avg = 0 
 
 # Loop through each number in the list
 for n in numbers
