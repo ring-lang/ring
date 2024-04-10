@@ -4,14 +4,30 @@
 class RNoteHelp
 
 	func OpenCHM
-		new QDesktopServices {
-			OpenURL(new qURL("file:///"+substr(exefolder(),"\","/")+"../documents/ring.chm") )
-		}
+		cFile = substr(exefolder(),"\","/")+"../documents/ring.chm"
+		cFile = substr(cFile,"/bin/../","/")
+		if fexists(cFile)
+			new QDesktopServices {
+				OpenURL(new qURL("file:///"+cFile) )
+			}
+		else 
+			msginfo("Sorry","The file " + cFile + " doesn't exist! " + nl +
+					"Download the file using (ringpm install ringhelpchm) " + nl +
+					"OR download it from Ring Website (Download Page) ")
+		ok
 
 	func OpenPDF
-		new QDesktopServices {
-			OpenURL(new qURL("file:///"+substr(exefolder(),"\","/")+"../documents/ring.pdf") )
-		}
+		cFile = substr(exefolder(),"\","/")+"../documents/ring.pdf"
+		cFile = substr(cFile,"/bin/../","/")
+		if fexists(cFile)
+			new QDesktopServices {
+				OpenURL(new qURL("file:///"+cFile) )
+			}
+		else 
+			msginfo("Sorry","The file " + cFile + " doesn't exist! " + nl + 
+					"Download the file using (ringpm install ringhelppdf) "+ nl +
+					"OR download it from Ring Website (Download Page) ")
+		ok
 
 	func MsgBox cTitle,cMessage
 		win = new qMessagebox(win1) {
