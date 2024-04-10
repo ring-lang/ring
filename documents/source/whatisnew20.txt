@@ -420,6 +420,7 @@ The next chapters are revised and improved
 * Operators
 * Embedding Ring in Ring
 * Building From Source Code
+* Language Specification (Ring VM instructions)
 
 .. index:: 
 	pair: What is new in Ring  1.20; More Improvements
