@@ -100,7 +100,7 @@ Keywords Count: 55
 Language Functions
 ==================
 
-Functions Count: 254
+Functions Count: 255
 
 .. note:: Some functions could be used with different parameters type/count
 
