@@ -1,7 +1,7 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = 0 , : y = -105  , 
+		 :x = 0 , : y = 0  , 
 		 :width =  800 , :height = 600 , 
 		 :title =  "The Money Game" , 
 		 :backcolor =  "#505050" , 
@@ -9,7 +9,8 @@ aObjectsList = [
 		 :mainlayout =  "" ,
 		 :WindowIcon =  "" , 
 		 :Menubar =  ""  ,
-		 :IndexType =  0  
+		 :IndexType =  0  ,
+		 :GUILibrary =  0  
 
 		]
 	],
@@ -264,8 +265,8 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Label1" , :id = 23 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 84 , : y = 16  , 
-		 :width =  168 , :height = 42 , 
+		 :x = 44 , : y = 16  , 
+		 :width =  278 , :height = 42 , 
 		 :textcolor =  "#ffffff" , 
 		 :backcolor =  "" , 
 		 :font =  "MS Shell Dlg 2,22,-1,5,50,0,0,0,0,0,Regular" , 
@@ -275,29 +276,29 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Label23" , :id = 24 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 29 , : y = 385  , 
-		 :width =  148 , :height = 42 , 
+		 :x = 9 , : y = 385  , 
+		 :width =  198 , :height = 42 , 
 		 :textcolor =  "#ffffff" , 
 		 :backcolor =  "" , 
 		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0,Regular" , 
 		 :parent =  "win"  ,
 		 :text =  "Required Money : ",
-		 :textalign =  0
+		 :textalign =  2
 		]
 	],
 	[ :name = "Label24" , :id = 25 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 39 , : y = 449  , 
-		 :width =  138 , :height = 42 , 
+		 :x = 9 , : y = 449  , 
+		 :width =  198 , :height = 42 , 
 		 :textcolor =  "#ffffff" , 
 		 :backcolor =  "" , 
 		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0,Regular" , 
 		 :parent =  "win"  ,
 		 :text =  "Boxes To Open : ",
-		 :textalign =  0
+		 :textalign =  2
 		]
 	],
 	[ :name = "txtMoney" , :id = 26 , :classname = "formdesigner_qlineedit" , :data = [
-		 :x = 194 , : y = 385  , 
+		 :x = 214 , : y = 385  , 
 		 :width =  108 , :height = 45 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "white" , 
@@ -313,7 +314,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "txtPackages" , :id = 27 , :classname = "formdesigner_qlineedit" , :data = [
-		 :x = 194 , : y = 451  , 
+		 :x = 214 , : y = 451  , 
 		 :width =  108 , :height = 45 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "white" , 
@@ -329,18 +330,18 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Label27" , :id = 28 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 109 , : y = 513  , 
-		 :width =  68 , :height = 42 , 
+		 :x = 9 , : y = 513  , 
+		 :width =  198 , :height = 42 , 
 		 :textcolor =  "#ffffff" , 
 		 :backcolor =  "" , 
 		 :font =  "MS Shell Dlg 2,14,-1,5,50,0,0,0,0,0,Regular" , 
 		 :parent =  "win"  ,
 		 :text =  "Status : ",
-		 :textalign =  0
+		 :textalign =  2
 		]
 	],
 	[ :name = "txtStatus" , :id = 29 , :classname = "formdesigner_qlineedit" , :data = [
-		 :x = 193 , : y = 515  , 
+		 :x = 213 , : y = 515  , 
 		 :width =  108 , :height = 45 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "white" , 
