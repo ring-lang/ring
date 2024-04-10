@@ -60,6 +60,7 @@ Better Samples and Applications
 * Updated: samples/UsingRayLib/more/ex5_wavingcubes_threads.ring - Better code 
 * Updated: samples/AQuickStart/Files - Using CurrentDir() and EXEFolder() functions
 * Updated: samples/AQuickStart/GUILib/gui25.ring - Using relative path
+* Updated: samples/UsingLibUI/test8.ring - Better code
 * Calculator application - Using sqlitelib.ring and stdlibcore.ring
 * Customers application - Better digital_clock.ring code
 * Calendar application - Better controls size
