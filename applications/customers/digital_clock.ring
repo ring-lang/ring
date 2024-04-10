@@ -33,20 +33,12 @@ class DegitClock{
 		if border=false cColor += "border:non;" ok
 		FrameClock{
 			setStyleSheet(cColor)
-			/*
-			lblSecondeClock.setStyleSheet(cColor) 
-			lblMinuteClock.setStyleSheet(cColor)
-			LCD_SClock.setStyleSheet(cColor)
-			LCD_MClock.setStyleSheet(cColor) 
-			LCD_HClock.setStyleSheet(cColor)
-			*/
 		}
 
 	func getLargeClock()
 		FrameClock = new frame3(this.frm) {
 			resize(172,52)
 			move(0,0)
-			# setstylesheet("border-width:1px solid #000000")
 			oFont = new qfont("",0,0,0)
 			oFont.fromstring("Arial")
 			setfont(oFont)
@@ -57,7 +49,6 @@ class DegitClock{
 		LCD_HClock = new lcdnumber(FrameClock) {
 			resize(47,42)
 			move(4,5)
-			# setstylesheet("color:#00fc00;")
 			oFont = new qfont("",0,0,0)
 			oFont.fromstring("Arial")
 			setfont(oFont)
@@ -69,7 +60,6 @@ class DegitClock{
 		lblMinuteClock = new label(FrameClock) {
 			resize(9,42)
 			move(52,5)
-			# setstylesheet("color:#00fc00;")
 			oFont = new qfont("",0,0,0)
 			oFont.fromstring("Arial,14,-1,5,75,0,0,0,0,0,Gras")
 			setfont(oFont)
@@ -81,7 +71,6 @@ class DegitClock{
 		LCD_MClock = new lcdnumber(FrameClock) {
 			resize(47,42)
 			move(62,5)
-			# setstylesheet("color:#00fc00;")
 			oFont = new qfont("",0,0,0)
 			oFont.fromstring("Arial")
 			setfont(oFont)
@@ -93,7 +82,6 @@ class DegitClock{
 		LCD_SClock = new lcdnumber(FrameClock) {
 			resize(47,42)
 			move(120,5)
-			# setstylesheet("color:#00fc00;")
 			oFont = new qfont("",0,0,0)
 			oFont.fromstring("Arial")
 			setfont(oFont)
@@ -105,7 +93,6 @@ class DegitClock{
 		lblSecondeClock = new label(FrameClock) {
 			resize(9,42)
 			move(110,5)
-			# setstylesheet("color:#00fc00;")
 			oFont = new qfont("",0,0,0)
 			oFont.fromstring("Arial,14,-1,5,75,0,0,0,0,0,Gras")
 			setfont(oFont)
