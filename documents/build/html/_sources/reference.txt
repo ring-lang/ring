@@ -799,6 +799,7 @@ ICO_LOADSUBADDRESS	Get object attribute, push the pointer to the stack.
 ICO_LOADMETHOD		Find object method 
 ICO_AFTERCALLMETHOD	Used after calling a method - normal case
 ICO_AFTERCALLMETHOD2	Used after calling a method - second case
+ICO_PACKAGE		Start new package 
 ICO_NEWCLASS		Start new class region
 ICO_BRACESTART		Open brace
 ICO_BRACEEND		End brace
