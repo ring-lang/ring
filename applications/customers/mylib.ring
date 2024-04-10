@@ -553,15 +553,23 @@ func editImage oTable
 	ok
 
 func getNext oTable
-	nRowIndex += 1
-	oTable.setCurrentCell(nRowIndex, 0)
+	if nRowIndex < oTable.rowCount()
+		nRowIndex += 1
+		oTable.setCurrentCell(nRowIndex, 0)
+	ok
 	
 func getPrev oTable
-	nRowIndex -= 1
-	oTable.setCurrentCell(nRowIndex, 0)
+	if nRowIndex > 0
+		nRowIndex -= 1
+		oTable.setCurrentCell(nRowIndex, 0)
+	ok
 	
 func getLast oTable
-	oTable.setCurrentCell((oTable.rowCount())-1, 0)
+	if oTable.rowCount() > 1
+		oTable.setCurrentCell((oTable.rowCount())-1, 0)
+	ok
 
 func getFirst oTable
-	oTable.setCurrentCell(0, 0)
+	if oTable.rowCount() > 1
+		oTable.setCurrentCell(0, 0)
+	ok
