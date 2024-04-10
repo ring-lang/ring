@@ -184,7 +184,7 @@ Ring 1.18 is released on July 12, 2023
 
 Ring 1.19 is released on December 31, 2023
 
-This is Ring 1.20 documentation
+Ring 1.20 is released on April 11, 2024
 
 .. index:: 
 	pair: Introduction; Features
@@ -286,7 +286,7 @@ The Ring language comes with the next features
 * Deploying web applications in the Cloud
 * Extension using C/C++ (Simple API)
 * Embedding the language in C/C++ programs
-* Embedding Ring in Ring
+* Embedding Ring in Ring (Support Pause/Resume)
 * Comes with code generator (Written in Ring) to quickly wrap C/C++ Libraries
 	* Used to Support Allegro by creating RingAllegro
 	* Used to Support LibSDL by creating RingLibSDL
