@@ -152,6 +152,7 @@ func sqlite_fill_table oTable,select
 	}
 
 	lblCount.show()
+	setTableHeader()
 
 	return 1
 	

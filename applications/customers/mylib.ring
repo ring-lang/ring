@@ -321,6 +321,14 @@ func fill_data oTable
 	checkRowIndex(oTable)
 
 	lblCount.show()
+
+	setTableHeader()
+
+func setTableHeader 
+	tblClients.setHorizontalHeaderItem(1, new QTableWidgetItem(substr(aLanguage[:LBL_NAME_TEXT],":","")))
+	tblClients.setHorizontalHeaderItem(2, new QTableWidgetItem(substr(aLanguage[:LBL_EMAIL_TEXT],":","")))
+	tblClients.setHorizontalHeaderItem(3, new QTableWidgetItem(substr(aLanguage[:LBL_ADDRESS_TEXT],":","")))
+
 	
 func show_input_box cText
 

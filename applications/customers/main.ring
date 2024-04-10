@@ -383,7 +383,6 @@ oApp = new QApp {
 		
 		sqlite_connect_now()
 		fill_data(tblClients)
-		
 		Show()
 	}
 		
@@ -391,6 +390,7 @@ oApp = new QApp {
 	Shutdown()
 
 }
+
 
 func pAutoSearchToggledEvent
 
