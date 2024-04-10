@@ -159,6 +159,7 @@ func sqlite_fill_table oTable,select
 func searchCl oTable
 
 	cSearch = trim(txtSearch.text())
+	if comboBox1.currentIndex() < 1 return ok
 	cFilter = aComboCols[comboBox1.currentIndex()]
 	
 	if cSearch != ""

@@ -340,13 +340,12 @@ oApp = new QApp {
 		else
 			setGeometry(390,242,115,30)
 		ok
-		aComboCols = ["Ref","Nom","Email","Adresse","Clid"]
+		aComboCols = ["Ref","Nom","Email","Adresse"]
 		aComboText = [aLANGUAGE[:FILTER],
 				substr(aLANGUAGE[:LBL_REF_TEXT],":",""),
 				substr(aLANGUAGE[:LBL_NAME_TEXT],":",""),
 				substr(aLANGUAGE[:LBL_EMAIL_TEXT],":",""),
-				substr(aLANGUAGE[:LBL_ADDRESS_TEXT],":",""),
-				"Clid"
+				substr(aLANGUAGE[:LBL_ADDRESS_TEXT],":","")
 				]
 		for x in aComboText additem(x, 0) next
 		setCurrentIndex(2)
