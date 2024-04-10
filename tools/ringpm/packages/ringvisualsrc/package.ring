@@ -5,18 +5,18 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.19.0",
-	:ringversion = "1.19",
+	:version = "1.20.0",
+	:ringversion = "1.20",
 	:versions = 	[
 		[
-			:version = "1.19.0",
+			:version = "1.20.0",
 			:branch = "master"
 		]
 	],
 	:libs = 	[
 		[
 			:name = "ringsrc",
-			:version = "1.19.0",
+			:version = "1.20.0",
 			:providerusername = "ringpackages"
 		]
 	],
@@ -189,7 +189,8 @@ aPackageInfo = [
 		"language/visualsrc/ring_vmvars.config",
 		"language/visualsrc/ring_vmvars.fpt",
 		"language/visualsrc/ring_vmvars.ssf",
-		"language/visualsrc/rpwibuild.bat"
+		"language/visualsrc/rpwibuild.bat",
+		"language/visualsrc/commentsnl.ring"
 	],
 	:windowsfiles = 	[
 
