@@ -494,7 +494,6 @@ func delClient oTable
 	else
 		msgBox(aLANGUAGE[:WARNING],aLANGUAGE[:REF_NOT_FOUND],"red")
 		playSound("sound/warning-beep-1.wav") 
-		bye
 	ok
 
 func editImage oTable
@@ -506,7 +505,7 @@ func editImage oTable
 	if cRef = ""
 		msgBox(aLANGUAGE[:WARNING],aLANGUAGE[:REF_IS_REQUIRED],"red")
 		playSound("sound/warning-beep-1.wav") 
-		bye
+		return 
 	ok
 	
 	if dirExists("images/avatars") = 0 
