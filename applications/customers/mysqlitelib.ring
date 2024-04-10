@@ -159,7 +159,7 @@ func sqlite_fill_table oTable,select
 func searchCl oTable
 
 	cSearch = trim(txtSearch.text())
-	cFilter = comboBox1.currentText()
+	cFilter = aComboCols[comboBox1.currentIndex()]
 	
 	if cSearch != ""
 		if cFilter = aLANGUAGE[:FILTER]
