@@ -652,12 +652,13 @@ ICO_FREELOADASCOPE	Free the Scope List of the current Expression
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-ICO_JUMP		Set PC to new value from the IR 
+ICO_JUMP		Set the PC to a new value from the IR 
 ICO_JUMPZERO		If Stack[nSize] is a number = 0 then Set PC to new value from the IR 
 ICO_JUMPFOR		End of for loop
 ICO_JUMPONE		If Stack[nSize] is a number = 1 then Set PC to new value from the IR 
 ICO_JUMPZERO2		As ICO_JUMPZERO but add 1 to the stack (required for many 'AND' conditions)
 ICO_JUMPONE2		As ICO_JUMPONE but add 1 to the stack (required for many 'OR' conditions)
+ICO_PUSHNULLTHENJUMP	Add NULL string to the Stack then set the PC to a new value from the IR
 =======================	============================================================================
 
 (Compare)
@@ -748,6 +749,7 @@ ICO_EXITMARK		Place to exit to from a loop
 ICO_POPEXITMARK		Remove exit mark
 ICO_EXIT		Break from one loop or more 
 ICO_LOOP		Continue to next loop 
+ICO_OPTIONALLOOP	Check if we have optional loop then push 1 to the Stack and call Loop
 =======================	============================================================================
 
 (For Better Performance)
@@ -764,6 +766,7 @@ ICO_LOADFUNCP			Push function pointer
 ICO_PUSHPLOCAL			Push pointer to local variable
 ICO_INCLPJUMP			Increment value using pointer to local variable then jump
 ICO_INCPJUMPSTEP1	 	Increment value using variable pointer then jump (for loop step = 1)
+ICO_INCLPJUMPSTEP1		Increment value using local variable pointer then jump (for loop step = 1)
 ICO_LEN				Remove list from the stack and push the list size
 ========================	============================================================================
 
@@ -800,9 +803,11 @@ ICO_NEWCLASS		Start new class region
 ICO_BRACESTART		Open brace
 ICO_BRACEEND		End brace
 ICO_IMPORT		Import package
-ICO_PRIVATE		start private attributes region
-ICO_SETPROPERTY		set attribute value - check for setter.	
-ICO_CALLCLASSINIT	call class init() method.
+ICO_NEWLABEL		Start a new section of byte code (Just for organization)
+ICO_PRIVATE		Start private attributes region
+ICO_SETPROPERTY		Set attribute value - check for setter	
+ICO_CALLCLASSINIT	Call class init() method
+ICO_CHECKBRACEMETHOD	Check if a method exist using braces
 =======================	============================================================================
 
 (Other)
@@ -849,3 +854,11 @@ ICO_ENDGLOBALSCOPE	End of custom global scope - used by 'load package' command
 ICO_SETGLOBALSCOPE	Set the current global scope 
 =======================	============================================================================
 
+(More Instructions)
+
+=======================	============================================================================
+Operation			Description
+=======================	============================================================================
+ICO_NOOP		No operation 
+ICO_SETOPCODE		Change the operation code of a specific instruction 
+=======================	============================================================================
