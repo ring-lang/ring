@@ -72,6 +72,7 @@ func handlerDraw
 	set_uiDrawStrokeParams_Join(sp,uiDrawLineJoinMiter)
 	set_uiDrawStrokeParams_Thickness(sp,2)
 	set_uiDrawStrokeParams_MiterLimit(sp,uiDrawDefaultMiterLimit)
+	set_uiDrawStrokeParams_NumDashes(sp,0)		
 
 	// draw the axes
 	setSolidBrush(brush, colorBlack, 1.0)
