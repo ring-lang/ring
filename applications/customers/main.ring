@@ -331,6 +331,7 @@ oApp = new QApp {
 		setText(aLANGUAGE[:AUTO_SEARCH])
 		setstylesheet("color:#2b5392;background-color:;")
 		settoggledEvent("pAutoSearchToggledEvent()")
+		setChecked(True)
 	}
 
 	comboBox1 = new QComboBox(frmClients) {
@@ -348,7 +349,7 @@ oApp = new QApp {
 				"Clid"
 				]
 		for x in aComboText additem(x, 0) next
-		setCurrentIndex(0)
+		setCurrentIndex(2)
 		setStylesheet("color:#2b5392")
 		setcurrentIndexChangedEvent("pCbxIndexCanged()")
 	}
