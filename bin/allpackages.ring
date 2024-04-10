@@ -25,7 +25,6 @@ aAllPackagesInfo = [
 	],
 	:ringzip = 	[
 		"ringqt",
-		"ringhelphtml",
 		"androidringlibsdl",
 		"androidringqt",
 		"visualstudioeditorextension",
@@ -375,6 +374,9 @@ aAllPackagesInfo = [
 		"winstartupmanager"
 	],
 	:ringhelppdf = 	[
+
+	],
+	:ringhelphtml = 	[
 
 	]
 ]
