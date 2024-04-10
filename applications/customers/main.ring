@@ -310,7 +310,7 @@ oApp = new QApp {
 	}
 
 	txtSearch = new qlineedit(frmClients){
-		setGeometry(20,245,250,25)
+		setGeometry(25,245,170,25)
 		oFont = new qfont("",0,0,0)
 		oFont.fromstring("Arial,8,-1,5,75,0,0,0,0,0,Gras")
 		setfont(oFont)
@@ -321,8 +321,8 @@ oApp = new QApp {
 
 	checkAutoSearch = new qcheckbox(frmClients) {
 		if T_LANGUAGE = "ar"
-			setGeometry(275,245,75,24)
-		else setGeometry(275,245,115,24)
+			setGeometry(230,245,75,24)
+		else setGeometry(230,245,115,24)
 		ok
 		oFont = new qfont("",0,0,0)
 		oFont.fromstring(labelFont)
@@ -335,9 +335,9 @@ oApp = new QApp {
 
 	comboBox1 = new QComboBox(frmClients) {
 		if T_LANGUAGE = "ar"
-			setGeometry(335,245,70,20)
+			setGeometry(380,245,80,20)
 		else
-			setGeometry(390,242,115,30)
+			setGeometry(380,242,80,30)
 		ok
 		aComboCols = ["Ref","Nom","Email","Adresse"]
 		aComboText = [aLANGUAGE[:FILTER],
@@ -354,9 +354,9 @@ oApp = new QApp {
 	btnSearch = new qpushbutton(frmClients) {
 		setText(aLANGUAGE[:BTN_SEARCH_TEXT])
 		if T_LANGUAGE = "ar"
-			setGeometry(500,242,70,30)
+			setGeometry(470,242,80,30)
 		else
-			setGeometry(530,242,70,30)
+			setGeometry(470,242,80,30)
 		ok
 		oFont = new qfont("",0,0,0)
 		oFont.fromstring("Arial,9,-1,5,80,0,0,0,0,0,Gras")
@@ -369,7 +369,7 @@ oApp = new QApp {
 
 	btnFillAll = new qpushbutton(frmClients) {
 		setText(aLANGUAGE[:BTN_FILL_TEXT])
-		setGeometry(630,242,115,30)
+		setGeometry(630,242,135,30)
 		oFont = new qfont("",0,0,0)
 		oFont.fromstring("Arial,9,-1,5,80,0,0,0,0,0,Gras")
 		setfont(oFont)
