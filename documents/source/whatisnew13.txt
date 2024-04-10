@@ -121,6 +121,10 @@ Money Boxes Game
 
 See if you can collect the required amount of money by opening boxes!
 
+.. code-block:: none
+
+	ringpm install moneyboxes
+
 .. image:: moneyboxes.png
 	:alt: Money Boxes Game
 
