@@ -332,11 +332,17 @@ Also we can prepare the application for distribution
 The Help Menu
 =============
 
-From this menu we can get the help files (CHM & PDF)
+From this menu we can open the help files (CHM & PDF)
 
 .. image:: rnotemenu_help.png
 	:alt: Ring Notepad - Help Menu
 
+We can download these files from Ring website or using the Ring package manager (ringpm)
+
+.. code-block:: none
+
+	ringpm install ringhelpchm
+	ringpm install ringhelppdf 
 
 
 
