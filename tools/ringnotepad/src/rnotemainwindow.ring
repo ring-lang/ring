@@ -933,9 +933,7 @@ class RNoteMainWindow
 				setexpanded(myindex,true)
 				header().hide()
 				chdir(exefolder())
-				if not isMacOSX()
-					this.cWebsite = "file:///"+oDir.CurrentPath() + "/../documents/build/html/index.html"
-				ok
+				this.cWebsite = this.GetHelpURL()
 			}
 			this.oDockProjectFiles = new qdockwidget(this.win1,0) {
 				myFilter = new qAllEvents(this.oDockProjectFiles)

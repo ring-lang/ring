@@ -134,7 +134,7 @@ T_RINGNOTEPAD_GUILIBRARY = "مكتبة واجهة المستخدم الرسوم�
 T_RINGNOTEPAD_ABOUT = "حول البرنامج"
 T_RINGNOTEPAD_READY = "جاهز"
 
-T_RINGNOTEPAD_BROWSERLOCALHELP = "ملف التعليمات المحلي"
+T_RINGNOTEPAD_BROWSERLOCALHELP = "ملف التعليمات"
 T_RINGNOTEPAD_BROWSERRINGWEBSITE = "موقع لغة الرينج"
 T_RINGNOTEPAD_BRWOSERRINGSAMPLES = "أمثلة لغة الرينج"
 T_RINGNOTEPAD_BROWSERRINGRESOURCES = "موارد خاصة بالرينج"
