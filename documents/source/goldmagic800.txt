@@ -9,6 +9,12 @@ In this chapter we will learn about the Gold Magic 800 Game
 
 The game is developed using Ring, RingAllegro and RingOpenGL
 
+After installing the package:
+
+.. code-block:: none
+
+	ringpm install goldmagic800
+
 You will find the game in ring/applications/goldmagic800 folder
 
 .. index:: 
