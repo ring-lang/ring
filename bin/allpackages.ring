@@ -373,5 +373,8 @@ aAllPackagesInfo = [
 	],
 	:ringwincreg = 	[
 		"winstartupmanager"
+	],
+	:ringhelppdf = 	[
+
 	]
 ]
