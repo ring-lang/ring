@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.1",
-	:ringversion = "1.13",
+	:version = "1.0.2",
+	:ringversion = "1.20",
 	:versions = 	[
 		[
-			:version = "1.0.1",
+			:version = "1.0.2",
 			:branch = "master"
 		]
 	],
@@ -31,6 +31,7 @@ aPackageInfo = [
 	],
 	:ringfolderfiles = 	[
 		"applications/wisequadrat/WiseQuadratGame.ring",
+		"applications/wisequadrat/icon.png",
 		"applications/wisequadrat/README.md"
 	],
 	:windowsfiles = 	[
