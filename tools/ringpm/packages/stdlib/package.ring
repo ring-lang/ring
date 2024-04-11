@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.15",
-	:ringversion = "1.19",
+	:version = "1.0.16",
+	:ringversion = "1.20",
 	:versions = 	[
 		[
-			:version = "1.0.15",
+			:version = "1.0.16",
 			:branch = "master"
 		]
 	],
@@ -57,6 +57,7 @@ aPackageInfo = [
 	:ringfolderfiles = 	[
 		"bin/load/stdlib.ring",
 		"bin/load/stdlibcore.ring",
+		"bin/load/stdlibclasses.ring",
 		"libraries/stdlib/myfile.txt",
 		"libraries/stdlib/README.md",
 		"libraries/stdlib/stdbase.ring",
