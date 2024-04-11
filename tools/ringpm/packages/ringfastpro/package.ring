@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "",
 	:email = "",
 	:license = "MIT License",
-	:version = "1.0.0",
-	:ringversion = "1.19",
+	:version = "1.0.1",
+	:ringversion = "1.20",
 	:versions = 	[
 		[
-			:version = "1.0.0",
+			:version = "1.0.1",
 			:branch = "master"
 		]
 	],
@@ -41,6 +41,9 @@ aPackageInfo = [
 		"samples/UsingFastPro/updatelist2.ring",
 		"samples/UsingFastPro/updatelist3.ring",
 		"samples/UsingFastPro/updatelist4.ring",
+		"samples/UsingFastPro/updatelist5.ring",
+		"samples/UsingFastPro/DestCol.ring",
+		"samples/UsingFastPro/DestCol2.ring",
 		"tools/ring2exe/libs/fastpro.ring"
 	],
 	:windowsfiles = 	[
