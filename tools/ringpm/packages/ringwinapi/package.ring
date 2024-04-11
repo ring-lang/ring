@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.6",
+	:version = "1.0.7",
 	:ringversion = "1.20",
 	:versions = 	[
 		[
-			:version = "1.0.6",
+			:version = "1.0.7",
 			:branch = "master"
 		]
 	],
@@ -26,7 +26,7 @@ aPackageInfo = [
 	],
 	:ringfolderfiles = 	[
 		"bin/load/winapi.ring",
-		"bin/load/ring_winapi.dll",
+		"bin/ring_winapi.dll",
 		"extensions/ringwinapi/bin/ring_winapi.dll",
 		"extensions/ringwinapi/bin/winapi.rh",
 		"extensions/ringwinapi/bin/winapi.ring",
