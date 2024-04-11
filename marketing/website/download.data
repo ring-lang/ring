@@ -2,7 +2,7 @@
 		["Ring 1.20 All Platforms",[
 						 [
 							'<a href="https://github.com/ring-lang/ring/releases/download/v1.20/Fayed_Ring_1.20_Windows_32bit.exe"  >Ring 1.20 For Windows (32bit)</a>',
-							'204 MB'						
+							'205 MB'						
 						 ],
 						 [
 							'<a href="https://github.com/ring-lang/ring/releases/download/v1.20/Fayed_Ring_1.20_Windows_64bit.exe"  >Ring 1.20 For Windows (64bit)</a>',
@@ -14,7 +14,7 @@
 						 ],
 						 [
 							'<a href="https://github.com/ring-lang/ring/releases/download/v1.20/Fayed_Ring_1.20_macOS.zip">Ring 1.20 For macOS (64bit)</a>',
-							'201 MB'						
+							'187 MB'						
 						 ],
 						 [
 							'<a href="https://github.com/ring-lang/ring/releases/download/v1.20/Fayed_RingDoc_1.20.pdf">Ring 1.20 Documentation (PDF)</a> ',
