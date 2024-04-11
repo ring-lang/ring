@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "",
 	:email = "",
 	:license = "MIT License",
-	:version = "1.0.10",
+	:version = "1.0.11",
 	:ringversion = "1.20",
 	:versions = 	[
 		[
-			:version = "1.0.20",
+			:version = "1.0.21",
 			:branch = "master"
 		]
 	],
@@ -25,7 +25,7 @@ aPackageInfo = [
 	],
 	:ringfolderfiles = 	[
 		"bin/ring_stbimage.dll",
-		"bin/stbimage.ring",
+		"bin/load/stbimage.ring",
 		"extensions/ringstbimage/buildclang.sh",
 		"extensions/ringstbimage/buildgcc.sh",
 		"extensions/ringstbimage/buildvc.bat",
