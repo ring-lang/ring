@@ -378,5 +378,8 @@ aAllPackagesInfo = [
 	],
 	:ringhelphtml = 	[
 
+	],
+	:cloc = 	[
+
 	]
 ]
