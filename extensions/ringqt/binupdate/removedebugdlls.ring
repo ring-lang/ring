@@ -1,7 +1,11 @@
 # Remove debug dlls and *.pdb files from ring/bin folder
 # 2020, Mahmoud Fayed <msfclipper@yahoo.com>
 
-load "stdlibcore.ring"
+// We don't use stdlibcore.ring directly
+// To load the library in the current global scope 
+// So we can access aAvoid from Filter() function
+
+	load "../../libraries/stdlib/stdlibcore.ring"
 
 aAvoid = [
 "Qt5Gamepad.dll",
@@ -14,7 +18,7 @@ aFiles = Map(aFiles, func item {
 	return item
 })
 
-aFiles = myFilter(aFiles, func item {
+aFiles = Filter(aFiles, func item {
 	if left(lower(item),3) = "qt5" and
 		right(item,5) = "d.dll"
 		if not find(aAvoid,item) 
@@ -35,16 +39,3 @@ func DeleteFiles aFiles
 		? "Delete File: " + cFile
 		remove(exefolder()+"\"+cFile)
 	next
-
-// Since stdlibcore.ring have another global scope starting from Ring 1.20
-// It's filter() function can't access the global list aAvoid
-// So we define a custom filter function
-
-Func myFilter alist,cFunc
-	alist2 = []
-	for x in alist
-		if call cFunc(x)
-			alist2 + x
-		ok
-	next
-	return alist2
