@@ -1,7 +1,13 @@
 Ring programming language - Documents folder
 ============================================
 
-In this folder we have the Ring programming language documentation 
+In this folder we store the Ring programming language documentation 
+
+Optional packages:
+
+	ringpm install ringhelpchm
+	ringpm install ringhelppdf
+	ringpm install ringhelphtml	
 
 The documentation is created using Sphinx (A popular tool written in Python)
 
