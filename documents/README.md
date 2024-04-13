@@ -40,9 +40,13 @@ The documentation is created using Sphinx (A popular tool written in Python)
 -  To generate PDF file, Install MiKTeX (https://miktex.org/download) - Tested using MiKTeX 23.4
 
 	buildlatex.bat
+
 	cd build/latex
+
 	pdflatex Ring.tex
+
 	makeindex Ring -s python.ist
+
 	pdflatex Ring.tex
 
 	
