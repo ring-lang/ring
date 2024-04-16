@@ -17,7 +17,8 @@
 // 14 MatrixDetCalc(U)             // Calls MatrixDeterminantReduce(U)
 // 15 MatrixDeterminantReduce(U)   // Any 2x2 to 10x10 Recursive
 // 16 Determinant(U)               // Calls 16a-16e Determinant2x2,3x3,4x4,5x5,6x6
-// 17 MatrixProjection(U,V)        // ProjvU = (U.V)/(V.V)xV
+// 17 MatrixProjection(U,V)        // Matrix ProjvU = (U.V)/(V.V)xV
+// 17 MatrixScalarProjection(U,V)  // Scalar Projection A onto B = (A.B) / |B|
 // 18 MatrixOrthoDistance(U,V)
 // 19 VectorLength(U)
 // 20 VectorNorm(U)                // Same as VectorLength - different name
@@ -511,15 +512,17 @@ return DetAdd   // Return calculated Determinant for this size Matrx
 //=====================================
 // Bert Mariani 03/18/2023
 // MatrixProjection
-// ProjvU = (U.V)/(V.V)xV
+// ProjvU = (U.V) /(V.V) x V
+// Vector ProjbA  A onto B =  (A.B) / (B.B) x |B|
 //
-//  (4,2).(3,4)/(3,4).(3.4) x(3,4)
-//   12+8      / 9+16       x(3,4)
-// = 20        / 25         x(3,4) 
-// = 20/25 x(3,4)
-// =  4/5  x(3,4) 
-// = 12/5, 16/5
-// =  2.4 ,  3.2
+//   U   . V    /  V   . V    x  V
+//  (4,2).(3,4) / (3,4).(3.4) x (3,4)
+//   12+8       /  9+16       x (3,4)
+// = 20         /  25         x (3,4) 
+// = 20/25 x (3,4)
+// =  4/5  x (3,4) 
+// = 12/5,   16/5
+// =  2.4 ,   3.2
 
 Func MatrixProjection(U,V)
 
@@ -534,13 +537,35 @@ Func MatrixProjection(U,V)
         return 1
     ok 
 
-  p = DotProduct(U,V)
-  q = DotProduct(V,V)
+  P = DotProduct(U,V)
+  Q = DotProduct(V,V)
 
 
-  Y = ScalarMultiply( (p/q), V)
+  Y = ScalarMultiply( (P/Q), V)
 
 return Y   // Vector array
+
+//=====================================
+//=====================================
+// Bert Mariani 16/06/2024
+// Scalar Projection A onto B =   A.B  / |B|
+// Vector    ProjbA  A onto B =  (A.B) / (B.B) x |B|
+//
+// Let A = [3, 4] and B = [1, 2]. 
+// Find the scalar projection of A onto B.
+// The formula for the scalar projection of A onto B is given by A.B/||B||. 
+// The dot product is: A.B = (3)(1) + (4)(2) = A.B   = 11
+// The magnitude of B is:  ||B|| = √(1² + 2²) ||B||  = √5
+// Hence, the scalar projection of A onto B is 11/√5 = 4.9193.
+//------------------------------------------------------------
+
+Func MatrixScalarProjection(U,V)    
+
+  DP     = DotProduct(U,V) 
+  Vlen   = VectorLength(V)
+  Scalar = DP/Vlen
+
+return Scalar   // number
 
 //============================================
 //============================================
