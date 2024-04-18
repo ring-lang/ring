@@ -1,1 +1,1 @@
-..\..\bin\ring ..\codegen\parsec.ring ringnappgui.cf ringnappgui.c
+..\..\bin\ring ..\codegen\parsec.ring ringnappgui.cf ringnappgui.c ringnappgui.rh

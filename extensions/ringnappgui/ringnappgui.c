@@ -9,6 +9,1091 @@
 #define String RingString
 #include "ring.h"
 
+RING_FUNC(ring_get_ekgui_horizontal)
+{
+	RING_API_RETNUMBER(ekGUI_HORIZONTAL);
+}
+
+RING_FUNC(ring_get_ekgui_vertical)
+{
+	RING_API_RETNUMBER(ekGUI_VERTICAL);
+}
+
+RING_FUNC(ring_get_ekgui_off)
+{
+	RING_API_RETNUMBER(ekGUI_OFF);
+}
+
+RING_FUNC(ring_get_ekgui_on)
+{
+	RING_API_RETNUMBER(ekGUI_ON);
+}
+
+RING_FUNC(ring_get_ekgui_mixed)
+{
+	RING_API_RETNUMBER(ekGUI_MIXED);
+}
+
+RING_FUNC(ring_get_ekgui_mouse_left)
+{
+	RING_API_RETNUMBER(ekGUI_MOUSE_LEFT);
+}
+
+RING_FUNC(ring_get_ekgui_mouse_right)
+{
+	RING_API_RETNUMBER(ekGUI_MOUSE_RIGHT);
+}
+
+RING_FUNC(ring_get_ekgui_mouse_middle)
+{
+	RING_API_RETNUMBER(ekGUI_MOUSE_MIDDLE);
+}
+
+RING_FUNC(ring_get_ekgui_cursor_arrow)
+{
+	RING_API_RETNUMBER(ekGUI_CURSOR_ARROW);
+}
+
+RING_FUNC(ring_get_ekgui_cursor_hand)
+{
+	RING_API_RETNUMBER(ekGUI_CURSOR_HAND);
+}
+
+RING_FUNC(ring_get_ekgui_cursor_ibeam)
+{
+	RING_API_RETNUMBER(ekGUI_CURSOR_IBEAM);
+}
+
+RING_FUNC(ring_get_ekgui_cursor_cross)
+{
+	RING_API_RETNUMBER(ekGUI_CURSOR_CROSS);
+}
+
+RING_FUNC(ring_get_ekgui_cursor_sizewe)
+{
+	RING_API_RETNUMBER(ekGUI_CURSOR_SIZEWE);
+}
+
+RING_FUNC(ring_get_ekgui_cursor_sizens)
+{
+	RING_API_RETNUMBER(ekGUI_CURSOR_SIZENS);
+}
+
+RING_FUNC(ring_get_ekgui_cursor_user)
+{
+	RING_API_RETNUMBER(ekGUI_CURSOR_USER);
+}
+
+RING_FUNC(ring_get_ekgui_close_esc)
+{
+	RING_API_RETNUMBER(ekGUI_CLOSE_ESC);
+}
+
+RING_FUNC(ring_get_ekgui_close_intro)
+{
+	RING_API_RETNUMBER(ekGUI_CLOSE_INTRO);
+}
+
+RING_FUNC(ring_get_ekgui_close_button)
+{
+	RING_API_RETNUMBER(ekGUI_CLOSE_BUTTON);
+}
+
+RING_FUNC(ring_get_ekgui_close_deact)
+{
+	RING_API_RETNUMBER(ekGUI_CLOSE_DEACT);
+}
+
+RING_FUNC(ring_get_ekgui_scale_auto)
+{
+	RING_API_RETNUMBER(ekGUI_SCALE_AUTO);
+}
+
+RING_FUNC(ring_get_ekgui_scale_none)
+{
+	RING_API_RETNUMBER(ekGUI_SCALE_NONE);
+}
+
+RING_FUNC(ring_get_ekgui_scale_aspect)
+{
+	RING_API_RETNUMBER(ekGUI_SCALE_ASPECT);
+}
+
+RING_FUNC(ring_get_ekgui_scale_aspectdw)
+{
+	RING_API_RETNUMBER(ekGUI_SCALE_ASPECTDW);
+}
+
+RING_FUNC(ring_get_ekgui_scroll_begin)
+{
+	RING_API_RETNUMBER(ekGUI_SCROLL_BEGIN);
+}
+
+RING_FUNC(ring_get_ekgui_scroll_end)
+{
+	RING_API_RETNUMBER(ekGUI_SCROLL_END);
+}
+
+RING_FUNC(ring_get_ekgui_scroll_step_left)
+{
+	RING_API_RETNUMBER(ekGUI_SCROLL_STEP_LEFT);
+}
+
+RING_FUNC(ring_get_ekgui_scroll_step_right)
+{
+	RING_API_RETNUMBER(ekGUI_SCROLL_STEP_RIGHT);
+}
+
+RING_FUNC(ring_get_ekgui_scroll_page_left)
+{
+	RING_API_RETNUMBER(ekGUI_SCROLL_PAGE_LEFT);
+}
+
+RING_FUNC(ring_get_ekgui_scroll_page_right)
+{
+	RING_API_RETNUMBER(ekGUI_SCROLL_PAGE_RIGHT);
+}
+
+RING_FUNC(ring_get_ekgui_scroll_thumb)
+{
+	RING_API_RETNUMBER(ekGUI_SCROLL_THUMB);
+}
+
+RING_FUNC(ring_get_ekgui_focus_changed)
+{
+	RING_API_RETNUMBER(ekGUI_FOCUS_CHANGED);
+}
+
+RING_FUNC(ring_get_ekgui_focus_keep)
+{
+	RING_API_RETNUMBER(ekGUI_FOCUS_KEEP);
+}
+
+RING_FUNC(ring_get_ekgui_focus_no_next)
+{
+	RING_API_RETNUMBER(ekGUI_FOCUS_NO_NEXT);
+}
+
+RING_FUNC(ring_get_ekgui_focus_no_resign)
+{
+	RING_API_RETNUMBER(ekGUI_FOCUS_NO_RESIGN);
+}
+
+RING_FUNC(ring_get_ekgui_focus_no_accept)
+{
+	RING_API_RETNUMBER(ekGUI_FOCUS_NO_ACCEPT);
+}
+
+RING_FUNC(ring_get_ekgui_tab_key)
+{
+	RING_API_RETNUMBER(ekGUI_TAB_KEY);
+}
+
+RING_FUNC(ring_get_ekgui_tab_backkey)
+{
+	RING_API_RETNUMBER(ekGUI_TAB_BACKKEY);
+}
+
+RING_FUNC(ring_get_ekgui_tab_next)
+{
+	RING_API_RETNUMBER(ekGUI_TAB_NEXT);
+}
+
+RING_FUNC(ring_get_ekgui_tab_prev)
+{
+	RING_API_RETNUMBER(ekGUI_TAB_PREV);
+}
+
+RING_FUNC(ring_get_ekgui_tab_move)
+{
+	RING_API_RETNUMBER(ekGUI_TAB_MOVE);
+}
+
+RING_FUNC(ring_get_ekgui_tab_click)
+{
+	RING_API_RETNUMBER(ekGUI_TAB_CLICK);
+}
+
+RING_FUNC(ring_get_ekgui_event_label)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_LABEL);
+}
+
+RING_FUNC(ring_get_ekgui_event_button)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_BUTTON);
+}
+
+RING_FUNC(ring_get_ekgui_event_popup)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_POPUP);
+}
+
+RING_FUNC(ring_get_ekgui_event_listbox)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_LISTBOX);
+}
+
+RING_FUNC(ring_get_ekgui_event_slider)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_SLIDER);
+}
+
+RING_FUNC(ring_get_ekgui_event_updown)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_UPDOWN);
+}
+
+RING_FUNC(ring_get_ekgui_event_txtfilter)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_TXTFILTER);
+}
+
+RING_FUNC(ring_get_ekgui_event_txtchange)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_TXTCHANGE);
+}
+
+RING_FUNC(ring_get_ekgui_event_focus_resign)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_FOCUS_RESIGN);
+}
+
+RING_FUNC(ring_get_ekgui_event_focus_accept)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_FOCUS_ACCEPT);
+}
+
+RING_FUNC(ring_get_ekgui_event_focus)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_FOCUS);
+}
+
+RING_FUNC(ring_get_ekgui_event_menu)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_MENU);
+}
+
+RING_FUNC(ring_get_ekgui_event_draw)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_DRAW);
+}
+
+RING_FUNC(ring_get_ekgui_event_overlay)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_OVERLAY);
+}
+
+RING_FUNC(ring_get_ekgui_event_resize)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_RESIZE);
+}
+
+RING_FUNC(ring_get_ekgui_event_enter)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_ENTER);
+}
+
+RING_FUNC(ring_get_ekgui_event_exit)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_EXIT);
+}
+
+RING_FUNC(ring_get_ekgui_event_moved)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_MOVED);
+}
+
+RING_FUNC(ring_get_ekgui_event_down)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_DOWN);
+}
+
+RING_FUNC(ring_get_ekgui_event_up)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_UP);
+}
+
+RING_FUNC(ring_get_ekgui_event_click)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_CLICK);
+}
+
+RING_FUNC(ring_get_ekgui_event_drag)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_DRAG);
+}
+
+RING_FUNC(ring_get_ekgui_event_wheel)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_WHEEL);
+}
+
+RING_FUNC(ring_get_ekgui_event_keydown)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_KEYDOWN);
+}
+
+RING_FUNC(ring_get_ekgui_event_keyup)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_KEYUP);
+}
+
+RING_FUNC(ring_get_ekgui_event_scroll)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_SCROLL);
+}
+
+RING_FUNC(ring_get_ekgui_event_wnd_moved)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_WND_MOVED);
+}
+
+RING_FUNC(ring_get_ekgui_event_wnd_sizing)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_WND_SIZING);
+}
+
+RING_FUNC(ring_get_ekgui_event_wnd_size)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_WND_SIZE);
+}
+
+RING_FUNC(ring_get_ekgui_event_wnd_close)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_WND_CLOSE);
+}
+
+RING_FUNC(ring_get_ekgui_event_color)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_COLOR);
+}
+
+RING_FUNC(ring_get_ekgui_event_theme)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_THEME);
+}
+
+RING_FUNC(ring_get_ekgui_event_objchange)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_OBJCHANGE);
+}
+
+RING_FUNC(ring_get_ekgui_event_tbl_nrows)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_TBL_NROWS);
+}
+
+RING_FUNC(ring_get_ekgui_event_tbl_begin)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_TBL_BEGIN);
+}
+
+RING_FUNC(ring_get_ekgui_event_tbl_end)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_TBL_END);
+}
+
+RING_FUNC(ring_get_ekgui_event_tbl_cell)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_TBL_CELL);
+}
+
+RING_FUNC(ring_get_ekgui_event_tbl_sel)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_TBL_SEL);
+}
+
+RING_FUNC(ring_get_ekgui_event_tbl_headclick)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_TBL_HEADCLICK);
+}
+
+RING_FUNC(ring_get_ekgui_event_tbl_rowclick)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_TBL_ROWCLICK);
+}
+
+RING_FUNC(ring_get_ekgui_event_idle)
+{
+	RING_API_RETNUMBER(ekGUI_EVENT_IDLE);
+}
+
+RING_FUNC(ring_get_ekgui_type_label)
+{
+	RING_API_RETNUMBER(ekGUI_TYPE_LABEL);
+}
+
+RING_FUNC(ring_get_ekgui_type_button)
+{
+	RING_API_RETNUMBER(ekGUI_TYPE_BUTTON);
+}
+
+RING_FUNC(ring_get_ekgui_type_popup)
+{
+	RING_API_RETNUMBER(ekGUI_TYPE_POPUP);
+}
+
+RING_FUNC(ring_get_ekgui_type_editbox)
+{
+	RING_API_RETNUMBER(ekGUI_TYPE_EDITBOX);
+}
+
+RING_FUNC(ring_get_ekgui_type_combobox)
+{
+	RING_API_RETNUMBER(ekGUI_TYPE_COMBOBOX);
+}
+
+RING_FUNC(ring_get_ekgui_type_slider)
+{
+	RING_API_RETNUMBER(ekGUI_TYPE_SLIDER);
+}
+
+RING_FUNC(ring_get_ekgui_type_updown)
+{
+	RING_API_RETNUMBER(ekGUI_TYPE_UPDOWN);
+}
+
+RING_FUNC(ring_get_ekgui_type_progress)
+{
+	RING_API_RETNUMBER(ekGUI_TYPE_PROGRESS);
+}
+
+RING_FUNC(ring_get_ekgui_type_textview)
+{
+	RING_API_RETNUMBER(ekGUI_TYPE_TEXTVIEW);
+}
+
+RING_FUNC(ring_get_ekgui_type_tableview)
+{
+	RING_API_RETNUMBER(ekGUI_TYPE_TABLEVIEW);
+}
+
+RING_FUNC(ring_get_ekgui_type_treeview)
+{
+	RING_API_RETNUMBER(ekGUI_TYPE_TREEVIEW);
+}
+
+RING_FUNC(ring_get_ekgui_type_boxview)
+{
+	RING_API_RETNUMBER(ekGUI_TYPE_BOXVIEW);
+}
+
+RING_FUNC(ring_get_ekgui_type_splitview)
+{
+	RING_API_RETNUMBER(ekGUI_TYPE_SPLITVIEW);
+}
+
+RING_FUNC(ring_get_ekgui_type_customview)
+{
+	RING_API_RETNUMBER(ekGUI_TYPE_CUSTOMVIEW);
+}
+
+RING_FUNC(ring_get_ekgui_type_panel)
+{
+	RING_API_RETNUMBER(ekGUI_TYPE_PANEL);
+}
+
+RING_FUNC(ring_get_ekgui_type_line)
+{
+	RING_API_RETNUMBER(ekGUI_TYPE_LINE);
+}
+
+RING_FUNC(ring_get_ekgui_type_header)
+{
+	RING_API_RETNUMBER(ekGUI_TYPE_HEADER);
+}
+
+RING_FUNC(ring_get_ekgui_type_window)
+{
+	RING_API_RETNUMBER(ekGUI_TYPE_WINDOW);
+}
+
+RING_FUNC(ring_get_ekgui_type_toolbar)
+{
+	RING_API_RETNUMBER(ekGUI_TYPE_TOOLBAR);
+}
+
+RING_FUNC(ring_get_ekgui_size_mini)
+{
+	RING_API_RETNUMBER(ekGUI_SIZE_MINI);
+}
+
+RING_FUNC(ring_get_ekgui_size_small)
+{
+	RING_API_RETNUMBER(ekGUI_SIZE_SMALL);
+}
+
+RING_FUNC(ring_get_ekgui_size_regular)
+{
+	RING_API_RETNUMBER(ekGUI_SIZE_REGULAR);
+}
+
+RING_FUNC(ring_get_ekgui_role_main)
+{
+	RING_API_RETNUMBER(ekGUI_ROLE_MAIN);
+}
+
+RING_FUNC(ring_get_ekgui_role_overlay)
+{
+	RING_API_RETNUMBER(ekGUI_ROLE_OVERLAY);
+}
+
+RING_FUNC(ring_get_ekgui_role_modal)
+{
+	RING_API_RETNUMBER(ekGUI_ROLE_MODAL);
+}
+
+RING_FUNC(ring_get_ekgui_role_managed)
+{
+	RING_API_RETNUMBER(ekGUI_ROLE_MANAGED);
+}
+
+RING_FUNC(ring_get_ekgui_prop_resize)
+{
+	RING_API_RETNUMBER(ekGUI_PROP_RESIZE);
+}
+
+RING_FUNC(ring_get_ekgui_prop_children)
+{
+	RING_API_RETNUMBER(ekGUI_PROP_CHILDREN);
+}
+
+RING_FUNC(ring_get_ekgui_text_family)
+{
+	RING_API_RETNUMBER(ekGUI_TEXT_FAMILY);
+}
+
+RING_FUNC(ring_get_ekgui_text_units)
+{
+	RING_API_RETNUMBER(ekGUI_TEXT_UNITS);
+}
+
+RING_FUNC(ring_get_ekgui_text_size)
+{
+	RING_API_RETNUMBER(ekGUI_TEXT_SIZE);
+}
+
+RING_FUNC(ring_get_ekgui_text_style)
+{
+	RING_API_RETNUMBER(ekGUI_TEXT_STYLE);
+}
+
+RING_FUNC(ring_get_ekgui_text_color)
+{
+	RING_API_RETNUMBER(ekGUI_TEXT_COLOR);
+}
+
+RING_FUNC(ring_get_ekgui_text_bgcolor)
+{
+	RING_API_RETNUMBER(ekGUI_TEXT_BGCOLOR);
+}
+
+RING_FUNC(ring_get_ekgui_text_pgcolor)
+{
+	RING_API_RETNUMBER(ekGUI_TEXT_PGCOLOR);
+}
+
+RING_FUNC(ring_get_ekgui_text_paralign)
+{
+	RING_API_RETNUMBER(ekGUI_TEXT_PARALIGN);
+}
+
+RING_FUNC(ring_get_ekgui_text_lspacing)
+{
+	RING_API_RETNUMBER(ekGUI_TEXT_LSPACING);
+}
+
+RING_FUNC(ring_get_ekgui_text_bfparspace)
+{
+	RING_API_RETNUMBER(ekGUI_TEXT_BFPARSPACE);
+}
+
+RING_FUNC(ring_get_ekgui_text_afparspace)
+{
+	RING_API_RETNUMBER(ekGUI_TEXT_AFPARSPACE);
+}
+
+RING_FUNC(ring_get_ekgui_text_select)
+{
+	RING_API_RETNUMBER(ekGUI_TEXT_SELECT);
+}
+
+RING_FUNC(ring_get_ekgui_text_scroll)
+{
+	RING_API_RETNUMBER(ekGUI_TEXT_SCROLL);
+}
+
+RING_FUNC(ring_get_ekclipboard_copy)
+{
+	RING_API_RETNUMBER(ekCLIPBOARD_COPY);
+}
+
+RING_FUNC(ring_get_ekclipboard_cut)
+{
+	RING_API_RETNUMBER(ekCLIPBOARD_CUT);
+}
+
+RING_FUNC(ring_get_ekclipboard_paste)
+{
+	RING_API_RETNUMBER(ekCLIPBOARD_PASTE);
+}
+
+RING_FUNC(ring_get_eklabel_flag)
+{
+	RING_API_RETNUMBER(ekLABEL_FLAG);
+}
+
+RING_FUNC(ring_get_eklabel_single)
+{
+	RING_API_RETNUMBER(ekLABEL_SINGLE);
+}
+
+RING_FUNC(ring_get_eklabel_multi)
+{
+	RING_API_RETNUMBER(ekLABEL_MULTI);
+}
+
+RING_FUNC(ring_get_eklabel_type)
+{
+	RING_API_RETNUMBER(ekLABEL_TYPE);
+}
+
+RING_FUNC(ring_get_ekbutton_flag)
+{
+	RING_API_RETNUMBER(ekBUTTON_FLAG);
+}
+
+RING_FUNC(ring_get_ekbutton_push)
+{
+	RING_API_RETNUMBER(ekBUTTON_PUSH);
+}
+
+RING_FUNC(ring_get_ekbutton_check2)
+{
+	RING_API_RETNUMBER(ekBUTTON_CHECK2);
+}
+
+RING_FUNC(ring_get_ekbutton_check3)
+{
+	RING_API_RETNUMBER(ekBUTTON_CHECK3);
+}
+
+RING_FUNC(ring_get_ekbutton_radio)
+{
+	RING_API_RETNUMBER(ekBUTTON_RADIO);
+}
+
+RING_FUNC(ring_get_ekbutton_flat)
+{
+	RING_API_RETNUMBER(ekBUTTON_FLAT);
+}
+
+RING_FUNC(ring_get_ekbutton_flatgle)
+{
+	RING_API_RETNUMBER(ekBUTTON_FLATGLE);
+}
+
+RING_FUNC(ring_get_ekbutton_header)
+{
+	RING_API_RETNUMBER(ekBUTTON_HEADER);
+}
+
+RING_FUNC(ring_get_ekbutton_type)
+{
+	RING_API_RETNUMBER(ekBUTTON_TYPE);
+}
+
+RING_FUNC(ring_get_ekpopup_flag)
+{
+	RING_API_RETNUMBER(ekPOPUP_FLAG);
+}
+
+RING_FUNC(ring_get_ekedit_flag)
+{
+	RING_API_RETNUMBER(ekEDIT_FLAG);
+}
+
+RING_FUNC(ring_get_ekedit_single)
+{
+	RING_API_RETNUMBER(ekEDIT_SINGLE);
+}
+
+RING_FUNC(ring_get_ekedit_multi)
+{
+	RING_API_RETNUMBER(ekEDIT_MULTI);
+}
+
+RING_FUNC(ring_get_ekedit_type)
+{
+	RING_API_RETNUMBER(ekEDIT_TYPE);
+}
+
+RING_FUNC(ring_get_ekedit_autosel)
+{
+	RING_API_RETNUMBER(ekEDIT_AUTOSEL);
+}
+
+RING_FUNC(ring_get_ekcombo_flag)
+{
+	RING_API_RETNUMBER(ekCOMBO_FLAG);
+}
+
+RING_FUNC(ring_get_ekslider_flag)
+{
+	RING_API_RETNUMBER(ekSLIDER_FLAG);
+}
+
+RING_FUNC(ring_get_ekslider_horz)
+{
+	RING_API_RETNUMBER(ekSLIDER_HORZ);
+}
+
+RING_FUNC(ring_get_ekslider_vert)
+{
+	RING_API_RETNUMBER(ekSLIDER_VERT);
+}
+
+RING_FUNC(ring_get_ekslider_type)
+{
+	RING_API_RETNUMBER(ekSLIDER_TYPE);
+}
+
+RING_FUNC(ring_get_ekupdown_flag)
+{
+	RING_API_RETNUMBER(ekUPDOWN_FLAG);
+}
+
+RING_FUNC(ring_get_ekprogress_flag)
+{
+	RING_API_RETNUMBER(ekPROGRESS_FLAG);
+}
+
+RING_FUNC(ring_get_ekprogress_horz)
+{
+	RING_API_RETNUMBER(ekPROGRESS_HORZ);
+}
+
+RING_FUNC(ring_get_ekprogress_vert)
+{
+	RING_API_RETNUMBER(ekPROGRESS_VERT);
+}
+
+RING_FUNC(ring_get_ekprogress_type)
+{
+	RING_API_RETNUMBER(ekPROGRESS_TYPE);
+}
+
+RING_FUNC(ring_get_ekview_opengl)
+{
+	RING_API_RETNUMBER(ekVIEW_OPENGL);
+}
+
+RING_FUNC(ring_get_ekview_hscroll)
+{
+	RING_API_RETNUMBER(ekVIEW_HSCROLL);
+}
+
+RING_FUNC(ring_get_ekview_vscroll)
+{
+	RING_API_RETNUMBER(ekVIEW_VSCROLL);
+}
+
+RING_FUNC(ring_get_ekview_border)
+{
+	RING_API_RETNUMBER(ekVIEW_BORDER);
+}
+
+RING_FUNC(ring_get_ekview_noerase)
+{
+	RING_API_RETNUMBER(ekVIEW_NOERASE);
+}
+
+RING_FUNC(ring_get_ekview_control)
+{
+	RING_API_RETNUMBER(ekVIEW_CONTROL);
+}
+
+RING_FUNC(ring_get_ektext_flag)
+{
+	RING_API_RETNUMBER(ekTEXT_FLAG);
+}
+
+RING_FUNC(ring_get_ektable_flag)
+{
+	RING_API_RETNUMBER(ekTABLE_FLAG);
+}
+
+RING_FUNC(ring_get_ektable_text)
+{
+	RING_API_RETNUMBER(ekTABLE_TEXT);
+}
+
+RING_FUNC(ring_get_ektable_icon16)
+{
+	RING_API_RETNUMBER(ekTABLE_ICON16);
+}
+
+RING_FUNC(ring_get_ektable_edit)
+{
+	RING_API_RETNUMBER(ekTABLE_EDIT);
+}
+
+RING_FUNC(ring_get_ektable_combo)
+{
+	RING_API_RETNUMBER(ekTABLE_COMBO);
+}
+
+RING_FUNC(ring_get_ektable_popup)
+{
+	RING_API_RETNUMBER(ekTABLE_POPUP);
+}
+
+RING_FUNC(ring_get_ektable_radio)
+{
+	RING_API_RETNUMBER(ekTABLE_RADIO);
+}
+
+RING_FUNC(ring_get_ektable_check)
+{
+	RING_API_RETNUMBER(ekTABLE_CHECK);
+}
+
+RING_FUNC(ring_get_ektable_tooltip)
+{
+	RING_API_RETNUMBER(ekTABLE_TOOLTIP);
+}
+
+RING_FUNC(ring_get_ektable_bgcolor)
+{
+	RING_API_RETNUMBER(ekTABLE_BGCOLOR);
+}
+
+RING_FUNC(ring_get_ektable_rowalt)
+{
+	RING_API_RETNUMBER(ekTABLE_ROWALT);
+}
+
+RING_FUNC(ring_get_ektable_rowpresel)
+{
+	RING_API_RETNUMBER(ekTABLE_ROWPRESEL);
+}
+
+RING_FUNC(ring_get_eksplit_flag)
+{
+	RING_API_RETNUMBER(ekSPLIT_FLAG);
+}
+
+RING_FUNC(ring_get_eksplit_vert)
+{
+	RING_API_RETNUMBER(ekSPLIT_VERT);
+}
+
+RING_FUNC(ring_get_eksplit_horz)
+{
+	RING_API_RETNUMBER(ekSPLIT_HORZ);
+}
+
+RING_FUNC(ring_get_eksplit_type)
+{
+	RING_API_RETNUMBER(ekSPLIT_TYPE);
+}
+
+RING_FUNC(ring_get_eksplit_prop)
+{
+	RING_API_RETNUMBER(ekSPLIT_PROP);
+}
+
+RING_FUNC(ring_get_eksplit_left)
+{
+	RING_API_RETNUMBER(ekSPLIT_LEFT);
+}
+
+RING_FUNC(ring_get_eksplit_right)
+{
+	RING_API_RETNUMBER(ekSPLIT_RIGHT);
+}
+
+RING_FUNC(ring_get_ekwindow_flag)
+{
+	RING_API_RETNUMBER(ekWINDOW_FLAG);
+}
+
+RING_FUNC(ring_get_ekwindow_edge)
+{
+	RING_API_RETNUMBER(ekWINDOW_EDGE);
+}
+
+RING_FUNC(ring_get_ekwindow_title)
+{
+	RING_API_RETNUMBER(ekWINDOW_TITLE);
+}
+
+RING_FUNC(ring_get_ekwindow_max)
+{
+	RING_API_RETNUMBER(ekWINDOW_MAX);
+}
+
+RING_FUNC(ring_get_ekwindow_min)
+{
+	RING_API_RETNUMBER(ekWINDOW_MIN);
+}
+
+RING_FUNC(ring_get_ekwindow_close)
+{
+	RING_API_RETNUMBER(ekWINDOW_CLOSE);
+}
+
+RING_FUNC(ring_get_ekwindow_resize)
+{
+	RING_API_RETNUMBER(ekWINDOW_RESIZE);
+}
+
+RING_FUNC(ring_get_ekwindow_return)
+{
+	RING_API_RETNUMBER(ekWINDOW_RETURN);
+}
+
+RING_FUNC(ring_get_ekwindow_esc)
+{
+	RING_API_RETNUMBER(ekWINDOW_ESC);
+}
+
+RING_FUNC(ring_get_ekwindow_offscreen)
+{
+	RING_API_RETNUMBER(ekWINDOW_OFFSCREEN);
+}
+
+RING_FUNC(ring_get_ekwindow_modal_nohide)
+{
+	RING_API_RETNUMBER(ekWINDOW_MODAL_NOHIDE);
+}
+
+RING_FUNC(ring_get_ekwindow_std)
+{
+	RING_API_RETNUMBER(ekWINDOW_STD);
+}
+
+RING_FUNC(ring_get_ekwindow_stdres)
+{
+	RING_API_RETNUMBER(ekWINDOW_STDRES);
+}
+
+RING_FUNC(ring_get_ekmenu_flag)
+{
+	RING_API_RETNUMBER(ekMENU_FLAG);
+}
+
+RING_FUNC(ring_get_ekmenu_item)
+{
+	RING_API_RETNUMBER(ekMENU_ITEM);
+}
+
+RING_FUNC(ring_get_ekmenu_separator)
+{
+	RING_API_RETNUMBER(ekMENU_SEPARATOR);
+}
+
+RING_FUNC(ring_get_ekctrl_state_normal)
+{
+	RING_API_RETNUMBER(ekCTRL_STATE_NORMAL);
+}
+
+RING_FUNC(ring_get_ekctrl_state_hot)
+{
+	RING_API_RETNUMBER(ekCTRL_STATE_HOT);
+}
+
+RING_FUNC(ring_get_ekctrl_state_pressed)
+{
+	RING_API_RETNUMBER(ekCTRL_STATE_PRESSED);
+}
+
+RING_FUNC(ring_get_ekctrl_state_bknormal)
+{
+	RING_API_RETNUMBER(ekCTRL_STATE_BKNORMAL);
+}
+
+RING_FUNC(ring_get_ekctrl_state_bkhot)
+{
+	RING_API_RETNUMBER(ekCTRL_STATE_BKHOT);
+}
+
+RING_FUNC(ring_get_ekctrl_state_bkpressed)
+{
+	RING_API_RETNUMBER(ekCTRL_STATE_BKPRESSED);
+}
+
+RING_FUNC(ring_get_ekctrl_state_disabled)
+{
+	RING_API_RETNUMBER(ekCTRL_STATE_DISABLED);
+}
+
+RING_FUNC(ring_get_ekctrl_msel_no)
+{
+	RING_API_RETNUMBER(ekCTRL_MSEL_NO);
+}
+
+RING_FUNC(ring_get_ekctrl_msel_single)
+{
+	RING_API_RETNUMBER(ekCTRL_MSEL_SINGLE);
+}
+
+RING_FUNC(ring_get_ekctrl_msel_burst)
+{
+	RING_API_RETNUMBER(ekCTRL_MSEL_BURST);
+}
+
+RING_FUNC(ring_get_ekctrl_op_add)
+{
+	RING_API_RETNUMBER(ekCTRL_OP_ADD);
+}
+
+RING_FUNC(ring_get_ekctrl_op_del)
+{
+	RING_API_RETNUMBER(ekCTRL_OP_DEL);
+}
+
+RING_FUNC(ring_get_ekctrl_op_ins)
+{
+	RING_API_RETNUMBER(ekCTRL_OP_INS);
+}
+
+RING_FUNC(ring_get_ekctrl_op_set)
+{
+	RING_API_RETNUMBER(ekCTRL_OP_SET);
+}
+
+RING_FUNC(ring_get_eksyscolor_darkmode)
+{
+	RING_API_RETNUMBER(ekSYSCOLOR_DARKMODE);
+}
+
+RING_FUNC(ring_get_eksyscolor_label)
+{
+	RING_API_RETNUMBER(ekSYSCOLOR_LABEL);
+}
+
+RING_FUNC(ring_get_eksyscolor_view)
+{
+	RING_API_RETNUMBER(ekSYSCOLOR_VIEW);
+}
+
+RING_FUNC(ring_get_eksyscolor_line)
+{
+	RING_API_RETNUMBER(ekSYSCOLOR_LINE);
+}
+
+RING_FUNC(ring_get_eksyscolor_link)
+{
+	RING_API_RETNUMBER(ekSYSCOLOR_LINK);
+}
+
+RING_FUNC(ring_get_eksyscolor_border)
+{
+	RING_API_RETNUMBER(ekSYSCOLOR_BORDER);
+}
+
 
 RING_FUNC(ring_unicode_convers)
 {
@@ -33265,4 +34350,221 @@ RING_LIBINIT
 	RING_API_REGISTER("array_search_ptr",ring_array_search_ptr);
 	RING_API_REGISTER("array_bsearch",ring_array_bsearch);
 	RING_API_REGISTER("array_bsearch_ptr",ring_array_bsearch_ptr);
+	RING_API_REGISTER("get_ekgui_horizontal",ring_get_ekgui_horizontal);
+	RING_API_REGISTER("get_ekgui_vertical",ring_get_ekgui_vertical);
+	RING_API_REGISTER("get_ekgui_off",ring_get_ekgui_off);
+	RING_API_REGISTER("get_ekgui_on",ring_get_ekgui_on);
+	RING_API_REGISTER("get_ekgui_mixed",ring_get_ekgui_mixed);
+	RING_API_REGISTER("get_ekgui_mouse_left",ring_get_ekgui_mouse_left);
+	RING_API_REGISTER("get_ekgui_mouse_right",ring_get_ekgui_mouse_right);
+	RING_API_REGISTER("get_ekgui_mouse_middle",ring_get_ekgui_mouse_middle);
+	RING_API_REGISTER("get_ekgui_cursor_arrow",ring_get_ekgui_cursor_arrow);
+	RING_API_REGISTER("get_ekgui_cursor_hand",ring_get_ekgui_cursor_hand);
+	RING_API_REGISTER("get_ekgui_cursor_ibeam",ring_get_ekgui_cursor_ibeam);
+	RING_API_REGISTER("get_ekgui_cursor_cross",ring_get_ekgui_cursor_cross);
+	RING_API_REGISTER("get_ekgui_cursor_sizewe",ring_get_ekgui_cursor_sizewe);
+	RING_API_REGISTER("get_ekgui_cursor_sizens",ring_get_ekgui_cursor_sizens);
+	RING_API_REGISTER("get_ekgui_cursor_user",ring_get_ekgui_cursor_user);
+	RING_API_REGISTER("get_ekgui_close_esc",ring_get_ekgui_close_esc);
+	RING_API_REGISTER("get_ekgui_close_intro",ring_get_ekgui_close_intro);
+	RING_API_REGISTER("get_ekgui_close_button",ring_get_ekgui_close_button);
+	RING_API_REGISTER("get_ekgui_close_deact",ring_get_ekgui_close_deact);
+	RING_API_REGISTER("get_ekgui_scale_auto",ring_get_ekgui_scale_auto);
+	RING_API_REGISTER("get_ekgui_scale_none",ring_get_ekgui_scale_none);
+	RING_API_REGISTER("get_ekgui_scale_aspect",ring_get_ekgui_scale_aspect);
+	RING_API_REGISTER("get_ekgui_scale_aspectdw",ring_get_ekgui_scale_aspectdw);
+	RING_API_REGISTER("get_ekgui_scroll_begin",ring_get_ekgui_scroll_begin);
+	RING_API_REGISTER("get_ekgui_scroll_end",ring_get_ekgui_scroll_end);
+	RING_API_REGISTER("get_ekgui_scroll_step_left",ring_get_ekgui_scroll_step_left);
+	RING_API_REGISTER("get_ekgui_scroll_step_right",ring_get_ekgui_scroll_step_right);
+	RING_API_REGISTER("get_ekgui_scroll_page_left",ring_get_ekgui_scroll_page_left);
+	RING_API_REGISTER("get_ekgui_scroll_page_right",ring_get_ekgui_scroll_page_right);
+	RING_API_REGISTER("get_ekgui_scroll_thumb",ring_get_ekgui_scroll_thumb);
+	RING_API_REGISTER("get_ekgui_focus_changed",ring_get_ekgui_focus_changed);
+	RING_API_REGISTER("get_ekgui_focus_keep",ring_get_ekgui_focus_keep);
+	RING_API_REGISTER("get_ekgui_focus_no_next",ring_get_ekgui_focus_no_next);
+	RING_API_REGISTER("get_ekgui_focus_no_resign",ring_get_ekgui_focus_no_resign);
+	RING_API_REGISTER("get_ekgui_focus_no_accept",ring_get_ekgui_focus_no_accept);
+	RING_API_REGISTER("get_ekgui_tab_key",ring_get_ekgui_tab_key);
+	RING_API_REGISTER("get_ekgui_tab_backkey",ring_get_ekgui_tab_backkey);
+	RING_API_REGISTER("get_ekgui_tab_next",ring_get_ekgui_tab_next);
+	RING_API_REGISTER("get_ekgui_tab_prev",ring_get_ekgui_tab_prev);
+	RING_API_REGISTER("get_ekgui_tab_move",ring_get_ekgui_tab_move);
+	RING_API_REGISTER("get_ekgui_tab_click",ring_get_ekgui_tab_click);
+	RING_API_REGISTER("get_ekgui_event_label",ring_get_ekgui_event_label);
+	RING_API_REGISTER("get_ekgui_event_button",ring_get_ekgui_event_button);
+	RING_API_REGISTER("get_ekgui_event_popup",ring_get_ekgui_event_popup);
+	RING_API_REGISTER("get_ekgui_event_listbox",ring_get_ekgui_event_listbox);
+	RING_API_REGISTER("get_ekgui_event_slider",ring_get_ekgui_event_slider);
+	RING_API_REGISTER("get_ekgui_event_updown",ring_get_ekgui_event_updown);
+	RING_API_REGISTER("get_ekgui_event_txtfilter",ring_get_ekgui_event_txtfilter);
+	RING_API_REGISTER("get_ekgui_event_txtchange",ring_get_ekgui_event_txtchange);
+	RING_API_REGISTER("get_ekgui_event_focus_resign",ring_get_ekgui_event_focus_resign);
+	RING_API_REGISTER("get_ekgui_event_focus_accept",ring_get_ekgui_event_focus_accept);
+	RING_API_REGISTER("get_ekgui_event_focus",ring_get_ekgui_event_focus);
+	RING_API_REGISTER("get_ekgui_event_menu",ring_get_ekgui_event_menu);
+	RING_API_REGISTER("get_ekgui_event_draw",ring_get_ekgui_event_draw);
+	RING_API_REGISTER("get_ekgui_event_overlay",ring_get_ekgui_event_overlay);
+	RING_API_REGISTER("get_ekgui_event_resize",ring_get_ekgui_event_resize);
+	RING_API_REGISTER("get_ekgui_event_enter",ring_get_ekgui_event_enter);
+	RING_API_REGISTER("get_ekgui_event_exit",ring_get_ekgui_event_exit);
+	RING_API_REGISTER("get_ekgui_event_moved",ring_get_ekgui_event_moved);
+	RING_API_REGISTER("get_ekgui_event_down",ring_get_ekgui_event_down);
+	RING_API_REGISTER("get_ekgui_event_up",ring_get_ekgui_event_up);
+	RING_API_REGISTER("get_ekgui_event_click",ring_get_ekgui_event_click);
+	RING_API_REGISTER("get_ekgui_event_drag",ring_get_ekgui_event_drag);
+	RING_API_REGISTER("get_ekgui_event_wheel",ring_get_ekgui_event_wheel);
+	RING_API_REGISTER("get_ekgui_event_keydown",ring_get_ekgui_event_keydown);
+	RING_API_REGISTER("get_ekgui_event_keyup",ring_get_ekgui_event_keyup);
+	RING_API_REGISTER("get_ekgui_event_scroll",ring_get_ekgui_event_scroll);
+	RING_API_REGISTER("get_ekgui_event_wnd_moved",ring_get_ekgui_event_wnd_moved);
+	RING_API_REGISTER("get_ekgui_event_wnd_sizing",ring_get_ekgui_event_wnd_sizing);
+	RING_API_REGISTER("get_ekgui_event_wnd_size",ring_get_ekgui_event_wnd_size);
+	RING_API_REGISTER("get_ekgui_event_wnd_close",ring_get_ekgui_event_wnd_close);
+	RING_API_REGISTER("get_ekgui_event_color",ring_get_ekgui_event_color);
+	RING_API_REGISTER("get_ekgui_event_theme",ring_get_ekgui_event_theme);
+	RING_API_REGISTER("get_ekgui_event_objchange",ring_get_ekgui_event_objchange);
+	RING_API_REGISTER("get_ekgui_event_tbl_nrows",ring_get_ekgui_event_tbl_nrows);
+	RING_API_REGISTER("get_ekgui_event_tbl_begin",ring_get_ekgui_event_tbl_begin);
+	RING_API_REGISTER("get_ekgui_event_tbl_end",ring_get_ekgui_event_tbl_end);
+	RING_API_REGISTER("get_ekgui_event_tbl_cell",ring_get_ekgui_event_tbl_cell);
+	RING_API_REGISTER("get_ekgui_event_tbl_sel",ring_get_ekgui_event_tbl_sel);
+	RING_API_REGISTER("get_ekgui_event_tbl_headclick",ring_get_ekgui_event_tbl_headclick);
+	RING_API_REGISTER("get_ekgui_event_tbl_rowclick",ring_get_ekgui_event_tbl_rowclick);
+	RING_API_REGISTER("get_ekgui_event_idle",ring_get_ekgui_event_idle);
+	RING_API_REGISTER("get_ekgui_type_label",ring_get_ekgui_type_label);
+	RING_API_REGISTER("get_ekgui_type_button",ring_get_ekgui_type_button);
+	RING_API_REGISTER("get_ekgui_type_popup",ring_get_ekgui_type_popup);
+	RING_API_REGISTER("get_ekgui_type_editbox",ring_get_ekgui_type_editbox);
+	RING_API_REGISTER("get_ekgui_type_combobox",ring_get_ekgui_type_combobox);
+	RING_API_REGISTER("get_ekgui_type_slider",ring_get_ekgui_type_slider);
+	RING_API_REGISTER("get_ekgui_type_updown",ring_get_ekgui_type_updown);
+	RING_API_REGISTER("get_ekgui_type_progress",ring_get_ekgui_type_progress);
+	RING_API_REGISTER("get_ekgui_type_textview",ring_get_ekgui_type_textview);
+	RING_API_REGISTER("get_ekgui_type_tableview",ring_get_ekgui_type_tableview);
+	RING_API_REGISTER("get_ekgui_type_treeview",ring_get_ekgui_type_treeview);
+	RING_API_REGISTER("get_ekgui_type_boxview",ring_get_ekgui_type_boxview);
+	RING_API_REGISTER("get_ekgui_type_splitview",ring_get_ekgui_type_splitview);
+	RING_API_REGISTER("get_ekgui_type_customview",ring_get_ekgui_type_customview);
+	RING_API_REGISTER("get_ekgui_type_panel",ring_get_ekgui_type_panel);
+	RING_API_REGISTER("get_ekgui_type_line",ring_get_ekgui_type_line);
+	RING_API_REGISTER("get_ekgui_type_header",ring_get_ekgui_type_header);
+	RING_API_REGISTER("get_ekgui_type_window",ring_get_ekgui_type_window);
+	RING_API_REGISTER("get_ekgui_type_toolbar",ring_get_ekgui_type_toolbar);
+	RING_API_REGISTER("get_ekgui_size_mini",ring_get_ekgui_size_mini);
+	RING_API_REGISTER("get_ekgui_size_small",ring_get_ekgui_size_small);
+	RING_API_REGISTER("get_ekgui_size_regular",ring_get_ekgui_size_regular);
+	RING_API_REGISTER("get_ekgui_role_main",ring_get_ekgui_role_main);
+	RING_API_REGISTER("get_ekgui_role_overlay",ring_get_ekgui_role_overlay);
+	RING_API_REGISTER("get_ekgui_role_modal",ring_get_ekgui_role_modal);
+	RING_API_REGISTER("get_ekgui_role_managed",ring_get_ekgui_role_managed);
+	RING_API_REGISTER("get_ekgui_prop_resize",ring_get_ekgui_prop_resize);
+	RING_API_REGISTER("get_ekgui_prop_children",ring_get_ekgui_prop_children);
+	RING_API_REGISTER("get_ekgui_text_family",ring_get_ekgui_text_family);
+	RING_API_REGISTER("get_ekgui_text_units",ring_get_ekgui_text_units);
+	RING_API_REGISTER("get_ekgui_text_size",ring_get_ekgui_text_size);
+	RING_API_REGISTER("get_ekgui_text_style",ring_get_ekgui_text_style);
+	RING_API_REGISTER("get_ekgui_text_color",ring_get_ekgui_text_color);
+	RING_API_REGISTER("get_ekgui_text_bgcolor",ring_get_ekgui_text_bgcolor);
+	RING_API_REGISTER("get_ekgui_text_pgcolor",ring_get_ekgui_text_pgcolor);
+	RING_API_REGISTER("get_ekgui_text_paralign",ring_get_ekgui_text_paralign);
+	RING_API_REGISTER("get_ekgui_text_lspacing",ring_get_ekgui_text_lspacing);
+	RING_API_REGISTER("get_ekgui_text_bfparspace",ring_get_ekgui_text_bfparspace);
+	RING_API_REGISTER("get_ekgui_text_afparspace",ring_get_ekgui_text_afparspace);
+	RING_API_REGISTER("get_ekgui_text_select",ring_get_ekgui_text_select);
+	RING_API_REGISTER("get_ekgui_text_scroll",ring_get_ekgui_text_scroll);
+	RING_API_REGISTER("get_ekclipboard_copy",ring_get_ekclipboard_copy);
+	RING_API_REGISTER("get_ekclipboard_cut",ring_get_ekclipboard_cut);
+	RING_API_REGISTER("get_ekclipboard_paste",ring_get_ekclipboard_paste);
+	RING_API_REGISTER("get_eklabel_flag",ring_get_eklabel_flag);
+	RING_API_REGISTER("get_eklabel_single",ring_get_eklabel_single);
+	RING_API_REGISTER("get_eklabel_multi",ring_get_eklabel_multi);
+	RING_API_REGISTER("get_eklabel_type",ring_get_eklabel_type);
+	RING_API_REGISTER("get_ekbutton_flag",ring_get_ekbutton_flag);
+	RING_API_REGISTER("get_ekbutton_push",ring_get_ekbutton_push);
+	RING_API_REGISTER("get_ekbutton_check2",ring_get_ekbutton_check2);
+	RING_API_REGISTER("get_ekbutton_check3",ring_get_ekbutton_check3);
+	RING_API_REGISTER("get_ekbutton_radio",ring_get_ekbutton_radio);
+	RING_API_REGISTER("get_ekbutton_flat",ring_get_ekbutton_flat);
+	RING_API_REGISTER("get_ekbutton_flatgle",ring_get_ekbutton_flatgle);
+	RING_API_REGISTER("get_ekbutton_header",ring_get_ekbutton_header);
+	RING_API_REGISTER("get_ekbutton_type",ring_get_ekbutton_type);
+	RING_API_REGISTER("get_ekpopup_flag",ring_get_ekpopup_flag);
+	RING_API_REGISTER("get_ekedit_flag",ring_get_ekedit_flag);
+	RING_API_REGISTER("get_ekedit_single",ring_get_ekedit_single);
+	RING_API_REGISTER("get_ekedit_multi",ring_get_ekedit_multi);
+	RING_API_REGISTER("get_ekedit_type",ring_get_ekedit_type);
+	RING_API_REGISTER("get_ekedit_autosel",ring_get_ekedit_autosel);
+	RING_API_REGISTER("get_ekcombo_flag",ring_get_ekcombo_flag);
+	RING_API_REGISTER("get_ekslider_flag",ring_get_ekslider_flag);
+	RING_API_REGISTER("get_ekslider_horz",ring_get_ekslider_horz);
+	RING_API_REGISTER("get_ekslider_vert",ring_get_ekslider_vert);
+	RING_API_REGISTER("get_ekslider_type",ring_get_ekslider_type);
+	RING_API_REGISTER("get_ekupdown_flag",ring_get_ekupdown_flag);
+	RING_API_REGISTER("get_ekprogress_flag",ring_get_ekprogress_flag);
+	RING_API_REGISTER("get_ekprogress_horz",ring_get_ekprogress_horz);
+	RING_API_REGISTER("get_ekprogress_vert",ring_get_ekprogress_vert);
+	RING_API_REGISTER("get_ekprogress_type",ring_get_ekprogress_type);
+	RING_API_REGISTER("get_ekview_opengl",ring_get_ekview_opengl);
+	RING_API_REGISTER("get_ekview_hscroll",ring_get_ekview_hscroll);
+	RING_API_REGISTER("get_ekview_vscroll",ring_get_ekview_vscroll);
+	RING_API_REGISTER("get_ekview_border",ring_get_ekview_border);
+	RING_API_REGISTER("get_ekview_noerase",ring_get_ekview_noerase);
+	RING_API_REGISTER("get_ekview_control",ring_get_ekview_control);
+	RING_API_REGISTER("get_ektext_flag",ring_get_ektext_flag);
+	RING_API_REGISTER("get_ektable_flag",ring_get_ektable_flag);
+	RING_API_REGISTER("get_ektable_text",ring_get_ektable_text);
+	RING_API_REGISTER("get_ektable_icon16",ring_get_ektable_icon16);
+	RING_API_REGISTER("get_ektable_edit",ring_get_ektable_edit);
+	RING_API_REGISTER("get_ektable_combo",ring_get_ektable_combo);
+	RING_API_REGISTER("get_ektable_popup",ring_get_ektable_popup);
+	RING_API_REGISTER("get_ektable_radio",ring_get_ektable_radio);
+	RING_API_REGISTER("get_ektable_check",ring_get_ektable_check);
+	RING_API_REGISTER("get_ektable_tooltip",ring_get_ektable_tooltip);
+	RING_API_REGISTER("get_ektable_bgcolor",ring_get_ektable_bgcolor);
+	RING_API_REGISTER("get_ektable_rowalt",ring_get_ektable_rowalt);
+	RING_API_REGISTER("get_ektable_rowpresel",ring_get_ektable_rowpresel);
+	RING_API_REGISTER("get_eksplit_flag",ring_get_eksplit_flag);
+	RING_API_REGISTER("get_eksplit_vert",ring_get_eksplit_vert);
+	RING_API_REGISTER("get_eksplit_horz",ring_get_eksplit_horz);
+	RING_API_REGISTER("get_eksplit_type",ring_get_eksplit_type);
+	RING_API_REGISTER("get_eksplit_prop",ring_get_eksplit_prop);
+	RING_API_REGISTER("get_eksplit_left",ring_get_eksplit_left);
+	RING_API_REGISTER("get_eksplit_right",ring_get_eksplit_right);
+	RING_API_REGISTER("get_ekwindow_flag",ring_get_ekwindow_flag);
+	RING_API_REGISTER("get_ekwindow_edge",ring_get_ekwindow_edge);
+	RING_API_REGISTER("get_ekwindow_title",ring_get_ekwindow_title);
+	RING_API_REGISTER("get_ekwindow_max",ring_get_ekwindow_max);
+	RING_API_REGISTER("get_ekwindow_min",ring_get_ekwindow_min);
+	RING_API_REGISTER("get_ekwindow_close",ring_get_ekwindow_close);
+	RING_API_REGISTER("get_ekwindow_resize",ring_get_ekwindow_resize);
+	RING_API_REGISTER("get_ekwindow_return",ring_get_ekwindow_return);
+	RING_API_REGISTER("get_ekwindow_esc",ring_get_ekwindow_esc);
+	RING_API_REGISTER("get_ekwindow_offscreen",ring_get_ekwindow_offscreen);
+	RING_API_REGISTER("get_ekwindow_modal_nohide",ring_get_ekwindow_modal_nohide);
+	RING_API_REGISTER("get_ekwindow_std",ring_get_ekwindow_std);
+	RING_API_REGISTER("get_ekwindow_stdres",ring_get_ekwindow_stdres);
+	RING_API_REGISTER("get_ekmenu_flag",ring_get_ekmenu_flag);
+	RING_API_REGISTER("get_ekmenu_item",ring_get_ekmenu_item);
+	RING_API_REGISTER("get_ekmenu_separator",ring_get_ekmenu_separator);
+	RING_API_REGISTER("get_ekctrl_state_normal",ring_get_ekctrl_state_normal);
+	RING_API_REGISTER("get_ekctrl_state_hot",ring_get_ekctrl_state_hot);
+	RING_API_REGISTER("get_ekctrl_state_pressed",ring_get_ekctrl_state_pressed);
+	RING_API_REGISTER("get_ekctrl_state_bknormal",ring_get_ekctrl_state_bknormal);
+	RING_API_REGISTER("get_ekctrl_state_bkhot",ring_get_ekctrl_state_bkhot);
+	RING_API_REGISTER("get_ekctrl_state_bkpressed",ring_get_ekctrl_state_bkpressed);
+	RING_API_REGISTER("get_ekctrl_state_disabled",ring_get_ekctrl_state_disabled);
+	RING_API_REGISTER("get_ekctrl_msel_no",ring_get_ekctrl_msel_no);
+	RING_API_REGISTER("get_ekctrl_msel_single",ring_get_ekctrl_msel_single);
+	RING_API_REGISTER("get_ekctrl_msel_burst",ring_get_ekctrl_msel_burst);
+	RING_API_REGISTER("get_ekctrl_op_add",ring_get_ekctrl_op_add);
+	RING_API_REGISTER("get_ekctrl_op_del",ring_get_ekctrl_op_del);
+	RING_API_REGISTER("get_ekctrl_op_ins",ring_get_ekctrl_op_ins);
+	RING_API_REGISTER("get_ekctrl_op_set",ring_get_ekctrl_op_set);
+	RING_API_REGISTER("get_eksyscolor_darkmode",ring_get_eksyscolor_darkmode);
+	RING_API_REGISTER("get_eksyscolor_label",ring_get_eksyscolor_label);
+	RING_API_REGISTER("get_eksyscolor_view",ring_get_eksyscolor_view);
+	RING_API_REGISTER("get_eksyscolor_line",ring_get_eksyscolor_line);
+	RING_API_REGISTER("get_eksyscolor_link",ring_get_eksyscolor_link);
+	RING_API_REGISTER("get_eksyscolor_border",ring_get_eksyscolor_border);
 }
