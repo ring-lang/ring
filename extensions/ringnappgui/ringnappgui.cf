@@ -1928,3 +1928,119 @@ void draw_tri2df(DCtx *ctx, const drawop_t op, const Tri2Df *tri)
 void draw_tri2dd(DCtx *ctx, const drawop_t op, const Tri2Dd *tri)
 void draw_pol2df(DCtx *ctx, const drawop_t op, const Pol2Df *pol)
 void draw_pol2dd(DCtx *ctx, const drawop_t op, const Pol2Dd *pol)
+
+<comment>
+draw2d.h
+</comment>
+
+void draw2d_start(void)
+void draw2d_finish(void)
+
+<comment>
+draw.h
+</comment>
+
+
+void draw_line(DCtx *ctx, const real32_t x0, const real32_t y0, const real32_t x1, const real32_t y1)
+void draw_polyline(DCtx *ctx, const bool_t closed, const V2Df *points, const uint32_t n)
+void draw_arc(DCtx *ctx, const real32_t x, const real32_t y, const real32_t radius, const real32_t start, const real32_t sweep)
+void draw_bezier(DCtx *ctx, const real32_t x0, const real32_t y0, const real32_t x1, const real32_t y1, const real32_t x2, const real32_t y2, const real32_t x3, const real32_t y3)
+void draw_line_color(DCtx *ctx, const color_t color)
+void draw_line_fill(DCtx *ctx)
+void draw_line_width(DCtx *ctx, const real32_t width)
+void draw_line_cap(DCtx *ctx, const linecap_t cap)
+void draw_line_join(DCtx *ctx, const linejoin_t join)
+void draw_line_dash(DCtx *ctx, const real32_t *pattern, const uint32_t n)
+void draw_rect(DCtx *ctx, const drawop_t op, const real32_t x, const real32_t y, const real32_t width, const real32_t height)
+void draw_rndrect(DCtx *ctx, const drawop_t op, const real32_t x, const real32_t y, const real32_t width, const real32_t height, const real32_t radius)
+void draw_circle(DCtx *ctx, const drawop_t op, const real32_t x, const real32_t y, const real32_t radius)
+void draw_ellipse(DCtx *ctx, const drawop_t op, const real32_t x, const real32_t y, const real32_t radx, const real32_t rady)
+void draw_polygon(DCtx *ctx, const drawop_t op, const V2Df *points, const uint32_t n)
+void draw_fill_color(DCtx *ctx, const color_t color)
+void draw_fill_linear(DCtx *ctx, const color_t *color, const real32_t *stop, const uint32_t n, const real32_t x0, const real32_t y0, const real32_t x1, const real32_t y1)
+void draw_fill_matrix(DCtx *ctx, const T2Df *t2d)
+void draw_fill_wrap(DCtx *ctx, const fillwrap_t wrap)
+void draw_font(DCtx *ctx, const Font *font)
+void draw_text_color(DCtx *ctx, const color_t color)
+void draw_text(DCtx *ctx, const char_t *text, const real32_t x, const real32_t y)
+void draw_text_single_line(DCtx *ctx, const char_t *text, const real32_t x, const real32_t y)
+void draw_text_path(DCtx *ctx, const drawop_t op, const char_t *text, const real32_t x, const real32_t y)
+void draw_text_width(DCtx *ctx, const real32_t width)
+void draw_text_trim(DCtx *ctx, const ellipsis_t ellipsis)
+void draw_text_align(DCtx *ctx, const align_t halign, const align_t valign)
+void draw_text_halign(DCtx *ctx, const align_t halign)
+void draw_text_extents(DCtx *ctx, const char_t *text, const real32_t refwidth, real32_t *width, real32_t *height)
+void draw_image(DCtx *ctx, const Image *image, const real32_t x, const real32_t y)
+void draw_image_frame(DCtx *ctx, const Image *image, const uint32_t frame, const real32_t x, const real32_t y)
+void draw_image_align(DCtx *ctx, const align_t halign, const align_t valign)
+
+<comment>
+dctxh.h
+</comment>
+
+
+DCtx *dctx_create(void)
+void dctx_destroy(DCtx **ctx)
+void dctx_set_gcontext(DCtx *ctx, void *gcontext, const uint32_t width, const uint32_t height, const real32_t offset_x, const real32_t offset_y, const uint32_t background, const bool_t reset)
+void dctx_unset_gcontext(DCtx *ctx)
+void dctx_set_flipped(DCtx *ctx, const bool_t flipped)
+void dctx_size(const DCtx *ctx, uint32_t *width, uint32_t *height)
+void dctx_offset(const DCtx *ctx, real32_t *offset_x, real32_t *offset_y)
+void dctx_line_dash(const DCtx *ctx, real32_t *pattern, uint32_t *size)
+real32_t dctx_text_width(const DCtx *ctx)
+align_t dctx_text_intalign(const DCtx *ctx)
+color_t dctx_text_color(const DCtx *ctx)
+color_t dctx_line_color(const DCtx *ctx)
+color_t dctx_background_color(const DCtx *ctx)
+ellipsis_t dctx_text_trim(const DCtx *ctx)
+void *dctx_native(DCtx *ctx)
+void *dctx_internal_bitmap(DCtx *ctx)
+void dctx_data_imp(DCtx *ctx, void *data, FPtr_destroy func_destroy_data)
+void *dctx_get_data_imp(const DCtx *ctx)
+void dctx_set_default_osfont(DCtx *ctx, const void *font)
+void draw_set_raster_mode(DCtx *ctx)
+void draw_text_raster(DCtx *ctx, const char_t *text, const real32_t x, const real32_t y)
+<comment>
+void draw_image_raster(DCtx *ctx, const Image *image, const real32_t x, const real32_t y)
+</comment>
+void draw_line_imp(DCtx *ctx, const real32_t x0, const real32_t y0, const real32_t x1, const real32_t y1, const bool_t raster)
+void draw_rect_imp(DCtx *ctx, const drawop_t op, const real32_t x, const real32_t y, const real32_t width, const real32_t height, const bool_t raster)
+
+<comment>
+dctx.h
+</comment>
+
+
+DCtx *dctx_bitmap(const uint32_t width, const uint32_t height, const pixformat_t format)
+Image *dctx_image(DCtx **ctx)
+void draw_clear(DCtx *ctx, const color_t color)
+void draw_matrixf(DCtx *ctx, const T2Df *t2d)
+void draw_matrixd(DCtx *ctx, const T2Dd *t2d)
+void draw_matrix_cartesianf(DCtx *ctx, const T2Df *t2d)
+void draw_matrix_cartesiand(DCtx *ctx, const T2Dd *t2d)
+void draw_antialias(DCtx *ctx, const bool_t on)
+
+<comment>
+color.h
+</comment>
+
+
+color_t color_rgb(const uint8_t r, const uint8_t g, const uint8_t b)
+color_t color_rgba(const uint8_t r, const uint8_t g, const uint8_t b, const uint8_t a)
+color_t color_rgbaf(const real32_t r, const real32_t g, const real32_t b, const real32_t a)
+color_t color_hsbf(const real32_t hue, const real32_t sat, const real32_t bright)
+color_t color_red(const uint8_t r)
+color_t color_green(const uint8_t g)
+color_t color_blue(const uint8_t b)
+color_t color_gray(const uint8_t l)
+color_t color_bgr(const uint32_t bgr)
+color_t color_html(const char_t *html)
+color_t color_indexed(const uint16_t index, const color_t color)
+void color_to_hsbf(const color_t color, real32_t *hue, real32_t *sat, real32_t *bright)
+void color_to_html(const color_t color, char_t *html, const uint32_t size)
+void color_get_rgb(const color_t color, uint8_t *r, uint8_t *g, uint8_t *b)
+void color_get_rgbf(const color_t color, real32_t *r, real32_t *g, real32_t *b)
+void color_get_rgba(const color_t color, uint8_t *r, uint8_t *g, uint8_t *b, uint8_t *a)
+void color_get_rgbaf(const color_t color, real32_t *r, real32_t *g, real32_t *b, real32_t *a)
+uint8_t color_get_alpha(const color_t color)
+color_t color_set_alpha(const color_t color, const uint8_t alpha)

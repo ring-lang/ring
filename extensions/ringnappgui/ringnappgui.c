@@ -24468,6 +24468,1634 @@ RING_FUNC(ring_draw_pol2dd)
 		RING_API_FREE(RING_API_GETCPOINTER(2,"drawop_t"));
 }
 
+
+RING_FUNC(ring_draw2d_start)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	draw2d_start();
+}
+
+
+RING_FUNC(ring_draw2d_finish)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	draw2d_finish();
+}
+
+
+RING_FUNC(ring_draw_line)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_line((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),* (const real32_t  *) RING_API_GETCPOINTER(2,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(3,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(4,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(5,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		RING_API_FREE(RING_API_GETCPOINTER(5,"real32_t"));
+}
+
+
+RING_FUNC(ring_draw_polyline)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_polyline((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),* (const bool_t  *) RING_API_GETCPOINTER(2,"const bool_t"),(V2Df *) RING_API_GETCPOINTER(3,"V2Df"),* (const uint32_t  *) RING_API_GETCPOINTER(4,"const uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"bool_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"uint32_t"));
+}
+
+
+RING_FUNC(ring_draw_arc)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_arc((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),* (const real32_t  *) RING_API_GETCPOINTER(2,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(3,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(4,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(5,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(6,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		RING_API_FREE(RING_API_GETCPOINTER(5,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(6))
+		RING_API_FREE(RING_API_GETCPOINTER(6,"real32_t"));
+}
+
+
+RING_FUNC(ring_draw_bezier)
+{
+	if ( RING_API_PARACOUNT != 9 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_bezier((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),* (const real32_t  *) RING_API_GETCPOINTER(2,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(3,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(4,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(5,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(6,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(7,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(8,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(9,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		RING_API_FREE(RING_API_GETCPOINTER(5,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(6))
+		RING_API_FREE(RING_API_GETCPOINTER(6,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(7))
+		RING_API_FREE(RING_API_GETCPOINTER(7,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(8))
+		RING_API_FREE(RING_API_GETCPOINTER(8,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(9))
+		RING_API_FREE(RING_API_GETCPOINTER(9,"real32_t"));
+}
+
+
+RING_FUNC(ring_draw_line_color)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_line_color((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),* (const color_t  *) RING_API_GETCPOINTER(2,"const color_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"color_t"));
+}
+
+
+RING_FUNC(ring_draw_line_fill)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_line_fill((DCtx *) RING_API_GETCPOINTER(1,"DCtx"));
+}
+
+
+RING_FUNC(ring_draw_line_width)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_line_width((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),* (const real32_t  *) RING_API_GETCPOINTER(2,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"real32_t"));
+}
+
+
+RING_FUNC(ring_draw_line_cap)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_line_cap((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),* (const linecap_t  *) RING_API_GETCPOINTER(2,"const linecap_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"linecap_t"));
+}
+
+
+RING_FUNC(ring_draw_line_join)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_line_join((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),* (const linejoin_t  *) RING_API_GETCPOINTER(2,"const linejoin_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"linejoin_t"));
+}
+
+
+RING_FUNC(ring_draw_line_dash)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_line_dash((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),(real32_t *) RING_API_GETCPOINTER(2,"real32_t"),* (const uint32_t  *) RING_API_GETCPOINTER(3,"const uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"uint32_t"));
+}
+
+
+RING_FUNC(ring_draw_rect)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_rect((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),* (const drawop_t  *) RING_API_GETCPOINTER(2,"const drawop_t"),* (const real32_t  *) RING_API_GETCPOINTER(3,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(4,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(5,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(6,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"drawop_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		RING_API_FREE(RING_API_GETCPOINTER(5,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(6))
+		RING_API_FREE(RING_API_GETCPOINTER(6,"real32_t"));
+}
+
+
+RING_FUNC(ring_draw_rndrect)
+{
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_rndrect((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),* (const drawop_t  *) RING_API_GETCPOINTER(2,"const drawop_t"),* (const real32_t  *) RING_API_GETCPOINTER(3,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(4,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(5,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(6,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(7,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"drawop_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		RING_API_FREE(RING_API_GETCPOINTER(5,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(6))
+		RING_API_FREE(RING_API_GETCPOINTER(6,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(7))
+		RING_API_FREE(RING_API_GETCPOINTER(7,"real32_t"));
+}
+
+
+RING_FUNC(ring_draw_circle)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_circle((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),* (const drawop_t  *) RING_API_GETCPOINTER(2,"const drawop_t"),* (const real32_t  *) RING_API_GETCPOINTER(3,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(4,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(5,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"drawop_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		RING_API_FREE(RING_API_GETCPOINTER(5,"real32_t"));
+}
+
+
+RING_FUNC(ring_draw_ellipse)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_ellipse((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),* (const drawop_t  *) RING_API_GETCPOINTER(2,"const drawop_t"),* (const real32_t  *) RING_API_GETCPOINTER(3,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(4,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(5,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(6,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"drawop_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		RING_API_FREE(RING_API_GETCPOINTER(5,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(6))
+		RING_API_FREE(RING_API_GETCPOINTER(6,"real32_t"));
+}
+
+
+RING_FUNC(ring_draw_polygon)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_polygon((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),* (const drawop_t  *) RING_API_GETCPOINTER(2,"const drawop_t"),(V2Df *) RING_API_GETCPOINTER(3,"V2Df"),* (const uint32_t  *) RING_API_GETCPOINTER(4,"const uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"drawop_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"uint32_t"));
+}
+
+
+RING_FUNC(ring_draw_fill_color)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_fill_color((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),* (const color_t  *) RING_API_GETCPOINTER(2,"const color_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"color_t"));
+}
+
+
+RING_FUNC(ring_draw_fill_linear)
+{
+	if ( RING_API_PARACOUNT != 8 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_fill_linear((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),(color_t *) RING_API_GETCPOINTER(2,"color_t"),(real32_t *) RING_API_GETCPOINTER(3,"real32_t"),* (const uint32_t  *) RING_API_GETCPOINTER(4,"const uint32_t"),* (const real32_t  *) RING_API_GETCPOINTER(5,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(6,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(7,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(8,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		RING_API_FREE(RING_API_GETCPOINTER(5,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(6))
+		RING_API_FREE(RING_API_GETCPOINTER(6,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(7))
+		RING_API_FREE(RING_API_GETCPOINTER(7,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(8))
+		RING_API_FREE(RING_API_GETCPOINTER(8,"real32_t"));
+}
+
+
+RING_FUNC(ring_draw_fill_matrix)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_fill_matrix((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),(T2Df *) RING_API_GETCPOINTER(2,"T2Df"));
+}
+
+
+RING_FUNC(ring_draw_fill_wrap)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_fill_wrap((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),* (const fillwrap_t  *) RING_API_GETCPOINTER(2,"const fillwrap_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"fillwrap_t"));
+}
+
+
+RING_FUNC(ring_draw_font)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_font((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),(Font *) RING_API_GETCPOINTER(2,"Font"));
+}
+
+
+RING_FUNC(ring_draw_text_color)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_text_color((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),* (const color_t  *) RING_API_GETCPOINTER(2,"const color_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"color_t"));
+}
+
+
+RING_FUNC(ring_draw_text)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_text((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),(char_t *) RING_API_GETCPOINTER(2,"char_t"),* (const real32_t  *) RING_API_GETCPOINTER(3,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(4,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"real32_t"));
+}
+
+
+RING_FUNC(ring_draw_text_single_line)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_text_single_line((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),(char_t *) RING_API_GETCPOINTER(2,"char_t"),* (const real32_t  *) RING_API_GETCPOINTER(3,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(4,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"real32_t"));
+}
+
+
+RING_FUNC(ring_draw_text_path)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_text_path((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),* (const drawop_t  *) RING_API_GETCPOINTER(2,"const drawop_t"),(char_t *) RING_API_GETCPOINTER(3,"char_t"),* (const real32_t  *) RING_API_GETCPOINTER(4,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(5,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"drawop_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		RING_API_FREE(RING_API_GETCPOINTER(5,"real32_t"));
+}
+
+
+RING_FUNC(ring_draw_text_width)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_text_width((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),* (const real32_t  *) RING_API_GETCPOINTER(2,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"real32_t"));
+}
+
+
+RING_FUNC(ring_draw_text_trim)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_text_trim((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),* (const ellipsis_t  *) RING_API_GETCPOINTER(2,"const ellipsis_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"ellipsis_t"));
+}
+
+
+RING_FUNC(ring_draw_text_align)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_text_align((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),* (const align_t  *) RING_API_GETCPOINTER(2,"const align_t"),* (const align_t  *) RING_API_GETCPOINTER(3,"const align_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"align_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"align_t"));
+}
+
+
+RING_FUNC(ring_draw_text_halign)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_text_halign((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),* (const align_t  *) RING_API_GETCPOINTER(2,"const align_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"align_t"));
+}
+
+
+RING_FUNC(ring_draw_text_extents)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_text_extents((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),(char_t *) RING_API_GETCPOINTER(2,"char_t"),* (const real32_t  *) RING_API_GETCPOINTER(3,"const real32_t"),(real32_t *) RING_API_GETCPOINTER(4,"real32_t"),(real32_t *) RING_API_GETCPOINTER(5,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real32_t"));
+}
+
+
+RING_FUNC(ring_draw_image)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_image((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),(Image *) RING_API_GETCPOINTER(2,"Image"),* (const real32_t  *) RING_API_GETCPOINTER(3,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(4,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"real32_t"));
+}
+
+
+RING_FUNC(ring_draw_image_frame)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_image_frame((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),(Image *) RING_API_GETCPOINTER(2,"Image"),* (const uint32_t  *) RING_API_GETCPOINTER(3,"const uint32_t"),* (const real32_t  *) RING_API_GETCPOINTER(4,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(5,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		RING_API_FREE(RING_API_GETCPOINTER(5,"real32_t"));
+}
+
+
+RING_FUNC(ring_draw_image_align)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_image_align((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),* (const align_t  *) RING_API_GETCPOINTER(2,"const align_t"),* (const align_t  *) RING_API_GETCPOINTER(3,"const align_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"align_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"align_t"));
+}
+
+
+RING_FUNC(ring_dctx_create)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(dctx_create(),"DCtx");
+}
+
+
+RING_FUNC(ring_dctx_destroy)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	dctx_destroy((DCtx **) RING_API_GETCPOINTER2POINTER(1,"DCtx"));
+}
+
+
+RING_FUNC(ring_dctx_set_gcontext)
+{
+	if ( RING_API_PARACOUNT != 8 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	dctx_set_gcontext((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),(void *) RING_API_GETCPOINTER(2,"void"),* (const uint32_t  *) RING_API_GETCPOINTER(3,"const uint32_t"),* (const uint32_t  *) RING_API_GETCPOINTER(4,"const uint32_t"),* (const real32_t  *) RING_API_GETCPOINTER(5,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(6,"const real32_t"),* (const uint32_t  *) RING_API_GETCPOINTER(7,"const uint32_t"),* (const bool_t  *) RING_API_GETCPOINTER(8,"const bool_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		RING_API_FREE(RING_API_GETCPOINTER(5,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(6))
+		RING_API_FREE(RING_API_GETCPOINTER(6,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(7))
+		RING_API_FREE(RING_API_GETCPOINTER(7,"uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(8))
+		RING_API_FREE(RING_API_GETCPOINTER(8,"bool_t"));
+}
+
+
+RING_FUNC(ring_dctx_unset_gcontext)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	dctx_unset_gcontext((DCtx *) RING_API_GETCPOINTER(1,"DCtx"));
+}
+
+
+RING_FUNC(ring_dctx_set_flipped)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	dctx_set_flipped((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),* (const bool_t  *) RING_API_GETCPOINTER(2,"const bool_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"bool_t"));
+}
+
+
+RING_FUNC(ring_dctx_size)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	dctx_size((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),(uint32_t *) RING_API_GETCPOINTER(2,"uint32_t"),(uint32_t *) RING_API_GETCPOINTER(3,"uint32_t"));
+}
+
+
+RING_FUNC(ring_dctx_offset)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	dctx_offset((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),(real32_t *) RING_API_GETCPOINTER(2,"real32_t"),(real32_t *) RING_API_GETCPOINTER(3,"real32_t"));
+}
+
+
+RING_FUNC(ring_dctx_line_dash)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	dctx_line_dash((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),(real32_t *) RING_API_GETCPOINTER(2,"real32_t"),(uint32_t *) RING_API_GETCPOINTER(3,"uint32_t"));
+}
+
+
+RING_FUNC(ring_dctx_text_width)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		real32_t *pValue ; 
+		pValue = (real32_t *) RING_API_MALLOC(sizeof(real32_t)) ;
+		*pValue = dctx_text_width((DCtx *) RING_API_GETCPOINTER(1,"DCtx"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"real32_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_dctx_text_intalign)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		align_t *pValue ; 
+		pValue = (align_t *) RING_API_MALLOC(sizeof(align_t)) ;
+		*pValue = dctx_text_intalign((DCtx *) RING_API_GETCPOINTER(1,"DCtx"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"align_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_dctx_text_color)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		color_t *pValue ; 
+		pValue = (color_t *) RING_API_MALLOC(sizeof(color_t)) ;
+		*pValue = dctx_text_color((DCtx *) RING_API_GETCPOINTER(1,"DCtx"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"color_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_dctx_line_color)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		color_t *pValue ; 
+		pValue = (color_t *) RING_API_MALLOC(sizeof(color_t)) ;
+		*pValue = dctx_line_color((DCtx *) RING_API_GETCPOINTER(1,"DCtx"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"color_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_dctx_background_color)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		color_t *pValue ; 
+		pValue = (color_t *) RING_API_MALLOC(sizeof(color_t)) ;
+		*pValue = dctx_background_color((DCtx *) RING_API_GETCPOINTER(1,"DCtx"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"color_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_dctx_text_trim)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		ellipsis_t *pValue ; 
+		pValue = (ellipsis_t *) RING_API_MALLOC(sizeof(ellipsis_t)) ;
+		*pValue = dctx_text_trim((DCtx *) RING_API_GETCPOINTER(1,"DCtx"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"ellipsis_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_dctx_native)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(dctx_native((DCtx *) RING_API_GETCPOINTER(1,"DCtx")),"void");
+}
+
+
+RING_FUNC(ring_dctx_internal_bitmap)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(dctx_internal_bitmap((DCtx *) RING_API_GETCPOINTER(1,"DCtx")),"void");
+}
+
+
+RING_FUNC(ring_dctx_data_imp)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	dctx_data_imp((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),(void *) RING_API_GETCPOINTER(2,"void"),* (FPtr_destroy  *) RING_API_GETCPOINTER(3,"FPtr_destroy"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"FPtr_destroy"));
+}
+
+
+RING_FUNC(ring_dctx_get_data_imp)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(dctx_get_data_imp((DCtx *) RING_API_GETCPOINTER(1,"DCtx")),"void");
+}
+
+
+RING_FUNC(ring_dctx_set_default_osfont)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	dctx_set_default_osfont((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),(void *) RING_API_GETCPOINTER(2,"void"));
+}
+
+
+RING_FUNC(ring_draw_set_raster_mode)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_set_raster_mode((DCtx *) RING_API_GETCPOINTER(1,"DCtx"));
+}
+
+
+RING_FUNC(ring_draw_text_raster)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_text_raster((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),(char_t *) RING_API_GETCPOINTER(2,"char_t"),* (const real32_t  *) RING_API_GETCPOINTER(3,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(4,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"real32_t"));
+}
+
+
+RING_FUNC(ring_draw_line_imp)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_line_imp((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),* (const real32_t  *) RING_API_GETCPOINTER(2,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(3,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(4,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(5,"const real32_t"),* (const bool_t  *) RING_API_GETCPOINTER(6,"const bool_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		RING_API_FREE(RING_API_GETCPOINTER(5,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(6))
+		RING_API_FREE(RING_API_GETCPOINTER(6,"bool_t"));
+}
+
+
+RING_FUNC(ring_draw_rect_imp)
+{
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_rect_imp((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),* (const drawop_t  *) RING_API_GETCPOINTER(2,"const drawop_t"),* (const real32_t  *) RING_API_GETCPOINTER(3,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(4,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(5,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(6,"const real32_t"),* (const bool_t  *) RING_API_GETCPOINTER(7,"const bool_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"drawop_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		RING_API_FREE(RING_API_GETCPOINTER(5,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(6))
+		RING_API_FREE(RING_API_GETCPOINTER(6,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(7))
+		RING_API_FREE(RING_API_GETCPOINTER(7,"bool_t"));
+}
+
+
+RING_FUNC(ring_dctx_bitmap)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_RETCPOINTER(dctx_bitmap(* (const uint32_t  *) RING_API_GETCPOINTER(1,"const uint32_t"),* (const uint32_t  *) RING_API_GETCPOINTER(2,"const uint32_t"),* (const pixformat_t  *) RING_API_GETCPOINTER(3,"const pixformat_t")),"DCtx");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"pixformat_t"));
+}
+
+
+RING_FUNC(ring_dctx_image)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(dctx_image((DCtx **) RING_API_GETCPOINTER2POINTER(1,"DCtx")),"Image");
+}
+
+
+RING_FUNC(ring_draw_clear)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_clear((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),* (const color_t  *) RING_API_GETCPOINTER(2,"const color_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"color_t"));
+}
+
+
+RING_FUNC(ring_draw_matrixf)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_matrixf((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),(T2Df *) RING_API_GETCPOINTER(2,"T2Df"));
+}
+
+
+RING_FUNC(ring_draw_matrixd)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_matrixd((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),(T2Dd *) RING_API_GETCPOINTER(2,"T2Dd"));
+}
+
+
+RING_FUNC(ring_draw_matrix_cartesianf)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_matrix_cartesianf((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),(T2Df *) RING_API_GETCPOINTER(2,"T2Df"));
+}
+
+
+RING_FUNC(ring_draw_matrix_cartesiand)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_matrix_cartesiand((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),(T2Dd *) RING_API_GETCPOINTER(2,"T2Dd"));
+}
+
+
+RING_FUNC(ring_draw_antialias)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	draw_antialias((DCtx *) RING_API_GETCPOINTER(1,"DCtx"),* (const bool_t  *) RING_API_GETCPOINTER(2,"const bool_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"bool_t"));
+}
+
+
+RING_FUNC(ring_color_rgb)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	{
+		color_t *pValue ; 
+		pValue = (color_t *) RING_API_MALLOC(sizeof(color_t)) ;
+		*pValue = color_rgb(* (const uint8_t  *) RING_API_GETCPOINTER(1,"const uint8_t"),* (const uint8_t  *) RING_API_GETCPOINTER(2,"const uint8_t"),* (const uint8_t  *) RING_API_GETCPOINTER(3,"const uint8_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"uint8_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uint8_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"uint8_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"color_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_color_rgba)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	{
+		color_t *pValue ; 
+		pValue = (color_t *) RING_API_MALLOC(sizeof(color_t)) ;
+		*pValue = color_rgba(* (const uint8_t  *) RING_API_GETCPOINTER(1,"const uint8_t"),* (const uint8_t  *) RING_API_GETCPOINTER(2,"const uint8_t"),* (const uint8_t  *) RING_API_GETCPOINTER(3,"const uint8_t"),* (const uint8_t  *) RING_API_GETCPOINTER(4,"const uint8_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"uint8_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uint8_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"uint8_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"uint8_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"color_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_color_rgbaf)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	{
+		color_t *pValue ; 
+		pValue = (color_t *) RING_API_MALLOC(sizeof(color_t)) ;
+		*pValue = color_rgbaf(* (const real32_t  *) RING_API_GETCPOINTER(1,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(2,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(3,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(4,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"real32_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"color_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_color_hsbf)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	{
+		color_t *pValue ; 
+		pValue = (color_t *) RING_API_MALLOC(sizeof(color_t)) ;
+		*pValue = color_hsbf(* (const real32_t  *) RING_API_GETCPOINTER(1,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(2,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(3,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real32_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"color_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_color_red)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		color_t *pValue ; 
+		pValue = (color_t *) RING_API_MALLOC(sizeof(color_t)) ;
+		*pValue = color_red(* (const uint8_t  *) RING_API_GETCPOINTER(1,"const uint8_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"uint8_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"color_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_color_green)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		color_t *pValue ; 
+		pValue = (color_t *) RING_API_MALLOC(sizeof(color_t)) ;
+		*pValue = color_green(* (const uint8_t  *) RING_API_GETCPOINTER(1,"const uint8_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"uint8_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"color_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_color_blue)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		color_t *pValue ; 
+		pValue = (color_t *) RING_API_MALLOC(sizeof(color_t)) ;
+		*pValue = color_blue(* (const uint8_t  *) RING_API_GETCPOINTER(1,"const uint8_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"uint8_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"color_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_color_gray)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		color_t *pValue ; 
+		pValue = (color_t *) RING_API_MALLOC(sizeof(color_t)) ;
+		*pValue = color_gray(* (const uint8_t  *) RING_API_GETCPOINTER(1,"const uint8_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"uint8_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"color_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_color_bgr)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		color_t *pValue ; 
+		pValue = (color_t *) RING_API_MALLOC(sizeof(color_t)) ;
+		*pValue = color_bgr(* (const uint32_t  *) RING_API_GETCPOINTER(1,"const uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"uint32_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"color_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_color_html)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		color_t *pValue ; 
+		pValue = (color_t *) RING_API_MALLOC(sizeof(color_t)) ;
+		*pValue = color_html((char_t *) RING_API_GETCPOINTER(1,"char_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"color_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_color_indexed)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	{
+		color_t *pValue ; 
+		pValue = (color_t *) RING_API_MALLOC(sizeof(color_t)) ;
+		*pValue = color_indexed(* (const uint16_t  *) RING_API_GETCPOINTER(1,"const uint16_t"),* (const color_t  *) RING_API_GETCPOINTER(2,"const color_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"uint16_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"color_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"color_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_color_to_hsbf)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	color_to_hsbf(* (const color_t  *) RING_API_GETCPOINTER(1,"const color_t"),(real32_t *) RING_API_GETCPOINTER(2,"real32_t"),(real32_t *) RING_API_GETCPOINTER(3,"real32_t"),(real32_t *) RING_API_GETCPOINTER(4,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"color_t"));
+}
+
+
+RING_FUNC(ring_color_to_html)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	color_to_html(* (const color_t  *) RING_API_GETCPOINTER(1,"const color_t"),(char_t *) RING_API_GETCPOINTER(2,"char_t"),* (const uint32_t  *) RING_API_GETCPOINTER(3,"const uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"color_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"uint32_t"));
+}
+
+
+RING_FUNC(ring_color_get_rgb)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	color_get_rgb(* (const color_t  *) RING_API_GETCPOINTER(1,"const color_t"),(uint8_t *) RING_API_GETCPOINTER(2,"uint8_t"),(uint8_t *) RING_API_GETCPOINTER(3,"uint8_t"),(uint8_t *) RING_API_GETCPOINTER(4,"uint8_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"color_t"));
+}
+
+
+RING_FUNC(ring_color_get_rgbf)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	color_get_rgbf(* (const color_t  *) RING_API_GETCPOINTER(1,"const color_t"),(real32_t *) RING_API_GETCPOINTER(2,"real32_t"),(real32_t *) RING_API_GETCPOINTER(3,"real32_t"),(real32_t *) RING_API_GETCPOINTER(4,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"color_t"));
+}
+
+
+RING_FUNC(ring_color_get_rgba)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	color_get_rgba(* (const color_t  *) RING_API_GETCPOINTER(1,"const color_t"),(uint8_t *) RING_API_GETCPOINTER(2,"uint8_t"),(uint8_t *) RING_API_GETCPOINTER(3,"uint8_t"),(uint8_t *) RING_API_GETCPOINTER(4,"uint8_t"),(uint8_t *) RING_API_GETCPOINTER(5,"uint8_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"color_t"));
+}
+
+
+RING_FUNC(ring_color_get_rgbaf)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	color_get_rgbaf(* (const color_t  *) RING_API_GETCPOINTER(1,"const color_t"),(real32_t *) RING_API_GETCPOINTER(2,"real32_t"),(real32_t *) RING_API_GETCPOINTER(3,"real32_t"),(real32_t *) RING_API_GETCPOINTER(4,"real32_t"),(real32_t *) RING_API_GETCPOINTER(5,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"color_t"));
+}
+
+
+RING_FUNC(ring_color_get_alpha)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETNUMBER(color_get_alpha(* (const color_t  *) RING_API_GETCPOINTER(1,"const color_t")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"color_t"));
+}
+
+
+RING_FUNC(ring_color_set_alpha)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	{
+		color_t *pValue ; 
+		pValue = (color_t *) RING_API_MALLOC(sizeof(color_t)) ;
+		*pValue = color_set_alpha(* (const color_t  *) RING_API_GETCPOINTER(1,"const color_t"),* (const uint8_t  *) RING_API_GETCPOINTER(2,"const uint8_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"color_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uint8_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"color_t",RING_API_FREEFUNC);
+	}
+}
+
 RING_LIBINIT
 {
 	RING_API_REGISTER("unicode_convers",ring_unicode_convers);
@@ -25814,4 +27442,88 @@ RING_LIBINIT
 	RING_API_REGISTER("draw_tri2dd",ring_draw_tri2dd);
 	RING_API_REGISTER("draw_pol2df",ring_draw_pol2df);
 	RING_API_REGISTER("draw_pol2dd",ring_draw_pol2dd);
+	RING_API_REGISTER("draw2d_start",ring_draw2d_start);
+	RING_API_REGISTER("draw2d_finish",ring_draw2d_finish);
+	RING_API_REGISTER("draw_line",ring_draw_line);
+	RING_API_REGISTER("draw_polyline",ring_draw_polyline);
+	RING_API_REGISTER("draw_arc",ring_draw_arc);
+	RING_API_REGISTER("draw_bezier",ring_draw_bezier);
+	RING_API_REGISTER("draw_line_color",ring_draw_line_color);
+	RING_API_REGISTER("draw_line_fill",ring_draw_line_fill);
+	RING_API_REGISTER("draw_line_width",ring_draw_line_width);
+	RING_API_REGISTER("draw_line_cap",ring_draw_line_cap);
+	RING_API_REGISTER("draw_line_join",ring_draw_line_join);
+	RING_API_REGISTER("draw_line_dash",ring_draw_line_dash);
+	RING_API_REGISTER("draw_rect",ring_draw_rect);
+	RING_API_REGISTER("draw_rndrect",ring_draw_rndrect);
+	RING_API_REGISTER("draw_circle",ring_draw_circle);
+	RING_API_REGISTER("draw_ellipse",ring_draw_ellipse);
+	RING_API_REGISTER("draw_polygon",ring_draw_polygon);
+	RING_API_REGISTER("draw_fill_color",ring_draw_fill_color);
+	RING_API_REGISTER("draw_fill_linear",ring_draw_fill_linear);
+	RING_API_REGISTER("draw_fill_matrix",ring_draw_fill_matrix);
+	RING_API_REGISTER("draw_fill_wrap",ring_draw_fill_wrap);
+	RING_API_REGISTER("draw_font",ring_draw_font);
+	RING_API_REGISTER("draw_text_color",ring_draw_text_color);
+	RING_API_REGISTER("draw_text",ring_draw_text);
+	RING_API_REGISTER("draw_text_single_line",ring_draw_text_single_line);
+	RING_API_REGISTER("draw_text_path",ring_draw_text_path);
+	RING_API_REGISTER("draw_text_width",ring_draw_text_width);
+	RING_API_REGISTER("draw_text_trim",ring_draw_text_trim);
+	RING_API_REGISTER("draw_text_align",ring_draw_text_align);
+	RING_API_REGISTER("draw_text_halign",ring_draw_text_halign);
+	RING_API_REGISTER("draw_text_extents",ring_draw_text_extents);
+	RING_API_REGISTER("draw_image",ring_draw_image);
+	RING_API_REGISTER("draw_image_frame",ring_draw_image_frame);
+	RING_API_REGISTER("draw_image_align",ring_draw_image_align);
+	RING_API_REGISTER("dctx_create",ring_dctx_create);
+	RING_API_REGISTER("dctx_destroy",ring_dctx_destroy);
+	RING_API_REGISTER("dctx_set_gcontext",ring_dctx_set_gcontext);
+	RING_API_REGISTER("dctx_unset_gcontext",ring_dctx_unset_gcontext);
+	RING_API_REGISTER("dctx_set_flipped",ring_dctx_set_flipped);
+	RING_API_REGISTER("dctx_size",ring_dctx_size);
+	RING_API_REGISTER("dctx_offset",ring_dctx_offset);
+	RING_API_REGISTER("dctx_line_dash",ring_dctx_line_dash);
+	RING_API_REGISTER("dctx_text_width",ring_dctx_text_width);
+	RING_API_REGISTER("dctx_text_intalign",ring_dctx_text_intalign);
+	RING_API_REGISTER("dctx_text_color",ring_dctx_text_color);
+	RING_API_REGISTER("dctx_line_color",ring_dctx_line_color);
+	RING_API_REGISTER("dctx_background_color",ring_dctx_background_color);
+	RING_API_REGISTER("dctx_text_trim",ring_dctx_text_trim);
+	RING_API_REGISTER("dctx_native",ring_dctx_native);
+	RING_API_REGISTER("dctx_internal_bitmap",ring_dctx_internal_bitmap);
+	RING_API_REGISTER("dctx_data_imp",ring_dctx_data_imp);
+	RING_API_REGISTER("dctx_get_data_imp",ring_dctx_get_data_imp);
+	RING_API_REGISTER("dctx_set_default_osfont",ring_dctx_set_default_osfont);
+	RING_API_REGISTER("draw_set_raster_mode",ring_draw_set_raster_mode);
+	RING_API_REGISTER("draw_text_raster",ring_draw_text_raster);
+	RING_API_REGISTER("draw_line_imp",ring_draw_line_imp);
+	RING_API_REGISTER("draw_rect_imp",ring_draw_rect_imp);
+	RING_API_REGISTER("dctx_bitmap",ring_dctx_bitmap);
+	RING_API_REGISTER("dctx_image",ring_dctx_image);
+	RING_API_REGISTER("draw_clear",ring_draw_clear);
+	RING_API_REGISTER("draw_matrixf",ring_draw_matrixf);
+	RING_API_REGISTER("draw_matrixd",ring_draw_matrixd);
+	RING_API_REGISTER("draw_matrix_cartesianf",ring_draw_matrix_cartesianf);
+	RING_API_REGISTER("draw_matrix_cartesiand",ring_draw_matrix_cartesiand);
+	RING_API_REGISTER("draw_antialias",ring_draw_antialias);
+	RING_API_REGISTER("color_rgb",ring_color_rgb);
+	RING_API_REGISTER("color_rgba",ring_color_rgba);
+	RING_API_REGISTER("color_rgbaf",ring_color_rgbaf);
+	RING_API_REGISTER("color_hsbf",ring_color_hsbf);
+	RING_API_REGISTER("color_red",ring_color_red);
+	RING_API_REGISTER("color_green",ring_color_green);
+	RING_API_REGISTER("color_blue",ring_color_blue);
+	RING_API_REGISTER("color_gray",ring_color_gray);
+	RING_API_REGISTER("color_bgr",ring_color_bgr);
+	RING_API_REGISTER("color_html",ring_color_html);
+	RING_API_REGISTER("color_indexed",ring_color_indexed);
+	RING_API_REGISTER("color_to_hsbf",ring_color_to_hsbf);
+	RING_API_REGISTER("color_to_html",ring_color_to_html);
+	RING_API_REGISTER("color_get_rgb",ring_color_get_rgb);
+	RING_API_REGISTER("color_get_rgbf",ring_color_get_rgbf);
+	RING_API_REGISTER("color_get_rgba",ring_color_get_rgba);
+	RING_API_REGISTER("color_get_rgbaf",ring_color_get_rgbaf);
+	RING_API_REGISTER("color_get_alpha",ring_color_get_alpha);
+	RING_API_REGISTER("color_set_alpha",ring_color_set_alpha);
 }
