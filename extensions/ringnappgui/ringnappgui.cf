@@ -88,3 +88,18 @@ void *ptr_dget_imp(void **dptr)
 void *ptr_dget_no_null_imp(void **dptr)
 void ptr_destopt_imp(void **dptr, FPtr_destroy func_destroy)
 void *ptr_copyopt_imp(void *ptr, FPtr_copy func_copy)
+
+
+<comment>
+cassert.h
+</comment>
+
+void cassert_set_func(void *data, FPtr_assert func_assert)
+void cassert_imp(bool_t cond, const char_t *detail, const char_t *file, const uint32_t line)
+void cassert_fatal_imp(bool_t cond, const char_t *detail, const char_t *file, const uint32_t line)
+void cassert_no_null_imp(void *ptr, const char_t *detail, const char_t *file, const uint32_t line)
+<comment>
+void cassert_no_nullf_imp(void (*ptr)(void), const char_t *detail, const char_t *file, const uint32_t line)
+</comment>
+void cassert_default_imp(const char_t *file, const uint32_t line)
+
