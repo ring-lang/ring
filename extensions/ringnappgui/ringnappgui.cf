@@ -1458,3 +1458,27 @@ void cell_padding2(Cell *cell, const real32_t ptb, const real32_t plr)
 void cell_padding4(Cell *cell, const real32_t pt, const real32_t pr, const real32_t pb, const real32_t pl)
 void cell_dbind_imp(Cell *cell,const char_t *type,const uint16_t size,const char_t *mname,const char_t *mtype,const uint16_t moffset,const uint16_t msize)
 
+<comment>
+button.h
+</comment>
+
+
+Button *button_push(void)
+Button *button_check(void)
+Button *button_check3(void)
+Button *button_radio(void)
+Button *button_flat(void)
+Button *button_flatgle(void)
+void button_OnClick(Button *button, Listener *listener)
+void button_text(Button *button, const char_t *text)
+void button_text_alt(Button *button, const char_t *text)
+void button_tooltip(Button *button, const char_t *text)
+void button_font(Button *button, const Font *font)
+void button_image(Button *button, const Image *image)
+void button_image_alt(Button *button, const Image *image)
+void button_state(Button *button, const gui_state_t state)
+void button_tag(Button *button, const uint32_t tag)
+void button_vpadding(Button *button, const real32_t padding)
+gui_state_t button_get_state(const Button *button)
+uint32_t button_get_tag(const Button *button)
+real32_t button_get_height(const Button *button)
