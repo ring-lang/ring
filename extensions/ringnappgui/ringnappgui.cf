@@ -1840,3 +1840,91 @@ void palette_destroy(Palette **palette)
 uint32_t palette_size(const Palette *palette)
 color_t *palette_colors(Palette *palette)
 const color_t *palette_ccolors(const Palette *palette)
+
+<comment>
+image.h
+</comment>
+
+
+Image *image_from_pixels(const uint32_t width, const uint32_t height, const pixformat_t format, const byte_t *data, const color_t *palette, const uint32_t palsize)
+Image *image_from_pixbuf(const Pixbuf *pixbuf, const Palette *palette)
+Image *image_from_file(const char_t *pathname, ferror_t *error)
+Image *image_from_data(const byte_t *data, const uint32_t size)
+const Image *image_from_resource(const ResPack *pack, const ResId id)
+Image *image_copy(const Image *image)
+Image *image_trim(const Image *image, const uint32_t x, const uint32_t y, const uint32_t width, const uint32_t height)
+Image *image_rotate(const Image *image, const real32_t angle, const bool_t nsize, const color_t background, T2Df *t2d)
+Image *image_scale(const Image *image, const uint32_t nwidth, const uint32_t nheight)
+Image *image_read(Stream *stm)
+bool_t image_to_file(const Image *image, const char_t *pathname, ferror_t *error)
+void image_write(Stream *stream, const Image *image)
+void image_destroy(Image **image)
+pixformat_t image_format(const Image *image)
+uint32_t image_width(const Image *image)
+uint32_t image_height(const Image *image)
+Pixbuf *image_pixels(const Image *image, const pixformat_t format)
+bool_t image_codec(const Image *image, const codec_t codec)
+codec_t image_get_codec(const Image *image)
+uint32_t image_num_frames(const Image *image)
+real32_t image_frame_length(const Image *image, const uint32_t findex)
+void image_data_imp(Image *image, void **data, FPtr_destroy func_destroy_data)
+void *image_get_data_imp(const Image *image)
+const void *image_native(const Image *image)
+
+<comment>
+guictx.h
+</comment>
+
+
+GuiCtx *guictx_create(void)
+GuiCtx *guictx_retain(const GuiCtx *context)
+void guictx_destroy(GuiCtx **context)
+void guictx_release(GuiCtx **context)
+const GuiCtx *guictx_get_current(void)
+void guictx_set_current(const GuiCtx *context)
+
+
+<comment>
+font.h
+</comment>
+
+Font *font_create(const char_t *family, const real32_t size, const uint32_t style)
+Font *font_system(const real32_t size, const uint32_t style)
+Font *font_monospace(const real32_t size, const uint32_t style)
+Font *font_with_style(const Font *font, const uint32_t style)
+Font *font_copy(const Font *font)
+void font_destroy(Font **font)
+bool_t font_equals(const Font *font1, const Font *font2)
+real32_t font_regular_size(void)
+real32_t font_small_size(void)
+real32_t font_mini_size(void)
+const char_t *font_family(const Font *font)
+real32_t font_size(const Font *font)
+real32_t font_height(const Font *font)
+real32_t font_leading(const Font *font)
+uint32_t font_style(const Font *font)
+void font_extents(const Font *font, const char_t *text, const real32_t refwidth, real32_t *width, real32_t *height)
+bool_t font_exists_family(const char_t *family)
+<comment>
+ArrPt(String) *font_installed_families(void)
+</comment>
+const void *font_native(const Font *font)
+
+<comment>
+drawg.h
+</comment>
+
+void draw_v2df(DCtx *ctx, const drawop_t op, const V2Df *v2d, const real32_t radius)
+void draw_v2dd(DCtx *ctx, const drawop_t op, const V2Dd *v2d, const real64_t radius)
+void draw_seg2df(DCtx *ctx, const Seg2Df *seg)
+void draw_seg2dd(DCtx *ctx, const Seg2Dd *seg)
+void draw_cir2df(DCtx *ctx, const drawop_t op, const Cir2Df *cir)
+void draw_cir2dd(DCtx *ctx, const drawop_t op, const Cir2Dd *cir)
+void draw_box2df(DCtx *ctx, const drawop_t op, const Box2Df *box)
+void draw_box2dd(DCtx *ctx, const drawop_t op, const Box2Dd *box)
+void draw_obb2df(DCtx *ctx, const drawop_t op, const OBB2Df *obb)
+void draw_obb2dd(DCtx *ctx, const drawop_t op, const OBB2Dd *obb)
+void draw_tri2df(DCtx *ctx, const drawop_t op, const Tri2Df *tri)
+void draw_tri2dd(DCtx *ctx, const drawop_t op, const Tri2Dd *tri)
+void draw_pol2df(DCtx *ctx, const drawop_t op, const Pol2Df *pol)
+void draw_pol2dd(DCtx *ctx, const drawop_t op, const Pol2Dd *pol)
