@@ -1284,4 +1284,70 @@ void label_color_over(Label *label, const color_t color)
 void label_bgcolor(Label *label, const color_t color)
 void label_bgcolor_over(Label *label, const color_t color)
 
+<comment>
+imageview.h
+</comment>
+
+
+ImageView *imageview_create(void)
+void imageview_size(ImageView *view, S2Df size)
+void imageview_scale(ImageView *view, const gui_scale_t scale)
+void imageview_image(ImageView *view, const Image *image)
+void imageview_OnClick(ImageView *view, Listener *listener)
+void imageview_OnOverDraw(ImageView *view, Listener *listener)
+
+<comment>
+guicontrol.h
+</comment>
+
+
+Label *guicontrol_label(GuiControl *control)
+Button *guicontrol_button(GuiControl *control)
+PopUp *guicontrol_popup(GuiControl *control)
+Edit *guicontrol_edit(GuiControl *control)
+Combo *guicontrol_combo(GuiControl *control)
+ListBox *guicontrol_listbox(GuiControl *control)
+UpDown *guicontrol_updown(GuiControl *control)
+Slider *guicontrol_slider(GuiControl *control)
+Progress *guicontrol_progress(GuiControl *control)
+View *guicontrol_view(GuiControl *control)
+TextView *guicontrol_textview(GuiControl *control)
+ImageView *guicontrol_imageview(GuiControl *control)
+TableView *guicontrol_tableview(GuiControl *control)
+SplitView *guicontrol_splitview(GuiControl *control)
+Panel *guicontrol_panel(GuiControl *control)
+void guicontrol_tag(GuiControl *control, const uint32_t tag)
+uint32_t guicontrol_get_tag(const GuiControl *control)
+
+
+<comment>
+gui.h
+</comment>
+
+
+void gui_start(void)
+void gui_finish(void)
+void gui_respack(FPtr_respack func_respack)
+void gui_language(const char_t *lang)
+const char_t *gui_text(const ResId id)
+const Image *gui_image(const ResId id)
+const byte_t *gui_file(const ResId id, uint32_t *size)
+bool_t gui_dark_mode(void)
+color_t gui_alt_color(const color_t light_color, const color_t dark_color)
+color_t gui_label_color(void)
+color_t gui_view_color(void)
+color_t gui_line_color(void)
+color_t gui_link_color(void)
+color_t gui_border_color(void)
+S2Df gui_resolution(void)
+V2Df gui_mouse_pos(void)
+void gui_update(void)
+void gui_OnThemeChanged(Listener *listener)
+void gui_update_transitions(const real64_t prtime, const real64_t crtime)
+void gui_OnNotification(Listener *listener)
+void gui_OnIdle(Listener *listener)
+uint32_t gui_info_window(const bool_t fatal, const char_t *msg, const char_t *caption, const char_t *detail, const char_t *file, const uint32_t line, const ArrPt(String) *buttons, const uint32_t defindex)
+void *evbind_object_imp(Event *e, const char_t *type)
+bool_t evbind_modify_imp(Event *e, const char_t *type, const uint16_t size, const char_t *mname, const char_t *mtype, const uint16_t moffset, const uint16_t msize)
+
 
