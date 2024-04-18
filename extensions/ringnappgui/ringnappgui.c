@@ -8813,13 +8813,15 @@ RING_FUNC(ring_btime_to_date)
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
 	if ( ! RING_API_ISCPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	btime_to_date(* (const uint64_t  *) RING_API_GETCPOINTER(1,"const uint64_t"),(Date *) RING_API_GETCPOINTER(2,"Date"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		RING_API_FREE(RING_API_GETCPOINTER(1,"uint64_t"));
+	btime_to_date( (const uint64_t ) RING_API_GETNUMBER(1),(Date *) RING_API_GETCPOINTER(2,"Date"));
 }
 
 
@@ -27936,9 +27938,11 @@ RING_FUNC(ring_stm_write_u64)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	stm_write_u64((Stream *) RING_API_GETCPOINTER(1,"Stream"),* (const uint64_t  *) RING_API_GETCPOINTER(2,"const uint64_t"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		RING_API_FREE(RING_API_GETCPOINTER(2,"uint64_t"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	stm_write_u64((Stream *) RING_API_GETCPOINTER(1,"Stream"), (const uint64_t ) RING_API_GETNUMBER(2));
 }
 
 
