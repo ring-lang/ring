@@ -1074,4 +1074,49 @@ void splitview_split(SplitView *split, SplitView *child)
 void splitview_panel(SplitView *split, Panel *panel)
 void splitview_pos(SplitView *split, const real32_t pos)
 
+<comment>
+slider.h
+</comment>
+
+
+Slider *slider_create(void)
+Slider *slider_vertical(void)
+void slider_OnMoved(Slider *slider, Listener *listener)
+void slider_tooltip(Slider *slider, const char_t *text)
+void slider_steps(Slider *slider, const uint32_t steps)
+void slider_value(Slider *slider, const real32_t value)
+real32_t slider_get_value(const Slider *slider)
+
+<comment>
+res_gui.h
+</comment>
+
+ResPack *res_gui_respack(const char_t *locale)
+
+<comment>
+progress.h
+</comment>
+
+
+Progress *progress_create(void)
+void progress_undefined(Progress *progress, const bool_t running)
+void progress_value(Progress *progress, const real32_t value)
+
+<comment>
+popup.h
+</comment>
+
+
+PopUp *popup_create(void)
+void popup_OnSelect(PopUp *popup, Listener *listener)
+void popup_tooltip(PopUp *popup, const char_t *text)
+void popup_add_elem(PopUp *popup, const char_t *text, const Image *image)
+void popup_set_elem(PopUp *popup, const uint32_t index, const char_t *text, const Image *image)
+void popup_clear(PopUp *popup)
+uint32_t popup_count(const PopUp *popup)
+void popup_list_height(PopUp *popup, const uint32_t elems)
+void popup_selected(PopUp *popup, const uint32_t index)
+uint32_t popup_get_selected(const PopUp *popup)
+const char_t *popup_get_text(const PopUp *popup, const uint32_t index)
+
 
