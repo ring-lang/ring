@@ -6571,6 +6571,174 @@ RING_FUNC(ring_osgui_set_app)
 	osgui_set_app((void *) RING_API_GETCPOINTER(1,"void"),(void *) RING_API_GETCPOINTER(2,"void"));
 }
 
+
+RING_FUNC(ring_osglobals_device)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		device_t *pValue ; 
+		pValue = (device_t *) RING_API_MALLOC(sizeof(device_t)) ;
+		*pValue = osglobals_device((void *) RING_API_GETCPOINTER(1,"void"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"device_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_osglobals_color)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		color_t *pValue ; 
+		pValue = (color_t *) RING_API_MALLOC(sizeof(color_t)) ;
+		*pValue = osglobals_color((syscolor_t *) RING_API_GETCPOINTER(1,"syscolor_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"color_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_osglobals_resolution)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	osglobals_resolution((void *) RING_API_GETCPOINTER(1,"void"),(real32_t *) RING_API_GETCPOINTER(2,"real32_t"),(real32_t *) RING_API_GETCPOINTER(3,"real32_t"));
+}
+
+
+RING_FUNC(ring_osglobals_mouse_position)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	osglobals_mouse_position((void *) RING_API_GETCPOINTER(1,"void"),(real32_t *) RING_API_GETCPOINTER(2,"real32_t"),(real32_t *) RING_API_GETCPOINTER(3,"real32_t"));
+}
+
+
+RING_FUNC(ring_osglobals_cursor)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(osglobals_cursor(* (const gui_cursor_t  *) RING_API_GETCPOINTER(1,"const gui_cursor_t"),(Image *) RING_API_GETCPOINTER(2,"Image"),* (const real32_t  *) RING_API_GETCPOINTER(3,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(4,"const real32_t")),"Cursor");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"gui_cursor_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"real32_t"));
+}
+
+
+RING_FUNC(ring_osglobals_cursor_destroy)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	osglobals_cursor_destroy((Cursor **) RING_API_GETCPOINTER2POINTER(1,"Cursor"));
+}
+
+
+RING_FUNC(ring_osglobals_value)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	osglobals_value(* (const uint32_t  *) RING_API_GETCPOINTER(1,"const uint32_t"),(void *) RING_API_GETCPOINTER(2,"void"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"uint32_t"));
+}
+
+
+RING_FUNC(ring_osglobals_transitions)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	osglobals_transitions((void *) RING_API_GETCPOINTER(1,"void"),* (const real64_t  *) RING_API_GETCPOINTER(2,"const real64_t"),* (const real64_t  *) RING_API_GETCPOINTER(3,"const real64_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"real64_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real64_t"));
+}
+
+
+RING_FUNC(ring_osglobals_OnIdle)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	osglobals_OnIdle((void *) RING_API_GETCPOINTER(1,"void"),(Listener *) RING_API_GETCPOINTER(2,"Listener"));
+}
+
 RING_LIBINIT
 {
 	RING_API_REGISTER("unicode_convers",ring_unicode_convers);
@@ -6942,4 +7110,13 @@ RING_LIBINIT
 	RING_API_REGISTER("osgui_initialize",ring_osgui_initialize);
 	RING_API_REGISTER("osgui_terminate",ring_osgui_terminate);
 	RING_API_REGISTER("osgui_set_app",ring_osgui_set_app);
+	RING_API_REGISTER("osglobals_device",ring_osglobals_device);
+	RING_API_REGISTER("osglobals_color",ring_osglobals_color);
+	RING_API_REGISTER("osglobals_resolution",ring_osglobals_resolution);
+	RING_API_REGISTER("osglobals_mouse_position",ring_osglobals_mouse_position);
+	RING_API_REGISTER("osglobals_cursor",ring_osglobals_cursor);
+	RING_API_REGISTER("osglobals_cursor_destroy",ring_osglobals_cursor_destroy);
+	RING_API_REGISTER("osglobals_value",ring_osglobals_value);
+	RING_API_REGISTER("osglobals_transitions",ring_osglobals_transitions);
+	RING_API_REGISTER("osglobals_onidle",ring_osglobals_OnIdle);
 }
