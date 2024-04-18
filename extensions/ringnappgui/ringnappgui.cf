@@ -2324,3 +2324,78 @@ bool_t hfile_from_data(const char_t *pathname, const byte_t *data, const uint32_
 bool_t hfile_dir_loop(const char_t *pathname, Listener *listener, const bool_t subdirs, const bool_t hiddens, ferror_t *error)
 String *hfile_appdata(const char_t *filename)
 String *hfile_home_dir(const char_t *path)
+
+<comment>
+heap.h
+</comment>
+
+
+void heap_start_mt(void)
+void heap_end_mt(void)
+void heap_verbose(const bool_t verbose)
+void heap_stats(const bool_t stats)
+bool_t heap_leaks(void)
+byte_t *heap_malloc_imp(const uint32_t size, const char_t *name, const bool_t equal_sized)
+byte_t *heap_calloc_imp(const uint32_t size, const char_t *name, const bool_t equal_sized)
+byte_t *heap_realloc(byte_t *mem, const uint32_t size, const uint32_t new_size, const char_t *name)
+byte_t *heap_aligned_malloc_imp(const uint32_t size, const uint32_t align, const char_t *name, const bool_t equal_sized)
+byte_t *heap_aligned_calloc_imp(const uint32_t size, const uint32_t align, const char_t *name, const bool_t equal_sized)
+byte_t *heap_aligned_realloc(byte_t *mem, const uint32_t size, const uint32_t new_size, const uint32_t align, const char_t *name)
+void heap_free(byte_t **mem, const uint32_t size, const char_t *name)
+void heap_auditor_add(const char_t *name)
+void heap_auditor_delete(const char_t *name)
+
+<comment>
+event.h
+</comment>
+
+
+Listener *listener_imp(void *object, FPtr_event_handler func_event_handler)
+void listener_destroy(Listener **listener)
+void listener_update(Listener **listener, Listener *new_listener)
+void listener_event_imp(Listener *listener, const uint32_t type, void *sender, void *params, void *result, const char_t *sender_type, const char_t *params_type, const char_t *result_type)
+void listener_pass_event_imp(Listener *listener, Event *event, void *sender, const char_t *sender_type)
+uint32_t event_type(const Event *event)
+void *event_sender_imp(Event *event, const char_t *type)
+void *event_params_imp(Event *event, const char_t *type)
+void *event_result_imp(Event *event, const char_t *type)
+
+<comment>
+dbind.h
+</comment>
+
+
+void dbind_imp(const char_t *type, const uint16_t size, const char_t *mname, const char_t *mtype, const uint16_t moffset, const uint16_t msize)
+void dbind_enum_imp(const char_t *type, const char_t *name, const enum_t value, const char_t *alias)
+byte_t *dbind_create_imp(const char_t *type)
+void dbind_init_imp(byte_t *data, const char_t *type)
+void dbind_remove_imp(byte_t *data, const char_t *type)
+void dbind_destroy_imp(byte_t **data, const char_t *type)
+void dbind_destopt_imp(byte_t **data, const char_t *type)
+void *dbind_read_imp(Stream *stm, const char_t *type)
+void dbind_write_imp(Stream *stm, const void *data, const char_t *type)
+void dbind_default_imp(const char_t *type, const char_t *mname, const void *value)
+void dbind_range_imp(const char_t *type, const char_t *mname, const void *min, const void *max)
+void dbind_precision_imp(const char_t *type, const char_t *mname, const void *prec)
+void dbind_increment_imp(const char_t *type, const char_t *mname, const void *incr)
+void dbind_suffix_imp(const char_t *type, const char_t *mname, const char_t *suffix)
+
+<comment>
+date.h
+</comment>
+
+
+Date date_system(void)
+Date date_pack(const int16_t year, const uint8_t month, const uint8_t mday, const uint8_t hour, const uint8_t minute, const uint8_t second)
+Date date_add_seconds(const Date *date, int32_t seconds)
+Date date_add_minutes(const Date *date, int32_t minutes)
+Date date_add_hours(const Date *date, int32_t hours)
+Date date_add_days(const Date *date, int32_t days)
+int16_t date_year(void)
+int date_cmp(const Date *date1, const Date *date2)
+int64_t date_ellapsed_seconds(const Date *from, const Date *to)
+bool_t date_between(const Date *date, const Date *from, const Date *to)
+bool_t date_is_null(const Date *date)
+bool_t date_is_valid(const Date *date)
+week_day_t date_weekday(const Date *date)
+String *date_format(const Date *date, const char_t *format)
