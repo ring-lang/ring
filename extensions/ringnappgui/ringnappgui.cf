@@ -935,3 +935,45 @@ void window_defbutton(Window *window, Button *button)
 void window_cursor(Window *window, const gui_cursor_t cursor, const Image *image, const real32_t hot_x, const real32_t hot_y)
 void *window_imp(const Window *window)
 
+
+<comment>
+view.h
+</comment>
+
+
+View *view_create(void)
+View *view_scroll(void)
+View *view_custom(const bool_t scroll, const bool_t border)
+void view_data_imp(View *view, void **data, FPtr_destroy func_destroy_data)
+void *view_get_data_imp(const View *view)
+void view_size(View *view, const S2Df size)
+void view_OnDraw(View *view, Listener *listener)
+void view_OnOverlay(View *view, Listener *listener)
+void view_OnSize(View *view, Listener *listener)
+void view_OnEnter(View *view, Listener *listener)
+void view_OnExit(View *view, Listener *listener)
+void view_OnMove(View *view, Listener *listener)
+void view_OnDown(View *view, Listener *listener)
+void view_OnUp(View *view, Listener *listener)
+void view_OnClick(View *view, Listener *listener)
+void view_OnDrag(View *view, Listener *listener)
+void view_OnWheel(View *view, Listener *listener)
+void view_OnKeyDown(View *view, Listener *listener)
+void view_OnKeyUp(View *view, Listener *listener)
+void view_OnFocus(View *view, Listener *listener)
+void view_OnResignFocus(View *view, Listener *listener)
+void view_OnAcceptFocus(View *view, Listener *listener)
+void view_OnScroll(View *view, Listener *listener)
+void view_keybuf(View *view, KeyBuf *buffer)
+void view_get_size(const View *view, S2Df *size)
+void view_content_size(View *view, const S2Df size, const S2Df line)
+void view_scroll_x(View *view, const real32_t pos)
+void view_scroll_y(View *view, const real32_t pos)
+void view_scroll_size(const View *view, real32_t *width, real32_t *height)
+void view_scroll_visible(View *view, const bool_t horizontal, const bool_t vertical)
+void view_viewport(const View *view, V2Df *pos, S2Df *size)
+void view_point_scale(const View *view, real32_t *scale)
+void view_update(View *view)
+void *view_native(View *view)
+
+
