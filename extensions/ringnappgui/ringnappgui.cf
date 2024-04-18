@@ -50,3 +50,17 @@ bool_t unicode_islower(const uint32_t codepoint)
 bool_t unicode_isupper(const uint32_t codepoint)
 uint32_t unicode_tolower(const uint32_t codepoint)
 uint32_t unicode_toupper(const uint32_t codepoint)
+
+
+<comment>
+types.h
+</comment>
+
+uint32_t min_u32(const uint32_t v1, const uint32_t v2)
+real32_t min_r32(const real32_t v1, const real32_t v2)
+real64_t min_r64(const real64_t v1, const real64_t v2)
+uint32_t max_u32(const uint32_t v1, const uint32_t v2)
+real32_t max_r32(const real32_t v1, const real32_t v2)
+real64_t max_r64(const real64_t v1, const real64_t v2)
+real32_t abs_r32(const real32_t v)
+uint8_t to_u8(const uint32_t v)
