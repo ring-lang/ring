@@ -480,3 +480,16 @@ void osmenuitem_key(OSMenuItem *item, const uint32_t key, const uint32_t modifie
 void osmenuitem_state(OSMenuItem *item, const gui_state_t state)
 void osmenuitem_submenu(OSMenuItem *item, OSMenu *menu)
 void osmenuitem_unset_submenu(OSMenuItem *item, OSMenu *menu)
+
+
+<comment>
+osmenu.h
+</comment>
+
+
+OSMenu *osmenu_create(const uint32_t flags)
+void osmenu_destroy(OSMenu **menu)
+void osmenu_add_item(OSMenu *menu, OSMenuItem *item)
+void osmenu_delete_item(OSMenu *menu, OSMenuItem *item)
+void osmenu_launch(OSMenu *menu, OSWindow *window, const real32_t x, const real32_t y)
+void osmenu_hide(OSMenu *menu)

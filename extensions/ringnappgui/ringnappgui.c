@@ -5992,6 +5992,104 @@ RING_FUNC(ring_osmenuitem_unset_submenu)
 	osmenuitem_unset_submenu((OSMenuItem *) RING_API_GETCPOINTER(1,"OSMenuItem"),(OSMenu *) RING_API_GETCPOINTER(2,"OSMenu"));
 }
 
+
+RING_FUNC(ring_osmenu_create)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETCPOINTER(osmenu_create(* (const uint32_t  *) RING_API_GETCPOINTER(1,"const uint32_t")),"OSMenu");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"uint32_t"));
+}
+
+
+RING_FUNC(ring_osmenu_destroy)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	osmenu_destroy((OSMenu **) RING_API_GETCPOINTER2POINTER(1,"OSMenu"));
+}
+
+
+RING_FUNC(ring_osmenu_add_item)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	osmenu_add_item((OSMenu *) RING_API_GETCPOINTER(1,"OSMenu"),(OSMenuItem *) RING_API_GETCPOINTER(2,"OSMenuItem"));
+}
+
+
+RING_FUNC(ring_osmenu_delete_item)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	osmenu_delete_item((OSMenu *) RING_API_GETCPOINTER(1,"OSMenu"),(OSMenuItem *) RING_API_GETCPOINTER(2,"OSMenuItem"));
+}
+
+
+RING_FUNC(ring_osmenu_launch)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	osmenu_launch((OSMenu *) RING_API_GETCPOINTER(1,"OSMenu"),(OSWindow *) RING_API_GETCPOINTER(2,"OSWindow"),* (const real32_t  *) RING_API_GETCPOINTER(3,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(4,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"real32_t"));
+}
+
+
+RING_FUNC(ring_osmenu_hide)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	osmenu_hide((OSMenu *) RING_API_GETCPOINTER(1,"OSMenu"));
+}
+
 RING_LIBINIT
 {
 	RING_API_REGISTER("unicode_convers",ring_unicode_convers);
@@ -6327,4 +6425,10 @@ RING_LIBINIT
 	RING_API_REGISTER("osmenuitem_state",ring_osmenuitem_state);
 	RING_API_REGISTER("osmenuitem_submenu",ring_osmenuitem_submenu);
 	RING_API_REGISTER("osmenuitem_unset_submenu",ring_osmenuitem_unset_submenu);
+	RING_API_REGISTER("osmenu_create",ring_osmenu_create);
+	RING_API_REGISTER("osmenu_destroy",ring_osmenu_destroy);
+	RING_API_REGISTER("osmenu_add_item",ring_osmenu_add_item);
+	RING_API_REGISTER("osmenu_delete_item",ring_osmenu_delete_item);
+	RING_API_REGISTER("osmenu_launch",ring_osmenu_launch);
+	RING_API_REGISTER("osmenu_hide",ring_osmenu_hide);
 }
