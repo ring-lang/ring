@@ -77,3 +77,14 @@ uint32_t sewer_nappgui_minor(void)
 uint32_t sewer_nappgui_patch(void)
 uint32_t sewer_nappgui_build(void)
 const char_t *sewer_nappgui_version(const bool_t full)
+
+
+
+<comment>
+ptr.h
+</comment>
+
+void *ptr_dget_imp(void **dptr)
+void *ptr_dget_no_null_imp(void **dptr)
+void ptr_destopt_imp(void **dptr, FPtr_destroy func_destroy)
+void *ptr_copyopt_imp(void *ptr, FPtr_copy func_copy)

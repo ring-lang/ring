@@ -689,6 +689,66 @@ RING_FUNC(ring_sewer_nappgui_version)
 		RING_API_FREE(RING_API_GETCPOINTER(1,"bool_t"));
 }
 
+
+RING_FUNC(ring_ptr_dget_imp)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(ptr_dget_imp((void **) RING_API_GETCPOINTER2POINTER(1,"void")),"void");
+}
+
+
+RING_FUNC(ring_ptr_dget_no_null_imp)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(ptr_dget_no_null_imp((void **) RING_API_GETCPOINTER2POINTER(1,"void")),"void");
+}
+
+
+RING_FUNC(ring_ptr_destopt_imp)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ptr_destopt_imp((void **) RING_API_GETCPOINTER2POINTER(1,"void"),* (FPtr_destroy  *) RING_API_GETCPOINTER(2,"FPtr_destroy"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"FPtr_destroy"));
+}
+
+
+RING_FUNC(ring_ptr_copyopt_imp)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(ptr_copyopt_imp((void *) RING_API_GETCPOINTER(1,"void"),* (FPtr_copy  *) RING_API_GETCPOINTER(2,"FPtr_copy")),"void");
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"FPtr_copy"));
+}
+
 RING_LIBINIT
 {
 	RING_API_REGISTER("unicode_convers",ring_unicode_convers);
@@ -733,4 +793,8 @@ RING_LIBINIT
 	RING_API_REGISTER("sewer_nappgui_patch",ring_sewer_nappgui_patch);
 	RING_API_REGISTER("sewer_nappgui_build",ring_sewer_nappgui_build);
 	RING_API_REGISTER("sewer_nappgui_version",ring_sewer_nappgui_version);
+	RING_API_REGISTER("ptr_dget_imp",ring_ptr_dget_imp);
+	RING_API_REGISTER("ptr_dget_no_null_imp",ring_ptr_dget_no_null_imp);
+	RING_API_REGISTER("ptr_destopt_imp",ring_ptr_destopt_imp);
+	RING_API_REGISTER("ptr_copyopt_imp",ring_ptr_copyopt_imp);
 }
