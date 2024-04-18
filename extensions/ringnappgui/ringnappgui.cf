@@ -1120,3 +1120,21 @@ uint32_t popup_get_selected(const PopUp *popup)
 const char_t *popup_get_text(const PopUp *popup, const uint32_t index)
 
 
+<comment>
+panel.h
+</comment>
+
+
+Panel *panel_create(void)
+Panel *panel_scroll(const bool_t hscroll, const bool_t vscroll)
+Panel *panel_custom(const bool_t hscroll, const bool_t vscroll, const bool_t border)
+void panel_data_imp(Panel *panel, void **data, FPtr_destroy func_destroy_data)
+void *panel_get_data_imp(const Panel *panel)
+void panel_size(Panel *panel, const S2Df size)
+uint32_t panel_layout(Panel *panel, Layout *layout)
+Layout *panel_get_layout(Panel *panel, const uint32_t index)
+void panel_visible_layout(Panel *panel, const uint32_t index)
+void panel_update(Panel *panel)
+real32_t panel_scroll_width(const Panel *panel)
+real32_t panel_scroll_height(const Panel *panel)
+
