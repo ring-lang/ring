@@ -16979,6 +16979,383 @@ RING_FUNC(ring_combo_duplicates)
 		RING_API_FREE(RING_API_GETCPOINTER(2,"bool_t"));
 }
 
+
+RING_FUNC(ring_cell_empty)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		bool_t *pValue ; 
+		pValue = (bool_t *) RING_API_MALLOC(sizeof(bool_t)) ;
+		*pValue = cell_empty((Cell *) RING_API_GETCPOINTER(1,"Cell"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"bool_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_cell_control)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cell_control((Cell *) RING_API_GETCPOINTER(1,"Cell")),"GuiControl");
+}
+
+
+RING_FUNC(ring_cell_label)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cell_label((Cell *) RING_API_GETCPOINTER(1,"Cell")),"Label");
+}
+
+
+RING_FUNC(ring_cell_button)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cell_button((Cell *) RING_API_GETCPOINTER(1,"Cell")),"Button");
+}
+
+
+RING_FUNC(ring_cell_popup)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cell_popup((Cell *) RING_API_GETCPOINTER(1,"Cell")),"PopUp");
+}
+
+
+RING_FUNC(ring_cell_edit)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cell_edit((Cell *) RING_API_GETCPOINTER(1,"Cell")),"Edit");
+}
+
+
+RING_FUNC(ring_cell_combo)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cell_combo((Cell *) RING_API_GETCPOINTER(1,"Cell")),"Combo");
+}
+
+
+RING_FUNC(ring_cell_listbox)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cell_listbox((Cell *) RING_API_GETCPOINTER(1,"Cell")),"ListBox");
+}
+
+
+RING_FUNC(ring_cell_updown)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cell_updown((Cell *) RING_API_GETCPOINTER(1,"Cell")),"UpDown");
+}
+
+
+RING_FUNC(ring_cell_slider)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cell_slider((Cell *) RING_API_GETCPOINTER(1,"Cell")),"Slider");
+}
+
+
+RING_FUNC(ring_cell_progress)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cell_progress((Cell *) RING_API_GETCPOINTER(1,"Cell")),"Progress");
+}
+
+
+RING_FUNC(ring_cell_view)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cell_view((Cell *) RING_API_GETCPOINTER(1,"Cell")),"View");
+}
+
+
+RING_FUNC(ring_cell_textview)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cell_textview((Cell *) RING_API_GETCPOINTER(1,"Cell")),"TextView");
+}
+
+
+RING_FUNC(ring_cell_imageview)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cell_imageview((Cell *) RING_API_GETCPOINTER(1,"Cell")),"ImageView");
+}
+
+
+RING_FUNC(ring_cell_tableview)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cell_tableview((Cell *) RING_API_GETCPOINTER(1,"Cell")),"TableView");
+}
+
+
+RING_FUNC(ring_cell_splitview)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cell_splitview((Cell *) RING_API_GETCPOINTER(1,"Cell")),"SplitView");
+}
+
+
+RING_FUNC(ring_cell_panel)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cell_panel((Cell *) RING_API_GETCPOINTER(1,"Cell")),"Panel");
+}
+
+
+RING_FUNC(ring_cell_layout)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cell_layout((Cell *) RING_API_GETCPOINTER(1,"Cell")),"Layout");
+}
+
+
+RING_FUNC(ring_cell_enabled)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cell_enabled((Cell *) RING_API_GETCPOINTER(1,"Cell"),* (const bool_t  *) RING_API_GETCPOINTER(2,"const bool_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"bool_t"));
+}
+
+
+RING_FUNC(ring_cell_visible)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cell_visible((Cell *) RING_API_GETCPOINTER(1,"Cell"),* (const bool_t  *) RING_API_GETCPOINTER(2,"const bool_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"bool_t"));
+}
+
+
+RING_FUNC(ring_cell_padding)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cell_padding((Cell *) RING_API_GETCPOINTER(1,"Cell"),* (const real32_t  *) RING_API_GETCPOINTER(2,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"real32_t"));
+}
+
+
+RING_FUNC(ring_cell_padding2)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cell_padding2((Cell *) RING_API_GETCPOINTER(1,"Cell"),* (const real32_t  *) RING_API_GETCPOINTER(2,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(3,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real32_t"));
+}
+
+
+RING_FUNC(ring_cell_padding4)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cell_padding4((Cell *) RING_API_GETCPOINTER(1,"Cell"),* (const real32_t  *) RING_API_GETCPOINTER(2,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(3,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(4,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(5,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		RING_API_FREE(RING_API_GETCPOINTER(5,"real32_t"));
+}
+
+
+RING_FUNC(ring_cell_dbind_imp)
+{
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cell_dbind_imp((Cell *) RING_API_GETCPOINTER(1,"Cell"),(char_t *) RING_API_GETCPOINTER(2,"char_t"),* (const uint16_t  *) RING_API_GETCPOINTER(3,"const uint16_t"),(char_t *) RING_API_GETCPOINTER(4,"char_t"),(char_t *) RING_API_GETCPOINTER(5,"char_t"),* (const uint16_t  *) RING_API_GETCPOINTER(6,"const uint16_t"),* (const uint16_t  *) RING_API_GETCPOINTER(7,"const uint16_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"uint16_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(6))
+		RING_API_FREE(RING_API_GETCPOINTER(6,"uint16_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(7))
+		RING_API_FREE(RING_API_GETCPOINTER(7,"uint16_t"));
+}
+
 RING_LIBINIT
 {
 	RING_API_REGISTER("unicode_convers",ring_unicode_convers);
@@ -17946,4 +18323,28 @@ RING_LIBINIT
 	RING_API_REGISTER("combo_ins_elem",ring_combo_ins_elem);
 	RING_API_REGISTER("combo_del_elem",ring_combo_del_elem);
 	RING_API_REGISTER("combo_duplicates",ring_combo_duplicates);
+	RING_API_REGISTER("cell_empty",ring_cell_empty);
+	RING_API_REGISTER("cell_control",ring_cell_control);
+	RING_API_REGISTER("cell_label",ring_cell_label);
+	RING_API_REGISTER("cell_button",ring_cell_button);
+	RING_API_REGISTER("cell_popup",ring_cell_popup);
+	RING_API_REGISTER("cell_edit",ring_cell_edit);
+	RING_API_REGISTER("cell_combo",ring_cell_combo);
+	RING_API_REGISTER("cell_listbox",ring_cell_listbox);
+	RING_API_REGISTER("cell_updown",ring_cell_updown);
+	RING_API_REGISTER("cell_slider",ring_cell_slider);
+	RING_API_REGISTER("cell_progress",ring_cell_progress);
+	RING_API_REGISTER("cell_view",ring_cell_view);
+	RING_API_REGISTER("cell_textview",ring_cell_textview);
+	RING_API_REGISTER("cell_imageview",ring_cell_imageview);
+	RING_API_REGISTER("cell_tableview",ring_cell_tableview);
+	RING_API_REGISTER("cell_splitview",ring_cell_splitview);
+	RING_API_REGISTER("cell_panel",ring_cell_panel);
+	RING_API_REGISTER("cell_layout",ring_cell_layout);
+	RING_API_REGISTER("cell_enabled",ring_cell_enabled);
+	RING_API_REGISTER("cell_visible",ring_cell_visible);
+	RING_API_REGISTER("cell_padding",ring_cell_padding);
+	RING_API_REGISTER("cell_padding2",ring_cell_padding2);
+	RING_API_REGISTER("cell_padding4",ring_cell_padding4);
+	RING_API_REGISTER("cell_dbind_imp",ring_cell_dbind_imp);
 }

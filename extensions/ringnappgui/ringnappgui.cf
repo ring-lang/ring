@@ -1426,3 +1426,35 @@ void combo_set_elem(Combo *combo, const uint32_t index, const char_t *text, cons
 void combo_ins_elem(Combo *combo, const uint32_t index, const char_t *text, const Image *image)
 void combo_del_elem(Combo *combo, const uint32_t index)
 void combo_duplicates(Combo *combo, const bool_t duplicates)
+
+
+<comment>
+cell.h
+</comment>
+
+
+bool_t cell_empty(Cell *cell)
+GuiControl *cell_control(Cell *cell)
+Label *cell_label(Cell *cell)
+Button *cell_button(Cell *cell)
+PopUp *cell_popup(Cell *cell)
+Edit *cell_edit(Cell *cell)
+Combo *cell_combo(Cell *cell)
+ListBox *cell_listbox(Cell *cell)
+UpDown *cell_updown(Cell *cell)
+Slider *cell_slider(Cell *cell)
+Progress *cell_progress(Cell *cell)
+View *cell_view(Cell *cell)
+TextView *cell_textview(Cell *cell)
+ImageView *cell_imageview(Cell *cell)
+TableView *cell_tableview(Cell *cell)
+SplitView *cell_splitview(Cell *cell)
+Panel *cell_panel(Cell *cell)
+Layout *cell_layout(Cell *cell)
+void cell_enabled(Cell *cell, const bool_t enabled)
+void cell_visible(Cell *cell, const bool_t visible)
+void cell_padding(Cell *cell, const real32_t pall)
+void cell_padding2(Cell *cell, const real32_t ptb, const real32_t plr)
+void cell_padding4(Cell *cell, const real32_t pt, const real32_t pr, const real32_t pb, const real32_t pl)
+void cell_dbind_imp(Cell *cell,const char_t *type,const uint16_t size,const char_t *mname,const char_t *mtype,const uint16_t moffset,const uint16_t msize)
+
