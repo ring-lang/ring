@@ -5562,6 +5562,254 @@ RING_FUNC(ring_ospopup_frame)
 		RING_API_FREE(RING_API_GETCPOINTER(5,"real32_t"));
 }
 
+
+RING_FUNC(ring_ospanel_create)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETCPOINTER(ospanel_create(* (const uint32_t  *) RING_API_GETCPOINTER(1,"const uint32_t")),"OSPanel");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"uint32_t"));
+}
+
+
+RING_FUNC(ring_ospanel_destroy)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ospanel_destroy((OSPanel **) RING_API_GETCPOINTER2POINTER(1,"OSPanel"));
+}
+
+
+RING_FUNC(ring_ospanel_area)
+{
+	if ( RING_API_PARACOUNT != 8 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ospanel_area((OSPanel *) RING_API_GETCPOINTER(1,"OSPanel"),(void *) RING_API_GETCPOINTER(2,"void"),* (const color_t  *) RING_API_GETCPOINTER(3,"const color_t"),* (const color_t  *) RING_API_GETCPOINTER(4,"const color_t"),* (const real32_t  *) RING_API_GETCPOINTER(5,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(6,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(7,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(8,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"color_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"color_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		RING_API_FREE(RING_API_GETCPOINTER(5,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(6))
+		RING_API_FREE(RING_API_GETCPOINTER(6,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(7))
+		RING_API_FREE(RING_API_GETCPOINTER(7,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(8))
+		RING_API_FREE(RING_API_GETCPOINTER(8,"real32_t"));
+}
+
+
+RING_FUNC(ring_ospanel_scroller_size)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ospanel_scroller_size((OSPanel *) RING_API_GETCPOINTER(1,"OSPanel"),(real32_t *) RING_API_GETCPOINTER(2,"real32_t"),(real32_t *) RING_API_GETCPOINTER(3,"real32_t"));
+}
+
+
+RING_FUNC(ring_ospanel_content_size)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ospanel_content_size((OSPanel *) RING_API_GETCPOINTER(1,"OSPanel"),* (const real32_t  *) RING_API_GETCPOINTER(2,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(3,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(4,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(5,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		RING_API_FREE(RING_API_GETCPOINTER(5,"real32_t"));
+}
+
+
+RING_FUNC(ring_ospanel_display)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ospanel_display((OSPanel *) RING_API_GETCPOINTER(1,"OSPanel"));
+}
+
+
+RING_FUNC(ring_ospanel_attach)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ospanel_attach((OSPanel *) RING_API_GETCPOINTER(1,"OSPanel"),(OSPanel *) RING_API_GETCPOINTER(2,"OSPanel"));
+}
+
+
+RING_FUNC(ring_ospanel_detach)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ospanel_detach((OSPanel *) RING_API_GETCPOINTER(1,"OSPanel"),(OSPanel *) RING_API_GETCPOINTER(2,"OSPanel"));
+}
+
+
+RING_FUNC(ring_ospanel_visible)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ospanel_visible((OSPanel *) RING_API_GETCPOINTER(1,"OSPanel"),* (const bool_t  *) RING_API_GETCPOINTER(2,"const bool_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"bool_t"));
+}
+
+
+RING_FUNC(ring_ospanel_enabled)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ospanel_enabled((OSPanel *) RING_API_GETCPOINTER(1,"OSPanel"),* (const bool_t  *) RING_API_GETCPOINTER(2,"const bool_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"bool_t"));
+}
+
+
+RING_FUNC(ring_ospanel_size)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ospanel_size((OSPanel *) RING_API_GETCPOINTER(1,"OSPanel"),(real32_t *) RING_API_GETCPOINTER(2,"real32_t"),(real32_t *) RING_API_GETCPOINTER(3,"real32_t"));
+}
+
+
+RING_FUNC(ring_ospanel_origin)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ospanel_origin((OSPanel *) RING_API_GETCPOINTER(1,"OSPanel"),(real32_t *) RING_API_GETCPOINTER(2,"real32_t"),(real32_t *) RING_API_GETCPOINTER(3,"real32_t"));
+}
+
+
+RING_FUNC(ring_ospanel_frame)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ospanel_frame((OSPanel *) RING_API_GETCPOINTER(1,"OSPanel"),* (const real32_t  *) RING_API_GETCPOINTER(2,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(3,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(4,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(5,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		RING_API_FREE(RING_API_GETCPOINTER(5,"real32_t"));
+}
+
 RING_LIBINIT
 {
 	RING_API_REGISTER("unicode_convers",ring_unicode_convers);
@@ -5873,4 +6121,17 @@ RING_LIBINIT
 	RING_API_REGISTER("ospopup_size",ring_ospopup_size);
 	RING_API_REGISTER("ospopup_origin",ring_ospopup_origin);
 	RING_API_REGISTER("ospopup_frame",ring_ospopup_frame);
+	RING_API_REGISTER("ospanel_create",ring_ospanel_create);
+	RING_API_REGISTER("ospanel_destroy",ring_ospanel_destroy);
+	RING_API_REGISTER("ospanel_area",ring_ospanel_area);
+	RING_API_REGISTER("ospanel_scroller_size",ring_ospanel_scroller_size);
+	RING_API_REGISTER("ospanel_content_size",ring_ospanel_content_size);
+	RING_API_REGISTER("ospanel_display",ring_ospanel_display);
+	RING_API_REGISTER("ospanel_attach",ring_ospanel_attach);
+	RING_API_REGISTER("ospanel_detach",ring_ospanel_detach);
+	RING_API_REGISTER("ospanel_visible",ring_ospanel_visible);
+	RING_API_REGISTER("ospanel_enabled",ring_ospanel_enabled);
+	RING_API_REGISTER("ospanel_size",ring_ospanel_size);
+	RING_API_REGISTER("ospanel_origin",ring_ospanel_origin);
+	RING_API_REGISTER("ospanel_frame",ring_ospanel_frame);
 }
