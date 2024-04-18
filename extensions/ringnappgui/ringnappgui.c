@@ -15184,6 +15184,194 @@ RING_FUNC(ring_layout_dbind_update_imp)
 		RING_API_FREE(RING_API_GETCPOINTER(7,"uint16_t"));
 }
 
+
+RING_FUNC(ring_label_create)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(label_create(),"Label");
+}
+
+
+RING_FUNC(ring_label_multiline)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(label_multiline(),"Label");
+}
+
+
+RING_FUNC(ring_label_OnClick)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	label_OnClick((Label *) RING_API_GETCPOINTER(1,"Label"),(Listener *) RING_API_GETCPOINTER(2,"Listener"));
+}
+
+
+RING_FUNC(ring_label_text)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	label_text((Label *) RING_API_GETCPOINTER(1,"Label"),(char_t *) RING_API_GETCPOINTER(2,"char_t"));
+}
+
+
+RING_FUNC(ring_label_size_text)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	label_size_text((Label *) RING_API_GETCPOINTER(1,"Label"),(char_t *) RING_API_GETCPOINTER(2,"char_t"));
+}
+
+
+RING_FUNC(ring_label_font)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	label_font((Label *) RING_API_GETCPOINTER(1,"Label"),(Font *) RING_API_GETCPOINTER(2,"Font"));
+}
+
+
+RING_FUNC(ring_label_style_over)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	label_style_over((Label *) RING_API_GETCPOINTER(1,"Label"),* (const uint32_t  *) RING_API_GETCPOINTER(2,"const uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uint32_t"));
+}
+
+
+RING_FUNC(ring_label_align)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	label_align((Label *) RING_API_GETCPOINTER(1,"Label"),* (const align_t  *) RING_API_GETCPOINTER(2,"const align_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"align_t"));
+}
+
+
+RING_FUNC(ring_label_color)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	label_color((Label *) RING_API_GETCPOINTER(1,"Label"),* (const color_t  *) RING_API_GETCPOINTER(2,"const color_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"color_t"));
+}
+
+
+RING_FUNC(ring_label_color_over)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	label_color_over((Label *) RING_API_GETCPOINTER(1,"Label"),* (const color_t  *) RING_API_GETCPOINTER(2,"const color_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"color_t"));
+}
+
+
+RING_FUNC(ring_label_bgcolor)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	label_bgcolor((Label *) RING_API_GETCPOINTER(1,"Label"),* (const color_t  *) RING_API_GETCPOINTER(2,"const color_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"color_t"));
+}
+
+
+RING_FUNC(ring_label_bgcolor_over)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	label_bgcolor_over((Label *) RING_API_GETCPOINTER(1,"Label"),* (const color_t  *) RING_API_GETCPOINTER(2,"const color_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"color_t"));
+}
+
 RING_LIBINIT
 {
 	RING_API_REGISTER("unicode_convers",ring_unicode_convers);
@@ -16040,4 +16228,16 @@ RING_LIBINIT
 	RING_API_REGISTER("layout_dbind_imp",ring_layout_dbind_imp);
 	RING_API_REGISTER("layout_dbind_obj_imp",ring_layout_dbind_obj_imp);
 	RING_API_REGISTER("layout_dbind_update_imp",ring_layout_dbind_update_imp);
+	RING_API_REGISTER("label_create",ring_label_create);
+	RING_API_REGISTER("label_multiline",ring_label_multiline);
+	RING_API_REGISTER("label_onclick",ring_label_OnClick);
+	RING_API_REGISTER("label_text",ring_label_text);
+	RING_API_REGISTER("label_size_text",ring_label_size_text);
+	RING_API_REGISTER("label_font",ring_label_font);
+	RING_API_REGISTER("label_style_over",ring_label_style_over);
+	RING_API_REGISTER("label_align",ring_label_align);
+	RING_API_REGISTER("label_color",ring_label_color);
+	RING_API_REGISTER("label_color_over",ring_label_color_over);
+	RING_API_REGISTER("label_bgcolor",ring_label_bgcolor);
+	RING_API_REGISTER("label_bgcolor_over",ring_label_bgcolor_over);
 }

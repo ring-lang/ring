@@ -1265,3 +1265,23 @@ void layout_dbind_imp(Layout *layout, Listener *listener, const char_t *type, co
 void layout_dbind_obj_imp(Layout *layout, void *obj, const char_t *type)
 void layout_dbind_update_imp(Layout *layout, const char_t *type, const uint16_t size, const char_t *mname, const char_t *mtype, const uint16_t moffset, const uint16_t msize)
 
+
+<comment>
+label.h
+</comment>
+
+
+Label *label_create(void)
+Label *label_multiline(void)
+void label_OnClick(Label *label, Listener *listener)
+void label_text(Label *label, const char_t *text)
+void label_size_text(Label *label, const char_t *text)
+void label_font(Label *label, const Font *font)
+void label_style_over(Label *label, const uint32_t fstyle)
+void label_align(Label *label, const align_t align)
+void label_color(Label *label, const color_t color)
+void label_color_over(Label *label, const color_t color)
+void label_bgcolor(Label *label, const color_t color)
+void label_bgcolor_over(Label *label, const color_t color)
+
+
