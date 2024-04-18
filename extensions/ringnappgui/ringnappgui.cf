@@ -1401,3 +1401,28 @@ const char_t *comwin_save_file(Window *parent, const char_t **ftypes, const uint
 void comwin_color(Window *parent, const char_t *title, const real32_t x, const real32_t y, const align_t halign, const align_t valign, const color_t current, color_t *colors, const uint32_t n, Listener *OnChange)
 
 
+<comment>
+combo.h
+</comment>
+
+
+Combo *combo_create(void)
+void combo_OnFilter(Combo *combo, Listener *listener)
+void combo_OnChange(Combo *combo, Listener *listener)
+void combo_text(Combo *combo, const char_t *text)
+void combo_align(Combo *combo, const align_t align)
+void combo_tooltip(Combo *combo, const char_t *text)
+void combo_color(Combo *combo, const color_t color)
+void combo_color_focus(Combo *combo, const color_t color)
+void combo_bgcolor(Combo *combo, const color_t color)
+void combo_bgcolor_focus(Combo *combo, const color_t color)
+void combo_phtext(Combo *combo, const char_t *text)
+void combo_phcolor(Combo *combo, const color_t color)
+void combo_phstyle(Combo *combo, const uint32_t fstyle)
+const char_t *combo_get_text(const Combo *combo, const uint32_t index)
+uint32_t combo_count(const Combo *combo)
+void combo_add_elem(Combo *combo, const char_t *text, const Image *image)
+void combo_set_elem(Combo *combo, const uint32_t index, const char_t *text, const Image *image)
+void combo_ins_elem(Combo *combo, const uint32_t index, const char_t *text, const Image *image)
+void combo_del_elem(Combo *combo, const uint32_t index)
+void combo_duplicates(Combo *combo, const bool_t duplicates)
