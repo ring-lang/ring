@@ -12149,6 +12149,516 @@ RING_FUNC(ring_textview_paste)
 	textview_paste((TextView *) RING_API_GETCPOINTER(1,"TextView"));
 }
 
+
+RING_FUNC(ring_tableview_create)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(tableview_create(),"TableView");
+}
+
+
+RING_FUNC(ring_tableview_OnData)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	tableview_OnData((TableView *) RING_API_GETCPOINTER(1,"TableView"),(Listener *) RING_API_GETCPOINTER(2,"Listener"));
+}
+
+
+RING_FUNC(ring_tableview_OnSelect)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	tableview_OnSelect((TableView *) RING_API_GETCPOINTER(1,"TableView"),(Listener *) RING_API_GETCPOINTER(2,"Listener"));
+}
+
+
+RING_FUNC(ring_tableview_OnRowClick)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	tableview_OnRowClick((TableView *) RING_API_GETCPOINTER(1,"TableView"),(Listener *) RING_API_GETCPOINTER(2,"Listener"));
+}
+
+
+RING_FUNC(ring_tableview_OnHeaderClick)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	tableview_OnHeaderClick((TableView *) RING_API_GETCPOINTER(1,"TableView"),(Listener *) RING_API_GETCPOINTER(2,"Listener"));
+}
+
+
+RING_FUNC(ring_tableview_font)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	tableview_font((TableView *) RING_API_GETCPOINTER(1,"TableView"),(Font *) RING_API_GETCPOINTER(2,"Font"));
+}
+
+
+RING_FUNC(ring_tableview_size)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	tableview_size((TableView *) RING_API_GETCPOINTER(1,"TableView"),* (S2Df  *) RING_API_GETCPOINTER(2,"S2Df"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"S2Df"));
+}
+
+
+RING_FUNC(ring_tableview_new_column_text)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(tableview_new_column_text((TableView *) RING_API_GETCPOINTER(1,"TableView")));
+}
+
+
+RING_FUNC(ring_tableview_column_width)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	tableview_column_width((TableView *) RING_API_GETCPOINTER(1,"TableView"),* (const uint32_t  *) RING_API_GETCPOINTER(2,"const uint32_t"),* (const real32_t  *) RING_API_GETCPOINTER(3,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real32_t"));
+}
+
+
+RING_FUNC(ring_tableview_column_limits)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	tableview_column_limits((TableView *) RING_API_GETCPOINTER(1,"TableView"),* (const uint32_t  *) RING_API_GETCPOINTER(2,"const uint32_t"),* (const real32_t  *) RING_API_GETCPOINTER(3,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(4,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"real32_t"));
+}
+
+
+RING_FUNC(ring_tableview_column_resizable)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	tableview_column_resizable((TableView *) RING_API_GETCPOINTER(1,"TableView"),* (const uint32_t  *) RING_API_GETCPOINTER(2,"const uint32_t"),* (const bool_t  *) RING_API_GETCPOINTER(3,"const bool_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"bool_t"));
+}
+
+
+RING_FUNC(ring_tableview_column_freeze)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	tableview_column_freeze((TableView *) RING_API_GETCPOINTER(1,"TableView"),* (const uint32_t  *) RING_API_GETCPOINTER(2,"const uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uint32_t"));
+}
+
+
+RING_FUNC(ring_tableview_header_title)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	tableview_header_title((TableView *) RING_API_GETCPOINTER(1,"TableView"),* (const uint32_t  *) RING_API_GETCPOINTER(2,"const uint32_t"),(char_t *) RING_API_GETCPOINTER(3,"char_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uint32_t"));
+}
+
+
+RING_FUNC(ring_tableview_header_align)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	tableview_header_align((TableView *) RING_API_GETCPOINTER(1,"TableView"),* (const uint32_t  *) RING_API_GETCPOINTER(2,"const uint32_t"),* (const align_t  *) RING_API_GETCPOINTER(3,"const align_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"align_t"));
+}
+
+
+RING_FUNC(ring_tableview_header_indicator)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	tableview_header_indicator((TableView *) RING_API_GETCPOINTER(1,"TableView"),* (const uint32_t  *) RING_API_GETCPOINTER(2,"const uint32_t"),* (const uint32_t  *) RING_API_GETCPOINTER(3,"const uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"uint32_t"));
+}
+
+
+RING_FUNC(ring_tableview_header_visible)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	tableview_header_visible((TableView *) RING_API_GETCPOINTER(1,"TableView"),* (const bool_t  *) RING_API_GETCPOINTER(2,"const bool_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"bool_t"));
+}
+
+
+RING_FUNC(ring_tableview_header_clickable)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	tableview_header_clickable((TableView *) RING_API_GETCPOINTER(1,"TableView"),* (const bool_t  *) RING_API_GETCPOINTER(2,"const bool_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"bool_t"));
+}
+
+
+RING_FUNC(ring_tableview_header_resizable)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	tableview_header_resizable((TableView *) RING_API_GETCPOINTER(1,"TableView"),* (const bool_t  *) RING_API_GETCPOINTER(2,"const bool_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"bool_t"));
+}
+
+
+RING_FUNC(ring_tableview_header_height)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	tableview_header_height((TableView *) RING_API_GETCPOINTER(1,"TableView"),* (const real32_t  *) RING_API_GETCPOINTER(2,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"real32_t"));
+}
+
+
+RING_FUNC(ring_tableview_row_height)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	tableview_row_height((TableView *) RING_API_GETCPOINTER(1,"TableView"),* (const real32_t  *) RING_API_GETCPOINTER(2,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"real32_t"));
+}
+
+
+RING_FUNC(ring_tableview_hkey_scroll)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	tableview_hkey_scroll((TableView *) RING_API_GETCPOINTER(1,"TableView"),* (const bool_t  *) RING_API_GETCPOINTER(2,"const bool_t"),* (const real32_t  *) RING_API_GETCPOINTER(3,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"bool_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real32_t"));
+}
+
+
+RING_FUNC(ring_tableview_multisel)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	tableview_multisel((TableView *) RING_API_GETCPOINTER(1,"TableView"),* (const bool_t  *) RING_API_GETCPOINTER(2,"const bool_t"),* (const bool_t  *) RING_API_GETCPOINTER(3,"const bool_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"bool_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"bool_t"));
+}
+
+
+RING_FUNC(ring_tableview_grid)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	tableview_grid((TableView *) RING_API_GETCPOINTER(1,"TableView"),* (const bool_t  *) RING_API_GETCPOINTER(2,"const bool_t"),* (const bool_t  *) RING_API_GETCPOINTER(3,"const bool_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"bool_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"bool_t"));
+}
+
+
+RING_FUNC(ring_tableview_update)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	tableview_update((TableView *) RING_API_GETCPOINTER(1,"TableView"));
+}
+
+
+RING_FUNC(ring_tableview_select)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	tableview_select((TableView *) RING_API_GETCPOINTER(1,"TableView"),(uint32_t *) RING_API_GETCPOINTER(2,"uint32_t"),* (const uint32_t  *) RING_API_GETCPOINTER(3,"const uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"uint32_t"));
+}
+
+
+RING_FUNC(ring_tableview_deselect)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	tableview_deselect((TableView *) RING_API_GETCPOINTER(1,"TableView"),(uint32_t *) RING_API_GETCPOINTER(2,"uint32_t"),* (const uint32_t  *) RING_API_GETCPOINTER(3,"const uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"uint32_t"));
+}
+
+
+RING_FUNC(ring_tableview_deselect_all)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	tableview_deselect_all((TableView *) RING_API_GETCPOINTER(1,"TableView"));
+}
+
+
+RING_FUNC(ring_tableview_focus_row)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	tableview_focus_row((TableView *) RING_API_GETCPOINTER(1,"TableView"),* (const uint32_t  *) RING_API_GETCPOINTER(2,"const uint32_t"),* (const align_t  *) RING_API_GETCPOINTER(3,"const align_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"align_t"));
+}
+
+
+RING_FUNC(ring_tableview_get_focus_row)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(tableview_get_focus_row((TableView *) RING_API_GETCPOINTER(1,"TableView")));
+}
+
+
+RING_FUNC(ring_tableview_scroll_visible)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	tableview_scroll_visible((TableView *) RING_API_GETCPOINTER(1,"TableView"),* (const bool_t  *) RING_API_GETCPOINTER(2,"const bool_t"),* (const bool_t  *) RING_API_GETCPOINTER(3,"const bool_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"bool_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"bool_t"));
+}
+
 RING_LIBINIT
 {
 	RING_API_REGISTER("unicode_convers",ring_unicode_convers);
@@ -12831,4 +13341,34 @@ RING_LIBINIT
 	RING_API_REGISTER("textview_copy",ring_textview_copy);
 	RING_API_REGISTER("textview_cut",ring_textview_cut);
 	RING_API_REGISTER("textview_paste",ring_textview_paste);
+	RING_API_REGISTER("tableview_create",ring_tableview_create);
+	RING_API_REGISTER("tableview_ondata",ring_tableview_OnData);
+	RING_API_REGISTER("tableview_onselect",ring_tableview_OnSelect);
+	RING_API_REGISTER("tableview_onrowclick",ring_tableview_OnRowClick);
+	RING_API_REGISTER("tableview_onheaderclick",ring_tableview_OnHeaderClick);
+	RING_API_REGISTER("tableview_font",ring_tableview_font);
+	RING_API_REGISTER("tableview_size",ring_tableview_size);
+	RING_API_REGISTER("tableview_new_column_text",ring_tableview_new_column_text);
+	RING_API_REGISTER("tableview_column_width",ring_tableview_column_width);
+	RING_API_REGISTER("tableview_column_limits",ring_tableview_column_limits);
+	RING_API_REGISTER("tableview_column_resizable",ring_tableview_column_resizable);
+	RING_API_REGISTER("tableview_column_freeze",ring_tableview_column_freeze);
+	RING_API_REGISTER("tableview_header_title",ring_tableview_header_title);
+	RING_API_REGISTER("tableview_header_align",ring_tableview_header_align);
+	RING_API_REGISTER("tableview_header_indicator",ring_tableview_header_indicator);
+	RING_API_REGISTER("tableview_header_visible",ring_tableview_header_visible);
+	RING_API_REGISTER("tableview_header_clickable",ring_tableview_header_clickable);
+	RING_API_REGISTER("tableview_header_resizable",ring_tableview_header_resizable);
+	RING_API_REGISTER("tableview_header_height",ring_tableview_header_height);
+	RING_API_REGISTER("tableview_row_height",ring_tableview_row_height);
+	RING_API_REGISTER("tableview_hkey_scroll",ring_tableview_hkey_scroll);
+	RING_API_REGISTER("tableview_multisel",ring_tableview_multisel);
+	RING_API_REGISTER("tableview_grid",ring_tableview_grid);
+	RING_API_REGISTER("tableview_update",ring_tableview_update);
+	RING_API_REGISTER("tableview_select",ring_tableview_select);
+	RING_API_REGISTER("tableview_deselect",ring_tableview_deselect);
+	RING_API_REGISTER("tableview_deselect_all",ring_tableview_deselect_all);
+	RING_API_REGISTER("tableview_focus_row",ring_tableview_focus_row);
+	RING_API_REGISTER("tableview_get_focus_row",ring_tableview_get_focus_row);
+	RING_API_REGISTER("tableview_scroll_visible",ring_tableview_scroll_visible);
 }
