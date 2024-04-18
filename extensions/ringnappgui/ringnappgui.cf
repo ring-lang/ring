@@ -463,3 +463,20 @@ void ospanel_enabled(OSPanel *panel, const bool_t enabled)
 void ospanel_size(const OSPanel *panel, real32_t *width, real32_t *height)
 void ospanel_origin(const OSPanel *panel, real32_t *x, real32_t *y)
 void ospanel_frame(OSPanel *panel, const real32_t x, const real32_t y, const real32_t width, const real32_t height)
+
+
+<comment>
+osmenuitem.h
+</comment>
+
+OSMenuItem *osmenuitem_create(const uint32_t flags)
+void osmenuitem_destroy(OSMenuItem **item)
+void osmenuitem_OnClick(OSMenuItem *item, Listener *listener)
+void osmenuitem_enabled(OSMenuItem *item, const bool_t enabled)
+void osmenuitem_visible(OSMenuItem *item, const bool_t visible)
+void osmenuitem_text(OSMenuItem *item, const char_t *text)
+void osmenuitem_image(OSMenuItem *item, const Image *image)
+void osmenuitem_key(OSMenuItem *item, const uint32_t key, const uint32_t modifiers)
+void osmenuitem_state(OSMenuItem *item, const gui_state_t state)
+void osmenuitem_submenu(OSMenuItem *item, OSMenu *menu)
+void osmenuitem_unset_submenu(OSMenuItem *item, OSMenu *menu)
