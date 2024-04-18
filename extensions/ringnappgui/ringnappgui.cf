@@ -819,4 +819,42 @@ bool_t bfile_seek(File *file, const int64_t offset, const file_seek_t whence, fe
 uint64_t bfile_pos(const File *file)
 bool_t bfile_delete(const char_t *pathname, ferror_t *error)
 
+<comment>
+osapp.h
+</comment>
+
+
+void osapp_finish(void)
+void osapp_task_imp(void *data, const real32_t updtime, FPtr_task_main func_task_main, FPtr_task_update func_task_update, FPtr_task_end func_task_end)
+void osapp_menubar(Menu *menu, Window *window)
+void osapp_open_url(const char_t *url)
+
+<comment>
+url.h
+</comment>
+
+
+Url *url_parse(const char_t *url)
+void url_destroy(Url **url)
+const char_t *url_scheme(const Url *url)
+const char_t *url_user(const Url *url)
+const char_t *url_pass(const Url *url)
+const char_t *url_host(const Url *url)
+const char_t *url_path(const Url *url)
+const char_t *url_params(const Url *url)
+const char_t *url_query(const Url *url)
+const char_t *url_fragment(const Url *url)
+String *url_resource(const Url *url)
+uint16_t url_port(const Url *url)
+
+<comment>
+json.h
+</comment>
+
+void *json_read_imp(Stream *stm, const JsonOpts *opts, const char_t *type)
+void json_write_imp(Stream *stm, const void *data, const JsonOpts *opts, const char_t *type)
+void json_destroy_imp(void **data, const char_t *type)
+void json_destopt_imp(void **data, const char_t *type)
+
+
 

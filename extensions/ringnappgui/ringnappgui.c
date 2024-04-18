@@ -9839,6 +9839,322 @@ RING_FUNC(ring_bfile_delete)
 	}
 }
 
+
+RING_FUNC(ring_osapp_finish)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	osapp_finish();
+}
+
+
+RING_FUNC(ring_osapp_task_imp)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	osapp_task_imp((void *) RING_API_GETCPOINTER(1,"void"),* (const real32_t  *) RING_API_GETCPOINTER(2,"const real32_t"),* (FPtr_task_main  *) RING_API_GETCPOINTER(3,"FPtr_task_main"),* (FPtr_task_update  *) RING_API_GETCPOINTER(4,"FPtr_task_update"),* (FPtr_task_end  *) RING_API_GETCPOINTER(5,"FPtr_task_end"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"FPtr_task_main"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"FPtr_task_update"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		RING_API_FREE(RING_API_GETCPOINTER(5,"FPtr_task_end"));
+}
+
+
+RING_FUNC(ring_osapp_menubar)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	osapp_menubar((Menu *) RING_API_GETCPOINTER(1,"Menu"),(Window *) RING_API_GETCPOINTER(2,"Window"));
+}
+
+
+RING_FUNC(ring_osapp_open_url)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	osapp_open_url((char_t *) RING_API_GETCPOINTER(1,"char_t"));
+}
+
+
+RING_FUNC(ring_url_parse)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(url_parse((char_t *) RING_API_GETCPOINTER(1,"char_t")),"Url");
+}
+
+
+RING_FUNC(ring_url_destroy)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	url_destroy((Url **) RING_API_GETCPOINTER2POINTER(1,"Url"));
+}
+
+
+RING_FUNC(ring_url_scheme)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(url_scheme((Url *) RING_API_GETCPOINTER(1,"Url")),"char_t");
+}
+
+
+RING_FUNC(ring_url_user)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(url_user((Url *) RING_API_GETCPOINTER(1,"Url")),"char_t");
+}
+
+
+RING_FUNC(ring_url_pass)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(url_pass((Url *) RING_API_GETCPOINTER(1,"Url")),"char_t");
+}
+
+
+RING_FUNC(ring_url_host)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(url_host((Url *) RING_API_GETCPOINTER(1,"Url")),"char_t");
+}
+
+
+RING_FUNC(ring_url_path)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(url_path((Url *) RING_API_GETCPOINTER(1,"Url")),"char_t");
+}
+
+
+RING_FUNC(ring_url_params)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(url_params((Url *) RING_API_GETCPOINTER(1,"Url")),"char_t");
+}
+
+
+RING_FUNC(ring_url_query)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(url_query((Url *) RING_API_GETCPOINTER(1,"Url")),"char_t");
+}
+
+
+RING_FUNC(ring_url_fragment)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(url_fragment((Url *) RING_API_GETCPOINTER(1,"Url")),"char_t");
+}
+
+
+RING_FUNC(ring_url_resource)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(url_resource((Url *) RING_API_GETCPOINTER(1,"Url")),"String");
+}
+
+
+RING_FUNC(ring_url_port)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(url_port((Url *) RING_API_GETCPOINTER(1,"Url")));
+}
+
+
+RING_FUNC(ring_json_read_imp)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(json_read_imp((Stream *) RING_API_GETCPOINTER(1,"Stream"),(JsonOpts *) RING_API_GETCPOINTER(2,"JsonOpts"),(char_t *) RING_API_GETCPOINTER(3,"char_t")),"void");
+}
+
+
+RING_FUNC(ring_json_write_imp)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	json_write_imp((Stream *) RING_API_GETCPOINTER(1,"Stream"),(void *) RING_API_GETCPOINTER(2,"void"),(JsonOpts *) RING_API_GETCPOINTER(3,"JsonOpts"),(char_t *) RING_API_GETCPOINTER(4,"char_t"));
+}
+
+
+RING_FUNC(ring_json_destroy_imp)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	json_destroy_imp((void **) RING_API_GETCPOINTER2POINTER(1,"void"),(char_t *) RING_API_GETCPOINTER(2,"char_t"));
+}
+
+
+RING_FUNC(ring_json_destopt_imp)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	json_destopt_imp((void **) RING_API_GETCPOINTER2POINTER(1,"void"),(char_t *) RING_API_GETCPOINTER(2,"char_t"));
+}
+
 RING_LIBINIT
 {
 	RING_API_REGISTER("unicode_convers",ring_unicode_convers);
@@ -10384,4 +10700,24 @@ RING_LIBINIT
 	RING_API_REGISTER("bfile_seek",ring_bfile_seek);
 	RING_API_REGISTER("bfile_pos",ring_bfile_pos);
 	RING_API_REGISTER("bfile_delete",ring_bfile_delete);
+	RING_API_REGISTER("osapp_finish",ring_osapp_finish);
+	RING_API_REGISTER("osapp_task_imp",ring_osapp_task_imp);
+	RING_API_REGISTER("osapp_menubar",ring_osapp_menubar);
+	RING_API_REGISTER("osapp_open_url",ring_osapp_open_url);
+	RING_API_REGISTER("url_parse",ring_url_parse);
+	RING_API_REGISTER("url_destroy",ring_url_destroy);
+	RING_API_REGISTER("url_scheme",ring_url_scheme);
+	RING_API_REGISTER("url_user",ring_url_user);
+	RING_API_REGISTER("url_pass",ring_url_pass);
+	RING_API_REGISTER("url_host",ring_url_host);
+	RING_API_REGISTER("url_path",ring_url_path);
+	RING_API_REGISTER("url_params",ring_url_params);
+	RING_API_REGISTER("url_query",ring_url_query);
+	RING_API_REGISTER("url_fragment",ring_url_fragment);
+	RING_API_REGISTER("url_resource",ring_url_resource);
+	RING_API_REGISTER("url_port",ring_url_port);
+	RING_API_REGISTER("json_read_imp",ring_json_read_imp);
+	RING_API_REGISTER("json_write_imp",ring_json_write_imp);
+	RING_API_REGISTER("json_destroy_imp",ring_json_destroy_imp);
+	RING_API_REGISTER("json_destopt_imp",ring_json_destopt_imp);
 }
