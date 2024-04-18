@@ -617,6 +617,78 @@ RING_FUNC(ring_to_u8)
 		RING_API_FREE(RING_API_GETCPOINTER(1,"uint32_t"));
 }
 
+
+RING_FUNC(ring_sewer_start)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	sewer_start();
+}
+
+
+RING_FUNC(ring_sewer_finish)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	sewer_finish();
+}
+
+
+RING_FUNC(ring_sewer_nappgui_major)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(sewer_nappgui_major());
+}
+
+
+RING_FUNC(ring_sewer_nappgui_minor)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(sewer_nappgui_minor());
+}
+
+
+RING_FUNC(ring_sewer_nappgui_patch)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(sewer_nappgui_patch());
+}
+
+
+RING_FUNC(ring_sewer_nappgui_build)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(sewer_nappgui_build());
+}
+
+
+RING_FUNC(ring_sewer_nappgui_version)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETCPOINTER(sewer_nappgui_version(* (const bool_t  *) RING_API_GETCPOINTER(1,"const bool_t")),"char_t");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"bool_t"));
+}
+
 RING_LIBINIT
 {
 	RING_API_REGISTER("unicode_convers",ring_unicode_convers);
@@ -654,4 +726,11 @@ RING_LIBINIT
 	RING_API_REGISTER("max_r64",ring_max_r64);
 	RING_API_REGISTER("abs_r32",ring_abs_r32);
 	RING_API_REGISTER("to_u8",ring_to_u8);
+	RING_API_REGISTER("sewer_start",ring_sewer_start);
+	RING_API_REGISTER("sewer_finish",ring_sewer_finish);
+	RING_API_REGISTER("sewer_nappgui_major",ring_sewer_nappgui_major);
+	RING_API_REGISTER("sewer_nappgui_minor",ring_sewer_nappgui_minor);
+	RING_API_REGISTER("sewer_nappgui_patch",ring_sewer_nappgui_patch);
+	RING_API_REGISTER("sewer_nappgui_build",ring_sewer_nappgui_build);
+	RING_API_REGISTER("sewer_nappgui_version",ring_sewer_nappgui_version);
 }

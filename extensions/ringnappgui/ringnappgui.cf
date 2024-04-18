@@ -64,3 +64,16 @@ real32_t max_r32(const real32_t v1, const real32_t v2)
 real64_t max_r64(const real64_t v1, const real64_t v2)
 real32_t abs_r32(const real32_t v)
 uint8_t to_u8(const uint32_t v)
+
+
+<comment>
+sewer.h
+</comment>
+
+void sewer_start(void)
+void sewer_finish(void)
+uint32_t sewer_nappgui_major(void)
+uint32_t sewer_nappgui_minor(void)
+uint32_t sewer_nappgui_patch(void)
+uint32_t sewer_nappgui_build(void)
+const char_t *sewer_nappgui_version(const bool_t full)
