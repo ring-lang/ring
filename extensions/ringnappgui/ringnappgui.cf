@@ -682,3 +682,37 @@ void osbutton_frame(OSButton *button, const real32_t x, const real32_t y, const 
 
 
 
+
+<comment>
+osbs.h
+</comment>
+
+void osbs_start(void)
+void osbs_finish(void)
+platform_t osbs_platform(void)
+win_t osbs_windows(void)
+endian_t osbs_endian(void)
+
+
+<comment>
+log.h
+</comment>
+
+<comment>
+uint32_t log_printf(const char_t *format, ...) __PRINTF(1, 2)
+</comment>
+
+void log_output(const bool_t std, const bool_t err)
+void log_file(const char_t *pathname)
+const char_t *log_get_file(void)
+
+<comment>
+dlib.h
+</comment>
+
+DLib *dlib_open(const char_t *path, const char_t *libname)
+void dlib_close(DLib **dlib)
+FPtr_libproc dlib_proc_imp(DLib *dlib, const char_t *procname)
+void *dlib_var_imp(DLib *dlib, const char_t *varname)
+
+

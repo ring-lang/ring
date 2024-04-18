@@ -8335,6 +8335,182 @@ RING_FUNC(ring_osbutton_frame)
 		RING_API_FREE(RING_API_GETCPOINTER(5,"real32_t"));
 }
 
+
+RING_FUNC(ring_osbs_start)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	osbs_start();
+}
+
+
+RING_FUNC(ring_osbs_finish)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	osbs_finish();
+}
+
+
+RING_FUNC(ring_osbs_platform)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	{
+		platform_t *pValue ; 
+		pValue = (platform_t *) RING_API_MALLOC(sizeof(platform_t)) ;
+		*pValue = osbs_platform();
+		RING_API_RETMANAGEDCPOINTER(pValue,"platform_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_osbs_windows)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	{
+		win_t *pValue ; 
+		pValue = (win_t *) RING_API_MALLOC(sizeof(win_t)) ;
+		*pValue = osbs_windows();
+		RING_API_RETMANAGEDCPOINTER(pValue,"win_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_osbs_endian)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	{
+		endian_t *pValue ; 
+		pValue = (endian_t *) RING_API_MALLOC(sizeof(endian_t)) ;
+		*pValue = osbs_endian();
+		RING_API_RETMANAGEDCPOINTER(pValue,"endian_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_log_output)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	log_output(* (const bool_t  *) RING_API_GETCPOINTER(1,"const bool_t"),* (const bool_t  *) RING_API_GETCPOINTER(2,"const bool_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"bool_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"bool_t"));
+}
+
+
+RING_FUNC(ring_log_file)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	log_file((char_t *) RING_API_GETCPOINTER(1,"char_t"));
+}
+
+
+RING_FUNC(ring_log_get_file)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(log_get_file(),"char_t");
+}
+
+
+RING_FUNC(ring_dlib_open)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(dlib_open((char_t *) RING_API_GETCPOINTER(1,"char_t"),(char_t *) RING_API_GETCPOINTER(2,"char_t")),"DLib");
+}
+
+
+RING_FUNC(ring_dlib_close)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	dlib_close((DLib **) RING_API_GETCPOINTER2POINTER(1,"DLib"));
+}
+
+
+RING_FUNC(ring_dlib_proc_imp)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		FPtr_libproc *pValue ; 
+		pValue = (FPtr_libproc *) RING_API_MALLOC(sizeof(FPtr_libproc)) ;
+		*pValue = dlib_proc_imp((DLib *) RING_API_GETCPOINTER(1,"DLib"),(char_t *) RING_API_GETCPOINTER(2,"char_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"FPtr_libproc",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_dlib_var_imp)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(dlib_var_imp((DLib *) RING_API_GETCPOINTER(1,"DLib"),(char_t *) RING_API_GETCPOINTER(2,"char_t")),"void");
+}
+
 RING_LIBINIT
 {
 	RING_API_REGISTER("unicode_convers",ring_unicode_convers);
@@ -8800,4 +8976,16 @@ RING_LIBINIT
 	RING_API_REGISTER("osbutton_size",ring_osbutton_size);
 	RING_API_REGISTER("osbutton_origin",ring_osbutton_origin);
 	RING_API_REGISTER("osbutton_frame",ring_osbutton_frame);
+	RING_API_REGISTER("osbs_start",ring_osbs_start);
+	RING_API_REGISTER("osbs_finish",ring_osbs_finish);
+	RING_API_REGISTER("osbs_platform",ring_osbs_platform);
+	RING_API_REGISTER("osbs_windows",ring_osbs_windows);
+	RING_API_REGISTER("osbs_endian",ring_osbs_endian);
+	RING_API_REGISTER("log_output",ring_log_output);
+	RING_API_REGISTER("log_file",ring_log_file);
+	RING_API_REGISTER("log_get_file",ring_log_get_file);
+	RING_API_REGISTER("dlib_open",ring_dlib_open);
+	RING_API_REGISTER("dlib_close",ring_dlib_close);
+	RING_API_REGISTER("dlib_proc_imp",ring_dlib_proc_imp);
+	RING_API_REGISTER("dlib_var_imp",ring_dlib_var_imp);
 }
