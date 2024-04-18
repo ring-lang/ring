@@ -2399,3 +2399,84 @@ bool_t date_is_null(const Date *date)
 bool_t date_is_valid(const Date *date)
 week_day_t date_weekday(const Date *date)
 String *date_format(const Date *date, const char_t *format)
+
+<comment>
+core.h
+</comment>
+
+
+void core_start(void)
+void core_finish(void)
+
+<comment>
+clock.h
+</comment>
+
+
+Clock *clock_create(const real64_t interval)
+void clock_destroy(Clock **clk)
+bool_t clock_frame(Clock *clk, real64_t *prev_frame, real64_t *curr_frame)
+void clock_reset(Clock *clk)
+real64_t clock_elapsed(const Clock *clk)
+
+<comment>
+buffer.h
+</comment>
+
+
+Buffer *buffer_create(const uint32_t size)
+Buffer *buffer_with_data(const byte_t *data, const uint32_t size)
+void buffer_destroy(Buffer **buffer)
+uint32_t buffer_size(const Buffer *buffer)
+byte_t *buffer_data(Buffer *buffer)
+const byte_t *buffer_const(const Buffer *buffer)
+
+<comment>
+bhash.h
+</comment>
+
+
+uint32_t bhash_from_block(const byte_t *data, const uint32_t size)
+uint32_t bhash_append_uint32(const uint32_t hash, const uint32_t value)
+uint32_t bhash_append_real32(const uint32_t hash, const real32_t value)
+
+<comment>
+array.h
+</comment>
+
+
+Array *array_create(const uint16_t esize, const char_t *type)
+Array *array_copy(const Array *array, FPtr_scopy func_copy, const char_t *type)
+Array *array_copy_ptr(const Array *array, FPtr_copy func_copy, const char_t *type)
+Array *array_read(Stream *stream, const uint16_t esize, FPtr_read_init func_read_init, const char_t *type)
+Array *array_read_ptr(Stream *stream, FPtr_read func_read, const char_t *type)
+void array_destroy(Array **array, FPtr_remove func_remove, const char_t *type)
+void array_destopt(Array **array, FPtr_remove func_remove, const char_t *type)
+void array_destroy_ptr(Array **array, FPtr_destroy func_destroy, const char_t *type)
+void array_destopt_ptr(Array **array, FPtr_destroy func_destroy, const char_t *type)
+void array_clear(Array *array, FPtr_remove func_remove)
+void array_clear_ptr(Array *array, FPtr_destroy func_destroy)
+void array_write(Stream *stream, const Array *array, FPtr_write func_write)
+void array_write_ptr(Stream *stream, const Array *array, FPtr_write func_write)
+uint32_t array_size(const Array *array)
+uint32_t array_esize(const Array *array)
+byte_t *array_get(const Array *array, const uint32_t pos)
+byte_t *array_get_last(const Array *array)
+byte_t *array_all(const Array *array)
+byte_t *array_insert(Array *array, const uint32_t pos, const uint32_t n)
+byte_t *array_insert0(Array *array, const uint32_t pos, const uint32_t n)
+void array_join(Array *dest, const Array *src, FPtr_scopy func_copy)
+void array_join_ptr(Array *dest, const Array *src, FPtr_copy func_copy)
+void array_delete(Array *array, const uint32_t pos, const uint32_t n, FPtr_remove func_remove)
+void array_delete_ptr(Array *array, const uint32_t pos, const uint32_t n, FPtr_destroy func_destroy)
+void array_pop(Array *array, FPtr_remove func_remove)
+void array_pop_ptr(Array *array, FPtr_destroy func_destroy)
+void array_sort(Array *array, FPtr_compare func_compare)
+void array_sort_ex(Array *array, FPtr_compare_ex func_compare, void *data)
+void array_sort_ptr(Array *array, FPtr_compare func_compare)
+void array_sort_ptr_ex(Array *array, FPtr_compare_ex func_compare, void *data)
+uint32_t array_find_ptr(const Array *array, const void *elem)
+byte_t *array_search(const Array *array, FPtr_compare func_compare, const void *key, uint32_t *pos)
+byte_t *array_search_ptr(const Array *array, FPtr_compare func_compare, const void *key, uint32_t *pos)
+byte_t *array_bsearch(const Array *array, FPtr_compare func_compare, const void *key, uint32_t *pos)
+byte_t *array_bsearch_ptr(const Array *array, FPtr_compare func_compare, const void *key, uint32_t *pos)
