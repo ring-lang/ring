@@ -1060,4 +1060,18 @@ void tableview_focus_row(TableView *view, const uint32_t row, const align_t alig
 uint32_t tableview_get_focus_row(const TableView *view)
 void tableview_scroll_visible(TableView *view, const bool_t horizontal, const bool_t vertical)
 
+<comment>
+splitview.h
+</comment>
+
+
+SplitView *splitview_horizontal(void)
+SplitView *splitview_vertical(void)
+void splitview_size(SplitView *split, const S2Df size)
+void splitview_view(SplitView *split, View *view, const bool_t tabstop)
+void splitview_text(SplitView *split, TextView *view, const bool_t tabstop)
+void splitview_split(SplitView *split, SplitView *child)
+void splitview_panel(SplitView *split, Panel *panel)
+void splitview_pos(SplitView *split, const real32_t pos)
+
 

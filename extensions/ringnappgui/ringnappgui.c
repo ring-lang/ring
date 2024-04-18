@@ -12659,6 +12659,134 @@ RING_FUNC(ring_tableview_scroll_visible)
 		RING_API_FREE(RING_API_GETCPOINTER(3,"bool_t"));
 }
 
+
+RING_FUNC(ring_splitview_horizontal)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(splitview_horizontal(),"SplitView");
+}
+
+
+RING_FUNC(ring_splitview_vertical)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(splitview_vertical(),"SplitView");
+}
+
+
+RING_FUNC(ring_splitview_size)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	splitview_size((SplitView *) RING_API_GETCPOINTER(1,"SplitView"),* (const S2Df  *) RING_API_GETCPOINTER(2,"const S2Df"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"S2Df"));
+}
+
+
+RING_FUNC(ring_splitview_view)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	splitview_view((SplitView *) RING_API_GETCPOINTER(1,"SplitView"),(View *) RING_API_GETCPOINTER(2,"View"),* (const bool_t  *) RING_API_GETCPOINTER(3,"const bool_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"bool_t"));
+}
+
+
+RING_FUNC(ring_splitview_text)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	splitview_text((SplitView *) RING_API_GETCPOINTER(1,"SplitView"),(TextView *) RING_API_GETCPOINTER(2,"TextView"),* (const bool_t  *) RING_API_GETCPOINTER(3,"const bool_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"bool_t"));
+}
+
+
+RING_FUNC(ring_splitview_split)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	splitview_split((SplitView *) RING_API_GETCPOINTER(1,"SplitView"),(SplitView *) RING_API_GETCPOINTER(2,"SplitView"));
+}
+
+
+RING_FUNC(ring_splitview_panel)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	splitview_panel((SplitView *) RING_API_GETCPOINTER(1,"SplitView"),(Panel *) RING_API_GETCPOINTER(2,"Panel"));
+}
+
+
+RING_FUNC(ring_splitview_pos)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	splitview_pos((SplitView *) RING_API_GETCPOINTER(1,"SplitView"),* (const real32_t  *) RING_API_GETCPOINTER(2,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"real32_t"));
+}
+
 RING_LIBINIT
 {
 	RING_API_REGISTER("unicode_convers",ring_unicode_convers);
@@ -13371,4 +13499,12 @@ RING_LIBINIT
 	RING_API_REGISTER("tableview_focus_row",ring_tableview_focus_row);
 	RING_API_REGISTER("tableview_get_focus_row",ring_tableview_get_focus_row);
 	RING_API_REGISTER("tableview_scroll_visible",ring_tableview_scroll_visible);
+	RING_API_REGISTER("splitview_horizontal",ring_splitview_horizontal);
+	RING_API_REGISTER("splitview_vertical",ring_splitview_vertical);
+	RING_API_REGISTER("splitview_size",ring_splitview_size);
+	RING_API_REGISTER("splitview_view",ring_splitview_view);
+	RING_API_REGISTER("splitview_text",ring_splitview_text);
+	RING_API_REGISTER("splitview_split",ring_splitview_split);
+	RING_API_REGISTER("splitview_panel",ring_splitview_panel);
+	RING_API_REGISTER("splitview_pos",ring_splitview_pos);
 }
