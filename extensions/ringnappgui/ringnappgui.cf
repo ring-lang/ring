@@ -121,3 +121,30 @@ bool_t bstd_read(byte_t *data, const uint32_t size, uint32_t *rsize)
 bool_t bstd_write(const byte_t *data, const uint32_t size, uint32_t *wsize)
 bool_t bstd_ewrite(const byte_t *data, const uint32_t size, uint32_t *wsize)
 
+<comment>
+bmem.h
+</comment>
+
+byte_t *bmem_aligned_malloc(const uint32_t size, const uint32_t align)
+byte_t *bmem_aligned_realloc(byte_t *mem, const uint32_t size, const uint32_t new_size, const uint32_t align)
+void bmem_free(byte_t *mem)
+void bmem_set1(byte_t *dest, const uint32_t size, const byte_t mask)
+void bmem_set4(byte_t *dest, const uint32_t size, const byte_t *mask)
+void bmem_set8(byte_t *dest, const uint32_t size, const byte_t *mask)
+void bmem_set16(byte_t *dest, const uint32_t size, const byte_t *mask)
+int bmem_cmp(const byte_t *mem1, const byte_t *mem2, const uint32_t size)
+bool_t bmem_is_zero(const byte_t *mem, const uint32_t size)
+void bmem_set_zero(byte_t *dest, const uint32_t size)
+void bmem_copy(byte_t *dest, const byte_t *src, const uint32_t size)
+void bmem_move(byte_t *dest, const byte_t *src, const uint32_t size)
+bool_t bmem_overlaps(const byte_t *mem1, const byte_t *mem2, const uint32_t size1, const uint32_t size2)
+void bmem_rev(byte_t *mem, const uint32_t size)
+void bmem_rev2(byte_t *mem)
+void bmem_rev4(byte_t *mem)
+void bmem_rev8(byte_t *mem)
+void bmem_revcopy(byte_t *dest, const byte_t *src, const uint32_t size)
+void bmem_rev_elems_imp(byte_t *data, const uint32_t num_elems, const uint32_t elem_size)
+void bmem_swap(byte_t *mem1, byte_t *mem2, const uint32_t size)
+void bmem_shuffle(byte_t *mem, const uint32_t size, const uint32_t esize)
+
+
