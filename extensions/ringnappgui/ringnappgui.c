@@ -10155,6 +10155,414 @@ RING_FUNC(ring_json_destopt_imp)
 	json_destopt_imp((void **) RING_API_GETCPOINTER2POINTER(1,"void"),(char_t *) RING_API_GETCPOINTER(2,"char_t"));
 }
 
+
+RING_FUNC(ring_inet_start)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	inet_start();
+}
+
+
+RING_FUNC(ring_inet_finish)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	inet_finish();
+}
+
+
+RING_FUNC(ring_http_create)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(http_create((char_t *) RING_API_GETCPOINTER(1,"char_t"),* (const uint16_t  *) RING_API_GETCPOINTER(2,"const uint16_t")),"Http");
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uint16_t"));
+}
+
+
+RING_FUNC(ring_http_secure)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(http_secure((char_t *) RING_API_GETCPOINTER(1,"char_t"),* (const uint16_t  *) RING_API_GETCPOINTER(2,"const uint16_t")),"Http");
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uint16_t"));
+}
+
+
+RING_FUNC(ring_http_destroy)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	http_destroy((Http **) RING_API_GETCPOINTER2POINTER(1,"Http"));
+}
+
+
+RING_FUNC(ring_http_clear_headers)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	http_clear_headers((Http *) RING_API_GETCPOINTER(1,"Http"));
+}
+
+
+RING_FUNC(ring_http_add_header)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	http_add_header((Http *) RING_API_GETCPOINTER(1,"Http"),(char_t *) RING_API_GETCPOINTER(2,"char_t"),(char_t *) RING_API_GETCPOINTER(3,"char_t"));
+}
+
+
+RING_FUNC(ring_http_get)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		bool_t *pValue ; 
+		pValue = (bool_t *) RING_API_MALLOC(sizeof(bool_t)) ;
+		*pValue = http_get((Http *) RING_API_GETCPOINTER(1,"Http"),(char_t *) RING_API_GETCPOINTER(2,"char_t"),(byte_t *) RING_API_GETCPOINTER(3,"byte_t"),* (const uint32_t  *) RING_API_GETCPOINTER(4,"const uint32_t"),(ierror_t *) RING_API_GETCPOINTER(5,"ierror_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"uint32_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"bool_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_http_post)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		bool_t *pValue ; 
+		pValue = (bool_t *) RING_API_MALLOC(sizeof(bool_t)) ;
+		*pValue = http_post((Http *) RING_API_GETCPOINTER(1,"Http"),(char_t *) RING_API_GETCPOINTER(2,"char_t"),(byte_t *) RING_API_GETCPOINTER(3,"byte_t"),* (const uint32_t  *) RING_API_GETCPOINTER(4,"const uint32_t"),(ierror_t *) RING_API_GETCPOINTER(5,"ierror_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"uint32_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"bool_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_http_response_status)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(http_response_status((Http *) RING_API_GETCPOINTER(1,"Http")));
+}
+
+
+RING_FUNC(ring_http_response_protocol)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(http_response_protocol((Http *) RING_API_GETCPOINTER(1,"Http")),"char_t");
+}
+
+
+RING_FUNC(ring_http_response_message)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(http_response_message((Http *) RING_API_GETCPOINTER(1,"Http")),"char_t");
+}
+
+
+RING_FUNC(ring_http_response_size)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(http_response_size((Http *) RING_API_GETCPOINTER(1,"Http")));
+}
+
+
+RING_FUNC(ring_http_response_name)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(http_response_name((Http *) RING_API_GETCPOINTER(1,"Http"),* (const uint32_t  *) RING_API_GETCPOINTER(2,"const uint32_t")),"char_t");
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uint32_t"));
+}
+
+
+RING_FUNC(ring_http_response_value)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(http_response_value((Http *) RING_API_GETCPOINTER(1,"Http"),* (const uint32_t  *) RING_API_GETCPOINTER(2,"const uint32_t")),"char_t");
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uint32_t"));
+}
+
+
+RING_FUNC(ring_http_response_header)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(http_response_header((Http *) RING_API_GETCPOINTER(1,"Http"),(char_t *) RING_API_GETCPOINTER(2,"char_t")),"char_t");
+}
+
+
+RING_FUNC(ring_http_response_body)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		bool_t *pValue ; 
+		pValue = (bool_t *) RING_API_MALLOC(sizeof(bool_t)) ;
+		*pValue = http_response_body((Http *) RING_API_GETCPOINTER(1,"Http"),(Stream *) RING_API_GETCPOINTER(2,"Stream"),(ierror_t *) RING_API_GETCPOINTER(3,"ierror_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"bool_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_http_dget)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(http_dget((char_t *) RING_API_GETCPOINTER(1,"char_t"),(uint32_t *) RING_API_GETCPOINTER(2,"uint32_t"),(ierror_t *) RING_API_GETCPOINTER(3,"ierror_t")),"Stream");
+}
+
+
+RING_FUNC(ring_http_exists)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		bool_t *pValue ; 
+		pValue = (bool_t *) RING_API_MALLOC(sizeof(bool_t)) ;
+		*pValue = http_exists((char_t *) RING_API_GETCPOINTER(1,"char_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"bool_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_b64_encoded_size)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETNUMBER(b64_encoded_size(* (const uint32_t  *) RING_API_GETCPOINTER(1,"const uint32_t")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"uint32_t"));
+}
+
+
+RING_FUNC(ring_b64_decoded_size)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETNUMBER(b64_decoded_size(* (const uint32_t  *) RING_API_GETCPOINTER(1,"const uint32_t")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"uint32_t"));
+}
+
+
+RING_FUNC(ring_b64_encode)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(b64_encode((byte_t *) RING_API_GETCPOINTER(1,"byte_t"),* (const uint32_t  *) RING_API_GETCPOINTER(2,"const uint32_t"),(char_t *) RING_API_GETCPOINTER(3,"char_t"),* (const uint32_t  *) RING_API_GETCPOINTER(4,"const uint32_t")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"uint32_t"));
+}
+
+
+RING_FUNC(ring_b64_decode)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(b64_decode((char_t *) RING_API_GETCPOINTER(1,"char_t"),* (const uint32_t  *) RING_API_GETCPOINTER(2,"const uint32_t"),(byte_t *) RING_API_GETCPOINTER(3,"byte_t")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uint32_t"));
+}
+
 RING_LIBINIT
 {
 	RING_API_REGISTER("unicode_convers",ring_unicode_convers);
@@ -10720,4 +11128,27 @@ RING_LIBINIT
 	RING_API_REGISTER("json_write_imp",ring_json_write_imp);
 	RING_API_REGISTER("json_destroy_imp",ring_json_destroy_imp);
 	RING_API_REGISTER("json_destopt_imp",ring_json_destopt_imp);
+	RING_API_REGISTER("inet_start",ring_inet_start);
+	RING_API_REGISTER("inet_finish",ring_inet_finish);
+	RING_API_REGISTER("http_create",ring_http_create);
+	RING_API_REGISTER("http_secure",ring_http_secure);
+	RING_API_REGISTER("http_destroy",ring_http_destroy);
+	RING_API_REGISTER("http_clear_headers",ring_http_clear_headers);
+	RING_API_REGISTER("http_add_header",ring_http_add_header);
+	RING_API_REGISTER("http_get",ring_http_get);
+	RING_API_REGISTER("http_post",ring_http_post);
+	RING_API_REGISTER("http_response_status",ring_http_response_status);
+	RING_API_REGISTER("http_response_protocol",ring_http_response_protocol);
+	RING_API_REGISTER("http_response_message",ring_http_response_message);
+	RING_API_REGISTER("http_response_size",ring_http_response_size);
+	RING_API_REGISTER("http_response_name",ring_http_response_name);
+	RING_API_REGISTER("http_response_value",ring_http_response_value);
+	RING_API_REGISTER("http_response_header",ring_http_response_header);
+	RING_API_REGISTER("http_response_body",ring_http_response_body);
+	RING_API_REGISTER("http_dget",ring_http_dget);
+	RING_API_REGISTER("http_exists",ring_http_exists);
+	RING_API_REGISTER("b64_encoded_size",ring_b64_encoded_size);
+	RING_API_REGISTER("b64_decoded_size",ring_b64_decoded_size);
+	RING_API_REGISTER("b64_encode",ring_b64_encode);
+	RING_API_REGISTER("b64_decode",ring_b64_decode);
 }
