@@ -1530,3 +1530,20 @@ real32_t v2d_anglef(const V2Df *v1, const V2Df *v2)
 real64_t v2d_angled(const V2Dd *v1, const V2Dd *v2)
 void v2d_rotatef(V2Df *v, const real32_t a)
 void v2d_rotated(V2Dd *v, const real64_t a)
+
+<comment>
+tri2d.h
+</comment>
+
+Tri2Df tri2df(const real32_t x0, const real32_t y0, const real32_t x1, const real32_t y1, const real32_t x2, const real32_t y2)
+Tri2Dd tri2dd(const real64_t x0, const real64_t y0, const real64_t x1, const real64_t y1, const real64_t x2, const real64_t y2)
+Tri2Df tri2d_vf(const V2Df *p0, const V2Df *p1, const V2Df *p2)
+Tri2Dd tri2d_vd(const V2Dd *p0, const V2Dd *p1, const V2Dd *p2)
+void tri2d_transformf(Tri2Df *tri, const T2Df *t2d)
+void tri2d_transformd(Tri2Dd *tri, const T2Dd *t2d)
+real32_t tri2d_areaf(const Tri2Df *tri)
+real64_t tri2d_aread(const Tri2Dd *tri)
+bool_t tri2d_ccwf(const Tri2Df *tri)
+bool_t tri2d_ccwd(const Tri2Dd *tri)
+V2Df tri2d_centroidf(const Tri2Df *tri)
+V2Dd tri2d_centroidd(const Tri2Dd *tri)
