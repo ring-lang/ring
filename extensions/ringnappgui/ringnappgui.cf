@@ -21,6 +21,11 @@ aNumberTypes + "uint32_t"
 aNumberTypes + "const uint32_t"
 aNumberTypes + "bool_t"
 aNumberTypes + "const bool_t"
+aNumberTypes + "real32_t"
+aNumberTypes + "const real32_t"
+aNumberTypes + "real64_t"
+aNumberTypes + "const real64_t"
+
 </runcode>
 
 <comment>
