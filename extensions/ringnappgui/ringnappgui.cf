@@ -42,6 +42,8 @@ aNumberTypes + "const real64_t"
 
 aStringTypes + "char_t *"
 aStringTypes + "const char_t *"
+aStringTypes + "byte_t *"
+aStringTypes + "const byte_t *"
 
 </runcode>
 
@@ -2129,6 +2131,7 @@ ArrPt(String) *str_splits(const char_t *str, const char_t *substr, const bool_t 
 void str_split_pathname(const char_t *pathname, String **path, String **file)
 void str_split_pathext(const char_t *pathname, String **path, String **file, String **ext)
 uint32_t str_find(const ArrPt(String) *array, const char_t *str)
+void str_subs(String *str, const char_t replace, const char_t with)
 </comment>
 
 void str_copy_c(char_t *dest, const uint32_t size, const char_t *src)
@@ -2148,7 +2151,6 @@ bool_t str_equ_end(const char_t *str, const char_t *end)
 
 void str_upper_c(char_t *dest, const uint32_t size, const char_t *str)
 void str_lower_c(char_t *dest, const uint32_t size, const char_t *str)
-void str_subs(String *str, const char_t replace, const char_t with)
 void str_repl_c(char_t *str, const char_t *replace, const char_t *with)
 const char_t *str_str(const char_t *str, const char_t *substr)
 
