@@ -17,6 +17,10 @@
 <runcode>
 aNumberTypes + "unsigned int"
 aNumberTypes + "float"
+aNumberTypes + "uint8_t"
+aNumberTypes + "const uint8_t"
+aNumberTypes + "uint16_t"
+aNumberTypes + "const uint16_t"
 aNumberTypes + "uint32_t"
 aNumberTypes + "const uint32_t"
 aNumberTypes + "uint64_t"
