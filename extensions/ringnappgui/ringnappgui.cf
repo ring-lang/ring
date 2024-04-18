@@ -1821,3 +1821,22 @@ byte_t *pixbuf_data(Pixbuf *pixbuf)
 uint32_t pixbuf_format_bpp(const pixformat_t format)
 uint32_t pixbuf_get(const Pixbuf *pixbuf, const uint32_t x, const uint32_t y)
 void pixbuf_set(Pixbuf *pixbuf, const uint32_t x, const uint32_t y, const uint32_t value)
+
+<comment>
+palette.h
+</comment>
+
+
+Palette *palette_create(const uint32_t size)
+Palette *palette_cga2(const bool_t mode, const bool_t intense)
+Palette *palette_ega4(void)
+Palette *palette_rgb8(void)
+Palette *palette_gray1(void)
+Palette *palette_gray2(void)
+Palette *palette_gray4(void)
+Palette *palette_gray8(void)
+Palette *palette_binary(const color_t zero, const color_t one)
+void palette_destroy(Palette **palette)
+uint32_t palette_size(const Palette *palette)
+color_t *palette_colors(Palette *palette)
+const color_t *palette_ccolors(const Palette *palette)

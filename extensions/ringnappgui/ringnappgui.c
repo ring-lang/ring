@@ -23221,6 +23221,162 @@ RING_FUNC(ring_pixbuf_set)
 		RING_API_FREE(RING_API_GETCPOINTER(4,"uint32_t"));
 }
 
+
+RING_FUNC(ring_palette_create)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETCPOINTER(palette_create(* (const uint32_t  *) RING_API_GETCPOINTER(1,"const uint32_t")),"Palette");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"uint32_t"));
+}
+
+
+RING_FUNC(ring_palette_cga2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_RETCPOINTER(palette_cga2(* (const bool_t  *) RING_API_GETCPOINTER(1,"const bool_t"),* (const bool_t  *) RING_API_GETCPOINTER(2,"const bool_t")),"Palette");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"bool_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"bool_t"));
+}
+
+
+RING_FUNC(ring_palette_ega4)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(palette_ega4(),"Palette");
+}
+
+
+RING_FUNC(ring_palette_rgb8)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(palette_rgb8(),"Palette");
+}
+
+
+RING_FUNC(ring_palette_gray1)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(palette_gray1(),"Palette");
+}
+
+
+RING_FUNC(ring_palette_gray2)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(palette_gray2(),"Palette");
+}
+
+
+RING_FUNC(ring_palette_gray4)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(palette_gray4(),"Palette");
+}
+
+
+RING_FUNC(ring_palette_gray8)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(palette_gray8(),"Palette");
+}
+
+
+RING_FUNC(ring_palette_binary)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_RETCPOINTER(palette_binary(* (const color_t  *) RING_API_GETCPOINTER(1,"const color_t"),* (const color_t  *) RING_API_GETCPOINTER(2,"const color_t")),"Palette");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"color_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"color_t"));
+}
+
+
+RING_FUNC(ring_palette_destroy)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	palette_destroy((Palette **) RING_API_GETCPOINTER2POINTER(1,"Palette"));
+}
+
+
+RING_FUNC(ring_palette_size)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(palette_size((Palette *) RING_API_GETCPOINTER(1,"Palette")));
+}
+
+
+RING_FUNC(ring_palette_colors)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(palette_colors((Palette *) RING_API_GETCPOINTER(1,"Palette")),"color_t");
+}
+
+
+RING_FUNC(ring_palette_ccolors)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(palette_ccolors((Palette *) RING_API_GETCPOINTER(1,"Palette")),"color_t");
+}
+
 RING_LIBINIT
 {
 	RING_API_REGISTER("unicode_convers",ring_unicode_convers);
@@ -24492,4 +24648,17 @@ RING_LIBINIT
 	RING_API_REGISTER("pixbuf_format_bpp",ring_pixbuf_format_bpp);
 	RING_API_REGISTER("pixbuf_get",ring_pixbuf_get);
 	RING_API_REGISTER("pixbuf_set",ring_pixbuf_set);
+	RING_API_REGISTER("palette_create",ring_palette_create);
+	RING_API_REGISTER("palette_cga2",ring_palette_cga2);
+	RING_API_REGISTER("palette_ega4",ring_palette_ega4);
+	RING_API_REGISTER("palette_rgb8",ring_palette_rgb8);
+	RING_API_REGISTER("palette_gray1",ring_palette_gray1);
+	RING_API_REGISTER("palette_gray2",ring_palette_gray2);
+	RING_API_REGISTER("palette_gray4",ring_palette_gray4);
+	RING_API_REGISTER("palette_gray8",ring_palette_gray8);
+	RING_API_REGISTER("palette_binary",ring_palette_binary);
+	RING_API_REGISTER("palette_destroy",ring_palette_destroy);
+	RING_API_REGISTER("palette_size",ring_palette_size);
+	RING_API_REGISTER("palette_colors",ring_palette_colors);
+	RING_API_REGISTER("palette_ccolors",ring_palette_ccolors);
 }
