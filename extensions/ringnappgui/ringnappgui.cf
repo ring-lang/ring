@@ -336,6 +336,30 @@ void osupdown_size(const OSUpDown *updown, real32_t *width, real32_t *height)
 void osupdown_origin(const OSUpDown *updown, real32_t *x, real32_t *y)
 void osupdown_frame(OSUpDown *updown, const real32_t x, const real32_t y, const real32_t width, const real32_t height)
 
+<comment>
+ostext.h
+</comment>
+
+OSText *ostext_create(const uint32_t flags)
+void ostext_destroy(OSText **view)
+void ostext_OnFilter(OSText *view, Listener *listener)
+void ostext_OnFocus(OSText *view, Listener *listener)
+void ostext_insert_text(OSText *view, const char_t *text)
+void ostext_set_text(OSText *view, const char_t *text)
+void ostext_set_rtf(OSText *view, Stream *rtf_in)
+void ostext_property(OSText *view, const gui_text_t prop, const void *value)
+void ostext_editable(OSText *view, const bool_t is_editable)
+const char_t *ostext_get_text(const OSText *view)
+void ostext_scroller_visible(OSText *view, const bool_t horizontal, const bool_t vertical)
+void ostext_set_need_display(OSText *view)
+void ostext_clipboard(OSText *view, const clipboard_t clipboard)
+void ostext_attach(OSText *view, OSPanel *panel)
+void ostext_detach(OSText *view, OSPanel *panel)
+void ostext_visible(OSText *view, const bool_t visible)
+void ostext_enabled(OSText *view, const bool_t enabled)
+void ostext_size(const OSText *view, real32_t *width, real32_t *height)
+void ostext_origin(const OSText *view, real32_t *x, real32_t *y)
+void ostext_frame(OSText *view, const real32_t x, const real32_t y, const real32_t width, const real32_t height)
 
 
 
