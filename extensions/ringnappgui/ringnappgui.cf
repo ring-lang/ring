@@ -1138,3 +1138,36 @@ void panel_update(Panel *panel)
 real32_t panel_scroll_width(const Panel *panel)
 real32_t panel_scroll_height(const Panel *panel)
 
+<comment>
+menuitem.h
+</comment>
+
+
+MenuItem *menuitem_create(void)
+MenuItem *menuitem_separator(void)
+void menuitem_OnClick(MenuItem *item, Listener *listener)
+void menuitem_enabled(MenuItem *item, const bool_t enabled)
+void menuitem_visible(MenuItem *item, const bool_t visible)
+void menuitem_text(MenuItem *item, const char_t *text)
+void menuitem_image(MenuItem *item, const Image *image)
+void menuitem_key(MenuItem *item, const vkey_t key, const uint32_t modifiers)
+void menuitem_submenu(MenuItem *item, Menu **submenu)
+void menuitem_state(MenuItem *item, const gui_state_t state)
+
+
+<comment>
+menu.h
+</comment>
+
+
+Menu *menu_create(void)
+void menu_destroy(Menu **menu)
+void menu_item(Menu *menu, MenuItem *item)
+void menu_launch(Menu *menu, const V2Df position)
+void menu_hide(Menu *menu)
+void menu_off_items(Menu *menu)
+MenuItem *menu_get_item(Menu *menu, const uint32_t index)
+uint32_t menu_size(const Menu *menu)
+void *menu_imp(const Menu *menu)
+
+
