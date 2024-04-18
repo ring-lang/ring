@@ -520,3 +520,26 @@ void oslabel_size(const OSLabel *label, real32_t *width, real32_t *height)
 void oslabel_origin(const OSLabel *label, real32_t *x, real32_t *y)
 void oslabel_frame(OSLabel *label, const real32_t x, const real32_t y, const real32_t width, const real32_t height)
 
+<comment>
+osguictx.h
+</comment>
+
+GuiCtx *osguictx(void)
+
+<comment>
+osgui.h
+</comment>
+
+
+void osgui_start(void)
+void osgui_finish(void)
+void osgui_set_menubar(OSMenu *menu, OSWindow *window)
+void osgui_unset_menubar(OSMenu *menu, OSWindow *window)
+void osgui_redraw_menubar(void)
+void osgui_message_loop(void)
+bool_t osgui_is_initialized(void)
+void osgui_initialize(void)
+void osgui_terminate(void)
+void osgui_set_app(void *app, void *icon)
+
+
