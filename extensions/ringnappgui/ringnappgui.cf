@@ -1595,3 +1595,28 @@ real32_t seg2d_point_sqdistf(const Seg2Df *seg, const V2Df *pnt, real32_t *t)
 real64_t seg2d_point_sqdistd(const Seg2Dd *seg, const V2Dd *pnt, real64_t *t)
 real32_t seg2d_sqdistf(const Seg2Df *seg1, const Seg2Df *seg2, real32_t *t1, real32_t *t2)
 real64_t seg2d_sqdistd(const Seg2Dd *seg1, const Seg2Dd *seg2, real64_t *t1, real64_t *t2)
+
+<comment>
+s2d.h
+<comment>
+
+S2Df s2df(const real32_t width, const real32_t height)
+S2Df s2di(const uint32_t width, const uint32_t height)
+S2Dd s2dd(const real64_t width, const real64_t height)
+
+<comment>
+r2d.h
+</comment>
+
+R2Df r2df(const real32_t x, const real32_t y, const real32_t width, const real32_t height)
+R2Dd r2dd(const real64_t x, const real64_t y, const real64_t width, const real64_t height)
+V2Df r2d_centerf(const R2Df *r2d)
+V2Dd r2d_centerd(const R2Dd *r2d)
+bool_t r2d_collidef(const R2Df *r2d1, const R2Df *r2d2)
+bool_t r2d_collided(const R2Dd *r2d1, const R2Dd *r2d2)
+bool_t r2d_containsf(const R2Df *r2d, const real32_t x, const real32_t y)
+bool_t r2d_containsd(const R2Dd *r2d, const real64_t x, const real64_t y)
+bool_t r2d_clipf(const R2Df *viewport, const R2Df *r2d)
+bool_t r2d_clipd(const R2Dd *viewport, const R2Dd *r2d)
+void r2d_joinf(R2Df *r2d, const R2Df *src)
+void r2d_joind(R2Dd *r2d, const R2Dd *src)
