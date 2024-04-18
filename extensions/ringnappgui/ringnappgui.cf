@@ -616,4 +616,43 @@ void osdrawctrl_checkbox(DCtx *ctx, const int32_t x, const int32_t y, const uint
 void osdrawctrl_uncheckbox(DCtx *ctx, const int32_t x, const int32_t y, const uint32_t width, const uint32_t height, const ctrl_state_t state)
 
 
+<comment>
+oscomwin.h
+</comment>
+
+
+const char_t *oscomwin_file(OSWindow *parent, const char_t **ftypes, const uint32_t size, const char_t *start_dir, const bool_t open)
+void oscomwin_color(OSWindow *parent, const char_t *title, const real32_t x, const real32_t y, const align_t halign, const align_t valign, const color_t current, color_t *colors, const uint32_t n, Listener *OnChange)
+
+<comment>
+oscombo.h
+</comment>
+
+
+OSCombo *oscombo_create(const uint32_t flags)
+void oscombo_destroy(OSCombo **combo)
+void oscombo_OnFilter(OSCombo *combo, Listener *listener)
+void oscombo_OnChange(OSCombo *combo, Listener *listener)
+void oscombo_OnFocus(OSCombo *combo, Listener *listener)
+void oscombo_OnSelect(OSCombo *combo, Listener *listener)
+void oscombo_text(OSCombo *combo, const char_t *text)
+void oscombo_tooltip(OSCombo *combo, const char_t *text)
+void oscombo_font(OSCombo *combo, const Font *font)
+void oscombo_align(OSCombo *combo, const align_t align)
+void oscombo_passmode(OSCombo *combo, const bool_t passmode)
+void oscombo_color(OSCombo *combo, const color_t color)
+void oscombo_bgcolor(OSCombo *combo, const color_t color)
+void oscombo_elem(OSCombo *combo, const ctrl_op_t op, const uint32_t index, const char_t *text, const Image *image)
+void oscombo_selected(OSCombo *combo, const uint32_t index)
+uint32_t oscombo_get_selected(const OSCombo *combo)
+void oscombo_bounds(const OSCombo *combo, const real32_t refwidth, real32_t *width, real32_t *height)
+void oscombo_attach(OSCombo *combo, OSPanel *panel)
+void oscombo_detach(OSCombo *combo, OSPanel *panel)
+void oscombo_visible(OSCombo *combo, const bool_t visible)
+void oscombo_enabled(OSCombo *combo, const bool_t enabled)
+void oscombo_size(const OSCombo *combo, real32_t *width, real32_t *height)
+void oscombo_origin(const OSCombo *combo, real32_t *x, real32_t *y)
+void oscombo_frame(OSCombo *combo, const real32_t x, const real32_t y, const real32_t width, const real32_t height)
+
+
 
