@@ -210,3 +210,26 @@ real32_t bmath_rand_mtf(REnv *env, const real32_t from, const real32_t to)
 real64_t bmath_rand_mtd(REnv *env, const real64_t from, const real64_t to)
 uint32_t bmath_rand_mti(REnv *env, const uint32_t from, const uint32_t to)
 
+
+<comment>
+blib.h
+</comment>
+
+uint32_t blib_strlen(const char_t *str)
+char_t *blib_strstr(const char_t *str, const char_t *substr)
+void blib_strcpy(char_t *dest, const uint32_t size, const char_t *src)
+void blib_strncpy(char_t *dest, const uint32_t size, const char_t *src, const uint32_t n)
+void blib_strcat(char_t *dest, const uint32_t size, const char_t *src)
+int blib_strcmp(const char_t *str1, const char_t *str2)
+int blib_strncmp(const char_t *str1, const char_t *str2, const uint32_t n)
+uint32_t blib_strftime(char_t *dest, const uint32_t size, const char_t *format, const int16_t year, const uint8_t month, const uint8_t mday, const uint8_t wday, const uint8_t hour, const uint8_t minute, const uint8_t second)
+int64_t blib_strtol(const char_t *str, char_t **endptr, uint32_t base, bool_t *err)
+uint64_t blib_strtoul(const char_t *str, char_t **endptr, uint32_t base, bool_t *err)
+real32_t blib_strtof(const char_t *str, char_t **endptr, bool_t *err)
+real64_t blib_strtod(const char_t *str, char_t **endptr, bool_t *err)
+void blib_qsort(byte_t *array, const uint32_t nelems, const uint32_t size, FPtr_compare func_compare)
+void blib_qsort_ex(const byte_t *array, const uint32_t nelems, const uint32_t size, FPtr_compare_ex func_compare, const byte_t *data)
+bool_t blib_bsearch(const byte_t *array, const byte_t *key, const uint32_t nelems, const uint32_t size, FPtr_compare func_compare, uint32_t *pos)
+bool_t blib_bsearch_ex(const byte_t *array, const byte_t *key, const uint32_t nelems, const uint32_t size, FPtr_compare_ex func_compare, const byte_t *data, uint32_t *pos)
+const char_t *blib_getenv(const char_t *name)
+
