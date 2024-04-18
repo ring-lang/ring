@@ -1756,3 +1756,47 @@ bool_t col2d_poly_trif(const Pol2Df *poly, const Tri2Df *tri, Col2Df *col)
 bool_t col2d_poly_trid(const Pol2Dd *poly, const Tri2Dd *tri, Col2Dd *col)
 bool_t col2d_poly_polyf(const Pol2Df *poly1, const Pol2Df *poly2, Col2Df *col)
 bool_t col2d_poly_polyd(const Pol2Dd *poly1, const Pol2Dd *poly2, Col2Dd *col)
+
+<comment>
+cir2d.h
+</comment>
+
+
+Cir2Df cir2df(const real32_t x, const real32_t y, const real32_t r)
+Cir2Dd cir2dd(const real64_t x, const real64_t y, const real64_t r)
+Cir2Df cir2d_from_boxf(const Box2Df *box)
+Cir2Dd cir2d_from_boxd(const Box2Dd *box)
+Cir2Df cir2d_from_pointsf(const V2Df *p, const uint32_t n)
+Cir2Dd cir2d_from_pointsd(const V2Dd *p, const uint32_t n)
+Cir2Df cir2d_minimumf(const V2Df *p, const uint32_t n)
+Cir2Dd cir2d_minimumd(const V2Dd *p, const uint32_t n)
+real32_t cir2d_areaf(const Cir2Df *cir)
+real64_t cir2d_aread(const Cir2Dd *cir)
+bool_t cir2d_is_nullf(const Cir2Df *cir)
+bool_t cir2d_is_nulld(const Cir2Dd *cir)
+
+<comment>
+box2d.h
+</comment>
+
+
+Box2Df box2df(const real32_t minX, const real32_t minY, const real32_t maxX, const real32_t maxY)
+Box2Dd box2dd(const real64_t minX, const real64_t minY, const real64_t maxX, const real64_t maxY)
+Box2Df box2d_from_pointsf(const V2Df *p, const uint32_t n)
+Box2Dd box2d_from_pointsd(const V2Dd *p, const uint32_t n)
+V2Df box2d_centerf(const Box2Df *box)
+V2Dd box2d_centerd(const Box2Dd *box)
+void box2d_addf(Box2Df *box, const V2Df *p)
+void box2d_addd(Box2Dd *box, const V2Dd *p)
+void box2d_addnf(Box2Df *box, const V2Df *p, const uint32_t n)
+void box2d_addnd(Box2Dd *box, const V2Dd *p, const uint32_t n)
+void box2d_add_circlef(Box2Df *box, const Cir2Df *cir)
+void box2d_add_circled(Box2Dd *box, const Cir2Dd *cir)
+void box2d_mergef(Box2Df *dest, const Box2Df *src)
+void box2d_merged(Box2Dd *dest, const Box2Dd *src)
+void box2d_segmentsf(const Box2Df *box, Seg2Df *segs)
+void box2d_segmentsd(const Box2Dd *box, Seg2Dd *segs)
+real32_t box2d_areaf(const Box2Df *box)
+real64_t box2d_aread(const Box2Dd *box)
+bool_t box2d_is_nullf(const Box2Df *box)
+bool_t box2d_is_nulld(const Box2Dd *box)

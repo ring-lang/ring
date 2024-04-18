@@ -22356,6 +22356,632 @@ RING_FUNC(ring_col2d_poly_polyd)
 	}
 }
 
+
+RING_FUNC(ring_cir2df)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	{
+		Cir2Df *pValue ; 
+		pValue = (Cir2Df *) RING_API_MALLOC(sizeof(Cir2Df)) ;
+		*pValue = cir2df(* (const real32_t  *) RING_API_GETCPOINTER(1,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(2,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(3,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real32_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Cir2Df",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_cir2dd)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	{
+		Cir2Dd *pValue ; 
+		pValue = (Cir2Dd *) RING_API_MALLOC(sizeof(Cir2Dd)) ;
+		*pValue = cir2dd(* (const real64_t  *) RING_API_GETCPOINTER(1,"const real64_t"),* (const real64_t  *) RING_API_GETCPOINTER(2,"const real64_t"),* (const real64_t  *) RING_API_GETCPOINTER(3,"const real64_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"real64_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"real64_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real64_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Cir2Dd",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_cir2d_from_boxf)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Cir2Df *pValue ; 
+		pValue = (Cir2Df *) RING_API_MALLOC(sizeof(Cir2Df)) ;
+		*pValue = cir2d_from_boxf((Box2Df *) RING_API_GETCPOINTER(1,"Box2Df"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Cir2Df",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_cir2d_from_boxd)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Cir2Dd *pValue ; 
+		pValue = (Cir2Dd *) RING_API_MALLOC(sizeof(Cir2Dd)) ;
+		*pValue = cir2d_from_boxd((Box2Dd *) RING_API_GETCPOINTER(1,"Box2Dd"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Cir2Dd",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_cir2d_from_pointsf)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Cir2Df *pValue ; 
+		pValue = (Cir2Df *) RING_API_MALLOC(sizeof(Cir2Df)) ;
+		*pValue = cir2d_from_pointsf((V2Df *) RING_API_GETCPOINTER(1,"V2Df"),* (const uint32_t  *) RING_API_GETCPOINTER(2,"const uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uint32_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Cir2Df",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_cir2d_from_pointsd)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Cir2Dd *pValue ; 
+		pValue = (Cir2Dd *) RING_API_MALLOC(sizeof(Cir2Dd)) ;
+		*pValue = cir2d_from_pointsd((V2Dd *) RING_API_GETCPOINTER(1,"V2Dd"),* (const uint32_t  *) RING_API_GETCPOINTER(2,"const uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uint32_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Cir2Dd",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_cir2d_minimumf)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Cir2Df *pValue ; 
+		pValue = (Cir2Df *) RING_API_MALLOC(sizeof(Cir2Df)) ;
+		*pValue = cir2d_minimumf((V2Df *) RING_API_GETCPOINTER(1,"V2Df"),* (const uint32_t  *) RING_API_GETCPOINTER(2,"const uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uint32_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Cir2Df",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_cir2d_minimumd)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Cir2Dd *pValue ; 
+		pValue = (Cir2Dd *) RING_API_MALLOC(sizeof(Cir2Dd)) ;
+		*pValue = cir2d_minimumd((V2Dd *) RING_API_GETCPOINTER(1,"V2Dd"),* (const uint32_t  *) RING_API_GETCPOINTER(2,"const uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uint32_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Cir2Dd",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_cir2d_areaf)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		real32_t *pValue ; 
+		pValue = (real32_t *) RING_API_MALLOC(sizeof(real32_t)) ;
+		*pValue = cir2d_areaf((Cir2Df *) RING_API_GETCPOINTER(1,"Cir2Df"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"real32_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_cir2d_aread)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		real64_t *pValue ; 
+		pValue = (real64_t *) RING_API_MALLOC(sizeof(real64_t)) ;
+		*pValue = cir2d_aread((Cir2Dd *) RING_API_GETCPOINTER(1,"Cir2Dd"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"real64_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_cir2d_is_nullf)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		bool_t *pValue ; 
+		pValue = (bool_t *) RING_API_MALLOC(sizeof(bool_t)) ;
+		*pValue = cir2d_is_nullf((Cir2Df *) RING_API_GETCPOINTER(1,"Cir2Df"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"bool_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_cir2d_is_nulld)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		bool_t *pValue ; 
+		pValue = (bool_t *) RING_API_MALLOC(sizeof(bool_t)) ;
+		*pValue = cir2d_is_nulld((Cir2Dd *) RING_API_GETCPOINTER(1,"Cir2Dd"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"bool_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_box2df)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	{
+		Box2Df *pValue ; 
+		pValue = (Box2Df *) RING_API_MALLOC(sizeof(Box2Df)) ;
+		*pValue = box2df(* (const real32_t  *) RING_API_GETCPOINTER(1,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(2,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(3,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(4,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"real32_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Box2Df",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_box2dd)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	{
+		Box2Dd *pValue ; 
+		pValue = (Box2Dd *) RING_API_MALLOC(sizeof(Box2Dd)) ;
+		*pValue = box2dd(* (const real64_t  *) RING_API_GETCPOINTER(1,"const real64_t"),* (const real64_t  *) RING_API_GETCPOINTER(2,"const real64_t"),* (const real64_t  *) RING_API_GETCPOINTER(3,"const real64_t"),* (const real64_t  *) RING_API_GETCPOINTER(4,"const real64_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"real64_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"real64_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real64_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"real64_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Box2Dd",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_box2d_from_pointsf)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Box2Df *pValue ; 
+		pValue = (Box2Df *) RING_API_MALLOC(sizeof(Box2Df)) ;
+		*pValue = box2d_from_pointsf((V2Df *) RING_API_GETCPOINTER(1,"V2Df"),* (const uint32_t  *) RING_API_GETCPOINTER(2,"const uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uint32_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Box2Df",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_box2d_from_pointsd)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Box2Dd *pValue ; 
+		pValue = (Box2Dd *) RING_API_MALLOC(sizeof(Box2Dd)) ;
+		*pValue = box2d_from_pointsd((V2Dd *) RING_API_GETCPOINTER(1,"V2Dd"),* (const uint32_t  *) RING_API_GETCPOINTER(2,"const uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uint32_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Box2Dd",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_box2d_centerf)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		V2Df *pValue ; 
+		pValue = (V2Df *) RING_API_MALLOC(sizeof(V2Df)) ;
+		*pValue = box2d_centerf((Box2Df *) RING_API_GETCPOINTER(1,"Box2Df"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"V2Df",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_box2d_centerd)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		V2Dd *pValue ; 
+		pValue = (V2Dd *) RING_API_MALLOC(sizeof(V2Dd)) ;
+		*pValue = box2d_centerd((Box2Dd *) RING_API_GETCPOINTER(1,"Box2Dd"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"V2Dd",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_box2d_addf)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	box2d_addf((Box2Df *) RING_API_GETCPOINTER(1,"Box2Df"),(V2Df *) RING_API_GETCPOINTER(2,"V2Df"));
+}
+
+
+RING_FUNC(ring_box2d_addd)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	box2d_addd((Box2Dd *) RING_API_GETCPOINTER(1,"Box2Dd"),(V2Dd *) RING_API_GETCPOINTER(2,"V2Dd"));
+}
+
+
+RING_FUNC(ring_box2d_addnf)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	box2d_addnf((Box2Df *) RING_API_GETCPOINTER(1,"Box2Df"),(V2Df *) RING_API_GETCPOINTER(2,"V2Df"),* (const uint32_t  *) RING_API_GETCPOINTER(3,"const uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"uint32_t"));
+}
+
+
+RING_FUNC(ring_box2d_addnd)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	box2d_addnd((Box2Dd *) RING_API_GETCPOINTER(1,"Box2Dd"),(V2Dd *) RING_API_GETCPOINTER(2,"V2Dd"),* (const uint32_t  *) RING_API_GETCPOINTER(3,"const uint32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"uint32_t"));
+}
+
+
+RING_FUNC(ring_box2d_add_circlef)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	box2d_add_circlef((Box2Df *) RING_API_GETCPOINTER(1,"Box2Df"),(Cir2Df *) RING_API_GETCPOINTER(2,"Cir2Df"));
+}
+
+
+RING_FUNC(ring_box2d_add_circled)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	box2d_add_circled((Box2Dd *) RING_API_GETCPOINTER(1,"Box2Dd"),(Cir2Dd *) RING_API_GETCPOINTER(2,"Cir2Dd"));
+}
+
+
+RING_FUNC(ring_box2d_mergef)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	box2d_mergef((Box2Df *) RING_API_GETCPOINTER(1,"Box2Df"),(Box2Df *) RING_API_GETCPOINTER(2,"Box2Df"));
+}
+
+
+RING_FUNC(ring_box2d_merged)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	box2d_merged((Box2Dd *) RING_API_GETCPOINTER(1,"Box2Dd"),(Box2Dd *) RING_API_GETCPOINTER(2,"Box2Dd"));
+}
+
+
+RING_FUNC(ring_box2d_segmentsf)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	box2d_segmentsf((Box2Df *) RING_API_GETCPOINTER(1,"Box2Df"),(Seg2Df *) RING_API_GETCPOINTER(2,"Seg2Df"));
+}
+
+
+RING_FUNC(ring_box2d_segmentsd)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	box2d_segmentsd((Box2Dd *) RING_API_GETCPOINTER(1,"Box2Dd"),(Seg2Dd *) RING_API_GETCPOINTER(2,"Seg2Dd"));
+}
+
+
+RING_FUNC(ring_box2d_areaf)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		real32_t *pValue ; 
+		pValue = (real32_t *) RING_API_MALLOC(sizeof(real32_t)) ;
+		*pValue = box2d_areaf((Box2Df *) RING_API_GETCPOINTER(1,"Box2Df"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"real32_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_box2d_aread)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		real64_t *pValue ; 
+		pValue = (real64_t *) RING_API_MALLOC(sizeof(real64_t)) ;
+		*pValue = box2d_aread((Box2Dd *) RING_API_GETCPOINTER(1,"Box2Dd"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"real64_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_box2d_is_nullf)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		bool_t *pValue ; 
+		pValue = (bool_t *) RING_API_MALLOC(sizeof(bool_t)) ;
+		*pValue = box2d_is_nullf((Box2Df *) RING_API_GETCPOINTER(1,"Box2Df"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"bool_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_box2d_is_nulld)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		bool_t *pValue ; 
+		pValue = (bool_t *) RING_API_MALLOC(sizeof(bool_t)) ;
+		*pValue = box2d_is_nulld((Box2Dd *) RING_API_GETCPOINTER(1,"Box2Dd"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"bool_t",RING_API_FREEFUNC);
+	}
+}
+
 RING_LIBINIT
 {
 	RING_API_REGISTER("unicode_convers",ring_unicode_convers);
@@ -23580,4 +24206,36 @@ RING_LIBINIT
 	RING_API_REGISTER("col2d_poly_trid",ring_col2d_poly_trid);
 	RING_API_REGISTER("col2d_poly_polyf",ring_col2d_poly_polyf);
 	RING_API_REGISTER("col2d_poly_polyd",ring_col2d_poly_polyd);
+	RING_API_REGISTER("cir2df",ring_cir2df);
+	RING_API_REGISTER("cir2dd",ring_cir2dd);
+	RING_API_REGISTER("cir2d_from_boxf",ring_cir2d_from_boxf);
+	RING_API_REGISTER("cir2d_from_boxd",ring_cir2d_from_boxd);
+	RING_API_REGISTER("cir2d_from_pointsf",ring_cir2d_from_pointsf);
+	RING_API_REGISTER("cir2d_from_pointsd",ring_cir2d_from_pointsd);
+	RING_API_REGISTER("cir2d_minimumf",ring_cir2d_minimumf);
+	RING_API_REGISTER("cir2d_minimumd",ring_cir2d_minimumd);
+	RING_API_REGISTER("cir2d_areaf",ring_cir2d_areaf);
+	RING_API_REGISTER("cir2d_aread",ring_cir2d_aread);
+	RING_API_REGISTER("cir2d_is_nullf",ring_cir2d_is_nullf);
+	RING_API_REGISTER("cir2d_is_nulld",ring_cir2d_is_nulld);
+	RING_API_REGISTER("box2df",ring_box2df);
+	RING_API_REGISTER("box2dd",ring_box2dd);
+	RING_API_REGISTER("box2d_from_pointsf",ring_box2d_from_pointsf);
+	RING_API_REGISTER("box2d_from_pointsd",ring_box2d_from_pointsd);
+	RING_API_REGISTER("box2d_centerf",ring_box2d_centerf);
+	RING_API_REGISTER("box2d_centerd",ring_box2d_centerd);
+	RING_API_REGISTER("box2d_addf",ring_box2d_addf);
+	RING_API_REGISTER("box2d_addd",ring_box2d_addd);
+	RING_API_REGISTER("box2d_addnf",ring_box2d_addnf);
+	RING_API_REGISTER("box2d_addnd",ring_box2d_addnd);
+	RING_API_REGISTER("box2d_add_circlef",ring_box2d_add_circlef);
+	RING_API_REGISTER("box2d_add_circled",ring_box2d_add_circled);
+	RING_API_REGISTER("box2d_mergef",ring_box2d_mergef);
+	RING_API_REGISTER("box2d_merged",ring_box2d_merged);
+	RING_API_REGISTER("box2d_segmentsf",ring_box2d_segmentsf);
+	RING_API_REGISTER("box2d_segmentsd",ring_box2d_segmentsd);
+	RING_API_REGISTER("box2d_areaf",ring_box2d_areaf);
+	RING_API_REGISTER("box2d_aread",ring_box2d_aread);
+	RING_API_REGISTER("box2d_is_nullf",ring_box2d_is_nullf);
+	RING_API_REGISTER("box2d_is_nulld",ring_box2d_is_nulld);
 }
