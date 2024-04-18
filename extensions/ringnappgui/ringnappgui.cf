@@ -40,6 +40,9 @@ aNumberTypes + "const real32_t"
 aNumberTypes + "real64_t"
 aNumberTypes + "const real64_t"
 
+aStringTypes + "char_t *"
+aStringTypes + "const char_t *"
+
 </runcode>
 
 <comment>
