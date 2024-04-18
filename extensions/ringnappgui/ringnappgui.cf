@@ -402,3 +402,20 @@ void osslider_origin(const OSSlider *slider, real32_t *x, real32_t *y)
 void osslider_frame(OSSlider *slider, const real32_t x, const real32_t y, const real32_t width, const real32_t height)
 
 
+
+<comment>
+osprogress.h
+</comment>
+
+OSProgress *osprogress_create(const uint32_t flags)
+void osprogress_destroy(OSProgress **progress)
+void osprogress_position(OSProgress *progress, const real32_t position)
+real32_t osprogress_thickness(const OSProgress *progress, const gui_size_t size)
+void osprogress_attach(OSProgress *progress, OSPanel *panel)
+void osprogress_detach(OSProgress *progress, OSPanel *panel)
+void osprogress_visible(OSProgress *progress, const bool_t visible)
+void osprogress_enabled(OSProgress *progress, const bool_t enabled)
+void osprogress_size(const OSProgress *progress, real32_t *width, real32_t *height)
+void osprogress_origin(const OSProgress *progress, real32_t *x, real32_t *y)
+void osprogress_frame(OSProgress *progress, const real32_t x, const real32_t y, const real32_t width, const real32_t height)
+

@@ -5053,6 +5053,203 @@ RING_FUNC(ring_osslider_frame)
 		RING_API_FREE(RING_API_GETCPOINTER(5,"real32_t"));
 }
 
+
+RING_FUNC(ring_osprogress_create)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETCPOINTER(osprogress_create(* (const uint32_t  *) RING_API_GETCPOINTER(1,"const uint32_t")),"OSProgress");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"uint32_t"));
+}
+
+
+RING_FUNC(ring_osprogress_destroy)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	osprogress_destroy((OSProgress **) RING_API_GETCPOINTER2POINTER(1,"OSProgress"));
+}
+
+
+RING_FUNC(ring_osprogress_position)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	osprogress_position((OSProgress *) RING_API_GETCPOINTER(1,"OSProgress"),* (const real32_t  *) RING_API_GETCPOINTER(2,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"real32_t"));
+}
+
+
+RING_FUNC(ring_osprogress_thickness)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		real32_t *pValue ; 
+		pValue = (real32_t *) RING_API_MALLOC(sizeof(real32_t)) ;
+		*pValue = osprogress_thickness((OSProgress *) RING_API_GETCPOINTER(1,"OSProgress"),* (const gui_size_t  *) RING_API_GETCPOINTER(2,"const gui_size_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"gui_size_t"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"real32_t",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_osprogress_attach)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	osprogress_attach((OSProgress *) RING_API_GETCPOINTER(1,"OSProgress"),(OSPanel *) RING_API_GETCPOINTER(2,"OSPanel"));
+}
+
+
+RING_FUNC(ring_osprogress_detach)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	osprogress_detach((OSProgress *) RING_API_GETCPOINTER(1,"OSProgress"),(OSPanel *) RING_API_GETCPOINTER(2,"OSPanel"));
+}
+
+
+RING_FUNC(ring_osprogress_visible)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	osprogress_visible((OSProgress *) RING_API_GETCPOINTER(1,"OSProgress"),* (const bool_t  *) RING_API_GETCPOINTER(2,"const bool_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"bool_t"));
+}
+
+
+RING_FUNC(ring_osprogress_enabled)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	osprogress_enabled((OSProgress *) RING_API_GETCPOINTER(1,"OSProgress"),* (const bool_t  *) RING_API_GETCPOINTER(2,"const bool_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"bool_t"));
+}
+
+
+RING_FUNC(ring_osprogress_size)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	osprogress_size((OSProgress *) RING_API_GETCPOINTER(1,"OSProgress"),(real32_t *) RING_API_GETCPOINTER(2,"real32_t"),(real32_t *) RING_API_GETCPOINTER(3,"real32_t"));
+}
+
+
+RING_FUNC(ring_osprogress_origin)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	osprogress_origin((OSProgress *) RING_API_GETCPOINTER(1,"OSProgress"),(real32_t *) RING_API_GETCPOINTER(2,"real32_t"),(real32_t *) RING_API_GETCPOINTER(3,"real32_t"));
+}
+
+
+RING_FUNC(ring_osprogress_frame)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	osprogress_frame((OSProgress *) RING_API_GETCPOINTER(1,"OSProgress"),* (const real32_t  *) RING_API_GETCPOINTER(2,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(3,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(4,"const real32_t"),* (const real32_t  *) RING_API_GETCPOINTER(5,"const real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"real32_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		RING_API_FREE(RING_API_GETCPOINTER(5,"real32_t"));
+}
+
 RING_LIBINIT
 {
 	RING_API_REGISTER("unicode_convers",ring_unicode_convers);
@@ -5336,4 +5533,15 @@ RING_LIBINIT
 	RING_API_REGISTER("osslider_size",ring_osslider_size);
 	RING_API_REGISTER("osslider_origin",ring_osslider_origin);
 	RING_API_REGISTER("osslider_frame",ring_osslider_frame);
+	RING_API_REGISTER("osprogress_create",ring_osprogress_create);
+	RING_API_REGISTER("osprogress_destroy",ring_osprogress_destroy);
+	RING_API_REGISTER("osprogress_position",ring_osprogress_position);
+	RING_API_REGISTER("osprogress_thickness",ring_osprogress_thickness);
+	RING_API_REGISTER("osprogress_attach",ring_osprogress_attach);
+	RING_API_REGISTER("osprogress_detach",ring_osprogress_detach);
+	RING_API_REGISTER("osprogress_visible",ring_osprogress_visible);
+	RING_API_REGISTER("osprogress_enabled",ring_osprogress_enabled);
+	RING_API_REGISTER("osprogress_size",ring_osprogress_size);
+	RING_API_REGISTER("osprogress_origin",ring_osprogress_origin);
+	RING_API_REGISTER("osprogress_frame",ring_osprogress_frame);
 }
