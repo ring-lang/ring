@@ -11,39 +11,41 @@
 
 VM *pVM;
 
+List *pEventsList;
+
 void *i_create(void)
 {
-ring_vm_runcode(pVM,"createGUI()");
-return NULL;
+	ring_vm_runcode(pVM,"createGUI()");
+	return NULL;
 }
 
 void i_destroy(void **app)
 {
-return;
+	return;
 }
 
-typedef struct _appevent_t App;
-
-struct _appevent_t
+void i_OnEvent(void *app, Event *e)
 {
-char cEvent[256];
-};
-
-void i_OnEvent(App *app, Event *e)
-{
-	ring_vm_runcode(pVM,app->cEvent);
+	ring_vm_runcode(pVM,(char *) app);
 }
 
 
 RING_FUNC(ring_osmain) {
+
 	pVM = (VM *) pPointer;
+
+	pEventsList = ring_list_new(0);
+
 	osmain_imp(pVM->pRingState->nArgc,pVM->pRingState->pArgv,
 		   NULL,0,i_create,NULL,i_destroy,NULL);
+
 }
 
 RING_FUNC(ring_guievent) {
+
 	Listener *pListener;
 	char *cEvent;
+
 	// Check parameters count
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -60,10 +62,17 @@ RING_FUNC(ring_guievent) {
 		RING_API_ERROR("The event code must be <= 255 characters");
 		return;
 	}
-	App *object = (App *) ring_state_malloc(pVM->pRingState,sizeof(App));
-	strcpy(object->cEvent, cEvent);
-	pListener = listener_imp((void *) object, (FPtr_event_handler) i_OnEvent);
+
+	ring_list_addstring(pEventsList,cEvent);
+	void *object = (void *) ring_list_getstring(pEventsList,ring_list_getsize(pEventsList));
+
+	pListener = listener_imp(object, (FPtr_event_handler) i_OnEvent);
 	RING_API_RETCPOINTER(pListener,"Listener *");
+}
+
+RING_FUNC(ring_cleanguievents) {
+	if (pEventsList == NULL) return ;
+	pEventsList = ring_list_delete(pEventsList);
 }
 
 RING_FUNC(ring_get_ekgui_horizontal)
@@ -34409,6 +34418,7 @@ RING_LIBINIT
 {
 	RING_API_REGISTER("osmain",ring_osmain);
 	RING_API_REGISTER("guievent",ring_guievent);
+	RING_API_REGISTER("cleanguievents",ring_cleanguievents);
 	RING_API_REGISTER("unicode_convers",ring_unicode_convers);
 	RING_API_REGISTER("unicode_convers_n",ring_unicode_convers_n);
 	RING_API_REGISTER("unicode_convers_nbytes",ring_unicode_convers_nbytes);
