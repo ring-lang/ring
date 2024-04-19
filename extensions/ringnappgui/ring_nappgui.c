@@ -15,7 +15,7 @@ List *pEventsList;
 
 void *i_create(void)
 {
-	ring_vm_runcode(pVM,"createGUI()");
+	ring_vm_runcode(pVM,"create_gui()");
 	return NULL;
 }
 
@@ -41,7 +41,7 @@ RING_FUNC(ring_osmain) {
 
 }
 
-RING_FUNC(ring_guievent) {
+RING_FUNC(ring_create_event) {
 
 	Listener *pListener;
 	char *cEvent;
@@ -70,7 +70,7 @@ RING_FUNC(ring_guievent) {
 	RING_API_RETCPOINTER(pListener,"Listener *");
 }
 
-RING_FUNC(ring_cleanguievents) {
+RING_FUNC(ring_clean_events) {
 	if (pEventsList == NULL) return ;
 	pEventsList = ring_list_delete(pEventsList);
 }
@@ -34417,8 +34417,8 @@ RING_FUNC(ring_array_bsearch_ptr)
 RING_LIBINIT
 {
 	RING_API_REGISTER("osmain",ring_osmain);
-	RING_API_REGISTER("guievent",ring_guievent);
-	RING_API_REGISTER("cleanguievents",ring_cleanguievents);
+	RING_API_REGISTER("create_event",ring_create_event);
+	RING_API_REGISTER("clean_events",ring_clean_events);
 	RING_API_REGISTER("unicode_convers",ring_unicode_convers);
 	RING_API_REGISTER("unicode_convers_n",ring_unicode_convers_n);
 	RING_API_REGISTER("unicode_convers_nbytes",ring_unicode_convers_nbytes);
