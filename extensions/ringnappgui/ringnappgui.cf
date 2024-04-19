@@ -1,4 +1,5 @@
 <nodllstartup>
+<ignorecpointertype> 
 
 <code>
 
@@ -12,6 +13,35 @@
 #define String RingString
 #include "ring.h"
 
+VM *pVM;
+
+void *i_create(void)
+{
+    ring_vm_runcode(pVM,"createGUI()");
+    return NULL;
+}
+
+void i_destroy(void **app)
+{
+    return;
+}
+
+</code>
+
+<comment>
+We don't use osmain() because it's a macro that generate the main() function
+</comment>
+
+<register>
+void osmain(void)
+</register>
+
+<code>
+RING_FUNC(ring_osmain) {
+	pVM = (VM *) pPointer;
+	osmain_imp(pVM->pRingState->nArgc,pVM->pRingState->pArgv,
+		   NULL,0,i_create,NULL,i_destroy,NULL);
+}
 </code>
 
 <runcode>
@@ -46,7 +76,6 @@ aStringTypes + "byte_t *"
 aStringTypes + "const byte_t *"
 
 </runcode>
-
 
 <constant>
 ekGUI_HORIZONTAL
