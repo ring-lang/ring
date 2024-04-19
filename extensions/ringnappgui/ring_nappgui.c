@@ -13,6 +13,8 @@ VM *pVM;
 
 List *pEventsList;
 
+Event *pEvent;
+
 void *i_create(void)
 {
 	ring_vm_runcode(pVM,"create_gui()");
@@ -26,6 +28,7 @@ void i_destroy(void **app)
 
 void i_OnEvent(void *app, Event *e)
 {
+	pEvent = e;
 	ring_vm_runcode(pVM,(char *) app);
 }
 
@@ -33,8 +36,8 @@ void i_OnEvent(void *app, Event *e)
 RING_FUNC(ring_osmain) {
 
 	pVM = (VM *) pPointer;
-
 	pEventsList = ring_list_new(0);
+	pEvent = NULL;
 
 	osmain_imp(pVM->pRingState->nArgc,pVM->pRingState->pArgv,
 		   NULL,0,i_create,NULL,i_destroy,NULL);
@@ -73,6 +76,11 @@ RING_FUNC(ring_create_event) {
 RING_FUNC(ring_clean_events) {
 	if (pEventsList == NULL) return ;
 	pEventsList = ring_list_delete(pEventsList);
+}
+
+RING_FUNC(ring_event_object) {
+	if (pEvent == NULL) return ;
+	RING_API_RETCPOINTER(pEvent,"Event *");
 }
 
 RING_FUNC(ring_get_ekgui_horizontal)
@@ -34419,6 +34427,7 @@ RING_LIBINIT
 	RING_API_REGISTER("osmain",ring_osmain);
 	RING_API_REGISTER("create_event",ring_create_event);
 	RING_API_REGISTER("clean_events",ring_clean_events);
+	RING_API_REGISTER("event_object",ring_event_object);
 	RING_API_REGISTER("unicode_convers",ring_unicode_convers);
 	RING_API_REGISTER("unicode_convers_n",ring_unicode_convers_n);
 	RING_API_REGISTER("unicode_convers_nbytes",ring_unicode_convers_nbytes);

@@ -17,6 +17,8 @@ VM *pVM;
 
 List *pEventsList;
 
+Event *pEvent;
+
 void *i_create(void)
 {
 	ring_vm_runcode(pVM,"create_gui()");
@@ -30,6 +32,7 @@ void i_destroy(void **app)
 
 void i_OnEvent(void *app, Event *e)
 {
+	pEvent = e;
 	ring_vm_runcode(pVM,(char *) app);
 }
 
@@ -42,7 +45,8 @@ We don't use osmain() because it's a macro that generate the main() function
 <register>
 void osmain(void)
 void create_event(const char *cEvent)
-void clean_events()
+void clean_events(void)
+Event *event_object(void)
 </register>
 
 <code>
@@ -50,8 +54,8 @@ void clean_events()
 RING_FUNC(ring_osmain) {
 
 	pVM = (VM *) pPointer;
-
 	pEventsList = ring_list_new(0);
+	pEvent = NULL;
 
 	osmain_imp(pVM->pRingState->nArgc,pVM->pRingState->pArgv,
 		   NULL,0,i_create,NULL,i_destroy,NULL);
@@ -90,6 +94,11 @@ RING_FUNC(ring_create_event) {
 RING_FUNC(ring_clean_events) {
 	if (pEventsList == NULL) return ;
 	pEventsList = ring_list_delete(pEventsList);
+}
+
+RING_FUNC(ring_event_object) {
+	if (pEvent == NULL) return ;
+	RING_API_RETCPOINTER(pEvent,"Event *");
 }
 
 </code>
