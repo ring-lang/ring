@@ -22,11 +22,50 @@ void i_destroy(void **app)
 return;
 }
 
+typedef struct _appevent_t App;
+
+struct _appevent_t
+{
+char cEvent[256];
+};
+
+void i_OnEvent(App *app, Event *e)
+{
+	ring_vm_runcode(pVM,app->cEvent);
+}
+
+
 RING_FUNC(ring_osmain) {
 	pVM = (VM *) pPointer;
 	osmain_imp(pVM->pRingState->nArgc,pVM->pRingState->pArgv,
 		   NULL,0,i_create,NULL,i_destroy,NULL);
 }
+
+RING_FUNC(ring_guievent) {
+	Listener *pListener;
+	char *cEvent;
+	// Check parameters count
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	// Check parameters type
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	// Check string size
+	cEvent = RING_API_GETSTRING(1);
+	if ( RING_API_GETSTRINGSIZE(1) > 255 ) {
+		RING_API_ERROR("The event code must be <= 255 characters");
+		return;
+	}
+	App *object = (App *) ring_state_malloc(pVM->pRingState,sizeof(App));
+	strcpy(object->cEvent, cEvent);
+	pListener = listener_imp((void *) object, (FPtr_event_handler) i_OnEvent);
+	RING_API_RETCPOINTER(pListener,"Listener *");
+}
+
 RING_FUNC(ring_get_ekgui_horizontal)
 {
 	RING_API_RETNUMBER(ekGUI_HORIZONTAL);
@@ -34369,6 +34408,7 @@ RING_FUNC(ring_array_bsearch_ptr)
 RING_LIBINIT
 {
 	RING_API_REGISTER("osmain",ring_osmain);
+	RING_API_REGISTER("guievent",ring_guievent);
 	RING_API_REGISTER("unicode_convers",ring_unicode_convers);
 	RING_API_REGISTER("unicode_convers_n",ring_unicode_convers_n);
 	RING_API_REGISTER("unicode_convers_nbytes",ring_unicode_convers_nbytes);
