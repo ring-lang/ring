@@ -9,6 +9,7 @@ typedef struct bmp_header bmp_header;
 typedef struct jpeg_header jpeg_header;
 typedef struct ppm_header ppm_header;
 typedef struct pdf_img_info pdf_img_info;
+typedef struct pdf_path_operation pdf_path_operation;
 RING_FUNC(ring_new_png_header)
 {
 	png_header *pMyPointer ;
@@ -1033,6 +1034,252 @@ RING_FUNC(ring_set_pdf_img_info_height)
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"pdf_img_info");
 	pMyPointer->height = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_new_pdf_path_operation)
+{
+	pdf_path_operation *pMyPointer ;
+	pMyPointer = (pdf_path_operation *) RING_API_MALLOC(sizeof(pdf_path_operation)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"pdf_path_operation");
+}
+
+RING_FUNC(ring_new_managed_pdf_path_operation)
+{
+	pdf_path_operation *pMyPointer ;
+	pMyPointer = (pdf_path_operation *) RING_API_MALLOC(sizeof(pdf_path_operation)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"pdf_path_operation",RING_API_FREEFUNC);
+}
+
+RING_FUNC(ring_destroy_pdf_path_operation)
+{
+	pdf_path_operation *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = (pdf_path_operation*) RING_API_GETCPOINTER(1,"pdf_path_operation");
+	if (pMyPointer != NULL) {
+		RING_API_FREE(pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_get_pdf_path_operation_x1)
+{
+	pdf_path_operation *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"pdf_path_operation");
+	RING_API_RETNUMBER(pMyPointer->x1);
+}
+
+RING_FUNC(ring_set_pdf_path_operation_x1)
+{
+	pdf_path_operation *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"pdf_path_operation");
+	pMyPointer->x1 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_pdf_path_operation_y1)
+{
+	pdf_path_operation *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"pdf_path_operation");
+	RING_API_RETNUMBER(pMyPointer->y1);
+}
+
+RING_FUNC(ring_set_pdf_path_operation_y1)
+{
+	pdf_path_operation *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"pdf_path_operation");
+	pMyPointer->y1 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_pdf_path_operation_x2)
+{
+	pdf_path_operation *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"pdf_path_operation");
+	RING_API_RETNUMBER(pMyPointer->x2);
+}
+
+RING_FUNC(ring_set_pdf_path_operation_x2)
+{
+	pdf_path_operation *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"pdf_path_operation");
+	pMyPointer->x2 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_pdf_path_operation_y2)
+{
+	pdf_path_operation *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"pdf_path_operation");
+	RING_API_RETNUMBER(pMyPointer->y2);
+}
+
+RING_FUNC(ring_set_pdf_path_operation_y2)
+{
+	pdf_path_operation *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"pdf_path_operation");
+	pMyPointer->y2 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_pdf_path_operation_x3)
+{
+	pdf_path_operation *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"pdf_path_operation");
+	RING_API_RETNUMBER(pMyPointer->x3);
+}
+
+RING_FUNC(ring_set_pdf_path_operation_x3)
+{
+	pdf_path_operation *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"pdf_path_operation");
+	pMyPointer->x3 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_pdf_path_operation_y3)
+{
+	pdf_path_operation *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"pdf_path_operation");
+	RING_API_RETNUMBER(pMyPointer->y3);
+}
+
+RING_FUNC(ring_set_pdf_path_operation_y3)
+{
+	pdf_path_operation *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"pdf_path_operation");
+	pMyPointer->y3 = RING_API_GETNUMBER(2);
 }
 
 RING_FUNC(ring_get_image_png)
@@ -2374,6 +2621,21 @@ RING_LIBINIT
 	RING_API_REGISTER("set_pdf_img_info_width",ring_set_pdf_img_info_width);
 	RING_API_REGISTER("get_pdf_img_info_height",ring_get_pdf_img_info_height);
 	RING_API_REGISTER("set_pdf_img_info_height",ring_set_pdf_img_info_height);
+	RING_API_REGISTER("new_pdf_path_operation",ring_new_pdf_path_operation);
+	RING_API_REGISTER("new_managed_pdf_path_operation",ring_new_managed_pdf_path_operation);
+	RING_API_REGISTER("destroy_pdf_path_operation",ring_destroy_pdf_path_operation);
+	RING_API_REGISTER("get_pdf_path_operation_x1",ring_get_pdf_path_operation_x1);
+	RING_API_REGISTER("set_pdf_path_operation_x1",ring_set_pdf_path_operation_x1);
+	RING_API_REGISTER("get_pdf_path_operation_y1",ring_get_pdf_path_operation_y1);
+	RING_API_REGISTER("set_pdf_path_operation_y1",ring_set_pdf_path_operation_y1);
+	RING_API_REGISTER("get_pdf_path_operation_x2",ring_get_pdf_path_operation_x2);
+	RING_API_REGISTER("set_pdf_path_operation_x2",ring_set_pdf_path_operation_x2);
+	RING_API_REGISTER("get_pdf_path_operation_y2",ring_get_pdf_path_operation_y2);
+	RING_API_REGISTER("set_pdf_path_operation_y2",ring_set_pdf_path_operation_y2);
+	RING_API_REGISTER("get_pdf_path_operation_x3",ring_get_pdf_path_operation_x3);
+	RING_API_REGISTER("set_pdf_path_operation_x3",ring_set_pdf_path_operation_x3);
+	RING_API_REGISTER("get_pdf_path_operation_y3",ring_get_pdf_path_operation_y3);
+	RING_API_REGISTER("set_pdf_path_operation_y3",ring_set_pdf_path_operation_y3);
 	RING_API_REGISTER("get_image_png",ring_get_image_png);
 	RING_API_REGISTER("get_image_jpg",ring_get_image_jpg);
 	RING_API_REGISTER("get_image_ppm",ring_get_image_ppm);

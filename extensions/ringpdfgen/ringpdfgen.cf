@@ -8,6 +8,7 @@ typedef struct bmp_header bmp_header;
 typedef struct jpeg_header jpeg_header;
 typedef struct ppm_header ppm_header;
 typedef struct pdf_img_info pdf_img_info;
+typedef struct pdf_path_operation pdf_path_operation;
 </code>
 
 <struct>
@@ -16,6 +17,7 @@ bmp_header {bfSize,bfReserved1,bfReserved2,bfOffBits,biSize,biWidth,biHeight,biP
 jpeg_header {ncolours}
 ppm_header {size,data_begin_pos,color_space}
 pdf_img_info {image_format,width,height}
+pdf_path_operation {x1,y1,x2,y2,x3,y3}
 </struct>
 
 <constant>
