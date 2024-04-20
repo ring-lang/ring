@@ -2556,6 +2556,54 @@ RING_FUNC(ring_pdf_parse_image_header)
 	RING_API_RETNUMBER(pdf_parse_image_header((struct pdf_img_info *) RING_API_GETCPOINTER(1,"struct pdf_img_info"),(uint8_t *) RING_API_GETCPOINTER(2,"uint8_t"), (size_t ) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (size_t ) RING_API_GETNUMBER(5)));
 }
 
+
+RING_FUNC(ring_PDF_RGB)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(PDF_RGB( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_PDF_ARGB)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(PDF_ARGB( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4)));
+}
+
 RING_LIBINIT
 {
 	RING_API_REGISTER("pdf_create",ring_pdf_create);
@@ -2592,6 +2640,8 @@ RING_LIBINIT
 	RING_API_REGISTER("pdf_add_grayscale8",ring_pdf_add_grayscale8);
 	RING_API_REGISTER("pdf_add_image_file",ring_pdf_add_image_file);
 	RING_API_REGISTER("pdf_parse_image_header",ring_pdf_parse_image_header);
+	RING_API_REGISTER("pdf_rgb",ring_PDF_RGB);
+	RING_API_REGISTER("pdf_argb",ring_PDF_ARGB);
 	RING_API_REGISTER("new_png_header",ring_new_png_header);
 	RING_API_REGISTER("new_managed_png_header",ring_new_managed_png_header);
 	RING_API_REGISTER("destroy_png_header",ring_destroy_png_header);
