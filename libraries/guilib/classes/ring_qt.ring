@@ -22804,7 +22804,7 @@ Class QNetworkAccessManager from QObject
 		return QNetworkAccessManager_configuration(pObject)
 
 	Func connectToHost P1,P2
-		return QNetworkAccessManager_connectToHost(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return QNetworkAccessManager_connectToHost(pObject,P1,P2)
 
 	Func cookieJar 
 		return QNetworkAccessManager_cookieJar(pObject)
@@ -24154,7 +24154,7 @@ Class QWebEnginePage from QObject
 		return QWebEnginePage_runJavaScript(pObject,P1)
 
 	Func runJavaScript_2 P1,P2
-		return QWebEnginePage_runJavaScript_2(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return QWebEnginePage_runJavaScript_2(pObject,P1,P2)
 
 	Func save P1,P2
 		return QWebEnginePage_save(pObject,P1,GetObjectPointerFromRingObject(P2))
