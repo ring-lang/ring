@@ -1,0 +1,1 @@
+load "/../../extensions/ringpdfgen/pdfgen.ring"
