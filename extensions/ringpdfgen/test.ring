@@ -1,15 +1,14 @@
 load "pdfgen.ring"
 
-info = pdf_info([
+pdf = pdf_create(PDF_A4_WIDTH, PDF_A4_HEIGHT, [
 		:creator  = "My software",
 		:producer = "My software",
 		:title    = "My document",
 		:author   = "My name",
 		:subject  = "My subject",
 		:date     = "Today"
-	])
+] )
 
-pdf = pdf_create(PDF_A4_WIDTH, PDF_A4_HEIGHT, varptr(:info,"struct pdf_info") )
 pdf_set_font(pdf, "Times-Roman")
 pdf_append_page(pdf)
 

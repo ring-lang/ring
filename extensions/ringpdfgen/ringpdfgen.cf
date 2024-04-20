@@ -73,7 +73,7 @@ aNumberTypes + "const int32_t"
 Create/Destroy
 </comment>
 
-struct pdf_doc *pdf_create(float width, float height,const struct pdf_info *info)
+struct pdf_doc *pdf_create@2(float width, float height,const struct pdf_info *info)
 void pdf_destroy(struct pdf_doc *pdf)
 
 <comment>

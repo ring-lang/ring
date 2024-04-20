@@ -1472,7 +1472,7 @@ RING_FUNC(ring_get_pdf_align_no_write)
 }
 
 
-RING_FUNC(ring_pdf_create)
+RING_FUNC(ring_pdf_create_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -2606,7 +2606,7 @@ RING_FUNC(ring_PDF_ARGB)
 
 RING_LIBINIT
 {
-	RING_API_REGISTER("pdf_create",ring_pdf_create);
+	RING_API_REGISTER("pdf_create_2",ring_pdf_create_2);
 	RING_API_REGISTER("pdf_destroy",ring_pdf_destroy);
 	RING_API_REGISTER("pdf_get_err",ring_pdf_get_err);
 	RING_API_REGISTER("pdf_clear_err",ring_pdf_clear_err);

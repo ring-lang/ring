@@ -8,7 +8,7 @@ ok
 
 load "ring_pdfgen.rh"
 
-func pdf_info(aList)
+func pdf_info aList
 
 	cNewStr = "" 
 
@@ -29,3 +29,8 @@ func pdf_info(aList)
 	cNewStr = creator+producer+title+author+subject+date
 
 	return cNewStr
+
+func pdf_create nWidth,nHeight,aInfo
+
+	info = pdf_info(aInfo)
+	return pdf_create_2(nWidth, nHeight, varptr(:info,"struct pdf_info") )
