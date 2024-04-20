@@ -68,3 +68,16 @@ int pdf_add_filled_rectangle(struct pdf_doc *pdf, struct pdf_object *page,float 
 int pdf_add_polygon(struct pdf_doc *pdf, struct pdf_object *page, float x[],float y[], int count, float border_width,uint32_t colour)
 int pdf_add_filled_polygon(struct pdf_doc *pdf, struct pdf_object *page,float x[], float y[], int count,float border_width, uint32_t colour)
 </comment>
+
+<comment>
+More functions
+</comment>
+
+int pdf_add_bookmark(struct pdf_doc *pdf, struct pdf_object *page, int parent,const char *name)
+int pdf_add_link(struct pdf_doc *pdf, struct pdf_object *page, float x,float y, float width, float height,struct pdf_object *target_page, float target_x,float target_y)
+int pdf_add_barcode(struct pdf_doc *pdf, struct pdf_object *page, int code,float x, float y, float width, float height,const char *string, uint32_t colour)
+int pdf_add_image_data(struct pdf_doc *pdf, struct pdf_object *page, float x,float y, float display_width, float display_height,const uint8_t *data, size_t len)
+int pdf_add_rgb24(struct pdf_doc *pdf, struct pdf_object *page, float x,float y, float display_width, float display_height,const uint8_t *data, uint32_t width, uint32_t height)
+int pdf_add_grayscale8(struct pdf_doc *pdf, struct pdf_object *page, float x,float y, float display_width, float display_height,const uint8_t *data, uint32_t width, uint32_t height)
+int pdf_add_image_file(struct pdf_doc *pdf, struct pdf_object *page, float x,float y, float display_width, float display_height,const char *image_filename)
+int pdf_parse_image_header(struct pdf_img_info *info, const uint8_t *data,size_t length, char *err_msg,size_t err_msg_length)
