@@ -24453,7 +24453,7 @@ Class QSerialPort from QIODevice
 		return QSerialPort_readBufferSize(pObject)
 
 	Func setBaudRate P1,P2
-		return QSerialPort_setBaudRate(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return QSerialPort_setBaudRate(pObject,P1,P2)
 
 	Func setBreakEnabled P1
 		return QSerialPort_setBreakEnabled(pObject,P1)

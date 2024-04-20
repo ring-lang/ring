@@ -1,6 +1,8 @@
 <runcode>
 
+aNumberTypes + "bool"
 aNumberTypes + "qreal"
+aNumberTypes + "qint32"
 aNumberTypes + "qint64"
 aNumberTypes + "ushort"
 aNumberTypes + "ulong"
