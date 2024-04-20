@@ -37,18 +37,34 @@ struct pdf_object *pdf_get_page(struct pdf_doc *pdf, int page_number)
 int pdf_page_set_size(struct pdf_doc *pdf, struct pdf_object *page,float width, float height)
 
 <comment>
-file
+File
 </comment>
 
 int pdf_save(struct pdf_doc *pdf, const char *filename)
 int pdf_save_file(struct pdf_doc *pdf, FILE *fp)
 
 <comment>
-text
+Text
 </comment>
 
 int pdf_add_text(struct pdf_doc *pdf, struct pdf_object *page,const char *text, float size, float xoff, float yoff,uint32_t colour)
 int pdf_add_text_rotate(struct pdf_doc *pdf, struct pdf_object *page,const char *text, float size, float xoff, float yoff,float angle, uint32_t colour)
 int pdf_add_text_wrap(struct pdf_doc *pdf, struct pdf_object *page,const char *text, float size, float xoff, float yoff,float angle, uint32_t colour, float wrap_width,int align, float *height)
 
+<comment>
+Drawing
+</comment>
 
+
+int pdf_add_line(struct pdf_doc *pdf, struct pdf_object *page, float x1,float y1, float x2, float y2, float width, uint32_t colour)
+int pdf_add_cubic_bezier(struct pdf_doc *pdf, struct pdf_object *page,float x1, float y1, float x2, float y2, float xq1,float yq1, float xq2, float yq2, float width,uint32_t colour)
+int pdf_add_quadratic_bezier(struct pdf_doc *pdf, struct pdf_object *page,float x1, float y1, float x2, float y2,float xq1, float yq1, float width,uint32_t colour)
+int pdf_add_custom_path(struct pdf_doc *pdf, struct pdf_object *page,const struct pdf_path_operation *operations,int operation_count, float stroke_width,uint32_t stroke_colour, uint32_t fill_colour)
+int pdf_add_ellipse(struct pdf_doc *pdf, struct pdf_object *page, float x,float y, float xradius, float yradius, float width,uint32_t colour, uint32_t fill_colour)
+int pdf_add_circle(struct pdf_doc *pdf, struct pdf_object *page, float x,float y, float radius, float width, uint32_t colour,uint32_t fill_colour)
+int pdf_add_rectangle(struct pdf_doc *pdf, struct pdf_object *page, float x,float y, float width, float height, float border_width,uint32_t colour)
+int pdf_add_filled_rectangle(struct pdf_doc *pdf, struct pdf_object *page,float x, float y, float width, float height,float border_width, uint32_t colour_fill,uint32_t colour_border)
+<comment>
+int pdf_add_polygon(struct pdf_doc *pdf, struct pdf_object *page, float x[],float y[], int count, float border_width,uint32_t colour)
+int pdf_add_filled_polygon(struct pdf_doc *pdf, struct pdf_object *page,float x[], float y[], int count,float border_width, uint32_t colour)
+</comment>
