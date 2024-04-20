@@ -72,6 +72,11 @@ cd ../ringrogueutil
 ./gencode.sh
 ./buildgcc.sh
 
+# Build RingPDFGen
+cd ../ringpdfgen
+./gencode.sh
+./buildgcc.sh
+
 # Build RingConsoleColors
 cd ../ringconsolecolors
 ./gencode.sh

@@ -178,6 +178,11 @@ cd ringrogueutil
 call buildvc
 cd ..
 
+rem build RingPDFGen
+cd ringpdfgen
+call buildvc
+cd ..
+
 rem build RingFastPro
 cd ringfastpro
 call buildvc

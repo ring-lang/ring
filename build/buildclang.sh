@@ -105,6 +105,11 @@ cd ../ringopenssl
 cd ../ringsockets
 ./buildclang.sh
 
+# Build RingPDFGen
+cd ../ringpdfgen
+./gencode.sh
+./buildclang.sh
+
 # Build RingFastPro
 cd ../ringfastpro
 ./buildclang.sh
