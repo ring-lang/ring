@@ -17,7 +17,7 @@ bmp_header {bfSize,bfReserved1,bfReserved2,bfOffBits,biSize,biWidth,biHeight,biP
 jpeg_header {ncolours}
 ppm_header {size,data_begin_pos,color_space}
 pdf_img_info {image_format,width,height}
-pdf_path_operation {x1,y1,x2,y2,x3,y3}
+pdf_path_operation {op,x1,y1,x2,y2,x3,y3}
 </struct>
 
 <constant>
