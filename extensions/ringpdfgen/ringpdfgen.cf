@@ -42,3 +42,13 @@ file
 
 int pdf_save(struct pdf_doc *pdf, const char *filename)
 int pdf_save_file(struct pdf_doc *pdf, FILE *fp)
+
+<comment>
+text
+</comment>
+
+int pdf_add_text(struct pdf_doc *pdf, struct pdf_object *page,const char *text, float size, float xoff, float yoff,uint32_t colour)
+int pdf_add_text_rotate(struct pdf_doc *pdf, struct pdf_object *page,const char *text, float size, float xoff, float yoff,float angle, uint32_t colour)
+int pdf_add_text_wrap(struct pdf_doc *pdf, struct pdf_object *page,const char *text, float size, float xoff, float yoff,float angle, uint32_t colour, float wrap_width,int align, float *height)
+
+
