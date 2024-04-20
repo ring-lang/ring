@@ -35,3 +35,10 @@ float pdf_page_width(const struct pdf_object *page)
 struct pdf_object *pdf_append_page(struct pdf_doc *pdf)
 struct pdf_object *pdf_get_page(struct pdf_doc *pdf, int page_number)
 int pdf_page_set_size(struct pdf_doc *pdf, struct pdf_object *page,float width, float height)
+
+<comment>
+file
+</comment>
+
+int pdf_save(struct pdf_doc *pdf, const char *filename)
+int pdf_save_file(struct pdf_doc *pdf, FILE *fp)

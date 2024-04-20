@@ -233,6 +233,42 @@ RING_FUNC(ring_pdf_page_set_size)
 	RING_API_RETNUMBER(pdf_page_set_size((struct pdf_doc *) RING_API_GETCPOINTER(1,"struct pdf_doc"),(struct pdf_object *) RING_API_GETCPOINTER(2,"struct pdf_object"), (float ) RING_API_GETNUMBER(3), (float ) RING_API_GETNUMBER(4)));
 }
 
+
+RING_FUNC(ring_pdf_save)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pdf_save((struct pdf_doc *) RING_API_GETCPOINTER(1,"struct pdf_doc"),RING_API_GETSTRING(2)));
+}
+
+
+RING_FUNC(ring_pdf_save_file)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pdf_save_file((struct pdf_doc *) RING_API_GETCPOINTER(1,"struct pdf_doc"),(FILE *) RING_API_GETCPOINTER(2,"FILE")));
+}
+
 RING_LIBINIT
 {
 	RING_API_REGISTER("pdf_create",ring_pdf_create);
@@ -248,4 +284,6 @@ RING_LIBINIT
 	RING_API_REGISTER("pdf_append_page",ring_pdf_append_page);
 	RING_API_REGISTER("pdf_get_page",ring_pdf_get_page);
 	RING_API_REGISTER("pdf_page_set_size",ring_pdf_page_set_size);
+	RING_API_REGISTER("pdf_save",ring_pdf_save);
+	RING_API_REGISTER("pdf_save_file",ring_pdf_save_file);
 }
