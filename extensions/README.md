@@ -80,3 +80,5 @@ The RingRogueUtil folder contains the Ring binding to RogueUtil library
 The RingFastPro folder contains functions for bytes/list processing
 
 The RingNAPPGUI folder contains the Ring binding to NAPPGUI (Cross-Platform C SDK)
+
+The RingPDFGen folder contains the Ring binding to PDFGen library
