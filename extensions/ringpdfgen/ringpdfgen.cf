@@ -5,3 +5,5 @@
 
 struct pdf_doc *pdf_create(float width, float height,const struct pdf_info *info)
 void pdf_destroy(struct pdf_doc *pdf)
+const char *pdf_get_err(const struct pdf_doc *pdf, int *errval)
+void pdf_clear_err(struct pdf_doc *pdf)
