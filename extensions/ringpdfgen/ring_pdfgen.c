@@ -6,6 +6,9 @@
 typedef struct pdf_info pdf_info;
 typedef struct png_header png_header;
 typedef struct bmp_header bmp_header;
+typedef struct jpeg_header jpeg_header;
+typedef struct ppm_header ppm_header;
+typedef struct pdf_img_info pdf_img_info;
 RING_FUNC(ring_new_png_header)
 {
 	png_header *pMyPointer ;
@@ -666,6 +669,370 @@ RING_FUNC(ring_set_bmp_header_biCompression)
 	}
 	pMyPointer = RING_API_GETCPOINTER(1,"bmp_header");
 	pMyPointer->biCompression = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_new_jpeg_header)
+{
+	jpeg_header *pMyPointer ;
+	pMyPointer = (jpeg_header *) RING_API_MALLOC(sizeof(jpeg_header)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"jpeg_header");
+}
+
+RING_FUNC(ring_new_managed_jpeg_header)
+{
+	jpeg_header *pMyPointer ;
+	pMyPointer = (jpeg_header *) RING_API_MALLOC(sizeof(jpeg_header)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"jpeg_header",RING_API_FREEFUNC);
+}
+
+RING_FUNC(ring_destroy_jpeg_header)
+{
+	jpeg_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = (jpeg_header*) RING_API_GETCPOINTER(1,"jpeg_header");
+	if (pMyPointer != NULL) {
+		RING_API_FREE(pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_get_jpeg_header_ncolours)
+{
+	jpeg_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"jpeg_header");
+	RING_API_RETNUMBER(pMyPointer->ncolours);
+}
+
+RING_FUNC(ring_set_jpeg_header_ncolours)
+{
+	jpeg_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"jpeg_header");
+	pMyPointer->ncolours = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_new_ppm_header)
+{
+	ppm_header *pMyPointer ;
+	pMyPointer = (ppm_header *) RING_API_MALLOC(sizeof(ppm_header)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"ppm_header");
+}
+
+RING_FUNC(ring_new_managed_ppm_header)
+{
+	ppm_header *pMyPointer ;
+	pMyPointer = (ppm_header *) RING_API_MALLOC(sizeof(ppm_header)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"ppm_header",RING_API_FREEFUNC);
+}
+
+RING_FUNC(ring_destroy_ppm_header)
+{
+	ppm_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = (ppm_header*) RING_API_GETCPOINTER(1,"ppm_header");
+	if (pMyPointer != NULL) {
+		RING_API_FREE(pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_get_ppm_header_size)
+{
+	ppm_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ppm_header");
+	RING_API_RETNUMBER(pMyPointer->size);
+}
+
+RING_FUNC(ring_set_ppm_header_size)
+{
+	ppm_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ppm_header");
+	pMyPointer->size = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_ppm_header_data_begin_pos)
+{
+	ppm_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ppm_header");
+	RING_API_RETNUMBER(pMyPointer->data_begin_pos);
+}
+
+RING_FUNC(ring_set_ppm_header_data_begin_pos)
+{
+	ppm_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ppm_header");
+	pMyPointer->data_begin_pos = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_ppm_header_color_space)
+{
+	ppm_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ppm_header");
+	RING_API_RETNUMBER(pMyPointer->color_space);
+}
+
+RING_FUNC(ring_set_ppm_header_color_space)
+{
+	ppm_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"ppm_header");
+	pMyPointer->color_space = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_new_pdf_img_info)
+{
+	pdf_img_info *pMyPointer ;
+	pMyPointer = (pdf_img_info *) RING_API_MALLOC(sizeof(pdf_img_info)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"pdf_img_info");
+}
+
+RING_FUNC(ring_new_managed_pdf_img_info)
+{
+	pdf_img_info *pMyPointer ;
+	pMyPointer = (pdf_img_info *) RING_API_MALLOC(sizeof(pdf_img_info)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"pdf_img_info",RING_API_FREEFUNC);
+}
+
+RING_FUNC(ring_destroy_pdf_img_info)
+{
+	pdf_img_info *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = (pdf_img_info*) RING_API_GETCPOINTER(1,"pdf_img_info");
+	if (pMyPointer != NULL) {
+		RING_API_FREE(pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_get_pdf_img_info_image_format)
+{
+	pdf_img_info *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"pdf_img_info");
+	RING_API_RETNUMBER(pMyPointer->image_format);
+}
+
+RING_FUNC(ring_set_pdf_img_info_image_format)
+{
+	pdf_img_info *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"pdf_img_info");
+	pMyPointer->image_format = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_pdf_img_info_width)
+{
+	pdf_img_info *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"pdf_img_info");
+	RING_API_RETNUMBER(pMyPointer->width);
+}
+
+RING_FUNC(ring_set_pdf_img_info_width)
+{
+	pdf_img_info *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"pdf_img_info");
+	pMyPointer->width = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_pdf_img_info_height)
+{
+	pdf_img_info *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"pdf_img_info");
+	RING_API_RETNUMBER(pMyPointer->height);
+}
+
+RING_FUNC(ring_set_pdf_img_info_height)
+{
+	pdf_img_info *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"pdf_img_info");
+	pMyPointer->height = RING_API_GETNUMBER(2);
 }
 
 RING_FUNC(ring_get_image_png)
@@ -1984,6 +2351,29 @@ RING_LIBINIT
 	RING_API_REGISTER("set_bmp_header_bibitcount",ring_set_bmp_header_biBitCount);
 	RING_API_REGISTER("get_bmp_header_bicompression",ring_get_bmp_header_biCompression);
 	RING_API_REGISTER("set_bmp_header_bicompression",ring_set_bmp_header_biCompression);
+	RING_API_REGISTER("new_jpeg_header",ring_new_jpeg_header);
+	RING_API_REGISTER("new_managed_jpeg_header",ring_new_managed_jpeg_header);
+	RING_API_REGISTER("destroy_jpeg_header",ring_destroy_jpeg_header);
+	RING_API_REGISTER("get_jpeg_header_ncolours",ring_get_jpeg_header_ncolours);
+	RING_API_REGISTER("set_jpeg_header_ncolours",ring_set_jpeg_header_ncolours);
+	RING_API_REGISTER("new_ppm_header",ring_new_ppm_header);
+	RING_API_REGISTER("new_managed_ppm_header",ring_new_managed_ppm_header);
+	RING_API_REGISTER("destroy_ppm_header",ring_destroy_ppm_header);
+	RING_API_REGISTER("get_ppm_header_size",ring_get_ppm_header_size);
+	RING_API_REGISTER("set_ppm_header_size",ring_set_ppm_header_size);
+	RING_API_REGISTER("get_ppm_header_data_begin_pos",ring_get_ppm_header_data_begin_pos);
+	RING_API_REGISTER("set_ppm_header_data_begin_pos",ring_set_ppm_header_data_begin_pos);
+	RING_API_REGISTER("get_ppm_header_color_space",ring_get_ppm_header_color_space);
+	RING_API_REGISTER("set_ppm_header_color_space",ring_set_ppm_header_color_space);
+	RING_API_REGISTER("new_pdf_img_info",ring_new_pdf_img_info);
+	RING_API_REGISTER("new_managed_pdf_img_info",ring_new_managed_pdf_img_info);
+	RING_API_REGISTER("destroy_pdf_img_info",ring_destroy_pdf_img_info);
+	RING_API_REGISTER("get_pdf_img_info_image_format",ring_get_pdf_img_info_image_format);
+	RING_API_REGISTER("set_pdf_img_info_image_format",ring_set_pdf_img_info_image_format);
+	RING_API_REGISTER("get_pdf_img_info_width",ring_get_pdf_img_info_width);
+	RING_API_REGISTER("set_pdf_img_info_width",ring_set_pdf_img_info_width);
+	RING_API_REGISTER("get_pdf_img_info_height",ring_get_pdf_img_info_height);
+	RING_API_REGISTER("set_pdf_img_info_height",ring_set_pdf_img_info_height);
 	RING_API_REGISTER("get_image_png",ring_get_image_png);
 	RING_API_REGISTER("get_image_jpg",ring_get_image_jpg);
 	RING_API_REGISTER("get_image_ppm",ring_get_image_ppm);
