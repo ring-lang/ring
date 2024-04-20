@@ -3,6 +3,21 @@
 #include "lib/pdfgen.c"
 </code>
 
+<runcode>
+aNumberTypes + "unsigned int"
+aNumberTypes + "float"
+aNumberTypes + "uint8_t"
+aNumberTypes + "const uint8_t"
+aNumberTypes + "uint32_t"
+aNumberTypes + "const uint32_t"
+aNumberTypes + "int8_t"
+aNumberTypes + "const int8_t"
+aNumberTypes + "int32_t"
+aNumberTypes + "const int32_t"
+</runcode>
+
+
+
 <comment>
 Create/Destroy
 </comment>
