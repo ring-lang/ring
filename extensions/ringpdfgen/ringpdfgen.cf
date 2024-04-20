@@ -3,7 +3,24 @@
 #include "lib/pdfgen.c"
 </code>
 
+<comment>
+Create/Destroy
+</comment>
+
 struct pdf_doc *pdf_create(float width, float height,const struct pdf_info *info)
 void pdf_destroy(struct pdf_doc *pdf)
+
+<comment>
+Errors
+</comment>
+
 const char *pdf_get_err(const struct pdf_doc *pdf, int *errval)
 void pdf_clear_err(struct pdf_doc *pdf)
+
+<comment>
+Fonts
+</comment>
+
+int pdf_set_font(struct pdf_doc *pdf, const char *font)
+int pdf_get_font_text_width(struct pdf_doc *pdf, const char *font_name,const char *text, float size, float *text_width);
+
