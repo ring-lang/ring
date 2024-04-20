@@ -1,3 +1,6 @@
 <code>
 #include "lib/pdfgen.h"
+#include "lib/pdfgen.c"
 </code>
+
+struct pdf_doc *pdf_create(float width, float height,const struct pdf_info *info);
