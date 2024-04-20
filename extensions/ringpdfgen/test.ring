@@ -1,5 +1,7 @@
 load "pdfgen.ring"
 
+cPDFFileName = "output.pdf"
+
 pdf = pdf_create(PDF_A4_WIDTH, PDF_A4_HEIGHT, [
 		:creator  = "My software",
 		:producer = "My software",
@@ -22,9 +24,9 @@ next
 
 pdf_add_text(pdf, NULL, "I LOVE PROGRAMMING!", 48, 30, 700,PDF_BLUE)
 
-pdf_save(pdf, "output.pdf")
+pdf_save(pdf, cPDFFileName)
 pdf_destroy(pdf)
 
-system("output.pdf")
+system(cPDFFileName)
 
 
