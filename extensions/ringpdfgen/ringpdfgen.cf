@@ -1,7 +1,16 @@
 <code>
 #include "lib/pdfgen.h"
 #include "lib/pdfgen.c"
+
+typedef struct pdf_info pdf_info;
+typedef struct png_header png_header;
+typedef struct bmp_header bmp_header;
 </code>
+
+<struct>
+png_header {width,height,bitDepth,colorType,deflate,filtering,interlace}
+bmp_header {bfSize,bfReserved1,bfReserved2,bfOffBits,biSize,biWidth,biHeight,biPlanes,biBitCount,biCompression}
+</struct>
 
 <constant>
 IMAGE_PNG

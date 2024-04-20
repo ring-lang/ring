@@ -2,6 +2,672 @@
 
 #include "lib/pdfgen.h"
 #include "lib/pdfgen.c"
+
+typedef struct pdf_info pdf_info;
+typedef struct png_header png_header;
+typedef struct bmp_header bmp_header;
+RING_FUNC(ring_new_png_header)
+{
+	png_header *pMyPointer ;
+	pMyPointer = (png_header *) RING_API_MALLOC(sizeof(png_header)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"png_header");
+}
+
+RING_FUNC(ring_new_managed_png_header)
+{
+	png_header *pMyPointer ;
+	pMyPointer = (png_header *) RING_API_MALLOC(sizeof(png_header)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"png_header",RING_API_FREEFUNC);
+}
+
+RING_FUNC(ring_destroy_png_header)
+{
+	png_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = (png_header*) RING_API_GETCPOINTER(1,"png_header");
+	if (pMyPointer != NULL) {
+		RING_API_FREE(pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_get_png_header_width)
+{
+	png_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"png_header");
+	RING_API_RETNUMBER(pMyPointer->width);
+}
+
+RING_FUNC(ring_set_png_header_width)
+{
+	png_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"png_header");
+	pMyPointer->width = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_png_header_height)
+{
+	png_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"png_header");
+	RING_API_RETNUMBER(pMyPointer->height);
+}
+
+RING_FUNC(ring_set_png_header_height)
+{
+	png_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"png_header");
+	pMyPointer->height = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_png_header_bitDepth)
+{
+	png_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"png_header");
+	RING_API_RETNUMBER(pMyPointer->bitDepth);
+}
+
+RING_FUNC(ring_set_png_header_bitDepth)
+{
+	png_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"png_header");
+	pMyPointer->bitDepth = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_png_header_colorType)
+{
+	png_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"png_header");
+	RING_API_RETNUMBER(pMyPointer->colorType);
+}
+
+RING_FUNC(ring_set_png_header_colorType)
+{
+	png_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"png_header");
+	pMyPointer->colorType = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_png_header_deflate)
+{
+	png_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"png_header");
+	RING_API_RETNUMBER(pMyPointer->deflate);
+}
+
+RING_FUNC(ring_set_png_header_deflate)
+{
+	png_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"png_header");
+	pMyPointer->deflate = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_png_header_filtering)
+{
+	png_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"png_header");
+	RING_API_RETNUMBER(pMyPointer->filtering);
+}
+
+RING_FUNC(ring_set_png_header_filtering)
+{
+	png_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"png_header");
+	pMyPointer->filtering = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_png_header_interlace)
+{
+	png_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"png_header");
+	RING_API_RETNUMBER(pMyPointer->interlace);
+}
+
+RING_FUNC(ring_set_png_header_interlace)
+{
+	png_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"png_header");
+	pMyPointer->interlace = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_new_bmp_header)
+{
+	bmp_header *pMyPointer ;
+	pMyPointer = (bmp_header *) RING_API_MALLOC(sizeof(bmp_header)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"bmp_header");
+}
+
+RING_FUNC(ring_new_managed_bmp_header)
+{
+	bmp_header *pMyPointer ;
+	pMyPointer = (bmp_header *) RING_API_MALLOC(sizeof(bmp_header)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"bmp_header",RING_API_FREEFUNC);
+}
+
+RING_FUNC(ring_destroy_bmp_header)
+{
+	bmp_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = (bmp_header*) RING_API_GETCPOINTER(1,"bmp_header");
+	if (pMyPointer != NULL) {
+		RING_API_FREE(pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_get_bmp_header_bfSize)
+{
+	bmp_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"bmp_header");
+	RING_API_RETNUMBER(pMyPointer->bfSize);
+}
+
+RING_FUNC(ring_set_bmp_header_bfSize)
+{
+	bmp_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"bmp_header");
+	pMyPointer->bfSize = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_bmp_header_bfReserved1)
+{
+	bmp_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"bmp_header");
+	RING_API_RETNUMBER(pMyPointer->bfReserved1);
+}
+
+RING_FUNC(ring_set_bmp_header_bfReserved1)
+{
+	bmp_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"bmp_header");
+	pMyPointer->bfReserved1 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_bmp_header_bfReserved2)
+{
+	bmp_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"bmp_header");
+	RING_API_RETNUMBER(pMyPointer->bfReserved2);
+}
+
+RING_FUNC(ring_set_bmp_header_bfReserved2)
+{
+	bmp_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"bmp_header");
+	pMyPointer->bfReserved2 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_bmp_header_bfOffBits)
+{
+	bmp_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"bmp_header");
+	RING_API_RETNUMBER(pMyPointer->bfOffBits);
+}
+
+RING_FUNC(ring_set_bmp_header_bfOffBits)
+{
+	bmp_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"bmp_header");
+	pMyPointer->bfOffBits = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_bmp_header_biSize)
+{
+	bmp_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"bmp_header");
+	RING_API_RETNUMBER(pMyPointer->biSize);
+}
+
+RING_FUNC(ring_set_bmp_header_biSize)
+{
+	bmp_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"bmp_header");
+	pMyPointer->biSize = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_bmp_header_biWidth)
+{
+	bmp_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"bmp_header");
+	RING_API_RETNUMBER(pMyPointer->biWidth);
+}
+
+RING_FUNC(ring_set_bmp_header_biWidth)
+{
+	bmp_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"bmp_header");
+	pMyPointer->biWidth = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_bmp_header_biHeight)
+{
+	bmp_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"bmp_header");
+	RING_API_RETNUMBER(pMyPointer->biHeight);
+}
+
+RING_FUNC(ring_set_bmp_header_biHeight)
+{
+	bmp_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"bmp_header");
+	pMyPointer->biHeight = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_bmp_header_biPlanes)
+{
+	bmp_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"bmp_header");
+	RING_API_RETNUMBER(pMyPointer->biPlanes);
+}
+
+RING_FUNC(ring_set_bmp_header_biPlanes)
+{
+	bmp_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"bmp_header");
+	pMyPointer->biPlanes = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_bmp_header_biBitCount)
+{
+	bmp_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"bmp_header");
+	RING_API_RETNUMBER(pMyPointer->biBitCount);
+}
+
+RING_FUNC(ring_set_bmp_header_biBitCount)
+{
+	bmp_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"bmp_header");
+	pMyPointer->biBitCount = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_bmp_header_biCompression)
+{
+	bmp_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"bmp_header");
+	RING_API_RETNUMBER(pMyPointer->biCompression);
+}
+
+RING_FUNC(ring_set_bmp_header_biCompression)
+{
+	bmp_header *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"bmp_header");
+	pMyPointer->biCompression = RING_API_GETNUMBER(2);
+}
+
 RING_FUNC(ring_get_image_png)
 {
 	RING_API_RETNUMBER(IMAGE_PNG);
@@ -1278,6 +1944,46 @@ RING_LIBINIT
 	RING_API_REGISTER("pdf_add_grayscale8",ring_pdf_add_grayscale8);
 	RING_API_REGISTER("pdf_add_image_file",ring_pdf_add_image_file);
 	RING_API_REGISTER("pdf_parse_image_header",ring_pdf_parse_image_header);
+	RING_API_REGISTER("new_png_header",ring_new_png_header);
+	RING_API_REGISTER("new_managed_png_header",ring_new_managed_png_header);
+	RING_API_REGISTER("destroy_png_header",ring_destroy_png_header);
+	RING_API_REGISTER("get_png_header_width",ring_get_png_header_width);
+	RING_API_REGISTER("set_png_header_width",ring_set_png_header_width);
+	RING_API_REGISTER("get_png_header_height",ring_get_png_header_height);
+	RING_API_REGISTER("set_png_header_height",ring_set_png_header_height);
+	RING_API_REGISTER("get_png_header_bitdepth",ring_get_png_header_bitDepth);
+	RING_API_REGISTER("set_png_header_bitdepth",ring_set_png_header_bitDepth);
+	RING_API_REGISTER("get_png_header_colortype",ring_get_png_header_colorType);
+	RING_API_REGISTER("set_png_header_colortype",ring_set_png_header_colorType);
+	RING_API_REGISTER("get_png_header_deflate",ring_get_png_header_deflate);
+	RING_API_REGISTER("set_png_header_deflate",ring_set_png_header_deflate);
+	RING_API_REGISTER("get_png_header_filtering",ring_get_png_header_filtering);
+	RING_API_REGISTER("set_png_header_filtering",ring_set_png_header_filtering);
+	RING_API_REGISTER("get_png_header_interlace",ring_get_png_header_interlace);
+	RING_API_REGISTER("set_png_header_interlace",ring_set_png_header_interlace);
+	RING_API_REGISTER("new_bmp_header",ring_new_bmp_header);
+	RING_API_REGISTER("new_managed_bmp_header",ring_new_managed_bmp_header);
+	RING_API_REGISTER("destroy_bmp_header",ring_destroy_bmp_header);
+	RING_API_REGISTER("get_bmp_header_bfsize",ring_get_bmp_header_bfSize);
+	RING_API_REGISTER("set_bmp_header_bfsize",ring_set_bmp_header_bfSize);
+	RING_API_REGISTER("get_bmp_header_bfreserved1",ring_get_bmp_header_bfReserved1);
+	RING_API_REGISTER("set_bmp_header_bfreserved1",ring_set_bmp_header_bfReserved1);
+	RING_API_REGISTER("get_bmp_header_bfreserved2",ring_get_bmp_header_bfReserved2);
+	RING_API_REGISTER("set_bmp_header_bfreserved2",ring_set_bmp_header_bfReserved2);
+	RING_API_REGISTER("get_bmp_header_bfoffbits",ring_get_bmp_header_bfOffBits);
+	RING_API_REGISTER("set_bmp_header_bfoffbits",ring_set_bmp_header_bfOffBits);
+	RING_API_REGISTER("get_bmp_header_bisize",ring_get_bmp_header_biSize);
+	RING_API_REGISTER("set_bmp_header_bisize",ring_set_bmp_header_biSize);
+	RING_API_REGISTER("get_bmp_header_biwidth",ring_get_bmp_header_biWidth);
+	RING_API_REGISTER("set_bmp_header_biwidth",ring_set_bmp_header_biWidth);
+	RING_API_REGISTER("get_bmp_header_biheight",ring_get_bmp_header_biHeight);
+	RING_API_REGISTER("set_bmp_header_biheight",ring_set_bmp_header_biHeight);
+	RING_API_REGISTER("get_bmp_header_biplanes",ring_get_bmp_header_biPlanes);
+	RING_API_REGISTER("set_bmp_header_biplanes",ring_set_bmp_header_biPlanes);
+	RING_API_REGISTER("get_bmp_header_bibitcount",ring_get_bmp_header_biBitCount);
+	RING_API_REGISTER("set_bmp_header_bibitcount",ring_set_bmp_header_biBitCount);
+	RING_API_REGISTER("get_bmp_header_bicompression",ring_get_bmp_header_biCompression);
+	RING_API_REGISTER("set_bmp_header_bicompression",ring_set_bmp_header_biCompression);
 	RING_API_REGISTER("get_image_png",ring_get_image_png);
 	RING_API_REGISTER("get_image_jpg",ring_get_image_jpg);
 	RING_API_REGISTER("get_image_ppm",ring_get_image_ppm);
