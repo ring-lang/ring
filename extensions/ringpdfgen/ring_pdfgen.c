@@ -2,6 +2,161 @@
 
 #include "lib/pdfgen.h"
 #include "lib/pdfgen.c"
+RING_FUNC(ring_get_image_png)
+{
+	RING_API_RETNUMBER(IMAGE_PNG);
+}
+
+RING_FUNC(ring_get_image_jpg)
+{
+	RING_API_RETNUMBER(IMAGE_JPG);
+}
+
+RING_FUNC(ring_get_image_ppm)
+{
+	RING_API_RETNUMBER(IMAGE_PPM);
+}
+
+RING_FUNC(ring_get_image_bmp)
+{
+	RING_API_RETNUMBER(IMAGE_BMP);
+}
+
+RING_FUNC(ring_get_image_unknown)
+{
+	RING_API_RETNUMBER(IMAGE_UNKNOWN);
+}
+
+RING_FUNC(ring_get_png_color_greyscale)
+{
+	RING_API_RETNUMBER(PNG_COLOR_GREYSCALE);
+}
+
+RING_FUNC(ring_get_png_color_rgb)
+{
+	RING_API_RETNUMBER(PNG_COLOR_RGB);
+}
+
+RING_FUNC(ring_get_png_color_indexed)
+{
+	RING_API_RETNUMBER(PNG_COLOR_INDEXED);
+}
+
+RING_FUNC(ring_get_png_color_greyscale_a)
+{
+	RING_API_RETNUMBER(PNG_COLOR_GREYSCALE_A);
+}
+
+RING_FUNC(ring_get_png_color_rgba)
+{
+	RING_API_RETNUMBER(PNG_COLOR_RGBA);
+}
+
+RING_FUNC(ring_get_png_color_invalid)
+{
+	RING_API_RETNUMBER(PNG_COLOR_INVALID);
+}
+
+RING_FUNC(ring_get_ppm_binary_color_rgb)
+{
+	RING_API_RETNUMBER(PPM_BINARY_COLOR_RGB);
+}
+
+RING_FUNC(ring_get_ppm_binary_color_gray)
+{
+	RING_API_RETNUMBER(PPM_BINARY_COLOR_GRAY);
+}
+
+RING_FUNC(ring_get_pdf_letter_width)
+{
+	RING_API_RETNUMBER(PDF_LETTER_WIDTH);
+}
+
+RING_FUNC(ring_get_pdf_letter_height)
+{
+	RING_API_RETNUMBER(PDF_LETTER_HEIGHT);
+}
+
+RING_FUNC(ring_get_pdf_a4_width)
+{
+	RING_API_RETNUMBER(PDF_A4_WIDTH);
+}
+
+RING_FUNC(ring_get_pdf_a4_height)
+{
+	RING_API_RETNUMBER(PDF_A4_HEIGHT);
+}
+
+RING_FUNC(ring_get_pdf_a3_width)
+{
+	RING_API_RETNUMBER(PDF_A3_WIDTH);
+}
+
+RING_FUNC(ring_get_pdf_a3_height)
+{
+	RING_API_RETNUMBER(PDF_A3_HEIGHT);
+}
+
+RING_FUNC(ring_get_pdf_red)
+{
+	RING_API_RETNUMBER(PDF_RED);
+}
+
+RING_FUNC(ring_get_pdf_green)
+{
+	RING_API_RETNUMBER(PDF_GREEN);
+}
+
+RING_FUNC(ring_get_pdf_blue)
+{
+	RING_API_RETNUMBER(PDF_BLUE);
+}
+
+RING_FUNC(ring_get_pdf_black)
+{
+	RING_API_RETNUMBER(PDF_BLACK);
+}
+
+RING_FUNC(ring_get_pdf_white)
+{
+	RING_API_RETNUMBER(PDF_WHITE);
+}
+
+RING_FUNC(ring_get_pdf_transparent)
+{
+	RING_API_RETNUMBER(PDF_TRANSPARENT);
+}
+
+RING_FUNC(ring_get_pdf_align_left)
+{
+	RING_API_RETNUMBER(PDF_ALIGN_LEFT);
+}
+
+RING_FUNC(ring_get_pdf_align_right)
+{
+	RING_API_RETNUMBER(PDF_ALIGN_RIGHT);
+}
+
+RING_FUNC(ring_get_pdf_align_center)
+{
+	RING_API_RETNUMBER(PDF_ALIGN_CENTER);
+}
+
+RING_FUNC(ring_get_pdf_align_justify)
+{
+	RING_API_RETNUMBER(PDF_ALIGN_JUSTIFY);
+}
+
+RING_FUNC(ring_get_pdf_align_justify_all)
+{
+	RING_API_RETNUMBER(PDF_ALIGN_JUSTIFY_ALL);
+}
+
+RING_FUNC(ring_get_pdf_align_no_write)
+{
+	RING_API_RETNUMBER(PDF_ALIGN_NO_WRITE);
+}
+
 
 RING_FUNC(ring_pdf_create)
 {
@@ -1123,4 +1278,35 @@ RING_LIBINIT
 	RING_API_REGISTER("pdf_add_grayscale8",ring_pdf_add_grayscale8);
 	RING_API_REGISTER("pdf_add_image_file",ring_pdf_add_image_file);
 	RING_API_REGISTER("pdf_parse_image_header",ring_pdf_parse_image_header);
+	RING_API_REGISTER("get_image_png",ring_get_image_png);
+	RING_API_REGISTER("get_image_jpg",ring_get_image_jpg);
+	RING_API_REGISTER("get_image_ppm",ring_get_image_ppm);
+	RING_API_REGISTER("get_image_bmp",ring_get_image_bmp);
+	RING_API_REGISTER("get_image_unknown",ring_get_image_unknown);
+	RING_API_REGISTER("get_png_color_greyscale",ring_get_png_color_greyscale);
+	RING_API_REGISTER("get_png_color_rgb",ring_get_png_color_rgb);
+	RING_API_REGISTER("get_png_color_indexed",ring_get_png_color_indexed);
+	RING_API_REGISTER("get_png_color_greyscale_a",ring_get_png_color_greyscale_a);
+	RING_API_REGISTER("get_png_color_rgba",ring_get_png_color_rgba);
+	RING_API_REGISTER("get_png_color_invalid",ring_get_png_color_invalid);
+	RING_API_REGISTER("get_ppm_binary_color_rgb",ring_get_ppm_binary_color_rgb);
+	RING_API_REGISTER("get_ppm_binary_color_gray",ring_get_ppm_binary_color_gray);
+	RING_API_REGISTER("get_pdf_letter_width",ring_get_pdf_letter_width);
+	RING_API_REGISTER("get_pdf_letter_height",ring_get_pdf_letter_height);
+	RING_API_REGISTER("get_pdf_a4_width",ring_get_pdf_a4_width);
+	RING_API_REGISTER("get_pdf_a4_height",ring_get_pdf_a4_height);
+	RING_API_REGISTER("get_pdf_a3_width",ring_get_pdf_a3_width);
+	RING_API_REGISTER("get_pdf_a3_height",ring_get_pdf_a3_height);
+	RING_API_REGISTER("get_pdf_red",ring_get_pdf_red);
+	RING_API_REGISTER("get_pdf_green",ring_get_pdf_green);
+	RING_API_REGISTER("get_pdf_blue",ring_get_pdf_blue);
+	RING_API_REGISTER("get_pdf_black",ring_get_pdf_black);
+	RING_API_REGISTER("get_pdf_white",ring_get_pdf_white);
+	RING_API_REGISTER("get_pdf_transparent",ring_get_pdf_transparent);
+	RING_API_REGISTER("get_pdf_align_left",ring_get_pdf_align_left);
+	RING_API_REGISTER("get_pdf_align_right",ring_get_pdf_align_right);
+	RING_API_REGISTER("get_pdf_align_center",ring_get_pdf_align_center);
+	RING_API_REGISTER("get_pdf_align_justify",ring_get_pdf_align_justify);
+	RING_API_REGISTER("get_pdf_align_justify_all",ring_get_pdf_align_justify_all);
+	RING_API_REGISTER("get_pdf_align_no_write",ring_get_pdf_align_no_write);
 }
