@@ -10,3 +10,4 @@
 <loadfile> graphicsview/qgraphicsanchor.cf
 <loadfile> graphicsview/qgraphicsanchorlayout.cf
 <loadfile> graphicsview/qgraphicslayout.cf
+<loadfile> graphicsview/qgraphicsellipseitem.cf

@@ -20974,10 +20974,14 @@ Class QGraphicsScene from QObject
 		return QGraphicsScene_activeWindow(pObject)
 
 	Func addEllipse P1,P2,P3
-		return QGraphicsScene_addEllipse(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		pTempObj = new QGraphicsEllipseItem
+		pTempObj.pObject = QGraphicsScene_addEllipse(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return pTempObj
 
 	Func addEllipse_2 P1,P2,P3,P4,P5,P6
-		return QGraphicsScene_addEllipse_2(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6))
+		pTempObj = new QGraphicsEllipseItem
+		pTempObj.pObject = QGraphicsScene_addEllipse_2(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6))
+		return pTempObj
 
 	Func addItem P1
 		return QGraphicsScene_addItem(pObject,GetObjectPointerFromRingObject(P1))
@@ -21950,6 +21954,41 @@ Class QGraphicsLayout from QGraphicsLayoutItem
 
 	Func widgetEvent P1
 		return QGraphicsLayout_widgetEvent(GetObjectPointerFromRingObject(P1))
+
+Class QGraphicsEllipseItem from QAbstractGraphicsShapeItem
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsEllipseItem_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsEllipseItem_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func rect 
+		return QGraphicsEllipseItem_rect(pObject)
+
+	Func setRect P1
+		return QGraphicsEllipseItem_setRect(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setRect_2 P1,P2,P3,P4
+		return QGraphicsEllipseItem_setRect_2(pObject,P1,P2,P3,P4)
+
+	Func setSpanAngle P1
+		return QGraphicsEllipseItem_setSpanAngle(pObject,P1)
+
+	Func setStartAngle P1
+		return QGraphicsEllipseItem_setStartAngle(pObject,P1)
+
+	Func spanAngle 
+		return QGraphicsEllipseItem_spanAngle(pObject)
+
+	Func startAngle 
+		return QGraphicsEllipseItem_startAngle(pObject)
 
 Class QTest
 

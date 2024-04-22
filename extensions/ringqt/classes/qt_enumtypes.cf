@@ -456,4 +456,5 @@ aEnumTypes + "QGraphicsItem::GraphicsItemFlag"
 aEnumTypes + "QGraphicsItem::GraphicsItemFlags"
 aEnumTypes + "QGraphicsItem::PanelModality"
 aEnumTypes + "QGraphicsItem::anonymous"
+aEnumTypes + "QGraphicsEllipseItem::anonymous"
 </runcode>

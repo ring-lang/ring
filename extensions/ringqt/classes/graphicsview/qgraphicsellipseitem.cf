@@ -1,0 +1,13 @@
+<class>
+name: QGraphicsEllipseItem
+para: QGraphicsItem *
+parent: QAbstractGraphicsShapeItem
+</class>
+
+QRectF rect(void)
+void setRect(QRectF rect)
+void setRect@2(qreal x, qreal y, qreal width, qreal height)
+void setSpanAngle(int angle)
+void setStartAngle(int angle)
+int spanAngle(void)
+int startAngle(void)
