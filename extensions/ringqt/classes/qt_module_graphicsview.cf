@@ -11,3 +11,4 @@
 <loadfile> graphicsview/qgraphicsanchorlayout.cf
 <loadfile> graphicsview/qgraphicslayout.cf
 <loadfile> graphicsview/qgraphicsellipseitem.cf
+<loadfile> graphicsview/qgraphicsgridlayout.cf

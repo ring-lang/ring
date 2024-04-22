@@ -310,6 +310,7 @@ extern "C" {
 	void ring_QGraphicsAnchorLayout_freefunc(void *pState,void *pPointer);
 	void ring_QGraphicsLayout_freefunc(void *pState,void *pPointer);
 	void ring_QGraphicsEllipseItem_freefunc(void *pState,void *pPointer);
+	void ring_QGraphicsGridLayout_freefunc(void *pState,void *pPointer);
 	void ring_QTest_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
@@ -127333,6 +127334,905 @@ RING_FUNC(ring_QGraphicsEllipseItem_startAngle)
 }
 
 
+RING_FUNC(ring_QGraphicsGridLayout_addItem)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->addItem((QGraphicsLayoutItem *) RING_API_GETCPOINTER(2,"QGraphicsLayoutItem"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5), (int ) RING_API_GETNUMBER(6), (Qt::Alignment )  (int) RING_API_GETNUMBER(7));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_addItem_2)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->addItem((QGraphicsLayoutItem *) RING_API_GETCPOINTER(2,"QGraphicsLayoutItem"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (Qt::Alignment )  (int) RING_API_GETNUMBER(5));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_alignment)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->alignment((QGraphicsLayoutItem *) RING_API_GETCPOINTER(2,"QGraphicsLayoutItem")));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_columnAlignment)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->columnAlignment( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_columnCount)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	RING_API_RETNUMBER(pObject->columnCount());
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_columnMaximumWidth)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->columnMaximumWidth( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_columnMinimumWidth)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->columnMinimumWidth( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_columnPreferredWidth)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->columnPreferredWidth( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_columnSpacing)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->columnSpacing( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_columnStretchFactor)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->columnStretchFactor( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_horizontalSpacing)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	RING_API_RETNUMBER(pObject->horizontalSpacing());
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_itemAt)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(pObject->itemAt( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3)),"QGraphicsLayoutItem");
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_removeItem)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->removeItem((QGraphicsLayoutItem *) RING_API_GETCPOINTER(2,"QGraphicsLayoutItem"));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_rowAlignment)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->rowAlignment( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_rowCount)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	RING_API_RETNUMBER(pObject->rowCount());
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_rowMaximumHeight)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->rowMaximumHeight( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_rowMinimumHeight)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->rowMinimumHeight( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_rowPreferredHeight)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->rowPreferredHeight( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_rowSpacing)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->rowSpacing( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_rowStretchFactor)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->rowStretchFactor( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_setAlignment)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setAlignment((QGraphicsLayoutItem *) RING_API_GETCPOINTER(2,"QGraphicsLayoutItem"), (Qt::Alignment )  (int) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_setColumnAlignment)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setColumnAlignment( (int ) RING_API_GETNUMBER(2), (Qt::Alignment )  (int) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_setColumnFixedWidth)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setColumnFixedWidth( (int ) RING_API_GETNUMBER(2), (qreal ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_setColumnMaximumWidth)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setColumnMaximumWidth( (int ) RING_API_GETNUMBER(2), (qreal ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_setColumnMinimumWidth)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setColumnMinimumWidth( (int ) RING_API_GETNUMBER(2), (qreal ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_setColumnPreferredWidth)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setColumnPreferredWidth( (int ) RING_API_GETNUMBER(2), (qreal ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_setColumnSpacing)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setColumnSpacing( (int ) RING_API_GETNUMBER(2), (qreal ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_setColumnStretchFactor)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setColumnStretchFactor( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_setHorizontalSpacing)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setHorizontalSpacing( (qreal ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_setRowAlignment)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setRowAlignment( (int ) RING_API_GETNUMBER(2), (Qt::Alignment )  (int) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_setRowFixedHeight)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setRowFixedHeight( (int ) RING_API_GETNUMBER(2), (qreal ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_setRowMaximumHeight)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setRowMaximumHeight( (int ) RING_API_GETNUMBER(2), (qreal ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_setRowMinimumHeight)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setRowMinimumHeight( (int ) RING_API_GETNUMBER(2), (qreal ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_setRowPreferredHeight)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setRowPreferredHeight( (int ) RING_API_GETNUMBER(2), (qreal ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_setRowSpacing)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setRowSpacing( (int ) RING_API_GETNUMBER(2), (qreal ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_setRowStretchFactor)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setRowStretchFactor( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_setSpacing)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setSpacing( (qreal ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_setVerticalSpacing)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setVerticalSpacing( (qreal ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QGraphicsGridLayout_verticalSpacing)
+{
+	QGraphicsGridLayout *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+	RING_API_RETNUMBER(pObject->verticalSpacing());
+}
+
+
 RING_FUNC(ring_QTest_qsleep)
 {
 	QTest::qSleep((int) RING_API_GETNUMBER(1));
@@ -130057,6 +130957,21 @@ RING_FUNC(ring_QGraphicsEllipseItem_new)
 	}
 	QGraphicsEllipseItem *pObject = new QGraphicsEllipseItem((QGraphicsItem *) RING_API_GETCPOINTER(1,"QGraphicsItem"));
 	RING_API_RETCPOINTER(pObject,"QGraphicsEllipseItem");
+}
+
+RING_FUNC(ring_QGraphicsGridLayout_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QGraphicsGridLayout *pObject = new QGraphicsGridLayout((QGraphicsLayoutItem *) RING_API_GETCPOINTER(1,"QGraphicsLayoutItem"));
+	RING_API_RETCPOINTER(pObject,"QGraphicsGridLayout");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -133238,6 +134153,23 @@ RING_FUNC(ring_QGraphicsEllipseItem_delete)
 	}
 }
 
+RING_FUNC(ring_QGraphicsGridLayout_delete)
+{
+	QGraphicsGridLayout *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISCPOINTER(1) )
+	{
+		pObject = (QGraphicsGridLayout *) RING_API_GETCPOINTER(1,"QGraphicsGridLayout");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 void ring_QObject_freefunc(void *pState,void *pPointer)
 {
 	QObject *pObject ; 
@@ -134544,6 +135476,13 @@ void ring_QGraphicsEllipseItem_freefunc(void *pState,void *pPointer)
 {
 	QGraphicsEllipseItem *pObject ; 
 	pObject = (QGraphicsEllipseItem *) pPointer;
+	delete pObject ;
+}
+
+void ring_QGraphicsGridLayout_freefunc(void *pState,void *pPointer)
+{
+	QGraphicsGridLayout *pObject ; 
+	pObject = (QGraphicsGridLayout *) pPointer;
 	delete pObject ;
 }
 
@@ -140500,6 +141439,45 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qgraphicsellipseitem_setstartangle",ring_QGraphicsEllipseItem_setStartAngle);
 	RING_API_REGISTER("qgraphicsellipseitem_spanangle",ring_QGraphicsEllipseItem_spanAngle);
 	RING_API_REGISTER("qgraphicsellipseitem_startangle",ring_QGraphicsEllipseItem_startAngle);
+	RING_API_REGISTER("qgraphicsgridlayout_additem",ring_QGraphicsGridLayout_addItem);
+	RING_API_REGISTER("qgraphicsgridlayout_additem_2",ring_QGraphicsGridLayout_addItem_2);
+	RING_API_REGISTER("qgraphicsgridlayout_alignment",ring_QGraphicsGridLayout_alignment);
+	RING_API_REGISTER("qgraphicsgridlayout_columnalignment",ring_QGraphicsGridLayout_columnAlignment);
+	RING_API_REGISTER("qgraphicsgridlayout_columncount",ring_QGraphicsGridLayout_columnCount);
+	RING_API_REGISTER("qgraphicsgridlayout_columnmaximumwidth",ring_QGraphicsGridLayout_columnMaximumWidth);
+	RING_API_REGISTER("qgraphicsgridlayout_columnminimumwidth",ring_QGraphicsGridLayout_columnMinimumWidth);
+	RING_API_REGISTER("qgraphicsgridlayout_columnpreferredwidth",ring_QGraphicsGridLayout_columnPreferredWidth);
+	RING_API_REGISTER("qgraphicsgridlayout_columnspacing",ring_QGraphicsGridLayout_columnSpacing);
+	RING_API_REGISTER("qgraphicsgridlayout_columnstretchfactor",ring_QGraphicsGridLayout_columnStretchFactor);
+	RING_API_REGISTER("qgraphicsgridlayout_horizontalspacing",ring_QGraphicsGridLayout_horizontalSpacing);
+	RING_API_REGISTER("qgraphicsgridlayout_itemat",ring_QGraphicsGridLayout_itemAt);
+	RING_API_REGISTER("qgraphicsgridlayout_removeitem",ring_QGraphicsGridLayout_removeItem);
+	RING_API_REGISTER("qgraphicsgridlayout_rowalignment",ring_QGraphicsGridLayout_rowAlignment);
+	RING_API_REGISTER("qgraphicsgridlayout_rowcount",ring_QGraphicsGridLayout_rowCount);
+	RING_API_REGISTER("qgraphicsgridlayout_rowmaximumheight",ring_QGraphicsGridLayout_rowMaximumHeight);
+	RING_API_REGISTER("qgraphicsgridlayout_rowminimumheight",ring_QGraphicsGridLayout_rowMinimumHeight);
+	RING_API_REGISTER("qgraphicsgridlayout_rowpreferredheight",ring_QGraphicsGridLayout_rowPreferredHeight);
+	RING_API_REGISTER("qgraphicsgridlayout_rowspacing",ring_QGraphicsGridLayout_rowSpacing);
+	RING_API_REGISTER("qgraphicsgridlayout_rowstretchfactor",ring_QGraphicsGridLayout_rowStretchFactor);
+	RING_API_REGISTER("qgraphicsgridlayout_setalignment",ring_QGraphicsGridLayout_setAlignment);
+	RING_API_REGISTER("qgraphicsgridlayout_setcolumnalignment",ring_QGraphicsGridLayout_setColumnAlignment);
+	RING_API_REGISTER("qgraphicsgridlayout_setcolumnfixedwidth",ring_QGraphicsGridLayout_setColumnFixedWidth);
+	RING_API_REGISTER("qgraphicsgridlayout_setcolumnmaximumwidth",ring_QGraphicsGridLayout_setColumnMaximumWidth);
+	RING_API_REGISTER("qgraphicsgridlayout_setcolumnminimumwidth",ring_QGraphicsGridLayout_setColumnMinimumWidth);
+	RING_API_REGISTER("qgraphicsgridlayout_setcolumnpreferredwidth",ring_QGraphicsGridLayout_setColumnPreferredWidth);
+	RING_API_REGISTER("qgraphicsgridlayout_setcolumnspacing",ring_QGraphicsGridLayout_setColumnSpacing);
+	RING_API_REGISTER("qgraphicsgridlayout_setcolumnstretchfactor",ring_QGraphicsGridLayout_setColumnStretchFactor);
+	RING_API_REGISTER("qgraphicsgridlayout_sethorizontalspacing",ring_QGraphicsGridLayout_setHorizontalSpacing);
+	RING_API_REGISTER("qgraphicsgridlayout_setrowalignment",ring_QGraphicsGridLayout_setRowAlignment);
+	RING_API_REGISTER("qgraphicsgridlayout_setrowfixedheight",ring_QGraphicsGridLayout_setRowFixedHeight);
+	RING_API_REGISTER("qgraphicsgridlayout_setrowmaximumheight",ring_QGraphicsGridLayout_setRowMaximumHeight);
+	RING_API_REGISTER("qgraphicsgridlayout_setrowminimumheight",ring_QGraphicsGridLayout_setRowMinimumHeight);
+	RING_API_REGISTER("qgraphicsgridlayout_setrowpreferredheight",ring_QGraphicsGridLayout_setRowPreferredHeight);
+	RING_API_REGISTER("qgraphicsgridlayout_setrowspacing",ring_QGraphicsGridLayout_setRowSpacing);
+	RING_API_REGISTER("qgraphicsgridlayout_setrowstretchfactor",ring_QGraphicsGridLayout_setRowStretchFactor);
+	RING_API_REGISTER("qgraphicsgridlayout_setspacing",ring_QGraphicsGridLayout_setSpacing);
+	RING_API_REGISTER("qgraphicsgridlayout_setverticalspacing",ring_QGraphicsGridLayout_setVerticalSpacing);
+	RING_API_REGISTER("qgraphicsgridlayout_verticalspacing",ring_QGraphicsGridLayout_verticalSpacing);
 	RING_API_REGISTER("qtest_qsleep",ring_QTest_qsleep);
 	RING_API_REGISTER("qobject_new",ring_QObject_new);
 	RING_API_REGISTER("qsize_new",ring_QSize_new);
@@ -140688,6 +141666,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qgraphicsscene_new",ring_QGraphicsScene_new);
 	RING_API_REGISTER("qgraphicsanchorlayout_new",ring_QGraphicsAnchorLayout_new);
 	RING_API_REGISTER("qgraphicsellipseitem_new",ring_QGraphicsEllipseItem_new);
+	RING_API_REGISTER("qgraphicsgridlayout_new",ring_QGraphicsGridLayout_new);
 	RING_API_REGISTER("qobject_delete",ring_QObject_delete);
 	RING_API_REGISTER("qsize_delete",ring_QSize_delete);
 	RING_API_REGISTER("qdir_delete",ring_QDir_delete);
@@ -140875,4 +141854,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qgraphicsscene_delete",ring_QGraphicsScene_delete);
 	RING_API_REGISTER("qgraphicsanchorlayout_delete",ring_QGraphicsAnchorLayout_delete);
 	RING_API_REGISTER("qgraphicsellipseitem_delete",ring_QGraphicsEllipseItem_delete);
+	RING_API_REGISTER("qgraphicsgridlayout_delete",ring_QGraphicsGridLayout_delete);
 }

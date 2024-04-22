@@ -21990,6 +21990,137 @@ Class QGraphicsEllipseItem from QAbstractGraphicsShapeItem
 	Func startAngle 
 		return QGraphicsEllipseItem_startAngle(pObject)
 
+Class QGraphicsGridLayout from QGraphicsLayout
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsGridLayout_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsGridLayout_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func addItem P1,P2,P3,P4,P5,P6
+		return QGraphicsGridLayout_addItem(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4,P5,P6)
+
+	Func addItem_2 P1,P2,P3,P4
+		return QGraphicsGridLayout_addItem_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4)
+
+	Func alignment P1
+		return QGraphicsGridLayout_alignment(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func columnAlignment P1
+		return QGraphicsGridLayout_columnAlignment(pObject,P1)
+
+	Func columnCount 
+		return QGraphicsGridLayout_columnCount(pObject)
+
+	Func columnMaximumWidth P1
+		return QGraphicsGridLayout_columnMaximumWidth(pObject,P1)
+
+	Func columnMinimumWidth P1
+		return QGraphicsGridLayout_columnMinimumWidth(pObject,P1)
+
+	Func columnPreferredWidth P1
+		return QGraphicsGridLayout_columnPreferredWidth(pObject,P1)
+
+	Func columnSpacing P1
+		return QGraphicsGridLayout_columnSpacing(pObject,P1)
+
+	Func columnStretchFactor P1
+		return QGraphicsGridLayout_columnStretchFactor(pObject,P1)
+
+	Func horizontalSpacing 
+		return QGraphicsGridLayout_horizontalSpacing(pObject)
+
+	Func itemAt P1,P2
+		return QGraphicsGridLayout_itemAt(pObject,P1,P2)
+
+	Func removeItem P1
+		return QGraphicsGridLayout_removeItem(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func rowAlignment P1
+		return QGraphicsGridLayout_rowAlignment(pObject,P1)
+
+	Func rowCount 
+		return QGraphicsGridLayout_rowCount(pObject)
+
+	Func rowMaximumHeight P1
+		return QGraphicsGridLayout_rowMaximumHeight(pObject,P1)
+
+	Func rowMinimumHeight P1
+		return QGraphicsGridLayout_rowMinimumHeight(pObject,P1)
+
+	Func rowPreferredHeight P1
+		return QGraphicsGridLayout_rowPreferredHeight(pObject,P1)
+
+	Func rowSpacing P1
+		return QGraphicsGridLayout_rowSpacing(pObject,P1)
+
+	Func rowStretchFactor P1
+		return QGraphicsGridLayout_rowStretchFactor(pObject,P1)
+
+	Func setAlignment P1,P2
+		return QGraphicsGridLayout_setAlignment(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func setColumnAlignment P1,P2
+		return QGraphicsGridLayout_setColumnAlignment(pObject,P1,P2)
+
+	Func setColumnFixedWidth P1,P2
+		return QGraphicsGridLayout_setColumnFixedWidth(pObject,P1,P2)
+
+	Func setColumnMaximumWidth P1,P2
+		return QGraphicsGridLayout_setColumnMaximumWidth(pObject,P1,P2)
+
+	Func setColumnMinimumWidth P1,P2
+		return QGraphicsGridLayout_setColumnMinimumWidth(pObject,P1,P2)
+
+	Func setColumnPreferredWidth P1,P2
+		return QGraphicsGridLayout_setColumnPreferredWidth(pObject,P1,P2)
+
+	Func setColumnSpacing P1,P2
+		return QGraphicsGridLayout_setColumnSpacing(pObject,P1,P2)
+
+	Func setColumnStretchFactor P1,P2
+		return QGraphicsGridLayout_setColumnStretchFactor(pObject,P1,P2)
+
+	Func setHorizontalSpacing P1
+		return QGraphicsGridLayout_setHorizontalSpacing(pObject,P1)
+
+	Func setRowAlignment P1,P2
+		return QGraphicsGridLayout_setRowAlignment(pObject,P1,P2)
+
+	Func setRowFixedHeight P1,P2
+		return QGraphicsGridLayout_setRowFixedHeight(pObject,P1,P2)
+
+	Func setRowMaximumHeight P1,P2
+		return QGraphicsGridLayout_setRowMaximumHeight(pObject,P1,P2)
+
+	Func setRowMinimumHeight P1,P2
+		return QGraphicsGridLayout_setRowMinimumHeight(pObject,P1,P2)
+
+	Func setRowPreferredHeight P1,P2
+		return QGraphicsGridLayout_setRowPreferredHeight(pObject,P1,P2)
+
+	Func setRowSpacing P1,P2
+		return QGraphicsGridLayout_setRowSpacing(pObject,P1,P2)
+
+	Func setRowStretchFactor P1,P2
+		return QGraphicsGridLayout_setRowStretchFactor(pObject,P1,P2)
+
+	Func setSpacing P1
+		return QGraphicsGridLayout_setSpacing(pObject,P1)
+
+	Func setVerticalSpacing P1
+		return QGraphicsGridLayout_setVerticalSpacing(pObject,P1)
+
+	Func verticalSpacing 
+		return QGraphicsGridLayout_verticalSpacing(pObject)
+
 Class QTest
 
 	pObject
