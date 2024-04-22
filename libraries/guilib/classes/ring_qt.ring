@@ -20492,6 +20492,195 @@ Class QTabBar from QWidget
 	Func gettabMovedEvent 
 		return QTabBar_gettabMovedEvent(pObject)
 
+Class QStyle from QObject
+
+	pObject
+
+
+	Func combinedLayoutSpacing P1,P2,P3,P4,P5
+		return QStyle_combinedLayoutSpacing(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5))
+
+	Func drawComplexControl P1,P2,P3,P4
+		return QStyle_drawComplexControl(P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func drawControl P1,P2,P3,P4
+		return QStyle_drawControl(P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func drawItemPixmap P1,P2,P3,P4
+		return QStyle_drawItemPixmap(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4))
+
+	Func drawItemText P1,P2,P3,P4,P5,P6,P7
+		return QStyle_drawItemText(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4),P5,P6,P7)
+
+	Func drawPrimitive P1,P2,P3,P4
+		return QStyle_drawPrimitive(P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func generatedIconPixmap P1,P2,P3
+		pTempObj = new QPixmap
+		pTempObj.pObject = QStyle_generatedIconPixmap(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+	Func hitTestComplexControl P1,P2,P3,P4
+		return QStyle_hitTestComplexControl(P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func itemPixmapRect P1,P2,P3
+		pTempObj = new QRect
+		pTempObj.pObject = QStyle_itemPixmapRect(GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+	Func itemTextRect P1,P2,P3,P4,P5
+		pTempObj = new QRect
+		pTempObj.pObject = QStyle_itemTextRect(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,P4,P5)
+		return pTempObj
+
+	Func layoutSpacing P1,P2,P3,P4,P5
+		return QStyle_layoutSpacing(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5))
+
+	Func pixelMetric P1
+		return QStyle_pixelMetric(P1)
+
+	Func pixelMetric_2 P1,P2,P3
+		return QStyle_pixelMetric_2(P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+
+	Func polish P1
+		return QStyle_polish(GetObjectPointerFromRingObject(P1))
+
+	Func polish_2 P1
+		return QStyle_polish_2(GetObjectPointerFromRingObject(P1))
+
+	Func polish_3 P1
+		return QStyle_polish_3(GetObjectPointerFromRingObject(P1))
+
+	Func proxy 
+		return QStyle_proxy()
+
+	Func sizeFromContents P1,P2,P3,P4
+		pTempObj = new QSize
+		pTempObj.pObject = QStyle_sizeFromContents(P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+		return pTempObj
+
+	Func standardIcon P1,P2,P3
+		pTempObj = new QIcon
+		pTempObj.pObject = QStyle_standardIcon(P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+	Func standardPalette 
+		return QStyle_standardPalette()
+
+	Func styleHint P1,P2,P3,P4
+		return QStyle_styleHint(P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func subControlRect P1,P2,P3,P4
+		pTempObj = new QRect
+		pTempObj.pObject = QStyle_subControlRect(P1,GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4))
+		return pTempObj
+
+	Func subElementRect P1,P2,P3
+		pTempObj = new QRect
+		pTempObj.pObject = QStyle_subElementRect(P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+	Func unpolish P1
+		return QStyle_unpolish(GetObjectPointerFromRingObject(P1))
+
+	Func unpolish_2 P1
+		return QStyle_unpolish_2(GetObjectPointerFromRingObject(P1))
+
+	Func alignedRect P1,P2,P3,P4
+		pTempObj = new QRect
+		pTempObj.pObject = QStyle_alignedRect(P1,P2,GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+		return pTempObj
+
+	Func sliderPositionFromValue P1,P2,P3,P4,P5
+		return QStyle_sliderPositionFromValue(P1,P2,P3,P4,P5)
+
+	Func sliderValueFromPosition P1,P2,P3,P4,P5
+		return QStyle_sliderValueFromPosition(P1,P2,P3,P4,P5)
+
+	Func visualAlignment P1,P2
+		return QStyle_visualAlignment(P1,P2)
+
+	Func visualPos P1,P2,P3
+		pTempObj = new QPoint
+		pTempObj.pObject = QStyle_visualPos(P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+	Func visualRect P1,P2,P3
+		pTempObj = new QRect
+		pTempObj.pObject = QStyle_visualRect(P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+Class QOpenGLWidget from QWidget
+
+	pObject
+
+	Func init P1
+		pObject = QOpenGLWidget_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QOpenGLWidget_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func geteventparameters 
+		return QOpenGLWidget_geteventparameters(pObject)
+
+	Func setInitEvent P1
+		return QOpenGLWidget_setInitEvent(pObject,P1)
+
+	Func getInitEvent 
+		return QOpenGLWidget_getInitEvent(pObject)
+
+	Func setPaintEvent P1
+		return QOpenGLWidget_setPaintEvent(pObject,P1)
+
+	Func getPaintEvent 
+		return QOpenGLWidget_getPaintEvent(pObject)
+
+	Func setResizeEvent P1
+		return QOpenGLWidget_setResizeEvent(pObject,P1)
+
+	Func getResizeEvent 
+		return QOpenGLWidget_getResizeEvent(pObject)
+
+	Func context 
+		pTempObj = new QOpenGLContext
+		pTempObj.pObject = QOpenGLWidget_context(pObject)
+		return pTempObj
+
+	Func defaultFramebufferObject 
+		return QOpenGLWidget_defaultFramebufferObject(pObject)
+
+	Func doneCurrent 
+		return QOpenGLWidget_doneCurrent(pObject)
+
+	Func format 
+		pTempObj = new QSurfaceFormat
+		pTempObj.pObject = QOpenGLWidget_format(pObject)
+		return pTempObj
+
+	Func grabFramebuffer 
+		pTempObj = new QImage
+		pTempObj.pObject = QOpenGLWidget_grabFramebuffer(pObject)
+		return pTempObj
+
+	Func isValid 
+		return QOpenGLWidget_isValid(pObject)
+
+	Func makeCurrent 
+		return QOpenGLWidget_makeCurrent(pObject)
+
+	Func setFormat P1
+		return QOpenGLWidget_setFormat(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setUpdateBehavior P1
+		return QOpenGLWidget_setUpdateBehavior(pObject,P1)
+
+	Func updateBehavior 
+		return QOpenGLWidget_updateBehavior(pObject)
+
 Class QGraphicsView from QAbstractScrollArea
 
 	pObject
@@ -20984,9 +21173,7 @@ Class QGraphicsScene from QObject
 		return QGraphicsScene_stickyFocus(pObject)
 
 	Func style 
-		pTempObj = new QStyle
-		pTempObj.pObject = QGraphicsScene_style(pObject)
-		return pTempObj
+		return QGraphicsScene_style(pObject)
 
 	Func update P1,P2,P3,P4
 		return QGraphicsScene_update(pObject,P1,P2,P3,P4)
@@ -21035,195 +21222,6 @@ Class QGraphicsScene from QObject
 
 	Func getselectionChangedEvent 
 		return QGraphicsScene_getselectionChangedEvent(pObject)
-
-Class QStyle from QObject
-
-	pObject
-
-
-	Func combinedLayoutSpacing P1,P2,P3,P4,P5
-		return QStyle_combinedLayoutSpacing(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5))
-
-	Func drawComplexControl P1,P2,P3,P4
-		return QStyle_drawComplexControl(P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
-
-	Func drawControl P1,P2,P3,P4
-		return QStyle_drawControl(P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
-
-	Func drawItemPixmap P1,P2,P3,P4
-		return QStyle_drawItemPixmap(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4))
-
-	Func drawItemText P1,P2,P3,P4,P5,P6,P7
-		return QStyle_drawItemText(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4),P5,P6,P7)
-
-	Func drawPrimitive P1,P2,P3,P4
-		return QStyle_drawPrimitive(P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
-
-	Func generatedIconPixmap P1,P2,P3
-		pTempObj = new QPixmap
-		pTempObj.pObject = QStyle_generatedIconPixmap(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
-		return pTempObj
-
-	Func hitTestComplexControl P1,P2,P3,P4
-		return QStyle_hitTestComplexControl(P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
-
-	Func itemPixmapRect P1,P2,P3
-		pTempObj = new QRect
-		pTempObj.pObject = QStyle_itemPixmapRect(GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3))
-		return pTempObj
-
-	Func itemTextRect P1,P2,P3,P4,P5
-		pTempObj = new QRect
-		pTempObj.pObject = QStyle_itemTextRect(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,P4,P5)
-		return pTempObj
-
-	Func layoutSpacing P1,P2,P3,P4,P5
-		return QStyle_layoutSpacing(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4),GetObjectPointerFromRingObject(P5))
-
-	Func pixelMetric P1
-		return QStyle_pixelMetric(P1)
-
-	Func pixelMetric_2 P1,P2,P3
-		return QStyle_pixelMetric_2(P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
-
-	Func polish P1
-		return QStyle_polish(GetObjectPointerFromRingObject(P1))
-
-	Func polish_2 P1
-		return QStyle_polish_2(GetObjectPointerFromRingObject(P1))
-
-	Func polish_3 P1
-		return QStyle_polish_3(GetObjectPointerFromRingObject(P1))
-
-	Func proxy 
-		return QStyle_proxy()
-
-	Func sizeFromContents P1,P2,P3,P4
-		pTempObj = new QSize
-		pTempObj.pObject = QStyle_sizeFromContents(P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
-		return pTempObj
-
-	Func standardIcon P1,P2,P3
-		pTempObj = new QIcon
-		pTempObj.pObject = QStyle_standardIcon(P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
-		return pTempObj
-
-	Func standardPalette 
-		return QStyle_standardPalette()
-
-	Func styleHint P1,P2,P3,P4
-		return QStyle_styleHint(P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
-
-	Func subControlRect P1,P2,P3,P4
-		pTempObj = new QRect
-		pTempObj.pObject = QStyle_subControlRect(P1,GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4))
-		return pTempObj
-
-	Func subElementRect P1,P2,P3
-		pTempObj = new QRect
-		pTempObj.pObject = QStyle_subElementRect(P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
-		return pTempObj
-
-	Func unpolish P1
-		return QStyle_unpolish(GetObjectPointerFromRingObject(P1))
-
-	Func unpolish_2 P1
-		return QStyle_unpolish_2(GetObjectPointerFromRingObject(P1))
-
-	Func alignedRect P1,P2,P3,P4
-		pTempObj = new QRect
-		pTempObj.pObject = QStyle_alignedRect(P1,P2,GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
-		return pTempObj
-
-	Func sliderPositionFromValue P1,P2,P3,P4,P5
-		return QStyle_sliderPositionFromValue(P1,P2,P3,P4,P5)
-
-	Func sliderValueFromPosition P1,P2,P3,P4,P5
-		return QStyle_sliderValueFromPosition(P1,P2,P3,P4,P5)
-
-	Func visualAlignment P1,P2
-		return QStyle_visualAlignment(P1,P2)
-
-	Func visualPos P1,P2,P3
-		pTempObj = new QPoint
-		pTempObj.pObject = QStyle_visualPos(P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
-		return pTempObj
-
-	Func visualRect P1,P2,P3
-		pTempObj = new QRect
-		pTempObj.pObject = QStyle_visualRect(P1,GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
-		return pTempObj
-
-Class QOpenGLWidget from QWidget
-
-	pObject
-
-	Func init P1
-		pObject = QOpenGLWidget_new(GetObjectPointerFromRingObject(P1))
-		return self
-
-	Func delete
-		pObject = QOpenGLWidget_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func geteventparameters 
-		return QOpenGLWidget_geteventparameters(pObject)
-
-	Func setInitEvent P1
-		return QOpenGLWidget_setInitEvent(pObject,P1)
-
-	Func getInitEvent 
-		return QOpenGLWidget_getInitEvent(pObject)
-
-	Func setPaintEvent P1
-		return QOpenGLWidget_setPaintEvent(pObject,P1)
-
-	Func getPaintEvent 
-		return QOpenGLWidget_getPaintEvent(pObject)
-
-	Func setResizeEvent P1
-		return QOpenGLWidget_setResizeEvent(pObject,P1)
-
-	Func getResizeEvent 
-		return QOpenGLWidget_getResizeEvent(pObject)
-
-	Func context 
-		pTempObj = new QOpenGLContext
-		pTempObj.pObject = QOpenGLWidget_context(pObject)
-		return pTempObj
-
-	Func defaultFramebufferObject 
-		return QOpenGLWidget_defaultFramebufferObject(pObject)
-
-	Func doneCurrent 
-		return QOpenGLWidget_doneCurrent(pObject)
-
-	Func format 
-		pTempObj = new QSurfaceFormat
-		pTempObj.pObject = QOpenGLWidget_format(pObject)
-		return pTempObj
-
-	Func grabFramebuffer 
-		pTempObj = new QImage
-		pTempObj.pObject = QOpenGLWidget_grabFramebuffer(pObject)
-		return pTempObj
-
-	Func isValid 
-		return QOpenGLWidget_isValid(pObject)
-
-	Func makeCurrent 
-		return QOpenGLWidget_makeCurrent(pObject)
-
-	Func setFormat P1
-		return QOpenGLWidget_setFormat(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setUpdateBehavior P1
-		return QOpenGLWidget_setUpdateBehavior(pObject,P1)
-
-	Func updateBehavior 
-		return QOpenGLWidget_updateBehavior(pObject)
 
 Class QTest
 
