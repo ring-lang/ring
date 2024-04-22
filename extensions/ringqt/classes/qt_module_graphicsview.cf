@@ -5,3 +5,4 @@
 
 <loadfile> graphicsview/qgraphicsview.cf
 <loadfile> graphicsview/qgraphicsscene.cf
+<loadfile> graphicsview/qgraphicsitem.cf
