@@ -10,6 +10,7 @@
 
 <filter> sysget("RINGQT_NOWIDGETS") = ""
 <loadfile> qt_module_widgets.cf
+<loadfile> qt_module_graphicsview.cf
 </filter>
 
 <filter> sysget("RINGQT_NOTESTLIB") = ""

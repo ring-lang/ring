@@ -78,8 +78,6 @@
 <loadfile> widgets/qcalenderwidget.cf
 <loadfile> widgets/qtabbar.cf
 <loadfile> widgets/qscrollbar.cf
-<loadfile> widgets/qgraphicsview.cf
-<loadfile> widgets/qgraphicsscene.cf
 <loadfile> widgets/qstyle.cf
 
 <filter> ((iswindows()) and sysget("RINGQT_ANDROID") = "")

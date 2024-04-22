@@ -1,0 +1,7 @@
+<comment>
+				Module (widgets) - Graphics View Framework
+</comment>
+
+
+<loadfile> graphicsview/qgraphicsview.cf
+<loadfile> graphicsview/qgraphicsscene.cf
