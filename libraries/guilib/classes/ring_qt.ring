@@ -21831,6 +21831,126 @@ Class QGraphicsItem
 	Func zValue 
 		return QGraphicsItem_zValue()
 
+Class QAbstractGraphicsShapeItem from QGraphicsItem
+
+	pObject
+
+	Func init P1
+		pObject = QAbstractGraphicsShapeItem_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QAbstractGraphicsShapeItem_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func brush 
+		pTempObj = new QBrush
+		pTempObj.pObject = QAbstractGraphicsShapeItem_brush(pObject)
+		return pTempObj
+
+	Func pen 
+		pTempObj = new QPen
+		pTempObj.pObject = QAbstractGraphicsShapeItem_pen(pObject)
+		return pTempObj
+
+	Func setBrush P1
+		return QAbstractGraphicsShapeItem_setBrush(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPen P1
+		return QAbstractGraphicsShapeItem_setPen(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QGraphicsAnchor from QObject
+
+	pObject
+
+
+	Func setSizePolicy P1
+		return QGraphicsAnchor_setSizePolicy(P1)
+
+	Func setSpacing P1
+		return QGraphicsAnchor_setSpacing(P1)
+
+	Func sizePolicy 
+		return QGraphicsAnchor_sizePolicy()
+
+	Func spacing 
+		return QGraphicsAnchor_spacing()
+
+	Func unsetSpacing 
+		return QGraphicsAnchor_unsetSpacing()
+
+Class QGraphicsAnchorLayout from QGraphicsLayout
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsAnchorLayout_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsAnchorLayout_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func addAnchor P1,P2,P3,P4
+		return QGraphicsAnchorLayout_addAnchor(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func addAnchors P1,P2,P3
+		return QGraphicsAnchorLayout_addAnchors(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+
+	Func addCornerAnchors P1,P2,P3,P4
+		return QGraphicsAnchorLayout_addCornerAnchors(pObject,GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3),P4)
+
+	Func anchor P1,P2,P3,P4
+		return QGraphicsAnchorLayout_anchor(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func horizontalSpacing 
+		return QGraphicsAnchorLayout_horizontalSpacing(pObject)
+
+	Func setHorizontalSpacing P1
+		return QGraphicsAnchorLayout_setHorizontalSpacing(pObject,P1)
+
+	Func setSpacing P1
+		return QGraphicsAnchorLayout_setSpacing(pObject,P1)
+
+	Func setVerticalSpacing P1
+		return QGraphicsAnchorLayout_setVerticalSpacing(pObject,P1)
+
+	Func verticalSpacing 
+		return QGraphicsAnchorLayout_verticalSpacing(pObject)
+
+Class QGraphicsLayout from QGraphicsLayoutItem
+
+	pObject
+
+
+	Func activate 
+		return QGraphicsLayout_activate()
+
+	Func count 
+		return QGraphicsLayout_count()
+
+	Func invalidate 
+		return QGraphicsLayout_invalidate()
+
+	Func isActivated 
+		return QGraphicsLayout_isActivated()
+
+	Func itemAt P1
+		return QGraphicsLayout_itemAt(P1)
+
+	Func removeAt P1
+		return QGraphicsLayout_removeAt(P1)
+
+	Func setContentsMargins P1,P2,P3,P4
+		return QGraphicsLayout_setContentsMargins(P1,P2,P3,P4)
+
+	Func widgetEvent P1
+		return QGraphicsLayout_widgetEvent(GetObjectPointerFromRingObject(P1))
+
 Class QTest
 
 	pObject
