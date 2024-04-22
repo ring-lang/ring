@@ -202,6 +202,7 @@ win32 {
 	QT   += axcontainer
 	SOURCES += cpp/src/openglwidget.cpp 
 	HEADERS += cpp/include/openglwidget.h 
+	QMAKE_CXXFLAGS += -bigobj
 }
 
 macx {
