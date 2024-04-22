@@ -1,0 +1,11 @@
+<class>
+name: QGraphicsAnchor
+parent: QObject
+nonew
+</class>
+
+void setSizePolicy(QSizePolicy::Policy policy)
+void setSpacing(qreal spacing)
+QSizePolicy::Policy sizePolicy(void)
+qreal spacing(void)
+void unsetSpacing(void)
