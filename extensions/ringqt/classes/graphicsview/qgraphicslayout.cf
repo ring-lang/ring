@@ -1,0 +1,15 @@
+<class>
+name: QGraphicsLayout
+para: QGraphicsLayoutItem *
+parent: QGraphicsLayoutItem
+nonew
+</class>
+
+void activate(void)
+int count(void)
+void invalidate(void)
+bool isActivated(void)
+QGraphicsLayoutItem * itemAt(int i)
+void removeAt(int index)
+void setContentsMargins(qreal left, qreal top, qreal right, qreal bottom)
+void widgetEvent(QEvent *e)
