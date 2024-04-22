@@ -6,3 +6,7 @@
 <loadfile> graphicsview/qgraphicsview.cf
 <loadfile> graphicsview/qgraphicsscene.cf
 <loadfile> graphicsview/qgraphicsitem.cf
+<loadfile> graphicsview/qabstractgraphicsshapeitem.cf
+<loadfile> graphicsview/qgraphicsanchor.cf
+<loadfile> graphicsview/qgraphicsanchorlayout.cf
+<loadfile> graphicsview/qgraphicslayout.cf
