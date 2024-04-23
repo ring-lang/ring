@@ -20974,7 +20974,9 @@ Class QGraphicsScene from QObject
 		return pTempObj
 
 	Func addPixmap P1
-		return QGraphicsScene_addPixmap(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj = new QGraphicsPixmapItem
+		pTempObj.pObject = QGraphicsScene_addPixmap(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
 
 	Func addPolygon P1,P2,P3
 		return QGraphicsScene_addPolygon(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
@@ -22351,6 +22353,51 @@ Class QGraphicsPathItem from QAbstractGraphicsShapeItem
 
 	Func setPath P1
 		return QGraphicsPathItem_setPath(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QGraphicsPixmapItem from QGraphicsItem
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsPixmapItem_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsPixmapItem_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func offset 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsPixmapItem_offset(pObject)
+		return pTempObj
+
+	Func pixmap 
+		pTempObj = new QPixmap
+		pTempObj.pObject = QGraphicsPixmapItem_pixmap(pObject)
+		return pTempObj
+
+	Func setOffset P1
+		return QGraphicsPixmapItem_setOffset(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setOffset_2 P1,P2
+		return QGraphicsPixmapItem_setOffset_2(pObject,P1,P2)
+
+	Func setPixmap P1
+		return QGraphicsPixmapItem_setPixmap(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setShapeMode P1
+		return QGraphicsPixmapItem_setShapeMode(pObject,P1)
+
+	Func setTransformationMode P1
+		return QGraphicsPixmapItem_setTransformationMode(pObject,P1)
+
+	Func shapeMode 
+		return QGraphicsPixmapItem_shapeMode(pObject)
+
+	Func transformationMode 
+		return QGraphicsPixmapItem_transformationMode(pObject)
 
 Class QTest
 
