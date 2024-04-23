@@ -1,0 +1,18 @@
+<class>
+name: QGraphicsSceneDragDropEvent
+parent: QGraphicsSceneEvent
+nonew
+</class>
+
+void acceptProposedAction(void)
+Qt::MouseButtons buttons(void)
+Qt::DropAction dropAction(void)
+QMimeData * mimeData(void)
+Qt::KeyboardModifiers modifiers(void)
+QPointF pos(void)
+Qt::DropActions possibleActions(void)
+Qt::DropAction proposedAction(void)
+QPointF scenePos(void)
+QPoint screenPos(void)
+void setDropAction(Qt::DropAction action)
+QWidget *source(void)
