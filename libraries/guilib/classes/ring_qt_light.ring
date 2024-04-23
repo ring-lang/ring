@@ -20969,7 +20969,9 @@ Class QGraphicsScene from QObject
 		return pTempObj
 
 	Func addPath P1,P2,P3
-		return QGraphicsScene_addPath(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		pTempObj = new QGraphicsPathItem
+		pTempObj.pObject = QGraphicsScene_addPath(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return pTempObj
 
 	Func addPixmap P1
 		return QGraphicsScene_addPixmap(pObject,GetObjectPointerFromRingObject(P1))
@@ -22327,6 +22329,28 @@ Class QGraphicsLinearLayout from QGraphicsLayout
 
 	Func stretchFactor P1
 		return QGraphicsLinearLayout_stretchFactor(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QGraphicsPathItem from QAbstractGraphicsShapeItem
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsPathItem_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsPathItem_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func path 
+		pTempObj = new QPainterPath
+		pTempObj.pObject = QGraphicsPathItem_path(pObject)
+		return pTempObj
+
+	Func setPath P1
+		return QGraphicsPathItem_setPath(pObject,GetObjectPointerFromRingObject(P1))
 
 Class QTest
 
