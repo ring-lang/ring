@@ -1,0 +1,7 @@
+<class>
+name: QGraphicsSceneEvent
+parent: QEvent
+nonew
+</class>
+
+QWidget * widget(void)

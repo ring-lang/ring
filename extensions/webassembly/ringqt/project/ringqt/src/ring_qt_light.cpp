@@ -322,6 +322,7 @@ extern "C" {
 	void ring_QGraphicsRectItem_freefunc(void *pState,void *pPointer);
 	void ring_QGraphicsSceneContextMenuEvent_freefunc(void *pState,void *pPointer);
 	void ring_QGraphicsSceneDragDropEvent_freefunc(void *pState,void *pPointer);
+	void ring_QGraphicsSceneEvent_freefunc(void *pState,void *pPointer);
 	void ring_QTest_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
@@ -130235,6 +130236,23 @@ RING_FUNC(ring_QGraphicsSceneDragDropEvent_source)
 }
 
 
+RING_FUNC(ring_QGraphicsSceneEvent_widget)
+{
+	QGraphicsSceneEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSceneEvent *) RING_API_GETCPOINTER(1,"QGraphicsSceneEvent");
+	RING_API_RETCPOINTER(pObject->widget(),"QWidget");
+}
+
+
 RING_FUNC(ring_QTest_qsleep)
 {
 	QTest::qSleep((int) RING_API_GETNUMBER(1));
@@ -143853,6 +143871,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qgraphicsscenedragdropevent_screenpos",ring_QGraphicsSceneDragDropEvent_screenPos);
 	RING_API_REGISTER("qgraphicsscenedragdropevent_setdropaction",ring_QGraphicsSceneDragDropEvent_setDropAction);
 	RING_API_REGISTER("qgraphicsscenedragdropevent_source",ring_QGraphicsSceneDragDropEvent_source);
+	RING_API_REGISTER("qgraphicssceneevent_widget",ring_QGraphicsSceneEvent_widget);
 	RING_API_REGISTER("qtest_qsleep",ring_QTest_qsleep);
 	RING_API_REGISTER("qobject_new",ring_QObject_new);
 	RING_API_REGISTER("qsize_new",ring_QSize_new);

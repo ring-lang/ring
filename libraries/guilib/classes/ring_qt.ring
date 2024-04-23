@@ -22601,6 +22601,16 @@ Class QGraphicsSceneDragDropEvent from QGraphicsSceneEvent
 		pTempObj.pObject = QGraphicsSceneDragDropEvent_source()
 		return pTempObj
 
+Class QGraphicsSceneEvent from QEvent
+
+	pObject
+
+
+	Func widget 
+		pTempObj = new QWidget
+		pTempObj.pObject = QGraphicsSceneEvent_widget()
+		return pTempObj
+
 Class QTest
 
 	pObject
