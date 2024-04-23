@@ -18,3 +18,4 @@
 <loadfile> graphicsview/qgraphicslinearlayout.cf
 <loadfile> graphicsview/qgraphicspathitem.cf
 <loadfile> graphicsview/qgraphicspixmapitem.cf
+<loadfile> graphicsview/qgraphicspolygonitem.cf
