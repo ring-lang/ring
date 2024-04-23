@@ -11846,7 +11846,9 @@ Class QWidget from QObject
 		return QWidget_graphicsEffect(pObject)
 
 	Func graphicsProxyWidget 
-		return QWidget_graphicsProxyWidget(pObject)
+		pTempObj = new QGraphicsProxyWidget
+		pTempObj.pObject = QWidget_graphicsProxyWidget(pObject)
+		return pTempObj
 
 	Func hasFocus 
 		return QWidget_hasFocus(pObject)
@@ -20996,7 +20998,9 @@ Class QGraphicsScene from QObject
 		return QGraphicsScene_addText(pObject,P1,GetObjectPointerFromRingObject(P2))
 
 	Func addWidget P1,P2
-		return QGraphicsScene_addWidget(pObject,GetObjectPointerFromRingObject(P1),P2)
+		pTempObj = new QGraphicsProxyWidget
+		pTempObj.pObject = QGraphicsScene_addWidget(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
 
 	Func backgroundBrush 
 		pTempObj = new QBrush
@@ -22426,6 +22430,36 @@ Class QGraphicsPolygonItem from QAbstractGraphicsShapeItem
 
 	Func setPolygon P1
 		return QGraphicsPolygonItem_setPolygon(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QGraphicsProxyWidget from QGraphicsWidget
+
+	pObject
+
+	Func init P1,P2
+		pObject = QGraphicsProxyWidget_new(GetObjectPointerFromRingObject(P1),P2)
+		return self
+
+	Func delete
+		pObject = QGraphicsProxyWidget_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func createProxyForChildWidget P1
+		pTempObj = new QGraphicsProxyWidget
+		pTempObj.pObject = QGraphicsProxyWidget_createProxyForChildWidget(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func setWidget P1
+		return QGraphicsProxyWidget_setWidget(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func subWidgetRect P1
+		return QGraphicsProxyWidget_subWidgetRect(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func widget 
+		pTempObj = new QWidget
+		pTempObj.pObject = QGraphicsProxyWidget_widget(pObject)
+		return pTempObj
 
 Class QTest
 
