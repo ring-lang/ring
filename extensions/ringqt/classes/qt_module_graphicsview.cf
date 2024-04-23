@@ -17,3 +17,4 @@
 <loadfile> graphicsview/qgraphicslineitem.cf
 <loadfile> graphicsview/qgraphicslinearlayout.cf
 <loadfile> graphicsview/qgraphicspathitem.cf
+<loadfile> graphicsview/qgraphicspixmapitem.cf
