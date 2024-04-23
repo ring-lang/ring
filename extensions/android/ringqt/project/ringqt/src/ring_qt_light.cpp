@@ -321,6 +321,7 @@ extern "C" {
 	void ring_QGraphicsProxyWidget_freefunc(void *pState,void *pPointer);
 	void ring_QGraphicsRectItem_freefunc(void *pState,void *pPointer);
 	void ring_QGraphicsSceneContextMenuEvent_freefunc(void *pState,void *pPointer);
+	void ring_QGraphicsSceneDragDropEvent_freefunc(void *pState,void *pPointer);
 	void ring_QTest_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
@@ -130011,6 +130012,229 @@ RING_FUNC(ring_QGraphicsSceneContextMenuEvent_screenPos)
 }
 
 
+RING_FUNC(ring_QGraphicsSceneDragDropEvent_acceptProposedAction)
+{
+	QGraphicsSceneDragDropEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSceneDragDropEvent *) RING_API_GETCPOINTER(1,"QGraphicsSceneDragDropEvent");
+	pObject->acceptProposedAction();
+}
+
+
+RING_FUNC(ring_QGraphicsSceneDragDropEvent_buttons)
+{
+	QGraphicsSceneDragDropEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSceneDragDropEvent *) RING_API_GETCPOINTER(1,"QGraphicsSceneDragDropEvent");
+	RING_API_RETNUMBER(pObject->buttons());
+}
+
+
+RING_FUNC(ring_QGraphicsSceneDragDropEvent_dropAction)
+{
+	QGraphicsSceneDragDropEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSceneDragDropEvent *) RING_API_GETCPOINTER(1,"QGraphicsSceneDragDropEvent");
+	RING_API_RETNUMBER(pObject->dropAction());
+}
+
+
+RING_FUNC(ring_QGraphicsSceneDragDropEvent_mimeData)
+{
+	QGraphicsSceneDragDropEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSceneDragDropEvent *) RING_API_GETCPOINTER(1,"QGraphicsSceneDragDropEvent");
+	RING_API_RETCPOINTER(pObject->mimeData(),"QMimeData");
+}
+
+
+RING_FUNC(ring_QGraphicsSceneDragDropEvent_modifiers)
+{
+	QGraphicsSceneDragDropEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSceneDragDropEvent *) RING_API_GETCPOINTER(1,"QGraphicsSceneDragDropEvent");
+	RING_API_RETNUMBER(pObject->modifiers());
+}
+
+
+RING_FUNC(ring_QGraphicsSceneDragDropEvent_pos)
+{
+	QGraphicsSceneDragDropEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSceneDragDropEvent *) RING_API_GETCPOINTER(1,"QGraphicsSceneDragDropEvent");
+	{
+		QPointF *pValue ; 
+		pValue = new QPointF() ;
+		*pValue = pObject->pos();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QPointF",ring_QPointF_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QGraphicsSceneDragDropEvent_possibleActions)
+{
+	QGraphicsSceneDragDropEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSceneDragDropEvent *) RING_API_GETCPOINTER(1,"QGraphicsSceneDragDropEvent");
+	RING_API_RETNUMBER(pObject->possibleActions());
+}
+
+
+RING_FUNC(ring_QGraphicsSceneDragDropEvent_proposedAction)
+{
+	QGraphicsSceneDragDropEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSceneDragDropEvent *) RING_API_GETCPOINTER(1,"QGraphicsSceneDragDropEvent");
+	RING_API_RETNUMBER(pObject->proposedAction());
+}
+
+
+RING_FUNC(ring_QGraphicsSceneDragDropEvent_scenePos)
+{
+	QGraphicsSceneDragDropEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSceneDragDropEvent *) RING_API_GETCPOINTER(1,"QGraphicsSceneDragDropEvent");
+	{
+		QPointF *pValue ; 
+		pValue = new QPointF() ;
+		*pValue = pObject->scenePos();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QPointF",ring_QPointF_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QGraphicsSceneDragDropEvent_screenPos)
+{
+	QGraphicsSceneDragDropEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSceneDragDropEvent *) RING_API_GETCPOINTER(1,"QGraphicsSceneDragDropEvent");
+	{
+		QPoint *pValue ; 
+		pValue = new QPoint() ;
+		*pValue = pObject->screenPos();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QPoint",ring_QPoint_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QGraphicsSceneDragDropEvent_setDropAction)
+{
+	QGraphicsSceneDragDropEvent *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSceneDragDropEvent *) RING_API_GETCPOINTER(1,"QGraphicsSceneDragDropEvent");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setDropAction( (Qt::DropAction )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QGraphicsSceneDragDropEvent_source)
+{
+	QGraphicsSceneDragDropEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSceneDragDropEvent *) RING_API_GETCPOINTER(1,"QGraphicsSceneDragDropEvent");
+	RING_API_RETCPOINTER(pObject->source(),"QWidget");
+}
+
+
 RING_FUNC(ring_QTest_qsleep)
 {
 	QTest::qSleep((int) RING_API_GETNUMBER(1));
@@ -143617,6 +143841,18 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qgraphicsscenecontextmenuevent_reason",ring_QGraphicsSceneContextMenuEvent_reason);
 	RING_API_REGISTER("qgraphicsscenecontextmenuevent_scenepos",ring_QGraphicsSceneContextMenuEvent_scenePos);
 	RING_API_REGISTER("qgraphicsscenecontextmenuevent_screenpos",ring_QGraphicsSceneContextMenuEvent_screenPos);
+	RING_API_REGISTER("qgraphicsscenedragdropevent_acceptproposedaction",ring_QGraphicsSceneDragDropEvent_acceptProposedAction);
+	RING_API_REGISTER("qgraphicsscenedragdropevent_buttons",ring_QGraphicsSceneDragDropEvent_buttons);
+	RING_API_REGISTER("qgraphicsscenedragdropevent_dropaction",ring_QGraphicsSceneDragDropEvent_dropAction);
+	RING_API_REGISTER("qgraphicsscenedragdropevent_mimedata",ring_QGraphicsSceneDragDropEvent_mimeData);
+	RING_API_REGISTER("qgraphicsscenedragdropevent_modifiers",ring_QGraphicsSceneDragDropEvent_modifiers);
+	RING_API_REGISTER("qgraphicsscenedragdropevent_pos",ring_QGraphicsSceneDragDropEvent_pos);
+	RING_API_REGISTER("qgraphicsscenedragdropevent_possibleactions",ring_QGraphicsSceneDragDropEvent_possibleActions);
+	RING_API_REGISTER("qgraphicsscenedragdropevent_proposedaction",ring_QGraphicsSceneDragDropEvent_proposedAction);
+	RING_API_REGISTER("qgraphicsscenedragdropevent_scenepos",ring_QGraphicsSceneDragDropEvent_scenePos);
+	RING_API_REGISTER("qgraphicsscenedragdropevent_screenpos",ring_QGraphicsSceneDragDropEvent_screenPos);
+	RING_API_REGISTER("qgraphicsscenedragdropevent_setdropaction",ring_QGraphicsSceneDragDropEvent_setDropAction);
+	RING_API_REGISTER("qgraphicsscenedragdropevent_source",ring_QGraphicsSceneDragDropEvent_source);
 	RING_API_REGISTER("qtest_qsleep",ring_QTest_qsleep);
 	RING_API_REGISTER("qobject_new",ring_QObject_new);
 	RING_API_REGISTER("qsize_new",ring_QSize_new);
