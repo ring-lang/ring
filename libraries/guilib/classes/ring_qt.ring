@@ -21948,7 +21948,9 @@ Class QGraphicsLayout from QGraphicsLayoutItem
 		return QGraphicsLayout_isActivated()
 
 	Func itemAt P1
-		return QGraphicsLayout_itemAt(P1)
+		pTempObj = new QGraphicsLayoutItem
+		pTempObj.pObject = QGraphicsLayout_itemAt(P1)
+		return pTempObj
 
 	Func removeAt P1
 		return QGraphicsLayout_removeAt(P1)
@@ -22042,7 +22044,9 @@ Class QGraphicsGridLayout from QGraphicsLayout
 		return QGraphicsGridLayout_horizontalSpacing(pObject)
 
 	Func itemAt P1,P2
-		return QGraphicsGridLayout_itemAt(pObject,P1,P2)
+		pTempObj = new QGraphicsLayoutItem
+		pTempObj.pObject = QGraphicsGridLayout_itemAt(pObject,P1,P2)
+		return pTempObj
 
 	Func removeItem P1
 		return QGraphicsGridLayout_removeItem(pObject,GetObjectPointerFromRingObject(P1))
@@ -22144,6 +22148,127 @@ Class QGraphicsItemGroup from QGraphicsItem
 
 	Func removeFromGroup P1
 		return QGraphicsItemGroup_removeFromGroup(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QGraphicsLayoutItem
+
+	pObject
+
+	Func init P1,P2
+		pObject = QGraphicsLayoutItem_new(GetObjectPointerFromRingObject(P1),P2)
+		return self
+
+	Func delete
+		pObject = QGraphicsLayoutItem_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func contentsRect 
+		return QGraphicsLayoutItem_contentsRect(pObject)
+
+	Func effectiveSizeHint P1,P2
+		return QGraphicsLayoutItem_effectiveSizeHint(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func geometry 
+		return QGraphicsLayoutItem_geometry(pObject)
+
+	Func getContentsMargins P1,P2,P3,P4
+		return QGraphicsLayoutItem_getContentsMargins(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func graphicsItem 
+		return QGraphicsLayoutItem_graphicsItem(pObject)
+
+	Func isLayout 
+		return QGraphicsLayoutItem_isLayout(pObject)
+
+	Func maximumHeight 
+		return QGraphicsLayoutItem_maximumHeight(pObject)
+
+	Func maximumSize 
+		return QGraphicsLayoutItem_maximumSize(pObject)
+
+	Func maximumWidth 
+		return QGraphicsLayoutItem_maximumWidth(pObject)
+
+	Func minimumHeight 
+		return QGraphicsLayoutItem_minimumHeight(pObject)
+
+	Func minimumSize 
+		return QGraphicsLayoutItem_minimumSize(pObject)
+
+	Func minimumWidth 
+		return QGraphicsLayoutItem_minimumWidth(pObject)
+
+	Func ownedByLayout 
+		return QGraphicsLayoutItem_ownedByLayout(pObject)
+
+	Func parentLayoutItem 
+		pTempObj = new QGraphicsLayoutItem
+		pTempObj.pObject = QGraphicsLayoutItem_parentLayoutItem(pObject)
+		return pTempObj
+
+	Func preferredHeight 
+		return QGraphicsLayoutItem_preferredHeight(pObject)
+
+	Func preferredSize 
+		return QGraphicsLayoutItem_preferredSize(pObject)
+
+	Func preferredWidth 
+		return QGraphicsLayoutItem_preferredWidth(pObject)
+
+	Func setGeometry P1
+		return QGraphicsLayoutItem_setGeometry(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setMaximumHeight P1
+		return QGraphicsLayoutItem_setMaximumHeight(pObject,P1)
+
+	Func setMaximumSize P1
+		return QGraphicsLayoutItem_setMaximumSize(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setMaximumSize_2 P1,P2
+		return QGraphicsLayoutItem_setMaximumSize_2(pObject,P1,P2)
+
+	Func setMaximumWidth P1
+		return QGraphicsLayoutItem_setMaximumWidth(pObject,P1)
+
+	Func setMinimumHeight P1
+		return QGraphicsLayoutItem_setMinimumHeight(pObject,P1)
+
+	Func setMinimumSize P1
+		return QGraphicsLayoutItem_setMinimumSize(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setMinimumSize_2 P1,P2
+		return QGraphicsLayoutItem_setMinimumSize_2(pObject,P1,P2)
+
+	Func setMinimumWidth P1
+		return QGraphicsLayoutItem_setMinimumWidth(pObject,P1)
+
+	Func setParentLayoutItem P1
+		return QGraphicsLayoutItem_setParentLayoutItem(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPreferredHeight P1
+		return QGraphicsLayoutItem_setPreferredHeight(pObject,P1)
+
+	Func setPreferredSize P1
+		return QGraphicsLayoutItem_setPreferredSize(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPreferredSize_2 P1,P2
+		return QGraphicsLayoutItem_setPreferredSize_2(pObject,P1,P2)
+
+	Func setPreferredWidth P1
+		return QGraphicsLayoutItem_setPreferredWidth(pObject,P1)
+
+	Func setSizePolicy P1
+		return QGraphicsLayoutItem_setSizePolicy(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setSizePolicy_2 P1,P2,P3
+		return QGraphicsLayoutItem_setSizePolicy_2(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func sizePolicy 
+		return QGraphicsLayoutItem_sizePolicy(pObject)
+
+	Func updateGeometry 
+		return QGraphicsLayoutItem_updateGeometry(pObject)
 
 Class QTest
 
