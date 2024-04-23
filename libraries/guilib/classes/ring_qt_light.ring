@@ -20986,10 +20986,14 @@ Class QGraphicsScene from QObject
 		return pTempObj
 
 	Func addRect P1,P2,P3
-		return QGraphicsScene_addRect(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		pTempObj = new QGraphicsRectItem
+		pTempObj.pObject = QGraphicsScene_addRect(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return pTempObj
 
 	Func addRect_2 P1,P2,P3,P4,P5,P6
-		return QGraphicsScene_addRect_2(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6))
+		pTempObj = new QGraphicsRectItem
+		pTempObj.pObject = QGraphicsScene_addRect_2(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6))
+		return pTempObj
 
 	Func addSimpleText P1,P2
 		return QGraphicsScene_addSimpleText(pObject,P1,GetObjectPointerFromRingObject(P2))
@@ -22460,6 +22464,29 @@ Class QGraphicsProxyWidget from QGraphicsWidget
 		pTempObj = new QWidget
 		pTempObj.pObject = QGraphicsProxyWidget_widget(pObject)
 		return pTempObj
+
+Class QGraphicsRectItem from QAbstractGraphicsShapeItem
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsRectItem_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsRectItem_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func rect 
+		return QGraphicsRectItem_rect(pObject)
+
+	Func setRect P1
+		return QGraphicsRectItem_setRect(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setRect_2 P1,P2,P3,P4
+		return QGraphicsRectItem_setRect_2(pObject,P1,P2,P3,P4)
 
 Class QTest
 
