@@ -320,6 +320,7 @@ extern "C" {
 	void ring_QGraphicsPolygonItem_freefunc(void *pState,void *pPointer);
 	void ring_QGraphicsProxyWidget_freefunc(void *pState,void *pPointer);
 	void ring_QGraphicsRectItem_freefunc(void *pState,void *pPointer);
+	void ring_QGraphicsSceneContextMenuEvent_freefunc(void *pState,void *pPointer);
 	void ring_QTest_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
@@ -129910,6 +129911,106 @@ RING_FUNC(ring_QGraphicsRectItem_setRect_2)
 }
 
 
+RING_FUNC(ring_QGraphicsSceneContextMenuEvent_modifiers)
+{
+	QGraphicsSceneContextMenuEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSceneContextMenuEvent *) RING_API_GETCPOINTER(1,"QGraphicsSceneContextMenuEvent");
+	RING_API_RETNUMBER(pObject->modifiers());
+}
+
+
+RING_FUNC(ring_QGraphicsSceneContextMenuEvent_pos)
+{
+	QGraphicsSceneContextMenuEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSceneContextMenuEvent *) RING_API_GETCPOINTER(1,"QGraphicsSceneContextMenuEvent");
+	{
+		QPointF *pValue ; 
+		pValue = new QPointF() ;
+		*pValue = pObject->pos();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QPointF",ring_QPointF_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QGraphicsSceneContextMenuEvent_reason)
+{
+	QGraphicsSceneContextMenuEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSceneContextMenuEvent *) RING_API_GETCPOINTER(1,"QGraphicsSceneContextMenuEvent");
+	RING_API_RETNUMBER(pObject->reason());
+}
+
+
+RING_FUNC(ring_QGraphicsSceneContextMenuEvent_scenePos)
+{
+	QGraphicsSceneContextMenuEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSceneContextMenuEvent *) RING_API_GETCPOINTER(1,"QGraphicsSceneContextMenuEvent");
+	{
+		QPointF *pValue ; 
+		pValue = new QPointF() ;
+		*pValue = pObject->scenePos();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QPointF",ring_QPointF_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QGraphicsSceneContextMenuEvent_screenPos)
+{
+	QGraphicsSceneContextMenuEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSceneContextMenuEvent *) RING_API_GETCPOINTER(1,"QGraphicsSceneContextMenuEvent");
+	{
+		QPoint *pValue ; 
+		pValue = new QPoint() ;
+		*pValue = pObject->screenPos();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QPoint",ring_QPoint_freefunc);
+	}
+}
+
+
 RING_FUNC(ring_QTest_qsleep)
 {
 	QTest::qSleep((int) RING_API_GETNUMBER(1));
@@ -143511,6 +143612,11 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qgraphicsrectitem_rect",ring_QGraphicsRectItem_rect);
 	RING_API_REGISTER("qgraphicsrectitem_setrect",ring_QGraphicsRectItem_setRect);
 	RING_API_REGISTER("qgraphicsrectitem_setrect_2",ring_QGraphicsRectItem_setRect_2);
+	RING_API_REGISTER("qgraphicsscenecontextmenuevent_modifiers",ring_QGraphicsSceneContextMenuEvent_modifiers);
+	RING_API_REGISTER("qgraphicsscenecontextmenuevent_pos",ring_QGraphicsSceneContextMenuEvent_pos);
+	RING_API_REGISTER("qgraphicsscenecontextmenuevent_reason",ring_QGraphicsSceneContextMenuEvent_reason);
+	RING_API_REGISTER("qgraphicsscenecontextmenuevent_scenepos",ring_QGraphicsSceneContextMenuEvent_scenePos);
+	RING_API_REGISTER("qgraphicsscenecontextmenuevent_screenpos",ring_QGraphicsSceneContextMenuEvent_screenPos);
 	RING_API_REGISTER("qtest_qsleep",ring_QTest_qsleep);
 	RING_API_REGISTER("qobject_new",ring_QObject_new);
 	RING_API_REGISTER("qsize_new",ring_QSize_new);
