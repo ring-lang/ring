@@ -315,6 +315,7 @@ extern "C" {
 	void ring_QGraphicsLayoutItem_freefunc(void *pState,void *pPointer);
 	void ring_QGraphicsLineItem_freefunc(void *pState,void *pPointer);
 	void ring_QGraphicsLinearLayout_freefunc(void *pState,void *pPointer);
+	void ring_QGraphicsPathItem_freefunc(void *pState,void *pPointer);
 	void ring_QTest_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
@@ -129443,6 +129444,47 @@ RING_FUNC(ring_QGraphicsLinearLayout_stretchFactor)
 }
 
 
+RING_FUNC(ring_QGraphicsPathItem_path)
+{
+	QGraphicsPathItem *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsPathItem *) RING_API_GETCPOINTER(1,"QGraphicsPathItem");
+	{
+		QPainterPath *pValue ; 
+		pValue = new QPainterPath() ;
+		*pValue = pObject->path();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QPainterPath",ring_QPainterPath_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QGraphicsPathItem_setPath)
+{
+	QGraphicsPathItem *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsPathItem *) RING_API_GETCPOINTER(1,"QGraphicsPathItem");
+	pObject->setPath(* (QPainterPath  *) RING_API_GETCPOINTER(2,"QPainterPath"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"QPainterPath"));
+}
+
+
 RING_FUNC(ring_QTest_qsleep)
 {
 	QTest::qSleep((int) RING_API_GETNUMBER(1));
@@ -132212,6 +132254,21 @@ RING_FUNC(ring_QGraphicsLinearLayout_new)
 	}
 	QGraphicsLinearLayout *pObject = new QGraphicsLinearLayout((QGraphicsLayoutItem *) RING_API_GETCPOINTER(1,"QGraphicsLayoutItem"));
 	RING_API_RETCPOINTER(pObject,"QGraphicsLinearLayout");
+}
+
+RING_FUNC(ring_QGraphicsPathItem_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QGraphicsPathItem *pObject = new QGraphicsPathItem((QGraphicsItem *) RING_API_GETCPOINTER(1,"QGraphicsItem"));
+	RING_API_RETCPOINTER(pObject,"QGraphicsPathItem");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -135444,6 +135501,23 @@ RING_FUNC(ring_QGraphicsLinearLayout_delete)
 	}
 }
 
+RING_FUNC(ring_QGraphicsPathItem_delete)
+{
+	QGraphicsPathItem *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISCPOINTER(1) )
+	{
+		pObject = (QGraphicsPathItem *) RING_API_GETCPOINTER(1,"QGraphicsPathItem");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 void ring_QObject_freefunc(void *pState,void *pPointer)
 {
 	QObject *pObject ; 
@@ -136771,6 +136845,13 @@ void ring_QGraphicsLinearLayout_freefunc(void *pState,void *pPointer)
 {
 	QGraphicsLinearLayout *pObject ; 
 	pObject = (QGraphicsLinearLayout *) pPointer;
+	delete pObject ;
+}
+
+void ring_QGraphicsPathItem_freefunc(void *pState,void *pPointer)
+{
+	QGraphicsPathItem *pObject ; 
+	pObject = (QGraphicsPathItem *) pPointer;
 	delete pObject ;
 }
 
@@ -142823,6 +142904,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qgraphicslinearlayout_setstretchfactor",ring_QGraphicsLinearLayout_setStretchFactor);
 	RING_API_REGISTER("qgraphicslinearlayout_spacing",ring_QGraphicsLinearLayout_spacing);
 	RING_API_REGISTER("qgraphicslinearlayout_stretchfactor",ring_QGraphicsLinearLayout_stretchFactor);
+	RING_API_REGISTER("qgraphicspathitem_path",ring_QGraphicsPathItem_path);
+	RING_API_REGISTER("qgraphicspathitem_setpath",ring_QGraphicsPathItem_setPath);
 	RING_API_REGISTER("qtest_qsleep",ring_QTest_qsleep);
 	RING_API_REGISTER("qobject_new",ring_QObject_new);
 	RING_API_REGISTER("qsize_new",ring_QSize_new);
@@ -143014,6 +143097,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qgraphicsgridlayout_new",ring_QGraphicsGridLayout_new);
 	RING_API_REGISTER("qgraphicsitemgroup_new",ring_QGraphicsItemGroup_new);
 	RING_API_REGISTER("qgraphicslinearlayout_new",ring_QGraphicsLinearLayout_new);
+	RING_API_REGISTER("qgraphicspathitem_new",ring_QGraphicsPathItem_new);
 	RING_API_REGISTER("qobject_delete",ring_QObject_delete);
 	RING_API_REGISTER("qsize_delete",ring_QSize_delete);
 	RING_API_REGISTER("qdir_delete",ring_QDir_delete);
@@ -143204,4 +143288,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qgraphicsgridlayout_delete",ring_QGraphicsGridLayout_delete);
 	RING_API_REGISTER("qgraphicsitemgroup_delete",ring_QGraphicsItemGroup_delete);
 	RING_API_REGISTER("qgraphicslinearlayout_delete",ring_QGraphicsLinearLayout_delete);
+	RING_API_REGISTER("qgraphicspathitem_delete",ring_QGraphicsPathItem_delete);
 }
