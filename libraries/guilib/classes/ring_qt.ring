@@ -21007,7 +21007,9 @@ Class QGraphicsScene from QObject
 		return pTempObj
 
 	Func addPolygon P1,P2,P3
-		return QGraphicsScene_addPolygon(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		pTempObj = new QGraphicsPolygonItem
+		pTempObj.pObject = QGraphicsScene_addPolygon(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return pTempObj
 
 	Func addRect P1,P2,P3
 		return QGraphicsScene_addRect(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
@@ -22434,6 +22436,32 @@ Class QGraphicsPixmapItem from QGraphicsItem
 
 	Func transformationMode 
 		return QGraphicsPixmapItem_transformationMode(pObject)
+
+Class QGraphicsPolygonItem from QAbstractGraphicsShapeItem
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsPolygonItem_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsPolygonItem_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func fillRule 
+		return QGraphicsPolygonItem_fillRule(pObject)
+
+	Func polygon 
+		return QGraphicsPolygonItem_polygon(pObject)
+
+	Func setFillRule P1
+		return QGraphicsPolygonItem_setFillRule(pObject,P1)
+
+	Func setPolygon P1
+		return QGraphicsPolygonItem_setPolygon(pObject,GetObjectPointerFromRingObject(P1))
 
 Class QTest
 
