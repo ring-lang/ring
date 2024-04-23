@@ -1,0 +1,8 @@
+<class>
+name: QGraphicsPathItem
+para: QGraphicsItem *
+parent: QAbstractGraphicsShapeItem
+</class>
+
+QPainterPath path(void)
+void setPath(QPainterPath path)
