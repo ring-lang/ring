@@ -346,6 +346,7 @@ extern "C" {
 	void ring_QGraphicsLayout_freefunc(void *pState,void *pPointer);
 	void ring_QGraphicsEllipseItem_freefunc(void *pState,void *pPointer);
 	void ring_QGraphicsGridLayout_freefunc(void *pState,void *pPointer);
+	void ring_QGraphicsItemGroup_freefunc(void *pState,void *pPointer);
 	void ring_QTest_freefunc(void *pState,void *pPointer);
 	void ring_QMediaPlayer_freefunc(void *pState,void *pPointer);
 	void ring_QMediaPlaylist_freefunc(void *pState,void *pPointer);
@@ -106536,6 +106537,48 @@ RING_FUNC(ring_QGraphicsGridLayout_verticalSpacing)
 }
 
 
+RING_FUNC(ring_QGraphicsItemGroup_addToGroup)
+{
+	QGraphicsItemGroup *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsItemGroup *) RING_API_GETCPOINTER(1,"QGraphicsItemGroup");
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->addToGroup((QGraphicsItem *) RING_API_GETCPOINTER(2,"QGraphicsItem"));
+}
+
+
+RING_FUNC(ring_QGraphicsItemGroup_removeFromGroup)
+{
+	QGraphicsItemGroup *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsItemGroup *) RING_API_GETCPOINTER(1,"QGraphicsItemGroup");
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->removeFromGroup((QGraphicsItem *) RING_API_GETCPOINTER(2,"QGraphicsItem"));
+}
+
+
 RING_FUNC(ring_QTest_qsleep)
 {
 	QTest::qSleep((int) RING_API_GETNUMBER(1));
@@ -141376,6 +141419,21 @@ RING_FUNC(ring_QGraphicsGridLayout_new)
 	RING_API_RETCPOINTER(pObject,"QGraphicsGridLayout");
 }
 
+RING_FUNC(ring_QGraphicsItemGroup_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QGraphicsItemGroup *pObject = new QGraphicsItemGroup((QGraphicsItem *) RING_API_GETCPOINTER(1,"QGraphicsItem"));
+	RING_API_RETCPOINTER(pObject,"QGraphicsItemGroup");
+}
+
 RING_FUNC(ring_QMediaPlayer_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -145065,6 +145123,23 @@ RING_FUNC(ring_QGraphicsGridLayout_delete)
 	}
 }
 
+RING_FUNC(ring_QGraphicsItemGroup_delete)
+{
+	QGraphicsItemGroup *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISCPOINTER(1) )
+	{
+		pObject = (QGraphicsItemGroup *) RING_API_GETCPOINTER(1,"QGraphicsItemGroup");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 RING_FUNC(ring_QMediaPlayer_delete)
 {
 	QMediaPlayer *pObject ; 
@@ -147217,6 +147292,13 @@ void ring_QGraphicsGridLayout_freefunc(void *pState,void *pPointer)
 {
 	QGraphicsGridLayout *pObject ; 
 	pObject = (QGraphicsGridLayout *) pPointer;
+	delete pObject ;
+}
+
+void ring_QGraphicsItemGroup_freefunc(void *pState,void *pPointer)
+{
+	QGraphicsItemGroup *pObject ; 
+	pObject = (QGraphicsItemGroup *) pPointer;
 	delete pObject ;
 }
 
@@ -152740,6 +152822,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qgraphicsgridlayout_setspacing",ring_QGraphicsGridLayout_setSpacing);
 	RING_API_REGISTER("qgraphicsgridlayout_setverticalspacing",ring_QGraphicsGridLayout_setVerticalSpacing);
 	RING_API_REGISTER("qgraphicsgridlayout_verticalspacing",ring_QGraphicsGridLayout_verticalSpacing);
+	RING_API_REGISTER("qgraphicsitemgroup_addtogroup",ring_QGraphicsItemGroup_addToGroup);
+	RING_API_REGISTER("qgraphicsitemgroup_removefromgroup",ring_QGraphicsItemGroup_removeFromGroup);
 	RING_API_REGISTER("qtest_qsleep",ring_QTest_qsleep);
 	RING_API_REGISTER("qmediaplayer_bufferstatus",ring_QMediaPlayer_bufferStatus);
 	RING_API_REGISTER("qmediaplayer_currentmedia",ring_QMediaPlayer_currentMedia);
@@ -154582,6 +154666,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qgraphicsanchorlayout_new",ring_QGraphicsAnchorLayout_new);
 	RING_API_REGISTER("qgraphicsellipseitem_new",ring_QGraphicsEllipseItem_new);
 	RING_API_REGISTER("qgraphicsgridlayout_new",ring_QGraphicsGridLayout_new);
+	RING_API_REGISTER("qgraphicsitemgroup_new",ring_QGraphicsItemGroup_new);
 	RING_API_REGISTER("qmediaplayer_new",ring_QMediaPlayer_new);
 	RING_API_REGISTER("qmediaplaylist_new",ring_QMediaPlaylist_new);
 	RING_API_REGISTER("qcamera_new",ring_QCamera_new);
@@ -154807,6 +154892,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qgraphicsanchorlayout_delete",ring_QGraphicsAnchorLayout_delete);
 	RING_API_REGISTER("qgraphicsellipseitem_delete",ring_QGraphicsEllipseItem_delete);
 	RING_API_REGISTER("qgraphicsgridlayout_delete",ring_QGraphicsGridLayout_delete);
+	RING_API_REGISTER("qgraphicsitemgroup_delete",ring_QGraphicsItemGroup_delete);
 	RING_API_REGISTER("qmediaplayer_delete",ring_QMediaPlayer_delete);
 	RING_API_REGISTER("qmediaplaylist_delete",ring_QMediaPlaylist_delete);
 	RING_API_REGISTER("qcamera_delete",ring_QCamera_delete);
