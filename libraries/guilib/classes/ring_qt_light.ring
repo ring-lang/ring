@@ -22514,6 +22514,57 @@ Class QGraphicsSceneContextMenuEvent from QGraphicsSceneEvent
 		pTempObj.pObject = QGraphicsSceneContextMenuEvent_screenPos()
 		return pTempObj
 
+Class QGraphicsSceneDragDropEvent from QGraphicsSceneEvent
+
+	pObject
+
+
+	Func acceptProposedAction 
+		return QGraphicsSceneDragDropEvent_acceptProposedAction()
+
+	Func buttons 
+		return QGraphicsSceneDragDropEvent_buttons()
+
+	Func dropAction 
+		return QGraphicsSceneDragDropEvent_dropAction()
+
+	Func mimeData 
+		pTempObj = new QMimeData
+		pTempObj.pObject = QGraphicsSceneDragDropEvent_mimeData()
+		return pTempObj
+
+	Func modifiers 
+		return QGraphicsSceneDragDropEvent_modifiers()
+
+	Func pos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneDragDropEvent_pos()
+		return pTempObj
+
+	Func possibleActions 
+		return QGraphicsSceneDragDropEvent_possibleActions()
+
+	Func proposedAction 
+		return QGraphicsSceneDragDropEvent_proposedAction()
+
+	Func scenePos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneDragDropEvent_scenePos()
+		return pTempObj
+
+	Func screenPos 
+		pTempObj = new QPoint
+		pTempObj.pObject = QGraphicsSceneDragDropEvent_screenPos()
+		return pTempObj
+
+	Func setDropAction P1
+		return QGraphicsSceneDragDropEvent_setDropAction(P1)
+
+	Func source 
+		pTempObj = new QWidget
+		pTempObj.pObject = QGraphicsSceneDragDropEvent_source()
+		return pTempObj
+
 Class QTest
 
 	pObject
