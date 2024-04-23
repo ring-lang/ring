@@ -348,6 +348,7 @@ extern "C" {
 	void ring_QGraphicsGridLayout_freefunc(void *pState,void *pPointer);
 	void ring_QGraphicsItemGroup_freefunc(void *pState,void *pPointer);
 	void ring_QGraphicsLayoutItem_freefunc(void *pState,void *pPointer);
+	void ring_QGraphicsLineItem_freefunc(void *pState,void *pPointer);
 	void ring_QTest_freefunc(void *pState,void *pPointer);
 	void ring_QMediaPlayer_freefunc(void *pState,void *pPointer);
 	void ring_QMediaPlaylist_freefunc(void *pState,void *pPointer);
@@ -107302,6 +107303,121 @@ RING_FUNC(ring_QGraphicsLayoutItem_updateGeometry)
 }
 
 
+RING_FUNC(ring_QGraphicsLineItem_line)
+{
+	QGraphicsLineItem *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsLineItem *) RING_API_GETCPOINTER(1,"QGraphicsLineItem");
+	{
+		QLineF *pValue ; 
+		pValue = (QLineF *) RING_API_MALLOC(sizeof(QLineF)) ;
+		*pValue = pObject->line();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QLineF",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QGraphicsLineItem_pen)
+{
+	QGraphicsLineItem *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsLineItem *) RING_API_GETCPOINTER(1,"QGraphicsLineItem");
+	{
+		QPen *pValue ; 
+		pValue = new QPen() ;
+		*pValue = pObject->pen();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QPen",ring_QPen_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QGraphicsLineItem_setLine)
+{
+	QGraphicsLineItem *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsLineItem *) RING_API_GETCPOINTER(1,"QGraphicsLineItem");
+	pObject->setLine(* (QLineF  *) RING_API_GETCPOINTER(2,"QLineF"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"QLineF"));
+}
+
+
+RING_FUNC(ring_QGraphicsLineItem_setLine_2)
+{
+	QGraphicsLineItem *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsLineItem *) RING_API_GETCPOINTER(1,"QGraphicsLineItem");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setLine( (qreal ) RING_API_GETNUMBER(2), (qreal ) RING_API_GETNUMBER(3), (qreal ) RING_API_GETNUMBER(4), (qreal ) RING_API_GETNUMBER(5));
+}
+
+
+RING_FUNC(ring_QGraphicsLineItem_setPen)
+{
+	QGraphicsLineItem *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsLineItem *) RING_API_GETCPOINTER(1,"QGraphicsLineItem");
+	pObject->setPen(* (QPen  *) RING_API_GETCPOINTER(2,"QPen"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"QPen"));
+}
+
+
 RING_FUNC(ring_QTest_qsleep)
 {
 	QTest::qSleep((int) RING_API_GETNUMBER(1));
@@ -153582,6 +153698,11 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qgraphicslayoutitem_setsizepolicy_2",ring_QGraphicsLayoutItem_setSizePolicy_2);
 	RING_API_REGISTER("qgraphicslayoutitem_sizepolicy",ring_QGraphicsLayoutItem_sizePolicy);
 	RING_API_REGISTER("qgraphicslayoutitem_updategeometry",ring_QGraphicsLayoutItem_updateGeometry);
+	RING_API_REGISTER("qgraphicslineitem_line",ring_QGraphicsLineItem_line);
+	RING_API_REGISTER("qgraphicslineitem_pen",ring_QGraphicsLineItem_pen);
+	RING_API_REGISTER("qgraphicslineitem_setline",ring_QGraphicsLineItem_setLine);
+	RING_API_REGISTER("qgraphicslineitem_setline_2",ring_QGraphicsLineItem_setLine_2);
+	RING_API_REGISTER("qgraphicslineitem_setpen",ring_QGraphicsLineItem_setPen);
 	RING_API_REGISTER("qtest_qsleep",ring_QTest_qsleep);
 	RING_API_REGISTER("qmediaplayer_bufferstatus",ring_QMediaPlayer_bufferStatus);
 	RING_API_REGISTER("qmediaplayer_currentmedia",ring_QMediaPlayer_currentMedia);
