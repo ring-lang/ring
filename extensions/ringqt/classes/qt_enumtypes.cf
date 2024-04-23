@@ -459,4 +459,5 @@ aEnumTypes + "QGraphicsItem::anonymous"
 aEnumTypes + "QGraphicsEllipseItem::anonymous"
 aEnumTypes + "QGraphicsPixmapItem::ShapeMode"
 aEnumTypes + "QGraphicsPixmapItem::anonymous"
+aEnumTypes + "QGraphicsSceneContextMenuEvent::Reason"
 </runcode>
