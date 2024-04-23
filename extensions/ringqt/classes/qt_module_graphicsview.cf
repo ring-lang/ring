@@ -19,3 +19,4 @@
 <loadfile> graphicsview/qgraphicspathitem.cf
 <loadfile> graphicsview/qgraphicspixmapitem.cf
 <loadfile> graphicsview/qgraphicspolygonitem.cf
+<loadfile> graphicsview/qgraphicsproxywidget.cf
