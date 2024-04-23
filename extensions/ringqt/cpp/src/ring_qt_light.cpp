@@ -318,6 +318,7 @@ extern "C" {
 	void ring_QGraphicsPathItem_freefunc(void *pState,void *pPointer);
 	void ring_QGraphicsPixmapItem_freefunc(void *pState,void *pPointer);
 	void ring_QGraphicsPolygonItem_freefunc(void *pState,void *pPointer);
+	void ring_QGraphicsProxyWidget_freefunc(void *pState,void *pPointer);
 	void ring_QTest_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
@@ -129749,6 +129750,91 @@ RING_FUNC(ring_QGraphicsPolygonItem_setPolygon)
 }
 
 
+RING_FUNC(ring_QGraphicsProxyWidget_createProxyForChildWidget)
+{
+	QGraphicsProxyWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsProxyWidget *) RING_API_GETCPOINTER(1,"QGraphicsProxyWidget");
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(pObject->createProxyForChildWidget((QWidget *) RING_API_GETCPOINTER(2,"QWidget")),"QGraphicsProxyWidget");
+}
+
+
+RING_FUNC(ring_QGraphicsProxyWidget_setWidget)
+{
+	QGraphicsProxyWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsProxyWidget *) RING_API_GETCPOINTER(1,"QGraphicsProxyWidget");
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setWidget((QWidget *) RING_API_GETCPOINTER(2,"QWidget"));
+}
+
+
+RING_FUNC(ring_QGraphicsProxyWidget_subWidgetRect)
+{
+	QGraphicsProxyWidget *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsProxyWidget *) RING_API_GETCPOINTER(1,"QGraphicsProxyWidget");
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QRectF *pValue ; 
+		pValue = (QRectF *) RING_API_MALLOC(sizeof(QRectF)) ;
+		*pValue = pObject->subWidgetRect((QWidget *) RING_API_GETCPOINTER(2,"QWidget"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"QRectF",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QGraphicsProxyWidget_widget)
+{
+	QGraphicsProxyWidget *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsProxyWidget *) RING_API_GETCPOINTER(1,"QGraphicsProxyWidget");
+	RING_API_RETCPOINTER(pObject->widget(),"QWidget");
+}
+
+
 RING_FUNC(ring_QTest_qsleep)
 {
 	QTest::qSleep((int) RING_API_GETNUMBER(1));
@@ -132563,6 +132649,25 @@ RING_FUNC(ring_QGraphicsPolygonItem_new)
 	}
 	QGraphicsPolygonItem *pObject = new QGraphicsPolygonItem((QGraphicsItem *) RING_API_GETCPOINTER(1,"QGraphicsItem"));
 	RING_API_RETCPOINTER(pObject,"QGraphicsPolygonItem");
+}
+
+RING_FUNC(ring_QGraphicsProxyWidget_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QGraphicsProxyWidget *pObject = new QGraphicsProxyWidget((QGraphicsItem *) RING_API_GETCPOINTER(1,"QGraphicsItem"), (Qt::WindowFlags)  (int) RING_API_GETNUMBER(2));
+	RING_API_RETCPOINTER(pObject,"QGraphicsProxyWidget");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -135846,6 +135951,23 @@ RING_FUNC(ring_QGraphicsPolygonItem_delete)
 	}
 }
 
+RING_FUNC(ring_QGraphicsProxyWidget_delete)
+{
+	QGraphicsProxyWidget *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISCPOINTER(1) )
+	{
+		pObject = (QGraphicsProxyWidget *) RING_API_GETCPOINTER(1,"QGraphicsProxyWidget");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 void ring_QObject_freefunc(void *pState,void *pPointer)
 {
 	QObject *pObject ; 
@@ -137194,6 +137316,13 @@ void ring_QGraphicsPolygonItem_freefunc(void *pState,void *pPointer)
 {
 	QGraphicsPolygonItem *pObject ; 
 	pObject = (QGraphicsPolygonItem *) pPointer;
+	delete pObject ;
+}
+
+void ring_QGraphicsProxyWidget_freefunc(void *pState,void *pPointer)
+{
+	QGraphicsProxyWidget *pObject ; 
+	pObject = (QGraphicsProxyWidget *) pPointer;
 	delete pObject ;
 }
 
@@ -143261,6 +143390,10 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qgraphicspolygonitem_polygon",ring_QGraphicsPolygonItem_polygon);
 	RING_API_REGISTER("qgraphicspolygonitem_setfillrule",ring_QGraphicsPolygonItem_setFillRule);
 	RING_API_REGISTER("qgraphicspolygonitem_setpolygon",ring_QGraphicsPolygonItem_setPolygon);
+	RING_API_REGISTER("qgraphicsproxywidget_createproxyforchildwidget",ring_QGraphicsProxyWidget_createProxyForChildWidget);
+	RING_API_REGISTER("qgraphicsproxywidget_setwidget",ring_QGraphicsProxyWidget_setWidget);
+	RING_API_REGISTER("qgraphicsproxywidget_subwidgetrect",ring_QGraphicsProxyWidget_subWidgetRect);
+	RING_API_REGISTER("qgraphicsproxywidget_widget",ring_QGraphicsProxyWidget_widget);
 	RING_API_REGISTER("qtest_qsleep",ring_QTest_qsleep);
 	RING_API_REGISTER("qobject_new",ring_QObject_new);
 	RING_API_REGISTER("qsize_new",ring_QSize_new);
@@ -143455,6 +143588,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qgraphicspathitem_new",ring_QGraphicsPathItem_new);
 	RING_API_REGISTER("qgraphicspixmapitem_new",ring_QGraphicsPixmapItem_new);
 	RING_API_REGISTER("qgraphicspolygonitem_new",ring_QGraphicsPolygonItem_new);
+	RING_API_REGISTER("qgraphicsproxywidget_new",ring_QGraphicsProxyWidget_new);
 	RING_API_REGISTER("qobject_delete",ring_QObject_delete);
 	RING_API_REGISTER("qsize_delete",ring_QSize_delete);
 	RING_API_REGISTER("qdir_delete",ring_QDir_delete);
@@ -143648,4 +143782,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qgraphicspathitem_delete",ring_QGraphicsPathItem_delete);
 	RING_API_REGISTER("qgraphicspixmapitem_delete",ring_QGraphicsPixmapItem_delete);
 	RING_API_REGISTER("qgraphicspolygonitem_delete",ring_QGraphicsPolygonItem_delete);
+	RING_API_REGISTER("qgraphicsproxywidget_delete",ring_QGraphicsProxyWidget_delete);
 }
