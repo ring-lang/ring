@@ -20959,10 +20959,14 @@ Class QGraphicsScene from QObject
 		return QGraphicsScene_addItem(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func addLine P1,P2
-		return QGraphicsScene_addLine(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		pTempObj = new QGraphicsLineItem
+		pTempObj.pObject = QGraphicsScene_addLine(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return pTempObj
 
 	Func addLine_2 P1,P2,P3,P4,P5
-		return QGraphicsScene_addLine_2(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5))
+		pTempObj = new QGraphicsLineItem
+		pTempObj.pObject = QGraphicsScene_addLine_2(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5))
+		return pTempObj
 
 	Func addPath P1,P2,P3
 		return QGraphicsScene_addPath(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
@@ -22233,6 +22237,37 @@ Class QGraphicsLayoutItem
 
 	Func updateGeometry 
 		return QGraphicsLayoutItem_updateGeometry(pObject)
+
+Class QGraphicsLineItem from QGraphicsItem
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsLineItem_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsLineItem_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func line 
+		return QGraphicsLineItem_line(pObject)
+
+	Func pen 
+		pTempObj = new QPen
+		pTempObj.pObject = QGraphicsLineItem_pen(pObject)
+		return pTempObj
+
+	Func setLine P1
+		return QGraphicsLineItem_setLine(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setLine_2 P1,P2,P3,P4
+		return QGraphicsLineItem_setLine_2(pObject,P1,P2,P3,P4)
+
+	Func setPen P1
+		return QGraphicsLineItem_setPen(pObject,GetObjectPointerFromRingObject(P1))
 
 Class QTest
 
