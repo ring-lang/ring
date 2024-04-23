@@ -22269,6 +22269,65 @@ Class QGraphicsLineItem from QGraphicsItem
 	Func setPen P1
 		return QGraphicsLineItem_setPen(pObject,GetObjectPointerFromRingObject(P1))
 
+Class QGraphicsLinearLayout from QGraphicsLayout
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsLinearLayout_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsLinearLayout_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func addItem P1
+		return QGraphicsLinearLayout_addItem(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func addStretch P1
+		return QGraphicsLinearLayout_addStretch(pObject,P1)
+
+	Func alignment P1
+		return QGraphicsLinearLayout_alignment(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func insertItem P1,P2
+		return QGraphicsLinearLayout_insertItem(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func insertStretch P1,P2
+		return QGraphicsLinearLayout_insertStretch(pObject,P1,P2)
+
+	Func itemSpacing P1
+		return QGraphicsLinearLayout_itemSpacing(pObject,P1)
+
+	Func orientation 
+		return QGraphicsLinearLayout_orientation(pObject)
+
+	Func removeItem P1
+		return QGraphicsLinearLayout_removeItem(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setAlignment P1,P2
+		return QGraphicsLinearLayout_setAlignment(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func setItemSpacing P1,P2
+		return QGraphicsLinearLayout_setItemSpacing(pObject,P1,P2)
+
+	Func setOrientation P1
+		return QGraphicsLinearLayout_setOrientation(pObject,P1)
+
+	Func setSpacing P1
+		return QGraphicsLinearLayout_setSpacing(pObject,P1)
+
+	Func setStretchFactor P1,P2
+		return QGraphicsLinearLayout_setStretchFactor(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func spacing 
+		return QGraphicsLinearLayout_spacing(pObject)
+
+	Func stretchFactor P1
+		return QGraphicsLinearLayout_stretchFactor(pObject,GetObjectPointerFromRingObject(P1))
+
 Class QTest
 
 	pObject
