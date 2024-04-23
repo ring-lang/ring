@@ -15,3 +15,4 @@
 <loadfile> graphicsview/qgraphicsitemgroup.cf
 <loadfile> graphicsview/qgraphicslayoutitem.cf
 <loadfile> graphicsview/qgraphicslineitem.cf
+<loadfile> graphicsview/qgraphicslinearlayout.cf
