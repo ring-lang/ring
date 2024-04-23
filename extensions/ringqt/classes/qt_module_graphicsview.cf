@@ -22,3 +22,5 @@
 <loadfile> graphicsview/qgraphicsproxywidget.cf
 <loadfile> graphicsview/qgraphicsrectitem.cf
 <loadfile> graphicsview/qgraphicsscenecontextmenuevent.cf
+<loadfile> graphicsview/qgraphicsscenedragdropevent.cf
+
