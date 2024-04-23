@@ -22524,6 +22524,32 @@ Class QGraphicsRectItem from QAbstractGraphicsShapeItem
 	Func setRect_2 P1,P2,P3,P4
 		return QGraphicsRectItem_setRect_2(pObject,P1,P2,P3,P4)
 
+Class QGraphicsSceneContextMenuEvent from QGraphicsSceneEvent
+
+	pObject
+
+
+	Func modifiers 
+		return QGraphicsSceneContextMenuEvent_modifiers()
+
+	Func pos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneContextMenuEvent_pos()
+		return pTempObj
+
+	Func reason 
+		return QGraphicsSceneContextMenuEvent_reason()
+
+	Func scenePos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneContextMenuEvent_scenePos()
+		return pTempObj
+
+	Func screenPos 
+		pTempObj = new QPoint
+		pTempObj.pObject = QGraphicsSceneContextMenuEvent_screenPos()
+		return pTempObj
+
 Class QTest
 
 	pObject
