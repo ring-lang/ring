@@ -1,0 +1,11 @@
+<class>
+name: QGraphicsSceneContextMenuEvent
+parent: QGraphicsSceneEvent
+nonew
+</class>
+
+Qt::KeyboardModifiers modifiers(void)
+QPointF pos(void)
+QGraphicsSceneContextMenuEvent::Reason reason(void)
+QPointF scenePos(void)
+QPoint screenPos(void)
