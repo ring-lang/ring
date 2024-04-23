@@ -21031,7 +21031,9 @@ Class QGraphicsScene from QObject
 		return QGraphicsScene_collidingItems(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
 	Func createItemGroup P1
-		return QGraphicsScene_createItemGroup(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj = new QGraphicsItemGroup
+		pTempObj.pObject = QGraphicsScene_createItemGroup(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
 
 	Func destroyItemGroup P1
 		return QGraphicsScene_destroyItemGroup(pObject,GetObjectPointerFromRingObject(P1))
@@ -21350,7 +21352,9 @@ Class QGraphicsItem
 		return QGraphicsItem_graphicsEffect()
 
 	Func group 
-		return QGraphicsItem_group()
+		pTempObj = new QGraphicsItemGroup
+		pTempObj.pObject = QGraphicsItem_group()
+		return pTempObj
 
 	Func hasCursor 
 		return QGraphicsItem_hasCursor()
@@ -22120,6 +22124,26 @@ Class QGraphicsGridLayout from QGraphicsLayout
 
 	Func verticalSpacing 
 		return QGraphicsGridLayout_verticalSpacing(pObject)
+
+Class QGraphicsItemGroup from QGraphicsItem
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsItemGroup_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsItemGroup_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func addToGroup P1
+		return QGraphicsItemGroup_addToGroup(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func removeFromGroup P1
+		return QGraphicsItemGroup_removeFromGroup(pObject,GetObjectPointerFromRingObject(P1))
 
 Class QTest
 
