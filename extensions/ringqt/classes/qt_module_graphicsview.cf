@@ -12,4 +12,4 @@
 <loadfile> graphicsview/qgraphicslayout.cf
 <loadfile> graphicsview/qgraphicsellipseitem.cf
 <loadfile> graphicsview/qgraphicsgridlayout.cf
-<loadfile> graphicsview/qgraphicsgroupitem.cf
+<loadfile> graphicsview/qgraphicsitemgroup.cf
