@@ -22781,40 +22781,6 @@ Class QGraphicsSimpleTextItem from QAbstractGraphicsShapeItem
 	Func text 
 		return QGraphicsSimpleTextItem_text(pObject)
 
-Class QGraphicsSvgItem from QGraphicsObject
-
-	pObject
-
-	Func init P1
-		pObject = QGraphicsSvgItem_new(GetObjectPointerFromRingObject(P1))
-		return self
-
-	Func delete
-		pObject = QGraphicsSvgItem_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func elementId 
-		return QGraphicsSvgItem_elementId(pObject)
-
-	Func maximumCacheSize 
-		pTempObj = new QSize
-		pTempObj.pObject = QGraphicsSvgItem_maximumCacheSize(pObject)
-		return pTempObj
-
-	Func renderer 
-		return QGraphicsSvgItem_renderer(pObject)
-
-	Func setElementId P1
-		return QGraphicsSvgItem_setElementId(pObject,P1)
-
-	Func setMaximumCacheSize P1
-		return QGraphicsSvgItem_setMaximumCacheSize(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setSharedRenderer P1
-		return QGraphicsSvgItem_setSharedRenderer(pObject,GetObjectPointerFromRingObject(P1))
-
 Class QStyleOptionGraphicsItem from QStyleOption
 
 	pObject

@@ -18,7 +18,7 @@ set RINGQT_NOQML=
 set RINGQT_NOSPEECH=
 set RINGQT_NOQT3D=
 set RINGQT_NOCHARTS=
-
+set RINGQT_NOGRAPHICSSVG=
 
 ..\..\bin\ring ..\codegen\parsec.ring classes\qt.cf cpp\src\ring_qt.cpp ..\..\libraries\guilib\classes\ring_qt.ring
 cd events

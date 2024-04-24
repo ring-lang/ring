@@ -31,5 +31,8 @@
 <loadfile> graphicsview/qgraphicssceneresizeevent.cf
 <loadfile> graphicsview/qgraphicsscenewheelevent.cf
 <loadfile> graphicsview/qgraphicssimpletextitem.cf
-<loadfile> graphicsview/qgraphicssvgitem.cf
 <loadfile> graphicsview/qstyleoptiongraphicsitem.cf
+
+<filter> sysget("RINGQT_NOGRAPHICSSVG") = ""
+<loadfile> graphicsview/qgraphicssvgitem.cf
+</filter>

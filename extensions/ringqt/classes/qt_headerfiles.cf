@@ -56,9 +56,11 @@ extern "C" {
 #include "gfiledialog.h"
 #include "mscompleter.h"
 #include <QtWidgets>
-#include <QGraphicsSvgItem>
 </filter>
 
+<filter> sysget("RINGQT_NOGRAPHICSSVG") = ""
+#include <QGraphicsSvgItem>
+</filter>
 
 <filter> sysget("RINGQT_NOMULTIMEDIA") = ""
 #include "gvideowidget.h"
