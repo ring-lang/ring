@@ -22575,6 +22575,59 @@ Class QGraphicsSceneEvent from QEvent
 		pTempObj.pObject = QGraphicsSceneEvent_widget()
 		return pTempObj
 
+Class QGraphicsSceneHelpEvent from QGraphicsSceneEvent
+
+	pObject
+
+
+	Func scenePos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneHelpEvent_scenePos()
+		return pTempObj
+
+	Func screenPos 
+		pTempObj = new QPoint
+		pTempObj.pObject = QGraphicsSceneHelpEvent_screenPos()
+		return pTempObj
+
+Class QGraphicsSceneHoverEvent from QGraphicsSceneEvent
+
+	pObject
+
+
+	Func lastPos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneHoverEvent_lastPos()
+		return pTempObj
+
+	Func lastScenePos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneHoverEvent_lastScenePos()
+		return pTempObj
+
+	Func lastScreenPos 
+		pTempObj = new QPoint
+		pTempObj.pObject = QGraphicsSceneHoverEvent_lastScreenPos()
+		return pTempObj
+
+	Func modifiers 
+		return QGraphicsSceneHoverEvent_modifiers()
+
+	Func pos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneHoverEvent_pos()
+		return pTempObj
+
+	Func scenePos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneHoverEvent_scenePos()
+		return pTempObj
+
+	Func screenPos 
+		pTempObj = new QPoint
+		pTempObj.pObject = QGraphicsSceneHoverEvent_screenPos()
+		return pTempObj
+
 Class QTest
 
 	pObject
