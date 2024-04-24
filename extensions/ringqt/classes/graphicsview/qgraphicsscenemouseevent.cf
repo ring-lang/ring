@@ -1,0 +1,20 @@
+<class>
+name: QGraphicsSceneMouseEvent
+parent: QGraphicsSceneEvent
+nonew
+</class>
+
+Qt::MouseButton button(void)
+QPointF buttonDownPos(Qt::MouseButton button)
+QPointF buttonDownScenePos(Qt::MouseButton button)
+QPoint buttonDownScreenPos(Qt::MouseButton button)
+Qt::MouseButtons buttons(void)
+Qt::MouseEventFlags flags(void)
+QPointF lastPos(void)
+QPointF lastScenePos(void)
+QPoint lastScreenPos(void)
+Qt::KeyboardModifiers modifiers(void)
+QPointF pos(void)
+QPointF scenePos(void)
+QPoint screenPos(void)
+Qt::MouseEventSource source(void)

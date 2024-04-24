@@ -22664,6 +22664,71 @@ Class QGraphicsSceneHoverEvent from QGraphicsSceneEvent
 		pTempObj.pObject = QGraphicsSceneHoverEvent_screenPos()
 		return pTempObj
 
+Class QGraphicsSceneMouseEvent from QGraphicsSceneEvent
+
+	pObject
+
+
+	Func button 
+		return QGraphicsSceneMouseEvent_button()
+
+	Func buttonDownPos P1
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneMouseEvent_buttonDownPos(GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func buttonDownScenePos P1
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneMouseEvent_buttonDownScenePos(GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func buttonDownScreenPos P1
+		pTempObj = new QPoint
+		pTempObj.pObject = QGraphicsSceneMouseEvent_buttonDownScreenPos(GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func buttons 
+		return QGraphicsSceneMouseEvent_buttons()
+
+	Func flags 
+		return QGraphicsSceneMouseEvent_flags()
+
+	Func lastPos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneMouseEvent_lastPos()
+		return pTempObj
+
+	Func lastScenePos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneMouseEvent_lastScenePos()
+		return pTempObj
+
+	Func lastScreenPos 
+		pTempObj = new QPoint
+		pTempObj.pObject = QGraphicsSceneMouseEvent_lastScreenPos()
+		return pTempObj
+
+	Func modifiers 
+		return QGraphicsSceneMouseEvent_modifiers()
+
+	Func pos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneMouseEvent_pos()
+		return pTempObj
+
+	Func scenePos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneMouseEvent_scenePos()
+		return pTempObj
+
+	Func screenPos 
+		pTempObj = new QPoint
+		pTempObj.pObject = QGraphicsSceneMouseEvent_screenPos()
+		return pTempObj
+
+	Func source 
+		return QGraphicsSceneMouseEvent_source()
+
 Class QTest
 
 	pObject
