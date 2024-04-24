@@ -24,4 +24,5 @@
 <loadfile> graphicsview/qgraphicsscenecontextmenuevent.cf
 <loadfile> graphicsview/qgraphicsscenedragdropevent.cf
 <loadfile> graphicsview/qgraphicssceneevent.cf
+<loadfile> graphicsview/qgraphicsscenehelpevent.cf
 
