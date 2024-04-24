@@ -22744,6 +22744,17 @@ Class QGraphicsSceneMoveEvent from QGraphicsSceneEvent
 		pTempObj.pObject = QGraphicsSceneMoveEvent_oldPos()
 		return pTempObj
 
+Class QGraphicsSceneResizeEvent from QGraphicsSceneEvent
+
+	pObject
+
+
+	Func newSize 
+		return QGraphicsSceneResizeEvent_newSize()
+
+	Func oldSize 
+		return QGraphicsSceneResizeEvent_oldSize()
+
 Class QTest
 
 	pObject

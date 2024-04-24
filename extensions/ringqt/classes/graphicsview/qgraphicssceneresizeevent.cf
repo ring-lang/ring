@@ -1,0 +1,8 @@
+<class>
+name: QGraphicsSceneResizeEvent
+parent: QGraphicsSceneEvent
+nonew
+</class>
+
+QSizeF newSize(void)
+QSizeF oldSize(void)
