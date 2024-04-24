@@ -32,3 +32,4 @@
 <loadfile> graphicsview/qgraphicsscenewheelevent.cf
 <loadfile> graphicsview/qgraphicssimpletextitem.cf
 <loadfile> graphicsview/qgraphicssvgitem.cf
+<loadfile> graphicsview/qstyleoptiongraphicsitem.cf

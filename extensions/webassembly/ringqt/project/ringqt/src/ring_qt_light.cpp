@@ -51,6 +51,7 @@ extern "C" {
 #include "gfiledialog.h"
 #include "mscompleter.h"
 #include <QtWidgets>
+#include <QGraphicsSvgItem>
 
 
 
@@ -331,6 +332,7 @@ extern "C" {
 	void ring_QGraphicsSceneWheelEvent_freefunc(void *pState,void *pPointer);
 	void ring_QGraphicsSimpleTextItem_freefunc(void *pState,void *pPointer);
 	void ring_QGraphicsSvgItem_freefunc(void *pState,void *pPointer);
+	void ring_QStyleOptionGraphicsItem_freefunc(void *pState,void *pPointer);
 	void ring_QTest_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
@@ -131176,6 +131178,19 @@ RING_FUNC(ring_QGraphicsSvgItem_setSharedRenderer)
 }
 
 
+RING_FUNC(ring_QStyleOptionGraphicsItem_levelOfDetailFromTransform)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	RING_API_RETNUMBER(QStyleOptionGraphicsItem::levelOfDetailFromTransform(* (QTransform  *) RING_API_GETCPOINTER(1,"QTransform")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"QTransform"));
+}
+
+
 RING_FUNC(ring_QTest_qsleep)
 {
 	QTest::qSleep((int) RING_API_GETNUMBER(1));
@@ -134054,6 +134069,17 @@ RING_FUNC(ring_QGraphicsSvgItem_new)
 	}
 	QGraphicsSvgItem *pObject = new QGraphicsSvgItem((QGraphicsItem *) RING_API_GETCPOINTER(1,"QGraphicsItem"));
 	RING_API_RETCPOINTER(pObject,"QGraphicsSvgItem");
+}
+
+RING_FUNC(ring_QStyleOptionGraphicsItem_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QStyleOptionGraphicsItem *pObject = new QStyleOptionGraphicsItem();
+	RING_API_RETCPOINTER(pObject,"QStyleOptionGraphicsItem");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -137405,6 +137431,23 @@ RING_FUNC(ring_QGraphicsSvgItem_delete)
 	}
 }
 
+RING_FUNC(ring_QStyleOptionGraphicsItem_delete)
+{
+	QStyleOptionGraphicsItem *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISCPOINTER(1) )
+	{
+		pObject = (QStyleOptionGraphicsItem *) RING_API_GETCPOINTER(1,"QStyleOptionGraphicsItem");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 void ring_QObject_freefunc(void *pState,void *pPointer)
 {
 	QObject *pObject ; 
@@ -138781,6 +138824,13 @@ void ring_QGraphicsSvgItem_freefunc(void *pState,void *pPointer)
 {
 	QGraphicsSvgItem *pObject ; 
 	pObject = (QGraphicsSvgItem *) pPointer;
+	delete pObject ;
+}
+
+void ring_QStyleOptionGraphicsItem_freefunc(void *pState,void *pPointer)
+{
+	QStyleOptionGraphicsItem *pObject ; 
+	pObject = (QStyleOptionGraphicsItem *) pPointer;
 	delete pObject ;
 }
 
@@ -144917,6 +144967,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qgraphicssvgitem_setelementid",ring_QGraphicsSvgItem_setElementId);
 	RING_API_REGISTER("qgraphicssvgitem_setmaximumcachesize",ring_QGraphicsSvgItem_setMaximumCacheSize);
 	RING_API_REGISTER("qgraphicssvgitem_setsharedrenderer",ring_QGraphicsSvgItem_setSharedRenderer);
+	RING_API_REGISTER("qstyleoptiongraphicsitem_levelofdetailfromtransform",ring_QStyleOptionGraphicsItem_levelOfDetailFromTransform);
 	RING_API_REGISTER("qtest_qsleep",ring_QTest_qsleep);
 	RING_API_REGISTER("qobject_new",ring_QObject_new);
 	RING_API_REGISTER("qsize_new",ring_QSize_new);
@@ -145115,6 +145166,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qgraphicsrectitem_new",ring_QGraphicsRectItem_new);
 	RING_API_REGISTER("qgraphicssimpletextitem_new",ring_QGraphicsSimpleTextItem_new);
 	RING_API_REGISTER("qgraphicssvgitem_new",ring_QGraphicsSvgItem_new);
+	RING_API_REGISTER("qstyleoptiongraphicsitem_new",ring_QStyleOptionGraphicsItem_new);
 	RING_API_REGISTER("qobject_delete",ring_QObject_delete);
 	RING_API_REGISTER("qsize_delete",ring_QSize_delete);
 	RING_API_REGISTER("qdir_delete",ring_QDir_delete);
@@ -145312,4 +145364,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qgraphicsrectitem_delete",ring_QGraphicsRectItem_delete);
 	RING_API_REGISTER("qgraphicssimpletextitem_delete",ring_QGraphicsSimpleTextItem_delete);
 	RING_API_REGISTER("qgraphicssvgitem_delete",ring_QGraphicsSvgItem_delete);
+	RING_API_REGISTER("qstyleoptiongraphicsitem_delete",ring_QStyleOptionGraphicsItem_delete);
 }

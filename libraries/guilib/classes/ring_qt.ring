@@ -22851,6 +22851,23 @@ Class QGraphicsSvgItem from QGraphicsObject
 	Func setSharedRenderer P1
 		return QGraphicsSvgItem_setSharedRenderer(pObject,GetObjectPointerFromRingObject(P1))
 
+Class QStyleOptionGraphicsItem from QStyleOption
+
+	pObject
+
+	Func init 
+		pObject = QStyleOptionGraphicsItem_new()
+		return self
+
+	Func delete
+		pObject = QStyleOptionGraphicsItem_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func levelOfDetailFromTransform P1
+		return QStyleOptionGraphicsItem_levelOfDetailFromTransform(pObject,GetObjectPointerFromRingObject(P1))
+
 Class QTest
 
 	pObject
