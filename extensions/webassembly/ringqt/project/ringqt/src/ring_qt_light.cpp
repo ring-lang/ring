@@ -329,6 +329,7 @@ extern "C" {
 	void ring_QGraphicsSceneMoveEvent_freefunc(void *pState,void *pPointer);
 	void ring_QGraphicsSceneResizeEvent_freefunc(void *pState,void *pPointer);
 	void ring_QGraphicsSceneWheelEvent_freefunc(void *pState,void *pPointer);
+	void ring_QGraphicsSimpleTextItem_freefunc(void *pState,void *pPointer);
 	void ring_QTest_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
@@ -130978,6 +130979,85 @@ RING_FUNC(ring_QGraphicsSceneWheelEvent_screenPos)
 }
 
 
+RING_FUNC(ring_QGraphicsSimpleTextItem_font)
+{
+	QGraphicsSimpleTextItem *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSimpleTextItem *) RING_API_GETCPOINTER(1,"QGraphicsSimpleTextItem");
+	{
+		QFont *pValue ; 
+		pValue = new QFont() ;
+		*pValue = pObject->font();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QFont",ring_QFont_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QGraphicsSimpleTextItem_setFont)
+{
+	QGraphicsSimpleTextItem *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSimpleTextItem *) RING_API_GETCPOINTER(1,"QGraphicsSimpleTextItem");
+	pObject->setFont(* (QFont  *) RING_API_GETCPOINTER(2,"QFont"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"QFont"));
+}
+
+
+RING_FUNC(ring_QGraphicsSimpleTextItem_setText)
+{
+	QGraphicsSimpleTextItem *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSimpleTextItem *) RING_API_GETCPOINTER(1,"QGraphicsSimpleTextItem");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setText(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGraphicsSimpleTextItem_text)
+{
+	QGraphicsSimpleTextItem *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSimpleTextItem *) RING_API_GETCPOINTER(1,"QGraphicsSimpleTextItem");
+	RING_API_RETSTRING(pObject->text().toStdString().c_str());
+}
+
+
 RING_FUNC(ring_QTest_qsleep)
 {
 	QTest::qSleep((int) RING_API_GETNUMBER(1));
@@ -133826,6 +133906,21 @@ RING_FUNC(ring_QGraphicsRectItem_new)
 	}
 	QGraphicsRectItem *pObject = new QGraphicsRectItem((QGraphicsItem *) RING_API_GETCPOINTER(1,"QGraphicsItem"));
 	RING_API_RETCPOINTER(pObject,"QGraphicsRectItem");
+}
+
+RING_FUNC(ring_QGraphicsSimpleTextItem_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QGraphicsSimpleTextItem *pObject = new QGraphicsSimpleTextItem((QGraphicsItem *) RING_API_GETCPOINTER(1,"QGraphicsItem"));
+	RING_API_RETCPOINTER(pObject,"QGraphicsSimpleTextItem");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -137143,6 +137238,23 @@ RING_FUNC(ring_QGraphicsRectItem_delete)
 	}
 }
 
+RING_FUNC(ring_QGraphicsSimpleTextItem_delete)
+{
+	QGraphicsSimpleTextItem *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISCPOINTER(1) )
+	{
+		pObject = (QGraphicsSimpleTextItem *) RING_API_GETCPOINTER(1,"QGraphicsSimpleTextItem");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 void ring_QObject_freefunc(void *pState,void *pPointer)
 {
 	QObject *pObject ; 
@@ -138505,6 +138617,13 @@ void ring_QGraphicsRectItem_freefunc(void *pState,void *pPointer)
 {
 	QGraphicsRectItem *pObject ; 
 	pObject = (QGraphicsRectItem *) pPointer;
+	delete pObject ;
+}
+
+void ring_QGraphicsSimpleTextItem_freefunc(void *pState,void *pPointer)
+{
+	QGraphicsSimpleTextItem *pObject ; 
+	pObject = (QGraphicsSimpleTextItem *) pPointer;
 	delete pObject ;
 }
 
@@ -144631,6 +144750,10 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qgraphicsscenewheelevent_pos",ring_QGraphicsSceneWheelEvent_pos);
 	RING_API_REGISTER("qgraphicsscenewheelevent_scenepos",ring_QGraphicsSceneWheelEvent_scenePos);
 	RING_API_REGISTER("qgraphicsscenewheelevent_screenpos",ring_QGraphicsSceneWheelEvent_screenPos);
+	RING_API_REGISTER("qgraphicssimpletextitem_font",ring_QGraphicsSimpleTextItem_font);
+	RING_API_REGISTER("qgraphicssimpletextitem_setfont",ring_QGraphicsSimpleTextItem_setFont);
+	RING_API_REGISTER("qgraphicssimpletextitem_settext",ring_QGraphicsSimpleTextItem_setText);
+	RING_API_REGISTER("qgraphicssimpletextitem_text",ring_QGraphicsSimpleTextItem_text);
 	RING_API_REGISTER("qtest_qsleep",ring_QTest_qsleep);
 	RING_API_REGISTER("qobject_new",ring_QObject_new);
 	RING_API_REGISTER("qsize_new",ring_QSize_new);
@@ -144827,6 +144950,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qgraphicspolygonitem_new",ring_QGraphicsPolygonItem_new);
 	RING_API_REGISTER("qgraphicsproxywidget_new",ring_QGraphicsProxyWidget_new);
 	RING_API_REGISTER("qgraphicsrectitem_new",ring_QGraphicsRectItem_new);
+	RING_API_REGISTER("qgraphicssimpletextitem_new",ring_QGraphicsSimpleTextItem_new);
 	RING_API_REGISTER("qobject_delete",ring_QObject_delete);
 	RING_API_REGISTER("qsize_delete",ring_QSize_delete);
 	RING_API_REGISTER("qdir_delete",ring_QDir_delete);
@@ -145022,4 +145146,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qgraphicspolygonitem_delete",ring_QGraphicsPolygonItem_delete);
 	RING_API_REGISTER("qgraphicsproxywidget_delete",ring_QGraphicsProxyWidget_delete);
 	RING_API_REGISTER("qgraphicsrectitem_delete",ring_QGraphicsRectItem_delete);
+	RING_API_REGISTER("qgraphicssimpletextitem_delete",ring_QGraphicsSimpleTextItem_delete);
 }

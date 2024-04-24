@@ -20996,7 +20996,9 @@ Class QGraphicsScene from QObject
 		return pTempObj
 
 	Func addSimpleText P1,P2
-		return QGraphicsScene_addSimpleText(pObject,P1,GetObjectPointerFromRingObject(P2))
+		pTempObj = new QGraphicsSimpleTextItem
+		pTempObj.pObject = QGraphicsScene_addSimpleText(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return pTempObj
 
 	Func addText P1,P2
 		return QGraphicsScene_addText(pObject,P1,GetObjectPointerFromRingObject(P2))
@@ -22750,6 +22752,34 @@ Class QGraphicsSceneWheelEvent from QGraphicsSceneEvent
 		pTempObj = new QPoint
 		pTempObj.pObject = QGraphicsSceneWheelEvent_screenPos()
 		return pTempObj
+
+Class QGraphicsSimpleTextItem from QAbstractGraphicsShapeItem
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsSimpleTextItem_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsSimpleTextItem_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func font 
+		pTempObj = new QFont
+		pTempObj.pObject = QGraphicsSimpleTextItem_font(pObject)
+		return pTempObj
+
+	Func setFont P1
+		return QGraphicsSimpleTextItem_setFont(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setText P1
+		return QGraphicsSimpleTextItem_setText(pObject,P1)
+
+	Func text 
+		return QGraphicsSimpleTextItem_text(pObject)
 
 Class QTest
 

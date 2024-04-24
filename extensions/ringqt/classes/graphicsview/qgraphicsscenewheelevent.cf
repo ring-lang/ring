@@ -1,0 +1,13 @@
+<class>
+name: QGraphicsSceneWheelEvent
+parent: QGraphicsSceneEvent
+nonew
+</class>
+
+Qt::MouseButtons buttons(void)
+int delta(void)
+Qt::KeyboardModifiers modifiers(void)
+Qt::Orientation orientation(void)
+QPointF pos(void)
+QPointF scenePos(void)
+QPoint screenPos(void)
