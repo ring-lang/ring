@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += sql core gui network multimedia multimediawidgets testlib printsupport widgets serialport opengl positioning webenginewidgets texttospeech 3dcore 3dextras 3drender 3dlogic charts
+QT       += sql core gui network multimedia multimediawidgets testlib printsupport widgets serialport opengl positioning webenginewidgets texttospeech 3dcore 3dextras 3drender 3dlogic charts svg
 
 TARGET = ringqt
 TEMPLATE = lib
