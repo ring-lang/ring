@@ -328,6 +328,7 @@ extern "C" {
 	void ring_QGraphicsSceneMouseEvent_freefunc(void *pState,void *pPointer);
 	void ring_QGraphicsSceneMoveEvent_freefunc(void *pState,void *pPointer);
 	void ring_QGraphicsSceneResizeEvent_freefunc(void *pState,void *pPointer);
+	void ring_QGraphicsSceneWheelEvent_freefunc(void *pState,void *pPointer);
 	void ring_QTest_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
@@ -130843,6 +130844,140 @@ RING_FUNC(ring_QGraphicsSceneResizeEvent_oldSize)
 }
 
 
+RING_FUNC(ring_QGraphicsSceneWheelEvent_buttons)
+{
+	QGraphicsSceneWheelEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSceneWheelEvent *) RING_API_GETCPOINTER(1,"QGraphicsSceneWheelEvent");
+	RING_API_RETNUMBER(pObject->buttons());
+}
+
+
+RING_FUNC(ring_QGraphicsSceneWheelEvent_delta)
+{
+	QGraphicsSceneWheelEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSceneWheelEvent *) RING_API_GETCPOINTER(1,"QGraphicsSceneWheelEvent");
+	RING_API_RETNUMBER(pObject->delta());
+}
+
+
+RING_FUNC(ring_QGraphicsSceneWheelEvent_modifiers)
+{
+	QGraphicsSceneWheelEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSceneWheelEvent *) RING_API_GETCPOINTER(1,"QGraphicsSceneWheelEvent");
+	RING_API_RETNUMBER(pObject->modifiers());
+}
+
+
+RING_FUNC(ring_QGraphicsSceneWheelEvent_orientation)
+{
+	QGraphicsSceneWheelEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSceneWheelEvent *) RING_API_GETCPOINTER(1,"QGraphicsSceneWheelEvent");
+	RING_API_RETNUMBER(pObject->orientation());
+}
+
+
+RING_FUNC(ring_QGraphicsSceneWheelEvent_pos)
+{
+	QGraphicsSceneWheelEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSceneWheelEvent *) RING_API_GETCPOINTER(1,"QGraphicsSceneWheelEvent");
+	{
+		QPointF *pValue ; 
+		pValue = new QPointF() ;
+		*pValue = pObject->pos();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QPointF",ring_QPointF_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QGraphicsSceneWheelEvent_scenePos)
+{
+	QGraphicsSceneWheelEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSceneWheelEvent *) RING_API_GETCPOINTER(1,"QGraphicsSceneWheelEvent");
+	{
+		QPointF *pValue ; 
+		pValue = new QPointF() ;
+		*pValue = pObject->scenePos();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QPointF",ring_QPointF_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QGraphicsSceneWheelEvent_screenPos)
+{
+	QGraphicsSceneWheelEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSceneWheelEvent *) RING_API_GETCPOINTER(1,"QGraphicsSceneWheelEvent");
+	{
+		QPoint *pValue ; 
+		pValue = new QPoint() ;
+		*pValue = pObject->screenPos();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QPoint",ring_QPoint_freefunc);
+	}
+}
+
+
 RING_FUNC(ring_QTest_qsleep)
 {
 	QTest::qSleep((int) RING_API_GETNUMBER(1));
@@ -144489,6 +144624,13 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qgraphicsscenemoveevent_oldpos",ring_QGraphicsSceneMoveEvent_oldPos);
 	RING_API_REGISTER("qgraphicssceneresizeevent_newsize",ring_QGraphicsSceneResizeEvent_newSize);
 	RING_API_REGISTER("qgraphicssceneresizeevent_oldsize",ring_QGraphicsSceneResizeEvent_oldSize);
+	RING_API_REGISTER("qgraphicsscenewheelevent_buttons",ring_QGraphicsSceneWheelEvent_buttons);
+	RING_API_REGISTER("qgraphicsscenewheelevent_delta",ring_QGraphicsSceneWheelEvent_delta);
+	RING_API_REGISTER("qgraphicsscenewheelevent_modifiers",ring_QGraphicsSceneWheelEvent_modifiers);
+	RING_API_REGISTER("qgraphicsscenewheelevent_orientation",ring_QGraphicsSceneWheelEvent_orientation);
+	RING_API_REGISTER("qgraphicsscenewheelevent_pos",ring_QGraphicsSceneWheelEvent_pos);
+	RING_API_REGISTER("qgraphicsscenewheelevent_scenepos",ring_QGraphicsSceneWheelEvent_scenePos);
+	RING_API_REGISTER("qgraphicsscenewheelevent_screenpos",ring_QGraphicsSceneWheelEvent_screenPos);
 	RING_API_REGISTER("qtest_qsleep",ring_QTest_qsleep);
 	RING_API_REGISTER("qobject_new",ring_QObject_new);
 	RING_API_REGISTER("qsize_new",ring_QSize_new);

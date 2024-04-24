@@ -29,3 +29,4 @@
 <loadfile> graphicsview/qgraphicsscenemouseevent.cf
 <loadfile> graphicsview/qgraphicsscenemoveevent.cf
 <loadfile> graphicsview/qgraphicssceneresizeevent.cf
+<loadfile> graphicsview/qgraphicsscenewheelevent.cf

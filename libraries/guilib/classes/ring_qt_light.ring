@@ -22719,6 +22719,38 @@ Class QGraphicsSceneResizeEvent from QGraphicsSceneEvent
 	Func oldSize 
 		return QGraphicsSceneResizeEvent_oldSize()
 
+Class QGraphicsSceneWheelEvent from QGraphicsSceneEvent
+
+	pObject
+
+
+	Func buttons 
+		return QGraphicsSceneWheelEvent_buttons()
+
+	Func delta 
+		return QGraphicsSceneWheelEvent_delta()
+
+	Func modifiers 
+		return QGraphicsSceneWheelEvent_modifiers()
+
+	Func orientation 
+		return QGraphicsSceneWheelEvent_orientation()
+
+	Func pos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneWheelEvent_pos()
+		return pTempObj
+
+	Func scenePos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneWheelEvent_scenePos()
+		return pTempObj
+
+	Func screenPos 
+		pTempObj = new QPoint
+		pTempObj.pObject = QGraphicsSceneWheelEvent_screenPos()
+		return pTempObj
+
 Class QTest
 
 	pObject
