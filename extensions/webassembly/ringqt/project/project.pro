@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network multimedia multimediawidgets testlib printsupport widgets  quick quickwidgets qml  texttospeech charts
+QT       += core gui network multimedia multimediawidgets testlib printsupport widgets  quick quickwidgets qml  texttospeech charts svg
 
 qtHaveModule(webengine) {
 	QT += webengine
@@ -104,7 +104,7 @@ SOURCES +=   \
     ringqt/src/gcolordialog.cpp \
     ringqt/src/gfontdialog.cpp \
     ringqt/src/gfiledialog.cpp \
-	ringqt/src/mscompleter.cpp \
+    ringqt/src/mscompleter.cpp \
     ringqt/src/ring_qt.cpp
 
 HEADERS  += \
@@ -190,7 +190,7 @@ HEADERS  += \
     ringqt/include/gcolordialog.h \
     ringqt/include/gfontdialog.h \
     ringqt/include/gfiledialog.h \
-	ringqt/include/mscompleter.h 
+    ringqt/include/mscompleter.h 
 
 CONFIG += warn_off
 

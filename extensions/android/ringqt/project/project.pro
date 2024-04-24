@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network multimedia multimediawidgets testlib printsupport widgets sql bluetooth quick quickwidgets qml positioning texttospeech 3dcore 3dextras 3drender 3dlogic charts
+QT       += core gui network multimedia multimediawidgets testlib printsupport widgets sql bluetooth quick quickwidgets qml positioning texttospeech 3dcore 3dextras 3drender 3dlogic charts svg
 
 qtHaveModule(webengine) {
 	QT += webengine
@@ -115,7 +115,7 @@ SOURCES +=   \
     ringqt/src/gcolordialog.cpp \
     ringqt/src/gfontdialog.cpp \
     ringqt/src/gfiledialog.cpp \
-	ringqt/src/mscompleter.cpp \
+    ringqt/src/mscompleter.cpp \
     ringqt/src/ring_qt.cpp
 
 HEADERS  += \
@@ -212,7 +212,7 @@ HEADERS  += \
     ringqt/include/gfontdialog.h \
     ringqt/include/gfiledialog.h \
     ringqt/include/gmovie.h \
-	ringqt/include/mscompleter.h 
+    ringqt/include/mscompleter.h 
 
 CONFIG += warn_off
 CONFIG += -Wno-deprecated
