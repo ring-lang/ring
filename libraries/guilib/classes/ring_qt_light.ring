@@ -22693,6 +22693,21 @@ Class QGraphicsSceneMouseEvent from QGraphicsSceneEvent
 	Func source 
 		return QGraphicsSceneMouseEvent_source()
 
+Class QGraphicsSceneMoveEvent from QGraphicsSceneEvent
+
+	pObject
+
+
+	Func newPos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneMoveEvent_newPos()
+		return pTempObj
+
+	Func oldPos 
+		pTempObj = new QPointF
+		pTempObj.pObject = QGraphicsSceneMoveEvent_oldPos()
+		return pTempObj
+
 Class QTest
 
 	pObject

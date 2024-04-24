@@ -326,6 +326,7 @@ extern "C" {
 	void ring_QGraphicsSceneHelpEvent_freefunc(void *pState,void *pPointer);
 	void ring_QGraphicsSceneHoverEvent_freefunc(void *pState,void *pPointer);
 	void ring_QGraphicsSceneMouseEvent_freefunc(void *pState,void *pPointer);
+	void ring_QGraphicsSceneMoveEvent_freefunc(void *pState,void *pPointer);
 	void ring_QTest_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
@@ -130753,6 +130754,50 @@ RING_FUNC(ring_QGraphicsSceneMouseEvent_source)
 }
 
 
+RING_FUNC(ring_QGraphicsSceneMoveEvent_newPos)
+{
+	QGraphicsSceneMoveEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSceneMoveEvent *) RING_API_GETCPOINTER(1,"QGraphicsSceneMoveEvent");
+	{
+		QPointF *pValue ; 
+		pValue = new QPointF() ;
+		*pValue = pObject->newPos();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QPointF",ring_QPointF_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QGraphicsSceneMoveEvent_oldPos)
+{
+	QGraphicsSceneMoveEvent *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QGraphicsSceneMoveEvent *) RING_API_GETCPOINTER(1,"QGraphicsSceneMoveEvent");
+	{
+		QPointF *pValue ; 
+		pValue = new QPointF() ;
+		*pValue = pObject->oldPos();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QPointF",ring_QPointF_freefunc);
+	}
+}
+
+
 RING_FUNC(ring_QTest_qsleep)
 {
 	QTest::qSleep((int) RING_API_GETNUMBER(1));
@@ -144395,6 +144440,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qgraphicsscenemouseevent_scenepos",ring_QGraphicsSceneMouseEvent_scenePos);
 	RING_API_REGISTER("qgraphicsscenemouseevent_screenpos",ring_QGraphicsSceneMouseEvent_screenPos);
 	RING_API_REGISTER("qgraphicsscenemouseevent_source",ring_QGraphicsSceneMouseEvent_source);
+	RING_API_REGISTER("qgraphicsscenemoveevent_newpos",ring_QGraphicsSceneMoveEvent_newPos);
+	RING_API_REGISTER("qgraphicsscenemoveevent_oldpos",ring_QGraphicsSceneMoveEvent_oldPos);
 	RING_API_REGISTER("qtest_qsleep",ring_QTest_qsleep);
 	RING_API_REGISTER("qobject_new",ring_QObject_new);
 	RING_API_REGISTER("qsize_new",ring_QSize_new);
