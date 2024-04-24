@@ -27,6 +27,10 @@ pdf_add_text(pdf, NULL, "I LOVE PROGRAMMING!", 48, 30, 700,PDF_BLUE)
 pdf_save(pdf, cPDFFileName)
 pdf_destroy(pdf)
 
-system(cPDFFileName)
+if isWindows()
+	system(cPDFFileName)
+else
+	system("open " + cPDFFileName)
+ok
 
 
