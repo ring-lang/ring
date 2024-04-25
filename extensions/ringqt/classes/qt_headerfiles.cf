@@ -56,6 +56,10 @@ extern "C" {
 #include "gfiledialog.h"
 #include "mscompleter.h"
 #include <QtWidgets>
+
+#include <QGraphicsEffect>
+#include "ggraphicseffect.h"
+
 </filter>
 
 <filter> sysget("RINGQT_NOGRAPHICSSVG") = ""
@@ -313,5 +317,7 @@ extern "C" {
 #include "gxyseries.h"
 #include <QtCharts>
 </filter>
+
+
 
 </code>

@@ -111,6 +111,7 @@ SOURCES +=   \
     ringqt/src/gvalueaxis.cpp \
     ringqt/src/gxyseries.cpp \
     ringqt/src/ggraphicsscene.cpp \
+    ringqt/src/ggraphicseffect.cpp \
     ringqt/src/gmovie.cpp \
     ringqt/src/gcolordialog.cpp \
     ringqt/src/gfontdialog.cpp \
@@ -208,6 +209,7 @@ HEADERS  += \
     ringqt/include/gvalueaxis.h \
     ringqt/include/gxyseries.h \
     ringqt/include/ggraphicsscene.h \
+    ringqt/include/ggraphicseffect.h \
     ringqt/include/gcolordialog.h \
     ringqt/include/gfontdialog.h \
     ringqt/include/gfiledialog.h \

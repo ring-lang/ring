@@ -94,6 +94,7 @@ SOURCES +=   \
     cpp/src/gvalueaxis.cpp \
     cpp/src/gxyseries.cpp \
     cpp/src/ggraphicsscene.cpp \
+    cpp/src/ggraphicseffect.cpp \
     cpp/src/gmovie.cpp \
     cpp/src/gcolordialog.cpp \
     cpp/src/gfontdialog.cpp \
@@ -184,6 +185,7 @@ HEADERS  += \
     cpp/include/gvalueaxis.h \
     cpp/include/gxyseries.h \
     cpp/include/ggraphicsscene.h \
+    cpp/include/ggraphicseffect.h \
     cpp/include/gmovie.h \
     cpp/include/gcolordialog.h \
     cpp/include/gfontdialog.h \

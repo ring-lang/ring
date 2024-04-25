@@ -52,6 +52,10 @@ extern "C" {
 #include "mscompleter.h"
 #include <QtWidgets>
 
+#include <QGraphicsEffect>
+#include "ggraphicseffect.h"
+
+
 
 
 
@@ -81,6 +85,8 @@ extern "C" {
 #include <QOpenGLShaderProgram>
 #include <QOpenGLShader>
 #include <QOpenGLTexture>
+
+
 
 
 
@@ -331,6 +337,7 @@ extern "C" {
 	void ring_QGraphicsSceneWheelEvent_freefunc(void *pState,void *pPointer);
 	void ring_QGraphicsSimpleTextItem_freefunc(void *pState,void *pPointer);
 	void ring_QStyleOptionGraphicsItem_freefunc(void *pState,void *pPointer);
+	void ring_QGraphicsEffect_freefunc(void *pState,void *pPointer);
 	void ring_QTest_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
@@ -131072,6 +131079,145 @@ RING_FUNC(ring_QStyleOptionGraphicsItem_levelOfDetailFromTransform)
 }
 
 
+RING_FUNC(ring_QGraphicsEffect_boundingRect)
+{
+	GGraphicsEffect *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGraphicsEffect *) RING_API_GETCPOINTER(1,"QGraphicsEffect");
+	{
+		QRectF *pValue ; 
+		pValue = (QRectF *) RING_API_MALLOC(sizeof(QRectF)) ;
+		*pValue = pObject->boundingRect();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QRectF",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QGraphicsEffect_boundingRectFor)
+{
+	GGraphicsEffect *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGraphicsEffect *) RING_API_GETCPOINTER(1,"QGraphicsEffect");
+	{
+		QRectF *pValue ; 
+		pValue = (QRectF *) RING_API_MALLOC(sizeof(QRectF)) ;
+		*pValue = pObject->boundingRectFor(* (QRectF  *) RING_API_GETCPOINTER(2,"QRectF"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"QRectF"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"QRectF",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QGraphicsEffect_isEnabled)
+{
+	GGraphicsEffect *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGraphicsEffect *) RING_API_GETCPOINTER(1,"QGraphicsEffect");
+	RING_API_RETNUMBER(pObject->isEnabled());
+}
+
+
+RING_FUNC(ring_QGraphicsEffect_setEnabled)
+{
+	GGraphicsEffect *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGraphicsEffect *) RING_API_GETCPOINTER(1,"QGraphicsEffect");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setEnabled( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QGraphicsEffect_update)
+{
+	GGraphicsEffect *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGraphicsEffect *) RING_API_GETCPOINTER(1,"QGraphicsEffect");
+	pObject->update();
+}
+
+
+RING_FUNC(ring_QGraphicsEffect_setenabledChangedEvent)
+{
+	GGraphicsEffect *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGraphicsEffect *) RING_API_GETCPOINTER(1,"QGraphicsEffect");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setenabledChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QGraphicsEffect_getenabledChangedEvent)
+{
+	GGraphicsEffect *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GGraphicsEffect *) RING_API_GETCPOINTER(1,"QGraphicsEffect");
+	RING_API_RETSTRING(pObject->getenabledChangedEvent());
+}
+
+
 RING_FUNC(ring_QTest_qsleep)
 {
 	QTest::qSleep((int) RING_API_GETNUMBER(1));
@@ -144804,6 +144950,13 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qgraphicssimpletextitem_settext",ring_QGraphicsSimpleTextItem_setText);
 	RING_API_REGISTER("qgraphicssimpletextitem_text",ring_QGraphicsSimpleTextItem_text);
 	RING_API_REGISTER("qstyleoptiongraphicsitem_levelofdetailfromtransform",ring_QStyleOptionGraphicsItem_levelOfDetailFromTransform);
+	RING_API_REGISTER("qgraphicseffect_boundingrect",ring_QGraphicsEffect_boundingRect);
+	RING_API_REGISTER("qgraphicseffect_boundingrectfor",ring_QGraphicsEffect_boundingRectFor);
+	RING_API_REGISTER("qgraphicseffect_isenabled",ring_QGraphicsEffect_isEnabled);
+	RING_API_REGISTER("qgraphicseffect_setenabled",ring_QGraphicsEffect_setEnabled);
+	RING_API_REGISTER("qgraphicseffect_update",ring_QGraphicsEffect_update);
+	RING_API_REGISTER("qgraphicseffect_setenabledchangedevent",ring_QGraphicsEffect_setenabledChangedEvent);
+	RING_API_REGISTER("qgraphicseffect_getenabledchangedevent",ring_QGraphicsEffect_getenabledChangedEvent);
 	RING_API_REGISTER("qtest_qsleep",ring_QTest_qsleep);
 	RING_API_REGISTER("qobject_new",ring_QObject_new);
 	RING_API_REGISTER("qsize_new",ring_QSize_new);

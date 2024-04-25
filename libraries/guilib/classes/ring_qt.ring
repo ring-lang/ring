@@ -11864,7 +11864,9 @@ Class QWidget from QObject
 		return QWidget_grabShortcut(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 	Func graphicsEffect 
-		return QWidget_graphicsEffect(pObject)
+		pTempObj = new QGraphicsEffect
+		pTempObj.pObject = QWidget_graphicsEffect(pObject)
+		return pTempObj
 
 	Func graphicsProxyWidget 
 		pTempObj = new QGraphicsProxyWidget
@@ -21369,7 +21371,9 @@ Class QGraphicsItem
 		return QGraphicsItem_grabMouse()
 
 	Func graphicsEffect 
-		return QGraphicsItem_graphicsEffect()
+		pTempObj = new QGraphicsEffect
+		pTempObj.pObject = QGraphicsItem_graphicsEffect()
+		return pTempObj
 
 	Func group 
 		pTempObj = new QGraphicsItemGroup
@@ -22867,6 +22871,32 @@ Class QGraphicsSvgItem from QGraphicsObject
 
 	Func setSharedRenderer P1
 		return QGraphicsSvgItem_setSharedRenderer(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QGraphicsEffect from QObject
+
+	pObject
+
+
+	Func boundingRect 
+		return QGraphicsEffect_boundingRect()
+
+	Func boundingRectFor P1
+		return QGraphicsEffect_boundingRectFor(GetObjectPointerFromRingObject(P1))
+
+	Func isEnabled 
+		return QGraphicsEffect_isEnabled()
+
+	Func setEnabled P1
+		return QGraphicsEffect_setEnabled(P1)
+
+	Func update 
+		return QGraphicsEffect_update()
+
+	Func setenabledChangedEvent P1
+		return QGraphicsEffect_setenabledChangedEvent(P1)
+
+	Func getenabledChangedEvent 
+		return QGraphicsEffect_getenabledChangedEvent()
 
 Class QTest
 

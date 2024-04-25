@@ -105,3 +105,4 @@ load "charts/qvalueaxis.ring"
 load "charts/qxyseries.ring"
 #-------------------------------------------------------------------------#
 load "graphicsview/qgraphicsscene.ring"
+load "graphicsview/qgraphicseffect.ring"

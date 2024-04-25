@@ -36,3 +36,5 @@
 <filter> sysget("RINGQT_NOGRAPHICSSVG") = ""
 <loadfile> graphicsview/qgraphicssvgitem.cf
 </filter>
+
+<loadfile> graphicsview/qgraphicseffect.cf

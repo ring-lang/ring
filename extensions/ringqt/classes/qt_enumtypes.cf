@@ -460,4 +460,7 @@ aEnumTypes + "QGraphicsEllipseItem::anonymous"
 aEnumTypes + "QGraphicsPixmapItem::ShapeMode"
 aEnumTypes + "QGraphicsPixmapItem::anonymous"
 aEnumTypes + "QGraphicsSceneContextMenuEvent::Reason"
+aEnumTypes + "QGraphicsEffect::ChangeFlag"
+aEnumTypes + "QGraphicsEffect::ChangeFlags"
+aEnumTypes + "QGraphicsEffect::PixmapPadMode"
 </runcode>

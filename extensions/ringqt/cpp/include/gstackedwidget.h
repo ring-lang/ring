@@ -1,5 +1,5 @@
 
-/* Copyright (c) 2013-2022 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef GSTACKEDWIDGET_H
 #define GSTACKEDWIDGET_H
 #include "ringqt.h"

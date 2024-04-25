@@ -1,0 +1,18 @@
+<class>
+name: QGraphicsEffect
+para: QObject *
+parent: QObject
+codename: GGraphicsEffect
+passvmpointer
+nonew
+</class>
+
+QRectF boundingRect(void)
+QRectF boundingRectFor(QRectF rect)
+bool isEnabled(void)
+void setEnabled(bool enable)
+void update(void)
+
+void setenabledChangedEvent(const char *)
+
+const char *getenabledChangedEvent(void)
