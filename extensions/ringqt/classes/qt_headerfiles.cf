@@ -59,6 +59,8 @@ extern "C" {
 
 #include <QGraphicsEffect>
 #include "ggraphicseffect.h"
+#include <QGraphicsObject>
+#include "ggraphicsobject.h"
 
 </filter>
 

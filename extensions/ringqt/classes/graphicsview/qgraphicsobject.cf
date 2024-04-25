@@ -1,0 +1,34 @@
+<class>
+name: QGraphicsObject
+para: QGraphicsItem *
+parent: QGraphicsItem
+codename: GGraphicsObject
+abstract
+passvmpointer
+</class>
+
+void grabGesture(Qt::GestureType gesture, Qt::GestureFlags flags)
+void ungrabGesture(Qt::GestureType gesture)
+<comment>
+void updateMicroFocus(void)
+</comment>
+
+void setenabledChangedEvent(const char *)
+void setopacityChangedEvent(const char *)
+void setparentChangedEvent(const char *)
+void setrotationChangedEvent(const char *)
+void setscaleChangedEvent(const char *)
+void setvisibleChangedEvent(const char *)
+void setxChangedEvent(const char *)
+void setyChangedEvent(const char *)
+void setzChangedEvent(const char *)
+
+const char *getenabledChangedEvent(void)
+const char *getopacityChangedEvent(void)
+const char *getparentChangedEvent(void)
+const char *getrotationChangedEvent(void)
+const char *getscaleChangedEvent(void)
+const char *getvisibleChangedEvent(void)
+const char *getxChangedEvent(void)
+const char *getyChangedEvent(void)
+const char *getzChangedEvent(void)

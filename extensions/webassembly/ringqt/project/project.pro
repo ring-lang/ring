@@ -101,6 +101,7 @@ SOURCES +=   \
     ringqt/src/gxyseries.cpp \
     ringqt/src/ggraphicsscene.cpp \
     ringqt/src/ggraphicseffect.cpp \
+    ringqt/src/ggraphicsobject.cpp \
     ringqt/src/gmovie.cpp \
     ringqt/src/gcolordialog.cpp \
     ringqt/src/gfontdialog.cpp \

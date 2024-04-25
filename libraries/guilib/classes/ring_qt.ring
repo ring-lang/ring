@@ -21646,7 +21646,9 @@ Class QGraphicsItem
 		return QGraphicsItem_parentItem()
 
 	Func parentObject 
-		return QGraphicsItem_parentObject()
+		pTempObj = new QGraphicsObject
+		pTempObj.pObject = QGraphicsItem_parentObject()
+		return pTempObj
 
 	Func parentWidget 
 		return QGraphicsItem_parentWidget()
@@ -21806,10 +21808,14 @@ Class QGraphicsItem
 		return QGraphicsItem_stackBefore(GetObjectPointerFromRingObject(P1))
 
 	Func toGraphicsObject 
-		return QGraphicsItem_toGraphicsObject()
+		pTempObj = new QGraphicsObject
+		pTempObj.pObject = QGraphicsItem_toGraphicsObject()
+		return pTempObj
 
 	Func toGraphicsObject_2 
-		return QGraphicsItem_toGraphicsObject_2()
+		pTempObj = new QGraphicsObject
+		pTempObj.pObject = QGraphicsItem_toGraphicsObject_2()
+		return pTempObj
 
 	Func toolTip 
 		return QGraphicsItem_toolTip()
@@ -22897,6 +22903,80 @@ Class QGraphicsEffect from QObject
 
 	Func getenabledChangedEvent 
 		return QGraphicsEffect_getenabledChangedEvent()
+
+Class QGraphicsObject from QGraphicsItem
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsObject_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsObject_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func grabGesture P1,P2
+		return QGraphicsObject_grabGesture(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func ungrabGesture P1
+		return QGraphicsObject_ungrabGesture(pObject,P1)
+
+	Func setenabledChangedEvent P1
+		return QGraphicsObject_setenabledChangedEvent(pObject,P1)
+
+	Func setopacityChangedEvent P1
+		return QGraphicsObject_setopacityChangedEvent(pObject,P1)
+
+	Func setparentChangedEvent P1
+		return QGraphicsObject_setparentChangedEvent(pObject,P1)
+
+	Func setrotationChangedEvent P1
+		return QGraphicsObject_setrotationChangedEvent(pObject,P1)
+
+	Func setscaleChangedEvent P1
+		return QGraphicsObject_setscaleChangedEvent(pObject,P1)
+
+	Func setvisibleChangedEvent P1
+		return QGraphicsObject_setvisibleChangedEvent(pObject,P1)
+
+	Func setxChangedEvent P1
+		return QGraphicsObject_setxChangedEvent(pObject,P1)
+
+	Func setyChangedEvent P1
+		return QGraphicsObject_setyChangedEvent(pObject,P1)
+
+	Func setzChangedEvent P1
+		return QGraphicsObject_setzChangedEvent(pObject,P1)
+
+	Func getenabledChangedEvent 
+		return QGraphicsObject_getenabledChangedEvent(pObject)
+
+	Func getopacityChangedEvent 
+		return QGraphicsObject_getopacityChangedEvent(pObject)
+
+	Func getparentChangedEvent 
+		return QGraphicsObject_getparentChangedEvent(pObject)
+
+	Func getrotationChangedEvent 
+		return QGraphicsObject_getrotationChangedEvent(pObject)
+
+	Func getscaleChangedEvent 
+		return QGraphicsObject_getscaleChangedEvent(pObject)
+
+	Func getvisibleChangedEvent 
+		return QGraphicsObject_getvisibleChangedEvent(pObject)
+
+	Func getxChangedEvent 
+		return QGraphicsObject_getxChangedEvent(pObject)
+
+	Func getyChangedEvent 
+		return QGraphicsObject_getyChangedEvent(pObject)
+
+	Func getzChangedEvent 
+		return QGraphicsObject_getzChangedEvent(pObject)
 
 Class QTest
 

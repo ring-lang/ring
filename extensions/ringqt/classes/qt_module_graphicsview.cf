@@ -38,3 +38,4 @@
 </filter>
 
 <loadfile> graphicsview/qgraphicseffect.cf
+<loadfile> graphicsview/qgraphicsobject.cf
