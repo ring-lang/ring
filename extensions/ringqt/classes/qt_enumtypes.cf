@@ -464,4 +464,5 @@ aEnumTypes + "QGraphicsEffect::ChangeFlag"
 aEnumTypes + "QGraphicsEffect::ChangeFlags"
 aEnumTypes + "QGraphicsEffect::PixmapPadMode"
 aEnumTypes + "QGraphicsTextItem::anonymous"
+aEnumTypes + "QGraphicsWidget::anonymous"
 </runcode>

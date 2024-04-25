@@ -20981,7 +20981,9 @@ Class QGraphicsScene from QObject
 		return pTempObj
 
 	Func activeWindow 
-		return QGraphicsScene_activeWindow(pObject)
+		pTempObj = new QGraphicsWidget
+		pTempObj.pObject = QGraphicsScene_activeWindow(pObject)
+		return pTempObj
 
 	Func addEllipse P1,P2,P3
 		pTempObj = new QGraphicsEllipseItem
@@ -21659,7 +21661,9 @@ Class QGraphicsItem
 		return pTempObj
 
 	Func parentWidget 
-		return QGraphicsItem_parentWidget()
+		pTempObj = new QGraphicsWidget
+		pTempObj.pObject = QGraphicsItem_parentWidget()
+		return pTempObj
 
 	Func pos 
 		pTempObj = new QPointF
@@ -21832,7 +21836,9 @@ Class QGraphicsItem
 		return QGraphicsItem_topLevelItem()
 
 	Func topLevelWidget 
-		return QGraphicsItem_topLevelWidget()
+		pTempObj = new QGraphicsWidget
+		pTempObj.pObject = QGraphicsItem_topLevelWidget()
+		return pTempObj
 
 	Func transform 
 		pTempObj = new QTransform
@@ -21866,7 +21872,9 @@ Class QGraphicsItem
 		return QGraphicsItem_update_2(P1,P2,P3,P4)
 
 	Func window 
-		return QGraphicsItem_window()
+		pTempObj = new QGraphicsWidget
+		pTempObj.pObject = QGraphicsItem_window()
+		return pTempObj
 
 	Func x 
 		return QGraphicsItem_x()
@@ -23082,6 +23090,186 @@ Class QGraphicsTextItem from QGraphicsObject
 
 	Func getlinkHoveredEvent 
 		return QGraphicsTextItem_getlinkHoveredEvent(pObject)
+
+Class QGraphicsWidget from QGraphicsObject
+
+	pObject
+
+	Func init P1,P2
+		pObject = QGraphicsWidget_new(GetObjectPointerFromRingObject(P1),P2)
+		return self
+
+	Func delete
+		pObject = QGraphicsWidget_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func actions 
+		return QGraphicsWidget_actions(pObject)
+
+	Func addAction P1
+		return QGraphicsWidget_addAction(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func addActions P1
+		return QGraphicsWidget_addActions(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func adjustSize 
+		return QGraphicsWidget_adjustSize(pObject)
+
+	Func autoFillBackground 
+		return QGraphicsWidget_autoFillBackground(pObject)
+
+	Func focusPolicy 
+		return QGraphicsWidget_focusPolicy(pObject)
+
+	Func focusWidget 
+		pTempObj = new QGraphicsWidget
+		pTempObj.pObject = QGraphicsWidget_focusWidget(pObject)
+		return pTempObj
+
+	Func font 
+		pTempObj = new QFont
+		pTempObj.pObject = QGraphicsWidget_font(pObject)
+		return pTempObj
+
+	Func getWindowFrameMargins P1,P2,P3,P4
+		return QGraphicsWidget_getWindowFrameMargins(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func grabShortcut P1,P2
+		return QGraphicsWidget_grabShortcut(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func insertAction P1,P2
+		return QGraphicsWidget_insertAction(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func insertActions P1,P2
+		return QGraphicsWidget_insertActions(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func isActiveWindow 
+		return QGraphicsWidget_isActiveWindow(pObject)
+
+	Func layout 
+		return QGraphicsWidget_layout(pObject)
+
+	Func layoutDirection 
+		return QGraphicsWidget_layoutDirection(pObject)
+
+	Func paintWindowFrame P1,P2,P3
+		return QGraphicsWidget_paintWindowFrame(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+
+	Func palette 
+		return QGraphicsWidget_palette(pObject)
+
+	Func rect 
+		return QGraphicsWidget_rect(pObject)
+
+	Func releaseShortcut P1
+		return QGraphicsWidget_releaseShortcut(pObject,P1)
+
+	Func removeAction P1
+		return QGraphicsWidget_removeAction(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func resize P1
+		return QGraphicsWidget_resize(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func resize_2 P1,P2
+		return QGraphicsWidget_resize_2(pObject,P1,P2)
+
+	Func setAttribute P1,P2
+		return QGraphicsWidget_setAttribute(pObject,P1,P2)
+
+	Func setAutoFillBackground P1
+		return QGraphicsWidget_setAutoFillBackground(pObject,P1)
+
+	Func setContentsMargins P1
+		return QGraphicsWidget_setContentsMargins(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setContentsMargins_2 P1,P2,P3,P4
+		return QGraphicsWidget_setContentsMargins_2(pObject,P1,P2,P3,P4)
+
+	Func setFocusPolicy P1
+		return QGraphicsWidget_setFocusPolicy(pObject,P1)
+
+	Func setFont P1
+		return QGraphicsWidget_setFont(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setGeometry P1,P2,P3,P4
+		return QGraphicsWidget_setGeometry(pObject,P1,P2,P3,P4)
+
+	Func setLayout P1
+		return QGraphicsWidget_setLayout(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setLayoutDirection P1
+		return QGraphicsWidget_setLayoutDirection(pObject,P1)
+
+	Func setPalette P1
+		return QGraphicsWidget_setPalette(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setShortcutAutoRepeat P1,P2
+		return QGraphicsWidget_setShortcutAutoRepeat(pObject,P1,P2)
+
+	Func setShortcutEnabled P1,P2
+		return QGraphicsWidget_setShortcutEnabled(pObject,P1,P2)
+
+	Func setStyle P1
+		return QGraphicsWidget_setStyle(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setWindowFlags P1
+		return QGraphicsWidget_setWindowFlags(pObject,P1)
+
+	Func setWindowFrameMargins P1
+		return QGraphicsWidget_setWindowFrameMargins(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setWindowFrameMargins_2 P1,P2,P3,P4
+		return QGraphicsWidget_setWindowFrameMargins_2(pObject,P1,P2,P3,P4)
+
+	Func setWindowTitle P1
+		return QGraphicsWidget_setWindowTitle(pObject,P1)
+
+	Func size 
+		return QGraphicsWidget_size(pObject)
+
+	Func style 
+		return QGraphicsWidget_style(pObject)
+
+	Func testAttribute P1
+		return QGraphicsWidget_testAttribute(pObject,P1)
+
+	Func unsetLayoutDirection 
+		return QGraphicsWidget_unsetLayoutDirection(pObject)
+
+	Func unsetWindowFrameMargins 
+		return QGraphicsWidget_unsetWindowFrameMargins(pObject)
+
+	Func windowFlags 
+		return QGraphicsWidget_windowFlags(pObject)
+
+	Func windowFrameGeometry 
+		return QGraphicsWidget_windowFrameGeometry(pObject)
+
+	Func windowFrameRect 
+		return QGraphicsWidget_windowFrameRect(pObject)
+
+	Func windowTitle 
+		return QGraphicsWidget_windowTitle(pObject)
+
+	Func windowType 
+		return QGraphicsWidget_windowType(pObject)
+
+	Func close 
+		return QGraphicsWidget_close(pObject)
+
+	Func setgeometryChangedEvent P1
+		return QGraphicsWidget_setgeometryChangedEvent(pObject,P1)
+
+	Func setlayoutChangedEvent P1
+		return QGraphicsWidget_setlayoutChangedEvent(pObject,P1)
+
+	Func getgeometryChangedEvent 
+		return QGraphicsWidget_getgeometryChangedEvent(pObject)
+
+	Func getlayoutChangedEvent 
+		return QGraphicsWidget_getlayoutChangedEvent(pObject)
 
 Class QTest
 

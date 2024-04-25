@@ -105,6 +105,7 @@ SOURCES +=   \
     cpp/src/ggraphicsobject.cpp \
     cpp/src/ggraphicstextitem.cpp \
     cpp/src/ggraphicsview.cpp \
+    cpp/src/ggraphicswidget.cpp \
     cpp/src/gmovie.cpp \
     cpp/src/gcolordialog.cpp \
     cpp/src/gfontdialog.cpp \
@@ -206,6 +207,7 @@ HEADERS  += \
     cpp/include/ggraphicsobject.h \
     cpp/include/ggraphicstextitem.h \
     cpp/include/ggraphicsview.h \
+    cpp/include/ggraphicswidget.h \
     cpp/include/gmovie.h \
     cpp/include/gcolordialog.h \
     cpp/include/gfontdialog.h \
