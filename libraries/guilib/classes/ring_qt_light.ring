@@ -20927,6 +20927,12 @@ Class QGraphicsView from QAbstractScrollArea
 	Func updateSceneRect P1
 		return QGraphicsView_updateSceneRect(pObject,GetObjectPointerFromRingObject(P1))
 
+	Func setrubberBandChangedEvent P1
+		return QGraphicsView_setrubberBandChangedEvent(pObject,P1)
+
+	Func getrubberBandChangedEvent 
+		return QGraphicsView_getrubberBandChangedEvent(pObject)
+
 Class QGraphicsScene from QObject
 
 	pObject

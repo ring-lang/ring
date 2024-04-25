@@ -2,6 +2,8 @@
 name: QGraphicsView
 para: QWidget *
 parent: QAbstractScrollArea
+codename: GGraphicsView
+passvmpointer
 </class>
  
 Qt::Alignment alignment(void)
@@ -80,3 +82,7 @@ QGraphicsView::ViewportUpdateMode viewportUpdateMode(void)
 void invalidateScene(QRectF rect, QGraphicsScene::SceneLayers layers)
 void updateScene(QList<QRectF> rects)
 void updateSceneRect(QRectF rect)
+
+void setrubberBandChangedEvent(const char *)
+
+const char *getrubberBandChangedEvent(void)
