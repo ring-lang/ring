@@ -113,6 +113,7 @@ SOURCES +=   \
     ringqt/src/ggraphicsscene.cpp \
     ringqt/src/ggraphicseffect.cpp \
     ringqt/src/ggraphicsobject.cpp \
+    ringqt/src/ggraphicstextitem.cpp \
     ringqt/src/gmovie.cpp \
     ringqt/src/gcolordialog.cpp \
     ringqt/src/gfontdialog.cpp \
@@ -212,6 +213,7 @@ HEADERS  += \
     ringqt/include/ggraphicsscene.h \
     ringqt/include/ggraphicseffect.h \
     ringqt/include/ggraphicsobject.h \
+    ringqt/include/ggraphicstextitem.h \
     ringqt/include/gcolordialog.h \
     ringqt/include/gfontdialog.h \
     ringqt/include/gfiledialog.h \

@@ -1,0 +1,35 @@
+<class>
+name: QGraphicsTextItem
+para: QGraphicsItem *
+parent: QGraphicsObject
+codename: GGraphicsTextItem
+passvmpointer
+</class>
+
+void adjustSize(void)
+QColor defaultTextColor(void)
+QTextDocument * document(void)
+QFont font(void)
+bool openExternalLinks(void)
+void setDefaultTextColor(QColor col)
+void setDocument(QTextDocument *document)
+void setFont(QFont font)
+void setHtml(QString text)
+void setOpenExternalLinks(bool open)
+void setPlainText(QString text)
+void setTabChangesFocus(bool b)
+void setTextCursor(QTextCursor cursor)
+void setTextInteractionFlags(Qt::TextInteractionFlags flags)
+void setTextWidth(qreal width)
+bool tabChangesFocus(void)
+QTextCursor textCursor(void)
+Qt::TextInteractionFlags textInteractionFlags(void)
+qreal textWidth(void)
+QString toHtml(void)
+QString toPlainText(void)
+
+void setlinkActivatedEvent(const char *)
+void setlinkHoveredEvent(const char *)
+
+const char *getlinkActivatedEvent(void)
+const char *getlinkHoveredEvent(void)

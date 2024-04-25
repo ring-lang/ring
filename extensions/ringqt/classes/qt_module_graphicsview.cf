@@ -39,3 +39,4 @@
 
 <loadfile> graphicsview/qgraphicseffect.cf
 <loadfile> graphicsview/qgraphicsobject.cf
+<loadfile> graphicsview/qgraphicstextitem.cf

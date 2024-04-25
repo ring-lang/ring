@@ -463,4 +463,5 @@ aEnumTypes + "QGraphicsSceneContextMenuEvent::Reason"
 aEnumTypes + "QGraphicsEffect::ChangeFlag"
 aEnumTypes + "QGraphicsEffect::ChangeFlags"
 aEnumTypes + "QGraphicsEffect::PixmapPadMode"
+aEnumTypes + "QGraphicsTextItem::anonymous"
 </runcode>

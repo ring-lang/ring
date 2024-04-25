@@ -21003,7 +21003,9 @@ Class QGraphicsScene from QObject
 		return pTempObj
 
 	Func addText P1,P2
-		return QGraphicsScene_addText(pObject,P1,GetObjectPointerFromRingObject(P2))
+		pTempObj = new QGraphicsTextItem
+		pTempObj.pObject = QGraphicsScene_addText(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return pTempObj
 
 	Func addWidget P1,P2
 		pTempObj = new QGraphicsProxyWidget
@@ -22907,6 +22909,103 @@ Class QGraphicsObject from QGraphicsItem
 
 	Func getzChangedEvent 
 		return QGraphicsObject_getzChangedEvent(pObject)
+
+Class QGraphicsTextItem from QGraphicsObject
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsTextItem_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsTextItem_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func adjustSize 
+		return QGraphicsTextItem_adjustSize(pObject)
+
+	Func defaultTextColor 
+		pTempObj = new QColor
+		pTempObj.pObject = QGraphicsTextItem_defaultTextColor(pObject)
+		return pTempObj
+
+	Func document 
+		pTempObj = new QTextDocument
+		pTempObj.pObject = QGraphicsTextItem_document(pObject)
+		return pTempObj
+
+	Func font 
+		pTempObj = new QFont
+		pTempObj.pObject = QGraphicsTextItem_font(pObject)
+		return pTempObj
+
+	Func openExternalLinks 
+		return QGraphicsTextItem_openExternalLinks(pObject)
+
+	Func setDefaultTextColor P1
+		return QGraphicsTextItem_setDefaultTextColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setDocument P1
+		return QGraphicsTextItem_setDocument(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setFont P1
+		return QGraphicsTextItem_setFont(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setHtml P1
+		return QGraphicsTextItem_setHtml(pObject,P1)
+
+	Func setOpenExternalLinks P1
+		return QGraphicsTextItem_setOpenExternalLinks(pObject,P1)
+
+	Func setPlainText P1
+		return QGraphicsTextItem_setPlainText(pObject,P1)
+
+	Func setTabChangesFocus P1
+		return QGraphicsTextItem_setTabChangesFocus(pObject,P1)
+
+	Func setTextCursor P1
+		return QGraphicsTextItem_setTextCursor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setTextInteractionFlags P1
+		return QGraphicsTextItem_setTextInteractionFlags(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setTextWidth P1
+		return QGraphicsTextItem_setTextWidth(pObject,P1)
+
+	Func tabChangesFocus 
+		return QGraphicsTextItem_tabChangesFocus(pObject)
+
+	Func textCursor 
+		pTempObj = new QTextCursor
+		pTempObj.pObject = QGraphicsTextItem_textCursor(pObject)
+		return pTempObj
+
+	Func textInteractionFlags 
+		return QGraphicsTextItem_textInteractionFlags(pObject)
+
+	Func textWidth 
+		return QGraphicsTextItem_textWidth(pObject)
+
+	Func toHtml 
+		return QGraphicsTextItem_toHtml(pObject)
+
+	Func toPlainText 
+		return QGraphicsTextItem_toPlainText(pObject)
+
+	Func setlinkActivatedEvent P1
+		return QGraphicsTextItem_setlinkActivatedEvent(pObject,P1)
+
+	Func setlinkHoveredEvent P1
+		return QGraphicsTextItem_setlinkHoveredEvent(pObject,P1)
+
+	Func getlinkActivatedEvent 
+		return QGraphicsTextItem_getlinkActivatedEvent(pObject)
+
+	Func getlinkHoveredEvent 
+		return QGraphicsTextItem_getlinkHoveredEvent(pObject)
 
 Class QTest
 
