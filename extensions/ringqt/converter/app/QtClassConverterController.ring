@@ -638,10 +638,16 @@ func openProFiles
 		   "../extensions/android/ringqt/project/project.pro")
 
 	RunProcess("notepad.exe",exefolder()+
-		   "../extensions/ringqt/ring_qt512.pro")
+		   "../extensions/ringqt/ring_qt515.pro")
 
 	RunProcess("notepad.exe",exefolder()+
-		   "../extensions/ringqt/ring_qt512_nobluetooth.pro")
+		   "../extensions/ringqt/ring_qt515_nobluetooth.pro")
+
+	RunProcess("notepad.exe",exefolder()+
+		   "../extensions/ringqt/ring_qt515_light.pro")
+
+	RunProcess("notepad.exe",exefolder()+
+		   "../extensions/ringqt/ring_qt515_core.pro")
 
 
 func RunProcess cProgram,cArg
