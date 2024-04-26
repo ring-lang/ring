@@ -61,3 +61,5 @@
 <loadfile> gui/qopengltexture.cf
 </filter>
 
+<loadfile> gui/qtransform.cf
+

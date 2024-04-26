@@ -12006,6 +12006,176 @@ Class QOpenGLTexture
 	Func hasFeature P1
 		return QOpenGLTexture_hasFeature(pObject,P1)
 
+Class QTransform
+
+	pObject
+
+	Func init P1
+		pObject = QTransform_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QTransform_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func m11 
+		return QTransform_m11(pObject)
+
+	Func m12 
+		return QTransform_m12(pObject)
+
+	Func m13 
+		return QTransform_m13(pObject)
+
+	Func m21 
+		return QTransform_m21(pObject)
+
+	Func m22 
+		return QTransform_m22(pObject)
+
+	Func m23 
+		return QTransform_m23(pObject)
+
+	Func m31 
+		return QTransform_m31(pObject)
+
+	Func m32 
+		return QTransform_m32(pObject)
+
+	Func m33 
+		return QTransform_m33(pObject)
+
+	Func adjoint 
+		pTempObj = new QTransform
+		pTempObj.pObject = QTransform_adjoint(pObject)
+		return pTempObj
+
+	Func determinant 
+		return QTransform_determinant(pObject)
+
+	Func dx 
+		return QTransform_dx(pObject)
+
+	Func dy 
+		return QTransform_dy(pObject)
+
+	Func inverted P1
+		pTempObj = new QTransform
+		pTempObj.pObject = QTransform_inverted(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func isAffine 
+		return QTransform_isAffine(pObject)
+
+	Func isIdentity 
+		return QTransform_isIdentity(pObject)
+
+	Func isInvertible 
+		return QTransform_isInvertible(pObject)
+
+	Func isRotating 
+		return QTransform_isRotating(pObject)
+
+	Func isScaling 
+		return QTransform_isScaling(pObject)
+
+	Func isTranslating 
+		return QTransform_isTranslating(pObject)
+
+	Func map P1,P2,P3,P4
+		return QTransform_map(pObject,P1,P2,GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func map_2 P1
+		pTempObj = new QPoint
+		pTempObj.pObject = QTransform_map_2(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func map_3 P1
+		pTempObj = new QPointF
+		pTempObj.pObject = QTransform_map_3(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func map_4 P1
+		return QTransform_map_4(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func map_5 P1
+		pTempObj = new QLineF
+		pTempObj.pObject = QTransform_map_5(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func map_6 P1
+		return QTransform_map_6(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func map_7 P1
+		return QTransform_map_7(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func map_8 P1
+		pTempObj = new QRegion
+		pTempObj.pObject = QTransform_map_8(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func map_9 P1
+		pTempObj = new QPainterPath
+		pTempObj.pObject = QTransform_map_9(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func map_10 P1,P2,P3,P4
+		return QTransform_map_10(pObject,P1,P2,GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func mapRect P1
+		pTempObj = new QRectF
+		pTempObj.pObject = QTransform_mapRect(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func mapRect_2 P1
+		pTempObj = new QRect
+		pTempObj.pObject = QTransform_mapRect_2(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func mapToPolygon P1
+		return QTransform_mapToPolygon(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func reset 
+		return QTransform_reset(pObject)
+
+	Func rotate P1,P2
+		pTempObj = new QTransform
+		pTempObj.pObject = QTransform_rotate(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func rotateRadians P1,P2
+		pTempObj = new QTransform
+		pTempObj.pObject = QTransform_rotateRadians(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func scale P1,P2
+		pTempObj = new QTransform
+		pTempObj.pObject = QTransform_scale(pObject,P1,P2)
+		return pTempObj
+
+	Func setMatrix P1,P2,P3,P4,P5,P6,P7,P8,P9
+		return QTransform_setMatrix(pObject,P1,P2,P3,P4,P5,P6,P7,P8,P9)
+
+	Func shear P1,P2
+		pTempObj = new QTransform
+		pTempObj.pObject = QTransform_shear(pObject,P1,P2)
+		return pTempObj
+
+	Func translate P1,P2
+		pTempObj = new QTransform
+		pTempObj.pObject = QTransform_translate(pObject,P1,P2)
+		return pTempObj
+
+	Func transposed 
+		pTempObj = new QTransform
+		pTempObj.pObject = QTransform_transposed(pObject)
+		return pTempObj
+
+	Func type 
+		return QTransform_type(pObject)
+
 Class QApp from QGuiApplication
 
 	pObject
@@ -27788,25 +27958,6 @@ Class QEntity from QNode
 
 	Func removeComponent P1
 		return QEntity_removeComponent(pObject,GetObjectPointerFromRingObject(P1))
-
-Class QTransform
-
-	pObject
-
-	Func init P1
-		pObject = QTransform_new(GetObjectPointerFromRingObject(P1))
-		return self
-
-	Func delete
-		pObject = QTransform_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func matrix 
-		pTempObj = new QMatrix4x4
-		pTempObj.pObject = QTransform_matrix(pObject)
-		return pTempObj
 
 	Func rotation 
 		pTempObj = new QQuaternion
