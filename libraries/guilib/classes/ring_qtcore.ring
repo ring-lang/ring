@@ -1699,7 +1699,9 @@ Class QVariant
 		return pTempObj
 
 	Func toRectF 
-		return QVariant_toRectF(pObject)
+		pTempObj = new QRectF
+		pTempObj.pObject = QVariant_toRectF(pObject)
+		return pTempObj
 
 	Func toRegExp 
 		return QVariant_toRegExp(pObject)
@@ -4708,6 +4710,241 @@ Class QMutexLocker
 
 	Func unlock 
 		return QMutexLocker_unlock(pObject)
+
+Class QRectF
+
+	pObject
+
+	Func init P1,P2,P3,P4
+		pObject = QRectF_new(P1,P2,P3,P4)
+		return self
+
+	Func delete
+		pObject = QRectF_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func adjust P1,P2,P3,P4
+		return QRectF_adjust(pObject,P1,P2,P3,P4)
+
+	Func adjusted P1,P2,P3,P4
+		pTempObj = new QRectF
+		pTempObj.pObject = QRectF_adjusted(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func bottom 
+		return QRectF_bottom(pObject)
+
+	Func bottomLeft 
+		pTempObj = new QPointF
+		pTempObj.pObject = QRectF_bottomLeft(pObject)
+		return pTempObj
+
+	Func bottomRight 
+		pTempObj = new QPointF
+		pTempObj.pObject = QRectF_bottomRight(pObject)
+		return pTempObj
+
+	Func center 
+		pTempObj = new QPointF
+		pTempObj.pObject = QRectF_center(pObject)
+		return pTempObj
+
+	Func contains P1
+		return QRectF_contains(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func contains_2 P1
+		return QRectF_contains_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func contains_3 P1,P2
+		return QRectF_contains_3(pObject,P1,P2)
+
+	Func getCoords P1,P2,P3,P4
+		return QRectF_getCoords(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func getRect P1,P2,P3,P4
+		return QRectF_getRect(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func height 
+		return QRectF_height(pObject)
+
+	Func intersected P1
+		pTempObj = new QRectF
+		pTempObj.pObject = QRectF_intersected(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func intersects P1
+		return QRectF_intersects(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isEmpty 
+		return QRectF_isEmpty(pObject)
+
+	Func isNull 
+		return QRectF_isNull(pObject)
+
+	Func isValid 
+		return QRectF_isValid(pObject)
+
+	Func left 
+		return QRectF_left(pObject)
+
+	Func marginsAdded P1
+		pTempObj = new QRectF
+		pTempObj.pObject = QRectF_marginsAdded(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func marginsRemoved P1
+		pTempObj = new QRectF
+		pTempObj.pObject = QRectF_marginsRemoved(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func moveBottom P1
+		return QRectF_moveBottom(pObject,P1)
+
+	Func moveBottomLeft P1
+		return QRectF_moveBottomLeft(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func moveBottomRight P1
+		return QRectF_moveBottomRight(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func moveCenter P1
+		return QRectF_moveCenter(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func moveLeft P1
+		return QRectF_moveLeft(pObject,P1)
+
+	Func moveRight P1
+		return QRectF_moveRight(pObject,P1)
+
+	Func moveTo P1,P2
+		return QRectF_moveTo(pObject,P1,P2)
+
+	Func moveTo_2 P1
+		return QRectF_moveTo_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func moveTop P1
+		return QRectF_moveTop(pObject,P1)
+
+	Func moveTopLeft P1
+		return QRectF_moveTopLeft(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func moveTopRight P1
+		return QRectF_moveTopRight(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func normalized 
+		pTempObj = new QRectF
+		pTempObj.pObject = QRectF_normalized(pObject)
+		return pTempObj
+
+	Func right 
+		return QRectF_right(pObject)
+
+	Func setBottom P1
+		return QRectF_setBottom(pObject,P1)
+
+	Func setBottomLeft P1
+		return QRectF_setBottomLeft(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setBottomRight P1
+		return QRectF_setBottomRight(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setCoords P1,P2,P3,P4
+		return QRectF_setCoords(pObject,P1,P2,P3,P4)
+
+	Func setHeight P1
+		return QRectF_setHeight(pObject,P1)
+
+	Func setLeft P1
+		return QRectF_setLeft(pObject,P1)
+
+	Func setRect P1,P2,P3,P4
+		return QRectF_setRect(pObject,P1,P2,P3,P4)
+
+	Func setRight P1
+		return QRectF_setRight(pObject,P1)
+
+	Func setSize P1
+		return QRectF_setSize(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setTop P1
+		return QRectF_setTop(pObject,P1)
+
+	Func setTopLeft P1
+		return QRectF_setTopLeft(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setTopRight P1
+		return QRectF_setTopRight(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setWidth P1
+		return QRectF_setWidth(pObject,P1)
+
+	Func setX P1
+		return QRectF_setX(pObject,P1)
+
+	Func setY P1
+		return QRectF_setY(pObject,P1)
+
+	Func size 
+		return QRectF_size(pObject)
+
+	Func toAlignedRect 
+		pTempObj = new QRect
+		pTempObj.pObject = QRectF_toAlignedRect(pObject)
+		return pTempObj
+
+	Func toRect 
+		pTempObj = new QRect
+		pTempObj.pObject = QRectF_toRect(pObject)
+		return pTempObj
+
+	Func top 
+		return QRectF_top(pObject)
+
+	Func topLeft 
+		pTempObj = new QPointF
+		pTempObj.pObject = QRectF_topLeft(pObject)
+		return pTempObj
+
+	Func topRight 
+		pTempObj = new QPointF
+		pTempObj.pObject = QRectF_topRight(pObject)
+		return pTempObj
+
+	Func translate P1,P2
+		return QRectF_translate(pObject,P1,P2)
+
+	Func translate_2 P1
+		return QRectF_translate_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func translated P1,P2
+		pTempObj = new QRectF
+		pTempObj.pObject = QRectF_translated(pObject,P1,P2)
+		return pTempObj
+
+	Func translated_2 P1
+		pTempObj = new QRectF
+		pTempObj.pObject = QRectF_translated_2(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func transposed 
+		pTempObj = new QRectF
+		pTempObj.pObject = QRectF_transposed(pObject)
+		return pTempObj
+
+	Func united P1
+		pTempObj = new QRectF
+		pTempObj.pObject = QRectF_united(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func width 
+		return QRectF_width(pObject)
+
+	Func x 
+		return QRectF_x(pObject)
+
+	Func y 
+		return QRectF_y(pObject)
 
 Class QSize
 

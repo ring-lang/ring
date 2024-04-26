@@ -62,3 +62,5 @@
 <loadfile> core/qmutex.cf
 <loadfile> core/qmutexlocker.cf
 </filter>
+
+<loadfile> core/qrectf.cf

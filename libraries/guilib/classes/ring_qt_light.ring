@@ -1699,7 +1699,9 @@ Class QVariant
 		return pTempObj
 
 	Func toRectF 
-		return QVariant_toRectF(pObject)
+		pTempObj = new QRectF
+		pTempObj.pObject = QVariant_toRectF(pObject)
+		return pTempObj
 
 	Func toRegExp 
 		return QVariant_toRegExp(pObject)
@@ -4709,6 +4711,241 @@ Class QMutexLocker
 	Func unlock 
 		return QMutexLocker_unlock(pObject)
 
+Class QRectF
+
+	pObject
+
+	Func init P1,P2,P3,P4
+		pObject = QRectF_new(P1,P2,P3,P4)
+		return self
+
+	Func delete
+		pObject = QRectF_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func adjust P1,P2,P3,P4
+		return QRectF_adjust(pObject,P1,P2,P3,P4)
+
+	Func adjusted P1,P2,P3,P4
+		pTempObj = new QRectF
+		pTempObj.pObject = QRectF_adjusted(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func bottom 
+		return QRectF_bottom(pObject)
+
+	Func bottomLeft 
+		pTempObj = new QPointF
+		pTempObj.pObject = QRectF_bottomLeft(pObject)
+		return pTempObj
+
+	Func bottomRight 
+		pTempObj = new QPointF
+		pTempObj.pObject = QRectF_bottomRight(pObject)
+		return pTempObj
+
+	Func center 
+		pTempObj = new QPointF
+		pTempObj.pObject = QRectF_center(pObject)
+		return pTempObj
+
+	Func contains P1
+		return QRectF_contains(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func contains_2 P1
+		return QRectF_contains_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func contains_3 P1,P2
+		return QRectF_contains_3(pObject,P1,P2)
+
+	Func getCoords P1,P2,P3,P4
+		return QRectF_getCoords(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func getRect P1,P2,P3,P4
+		return QRectF_getRect(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func height 
+		return QRectF_height(pObject)
+
+	Func intersected P1
+		pTempObj = new QRectF
+		pTempObj.pObject = QRectF_intersected(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func intersects P1
+		return QRectF_intersects(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func isEmpty 
+		return QRectF_isEmpty(pObject)
+
+	Func isNull 
+		return QRectF_isNull(pObject)
+
+	Func isValid 
+		return QRectF_isValid(pObject)
+
+	Func left 
+		return QRectF_left(pObject)
+
+	Func marginsAdded P1
+		pTempObj = new QRectF
+		pTempObj.pObject = QRectF_marginsAdded(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func marginsRemoved P1
+		pTempObj = new QRectF
+		pTempObj.pObject = QRectF_marginsRemoved(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func moveBottom P1
+		return QRectF_moveBottom(pObject,P1)
+
+	Func moveBottomLeft P1
+		return QRectF_moveBottomLeft(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func moveBottomRight P1
+		return QRectF_moveBottomRight(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func moveCenter P1
+		return QRectF_moveCenter(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func moveLeft P1
+		return QRectF_moveLeft(pObject,P1)
+
+	Func moveRight P1
+		return QRectF_moveRight(pObject,P1)
+
+	Func moveTo P1,P2
+		return QRectF_moveTo(pObject,P1,P2)
+
+	Func moveTo_2 P1
+		return QRectF_moveTo_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func moveTop P1
+		return QRectF_moveTop(pObject,P1)
+
+	Func moveTopLeft P1
+		return QRectF_moveTopLeft(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func moveTopRight P1
+		return QRectF_moveTopRight(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func normalized 
+		pTempObj = new QRectF
+		pTempObj.pObject = QRectF_normalized(pObject)
+		return pTempObj
+
+	Func right 
+		return QRectF_right(pObject)
+
+	Func setBottom P1
+		return QRectF_setBottom(pObject,P1)
+
+	Func setBottomLeft P1
+		return QRectF_setBottomLeft(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setBottomRight P1
+		return QRectF_setBottomRight(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setCoords P1,P2,P3,P4
+		return QRectF_setCoords(pObject,P1,P2,P3,P4)
+
+	Func setHeight P1
+		return QRectF_setHeight(pObject,P1)
+
+	Func setLeft P1
+		return QRectF_setLeft(pObject,P1)
+
+	Func setRect P1,P2,P3,P4
+		return QRectF_setRect(pObject,P1,P2,P3,P4)
+
+	Func setRight P1
+		return QRectF_setRight(pObject,P1)
+
+	Func setSize P1
+		return QRectF_setSize(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setTop P1
+		return QRectF_setTop(pObject,P1)
+
+	Func setTopLeft P1
+		return QRectF_setTopLeft(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setTopRight P1
+		return QRectF_setTopRight(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setWidth P1
+		return QRectF_setWidth(pObject,P1)
+
+	Func setX P1
+		return QRectF_setX(pObject,P1)
+
+	Func setY P1
+		return QRectF_setY(pObject,P1)
+
+	Func size 
+		return QRectF_size(pObject)
+
+	Func toAlignedRect 
+		pTempObj = new QRect
+		pTempObj.pObject = QRectF_toAlignedRect(pObject)
+		return pTempObj
+
+	Func toRect 
+		pTempObj = new QRect
+		pTempObj.pObject = QRectF_toRect(pObject)
+		return pTempObj
+
+	Func top 
+		return QRectF_top(pObject)
+
+	Func topLeft 
+		pTempObj = new QPointF
+		pTempObj.pObject = QRectF_topLeft(pObject)
+		return pTempObj
+
+	Func topRight 
+		pTempObj = new QPointF
+		pTempObj.pObject = QRectF_topRight(pObject)
+		return pTempObj
+
+	Func translate P1,P2
+		return QRectF_translate(pObject,P1,P2)
+
+	Func translate_2 P1
+		return QRectF_translate_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func translated P1,P2
+		pTempObj = new QRectF
+		pTempObj.pObject = QRectF_translated(pObject,P1,P2)
+		return pTempObj
+
+	Func translated_2 P1
+		pTempObj = new QRectF
+		pTempObj.pObject = QRectF_translated_2(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func transposed 
+		pTempObj = new QRectF
+		pTempObj.pObject = QRectF_transposed(pObject)
+		return pTempObj
+
+	Func united P1
+		pTempObj = new QRectF
+		pTempObj.pObject = QRectF_united(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func width 
+		return QRectF_width(pObject)
+
+	Func x 
+		return QRectF_x(pObject)
+
+	Func y 
+		return QRectF_y(pObject)
+
 Class QDesktopServices
 
 	pObject
@@ -4973,7 +5210,9 @@ Class QPainter
 		return pTempObj
 
 	Func clipBoundingRect 
-		return QPainter_clipBoundingRect(pObject)
+		pTempObj = new QRectF
+		pTempObj.pObject = QPainter_clipBoundingRect(pObject)
+		return pTempObj
 
 	Func clipPath 
 		pTempObj = new QPainterPath
@@ -6531,7 +6770,9 @@ Class QPainterPath
 		return QPainterPath_arcTo(pObject,P1,P2,P3,P4,P5,P6)
 
 	Func boundingRect 
-		return QPainterPath_boundingRect(pObject)
+		pTempObj = new QRectF
+		pTempObj.pObject = QPainterPath_boundingRect(pObject)
+		return pTempObj
 
 	Func closeSubpath 
 		return QPainterPath_closeSubpath(pObject)
@@ -6543,7 +6784,9 @@ Class QPainterPath
 		return QPainterPath_contains(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func controlPointRect 
-		return QPainterPath_controlPointRect(pObject)
+		pTempObj = new QRectF
+		pTempObj.pObject = QPainterPath_controlPointRect(pObject)
+		return pTempObj
 
 	Func cubicTo P1,P2,P3,P4,P5,P6
 		return QPainterPath_cubicTo(pObject,P1,P2,P3,P4,P5,P6)
@@ -8588,7 +8831,9 @@ Class QMatrix4x4
 		return pTempObj
 
 	Func mapRect_2 P1
-		return QMatrix4x4_mapRect_2(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj = new QRectF
+		pTempObj.pObject = QMatrix4x4_mapRect_2(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
 
 	Func mapVector P1
 		pTempObj = new QVector3D
@@ -20844,7 +21089,9 @@ Class QGraphicsView from QAbstractScrollArea
 		return pTempObj
 
 	Func sceneRect 
-		return QGraphicsView_sceneRect(pObject)
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsView_sceneRect(pObject)
+		return pTempObj
 
 	Func setAlignment P1
 		return QGraphicsView_setAlignment(pObject,P1)
@@ -21106,7 +21353,9 @@ Class QGraphicsScene from QObject
 		return QGraphicsScene_items_6(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5),P6,GetObjectPointerFromRingObject(P7))
 
 	Func itemsBoundingRect 
-		return QGraphicsScene_itemsBoundingRect(pObject)
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsScene_itemsBoundingRect(pObject)
+		return pTempObj
 
 	Func minimumRenderSize 
 		return QGraphicsScene_minimumRenderSize(pObject)
@@ -21126,7 +21375,9 @@ Class QGraphicsScene from QObject
 		return QGraphicsScene_render(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),P4)
 
 	Func sceneRect 
-		return QGraphicsScene_sceneRect(pObject)
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsScene_sceneRect(pObject)
+		return pTempObj
 
 	Func selectedItems 
 		return QGraphicsScene_selectedItems(pObject)
@@ -21268,7 +21519,9 @@ Class QGraphicsItem
 		return QGraphicsItem_advance(P1)
 
 	Func boundingRect 
-		return QGraphicsItem_boundingRect()
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_boundingRect()
+		return pTempObj
 
 	Func boundingRegion P1
 		pTempObj = new QRegion
@@ -21285,7 +21538,9 @@ Class QGraphicsItem
 		return QGraphicsItem_childItems()
 
 	Func childrenBoundingRect 
-		return QGraphicsItem_childrenBoundingRect()
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_childrenBoundingRect()
+		return pTempObj
 
 	Func clearFocus 
 		return QGraphicsItem_clearFocus()
@@ -21493,40 +21748,64 @@ Class QGraphicsItem
 		return QGraphicsItem_mapFromScene_6(P1,P2,P3,P4)
 
 	Func mapRectFromItem P1,P2
-		return QGraphicsItem_mapRectFromItem(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_mapRectFromItem(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return pTempObj
 
 	Func mapRectFromItem_2 P1,P2,P3,P4,P5
-		return QGraphicsItem_mapRectFromItem_2(GetObjectPointerFromRingObject(P1),P2,P3,P4,P5)
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_mapRectFromItem_2(GetObjectPointerFromRingObject(P1),P2,P3,P4,P5)
+		return pTempObj
 
 	Func mapRectFromParent P1
-		return QGraphicsItem_mapRectFromParent(GetObjectPointerFromRingObject(P1))
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_mapRectFromParent(GetObjectPointerFromRingObject(P1))
+		return pTempObj
 
 	Func mapRectFromParent_2 P1,P2,P3,P4
-		return QGraphicsItem_mapRectFromParent_2(P1,P2,P3,P4)
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_mapRectFromParent_2(P1,P2,P3,P4)
+		return pTempObj
 
 	Func mapRectFromScene P1
-		return QGraphicsItem_mapRectFromScene(GetObjectPointerFromRingObject(P1))
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_mapRectFromScene(GetObjectPointerFromRingObject(P1))
+		return pTempObj
 
 	Func mapRectFromScene_2 P1,P2,P3,P4
-		return QGraphicsItem_mapRectFromScene_2(P1,P2,P3,P4)
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_mapRectFromScene_2(P1,P2,P3,P4)
+		return pTempObj
 
 	Func mapRectToItem P1,P2
-		return QGraphicsItem_mapRectToItem(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_mapRectToItem(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return pTempObj
 
 	Func mapRectToItem_2 P1,P2,P3,P4,P5
-		return QGraphicsItem_mapRectToItem_2(GetObjectPointerFromRingObject(P1),P2,P3,P4,P5)
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_mapRectToItem_2(GetObjectPointerFromRingObject(P1),P2,P3,P4,P5)
+		return pTempObj
 
 	Func mapRectToParent P1
-		return QGraphicsItem_mapRectToParent(GetObjectPointerFromRingObject(P1))
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_mapRectToParent(GetObjectPointerFromRingObject(P1))
+		return pTempObj
 
 	Func mapRectToParent_2 P1,P2,P3,P4
-		return QGraphicsItem_mapRectToParent_2(P1,P2,P3,P4)
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_mapRectToParent_2(P1,P2,P3,P4)
+		return pTempObj
 
 	Func mapRectToScene P1
-		return QGraphicsItem_mapRectToScene(GetObjectPointerFromRingObject(P1))
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_mapRectToScene(GetObjectPointerFromRingObject(P1))
+		return pTempObj
 
 	Func mapRectToScene_2 P1,P2,P3,P4
-		return QGraphicsItem_mapRectToScene_2(P1,P2,P3,P4)
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_mapRectToScene_2(P1,P2,P3,P4)
+		return pTempObj
 
 	Func mapToItem P1,P2
 		pTempObj = new QPointF
@@ -21656,7 +21935,9 @@ Class QGraphicsItem
 		return pTempObj
 
 	Func sceneBoundingRect 
-		return QGraphicsItem_sceneBoundingRect()
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsItem_sceneBoundingRect()
+		return pTempObj
 
 	Func scenePos 
 		pTempObj = new QPointF
@@ -21986,7 +22267,9 @@ Class QGraphicsEllipseItem from QAbstractGraphicsShapeItem
 		return pObject
 
 	Func rect 
-		return QGraphicsEllipseItem_rect(pObject)
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsEllipseItem_rect(pObject)
+		return pTempObj
 
 	Func setRect P1
 		return QGraphicsEllipseItem_setRect(pObject,GetObjectPointerFromRingObject(P1))
@@ -22174,13 +22457,17 @@ Class QGraphicsLayoutItem
 		return pObject
 
 	Func contentsRect 
-		return QGraphicsLayoutItem_contentsRect(pObject)
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsLayoutItem_contentsRect(pObject)
+		return pTempObj
 
 	Func effectiveSizeHint P1,P2
 		return QGraphicsLayoutItem_effectiveSizeHint(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
 	Func geometry 
-		return QGraphicsLayoutItem_geometry(pObject)
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsLayoutItem_geometry(pObject)
+		return pTempObj
 
 	Func getContentsMargins P1,P2,P3,P4
 		return QGraphicsLayoutItem_getContentsMargins(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
@@ -22486,7 +22773,9 @@ Class QGraphicsProxyWidget from QGraphicsWidget
 		return QGraphicsProxyWidget_setWidget(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func subWidgetRect P1
-		return QGraphicsProxyWidget_subWidgetRect(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsProxyWidget_subWidgetRect(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
 
 	Func widget 
 		pTempObj = new QWidget
@@ -22508,7 +22797,9 @@ Class QGraphicsRectItem from QAbstractGraphicsShapeItem
 		return pObject
 
 	Func rect 
-		return QGraphicsRectItem_rect(pObject)
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsRectItem_rect(pObject)
+		return pTempObj
 
 	Func setRect P1
 		return QGraphicsRectItem_setRect(pObject,GetObjectPointerFromRingObject(P1))
@@ -22830,10 +23121,14 @@ Class QGraphicsEffect from QObject
 
 
 	Func boundingRect 
-		return QGraphicsEffect_boundingRect()
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsEffect_boundingRect()
+		return pTempObj
 
 	Func boundingRectFor P1
-		return QGraphicsEffect_boundingRectFor(GetObjectPointerFromRingObject(P1))
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsEffect_boundingRectFor(GetObjectPointerFromRingObject(P1))
+		return pTempObj
 
 	Func isEnabled 
 		return QGraphicsEffect_isEnabled()
@@ -23091,7 +23386,9 @@ Class QGraphicsWidget from QGraphicsObject
 		return QGraphicsWidget_palette(pObject)
 
 	Func rect 
-		return QGraphicsWidget_rect(pObject)
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsWidget_rect(pObject)
+		return pTempObj
 
 	Func releaseShortcut P1
 		return QGraphicsWidget_releaseShortcut(pObject,P1)
@@ -23175,10 +23472,14 @@ Class QGraphicsWidget from QGraphicsObject
 		return QGraphicsWidget_windowFlags(pObject)
 
 	Func windowFrameGeometry 
-		return QGraphicsWidget_windowFrameGeometry(pObject)
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsWidget_windowFrameGeometry(pObject)
+		return pTempObj
 
 	Func windowFrameRect 
-		return QGraphicsWidget_windowFrameRect(pObject)
+		pTempObj = new QRectF
+		pTempObj.pObject = QGraphicsWidget_windowFrameRect(pObject)
+		return pTempObj
 
 	Func windowTitle 
 		return QGraphicsWidget_windowTitle(pObject)
