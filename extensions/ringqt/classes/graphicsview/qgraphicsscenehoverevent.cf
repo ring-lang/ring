@@ -1,7 +1,7 @@
 <class>
 name: QGraphicsSceneHoverEvent
 parent: QGraphicsSceneEvent
-nonew
+abstract
 </class>
 
 QPointF lastPos(void)

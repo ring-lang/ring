@@ -240,8 +240,8 @@ extern "C" {
 	void ring_QOpenGLShaderProgram_freefunc(void *pState,void *pPointer);
 	void ring_QOpenGLShader_freefunc(void *pState,void *pPointer);
 	void ring_QOpenGLTexture_freefunc(void *pState,void *pPointer);
-	void ring_QTransform_freefunc(void *pState,void *pPointer);
 	void ring_QTransform2_freefunc(void *pState,void *pPointer);
+	void ring_QTransform3_freefunc(void *pState,void *pPointer);
 	void ring_QApp_freefunc(void *pState,void *pPointer);
 	void ring_QWidget_freefunc(void *pState,void *pPointer);
 	void ring_QLabel_freefunc(void *pState,void *pPointer);
@@ -28288,11 +28288,11 @@ RING_FUNC(ring_QPixmap_trueMatrix)
 	}
 	{
 		QTransform *pValue ; 
-		pValue = new QTransform() ;
+		pValue = (QTransform *) RING_API_MALLOC(sizeof(QTransform)) ;
 		*pValue = pObject->trueMatrix(* (QTransform  *) RING_API_GETCPOINTER(2,"QTransform"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		RING_API_FREE(RING_API_GETCPOINTER(2,"QTransform"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",ring_QTransform_freefunc);
+		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",RING_API_FREEFUNC);
 	}
 }
 
@@ -28545,9 +28545,9 @@ RING_FUNC(ring_QPainter_combinedTransform)
 	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
 	{
 		QTransform *pValue ; 
-		pValue = new QTransform() ;
+		pValue = (QTransform *) RING_API_MALLOC(sizeof(QTransform)) ;
 		*pValue = pObject->combinedTransform();
-		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",ring_QTransform_freefunc);
+		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",RING_API_FREEFUNC);
 	}
 }
 
@@ -28601,9 +28601,9 @@ RING_FUNC(ring_QPainter_deviceTransform)
 	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
 	{
 		QTransform *pValue ; 
-		pValue = new QTransform() ;
+		pValue = (QTransform *) RING_API_MALLOC(sizeof(QTransform)) ;
 		*pValue = pObject->deviceTransform();
-		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",ring_QTransform_freefunc);
+		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",RING_API_FREEFUNC);
 	}
 }
 
@@ -30108,9 +30108,9 @@ RING_FUNC(ring_QPainter_transform)
 	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
 	{
 		QTransform *pValue ; 
-		pValue = new QTransform() ;
+		pValue = (QTransform *) RING_API_MALLOC(sizeof(QTransform)) ;
 		*pValue = pObject->transform();
-		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",ring_QTransform_freefunc);
+		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",RING_API_FREEFUNC);
 	}
 }
 
@@ -30233,9 +30233,9 @@ RING_FUNC(ring_QPainter_worldTransform)
 	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
 	{
 		QTransform  *pValue ; 
-		pValue = new QTransform () ;
+		pValue = (QTransform  *) RING_API_MALLOC(sizeof(QTransform )) ;
 		*pValue = pObject->worldTransform();
-		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",ring_QTransform_freefunc);
+		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",RING_API_FREEFUNC);
 	}
 }
 
@@ -34387,9 +34387,9 @@ RING_FUNC(ring_QBrush_transform)
 	pObject = (QBrush *) RING_API_GETCPOINTER(1,"QBrush");
 	{
 		QTransform *pValue ; 
-		pValue = new QTransform() ;
+		pValue = (QTransform *) RING_API_MALLOC(sizeof(QTransform)) ;
 		*pValue = pObject->transform();
-		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",ring_QTransform_freefunc);
+		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",RING_API_FREEFUNC);
 	}
 }
 
@@ -42479,7 +42479,7 @@ RING_FUNC(ring_QScreen_transformBetween)
 	pObject = (QScreen *) RING_API_GETCPOINTER(1,"QScreen");
 	{
 		QTransform *pValue ; 
-		pValue = new QTransform() ;
+		pValue = (QTransform *) RING_API_MALLOC(sizeof(QTransform)) ;
 		*pValue = pObject->transformBetween(* (Qt::ScreenOrientation  *) RING_API_GETCPOINTER(2,"Qt::ScreenOrientation"),* (Qt::ScreenOrientation  *) RING_API_GETCPOINTER(3,"Qt::ScreenOrientation"),* (QRect  *) RING_API_GETCPOINTER(4,"QRect"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		RING_API_FREE(RING_API_GETCPOINTER(2,"Qt::ScreenOrientation"));
@@ -42487,7 +42487,7 @@ RING_FUNC(ring_QScreen_transformBetween)
 		RING_API_FREE(RING_API_GETCPOINTER(3,"Qt::ScreenOrientation"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
 		RING_API_FREE(RING_API_GETCPOINTER(4,"QRect"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",ring_QTransform_freefunc);
+		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",RING_API_FREEFUNC);
 	}
 }
 
@@ -49310,9 +49310,9 @@ RING_FUNC(ring_QMatrix4x4_toTransform)
 	pObject = (QMatrix4x4 *) RING_API_GETCPOINTER(1,"QMatrix4x4");
 	{
 		QTransform *pValue ; 
-		pValue = new QTransform() ;
+		pValue = (QTransform *) RING_API_MALLOC(sizeof(QTransform)) ;
 		*pValue = pObject->toTransform();
-		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",ring_QTransform_freefunc);
+		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",RING_API_FREEFUNC);
 	}
 }
 
@@ -49336,9 +49336,9 @@ RING_FUNC(ring_QMatrix4x4_toTransform_2)
 	}
 	{
 		QTransform *pValue ; 
-		pValue = new QTransform() ;
+		pValue = (QTransform *) RING_API_MALLOC(sizeof(QTransform)) ;
 		*pValue = pObject->toTransform( (qreal ) RING_API_GETNUMBER(2));
-		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",ring_QTransform_freefunc);
+		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",RING_API_FREEFUNC);
 	}
 }
 
@@ -71247,7 +71247,7 @@ RING_FUNC(ring_QOpenGLTexture_hasFeature)
 }
 
 
-RING_FUNC(ring_QTransform_m11)
+RING_FUNC(ring_QTransform2_m11)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -71259,12 +71259,12 @@ RING_FUNC(ring_QTransform_m11)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	RING_API_RETNUMBER(pObject->m11());
 }
 
 
-RING_FUNC(ring_QTransform_m12)
+RING_FUNC(ring_QTransform2_m12)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -71276,12 +71276,12 @@ RING_FUNC(ring_QTransform_m12)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	RING_API_RETNUMBER(pObject->m12());
 }
 
 
-RING_FUNC(ring_QTransform_m13)
+RING_FUNC(ring_QTransform2_m13)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -71293,12 +71293,12 @@ RING_FUNC(ring_QTransform_m13)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	RING_API_RETNUMBER(pObject->m13());
 }
 
 
-RING_FUNC(ring_QTransform_m21)
+RING_FUNC(ring_QTransform2_m21)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -71310,12 +71310,12 @@ RING_FUNC(ring_QTransform_m21)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	RING_API_RETNUMBER(pObject->m21());
 }
 
 
-RING_FUNC(ring_QTransform_m22)
+RING_FUNC(ring_QTransform2_m22)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -71327,12 +71327,12 @@ RING_FUNC(ring_QTransform_m22)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	RING_API_RETNUMBER(pObject->m22());
 }
 
 
-RING_FUNC(ring_QTransform_m23)
+RING_FUNC(ring_QTransform2_m23)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -71344,12 +71344,12 @@ RING_FUNC(ring_QTransform_m23)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	RING_API_RETNUMBER(pObject->m23());
 }
 
 
-RING_FUNC(ring_QTransform_m31)
+RING_FUNC(ring_QTransform2_m31)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -71361,12 +71361,12 @@ RING_FUNC(ring_QTransform_m31)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	RING_API_RETNUMBER(pObject->m31());
 }
 
 
-RING_FUNC(ring_QTransform_m32)
+RING_FUNC(ring_QTransform2_m32)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -71378,12 +71378,12 @@ RING_FUNC(ring_QTransform_m32)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	RING_API_RETNUMBER(pObject->m32());
 }
 
 
-RING_FUNC(ring_QTransform_m33)
+RING_FUNC(ring_QTransform2_m33)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -71395,12 +71395,12 @@ RING_FUNC(ring_QTransform_m33)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	RING_API_RETNUMBER(pObject->m33());
 }
 
 
-RING_FUNC(ring_QTransform_adjoint)
+RING_FUNC(ring_QTransform2_adjoint)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -71412,17 +71412,17 @@ RING_FUNC(ring_QTransform_adjoint)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	{
 		QTransform *pValue ; 
-		pValue = new QTransform() ;
+		pValue = (QTransform *) RING_API_MALLOC(sizeof(QTransform)) ;
 		*pValue = pObject->adjoint();
-		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",ring_QTransform_freefunc);
+		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",RING_API_FREEFUNC);
 	}
 }
 
 
-RING_FUNC(ring_QTransform_determinant)
+RING_FUNC(ring_QTransform2_determinant)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -71434,12 +71434,12 @@ RING_FUNC(ring_QTransform_determinant)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	RING_API_RETNUMBER(pObject->determinant());
 }
 
 
-RING_FUNC(ring_QTransform_dx)
+RING_FUNC(ring_QTransform2_dx)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -71451,12 +71451,12 @@ RING_FUNC(ring_QTransform_dx)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	RING_API_RETNUMBER(pObject->dx());
 }
 
 
-RING_FUNC(ring_QTransform_dy)
+RING_FUNC(ring_QTransform2_dy)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -71468,12 +71468,12 @@ RING_FUNC(ring_QTransform_dy)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	RING_API_RETNUMBER(pObject->dy());
 }
 
 
-RING_FUNC(ring_QTransform_inverted)
+RING_FUNC(ring_QTransform2_inverted)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -71485,21 +71485,21 @@ RING_FUNC(ring_QTransform_inverted)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	if ( ! RING_API_ISCPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	{
 		QTransform *pValue ; 
-		pValue = new QTransform() ;
+		pValue = (QTransform *) RING_API_MALLOC(sizeof(QTransform)) ;
 		*pValue = pObject->inverted((bool *) RING_API_GETCPOINTER(2,"bool"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",ring_QTransform_freefunc);
+		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",RING_API_FREEFUNC);
 	}
 }
 
 
-RING_FUNC(ring_QTransform_isAffine)
+RING_FUNC(ring_QTransform2_isAffine)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -71511,12 +71511,12 @@ RING_FUNC(ring_QTransform_isAffine)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	RING_API_RETNUMBER(pObject->isAffine());
 }
 
 
-RING_FUNC(ring_QTransform_isIdentity)
+RING_FUNC(ring_QTransform2_isIdentity)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -71528,12 +71528,12 @@ RING_FUNC(ring_QTransform_isIdentity)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	RING_API_RETNUMBER(pObject->isIdentity());
 }
 
 
-RING_FUNC(ring_QTransform_isInvertible)
+RING_FUNC(ring_QTransform2_isInvertible)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -71545,12 +71545,12 @@ RING_FUNC(ring_QTransform_isInvertible)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	RING_API_RETNUMBER(pObject->isInvertible());
 }
 
 
-RING_FUNC(ring_QTransform_isRotating)
+RING_FUNC(ring_QTransform2_isRotating)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -71562,12 +71562,12 @@ RING_FUNC(ring_QTransform_isRotating)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	RING_API_RETNUMBER(pObject->isRotating());
 }
 
 
-RING_FUNC(ring_QTransform_isScaling)
+RING_FUNC(ring_QTransform2_isScaling)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -71579,12 +71579,12 @@ RING_FUNC(ring_QTransform_isScaling)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	RING_API_RETNUMBER(pObject->isScaling());
 }
 
 
-RING_FUNC(ring_QTransform_isTranslating)
+RING_FUNC(ring_QTransform2_isTranslating)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -71596,12 +71596,12 @@ RING_FUNC(ring_QTransform_isTranslating)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	RING_API_RETNUMBER(pObject->isTranslating());
 }
 
 
-RING_FUNC(ring_QTransform_map)
+RING_FUNC(ring_QTransform2_map)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 5 ) {
@@ -71613,7 +71613,7 @@ RING_FUNC(ring_QTransform_map)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71634,7 +71634,7 @@ RING_FUNC(ring_QTransform_map)
 }
 
 
-RING_FUNC(ring_QTransform_map_2)
+RING_FUNC(ring_QTransform2_map_2)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -71646,7 +71646,7 @@ RING_FUNC(ring_QTransform_map_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	{
 		QPoint *pValue ; 
 		pValue = new QPoint() ;
@@ -71658,7 +71658,7 @@ RING_FUNC(ring_QTransform_map_2)
 }
 
 
-RING_FUNC(ring_QTransform_map_3)
+RING_FUNC(ring_QTransform2_map_3)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -71670,7 +71670,7 @@ RING_FUNC(ring_QTransform_map_3)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	{
 		QPointF *pValue ; 
 		pValue = new QPointF() ;
@@ -71682,7 +71682,7 @@ RING_FUNC(ring_QTransform_map_3)
 }
 
 
-RING_FUNC(ring_QTransform_map_4)
+RING_FUNC(ring_QTransform2_map_4)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -71694,7 +71694,7 @@ RING_FUNC(ring_QTransform_map_4)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	{
 		QLine *pValue ; 
 		pValue = (QLine *) RING_API_MALLOC(sizeof(QLine)) ;
@@ -71706,7 +71706,7 @@ RING_FUNC(ring_QTransform_map_4)
 }
 
 
-RING_FUNC(ring_QTransform_map_5)
+RING_FUNC(ring_QTransform2_map_5)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -71718,7 +71718,7 @@ RING_FUNC(ring_QTransform_map_5)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	{
 		QLineF *pValue ; 
 		pValue = new QLineF() ;
@@ -71730,7 +71730,7 @@ RING_FUNC(ring_QTransform_map_5)
 }
 
 
-RING_FUNC(ring_QTransform_map_6)
+RING_FUNC(ring_QTransform2_map_6)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -71742,7 +71742,7 @@ RING_FUNC(ring_QTransform_map_6)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	{
 		QPolygonF *pValue ; 
 		pValue = (QPolygonF *) RING_API_MALLOC(sizeof(QPolygonF)) ;
@@ -71754,7 +71754,7 @@ RING_FUNC(ring_QTransform_map_6)
 }
 
 
-RING_FUNC(ring_QTransform_map_7)
+RING_FUNC(ring_QTransform2_map_7)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -71766,7 +71766,7 @@ RING_FUNC(ring_QTransform_map_7)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	{
 		QPolygon *pValue ; 
 		pValue = (QPolygon *) RING_API_MALLOC(sizeof(QPolygon)) ;
@@ -71778,7 +71778,7 @@ RING_FUNC(ring_QTransform_map_7)
 }
 
 
-RING_FUNC(ring_QTransform_map_8)
+RING_FUNC(ring_QTransform2_map_8)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -71790,7 +71790,7 @@ RING_FUNC(ring_QTransform_map_8)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	{
 		QRegion *pValue ; 
 		pValue = new QRegion() ;
@@ -71802,7 +71802,7 @@ RING_FUNC(ring_QTransform_map_8)
 }
 
 
-RING_FUNC(ring_QTransform_map_9)
+RING_FUNC(ring_QTransform2_map_9)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -71814,7 +71814,7 @@ RING_FUNC(ring_QTransform_map_9)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	{
 		QPainterPath *pValue ; 
 		pValue = new QPainterPath() ;
@@ -71826,7 +71826,7 @@ RING_FUNC(ring_QTransform_map_9)
 }
 
 
-RING_FUNC(ring_QTransform_map_10)
+RING_FUNC(ring_QTransform2_map_10)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 5 ) {
@@ -71838,7 +71838,7 @@ RING_FUNC(ring_QTransform_map_10)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -71861,7 +71861,7 @@ RING_FUNC(ring_QTransform_map_10)
 }
 
 
-RING_FUNC(ring_QTransform_mapRect)
+RING_FUNC(ring_QTransform2_mapRect)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -71873,7 +71873,7 @@ RING_FUNC(ring_QTransform_mapRect)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	{
 		QRectF *pValue ; 
 		pValue = new QRectF() ;
@@ -71885,7 +71885,7 @@ RING_FUNC(ring_QTransform_mapRect)
 }
 
 
-RING_FUNC(ring_QTransform_mapRect_2)
+RING_FUNC(ring_QTransform2_mapRect_2)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -71897,7 +71897,7 @@ RING_FUNC(ring_QTransform_mapRect_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	{
 		QRect *pValue ; 
 		pValue = new QRect() ;
@@ -71909,7 +71909,7 @@ RING_FUNC(ring_QTransform_mapRect_2)
 }
 
 
-RING_FUNC(ring_QTransform_mapToPolygon)
+RING_FUNC(ring_QTransform2_mapToPolygon)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -71921,7 +71921,7 @@ RING_FUNC(ring_QTransform_mapToPolygon)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	{
 		QPolygon *pValue ; 
 		pValue = (QPolygon *) RING_API_MALLOC(sizeof(QPolygon)) ;
@@ -71933,7 +71933,7 @@ RING_FUNC(ring_QTransform_mapToPolygon)
 }
 
 
-RING_FUNC(ring_QTransform_reset)
+RING_FUNC(ring_QTransform2_reset)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -71945,12 +71945,12 @@ RING_FUNC(ring_QTransform_reset)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	pObject->reset();
 }
 
 
-RING_FUNC(ring_QTransform_rotate)
+RING_FUNC(ring_QTransform2_rotate)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
@@ -71962,23 +71962,23 @@ RING_FUNC(ring_QTransform_rotate)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	{
 		QTransform *pValue ; 
-		pValue = new QTransform() ;
+		pValue = (QTransform *) RING_API_MALLOC(sizeof(QTransform)) ;
 		*pValue = pObject->rotate( (qreal ) RING_API_GETNUMBER(2),* (Qt::Axis  *) RING_API_GETCPOINTER(3,"Qt::Axis"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
 		RING_API_FREE(RING_API_GETCPOINTER(3,"Qt::Axis"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",ring_QTransform_freefunc);
+		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",RING_API_FREEFUNC);
 	}
 }
 
 
-RING_FUNC(ring_QTransform_rotateRadians)
+RING_FUNC(ring_QTransform2_rotateRadians)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
@@ -71990,23 +71990,23 @@ RING_FUNC(ring_QTransform_rotateRadians)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	{
 		QTransform *pValue ; 
-		pValue = new QTransform() ;
+		pValue = (QTransform *) RING_API_MALLOC(sizeof(QTransform)) ;
 		*pValue = pObject->rotateRadians( (qreal ) RING_API_GETNUMBER(2),* (Qt::Axis  *) RING_API_GETCPOINTER(3,"Qt::Axis"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
 		RING_API_FREE(RING_API_GETCPOINTER(3,"Qt::Axis"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",ring_QTransform_freefunc);
+		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",RING_API_FREEFUNC);
 	}
 }
 
 
-RING_FUNC(ring_QTransform_scale)
+RING_FUNC(ring_QTransform2_scale)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
@@ -72018,7 +72018,7 @@ RING_FUNC(ring_QTransform_scale)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -72029,14 +72029,14 @@ RING_FUNC(ring_QTransform_scale)
 	}
 	{
 		QTransform *pValue ; 
-		pValue = new QTransform() ;
+		pValue = (QTransform *) RING_API_MALLOC(sizeof(QTransform)) ;
 		*pValue = pObject->scale( (qreal ) RING_API_GETNUMBER(2), (qreal ) RING_API_GETNUMBER(3));
-		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",ring_QTransform_freefunc);
+		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",RING_API_FREEFUNC);
 	}
 }
 
 
-RING_FUNC(ring_QTransform_setMatrix)
+RING_FUNC(ring_QTransform2_setMatrix)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 10 ) {
@@ -72048,7 +72048,7 @@ RING_FUNC(ring_QTransform_setMatrix)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -72089,7 +72089,7 @@ RING_FUNC(ring_QTransform_setMatrix)
 }
 
 
-RING_FUNC(ring_QTransform_shear)
+RING_FUNC(ring_QTransform2_shear)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
@@ -72101,7 +72101,7 @@ RING_FUNC(ring_QTransform_shear)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -72112,14 +72112,14 @@ RING_FUNC(ring_QTransform_shear)
 	}
 	{
 		QTransform *pValue ; 
-		pValue = new QTransform() ;
+		pValue = (QTransform *) RING_API_MALLOC(sizeof(QTransform)) ;
 		*pValue = pObject->shear( (qreal ) RING_API_GETNUMBER(2), (qreal ) RING_API_GETNUMBER(3));
-		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",ring_QTransform_freefunc);
+		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",RING_API_FREEFUNC);
 	}
 }
 
 
-RING_FUNC(ring_QTransform_translate)
+RING_FUNC(ring_QTransform2_translate)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
@@ -72131,7 +72131,7 @@ RING_FUNC(ring_QTransform_translate)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -72142,14 +72142,14 @@ RING_FUNC(ring_QTransform_translate)
 	}
 	{
 		QTransform *pValue ; 
-		pValue = new QTransform() ;
+		pValue = (QTransform *) RING_API_MALLOC(sizeof(QTransform)) ;
 		*pValue = pObject->translate( (qreal ) RING_API_GETNUMBER(2), (qreal ) RING_API_GETNUMBER(3));
-		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",ring_QTransform_freefunc);
+		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",RING_API_FREEFUNC);
 	}
 }
 
 
-RING_FUNC(ring_QTransform_transposed)
+RING_FUNC(ring_QTransform2_transposed)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -72161,17 +72161,17 @@ RING_FUNC(ring_QTransform_transposed)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	{
 		QTransform *pValue ; 
-		pValue = new QTransform() ;
+		pValue = (QTransform *) RING_API_MALLOC(sizeof(QTransform)) ;
 		*pValue = pObject->transposed();
-		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",ring_QTransform_freefunc);
+		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",RING_API_FREEFUNC);
 	}
 }
 
 
-RING_FUNC(ring_QTransform_type)
+RING_FUNC(ring_QTransform2_type)
 {
 	QTransform *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -72183,7 +72183,7 @@ RING_FUNC(ring_QTransform_type)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+	pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform2");
 	RING_API_RETNUMBER(pObject->type());
 }
 
@@ -123527,9 +123527,9 @@ RING_FUNC(ring_QGraphicsView_transform)
 	pObject = (GGraphicsView *) RING_API_GETCPOINTER(1,"QGraphicsView");
 	{
 		QTransform *pValue ; 
-		pValue = new QTransform() ;
+		pValue = (QTransform *) RING_API_MALLOC(sizeof(QTransform)) ;
 		*pValue = pObject->transform();
-		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",ring_QTransform_freefunc);
+		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",RING_API_FREEFUNC);
 	}
 }
 
@@ -123591,9 +123591,9 @@ RING_FUNC(ring_QGraphicsView_viewportTransform)
 	pObject = (GGraphicsView *) RING_API_GETCPOINTER(1,"QGraphicsView");
 	{
 		QTransform *pValue ; 
-		pValue = new QTransform() ;
+		pValue = (QTransform *) RING_API_MALLOC(sizeof(QTransform)) ;
 		*pValue = pObject->viewportTransform();
-		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",ring_QTransform_freefunc);
+		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",RING_API_FREEFUNC);
 	}
 }
 
@@ -126028,11 +126028,11 @@ RING_FUNC(ring_QGraphicsItem_deviceTransform)
 	pObject = (QGraphicsItem *) RING_API_GETCPOINTER(1,"QGraphicsItem");
 	{
 		QTransform *pValue ; 
-		pValue = new QTransform() ;
+		pValue = (QTransform *) RING_API_MALLOC(sizeof(QTransform)) ;
 		*pValue = pObject->deviceTransform(* (QTransform  *) RING_API_GETCPOINTER(2,"QTransform"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		RING_API_FREE(RING_API_GETCPOINTER(2,"QTransform"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",ring_QTransform_freefunc);
+		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",RING_API_FREEFUNC);
 	}
 }
 
@@ -126638,9 +126638,9 @@ RING_FUNC(ring_QGraphicsItem_itemTransform)
 	}
 	{
 		QTransform *pValue ; 
-		pValue = new QTransform() ;
+		pValue = (QTransform *) RING_API_MALLOC(sizeof(QTransform)) ;
 		*pValue = pObject->itemTransform((QGraphicsItem *) RING_API_GETCPOINTER(2,"QGraphicsItem"),(bool *) RING_API_GETCPOINTER(3,"bool"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",ring_QTransform_freefunc);
+		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",RING_API_FREEFUNC);
 	}
 }
 
@@ -128413,9 +128413,9 @@ RING_FUNC(ring_QGraphicsItem_sceneTransform)
 	pObject = (QGraphicsItem *) RING_API_GETCPOINTER(1,"QGraphicsItem");
 	{
 		QTransform *pValue ; 
-		pValue = new QTransform() ;
+		pValue = (QTransform *) RING_API_MALLOC(sizeof(QTransform)) ;
 		*pValue = pObject->sceneTransform();
-		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",ring_QTransform_freefunc);
+		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",RING_API_FREEFUNC);
 	}
 }
 
@@ -129352,9 +129352,9 @@ RING_FUNC(ring_QGraphicsItem_transform)
 	pObject = (QGraphicsItem *) RING_API_GETCPOINTER(1,"QGraphicsItem");
 	{
 		QTransform *pValue ; 
-		pValue = new QTransform() ;
+		pValue = (QTransform *) RING_API_MALLOC(sizeof(QTransform)) ;
 		*pValue = pObject->transform();
-		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",ring_QTransform_freefunc);
+		RING_API_RETMANAGEDCPOINTER(pValue,"QTransform",RING_API_FREEFUNC);
 	}
 }
 
@@ -137833,7 +137833,7 @@ RING_FUNC(ring_QOpenGLTexture_new)
 	RING_API_RETCPOINTER(pObject,"QOpenGLTexture");
 }
 
-RING_FUNC(ring_QTransform_new)
+RING_FUNC(ring_QTransform2_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 6 ) {
@@ -137865,10 +137865,10 @@ RING_FUNC(ring_QTransform_new)
 		return ;
 	}
 	QTransform *pObject = new QTransform((qreal) RING_API_GETNUMBER(1), (qreal) RING_API_GETNUMBER(2), (qreal) RING_API_GETNUMBER(3), (qreal) RING_API_GETNUMBER(4), (qreal) RING_API_GETNUMBER(5), (qreal) RING_API_GETNUMBER(6));
-	RING_API_RETCPOINTER(pObject,"QTransform");
+	RING_API_RETCPOINTER(pObject,"QTransform2");
 }
 
-RING_FUNC(ring_QTransform2_new)
+RING_FUNC(ring_QTransform3_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 0 ) {
@@ -137876,7 +137876,7 @@ RING_FUNC(ring_QTransform2_new)
 		return ;
 	}
 	QTransform *pObject = new QTransform();
-	RING_API_RETCPOINTER(pObject,"QTransform2");
+	RING_API_RETCPOINTER(pObject,"QTransform3");
 }
 
 RING_FUNC(ring_QWidget_new)
@@ -141082,7 +141082,7 @@ RING_FUNC(ring_QOpenGLTexture_delete)
 	}
 }
 
-RING_FUNC(ring_QTransform_delete)
+RING_FUNC(ring_QTransform2_delete)
 {
 	QTransform *pObject ; 
 	RING_API_IGNORECPOINTERTYPE ;
@@ -141099,7 +141099,7 @@ RING_FUNC(ring_QTransform_delete)
 	}
 }
 
-RING_FUNC(ring_QTransform2_delete)
+RING_FUNC(ring_QTransform3_delete)
 {
 	QTransform *pObject ; 
 	RING_API_IGNORECPOINTERTYPE ;
@@ -143413,14 +143413,14 @@ void ring_QOpenGLTexture_freefunc(void *pState,void *pPointer)
 	delete pObject ;
 }
 
-void ring_QTransform_freefunc(void *pState,void *pPointer)
+void ring_QTransform2_freefunc(void *pState,void *pPointer)
 {
 	QTransform *pObject ; 
 	pObject = (QTransform *) pPointer;
 	delete pObject ;
 }
 
-void ring_QTransform2_freefunc(void *pState,void *pPointer)
+void ring_QTransform3_freefunc(void *pState,void *pPointer)
 {
 	QTransform *pObject ; 
 	pObject = (QTransform *) pPointer;
@@ -147259,48 +147259,48 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qopengltexture_wrapmode",ring_QOpenGLTexture_wrapMode);
 	RING_API_REGISTER("qopengltexture_boundtextureid",ring_QOpenGLTexture_boundTextureId);
 	RING_API_REGISTER("qopengltexture_hasfeature",ring_QOpenGLTexture_hasFeature);
-	RING_API_REGISTER("qtransform_m11",ring_QTransform_m11);
-	RING_API_REGISTER("qtransform_m12",ring_QTransform_m12);
-	RING_API_REGISTER("qtransform_m13",ring_QTransform_m13);
-	RING_API_REGISTER("qtransform_m21",ring_QTransform_m21);
-	RING_API_REGISTER("qtransform_m22",ring_QTransform_m22);
-	RING_API_REGISTER("qtransform_m23",ring_QTransform_m23);
-	RING_API_REGISTER("qtransform_m31",ring_QTransform_m31);
-	RING_API_REGISTER("qtransform_m32",ring_QTransform_m32);
-	RING_API_REGISTER("qtransform_m33",ring_QTransform_m33);
-	RING_API_REGISTER("qtransform_adjoint",ring_QTransform_adjoint);
-	RING_API_REGISTER("qtransform_determinant",ring_QTransform_determinant);
-	RING_API_REGISTER("qtransform_dx",ring_QTransform_dx);
-	RING_API_REGISTER("qtransform_dy",ring_QTransform_dy);
-	RING_API_REGISTER("qtransform_inverted",ring_QTransform_inverted);
-	RING_API_REGISTER("qtransform_isaffine",ring_QTransform_isAffine);
-	RING_API_REGISTER("qtransform_isidentity",ring_QTransform_isIdentity);
-	RING_API_REGISTER("qtransform_isinvertible",ring_QTransform_isInvertible);
-	RING_API_REGISTER("qtransform_isrotating",ring_QTransform_isRotating);
-	RING_API_REGISTER("qtransform_isscaling",ring_QTransform_isScaling);
-	RING_API_REGISTER("qtransform_istranslating",ring_QTransform_isTranslating);
-	RING_API_REGISTER("qtransform_map",ring_QTransform_map);
-	RING_API_REGISTER("qtransform_map_2",ring_QTransform_map_2);
-	RING_API_REGISTER("qtransform_map_3",ring_QTransform_map_3);
-	RING_API_REGISTER("qtransform_map_4",ring_QTransform_map_4);
-	RING_API_REGISTER("qtransform_map_5",ring_QTransform_map_5);
-	RING_API_REGISTER("qtransform_map_6",ring_QTransform_map_6);
-	RING_API_REGISTER("qtransform_map_7",ring_QTransform_map_7);
-	RING_API_REGISTER("qtransform_map_8",ring_QTransform_map_8);
-	RING_API_REGISTER("qtransform_map_9",ring_QTransform_map_9);
-	RING_API_REGISTER("qtransform_map_10",ring_QTransform_map_10);
-	RING_API_REGISTER("qtransform_maprect",ring_QTransform_mapRect);
-	RING_API_REGISTER("qtransform_maprect_2",ring_QTransform_mapRect_2);
-	RING_API_REGISTER("qtransform_maptopolygon",ring_QTransform_mapToPolygon);
-	RING_API_REGISTER("qtransform_reset",ring_QTransform_reset);
-	RING_API_REGISTER("qtransform_rotate",ring_QTransform_rotate);
-	RING_API_REGISTER("qtransform_rotateradians",ring_QTransform_rotateRadians);
-	RING_API_REGISTER("qtransform_scale",ring_QTransform_scale);
-	RING_API_REGISTER("qtransform_setmatrix",ring_QTransform_setMatrix);
-	RING_API_REGISTER("qtransform_shear",ring_QTransform_shear);
-	RING_API_REGISTER("qtransform_translate",ring_QTransform_translate);
-	RING_API_REGISTER("qtransform_transposed",ring_QTransform_transposed);
-	RING_API_REGISTER("qtransform_type",ring_QTransform_type);
+	RING_API_REGISTER("qtransform2_m11",ring_QTransform2_m11);
+	RING_API_REGISTER("qtransform2_m12",ring_QTransform2_m12);
+	RING_API_REGISTER("qtransform2_m13",ring_QTransform2_m13);
+	RING_API_REGISTER("qtransform2_m21",ring_QTransform2_m21);
+	RING_API_REGISTER("qtransform2_m22",ring_QTransform2_m22);
+	RING_API_REGISTER("qtransform2_m23",ring_QTransform2_m23);
+	RING_API_REGISTER("qtransform2_m31",ring_QTransform2_m31);
+	RING_API_REGISTER("qtransform2_m32",ring_QTransform2_m32);
+	RING_API_REGISTER("qtransform2_m33",ring_QTransform2_m33);
+	RING_API_REGISTER("qtransform2_adjoint",ring_QTransform2_adjoint);
+	RING_API_REGISTER("qtransform2_determinant",ring_QTransform2_determinant);
+	RING_API_REGISTER("qtransform2_dx",ring_QTransform2_dx);
+	RING_API_REGISTER("qtransform2_dy",ring_QTransform2_dy);
+	RING_API_REGISTER("qtransform2_inverted",ring_QTransform2_inverted);
+	RING_API_REGISTER("qtransform2_isaffine",ring_QTransform2_isAffine);
+	RING_API_REGISTER("qtransform2_isidentity",ring_QTransform2_isIdentity);
+	RING_API_REGISTER("qtransform2_isinvertible",ring_QTransform2_isInvertible);
+	RING_API_REGISTER("qtransform2_isrotating",ring_QTransform2_isRotating);
+	RING_API_REGISTER("qtransform2_isscaling",ring_QTransform2_isScaling);
+	RING_API_REGISTER("qtransform2_istranslating",ring_QTransform2_isTranslating);
+	RING_API_REGISTER("qtransform2_map",ring_QTransform2_map);
+	RING_API_REGISTER("qtransform2_map_2",ring_QTransform2_map_2);
+	RING_API_REGISTER("qtransform2_map_3",ring_QTransform2_map_3);
+	RING_API_REGISTER("qtransform2_map_4",ring_QTransform2_map_4);
+	RING_API_REGISTER("qtransform2_map_5",ring_QTransform2_map_5);
+	RING_API_REGISTER("qtransform2_map_6",ring_QTransform2_map_6);
+	RING_API_REGISTER("qtransform2_map_7",ring_QTransform2_map_7);
+	RING_API_REGISTER("qtransform2_map_8",ring_QTransform2_map_8);
+	RING_API_REGISTER("qtransform2_map_9",ring_QTransform2_map_9);
+	RING_API_REGISTER("qtransform2_map_10",ring_QTransform2_map_10);
+	RING_API_REGISTER("qtransform2_maprect",ring_QTransform2_mapRect);
+	RING_API_REGISTER("qtransform2_maprect_2",ring_QTransform2_mapRect_2);
+	RING_API_REGISTER("qtransform2_maptopolygon",ring_QTransform2_mapToPolygon);
+	RING_API_REGISTER("qtransform2_reset",ring_QTransform2_reset);
+	RING_API_REGISTER("qtransform2_rotate",ring_QTransform2_rotate);
+	RING_API_REGISTER("qtransform2_rotateradians",ring_QTransform2_rotateRadians);
+	RING_API_REGISTER("qtransform2_scale",ring_QTransform2_scale);
+	RING_API_REGISTER("qtransform2_setmatrix",ring_QTransform2_setMatrix);
+	RING_API_REGISTER("qtransform2_shear",ring_QTransform2_shear);
+	RING_API_REGISTER("qtransform2_translate",ring_QTransform2_translate);
+	RING_API_REGISTER("qtransform2_transposed",ring_QTransform2_transposed);
+	RING_API_REGISTER("qtransform2_type",ring_QTransform2_type);
 	RING_API_REGISTER("qapp_exec",ring_QApp_exec);
 	RING_API_REGISTER("qapp_quit",ring_QApp_quit);
 	RING_API_REGISTER("qapp_processevents",ring_QApp_processEvents);
@@ -150531,8 +150531,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qopenglshaderprogram_new",ring_QOpenGLShaderProgram_new);
 	RING_API_REGISTER("qopenglshader_new",ring_QOpenGLShader_new);
 	RING_API_REGISTER("qopengltexture_new",ring_QOpenGLTexture_new);
-	RING_API_REGISTER("qtransform_new",ring_QTransform_new);
 	RING_API_REGISTER("qtransform2_new",ring_QTransform2_new);
+	RING_API_REGISTER("qtransform3_new",ring_QTransform3_new);
 	RING_API_REGISTER("qwidget_new",ring_QWidget_new);
 	RING_API_REGISTER("qlabel_new",ring_QLabel_new);
 	RING_API_REGISTER("qpushbutton_new",ring_QPushButton_new);
@@ -150734,8 +150734,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qopenglshaderprogram_delete",ring_QOpenGLShaderProgram_delete);
 	RING_API_REGISTER("qopenglshader_delete",ring_QOpenGLShader_delete);
 	RING_API_REGISTER("qopengltexture_delete",ring_QOpenGLTexture_delete);
-	RING_API_REGISTER("qtransform_delete",ring_QTransform_delete);
 	RING_API_REGISTER("qtransform2_delete",ring_QTransform2_delete);
+	RING_API_REGISTER("qtransform3_delete",ring_QTransform3_delete);
 	RING_API_REGISTER("qwidget_delete",ring_QWidget_delete);
 	RING_API_REGISTER("qlabel_delete",ring_QLabel_delete);
 	RING_API_REGISTER("qpushbutton_delete",ring_QPushButton_delete);

@@ -2,7 +2,7 @@
 name: QGraphicsLayout
 para: QGraphicsLayoutItem *
 parent: QGraphicsLayoutItem
-nonew
+abstract
 </class>
 
 void activate(void)

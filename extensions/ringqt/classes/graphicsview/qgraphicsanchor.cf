@@ -1,7 +1,7 @@
 <class>
 name: QGraphicsAnchor
 parent: QObject
-nonew
+abstract
 </class>
 
 void setSizePolicy(QSizePolicy::Policy policy)

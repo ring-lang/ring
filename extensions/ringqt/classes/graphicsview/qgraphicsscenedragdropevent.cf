@@ -1,7 +1,7 @@
 <class>
 name: QGraphicsSceneDragDropEvent
 parent: QGraphicsSceneEvent
-nonew
+abstract
 </class>
 
 void acceptProposedAction(void)

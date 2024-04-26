@@ -1,7 +1,7 @@
 <class>
 name: QGraphicsSceneMoveEvent
 parent: QGraphicsSceneEvent
-nonew
+abstract
 </class>
 
 QPointF newPos(void)

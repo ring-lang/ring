@@ -1,7 +1,7 @@
 <class>
 name: QGraphicsSceneContextMenuEvent
 parent: QGraphicsSceneEvent
-nonew
+abstract
 </class>
 
 Qt::KeyboardModifiers modifiers(void)

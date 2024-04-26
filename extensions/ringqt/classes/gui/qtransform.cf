@@ -1,6 +1,7 @@
 <class>
-name: QTransform
+name: QTransform2
 para: qreal,qreal,qreal,qreal,qreal,qreal
+codename: QTransform
 </class>
 
 qreal m11(void)
@@ -47,8 +48,8 @@ QTransform transposed(void)
 QTransform::TransformationType type(void)
 
 <class>
-name: QTransform2
+name: QTransform3
 para: void
-parent: QTransform 
+parent: QTransform2
 codename: QTransform
 </class>

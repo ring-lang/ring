@@ -1,7 +1,7 @@
 <class>
 name: QGraphicsSceneWheelEvent
 parent: QGraphicsSceneEvent
-nonew
+abstract
 </class>
 
 Qt::MouseButtons buttons(void)

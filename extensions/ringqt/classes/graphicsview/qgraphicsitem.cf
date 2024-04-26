@@ -1,7 +1,7 @@
 <class>
 name: QGraphicsItem
 para: QGraphicsItem *
-nonew
+abstract
 </class>
 
 bool acceptDrops(void)

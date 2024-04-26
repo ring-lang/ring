@@ -4,7 +4,7 @@ para: QObject *
 parent: QObject
 codename: GGraphicsEffect
 passvmpointer
-nonew
+abstract
 </class>
 
 QRectF boundingRect(void)
