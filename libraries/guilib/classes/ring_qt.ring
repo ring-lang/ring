@@ -1667,7 +1667,9 @@ Class QVariant
 		return QVariant_toLine(pObject)
 
 	Func toLineF 
-		return QVariant_toLineF(pObject)
+		pTempObj = new QLineF
+		pTempObj.pObject = QVariant_toLineF(pObject)
+		return pTempObj
 
 	Func toLocale 
 		pTempObj = new QLocale
@@ -4945,6 +4947,115 @@ Class QRectF
 
 	Func y 
 		return QRectF_y(pObject)
+
+Class QLineF
+
+	pObject
+
+	Func init P1,P2,P3,P4
+		pObject = QLineF_new(P1,P2,P3,P4)
+		return self
+
+	Func delete
+		pObject = QLineF_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func p1 
+		pTempObj = new QPointF
+		pTempObj.pObject = QLineF_p1(pObject)
+		return pTempObj
+
+	Func p2 
+		pTempObj = new QPointF
+		pTempObj.pObject = QLineF_p2(pObject)
+		return pTempObj
+
+	Func x1 
+		return QLineF_x1(pObject)
+
+	Func x2 
+		return QLineF_x2(pObject)
+
+	Func y1 
+		return QLineF_y1(pObject)
+
+	Func y2 
+		return QLineF_y2(pObject)
+
+	Func angle 
+		return QLineF_angle(pObject)
+
+	Func angleTo P1
+		return QLineF_angleTo(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func center 
+		pTempObj = new QPointF
+		pTempObj.pObject = QLineF_center(pObject)
+		return pTempObj
+
+	Func dx 
+		return QLineF_dx(pObject)
+
+	Func dy 
+		return QLineF_dy(pObject)
+
+	Func intersects P1,P2
+		return QLineF_intersects(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func isNull 
+		return QLineF_isNull(pObject)
+
+	Func length 
+		return QLineF_length(pObject)
+
+	Func normalVector 
+		pTempObj = new QLineF
+		pTempObj.pObject = QLineF_normalVector(pObject)
+		return pTempObj
+
+	Func pointAt P1
+		pTempObj = new QPointF
+		pTempObj.pObject = QLineF_pointAt(pObject,P1)
+		return pTempObj
+
+	Func setP1 P1
+		return QLineF_setP1(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setP2 P1
+		return QLineF_setP2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setAngle P1
+		return QLineF_setAngle(pObject,P1)
+
+	Func setLength P1
+		return QLineF_setLength(pObject,P1)
+
+	Func setLine P1,P2,P3,P4
+		return QLineF_setLine(pObject,P1,P2,P3,P4)
+
+	Func setPoints P1,P2
+		return QLineF_setPoints(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toLine 
+		return QLineF_toLine(pObject)
+
+	Func translate P1
+		return QLineF_translate(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func translate_2 P1,P2
+		return QLineF_translate_2(pObject,P1,P2)
+
+	Func translated P1
+		pTempObj = new QLineF
+		pTempObj.pObject = QLineF_translated(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func translated_2 P1,P2
+		pTempObj = new QLineF
+		pTempObj.pObject = QLineF_translated_2(pObject,P1,P2)
+		return pTempObj
 
 Class QDesktopServices
 
@@ -22618,7 +22729,9 @@ Class QGraphicsLineItem from QGraphicsItem
 		return pObject
 
 	Func line 
-		return QGraphicsLineItem_line(pObject)
+		pTempObj = new QLineF
+		pTempObj.pObject = QGraphicsLineItem_line(pObject)
+		return pTempObj
 
 	Func pen 
 		pTempObj = new QPen

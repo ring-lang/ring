@@ -64,3 +64,4 @@
 </filter>
 
 <loadfile> core/qrectf.cf
+<loadfile> core/qlinef.cf
