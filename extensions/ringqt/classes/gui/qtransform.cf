@@ -45,3 +45,10 @@ QTransform shear(qreal sh, qreal sv)
 QTransform translate(qreal dx, qreal dy)
 QTransform transposed(void)
 QTransform::TransformationType type(void)
+
+<class>
+name: QTransform2
+para: void
+parent: QTransform 
+codename: QTransform
+</class>

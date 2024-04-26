@@ -241,6 +241,7 @@ extern "C" {
 	void ring_QOpenGLShader_freefunc(void *pState,void *pPointer);
 	void ring_QOpenGLTexture_freefunc(void *pState,void *pPointer);
 	void ring_QTransform_freefunc(void *pState,void *pPointer);
+	void ring_QTransform2_freefunc(void *pState,void *pPointer);
 	void ring_QApp_freefunc(void *pState,void *pPointer);
 	void ring_QWidget_freefunc(void *pState,void *pPointer);
 	void ring_QLabel_freefunc(void *pState,void *pPointer);
@@ -137867,6 +137868,17 @@ RING_FUNC(ring_QTransform_new)
 	RING_API_RETCPOINTER(pObject,"QTransform");
 }
 
+RING_FUNC(ring_QTransform2_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QTransform *pObject = new QTransform();
+	RING_API_RETCPOINTER(pObject,"QTransform2");
+}
+
 RING_FUNC(ring_QWidget_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -141087,6 +141099,23 @@ RING_FUNC(ring_QTransform_delete)
 	}
 }
 
+RING_FUNC(ring_QTransform2_delete)
+{
+	QTransform *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISCPOINTER(1) )
+	{
+		pObject = (QTransform *) RING_API_GETCPOINTER(1,"QTransform");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 RING_FUNC(ring_QWidget_delete)
 {
 	QWidget *pObject ; 
@@ -143385,6 +143414,13 @@ void ring_QOpenGLTexture_freefunc(void *pState,void *pPointer)
 }
 
 void ring_QTransform_freefunc(void *pState,void *pPointer)
+{
+	QTransform *pObject ; 
+	pObject = (QTransform *) pPointer;
+	delete pObject ;
+}
+
+void ring_QTransform2_freefunc(void *pState,void *pPointer)
 {
 	QTransform *pObject ; 
 	pObject = (QTransform *) pPointer;
@@ -150496,6 +150532,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qopenglshader_new",ring_QOpenGLShader_new);
 	RING_API_REGISTER("qopengltexture_new",ring_QOpenGLTexture_new);
 	RING_API_REGISTER("qtransform_new",ring_QTransform_new);
+	RING_API_REGISTER("qtransform2_new",ring_QTransform2_new);
 	RING_API_REGISTER("qwidget_new",ring_QWidget_new);
 	RING_API_REGISTER("qlabel_new",ring_QLabel_new);
 	RING_API_REGISTER("qpushbutton_new",ring_QPushButton_new);
@@ -150698,6 +150735,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qopenglshader_delete",ring_QOpenGLShader_delete);
 	RING_API_REGISTER("qopengltexture_delete",ring_QOpenGLTexture_delete);
 	RING_API_REGISTER("qtransform_delete",ring_QTransform_delete);
+	RING_API_REGISTER("qtransform2_delete",ring_QTransform2_delete);
 	RING_API_REGISTER("qwidget_delete",ring_QWidget_delete);
 	RING_API_REGISTER("qlabel_delete",ring_QLabel_delete);
 	RING_API_REGISTER("qpushbutton_delete",ring_QPushButton_delete);

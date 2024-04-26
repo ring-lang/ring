@@ -24117,6 +24117,20 @@ Class QDragLeaveEvent from QEvent
 	Func ObjectPointer
 		return pObject
 
+Class QTransform2 from QTransform
+
+	pObject
+
+	Func init 
+		pObject = QTransform2_new()
+		return self
+
+	Func delete
+		pObject = QTransform2_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
 Class QFrame2 from QFrame
 
 	pObject
