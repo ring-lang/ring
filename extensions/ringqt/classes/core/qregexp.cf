@@ -1,0 +1,25 @@
+<class>
+name: QRegExp
+para: void
+</class>
+
+QString cap(int nth)
+int captureCount(void)
+QStringList capturedTexts(void)
+Qt::CaseSensitivity caseSensitivity(void)
+QString errorString(void)
+bool exactMatch(QString str)
+int indexIn(QString str, int offset, QRegExp::CaretMode caretMode)
+bool isEmpty(void)
+bool isMinimal(void)
+bool isValid(void)
+int lastIndexIn(QString str, int offset, QRegExp::CaretMode caretMode)
+int matchedLength(void)
+QString pattern(void)
+QRegExp::PatternSyntax patternSyntax(void)
+int pos(int nth)
+void setCaseSensitivity(Qt::CaseSensitivity cs)
+void setMinimal(bool minimal)
+void setPattern(QString pattern)
+void setPatternSyntax(QRegExp::PatternSyntax syntax)
+void swap(QRegExp other)

@@ -65,3 +65,4 @@
 
 <loadfile> core/qrectf.cf
 <loadfile> core/qlinef.cf
+<loadfile> core/qregexp.cf

@@ -1706,7 +1706,9 @@ Class QVariant
 		return pTempObj
 
 	Func toRegExp 
-		return QVariant_toRegExp(pObject)
+		pTempObj = new QRegExp
+		pTempObj.pObject = QVariant_toRegExp(pObject)
+		return pTempObj
 
 	Func toRegularExpression 
 		pTempObj = new QRegularExpression
@@ -5056,6 +5058,82 @@ Class QLineF
 		pTempObj = new QLineF
 		pTempObj.pObject = QLineF_translated_2(pObject,P1,P2)
 		return pTempObj
+
+Class QRegExp
+
+	pObject
+
+	Func init 
+		pObject = QRegExp_new()
+		return self
+
+	Func delete
+		pObject = QRegExp_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func cap P1
+		return QRegExp_cap(pObject,P1)
+
+	Func captureCount 
+		return QRegExp_captureCount(pObject)
+
+	Func capturedTexts 
+		pTempObj = new QStringList
+		pTempObj.pObject = QRegExp_capturedTexts(pObject)
+		return pTempObj
+
+	Func caseSensitivity 
+		return QRegExp_caseSensitivity(pObject)
+
+	Func errorString 
+		return QRegExp_errorString(pObject)
+
+	Func exactMatch P1
+		return QRegExp_exactMatch(pObject,P1)
+
+	Func indexIn P1,P2,P3
+		return QRegExp_indexIn(pObject,P1,P2,P3)
+
+	Func isEmpty 
+		return QRegExp_isEmpty(pObject)
+
+	Func isMinimal 
+		return QRegExp_isMinimal(pObject)
+
+	Func isValid 
+		return QRegExp_isValid(pObject)
+
+	Func lastIndexIn P1,P2,P3
+		return QRegExp_lastIndexIn(pObject,P1,P2,P3)
+
+	Func matchedLength 
+		return QRegExp_matchedLength(pObject)
+
+	Func pattern 
+		return QRegExp_pattern(pObject)
+
+	Func patternSyntax 
+		return QRegExp_patternSyntax(pObject)
+
+	Func pos P1
+		return QRegExp_pos(pObject,P1)
+
+	Func setCaseSensitivity P1
+		return QRegExp_setCaseSensitivity(pObject,P1)
+
+	Func setMinimal P1
+		return QRegExp_setMinimal(pObject,P1)
+
+	Func setPattern P1
+		return QRegExp_setPattern(pObject,P1)
+
+	Func setPatternSyntax P1
+		return QRegExp_setPatternSyntax(pObject,P1)
+
+	Func swap P1
+		return QRegExp_swap(pObject,GetObjectPointerFromRingObject(P1))
 
 Class QDesktopServices
 

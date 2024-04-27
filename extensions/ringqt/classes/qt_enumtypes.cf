@@ -466,4 +466,6 @@ aEnumTypes + "QGraphicsEffect::PixmapPadMode"
 aEnumTypes + "QGraphicsTextItem::anonymous"
 aEnumTypes + "QGraphicsWidget::anonymous"
 aEnumTypes + "QTransform::TransformationType"
+aEnumTypes + "QRegExp::CaretMode"
+aEnumTypes + "QRegExp::PatternSyntax"
 </runcode>
