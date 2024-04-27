@@ -27,7 +27,7 @@ set RINGQT_NOGRAPHICSSVG=1
 
 set RINGQT_CORE_ALONE=1
 
-..\..\bin\ring ..\codegen\parsec.ring classes\qt.cf cpp\src\ring_qtcore.cpp ..\..\libraries\guilib\classes\ring_qtcore.ring
+..\..\bin\ring ..\codegen\parsec.ring classes\qt.cf cpp\src\ring_qt_core.cpp ..\..\libraries\guilib\classes\ring_qt_core.ring
 cd events
 ..\..\..\bin\ring qtevents.ring
 cd ..

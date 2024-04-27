@@ -16,7 +16,7 @@ SOURCES +=   \
     cpp/src/giodevice.cpp \
     cpp/src/gprocess.cpp \
     cpp/src/gthread.cpp \
-    cpp/src/ring_qtcore.cpp
+    cpp/src/ring_qt_core.cpp
 
 HEADERS  += \
     cpp/include/gtimer.h \
