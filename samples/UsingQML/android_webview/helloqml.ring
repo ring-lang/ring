@@ -8,7 +8,7 @@ new QApp {
 			if isMobile()
 				setSource(new QUrl("qrc:hello.qml"))
 			else
-				setSource(new QUrl(AppFile("hello.qml")))
+				setSource(new QUrl("hello.qml"))
 			ok
 			QQuickWidget_SizeRootObjectToView = 1
 			setResizeMode(QQuickWidget_SizeRootObjectToView)
