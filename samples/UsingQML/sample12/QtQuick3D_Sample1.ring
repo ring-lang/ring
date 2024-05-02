@@ -8,7 +8,7 @@ new qApp {
 		resize(800,600) move(100,100)
 		oQuick = new qQuickWidget(w) {
 			engine().AddImportPath(exefolder()+"qml")
-			setSource(new qURL("hello.qml") )
+			setSource(AppURL("hello.qml") )
 		}
 		oLayout = new qVBoxlayout() {
 			AddWidget(oQuick)

@@ -5,7 +5,7 @@ new qApp {
 		setWindowTitle("Using QML") resize(650,650) move(100,100)
 		oQuick = new qQuickWidget(w) {
 			engine().AddImportPath(exefolder()+"qml")
-			setSource(new qURL("hello.qml") )
+			setSource(AppURL("hello.qml") )
 		}
 		oLayout = new qVBoxlayout() {
 			AddWidget(oQuick)
