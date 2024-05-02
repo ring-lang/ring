@@ -101,26 +101,22 @@ func InputBoxPass cTitle,cMessage
 
 func AppFile cFile
 	cFile = substr(cFile,"\","/")
-	if find(cfunctions(),"ismobileqt")
-		if isMobileQt()
-			return ":/"+substr(cFile,"\","/")
-		ok
+	if isMobile()
+		return ":/"+substr(cFile,"\","/")
 	ok
-	if find(cfunctions(),"iswebassemblyqt")
-		if isWebAssemblyQt()
-			return ":/"+substr(cFile,"\","/")
-		ok
+	if isWebAssembly()
+		return ":/"+substr(cFile,"\","/")
 	ok
 	return cFile
 
 func isMobile
-	if find(cfunctions(),"ismobileqt")
+	if find(cfunctions(),:isMobileQt)
 		return isMobileQt()
 	ok
 	return False
 
 func isWebAssembly
-	if find(cfunctions(),"iswebassemblyqt")
+	if find(cfunctions(),:isWebAssemblyQt)
 		return isWebAssemblyQt()
 	ok
 	return False
