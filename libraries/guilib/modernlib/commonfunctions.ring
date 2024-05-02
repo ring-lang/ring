@@ -109,6 +109,16 @@ func AppFile cFile
 	ok
 	return cFile
 
+func AppURL cFile
+	cFile = substr(cFile,"\","/")
+	if isMobile()
+		return new QURL("qrc:"+substr(cFile,"\","/"))
+	ok
+	if isWebAssembly()
+		return new QURL("qrc:"+substr(cFile,"\","/"))
+	ok
+	return new QURL(cFile)
+
 func isMobile
 	if find(cfunctions(),:isMobileQt)
 		return isMobileQt()
