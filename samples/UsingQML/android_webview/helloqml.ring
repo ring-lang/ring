@@ -5,7 +5,11 @@ new QApp {
 	w = new QWidget() {
 		setWindowTitle("Using QML")  
 		oQuick = new qQuickWidget(w) {
-			setSource(new QUrl(AppFile("hello.qml")) )
+			if isMobile()
+				setSource(new QUrl("qrc:hello.qml"))
+			else
+				setSource(new QUrl(AppFile("hello.qml")))
+			ok
 			QQuickWidget_SizeRootObjectToView = 1
 			setResizeMode(QQuickWidget_SizeRootObjectToView)
 			show()
