@@ -4,6 +4,6 @@ import QtWebView 1.0
 WebView {
 	id: webView
 	objectName: "webView"
-	url: "http://www.ring-lang.net"
+	url: "https://www.ring-lang.net"
 }
 
