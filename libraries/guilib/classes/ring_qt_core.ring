@@ -1680,7 +1680,9 @@ Class QVariant
 		return QVariant_toLongLong(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func toModelIndex 
-		return QVariant_toModelIndex(pObject)
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QVariant_toModelIndex(pObject)
+		return pTempObj
 
 	Func toPoint 
 		pTempObj = new QPoint
@@ -5134,6 +5136,66 @@ Class QRegExp
 
 	Func swap P1
 		return QRegExp_swap(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QModelIndex
+
+	pObject
+
+	Func init 
+		pObject = QModelIndex_new()
+		return self
+
+	Func delete
+		pObject = QModelIndex_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func column 
+		return QModelIndex_column(pObject)
+
+	Func data P1
+		pTempObj = new QVariant
+		pTempObj.pObject = QModelIndex_data(pObject,P1)
+		return pTempObj
+
+	Func flags 
+		return QModelIndex_flags(pObject)
+
+	Func internalId 
+		return QModelIndex_internalId(pObject)
+
+	Func internalPointer 
+		return QModelIndex_internalPointer(pObject)
+
+	Func isValid 
+		return QModelIndex_isValid(pObject)
+
+	Func model 
+		return QModelIndex_model(pObject)
+
+	Func parent 
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QModelIndex_parent(pObject)
+		return pTempObj
+
+	Func row 
+		return QModelIndex_row(pObject)
+
+	Func sibling P1,P2
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QModelIndex_sibling(pObject,P1,P2)
+		return pTempObj
+
+	Func siblingAtColumn P1
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QModelIndex_siblingAtColumn(pObject,P1)
+		return pTempObj
+
+	Func siblingAtRow P1
+		pTempObj = new QModelIndex
+		pTempObj.pObject = QModelIndex_siblingAtRow(pObject,P1)
+		return pTempObj
 
 Class QSize
 
