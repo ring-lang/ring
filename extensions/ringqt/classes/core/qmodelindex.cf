@@ -1,0 +1,17 @@
+<class>
+name: QModelIndex
+para: void
+</class>
+
+int column(void)
+QVariant data(int role)
+Qt::ItemFlags flags(void)
+quintptr internalId(void)
+void * internalPointer(void)
+bool isValid(void)
+QAbstractItemModel * model(void)
+QModelIndex parent(void)
+int row(void)
+QModelIndex sibling(int row, int column)
+QModelIndex siblingAtColumn(int column)
+QModelIndex siblingAtRow(int row)
