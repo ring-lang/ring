@@ -4,6 +4,7 @@
 #define GBLUETOOTHTRANSFERREPLY_H
 #include "ringqt.h"
 #include <QBluetoothTransferReply>
+
 extern "C" {
 #include "ring.h"
 }
@@ -45,6 +46,8 @@ class GBluetoothTransferReply : public QBluetoothTransferReply
     void errorSlot();
     void finishedSlot();
     void transferProgressSlot();
+
+
 
 };
 

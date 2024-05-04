@@ -4,6 +4,7 @@
 #define GDRAG_H
 #include "ringqt.h"
 #include <QDrag>
+
 extern "C" {
 #include "ring.h"
 }
@@ -41,6 +42,8 @@ class GDrag : public QDrag
 
     void actionChangedSlot();
     void targetChangedSlot();
+
+
 
 };
 

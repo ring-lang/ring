@@ -4,6 +4,7 @@
 #define GABSTRACTAXIS_H
 #include "ringqt.h"
 #include <QtCharts/QAbstractAxis>
+
 extern "C" {
 #include "ring.h"
 }
@@ -137,6 +138,8 @@ class GAbstractAxis : public QtCharts::QAbstractAxis
     void titleTextChangedSlot();
     void titleVisibleChangedSlot();
     void visibleChangedSlot();
+
+
 
 };
 

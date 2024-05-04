@@ -4,6 +4,7 @@
 #define GVXYMODELMAPPER_H
 #include "ringqt.h"
 #include <QtCharts>
+
 extern "C" {
 #include "ring.h"
 }
@@ -57,6 +58,8 @@ class GVXYModelMapper : public QtCharts::QVXYModelMapper
     void seriesReplacedSlot();
     void xColumnChangedSlot();
     void yColumnChangedSlot();
+
+
 
 };
 

@@ -4,6 +4,7 @@
 #define GCHART_H
 #include "ringqt.h"
 #include <QtCharts>
+
 extern "C" {
 #include "ring.h"
 }
@@ -37,6 +38,8 @@ class GChart : public QtCharts::QChart
   public slots:
 
     void plotAreaChangedSlot();
+
+
 
 };
 

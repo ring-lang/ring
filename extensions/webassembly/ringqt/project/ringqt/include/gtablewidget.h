@@ -4,6 +4,7 @@
 #define GTABLEWIDGET_H
 #include "ringqt.h"
 #include <QTableWidget>
+
 extern "C" {
 #include "ring.h"
 }
@@ -93,6 +94,8 @@ class GTableWidget : public QTableWidget
     void itemEnteredSlot();
     void itemPressedSlot();
     void itemSelectionChangedSlot();
+
+
 
 };
 

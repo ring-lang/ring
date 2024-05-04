@@ -4,6 +4,7 @@
 #define GTREEVIEW_H
 #include "ringqt.h"
 #include <QTreeView>
+
 extern "C" {
 #include "ring.h"
 }
@@ -65,6 +66,8 @@ class GTreeView : public QTreeView
     void enteredSlot();
     void pressedSlot();
     void viewportEnteredSlot();
+
+
 
 };
 

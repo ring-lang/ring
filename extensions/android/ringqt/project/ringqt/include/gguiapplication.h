@@ -4,6 +4,7 @@
 #define GGUIAPPLICATION_H
 #include "ringqt.h"
 #include <QGuiApplication>
+
 extern "C" {
 #include "ring.h"
 }
@@ -85,6 +86,8 @@ class GGuiApplication : public QGuiApplication
     void saveStateRequestSlot();
     void screenAddedSlot();
     void screenRemovedSlot();
+
+
 
 };
 

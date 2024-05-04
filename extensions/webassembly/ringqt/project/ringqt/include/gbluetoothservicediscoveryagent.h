@@ -4,6 +4,7 @@
 #define GBLUETOOTHSERVICEDISCOVERYAGENT_H
 #include "ringqt.h"
 #include <QBluetoothServiceDiscoveryAgent>
+
 extern "C" {
 #include "ring.h"
 }
@@ -49,6 +50,8 @@ class GBluetoothServiceDiscoveryAgent : public QBluetoothServiceDiscoveryAgent
     void errorSlot();
     void finishedSlot();
     void serviceDiscoveredSlot();
+
+
 
 };
 

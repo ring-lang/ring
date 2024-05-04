@@ -4,6 +4,7 @@
 #define GPRINTDIALOG_H
 #include "ringqt.h"
 #include <QPrintDialog>
+
 extern "C" {
 #include "ring.h"
 }
@@ -37,6 +38,8 @@ class GPrintDialog : public QPrintDialog
   public slots:
 
     void acceptedSlot();
+
+
 
 };
 

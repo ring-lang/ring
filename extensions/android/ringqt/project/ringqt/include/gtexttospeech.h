@@ -4,6 +4,7 @@
 #define GTEXTTOSPEECH_H
 #include "ringqt.h"
 #include <QTextToSpeech>
+
 extern "C" {
 #include "ring.h"
 }
@@ -57,6 +58,8 @@ class GTextToSpeech : public QTextToSpeech
     void stateChangedSlot();
     void voiceChangedSlot();
     void volumeChangedSlot();
+
+
 
 };
 

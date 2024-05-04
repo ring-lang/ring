@@ -4,6 +4,7 @@
 #define GVIDEOWIDGET_H
 #include "ringqt.h"
 #include <QVideoWidget>
+
 extern "C" {
 #include "ring.h"
 }
@@ -53,6 +54,8 @@ class GVideoWidget : public QVideoWidget
     void fullScreenChangedSlot();
     void hueChangedSlot();
     void saturationChangedSlot();
+
+
 
 };
 

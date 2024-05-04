@@ -4,6 +4,7 @@
 #define GBUTTONGROUP_H
 #include "ringqt.h"
 #include <QButtonGroup>
+
 extern "C" {
 #include "ring.h"
 }
@@ -45,6 +46,8 @@ class GButtonGroup : public QButtonGroup
     void buttonClickedSlot();
     void buttonPressedSlot();
     void buttonReleasedSlot();
+
+
 
 };
 

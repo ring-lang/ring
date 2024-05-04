@@ -4,6 +4,7 @@
 #define GSCATTERSERIES_H
 #include "ringqt.h"
 #include <QtCharts>
+
 extern "C" {
 #include "ring.h"
 }
@@ -49,6 +50,8 @@ class GScatterSeries : public QtCharts::QScatterSeries
     void colorChangedSlot();
     void markerShapeChangedSlot();
     void markerSizeChangedSlot();
+
+
 
 };
 

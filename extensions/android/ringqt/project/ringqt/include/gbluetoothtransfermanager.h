@@ -4,6 +4,7 @@
 #define GBLUETOOTHTRANSFERMANAGER_H
 #include "ringqt.h"
 #include <QBluetoothTransferManager>
+
 extern "C" {
 #include "ring.h"
 }
@@ -37,6 +38,8 @@ class GBluetoothTransferManager : public QBluetoothTransferManager
   public slots:
 
     void finishedSlot();
+
+
 
 };
 

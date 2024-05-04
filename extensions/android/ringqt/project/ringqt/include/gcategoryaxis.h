@@ -4,6 +4,7 @@
 #define GCATEGORYAXIS_H
 #include "ringqt.h"
 #include <QtCharts>
+
 extern "C" {
 #include "ring.h"
 }
@@ -41,6 +42,8 @@ class GCategoryAxis : public QtCharts::QCategoryAxis
 
     void categoriesChangedSlot();
     void labelsPositionChangedSlot();
+
+
 
 };
 

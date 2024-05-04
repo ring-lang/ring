@@ -4,6 +4,7 @@
 #define GDOCKWIDGET_H
 #include "ringqt.h"
 #include <QDockWidget>
+
 extern "C" {
 #include "ring.h"
 }
@@ -53,6 +54,8 @@ class GDockWidget : public QDockWidget
     void featuresChangedSlot();
     void topLevelChangedSlot();
     void visibilityChangedSlot();
+
+
 
 };
 

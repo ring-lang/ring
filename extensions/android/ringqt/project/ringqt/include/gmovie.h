@@ -4,6 +4,7 @@
 #define GMOVIE_H
 #include "ringqt.h"
 #include <QtGui>
+
 extern "C" {
 #include "ring.h"
 }
@@ -61,6 +62,8 @@ class GMovie : public QMovie
     void startedSlot();
     void stateChangedSlot();
     void updatedSlot();
+
+
 
 };
 

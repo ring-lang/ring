@@ -4,6 +4,7 @@
 #define GVBARMODELMAPPER_H
 #include "ringqt.h"
 #include <QtCharts>
+
 extern "C" {
 #include "ring.h"
 }
@@ -57,6 +58,8 @@ class GVBarModelMapper : public QtCharts::QVBarModelMapper
     void modelReplacedSlot();
     void rowCountChangedSlot();
     void seriesReplacedSlot();
+
+
 
 };
 

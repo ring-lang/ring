@@ -4,6 +4,7 @@
 #define GCOMBOBOX_H
 #include "ringqt.h"
 #include <QComboBox>
+
 extern "C" {
 #include "ring.h"
 }
@@ -49,6 +50,8 @@ class GComboBox : public QComboBox
     void currentIndexChangedSlot();
     void editTextChangedSlot();
     void highlightedSlot();
+
+
 
 };
 

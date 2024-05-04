@@ -4,6 +4,7 @@
 #define GABSTRACTSOCKET_H
 #include "ringqt.h"
 #include <QAbstractSocket>
+
 extern "C" {
 #include "ring.h"
 }
@@ -57,6 +58,8 @@ class GAbstractSocket : public QAbstractSocket
     void hostFoundSlot();
     void proxyAuthenticationRequiredSlot();
     void stateChangedSlot();
+
+
 
 };
 

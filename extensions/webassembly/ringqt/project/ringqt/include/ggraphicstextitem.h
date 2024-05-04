@@ -4,6 +4,7 @@
 #define GGRAPHICSTEXTITEM_H
 #include "ringqt.h"
 #include <QGraphicsTextItem>
+
 extern "C" {
 #include "ring.h"
 }
@@ -41,6 +42,8 @@ class GGraphicsTextItem : public QGraphicsTextItem
 
     void linkActivatedSlot();
     void linkHoveredSlot();
+
+
 
 };
 

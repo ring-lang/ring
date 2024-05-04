@@ -4,6 +4,7 @@
 #define GVALUEAXIS_H
 #include "ringqt.h"
 #include <QtCharts>
+
 extern "C" {
 #include "ring.h"
 }
@@ -69,6 +70,8 @@ class GValueAxis : public QtCharts::QValueAxis
     void tickCountChangedSlot();
     void tickIntervalChangedSlot();
     void tickTypeChangedSlot();
+
+
 
 };
 

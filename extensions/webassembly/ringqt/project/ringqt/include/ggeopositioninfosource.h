@@ -4,6 +4,7 @@
 #define GGEOPOSITIONINFOSOURCE_H
 #include "ringqt.h"
 #include <QGeoPositionInfoSource>
+
 extern "C" {
 #include "ring.h"
 }
@@ -45,6 +46,8 @@ class GGeoPositionInfoSource : public QGeoPositionInfoSource
     void errorSlot();
     void positionUpdatedSlot();
     void updateTimeoutSlot();
+
+
 
 };
 

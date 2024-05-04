@@ -4,6 +4,7 @@
 #define GGRAPHICSVIEW_H
 #include "ringqt.h"
 #include <QGraphicsView>
+
 extern "C" {
 #include "ring.h"
 }
@@ -37,6 +38,8 @@ class GGraphicsView : public QGraphicsView
   public slots:
 
     void rubberBandChangedSlot();
+
+
 
 };
 

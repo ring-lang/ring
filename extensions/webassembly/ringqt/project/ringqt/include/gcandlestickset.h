@@ -4,6 +4,7 @@
 #define GCANDLESTICKSET_H
 #include "ringqt.h"
 #include <QtCharts>
+
 extern "C" {
 #include "ring.h"
 }
@@ -81,6 +82,8 @@ class GCandlestickSet : public QtCharts::QCandlestickSet
     void pressedSlot();
     void releasedSlot();
     void timestampChangedSlot();
+
+
 
 };
 

@@ -4,6 +4,7 @@
 #define GTABWIDGET_H
 #include "ringqt.h"
 #include <QTabWidget>
+
 extern "C" {
 #include "ring.h"
 }
@@ -41,6 +42,8 @@ class GTabWidget : public QTabWidget
 
     void currentChangedSlot();
     void tabCloseRequestedSlot(int p1);
+
+
 
 };
 

@@ -4,6 +4,7 @@
 #define GBARSET_H
 #include "ringqt.h"
 #include <QtCharts>
+
 extern "C" {
 #include "ring.h"
 }
@@ -97,6 +98,8 @@ class GBarSet : public QtCharts::QBarSet
     void valueChangedSlot();
     void valuesAddedSlot();
     void valuesRemovedSlot();
+
+
 
 };
 

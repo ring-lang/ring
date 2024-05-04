@@ -4,6 +4,7 @@
 #define GTCPSERVER_H
 #include "ringqt.h"
 #include <QTcpServer>
+
 extern "C" {
 #include "ring.h"
 }
@@ -41,6 +42,8 @@ class GTcpServer : public QTcpServer
 
     void acceptErrorSlot();
     void newConnectionSlot();
+
+
 
 };
 

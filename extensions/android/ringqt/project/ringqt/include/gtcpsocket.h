@@ -4,6 +4,7 @@
 #define GTCPSOCKET_H
 #include "ringqt.h"
 #include <QTcpSocket>
+
 extern "C" {
 #include "ring.h"
 }
@@ -73,6 +74,8 @@ class GTcpSocket : public QTcpSocket
     void bytesWrittenSlot();
     void readChannelFinishedSlot();
     void readyReadSlot();
+
+
 
 };
 

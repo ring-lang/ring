@@ -4,6 +4,7 @@
 #define GPRINTPREVIEWDIALOG_H
 #include "ringqt.h"
 #include <QPrintPreviewDialog>
+
 extern "C" {
 #include "ring.h"
 }
@@ -37,6 +38,8 @@ class GPrintPreviewDialog : public QPrintPreviewDialog
   public slots:
 
     void paintRequestedSlot();
+
+
 
 };
 

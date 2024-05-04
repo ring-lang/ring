@@ -4,6 +4,7 @@
 #define GFILEDIALOG_H
 #include "ringqt.h"
 #include <QFileDialog>
+
 extern "C" {
 #include "ring.h"
 }
@@ -69,6 +70,8 @@ class GFileDialog : public QFileDialog
     void filterSelectedSlot();
     void urlSelectedSlot();
     void urlsSelectedSlot();
+
+
 
 };
 

@@ -4,6 +4,7 @@
 #define GCANDLESTICKMODELMAPPER_H
 #include "ringqt.h"
 #include <QtCharts>
+
 extern "C" {
 #include "ring.h"
 }
@@ -41,6 +42,8 @@ class GCandlestickModelMapper : public QtCharts::QCandlestickModelMapper
 
     void modelReplacedSlot();
     void seriesReplacedSlot();
+
+
 
 };
 

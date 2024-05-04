@@ -4,6 +4,7 @@
 #define GPIESERIES_H
 #include "ringqt.h"
 #include <QtCharts>
+
 extern "C" {
 #include "ring.h"
 }
@@ -69,6 +70,8 @@ class GPieSeries : public QtCharts::QPieSeries
     void releasedSlot();
     void removedSlot();
     void sumChangedSlot();
+
+
 
 };
 

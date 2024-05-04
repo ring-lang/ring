@@ -4,6 +4,7 @@
 #define GTABBAR_H
 #include "ringqt.h"
 #include <QTabBar>
+
 extern "C" {
 #include "ring.h"
 }
@@ -45,6 +46,8 @@ class GTabBar : public QTabBar
     void currentChangedSlot();
     void tabCloseRequestedSlot();
     void tabMovedSlot();
+
+
 
 };
 

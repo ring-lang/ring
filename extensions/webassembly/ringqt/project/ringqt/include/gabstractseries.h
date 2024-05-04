@@ -4,6 +4,7 @@
 #define GABSTRACTSERIES_H
 #include "ringqt.h"
 #include <QtCharts/QAbstractSeries>
+
 extern "C" {
 #include "ring.h"
 }
@@ -49,6 +50,8 @@ class GAbstractSeries : public QtCharts::QAbstractSeries
     void opacityChangedSlot();
     void useOpenGLChangedSlot();
     void visibleChangedSlot();
+
+
 
 };
 

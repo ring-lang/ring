@@ -4,6 +4,7 @@
 #define GPLAINTEXTEDIT_H
 #include "ringqt.h"
 #include <QPlainTextEdit>
+
 extern "C" {
 #include "ring.h"
 }
@@ -69,6 +70,8 @@ class GPlainTextEdit : public QPlainTextEdit
     void textChangedSlot();
     void undoAvailableSlot();
     void updateRequestSlot();
+
+
 
 };
 

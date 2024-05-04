@@ -4,6 +4,7 @@
 #define GBLUETOOTHLOCALDEVICE_H
 #include "ringqt.h"
 #include <QBluetoothLocalDevice>
+
 extern "C" {
 #include "ring.h"
 }
@@ -61,6 +62,8 @@ class GBluetoothLocalDevice : public QBluetoothLocalDevice
     void pairingDisplayConfirmationSlot();
     void pairingDisplayPinCodeSlot();
     void pairingFinishedSlot();
+
+
 
 };
 

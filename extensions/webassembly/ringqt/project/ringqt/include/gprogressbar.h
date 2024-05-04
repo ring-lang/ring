@@ -4,6 +4,7 @@
 #define GPROGRESSBAR_H
 #include "ringqt.h"
 #include <QProgressBar>
+
 extern "C" {
 #include "ring.h"
 }
@@ -37,6 +38,8 @@ class GProgressBar : public QProgressBar
   public slots:
 
     void valueChangedSlot();
+
+
 
 };
 

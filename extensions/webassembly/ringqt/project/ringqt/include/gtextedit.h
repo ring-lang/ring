@@ -4,6 +4,7 @@
 #define GTEXTEDIT_H
 #include "ringqt.h"
 #include <QTextEdit>
+
 extern "C" {
 #include "ring.h"
 }
@@ -61,6 +62,8 @@ class GTextEdit : public QTextEdit
     void selectionChanged();
     void textChangedSlot();
     void undoAvailableSlot();
+
+
 
 };
 

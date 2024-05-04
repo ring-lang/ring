@@ -4,6 +4,7 @@
 #define GGRAPHICSSCENE_H
 #include "ringqt.h"
 #include <QtWidgets>
+
 extern "C" {
 #include "ring.h"
 }
@@ -49,6 +50,8 @@ class GGraphicsScene : public QGraphicsScene
     void focusItemChangedSlot();
     void sceneRectChangedSlot();
     void selectionChangedSlot();
+
+
 
 };
 

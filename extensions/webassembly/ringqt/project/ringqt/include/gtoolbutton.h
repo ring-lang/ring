@@ -4,6 +4,7 @@
 #define GTOOLBUTTON_H
 #include "ringqt.h"
 #include <QToolButton>
+
 extern "C" {
 #include "ring.h"
 }
@@ -41,6 +42,8 @@ class GToolButton : public QToolButton
 
     void triggeredSlot();
     void clickedSlot();
+
+
 
 };
 

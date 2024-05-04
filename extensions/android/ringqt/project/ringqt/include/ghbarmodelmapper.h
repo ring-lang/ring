@@ -4,6 +4,7 @@
 #define GHBARMODELMAPPER_H
 #include "ringqt.h"
 #include <QtCharts>
+
 extern "C" {
 #include "ring.h"
 }
@@ -57,6 +58,8 @@ class GHBarModelMapper : public QtCharts::QHBarModelMapper
     void lastBarSetRowChangedSlot();
     void modelReplacedSlot();
     void seriesReplacedSlot();
+
+
 
 };
 

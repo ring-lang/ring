@@ -4,6 +4,7 @@
 #define GTIMER_H
 #include "ringqt.h"
 #include <QTimer>
+
 extern "C" {
 #include "ring.h"
 }
@@ -37,6 +38,8 @@ class GTimer : public QTimer
   public slots:
 
     void timeoutSlot();
+
+
 
 };
 

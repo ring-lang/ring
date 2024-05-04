@@ -4,6 +4,7 @@
 #define GGRAPHICSEFFECT_H
 #include "ringqt.h"
 #include <QGraphicsEffect>
+
 extern "C" {
 #include "ring.h"
 }
@@ -37,6 +38,8 @@ class GGraphicsEffect : public QGraphicsEffect
   public slots:
 
     void enabledChangedSlot();
+
+
 
 };
 

@@ -4,6 +4,7 @@
 #define GRADIOBUTTON_H
 #include "ringqt.h"
 #include <QRadioButton>
+
 extern "C" {
 #include "ring.h"
 }
@@ -49,6 +50,8 @@ class GRadioButton : public QRadioButton
     void pressedSlot();
     void releasedSlot();
     void toggledSlot();
+
+
 
 };
 

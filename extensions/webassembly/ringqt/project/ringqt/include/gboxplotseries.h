@@ -4,6 +4,7 @@
 #define GBOXPLOTSERIES_H
 #include "ringqt.h"
 #include <QtCharts>
+
 extern "C" {
 #include "ring.h"
 }
@@ -81,6 +82,8 @@ class GBoxPlotSeries : public QtCharts::QBoxPlotSeries
     void penChangedSlot();
     void pressedSlot();
     void releasedSlot();
+
+
 
 };
 

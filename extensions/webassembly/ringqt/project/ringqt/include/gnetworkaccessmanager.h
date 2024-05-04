@@ -4,6 +4,7 @@
 #define GNETWORKACCESSMANAGER_H
 #include "ringqt.h"
 #include <QNetworkAccessManager>
+
 extern "C" {
 #include "ring.h"
 }
@@ -37,6 +38,8 @@ class GNetworkAccessManager : public QNetworkAccessManager
   public slots:
 
     void finishedSlot(QNetworkReply *p1);
+
+
 
 };
 

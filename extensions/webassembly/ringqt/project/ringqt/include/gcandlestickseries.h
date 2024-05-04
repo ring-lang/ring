@@ -4,6 +4,7 @@
 #define GCANDLESTICKSERIES_H
 #include "ringqt.h"
 #include <QtCharts>
+
 extern "C" {
 #include "ring.h"
 }
@@ -105,6 +106,8 @@ class GCandlestickSeries : public QtCharts::QCandlestickSeries
     void penChangedSlot();
     void pressedSlot();
     void releasedSlot();
+
+
 
 };
 

@@ -4,6 +4,7 @@
 #define GACTION_H
 #include "ringqt.h"
 #include <QAction>
+
 extern "C" {
 #include "ring.h"
 }
@@ -37,6 +38,8 @@ class GAction : public QAction
   public slots:
 
     void clickedSlot();
+
+
 
 };
 

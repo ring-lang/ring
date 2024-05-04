@@ -4,6 +4,7 @@
 #define GGRAPHICSWIDGET_H
 #include "ringqt.h"
 #include <QGraphicsWidget>
+
 extern "C" {
 #include "ring.h"
 }
@@ -41,6 +42,8 @@ class GGraphicsWidget : public QGraphicsWidget
 
     void geometryChangedSlot();
     void layoutChangedSlot();
+
+
 
 };
 

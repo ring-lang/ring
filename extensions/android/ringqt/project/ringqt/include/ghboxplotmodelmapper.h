@@ -4,6 +4,7 @@
 #define GHBOXPLOTMODELMAPPER_H
 #include "ringqt.h"
 #include <QtCharts>
+
 extern "C" {
 #include "ring.h"
 }
@@ -57,6 +58,8 @@ class GHBoxPlotModelMapper : public QtCharts::QHBoxPlotModelMapper
     void lastBoxSetRowChangedSlot();
     void modelReplacedSlot();
     void seriesReplacedSlot();
+
+
 
 };
 

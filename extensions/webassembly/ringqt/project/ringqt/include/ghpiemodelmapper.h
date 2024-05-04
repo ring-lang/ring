@@ -4,6 +4,7 @@
 #define GHPIEMODELMAPPER_H
 #include "ringqt.h"
 #include <QtCharts>
+
 extern "C" {
 #include "ring.h"
 }
@@ -57,6 +58,8 @@ class GHPieModelMapper : public QtCharts::QHPieModelMapper
     void modelReplacedSlot();
     void seriesReplacedSlot();
     void valuesRowChangedSlot();
+
+
 
 };
 

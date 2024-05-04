@@ -4,6 +4,7 @@
 #define GCALENDARWIDGET_H
 #include "ringqt.h"
 #include <QCalendarWidget>
+
 extern "C" {
 #include "ring.h"
 }
@@ -49,6 +50,8 @@ class GCalendarWidget : public QCalendarWidget
     void clickedSlot();
     void currentPageChangedSlot();
     void selectionChangedSlot();
+
+
 
 };
 

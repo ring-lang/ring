@@ -4,6 +4,7 @@
 #define GVCANDLESTICKMODELMAPPER_H
 #include "ringqt.h"
 #include <QtCharts>
+
 extern "C" {
 #include "ring.h"
 }
@@ -61,6 +62,8 @@ class GVCandlestickModelMapper : public QtCharts::QVCandlestickModelMapper
     void lowRowChangedSlot();
     void openRowChangedSlot();
     void timestampRowChangedSlot();
+
+
 
 };
 

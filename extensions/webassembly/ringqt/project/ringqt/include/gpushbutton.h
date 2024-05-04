@@ -4,6 +4,7 @@
 #define GPUSHBUTTON_H
 #include "ringqt.h"
 #include <QPushButton>
+
 extern "C" {
 #include "ring.h"
 }
@@ -37,6 +38,8 @@ class GPushButton : public QPushButton
   public slots:
 
     void clickedSlot();
+
+
 
 };
 
