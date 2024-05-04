@@ -4,6 +4,7 @@
 #define GSLIDER_H
 #include "ringqt.h"
 #include <QSlider>
+
 extern "C" {
 #include "ring.h"
 }
@@ -57,6 +58,8 @@ class GSlider : public QSlider
     void sliderPressedSlot();
     void sliderReleasedSlot();
     void valueChangedSlot();
+
+
 
 };
 

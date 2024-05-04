@@ -4,6 +4,7 @@
 #define GHEADERVIEW_H
 #include "ringqt.h"
 #include <QHeaderView>
+
 extern "C" {
 #include "ring.h"
 }
@@ -73,6 +74,8 @@ class GHeaderView : public QHeaderView
     void sectionPressedSlot();
     void sectionResizedSlot();
     void sortIndicatorChangedSlot();
+
+
 
 };
 

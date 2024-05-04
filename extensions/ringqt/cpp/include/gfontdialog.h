@@ -4,6 +4,7 @@
 #define GFONTDIALOG_H
 #include "ringqt.h"
 #include <QFontDialog>
+
 extern "C" {
 #include "ring.h"
 }
@@ -41,6 +42,8 @@ class GFontDialog : public QFontDialog
 
     void currentFontChangedSlot();
     void fontSelectedSlot();
+
+
 
 };
 

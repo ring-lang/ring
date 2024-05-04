@@ -4,6 +4,7 @@
 #define GSERIALPORT_H
 #include "ringqt.h"
 #include <QSerialPort>
+
 extern "C" {
 #include "ring.h"
 }
@@ -69,6 +70,8 @@ class GSerialPort : public QSerialPort
     void parityChangedSlot();
     void requestToSendChangedSlot();
     void stopBitsChangedSlot();
+
+
 
 };
 

@@ -4,6 +4,7 @@
 #define GBARCATEGORYAXIS_H
 #include "ringqt.h"
 #include <QtCharts>
+
 extern "C" {
 #include "ring.h"
 }
@@ -53,6 +54,8 @@ class GBarCategoryAxis : public QtCharts::QBarCategoryAxis
     void maxChangedSlot();
     void minChangedSlot();
     void rangeChangedSlot();
+
+
 
 };
 

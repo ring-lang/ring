@@ -4,6 +4,7 @@
 #define GCOLORDIALOG_H
 #include "ringqt.h"
 #include <QColorDialog>
+
 extern "C" {
 #include "ring.h"
 }
@@ -41,6 +42,8 @@ class GColorDialog : public QColorDialog
 
     void colorSelectedSlot();
     void currentColorChangedSlot();
+
+
 
 };
 

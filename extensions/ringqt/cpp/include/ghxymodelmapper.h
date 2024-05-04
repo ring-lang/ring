@@ -4,6 +4,7 @@
 #define GHXYMODELMAPPER_H
 #include "ringqt.h"
 #include <QtCharts>
+
 extern "C" {
 #include "ring.h"
 }
@@ -57,6 +58,8 @@ class GHXYModelMapper : public QtCharts::QHXYModelMapper
     void seriesReplacedSlot();
     void xRowChangedSlot();
     void yRowChangedSlot();
+
+
 
 };
 

@@ -4,6 +4,7 @@
 #define GIODEVICE_H
 #include "ringqt.h"
 #include <QIODevice>
+
 extern "C" {
 #include "ring.h"
 }
@@ -49,6 +50,8 @@ class GIODevice : public QIODevice
     void bytesWrittenSlot();
     void readChannelFinishedSlot();
     void readyReadSlot();
+
+
 
 };
 

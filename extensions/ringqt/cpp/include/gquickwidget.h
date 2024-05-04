@@ -4,6 +4,7 @@
 #define GQUICKWIDGET_H
 #include "ringqt.h"
 #include <QQuickWidget>
+
 extern "C" {
 #include "ring.h"
 }
@@ -41,6 +42,8 @@ class GQuickWidget : public QQuickWidget
 
     void sceneGraphErrorSlot();
     void statusChangedSlot();
+
+
 
 };
 

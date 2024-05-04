@@ -4,6 +4,7 @@
 #define GXYSERIES_H
 #include "ringqt.h"
 #include <QtCharts>
+
 extern "C" {
 #include "ring.h"
 }
@@ -101,6 +102,8 @@ class GXYSeries : public QtCharts::QXYSeries
     void pointsReplacedSlot();
     void pressedSlot();
     void releasedSlot();
+
+
 
 };
 

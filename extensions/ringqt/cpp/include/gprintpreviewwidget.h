@@ -4,6 +4,7 @@
 #define GPRINTPREVIEWWIDGET_H
 #include "ringqt.h"
 #include <QPrintPreviewWidget>
+
 extern "C" {
 #include "ring.h"
 }
@@ -41,6 +42,8 @@ class GPrintPreviewWidget : public QPrintPreviewWidget
 
     void paintRequestedSlot();
     void previewChangedSlot();
+
+
 
 };
 

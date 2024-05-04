@@ -4,6 +4,7 @@
 #define GLEGENDMARKER_H
 #include "ringqt.h"
 #include <QtCharts>
+
 extern "C" {
 #include "ring.h"
 }
@@ -69,6 +70,8 @@ class GLegendMarker : public QtCharts::QLegendMarker
     void penChangedSlot();
     void shapeChangedSlot();
     void visibleChangedSlot();
+
+
 
 };
 

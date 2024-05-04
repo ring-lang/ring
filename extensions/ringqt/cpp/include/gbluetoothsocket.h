@@ -4,6 +4,7 @@
 #define GBLUETOOTHSOCKET_H
 #include "ringqt.h"
 #include <QBluetoothSocket>
+
 extern "C" {
 #include "ring.h"
 }
@@ -49,6 +50,8 @@ class GBluetoothSocket : public QBluetoothSocket
     void disconnectedSlot();
     void errorSlot();
     void stateChangedSlot();
+
+
 
 };
 

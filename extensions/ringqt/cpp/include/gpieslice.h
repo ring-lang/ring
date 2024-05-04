@@ -4,6 +4,7 @@
 #define GPIESLICE_H
 #include "ringqt.h"
 #include <QtCharts>
+
 extern "C" {
 #include "ring.h"
 }
@@ -109,6 +110,8 @@ class GPieSlice : public QtCharts::QPieSlice
     void releasedSlot();
     void startAngleChangedSlot();
     void valueChangedSlot();
+
+
 
 };
 

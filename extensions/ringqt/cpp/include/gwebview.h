@@ -4,6 +4,7 @@
 #define GWEBVIEW_H
 #include "ringqt.h"
 #include <QWebView>
+
 extern "C" {
 #include "ring.h"
 }
@@ -57,6 +58,8 @@ class GWebView : public QWebView
     void selectionChangedSlot();
     void titleChangedSlot();
     void urlChangedSlot();
+
+
 
 };
 

@@ -4,6 +4,7 @@
 #define GWINDOW_H
 #include "ringqt.h"
 #include <QWindow>
+
 extern "C" {
 #include "ring.h"
 }
@@ -105,6 +106,8 @@ class GWindow : public QWindow
     void windowTitleChangedSlot();
     void xChangedSlot();
     void yChangedSlot();
+
+
 
 };
 

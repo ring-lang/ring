@@ -4,6 +4,7 @@
 #define GSTACKEDWIDGET_H
 #include "ringqt.h"
 #include <QStackedWidget>
+
 extern "C" {
 #include "ring.h"
 }
@@ -41,6 +42,8 @@ class GStackedWidget : public QStackedWidget
 
     void currentChangedSlot();
     void widgetRemovedSlot();
+
+
 
 };
 

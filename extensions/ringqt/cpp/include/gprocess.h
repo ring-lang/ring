@@ -4,6 +4,7 @@
 #define GPROCESS_H
 #include "ringqt.h"
 #include <QProcess>
+
 extern "C" {
 #include "ring.h"
 }
@@ -41,6 +42,8 @@ class GProcess : public QProcess
 
     void readyReadStandardErrorSlot();
     void readyReadStandardOutputSlot();
+
+
 
 };
 

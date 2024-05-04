@@ -4,6 +4,7 @@
 #define GGRAPHICSOBJECT_H
 #include "ringqt.h"
 #include <QGraphicsObject>
+
 extern "C" {
 #include "ring.h"
 }
@@ -69,6 +70,8 @@ class GGraphicsObject : public QGraphicsObject
     void xChangedSlot();
     void yChangedSlot();
     void zChangedSlot();
+
+
 
 };
 

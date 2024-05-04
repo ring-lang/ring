@@ -4,6 +4,7 @@
 #define GCHECKBOX_H
 #include "ringqt.h"
 #include <QCheckBox>
+
 extern "C" {
 #include "ring.h"
 }
@@ -53,6 +54,8 @@ class GCheckBox : public QCheckBox
     void pressedSlot();
     void releasedSlot();
     void toggledSlot();
+
+
 
 };
 

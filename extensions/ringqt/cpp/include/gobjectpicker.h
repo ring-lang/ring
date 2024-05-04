@@ -4,6 +4,7 @@
 #define GOBJECTPICKER_H
 #include "ringqt.h"
 #include <Qt3DRender/QObjectPicker>
+
 extern "C" {
 #include "ring.h"
 }
@@ -73,6 +74,8 @@ class GObjectPicker : public Qt3DRender::QObjectPicker
     void pressedSlot();
     void pressedChangedSlot();
     void releasedSlot();
+
+
 
 };
 

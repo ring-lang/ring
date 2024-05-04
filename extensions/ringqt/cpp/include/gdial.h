@@ -4,6 +4,7 @@
 #define GDIAL_H
 #include "ringqt.h"
 #include <QDial>
+
 extern "C" {
 #include "ring.h"
 }
@@ -57,6 +58,8 @@ class GDial : public QDial
     void sliderPressedSlot();
     void sliderReleasedSlot();
     void valueChangedSlot();
+
+
 
 };
 

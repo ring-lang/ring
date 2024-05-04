@@ -4,6 +4,7 @@
 #define GBOXSET_H
 #include "ringqt.h"
 #include <QtCharts>
+
 extern "C" {
 #include "ring.h"
 }
@@ -73,6 +74,8 @@ class GBoxSet : public QtCharts::QBoxSet
     void releasedSlot();
     void valueChangedSlot();
     void valuesChangedSlot();
+
+
 
 };
 

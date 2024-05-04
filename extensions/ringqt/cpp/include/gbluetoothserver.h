@@ -4,6 +4,7 @@
 #define GBLUETOOTHSERVER_H
 #include "ringqt.h"
 #include <QBluetoothServer>
+
 extern "C" {
 #include "ring.h"
 }
@@ -41,6 +42,8 @@ class GBluetoothServer : public QBluetoothServer
 
     void errorSlot();
     void newConnectionSlot();
+
+
 
 };
 

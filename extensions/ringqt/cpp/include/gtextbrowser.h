@@ -4,6 +4,7 @@
 #define GTEXTBROWSER_H
 #include "ringqt.h"
 #include <QTextBrowser>
+
 extern "C" {
 #include "ring.h"
 }
@@ -57,6 +58,8 @@ class GTextBrowser : public QTextBrowser
     void highlightedSlot();
     void historyChangedSlot();
     void sourceChangedSlot();
+
+
 
 };
 

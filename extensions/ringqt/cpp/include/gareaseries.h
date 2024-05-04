@@ -4,6 +4,7 @@
 #define GAREASERIES_H
 #include "ringqt.h"
 #include <QtCharts/QAreaSeries>
+
 extern "C" {
 #include "ring.h"
 }
@@ -81,6 +82,8 @@ class GAreaSeries : public QtCharts::QAreaSeries
     void pointLabelsVisibilityChangedSlot();
     void pressedSlot();
     void releasedSlot();
+
+
 
 };
 

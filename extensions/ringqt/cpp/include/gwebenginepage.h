@@ -4,6 +4,7 @@
 #define GWEBENGINEPAGE_H
 #include "ringqt.h"
 #include <QWebEnginePage>
+
 extern "C" {
 #include "ring.h"
 }
@@ -145,6 +146,8 @@ class GWebEnginePage : public QWebEnginePage
     void urlChangedSlot();
     void visibleChangedSlot();
     void windowCloseRequestedSlot();
+
+
 
 };
 

@@ -4,6 +4,7 @@
 #define GLISTWIDGET_H
 #include "ringqt.h"
 #include <QListWidget>
+
 extern "C" {
 #include "ring.h"
 }
@@ -73,6 +74,8 @@ class GListWidget : public QListWidget
     void itemEnteredSlot();
     void itemPressedSlot();
     void itemSelectionChangedSlot();
+
+
 
 };
 

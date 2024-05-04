@@ -4,6 +4,7 @@
 #define GTHREAD_H
 #include "ringqt.h"
 #include <QThread>
+
 extern "C" {
 #include "ring.h"
 }
@@ -41,6 +42,8 @@ class GThread : public QThread
 
     void startedSlot();
     void finishedSlot();
+
+
 
 };
 

@@ -4,6 +4,7 @@
 #define GWEBENGINEVIEW_H
 #include "ringqt.h"
 #include <QWebEngineView>
+
 extern "C" {
 #include "ring.h"
 }
@@ -57,6 +58,8 @@ class GWebEngineView : public QWebEngineView
     void selectionChangedSlot();
     void titleChangedSlot();
     void urlChangedSlot();
+
+
 
 };
 

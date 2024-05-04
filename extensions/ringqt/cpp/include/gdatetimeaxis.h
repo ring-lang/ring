@@ -4,6 +4,7 @@
 #define GDATETIMEAXIS_H
 #include "ringqt.h"
 #include <QtCharts>
+
 extern "C" {
 #include "ring.h"
 }
@@ -53,6 +54,8 @@ class GDateTimeAxis : public QtCharts::QDateTimeAxis
     void minChangedSlot();
     void rangeChangedSlot();
     void tickCountChangedSlot();
+
+
 
 };
 

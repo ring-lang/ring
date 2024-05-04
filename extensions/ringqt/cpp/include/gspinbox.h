@@ -4,6 +4,7 @@
 #define GSPINBOX_H
 #include "ringqt.h"
 #include <QSpinBox>
+
 extern "C" {
 #include "ring.h"
 }
@@ -37,6 +38,8 @@ class GSpinBox : public QSpinBox
   public slots:
 
     void valueChangedSlot();
+
+
 
 };
 

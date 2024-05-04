@@ -4,6 +4,7 @@
 #define GLINEEDIT_H
 #include "ringqt.h"
 #include <QLineEdit>
+
 extern "C" {
 #include "ring.h"
 }
@@ -57,6 +58,8 @@ class GLineEdit : public QLineEdit
     void returnPressedSlot();
     void selectionChangedSlot();
     void textEditedSlot();
+
+
 
 };
 
