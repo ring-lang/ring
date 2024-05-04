@@ -73,5 +73,52 @@ aClasses +	[	:name = "GTreeWidget" ,
 						:slot = "itemSelectionChangedSlot()" ,
 						:event = "itemSelectionChanged"
 					]
-				  ]
+				  ],
+			:CustomCodeAfterInclude = `#include <QDrag>`,
+			:CustomCodeAtTheEnd = `
+
+protected:
+
+    void startDrag(Qt::DropActions supportedActions) override
+    {
+
+	QModelIndexList indexes = selectedIndexes();
+	QList<QPersistentModelIndex> persistentIndexes;
+ 
+	if (indexes.count() > 0) {
+
+        	QMimeData *data = model()->mimeData(indexes);
+
+      		if (!data)
+            		return;
+
+		for (int i = 0; i<indexes.count(); i++) {
+    			QModelIndex idx = indexes.at(i);
+    			persistentIndexes.append(QPersistentModelIndex(idx));
+    		}
+ 
+		QPixmap pixmap = indexes.first().data(Qt::DecorationRole).value<QPixmap>();
+		QDrag *drag = new QDrag(this);
+		drag->setPixmap(pixmap);
+		drag->setMimeData(data);
+		drag->setHotSpot(QPoint(pixmap.width()/2, pixmap.height()/2));
+ 
+		Qt::DropAction defaultDropAction = Qt::IgnoreAction;
+		if (supportedActions & Qt::MoveAction && dragDropMode() != QAbstractItemView::InternalMove)
+			defaultDropAction = Qt::MoveAction;
+ 
+		if ( drag->exec(supportedActions, defaultDropAction) == Qt::MoveAction ) {
+			for (int i = 0; i<indexes.count(); i++) {
+				QPersistentModelIndex idx = persistentIndexes.at(i);
+				if (idx.isValid()) 
+					model()->removeRow(idx.row(), idx.parent());
+				else
+					model()->removeRow(idx.row(), QModelIndex());
+			}
+		}
+	}
+
+    }
+
+`
 		] 
