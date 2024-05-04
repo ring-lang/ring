@@ -43,6 +43,7 @@ Func GenHeader aClass
 #define <T_HEADER>
 #include "ringqt.h"
 #include <<T_REALCLASSNAMEHEADER>>
+<T_CUSTOMCODEAFTERINCLUDE>
 extern "C" {
 #include "ring.h"
 }
@@ -73,6 +74,8 @@ class <T_CLASSNAME> : public <T_REALCLASSNAME>
   public slots:
 
 <T_SLOTS>
+
+<T_CUSTOMCODEATTHEEND>
 };
 
 #endif
@@ -137,6 +140,9 @@ class <T_CLASSNAME> : public <T_REALCLASSNAME>
 	cCode = substr(cCode,"<T_SETEVENTS>", cSetEvents)
 	cCode = substr(cCode,"<T_GETEVENTS>", cGetEvents)
 	cCode = substr(cCode,"<T_SLOTS>", cEventsSlots)
+
+	cCode = substr(cCode,"<T_CUSTOMCODEATTHEEND>", aClass[:CustomCodeAtTheEnd])
+	cCode = substr(cCode,"<T_CUSTOMCODEAFTERINCLUDE>", aClass[:CustomCodeAfterInclude])
 
 	cFileName = lower(aClass[:name]) + ".h"
 	writefile(cHeaderFolder+cFileName,cCode)
