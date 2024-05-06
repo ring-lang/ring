@@ -26,7 +26,7 @@ timeBetweenPower = 10
 powerTimer	= 0
 isFinished 	= False
 
-# RingRayLib window inti
+# RingRayLib window init
 InitWindow(screenWidth, screenHeight, "Space Shooter")
 windowIcon = resources.Image("Assets/icon.png")
 SetWindowIcon(windowIcon)
