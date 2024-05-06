@@ -10,4 +10,9 @@ To test the application
 * Run webserver/server.ring
 
 * Run mobileapp/lecturestracker.ring
+
+# Screen Shot
+
+![LecturesTracker](https://github.com/ring-lang/ring/blob/master/applications/lecturestracker/screenshot.png)
+
  
