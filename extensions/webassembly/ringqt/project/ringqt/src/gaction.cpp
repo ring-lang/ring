@@ -5,7 +5,7 @@ extern "C" {
 }
 #include "gaction.h"
 
-GAction::GAction(QWidget *parent,VM *pVM)  : QAction(parent)
+GAction::GAction(QObject *parent,VM *pVM)  : QAction(parent)
 {
 	this->pVM = pVM;
 	this->pParaList = ring_list_new(0);

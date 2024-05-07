@@ -23,7 +23,7 @@ class GAction : public QAction
     char cClickEvent[RINGQT_EVENT_SIZE];
 
 
-    GAction(QWidget *parent,VM *pVM );
+    GAction(QObject *parent,VM *pVM );
 
     ~GAction();
 
