@@ -241,8 +241,17 @@ void CodeEditor::keyPressEvent(QKeyEvent *e)
   	  		str=list.join("\n");
  	   		cur.removeSelectedText();
    	 		cur.insertText(str);
-   	 		cur.setPosition(std::min(a,p));
-    			cur.setPosition(std::max(a,p)+list.count(), QTextCursor::KeepAnchor);
+
+			if (a < p)
+   	 			cur.setPosition(a);
+			else 
+   	 			cur.setPosition(p);
+
+			if (a > p)
+    				cur.setPosition(a+list.count(), QTextCursor::KeepAnchor);
+			else 
+    				cur.setPosition(p+list.count(), QTextCursor::KeepAnchor);
+
     			setTextCursor(cur);
 			e->accept();
 			blockSignals(false);
@@ -270,8 +279,17 @@ void CodeEditor::keyPressEvent(QKeyEvent *e)
     			str=list.join("\n");
     			cur.removeSelectedText();
     			cur.insertText(str);
-    			cur.setPosition(std::min(a,p));
-  			cur.setPosition(std::max(a,p)-m, QTextCursor::KeepAnchor);
+
+			if (a<p)
+    				cur.setPosition(a);
+			else 
+    				cur.setPosition(p);
+
+			if (a>p)
+  				cur.setPosition(a-m, QTextCursor::KeepAnchor);
+			else 
+				cur.setPosition(p-m, QTextCursor::KeepAnchor);
+
     			setTextCursor(cur);
 			e->accept();
 			blockSignals(false);

@@ -44,6 +44,7 @@
 #include <QSyntaxHighlighter>
 #include <QTextCharFormat>
 #include <QStringList>
+#include <QRegExp>
 
 QT_BEGIN_NAMESPACE
 class QTextDocument;
