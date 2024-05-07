@@ -110,7 +110,11 @@ class <T_CLASSNAME> : public <T_REALCLASSNAME>
 		cCode = substr(cCode,"<T_INITPARA>", aClass[:initpara])
 	else
 		if not aClass[:noparent] = True
-			cCode = substr(cCode,"<T_INITPARA>", "QWidget *")
+			if not aClass[:useqobject] = True
+				cCode = substr(cCode,"<T_INITPARA>", "QWidget *")
+			else 
+				cCode = substr(cCode,"<T_INITPARA>", "QObject *")
+			ok
 		else 
 			cCode = substr(cCode,"<T_INITPARA>", "")
 		ok
@@ -201,7 +205,11 @@ void <T_CLASSNAME>::geteventparameters(void)
 		cCode = substr(cCode,"<T_INITPARA>", aClass[:initpara])
 	else
 		if not aClass[:noparent] = True
-			cCode = substr(cCode,"<T_INITPARA>", "QWidget *")
+			if not aClass[:useqobject] = True
+				cCode = substr(cCode,"<T_INITPARA>", "QWidget *")
+			else 
+				cCode = substr(cCode,"<T_INITPARA>", "QObject *")
+			ok
 		else 
 			cCode = substr(cCode,"<T_INITPARA>", "")
 		ok
