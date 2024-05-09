@@ -9,7 +9,7 @@ oApp = new qApp {
 
 	oContainer = oWidget.createWindowContainer(oView,oWidget,0)
 
-	oRootEntity = new QEntity(oContainer) 
+	oRootEntity = new QEntity(NULL) 
 
 	oInput = new QInputAspect(oRootEntity)
         oView.registerAspect(oInput)
