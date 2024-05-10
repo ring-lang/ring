@@ -22,28 +22,28 @@ class MergeController from WindowsControllerParent
 	}
 
 	func SelectFirst  { 
-		new qfiledialog(this.oView.win) {
-		cFile = getopenfilename(this.oView.win,"Select the First File"," ","*.txt")
+		new QFileDialog(this.oView.win) {
+		cFile = getOpenFileName(this.oView.win,"Select the First File"," ","*.txt")
 		}
 		try { 
 			cString = read(cFile)
 			oView {
-				txtFile1.settext(cFile)
-				txtFile1Content.settext(cString )
+				txtFile1.setText(cFile)
+				txtFile1Content.setText(cString )
 			}
 		Catch 
 		} 
 	} 
 
 	func SelectSecond  { 
-		new qfiledialog(this.oView.win) {
-		cFile = getopenfilename(this.oView.win,"Select the Second File"," ","*.txt")
+		new QFileDialog(this.oView.win) {
+		cFile = getOpenFileName(this.oView.win,"Select the Second File"," ","*.txt")
 		}
 		try { 
 			cString = read(cFile)
 			oView {
-				txtFile2.settext(cFile)
-				txtFile2Content.settext(cString )
+				txtFile2.setText(cFile)
+				txtFile2Content.setText(cString )
 			}
 		Catch 
 		} 
@@ -52,8 +52,8 @@ class MergeController from WindowsControllerParent
 	func Merge  { 
 		oView {
 			cOutput = ""
-			cFile1 = txtFile1Content.toplaintext()
-			cFile2 = txtFile2Content.toplaintext()
+			cFile1 = txtFile1Content.toPlainText()
+			cFile2 = txtFile2Content.toPlainText()
 			aFile1 = str2list(cFile1)
 			aFile2 = str2list(cFile2)
 			for t = 1 to len(aFile1) step 1 { 
@@ -62,15 +62,15 @@ class MergeController from WindowsControllerParent
 					cOutput += aFile2[t]+WindowsNL()
 				}
 			}
-			txtMerge.settext(cOutput)
+			txtMerge.setText(cOutput)
 		}
 	} 
 
 	func savethefile  { 
 		oView {
-			cOutput = txtMerge.toplaintext()
-			new qfiledialog(this.oView.win) {
-			cFileName = getsavefilename(this.oView.win,"Save File"," ","*.txt")
+			cOutput = txtMerge.toPlainText()
+			new QFileDialog(this.oView.win) {
+			cFileName = getSaveFileName(this.oView.win,"Save File"," ","*.txt")
 			}
 			if trim(cFileName) != NULL { 
 				write(cFileName,cOutput)
