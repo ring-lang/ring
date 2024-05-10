@@ -18961,38 +18961,6 @@ Class QAllEvents from QWidget
 		pTempObj.pObject = QAllEvents_getChildEventObject(pObject)
 		return pTempObj
 
-Class QDesktopWidget from QWidget
-
-	pObject
-
-	Func init 
-		pObject = QDesktopWidget_new()
-		return self
-
-	Func delete
-		pObject = QDesktopWidget_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func availableGeometry P1
-		pTempObj = new QRect
-		pTempObj.pObject = QDesktopWidget_availableGeometry(pObject,GetObjectPointerFromRingObject(P1))
-		return pTempObj
-
-	Func screen 
-		pTempObj = new QScreen
-		pTempObj.pObject = QDesktopWidget_screen(pObject)
-		return pTempObj
-
-	Func screenGeometry P1
-		pTempObj = new QRect
-		pTempObj.pObject = QDesktopWidget_screenGeometry(pObject,GetObjectPointerFromRingObject(P1))
-		return pTempObj
-
-	Func screenNumber P1
-		return QDesktopWidget_screenNumber(pObject,GetObjectPointerFromRingObject(P1))
-
 Class QListWidgetItem
 
 	pObject

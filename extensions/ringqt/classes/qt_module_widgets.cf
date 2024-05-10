@@ -52,7 +52,9 @@
 <loadfile> widgets/qlcdnumber.cf
 <loadfile> widgets/qinputdialog.cf
 <loadfile> widgets/qallevents.cf
+<comment>
 <loadfile> widgets/qdesktopwidget.cf
+</comment>
 <loadfile> widgets/qlistwidgetitem.cf
 <loadfile> widgets/qsystemtrayicon.cf
 <loadfile> widgets/ringcodehighlighter.cf

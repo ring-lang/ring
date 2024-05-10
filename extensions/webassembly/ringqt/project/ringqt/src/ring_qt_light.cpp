@@ -294,7 +294,6 @@ extern "C" {
 	void ring_QLCDNumber_freefunc(void *pState,void *pPointer);
 	void ring_QInputDialog_freefunc(void *pState,void *pPointer);
 	void ring_QAllEvents_freefunc(void *pState,void *pPointer);
-	void ring_QDesktopWidget_freefunc(void *pState,void *pPointer);
 	void ring_QListWidgetItem_freefunc(void *pState,void *pPointer);
 	void ring_QSystemTrayIcon_freefunc(void *pState,void *pPointer);
 	void ring_RingCodeHighlighter_freefunc(void *pState,void *pPointer);
@@ -109504,96 +109503,6 @@ RING_FUNC(ring_QAllEvents_getChildEventObject)
 }
 
 
-RING_FUNC(ring_QDesktopWidget_availableGeometry)
-{
-	QDesktopWidget *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QDesktopWidget *) RING_API_GETCPOINTER(1,"QDesktopWidget");
-	if ( ! RING_API_ISCPOINTER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	{
-		QRect *pValue ; 
-		pValue = new QRect() ;
-		*pValue = pObject->availableGeometry((QWidget *) RING_API_GETCPOINTER(2,"QWidget"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"QRect",ring_QRect_freefunc);
-	}
-}
-
-
-RING_FUNC(ring_QDesktopWidget_screen)
-{
-	QDesktopWidget *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QDesktopWidget *) RING_API_GETCPOINTER(1,"QDesktopWidget");
-	RING_API_RETCPOINTER(pObject->screen(),"QScreen");
-}
-
-
-RING_FUNC(ring_QDesktopWidget_screenGeometry)
-{
-	QDesktopWidget *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QDesktopWidget *) RING_API_GETCPOINTER(1,"QDesktopWidget");
-	if ( ! RING_API_ISCPOINTER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	{
-		QRect *pValue ; 
-		pValue = new QRect() ;
-		*pValue = pObject->screenGeometry((QWidget *) RING_API_GETCPOINTER(2,"QWidget"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"QRect",ring_QRect_freefunc);
-	}
-}
-
-
-RING_FUNC(ring_QDesktopWidget_screenNumber)
-{
-	QDesktopWidget *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QDesktopWidget *) RING_API_GETCPOINTER(1,"QDesktopWidget");
-	if ( ! RING_API_ISCPOINTER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETNUMBER(pObject->screenNumber((QWidget *) RING_API_GETCPOINTER(2,"QWidget")));
-}
-
-
 RING_FUNC(ring_QListWidgetItem_background)
 {
 	QListWidgetItem *pObject ;
@@ -139233,17 +139142,6 @@ RING_FUNC(ring_QAllEvents_new)
 	RING_API_RETCPOINTER(pObject,"QAllEvents");
 }
 
-RING_FUNC(ring_QDesktopWidget_new)
-{
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( RING_API_PARACOUNT != 0 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	QDesktopWidget *pObject = new QDesktopWidget();
-	RING_API_RETCPOINTER(pObject,"QDesktopWidget");
-}
-
 RING_FUNC(ring_QListWidgetItem_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -142626,23 +142524,6 @@ RING_FUNC(ring_QAllEvents_delete)
 	}
 }
 
-RING_FUNC(ring_QDesktopWidget_delete)
-{
-	QDesktopWidget *pObject ; 
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( RING_API_PARACOUNT != 1 )
-	{
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	if ( RING_API_ISCPOINTER(1) )
-	{
-		pObject = (QDesktopWidget *) RING_API_GETCPOINTER(1,"QDesktopWidget");
-		delete pObject ;
-		RING_API_SETNULLPOINTER(1);
-	}
-}
-
 RING_FUNC(ring_QListWidgetItem_delete)
 {
 	QListWidgetItem *pObject ; 
@@ -144478,13 +144359,6 @@ void ring_QAllEvents_freefunc(void *pState,void *pPointer)
 {
 	GAllEvents *pObject ; 
 	pObject = (GAllEvents *) pPointer;
-	delete pObject ;
-}
-
-void ring_QDesktopWidget_freefunc(void *pState,void *pPointer)
-{
-	QDesktopWidget *pObject ; 
-	pObject = (QDesktopWidget *) pPointer;
 	delete pObject ;
 }
 
@@ -149891,10 +149765,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qallevents_getdragentereventobject",ring_QAllEvents_getDragEnterEventObject);
 	RING_API_REGISTER("qallevents_getdragleaveeventobject",ring_QAllEvents_getDragLeaveEventObject);
 	RING_API_REGISTER("qallevents_getchildeventobject",ring_QAllEvents_getChildEventObject);
-	RING_API_REGISTER("qdesktopwidget_availablegeometry",ring_QDesktopWidget_availableGeometry);
-	RING_API_REGISTER("qdesktopwidget_screen",ring_QDesktopWidget_screen);
-	RING_API_REGISTER("qdesktopwidget_screengeometry",ring_QDesktopWidget_screenGeometry);
-	RING_API_REGISTER("qdesktopwidget_screennumber",ring_QDesktopWidget_screenNumber);
 	RING_API_REGISTER("qlistwidgetitem_background",ring_QListWidgetItem_background);
 	RING_API_REGISTER("qlistwidgetitem_checkstate",ring_QListWidgetItem_checkState);
 	RING_API_REGISTER("qlistwidgetitem_flags",ring_QListWidgetItem_flags);
@@ -151339,7 +151209,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qlcdnumber_new",ring_QLCDNumber_new);
 	RING_API_REGISTER("qinputdialog_new",ring_QInputDialog_new);
 	RING_API_REGISTER("qallevents_new",ring_QAllEvents_new);
-	RING_API_REGISTER("qdesktopwidget_new",ring_QDesktopWidget_new);
 	RING_API_REGISTER("qlistwidgetitem_new",ring_QListWidgetItem_new);
 	RING_API_REGISTER("qsystemtrayicon_new",ring_QSystemTrayIcon_new);
 	RING_API_REGISTER("ringcodehighlighter_new",ring_RingCodeHighlighter_new);
@@ -151544,7 +151413,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qlcdnumber_delete",ring_QLCDNumber_delete);
 	RING_API_REGISTER("qinputdialog_delete",ring_QInputDialog_delete);
 	RING_API_REGISTER("qallevents_delete",ring_QAllEvents_delete);
-	RING_API_REGISTER("qdesktopwidget_delete",ring_QDesktopWidget_delete);
 	RING_API_REGISTER("qlistwidgetitem_delete",ring_QListWidgetItem_delete);
 	RING_API_REGISTER("qsystemtrayicon_delete",ring_QSystemTrayIcon_delete);
 	RING_API_REGISTER("ringcodehighlighter_delete",ring_RingCodeHighlighter_delete);
