@@ -1,0 +1,16 @@
+<class>
+name: QVersionNumber
+para: void
+</class>
+
+bool isNormalized(void)
+bool isNull(void)
+bool isPrefixOf(QVersionNumber other)
+int majorVersion(void)
+int microVersion(void)
+int minorVersion(void)
+QVersionNumber normalized(void)
+int segmentAt(int index)
+int segmentCount(void)
+QVector<int> segments(void)
+QString toString(void)

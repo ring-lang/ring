@@ -1,0 +1,9 @@
+<class>
+name: QLibraryInfo
+para: void
+nonew
+staticmethods
+</class>
+
+bool isDebugBuild(void)
+QVersionNumber version(void)

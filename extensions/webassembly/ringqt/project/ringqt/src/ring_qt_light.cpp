@@ -187,6 +187,8 @@ extern "C" {
 	void ring_QLineF_freefunc(void *pState,void *pPointer);
 	void ring_QRegExp_freefunc(void *pState,void *pPointer);
 	void ring_QModelIndex_freefunc(void *pState,void *pPointer);
+	void ring_QVersionNumber_freefunc(void *pState,void *pPointer);
+	void ring_QLibraryInfo_freefunc(void *pState,void *pPointer);
 	void ring_QDesktopServices_freefunc(void *pState,void *pPointer);
 	void ring_QBitmap_freefunc(void *pState,void *pPointer);
 	void ring_QPixmap_freefunc(void *pState,void *pPointer);
@@ -27778,6 +27780,236 @@ RING_FUNC(ring_QModelIndex_siblingAtRow)
 		pValue = (QModelIndex *) RING_API_MALLOC(sizeof(QModelIndex)) ;
 		*pValue = pObject->siblingAtRow( (int ) RING_API_GETNUMBER(2));
 		RING_API_RETMANAGEDCPOINTER(pValue,"QModelIndex",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QVersionNumber_isNormalized)
+{
+	QVersionNumber *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QVersionNumber *) RING_API_GETCPOINTER(1,"QVersionNumber");
+	RING_API_RETNUMBER(pObject->isNormalized());
+}
+
+
+RING_FUNC(ring_QVersionNumber_isNull)
+{
+	QVersionNumber *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QVersionNumber *) RING_API_GETCPOINTER(1,"QVersionNumber");
+	RING_API_RETNUMBER(pObject->isNull());
+}
+
+
+RING_FUNC(ring_QVersionNumber_isPrefixOf)
+{
+	QVersionNumber *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QVersionNumber *) RING_API_GETCPOINTER(1,"QVersionNumber");
+	RING_API_RETNUMBER(pObject->isPrefixOf(* (QVersionNumber  *) RING_API_GETCPOINTER(2,"QVersionNumber")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"QVersionNumber"));
+}
+
+
+RING_FUNC(ring_QVersionNumber_majorVersion)
+{
+	QVersionNumber *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QVersionNumber *) RING_API_GETCPOINTER(1,"QVersionNumber");
+	RING_API_RETNUMBER(pObject->majorVersion());
+}
+
+
+RING_FUNC(ring_QVersionNumber_microVersion)
+{
+	QVersionNumber *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QVersionNumber *) RING_API_GETCPOINTER(1,"QVersionNumber");
+	RING_API_RETNUMBER(pObject->microVersion());
+}
+
+
+RING_FUNC(ring_QVersionNumber_minorVersion)
+{
+	QVersionNumber *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QVersionNumber *) RING_API_GETCPOINTER(1,"QVersionNumber");
+	RING_API_RETNUMBER(pObject->minorVersion());
+}
+
+
+RING_FUNC(ring_QVersionNumber_normalized)
+{
+	QVersionNumber *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QVersionNumber *) RING_API_GETCPOINTER(1,"QVersionNumber");
+	{
+		QVersionNumber *pValue ; 
+		pValue = new QVersionNumber() ;
+		*pValue = pObject->normalized();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QVersionNumber",ring_QVersionNumber_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QVersionNumber_segmentAt)
+{
+	QVersionNumber *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QVersionNumber *) RING_API_GETCPOINTER(1,"QVersionNumber");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->segmentAt( (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QVersionNumber_segmentCount)
+{
+	QVersionNumber *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QVersionNumber *) RING_API_GETCPOINTER(1,"QVersionNumber");
+	RING_API_RETNUMBER(pObject->segmentCount());
+}
+
+
+RING_FUNC(ring_QVersionNumber_segments)
+{
+	QVersionNumber *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QVersionNumber *) RING_API_GETCPOINTER(1,"QVersionNumber");
+	{
+		QVector<int> *pValue ; 
+		pValue = (QVector<int> *) RING_API_MALLOC(sizeof(QVector<int>)) ;
+		*pValue = pObject->segments();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QVector<int>",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QVersionNumber_toString)
+{
+	QVersionNumber *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QVersionNumber *) RING_API_GETCPOINTER(1,"QVersionNumber");
+	RING_API_RETSTRING(pObject->toString().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QLibraryInfo_isDebugBuild)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	RING_API_RETNUMBER(QLibraryInfo::isDebugBuild());
+}
+
+
+RING_FUNC(ring_QLibraryInfo_version)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	{
+		QVersionNumber *pValue ; 
+		pValue = new QVersionNumber() ;
+		*pValue = QLibraryInfo::version();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QVersionNumber",ring_QVersionNumber_freefunc);
 	}
 }
 
@@ -137593,6 +137825,17 @@ RING_FUNC(ring_QModelIndex_new)
 	RING_API_RETCPOINTER(pObject,"QModelIndex");
 }
 
+RING_FUNC(ring_QVersionNumber_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	QVersionNumber *pObject = new QVersionNumber();
+	RING_API_RETCPOINTER(pObject,"QVersionNumber");
+}
+
 RING_FUNC(ring_QBitmap_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -140841,6 +141084,23 @@ RING_FUNC(ring_QModelIndex_delete)
 	}
 }
 
+RING_FUNC(ring_QVersionNumber_delete)
+{
+	QVersionNumber *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISCPOINTER(1) )
+	{
+		pObject = (QVersionNumber *) RING_API_GETCPOINTER(1,"QVersionNumber");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 RING_FUNC(ring_QBitmap_delete)
 {
 	QBitmap *pObject ; 
@@ -143669,6 +143929,13 @@ void ring_QModelIndex_freefunc(void *pState,void *pPointer)
 	delete pObject ;
 }
 
+void ring_QVersionNumber_freefunc(void *pState,void *pPointer)
+{
+	QVersionNumber *pObject ; 
+	pObject = (QVersionNumber *) pPointer;
+	delete pObject ;
+}
+
 void ring_QBitmap_freefunc(void *pState,void *pPointer)
 {
 	QBitmap *pObject ; 
@@ -145963,6 +146230,19 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qmodelindex_sibling",ring_QModelIndex_sibling);
 	RING_API_REGISTER("qmodelindex_siblingatcolumn",ring_QModelIndex_siblingAtColumn);
 	RING_API_REGISTER("qmodelindex_siblingatrow",ring_QModelIndex_siblingAtRow);
+	RING_API_REGISTER("qversionnumber_isnormalized",ring_QVersionNumber_isNormalized);
+	RING_API_REGISTER("qversionnumber_isnull",ring_QVersionNumber_isNull);
+	RING_API_REGISTER("qversionnumber_isprefixof",ring_QVersionNumber_isPrefixOf);
+	RING_API_REGISTER("qversionnumber_majorversion",ring_QVersionNumber_majorVersion);
+	RING_API_REGISTER("qversionnumber_microversion",ring_QVersionNumber_microVersion);
+	RING_API_REGISTER("qversionnumber_minorversion",ring_QVersionNumber_minorVersion);
+	RING_API_REGISTER("qversionnumber_normalized",ring_QVersionNumber_normalized);
+	RING_API_REGISTER("qversionnumber_segmentat",ring_QVersionNumber_segmentAt);
+	RING_API_REGISTER("qversionnumber_segmentcount",ring_QVersionNumber_segmentCount);
+	RING_API_REGISTER("qversionnumber_segments",ring_QVersionNumber_segments);
+	RING_API_REGISTER("qversionnumber_tostring",ring_QVersionNumber_toString);
+	RING_API_REGISTER("qlibraryinfo_isdebugbuild",ring_QLibraryInfo_isDebugBuild);
+	RING_API_REGISTER("qlibraryinfo_version",ring_QLibraryInfo_version);
 	RING_API_REGISTER("qdesktopservices_openurl",ring_QDesktopServices_openUrl);
 	RING_API_REGISTER("qdesktopservices_seturlhandler",ring_QDesktopServices_setUrlHandler);
 	RING_API_REGISTER("qdesktopservices_unseturlhandler",ring_QDesktopServices_unsetUrlHandler);
@@ -151110,6 +151390,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qlinef_new",ring_QLineF_new);
 	RING_API_REGISTER("qregexp_new",ring_QRegExp_new);
 	RING_API_REGISTER("qmodelindex_new",ring_QModelIndex_new);
+	RING_API_REGISTER("qversionnumber_new",ring_QVersionNumber_new);
 	RING_API_REGISTER("qbitmap_new",ring_QBitmap_new);
 	RING_API_REGISTER("qpixmap_new",ring_QPixmap_new);
 	RING_API_REGISTER("qpixmap2_new",ring_QPixmap2_new);
@@ -151314,6 +151595,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qlinef_delete",ring_QLineF_delete);
 	RING_API_REGISTER("qregexp_delete",ring_QRegExp_delete);
 	RING_API_REGISTER("qmodelindex_delete",ring_QModelIndex_delete);
+	RING_API_REGISTER("qversionnumber_delete",ring_QVersionNumber_delete);
 	RING_API_REGISTER("qbitmap_delete",ring_QBitmap_delete);
 	RING_API_REGISTER("qpixmap_delete",ring_QPixmap_delete);
 	RING_API_REGISTER("qpixmap2_delete",ring_QPixmap2_delete);

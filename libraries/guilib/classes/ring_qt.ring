@@ -5197,6 +5197,68 @@ Class QModelIndex
 		pTempObj.pObject = QModelIndex_siblingAtRow(pObject,P1)
 		return pTempObj
 
+Class QVersionNumber
+
+	pObject
+
+	Func init 
+		pObject = QVersionNumber_new()
+		return self
+
+	Func delete
+		pObject = QVersionNumber_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func isNormalized 
+		return QVersionNumber_isNormalized(pObject)
+
+	Func isNull 
+		return QVersionNumber_isNull(pObject)
+
+	Func isPrefixOf P1
+		return QVersionNumber_isPrefixOf(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func majorVersion 
+		return QVersionNumber_majorVersion(pObject)
+
+	Func microVersion 
+		return QVersionNumber_microVersion(pObject)
+
+	Func minorVersion 
+		return QVersionNumber_minorVersion(pObject)
+
+	Func normalized 
+		pTempObj = new QVersionNumber
+		pTempObj.pObject = QVersionNumber_normalized(pObject)
+		return pTempObj
+
+	Func segmentAt P1
+		return QVersionNumber_segmentAt(pObject,P1)
+
+	Func segmentCount 
+		return QVersionNumber_segmentCount(pObject)
+
+	Func segments 
+		return QVersionNumber_segments(pObject)
+
+	Func toString 
+		return QVersionNumber_toString(pObject)
+
+Class QLibraryInfo
+
+	pObject
+
+
+	Func isDebugBuild 
+		return QLibraryInfo_isDebugBuild()
+
+	Func version 
+		pTempObj = new QVersionNumber
+		pTempObj.pObject = QLibraryInfo_version()
+		return pTempObj
+
 Class QDesktopServices
 
 	pObject
