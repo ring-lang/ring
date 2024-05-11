@@ -7,3 +7,4 @@
 <loadfile> multimedia/qcamera.cf
 <loadfile> multimedia/qcameraimagecapture.cf
 <loadfile> multimedia/qmediaobject.cf
+<loadfile> multimedia/qaudiooutput.cf

@@ -85,6 +85,7 @@ extern "C" {
 #include <QVideoWidgetControl>
 #include <QCamera>
 #include <QCameraImageCapture>
+#include <QAudioOutput>
 </filter>
 
 <filter> sysget("RINGQT_NOBLUETOOTH") = ""

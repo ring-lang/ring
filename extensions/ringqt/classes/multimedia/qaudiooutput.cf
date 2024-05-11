@@ -1,0 +1,6 @@
+<class>
+name: QAudioOutput
+para: void
+</class>
+
+void setVolume(float volume)

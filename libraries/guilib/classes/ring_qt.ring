@@ -24503,6 +24503,23 @@ Class QMediaObject from QWidget
 	Func setNotifyInterval P1
 		return QMediaObject_setNotifyInterval(pObject,P1)
 
+Class QAudioOutput
+
+	pObject
+
+	Func init 
+		pObject = QAudioOutput_new()
+		return self
+
+	Func delete
+		pObject = QAudioOutput_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func setVolume P1
+		return QAudioOutput_setVolume(pObject,P1)
+
 Class QVideoWidget from QWidget
 
 	pObject
