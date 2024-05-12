@@ -1,3 +1,4 @@
 
 general/missingexprinclassregion.ring Line (6) Error (C28) : Expression is expected!
+
 general/missingexprinclassregion.ring errors count : 1 

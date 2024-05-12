@@ -175,6 +175,7 @@ void ring_parser_error ( Parser *pParser,const char *cStr )
 		else {
 			printf( RING_PARSER_ERROR_SYNTAXERROR ) ;
 		}
+		printf( "\n",cStr ) ;
 		return ;
 	}
 	else if ( strcmp(cStr,"") != 0 ) {
@@ -182,6 +183,6 @@ void ring_parser_error ( Parser *pParser,const char *cStr )
 	}
 	if ( strcmp(cStr,"") != 0 ) {
 		printf( "\n%s Line (%d) ",ring_list_getstring(pParser->pRingState->pRingFilesStack,nRingActiveFile),pParser->nLineNumber ) ;
-		printf( "%s",cStr ) ;
+		printf( "%s\n",cStr ) ;
 	}
 }
