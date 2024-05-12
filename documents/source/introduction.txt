@@ -186,6 +186,8 @@ Ring 1.19 is released on December 31, 2023
 
 Ring 1.20 is released on April 11, 2024
 
+This is Ring 1.21 documentation
+
 .. index:: 
 	pair: Introduction; Features
 
@@ -323,7 +325,7 @@ The Ring Programming Language
 
 http://ring-lang.net/
 
-Version 1.20
+Version 1.21
 
 The MIT License (MIT)
 
