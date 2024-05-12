@@ -77,8 +77,6 @@ Type: unsigned int
 lDisablePoolManager : 1
 Type: unsigned int
 lCreateListsUsingBlocks : 1
-Type: unsigned int
-lDontCheckStateBlocks : 1
 Type: PoolManager
 vPoolManager
 END:
