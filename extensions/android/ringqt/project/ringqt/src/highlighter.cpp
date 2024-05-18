@@ -97,7 +97,7 @@ void Highlighter::setColors(QColor c1,QColor c2,QColor c3,QColor c4,QColor c5) {
                     << "\\bcatch\\b" << "\\bclass\\b" << "\\bdef\\b"
                     << "\\bdo\\b" << "\\bdone\\b" << "\\belse\\b"
                     << "\\belseif\\b" << "\\bend\\b" << "\\bexit\\b"
-                    << "\\bfor\\b" << "\\bfrom\\b" << "\\bfunc\\b"
+                    << "\\bfor\\b" << "\\bforeach\\b" << "\\bfrom\\b" << "\\bfunc\\b"
                     << "\\bget\\b" << "\\bgive\\b" << "\\bif\\b"
                     << "\\bimport\\b" << "\\bin\\b" << "\\bload\\b"
                     << "\\bloop\\b" << "\\bnew\\b" << "\\bnext\\b"
