@@ -345,6 +345,7 @@ void ring_scanner_keywords ( Scanner *pScanner )
 	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"and");
 	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"not");
 	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"for");
+	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"foreach");
 	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"new");
 	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"func");
 	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"from");
