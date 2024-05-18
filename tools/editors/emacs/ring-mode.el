@@ -63,7 +63,7 @@
 
 (defconst ring-keywords
   '("again" "and" "but" "bye" "call" "case" "catch" "changeringkeyword" "changeringoperator"
- "disablehashcomments" "do" "done" "else" "elseif" "end" "exit" "for" "from" "get" "give" "if"
+ "disablehashcomments" "do" "done" "else" "elseif" "end" "exit" "for" "foreach" "from" "get" "give" "if"
 "in"  "loadsyntax" "loop" "new" "next" "not" "off" "ok" "on" "or" "other"
  "private" "put" "return" "see" "step" "switch" "to" "try" "while" "enablehashcomments" "endif" 
  "endfor" "endwhile" "endswitch" "endtry" "function" "endfunction" "break"
