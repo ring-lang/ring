@@ -233,7 +233,7 @@
 </section>
 <section id="language-keywords">
 <span id="index-2"></span><h2>Language Keywords<a class="headerlink" href="#language-keywords" title="Permalink to this heading"></a></h2>
-<p>Keywords Count: 55</p>
+<p>Keywords Count: 56</p>
 <ul class="simple">
 <li><p>again</p></li>
 <li><p>and</p></li>
@@ -251,6 +251,7 @@
 <li><p>end</p></li>
 <li><p>exit</p></li>
 <li><p>for</p></li>
+<li><p>foreach</p></li>
 <li><p>from</p></li>
 <li><p>func</p></li>
 <li><p>get</p></li>
@@ -701,7 +702,7 @@ write(cFileName,cString)
 <p>Statement —&gt; ‘if’ &lt;Expr&gt; [‘{’] {statement} [ {‘but’|’elseif’ &lt;Expr&gt; {Statement} } ] [‘else’ {Statement} ] ‘ok’|’end’|’}’|’endif’</p>
 <p>Statement —&gt; ‘Switch’ &lt;Expr&gt; [‘{’] { ‘on’|’case’ &lt;Expr&gt; {statement} } [‘other’ {Statement} ]  ‘off’|’end’|’}’|’endswitch’</p>
 <p>Statement —&gt; ‘for’ &lt;Identifier&gt; ‘=’ &lt;Expr&gt; ‘to’ &lt;Expr&gt; [ ‘step’ &lt;Expr&gt; ] [‘{’] {Statement} ‘next’|’end’|’}’|’endfor’</p>
-<p>Statement —&gt; ‘for’ &lt;Identifier&gt; ‘in’ &lt;Expr&gt;  [ ‘step’ &lt;Expr&gt; ] [‘{’] {statement} ‘next’|’end’|’}’|’endfor’</p>
+<p>Statement —&gt; ‘for’|’foreach’ &lt;Identifier&gt; ‘in’ &lt;Expr&gt;  [ ‘step’ &lt;Expr&gt; ] [‘{’] {statement} ‘next’|’end’|’}’|’endfor’</p>
 <p>Statement —&gt; ‘while’ &lt;Expr&gt; [‘{’] {statement} ‘end’|’}’|’endwhile’</p>
 <p>Statement —&gt; ‘do’ {statement} ‘again’ &lt;Expr&gt;</p>
 <p>Statement —&gt; ‘try’ {statement} [‘{’] ‘catch’ {statement} ‘done’|’end’|’}’|’endtry’</p>

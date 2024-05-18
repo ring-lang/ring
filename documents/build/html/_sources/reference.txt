@@ -36,7 +36,7 @@ Commands Count: 5
 Language Keywords
 =================
 
-Keywords Count: 55
+Keywords Count: 56
 
 * again
 * and
@@ -54,6 +54,7 @@ Keywords Count: 55
 * end
 * exit
 * for
+* foreach
 * from
 * func
 * get
@@ -534,7 +535,7 @@ Statement ---> 'Switch' <Expr> ['{'] { 'on'|'case' <Expr> {statement} } ['other'
 
 Statement ---> 'for' <Identifier> '=' <Expr> 'to' <Expr> [ 'step' <Expr> ] ['{'] {Statement} 'next'|'end'|'}'|'endfor'
 
-Statement ---> 'for' <Identifier> 'in' <Expr>  [ 'step' <Expr> ] ['{'] {statement} 'next'|'end'|'}'|'endfor'
+Statement ---> 'for'|'foreach' <Identifier> 'in' <Expr>  [ 'step' <Expr> ] ['{'] {statement} 'next'|'end'|'}'|'endfor'
 
 Statement ---> 'while' <Expr> ['{'] {statement} 'end'|'}'|'endwhile'
 
