@@ -351,6 +351,10 @@ void ring_vm_return ( VM *pVM )
 		ring_vm_removeblockflag(pVM);
 		/* Be sure it's not a function call or method call */
 		if ( pVM->nPC != 0 ) {
+			/* Set the lIgnoreNULL Flag */
+			if ( ! ring_list_getsize(pVM->pObjState) ) {
+				pVM->lIgnoreNULL = 0 ;
+			}
 			return ;
 		}
 	}
