@@ -454,13 +454,23 @@ RING_API void ring_vm_api_floatvalue ( void *pPointer,const char  *cStr )
 RING_API List * ring_vm_api_newlistusingblocks ( VM *pVM, int nSize, int nSize2 )
 {
 	List *pList, *pList2, *pList3, *pSubLists  ;
-	int x,y  ;
+	int x, y, lUseBlocks  ;
 	Items *pItems  ;
 	Item *pItem  ;
 	pList = ring_vm_api_newlist(pVM) ;
 	#if RING_USEPOOLMANAGER
-		/* Check if we can use blocks */
-		if ( pVM->pRingState->lCreateListsUsingBlocks ) {
+		/*
+		**  Check if we can use blocks 
+		**  Prepare the condition 
+		*/
+		lUseBlocks = pVM->pRingState->lCreateListsUsingBlocks ;
+		if ( (nSize < RING_API_MINLISTSIZEFORUSINGBLOCKS) && (nSize2 == -1) ) {
+			lUseBlocks = 0 ;
+		}
+		else if ( (nSize * nSize2) < RING_API_MINLISTSIZEFORUSINGBLOCKS ) {
+			lUseBlocks = 0 ;
+		}
+		if ( lUseBlocks ) {
 			if ( (nSize > 0) && (nSize2 == -1) ) {
 				/*
 				**  Allocate Memory 

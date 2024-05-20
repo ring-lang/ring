@@ -18,6 +18,7 @@ RING_OUTPUT_RETLISTBYREF
 RING_OUTPUT_RETNEWREF
 RING_VARVALUE_INT
 RING_VARVALUE_FLOAT
+RING_API_MINLISTSIZEFORUSINGBLOCKS
 RING_API_STATE
 RING_API_PARALIST
 RING_API_PARACOUNT
@@ -165,7 +166,7 @@ ring_vm_api_newlistusingblocks
 Type: List *
 pList, *pList2, *pList3, *pSubLists
 Type: int
-x,y
+x, y, lUseBlocks
 Type: Items *
 pItems
 Type: Item *
