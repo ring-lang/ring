@@ -77,7 +77,8 @@ void ring_vm_gc_killreference ( VM *pVM )
 		pList = (List *) RING_VM_STACK_READP ;
 		RING_VM_STACK_POP ;
 		/* If we have a String then clear it (Like using for t in "test" , i.e. using literal instead of variable) */
-		if ( (ring_list_getint(pList,RING_VAR_TYPE) == RING_VM_STRING) && (pVM->lExitFlag == 0) ) {
+		if ( ((ring_list_getint(pList,RING_VAR_TYPE) == RING_VM_STRING) || (ring_list_getint(pList,RING_VAR_TYPE) == RING_VM_NULL) ) && (pVM->lExitFlag == 0) ) {
+			ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_STRING);
 			ring_list_setstring_gc(pVM->pRingState,pList, RING_VAR_VALUE ,"");
 			return ;
 		}
