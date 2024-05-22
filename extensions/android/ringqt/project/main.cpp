@@ -35,7 +35,7 @@ extern "C" {
 #include "ring/src/vm.c"
 #include "ring/src/vmerror.c"
 #include "ring/src/vmeval.c"
-#include "ring/src/vmthreads.c"
+#include "ring/src/vmthread.c"
 #include "ring/src/vmexpr.c"
 #include "ring/src/vmvars.c"
 #include "ring/src/vmlists.c"
