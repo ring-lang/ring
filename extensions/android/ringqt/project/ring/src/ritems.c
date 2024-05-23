@@ -30,6 +30,7 @@ Items * ring_items_delete_gc ( void *pState,Items *pItems )
 	char *pMem  ;
 	Item *pItem  ;
 	if ( ! pItems->lDelete ) {
+		ring_item_deletecontent_gc(pState,pItems->pValue);
 		return NULL ;
 	}
 	pItems->pValue = ring_item_delete_gc(pState,pItems->pValue);
