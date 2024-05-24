@@ -1221,6 +1221,7 @@ int ring_parser_list ( Parser *pParser )
 				if ( ring_parser_icg_getlastoperation(pParser) != ICO_LISTEND ) {
 					ring_parser_icg_newoperation(pParser,ICO_LISTITEM);
 				}
+				pParser->lNewObject = 0 ;
 				pParser->lAssignmentFlag = 1 ;
 				RING_PARSER_IGNORENEWLINE ;
 				if ( ring_parser_isoperator2(pParser,OP_COMMA) ) {
