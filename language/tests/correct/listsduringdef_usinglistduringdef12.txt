@@ -1,0 +1,16 @@
+setter
+x: Object...
+y: nice
+
+setter
+1
+2
+3
+x: 10
+y: 20
+z: 30
+N
+U
+L
+L
+
