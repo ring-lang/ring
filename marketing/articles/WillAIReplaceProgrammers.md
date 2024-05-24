@@ -100,10 +100,10 @@ Related Videos
 			2024.05.06
 		</td>
 		<td>
-			 <a href="https://www.youtube.com/watch?v=nkdZRBFtqSs"> Introducing Devin </a>
+			 <a href="https://www.youtube.com/watch?v=nkdZRBFtqSs"> How Developers might stop worrying about AI taking software jobs </a>
 		</td>
 		<td>
-			 How Developers might stop worrying about AI taking software jobs and Learn to Profit from LLMs
+			 Learn to Profit from LLMs
 		</td>
 	</tr>
 	<tr>
