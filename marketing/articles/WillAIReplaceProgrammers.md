@@ -125,18 +125,32 @@ Related Videos
 			3
 		</td>
 		<td>
+			2024.03.08
+		</td>
+		<td>
+			 <a href="https://www.youtube.com/watch?v=5t1vTLU7s40"> Limits of LLMs, AGI & the Future of AI </a>
+		</td>
+		<td>
+			 <a href="https://en.wikipedia.org/wiki/Yann_LeCun"> Yann Lecun</a> and <a href="https://en.wikipedia.org/wiki/Lex_Fridman">Lex Fridman</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			4
+		</td>
+		<td>
 			2024.03.04
 		</td>
 		<td>
 			 <a href="https://www.youtube.com/watch?v=vEd-LqBCONg"> "Don't Learn to Code, But Study This Instead..." </a>
 		</td>
 		<td>
-			 <a href="https://en.wikipedia.org/wiki/Jensen_Huang"> NVIDIA CEO Jensen Huang </a>
+			 <a href="https://en.wikipedia.org/wiki/Jensen_Huang"> NVIDIA CEO Jensen Huang </a> 
 		</td>
 	</tr>
 	<tr>
 		<td>
-			4
+			5
 		</td>
 		<td>
 			2024.01.18
@@ -150,7 +164,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			5
+			6
 		</td>
 		<td>
 			2023.11.21
@@ -164,7 +178,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			6
+			7
 		</td>
 		<td>
 			2023.10.29
@@ -178,7 +192,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			7
+			8
 		</td>
 		<td>
 			2023.06.08
@@ -192,7 +206,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			8
+			9
 		</td>
 		<td>
 			2020.05.09
