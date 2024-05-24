@@ -97,6 +97,20 @@ Related Videos
 			1
 		</td>
 		<td>
+			2024.05.06
+		</td>
+		<td>
+			 <a href="https://www.youtube.com/watch?v=nkdZRBFtqSs&list=LL&index=6"> Introducing Devin </a>
+		</td>
+		<td>
+			 How Developers might stop worrying about AI taking software jobs and Learn to Profit from LLMs
+		</td>
+	</tr>
+	<tr>
+		<td>
+			2
+		</td>
+		<td>
 			2024.03.12
 		</td>
 		<td>
@@ -108,7 +122,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			2
+			3
 		</td>
 		<td>
 			2024.03.04
@@ -122,7 +136,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			3
+			4
 		</td>
 		<td>
 			2024.01.18
@@ -136,7 +150,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			4
+			5
 		</td>
 		<td>
 			2023.10.29
@@ -150,7 +164,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			5
+			6
 		</td>
 		<td>
 			2023.06.08
@@ -160,6 +174,20 @@ Related Videos
 		</td>
 		<td>
 			 <a href="https://en.wikipedia.org/wiki/Chris_Lattner">Chris Lattner</a> and <a href="https://en.wikipedia.org/wiki/Lex_Fridman">Lex Fridman</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			7
+		</td>
+		<td>
+			2020.05.09
+		</td>
+		<td>
+			 <a href="https://www.youtube.com/watch?v=13CZPWmke6A"> Ilya Sutskever: Deep Learning | Lex Fridman Podcast #94 </a>
+		</td>
+		<td>
+			 <a href="https://en.wikipedia.org/wiki/Ilya Sutskever">Ilya Sutskever</a> and <a href="https://en.wikipedia.org/wiki/Lex_Fridman">Lex Fridman</a>
 		</td>
 	</tr>
 </table>
