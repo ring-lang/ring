@@ -153,6 +153,20 @@ Related Videos
 			5
 		</td>
 		<td>
+			2023.11.21
+		</td>
+		<td>
+			 <a href="https://www.youtube.com/watch?v=SEkGLj0bwAU"> The Exciting, Perilous Journey Toward AGI </a>
+		</td>
+		<td>
+			  <a href="https://en.wikipedia.org/wiki/Ilya Sutskever">Ilya Sutskever</a> | TED
+		</td>
+	</tr>
+	<tr>
+		<td>
+			6
+		</td>
+		<td>
 			2023.10.29
 		</td>
 		<td>
@@ -164,7 +178,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			6
+			7
 		</td>
 		<td>
 			2023.06.08
@@ -178,7 +192,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			7
+			8
 		</td>
 		<td>
 			2020.05.09
