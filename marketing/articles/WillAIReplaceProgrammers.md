@@ -176,7 +176,6 @@ Related Videos
 			 How to survive and thrive in the age of AI
 		</td>
 	</tr>
-
 	<tr>
 		<td>
 			7
