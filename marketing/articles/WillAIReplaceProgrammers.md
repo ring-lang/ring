@@ -97,6 +97,20 @@ Related Videos
 			1
 		</td>
 		<td>
+			2024.05.17
+		</td>
+		<td>
+			 <a href="https://www.youtube.com/watch?v=KJ9vJBBiVBk"> The NEW ChatGPT is HERE! ChatGPT-4o </a>
+		</td>
+		<td>
+			 Let's Test Its Coding Abilities
+		</td>
+	</tr>
+	<tr>
+		<td>
+			2
+		</td>
+		<td>
 			2024.05.06
 		</td>
 		<td>
@@ -108,7 +122,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			2
+			3
 		</td>
 		<td>
 			2024.03.12
@@ -122,7 +136,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			3
+			4
 		</td>
 		<td>
 			2024.03.08
@@ -136,7 +150,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			4
+			5
 		</td>
 		<td>
 			2024.03.04
@@ -150,7 +164,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			5
+			6
 		</td>
 		<td>
 			2024.01.18
@@ -164,7 +178,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			6
+			7
 		</td>
 		<td>
 			2023.11.21
@@ -178,7 +192,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			7
+			8
 		</td>
 		<td>
 			2023.10.29
@@ -192,7 +206,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			8
+			9
 		</td>
 		<td>
 			2023.06.08
@@ -206,7 +220,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			9
+			10
 		</td>
 		<td>
 			2020.05.09
