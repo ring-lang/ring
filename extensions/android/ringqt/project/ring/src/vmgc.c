@@ -67,8 +67,10 @@ void ring_vm_gc_killreference ( VM *pVM )
 			RING_VM_STACK_POP ;
 			if ( ring_list_getint(pList,RING_VAR_TYPE) == RING_VM_POINTER ) {
 				/* Delete Reference (Delete item using reference counting) */
-				pItem = (Item *) ring_list_getpointer(pList,RING_VAR_VALUE) ;
-				ring_item_delete_gc(pVM->pRingState,pItem);
+				if ( ring_list_getint(pList,RING_VAR_PVALUETYPE) == RING_OBJTYPE_LISTITEM ) {
+					pItem = (Item *) ring_list_getpointer(pList,RING_VAR_VALUE) ;
+					ring_item_delete_gc(pVM->pRingState,pItem);
+				}
 				ring_list_setint_gc(pVM->pRingState,pList, RING_VAR_TYPE ,RING_VM_STRING);
 				ring_list_setstring_gc(pVM->pRingState,pList,RING_VAR_VALUE,"");
 			}
