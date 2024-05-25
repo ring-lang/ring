@@ -167,6 +167,21 @@ Related Videos
 			6
 		</td>
 		<td>
+			2024.01.20
+		</td>
+		<td>
+			 <a href="https://www.youtube.com/watch?v=2IK3DFHRFfw"> Generative AI in a Nutshell </a>
+		</td>
+		<td>
+			 How to survive and thrive in the age of AI
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			7
+		</td>
+		<td>
 			2024.01.18
 		</td>
 		<td>
@@ -178,7 +193,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			7
+			8
 		</td>
 		<td>
 			2023.11.21
@@ -192,7 +207,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			8
+			9
 		</td>
 		<td>
 			2023.10.29
@@ -206,7 +221,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			9
+			10
 		</td>
 		<td>
 			2023.06.08
@@ -220,7 +235,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			10
+			11
 		</td>
 		<td>
 			2020.05.09
