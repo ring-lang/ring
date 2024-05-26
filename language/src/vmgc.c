@@ -18,8 +18,10 @@ void ring_vm_gc_checknewreference ( VM *pVM,void *pPointer,int nType, List *pCon
 		pItem = ring_list_getitem(pContainer,nIndex) ;
 		ring_vm_gc_setfreefunc(pItem, (void(*)(void *, void *)) ring_vm_gc_deleteitem_gc);
 		/* Add the variable list to Tracked Variables */
-		pContainer->vGC.lTrackedList = 1 ;
-		ring_list_addpointer_gc(pVM->pRingState,pVM->pTrackedVariables,pContainer);
+		if ( ! pContainer->vGC.lTrackedList ) {
+			pContainer->vGC.lTrackedList = 1 ;
+			ring_list_addpointer_gc(pVM->pRingState,pVM->pTrackedVariables,pContainer);
+		}
 		#if GCLog
 			printf( "\nGC CheckNewReference - To Pointer %p \n",pItem ) ;
 		#endif
@@ -378,7 +380,9 @@ RING_API List * ring_list_deleteref_gc ( void *pState,List *pList )
 	/* Check if the list is a tracked list */
 	if ( pList->vGC.lTrackedList ) {
 		nPos = ring_list_findpointer(pRingState->pVM->pTrackedVariables,pList) ;
-		ring_list_deleteitem_gc(pRingState,pRingState->pVM->pTrackedVariables,nPos);
+		if ( nPos ) {
+			ring_list_deleteitem_gc(pRingState,pRingState->pVM->pTrackedVariables,nPos);
+		}
 	}
 	ring_list_deletecontent_gc(pState,pList);
 	return NULL ;
