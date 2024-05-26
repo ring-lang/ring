@@ -244,6 +244,8 @@ Type: unsigned int
 lOptionalLoop: 1
 Type: Item
 aStack[RING_VM_STACK_SIZE]
+Type: List *
+pTrackedVariables
 END:
 Type: VM
 struct VM

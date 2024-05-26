@@ -3,7 +3,7 @@
 #include "ring.h"
 /* Item GC Functions */
 
-void ring_vm_gc_checknewreference ( void *pPointer,int nType, List *pContainer, int nIndex )
+void ring_vm_gc_checknewreference ( VM *pVM,void *pPointer,int nType, List *pContainer, int nIndex )
 {
 	Item *pItem  ;
 	/*
@@ -17,6 +17,9 @@ void ring_vm_gc_checknewreference ( void *pPointer,int nType, List *pContainer, 
 		/* Set the Free Function */
 		pItem = ring_list_getitem(pContainer,nIndex) ;
 		ring_vm_gc_setfreefunc(pItem, (void(*)(void *, void *)) ring_vm_gc_deleteitem_gc);
+		/* Add the variable list to Tracked Variables */
+		pContainer->vGC.lTrackedList = 1 ;
+		ring_list_addpointer_gc(pVM->pRingState,pVM->pTrackedVariables,pContainer);
 		#if GCLog
 			printf( "\nGC CheckNewReference - To Pointer %p \n",pItem ) ;
 		#endif
@@ -325,12 +328,15 @@ RING_API void ring_list_clearrefdata ( List *pList )
 	pList->vGC.lErrorOnAssignment2 = 0 ;
 	pList->vGC.lDeletedByParent = 0 ;
 	pList->vGC.lDontRefAgain = 0 ;
+	pList->vGC.lTrackedList = 0 ;
 }
 
 RING_API List * ring_list_deleteref_gc ( void *pState,List *pList )
 {
 	List *pVariable  ;
-	int nOPCode  ;
+	int nOPCode, nPos  ;
+	RingState *pRingState  ;
+	pRingState = (RingState *) pState ;
 	/* Check lDontDelete (Used by Container Variables) */
 	if ( pList->vGC.lDontDelete ) {
 		/* This is a container that we will not delete, but will be deleted by that list that know about it */
@@ -339,7 +345,7 @@ RING_API List * ring_list_deleteref_gc ( void *pState,List *pList )
 	/* Check lErrorOnAssignment used by lists during definition */
 	if ( ring_list_iserroronassignment(pList) ) {
 		/* We are trying to delete a sub list which is protected */
-		nOPCode = ((RingState *) pState)->pVM->nOPCode ;
+		nOPCode = pRingState->pVM->nOPCode ;
 		if ( (nOPCode == ICO_ASSIGNMENT) || (nOPCode == ICO_LISTSTART) || (nOPCode == ICO_NEWOBJ) ) {
 			pList->vGC.lDeletedByParent = 1 ;
 			return pList ;
@@ -354,7 +360,7 @@ RING_API List * ring_list_deleteref_gc ( void *pState,List *pList )
 			pList = ring_list_collectcycles_gc(pState,pList);
 		}
 		else {
-			ring_list_addpointer_gc(pState,((RingState *) pState)->pVM->pDeleteLater,pList);
+			ring_list_addpointer_gc(pState,pRingState->pVM->pDeleteLater,pList);
 		}
 		return pList ;
 	}
@@ -368,6 +374,11 @@ RING_API List * ring_list_deleteref_gc ( void *pState,List *pList )
 		pVariable->vGC.nReferenceCount = 0 ;
 		ring_list_delete_gc(pState,pVariable);
 		return NULL ;
+	}
+	/* Check if the list is a tracked list */
+	if ( pList->vGC.lTrackedList ) {
+		nPos = ring_list_findpointer(pRingState->pVM->pTrackedVariables,pList) ;
+		ring_list_deleteitem_gc(pRingState,pRingState->pVM->pTrackedVariables,nPos);
 	}
 	ring_list_deletecontent_gc(pState,pList);
 	return NULL ;

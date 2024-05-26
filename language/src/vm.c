@@ -210,6 +210,8 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->lOptionalLoop = 0 ;
 	/* Use to register the PC when we stop the VM */
 	pVM->nPausePC = 1 ;
+	/* Tracked List of Variables - Each variable is a pointer to a List item */
+	pVM->pTrackedVariables = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	return pVM ;
 }
 
@@ -257,6 +259,7 @@ VM * ring_vm_delete ( VM *pVM )
 	pVM->pCLibraries = ring_list_delete_gc(pVM->pRingState,pVM->pCLibraries);
 	pVM->pDeleteLater = ring_list_delete_gc(pVM->pRingState,pVM->pDeleteLater);
 	pVM->pDefinedGlobals = ring_list_delete_gc(pVM->pRingState,pVM->pDefinedGlobals);
+	pVM->pTrackedVariables = ring_list_delete_gc(pVM->pRingState,pVM->pTrackedVariables);
 	pVM->pRingState->pVM = NULL ;
 	ring_state_free(pVM->pRingState,pVM);
 	pVM = NULL ;

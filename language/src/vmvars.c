@@ -351,7 +351,7 @@ void ring_vm_addnewpointervar ( VM *pVM,const char *cStr,void *pPointer,int nTyp
 	ring_list_setpointer_gc(pVM->pRingState,pList,RING_VAR_VALUE,pPointer);
 	ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_PVALUETYPE,nType);
 	/* Reference Counting */
-	ring_vm_gc_checknewreference(pPointer,nType,pList,RING_VAR_VALUE);
+	ring_vm_gc_checknewreference(pVM,pPointer,nType,pList,RING_VAR_VALUE);
 }
 
 List * ring_vm_addnewlistvar ( VM *pVM,const char *cStr )
@@ -457,7 +457,7 @@ List * ring_vm_addpointerarg ( VM *pVM,const char *cVar,void *pPointer,int nType
 	ring_list_addpointer_gc(pVM->pRingState,pList,pPointer);
 	ring_list_addint_gc(pVM->pRingState,pList,nType);
 	/* Reference Counting */
-	ring_vm_gc_checknewreference(pPointer,nType,pList,RING_VAR_VALUE);
+	ring_vm_gc_checknewreference(pVM,pPointer,nType,pList,RING_VAR_VALUE);
 	/* Add Pointer to the HashTable */
 	if ( pParent->pHashTable == NULL ) {
 		pParent->pHashTable = ring_hashtable_new_gc(pVM->pRingState);

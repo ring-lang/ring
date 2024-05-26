@@ -25,6 +25,8 @@ Type: unsigned int
 lDeletedByParent: 1
 Type: unsigned int
 lDontRefAgain: 1
+Type: unsigned int
+lTrackedList: 1
 END:
 Type: ListGCData
 struct ListGCData
@@ -250,7 +252,9 @@ ring_list_deleteref_gc
 Type: List *
 pVariable
 Type: int
-nOPCode
+nOPCode, nPos
+Type: RingState *
+pRingState
 ring_list_getrefcontainer
 ring_list_collectcycles_gc
 Type: List *
