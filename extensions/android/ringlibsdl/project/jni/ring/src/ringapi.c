@@ -464,8 +464,8 @@ RING_API List * ring_vm_api_newlistusingblocks ( VM *pVM, int nSize, int nSize2 
 		**  Prepare the condition 
 		*/
 		lUseBlocks = pVM->pRingState->lCreateListsUsingBlocks &&
-		! ( (nSize < RING_API_MINLISTSIZEFORUSINGBLOCKS) && (nSize2 == -1) )  &&
-		! ( (nSize * nSize2) < RING_API_MINLISTSIZEFORUSINGBLOCKS ) ;
+		( ! ( (nSize < RING_API_MINLISTSIZEFORUSINGBLOCKS) && (nSize2 == -1) )   ||
+		! ( (nSize * nSize2) < RING_API_MINLISTSIZEFORUSINGBLOCKS ) ) ;
 		if ( lUseBlocks ) {
 			if ( (nSize > 0) && (nSize2 == -1) ) {
 				/*
