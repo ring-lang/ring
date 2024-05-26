@@ -8,7 +8,7 @@
 	*/
 	#define ring_vm_gc_cleardata(pItem) pItem->nGCReferenceCount = 0; pItem->pGCFreeFunc = NULL
 
-	void ring_vm_gc_checknewreference ( void *pPointer,int nType,List *pContainer, int nIndex ) ;
+	void ring_vm_gc_checknewreference ( VM *pVM,void *pPointer,int nType,List *pContainer, int nIndex ) ;
 
 	void ring_vm_gc_checkupdatereference ( VM *pVM,List *pList ) ;
 

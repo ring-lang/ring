@@ -17,5 +17,7 @@
 		unsigned int lErrorOnAssignment2: 1  ;
 		unsigned int lDeletedByParent: 1  ;
 		unsigned int lDontRefAgain: 1  ;
+		/* Track Variable List contains Pointer to List Item */
+		unsigned int lTrackedList: 1  ;
 	} ListGCData ;
 #endif

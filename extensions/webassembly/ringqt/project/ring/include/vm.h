@@ -70,6 +70,7 @@
 		List *pActiveGlobalScopes  ;
 		List *pDeleteLater  ;
 		List *pDefinedGlobals  ;
+		List *pTrackedVariables  ;
 		String *pPackageName  ;
 		String *pTrace  ;
 		ByteCode *pByteCode  ;
