@@ -1004,6 +1004,8 @@ RING_API void ring_state_willunregisterblock ( void *pState,void *pStart )
 									ring_vm_list_copy(pRingState->pVM,pList2,ring_item_getlist(pItem));
 									break ;
 							}
+							/* Delete Reference (Delete item using reference counting) */
+							ring_item_delete_gc(pRingState,pItem);
 						}
 					}
 				}
