@@ -359,6 +359,19 @@ Type: List *
 pList
 Type: RingState *
 pRingState
+Type: void *
+pBlockStart
+ring_state_willunregisterblock
+Type: int
+x, x2
+Type: List *
+pList, *pVar, *pList2
+Type: Item *
+pItem
+Type: RingState *
+pRingState
+Type: void *
+pBlockStart, *pBlockEnd
 ring_vm_gc_deleteitem
 ring_poolmanager_new
 ring_poolmanager_newblock
