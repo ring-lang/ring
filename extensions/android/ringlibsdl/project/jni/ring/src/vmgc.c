@@ -951,15 +951,66 @@ RING_API void ring_state_unregisterblock ( void *pState,void *pStart )
 	List *pList  ;
 	RingState *pRingState  ;
 	pRingState = (RingState *) pState ;
+	void *pBlockStart  ;
 	ring_vm_custmutexlock(pRingState->pVM,pRingState->vPoolManager.pMutex);
 	for ( x = 1 ; x <= ring_list_getsize(pRingState->vPoolManager.pBlocks) ; x++ ) {
 		pList = ring_list_getlist(pRingState->vPoolManager.pBlocks,x);
-		if ( ring_list_getpointer(pList,RING_VM_BLOCKSTART) == pStart ) {
+		pBlockStart = ring_list_getpointer(pList,RING_VM_BLOCKSTART) ;
+		if ( pBlockStart == pStart ) {
 			ring_list_deleteitem(pRingState->vPoolManager.pBlocks,x);
 			break ;
 		}
 	}
 	ring_list_genarray(pRingState->vPoolManager.pBlocks);
+	ring_vm_custmutexunlock(pRingState->pVM,pRingState->vPoolManager.pMutex);
+}
+
+RING_API void ring_state_willunregisterblock ( void *pState,void *pStart )
+{
+	int x, x2  ;
+	List *pList, *pVar, *pList2  ;
+	Item *pItem  ;
+	RingState *pRingState  ;
+	pRingState = (RingState *) pState ;
+	void *pBlockStart, *pBlockEnd  ;
+	ring_vm_custmutexlock(pRingState->pVM,pRingState->vPoolManager.pMutex);
+	for ( x = 1 ; x <= ring_list_getsize(pRingState->vPoolManager.pBlocks) ; x++ ) {
+		pList = ring_list_getlist(pRingState->vPoolManager.pBlocks,x);
+		pBlockStart = ring_list_getpointer(pList,RING_VM_BLOCKSTART) ;
+		pBlockEnd = ring_list_getpointer(pList,RING_VM_BLOCKEND) ;
+		if ( pBlockStart == pStart ) {
+			/* Check Tracked Variables that have items inside this block */
+			for ( x2 = 1 ; x2 <=  ring_list_getsize(pRingState->pVM->pTrackedVariables) ; x2++ ) {
+				pVar = (List *) ring_list_getpointer(pRingState->pVM->pTrackedVariables,x2) ;
+				if ( ring_list_getint(pVar,RING_VAR_TYPE) == RING_VM_POINTER ) {
+					if ( ring_list_getint(pVar,RING_VAR_PVALUETYPE) == RING_OBJTYPE_LISTITEM ) {
+						pItem = (Item *) ring_list_getpointer(pVar,RING_VAR_VALUE) ;
+						if ( (pItem >= pBlockStart) && (pItem <= pBlockEnd) ) {
+							switch ( ring_item_gettype(pItem) ) {
+								case ITEMTYPE_STRING :
+									/* Set variable value to String */
+									ring_list_setint_gc(pRingState,pVar, RING_VAR_TYPE ,RING_VM_STRING);
+									ring_list_setstring2_gc(pRingState,pVar, RING_VAR_VALUE , ring_string_get( ring_item_getstring(pItem) ),ring_string_size(ring_item_getstring(pItem)));
+									break ;
+								case ITEMTYPE_NUMBER :
+									ring_list_setint_gc(pRingState,pVar, RING_VAR_TYPE ,RING_VM_NUMBER);
+									ring_list_setdouble_gc(pRingState,pVar, RING_VAR_VALUE , ring_item_getnumber(pItem));
+									break ;
+								case ITEMTYPE_LIST :
+									/* Set variable value to List */
+									ring_list_setint_gc(pRingState,pVar, RING_VAR_TYPE ,RING_VM_LIST);
+									ring_list_setlist_gc(pRingState,pVar, RING_VAR_VALUE);
+									pList2 = ring_list_getlist(pVar, RING_VAR_VALUE);
+									ring_vm_list_copy(pRingState->pVM,pList2,ring_item_getlist(pItem));
+									break ;
+							}
+						}
+					}
+				}
+			}
+			break ;
+		}
+	}
 	ring_vm_custmutexunlock(pRingState->pVM,pRingState->vPoolManager.pMutex);
 }
 

@@ -98,6 +98,15 @@ RING_API void ring_list_deleteallitems_gc ( void *pState,List *pList )
 {
 	Items *pItems,*pItemsNext  ;
 	ListBlocks *pBlocks  ;
+	/* Towards Deleting the Blocks (We don't delete them in this stage) */
+	while ( pList->pBlocks != NULL ) {
+		/* Unregister the block */
+		if ( pList->pBlocks->nType == RING_LISTBLOCKTYPE_ITEM ) {
+			ring_state_willunregisterblock(pState,((struct Item *) pList->pBlocks->pValue ) + 1);
+		}
+		pBlocks = pList->pBlocks ;
+		pList->pBlocks = pBlocks->pNext ;
+	}
 	pItems = pList->pFirst ;
 	if ( pItems != NULL ) {
 		pItemsNext = pItems ;
