@@ -168,6 +168,7 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew20.html">Release Notes: Version 1.20</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes: Version 1.21</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#foreach-keyword">ForEach Keyword</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
 </li>
@@ -209,11 +210,23 @@
 <span id="index-1"></span><h2>List of changes and new features<a class="headerlink" href="#list-of-changes-and-new-features" title="Permalink to this heading"></a></h2>
 <p>Ring 1.21 comes with the next features!</p>
 <ul class="simple">
+<li><p>ForEach Keyword</p></li>
 <li><p>More Improvements</p></li>
 </ul>
 </section>
+<section id="foreach-keyword">
+<span id="index-2"></span><h2>ForEach Keyword<a class="headerlink" href="#foreach-keyword" title="Permalink to this heading"></a></h2>
+<p>This release support using the ForEach keyword in For-in loops</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span>
+<span class="k">ForEach</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span>
+        <span class="o">?</span> <span class="n">x</span>
+<span class="k">Next</span>
+</pre></div>
+</div>
+</section>
 <section id="more-improvements">
-<span id="index-2"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-3"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Ring VM - Better support for list items of new objects when using lists during defintion</p></li>
 <li><p>Ring VM - List() function - Use blocks only if the list size is greater than 30 items</p></li>

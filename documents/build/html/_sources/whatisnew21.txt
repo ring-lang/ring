@@ -15,7 +15,25 @@ List of changes and new features
 
 Ring 1.21 comes with the next features!
 
+* ForEach Keyword
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring  1.21; ForEach Keyword
+
+ForEach Keyword
+===============
+
+This release support using the ForEach keyword in For-in loops
+
+Example:
+
+.. code-block:: ring
+
+	aList = 1:10
+	ForEach x in aList
+		? x
+	Next
 
 .. index:: 
 	pair: What is new in Ring  1.21; More Improvements
