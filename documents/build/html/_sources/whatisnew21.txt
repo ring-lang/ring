@@ -41,9 +41,10 @@ Example:
 More Improvements
 =================
 
+* Ring Compiler - Adding new lines between error messages
 * Ring VM - Better support for list items of new objects when using lists during defintion 
 * Ring VM - List() function - Use blocks only if the list size is greater than 30 items 
 * Ring VM - Better code when deleting lists created using the List() function
 * Ring VM - Set the loop variable when using for-in and NULL string
-* Ring VM - Better implementation when supporting using the for-in loop and new objects
-* Ring VM - Better implementation for killing the reference inside the for-in loop variable  
+* Ring VM - Better implementation when using the for-in loop and new objects
+* Ring VM - Better implementation for deleting the item reference inside the for-in loop variable  
