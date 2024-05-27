@@ -1,0 +1,25 @@
+.. index:: 
+	single: What is new in Ring 1.21; Introduction
+
+========================
+What is new in Ring 1.21
+========================
+
+In this chapter we will learn about the changes and new features in Ring 1.21 release.
+
+.. index:: 
+	pair: What is new in Ring 1.21?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring 1.21 comes with the next features!
+
+* More Improvements
+
+.. index:: 
+	pair: What is new in Ring  1.21; More Improvements
+
+More Improvements
+=================
+
