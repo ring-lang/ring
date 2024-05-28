@@ -97,18 +97,7 @@ RING_API void ring_list_copy_gc ( void *pState,List *pNewList, List *pList )
 RING_API void ring_list_deleteallitems_gc ( void *pState,List *pList )
 {
 	Items *pItems,*pItemsNext  ;
-	ListBlocks *pBlocks, *pBlocksStart  ;
-	/* Towards Deleting the Blocks (We don't delete them in this stage) */
-	pBlocksStart = pList->pBlocks ;
-	while ( pList->pBlocks != NULL ) {
-		/* Unregister the block */
-		if ( pList->pBlocks->nType == RING_LISTBLOCKTYPE_ITEM ) {
-			ring_state_willunregisterblock(pState,((struct Item *) pList->pBlocks->pValue ) + 1);
-		}
-		pBlocks = pList->pBlocks ;
-		pList->pBlocks = pBlocks->pNext ;
-	}
-	pList->pBlocks = pBlocksStart ;
+	ListBlocks *pBlocks  ;
 	pItems = pList->pFirst ;
 	if ( pItems != NULL ) {
 		pItemsNext = pItems ;
@@ -131,6 +120,7 @@ RING_API void ring_list_deleteallitems_gc ( void *pState,List *pList )
 	while ( pList->pBlocks != NULL ) {
 		/* Unregister the block */
 		if ( pList->pBlocks->nType == RING_LISTBLOCKTYPE_ITEM ) {
+			ring_state_willunregisterblock(pState,((struct Item *) pList->pBlocks->pValue ) + 1);
 			ring_state_unregisterblock(pState,((struct Item *) pList->pBlocks->pValue ) + 1);
 		}
 		else if ( pList->pBlocks->nType == RING_LISTBLOCKTYPE_ITEMS ) {
