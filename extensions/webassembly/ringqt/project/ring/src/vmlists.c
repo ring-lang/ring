@@ -480,7 +480,7 @@ void ring_vm_listgetvalue ( VM *pVM,List *pVar,const char *cStr )
 		for ( x = 1 ; x <= ring_list_getsize(pVar) ; x++ ) {
 			if ( ring_list_islist(pVar,x) ) {
 				pList = ring_list_getlist(pVar,x);
-				if ( ring_list_getsize(pList)  >= RING_LISTHASH_SIZE ) {
+				if ( ring_list_getsize(pList)  == RING_LISTHASH_SIZE ) {
 					if ( ring_list_isstring(pList,RING_LISTHASH_KEY) ) {
 						cStr2 = ring_list_getstring(pList,RING_LISTHASH_KEY);
 						if ( ring_vm_strcmpnotcasesensitive(cStr,cStr2)  == 0 ) {
