@@ -363,11 +363,13 @@ Type: void *
 pBlockStart
 ring_state_willunregisterblock
 Type: int
-x, x2
+x, x2, x3
 Type: List *
 pList, *pVar, *pList2
 Type: Item *
-pItem
+pItem, *pNewItem
+Type: Item
+vTempItem
 Type: RingState *
 pRingState
 Type: void *

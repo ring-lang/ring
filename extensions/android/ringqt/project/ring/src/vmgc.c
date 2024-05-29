@@ -967,9 +967,10 @@ RING_API void ring_state_unregisterblock ( void *pState,void *pStart )
 
 RING_API void ring_state_willunregisterblock ( void *pState,void *pStart )
 {
-	int x, x2  ;
+	int x, x2, x3  ;
 	List *pList, *pVar, *pList2  ;
-	Item *pItem  ;
+	Item *pItem, *pNewItem  ;
+	Item vTempItem  ;
 	RingState *pRingState  ;
 	pRingState = (RingState *) pState ;
 	void *pBlockStart, *pBlockEnd  ;
@@ -986,30 +987,24 @@ RING_API void ring_state_willunregisterblock ( void *pState,void *pStart )
 			/* Check Tracked Variables that have items inside this block */
 			for ( x2 = 1 ; x2 <=  ring_list_getsize(pRingState->pVM->pTrackedVariables) ; x2++ ) {
 				pVar = (List *) ring_list_getpointer(pRingState->pVM->pTrackedVariables,x2) ;
-				if ( ring_list_getint(pVar,RING_VAR_TYPE) == RING_VM_POINTER ) {
-					if ( ring_list_getint(pVar,RING_VAR_PVALUETYPE) == RING_OBJTYPE_LISTITEM ) {
-						pItem = (Item *) ring_list_getpointer(pVar,RING_VAR_VALUE) ;
-						if ( (pItem >= pBlockStart) && (pItem <= pBlockEnd) ) {
-							switch ( ring_item_gettype(pItem) ) {
-								case ITEMTYPE_STRING :
-									/* Set variable value to String */
-									ring_list_setint_gc(pRingState,pVar, RING_VAR_TYPE ,RING_VM_STRING);
-									ring_list_setstring2_gc(pRingState,pVar, RING_VAR_VALUE , ring_string_get( ring_item_getstring(pItem) ),ring_string_size(ring_item_getstring(pItem)));
-									break ;
-								case ITEMTYPE_NUMBER :
-									ring_list_setint_gc(pRingState,pVar, RING_VAR_TYPE ,RING_VM_NUMBER);
-									ring_list_setdouble_gc(pRingState,pVar, RING_VAR_VALUE , ring_item_getnumber(pItem));
-									break ;
-								case ITEMTYPE_LIST :
-									/* Set variable value to List */
-									ring_list_setint_gc(pRingState,pVar, RING_VAR_TYPE ,RING_VM_LIST);
-									ring_list_setlist_gc(pRingState,pVar, RING_VAR_VALUE);
-									pList2 = ring_list_getlist(pVar, RING_VAR_VALUE);
-									ring_vm_list_copy(pRingState->pVM,pList2,ring_item_getlist(pItem));
-									break ;
+				if ( (ring_list_getint(pVar,RING_VAR_TYPE) == RING_VM_POINTER) && (ring_list_getint(pVar,RING_VAR_PVALUETYPE) == RING_OBJTYPE_LISTITEM) ) {
+					pItem = (Item *) ring_list_getpointer(pVar,RING_VAR_VALUE) ;
+					if ( (pItem >= pBlockStart) && (pItem <= pBlockEnd) ) {
+						pNewItem = ring_item_new_gc(pRingState,ITEMTYPE_NOTHING);
+						memcpy(&vTempItem,pNewItem,sizeof(Item));
+						memcpy(pNewItem,pItem,sizeof(Item));
+						memcpy(pItem,&vTempItem,sizeof(Item));
+						ring_list_setpointer_gc(pRingState,pVar,RING_VAR_VALUE,pNewItem);
+						/* Delete Reference (Delete item using reference counting) */
+						ring_item_delete_gc(pRingState,pItem);
+						for ( x3 = ring_list_getsize(pRingState->pVM->pTrackedVariables) ; x3 >= x2 ; x3-- ) {
+							pVar = (List *) ring_list_getpointer(pRingState->pVM->pTrackedVariables,x3) ;
+							if ( (ring_list_getint(pVar,RING_VAR_TYPE) == RING_VM_POINTER) && (ring_list_getint(pVar,RING_VAR_PVALUETYPE) == RING_OBJTYPE_LISTITEM) ) {
+								if ( ring_list_getpointer(pVar,RING_VAR_VALUE) == pItem ) {
+									ring_list_setpointer_gc(pRingState,pVar,RING_VAR_VALUE,pNewItem);
+									ring_list_deleteitem_gc(pRingState,pRingState->pVM->pTrackedVariables,x3);
+								}
 							}
-							/* Delete Reference (Delete item using reference counting) */
-							ring_item_delete_gc(pRingState,pItem);
 						}
 					}
 				}
