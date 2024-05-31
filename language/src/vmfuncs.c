@@ -738,10 +738,9 @@ void ring_vm_freetemplistsins ( VM *pVM )
 void ring_vm_freetemplists ( VM *pVM, int *nTempCount, int *nScopeID )
 {
 	List *pTempMem, *pList, *pList2  ;
-	int x,x2,lFound,nStart,lMutex  ;
+	int x,x2,lFound,nStart  ;
 	FuncCall *pFuncCall  ;
 	nStart = 1 ;
-	lMutex = 0 ;
 	/* Clear lists inside pDeleteLater */
 	for ( x = ring_list_getsize(pVM->pDeleteLater) ; x >= 1 ; x-- ) {
 		pList = (List *) ring_list_getpointer(pVM->pDeleteLater,x) ;
@@ -774,7 +773,6 @@ void ring_vm_freetemplists ( VM *pVM, int *nTempCount, int *nScopeID )
 		pTempMem = pFuncCall->pTempMem ;
 	}
 	else {
-		lMutex = 1 ;
 		pTempMem = pVM->pTempMem ;
 	}
 	if ( ( *nTempCount == 0) || (*nScopeID !=pVM->nActiveScopeID) ) {
@@ -782,10 +780,6 @@ void ring_vm_freetemplists ( VM *pVM, int *nTempCount, int *nScopeID )
 		*nScopeID = pVM->nActiveScopeID ;
 	}
 	nStart = *nTempCount ;
-	/* Lock (Important for Threads Support) */
-	if ( lMutex ) {
-		ring_vm_mutexlock(pVM);
-	}
 	/* Delete Temp. Lists created during the function call */
 	if ( nStart == 1 ) {
 		/* No Temp. Lists are created before the code execution of the function */
@@ -801,10 +795,6 @@ void ring_vm_freetemplists ( VM *pVM, int *nTempCount, int *nScopeID )
 		for ( x = nStart ; x <= ring_list_getsize(pTempMem) ; x++ ) {
 			ring_list_deleteitem_gc(pVM->pRingState,pTempMem,nStart);
 		}
-	}
-	/* Unlock (If we are using Threads) */
-	if ( lMutex ) {
-		ring_vm_mutexunlock(pVM);
 	}
 }
 
