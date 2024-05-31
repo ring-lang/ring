@@ -112,6 +112,8 @@ Type: List *
 pDeleteLater
 Type: List *
 pDefinedGlobals
+Type: List *
+pTrackedVariables
 Type: String *
 pPackageName
 Type: String *
@@ -244,8 +246,6 @@ Type: unsigned int
 lOptionalLoop: 1
 Type: Item
 aStack[RING_VM_STACK_SIZE]
-Type: List *
-pTrackedVariables
 END:
 Type: VM
 struct VM
@@ -632,6 +632,13 @@ Type: int
 x,y,nCount,nCount2,nType
 Type: ByteCode *
 pByteCode
+ring_vm_bytecode2list
+Type: int
+x,y,nCount,nCount2,nType
+Type: ByteCode *
+pByteCode
+Type: List *
+pIns
 ring_vm_mainloop
 ring_vm_fetch
 ring_vm_fetch2
