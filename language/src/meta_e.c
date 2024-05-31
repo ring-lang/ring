@@ -1225,10 +1225,9 @@ void ring_vm_refmeta_ringvmcodelist ( void *pPointer )
 	VM *pVM  ;
 	List *pList  ;
 	pVM = (VM *) pPointer ;
-	pList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
-	ring_list_copy_gc(pVM->pRingState,pList,pVM->pCode);
+	pList = RING_API_NEWLIST ;
+	ring_vm_bytecode2list(pVM,pList);
 	RING_API_RETLIST(pList);
-	ring_list_delete_gc(pVM->pRingState,pList);
 }
 
 void ring_vm_refmeta_ringvmismempool ( void *pPointer )
