@@ -50,3 +50,4 @@ More Improvements
 * Ring VM - Better implementation for deleting the item reference inside the for-in loop variable 
 * Ring VM - Check the sub list size when using string index (The size must be two [:key = value]) 
 * Ring VM - ring_vm_freetemplists() - Avoid unnecessary lock/unlock when using threads
+* Ring VM - Low level function - ringvm_codelist() - Better implementation
