@@ -1,0 +1,12 @@
+start
+hello
+How are you?
+HELLO WORLD
+x: 10
+y: 20
+z: 30
+
+test
+test2
+msg
+end
