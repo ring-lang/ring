@@ -94,6 +94,8 @@ RING_API RingState * ring_state_init ( void )
 
 RING_API void ring_state_runcode ( RingState *pRingState,const char *cStr )
 {
+	/* Avoid changing nPC to the start of instructions when we use the Return from Eval */
+	pRingState->pVM->nPC = pRingState->nInstructionsCount ;
 	ring_vm_runcode(pRingState->pVM,cStr);
 }
 
