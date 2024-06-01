@@ -52,4 +52,5 @@ More Improvements
 * Ring VM - ring_vm_freetemplists() - Avoid unnecessary lock/unlock when using threads
 * Ring VM - Low level function - ringvm_codelist() - Better implementation
 * Ring VM - ring_state_runcode() - Reset pVM->nPC to instructions count before code eval/execution
+* Ring VM - FuncCall structure - Removed unused member (nTempMemSizeAtStart)
 * Ring Source Code - File vmthreads.c renamed to vmthread.c
