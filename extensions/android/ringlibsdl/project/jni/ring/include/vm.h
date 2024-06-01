@@ -155,7 +155,6 @@
 		unsigned int nLineNumber  ;
 		unsigned int nCallerPC  ;
 		unsigned int nFuncExec  ;
-		unsigned int nTempMemSizeAtStart  ;
 		unsigned int nListStart  ;
 		char nType  ;
 		char nStatus  ;

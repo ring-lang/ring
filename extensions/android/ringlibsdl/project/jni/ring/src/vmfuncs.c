@@ -521,8 +521,6 @@ void ring_vm_newfunc ( VM *pVM )
 		ring_vm_error(pVM,RING_VM_ERROR_EXTRAPARAMETERSCOUNT);
 		return ;
 	}
-	/* Set the Temp. Memory size at start */
-	pFuncCall->nTempMemSizeAtStart = ring_list_getsize(pFuncCall->pTempMem) ;
 	/* Support this in the method */
 	ring_vm_oop_setthethisvariable(pVM);
 	/* Trace */

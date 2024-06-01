@@ -70,7 +70,7 @@ ring_vm_freetemplists
 Type: List *
 pTempMem, *pList, *pList2
 Type: int
-x,x2,lFound,nStart,lMutex
+x,x2,lFound,nStart
 Type: FuncCall *
 pFuncCall
 ring_vm_endfuncexec
