@@ -51,3 +51,4 @@ More Improvements
 * Ring VM - Check the sub list size when using string index (The size must be two [:key = value]) 
 * Ring VM - ring_vm_freetemplists() - Avoid unnecessary lock/unlock when using threads
 * Ring VM - Low level function - ringvm_codelist() - Better implementation
+* Ring Source Code - File vmthreads.c renamed to vmthread.c
