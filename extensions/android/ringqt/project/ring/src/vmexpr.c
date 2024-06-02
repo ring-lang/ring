@@ -37,7 +37,9 @@ void ring_vm_sum ( VM *pVM )
 				cValue[nSize] = '\n' ;
 			}
 			else {
-				RING_VM_STACK_SETNVALUE(nNum2 + ring_vm_stringtonum(pVM,ring_string_get(pStr1)));
+				nNum1 = ring_vm_stringtonum(pVM,ring_string_get(pStr1)) ;
+				RING_VM_RETURNIFACTIVECATCH ;
+				RING_VM_STACK_SETNVALUE(nNum1 + nNum2);
 			}
 		}
 		else if ( RING_VM_STACK_ISPOINTER ) {
