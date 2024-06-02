@@ -194,7 +194,6 @@ T_RINGNOTEPAD_DOYOUWANTTOSAVECHANGES = "هل تريد حفظ التعديلات?
 
 T_RINGNOTEPAD_SETTHETABWIDTH     = "ضبط عرض الفاصل"
 T_RINGNOTEPAD_SPACESCOUNT        = "عدد المسافات"
-T_RINGNOTEPAD_DEFAULTSPACESCOUNT = "1"
 
 T_RINGNOTEPAD_HELPPL             = "لغة البرمجة المستخدمة"
 T_RINGNOTEPAD_HELPLANGUSED       = "تم عمل هذا التطبيق من خلال لغة البرمجة رينج"
