@@ -18,29 +18,31 @@
 // 15 MatrixDeterminantReduce(U)   // Any 2x2 to 10x10 Recursive
 // 16 Determinant(U)               // Calls 16a-16e Determinant2x2,3x3,4x4,5x5,6x6
 // 17 MatrixProjection(U,V)        // Matrix ProjvU = (U.V)/(V.V)xV
-// 17 MatrixScalarProjection(U,V)  // Scalar Projection A onto B = (A.B) / |B|
-// 18 MatrixOrthoDistance(U,V)
-// 19 VectorLength(U)
-// 20 VectorNorm(U)                // Same as VectorLength - different name
-// 21 VectorUnit(U)                // Vector Norm to a Unit Matrix
-// 22 VectorDistance(U,V)
-// 23 MatricOrthoNormal2(U,V)      // Gram-Schmidt method for 2 Vectors in R2 Space
-// 24 MatrixOrthoNormal3(V1,V2,V3) // Gram-Schmidt method for 3 Vectors in R3 Space
-// 25 MatrixLuDecompose(U)         // LU Decompose Matrix to Lower and Upper Matrix
-// 26 SyntheticFactor(Eq)          // Find Factors of Quartric Equation
-// 27 SyntheticDiv(Eq,Factors)     // Synthetic Division using Factors to try possible solutions the Quartic equation
-// 28 QuadSolve(Eq)                // Quadratric equation solve format x^2 + x + c
-// 29 CubicSolve(Eq)               // Cubic equation solve format x^3 + x^2 + x + c
-// 30 QuarticSolve(Eq)             // Solve Quartic equation format x^4 + x^3 + x^2 + x + c
+// 18 MatrixScalarProjection(U,V)  // Scalar Projection A onto B = (A.B) / |B|
+// 19 MatrixOrthoDistance(U,V)
+// 20 VectorLength(U)
+// 21 VectorNorm(U)                // Same as VectorLength - different name
+// 22 VectorUnit(U)                // Vector Norm to a Unit Matrix
+// 23 VectorDistance(U,V)
+// 24 MatricOrthoNormal2(U,V)      // Gram-Schmidt method for 2 Vectors in R2 Space
+// 25 MatrixOrthoNormal3(V1,V2,V3) // Gram-Schmidt method for 3 Vectors in R3 Space
+// 26 MatrixLuDecompose(U)         // LU Decompose Matrix to Lower and Upper Matrix
+// 27 SyntheticFactor(Eq)          // Find Factors of Quartric Equation
+// 28 SyntheticDiv(Eq,Factors)     // Synthetic Division using Factors to try possible solutions the Quartic equation
+// 29 QuadSolve(Eq)                // Quadratric equation solve format x^2 + x + c
+// 30 CubicSolve(Eq)               // Cubic equation solve format x^3 + x^2 + x + c
+// 31 QuarticSolve(Eq)             // Solve Quartic equation format x^4 + x^3 + x^2 + x + c
 // 31 QuinticSolve(Eq)             // Solve Quintic equation format x^5 x^4 + x^3 + x^2 + x + c
-// 31 PolyMultiply(A,B)            // Polynomial Multiple [A]*[B] ascending powers left to right
-// 32 PolyAdd(A,B)                 // Polynomial Add [A]+[B] ascending powers left to right
-// 33 PolySub(A,B)                 // Polynomial Subtract [A]-[B] ascending powers left to right
+// 32 PolyMultiply(A,B)            // Polynomial Multiple [A]*[B] ascending powers left to right
+// 33 PolyAdd(A,B)                 // Polynomial Add [A]+[B] ascending powers left to right
+// 34 PolySub(A,B)                 // Polynomial Subtract [A]-[B] ascending powers left to right
 // 34 CharEquation(N)              // Characteristic Polynomial of 4x4 Matrix [A - λI] format -12 -44x -46x2 -10x3 +x4
-// 34 EigenValueN)                 // Find EigenValues 2x2, 3x3, 4x4 Matrix
-// 35 EigenVectors(A)              // Find EigenVectors 2x2, 3x3 Matrix
-// 36 RowReduceEchelonForm(M)      // Row Reduce Echelon Form, Gausian-Jordan Elimination                       
-// 37 MatrixTransform(Rx,Ry,Rz, Sx,Sy,Sz, Tx,Ty,Tz, Hx,Hy,Hz, Fx,Fy,Fz ) //  Rotate,Scale,Translate,sHear,reFlection
+// 35 EigenValueN)                 // Find EigenValues 2x2, 3x3, 4x4 Matrix
+// 36 EigenVectors(A)              // Find EigenVectors 2x2, 3x3 Matrix
+// 37 RowReduceEchelonForm(M)      // Row Reduce Echelon Form, Gausian-Jordan Elimination                       
+// 38 MatrixTransform(Rx,Ry,Rz, Sx,Sy,Sz, Tx,Ty,Tz, Hx,Hy,Hz, Fx,Fy,Fz ) //  Rotate,Scale,Translate,sHear,reFlection
+// 39 
+
 
 //--------------------------------------------
 // GLOBAL Constants
@@ -2337,6 +2339,35 @@ for Row = 1 to lastRow
 next
 
 return M
+
+###==========================================================================
+###==========================================================================
+// MatrixCopyCol( U-Array, Start, End)
+// Create new smaller V-array from U-array based on Columns specified
+
+Func MatrixCopyCol(U,S,E)
+
+ //See "Array-U: S-E: "+S +"-"+ E        MatrixPrint(U)
+ 
+ Row = len(U)           
+ Col = len(U[1])       
+ 
+ if !( (S>=1) && (S<=Col) && (S<=E))
+      See "Error: Array:RxC: "+ Row +"-"+ Col +" Cols Selected error: S-E "+ S +"-"+ E +nl
+      return "Bad Column Range: "+ S +"-"+ E
+ ok  
+ 
+ V = list(Row,E-S+1)                    // New matrix size R x Cols-S-E
+  
+ for C = S to E  
+   for R = 1 to Row
+     V[R][C-S+1] = U[R][C]
+   next 
+ next
+ 
+ //See "Smaller Matrix V return"  MatrixPrint(V)
+ 
+return V   // V-Matrix 
 
 
 ##==========================================================================
