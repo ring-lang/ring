@@ -93,4 +93,4 @@ class FormDesigner_QLabel from QLabel
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
 		setText(itemdata[:text])
-		setTextAlign(0+itemdata[:textalign])
+		setTextAlign(NumOrZero(itemdata[:textalign]))

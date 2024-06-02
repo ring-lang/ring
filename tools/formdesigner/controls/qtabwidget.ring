@@ -21,7 +21,7 @@ class FormDesigner_QTabWidget from QTabWidget
 		return ""+nPagesCount
 
 	func SetPagesCountValue cValue
-		nPagesCount = 0+cValue
+		nPagesCount = NumOrZero(cValue)
 		if nPagesCount > 0 {
 			for x = len(aTabs) + 1 to nPagesCount {
 				aTabs + [new qWidget(),"Page " + x]

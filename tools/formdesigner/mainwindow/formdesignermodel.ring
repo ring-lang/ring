@@ -107,7 +107,7 @@ Class FormDesignerModel
 			# aList[2] = Tab Index (start from 1)
 			nPos = find(aObjectsList,aList[1],1)
 			oTab = aObjectsList[nPos][2]
-			return oTab.aTabs[0+aList[2]][1]
+			return oTab.aTabs[NumOrZero(aList[2])][1]
 		return FormObject()
 
 	func ObjectsCount

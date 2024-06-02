@@ -156,7 +156,7 @@ class FormDesigner_QProgressbar from QLineEdit
 	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
-		setOrientationValue(0+itemdata[:orientation])
+		setOrientationValue(NumOrZero(itemdata[:orientation]))
 		setMinimumValue(itemdata[:minimum])
 		setMaximumValue(itemdata[:maximum])
 		setRangeValue(itemdata[:range])

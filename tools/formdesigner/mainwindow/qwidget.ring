@@ -109,13 +109,13 @@ class FormDesigner_QWidget from QWidget
 		if nCol = 1 {
 			switch nRow {
 				case 0 	# x
-					oSubWindow.move(0+cValue,oSubWindow.y())
+					oSubWindow.move(NumOrZero(cValue),oSubWindow.y())
 				case 1 	# y
-					oSubWindow.move(oSubWindow.x(),0+cValue)
+					oSubWindow.move(oSubWindow.x(),NumOrZero(cValue))
 				case 2	# width
-					oSubWindow.resize(0+cValue,oSubWindow.height())
+					oSubWindow.resize(NumOrZero(cValue),oSubWindow.height())
 				case 3 	# height
-					oSubWindow.resize(oSubWindow.width(),0+cValue)
+					oSubWindow.resize(oSubWindow.width(),NumOrZero(cValue))
 				case 4  	# Title
 					setWindowTitle(cValue)
 					oDesigner.oView.oSub {

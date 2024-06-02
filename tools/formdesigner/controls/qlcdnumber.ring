@@ -36,7 +36,7 @@ class FormDesigner_QLCDNumber from QLCDNumber
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		UpdateCommonProperties(oDesigner,nRow,nCol,cValue)
 		if nRow = C_AFTERCOMMON {
-			setDisplayValue(0+cValue)
+			setDisplayValue(NumOrZero(cValue))
 		}
 
 	func ObjectDataAsString oDesigner,nTabsCount

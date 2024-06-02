@@ -82,13 +82,13 @@ class CommonAttributesMethods
 					# Because we may prevent name change (duplication)
 						DisplayCommonProperties(oDesigner)
 				case 1 	# x
-					move(0+cValue,y())
+					move(NumOrZero(cValue),y())
 				case 2 	# y
-					move(x(),0+cValue)
+					move(x(),NumOrZero(cValue))
 				case 3	# width
-					resize(0+cValue,height())
+					resize(NumOrZero(cValue),height())
 				case 4 	# height
-					resize(width(),0+cValue)
+					resize(width(),NumOrZero(cValue))
 				case 5	# Text color
 					setTextColor(cValue)
 				case 6	# back color

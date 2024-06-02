@@ -81,4 +81,4 @@ class FormDesigner_QFrame3 from QFrame3
 	func RestoreProperties oDesigner,Item
 		RestoreCommonProperties(oDesigner,item)
 		itemdata = item[:data]
-		setFrameType(0+itemdata[:FrameType])
+		setFrameType(NumOrZero(itemdata[:FrameType]))
