@@ -45,6 +45,7 @@ void ring_vm_jumpfor ( VM *pVM )
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
 		nNum1 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
+		RING_VM_RETURNIFACTIVECATCH ;
 		RING_VM_STACK_POP ;
 	}
 	else {

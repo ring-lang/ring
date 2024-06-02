@@ -123,6 +123,7 @@ void ring_vm_stepnumber ( VM *pVM )
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
 		nNum1 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
+		RING_VM_RETURNIFACTIVECATCH ;
 		ring_list_adddouble_gc(pVM->pRingState,pVM->pForStep,nNum1);
 		RING_VM_STACK_POP ;
 	}
