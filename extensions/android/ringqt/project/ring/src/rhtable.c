@@ -123,6 +123,7 @@ void ring_hashtable_deleteitem_gc ( void *pRingState,HashTable *pHashTable,const
 			}
 			ring_state_free(pRingState,pItem->cKey);
 			ring_state_free(pRingState,pItem);
+			pHashTable->nItems-- ;
 			return ;
 		}
 		pPrevItem = pItem ;
