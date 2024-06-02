@@ -1168,3 +1168,18 @@ func CheckEquality aItem1, aItem2
 	else
 		return false
 	ok
+
+
+/*
+	Return Number or Zero (If the value can't be converted to a number)
+*/
+
+func NumOrZero cNum
+	if isNumber(cNum) return cNum ok
+	if isString(cNum) 
+		try
+			return 0+cNum
+		catch
+		done 
+	ok
+	return 0
