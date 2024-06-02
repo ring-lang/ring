@@ -9,7 +9,7 @@ class RNoteGoto
 			setWindowTitle(T_RINGNOTEPAD_ENTERTHELINENUMBER) # "Enter the line number?"
 			setGeometry(100,100,400,50)
 			setLabelText(T_RINGNOTEPAD_LINE) # "Line"
-			setTextValue(T_RINGNOTEPAD_DEFAULTLINE) # "1"
+			setIntValue(1) 
 			setInputMode(1) # int
 			setIntMaximum(1_000_000_000)
 			setIntMinimum(1)
