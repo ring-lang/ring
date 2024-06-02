@@ -6,14 +6,17 @@ class RNoteGoto
 	func Goto
 		oInput = New QInputDialog(win1)
 		{
-			setwindowtitle(T_RINGNOTEPAD_ENTERTHELINENUMBER) # "Enter the line number?"
-			setgeometry(100,100,400,50)
-			setlabeltext(T_RINGNOTEPAD_LINE) # "Line"
-			settextvalue(T_RINGNOTEPAD_DEFAULTLINE) # "1"
+			setWindowTitle(T_RINGNOTEPAD_ENTERTHELINENUMBER) # "Enter the line number?"
+			setGeometry(100,100,400,50)
+			setLabelText(T_RINGNOTEPAD_LINE) # "Line"
+			setTextValue(T_RINGNOTEPAD_DEFAULTLINE) # "1"
+			setInputMode(1) # int
+			setIntMaximum(1_000_000_000)
+			setIntMinimum(1)
 			r = exec()
 		}
 		if r=0 return ok
-		nLine = 0 + oInput.textvalue()
+		nLine = oInput.intValue()
 		gotoline(nLine)
  
 	func GotoLine nLine 
