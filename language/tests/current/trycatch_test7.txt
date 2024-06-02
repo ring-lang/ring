@@ -1,0 +1,4 @@
+start
+beforetestfunc
+beforeloop
+end
