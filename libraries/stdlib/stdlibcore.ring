@@ -1178,7 +1178,7 @@ func NumOrZero cNum
 	if isNumber(cNum) return cNum ok
 	if isString(cNum) 
 		try
-			return 0+cNum
+			return number(cNum)
 		catch
 		done 
 	ok
