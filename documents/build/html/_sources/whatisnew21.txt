@@ -41,7 +41,7 @@ Example:
 More Improvements
 =================
 
-* Ring Compiler - Adding new lines between error messages
+* Ring Compiler - Add new lines between error messages
 * Ring VM - Better support for list items of new objects when using lists during defintion 
 * Ring VM - List() function - Use blocks only if the list size is greater than 30 items 
 * Ring VM - Better code when deleting lists created using the List() function
@@ -51,6 +51,7 @@ More Improvements
 * Ring VM - Check the sub list size when using string index (The size must be two [:key = value]) 
 * Ring VM - ring_vm_freetemplists() - Avoid unnecessary lock/unlock when using threads
 * Ring VM - Low level function - ringvm_codelist() - Better implementation
-* Ring VM - ring_state_runcode() - Reset pVM->nPC to instructions count before code eval/execution
+* Ring VM - File vmthreads.c renamed to vmthread.c
 * Ring VM - FuncCall structure - Removed unused member (nTempMemSizeAtStart)
-* Ring Source Code - File vmthreads.c renamed to vmthread.c
+* Ring VM - ring_vm_stepnumber() and ring_vm_sum() - Use: RING_VM_RETURNIFACTIVECATCH
+* Ring VM - ring_state_runcode() - Reset pVM->nPC to instructions count before code eval/execution
