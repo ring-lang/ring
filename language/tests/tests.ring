@@ -581,6 +581,7 @@ aTests = [
 	[ :name = "Performance (Part 2)", :Command = "ring performance/listfunc2.ring" ],
 	[ :name = "Performance (Part 3)", :Command = "ring performance/forin.ring" ],
 	[ :name = "Performance (Part 4)", :Command = "ring performance/forinandstr.ring" ],
+	[ :name = "Performance (Part 5)", :Command = "ring performance/manyvars.ring" ],
 	[ :name = "Power Operator (Part 1)", :Command = "ring poweroperator/powoperator.ring" ],
 	[ :name = "Power Operator (Part 2)", :Command = "ring poweroperator/powoperator2.ring" ],
 	[ :name = "Stack Overflow (Part 1)", :Command = "ring stack/rec_overflow.ring" ],
