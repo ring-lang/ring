@@ -162,11 +162,8 @@ void ring_hashtable_rebuild_gc ( void *pRingState,HashTable *pHashTable )
 	}
 	pArray = pHashTable->pArray ;
 	nLinkedLists = pHashTable->nLinkedLists ;
-	pHashTable->nRebuildSize *= 10 ;
-	if ( pHashTable->nLinkedLists < 10 ) {
-		pHashTable->nLinkedLists = 10 ;
-	}
-	pHashTable->nLinkedLists *= 10 ;
+	pHashTable->nRebuildSize *= 2 ;
+	pHashTable->nLinkedLists *= 2 ;
 	pHashTable->pArray = (HashItem **) ring_state_calloc(pRingState,pHashTable->nLinkedLists,sizeof(HashItem *));
 	for ( x = 0 ; x < nLinkedLists ; x++ ) {
 		pItem = pArray[x] ;

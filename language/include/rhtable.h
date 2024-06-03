@@ -23,7 +23,7 @@
 	#define RING_HASHITEMTYPE_NUMBER 1
 	#define RING_HASHITEMTYPE_POINTER 2
 	#define RING_HASHTABLE_LINKEDLISTS 2
-	#define RING_HASHTABLE_REBUILDSIZE 7
+	#define RING_HASHTABLE_REBUILDSIZE 16
 	/* Functions */
 
 	HashTable * ring_hashtable_new_gc ( void *pRingState ) ;
