@@ -1,6 +1,15 @@
-# This test program is executed in less than 1 second on my computer (Around 750ms)
+# This test program is executed in less than 1 second on my computer
+
+t1 = clock()
 
 test("Using many variables! (100_000)")
+
+# Time is around 750ms on my Computer
+if (clock()-t1)/ClocksPerSecond() < 2
+	? "Fast"
+else
+	? "Slow"
+ok
 
 func test testname
 
