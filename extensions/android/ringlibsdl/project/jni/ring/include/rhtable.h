@@ -24,6 +24,7 @@
 	#define RING_HASHITEMTYPE_POINTER 2
 	#define RING_HASHTABLE_LINKEDLISTS 2
 	#define RING_HASHTABLE_REBUILDSIZE 16
+	#define RING_HASHTABLE_HASHFUNCSEED 2024
 	/* Functions */
 
 	HashTable * ring_hashtable_new_gc ( void *pRingState ) ;

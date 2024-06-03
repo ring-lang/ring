@@ -16,7 +16,11 @@ HashTable * ring_hashtable_new_gc ( void *pRingState )
 unsigned int ring_hashtable_hashkey ( HashTable *pHashTable,const char *cKey )
 {
 	unsigned int nIndex  ;
-	nIndex = ring_xor_hash((unsigned char *) cKey,strlen(cKey));
+	#ifdef __ANDROID__
+		nIndex = ring_xor_hash((unsigned char *) cKey,strlen(cKey));
+	#else
+		nIndex = ring_murmur3_32((unsigned char *) cKey,strlen(cKey),RING_HASHTABLE_HASHFUNCSEED);
+	#endif
 	nIndex = nIndex % pHashTable->nLinkedLists ;
 	return nIndex ;
 }
