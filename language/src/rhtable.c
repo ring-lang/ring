@@ -182,6 +182,7 @@ void ring_hashtable_rebuild_gc ( void *pRingState,HashTable *pHashTable )
 			ring_state_free(pRingState,pItem->cKey);
 			ring_state_free(pRingState,pItem);
 			pItem = pItem2 ;
+			pHashTable->nItems-- ;
 		}
 	}
 	ring_state_free(pRingState,pArray);
