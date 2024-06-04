@@ -279,8 +279,6 @@ nCallerPC
 Type: unsigned int
 nFuncExec
 Type: unsigned int
-nTempMemSizeAtStart
-Type: unsigned int
 nListStart
 Type: char
 nType

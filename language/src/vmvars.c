@@ -104,7 +104,7 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 					pList = ring_vm_getglobalscope(pVM);
 				}
 			}
-			if ( ring_list_getsize(pList) < 10 ) {
+			if ( ring_list_getsize(pList) < RING_VARSCOPE_SIZETOUSEHASHTABLE ) {
 				/* Search Using Linear Search */
 				nPos = ring_list_findstring(pList,cStr,RING_VAR_NAME);
 				if ( nPos != 0 ) {
