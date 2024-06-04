@@ -75,6 +75,7 @@ void ring_vm_incjump ( VM *pVM )
 			RING_VM_IR_OPCODE = ICO_INCPJUMP ;
 		}
 		RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(RING_VM_IR_REG4),pItem);
+		RING_VM_IR_PARACOUNT = 5 ;
 	}
 	else if ( pVM->nVarScope == RING_VARSCOPE_LOCAL ) {
 		/* Replace ICO_INCJUMP with IncLPJUMP for better performance */
@@ -86,6 +87,7 @@ void ring_vm_incjump ( VM *pVM )
 		}
 		RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(RING_VM_IR_REG4),pItem);
 		RING_VM_IR_SETINTREG(pVM->nActiveScopeID);
+		RING_VM_IR_PARACOUNT = 5 ;
 	}
 	/* Jump */
 	pVM->nPC = RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ;
