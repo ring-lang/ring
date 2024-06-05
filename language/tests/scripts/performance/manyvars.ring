@@ -5,7 +5,10 @@ t1 = clock()
 test("Using many variables! (100_000)")
 
 # Time is around 750ms on my Computer
-if (clock()-t1)/ClocksPerSecond() < 2
+# Compile Time (650ms) 
+# Runtime (100ms) - What we measure here using clock()
+
+if (clock()-t1)/ClocksPerSecond() < 0.5
 	? "Fast"
 else
 	? "Slow"
