@@ -257,7 +257,7 @@ RING_API Item * ring_list_getitem ( List *pList,unsigned int nIndex )
 			return pList->pLastItemLastAccess->pValue ;
 		}
 		/* Quickly get item after the current item */
-		else if ( ( nIndex > pList->nNextItemAfterLastAccess )  && ( pList->pLastItemLastAccess != NULL ) ) {
+		else if ( (nIndex > pList->nNextItemAfterLastAccess ) && ( (nIndex - pList->nNextItemAfterLastAccess) < (pList->nSize - nIndex))  && ( pList->pLastItemLastAccess != NULL ) ) {
 			pItems = pList->pLastItemLastAccess ;
 			for ( x = pList->nNextItemAfterLastAccess - 1 ; x <= nIndex ; x++ ) {
 				if ( x == nIndex ) {
@@ -269,7 +269,7 @@ RING_API Item * ring_list_getitem ( List *pList,unsigned int nIndex )
 			return pItem ;
 		}
 		/* Quickly get item before the current item */
-		else if ( ( ( pList->nNextItemAfterLastAccess - nIndex ) < nIndex ) && ( pList->pLastItemLastAccess != NULL ) ) {
+		else if ( (nIndex < pList->nNextItemAfterLastAccess) &&  ( (pList->nNextItemAfterLastAccess - nIndex) < nIndex)  && ( pList->pLastItemLastAccess != NULL ) ) {
 			pItems = pList->pLastItemLastAccess ;
 			for ( x = pList->nNextItemAfterLastAccess - 1 ; x >= nIndex ; x-- ) {
 				if ( x == nIndex ) {
@@ -280,14 +280,28 @@ RING_API Item * ring_list_getitem ( List *pList,unsigned int nIndex )
 			}
 			return pItem ;
 		}
-		/* Linear Search  From Start */
-		pItems = pList->pFirst ;
-		for ( x = 1 ; x <= nIndex ; x++ ) {
-			if ( x == nIndex ) {
-				ring_list_setcache(NULL,pList,pItems,nIndex+1);
+		if ( nIndex < (pList->nSize - nIndex) ) {
+			/* Linear Search  From Start */
+			pItems = pList->pFirst ;
+			for ( x = 1 ; x <= nIndex ; x++ ) {
+				if ( x == nIndex ) {
+					ring_list_setcache(NULL,pList,pItems,nIndex+1);
+				}
+				pItem = pItems->pValue ;
+				pItems = pItems->pNext ;
 			}
-			pItem = pItems->pValue ;
-			pItems = pItems->pNext ;
+		}
+		else {
+			/* Linear search from the last item */
+			pItems = pList->pLast ;
+			for ( x = pList->nSize ; x >= nIndex ; x-- ) {
+				if ( x == nIndex ) {
+					ring_list_setcache(NULL,pList,pItems,nIndex+1);
+				}
+				pItem = pItems->pValue ;
+				pItems = pItems->pPrev ;
+			}
+			return pItem ;
 		}
 	}
 	return pItem ;
