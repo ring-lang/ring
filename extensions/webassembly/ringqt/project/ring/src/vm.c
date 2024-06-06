@@ -494,7 +494,6 @@ void ring_vm_tobytecode ( VM *pVM,int nIns )
 	pByteCode->nReg1Type = RING_VM_REGTYPE_NOTHING ;
 	pByteCode->nReg2Type = RING_VM_REGTYPE_NOTHING ;
 	pByteCode->nReg3Type = RING_VM_REGTYPE_NOTHING ;
-	pByteCode->nReg4Type = RING_VM_REGTYPE_NOTHING ;
 	for ( x = 2 ; x <= ring_list_getsize(pIR) ; x++ ) {
 		pItem = ring_list_getitem(pIR,x) ;
 		/* Copy the item data */
@@ -605,9 +604,6 @@ void ring_vm_showbytecode ( VM *pVM )
 					else if ( y == 2 ) {
 						nType = pByteCode->nReg3Type ;
 					}
-					else {
-						nType = pByteCode->nReg4Type ;
-					}
 					/* Display the Register Value */
 					switch ( nType ) {
 						case RING_VM_REGTYPE_STRING :
@@ -659,9 +655,6 @@ void ring_vm_bytecode2list ( VM *pVM, List *pOutput )
 					}
 					else if ( y == 2 ) {
 						nType = pByteCode->nReg3Type ;
-					}
-					else {
-						nType = pByteCode->nReg4Type ;
 					}
 					/* Add the Register Value */
 					switch ( nType ) {
@@ -745,8 +738,6 @@ void ring_vm_execute ( VM *pVM )
 		case ICO_PUSHC :
 			RING_VM_STACK_PUSHC ;
 			break ;
-		case ICO_PUSH4N :
-			RING_VM_STACK_PUSHNVALUE(RING_VM_IR_READDVALUE(RING_VM_IR_PARACOUNT-5)) ;
 		case ICO_PUSH3N :
 			RING_VM_STACK_PUSHNVALUE(RING_VM_IR_READDVALUE(RING_VM_IR_PARACOUNT-4)) ;
 		case ICO_PUSH2N :

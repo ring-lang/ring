@@ -170,10 +170,6 @@ void ring_parser_icg_pushn ( Parser *pParser,double nValue )
 			ring_parser_icg_setlastoperation(pParser,ICO_PUSH3N);
 			lChange = 1 ;
 		}
-		else if ( nLastOperation == ICO_PUSH3N ) {
-			ring_parser_icg_setlastoperation(pParser,ICO_PUSH4N);
-			lChange = 1 ;
-		}
 	}
 	if ( lChange == 0 ) {
 		ring_parser_icg_newoperation(pParser,ICO_PUSHN);
