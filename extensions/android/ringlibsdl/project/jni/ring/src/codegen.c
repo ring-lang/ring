@@ -107,7 +107,6 @@ void ring_parser_icg_loadfunction ( Parser *pParser,const char *cFunctionName )
 {
 	ring_parser_icg_newoperation(pParser,ICO_LOADFUNC);
 	ring_parser_icg_newoperand(pParser,cFunctionName);
-	ring_parser_icg_newoperandint(pParser,RING_ZERO);
 }
 
 void ring_parser_icg_loadaddress ( Parser *pParser,const char *cVariableName )
