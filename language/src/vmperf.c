@@ -22,6 +22,7 @@ void ring_vm_pushplocal ( VM *pVM )
 		/* Reset register used for the pointer */
 		RING_VM_IR_READIVALUE(RING_VM_IR_REG2) = 0 ;
 		RING_VM_IR_SETREG2TYPE(RING_VM_REGTYPE_INT);
+		RING_VM_IR_OPCODE = ICO_LOADADDRESS ;
 		ring_vm_loadaddress(pVM);
 		return ;
 	}
