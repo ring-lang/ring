@@ -149,8 +149,7 @@ void ring_vm_loadfuncp ( VM *pVM )
 	if ( pFuncCall->nType == RING_FUNCTYPE_SCRIPT ) {
 		pVM->cPrevFileName = pVM->cFileName ;
 	}
-	pFuncCall->cNewFileName = (char *) RING_VM_IR_READPVALUE(RING_VM_IR_REG4) ;
-	pVM->cFileName = pFuncCall->cNewFileName ;
+	pFuncCall->cNewFileName = pVM->cFileName ;
 	/* Method/Function & Scope */
 	pFuncCall->lMethod = RING_VM_IR_GETINTREG ;
 	pFuncCall->nLoadAddressScope = pVM->nLoadAddressScope ;
