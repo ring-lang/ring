@@ -178,6 +178,7 @@
 	#define RING_PARSER_ICG_USESETPROPERTY 2
 	#define RING_PARSER_ICG_NORMALPP 3
 	#define RING_PARSER_ICG_NORMALMM 4
+	#define RING_PARSER_ICG_LOADFUNCINSSIZE 2
 	/* Macro */
 	#define RING_PARSER_ICG_GOTOLASTOP pParser->pActiveGenCodeList = ring_list_getlist(pParser->pGenCode,ring_list_getsize(pParser->pGenCode))
 	#define ring_parser_icg_newlabel(pParser) ( ring_list_getsize(pParser->pGenCode) + 1 + pParser->pRingState->nInstructionsCount)

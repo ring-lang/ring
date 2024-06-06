@@ -125,6 +125,9 @@ void ring_parser_icg_loadaddressassignmentpos ( Parser *pParser,List *pLoadAPos,
 void ring_parser_icg_loadaddresstoloadfunction ( Parser *pParser )
 {
 	ring_parser_icg_setlastoperation(pParser,ICO_LOADFUNC);
+	while ( ring_list_getsize(ring_parser_icg_getactiveoperation(pParser)) > RING_PARSER_ICG_LOADFUNCINSSIZE ) {
+		ring_parser_icg_deleteoperand(pParser,ring_list_getsize(ring_parser_icg_getactiveoperation(pParser)));
+	}
 }
 
 void ring_parser_icg_freestack ( Parser *pParser )
