@@ -116,7 +116,7 @@ void ring_vm_incpjump ( VM *pVM )
 	/* Jump */
 	pVM->nPC = RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ;
 	RING_VM_STACK_PUSHNVALUE(ring_item_getdouble(pItem));
-	RING_VM_IR_SETLINENUMBER(RING_VM_IR_READIVALUE(3));
+	RING_VM_IR_SETLINENUMBER(RING_VM_IR_READIVALUE(RING_VM_IR_REG3));
 }
 
 void ring_vm_inclpjump ( VM *pVM )
