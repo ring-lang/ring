@@ -11,6 +11,8 @@ Type: Item *
 pItem
 Type: double
 nNum1,nNum2
+Type: int
+nLine
 ring_vm_incpjump
 Type: Item *
 pItem
