@@ -19,10 +19,13 @@ void ring_vm_pushplocal ( VM *pVM )
 {
 	/* Check Scope Life Time */
 	if ( RING_VM_IR_GETINTREG != pVM->nActiveScopeID ) {
+		/* Reset register used for the pointer */
+		RING_VM_IR_READIVALUE(RING_VM_IR_REG2) = 0 ;
+		RING_VM_IR_SETREG2TYPE(RING_VM_REGTYPE_INT);
 		ring_vm_loadaddress(pVM);
 		return ;
 	}
-	RING_VM_STACK_PUSHPVALUE(RING_VM_IR_READPVALUE(RING_VM_IR_REG4)) ;
+	RING_VM_STACK_PUSHPVALUE(RING_VM_IR_READPVALUE(RING_VM_IR_REG2)) ;
 	RING_VM_STACK_OBJTYPE = RING_OBJTYPE_VARIABLE ;
 	/* Update Scope Information */
 	if ( pVM->nLoadAddressScope  == RING_VARSCOPE_NOTHING ) {
