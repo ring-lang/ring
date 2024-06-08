@@ -32,6 +32,7 @@ ring_vm_oop_property
 Type: List *
 pVar,*pScope
 ring_vm_oop_loadmethod
+ring_vm_oop_loadmethod2
 Type: List *
 pVar,*pList,*pList2,*pList3,*pSuper
 Type: int
@@ -122,10 +123,6 @@ Type: RING_VM_IR_ITEMTYPE *
 pItem, *pItem2
 Type: int
 nIns
-Type: FuncCall *
-pFuncCall
-Type: const char *
-cStr
 ring_vm_oop_setproperty
 Type: List *
 pList, *pList2

@@ -793,6 +793,8 @@
 
 	void ring_vm_oop_loadmethod ( VM *pVM ) ;
 
+	void ring_vm_oop_loadmethod2 ( VM *pVM, const char *cMethod ) ;
+
 	void ring_vm_oop_aftercallmethod ( VM *pVM ) ;
 
 	void ring_vm_oop_setscope ( VM *pVM ) ;

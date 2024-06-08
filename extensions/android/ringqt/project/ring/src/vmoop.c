@@ -371,6 +371,11 @@ void ring_vm_oop_property ( VM *pVM )
 
 void ring_vm_oop_loadmethod ( VM *pVM )
 {
+	ring_vm_oop_loadmethod2(pVM, RING_VM_IR_READC);
+}
+
+void ring_vm_oop_loadmethod2 ( VM *pVM, const char *cMethod )
+{
 	List *pVar,*pList,*pList2,*pList3,*pSuper  ;
 	int lResult  ;
 	/* Check calling method related to Parent Class */
@@ -406,7 +411,7 @@ void ring_vm_oop_loadmethod ( VM *pVM )
 	pVar = pVM->pFunctionsMap ;
 	pVM->pFunctionsMap = pList3 ;
 	pVM->lCallMethod = 1 ;
-	lResult = ring_vm_loadfunc(pVM);
+	lResult = ring_vm_loadfunc2(pVM, cMethod, RING_FALSE);
 	pVM->lCallMethod = 0 ;
 	pVM->pFunctionsMap = pVar ;
 	/* Move list from pObjState to pBeforeObjState */
