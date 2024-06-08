@@ -5,6 +5,7 @@
 RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 {
 	List *pList  ;
+	int nPC  ;
 	/* Check if we have active error */
 	if ( pVM->lActiveError ) {
 		return ;
@@ -21,7 +22,19 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 					if ( ring_vm_oop_ismethod(pVM, pList,RING_CSTR_BRACEERROR) ) {
 						pVM->lActiveError = 0 ;
 						ring_list_setstring_gc(pVM->pRingState,ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_ERRORMSG),RING_VAR_VALUE,cStr);
-						ring_vm_eval(pVM,RING_CSTR_RETBRACEERROR);
+						/* Run BraceError */
+						ring_vm_freestack(pVM);
+						nPC = pVM->nPC ;
+						/* Load the function and call it */
+						ring_vm_loadfunc2(pVM,"braceerror",RING_FALSE);
+						ring_vm_call2(pVM);
+						do {
+							ring_vm_fetch(pVM);
+							if ( pVM->nPC == nPC ) {
+								break ;
+							}
+						} while (pVM->nPC <= RING_VM_INSTRUCTIONSCOUNT)  ;
+						ring_vm_pushv(pVM);
 						return ;
 					}
 				}

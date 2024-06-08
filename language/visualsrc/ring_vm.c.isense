@@ -641,6 +641,8 @@ ring_vm_execute
 ring_vm_error
 Type: List *
 pList
+Type: int
+nPC
 ring_vm_error2
 Type: String *
 pError
