@@ -305,6 +305,26 @@ void ring_vm_cleanevalcode ( VM *pVM,int nCodeSize )
 		pVM->nEvalReallocationSize = pVM->nEvalReallocationSize + nExtraSize ;
 	}
 }
+/* Fast Function Call for Ring VM (Without Eval) */
+
+RING_API void ring_vm_callfuncwithouteval ( VM *pVM, const char *cFunc )
+{
+	int nPC  ;
+	ring_vm_freestack(pVM);
+	nPC = pVM->nPC ;
+	/* Load the function and call it */
+	ring_vm_loadfunc2(pVM,cFunc,RING_FALSE);
+	ring_vm_call2(pVM);
+	/* Execute the function */
+	do {
+		ring_vm_fetch(pVM);
+		if ( pVM->nPC == nPC ) {
+			break ;
+		}
+	} while (pVM->nPC <= RING_VM_INSTRUCTIONSCOUNT)  ;
+	/* Prepare the function output as a value */
+	ring_vm_pushv(pVM);
+}
 
 RING_API void ring_vm_callfunction ( VM *pVM,char *cFuncName )
 {
@@ -321,24 +341,4 @@ RING_API void ring_vm_callfunction ( VM *pVM,char *cFuncName )
 	ring_vm_freestack(pVM);
 	/* Avoid normal steps after this function, because we deleted the scope in Prepare */
 	pVM->lActiveCatch = 1 ;
-}
-/* Fast Function Call for Ring VM (Without Eval) */
-
-RING_API void ring_vm_callbraceerror ( VM *pVM )
-{
-	int nPC  ;
-	ring_vm_freestack(pVM);
-	nPC = pVM->nPC ;
-	/* Load the function and call it */
-	ring_vm_loadfunc2(pVM,RING_CSTR_BRACEERROR,RING_FALSE);
-	ring_vm_call2(pVM);
-	/* Run BraceError */
-	do {
-		ring_vm_fetch(pVM);
-		if ( pVM->nPC == nPC ) {
-			break ;
-		}
-	} while (pVM->nPC <= RING_VM_INSTRUCTIONSCOUNT)  ;
-	/* Prepare the function output as a value */
-	ring_vm_pushv(pVM);
 }

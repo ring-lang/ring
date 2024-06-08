@@ -971,7 +971,7 @@
 	RING_API void ring_vm_callfunction ( VM *pVM,char *cFuncName ) ;
 	/* Fast Function Call for Ring VM (Without Eval) */
 
-	RING_API void ring_vm_callbraceerror ( VM *pVM ) ;
+	RING_API void ring_vm_callfuncwithouteval ( VM *pVM, const char *cFunc ) ;
 	/* Custom Global Scope */
 
 	void ring_vm_newglobalscope ( VM *pVM ) ;

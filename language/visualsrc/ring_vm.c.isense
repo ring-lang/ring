@@ -641,8 +641,6 @@ ring_vm_execute
 ring_vm_error
 Type: List *
 pList
-Type: int
-nPC
 ring_vm_error2
 Type: String *
 pError
@@ -695,8 +693,10 @@ Type: int
 nExtraSize
 Type: ByteCode *
 pByteCode
+ring_vm_callfuncwithouteval
+Type: int
+nPC
 ring_vm_callfunction
-ring_vm_callbraceerror
 ring_vm_mutexfunctions
 ring_vm_mutexlock
 ring_vm_mutexunlock
