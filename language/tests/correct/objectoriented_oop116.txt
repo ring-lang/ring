@@ -1,0 +1,5 @@
+
+Line 11 Error (R24) : Using uninitialized variable: iwantanerrormessagehere 
+In method braceerror() in file objectoriented/oop116.ring
+
+Called from line 4 in file objectoriented/oop116.ring 
