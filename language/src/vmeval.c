@@ -310,7 +310,6 @@ void ring_vm_cleanevalcode ( VM *pVM,int nCodeSize )
 RING_API void ring_vm_callfuncwithouteval ( VM *pVM, const char *cFunc )
 {
 	int nPC  ;
-	ring_vm_freestack(pVM);
 	nPC = pVM->nPC ;
 	/* Load the function and call it */
 	ring_vm_loadfunc2(pVM,cFunc,RING_FALSE);
