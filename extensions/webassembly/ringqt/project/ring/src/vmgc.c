@@ -989,7 +989,7 @@ RING_API void ring_state_willunregisterblock ( void *pState,void *pStart )
 				pVar = (List *) ring_list_getpointer(pRingState->pVM->pTrackedVariables,x2) ;
 				if ( (ring_list_getint(pVar,RING_VAR_TYPE) == RING_VM_POINTER) && (ring_list_getint(pVar,RING_VAR_PVALUETYPE) == RING_OBJTYPE_LISTITEM) ) {
 					pItem = (Item *) ring_list_getpointer(pVar,RING_VAR_VALUE) ;
-					if ( (pItem >= pBlockStart) && (pItem <= pBlockEnd) ) {
+					if ( (((void *) pItem) >= pBlockStart) && (((void *) pItem) <= pBlockEnd) ) {
 						pNewItem = ring_item_new_gc(pRingState,ITEMTYPE_NOTHING);
 						memcpy(&vTempItem,pNewItem,sizeof(Item));
 						memcpy(pNewItem,pItem,sizeof(Item));
