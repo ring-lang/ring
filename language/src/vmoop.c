@@ -1087,6 +1087,11 @@ void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int 
 	RING_VM_IR_ITEMTYPE *pRegItem  ;
 	String *pString  ;
 	int nObjType, nIns  ;
+	/* Check Method */
+	if ( ! ring_vm_oop_ismethod(pVM,pObj,RING_CSTR_OPERATOR) ) {
+		ring_vm_error(pVM,RING_VM_ERROR_NOOPERATORMETHOD);
+		return ;
+	}
 	nObjType = ring_vm_oop_objtypefromobjlist(pObj);
 	/* Set Variable ring_gettemp_var */
 	pList2 = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_GETTEMPVAR) ;
@@ -1116,9 +1121,9 @@ void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int 
 	}
 	if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG1) == 0 ) {
 		/* Create String */
-		pString = ring_string_new_gc(pVM->pRingState,"if ismethod(ring_gettemp_var,'operator')\nreturn ring_gettemp_var.operator('");
+		pString = ring_string_new_gc(pVM->pRingState,"return ring_gettemp_var.operator('");
 		ring_string_add_gc(pVM->pRingState,pString,cStr1);
-		ring_string_add_gc(pVM->pRingState,pString,"',ring_settemp_var)\nelse\nraise('Object does not support operator overloading')\nok\n");
+		ring_string_add_gc(pVM->pRingState,pString,"',ring_settemp_var) \n");
 		/* Eval the string */
 		nIns = pVM->nPC - 2 ;
 		pVM->lEvalCalledFromRingCode = 0 ;

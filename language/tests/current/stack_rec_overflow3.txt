@@ -1,6 +1,8 @@
 
 Line 18 Error (R4) : Stack Overflow 
-In ismethod() In method operator() in file stack/rec_overflow3.ring
+In method operator() in file stack/rec_overflow3.ring
+
+Called from line 18 In method operator() in file stack/rec_overflow3.ring
 
 Called from line 6 in file stack/rec_overflow3.ring 
 ---{ Recursion Depth: 998 }---
