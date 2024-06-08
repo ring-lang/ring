@@ -307,13 +307,17 @@ void ring_vm_cleanevalcode ( VM *pVM,int nCodeSize )
 }
 /* Fast Function Call for Ring VM (Without Eval) */
 
-RING_API void ring_vm_callfuncwithouteval ( VM *pVM, const char *cFunc )
+RING_API void ring_vm_callfuncwithouteval ( VM *pVM, const char *cFunc, int lMethod )
 {
 	int nPC  ;
 	nPC = pVM->nPC ;
 	/* Load the function and call it */
 	ring_vm_loadfunc2(pVM,cFunc,RING_FALSE);
 	ring_vm_call2(pVM);
+	/* Check calling method from brace */
+	if ( lMethod ) {
+		ring_vm_oop_preparecallmethodfrombrace(pVM);
+	}
 	/* Execute the function */
 	do {
 		ring_vm_fetch(pVM);

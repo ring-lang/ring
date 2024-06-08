@@ -21,7 +21,7 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 					if ( ring_vm_oop_ismethod(pVM, pList,RING_CSTR_BRACEERROR) ) {
 						pVM->lActiveError = 0 ;
 						ring_list_setstring_gc(pVM->pRingState,ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_ERRORMSG),RING_VAR_VALUE,cStr);
-						ring_vm_callfuncwithouteval(pVM, RING_CSTR_BRACEERROR);
+						ring_vm_callfuncwithouteval(pVM, RING_CSTR_BRACEERROR, RING_TRUE);
 						return ;
 					}
 				}
