@@ -55,3 +55,5 @@ More Improvements
 * Ring VM - FuncCall structure - Removed unused member (nTempMemSizeAtStart)
 * Ring VM - ring_vm_stepnumber() and ring_vm_sum() - Use: RING_VM_RETURNIFACTIVECATCH
 * Ring VM - ring_state_runcode() - Reset pVM->nPC to instructions count before code eval/execution
+* Ring VM - Hash Table - Better performance when using many variables
+* Ring VM - BraceError() method - Support using This and runtime error messages
