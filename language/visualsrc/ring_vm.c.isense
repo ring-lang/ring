@@ -696,6 +696,7 @@ nExtraSize
 Type: ByteCode *
 pByteCode
 ring_vm_callfunction
+ring_vm_callbraceerror
 ring_vm_mutexfunctions
 ring_vm_mutexlock
 ring_vm_mutexunlock
