@@ -122,6 +122,10 @@ Type: RING_VM_IR_ITEMTYPE *
 pItem, *pItem2
 Type: int
 nIns
+Type: FuncCall *
+pFuncCall
+Type: const char *
+cStr
 ring_vm_oop_setproperty
 Type: List *
 pList, *pList2
@@ -154,6 +158,7 @@ pString
 Type: int
 nObjType, nIns
 ring_vm_oop_callmethodfrombrace
+ring_vm_oop_preparecallmethodfrombrace
 Type: List *
 pList,*pList2
 Type: FuncCall *

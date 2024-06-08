@@ -868,6 +868,8 @@
 	void ring_vm_oop_callclassinit ( VM *pVM ) ;
 
 	void ring_vm_oop_checkbracemethod ( VM *pVM ) ;
+
+	void ring_vm_oop_preparecallmethodfrombrace ( VM *pVM ) ;
 	/* Faster instructions */
 
 	void ring_vm_pushp ( VM *pVM ) ;

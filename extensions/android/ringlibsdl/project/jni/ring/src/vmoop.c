@@ -1145,9 +1145,6 @@ void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int 
 
 void ring_vm_oop_callmethodfrombrace ( VM *pVM )
 {
-	List *pList,*pList2  ;
-	FuncCall *pFuncCall  ;
-	const char *cStr  ;
 	/*
 	**  We uses AfterCallMethod2 instead of AfterCallMethod to avoid conflict with normal method call 
 	**  AfterCallMethod2 is the same instruction as AfterCallMethod 
@@ -1156,29 +1153,37 @@ void ring_vm_oop_callmethodfrombrace ( VM *pVM )
 	RING_VM_IR_LOAD ;
 	if ( (RING_VM_IR_OPCODE == ICO_NOOP) || (RING_VM_IR_OPCODE == ICO_AFTERCALLMETHOD2) ) {
 		RING_VM_IR_OPCODE = ICO_AFTERCALLMETHOD2 ;
-		pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState)) ;
-		/* Pass Brace when we call class init , using new object() */
-		if ( (ring_list_getsize(pVM->pObjState) > 1) && (pVM->nCallClassInit) ) {
-			if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
-				pFuncCall = RING_VM_LASTFUNCCALL ;
-				cStr = pFuncCall->cName ;
-				if ( strcmp(cStr,RING_CSTR_INIT) != 0 ) {
-					pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState)-1) ;
-				}
-			}
-			else {
+		ring_vm_oop_preparecallmethodfrombrace(pVM);
+	}
+	RING_VM_IR_UNLOAD ;
+}
+
+void ring_vm_oop_preparecallmethodfrombrace ( VM *pVM )
+{
+	List *pList,*pList2  ;
+	FuncCall *pFuncCall  ;
+	const char *cStr  ;
+	pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState)) ;
+	/* Pass Brace when we call class init , using new object() */
+	if ( (ring_list_getsize(pVM->pObjState) > 1) && (pVM->nCallClassInit) ) {
+		if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
+			pFuncCall = RING_VM_LASTFUNCCALL ;
+			cStr = pFuncCall->cName ;
+			if ( strcmp(cStr,RING_CSTR_INIT) != 0 ) {
 				pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState)-1) ;
 			}
 		}
-		pList2 = ring_list_newlist_gc(pVM->pRingState,pVM->pObjState);
-		ring_list_copy_gc(pVM->pRingState,pList2,pList);
-		/* Add Logical Value (True) , That we are inside the class method */
-		ring_list_addint_gc(pVM->pRingState,pList2,RING_TRUE);
-		/* Push Class Package */
-		pList = (List *) ring_list_getpointer(pList2,RING_OBJSTATE_CLASS);
-		ring_vm_oop_pushclasspackage(pVM,pList);
+		else {
+			pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState)-1) ;
+		}
 	}
-	RING_VM_IR_UNLOAD ;
+	pList2 = ring_list_newlist_gc(pVM->pRingState,pVM->pObjState);
+	ring_list_copy_gc(pVM->pRingState,pList2,pList);
+	/* Add Logical Value (True) , That we are inside the class method */
+	ring_list_addint_gc(pVM->pRingState,pList2,RING_TRUE);
+	/* Push Class Package */
+	pList = (List *) ring_list_getpointer(pList2,RING_OBJSTATE_CLASS);
+	ring_vm_oop_pushclasspackage(pVM,pList);
 }
 
 int ring_vm_oop_ismethod ( VM *pVM,List *pList,const char *cStr )
