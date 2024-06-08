@@ -26,7 +26,7 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 						ring_vm_freestack(pVM);
 						nPC = pVM->nPC ;
 						/* Load the function and call it */
-						ring_vm_loadfunc2(pVM,"braceerror",RING_FALSE);
+						ring_vm_loadfunc2(pVM,RING_CSTR_BRACEERROR,RING_FALSE);
 						ring_vm_call2(pVM);
 						do {
 							ring_vm_fetch(pVM);
