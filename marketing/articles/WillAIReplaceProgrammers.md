@@ -125,6 +125,20 @@ Related Videos
 			3
 		</td>
 		<td>
+			2024.03.21
+		</td>
+		<td>
+			 <a href="https://www.youtube.com/watch?v=f0Y0ILHwwaM"> 210,000 CODERS lost jobs </a>
+		</td>
+		<td>
+			 210,000 CODERS lost jobs as NVIDIA released NEW coding language
+		</td>
+	</tr>
+	<tr>
+		<td>
+			4
+		</td>
+		<td>
 			2024.03.12
 		</td>
 		<td>
@@ -136,7 +150,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			4
+			5
 		</td>
 		<td>
 			2024.03.08
@@ -150,7 +164,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			5
+			6
 		</td>
 		<td>
 			2024.03.04
@@ -164,7 +178,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			6
+			7
 		</td>
 		<td>
 			2024.01.20
@@ -178,7 +192,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			7
+			8
 		</td>
 		<td>
 			2024.01.18
@@ -192,7 +206,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			8
+			9
 		</td>
 		<td>
 			2023.11.21
@@ -206,7 +220,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			9
+			10
 		</td>
 		<td>
 			2023.10.29
@@ -220,7 +234,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			10
+			11
 		</td>
 		<td>
 			2023.06.08
@@ -234,7 +248,7 @@ Related Videos
 	</tr>
 	<tr>
 		<td>
-			11
+			12
 		</td>
 		<td>
 			2020.05.09
