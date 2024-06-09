@@ -7,8 +7,6 @@ y
 Type: FuncCall *
 pFuncCall
 ring_vm_call
-Type: List *
-pList
 ring_vm_call2
 Type: List *
 pList, *pActiveMem
@@ -16,6 +14,9 @@ Type: int
 x,nSP,nMax1
 Type: FuncCall *
 pFuncCall
+ring_vm_preparecallmethod
+Type: List *
+pList
 ring_vm_return
 Type: List *
 pList

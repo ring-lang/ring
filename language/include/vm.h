@@ -722,6 +722,8 @@
 
 	void ring_vm_call2 ( VM *pVM ) ;
 
+	void ring_vm_preparecallmethod ( VM *pVM ) ;
+
 	void ring_vm_return ( VM *pVM ) ;
 
 	void ring_vm_returnnull ( VM *pVM ) ;

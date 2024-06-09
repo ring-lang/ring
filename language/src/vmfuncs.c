@@ -170,20 +170,10 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 
 void ring_vm_call ( VM *pVM )
 {
-	List *pList  ;
 	/* Check if we call method using ObjName.MethodName() */
 	if ( RING_VM_IR_PARACOUNT == 3 ) {
 		if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ) {
-			/*
-			**  Now we make the object state visible by moving it from pBeforeObjState to pObjState 
-			**  We do this here and not in LoadMethod to avoid accessing the object state when passing parameters 
-			**  This fix a problem when we pass the self object to avoid passing ObjName that comes before the method 
-			*/
-			if ( ring_list_getsize(pVM->pBeforeObjState) > 0 ) {
-				pList = ring_list_newlist_gc(pVM->pRingState,pVM->pObjState);
-				ring_list_swaptwolists(pList,ring_list_getlist(pVM->pBeforeObjState,ring_list_getsize(pVM->pBeforeObjState)));
-				ring_list_deleteitem_gc(pVM->pRingState,pVM->pBeforeObjState,ring_list_getsize(pVM->pBeforeObjState));
-			}
+			ring_vm_preparecallmethod(pVM);
 		}
 	}
 	ring_vm_call2(pVM);
@@ -338,6 +328,21 @@ void ring_vm_call2 ( VM *pVM )
 			RING_VM_STACK_POP ;
 			ring_vm_mainloopforeval(pVM);
 		}
+	}
+}
+
+void ring_vm_preparecallmethod ( VM *pVM )
+{
+	List *pList  ;
+	/*
+	**  Now we make the object state visible by moving it from pBeforeObjState to pObjState 
+	**  We do this here and not in LoadMethod to avoid accessing the object state when passing parameters 
+	**  This fix a problem when we pass the self object to avoid passing ObjName that comes before the metho 
+	*/
+	if ( ring_list_getsize(pVM->pBeforeObjState) > 0 ) {
+		pList = ring_list_newlist_gc(pVM->pRingState,pVM->pObjState);
+		ring_list_swaptwolists(pList,ring_list_getlist(pVM->pBeforeObjState,ring_list_getsize(pVM->pBeforeObjState)));
+		ring_list_deleteitem_gc(pVM->pRingState,pVM->pBeforeObjState,ring_list_getsize(pVM->pBeforeObjState));
 	}
 }
 
