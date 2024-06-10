@@ -117,7 +117,7 @@ Class Taqtee3Class
 			AddToProbBohor(TafInfo[:BahrN21], L)
 		Else
 			AddToProbBohor(TafInfo[:BahrN20], L)
-		End #If
+		EndIf
 	
 		Switch TafPos % 3
 			Case 1
@@ -126,7 +126,7 @@ Class Taqtee3Class
 				AddToProbBohor(TafInfo[:BahrN32], L)
 			Else
 				AddToProbBohor(TafInfo[:BahrN30], L)
-			End #Switch
+			EndSwitch
 	EndFunc
 
 

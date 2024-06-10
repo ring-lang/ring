@@ -123,8 +123,8 @@ Func FixSpWord(aWord)
 		elseif L = 4 and aWord.Startswith("و") Or aWord.Startswith("ف")
 			aWord.SetCharAt(2, "أ")
 			return aWord
-		end #If
-	end #if
+		EndIf
+	EndIf
 
 	pos = aWord.IndexOf("مائ", 1) 
    if pos > 0 and pos < aWord.Length - 2

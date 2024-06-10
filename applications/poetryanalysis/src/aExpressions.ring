@@ -222,7 +222,7 @@ Class Expression
 			end
 			if startEdge or matchEnd >= strlen Exit end
 			matchStart = GetNextStartPos(str, matchEnd + 1)
-		end #While
+		EndWhile
 
 		str = newS
 		return retVal
@@ -393,7 +393,7 @@ Class Expression
 				else
 					pos = pos + 1
 				end
-			end #while
+			EndWhile
 			return 0
 		end
 	EndFunc
@@ -481,7 +481,7 @@ Class Expression
 						else
 							return 0
 						end
-				end #Switch
+				EndSwitch
 
 			else // string
 				charCount = part.Length 	

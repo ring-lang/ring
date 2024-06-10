@@ -7,7 +7,7 @@ import System.GUI
 
 if IsMainSourceFile()
 	ShowfrmQaseedah()
-End #If
+EndIf
 
 
 Func ShowfrmQaseedah()
@@ -16,7 +16,7 @@ Func ShowfrmQaseedah()
 		openWindow(:frmQaseedahController)
 		exec()
 	}
-End #Func
+EndFunc
 
 
 class frmQaseedahController from windowsControllerParent
@@ -50,8 +50,8 @@ class frmQaseedahController from windowsControllerParent
 					" (" + 100 * (bhr[2] / results.ShatraatCount) + "%)", 0)
 			next
 		
-		end #if
-	End #Func
+		EndIf
+	EndFunc
 
 
 	Func cmbBohoor_IndexChanged()		
@@ -64,7 +64,7 @@ class frmQaseedahController from windowsControllerParent
 			lstShataraat.AddItem(Join(shInfo[:AroodWrite], " "))			
 		next
 		lstShataraat.SetCurrentRow(0, 0)
-	End #Func
+	EndFunc
 
 
 	Func lstShataraat_ItemChanged()
@@ -80,7 +80,7 @@ class frmQaseedahController from windowsControllerParent
 				Join(shInfo[:Romooz].GetOrgHarakaat(), " ")
 			)
 			return
-		End #If
+		EndIf
 
 		i = bCount - cmbBohoor.currentIndex()
 		bID = results.QBohor[i][1]
@@ -101,6 +101,6 @@ class frmQaseedahController from windowsControllerParent
 
 			txtDetails.Append("التفعيلات: " + Join(tafs[:Names], " - "))
 		end		
-	End #Func
+	EndFunc
 
-End #Class
+EndClass

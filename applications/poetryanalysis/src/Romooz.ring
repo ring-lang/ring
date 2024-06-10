@@ -84,7 +84,7 @@ class Romooz
 					Horoof + "و"
 				else
 					Horoof + ""
-			End #Switch
+			EndSwitch
 			Harakaat + "0"
 		End
 	EndFunc
@@ -144,7 +144,7 @@ Private
 					count++
 				end
 				i++
-			end #while
+			EndWhile
 
 			if part != ""
 				result + part	

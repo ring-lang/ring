@@ -202,7 +202,7 @@ Func AroodWrite(words)
 					else
 						Harakah = ex.Kasrah
 					end
-			end #switch
+			EndSwitch
 
 			if Harakah != ""
 				//Note: لا نستطيع إضافة تشكيل بدلا من الواو أو الياء أو الألف لوجود تشكيل بالفعل على الحرف السابق

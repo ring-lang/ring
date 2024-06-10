@@ -28,7 +28,7 @@ Func ToConsole(Qaseedah)
 				see " أو اكتب نصا فارغا أو الرقم صفر لإنهاء البرنامج" + nl			
 				n = GetANumber(bCount)
 				if n = 0 return end
-			end #if
+			EndIf
 		
 			i = bCount - n + 1
 			bID = QBohor[i][1]
@@ -36,7 +36,7 @@ Func ToConsole(Qaseedah)
 			bahrName = BohorInfo[bID][:Name]
 			txt = "تقطيع القصيدة على البحر "
 			? txt + bahrName
-		end #if
+		EndIf
 	
 		for shInfo in ShataraatInfo
 
@@ -80,8 +80,8 @@ Func GetANumber(limit)
 			return n
 		else
 			see " أدخل عددا صحيحا بين 1 و" + limit + nl
-		end #if
-	end #while
+		EndIf
+	EndWhile
 EndFunc
 
 

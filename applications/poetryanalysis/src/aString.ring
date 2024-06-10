@@ -18,14 +18,14 @@ Func Join(arr, sep)
 			str += arr[i].Text + sep
 		else
 			str += "" + arr[i] + sep
-		end #If
+		EndIf
 	next
 	
 	if isaString(arr[L])
 		str += arr[L].Text
 	else
 		str += "" + arr[L]
-	end #If
+	EndIf
 	
 	return str
 EndFunc
@@ -703,7 +703,7 @@ private
 
 			pos1 = pos2 + sepLen
 
-		end #while
+		EndWhile
 	EndFunc
 
 EndClass

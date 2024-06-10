@@ -89,4 +89,4 @@ private
 			next
 			return shBohor
 	EndFunc
-End #class
+EndClass
