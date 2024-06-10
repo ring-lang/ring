@@ -1,4 +1,4 @@
-﻿Import System.Web
+Import System.Web
 
 Func TestUpload
 	New page 
@@ -47,7 +47,9 @@ Func getuploadedfile oObj,cFile
 	# here we use object.property instead of object { } to avoid executing braceend method
 	cFileName = cUploadPath + oObj.getfilename(aPageVars,cFile)
 	write(cFileName,aPageVars[cFile])
-	system("chmod a+x "+cFileName)
+	if ! isWindows()
+		system("chmod a+x "+cFileName)
+	ok
 	oObj.newline() 
 	oObj.text( "File "+cFileName+ " Uploaded ..." ) 
 	oObj.newline()
