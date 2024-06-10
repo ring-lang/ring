@@ -860,23 +860,23 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 				ring_string_delete_gc(pVM->pRingState,pString);
 				return ;
 			}
+			if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG2)  == 0 ) {
+				nIns = pVM->nPC - 2 ;
+				pVM->lEvalCalledFromRingCode = 0 ;
+				if ( pVM->nInsideEval ) {
+					pVM->lRetEvalDontDelete = 1 ;
+				}
+				ring_vm_eval(pVM,ring_string_get(pString));
+				/* Note: Eval reallocation change mem. locations */
+				pItem2 = RING_VM_IR_ITEMATINS(nIns,RING_VM_IR_REG2) ;
+				RING_VM_IR_ITEMSETINT(pItem2,pVM->nPC);
+			}
+			else {
+				ring_vm_blockflag2(pVM,pVM->nPC);
+				pVM->nPC = RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ;
+			}
 		}
 		ring_string_delete_gc(pVM->pRingState,pString2);
-		if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG2)  == 0 ) {
-			nIns = pVM->nPC - 2 ;
-			pVM->lEvalCalledFromRingCode = 0 ;
-			if ( pVM->nInsideEval ) {
-				pVM->lRetEvalDontDelete = 1 ;
-			}
-			ring_vm_eval(pVM,ring_string_get(pString));
-			/* Note: Eval reallocation change mem. locations */
-			pItem2 = RING_VM_IR_ITEMATINS(nIns,RING_VM_IR_REG2) ;
-			RING_VM_IR_ITEMSETINT(pItem2,pVM->nPC);
-		}
-		else {
-			ring_vm_blockflag2(pVM,pVM->nPC);
-			pVM->nPC = RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ;
-		}
 	}
 	else {
 		RING_VM_IR_UNLOAD ;
