@@ -54,7 +54,7 @@ ring_vm_createtemplist
 Type: List *
 pList, *pList2
 Type: int
-x,lFound
+x, lFound, nID
 ring_vm_anonymous
 Type: char *
 cStr
