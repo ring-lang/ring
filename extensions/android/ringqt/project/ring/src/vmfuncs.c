@@ -652,7 +652,7 @@ void ring_vm_movetoprevscope ( VM *pVM,int nFuncType )
 void ring_vm_createtemplist ( VM *pVM )
 {
 	List *pList, *pList2  ;
-	int x,lFound  ;
+	int x, lFound, nID  ;
 	/*
 	**  Get the Parent List 
 	**  Create the list in the TempMem related to the function 
@@ -664,13 +664,14 @@ void ring_vm_createtemplist ( VM *pVM )
 	**  Don't allow more than one temp. list per VM instruction 
 	**  This avoid a memory leak when using code like this:  while true if [] ok end 
 	*/
+	nID = pVM->nPC + pVM->nOPCode ;
 	lFound = 0 ;
 	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 		if ( ring_list_islist(pList,x) ) {
 			pList2 = ring_list_getlist(pList,x) ;
 			if ( ring_list_getsize(pList2) == RING_TEMPLIST_SIZE ) {
 				if ( ring_list_isint(pList2,RING_TEMPLIST_PC) && ring_list_islist(pList2,RING_TEMPLIST_LIST) ) {
-					if ( ring_list_getint(pList2,RING_TEMPLIST_PC) == pVM->nPC ) {
+					if ( ring_list_getint(pList2,RING_TEMPLIST_PC) == nID ) {
 						lFound = 1 ;
 						pList = ring_list_getlist(pList2,RING_TEMPLIST_LIST) ;
 						ring_list_deleteallitems_gc(pVM->pRingState,pList);
@@ -681,7 +682,7 @@ void ring_vm_createtemplist ( VM *pVM )
 	}
 	if ( lFound == 0 ) {
 		pList2 = ring_list_newlist_gc(pVM->pRingState,pList);
-		ring_list_addint_gc(pVM->pRingState,pList2,pVM->nPC);
+		ring_list_addint_gc(pVM->pRingState,pList2,nID);
 		pList = ring_list_newlist_gc(pVM->pRingState,pList2);
 	}
 	/* Create the variable */

@@ -1085,6 +1085,7 @@ void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int 
 	RING_VM_IR_ITEMTYPE *pRegItem  ;
 	String *pString  ;
 	int nObjType, nIns  ;
+	RING_VM_STACK_POP ;
 	/* Check Method */
 	if ( ! ring_vm_oop_ismethod(pVM,pObj,RING_CSTR_OPERATOR) ) {
 		ring_vm_error(pVM,RING_VM_ERROR_NOOPERATORMETHOD);
