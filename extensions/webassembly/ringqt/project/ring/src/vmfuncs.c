@@ -675,6 +675,7 @@ void ring_vm_createtemplist ( VM *pVM )
 						lFound = 1 ;
 						pList = ring_list_getlist(pList2,RING_TEMPLIST_LIST) ;
 						ring_list_deleteallitems_gc(pVM->pRingState,pList);
+						break ;
 					}
 				}
 			}
