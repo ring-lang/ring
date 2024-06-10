@@ -819,14 +819,6 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 	String *pString, *pString2  ;
 	RING_VM_IR_ITEMTYPE *pItem, *pItem2  ;
 	int nIns  ;
-	/* Create String */
-	pString = ring_string_new_gc(pVM->pRingState,"return ring_gettemp_var.'get");
-	ring_string_add_gc(pVM->pRingState,pString,ring_list_getstring(pVar,RING_VAR_NAME));
-	ring_string_add_gc(pVM->pRingState,pString,"'()");
-	/* Set Variable ring_gettemp_var */
-	pList = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_GETTEMPVAR) ;
-	ring_list_setpointer_gc(pVM->pRingState,pList,RING_VAR_VALUE,pVM->pGetSetObject);
-	ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_PVALUETYPE ,pVM->nGetSetObjType);
 	/* Check Setter & Getter for Public Attributes */
 	RING_VM_IR_LOAD ;
 	if ( RING_VM_IR_OPCODE != ICO_ASSIGNMENTPOINTER ) {
@@ -847,6 +839,14 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 			pList2 = ring_item_getlist(pGetSetItem) ;
 		}
 		if ( ring_vm_oop_ismethod(pVM,pList2,ring_string_get(pString2)) ) {
+			/* Create String */
+			pString = ring_string_new_gc(pVM->pRingState,"return ring_gettemp_var.'get");
+			ring_string_add_gc(pVM->pRingState,pString,ring_list_getstring(pVar,RING_VAR_NAME));
+			ring_string_add_gc(pVM->pRingState,pString,"'()");
+			/* Set Variable ring_gettemp_var */
+			pList = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_GETTEMPVAR) ;
+			ring_list_setpointer_gc(pVM->pRingState,pList,RING_VAR_VALUE,pVM->pGetSetObject);
+			ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_PVALUETYPE ,pVM->nGetSetObjType);
 			RING_VM_STACK_POP ;
 			if ( pVM->lGetSetProperty == 0 ) {
 				/* For Better Performance : Don't Eval() when we call Getter Method from Braces */
@@ -873,6 +873,8 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 				ring_vm_blockflag2(pVM,pVM->nPC);
 				pVM->nPC = RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ;
 			}
+			/* Delete String */
+			ring_string_delete_gc(pVM->pRingState,pString);
 		}
 		ring_string_delete_gc(pVM->pRingState,pString2);
 	}
@@ -912,8 +914,6 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 		}
 		ring_string_delete_gc(pVM->pRingState,pString2);
 	}
-	/* Delete String */
-	ring_string_delete_gc(pVM->pRingState,pString);
 }
 
 void ring_vm_oop_setproperty ( VM *pVM )
