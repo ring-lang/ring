@@ -18,7 +18,7 @@
 
 # Keywords List
 	aKEYWORDS = [
-		"IF","TO","OR","AND","NOT","FOR","NEW","FUNC", 
+		"IF","TO","OR","AND","NOT","FOR","FOREACH","NEW","FUNC", 
 		"FROM","NEXT","LOAD","ELSE","SEE","WHILE","OK",
 		"CLASS","RETURN","BUT", 
 		"END","GIVE","BYE","EXIT","TRY","CATCH","DONE",
