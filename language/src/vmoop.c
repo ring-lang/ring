@@ -820,11 +820,9 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 	RING_VM_IR_ITEMTYPE *pItem, *pItem2  ;
 	int nIns  ;
 	/* Create String */
-	pString = ring_string_new_gc(pVM->pRingState,"if ismethod(ring_gettemp_var,'get");
+	pString = ring_string_new_gc(pVM->pRingState,"return ring_gettemp_var.'get");
 	ring_string_add_gc(pVM->pRingState,pString,ring_list_getstring(pVar,RING_VAR_NAME));
-	ring_string_add_gc(pVM->pRingState,pString,"')\nreturn ring_gettemp_var.'get");
-	ring_string_add_gc(pVM->pRingState,pString,ring_list_getstring(pVar,RING_VAR_NAME));
-	ring_string_add_gc(pVM->pRingState,pString,"'() ok");
+	ring_string_add_gc(pVM->pRingState,pString,"'()");
 	/* Set Variable ring_gettemp_var */
 	pList = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_GETTEMPVAR) ;
 	ring_list_setpointer_gc(pVM->pRingState,pList,RING_VAR_VALUE,pVM->pGetSetObject);
