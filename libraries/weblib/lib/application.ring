@@ -88,7 +88,8 @@ Package System.Web
 				cInput = substr(cInput,nPos+1) #remove before start
 				nPos = substr(cInput,'"')  # end of the name
 
-				NewVar + left(cInput,nPos-1)	# add Name to List
+				cVarName = left(cInput,nPos-1)
+				NewVar + cVarName	# add Name to List
 				cInput = substr(cInput,nPos+1) # after name	
 
 				if left(cInput,1) = ";"
@@ -105,6 +106,10 @@ Package System.Web
 
 					nPos = substr(cInput,cMark) 
 					NewVar + left(cInput,nPos-2)    # Get File content
+
+					VarsList + NewVar
+
+					NewVar = [cVarName,:ExtraData]
 					NewVar + cFile			# Add file Name
 					cInput = substr(cInput,nPos)
 					
@@ -135,7 +140,7 @@ Package System.Web
 		
 		Func GetFileName  aArray,cVar
 			for x in aArray
-				if len(x) >= 3
+				if len(x) = 3
 					if x[1] = cVar
 						return WL_justfilename(x[3])
 					ok
