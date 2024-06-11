@@ -43,6 +43,7 @@ More Improvements
 
 * RingQt - Qt version is updated from Qt 5.15.16 to 5.15.17
 * Ring Compiler - Add new lines between error messages
+* Ring Compiler - Check argument duplication during function definition
 * Ring VM - Better support for list items of new objects when using lists during defintion 
 * Ring VM - List() function - Use blocks only if the list size is greater than 30 items 
 * Ring VM - Better code when deleting lists created using the List() function
