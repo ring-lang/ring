@@ -56,5 +56,7 @@ More Improvements
 * Ring VM - ring_vm_stepnumber() and ring_vm_sum() - Use: RING_VM_RETURNIFACTIVECATCH
 * Ring VM - ring_state_runcode() - Reset pVM->nPC to instructions count before code eval/execution
 * Ring VM - Hash Table - Better performance when using many variables
+* Ring VM - Object Attributes - Better performance when checking setter/getter methods
 * Ring VM - BraceError() method - Support using This and runtime error messages
 * Ring VM - ByteCode registers count is reduced from four to three (reduce memory usage)
+* Ring VM - ring_state_free() - Better code for threads support
