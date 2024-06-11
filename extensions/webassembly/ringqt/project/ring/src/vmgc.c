@@ -818,27 +818,25 @@ RING_API void ring_state_free ( void *pState,void *pMemory )
 	if ( pRingState != NULL ) {
 		pBlocks = pRingState->vPoolManager.pBlocks ;
 		if ( pBlocks != NULL ) {
-			if ( ring_list_getsize(pBlocks) > 0 ) {
-				lFound = 0 ;
-				if ( pRingState->pVM != NULL ) {
-					ring_vm_custmutexlock(pRingState->pVM,pRingState->vPoolManager.pMutex);
+			lFound = 0 ;
+			if ( pRingState->pVM != NULL ) {
+				ring_vm_custmutexlock(pRingState->pVM,pRingState->vPoolManager.pMutex);
+			}
+			for ( x = 1 ; x <= ring_list_getsize(pBlocks) ; x++ ) {
+				pBlock = ring_list_getlist(pBlocks,x) ;
+				pBlockStart = ring_list_getpointer(pBlock,RING_VM_BLOCKSTART);
+				pBlockEnd = ring_list_getpointer(pBlock,RING_VM_BLOCKEND);
+				if ( (pMemory >= pBlockStart) && (pMemory <= pBlockEnd) ) {
+					/* We have the memory inside a block, so we will not delete it! */
+					lFound = 1 ;
+					break ;
 				}
-				for ( x = 1 ; x <= ring_list_getsize(pBlocks) ; x++ ) {
-					pBlock = ring_list_getlist(pBlocks,x) ;
-					pBlockStart = ring_list_getpointer(pBlock,RING_VM_BLOCKSTART);
-					pBlockEnd = ring_list_getpointer(pBlock,RING_VM_BLOCKEND);
-					if ( (pMemory >= pBlockStart) && (pMemory <= pBlockEnd) ) {
-						/* We have the memory inside a block, so we will not delete it! */
-						lFound = 1 ;
-						break ;
-					}
-				}
-				if ( pRingState->pVM != NULL ) {
-					ring_vm_custmutexunlock(pRingState->pVM,pRingState->vPoolManager.pMutex);
-				}
-				if ( lFound == 1 ) {
-					return ;
-				}
+			}
+			if ( pRingState->pVM != NULL ) {
+				ring_vm_custmutexunlock(pRingState->pVM,pRingState->vPoolManager.pMutex);
+			}
+			if ( lFound == 1 ) {
+				return ;
 			}
 		}
 	}
