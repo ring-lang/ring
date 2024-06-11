@@ -73,7 +73,9 @@ Func BF_Traversal()
 	See "State: > "  	display1D(state)
 	
 	See "Enter Start Vertex for BFS: "
-	Give v   v = number(v)
+	Give v  try v = number(v) catch v = 0 done
+
+	if v < 1 ? "Wrong vertex!" return ok
    
 	BFS(v)       // ===>>>  Call 
 	
