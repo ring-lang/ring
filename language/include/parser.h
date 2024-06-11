@@ -94,6 +94,7 @@
 	#define RING_PARSER_ERROR_SYNTAXERROR "Error (C27) : Syntax Error!"
 	#define RING_PARSER_ERROR_EXPRESSIONISEXPECTED "Error (C28) : Expression is expected!"
 	#define RING_PARSER_ERROR_BRACEISMISSINGTOSTARTANONFUNC "Error (C29) : Braces are missing to define anonymous function!"
+	#define RING_PARSER_ERROR_ARGREDEFINE "Error (C30) : Argument redefinition, argument is already defined!"
 	/* Constants */
 	#define RING_PARSER_NUMBERLENGTH 97
 	/* Packages List */

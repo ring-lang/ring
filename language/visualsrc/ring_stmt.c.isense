@@ -21,9 +21,13 @@ Type: char
 cCurrentDir[RING_PATHSIZE]
 ring_parser_paralist
 Type: int
-nStart, nParaCount
+nStart, nParaCount, lDuplication
 Type: const char *
-cToken
+cToken, *cArguments
+Type: char *
+cPos
+Type: char
+cChar
 ring_parser_list
 ring_parser_epsilon
 ring_parser_passepsilon
