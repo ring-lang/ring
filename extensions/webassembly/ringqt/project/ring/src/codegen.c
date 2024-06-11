@@ -103,6 +103,11 @@ void ring_parser_icg_deleteoperand ( Parser *pParser , int nPos )
 	ring_list_deleteitem_gc(NULL,pParser->pActiveGenCodeList,nPos);
 }
 
+const char * ring_parser_icg_getlaststring ( Parser *pParser )
+{
+	return ring_list_getstring(pParser->pActiveGenCodeList, ring_list_getsize(pParser->pActiveGenCodeList)) ;
+}
+
 void ring_parser_icg_loadfunction ( Parser *pParser,const char *cFunctionName )
 {
 	ring_parser_icg_newoperation(pParser,ICO_LOADFUNC);

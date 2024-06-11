@@ -224,6 +224,8 @@
 	void ring_parser_icg_setopcode ( Parser *pParser ,List *pList , int nValue ) ;
 
 	void ring_parser_icg_deleteoperand ( Parser *pParser , int nPos ) ;
+
+	const char * ring_parser_icg_getlaststring ( Parser *pParser ) ;
 	/* Specific Instructions */
 
 	void ring_parser_icg_loadfunction ( Parser *pParser,const char *cFunctionName ) ;

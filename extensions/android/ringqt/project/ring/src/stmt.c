@@ -1138,8 +1138,10 @@ int ring_parser_stmt ( Parser *pParser )
 
 int ring_parser_paralist ( Parser *pParser )
 {
-	int nStart, nParaCount  ;
-	const char *cToken  ;
+	int nStart, nParaCount, lDuplication  ;
+	const char *cToken, *cArguments  ;
+	char *cPos  ;
+	char cChar  ;
 	/* Check ( */
 	nStart = 0 ;
 	nParaCount = 0 ;
@@ -1176,6 +1178,32 @@ int ring_parser_paralist ( Parser *pParser )
 				if ( nStart && ring_parser_isidentifier(pParser) ) {
 					cToken = pParser->cTokenText ;
 					ring_parser_nexttoken(pParser);
+				}
+				/* Check Duplication */
+				cArguments = ring_parser_icg_getlaststring(pParser) ;
+				lDuplication = (strcmp(cToken,cArguments) == 0) ;
+				if ( ! lDuplication ) {
+					cPos = ring_string_find3_gc(pParser->pRingState,(char *) cArguments,strlen(cArguments),(char *) cToken,strlen(cToken)) ;
+					if ( cPos != NULL ) {
+						cChar = cPos[strlen(cToken)] ;
+						/* We must get space after the argument or \0 character */
+						if ( (cChar == ' ' ) || (cChar == '\0') ) {
+							if ( cPos == cArguments ) {
+								lDuplication = 1 ;
+							}
+							else {
+								/* We must have space before the argument (We already know it's not the first) */
+								cPos-- ;
+								if ( cPos[0] == ' ' ) {
+									lDuplication = 1 ;
+								}
+							}
+						}
+					}
+				}
+				if ( lDuplication ) {
+					ring_parser_error(pParser,RING_PARSER_ERROR_ARGREDEFINE);
+					return RING_PARSER_FAIL ;
 				}
 				/* Generate Code */
 				ring_parser_icg_addtooperand(pParser," ");
