@@ -1,0 +1,4 @@
+
+errormsg/arg2.ring Line (2) Error (C30) : Argument redefinition, argument is already defined!
+
+errormsg/arg2.ring errors count : 1 
