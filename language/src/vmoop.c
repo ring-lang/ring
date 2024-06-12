@@ -920,8 +920,9 @@ void ring_vm_oop_setproperty ( VM *pVM )
 {
 	List *pList, *pList2  ;
 	RING_VM_IR_ITEMTYPE *pItem, *pRegItem  ;
-	String *pString  ;
-	int nIns, nIns2  ;
+	Item *pGetSetItem  ;
+	String *pString, *pString2  ;
+	int nIns, nIns2, lSetter  ;
 	/* If we don't have a setter method and we have a new list or new object */
 	if ( pVM->nNoSetterMethod == RING_NOSETTERMETHOD_IGNORESETPROPERTY ) {
 		pVM->nNoSetterMethod = RING_NOSETTERMETHOD_DEFAULT ;
@@ -967,34 +968,59 @@ void ring_vm_oop_setproperty ( VM *pVM )
 		/* Set Variable ring_tempflag_var */
 		pList2 = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_TEMPFALG) ;
 		ring_list_setdouble_gc(pVM->pRingState,pList2,RING_VAR_VALUE,RING_ZEROF);
-		/* Execute the same instruction again (next time the part "After (Second Time)" will run ) */
-		pVM->nPC-- ;
-		if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG2)  == 0 ) {
-			/* Create String */
-			pString = ring_string_new_gc(pVM->pRingState,"if ismethod(ring_gettemp_var,'set");
-			ring_string_add_gc(pVM->pRingState,pString,ring_list_getstring(pList,RING_SETPROPERTY_ATTRNAME));
-			ring_string_add_gc(pVM->pRingState,pString,"')\nring_gettemp_var.'set");
-			ring_string_add_gc(pVM->pRingState,pString,ring_list_getstring(pList,RING_SETPROPERTY_ATTRNAME));
-			ring_string_add_gc(pVM->pRingState,pString,"'(ring_settemp_var)\nring_tempflag_var = 0\nelse\nring_tempflag_var = 1\nok");
-			/*
-			**  Eval the string 
-			**  We use -1 instead of -2 because we already used pVM->nPC-- 
-			*/
-			nIns2 = pVM->nPC - 1 ;
-			pVM->lEvalCalledFromRingCode = 0 ;
-			if ( pVM->nInsideEval ) {
-				pVM->lRetEvalDontDelete = 1 ;
-			}
-			ring_vm_eval(pVM,ring_string_get(pString));
-			/* Note: Eval reallocation change mem. locations */
-			pItem = RING_VM_IR_ITEMATINS(nIns2,RING_VM_IR_REG2) ;
-			RING_VM_IR_ITEMSETINT(pItem,pVM->nPC);
-			/* Delete String */
-			ring_string_delete_gc(pVM->pRingState,pString);
+		/* Check if the Setter method exist */
+		pString2 = ring_string_new_gc(pVM->pRingState,"set");
+		ring_string_add_gc(pVM->pRingState,pString2,ring_list_getstring(pList,RING_SETPROPERTY_ATTRNAME));
+		/* Check Type */
+		pList2 = NULL ;
+		if ( ring_list_getint(pList,RING_SETPROPERTY_OBJTYPE)  == RING_OBJTYPE_VARIABLE ) {
+			pList2 = ring_list_getlist((List *) (ring_list_getpointer(pList,RING_SETPROPERTY_OBJPTR)),RING_VAR_VALUE ) ;
+		}
+		else if ( ring_list_getint(pList,RING_SETPROPERTY_OBJTYPE)  == RING_OBJTYPE_LISTITEM ) {
+			pGetSetItem = (Item *) ring_list_getpointer(pList,RING_SETPROPERTY_OBJPTR) ;
+			pList2 = ring_item_getlist(pGetSetItem) ;
+		}
+		lSetter = 0 ;
+		if ( ring_vm_oop_ismethod(pVM,pList2,ring_string_get(pString2)) ) {
+			/* Set Variable ring_tempflag_var */
+			pList2 = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_TEMPFALG) ;
+			ring_list_setdouble_gc(pVM->pRingState,pList2,RING_VAR_VALUE,RING_ZEROF);
+			lSetter = 1 ;
 		}
 		else {
-			ring_vm_blockflag2(pVM,pVM->nPC);
-			pVM->nPC = RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ;
+			/* Set Variable ring_tempflag_var */
+			pList2 = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_TEMPFALG) ;
+			ring_list_setdouble_gc(pVM->pRingState,pList2,RING_VAR_VALUE,RING_ONEF);
+		}
+		ring_string_delete_gc(pVM->pRingState,pString2);
+		/* Execute the same instruction again (next time the part "After (Second Time)" will run ) */
+		pVM->nPC-- ;
+		if ( lSetter ) {
+			if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG2)  == 0 ) {
+				/* Create String */
+				pString = ring_string_new_gc(pVM->pRingState,"ring_gettemp_var.'set");
+				ring_string_add_gc(pVM->pRingState,pString,ring_list_getstring(pList,RING_SETPROPERTY_ATTRNAME));
+				ring_string_add_gc(pVM->pRingState,pString,"'(ring_settemp_var)\n");
+				/*
+				**  Eval the string 
+				**  We use -1 instead of -2 because we already used pVM->nPC-- 
+				*/
+				nIns2 = pVM->nPC - 1 ;
+				pVM->lEvalCalledFromRingCode = 0 ;
+				if ( pVM->nInsideEval ) {
+					pVM->lRetEvalDontDelete = 1 ;
+				}
+				ring_vm_eval(pVM,ring_string_get(pString));
+				/* Note: Eval reallocation change mem. locations */
+				pItem = RING_VM_IR_ITEMATINS(nIns2,RING_VM_IR_REG2) ;
+				RING_VM_IR_ITEMSETINT(pItem,pVM->nPC);
+				/* Delete String */
+				ring_string_delete_gc(pVM->pRingState,pString);
+			}
+			else {
+				ring_vm_blockflag2(pVM,pVM->nPC);
+				pVM->nPC = RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ;
+			}
 		}
 		/* Set Before/After SetProperty Flag To After */
 		pRegItem = RING_VM_IR_ITEMATINS(nIns,RING_VM_IR_REG1) ;
