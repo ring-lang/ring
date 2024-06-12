@@ -922,7 +922,7 @@ void ring_vm_oop_setproperty ( VM *pVM )
 	RING_VM_IR_ITEMTYPE *pItem, *pRegItem  ;
 	Item *pGetSetItem  ;
 	String *pString, *pString2  ;
-	int nIns, nIns2, lSetter  ;
+	int nIns, nIns2  ;
 	/* If we don't have a setter method and we have a new list or new object */
 	if ( pVM->nNoSetterMethod == RING_NOSETTERMETHOD_IGNORESETPROPERTY ) {
 		pVM->nNoSetterMethod = RING_NOSETTERMETHOD_DEFAULT ;
@@ -979,12 +979,11 @@ void ring_vm_oop_setproperty ( VM *pVM )
 			pGetSetItem = (Item *) ring_list_getpointer(pList,RING_SETPROPERTY_OBJPTR) ;
 			pList2 = ring_item_getlist(pGetSetItem) ;
 		}
-		lSetter = ring_vm_oop_ismethod(pVM,pList2,ring_string_get(pString2)) ;
-		RING_VM_IR_SETFLAGREG(! lSetter);
+		RING_VM_IR_SETFLAGREG(ring_vm_oop_ismethod(pVM,pList2,ring_string_get(pString2)));
 		ring_string_delete_gc(pVM->pRingState,pString2);
 		/* Execute the same instruction again (next time the part "After (Second Time)" will run ) */
 		pVM->nPC-- ;
-		if ( lSetter ) {
+		if ( RING_VM_IR_GETFLAGREG ) {
 			if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG2)  == 0 ) {
 				/* Create String */
 				pString = ring_string_new_gc(pVM->pRingState,"ring_gettemp_var.'set");
@@ -1019,7 +1018,7 @@ void ring_vm_oop_setproperty ( VM *pVM )
 	else {
 		/* Set Before/After SetProperty Flag to Before */
 		RING_VM_IR_READIVALUE(RING_VM_IR_REG1) = RING_FALSE ;
-		if ( RING_VM_IR_GETFLAGREG == 1 ) {
+		if ( ! RING_VM_IR_GETFLAGREG ) {
 			/*
 			**  The set method is not found!, we have to do the assignment operation 
 			**  Push Variable Then Push Value then Assignment 

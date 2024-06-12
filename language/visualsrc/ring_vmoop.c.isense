@@ -133,7 +133,7 @@ pGetSetItem
 Type: String *
 pString, *pString2
 Type: int
-nIns, nIns2, lSetter
+nIns, nIns2
 ring_vm_oop_objvarfromobjlist
 Type: int
 nType
