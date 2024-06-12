@@ -131,7 +131,7 @@ pItem, *pRegItem
 Type: Item *
 pGetSetItem
 Type: String *
-pString
+pString, *pString2
 Type: int
 nIns, nIns2, lSetter
 ring_vm_oop_objvarfromobjlist

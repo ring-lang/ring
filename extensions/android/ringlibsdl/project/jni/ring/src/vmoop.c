@@ -965,9 +965,8 @@ void ring_vm_oop_setproperty ( VM *pVM )
 			ring_list_addpointer_gc(pVM->pRingState,pList,RING_VM_STACK_READP);
 			ring_list_addint_gc(pVM->pRingState,pList,RING_VM_STACK_OBJTYPE);
 		}
-		/* Set Variable ring_tempflag_var */
-		pList2 = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_TEMPFALG) ;
-		ring_list_setdouble_gc(pVM->pRingState,pList2,RING_VAR_VALUE,RING_ZEROF);
+		/* Set the Flag Register to Zero */
+		RING_VM_IR_SETFLAGREG(0);
 		/* Check if the Setter method exist */
 		pString2 = ring_string_new_gc(pVM->pRingState,"set");
 		ring_string_add_gc(pVM->pRingState,pString2,ring_list_getstring(pList,RING_SETPROPERTY_ATTRNAME));
@@ -980,18 +979,8 @@ void ring_vm_oop_setproperty ( VM *pVM )
 			pGetSetItem = (Item *) ring_list_getpointer(pList,RING_SETPROPERTY_OBJPTR) ;
 			pList2 = ring_item_getlist(pGetSetItem) ;
 		}
-		lSetter = 0 ;
-		if ( ring_vm_oop_ismethod(pVM,pList2,ring_string_get(pString2)) ) {
-			/* Set Variable ring_tempflag_var */
-			pList2 = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_TEMPFALG) ;
-			ring_list_setdouble_gc(pVM->pRingState,pList2,RING_VAR_VALUE,RING_ZEROF);
-			lSetter = 1 ;
-		}
-		else {
-			/* Set Variable ring_tempflag_var */
-			pList2 = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_TEMPFALG) ;
-			ring_list_setdouble_gc(pVM->pRingState,pList2,RING_VAR_VALUE,RING_ONEF);
-		}
+		lSetter = ring_vm_oop_ismethod(pVM,pList2,ring_string_get(pString2)) ;
+		RING_VM_IR_SETFLAGREG(! lSetter);
 		ring_string_delete_gc(pVM->pRingState,pString2);
 		/* Execute the same instruction again (next time the part "After (Second Time)" will run ) */
 		pVM->nPC-- ;
@@ -1030,9 +1019,7 @@ void ring_vm_oop_setproperty ( VM *pVM )
 	else {
 		/* Set Before/After SetProperty Flag to Before */
 		RING_VM_IR_READIVALUE(RING_VM_IR_REG1) = RING_FALSE ;
-		/* Get Variable ring_tempflag_var */
-		pList2 = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_TEMPFALG) ;
-		if ( ring_list_getdouble(pList2,RING_VAR_VALUE) == 1.0 ) {
+		if ( RING_VM_IR_GETFLAGREG == 1 ) {
 			/*
 			**  The set method is not found!, we have to do the assignment operation 
 			**  Push Variable Then Push Value then Assignment 
