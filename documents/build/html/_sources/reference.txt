@@ -414,6 +414,7 @@ Compiler Errors
 * Error (C27) : Syntax Error!
 * Error (C28) : Expression is expected!
 * Error (C29) : Braces are missing to define anonymous function!
+* Error (C30) : Argument redefinition, argument is already defined!
 
 * Error (S1) : Literal not closed!
 
