@@ -12,7 +12,7 @@ Seed = random(9)
 func ToCode (aInput) { 
 	cCode = "["
 	lStart = True
-	for item in aInput step 1 { 
+	for item in aInput { 
 		if !lStart { 
 			cCode += ","+Char(32)
 			else
@@ -31,7 +31,7 @@ func ToCode (aInput) {
 				aAttribut = attributes(item)
 				cCode += "["
 				lStart = True
-				for attribut in aAttribut step 1 { 
+				for attribut in aAttribut { 
 					if !lStart { 
 						cCode += ","
 						else
@@ -61,18 +61,17 @@ class MatrixCalc
 	func CreateMatrix (DMatrix) { 
 		SizeMatrix = len(DMatrix)
 		NewParms = []
-		for i = 2 to SizeMatrix step 1 { 
+		for i = 2 to SizeMatrix { 
 			NewParms+DMatrix[i]
 		} 
 		aOutput = list(DMatrix[1])
 		if SizeMatrix = 1 { 
-			for item in aOutput step 1 { 
+			for item in aOutput { 
 				item = 0
-				#rand()
 			} 
 			return aOutput
 		} 
-		for t in aOutput step 1 { 
+		for t in aOutput { 
 			t = CreateMatrix(NewParms)
 		} 
 		return aOutput
@@ -82,8 +81,8 @@ class MatrixCalc
 		nOfRows = len(Matrix)+(topPadding*2)
 		nOfCols = len(Matrix[1])+(leftPadding*2)
 		aPad = MC.zeros(nOfRows,nOfCols)
-		for i = topPadding+1 to nOfRows-topPadding step 1 { 
-			for j = leftPadding+1 to nOfCols-leftPadding step 1 { 
+		for i = topPadding+1 to nOfRows-topPadding { 
+			for j = leftPadding+1 to nOfCols-leftPadding { 
 				aPad[i][j] = Matrix[i-topPadding][j-leftPadding]
 			} 
 		} 
@@ -93,16 +92,16 @@ class MatrixCalc
 	func DivByNum (Matrix,num) { 
 		aDivMatrix = Matrix
 		if len(Matrix[1]) = 1 { 
-			for v = 1 to len(Matrix) step 1 { 
+			for v = 1 to len(Matrix) { 
 				aDivMatrix[v][1] = Matrix[v][1]/num
 			} 
 			elseif len(Matrix) = 1
-				for h = 1 to len(Matrix[1]) step 1 { 
+				for h = 1 to len(Matrix[1]) { 
 					aDivMatrix[1][h] = Matrix[1][h]/num
 				} 
 			else
-				for v = 1 to len(Matrix) step 1 { 
-					for h = 1 to len(Matrix[v]) step 1 { 
+				for v = 1 to len(Matrix) { 
+					for h = 1 to len(Matrix[v]) { 
 						aDivMatrix[v][h] = Matrix[v][h]/num
 					} 
 				} 
@@ -124,10 +123,10 @@ class MatrixCalc
 			? "dimension-A:"+vertA+"X"+horzA+"-----"+"dimension-B:"+vertB+"X"+horzB
 			return 
 		} 
-		for v = 1 to vertA step 1 { 
-			for h = 1 to horzB step 1 { 
+		for v = 1 to vertA { 
+			for h = 1 to horzB { 
 				Sum = 0
-				for k = 1 to horzA step 1 { 
+				for k = 1 to horzA { 
 					Sum += MatrixA[v][k]*MatrixB[k][h]
 				} 
 				MulMatrix[v][h] = Sum
@@ -147,8 +146,8 @@ class MatrixCalc
 			"vert-A:"+vertA+" MUST EQUAL vert-B:"+vertB
 			return 1 
 		} 
-		for v = 1 to vertA step 1 { 
-			for h = 1 to horzA step 1 { 
+		for v = 1 to vertA { 
+			for h = 1 to horzA { 
 				aMultiply[v][h] = MatrixA[v][h]*MatrixB[v][h]
 			} 
 		} 
@@ -166,8 +165,8 @@ class MatrixCalc
 			"vert-A:"+vertA+" MUST EQUAL vert-B:"+vertB
 			return 1 
 		} 
-		for v = 1 to vertA step 1 { 
-			for h = 1 to horzA step 1 { 
+		for v = 1 to vertA { 
+			for h = 1 to horzA { 
 				aSum[v][h] = MatrixA[v][h]+MatrixB[v][h]
 			} 
 		} 
@@ -185,8 +184,8 @@ class MatrixCalc
 			"vert-A:"+vertA+" MUST EQUAL vert-B:"+vertB
 			return 1 
 		} 
-		for v = 1 to vertA step 1 { 
-			for h = 1 to horzA step 1 { 
+		for v = 1 to vertA { 
+			for h = 1 to horzA { 
 				aSubtract[v][h] = MatrixA[v][h]-MatrixB[v][h]
 			} 
 		} 
@@ -196,20 +195,20 @@ class MatrixCalc
 	func Transpose (Matrix) { 
 		if len(Matrix) = 1 { 
 			aTranspose = list(len(Matrix[1]),1)
-			for v = 1 to len(aTranspose[1]) step 1 { 
+			for v = 1 to len(aTranspose[1]) { 
 				aTranspose[v][1] = Matrix[1][v]
 			} 
 			return aTranspose
 			elseif len(Matrix[1]) = 1
 				aTranspose = list(1,len(Matrix))
-				for v = 1 to len(aTranspose) step 1 { 
+				for v = 1 to len(aTranspose) { 
 					aTranspose[1][v] = Matrix[v][1]
 				} 
 				return aTranspose
 			else
 				aTranspose = list(len(Matrix[1]),len(Matrix))
-				for v = 1 to len(aTranspose) step 1 { 
-					for h = 1 to len(aTranspose[1]) step 1 { 
+				for v = 1 to len(aTranspose) { 
+					for h = 1 to len(aTranspose[1]) { 
 						aTranspose[v][h] = Matrix[h][v]
 					} 
 				} 
@@ -224,8 +223,8 @@ class MatrixCalc
 			return Max( Matrix ) 
 		} 
 		if Axis = 1 { 
-			for v = 1 to len(Matrix) step 1 { 
-				for h = 1 to len(Matrix) step 1 { 
+			for v = 1 to len(Matrix) { 
+				for h = 1 to len(Matrix) { 
 					aAxis+aMaximum[v][Axis]
 				} 
 				Axis++
@@ -233,8 +232,8 @@ class MatrixCalc
 			aMaximum = Max(aAxis)
 			return aMaximum
 			elseif Axis = 0
-				for v = 1 to len(Matrix) step 1 { 
-					for h = 1 to len(Matrix[1]) step 1 { 
+				for v = 1 to len(Matrix) { 
+					for h = 1 to len(Matrix[1]) { 
 						aAxis+aMaximum[v][h]
 					} 
 				} 
@@ -245,8 +244,8 @@ class MatrixCalc
 
 	func Zeros (vNum,hNum) { 
 		aZeros = list(vNum,hNum)
-		for v = 1 to vNum step 1 { 
-			for h = 1 to hNum step 1 { 
+		for v = 1 to vNum { 
+			for h = 1 to hNum { 
 				aZeros[v][h] = 0
 			} 
 		} 
@@ -255,7 +254,7 @@ class MatrixCalc
 
 	func Identity (Num) { 
 		aIdentity = Zeros(Num,Num)
-		for v = 1 to Num step 1 { 
+		for v = 1 to Num { 
 			aIdentity[v][v] = 1
 		} 
 		return aIdentity
@@ -264,7 +263,7 @@ class MatrixCalc
 	func Diag (alist) { 
 		Num = len(alist)
 		aDaig = Zeros(Num,Num)
-		for v = 1 to Num step 1 { 
+		for v = 1 to Num { 
 			aDaig[v][v] = alist[v]
 		} 
 		return aDaig
@@ -281,8 +280,8 @@ class MatrixCalc
 
 	func MRandInt (vNum,hNum,nMax) { 
 		aMRandInt = list(vNum,hNum)
-		for v = 1 to vNum step 1 { 
-			for h = 1 to hNum step 1 { 
+		for v = 1 to vNum { 
+			for h = 1 to hNum { 
 				aMRandInt[v][h] = Random(nMax)
 			} 
 		} 
@@ -291,8 +290,8 @@ class MatrixCalc
 
 	func MRand (vNum,hNum) { 
 		aRand = list(vNum,hNum)
-		for v = 1 to vNum step 1 { 
-			for h = 1 to hNum step 1 { 
+		for v = 1 to vNum { 
+			for h = 1 to hNum { 
 				aRand[v][h] = Rand()
 			} 
 		} 
@@ -307,14 +306,14 @@ class MatrixCalc
 	func Mean (Matrix) { 
 		aArithmeticMean = Matrix
 		aSum = []
-		for v = 1 to len(aArithmeticMean) step 1 { 
-			for h = 1 to len(aArithmeticMean[1]) step 1 { 
+		for v = 1 to len(aArithmeticMean) { 
+			for h = 1 to len(aArithmeticMean[1]) { 
 				aSum+aArithmeticMean[v][h]
 			} 
 		} 
 		Sum = 0
 		#? ToCode(aSum)
-		for x = 1 to len(aSum) step 1 { 
+		for x = 1 to len(aSum) { 
 			Sum += aSum[x]
 		} 
 		return Sum/ len( aSum ) 
@@ -322,8 +321,8 @@ class MatrixCalc
 
 	func Msqrt (Matrix) { 
 		aSquare = Matrix
-		for v = 1 to len(aSquare) step 1 { 
-			for h = 1 to len(aSquare[1]) step 1 { 
+		for v = 1 to len(aSquare) { 
+			for h = 1 to len(aSquare[1]) { 
 				aSquare[v][h] = sqrt(Matrix[v][h])
 			} 
 		} 
@@ -333,8 +332,8 @@ class MatrixCalc
 
 	func Square (Matrix) { 
 		aSquare = Matrix
-		for v = 1 to len(aSquare) step 1 { 
-			for h = 1 to len(aSquare[1]) step 1 { 
+		for v = 1 to len(aSquare) { 
+			for h = 1 to len(aSquare[1]) { 
 				aSquare[v][h] = pow(Matrix[v][h],2)
 			} 
 		} 
@@ -349,8 +348,8 @@ class MatrixCalc
 		#--------------------------------------------------------------
 
 		aSigmoid = Matrix
-		for v = 1 to len(aSigmoid) step 1 { 
-			for h = 1 to len(aSigmoid[1]) step 1 { 
+		for v = 1 to len(aSigmoid) { 
+			for h = 1 to len(aSigmoid[1]) { 
 				aSigmoid[v][h] = 1/(1+exp(-Matrix[v][h]))
 			} 
 		} 
@@ -367,19 +366,19 @@ class MatrixCalc
 		aSigmoidPrimeMatrix = Matrix
 		if len(Matrix) = 1 { 
 			aSigmoidPrimeMatrix = list(1,len(Matrix[1]))
-			for v = 1 to len(Matrix[1]) step 1 { 
+			for v = 1 to len(Matrix[1]) { 
 				aSigmoidPrimeMatrix[1][v] = Matrix[1][v]*(1-Matrix[1][v])
 			} 
 			return aSigmoidPrimeMatrix
 			elseif len(Matrix[1]) = 1
 				aSigmoidPrimeMatrix = list(len(Matrix),1)
-				for v = 1 to len(Matrix) step 1 { 
+				for v = 1 to len(Matrix) { 
 					aSigmoidPrimeMatrix[v][1] = Matrix[v][1]*(1-Matrix[v][1])
 				} 
 				return aSigmoidPrimeMatrix
 			else
-				for v = 1 to len(Matrix) step 1 { 
-					for h = 1 to len(Matrix[1]) step 1 { 
+				for v = 1 to len(Matrix) { 
+					for h = 1 to len(Matrix[1]) { 
 						aSigmoidPrimeMatrix[v][h] = Matrix[v][h]*(1-Matrix[v][h])
 					} 
 				} 
@@ -398,8 +397,8 @@ class MatrixCalc
 
 
 		aTanh = Matrix
-		for v = 1 to len(aTanh) step 1 { 
-			for h = 1 to len(aTanh[1]) step 1 { 
+		for v = 1 to len(aTanh) { 
+			for h = 1 to len(aTanh[1]) { 
 				aTanh[v][h] = tanh(Matrix[v][h])
 			} 
 		} 
@@ -410,19 +409,19 @@ class MatrixCalc
 		aTanhPrime = Matrix
 		if len(Matrix) = 1 { 
 			aTanhPrime = list(1,len(Matrix[1]))
-			for v = 1 to len(Matrix[1]) step 1 { 
+			for v = 1 to len(Matrix[1]) { 
 				aTanhPrime[1][v] = 1-pow(tanh(Matrix[1][v]),2)
 			} 
 			return aTanhPrime
 			elseif len(Matrix[1]) = 1
 				aTanhPrime = list(len(Matrix),1)
-				for v = 1 to len(Matrix) step 1 { 
+				for v = 1 to len(Matrix) { 
 					aTanhPrime[v][1] = 1-pow(tanh(Matrix[v][1]),2)
 				} 
 				return aTanhPrime
 			else
-				for v = 1 to len(Matrix) step 1 { 
-					for h = 1 to len(Matrix[1]) step 1 { 
+				for v = 1 to len(Matrix) { 
+					for h = 1 to len(Matrix[1]) { 
 						aTanhPrime[v][h] = 1-pow(tanh(Matrix[v][h]),2)
 					} 
 				} 
@@ -443,8 +442,8 @@ class MatrixCalc
 		#--------------------------------------------------------------
 
 		aTanh = Matrix
-		for v = 1 to len(aTanh) step 1 { 
-			for h = 1 to len(aTanh[1]) step 1 { 
+		for v = 1 to len(aTanh) { 
+			for h = 1 to len(aTanh[1]) { 
 				aTanh[v][h] = MLeakyReLU(Matrix[v][h])
 			} 
 		} 
@@ -455,19 +454,19 @@ class MatrixCalc
 		aTanhPrime = Matrix
 		if len(Matrix) = 1 { 
 			aTanhPrime = list(1,len(Matrix[1]))
-			for v = 1 to len(Matrix[1]) step 1 { 
+			for v = 1 to len(Matrix[1]) { 
 				aTanhPrime[1][v] = MLeakyReLUPrime(Matrix[1][v])
 			} 
 			return aTanhPrime
 			elseif len(Matrix[1]) = 1
 				aTanhPrime = list(len(Matrix),1)
-				for v = 1 to len(Matrix) step 1 { 
+				for v = 1 to len(Matrix) { 
 					aTanhPrime[v][1] = MLeakyReLUPrime(Matrix[v][1])
 				} 
 				return aTanhPrime
 			else
-				for v = 1 to len(Matrix) step 1 { 
-					for h = 1 to len(Matrix[1]) step 1 { 
+				for v = 1 to len(Matrix) { 
+					for h = 1 to len(Matrix[1]) { 
 						aTanhPrime[v][h] = MLeakyReLUPrime(Matrix[v][h])
 					} 
 				} 
@@ -477,8 +476,8 @@ class MatrixCalc
 
 	func ReLu (Matrix) { 
 		aTanh = Matrix
-		for v = 1 to len(aTanh) step 1 { 
-			for h = 1 to len(aTanh[1]) step 1 { 
+		for v = 1 to len(aTanh) { 
+			for h = 1 to len(aTanh[1]) { 
 				aTanh[v][h] = MReLu(Matrix[v][h])
 			} 
 		} 
@@ -489,19 +488,19 @@ class MatrixCalc
 		aReLuPrime = Matrix
 		if len(Matrix) = 1 { 
 			aReLuPrime = list(1,len(Matrix[1]))
-			for v = 1 to len(Matrix[1]) step 1 { 
+			for v = 1 to len(Matrix[1]) { 
 				aReLuPrime[1][v] = MReLuPrime(Matrix[1][v])
 			} 
 			return aReLuPrime
 			elseif len(Matrix[1]) = 1
 				aReLuPrime = list(len(Matrix),1)
-				for v = 1 to len(Matrix) step 1 { 
+				for v = 1 to len(Matrix) { 
 					aReLuPrime[v][1] = MReLuPrime(Matrix[v][1])
 				} 
 				return aReLuPrime
 			else
-				for v = 1 to len(Matrix) step 1 { 
-					for h = 1 to len(Matrix[1]) step 1 { 
+				for v = 1 to len(Matrix) { 
+					for h = 1 to len(Matrix[1]) { 
 						aReLuPrime[v][h] = MReLuPrime(Matrix[v][h])
 					} 
 				} 
@@ -551,8 +550,8 @@ class MatrixCalc
 
 	func MExp (Matrix) { 
 		aExp = Matrix
-		for v = 1 to len(aExp) step 1 { 
-			for h = 1 to len(aExp[1]) step 1 { 
+		for v = 1 to len(aExp) { 
+			for h = 1 to len(aExp[1]) { 
 				aExp[v][h] = exp(Matrix[v][h])
 			} 
 		} 
@@ -562,10 +561,10 @@ class MatrixCalc
 	func MSum (Matrix,Axis) { 
 		if Axis { 
 			aSum = list(len(Matrix),1)
-			for v = 1 to len(Matrix) step 1 { 
-				for h = 1 to len(Matrix[1]) step 1 { 
+			for v = 1 to len(Matrix) { 
+				for h = 1 to len(Matrix[1]) { 
 					nSum = 0
-					for k = 1 to len(Matrix[1]) step 1 { 
+					for k = 1 to len(Matrix[1]) { 
 						nSum += Matrix[v][k]
 					} 
 					aSum[v][1] = nSum
@@ -574,10 +573,10 @@ class MatrixCalc
 			return aSum
 			else
 				aSum = list(1,len(Matrix[1]))
-				for v = 1 to len(Matrix) step 1 { 
-					for h = 1 to len(Matrix[1]) step 1 { 
+				for v = 1 to len(Matrix) { 
+					for h = 1 to len(Matrix[1]) { 
 						nSum = 0
-						for k = 1 to len(Matrix) step 1 { 
+						for k = 1 to len(Matrix) { 
 							nSum += Matrix[k][h]
 							#?"sum:" +   nSum
 						} 
@@ -597,8 +596,8 @@ class MatrixCalc
 
 	func HorStack (MatrixA,MatrixB) { 
 		aHorStack = MatrixA
-		for i = 1 to len(MatrixB) step 1 { 
-			for j = 1 to len(MatrixB[1]) step 1 { 
+		for i = 1 to len(MatrixB) { 
+			for j = 1 to len(MatrixB[1]) { 
 				aHorStack[i]+MatrixB[i][j]
 			} 
 		} 
@@ -607,7 +606,7 @@ class MatrixCalc
 
 	func VerStack (MatrixA,MatrixB) { 
 		aVerStack = MatrixA
-		for i = 1 to len(MatrixB) step 1 { 
+		for i = 1 to len(MatrixB) { 
 			aVerStack+MatrixB[i]
 		} 
 		return aVerStack
@@ -615,8 +614,8 @@ class MatrixCalc
 
 	func Ravel (Matrix) { 
 		aRavel = []
-		for i = 1 to len(Matrix) step 1 { 
-			for j = 1 to len(Matrix[1]) step 1 { 
+		for i = 1 to len(Matrix) { 
+			for j = 1 to len(Matrix[1]) { 
 				aRavel+Matrix[i][j]
 			} 
 		} 
@@ -625,8 +624,8 @@ class MatrixCalc
 
 	func ZeroLike (Matrix) { 
 		aZeroLike = Matrix
-		for i = 1 to len(Matrix) step 1 { 
-			for j = 1 to len(Matrix[1]) step 1 { 
+		for i = 1 to len(Matrix) { 
+			for j = 1 to len(Matrix[1]) { 
 				aZeroLike[i][j] = 0
 			} 
 		} 
@@ -635,7 +634,7 @@ class MatrixCalc
 
 	func Atleast2d (aInput) { 
 		aAtleast2d = []
-		for i = 1 to len(aInput) step 1 { 
+		for i = 1 to len(aInput) { 
 			aAtleast2d+[aInput[i]]
 		} 
 		return aAtleast2d
@@ -649,7 +648,7 @@ class MatrixCalc
 
 	func DeRepeat (aInput) { 
 		aDeRepeat = []
-		for i = 1 to len(aInput) step 1 { 
+		for i = 1 to len(aInput) { 
 			if find(aDeRepeat,aInput[i]) = 0 { 
 				aDeRepeat+aInput[i]
 			} 
@@ -660,16 +659,16 @@ class MatrixCalc
 	func Append (MatrixA,MatrixB,Axis) { 
 		aAppend = MatrixA
 		if Axis = 1 { 
-			for v = 1 to len(MatrixB) step 1 { 
-				for h = 1 to len(MatrixB[1]) step 1 { 
+			for v = 1 to len(MatrixB) { 
+				for h = 1 to len(MatrixB[1]) { 
 					aAppend[v]+MatrixB[v][h]
 				} 
 			} 
 			return aAppend
 			elseif Axis = 0
 				alist = []
-				for v = 1 to len(MatrixB) step 1 { 
-					for h = 1 to len(MatrixB[1]) step 1 { 
+				for v = 1 to len(MatrixB) { 
+					for h = 1 to len(MatrixB[1]) { 
 						alist+MatrixB[v][h]
 					} 
 				} 
@@ -681,13 +680,13 @@ class MatrixCalc
 	func AllSum (Matrix) { 
 		aArithmeticMean = Matrix
 		aSum = []
-		for v = 1 to len(aArithmeticMean) step 1 { 
-			for h = 1 to len(aArithmeticMean[1]) step 1 { 
+		for v = 1 to len(aArithmeticMean) { 
+			for h = 1 to len(aArithmeticMean[1]) { 
 				aSum+aArithmeticMean[v][h]
 			} 
 		} 
 		Sum = 0
-		for x = 1 to len(aSum) step 1 { 
+		for x = 1 to len(aSum) { 
 			Sum += aSum[x]
 		} 
 		return Sum

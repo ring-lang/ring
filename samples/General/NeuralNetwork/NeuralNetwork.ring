@@ -114,7 +114,7 @@ class DeepNeuralNetwork
 		z3 = MC.Multdot(z2,W2)
 		# Activation function
 		z4 = MC.MTanh(z3)
-		# Dot product of hidden layer (z4) and therd set of 8x1 weights
+		# Dot product of hidden layer (z4) and third set of 8x1 weights
 		z5 = MC.Multdot(z4,W3)
 		# Final activation function
 		o = MC.Sigmoid(z5)
