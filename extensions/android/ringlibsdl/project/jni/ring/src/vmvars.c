@@ -17,7 +17,6 @@ void ring_vm_addglobalvariables ( VM *pVM )
 	ring_vm_addnewpointervar(pVM,"ring_gettemp_var",NULL,RING_OBJTYPE_NOTYPE);
 	ring_vm_addnewstringvar(pVM,"ccatcherror","NULL");
 	ring_vm_addnewpointervar(pVM,"ring_settemp_var",NULL,RING_OBJTYPE_NOTYPE);
-	ring_vm_addnewnumbervar(pVM,"ring_tempflag_var",RING_ZERO);
 	ring_vm_addnewcpointervar(pVM,"stdin",stdin,"file");
 	ring_vm_addnewcpointervar(pVM,"stdout",stdout,"file");
 	ring_vm_addnewcpointervar(pVM,"stderr",stderr,"file");
