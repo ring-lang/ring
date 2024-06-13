@@ -82,7 +82,6 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 			ring_vm_tobytecode(pVM,x);
 		}
 		pVM->pRingState->nInstructionsCount += ring_list_getsize(pVM->pRingState->pRingGenCode) ;
-		ring_list_deleteallitems_gc(pVM->pRingState,pVM->pRingState->pRingGenCode);
 		/*
 		**  The mainloop will be called again 
 		**  We do this to execute eval instructions directly 
@@ -100,7 +99,7 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 	/* Clean Memory */
 	ring_scanner_delete(pScanner);
 	/*
-	**  Since we have a Syntax Error, We must delete the generated code 
+	**  Since we may have a Syntax Error, We must delete the generated code 
 	**  Without doing this, RingREPL will suffer from many problems after having a Syntax Error 
 	**  Like executing (Old Code) when writing new code after having a Syntax Error 
 	*/
