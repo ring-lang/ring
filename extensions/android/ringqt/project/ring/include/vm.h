@@ -487,8 +487,7 @@
 	#define RING_VM_ERROR_VMISNOTREADY "Error (R49) : The Ring VM is not created/ready"
 	#define RING_VM_ERROR_NOOPERATORMETHOD "Error (R50) : Object does not support operator overloading"
 	/* Extra Size (for eval) */
-	#define RING_VM_EXTRASIZE 1000
-	#define RING_VM_MINVMINSTRUCTIONS 100000
+	#define RING_VM_EXTRASIZE 1024
 	#define RING_MAX(a,b) (((a)>(b))?(a):(b))
 	#define RING_VM_MAXNESTEDEVAL 255
 	/*
