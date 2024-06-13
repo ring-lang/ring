@@ -3,6 +3,7 @@
 ** Author       : Mahmoud Fayed <msfclipper@yahoo.com>
 */
 
+load "stdlibcore.ring"
 load "lightguilib.ring"
 
 # Global variables and constants used by the main menu 
@@ -140,8 +141,8 @@ class Game
 	# More attributes
 	        lnewgame 	= false
 	        nDelayEat 	= 0.5
-	        nDelayNewGame 	= 1
-		nDelayComputer  = 0.2
+	        nDelayNewGame 	= 0.5
+		nDelayComputer  = 0.3
 	
 	func loadGame poPic,poPic2,pPlayer1Eatpic,pPlayer2Eatpic,paGameCards,paGameValues,pnPlayer1Score,pnPlayer2Score
 		oPic		= poPic 
@@ -288,14 +289,14 @@ class Game
                         Player2Eat(x,aStatusValues2[x])
                         checknewgame()
 			if nGameMode = C_GAMEMODE_ONEPLAYER
-				delay(nDelayComputer)
+				sleep(nDelayComputer)
 				ComputerAction()
 			ok
                 ok
  
         func Player1Eat nPos,nValue
                  oApp.processEvents()
-                 delay(nDelayEat)
+                 sleep(nDelayEat)
                  lEat = false
                  for x = 1 to nCardsCount
                          if aStatus2[x] = 1 and (aStatusValues2[x] = nValue or nValue=5)
@@ -321,7 +322,7 @@ class Game
 
         func Player2Eat nPos,nValue
                  oApp.processEvents()
-                 delay(nDelayEat)
+                 sleep(nDelayEat)
                  lEat = false
                  for x = 1 to  nCardsCount
                          if aStatus[x] = 1 and (aStatusValues[x] = nValue or nValue = 5)
@@ -359,7 +360,7 @@ class Game
 				oOnePlayerTimer.stop()
 			ok
 			oApp.processEvents()
-			delay(nDelayNewGame)
+			sleep(nDelayNewGame)
 			win1.close()
                 ok
 
@@ -375,11 +376,6 @@ class Game
                         ok
                 next
                 return true
-
-        func delay x
-		nTime = x * 1000
-		oTest = new qTest
-		oTest.qsleep(nTime)
 
 	func ComputerAction
 		oOnePlayerTimer.stop()
