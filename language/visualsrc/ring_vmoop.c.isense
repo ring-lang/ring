@@ -152,8 +152,6 @@ Type: Item *
 pItem
 Type: RING_VM_IR_ITEMTYPE *
 pRegItem
-Type: String *
-pString
 Type: int
 nObjType, nIns, x, nLastPC
 ring_vm_oop_callmethodfrombrace

@@ -1093,7 +1093,7 @@ void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int 
 	List *pList2, *pIns  ;
 	Item *pItem  ;
 	RING_VM_IR_ITEMTYPE *pRegItem  ;
-	int nObjType, nIns, x, nLastPC  ;
+	int nObjType, nIns  ;
 	RING_VM_STACK_POP ;
 	/* Check Method */
 	if ( ! ring_vm_oop_ismethod(pVM,pObj,RING_CSTR_OPERATOR) ) {
@@ -1161,28 +1161,8 @@ void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int 
 		ring_list_addint_gc(pVM->pRingState,pIns,ICO_ENDFUNCEXE);
 		pIns = ring_list_newlist_gc(pVM->pRingState,pVM->pCode);
 		ring_list_addint_gc(pVM->pRingState,pIns,ICO_RETURN);
-		/* Prepare the Jump */
-		ring_vm_blockflag2(pVM,pVM->nPC);
-		pVM->nPC = RING_VM_INSTRUCTIONSCOUNT+1 ;
-		/* Increase the instructions count */
-		pVM->pRingState->nInstructionsCount += ring_list_getsize(pVM->pRingState->pRingGenCode) ;
-		/* Check the need for memory reallocation */
-		nLastPC = RING_VM_INSTRUCTIONSCOUNT ;
-		if ( RING_VM_INSTRUCTIONSCOUNT  > pVM->nEvalReallocationSize ) {
-			pVM->pByteCode = (ByteCode *) ring_realloc(pVM->pByteCode , sizeof(ByteCode) * RING_VM_INSTRUCTIONSCOUNT);
-			pVM->nEvalReallocationSize = RING_VM_INSTRUCTIONSCOUNT ;
-		}
-		else {
-			pVM->nEvalReallocationSize = pVM->nEvalReallocationSize - (RING_VM_INSTRUCTIONSCOUNT-nLastPC) ;
-		}
-		/* Add the byte code */
-		pVM->pRingState->nInstructionsCount -= ring_list_getsize(pVM->pRingState->pRingGenCode) ;
-		for ( x = 1 ; x <= RING_VM_INSTRUCTIONSLISTSIZE ; x++ ) {
-			ring_vm_tobytecode(pVM,x);
-		}
-		pVM->pRingState->nInstructionsCount += ring_list_getsize(pVM->pRingState->pRingGenCode) ;
-		/* Clean memory */
-		ring_list_deleteallitems_gc(pVM->pRingState,pVM->pRingState->pRingGenCode);
+		/* Use the Byte Code */
+		ring_vm_useextrabytecode(pVM);
 		/* Note: Reallocation may change mem. locations */
 		pRegItem = RING_VM_IR_ITEMATINS(nIns,RING_VM_IR_REG1) ;
 		RING_VM_IR_ITEMSETINT(pRegItem,pVM->nPC);

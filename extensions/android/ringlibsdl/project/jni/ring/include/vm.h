@@ -544,6 +544,8 @@
 	void ring_vm_updateclassespointers ( RingState *pRingState ) ;
 
 	void ring_vm_bytecode2list ( VM *pVM, List *pOutput ) ;
+
+	void ring_vm_useextrabytecode ( VM *pVM ) ;
 	/* Stack and Variables */
 
 	void ring_vm_pushv ( VM *pVM ) ;

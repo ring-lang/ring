@@ -692,6 +692,9 @@ Type: int
 nExtraSize
 Type: ByteCode *
 pByteCode
+ring_vm_useextrabytecode
+Type: int
+x, nLastPC
 ring_vm_callfuncwithouteval
 Type: int
 nPC

@@ -304,6 +304,33 @@ void ring_vm_cleanevalcode ( VM *pVM,int nCodeSize )
 		pVM->nEvalReallocationSize = pVM->nEvalReallocationSize + nExtraSize ;
 	}
 }
+
+void ring_vm_useextrabytecode ( VM *pVM )
+{
+	int x, nLastPC  ;
+	/* Prepare the Jump */
+	ring_vm_blockflag2(pVM,pVM->nPC);
+	pVM->nPC = RING_VM_INSTRUCTIONSCOUNT+1 ;
+	/* Increase the instructions count */
+	pVM->pRingState->nInstructionsCount += ring_list_getsize(pVM->pRingState->pRingGenCode) ;
+	/* Check the need for memory reallocation */
+	nLastPC = RING_VM_INSTRUCTIONSCOUNT ;
+	if ( RING_VM_INSTRUCTIONSCOUNT  > pVM->nEvalReallocationSize ) {
+		pVM->pByteCode = (ByteCode *) ring_realloc(pVM->pByteCode , sizeof(ByteCode) * RING_VM_INSTRUCTIONSCOUNT);
+		pVM->nEvalReallocationSize = RING_VM_INSTRUCTIONSCOUNT ;
+	}
+	else {
+		pVM->nEvalReallocationSize = pVM->nEvalReallocationSize - (RING_VM_INSTRUCTIONSCOUNT-nLastPC) ;
+	}
+	/* Add the byte code */
+	pVM->pRingState->nInstructionsCount -= ring_list_getsize(pVM->pRingState->pRingGenCode) ;
+	for ( x = 1 ; x <= RING_VM_INSTRUCTIONSLISTSIZE ; x++ ) {
+		ring_vm_tobytecode(pVM,x);
+	}
+	pVM->pRingState->nInstructionsCount += ring_list_getsize(pVM->pRingState->pRingGenCode) ;
+	/* Clean memory */
+	ring_list_deleteallitems_gc(pVM->pRingState,pVM->pRingState->pRingGenCode);
+}
 /* Fast Function Call for Ring VM (Without Eval) */
 
 RING_API void ring_vm_callfuncwithouteval ( VM *pVM, const char *cFunc, int lMethod )
