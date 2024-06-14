@@ -61,6 +61,8 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 		}
 		else {
 			pVM->lEvalReallocationFlag = 0 ;
+			/* Update ReallocationSize */
+			pVM->nEvalReallocationSize = pVM->nEvalReallocationSize - (RING_VM_INSTRUCTIONSCOUNT-nLastPC) ;
 		}
 		/* Load New Code */
 		nMark = pVM->pRingState->nInstructionsCount ;
@@ -92,9 +94,7 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 		**  Because when we call a C Function like eval() we have parameters scope 
 		**  Before we call the main loop from ring_vm_call the parameters scope will be deleted 
 		**  And the local scope will be restored so we can use it from eval() 
-		**  Update ReallocationSize 
 		*/
-		pVM->nEvalReallocationSize = pVM->nEvalReallocationSize - (RING_VM_INSTRUCTIONSCOUNT-nLastPC) ;
 	}
 	/* Clean Memory */
 	ring_scanner_delete(pScanner);
