@@ -1090,11 +1090,10 @@ Item * ring_vm_oop_objitemfromobjlist ( List *pList )
 
 void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int nType,const char *cStr2,double nNum1,void *pPointer,int nPointerType )
 {
-	List *pList2  ;
+	List *pList2, *pIns  ;
 	Item *pItem  ;
 	RING_VM_IR_ITEMTYPE *pRegItem  ;
-	String *pString  ;
-	int nObjType, nIns  ;
+	int nObjType, nIns, x, nLastPC  ;
 	RING_VM_STACK_POP ;
 	/* Check Method */
 	if ( ! ring_vm_oop_ismethod(pVM,pObj,RING_CSTR_OPERATOR) ) {
@@ -1129,22 +1128,64 @@ void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int 
 		ring_list_setint_gc(pVM->pRingState,pList2,RING_VAR_PVALUETYPE,nPointerType);
 	}
 	if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG1) == 0 ) {
-		/* Create String */
-		pString = ring_string_new_gc(pVM->pRingState,"return ring_gettemp_var.operator('");
-		ring_string_add_gc(pVM->pRingState,pString,cStr1);
-		ring_string_add_gc(pVM->pRingState,pString,"',ring_settemp_var) \n");
-		/* Eval the string */
+		/* Get instruction position */
 		nIns = pVM->nPC - 2 ;
-		pVM->lEvalCalledFromRingCode = 0 ;
-		if ( pVM->nInsideEval ) {
-			pVM->lRetEvalDontDelete = 1 ;
+		/* Create the Byte Code */
+		pIns = ring_list_newlist_gc(pVM->pRingState,pVM->pCode);
+		ring_list_addint_gc(pVM->pRingState,pIns,ICO_FREELOADASCOPE);
+		pIns = ring_list_newlist_gc(pVM->pRingState,pVM->pCode);
+		ring_list_addint_gc(pVM->pRingState,pIns,ICO_FUNCEXE);
+		pIns = ring_list_newlist_gc(pVM->pRingState,pVM->pCode);
+		ring_list_addint_gc(pVM->pRingState,pIns,ICO_LOADADDRESS);
+		ring_list_addstring_gc(pVM->pRingState,pIns,"ring_gettemp_var");
+		pIns = ring_list_newlist_gc(pVM->pRingState,pVM->pCode);
+		ring_list_addint_gc(pVM->pRingState,pIns,ICO_LOADMETHOD);
+		ring_list_addstring_gc(pVM->pRingState,pIns,"operator");
+		pIns = ring_list_newlist_gc(pVM->pRingState,pVM->pCode);
+		ring_list_addint_gc(pVM->pRingState,pIns,ICO_PUSHC);
+		ring_list_addstring_gc(pVM->pRingState,pIns,cStr1);
+		pIns = ring_list_newlist_gc(pVM->pRingState,pVM->pCode);
+		ring_list_addint_gc(pVM->pRingState,pIns,ICO_LOADADDRESS);
+		ring_list_addstring_gc(pVM->pRingState,pIns,"ring_settemp_var");
+		pIns = ring_list_newlist_gc(pVM->pRingState,pVM->pCode);
+		ring_list_addint_gc(pVM->pRingState,pIns,ICO_PUSHV);
+		pIns = ring_list_newlist_gc(pVM->pRingState,pVM->pCode);
+		ring_list_addint_gc(pVM->pRingState,pIns,ICO_CALL);
+		ring_list_addint_gc(pVM->pRingState,pIns,RING_ZERO);
+		ring_list_addint_gc(pVM->pRingState,pIns,RING_ONE);
+		pIns = ring_list_newlist_gc(pVM->pRingState,pVM->pCode);
+		ring_list_addint_gc(pVM->pRingState,pIns,ICO_AFTERCALLMETHOD);
+		pIns = ring_list_newlist_gc(pVM->pRingState,pVM->pCode);
+		ring_list_addint_gc(pVM->pRingState,pIns,ICO_PUSHV);
+		pIns = ring_list_newlist_gc(pVM->pRingState,pVM->pCode);
+		ring_list_addint_gc(pVM->pRingState,pIns,ICO_ENDFUNCEXE);
+		pIns = ring_list_newlist_gc(pVM->pRingState,pVM->pCode);
+		ring_list_addint_gc(pVM->pRingState,pIns,ICO_RETURN);
+		/* Prepare the Jump */
+		ring_vm_blockflag2(pVM,pVM->nPC);
+		pVM->nPC = RING_VM_INSTRUCTIONSCOUNT+1 ;
+		/* Increase the instructions count */
+		pVM->pRingState->nInstructionsCount += ring_list_getsize(pVM->pRingState->pRingGenCode) ;
+		/* Check the need for memory reallocation */
+		nLastPC = RING_VM_INSTRUCTIONSCOUNT ;
+		if ( RING_VM_INSTRUCTIONSCOUNT  > pVM->nEvalReallocationSize ) {
+			pVM->pByteCode = (ByteCode *) ring_realloc(pVM->pByteCode , sizeof(ByteCode) * RING_VM_INSTRUCTIONSCOUNT);
+			pVM->nEvalReallocationSize = RING_VM_INSTRUCTIONSCOUNT ;
 		}
-		ring_vm_eval(pVM,ring_string_get(pString));
-		/* Note: Eval reallocation change mem. locations */
+		else {
+			pVM->nEvalReallocationSize = pVM->nEvalReallocationSize - (RING_VM_INSTRUCTIONSCOUNT-nLastPC) ;
+		}
+		/* Add the byte code */
+		pVM->pRingState->nInstructionsCount -= ring_list_getsize(pVM->pRingState->pRingGenCode) ;
+		for ( x = 1 ; x <= RING_VM_INSTRUCTIONSLISTSIZE ; x++ ) {
+			ring_vm_tobytecode(pVM,x);
+		}
+		pVM->pRingState->nInstructionsCount += ring_list_getsize(pVM->pRingState->pRingGenCode) ;
+		/* Clean memory */
+		ring_list_deleteallitems_gc(pVM->pRingState,pVM->pRingState->pRingGenCode);
+		/* Note: Reallocation may change mem. locations */
 		pRegItem = RING_VM_IR_ITEMATINS(nIns,RING_VM_IR_REG1) ;
 		RING_VM_IR_ITEMSETINT(pRegItem,pVM->nPC);
-		/* Delete String */
-		ring_string_delete_gc(pVM->pRingState,pString);
 	}
 	else {
 		ring_vm_blockflag2(pVM,pVM->nPC);

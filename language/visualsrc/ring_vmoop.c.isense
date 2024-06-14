@@ -147,7 +147,7 @@ Type: Item *
 pItem
 ring_vm_oop_operatoroverloading
 Type: List *
-pList2
+pList2, *pIns
 Type: Item *
 pItem
 Type: RING_VM_IR_ITEMTYPE *
@@ -155,7 +155,7 @@ pRegItem
 Type: String *
 pString
 Type: int
-nObjType, nIns
+nObjType, nIns, x, nLastPC
 ring_vm_oop_callmethodfrombrace
 ring_vm_oop_preparecallmethodfrombrace
 Type: List *
