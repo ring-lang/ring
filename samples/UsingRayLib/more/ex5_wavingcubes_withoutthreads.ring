@@ -9,6 +9,12 @@
 # Performance using Ring 1.19 ---> 35 FPS  (Three times (3x) faster)
 #===================================================================#
 
+/*
+**	Performance on my machine 
+**	Using Ring 1.21 (32bit) ---> 100 FPS  **FASTER**
+**	Using Ring 1.21 (64bit) ---> 73  FPS
+*/
+
 load "raylib.ring"
 
 screenWidth = 800
@@ -33,7 +39,7 @@ halfBlocks= numBlocks/2
 
 cubepos    = Vec3()
 
-SetTargetFPS(80)
+SetTargetFPS(120)
 
 color = Vec3()
 Vec3SetY(color,0.75)
