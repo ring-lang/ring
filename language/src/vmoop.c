@@ -819,6 +819,7 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 	String *pString, *pString2  ;
 	RING_VM_IR_ITEMTYPE *pItem, *pItem2  ;
 	int nIns  ;
+	RING_VM_BYTECODE_START ;
 	/* Check Setter & Getter for Public Attributes */
 	RING_VM_IR_LOAD ;
 	if ( RING_VM_IR_OPCODE != ICO_ASSIGNMENTPOINTER ) {
@@ -840,9 +841,8 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 		}
 		if ( ring_vm_oop_ismethod(pVM,pList2,ring_string_get(pString2)) ) {
 			/* Create String */
-			pString = ring_string_new_gc(pVM->pRingState,"return ring_gettemp_var.'get");
+			pString = ring_string_new_gc(pVM->pRingState,"get");
 			ring_string_add_gc(pVM->pRingState,pString,ring_list_getstring(pVar,RING_VAR_NAME));
-			ring_string_add_gc(pVM->pRingState,pString,"'()");
 			/* Set Variable ring_gettemp_var */
 			pList = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_GETTEMPVAR) ;
 			ring_list_setpointer_gc(pVM->pRingState,pList,RING_VAR_VALUE,pVM->pGetSetObject);
@@ -860,12 +860,16 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 			}
 			if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG2)  == 0 ) {
 				nIns = pVM->nPC - 2 ;
-				pVM->lEvalCalledFromRingCode = 0 ;
-				if ( pVM->nInsideEval ) {
-					pVM->lRetEvalDontDelete = 1 ;
-				}
-				ring_vm_eval(pVM,ring_string_get(pString));
-				/* Note: Eval reallocation change mem. locations */
+				/* Create the Byte Code */
+				RING_VM_BYTECODE_INSSTR(ICO_LOADADDRESS,RING_CSTR_GETTEMPVAR);
+				RING_VM_BYTECODE_INSSTR(ICO_LOADMETHOD,ring_string_get(pString));
+				RING_VM_BYTECODE_INSINTINT(ICO_CALL,RING_ZERO,RING_ONE);
+				RING_VM_BYTECODE_INS(ICO_AFTERCALLMETHOD);
+				RING_VM_BYTECODE_INS(ICO_PUSHV);
+				RING_VM_BYTECODE_INS(ICO_RETURN);
+				/* Use the Byte Code */
+				RING_VM_BYTECODE_END ;
+				/* Note: Reallocation may change mem. locations */
 				pItem2 = RING_VM_IR_ITEMATINS(nIns,RING_VM_IR_REG2) ;
 				RING_VM_IR_ITEMSETINT(pItem2,pVM->nPC);
 			}
@@ -1004,7 +1008,7 @@ void ring_vm_oop_setproperty ( VM *pVM )
 				RING_VM_BYTECODE_INS(ICO_RETURN);
 				/* Use the Byte Code */
 				RING_VM_BYTECODE_END ;
-				/* Note: Reallocation change mem. locations */
+				/* Note: Reallocation may change mem. locations */
 				pItem = RING_VM_IR_ITEMATINS(nIns2,RING_VM_IR_REG2) ;
 				RING_VM_IR_ITEMSETINT(pItem,pVM->nPC);
 				/* Delete String */
