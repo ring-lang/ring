@@ -1148,12 +1148,8 @@ void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int 
 		pIns = ring_list_newlist_gc(pVM->pRingState,pVM->pCode);
 		ring_list_addint_gc(pVM->pRingState,pIns,ICO_LOADADDRESS);
 		ring_list_addstring_gc(pVM->pRingState,pIns,"ring_settemp_var");
-		pIns = ring_list_newlist_gc(pVM->pRingState,pVM->pCode);
-		ring_list_addint_gc(pVM->pRingState,pIns,ICO_PUSHV);
-		pIns = ring_list_newlist_gc(pVM->pRingState,pVM->pCode);
-		ring_list_addint_gc(pVM->pRingState,pIns,ICO_CALL);
-		ring_list_addint_gc(pVM->pRingState,pIns,RING_ZERO);
-		ring_list_addint_gc(pVM->pRingState,pIns,RING_ONE);
+		RING_VM_BYTECODE_INS(ICO_PUSHV) ;
+		RING_VM_BYTECODE_INSINTINT(ICO_CALL,RING_ZERO,RING_ONE) ;
 		RING_VM_BYTECODE_INS(ICO_AFTERCALLMETHOD) ;
 		RING_VM_BYTECODE_INS(ICO_PUSHV) ;
 		RING_VM_BYTECODE_INS(ICO_ENDFUNCEXE) ;
