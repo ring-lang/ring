@@ -71,7 +71,7 @@ while !WindowShouldClose()
 
 				newcubeSize = (2.4 - scale)*blockScale
 				
-				DrawCube_2(cubePos,newcubeSize,newcubeSize,newcubeSize,ColorFromHSV(cubeColorV))
+				DrawCube_2(cubePos,newcubeSize,newcubeSize,newcubeSize,ColorFromHSV_2(cubeColorV))
 
 			next
 		next
