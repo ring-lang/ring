@@ -1132,28 +1132,18 @@ void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int 
 		/* Get instruction position */
 		nIns = pVM->nPC - 2 ;
 		/* Create the Byte Code */
-		pIns = ring_list_newlist_gc(pVM->pRingState,pVM->pCode);
-		ring_list_addint_gc(pVM->pRingState,pIns,ICO_FREELOADASCOPE);
-		pIns = ring_list_newlist_gc(pVM->pRingState,pVM->pCode);
-		ring_list_addint_gc(pVM->pRingState,pIns,ICO_FUNCEXE);
-		pIns = ring_list_newlist_gc(pVM->pRingState,pVM->pCode);
-		ring_list_addint_gc(pVM->pRingState,pIns,ICO_LOADADDRESS);
-		ring_list_addstring_gc(pVM->pRingState,pIns,"ring_gettemp_var");
-		pIns = ring_list_newlist_gc(pVM->pRingState,pVM->pCode);
-		ring_list_addint_gc(pVM->pRingState,pIns,ICO_LOADMETHOD);
-		ring_list_addstring_gc(pVM->pRingState,pIns,"operator");
-		pIns = ring_list_newlist_gc(pVM->pRingState,pVM->pCode);
-		ring_list_addint_gc(pVM->pRingState,pIns,ICO_PUSHC);
-		ring_list_addstring_gc(pVM->pRingState,pIns,cStr1);
-		pIns = ring_list_newlist_gc(pVM->pRingState,pVM->pCode);
-		ring_list_addint_gc(pVM->pRingState,pIns,ICO_LOADADDRESS);
-		ring_list_addstring_gc(pVM->pRingState,pIns,"ring_settemp_var");
-		RING_VM_BYTECODE_INS(ICO_PUSHV) ;
-		RING_VM_BYTECODE_INSINTINT(ICO_CALL,RING_ZERO,RING_ONE) ;
-		RING_VM_BYTECODE_INS(ICO_AFTERCALLMETHOD) ;
-		RING_VM_BYTECODE_INS(ICO_PUSHV) ;
-		RING_VM_BYTECODE_INS(ICO_ENDFUNCEXE) ;
-		RING_VM_BYTECODE_INS(ICO_RETURN) ;
+		RING_VM_BYTECODE_INS(ICO_FREELOADASCOPE);
+		RING_VM_BYTECODE_INS(ICO_FUNCEXE);
+		RING_VM_BYTECODE_INSSTR(ICO_LOADADDRESS,"ring_gettemp_var");
+		RING_VM_BYTECODE_INSSTR(ICO_LOADMETHOD,"operator");
+		RING_VM_BYTECODE_INSSTR(ICO_PUSHC,cStr1);
+		RING_VM_BYTECODE_INSSTR(ICO_LOADADDRESS,"ring_settemp_var");
+		RING_VM_BYTECODE_INS(ICO_PUSHV);
+		RING_VM_BYTECODE_INSINTINT(ICO_CALL,RING_ZERO,RING_ONE);
+		RING_VM_BYTECODE_INS(ICO_AFTERCALLMETHOD);
+		RING_VM_BYTECODE_INS(ICO_PUSHV);
+		RING_VM_BYTECODE_INS(ICO_ENDFUNCEXE);
+		RING_VM_BYTECODE_INS(ICO_RETURN);
 		/* Use the Byte Code */
 		RING_VM_BYTECODE_END ;
 		/* Note: Reallocation may change mem. locations */

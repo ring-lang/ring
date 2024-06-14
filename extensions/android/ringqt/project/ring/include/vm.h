@@ -441,6 +441,7 @@
 	#define RING_VM_BYTECODE_INS(x) pByteCodeIns = ring_list_newlist_gc(pVM->pRingState,pVM->pCode); ring_list_addint_gc(pVM->pRingState,pByteCodeIns,x) ;
 	#define RING_VM_BYTECODE_INSINT(x,y) RING_VM_BYTECODE_INS(x) ;  ring_list_addint_gc(pVM->pRingState,pByteCodeIns,y) ;
 	#define RING_VM_BYTECODE_INSINTINT(x,y,z) RING_VM_BYTECODE_INSINT(x,y) ;  ring_list_addint_gc(pVM->pRingState,pByteCodeIns,z) ;
+	#define RING_VM_BYTECODE_INSSTR(x,y) RING_VM_BYTECODE_INS(x) ;  ring_list_addstring_gc(pVM->pRingState,pByteCodeIns,y) ;
 	/* Runtime Error Messages */
 	#define RING_VM_ERROR_DIVIDEBYZERO "Error (R1) : Can't divide by zero"
 	#define RING_VM_ERROR_INDEXOUTOFRANGE "Error (R2) : Array Access (Index out of range)"
