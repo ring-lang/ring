@@ -14,9 +14,9 @@ void ring_vm_addglobalvariables ( VM *pVM )
 	ring_vm_addnewnumbervar(pVM,"false",RING_FALSE);
 	ring_vm_addnewstringvar(pVM,"nl","\n");
 	ring_vm_addnewstringvar(pVM,"null","");
-	ring_vm_addnewpointervar(pVM,"ring_gettemp_var",NULL,RING_OBJTYPE_NOTYPE);
-	ring_vm_addnewstringvar(pVM,"ccatcherror","NULL");
-	ring_vm_addnewpointervar(pVM,"ring_settemp_var",NULL,RING_OBJTYPE_NOTYPE);
+	ring_vm_addnewpointervar(pVM,RING_CSTR_GETTEMPVAR,NULL,RING_OBJTYPE_NOTYPE);
+	ring_vm_addnewstringvar(pVM,RING_CSTR_CATCHERROR,"NULL");
+	ring_vm_addnewpointervar(pVM,RING_CSTR_SETTEMPVAR,NULL,RING_OBJTYPE_NOTYPE);
 	ring_vm_addnewcpointervar(pVM,"stdin",stdin,"file");
 	ring_vm_addnewcpointervar(pVM,"stdout",stdout,"file");
 	ring_vm_addnewcpointervar(pVM,"stderr",stderr,"file");
@@ -24,7 +24,7 @@ void ring_vm_addglobalvariables ( VM *pVM )
 	ring_vm_addnewstringvar(pVM,"tab","\t");
 	ring_vm_addnewstringvar(pVM,"cr","\r");
 	/* Add Command Line Parameters */
-	pList = ring_vm_addnewlistvar(pVM,"sysargv");
+	pList = ring_vm_addnewlistvar(pVM,RING_CSTR_SYSARGV);
 	pList = ring_list_getlist(pList,RING_VAR_VALUE);
 	for ( x = 0 ; x < pVM->pRingState->nArgc ; x++ ) {
 		ring_list_addstring_gc(pVM->pRingState,pList,pVM->pRingState->pArgv[x]);

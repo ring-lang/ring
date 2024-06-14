@@ -151,6 +151,8 @@
 	#define RING_CSTR_BRACEERROR "braceerror"
 	#define RING_CSTR_GETTEMPVAR "ring_gettemp_var"
 	#define RING_CSTR_SETTEMPVAR "ring_settemp_var"
+	#define RING_CSTR_CATCHERROR "ccatcherror"
+	#define RING_CSTR_SYSARGV "sysargv"
 	/* Exit */
 	#define RING_EXIT_OK 0
 	#define RING_EXIT_FAIL 1
