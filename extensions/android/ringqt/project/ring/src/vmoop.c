@@ -1094,6 +1094,7 @@ void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int 
 	Item *pItem  ;
 	RING_VM_IR_ITEMTYPE *pRegItem  ;
 	int nObjType, nIns  ;
+	RING_VM_BYTECODE_START ;
 	RING_VM_STACK_POP ;
 	/* Check Method */
 	if ( ! ring_vm_oop_ismethod(pVM,pObj,RING_CSTR_OPERATOR) ) {
@@ -1153,16 +1154,12 @@ void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int 
 		ring_list_addint_gc(pVM->pRingState,pIns,ICO_CALL);
 		ring_list_addint_gc(pVM->pRingState,pIns,RING_ZERO);
 		ring_list_addint_gc(pVM->pRingState,pIns,RING_ONE);
-		pIns = ring_list_newlist_gc(pVM->pRingState,pVM->pCode);
-		ring_list_addint_gc(pVM->pRingState,pIns,ICO_AFTERCALLMETHOD);
-		pIns = ring_list_newlist_gc(pVM->pRingState,pVM->pCode);
-		ring_list_addint_gc(pVM->pRingState,pIns,ICO_PUSHV);
-		pIns = ring_list_newlist_gc(pVM->pRingState,pVM->pCode);
-		ring_list_addint_gc(pVM->pRingState,pIns,ICO_ENDFUNCEXE);
-		pIns = ring_list_newlist_gc(pVM->pRingState,pVM->pCode);
-		ring_list_addint_gc(pVM->pRingState,pIns,ICO_RETURN);
+		RING_VM_BYTECODE_INS(ICO_AFTERCALLMETHOD) ;
+		RING_VM_BYTECODE_INS(ICO_PUSHV) ;
+		RING_VM_BYTECODE_INS(ICO_ENDFUNCEXE) ;
+		RING_VM_BYTECODE_INS(ICO_RETURN) ;
 		/* Use the Byte Code */
-		ring_vm_useextrabytecode(pVM);
+		RING_VM_BYTECODE_END ;
 		/* Note: Reallocation may change mem. locations */
 		pRegItem = RING_VM_IR_ITEMATINS(nIns,RING_VM_IR_REG1) ;
 		RING_VM_IR_ITEMSETINT(pRegItem,pVM->nPC);

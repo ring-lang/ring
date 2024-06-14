@@ -435,6 +435,10 @@
 	#define RING_CSTR_EVAL "eval"
 	/* Decimals */
 	#define RING_DECIMALS_COUNT 2
+	/* Extra Byte Code Generation */
+	#define RING_VM_BYTECODE_START List *pByteCodeIns;
+	#define RING_VM_BYTECODE_END ring_vm_useextrabytecode(pVM);
+	#define RING_VM_BYTECODE_INS(x) pByteCodeIns = ring_list_newlist_gc(pVM->pRingState,pVM->pCode); ring_list_addint_gc(pVM->pRingState,pByteCodeIns,x) ;
 	/* Runtime Error Messages */
 	#define RING_VM_ERROR_DIVIDEBYZERO "Error (R1) : Can't divide by zero"
 	#define RING_VM_ERROR_INDEXOUTOFRANGE "Error (R2) : Array Access (Index out of range)"

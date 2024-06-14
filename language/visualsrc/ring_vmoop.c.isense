@@ -153,7 +153,7 @@ pItem
 Type: RING_VM_IR_ITEMTYPE *
 pRegItem
 Type: int
-nObjType, nIns, x, nLastPC
+nObjType, nIns
 ring_vm_oop_callmethodfrombrace
 ring_vm_oop_preparecallmethodfrombrace
 Type: List *
