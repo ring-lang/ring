@@ -32,11 +32,18 @@ nMax      = numBlocks-1
 halfBlocks= numBlocks/2
 
 cubepos    = Vec3()
-cubeColorV = Vec3()
-Vec3SetY(cubeColorV, 0.75)
-Vec3SetZ(cubeColorV, 0.9)
 
-SetTargetFPS(60)
+SetTargetFPS(80)
+
+color = Vec3()
+Vec3SetY(color,0.75)
+Vec3SetZ(color,0.9)
+
+colors = []
+for c = 0 to 359
+	Vec3SetX(color, c)
+	Add(colors, ColorFromHSV_2(color))
+next
 
 while !WindowShouldClose()
 
@@ -67,11 +74,8 @@ while !WindowShouldClose()
 						(y - halfBlocks)*(scale*2) + scatter,
 						(z - halfBlocks)*(scale*3) + scatter)
 
-				Vec3SetX(cubeColorV,  (((x + y + z)*18)%360))
-
 				newcubeSize = (2.4 - scale)*blockScale
-				
-				DrawCube_2(cubePos,newcubeSize,newcubeSize,newcubeSize,ColorFromHSV_2(cubeColorV))
+				DrawCube_2(cubePos,newcubeSize,newcubeSize,newcubeSize, colors[((x + y + z)*18.0)%360 + 1])
 
 			next
 		next
