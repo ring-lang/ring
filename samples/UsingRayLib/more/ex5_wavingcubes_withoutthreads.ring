@@ -9,8 +9,14 @@
 
 /*
 **	Performance on my machine 
+**
+**	-- RayLib 2.5
 **	Using Ring 1.21 (32bit) ---> 100 FPS  **FASTER**
 **	Using Ring 1.21 (64bit) ---> 73  FPS
+**
+**	-- RayLib 5.0
+**	Using Ring 1.21 (32bit) ---> 120 FPS 
+**	Using Ring 1.21 (64bit) ---> 145 FPS  **FASTER**
 */
 
 load "raylib.ring"
