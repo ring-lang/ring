@@ -175,7 +175,7 @@ void ring_parser_error ( Parser *pParser,const char *cStr )
 		else {
 			printf( RING_PARSER_ERROR_SYNTAXERROR ) ;
 		}
-		printf( "\n",cStr ) ;
+		printf( "\n" ) ;
 		return ;
 	}
 	else if ( strcmp(cStr,"") != 0 ) {
