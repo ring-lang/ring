@@ -30,8 +30,8 @@
 	#define RING_LISTBLOCKTYPE_LIST 3
 	#define RING_LIST_KEYINDEX 1
 	/* Macro */
-	#define ring_list_isdouble(pList,nIndex) ( ring_list_getitem(pList,nIndex)->nNumberFlag == ITEM_NUMBERFLAG_DOUBLE)
-	#define ring_list_isint(pList,nIndex) ( ring_list_getitem(pList,nIndex)->nNumberFlag == ITEM_NUMBERFLAG_INT )
+	#define ring_list_isdouble(pList,nIndex) (ring_list_gettype(pList,nIndex) == ITEMTYPE_NUMBER) && ( ring_list_getitem(pList,nIndex)->nNumberFlag == ITEM_NUMBERFLAG_DOUBLE)
+	#define ring_list_isint(pList,nIndex) (ring_list_gettype(pList,nIndex) == ITEMTYPE_NUMBER) && ( ring_list_getitem(pList,nIndex)->nNumberFlag == ITEM_NUMBERFLAG_INT )
 	#define ring_list_deletelastitem(pList) ring_list_deleteitem(pList,ring_list_getsize(pList))
 	#define ring_list_gethashtable(pList) (pList->pHashTable)
 	#define ring_list_getint(pList,nIndex) ( ring_list_getitem(pList,nIndex)->data.iNumber )
