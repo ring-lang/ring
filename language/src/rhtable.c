@@ -19,7 +19,7 @@ unsigned int ring_hashtable_hashkey ( HashTable *pHashTable,const char *cKey )
 	#ifdef __ANDROID__
 		nIndex = ring_xor_hash((unsigned char *) cKey,strlen(cKey));
 	#else
-		nIndex = ring_murmur3_32((unsigned char *) cKey,strlen(cKey),RING_HASHTABLE_HASHFUNCSEED);
+		nIndex = ring_murmur3_32((const char *) cKey,strlen(cKey),RING_HASHTABLE_HASHFUNCSEED);
 	#endif
 	nIndex = nIndex % pHashTable->nLinkedLists ;
 	return nIndex ;
