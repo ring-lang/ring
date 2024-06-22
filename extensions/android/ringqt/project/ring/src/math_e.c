@@ -302,9 +302,17 @@ void ring_vm_math_unsigned ( void *pPointer )
 		nNum2 = (RING_UNSIGNEDLONGLONG) RING_API_GETNUMBER(2) ;
 		cStr = RING_API_GETSTRING(3) ;
 		if ( strcmp(cStr,">>") == 0 ) {
+			if ( nNum2 < 0 ) {
+				RING_API_ERROR(RING_VM_ERROR_VALUEERROR);
+				return ;
+			}
 			nNum3 = nNum1 >> nNum2 ;
 		}
 		else if ( strcmp(cStr,"<<") == 0 ) {
+			if ( nNum2 < 0 ) {
+				RING_API_ERROR(RING_VM_ERROR_VALUEERROR);
+				return ;
+			}
 			nNum3 = nNum1 << nNum2 ;
 		}
 		else if ( strcmp(cStr,"+") == 0 ) {

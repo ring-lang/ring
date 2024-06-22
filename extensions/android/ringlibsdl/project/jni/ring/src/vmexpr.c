@@ -954,6 +954,10 @@ void ring_vm_bitshl ( VM *pVM )
 		ring_vm_expr_ppoo(pVM,"<<");
 	}
 	if ( lShift ) {
+		if ( nNum1 < 0 ) {
+			ring_vm_error(pVM,RING_VM_ERROR_VALUEERROR);
+			return ;
+		}
 		RING_VM_STACK_SETNVALUE(((RING_LONGLONG) nNum2 << (RING_LONGLONG) nNum1));
 	}
 }
@@ -1005,6 +1009,10 @@ void ring_vm_bitshr ( VM *pVM )
 		ring_vm_expr_ppoo(pVM,">>");
 	}
 	if ( lShift ) {
+		if ( nNum1 < 0 ) {
+			ring_vm_error(pVM,RING_VM_ERROR_VALUEERROR);
+			return ;
+		}
 		RING_VM_STACK_SETNVALUE(((RING_LONGLONG) nNum2 >> (RING_LONGLONG) nNum1));
 	}
 }
