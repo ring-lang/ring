@@ -952,6 +952,8 @@
 	void ring_vm_bitshl ( VM *pVM ) ;
 
 	void ring_vm_bitshr ( VM *pVM ) ;
+
+	void ring_vm_bitshift ( VM *pVM, const char *cOperator ) ;
 	/* Step Number */
 
 	void ring_vm_stepnumber ( VM *pVM ) ;
