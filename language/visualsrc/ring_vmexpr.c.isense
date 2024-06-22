@@ -100,12 +100,14 @@ nNum1,nNum2
 Type: String *
 pStr1
 Type: int
-nNum3
+nNum3, lShift
 ring_vm_bitshr
 Type: double
 nNum1,nNum2
 Type: String *
 pStr1
+Type: int
+lShift
 ring_vm_bitxor
 Type: double
 nNum1,nNum2
