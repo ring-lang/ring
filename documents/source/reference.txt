@@ -483,6 +483,7 @@ Runtime Errors
 * Error (R48) : Assertion Failed!
 * Error (R49) : The Ring VM is not created/ready
 * Error (R50) : Object does not support operator overloading
+* Error (R51) : Value Error
 
 .. index:: 
 	pair: Language Specification; Environment Errors
