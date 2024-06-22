@@ -967,8 +967,11 @@ void ring_vm_bitshift ( VM *pVM, const char *cOperator )
 		if ( nNum1 < 0 ) {
 			ring_vm_error(pVM,RING_VM_ERROR_VALUEERROR);
 		}
-		else if ( (nNum1 == 0) || (nNum1 > sizeof(RING_LONGLONG)) ) {
+		else if ( nNum1 == 0 ) {
 			RING_VM_STACK_SETNVALUE(nNum2);
+		}
+		else if ( nNum1 > sizeof(RING_LONGLONG) ) {
+			RING_VM_STACK_SETNVALUE(0.0);
 		}
 		else {
 			if ( strcmp(cOperator,"<<") == 0 ) {
