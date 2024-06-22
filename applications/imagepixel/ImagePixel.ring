@@ -131,9 +131,15 @@ myApp = new QApp
         }         
 
         eCheckColorize   =  new QCheckBox(win)  { 
-            setGeometry( 800, 01 , 80, 20) 
+            setGeometry( 790, 01 , 80, 20) 
             setText("Colorize")  setStyleSheet("background-color: yellow")
-        }         
+        }        
+
+
+        eCheckInvert   =  new QCheckBox(win)  { 
+            setGeometry( 880, 01 , 80, 20) 
+            setText("Invert")  setStyleSheet("background-color: yellow")
+        }    		
  
                   
         //-------------------------------------------------
@@ -352,7 +358,8 @@ Func ChangeColorValue()
     nNewAlpha = Alpha / 100   
 
     lColorize = (eCheckColorize.isChecked()  = 1 ) 
-    lGray     = (eCheckGrayScale.isChecked() = 1 )   
+    lGray     = (eCheckGrayScale.isChecked() = 1 ) 
+    lInvert   = (eCheckInvert.isChecked()    = 1 )	
 
     //====================================================================
     // FRACTION of COLOR of ORIGINAL -- Display Color RBG 
@@ -380,13 +387,14 @@ Func ChangeColorValue()
                              :mul,RVALUE,nRedUpdate,      # R *= nRedUpdate
                              :mul,GVALUE,nGreenUpdate,    # G *= nGreenUpdate
                              :mul,BVALUE,nBlueUpdate)     # B *= nBlueUpdate
-
+    ok
+	
     //====================================================================
     // GRAY SCALE -- Display Color RBG in GRAY Scale  
     // Average looks better brighter than Gamma Corrected
     // Color corrected is for eye sensitivity Red 30%, Green 59% Blue 11%.
         
-    elseif lGray  
+    if lGray  
            
         MCOrig = updateBytesColumn(MCOrig,nImageChannels,nImageWidth*nImageHeight,255,
                               :mul,RVALUE,0.3,             # R *= 0.3
@@ -396,7 +404,21 @@ Func ChangeColorValue()
                             :merge,RVALUE,BVALUE,          # R += B
                              :copy,RVALUE,GVALUE,          # G  = R
                              :copy,RVALUE,BVALUE)          # B  = R
-
+	ok 
+	
+	//-------------------------------------------------
+	// Invert the Image color. Looks like a Negative
+    if lInvert  
+           
+		See "Invert"+nl   
+        MCOrig = updateBytesColumn(MCOrig,nImageChannels,nImageWidth*nImageHeight,255,
+                              :mul,RVALUE,(1 - RVALUE),    # R flip 30 to 70
+                              :mul,GVALUE,(1 - GVALUE),    # G flip 10 to 90
+                              :mul,BVALUE,(1 - BVALUE),    # B flip 80 to 20
+                            :merge,RVALUE,GVALUE,          # R += G
+                            :merge,RVALUE,BVALUE,          # R += B
+                             :copy,RVALUE,GVALUE,          # G  = R
+                             :copy,RVALUE,BVALUE)          # B  = R						 				
     ok
 
 			
