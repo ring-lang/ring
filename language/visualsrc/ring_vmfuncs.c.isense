@@ -67,11 +67,12 @@ pFuncCall
 Type: int
 x
 ring_vm_freetemplistsins
+ring_vm_timetofreetemplists
 ring_vm_freetemplists
 Type: List *
 pTempMem, *pList, *pList2
 Type: int
-x,x2,lFound,nStart
+x,x2,lFound,nStart,lListsDeleted
 Type: FuncCall *
 pFuncCall
 ring_vm_endfuncexec
@@ -80,7 +81,6 @@ Type: List *
 pList
 Type: FuncCall *
 pFuncCall
-ring_vm_timetofreetemplists
 ring_vmfunccall_new
 Type: FuncCall *
 pFuncCall

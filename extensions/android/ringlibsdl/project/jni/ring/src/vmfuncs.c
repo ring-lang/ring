@@ -740,11 +740,23 @@ void ring_vm_freetemplistsins ( VM *pVM )
 	}
 }
 
+int ring_vm_timetofreetemplists ( VM *pVM )
+{
+	/* We must start by executing the instruction for the first time (So we use decrement) */
+	if ( RING_VM_IR_GETINTREG == 0 ) {
+		RING_VM_IR_SETINTREG(RING_VM_TEMPLISTSCOUNTERMAX);
+		return 1 ;
+	}
+	RING_VM_IR_SETINTREG(RING_VM_IR_GETINTREG -1);
+	return 0 ;
+}
+
 void ring_vm_freetemplists ( VM *pVM, int *nTempCount, int *nScopeID )
 {
 	List *pTempMem, *pList, *pList2  ;
-	int x,x2,lFound,nStart  ;
+	int x,x2,lFound,nStart,lListsDeleted  ;
 	FuncCall *pFuncCall  ;
+	lListsDeleted = 0 ;
 	nStart = 1 ;
 	/* Clear lists inside pDeleteLater */
 	for ( x = ring_list_getsize(pVM->pDeleteLater) ; x >= 1 ; x-- ) {
@@ -761,6 +773,7 @@ void ring_vm_freetemplists ( VM *pVM, int *nTempCount, int *nScopeID )
 		if ( lFound == 0 ) {
 			ring_list_delete_gc(pVM->pRingState,pList);
 			ring_list_deleteitem_gc(pVM->pRingState,pVM->pDeleteLater,x);
+			lListsDeleted = 1 ;
 		}
 	}
 	/* Check that we are not in the class region */
@@ -800,6 +813,11 @@ void ring_vm_freetemplists ( VM *pVM, int *nTempCount, int *nScopeID )
 		for ( x = nStart ; x <= ring_list_getsize(pTempMem) ; x++ ) {
 			ring_list_deleteitem_gc(pVM->pRingState,pTempMem,nStart);
 		}
+		lListsDeleted = 1 ;
+	}
+	if ( lListsDeleted == 0 ) {
+		/* Delay (Free Temp. Lists) operation in the future */
+		RING_VM_IR_SETINTREG(RING_VM_TEMPLISTSCOUNTERMAX*100);
 	}
 }
 
@@ -830,17 +848,6 @@ void ring_vm_retitemref ( VM *pVM )
 			pVM->nRetItemRef++ ;
 		}
 	}
-}
-
-int ring_vm_timetofreetemplists ( VM *pVM )
-{
-	/* We must start by executing the instruction for the first time (So we use decrement) */
-	if ( RING_VM_IR_GETINTREG == 0 ) {
-		RING_VM_IR_SETINTREG(RING_VM_TEMPLISTSCOUNTERMAX);
-		return 1 ;
-	}
-	RING_VM_IR_SETINTREG(RING_VM_IR_GETINTREG -1);
-	return 0 ;
 }
 
 FuncCall * ring_vmfunccall_new ( VM *pVM )
