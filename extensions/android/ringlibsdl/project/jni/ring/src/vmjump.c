@@ -78,7 +78,7 @@ void ring_vm_jumpfor ( VM *pVM )
 	}
 	/* CALL FreeTempLists */
 	if ( ring_vm_timetofreetemplists(pVM) ) {
-		ring_vm_freetemplists(pVM,& RING_VM_IR_READIVALUE(RING_VM_IR_REG2), & RING_VM_IR_READIVALUE(RING_VM_IR_REG3));
+		ring_vm_freetemplists(pVM,& RING_VM_IR_READLOWIVALUE(RING_VM_IR_REG2), & RING_VM_IR_READHIGHIVALUE(RING_VM_IR_REG2));
 	}
 }
 
