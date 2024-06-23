@@ -238,15 +238,14 @@ void ring_parser_icg_genfreetemplists ( Parser *pParser )
 {
 	/* Using the Free Temp Lists instruction */
 	ring_parser_icg_newoperation(pParser,ICO_FREETEMPLISTS);
-	/* The number of temp variables before calling the instruction for the first time */
-	ring_parser_icg_newoperandint(pParser,RING_ZERO);
 	/*
-	**  The Scope ID of the Current Function 
+	**  Ring VM will use extra registers for this instruction 
+	**  To store the number of temp variables before calling the instruction for the first time 
+	**  And store the Scope ID of the Current Function 
 	**  Each time Ring VM call a function, we get a new Scope ID 
 	**  We cache this Scope ID, If it's changed this means we have a new function call 
 	**  In this case we refresh the number of temp. variables 
 	*/
-	ring_parser_icg_newoperandint(pParser,RING_ZERO);
 }
 
 void ring_parser_icg_genppmm ( Parser *pParser,int nMode,int nValue )

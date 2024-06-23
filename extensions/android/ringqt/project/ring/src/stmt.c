@@ -517,10 +517,10 @@ int ring_parser_stmt ( Parser *pParser )
 								nMark2 = ring_parser_icg_newlabel(pParser);
 								/* Complete JumpFor instruction */
 								ring_parser_icg_addoperandint(pParser,pMark,nMark2);
-								/* Add parameters for ICO_FREETEMPLISTS called by ICO_JUMPFOR */
-								ring_parser_icg_addoperandint(pParser,pMark,RING_ZERO);
-								ring_parser_icg_addoperandint(pParser,pMark,RING_ZERO);
-								/* Complete SETOPCODE instruction */
+								/*
+								**  The ICO_FREETEMPLISTS will be called by ICO_JUMPFOR 
+								**  Complete SETOPCODE instruction 
+								*/
 								ring_parser_icg_addoperandint(pParser,pMark4,nMark2-1);
 								/* Restore Loop|Exit Commands Status */
 								if ( pParser->lLoopOrExitCommand || ! pParser->lCheckLoopAndExit ) {
@@ -649,10 +649,10 @@ int ring_parser_stmt ( Parser *pParser )
 						ring_parser_icg_addoperandint(pParser,pMark4,nMark2-1);
 						/* Complete JumpFor instruciton */
 						ring_parser_icg_addoperandint(pParser,pMark,nMark2);
-						/* Add parameters for ICO_FREETEMPLISTS called by ICO_JUMPFOR */
-						ring_parser_icg_addoperandint(pParser,pMark,RING_ZERO);
-						ring_parser_icg_addoperandint(pParser,pMark,RING_ZERO);
-						/* Restore Loop|Exit Commands Status */
+						/*
+						**  The ICO_FREETEMPLISTS will be called by ICO_JUMPFOR 
+						**  Restore Loop|Exit Commands Status 
+						*/
 						if ( pParser->lLoopOrExitCommand || ! pParser->lCheckLoopAndExit ) {
 							/* Set Exit Mark */
 							ring_parser_icg_addoperandint(pParser,pMark3,nMark2);
