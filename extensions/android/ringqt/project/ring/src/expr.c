@@ -612,6 +612,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 				/* Add Assignment position to the LoadAddress Instruction */
 				if ( pLoadAPos != NULL ) {
 					ring_parser_icg_loadaddressassignmentpos(pParser,pLoadAPos,ring_parser_icg_instructionscount(pParser));
+					ring_parser_icg_addoperandint(pParser,pAssignmentPointerPos,ring_parser_icg_instructionscount(pParser));
 				}
 			}
 			else {
@@ -643,6 +644,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 				/* Add Assignment position to the LoadAddress Instruction */
 				if ( pLoadAPos != NULL ) {
 					ring_parser_icg_loadaddressassignmentpos(pParser,pLoadAPos,ring_parser_icg_instructionscount(pParser));
+					ring_parser_icg_addoperandint(pParser,pAssignmentPointerPos,ring_parser_icg_instructionscount(pParser));
 				}
 			}
 			return x ;

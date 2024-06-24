@@ -263,13 +263,15 @@ void ring_parser_icg_genfreetemplists ( Parser *pParser )
 
 void ring_parser_icg_genppmm ( Parser *pParser,int nMode,int nValue )
 {
-	List *pMark  ;
+	List *pMark, *pMark2  ;
 	int nMark  ;
 	pMark = ring_parser_icg_getactiveoperation(pParser);
 	/* Code Generation */
 	if ( (nMode == RING_PARSER_ICG_USEASSIGNMENT) || (nMode == RING_PARSER_ICG_USESETPROPERTY) ) {
 		/* Code Generation */
 		ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
+		ring_parser_icg_newoperandint(pParser,RING_ZERO);
+		pMark2 = ring_parser_icg_getactiveoperation(pParser);
 		/* Duplicate the address two times, one for the assignment (x = x+1) and one to keep the value */
 		ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
 		ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
@@ -282,6 +284,7 @@ void ring_parser_icg_genppmm ( Parser *pParser,int nMode,int nValue )
 			nMark = ring_parser_icg_newlabel(pParser);
 			ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
 			ring_parser_icg_loadaddressassignmentpos(pParser,pMark,nMark);
+			ring_parser_icg_addoperandint(pParser,pMark2,nMark);
 		}
 		else {
 			ring_parser_icg_newoperation(pParser,ICO_SETPROPERTY);
