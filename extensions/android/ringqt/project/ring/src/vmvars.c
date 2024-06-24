@@ -130,7 +130,7 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 
 int ring_vm_findvar2 ( VM *pVM,int nLevel,List *pList2,const char *cStr )
 {
-	int nPC,nType,lPrivateError  ;
+	int nPC,nType,lPrivateError,nAssignmentPos  ;
 	Item *pItem  ;
 	List *pList, *pThis  ;
 	/*
@@ -238,18 +238,22 @@ int ring_vm_findvar2 ( VM *pVM,int nLevel,List *pList2,const char *cStr )
 					pVM->pGetSetObject = pItem ;
 				}
 				pVM->nGetSetObjType = nType ;
-				/* Change Assignment Instruction to SetProperty */
-				if ( RING_VM_IR_PARACOUNT >= 4 ) {
-					if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG3) != 0 ) {
-						nPC = pVM->nPC ;
-						pVM->nPC = RING_VM_IR_READIVALUE(RING_VM_IR_REG3) ;
-						RING_VM_IR_LOAD ;
-						RING_VM_IR_OPCODE = ICO_SETPROPERTY ;
-						pVM->nPC = nPC ;
-						RING_VM_IR_UNLOAD ;
-						/* Avoid AssignmentPointer , we don't have assignment */
-						pVM->lNoAssignment = 1 ;
-					}
+				/*
+				**  Change Assignment Instruction to SetProperty 
+				**  Get Assignment Instruction Position (From the ICO_ASSIGNMENTPOINTER instruction) 
+				*/
+				nPC = pVM->nPC ;
+				RING_VM_IR_LOAD ;
+				nAssignmentPos = RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ;
+				RING_VM_IR_UNLOAD ;
+				if ( nAssignmentPos != 0 ) {
+					pVM->nPC = nAssignmentPos ;
+					RING_VM_IR_LOAD ;
+					RING_VM_IR_OPCODE = ICO_SETPROPERTY ;
+					pVM->nPC = nPC ;
+					RING_VM_IR_UNLOAD ;
+					/* Avoid AssignmentPointer , we don't have assignment */
+					pVM->lNoAssignment = 1 ;
 				}
 				ring_vm_oop_setget(pVM,pList2);
 			}

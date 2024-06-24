@@ -73,7 +73,7 @@ pList, *pList2
 Type: Item *
 pItem
 Type: int
-x
+x, nPC
 ring_vm_freeloadaddressscope
 ring_vm_loadaddressfirst
 ring_vm_printstack

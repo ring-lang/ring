@@ -11,7 +11,7 @@ Type: List *
 pList,*pList2
 ring_vm_findvar2
 Type: int
-nPC,nType,lPrivateError
+nPC,nType,lPrivateError,nAssignmentPos
 Type: Item *
 pItem
 Type: List *
