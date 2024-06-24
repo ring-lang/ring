@@ -108,6 +108,11 @@ const char * ring_parser_icg_getlaststring ( Parser *pParser )
 	return ring_list_getstring(pParser->pActiveGenCodeList, ring_list_getsize(pParser->pActiveGenCodeList)) ;
 }
 
+void ring_parser_icg_setoperandint ( Parser *pParser, List *pList, int nPos, int nValue )
+{
+	ring_list_setint_gc(NULL, pList, nPos, nValue);
+}
+
 void ring_parser_icg_loadfunction ( Parser *pParser,const char *cFunctionName )
 {
 	ring_parser_icg_newoperation(pParser,ICO_LOADFUNC);

@@ -543,6 +543,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			}
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
+			ring_parser_icg_newoperandint(pParser,RING_FALSE);
 			pAssignmentPointerPos = ring_parser_icg_getactiveoperation(pParser) ;
 			RING_PARSER_IGNORENEWLINE ;
 			pParser->lNewObject = 0 ;
@@ -573,7 +574,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 						return x ;
 					}
 					/* Disable Assignment Pointer */
-					ring_parser_icg_addoperandint(pParser,pAssignmentPointerPos,RING_TRUE);
+					ring_parser_icg_setoperandint(pParser,pAssignmentPointerPos,RING_PARSER_ICG_ASSIGNPTRENABLEPOS,RING_TRUE);
 				}
 				else if ( lAfterListEnd && (pParser->nBracesCounter >= 1) ) {
 					nNOOP = 1 ;
@@ -583,7 +584,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 					*/
 					if ( lSetProperty == 1 ) {
 						/* Disable Assignment Pointer */
-						ring_parser_icg_addoperandint(pParser,pAssignmentPointerPos,RING_TRUE);
+						ring_parser_icg_setoperandint(pParser,pAssignmentPointerPos,RING_PARSER_ICG_ASSIGNPTRENABLEPOS,RING_TRUE);
 					}
 				}
 				/*
@@ -625,13 +626,13 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 					ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
 					if ( ! lNewAfterEqual ) {
 						/* Disable Assignment Pointer */
-						ring_parser_icg_addoperandint(pParser,pAssignmentPointerPos,RING_TRUE);
+						ring_parser_icg_setoperandint(pParser,pAssignmentPointerPos,RING_PARSER_ICG_ASSIGNPTRENABLEPOS,RING_TRUE);
 					}
 				}
 				else {
 					ring_parser_icg_newoperation(pParser,ICO_SETPROPERTY);
 					/* Disable Assignment Pointer */
-					ring_parser_icg_addoperandint(pParser,pAssignmentPointerPos,RING_TRUE);
+					ring_parser_icg_setoperandint(pParser,pAssignmentPointerPos,RING_PARSER_ICG_ASSIGNPTRENABLEPOS,RING_TRUE);
 				}
 				/*
 				**  Generate Locations for Setproperty before/after Flag & nPC of Setter 
