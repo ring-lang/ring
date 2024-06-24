@@ -885,7 +885,6 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		ring_list_addstring_gc(pParser->pRingState,pList,ring_list_getstring(pParser->pRingState->pRingFilesStack,ring_list_getsize(pParser->pRingState->pRingFilesStack)));
 		ring_list_addint_gc(pParser->pRingState,pList,RING_FALSE);
 		ring_parser_icg_newoperation(pParser,ICO_NEWFUNC);
-		ring_parser_icg_newoperand(pParser,cFuncName);
 		/* Get Function Parameters */
 		if ( ring_parser_isidentifier(pParser) || ring_parser_isoperator2(pParser,OP_FOPEN) ) {
 			if (! ring_parser_paralist(pParser)) return RING_PARSER_FAIL ;

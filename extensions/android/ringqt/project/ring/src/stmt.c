@@ -124,7 +124,6 @@ int ring_parser_class ( Parser *pParser )
 			*/
 			ring_parser_icg_newoperation(pParser,ICO_RETNULL);
 			ring_parser_icg_newoperation(pParser,ICO_NEWFUNC);
-			ring_parser_icg_newoperand(pParser,pParser->cTokenText);
 			/* Add function to Functions Table */
 			pList2 = pParser->pFunctionsMap ;
 			/* Check Function Redefinition */

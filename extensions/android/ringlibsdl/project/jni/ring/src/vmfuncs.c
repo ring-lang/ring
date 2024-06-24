@@ -457,10 +457,10 @@ void ring_vm_newfunc ( VM *pVM )
 	pFuncCall->nStatus = RING_FUNCSTATUS_STARTED ;
 	nSP = pFuncCall->nSP ;
 	pVM->nFuncSP = nSP ;
-	if ( RING_VM_IR_PARACOUNT > 2 ) {
+	if ( RING_VM_IR_PARACOUNT > 1 ) {
 		/* Read Parameters (Separated by Space) */
-		cParameters = RING_VM_IR_READCVALUE(RING_VM_IR_REG2) ;
-		nMax = RING_VM_IR_READCVALUESIZE(RING_VM_IR_REG2) ;
+		cParameters = RING_VM_IR_READCVALUE(RING_VM_IR_REG1) ;
+		nMax = RING_VM_IR_READCVALUESIZE(RING_VM_IR_REG1) ;
 		lFreeParameter = nMax > RING_FUNCPARA_EXPECTEDSIZE - 1 ;
 		if ( lFreeParameter ) {
 			pParameter = (char *) ring_state_malloc(pVM->pRingState,nMax+1);
@@ -470,7 +470,7 @@ void ring_vm_newfunc ( VM *pVM )
 		}
 		/* Set Parameters Value */
 		aRefList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
-		for ( x = RING_VM_IR_READIVALUE(RING_VM_IR_REG3) ; x >= 1 ; x-- ) {
+		for ( x = RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ; x >= 1 ; x-- ) {
 			if ( nSP < pVM->nSP ) {
 				ring_string_word(cParameters,x,pParameter);
 				if ( RING_VM_STACK_ISSTRING ) {
