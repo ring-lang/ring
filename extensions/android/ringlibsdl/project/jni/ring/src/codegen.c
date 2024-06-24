@@ -155,6 +155,14 @@ char * ring_parser_icg_parentclassname ( Parser *pParser )
 	return ring_list_getstring(pParser->pActiveGenCodeList ,RING_PARSER_ICG_PARENTCLASSPOS) ;
 }
 
+void ring_parser_icg_deleteparentclassname ( Parser *pParser )
+{
+	/* This function assume that the current instruction define new class and have the parent class name */
+	if ( ring_list_getsize(pParser->pActiveGenCodeList) >= RING_PARSER_ICG_PARENTCLASSPOS ) {
+		ring_list_deleteitem_gc(NULL, pParser->pActiveGenCodeList, RING_PARSER_ICG_PARENTCLASSPOS);
+	}
+}
+
 char * ring_parser_icg_newpackagename ( Parser *pParser,List *pPos )
 {
 	return ring_list_getstring(pPos,RING_PARSER_ICG_PARA1) ;

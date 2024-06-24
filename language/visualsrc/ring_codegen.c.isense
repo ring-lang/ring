@@ -169,6 +169,7 @@ ring_parser_icg_loadaddresstoloadfunction
 ring_parser_icg_freestack
 ring_parser_icg_newline
 ring_parser_icg_parentclassname
+ring_parser_icg_deleteparentclassname
 ring_parser_icg_newpackagename
 ring_parser_icg_pushn
 Type: int

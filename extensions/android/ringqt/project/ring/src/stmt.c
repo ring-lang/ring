@@ -52,6 +52,7 @@ int ring_parser_class ( Parser *pParser )
 					/* Set Parent Class Name in Classes Map */
 					ring_list_addstring_gc(pParser->pRingState,pList,ring_parser_icg_parentclassname(pParser));
 					RING_STATE_PRINTRULE(RING_RULE_CLASSFROM) ;
+					ring_parser_icg_deleteparentclassname(pParser);
 				}
 				else {
 					ring_parser_error(pParser,RING_PARSER_ERROR_PRENTCLASSNAME);

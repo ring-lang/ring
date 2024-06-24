@@ -242,6 +242,8 @@
 
 	char * ring_parser_icg_parentclassname ( Parser *pParser ) ;
 
+	void ring_parser_icg_deleteparentclassname ( Parser *pParser ) ;
+
 	char * ring_parser_icg_newpackagename ( Parser *pParser,List *pPos ) ;
 
 	void ring_parser_icg_pushn ( Parser *pParser,double nValue ) ;
