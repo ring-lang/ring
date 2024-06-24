@@ -127,11 +127,6 @@ void ring_parser_icg_loadaddress ( Parser *pParser,const char *cVariableName )
 	ring_parser_icg_newoperandint(pParser,RING_ZERO);
 }
 
-void ring_parser_icg_loadaddressassignmentpos ( Parser *pParser,List *pLoadAPos,int nPos )
-{
-	ring_list_setint_gc(pParser->pRingState,pLoadAPos,RING_PARSER_ICG_LOADAASSIGNPOS,nPos);
-}
-
 void ring_parser_icg_loadaddresstoloadfunction ( Parser *pParser )
 {
 	ring_parser_icg_setlastoperation(pParser,ICO_LOADFUNC);
@@ -283,7 +278,6 @@ void ring_parser_icg_genppmm ( Parser *pParser,int nMode,int nValue )
 		if ( nMode == RING_PARSER_ICG_USEASSIGNMENT ) {
 			nMark = ring_parser_icg_newlabel(pParser);
 			ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
-			ring_parser_icg_loadaddressassignmentpos(pParser,pMark,nMark);
 			ring_parser_icg_addoperandint(pParser,pMark2,nMark);
 		}
 		else {

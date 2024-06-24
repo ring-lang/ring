@@ -170,7 +170,6 @@
 	#define RING_PARSER_ICG_PARA1 2
 	#define RING_PARSER_ICG_PARA2 3
 	#define RING_PARSER_ICG_PARENTCLASSPOS 4
-	#define RING_PARSER_ICG_LOADAASSIGNPOS 4
 	#define RING_PARSER_ICG_LOADASETTERPOS 3
 	#define RING_PARSER_ICG_LOADAGETTERPOS 4
 	#define RING_PARSER_ICG_USEASSIGNMENT 1
@@ -234,8 +233,6 @@
 	void ring_parser_icg_loadfunction ( Parser *pParser,const char *cFunctionName ) ;
 
 	void ring_parser_icg_loadaddress ( Parser *pParser,const char *cVariableName ) ;
-
-	void ring_parser_icg_loadaddressassignmentpos ( Parser *pParser,List *pLoadAPos,int nPos ) ;
 
 	void ring_parser_icg_loadaddresstoloadfunction ( Parser *pParser ) ;
 

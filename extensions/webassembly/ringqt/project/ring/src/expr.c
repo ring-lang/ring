@@ -610,8 +610,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 				ring_parser_icg_newoperandint(pParser,RING_ZERO);
 				ring_parser_icg_newoperandint(pParser,RING_ZERO);
 				/* Add Assignment position to the LoadAddress Instruction */
-				if ( pLoadAPos != NULL ) {
-					ring_parser_icg_loadaddressassignmentpos(pParser,pLoadAPos,ring_parser_icg_instructionscount(pParser));
+				if ( pAssignmentPointerPos != NULL ) {
 					ring_parser_icg_addoperandint(pParser,pAssignmentPointerPos,ring_parser_icg_instructionscount(pParser));
 				}
 			}
@@ -642,8 +641,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 				ring_parser_icg_newoperandint(pParser,RING_ZERO);
 				ring_parser_icg_newoperandint(pParser,RING_ZERO);
 				/* Add Assignment position to the LoadAddress Instruction */
-				if ( pLoadAPos != NULL ) {
-					ring_parser_icg_loadaddressassignmentpos(pParser,pLoadAPos,ring_parser_icg_instructionscount(pParser));
+				if ( pAssignmentPointerPos != NULL ) {
 					ring_parser_icg_addoperandint(pParser,pAssignmentPointerPos,ring_parser_icg_instructionscount(pParser));
 				}
 			}
