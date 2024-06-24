@@ -119,7 +119,6 @@ RING_PARSER_ICG_OPERATIONCODE
 RING_PARSER_ICG_PARA1
 RING_PARSER_ICG_PARA2
 RING_PARSER_ICG_PARENTCLASSPOS
-RING_PARSER_ICG_LOADAASSIGNPOS
 RING_PARSER_ICG_LOADASETTERPOS
 RING_PARSER_ICG_LOADAGETTERPOS
 RING_PARSER_ICG_USEASSIGNMENT
@@ -166,7 +165,6 @@ ring_parser_icg_getlaststring
 ring_parser_icg_setoperandint
 ring_parser_icg_loadfunction
 ring_parser_icg_loadaddress
-ring_parser_icg_loadaddressassignmentpos
 ring_parser_icg_loadaddresstoloadfunction
 ring_parser_icg_freestack
 ring_parser_icg_newline
