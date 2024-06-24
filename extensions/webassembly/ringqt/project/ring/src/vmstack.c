@@ -583,19 +583,17 @@ void ring_vm_assignmentpointer ( VM *pVM )
 	Item *pItem  ;
 	int x  ;
 	/* Check Instruction Parameters */
-	if ( RING_VM_IR_PARACOUNT >= 2 ) {
-		if ( RING_VM_IR_READI == 0 ) {
-			/*
-			**  We have this option with New Lists and  New Objects only 
-			**  We will accept this option only when we have the setter method 
-			*/
-			if ( pVM->nNoSetterMethod == RING_NOSETTERMETHOD_DEFAULT ) {
-				pVM->lNoAssignment = 1 ;
-			}
-			else {
-				/* Tell the ICO_SETPROPERTY instruction to be disabled */
-				pVM->nNoSetterMethod = RING_NOSETTERMETHOD_IGNORESETPROPERTY ;
-			}
+	if ( RING_VM_IR_READI == 1 ) {
+		/*
+		**  We have this option with New Lists and  New Objects only 
+		**  We will accept this option only when we have the setter method 
+		*/
+		if ( pVM->nNoSetterMethod == RING_NOSETTERMETHOD_DEFAULT ) {
+			pVM->lNoAssignment = 1 ;
+		}
+		else {
+			/* Tell the ICO_SETPROPERTY instruction to be disabled */
+			pVM->nNoSetterMethod = RING_NOSETTERMETHOD_IGNORESETPROPERTY ;
 		}
 	}
 	if ( pVM->lNoAssignment == 0 ) {
