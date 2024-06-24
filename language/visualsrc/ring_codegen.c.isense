@@ -184,7 +184,7 @@ ring_parser_icg_gencall
 ring_parser_icg_genfreetemplists
 ring_parser_icg_genppmm
 Type: List *
-pMark, *pMark2
+pMark
 Type: int
 nMark
 ring_parser_icg_showoutput

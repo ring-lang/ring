@@ -996,7 +996,6 @@ int ring_parser_mixer ( Parser *pParser )
 		else if ( ring_parser_icg_getlastoperation(pParser) == ICO_LOADSUBADDRESS ) {
 			ring_parser_icg_setlastoperation(pParser,ICO_LOADMETHOD);
 			/* Delete Locations for Setter/Getter */
-			ring_parser_icg_deleteoperand(pParser,RING_PARSER_ICG_LOADAGETTERPOS);
 			ring_parser_icg_deleteoperand(pParser,RING_PARSER_ICG_LOADASETTERPOS);
 			nCallMethod = 1 ;
 		}

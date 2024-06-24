@@ -124,7 +124,6 @@ void ring_parser_icg_loadaddress ( Parser *pParser,const char *cVariableName )
 	ring_parser_icg_newoperation(pParser,ICO_LOADADDRESS);
 	ring_parser_icg_newoperand(pParser,cVariableName);
 	ring_parser_icg_newoperandint(pParser,RING_ZERO);
-	ring_parser_icg_newoperandint(pParser,RING_ZERO);
 }
 
 void ring_parser_icg_loadaddresstoloadfunction ( Parser *pParser )
