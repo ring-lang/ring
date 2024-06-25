@@ -12,7 +12,7 @@ pItem
 Type: double
 nNum1,nNum2
 Type: int
-nLine
+nLine, lPerformance
 ring_vm_incpjump
 Type: Item *
 pItem
