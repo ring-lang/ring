@@ -171,10 +171,8 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 void ring_vm_call ( VM *pVM )
 {
 	/* Check if we call method using ObjName.MethodName() */
-	if ( RING_VM_IR_PARACOUNT == 3 ) {
-		if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ) {
-			ring_vm_preparecallmethod(pVM);
-		}
+	if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ) {
+		ring_vm_preparecallmethod(pVM);
 	}
 	ring_vm_call2(pVM);
 }
