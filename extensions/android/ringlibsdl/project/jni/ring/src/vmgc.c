@@ -65,20 +65,18 @@ void ring_vm_gc_killreference ( VM *pVM )
 	char *newstr  ;
 	char cStr[RING_CHARBUF]  ;
 	/* Check usage before the For In Loop, If there are a reference, set it to NULL */
-	if ( RING_VM_IR_PARACOUNT > 1 ) {
-		if ( RING_VM_IR_READI == 1 ) {
-			/* Kill the reference */
-			pList = (List *) RING_VM_STACK_READP ;
-			RING_VM_STACK_POP ;
-			if ( ring_list_getint(pList,RING_VAR_TYPE) == RING_VM_POINTER ) {
-				/* Delete Reference (Delete item using reference counting) */
-				if ( ring_list_getint(pList,RING_VAR_PVALUETYPE) == RING_OBJTYPE_LISTITEM ) {
-					pItem = (Item *) ring_list_getpointer(pList,RING_VAR_VALUE) ;
-					ring_item_delete_gc(pVM->pRingState,pItem);
-				}
-				ring_list_setint_gc(pVM->pRingState,pList, RING_VAR_TYPE ,RING_VM_STRING);
-				ring_list_setstring_gc(pVM->pRingState,pList,RING_VAR_VALUE,"");
+	if ( RING_VM_IR_READI == 1 ) {
+		/* Kill the reference */
+		pList = (List *) RING_VM_STACK_READP ;
+		RING_VM_STACK_POP ;
+		if ( ring_list_getint(pList,RING_VAR_TYPE) == RING_VM_POINTER ) {
+			/* Delete Reference (Delete item using reference counting) */
+			if ( ring_list_getint(pList,RING_VAR_PVALUETYPE) == RING_OBJTYPE_LISTITEM ) {
+				pItem = (Item *) ring_list_getpointer(pList,RING_VAR_VALUE) ;
+				ring_item_delete_gc(pVM->pRingState,pItem);
 			}
+			ring_list_setint_gc(pVM->pRingState,pList, RING_VAR_TYPE ,RING_VM_STRING);
+			ring_list_setstring_gc(pVM->pRingState,pList,RING_VAR_VALUE,"");
 		}
 		return ;
 	}
