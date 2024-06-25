@@ -31,7 +31,7 @@ aReg[RING_VM_BC_ITEMS_COUNT]
 Type: unsigned int
 nIntReg: 32
 Type: unsigned int
-nSmallIntReg: 17
+nSmallIntReg: 16
 Type: unsigned int
 nOPCode: 7
 Type: unsigned int
