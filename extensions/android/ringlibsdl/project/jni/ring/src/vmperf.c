@@ -71,7 +71,9 @@ void ring_vm_incjump ( VM *pVM )
 	nNum2 = ring_list_getdouble(pVar,RING_VAR_VALUE) ;
 	ring_list_setdouble_gc(pVM->pRingState,pVar,RING_VAR_VALUE,nNum2 +nNum1);
 	/* Move line number to REG2 (HIGH) */
-	nLine = RING_VM_IR_READIVALUE(RING_VM_IR_REG3) ;
+	RING_VM_IR_LOAD ;
+	nLine = RING_VM_IR_READIVALUE(RING_VM_IR_REG1) ;
+	RING_VM_IR_UNLOAD ;
 	RING_VM_IR_READHIGHIVALUE(RING_VM_IR_REG2) = nLine ;
 	/* Change Instruction for Performance */
 	if ( pVM->nVarScope == RING_VARSCOPE_GLOBAL ) {

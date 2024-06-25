@@ -513,8 +513,9 @@ int ring_parser_stmt ( Parser *pParser )
 								ring_parser_icg_newoperation(pParser,ICO_INCJUMP);
 								ring_parser_icg_newoperand(pParser,ring_string_get(pString));
 								ring_parser_icg_newoperandint(pParser,nMark1+1);
-								ring_parser_icg_newoperandint(pParser,nLine2);
 								nMark2 = ring_parser_icg_newlabel(pParser);
+								ring_parser_icg_newoperation(pParser,ICO_NOOP);
+								ring_parser_icg_newoperandint(pParser,nLine2);
 								/* Complete JumpFor instruction */
 								ring_parser_icg_addoperandint(pParser,pMark,nMark2);
 								/*
@@ -643,8 +644,9 @@ int ring_parser_stmt ( Parser *pParser )
 						ring_parser_icg_newoperation(pParser,ICO_INCJUMP);
 						ring_parser_icg_newoperand(pParser,cStr);
 						ring_parser_icg_newoperandint(pParser,nMark1+1);
-						ring_parser_icg_newoperandint(pParser,nLine2);
 						nMark2 = ring_parser_icg_newlabel(pParser);
+						ring_parser_icg_newoperation(pParser,ICO_NOOP);
+						ring_parser_icg_newoperandint(pParser,nLine2);
 						/* Complete SETOPCODE instruction */
 						ring_parser_icg_addoperandint(pParser,pMark4,nMark2-1);
 						/* Complete JumpFor instruciton */
