@@ -244,7 +244,10 @@ int ring_vm_findvar2 ( VM *pVM,int nLevel,List *pList2,const char *cStr )
 				*/
 				nPC = pVM->nPC ;
 				RING_VM_IR_LOAD ;
-				nAssignmentPos = RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ;
+				nAssignmentPos = RING_ZERO ;
+				if ( RING_VM_IR_OPCODE == ICO_ASSIGNMENTPOINTER ) {
+					nAssignmentPos = RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ;
+				}
 				RING_VM_IR_UNLOAD ;
 				if ( nAssignmentPos != 0 ) {
 					pVM->nPC = nAssignmentPos ;
