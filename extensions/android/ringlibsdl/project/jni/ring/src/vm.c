@@ -494,6 +494,9 @@ void ring_vm_tobytecode ( VM *pVM,int nIns )
 	pByteCode->nReg1Type = RING_VM_REGTYPE_NOTHING ;
 	pByteCode->nReg2Type = RING_VM_REGTYPE_NOTHING ;
 	pByteCode->nReg3Type = RING_VM_REGTYPE_NOTHING ;
+	pByteCode->aReg[RING_VM_IR_REG1].dNumber = 0.0 ;
+	pByteCode->aReg[RING_VM_IR_REG2].dNumber = 0.0 ;
+	pByteCode->aReg[RING_VM_IR_REG3].dNumber = 0.0 ;
 	for ( x = 2 ; x <= ring_list_getsize(pIR) ; x++ ) {
 		pItem = ring_list_getitem(pIR,x) ;
 		/* Copy the item data */

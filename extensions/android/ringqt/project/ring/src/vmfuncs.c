@@ -455,7 +455,7 @@ void ring_vm_newfunc ( VM *pVM )
 	pFuncCall->nStatus = RING_FUNCSTATUS_STARTED ;
 	nSP = pFuncCall->nSP ;
 	pVM->nFuncSP = nSP ;
-	if ( RING_VM_IR_PARACOUNT > 1 ) {
+	if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG2) > 0 ) {
 		/* Read Parameters (Separated by Space) */
 		cParameters = RING_VM_IR_READCVALUE(RING_VM_IR_REG1) ;
 		nMax = RING_VM_IR_READCVALUESIZE(RING_VM_IR_REG1) ;
@@ -886,6 +886,5 @@ void ring_vmfunccall_useloadfuncp ( VM *pVM,FuncCall *pFuncCall,int nPerformance
 		RING_VM_IR_SETFLAGREG(pFuncCall->nType);
 		RING_VM_IR_SETREG2TYPE(RING_VM_REGTYPE_INT);
 		RING_VM_IR_SETREG3TYPE(RING_VM_REGTYPE_POINTER);
-		RING_VM_IR_PARACOUNT = 4 ;
 	}
 }
