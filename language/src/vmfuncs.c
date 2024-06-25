@@ -879,12 +879,11 @@ void ring_vmfunccall_useloadfuncp ( VM *pVM,FuncCall *pFuncCall,int nPerformance
 		/* Replace Instruction with ICO_LOADFUNCP for better performance */
 		RING_VM_IR_OPCODE = ICO_LOADFUNCP ;
 		/* Leave the first parameter (contains the function name as wanted) */
-		RING_VM_IR_ITEMSETLOWINT(RING_VM_IR_ITEM(RING_VM_IR_REG2),pFuncCall->nPC);
-		RING_VM_IR_ITEMSETHIGHINT(RING_VM_IR_ITEM(RING_VM_IR_REG2),ring_list_getsize(pVM->pFunctionsMap));
-		RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(RING_VM_IR_REG3),(void *) pFuncCall->pFunc);
+		RING_VM_IR_SETINTREG(pFuncCall->nPC);
+		RING_VM_IR_SETSMALLINTREG(ring_list_getsize(pVM->pFunctionsMap));
+		RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(RING_VM_IR_REG2),(void *) pFuncCall->pFunc);
 		RING_VM_IR_SETFLAGREG(pFuncCall->nType);
 		RING_VM_IR_SETFLAGREG2(pFuncCall->lMethod);
-		RING_VM_IR_SETREG2TYPE(RING_VM_REGTYPE_INT);
-		RING_VM_IR_SETREG3TYPE(RING_VM_REGTYPE_POINTER);
+		RING_VM_IR_SETREG2TYPE(RING_VM_REGTYPE_POINTER);
 	}
 }
