@@ -488,8 +488,6 @@ void ring_vm_tobytecode ( VM *pVM,int nIns )
 			break ;
 	}
 	pByteCode->nOPCode = pItem->data.iNumber ;
-	/* Get Instruction Parameters Count */
-	pByteCode->nInsSize = ring_list_getsize(pIR) ;
 	/* Set the Registers Type */
 	pByteCode->nReg1Type = RING_VM_REGTYPE_NOTHING ;
 	pByteCode->nReg2Type = RING_VM_REGTYPE_NOTHING ;
@@ -579,7 +577,7 @@ void ring_vm_setreg1topointerfromstack ( VM * pVM )
 
 void ring_vm_showbytecode ( VM *pVM )
 {
-	int x,y,nCount,nCount2,nType  ;
+	int x,y,nCount,nType  ;
 	ByteCode *pByteCode  ;
 	/* Print Header */
 	printf( "\n\n" ) ;
@@ -593,35 +591,32 @@ void ring_vm_showbytecode ( VM *pVM )
 		for ( x = 1 ; x <= nCount ; x++ ) {
 			/* Get the Instruction */
 			pByteCode = pVM->pByteCode + x - 1 ;
-			nCount2 = pByteCode->nInsSize - 1 ;
 			printf( "\n %6d  %18s  ", x , RING_IC_OP[pByteCode->nOPCode] ) ;
-			if ( nCount2 > 0 ) {
-				for ( y = 0 ; y < nCount2 ; y++ ) {
-					/* Get The Register Type */
-					if ( y == 0 ) {
-						nType = pByteCode->nReg1Type ;
-					}
-					else if ( y == 1 ) {
-						nType = pByteCode->nReg2Type ;
-					}
-					else if ( y == 2 ) {
-						nType = pByteCode->nReg3Type ;
-					}
-					/* Display the Register Value */
-					switch ( nType ) {
-						case RING_VM_REGTYPE_STRING :
-							printf( " %18s ",ring_string_get(pByteCode->aReg[y].pString) ) ;
-							break ;
-						case RING_VM_REGTYPE_INT :
-							printf( " %18d ",pByteCode->aReg[y].iNumber ) ;
-							break ;
-						case RING_VM_REGTYPE_DOUBLE :
-							printf( " %18f",pByteCode->aReg[y].dNumber ) ;
-							break ;
-						case RING_VM_REGTYPE_POINTER :
-							printf( " %18p ",pByteCode->aReg[y].pPointer ) ;
-							break ;
-					}
+			for ( y = 0 ; y < RING_VM_BC_ITEMS_COUNT ; y++ ) {
+				/* Get The Register Type */
+				if ( y == 0 ) {
+					nType = pByteCode->nReg1Type ;
+				}
+				else if ( y == 1 ) {
+					nType = pByteCode->nReg2Type ;
+				}
+				else if ( y == 2 ) {
+					nType = pByteCode->nReg3Type ;
+				}
+				/* Display the Register Value */
+				switch ( nType ) {
+					case RING_VM_REGTYPE_STRING :
+						printf( " %18s ",ring_string_get(pByteCode->aReg[y].pString) ) ;
+						break ;
+					case RING_VM_REGTYPE_INT :
+						printf( " %18d ",pByteCode->aReg[y].iNumber ) ;
+						break ;
+					case RING_VM_REGTYPE_DOUBLE :
+						printf( " %18f",pByteCode->aReg[y].dNumber ) ;
+						break ;
+					case RING_VM_REGTYPE_POINTER :
+						printf( " %18p ",pByteCode->aReg[y].pPointer ) ;
+						break ;
 				}
 			}
 		}
@@ -635,7 +630,7 @@ void ring_vm_showbytecode ( VM *pVM )
 
 void ring_vm_bytecode2list ( VM *pVM, List *pOutput )
 {
-	int x,y,nCount,nCount2,nType  ;
+	int x,y,nCount,nType  ;
 	ByteCode *pByteCode  ;
 	List *pIns  ;
 	nCount = RING_VM_INSTRUCTIONSCOUNT ;
@@ -645,35 +640,32 @@ void ring_vm_bytecode2list ( VM *pVM, List *pOutput )
 			pIns = ring_list_newlist_gc(pVM->pRingState,pOutput);
 			/* Get the Instruction */
 			pByteCode = pVM->pByteCode + x - 1 ;
-			nCount2 = pByteCode->nInsSize - 1 ;
 			ring_list_adddouble_gc(pVM->pRingState,pIns,pByteCode->nOPCode);
-			if ( nCount2 > 0 ) {
-				for ( y = 0 ; y < nCount2 ; y++ ) {
-					/* Get The Register Type */
-					if ( y == 0 ) {
-						nType = pByteCode->nReg1Type ;
-					}
-					else if ( y == 1 ) {
-						nType = pByteCode->nReg2Type ;
-					}
-					else if ( y == 2 ) {
-						nType = pByteCode->nReg3Type ;
-					}
-					/* Add the Register Value */
-					switch ( nType ) {
-						case RING_VM_REGTYPE_STRING :
-							ring_list_addstring_gc(pVM->pRingState,pIns,ring_string_get(pByteCode->aReg[y].pString));
-							break ;
-						case RING_VM_REGTYPE_INT :
-							ring_list_adddouble_gc(pVM->pRingState,pIns,pByteCode->aReg[y].iNumber);
-							break ;
-						case RING_VM_REGTYPE_DOUBLE :
-							ring_list_adddouble_gc(pVM->pRingState,pIns,pByteCode->aReg[y].dNumber);
-							break ;
-						case RING_VM_REGTYPE_POINTER :
-							ring_list_addpointer_gc(pVM->pRingState,pIns,pByteCode->aReg[y].pPointer);
-							break ;
-					}
+			for ( y = 0 ; y < RING_VM_BC_ITEMS_COUNT ; y++ ) {
+				/* Get The Register Type */
+				if ( y == 0 ) {
+					nType = pByteCode->nReg1Type ;
+				}
+				else if ( y == 1 ) {
+					nType = pByteCode->nReg2Type ;
+				}
+				else if ( y == 2 ) {
+					nType = pByteCode->nReg3Type ;
+				}
+				/* Add the Register Value */
+				switch ( nType ) {
+					case RING_VM_REGTYPE_STRING :
+						ring_list_addstring_gc(pVM->pRingState,pIns,ring_string_get(pByteCode->aReg[y].pString));
+						break ;
+					case RING_VM_REGTYPE_INT :
+						ring_list_adddouble_gc(pVM->pRingState,pIns,pByteCode->aReg[y].iNumber);
+						break ;
+					case RING_VM_REGTYPE_DOUBLE :
+						ring_list_adddouble_gc(pVM->pRingState,pIns,pByteCode->aReg[y].dNumber);
+						break ;
+					case RING_VM_REGTYPE_POINTER :
+						ring_list_addpointer_gc(pVM->pRingState,pIns,pByteCode->aReg[y].pPointer);
+						break ;
 				}
 			}
 		}

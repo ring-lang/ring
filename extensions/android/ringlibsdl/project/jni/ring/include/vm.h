@@ -34,7 +34,6 @@
 		unsigned int nIntReg: 32  ;
 		unsigned int nFlagReg: 8  ;
 		unsigned int nOPCode: 8  ;
-		unsigned int nInsSize:4  ;
 		unsigned int nReg1Type:3  ;
 		unsigned int nReg2Type:3  ;
 		unsigned int nReg3Type:3  ;
@@ -249,7 +248,6 @@
 	#define RING_VM_IR_READIVALUE(nReg) pVM->pByteCodeIR->aReg[nReg].iNumber
 	#define RING_VM_IR_READD pVM->pByteCodeIR->aReg[0].dNumber
 	#define RING_VM_IR_READDVALUE(nReg) pVM->pByteCodeIR->aReg[nReg].dNumber
-	#define RING_VM_IR_PARACOUNT pVM->pByteCodeIR->nInsSize
 	#define RING_VM_IR_OPCODE pVM->pByteCodeIR->nOPCode
 	#define RING_VM_IR_OPCODEVALUE(nIns) (pVM->pByteCode + nIns)->nOPCode
 	#define RING_VM_IR_ITEM(nReg) & (pVM->pByteCodeIR->aReg[nReg])

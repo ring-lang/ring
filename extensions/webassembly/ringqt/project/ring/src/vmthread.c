@@ -198,7 +198,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 
 RING_API void ring_vm_bytecodefornewthread ( VM *pVM,VM *pOldVM )
 {
-	int x,y,nSize,nCount,nType  ;
+	int x,y,nSize,nType  ;
 	ByteCode *pByteCode  ;
 	String *pString  ;
 	/* Get the Instructions Count */
@@ -212,8 +212,7 @@ RING_API void ring_vm_bytecodefornewthread ( VM *pVM,VM *pOldVM )
 	/* Create new strings */
 	for ( x = 1 ; x <= RING_VM_INSTRUCTIONSCOUNT ; x++ ) {
 		pByteCode = pVM->pByteCode + x - 1 ;
-		nCount = pByteCode->nInsSize - 1 ;
-		for ( y = 0 ; y < nCount ; y++ ) {
+		for ( y = 0 ; y < RING_VM_BC_ITEMS_COUNT ; y++ ) {
 			/* Get The Register Type */
 			if ( y == 0 ) {
 				nType = pByteCode->nReg1Type ;

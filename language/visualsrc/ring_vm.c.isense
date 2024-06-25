@@ -35,8 +35,6 @@ nFlagReg: 8
 Type: unsigned int
 nOPCode: 8
 Type: unsigned int
-nInsSize:4
-Type: unsigned int
 nReg1Type:3
 Type: unsigned int
 nReg2Type:3
@@ -367,7 +365,6 @@ RING_VM_IR_READI
 RING_VM_IR_READIVALUE(nReg)
 RING_VM_IR_READD
 RING_VM_IR_READDVALUE(nReg)
-RING_VM_IR_PARACOUNT
 RING_VM_IR_OPCODE
 RING_VM_IR_OPCODEVALUE(nIns)
 RING_VM_IR_ITEM(nReg)
@@ -630,12 +627,12 @@ ring_vm_clearregisterstring
 ring_vm_setreg1topointerfromstack
 ring_vm_showbytecode
 Type: int
-x,y,nCount,nCount2,nType
+x,y,nCount,nType
 Type: ByteCode *
 pByteCode
 ring_vm_bytecode2list
 Type: int
-x,y,nCount,nCount2,nType
+x,y,nCount,nType
 Type: ByteCode *
 pByteCode
 Type: List *
