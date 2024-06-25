@@ -774,34 +774,31 @@ write(cFileName,cString)
 <tr class="row-even"><td><p>ICO_PUSH2N</p></td>
 <td><p>Add two numbers from the IR to the stack</p></td>
 </tr>
-<tr class="row-odd"><td><p>ICO_PUSH3N</p></td>
-<td><p>Add three numbers from the IR to the stack</p></td>
-</tr>
-<tr class="row-even"><td><p>ICO_PUSHV</p></td>
+<tr class="row-odd"><td><p>ICO_PUSHV</p></td>
 <td><p>Replace VP in the stack[nSize] with the variable value</p></td>
 </tr>
-<tr class="row-odd"><td><p>ICO_LOADADDRESS</p></td>
+<tr class="row-even"><td><p>ICO_LOADADDRESS</p></td>
 <td><p>Read variable name from the IR, push VP to the stack</p></td>
 </tr>
-<tr class="row-even"><td><p>ICO_ASSIGNMENT</p></td>
+<tr class="row-odd"><td><p>ICO_ASSIGNMENT</p></td>
 <td><p>Stack[nSize-1] VV = Stack[nSize] VV , POP Stack[nSize]</p></td>
 </tr>
-<tr class="row-odd"><td><p>ICO_INC</p></td>
+<tr class="row-even"><td><p>ICO_INC</p></td>
 <td><p>Increment Number in Stack[nSize] by 1</p></td>
 </tr>
-<tr class="row-even"><td><p>ICO_LOADAPUSHV</p></td>
+<tr class="row-odd"><td><p>ICO_LOADAPUSHV</p></td>
 <td><p>The same as ICO_LOADADDRESS then ICO_PUSHV</p></td>
 </tr>
-<tr class="row-odd"><td><p>ICO_NEWLINE</p></td>
+<tr class="row-even"><td><p>ICO_NEWLINE</p></td>
 <td><p>Store new line number (debug info)</p></td>
 </tr>
-<tr class="row-even"><td><p>ICO_FREESTACK</p></td>
+<tr class="row-odd"><td><p>ICO_FREESTACK</p></td>
 <td><p>Remove all items from the stack , nSize = 0</p></td>
 </tr>
-<tr class="row-odd"><td><p>ICO_FILENAME</p></td>
+<tr class="row-even"><td><p>ICO_FILENAME</p></td>
 <td><p>Store the source code file name (debug info)</p></td>
 </tr>
-<tr class="row-even"><td><p>ICO_FREELOADASCOPE</p></td>
+<tr class="row-odd"><td><p>ICO_FREELOADASCOPE</p></td>
 <td><p>Free the Scope List of the current Expression</p></td>
 </tr>
 </tbody>

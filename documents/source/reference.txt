@@ -637,7 +637,6 @@ Operation			Description
 ICO_PUSHC 		Add string from the IR to the stack
 ICO_PUSHN 		Add number from the IR to the stack
 ICO_PUSH2N		Add two numbers from the IR to the stack
-ICO_PUSH3N		Add three numbers from the IR to the stack
 ICO_PUSHV 		Replace VP in the stack[nSize] with the variable value 
 ICO_LOADADDRESS 	Read variable name from the IR, push VP to the stack
 ICO_ASSIGNMENT		Stack[nSize-1] VV = Stack[nSize] VV , POP Stack[nSize]
