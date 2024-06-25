@@ -220,9 +220,6 @@ RING_API void ring_vm_bytecodefornewthread ( VM *pVM,VM *pOldVM )
 			else if ( y == 1 ) {
 				nType = pByteCode->nReg2Type ;
 			}
-			else {
-				nType = pByteCode->nReg3Type ;
-			}
 			/* Create new string */
 			if ( nType == RING_VM_REGTYPE_STRING ) {
 				pString = ring_string_new2(ring_string_get(pByteCode->aReg[y].pString),ring_string_size(pByteCode->aReg[y].pString));

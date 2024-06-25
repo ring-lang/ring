@@ -14,7 +14,7 @@
 		#define RING_VM_STACK_CHECKOVERFLOW 1000
 	#endif
 	#define RING_VM_FREE_STACK_IN_CLASS_REGION_AFTER 100
-	#define RING_VM_BC_ITEMS_COUNT 3
+	#define RING_VM_BC_ITEMS_COUNT 2
 	#define RING_VM_MAXDIGITSINNUMBER 15
 	/* Register Type */
 	#define RING_VM_REGTYPE_NOTHING 0
@@ -36,7 +36,6 @@
 		unsigned int nOPCode: 7  ;
 		unsigned int nReg1Type:3  ;
 		unsigned int nReg2Type:3  ;
-		unsigned int nReg3Type:3  ;
 		unsigned int nFlagReg: 1  ;
 		unsigned int nFlagReg2: 1  ;
 	} ByteCode ;
@@ -272,14 +271,12 @@
 	#define RING_VM_IR_SETREG1TOPOINTERFROMSTACK ring_vm_setreg1topointerfromstack(pVM)
 	#define RING_VM_IR_SETREG1TYPE(nType) pVM->pByteCodeIR->nReg1Type = nType
 	#define RING_VM_IR_SETREG2TYPE(nType) pVM->pByteCodeIR->nReg2Type = nType
-	#define RING_VM_IR_SETREG3TYPE(nType) pVM->pByteCodeIR->nReg3Type = nType
 	#define RING_VM_IR_READLOWIVALUE(nReg) pVM->pByteCodeIR->aReg[nReg].aNumber[0]
 	#define RING_VM_IR_READHIGHIVALUE(nReg) pVM->pByteCodeIR->aReg[nReg].aNumber[1]
 	#define RING_VM_IR_ITEMSETLOWINT(pItem,nValue) (* pItem).aNumber[0]  = nValue
 	#define RING_VM_IR_ITEMSETHIGHINT(pItem,nValue) (* pItem).aNumber[1]  = nValue
 	#define RING_VM_IR_REG1 0
 	#define RING_VM_IR_REG2 1
-	#define RING_VM_IR_REG3 2
 	#define RING_VM_IR_SETFLAGREG2(nValue) pVM->pByteCodeIR->nFlagReg2 = nValue
 	#define RING_VM_IR_GETFLAGREG2 pVM->pByteCodeIR->nFlagReg2
 	#define RING_VM_IR_SETSMALLINTREG(nValue) pVM->pByteCodeIR->nSmallIntReg = nValue

@@ -491,10 +491,8 @@ void ring_vm_tobytecode ( VM *pVM,int nIns )
 	/* Set the Registers Type */
 	pByteCode->nReg1Type = RING_VM_REGTYPE_NOTHING ;
 	pByteCode->nReg2Type = RING_VM_REGTYPE_NOTHING ;
-	pByteCode->nReg3Type = RING_VM_REGTYPE_NOTHING ;
 	pByteCode->aReg[RING_VM_IR_REG1].dNumber = 0.0 ;
 	pByteCode->aReg[RING_VM_IR_REG2].dNumber = 0.0 ;
-	pByteCode->aReg[RING_VM_IR_REG3].dNumber = 0.0 ;
 	for ( x = 2 ; x <= ring_list_getsize(pIR) ; x++ ) {
 		pItem = ring_list_getitem(pIR,x) ;
 		/* Copy the item data */
@@ -527,9 +525,6 @@ void ring_vm_tobytecode ( VM *pVM,int nIns )
 			case 1 :
 				pByteCode->nReg2Type = nType ;
 				break ;
-			case 2 :
-				pByteCode->nReg3Type = nType ;
-				break ;
 		}
 	}
 }
@@ -541,7 +536,6 @@ void ring_vm_deletebytecode ( VM *pVM,int nIns )
 	pVM->pByteCodeIR = pVM->pByteCode + nIns - 1 ;
 	ring_vm_clearregisterstring(pVM,RING_VM_IR_REG1);
 	ring_vm_clearregisterstring(pVM,RING_VM_IR_REG2);
-	ring_vm_clearregisterstring(pVM,RING_VM_IR_REG3);
 }
 
 void ring_vm_clearregisterstring ( VM *pVM,int nReg )
@@ -557,12 +551,6 @@ void ring_vm_clearregisterstring ( VM *pVM,int nReg )
 			if ( pVM->pByteCodeIR->nReg2Type == RING_VM_REGTYPE_STRING ) {
 				ring_string_delete_gc(pVM->pRingState,pVM->pByteCodeIR->aReg[RING_VM_IR_REG2].pString);
 				pVM->pByteCodeIR->nReg2Type = RING_VM_REGTYPE_NOTHING ;
-			}
-			break ;
-		case RING_VM_IR_REG3 :
-			if ( pVM->pByteCodeIR->nReg3Type == RING_VM_REGTYPE_STRING ) {
-				ring_string_delete_gc(pVM->pRingState,pVM->pByteCodeIR->aReg[RING_VM_IR_REG3].pString);
-				pVM->pByteCodeIR->nReg3Type = RING_VM_REGTYPE_NOTHING ;
 			}
 			break ;
 	}
@@ -599,9 +587,6 @@ void ring_vm_showbytecode ( VM *pVM )
 				}
 				else if ( y == 1 ) {
 					nType = pByteCode->nReg2Type ;
-				}
-				else if ( y == 2 ) {
-					nType = pByteCode->nReg3Type ;
 				}
 				/* Display the Register Value */
 				switch ( nType ) {
@@ -648,9 +633,6 @@ void ring_vm_bytecode2list ( VM *pVM, List *pOutput )
 				}
 				else if ( y == 1 ) {
 					nType = pByteCode->nReg2Type ;
-				}
-				else if ( y == 2 ) {
-					nType = pByteCode->nReg3Type ;
 				}
 				/* Add the Register Value */
 				switch ( nType ) {
