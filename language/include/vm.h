@@ -32,11 +32,12 @@
 	typedef struct ByteCode {
 		Register aReg[RING_VM_BC_ITEMS_COUNT]  ;
 		unsigned int nIntReg: 32  ;
-		unsigned int nFlagReg: 8  ;
-		unsigned int nOPCode: 8  ;
+		unsigned int nOPCode: 7  ;
 		unsigned int nReg1Type:3  ;
 		unsigned int nReg2Type:3  ;
 		unsigned int nReg3Type:3  ;
+		unsigned int nFlagReg: 1  ;
+		unsigned int nFlagReg2: 1  ;
 	} ByteCode ;
 	typedef struct VM {
 		RingState *pRingState  ;
@@ -278,6 +279,8 @@
 	#define RING_VM_IR_REG1 0
 	#define RING_VM_IR_REG2 1
 	#define RING_VM_IR_REG3 2
+	#define RING_VM_IR_SETFLAGREG2(nValue) pVM->pByteCodeIR->nFlagReg2 = nValue
+	#define RING_VM_IR_GETFLAGREG2 pVM->pByteCodeIR->nFlagReg2
 	/*
 	**  Calling Functions 
 	**  Note : When you insert items check performance functions for update too! 

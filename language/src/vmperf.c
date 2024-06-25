@@ -163,7 +163,7 @@ void ring_vm_loadfuncp ( VM *pVM )
 	}
 	pFuncCall->cNewFileName = pVM->cFileName ;
 	/* Method/Function & Scope */
-	pFuncCall->lMethod = RING_VM_IR_GETINTREG ;
+	pFuncCall->lMethod = RING_VM_IR_GETFLAGREG2 ;
 	pFuncCall->nLoadAddressScope = pVM->nLoadAddressScope ;
 	pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
 	/* Store List information */
