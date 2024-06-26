@@ -970,7 +970,7 @@ void ring_vm_bitshift ( VM *pVM, const char *cOperator )
 		else if ( nNum1 == 0 ) {
 			RING_VM_STACK_SETNVALUE(nNum2);
 		}
-		else if ( nNum1 > sizeof(RING_LONGLONG) ) {
+		else if ( nNum1 > RING_LONGLONG_HIGHVALUE ) {
 			RING_VM_STACK_SETNVALUE(0.0);
 		}
 		else {
