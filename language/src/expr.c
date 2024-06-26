@@ -906,7 +906,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			if ( ring_parser_isoperator2(pParser,OP_BRACECLOSE) ) {
 				ring_parser_nexttoken(pParser);
 				/* Generate Code */
-				ring_parser_icg_newoperation(pParser,ICO_RETNULL);
+				ring_parser_icg_retnull(pParser);
 				nMark = ring_parser_icg_newlabel(pParser);
 				ring_parser_icg_addoperandint(pParser,pMark,nMark);
 				RING_STATE_PRINTRULE(RING_RULE_ANONFUNC) ;

@@ -16,7 +16,7 @@ int ring_parser_class ( Parser *pParser )
 			**  Generate Code 
 			**  Return NULL 
 			*/
-			ring_parser_icg_newoperation(pParser,ICO_RETNULL);
+			ring_parser_icg_retnull(pParser);
 			ring_parser_icg_newoperation(pParser,ICO_NEWCLASS);
 			ring_parser_icg_newoperand(pParser,pParser->cTokenText);
 			pNewClass = ring_parser_icg_getactiveoperation(pParser) ;
@@ -122,7 +122,7 @@ int ring_parser_class ( Parser *pParser )
 			**  Generate Code 
 			**  Return NULL 
 			*/
-			ring_parser_icg_newoperation(pParser,ICO_RETNULL);
+			ring_parser_icg_retnull(pParser);
 			ring_parser_icg_newoperation(pParser,ICO_NEWFUNC);
 			/* Add function to Functions Table */
 			pList2 = pParser->pFunctionsMap ;
@@ -202,7 +202,7 @@ int ring_parser_class ( Parser *pParser )
 		ring_parser_nexttoken(pParser);
 		if ( pParser->lClassStart == 1 ) {
 			/* Generate Code */
-			ring_parser_icg_newoperation(pParser,ICO_RETNULL);
+			ring_parser_icg_retnull(pParser);
 			/* Change Label After Class to BlockFlag to Jump to Private */
 			pList = ring_parser_icg_getoperationlist(pParser,pParser->nClassMark);
 			ring_parser_icg_setopcode(pParser,pList,ICO_BLOCKFLAG);
@@ -314,7 +314,7 @@ int ring_parser_stmt ( Parser *pParser )
 			**  Generate Code 
 			**  Return NULL 
 			*/
-			ring_parser_icg_newoperation(pParser,ICO_RETNULL);
+			ring_parser_icg_retnull(pParser);
 			nMark1 = ring_parser_icg_newlabel(pParser);
 			ring_parser_icg_addoperandint(pParser,pMark,nMark1);
 			/* Load Package - End Global Scope */
@@ -911,7 +911,7 @@ int ring_parser_stmt ( Parser *pParser )
 				**  Generate Code 
 				**  Return NULL 
 				*/
-				ring_parser_icg_newoperation(pParser,ICO_RETNULL);
+				ring_parser_icg_retnull(pParser);
 			}
 		}
 		else {
@@ -919,7 +919,7 @@ int ring_parser_stmt ( Parser *pParser )
 			**  Generate Code 
 			**  Return NULL 
 			*/
-			ring_parser_icg_newoperation(pParser,ICO_RETNULL);
+			ring_parser_icg_retnull(pParser);
 		}
 		if ( x == RING_PARSER_OK ) {
 			RING_STATE_PRINTRULE(RING_RULE_RETURN) ;

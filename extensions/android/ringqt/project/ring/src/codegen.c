@@ -197,6 +197,14 @@ void ring_parser_icg_beforeequal ( Parser *pParser,int nBeforeEqual )
 	ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
 	ring_parser_icg_newoperandint(pParser,nBeforeEqual);
 }
+
+void ring_parser_icg_retnull ( Parser *pParser )
+{
+	if ( (pParser->pActiveGenCodeList != NULL) && (ring_parser_icg_getlastoperation(pParser) == ICO_RETURN) ) {
+		return ;
+	}
+	ring_parser_icg_newoperation(pParser,ICO_RETNULL);
+}
 /* General Blocks of ByteCode */
 
 void ring_parser_icg_gencallbracemethod ( Parser *pParser,const char *cMethod,int lDuplicateStackValue )
