@@ -909,13 +909,9 @@ int ring_parser_stmt ( Parser *pParser )
 			else {
 				/*
 				**  Generate Code 
-				**  Note: We don't use ICO_RETNULL in explicit return commands 
-				**  Because Ring VM - Eval() Replace ICO_RETURN with ICO_RETFROMEVAL 
 				**  Return NULL 
 				*/
-				ring_parser_icg_newoperation(pParser,ICO_PUSHC);
-				ring_parser_icg_newoperand(pParser,"");
-				ring_parser_icg_newoperation(pParser,ICO_RETURN);
+				ring_parser_icg_newoperation(pParser,ICO_RETNULL);
 			}
 		}
 		else {
@@ -923,9 +919,7 @@ int ring_parser_stmt ( Parser *pParser )
 			**  Generate Code 
 			**  Return NULL 
 			*/
-			ring_parser_icg_newoperation(pParser,ICO_PUSHC);
-			ring_parser_icg_newoperand(pParser,"");
-			ring_parser_icg_newoperation(pParser,ICO_RETURN);
+			ring_parser_icg_newoperation(pParser,ICO_RETNULL);
 		}
 		if ( x == RING_PARSER_OK ) {
 			RING_STATE_PRINTRULE(RING_RULE_RETURN) ;
