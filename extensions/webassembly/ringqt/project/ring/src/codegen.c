@@ -144,6 +144,10 @@ void ring_parser_icg_newline ( Parser *pParser,int nLine )
 	if ( pParser->pRingState->lNoLineNumber != 0 ) {
 		return ;
 	}
+	if ( (pParser->pActiveGenCodeList != NULL) && (ring_parser_icg_getlastoperation(pParser) == ICO_NEWLINE) ) {
+		ring_parser_icg_setoperandint(pParser,pParser->pActiveGenCodeList,RING_PARSER_ICG_PARA1,nLine);
+		return ;
+	}
 	ring_parser_icg_newoperation(pParser,ICO_NEWLINE);
 	ring_parser_icg_newoperandint(pParser,nLine);
 }
