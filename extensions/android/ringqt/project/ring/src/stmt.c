@@ -1240,9 +1240,7 @@ int ring_parser_list ( Parser *pParser )
 			pParser->lAssignmentFlag = 0 ;
 			if ( ring_parser_expr(pParser) ) {
 				/* Generate Code */
-				if ( ring_parser_icg_getlastoperation(pParser) != ICO_LISTEND ) {
-					ring_parser_icg_newoperation(pParser,ICO_LISTITEM);
-				}
+				ring_parser_icg_listitem(pParser);
 				pParser->lNewObject = 0 ;
 				pParser->lAssignmentFlag = 1 ;
 				RING_PARSER_IGNORENEWLINE ;

@@ -205,6 +205,14 @@ void ring_parser_icg_retnull ( Parser *pParser )
 	}
 	ring_parser_icg_newoperation(pParser,ICO_RETNULL);
 }
+
+void ring_parser_icg_listitem ( Parser *pParser )
+{
+	if ( ring_parser_icg_getlastoperation(pParser) == ICO_LISTEND ) {
+		return ;
+	}
+	ring_parser_icg_newoperation(pParser,ICO_LISTITEM);
+}
 /* General Blocks of ByteCode */
 
 void ring_parser_icg_gencallbracemethod ( Parser *pParser,const char *cMethod,int lDuplicateStackValue )

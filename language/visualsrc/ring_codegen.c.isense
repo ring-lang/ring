@@ -175,6 +175,7 @@ Type: int
 nLastOperation, lChange
 ring_parser_icg_beforeequal
 ring_parser_icg_retnull
+ring_parser_icg_listitem
 ring_parser_icg_gencallbracemethod
 Type: int
 nMark1

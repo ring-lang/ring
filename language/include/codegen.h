@@ -250,6 +250,8 @@
 	void ring_parser_icg_beforeequal ( Parser *pParser,int nBeforeEqual ) ;
 
 	void ring_parser_icg_retnull ( Parser *pParser ) ;
+
+	void ring_parser_icg_listitem ( Parser *pParser ) ;
 	/* General Blocks of ByteCode */
 
 	void ring_parser_icg_gencallbracemethod ( Parser *pParser,const char *cMethod,int lDuplicateStackValue ) ;
