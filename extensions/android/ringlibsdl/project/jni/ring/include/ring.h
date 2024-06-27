@@ -111,6 +111,7 @@
 	#define RING_MEDIUMBUF 128
 	#define RING_LARGEBUF 256
 	#define RING_HUGEBUF 512
+	#define RING_BYTEBITS 8
 	/* General */
 	#if RING_MSDOS
 		#define RING_PATHSIZE 128
