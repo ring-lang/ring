@@ -707,6 +707,10 @@
 
 	void ring_vm_listitem ( VM *pVM ) ;
 
+	void ring_vm_listitemn ( VM *pVM ) ;
+
+	void ring_vm_listitemc ( VM *pVM ) ;
+
 	void ring_vm_listend ( VM *pVM ) ;
 
 	void ring_vm_loadindexaddress ( VM *pVM ) ;

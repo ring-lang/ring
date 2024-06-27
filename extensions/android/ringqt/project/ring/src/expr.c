@@ -726,7 +726,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 				if ( ring_parser_expr(pParser) ) {
 					/* Generate Code */
 					ring_parser_icg_listitem(pParser);
-					ring_parser_icg_newoperation(pParser,ICO_LISTEND);
+					ring_parser_icg_newoperation(pParser, ICO_LISTEND);
 					return RING_PARSER_OK ;
 				}
 				return RING_PARSER_FAIL ;

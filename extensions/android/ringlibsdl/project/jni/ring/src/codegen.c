@@ -208,8 +208,20 @@ void ring_parser_icg_retnull ( Parser *pParser )
 
 void ring_parser_icg_listitem ( Parser *pParser )
 {
-	if ( ring_parser_icg_getlastoperation(pParser) == ICO_LISTEND ) {
-		return ;
+	int nLastOperation  ;
+	if ( pParser->pActiveGenCodeList != NULL ) {
+		nLastOperation = ring_parser_icg_getlastoperation(pParser) ;
+		if ( nLastOperation == ICO_LISTEND ) {
+			return ;
+		}
+		else if ( nLastOperation == ICO_PUSHN ) {
+			ring_parser_icg_setlastoperation(pParser,ICO_LISTITEMN);
+			return ;
+		}
+		else if ( nLastOperation == ICO_PUSHC ) {
+			ring_parser_icg_setlastoperation(pParser,ICO_LISTITEMC);
+			return ;
+		}
 	}
 	ring_parser_icg_newoperation(pParser,ICO_LISTITEM);
 }

@@ -838,6 +838,12 @@ void ring_vm_execute ( VM *pVM )
 		case ICO_LISTITEM :
 			ring_vm_listitem(pVM);
 			break ;
+		case ICO_LISTITEMN :
+			ring_vm_listitemn(pVM);
+			break ;
+		case ICO_LISTITEMC :
+			ring_vm_listitemc(pVM);
+			break ;
 		case ICO_LISTEND :
 			ring_vm_listend(pVM);
 			break ;

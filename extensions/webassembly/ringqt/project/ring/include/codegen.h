@@ -65,6 +65,8 @@
 		/* Lists */
 		ICO_LISTSTART ,
 		ICO_LISTITEM ,
+		ICO_LISTITEMN ,
+		ICO_LISTITEMC ,
 		ICO_LISTEND ,
 		/* Logic */
 		ICO_AND ,
@@ -149,7 +151,7 @@
 	"PushC","PushNL","PushN","Push2N","PushV","PushP","PushPV","PushPLocal",
 	"SUM","SUB","MUL","DIV","MOD","Negative","Inc","IncP","POW",
 	"LoadFunc","Call", "Return","ReturnNull","RetFromEval","RetItemRef",
-	"ListStart","ListItem","ListEnd","And","Or","Not","FreeStack",
+	"ListStart","ListItem","ListItemN","ListItemC","ListEnd","And","Or","Not","FreeStack",
 	"BlockFlag","FuncExE","EndFuncExe","Bye","ExitMark","POPExitMark","Exit","IncJump","IncPJump", 
 	
 	"Try","Done","Range","LoadMethod","SetScope","AfterCallMethod", 

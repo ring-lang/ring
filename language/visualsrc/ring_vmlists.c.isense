@@ -16,6 +16,12 @@ Type: List *
 pList,*pList2,*pList3,*pList4
 Type: Item *
 pItem
+ring_vm_listitemn
+Type: List *
+pList
+ring_vm_listitemc
+Type: List *
+pList
 ring_vm_listend
 ring_vm_loadindexaddress
 Type: double

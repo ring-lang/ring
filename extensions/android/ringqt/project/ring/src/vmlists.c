@@ -171,6 +171,20 @@ void ring_vm_listitem ( VM *pVM )
 	}
 }
 
+void ring_vm_listitemn ( VM *pVM )
+{
+	List *pList  ;
+	pList = (List *) ring_list_getpointer(pVM->pNestedLists,ring_list_getsize(pVM->pNestedLists));
+	ring_list_adddouble_gc(pVM->pRingState,pList,RING_VM_IR_READD);
+}
+
+void ring_vm_listitemc ( VM *pVM )
+{
+	List *pList  ;
+	pList = (List *) ring_list_getpointer(pVM->pNestedLists,ring_list_getsize(pVM->pNestedLists));
+	ring_list_addstring2_gc(pVM->pRingState,pList,RING_VM_IR_READCVALUE(RING_VM_IR_REG1),RING_VM_IR_READCVALUESIZE(RING_VM_IR_REG1));
+}
+
 void ring_vm_listend ( VM *pVM )
 {
 	ring_vm_removelistprotectionat(pVM,pVM->pNestedLists,ring_list_getsize(pVM->pNestedLists));

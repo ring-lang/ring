@@ -53,6 +53,8 @@ ICO_RETFROMEVAL
 ICO_RETITEMREF
 ICO_LISTSTART
 ICO_LISTITEM
+ICO_LISTITEMN
+ICO_LISTITEMC
 ICO_LISTEND
 ICO_AND
 ICO_OR
@@ -176,6 +178,8 @@ nLastOperation, lChange
 ring_parser_icg_beforeequal
 ring_parser_icg_retnull
 ring_parser_icg_listitem
+Type: int
+nLastOperation
 ring_parser_icg_gencallbracemethod
 Type: int
 nMark1
