@@ -67,3 +67,4 @@ More Improvements
 * Ring VM - Produce runtime error when using a negative value in shift operations
 * Ring VM - ICO_NEWLINE instruction - Check if the previous instruction is ICO_NEWLINE
 * Ring VM - ICO_FREESTACK instruction - Check if the previous instruction is ICO_FREESTACK
+* Ring VM - Added ICO_PUSHNL instruction - Push new line to the stack
