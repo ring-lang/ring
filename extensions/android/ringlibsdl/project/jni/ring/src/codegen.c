@@ -136,9 +136,6 @@ void ring_parser_icg_loadaddresstoloadfunction ( Parser *pParser )
 
 void ring_parser_icg_freestack ( Parser *pParser )
 {
-	if ( (pParser->pActiveGenCodeList != NULL) && (ring_parser_icg_getlastoperation(pParser) == ICO_FREESTACK) ) {
-		return ;
-	}
 	ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
 }
 

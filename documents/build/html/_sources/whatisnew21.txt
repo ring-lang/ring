@@ -45,7 +45,6 @@ More Improvements
 * Ring Compiler - Add new lines between error messages
 * Ring Compiler - Check argument duplication during function definition
 * Ring Compiler - ICO_NEWLINE instruction - Check if the previous instruction is ICO_NEWLINE
-* Ring Compiler - ICO_FREESTACK instruction - Check if the previous instruction is ICO_FREESTACK
 * Ring Compiler - Added ICO_PUSHNL instruction - Push new line to the stack
 * Ring Compiler - Added ICO_LISTITEMN instruction - Add number to the current list
 * Ring Compiler - Added ICO_LISTITEMC instruction - Add string to the current list
