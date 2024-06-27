@@ -708,7 +708,9 @@ ICO_NOT			Stack[nSize]   = ! Stack[nSize]
 Operation			Description
 =======================	============================================================================
 ICO_LISTSTART		Start New List in Temp. Memory
-ICO_LISTITEM		Add List Item
+ICO_LISTITEM		Add List Item (Value from the stack)
+ICO_LISTITEMN		Add List Item (Number from REG1)
+ICO_LISTITEMC		Add List Item (String from REG1)
 ICO_LISTEND		End List
 ICO_LOADINDEXADDRESS	Stack[nSize-1] = Stack[nSize-1] VV [ Stack[nSize] ] , POP stack[nSize]
 =======================	============================================================================
