@@ -373,8 +373,7 @@ int ring_parser_stmt ( Parser *pParser )
 			/* Print the New Line */
 			ring_parser_icg_loadfunction(pParser,RING_CSTR_RINGVMSEE);
 			/* Parameters */
-			ring_parser_icg_newoperation(pParser,ICO_PUSHC);
-			ring_parser_icg_newoperand(pParser,"\n");
+			ring_parser_icg_newoperation(pParser,ICO_PUSHNL);
 			ring_parser_icg_newoperation(pParser,ICO_CALL);
 			ring_parser_icg_newoperandint(pParser,RING_ZERO);
 			ring_parser_icg_newoperation(pParser,ICO_NOOP);
@@ -395,8 +394,7 @@ int ring_parser_stmt ( Parser *pParser )
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_PRINT);
 			/* Print New Line */
-			ring_parser_icg_newoperation(pParser,ICO_PUSHC);
-			ring_parser_icg_newoperand(pParser,"\n");
+			ring_parser_icg_newoperation(pParser,ICO_PUSHNL);
 			ring_parser_icg_newoperation(pParser,ICO_PRINT);
 		#endif
 		RING_STATE_PRINTRULE(RING_RULE_QEXPR) ;

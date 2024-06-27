@@ -38,6 +38,7 @@
 		ICO_GREATEREQUAL ,
 		/* Data */
 		ICO_PUSHC ,
+		ICO_PUSHNL ,
 		ICO_PUSHN ,
 		ICO_PUSH2N ,
 		ICO_PUSHV ,
@@ -145,7 +146,7 @@
 	"Print","Class","Func","Dup","New","Give","Private","NewLabel",
 	"Jump","JumpZ","Jump1","JumpFOR","JumpZERO2","JumpONE2","PUSHNULLTHENJUMP",
 	"LoadA","Assignment","LoadSA","LoadIA","LoadAPushV","==","<",">","!=","<=",">=",
-	"PushC","PushN","Push2N","PushV","PushP","PushPV","PushPLocal",
+	"PushC","PushNL","PushN","Push2N","PushV","PushP","PushPV","PushPLocal",
 	"SUM","SUB","MUL","DIV","MOD","Negative","Inc","IncP","POW",
 	"LoadFunc","Call", "Return","ReturnNull","RetFromEval","RetItemRef",
 	"ListStart","ListItem","ListEnd","And","Or","Not","FreeStack",
