@@ -242,7 +242,6 @@ void ring_parser_icg_gencallbracemethod ( Parser *pParser,const char *cMethod,in
 	ring_parser_icg_newoperation(pParser,ICO_CALL);
 	ring_parser_icg_newoperation(pParser,ICO_NOOP);
 	ring_parser_icg_newoperation(pParser,ICO_PUSHV);
-	ring_parser_icg_freestack(pParser);
 	nMark1 = ring_parser_icg_newlabel(pParser);
 	ring_parser_icg_addoperandint(pParser,pMark,nMark1);
 }
