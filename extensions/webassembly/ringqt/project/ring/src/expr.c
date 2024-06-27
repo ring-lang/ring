@@ -719,8 +719,8 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			if ( ring_parser_isoperator2(pParser,OP_EQUAL) ) {
 				ring_parser_nexttoken(pParser);
 				/* Generate Code */
+				ring_parser_icg_listitem(pParser);
 				ring_parser_icg_insertoperation(pParser,nCount,ICO_LISTSTART);
-				ring_parser_icg_insertoperation(pParser,nCount+2,ICO_LISTITEM);
 				/* Go to last operation, because insert change the active operation */
 				RING_PARSER_ICG_GOTOLASTOP ;
 				if ( ring_parser_expr(pParser) ) {
