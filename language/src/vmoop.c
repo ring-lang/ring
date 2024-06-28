@@ -485,8 +485,6 @@ void ring_vm_oop_aftercallmethod ( VM *pVM )
 	if ( ring_list_getsize(pVM->pObjState) != 0 ) {
 		ring_list_deleteitem_gc(pVM->pRingState,pVM->pObjState,ring_list_getsize(pVM->pObjState));
 	}
-	/* POP Class Package */
-	ring_vm_oop_popclasspackage(pVM);
 }
 
 void ring_vm_oop_printobj ( VM *pVM,List *pList )
@@ -733,13 +731,6 @@ void ring_vm_oop_pushclasspackage ( VM *pVM,List *pList )
 	pList2 = ring_list_getlist(pList,RING_CLASSMAP_POINTERTOPACKAGE) ;
 	if ( pList2 != NULL ) {
 		ring_list_addpointer_gc(pVM->pRingState,pVM->pActivePackage,pList2);
-	}
-}
-
-void ring_vm_oop_popclasspackage ( VM *pVM )
-{
-	if ( ring_list_getsize(pVM->pActivePackage) > 0 ) {
-		ring_list_deleteitem_gc(pVM->pRingState,pVM->pActivePackage,ring_list_getsize(pVM->pActivePackage));
 	}
 }
 

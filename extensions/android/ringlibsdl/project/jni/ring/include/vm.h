@@ -851,8 +851,6 @@
 
 	void ring_vm_oop_pushclasspackage ( VM *pVM,List *pList ) ;
 
-	void ring_vm_oop_popclasspackage ( VM *pVM ) ;
-
 	void ring_vm_oop_deletepackagesafter ( VM *pVM,int nIndex ) ;
 
 	int ring_vm_oop_callmethodinsideclass ( VM *pVM ) ;
