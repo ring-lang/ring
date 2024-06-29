@@ -270,6 +270,8 @@ void ring_vm_oop_newclass ( VM *pVM )
 	pVM->lPrivateFlag = 0 ;
 	/* Support using This in the class region */
 	ring_vm_oop_setthethisvariableinclassregion(pVM);
+	/* Set the current global scope */
+	pVM->nCurrentGlobalScope = 0 ;
 }
 
 void ring_vm_oop_setscope ( VM *pVM )

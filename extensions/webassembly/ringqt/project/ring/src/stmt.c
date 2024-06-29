@@ -103,8 +103,11 @@ int ring_parser_class ( Parser *pParser )
 			ring_parser_icg_newoperation(pParser,ICO_FILENAME);
 			ring_parser_icg_newoperand(pParser,ring_list_getstring(pParser->pRingState->pRingFilesStack,ring_list_getsize(pParser->pRingState->pRingFilesStack)));
 			/* Set Global Scope */
-			ring_parser_icg_newoperation(pParser,ICO_SETGLOBALSCOPE);
-			ring_parser_icg_newoperandint(pParser,ring_list_getint(pParser->pRingState->pCustomGlobalScopeStack,ring_list_getsize(pParser->pRingState->pCustomGlobalScopeStack)));
+			nGlobalScope = ring_list_getint(pParser->pRingState->pCustomGlobalScopeStack,ring_list_getsize(pParser->pRingState->pCustomGlobalScopeStack)) ;
+			if ( nGlobalScope != 0 ) {
+				ring_parser_icg_newoperation(pParser,ICO_SETGLOBALSCOPE);
+				ring_parser_icg_newoperandint(pParser,nGlobalScope);
+			}
 			/* Support using { } around the class code and using 'end' after the content */
 			return ring_parser_bracesandend(pParser,RING_TRUE,K_ENDCLASS) ;
 		}

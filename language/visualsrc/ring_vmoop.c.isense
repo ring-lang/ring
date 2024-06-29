@@ -101,7 +101,6 @@ pList
 ring_vm_oop_pushclasspackage
 Type: List *
 pList2
-ring_vm_oop_popclasspackage
 ring_vm_oop_deletepackagesafter
 Type: int
 t
