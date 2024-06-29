@@ -845,7 +845,8 @@ ICO_BITSHR		Stack[nSize-1] = Stack[nSize-1] >> Stack[nSize] , POP stack[nSize]
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-ICO_STEPNUMBER		Determine step number in for loop
+ICO_STEPNUMBER		Determine step number in for loop (Read step value from stack)
+ICO_STEPFROMREG		Determine step number in for loop (Read step value from REG1)
 ICO_POPSTEP		POP step number from steps stack
 ICO_LOADAFIRST		Load the first address of variable name 
 =======================	============================================================================
