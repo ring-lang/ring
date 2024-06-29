@@ -30,14 +30,14 @@
 		void *pPointer  ;
 	} Register ;
 	typedef struct ByteCode {
-		Register aReg[RING_VM_BC_ITEMS_COUNT]  ;
-		unsigned int nIntReg: 32  ;
-		unsigned int nSmallIntReg: 16  ;
 		unsigned int nOPCode: 8  ;
-		unsigned int nReg1Type:3  ;
-		unsigned int nReg2Type:3  ;
 		unsigned int nFlagReg: 1  ;
 		unsigned int nFlagReg2: 1  ;
+		unsigned int nReg1Type:3  ;
+		unsigned int nReg2Type:3  ;
+		unsigned int nSmallIntReg: 16  ;
+		unsigned int nIntReg: 32  ;
+		Register aReg[RING_VM_BC_ITEMS_COUNT]  ;
 	} ByteCode ;
 	typedef struct VM {
 		RingState *pRingState  ;
