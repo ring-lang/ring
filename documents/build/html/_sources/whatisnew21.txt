@@ -46,10 +46,11 @@ More Improvements
 * Ring Compiler - Check argument duplication during function definition
 * Ring Compiler - ICO_SETPROPERTY - No arguments are required
 * Ring Compiler - ICO_NEWLINE instruction - Check if the previous instruction is ICO_NEWLINE
-* Ring Compiler - Added ICO_PUSHNL instruction - Push new line to the stack
-* Ring Compiler - Added ICO_LISTITEMN instruction - Add number to the current list
-* Ring Compiler - Added ICO_LISTITEMC instruction - Add string to the current list
-* Ring Compiler - Added ICO_PUSHVFREESTACK instruction 
+* Ring Compiler/VM - Added ICO_PUSHNL instruction - Push new line to the stack
+* Ring Compiler/VM - Added ICO_LISTITEMN instruction - Add number to the current list
+* Ring Compiler/VM - Added ICO_LISTITEMC instruction - Add string to the current list
+* Ring Compiler/VM - Added ICO_PUSHVFREESTACK instruction 
+* Ring Compiler/VM - Added ICO_STEPFROMREG instruction
 * Ring VM - ByteCode registers count is reduced from four to two (reduce memory usage)
 * Ring VM - Setter/Getter/OperatorOverloading - Don't use ring_vm_eval()
 * Ring VM - Better support for list items of new objects when using lists during defintion 
