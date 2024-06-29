@@ -603,12 +603,6 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 				else {
 					ring_parser_icg_newoperation(pParser,ICO_SETPROPERTY);
 				}
-				/*
-				**  Generate Locations for Setproperty before/after Flag & nPC of Setter 
-				**  Locations is done also for Assignment because assignment can be changed to SetProperty by the VM 
-				*/
-				ring_parser_icg_newoperandint(pParser,RING_ZERO);
-				ring_parser_icg_newoperandint(pParser,RING_ZERO);
 				/* Add Assignment position to the LoadAddress Instruction */
 				if ( pAssignmentPointerPos != NULL ) {
 					ring_parser_icg_addoperandint(pParser,pAssignmentPointerPos,ring_parser_icg_instructionscount(pParser));
@@ -634,12 +628,6 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 					/* Disable Assignment Pointer */
 					ring_parser_icg_setoperandint(pParser,pAssignmentPointerPos,RING_PARSER_ICG_ASSIGNPTRENABLEPOS,RING_TRUE);
 				}
-				/*
-				**  Generate Locations for Setproperty before/after Flag & nPC of Setter 
-				**  Locations is done also for Assignment because assignment can be changed to SetProperty by the VM 
-				*/
-				ring_parser_icg_newoperandint(pParser,RING_ZERO);
-				ring_parser_icg_newoperandint(pParser,RING_ZERO);
 				/* Add Assignment position to the LoadAddress Instruction */
 				if ( pAssignmentPointerPos != NULL ) {
 					ring_parser_icg_addoperandint(pParser,pAssignmentPointerPos,ring_parser_icg_instructionscount(pParser));

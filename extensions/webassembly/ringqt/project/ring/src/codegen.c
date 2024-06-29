@@ -327,8 +327,6 @@ void ring_parser_icg_genppmm ( Parser *pParser,int nMode,int nValue )
 		else {
 			ring_parser_icg_newoperation(pParser,ICO_SETPROPERTY);
 		}
-		ring_parser_icg_newoperandint(pParser,RING_ZERO);
-		ring_parser_icg_newoperandint(pParser,RING_ZERO);
 		/* Keep the value on the Stack (Maybe required in expressions) */
 		ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 	}
