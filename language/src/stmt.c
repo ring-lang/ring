@@ -5,7 +5,7 @@
 int ring_parser_class ( Parser *pParser )
 {
 	List *pList,*pList2,*pList3,*pMark,*pNewClass  ;
-	int x  ;
+	int x, nGlobalScope  ;
 	String *pString  ;
 	/* Statement --> Class Identifier  [ From Identifier ] */
 	if ( ring_parser_iskeyword(pParser,K_CLASS) ) {
@@ -153,8 +153,12 @@ int ring_parser_class ( Parser *pParser )
 				x = RING_PARSER_OK ;
 			}
 			/* Set Global Scope */
-			ring_parser_icg_newoperation(pParser,ICO_SETGLOBALSCOPE);
-			ring_parser_icg_newoperandint(pParser,ring_list_getint(pParser->pRingState->pCustomGlobalScopeStack,ring_list_getsize(pParser->pRingState->pCustomGlobalScopeStack)));
+			nGlobalScope = ring_list_getint(pParser->pRingState->pCustomGlobalScopeStack,ring_list_getsize(pParser->pRingState->pCustomGlobalScopeStack)) ;
+			if ( nGlobalScope != 0 ) {
+				/* Note: ICO_NEWFUNC set the GlobalScope to 0 */
+				ring_parser_icg_newoperation(pParser,ICO_SETGLOBALSCOPE);
+				ring_parser_icg_newoperandint(pParser, nGlobalScope);
+			}
 			if ( x == RING_PARSER_OK ) {
 				RING_STATE_PRINTRULE(RING_RULE_FUNCANDPARA) ;
 				/* Support using { } around the function code and using 'end' after the content */

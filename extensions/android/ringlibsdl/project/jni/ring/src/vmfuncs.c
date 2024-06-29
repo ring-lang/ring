@@ -440,6 +440,9 @@ void ring_vm_newfunc ( VM *pVM )
 	char *cParameters  ;
 	char cPara[RING_FUNCPARA_EXPECTEDSIZE]  ;
 	FuncCall *pFuncCall  ;
+	/* Set the default global scope */
+	pVM->nCurrentGlobalScope = 0 ;
+	/* Create new scope */
 	ring_vm_newscope(pVM);
 	/* Set the Local Scope ID */
 	pVM->nActiveScopeID = ++ pVM->nScopeID ;
