@@ -230,6 +230,17 @@ void ring_parser_icg_listitem ( Parser *pParser )
 	}
 	ring_parser_icg_newoperation(pParser,ICO_LISTITEM);
 }
+
+void ring_parser_icg_gensetglobalscope ( Parser *pParser )
+{
+	int nGlobalScope  ;
+	/* Note: ICO_NEWFUNC and ICO_NEWCLASS set the current global scope to zero */
+	nGlobalScope = ring_list_getint(pParser->pRingState->pCustomGlobalScopeStack,ring_list_getsize(pParser->pRingState->pCustomGlobalScopeStack));
+	if ( nGlobalScope != 0 ) {
+		ring_parser_icg_newoperation(pParser,ICO_SETGLOBALSCOPE);
+		ring_parser_icg_newoperandint(pParser,nGlobalScope);
+	}
+}
 /* General Blocks of ByteCode */
 
 void ring_parser_icg_gencallbracemethod ( Parser *pParser,const char *cMethod,int lDuplicateStackValue )
