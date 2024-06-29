@@ -134,7 +134,7 @@ void ring_vm_stepnumber ( VM *pVM )
 
 void ring_vm_stepfromreg ( VM *pVM )
 {
-	ring_list_adddouble_gc(pVM->pRingState,pVM->pForStep,RING_VM_IR_READI);
+	ring_list_adddouble_gc(pVM->pRingState,pVM->pForStep,RING_VM_IR_READD);
 }
 
 void ring_vm_popstep ( VM *pVM )

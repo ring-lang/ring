@@ -768,7 +768,7 @@ int ring_parser_stmt ( Parser *pParser )
 		**  Set Step Number - Since We have Exit/Loop commands controls a mix of (For/While/... loops) 
 		*/
 		ring_parser_icg_newoperation(pParser,ICO_STEPFROMREG);
-		ring_parser_icg_newoperandint(pParser,RING_ZERO);
+		ring_parser_icg_newoperanddouble(pParser,RING_ZEROF);
 		/* Mark for Exit command to go to outsize the loop */
 		ring_parser_icg_newoperation(pParser,ICO_EXITMARK);
 		pMark3 = ring_parser_icg_getactiveoperation(pParser);
@@ -831,7 +831,7 @@ int ring_parser_stmt ( Parser *pParser )
 		**  Set Step Number - Since We have Exit/Loop commands controls a mix of (For/While/... loops) 
 		*/
 		ring_parser_icg_newoperation(pParser,ICO_STEPFROMREG);
-		ring_parser_icg_newoperandint(pParser,RING_ZERO);
+		ring_parser_icg_newoperanddouble(pParser,RING_ZEROF);
 		/* Mark for Exit command to go to outsize the loop */
 		ring_parser_icg_newoperation(pParser,ICO_EXITMARK);
 		pMark3 = ring_parser_icg_getactiveoperation(pParser);
@@ -1348,7 +1348,7 @@ int ring_parser_step ( Parser *pParser,int *nMark1 )
 	else {
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_STEPFROMREG);
-		ring_parser_icg_newoperandint(pParser,RING_ONE);
+		ring_parser_icg_newoperanddouble(pParser,RING_ONEF);
 	}
 	*nMark1 = pParser->nInsertCounter + 1 + pParser->pRingState->nInstructionsCount ;
 	pParser->lInsertFlag = 0 ;
