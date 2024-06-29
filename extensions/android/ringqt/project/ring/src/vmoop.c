@@ -916,7 +916,6 @@ void ring_vm_oop_setget ( VM *pVM,List *pVar )
 void ring_vm_oop_setproperty ( VM *pVM )
 {
 	List *pList, *pList2  ;
-	RING_VM_IR_ITEMTYPE *pItem, *pRegItem  ;
 	Item *pGetSetItem  ;
 	String *pString, *pString2  ;
 	int nIns  ;
@@ -983,7 +982,7 @@ void ring_vm_oop_setproperty ( VM *pVM )
 		/* Execute the same instruction again (next time the part "After (Second Time)" will run ) */
 		pVM->nPC-- ;
 		if ( RING_VM_IR_GETFLAGREG ) {
-			if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG2)  == 0 ) {
+			if ( RING_VM_IR_GETINTREG == RING_ZERO ) {
 				/* Create String */
 				pString = ring_string_new_gc(pVM->pRingState,"set");
 				ring_string_add_gc(pVM->pRingState,pString,ring_list_getstring(pList,RING_SETPROPERTY_ATTRNAME));
@@ -1003,14 +1002,13 @@ void ring_vm_oop_setproperty ( VM *pVM )
 				/* Use the Byte Code */
 				RING_VM_BYTECODE_END ;
 				/* Note: Reallocation may change mem. locations */
-				pItem = RING_VM_IR_ITEMATINS(nIns,RING_VM_IR_REG2) ;
-				RING_VM_IR_ITEMSETINT(pItem,pVM->nPC);
+				RING_VM_IR_SETINTREGATINS(nIns,pVM->nPC);
 				/* Delete String */
 				ring_string_delete_gc(pVM->pRingState,pString);
 			}
 			else {
 				ring_vm_blockflag2(pVM,pVM->nPC);
-				pVM->nPC = RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ;
+				pVM->nPC = RING_VM_IR_GETINTREG ;
 			}
 		}
 	}

@@ -282,6 +282,7 @@
 	#define RING_VM_IR_GETFLAGREG2 pVM->pByteCodeIR->nFlagReg2
 	#define RING_VM_IR_SETSMALLINTREG(nValue) pVM->pByteCodeIR->nSmallIntReg = nValue
 	#define RING_VM_IR_GETSMALLINTREG pVM->pByteCodeIR->nSmallIntReg
+	#define RING_VM_IR_SETINTREGATINS(nIns,nValue) (pVM->pByteCode + nIns)->nIntReg = nValue
 	/*
 	**  Calling Functions 
 	**  Note : When you insert items check performance functions for update too! 
