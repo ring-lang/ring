@@ -938,9 +938,9 @@ void ring_vm_oop_setproperty ( VM *pVM )
 		ring_list_addint_gc(pVM->pRingState,pList,pVM->nBeforeEqual);
 	}
 	/* Before (First Time) */
-	if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG1) == 0 ) {
+	if ( RING_VM_IR_GETFLAGREG2 == RING_FALSE ) {
 		/* Set Before/After SetProperty Flag to After */
-		RING_VM_IR_READIVALUE(RING_VM_IR_REG1) = RING_TRUE ;
+		RING_VM_IR_SETFLAGREG2(RING_TRUE);
 		/* Set Variable ring_gettemp_var */
 		pList2 = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_GETTEMPVAR) ;
 		ring_list_setpointer_gc(pVM->pRingState,pList2,RING_VAR_VALUE,ring_list_getpointer(pList,RING_SETPROPERTY_OBJPTR));
@@ -1017,7 +1017,7 @@ void ring_vm_oop_setproperty ( VM *pVM )
 	/* After (Second Time) */
 	else {
 		/* Set Before/After SetProperty Flag to Before */
-		RING_VM_IR_READIVALUE(RING_VM_IR_REG1) = RING_FALSE ;
+		RING_VM_IR_SETFLAGREG2(RING_FALSE);
 		if ( ! RING_VM_IR_GETFLAGREG ) {
 			/*
 			**  The set method is not found!, we have to do the assignment operation 
