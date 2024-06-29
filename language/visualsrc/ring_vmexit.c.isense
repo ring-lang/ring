@@ -12,4 +12,5 @@ ring_vm_optionalloop
 ring_vm_stepnumber
 Type: double
 nNum1
+ring_vm_stepfromreg
 ring_vm_popstep

@@ -767,8 +767,8 @@ int ring_parser_stmt ( Parser *pParser )
 		**  Generate Code 
 		**  Set Step Number - Since We have Exit/Loop commands controls a mix of (For/While/... loops) 
 		*/
-		ring_parser_icg_pushn(pParser,RING_ZEROF);
-		ring_parser_icg_newoperation(pParser,ICO_STEPNUMBER);
+		ring_parser_icg_newoperation(pParser,ICO_STEPFROMREG);
+		ring_parser_icg_newoperandint(pParser,RING_ZERO);
 		/* Mark for Exit command to go to outsize the loop */
 		ring_parser_icg_newoperation(pParser,ICO_EXITMARK);
 		pMark3 = ring_parser_icg_getactiveoperation(pParser);
@@ -830,8 +830,8 @@ int ring_parser_stmt ( Parser *pParser )
 		**  Generate Code 
 		**  Set Step Number - Since We have Exit/Loop commands controls a mix of (For/While/... loops) 
 		*/
-		ring_parser_icg_pushn(pParser,RING_ZEROF);
-		ring_parser_icg_newoperation(pParser,ICO_STEPNUMBER);
+		ring_parser_icg_newoperation(pParser,ICO_STEPFROMREG);
+		ring_parser_icg_newoperandint(pParser,RING_ZERO);
 		/* Mark for Exit command to go to outsize the loop */
 		ring_parser_icg_newoperation(pParser,ICO_EXITMARK);
 		pMark3 = ring_parser_icg_getactiveoperation(pParser);

@@ -122,6 +122,7 @@
 		ICO_BITSHR ,
 		/* For Loop Step */
 		ICO_STEPNUMBER ,
+		ICO_STEPFROMREG ,
 		ICO_POPSTEP ,
 		ICO_LOADAFIRST ,
 		ICO_INCPJUMPSTEP1 ,
@@ -162,8 +163,7 @@
 	
 	"SetProperty","NoOperation","AfterCallMethod2","SetReference","KillReference",
 	"AssignmentPointer","BeforeEqual","++","--",
-	"BITAND","BITOR","BITNOT","BITXOR","BITSHL","BITSHR","StepNumber","POPStep","LoadAFirst", 
-	
+	"BITAND","BITOR","BITNOT","BITXOR","BITSHL","BITSHR","StepNumber","StepFromReg","POPStep","LoadAFirst",
 	"INCPJUMPSTEP1","INCLPJUMPSTEP1","ANONYMOUS","CallClassInit", 
 	
 	"NewGlobalScope","EndGlobalScope","SetGlobalScope",

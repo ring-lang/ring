@@ -2,7 +2,7 @@ ring_parser_class
 Type: List *
 pList,*pList2,*pList3,*pMark,*pNewClass
 Type: int
-x, nGlobalScope
+x
 Type: String *
 pString
 ring_parser_stmt

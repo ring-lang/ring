@@ -1028,6 +1028,9 @@ void ring_vm_execute ( VM *pVM )
 		case ICO_STEPNUMBER :
 			ring_vm_stepnumber(pVM);
 			break ;
+		case ICO_STEPFROMREG :
+			ring_vm_stepfromreg(pVM);
+			break ;
 		case ICO_POPSTEP :
 			ring_vm_popstep(pVM);
 			break ;

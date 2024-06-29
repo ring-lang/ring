@@ -965,6 +965,8 @@
 
 	void ring_vm_stepnumber ( VM *pVM ) ;
 
+	void ring_vm_stepfromreg ( VM *pVM ) ;
+
 	void ring_vm_popstep ( VM *pVM ) ;
 	/* Threads */
 
