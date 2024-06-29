@@ -149,23 +149,21 @@
 	/* Operations Text (Array) */
 	static const char * RING_IC_OP[] = {"NewLine","FileName",
 	"Print","Class","Func","Dup","New","Give","Private","NewLabel",
-	"Jump","JumpZ","Jump1","JumpFOR","JumpZERO2","JumpONE2","PUSHNULLTHENJUMP",
+	"Jump","JumpZ","Jump1","JumpFor","JumpZero2","JumpOne2","PushNullThenJump",
 	"LoadA","Assignment","LoadSA","LoadIA","LoadAPushV","==","<",">","!=","<=",">=",
 	"PushC","PushNL","PushN","Push2N","PushV","PushP","PushPV","PushPLocal",
-	"SUM","SUB","MUL","DIV","MOD","Negative","Inc","IncP","POW",
+	"Sum","Sub","Mul","Div","Mod","Negative","Inc","IncP","Pow",
 	"LoadFunc","Call", "Return","ReturnNull","RetFromEval","RetItemRef",
 	"ListStart","ListItem","ListItemN","ListItemC","ListEnd","And","Or","Not","FreeStack",
-	"BlockFlag","FuncExE","EndFuncExe","Bye","ExitMark","POPExitMark","Exit","IncJump","IncPJump", 
-	
+	"BlockFlag","FuncExe","EndFuncExe","Bye","ExitMark","PopExitMark","Exit","IncJump","IncPJump",
 	"Try","Done","Range","LoadMethod","SetScope","AfterCallMethod", 
 	
 	"BraceStart","BraceEnd","LoadFuncP","FreeLoadAScope","Loop","IncLPJump","Package","Import", 
 	
 	"SetProperty","NoOperation","AfterCallMethod2","SetReference","KillReference",
 	"AssignmentPointer","BeforeEqual","++","--",
-	"BITAND","BITOR","BITNOT","BITXOR","BITSHL","BITSHR","StepNumber","StepFromReg","POPStep","LoadAFirst",
-	"INCPJUMPSTEP1","INCLPJUMPSTEP1","ANONYMOUS","CallClassInit", 
-	
+	"BitAnd","BitOr","BitNot","BitXOr","BitShiftL","BitShiftR","StepNumber","StepFromReg","PopStep","LoadAFirst",
+	"IncPJumpStep1","IncLPJumpStep1","Anonymous","CallClassInit",
 	"NewGlobalScope","EndGlobalScope","SetGlobalScope",
 	"FreeTempLists","Len","SetOPCode","CheckBraceMethod","OptionalLoop","PushVFreeStack"} ;
 	/* Constants */
