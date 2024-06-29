@@ -1347,8 +1347,8 @@ int ring_parser_step ( Parser *pParser,int *nMark1 )
 	}
 	else {
 		/* Generate Code */
-		ring_parser_icg_pushn(pParser,RING_ONEF);
-		ring_parser_icg_newoperation(pParser,ICO_STEPNUMBER);
+		ring_parser_icg_newoperation(pParser,ICO_STEPFROMREG);
+		ring_parser_icg_newoperandint(pParser,RING_ONE);
 	}
 	*nMark1 = pParser->nInsertCounter + 1 + pParser->pRingState->nInstructionsCount ;
 	pParser->lInsertFlag = 0 ;
