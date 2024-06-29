@@ -919,7 +919,7 @@ void ring_vm_oop_setproperty ( VM *pVM )
 	RING_VM_IR_ITEMTYPE *pItem, *pRegItem  ;
 	Item *pGetSetItem  ;
 	String *pString, *pString2  ;
-	int nIns, nIns2  ;
+	int nIns  ;
 	RING_VM_BYTECODE_START ;
 	/* If we don't have a setter method and we have a new list or new object */
 	if ( pVM->nNoSetterMethod == RING_NOSETTERMETHOD_IGNORESETPROPERTY ) {
@@ -939,7 +939,8 @@ void ring_vm_oop_setproperty ( VM *pVM )
 	}
 	/* Before (First Time) */
 	if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG1) == 0 ) {
-		nIns = pVM->nPC - 2 ;
+		/* Set Before/After SetProperty Flag to After */
+		RING_VM_IR_READIVALUE(RING_VM_IR_REG1) = RING_TRUE ;
 		/* Set Variable ring_gettemp_var */
 		pList2 = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_GETTEMPVAR) ;
 		ring_list_setpointer_gc(pVM->pRingState,pList2,RING_VAR_VALUE,ring_list_getpointer(pList,RING_SETPROPERTY_OBJPTR));
@@ -990,7 +991,7 @@ void ring_vm_oop_setproperty ( VM *pVM )
 				**  Get Instruction Position 
 				**  We use -1 instead of -2 because we already used pVM->nPC-- 
 				*/
-				nIns2 = pVM->nPC - 1 ;
+				nIns = pVM->nPC - 1 ;
 				/* Create the Byte Code */
 				RING_VM_BYTECODE_INSSTR(ICO_LOADADDRESS,RING_CSTR_GETTEMPVAR);
 				RING_VM_BYTECODE_INSSTR(ICO_LOADMETHOD,ring_string_get(pString));
@@ -1002,7 +1003,7 @@ void ring_vm_oop_setproperty ( VM *pVM )
 				/* Use the Byte Code */
 				RING_VM_BYTECODE_END ;
 				/* Note: Reallocation may change mem. locations */
-				pItem = RING_VM_IR_ITEMATINS(nIns2,RING_VM_IR_REG2) ;
+				pItem = RING_VM_IR_ITEMATINS(nIns,RING_VM_IR_REG2) ;
 				RING_VM_IR_ITEMSETINT(pItem,pVM->nPC);
 				/* Delete String */
 				ring_string_delete_gc(pVM->pRingState,pString);
@@ -1012,9 +1013,6 @@ void ring_vm_oop_setproperty ( VM *pVM )
 				pVM->nPC = RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ;
 			}
 		}
-		/* Set Before/After SetProperty Flag To After */
-		pRegItem = RING_VM_IR_ITEMATINS(nIns,RING_VM_IR_REG1) ;
-		RING_VM_IR_ITEMSETINT(pRegItem,RING_TRUE);
 	}
 	/* After (Second Time) */
 	else {
