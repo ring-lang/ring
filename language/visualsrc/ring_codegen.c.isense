@@ -113,6 +113,7 @@ ICO_LEN
 ICO_SETOPCODE
 ICO_CHECKBRACEMETHOD
 ICO_OPTIONALLOOP
+ICO_PUSHVFREESTACK
 END:
 Type: IC_OPERATIONS
 IC_OPERATIONS
@@ -168,6 +169,8 @@ ring_parser_icg_loadfunction
 ring_parser_icg_loadaddress
 ring_parser_icg_loadaddresstoloadfunction
 ring_parser_icg_freestack
+Type: int
+nLastOperation
 ring_parser_icg_newline
 ring_parser_icg_parentclassname
 ring_parser_icg_deleteparentclassname

@@ -141,7 +141,9 @@
 		ICO_SETOPCODE ,
 		ICO_CHECKBRACEMETHOD ,
 		/* Optional Loop */
-		ICO_OPTIONALLOOP 
+		ICO_OPTIONALLOOP ,
+		/* More */
+		ICO_PUSHVFREESTACK 
 	} IC_OPERATIONS ;
 	/* Operations Text (Array) */
 	static const char * RING_IC_OP[] = {"NewLine","FileName",
@@ -165,7 +167,7 @@
 	"INCPJUMPSTEP1","INCLPJUMPSTEP1","ANONYMOUS","CallClassInit", 
 	
 	"NewGlobalScope","EndGlobalScope","SetGlobalScope",
-	"FreeTempLists","Len","SetOPCode","CheckBraceMethod","OptionalLoop"} ;
+	"FreeTempLists","Len","SetOPCode","CheckBraceMethod","OptionalLoop","PushVFreeStack"} ;
 	/* Constants */
 	#define RING_PARSER_ICG_INSTRUCTIONSLISTTYPE List
 	#define RING_PARSER_ICG_OPERATIONCODE 1

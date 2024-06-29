@@ -746,3 +746,9 @@ void ring_vm_len ( VM *pVM )
 		}
 	}
 }
+
+void ring_vm_pushvfreestack ( VM *pVM )
+{
+	ring_vm_pushv(pVM);
+	ring_vm_freestack(pVM);
+}

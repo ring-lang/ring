@@ -1062,5 +1062,9 @@ void ring_vm_execute ( VM *pVM )
 		case ICO_OPTIONALLOOP :
 			ring_vm_optionalloop(pVM);
 			break ;
+		/* More */
+		case ICO_PUSHVFREESTACK :
+			ring_vm_pushvfreestack(pVM);
+			break ;
 	}
 }
