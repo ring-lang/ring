@@ -1273,9 +1273,18 @@ void ring_poolmanager_newblockfromsubthread ( RingState *pSubRingState,int nCoun
 	**  Set First Item in Ring State 
 	*/
 	pSubRingState->vPoolManager.pCurrentItem = (PoolData *) ring_calloc(RING_ONE,sizeof(PoolData)) ;
-	/* Set Block Start and End */
+	/* Set Block Start and End (Level 1) */
 	pSubRingState->vPoolManager.pBlockStart = pMainRingState->vPoolManager.pBlockStart ;
 	pSubRingState->vPoolManager.pBlockEnd = pMainRingState->vPoolManager.pBlockEnd ;
+	/* Set Block Start and End (Level 2) */
+	pSubRingState->vPoolManager.pBlockStartL2 = pMainRingState->vPoolManager.pBlockStartL2 ;
+	pSubRingState->vPoolManager.pBlockEndL2 = pMainRingState->vPoolManager.pBlockEndL2 ;
+	/* Set Block Start and End (Level 3) */
+	pSubRingState->vPoolManager.pBlockStartL3 = pMainRingState->vPoolManager.pBlockStartL3 ;
+	pSubRingState->vPoolManager.pBlockEndL3 = pMainRingState->vPoolManager.pBlockEndL3 ;
+	/* Set Block Start and End (State Level) */
+	pSubRingState->vPoolManager.pBlockStartStateLevel = pMainRingState->vPoolManager.pBlockStartStateLevel ;
+	pSubRingState->vPoolManager.pBlockEndStateLevel = pMainRingState->vPoolManager.pBlockEndStateLevel ;
 	/* Set Values For Tracking Allocations */
 	pSubRingState->vPoolManager.nAllocCount = 0 ;
 	pSubRingState->vPoolManager.nFreeCount = 0 ;
