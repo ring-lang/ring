@@ -237,7 +237,7 @@ VM * ring_vm_delete ( VM *pVM )
 	pVM->pBeforeObjState = ring_list_delete_gc(pVM->pRingState,pVM->pBeforeObjState);
 	/* Free Stack */
 	for ( x = 0 ; x < RING_VM_STACK_SIZE ; x++ ) {
-		ring_item_deletecontent(&(pVM->aStack[x]));
+		ring_item_deletecontent_gc(pVM->pRingState,&(pVM->aStack[x]));
 	}
 	/* Delete the bytecode */
 	for ( x = 1 ; x <= RING_VM_INSTRUCTIONSCOUNT ; x++ ) {
@@ -315,7 +315,6 @@ void ring_vm_init ( RingState *pRingState )
 			ring_scanner_addreturn(pRingState);
 			pVM = ring_vm_new(pRingState);
 			ring_vm_start(pRingState,pVM);
-			pRingState->pVM = pVM ;
 		}
 	}
 	return ;
@@ -1064,10 +1063,6 @@ void ring_vm_execute ( VM *pVM )
 		/* Optional Loop */
 		case ICO_OPTIONALLOOP :
 			ring_vm_optionalloop(pVM);
-			break ;
-		/* More */
-		case ICO_PUSHVFREESTACK :
-			ring_vm_pushvfreestack(pVM);
 			break ;
 	}
 }
