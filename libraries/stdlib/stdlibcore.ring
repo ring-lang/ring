@@ -759,26 +759,6 @@ Func MakeDir cFolder
 		SystemSilent("mkdir -p " + cFolder)
 	ok
 	
-/*
-	Function Name	: sortFirstSecond
-	Usage		: Sort a list on first or second index
-	Parameters	: list to sort
-	Output          : sorted list 
-*/ 
-
-Func sortFirstSecond aList, ind
-	aList = sort(aList,ind)
-	for n=1 to len(alist)-1
-		for m=n to len(aList)-1 
-			if ind = 1 nr = 2 else nr = 1 ok
-			if alist[m+1][ind] = alist[m][ind] and alist[m+1][nr] < alist[m][nr]
-				temp = alist[m+1]
-				alist[m+1] = alist[m]
-				alist[m] = temp ok
-             next
-	next
-	return aList
-
 Func Fsize(fh)
 	Fseek(fh,0,2)
 	size = Ftell(fh)
