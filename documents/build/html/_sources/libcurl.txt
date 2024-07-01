@@ -21,6 +21,7 @@ Example:
 
 	curl = curl_easy_init()
 
+	curl_easy_setopt(curl, CURLOPT_USERAGENT, "curl/7.54.1")
 	curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1)
 	curl_easy_setopt(curl, CURLOPT_URL, "http://ring-lang.sf.net")
 
@@ -42,6 +43,8 @@ Example:
 	load "libcurl.ring"
 
 	curl = curl_easy_init()
+
+	curl_easy_setopt(curl, CURLOPT_USERAGENT, "curl/7.54.1")
 
 	cPostThis = "page=4&Number1=4&Number2=5"
 	curl_easy_setopt(curl, CURLOPT_URL, "http://localhost/ringapp/index.ring?page=3")
@@ -67,6 +70,8 @@ Example:
 	See "Enter Password : " give $login_pass
 
 	curl = curl_easy_init()
+
+	curl_easy_setopt(curl, CURLOPT_USERAGENT, "curl/7.54.1")
 
 	curl_easy_setopt(curl, CURLOPT_URL, 'https://www.facebook.com/login.php')
 	curl_easy_setopt(curl, CURLOPT_POSTFIELDS,'charset_test=j u s t a t e s t'+
@@ -122,6 +127,7 @@ Example:
 
 	curl = curl_easy_init()
 
+	curl_easy_setopt(curl, CURLOPT_USERAGENT, "curl/7.54.1")
 	curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1)
 	curl_easy_setopt(curl, CURLOPT_URL, "http://ring-lang.sf.net")
 
@@ -149,6 +155,7 @@ Example:
 	See "Start curl_easy_init(): "+ nl
 	curl = curl_easy_init()                     ### >>> HANDLE >>> 01006BD0  CURL  0
 
+		curl_easy_setopt(curl, CURLOPT_USERAGENT, "curl/7.54.1")
 		curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1)
 		curl_easy_setopt(curl, CURLOPT_COOKIEJAR,  "cookies.txt")
 		curl_easy_setopt(curl, CURLOPT_COOKIEFILE, "cookies.txt")
