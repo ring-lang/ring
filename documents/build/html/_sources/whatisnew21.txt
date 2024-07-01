@@ -49,10 +49,10 @@ More Improvements
 * Ring Compiler/VM - Added ICO_PUSHNL instruction - Push new line to the stack
 * Ring Compiler/VM - Added ICO_LISTITEMN instruction - Add number to the current list
 * Ring Compiler/VM - Added ICO_LISTITEMC instruction - Add string to the current list
-* Ring Compiler/VM - Added ICO_PUSHVFREESTACK instruction 
 * Ring Compiler/VM - Added ICO_STEPFROMREG instruction
 * Ring VM - ByteCode registers count is reduced from four to two (reduce memory usage)
 * Ring VM - Setter/Getter/OperatorOverloading - Don't use ring_vm_eval()
+* Ring VM - Use GC functions when using strings in the VM stack
 * Ring VM - Better support for list items of new objects when using lists during defintion 
 * Ring VM - List() function - Use blocks only if the list size is greater than 30 items 
 * Ring VM - Better code when deleting lists created using the List() function

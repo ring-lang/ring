@@ -647,7 +647,6 @@ ICO_NEWLINE		Store new line number (debug info)
 ICO_FREESTACK		Remove all items from the stack , nSize = 0
 ICO_FILENAME		Store the source code file name (debug info)
 ICO_FREELOADASCOPE	Free the Scope List of the current Expression
-ICO_PUSHVFREESTACK	Execute ICO_PUSHV (Could set Brace Object) then ICO_FREESTACK
 =======================	============================================================================
 
 (Jump)
