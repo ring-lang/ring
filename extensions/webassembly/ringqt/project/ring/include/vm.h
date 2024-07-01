@@ -30,8 +30,8 @@
 		void *pPointer  ;
 	} Register ;
 	typedef struct ByteCode {
-		unsigned int nOPCode: 8  ;
-		unsigned int nFlagReg: 1  ;
+		unsigned int nOPCode: 7  ;
+		unsigned int nFlagReg: 2  ;
 		unsigned int nFlagReg2: 1  ;
 		unsigned int nReg1Type:3  ;
 		unsigned int nReg2Type:3  ;
