@@ -88,7 +88,9 @@ RING_API RingState * ring_state_init ( void )
 {
 	RingState *pRingState  ;
 	pRingState = ring_state_new();
+	pRingState->lDisablePoolManager = 1 ;
 	ring_vm_init(pRingState);
+	pRingState->lDisablePoolManager = 0 ;
 	return pRingState ;
 }
 
