@@ -13,6 +13,7 @@ See nl "===== GET REQUEST ====="+ nl
 ### Part 1 --- Get Crumb and Cookie -----------------------------------------
 
 curl = curl_easy_init()                                         ### >>> HANDLE >>> 01006BD0  CURL  0
+    curl_easy_setopt(curl, CURLOPT_USERAGENT, "curl/7.54.1" )
     curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1)
     curl_easy_setopt(curl, CURLOPT_COOKIEJAR,  "cookies.txt")
     curl_easy_setopt(curl, CURLOPT_COOKIEFILE, "cookies.txt")

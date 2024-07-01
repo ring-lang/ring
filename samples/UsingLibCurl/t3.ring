@@ -5,6 +5,8 @@ See "Enter Password : " give $login_pass
 
 curl = curl_easy_init()
 
+curl_easy_setopt(curl, CURLOPT_USERAGENT, "curl/7.54.1" )
+
 curl_easy_setopt(curl, CURLOPT_URL, 'https://www.facebook.com/login.php')
 curl_easy_setopt(curl, CURLOPT_POSTFIELDS,'charset_test=j u s t a t e s t &email='+urlencode($login_email)+'&pass='+urlencode($login_pass)+'&login=Login')
 curl_easy_setopt(curl, CURLOPT_POST, 1)
