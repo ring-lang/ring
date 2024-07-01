@@ -41,6 +41,7 @@ Example:
 More Improvements
 =================
 
+* RingInternetLib - Set CURLOPT_USERAGENT in Download() function
 * RingQt - Qt version is updated from Qt 5.15.16 to 5.15.17
 * Ring Compiler - Add new lines between error messages
 * Ring Compiler - Check argument duplication during function definition
