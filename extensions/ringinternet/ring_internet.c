@@ -1,15 +1,19 @@
 /*
-**  Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> 
+**  Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> 
 **  Include Files 
 */
+
 #include "ring.h"
 #include "ring_internet.h"
 #include "curl/curl.h"
+
 /* Data */
+
 struct upload_status {
 	int lines_read  ;
 	List *pList  ;
 } ;
+
 /* Functions */
 
 RING_LIBINIT
@@ -43,6 +47,7 @@ void ring_vm_curl_download ( void *pPointer )
 	if ( curl ) {
 		/* We don't use ring_string_new_gc() because ring_getcurldata() don't know about Ring State */
 		pString = ring_string_new("");
+		curl_easy_setopt(curl, CURLOPT_USERAGENT,"curl/7.54.1"); 
 		curl_easy_setopt(curl, CURLOPT_URL,RING_API_GETSTRING(1));
 		curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION,1);
 		curl_easy_setopt(curl, CURLOPT_NOSIGNAL,1);
