@@ -9,7 +9,8 @@ aObjectsList = [
 		 :mainlayout =  "" ,
 		 :WindowIcon =  "" , 
 		 :Menubar =  ""  ,
-		 :IndexType =  0  
+		 :IndexType =  0  ,
+		 :GUILibrary =  0  
 
 		]
 	],
@@ -20,7 +21,7 @@ aObjectsList = [
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
-		 :Videofile =  "test.avi"
+		 :Videofile =  "m2000.avi"
 		]
 	],
 	[ :name = "Button1" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
