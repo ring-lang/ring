@@ -29,7 +29,7 @@ Parent: ByteCode
 Type: unsigned int
 nOPCode: 7
 Type: unsigned int
-nFlagReg: 1
+nFlagReg: 2
 Type: unsigned int
 nFlagReg2: 1
 Type: unsigned int
