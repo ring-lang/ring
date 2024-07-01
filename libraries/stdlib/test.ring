@@ -165,7 +165,7 @@ Puts("Test Permutation()")
 list = [1, 2, 3, 4]
 for perm = 1 to 24
      for i = 1 to len(list)
-          see list[i] + " "
+          see list[i] see " "
      next
      see nl
      Permutation(list)
