@@ -57,7 +57,7 @@ class frmDepartmentController from windowsControllerParent
 		oView.txtDeptName.setText("")
 		oView.txtDeptLoc.setText("")
 		autoNum = mysql_auto_number("department","department_id")
-		oView.txtDeptNo.setText( autoNum )
+		oView.txtDeptNo.setText( "" + autoNum )
 		oView.btnAdd.setEnabled(1)
 		oView.btnEdit.setEnabled(0)
 		oView.btnDel.setEnabled(0)

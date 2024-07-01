@@ -157,7 +157,7 @@ class frmEmployeeController from windowsControllerParent
 	func clear_data()
 		oView.txtEmpName.SetText("")
 		oView.txtAddress.setText("")
-		oView.txtEmpNo.setText( mysql_auto_number('employee','employee_id') )
+		oView.txtEmpNo.setText( "" + mysql_auto_number('employee','employee_id') )
 		oView.btnAdd.setEnabled(1)
 		oView.btnEdit.setEnabled(0)
 		oView.btnDel.setEnabled(0)
