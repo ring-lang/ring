@@ -78,6 +78,7 @@ class predictionController from windowsControllerParent
 		}
 	
 		curl = curl_easy_init()   
+		curl_easy_setopt(curl, CURLOPT_USERAGENT, "curl/7.54.1" )
 	
 		curl_easy_setopt(curl, CURLOPT_POST, 1)
 		curl_easy_setopt(curl, CURLOPT_USERAGENT, "Ring")

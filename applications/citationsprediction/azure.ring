@@ -99,6 +99,7 @@ class azure
 		cPara  = substr(cPara,'"',"")
 		cBody = substr(cTemplate,"#{f1}",cPara)
 		pCurl = curl_easy_init()
+		curl_easy_setopt(pCurl, CURLOPT_USERAGENT, "curl/7.54.1" )
 		curl_easy_setopt(pCurl,CURLOPT_POST,1)
 		curl_easy_setopt(pCurl,CURLOPT_USERAGENT,"Ring")
 		curl_easy_setopt(pCurl,CURLOPT_SSL_VERIFYPEER,FALSE)
