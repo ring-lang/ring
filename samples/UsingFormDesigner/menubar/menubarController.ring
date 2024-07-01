@@ -16,3 +16,6 @@ class menubarController from windowsControllerParent
 
 	func CloseWindow 
 		oView.win.Close()
+
+	func noAction
+		? "No code to execute for this event"
