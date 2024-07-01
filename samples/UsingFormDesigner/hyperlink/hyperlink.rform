@@ -9,13 +9,14 @@ aObjectsList = [
 		 :mainlayout =  "" ,
 		 :WindowIcon =  "" , 
 		 :Menubar =  ""  ,
-		 :IndexType =  0  
+		 :IndexType =  0  ,
+		 :GUILibrary =  0  
 
 		]
 	],
 	[ :name = "HyperLink1" , :id = 2 , :classname = "formdesigner_qhyperlink" , :data = [
-		 :x = 45 , : y = 50  , 
-		 :width =  223 , :height = 34 , 
+		 :x = 38 , : y = 132  , 
+		 :width =  309 , :height = 34 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
@@ -25,8 +26,8 @@ aObjectsList = [
 		]
 	],
 	[ :name = "HyperLink2" , :id = 3 , :classname = "formdesigner_qhyperlink" , :data = [
-		 :x = 38 , : y = 122  , 
-		 :width =  199 , :height = 29 , 
+		 :x = 38 , : y = 204  , 
+		 :width =  309 , :height = 29 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 

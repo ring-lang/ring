@@ -13,3 +13,6 @@ if IsMainSourceFile() {
 class hyperlinkController from windowsControllerParent
 
 	oView = new hyperlinkView
+
+	oView.hyperLink1.setOpenExternalLinks(true)
+	oView.hyperLink2.setOpenExternalLinks(true)
