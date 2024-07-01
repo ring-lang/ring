@@ -6,7 +6,9 @@ load "libcurl.ring"
 load "guilib.ring"
 load "stdlib.ring"
 
-curl = curl_easy_init();
+curl = curl_easy_init()
+
+curl_easy_setopt(curl, CURLOPT_USERAGENT, "curl/7.54.1" )
 
 # request = "3G1JC5248YS251015?format=xml"  ### VIN - Chevrolet 
   request = "3GYFK62847G247323?format=xml"  ### VIN - Cadillac
@@ -36,7 +38,7 @@ while not xml.atend()
 
        x = xml.text()
        if not x.length() = 0
-               see "Length: " see x.length() +" --- "
+               see "Length: " see x.length() see " --- "
                see "Value: " see x.tostring() see nl
        ok
 
