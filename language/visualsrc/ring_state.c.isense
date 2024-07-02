@@ -122,6 +122,8 @@ ring_state_delete
 ring_state_init
 Type: RingState *
 pRingState
+Type: unsigned int
+lDisablePoolManager
 ring_state_runcode
 ring_state_findvar
 Type: VM *

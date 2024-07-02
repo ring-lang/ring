@@ -87,10 +87,12 @@ RING_API RingState * ring_state_delete ( RingState *pRingState )
 RING_API RingState * ring_state_init ( void )
 {
 	RingState *pRingState  ;
+	unsigned int lDisablePoolManager  ;
 	pRingState = ring_state_new();
+	lDisablePoolManager = pRingState->lDisablePoolManager ;
 	pRingState->lDisablePoolManager = 1 ;
 	ring_vm_init(pRingState);
-	pRingState->lDisablePoolManager = 0 ;
+	pRingState->lDisablePoolManager = lDisablePoolManager ;
 	return pRingState ;
 }
 
