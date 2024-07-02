@@ -602,8 +602,6 @@ int ring_parser_stmt ( Parser *pParser )
 					/* Generate ICO_LEN */
 					ring_parser_icg_newline(pParser,nLine);
 					ring_parser_icg_newoperation(pParser,ICO_LEN);
-					/* Generate 0 For Operator OverLoading */
-					ring_parser_icg_newoperandint(pParser,RING_ZERO);
 					/* Disable PUSHV if we have FastLen */
 					if ( lFastLen ) {
 						ring_parser_icg_setoperationatpos(pParser,nStart+1,ICO_NOOP);
@@ -616,8 +614,6 @@ int ring_parser_stmt ( Parser *pParser )
 					ring_parser_icg_newoperation(pParser,ICO_LOADAPUSHV);
 					ring_parser_icg_newoperand(pParser,cStr);
 					ring_parser_icg_newoperation(pParser,ICO_LOADINDEXADDRESS);
-					/* Generate 0 For Operator OverLoading */
-					ring_parser_icg_newoperandint(pParser,RING_ZERO);
 					/* Item by reference */
 					ring_parser_icg_newoperation(pParser,ICO_SETREFERENCE);
 					/* Step <expr> */
