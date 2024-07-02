@@ -1,3 +1,4 @@
+load "stdlibcore.ring"
 load "lightguilib.ring"
 load "libcurl.ring"
 
@@ -1099,6 +1100,7 @@ func NextSymbol
         ### Use Selected Current Row +1
 
         Position = list1.currentrow()
+        Position++
 
         TickersNbr = list1.count()          ### Size of Row Count
         # See " Next Pos " + Position +" TickersNbr " + TickersNbr +nl
@@ -1106,10 +1108,11 @@ func NextSymbol
         if Position = TickersNbr
             return
         ok
-        list1.setcurrentrow(Position +1, 3)
 
+        list1.setcurrentrow(Position, 3)
         Item = list1.item(list1.currentrow()).text()
         lineedit1.settext(Item)
+
         Draw()
 
 return
@@ -1136,15 +1139,6 @@ func PrevSymbol
         Draw()
 
 return
-
-###---------------------------------------
-### FUNC Split  By Dot
-### Call:      cStr = Split(Name, ".")
-###--------------------------------------
-
-Func Split cstring, delimiter
-    cStrList = str2list(substr(cstring, delimiter, nl))
-return cStrList
 
 ###------------------
 
@@ -1173,49 +1167,6 @@ Func Xmax aList
     ok
   next
 return max
-
-###----------------
-
-###----------------------------------------------------
-### Call Format: "15/07/2016", "10:15:30"
-### Example:     EpochSec = EpochTime( Date(), Time() )
-
-Func EpochTime( Date, Time)
-
-    ### See nl +"Called Date: "+ Date +" "+ Time +nl
-
-    arrayDate = split(Date, "/")
-    arrayTime = split(Time, ":")
-
-    Year = arrayDate[3] ; Month  = arrayDate[2] ; Day    = arrayDate[1]
-    Hour = arrayTime[1] ; Minute = arrayTime[2] ; Second = arrayTime[3]
-
-    cDate1    = Day +"/"+ Month +"/"+ Year
-    cDate2    = "01/01/" + Year
-    DayOfYear = DiffDays( cDate1, cDate2)
-
-    ### See "DayOfYear: "+ DayOfYear +nl
-
-    ### Formula
-    tm_sec  = Second    * 1
-    tm_min  = Minute    * 60
-    tm_hour = Hour      * 3600
-    tm_yday = DayOfYear * 86400
-    tm_year = Year      - 1900
-
-    tm_year1 =         ( tm_year -  70)          * 31536000
-    tm_year2 = ( floor(( tm_year -  69) /   4 )) * 86400
-    tm_year3 = ( floor(( tm_year -   1) / 100 )) * 86400
-    tm_year4 = ( floor(( tm_year + 299) / 400 )) * 86400
-
-    ### Result
-    EpochSec = tm_sec + tm_min + tm_hour + tm_yday + tm_year1 + tm_year2 - tm_year3 + tm_year4
-
-    # See nl +"EpochSec.: "+ EpochSec +nl
-    # See "DateTime.: "+ Year +"/"+ Month +"/"+ Day +" "+ Hour +":"+ Minute +":"+ Second +nl
-
-return EpochSec
-
 
 
 ###======================================================
@@ -1439,12 +1390,12 @@ Func ExtractPriceData   cStr
     for L1 in aList
         cStr = Split(L1, ",")                       ### Split fields in line
         Add(arrayDate,     cStr[1] )                ### ADD Data to arrayLists
-        Add(arrayOpen,     number(cStr[2] ) )
-        Add(arrayHigh,     number(cStr[3] ) )
-        Add(arrayLow,      number(cStr[4] ) )
-        Add(arrayClose,    number(cStr[5] ) )
-        Add(arrayVolume,   number(cStr[7] ) )
-        Add(arrayAdjClose, number(cStr[6] ) )
+        Add(arrayOpen,     numorzero(cStr[2] ) )
+        Add(arrayHigh,     numorzero(cStr[3] ) )
+        Add(arrayLow,      numorzero(cStr[4] ) )
+        Add(arrayClose,    numorzero(cStr[5] ) )
+        Add(arrayVolume,   numorzero(cStr[7] ) )
+        Add(arrayAdjClose, numorzero(cStr[6] ) )
     next
 
     ###----------------------------------------
@@ -1538,7 +1489,7 @@ Func ExtractDividendData  dStr
     for L1 in aList
         dStr = Split(L1, ",")                        ### Split fields in line
         Add(arrayDivDate,   dStr[1] )                ### ADD Data to arrayLists
-        Add(arrayDividend,  number(dStr[2] ) )
+        Add(arrayDividend,  numorzero(dStr[2] ) )
     next
 
     ###------------------------------------------------------------------------------------------
