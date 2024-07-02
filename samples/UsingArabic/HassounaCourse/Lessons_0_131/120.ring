@@ -1,5 +1,5 @@
 
-load "myLib.ring"
+load "120.myLib.ring"
 
 e1 = new empData(111, "Ahmed", "جيزة")
 e1.addTask("شراء مستلزمات بناء جديدة")

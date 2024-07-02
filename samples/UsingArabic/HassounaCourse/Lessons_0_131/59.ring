@@ -1,5 +1,5 @@
 
-myList = Dir("Folder")
+myList = Dir("c:\windows")
 
 for item in myList
 

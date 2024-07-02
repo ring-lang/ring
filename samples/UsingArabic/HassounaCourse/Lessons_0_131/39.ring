@@ -1,6 +1,6 @@
 
 
-see "Enter Name Between 6 and 16 digits: "
+see "Enter Name Between 6 and 16 characters: "
 give name
 
 L = len( name )

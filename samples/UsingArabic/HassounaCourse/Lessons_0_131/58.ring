@@ -1,5 +1,5 @@
 
-text = Read("rnote.ring")
+text = Read("58.ring")
 see text
 
 /*
