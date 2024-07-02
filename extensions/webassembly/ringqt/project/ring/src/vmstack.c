@@ -358,7 +358,13 @@ void ring_vm_setreference ( VM *pVM )
 	/* Copy by reference */
 	ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_POINTER);
 	ring_list_setpointer_gc(pVM->pRingState,pList,RING_VAR_VALUE,pPointer);
-	ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_PVALUETYPE,nType);
+	if ( ring_list_getsize(pList) >= RING_VAR_PVALUETYPE ) {
+		ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_PVALUETYPE,nType);
+	}
+	else {
+		/* Happens when the (For-in) loop variable is similar to Function Argument */
+		ring_list_addint_gc(pVM->pRingState,pList,nType);
+	}
 	/* Reference Counting (To Source After copy to Destination) */
 	ring_vm_gc_checknewreference(pVM,pPointer,nType,pList,RING_VAR_VALUE);
 }
