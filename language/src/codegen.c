@@ -123,15 +123,11 @@ void ring_parser_icg_loadaddress ( Parser *pParser,const char *cVariableName )
 {
 	ring_parser_icg_newoperation(pParser,ICO_LOADADDRESS);
 	ring_parser_icg_newoperand(pParser,cVariableName);
-	ring_parser_icg_newoperandint(pParser,RING_ZERO);
 }
 
 void ring_parser_icg_loadaddresstoloadfunction ( Parser *pParser )
 {
 	ring_parser_icg_setlastoperation(pParser,ICO_LOADFUNC);
-	while ( ring_list_getsize(ring_parser_icg_getactiveoperation(pParser)) > RING_PARSER_ICG_LOADFUNCINSSIZE ) {
-		ring_parser_icg_deleteoperand(pParser,ring_list_getsize(ring_parser_icg_getactiveoperation(pParser)));
-	}
 }
 
 void ring_parser_icg_freestack ( Parser *pParser )
