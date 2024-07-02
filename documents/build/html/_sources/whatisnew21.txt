@@ -75,3 +75,4 @@ More Improvements
 * Ring VM - Produce runtime error when using a negative value in shift operations
 * Ring VM - ring_vm_createtemplist() implementation - Take in mind the PC and OPCode
 * Ring VM - Share information about different levels of the memory pool when creating new thread
+* Ring VM - ICO_SETREFERENCE - Check the variable list size
