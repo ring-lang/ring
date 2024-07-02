@@ -84,10 +84,6 @@
 		void *pBlockEndStateLevel  ;
 		List *pBlocks  ;
 		void *pMutex  ;
-		unsigned int nAllocCount  ;
-		unsigned int nFreeCount  ;
-		unsigned int nSmallAllocCount  ;
-		unsigned int nSmallFreeCount  ;
 		unsigned int nItemsInBlock  ;
 		unsigned int nItemsInBlockL2  ;
 		unsigned int nItemsInBlockL3  ;

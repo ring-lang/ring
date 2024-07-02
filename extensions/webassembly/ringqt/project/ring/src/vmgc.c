@@ -1111,11 +1111,6 @@ void ring_poolmanager_newblock ( RingState *pRingState )
 	/* Set Block Start and End */
 	pRingState->vPoolManager.pBlockStartStateLevel = (void *) pMemoryStateLevel ;
 	pRingState->vPoolManager.pBlockEndStateLevel = (void *) (pMemoryStateLevel + pRingState->vPoolManager.nItemsInBlockStateLevel - 1) ;
-	/* Set Values For Tracking Allocations */
-	pRingState->vPoolManager.nAllocCount = 0 ;
-	pRingState->vPoolManager.nFreeCount = 0 ;
-	pRingState->vPoolManager.nSmallAllocCount = 0 ;
-	pRingState->vPoolManager.nSmallFreeCount = 0 ;
 }
 
 void * ring_poolmanager_allocate ( RingState *pRingState,size_t nSize )
@@ -1265,11 +1260,6 @@ void ring_poolmanager_newblockfromsubthread ( RingState *pSubRingState,int nCoun
 	/* Set Block Start and End (State Level) */
 	pSubRingState->vPoolManager.pBlockStartStateLevel = pMainRingState->vPoolManager.pBlockStartStateLevel ;
 	pSubRingState->vPoolManager.pBlockEndStateLevel = pMainRingState->vPoolManager.pBlockEndStateLevel ;
-	/* Set Values For Tracking Allocations */
-	pSubRingState->vPoolManager.nAllocCount = 0 ;
-	pSubRingState->vPoolManager.nFreeCount = 0 ;
-	pSubRingState->vPoolManager.nSmallAllocCount = 0 ;
-	pSubRingState->vPoolManager.nSmallFreeCount = 0 ;
 	/* Don't delete the memory because it's owned by the Main Thread */
 	pSubRingState->vPoolManager.lDeleteMemory = 0 ;
 	/* Create the Items */

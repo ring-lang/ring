@@ -1195,11 +1195,6 @@ void ring_vm_refmeta_ringvminfo ( void *pPointer )
 	else {
 		ring_list_adddouble_gc(pVM->pRingState, pList, 0.0);
 	}
-	/* Track Allocations */
-	ring_list_adddouble_gc(pVM->pRingState, pList, (double) pVM->pRingState->vPoolManager.nAllocCount);
-	ring_list_adddouble_gc(pVM->pRingState, pList, (double) pVM->pRingState->vPoolManager.nFreeCount);
-	ring_list_adddouble_gc(pVM->pRingState, pList, (double) pVM->pRingState->vPoolManager.nSmallAllocCount);
-	ring_list_adddouble_gc(pVM->pRingState, pList, (double) pVM->pRingState->vPoolManager.nSmallFreeCount);
 	RING_API_RETLIST(pList);
 	ring_list_delete_gc(pVM->pRingState,pList);
 }
