@@ -778,9 +778,6 @@ RING_API void * ring_state_malloc ( void *pState,size_t nSize )
 {
 	#if RING_USEPOOLMANAGER
 		if ( pState != NULL ) {
-			#if RING_TRACKALLOCATIONS
-				((RingState *) pState)->vPoolManager.nAllocCount++ ;
-			#endif
 			if ( ! ((RingState *) pState)->lDisablePoolManager ) {
 				if ( ((RingState *) pState)->pVM != NULL ) {
 					if ( nSize <= sizeof(PoolDataL3) ) {
@@ -804,9 +801,6 @@ RING_API void ring_state_free ( void *pState,void *pMemory )
 	#if RING_USEPOOLMANAGER
 		/* Use Pool Manager */
 		if ( pState != NULL ) {
-			#if RING_TRACKALLOCATIONS
-				((RingState *) pState)->vPoolManager.nFreeCount++ ;
-			#endif
 			if ( ring_poolmanager_free(((RingState *) pState),pMemory) ) {
 				return ;
 			}
@@ -847,9 +841,6 @@ RING_API void * ring_state_calloc ( void *pState,size_t nItems, size_t nSize )
 	size_t nTotal  ;
 	#if RING_USEPOOLMANAGER
 		if ( pState != NULL ) {
-			#if RING_TRACKALLOCATIONS
-				((RingState *) pState)->vPoolManager.nAllocCount++ ;
-			#endif
 			nTotal = nItems*nSize ;
 			if ( (nTotal <= sizeof(PoolDataL3) ) && (! ((RingState *) pState)->lDisablePoolManager) ) {
 				if ( ((RingState *) pState)->pVM != NULL ) {
@@ -873,9 +864,6 @@ RING_API void * ring_state_realloc ( void *pState,void *pPointer,size_t nAllocat
 		int x, nLevel, nUseMalloc  ;
 		nUseMalloc = 0 ;
 		if ( pState != NULL ) {
-			#if RING_TRACKALLOCATIONS
-				((RingState *) pState)->vPoolManager.nAllocCount++ ;
-			#endif
 			if ( ((RingState *) pState)->pVM != NULL ) {
 				nLevel = ring_poolmanager_find((RingState *) pState,pPointer) ;
 				/* Level 1 */
@@ -1157,9 +1145,6 @@ void * ring_poolmanager_allocate ( RingState *pRingState,size_t nSize )
 	else {
 		pMemory = ring_malloc(nSize);
 	}
-	#if RING_TRACKALLOCATIONS
-		pRingState->vPoolManager.nSmallAllocCount++ ;
-	#endif
 	return pMemory ;
 }
 
@@ -1215,11 +1200,6 @@ int ring_poolmanager_free ( RingState *pRingState,void *pMemory )
 		pRingState->vPoolManager.pCurrentItemL3 = pPoolDataL3 ;
 		lRet = 1 ;
 	}
-	#if RING_TRACKALLOCATIONS
-		if ( lRet ) {
-			pRingState->vPoolManager.nSmallFreeCount++ ;
-		}
-	#endif
 	/* Reaching this point and lRet=0 means that the Pool Manager doesn't own this memory to free it! */
 	return lRet ;
 }
