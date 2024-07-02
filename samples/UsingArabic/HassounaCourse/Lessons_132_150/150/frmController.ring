@@ -24,8 +24,10 @@ class frmController from windowsControllerParent
 	}
 
 	func btnSetSelected_Click(){
+		try
 		num = Number( oView.LineEdit1.Text() )
 		oView.ListWidget1.SetCurrentRow( num , 3 )
+		catch done
 	}
 
 
