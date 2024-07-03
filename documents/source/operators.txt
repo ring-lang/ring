@@ -248,9 +248,9 @@ List        "+"          String         Add string to List           [1,2,3] + "
 List        "+"          List           Add list to List             [1,2,3] + ["sub"]
 List        "+"          Object         Add object to List           [1,2,3] + new Point
 Number      "+"          List           Runtime Error                4 + [1,2,3]
-Number      "+"          Object         Runtime Error                4 + new point
+Number      "+"          Object         Check Operator Overloading   4 + new point
 String      "+"          List           Runtime Error                "4" + [1,2,3]
-String      "+"          Object         Runtime Error                "4" + new point
+String      "+"          Object         Check Operator Overloading   "4" + new point
 Object      "+"          Number         Check Operator Overloading   new point + 1
 Object      "+"          String         Check Operator Overloading   new point + "test"
 Object      "+"          List           Check Operator Overloading   new point + [10,10]
@@ -265,9 +265,9 @@ List        "-"          String         Runtime Error                [1,2,3] - "
 List        "-"          List           Runtime Error                [1,2,3] - ["sub"]
 List        "-"          Object         Runtime Error                [1,2,3] - new Point
 Number      "-"          List           Runtime Error                4 - [1,2,3]
-Number      "-"          Object         Runtime Error                4 - new point
+Number      "-"          Object         Check Operator Overloading   4 - new point
 String      "-"          List           Runtime Error                "4" - [1,2,3]
-String      "-"          Object         Runtime Error                "4" - new point
+String      "-"          Object         Check Operator Overloading   "4" - new point
 Object      "-"          Number         Check Operator Overloading   new point - 1
 Object      "-"          String         Check Operator Overloading   new point - "test"
 Object      "-"          List           Check Operator Overloading   new point - [10,10]
@@ -282,9 +282,9 @@ List        "*"          String         Runtime Error                [1,2,3] * "
 List        "*"          List           Runtime Error                [1,2,3] * ["sub"]
 List        "*"          Object         Runtime Error                [1,2,3] * new Point
 Number      "*"          List           Runtime Error                4 * [1,2,3]
-Number      "*"          Object         Runtime Error                4 * new point
+Number      "*"          Object         Check Operator Overloading   4 * new point
 String      "*"          List           Runtime Error                "4" * [1,2,3]
-String      "*"          Object         Runtime Error                "4" * new point
+String      "*"          Object         Check Operator Overloading   "4" * new point
 Object      "*"          Number         Check Operator Overloading   new point * 1
 Object      "*"          String         Check Operator Overloading   new point * "test"
 Object      "*"          List           Check Operator Overloading   new point * [10,10]
@@ -299,9 +299,9 @@ List        "/"          String         Runtime Error                [1,2,3] / "
 List        "/"          List           Runtime Error                [1,2,3] / ["sub"]
 List        "/"          Object         Runtime Error                [1,2,3] / new Point
 Number      "/"          List           Runtime Error                4 / [1,2,3]
-Number      "/"          Object         Runtime Error                4 / new point
+Number      "/"          Object         Check Operator Overloading   4 / new point
 String      "/"          List           Runtime Error                "4" / [1,2,3]
-String      "/"          Object         Runtime Error                "4" / new point
+String      "/"          Object         Check Operator Overloading   "4" / new point
 Object      "/"          Number         Check Operator Overloading   new point / 1
 Object      "/"          String         Check Operator Overloading   new point / "test"
 Object      "/"          List           Check Operator Overloading   new point / [10,10]
@@ -316,9 +316,9 @@ List        "%"          String         Runtime Error                [1,2,3] % "
 List        "%"          List           Runtime Error                [1,2,3] % ["sub"]
 List        "%"          Object         Runtime Error                [1,2,3] % new Point
 Number      "%"          List           Runtime Error                4 % [1,2,3]
-Number      "%"          Object         Runtime Error                4 % new point
+Number      "%"          Object         Check Operator Overloading   4 % new point
 String      "%"          List           Runtime Error                "4" % [1,2,3]
-String      "%"          Object         Runtime Error                "4" % new point
+String      "%"          Object         Check Operator Overloading   "4" % new point
 Object      "%"          Number         Check Operator Overloading   new point % 1
 Object      "%"          String         Check Operator Overloading   new point % "test"
 Object      "%"          List           Check Operator Overloading   new point % [10,10]
