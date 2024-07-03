@@ -132,6 +132,8 @@ Type: double
 nNum1
 Type: char
 cNewOp[RING_SMALLBUF]
+Type: String *
+pStr1,*pStr2
 ring_vm_expr_npoo
 Type: List *
 pList
