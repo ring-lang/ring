@@ -596,6 +596,8 @@
 	int ring_vm_checknull ( VM *pVM,int lShowError ) ;
 
 	void ring_vm_pushvfreestack ( VM *pVM ) ;
+
+	void ring_vm_stackswap ( VM *pVM,int nSP1,int nSP2 ) ;
 	/* Compare */
 
 	void ring_vm_equal ( VM *pVM ) ;

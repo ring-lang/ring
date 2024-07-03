@@ -752,3 +752,11 @@ void ring_vm_len ( VM *pVM )
 		}
 	}
 }
+
+void ring_vm_stackswap ( VM *pVM,int nSP1,int nSP2 )
+{
+	Item vTempItem  ;
+	vTempItem = pVM->aStack[nSP1] ;
+	pVM->aStack[nSP1] = pVM->aStack[nSP2] ;
+	pVM->aStack[nSP2] = vTempItem ;
+}

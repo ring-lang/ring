@@ -340,7 +340,6 @@ void ring_vm_preparecallmethod ( VM *pVM )
 void ring_vm_return ( VM *pVM )
 {
 	List *pList  ;
-	Item vTempItem  ;
 	FuncCall *pFuncCall  ;
 	/* Support for nested "Load" instructions */
 	if ( pVM->nBlockCounter >= 1 ) {
@@ -373,9 +372,7 @@ void ring_vm_return ( VM *pVM )
 			**  Happens when using Return inside braces like : new object { return } 
 			**  Swap Two Items in the Stack (Move the Function Output to Correct Position) 
 			*/
-			vTempItem = pVM->aStack[pVM->nFuncSP+1] ;
-			pVM->aStack[pVM->nFuncSP+1] = pVM->aStack[pVM->nSP] ;
-			pVM->aStack[pVM->nSP] = vTempItem ;
+			ring_vm_stackswap(pVM,pVM->nFuncSP+1,pVM->nSP);
 			/* Set the Stack Size to the correct value (Function Output Only) */
 			pVM->nSP = pVM->nFuncSP+1 ;
 		}
