@@ -51,6 +51,7 @@ More Improvements
 * Ring Compiler/VM - Added ICO_LISTITEMN instruction - Add number to the current list
 * Ring Compiler/VM - Added ICO_LISTITEMC instruction - Add string to the current list
 * Ring Compiler/VM - Added ICO_STEPFROMREG instruction
+* Ring Compiler/VM - Better support for operator overloading
 * Ring VM - ByteCode registers count is reduced from four to two (reduce memory usage)
 * Ring VM - Setter/Getter/OperatorOverloading - Don't use ring_vm_eval()
 * Ring VM - Use GC functions when using strings in the VM stack
