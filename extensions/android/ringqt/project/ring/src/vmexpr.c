@@ -1249,9 +1249,7 @@ void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
 		}
 		/* Support Operator Overloading when the number comes first then the object */
 		nNum1 = RING_VM_STACK_READN ;
-		RING_VM_STACK_POP ;
-		RING_VM_STACK_PUSHPVALUE(pPointer);
-		RING_VM_STACK_OBJTYPE = nType ;
+		ring_vm_stackswap(pVM,pVM->nSP,pVM->nSP+1);
 		sprintf(cNewOp,"r%s",cStr);
 		ring_vm_expr_npoo(pVM,cNewOp,nNum1);
 	}
