@@ -69,7 +69,7 @@ class frmMainController from windowsControllerParent
 		")
 
 		mysql_run("
-		 create view IF NOT EXISTS employee_data as 
+		 create view employee_data as 
 		 select employee_id, employee_name, address, salary, 
 		 	   employee.department_id, department_name 
 		 from employee , department 
