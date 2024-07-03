@@ -1143,10 +1143,6 @@ void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int 
 		/* Note: Reallocation may change mem. locations */
 		pRegItem = RING_VM_IR_ITEMATINS(nIns,RING_VM_IR_REG1) ;
 		RING_VM_IR_ITEMSETINT(pRegItem,pVM->nPC);
-		/* Prevent deleting these instructions if we are inside eval */
-		if ( pVM->nInsideEval ) {
-			pVM->lRetEvalDontDelete = RING_TRUE ;
-		}
 	}
 	else {
 		ring_vm_blockflag2(pVM,pVM->nPC);

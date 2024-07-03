@@ -330,6 +330,10 @@ void ring_vm_useextrabytecode ( VM *pVM )
 	pVM->pRingState->nInstructionsCount += ring_list_getsize(pVM->pRingState->pRingGenCode) ;
 	/* Clean memory */
 	ring_list_deleteallitems_gc(pVM->pRingState,pVM->pRingState->pRingGenCode);
+	/* Prevent deleting the new instructions if we are inside Eval() */
+	if ( pVM->nInsideEval ) {
+		pVM->lRetEvalDontDelete = RING_TRUE ;
+	}
 }
 /* Fast Function Call for Ring VM (Without Eval) */
 
