@@ -1121,6 +1121,8 @@ void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
 	Item *pItem  ;
 	void *pPointer  ;
 	int nType, lCompare  ;
+	double nNum1  ;
+	char cNewOp[RING_SMALLBUF]  ;
 	if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
 		pList = (List *) RING_VM_STACK_READP ;
 		pList = ring_list_getlist(pList,RING_VAR_VALUE);
@@ -1245,7 +1247,13 @@ void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
 				}
 			}
 		}
-		ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
+		/* Support Operator Overloading when the number comes first then the object */
+		nNum1 = RING_VM_STACK_READN ;
+		RING_VM_STACK_POP ;
+		RING_VM_STACK_PUSHPVALUE(pPointer);
+		RING_VM_STACK_OBJTYPE = nType ;
+		sprintf(cNewOp,"r%s",cStr);
+		ring_vm_expr_npoo(pVM,cNewOp,nNum1);
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
 		if ( strcmp(cStr,"=") == 0 ) {
