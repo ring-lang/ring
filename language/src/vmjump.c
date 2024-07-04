@@ -119,7 +119,6 @@ void ring_vm_jumpone2 ( VM *pVM )
 {
 	List *pList  ;
 	Item *pItem  ;
-	/* Add 1, required for jump in many 'OR' in conditions */
 	if ( RING_VM_STACK_ISNUMBER ) {
 		if ( RING_VM_STACK_READN  != 0 ) {
 			RING_VM_JUMP ;
@@ -155,15 +154,15 @@ void ring_vm_jumpone2 ( VM *pVM )
 			}
 		}
 	}
+	/* Add zero, required for jump in many 'OR' in conditions */
 	RING_VM_STACK_POP ;
-	RING_VM_STACK_PUSHNVALUE(0);
+	RING_VM_STACK_PUSHNVALUE(RING_ZERO);
 }
 
 void ring_vm_jumpzero2 ( VM *pVM )
 {
 	List *pList  ;
 	Item *pItem  ;
-	/* Add 1, required for jump in many 'AND' in conditions */
 	if ( RING_VM_STACK_ISNUMBER ) {
 		if ( RING_VM_STACK_READN  == 0 ) {
 			RING_VM_JUMP ;
@@ -203,6 +202,7 @@ void ring_vm_jumpzero2 ( VM *pVM )
 			}
 		}
 	}
+	/* Add one, required for jump in many 'AND' in conditions */
 	RING_VM_STACK_POP ;
-	RING_VM_STACK_PUSHNVALUE(1);
+	RING_VM_STACK_PUSHNVALUE(RING_ONE);
 }
