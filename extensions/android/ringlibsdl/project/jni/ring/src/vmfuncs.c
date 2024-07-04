@@ -460,7 +460,7 @@ void ring_vm_newfunc ( VM *pVM )
 			pParameter = (char *) cPara ;
 		}
 		/* Set Parameters Value */
-		aRefList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
+		aRefList = NULL ;
 		for ( x = RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ; x >= 1 ; x-- ) {
 			if ( nSP < pVM->nSP ) {
 				if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG2) == 1 ) {
@@ -490,6 +490,9 @@ void ring_vm_newfunc ( VM *pVM )
 					else {
 						pVar = (List *) RING_VM_STACK_READP ;
 						pRef = ring_list_getlist(pVar,RING_VAR_VALUE);
+						if ( aRefList == NULL ) {
+							aRefList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
+						}
 						ring_list_addpointer_gc(pVM->pRingState,aRefList,pRef);
 					}
 				}
@@ -506,12 +509,14 @@ void ring_vm_newfunc ( VM *pVM )
 			}
 		}
 		/* Set lNewRef for aRefList members */
-		for ( x = 1 ; x <= ring_list_getsize(aRefList) ; x++ ) {
-			pRef = (List *) ring_list_getpointer(aRefList,x) ;
-			ring_list_disablelnewref(pRef);
+		if ( aRefList != NULL ) {
+			for ( x = 1 ; x <= ring_list_getsize(aRefList) ; x++ ) {
+				pRef = (List *) ring_list_getpointer(aRefList,x) ;
+				ring_list_disablelnewref(pRef);
+			}
+			ring_list_delete_gc(pVM->pRingState,aRefList);
 		}
 		/* Clean Memory */
-		ring_list_delete_gc(pVM->pRingState,aRefList);
 		if ( lFreeParameter ) {
 			ring_state_free(pVM->pRingState,pParameter);
 		}
