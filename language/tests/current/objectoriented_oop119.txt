@@ -1,0 +1,81 @@
+oo
++
+10
+******
+oo
+r+
+10
+******
+oo
+r+
+Message
+******
+oo
+r*
+Message
+******
+oo
+and
+1
+2
+3
+4
+5
+
+
+******
+oo
+rand
+1
+
+******
+Some logic..
+1
+1
+1
+******
+Conversion because of short-circuit
+oo
+rand
+1
+
+1
+oo
+rand
+1
+
+1
+******
+Logic and pure values
+1
+1
+1
+1
+1
+1
+******
+Extra...
+oo
+ror
+0
+
+oo
+ror
+0
+
+Using Not...
+0
+1
+1
+0
+List then object and operator-overloading
+oo
+r-
+1
+2
+3
+
+
+Let's have an error message
+Error (R21) : Using operator with values of incorrect type
+Thanks!
