@@ -126,14 +126,14 @@ Type: Item *
 pItem
 Type: void *
 pPointer
-Type: int
-nType, lCompare
+Type: String *
+pStr1
 Type: double
 nNum1
+Type: int
+nType, lCompare
 Type: char
 cNewOp[RING_SMALLBUF]
-Type: String *
-pStr1,*pStr2
 ring_vm_expr_npoo
 Type: List *
 pList

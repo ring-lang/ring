@@ -1153,6 +1153,7 @@ void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
 			ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
 			return ;
 		}
+		/* We don't check and/or here because short circuit already converted them to logic values 1/0 */
 		if ( strcmp(cStr,"+") == 0 ) {
 			if ( (ring_vm_oop_isobject(pList2) == 0) ) {
 				ring_vm_addlisttolist(pVM,pList,pList2);
@@ -1212,7 +1213,16 @@ void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
 			ring_vm_oop_operatoroverloading(pVM,pList2,cStr,RING_OOPARA_POINTER,"",RING_NOVALUE,pPointer,nType);
 		}
 		else {
-			ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
+			if ( ring_vm_oop_isobject(pList) == 1 ) {
+				/* Support Operator Overloading when the list comes first then the object */
+				ring_vm_stackswap(pVM,pVM->nSP,pVM->nSP+1);
+				RING_VM_SP_INC ;
+				sprintf(cNewOp,"r%s",cStr);
+				ring_vm_expr_ppoo(pVM,cNewOp);
+			}
+			else {
+				ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
+			}
 		}
 	}
 	else if ( RING_VM_STACK_ISNUMBER ) {
