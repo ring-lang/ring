@@ -263,7 +263,7 @@ String      "-"          String         Number                       "5"-"5"
 List        "-"          Number         Runtime Error                [1,2,3] - 4
 List        "-"          String         Runtime Error                [1,2,3] - "four"
 List        "-"          List           Runtime Error                [1,2,3] - ["sub"]
-List        "-"          Object         Runtime Error                [1,2,3] - new Point
+List        "-"          Object         Check Operator Overloading   [1,2,3] - new Point
 Number      "-"          List           Runtime Error                4 - [1,2,3]
 Number      "-"          Object         Check Operator Overloading   4 - new point
 String      "-"          List           Runtime Error                "4" - [1,2,3]
@@ -280,7 +280,7 @@ String      "*"          String         Number                       "5"*"5"
 List        "*"          Number         Runtime Error                [1,2,3] * 4
 List        "*"          String         Runtime Error                [1,2,3] * "four"
 List        "*"          List           Runtime Error                [1,2,3] * ["sub"]
-List        "*"          Object         Runtime Error                [1,2,3] * new Point
+List        "*"          Object         Check Operator Overloading   [1,2,3] * new Point
 Number      "*"          List           Runtime Error                4 * [1,2,3]
 Number      "*"          Object         Check Operator Overloading   4 * new point
 String      "*"          List           Runtime Error                "4" * [1,2,3]
@@ -297,7 +297,7 @@ String      "/"          String         Number                       "5"/"5"
 List        "/"          Number         Runtime Error                [1,2,3] / 4
 List        "/"          String         Runtime Error                [1,2,3] / "four"
 List        "/"          List           Runtime Error                [1,2,3] / ["sub"]
-List        "/"          Object         Runtime Error                [1,2,3] / new Point
+List        "/"          Object         Check Operator Overloading   [1,2,3] / new Point
 Number      "/"          List           Runtime Error                4 / [1,2,3]
 Number      "/"          Object         Check Operator Overloading   4 / new point
 String      "/"          List           Runtime Error                "4" / [1,2,3]
@@ -314,7 +314,7 @@ String      "%"          String         Number                       "5"%"5"
 List        "%"          Number         Runtime Error                [1,2,3] % 4
 List        "%"          String         Runtime Error                [1,2,3] % "four"
 List        "%"          List           Runtime Error                [1,2,3] % ["sub"]
-List        "%"          Object         Runtime Error                [1,2,3] % new Point
+List        "%"          Object         Check Operator Overloading   [1,2,3] % new Point
 Number      "%"          List           Runtime Error                4 % [1,2,3]
 Number      "%"          Object         Check Operator Overloading   4 % new point
 String      "%"          List           Runtime Error                "4" % [1,2,3]
