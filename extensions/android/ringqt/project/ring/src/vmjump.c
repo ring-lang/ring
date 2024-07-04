@@ -148,8 +148,10 @@ void ring_vm_jumpone2 ( VM *pVM )
 			pItem = (Item *) RING_VM_STACK_READP ;
 			pList = ring_item_getlist(pItem) ;
 			if ( ring_vm_listtologicvalue(pVM,pList) != 0 ) {
-				RING_VM_STACK_SETNVALUE(RING_TRUEF);
-				RING_VM_JUMP ;
+				if ( ! ( ring_vm_oop_isobject(pList) && ring_vm_oop_ismethod(pVM,pList,RING_CSTR_OPERATOR) ) ) {
+					RING_VM_STACK_SETNVALUE(RING_TRUEF);
+					RING_VM_JUMP ;
+				}
 				return ;
 			}
 		}
