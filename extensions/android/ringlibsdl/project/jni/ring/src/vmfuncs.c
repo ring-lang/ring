@@ -463,7 +463,12 @@ void ring_vm_newfunc ( VM *pVM )
 		aRefList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 		for ( x = RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ; x >= 1 ; x-- ) {
 			if ( nSP < pVM->nSP ) {
-				ring_string_word(cParameters,x,pParameter);
+				if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG2) == 1 ) {
+					pParameter = cParameters ;
+				}
+				else {
+					ring_string_word(cParameters,x,pParameter);
+				}
 				if ( RING_VM_STACK_ISSTRING ) {
 					ring_vm_addstringarg(pVM,pParameter,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
 					RING_VM_STACK_SETNVALUE(0.0);
