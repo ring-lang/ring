@@ -2,39 +2,6 @@
 
 #include "ring.h"
 
-void ring_vm_jumpzero ( VM *pVM )
-{
-	List *pList  ;
-	Item *pItem  ;
-	if ( RING_VM_STACK_ISNUMBER ) {
-		if ( RING_VM_STACK_READN  == 0 ) {
-			RING_VM_JUMP ;
-		}
-	}
-	else if ( RING_VM_STACK_ISSTRING ) {
-		if ( strcmp(RING_VM_STACK_READC,"") == 0 ) {
-			RING_VM_JUMP ;
-		}
-	}
-	else if ( RING_VM_STACK_ISPOINTER ) {
-		if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
-			pList = (List *) RING_VM_STACK_READP ;
-			pList = ring_list_getlist(pList,RING_VAR_VALUE) ;
-			if ( ring_vm_listtologicvalue(pVM,pList) == 0 ) {
-				RING_VM_JUMP ;
-			}
-		}
-		else if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM ) {
-			pItem = (Item *) RING_VM_STACK_READP ;
-			pList = ring_item_getlist(pItem) ;
-			if ( ring_vm_listtologicvalue(pVM,pList) == 0 ) {
-				RING_VM_JUMP ;
-			}
-		}
-	}
-	RING_VM_STACK_POP ;
-}
-
 void ring_vm_jumpfor ( VM *pVM )
 {
 	double nNum1,nNum2,nNum3  ;
@@ -82,6 +49,36 @@ void ring_vm_jumpfor ( VM *pVM )
 	}
 }
 
+void ring_vm_jumpzero ( VM *pVM )
+{
+	List *pList  ;
+	Item *pItem  ;
+	if ( RING_VM_STACK_ISNUMBER ) {
+		if ( RING_VM_STACK_READN  == 0 ) {
+			RING_VM_JUMP ;
+		}
+	}
+	else if ( RING_VM_STACK_ISSTRING ) {
+		if ( strcmp(RING_VM_STACK_READC,"") == 0 ) {
+			RING_VM_JUMP ;
+		}
+	}
+	else if ( RING_VM_STACK_ISPOINTER ) {
+		if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
+			pList = (List *) RING_VM_STACK_READP ;
+			pList = ring_list_getlist(pList,RING_VAR_VALUE) ;
+		}
+		else if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM ) {
+			pItem = (Item *) RING_VM_STACK_READP ;
+			pList = ring_item_getlist(pItem) ;
+		}
+		if ( ring_vm_listtologicvalue(pVM,pList) == 0 ) {
+			RING_VM_JUMP ;
+		}
+	}
+	RING_VM_STACK_POP ;
+}
+
 void ring_vm_jumpone ( VM *pVM )
 {
 	List *pList  ;
@@ -100,16 +97,13 @@ void ring_vm_jumpone ( VM *pVM )
 		if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
 			pList = (List *) RING_VM_STACK_READP ;
 			pList = ring_list_getlist(pList,RING_VAR_VALUE) ;
-			if ( ring_vm_listtologicvalue(pVM,pList) != 0 ) {
-				RING_VM_JUMP ;
-			}
 		}
 		else if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM ) {
 			pItem = (Item *) RING_VM_STACK_READP ;
 			pList = ring_item_getlist(pItem) ;
-			if ( ring_vm_listtologicvalue(pVM,pList) != 0 ) {
-				RING_VM_JUMP ;
-			}
+		}
+		if ( ring_vm_listtologicvalue(pVM,pList) != 0 ) {
+			RING_VM_JUMP ;
 		}
 	}
 	RING_VM_STACK_POP ;
