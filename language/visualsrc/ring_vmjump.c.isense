@@ -1,11 +1,11 @@
+ring_vm_jumpfor
+Type: double
+nNum1,nNum2,nNum3
 ring_vm_jumpzero
 Type: List *
 pList
 Type: Item *
 pItem
-ring_vm_jumpfor
-Type: double
-nNum1,nNum2,nNum3
 ring_vm_jumpone
 Type: List *
 pList

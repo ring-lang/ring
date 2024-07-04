@@ -115,6 +115,7 @@ void ring_vm_jumpone2 ( VM *pVM )
 	Item *pItem  ;
 	if ( RING_VM_STACK_ISNUMBER ) {
 		if ( RING_VM_STACK_READN  != 0 ) {
+			RING_VM_STACK_SETNVALUE(RING_TRUEF);
 			RING_VM_JUMP ;
 			return ;
 		}
@@ -156,6 +157,9 @@ void ring_vm_jumpzero2 ( VM *pVM )
 		if ( RING_VM_STACK_READN  == 0 ) {
 			RING_VM_JUMP ;
 			return ;
+		}
+		else {
+			RING_VM_STACK_SETNVALUE(RING_TRUEF);
 		}
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
