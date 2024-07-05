@@ -2,12 +2,14 @@
 
 #ifndef ring_string_h
 	#define ring_string_h
+	#define RING_LOOP_THRESHOLD 16
+	#define RING_STRING_ARRAYSIZE 28
 	typedef struct String {
 		char *cStr  ;
 		unsigned int nSize  ;
 		/* Note : nSize is (Allocation Size - 1) */
+		char cStrArray[RING_STRING_ARRAYSIZE]  ;
 	} String ;
-	#define RING_LOOP_THRESHOLD 16
 	#define ring_string_tolower(pString) ring_string_lower(pString->cStr)
 	#define ring_string_toupper(pString) ring_string_upper(pString->cStr)
 	#define ring_string_get(pString) (pString->cStr)
@@ -50,6 +52,12 @@
 	RING_API char * ring_string_strdup ( void *pState,const char *cStr ) ;
 
 	RING_API int ring_string_looksempty ( const char *cStr,int nSize ) ;
+
+	RING_API char * ring_string_alloc_gc ( void *pState,String *pString,int nSize ) ;
+
+	RING_API void * ring_string_free_gc ( void *pState,String *pString,char *cStr ) ;
+
+	RING_API char * ring_string_realloc_gc ( void *pState,String *pString,int nOldSize,int nNewSize ) ;
 
 	RING_API String * ring_string_new2 ( const char *cStr,int nStrSize ) ;
 

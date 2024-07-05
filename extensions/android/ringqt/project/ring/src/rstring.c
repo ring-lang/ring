@@ -14,7 +14,7 @@ RING_API String * ring_string_new2_gc ( void *pState,const char *cStr,int nStrSi
 	String *pString  ;
 	int x  ;
 	pString = (struct String *) ring_state_malloc(pState,sizeof(struct String));
-	pString->cStr = (char *) ring_state_malloc(pState,nStrSize+1);
+	pString->cStr = (char *) ring_string_alloc_gc(pState,pString,nStrSize+1);
 	/* if cStr is NULL then the caller wants to adjust the preallocated memory */
 	if ( cStr ) {
 		/* Copy String */
@@ -27,7 +27,7 @@ RING_API String * ring_string_new2_gc ( void *pState,const char *cStr,int nStrSi
 
 RING_API String * ring_string_delete_gc ( void *pState,String *pString )
 {
-	ring_state_free(pState,pString->cStr);
+	ring_string_free_gc(pState,pString,pString->cStr);
 	pString->cStr = NULL ;
 	ring_state_free(pState,pString);
 	return NULL ;
@@ -60,11 +60,11 @@ RING_API void ring_string_set2_gc ( void *pState,String *pString,const char *cSt
 	x = nStrSize + 1 ;
 	if ( pString->nSize != nStrSize ) {
 		if ( ! cStr ) {
-			pString->cStr = (char *) ring_state_realloc(pState,pString->cStr,pString->nSize,x) ;
+			pString->cStr = (char *) ring_string_realloc_gc(pState,pString,pString->nSize,x) ;
 		}
 		else {
-			ring_state_free(pState,pString->cStr);
-			pString->cStr = (char *) ring_state_malloc(pState,x);
+			ring_string_free_gc(pState,pString,pString->cStr);
+			pString->cStr = (char *) ring_string_alloc_gc(pState,pString,x);
 		}
 	}
 	/* if cStr is NULL then the caller wants to adjust the preallocated memory */
@@ -92,7 +92,7 @@ RING_API void ring_string_add2_gc ( void *pState,String *pString,const char *cSt
 	}
 	nOriginalSize = ring_string_size(pString) ;
 	x2 = nStrSize+nOriginalSize ;
-	pString->cStr = (char *) ring_state_realloc(pState,pString->cStr,nOriginalSize+1,x2+1);
+	pString->cStr = (char *) ring_string_realloc_gc(pState,pString,nOriginalSize+1,x2+1);
 	/* Copy String */
 	RING_MEMCPY(pString->cStr + nOriginalSize, cStr, nStrSize);
 	pString->cStr[x2] = '\0' ;
@@ -256,6 +256,38 @@ RING_API int ring_string_looksempty ( const char *cStr,int nSize )
 		}
 	}
 	return 1 ;
+}
+
+RING_API char * ring_string_alloc_gc ( void *pState,String *pString, int nSize )
+{
+	if ( nSize <= RING_STRING_ARRAYSIZE ) {
+		return (char *) (pString->cStrArray) ;
+	}
+	return ring_state_malloc(pState,nSize) ;
+}
+
+RING_API void * ring_string_free_gc ( void *pState,String *pString,char *cStr )
+{
+	if ( ! ( (cStr > ((char *)pString) ) && ( cStr < ( ((char *) pString)+sizeof(String)) ) ) ) {
+		ring_state_free(pState,cStr);
+	}
+	return NULL ;
+}
+
+RING_API char * ring_string_realloc_gc ( void *pState,String *pString,int nOldSize,int nNewSize )
+{
+	char *cStr, *cNewStr  ;
+	int x  ;
+	cStr = pString->cStr ;
+	if ( ! ( (cStr > ((char *)pString) ) && ( cStr < ( ((char *) pString)+sizeof(String)) ) ) ) {
+		return ring_state_realloc(pState,cStr,nOldSize,nNewSize) ;
+	}
+	if ( nNewSize <= RING_STRING_ARRAYSIZE ) {
+		return (char *) (pString->cStrArray) ;
+	}
+	cNewStr = (char *) ring_state_malloc(pState,nNewSize);
+	RING_MEMCPY(cNewStr,pString->cStr,nOldSize);
+	return cNewStr ;
 }
 
 RING_API String * ring_string_new2 ( const char *cStr,int nStrSize )

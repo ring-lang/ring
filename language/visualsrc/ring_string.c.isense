@@ -1,8 +1,12 @@
 ring_string_h
+RING_LOOP_THRESHOLD
+RING_STRING_ARRAYSIZE
 Parent: String
 cStr
 Type: unsigned int
 nSize
+Type: char
+cStrArray[RING_STRING_ARRAYSIZE]
 END:
 Type: String
 struct String
@@ -12,7 +16,6 @@ struct String *
 Type: String
 Mark: ->
 String *
-RING_LOOP_THRESHOLD
 ring_string_tolower(pString)
 ring_string_toupper(pString)
 ring_string_get(pString)
@@ -75,6 +78,11 @@ x,nSize
 ring_string_looksempty
 Type: int
 x
+ring_string_alloc_gc
+ring_string_free_gc
+ring_string_realloc_gc
+Type: char *
+cStr, *cNewStr
 ring_string_new2
 ring_string_new
 ring_string_add
