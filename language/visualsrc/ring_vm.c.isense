@@ -27,7 +27,7 @@ Type: Register
 Register
 Parent: ByteCode
 Type: unsigned int
-nOPCode: 7
+nOPCode: 8
 Type: unsigned int
 nFlagReg: 2
 Type: unsigned int

@@ -977,7 +977,8 @@ void ring_vm_oop_setproperty ( VM *pVM )
 			pGetSetItem = (Item *) ring_list_getpointer(pList,RING_SETPROPERTY_OBJPTR) ;
 			pList2 = ring_item_getlist(pGetSetItem) ;
 		}
-		RING_VM_IR_SETFLAGREG(ring_vm_oop_ismethod(pVM,pList2,ring_string_get(pString2)));
+		/* The Flag Reg size is 1 bit while ring_vm_oop_ismethod could return 0, 1 or 2 */
+		RING_VM_IR_SETFLAGREG(ring_vm_oop_ismethod(pVM,pList2,ring_string_get(pString2)) != RING_ISMETHOD_NOTFOUND);
 		ring_string_delete_gc(pVM->pRingState,pString2);
 		/* Execute the same instruction again (next time the part "After (Second Time)" will run ) */
 		pVM->nPC-- ;
