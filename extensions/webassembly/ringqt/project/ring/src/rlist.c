@@ -938,9 +938,11 @@ RING_API void ring_list_genhashtable2_gc ( void *pState,List *pList )
 	}
 	pList->pHashTable = ring_hashtable_new_gc(pState);
 	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
-		pList2 = ring_list_getlist(pList,x);
-		if ( (ring_list_getsize(pList2) >= RING_LIST_KEYINDEX) && (ring_list_isstring(pList2,RING_LIST_KEYINDEX)) ) {
-			ring_hashtable_newpointer_gc(pState,pList->pHashTable,ring_list_getstring(pList2,RING_LIST_KEYINDEX),pList2);
+		if ( ring_list_islist(pList,x) ) {
+			pList2 = ring_list_getlist(pList,x);
+			if ( (ring_list_getsize(pList2) >= RING_LIST_KEYINDEX) && (ring_list_isstring(pList2,RING_LIST_KEYINDEX)) ) {
+				ring_hashtable_newpointer_gc(pState,pList->pHashTable,ring_list_getstring(pList2,RING_LIST_KEYINDEX),pList2);
+			}
 		}
 	}
 }
