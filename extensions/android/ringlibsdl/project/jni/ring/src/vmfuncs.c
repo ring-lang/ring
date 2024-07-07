@@ -214,12 +214,13 @@ void ring_vm_call2 ( VM *pVM )
 		pVM->nPC = pFuncCall->nPC ;
 		/* Save State */
 		if ( ring_list_getsize(pVM->pObjState) || pVM->nListStart || pVM->nFuncExecute ||
-		pFuncCall->lMethod || pVM->nBlockCounter ||
-		pVM->nInsideEval || pVM->nInClassRegion || pVM->pAssignment || ring_list_getsize(pVM->pTraceData) ||
-		ring_list_getsize(pVM->pForStep) )
+		pFuncCall->lMethod || pVM->nBlockCounter || pVM->nInsideEval || pVM->nInClassRegion ||
+		pVM->pAssignment || ring_list_getsize(pVM->pTraceData) )
 		pFuncCall->pVMState = ring_vm_savestateforfunctions(pVM);
 		/* Global Scope */
 		pFuncCall->nCurrentGlobalScope = pVM->nCurrentGlobalScope ;
+		/* For Step */
+		pFuncCall->nForStep = ring_list_getsize(pVM->pForStep) ;
 		/* Clear nLoadAddressScope */
 		pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
 		/* Avoid accessing object data or methods */
@@ -376,6 +377,8 @@ void ring_vm_return ( VM *pVM )
 		RING_VM_IR_SETLINENUMBER(pFuncCall->nLineNumber);
 		/* Restore Global Scope */
 		pVM->nCurrentGlobalScope = pFuncCall->nCurrentGlobalScope ;
+		/* Restore pForStep */
+		ring_vm_backstate(pVM,pVM->pForStep,pFuncCall->nForStep);
 		/* Avoid wrong Stack Pointer Value */
 		if ( pVM->nSP > pVM->nFuncSP+1 ) {
 			/*

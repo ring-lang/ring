@@ -155,6 +155,7 @@
 		unsigned int nCallerPC  ;
 		unsigned int nFuncExec  ;
 		unsigned int nListStart  ;
+		unsigned int nForStep  ;
 		unsigned int nCurrentGlobalScope  ;
 		char nType  ;
 		char nStatus  ;
