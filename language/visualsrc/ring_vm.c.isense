@@ -281,11 +281,9 @@ nListStart
 Type: unsigned int
 nForStep
 Type: unsigned int
-nLoopMark
-Type: unsigned int
-nExitMark
-Type: unsigned int
 nCurrentGlobalScope
+Type: unsigned int
+nActiveScopeID
 Type: char
 nType
 Type: char

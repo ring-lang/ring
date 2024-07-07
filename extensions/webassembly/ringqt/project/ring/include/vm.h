@@ -156,6 +156,8 @@
 		unsigned int nFuncExec  ;
 		unsigned int nListStart  ;
 		unsigned int nForStep  ;
+		unsigned int nExitMark  ;
+		unsigned int nLoopMark  ;
 		unsigned int nCurrentGlobalScope  ;
 		unsigned int nActiveScopeID  ;
 		char nType  ;

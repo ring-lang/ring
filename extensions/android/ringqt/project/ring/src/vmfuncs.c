@@ -221,6 +221,8 @@ void ring_vm_call2 ( VM *pVM )
 		pFuncCall->nCurrentGlobalScope = pVM->nCurrentGlobalScope ;
 		/* For Loop */
 		pFuncCall->nForStep = ring_list_getsize(pVM->pForStep) ;
+		pFuncCall->nExitMark = ring_list_getsize(pVM->pExitMark) ;
+		pFuncCall->nLoopMark = ring_list_getsize(pVM->pLoopMark) ;
 		pFuncCall->nActiveScopeID = pVM->nActiveScopeID ;
 		/* Clear nLoadAddressScope */
 		pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
@@ -380,6 +382,8 @@ void ring_vm_return ( VM *pVM )
 		pVM->nCurrentGlobalScope = pFuncCall->nCurrentGlobalScope ;
 		/* Restore For Loop data */
 		ring_vm_backstate(pVM,pVM->pForStep,pFuncCall->nForStep);
+		ring_vm_backstate(pVM,pVM->pExitMark,pFuncCall->nExitMark);
+		ring_vm_backstate(pVM,pVM->pLoopMark,pFuncCall->nLoopMark);
 		pVM->nActiveScopeID = pFuncCall->nActiveScopeID ;
 		/* Avoid wrong Stack Pointer Value */
 		if ( pVM->nSP > pVM->nFuncSP+1 ) {
