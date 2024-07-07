@@ -109,7 +109,7 @@ void ring_vm_loadaddress ( VM *pVM )
 		}
 	}
 	else if ( pVM->nVarScope == RING_VARSCOPE_LOCAL ) {
-		if ( pVM->lUsePushPLocal ) {
+		if ( pVM->lUsePushPLocal && ring_list_getsize(pVM->pForStep) ) {
 			/* Replace LoadAddress with PUSHPLOCAL for better performance */
 			RING_VM_IR_OPCODE = ICO_PUSHPLOCAL ;
 			RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(RING_VM_IR_REG2),RING_VM_STACK_READP);
