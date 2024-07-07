@@ -157,6 +157,7 @@
 		unsigned int nListStart  ;
 		unsigned int nForStep  ;
 		unsigned int nCurrentGlobalScope  ;
+		unsigned int nActiveScopeID  ;
 		char nType  ;
 		char nStatus  ;
 		char nLoadAddressScope  ;

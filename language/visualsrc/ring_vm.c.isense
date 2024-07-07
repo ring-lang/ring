@@ -279,6 +279,12 @@ nFuncExec
 Type: unsigned int
 nListStart
 Type: unsigned int
+nForStep
+Type: unsigned int
+nLoopMark
+Type: unsigned int
+nExitMark
+Type: unsigned int
 nCurrentGlobalScope
 Type: char
 nType
@@ -288,8 +294,6 @@ Type: char
 nLoadAddressScope
 Type: char
 lMethod
-Type: unsigned int
-var2346
 END:
 Type: FuncCall
 struct FuncCall

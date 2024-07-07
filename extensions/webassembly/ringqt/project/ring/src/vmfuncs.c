@@ -219,8 +219,9 @@ void ring_vm_call2 ( VM *pVM )
 		pFuncCall->pVMState = ring_vm_savestateforfunctions(pVM);
 		/* Global Scope */
 		pFuncCall->nCurrentGlobalScope = pVM->nCurrentGlobalScope ;
-		/* For Step */
+		/* For Loop */
 		pFuncCall->nForStep = ring_list_getsize(pVM->pForStep) ;
+		pFuncCall->nActiveScopeID = pVM->nActiveScopeID ;
 		/* Clear nLoadAddressScope */
 		pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
 		/* Avoid accessing object data or methods */
@@ -377,8 +378,9 @@ void ring_vm_return ( VM *pVM )
 		RING_VM_IR_SETLINENUMBER(pFuncCall->nLineNumber);
 		/* Restore Global Scope */
 		pVM->nCurrentGlobalScope = pFuncCall->nCurrentGlobalScope ;
-		/* Restore pForStep */
+		/* Restore For Loop data */
 		ring_vm_backstate(pVM,pVM->pForStep,pFuncCall->nForStep);
+		pVM->nActiveScopeID = pFuncCall->nActiveScopeID ;
 		/* Avoid wrong Stack Pointer Value */
 		if ( pVM->nSP > pVM->nFuncSP+1 ) {
 			/*
