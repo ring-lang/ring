@@ -216,8 +216,10 @@ void ring_vm_call2 ( VM *pVM )
 		if ( ring_list_getsize(pVM->pObjState) || pVM->nListStart || pVM->nFuncExecute ||
 		pFuncCall->lMethod || pVM->nBlockCounter ||
 		pVM->nInsideEval || pVM->nInClassRegion || pVM->pAssignment || ring_list_getsize(pVM->pTraceData) ||
-		ring_list_getsize(pVM->pGlobalScopes) || ring_list_getsize(pVM->pForStep) )
+		ring_list_getsize(pVM->pForStep) )
 		pFuncCall->pVMState = ring_vm_savestateforfunctions(pVM);
+		/* Global Scope */
+		pFuncCall->nCurrentGlobalScope = pVM->nCurrentGlobalScope ;
 		/* Clear nLoadAddressScope */
 		pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
 		/* Avoid accessing object data or methods */
@@ -372,6 +374,8 @@ void ring_vm_return ( VM *pVM )
 		pVM->cFileName = (char *) pFuncCall->cFileName ;
 		/* Restore Line Number */
 		RING_VM_IR_SETLINENUMBER(pFuncCall->nLineNumber);
+		/* Restore Global Scope */
+		pVM->nCurrentGlobalScope = pFuncCall->nCurrentGlobalScope ;
 		/* Avoid wrong Stack Pointer Value */
 		if ( pVM->nSP > pVM->nFuncSP+1 ) {
 			/*

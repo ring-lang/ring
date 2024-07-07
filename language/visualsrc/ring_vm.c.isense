@@ -29,7 +29,7 @@ Parent: ByteCode
 Type: unsigned int
 nOPCode: 8
 Type: unsigned int
-nFlagReg: 2
+nFlagReg: 1
 Type: unsigned int
 nFlagReg2: 1
 Type: unsigned int
@@ -278,6 +278,8 @@ Type: unsigned int
 nFuncExec
 Type: unsigned int
 nListStart
+Type: unsigned int
+nGlobalScope
 Type: char
 nType
 Type: char
