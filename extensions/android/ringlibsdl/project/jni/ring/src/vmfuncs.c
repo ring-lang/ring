@@ -213,6 +213,10 @@ void ring_vm_call2 ( VM *pVM )
 		pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 		pVM->nPC = pFuncCall->nPC ;
 		/* Save State */
+		if ( ring_list_getsize(pVM->pObjState) || pVM->nListStart || pVM->nFuncExecute ||
+		pFuncCall->lMethod || pVM->nBlockCounter ||
+		pVM->nInsideEval || pVM->nInClassRegion || pVM->pAssignment || ring_list_getsize(pVM->pTraceData) ||
+		ring_list_getsize(pVM->pGlobalScopes) || ring_list_getsize(pVM->pForStep) )
 		pFuncCall->pVMState = ring_vm_savestateforfunctions(pVM);
 		/* Clear nLoadAddressScope */
 		pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
@@ -366,6 +370,8 @@ void ring_vm_return ( VM *pVM )
 		/* Restore File Name */
 		pVM->cPrevFileName = pVM->cFileName ;
 		pVM->cFileName = (char *) pFuncCall->cFileName ;
+		/* Restore Line Number */
+		RING_VM_IR_SETLINENUMBER(pFuncCall->nLineNumber);
 		/* Avoid wrong Stack Pointer Value */
 		if ( pVM->nSP > pVM->nFuncSP+1 ) {
 			/*
@@ -394,7 +400,9 @@ void ring_vm_return ( VM *pVM )
 		}
 		ring_vm_deletescope(pVM);
 		/* Restore State */
-		ring_vm_restorestateforfunctions(pVM,pFuncCall->pVMState);
+		if ( pFuncCall->pVMState != NULL ) {
+			ring_vm_restorestateforfunctions(pVM,pFuncCall->pVMState);
+		}
 		ring_list_deleteitem_gc(pVM->pRingState,pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
 		/* Restore nFuncSP value */
 		if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
