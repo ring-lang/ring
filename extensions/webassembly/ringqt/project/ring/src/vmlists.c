@@ -8,6 +8,15 @@ void ring_vm_newnestedlists ( VM *pVM )
 	pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 }
 
+void ring_vm_restorenestedlists ( VM *pVM,int nListStart,List *pNestedLists )
+{
+	pVM->nListStart = nListStart ;
+	if ( pVM->pNestedLists != pNestedLists ) {
+		pVM->pNestedLists = ring_list_delete_gc(pVM->pRingState,pVM->pNestedLists);
+		pVM->pNestedLists = pNestedLists ;
+	}
+}
+
 void ring_vm_liststart ( VM *pVM )
 {
 	List *pVar,*pList,*pNewList  ;

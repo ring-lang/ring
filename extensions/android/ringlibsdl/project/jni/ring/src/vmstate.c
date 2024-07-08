@@ -433,9 +433,7 @@ void ring_vm_restorestatefornewobjects ( VM *pVM )
 	**  Remove protection from opened lists 
 	*/
 	ring_vm_removelistprotection(pVM,pVM->pNestedLists);
-	pVM->nListStart = pVMState->aNumbers[0] ;
-	pVM->pNestedLists = ring_list_delete_gc(pVM->pRingState,pVM->pNestedLists);
-	pVM->pNestedLists = (List *) pVMState->aPointers[1] ;
+	ring_vm_restorenestedlists(pVM,pVMState->aNumbers[0],(List *) pVMState->aPointers[1]);
 	/* Remove protection from opened lists */
 	ring_vm_removelistprotection(pVM,pVM->pNestedLists);
 	/* Restore Stack Information */
@@ -565,9 +563,7 @@ void ring_vm_restorestateforbraces ( VM *pVM,List *pList )
 	**  Remove protection from opened lists 
 	*/
 	ring_vm_removelistprotection(pVM,pVM->pNestedLists);
-	pVM->nListStart = ring_list_getint(pList,RING_BRACEOBJECTS_NLISTSTART) ;
-	pVM->pNestedLists = ring_list_delete_gc(pVM->pRingState,pVM->pNestedLists);
-	pVM->pNestedLists = (List *) ring_list_getpointer(pList,RING_BRACEOBJECTS_PNESTEDLISTS) ;
+	ring_vm_restorenestedlists(pVM,ring_list_getint(pList,RING_BRACEOBJECTS_NLISTSTART),(List *) ring_list_getpointer(pList,RING_BRACEOBJECTS_PNESTEDLISTS));
 	/* Remove protection from opened lists */
 	ring_vm_removelistprotection(pVM,pVM->pNestedLists);
 	/* Disable function for memory management */

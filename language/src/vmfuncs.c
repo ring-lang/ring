@@ -189,11 +189,7 @@ void ring_vm_call2 ( VM *pVM )
 	/* Restore nLoadAddressScope from pFuncCall */
 	pVM->nLoadAddressScope = pFuncCall->nLoadAddressScope ;
 	/* Restore List Status */
-	pVM->nListStart = pFuncCall->nListStart ;
-	if ( pVM->pNestedLists != pFuncCall->pNestedLists ) {
-		pVM->pNestedLists = ring_list_delete_gc(pVM->pRingState,pVM->pNestedLists);
-		pVM->pNestedLists = (List *) pFuncCall->pNestedLists ;
-	}
+	ring_vm_restorenestedlists(pVM,pFuncCall->nListStart,(List *) pFuncCall->pNestedLists);
 	/* Calling Method from brace */
 	if ( (pFuncCall->nType == RING_FUNCTYPE_SCRIPT) && (pFuncCall->lMethod == 1) ) {
 		/* The first test to be sure it's not a C Function Call */
@@ -365,11 +361,7 @@ void ring_vm_return ( VM *pVM )
 		pVM->nPC = pFuncCall->nCallerPC ;
 		pVM->nFuncExecute = pFuncCall->nFuncExec ;
 		/* Restore List Status */
-		pVM->nListStart = pFuncCall->nListStart ;
-		if ( pVM->pNestedLists != pFuncCall->pNestedLists ) {
-			pVM->pNestedLists = ring_list_delete_gc(pVM->pRingState,pVM->pNestedLists);
-			pVM->pNestedLists = pFuncCall->pNestedLists ;
-		}
+		ring_vm_restorenestedlists(pVM,pFuncCall->nListStart,(List *) pFuncCall->pNestedLists);
 		/* Restore File Name */
 		pVM->cPrevFileName = pVM->cFileName ;
 		pVM->cFileName = (char *) pFuncCall->cFileName ;

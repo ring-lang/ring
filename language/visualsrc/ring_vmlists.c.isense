@@ -1,3 +1,5 @@
+ring_vm_newnestedlists
+ring_vm_restorenestedlists
 ring_vm_liststart
 Type: List *
 pVar,*pList,*pNewList
@@ -66,4 +68,3 @@ Type: int
 nOPCode
 Type: List *
 pParent, *pSub, *pVar
-ring_vm_newnestedlists

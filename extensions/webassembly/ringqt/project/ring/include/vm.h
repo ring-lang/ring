@@ -715,6 +715,8 @@
 
 	void ring_vm_newnestedlists ( VM *pVM ) ;
 
+	void ring_vm_restorenestedlists ( VM *pVM,int nListStart,List *pNestedLists ) ;
+
 	void ring_vm_liststart ( VM *pVM ) ;
 
 	void ring_vm_listitem ( VM *pVM ) ;
