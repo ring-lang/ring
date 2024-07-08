@@ -614,3 +614,8 @@ RING_API List * ring_vm_api_callerscope ( VM *pVM )
 {
 	return ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)-1) ;
 }
+
+RING_API int ring_vm_api_scopescount ( VM *pVM )
+{
+	return ring_list_getsize(pVM->pMem) - 1 ;
+}

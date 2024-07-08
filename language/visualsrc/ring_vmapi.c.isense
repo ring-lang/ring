@@ -178,3 +178,4 @@ pItems
 Type: Item *
 pItem
 ring_vm_api_callerscope
+ring_vm_api_scopescount

@@ -81,7 +81,7 @@
 	#define RING_API_NEWLISTUSINGBLOCKS1D(nSize) ring_vm_api_newlistusingblocks((VM *) pPointer,nSize,-1)
 	#define RING_API_NEWLISTUSINGBLOCKS2D(nRows,nCols) ring_vm_api_newlistusingblocks((VM *) pPointer,nRows,nCols)
 	#define RING_API_CALLERSCOPE ring_vm_api_callerscope((VM *) pPointer)
-	#define RING_API_SCOPESCOUNT ring_list_getsize(((VM *) pPointer)->pMem) - 1
+	#define RING_API_SCOPESCOUNT ring_vm_api_scopescount((VM *) pPointer)
 	/*
 	**  Note : The C Function Get Lists as pointers because of (List Pass by Reference) 
 	**  The List Maybe a Variable/ListItem or may represent Object or C Pointer inside a List 
@@ -156,4 +156,6 @@
 	RING_API List * ring_vm_api_newlistusingblocks ( VM *pVM, int nSize, int nSize2 ) ;
 
 	RING_API List * ring_vm_api_callerscope ( VM *pVM ) ;
+
+	RING_API int ring_vm_api_scopescount ( VM *pVM ) ;
 #endif
