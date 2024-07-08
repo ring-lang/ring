@@ -2,6 +2,12 @@
 
 #include "ring.h"
 
+void ring_vm_newnestedlists ( VM *pVM )
+{
+	pVM->nListStart = 0 ;
+	pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,RING_ZERO);
+}
+
 void ring_vm_liststart ( VM *pVM )
 {
 	List *pVar,*pList,*pNewList  ;

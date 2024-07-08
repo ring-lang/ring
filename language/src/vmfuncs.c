@@ -73,8 +73,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 			/* Store List information */
 			pFuncCall->nListStart = pVM->nListStart ;
 			pFuncCall->pNestedLists = pVM->pNestedLists ;
-			pVM->nListStart = 0 ;
-			pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,RING_ZERO);
+			ring_vm_newnestedlists(pVM);
 			if ( (strcmp(cStr,RING_CSTR_MAIN) != 0 ) && (pVM->lCallMethod != 1) && (y != 2) ) {
 				/* We check that we will convert Functions only, not methods */
 				if ( pVM->lInsideBraceFlag == 0 ) {
@@ -140,8 +139,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 		/* Store List information */
 		pFuncCall->nListStart = pVM->nListStart ;
 		pFuncCall->pNestedLists = pVM->pNestedLists ;
-		pVM->nListStart = 0 ;
-		pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,RING_ZERO);
+		ring_vm_newnestedlists(pVM);
 		/* Add nLoadAddressScope to pFuncCall */
 		pFuncCall->nLoadAddressScope = pVM->nLoadAddressScope ;
 		pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
@@ -209,8 +207,7 @@ void ring_vm_call2 ( VM *pVM )
 	/* Call Function */
 	if ( pFuncCall->nType == RING_FUNCTYPE_SCRIPT ) {
 		/* Clear List/Nested Lists State */
-		pVM->nListStart = 0 ;
-		pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,RING_ZERO);
+		ring_vm_newnestedlists(pVM);
 		pVM->nPC = pFuncCall->nPC ;
 		/* Save State */
 		if ( ring_list_getsize(pVM->pObjState) || pVM->nListStart || pVM->nFuncExecute ||

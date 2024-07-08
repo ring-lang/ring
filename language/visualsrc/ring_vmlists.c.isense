@@ -66,3 +66,4 @@ Type: int
 nOPCode
 Type: List *
 pParent, *pSub, *pVar
+ring_vm_newnestedlists

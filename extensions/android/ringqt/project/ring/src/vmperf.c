@@ -169,8 +169,7 @@ void ring_vm_loadfuncp ( VM *pVM )
 	/* Store List information */
 	pFuncCall->nListStart = pVM->nListStart ;
 	pFuncCall->pNestedLists = pVM->pNestedLists ;
-	pVM->nListStart = 0 ;
-	pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,RING_ZERO);
+	ring_vm_newnestedlists(pVM);
 }
 
 void ring_vm_incpjumpstep1 ( VM *pVM )

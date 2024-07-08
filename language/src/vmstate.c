@@ -179,14 +179,14 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 		ring_vm_backstate(pVM,pVM->pTry,pVMState->aNumbers[15]);
 	}
 	/* List Status */
-	pVM->nListStart = pVMState->aNumbers[16] ;
 	pListPointer = pVM->pNestedLists ;
 	if ( ! ring_list_findpointer(aListsToDelete,pListPointer) ) {
 		/* Remove protection from opened lists */
 		ring_vm_removelistprotection(pVM,pListPointer);
 		ring_list_addpointer_gc(pVM->pRingState,aListsToDelete,pListPointer);
 	}
-	pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,RING_ZERO);
+	ring_vm_newnestedlists(pVM);
+	pVM->nListStart = pVMState->aNumbers[16] ;
 	pVM->lInsideBraceFlag = pVMState->aNumbers[17] ;
 	ring_vm_backstate(pVM,pVM->pBeforeObjState,pVMState->aNumbers[19]);
 	RING_VM_IR_SETLINENUMBER(pVMState->aNumbers[20]);
@@ -334,8 +334,7 @@ void ring_vm_savestatefornewobjects ( VM *pVM )
 	/* Store List information to allow calling function from list item and creating lists from that funct */
 	pVMState->aNumbers[0] = pVM->nListStart ;
 	pVMState->aPointers[1] = pVM->pNestedLists ;
-	pVM->nListStart = 0 ;
-	pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,RING_ZERO);
+	ring_vm_newnestedlists(pVM);
 	/* Save Stack Information */
 	pVMState->aNumbers[1] = pVM->nSP ;
 	/* Save FuncExecute */
@@ -536,8 +535,7 @@ void ring_vm_savestateforbraces ( VM *pVM,List *pObjState )
 	/* Store List information to allow using braces from list item and creating lists from that brace */
 	ring_list_addint_gc(pVM->pRingState,pList,pVM->nListStart);
 	ring_list_addpointer_gc(pVM->pRingState,pList,pVM->pNestedLists);
-	pVM->nListStart = 0 ;
-	pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,RING_ZERO);
+	ring_vm_newnestedlists(pVM);
 	/* Enable function for memory management */
 	ring_vm_gc_listpointerismine(pList,RING_BRACEOBJECTS_PNESTEDLISTS);
 	/* Store nFuncExec */

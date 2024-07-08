@@ -39,8 +39,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	ring_vm_addglobalvariables(pVM);
 	pVM->pActiveMem = pActiveMem ;
 	/* Lists */
-	pVM->nListStart = 0 ;
-	pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,RING_ZERO);
+	ring_vm_newnestedlists(pVM);
 	/* Support for nested Load Instructions */
 	pVM->nBlockCounter = 0 ;
 	pVM->pPCBlockFlag = ring_list_new_gc(pVM->pRingState,RING_ZERO);
