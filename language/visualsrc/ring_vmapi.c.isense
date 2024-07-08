@@ -75,6 +75,8 @@ RING_API_GETCHARPOINTER(nPara)
 RING_API_ISLISTORNULL(nPara)
 RING_API_NEWLISTUSINGBLOCKS1D(nSize)
 RING_API_NEWLISTUSINGBLOCKS2D(nRows,nCols)
+RING_API_CALLERSCOPE
+RING_API_SCOPESCOUNT
 ring_vm_funcregister2
 Type: List *
 pList
@@ -175,3 +177,4 @@ Type: Items *
 pItems
 Type: Item *
 pItem
+ring_vm_api_callerscope

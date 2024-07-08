@@ -223,7 +223,7 @@ RING_API void * ring_vm_api_varptr ( void *pPointer,const char  *cStr,const char
 	pVM = (VM *) pPointer ;
 	/* Set the Active Scope */
 	pActiveMem = pVM->pActiveMem ;
-	pVM->pActiveMem = ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)-1);
+	pVM->pActiveMem = RING_API_CALLERSCOPE ;
 	if ( ring_vm_findvar(pVM, cStr ) == 0 ) {
 		/* Restore the Active Scope */
 		pVM->pActiveMem = pActiveMem ;
@@ -269,7 +269,7 @@ RING_API void ring_vm_api_varvalue ( void *pPointer,const char  *cStr,int nType 
 	pVM = (VM *) pPointer ;
 	/* Set the Active Scope */
 	pActiveMem = pVM->pActiveMem ;
-	pVM->pActiveMem = ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)-1);
+	pVM->pActiveMem = RING_API_CALLERSCOPE ;
 	if ( ring_vm_findvar(pVM, cStr ) == 0 ) {
 		/* Restore the Active Scope */
 		pVM->pActiveMem = pActiveMem ;
@@ -608,4 +608,9 @@ RING_API List * ring_vm_api_newlistusingblocks ( VM *pVM, int nSize, int nSize2 
 	ring_list_clearcache(pVM->pRingState,pList);
 	ring_list_genarray(pList);
 	return pList ;
+}
+
+RING_API List * ring_vm_api_callerscope ( VM *pVM )
+{
+	return ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)-1) ;
 }

@@ -66,8 +66,8 @@ void ring_vm_refmeta_locals ( void *pPointer )
 	int x  ;
 	List *pList, *pList2, *pList3  ;
 	pVM = (VM *) pPointer ;
-	/* We use -1 to skip the current scope of the locals() function */
-	pList = ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)-1) ;
+	/* We skip the current scope of the locals() function */
+	pList = RING_API_CALLERSCOPE ;
 	pList2 = RING_API_NEWLIST ;
 	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 		pList3 = ring_list_getlist(pList,x);
@@ -133,8 +133,8 @@ void ring_vm_refmeta_islocal ( void *pPointer )
 	if ( RING_API_ISSTRING(1) ) {
 		pVM = (VM *) pPointer ;
 		cStr = ring_string_lower(RING_API_GETSTRING(1)) ;
-		/* We use -1 to skip the current scope of the locals() function */
-		pList = ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)-1) ;
+		/* We skip the current scope of the locals() function */
+		pList = RING_API_CALLERSCOPE ;
 		for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 			pList2 = ring_list_getlist(pList,x);
 			if ( strcmp(ring_list_getstring(pList2,RING_VAR_NAME),cStr) == 0 ) {
@@ -1044,8 +1044,8 @@ void ring_vm_refmeta_ringvmscopescount ( void *pPointer )
 {
 	VM *pVM  ;
 	pVM = (VM *) pPointer ;
-	/* We uses -1 to avoid adding the current scope of this function */
-	RING_API_RETNUMBER(ring_list_getsize(pVM->pMem) - 1);
+	/* We the current scope of this function */
+	RING_API_RETNUMBER(RING_API_SCOPESCOUNT);
 }
 
 void ring_vm_refmeta_ringvmevalinscope ( void *pPointer )
