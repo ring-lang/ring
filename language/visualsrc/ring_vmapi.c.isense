@@ -96,6 +96,8 @@ Type: VM *
 pVM
 Type: Item *
 pItem
+Type: FuncCall *
+pFuncCall
 ring_vm_api_getstring
 ring_vm_api_getstringsize
 ring_vm_api_getnumber
@@ -112,6 +114,8 @@ ring_vm_api_retlist
 ring_vm_api_newlist
 Type: List *
 pList
+Type: FuncCall *
+pFuncCall
 ring_vm_api_retcpointer2
 Type: List *
 pList
