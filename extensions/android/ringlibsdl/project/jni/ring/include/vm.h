@@ -191,6 +191,7 @@
 	#define RING_VM_STACK_SETCVALUE2(cString,nSize) ring_itemarray_setstring2_gc(pVM->pRingState,pVM->aStack, pVM->nSP, cString,nSize)
 	#define RING_VM_STACK_SETCSIZE(nSize) ring_itemarray_setstring2_gc(pVM->pRingState,pVM->aStack, pVM->nSP, NULL,nSize)
 	#define RING_VM_STACK_PUSHCVALUE2(cString,nSize) RING_VM_SP_INC ; ring_itemarray_setstring2_gc(pVM->pRingState,pVM->aStack, pVM->nSP,cString,nSize)
+	#define RING_VM_STACK_SETPVALUEAT(nIndex,pPointer) RING_VM_SP_INC ; ring_itemarray_setpointer_gc(pVM->pRingState,pVM->aStack, nIndex, pPointer)
 	/* Check */
 	#define RING_VM_STACK_ISSTRING ring_itemarray_isstring(pVM->aStack,pVM->nSP)
 	#define RING_VM_STACK_ISNUMBER ring_itemarray_isnumber(pVM->aStack,pVM->nSP)
