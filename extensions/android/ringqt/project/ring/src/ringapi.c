@@ -612,15 +612,17 @@ RING_API List * ring_vm_api_newlistusingblocks ( VM *pVM, int nSize, int nSize2 
 
 RING_API List * ring_vm_api_callerscope ( VM *pVM )
 {
-	return ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)-1) ;
+	return ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem) ) ;
 }
 
 RING_API int ring_vm_api_scopescount ( VM *pVM )
 {
-	return ring_list_getsize(pVM->pMem) - 1 ;
+	return ring_list_getsize(pVM->pMem) ;
 }
 
 RING_API List * ring_vm_api_paralist ( VM *pVM )
 {
-	return pVM->pActiveMem ;
+	FuncCall *pFuncCall  ;
+	pFuncCall = RING_VM_LASTFUNCCALL ;
+	return pFuncCall->pTempMem ;
 }

@@ -471,7 +471,14 @@ List * ring_vm_addpointerarg ( VM *pVM,const char *cVar,void *pPointer,int nType
 List * ring_vm_addlistarg ( VM *pVM,const char *cVar )
 {
 	List *pList, *pParent  ;
-	pParent = pVM->pActiveMem ;
+	FuncCall *pFuncCall  ;
+	pFuncCall = RING_VM_LASTFUNCCALL ;
+	if ( pFuncCall->nType == RING_FUNCTYPE_C ) {
+		pParent = pFuncCall->pTempMem ;
+	}
+	else {
+		pParent = pVM->pActiveMem ;
+	}
 	pList = ring_list_newlist_gc(pVM->pRingState,pParent);
 	ring_list_addstring_gc(pVM->pRingState,pList,cVar);
 	ring_list_addint_gc(pVM->pRingState,pList,RING_VM_LIST);

@@ -230,15 +230,6 @@ void ring_vm_call2 ( VM *pVM )
 	else if ( pFuncCall->nType == RING_FUNCTYPE_C ) {
 		/* Trace */
 		ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_BEFORECFUNC);
-		/*
-		**  Save Active Memory 
-		**  We save Active Memory to restore it , we don't depend on scopes list of lists 
-		**  because we may call function from class init 
-		**  and class init don't create new scope for executing init 
-		*/
-		pActiveMem = pVM->pActiveMem ;
-		/* Create New Scope */
-		ring_vm_newscope(pVM);
 		/* Get Parameters */
 		nSP = pFuncCall->nSP ;
 		pVM->nCFuncParaCount = pVM->nSP - nSP ;
@@ -248,14 +239,14 @@ void ring_vm_call2 ( VM *pVM )
 			for ( x = nSP+1 ; x <= nMax1 ; x++ ) {
 				pVM->nSP = x ;
 				if ( RING_VM_STACK_ISSTRING ) {
-					ring_list_addstring2_gc(pVM->pRingState,pVM->pActiveMem,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
+					ring_list_addstring2_gc(pVM->pRingState,pFuncCall->pTempMem,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
 					RING_VM_STACK_SETNVALUE(0.0);
 				}
 				else if ( RING_VM_STACK_ISNUMBER ) {
-					ring_list_adddouble_gc(pVM->pRingState,pVM->pActiveMem,RING_VM_STACK_READN);
+					ring_list_adddouble_gc(pVM->pRingState,pFuncCall->pTempMem,RING_VM_STACK_READN);
 				}
 				else if ( RING_VM_STACK_ISPOINTER ) {
-					ring_list_addpointerandtype_gc(pVM->pRingState,pVM->pActiveMem,RING_VM_STACK_READP,RING_VM_STACK_OBJTYPE);
+					ring_list_addpointerandtype_gc(pVM->pRingState,pFuncCall->pTempMem,RING_VM_STACK_READP,RING_VM_STACK_OBJTYPE);
 				}
 			}
 			pVM->nSP = nSP ;
@@ -298,11 +289,8 @@ void ring_vm_call2 ( VM *pVM )
 		if ( RING_VM_STACK_ISPOINTER ) {
 			ring_vm_movetoprevscope(pVM,RING_FUNCTYPE_C);
 		}
-		/* Return (Delete Scope, Restore ActiveMem) */
+		/* Return (Delete Function Call List) */
 		ring_list_deleteitem_gc(pVM->pRingState,pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
-		ring_vm_deletescope(pVM);
-		/* Restore ActiveMem */
-		pVM->pActiveMem = pActiveMem ;
 		/* Restore nFuncSP value */
 		if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
 			pFuncCall = RING_VM_LASTFUNCCALL ;
@@ -581,9 +569,6 @@ void ring_vm_movetoprevscope ( VM *pVM,int nFuncType )
 	**  When the function return a value of type List or nested List 
 	**  We copy the list to the previous scope, change the pointer 
 	*/
-	if ( ring_list_getsize(pVM->pMem) < 2 ) {
-		return ;
-	}
 	/* Check Flag */
 	if ( pVM->lDontMoveToPrevScope ) {
 		pVM->lDontMoveToPrevScope = 0 ;
@@ -675,7 +660,7 @@ void ring_vm_createtemplist ( VM *pVM )
 	**  Don't allow more than one temp. list per VM instruction 
 	**  This avoid a memory leak when using code like this:  while true if [] ok end 
 	*/
-	nID = (pVM->nPC << RING_BYTEBITS) + pVM->nOPCode ;
+	nID = ((pVM->nPC + 10000 ) << RING_BYTEBITS) + pVM->nOPCode ;
 	lFound = 0 ;
 	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 		if ( ring_list_islist(pList,x) ) {
