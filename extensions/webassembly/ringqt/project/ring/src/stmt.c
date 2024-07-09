@@ -421,8 +421,6 @@ int ring_parser_stmt ( Parser *pParser )
 				ring_parser_icg_newoperation(pParser,ICO_NOOP);
 				ring_parser_icg_beforeequal(pParser,OP_EQUAL);
 				ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
-				ring_parser_icg_newoperandint(pParser,RING_ZERO);
-				ring_parser_icg_newoperandint(pParser,RING_ZERO);
 				ring_parser_icg_freestack(pParser);
 			#else
 				ring_parser_icg_newoperation(pParser,ICO_GIVE);
