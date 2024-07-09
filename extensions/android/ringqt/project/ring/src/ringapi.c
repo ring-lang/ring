@@ -626,3 +626,8 @@ RING_API List * ring_vm_api_paralist ( VM *pVM )
 	pFuncCall = RING_VM_LASTFUNCCALL ;
 	return pFuncCall->pTempMem ;
 }
+
+RING_API int ring_vm_api_paracount ( VM *pVM )
+{
+	return pVM->nCFuncParaCount ;
+}

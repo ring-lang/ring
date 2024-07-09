@@ -182,3 +182,4 @@ ring_vm_api_scopescount
 ring_vm_api_paralist
 Type: FuncCall *
 pFuncCall
+ring_vm_api_paracount
