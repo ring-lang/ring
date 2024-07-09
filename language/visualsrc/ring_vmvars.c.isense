@@ -58,6 +58,8 @@ pList, *pParent
 ring_vm_addlistarg
 Type: List *
 pList, *pParent
+Type: FuncCall *
+pFuncCall
 ring_vm_newglobalscope
 ring_vm_endglobalscope
 ring_vm_setglobalscope

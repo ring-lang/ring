@@ -180,3 +180,5 @@ pItem
 ring_vm_api_callerscope
 ring_vm_api_scopescount
 ring_vm_api_paralist
+Type: FuncCall *
+pFuncCall
