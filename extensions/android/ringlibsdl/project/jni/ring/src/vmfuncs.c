@@ -232,6 +232,7 @@ void ring_vm_call2 ( VM *pVM )
 		ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_BEFORECFUNC);
 		/* Get Parameters */
 		nSP = pFuncCall->nSP ;
+		pVM->nCFuncSP = nSP ;
 		pVM->nCFuncParaCount = pVM->nSP - nSP ;
 		/* Use Order (First In - First Out) As Queue , the first parameter comes first */
 		if ( nSP < pVM->nSP ) {

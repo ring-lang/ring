@@ -116,8 +116,10 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->nEvalReallocationSize = 0 ;
 	/* Flag ( 1 = we need space over allocated size so we have to do reallocation ) */
 	pVM->lEvalReallocationFlag = 0 ;
-	/* Parameters Count Passed to C Function */
+	/* Parameters Passed to C Function */
 	pVM->nCFuncParaCount = 0 ;
+	pVM->nCFuncSP = 0 ;
+	pVM->lCFuncUseStack = 0 ;
 	/*
 	**  Flag to Ignore NULL output after calling C Function 
 	**  This flag is used by the len() function when we use len(object) 
