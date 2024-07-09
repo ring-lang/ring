@@ -52,9 +52,12 @@ More Improvements
 * Ring Compiler/VM - Added ICO_LISTITEMC instruction - Add string to the current list
 * Ring Compiler/VM - Added ICO_STEPFROMREG instruction
 * Ring Compiler/VM - Better support for operator overloading
+* Ring Compiler/VM - String structure - Store small strings in the structure
 * Ring VM - ByteCode registers count is reduced from four to two (reduce memory usage)
 * Ring VM - Setter/Getter/OperatorOverloading - Don't use ring_vm_eval()
 * Ring VM - Use GC functions when using strings in the VM stack
+* Ring VM - Calling C functions - Better Performance 
+* Ring VM - Calling Ring functions - Better Performance
 * Ring VM - Better support for list items of new objects when using lists during defintion 
 * Ring VM - List() function - Use blocks only if the list size is greater than 30 items 
 * Ring VM - Better code when deleting lists created using the List() function
