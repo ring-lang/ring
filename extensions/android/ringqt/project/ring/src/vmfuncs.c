@@ -660,7 +660,7 @@ void ring_vm_createtemplist ( VM *pVM )
 	**  Don't allow more than one temp. list per VM instruction 
 	**  This avoid a memory leak when using code like this:  while true if [] ok end 
 	*/
-	nID = ((pVM->nPC + 10000 ) << RING_BYTEBITS) + pVM->nOPCode ;
+	nID = ((pVM->nPC) << RING_BYTEBITS) + pVM->nOPCode ;
 	lFound = 0 ;
 	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
 		if ( ring_list_islist(pList,x) ) {
