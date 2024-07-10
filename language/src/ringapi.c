@@ -651,3 +651,9 @@ RING_API void ring_vm_api_retstring2 ( VM *pVM,const char *cStr,int nSize )
 {
 	RING_VM_STACK_PUSHCVALUE2(cStr,nSize) ;
 }
+
+RING_API void ring_vm_api_retstringsize ( VM *pVM,int nSize )
+{
+	RING_VM_SP_INC ;
+	ring_itemarray_setstring2_gc(pVM->pRingState,pVM->aStack,pVM->nSP,NULL,nSize);
+}
