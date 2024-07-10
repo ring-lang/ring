@@ -184,3 +184,4 @@ Type: FuncCall *
 pFuncCall
 ring_vm_api_paracount
 ring_vm_api_ignorecpointertypecheck
+ring_vm_api_retnumber

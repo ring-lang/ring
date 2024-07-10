@@ -636,3 +636,8 @@ RING_API void ring_vm_api_ignorecpointertypecheck ( VM *pVM )
 {
 	pVM->lIgnoreCPointerTypeCheck = 1 ;
 }
+
+RING_API void ring_vm_api_retnumber ( VM *pVM,double nNumber )
+{
+	RING_VM_STACK_PUSHNVALUE(nNumber);
+}

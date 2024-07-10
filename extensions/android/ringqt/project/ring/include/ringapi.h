@@ -37,7 +37,7 @@
 	#define RING_API_ERROR(cError) (ring_vm_error((VM *) pPointer,cError))
 	#define RING_API_ISLIST(nPara) (ring_vm_api_islist((VM *) pPointer,nPara))
 	#define RING_API_GETLIST(nPara) (ring_vm_api_getlist((VM *) pPointer,nPara))
-	#define RING_API_RETNUMBER(nNumber) ((VM *) pPointer)->nSP++ ; ring_itemarray_setdouble_gc(((VM *) pPointer)->pRingState,((VM *) pPointer)->aStack, ((VM *) pPointer)->nSP , nNumber)
+	#define RING_API_RETNUMBER(nNumber) ring_vm_api_retnumber((VM *) pPointer,nNumber)
 	#define RING_API_RETSTRING(cStr) ((VM *) pPointer)->nSP++ ; ring_itemarray_setstring_gc(((VM *) pPointer)->pRingState,((VM *) pPointer)->aStack, ((VM *) pPointer)->nSP, cStr)
 	#define RING_API_RETSTRING2(cStr,nSize) ((VM *) pPointer)->nSP++ ; ring_itemarray_setstring2_gc(((VM *) pPointer)->pRingState,((VM *) pPointer)->aStack, ((VM *) pPointer)->nSP,cStr,nSize)
 	#define RING_API_RETSTRINGSIZE(nSize) ((VM *) pPointer)->nSP++ ; ring_itemarray_setstring2_gc(((VM *) pPointer)->pRingState,((VM *) pPointer)->aStack, ((VM *) pPointer)->nSP, NULL,nSize)
@@ -164,4 +164,6 @@
 	RING_API int ring_vm_api_paracount ( VM *pVM ) ;
 
 	RING_API void ring_vm_api_ignorecpointertypecheck ( VM *pVM ) ;
+
+	RING_API void ring_vm_api_retnumber ( VM *pVM,double nNumber ) ;
 #endif
