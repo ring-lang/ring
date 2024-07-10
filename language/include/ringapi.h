@@ -39,7 +39,7 @@
 	#define RING_API_GETLIST(nPara) (ring_vm_api_getlist((VM *) pPointer,nPara))
 	#define RING_API_RETNUMBER(nNumber) ring_vm_api_retnumber((VM *) pPointer,nNumber)
 	#define RING_API_RETSTRING(cStr) ring_vm_api_retstring((VM *) pPointer,cStr)
-	#define RING_API_RETSTRING2(cStr,nSize) ((VM *) pPointer)->nSP++ ; ring_itemarray_setstring2_gc(((VM *) pPointer)->pRingState,((VM *) pPointer)->aStack, ((VM *) pPointer)->nSP,cStr,nSize)
+	#define RING_API_RETSTRING2(cStr,nSize) ring_vm_api_retstring2((VM *) pPointer,cStr,nSize)
 	#define RING_API_RETSTRINGSIZE(nSize) ((VM *) pPointer)->nSP++ ; ring_itemarray_setstring2_gc(((VM *) pPointer)->pRingState,((VM *) pPointer)->aStack, ((VM *) pPointer)->nSP, NULL,nSize)
 	#define RING_API_RETLIST(pList) ring_vm_api_retlist((VM *) pPointer,pList)
 	#define RING_API_NEWLIST ring_vm_api_newlist((VM *) pPointer)
@@ -166,4 +166,6 @@
 	RING_API void ring_vm_api_retnumber ( VM *pVM,double nNumber ) ;
 
 	RING_API void ring_vm_api_retstring ( VM *pVM,const char *cStr ) ;
+
+	RING_API void ring_vm_api_retstring2 ( VM *pVM,const char *cStr,int nSize ) ;
 #endif
