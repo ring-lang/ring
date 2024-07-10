@@ -80,9 +80,30 @@ Type: List *
 pList
 ring_vm_loadcfunctions
 ring_vm_api_isstring
+Type: VM *
+pVM
 ring_vm_api_isnumber
+Type: VM *
+pVM
 ring_vm_api_isptr
+Type: VM *
+pVM
 ring_vm_api_setptr
+Type: VM *
+pVM
+ring_vm_api_getstring
+Type: VM *
+pVM
+ring_vm_api_getstringsize
+Type: VM *
+pVM
+ring_vm_api_getnumber
+Type: VM *
+pVM
+ring_vm_api_getpointer
+Type: VM *
+pVM
+ring_vm_api_getpointertype
 Type: VM *
 pVM
 ring_vm_api_islist
@@ -102,11 +123,6 @@ Type: Item *
 pItem
 Type: FuncCall *
 pFuncCall
-ring_vm_api_getstring
-ring_vm_api_getstringsize
-ring_vm_api_getnumber
-ring_vm_api_getpointer
-ring_vm_api_getpointertype
 ring_vm_api_getlist
 Type: int
 nType
