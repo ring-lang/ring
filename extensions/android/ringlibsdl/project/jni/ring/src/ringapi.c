@@ -441,8 +441,8 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
 			ring_vm_oop_updateselfpointer(pVM,pRealList,RING_OBJTYPE_VARIABLE,pVariableList);
 		}
 	}
-	RING_API_PUSHPVALUE(pVariableList);
-	RING_API_OBJTYPE = RING_OBJTYPE_VARIABLE ;
+	RING_VM_STACK_PUSHPVALUE(pVariableList);
+	RING_VM_STACK_OBJTYPE = RING_OBJTYPE_VARIABLE ;
 }
 
 RING_API void ring_vm_api_intvalue ( void *pPointer,const char  *cStr )

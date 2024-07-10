@@ -45,8 +45,6 @@
 	#define RING_API_NEWLIST ring_vm_api_newlist((VM *) pPointer)
 	#define RING_API_RETCPOINTER(pPtr,cType) (ring_vm_api_retcpointer((VM *) pPointer,(void *) pPtr,cType))
 	#define RING_API_GETCPOINTER(nPara,cType) (ring_vm_api_getcpointer((VM *) pPointer,nPara,cType))
-	#define RING_API_PUSHPVALUE(pPtr) ((VM *) pPointer)->nSP++ ; ring_itemarray_setpointer_gc(((VM *) pPointer)->pRingState,((VM *) pPointer)->aStack, ((VM *) pPointer)->nSP,pPtr)
-	#define RING_API_OBJTYPE ((VM *) pPointer)->aStack[((VM *) pPointer)->nSP].nObjectType
 	#define RING_API_GETSTRINGRAW ring_itemarray_getstringraw(((VM *) pPointer)->aStack,((VM *) pPointer)->nSP)
 	#define RING_API_GETSTRINGSIZE(nPara) (ring_vm_api_getstringsize((VM *) pPointer,nPara))
 	#define RING_API_SETNULLPOINTER(nPara) (ring_vm_api_setcpointernull((VM *) pPointer,nPara))
