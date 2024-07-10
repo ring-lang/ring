@@ -235,7 +235,7 @@ void ring_vm_call2 ( VM *pVM )
 		pVM->nCFuncSP = nSP ;
 		pVM->nCFuncParaCount = pVM->nSP - nSP ;
 		/* Use Order (First In - First Out) As Queue , the first parameter comes first */
-		if ( nSP < pVM->nSP ) {
+		if ( (! pVM->lCFuncUseStack) && (nSP < pVM->nSP) ) {
 			nMax1 = pVM->nSP ;
 			for ( x = nSP+1 ; x <= nMax1 ; x++ ) {
 				pVM->nSP = x ;
@@ -258,6 +258,16 @@ void ring_vm_call2 ( VM *pVM )
 		pVM->lIgnoreCPointerTypeCheck = 0 ;
 		/* Call Function */
 		pFuncCall->pFunc(pVM) ;
+		/* Correct Stack Position */
+		if ( pVM->lCFuncUseStack ) {
+			if ( pVM->nSP > nSP + pVM->nCFuncParaCount ) {
+				ring_vm_stackswap(pVM,pVM->nSP,nSP+1);
+				pVM->nSP = nSP+1 ;
+			}
+			else if ( pVM->nSP = nSP + pVM->nCFuncParaCount ) {
+				pVM->nSP = nSP ;
+			}
+		}
 		/* Trace */
 		ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_AFTERCFUNC);
 		/* Check for function termination by try/catch */
