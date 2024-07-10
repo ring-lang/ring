@@ -119,7 +119,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	/* Parameters Passed to C Function */
 	pVM->nCFuncParaCount = 0 ;
 	pVM->nCFuncSP = 0 ;
-	pVM->lCFuncUseStack = 0 ;
+	pVM->lCFuncUseStack = 1 ;
 	/*
 	**  Flag to Ignore NULL output after calling C Function 
 	**  This flag is used by the len() function when we use len(object) 
