@@ -42,6 +42,31 @@ RING_API void ring_vm_api_setptr ( void *pPointer,int nPara,void *pPtr,int nType
 	ring_list_setpointerandtype_gc(pVM->pRingState,RING_API_PARALIST,nPara,pPtr,nType);
 }
 
+RING_API char * ring_vm_api_getstring ( void *pPointer,int nPara )
+{
+	return ring_list_getstring(RING_API_PARALIST,nPara) ;
+}
+
+RING_API int ring_vm_api_getstringsize ( void *pPointer,int nPara )
+{
+	return ring_list_getstringsize(RING_API_PARALIST,nPara) ;
+}
+
+RING_API double ring_vm_api_getnumber ( void *pPointer,int nPara )
+{
+	return ring_list_getdouble(RING_API_PARALIST,nPara) ;
+}
+
+RING_API void * ring_vm_api_getpointer ( void *pPointer,int nPara )
+{
+	return ring_list_getpointer(RING_API_PARALIST,nPara) ;
+}
+
+RING_API int ring_vm_api_getpointertype ( void *pPointer,int nPara )
+{
+	return ring_list_getpointertype(RING_API_PARALIST,nPara) ;
+}
+
 RING_API int ring_vm_api_islist ( void *pPointer,int nPara )
 {
 	int nType  ;
@@ -96,31 +121,6 @@ RING_API int ring_vm_api_ispointer ( void *pPointer,int nPara )
 		}
 	}
 	return 0 ;
-}
-
-RING_API char * ring_vm_api_getstring ( void *pPointer,int nPara )
-{
-	return ring_list_getstring(RING_API_PARALIST,nPara) ;
-}
-
-RING_API int ring_vm_api_getstringsize ( void *pPointer,int nPara )
-{
-	return ring_list_getstringsize(RING_API_PARALIST,nPara) ;
-}
-
-RING_API double ring_vm_api_getnumber ( void *pPointer,int nPara )
-{
-	return ring_list_getdouble(RING_API_PARALIST,nPara) ;
-}
-
-RING_API void * ring_vm_api_getpointer ( void *pPointer,int nPara )
-{
-	return ring_list_getpointer(RING_API_PARALIST,nPara) ;
-}
-
-RING_API int ring_vm_api_getpointertype ( void *pPointer,int nPara )
-{
-	return ring_list_getpointertype(RING_API_PARALIST,nPara) ;
 }
 
 RING_API List * ring_vm_api_getlist ( void *pPointer,int nPara )
