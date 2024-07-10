@@ -59,6 +59,7 @@ More Improvements
 * Ring VM - Use GC functions when using strings in the VM stack
 * Ring VM - Calling C functions - Better Performance 
 * Ring VM - Calling Ring functions - Better Performance
+* Ring VM - Use VM Stack for passing arguments to C functions
 * Ring VM - Better support for list items of new objects when using lists during defintion 
 * Ring VM - List() function - Use blocks only if the list size is greater than 30 items 
 * Ring VM - Better code when deleting lists created using the List() function
