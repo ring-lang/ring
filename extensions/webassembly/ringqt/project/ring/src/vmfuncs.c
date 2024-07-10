@@ -260,12 +260,12 @@ void ring_vm_call2 ( VM *pVM )
 		pFuncCall->pFunc(pVM) ;
 		/* Correct Stack Position */
 		if ( pVM->lCFuncUseStack ) {
-			if ( pVM->nSP > nSP + pVM->nCFuncParaCount ) {
-				ring_vm_stackswap(pVM,pVM->nSP,nSP+1);
-				pVM->nSP = nSP+1 ;
+			if ( pVM->nSP > pFuncCall->nSP + pVM->nCFuncParaCount ) {
+				ring_vm_stackswap(pVM,pVM->nSP,pFuncCall->nSP+1);
+				pVM->nSP = pFuncCall->nSP+1 ;
 			}
-			else if ( pVM->nSP = nSP + pVM->nCFuncParaCount ) {
-				pVM->nSP = nSP ;
+			else if ( pVM->nSP = pFuncCall->nSP + pVM->nCFuncParaCount ) {
+				pVM->nSP = pFuncCall->nSP ;
 			}
 		}
 		/* Trace */
