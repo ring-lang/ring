@@ -148,7 +148,7 @@ void ring_vm_returneval ( VM *pVM )
 
 void ring_vm_mainloopforeval ( VM *pVM )
 {
-	int nDontDelete,nType,nOut,nSP,nFuncSP,nInClassRegion,nInsideEval,nStartPC  ;
+	int nDontDelete,nType,nOut,nSP,nFuncSP,nCFuncSP,nCFuncParaCount,nInClassRegion,nInsideEval,nStartPC  ;
 	List *pStackList  ;
 	double nNumber  ;
 	String *pString  ;
@@ -165,6 +165,8 @@ void ring_vm_mainloopforeval ( VM *pVM )
 	/* Save Stack */
 	nSP = pVM->nSP ;
 	nFuncSP = pVM->nFuncSP ;
+	nCFuncSP = pVM->nCFuncSP ;
+	nCFuncParaCount = pVM->nCFuncParaCount ;
 	pStackList = ring_vm_savestack(pVM);
 	pAssignment = pVM->pAssignment ;
 	nInClassRegion = pVM->nInClassRegion ;
@@ -226,6 +228,8 @@ void ring_vm_mainloopforeval ( VM *pVM )
 	ring_list_delete_gc(pVM->pRingState,pStackList);
 	pVM->nSP = nSP ;
 	pVM->nFuncSP = nFuncSP ;
+	pVM->nCFuncSP = nCFuncSP ;
+	pVM->nCFuncParaCount = nCFuncParaCount ;
 	pVM->pAssignment = pAssignment ;
 	pVM->nInClassRegion = nInClassRegion ;
 	/* Push Output */
