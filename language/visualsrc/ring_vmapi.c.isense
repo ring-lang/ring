@@ -82,6 +82,9 @@ ring_vm_loadcfunctions
 ring_vm_api_isstring
 ring_vm_api_isnumber
 ring_vm_api_isptr
+ring_vm_api_setptr
+Type: VM *
+pVM
 ring_vm_api_islist
 Type: int
 nType
