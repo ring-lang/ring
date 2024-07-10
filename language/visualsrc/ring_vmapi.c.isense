@@ -81,6 +81,7 @@ pList
 ring_vm_loadcfunctions
 ring_vm_api_isstring
 ring_vm_api_isnumber
+ring_vm_api_isptr
 ring_vm_api_islist
 Type: int
 nType
@@ -111,11 +112,6 @@ pItem
 Type: List *
 pList
 ring_vm_api_retlist
-ring_vm_api_newlist
-Type: List *
-pList
-Type: FuncCall *
-pFuncCall
 ring_vm_api_retcpointer2
 Type: List *
 pList
@@ -166,6 +162,11 @@ Type: VM *
 pVM
 ring_vm_api_intvalue
 ring_vm_api_floatvalue
+ring_vm_api_newlist
+Type: List *
+pList
+Type: FuncCall *
+pFuncCall
 ring_vm_api_newlistusingblocks
 Type: List *
 pList, *pList2, *pList3, *pSubLists

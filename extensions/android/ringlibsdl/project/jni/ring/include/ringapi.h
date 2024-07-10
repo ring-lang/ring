@@ -97,6 +97,8 @@
 
 	RING_API int ring_vm_api_isnumber ( void *pPointer,int nPara ) ;
 
+	RING_API int ring_vm_api_isptr ( void *pPointer,int nPara ) ;
+
 	RING_API int ring_vm_api_islist ( void *pPointer,int nPara ) ;
 
 	RING_API int ring_vm_api_islistornull ( void *pPointer,int nPara ) ;

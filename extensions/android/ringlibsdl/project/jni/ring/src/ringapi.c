@@ -30,12 +30,17 @@ RING_API int ring_vm_api_isnumber ( void *pPointer,int nPara )
 	return ring_list_isdouble(RING_API_PARALIST,nPara) ;
 }
 
+RING_API int ring_vm_api_isptr ( void *pPointer,int nPara )
+{
+	return ring_list_ispointer(RING_API_PARALIST,nPara) ;
+}
+
 RING_API int ring_vm_api_islist ( void *pPointer,int nPara )
 {
 	int nType  ;
 	VM *pVM  ;
 	pVM = (VM *) pPointer ;
-	if ( ring_list_ispointer(RING_API_PARALIST,nPara) ) {
+	if ( ring_vm_api_isptr(pPointer,nPara) ) {
 		nType = RING_API_GETPOINTERTYPE(nPara);
 		if ( nType == RING_OBJTYPE_VARIABLE || nType == RING_OBJTYPE_LISTITEM ) {
 			return 1 ;
@@ -63,7 +68,7 @@ RING_API int ring_vm_api_ispointer ( void *pPointer,int nPara )
 	Item *pItem  ;
 	FuncCall *pFuncCall  ;
 	pVM = (VM *) pPointer ;
-	if ( ring_list_ispointer(RING_API_PARALIST,nPara) ) {
+	if ( ring_vm_api_isptr(pPointer,nPara) ) {
 		return 1 ;
 	}
 	if ( RING_API_ISSTRING(nPara) ) {
