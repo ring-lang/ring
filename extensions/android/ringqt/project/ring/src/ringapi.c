@@ -135,15 +135,6 @@ RING_API void ring_vm_api_retlist ( void *pPointer,List *pList )
 	ring_vm_api_retlist2(pPointer,pList,RING_OUTPUT_RETLIST);
 }
 
-RING_API List * ring_vm_api_newlist ( VM *pVM )
-{
-	List *pList  ;
-	FuncCall *pFuncCall  ;
-	pFuncCall = RING_VM_LASTFUNCCALL ;
-	pList = ring_list_newlist_gc(pVM->pRingState,pFuncCall->pTempMem);
-	return pList ;
-}
-
 RING_API void ring_vm_api_retcpointer2 ( void *pPointer,void *pGeneral,const char *cType, void (* pFreeFunc)(void *,void *) )
 {
 	List *pList  ;
@@ -453,6 +444,15 @@ RING_API void ring_vm_api_intvalue ( void *pPointer,const char  *cStr )
 RING_API void ring_vm_api_floatvalue ( void *pPointer,const char  *cStr )
 {
 	ring_vm_api_varvalue(pPointer,cStr,RING_VARVALUE_FLOAT);
+}
+
+RING_API List * ring_vm_api_newlist ( VM *pVM )
+{
+	List *pList  ;
+	FuncCall *pFuncCall  ;
+	pFuncCall = RING_VM_LASTFUNCCALL ;
+	pList = ring_list_newlist_gc(pVM->pRingState,pFuncCall->pTempMem);
+	return pList ;
 }
 
 RING_API List * ring_vm_api_newlistusingblocks ( VM *pVM, int nSize, int nSize2 )

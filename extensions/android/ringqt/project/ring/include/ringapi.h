@@ -115,8 +115,6 @@
 
 	RING_API void ring_vm_api_retlist ( void *pPointer,List *pList ) ;
 
-	RING_API List * ring_vm_api_newlist ( VM *pVM ) ;
-
 	RING_API void ring_vm_api_retcpointer ( void *pPointer,void *pGeneral,const char *cType ) ;
 
 	RING_API void * ring_vm_api_getcpointer ( void *pPointer,int nPara,const char *cType ) ;
@@ -150,6 +148,8 @@
 	RING_API void ring_vm_api_intvalue ( void *pPointer,const char  *cStr ) ;
 
 	RING_API void ring_vm_api_floatvalue ( void *pPointer,const char  *cStr ) ;
+
+	RING_API List * ring_vm_api_newlist ( VM *pVM ) ;
 
 	RING_API List * ring_vm_api_newlistusingblocks ( VM *pVM, int nSize, int nSize2 ) ;
 
