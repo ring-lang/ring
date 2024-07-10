@@ -631,3 +631,8 @@ RING_API int ring_vm_api_paracount ( VM *pVM )
 {
 	return pVM->nCFuncParaCount ;
 }
+
+RING_API void ring_vm_api_ignorecpointertypecheck ( VM *pVM )
+{
+	pVM->lIgnoreCPointerTypeCheck = 1 ;
+}

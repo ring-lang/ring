@@ -60,7 +60,7 @@
 	#define RING_API_GETDOUBLEPOINTER(nPara) RING_API_VARPOINTER(RING_API_GETSTRING(nPara),"double")
 	#define RING_API_ACCEPTINTVALUE(nPara) RING_API_INTVALUE(RING_API_GETSTRING(nPara))
 	#define RING_API_ACCEPTFLOATVALUE(nPara) RING_API_FLOATVALUE(RING_API_GETSTRING(nPara))
-	#define RING_API_IGNORECPOINTERTYPE ((VM *) pPointer)->lIgnoreCPointerTypeCheck = 1
+	#define RING_API_IGNORECPOINTERTYPE ring_vm_api_ignorecpointertypecheck((VM *) pPointer)
 	#define RING_API_ISCPOINTER(nPara) ring_vm_api_iscpointer(pPointer,nPara)
 	#define RING_API_ISOBJECT(nPara) ring_vm_api_isobject(pPointer,nPara)
 	#define RING_API_GETCPOINTER2POINTER(nPara,cType) (ring_vm_api_getcpointer2pointer((VM *) pPointer,nPara,cType))
@@ -162,4 +162,6 @@
 	RING_API List * ring_vm_api_paralist ( VM *pVM ) ;
 
 	RING_API int ring_vm_api_paracount ( VM *pVM ) ;
+
+	RING_API void ring_vm_api_ignorecpointertypecheck ( VM *pVM ) ;
 #endif
