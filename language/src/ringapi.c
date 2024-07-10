@@ -61,6 +61,7 @@ RING_API void ring_vm_api_setptr ( void *pPointer,int nPara,void *pPtr,int nType
 	if ( pVM->lCFuncUseStack ) {
 		RING_VM_STACK_SETPVALUEAT(pVM->nCFuncSP + nPara,pPtr);
 		RING_VM_STACK_OBJTYPEVALUE(pVM->nCFuncSP + nPara) = nType ;
+		return ;
 	}
 	ring_list_setpointerandtype_gc(pVM->pRingState,RING_API_PARALIST,nPara,pPtr,nType);
 }
