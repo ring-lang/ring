@@ -186,3 +186,4 @@ ring_vm_api_retnumber
 ring_vm_api_retstring
 ring_vm_api_retstring2
 ring_vm_api_retstringsize
+ring_vm_api_getstringraw

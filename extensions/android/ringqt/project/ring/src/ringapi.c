@@ -657,3 +657,8 @@ RING_API void ring_vm_api_retstringsize ( VM *pVM,int nSize )
 	RING_VM_SP_INC ;
 	ring_itemarray_setstring2_gc(pVM->pRingState,pVM->aStack,pVM->nSP,NULL,nSize);
 }
+
+RING_API String * ring_vm_api_getstringraw ( VM *pVM )
+{
+	return ring_itemarray_getstringraw(pVM->aStack,pVM->nSP) ;
+}

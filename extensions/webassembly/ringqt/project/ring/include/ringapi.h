@@ -45,7 +45,7 @@
 	#define RING_API_NEWLIST ring_vm_api_newlist((VM *) pPointer)
 	#define RING_API_RETCPOINTER(pPtr,cType) (ring_vm_api_retcpointer((VM *) pPointer,(void *) pPtr,cType))
 	#define RING_API_GETCPOINTER(nPara,cType) (ring_vm_api_getcpointer((VM *) pPointer,nPara,cType))
-	#define RING_API_GETSTRINGRAW ring_itemarray_getstringraw(((VM *) pPointer)->aStack,((VM *) pPointer)->nSP)
+	#define RING_API_GETSTRINGRAW ring_vm_api_getstringraw((VM *) pPointer)
 	#define RING_API_GETSTRINGSIZE(nPara) (ring_vm_api_getstringsize((VM *) pPointer,nPara))
 	#define RING_API_SETNULLPOINTER(nPara) (ring_vm_api_setcpointernull((VM *) pPointer,nPara))
 	#define RING_API_GETCPOINTERSTATUS(nPara) ring_list_getint(RING_API_GETLIST(nPara),RING_CPOINTER_STATUS)
@@ -170,4 +170,6 @@
 	RING_API void ring_vm_api_retstring2 ( VM *pVM,const char *cStr,int nSize ) ;
 
 	RING_API void ring_vm_api_retstringsize ( VM *pVM,int nSize ) ;
+
+	RING_API String * ring_vm_api_getstringraw ( VM *pVM ) ;
 #endif
