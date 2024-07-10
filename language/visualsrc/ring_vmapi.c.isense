@@ -40,8 +40,6 @@ RING_API_RETLIST(pList)
 RING_API_NEWLIST
 RING_API_RETCPOINTER(pPtr,cType)
 RING_API_GETCPOINTER(nPara,cType)
-RING_API_PUSHPVALUE(pPtr)
-RING_API_OBJTYPE
 RING_API_GETSTRINGRAW
 RING_API_GETSTRINGSIZE(nPara)
 RING_API_SETNULLPOINTER(nPara)
@@ -185,3 +183,4 @@ pFuncCall
 ring_vm_api_paracount
 ring_vm_api_ignorecpointertypecheck
 ring_vm_api_retnumber
+ring_vm_api_retstring

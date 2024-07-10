@@ -641,3 +641,8 @@ RING_API void ring_vm_api_retnumber ( VM *pVM,double nNumber )
 {
 	RING_VM_STACK_PUSHNVALUE(nNumber);
 }
+
+RING_API void ring_vm_api_retstring ( VM *pVM,const char *cStr )
+{
+	RING_VM_STACK_PUSHCVALUE(cStr) ;
+}
