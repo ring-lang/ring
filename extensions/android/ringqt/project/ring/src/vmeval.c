@@ -248,7 +248,7 @@ void ring_vm_mainloopforeval ( VM *pVM )
 
 RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 {
-	int nEvalReturnPC,lEvalReallocationFlag,nPC,nRunVM,nSP,nFuncSP,nLineNumber  ;
+	int nEvalReturnPC,lEvalReallocationFlag,nPC,nRunVM,nSP,nFuncSP,nCFuncSP,nCFuncParaCount,nLineNumber  ;
 	List *pStackList  ;
 	/* Save state to take in mind nested events execution */
 	pVM->nRunCode++ ;
@@ -257,6 +257,8 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 	nPC = pVM->nPC ;
 	nSP = pVM->nSP ;
 	nFuncSP = pVM->nFuncSP ;
+	nCFuncSP = pVM->nCFuncSP ;
+	nCFuncParaCount = pVM->nCFuncParaCount ;
 	pStackList = ring_vm_savestack(pVM);
 	nLineNumber = RING_VM_IR_GETLINENUMBER ;
 	ring_vm_mutexlock(pVM);
@@ -286,6 +288,8 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 	/* Restore Stack to avoid Stack Overflow */
 	pVM->nSP = nSP ;
 	pVM->nFuncSP = nFuncSP ;
+	pVM->nCFuncSP = nCFuncSP ;
+	pVM->nCFuncParaCount = nCFuncParaCount ;
 	RING_VM_IR_SETLINENUMBER(nLineNumber);
 }
 
