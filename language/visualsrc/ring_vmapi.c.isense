@@ -119,10 +119,6 @@ Type: List *
 pList, *pList2
 Type: VM *
 pVM
-Type: Item *
-pItem
-Type: FuncCall *
-pFuncCall
 ring_vm_api_getlist
 Type: int
 nType

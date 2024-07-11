@@ -114,8 +114,6 @@ RING_API int ring_vm_api_ispointer ( void *pPointer,int nPara )
 {
 	List *pList, *pList2  ;
 	VM *pVM  ;
-	Item *pItem  ;
-	FuncCall *pFuncCall  ;
 	pVM = (VM *) pPointer ;
 	if ( ring_vm_api_isptr(pPointer,nPara) ) {
 		return 1 ;
@@ -125,9 +123,12 @@ RING_API int ring_vm_api_ispointer ( void *pPointer,int nPara )
 		if ( (strcmp(RING_API_GETSTRING(nPara),"") == 0) || (strcmp(RING_API_GETSTRING(nPara),"NULL") == 0) ) {
 			/* Create the list for the NULL Pointer */
 			pList2 = RING_API_NEWLIST ;
-			pFuncCall = RING_VM_LASTFUNCCALL ;
-			pItem = ring_list_getitem(pFuncCall->pTempMem,ring_list_getsize(pFuncCall->pTempMem));
-			ring_vm_api_setptr(pPointer,nPara,pItem,RING_OBJTYPE_LISTITEM);
+			/* Create the variable */
+			pList = ring_vm_newvar2(pVM,RING_TEMP_VAR,pList2);
+			ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_LIST);
+			ring_list_setlist_gc(pVM->pRingState,pList,RING_VAR_VALUE);
+			pList2 = ring_list_getlist(pList,RING_VAR_VALUE);
+			ring_vm_api_setptr(pPointer,nPara,pList,RING_OBJTYPE_VARIABLE);
 			/* The variable value will be a list contains the pointer */
 			ring_list_addpointer_gc(pVM->pRingState,pList2,NULL);
 			/* Add the pointer type */
