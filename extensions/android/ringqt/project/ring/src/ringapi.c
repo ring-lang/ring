@@ -24,101 +24,64 @@ RING_API int ring_vm_api_isstring ( void *pPointer,int nPara )
 {
 	VM *pVM  ;
 	pVM = (VM *) pPointer ;
-	/* Check using the VM Stack for the C function parameters */
-	if ( pVM->lCFuncUseStack ) {
-		return RING_VM_STACK_ISSTRINGVALUE(pVM->nCFuncSP + nPara) ;
-	}
-	return ring_list_isstring(RING_API_PARALIST,nPara) ;
+	return RING_VM_STACK_ISSTRINGVALUE(pVM->nCFuncSP + nPara) ;
 }
 
 RING_API int ring_vm_api_isnumber ( void *pPointer,int nPara )
 {
 	VM *pVM  ;
 	pVM = (VM *) pPointer ;
-	/* Check using the VM Stack for the C function parameters */
-	if ( pVM->lCFuncUseStack ) {
-		return RING_VM_STACK_ISNUMBERVALUE(pVM->nCFuncSP + nPara) ;
-	}
-	return ring_list_isdouble(RING_API_PARALIST,nPara) ;
+	return RING_VM_STACK_ISNUMBERVALUE(pVM->nCFuncSP + nPara) ;
 }
 
 RING_API int ring_vm_api_isptr ( void *pPointer,int nPara )
 {
 	VM *pVM  ;
 	pVM = (VM *) pPointer ;
-	/* Check using the VM Stack for the C function parameters */
-	if ( pVM->lCFuncUseStack ) {
-		return RING_VM_STACK_ISPOINTERVALUE(pVM->nCFuncSP + nPara) ;
-	}
-	return ring_list_ispointer(RING_API_PARALIST,nPara) ;
+	return RING_VM_STACK_ISPOINTERVALUE(pVM->nCFuncSP + nPara) ;
 }
 
 RING_API void ring_vm_api_setptr ( void *pPointer,int nPara,void *pPtr,int nType )
 {
 	VM *pVM  ;
 	pVM = (VM *) pPointer ;
-	/* Check using the VM Stack for the C function parameters */
-	if ( pVM->lCFuncUseStack ) {
-		RING_VM_STACK_SETPVALUEAT(pVM->nCFuncSP + nPara,pPtr);
-		RING_VM_STACK_OBJTYPEVALUE(pVM->nCFuncSP + nPara) = nType ;
-		return ;
-	}
-	ring_list_setpointerandtype_gc(pVM->pRingState,RING_API_PARALIST,nPara,pPtr,nType);
+	RING_VM_STACK_SETPVALUEAT(pVM->nCFuncSP + nPara,pPtr);
+	RING_VM_STACK_OBJTYPEVALUE(pVM->nCFuncSP + nPara) = nType ;
 }
 
 RING_API char * ring_vm_api_getstring ( void *pPointer,int nPara )
 {
 	VM *pVM  ;
 	pVM = (VM *) pPointer ;
-	/* Check using the VM Stack for the C function parameters */
-	if ( pVM->lCFuncUseStack ) {
-		return RING_VM_STACK_READCVALUE(pVM->nCFuncSP + nPara) ;
-	}
-	return ring_list_getstring(RING_API_PARALIST,nPara) ;
+	return RING_VM_STACK_READCVALUE(pVM->nCFuncSP + nPara) ;
 }
 
 RING_API int ring_vm_api_getstringsize ( void *pPointer,int nPara )
 {
 	VM *pVM  ;
 	pVM = (VM *) pPointer ;
-	/* Check using the VM Stack for the C function parameters */
-	if ( pVM->lCFuncUseStack ) {
-		return RING_VM_STACK_STRINGSIZEVALUE(pVM->nCFuncSP + nPara) ;
-	}
-	return ring_list_getstringsize(RING_API_PARALIST,nPara) ;
+	return RING_VM_STACK_STRINGSIZEVALUE(pVM->nCFuncSP + nPara) ;
 }
 
 RING_API double ring_vm_api_getnumber ( void *pPointer,int nPara )
 {
 	VM *pVM  ;
 	pVM = (VM *) pPointer ;
-	/* Check using the VM Stack for the C function parameters */
-	if ( pVM->lCFuncUseStack ) {
-		return RING_VM_STACK_READNVALUE(pVM->nCFuncSP + nPara) ;
-	}
-	return ring_list_getdouble(RING_API_PARALIST,nPara) ;
+	return RING_VM_STACK_READNVALUE(pVM->nCFuncSP + nPara) ;
 }
 
 RING_API void * ring_vm_api_getpointer ( void *pPointer,int nPara )
 {
 	VM *pVM  ;
 	pVM = (VM *) pPointer ;
-	/* Check using the VM Stack for the C function parameters */
-	if ( pVM->lCFuncUseStack ) {
-		return RING_VM_STACK_READPVALUE(pVM->nCFuncSP + nPara) ;
-	}
-	return ring_list_getpointer(RING_API_PARALIST,nPara) ;
+	return RING_VM_STACK_READPVALUE(pVM->nCFuncSP + nPara) ;
 }
 
 RING_API int ring_vm_api_getpointertype ( void *pPointer,int nPara )
 {
 	VM *pVM  ;
 	pVM = (VM *) pPointer ;
-	/* Check using the VM Stack for the C function parameters */
-	if ( pVM->lCFuncUseStack ) {
-		return RING_VM_STACK_OBJTYPEVALUE(pVM->nCFuncSP + nPara) ;
-	}
-	return ring_list_getpointertype(RING_API_PARALIST,nPara) ;
+	return RING_VM_STACK_OBJTYPEVALUE(pVM->nCFuncSP + nPara) ;
 }
 
 RING_API int ring_vm_api_islist ( void *pPointer,int nPara )
@@ -462,12 +425,7 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
 			ring_list_enabledontrefagain(pList);
 			pVM->lDontMoveToPrevScope = ring_vm_oop_isobject(pList) ;
 			/* Keep the same object (Ref() parameter) on the Stack (i.e. Return para. as output) */
-			if ( pVM->lCFuncUseStack ) {
-				ring_vm_dup(pVM);
-			}
-			else {
-				RING_VM_SP_INC ;
-			}
+			ring_vm_dup(pVM);
 			return ;
 		}
 	}

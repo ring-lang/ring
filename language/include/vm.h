@@ -140,7 +140,6 @@
 		unsigned int lFullStringToNum: 1  ;
 		unsigned int lSubStringToNumError: 1  ;
 		unsigned int lOptionalLoop: 1  ;
-		unsigned int lCFuncUseStack: 1  ;
 		Item aStack[RING_VM_STACK_SIZE]  ;
 	} VM ;
 	typedef struct FuncCall {

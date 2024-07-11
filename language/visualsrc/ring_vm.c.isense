@@ -709,7 +709,7 @@ Type: void *
 pPointer, *pAssignment
 ring_vm_runcode
 Type: int
-nEvalReturnPC,lEvalReallocationFlag,nPC,nRunVM,nSP,nFuncSP,nLineNumber
+nEvalReturnPC,lEvalReallocationFlag,nPC,nRunVM,nSP,nFuncSP,nCFuncSP,nCFuncParaCount,nLineNumber
 Type: List *
 pStackList
 ring_vm_cleanevalcode

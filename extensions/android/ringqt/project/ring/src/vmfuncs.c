@@ -234,24 +234,6 @@ void ring_vm_call2 ( VM *pVM )
 		nSP = pFuncCall->nSP ;
 		pVM->nCFuncSP = nSP ;
 		pVM->nCFuncParaCount = pVM->nSP - nSP ;
-		/* Use Order (First In - First Out) As Queue , the first parameter comes first */
-		if ( (! pVM->lCFuncUseStack) && (nSP < pVM->nSP) ) {
-			nMax1 = pVM->nSP ;
-			for ( x = nSP+1 ; x <= nMax1 ; x++ ) {
-				pVM->nSP = x ;
-				if ( RING_VM_STACK_ISSTRING ) {
-					ring_list_addstring2_gc(pVM->pRingState,pFuncCall->pTempMem,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
-					RING_VM_STACK_SETNVALUE(0.0);
-				}
-				else if ( RING_VM_STACK_ISNUMBER ) {
-					ring_list_adddouble_gc(pVM->pRingState,pFuncCall->pTempMem,RING_VM_STACK_READN);
-				}
-				else if ( RING_VM_STACK_ISPOINTER ) {
-					ring_list_addpointerandtype_gc(pVM->pRingState,pFuncCall->pTempMem,RING_VM_STACK_READP,RING_VM_STACK_OBJTYPE);
-				}
-			}
-			pVM->nSP = nSP ;
-		}
 		/* Prepare to check function termination by try/catch */
 		pVM->lActiveCatch = 0 ;
 		/* Enable C Pointer Type Check */
@@ -259,14 +241,12 @@ void ring_vm_call2 ( VM *pVM )
 		/* Call Function */
 		pFuncCall->pFunc(pVM) ;
 		/* Correct Stack Position */
-		if ( pVM->lCFuncUseStack ) {
-			if ( pVM->nSP > pFuncCall->nSP + pVM->nCFuncParaCount ) {
-				ring_vm_stackswap(pVM,pVM->nSP,pFuncCall->nSP+1);
-				pVM->nSP = pFuncCall->nSP+1 ;
-			}
-			else if ( pVM->nSP = pFuncCall->nSP + pVM->nCFuncParaCount ) {
-				pVM->nSP = pFuncCall->nSP ;
-			}
+		if ( pVM->nSP > pFuncCall->nSP + pVM->nCFuncParaCount ) {
+			ring_vm_stackswap(pVM,pVM->nSP,pFuncCall->nSP+1);
+			pVM->nSP = pFuncCall->nSP+1 ;
+		}
+		else if ( pVM->nSP = pFuncCall->nSP + pVM->nCFuncParaCount ) {
+			pVM->nSP = pFuncCall->nSP ;
 		}
 		/* Trace */
 		ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_AFTERCFUNC);
