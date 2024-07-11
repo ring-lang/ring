@@ -275,10 +275,10 @@ void ring_vm_call2 ( VM *pVM )
 		/*
 		**  We move the list to the previous scope 
 		**  Because we may have nested functions calls like refcount( list(nSize) ) 
-		**  Move returned List to the previous scope 
+		**  Check Flag 
 		*/
-		if ( RING_VM_STACK_ISPOINTER ) {
-			ring_vm_movetoprevscope(pVM,RING_FUNCTYPE_C);
+		if ( pVM->lDontMoveToPrevScope ) {
+			pVM->lDontMoveToPrevScope = 0 ;
 		}
 		/* Return (Delete Function Call List) */
 		ring_list_deleteitem_gc(pVM->pRingState,pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));

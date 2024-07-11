@@ -481,7 +481,7 @@ RING_API List * ring_vm_api_newlist ( VM *pVM )
 	List *pList  ;
 	FuncCall *pFuncCall  ;
 	pFuncCall = RING_VM_LASTFUNCCALL ;
-	pList = ring_list_newlist_gc(pVM->pRingState,pFuncCall->pTempMem);
+	pList = ring_list_newlist_gc(pVM->pRingState,ring_vm_prevtempmem(pVM));
 	return pList ;
 }
 
