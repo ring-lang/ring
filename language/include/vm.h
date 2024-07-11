@@ -115,7 +115,6 @@
 		unsigned char nNoSetterMethod  ;
 		unsigned int lActiveCatch: 1  ;
 		unsigned int lCallMainFunction: 1  ;
-		unsigned int lUsePushPLocal: 1  ;
 		unsigned int lCheckOverFlow: 1  ;
 		unsigned int lExitFlag: 1  ;
 		unsigned int lCheckBraceError: 1  ;
