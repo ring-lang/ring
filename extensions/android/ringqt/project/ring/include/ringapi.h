@@ -26,7 +26,7 @@
 	/* API For C Functions */
 	#define RING_API_STATE (((VM *) pPointer)->pRingState)
 	#define RING_API_PARALIST ring_vm_api_paralist((VM *) pPointer)
-	#define RING_API_PARACOUNT ring_vm_api_paracount((VM *) pPointer)
+	#define RING_API_PARACOUNT (ring_vm_api_paracount((VM *) pPointer))
 	#define RING_API_GETSTRING(nPara) (ring_vm_api_getstring((VM *) pPointer,nPara))
 	#define RING_API_GETNUMBER(nPara) (ring_vm_api_getnumber((VM *) pPointer,nPara))
 	#define RING_API_GETPOINTER(nPara) (ring_vm_api_getpointer((VM *) pPointer,nPara))
