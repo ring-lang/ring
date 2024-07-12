@@ -9212,6 +9212,60 @@ RING_FUNC(ring_ImageTextEx_2)
 }
 
 
+RING_FUNC(ring_ImageDraw_2)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ImageDraw((Image *) RING_API_GETCPOINTER(1,"Image"),* (Image  *) RING_API_GETCPOINTER(2,"Image"),* (Rectangle  *) RING_API_GETCPOINTER(3,"Rectangle"),* (Rectangle  *) RING_API_GETCPOINTER(4,"Rectangle"),* (Color  *) RING_API_GETCPOINTER(5,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Image"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Rectangle"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Rectangle"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		RING_API_FREE(RING_API_GETCPOINTER(5,"Color"));
+}
+
+
+RING_FUNC(ring_ImageDrawTextEx_2)
+{
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ImageDrawTextEx((Image *) RING_API_GETCPOINTER(1,"Image"),* (Font  *) RING_API_GETCPOINTER(2,"Font"),RING_API_GETSTRING(3),* (Vector2  *) RING_API_GETCPOINTER(4,"Vector2"), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6),* (Color  *) RING_API_GETCPOINTER(7,"Color"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Font"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Vector2"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(7))
+		RING_API_FREE(RING_API_GETCPOINTER(7,"Color"));
+}
+
+
 RING_FUNC(ring_ImageFlipVertical_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -12901,6 +12955,8 @@ RING_LIBINIT
 	RING_API_REGISTER("imagedither_2",ring_ImageDither_2);
 	RING_API_REGISTER("imagetext_2",ring_ImageText_2);
 	RING_API_REGISTER("imagetextex_2",ring_ImageTextEx_2);
+	RING_API_REGISTER("imagedraw_2",ring_ImageDraw_2);
+	RING_API_REGISTER("imagedrawtextex_2",ring_ImageDrawTextEx_2);
 	RING_API_REGISTER("imageflipvertical_2",ring_ImageFlipVertical_2);
 	RING_API_REGISTER("imagefliphorizontal_2",ring_ImageFlipHorizontal_2);
 	RING_API_REGISTER("imagerotatecw_2",ring_ImageRotateCW_2);

@@ -362,7 +362,7 @@ func ImageCrop image, crop
 	return oImage
 
 func ImageDraw dst, src,  srcRec,  dstRec
-	ImageDraw_2(GPData(dst), GPData(src),  GPData(srcRec),  GPData(dstRec))
+	ImageDraw_2(GPData(dst), GPData(src),  GPData(srcRec),  GPData(dstRec),RAYWHITE)
 	UOData(dst)
 	UOData(src)
 	return
@@ -593,7 +593,7 @@ func ImageDrawText dst, position, text, fontSize, color
 	return
 
 func ImageDrawTextEx dst, position, font, text, fontSize, spacing, color
-	ImageDrawTextEx_2(GPData(dst), GPData(position), GPData(font), text, fontSize, spacing, GPData(color))
+	ImageDrawTextEx_2(GPData(dst), GPData(font), text, GPData(position),  fontSize, spacing, GPData(color))
 	UOData(dst)
 	return
 

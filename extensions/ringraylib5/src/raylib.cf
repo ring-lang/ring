@@ -288,12 +288,12 @@ Color *ImageExtractPalette@2(Image image, int maxPaletteSize, int *extractCount)
 </comment>
 Image ImageText@2(const char *text, int fontSize, Color color)
 Image ImageTextEx@2(Font font, const char *text, float fontSize, float spacing, Color tint)
+void ImageDraw@2(Image *dst, Image src, Rectangle srcRec, Rectangle dstRec,Color tint)
+void ImageDrawTextEx@2(Image *dst, Font font, const char *text,Vector2 position,  float fontSize, float spacing, Color color)
 <comment>
-void ImageDraw@2(Image *dst, Image src, Rectangle srcRec, Rectangle dstRec)
 void ImageDrawRectangle@2(Image *dst, Rectangle rec, Color color)
 void ImageDrawRectangleLines@2(Image *dst, Rectangle rec, int thick, Color color)
 void ImageDrawText@2(Image *dst, Vector2 position, const char *text, int fontSize, Color color)
-void ImageDrawTextEx@2(Image *dst, Vector2 position, Font font, const char *text, float fontSize, float spacing, Color color)
 </comment>
 void ImageFlipVertical@2(Image *image)
 void ImageFlipHorizontal@2(Image *image)
