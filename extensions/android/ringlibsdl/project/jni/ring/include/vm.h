@@ -118,7 +118,6 @@
 		unsigned int lCheckOverFlow: 1  ;
 		unsigned int lExitFlag: 1  ;
 		unsigned int lCheckBraceError: 1  ;
-		unsigned int lDontMoveToPrevScope: 1  ;
 		unsigned int lSelfLoadA: 1  ;
 		unsigned int lCallMethod: 1  ;
 		unsigned int lInsideBraceFlag: 1  ;

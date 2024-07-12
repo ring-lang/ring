@@ -275,12 +275,8 @@ void ring_vm_call2 ( VM *pVM )
 		/*
 		**  We move the list to the previous scope 
 		**  Because we may have nested functions calls like refcount( list(nSize) ) 
-		**  Check Flag 
+		**  Return (Delete Function Call List) 
 		*/
-		if ( pVM->lDontMoveToPrevScope ) {
-			pVM->lDontMoveToPrevScope = 0 ;
-		}
-		/* Return (Delete Function Call List) */
 		ring_list_deleteitem_gc(pVM->pRingState,pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
 		/* Restore nFuncSP value */
 		if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
@@ -559,13 +555,8 @@ void ring_vm_movetoprevscope ( VM *pVM,int nFuncType )
 	/*
 	**  When the function return a value of type List or nested List 
 	**  We copy the list to the previous scope, change the pointer 
+	**  Get The Source List 
 	*/
-	/* Check Flag */
-	if ( pVM->lDontMoveToPrevScope ) {
-		pVM->lDontMoveToPrevScope = 0 ;
-		return ;
-	}
-	/* Get The Source List */
 	if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
 		pList = (List *) RING_VM_STACK_READP ;
 		if ( ring_list_islist(pList,RING_VAR_VALUE) ) {

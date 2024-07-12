@@ -195,8 +195,6 @@ lActiveCatch: 1
 Type: unsigned int
 lCallMainFunction: 1
 Type: unsigned int
-lUsePushPLocal: 1
-Type: unsigned int
 lCheckOverFlow: 1
 Type: unsigned int
 lExitFlag: 1
@@ -244,8 +242,6 @@ Type: unsigned int
 lSubStringToNumError: 1
 Type: unsigned int
 lOptionalLoop: 1
-Type: unsigned int
-lCFuncUseStack: 1
 Type: Item
 aStack[RING_VM_STACK_SIZE]
 END:

@@ -424,7 +424,6 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
 			ring_list_disabledontref(pList);
 			/* Take in mind ref(ref(ref(new obj))) */
 			ring_list_enabledontrefagain(pList);
-			pVM->lDontMoveToPrevScope = ring_vm_oop_isobject(pList) ;
 			/* Keep the same object (Ref() parameter) on the Stack (i.e. Return para. as output) */
 			ring_vm_dup(pVM);
 			return ;
@@ -454,7 +453,6 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
 	else {
 		/* Used by RING_API_RETNEWREF (i.e. Ref()/Reference() function implementation) */
 		pVariableList = ring_list_newref_gc(((VM *) pPointer)->pRingState,pVariableList,pList);
-		pVM->lDontMoveToPrevScope = 1 ;
 	}
 	if ( (nRef == RING_OUTPUT_RETLIST) || (nRef == RING_OUTPUT_RETLISTBYREF) ) {
 		/* Update self object pointer */

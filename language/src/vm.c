@@ -194,8 +194,6 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->lExitFlag = 0 ;
 	/* A flag to enable/disable BraceError() Method usage for the current Error */
 	pVM->lCheckBraceError = 1 ;
-	/* A flag to disable (Move To Prev. Scope) by Return Command */
-	pVM->lDontMoveToPrevScope = 0 ;
 	/* A flag if we are using LoadA to get the Self variable */
 	pVM->lSelfLoadA = 0 ;
 	/* List of pointers that contains lists that will be deleted later */
