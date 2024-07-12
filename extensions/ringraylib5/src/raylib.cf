@@ -306,6 +306,11 @@ void ImageColorContrast@2(Image *image, float contrast)
 void ImageColorBrightness@2(Image *image, int brightness)
 void ImageColorReplace@2(Image *image, Color color, Color replace)
 Image GenImageColor@2(int width, int height, Color color)
+
+Image GenImageGradientLinear(int width, int height, int direction, Color start, Color end)
+Image GenImageGradientRadial(int width, int height, float density, Color inner, Color outer)
+Image GenImageGradientSquare(int width, int height, float density, Color inner, Color outer)
+
 <comment>
 Image GenImageGradientV@2(int width, int height, Color top, Color bottom)
 Image GenImageGradientH@2(int width, int height, Color left, Color right)

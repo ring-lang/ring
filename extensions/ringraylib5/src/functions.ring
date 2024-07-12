@@ -848,21 +848,6 @@ func GenImageColor width,  height, color
 	oImage.setData(GenImageColor_2( width,  height, GPData(color) ) )
 	return oImage
 
-func GenImageGradientV width, height, top, bottom
-	oImage = new Image 
-	oImage.setData(GenImageGradientV_2( width, height, GPData(top), GPData(bottom)) )
-	return oImage
-
-func GenImageGradientH width, height, left, right
-	oImage = new Image 
-	oImage.setData(GenImageGradientH_2( width, height, GPData(left), GPData(right) ) )
-	return oImage
-
-func GenImageGradientRadial width, height, density, inner, outer
-	oImage = new Image 
-	oImage.setData(GenImageGradientRadial_2( width, height, density, GPData(inner), GPData(outer) ) )
-	return oImage
-
 func GenImageChecked width, height, checksX, checksY, col1, col2
 	oImage = new Image 
 	oImage.setData(GenImageChecked_2( width, height, checksX, checksY, GPData(col1), GPData(col2) ) )
