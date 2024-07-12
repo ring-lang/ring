@@ -112,10 +112,6 @@ func Wave p1,p2,p3,p4,p5
 	oWave = new Wave(p1,p2,p3,p4,p5)
 	return oWave
 
-func Sound p1,p2,p3,p4
-	oSound = new Sound(p1,p2,p3,p4)
-	return oSound
-
 func AudioStream p1,p2,p3,p4,p5,p6
 	oAudioStream = new AudioStream(p1,p2,p3,p4,p5,p6)
 	return oAudioStream
@@ -643,14 +639,7 @@ func LoadWaveEx data, sampleCount, sampleRate, sampleSize, channels
 	return oWave
 
 func LoadSound fileName
-	oSound = new Sound
-	oSound.setData( LoadSound_2(fileName) )
-	return oSound
-
-func LoadSoundFromWave wave
-	oSound = new Sound
-	oSound.setData( LoadSoundFromWave_2(wave) )
-	return oSound
+	return LoadSound_2(fileName)
 
 func UpdateSound sound, data, samplesCount
 	return UpdateSound_2(GPData(sound), data, samplesCount)

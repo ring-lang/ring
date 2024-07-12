@@ -879,29 +879,6 @@ class Wave from RayLibBase
 		Channels	= raylib_get_Wave_Channels(oStruct)
 		Data		= raylib_get_Wave_Data(oStruct)
 
-class Sound from RayLibBase
-
-	audioBuffer source buffer format
-
-	oData = raylib_new_Sound()
-
-	func init p1,p2,p3,p4
-		audioBuffer=p1 source=p2 buffer=p3 format=p4
-
-	func data 
-		raylib_set_Sound_audioBuffer(oData,audioBuffer)
-		raylib_set_Sound_source(oData,source)
-		raylib_set_Sound_buffer(oData,buffer)
-		raylib_set_Sound_format(oData,format)
-		return oData	
-
-	func setdata oStruct 
-		oData = oStruct  
-		audioBuffer	= raylib_get_Sound_AudioBuffer(oStruct)
-		source		= raylib_get_Sound_Source(oStruct)
-		buffer		= raylib_get_Sound_Buffer(oStruct)
-		format		= raylib_get_Sound_Format(oStruct)
-
 class Music 
 
 	oData

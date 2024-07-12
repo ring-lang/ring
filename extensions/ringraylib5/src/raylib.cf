@@ -54,7 +54,6 @@ Wave {sampleCount,sampleRate,sampleSize,channels,void *data}
 AudioStream {sampleRate, sampleSize, channels, void *audioBuffer, format, source}
 Sound {void *audioBuffer, source, buffer, format}
 Material {shader.id, float *params}
-
 </comment>
 
 <funcstart>
