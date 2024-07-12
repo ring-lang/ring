@@ -1,0 +1,969 @@
+<nodllstartup>
+<code>
+/* Copyright (c) 2019-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
+
+#define RING_EXTENSION	// Don't call : windows.h (Avoid conflict with raylib.h)
+#include <ring.h>
+
+#include <raylib.h>
+
+
+#define RAYGUI_IMPLEMENTATION
+#include "raygui/raygui.h"
+
+#include "raymath/raymath.h"
+
+</code>
+
+<runcode>
+aNumberTypes + "unsigned int"
+aNumberTypes + "float"
+</runcode>
+
+<struct>
+Vector2 {x, y}
+Vector3 {x, y, z}
+Vector4 {x, y, z, w}
+Quaternion {x, y, z, w}
+Matrix {m0, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12, m13, m14, m15 }
+Color {r, g, b, a}
+Rectangle {x, y, width, height}
+Image {void *data, width, height, mipmaps, format}
+Texture2D {id, width, height, mipmaps, format}
+Texture {id, width, height, mipmaps, format}
+RenderTexture2D {id, texture.id, texture.width, texture.height, texture.mipmaps, texture.format, depth.id, depth.width, depth.height, depth.mipmaps, depth.format}
+RenderTexture {id, texture.id, texture.width, texture.height, texture.mipmaps, texture.format, depth.id, depth.width, depth.height, depth.mipmaps, depth.format}
+NPatchInfo {left, top , right, bottom}
+Font {texture.id, texture.width, texture.height, texture.mipmaps, texture.format, baseSize}
+Camera3D {position.x, position.y, position.z, target.x, target.y, target.z, up.x, up.y, up.z, fovy}
+Shader {id}
+MaterialMap {texture.id, texture.width, texture.height, texture.mipmaps, texture.format, value}
+Transform {translation.x, translation.y, translation.z, rotation.x, rotation.y, rotation.z, rotation.w, scale.x, scale.y, scale.z}
+BoneInfo {parent}
+Model {transform.m0, transform.m1, transform.m2, transform.m3, transform.m4, transform.m5, transform.m6, transform.m7, transform.m8, transform.m9, transform.m10, transform.m11, transform.m12, transform.m13, transform.m14, transform.m15, meshCount, Mesh *meshes, materialCount, Material *materials, int *meshMaterial, boneCount, BoneInfo *bones, Transform *bindPose} 
+ModelAnimation {boneCount, BoneInfo *bones, frameCount}
+Ray {position.x, position.y, position.z, direction.x, direction.y, direction.z}
+BoundingBox {min.x, min.y, min.z, max.x, max.y, max.z}
+VrDeviceInfo {hResolution, vResolution, hScreenSize, vScreenSize, vScreenCenter, eyeToScreenDistance, lensSeparationDistance, interpupillaryDistance}
+</struct>
+
+<comment>
+RayHitInfo {hit,distance,position.x, position.y, position.z, normal.x, normal.y, normal.z}
+Mesh {vertexCount, triangleCount, float *vertices, float *texcoords, float *texcoords2, float *normals, float *tangents, unsigned char *colors, unsigned short *indices, float *animVertices, float *animNormals, int *boneIds, float *boneWeights, vaoId}
+Wave {sampleCount,sampleRate,sampleSize,channels,void *data}
+AudioStream {sampleRate, sampleSize, channels, void *audioBuffer, format, source}
+Sound {void *audioBuffer, source, buffer, format}
+Material {shader.id, float *params}
+
+</comment>
+
+<funcstart>
+raylib
+</funcstart>
+
+void InitWindow(int width, int height, const char *title)
+bool WindowShouldClose(void)
+void CloseWindow(void)
+bool IsWindowReady(void)
+bool IsWindowMinimized(void)
+bool IsWindowResized(void)
+bool IsWindowHidden(void)
+void ToggleFullscreen(void)
+<comment>
+void UnhideWindow(void)
+void HideWindow(void)
+</comment>
+void SetWindowIcon@2(Image image)
+void SetWindowTitle(const char *title)
+void SetWindowPosition(int x, int y)
+void SetWindowMonitor(int monitor)
+void SetWindowMinSize(int width, int height)
+void SetWindowSize(int width, int height)
+void *GetWindowHandle(void)
+int GetScreenWidth(void)
+int GetScreenHeight(void)
+int GetMonitorCount(void)
+int GetMonitorWidth(int monitor)
+int GetMonitorHeight(int monitor)
+int GetMonitorPhysicalWidth(int monitor)
+int GetMonitorPhysicalHeight(int monitor)
+const char *GetMonitorName(int monitor)
+const char *GetClipboardText(void)
+void SetClipboardText(const char *text)
+void ShowCursor(void)
+void HideCursor(void)
+bool IsCursorHidden(void)
+void EnableCursor(void)
+void DisableCursor(void)
+void ClearBackground@2(Color color)
+void BeginDrawing(void)
+void EndDrawing(void)
+void BeginMode2D@2(Camera2D camera)
+void EndMode2D(void)
+void BeginMode3D@2(Camera3D camera)
+void EndMode3D(void)
+void BeginTextureMode@2(RenderTexture2D target)
+void EndTextureMode(void)
+Ray GetMouseRay@2(Vector2 mousePosition, Camera3D camera)
+Vector2 GetWorldToScreen@2(Vector3 position, Camera3D camera)
+Matrix GetCameraMatrix@2(Camera3D camera)
+void SetTargetFPS(int fps)
+int GetFPS(void)
+float GetFrameTime(void)
+double GetTime(void)
+int ColorToInt@2(Color color)
+Vector4 ColorNormalize@2(Color color)
+Vector3 ColorToHSV@2(Color color)
+Color ColorFromHSV@2(float hue, float saturation, float value)
+Color GetColor(int hexValue)
+Color Fade@2(Color color, float alpha)
+void SetConfigFlags(unsigned char flags)
+<comment>
+void SetTraceLogLevel(int logType)
+void SetTraceLogExit(int logType)
+</comment>
+void SetTraceLogCallback(TraceLogCallback callback)
+void TraceLog(int logType, const char *text)
+void TakeScreenshot(const char *fileName)
+int GetRandomValue(int min, int max)
+bool FileExists(const char *fileName)
+bool IsFileExtension(const char *fileName, const char *ext)
+<comment>
+const char *GetExtension(const char *fileName)
+</comment>
+const char *GetFileName(const char *filePath)
+const char *GetFileNameWithoutExt(const char *filePath)
+const char *GetDirectoryPath(const char *fileName)
+const char *GetWorkingDirectory(void)
+<comment>
+char **GetDirectoryFiles(const char *dirPath, int *count)
+void ClearDirectoryFiles(void)
+</comment>
+bool ChangeDirectory(const char *dir)
+bool IsFileDropped(void)
+<comment>
+char **GetDroppedFiles(int *count)
+void ClearDroppedFiles(void)
+</comment>
+long GetFileModTime(const char *fileName)
+<comment>
+void StorageSaveValue(int position, int value)
+int StorageLoadValue(int position)
+</comment>
+void OpenURL(const char *url)
+bool IsKeyPressed@2(int key)
+bool IsKeyDown@2(int key)
+bool IsKeyReleased@2(int key)
+bool IsKeyUp@2(int key)
+int GetKeyPressed(void)
+void SetExitKey@2(int key)
+bool IsGamepadAvailable(int gamepad)
+<comment>
+bool IsGamepadName(int gamepad, const char *name)
+</comment>
+const char *GetGamepadName(int gamepad)
+bool IsGamepadButtonPressed(int gamepad, int button)
+bool IsGamepadButtonDown(int gamepad, int button)
+bool IsGamepadButtonReleased(int gamepad, int button)
+bool IsGamepadButtonUp(int gamepad, int button)
+int GetGamepadButtonPressed(void)
+int GetGamepadAxisCount(int gamepad)
+float GetGamepadAxisMovement(int gamepad, int axis)
+bool IsMouseButtonPressed(int button)
+bool IsMouseButtonDown(int button)
+bool IsMouseButtonReleased(int button)
+bool IsMouseButtonUp(int button)
+int GetMouseX(void)
+int GetMouseY(void)
+Vector2 GetMousePosition@2(void)
+void SetMousePosition(int x, int y)
+void SetMouseOffset(int offsetX, int offsetY)
+void SetMouseScale(float scaleX, float scaleY)
+int GetMouseWheelMove(void)
+int GetTouchX(void)
+int GetTouchY(void)
+Vector2 GetTouchPosition@2(int index)
+void SetGesturesEnabled(unsigned int gestureFlags)
+bool IsGestureDetected(int gesture)
+int GetGestureDetected(void)
+<comment>
+int GetTouchPointsCount(void)
+</comment>
+float GetGestureHoldDuration(void)
+Vector2 GetGestureDragVector@2(void)
+float GetGestureDragAngle(void)
+Vector2 GetGesturePinchVector@2(void)
+float GetGesturePinchAngle(void)
+<comment>
+void SetCameraMode@2(Camera3D camera, int mode)
+</comment>
+void UpdateCamera@2(Camera3D *camera,int mode)
+<comment>
+void SetCameraPanControl(int panKey)
+void SetCameraAltControl(int altKey)
+void SetCameraSmoothZoomControl(int szKey)
+void SetCameraMoveControls(int frontKey, int backKey, int rightKey, int leftKey, int upKey, int downKey)
+</comment>
+
+void DrawPixel@2(int posX, int posY, Color color)
+void DrawPixelV@2(Vector2 position, Color color)
+void DrawLine@2(int startPosX, int startPosY, int endPosX, int endPosY, Color color)
+void DrawLineV@2(Vector2 startPos, Vector2 endPos, Color color)
+void DrawLineEx@2(Vector2 startPos, Vector2 endPos, float thick, Color color)
+void DrawLineBezier@2(Vector2 startPos, Vector2 endPos, float thick, Color color)
+void DrawLineStrip@2(Vector2 *points, int numPoints, Color color)
+void DrawCircle@2(int centerX, int centerY, float radius, Color color)
+void DrawCircleSector@2(Vector2 center, float radius, int startAngle, int endAngle, int segments, Color color)
+void DrawCircleSectorLines@2(Vector2 center, float radius, int startAngle, int endAngle, int segments, Color color)
+void DrawCircleGradient@2(int centerX, int centerY, float radius, Color color1, Color color2)
+void DrawCircleV@2(Vector2 center, float radius, Color color)
+void DrawCircleLines@2(int centerX, int centerY, float radius, Color color)
+void DrawRing@2(Vector2 center, float innerRadius, float outerRadius, int startAngle, int endAngle, int segments, Color color)
+void DrawRingLines@2(Vector2 center, float innerRadius, float outerRadius, int startAngle, int endAngle, int segments, Color color)
+void DrawRectangle@2(int posX, int posY, int width, int height, Color color)
+void DrawRectangleV@2(Vector2 position, Vector2 size, Color color)
+void DrawRectangleRec@2(Rectangle rec, Color color)
+void DrawRectanglePro@2(Rectangle rec, Vector2 origin, float rotation, Color color)
+void DrawRectangleGradientV@2(int posX, int posY, int width, int height, Color color1, Color color2)
+void DrawRectangleGradientH@2(int posX, int posY, int width, int height, Color color1, Color color2)
+void DrawRectangleGradientEx@2(Rectangle rec, Color col1, Color col2, Color col3, Color col4)
+void DrawRectangleLines@2(int posX, int posY, int width, int height, Color color)
+void DrawRectangleLinesEx@2(Rectangle rec, int lineThick, Color color)
+void DrawRectangleRounded@2(Rectangle rec, float roundness, int segments, Color color)
+void DrawRectangleRoundedLines@2(Rectangle rec, float roundness, int segments, int lineThick, Color color)
+void DrawTriangle@2(Vector2 v1, Vector2 v2, Vector2 v3, Color color)
+void DrawTriangleLines@2(Vector2 v1, Vector2 v2, Vector2 v3, Color color)
+void DrawTriangleFan@2(Vector2 *points, int numPoints, Color color)
+void DrawPoly@2(Vector2 center, int sides, float radius, float rotation, Color color)
+void SetShapesTexture@2(Texture2D texture, Rectangle source)
+bool CheckCollisionRecs@2(Rectangle rec1, Rectangle rec2)
+bool CheckCollisionCircles@2(Vector2 center1, float radius1, Vector2 center2, float radius2)
+bool CheckCollisionCircleRec@2(Vector2 center, float radius, Rectangle rec)
+Rectangle GetCollisionRec@2(Rectangle rec1, Rectangle rec2)
+bool CheckCollisionPointRec@2(Vector2 point, Rectangle rec)
+bool CheckCollisionPointCircle@2(Vector2 point, Vector2 center, float radius)
+bool CheckCollisionPointTriangle@2(Vector2 point, Vector2 p1, Vector2 p2, Vector2 p3)
+Image LoadImage@2(const char *fileName)
+<comment>
+Image LoadImageEx@2(Color *pixels, int width, int height)
+Image LoadImagePro@2(void *data, int width, int height, int format)
+Image LoadImageRaw@2(const char *fileName, int width, int height, int format, int headerSize)
+</comment>
+void ExportImage@2(Image image, const char *fileName)
+void ExportImageAsCode@2(Image image, const char *fileName)
+Texture2D LoadTexture@2(const char *fileName)
+Texture2D LoadTextureFromImage@2(Image image)
+TextureCubemap LoadTextureCubemap(Image image, int layoutType)
+RenderTexture2D LoadRenderTexture@2(int width, int height)
+void UnloadImage@2(Image image)
+void UnloadTexture@2(Texture2D texture)
+void UnloadRenderTexture@2(RenderTexture2D target)
+<comment>
+Color *GetImageData@2(Image image)
+Vector4 *GetImageDataNormalized@2(Image image)
+</comment>
+Color *LoadImageColors@2(Image image)   
+
+
+int GetPixelDataSize(int width, int height, int format)
+<comment>
+Image GetTextureData@2(Texture2D texture)
+Image GetScreenData@2(void)
+</comment>
+void UpdateTexture@2(Texture2D texture, const void *pixels)
+Image ImageCopy@2(Image image)
+void ImageToPOT@2(Image *image, Color fillColor)
+void ImageFormat@2(Image *image, int newFormat)
+void ImageAlphaMask@2(Image *image, Image alphaMask)
+void ImageAlphaClear@2(Image *image, Color color, float threshold)
+void ImageAlphaCrop@2(Image *image, float threshold)
+void ImageAlphaPremultiply@2(Image *image)
+void ImageCrop@2(Image *image, Rectangle crop)
+void ImageResize@2(Image *image, int newWidth, int newHeight)
+void ImageResizeNN@2(Image *image, int newWidth,int newHeight)
+void ImageResizeCanvas@2(Image *image, int newWidth, int newHeight, int offsetX, int offsetY, Color color)
+void ImageMipmaps@2(Image *image)
+void ImageDither@2(Image *image, int rBpp, int gBpp, int bBpp, int aBpp)
+<comment>
+Color *ImageExtractPalette@2(Image image, int maxPaletteSize, int *extractCount)
+</comment>
+Image ImageText@2(const char *text, int fontSize, Color color)
+Image ImageTextEx@2(Font font, const char *text, float fontSize, float spacing, Color tint)
+<comment>
+void ImageDraw@2(Image *dst, Image src, Rectangle srcRec, Rectangle dstRec)
+void ImageDrawRectangle@2(Image *dst, Rectangle rec, Color color)
+void ImageDrawRectangleLines@2(Image *dst, Rectangle rec, int thick, Color color)
+void ImageDrawText@2(Image *dst, Vector2 position, const char *text, int fontSize, Color color)
+void ImageDrawTextEx@2(Image *dst, Vector2 position, Font font, const char *text, float fontSize, float spacing, Color color)
+</comment>
+void ImageFlipVertical@2(Image *image)
+void ImageFlipHorizontal@2(Image *image)
+void ImageRotateCW@2(Image *image)
+void ImageRotateCCW@2(Image *image)
+void ImageColorTint@2(Image *image, Color color)
+void ImageColorInvert@2(Image *image)
+void ImageColorGrayscale@2(Image *image)
+void ImageColorContrast@2(Image *image, float contrast)
+void ImageColorBrightness@2(Image *image, int brightness)
+void ImageColorReplace@2(Image *image, Color color, Color replace)
+Image GenImageColor@2(int width, int height, Color color)
+<comment>
+Image GenImageGradientV@2(int width, int height, Color top, Color bottom)
+Image GenImageGradientH@2(int width, int height, Color left, Color right)
+Image GenImageGradientRadial@2(int width, int height, float density, Color inner, Color outer)
+</comment>
+Image GenImageChecked@2(int width, int height, int checksX, int checksY, Color col1, Color col2)
+Image GenImageWhiteNoise@2(int width, int height, float factor)
+Image GenImagePerlinNoise@2(int width, int height, int offsetX, int offsetY, float scale)
+Image GenImageCellular@2(int width, int height, int tileSize)
+void GenTextureMipmaps@2(Texture2D *texture)
+void SetTextureFilter@2(Texture2D texture, int filterMode)
+void SetTextureWrap@2(Texture2D texture, int wrapMode)
+void DrawTexture@2(Texture2D texture, int posX, int posY, Color tint)
+void DrawTextureV@2(Texture2D texture, Vector2 position, Color tint)
+void DrawTextureEx@2(Texture2D texture, Vector2 position, float rotation, float scale, Color tint)
+void DrawTextureRec@2(Texture2D texture, Rectangle sourceRec, Vector2 position, Color tint)
+<comment>
+void DrawTextureQuad@2(Texture2D texture, Vector2 tiling, Vector2 offset, Rectangle quad, Color tint)
+</comment>
+void DrawTexturePro@2(Texture2D texture, Rectangle sourceRec, Rectangle destRec, Vector2 origin, float rotation, Color tint)
+void DrawTextureNPatch@2(Texture2D texture, NPatchInfo nPatchInfo, Rectangle destRec, Vector2 origin, float rotation, Color tint)
+Font GetFontDefault@2(void)
+Font LoadFont@2(const char *fileName)
+Font LoadFontEx@2(const char *fileName, int fontSize, int *fontChars, int charsCount)
+Font LoadFontFromImage@2(Image image, Color key, int firstChar)
+<comment>
+CharInfo *LoadFontData@2(const char *fileName, int fontSize, int *fontChars, int charsCount, int type)
+Image GenImageFontAtlas@2(CharInfo *chars, int charsCount, int fontSize, int padding, int packMethod)
+
+</comment>
+void UnloadFont@2(Font font)
+void DrawFPS(int posX, int posY)
+void DrawText(const char *text, int posX, int posY, int fontSize, Color color)
+void DrawTextEx@2(Font font, const char *text, Vector2 position, float fontSize, float spacing, Color tint)
+<comment>
+void DrawTextRec@2(Font font, const char *text, Rectangle rec, float fontSize, float spacing, bool wordWrap, Color tint)
+void DrawTextRecEx@2(Font font, const char *text, Rectangle rec, float fontSize, float spacing, bool wordWrap, Color tint,int selectStart, int selectLength, Color selectText, Color selectBack)
+</comment>
+int MeasureText(const char *text, int fontSize)
+Vector2 MeasureTextEx@2(Font font, const char *text, float fontSize, float spacing)
+int GetGlyphIndex@2(Font font, int character)
+<comment>
+int GetNextCodepoint(const char *text, int *count)
+</comment>
+bool TextIsEqual(const char *text1, const char *text2)
+unsigned int TextLength(const char *text)
+<comment>
+unsigned int TextCountCodepoints(const char *text)
+</comment>
+const char *TextFormat(const char *text)
+const char *TextSubtext(const char *text, int position, int length)
+const char *TextReplace(char *text, const char *replace, const char *by)
+const char *TextInsert(const char *text, const char *insert, int position)
+const char *TextJoin(const char **textList, int count, const char *delimiter)
+const char **TextSplit(const char *text, char delimiter, int *count)
+void TextAppend(char *text, const char *append, int *position)
+int TextFindIndex(const char *text, const char *find)
+const char *TextToUpper(const char *text)
+const char *TextToLower(const char *text)
+const char *TextToPascal(const char *text)
+int TextToInteger(const char *text)
+void DrawLine3D@2(Vector3 startPos, Vector3 endPos, Color color)
+void DrawCircle3D@2(Vector3 center, float radius, Vector3 rotationAxis, float rotationAngle, Color color)
+void DrawCube@2(Vector3 position, float width, float height, float length, Color color)
+void DrawCubeV@2(Vector3 position, Vector3 size, Color color)
+void DrawCubeWires@2(Vector3 position, float width, float height, float length, Color color)
+void DrawCubeWiresV@2(Vector3 position, Vector3 size, Color color)
+<comment>
+void DrawCubeTexture@2(Texture2D texture, Vector3 position, float width, float height, float length, Color color)
+</comment>
+void DrawSphere@2(Vector3 centerPos, float radius, Color color)
+void DrawSphereEx@2(Vector3 centerPos, float radius, int rings, int slices, Color color)
+void DrawSphereWires@2(Vector3 centerPos, float radius, int rings, int slices, Color color)
+void DrawCylinder@2(Vector3 position, float radiusTop, float radiusBottom, float height, int slices, Color color)
+void DrawCylinderWires@2(Vector3 position, float radiusTop, float radiusBottom, float height, int slices, Color color)
+void DrawPlane@2(Vector3 centerPos, Vector2 size, Color color)
+void DrawRay@2(Ray ray, Color color)
+void DrawGrid(int slices, float spacing)
+<comment>
+void DrawGizmo@2(Vector3 position)
+</comment>
+Model LoadModel@2(const char *fileName)
+Model LoadModelFromMesh@2(Mesh mesh)
+void UnloadModel@2(Model model)
+<comment>
+Mesh *LoadMeshes@2(const char *fileName, int *meshCount)
+</comment>
+void ExportMesh@2(Mesh mesh, const char *fileName)
+void UnloadMesh@2(Mesh mesh)
+Material *LoadMaterials@2(const char *fileName, int *materialCount)
+Material LoadMaterialDefault@2(void)
+void UnloadMaterial@2(Material material)
+void SetMaterialTexture@2(Material *material, int mapType, Texture2D texture)
+void SetModelMeshMaterial@2(Model *model, int meshId, int materialId)
+ModelAnimation *LoadModelAnimations@2(const char *fileName, int *animsCount)
+void UpdateModelAnimation@2(Model model, ModelAnimation anim, int frame)
+void UnloadModelAnimation@2(ModelAnimation anim)
+bool IsModelAnimationValid@2(Model model, ModelAnimation anim)
+Mesh GenMeshPoly@2(int sides, float radius)
+Mesh GenMeshPlane@2(float width, float length, int resX, int resZ)
+Mesh GenMeshCube@2(float width, float height, float length)
+Mesh GenMeshSphere@2(float radius, int rings, int slices)
+Mesh GenMeshHemiSphere@2(float radius, int rings, int slices)
+Mesh GenMeshCylinder@2(float radius, float height, int slices)
+Mesh GenMeshTorus@2(float radius, float size, int radSeg, int sides)
+Mesh GenMeshKnot@2(float radius, float size, int radSeg, int sides)
+Mesh GenMeshHeightmap@2(Image heightmap, Vector3 size)
+Mesh GenMeshCubicmap@2(Image cubicmap, Vector3 cubeSize)
+BoundingBox GetMeshBoundingBox@2(Mesh mesh)
+<comment>
+void MeshTangents@2(Mesh *mesh)
+void MeshBinormals@2(Mesh *mesh)
+</comment>
+void DrawModel@2(Model model, Vector3 position, float scale, Color tint)
+void DrawModelEx@2(Model model, Vector3 position, Vector3 rotationAxis, float rotationAngle, Vector3 scale, Color tint)
+void DrawModelWires@2(Model model, Vector3 position, float scale, Color tint)
+void DrawModelWiresEx@2(Model model, Vector3 position, Vector3 rotationAxis, float rotationAngle, Vector3 scale, Color tint)
+void DrawBoundingBox@2(BoundingBox box, Color color)
+void DrawBillboard@2(Camera camera, Texture2D texture, Vector3 center, float size, Color tint)
+void DrawBillboardRec@2(Camera camera, Texture2D texture, Rectangle sourceRec, Vector3 center, Vector2 size, Color tint)
+bool CheckCollisionSpheres@2(Vector3 centerA, float radiusA, Vector3 centerB, float radiusB)
+bool CheckCollisionBoxes@2(BoundingBox box1, BoundingBox box2)
+bool CheckCollisionBoxSphere@2(BoundingBox box, Vector3 centerSphere, float radiusSphere)
+<comment>
+bool CheckCollisionRaySphere@2(Ray ray, Vector3 spherePosition, float sphereRadius)
+bool CheckCollisionRaySphereEx@2(Ray ray, Vector3 spherePosition, float sphereRadius, Vector3 *collisionPoint)
+bool CheckCollisionRayBox@2(Ray ray, BoundingBox box)
+RayHitInfo GetCollisionRayModel@2(Ray ray, Model *model)
+RayHitInfo GetCollisionRayTriangle@2(Ray ray, Vector3 p1, Vector3 p2, Vector3 p3)
+RayHitInfo GetCollisionRayGround@2(Ray ray, float groundHeight)
+char *LoadText(const char *fileName)
+</comment>
+Shader LoadShader@2(const char *vsFileName, const char *fsFileName)
+<comment>
+Shader LoadShaderCode@2(char *vsCode, char *fsCode)
+</comment>
+void UnloadShader@2(Shader shader)
+<comment>
+Shader GetShaderDefault@2(void)
+Texture2D GetTextureDefault@2(void)
+</comment>
+int GetShaderLocation@2(Shader shader, const char *uniformName)
+void SetShaderValue@2(Shader shader, int uniformLoc, const void *value, int uniformType)
+void SetShaderValueV@2(Shader shader, int uniformLoc, const void *value, int uniformType, int count)
+void SetShaderValueMatrix@2(Shader shader, int uniformLoc, Matrix mat)
+void SetShaderValueTexture@2(Shader shader, int uniformLoc, Texture2D texture)
+<comment>
+void SetMatrixProjection@2(Matrix proj)
+void SetMatrixModelview@2(Matrix view)
+
+Matrix GetMatrixModelview@2(void)
+Texture2D GenTextureCubemap@2(Shader shader, Texture2D skyHDR, int size)
+Texture2D GenTextureIrradiance@2(Shader shader, Texture2D cubemap, int size)
+Texture2D GenTexturePrefilter@2(Shader shader, Texture2D cubemap, int size)
+Texture2D GenTextureBRDF@2(Shader shader, int size)
+</comment>
+void BeginShaderMode@2(Shader shader)
+void EndShaderMode(void)
+void BeginBlendMode(int mode)
+void EndBlendMode(void)
+void BeginScissorMode(int x, int y, int width, int height)
+void EndScissorMode(void)
+<comment>
+void InitVrSimulator(void)
+void CloseVrSimulator(void)
+void UpdateVrTracking@2(Camera3D *camera)
+void SetVrConfiguration@2(VrDeviceInfo info, Shader distortion)
+bool IsVrSimulatorReady(void)
+void ToggleVrMode(void)
+void BeginVrDrawing(void)
+void EndVrDrawing(void)
+</comment>
+void InitAudioDevice(void)
+void CloseAudioDevice(void)
+bool IsAudioDeviceReady(void)
+void SetMasterVolume(float volume)
+Wave LoadWave@2(const char *fileName)
+<comment>
+Wave LoadWaveEx@2(void *data, int sampleCount, int sampleRate, int sampleSize, int channels)
+</comment>
+Sound LoadSound@2(const char *fileName)
+Sound LoadSoundFromWave@2(Wave wave)
+void UpdateSound@2(Sound sound, const void *data, int samplesCount)
+void UnloadWave@2(Wave wave)
+void UnloadSound@2(Sound sound)
+void ExportWave@2(Wave wave, const char *fileName)
+void ExportWaveAsCode@2(Wave wave, const char *fileName)
+void PlaySound@2(Sound sound)
+void PauseSound@2(Sound sound)
+void ResumeSound@2(Sound sound)
+void StopSound@2(Sound sound)
+bool IsSoundPlaying@2(Sound sound)
+void SetSoundVolume@2(Sound sound, float volume)
+void SetSoundPitch@2(Sound sound, float pitch)
+void WaveFormat@2(Wave *wave, int sampleRate, int sampleSize, int channels)
+Wave WaveCopy@2(Wave wave)
+void WaveCrop@2(Wave *wave, int initSample, int finalSample)
+<comment>
+float *GetWaveData@2(Wave wave)
+</comment>
+Music LoadMusicStream@2(const char *fileName)
+void UnloadMusicStream@2(Music music)
+void PlayMusicStream@2(Music music)
+void UpdateMusicStream@2(Music music)
+void StopMusicStream@2(Music music)
+void PauseMusicStream@2(Music music)
+void ResumeMusicStream@2(Music music)
+<comment>
+bool IsMusicPlaying@2(Music music)
+</comment>
+void SetMusicVolume@2(Music music, float volume)
+void SetMusicPitch@2(Music music, float pitch)
+<comment>
+void SetMusicLoopCount@2(Music music, int count)
+</comment>
+float GetMusicTimeLength@2(Music music)
+float GetMusicTimePlayed@2(Music music)
+<comment>
+AudioStream InitAudioStream@2(unsigned int sampleRate, unsigned int sampleSize, unsigned int channels)
+</comment>
+void UpdateAudioStream@2(AudioStream stream, const void *data, int samplesCount)
+<comment>
+void CloseAudioStream@2(AudioStream stream)
+bool IsAudioBufferProcessed@2(AudioStream stream)
+</comment>
+void PlayAudioStream@2(AudioStream stream)
+void PauseAudioStream@2(AudioStream stream)
+void ResumeAudioStream@2(AudioStream stream)
+bool IsAudioStreamPlaying@2(AudioStream stream)
+void StopAudioStream@2(AudioStream stream)
+void SetAudioStreamVolume@2(AudioStream stream, float volume)
+void SetAudioStreamPitch@2(AudioStream stream, float pitch)
+
+<comment>
+RayGUI Functions 
+</comment>
+
+void GuiEnable(void)
+void GuiDisable(void)
+void GuiLock(void)
+void GuiUnlock(void)
+<comment>
+void GuiState(int state)
+void GuiFade(float alpha)
+void GuiFont(Font font)
+</comment>
+
+void GuiSetStyle(int control, int property, int value)
+int GuiGetStyle(int control, int property)
+
+<comment>
+void GuiTextBoxSetActive(Rectangle bounds)
+Rectangle GuiTextBoxGetActive(void)
+void GuiTextBoxSetCursor(int cursor)
+int GuiTextBoxGetCursor(void)
+void GuiTextBoxSetSelection(int start, int length)
+Vector2 GuiTextBoxGetSelection(void)
+bool GuiTextBoxIsActive(Rectangle bounds)
+int GuiTextBoxGetState(void)
+void GuiTextBoxSetState(int state)
+void GuiTextBoxSelectAll(const char *text)
+void GuiTextBoxCopy(const char *text)
+void GuiTextBoxPaste(char *text, int textSize)
+void GuiTextBoxCut(char *text)
+int GuiTextBoxDelete(char *text, int length, bool before)
+int GuiTextBoxGetByteIndex(const char *text, int start, int from, int to)
+</comment>
+
+bool GuiWindowBox@2(Rectangle bounds, const char *text)
+void GuiGroupBox@2(Rectangle bounds, const char *text)
+void GuiLine@2(Rectangle bounds, const char *text)
+<comment>
+void GuiPanel@2(Rectangle bounds)
+Rectangle GuiScrollPanel@2(Rectangle bounds, Rectangle content, Vector2 *scroll)
+</comment>
+void GuiLabel@2(Rectangle bounds, const char *text)
+bool GuiButton@2(Rectangle bounds, const char *text)
+bool GuiLabelButton@2(Rectangle bounds, const char *text)
+<comment>
+bool GuiImageButton@2(Rectangle bounds, Texture2D texture)
+bool GuiImageButtonEx@2(Rectangle bounds, Texture2D texture, Rectangle texSource, const char *text)
+</comment>
+bool GuiToggle@2(Rectangle bounds, const char *text, bool active)
+int GuiToggleGroup@2(Rectangle bounds, const char *text, int active)
+bool GuiCheckBox@2(Rectangle bounds, const char *text, bool checked)
+int GuiComboBox@2(Rectangle bounds, const char *text, int active)=
+bool GuiDropdownBox@2(Rectangle bounds, const char *text, int *active, bool editMode)
+<comment>
+bool GuiSpinner@2(Rectangle bounds, int *value, int minValue, int maxValue, bool editMode)
+
+bool GuiValueBox@2(Rectangle bounds, int *value, int minValue, int maxValue, bool editMode)
+
+</comment>
+
+bool GuiTextBox@2(Rectangle bounds, char *text, int textSize, bool editMode)
+<comment>
+bool GuiTextBoxMulti@2(Rectangle bounds, char *text, int textSize, bool editMode)
+</comment>
+
+<comment>
+float GuiSlider@2(Rectangle bounds, const char *text, float value, float minValue, float maxValue, bool showValue)
+
+float GuiSliderBar@2(Rectangle bounds, const char *text, float value, float minValue, float maxValue, bool showValue)
+float GuiProgressBar@2(Rectangle bounds, const char *text, float value, float minValue, float maxValue, bool showValue)
+
+</comment>
+void GuiStatusBar@2(Rectangle bounds, const char *text)
+void GuiDummyRec@2(Rectangle bounds, const char *text)
+int GuiScrollBar@2(Rectangle bounds, int value, int minValue, int maxValue)
+<comment>
+Vector2 GuiGrid@2(Rectangle bounds, float spacing, int subdivs)
+</comment>
+
+bool GuiListView@2(Rectangle bounds, const char *text, int *active, int *scrollIndex, bool editMode)
+bool GuiListViewEx@2(Rectangle bounds, const char **text, int count, int *enabled, int *active, int *focus, int *scrollIndex, bool editMode)
+int GuiMessageBox@2(Rectangle bounds, const char *windowTitle, const char *message, const char *buttons)
+
+<comment>
+int GuiTextInputBox@2(Rectangle bounds, const char *windowTitle, const char *message, char *text, const char *buttons)
+
+Color GuiColorPicker@2(Rectangle bounds, Color color)
+</comment>
+
+<comment>
+void GuiLoadStyle(const char *fileName)
+void GuiLoadStyleProps(const int *props, int count)
+</comment>
+void GuiLoadStyleDefault(void)
+<comment>
+void GuiUpdateStyleComplete(void)
+</comment>
+
+<comment>
+const char *GuiIconText(int iconId, const char *text)
+</comment>
+
+<comment>
+RayMath Functions 
+</comment>
+
+<filter> ! IsmacOSx() 
+
+float Clamp(float value, float min, float max)
+float Lerp(float start, float end, float amount)
+float Normalize(float value, float start, float end)
+float Remap(float value, float inputStart, float inputEnd, float outputStart, float outputEnd) 
+<comment>
+Vector2 Vector2Zero@2(void)
+Vector2 Vector2One@2(void)
+Vector2 Vector2Add@2(Vector2 v1, Vector2 v2)
+Vector2 Vector2AddValue@2(Vector2 v, float add)
+Vector2 Vector2Subtract@2(Vector2 v1, Vector2 v2)
+Vector2 Vector2SubtractValue@2(Vector2 v, float sub)
+float Vector2Length@2(Vector2 v)
+float Vector2LengthSqr@2(Vector2 v)
+float Vector2DotProduct@2(Vector2 v1, Vector2 v2)
+float Vector2Distance@2(Vector2 v1, Vector2 v2)
+float Vector2Angle@2(Vector2 v1, Vector2 v2)
+Vector2 Vector2Scale@2(Vector2 v, float scale)
+Vector2 Vector2Multiply@2(Vector2 v1, Vector2 v2)
+Vector2 Vector2Negate@2(Vector2 v)
+Vector2 Vector2Divide@2(Vector2 v1, Vector2 v2)
+Vector2 Vector2Normalize@2(Vector2 v)
+Vector2 Vector2Lerp@2(Vector2 v1, Vector2 v2, float amount)
+Vector2 Vector2Rotate@2(Vector2 v, float degs)
+Vector2 Vector2MoveTowards@2(Vector2 v, Vector2 target, float maxDistance)
+
+Vector3 Vector3Zero@2(void)
+Vector3 Vector3One@2(void)
+Vector3 Vector3Add@2(Vector3 v1, Vector3 v2)
+Vector3 Vector3AddValue@2(Vector3 v, float add)
+Vector3 Vector3Subtract@2(Vector3 v1, Vector3 v2)
+Vector3 Vector3SubtractValue@2(Vector3 v, float sub)
+Vector3 Vector3Scale@2(Vector3 v, float scalar)
+Vector3 Vector3Multiply@2(Vector3 v1, Vector3 v2)
+Vector3 Vector3CrossProduct@2(Vector3 v1, Vector3 v2)
+Vector3 Vector3Perpendicular@2(Vector3 v)
+
+float Vector3Length@2(const Vector3 v)
+float Vector3LengthSqr@2(const Vector3 v)
+float Vector3DotProduct@2(Vector3 v1, Vector3 v2)
+float Vector3Distance@2(Vector3 v1, Vector3 v2)
+Vector3 Vector3Negate@2(Vector3 v)
+Vector3 Vector3Divide@2(Vector3 v1, Vector3 v2)
+Vector3 Vector3Normalize@2(Vector3 v)
+void Vector3OrthoNormalize@2(Vector3 *v1, Vector3 *v2)
+Vector3 Vector3Transform@2(Vector3 v, Matrix mat)
+Vector3 Vector3RotateByQuaternion@2(Vector3 v, Quaternion q)
+Vector3 Vector3Lerp@2(Vector3 v1, Vector3 v2, float amount)
+Vector3 Vector3Reflect@2(Vector3 v, Vector3 normal)
+Vector3 Vector3Min@2(Vector3 v1, Vector3 v2)
+Vector3 Vector3Max@2(Vector3 v1, Vector3 v2)
+Vector3 Vector3Barycenter@2(Vector3 p, Vector3 a, Vector3 b, Vector3 c)
+float3 Vector3ToFloatV@2(Vector3 v)
+</comment>
+
+
+float MatrixDeterminant@2(Matrix mat)
+float MatrixTrace@2(Matrix mat)
+<comment>
+Matrix MatrixTranspose@2(Matrix mat)
+Matrix MatrixInvert@2(Matrix mat)
+Matrix MatrixNormalize@2(Matrix mat)
+Matrix MatrixIdentity@2(void)
+Matrix MatrixAdd@2(Matrix left, Matrix right)
+Matrix MatrixSubtract@2(Matrix left, Matrix right)
+Matrix MatrixTranslate@2(float x, float y, float z)
+Matrix MatrixRotate@2(Vector3 axis, float angle)
+Matrix MatrixRotateXYZ@2(Vector3 ang)
+Matrix MatrixRotateX@2(float angle)
+Matrix MatrixRotateY@2(float angle)
+Matrix MatrixRotateZ@2(float angle)
+Matrix MatrixScale@2(float x, float y, float z)
+Matrix MatrixMultiply@2(Matrix left, Matrix right)
+Matrix MatrixFrustum@2(double left, double right, double bottom, double top, double near, double far)
+Matrix MatrixPerspective@2(double fovy, double aspect, double near, double far)
+Matrix MatrixOrtho@2(double left, double right, double bottom, double top, double near, double far)
+Matrix MatrixLookAt@2(Vector3 eye, Vector3 target, Vector3 up)
+float16 MatrixToFloatV@2(Matrix mat)
+
+Quaternion QuaternionAdd@2(Quaternion q1, Quaternion q2)
+Quaternion QuaternionAddValue@2(Quaternion q, float add)
+Quaternion QuaternionSubtract@2(Quaternion q1, Quaternion q2)
+Quaternion QuaternionSubtractValue@2(Quaternion q, float sub)
+Quaternion QuaternionIdentity@2(void)
+float QuaternionLength@2(Quaternion q)
+Quaternion QuaternionNormalize@2(Quaternion q)
+Quaternion QuaternionInvert@2(Quaternion q)
+Quaternion QuaternionMultiply@2(Quaternion q1, Quaternion q2)
+Quaternion QuaternionScale@2(Quaternion q, float mul)
+Quaternion QuaternionDivide@2(Quaternion q1, Quaternion q2)
+Quaternion QuaternionLerp@2(Quaternion q1, Quaternion q2, float amount)
+Quaternion QuaternionNlerp@2(Quaternion q1, Quaternion q2, float amount)
+Quaternion QuaternionSlerp@2(Quaternion q1, Quaternion q2, float amount)
+Quaternion QuaternionFromVector3ToVector3@2(Vector3 from, Vector3 to)
+Quaternion QuaternionFromMatrix@2(Matrix mat)
+Matrix QuaternionToMatrix@2(Quaternion q)
+Quaternion QuaternionFromAxisAngle@2(Vector3 axis, float angle)
+void QuaternionToAxisAngle@2(Quaternion q, Vector3 *outAxis, float *outAngle)
+Quaternion QuaternionFromEuler@2(float roll, float pitch, float yaw)
+Vector3 QuaternionToEuler@2(Quaternion q)
+Quaternion QuaternionTransform@2(Quaternion q, Matrix mat)
+</comment>
+
+
+</filter>
+
+<comment>
+Special Functions - Added in RingRayLib 
+</comment>
+
+<code>
+RING_FUNC(ring_setmodelmaterialtexture_2) {
+	Model *model;
+	int nMaterial,nMap;
+	Texture2D *texture;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	model = RING_API_GETCPOINTER(1,"Model");
+	nMaterial = (int) RING_API_GETNUMBER(2);
+	nMap = (int) RING_API_GETNUMBER(3);
+	texture = RING_API_GETCPOINTER(4,"Texture2D");
+	model->materials[nMaterial].maps[nMap].texture = *texture ;
+}
+
+RING_FUNC(ring_setmodelmaterialshader_2) {
+	Model *model;
+	int nMaterial;
+	Shader *shader;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	model = RING_API_GETCPOINTER(1,"Model");
+	nMaterial = (int) RING_API_GETNUMBER(2);
+	shader = RING_API_GETCPOINTER(3,"Shader");
+	model->materials[nMaterial].shader = *shader ;
+}
+
+RING_FUNC(ring_getimagepixelr_2) {
+	Color *data;
+	int y,x,width;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	data = RING_API_GETCPOINTER(1,"Color");
+	y = (int) RING_API_GETNUMBER(2);
+	x = (int) RING_API_GETNUMBER(3);
+	width = (int) RING_API_GETNUMBER(4);
+	RING_API_RETNUMBER( (double) data[y*width + x].r ) ;
+}
+
+RING_FUNC(ring_getimagepixelg_2) {
+	Color *data;
+	int y,x,width;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	data = RING_API_GETCPOINTER(1,"Color");
+	y = (int) RING_API_GETNUMBER(2);
+	x = (int) RING_API_GETNUMBER(3);
+	width = (int) RING_API_GETNUMBER(4);
+	RING_API_RETNUMBER( (double) data[y*width + x].g ) ;
+}
+
+RING_FUNC(ring_getimagepixelb_2) {
+	Color *data;
+	int y,x,width;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	data = RING_API_GETCPOINTER(1,"Color");
+	y = (int) RING_API_GETNUMBER(2);
+	x = (int) RING_API_GETNUMBER(3);
+	width = (int) RING_API_GETNUMBER(4);
+	RING_API_RETNUMBER( (double) data[y*width + x].b ) ;
+}
+
+RING_FUNC(ring_getimagepixela_2) {
+	Color *data;
+	int y,x,width;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	data = RING_API_GETCPOINTER(1,"Color");
+	y = (int) RING_API_GETNUMBER(2);
+	x = (int) RING_API_GETNUMBER(3);
+	width = (int) RING_API_GETNUMBER(4);
+	RING_API_RETNUMBER( (double) data[y*width + x].a ) ;
+}
+
+
+</code>
+
+<register>
+void setmodelmaterialtexture_2(Model *p1,int p2,int p3,Texture2D *p4)
+void setmodelmaterialshader_2(Model *p1,int p2,Shader *p3)
+int getimagepixelr_2(Color *p1,int y,int x,int width) 
+int getimagepixelg_2(Color *p1,int y,int x,int width) 
+int getimagepixelb_2(Color *p1,int y,int x,int width) 
+int getimagepixela_2(Color *p1,int y,int x,int width) 
+</register>
+
+
+<comment>
+Extra names for functions
+</comment>
+
+<runcode>
+aExtraFunctionName + ["vec2","raylib_new_managed_vector2"]
+aExtraFunctionName + ["vec2getx","raylib_get_vector2_x"]
+aExtraFunctionName + ["vec2setx","raylib_set_vector2_x"]
+aExtraFunctionName + ["vec2gety","raylib_get_vector2_y"]
+aExtraFunctionName + ["vec2sety","raylib_set_vector2_y"]
+aExtraFunctionName + ["vec3","raylib_new_managed_vector3"]
+aExtraFunctionName + ["vec3getx","raylib_get_vector3_x"]
+aExtraFunctionName + ["vec3setx","raylib_set_vector3_x"]
+aExtraFunctionName + ["vec3gety","raylib_get_vector3_y"]
+aExtraFunctionName + ["vec3sety","raylib_set_vector3_y"]
+aExtraFunctionName + ["vec3getz","raylib_get_vector3_z"]
+aExtraFunctionName + ["vec3setz","raylib_set_vector3_z"]
+aExtraFunctionName + ["vec4","raylib_new_managed_vector4"]
+aExtraFunctionName + ["vec4getx","raylib_get_vector4_x"]
+aExtraFunctionName + ["vec4setx","raylib_set_vector4_x"]
+aExtraFunctionName + ["vec4gety","raylib_get_vector4_y"]
+aExtraFunctionName + ["vec4sety","raylib_set_vector4_y"]
+aExtraFunctionName + ["vec4getz","raylib_get_vector4_z"]
+aExtraFunctionName + ["vec4setz","raylib_set_vector4_z"]
+aExtraFunctionName + ["vec4getw","raylib_get_vector4_w"]
+aExtraFunctionName + ["vec4setw","raylib_set_vector4_w"]
+
+aExtraFunctionName + ["getcamera3dposx","raylib_get_camera3d_position_x"]
+aExtraFunctionName + ["setcamera3dposx","raylib_set_camera3d_position_x"]
+aExtraFunctionName + ["getcamera3dposy","raylib_get_camera3d_position_y"]
+aExtraFunctionName + ["setcamera3dposy","raylib_set_camera3d_position_y"]
+aExtraFunctionName + ["getcamera3dposz","raylib_get_camera3d_position_z"]
+aExtraFunctionName + ["setcamera3dposz","raylib_set_camera3d_position_z"]
+aExtraFunctionName + ["getcamera3dtarx","raylib_get_camera3d_target_x"]
+aExtraFunctionName + ["setcamera3dtarx","raylib_set_camera3d_target_x"]
+aExtraFunctionName + ["getcamera3dtary","raylib_get_camera3d_target_y"]
+aExtraFunctionName + ["setcamera3dtary","raylib_set_camera3d_target_y"]
+aExtraFunctionName + ["getcamera3dtarz","raylib_get_camera3d_target_z"]
+aExtraFunctionName + ["setcamera3dtarz","raylib_set_camera3d_target_z"]
+aExtraFunctionName + ["getcamera3dupx","raylib_get_camera3d_up_x"]
+aExtraFunctionName + ["setcamera3dupx","raylib_set_camera3d_up_x"]
+aExtraFunctionName + ["getcamera3dupy","raylib_get_camera3d_up_y"]
+aExtraFunctionName + ["setcamera3dupy","raylib_set_camera3d_up_y"]
+aExtraFunctionName + ["getcamera3dupz","raylib_get_camera3d_up_z"]
+aExtraFunctionName + ["setcamera3dupz","raylib_set_camera3d_up_z"]
+aExtraFunctionName + ["getcamera3fovy","raylib_get_camera3d_fovy"]
+aExtraFunctionName + ["setcamera3fovy","raylib_set_camera3d_fovy"]
+</runcode>
+
+<register>
+void vec2set(Vector2 v,double x,double y)
+void vec3set(Vector3 v,double x,double y,double z)
+void vec4set(Vector4 v,double x,double y,double z, double w)
+</register>
+
+<code>
+RING_FUNC(ring_vec2set)
+{
+	Vector2 *pMyPointer ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS4PARA) ;
+		return ;
+	}
+	if ( (! RING_API_ISCPOINTER(1)) || (! RING_API_ISNUMBER(2)) || (! RING_API_ISNUMBER(3)) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Vector2");
+	pMyPointer->x = RING_API_GETNUMBER(2);
+	pMyPointer->y = RING_API_GETNUMBER(3);
+}
+
+
+RING_FUNC(ring_vec3set)
+{
+	Vector3 *pMyPointer ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA) ;
+		return ;
+	}
+	if ( (! RING_API_ISCPOINTER(1)) || (! RING_API_ISNUMBER(2)) ||
+	       (! RING_API_ISNUMBER(3)) || (! RING_API_ISNUMBER(4)) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Vector3");
+	pMyPointer->x = RING_API_GETNUMBER(2);
+	pMyPointer->y = RING_API_GETNUMBER(3);
+	pMyPointer->z = RING_API_GETNUMBER(4);
+}
+
+RING_FUNC(ring_vec4set)
+{
+	Vector4 *pMyPointer ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_MISS4PARA) ;
+		return ;
+	}
+	if ( (! RING_API_ISCPOINTER(1)) || (! RING_API_ISNUMBER(2)) ||
+	     (! RING_API_ISNUMBER(3))   || (! RING_API_ISNUMBER(4)) || (! RING_API_ISNUMBER(5)) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Vector4");
+	pMyPointer->x = RING_API_GETNUMBER(2);
+	pMyPointer->y = RING_API_GETNUMBER(3);
+	pMyPointer->z = RING_API_GETNUMBER(4);
+	pMyPointer->w = RING_API_GETNUMBER(5);
+}
+</code>

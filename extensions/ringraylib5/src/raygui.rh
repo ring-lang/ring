@@ -1,0 +1,85 @@
+// Gui control state
+    GUI_STATE_NORMAL 		= 0
+    GUI_STATE_FOCUSED		= 1
+    GUI_STATE_PRESSED		= 2
+    GUI_STATE_DISABLED		= 3
+
+// Gui control text alignment
+    GUI_TEXT_ALIGN_LEFT 	= 0
+    GUI_TEXT_ALIGN_CENTER	= 1
+    GUI_TEXT_ALIGN_RIGHT	= 2
+
+
+// Gui base properties for every control
+    BORDER_COLOR_NORMAL 	= 0
+    BASE_COLOR_NORMAL		= 1 
+    TEXT_COLOR_NORMAL		= 2
+    BORDER_COLOR_FOCUSED	= 3
+    BASE_COLOR_FOCUSED		= 4
+    TEXT_COLOR_FOCUSED		= 5
+    BORDER_COLOR_PRESSED	= 6
+    BASE_COLOR_PRESSED		= 7
+    TEXT_COLOR_PRESSED		= 8
+    BORDER_COLOR_DISABLED	= 9
+    BASE_COLOR_DISABLED		= 10
+    TEXT_COLOR_DISABLED		= 11
+    BORDER_WIDTH		= 12
+    INNER_PADDING		= 13
+    TEXT_ALIGNMENT		= 14
+
+// Gui extended properties depend on control
+    TEXT_SIZE 			= 16
+    TEXT_SPACING		= 17
+    LINE_COLOR			= 18
+    BACKGROUND_COLOR		= 19
+
+// Toggle / ToggleGroup
+    GROUP_PADDING 		= 16
+
+// Slider / SliderBar
+    SLIDER_WIDTH 		= 16
+    TEXT_PADDING		= 17
+
+// CheckBox
+    CHECK_TEXT_PADDING 		= 16
+
+// ComboBox
+    SELECTOR_WIDTH 		= 16
+    SELECTOR_PADDING		= 17
+
+// DropdownBox
+    ARROW_RIGHT_PADDING 	= 16
+
+// TextBox / TextBoxMulti / ValueBox / Spinner
+    MULTILINE_PADDING 		= 16
+    COLOR_SELECTED_FG		= 17
+    COLOR_SELECTED_BG		= 18
+
+    SELECT_BUTTON_WIDTH 	= 16
+    SELECT_BUTTON_PADDING	= 17
+    SELECT_BUTTON_BORDER_WIDTH	= 18
+
+// ScrollBar
+    ARROWS_SIZE 		= 16
+    SLIDER_PADDING		= 17
+    SLIDER_SIZE			= 18
+    SCROLL_SPEED		= 19
+    SHOW_SPINNER_BUTTONS	= 20
+
+// ScrollBar side
+    SCROLLBAR_LEFT_SIDE 	= 0
+    SCROLLBAR_RIGHT_SIDE	= 1
+
+// ListView
+    ELEMENTS_HEIGHT 		= 16
+    ELEMENTS_PADDING		= 17
+    SCROLLBAR_WIDTH		= 18
+    SCROLLBAR_SIDE		= 19
+
+// ColorPicker
+    COLOR_SELECTOR_SIZE 	= 16
+    BAR_WIDTH			= 17
+    BAR_PADDING			= 18
+    BAR_SELECTOR_HEIGHT 	= 19
+    BAR_SELECTOR_PADDING	= 20
+
