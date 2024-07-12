@@ -25,7 +25,6 @@
 	#define RING_API_MINLISTSIZEFORUSINGBLOCKS 30
 	/* API For C Functions */
 	#define RING_API_STATE (((VM *) pPointer)->pRingState)
-	#define RING_API_PARALIST ring_vm_api_paralist((VM *) pPointer)
 	#define RING_API_PARACOUNT (ring_vm_api_paracount((VM *) pPointer))
 	#define RING_API_GETSTRING(nPara) (ring_vm_api_getstring((VM *) pPointer,nPara))
 	#define RING_API_GETNUMBER(nPara) (ring_vm_api_getnumber((VM *) pPointer,nPara))
@@ -160,8 +159,6 @@
 	RING_API List * ring_vm_api_callerscope ( VM *pVM ) ;
 
 	RING_API int ring_vm_api_scopescount ( VM *pVM ) ;
-
-	RING_API List * ring_vm_api_paralist ( VM *pVM ) ;
 
 	RING_API int ring_vm_api_paracount ( VM *pVM ) ;
 

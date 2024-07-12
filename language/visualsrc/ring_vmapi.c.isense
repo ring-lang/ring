@@ -20,7 +20,6 @@ RING_VARVALUE_INT
 RING_VARVALUE_FLOAT
 RING_API_MINLISTSIZEFORUSINGBLOCKS
 RING_API_STATE
-RING_API_PARALIST
 RING_API_PARACOUNT
 RING_API_GETSTRING(nPara)
 RING_API_GETNUMBER(nPara)
@@ -193,9 +192,6 @@ Type: Item *
 pItem
 ring_vm_api_callerscope
 ring_vm_api_scopescount
-ring_vm_api_paralist
-Type: FuncCall *
-pFuncCall
 ring_vm_api_paracount
 ring_vm_api_ignorecpointertypecheck
 ring_vm_api_retnumber

@@ -648,13 +648,6 @@ RING_API int ring_vm_api_scopescount ( VM *pVM )
 	return ring_list_getsize(pVM->pMem) ;
 }
 
-RING_API List * ring_vm_api_paralist ( VM *pVM )
-{
-	FuncCall *pFuncCall  ;
-	pFuncCall = RING_VM_LASTFUNCCALL ;
-	return pFuncCall->pTempMem ;
-}
-
 RING_API int ring_vm_api_paracount ( VM *pVM )
 {
 	return pVM->nCFuncParaCount ;
