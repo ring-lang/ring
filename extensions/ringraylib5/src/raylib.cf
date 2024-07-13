@@ -714,14 +714,9 @@ Vector3 Vector3Max@2(Vector3 v1, Vector3 v2)
 Vector3 Vector3Barycenter@2(Vector3 p, Vector3 a, Vector3 b, Vector3 c)
 float3 Vector3ToFloatV@2(Vector3 v)
 
-
-
 float MatrixDeterminant@2(Matrix mat)
 float MatrixTrace@2(Matrix mat)
-
 Matrix MatrixRotateXYZ@2(Vector3 ang)
-
-
 Matrix MatrixTranspose@2(Matrix mat)
 Matrix MatrixInvert@2(Matrix mat)
 Matrix MatrixNormalize@2(Matrix mat)
@@ -741,7 +736,6 @@ Matrix MatrixOrtho@2(double left, double right, double bottom, double top, doubl
 Matrix MatrixLookAt@2(Vector3 eye, Vector3 target, Vector3 up)
 float16 MatrixToFloatV@2(Matrix mat)
 
-<comment>
 Quaternion QuaternionAdd@2(Quaternion q1, Quaternion q2)
 Quaternion QuaternionAddValue@2(Quaternion q, float add)
 Quaternion QuaternionSubtract@2(Quaternion q1, Quaternion q2)
@@ -764,8 +758,6 @@ void QuaternionToAxisAngle@2(Quaternion q, Vector3 *outAxis, float *outAngle)
 Quaternion QuaternionFromEuler@2(float roll, float pitch, float yaw)
 Vector3 QuaternionToEuler@2(Quaternion q)
 Quaternion QuaternionTransform@2(Quaternion q, Matrix mat)
-</comment>
-
 
 </filter>
 

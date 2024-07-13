@@ -14183,6 +14183,432 @@ RING_FUNC(ring_MatrixToFloatV_2)
 	}
 }
 
+
+RING_FUNC(ring_QuaternionAdd_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	{
+		Quaternion *pValue ; 
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
+		*pValue = QuaternionAdd(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"),* (Quaternion  *) RING_API_GETCPOINTER(2,"Quaternion"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QuaternionAddValue_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Quaternion *pValue ; 
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
+		*pValue = QuaternionAddValue(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"), (float ) RING_API_GETNUMBER(2));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QuaternionSubtract_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	{
+		Quaternion *pValue ; 
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
+		*pValue = QuaternionSubtract(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"),* (Quaternion  *) RING_API_GETCPOINTER(2,"Quaternion"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QuaternionSubtractValue_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Quaternion *pValue ; 
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
+		*pValue = QuaternionSubtractValue(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"), (float ) RING_API_GETNUMBER(2));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QuaternionIdentity_2)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	{
+		Quaternion *pValue ; 
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
+		*pValue = QuaternionIdentity();
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QuaternionLength_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETNUMBER(QuaternionLength(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
+}
+
+
+RING_FUNC(ring_QuaternionNormalize_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		Quaternion *pValue ; 
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
+		*pValue = QuaternionNormalize(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QuaternionInvert_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		Quaternion *pValue ; 
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
+		*pValue = QuaternionInvert(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QuaternionMultiply_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	{
+		Quaternion *pValue ; 
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
+		*pValue = QuaternionMultiply(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"),* (Quaternion  *) RING_API_GETCPOINTER(2,"Quaternion"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QuaternionScale_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Quaternion *pValue ; 
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
+		*pValue = QuaternionScale(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"), (float ) RING_API_GETNUMBER(2));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QuaternionDivide_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	{
+		Quaternion *pValue ; 
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
+		*pValue = QuaternionDivide(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"),* (Quaternion  *) RING_API_GETCPOINTER(2,"Quaternion"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QuaternionLerp_2)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Quaternion *pValue ; 
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
+		*pValue = QuaternionLerp(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"),* (Quaternion  *) RING_API_GETCPOINTER(2,"Quaternion"), (float ) RING_API_GETNUMBER(3));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QuaternionNlerp_2)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Quaternion *pValue ; 
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
+		*pValue = QuaternionNlerp(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"),* (Quaternion  *) RING_API_GETCPOINTER(2,"Quaternion"), (float ) RING_API_GETNUMBER(3));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QuaternionSlerp_2)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Quaternion *pValue ; 
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
+		*pValue = QuaternionSlerp(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"),* (Quaternion  *) RING_API_GETCPOINTER(2,"Quaternion"), (float ) RING_API_GETNUMBER(3));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QuaternionFromVector3ToVector3_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	{
+		Quaternion *pValue ; 
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
+		*pValue = QuaternionFromVector3ToVector3(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QuaternionFromMatrix_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		Quaternion *pValue ; 
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
+		*pValue = QuaternionFromMatrix(* (Matrix  *) RING_API_GETCPOINTER(1,"Matrix"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Matrix"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QuaternionToMatrix_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		Matrix *pValue ; 
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
+		*pValue = QuaternionToMatrix(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QuaternionFromAxisAngle_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Quaternion *pValue ; 
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
+		*pValue = QuaternionFromAxisAngle(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"), (float ) RING_API_GETNUMBER(2));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QuaternionToAxisAngle_2)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QuaternionToAxisAngle(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"),(Vector3 *) RING_API_GETCPOINTER(2,"Vector3"),(float *) RING_API_GETCPOINTER(3,"float"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
+}
+
+
+RING_FUNC(ring_QuaternionFromEuler_2)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Quaternion *pValue ; 
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
+		*pValue = QuaternionFromEuler( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QuaternionToEuler_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		Vector3 *pValue ; 
+		pValue = (Vector3 *) RING_API_MALLOC(sizeof(Vector3)) ;
+		*pValue = QuaternionToEuler(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Vector3",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_QuaternionTransform_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	{
+		Quaternion *pValue ; 
+		pValue = (Quaternion *) RING_API_MALLOC(sizeof(Quaternion)) ;
+		*pValue = QuaternionTransform(* (Quaternion  *) RING_API_GETCPOINTER(1,"Quaternion"),* (Matrix  *) RING_API_GETCPOINTER(2,"Matrix"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Quaternion"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Matrix"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Quaternion",RING_API_FREEFUNC);
+	}
+}
+
 RING_FUNC(ring_setmodelmaterialtexture_2) {
 	Model *model;
 	int nMaterial,nMap;
@@ -14751,6 +15177,28 @@ RING_LIBINIT
 	RING_API_REGISTER("matrixortho_2",ring_MatrixOrtho_2);
 	RING_API_REGISTER("matrixlookat_2",ring_MatrixLookAt_2);
 	RING_API_REGISTER("matrixtofloatv_2",ring_MatrixToFloatV_2);
+	RING_API_REGISTER("quaternionadd_2",ring_QuaternionAdd_2);
+	RING_API_REGISTER("quaternionaddvalue_2",ring_QuaternionAddValue_2);
+	RING_API_REGISTER("quaternionsubtract_2",ring_QuaternionSubtract_2);
+	RING_API_REGISTER("quaternionsubtractvalue_2",ring_QuaternionSubtractValue_2);
+	RING_API_REGISTER("quaternionidentity_2",ring_QuaternionIdentity_2);
+	RING_API_REGISTER("quaternionlength_2",ring_QuaternionLength_2);
+	RING_API_REGISTER("quaternionnormalize_2",ring_QuaternionNormalize_2);
+	RING_API_REGISTER("quaternioninvert_2",ring_QuaternionInvert_2);
+	RING_API_REGISTER("quaternionmultiply_2",ring_QuaternionMultiply_2);
+	RING_API_REGISTER("quaternionscale_2",ring_QuaternionScale_2);
+	RING_API_REGISTER("quaterniondivide_2",ring_QuaternionDivide_2);
+	RING_API_REGISTER("quaternionlerp_2",ring_QuaternionLerp_2);
+	RING_API_REGISTER("quaternionnlerp_2",ring_QuaternionNlerp_2);
+	RING_API_REGISTER("quaternionslerp_2",ring_QuaternionSlerp_2);
+	RING_API_REGISTER("quaternionfromvector3tovector3_2",ring_QuaternionFromVector3ToVector3_2);
+	RING_API_REGISTER("quaternionfrommatrix_2",ring_QuaternionFromMatrix_2);
+	RING_API_REGISTER("quaterniontomatrix_2",ring_QuaternionToMatrix_2);
+	RING_API_REGISTER("quaternionfromaxisangle_2",ring_QuaternionFromAxisAngle_2);
+	RING_API_REGISTER("quaterniontoaxisangle_2",ring_QuaternionToAxisAngle_2);
+	RING_API_REGISTER("quaternionfromeuler_2",ring_QuaternionFromEuler_2);
+	RING_API_REGISTER("quaterniontoeuler_2",ring_QuaternionToEuler_2);
+	RING_API_REGISTER("quaterniontransform_2",ring_QuaternionTransform_2);
 	RING_API_REGISTER("setmodelmaterialtexture_2",ring_setmodelmaterialtexture_2);
 	RING_API_REGISTER("setmodelmaterialshader_2",ring_setmodelmaterialshader_2);
 	RING_API_REGISTER("getimagepixelr_2",ring_getimagepixelr_2);
