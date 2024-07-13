@@ -175,12 +175,12 @@ func GetCameraMatrix camera
 func SetCameraMode camera,mode
 	return UpdateCamera_2(GPData(camera),mode)
 
-func UpdateCamera camera
+func UpdateCamera camera,mode
 	if isObject(camera)
-		UpdateCamera_2(camera.Data(),0)
+		UpdateCamera_2(camera.Data(),mode)
 		camera.refresh()
 	else
-		return UpdateCamera_2(camera,0)
+		return UpdateCamera_2(camera,mode)
 	ok
 	
 func DrawBillboard camera,texture,center,size,tint
