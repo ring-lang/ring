@@ -272,11 +272,7 @@ void ring_vm_call2 ( VM *pVM )
 				pVM->lIgnoreNULL = 0 ;
 			}
 		}
-		/*
-		**  We move the list to the previous scope 
-		**  Because we may have nested functions calls like refcount( list(nSize) ) 
-		**  Return (Delete Function Call List) 
-		*/
+		/* Return (Delete Function Call List) */
 		ring_list_deleteitem_gc(pVM->pRingState,pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
 		/* Restore nFuncSP value */
 		if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
