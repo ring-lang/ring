@@ -428,9 +428,9 @@ func GuiToggleGroup bounds, text, active
 	return GuiToggleGroup_2(GPData(bounds), text, active)
 
 func GuiCheckBox bounds, text, active
-	myvalue = int2bytes(active)
-	vv = GuiCheckBox_2(GPData(bounds), text, VarPtr(:myvalue,:bool))
-	return bytes2int(myvalue)
+	active = int2bytes(active)
+	GuiCheckBox_2(GPData(bounds), text, VarPtr(:active,:bool))
+	return bytes2int(active)
 
 func GuiComboBox bounds, text, active
 	return GuiComboBox_2(GPData(bounds), text, active)
