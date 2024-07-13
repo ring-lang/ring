@@ -664,7 +664,8 @@ float Clamp(float value, float min, float max)
 float Lerp(float start, float end, float amount)
 float Normalize(float value, float start, float end)
 float Remap(float value, float inputStart, float inputEnd, float outputStart, float outputEnd) 
-<comment>
+
+
 Vector2 Vector2Zero@2(void)
 Vector2 Vector2One@2(void)
 Vector2 Vector2Add@2(Vector2 v1, Vector2 v2)
@@ -712,7 +713,7 @@ Vector3 Vector3Min@2(Vector3 v1, Vector3 v2)
 Vector3 Vector3Max@2(Vector3 v1, Vector3 v2)
 Vector3 Vector3Barycenter@2(Vector3 p, Vector3 a, Vector3 b, Vector3 c)
 float3 Vector3ToFloatV@2(Vector3 v)
-</comment>
+
 
 
 float MatrixDeterminant@2(Matrix mat)
