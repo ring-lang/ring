@@ -721,7 +721,7 @@ float MatrixTrace@2(Matrix mat)
 
 Matrix MatrixRotateXYZ@2(Vector3 ang)
 
-<comment>
+
 Matrix MatrixTranspose@2(Matrix mat)
 Matrix MatrixInvert@2(Matrix mat)
 Matrix MatrixNormalize@2(Matrix mat)
@@ -741,6 +741,7 @@ Matrix MatrixOrtho@2(double left, double right, double bottom, double top, doubl
 Matrix MatrixLookAt@2(Vector3 eye, Vector3 target, Vector3 up)
 float16 MatrixToFloatV@2(Matrix mat)
 
+<comment>
 Quaternion QuaternionAdd@2(Quaternion q1, Quaternion q2)
 Quaternion QuaternionAddValue@2(Quaternion q, float add)
 Quaternion QuaternionSubtract@2(Quaternion q1, Quaternion q2)

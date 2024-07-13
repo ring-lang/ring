@@ -13781,6 +13781,408 @@ RING_FUNC(ring_MatrixRotateXYZ_2)
 	}
 }
 
+
+RING_FUNC(ring_MatrixTranspose_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		Matrix *pValue ; 
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
+		*pValue = MatrixTranspose(* (Matrix  *) RING_API_GETCPOINTER(1,"Matrix"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Matrix"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_MatrixInvert_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		Matrix *pValue ; 
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
+		*pValue = MatrixInvert(* (Matrix  *) RING_API_GETCPOINTER(1,"Matrix"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Matrix"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_MatrixNormalize_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		Matrix *pValue ; 
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
+		*pValue = MatrixNormalize(* (Matrix  *) RING_API_GETCPOINTER(1,"Matrix"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Matrix"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_MatrixIdentity_2)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	{
+		Matrix *pValue ; 
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
+		*pValue = MatrixIdentity();
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_MatrixAdd_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	{
+		Matrix *pValue ; 
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
+		*pValue = MatrixAdd(* (Matrix  *) RING_API_GETCPOINTER(1,"Matrix"),* (Matrix  *) RING_API_GETCPOINTER(2,"Matrix"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Matrix"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Matrix"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_MatrixSubtract_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	{
+		Matrix *pValue ; 
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
+		*pValue = MatrixSubtract(* (Matrix  *) RING_API_GETCPOINTER(1,"Matrix"),* (Matrix  *) RING_API_GETCPOINTER(2,"Matrix"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Matrix"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Matrix"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_MatrixTranslate_2)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Matrix *pValue ; 
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
+		*pValue = MatrixTranslate( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_MatrixRotate_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Matrix *pValue ; 
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
+		*pValue = MatrixRotate(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"), (float ) RING_API_GETNUMBER(2));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_MatrixRotateX_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Matrix *pValue ; 
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
+		*pValue = MatrixRotateX( (float ) RING_API_GETNUMBER(1));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_MatrixRotateY_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Matrix *pValue ; 
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
+		*pValue = MatrixRotateY( (float ) RING_API_GETNUMBER(1));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_MatrixRotateZ_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Matrix *pValue ; 
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
+		*pValue = MatrixRotateZ( (float ) RING_API_GETNUMBER(1));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_MatrixScale_2)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Matrix *pValue ; 
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
+		*pValue = MatrixScale( (float ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_MatrixMultiply_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	{
+		Matrix *pValue ; 
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
+		*pValue = MatrixMultiply(* (Matrix  *) RING_API_GETCPOINTER(1,"Matrix"),* (Matrix  *) RING_API_GETCPOINTER(2,"Matrix"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Matrix"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Matrix"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_MatrixFrustum_2)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Matrix *pValue ; 
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
+		*pValue = MatrixFrustum( (double ) RING_API_GETNUMBER(1), (double ) RING_API_GETNUMBER(2), (double ) RING_API_GETNUMBER(3), (double ) RING_API_GETNUMBER(4), (double ) RING_API_GETNUMBER(5), (double ) RING_API_GETNUMBER(6));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_MatrixPerspective_2)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Matrix *pValue ; 
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
+		*pValue = MatrixPerspective( (double ) RING_API_GETNUMBER(1), (double ) RING_API_GETNUMBER(2), (double ) RING_API_GETNUMBER(3), (double ) RING_API_GETNUMBER(4));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_MatrixOrtho_2)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		Matrix *pValue ; 
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
+		*pValue = MatrixOrtho( (double ) RING_API_GETNUMBER(1), (double ) RING_API_GETNUMBER(2), (double ) RING_API_GETNUMBER(3), (double ) RING_API_GETNUMBER(4), (double ) RING_API_GETNUMBER(5), (double ) RING_API_GETNUMBER(6));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_MatrixLookAt_2)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	{
+		Matrix *pValue ; 
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
+		*pValue = MatrixLookAt(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(2,"Vector3"),* (Vector3  *) RING_API_GETCPOINTER(3,"Vector3"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"Vector3"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_MatrixToFloatV_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		float16 *pValue ; 
+		pValue = (float16 *) RING_API_MALLOC(sizeof(float16)) ;
+		*pValue = MatrixToFloatV(* (Matrix  *) RING_API_GETCPOINTER(1,"Matrix"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Matrix"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"float16",RING_API_FREEFUNC);
+	}
+}
+
 RING_FUNC(ring_setmodelmaterialtexture_2) {
 	Model *model;
 	int nMaterial,nMap;
@@ -14331,6 +14733,24 @@ RING_LIBINIT
 	RING_API_REGISTER("matrixdeterminant_2",ring_MatrixDeterminant_2);
 	RING_API_REGISTER("matrixtrace_2",ring_MatrixTrace_2);
 	RING_API_REGISTER("matrixrotatexyz_2",ring_MatrixRotateXYZ_2);
+	RING_API_REGISTER("matrixtranspose_2",ring_MatrixTranspose_2);
+	RING_API_REGISTER("matrixinvert_2",ring_MatrixInvert_2);
+	RING_API_REGISTER("matrixnormalize_2",ring_MatrixNormalize_2);
+	RING_API_REGISTER("matrixidentity_2",ring_MatrixIdentity_2);
+	RING_API_REGISTER("matrixadd_2",ring_MatrixAdd_2);
+	RING_API_REGISTER("matrixsubtract_2",ring_MatrixSubtract_2);
+	RING_API_REGISTER("matrixtranslate_2",ring_MatrixTranslate_2);
+	RING_API_REGISTER("matrixrotate_2",ring_MatrixRotate_2);
+	RING_API_REGISTER("matrixrotatex_2",ring_MatrixRotateX_2);
+	RING_API_REGISTER("matrixrotatey_2",ring_MatrixRotateY_2);
+	RING_API_REGISTER("matrixrotatez_2",ring_MatrixRotateZ_2);
+	RING_API_REGISTER("matrixscale_2",ring_MatrixScale_2);
+	RING_API_REGISTER("matrixmultiply_2",ring_MatrixMultiply_2);
+	RING_API_REGISTER("matrixfrustum_2",ring_MatrixFrustum_2);
+	RING_API_REGISTER("matrixperspective_2",ring_MatrixPerspective_2);
+	RING_API_REGISTER("matrixortho_2",ring_MatrixOrtho_2);
+	RING_API_REGISTER("matrixlookat_2",ring_MatrixLookAt_2);
+	RING_API_REGISTER("matrixtofloatv_2",ring_MatrixToFloatV_2);
 	RING_API_REGISTER("setmodelmaterialtexture_2",ring_setmodelmaterialtexture_2);
 	RING_API_REGISTER("setmodelmaterialshader_2",ring_setmodelmaterialshader_2);
 	RING_API_REGISTER("getimagepixelr_2",ring_getimagepixelr_2);
