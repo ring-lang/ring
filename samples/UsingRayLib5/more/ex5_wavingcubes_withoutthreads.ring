@@ -46,9 +46,9 @@ while !WindowShouldClose()
 	BeginMode3D(camera)
 	DrawGrid(10, 5.0)
 
-	for x = 1 to nMax 
-		for y = 1 to nMax 
-			for z = 1 to nMax 
+	for x = 0 to nMax 
+		for y = 0 to nMax 
+			for z = 0 to nMax 
 				blockScale = (x + y + z)/30
 				scatter = sin(blockScale*20 + (time*4))
 				Vec3Set(cubepos,(x - halfBlocks)*(scale*3) + scatter,

@@ -54,9 +54,9 @@ while !WindowShouldClose()
 
 	DrawGrid(10, 5.0)
 
-	for x = 1 to nMax 
-		for y = 1 to nMax 
-			for z = 1 to nMax 
+	for x = 0 to nMax 
+		for y = 0 to nMax 
+			for z = 0 to nMax 
 
 				blockScale = (x + y + z)/30
 
