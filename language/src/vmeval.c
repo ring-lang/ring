@@ -372,7 +372,7 @@ RING_API void ring_vm_callfunction ( VM *pVM,char *cFuncName )
 	/* Lower Case and pass () in the end */
 	ring_string_lower(cFuncName);
 	/* Prepare (Remove effects of the current function) */
-	ring_list_deletelastitem_gc(pVM->pRingState,pVM->pFuncCallList);
+	RING_VM_DELETELASTFUNCCALL ;
 	/* Load the function and call it */
 	ring_vm_loadfunc2(pVM,cFuncName,RING_FALSE);
 	ring_vm_call2(pVM);

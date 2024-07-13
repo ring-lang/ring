@@ -112,7 +112,7 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 				while ( pFuncCall2->nType != RING_FUNCTYPE_SCRIPT ) {
 					nPos-- ;
 					if ( nPos > 0 ) {
-						pFuncCall2 = (FuncCall *) ring_list_getpointer(pVM->pFuncCallList,nPos) ;
+						pFuncCall2 = RING_VM_GETFUNCCALL(nPos) ;
 					}
 					else {
 						break ;

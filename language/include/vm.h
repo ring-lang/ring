@@ -305,6 +305,7 @@
 	#define RING_VM_GETFUNCCALL(x) (FuncCall *) (ring_list_getpointer(pVM->pFuncCallList,x))
 	#define RING_VM_LASTOBJSTATE pVM->pObjState->pLast->pValue->data.pList->pFirst->pValue->data.pPointer
 	#define RING_VM_FUNCCALLSCOUNT ring_list_getsize(pVM->pFuncCallList)
+	#define RING_VM_DELETELASTFUNCCALL ring_list_deletelastitem_gc(pVM->pRingState,pVM->pFuncCallList)
 	/* Parameters */
 	#define RING_FUNCPARA_EXPECTEDSIZE 32
 	/* pFunctionsMap ( Func Name , Position , File Name, Private Flag) */

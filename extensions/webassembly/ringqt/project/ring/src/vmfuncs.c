@@ -273,7 +273,7 @@ void ring_vm_call2 ( VM *pVM )
 			}
 		}
 		/* Return (Delete Function Call List) */
-		ring_list_deleteitem_gc(pVM->pRingState,pVM->pFuncCallList,RING_VM_FUNCCALLSCOUNT);
+		RING_VM_DELETELASTFUNCCALL ;
 		/* Restore nFuncSP value */
 		if ( RING_VM_FUNCCALLSCOUNT > 0 ) {
 			pFuncCall = RING_VM_LASTFUNCCALL ;
@@ -376,7 +376,7 @@ void ring_vm_return ( VM *pVM )
 		if ( pFuncCall->pVMState != NULL ) {
 			ring_vm_restorestateforfunctions(pVM,pFuncCall->pVMState);
 		}
-		ring_list_deleteitem_gc(pVM->pRingState,pVM->pFuncCallList,RING_VM_FUNCCALLSCOUNT);
+		RING_VM_DELETELASTFUNCCALL ;
 		/* Restore nFuncSP value */
 		if ( RING_VM_FUNCCALLSCOUNT > 0 ) {
 			pFuncCall = RING_VM_LASTFUNCCALL ;
@@ -481,7 +481,7 @@ void ring_vm_newfunc ( VM *pVM )
 			}
 			else {
 				pVM->cFileName = pVM->cPrevFileName ;
-				ring_list_deleteitem_gc(pVM->pRingState,pVM->pFuncCallList,RING_VM_FUNCCALLSCOUNT);
+				RING_VM_DELETELASTFUNCCALL ;
 				if ( lFreeParameter ) {
 					ring_state_free(pVM->pRingState,pParameter);
 				}
@@ -504,7 +504,7 @@ void ring_vm_newfunc ( VM *pVM )
 	}
 	if ( nSP < pVM->nSP ) {
 		pVM->cFileName = pVM->cPrevFileName ;
-		ring_list_deleteitem_gc(pVM->pRingState,pVM->pFuncCallList,RING_VM_FUNCCALLSCOUNT);
+		RING_VM_DELETELASTFUNCCALL ;
 		ring_vm_error(pVM,RING_VM_ERROR_EXTRAPARAMETERSCOUNT);
 		return ;
 	}
