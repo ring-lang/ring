@@ -12453,6 +12453,102 @@ RING_FUNC(ring_GuiTextBox_2)
 }
 
 
+RING_FUNC(ring_GuiSlider_2)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(GuiSlider(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2),RING_API_GETSTRING(3),(float *) RING_API_GETCPOINTER(4,"float"), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6)));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
+}
+
+
+RING_FUNC(ring_GuiSliderBar_2)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(GuiSliderBar(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2),RING_API_GETSTRING(3),(float *) RING_API_GETCPOINTER(4,"float"), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6)));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
+}
+
+
+RING_FUNC(ring_GuiProgressBar_2)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(GuiProgressBar(* (Rectangle  *) RING_API_GETCPOINTER(1,"Rectangle"),RING_API_GETSTRING(2),RING_API_GETSTRING(3),(float *) RING_API_GETCPOINTER(4,"float"), (float ) RING_API_GETNUMBER(5), (float ) RING_API_GETNUMBER(6)));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Rectangle"));
+}
+
+
 RING_FUNC(ring_GuiStatusBar_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -13223,6 +13319,9 @@ RING_LIBINIT
 	RING_API_REGISTER("guicombobox_2",ring_GuiComboBox_2);
 	RING_API_REGISTER("guidropdownbox_2",ring_GuiDropdownBox_2);
 	RING_API_REGISTER("guitextbox_2",ring_GuiTextBox_2);
+	RING_API_REGISTER("guislider_2",ring_GuiSlider_2);
+	RING_API_REGISTER("guisliderbar_2",ring_GuiSliderBar_2);
+	RING_API_REGISTER("guiprogressbar_2",ring_GuiProgressBar_2);
 	RING_API_REGISTER("guistatusbar_2",ring_GuiStatusBar_2);
 	RING_API_REGISTER("guidummyrec_2",ring_GuiDummyRec_2);
 	RING_API_REGISTER("guiscrollbar_2",ring_GuiScrollBar_2);

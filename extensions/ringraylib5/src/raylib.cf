@@ -612,6 +612,10 @@ bool GuiTextBox@2(Rectangle bounds, char *text, int textSize, bool editMode)
 bool GuiTextBoxMulti@2(Rectangle bounds, char *text, int textSize, bool editMode)
 </comment>
 
+int GuiSlider@2(Rectangle bounds, const char *textLeft, const char *textRight, float *value, float minValue, float maxValue)
+int GuiSliderBar@2(Rectangle bounds, const char *textLeft, const char *textRight, float *value, float minValue, float maxValue)
+int GuiProgressBar@2(Rectangle bounds, const char *textLeft, const char *textRight, float *value, float minValue, float maxValue)
+
 <comment>
 float GuiSlider@2(Rectangle bounds, const char *text, float value, float minValue, float maxValue, bool showValue)
 float GuiSliderBar@2(Rectangle bounds, const char *text, float value, float minValue, float maxValue, bool showValue)

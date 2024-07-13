@@ -450,14 +450,20 @@ func GuiTextBox bounds, text, textSize, editMode
 func GuiTextBoxMulti bounds, text, textSize, editMode
 	return GuiTextBoxMulti_2(GPData(bounds), text, textSize, editMode)
 
-func GuiSlider bounds, text, value, minValue, maxValue, showValue
-	return GuiSlider_2(GPData(bounds), text, value, minValue, maxValue, showValue)
+func GuiSlider bounds, text, value, minValue, maxValue, lValue
+	value = float2bytes(value)
+	GuiSlider_2(GPData(bounds), text, "", VarPtr(:Value,:Float), minValue, maxValue)
+	return bytes2float(value)
 
-func GuiSliderBar bounds, text, value, minValue, maxValue, showValue
-	return GuiSliderBar_2(GPData(bounds), text, value, minValue, maxValue, showValue)
+func GuiSliderBar bounds, text, value, minValue, maxValue, lValue
+	value = float2bytes(value)
+	GuiSliderBar_2(GPData(bounds), text, "", VarPtr(:Value,:Float), minValue, maxValue)
+	return bytes2float(value)
 
-func GuiProgressBar bounds, text, value, minValue, maxValue, showValue
-	return GuiProgressBar_2(GPData(bounds), text, value, minValue, maxValue, showValue)
+func GuiProgressBar bounds, text, value, minValue, maxValue, lValue
+	value = float2bytes(value)
+	GuiProgressBar_2(GPData(bounds), text, "", VarPtr(:Value,:Float), minValue, maxValue)
+	return bytes2float(value)
 
 func GuiStatusBar bounds, text
 	return GuiStatusBar_2(GPData(bounds), text)
