@@ -18,6 +18,7 @@
 <runcode>
 aNumberTypes + "unsigned int"
 aNumberTypes + "float"
+aNumberTypes + "bool"
 </runcode>
 
 <struct>
@@ -589,20 +590,21 @@ Rectangle GuiScrollPanel@2(Rectangle bounds, Rectangle content, Vector2 *scroll)
 void GuiLabel@2(Rectangle bounds, const char *text)
 bool GuiButton@2(Rectangle bounds, const char *text)
 bool GuiLabelButton@2(Rectangle bounds, const char *text)
+
 <comment>
 bool GuiImageButton@2(Rectangle bounds, Texture2D texture)
 bool GuiImageButtonEx@2(Rectangle bounds, Texture2D texture, Rectangle texSource, const char *text)
 </comment>
+
 bool GuiToggle@2(Rectangle bounds, const char *text, bool active)
 int GuiToggleGroup@2(Rectangle bounds, const char *text, int active)
-bool GuiCheckBox@2(Rectangle bounds, const char *text, bool checked)
-int GuiComboBox@2(Rectangle bounds, const char *text, int active)=
+bool GuiCheckBox@2(Rectangle bounds, const char *text, bool *checked)
+int GuiComboBox@2(Rectangle bounds, const char *text, int active)
 bool GuiDropdownBox@2(Rectangle bounds, const char *text, int *active, bool editMode)
+
 <comment>
 bool GuiSpinner@2(Rectangle bounds, int *value, int minValue, int maxValue, bool editMode)
-
 bool GuiValueBox@2(Rectangle bounds, int *value, int minValue, int maxValue, bool editMode)
-
 </comment>
 
 bool GuiTextBox@2(Rectangle bounds, char *text, int textSize, bool editMode)
@@ -612,14 +614,14 @@ bool GuiTextBoxMulti@2(Rectangle bounds, char *text, int textSize, bool editMode
 
 <comment>
 float GuiSlider@2(Rectangle bounds, const char *text, float value, float minValue, float maxValue, bool showValue)
-
 float GuiSliderBar@2(Rectangle bounds, const char *text, float value, float minValue, float maxValue, bool showValue)
 float GuiProgressBar@2(Rectangle bounds, const char *text, float value, float minValue, float maxValue, bool showValue)
-
 </comment>
+
 void GuiStatusBar@2(Rectangle bounds, const char *text)
 void GuiDummyRec@2(Rectangle bounds, const char *text)
 int GuiScrollBar@2(Rectangle bounds, int value, int minValue, int maxValue)
+
 <comment>
 Vector2 GuiGrid@2(Rectangle bounds, float spacing, int subdivs)
 </comment>
@@ -630,20 +632,15 @@ int GuiMessageBox@2(Rectangle bounds, const char *windowTitle, const char *messa
 
 <comment>
 int GuiTextInputBox@2(Rectangle bounds, const char *windowTitle, const char *message, char *text, const char *buttons)
-
 Color GuiColorPicker@2(Rectangle bounds, Color color)
-</comment>
-
-<comment>
 void GuiLoadStyle(const char *fileName)
 void GuiLoadStyleProps(const int *props, int count)
 </comment>
+
 void GuiLoadStyleDefault(void)
-<comment>
-void GuiUpdateStyleComplete(void)
-</comment>
 
 <comment>
+void GuiUpdateStyleComplete(void)
 const char *GuiIconText(int iconId, const char *text)
 </comment>
 
