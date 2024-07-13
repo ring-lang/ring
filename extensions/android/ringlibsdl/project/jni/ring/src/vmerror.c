@@ -90,7 +90,7 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 	cOldFile = NULL ;
 	lFunctionCall = 0 ;
 	nRecursion = 0 ;
-	for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
+	for ( x = RING_VM_FUNCCALLSCOUNT ; x >= 1 ; x-- ) {
 		pFuncCall = RING_VM_GETFUNCCALL(x) ;
 		/*
 		**  If we have ICO_LOADFUNC but not ICO_CALL then we need to pass 
@@ -210,7 +210,7 @@ void ring_vm_traceevent ( VM *pVM,char nEvent )
 		/* Add File Name */
 		ring_list_addstring_gc(pVM->pRingState,pVM->pTraceData,pVM->cFileName);
 		/* Add Function/Method Name */
-		if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
+		if ( RING_VM_FUNCCALLSCOUNT > 0 ) {
 			pFuncCall = RING_VM_LASTFUNCCALL ;
 			ring_list_addstring_gc(pVM->pRingState,pVM->pTraceData,pFuncCall->cName);
 			/* Method or Function */

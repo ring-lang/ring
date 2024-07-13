@@ -1162,7 +1162,7 @@ void ring_vm_refmeta_ringvminfo ( void *pPointer )
 	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->pPCBlockFlag));
 	ring_list_adddouble_gc(pVM->pRingState, pList, pVM->nLoadAddressScope);
 	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->pBeforeObjState));
-	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->pFuncCallList));
+	ring_list_adddouble_gc(pVM->pRingState, pList, (double) RING_VM_FUNCCALLSCOUNT);
 	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->pTry));
 	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->pScopeNewObj));
 	ring_list_adddouble_gc(pVM->pRingState, pList, (double) ring_list_getsize(pVM->pSetProperty));

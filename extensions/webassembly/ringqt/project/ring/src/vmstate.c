@@ -14,7 +14,7 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 	pThis = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_THIS) ;
 	/* Save the data */
 	pVMState->aNumbers[0] = ring_list_getsize(pVM->pMem) ;
-	pVMState->aNumbers[1] = ring_list_getsize(pVM->pFuncCallList) ;
+	pVMState->aNumbers[1] = RING_VM_FUNCCALLSCOUNT ;
 	pVMState->aNumbers[2] = pVM->nFuncExecute ;
 	pVMState->aNumbers[3] = pVM->nSP ;
 	pVMState->aNumbers[4] = pVM->nFuncSP ;
@@ -111,7 +111,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 		**  We need to clean memory and remove pNestedLists, pPCBlockFlag & pSetProperty 
 		**  Clean memory used for function calls 
 		*/
-		for ( x = pVMState->aNumbers[1]+1 ; x <= ring_list_getsize(pVM->pFuncCallList) ; x++ ) {
+		for ( x = pVMState->aNumbers[1]+1 ; x <= RING_VM_FUNCCALLSCOUNT ; x++ ) {
 			pFuncCall = RING_VM_GETFUNCCALL(x) ;
 			/* Delete pNestedLists */
 			pListPointer = pFuncCall->pNestedLists ;
@@ -396,7 +396,7 @@ void ring_vm_savestatefornewobjects ( VM *pVM )
 	pVMState->aPointers[6] = pVM->pGetSetObject ;
 	pVM->pGetSetObject = NULL ;
 	/* Save pFuncClassList */
-	pVMState->aNumbers[22] = ring_list_getsize(pVM->pFuncCallList) ;
+	pVMState->aNumbers[22] = RING_VM_FUNCCALLSCOUNT ;
 	/* Save nNoSetterMethod */
 	pVMState->aNumbers[23] = pVM->nNoSetterMethod ;
 	pVM->nNoSetterMethod = RING_NOSETTERMETHOD_DEFAULT ;

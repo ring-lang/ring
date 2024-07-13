@@ -273,9 +273,9 @@ void ring_vm_call2 ( VM *pVM )
 			}
 		}
 		/* Return (Delete Function Call List) */
-		ring_list_deleteitem_gc(pVM->pRingState,pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
+		ring_list_deleteitem_gc(pVM->pRingState,pVM->pFuncCallList,RING_VM_FUNCCALLSCOUNT);
 		/* Restore nFuncSP value */
-		if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
+		if ( RING_VM_FUNCCALLSCOUNT > 0 ) {
 			pFuncCall = RING_VM_LASTFUNCCALL ;
 			pVM->nFuncSP = pFuncCall->nSP ;
 		}
@@ -327,7 +327,7 @@ void ring_vm_return ( VM *pVM )
 			return ;
 		}
 	}
-	if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
+	if ( RING_VM_FUNCCALLSCOUNT > 0 ) {
 		pFuncCall = RING_VM_LASTFUNCCALL ;
 		pVM->nPC = pFuncCall->nCallerPC ;
 		pVM->nFuncExecute = pFuncCall->nFuncExec ;
@@ -376,9 +376,9 @@ void ring_vm_return ( VM *pVM )
 		if ( pFuncCall->pVMState != NULL ) {
 			ring_vm_restorestateforfunctions(pVM,pFuncCall->pVMState);
 		}
-		ring_list_deleteitem_gc(pVM->pRingState,pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
+		ring_list_deleteitem_gc(pVM->pRingState,pVM->pFuncCallList,RING_VM_FUNCCALLSCOUNT);
 		/* Restore nFuncSP value */
-		if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
+		if ( RING_VM_FUNCCALLSCOUNT > 0 ) {
 			pFuncCall = RING_VM_LASTFUNCCALL ;
 			pVM->nFuncSP = pFuncCall->nSP ;
 		}
@@ -481,7 +481,7 @@ void ring_vm_newfunc ( VM *pVM )
 			}
 			else {
 				pVM->cFileName = pVM->cPrevFileName ;
-				ring_list_deleteitem_gc(pVM->pRingState,pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
+				ring_list_deleteitem_gc(pVM->pRingState,pVM->pFuncCallList,RING_VM_FUNCCALLSCOUNT);
 				if ( lFreeParameter ) {
 					ring_state_free(pVM->pRingState,pParameter);
 				}
@@ -504,7 +504,7 @@ void ring_vm_newfunc ( VM *pVM )
 	}
 	if ( nSP < pVM->nSP ) {
 		pVM->cFileName = pVM->cPrevFileName ;
-		ring_list_deleteitem_gc(pVM->pRingState,pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
+		ring_list_deleteitem_gc(pVM->pRingState,pVM->pFuncCallList,RING_VM_FUNCCALLSCOUNT);
 		ring_vm_error(pVM,RING_VM_ERROR_EXTRAPARAMETERSCOUNT);
 		return ;
 	}
@@ -696,7 +696,7 @@ List * ring_vm_prevtempmem ( VM *pVM )
 	/* We use the general temp. memory as the default parent */
 	pTemp = pVM->pTempMem ;
 	/* Get Temp Memory of the previous function */
-	for ( x = ring_list_getsize(pVM->pFuncCallList)-1 ; x >= 1 ; x-- ) {
+	for ( x = RING_VM_FUNCCALLSCOUNT-1 ; x >= 1 ; x-- ) {
 		pFuncCall = RING_VM_GETFUNCCALL(x) ;
 		if ( pFuncCall->nCallerPC != 0 ) {
 			/* Get Temp Mem */
@@ -760,7 +760,7 @@ void ring_vm_freetemplists ( VM *pVM, int *nTempCount, int *nScopeID )
 		return ;
 	}
 	/* Get the current temp. list */
-	if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
+	if ( RING_VM_FUNCCALLSCOUNT > 0 ) {
 		pFuncCall = RING_VM_LASTFUNCCALL ;
 		pTempMem = pFuncCall->pTempMem ;
 	}
@@ -816,7 +816,7 @@ void ring_vm_retitemref ( VM *pVM )
 	**  The second one before return from eval() that is used by operator overloading 
 	**  This to avoid using & two times like  &  & 
 	*/
-	if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
+	if ( RING_VM_FUNCCALLSCOUNT > 0 ) {
 		pFuncCall = RING_VM_LASTFUNCCALL ;
 		if ( strcmp(pFuncCall->cName,RING_CSTR_OPERATOR) == 0 ) {
 			pVM->nRetItemRef++ ;

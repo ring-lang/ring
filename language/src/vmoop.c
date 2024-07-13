@@ -564,7 +564,7 @@ void ring_vm_oop_bracestack ( VM *pVM )
 		**  This fixes a problem when we use oObject {  eval(code) } return cString 
 		**  Where pVM->nSP maybe less than pVM->nFuncSP while we are inside function 
 		*/
-		if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
+		if ( RING_VM_FUNCCALLSCOUNT > 0 ) {
 			pVM->nSP = pVM->nFuncSP ;
 		}
 	}
@@ -761,8 +761,8 @@ int ring_vm_oop_callmethodinsideclass ( VM *pVM )
 	**  Braces & Methods calls can be nested 
 	**  Check Calling from function 
 	*/
-	if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
-		for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
+	if ( RING_VM_FUNCCALLSCOUNT > 0 ) {
+		for ( x = RING_VM_FUNCCALLSCOUNT ; x >= 1 ; x-- ) {
 			pFuncCall = RING_VM_GETFUNCCALL(x) ;
 			/* Be sure that the function is already called using ICO_CALL */
 			if ( pFuncCall->nCallerPC != 0 ) {
@@ -1174,7 +1174,7 @@ void ring_vm_oop_preparecallmethodfrombrace ( VM *pVM )
 	pList = ring_list_getlist(pVM->pObjState,ring_list_getsize(pVM->pObjState)) ;
 	/* Pass Brace when we call class init , using new object() */
 	if ( (ring_list_getsize(pVM->pObjState) > 1) && (pVM->nCallClassInit) ) {
-		if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
+		if ( RING_VM_FUNCCALLSCOUNT > 0 ) {
 			pFuncCall = RING_VM_LASTFUNCCALL ;
 			cStr = pFuncCall->cName ;
 			if ( strcmp(cStr,RING_CSTR_INIT) != 0 ) {

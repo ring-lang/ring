@@ -201,8 +201,6 @@ lExitFlag: 1
 Type: unsigned int
 lCheckBraceError: 1
 Type: unsigned int
-lDontMoveToPrevScope: 1
-Type: unsigned int
 lSelfLoadA: 1
 Type: unsigned int
 lCallMethod: 1
@@ -420,6 +418,7 @@ RING_FUNCSTATUS_STARTED
 RING_VM_LASTFUNCCALL
 RING_VM_GETFUNCCALL(x)
 RING_VM_LASTOBJSTATE
+RING_FUNCCALLSCOUNT
 RING_FUNCPARA_EXPECTEDSIZE
 RING_FUNCMAP_NAME
 RING_FUNCMAP_PC

@@ -320,7 +320,7 @@ void ring_vm_freestack ( VM *pVM )
 		}
 		return ;
 	}
-	if ( ( ring_list_getsize(pVM->pFuncCallList) == 0 ) && (pVM->lInsideBraceFlag == 0) ) {
+	if ( ( RING_VM_FUNCCALLSCOUNT == 0 ) && (pVM->lInsideBraceFlag == 0) ) {
 		pVM->nSP = 0 ;
 		pVM->nFuncSP = 0 ;
 	}
