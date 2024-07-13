@@ -2,7 +2,7 @@
 # Author: Ahmad Zakaria (zaka7024@gmail.com)
 # Date: 8/2020
 
-Load "stdlib.ring"
+Load "stdlibcore.ring"
 
 # QueueArray class test
 if IsMainSourceFile() 

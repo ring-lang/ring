@@ -5,7 +5,7 @@
 # Date: 4/2023
 # Description: visualization tool for path between two point on a grid
 
-Load "stdlib.ring"
+Load "stdlibcore.ring"
 
 load "queue_array.ring"
 load "raylib5.ring"
