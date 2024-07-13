@@ -12961,6 +12961,23 @@ RING_FUNC(ring_MatrixTrace_2)
 		RING_API_FREE(RING_API_GETCPOINTER(1,"Matrix"));
 }
 
+
+RING_FUNC(ring_MatrixRotateXYZ_2)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	{
+		Matrix *pValue ; 
+		pValue = (Matrix *) RING_API_MALLOC(sizeof(Matrix)) ;
+		*pValue = MatrixRotateXYZ(* (Vector3  *) RING_API_GETCPOINTER(1,"Vector3"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Vector3"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Matrix",RING_API_FREEFUNC);
+	}
+}
+
 RING_FUNC(ring_setmodelmaterialtexture_2) {
 	Model *model;
 	int nMaterial,nMap;
@@ -13465,6 +13482,7 @@ RING_LIBINIT
 	RING_API_REGISTER("remap",ring_Remap);
 	RING_API_REGISTER("matrixdeterminant_2",ring_MatrixDeterminant_2);
 	RING_API_REGISTER("matrixtrace_2",ring_MatrixTrace_2);
+	RING_API_REGISTER("matrixrotatexyz_2",ring_MatrixRotateXYZ_2);
 	RING_API_REGISTER("setmodelmaterialtexture_2",ring_setmodelmaterialtexture_2);
 	RING_API_REGISTER("setmodelmaterialshader_2",ring_setmodelmaterialshader_2);
 	RING_API_REGISTER("getimagepixelr_2",ring_getimagepixelr_2);

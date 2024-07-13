@@ -717,6 +717,9 @@ float3 Vector3ToFloatV@2(Vector3 v)
 
 float MatrixDeterminant@2(Matrix mat)
 float MatrixTrace@2(Matrix mat)
+
+Matrix MatrixRotateXYZ@2(Vector3 ang)
+
 <comment>
 Matrix MatrixTranspose@2(Matrix mat)
 Matrix MatrixInvert@2(Matrix mat)
@@ -726,7 +729,6 @@ Matrix MatrixAdd@2(Matrix left, Matrix right)
 Matrix MatrixSubtract@2(Matrix left, Matrix right)
 Matrix MatrixTranslate@2(float x, float y, float z)
 Matrix MatrixRotate@2(Vector3 axis, float angle)
-Matrix MatrixRotateXYZ@2(Vector3 ang)
 Matrix MatrixRotateX@2(float angle)
 Matrix MatrixRotateY@2(float angle)
 Matrix MatrixRotateZ@2(float angle)
