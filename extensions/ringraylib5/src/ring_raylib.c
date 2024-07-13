@@ -6459,6 +6459,82 @@ RING_FUNC(ring_raylib_set_vrdeviceinfo_interpupillaryDistance)
 	pMyPointer->interpupillaryDistance = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_raylib_new_raycollision)
+{
+	RayCollision *pMyPointer ;
+	pMyPointer = (RayCollision *) RING_API_MALLOC(sizeof(RayCollision)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"RayCollision");
+}
+
+RING_FUNC(ring_raylib_new_managed_raycollision)
+{
+	RayCollision *pMyPointer ;
+	pMyPointer = (RayCollision *) RING_API_MALLOC(sizeof(RayCollision)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"RayCollision",RING_API_FREEFUNC);
+}
+
+RING_FUNC(ring_raylib_destroy_raycollision)
+{
+	RayCollision *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = (RayCollision*) RING_API_GETCPOINTER(1,"RayCollision");
+	if (pMyPointer != NULL) {
+		RING_API_FREE(pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_raylib_get_raycollision_hit)
+{
+	RayCollision *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RayCollision");
+	RING_API_RETNUMBER(pMyPointer->hit);
+}
+
+RING_FUNC(ring_raylib_set_raycollision_hit)
+{
+	RayCollision *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"RayCollision");
+	pMyPointer->hit = RING_API_GETNUMBER(2);
+}
+
 
 RING_FUNC(ring_InitWindow)
 {
@@ -11370,6 +11446,25 @@ RING_FUNC(ring_CheckCollisionBoxSphere_2)
 }
 
 
+RING_FUNC(ring_GetRayCollisionBox_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	{
+		RayCollision *pValue ; 
+		pValue = (RayCollision *) RING_API_MALLOC(sizeof(RayCollision)) ;
+		*pValue = GetRayCollisionBox(* (Ray  *) RING_API_GETCPOINTER(1,"Ray"),* (BoundingBox  *) RING_API_GETCPOINTER(2,"BoundingBox"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		RING_API_FREE(RING_API_GETCPOINTER(1,"Ray"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"BoundingBox"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"RayCollision",RING_API_FREEFUNC);
+	}
+}
+
+
 RING_FUNC(ring_LoadShader_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -13281,6 +13376,7 @@ RING_LIBINIT
 	RING_API_REGISTER("checkcollisionspheres_2",ring_CheckCollisionSpheres_2);
 	RING_API_REGISTER("checkcollisionboxes_2",ring_CheckCollisionBoxes_2);
 	RING_API_REGISTER("checkcollisionboxsphere_2",ring_CheckCollisionBoxSphere_2);
+	RING_API_REGISTER("getraycollisionbox_2",ring_GetRayCollisionBox_2);
 	RING_API_REGISTER("loadshader_2",ring_LoadShader_2);
 	RING_API_REGISTER("unloadshader_2",ring_UnloadShader_2);
 	RING_API_REGISTER("getshaderlocation_2",ring_GetShaderLocation_2);
@@ -13770,6 +13866,11 @@ RING_LIBINIT
 	RING_API_REGISTER("raylib_set_vrdeviceinfo_lensseparationdistance",ring_raylib_set_vrdeviceinfo_lensSeparationDistance);
 	RING_API_REGISTER("raylib_get_vrdeviceinfo_interpupillarydistance",ring_raylib_get_vrdeviceinfo_interpupillaryDistance);
 	RING_API_REGISTER("raylib_set_vrdeviceinfo_interpupillarydistance",ring_raylib_set_vrdeviceinfo_interpupillaryDistance);
+	RING_API_REGISTER("raylib_new_raycollision",ring_raylib_new_raycollision);
+	RING_API_REGISTER("raylib_new_managed_raycollision",ring_raylib_new_managed_raycollision);
+	RING_API_REGISTER("raylib_destroy_raycollision",ring_raylib_destroy_raycollision);
+	RING_API_REGISTER("raylib_get_raycollision_hit",ring_raylib_get_raycollision_hit);
+	RING_API_REGISTER("raylib_set_raycollision_hit",ring_raylib_set_raycollision_hit);
 	RING_API_REGISTER("vec2",ring_raylib_new_managed_vector2);
 	RING_API_REGISTER("vec2getx",ring_raylib_get_vector2_x);
 	RING_API_REGISTER("vec2setx",ring_raylib_set_vector2_x);

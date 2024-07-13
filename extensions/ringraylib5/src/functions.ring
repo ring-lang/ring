@@ -1709,4 +1709,11 @@ func QuaternionTransform p1,p2
 	oQuaternion.setData( QuaternionTransform_2(GPData(p1),GPData(p2)) )
 	return oQuaternion
 
+func RayCollision hit
+	oRayCollision = new RayCollision(hit)
+	return RayCollision
 
+func GetRayCollisionBox ray,box 
+	oRayCollision = new RayCollision
+	oRayCollision.setData( GetRayCollisionBox_2(GPData(ray),GPData(box)) )
+	return oRayCollision

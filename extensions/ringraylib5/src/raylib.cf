@@ -46,6 +46,7 @@ ModelAnimation {boneCount, BoneInfo *bones, frameCount}
 Ray {position.x, position.y, position.z, direction.x, direction.y, direction.z}
 BoundingBox {min.x, min.y, min.z, max.x, max.y, max.z}
 VrDeviceInfo {hResolution, vResolution, hScreenSize, vScreenSize, vScreenCenter, eyeToScreenDistance, lensSeparationDistance, interpupillaryDistance}
+RayCollision {hit}
 </struct>
 
 <comment>
@@ -436,6 +437,10 @@ void DrawBillboardRec@2(Camera camera, Texture2D texture, Rectangle sourceRec, V
 bool CheckCollisionSpheres@2(Vector3 centerA, float radiusA, Vector3 centerB, float radiusB)
 bool CheckCollisionBoxes@2(BoundingBox box1, BoundingBox box2)
 bool CheckCollisionBoxSphere@2(BoundingBox box, Vector3 centerSphere, float radiusSphere)
+
+
+RayCollision GetRayCollisionBox@2(Ray ray, BoundingBox box)
+
 <comment>
 bool CheckCollisionRaySphere@2(Ray ray, Vector3 spherePosition, float sphereRadius)
 bool CheckCollisionRaySphereEx@2(Ray ray, Vector3 spherePosition, float sphereRadius, Vector3 *collisionPoint)
