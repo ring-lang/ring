@@ -49,15 +49,6 @@ VrDeviceInfo {hResolution, vResolution, hScreenSize, vScreenSize, vScreenCenter,
 RayCollision {hit}
 </struct>
 
-<comment>
-RayHitInfo {hit,distance,position.x, position.y, position.z, normal.x, normal.y, normal.z}
-Mesh {vertexCount, triangleCount, float *vertices, float *texcoords, float *texcoords2, float *normals, float *tangents, unsigned char *colors, unsigned short *indices, float *animVertices, float *animNormals, int *boneIds, float *boneWeights, vaoId}
-Wave {sampleCount,sampleRate,sampleSize,channels,void *data}
-AudioStream {sampleRate, sampleSize, channels, void *audioBuffer, format, source}
-Sound {void *audioBuffer, source, buffer, format}
-Material {shader.id, float *params}
-</comment>
-
 <funcstart>
 raylib
 </funcstart>
@@ -70,10 +61,6 @@ bool IsWindowMinimized(void)
 bool IsWindowResized(void)
 bool IsWindowHidden(void)
 void ToggleFullscreen(void)
-<comment>
-void UnhideWindow(void)
-void HideWindow(void)
-</comment>
 void SetWindowIcon@2(Image image)
 void SetWindowTitle(const char *title)
 void SetWindowPosition(int x, int y)
@@ -119,38 +106,19 @@ Color ColorFromHSV@2(float hue, float saturation, float value)
 Color GetColor(int hexValue)
 Color Fade@2(Color color, float alpha)
 void SetConfigFlags(unsigned char flags)
-<comment>
-void SetTraceLogLevel(int logType)
-void SetTraceLogExit(int logType)
-</comment>
 void SetTraceLogCallback(TraceLogCallback callback)
 void TraceLog(int logType, const char *text)
 void TakeScreenshot(const char *fileName)
 int GetRandomValue(int min, int max)
 bool FileExists(const char *fileName)
 bool IsFileExtension(const char *fileName, const char *ext)
-<comment>
-const char *GetExtension(const char *fileName)
-</comment>
 const char *GetFileName(const char *filePath)
 const char *GetFileNameWithoutExt(const char *filePath)
 const char *GetDirectoryPath(const char *fileName)
 const char *GetWorkingDirectory(void)
-<comment>
-char **GetDirectoryFiles(const char *dirPath, int *count)
-void ClearDirectoryFiles(void)
-</comment>
 bool ChangeDirectory(const char *dir)
 bool IsFileDropped(void)
-<comment>
-char **GetDroppedFiles(int *count)
-void ClearDroppedFiles(void)
-</comment>
 long GetFileModTime(const char *fileName)
-<comment>
-void StorageSaveValue(int position, int value)
-int StorageLoadValue(int position)
-</comment>
 void OpenURL(const char *url)
 bool IsKeyPressed@2(int key)
 bool IsKeyDown@2(int key)
@@ -159,9 +127,6 @@ bool IsKeyUp@2(int key)
 int GetKeyPressed(void)
 void SetExitKey@2(int key)
 bool IsGamepadAvailable(int gamepad)
-<comment>
-bool IsGamepadName(int gamepad, const char *name)
-</comment>
 const char *GetGamepadName(int gamepad)
 bool IsGamepadButtonPressed(int gamepad, int button)
 bool IsGamepadButtonDown(int gamepad, int button)
@@ -187,25 +152,12 @@ Vector2 GetTouchPosition@2(int index)
 void SetGesturesEnabled(unsigned int gestureFlags)
 bool IsGestureDetected(int gesture)
 int GetGestureDetected(void)
-<comment>
-int GetTouchPointsCount(void)
-</comment>
 float GetGestureHoldDuration(void)
 Vector2 GetGestureDragVector@2(void)
 float GetGestureDragAngle(void)
 Vector2 GetGesturePinchVector@2(void)
 float GetGesturePinchAngle(void)
-<comment>
-void SetCameraMode@2(Camera3D camera, int mode)
-</comment>
 void UpdateCamera@2(Camera3D *camera,int mode)
-<comment>
-void SetCameraPanControl(int panKey)
-void SetCameraAltControl(int altKey)
-void SetCameraSmoothZoomControl(int szKey)
-void SetCameraMoveControls(int frontKey, int backKey, int rightKey, int leftKey, int upKey, int downKey)
-</comment>
-
 void DrawPixel@2(int posX, int posY, Color color)
 void DrawPixelV@2(Vector2 position, Color color)
 void DrawLine@2(int startPosX, int startPosY, int endPosX, int endPosY, Color color)
@@ -245,11 +197,6 @@ bool CheckCollisionPointRec@2(Vector2 point, Rectangle rec)
 bool CheckCollisionPointCircle@2(Vector2 point, Vector2 center, float radius)
 bool CheckCollisionPointTriangle@2(Vector2 point, Vector2 p1, Vector2 p2, Vector2 p3)
 Image LoadImage@2(const char *fileName)
-<comment>
-Image LoadImageEx@2(Color *pixels, int width, int height)
-Image LoadImagePro@2(void *data, int width, int height, int format)
-Image LoadImageRaw@2(const char *fileName, int width, int height, int format, int headerSize)
-</comment>
 void ExportImage@2(Image image, const char *fileName)
 void ExportImageAsCode@2(Image image, const char *fileName)
 Texture2D LoadTexture@2(const char *fileName)
@@ -259,19 +206,8 @@ RenderTexture2D LoadRenderTexture@2(int width, int height)
 void UnloadImage@2(Image image)
 void UnloadTexture@2(Texture2D texture)
 void UnloadRenderTexture@2(RenderTexture2D target)
-
-<comment>
-Color *GetImageData@2(Image image)
-Vector4 *GetImageDataNormalized@2(Image image)
-</comment>
-
 Color *LoadImageColors@2(Image image)   
-
 int GetPixelDataSize(int width, int height, int format)
-<comment>
-Image GetTextureData@2(Texture2D texture)
-Image GetScreenData@2(void)
-</comment>
 void UpdateTexture@2(Texture2D texture, const void *pixels)
 Image ImageCopy@2(Image image)
 void ImageToPOT@2(Image *image, Color fillColor)
@@ -286,18 +222,10 @@ void ImageResizeNN@2(Image *image, int newWidth,int newHeight)
 void ImageResizeCanvas@2(Image *image, int newWidth, int newHeight, int offsetX, int offsetY, Color color)
 void ImageMipmaps@2(Image *image)
 void ImageDither@2(Image *image, int rBpp, int gBpp, int bBpp, int aBpp)
-<comment>
-Color *ImageExtractPalette@2(Image image, int maxPaletteSize, int *extractCount)
-</comment>
 Image ImageText@2(const char *text, int fontSize, Color color)
 Image ImageTextEx@2(Font font, const char *text, float fontSize, float spacing, Color tint)
 void ImageDraw@2(Image *dst, Image src, Rectangle srcRec, Rectangle dstRec,Color tint)
 void ImageDrawTextEx@2(Image *dst, Font font, const char *text,Vector2 position,  float fontSize, float spacing, Color color)
-<comment>
-void ImageDrawRectangle@2(Image *dst, Rectangle rec, Color color)
-void ImageDrawRectangleLines@2(Image *dst, Rectangle rec, int thick, Color color)
-void ImageDrawText@2(Image *dst, Vector2 position, const char *text, int fontSize, Color color)
-</comment>
 void ImageFlipVertical@2(Image *image)
 void ImageFlipHorizontal@2(Image *image)
 void ImageRotateCW@2(Image *image)
@@ -309,16 +237,9 @@ void ImageColorContrast@2(Image *image, float contrast)
 void ImageColorBrightness@2(Image *image, int brightness)
 void ImageColorReplace@2(Image *image, Color color, Color replace)
 Image GenImageColor@2(int width, int height, Color color)
-
 Image GenImageGradientLinear(int width, int height, int direction, Color start, Color end)
 Image GenImageGradientRadial(int width, int height, float density, Color inner, Color outer)
 Image GenImageGradientSquare(int width, int height, float density, Color inner, Color outer)
-
-<comment>
-Image GenImageGradientV@2(int width, int height, Color top, Color bottom)
-Image GenImageGradientH@2(int width, int height, Color left, Color right)
-Image GenImageGradientRadial@2(int width, int height, float density, Color inner, Color outer)
-</comment>
 Image GenImageChecked@2(int width, int height, int checksX, int checksY, Color col1, Color col2)
 Image GenImageWhiteNoise@2(int width, int height, float factor)
 Image GenImagePerlinNoise@2(int width, int height, int offsetX, int offsetY, float scale)
@@ -330,39 +251,21 @@ void DrawTexture@2(Texture2D texture, int posX, int posY, Color tint)
 void DrawTextureV@2(Texture2D texture, Vector2 position, Color tint)
 void DrawTextureEx@2(Texture2D texture, Vector2 position, float rotation, float scale, Color tint)
 void DrawTextureRec@2(Texture2D texture, Rectangle sourceRec, Vector2 position, Color tint)
-<comment>
-void DrawTextureQuad@2(Texture2D texture, Vector2 tiling, Vector2 offset, Rectangle quad, Color tint)
-</comment>
 void DrawTexturePro@2(Texture2D texture, Rectangle sourceRec, Rectangle destRec, Vector2 origin, float rotation, Color tint)
 void DrawTextureNPatch@2(Texture2D texture, NPatchInfo nPatchInfo, Rectangle destRec, Vector2 origin, float rotation, Color tint)
 Font GetFontDefault@2(void)
 Font LoadFont@2(const char *fileName)
 Font LoadFontEx@2(const char *fileName, int fontSize, int *fontChars, int charsCount)
 Font LoadFontFromImage@2(Image image, Color key, int firstChar)
-<comment>
-CharInfo *LoadFontData@2(const char *fileName, int fontSize, int *fontChars, int charsCount, int type)
-Image GenImageFontAtlas@2(CharInfo *chars, int charsCount, int fontSize, int padding, int packMethod)
-
-</comment>
 void UnloadFont@2(Font font)
 void DrawFPS(int posX, int posY)
 void DrawText(const char *text, int posX, int posY, int fontSize, Color color)
 void DrawTextEx@2(Font font, const char *text, Vector2 position, float fontSize, float spacing, Color tint)
-<comment>
-void DrawTextRec@2(Font font, const char *text, Rectangle rec, float fontSize, float spacing, bool wordWrap, Color tint)
-void DrawTextRecEx@2(Font font, const char *text, Rectangle rec, float fontSize, float spacing, bool wordWrap, Color tint,int selectStart, int selectLength, Color selectText, Color selectBack)
-</comment>
 int MeasureText(const char *text, int fontSize)
 Vector2 MeasureTextEx@2(Font font, const char *text, float fontSize, float spacing)
 int GetGlyphIndex@2(Font font, int character)
-<comment>
-int GetNextCodepoint(const char *text, int *count)
-</comment>
 bool TextIsEqual(const char *text1, const char *text2)
 unsigned int TextLength(const char *text)
-<comment>
-unsigned int TextCountCodepoints(const char *text)
-</comment>
 const char *TextFormat(const char *text)
 const char *TextSubtext(const char *text, int position, int length)
 const char *TextReplace(char *text, const char *replace, const char *by)
@@ -381,9 +284,6 @@ void DrawCube@2(Vector3 position, float width, float height, float length, Color
 void DrawCubeV@2(Vector3 position, Vector3 size, Color color)
 void DrawCubeWires@2(Vector3 position, float width, float height, float length, Color color)
 void DrawCubeWiresV@2(Vector3 position, Vector3 size, Color color)
-<comment>
-void DrawCubeTexture@2(Texture2D texture, Vector3 position, float width, float height, float length, Color color)
-</comment>
 void DrawSphere@2(Vector3 centerPos, float radius, Color color)
 void DrawSphereEx@2(Vector3 centerPos, float radius, int rings, int slices, Color color)
 void DrawSphereWires@2(Vector3 centerPos, float radius, int rings, int slices, Color color)
@@ -392,15 +292,9 @@ void DrawCylinderWires@2(Vector3 position, float radiusTop, float radiusBottom, 
 void DrawPlane@2(Vector3 centerPos, Vector2 size, Color color)
 void DrawRay@2(Ray ray, Color color)
 void DrawGrid(int slices, float spacing)
-<comment>
-void DrawGizmo@2(Vector3 position)
-</comment>
 Model LoadModel@2(const char *fileName)
 Model LoadModelFromMesh@2(Mesh mesh)
 void UnloadModel@2(Model model)
-<comment>
-Mesh *LoadMeshes@2(const char *fileName, int *meshCount)
-</comment>
 void ExportMesh@2(Mesh mesh, const char *fileName)
 void UnloadMesh@2(Mesh mesh)
 Material *LoadMaterials@2(const char *fileName, int *materialCount)
@@ -423,10 +317,6 @@ Mesh GenMeshKnot@2(float radius, float size, int radSeg, int sides)
 Mesh GenMeshHeightmap@2(Image heightmap, Vector3 size)
 Mesh GenMeshCubicmap@2(Image cubicmap, Vector3 cubeSize)
 BoundingBox GetMeshBoundingBox@2(Mesh mesh)
-<comment>
-void MeshTangents@2(Mesh *mesh)
-void MeshBinormals@2(Mesh *mesh)
-</comment>
 void DrawModel@2(Model model, Vector3 position, float scale, Color tint)
 void DrawModelEx@2(Model model, Vector3 position, Vector3 rotationAxis, float rotationAngle, Vector3 scale, Color tint)
 void DrawModelWires@2(Model model, Vector3 position, float scale, Color tint)
@@ -437,67 +327,25 @@ void DrawBillboardRec@2(Camera camera, Texture2D texture, Rectangle sourceRec, V
 bool CheckCollisionSpheres@2(Vector3 centerA, float radiusA, Vector3 centerB, float radiusB)
 bool CheckCollisionBoxes@2(BoundingBox box1, BoundingBox box2)
 bool CheckCollisionBoxSphere@2(BoundingBox box, Vector3 centerSphere, float radiusSphere)
-
-
 RayCollision GetRayCollisionBox@2(Ray ray, BoundingBox box)
-
-<comment>
-bool CheckCollisionRaySphere@2(Ray ray, Vector3 spherePosition, float sphereRadius)
-bool CheckCollisionRaySphereEx@2(Ray ray, Vector3 spherePosition, float sphereRadius, Vector3 *collisionPoint)
-bool CheckCollisionRayBox@2(Ray ray, BoundingBox box)
-RayHitInfo GetCollisionRayModel@2(Ray ray, Model *model)
-RayHitInfo GetCollisionRayTriangle@2(Ray ray, Vector3 p1, Vector3 p2, Vector3 p3)
-RayHitInfo GetCollisionRayGround@2(Ray ray, float groundHeight)
-char *LoadText(const char *fileName)
-</comment>
 Shader LoadShader@2(const char *vsFileName, const char *fsFileName)
-<comment>
-Shader LoadShaderCode@2(char *vsCode, char *fsCode)
-</comment>
 void UnloadShader@2(Shader shader)
-<comment>
-Shader GetShaderDefault@2(void)
-Texture2D GetTextureDefault@2(void)
-</comment>
 int GetShaderLocation@2(Shader shader, const char *uniformName)
 void SetShaderValue@2(Shader shader, int uniformLoc, const void *value, int uniformType)
 void SetShaderValueV@2(Shader shader, int uniformLoc, const void *value, int uniformType, int count)
 void SetShaderValueMatrix@2(Shader shader, int uniformLoc, Matrix mat)
 void SetShaderValueTexture@2(Shader shader, int uniformLoc, Texture2D texture)
-<comment>
-void SetMatrixProjection@2(Matrix proj)
-void SetMatrixModelview@2(Matrix view)
-
-Matrix GetMatrixModelview@2(void)
-Texture2D GenTextureCubemap@2(Shader shader, Texture2D skyHDR, int size)
-Texture2D GenTextureIrradiance@2(Shader shader, Texture2D cubemap, int size)
-Texture2D GenTexturePrefilter@2(Shader shader, Texture2D cubemap, int size)
-Texture2D GenTextureBRDF@2(Shader shader, int size)
-</comment>
 void BeginShaderMode@2(Shader shader)
 void EndShaderMode(void)
 void BeginBlendMode(int mode)
 void EndBlendMode(void)
 void BeginScissorMode(int x, int y, int width, int height)
 void EndScissorMode(void)
-<comment>
-void InitVrSimulator(void)
-void CloseVrSimulator(void)
-void UpdateVrTracking@2(Camera3D *camera)
-void SetVrConfiguration@2(VrDeviceInfo info, Shader distortion)
-bool IsVrSimulatorReady(void)
-void ToggleVrMode(void)
-void BeginVrDrawing(void)
-void EndVrDrawing(void)
-</comment>
 void InitAudioDevice(void)
 void CloseAudioDevice(void)
 bool IsAudioDeviceReady(void)
 void SetMasterVolume(float volume)
 Wave LoadWave@2(const char *fileName)
-<comment>
-Wave LoadWaveEx@2(void *data, int sampleCount, int sampleRate, int sampleSize, int channels)
-</comment>
 Sound LoadSound@2(const char *fileName)
 Sound LoadSoundFromWave@2(Wave wave)
 void UpdateSound@2(Sound sound, const void *data, int samplesCount)
@@ -515,9 +363,6 @@ void SetSoundPitch@2(Sound sound, float pitch)
 void WaveFormat@2(Wave *wave, int sampleRate, int sampleSize, int channels)
 Wave WaveCopy@2(Wave wave)
 void WaveCrop@2(Wave *wave, int initSample, int finalSample)
-<comment>
-float *GetWaveData@2(Wave wave)
-</comment>
 Music LoadMusicStream@2(const char *fileName)
 void UnloadMusicStream@2(Music music)
 void PlayMusicStream@2(Music music)
@@ -525,24 +370,11 @@ void UpdateMusicStream@2(Music music)
 void StopMusicStream@2(Music music)
 void PauseMusicStream@2(Music music)
 void ResumeMusicStream@2(Music music)
-<comment>
-bool IsMusicPlaying@2(Music music)
-</comment>
 void SetMusicVolume@2(Music music, float volume)
 void SetMusicPitch@2(Music music, float pitch)
-<comment>
-void SetMusicLoopCount@2(Music music, int count)
-</comment>
 float GetMusicTimeLength@2(Music music)
 float GetMusicTimePlayed@2(Music music)
-<comment>
-AudioStream InitAudioStream@2(unsigned int sampleRate, unsigned int sampleSize, unsigned int channels)
-</comment>
 void UpdateAudioStream@2(AudioStream stream, const void *data, int samplesCount)
-<comment>
-void CloseAudioStream@2(AudioStream stream)
-bool IsAudioBufferProcessed@2(AudioStream stream)
-</comment>
 void PlayAudioStream@2(AudioStream stream)
 void PauseAudioStream@2(AudioStream stream)
 void ResumeAudioStream@2(AudioStream stream)
@@ -559,100 +391,30 @@ void GuiEnable(void)
 void GuiDisable(void)
 void GuiLock(void)
 void GuiUnlock(void)
-<comment>
-void GuiState(int state)
-void GuiFade(float alpha)
-void GuiFont(Font font)
-</comment>
-
 void GuiSetStyle(int control, int property, int value)
 int GuiGetStyle(int control, int property)
-
-<comment>
-void GuiTextBoxSetActive(Rectangle bounds)
-Rectangle GuiTextBoxGetActive(void)
-void GuiTextBoxSetCursor(int cursor)
-int GuiTextBoxGetCursor(void)
-void GuiTextBoxSetSelection(int start, int length)
-Vector2 GuiTextBoxGetSelection(void)
-bool GuiTextBoxIsActive(Rectangle bounds)
-int GuiTextBoxGetState(void)
-void GuiTextBoxSetState(int state)
-void GuiTextBoxSelectAll(const char *text)
-void GuiTextBoxCopy(const char *text)
-void GuiTextBoxPaste(char *text, int textSize)
-void GuiTextBoxCut(char *text)
-int GuiTextBoxDelete(char *text, int length, bool before)
-int GuiTextBoxGetByteIndex(const char *text, int start, int from, int to)
-</comment>
-
 bool GuiWindowBox@2(Rectangle bounds, const char *text)
 void GuiGroupBox@2(Rectangle bounds, const char *text)
 void GuiLine@2(Rectangle bounds, const char *text)
-<comment>
-void GuiPanel@2(Rectangle bounds)
-Rectangle GuiScrollPanel@2(Rectangle bounds, Rectangle content, Vector2 *scroll)
-</comment>
 void GuiLabel@2(Rectangle bounds, const char *text)
 bool GuiButton@2(Rectangle bounds, const char *text)
 bool GuiLabelButton@2(Rectangle bounds, const char *text)
-
-<comment>
-bool GuiImageButton@2(Rectangle bounds, Texture2D texture)
-bool GuiImageButtonEx@2(Rectangle bounds, Texture2D texture, Rectangle texSource, const char *text)
-</comment>
-
 bool GuiToggle@2(Rectangle bounds, const char *text, bool active)
 int GuiToggleGroup@2(Rectangle bounds, const char *text, int active)
 bool GuiCheckBox@2(Rectangle bounds, const char *text, bool *checked)
 int GuiComboBox@2(Rectangle bounds, const char *text, int active)
 bool GuiDropdownBox@2(Rectangle bounds, const char *text, int *active, bool editMode)
-
-<comment>
-bool GuiSpinner@2(Rectangle bounds, int *value, int minValue, int maxValue, bool editMode)
-bool GuiValueBox@2(Rectangle bounds, int *value, int minValue, int maxValue, bool editMode)
-</comment>
-
 bool GuiTextBox@2(Rectangle bounds, char *text, int textSize, bool editMode)
-<comment>
-bool GuiTextBoxMulti@2(Rectangle bounds, char *text, int textSize, bool editMode)
-</comment>
-
 int GuiSlider@2(Rectangle bounds, const char *textLeft, const char *textRight, float *value, float minValue, float maxValue)
 int GuiSliderBar@2(Rectangle bounds, const char *textLeft, const char *textRight, float *value, float minValue, float maxValue)
 int GuiProgressBar@2(Rectangle bounds, const char *textLeft, const char *textRight, float *value, float minValue, float maxValue)
-
-<comment>
-float GuiSlider@2(Rectangle bounds, const char *text, float value, float minValue, float maxValue, bool showValue)
-float GuiSliderBar@2(Rectangle bounds, const char *text, float value, float minValue, float maxValue, bool showValue)
-float GuiProgressBar@2(Rectangle bounds, const char *text, float value, float minValue, float maxValue, bool showValue)
-</comment>
-
 void GuiStatusBar@2(Rectangle bounds, const char *text)
 void GuiDummyRec@2(Rectangle bounds, const char *text)
 int GuiScrollBar@2(Rectangle bounds, int value, int minValue, int maxValue)
-
-<comment>
-Vector2 GuiGrid@2(Rectangle bounds, float spacing, int subdivs)
-</comment>
-
 bool GuiListView@2(Rectangle bounds, const char *text, int *active, int *scrollIndex, bool editMode)
 bool GuiListViewEx@2(Rectangle bounds, const char **text, int count, int *enabled, int *active, int *focus, int *scrollIndex, bool editMode)
 int GuiMessageBox@2(Rectangle bounds, const char *windowTitle, const char *message, const char *buttons)
-
-<comment>
-int GuiTextInputBox@2(Rectangle bounds, const char *windowTitle, const char *message, char *text, const char *buttons)
-Color GuiColorPicker@2(Rectangle bounds, Color color)
-void GuiLoadStyle(const char *fileName)
-void GuiLoadStyleProps(const int *props, int count)
-</comment>
-
 void GuiLoadStyleDefault(void)
-
-<comment>
-void GuiUpdateStyleComplete(void)
-const char *GuiIconText(int iconId, const char *text)
-</comment>
 
 <comment>
 RayMath Functions 
