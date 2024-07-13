@@ -36,7 +36,7 @@ RenderTexture2D {id, texture.id, texture.width, texture.height, texture.mipmaps,
 RenderTexture {id, texture.id, texture.width, texture.height, texture.mipmaps, texture.format, depth.id, depth.width, depth.height, depth.mipmaps, depth.format}
 NPatchInfo {left, top , right, bottom}
 Font {texture.id, texture.width, texture.height, texture.mipmaps, texture.format, baseSize}
-Camera3D {position.x, position.y, position.z, target.x, target.y, target.z, up.x, up.y, up.z, fovy}
+Camera3D {position.x, position.y, position.z, target.x, target.y, target.z, up.x, up.y, up.z, fovy, projection}
 Shader {id}
 MaterialMap {texture.id, texture.width, texture.height, texture.mipmaps, texture.format, value}
 Transform {translation.x, translation.y, translation.z, rotation.x, rotation.y, rotation.z, rotation.w, scale.x, scale.y, scale.z}
@@ -258,12 +258,13 @@ RenderTexture2D LoadRenderTexture@2(int width, int height)
 void UnloadImage@2(Image image)
 void UnloadTexture@2(Texture2D texture)
 void UnloadRenderTexture@2(RenderTexture2D target)
+
 <comment>
 Color *GetImageData@2(Image image)
 Vector4 *GetImageDataNormalized@2(Image image)
 </comment>
-Color *LoadImageColors@2(Image image)   
 
+Color *LoadImageColors@2(Image image)   
 
 int GetPixelDataSize(int width, int height, int format)
 <comment>

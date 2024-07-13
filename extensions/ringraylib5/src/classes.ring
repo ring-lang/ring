@@ -465,6 +465,7 @@ class Camera3D from RayLibBase
 	target		= new Vector3
 	up		= new Vector3 
 	fovy	 
+	projection
 	
 	oData = raylib_new_managed_Camera3D()
 
@@ -479,6 +480,7 @@ class Camera3D from RayLibBase
 		up.y = p8
 		up.z = p9
 		fovy = p10
+		projection = p11
 
 	func data 
 		raylib_set_Camera3D_position_x(oData,position.x)
@@ -491,6 +493,7 @@ class Camera3D from RayLibBase
 		raylib_set_Camera3D_up_y(oData,up.y)
 		raylib_set_Camera3D_up_z(oData,up.z)
 		raylib_set_Camera3D_fovy(oData,fovy)
+		raylib_set_Camera3D_projection(oData,projection)
 		return oData	
 
 	func setdata oStruct 
@@ -505,6 +508,7 @@ class Camera3D from RayLibBase
 		up.y = raylib_get_Camera3D_up_y(oStruct)
 		up.z = raylib_get_Camera3D_up_z(oStruct)
 		fovy = raylib_get_Camera3D_fovy(oStruct)
+		projection = raylib_get_Camera3D_projection(oStruct)
 
 class Mesh from RayLibBase
 

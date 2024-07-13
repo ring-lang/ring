@@ -3837,6 +3837,40 @@ RING_FUNC(ring_raylib_set_camera3d_fovy)
 	pMyPointer->fovy = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_raylib_get_camera3d_projection)
+{
+	Camera3D *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera3D");
+	RING_API_RETNUMBER(pMyPointer->projection);
+}
+
+RING_FUNC(ring_raylib_set_camera3d_projection)
+{
+	Camera3D *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Camera3D");
+	pMyPointer->projection = RING_API_GETNUMBER(2);
+}
+
 RING_FUNC(ring_raylib_new_shader)
 {
 	Shader *pMyPointer ;
@@ -13577,6 +13611,8 @@ RING_LIBINIT
 	RING_API_REGISTER("raylib_set_camera3d_up_z",ring_raylib_set_camera3d_up_z);
 	RING_API_REGISTER("raylib_get_camera3d_fovy",ring_raylib_get_camera3d_fovy);
 	RING_API_REGISTER("raylib_set_camera3d_fovy",ring_raylib_set_camera3d_fovy);
+	RING_API_REGISTER("raylib_get_camera3d_projection",ring_raylib_get_camera3d_projection);
+	RING_API_REGISTER("raylib_set_camera3d_projection",ring_raylib_set_camera3d_projection);
 	RING_API_REGISTER("raylib_new_shader",ring_raylib_new_shader);
 	RING_API_REGISTER("raylib_new_managed_shader",ring_raylib_new_managed_shader);
 	RING_API_REGISTER("raylib_destroy_shader",ring_raylib_destroy_shader);

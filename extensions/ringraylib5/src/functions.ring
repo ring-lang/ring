@@ -635,7 +635,6 @@ func GetImageData image
 func LoadImageColors image
 	return LoadImageColors_2(GPData(image))
 
-
 func LoadWave fileName
 	oWave = new Wave
 	oWave.setData( LoadWave_2(fileName) )
