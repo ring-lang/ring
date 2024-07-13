@@ -166,7 +166,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 		}
 	}
 	ring_vm_backstate(pVM,pVM->pScopeNewObj,pVMState->aNumbers[9]);
-	ring_vm_backstate(pVM,pVM->pFuncCallList,pVMState->aNumbers[1]);
+	RING_VM_BACKTOFUNCCALL(pVMState->aNumbers[1]);
 	/* Loop/Exit Mark */
 	if ( nFlag != RING_STATE_EXIT ) {
 		ring_vm_backstate(pVM,pVM->pExitMark,pVMState->aNumbers[13]);
@@ -487,7 +487,7 @@ void ring_vm_restorestatefornewobjects ( VM *pVM )
 	/* Restore pGetSetObject */
 	pVM->pGetSetObject = (List *) pVMState->aPointers[6] ;
 	/* Restore pFuncCallList */
-	ring_vm_backstate(pVM,pVM->pFuncCallList,pVMState->aNumbers[22]);
+	RING_VM_BACKTOFUNCCALL(pVMState->aNumbers[22]);
 	/* Restore nNoSetterMethod */
 	pVM->nNoSetterMethod = pVMState->aNumbers[23] ;
 	/* Restore the BlockFlag */
