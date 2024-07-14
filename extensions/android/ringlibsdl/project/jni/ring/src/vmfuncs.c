@@ -59,8 +59,6 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 			pFuncCall->nPC = ring_list_getint(pList2,RING_FUNCMAP_PC) ;
 			pFuncCall->nSP = pVM->nSP ;
 			pFuncCall->pFunc = NULL ;
-			/* Create Temp Memory */
-			pFuncCall->pTempMem = ring_list_new_gc(pVM->pRingState,RING_ZERO) ;
 			/* File Name */
 			pFuncCall->cFileName = pVM->cFileName ;
 			pVM->cPrevFileName = pVM->cFileName ;
@@ -123,8 +121,6 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 		pFuncCall->cName = cStr ;
 		pFuncCall->pFunc = ring_list_getfuncpointer(pList,RING_FUNCMAP_PC) ;
 		pFuncCall->nSP = pVM->nSP ;
-		/* Create Temp Memory */
-		pFuncCall->pTempMem = ring_list_new_gc(pVM->pRingState,RING_ZERO) ;
 		/*
 		**  File Name 
 		**  The old source file name 
@@ -829,7 +825,9 @@ FuncCall * ring_vmfunccall_new ( VM *pVM )
 	FuncCall *pFuncCall  ;
 	pVM->nCurrentFuncCall++ ;
 	pFuncCall = & (pVM->aFuncCall[pVM->nCurrentFuncCall]) ;
-	pFuncCall->pTempMem = NULL ;
+	if ( pFuncCall->pTempMem == NULL ) {
+		pFuncCall->pTempMem = ring_list_new_gc(pVM->pRingState,RING_ZERO) ;
+	}
 	pFuncCall->nCallerPC = 0 ;
 	pFuncCall->nStatus = RING_FUNCSTATUS_LOAD ;
 	pFuncCall->pVMState = NULL ;
@@ -841,7 +839,9 @@ void ring_vmfunccall_delete ( void *pState,void *pMemory )
 	FuncCall *pFuncCall  ;
 	pFuncCall = (FuncCall *) pMemory ;
 	if ( pFuncCall->pTempMem != NULL ) {
-		ring_list_delete_gc(pState,pFuncCall->pTempMem);
+		if ( ring_list_getsize(pFuncCall->pTempMem) ) {
+			ring_list_deleteallitems_gc(pState,pFuncCall->pTempMem);
+		}
 	}
 	if ( pFuncCall->pVMState != NULL ) {
 		ring_vmstate_delete(pState,pFuncCall->pVMState);

@@ -27,6 +27,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->nScopeID = 0 ;
 	/* Functions Call count (Checked by ring_vm_newscope() function to avoid overflow) */
 	pVM->nCurrentFuncCall = RING_ZERO ;
+	memset(&(pVM->aFuncCall[0]),RING_ZERO,RING_VM_STACK_SIZE*sizeof(FuncCall));
 	ring_vm_newscope(pVM);
 	for ( x = 0 ; x < RING_VM_STACK_SIZE ; x++ ) {
 		ring_item_init(&(pVM->aStack[x]));
@@ -239,6 +240,10 @@ VM * ring_vm_delete ( VM *pVM )
 	/* Free Stack */
 	for ( x = 0 ; x < RING_VM_STACK_SIZE ; x++ ) {
 		ring_item_deletecontent_gc(pVM->pRingState,&(pVM->aStack[x]));
+		/* Delete Temp. memory lists in FuncCall */
+		if ( pVM->aFuncCall[x].pTempMem != NULL ) {
+			pVM->aFuncCall[x].pTempMem = ring_list_delete_gc(pVM->pRingState,pVM->aFuncCall[x].pTempMem);
+		}
 	}
 	/* Delete the bytecode */
 	for ( x = 1 ; x <= RING_VM_INSTRUCTIONSCOUNT ; x++ ) {
