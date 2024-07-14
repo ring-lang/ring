@@ -146,9 +146,9 @@ void ring_vm_loadfuncp ( VM *pVM )
 		ring_vm_loadfunc(pVM);
 		return ;
 	}
-	pVM->nFuncExecute++ ;
 	/* Add FuncCall Structure */
 	pFuncCall = ring_vmfunccall_new(pVM);
+	if (pFuncCall == NULL) return ;
 	pFuncCall->nType = RING_VM_IR_GETFLAGREG ;
 	pFuncCall->cName = RING_VM_IR_READC ;
 	pFuncCall->nPC = RING_VM_IR_GETINTREG ;
@@ -169,6 +169,7 @@ void ring_vm_loadfuncp ( VM *pVM )
 	pFuncCall->nListStart = pVM->nListStart ;
 	pFuncCall->pNestedLists = pVM->pNestedLists ;
 	ring_vm_newnestedlists(pVM);
+	pVM->nFuncExecute++ ;
 }
 
 void ring_vm_incpjumpstep1 ( VM *pVM )

@@ -54,6 +54,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 			}
 			/* Add FuncCall Structure */
 			pFuncCall = ring_vmfunccall_new(pVM);
+			if (pFuncCall == NULL) return 1 ;
 			pFuncCall->nType = RING_FUNCTYPE_SCRIPT ;
 			pFuncCall->cName = cStr ;
 			pFuncCall->nPC = ring_list_getint(pList2,RING_FUNCMAP_PC) ;
@@ -117,6 +118,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 	if ( pList != NULL ) {
 		/* Add FuncCall Structure */
 		pFuncCall = ring_vmfunccall_new(pVM);
+		if (pFuncCall == NULL) return 1 ;
 		pFuncCall->nType = RING_FUNCTYPE_C ;
 		pFuncCall->cName = cStr ;
 		pFuncCall->pFunc = ring_list_getfuncpointer(pList,RING_FUNCMAP_PC) ;
@@ -823,6 +825,11 @@ void ring_vm_retitemref ( VM *pVM )
 FuncCall * ring_vmfunccall_new ( VM *pVM )
 {
 	FuncCall *pFuncCall  ;
+	/* Check Overflow */
+	if ( pVM->nCurrentFuncCall > RING_VM_STACK_CHECKOVERFLOW ) {
+		ring_vm_error(pVM,RING_VM_ERROR_STACKOVERFLOW);
+		return NULL ;
+	}
 	pVM->nCurrentFuncCall++ ;
 	pFuncCall = & (pVM->aFuncCall[pVM->nCurrentFuncCall]) ;
 	if ( pFuncCall->pTempMem == NULL ) {
