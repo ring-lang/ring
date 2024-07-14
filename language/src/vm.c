@@ -20,8 +20,13 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->pActiveMem = NULL ;
 	pVM->pTempMem = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	pVM->nLineNumber = 1 ;
-	/* Information to test the lifetime of the local scope */
+	/*
+	**  Set data before creating new scope 
+	**  Information to test the lifetime of the local scope 
+	*/
 	pVM->nScopeID = 0 ;
+	/* Functions Call count (Checked by ring_vm_newscope() function to avoid overflow) */
+	pVM->nCurrentFuncCall = RING_ZERO ;
 	ring_vm_newscope(pVM);
 	for ( x = 0 ; x < RING_VM_STACK_SIZE ; x++ ) {
 		ring_item_init(&(pVM->aStack[x]));

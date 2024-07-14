@@ -51,6 +51,58 @@ struct ByteCode *
 Type: ByteCode
 Mark: ->
 ByteCode *
+Parent: FuncCall
+Type: const char *
+cName
+Type: char *
+cFileName
+Type: char *
+cNewFileName
+Type: List *
+pTempMem
+Type: List *
+pNestedLists
+Type: VMState *
+pVMState
+Type: unsigned int
+nPC
+Type: unsigned int
+nSP
+Type: unsigned int
+nLineNumber
+Type: unsigned int
+nCallerPC
+Type: unsigned int
+nFuncExec
+Type: unsigned int
+nListStart
+Type: unsigned int
+nForStep
+Type: unsigned int
+nExitMark
+Type: unsigned int
+nLoopMark
+Type: unsigned int
+nCurrentGlobalScope
+Type: unsigned int
+nActiveScopeID
+Type: char
+nType
+Type: char
+nStatus
+Type: char
+nLoadAddressScope
+Type: char
+lMethod
+END:
+Type: FuncCall
+struct FuncCall
+Type: FuncCall
+Mark: ->
+struct FuncCall *
+Type: FuncCall
+Mark: ->
+FuncCall *
 Parent: VM
 Type: RingState *
 pRingState
@@ -149,6 +201,8 @@ nFuncSP
 Type: unsigned int
 nFuncExecute
 Type: unsigned int
+nCurrentFuncCall
+Type: unsigned int
 nVarScope
 Type: unsigned int
 nScopeID
@@ -242,6 +296,8 @@ Type: unsigned int
 lOptionalLoop: 1
 Type: Item
 aStack[RING_VM_STACK_SIZE]
+Type: FuncCall
+aFuncCall[RING_VM_STACK_SIZE]
 END:
 Type: VM
 struct VM
@@ -251,58 +307,6 @@ struct VM *
 Type: VM
 Mark: ->
 VM *
-Parent: FuncCall
-Type: const char *
-cName
-Type: char *
-cFileName
-Type: char *
-cNewFileName
-Type: List *
-pTempMem
-Type: List *
-pNestedLists
-Type: VMState *
-pVMState
-Type: unsigned int
-nPC
-Type: unsigned int
-nSP
-Type: unsigned int
-nLineNumber
-Type: unsigned int
-nCallerPC
-Type: unsigned int
-nFuncExec
-Type: unsigned int
-nListStart
-Type: unsigned int
-nForStep
-Type: unsigned int
-nExitMark
-Type: unsigned int
-nLoopMark
-Type: unsigned int
-nCurrentGlobalScope
-Type: unsigned int
-nActiveScopeID
-Type: char
-nType
-Type: char
-nStatus
-Type: char
-nLoadAddressScope
-Type: char
-lMethod
-END:
-Type: FuncCall
-struct FuncCall
-Type: FuncCall
-Mark: ->
-struct FuncCall *
-Type: FuncCall
-Mark: ->
-FuncCall *
 RING_VM_SP_INC
 RING_VM_SP_VALUE
 RING_VM_STACK_PUSHC
@@ -420,6 +424,7 @@ RING_VM_LASTFUNCCALL
 RING_VM_GETFUNCCALL(x)
 RING_VM_FUNCCALLSCOUNT
 RING_VM_DELETELASTFUNCCALL
+RING_VM_BACKTOFUNCCALL(x)
 RING_FUNCPARA_EXPECTEDSIZE
 RING_FUNCMAP_NAME
 RING_FUNCMAP_PC

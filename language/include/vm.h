@@ -39,6 +39,30 @@
 		unsigned int nIntReg: 32  ;
 		Register aReg[RING_VM_BC_ITEMS_COUNT]  ;
 	} ByteCode ;
+	typedef struct FuncCall {
+		const char *cName  ;
+		char *cFileName  ;
+		char *cNewFileName  ;
+		List *pTempMem  ;
+		List *pNestedLists  ;
+		void (*pFunc)(void *) ;
+		VMState *pVMState  ;
+		unsigned int nPC  ;
+		unsigned int nSP  ;
+		unsigned int nLineNumber  ;
+		unsigned int nCallerPC  ;
+		unsigned int nFuncExec  ;
+		unsigned int nListStart  ;
+		unsigned int nForStep  ;
+		unsigned int nExitMark  ;
+		unsigned int nLoopMark  ;
+		unsigned int nCurrentGlobalScope  ;
+		unsigned int nActiveScopeID  ;
+		char nType  ;
+		char nStatus  ;
+		char nLoadAddressScope  ;
+		char lMethod  ;
+	} FuncCall ;
 	typedef struct VM {
 		RingState *pRingState  ;
 		List *pCode  ;
@@ -92,6 +116,7 @@
 		unsigned int nBlockCounter  ;
 		unsigned int nFuncSP  ;
 		unsigned int nFuncExecute  ;
+		unsigned int nCurrentFuncCall  ;
 		unsigned int nVarScope  ;
 		unsigned int nScopeID  ;
 		unsigned int nActiveScopeID  ;
@@ -139,31 +164,8 @@
 		unsigned int lSubStringToNumError: 1  ;
 		unsigned int lOptionalLoop: 1  ;
 		Item aStack[RING_VM_STACK_SIZE]  ;
+		FuncCall aFuncCall[RING_VM_STACK_SIZE]  ;
 	} VM ;
-	typedef struct FuncCall {
-		const char *cName  ;
-		char *cFileName  ;
-		char *cNewFileName  ;
-		List *pTempMem  ;
-		List *pNestedLists  ;
-		void (*pFunc)(void *) ;
-		VMState *pVMState  ;
-		unsigned int nPC  ;
-		unsigned int nSP  ;
-		unsigned int nLineNumber  ;
-		unsigned int nCallerPC  ;
-		unsigned int nFuncExec  ;
-		unsigned int nListStart  ;
-		unsigned int nForStep  ;
-		unsigned int nExitMark  ;
-		unsigned int nLoopMark  ;
-		unsigned int nCurrentGlobalScope  ;
-		unsigned int nActiveScopeID  ;
-		char nType  ;
-		char nStatus  ;
-		char nLoadAddressScope  ;
-		char lMethod  ;
-	} FuncCall ;
 	/*
 	**  Macro & Constants 
 	**  Stack 
@@ -302,11 +304,11 @@
 	#define RING_FUNCSTATUS_STARTED 2
 	/* Util */
 	#define RING_VM_LASTOBJSTATE pVM->pObjState->pLast->pValue->data.pList->pFirst->pValue->data.pPointer
-	#define RING_VM_LASTFUNCCALL (FuncCall *) (pVM->pFuncCallList->pLast->pValue->data.pPointer)
-	#define RING_VM_GETFUNCCALL(x) (FuncCall *) (ring_list_getpointer(pVM->pFuncCallList,x))
-	#define RING_VM_FUNCCALLSCOUNT ring_list_getsize(pVM->pFuncCallList)
-	#define RING_VM_DELETELASTFUNCCALL ring_list_deletelastitem_gc(pVM->pRingState,pVM->pFuncCallList)
-	#define RING_VM_BACKTOFUNCCALL(x) ring_vm_backstate(pVM,pVM->pFuncCallList,x)
+	#define RING_VM_LASTFUNCCALL & (pVM->aFuncCall[pVM->nCurrentFuncCall])
+	#define RING_VM_GETFUNCCALL(x) & (pVM->aFuncCall[x])
+	#define RING_VM_FUNCCALLSCOUNT pVM->nCurrentFuncCall
+	#define RING_VM_DELETELASTFUNCCALL ring_vmfunccall_delete(pVM->pRingState,RING_VM_LASTFUNCCALL) ; pVM->nCurrentFuncCall--
+	#define RING_VM_BACKTOFUNCCALL(x) while (RING_VM_FUNCCALLSCOUNT > x) { RING_VM_DELETELASTFUNCCALL ; }
 	/* Parameters */
 	#define RING_FUNCPARA_EXPECTEDSIZE 32
 	/* pFunctionsMap ( Func Name , Position , File Name, Private Flag) */

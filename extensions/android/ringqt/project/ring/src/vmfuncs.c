@@ -827,12 +827,12 @@ void ring_vm_retitemref ( VM *pVM )
 FuncCall * ring_vmfunccall_new ( VM *pVM )
 {
 	FuncCall *pFuncCall  ;
-	pFuncCall = (FuncCall *) ring_vmstate_new(pVM->pRingState) ;
+	pVM->nCurrentFuncCall++ ;
+	pFuncCall = & (pVM->aFuncCall[pVM->nCurrentFuncCall]) ;
 	pFuncCall->pTempMem = NULL ;
 	pFuncCall->nCallerPC = 0 ;
 	pFuncCall->nStatus = RING_FUNCSTATUS_LOAD ;
 	pFuncCall->pVMState = NULL ;
-	ring_list_addcustomringpointer_gc(pVM->pRingState,pVM->pFuncCallList,pFuncCall,ring_vmfunccall_delete);
 	return pFuncCall ;
 }
 
@@ -846,7 +846,6 @@ void ring_vmfunccall_delete ( void *pState,void *pMemory )
 	if ( pFuncCall->pVMState != NULL ) {
 		ring_vmstate_delete(pState,pFuncCall->pVMState);
 	}
-	ring_vmstate_delete(pState,pMemory);
 }
 
 void ring_vmfunccall_useloadfuncp ( VM *pVM,FuncCall *pFuncCall,int nPerformance )
