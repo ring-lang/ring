@@ -188,15 +188,14 @@ void ring_vm_call2 ( VM *pVM )
 	pVM->nLoadAddressScope = pFuncCall->nLoadAddressScope ;
 	/* Restore List Status */
 	ring_vm_restorenestedlists(pVM,pFuncCall->nListStart,pFuncCall->nNestedLists);
-	/* Calling Method from brace */
-	if ( (pFuncCall->nType == RING_FUNCTYPE_SCRIPT) && (pFuncCall->lMethod == 1) ) {
-		/* The first test to be sure it's not a C Function Call */
-		ring_vm_oop_callmethodfrombrace(pVM);
-	}
 	/* Store the Caller Position */
 	pFuncCall->nCallerPC = pVM->nPC ;
 	/* Call Function */
 	if ( pFuncCall->nType == RING_FUNCTYPE_SCRIPT ) {
+		/* Calling Method from brace */
+		if ( pFuncCall->lMethod ) {
+			ring_vm_oop_callmethodfrombrace(pVM);
+		}
 		/* Store FuncExe Counter Value */
 		pFuncCall->nFuncExec = pVM->nFuncExecute ;
 		pVM->nFuncExecute = 0 ;
