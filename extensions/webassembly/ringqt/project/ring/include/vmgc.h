@@ -133,8 +133,6 @@
 	RING_API void ring_state_unregisterblock ( void *pState,void *pStart ) ;
 
 	RING_API void ring_state_willunregisterblock ( void *pState,void *pStart ) ;
-	/* Macro */
-	#define GCLog 0
 	/* Pool Manager Functions */
 
 	void ring_poolmanager_newblock ( RingState *pRingState ) ;

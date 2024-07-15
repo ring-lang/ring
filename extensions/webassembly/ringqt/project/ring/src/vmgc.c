@@ -22,9 +22,6 @@ void ring_vm_gc_checknewreference ( VM *pVM,void *pPointer,int nType, List *pCon
 			pContainer->vGC.lTrackedList = 1 ;
 			ring_list_addpointer_gc(pVM->pRingState,pVM->pTrackedVariables,pContainer);
 		}
-		#if GCLog
-			printf( "\nGC CheckNewReference - To Pointer %p \n",pItem ) ;
-		#endif
 	}
 }
 
@@ -43,9 +40,6 @@ void ring_vm_gc_checkupdatereference ( VM *pVM,List *pList )
 void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem )
 {
 	if ( pItem->nGCReferenceCount == 0 ) {
-		#if GCLog
-			printf( "GC Delete Item - Free Memory %p \n",pItem ) ;
-		#endif
 		/* Call Free Function */
 		if ( pItem->nType == ITEMTYPE_POINTER ) {
 			ring_vm_gc_freefunc((RingState *) pState,pItem);
