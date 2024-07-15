@@ -195,11 +195,11 @@ void ring_vm_call2 ( VM *pVM )
 	}
 	/* Store the Caller Position */
 	pFuncCall->nCallerPC = pVM->nPC ;
-	/* Store FuncExe Counter Value */
-	pFuncCall->nFuncExec = pVM->nFuncExecute ;
-	pVM->nFuncExecute = 0 ;
 	/* Call Function */
 	if ( pFuncCall->nType == RING_FUNCTYPE_SCRIPT ) {
+		/* Store FuncExe Counter Value */
+		pFuncCall->nFuncExec = pVM->nFuncExecute ;
+		pVM->nFuncExecute = 0 ;
 		/* Clear List/Nested Lists State */
 		ring_vm_newnestedlists(pVM);
 		pVM->nPC = pFuncCall->nPC ;
@@ -258,8 +258,6 @@ void ring_vm_call2 ( VM *pVM )
 			*/
 			return ;
 		}
-		/* Restore nFuncEx state */
-		pVM->nFuncExecute = pFuncCall->nFuncExec ;
 		/* Function Output */
 		if ( nSP == pVM->nSP ) {
 			/* IgnoreNULL is Used by len(object) to get output from operator overloading method */
