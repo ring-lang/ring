@@ -169,8 +169,8 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 		ring_vm_backstate(pVM,pVM->pTry,pVMState->aNumbers[15]);
 	}
 	ring_vm_removelistprotection(pVM,pVM->pNestedLists,pVMState->aNumbers[30]+1);
-	pVM->nListStart = pVMState->aNumbers[16] ;
 	ring_vm_backstate(pVM,pVM->pNestedLists,pVMState->aNumbers[30]);
+	pVM->nListStart = pVMState->aNumbers[16] ;
 	pVM->lInsideBraceFlag = pVMState->aNumbers[17] ;
 	ring_vm_backstate(pVM,pVM->pBeforeObjState,pVMState->aNumbers[19]);
 	RING_VM_IR_SETLINENUMBER(pVMState->aNumbers[20]);
@@ -412,11 +412,7 @@ void ring_vm_restorestatefornewobjects ( VM *pVM )
 	**  Restore the scope (before creating the object using new) 
 	*/
 	pVM->pActiveMem = (List *) pVMState->aPointers[0] ;
-	/*
-	**  Restore List Status 
-	**  Remove protection from opened lists 
-	*/
-	ring_vm_removelistprotection(pVM,pVM->pNestedLists,pVMState->aNumbers[28]+1);
+	/* Restore List Status */
 	ring_vm_restorenestedlists(pVM,pVMState->aNumbers[0],pVMState->aNumbers[28]);
 	/* Restore Stack Information */
 	pVM->nSP = pVMState->aNumbers[1] ;
@@ -538,12 +534,8 @@ void ring_vm_restorestateforbraces ( VM *pVM,List *pList )
 {
 	List *pObject  ;
 	int lDontRef,lDontRefAgain  ;
-	/*
-	**  Restore List Status 
-	**  Remove protection from opened lists 
-	*/
-	ring_vm_removelistprotection(pVM,pVM->pNestedLists,ring_list_getint(pList,RING_BRACEOBJECTS_PNESTEDLISTS)+1);
-	ring_vm_restorenestedlists(pVM,ring_list_getint(pList,RING_BRACEOBJECTS_NLISTSTART),ring_list_getint(pList,RING_BRACEOBJECTS_PNESTEDLISTS));
+	/* Restore List Status */
+	ring_vm_restorenestedlists(pVM,ring_list_getint(pList,RING_BRACEOBJECTS_NLISTSTART),ring_list_getint(pList,RING_BRACEOBJECTS_NNESTEDLISTS));
 	/* Restore nFuncExec */
 	pVM->nFuncExecute = ring_list_getint(pList,RING_BRACEOBJECTS_NFUNCEXEC ) ;
 	/* Restore Stack Status */

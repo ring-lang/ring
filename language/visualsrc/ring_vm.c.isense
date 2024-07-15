@@ -60,8 +60,6 @@ Type: char *
 cNewFileName
 Type: List *
 pTempMem
-Type: unsigned int
-nNestedLists
 Type: VMState *
 pVMState
 Type: unsigned int
@@ -86,6 +84,8 @@ Type: unsigned int
 nCurrentGlobalScope
 Type: unsigned int
 nActiveScopeID
+Type: unsigned int
+nNestedLists
 Type: char
 nType
 Type: char

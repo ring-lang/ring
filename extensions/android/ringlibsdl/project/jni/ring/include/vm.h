@@ -44,7 +44,6 @@
 		char *cFileName  ;
 		char *cNewFileName  ;
 		List *pTempMem  ;
-		unsigned int nNestedLists  ;
 		void (*pFunc)(void *) ;
 		VMState *pVMState  ;
 		unsigned int nPC  ;
@@ -58,6 +57,7 @@
 		unsigned int nLoopMark  ;
 		unsigned int nCurrentGlobalScope  ;
 		unsigned int nActiveScopeID  ;
+		unsigned int nNestedLists  ;
 		char nType  ;
 		char nStatus  ;
 		char nLoadAddressScope  ;
@@ -356,7 +356,7 @@
 	#define RING_BRACEOBJECTS_BRACEOBJECT 1
 	#define RING_BRACEOBJECTS_NSP 2
 	#define RING_BRACEOBJECTS_NLISTSTART 3
-	#define RING_BRACEOBJECTS_PNESTEDLISTS 4
+	#define RING_BRACEOBJECTS_NNESTEDLISTS 4
 	#define RING_BRACEOBJECTS_NFUNCEXEC 5
 	#define RING_BRACEOBJECTS_SETPROPERTY 6
 	#define RING_BRACEOBJECTS_NLOADASCOPE 7
