@@ -369,9 +369,11 @@ RING_API void ring_vm_callfuncwithouteval ( VM *pVM, const char *cFunc, int lMet
 
 RING_API void ring_vm_callfunction ( VM *pVM,char *cFuncName )
 {
+	int nCurrentFuncCall  ;
 	/* Lower Case and pass () in the end */
 	ring_string_lower(cFuncName);
 	/* Prepare (Remove effects of the current function) */
+	nCurrentFuncCall = pVM->nCurrentFuncCall ;
 	RING_VM_DELETELASTFUNCCALL ;
 	/* Load the function and call it */
 	ring_vm_loadfunc2(pVM,cFuncName,RING_FALSE);
@@ -380,6 +382,7 @@ RING_API void ring_vm_callfunction ( VM *pVM,char *cFuncName )
 	ring_vm_mainloopforeval(pVM);
 	/* Free Stack */
 	ring_vm_freestack(pVM);
+	pVM->nCurrentFuncCall = nCurrentFuncCall ;
 	/* Avoid normal steps after this function, because we deleted the scope in Prepare */
 	pVM->lActiveCatch = 1 ;
 }
