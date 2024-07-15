@@ -194,7 +194,6 @@ PoolManager *
 ring_gc_h
 ring_vm_gc_cleardata(pItem)
 ring_vm_gc_newitemreference(pItem)
-GCLog
 ring_vm_gc_checknewreference
 Type: Item *
 pItem
