@@ -691,11 +691,11 @@ int ring_vm_checkbeforeassignment ( VM *pVM,List *pVar )
 	return 0 ;
 }
 
-void ring_vm_removelistprotection ( VM *pVM,List *pNestedLists )
+void ring_vm_removelistprotection ( VM *pVM,List *pNestedLists,int nStart )
 {
 	int x  ;
 	List *pList  ;
-	for ( x = 1 ; x <= ring_list_getsize(pNestedLists) ; x++ ) {
+	for ( x = nStart ; x <= ring_list_getsize(pNestedLists) ; x++ ) {
 		ring_vm_removelistprotectionat(pVM,pNestedLists,x);
 	}
 }

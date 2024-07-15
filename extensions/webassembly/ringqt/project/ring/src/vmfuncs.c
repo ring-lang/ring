@@ -71,7 +71,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 			pFuncCall->nLineNumber = RING_VM_IR_GETLINENUMBER ;
 			/* Store List information */
 			pFuncCall->nListStart = pVM->nListStart ;
-			pFuncCall->pNestedLists = pVM->pNestedLists ;
+			pFuncCall->nNestedLists = ring_list_getsize(pVM->pNestedLists) ;
 			ring_vm_newnestedlists(pVM);
 			if ( (strcmp(cStr,RING_CSTR_MAIN) != 0 ) && (pVM->lCallMethod != 1) && (y != 2) ) {
 				/* We check that we will convert Functions only, not methods */
@@ -136,7 +136,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 		pFuncCall->nLineNumber = RING_VM_IR_GETLINENUMBER ;
 		/* Store List information */
 		pFuncCall->nListStart = pVM->nListStart ;
-		pFuncCall->pNestedLists = pVM->pNestedLists ;
+		pFuncCall->nNestedLists = ring_list_getsize(pVM->pNestedLists) ;
 		ring_vm_newnestedlists(pVM);
 		/* Add nLoadAddressScope to pFuncCall */
 		pFuncCall->nLoadAddressScope = pVM->nLoadAddressScope ;
@@ -187,7 +187,7 @@ void ring_vm_call2 ( VM *pVM )
 	/* Restore nLoadAddressScope from pFuncCall */
 	pVM->nLoadAddressScope = pFuncCall->nLoadAddressScope ;
 	/* Restore List Status */
-	ring_vm_restorenestedlists(pVM,pFuncCall->nListStart,(List *) pFuncCall->pNestedLists);
+	ring_vm_restorenestedlists(pVM,pFuncCall->nListStart,pFuncCall->nNestedLists);
 	/* Calling Method from brace */
 	if ( (pFuncCall->nType == RING_FUNCTYPE_SCRIPT) && (pFuncCall->lMethod == 1) ) {
 		/* The first test to be sure it's not a C Function Call */
@@ -330,7 +330,7 @@ void ring_vm_return ( VM *pVM )
 		pVM->nPC = pFuncCall->nCallerPC ;
 		pVM->nFuncExecute = pFuncCall->nFuncExec ;
 		/* Restore List Status */
-		ring_vm_restorenestedlists(pVM,pFuncCall->nListStart,(List *) pFuncCall->pNestedLists);
+		ring_vm_restorenestedlists(pVM,pFuncCall->nListStart,pFuncCall->nNestedLists);
 		/* Restore File Name */
 		pVM->cPrevFileName = pVM->cFileName ;
 		pVM->cFileName = (char *) pFuncCall->cFileName ;

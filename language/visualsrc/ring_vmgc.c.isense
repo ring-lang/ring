@@ -39,7 +39,6 @@ ListGCData *
 ring_pooldata
 RING_USEPOOLMANAGER
 RING_USEPOOLMANAGER
-RING_TRACKALLOCATIONS
 RING_POOLMANAGER_NOTFOUND
 RING_POOLMANAGER_ITEMSTRINGSIZE
 RING_POOLMANAGER_ITEMSINBLOCK
@@ -173,14 +172,6 @@ Type: List *
 pBlocks
 Type: void *
 pMutex
-Type: unsigned int
-nAllocCount
-Type: unsigned int
-nFreeCount
-Type: unsigned int
-nSmallAllocCount
-Type: unsigned int
-nSmallFreeCount
 Type: unsigned int
 nItemsInBlock
 Type: unsigned int

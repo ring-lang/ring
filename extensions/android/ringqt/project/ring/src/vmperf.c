@@ -167,7 +167,7 @@ void ring_vm_loadfuncp ( VM *pVM )
 	pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
 	/* Store List information */
 	pFuncCall->nListStart = pVM->nListStart ;
-	pFuncCall->pNestedLists = pVM->pNestedLists ;
+	pFuncCall->nNestedLists = ring_list_getsize(pVM->pNestedLists) ;
 	ring_vm_newnestedlists(pVM);
 	pVM->nFuncExecute++ ;
 }

@@ -44,7 +44,7 @@
 		char *cFileName  ;
 		char *cNewFileName  ;
 		List *pTempMem  ;
-		List *pNestedLists  ;
+		unsigned int nNestedLists  ;
 		void (*pFunc)(void *) ;
 		VMState *pVMState  ;
 		unsigned int nPC  ;
@@ -720,7 +720,7 @@
 
 	void ring_vm_newnestedlists ( VM *pVM ) ;
 
-	void ring_vm_restorenestedlists ( VM *pVM,int nListStart,List *pNestedLists ) ;
+	void ring_vm_restorenestedlists ( VM *pVM,int nListStart,int nNestedLists ) ;
 
 	void ring_vm_liststart ( VM *pVM ) ;
 
@@ -1043,7 +1043,7 @@
 
 	int ring_vm_checkbeforeassignment ( VM *pVM,List *pVar ) ;
 
-	void ring_vm_removelistprotection ( VM *pVM,List *pNestedLists ) ;
+	void ring_vm_removelistprotection ( VM *pVM,List *pNestedLists,int nStart ) ;
 
 	void ring_vm_removelistprotectionat ( VM *pVM,List *pNestedLists,int nPos ) ;
 #endif
