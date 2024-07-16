@@ -340,11 +340,7 @@ int ring_parser_stmt ( Parser *pParser )
 			/* Generate code to use the SEE function */
 			x = ring_parser_ringvmsee(pParser);
 		#else
-			/*
-			**  Generate code using the SEE Command Instruction 
-			**  Generate Code 
-			*/
-			ring_parser_icg_newoperation(pParser,ICO_FUNCEXE);
+			/* Generate code using the SEE Command Instruction */
 			pParser->lAssignmentFlag = 0 ;
 			x = ring_parser_expr(pParser);
 			pParser->lAssignmentFlag = 1 ;
@@ -377,11 +373,7 @@ int ring_parser_stmt ( Parser *pParser )
 			ring_parser_icg_newoperation(pParser,ICO_NOOP);
 			ring_parser_icg_freestack(pParser);
 		#else
-			/*
-			**  Generate Code using the See common instructions 
-			**  Generate Code 
-			*/
-			ring_parser_icg_newoperation(pParser,ICO_FUNCEXE);
+			/* Generate Code using the See common instructions */
 			pParser->lAssignmentFlag = 0 ;
 			x = ring_parser_expr(pParser);
 			pParser->lAssignmentFlag = 1 ;
@@ -887,12 +879,10 @@ int ring_parser_stmt ( Parser *pParser )
 		if ( ring_parser_isendline(pParser) == 0 ) {
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_FREELOADASCOPE);
-			ring_parser_icg_newoperation(pParser,ICO_FUNCEXE);
 			pParser->lAssignmentFlag = 0 ;
 			x = ring_parser_expr(pParser);
 			pParser->lAssignmentFlag = 1 ;
 			/* Generate Code */
-			ring_parser_icg_newoperation(pParser,ICO_ENDFUNCEXE);
 			if ( x == RING_PARSER_OK ) {
 				ring_parser_icg_newoperation(pParser,ICO_RETURN);
 			}

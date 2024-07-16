@@ -15,7 +15,6 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 	/* Save the data */
 	pVMState->aNumbers[0] = ring_list_getsize(pVM->pMem) ;
 	pVMState->aNumbers[1] = RING_VM_FUNCCALLSCOUNT ;
-	pVMState->aNumbers[2] = pVM->nFuncExecute ;
 	pVMState->aNumbers[3] = pVM->nSP ;
 	pVMState->aNumbers[4] = pVM->nFuncSP ;
 	pVMState->aNumbers[5] = ring_list_getsize(pVM->pObjState) ;
@@ -82,7 +81,6 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	}
 	pVM->pActiveMem = (List *) pVMState->aPointers[2] ;
 	/* Stack & Executing Functions */
-	pVM->nFuncExecute = pVMState->aNumbers[2] ;
 	pVM->nSP = pVMState->aNumbers[3] ;
 	pVM->nFuncSP = pVMState->aNumbers[4] ;
 	/* We also return to the Active Object */
@@ -216,7 +214,6 @@ VMState * ring_vm_savestateforfunctions ( VM *pVM )
 	pVMState->aNumbers[8] = pVM->nBlockCounter ;
 	pVMState->aNumbers[9] = pVM->lPrivateFlag ;
 	pVMState->aNumbers[10] = pVM->nCallClassInit ;
-	pVMState->aNumbers[11] = pVM->nFuncExecute ;
 	pVMState->aNumbers[12] = pVM->nInClassRegion ;
 	pVMState->aNumbers[13] = pVM->nActiveScopeID ;
 	pVMState->aNumbers[14] = ring_list_getsize(pVM->pScopeNewObj) ;
@@ -249,7 +246,6 @@ VMState * ring_vm_savestateforfunctions ( VM *pVM )
 	pVM->lNoAssignment = 0 ;
 	pVM->pBraceObject = NULL ;
 	pVM->nBeforeEqual = OP_EQUAL ;
-	pVM->nFuncExecute = 0 ;
 	pVM->lGetSetProperty = 0 ;
 	pVM->pGetSetObject = NULL ;
 	pVM->nGetSetObjType = 0 ;
@@ -280,7 +276,6 @@ void ring_vm_restorestateforfunctions ( VM *pVM,VMState *pVMState )
 	pVM->lPrivateFlag = pVMState->aNumbers[9] ;
 	/* Restore nCallClassInit */
 	pVM->nCallClassInit = pVMState->aNumbers[10] ;
-	pVM->nFuncExecute = pVMState->aNumbers[11] ;
 	pVM->pAssignment = (void *) pVMState->aPointers[3] ;
 	pVM->nInClassRegion = pVMState->aNumbers[12] ;
 	pVM->nActiveScopeID = pVMState->aNumbers[13] ;
@@ -321,9 +316,6 @@ void ring_vm_savestatefornewobjects ( VM *pVM )
 	ring_vm_newnestedlists(pVM);
 	/* Save Stack Information */
 	pVMState->aNumbers[1] = pVM->nSP ;
-	/* Save FuncExecute */
-	pVMState->aNumbers[2] = pVM->nFuncExecute ;
-	pVM->nFuncExecute = 0 ;
 	/* Save Private Flag Status */
 	pVMState->aNumbers[3] = pVM->lPrivateFlag ;
 	/* Save InsideBrace Flag */
@@ -416,8 +408,6 @@ void ring_vm_restorestatefornewobjects ( VM *pVM )
 	ring_vm_restorenestedlists(pVM,pVMState->aNumbers[0],pVMState->aNumbers[28]);
 	/* Restore Stack Information */
 	pVM->nSP = pVMState->aNumbers[1] ;
-	/* Restore FuncExecute */
-	pVM->nFuncExecute = pVMState->aNumbers[2] ;
 	/* Restore Private Flag */
 	pVM->lPrivateFlag = pVMState->aNumbers[3] ;
 	/* Restore InsideBrace Flag */
@@ -512,9 +502,6 @@ void ring_vm_savestateforbraces ( VM *pVM,List *pObjState )
 	ring_list_addint_gc(pVM->pRingState,pList,pVM->nListStart);
 	ring_list_addint_gc(pVM->pRingState,pList,ring_list_getsize(pVM->pNestedLists));
 	ring_vm_newnestedlists(pVM);
-	/* Store nFuncExec */
-	ring_list_addint_gc(pVM->pRingState,pList,pVM->nFuncExecute);
-	pVM->nFuncExecute = 0 ;
 	/* Store GetSet Object */
 	pSetProperty = ring_list_newlist_gc(pVM->pRingState,pList);
 	ring_list_copy_gc(pVM->pRingState,pSetProperty,pVM->pSetProperty);
@@ -536,8 +523,6 @@ void ring_vm_restorestateforbraces ( VM *pVM,List *pList )
 	int lDontRef,lDontRefAgain  ;
 	/* Restore List Status */
 	ring_vm_restorenestedlists(pVM,ring_list_getint(pList,RING_BRACEOBJECTS_NLISTSTART),ring_list_getint(pList,RING_BRACEOBJECTS_NNESTEDLISTS));
-	/* Restore nFuncExec */
-	pVM->nFuncExecute = ring_list_getint(pList,RING_BRACEOBJECTS_NFUNCEXEC ) ;
 	/* Restore Stack Status */
 	pVM->nSP = ring_list_getint(pList,RING_BRACEOBJECTS_NSP) ;
 	/* Restore GetSet Object */

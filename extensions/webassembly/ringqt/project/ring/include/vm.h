@@ -50,7 +50,6 @@
 		unsigned int nSP  ;
 		unsigned int nLineNumber  ;
 		unsigned int nCallerPC  ;
-		unsigned int nFuncExec  ;
 		unsigned int nListStart  ;
 		unsigned int nForStep  ;
 		unsigned int nExitMark  ;
@@ -115,7 +114,6 @@
 		unsigned int nListStart  ;
 		unsigned int nBlockCounter  ;
 		unsigned int nFuncSP  ;
-		unsigned int nFuncExecute  ;
 		unsigned int nCurrentFuncCall  ;
 		unsigned int nVarScope  ;
 		unsigned int nScopeID  ;
@@ -357,12 +355,11 @@
 	#define RING_BRACEOBJECTS_NSP 2
 	#define RING_BRACEOBJECTS_NLISTSTART 3
 	#define RING_BRACEOBJECTS_NNESTEDLISTS 4
-	#define RING_BRACEOBJECTS_NFUNCEXEC 5
-	#define RING_BRACEOBJECTS_SETPROPERTY 6
-	#define RING_BRACEOBJECTS_NLOADASCOPE 7
-	#define RING_BRACEOBJECTS_NNOSETTERMETHOD 8
-	#define RING_BRACEOBJECTS_ISDONTREF 9
-	#define RING_BRACEOBJECTS_ISDONTREFAGAIN 10
+	#define RING_BRACEOBJECTS_SETPROPERTY 5
+	#define RING_BRACEOBJECTS_NLOADASCOPE 6
+	#define RING_BRACEOBJECTS_NNOSETTERMETHOD 7
+	#define RING_BRACEOBJECTS_ISDONTREF 8
+	#define RING_BRACEOBJECTS_ISDONTREFAGAIN 9
 	/* pScopeNewObj */
 	#define RING_SCOPENEWOBJ_SP 1
 	/* pSetProperty */
@@ -598,8 +595,6 @@
 	void ring_vm_setfilename ( VM *pVM ) ;
 
 	void ring_vm_loadaddressfirst ( VM *pVM ) ;
-
-	void ring_vm_endfuncexec ( VM *pVM ) ;
 
 	void ring_vm_varpushv ( VM *pVM ) ;
 

@@ -9,8 +9,6 @@ cString
 Type: int
 x
 ring_vm_give
-Type: int
-x
 cLine
 Type: List *
 pVar

@@ -75,8 +75,6 @@
 		/* Stack and Jump */
 		ICO_FREESTACK ,
 		ICO_BLOCKFLAG ,
-		ICO_FUNCEXE ,
-		ICO_ENDFUNCEXE ,
 		ICO_BYE ,
 		ICO_EXITMARK ,
 		ICO_POPEXITMARK ,
@@ -153,7 +151,7 @@
 	"Sum","Sub","Mul","Div","Mod","Negative","Inc","IncP","Pow",
 	"LoadFunc","Call", "Return","ReturnNull","RetFromEval","RetItemRef",
 	"ListStart","ListItem","ListItemN","ListItemC","ListEnd","And","Or","Not","FreeStack",
-	"BlockFlag","FuncExe","EndFuncExe","Bye","ExitMark","PopExitMark","Exit","IncJump","IncPJump",
+	"BlockFlag","Bye","ExitMark","PopExitMark","Exit","IncJump","IncPJump",
 	"Try","Done","Range","LoadMethod","SetScope","AfterCallMethod", 
 	
 	"BraceStart","BraceEnd","LoadFuncP","FreeLoadAScope","Loop","IncLPJump","Package","Import", 

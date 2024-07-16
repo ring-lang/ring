@@ -188,14 +188,11 @@ void ring_vm_call2 ( VM *pVM )
 		if ( pFuncCall->lMethod ) {
 			ring_vm_oop_callmethodfrombrace(pVM);
 		}
-		/* Store FuncExe Counter Value */
-		pFuncCall->nFuncExec = pVM->nFuncExecute ;
-		pVM->nFuncExecute = 0 ;
 		/* Clear List/Nested Lists State */
 		ring_vm_newnestedlists(pVM);
 		pVM->nPC = pFuncCall->nPC ;
 		/* Save State */
-		if ( ring_list_getsize(pVM->pObjState) || pVM->nListStart || pVM->nFuncExecute ||
+		if ( ring_list_getsize(pVM->pObjState) || pVM->nListStart ||
 		pFuncCall->lMethod || pVM->nBlockCounter || pVM->nInsideEval || pVM->nInClassRegion ||
 		pVM->pAssignment || ring_list_getsize(pVM->pTraceData) )
 		pFuncCall->pVMState = ring_vm_savestateforfunctions(pVM);
@@ -317,7 +314,6 @@ void ring_vm_return ( VM *pVM )
 	if ( RING_VM_FUNCCALLSCOUNT > 0 ) {
 		pFuncCall = RING_VM_LASTFUNCCALL ;
 		pVM->nPC = pFuncCall->nCallerPC ;
-		pVM->nFuncExecute = pFuncCall->nFuncExec ;
 		/* Restore List Status */
 		ring_vm_restorenestedlists(pVM,pFuncCall->nListStart,pFuncCall->nNestedLists);
 		/* Restore File Name */
@@ -782,13 +778,6 @@ void ring_vm_freetemplists ( VM *pVM, int *nTempCount, int *nScopeID )
 	}
 }
 
-void ring_vm_endfuncexec ( VM *pVM )
-{
-	if ( pVM->nFuncExecute > 0 ) {
-		pVM->nFuncExecute-- ;
-	}
-}
-
 void ring_vm_retitemref ( VM *pVM )
 {
 	List *pList  ;
@@ -862,9 +851,6 @@ void ring_vmfunccall_useloadfuncp ( VM *pVM,FuncCall *pFuncCall,int nPerformance
 int ring_vmfunccall_beforecall ( VM *pVM )
 {
 	FuncCall *pFuncCall  ;
-	if ( pVM->nFuncExecute ) {
-		return RING_TRUE ;
-	}
 	if ( RING_VM_FUNCCALLSCOUNT ) {
 		pFuncCall = RING_VM_LASTFUNCCALL ;
 		return pFuncCall->nCallerPC == RING_ZERO ;

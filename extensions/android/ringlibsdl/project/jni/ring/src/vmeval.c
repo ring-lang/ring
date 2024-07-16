@@ -271,7 +271,6 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 	pVM->lEvalCalledFromRingCode = 0 ;
 	ring_vm_mutexunlock(pVM);
 	if ( nRunVM ) {
-		pVM->nFuncExecute = 0 ;
 		ring_vm_mainloopforeval(pVM);
 	}
 	/* Restore state to take in mind nested events execution */

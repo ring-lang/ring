@@ -9,9 +9,6 @@ void ring_vm_see ( VM *pVM )
 	List *pList  ;
 	char *cString  ;
 	int x  ;
-	if ( pVM->nFuncExecute > 0 ) {
-		pVM->nFuncExecute-- ;
-	}
 	if ( RING_VM_STACK_ISSTRING ) {
 		cString = RING_VM_STACK_READC ;
 		if ( strlen(cString) != (unsigned int) RING_VM_STACK_STRINGSIZE ) {

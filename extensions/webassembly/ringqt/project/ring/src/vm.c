@@ -53,7 +53,6 @@ VM * ring_vm_new ( RingState *pRingState )
 	/* Calling Functions */
 	pVM->pFuncCallList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	pVM->nFuncSP = 0 ;
-	pVM->nFuncExecute = 0 ;
 	if ( pRingState->pRingCFunctions == NULL ) {
 		pRingState->pRingCFunctions = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	}

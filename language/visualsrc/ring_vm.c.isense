@@ -71,8 +71,6 @@ nLineNumber
 Type: unsigned int
 nCallerPC
 Type: unsigned int
-nFuncExec
-Type: unsigned int
 nListStart
 Type: unsigned int
 nForStep
@@ -198,8 +196,6 @@ Type: unsigned int
 nBlockCounter
 Type: unsigned int
 nFuncSP
-Type: unsigned int
-nFuncExecute
 Type: unsigned int
 nCurrentFuncCall
 Type: unsigned int
@@ -461,7 +457,6 @@ RING_BRACEOBJECTS_BRACEOBJECT
 RING_BRACEOBJECTS_NSP
 RING_BRACEOBJECTS_NLISTSTART
 RING_BRACEOBJECTS_NNESTEDLISTS
-RING_BRACEOBJECTS_NFUNCEXEC
 RING_BRACEOBJECTS_SETPROPERTY
 RING_BRACEOBJECTS_NLOADASCOPE
 RING_BRACEOBJECTS_NNOSETTERMETHOD
