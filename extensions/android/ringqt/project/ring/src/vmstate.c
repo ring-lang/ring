@@ -203,10 +203,13 @@ VMState * ring_vm_savestateforfunctions ( VM *pVM )
 	pVMState = ring_vmstate_new(pVM->pRingState);
 	pThis = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_THIS) ;
 	/* Save the Data */
+	pVMState->aNumbers[0] = pVM->lNoAssignment ;
+	pVMState->aNumbers[1] = pVM->lGetSetProperty ;
 	pVMState->aNumbers[2] = ring_list_getsize(pVM->pTry) ;
 	pVMState->aNumbers[3] = ring_list_getsize(pVM->pBraceObjects) ;
 	pVMState->aNumbers[4] = ring_list_getsize(pVM->pObjState) ;
 	pVMState->aNumbers[5] = pVM->lInsideBraceFlag ;
+	pVMState->aNumbers[6] = pVM->nGetSetObjType ;
 	pVMState->aNumbers[7] = pVM->nCurrentGlobalScope ;
 	pVMState->aNumbers[8] = pVM->nBlockCounter ;
 	pVMState->aNumbers[9] = pVM->lPrivateFlag ;
@@ -218,9 +221,6 @@ VMState * ring_vm_savestateforfunctions ( VM *pVM )
 	pVMState->aNumbers[15] = pVM->nNoSetterMethod ;
 	pVMState->aNumbers[16] = RING_VM_IR_GETLINENUMBER ;
 	pVMState->aNumbers[17] = pVM->nBeforeEqual ;
-	pVMState->aNumbers[18] = pVM->lNoAssignment ;
-	pVMState->aNumbers[19] = pVM->lGetSetProperty ;
-	pVMState->aNumbers[20] = pVM->nGetSetObjType ;
 	pVMState->aPointers[0] = pVM->pBraceObject ;
 	pVMState->aPointers[1] = pVM->pActiveMem ;
 	pVMState->aPointers[2] = pVM->pPCBlockFlag ;
@@ -254,11 +254,14 @@ void ring_vm_restorestateforfunctions ( VM *pVM,VMState *pVMState )
 {
 	List *pThis  ;
 	/* Restore State */
+	pVM->lNoAssignment = pVMState->aNumbers[0] ;
+	pVM->lGetSetProperty = pVMState->aNumbers[1] ;
 	ring_vm_backstate(pVM,pVM->pTry,pVMState->aNumbers[2]);
 	ring_vm_backstate(pVM,pVM->pBraceObjects,pVMState->aNumbers[3]);
 	pVM->pBraceObject = (List *) pVMState->aPointers[0] ;
 	ring_vm_backstate(pVM,pVM->pObjState,pVMState->aNumbers[4]);
 	pVM->lInsideBraceFlag = pVMState->aNumbers[5] ;
+	pVM->nGetSetObjType = pVMState->aNumbers[6] ;
 	/* Restore global scope, Must be before this because this depend on it */
 	pVM->nCurrentGlobalScope = pVMState->aNumbers[7] ;
 	pVM->pActiveMem = (List *) pVMState->aPointers[1] ;
@@ -276,9 +279,6 @@ void ring_vm_restorestateforfunctions ( VM *pVM,VMState *pVMState )
 	ring_vm_backstate(pVM,pVM->pScopeNewObj,pVMState->aNumbers[14]);
 	RING_VM_IR_SETLINENUMBER(pVMState->aNumbers[16]);
 	pVM->nBeforeEqual = pVMState->aNumbers[17] ;
-	pVM->lNoAssignment = pVMState->aNumbers[18] ;
-	pVM->lGetSetProperty = pVMState->aNumbers[19] ;
-	pVM->nGetSetObjType = pVMState->aNumbers[20] ;
 	pVM->nNoSetterMethod = pVMState->aNumbers[15] ;
 	pVM->pGetSetObject = (void *) pVMState->aPointers[4] ;
 	/* Restore This variable */
