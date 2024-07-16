@@ -98,12 +98,12 @@ RING_API void ring_list_deleteallitems_gc ( void *pState,List *pList )
 {
 	Items *pItems,*pItemsNext  ;
 	ListBlocks *pBlocks  ;
-	pItems = pList->pFirst ;
+	pItems = pList->pLast ;
 	if ( pItems != NULL ) {
 		pItemsNext = pItems ;
 		/* Delete Items */
 		while ( pItemsNext != NULL ) {
-			pItemsNext = pItems->pNext ;
+			pItemsNext = pItems->pPrev ;
 			ring_items_delete_gc(pState,pItems);
 			pItems = pItemsNext ;
 		}
