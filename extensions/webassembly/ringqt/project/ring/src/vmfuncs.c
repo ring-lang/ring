@@ -491,7 +491,9 @@ void ring_vm_newfunc ( VM *pVM )
 		return ;
 	}
 	/* Support this in the method */
-	ring_vm_oop_setthethisvariable(pVM);
+	if ( ring_list_getsize(pVM->pClassesMap) ) {
+		ring_vm_oop_setthethisvariable(pVM);
+	}
 	/* Trace */
 	ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_NEWFUNC);
 }
