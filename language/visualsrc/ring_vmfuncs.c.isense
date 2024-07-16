@@ -73,7 +73,6 @@ Type: int
 x,x2,lFound,nStart,lListsDeleted
 Type: FuncCall *
 pFuncCall
-ring_vm_endfuncexec
 ring_vm_retitemref
 Type: List *
 pList

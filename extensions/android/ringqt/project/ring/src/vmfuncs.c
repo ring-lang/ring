@@ -231,7 +231,7 @@ void ring_vm_call2 ( VM *pVM )
 			ring_vm_stackswap(pVM,pVM->nSP,pFuncCall->nSP+1);
 			pVM->nSP = pFuncCall->nSP+1 ;
 		}
-		else if ( pVM->nSP = pFuncCall->nSP + pVM->nCFuncParaCount ) {
+		else if ( pVM->nSP == pFuncCall->nSP + pVM->nCFuncParaCount ) {
 			pVM->nSP = pFuncCall->nSP ;
 		}
 		/* Trace */
