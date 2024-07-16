@@ -147,7 +147,7 @@ void ring_vm_loadfuncp ( VM *pVM )
 		return ;
 	}
 	/* Add FuncCall Structure */
-	pFuncCall = ring_vmfunccall_new(pVM);
+	pFuncCall = ring_vm_funccall_new(pVM);
 	if (pFuncCall == NULL) return ;
 	pFuncCall->nType = RING_VM_IR_GETFLAGREG ;
 	pFuncCall->cName = RING_VM_IR_READC ;

@@ -305,7 +305,7 @@
 	#define RING_VM_LASTFUNCCALL & (pVM->aFuncCall[pVM->nCurrentFuncCall])
 	#define RING_VM_GETFUNCCALL(x) & (pVM->aFuncCall[x])
 	#define RING_VM_FUNCCALLSCOUNT pVM->nCurrentFuncCall
-	#define RING_VM_DELETELASTFUNCCALL ring_vmfunccall_delete(pVM->pRingState,RING_VM_LASTFUNCCALL) ; pVM->nCurrentFuncCall--
+	#define RING_VM_DELETELASTFUNCCALL ring_vm_funccall_delete(pVM->pRingState,RING_VM_LASTFUNCCALL) ; pVM->nCurrentFuncCall--
 	#define RING_VM_BACKTOFUNCCALL(x) while (RING_VM_FUNCCALLSCOUNT > x) { RING_VM_DELETELASTFUNCCALL ; }
 	/* Parameters */
 	#define RING_FUNCPARA_EXPECTEDSIZE 32
@@ -780,13 +780,13 @@
 
 	void ring_vm_cleanevalcode ( VM *pVM,int nCodeSize ) ;
 
-	FuncCall * ring_vmfunccall_new ( VM *pVM ) ;
+	FuncCall * ring_vm_funccall_new ( VM *pVM ) ;
 
-	void ring_vmfunccall_delete ( void *pState,void *pMemory ) ;
+	void ring_vm_funccall_delete ( void *pState,void *pMemory ) ;
 
-	void ring_vmfunccall_useloadfuncp ( VM *pVM,FuncCall *pFuncCall,int nPerformance ) ;
+	void ring_vm_funccall_useloadfuncp ( VM *pVM,FuncCall *pFuncCall,int nPerformance ) ;
 
-	int ring_vmfunccall_beforecall ( VM *pVM ) ;
+	int ring_vm_funccall_beforecall ( VM *pVM ) ;
 	/* User Interface */
 
 	void ring_vm_see ( VM *pVM ) ;

@@ -119,7 +119,7 @@ void ring_vm_liststart ( VM *pVM )
 	pList = (List *) ring_list_getpointer(pVM->pNestedLists,ring_list_getsize(pVM->pNestedLists));
 	ring_list_enableerroronassignment(pList);
 	/* When using something like Ref([1,2,3]) - Don't create new reference */
-	if ( (pNewList != NULL) && (ring_vmfunccall_beforecall(pVM)) ) {
+	if ( (pNewList != NULL) && (ring_vm_funccall_beforecall(pVM)) ) {
 		ring_list_enabledontref(pNewList);
 	}
 }

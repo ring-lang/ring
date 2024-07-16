@@ -53,7 +53,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 				}
 			}
 			/* Add FuncCall Structure */
-			pFuncCall = ring_vmfunccall_new(pVM);
+			pFuncCall = ring_vm_funccall_new(pVM);
 			if (pFuncCall == NULL) return 1 ;
 			pFuncCall->nType = RING_FUNCTYPE_SCRIPT ;
 			pFuncCall->cName = cStr ;
@@ -76,7 +76,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 			if ( (strcmp(cStr,RING_CSTR_MAIN) != 0 ) && (pVM->lCallMethod != 1) && (y != 2) ) {
 				/* We check that we will convert Functions only, not methods */
 				if ( pVM->lInsideBraceFlag == 0 ) {
-					ring_vmfunccall_useloadfuncp(pVM,pFuncCall,nPerformance);
+					ring_vm_funccall_useloadfuncp(pVM,pFuncCall,nPerformance);
 				}
 				else {
 					/*
@@ -115,7 +115,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 	pList = (List *) ring_hashtable_findpointer(ring_list_gethashtable(pVM->pCFunctionsList),cStr);
 	if ( pList != NULL ) {
 		/* Add FuncCall Structure */
-		pFuncCall = ring_vmfunccall_new(pVM);
+		pFuncCall = ring_vm_funccall_new(pVM);
 		if (pFuncCall == NULL) return 1 ;
 		pFuncCall->nType = RING_FUNCTYPE_C ;
 		pFuncCall->cName = cStr ;
@@ -139,7 +139,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 		/* Add nLoadAddressScope to pFuncCall */
 		pFuncCall->nLoadAddressScope = pVM->nLoadAddressScope ;
 		pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
-		ring_vmfunccall_useloadfuncp(pVM,pFuncCall,nPerformance);
+		ring_vm_funccall_useloadfuncp(pVM,pFuncCall,nPerformance);
 		return 1 ;
 	}
 	/* Avoid Error if it is automatic call to the main function */
@@ -801,7 +801,7 @@ void ring_vm_retitemref ( VM *pVM )
 	}
 }
 
-FuncCall * ring_vmfunccall_new ( VM *pVM )
+FuncCall * ring_vm_funccall_new ( VM *pVM )
 {
 	FuncCall *pFuncCall  ;
 	/* Check Overflow */
@@ -820,7 +820,7 @@ FuncCall * ring_vmfunccall_new ( VM *pVM )
 	return pFuncCall ;
 }
 
-void ring_vmfunccall_delete ( void *pState,void *pMemory )
+void ring_vm_funccall_delete ( void *pState,void *pMemory )
 {
 	FuncCall *pFuncCall  ;
 	pFuncCall = (FuncCall *) pMemory ;
@@ -834,7 +834,7 @@ void ring_vmfunccall_delete ( void *pState,void *pMemory )
 	}
 }
 
-void ring_vmfunccall_useloadfuncp ( VM *pVM,FuncCall *pFuncCall,int nPerformance )
+void ring_vm_funccall_useloadfuncp ( VM *pVM,FuncCall *pFuncCall,int nPerformance )
 {
 	if ( nPerformance == 1 ) {
 		/* Replace Instruction with ICO_LOADFUNCP for better performance */
@@ -849,7 +849,7 @@ void ring_vmfunccall_useloadfuncp ( VM *pVM,FuncCall *pFuncCall,int nPerformance
 	}
 }
 
-int ring_vmfunccall_beforecall ( VM *pVM )
+int ring_vm_funccall_beforecall ( VM *pVM )
 {
 	FuncCall *pFuncCall  ;
 	if ( RING_VM_FUNCCALLSCOUNT ) {
