@@ -15,6 +15,7 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 	/* Save the data */
 	pVMState->aNumbers[0] = ring_list_getsize(pVM->pMem) ;
 	pVMState->aNumbers[1] = RING_VM_FUNCCALLSCOUNT ;
+	pVMState->aNumbers[2] = ring_list_getsize(pVM->pNestedLists) ;
 	pVMState->aNumbers[3] = pVM->nSP ;
 	pVMState->aNumbers[4] = pVM->nFuncSP ;
 	pVMState->aNumbers[5] = ring_list_getsize(pVM->pObjState) ;
@@ -42,7 +43,6 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 	pVMState->aNumbers[27] = pVM->nCurrentGlobalScope ;
 	pVMState->aNumbers[28] = pVM->nCallClassInit ;
 	pVMState->aNumbers[29] = ring_list_getint(pThis,RING_VAR_PVALUETYPE) ;
-	pVMState->aNumbers[30] = ring_list_getsize(pVM->pNestedLists) ;
 	pVMState->aPointers[0] = pVM->pBraceObject ;
 	pVMState->aPointers[1] = pVM->cFileName ;
 	pVMState->aPointers[2] = pVM->pActiveMem ;
@@ -166,8 +166,8 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	if ( nFlag != RING_STATE_TRYCATCH ) {
 		ring_vm_backstate(pVM,pVM->pTry,pVMState->aNumbers[15]);
 	}
-	ring_vm_removelistprotection(pVM,pVM->pNestedLists,pVMState->aNumbers[30]+1);
-	ring_vm_backstate(pVM,pVM->pNestedLists,pVMState->aNumbers[30]);
+	ring_vm_removelistprotection(pVM,pVM->pNestedLists,pVMState->aNumbers[2]+1);
+	ring_vm_backstate(pVM,pVM->pNestedLists,pVMState->aNumbers[2]);
 	pVM->nListStart = pVMState->aNumbers[16] ;
 	pVM->lInsideBraceFlag = pVMState->aNumbers[17] ;
 	ring_vm_backstate(pVM,pVM->pBeforeObjState,pVMState->aNumbers[19]);
@@ -214,6 +214,7 @@ VMState * ring_vm_savestateforfunctions ( VM *pVM )
 	pVMState->aNumbers[8] = pVM->nBlockCounter ;
 	pVMState->aNumbers[9] = pVM->lPrivateFlag ;
 	pVMState->aNumbers[10] = pVM->nCallClassInit ;
+	pVMState->aNumbers[11] = ring_list_getint(pThis,RING_VAR_PVALUETYPE) ;
 	pVMState->aNumbers[12] = pVM->nInClassRegion ;
 	pVMState->aNumbers[13] = pVM->nActiveScopeID ;
 	pVMState->aNumbers[14] = ring_list_getsize(pVM->pScopeNewObj) ;
@@ -223,7 +224,6 @@ VMState * ring_vm_savestateforfunctions ( VM *pVM )
 	pVMState->aNumbers[18] = pVM->lNoAssignment ;
 	pVMState->aNumbers[19] = pVM->lGetSetProperty ;
 	pVMState->aNumbers[20] = pVM->nGetSetObjType ;
-	pVMState->aNumbers[21] = ring_list_getint(pThis,RING_VAR_PVALUETYPE) ;
 	pVMState->aPointers[0] = pVM->pBraceObject ;
 	pVMState->aPointers[1] = pVM->pActiveMem ;
 	pVMState->aPointers[2] = pVM->pPCBlockFlag ;
@@ -290,7 +290,7 @@ void ring_vm_restorestateforfunctions ( VM *pVM,VMState *pVMState )
 	/* Restore This variable */
 	pThis = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_THIS) ;
 	ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,pVMState->aPointers[5]);
-	ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,pVMState->aNumbers[21]);
+	ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,pVMState->aNumbers[11]);
 	/* Restore pSetProperty */
 	pVM->pSetProperty = ring_list_delete_gc(pVM->pRingState,pVM->pSetProperty);
 	pVM->pSetProperty = (List *)  pVMState->aPointers[6] ;
@@ -312,10 +312,10 @@ void ring_vm_savestatefornewobjects ( VM *pVM )
 	pVMState->aPointers[0] = pVM->pActiveMem ;
 	/* Store List information to allow calling function from list item and creating lists from that funct */
 	pVMState->aNumbers[0] = pVM->nListStart ;
-	pVMState->aNumbers[28] = ring_list_getsize(pVM->pNestedLists) ;
+	pVMState->aNumbers[1] = ring_list_getsize(pVM->pNestedLists) ;
 	ring_vm_newnestedlists(pVM);
 	/* Save Stack Information */
-	pVMState->aNumbers[1] = pVM->nSP ;
+	pVMState->aNumbers[2] = pVM->nSP ;
 	/* Save Private Flag Status */
 	pVMState->aNumbers[3] = pVM->lPrivateFlag ;
 	/* Save InsideBrace Flag */
@@ -405,9 +405,9 @@ void ring_vm_restorestatefornewobjects ( VM *pVM )
 	*/
 	pVM->pActiveMem = (List *) pVMState->aPointers[0] ;
 	/* Restore List Status */
-	ring_vm_restorenestedlists(pVM,pVMState->aNumbers[0],pVMState->aNumbers[28]);
+	ring_vm_restorenestedlists(pVM,pVMState->aNumbers[0],pVMState->aNumbers[1]);
 	/* Restore Stack Information */
-	pVM->nSP = pVMState->aNumbers[1] ;
+	pVM->nSP = pVMState->aNumbers[2] ;
 	/* Restore Private Flag */
 	pVM->lPrivateFlag = pVMState->aNumbers[3] ;
 	/* Restore InsideBrace Flag */
