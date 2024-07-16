@@ -231,8 +231,18 @@ void ring_vm_call2 ( VM *pVM )
 			ring_vm_stackswap(pVM,pVM->nSP,pFuncCall->nSP+1);
 			pVM->nSP = pFuncCall->nSP+1 ;
 		}
-		else if ( pVM->nSP == pFuncCall->nSP + pVM->nCFuncParaCount ) {
+		else {
 			pVM->nSP = pFuncCall->nSP ;
+			/*
+			**  Function Output 
+			**  IgnoreNULL is Used by len(object) to get output from operator overloading method 
+			*/
+			if ( pVM->lIgnoreNULL  == 0 ) {
+				RING_VM_STACK_PUSHCVALUE("");
+			}
+			else {
+				pVM->lIgnoreNULL = 0 ;
+			}
 		}
 		/* Trace */
 		ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_AFTERCFUNC);
@@ -245,16 +255,6 @@ void ring_vm_call2 ( VM *pVM )
 			**  Avoiding the pActiveMem restore here is important when we have raise() function called after try/catch 
 			*/
 			return ;
-		}
-		/* Function Output */
-		if ( nSP == pVM->nSP ) {
-			/* IgnoreNULL is Used by len(object) to get output from operator overloading method */
-			if ( pVM->lIgnoreNULL  == 0 ) {
-				RING_VM_STACK_PUSHCVALUE("");
-			}
-			else {
-				pVM->lIgnoreNULL = 0 ;
-			}
 		}
 		/* Return (Delete Function Call List) */
 		RING_VM_DELETELASTFUNCCALL ;
