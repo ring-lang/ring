@@ -82,3 +82,4 @@ More Improvements
 * Ring VM - ring_vm_createtemplist() implementation - Take in mind the PC and OPCode
 * Ring VM - Share information about different levels of the memory pool when creating new thread
 * Ring VM - ICO_SETREFERENCE - Check the variable list size
+* Ring VM - Remove ICO_FUNCEXE and ICO_ENDFUNCEXE instructions
