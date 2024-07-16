@@ -203,13 +203,10 @@ VMState * ring_vm_savestateforfunctions ( VM *pVM )
 	pVMState = ring_vmstate_new(pVM->pRingState);
 	pThis = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_THIS) ;
 	/* Save the Data */
-	pVMState->aNumbers[0] = ring_list_getsize(pVM->pExitMark) ;
-	pVMState->aNumbers[1] = ring_list_getsize(pVM->pLoopMark) ;
 	pVMState->aNumbers[2] = ring_list_getsize(pVM->pTry) ;
 	pVMState->aNumbers[3] = ring_list_getsize(pVM->pBraceObjects) ;
 	pVMState->aNumbers[4] = ring_list_getsize(pVM->pObjState) ;
 	pVMState->aNumbers[5] = pVM->lInsideBraceFlag ;
-	pVMState->aNumbers[6] = ring_list_getsize(pVM->pForStep) ;
 	pVMState->aNumbers[7] = pVM->nCurrentGlobalScope ;
 	pVMState->aNumbers[8] = pVM->nBlockCounter ;
 	pVMState->aNumbers[9] = pVM->lPrivateFlag ;
@@ -257,14 +254,11 @@ void ring_vm_restorestateforfunctions ( VM *pVM,VMState *pVMState )
 {
 	List *pThis  ;
 	/* Restore State */
-	ring_vm_backstate(pVM,pVM->pExitMark,pVMState->aNumbers[0]);
-	ring_vm_backstate(pVM,pVM->pLoopMark,pVMState->aNumbers[1]);
 	ring_vm_backstate(pVM,pVM->pTry,pVMState->aNumbers[2]);
 	ring_vm_backstate(pVM,pVM->pBraceObjects,pVMState->aNumbers[3]);
 	pVM->pBraceObject = (List *) pVMState->aPointers[0] ;
 	ring_vm_backstate(pVM,pVM->pObjState,pVMState->aNumbers[4]);
 	pVM->lInsideBraceFlag = pVMState->aNumbers[5] ;
-	ring_vm_backstate(pVM,pVM->pForStep,pVMState->aNumbers[6]);
 	/* Restore global scope, Must be before this because this depend on it */
 	pVM->nCurrentGlobalScope = pVMState->aNumbers[7] ;
 	pVM->pActiveMem = (List *) pVMState->aPointers[1] ;
