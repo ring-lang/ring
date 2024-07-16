@@ -26,8 +26,6 @@ pItem
 ring_vm_restorestateforfunctions
 Type: List *
 pThis
-Type: VMState *
-pVMState
 ring_vm_savestatefornewobjects
 Type: List *
 pThis

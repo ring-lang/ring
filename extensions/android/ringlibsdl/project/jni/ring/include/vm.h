@@ -942,9 +942,9 @@
 
 	void ring_vm_backstate ( VM *pVM,List *pList,int nToSize ) ;
 
-	VMState * ring_vm_savestateforfunctions ( VM *pVM ) ;
+	VMState * ring_vm_savestateformethods ( VM *pVM ) ;
 
-	void ring_vm_restorestateforfunctions ( VM *pVM,VMState *pVMState ) ;
+	void ring_vm_restorestateformethods ( VM *pVM,VMState *pVMState ) ;
 
 	void ring_vm_savestatefornewobjects ( VM *pVM ) ;
 

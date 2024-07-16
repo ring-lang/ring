@@ -194,7 +194,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	ring_list_delete_gc(pVM->pRingState,aListsToDelete);
 }
 
-VMState * ring_vm_savestateforfunctions ( VM *pVM )
+VMState * ring_vm_savestateformethods ( VM *pVM )
 {
 	List *pThis  ;
 	VMState *pVMState  ;
@@ -250,7 +250,7 @@ VMState * ring_vm_savestateforfunctions ( VM *pVM )
 	return pVMState ;
 }
 
-void ring_vm_restorestateforfunctions ( VM *pVM,VMState *pVMState )
+void ring_vm_restorestateformethods ( VM *pVM,VMState *pVMState )
 {
 	List *pThis  ;
 	/* Restore State */

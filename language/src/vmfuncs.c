@@ -195,7 +195,7 @@ void ring_vm_call2 ( VM *pVM )
 		if ( pFuncCall->lMethod || pVM->pAssignment || pVM->nListStart ||
 		pVM->nBlockCounter || pVM->nInsideEval || pVM->nInClassRegion ||
 		ring_list_getsize(pVM->pObjState) ||ring_list_getsize(pVM->pTraceData) )
-		pFuncCall->pVMState = ring_vm_savestateforfunctions(pVM);
+		pFuncCall->pVMState = ring_vm_savestateformethods(pVM);
 		/* Global Scope */
 		pFuncCall->nCurrentGlobalScope = pVM->nCurrentGlobalScope ;
 		/* For Loop */
@@ -356,7 +356,7 @@ void ring_vm_return ( VM *pVM )
 		ring_vm_deletescope(pVM);
 		/* Restore State */
 		if ( pFuncCall->pVMState != NULL ) {
-			ring_vm_restorestateforfunctions(pVM,pFuncCall->pVMState);
+			ring_vm_restorestateformethods(pVM,pFuncCall->pVMState);
 		}
 		RING_VM_DELETELASTFUNCCALL ;
 		/* Restore nFuncSP value */
