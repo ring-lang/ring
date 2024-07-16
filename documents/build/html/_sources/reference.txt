@@ -728,8 +728,6 @@ ICO_RETFROMEVAL		Return after eval()
 ICO_RETITEMREF		Return the list item reference - not the value
 ICO_NEWFUNC		Start new function
 ICO_BLOCKFLAG		Flag to determine where to jump later (after ICO_RETURN)
-ICO_FUNCEXE		Start executing function
-ICO_ENDFUNCEXE		End function execution
 ICO_ANONYMOUS		Anonymous function
 ICO_FREETEMPLISTS	Delete temp. lists
 =======================	============================================================================
