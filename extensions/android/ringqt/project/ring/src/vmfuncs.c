@@ -171,8 +171,8 @@ void ring_vm_call ( VM *pVM )
 
 void ring_vm_call2 ( VM *pVM )
 {
-	List *pList, *pActiveMem  ;
-	int x,nSP,nMax1  ;
+	List *pList  ;
+	int x  ;
 	FuncCall *pFuncCall  ;
 	pFuncCall = RING_VM_LASTFUNCCALL ;
 	pFuncCall->nStatus = RING_FUNCSTATUS_CALL ;
@@ -217,9 +217,8 @@ void ring_vm_call2 ( VM *pVM )
 		/* Trace */
 		ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_BEFORECFUNC);
 		/* Get Parameters */
-		nSP = pFuncCall->nSP ;
-		pVM->nCFuncSP = nSP ;
-		pVM->nCFuncParaCount = pVM->nSP - nSP ;
+		pVM->nCFuncSP = pFuncCall->nSP ;
+		pVM->nCFuncParaCount = pVM->nSP - pFuncCall->nSP ;
 		/* Prepare to check function termination by try/catch */
 		pVM->lActiveCatch = 0 ;
 		/* Enable C Pointer Type Check */

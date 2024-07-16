@@ -9,9 +9,9 @@ pFuncCall
 ring_vm_call
 ring_vm_call2
 Type: List *
-pList, *pActiveMem
+pList
 Type: int
-x,nSP,nMax1
+x
 Type: FuncCall *
 pFuncCall
 ring_vm_preparecallmethod
