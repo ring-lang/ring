@@ -10,8 +10,10 @@ void ring_vm_newnestedlists ( VM *pVM )
 void ring_vm_restorenestedlists ( VM *pVM,int nListStart,int nNestedLists )
 {
 	pVM->nListStart = nListStart ;
-	ring_vm_removelistprotection(pVM,pVM->pNestedLists,nNestedLists+1);
-	ring_vm_backstate(pVM,pVM->pNestedLists,nNestedLists);
+	if ( ring_list_getsize(pVM->pNestedLists) > nNestedLists ) {
+		ring_vm_removelistprotection(pVM,pVM->pNestedLists,nNestedLists+1);
+		ring_vm_backstate(pVM,pVM->pNestedLists,nNestedLists);
+	}
 }
 
 void ring_vm_liststart ( VM *pVM )
