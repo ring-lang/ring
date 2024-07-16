@@ -101,8 +101,6 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 			/* Add nLoadAddressScope to pFuncCall */
 			pFuncCall->nLoadAddressScope = pVM->nLoadAddressScope ;
 			pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
-			/* Increment nFuncExecute */
-			pVM->nFuncExecute++ ;
 			return 1 ;
 		}
 	}
@@ -142,8 +140,6 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 		pFuncCall->nLoadAddressScope = pVM->nLoadAddressScope ;
 		pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
 		ring_vmfunccall_useloadfuncp(pVM,pFuncCall,nPerformance);
-		/* Increment nFuncExecute */
-		pVM->nFuncExecute++ ;
 		return 1 ;
 	}
 	/* Avoid Error if it is automatic call to the main function */
@@ -178,10 +174,6 @@ void ring_vm_call2 ( VM *pVM )
 	List *pList, *pActiveMem  ;
 	int x,nSP,nMax1  ;
 	FuncCall *pFuncCall  ;
-	/* Decrement FuncExecute Counter */
-	if ( pVM->nFuncExecute > 0 ) {
-		pVM->nFuncExecute-- ;
-	}
 	pFuncCall = RING_VM_LASTFUNCCALL ;
 	pFuncCall->nStatus = RING_FUNCSTATUS_CALL ;
 	/* Restore nLoadAddressScope from pFuncCall */
@@ -865,4 +857,17 @@ void ring_vmfunccall_useloadfuncp ( VM *pVM,FuncCall *pFuncCall,int nPerformance
 		RING_VM_IR_SETFLAGREG2(pFuncCall->lMethod);
 		RING_VM_IR_SETREG2TYPE(RING_VM_REGTYPE_POINTER);
 	}
+}
+
+int ring_vmfunccall_beforecall ( VM *pVM )
+{
+	FuncCall *pFuncCall  ;
+	if ( pVM->nFuncExecute ) {
+		return RING_TRUE ;
+	}
+	if ( RING_VM_FUNCCALLSCOUNT ) {
+		pFuncCall = RING_VM_LASTFUNCCALL ;
+		return pFuncCall->nCallerPC == RING_ZERO ;
+	}
+	return RING_FALSE ;
 }

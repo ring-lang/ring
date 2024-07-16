@@ -881,12 +881,6 @@ void ring_vm_execute ( VM *pVM )
 		case ICO_BLOCKFLAG :
 			ring_vm_blockflag(pVM);
 			break ;
-		case ICO_FUNCEXE :
-			pVM->nFuncExecute++ ;
-			break ;
-		case ICO_ENDFUNCEXE :
-			ring_vm_endfuncexec(pVM);
-			break ;
 		case ICO_ANONYMOUS :
 			ring_vm_anonymous(pVM);
 			break ;

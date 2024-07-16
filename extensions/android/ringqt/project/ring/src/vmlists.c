@@ -60,7 +60,7 @@ void ring_vm_liststart ( VM *pVM )
 		if ( pVM->nNoSetterMethod == RING_NOSETTERMETHOD_IGNORESETPROPERTY ) {
 			nCont = 0 ;
 		}
-		if ( (pVM->nFuncExecute > 0)  || ( nCont == 1 ) ) {
+		if ( nCont == 1 ) {
 			/* Create the Temp list */
 			ring_vm_createtemplist(pVM);
 			pVar = (List *) RING_VM_STACK_READP ;
@@ -117,7 +117,7 @@ void ring_vm_liststart ( VM *pVM )
 	pList = (List *) ring_list_getpointer(pVM->pNestedLists,ring_list_getsize(pVM->pNestedLists));
 	ring_list_enableerroronassignment(pList);
 	/* When using something like Ref([1,2,3]) - Don't create new reference */
-	if ( (pNewList != NULL) && (pVM->nFuncExecute > 0) ) {
+	if ( (pNewList != NULL) && (ring_vmfunccall_beforecall(pVM)) ) {
 		ring_list_enabledontref(pNewList);
 	}
 }

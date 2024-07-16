@@ -790,6 +790,8 @@
 	void ring_vmfunccall_delete ( void *pState,void *pMemory ) ;
 
 	void ring_vmfunccall_useloadfuncp ( VM *pVM,FuncCall *pFuncCall,int nPerformance ) ;
+
+	int ring_vmfunccall_beforecall ( VM *pVM ) ;
 	/* User Interface */
 
 	void ring_vm_see ( VM *pVM ) ;

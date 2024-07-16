@@ -79,7 +79,7 @@ void ring_vm_oop_newobj ( VM *pVM )
 						}
 					}
 				}
-				if ( pVM->nFuncExecute > 0 ) {
+				if ( ring_vmfunccall_beforecall(pVM) ) {
 					nCont = 1 ;
 					ring_vm_cleansetpropertylist(pVM);
 				}
@@ -92,7 +92,7 @@ void ring_vm_oop_newobj ( VM *pVM )
 					ring_list_setlist_gc(pVM->pRingState,pVar,RING_VAR_VALUE);
 					pList2 = ring_list_getlist(pVar,RING_VAR_VALUE);
 					/* When using something like Ref(new myclass) don't create new reference */
-					if ( pVM->nFuncExecute > 0 ) {
+					if ( ring_vmfunccall_beforecall(pVM) ) {
 						ring_list_enabledontref(pList2);
 					}
 				}
