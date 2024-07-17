@@ -218,7 +218,7 @@ RING_API Item * ring_list_newitem_gc ( void *pState,List *pList )
 		pList->pFirst = pItems ;
 		pList->pLast = pItems ;
 	}
-	pList->nSize = pList->nSize + 1 ;
+	pList->nSize++ ;
 	/* Refresh The Cache */
 	ring_list_clearcache(pState,pList);
 	return pItems->pValue ;
@@ -479,12 +479,9 @@ RING_API void ring_list_addstring2_gc ( void *pState,List *pList,const char *cSt
 RING_API List * ring_list_newlist_gc ( void *pState,List *pList )
 {
 	Item *pItem  ;
-	List *pList2  ;
-	ring_list_newitem_gc(pState,pList);
-	pItem = ring_list_getitem(pList,ring_list_getsize(pList));
+	pItem = ring_list_newitem_gc(pState,pList);
 	ring_item_settype_gc(pState,pItem,ITEMTYPE_LIST);
-	pList2 = ring_item_getlist(pItem);
-	return pList2 ;
+	return ring_item_getlist(pItem) ;
 }
 
 RING_API void ring_list_setlist_gc ( void *pState,List *pList, unsigned int nIndex )
