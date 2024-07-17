@@ -1,0 +1,3 @@
+
+Line 3 Error (R24) : Using uninitialized variable: test 
+in file errormsg/call4.ring 

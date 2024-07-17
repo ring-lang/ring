@@ -1,0 +1,4 @@
+
+errormsg/call1.ring Line (3) Error (C13) : Error in variable name
+
+errormsg/call1.ring errors count : 1 

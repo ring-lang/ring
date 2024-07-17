@@ -1,0 +1,6 @@
+
+errormsg/call3.ring Line (6) Error (C29) : Braces are missing to define anonymous function!
+
+errormsg/call3.ring Line (6) Error (C27) : Syntax Error!
+
+errormsg/call3.ring errors count : 2 

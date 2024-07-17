@@ -1,0 +1,4 @@
+
+errormsg/call2.ring Line (4) Error (C31) : Parentheses '(' is expected
+
+errormsg/call2.ring errors count : 1 
