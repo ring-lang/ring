@@ -587,6 +587,7 @@ aTests = [
 	[ :name = "Using lists during definition (Part 12)", :Command = "ring listsduringdef/usinglistduringdef12.ring" ],
 	[ :name = "Using lists during definition (Part 13)", :Command = "ring listsduringdef/matrix.ring" ],
 	[ :name = "Using lists during definition (Part 14)", :Command = "ring listsduringdef/matrix2.ring" ],
+	[ :name = "Using lists during definition (Part 15)", :Command = "ring listsduringdef/object.ring" ],
 	[ :name = "Performance (Part 1)", :Command = "ring performance/listfunc1.ring" ],
 	[ :name = "Performance (Part 2)", :Command = "ring performance/listfunc2.ring" ],
 	[ :name = "Performance (Part 3)", :Command = "ring performance/forin.ring" ],
