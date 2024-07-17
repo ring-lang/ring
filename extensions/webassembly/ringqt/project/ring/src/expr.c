@@ -878,7 +878,11 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 			ring_parser_icg_newoperation(pParser,ICO_ANONYMOUS);
 			if ( ring_parser_isoperator2(pParser,OP_FOPEN) ) {
-				return ring_parser_mixer(pParser) ;
+				if ( ! ring_parser_mixer(pParser) ) {
+					ring_parser_error(pParser,RING_PARSER_ERROR_SYNTAXERROR);
+					return RING_PARSER_FAIL ;
+				}
+				return RING_PARSER_OK ;
 			}
 			else {
 				ring_parser_error(pParser,RING_PARSER_ERROR_EXPECTPARENTHESES);
