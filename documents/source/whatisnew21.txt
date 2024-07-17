@@ -46,6 +46,7 @@ More Improvements
 * Ring API - Implementation through functions that get a pointer to the VM structure  
 * Ring Compiler - Add new lines between error messages
 * Ring Compiler - Check argument duplication during function definition
+* Ring Compiler - Call command - Better error messages
 * Ring Compiler - ICO_SETPROPERTY - No arguments are required
 * Ring Compiler - ICO_NEWLINE instruction - Check if the previous instruction is ICO_NEWLINE
 * Ring Compiler/VM - Added ICO_PUSHNL instruction - Push new line to the stack
