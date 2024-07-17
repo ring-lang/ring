@@ -72,7 +72,7 @@
 	#define RING_PARSER_ERROR_NEXT "Error (C5) : Unclosed control structure, next is missing"
 	#define RING_PARSER_ERROR_FUNCNAME "Error (C6) : Error in function name"
 	#define RING_PARSER_ERROR_LISTITEM "Error (C7) : Error in list items"
-	#define RING_PARSER_ERROR_MISSPARENTHESES "Error (C8) : Parentheses ')' is missing "
+	#define RING_PARSER_ERROR_MISSPARENTHESES "Error (C8) : Parentheses ')' is missing"
 	#define RING_PARSER_ERROR_MISSBRACKETS "Error (C9) : Brackets ']' is missing "
 	#define RING_PARSER_ERROR_PRENTCLASSNAME "Error (C10) : Error in parent class name"
 	#define RING_PARSER_ERROR_EXPROPERATOR "Error (C11) : Error in expression operator"
@@ -95,6 +95,7 @@
 	#define RING_PARSER_ERROR_EXPRESSIONISEXPECTED "Error (C28) : Expression is expected!"
 	#define RING_PARSER_ERROR_BRACEISMISSINGTOSTARTANONFUNC "Error (C29) : Braces are missing to define anonymous function!"
 	#define RING_PARSER_ERROR_ARGREDEFINE "Error (C30) : Argument redefinition, argument is already defined!"
+	#define RING_PARSER_ERROR_EXPECTPARENTHESES "Error (C31) : Parentheses '(' is expected"
 	/* Constants */
 	#define RING_PARSER_NUMBERLENGTH 97
 	/* Packages List */

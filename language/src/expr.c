@@ -881,10 +881,12 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 				return ring_parser_mixer(pParser) ;
 			}
 			else {
+				ring_parser_error(pParser,RING_PARSER_ERROR_EXPECTPARENTHESES);
 				return RING_PARSER_FAIL ;
 			}
 		}
 		else {
+			ring_parser_error(pParser,RING_PARSER_ERROR_VARNAME);
 			return RING_PARSER_FAIL ;
 		}
 	}
