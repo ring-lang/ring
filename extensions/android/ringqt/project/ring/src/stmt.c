@@ -336,21 +336,8 @@ int ring_parser_stmt ( Parser *pParser )
 	if ( ring_parser_iskeyword(pParser,K_SEE) | ring_parser_iskeyword(pParser,K_PUT) ) {
 		ring_parser_nexttoken(pParser);
 		RING_PARSER_IGNORENEWLINE ;
-		#if RING_USESEEFUNCTION
-			/* Generate code to use the SEE function */
-			x = ring_parser_ringvmsee(pParser);
-		#else
-			/* Generate code using the SEE Command Instruction */
-			pParser->lAssignmentFlag = 0 ;
-			x = ring_parser_expr(pParser);
-			pParser->lAssignmentFlag = 1 ;
-			if ( x == RING_PARSER_FAIL ) {
-				ring_parser_error(pParser,RING_PARSER_ERROR_EXPRESSIONISEXPECTED);
-				return RING_PARSER_FAIL ;
-			}
-			/* Generate Code */
-			ring_parser_icg_newoperation(pParser,ICO_PRINT);
-		#endif
+		/* Generate code to use the SEE function */
+		x = ring_parser_ringvmsee(pParser);
 		RING_STATE_PRINTRULE(RING_RULE_SEEEXPR) ;
 		return x ;
 	}
@@ -358,37 +345,34 @@ int ring_parser_stmt ( Parser *pParser )
 	if ( ring_parser_isoperator2(pParser,OP_QUES) ) {
 		ring_parser_nexttoken(pParser);
 		RING_PARSER_IGNORENEWLINE ;
-		#if RING_USESEEFUNCTION
-			/*
-			**  Generate code to use the See function 
-			**  Print the Expression 
-			*/
-			x = ring_parser_ringvmsee(pParser);
-			/* Print the New Line */
-			ring_parser_icg_loadfunction(pParser,RING_CSTR_RINGVMSEE);
-			/* Parameters */
-			ring_parser_icg_newoperation(pParser,ICO_PUSHNL);
-			ring_parser_icg_newoperation(pParser,ICO_CALL);
-			ring_parser_icg_newoperandint(pParser,RING_ZERO);
-			ring_parser_icg_newoperation(pParser,ICO_NOOP);
-			ring_parser_icg_freestack(pParser);
-		#else
-			/* Generate Code using the See common instructions */
-			pParser->lAssignmentFlag = 0 ;
-			x = ring_parser_expr(pParser);
-			pParser->lAssignmentFlag = 1 ;
-			if ( x == RING_PARSER_FAIL ) {
-				ring_parser_error(pParser,RING_PARSER_ERROR_EXPRESSIONISEXPECTED);
-				return RING_PARSER_FAIL ;
-			}
-			/* Generate Code */
-			ring_parser_icg_newoperation(pParser,ICO_PRINT);
-			/* Print New Line */
-			ring_parser_icg_newoperation(pParser,ICO_PUSHNL);
-			ring_parser_icg_newoperation(pParser,ICO_PRINT);
-		#endif
+		/*
+		**  Generate code to use the See function 
+		**  Print the Expression 
+		*/
+		x = ring_parser_ringvmsee(pParser);
+		/* Print the New Line */
+		ring_parser_icg_loadfunction(pParser,RING_CSTR_RINGVMSEE);
+		/* Parameters */
+		ring_parser_icg_newoperation(pParser,ICO_PUSHNL);
+		ring_parser_icg_newoperation(pParser,ICO_CALL);
+		ring_parser_icg_newoperandint(pParser,RING_ZERO);
+		ring_parser_icg_newoperation(pParser,ICO_NOOP);
+		ring_parser_icg_freestack(pParser);
 		RING_STATE_PRINTRULE(RING_RULE_QEXPR) ;
 		return x ;
+		/*
+		**  Generate code to use the See function 
+		**  Print the Expression 
+		*/
+		x = ring_parser_ringvmsee(pParser);
+		/* Print the New Line */
+		ring_parser_icg_loadfunction(pParser,RING_CSTR_RINGVMSEE);
+		/* Parameters */
+		ring_parser_icg_newoperation(pParser,ICO_PUSHNL);
+		ring_parser_icg_newoperation(pParser,ICO_CALL);
+		ring_parser_icg_newoperandint(pParser,RING_ZERO);
+		ring_parser_icg_newoperation(pParser,ICO_NOOP);
+		ring_parser_icg_freestack(pParser);
 	}
 	/* Statement --> Give|Get Identifier */
 	if ( ring_parser_iskeyword(pParser,K_GIVE) | ring_parser_iskeyword(pParser,K_GET) ) {
@@ -404,19 +388,15 @@ int ring_parser_stmt ( Parser *pParser )
 			}
 			/* Generate Code */
 			RING_STATE_PRINTRULE(RING_RULE_GIVE) ;
-			#if RING_USEGIVEFUNCTION
-				/* Generate code to use the GIVE function */
-				ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
-				ring_parser_icg_loadfunction(pParser,RING_CSTR_RINGVMGIVE);
-				ring_parser_icg_newoperation(pParser,ICO_CALL);
-				ring_parser_icg_newoperandint(pParser,RING_ZERO);
-				ring_parser_icg_newoperation(pParser,ICO_NOOP);
-				ring_parser_icg_beforeequal(pParser,OP_EQUAL);
-				ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
-				ring_parser_icg_freestack(pParser);
-			#else
-				ring_parser_icg_newoperation(pParser,ICO_GIVE);
-			#endif
+			/* Generate code to use the GIVE function */
+			ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
+			ring_parser_icg_loadfunction(pParser,RING_CSTR_RINGVMGIVE);
+			ring_parser_icg_newoperation(pParser,ICO_CALL);
+			ring_parser_icg_newoperandint(pParser,RING_ZERO);
+			ring_parser_icg_newoperation(pParser,ICO_NOOP);
+			ring_parser_icg_beforeequal(pParser,OP_EQUAL);
+			ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
+			ring_parser_icg_freestack(pParser);
 			return RING_PARSER_OK ;
 		}
 		else {
