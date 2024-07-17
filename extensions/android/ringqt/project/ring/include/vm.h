@@ -206,6 +206,7 @@
 	#define RING_VM_STACK_READN ring_itemarray_getdouble(pVM->aStack,pVM->nSP)
 	#define RING_VM_STACK_READP ring_itemarray_getpointer(pVM->aStack,pVM->nSP)
 	#define RING_VM_STACK_OBJTYPE pVM->aStack[pVM->nSP].nObjectType
+	#define RING_VM_STACK_ASSIGNMENTFLAG pVM->aStack[pVM->nSP].lAssignment
 	#define RING_VM_STACK_PREVOBJTYPE pVM->aStack[pVM->nSP-1].nObjectType
 	#define RING_VM_STACK_READCVALUE(nIndex) ring_itemarray_getstring(pVM->aStack,nIndex)
 	#define RING_VM_STACK_STRINGSIZEVALUE(nIndex) ring_itemarray_getstringsize(pVM->aStack,nIndex)

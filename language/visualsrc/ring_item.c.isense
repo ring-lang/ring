@@ -21,6 +21,8 @@ nNumberFlag:2
 Type: unsigned int
 nObjectType:2
 Type: unsigned int
+lAssignment:1
+Type: unsigned int
 nGCReferenceCount: RING_VM_BITSFORREFCOUNT
 END:
 Type: Item

@@ -611,6 +611,7 @@ void ring_vm_assignmentpointer ( VM *pVM )
 	}
 	if ( pVM->lNoAssignment == 0 ) {
 		pVM->pAssignment = RING_VM_STACK_READP ;
+		RING_VM_STACK_ASSIGNMENTFLAG = RING_TRUE ;
 		/* Check trying to change the self pointer */
 		pList = NULL ;
 		lCont = RING_FALSE ;

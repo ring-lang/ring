@@ -30,7 +30,7 @@ void ring_vm_liststart ( VM *pVM )
 		/* Check if we need to create temp list when we call function, pass list by value */
 		nCont = 0 ;
 		if ( (pVM->nSP > pVM->nFuncSP) && RING_VM_STACK_ISPOINTER ) {
-			if ( pVM->pAssignment != RING_VM_STACK_READP ) {
+			if ( ! ( (pVM->pAssignment == RING_VM_STACK_READP) && RING_VM_STACK_ASSIGNMENTFLAG) ) {
 				nCont = 1 ;
 			}
 			else {

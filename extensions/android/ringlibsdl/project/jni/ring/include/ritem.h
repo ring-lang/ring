@@ -23,6 +23,8 @@
 		**  Used when putting the item in the stack to refer to list or listitem 
 		*/
 		unsigned int nObjectType:2  ;
+		/* Determine if it's assignment destination */
+		unsigned int lAssignment:1  ;
 		/* Garbage Collector Data (Reference Counting) */
 		unsigned int nGCReferenceCount: RING_VM_BITSFORREFCOUNT  ;
 		void (*pGCFreeFunc)(void *,void *) ;

@@ -9,7 +9,8 @@ RING_API Item * ring_item_new_gc ( void *pState,unsigned int nItemType )
 	/* Set Type */
 	pItem->nType = ITEMTYPE_NOTHING ;
 	/* Delete pointer information */
-	pItem->nObjectType = 0 ;
+	pItem->nObjectType = ITEM_OBJTYPE_NOTHING ;
+	pItem->lAssignment = RING_ZERO ;
 	/* Delete number information */
 	pItem->data.dNumber = 0 ;
 	pItem->nNumberFlag = ITEM_NUMBERFLAG_NOTHING ;
@@ -57,6 +58,7 @@ RING_API void ring_item_init ( Item *pItem )
 	pItem->nType = ITEMTYPE_NOTHING ;
 	pItem->nNumberFlag = ITEM_NUMBERFLAG_NOTHING ;
 	pItem->nObjectType = ITEM_OBJTYPE_NOTHING ;
+	pItem->lAssignment = RING_ZERO ;
 }
 
 RING_API void ring_item_deletecontent_gc ( void *pState,Item *pItem )
@@ -108,7 +110,7 @@ RING_API void ring_item_settype_gc ( void *pState,Item *pItem,unsigned int nItem
 		case ITEMTYPE_POINTER :
 			pItem->nType = ITEMTYPE_POINTER ;
 			pItem->data.pPointer = NULL ;
-			pItem->nObjectType = 0 ;
+			pItem->nObjectType = ITEM_OBJTYPE_NOTHING ;
 			break ;
 		case ITEMTYPE_LIST :
 			pItem->nType = ITEMTYPE_LIST ;
@@ -132,7 +134,8 @@ RING_API void ring_itemarray_setpointer_gc ( void *pState,Item aItems[], unsigne
 {
 	ring_item_settype_gc(pState,&aItems[nIndex],ITEMTYPE_POINTER);
 	aItems[nIndex].data.pPointer = pValue ;
-	aItems[nIndex].nObjectType = 0 ;
+	aItems[nIndex].nObjectType = ITEM_OBJTYPE_NOTHING ;
+	aItems[nIndex].lAssignment = RING_ZERO ;
 }
 
 RING_API void ring_itemarray_setdouble_gc ( void *pState,Item aItems[], unsigned int nIndex ,double nNumber )
@@ -178,7 +181,7 @@ RING_API void ring_item_setpointer_gc ( void *pState,Item *pItem,void *pValue )
 {
 	ring_item_settype_gc(pState,pItem,ITEMTYPE_POINTER);
 	pItem->data.pPointer = pValue ;
-	pItem->nObjectType = 0 ;
+	pItem->nObjectType = ITEM_OBJTYPE_NOTHING ;
 }
 
 RING_API void ring_item_setint_gc ( void *pState,Item *pItem,int x )
