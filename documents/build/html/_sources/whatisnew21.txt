@@ -49,6 +49,7 @@ More Improvements
 * Ring Compiler - Call command - Better error messages
 * Ring Compiler - ICO_SETPROPERTY - No arguments are required
 * Ring Compiler - ICO_NEWLINE instruction - Check if the previous instruction is ICO_NEWLINE
+* Ring Compiler - Don't use ICO_BEFOREEQUAL instruction for the common case (Equal)
 * Ring Compiler/VM - Added ICO_PUSHNL instruction - Push new line to the stack
 * Ring Compiler/VM - Added ICO_LISTITEMN instruction - Add number to the current list
 * Ring Compiler/VM - Added ICO_LISTITEMC instruction - Add string to the current list
@@ -83,4 +84,5 @@ More Improvements
 * Ring VM - ring_vm_createtemplist() implementation - Take in mind the PC and OPCode
 * Ring VM - Share information about different levels of the memory pool when creating new thread
 * Ring VM - ICO_SETREFERENCE - Check the variable list size
-* Ring VM - Remove ICO_FUNCEXE and ICO_ENDFUNCEXE instructions
+* Ring VM - The ICO_FUNCEXE and ICO_ENDFUNCEXE instructions are removed
+* Ring VM - The ICO_PRINT and ICO_GIVE instructions are removed
