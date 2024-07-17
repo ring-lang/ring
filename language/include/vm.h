@@ -213,6 +213,7 @@
 	#define RING_VM_STACK_READNVALUE(nIndex) ring_itemarray_getdouble(pVM->aStack,nIndex)
 	#define RING_VM_STACK_READPVALUE(nIndex) ring_itemarray_getpointer(pVM->aStack,nIndex)
 	#define RING_VM_STACK_OBJTYPEVALUE(nIndex) pVM->aStack[nIndex].nObjectType
+	#define RING_VM_STACK_ISASSIGNMENTDEST ( (pVM->pAssignment == RING_VM_STACK_READP) && RING_VM_STACK_ASSIGNMENTFLAG )
 	/* Delete */
 	#define RING_VM_STACK_POP pVM->nSP--
 	/* Objects/Pointer  - Type */
