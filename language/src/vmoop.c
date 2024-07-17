@@ -66,7 +66,7 @@ void ring_vm_oop_newobj ( VM *pVM )
 				/* Check Assignment */
 				nCont = 1 ;
 				if ( (pVM->nSP > pVM->nFuncSP) && RING_VM_STACK_ISPOINTER ) {
-					if ( pVM->pAssignment == RING_VM_STACK_READP ) {
+					if ( (pVM->pAssignment == RING_VM_STACK_READP) && RING_VM_STACK_ASSIGNMENTFLAG ) {
 						nCont = 0 ;
 						/* Clear the Assignment Pointer */
 						pVM->pAssignment = NULL ;
