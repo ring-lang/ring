@@ -584,9 +584,9 @@
 
 	void ring_vm_list_copy ( VM *pVM,List *pNewList, List *pList ) ;
 
-	void ring_vm_beforeequallist ( VM *pVM,List *pVar,double nNum1 ) ;
+	void ring_vm_beforeequallist ( VM *pVM,List *pVar,double nNum1,int nBeforeEqual ) ;
 
-	void ring_vm_beforeequalitem ( VM *pVM,Item *pItem,double nNum1 ) ;
+	void ring_vm_beforeequalitem ( VM *pVM,Item *pItem,double nNum1,int nBeforeEqual ) ;
 
 	void ring_vm_assignmentpointer ( VM *pVM ) ;
 
@@ -731,7 +731,7 @@
 
 	void ring_vm_listpushv ( VM *pVM ) ;
 
-	void ring_vm_listassignment ( VM *pVM ) ;
+	void ring_vm_listassignment ( VM *pVM,int nBeforeEqual ) ;
 
 	void ring_vm_listgetvalue ( VM *pVM,List *pVar,const char *cStr ) ;
 

@@ -188,6 +188,9 @@ void ring_parser_icg_pushn ( Parser *pParser,double nValue )
 
 void ring_parser_icg_beforeequal ( Parser *pParser,int nBeforeEqual )
 {
+	if ( nBeforeEqual == OP_EQUAL ) {
+		return ;
+	}
 	ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
 	ring_parser_icg_newoperandint(pParser,nBeforeEqual);
 }
