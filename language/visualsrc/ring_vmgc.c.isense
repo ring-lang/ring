@@ -22,6 +22,8 @@ lErrorOnAssignment: 1
 Type: unsigned int
 lErrorOnAssignment2: 1
 Type: unsigned int
+lCheckBeforeAssignmentDone: 1
+Type: unsigned int
 lDeletedByParent: 1
 Type: unsigned int
 lDontRefAgain: 1

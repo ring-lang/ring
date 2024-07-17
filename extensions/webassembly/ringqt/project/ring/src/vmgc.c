@@ -323,6 +323,7 @@ RING_API void ring_list_clearrefdata ( List *pList )
 	pList->vGC.lDeletedByParent = 0 ;
 	pList->vGC.lDontRefAgain = 0 ;
 	pList->vGC.lTrackedList = 0 ;
+	pList->vGC.lCheckBeforeAssignmentDone = 0 ;
 }
 
 RING_API List * ring_list_deleteref_gc ( void *pState,List *pList )
@@ -670,6 +671,9 @@ int ring_vm_checkitemerroronassignment ( VM *pVM,Item *pItem )
 
 int ring_vm_checkbeforeassignment ( VM *pVM,List *pVar )
 {
+	if ( pVar->vGC.lCheckBeforeAssignmentDone ) {
+		return RING_FALSE ;
+	}
 	/*
 	**  Check if the content is protected (List during definition) 
 	**  Also, Check Ref()/Reference() usage in the Left-Side 
@@ -680,9 +684,10 @@ int ring_vm_checkbeforeassignment ( VM *pVM,List *pVar )
 		**  I.e. Ref(tmp) = Ref(tmp) 
 		**  We don't need to think about it - Because it's like Ref( Ref( Ref( ....) ) ) 
 		*/
-		return 1 ;
+		return RING_TRUE ;
 	}
-	return 0 ;
+	pVar->vGC.lCheckBeforeAssignmentDone = RING_TRUE ;
+	return RING_FALSE ;
 }
 
 void ring_vm_removelistprotection ( VM *pVM,List *pNestedLists,int nStart )

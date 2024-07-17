@@ -15,6 +15,7 @@
 		unsigned int lErrorOnAssignment: 1  ;
 		/* Prevent Assignment through Ring Code but Don't prevent deleting the List */
 		unsigned int lErrorOnAssignment2: 1  ;
+		unsigned int lCheckBeforeAssignmentDone: 1  ;
 		unsigned int lDeletedByParent: 1  ;
 		unsigned int lDontRefAgain: 1  ;
 		/* Track Variable List contains Pointer to List Item */
