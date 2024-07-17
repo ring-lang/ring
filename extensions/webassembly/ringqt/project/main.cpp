@@ -41,7 +41,6 @@ extern "C" {
 #include "ring/src/vmlists.c"
 #include "ring/src/vmfuncs.c"
 #include "ring/src/vmoop.c"
-#include "ring/src/vmcui.c"
 #include "ring/src/vmtry.c"
 #include "ring/src/vmstr.c"
 #include "ring/src/vmjump.c"

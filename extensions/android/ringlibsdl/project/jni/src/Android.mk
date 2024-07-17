@@ -42,7 +42,6 @@ LOCAL_SRC_FILES := $(SDL_PATH)/src/main/android/SDL_android_main.c \
 	$(RING_PATH)/vmfuncs.c \
 	$(RING_PATH)/ringapi.c \
 	$(RING_PATH)/vmoop.c \
-	$(RING_PATH)/vmcui.c \
 	$(RING_PATH)/vmtry.c \
 	$(RING_PATH)/vmstr.c \
 	$(RING_PATH)/vmjump.c \
