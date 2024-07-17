@@ -7,12 +7,10 @@
 		/* General */
 		ICO_NEWLINE=0 ,
 		ICO_FILENAME ,
-		ICO_PRINT ,
 		ICO_NEWCLASS ,
 		ICO_NEWFUNC ,
 		ICO_DUPLICATE ,
 		ICO_NEWOBJ ,
-		ICO_GIVE ,
 		ICO_PRIVATE ,
 		ICO_NEWLABEL ,
 		/* Control Structure */
@@ -144,7 +142,7 @@
 	} IC_OPERATIONS ;
 	/* Operations Text (Array) */
 	static const char * RING_IC_OP[] = {"NewLine","FileName",
-	"Print","Class","Func","Dup","New","Give","Private","NewLabel",
+	"Class","Func","Dup","New","Private","NewLabel",
 	"Jump","JumpZ","Jump1","JumpFor","JumpZero2","JumpOne2","PushNullThenJump",
 	"LoadA","Assignment","LoadSA","LoadIA","LoadAPushV","==","<",">","!=","<=",">=",
 	"PushC","PushNL","PushN","Push2N","PushV","PushP","PushPV","PushPLocal",

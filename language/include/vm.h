@@ -787,11 +787,6 @@
 	void ring_vm_funccall_useloadfuncp ( VM *pVM,FuncCall *pFuncCall,int nPerformance ) ;
 
 	int ring_vm_funccall_beforecall ( VM *pVM ) ;
-	/* User Interface */
-
-	void ring_vm_see ( VM *pVM ) ;
-
-	void ring_vm_give ( VM *pVM ) ;
 	/* String As Array */
 
 	void ring_vm_string_pushv ( VM *pVM ) ;

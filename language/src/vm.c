@@ -883,13 +883,6 @@ void ring_vm_execute ( VM *pVM )
 		case ICO_ANONYMOUS :
 			ring_vm_anonymous(pVM);
 			break ;
-		/* User Interface */
-		case ICO_PRINT :
-			ring_vm_see(pVM);
-			break ;
-		case ICO_GIVE :
-			ring_vm_give(pVM);
-			break ;
 		/* End Program - Exit from Loop - Loop (Continue) */
 		case ICO_BYE :
 			ring_vm_bye(pVM);
