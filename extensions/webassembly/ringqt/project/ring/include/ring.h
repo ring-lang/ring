@@ -2,9 +2,6 @@
 
 #ifndef ring_h
 	#define ring_h
-	#ifndef NDEBUG
-		#define NDEBUG
-	#endif
 	/* Include C Headers */
 	#include <stdlib.h>
 	#include <stdio.h>
