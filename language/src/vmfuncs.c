@@ -192,9 +192,9 @@ void ring_vm_call2 ( VM *pVM )
 		ring_vm_newnestedlists(pVM);
 		pVM->nPC = pFuncCall->nPC ;
 		/* Save State */
-		if ( pVM->pAssignment || pVM->nListStart ||
-		pVM->nBlockCounter || pVM->nInsideEval || ring_list_getsize(pVM->pClassesMap) ||
-		ring_list_getsize(pVM->pPackagesMap) || ring_list_getsize(pVM->pTraceData) )
+		if ( pFuncCall->lMethod || pVM->pAssignment || pVM->nListStart ||
+		pVM->nBlockCounter || pVM->nInsideEval || pVM->nInClassRegion ||
+		ring_list_getsize(pVM->pObjState) || ring_list_getsize(pVM->pTraceData) )
 		pFuncCall->pVMState = ring_vm_savestateformethods(pVM);
 		/* Global Scope */
 		pFuncCall->nCurrentGlobalScope = pVM->nCurrentGlobalScope ;
@@ -357,6 +357,16 @@ void ring_vm_return ( VM *pVM )
 		/* Restore State */
 		if ( pFuncCall->pVMState != NULL ) {
 			ring_vm_restorestateformethods(pVM,pFuncCall->pVMState);
+		}
+		else {
+			/*
+			**  The function doesn't save the state where ring_list_getsize(pVM->pObjState) == 0 
+			**  But return command could be used from braces opened in the called function 
+			**  So, we must clean the pVM->pObjState list in this case 
+			*/
+			if ( ring_list_getsize(pVM->pObjState) ) {
+				ring_list_deleteallitems_gc(pVM->pRingState,pVM->pObjState);
+			}
 		}
 		RING_VM_DELETELASTFUNCCALL ;
 		/* Restore nFuncSP value */
