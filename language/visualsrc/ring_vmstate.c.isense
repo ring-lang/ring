@@ -16,14 +16,14 @@ Type: List *
 aListsToDelete, *pListPointer
 Type: FuncCall *
 pFuncCall
-ring_vm_savestateforfunctions
+ring_vm_savestateformethods
 Type: List *
 pThis
 Type: VMState *
 pVMState
 Type: Item *
 pItem
-ring_vm_restorestateforfunctions
+ring_vm_restorestateformethods
 Type: List *
 pThis
 ring_vm_savestatefornewobjects

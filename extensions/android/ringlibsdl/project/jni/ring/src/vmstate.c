@@ -219,8 +219,7 @@ VMState * ring_vm_savestateformethods ( VM *pVM )
 	pVMState->aNumbers[13] = pVM->nActiveScopeID ;
 	pVMState->aNumbers[14] = ring_list_getsize(pVM->pScopeNewObj) ;
 	pVMState->aNumbers[15] = pVM->nNoSetterMethod ;
-	pVMState->aNumbers[16] = RING_VM_IR_GETLINENUMBER ;
-	pVMState->aNumbers[17] = pVM->nBeforeEqual ;
+	pVMState->aNumbers[16] = pVM->nBeforeEqual ;
 	pVMState->aPointers[0] = pVM->pBraceObject ;
 	pVMState->aPointers[1] = pVM->pActiveMem ;
 	pVMState->aPointers[2] = pVM->pPCBlockFlag ;
@@ -277,8 +276,7 @@ void ring_vm_restorestateformethods ( VM *pVM,VMState *pVMState )
 	pVM->nInClassRegion = pVMState->aNumbers[12] ;
 	pVM->nActiveScopeID = pVMState->aNumbers[13] ;
 	ring_vm_backstate(pVM,pVM->pScopeNewObj,pVMState->aNumbers[14]);
-	RING_VM_IR_SETLINENUMBER(pVMState->aNumbers[16]);
-	pVM->nBeforeEqual = pVMState->aNumbers[17] ;
+	pVM->nBeforeEqual = pVMState->aNumbers[16] ;
 	pVM->nNoSetterMethod = pVMState->aNumbers[15] ;
 	pVM->pGetSetObject = (void *) pVMState->aPointers[4] ;
 	/* Restore This variable */
