@@ -312,6 +312,11 @@ void ring_vm_return ( VM *pVM )
 	}
 	if ( RING_VM_FUNCCALLSCOUNT > 0 ) {
 		pFuncCall = RING_VM_LASTFUNCCALL ;
+		/* Check if the function is not called */
+		if ( pFuncCall->nCallerPC == 0 ) {
+			ring_vm_error(pVM,RING_VM_ERROR_RETURNINPARA);
+			return ;
+		}
 		pVM->nPC = pFuncCall->nCallerPC ;
 		/* Restore List Status */
 		ring_vm_restorenestedlists(pVM,pFuncCall->nListStart,pFuncCall->nNestedLists);
