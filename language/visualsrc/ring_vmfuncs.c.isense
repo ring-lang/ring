@@ -78,13 +78,13 @@ Type: List *
 pList
 Type: FuncCall *
 pFuncCall
-ring_vmfunccall_new
+ring_vm_funccall_new
 Type: FuncCall *
 pFuncCall
-ring_vmfunccall_delete
+ring_vm_funccall_delete
 Type: FuncCall *
 pFuncCall
-ring_vmfunccall_useloadfuncp
-ring_vmfunccall_beforecall
+ring_vm_funccall_useloadfuncp
+ring_vm_funccall_beforecall
 Type: FuncCall *
 pFuncCall

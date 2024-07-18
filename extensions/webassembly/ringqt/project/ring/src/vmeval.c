@@ -27,7 +27,7 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 	nRunVM = 0 ;
 	/* Get Functions/Classes Size before change by parser */
 	aPara[0] = nLastPC ;
-	aPara[1] = ring_list_getsize(pVM->pFunctionsMap) + ring_list_getsize(pVM->pClassesMap) + ring_list_getsize(pVM->pPCBlockFlag) ;
+	aPara[1] = ring_list_getsize(pVM->pFunctionsMap) + ring_list_getsize(pVM->pClassesMap) + ring_list_getsize(pVM->pPackagesMap) + ring_list_getsize(pVM->pPCBlockFlag) ;
 	/* Call Parser */
 	if ( nCont == 1 ) {
 		pVM->pRingState->lNoLineNumber = 1 ;
@@ -121,7 +121,7 @@ void ring_vm_returneval ( VM *pVM )
 	ring_vm_mutexlock(pVM);
 	aPara[0] = RING_VM_IR_READIVALUE(RING_VM_IR_REG1) ;
 	aPara[1] = RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ;
-	if ( ( pVM->lRetEvalDontDelete == 0 ) && (aPara[1] == ring_list_getsize(pVM->pFunctionsMap) + ring_list_getsize(pVM->pClassesMap) + ring_list_getsize(pVM->pPCBlockFlag) ) ) {
+	if ( ( pVM->lRetEvalDontDelete == 0 ) && (aPara[1] == ring_list_getsize(pVM->pFunctionsMap)+ring_list_getsize(pVM->pClassesMap)+ring_list_getsize(pVM->pPackagesMap)+ring_list_getsize(pVM->pPCBlockFlag)) ) {
 		/*
 		**  The code interpreted by eval doesn't add new functions or new classes or load new files 
 		**  This means that the code can be deleted without any problems 

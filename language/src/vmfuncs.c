@@ -192,9 +192,9 @@ void ring_vm_call2 ( VM *pVM )
 		ring_vm_newnestedlists(pVM);
 		pVM->nPC = pFuncCall->nPC ;
 		/* Save State */
-		if ( pFuncCall->lMethod || pVM->pAssignment || pVM->nListStart ||
-		pVM->nBlockCounter || pVM->nInsideEval || pVM->nInClassRegion ||
-		ring_list_getsize(pVM->pObjState) ||ring_list_getsize(pVM->pTraceData) )
+		if ( pVM->pAssignment || pVM->nListStart ||
+		pVM->nBlockCounter || pVM->nInsideEval || ring_list_getsize(pVM->pClassesMap) ||
+		ring_list_getsize(pVM->pPackagesMap) || ring_list_getsize(pVM->pTraceData) )
 		pFuncCall->pVMState = ring_vm_savestateformethods(pVM);
 		/* Global Scope */
 		pFuncCall->nCurrentGlobalScope = pVM->nCurrentGlobalScope ;
@@ -491,7 +491,7 @@ void ring_vm_newfunc ( VM *pVM )
 		return ;
 	}
 	/* Support this in the method */
-	if ( ring_list_getsize(pVM->pClassesMap) ) {
+	if ( ring_list_getsize(pVM->pClassesMap) || ring_list_getsize(pVM->pPackagesMap) ) {
 		ring_vm_oop_setthethisvariable(pVM);
 	}
 	/* Trace */
