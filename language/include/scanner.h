@@ -87,6 +87,10 @@
 		K_ENABLEHASHCOMMENTS ,
 		K_DISABLEHASHCOMMENTS 
 	} SCANNER_KEYWORD ;
+	/*
+	**  The keywords starting from ChangeRingKeyword are sensitive to the order and keywords count 
+	**  if you will add new keywords revise constants and ring_scanner_checktoken() 
+	*/
 	static const char * RING_KEYWORDS[] = {"IF","TO","OR","AND","NOT","FOR","FOREACH","NEW","FUNC",
 	"FROM","NEXT","LOAD","ELSE","SEE","WHILE","OK","CLASS","RETURN","BUT", 
 	

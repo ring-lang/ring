@@ -340,10 +340,6 @@ void ring_scanner_keywords ( Scanner *pScanner )
 	char cKeyword[RING_SMALLBUF]  ;
 	int x  ;
 	pScanner->pKeywords = ring_list_new_gc(pScanner->pRingState,RING_ZERO);
-	/*
-	**  The keywords starting from ChangeRingKeyword are sensitive to the order and keywords count 
-	**  if you will add new keywords revise constants and ring_scanner_checktoken() 
-	*/
 	for ( x = 0 ; x < RING_SCANNER_KEYWORDSCOUNT ; x++ ) {
 		sprintf( cKeyword , "%s" , RING_KEYWORDS[x] ) ;
 		ring_string_lower(cKeyword);
