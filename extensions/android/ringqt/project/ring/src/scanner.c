@@ -337,76 +337,18 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 
 void ring_scanner_keywords ( Scanner *pScanner )
 {
+	char cKeyword[RING_SMALLBUF]  ;
+	int x  ;
 	pScanner->pKeywords = ring_list_new_gc(pScanner->pRingState,RING_ZERO);
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"if");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"to");
-	/* Logic */
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"or");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"and");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"not");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"for");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"foreach");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"new");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"func");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"from");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"next");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"load");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"else");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"see");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"while");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"ok");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"class");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"return");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"but");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"end");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"give");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"bye");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"exit");
-	/* Try-Catch-Done */
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"try");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"catch");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"done");
-	/* Switch */
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"switch");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"on");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"other");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"off");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"in");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"loop");
-	/* Packages */
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"package");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"import");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"private");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"step");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"do");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"again");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"call");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"elseif");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"put");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"get");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"case");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"def");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"endfunc");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"endclass");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"endpackage");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"endif");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"endfor");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"endwhile");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"endswitch");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"endtry");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"function");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"endfunction");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"break");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"continue");
 	/*
-	**  The next keywords are sensitive to the order and keywords count 
+	**  The keywords starting from ChangeRingKeyword are sensitive to the order and keywords count 
 	**  if you will add new keywords revise constants and ring_scanner_checktoken() 
 	*/
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"changeringkeyword");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"changeringoperator");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"loadsyntax");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"enablehashcomments");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,"disablehashcomments");
+	for ( x = 0 ; x < RING_SCANNER_KEYWORDSCOUNT ; x++ ) {
+		sprintf( cKeyword , "%s" , RING_KEYWORDS[x] ) ;
+		ring_string_lower(cKeyword);
+		ring_list_addstring_gc(pScanner->pRingState,pScanner->pKeywords,cKeyword);
+	}
 	ring_list_genhashtable_gc(pScanner->pRingState,pScanner->pKeywords);
 }
 

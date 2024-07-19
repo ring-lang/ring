@@ -98,6 +98,7 @@ K_DISABLEHASHCOMMENTS
 END:
 Type: SCANNER_KEYWORD
 SCANNER_KEYWORD
+RING_SCANNER_KEYWORDSCOUNT
 Parent: SCANNER_OPERATOR
 OP_PLUS = 1
 OP_MINUS
@@ -184,6 +185,8 @@ pString
 Type: int
 nTokenIndex
 ring_scanner_keywords
+Type: char
+cKeyword[RING_SMALLBUF]
 ring_scanner_addtoken
 Type: List *
 pList
