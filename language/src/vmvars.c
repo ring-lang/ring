@@ -10,19 +10,19 @@ void ring_vm_addglobalvariables ( VM *pVM )
 	**  Add Variables 
 	**  We write variable name in lower case because Identifiers is converted to lower by Compiler(Scanner) 
 	*/
-	ring_vm_addnewnumbervar(pVM,"true",RING_TRUE);
-	ring_vm_addnewnumbervar(pVM,"false",RING_FALSE);
-	ring_vm_addnewstringvar(pVM,"nl","\n");
+	ring_vm_addnewnumbervar(pVM,RING_CSTR_TRUEVAR,RING_TRUE);
+	ring_vm_addnewnumbervar(pVM,RING_CSTR_FALSEVAR,RING_FALSE);
+	ring_vm_addnewstringvar(pVM,RING_CSTR_NLVAR,RING_CSTR_NL);
 	ring_vm_addnewstringvar(pVM,RING_CSTR_NULLVAR,RING_CSTR_EMPTY);
 	ring_vm_addnewpointervar(pVM,RING_CSTR_GETTEMPVAR,NULL,RING_OBJTYPE_NOTYPE);
 	ring_vm_addnewstringvar(pVM,RING_CSTR_CATCHERROR,RING_CSTR_NULL);
 	ring_vm_addnewpointervar(pVM,RING_CSTR_SETTEMPVAR,NULL,RING_OBJTYPE_NOTYPE);
-	ring_vm_addnewcpointervar(pVM,"stdin",stdin,"file");
-	ring_vm_addnewcpointervar(pVM,"stdout",stdout,"file");
-	ring_vm_addnewcpointervar(pVM,"stderr",stderr,"file");
-	ring_vm_addnewpointervar(pVM,RING_CSTR_THIS,NULL,RING_OBJTYPE_NOTYPE);
-	ring_vm_addnewstringvar(pVM,"tab","\t");
-	ring_vm_addnewstringvar(pVM,"cr","\r");
+	ring_vm_addnewcpointervar(pVM,RING_CSTR_STDINVAR,stdin,RING_CSTR_FILE);
+	ring_vm_addnewcpointervar(pVM,RING_CSTR_STDOUTVAR,stdout,RING_CSTR_FILE);
+	ring_vm_addnewcpointervar(pVM,RING_CSTR_STDERRVAR,stderr,RING_CSTR_FILE);
+	ring_vm_addnewpointervar(pVM,RING_CSTR_THISVAR,NULL,RING_OBJTYPE_NOTYPE);
+	ring_vm_addnewstringvar(pVM,RING_CSTR_TABVAR,RING_CSTR_TAB);
+	ring_vm_addnewstringvar(pVM,RING_CSTR_CRVAR,RING_CSTR_CR);
 	/* Add Command Line Parameters */
 	pList = ring_vm_addnewlistvar(pVM,RING_CSTR_SYSARGV);
 	pList = ring_list_getlist(pList,RING_VAR_VALUE);

@@ -132,6 +132,9 @@
 	#define RING_DECIMALS 2
 	/* C Strings */
 	#define RING_CSTR_EMPTY ""
+	#define RING_CSTR_NL "\n"
+	#define RING_CSTR_TAB "\t"
+	#define RING_CSTR_CR "\r"
 	#define RING_CSTR_MAIN "main"
 	#define RING_CSTR_RINGVMSEE "ringvm_see"
 	#define RING_CSTR_RINGVMGIVE "ringvm_give"
@@ -151,6 +154,16 @@
 	#define RING_CSTR_SYSARGV "sysargv"
 	#define RING_CSTR_NULL "NULL"
 	#define RING_CSTR_NULLVAR "null"
+	#define RING_CSTR_TRUEVAR "true"
+	#define RING_CSTR_FALSEVAR "false"
+	#define RING_CSTR_NLVAR "nl"
+	#define RING_CSTR_FILE "file"
+	#define RING_CSTR_STDINVAR "stdin"
+	#define RING_CSTR_STDOUTVAR "stdout"
+	#define RING_CSTR_STDERRVAR "stderr"
+	#define RING_CSTR_TABVAR "tab"
+	#define RING_CSTR_CRVAR "cr"
+	#define RING_CSTR_THISVAR RING_CSTR_THIS
 	/* Exit */
 	#define RING_EXIT_OK 0
 	#define RING_EXIT_FAIL 1
