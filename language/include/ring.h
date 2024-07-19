@@ -149,6 +149,8 @@
 	#define RING_CSTR_SETTEMPVAR "ring_settemp_var"
 	#define RING_CSTR_CATCHERROR "ccatcherror"
 	#define RING_CSTR_SYSARGV "sysargv"
+	#define RING_CSTR_NULL "NULL"
+	#define RING_CSTR_NULLVAR "null"
 	/* Exit */
 	#define RING_EXIT_OK 0
 	#define RING_EXIT_FAIL 1

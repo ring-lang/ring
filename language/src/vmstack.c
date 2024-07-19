@@ -38,7 +38,7 @@ int ring_vm_checknull ( VM *pVM,int lShowError )
 	pVar = (List *) RING_VM_STACK_READP ;
 	/* Check NULL Value */
 	if ( (pVM->nInClassRegion == 0) && (ring_list_getint(pVar,RING_VAR_TYPE) == RING_VM_NULL) && ( ring_list_isstring(pVar,RING_VAR_VALUE) ) ) {
-		if ( strcmp(ring_list_getstring(pVar,RING_VAR_VALUE),"NULL") == 0 ) {
+		if ( strcmp(ring_list_getstring(pVar,RING_VAR_VALUE),RING_CSTR_NULL) == 0 ) {
 			if ( lShowError ) {
 				/*
 				**  We create pString because ring_vm_error2() could interact with Try/Catch and change the State 

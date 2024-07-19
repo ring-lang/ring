@@ -13,9 +13,9 @@ void ring_vm_addglobalvariables ( VM *pVM )
 	ring_vm_addnewnumbervar(pVM,"true",RING_TRUE);
 	ring_vm_addnewnumbervar(pVM,"false",RING_FALSE);
 	ring_vm_addnewstringvar(pVM,"nl","\n");
-	ring_vm_addnewstringvar(pVM,"null",RING_CSTR_EMPTY);
+	ring_vm_addnewstringvar(pVM,RING_CSTR_NULLVAR,RING_CSTR_EMPTY);
 	ring_vm_addnewpointervar(pVM,RING_CSTR_GETTEMPVAR,NULL,RING_OBJTYPE_NOTYPE);
-	ring_vm_addnewstringvar(pVM,RING_CSTR_CATCHERROR,"NULL");
+	ring_vm_addnewstringvar(pVM,RING_CSTR_CATCHERROR,RING_CSTR_NULL);
 	ring_vm_addnewpointervar(pVM,RING_CSTR_SETTEMPVAR,NULL,RING_OBJTYPE_NOTYPE);
 	ring_vm_addnewcpointervar(pVM,"stdin",stdin,"file");
 	ring_vm_addnewcpointervar(pVM,"stdout",stdout,"file");
@@ -311,7 +311,7 @@ List * ring_vm_newvar2 ( VM *pVM,const char *cStr,List *pParent )
 	else {
 		ring_list_addint_gc(pVM->pRingState,pList,RING_VM_NULL);
 	}
-	ring_list_addstring_gc(pVM->pRingState,pList,"NULL");
+	ring_list_addstring_gc(pVM->pRingState,pList,RING_CSTR_NULL);
 	/* Pointer Type */
 	ring_list_addint_gc(pVM->pRingState,pList,RING_OBJTYPE_NOTYPE);
 	/* HashTable & Array */
