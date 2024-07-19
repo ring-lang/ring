@@ -21,7 +21,7 @@ nFloatMark
 Type: char
 cLiteral
 Type: char
-cMLComment
+nMLComment
 Type: char
 lHashComments
 END:

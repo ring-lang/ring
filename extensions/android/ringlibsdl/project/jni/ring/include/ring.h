@@ -131,6 +131,7 @@
 	/* Decimals */
 	#define RING_DECIMALS 2
 	/* C Strings */
+	#define RING_CSTR_EMPTY ""
 	#define RING_CSTR_MAIN "main"
 	#define RING_CSTR_RINGVMSEE "ringvm_see"
 	#define RING_CSTR_RINGVMGIVE "ringvm_give"

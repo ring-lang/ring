@@ -8,13 +8,13 @@ Scanner * ring_scanner_new ( RingState *pRingState )
 	pScanner = (Scanner *) ring_state_malloc(pRingState,sizeof(Scanner));
 	pScanner->pRingState = pRingState ;
 	pScanner->cState = SCANNER_STATE_GENERAL ;
-	pScanner->pActiveToken = ring_string_new_gc(pRingState,"");
+	pScanner->pActiveToken = ring_string_new_gc(pRingState,RING_CSTR_EMPTY);
 	pScanner->pTokens = ring_list_new_gc(pRingState,RING_ZERO);
-	pScanner->nLinesCount = 1 ;
+	pScanner->nLinesCount = RING_ONE ;
 	pScanner->nFloatMark = SCANNER_FLOATMARK_START ;
-	pScanner->cMLComment = 0 ;
-	pScanner->nTokenIndex = 0 ;
-	pScanner->lHashComments = 1 ;
+	pScanner->nMLComment = RING_ZERO ;
+	pScanner->nTokenIndex = RING_ZERO ;
+	pScanner->lHashComments = RING_TRUE ;
 	ring_scanner_keywords(pScanner);
 	ring_scanner_operators(pScanner);
 	return pScanner ;
@@ -250,10 +250,10 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 			if ( pScanner->pRingState->lCommentsAsTokens ) {
 				ring_string_add_gc(pScanner->pRingState,pScanner->pActiveToken,cStr);
 			}
-			switch ( pScanner->cMLComment ) {
+			switch ( pScanner->nMLComment ) {
 				case 0 :
 					if ( strcmp(cStr,"*") == 0 ) {
-						pScanner->cMLComment = 1 ;
+						pScanner->nMLComment = 1 ;
 						return ;
 					}
 					break ;
@@ -266,7 +266,7 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 						/* The next step is important to avoid storing * as identifier! */
 						ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"");
 					}
-					pScanner->cMLComment = 0 ;
+					pScanner->nMLComment = 0 ;
 					return ;
 			}
 			break ;

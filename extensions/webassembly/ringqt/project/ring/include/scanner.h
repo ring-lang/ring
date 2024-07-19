@@ -17,7 +17,7 @@
 		/* Literal Type "  or ' */
 		char cLiteral  ;
 		/* Multiline comment end ( 0 = start  1 = * ) */
-		char cMLComment  ;
+		char nMLComment  ;
 		/* Support comments that starts with hash */
 		char lHashComments  ;
 	} Scanner ;
