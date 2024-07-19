@@ -150,6 +150,10 @@
 		OP_SHREQUAL ,
 		OP_POWEQUAL 
 	} SCANNER_OPERATOR ;
+	/* Operators Array */
+	static const char * RING_OPERATORS[] = {"+","-","*","/","%",".","(",")","=",
+	",","!",">","<","[","]",":","{","}","&","|","~","^","?"} ;
+	#define RING_SCANNER_OPERATORSCOUNT 23
 	#define RING_SCANNER_TOKENTYPE 1
 	#define RING_SCANNER_TOKENVALUE 2
 	#define RING_SCANNER_TOKENINDEX 3

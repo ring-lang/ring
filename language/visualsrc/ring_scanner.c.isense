@@ -144,6 +144,7 @@ OP_POWEQUAL
 END:
 Type: SCANNER_OPERATOR
 SCANNER_OPERATOR
+RING_SCANNER_OPERATORSCOUNT
 RING_SCANNER_TOKENTYPE
 RING_SCANNER_TOKENVALUE
 RING_SCANNER_TOKENINDEX
@@ -187,6 +188,8 @@ nTokenIndex
 ring_scanner_keywords
 Type: char
 cKeyword[RING_SMALLBUF]
+Type: int
+x
 ring_scanner_addtoken
 Type: List *
 pList
@@ -205,6 +208,8 @@ ring_scanner_isoperator
 Type: int
 nPos
 ring_scanner_operators
+Type: int
+x
 ring_scanner_lasttokentype
 x
 Type: List *

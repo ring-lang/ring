@@ -522,30 +522,11 @@ int ring_scanner_isoperator ( Scanner *pScanner, const char *cStr )
 
 void ring_scanner_operators ( Scanner *pScanner )
 {
+	int x  ;
 	pScanner->pOperators = ring_list_new_gc(pScanner->pRingState,RING_ZERO);
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pOperators,"+");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pOperators,"-");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pOperators,"*");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pOperators,"/");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pOperators,"%");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pOperators,".");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pOperators,"(");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pOperators,")");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pOperators,"=");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pOperators,",");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pOperators,"!");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pOperators,">");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pOperators,"<");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pOperators,"[");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pOperators,"]");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pOperators,":");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pOperators,"{");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pOperators,"}");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pOperators,"&");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pOperators,"|");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pOperators,"~");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pOperators,"^");
-	ring_list_addstring_gc(pScanner->pRingState,pScanner->pOperators,"?");
+	for ( x = 0 ; x < RING_SCANNER_OPERATORSCOUNT ; x++ ) {
+		ring_list_addstring_gc(pScanner->pRingState,pScanner->pOperators,RING_OPERATORS[x]);
+	}
 	ring_list_genhashtable_gc(pScanner->pRingState,pScanner->pOperators);
 }
 
