@@ -371,8 +371,8 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 		ring_list_deleteitem_gc(pRingState,pRingState->pRingFilesStack,ring_list_getsize(pRingState->pRingFilesStack));
 		/* Check if we need the tokens only */
 		if ( pRingState->lOnlyTokens ) {
-			pRingState->pRingFileTokens = pScanner->pTokens ;
-			pScanner->pTokens = NULL ;
+			pRingState->pRingFileTokens = ring_list_new_gc(pRingState,RING_ZERO) ;
+			ring_list_swaptwolists(pRingState->pRingFileTokens,pScanner->pTokens);
 		}
 		ring_scanner_delete(pScanner);
 		return 0 ;
@@ -526,8 +526,8 @@ RING_API int ring_state_runstring ( RingState *pRingState,char *cString )
 		ring_list_deleteitem_gc(pRingState,pRingState->pRingFilesStack,ring_list_getsize(pRingState->pRingFilesStack));
 		/* Check if we need the tokens only */
 		if ( pRingState->lOnlyTokens ) {
-			pRingState->pRingFileTokens = pScanner->pTokens ;
-			pScanner->pTokens = NULL ;
+			pRingState->pRingFileTokens = ring_list_new_gc(pRingState,RING_ZERO) ;
+			ring_list_swaptwolists(pRingState->pRingFileTokens,pScanner->pTokens);
 		}
 		ring_scanner_delete(pScanner);
 		return 0 ;

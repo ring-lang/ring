@@ -24,9 +24,7 @@ Scanner * ring_scanner_delete ( Scanner *pScanner )
 {
 	pScanner->pKeywords = ring_list_delete_gc(pScanner->pRingState,pScanner->pKeywords);
 	pScanner->pOperators = ring_list_delete_gc(pScanner->pRingState,pScanner->pOperators);
-	if ( pScanner->pTokens != NULL ) {
-		pScanner->pTokens = ring_list_delete_gc(pScanner->pRingState,pScanner->pTokens);
-	}
+	pScanner->pTokens = ring_list_delete_gc(pScanner->pRingState,pScanner->pTokens);
 	pScanner->pActiveToken = ring_string_delete_gc(pScanner->pRingState,pScanner->pActiveToken);
 	ring_state_free(pScanner->pRingState,pScanner);
 	return NULL ;
