@@ -10,13 +10,13 @@ Scanner * ring_scanner_new ( RingState *pRingState )
 	pScanner->cState = SCANNER_STATE_GENERAL ;
 	pScanner->pActiveToken = ring_string_new_gc(pRingState,"");
 	pScanner->pTokens = ring_list_new_gc(pRingState,RING_ZERO);
-	ring_scanner_keywords(pScanner);
-	ring_scanner_operators(pScanner);
 	pScanner->nLinesCount = 1 ;
 	pScanner->nFloatMark = SCANNER_FLOATMARK_START ;
 	pScanner->cMLComment = 0 ;
 	pScanner->nTokenIndex = 0 ;
 	pScanner->lHashComments = 1 ;
+	ring_scanner_keywords(pScanner);
+	ring_scanner_operators(pScanner);
 	return pScanner ;
 }
 
