@@ -736,7 +736,7 @@ void ring_vm_generallib_isnull ( void *pPointer )
 		return ;
 	}
 	if ( RING_API_ISSTRING(1) ) {
-		if ( strcmp(RING_API_GETSTRING(1),"") == 0 ) {
+		if ( strcmp(RING_API_GETSTRING(1),RING_CSTR_EMPTY) == 0 ) {
 			RING_API_RETNUMBER(1);
 			return ;
 		}
@@ -1033,7 +1033,7 @@ void ring_vm_generallib_str2list ( void *pPointer )
 					}
 				}
 				else {
-					ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,"");
+					ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,RING_CSTR_EMPTY);
 				}
 				nStart = x+1 ;
 			}
@@ -1063,7 +1063,7 @@ void ring_vm_generallib_list2str ( void *pPointer )
 		return ;
 	}
 	pList = RING_API_GETLIST(1) ;
-	pString = ring_string_new_gc(((VM *) pPointer)->pRingState,"");
+	pString = ring_string_new_gc(((VM *) pPointer)->pRingState,RING_CSTR_EMPTY);
 	/* Set nStart */
 	nStart = 1 ;
 	if ( RING_API_PARACOUNT >= 2 ) {
@@ -1232,7 +1232,7 @@ void ring_vm_generallib_trim ( void *pPointer )
 		cStr = RING_API_GETSTRING(1) ;
 		nSize = RING_API_GETSTRINGSIZE(1) ;
 		if ( nSize == 0 ) {
-			RING_API_RETSTRING("");
+			RING_API_RETSTRING(RING_CSTR_EMPTY);
 			return ;
 		}
 		/* Get Limits */
@@ -1251,7 +1251,7 @@ void ring_vm_generallib_trim ( void *pPointer )
 			}
 		}
 		if ( (nPos1 == 0) && (nPos2 == nSize-1) && (cStr[0] == ' ') ) {
-			RING_API_RETSTRING("");
+			RING_API_RETSTRING(RING_CSTR_EMPTY);
 			return ;
 		}
 		/* Pre-allocated the return value on the stack */
@@ -1426,7 +1426,7 @@ void ring_vm_generallib_substr ( void *pPointer )
 		}
 		cStr3 = RING_API_GETSTRING(3) ;
 		nMark = 0 ;
-		pString = ring_string_new_gc(((VM *) pPointer)->pRingState,"");
+		pString = ring_string_new_gc(((VM *) pPointer)->pRingState,RING_CSTR_EMPTY);
 		while ( cString != NULL ) {
 			nPos = (RING_LONGLONG)( 1 + (cString - cStr) ) ;
 			/* Add SubString to pString */
@@ -2327,7 +2327,7 @@ void ring_vm_generallib_print ( void *pPointer )
 		return ;
 	}
 	if ( RING_API_ISSTRING(1) ) {
-		if ( strcmp(RING_API_GETSTRING(1),"") == 0 ) {
+		if ( strcmp(RING_API_GETSTRING(1),RING_CSTR_EMPTY) == 0 ) {
 			return ;
 		}
 	}
@@ -2356,7 +2356,7 @@ void ring_vm_generallib_print ( void *pPointer )
 void ring_vm_generallib_print2str ( void *pPointer )
 {
 	if ( RING_API_ISSTRING(1) ) {
-		if ( strcmp(RING_API_GETSTRING(1),"") == 0 ) {
+		if ( strcmp(RING_API_GETSTRING(1),RING_CSTR_EMPTY) == 0 ) {
 			return ;
 		}
 	}
@@ -2374,7 +2374,7 @@ void ring_vm_generallib_puts ( void *pPointer )
 		return ;
 	}
 	if ( RING_API_ISSTRING(1) ) {
-		if ( strcmp(RING_API_GETSTRING(1),"") == 0 ) {
+		if ( strcmp(RING_API_GETSTRING(1),RING_CSTR_EMPTY) == 0 ) {
 			printf( "\n" ) ;
 			return ;
 		}
@@ -2472,7 +2472,7 @@ void ring_vm_generallib_customprint ( void *pPointer,const char *cCommand )
 					break ;
 				case '#' :
 					if ( cString[x+1] == '{' ) {
-						strcpy(cCode,"");
+						strcpy(cCode,RING_CSTR_EMPTY);
 						x += 2 ;
 						nPos = 0 ;
 						while ( (x < nSize) && (cString[x] != '}') && (nPos <= C_EXPRCODESIZE ) ) {

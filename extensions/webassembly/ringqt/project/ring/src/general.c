@@ -75,7 +75,7 @@ void ring_general_exefolder ( char *cDirPath )
 	int x,x2,nSize  ;
 	ring_general_exefilename(cDir);
 	nSize = strlen( cDir ) ;
-	strcpy(cDir2,"");
+	strcpy(cDir2,RING_CSTR_EMPTY);
 	for ( x = nSize-1 ; x >= 0 ; x-- ) {
 		if ( (cDir[x] == '\\') || (cDir[x] == '/') ) {
 			for ( x2 = x ; x2 >= 0 ; x2-- ) {

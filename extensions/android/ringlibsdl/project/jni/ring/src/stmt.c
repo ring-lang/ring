@@ -61,7 +61,7 @@ int ring_parser_class ( Parser *pParser )
 			}
 			else {
 				/* Set Parent Class Name In Classes Map */
-				ring_list_addstring_gc(pParser->pRingState,pList,"");
+				ring_list_addstring_gc(pParser->pRingState,pList,RING_CSTR_EMPTY);
 				RING_STATE_PRINTRULE(RING_RULE_CLASS) ;
 			}
 			/* Add Method/Functions List to Class in Class Table */
@@ -79,7 +79,7 @@ int ring_parser_class ( Parser *pParser )
 				ring_list_addpointer_gc(pParser->pRingState,pList,pList3);
 				/* Add List pointer to General Classes that point to the class in the package */
 				pList2 = ring_list_newlist_gc(pParser->pRingState,pParser->pRingState->pRingClassesMap);
-				ring_list_addstring_gc(pParser->pRingState,pList2,"");
+				ring_list_addstring_gc(pParser->pRingState,pList2,RING_CSTR_EMPTY);
 				ring_list_addpointer_gc(pParser->pRingState,pList2,pList);
 				/* Ignore Adding Pointer to File Name */
 				ring_list_addpointer_gc(pParser->pRingState,pList2,NULL);
@@ -267,7 +267,7 @@ int ring_parser_stmt ( Parser *pParser )
 				ring_general_currentdir(cFileName);
 				/* Be Sure that we don't already have the current folder in the file name */
 				if ( ring_general_folderexistinfilename(cFileName,pParser->cTokenText) ) {
-					strcpy(cFileName,"");
+					strcpy(cFileName,RING_CSTR_EMPTY);
 				}
 				else {
 					ring_general_addosfileseparator(cFileName);

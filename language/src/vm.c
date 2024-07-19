@@ -163,7 +163,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	/* Flag that we have runtime error to avoid calling the error function again */
 	pVM->lActiveError = 0 ;
 	/* The active package name (after using import command) */
-	pVM->pPackageName = ring_string_new_gc(pVM->pRingState,"");
+	pVM->pPackageName = ring_string_new_gc(pVM->pRingState,RING_CSTR_EMPTY);
 	/*
 	**  Trace Program (After Each Line) 
 	**  lTrace = Logical Value (Trace is Active or Not) 
@@ -172,7 +172,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	**  nTraceEvent = The Trace Event (1 = New Line , etc) 
 	*/
 	pVM->lTrace = 0 ;
-	pVM->pTrace = ring_string_new_gc(pVM->pRingState,"");
+	pVM->pTrace = ring_string_new_gc(pVM->pRingState,RING_CSTR_EMPTY);
 	pVM->lTraceActive = 0 ;
 	pVM->nTraceEvent = 0 ;
 	pVM->pTraceData = ring_list_new_gc(pVM->pRingState,RING_ZERO) ;
@@ -613,9 +613,9 @@ void ring_vm_showbytecode ( VM *pVM )
 		printf( "\n" ) ;
 	}
 	/* Print Footer */
-	puts("");
+	puts(RING_CSTR_EMPTY);
 	ring_general_printline();
-	puts("");
+	puts(RING_CSTR_EMPTY);
 }
 
 void ring_vm_bytecode2list ( VM *pVM, List *pOutput )

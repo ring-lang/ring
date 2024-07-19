@@ -10,7 +10,7 @@ void ring_vm_pushv ( VM *pVM )
 		**  Happens after using EVAL() in this case we avoid PUSHV 
 		**  Add Output Value (if Eval() parameter (Code to be executed) miss the Return <Expr> command) 
 		*/
-		RING_VM_STACK_PUSHCVALUE("") ;
+		RING_VM_STACK_PUSHCVALUE(RING_CSTR_EMPTY) ;
 		return ;
 	}
 	if ( ! RING_VM_STACK_ISPOINTER ) {
@@ -56,7 +56,7 @@ int ring_vm_checknull ( VM *pVM,int lShowError )
 						/* We deleted the variable, so we remove it from the Stack to avoid usage after delete */
 						RING_VM_STACK_POP ;
 						/* We replace it with NULL */
-						RING_VM_STACK_PUSHCVALUE("");
+						RING_VM_STACK_PUSHCVALUE(RING_CSTR_EMPTY);
 					}
 				}
 				ring_vm_error2(pVM,RING_VM_ERROR_USINGNULLVARIABLE,ring_string_get(pString));

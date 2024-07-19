@@ -100,7 +100,7 @@ RING_API void ring_item_settype_gc ( void *pState,Item *pItem,unsigned int nItem
 			break ;
 		case ITEMTYPE_STRING :
 			pItem->nType = ITEMTYPE_STRING ;
-			pItem->data.pString = ring_string_new_gc(pState,"");
+			pItem->data.pString = ring_string_new_gc(pState,RING_CSTR_EMPTY);
 			break ;
 		case ITEMTYPE_NUMBER :
 			pItem->nType = ITEMTYPE_NUMBER ;

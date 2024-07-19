@@ -206,7 +206,7 @@ void ring_vm_os_shutdown ( void *pPointer )
 				RING_API_RETSTRING(pData);
 			}
 			else {
-				RING_API_RETSTRING("");
+				RING_API_RETSTRING(RING_CSTR_EMPTY);
 			}
 		}
 		else {
@@ -240,7 +240,7 @@ void ring_vm_os_shutdown ( void *pPointer )
 				puts(RING_VM_UNSUPPORTEDFUNCTION);
 				return 0 ;
 			#else
-				return (int) _putenv_s(name, "") ;
+				return (int) _putenv_s(name, RING_CSTR_EMPTY) ;
 			#endif
 		}
 	#endif

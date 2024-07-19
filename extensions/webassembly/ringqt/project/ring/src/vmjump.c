@@ -59,7 +59,7 @@ void ring_vm_jumpzero ( VM *pVM )
 		}
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
-		if ( strcmp(RING_VM_STACK_READC,"") == 0 ) {
+		if ( strcmp(RING_VM_STACK_READC,RING_CSTR_EMPTY) == 0 ) {
 			RING_VM_JUMP ;
 		}
 	}
@@ -89,7 +89,7 @@ void ring_vm_jumpone ( VM *pVM )
 		}
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
-		if ( strcmp(RING_VM_STACK_READC,"") != 0 ) {
+		if ( strcmp(RING_VM_STACK_READC,RING_CSTR_EMPTY) != 0 ) {
 			RING_VM_JUMP ;
 		}
 	}
@@ -121,7 +121,7 @@ void ring_vm_jumpone2 ( VM *pVM )
 		}
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
-		if ( strcmp(RING_VM_STACK_READC,"") != 0 ) {
+		if ( strcmp(RING_VM_STACK_READC,RING_CSTR_EMPTY) != 0 ) {
 			RING_VM_STACK_SETNVALUE(RING_TRUEF);
 			RING_VM_JUMP ;
 			return ;
@@ -163,7 +163,7 @@ void ring_vm_jumpzero2 ( VM *pVM )
 		}
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
-		if ( strcmp(RING_VM_STACK_READC,"") == 0 ) {
+		if ( strcmp(RING_VM_STACK_READC,RING_CSTR_EMPTY) == 0 ) {
 			RING_VM_STACK_SETNVALUE(RING_FALSEF);
 			RING_VM_JUMP ;
 			return ;

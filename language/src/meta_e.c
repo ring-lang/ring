@@ -1001,9 +1001,9 @@ void ring_vm_refmeta_ringvmsettrace ( void *pPointer )
 	}
 	if ( RING_API_ISSTRING(1) ) {
 		cStr = RING_API_GETSTRING(1) ;
-		if ( strcmp(cStr,"") == 0 ) {
+		if ( strcmp(cStr,RING_CSTR_EMPTY) == 0 ) {
 			pVM->lTrace = 0 ;
-			ring_string_set_gc(((VM *) pPointer)->pRingState,pVM->pTrace,"");
+			ring_string_set_gc(((VM *) pPointer)->pRingState,pVM->pTrace,RING_CSTR_EMPTY);
 		}
 		else {
 			pVM->lTrace = 1 ;

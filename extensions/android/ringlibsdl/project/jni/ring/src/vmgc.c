@@ -70,7 +70,7 @@ void ring_vm_gc_killreference ( VM *pVM )
 				ring_item_delete_gc(pVM->pRingState,pItem);
 			}
 			ring_list_setint_gc(pVM->pRingState,pList, RING_VAR_TYPE ,RING_VM_STRING);
-			ring_list_setstring_gc(pVM->pRingState,pList,RING_VAR_VALUE,"");
+			ring_list_setstring_gc(pVM->pRingState,pList,RING_VAR_VALUE,RING_CSTR_EMPTY);
 		}
 		return ;
 	}
@@ -81,7 +81,7 @@ void ring_vm_gc_killreference ( VM *pVM )
 		/* If we have a String then clear it (Like using for t in "test" , i.e. using literal instead of variable) */
 		if ( ((ring_list_getint(pList,RING_VAR_TYPE) == RING_VM_STRING) || (ring_list_getint(pList,RING_VAR_TYPE) == RING_VM_NULL) ) && (pVM->lExitFlag == 0) ) {
 			ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_STRING);
-			ring_list_setstring_gc(pVM->pRingState,pList, RING_VAR_VALUE ,"");
+			ring_list_setstring_gc(pVM->pRingState,pList, RING_VAR_VALUE ,RING_CSTR_EMPTY);
 			return ;
 		}
 		/* Be sure that it's a Pointer */
@@ -103,7 +103,7 @@ void ring_vm_gc_killreference ( VM *pVM )
 							ring_list_setstring2_gc(pVM->pRingState,pList, RING_VAR_VALUE , ring_string_get( ring_item_getstring(pItem) ),ring_string_size(ring_item_getstring(pItem)));
 						}
 						else {
-							ring_list_setstring_gc(pVM->pRingState,pList, RING_VAR_VALUE , "");
+							ring_list_setstring_gc(pVM->pRingState,pList, RING_VAR_VALUE , RING_CSTR_EMPTY);
 						}
 						break ;
 					case ITEMTYPE_NUMBER :
@@ -114,7 +114,7 @@ void ring_vm_gc_killreference ( VM *pVM )
 						}
 						else {
 							ring_list_setint_gc(pVM->pRingState,pList, RING_VAR_TYPE ,RING_VM_STRING);
-							ring_list_setstring_gc(pVM->pRingState,pList, RING_VAR_VALUE , "");
+							ring_list_setstring_gc(pVM->pRingState,pList, RING_VAR_VALUE , RING_CSTR_EMPTY);
 						}
 						break ;
 					case ITEMTYPE_LIST :
@@ -127,7 +127,7 @@ void ring_vm_gc_killreference ( VM *pVM )
 						}
 						else {
 							ring_list_setint_gc(pVM->pRingState,pList, RING_VAR_TYPE ,RING_VM_STRING);
-							ring_list_setstring_gc(pVM->pRingState,pList, RING_VAR_VALUE , "");
+							ring_list_setstring_gc(pVM->pRingState,pList, RING_VAR_VALUE , RING_CSTR_EMPTY);
 						}
 						break ;
 				}
@@ -144,7 +144,7 @@ void ring_vm_gc_killreference ( VM *pVM )
 					ring_list_setstring_gc(pVM->pRingState,pList, RING_VAR_VALUE ,cStr);
 				}
 				else {
-					ring_list_setstring_gc(pVM->pRingState,pList, RING_VAR_VALUE ,"");
+					ring_list_setstring_gc(pVM->pRingState,pList, RING_VAR_VALUE ,RING_CSTR_EMPTY);
 				}
 				break ;
 		}
@@ -476,7 +476,7 @@ RING_API List * ring_list_collectcycles_gc ( void *pState,List *pList )
 					if ( pSubList == pList ) {
 						pItem = ring_list_getitem(pActiveList,y);
 						pItem->nType = ITEMTYPE_STRING ;
-						pItem->data.pString = ring_string_new_gc(pState,"") ;
+						pItem->data.pString = ring_string_new_gc(pState,RING_CSTR_EMPTY) ;
 					}
 				}
 			}

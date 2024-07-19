@@ -374,7 +374,7 @@ void ring_parser_icg_showoutput ( List *pListGenCode )
 		printf( "\n" ) ;
 	}
 	/* End */
-	puts("");
+	puts(RING_CSTR_EMPTY);
 	ring_general_printline();
-	puts("");
+	puts(RING_CSTR_EMPTY);
 }

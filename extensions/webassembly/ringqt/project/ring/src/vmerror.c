@@ -102,7 +102,7 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 		}
 		if ( pFuncCall->nType == RING_FUNCTYPE_SCRIPT ) {
 			cStr2 = (char *) pFuncCall->cName ;
-			if ( strcmp("",cStr2) == 0 ) {
+			if ( strcmp(cStr2,RING_CSTR_EMPTY) == 0 ) {
 				break ;
 			}
 			/* Don't repeat messages in case of recursion */
@@ -217,7 +217,7 @@ void ring_vm_traceevent ( VM *pVM,char nEvent )
 			ring_list_adddouble_gc(pVM->pRingState,pVM->pTraceData,pFuncCall->lMethod);
 		}
 		else {
-			ring_list_addstring_gc(pVM->pRingState,pVM->pTraceData,"");
+			ring_list_addstring_gc(pVM->pRingState,pVM->pTraceData,RING_CSTR_EMPTY);
 			/* Method or Function */
 			ring_list_adddouble_gc(pVM->pRingState,pVM->pTraceData,RING_NOVALUE);
 		}

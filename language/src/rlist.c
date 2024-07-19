@@ -1286,7 +1286,7 @@ RING_API double ring_list_getdoublecolumn ( List *pList,unsigned int nIndex,unsi
 		return ring_list_getdouble(pList,nIndex) ;
 	}
 	else {
-		if ( strcmp(cAttribute,"") == 0 ) {
+		if ( strcmp(cAttribute,RING_CSTR_EMPTY) == 0 ) {
 			return ring_list_getdouble(ring_list_getlist(pList,nIndex),nColumn) ;
 		}
 		else {
@@ -1310,12 +1310,12 @@ RING_API double ring_list_getdoublecolumn ( List *pList,unsigned int nIndex,unsi
 RING_API char * ring_list_getstringcolumn ( List *pList,unsigned int nIndex,unsigned int nColumn,const char *cAttribute )
 {
 	int nPos  ;
-	static char nullstring[] = "" ;
+	static char nullstring[] = RING_CSTR_EMPTY ;
 	if ( nColumn == 0 ) {
 		return ring_list_getstring(pList,nIndex) ;
 	}
 	else {
-		if ( strcmp(cAttribute,"") == 0 ) {
+		if ( strcmp(cAttribute,RING_CSTR_EMPTY) == 0 ) {
 			return ring_list_getstring(ring_list_getlist(pList,nIndex),nColumn) ;
 		}
 		else {

@@ -120,7 +120,7 @@ RING_API int ring_vm_api_ispointer ( void *pPointer,int nPara )
 	}
 	if ( RING_API_ISSTRING(nPara) ) {
 		/* Treat NULL Strings as NULL Pointers - so we can use NULL instead of NULLPOINTER() */
-		if ( (strcmp(RING_API_GETSTRING(nPara),"") == 0) || (strcmp(RING_API_GETSTRING(nPara),"NULL") == 0) ) {
+		if ( (strcmp(RING_API_GETSTRING(nPara),RING_CSTR_EMPTY) == 0) || (strcmp(RING_API_GETSTRING(nPara),"NULL") == 0) ) {
 			/* Create the list for the NULL Pointer */
 			pList2 = RING_API_NEWLIST ;
 			/* Create the variable */

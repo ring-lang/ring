@@ -152,8 +152,6 @@ ring_list_addstring2_gc
 ring_list_newlist_gc
 Type: Item *
 pItem
-Type: List *
-pList2
 ring_list_setlist_gc
 Type: Item *
 pItem

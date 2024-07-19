@@ -13,7 +13,7 @@ void ring_vm_addglobalvariables ( VM *pVM )
 	ring_vm_addnewnumbervar(pVM,"true",RING_TRUE);
 	ring_vm_addnewnumbervar(pVM,"false",RING_FALSE);
 	ring_vm_addnewstringvar(pVM,"nl","\n");
-	ring_vm_addnewstringvar(pVM,"null","");
+	ring_vm_addnewstringvar(pVM,"null",RING_CSTR_EMPTY);
 	ring_vm_addnewpointervar(pVM,RING_CSTR_GETTEMPVAR,NULL,RING_OBJTYPE_NOTYPE);
 	ring_vm_addnewstringvar(pVM,RING_CSTR_CATCHERROR,"NULL");
 	ring_vm_addnewpointervar(pVM,RING_CSTR_SETTEMPVAR,NULL,RING_OBJTYPE_NOTYPE);

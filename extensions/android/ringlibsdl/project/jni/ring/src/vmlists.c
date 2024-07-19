@@ -525,7 +525,7 @@ void ring_vm_listgetvalue ( VM *pVM,List *pVar,const char *cStr )
 	/* Add Item if not found */
 	pList = ring_list_newlist_gc(pVM->pRingState,pVar);
 	ring_list_addstring_gc(pVM->pRingState,pList,cStr);
-	ring_list_addstring_gc(pVM->pRingState,pList,"");
+	ring_list_addstring_gc(pVM->pRingState,pList,RING_CSTR_EMPTY);
 	pItem = ring_list_getitem(pList,RING_LISTHASH_VALUE);
 	RING_VM_STACK_PUSHPVALUE(pItem);
 	RING_VM_STACK_OBJTYPE = RING_OBJTYPE_LISTITEM ;

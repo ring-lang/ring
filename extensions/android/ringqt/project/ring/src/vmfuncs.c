@@ -237,7 +237,7 @@ void ring_vm_call2 ( VM *pVM )
 			**  IgnoreNULL is Used by len(object) to get output from operator overloading method 
 			*/
 			if ( pVM->lIgnoreNULL  == 0 ) {
-				RING_VM_STACK_PUSHCVALUE("");
+				RING_VM_STACK_PUSHCVALUE(RING_CSTR_EMPTY);
 			}
 			else {
 				pVM->lIgnoreNULL = 0 ;
@@ -403,7 +403,7 @@ void ring_vm_return ( VM *pVM )
 
 void ring_vm_returnnull ( VM *pVM )
 {
-	RING_VM_STACK_PUSHCVALUE("");
+	RING_VM_STACK_PUSHCVALUE(RING_CSTR_EMPTY);
 	ring_vm_return(pVM);
 }
 

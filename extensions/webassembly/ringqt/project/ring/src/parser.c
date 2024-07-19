@@ -12,7 +12,7 @@ int ring_parser_start ( List *pTokens,RingState *pRingState )
 	do {
 		nResult = ring_parser_class(pParser);
 		if ( nResult == 0 ) {
-			ring_parser_error(pParser,"");
+			ring_parser_error(pParser,RING_CSTR_EMPTY);
 			/* Important check to avoid missing the line number counter */
 			if ( ring_parser_isendline(pParser) == 0 ) {
 				/* Move next trying to avoid the error */
@@ -169,7 +169,7 @@ void ring_parser_error ( Parser *pParser,const char *cStr )
 		pParser->nErrorLine = pParser->nLineNumber ;
 		printf( "\n%s Line (%d) ",ring_list_getstring(pParser->pRingState->pRingFilesStack,nRingActiveFile),pParser->nLineNumber ) ;
 		pParser->nErrorsCount++ ;
-		if ( strcmp(cStr,"") != 0 ) {
+		if ( strcmp(cStr,RING_CSTR_EMPTY) != 0 ) {
 			printf( "%s",cStr ) ;
 		}
 		else {
@@ -178,10 +178,10 @@ void ring_parser_error ( Parser *pParser,const char *cStr )
 		printf( "\n" ) ;
 		return ;
 	}
-	else if ( strcmp(cStr,"") != 0 ) {
+	else if ( strcmp(cStr,RING_CSTR_EMPTY) != 0 ) {
 		pParser->nErrorsCount++ ;
 	}
-	if ( strcmp(cStr,"") != 0 ) {
+	if ( strcmp(cStr,RING_CSTR_EMPTY) != 0 ) {
 		printf( "\n%s Line (%d) ",ring_list_getstring(pParser->pRingState->pRingFilesStack,nRingActiveFile),pParser->nLineNumber ) ;
 		printf( "%s\n",cStr ) ;
 	}
