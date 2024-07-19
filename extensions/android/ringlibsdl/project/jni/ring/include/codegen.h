@@ -150,10 +150,8 @@
 	"LoadFunc","Call", "Return","ReturnNull","RetFromEval","RetItemRef",
 	"ListStart","ListItem","ListItemN","ListItemC","ListEnd","And","Or","Not","FreeStack",
 	"BlockFlag","Bye","ExitMark","PopExitMark","Exit","IncJump","IncPJump",
-	"Try","Done","Range","LoadMethod","SetScope","AfterCallMethod", 
-	
-	"BraceStart","BraceEnd","LoadFuncP","FreeLoadAScope","Loop","IncLPJump","Package","Import", 
-	
+	"Try","Done","Range","LoadMethod","SetScope","AfterCallMethod",
+	"BraceStart","BraceEnd","LoadFuncP","FreeLoadAScope","Loop","IncLPJump","Package","Import",
 	"SetProperty","NoOperation","AfterCallMethod2","SetReference","KillReference",
 	"AssignmentPointer","BeforeEqual","++","--",
 	"BitAnd","BitOr","BitNot","BitXOr","BitShiftL","BitShiftR","StepNumber","StepFromReg","PopStep","LoadAFirst",
