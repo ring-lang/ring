@@ -618,18 +618,14 @@ void ring_vm_refmeta_addattribute ( void *pPointer )
 			((VM *) pPointer)->nInClassRegion++ ;
 			if ( RING_API_ISSTRING(2) ) {
 				cStr = RING_API_GETSTRING(2) ;
-				ring_string_lower(cStr);
-				/* Create Variable List */
-				ring_vm_newvar2((VM *)pPointer,cStr,pList);
+				ring_vm_oop_addattribute((VM *)pPointer,pList,cStr);
 			}
 			else if ( RING_API_ISLIST(2) ) {
 				pList2 = RING_API_GETLIST(2) ;
 				for ( x = 1 ; x <= ring_list_getsize(pList2) ; x++ ) {
 					if ( ring_list_isstring(pList2,x) ) {
 						cStr = ring_list_getstring(pList2,x);
-						ring_string_lower(cStr);
-						/* Create Variable List */
-						ring_vm_newvar2((VM *)pPointer,cStr,pList);
+						ring_vm_oop_addattribute((VM *)pPointer,pList,cStr);
 					}
 				}
 			}

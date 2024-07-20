@@ -1345,3 +1345,9 @@ void ring_vm_oop_checkbracemethod ( VM *pVM )
 	lResult = ring_vm_oop_ismethod(pVM,ring_list_getlist(pList,RING_BRACEOBJECTS_BRACEOBJECT),RING_VM_IR_READC);
 	RING_VM_STACK_PUSHNVALUE(lResult);
 }
+
+void ring_vm_oop_addattribute ( VM *pVM,List *pObjState,char *cStr )
+{
+	ring_string_lower(cStr);
+	ring_vm_newvar2(pVM,cStr,pObjState);
+}

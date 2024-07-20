@@ -160,8 +160,6 @@ pFuncCall
 Type: const char *
 cStr
 ring_vm_oop_isattribute
-Type: List *
-pList
 Type: int
 x
 ring_vm_oop_ismethod
@@ -189,3 +187,4 @@ Type: List *
 pList
 Type: int
 lResult
+ring_vm_oop_addattribute

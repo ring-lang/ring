@@ -905,6 +905,8 @@
 	void ring_vm_oop_preparecallmethodfrombrace ( VM *pVM ) ;
 
 	int ring_vm_oop_isattribute ( VM *pVM,List *pList,const char *cStr ) ;
+
+	void ring_vm_oop_addattribute ( VM *pVM,List *pObjState,char *cStr ) ;
 	/* Faster instructions */
 
 	void ring_vm_pushp ( VM *pVM ) ;
