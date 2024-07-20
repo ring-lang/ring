@@ -54,16 +54,6 @@ Func retAddProg retSubWinObj
 Func EditProgAction
 	oView {
 		curID = Number(TableWidget1.item(TableWidget1.currentrow(), 4).text())
-	/*	stat = 0
-		cCode = 'stat = CB@ID.Checkstate()'
-		cCode = substr(cCode, "@ID", String(curID))
-		eval(cCode)
-		if not stat
-			new qMessageBox(oView.win) {
-					warning(self, "Warning", "Cannot edit deactivated program", QMessageBox_Ok, QMessageBox_NoButton)
-					}
-			Return
-		ok	*/
 	}
 
 	lappName = ProgramItems[Find(ProgramItems, curID, 1)][2]

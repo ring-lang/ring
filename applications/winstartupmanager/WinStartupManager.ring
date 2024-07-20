@@ -35,8 +35,8 @@ ProgramItems = NULL
 
 Func Main
 
-ProgramItems = RetrieveAppEntries() 
-# ProgramItems = [ [ID, ProgramName, ProgramPath, Activation, HKEY, Wow64tree] ]
+	ProgramItems = RetrieveAppEntries() 
+	# ProgramItems = [ [ID, ProgramName, ProgramPath, Activation, HKEY, Wow64tree] ]
 
 	new App {
 		StyleFusion()
