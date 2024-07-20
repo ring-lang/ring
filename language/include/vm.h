@@ -410,6 +410,7 @@
 	#define RING_VM_TRACEEVENT_ERROR 4
 	#define RING_VM_TRACEEVENT_BEFORECFUNC 5
 	#define RING_VM_TRACEEVENT_AFTERCFUNC 6
+	#define RING_VM_TRACEEVENT(cEvent) if (pVM->lTrace) ring_vm_traceevent(pVM,cEvent) ;
 	/* Loops */
 	#define RING_COMMANDTYPE_EXIT 1
 	#define RING_COMMANDTYPE_LOOP 2

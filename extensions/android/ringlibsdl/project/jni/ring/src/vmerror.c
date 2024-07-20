@@ -35,7 +35,7 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 		}
 		/* Trace */
 		pVM->lActiveError = 0 ;
-		ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_ERROR);
+		RING_VM_TRACEEVENT(RING_VM_TRACEEVENT_ERROR);
 		if ( pVM->lPassError  == 1 ) {
 			pVM->lPassError = 0 ;
 			return ;

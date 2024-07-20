@@ -215,7 +215,7 @@ void ring_vm_call2 ( VM *pVM )
 	}
 	else if ( pFuncCall->nType == RING_FUNCTYPE_C ) {
 		/* Trace */
-		ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_BEFORECFUNC);
+		RING_VM_TRACEEVENT(RING_VM_TRACEEVENT_BEFORECFUNC);
 		/* Get Parameters */
 		pVM->nCFuncSP = pFuncCall->nSP ;
 		pVM->nCFuncParaCount = pVM->nSP - pFuncCall->nSP ;
@@ -244,7 +244,7 @@ void ring_vm_call2 ( VM *pVM )
 			}
 		}
 		/* Trace */
-		ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_AFTERCFUNC);
+		RING_VM_TRACEEVENT(RING_VM_TRACEEVENT_AFTERCFUNC);
 		/* Check for function termination by try/catch */
 		if ( pVM->lActiveCatch == 1 ) {
 			/*
@@ -383,7 +383,7 @@ void ring_vm_return ( VM *pVM )
 			pVM->nFuncSP = 0 ;
 		}
 		/* Trace */
-		ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_RETURN);
+		RING_VM_TRACEEVENT(RING_VM_TRACEEVENT_RETURN);
 	}
 	else {
 		/* Call Main Function */
@@ -510,7 +510,7 @@ void ring_vm_newfunc ( VM *pVM )
 		ring_vm_oop_setthethisvariable(pVM);
 	}
 	/* Trace */
-	ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_NEWFUNC);
+	RING_VM_TRACEEVENT(RING_VM_TRACEEVENT_NEWFUNC);
 }
 
 void ring_vm_blockflag ( VM *pVM )
