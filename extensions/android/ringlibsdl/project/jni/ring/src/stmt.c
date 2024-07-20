@@ -123,18 +123,21 @@ int ring_parser_class ( Parser *pParser )
 			*/
 			ring_parser_icg_retnull(pParser);
 			ring_parser_icg_newoperation(pParser,ICO_NEWFUNC);
-			/* Add function to Functions Table */
-			pList2 = pParser->pFunctionsMap ;
-			/* Check Function Redefinition */
-			if ( ring_list_getsize(pList2) > RING_PARSER_FAIL ) {
-				for ( x = 1 ; x <= ring_list_getsize(pList2) ; x++ ) {
-					if ( strcmp(ring_list_getstring(ring_list_getlist(pList2,x),RING_FUNCTIONS_FUNCNAME),pParser->cTokenText) == 0 ) {
-						ring_parser_error(pParser,RING_PARSER_ERROR_FUNCREDEFINE);
-						return RING_PARSER_FAIL ;
-					}
+			/*
+			**  Add function to Functions Table 
+			**  Check Function Redefinition 
+			*/
+			if ( ring_list_getsize(pParser->pFunctionsMap) ) {
+				/* Generate the HashTable */
+				if ( ring_list_gethashtable(pParser->pFunctionsMap) == NULL ) {
+					ring_list_genhashtable2(pParser->pFunctionsMap);
+				}
+				if ( ring_hashtable_findpointer(ring_list_gethashtable(pParser->pFunctionsMap),pParser->cTokenText) != NULL ) {
+					ring_parser_error(pParser,RING_PARSER_ERROR_FUNCREDEFINE);
+					return RING_PARSER_FAIL ;
 				}
 			}
-			pList2 = ring_list_newlist_gc(pParser->pRingState,pList2);
+			pList2 = ring_list_newlist_gc(pParser->pRingState,pParser->pFunctionsMap);
 			ring_list_addstring_gc(pParser->pRingState,pList2,pParser->cTokenText);
 			ring_list_addint_gc(pParser->pRingState,pList2,ring_parser_icg_instructionscount(pParser));
 			ring_list_addstring_gc(pParser->pRingState,pList2,ring_list_getstring(pParser->pRingState->pRingFilesStack,ring_list_getsize(pParser->pRingState->pRingFilesStack)));
@@ -143,6 +146,10 @@ int ring_parser_class ( Parser *pParser )
 			}
 			else {
 				ring_list_addint_gc(pParser->pRingState,pList2,RING_FALSE);
+			}
+			/* Add the function to the HashTable */
+			if ( ring_list_gethashtable(pParser->pFunctionsMap) != NULL ) {
+				ring_hashtable_newpointer_gc(NULL,ring_list_gethashtable(pParser->pFunctionsMap),pParser->cTokenText,pList2);
 			}
 			ring_parser_nexttoken(pParser);
 			if ( ring_parser_isidentifier(pParser) || ring_parser_isoperator2(pParser,OP_FOPEN) ) {
