@@ -23,12 +23,14 @@ int ring_parser_class ( Parser *pParser )
 			/* Add Class to Classes Table */
 			pList = pParser->pClassesMap ;
 			/* Check Class Redefinition */
-			if ( ring_list_getsize(pList) > 0 ) {
-				for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
-					if ( strcmp(ring_list_getstring(ring_list_getlist(pList,x),RING_CLASSES_CLASSNAME),pParser->cTokenText) == 0 ) {
-						ring_parser_error(pParser,RING_PARSER_ERROR_CLASSREDEFINE);
-						return RING_PARSER_FAIL ;
-					}
+			if ( ring_list_getsize(pParser->pClassesMap) ) {
+				/* Generate the HashTable */
+				if ( ring_list_gethashtable(pParser->pClassesMap) == NULL ) {
+					ring_list_genhashtable2(pParser->pClassesMap);
+				}
+				if ( ring_hashtable_findpointer(ring_list_gethashtable(pParser->pClassesMap),pParser->cTokenText) != NULL ) {
+					ring_parser_error(pParser,RING_PARSER_ERROR_CLASSREDEFINE);
+					return RING_PARSER_FAIL ;
 				}
 			}
 			pList = ring_list_newlist_gc(pParser->pRingState,pList);
@@ -36,6 +38,10 @@ int ring_parser_class ( Parser *pParser )
 			ring_list_addint_gc(pParser->pRingState,pList,ring_parser_icg_instructionscount(pParser));
 			/* Add class pointer to generated code */
 			ring_parser_icg_newoperandpointer(pParser,pList);
+			/* Add the class to the HashTable */
+			if ( ring_list_gethashtable(pParser->pClassesMap) != NULL ) {
+				ring_hashtable_newpointer_gc(NULL,ring_list_gethashtable(pParser->pClassesMap),pParser->cTokenText,pList);
+			}
 			ring_parser_nexttoken(pParser);
 			/* [From Identifier] */
 			if ( ring_parser_iskeyword(pParser,K_FROM) || ring_parser_isoperator2(pParser,OP_RANGE) || ring_parser_isoperator2(pParser,OP_LESS) ) {
