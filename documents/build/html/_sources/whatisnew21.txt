@@ -41,6 +41,8 @@ Example:
 More Improvements
 =================
 
+* AddAttribute() - Produce runtime error if the attribute is already defined
+* AddMethod() - Produce runtime error if the method is already defined
 * RingInternetLib - Set CURLOPT_USERAGENT in Download() function
 * RingQt - Qt version is updated from Qt 5.15.16 to 5.15.17
 * Ring API - Implementation through functions that get a pointer to the VM structure  
@@ -50,6 +52,8 @@ More Improvements
 * Ring Compiler - ICO_SETPROPERTY - No arguments are required
 * Ring Compiler - ICO_NEWLINE instruction - Check if the previous instruction is ICO_NEWLINE
 * Ring Compiler - Don't use ICO_BEFOREEQUAL instruction for the common case (Equal)
+* Ring Compiler - Better performance when compiling projects with many classes
+* Ring Compiler - Better performance when compiling projects with many methods
 * Ring Compiler/VM - Added ICO_PUSHNL instruction - Push new line to the stack
 * Ring Compiler/VM - Added ICO_LISTITEMN instruction - Add number to the current list
 * Ring Compiler/VM - Added ICO_LISTITEMC instruction - Add string to the current list
