@@ -168,7 +168,9 @@ Class ModelBase from Database
 
 		# create attribute for each column
 		for x in aColumns
-			addattribute(self,x)
+			if ! isAttribute(self,x)
+				addattribute(self,x)
+			ok
 		next
 
 	Func Connect

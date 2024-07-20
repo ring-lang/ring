@@ -139,7 +139,9 @@ Func AddItemsToTable ItemsList
 Func newCheckBox nID, status 
 	roWidget = NULL
 	oView {
-		sCode = '	AddAttribute(Self, "CB#nID") 
+		sCode = '	if ! isAttribute(Self, "CB#nID")	
+					AddAttribute(Self, "CB#nID") 
+				ok
 				CB#nID = new checkbox(win) { 
 				move(0,0) 
 				resize(15,24) 

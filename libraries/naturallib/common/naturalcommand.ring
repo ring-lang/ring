@@ -27,7 +27,7 @@ class NaturalCommand
 		eval(cCode)
 
 	func DefineAddAttributes
-		cCode = " 	f1 = func { AddAttribute(self,:#{f1}) } "
+		cCode = " 	f1 = func { if ! isAttribute(self,:#{f1}) AddAttribute(self,:#{f1}) ok } "
 		cCode = SubStr(cCode,"#{f1}",cKeyword)
 		eval(cCode)	
 		AddMethod(oObject,"AddAttributes_"+cKeyword,f1)
