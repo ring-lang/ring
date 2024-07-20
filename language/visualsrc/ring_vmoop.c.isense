@@ -159,6 +159,11 @@ Type: FuncCall *
 pFuncCall
 Type: const char *
 cStr
+ring_vm_oop_isattribute
+Type: List *
+pList
+Type: int
+x
 ring_vm_oop_ismethod
 Type: List *
 pList2,*pList3

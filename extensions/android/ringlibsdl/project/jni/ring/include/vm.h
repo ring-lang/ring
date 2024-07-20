@@ -344,6 +344,7 @@
 	#define RING_OBJECT_CLASSPOINTER 1
 	#define RING_OBJECT_OBJECTDATA 2
 	#define RING_OBJECT_SELFATTRIBUTE 1
+	#define RING_OBJECT_ISATTRIBUTESEARCHSTART 3
 	/* pObjState */
 	#define RING_OBJSTATE_SCOPE 1
 	#define RING_OBJSTATE_METHODS 2
@@ -902,6 +903,8 @@
 	void ring_vm_oop_checkbracemethod ( VM *pVM ) ;
 
 	void ring_vm_oop_preparecallmethodfrombrace ( VM *pVM ) ;
+
+	int ring_vm_oop_isattribute ( VM *pVM,List *pList,const char *cStr ) ;
 	/* Faster instructions */
 
 	void ring_vm_pushp ( VM *pVM ) ;

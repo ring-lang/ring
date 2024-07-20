@@ -1194,6 +1194,18 @@ void ring_vm_oop_preparecallmethodfrombrace ( VM *pVM )
 	ring_vm_oop_pushclasspackage(pVM,pList);
 }
 
+int ring_vm_oop_isattribute ( VM *pVM,List *pList,const char *cStr )
+{
+	int x  ;
+	pList = ring_list_getlist(pList,RING_OBJECT_OBJECTDATA);
+	for ( x = RING_OBJECT_ISATTRIBUTESEARCHSTART ; x <= ring_list_getsize(pList) ; x++ ) {
+		if ( strcmp(cStr,ring_list_getstring(ring_list_getlist(pList,x),RING_VAR_NAME)) == RING_ZERO ) {
+			return RING_TRUE ;
+		}
+	}
+	return RING_FALSE ;
+}
+
 int ring_vm_oop_ismethod ( VM *pVM,List *pList,const char *cStr )
 {
 	List *pList2,*pList3  ;

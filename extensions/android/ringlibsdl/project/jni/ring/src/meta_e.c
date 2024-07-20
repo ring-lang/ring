@@ -498,14 +498,7 @@ void ring_vm_refmeta_isattribute ( void *pPointer )
 		pList = RING_API_GETLIST(1) ;
 		if ( ring_vm_oop_isobject(pList) ) {
 			cStr = ring_string_lower(RING_API_GETSTRING(2)) ;
-			pList = ring_list_getlist(pList,RING_OBJECT_OBJECTDATA);
-			for ( x = 3 ; x <= ring_list_getsize(pList) ; x++ ) {
-				if ( strcmp(cStr,ring_list_getstring(ring_list_getlist(pList,x),RING_VAR_NAME))==0 ) {
-					RING_API_RETNUMBER(1);
-					return ;
-				}
-			}
-			RING_API_RETNUMBER(0);
+			RING_API_RETNUMBER(ring_vm_oop_isattribute((VM *) pPointer,pList,cStr));
 		}
 		else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
