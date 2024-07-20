@@ -1,0 +1,3 @@
+start
+Error (R53) : Function redefinition, function is already defined!
+end
