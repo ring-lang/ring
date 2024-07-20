@@ -1346,8 +1346,14 @@ void ring_vm_oop_checkbracemethod ( VM *pVM )
 	RING_VM_STACK_PUSHNVALUE(lResult);
 }
 
-void ring_vm_oop_addattribute ( VM *pVM,List *pObjState,char *cStr )
+int ring_vm_oop_addattribute ( VM *pVM,List *pList,char *cStr )
 {
+	if ( ring_vm_oop_isattribute(pVM,pList,cStr) ) {
+		ring_vm_error(pVM,RING_VM_ERROR_ATTRREDEFINE);
+		return RING_FALSE ;
+	}
+	pList = ring_list_getlist(pList,RING_OBJECT_OBJECTDATA);
 	ring_string_lower(cStr);
-	ring_vm_newvar2(pVM,cStr,pObjState);
+	ring_vm_newvar2(pVM,cStr,pList);
+	return RING_TRUE ;
 }

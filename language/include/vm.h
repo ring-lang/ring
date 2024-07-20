@@ -510,6 +510,7 @@
 	#define RING_VM_ERROR_VALUEERROR "Error (R51) : Value Error"
 	#define RING_VM_ERROR_RETURNINPARA "Error (R52) : Using Return inside function parameters is not allowed"
 	#define RING_VM_ERROR_FUNCREDEFINE "Error (R53) : Function redefinition, function is already defined!"
+	#define RING_VM_ERROR_ATTRREDEFINE "Error (R54) : Object attribute redefinition, attribute is already defined!"
 	/* Extra Size (for eval) */
 	#define RING_VM_EXTRASIZE 1024
 	#define RING_MAX(a,b) (((a)>(b))?(a):(b))
@@ -906,7 +907,7 @@
 
 	int ring_vm_oop_isattribute ( VM *pVM,List *pList,const char *cStr ) ;
 
-	void ring_vm_oop_addattribute ( VM *pVM,List *pObjState,char *cStr ) ;
+	int ring_vm_oop_addattribute ( VM *pVM,List *pList,char *cStr ) ;
 	/* Faster instructions */
 
 	void ring_vm_pushp ( VM *pVM ) ;

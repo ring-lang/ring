@@ -12,7 +12,9 @@ func test o1
 		x = 10
 		for t=1 to 10
 			if t = 5
-				addAttribute(self,:x)
+				if ! isAttribute(self,:x)
+					addAttribute(self,:x)
+				ok
 				self.x = 100
 			ok
 			? x

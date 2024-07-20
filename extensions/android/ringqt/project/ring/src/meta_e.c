@@ -614,7 +614,6 @@ void ring_vm_refmeta_addattribute ( void *pPointer )
 	if ( RING_API_ISLIST(1) ) {
 		pList = RING_API_GETLIST(1) ;
 		if ( ring_vm_oop_isobject(pList) ) {
-			pList = ring_list_getlist(pList,RING_OBJECT_OBJECTDATA);
 			((VM *) pPointer)->nInClassRegion++ ;
 			if ( RING_API_ISSTRING(2) ) {
 				cStr = RING_API_GETSTRING(2) ;
@@ -625,7 +624,9 @@ void ring_vm_refmeta_addattribute ( void *pPointer )
 				for ( x = 1 ; x <= ring_list_getsize(pList2) ; x++ ) {
 					if ( ring_list_isstring(pList2,x) ) {
 						cStr = ring_list_getstring(pList2,x);
-						ring_vm_oop_addattribute((VM *)pPointer,pList,cStr);
+						if ( ! ring_vm_oop_addattribute((VM *)pPointer,pList,cStr) ) {
+							break ;
+						}
 					}
 				}
 			}
