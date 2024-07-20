@@ -109,7 +109,7 @@ void ring_vm_loadaddress ( VM *pVM )
 		}
 	}
 	else if ( pVM->nVarScope == RING_VARSCOPE_LOCAL ) {
-		if ( ring_list_getsize(pVM->pForStep) ) {
+		if ( ring_vm_isinsideloop(pVM) ) {
 			/* Replace LoadAddress with PUSHPLOCAL for better performance */
 			RING_VM_IR_OPCODE = ICO_PUSHPLOCAL ;
 			RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(RING_VM_IR_REG2),RING_VM_STACK_READP);
@@ -767,4 +767,14 @@ void ring_vm_stackswap ( VM *pVM,int nSP1,int nSP2 )
 	vTempItem = pVM->aStack[nSP1] ;
 	pVM->aStack[nSP1] = pVM->aStack[nSP2] ;
 	pVM->aStack[nSP2] = vTempItem ;
+}
+
+int ring_vm_isinsideloop ( VM *pVM )
+{
+	FuncCall *pFuncCall  ;
+	if ( RING_VM_FUNCCALLSCOUNT ) {
+		pFuncCall = RING_VM_LASTFUNCCALL ;
+		return ring_list_getsize(pVM->pForStep) > pFuncCall->nForStep ;
+	}
+	return ring_list_getsize(pVM->pForStep) ;
 }

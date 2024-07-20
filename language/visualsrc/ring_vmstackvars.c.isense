@@ -93,3 +93,6 @@ pString
 ring_vm_stackswap
 Type: Item
 vTempItem
+ring_vm_isinsideloop
+Type: FuncCall *
+pFuncCall
