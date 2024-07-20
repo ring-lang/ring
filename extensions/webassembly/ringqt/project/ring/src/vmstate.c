@@ -61,7 +61,6 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	FuncCall *pFuncCall  ;
 	/* Using VMState */
 	pVMState = (VMState *) ring_list_getpointer(pList,nPos);
-	aListsToDelete = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/*
 	**  Set Scope 
 	**  Delete Scopes using the correct function 
@@ -89,12 +88,11 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	pVM->pBraceObject = (List *) pVMState->aPointers[0] ;
 	/* FileName & Packages */
 	pVM->cFileName = (char *) pVMState->aPointers[1] ;
+	/* Create aListsToDelete */
+	aListsToDelete = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* pPCBlockFlag, pScopeNewObj , pActivePackage */
 	if ( ((List *) pVMState->aPointers[4]) != pVM->pPCBlockFlag ) {
-		pListPointer = pVM->pPCBlockFlag ;
-		if ( ! ring_list_findpointer(aListsToDelete,pListPointer) ) {
-			ring_list_addpointer_gc(pVM->pRingState,aListsToDelete,pListPointer);
-		}
+		ring_list_addpointer_gc(pVM->pRingState,aListsToDelete,pVM->pPCBlockFlag);
 		pVM->pPCBlockFlag = (List *) pVMState->aPointers[4] ;
 	}
 	ring_vm_backstate(pVM,pVM->pPCBlockFlag,pVMState->aNumbers[7]);
@@ -105,7 +103,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	/* We also return to the function call list */
 	if ( nFlag == RING_STATE_TRYCATCH ) {
 		/*
-		**  Since Try/Catch can terminate many function when error happens 
+		**  Since Try/Catch can terminate many functions when error happens 
 		**  We need to clean memory and remove pNestedLists, pPCBlockFlag & pSetProperty 
 		**  Clean memory used for function calls 
 		*/
