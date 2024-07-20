@@ -508,6 +508,7 @@
 	#define RING_VM_ERROR_NOOPERATORMETHOD "Error (R50) : Object does not support operator overloading"
 	#define RING_VM_ERROR_VALUEERROR "Error (R51) : Value Error"
 	#define RING_VM_ERROR_RETURNINPARA "Error (R52) : Using Return inside function parameters is not allowed"
+	#define RING_VM_ERROR_FUNCREDEFINE "Error (R53) : Function redefinition, function is already defined!"
 	/* Extra Size (for eval) */
 	#define RING_VM_EXTRASIZE 1024
 	#define RING_MAX(a,b) (((a)>(b))?(a):(b))

@@ -671,6 +671,11 @@ void ring_vm_refmeta_addmethod ( void *pPointer )
 	if ( RING_API_ISLIST(1) && RING_API_ISSTRING(2) && RING_API_ISSTRING(3) ) {
 		pList = RING_API_GETLIST(1) ;
 		if ( ring_vm_oop_isobject(pList) ) {
+			/* Check if the method is already defined */
+			if ( ring_vm_oop_ismethod(pVM,pList,RING_API_GETSTRING(2)) ) {
+				RING_API_ERROR(RING_VM_ERROR_FUNCREDEFINE);
+				return ;
+			}
 			pList = (List *) ring_list_getlist(pList,RING_OBJECT_CLASSPOINTER);
 			pList = (List *) ring_list_getlist(pList,RING_CLASSMAP_METHODSLIST);
 			cStr = RING_API_GETSTRING(3);
