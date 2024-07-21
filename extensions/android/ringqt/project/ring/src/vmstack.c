@@ -107,6 +107,8 @@ void ring_vm_loadaddress ( VM *pVM )
 			/* Replace LoadAddress with PUSHP for better performance */
 			RING_VM_IR_OPCODE = ICO_PUSHP ;
 			RING_VM_IR_SETREG1TOPOINTERFROMSTACK ;
+			/* Check if we have ICO_PUSHV */
+			RING_VM_IR_SETFLAGREG2(RING_VM_IR_OPCODEVALUE(pVM->nPC - 1) == ICO_PUSHV);
 		}
 	}
 	else if ( pVM->nVarScope == RING_VARSCOPE_LOCAL ) {
@@ -116,6 +118,8 @@ void ring_vm_loadaddress ( VM *pVM )
 			RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(RING_VM_IR_REG2),RING_VM_STACK_READP);
 			RING_VM_IR_SETINTREG(pVM->nActiveScopeID);
 			RING_VM_IR_SETREG2TYPE(RING_VM_REGTYPE_POINTER);
+			/* Check if we have ICO_PUSHV */
+			RING_VM_IR_SETFLAGREG2(RING_VM_IR_OPCODEVALUE(pVM->nPC - 1) == ICO_PUSHV);
 		}
 		else if ( ! RING_VM_IR_GETFLAGREG ) {
 			RING_VM_IR_SETFLAGREG(RING_TRUE);

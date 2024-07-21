@@ -39,11 +39,6 @@ void ring_vm_pusharg ( VM *pVM )
 	RING_VM_STACK_PUSHPVALUE(pList) ;
 	RING_VM_STACK_OBJTYPE = RING_OBJTYPE_VARIABLE ;
 	ring_vm_updatescopeinfo(pVM,RING_VARSCOPE_LOCAL);
-	/* Check if we have ICO_PUSHV */
-	if ( RING_VM_IR_GETFLAGREG2 ) {
-		pVM->nPC++ ;
-		ring_vm_varpushv(pVM);
-	}
 }
 
 void ring_vm_updatescopeinfo ( VM *pVM,int nScope )
@@ -55,6 +50,11 @@ void ring_vm_updatescopeinfo ( VM *pVM,int nScope )
 	pVM->nVarScope = nScope ;
 	/* Check lNewRef Flag */
 	ring_list_resetlnewref((List *) RING_VM_STACK_READP);
+	/* Check if we have ICO_PUSHV */
+	if ( RING_VM_IR_GETFLAGREG2 ) {
+		pVM->nPC++ ;
+		ring_vm_varpushv(pVM);
+	}
 }
 
 void ring_vm_incp ( VM *pVM )
