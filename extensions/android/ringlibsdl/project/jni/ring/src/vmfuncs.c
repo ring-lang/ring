@@ -875,3 +875,18 @@ int ring_vm_funccall_beforecall ( VM *pVM )
 	}
 	return RING_FALSE ;
 }
+
+int ring_vm_funccall_paracount ( VM *pVM )
+{
+	FuncCall *pFuncCall  ;
+	int x  ;
+	if ( RING_VM_FUNCCALLSCOUNT ) {
+		for ( x = RING_VM_FUNCCALLSCOUNT ; x >= 1 ; x-- ) {
+			pFuncCall = RING_VM_GETFUNCCALL(x) ;
+			if ( pFuncCall->nCallerPC != RING_ZERO ) {
+				return pFuncCall->nParaCount ;
+			}
+		}
+	}
+	return RING_ZERO ;
+}

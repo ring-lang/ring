@@ -795,6 +795,8 @@
 	void ring_vm_funccall_useloadfuncp ( VM *pVM,FuncCall *pFuncCall,int nPerformance ) ;
 
 	int ring_vm_funccall_beforecall ( VM *pVM ) ;
+
+	int ring_vm_funccall_paracount ( VM *pVM ) ;
 	/* String As Array */
 
 	void ring_vm_string_pushv ( VM *pVM ) ;

@@ -117,11 +117,10 @@ void ring_vm_loadaddress ( VM *pVM )
 			RING_VM_IR_SETINTREG(pVM->nActiveScopeID);
 			RING_VM_IR_SETREG2TYPE(RING_VM_REGTYPE_POINTER);
 		}
-		else if ( (! RING_VM_IR_GETFLAGREG) && (RING_VM_FUNCCALLSCOUNT) ) {
+		else if ( ! RING_VM_IR_GETFLAGREG ) {
 			RING_VM_IR_SETFLAGREG(RING_TRUE);
 			/* Check if we can use ICO_PUSHARG */
-			pFuncCall = RING_VM_LASTFUNCCALL ;
-			for ( x = 1 ; x <= pFuncCall->nParaCount ; x++ ) {
+			for ( x = 1 ; x <= ring_vm_funccall_paracount(pVM) ; x++ ) {
 				if ( x <= ring_list_getsize(pVM->pActiveMem) && ring_list_islist(pVM->pActiveMem,x) ) {
 					if ( ring_list_getlist(pVM->pActiveMem,x) == RING_VM_STACK_READP ) {
 						RING_VM_IR_OPCODE = ICO_PUSHARG ;
