@@ -3,6 +3,7 @@ ring_vm_pushplocal
 ring_vm_pusharg
 Type: List *
 pList
+ring_vm_updatescopeinfo
 ring_vm_incp
 Type: List *
 pVar
