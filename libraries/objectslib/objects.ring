@@ -36,6 +36,9 @@
 	
 	func OpenWindowAndLink cClass,oParent 
 		return Open_WindowAndLink( cClass,oParent )
+
+	func OpenWindowNoShowAndLink cClass,oParent 
+		return Open_WindowNoShowAndLink( cClass,oParent )
 	
 	func LastWindow 
 		return Last_Window() 
@@ -131,7 +134,7 @@ func Open_WindowNoShow cClass
 
 
 /*
-	The next function create new object, add the object to the $RingQt_ObjectsList
+	The next functions create new object, add the object to the $RingQt_ObjectsList
 	Then set $RingQt_ObjName to the object in the $RingQt_ObjectsList
 	Then call the start() method
 	The function link between the parent window and the child window
@@ -140,6 +143,13 @@ func Open_WindowNoShow cClass
 
 func Open_WindowAndLink cClass,oParent
 	Open_Window(cClass)
+	LinkOpenedWindow(cClass,oParent)
+
+func Open_WindowNoShowAndLink cClass,oParent
+	Open_WindowNoShow(cClass)
+	LinkOpenedWindow(cClass,oParent)
+
+func LinkOpenedWindow cClass,oParent
 	cClass = lower(cClass)
 	cParentClass = classname(oParent)
 	if  ( right(cClass,10) != "controller" ) or 
