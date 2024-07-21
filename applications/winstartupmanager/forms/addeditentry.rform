@@ -5,7 +5,7 @@ aObjectsList = [
 		 :width =  523 , :height = 279 , 
 		 :title =  "Form1" , 
 		 :backcolor =  "" , 
-		 :windowflags =  "Qt_dialog" , 
+		 :windowflags =  "Qt_Window | Qt_WindowTitleHint | Qt_WindowSystemMenuHint | Qt_CustomizeWindowHint" , 
 		 :mainlayout =  "" ,
 		 :WindowIcon =  "" , 
 		 :Menubar =  ""  ,
