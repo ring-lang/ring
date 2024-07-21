@@ -29,7 +29,6 @@ void ring_vm_addglobalvariables ( VM *pVM )
 	for ( x = 0 ; x < pVM->pRingState->nArgc ; x++ ) {
 		ring_list_addstring_gc(pVM->pRingState,pList,pVM->pRingState->pArgv[x]);
 	}
-	pVM->nLoadAddressScope = RING_VARSCOPE_DEFINEDGLOBALS ;
 }
 /*
 **  Memory is a List and each item inside the list is another List (Represent Scope) 
