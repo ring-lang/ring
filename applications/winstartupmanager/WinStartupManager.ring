@@ -41,7 +41,7 @@ Func Main
 	new App {
 		StyleFusion()
 		openWindow(:winstartupmanagerController)
-		WinObj = Last_Window() {
+		WinObj = LastWindow() {
 
 		SortProItems(2)
 		AddItemsToTable(ProgramItems)

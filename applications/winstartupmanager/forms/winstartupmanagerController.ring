@@ -28,7 +28,7 @@ Func LoadWinAction
 Func AddProgAction
 	if not SubWinOpened
 		openWindow( :addeditentryController )
-		SubWinObj = Last_Window() {
+		SubWinObj = LastWindow() {
 			SetParentObject(WinObj)
 		
 			PrepareWin("Add Program", "", "", "", HKCU, True)
@@ -66,7 +66,7 @@ Func EditProgAction
 	largs = trim(right(lappPath, len(lappPath) - substr(Lower(lappPath), ".exe") -3))
 	if not SubWinOpened
 		openWindow( :addeditentryController )
-		SubWinObj = Last_Window() {
+		SubWinObj = LastWindow() {
 			SetParentObject(WinObj)
 			
 			PrepareWin("Edit Program", lappName, lpath, largs, ProgramItems[Find(Programitems, curID,1)][5], ProgramItems[Find(Programitems, curID,1)][4])
