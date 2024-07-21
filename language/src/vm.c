@@ -921,6 +921,9 @@ void ring_vm_execute ( VM *pVM )
 		case ICO_PUSHPLOCAL :
 			ring_vm_pushplocal(pVM);
 			break ;
+		case ICO_PUSHARG :
+			ring_vm_pusharg(pVM);
+			break ;
 		case ICO_INCLPJUMP :
 			ring_vm_inclpjump(pVM);
 			break ;

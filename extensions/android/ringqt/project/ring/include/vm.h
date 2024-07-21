@@ -57,6 +57,7 @@
 		unsigned int nCurrentGlobalScope  ;
 		unsigned int nActiveScopeID  ;
 		unsigned int nNestedLists  ;
+		unsigned int nParaCount  ;
 		char nType  ;
 		char nStatus  ;
 		char nLoadAddressScope  ;
@@ -923,6 +924,8 @@
 	void ring_vm_loadfuncp ( VM *pVM ) ;
 
 	void ring_vm_pushplocal ( VM *pVM ) ;
+
+	void ring_vm_pusharg ( VM *pVM ) ;
 
 	void ring_vm_inclpjump ( VM *pVM ) ;
 

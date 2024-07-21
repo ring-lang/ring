@@ -43,6 +43,7 @@
 		ICO_PUSHP ,
 		ICO_PUSHPV ,
 		ICO_PUSHPLOCAL ,
+		ICO_PUSHARG ,
 		/* Arithmetic */
 		ICO_SUM ,
 		ICO_SUB ,
@@ -145,7 +146,7 @@
 	"Class","Func","Dup","New","Private","NewLabel",
 	"Jump","JumpZ","Jump1","JumpFor","JumpZero2","JumpOne2","PushNullThenJump",
 	"LoadA","Assignment","LoadSA","LoadIA","LoadAPushV","==","<",">","!=","<=",">=",
-	"PushC","PushNL","PushN","Push2N","PushV","PushP","PushPV","PushPLocal",
+	"PushC","PushNL","PushN","Push2N","PushV","PushP","PushPV","PushPLocal","PushArg",
 	"Sum","Sub","Mul","Div","Mod","Negative","Inc","IncP","Pow",
 	"LoadFunc","Call", "Return","ReturnNull","RetFromEval","RetItemRef",
 	"ListStart","ListItem","ListItemN","ListItemC","ListEnd","And","Or","Not","FreeStack",

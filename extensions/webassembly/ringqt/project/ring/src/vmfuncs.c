@@ -424,6 +424,7 @@ void ring_vm_newfunc ( VM *pVM )
 	/* Set the SP then Check Parameters */
 	pFuncCall = RING_VM_LASTFUNCCALL ;
 	pFuncCall->nStatus = RING_FUNCSTATUS_STARTED ;
+	pFuncCall->nParaCount = RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ;
 	nSP = pFuncCall->nSP ;
 	pVM->nFuncSP = nSP ;
 	if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG2) > 0 ) {
@@ -832,6 +833,7 @@ FuncCall * ring_vm_funccall_new ( VM *pVM )
 	pFuncCall->nCallerPC = 0 ;
 	pFuncCall->nStatus = RING_FUNCSTATUS_LOAD ;
 	pFuncCall->pVMState = NULL ;
+	pFuncCall->nParaCount = 0 ;
 	return pFuncCall ;
 }
 

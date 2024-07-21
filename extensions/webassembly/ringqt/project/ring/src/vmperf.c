@@ -37,6 +37,27 @@ void ring_vm_pushplocal ( VM *pVM )
 	ring_list_resetlnewref((List *) RING_VM_STACK_READP);
 }
 
+void ring_vm_pusharg ( VM *pVM )
+{
+	List *pList  ;
+	pList = ring_list_getlist(pVM->pActiveMem,RING_VM_IR_GETINTREG);
+	/* Check if the variable list contains another type */
+	if ( ring_list_getint(pList,RING_VAR_TYPE) != RING_VM_IR_GETSMALLINTREG ) {
+		RING_VM_IR_OPCODE = ICO_LOADADDRESS ;
+		ring_vm_loadaddress(pVM);
+		return ;
+	}
+	RING_VM_STACK_PUSHPVALUE(pList) ;
+	RING_VM_STACK_OBJTYPE = RING_OBJTYPE_VARIABLE ;
+	/* Update Scope Information */
+	if ( pVM->nLoadAddressScope  == RING_VARSCOPE_NOTHING ) {
+		pVM->nLoadAddressScope = RING_VARSCOPE_LOCAL ;
+	}
+	pVM->nVarScope = RING_VARSCOPE_LOCAL ;
+	/* Check lNewRef Flag */
+	ring_list_resetlnewref((List *) RING_VM_STACK_READP);
+}
+
 void ring_vm_incp ( VM *pVM )
 {
 	List *pVar  ;

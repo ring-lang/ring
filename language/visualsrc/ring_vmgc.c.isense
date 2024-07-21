@@ -29,6 +29,8 @@ Type: unsigned int
 lDontRefAgain: 1
 Type: unsigned int
 lTrackedList: 1
+Type: unsigned int
+lObjectState: 1
 END:
 Type: ListGCData
 struct ListGCData

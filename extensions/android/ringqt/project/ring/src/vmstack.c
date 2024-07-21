@@ -90,7 +90,8 @@ void ring_vm_varpushv ( VM *pVM )
 
 void ring_vm_loadaddress ( VM *pVM )
 {
-	int lFound  ;
+	int x,lFound  ;
+	FuncCall *pFuncCall  ;
 	lFound = ring_vm_findvar(pVM, RING_VM_IR_READC ) ;
 	if ( lFound == 0 ) {
 		ring_vm_newvar(pVM, RING_VM_IR_READC);
@@ -115,6 +116,21 @@ void ring_vm_loadaddress ( VM *pVM )
 			RING_VM_IR_ITEMSETPOINTER(RING_VM_IR_ITEM(RING_VM_IR_REG2),RING_VM_STACK_READP);
 			RING_VM_IR_SETINTREG(pVM->nActiveScopeID);
 			RING_VM_IR_SETREG2TYPE(RING_VM_REGTYPE_POINTER);
+		}
+		else if ( (! RING_VM_IR_GETFLAGREG) && (RING_VM_FUNCCALLSCOUNT) ) {
+			RING_VM_IR_SETFLAGREG(RING_TRUE);
+			/* Check if we can use ICO_PUSHARG */
+			pFuncCall = RING_VM_LASTFUNCCALL ;
+			for ( x = 1 ; x <= pFuncCall->nParaCount ; x++ ) {
+				if ( x <= ring_list_getsize(pVM->pActiveMem) && ring_list_islist(pVM->pActiveMem,x) ) {
+					if ( ring_list_getlist(pVM->pActiveMem,x) == RING_VM_STACK_READP ) {
+						RING_VM_IR_OPCODE = ICO_PUSHARG ;
+						RING_VM_IR_SETINTREG(x);
+						RING_VM_IR_SETSMALLINTREG(ring_list_getint((List *) RING_VM_STACK_READP,RING_VAR_TYPE));
+						break ;
+					}
+				}
+			}
 		}
 	}
 	/* Save Scope in nLoadAddressScope */

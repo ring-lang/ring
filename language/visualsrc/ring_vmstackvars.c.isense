@@ -11,7 +11,9 @@ Type: List *
 pVar, *pList
 ring_vm_loadaddress
 Type: int
-lFound
+x,lFound
+Type: FuncCall *
+pFuncCall
 ring_vm_assignment
 Type: List *
 pVar,*pList, *pList2

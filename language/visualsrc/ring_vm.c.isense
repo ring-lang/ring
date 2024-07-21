@@ -84,6 +84,8 @@ Type: unsigned int
 nActiveScopeID
 Type: unsigned int
 nNestedLists
+Type: unsigned int
+nParaCount
 Type: char
 nType
 Type: char
