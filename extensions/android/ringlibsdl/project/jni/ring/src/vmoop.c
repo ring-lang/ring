@@ -1091,7 +1091,6 @@ void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int 
 {
 	List *pList2, *pIns  ;
 	Item *pItem  ;
-	RING_VM_IR_ITEMTYPE *pRegItem  ;
 	int nObjType, nIns  ;
 	RING_VM_BYTECODE_START ;
 	RING_VM_STACK_POP ;
@@ -1127,9 +1126,9 @@ void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int 
 		ring_list_setpointer_gc(pVM->pRingState,pList2,RING_VAR_VALUE,pPointer);
 		ring_list_setint_gc(pVM->pRingState,pList2,RING_VAR_PVALUETYPE,nPointerType);
 	}
-	if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG1) == 0 ) {
-		/* Get instruction position */
-		nIns = pVM->nPC - 2 ;
+	/* Get instruction position */
+	nIns = pVM->nPC - 2 ;
+	if ( RING_VM_IR_INTATINS(nIns) == 0 ) {
 		/* Create the Byte Code */
 		RING_VM_BYTECODE_INSSTR(ICO_LOADADDRESS,RING_CSTR_GETTEMPVAR);
 		RING_VM_BYTECODE_INSSTR(ICO_LOADMETHOD,RING_CSTR_OPERATOR);
@@ -1142,12 +1141,11 @@ void ring_vm_oop_operatoroverloading ( VM *pVM,List *pObj,const char *cStr1,int 
 		/* Use the Byte Code */
 		RING_VM_BYTECODE_END ;
 		/* Note: Reallocation may change mem. locations */
-		pRegItem = RING_VM_IR_ITEMATINS(nIns,RING_VM_IR_REG1) ;
-		RING_VM_IR_ITEMSETINT(pRegItem,pVM->nPC);
+		RING_VM_IR_INTATINS(nIns) = pVM->nPC ;
 	}
 	else {
 		ring_vm_blockflag2(pVM,pVM->nPC);
-		pVM->nPC = RING_VM_IR_READIVALUE(RING_VM_IR_REG1) ;
+		pVM->nPC = RING_VM_IR_INTATINS(nIns) ;
 	}
 }
 
