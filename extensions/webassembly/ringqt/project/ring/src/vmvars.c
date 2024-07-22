@@ -136,25 +136,13 @@ int ring_vm_findvar2 ( VM *pVM,int nLevel,List *pList2,const char *cStr )
 	**  Now We have the variable List 
 	**  The Scope of the search result 
 	*/
-	if ( nLevel == 1 ) {
+	if ( nLevel == RING_VARSCOPE_LOCAL ) {
 		if ( pVM->pActiveMem == ring_vm_getglobalscope(pVM) ) {
 			nLevel = RING_VARSCOPE_GLOBAL ;
 		}
 		else if ( pVM->pActiveMem != ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)) ) {
 			nLevel = RING_VARSCOPE_NEWOBJSTATE ;
 		}
-		else {
-			nLevel = RING_VARSCOPE_LOCAL ;
-		}
-	}
-	else if ( nLevel == 2 ) {
-		nLevel = RING_VARSCOPE_OBJSTATE ;
-	}
-	else if ( nLevel == 3 ) {
-		nLevel = RING_VARSCOPE_DEFINEDGLOBALS ;
-	}
-	else if ( nLevel == 4 ) {
-		nLevel = RING_VARSCOPE_GLOBAL ;
 	}
 	pVM->nVarScope = nLevel ;
 	RING_VM_SP_INC ;
