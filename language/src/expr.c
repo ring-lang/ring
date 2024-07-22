@@ -290,7 +290,7 @@ int ring_parser_arithmetic ( Parser *pParser )
 					return RING_PARSER_FAIL ;
 				}
 				/* Generate Code */
-				ring_parser_icg_newoperation(pParser,ICO_SUM);
+				ring_parser_icg_math(pParser,ICO_SUM,ICO_SUMN);
 				RING_STATE_PRINTTWORULES(RING_RULE_ARITHMETICISTERM,RING_RULE_PLUS) ;
 			}
 			else {
@@ -301,7 +301,7 @@ int ring_parser_arithmetic ( Parser *pParser )
 					return RING_PARSER_FAIL ;
 				}
 				/* Generate Code */
-				ring_parser_icg_sub(pParser);
+				ring_parser_icg_math(pParser,ICO_SUB,ICO_SUBN);
 				RING_STATE_PRINTTWORULES(RING_RULE_ARITHMETICISTERM,RING_RULE_MINUS) ;
 			}
 		}
@@ -327,7 +327,7 @@ int ring_parser_term ( Parser *pParser )
 					return RING_PARSER_FAIL ;
 				}
 				/* Generate Code */
-				ring_parser_icg_newoperation(pParser,ICO_MUL);
+				ring_parser_icg_math(pParser,ICO_MUL,ICO_MULN);
 			}
 			else if ( ring_parser_isoperator2(pParser,OP_MOD) ) {
 				ring_parser_nexttoken(pParser);
@@ -359,7 +359,7 @@ int ring_parser_term ( Parser *pParser )
 					return RING_PARSER_FAIL ;
 				}
 				/* Generate Code */
-				ring_parser_icg_newoperation(pParser,ICO_DIV);
+				ring_parser_icg_math(pParser,ICO_DIV,ICO_DIVN);
 				RING_STATE_PRINTTWORULES(RING_RULE_TERMISRANGE,RING_RULE_DIV) ;
 			}
 		}

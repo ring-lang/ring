@@ -54,6 +54,10 @@
 		ICO_INC ,
 		ICO_INCP ,
 		ICO_POW ,
+		ICO_SUMN ,
+		ICO_SUBN ,
+		ICO_MULN ,
+		ICO_DIVN ,
 		/* Functions/Methods */
 		ICO_LOADFUNC ,
 		ICO_CALL ,
@@ -147,7 +151,7 @@
 	"Jump","JumpZ","Jump1","JumpFor","JumpZero2","JumpOne2","PushNullThenJump",
 	"LoadA","Assignment","LoadSA","LoadIA","LoadAPushV","==","<",">","!=","<=",">=",
 	"PushC","PushNL","PushN","Push2N","PushV","PushP","PushPV","PushPLocal","PushArg",
-	"Sum","Sub","Mul","Div","Mod","Negative","Inc","IncP","Pow",
+	"Sum","Sub","Mul","Div","Mod","Negative","Inc","IncP","Pow","SumN","SubN","MulN","DivN",
 	"LoadFunc","Call", "Return","ReturnNull","RetFromEval","RetItemRef",
 	"ListStart","ListItem","ListItemN","ListItemC","ListEnd","And","Or","Not","FreeStack",
 	"BlockFlag","Bye","ExitMark","PopExitMark","Exit","IncJump","IncPJump",
@@ -186,25 +190,25 @@
 	#define ring_parser_icg_setoperationatpos(pParser,nIndex,nOPCode) ring_list_setint(ring_parser_icg_getoperationlist(pParser,nIndex),RING_PARSER_ICG_OPERATIONCODE,nOPCode)
 	/* Generate Intermediate Code */
 
-	void ring_parser_icg_newoperation ( Parser *pParser , IC_OPERATIONS nOPCode ) ;
+	void ring_parser_icg_newoperation ( Parser *pParser,IC_OPERATIONS nOPCode ) ;
 
-	void ring_parser_icg_newoperand ( Parser *pParser , const char *cStr ) ;
+	void ring_parser_icg_newoperand ( Parser *pParser,const char *cStr ) ;
 
-	void ring_parser_icg_addtooperand ( Parser *pParser , const char *cStr ) ;
+	void ring_parser_icg_addtooperand ( Parser *pParser,const char *cStr ) ;
 
-	void ring_parser_icg_newoperandint ( Parser *pParser , int nValue ) ;
+	void ring_parser_icg_newoperandint ( Parser *pParser,int nValue ) ;
 
-	void ring_parser_icg_newoperanddouble ( Parser *pParser , double nValue ) ;
+	void ring_parser_icg_newoperanddouble ( Parser *pParser,double nValue ) ;
 
-	void ring_parser_icg_newoperandpointer ( Parser *pParser , void *pValue ) ;
+	void ring_parser_icg_newoperandpointer ( Parser *pParser,void *pValue ) ;
 
 	List * ring_parser_icg_getactiveoperation ( Parser *pParser ) ;
 
-	void ring_parser_icg_addoperand ( Parser *pParser ,List *pList , const char *cStr ) ;
+	void ring_parser_icg_addoperand ( Parser *pParser,List *pList,const char *cStr ) ;
 
-	void ring_parser_icg_addoperandint ( Parser *pParser ,List *pList , int nValue ) ;
+	void ring_parser_icg_addoperandint ( Parser *pParser,List *pList,int nValue ) ;
 
-	void ring_parser_icg_addoperandpointer ( Parser *pParser ,List *pList , void *pValue ) ;
+	void ring_parser_icg_addoperandpointer ( Parser *pParser,List *pList,void *pValue ) ;
 
 	void ring_parser_icg_deletelastoperation ( Parser *pParser ) ;
 
@@ -212,11 +216,11 @@
 
 	int ring_parser_icg_newlabel2 ( Parser *pParser ) ;
 
-	void ring_parser_icg_insertoperation ( Parser *pParser , int nPos , IC_OPERATIONS nOPCode ) ;
+	void ring_parser_icg_insertoperation ( Parser *pParser,int nPos,IC_OPERATIONS nOPCode ) ;
 
-	void ring_parser_icg_setopcode ( Parser *pParser ,List *pList , int nValue ) ;
+	void ring_parser_icg_setopcode ( Parser *pParser,List *pList ,int nValue ) ;
 
-	void ring_parser_icg_deleteoperand ( Parser *pParser , int nPos ) ;
+	void ring_parser_icg_deleteoperand ( Parser *pParser,int nPos ) ;
 
 	const char * ring_parser_icg_getlaststring ( Parser *pParser ) ;
 
@@ -249,7 +253,7 @@
 
 	void ring_parser_icg_gensetglobalscope ( Parser *pParser ) ;
 
-	void ring_parser_icg_sub ( Parser *pParser ) ;
+	void ring_parser_icg_math ( Parser *pParser,IC_OPERATIONS nOPCode,IC_OPERATIONS nOPCodeV ) ;
 	/* General Blocks of ByteCode */
 
 	void ring_parser_icg_gencallbracemethod ( Parser *pParser,const char *cMethod,int lDuplicateStackValue ) ;

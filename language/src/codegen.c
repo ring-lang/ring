@@ -233,14 +233,14 @@ void ring_parser_icg_gensetglobalscope ( Parser *pParser )
 	}
 }
 
-void ring_parser_icg_sub ( Parser *pParser )
+void ring_parser_icg_math ( Parser *pParser,IC_OPERATIONS nOPCode,IC_OPERATIONS nOPCodeV )
 {
 	int nLastOperation  ;
 	if ( (pParser->pActiveGenCodeList != NULL) && (ring_parser_icg_getlastoperation(pParser) == ICO_PUSHN) ) {
-		ring_parser_icg_setlastoperation(pParser,ICO_SUBN);
+		ring_parser_icg_setlastoperation(pParser,nOPCodeV);
 		return ;
 	}
-	ring_parser_icg_newoperation(pParser,ICO_SUB);
+	ring_parser_icg_newoperation(pParser,nOPCode);
 }
 /* General Blocks of ByteCode */
 

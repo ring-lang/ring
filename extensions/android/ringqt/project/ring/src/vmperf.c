@@ -225,3 +225,43 @@ void ring_vm_setopcode ( VM *pVM )
 	nOPCode = RING_VM_IR_READI ;
 	RING_VM_IR_OPCODEVALUE(nIns) = nOPCode ;
 }
+
+void ring_vm_mathopn ( VM *pVM,IC_OPERATIONS nOPCode )
+{
+	if ( RING_VM_STACK_ISNUMBER ) {
+		switch ( nOPCode ) {
+			case ICO_SUM :
+				RING_VM_STACK_SETNVALUE(RING_VM_STACK_READN + RING_VM_IR_READD);
+				break ;
+			case ICO_SUB :
+				RING_VM_STACK_SETNVALUE(RING_VM_STACK_READN - RING_VM_IR_READD);
+				break ;
+			case ICO_MUL :
+				RING_VM_STACK_SETNVALUE(RING_VM_STACK_READN * RING_VM_IR_READD);
+				break ;
+			case ICO_DIV :
+				if ( RING_VM_IR_READD == RING_ZERO ) {
+					ring_vm_error(pVM,RING_VM_ERROR_DIVIDEBYZERO);
+					return ;
+				}
+				RING_VM_STACK_SETNVALUE(RING_VM_STACK_READN / RING_VM_IR_READD);
+				break ;
+		}
+		return ;
+	}
+	RING_VM_STACK_PUSHN ;
+	switch ( nOPCode ) {
+		case ICO_SUM :
+			ring_vm_sum(pVM);
+			break ;
+		case ICO_SUB :
+			ring_vm_sub(pVM);
+			break ;
+		case ICO_MUL :
+			ring_vm_mul(pVM);
+			break ;
+		case ICO_DIV :
+			ring_vm_div(pVM);
+			break ;
+	}
+}

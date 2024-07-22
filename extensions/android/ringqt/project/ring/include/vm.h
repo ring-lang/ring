@@ -1048,6 +1048,8 @@
 	void ring_vm_setopcode ( VM *pVM ) ;
 
 	int ring_vm_isinsideloop ( VM *pVM ) ;
+
+	void ring_vm_mathopn ( VM *pVM,IC_OPERATIONS nOPCode ) ;
 	/* Protecting Lists */
 
 	int ring_vm_checkvarerroronassignment ( VM *pVM,List *pVar ) ;

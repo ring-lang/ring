@@ -826,8 +826,17 @@ void ring_vm_execute ( VM *pVM )
 		case ICO_POW :
 			ring_vm_pow(pVM);
 			break ;
+		case ICO_SUMN :
+			ring_vm_mathopn(pVM,ICO_SUM);
+			break ;
 		case ICO_SUBN :
-			ring_vm_subn(pVM);
+			ring_vm_mathopn(pVM,ICO_SUB);
+			break ;
+		case ICO_MULN :
+			ring_vm_mathopn(pVM,ICO_MUL);
+			break ;
+		case ICO_DIVN :
+			ring_vm_mathopn(pVM,ICO_DIV);
 			break ;
 		/* Logic */
 		case ICO_AND :
