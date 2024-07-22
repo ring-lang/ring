@@ -301,7 +301,7 @@ int ring_parser_arithmetic ( Parser *pParser )
 					return RING_PARSER_FAIL ;
 				}
 				/* Generate Code */
-				ring_parser_icg_newoperation(pParser,ICO_SUB);
+				ring_parser_icg_sub(pParser);
 				RING_STATE_PRINTTWORULES(RING_RULE_ARITHMETICISTERM,RING_RULE_MINUS) ;
 			}
 		}

@@ -248,6 +248,8 @@
 	void ring_parser_icg_listitem ( Parser *pParser ) ;
 
 	void ring_parser_icg_gensetglobalscope ( Parser *pParser ) ;
+
+	void ring_parser_icg_sub ( Parser *pParser ) ;
 	/* General Blocks of ByteCode */
 
 	void ring_parser_icg_gencallbracemethod ( Parser *pParser,const char *cMethod,int lDuplicateStackValue ) ;

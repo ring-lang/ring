@@ -225,3 +225,13 @@ void ring_vm_setopcode ( VM *pVM )
 	nOPCode = RING_VM_IR_READI ;
 	RING_VM_IR_OPCODEVALUE(nIns) = nOPCode ;
 }
+
+void ring_vm_subn ( VM *pVM )
+{
+	if ( RING_VM_STACK_ISNUMBER ) {
+		RING_VM_STACK_SETNVALUE(RING_VM_STACK_READN - RING_VM_IR_READD);
+		return ;
+	}
+	RING_VM_STACK_PUSHN ;
+	ring_vm_sub(pVM);
+}

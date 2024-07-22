@@ -44,6 +44,7 @@ ICO_NEG
 ICO_INC
 ICO_INCP
 ICO_POW
+ICO_SUBN
 ICO_LOADFUNC
 ICO_CALL
 ICO_RETURN
@@ -165,8 +166,6 @@ ring_parser_icg_loadfunction
 ring_parser_icg_loadaddress
 ring_parser_icg_loadaddresstoloadfunction
 ring_parser_icg_freestack
-Type: int
-nLastOperation
 ring_parser_icg_newline
 ring_parser_icg_parentclassname
 ring_parser_icg_deleteparentclassname
@@ -182,6 +181,9 @@ nLastOperation
 ring_parser_icg_gensetglobalscope
 Type: int
 nGlobalScope
+ring_parser_icg_sub
+Type: int
+nLastOperation
 ring_parser_icg_gencallbracemethod
 Type: int
 nMark1

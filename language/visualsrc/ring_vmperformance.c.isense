@@ -33,3 +33,4 @@ ring_vm_inclpjumpstep1
 ring_vm_setopcode
 Type: int
 nIns,nOPCode
+ring_vm_subn

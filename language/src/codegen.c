@@ -132,7 +132,6 @@ void ring_parser_icg_loadaddresstoloadfunction ( Parser *pParser )
 
 void ring_parser_icg_freestack ( Parser *pParser )
 {
-	int nLastOperation  ;
 	ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
 }
 
@@ -232,6 +231,16 @@ void ring_parser_icg_gensetglobalscope ( Parser *pParser )
 		ring_parser_icg_newoperation(pParser,ICO_SETGLOBALSCOPE);
 		ring_parser_icg_newoperandint(pParser,nGlobalScope);
 	}
+}
+
+void ring_parser_icg_sub ( Parser *pParser )
+{
+	int nLastOperation  ;
+	if ( (pParser->pActiveGenCodeList != NULL) && (ring_parser_icg_getlastoperation(pParser) == ICO_PUSHN) ) {
+		ring_parser_icg_setlastoperation(pParser,ICO_SUBN);
+		return ;
+	}
+	ring_parser_icg_newoperation(pParser,ICO_SUB);
 }
 /* General Blocks of ByteCode */
 
