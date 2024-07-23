@@ -164,7 +164,7 @@ void ring_vm_mul ( VM *pVM )
 		return ;
 	}
 	/* Check Overflow */
-	if ( ring_vm_checkoverflow(pVM,nNum1,nNum2)  ) return ;
+	RING_VM_CHECKOVERFLOW(nNum1,nNum2) ;
 	RING_VM_STACK_SETNVALUE(nNum1*nNum2);
 }
 
@@ -217,7 +217,7 @@ void ring_vm_div ( VM *pVM )
 		return ;
 	}
 	/* Check Overflow */
-	if ( ring_vm_checkoverflow(pVM,nNum1,nNum2)  ) return ;
+	RING_VM_CHECKOVERFLOW(nNum1,nNum2) ;
 	RING_VM_STACK_SETNVALUE(nNum2/nNum1);
 }
 
@@ -269,7 +269,7 @@ void ring_vm_mod ( VM *pVM )
 		return ;
 	}
 	/* Check Overflow */
-	if ( ring_vm_checkoverflow(pVM,nNum1,nNum2)  ) return ;
+	RING_VM_CHECKOVERFLOW(nNum1,nNum2) ;
 	RING_VM_STACK_SETNVALUE(fmod(nNum2 , nNum1));
 }
 
@@ -334,7 +334,7 @@ void ring_vm_pow ( VM *pVM )
 		return ;
 	}
 	/* Check Overflow */
-	if ( ring_vm_checkoverflow(pVM,nNum1,nNum2)  ) return ;
+	RING_VM_CHECKOVERFLOW(nNum1,nNum2) ;
 	RING_VM_STACK_SETNVALUE(pow(nNum2,nNum1));
 }
 
@@ -1466,8 +1466,8 @@ int ring_vm_checkoverflow ( VM *pVM,double nNum1,double nNum2 )
 		/* We check the lCheckOverFlow flag first because the next operations decrease performance when we deal with millions of numbers */
 		if ( ( strlen(ring_vm_numtostring(pVM,nNum1,cStr1)) >= RING_VM_MAXDIGITSINNUMBER ) || (strlen(ring_vm_numtostring(pVM,nNum2,cStr2)) >= RING_VM_MAXDIGITSINNUMBER ) ) {
 			ring_vm_error(pVM,RING_VM_ERROR_NUMERICOVERFLOW);
-			return 1 ;
+			return RING_TRUE ;
 		}
 	}
-	return 0 ;
+	return RING_FALSE ;
 }

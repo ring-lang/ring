@@ -451,6 +451,7 @@
 	#define RING_CSTR_EVAL "eval"
 	/* Decimals */
 	#define RING_DECIMALS_COUNT 2
+	#define RING_VM_CHECKOVERFLOW(nNum1,nNum2) if ( pVM->lCheckOverFlow && ring_vm_checkoverflow(pVM,nNum1,nNum2) ) return ;
 	/* Extra Byte Code Generation */
 	#define RING_VM_BYTECODE_START List *pByteCodeIns;
 	#define RING_VM_BYTECODE_END ring_vm_useextrabytecode(pVM);
