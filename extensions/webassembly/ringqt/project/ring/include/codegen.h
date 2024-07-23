@@ -67,6 +67,7 @@
 		ICO_RETNULL ,
 		ICO_RETFROMEVAL ,
 		ICO_RETITEMREF ,
+		ICO_RETURNN ,
 		/* Lists */
 		ICO_LISTSTART ,
 		ICO_LISTITEM ,
@@ -154,7 +155,7 @@
 	"LoadA","Assignment","LoadSA","LoadIA","LoadAPushV","==","<",">","!=","<=",">=",
 	"PushC","PushNL","PushN","Push2N","PushV","PushP","PushPV","PushPLocal","PushArg",
 	"Sum","Sub","Mul","Div","Mod","Negative","Inc","IncP","Pow","SumN","SubN","MulN","DivN",
-	"ModN","PowN","LoadFunc","Call", "Return","ReturnNull","RetFromEval","RetItemRef",
+	"ModN","PowN","LoadFunc","Call", "Return","ReturnNull","RetFromEval","RetItemRef","ReturnN",
 	"ListStart","ListItem","ListItemN","ListItemC","ListEnd","And","Or","Not","FreeStack",
 	"BlockFlag","Bye","ExitMark","PopExitMark","Exit","IncJump","IncPJump",
 	"Try","Done","Range","LoadMethod","SetScope","AfterCallMethod",

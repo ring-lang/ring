@@ -401,6 +401,12 @@ void ring_vm_return ( VM *pVM )
 	}
 }
 
+void ring_vm_returnn ( VM *pVM )
+{
+	RING_VM_STACK_PUSHN ;
+	ring_vm_return(pVM);
+}
+
 void ring_vm_returnnull ( VM *pVM )
 {
 	RING_VM_STACK_PUSHCVALUE(RING_CSTR_EMPTY);
