@@ -877,7 +877,7 @@ int ring_parser_stmt ( Parser *pParser )
 			pParser->lAssignmentFlag = 1 ;
 			/* Generate Code */
 			if ( x == RING_PARSER_OK ) {
-				ring_parser_icg_newoperation(pParser,ICO_RETURN);
+				ring_parser_icg_returnn(pParser);
 			}
 			else {
 				/*

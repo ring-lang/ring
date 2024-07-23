@@ -883,6 +883,9 @@ void ring_vm_execute ( VM *pVM )
 		case ICO_RETURN :
 			ring_vm_return(pVM);
 			break ;
+		case ICO_RETURNN :
+			ring_vm_returnn(pVM);
+			break ;
 		case ICO_RETNULL :
 			ring_vm_returnnull(pVM);
 			break ;

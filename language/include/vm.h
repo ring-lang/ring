@@ -766,6 +766,8 @@
 
 	void ring_vm_returnnull ( VM *pVM ) ;
 
+	void ring_vm_returnn ( VM *pVM ) ;
+
 	void ring_vm_returneval ( VM *pVM ) ;
 
 	void ring_vm_newfunc ( VM *pVM ) ;

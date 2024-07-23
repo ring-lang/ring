@@ -242,6 +242,19 @@ void ring_parser_icg_math ( Parser *pParser,IC_OPERATIONS nOPCode,IC_OPERATIONS 
 	}
 	ring_parser_icg_newoperation(pParser,nOPCode);
 }
+
+void ring_parser_icg_returnn ( Parser *pParser )
+{
+	int nLastOperation  ;
+	if ( (pParser->pActiveGenCodeList != NULL) && (ring_parser_icg_getlastoperation(pParser) == ICO_PUSHN) ) {
+		ring_parser_icg_setlastoperation(pParser,ICO_RETURNN);
+		if ( ( ring_list_getsize(pParser->pGenCode) > RING_ONE) && (ring_parser_icg_getoperationbeforelastoperation(pParser) == ICO_FREELOADASCOPE) ) {
+			ring_list_deleteitem_gc(NULL,pParser->pGenCode,ring_list_getsize(pParser->pGenCode) - RING_ONE);
+		}
+		return ;
+	}
+	ring_parser_icg_newoperation(pParser,ICO_RETURN);
+}
 /* General Blocks of ByteCode */
 
 void ring_parser_icg_gencallbracemethod ( Parser *pParser,const char *cMethod,int lDuplicateStackValue )

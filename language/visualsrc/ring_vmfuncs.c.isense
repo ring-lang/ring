@@ -88,3 +88,9 @@ ring_vm_funccall_useloadfuncp
 ring_vm_funccall_beforecall
 Type: FuncCall *
 pFuncCall
+ring_vm_funccall_paracount
+Type: FuncCall *
+pFuncCall
+Type: int
+x
+ring_vm_returnn

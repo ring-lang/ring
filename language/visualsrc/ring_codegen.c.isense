@@ -56,6 +56,7 @@ ICO_RETURN
 ICO_RETNULL
 ICO_RETFROMEVAL
 ICO_RETITEMREF
+ICO_RETURNN
 ICO_LISTSTART
 ICO_LISTITEM
 ICO_LISTITEMN
@@ -187,6 +188,9 @@ ring_parser_icg_gensetglobalscope
 Type: int
 nGlobalScope
 ring_parser_icg_math
+Type: int
+nLastOperation
+ring_parser_icg_returnn
 Type: int
 nLastOperation
 ring_parser_icg_gencallbracemethod
