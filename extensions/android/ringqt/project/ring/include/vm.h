@@ -331,9 +331,9 @@
 	/* Util */
 	#define RING_VM_NEWSCOPE ring_list_newlist_gc(pVM->pRingState,pVM->pMem)
 	#define RING_VM_SCOPESCOUNT ring_list_getsize(pVM->pMem)
-	#define RING_VM_GETLASTSCOPE ring_list_getlist(pVM->pMem,ring_list_getsize(pVM))
+	#define RING_VM_GETLASTSCOPE ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem))
 	#define RING_VM_GETSCOPE(x) ring_list_getlist(pVM->pMem,x)
-	#define RING_VM_DELETELASTSCOPE ring_list_deleteitem_gc(pVM->pRingState,pVM->pMem,ring_list_getsize(pVM->pMem)) ;
+	#define RING_VM_DELETELASTSCOPE ring_list_deleteitem_gc(pVM->pRingState,pVM->pMem,ring_list_getsize(pVM->pMem))
 	#define RING_VM_BACKTOSCOPELIST(x) while(RING_VM_LASTSCOPE != x) RING_VM_DELETESCOPE ;
 	/*
 	**  OOP 
