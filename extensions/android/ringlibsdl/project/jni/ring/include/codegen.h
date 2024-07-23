@@ -257,6 +257,8 @@
 	void ring_parser_icg_gensetglobalscope ( Parser *pParser ) ;
 
 	void ring_parser_icg_math ( Parser *pParser,IC_OPERATIONS nOPCode,IC_OPERATIONS nOPCodeV ) ;
+
+	void ring_parser_icg_returnn ( Parser *pParser ) ;
 	/* General Blocks of ByteCode */
 
 	void ring_parser_icg_gencallbracemethod ( Parser *pParser,const char *cMethod,int lDuplicateStackValue ) ;

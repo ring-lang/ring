@@ -190,6 +190,9 @@ nGlobalScope
 ring_parser_icg_math
 Type: int
 nLastOperation
+ring_parser_icg_returnn
+Type: int
+nLastOperation
 ring_parser_icg_gencallbracemethod
 Type: int
 nMark1
