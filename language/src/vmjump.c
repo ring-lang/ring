@@ -33,7 +33,7 @@ void ring_vm_jumpfor ( VM *pVM )
 	**  nNum2 = Step value that can be positive or negative 
 	**  nNum1 = Items Count , nNum3 = Index 
 	*/
-	if ( ( ( (nNum2 <= 0) && (nNum3 < nNum1) ) || ( nNum2 == 0 ) ) || ( (nNum2 > 0) && (nNum3 > nNum1) ) ) {
+	if ( ( ( (nNum2 < 0) && (nNum3 < nNum1) ) || ( nNum2 == 0 ) ) || ( (nNum2 > 0) && (nNum3 > nNum1) ) ) {
 		RING_VM_JUMP ;
 	}
 	/* CALL FreeTempLists */
