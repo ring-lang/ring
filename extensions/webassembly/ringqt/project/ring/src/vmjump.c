@@ -4,14 +4,14 @@
 
 void ring_vm_jumpfor ( VM *pVM )
 {
-	double nNum1,nNum2,nNum3  ;
+	double nStart,nEnd,nStep  ;
 	/* Check Data */
 	if ( RING_VM_STACK_ISNUMBER ) {
-		nNum1 = RING_VM_STACK_READN ;
+		nEnd = RING_VM_STACK_READN ;
 		RING_VM_STACK_POP ;
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
-		nNum1 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
+		nEnd = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
 		RING_VM_RETURNIFACTIVECATCH ;
 		RING_VM_STACK_POP ;
 	}
@@ -19,10 +19,10 @@ void ring_vm_jumpfor ( VM *pVM )
 		ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);
 		return ;
 	}
-	nNum2 = ring_list_getdouble(pVM->pForStep,ring_list_getsize(pVM->pForStep));
+	nStep = ring_list_getdouble(pVM->pForStep,ring_list_getsize(pVM->pForStep));
 	/* Check Data */
 	if ( RING_VM_STACK_ISNUMBER ) {
-		nNum3 = RING_VM_STACK_READN ;
+		nStart = RING_VM_STACK_READN ;
 		RING_VM_STACK_POP ;
 	}
 	else {
@@ -30,10 +30,11 @@ void ring_vm_jumpfor ( VM *pVM )
 		return ;
 	}
 	/*
-	**  nNum2 = Step value that can be positive or negative 
-	**  nNum1 = Items Count , nNum3 = Index 
+	**  nStep = Step value that can be positive or negative 
+	**  nEnd = Items Count , nStart = Index 
+	**  Here we write a condition to terminate the loop 
 	*/
-	if ( ( ( (nNum2 < 0) && (nNum3 < nNum1) ) || ( nNum2 == 0 ) ) || ( (nNum2 > 0) && (nNum3 > nNum1) ) ) {
+	if ( ( (nStep < 0) && (nStart < nEnd) ) || ( (nStep > 0) && (nStart > nEnd) ) || ( nStep == 0 ) ) {
 		RING_VM_JUMP ;
 	}
 	/* CALL FreeTempLists */
