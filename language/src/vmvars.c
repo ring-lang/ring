@@ -43,7 +43,7 @@ void ring_vm_newscope ( VM *pVM )
 		ring_vm_error(pVM,RING_VM_ERROR_STACKOVERFLOW);
 		exit(RING_EXIT_FAIL);
 	}
-	pVM->pActiveMem = ring_list_newlist_gc(pVM->pRingState,pVM->pMem);
+	pVM->pActiveMem = RING_VM_NEWSCOPE ;
 }
 
 int ring_vm_findvar ( VM *pVM,const char *cStr )

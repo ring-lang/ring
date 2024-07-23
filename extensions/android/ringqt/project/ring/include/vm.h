@@ -329,6 +329,7 @@
 	#define RING_VARSCOPE_NEWOBJSTATE 5
 	#define RING_VARSCOPE_SIZETOUSEHASHTABLE 6
 	/* Util */
+	#define RING_VM_NEWSCOPE ring_list_newlist_gc(pVM->pRingState,pVM->pMem)
 	#define RING_VM_SCOPESCOUNT ring_list_getsize(pVM->pMem)
 	#define RING_VM_GETLASTSCOPE ring_list_getlist(pVM->pMem,ring_list_getsize(pVM))
 	#define RING_VM_GETSCOPE(x) ring_list_getlist(pVM->pMem,x)
