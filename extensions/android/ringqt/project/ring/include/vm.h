@@ -1056,6 +1056,10 @@
 	void ring_vm_muln ( VM *pVM ) ;
 
 	void ring_vm_divn ( VM *pVM ) ;
+
+	void ring_vm_modn ( VM *pVM ) ;
+
+	void ring_vm_pown ( VM *pVM ) ;
 	/* Protecting Lists */
 
 	int ring_vm_checkvarerroronassignment ( VM *pVM,List *pVar ) ;

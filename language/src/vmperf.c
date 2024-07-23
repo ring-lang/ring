@@ -249,6 +249,7 @@ void ring_vm_subn ( VM *pVM )
 void ring_vm_muln ( VM *pVM )
 {
 	if ( RING_VM_STACK_ISNUMBER ) {
+		if ( ring_vm_checkoverflow(pVM,RING_VM_STACK_READN,RING_VM_IR_READD) ) return ;
 		RING_VM_STACK_SETNVALUE(RING_VM_STACK_READN * RING_VM_IR_READD);
 		return ;
 	}
@@ -263,9 +264,36 @@ void ring_vm_divn ( VM *pVM )
 			ring_vm_error(pVM,RING_VM_ERROR_DIVIDEBYZERO);
 			return ;
 		}
+		if ( ring_vm_checkoverflow(pVM,RING_VM_STACK_READN,RING_VM_IR_READD) ) return ;
 		RING_VM_STACK_SETNVALUE(RING_VM_STACK_READN / RING_VM_IR_READD);
 		return ;
 	}
 	RING_VM_STACK_PUSHN ;
 	ring_vm_div(pVM);
+}
+
+void ring_vm_modn ( VM *pVM )
+{
+	if ( RING_VM_STACK_ISNUMBER ) {
+		if ( RING_VM_IR_READD == RING_ZERO ) {
+			ring_vm_error(pVM,RING_VM_ERROR_DIVIDEBYZERO);
+			return ;
+		}
+		if ( ring_vm_checkoverflow(pVM,RING_VM_STACK_READN,RING_VM_IR_READD) ) return ;
+		RING_VM_STACK_SETNVALUE(fmod(RING_VM_STACK_READN,RING_VM_IR_READD));
+		return ;
+	}
+	RING_VM_STACK_PUSHN ;
+	ring_vm_mod(pVM);
+}
+
+void ring_vm_pown ( VM *pVM )
+{
+	if ( RING_VM_STACK_ISNUMBER ) {
+		if ( ring_vm_checkoverflow(pVM,RING_VM_STACK_READN,RING_VM_IR_READD) ) return ;
+		RING_VM_STACK_SETNVALUE(pow(RING_VM_STACK_READN,RING_VM_IR_READD));
+		return ;
+	}
+	RING_VM_STACK_PUSHN ;
+	ring_vm_pow(pVM);
 }

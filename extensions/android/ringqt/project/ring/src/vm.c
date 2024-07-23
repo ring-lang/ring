@@ -838,6 +838,12 @@ void ring_vm_execute ( VM *pVM )
 		case ICO_DIVN :
 			ring_vm_divn(pVM);
 			break ;
+		case ICO_MODN :
+			ring_vm_modn(pVM);
+			break ;
+		case ICO_POWN :
+			ring_vm_pown(pVM);
+			break ;
 		/* Logic */
 		case ICO_AND :
 			ring_vm_and(pVM);

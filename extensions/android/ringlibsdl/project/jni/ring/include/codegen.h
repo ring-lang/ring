@@ -58,6 +58,8 @@
 		ICO_SUBN ,
 		ICO_MULN ,
 		ICO_DIVN ,
+		ICO_MODN ,
+		ICO_POWN ,
 		/* Functions/Methods */
 		ICO_LOADFUNC ,
 		ICO_CALL ,
@@ -152,7 +154,7 @@
 	"LoadA","Assignment","LoadSA","LoadIA","LoadAPushV","==","<",">","!=","<=",">=",
 	"PushC","PushNL","PushN","Push2N","PushV","PushP","PushPV","PushPLocal","PushArg",
 	"Sum","Sub","Mul","Div","Mod","Negative","Inc","IncP","Pow","SumN","SubN","MulN","DivN",
-	"LoadFunc","Call", "Return","ReturnNull","RetFromEval","RetItemRef",
+	"ModN","PowN","LoadFunc","Call", "Return","ReturnNull","RetFromEval","RetItemRef",
 	"ListStart","ListItem","ListItemN","ListItemC","ListEnd","And","Or","Not","FreeStack",
 	"BlockFlag","Bye","ExitMark","PopExitMark","Exit","IncJump","IncPJump",
 	"Try","Done","Range","LoadMethod","SetScope","AfterCallMethod",

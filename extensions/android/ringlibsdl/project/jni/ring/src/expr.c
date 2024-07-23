@@ -337,7 +337,7 @@ int ring_parser_term ( Parser *pParser )
 					return RING_PARSER_FAIL ;
 				}
 				/* Generate Code */
-				ring_parser_icg_newoperation(pParser,ICO_MOD);
+				ring_parser_icg_math(pParser,ICO_MOD,ICO_MODN);
 				RING_STATE_PRINTTWORULES(RING_RULE_TERMISRANGE,RING_RULE_MOD) ;
 			}
 			else if ( ring_parser_isoperator2(pParser,OP_POW) ) {
@@ -348,7 +348,7 @@ int ring_parser_term ( Parser *pParser )
 					return RING_PARSER_FAIL ;
 				}
 				/* Generate Code */
-				ring_parser_icg_newoperation(pParser,ICO_POW);
+				ring_parser_icg_math(pParser,ICO_POW,ICO_POWN);
 				RING_STATE_PRINTTWORULES(RING_RULE_TERMISRANGE,RING_RULE_POW) ;
 			}
 			else {
