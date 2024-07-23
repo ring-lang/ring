@@ -51,7 +51,7 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 	int x,nPos,nMax1  ;
 	List *pList,*pList2  ;
 	pVM->lSelfLoadA = 0 ;
-	nMax1 = ring_list_getsize(pVM->pMem);
+	nMax1 = RING_VM_SCOPESCOUNT ;
 	/* The scope of the search result */
 	pVM->nVarScope = RING_VARSCOPE_NOTHING ;
 	if ( nMax1 > 0 ) {
@@ -140,7 +140,7 @@ int ring_vm_findvar2 ( VM *pVM,int nLevel,List *pList2,const char *cStr )
 		if ( pVM->pActiveMem == ring_vm_getglobalscope(pVM) ) {
 			nLevel = RING_VARSCOPE_GLOBAL ;
 		}
-		else if ( pVM->pActiveMem != ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)) ) {
+		else if ( pVM->pActiveMem != RING_VM_GETLASTSCOPE ) {
 			nLevel = RING_VARSCOPE_NEWOBJSTATE ;
 		}
 	}
@@ -264,10 +264,10 @@ void ring_vm_newvar ( VM *pVM,const char *cStr )
 	RING_VM_STACK_SETPVALUE(pList);
 	RING_VM_STACK_OBJTYPE = RING_OBJTYPE_VARIABLE ;
 	/* Set the scope of the new variable */
-	if ( (ring_list_getsize(pVM->pMem) == 1) && (pVM->pActiveMem == ring_list_getlist(pVM->pMem,RING_MEMORY_GLOBALSCOPE)) ) {
+	if ( (RING_VM_SCOPESCOUNT == 1) && (pVM->pActiveMem == RING_VM_GETSCOPE(RING_MEMORY_GLOBALSCOPE)) ) {
 		pVM->nVarScope = RING_VARSCOPE_GLOBAL ;
 	}
-	else if ( pVM->pActiveMem == ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)) ) {
+	else if ( pVM->pActiveMem == RING_VM_GETLASTSCOPE ) {
 		pVM->nVarScope = RING_VARSCOPE_LOCAL ;
 	}
 	else {
@@ -383,12 +383,12 @@ void ring_vm_addnewcpointervar ( VM *pVM,const char *cStr,void *pPointer,const c
 
 void ring_vm_deletescope ( VM *pVM )
 {
-	if ( ring_list_getsize(pVM->pMem) < 2 ) {
+	if ( RING_VM_SCOPESCOUNT < 2 ) {
 		printf( RING_NOSCOPE ) ;
 		exit(RING_EXIT_FAIL);
 	}
-	ring_list_deleteitem_gc(pVM->pRingState,pVM->pMem,ring_list_getsize(pVM->pMem));
-	pVM->pActiveMem = ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem));
+	RING_VM_DELETELASTSCOPE ;
+	pVM->pActiveMem = RING_VM_GETLASTSCOPE ;
 }
 
 void ring_vm_var_setprivateflag ( VM *pVM,List *pVar,int nFlag )
@@ -489,7 +489,7 @@ void ring_vm_endglobalscope ( VM *pVM )
 {
 	ring_list_deletelastitem_gc(pVM->pRingState,pVM->pActiveGlobalScopes);
 	if ( ring_list_getsize(pVM->pActiveGlobalScopes) == 0 ) {
-		pVM->pActiveMem = ring_list_getlist(pVM->pMem,RING_MEMORY_GLOBALSCOPE);
+		pVM->pActiveMem = RING_VM_GETSCOPE(RING_MEMORY_GLOBALSCOPE) ;
 	}
 	else {
 		pVM->pActiveMem = (List *) ring_list_getpointer(pVM->pActiveGlobalScopes,ring_list_getsize(pVM->pActiveGlobalScopes));
@@ -505,7 +505,7 @@ List * ring_vm_getglobalscope ( VM *pVM )
 {
 	List *pList  ;
 	if ( pVM->nCurrentGlobalScope == 0 ) {
-		pList = ring_list_getlist(pVM->pMem,RING_MEMORY_GLOBALSCOPE);
+		pList = RING_VM_GETSCOPE(RING_MEMORY_GLOBALSCOPE) ;
 	}
 	else {
 		pList = ring_list_getlist(pVM->pGlobalScopes,pVM->nCurrentGlobalScope);
