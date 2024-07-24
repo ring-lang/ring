@@ -13,7 +13,7 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 	ring_list_addcustomringpointer_gc(pVM->pRingState,pList,pVMState,ring_vmstate_delete);
 	pThis = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_THIS) ;
 	/* Save the data */
-	pVMState->aNumbers[0] = ring_list_getsize(pVM->pMem) ;
+	pVMState->aNumbers[0] = RING_VM_SCOPESCOUNT ;
 	pVMState->aNumbers[1] = RING_VM_FUNCCALLSCOUNT ;
 	pVMState->aNumbers[2] = ring_list_getsize(pVM->pNestedLists) ;
 	pVMState->aNumbers[3] = pVM->nSP ;
@@ -66,7 +66,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	**  Delete Scopes using the correct function 
 	**  We need to delete each scope using ring_vm_deletescope() - so don't use ring_vm_backstate 
 	**  We also avoid doing this in the Class Region (After class name) 
-	**  Because in the class region we don't use pVM->pMEM 
+	**  Because in the class region we don't use the Scopes List 
 	*/
 	pVM->nInClassRegion = pVMState->aNumbers[21] ;
 	if ( ! pVM->nInClassRegion ) {
@@ -74,9 +74,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 		**  In the loop condition we use pVMState->aPointers[2] instead of pVM->pActiveMem 
 		**  Because ring_vm_deletescope() update the pVM->pActiveMem value 
 		*/
-		while ( ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)) != (List *) pVMState->aPointers[2] ) {
-			ring_vm_deletescope(pVM);
-		}
+		RING_VM_BACKTOSCOPELIST((List *) pVMState->aPointers[2]);
 	}
 	pVM->pActiveMem = (List *) pVMState->aPointers[2] ;
 	/* Stack & Executing Functions */
