@@ -147,8 +147,6 @@ Type: List *
 pList2, *pIns
 Type: Item *
 pItem
-Type: RING_VM_IR_ITEMTYPE *
-pRegItem
 Type: int
 nObjType, nIns
 ring_vm_oop_callmethodfrombrace

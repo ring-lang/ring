@@ -310,6 +310,10 @@ List * ring_vm_oop_getobj ( VM *pVM )
 	}
 	else if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM ) {
 		pItem = (Item *) RING_VM_STACK_READP ;
+		if ( ! ring_item_islist(pItem) ) {
+			ring_vm_error(pVM,RING_VM_ERROR_NOTOBJECT);
+			return NULL ;
+		}
 		pVar = ring_item_getlist(pItem);
 	}
 	if ( ring_vm_oop_isobject(pVar) == 0 ) {
