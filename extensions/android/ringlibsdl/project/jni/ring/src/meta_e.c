@@ -934,7 +934,7 @@ void ring_vm_refmeta_ringvmmemorylist ( void *pPointer )
 	List *pList, *pList2  ;
 	pVM = (VM *) pPointer ;
 	pList = ring_list_new_gc(((VM *) pPointer)->pRingState,RING_ZERO) ;
-	ring_list_copy_gc(pVM->pRingState,pList,pVM->pMem);
+	RING_VM_COPYSCOPESTOLIST(pList);
 	pList2 = RING_API_NEWLIST ;
 	ring_list_copy_gc(pVM->pRingState,pList2,pList);
 	ring_list_delete_gc(((VM *) pPointer)->pRingState,pList);
@@ -1063,7 +1063,7 @@ void ring_vm_refmeta_ringvmevalinscope ( void *pPointer )
 		nScope = (int) RING_API_GETNUMBER(1) ;
 		cStr = RING_API_GETSTRING(2) ;
 		pActiveMem = pVM->pActiveMem ;
-		pVM->pActiveMem = ring_list_getlist(pVM->pMem,nScope) ;
+		pVM->pActiveMem = RING_VM_GETSCOPE(nScope) ;
 		pVM->nActiveScopeID++ ;
 		/* Prepare the current scope */
 		nSize = pVM->pMem->nSize ;

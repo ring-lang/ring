@@ -335,6 +335,7 @@
 	#define RING_VM_GETSCOPE(x) ring_list_getlist(pVM->pMem,x)
 	#define RING_VM_DELETELASTSCOPE ring_list_deleteitem_gc(pVM->pRingState,pVM->pMem,ring_list_getsize(pVM->pMem))
 	#define RING_VM_BACKTOSCOPELIST(x) while(RING_VM_GETLASTSCOPE != x) RING_VM_DELETELASTSCOPE ;
+	#define RING_VM_COPYSCOPESTOLIST(x) ring_list_copy_gc(pVM->pRingState,x,pVM->pMem)
 	/*
 	**  OOP 
 	**  pClassesMap 
