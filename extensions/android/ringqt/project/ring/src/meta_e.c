@@ -1049,11 +1049,8 @@ void ring_vm_refmeta_ringvmevalinscope ( void *pPointer )
 	List *pActiveMem  ;
 	const char *cStr  ;
 	int nScope,nSize  ;
-	Items *pLastItem, *pNextItem, *pScopeItem  ;
 	VMState *pVMState  ;
 	pVM = (VM *) pPointer ;
-	pNextItem = NULL ;
-	pLastItem = NULL ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
