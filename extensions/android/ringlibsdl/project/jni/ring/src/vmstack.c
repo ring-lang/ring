@@ -284,7 +284,7 @@ void ring_vm_inc ( VM *pVM )
 	if ( ring_vm_findvar(pVM, RING_VM_IR_READC ) == 0 ) {
 		ring_vm_newvar(pVM, RING_VM_IR_READC);
 	}
-	if ( ( ring_list_getsize(pVM->pMem) == 1 )  && (pVM->pActiveMem == ring_vm_getglobalscope(pVM)) ) {
+	if ( ( RING_VM_SCOPESCOUNT == 1 )  && (pVM->pActiveMem == ring_vm_getglobalscope(pVM)) ) {
 		/* Replace ICO_INC with IncP for better performance */
 		RING_VM_IR_OPCODE = ICO_INCP ;
 		RING_VM_IR_SETREG1TOPOINTERFROMSTACK ;

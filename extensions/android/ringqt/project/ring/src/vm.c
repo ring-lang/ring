@@ -696,7 +696,7 @@ void ring_vm_fetch2 ( VM *pVM )
 		printf( "\nVM IR Pointer : %p  " , (void *) pVM->pByteCodeIR ) ;
 		printf( "\nOperation     : %s  " , RING_IC_OP[pVM->nOPCode] ) ;
 		printf( "\nPC            : %d  " ,pVM->nPC ) ;
-		printf( "\nScopes Count  : %d  " ,ring_list_getsize(pVM->pMem) ) ;
+		printf( "\nScopes Count  : %d  " ,RING_VM_SCOPESCOUNT ) ;
 		printf( "\nScope Pointer : %p  " ,pVM->pActiveMem ) ;
 		printf( "\nFile Name     : %s \nLine Number   : %d\n" ,pVM->cFileName,RING_VM_IR_GETLINENUMBER ) ;
 		if ( (pVM->nOPCode == ICO_PUSHC) || (pVM->nOPCode == ICO_LOADADDRESS) || (pVM->nOPCode == ICO_LOADFUNC) ) {
