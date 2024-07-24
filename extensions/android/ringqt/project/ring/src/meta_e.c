@@ -1066,17 +1066,8 @@ void ring_vm_refmeta_ringvmevalinscope ( void *pPointer )
 		pVM->pActiveMem = RING_VM_GETSCOPE(nScope) ;
 		pVM->nActiveScopeID++ ;
 		/* Prepare the current scope */
-		nSize = pVM->pMem->nSize ;
-		pLastItem = pVM->pMem->pLast ;
-		ring_list_clearcache(pVM->pRingState,pVM->pMem);
-		/* Get Items * for the required scope */
-		pScopeItem = ring_list_getitemcontainer(pVM->pMem,nScope);
-		if ( pScopeItem != NULL ) {
-			pNextItem = pScopeItem->pNext ;
-			pVM->pMem->nSize = nScope ;
-			pVM->pMem->pLast = pScopeItem ;
-			pVM->pMem->pLast->pNext = NULL ;
-		}
+		nSize = RING_VM_SCOPESCOUNT ;
+		RING_VM_SETCURRENTSCOPE(nScope);
 		pVM->nEvalInScope++ ;
 		/* Save State */
 		pVMState = ring_vm_savestateformethods(pVM);
@@ -1086,9 +1077,7 @@ void ring_vm_refmeta_ringvmevalinscope ( void *pPointer )
 		ring_vmstate_delete(pVM->pRingState,pVMState);
 		pVM->nEvalInScope-- ;
 		/* Restore the current scope */
-		pVM->pMem->nSize = nSize ;
-		pVM->pMem->pLast->pNext = pNextItem ;
-		pVM->pMem->pLast = pLastItem ;
+		RING_VM_SETCURRENTSCOPE(nSize);
 		pVM->pActiveMem = pActiveMem ;
 	}
 	else {

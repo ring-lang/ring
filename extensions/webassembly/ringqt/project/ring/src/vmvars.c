@@ -409,6 +409,16 @@ int ring_vm_var_getprivateflag ( VM *pVM,List *pVar )
 	return 0 ;
 }
 
+void ring_vm_copyscopestolist ( VM *pVM,List *pList )
+{
+	List *pNewList  ;
+	int x  ;
+	for ( x = 1 ; x <= RING_VM_SCOPESCOUNT ; x++ ) {
+		pNewList = ring_list_newlist_gc(pVM->pRingState,pList);
+		ring_list_copy_gc(pVM->pRingState,pNewList,RING_VM_GETSCOPE(x));
+	}
+}
+
 List * ring_vm_addstringarg ( VM *pVM,const char *cVar,const char  *cStr,int nStrSize )
 {
 	List *pList, *pParent  ;

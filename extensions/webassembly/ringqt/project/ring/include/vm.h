@@ -164,6 +164,8 @@
 		unsigned int lOptionalLoop: 1  ;
 		Item aStack[RING_VM_STACK_SIZE]  ;
 		FuncCall aFuncCall[RING_VM_STACK_SIZE]  ;
+		List aScopes[RING_VM_STACK_SIZE]  ;
+		unsigned int nCurrentScope  ;
 	} VM ;
 	/*
 	**  Macro & Constants 
@@ -329,17 +331,18 @@
 	#define RING_VARSCOPE_NEWOBJSTATE 5
 	#define RING_VARSCOPE_SIZETOUSEHASHTABLE 6
 	/* Util */
-	#define RING_VM_NEWSCOPE ring_list_newlist_gc(pVM->pRingState,pVM->pMem)
-	#define RING_VM_SCOPESCOUNT ring_list_getsize(pVM->pMem)
-	#define RING_VM_GETLASTSCOPE ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem))
-	#define RING_VM_GETSCOPE(x) ring_list_getlist(pVM->pMem,x)
-	#define RING_VM_DELETELASTSCOPE ring_list_deleteitem_gc(pVM->pRingState,pVM->pMem,ring_list_getsize(pVM->pMem))
-	#define RING_VM_BACKTOSCOPELIST(x) while(RING_VM_GETLASTSCOPE != x) RING_VM_DELETELASTSCOPE ;
-	#define RING_VM_COPYSCOPESTOLIST(x) ring_list_copy_gc(pVM->pRingState,x,pVM->pMem)
-	#define RING_SHAREDSCOPETYPE Item *
-	#define RING_VM_SAVEGLOBALSCOPE(x) x->pMem->pFirst->pValue
-	#define RING_VM_RESTOREGLOBALSCOPE(x,y) x->pMem->pFirst->pValue = y
-	#define RING_VM_SHAREGLOBALSCOPE(dest,src) dest->pMem->pFirst->pValue = src->pMem->pFirst->pValue
+	#define RING_VM_SCOPESCOUNT pVM->nCurrentScope
+	#define RING_VM_GETLASTSCOPE & (pVM->aScopes[pVM->nCurrentScope])
+	#define RING_VM_GETSCOPE(x) & (pVM->aScopes[x])
+	#define RING_VM_NEWSCOPE RING_VM_GETSCOPE( ++(pVM->nCurrentScope) )
+	#define RING_VM_DELETELASTSCOPE ring_list_deleteallitems_gc(pVM->pRingState,RING_VM_GETLASTSCOPE); pVM->nCurrentScope--
+	#define RING_VM_BACKTOSCOPELIST(x) while(RING_VM_GETLASTSCOPE != x) ring_vm_deletescope(pVM) ;
+	#define RING_VM_COPYSCOPESTOLIST(x) ring_vm_copyscopestolist(pVM,x)
+	#define RING_SHAREDSCOPETYPE List *
+	#define RING_VM_SAVEGLOBALSCOPE(x) & (x->aScopes[1])
+	#define RING_VM_RESTOREGLOBALSCOPE(x,y) x->aScopes[1] = * y
+	#define RING_VM_SHAREGLOBALSCOPE(dest,src) dest->aScopes[1] = src->aScopes[1]
+	#define RING_VM_SETCURRENTSCOPE(x) pVM->nCurrentScope = x ;
 	/*
 	**  OOP 
 	**  pClassesMap 
@@ -713,6 +716,8 @@
 	void ring_vm_var_setprivateflag ( VM *pVM,List *pVar,int nFlag ) ;
 
 	int ring_vm_var_getprivateflag ( VM *pVM,List *pVar ) ;
+
+	void ring_vm_copyscopestolist ( VM *pVM,List *pList ) ;
 	/* Parameters */
 
 	List * ring_vm_addstringarg ( VM *pVM,const char *cVar,const char *cStr,int nStrSize ) ;
