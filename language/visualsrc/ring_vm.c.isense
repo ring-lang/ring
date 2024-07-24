@@ -113,8 +113,6 @@ pFunctionsMap
 Type: List *
 pClassesMap
 Type: List *
-pMem
-Type: List *
 pPackagesMap
 Type: List *
 pTempMem
@@ -200,6 +198,8 @@ Type: unsigned int
 nFuncSP
 Type: unsigned int
 nCurrentFuncCall
+Type: unsigned int
+nCurrentScope
 Type: unsigned int
 nVarScope
 Type: unsigned int
@@ -298,8 +298,6 @@ Type: FuncCall
 aFuncCall[RING_VM_STACK_SIZE]
 Type: List
 aScopes[RING_VM_STACK_SIZE]
-Type: unsigned int
-nCurrentScope
 END:
 Type: VM
 struct VM

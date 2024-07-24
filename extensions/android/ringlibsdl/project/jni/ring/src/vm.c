@@ -237,13 +237,15 @@ VM * ring_vm_delete ( VM *pVM )
 	pVM->pSetProperty = ring_list_delete_gc(pVM->pRingState,pVM->pSetProperty);
 	pVM->pForStep = ring_list_delete_gc(pVM->pRingState,pVM->pForStep);
 	pVM->pBeforeObjState = ring_list_delete_gc(pVM->pRingState,pVM->pBeforeObjState);
-	/* Free Stack */
+	/* Free (Stack, FuncCall & Scopes) */
 	for ( x = 0 ; x < RING_VM_STACK_SIZE ; x++ ) {
 		ring_item_deletecontent_gc(pVM->pRingState,&(pVM->aStack[x]));
 		/* Delete Temp. memory lists in FuncCall */
 		if ( pVM->aFuncCall[x].pTempMem != NULL ) {
 			pVM->aFuncCall[x].pTempMem = ring_list_delete_gc(pVM->pRingState,pVM->aFuncCall[x].pTempMem);
 		}
+		/* Delete scope lists */
+		ring_list_deleteallitems_gc(pVM->pRingState,RING_VM_GETSCOPE(x));
 	}
 	/* Delete the bytecode */
 	for ( x = 1 ; x <= RING_VM_INSTRUCTIONSCOUNT ; x++ ) {
