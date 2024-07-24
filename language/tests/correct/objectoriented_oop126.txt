@@ -1,0 +1,25 @@
+1
+2
+10
+11
+10
+Error (R21) : Using operator with values of incorrect type
+Error (R21) : Using operator with values of incorrect type
+Getter
+101
+Setter
+Getter
+1001
+**************************************************
+1
+0
+10
+9
+10
+Error (R21) : Using operator with values of incorrect type
+Error (R21) : Using operator with values of incorrect type
+Getter
+99
+Setter
+Getter
+999
