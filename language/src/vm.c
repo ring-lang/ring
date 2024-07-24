@@ -28,10 +28,12 @@ VM * ring_vm_new ( RingState *pRingState )
 	/* Functions Call count (Checked by ring_vm_newscope() function to avoid overflow) */
 	pVM->nCurrentFuncCall = RING_ZERO ;
 	memset(&(pVM->aFuncCall[0]),RING_ZERO,RING_VM_STACK_SIZE*sizeof(FuncCall));
-	ring_vm_newscope(pVM);
+	pVM->nCurrentScope = RING_ZERO ;
 	for ( x = 0 ; x < RING_VM_STACK_SIZE ; x++ ) {
 		ring_item_init(&(pVM->aStack[x]));
+		ring_list_new2_gc(pVM->pRingState,&(pVM->aScopes[x]),RING_ZERO);
 	}
+	ring_vm_newscope(pVM);
 	/*
 	**  Flag ( 0 = check NULL variable in PUSHV  , greater than 0 = Ignore null variable ) 
 	**  Class Region (After the Class Name) 

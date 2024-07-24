@@ -46,6 +46,11 @@ pList, *pList2
 ring_vm_deletescope
 ring_vm_var_setprivateflag
 ring_vm_var_getprivateflag
+ring_vm_copyscopestolist
+Type: List *
+pNewList
+Type: int
+x
 ring_vm_addstringarg
 Type: List *
 pList, *pParent
