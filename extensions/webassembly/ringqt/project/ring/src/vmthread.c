@@ -73,7 +73,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 {
 	RingState *pState  ;
 	List *pList,*pList2,*pList3,*pList4,*pList5,*pGlobal, *pVarList, *pBlocks, *pGlobalScopes, *pScope  ;
-	Item *pItem  ;
+	RING_SHAREDSCOPETYPE pItem  ;
 	unsigned int x, y  ;
 	/* Create the RingState */
 	pState = ring_state_init();
@@ -89,9 +89,9 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	pState->pVM->pMutex = pVM->pMutex ;
 	pState->vPoolManager.pMutex = pVM->pRingState->vPoolManager.pMutex ;
 	/* Share the global scope between threads */
-	pItem = pState->pVM->pMem->pFirst->pValue ;
-	pState->pVM->pMem->pFirst->pValue = pVM->pMem->pFirst->pValue ;
-	pGlobal = ring_item_getlist(pVM->pMem->pFirst->pValue ) ;
+	pItem = RING_VM_SAVEGLOBALSCOPE(pState->pVM) ;
+	RING_VM_SHAREGLOBALSCOPE(pState->pVM,pVM);
+	pGlobal = RING_VM_GETSCOPE(RING_MEMORY_GLOBALSCOPE) ;
 	if ( pGlobal->pItemsArray == NULL ) {
 		ring_list_genarray(pGlobal);
 	}
@@ -169,7 +169,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	ring_list_delete_gc(pState,pState->pVM->pPackagesMap);
 	ring_list_delete_gc(pState,pState->pVM->pCFunctionsList);
 	/* Restore the first scope - global scope */
-	pState->pVM->pMem->pFirst->pValue = pItem ;
+	RING_VM_RESTOREGLOBALSCOPE(pState->pVM,pItem);
 	/* Restore other global scopes */
 	pState->pVM->pGlobalScopes = pGlobalScopes ;
 	/* Avoid deleting the shared lists and the Mutex */

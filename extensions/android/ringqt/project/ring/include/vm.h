@@ -336,6 +336,10 @@
 	#define RING_VM_DELETELASTSCOPE ring_list_deleteitem_gc(pVM->pRingState,pVM->pMem,ring_list_getsize(pVM->pMem))
 	#define RING_VM_BACKTOSCOPELIST(x) while(RING_VM_GETLASTSCOPE != x) RING_VM_DELETELASTSCOPE ;
 	#define RING_VM_COPYSCOPESTOLIST(x) ring_list_copy_gc(pVM->pRingState,x,pVM->pMem)
+	#define RING_SHAREDSCOPETYPE Item *
+	#define RING_VM_SAVEGLOBALSCOPE(x) x->pMem->pFirst->pValue
+	#define RING_VM_RESTOREGLOBALSCOPE(x,y) x->pMem->pFirst->pValue = y
+	#define RING_VM_SHAREGLOBALSCOPE(dest,src) dest->pMem->pFirst->pValue = src->pMem->pFirst->pValue
 	/*
 	**  OOP 
 	**  pClassesMap 
