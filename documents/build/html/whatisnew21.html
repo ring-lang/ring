@@ -245,6 +245,9 @@
 <li><p>Ring Compiler/VM - Added ICO_LISTITEMN instruction - Add number to the current list</p></li>
 <li><p>Ring Compiler/VM - Added ICO_LISTITEMC instruction - Add string to the current list</p></li>
 <li><p>Ring Compiler/VM - Added ICO_STEPFROMREG instruction</p></li>
+<li><p>Ring Compiler/VM - Added ICO_RETURNN instruction to return a number from a function</p></li>
+<li><p>Ring Compiler/VM - Added ICO_SUMN, ICO_SUBN, ICO_MULN, ICO_DIVN, ICO_MODN and ICO_POWN instructions</p></li>
+<li><p>Ring Compiler/VM - Added ICO_PUSHARG instruction to quickly access function arguments</p></li>
 <li><p>Ring Compiler/VM - Better support for operator overloading</p></li>
 <li><p>Ring Compiler/VM - String structure - Store small strings in the structure</p></li>
 <li><p>Ring VM - ByteCode registers count is reduced from four to two (reduce memory usage)</p></li>
@@ -279,6 +282,8 @@
 <li><p>Ring VM - The ICO_FUNCEXE and ICO_ENDFUNCEXE instructions are removed</p></li>
 <li><p>Ring VM - The ICO_PRINT and ICO_GIVE instructions are removed</p></li>
 <li><p>Ring VM - Produce specific runtime error when using Return inside the function parameters</p></li>
+<li><p>Ring VM - Produce runtime error if the list item is not an object and accessed by dot operator</p></li>
+<li><p>Ring VM - ring_vm_jumpfor() function - Better code to check if we need to terminate the for loop</p></li>
 </ul>
 </section>
 </section>
