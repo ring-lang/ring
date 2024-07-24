@@ -68,7 +68,6 @@
 		List *pCode  ;
 		List *pFunctionsMap  ;
 		List *pClassesMap  ;
-		List *pMem  ;
 		List *pPackagesMap  ;
 		List *pTempMem  ;
 		List *pNestedLists  ;
@@ -116,6 +115,7 @@
 		unsigned int nBlockCounter  ;
 		unsigned int nFuncSP  ;
 		unsigned int nCurrentFuncCall  ;
+		unsigned int nCurrentScope  ;
 		unsigned int nVarScope  ;
 		unsigned int nScopeID  ;
 		unsigned int nActiveScopeID  ;
@@ -165,7 +165,6 @@
 		Item aStack[RING_VM_STACK_SIZE]  ;
 		FuncCall aFuncCall[RING_VM_STACK_SIZE]  ;
 		List aScopes[RING_VM_STACK_SIZE]  ;
-		unsigned int nCurrentScope  ;
 	} VM ;
 	/*
 	**  Macro & Constants 
