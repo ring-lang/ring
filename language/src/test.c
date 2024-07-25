@@ -267,20 +267,20 @@ void ring_hashtable_test ( void )
 
 void ring_structuressize ( void )
 {
-	printf( "(RingState) stucture size: %d \n",sizeof(RingState) ) ;
-	printf( "(PoolData) stucture size: %d \n",sizeof(PoolData) ) ;
-	printf( "(PoolManager) stucture  size: %d \n",sizeof(PoolManager) ) ;
-	printf( "(String) stucture size: %d \n",sizeof(String) ) ;
-	printf( "(Item) stucture size: %d \n",sizeof(Item) ) ;
-	printf( "(Items) stucture size: %d \n",sizeof(Items) ) ;
-	printf( "(List) stucture size: %d \n",sizeof(List) ) ;
-	printf( "(HashItem) stucture size: %d \n",sizeof(HashItem) ) ;
-	printf( "(HashTable) stucture size: %d \n",sizeof(HashTable) ) ;
-	printf( "(Scanner) stucture size: %d \n",sizeof(Scanner) ) ;
-	printf( "(Parser) stucture size: %d \n",sizeof(Parser) ) ;
-	printf( "(ByteCode) stucture size: %d \n",sizeof(ByteCode) ) ;
-	printf( "(VMState) stucture size: %d \n",sizeof(VMState) ) ;
-	printf( "(VM) stucture size: %d \n",sizeof(VM) ) ;
+	printf( "(RingState) structure size: %d \n",sizeof(RingState) ) ;
+	printf( "(PoolData) structure size: %d \n",sizeof(PoolData) ) ;
+	printf( "(PoolManager) structure  size: %d \n",sizeof(PoolManager) ) ;
+	printf( "(String) structure size: %d \n",sizeof(String) ) ;
+	printf( "(Item) structure size: %d \n",sizeof(Item) ) ;
+	printf( "(Items) structure size: %d \n",sizeof(Items) ) ;
+	printf( "(List) structure size: %d \n",sizeof(List) ) ;
+	printf( "(HashItem) structure size: %d \n",sizeof(HashItem) ) ;
+	printf( "(HashTable) structure size: %d \n",sizeof(HashTable) ) ;
+	printf( "(Scanner) structure size: %d \n",sizeof(Scanner) ) ;
+	printf( "(Parser) structure size: %d \n",sizeof(Parser) ) ;
+	printf( "(ByteCode) structure size: %d \n",sizeof(ByteCode) ) ;
+	printf( "(VMState) structure size: %d \n",sizeof(VMState) ) ;
+	printf( "(VM) structure size: %d \n",sizeof(VM) ) ;
 	printf( "(Item) structure size + (Items) structure size: %d \n",sizeof(Item)+sizeof(Items) ) ;
-	printf( "(FuncCall) stucture size: %d \n",sizeof(FuncCall) ) ;
+	printf( "(FuncCall) structure size: %d \n",sizeof(FuncCall) ) ;
 }
