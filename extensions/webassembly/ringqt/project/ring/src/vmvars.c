@@ -442,6 +442,7 @@ List * ring_vm_addnumberarg ( VM *pVM,const char *cVar,double nNumber )
 	ring_list_addstring_gc(pVM->pRingState,pList,cVar);
 	ring_list_addint_gc(pVM->pRingState,pList,RING_VM_NUMBER);
 	ring_list_adddouble_gc(pVM->pRingState,pList,nNumber);
+	pList->vGC.lArgNum = RING_TRUE ;
 	/* Add Pointer to the HashTable */
 	if ( pParent->pHashTable != NULL ) {
 		ring_hashtable_newpointer_gc(pVM->pRingState,pParent->pHashTable,cVar,pList);

@@ -324,6 +324,7 @@ RING_API void ring_list_clearrefdata ( List *pList )
 	pList->vGC.lDontRefAgain = 0 ;
 	pList->vGC.lTrackedList = 0 ;
 	pList->vGC.lCheckBeforeAssignmentDone = 0 ;
+	pList->vGC.lArgNum = 0 ;
 }
 
 RING_API List * ring_list_deleteref_gc ( void *pState,List *pList )
