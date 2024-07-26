@@ -30,7 +30,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->nCurrentScope = RING_ZERO ;
 	for ( x = 0 ; x < RING_VM_STACK_SIZE ; x++ ) {
 		ring_item_init(&(pVM->aStack[x]));
-		ring_list_new2_gc(pVM->pRingState,&(pVM->aScopes[x]),RING_ZERO);
+		ring_list_new2_gc(pVM->pRingState,RING_VM_GETSCOPE(x),RING_ZERO);
 	}
 	ring_vm_newscope(pVM);
 	/*
@@ -247,6 +247,9 @@ VM * ring_vm_delete ( VM *pVM )
 			pVM->aFuncCall[x].pTempMem = ring_list_delete_gc(pVM->pRingState,pVM->aFuncCall[x].pTempMem);
 		}
 		/* Delete scope lists */
+		if ( (x < 1) || ( pVM->pRingState->lRunFromThread &&  (x < 2) ) ) {
+			continue ;
+		}
 		ring_list_deleteallitems_gc(pVM->pRingState,RING_VM_GETSCOPE(x));
 	}
 	/* Delete the bytecode */
