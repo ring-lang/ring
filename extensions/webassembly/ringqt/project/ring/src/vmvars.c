@@ -395,7 +395,7 @@ void ring_vm_deletescope ( VM *pVM )
 		if ( ring_list_islist(pVM->pActiveMem,x) ) {
 			pList = ring_list_getlist(pVM->pActiveMem,x);
 			/* Check adding numeric arguments to the cache */
-			if ( pList->vGC.lArgNum ) {
+			if ( pList->vGC.nArgType == RING_VM_NUMBER ) {
 				if ( ! ring_list_isnumber(pList,RING_VAR_VALUE) ) {
 					ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_NUMBER);
 					ring_list_setdouble_gc(pVM->pRingState,pList,RING_VAR_VALUE,RING_ZERO);
@@ -461,7 +461,7 @@ void ring_vm_newargcache ( VM *pVM )
 		ring_list_addint_gc(pVM->pRingState,pList,RING_VM_NUMBER);
 		ring_list_adddouble_gc(pVM->pRingState,pList,RING_ZEROF);
 		ring_list_genarray_gc(pVM->pRingState,pList);
-		pList->vGC.lArgNum = RING_TRUE ;
+		pList->vGC.nArgType = RING_VM_NUMBER ;
 		pList->vGC.lDontDelete = RING_TRUE ;
 		pVM->pArgCache[pVM->nArgCacheCount++] = pList ;
 	}

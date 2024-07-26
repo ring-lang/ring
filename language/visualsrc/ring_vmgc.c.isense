@@ -30,7 +30,7 @@ lDontRefAgain: 1
 Type: unsigned int
 lTrackedList: 1
 Type: unsigned int
-lArgNum: 1
+nArgType: 3
 END:
 Type: ListGCData
 struct ListGCData
@@ -249,7 +249,7 @@ ring_list_deleteref_gc
 Type: List *
 pVariable
 Type: int
-nOPCode, nPos
+nOPCode
 Type: RingState *
 pRingState
 ring_list_getrefcontainer

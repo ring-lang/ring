@@ -20,6 +20,6 @@
 		unsigned int lDontRefAgain: 1  ;
 		/* Track Variable List contains Pointer to List Item */
 		unsigned int lTrackedList: 1  ;
-		unsigned int lArgNum: 1  ;
+		unsigned int nArgType: 3  ;
 	} ListGCData ;
 #endif
