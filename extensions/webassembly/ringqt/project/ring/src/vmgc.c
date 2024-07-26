@@ -336,6 +336,7 @@ RING_API void ring_list_clearrefdata ( List *pList )
 	pList->vGC.lDontRefAgain = 0 ;
 	pList->vGC.lTrackedList = 0 ;
 	pList->vGC.lCheckBeforeAssignmentDone = 0 ;
+	pList->vGC.lArgCache = 0 ;
 	pList->vGC.nArgType = RING_VM_NULL ;
 }
 
@@ -644,6 +645,16 @@ void ring_list_setargtype ( List *pList,int nType )
 int ring_list_getargtype ( List *pList )
 {
 	return pList->vGC.nArgType ;
+}
+
+int ring_list_isargcache ( List *pList )
+{
+	return pList->vGC.lArgCache ;
+}
+
+void ring_list_enableargcache ( List *pList )
+{
+	pList->vGC.lArgCache = RING_TRUE ;
 }
 /* Protecting lists */
 

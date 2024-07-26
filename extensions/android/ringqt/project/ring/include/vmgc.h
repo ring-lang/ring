@@ -114,6 +114,10 @@
 	void ring_list_setargtype ( List *pList,int nType ) ;
 
 	int ring_list_getargtype ( List *pList ) ;
+
+	int ring_list_isargcache ( List *pList ) ;
+
+	void ring_list_enableargcache ( List *pList ) ;
 	/* Memory Functions (General) */
 
 	RING_API void * ring_malloc ( size_t nSize ) ;
