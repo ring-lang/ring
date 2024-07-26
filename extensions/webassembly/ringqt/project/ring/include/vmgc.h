@@ -109,6 +109,11 @@
 	RING_API void ring_list_disableerroronassignment2 ( List *pList ) ;
 
 	RING_API int ring_list_iserroronassignment2 ( List *pList ) ;
+	/* Argument Type */
+
+	void ring_list_setargtype ( List *pList,int nType ) ;
+
+	int ring_list_getargtype ( List *pList ) ;
 	/* Memory Functions (General) */
 
 	RING_API void * ring_malloc ( size_t nSize ) ;

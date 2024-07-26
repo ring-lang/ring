@@ -285,6 +285,8 @@ ring_list_isnewref
 ring_list_isdontrefagain
 ring_list_enabledontrefagain
 ring_list_disabledontrefagain
+ring_list_setargtype
+ring_list_getargtype
 ring_list_enableerroronassignment
 ring_list_disableerroronassignment
 ring_list_iserroronassignment

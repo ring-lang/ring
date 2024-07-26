@@ -634,6 +634,17 @@ RING_API void ring_list_disabledontrefagain ( List *pList )
 {
 	pList->vGC.lDontRefAgain = 0 ;
 }
+/* Argument Type */
+
+void ring_list_setargtype ( List *pList,int nType )
+{
+	pList->vGC.nArgType = nType ;
+}
+
+int ring_list_getargtype ( List *pList )
+{
+	return pList->vGC.nArgType ;
+}
 /* Protecting lists */
 
 RING_API void ring_list_enableerroronassignment ( List *pList )
