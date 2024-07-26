@@ -129,7 +129,7 @@ void ring_vm_loadaddress ( VM *pVM )
 					if ( ring_list_getlist(pVM->pActiveMem,x) == RING_VM_STACK_READP ) {
 						RING_VM_IR_OPCODE = ICO_PUSHARG ;
 						RING_VM_IR_SETINTREG(x);
-						RING_VM_IR_SETSMALLINTREG(ring_list_getsize(((List *) RING_VM_STACK_READP)));
+						RING_VM_IR_SETSMALLINTREG(ring_list_getargtype(((List *) RING_VM_STACK_READP)));
 						/* Check if we have ICO_PUSHV */
 						RING_VM_IR_SETFLAGREG2(RING_VM_IR_OPCODEVALUE(pVM->nPC - 1) == ICO_PUSHV);
 						break ;
