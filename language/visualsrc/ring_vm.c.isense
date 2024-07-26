@@ -298,6 +298,10 @@ Type: FuncCall
 aFuncCall[RING_VM_STACK_SIZE]
 Type: List
 aScopes[RING_VM_STACK_SIZE]
+Type: List *
+pArg[100]
+Type: unsigned int
+nCachedArgCount
 END:
 Type: VM
 struct VM

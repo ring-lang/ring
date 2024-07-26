@@ -160,6 +160,9 @@ Type: Item *
 pItem
 Type: List *
 pList2
+ring_list_newlistbyptr_gc
+Type: Item *
+pItem
 ring_list_setfuncpointer_gc
 Type: Item *
 pItem

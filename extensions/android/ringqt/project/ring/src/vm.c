@@ -215,6 +215,8 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->nPausePC = 1 ;
 	/* Tracked List of Variables - Each variable is a pointer to a List item */
 	pVM->pTrackedVariables = ring_list_new_gc(pVM->pRingState,RING_ZERO);
+	/* Cached Arguments */
+	ring_vm_createcachearguments(pVM);
 	return pVM ;
 }
 

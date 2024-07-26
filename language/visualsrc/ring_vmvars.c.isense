@@ -44,6 +44,12 @@ ring_vm_addnewcpointervar
 Type: List *
 pList, *pList2
 ring_vm_deletescope
+Type: List *
+pList
+Type: ListBlocks *
+pArg
+Type: int
+x
 ring_vm_var_setprivateflag
 ring_vm_var_getprivateflag
 ring_vm_copyscopestolist
@@ -65,6 +71,13 @@ Type: List *
 pList, *pParent
 Type: FuncCall *
 pFuncCall
+ring_vm_createcachearguments
+Type: List *
+pList
+Type: ListBlocks *
+pArg
+Type: int
+x
 ring_vm_newglobalscope
 ring_vm_endglobalscope
 ring_vm_setglobalscope

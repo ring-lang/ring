@@ -165,6 +165,8 @@
 		Item aStack[RING_VM_STACK_SIZE]  ;
 		FuncCall aFuncCall[RING_VM_STACK_SIZE]  ;
 		List aScopes[RING_VM_STACK_SIZE]  ;
+		List *pArg[100]  ;
+		unsigned int nCachedArgCount  ;
 	} VM ;
 	/*
 	**  Macro & Constants 
@@ -726,6 +728,8 @@
 	List * ring_vm_addpointerarg ( VM *pVM,const char *cVar,void *pPointer,int nType ) ;
 
 	List * ring_vm_addlistarg ( VM *pVM,const char *cVar ) ;
+
+	void ring_vm_createcachearguments ( VM *pVM ) ;
 	/* Jump */
 
 	void ring_vm_jumpzero ( VM *pVM ) ;

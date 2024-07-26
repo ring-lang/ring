@@ -499,6 +499,15 @@ RING_API List * ring_list_getlist ( List *pList, unsigned int nIndex )
 	pList2 = ring_item_getlist(pItem);
 	return pList2 ;
 }
+
+RING_API List * ring_list_newlistbyptr_gc ( void *pState,List *pList,List *pNewList )
+{
+	Item *pItem  ;
+	pItem = ring_list_newitem_gc(pState,pList);
+	pItem->nType = ITEMTYPE_LIST ;
+	pItem->data.pList = pNewList ;
+	return ring_item_getlist(pItem) ;
+}
 /* Function Pointers */
 
 RING_API void ring_list_setfuncpointer_gc ( void *pState,List *pList, unsigned int nIndex ,void (*pFunc)(void *) )

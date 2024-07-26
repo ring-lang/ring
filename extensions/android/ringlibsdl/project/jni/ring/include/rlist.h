@@ -117,6 +117,8 @@
 
 	RING_API List * ring_list_getlist ( List *pList, unsigned int nIndex ) ;
 
+	RING_API List * ring_list_newlistbyptr_gc ( void *pState,List *pList,List *pNewList ) ;
+
 	RING_API void ring_list_copy_gc ( void *pState,List *pNewList, List *pList ) ;
 
 	RING_API int ring_list_isnumber ( List *pList, unsigned int nIndex ) ;

@@ -303,7 +303,7 @@ List * ring_vm_newvar2 ( VM *pVM,const char *cStr,List *pParent )
 	ring_list_addstring_gc(pVM->pRingState,pList,RING_CSTR_NULL);
 	/* Pointer Type */
 	ring_list_addint_gc(pVM->pRingState,pList,RING_OBJTYPE_NOTYPE);
-	/* HashTable & Array */
+	/* HashTable */
 	if ( pParent != NULL ) {
 		/* Add Pointer to the HashTable */
 		if ( pParent->pHashTable != NULL ) {
@@ -383,9 +383,30 @@ void ring_vm_addnewcpointervar ( VM *pVM,const char *cStr,void *pPointer,const c
 
 void ring_vm_deletescope ( VM *pVM )
 {
+	List *pList  ;
+	ListBlocks *pArg  ;
+	int x  ;
 	if ( RING_VM_SCOPESCOUNT < 2 ) {
 		printf( RING_NOSCOPE ) ;
 		exit(RING_EXIT_FAIL);
+	}
+	/* Process Lists */
+	for ( x = ring_list_getsize(pVM->pActiveMem) ; x >= 1 ; x-- ) {
+		if ( ring_list_islist(pVM->pActiveMem,x) ) {
+			pList = ring_list_getlist(pVM->pActiveMem,x);
+			/* Check adding numeric arguments to the cache */
+			if ( pList->vGC.lArgNum ) {
+				if ( ! ring_list_isdouble(pList,RING_VAR_VALUE) ) {
+					ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_NUMBER);
+					ring_list_setdouble_gc(pVM->pRingState,pList,RING_VAR_VALUE,RING_ZERO);
+					while ( ring_list_getsize(pList) > RING_VAR_VALUE ) {
+						ring_list_deletelastitem_gc(pVM->pRingState,pList);
+					}
+				}
+				pVM->pArg[pVM->nCachedArgCount++] = pList ;
+				continue ;
+			}
+		}
 	}
 	RING_VM_DELETELASTSCOPE ;
 	pVM->pActiveMem = RING_VM_GETLASTSCOPE ;
@@ -438,11 +459,17 @@ List * ring_vm_addnumberarg ( VM *pVM,const char *cVar,double nNumber )
 {
 	List *pList, *pParent  ;
 	pParent = pVM->pActiveMem ;
-	pList = ring_list_newlist_gc(pVM->pRingState,pParent);
-	ring_list_addstring_gc(pVM->pRingState,pList,cVar);
-	ring_list_addint_gc(pVM->pRingState,pList,RING_VM_NUMBER);
-	ring_list_adddouble_gc(pVM->pRingState,pList,nNumber);
-	pList->vGC.lArgNum = RING_TRUE ;
+	if ( ! pVM->nCachedArgCount ) {
+		pList = ring_list_newlist_gc(pVM->pRingState,pParent);
+		ring_list_addstring_gc(pVM->pRingState,pList,cVar);
+		ring_list_addint_gc(pVM->pRingState,pList,RING_VM_NUMBER);
+		ring_list_adddouble_gc(pVM->pRingState,pList,nNumber);
+	}
+	else {
+		pList = ring_list_newlistbyptr_gc(pVM->pRingState,pParent,pVM->pArg[--(pVM->nCachedArgCount)]);
+		ring_list_setstring_gc(pVM->pRingState,pList,RING_VAR_NAME,cVar);
+		ring_list_setdouble_gc(pVM->pRingState,pList,RING_VAR_VALUE,nNumber);
+	}
 	/* Add Pointer to the HashTable */
 	if ( pParent->pHashTable != NULL ) {
 		ring_hashtable_newpointer_gc(pVM->pRingState,pParent->pHashTable,cVar,pList);
@@ -488,6 +515,25 @@ List * ring_vm_addlistarg ( VM *pVM,const char *cVar )
 		ring_hashtable_newpointer_gc(pVM->pRingState,pParent->pHashTable,cVar,pList);
 	}
 	return pList ;
+}
+
+void ring_vm_createcachearguments ( VM *pVM )
+{
+	List *pList  ;
+	ListBlocks *pArg  ;
+	int x  ;
+	pVM->nCachedArgCount = 0 ;
+	for ( x = 1 ; x <= 100 ; x++ ) {
+		/* Create the Argument List */
+		pList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
+		ring_list_addstring_gc(pVM->pRingState,pList,RING_CSTR_EMPTY);
+		ring_list_addint_gc(pVM->pRingState,pList,RING_VM_NUMBER);
+		ring_list_adddouble_gc(pVM->pRingState,pList,RING_ZEROF);
+		ring_list_genarray_gc(pVM->pRingState,pList);
+		pList->vGC.lArgNum = RING_TRUE ;
+		pList->vGC.lDontDelete = RING_TRUE ;
+		pVM->pArg[pVM->nCachedArgCount++] = pList ;
+	}
 }
 
 void ring_vm_newglobalscope ( VM *pVM )
