@@ -270,6 +270,8 @@ VM * ring_vm_delete ( VM *pVM )
 	pVM->pDeleteLater = ring_list_delete_gc(pVM->pRingState,pVM->pDeleteLater);
 	pVM->pDefinedGlobals = ring_list_delete_gc(pVM->pRingState,pVM->pDefinedGlobals);
 	pVM->pTrackedVariables = ring_list_delete_gc(pVM->pRingState,pVM->pTrackedVariables);
+	/* Delete Arguments Cache */
+	ring_vm_deleteargcache(pVM);
 	pVM->pRingState->pVM = NULL ;
 	ring_state_free(pVM->pRingState,pVM);
 	pVM = NULL ;

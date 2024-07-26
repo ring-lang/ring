@@ -57,6 +57,16 @@ Type: List *
 pNewList
 Type: int
 x
+ring_vm_newargcache
+Type: int
+x
+Type: List *
+pList
+ring_vm_deleteargcache
+Type: int
+x
+Type: List *
+pList
 ring_vm_addstringarg
 Type: List *
 pList, *pParent
@@ -71,13 +81,6 @@ Type: List *
 pList, *pParent
 Type: FuncCall *
 pFuncCall
-ring_vm_createargcache
-Type: List *
-pList
-Type: ListBlocks *
-pArg
-Type: int
-x
 ring_vm_newglobalscope
 ring_vm_endglobalscope
 ring_vm_setglobalscope

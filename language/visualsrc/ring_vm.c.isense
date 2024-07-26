@@ -302,7 +302,7 @@ aFuncCall[RING_VM_STACK_SIZE]
 Type: List
 aScopes[RING_VM_STACK_SIZE]
 Type: List *
-pArg[RING_VM_ARGCACHE_SIZE]
+pArgCache[RING_VM_ARGCACHE_SIZE]
 END:
 Type: VM
 struct VM

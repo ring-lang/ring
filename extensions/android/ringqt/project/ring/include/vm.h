@@ -722,6 +722,10 @@
 	void ring_vm_copyscopestolist ( VM *pVM,List *pList ) ;
 	/* Parameters */
 
+	void ring_vm_newargcache ( VM *pVM ) ;
+
+	void ring_vm_deleteargcache ( VM *pVM ) ;
+
 	List * ring_vm_addstringarg ( VM *pVM,const char *cVar,const char *cStr,int nStrSize ) ;
 
 	List * ring_vm_addnumberarg ( VM *pVM,const char *cVar,double nNumber ) ;
@@ -729,8 +733,6 @@
 	List * ring_vm_addpointerarg ( VM *pVM,const char *cVar,void *pPointer,int nType ) ;
 
 	List * ring_vm_addlistarg ( VM *pVM,const char *cVar ) ;
-
-	void ring_vm_newargcache ( VM *pVM ) ;
 	/* Jump */
 
 	void ring_vm_jumpzero ( VM *pVM ) ;
