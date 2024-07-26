@@ -205,6 +205,18 @@ void ring_vm_gc_listpointerisnotmine ( List *pList,int nIndex )
 	pItem = ring_list_getitem(pList,nIndex);
 	ring_vm_gc_setfreefunc(pItem,NULL);
 }
+
+void ring_vm_gc_removetrack ( RingState *pState,List *pList )
+{
+	int nPos  ;
+	if ( pList->vGC.lTrackedList ) {
+		nPos = ring_list_findpointer(pState->pVM->pTrackedVariables,pList) ;
+		if ( nPos ) {
+			ring_list_deleteitem_gc(pState,pState->pVM->pTrackedVariables,nPos);
+		}
+		pList->vGC.lTrackedList = RING_FALSE ;
+	}
+}
 /*
 **  List GC Functions 
 **  Copy list by Reference 
@@ -330,7 +342,7 @@ RING_API void ring_list_clearrefdata ( List *pList )
 RING_API List * ring_list_deleteref_gc ( void *pState,List *pList )
 {
 	List *pVariable  ;
-	int nOPCode, nPos  ;
+	int nOPCode  ;
 	RingState *pRingState  ;
 	pRingState = (RingState *) pState ;
 	/* Check lDontDelete (Used by Container Variables) */
@@ -372,12 +384,7 @@ RING_API List * ring_list_deleteref_gc ( void *pState,List *pList )
 		return NULL ;
 	}
 	/* Check if the list is a tracked list */
-	if ( pList->vGC.lTrackedList ) {
-		nPos = ring_list_findpointer(pRingState->pVM->pTrackedVariables,pList) ;
-		if ( nPos ) {
-			ring_list_deleteitem_gc(pRingState,pRingState->pVM->pTrackedVariables,nPos);
-		}
-	}
+	ring_vm_gc_removetrack(pRingState,pList);
 	ring_list_deletecontent_gc(pState,pList);
 	return NULL ;
 }

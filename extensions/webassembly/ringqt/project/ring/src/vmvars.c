@@ -396,13 +396,22 @@ void ring_vm_deletescope ( VM *pVM )
 			pList = ring_list_getlist(pVM->pActiveMem,x);
 			/* Check adding numeric arguments to the cache */
 			if ( pList->vGC.lArgNum ) {
-				if ( ! ring_list_isdouble(pList,RING_VAR_VALUE) ) {
+				if ( ! ring_list_isnumber(pList,RING_VAR_VALUE) ) {
 					ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_NUMBER);
 					ring_list_setdouble_gc(pVM->pRingState,pList,RING_VAR_VALUE,RING_ZERO);
 					while ( ring_list_getsize(pList) > RING_VAR_VALUE ) {
 						ring_list_deletelastitem_gc(pVM->pRingState,pList);
 					}
 				}
+				/*
+				**  Reset flag that (For-In) could set when using var name similar to argument name 
+				**  If we don't do that here, the tracking flag could be True 
+				**  And calling ring_vm_deleteargcache() will try to delete the list 
+				**  The delete operation will check this flag and if it's true it will call ring_vm_gc_removetrack 
+				**  And this function assume pVM->pTrackedList exist 
+				**  But it's deleted before calling ring_vm_deleteargcache inside ring_vm_delete 
+				*/
+				ring_vm_gc_removetrack(pVM->pRingState,pList);
 				pVM->pArgCache[pVM->nArgCacheCount++] = pList ;
 				continue ;
 			}

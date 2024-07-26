@@ -65,8 +65,6 @@ pList
 ring_vm_deleteargcache
 Type: int
 x
-Type: List *
-pList
 ring_vm_addstringarg
 Type: List *
 pList, *pParent

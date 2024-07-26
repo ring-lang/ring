@@ -224,6 +224,9 @@ pItem
 ring_vm_gc_listpointerisnotmine
 Type: Item *
 pItem
+ring_vm_gc_removetrack
+Type: int
+nPos
 ring_list_iscopybyref
 ring_list_enablecopybyref
 ring_list_disablecopybyref
