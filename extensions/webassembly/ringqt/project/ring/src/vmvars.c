@@ -395,14 +395,7 @@ void ring_vm_deletescope ( VM *pVM )
 		if ( ring_list_islist(pVM->pActiveMem,x) ) {
 			pList = ring_list_getlist(pVM->pActiveMem,x);
 			/* Check adding numeric arguments to the cache */
-			if ( ring_list_isargcache(pList) && (ring_list_getargtype(pList) == RING_VM_NUMBER) ) {
-				if ( ! ring_list_isnumber(pList,RING_VAR_VALUE) ) {
-					ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_NUMBER);
-					ring_list_setdouble_gc(pVM->pRingState,pList,RING_VAR_VALUE,RING_ZERO);
-					while ( ring_list_getsize(pList) > RING_VAR_VALUE ) {
-						ring_list_deletelastitem_gc(pVM->pRingState,pList);
-					}
-				}
+			if ( ring_list_isargcache(pList) ) {
 				/*
 				**  Reset flag that (For-In) could set when using var name similar to argument name 
 				**  If we don't do that here, the tracking flag could be True 
@@ -506,6 +499,7 @@ List * ring_vm_addnumberarg ( VM *pVM,const char *cVar,double nNumber )
 	else {
 		pList = ring_list_newlistbyptr_gc(pVM->pRingState,pParent,pVM->pArgCache[--(pVM->nArgCacheCount)]);
 		ring_list_setstring_gc(pVM->pRingState,pList,RING_VAR_NAME,cVar);
+		ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_NUMBER);
 		ring_list_setdouble_gc(pVM->pRingState,pList,RING_VAR_VALUE,nNumber);
 	}
 	ring_list_setargtype(pList,RING_VM_NUMBER);
