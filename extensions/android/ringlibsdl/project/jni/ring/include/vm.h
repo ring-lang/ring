@@ -730,7 +730,7 @@
 
 	List * ring_vm_addlistarg ( VM *pVM,const char *cVar ) ;
 
-	void ring_vm_createcachearguments ( VM *pVM ) ;
+	void ring_vm_newargcache ( VM *pVM ) ;
 	/* Jump */
 
 	void ring_vm_jumpzero ( VM *pVM ) ;

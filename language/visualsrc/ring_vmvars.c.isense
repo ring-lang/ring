@@ -71,7 +71,7 @@ Type: List *
 pList, *pParent
 Type: FuncCall *
 pFuncCall
-ring_vm_createcachearguments
+ring_vm_createargcache
 Type: List *
 pList
 Type: ListBlocks *

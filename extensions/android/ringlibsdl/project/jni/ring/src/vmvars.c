@@ -517,7 +517,7 @@ List * ring_vm_addlistarg ( VM *pVM,const char *cVar )
 	return pList ;
 }
 
-void ring_vm_createcachearguments ( VM *pVM )
+void ring_vm_newargcache ( VM *pVM )
 {
 	List *pList  ;
 	ListBlocks *pArg  ;
