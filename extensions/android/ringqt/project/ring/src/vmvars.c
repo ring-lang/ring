@@ -403,7 +403,7 @@ void ring_vm_deletescope ( VM *pVM )
 						ring_list_deletelastitem_gc(pVM->pRingState,pList);
 					}
 				}
-				pVM->pArg[pVM->nCachedArgCount++] = pList ;
+				pVM->pArgCache[pVM->nArgCacheCount++] = pList ;
 				continue ;
 			}
 		}
@@ -459,14 +459,14 @@ List * ring_vm_addnumberarg ( VM *pVM,const char *cVar,double nNumber )
 {
 	List *pList, *pParent  ;
 	pParent = pVM->pActiveMem ;
-	if ( ! pVM->nCachedArgCount ) {
+	if ( ! pVM->nArgCacheCount ) {
 		pList = ring_list_newlist_gc(pVM->pRingState,pParent);
 		ring_list_addstring_gc(pVM->pRingState,pList,cVar);
 		ring_list_addint_gc(pVM->pRingState,pList,RING_VM_NUMBER);
 		ring_list_adddouble_gc(pVM->pRingState,pList,nNumber);
 	}
 	else {
-		pList = ring_list_newlistbyptr_gc(pVM->pRingState,pParent,pVM->pArg[--(pVM->nCachedArgCount)]);
+		pList = ring_list_newlistbyptr_gc(pVM->pRingState,pParent,pVM->pArgCache[--(pVM->nArgCacheCount)]);
 		ring_list_setstring_gc(pVM->pRingState,pList,RING_VAR_NAME,cVar);
 		ring_list_setdouble_gc(pVM->pRingState,pList,RING_VAR_VALUE,nNumber);
 	}
@@ -522,8 +522,8 @@ void ring_vm_createcachearguments ( VM *pVM )
 	List *pList  ;
 	ListBlocks *pArg  ;
 	int x  ;
-	pVM->nCachedArgCount = 0 ;
-	for ( x = 1 ; x <= 100 ; x++ ) {
+	pVM->nArgCacheCount = 0 ;
+	for ( x = 1 ; x <= RING_VM_ARGCACHE_SIZE ; x++ ) {
 		/* Create the Argument List */
 		pList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 		ring_list_addstring_gc(pVM->pRingState,pList,RING_CSTR_EMPTY);
@@ -532,7 +532,7 @@ void ring_vm_createcachearguments ( VM *pVM )
 		ring_list_genarray_gc(pVM->pRingState,pList);
 		pList->vGC.lArgNum = RING_TRUE ;
 		pList->vGC.lDontDelete = RING_TRUE ;
-		pVM->pArg[pVM->nCachedArgCount++] = pList ;
+		pVM->pArgCache[pVM->nArgCacheCount++] = pList ;
 	}
 }
 

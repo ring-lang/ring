@@ -14,6 +14,7 @@
 		#define RING_VM_STACK_CHECKOVERFLOW 1000
 	#endif
 	#define RING_VM_FREE_STACK_IN_CLASS_REGION_AFTER 100
+	#define RING_VM_ARGCACHE_SIZE 100
 	#define RING_VM_BC_ITEMS_COUNT 2
 	#define RING_VM_MAXDIGITSINNUMBER 15
 	/* Register Type */
@@ -126,6 +127,7 @@
 		unsigned int nEvalReturnPC  ;
 		unsigned int nPC  ;
 		unsigned int nPausePC  ;
+		unsigned int nArgCacheCount  ;
 		unsigned char nInsideEval  ;
 		unsigned char nInClassRegion  ;
 		unsigned char nGetSetObjType  ;
@@ -165,8 +167,7 @@
 		Item aStack[RING_VM_STACK_SIZE]  ;
 		FuncCall aFuncCall[RING_VM_STACK_SIZE]  ;
 		List aScopes[RING_VM_STACK_SIZE]  ;
-		List *pArg[100]  ;
-		unsigned int nCachedArgCount  ;
+		List *pArgCache[RING_VM_ARGCACHE_SIZE]  ;
 	} VM ;
 	/*
 	**  Macro & Constants 

@@ -4,6 +4,7 @@ RING_VM_STACK_CHECKOVERFLOW
 RING_VM_STACK_SIZE
 RING_VM_STACK_CHECKOVERFLOW
 RING_VM_FREE_STACK_IN_CLASS_REGION_AFTER
+RING_VM_ARGCACHE_SIZE
 RING_VM_BC_ITEMS_COUNT
 RING_VM_MAXDIGITSINNUMBER
 RING_VM_REGTYPE_NOTHING
@@ -220,6 +221,8 @@ Type: unsigned int
 nPC
 Type: unsigned int
 nPausePC
+Type: unsigned int
+nArgCacheCount
 Type: unsigned char
 nInsideEval
 Type: unsigned char
@@ -299,9 +302,7 @@ aFuncCall[RING_VM_STACK_SIZE]
 Type: List
 aScopes[RING_VM_STACK_SIZE]
 Type: List *
-pArg[100]
-Type: unsigned int
-nCachedArgCount
+pArg[RING_VM_ARGCACHE_SIZE]
 END:
 Type: VM
 struct VM
