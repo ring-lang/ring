@@ -87,6 +87,7 @@ Type: Items *
 pItems,*pItemsNext
 Type: ListBlocks *
 pBlocks
+ring_list_finishdelete_gc
 ring_list_copy_tohighlevel_gc
 Type: unsigned int
 x

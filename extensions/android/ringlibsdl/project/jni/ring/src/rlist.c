@@ -97,7 +97,6 @@ RING_API void ring_list_copy_gc ( void *pState,List *pNewList, List *pList )
 RING_API void ring_list_deleteallitems_gc ( void *pState,List *pList )
 {
 	Items *pItems,*pItemsNext  ;
-	ListBlocks *pBlocks  ;
 	pItems = pList->pLast ;
 	if ( pItems != NULL ) {
 		pItemsNext = pItems ;
@@ -111,6 +110,12 @@ RING_API void ring_list_deleteallitems_gc ( void *pState,List *pList )
 	pList->pFirst = NULL ;
 	pList->pLast = NULL ;
 	pList->nSize = 0 ;
+	ring_list_finishdelete_gc(pState,pList);
+}
+
+RING_API void ring_list_finishdelete_gc ( void *pState,List *pList )
+{
+	ListBlocks *pBlocks  ;
 	ring_list_clearcache(pState,pList);
 	/* Free HashTable */
 	if ( pList->pHashTable != NULL ) {

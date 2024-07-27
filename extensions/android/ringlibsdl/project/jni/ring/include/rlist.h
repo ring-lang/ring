@@ -130,6 +130,8 @@
 	RING_API int ring_list_ispointer ( List *pList, unsigned int nIndex ) ;
 
 	RING_API void ring_list_deleteallitems_gc ( void *pState,List *pList ) ;
+
+	RING_API void ring_list_finishdelete_gc ( void *pState,List *pList ) ;
 	/* Insert Items */
 
 	RING_API void ring_list_insertitem_gc ( void *pState,List *pList,unsigned int x ) ;
