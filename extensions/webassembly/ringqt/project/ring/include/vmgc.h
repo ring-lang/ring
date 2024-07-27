@@ -118,6 +118,11 @@
 	int ring_list_isargcache ( List *pList ) ;
 
 	void ring_list_enableargcache ( List *pList ) ;
+	/* Don't Delete */
+
+	RING_API void ring_list_enabledontdelete ( List *pList ) ;
+
+	RING_API void ring_list_disabledontdelete ( List *pList ) ;
 	/* Memory Functions (General) */
 
 	RING_API void * ring_malloc ( size_t nSize ) ;

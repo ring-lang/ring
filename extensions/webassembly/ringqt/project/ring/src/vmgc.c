@@ -756,6 +756,16 @@ RING_API void ring_list_disableerroronassignment2 ( List *pList )
 {
 	pList->vGC.lErrorOnAssignment2 = 0 ;
 }
+
+RING_API void ring_list_enabledontdelete ( List *pList )
+{
+	pList->vGC.lDontDelete = RING_TRUE ;
+}
+
+RING_API void ring_list_disabledontdelete ( List *pList )
+{
+	pList->vGC.lDontDelete = RING_FALSE ;
+}
 /* Memory Functions (General) */
 
 RING_API void * ring_malloc ( size_t nSize )

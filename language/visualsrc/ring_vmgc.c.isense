@@ -287,8 +287,8 @@ ring_list_isnewref
 ring_list_isdontrefagain
 ring_list_enabledontrefagain
 ring_list_disabledontrefagain
-ring_list_setargtype
-ring_list_getargtype
+ring_list_setlisttype
+ring_list_getlisttype
 ring_list_isargcache
 ring_list_enableargcache
 ring_list_enableerroronassignment
@@ -312,6 +312,8 @@ pList
 ring_list_iserroronassignment2
 ring_list_enableerroronassignment2
 ring_list_disableerroronassignment2
+ring_list_enabledontdelete
+ring_list_disabledontdelete
 ring_malloc
 Type: void *
 pMemory

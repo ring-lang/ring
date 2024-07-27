@@ -460,7 +460,7 @@ void ring_vm_newargcache ( VM *pVM )
 		ring_list_genarray_gc(pVM->pRingState,pList);
 		ring_list_enableargcache(pList);
 		ring_list_setlisttype(pList,RING_VM_NUMBER);
-		pList->vGC.lDontDelete = RING_TRUE ;
+		ring_list_enabledontdelete(pList);
 		pVM->pArgCache[pVM->nArgCacheCount++] = pList ;
 	}
 }
@@ -469,7 +469,7 @@ void ring_vm_deleteargcache ( VM *pVM )
 {
 	int x  ;
 	for ( x = 0 ; x < RING_VM_ARGCACHE_SIZE ; x++ ) {
-		pVM->pArgCache[x]->vGC.lDontDelete = RING_FALSE ;
+		ring_list_disabledontdelete(pVM->pArgCache[x]);
 		pVM->pArgCache[x] = ring_list_delete_gc(pVM->pRingState,pVM->pArgCache[x]);
 	}
 }
