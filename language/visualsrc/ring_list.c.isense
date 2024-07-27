@@ -101,6 +101,7 @@ ring_list_setcache
 ring_list_newitem_gc
 Type: Items *
 pItems
+ring_list_newitembyitemsptr_gc
 ring_list_getitem
 Type: Items *
 pItems

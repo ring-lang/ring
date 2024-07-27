@@ -214,6 +214,12 @@ RING_API Item * ring_list_newitem_gc ( void *pState,List *pList )
 {
 	Items *pItems  ;
 	pItems = ring_items_new_gc(pState);
+	ring_list_newitembyitemsptr_gc(pState,pList,pItems);
+	return pItems->pValue ;
+}
+
+RING_API void ring_list_newitembyitemsptr_gc ( void *pState,List *pList,Items *pItems )
+{
 	if ( (pList->nSize) > 0 ) {
 		pList->pLast->pNext = pItems ;
 		pItems->pPrev = pList->pLast ;
@@ -226,7 +232,6 @@ RING_API Item * ring_list_newitem_gc ( void *pState,List *pList )
 		pList->pLast = pItems ;
 	}
 	pList->nSize++ ;
-	return pItems->pValue ;
 }
 
 RING_API Item * ring_list_getitem ( List *pList,unsigned int nIndex )
