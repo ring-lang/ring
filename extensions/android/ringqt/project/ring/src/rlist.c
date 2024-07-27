@@ -218,14 +218,14 @@ RING_API Item * ring_list_newitem_gc ( void *pState,List *pList )
 		pList->pLast->pNext = pItems ;
 		pItems->pPrev = pList->pLast ;
 		pList->pLast = pItems ;
+		/* Refresh The Cache */
+		ring_list_clearcache(pState,pList);
 	}
 	else {
 		pList->pFirst = pItems ;
 		pList->pLast = pItems ;
 	}
 	pList->nSize++ ;
-	/* Refresh The Cache */
-	ring_list_clearcache(pState,pList);
 	return pItems->pValue ;
 }
 
@@ -511,7 +511,7 @@ RING_API List * ring_list_newlistbyptr_gc ( void *pState,List *pList,List *pNewL
 	pItem = ring_list_newitem_gc(pState,pList);
 	pItem->nType = ITEMTYPE_LIST ;
 	pItem->data.pList = pNewList ;
-	return ring_item_getlist(pItem) ;
+	return pNewList ;
 }
 /* Function Pointers */
 
