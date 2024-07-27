@@ -405,6 +405,9 @@ void ring_vm_deletescope ( VM *pVM )
 				**  But it's deleted before calling ring_vm_deleteargcache inside ring_vm_delete 
 				*/
 				ring_vm_gc_removetrack(pVM->pRingState,pList);
+				/* Clean Memory */
+				ring_vm_gc_checkupdatereference(pVM,pList);
+				ring_list_setdouble_gc(pVM->pRingState,pList,RING_VAR_VALUE,RING_ZEROF);
 				pVM->pArgCache[pVM->nArgCacheCount++] = pList ;
 				continue ;
 			}
@@ -453,7 +456,6 @@ void ring_vm_newargcache ( VM *pVM )
 		ring_list_addstring_gc(pVM->pRingState,pList,RING_CSTR_EMPTY);
 		ring_list_addint_gc(pVM->pRingState,pList,RING_VM_NUMBER);
 		ring_list_adddouble_gc(pVM->pRingState,pList,RING_ZEROF);
-		ring_list_addint_gc(pVM->pRingState,pList,RING_ZERO);
 		ring_list_addint_gc(pVM->pRingState,pList,RING_ZERO);
 		ring_list_genarray_gc(pVM->pRingState,pList);
 		ring_list_enableargcache(pList);
@@ -524,11 +526,20 @@ List * ring_vm_addpointerarg ( VM *pVM,const char *cVar,void *pPointer,int nType
 {
 	List *pList, *pParent  ;
 	pParent = pVM->pActiveMem ;
-	pList = ring_list_newlist_gc(pVM->pRingState,pParent);
-	ring_list_addstring_gc(pVM->pRingState,pList,cVar);
-	ring_list_addint_gc(pVM->pRingState,pList,RING_VM_POINTER);
-	ring_list_addpointer_gc(pVM->pRingState,pList,pPointer);
-	ring_list_addint_gc(pVM->pRingState,pList,nType);
+	if ( ! pVM->nArgCacheCount ) {
+		pList = ring_list_newlist_gc(pVM->pRingState,pParent);
+		ring_list_addstring_gc(pVM->pRingState,pList,cVar);
+		ring_list_addint_gc(pVM->pRingState,pList,RING_VM_POINTER);
+		ring_list_addpointer_gc(pVM->pRingState,pList,pPointer);
+		ring_list_addint_gc(pVM->pRingState,pList,nType);
+	}
+	else {
+		pList = ring_list_newlistbyptr_gc(pVM->pRingState,pParent,pVM->pArgCache[--(pVM->nArgCacheCount)]);
+		ring_list_setstring_gc(pVM->pRingState,pList,RING_VAR_NAME,cVar);
+		ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_POINTER);
+		ring_list_setpointer_gc(pVM->pRingState,pList,RING_VAR_VALUE,pPointer);
+		ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_PVALUETYPE,nType);
+	}
 	ring_list_setargtype(pList,RING_VM_POINTER);
 	/* Reference Counting */
 	ring_vm_gc_checknewreference(pVM,pPointer,nType,pList,RING_VAR_VALUE);
