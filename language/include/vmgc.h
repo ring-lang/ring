@@ -111,9 +111,9 @@
 	RING_API int ring_list_iserroronassignment2 ( List *pList ) ;
 	/* Argument Type */
 
-	void ring_list_setargtype ( List *pList,int nType ) ;
+	void ring_list_setlisttype ( List *pList,int nType ) ;
 
-	int ring_list_getargtype ( List *pList ) ;
+	int ring_list_getlisttype ( List *pList ) ;
 
 	int ring_list_isargcache ( List *pList ) ;
 

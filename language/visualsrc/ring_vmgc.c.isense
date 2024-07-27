@@ -32,7 +32,7 @@ lTrackedList: 1
 Type: unsigned int
 lArgCache: 1
 Type: unsigned int
-nArgType: 3
+nListType: 3
 END:
 Type: ListGCData
 struct ListGCData
@@ -200,7 +200,6 @@ PoolManager *
 ring_gc_h
 ring_vm_gc_cleardata(pItem)
 ring_vm_gc_newitemreference(pItem)
-ring_list_enableargcache
 ring_vm_gc_checknewreference
 Type: Item *
 pItem

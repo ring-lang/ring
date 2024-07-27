@@ -459,7 +459,7 @@ void ring_vm_newargcache ( VM *pVM )
 		ring_list_addint_gc(pVM->pRingState,pList,RING_ZERO);
 		ring_list_genarray_gc(pVM->pRingState,pList);
 		ring_list_enableargcache(pList);
-		ring_list_setargtype(pList,RING_VM_NUMBER);
+		ring_list_setlisttype(pList,RING_VM_NUMBER);
 		pList->vGC.lDontDelete = RING_TRUE ;
 		pVM->pArgCache[pVM->nArgCacheCount++] = pList ;
 	}
@@ -490,7 +490,7 @@ List * ring_vm_addstringarg ( VM *pVM,const char *cVar,const char  *cStr,int nSt
 		ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_STRING);
 		ring_list_setstring2_gc(pVM->pRingState,pList,RING_VAR_VALUE,cStr,nStrSize);
 	}
-	ring_list_setargtype(pList,RING_VM_STRING);
+	ring_list_setlisttype(pList,RING_VM_STRING);
 	/* Add Pointer to the HashTable */
 	if ( pParent->pHashTable != NULL ) {
 		ring_hashtable_newpointer_gc(pVM->pRingState,pParent->pHashTable,cVar,pList);
@@ -514,7 +514,7 @@ List * ring_vm_addnumberarg ( VM *pVM,const char *cVar,double nNumber )
 		ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_NUMBER);
 		ring_list_setdouble_gc(pVM->pRingState,pList,RING_VAR_VALUE,nNumber);
 	}
-	ring_list_setargtype(pList,RING_VM_NUMBER);
+	ring_list_setlisttype(pList,RING_VM_NUMBER);
 	/* Add Pointer to the HashTable */
 	if ( pParent->pHashTable != NULL ) {
 		ring_hashtable_newpointer_gc(pVM->pRingState,pParent->pHashTable,cVar,pList);
@@ -540,7 +540,7 @@ List * ring_vm_addpointerarg ( VM *pVM,const char *cVar,void *pPointer,int nType
 		ring_list_setpointer_gc(pVM->pRingState,pList,RING_VAR_VALUE,pPointer);
 		ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_PVALUETYPE,nType);
 	}
-	ring_list_setargtype(pList,RING_VM_POINTER);
+	ring_list_setlisttype(pList,RING_VM_POINTER);
 	/* Reference Counting */
 	ring_vm_gc_checknewreference(pVM,pPointer,nType,pList,RING_VAR_VALUE);
 	/* Add Pointer to the HashTable */
@@ -573,7 +573,7 @@ List * ring_vm_addlistarg ( VM *pVM,const char *cVar )
 		ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_LIST);
 		ring_list_setlist_gc(pVM->pRingState,pList,RING_VAR_VALUE);
 	}
-	ring_list_setargtype(pList,RING_VM_LIST);
+	ring_list_setlisttype(pList,RING_VM_LIST);
 	/* Add Pointer to the HashTable */
 	if ( pParent->pHashTable != NULL ) {
 		ring_hashtable_newpointer_gc(pVM->pRingState,pParent->pHashTable,cVar,pList);

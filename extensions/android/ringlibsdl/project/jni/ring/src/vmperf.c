@@ -30,7 +30,7 @@ void ring_vm_pusharg ( VM *pVM )
 	List *pList  ;
 	pList = ring_list_getlist(pVM->pActiveMem,RING_VM_IR_GETINTREG);
 	/* Check if the variable list contains another type */
-	if ( ring_list_getargtype(pList) != RING_VM_IR_GETSMALLINTREG ) {
+	if ( ring_list_getlisttype(pList) != RING_VM_IR_GETSMALLINTREG ) {
 		RING_VM_IR_OPCODE = ICO_LOADADDRESS ;
 		RING_VM_IR_SETFLAGREG(RING_FALSE);
 		ring_vm_loadaddress(pVM);

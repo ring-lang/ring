@@ -337,7 +337,7 @@ RING_API void ring_list_clearrefdata ( List *pList )
 	pList->vGC.lTrackedList = 0 ;
 	pList->vGC.lCheckBeforeAssignmentDone = 0 ;
 	pList->vGC.lArgCache = 0 ;
-	pList->vGC.nArgType = RING_VM_NULL ;
+	pList->vGC.nListType = 0 ;
 }
 
 RING_API List * ring_list_deleteref_gc ( void *pState,List *pList )
@@ -637,14 +637,14 @@ RING_API void ring_list_disabledontrefagain ( List *pList )
 }
 /* Argument Type */
 
-void ring_list_setargtype ( List *pList,int nType )
+void ring_list_setlisttype ( List *pList,int nType )
 {
-	pList->vGC.nArgType = nType ;
+	pList->vGC.nListType = nType ;
 }
 
-int ring_list_getargtype ( List *pList )
+int ring_list_getlisttype ( List *pList )
 {
-	return pList->vGC.nArgType ;
+	return pList->vGC.nListType ;
 }
 
 int ring_list_isargcache ( List *pList )
