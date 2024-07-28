@@ -20,6 +20,8 @@ func main
 	# Merge the two lists (Requires at least Ring 1.20)
 
 		Add(aList,aList2,True)
+		aList + (cDir+"\tests\tryccode\test.h")
+		aList + (cDir+"\tests\tryccode\test.c")
 
 	# Process the Files 
 
