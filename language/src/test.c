@@ -267,20 +267,20 @@ void ring_hashtable_test ( void )
 
 void ring_structuressize ( void )
 {
-	printf( "(RingState) structure size: %d \n",sizeof(RingState) ) ;
-	printf( "(PoolData) structure size: %d \n",sizeof(PoolData) ) ;
-	printf( "(PoolManager) structure  size: %d \n",sizeof(PoolManager) ) ;
-	printf( "(String) structure size: %d \n",sizeof(String) ) ;
-	printf( "(Item) structure size: %d \n",sizeof(Item) ) ;
-	printf( "(Items) structure size: %d \n",sizeof(Items) ) ;
-	printf( "(List) structure size: %d \n",sizeof(List) ) ;
-	printf( "(HashItem) structure size: %d \n",sizeof(HashItem) ) ;
-	printf( "(HashTable) structure size: %d \n",sizeof(HashTable) ) ;
-	printf( "(Scanner) structure size: %d \n",sizeof(Scanner) ) ;
-	printf( "(Parser) structure size: %d \n",sizeof(Parser) ) ;
-	printf( "(ByteCode) structure size: %d \n",sizeof(ByteCode) ) ;
-	printf( "(VMState) structure size: %d \n",sizeof(VMState) ) ;
-	printf( "(VM) structure size: %d \n",sizeof(VM) ) ;
-	printf( "(Item) structure size + (Items) structure size: %d \n",sizeof(Item)+sizeof(Items) ) ;
-	printf( "(FuncCall) structure size: %d \n",sizeof(FuncCall) ) ;
+	printf( "(RingState) structure size: %zd \n",sizeof(RingState) ) ;
+	printf( "(PoolData) structure size: %zd \n",sizeof(PoolData) ) ;
+	printf( "(PoolManager) structure  size: %zd \n",sizeof(PoolManager) ) ;
+	printf( "(String) structure size: %zd \n",sizeof(String) ) ;
+	printf( "(Item) structure size: %zd \n",sizeof(Item) ) ;
+	printf( "(Items) structure size: %zd \n",sizeof(Items) ) ;
+	printf( "(List) structure size: %zd \n",sizeof(List) ) ;
+	printf( "(HashItem) structure size: %zd \n",sizeof(HashItem) ) ;
+	printf( "(HashTable) structure size: %zd \n",sizeof(HashTable) ) ;
+	printf( "(Scanner) structure size: %zd \n",sizeof(Scanner) ) ;
+	printf( "(Parser) structure size: %zd \n",sizeof(Parser) ) ;
+	printf( "(ByteCode) structure size: %zd \n",sizeof(ByteCode) ) ;
+	printf( "(VMState) structure size: %zd \n",sizeof(VMState) ) ;
+	printf( "(VM) structure size: %zd \n",sizeof(VM) ) ;
+	printf( "(Item) structure size + (Items) structure size: %zd \n",sizeof(Item)+sizeof(Items) ) ;
+	printf( "(FuncCall) structure size: %zd \n",sizeof(FuncCall) ) ;
 }
