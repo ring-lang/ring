@@ -56,6 +56,7 @@ LOCAL_SRC_FILES := $(SDL_PATH)/src/main/android/SDL_android_main.c \
 	$(RING_PATH)/os_e.c \
 	$(RING_PATH)/list_e.c \
 	$(RING_PATH)/meta_e.c \
+	$(RING_PATH)/vminfo_e.c \
 	$(RING_PATH)/ext.c \
 	$(RING_PATH)/dll_e.c \
 	$(RING_PATH)/objfile.c \

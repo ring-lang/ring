@@ -4,6 +4,7 @@
 /* Constants */
 #define RING_VM_LISTFUNCS 1
 #define RING_VM_REFMETA 1
+#define RING_VM_INFO 1
 #define RING_VM_MATH 1
 #define RING_VM_FILE 1
 #define RING_VM_OS 1

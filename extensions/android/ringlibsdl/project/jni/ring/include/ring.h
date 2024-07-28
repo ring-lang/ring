@@ -205,6 +205,9 @@
 		#ifdef RING_VM_REFMETA
 			#include "meta_e.h"
 		#endif
+		#ifdef RING_VM_INFO
+			#include "vminfo_e.h"
+		#endif
 		#ifdef RING_VM_DLL
 			#include "dll_e.h"
 		#endif

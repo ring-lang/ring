@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 #include "ring_qt.h"
 void ring_vm_extension ( RingState *pRingState )
@@ -6,6 +6,10 @@ void ring_vm_extension ( RingState *pRingState )
 	/* Reflection and Meta-programming */
 	#if RING_VM_REFMETA
 	ring_vm_refmeta_loadfunctions(pRingState);
+	#endif
+	/* VM Infor */
+	#if RING_VM_INFO
+	ring_vm_info_loadfunctions(pRingState);
 	#endif
 	/* List Functions */
 	#if RING_VM_LISTFUNCS

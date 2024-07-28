@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2023 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #define RINGFORMOBILE_CLEARSCREEN	0
 #define RINGFORMOBILE_WRITERINGOFILE	0
@@ -56,6 +56,7 @@ extern "C" {
 #include "ring/src/general.c"
 #include "ring/src/state.c"
 #include "ring/src/meta_e.c"
+#include "ring/src/vminfo_e.c"
 #include "ring/src/list_e.c"
 #include "ring/src/os_e.c"
 #include "ring/src/ext.c"
