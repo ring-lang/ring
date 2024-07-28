@@ -9,7 +9,7 @@ void ring_vm_extension ( RingState *pRingState )
 	#endif
 	/* VM Infor */
 	#if RING_VM_INFO
-	ring_vm_vminfo_loadfunctions(pRingState);
+	ring_vm_info_loadfunctions(pRingState);
 	#endif
 	/* List Functions */
 	#if RING_VM_LISTFUNCS
