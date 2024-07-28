@@ -1,0 +1,23 @@
+ring_vm_error
+Type: List *
+pList
+ring_vm_error2
+Type: String *
+pError
+ring_vm_showerrormessage
+Type: int
+x,lFunctionCall,nRecursion,nPos
+Type: char *
+cStr2, *cStr3
+Type: List *
+pList2
+Type: const char *
+cFile, *cFile2
+Type: const char *
+cOldFile
+Type: FuncCall *
+pFuncCall, *pFuncCall2
+ring_vm_setfilename
+ring_vm_traceevent
+Type: FuncCall *
+pFuncCall

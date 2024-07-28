@@ -1,0 +1,41 @@
+ring_vm_eval
+Type: int
+nPC,nCont,nLastPC,nRunVM,x,nSize,nMark,nIns,lUpdate
+Type: Scanner *
+pScanner
+aPara
+Type: List *
+pIR
+ring_vm_returneval
+Type: int
+aPara[2]
+ring_vm_mainloopforeval
+Type: int
+nDontDelete,nType,nOut,nSP,nFuncSP,nCFuncSP,nCFuncParaCount,nInClassRegion,nInsideEval,nStartPC
+Type: List *
+pStackList
+Type: double
+nNumber
+Type: String *
+pString
+Type: void *
+pPointer, *pAssignment
+ring_vm_runcode
+Type: int
+nEvalReturnPC,lEvalReallocationFlag,nPC,nRunVM,nSP,nFuncSP,nCFuncSP,nCFuncParaCount,nLineNumber
+Type: List *
+pStackList
+ring_vm_cleanevalcode
+Type: int
+nExtraSize
+Type: ByteCode *
+pByteCode
+ring_vm_useextrabytecode
+Type: int
+x, nLastPC
+ring_vm_callfuncwithouteval
+Type: int
+nPC
+ring_vm_callfunction
+Type: int
+nCurrentFuncCall
