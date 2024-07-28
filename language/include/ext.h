@@ -12,6 +12,7 @@
 		#define RING_VM_DLL 1
 	#endif
 	#define RING_VM_REFMETA 1
+	#define RING_VM_INFO 1
 	#define RING_FILE FILE *
 	#define RING_OPENFILE(cFile,cMode) fopen(cFile,cMode)
 	#define RING_CLOSEFILE(pFile) fclose(pFile)

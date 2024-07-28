@@ -28,4 +28,8 @@ void ring_vm_extension ( RingState *pRingState )
 	#if RING_VM_REFMETA
 		ring_vm_refmeta_loadfunctions(pRingState);
 	#endif
+	/* VM Infor */
+	#if RING_VM_INFO
+		ring_vm_info_loadfunctions(pRingState);
+	#endif
 }

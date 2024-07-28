@@ -1,4 +1,5 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+
 #include "ring.h"
 
 void ring_vm_refmeta_loadfunctions ( RingState *pRingState )
