@@ -1,6 +1,6 @@
 /*
 	Tests For Ring programming language
-	2018-2023, Mahmoud Fayed
+	2018-2024, Mahmoud Fayed
 */
 
 aTests = [
@@ -147,6 +147,7 @@ aTests = [
 	[ :name = "Object Oriented Programming (Part 124)", :Command = "ring objectoriented/oop124.ring" ],
 	[ :name = "Object Oriented Programming (Part 125)", :Command = "ring objectoriented/oop125.ring" ],
 	[ :name = "Object Oriented Programming (Part 126)", :Command = "ring objectoriented/oop126.ring" ],
+	[ :name = "Object Oriented Programming (Part 127)", :Command = "ring objectoriented/oop127.ring" ],
 	[ :name = "Object Attribute Setter (Part 1)", :Command = "ring setter/setter.ring" ],
 	[ :name = "Object Attribute Setter (Part 2)", :Command = "ring setter/setter2.ring" ],
 	[ :name = "Object Attribute Setter (Part 3)", :Command = "ring setter/setter3.ring" ],
