@@ -1,5 +1,5 @@
 del IGNORE
-cd ..\tryccode
+cd ..\tests\tryccode
 call buildtest_x64.bat
 pause
 cls
