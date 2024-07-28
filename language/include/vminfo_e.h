@@ -2,7 +2,7 @@
 #ifndef ring_vminfo_extension_h
 	#define ring_vminfo_extension_h
 	/* Constants */
-	#define RING_REFMETA_ITEMSTOCHECKMEMPOOL 10000
+	#define RING_VMINFO_ITEMSTOCHECKMEMPOOL 10000
 
 	void ring_vm_info_loadfunctions ( RingState *pRingState ) ;
 

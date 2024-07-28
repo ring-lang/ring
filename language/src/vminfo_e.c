@@ -344,7 +344,7 @@ void ring_vm_info_ringvmismempool ( void *pPointer )
 	List *pList  ;
 	pVM = (VM *) pPointer ;
 	/* Try creating a large list */
-	pList = ring_list_new_gc(pVM->pRingState,RING_REFMETA_ITEMSTOCHECKMEMPOOL);
+	pList = ring_list_new_gc(pVM->pRingState,RING_VMINFO_ITEMSTOCHECKMEMPOOL);
 	if ( pVM->pRingState->vPoolManager.pCurrentItem != NULL ) {
 		RING_API_RETNUMBER(1);
 	}
