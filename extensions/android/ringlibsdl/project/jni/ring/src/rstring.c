@@ -263,7 +263,7 @@ RING_API char * ring_string_alloc_gc ( void *pState,String *pString, int nSize )
 	if ( nSize <= RING_STRING_ARRAYSIZE ) {
 		return (char *) (pString->cStrArray) ;
 	}
-	return ring_state_malloc(pState,nSize) ;
+	return (char *) ring_state_malloc(pState,nSize) ;
 }
 
 RING_API void * ring_string_free_gc ( void *pState,String *pString,char *cStr )
@@ -280,7 +280,7 @@ RING_API char * ring_string_realloc_gc ( void *pState,String *pString,int nOldSi
 	int x  ;
 	cStr = pString->cStr ;
 	if ( ! ( (cStr > ((char *)pString) ) && ( cStr < ( ((char *) pString)+sizeof(String)) ) ) ) {
-		return ring_state_realloc(pState,cStr,nOldSize,nNewSize) ;
+		return (char *) ring_state_realloc(pState,cStr,nOldSize,nNewSize) ;
 	}
 	if ( nNewSize <= RING_STRING_ARRAYSIZE ) {
 		return (char *) (pString->cStrArray) ;
