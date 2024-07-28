@@ -280,8 +280,6 @@ Type: const char *
 cStr
 Type: int
 nScope,nSize
-Type: Items *
-pLastItem, *pNextItem, *pScopeItem
 Type: VMState *
 pVMState
 ring_vm_refmeta_ringvmpasserror

@@ -1,9 +1,6 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
-
 #ifndef ring_refmeta_extension_h
 	#define ring_refmeta_extension_h
-	/* Constants */
-	#define RING_REFMETA_ITEMSTOCHECKMEMPOOL 10000
 
 	void ring_vm_refmeta_loadfunctions ( RingState *pRingState ) ;
 
@@ -66,46 +63,4 @@
 	void ring_vm_refmeta_importpackage ( void *pPointer ) ;
 
 	void ring_vm_refmeta_parentclassname ( void *pPointer ) ;
-
-	void ring_vm_refmeta_ringvmfileslist ( void *pPointer ) ;
-
-	void ring_vm_refmeta_ringvmcalllist ( void *pPointer ) ;
-
-	void ring_vm_refmeta_ringvmmemorylist ( void *pPointer ) ;
-
-	void ring_vm_refmeta_ringvmfunctionslist ( void *pPointer ) ;
-
-	void ring_vm_refmeta_ringvmclasseslist ( void *pPointer ) ;
-
-	void ring_vm_refmeta_ringvmpackageslist ( void *pPointer ) ;
-
-	void ring_vm_refmeta_ringvmcfunctionslist ( void *pPointer ) ;
-
-	void ring_vm_refmeta_ringvmsettrace ( void *pPointer ) ;
-
-	void ring_vm_refmeta_ringvmtracedata ( void *pPointer ) ;
-
-	void ring_vm_refmeta_ringvmtraceevent ( void *pPointer ) ;
-
-	void ring_vm_refmeta_ringvmtracefunc ( void *pPointer ) ;
-
-	void ring_vm_refmeta_ringvmscopescount ( void *pPointer ) ;
-
-	void ring_vm_refmeta_ringvmevalinscope ( void *pPointer ) ;
-
-	void ring_vm_refmeta_ringvmpasserror ( void *pPointer ) ;
-
-	void ring_vm_refmeta_ringvmhideerrormsg ( void *pPointer ) ;
-
-	void ring_vm_refmeta_ringvmcallfunc ( void *pPointer ) ;
-
-	void ring_vm_refmeta_ringvminfo ( void *pPointer ) ;
-
-	void ring_vm_refmeta_ringvmgenarray ( void *pPointer ) ;
-
-	void ring_vm_refmeta_ringvmcodelist ( void *pPointer ) ;
-
-	void ring_vm_refmeta_ringvmismempool ( void *pPointer ) ;
-
-	void ring_vm_refmeta_ringvmruncode ( void *pPointer ) ;
 #endif

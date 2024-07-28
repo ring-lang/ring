@@ -1,0 +1,104 @@
+ring_vminfo_extension_h
+RING_REFMETA_ITEMSTOCHECKMEMPOOL
+ring_vm_info_loadfunctions
+ring_vm_info_ringvmfileslist
+Type: VM *
+pVM
+Type: List *
+pList
+ring_vm_info_ringvmcalllist
+Type: VM *
+pVM
+Type: List *
+pList, *pList2
+Type: int
+x
+Type: FuncCall *
+pFuncCall
+ring_vm_info_ringvmmemorylist
+Type: VM *
+pVM
+Type: List *
+pList, *pList2
+ring_vm_info_ringvmfunctionslist
+Type: VM *
+pVM
+Type: List *
+pList
+ring_vm_info_ringvmclasseslist
+Type: VM *
+pVM
+Type: List *
+pList
+ring_vm_info_ringvmpackageslist
+Type: VM *
+pVM
+Type: List *
+pList
+ring_vm_info_ringvmcfunctionslist
+Type: VM *
+pVM
+Type: List *
+pList
+ring_vm_info_ringvmsettrace
+Type: VM *
+pVM
+Type: char *
+cStr
+ring_vm_info_ringvmtracedata
+Type: VM *
+pVM
+Type: List *
+pList
+ring_vm_info_ringvmtraceevent
+Type: VM *
+pVM
+ring_vm_info_ringvmtracefunc
+Type: VM *
+pVM
+ring_vm_info_ringvmscopescount
+Type: VM *
+pVM
+ring_vm_info_ringvmevalinscope
+Type: VM *
+pVM
+Type: List *
+pActiveMem
+Type: const char *
+cStr
+Type: int
+nScope,nSize
+Type: VMState *
+pVMState
+ring_vm_info_ringvmpasserror
+Type: VM *
+pVM
+ring_vm_info_ringvmhideerrormsg
+Type: VM *
+pVM
+ring_vm_info_ringvmcallfunc
+Type: VM *
+pVM
+Type: String *
+pString
+ring_vm_info_ringvminfo
+Type: VM *
+pVM
+Type: List *
+pList
+ring_vm_info_ringvmgenarray
+Type: VM *
+pVM
+ring_vm_info_ringvmcodelist
+Type: VM *
+pVM
+Type: List *
+pList
+ring_vm_info_ringvmismempool
+Type: VM *
+pVM
+Type: List *
+pList
+ring_vm_info_ringvmruncode
+Type: VM *
+pVM
