@@ -106,8 +106,7 @@
 	void ring_vm_file_bytes2double ( void *pPointer ) ;
 
 	void ring_vm_file_freefunc ( void *pRingState,void *pPointer ) ;
-	#if RING_MSDOS
-	#else
+	#if RING_EXTRAFILEFUNCTIONS
 		/* Check File/Dir/Type */
 
 		void ring_vm_file_fexists ( void *pPointer ) ;

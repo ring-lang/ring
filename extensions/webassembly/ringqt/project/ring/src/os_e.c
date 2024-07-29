@@ -189,8 +189,7 @@ void ring_vm_os_shutdown ( void *pPointer )
 	}
 	exit(RING_EXIT_OK);
 }
-#if RING_MSDOS
-#else
+#if RING_EXTRAOSFUNCTIONS
 	/* Environment Variables */
 
 	void ring_vm_os_sysget ( void *pPointer )

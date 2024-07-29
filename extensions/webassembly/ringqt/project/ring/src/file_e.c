@@ -695,8 +695,7 @@ void ring_vm_file_freefunc ( void *pRingState,void *pPointer )
 	pFile = (FILE *) pPointer ;
 	fclose( pFile ) ;
 }
-#if RING_MSDOS
-#else
+#if RING_EXTRAFILEFUNCTIONS
 	/* Check File/Dir/Type */
 
 	int ring_fexists_general ( const char *cFileName )

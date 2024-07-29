@@ -36,8 +36,7 @@
 	void ring_vm_os_system ( void *pPointer ) ;
 
 	void ring_vm_os_shutdown ( void *pPointer ) ;
-	#if RING_MSDOS
-	#else
+	#if RING_EXTRAOSFUNCTIONS
 		/* Environment Variables */
 
 		void ring_vm_os_sysget ( void *pPointer ) ;
