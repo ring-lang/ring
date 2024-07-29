@@ -33,6 +33,11 @@
 		#endif
 	#else
 		#define RING_SETBINARY 0
+		#if RING_MSDOS
+		#else
+			/* Require for uintptr_t */
+			#include <stdint.h>
+		#endif
 	#endif
 	/* Memory Model */
 	#if RING_MSDOS
