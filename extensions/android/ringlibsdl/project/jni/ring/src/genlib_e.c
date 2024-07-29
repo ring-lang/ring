@@ -6,26 +6,16 @@ RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState )
 {
 	/* General */
 	RING_API_REGISTER("len",ring_vm_generallib_len);
-	RING_API_REGISTER("clock",ring_vm_generallib_clock);
-	RING_API_REGISTER("lower",ring_vm_generallib_lower);
-	RING_API_REGISTER("upper",ring_vm_generallib_upper);
-	RING_API_REGISTER("input",ring_vm_generallib_input);
 	RING_API_REGISTER("ascii",ring_vm_generallib_ascii);
 	RING_API_REGISTER("char",ring_vm_generallib_char);
-	RING_API_REGISTER("date",ring_vm_generallib_date);
-	RING_API_REGISTER("time",ring_vm_generallib_time);
 	RING_API_REGISTER("filename",ring_vm_generallib_filename);
-	RING_API_REGISTER("getchar",ring_vm_generallib_getchar);
 	RING_API_REGISTER("random",ring_vm_generallib_random);
-	RING_API_REGISTER("timelist",ring_vm_generallib_timelist);
-	RING_API_REGISTER("adddays",ring_vm_generallib_adddays);
-	RING_API_REGISTER("diffdays",ring_vm_generallib_diffdays);
 	RING_API_REGISTER("version",ring_vm_generallib_version);
-	RING_API_REGISTER("clockspersecond",ring_vm_generallib_clockspersecond);
 	RING_API_REGISTER("prevfilename",ring_vm_generallib_prevfilename);
 	RING_API_REGISTER("srandom",ring_vm_generallib_srandom);
 	RING_API_REGISTER("nothing",ring_vm_generallib_nothing);
 	RING_API_REGISTER("optionalfunc",ring_vm_generallib_optionalfunc);
+	RING_API_REGISTER("checkoverflow",ring_vm_generallib_checkoverflow);
 	/* Check Data Type */
 	RING_API_REGISTER("isstring",ring_vm_generallib_isstring);
 	RING_API_REGISTER("isnumber",ring_vm_generallib_isnumber);
@@ -50,9 +40,11 @@ RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState )
 	RING_API_REGISTER("trim",ring_vm_generallib_trim);
 	RING_API_REGISTER("copy",ring_vm_generallib_copy);
 	RING_API_REGISTER("substr",ring_vm_generallib_substr);
+	RING_API_REGISTER("lower",ring_vm_generallib_lower);
+	RING_API_REGISTER("upper",ring_vm_generallib_upper);
 	RING_API_REGISTER("lines",ring_vm_generallib_lines);
 	RING_API_REGISTER("strcmp",ring_vm_generallib_strcmp);
-	/* Functional */
+	/* Eval */
 	RING_API_REGISTER("eval",ring_vm_generallib_eval);
 	/* Error Handling */
 	RING_API_REGISTER("raise",ring_vm_generallib_raise);
@@ -69,7 +61,7 @@ RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState )
 	RING_API_REGISTER("isspace",ring_vm_generallib_isspace);
 	RING_API_REGISTER("isupper",ring_vm_generallib_isupper);
 	RING_API_REGISTER("isxdigit",ring_vm_generallib_isxdigit);
-	/* Garbage Collector & Variable Pointer */
+	/* Low Level */
 	RING_API_REGISTER("callgc",ring_vm_generallib_callgc);
 	RING_API_REGISTER("varptr",ring_vm_generallib_varptr);
 	RING_API_REGISTER("intvalue",ring_vm_generallib_intvalue);
@@ -109,10 +101,8 @@ RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState )
 	RING_API_REGISTER("ring_state_scannererror",ring_vm_generallib_state_scannererror);
 	RING_API_REGISTER("ring_state_runcodeatins",ring_vm_generallib_state_runcodeatins);
 	RING_API_REGISTER("ring_state_resume",ring_vm_generallib_state_resume);
-	/* Performance */
-	RING_API_REGISTER("checkoverflow",ring_vm_generallib_checkoverflow);
 	/*
-	**  Ring See and Give 
+	**  Ring Input/Output 
 	**  We will use ringvm_see() and ringvm_give() to change the behavior of see and give 
 	**  Also we can use ring_see() and ring_give() to use the original behavior when we redefine it 
 	*/
@@ -125,6 +115,16 @@ RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState )
 	RING_API_REGISTER("puts",ring_vm_generallib_puts);
 	RING_API_REGISTER("getstring",ring_vm_generallib_give);
 	RING_API_REGISTER("getnumber",ring_vm_generallib_getnumber);
+	RING_API_REGISTER("input",ring_vm_generallib_input);
+	RING_API_REGISTER("getchar",ring_vm_generallib_getchar);
+	/* Date and Time */
+	RING_API_REGISTER("clock",ring_vm_generallib_clock);
+	RING_API_REGISTER("clockspersecond",ring_vm_generallib_clockspersecond);
+	RING_API_REGISTER("time",ring_vm_generallib_time);
+	RING_API_REGISTER("timelist",ring_vm_generallib_timelist);
+	RING_API_REGISTER("date",ring_vm_generallib_date);
+	RING_API_REGISTER("adddays",ring_vm_generallib_adddays);
+	RING_API_REGISTER("diffdays",ring_vm_generallib_diffdays);
 }
 /* General */
 
@@ -152,52 +152,6 @@ void ring_vm_generallib_len ( void *pPointer )
 	}
 	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
-	}
-}
-
-void ring_vm_generallib_clock ( void *pPointer )
-{
-	clock_t nNum1  ;
-	nNum1 = clock();
-	RING_API_RETNUMBER((double) nNum1);
-}
-
-void ring_vm_generallib_input ( void *pPointer )
-{
-	char cInput[RING_LARGEBUF]  ;
-	char *cLine  ;
-	int nSize,nOutput  ;
-	if ( RING_API_PARACOUNT == 0 ) {
-		ring_general_readline(cInput,RING_LARGEBUF);
-		RING_API_RETSTRING(cInput);
-		return ;
-	}
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	/* Set nSize value */
-	if ( RING_API_ISNUMBER(1) ) {
-		nSize = RING_API_GETNUMBER(1);
-	}
-	else if ( RING_API_ISSTRING(1) ) {
-		nSize = ring_vm_stringtonum((VM *) pPointer,RING_API_GETSTRING(1));
-	}
-	else {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( nSize > 0 ) {
-		cLine = (char *) RING_API_MALLOC(nSize);
-		/* Get Input From the User and save it in the variable */
-		nOutput = RING_SETBINARY ;
-		fread( cLine , sizeof(char) , nSize , stdin );
-		/* Return String */
-		RING_API_RETSTRING2(cLine,nSize);
-		RING_API_FREE(cLine);
-	}
-	else {
-		RING_API_ERROR(RING_API_BADPARARANGE);
 	}
 }
 
@@ -244,28 +198,6 @@ void ring_vm_generallib_char ( void *pPointer )
 	}
 }
 
-void ring_vm_generallib_date ( void *pPointer )
-{
-	time_t vTimer  ;
-	char cBuffer[RING_SMALLBUF]  ;
-	struct tm*vTimeInfo  ;
-	time(&vTimer);
-	vTimeInfo = localtime(&vTimer);
-	strftime(cBuffer,RING_SMALLBUF,"%d/%m/%Y", vTimeInfo);
-	RING_API_RETSTRING(cBuffer);
-}
-
-void ring_vm_generallib_time ( void *pPointer )
-{
-	time_t vTimer  ;
-	char cBuffer[RING_SMALLBUF]  ;
-	struct tm*vTimeInfo  ;
-	time(&vTimer);
-	vTimeInfo = localtime(&vTimer);
-	strftime(cBuffer,RING_SMALLBUF,"%H:%M:%S", vTimeInfo);
-	RING_API_RETSTRING(cBuffer);
-}
-
 void ring_vm_generallib_filename ( void *pPointer )
 {
 	VM *pVM  ;
@@ -310,15 +242,6 @@ void ring_vm_generallib_filename ( void *pPointer )
 	}
 	RING_API_RETSTRING(cFile);
 }
-
-void ring_vm_generallib_getchar ( void *pPointer )
-{
-	char cStr[RING_CHARBUF]  ;
-	int nOutput  ;
-	nOutput = RING_SETBINARY ;
-	cStr[0] = getchar() ;
-	RING_API_RETSTRING2(cStr,RING_ONE);
-}
 /* 31 bit thread unsafe random generator using the seed (srand) */
 
 void ring_vm_generallib_random ( void *pPointer )
@@ -359,244 +282,14 @@ void ring_vm_generallib_random ( void *pPointer )
 	}
 }
 
-void ring_vm_generallib_timelist ( void *pPointer )
-{
-	time_t vTimer  ;
-	char cBuffer[RING_SMALLBUF]  ;
-	struct tm*vTimeInfo  ;
-	List *pList  ;
-	pList = RING_API_NEWLIST ;
-	time(&vTimer);
-	vTimeInfo = localtime(&vTimer);
-	/*
-	**  Add List Items 
-	**  abbreviated weekday name 
-	*/
-	strftime(cBuffer,RING_SMALLBUF,"%a", vTimeInfo);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
-	/* full weekday name */
-	strftime(cBuffer,RING_SMALLBUF,"%A", vTimeInfo);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
-	/* abbreviated month name */
-	strftime(cBuffer,RING_SMALLBUF,"%b", vTimeInfo);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
-	/* full month name */
-	strftime(cBuffer,RING_SMALLBUF,"%B", vTimeInfo);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
-	/* Date & Time */
-	strftime(cBuffer,RING_SMALLBUF,"%c", vTimeInfo);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
-	/* Day of the month */
-	strftime(cBuffer,RING_SMALLBUF,"%d", vTimeInfo);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
-	/* Hour (24) */
-	strftime(cBuffer,RING_SMALLBUF,"%H", vTimeInfo);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
-	/* Hour (12) */
-	strftime(cBuffer,RING_SMALLBUF,"%I", vTimeInfo);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
-	/* Day of the year */
-	strftime(cBuffer,RING_SMALLBUF,"%j", vTimeInfo);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
-	/* Month of the year */
-	strftime(cBuffer,RING_SMALLBUF,"%m", vTimeInfo);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
-	/* Minutes after hour */
-	strftime(cBuffer,RING_SMALLBUF,"%M", vTimeInfo);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
-	/* AM or PM */
-	strftime(cBuffer,RING_SMALLBUF,"%p", vTimeInfo);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
-	/* Seconds after the hour */
-	strftime(cBuffer,RING_SMALLBUF,"%S", vTimeInfo);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
-	/* Week of the year (sun-sat) */
-	strftime(cBuffer,RING_SMALLBUF,"%U", vTimeInfo);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
-	/* day of the week */
-	strftime(cBuffer,RING_SMALLBUF,"%w", vTimeInfo);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
-	/* date */
-	strftime(cBuffer,RING_SMALLBUF,"%x", vTimeInfo);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
-	/* time */
-	strftime(cBuffer,RING_SMALLBUF,"%X", vTimeInfo);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
-	/* year of the century */
-	strftime(cBuffer,RING_SMALLBUF,"%y", vTimeInfo);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
-	/* year */
-	strftime(cBuffer,RING_SMALLBUF,"%Y", vTimeInfo);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
-	/* time zone */
-	strftime(cBuffer,RING_SMALLBUF,"%Z", vTimeInfo);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
-	/* percent sign */
-	strftime(cBuffer,RING_SMALLBUF,"%%", vTimeInfo);
-	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
-	RING_API_RETLIST(pList);
-}
-
-void ring_vm_generallib_adddays ( void *pPointer )
-{
-	const unsigned char *cStr  ;
-	char cBuffer[RING_SMALLBUF]  ;
-	int x,nDay,nMonth,nYear,nDaysInMonth  ;
-	int aDaysInMonth[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 } ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	if ( ! (RING_API_ISSTRING(1) && RING_API_ISNUMBER(2)) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	cStr = (const unsigned char *) RING_API_GETSTRING(1) ;
-	if ( (RING_API_GETSTRINGSIZE(1) == 10) ) {
-		if ( isalnum(cStr[0]) && isalnum(cStr[1]) && isalnum(cStr[3]) && isalnum(cStr[4]) && isalnum(cStr[6]) && isalnum(cStr[7]) && isalnum(cStr[8]) && isalnum(cStr[9]) ) {
-			sprintf( cBuffer , "%c%c" , cStr[0],cStr[1] ) ;
-			nDay = atoi(cBuffer) + ((int) RING_API_GETNUMBER(2)) ;
-			sprintf( cBuffer , "%c%c" , cStr[3],cStr[4] ) ;
-			nMonth = atoi(cBuffer) ;
-			sprintf( cBuffer , "%c%c%c%c" , cStr[6],cStr[7],cStr[8],cStr[9] ) ;
-			nYear = atoi(cBuffer) ;
-			/* Fix Day Number */
-			nDaysInMonth = aDaysInMonth[nMonth-1] ;
-			/* Fix Leap Year */
-			if ( (nMonth == 2) && (ring_vm_generallib_adddays_isleapyear(nYear)) ) {
-				nDaysInMonth = 29 ;
-			}
-			while ( nDay > nDaysInMonth ) {
-				nDay = nDay - nDaysInMonth ;
-				nMonth++ ;
-				if ( nMonth == 13 ) {
-					nMonth = 1 ;
-					nYear++ ;
-				}
-				nDaysInMonth = aDaysInMonth[nMonth-1] ;
-				/* Fix Leap Year */
-				if ( (nMonth == 2) && (ring_vm_generallib_adddays_isleapyear(nYear)) ) {
-					nDaysInMonth = 29 ;
-				}
-			}
-			while ( nDay < 1 ) {
-				nMonth-- ;
-				if ( nMonth == 0 ) {
-					nMonth = 12 ;
-					nYear-- ;
-				}
-				nDaysInMonth = aDaysInMonth[nMonth-1] ;
-				/* Fix Leap Year */
-				if ( (nMonth == 2) && (ring_vm_generallib_adddays_isleapyear(nYear)) ) {
-					nDaysInMonth = 29 ;
-				}
-				nDay = nDaysInMonth - abs(nDay) ;
-			}
-			sprintf(cBuffer,"%2d/%2d/%4d", nDay,nMonth,nYear);
-			for ( x = 0 ; x <= 9 ; x++ ) {
-				if ( cBuffer[x] == ' ' ) {
-					cBuffer[x] = '0' ;
-				}
-			}
-			RING_API_RETSTRING(cBuffer);
-			return ;
-		}
-	}
-	RING_API_ERROR(RING_API_BADPARATYPE);
-	return ;
-}
-
-void ring_vm_generallib_diffdays ( void *pPointer )
-{
-	const unsigned char *cStr, *cStr2  ;
-	struct tm vTimeInfo,vTimeInfo2  ;
-	time_t vTimer,vTimer2  ;
-	char cBuffer[RING_SMALLBUF]  ;
-	double nResult  ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	if ( ! (RING_API_ISSTRING(1) && RING_API_ISSTRING(2)) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	cStr = (const unsigned char *) RING_API_GETSTRING(1) ;
-	cStr2 = (const unsigned char *) RING_API_GETSTRING(2) ;
-	if ( (RING_API_GETSTRINGSIZE(1) == 10) && (RING_API_GETSTRINGSIZE(2) == 10) ) {
-		if ( isalnum(cStr[0]) && isalnum(cStr[1]) && isalnum(cStr[3]) && isalnum(cStr[4]) && isalnum(cStr[6]) && isalnum(cStr[7]) && isalnum(cStr[8]) && isalnum(cStr[9]) ) {
-			vTimeInfo.tm_hour = 0 ;
-			vTimeInfo.tm_min = 0 ;
-			vTimeInfo.tm_sec = 0 ;
-			sprintf( cBuffer , "%c%c" , cStr[0],cStr[1] ) ;
-			vTimeInfo.tm_mday = atoi(cBuffer) ;
-			sprintf( cBuffer , "%c%c" , cStr[3],cStr[4] ) ;
-			vTimeInfo.tm_mon = atoi(cBuffer)-1 ;
-			sprintf( cBuffer , "%c%c%c%c" , cStr[6],cStr[7],cStr[8],cStr[9] ) ;
-			vTimeInfo.tm_year = atoi(cBuffer) - 1900 ;
-			vTimer = mktime(&vTimeInfo);
-			if ( vTimeInfo.tm_year > 1097 ) {
-				/*
-				**  1097 + 1900 = 2997 
-				**  Values over limit may cause crash 
-				*/
-				RING_API_ERROR(RING_API_BADPARARANGE);
-				return ;
-			}
-			if ( isalnum(cStr2[0]) && isalnum(cStr2[1]) && isalnum(cStr2[3]) && isalnum(cStr2[4]) && isalnum(cStr2[6]) && isalnum(cStr2[7]) && isalnum(cStr2[8]) && isalnum(cStr2[9]) ) {
-				vTimeInfo2.tm_hour = 0 ;
-				vTimeInfo2.tm_min = 0 ;
-				vTimeInfo2.tm_sec = 0 ;
-				sprintf( cBuffer , "%c%c" , cStr2[0],cStr2[1] ) ;
-				vTimeInfo2.tm_mday = atoi(cBuffer) ;
-				sprintf( cBuffer , "%c%c" , cStr2[3],cStr2[4] ) ;
-				vTimeInfo2.tm_mon = atoi(cBuffer)-1 ;
-				sprintf( cBuffer , "%c%c%c%c" , cStr2[6],cStr2[7],cStr2[8],cStr2[9] ) ;
-				vTimeInfo2.tm_year = atoi(cBuffer) - 1900 ;
-				vTimer2 = mktime(&vTimeInfo2);
-				if ( vTimeInfo2.tm_year > 1097 ) {
-					/*
-					**  1097 + 1900 = 2997 
-					**  Values over limit may cause crash 
-					*/
-					RING_API_ERROR(RING_API_BADPARARANGE);
-					return ;
-				}
-				nResult = difftime(vTimer,vTimer2);
-				nResult  = ceil(ceil(nResult) / 86400 ) ;
-				RING_API_RETNUMBER(nResult);
-				return ;
-			}
-		}
-	}
-	RING_API_ERROR(RING_API_BADPARATYPE);
-	return ;
-}
-
 void ring_vm_generallib_version ( void *pPointer )
 {
 	RING_API_RETSTRING(RING_STATE_VERSION);
 }
 
-void ring_vm_generallib_clockspersecond ( void *pPointer )
-{
-	RING_API_RETNUMBER(CLOCKS_PER_SEC);
-}
-
 void ring_vm_generallib_prevfilename ( void *pPointer )
 {
 	RING_API_RETSTRING(((VM *) pPointer)->cPrevFileName);
-}
-
-int ring_vm_generallib_adddays_isleapyear ( int nYear )
-{
-	if ( nYear%400 == 0 ) {
-		return 1 ;
-	}
-	if ( nYear%100 == 0 ) {
-		return 0 ;
-	}
-	return nYear % 4 == 0 ;
 }
 
 void ring_vm_generallib_srandom ( void *pPointer )
@@ -648,6 +341,25 @@ void ring_vm_generallib_optionalfunc ( void *pPointer )
 		/* Refresh the HashTable */
 		ring_list_genarray(pRingState->pRingCFunctions);
 		ring_list_genhashtable2(pRingState->pRingCFunctions);
+	}
+	else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
+}
+
+void ring_vm_generallib_checkoverflow ( void *pPointer )
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISNUMBER(1) ) {
+		if ( RING_API_GETNUMBER(1) == 1 ) {
+			((VM *) pPointer)->lCheckOverFlow = 1 ;
+		}
+		else {
+			((VM *) pPointer)->lCheckOverFlow = 0 ;
+		}
 	}
 	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
@@ -1515,7 +1227,7 @@ void ring_vm_generallib_strcmp ( void *pPointer )
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
-/* Functional */
+/* Eval */
 
 void ring_vm_generallib_eval ( void *pPointer )
 {
@@ -1661,7 +1373,7 @@ void ring_vm_generallib_isxdigit ( void *pPointer )
 {
 	ring_vm_generallib_isfunc(pPointer,isxdigit);
 }
-/* Garbage Collector & Variable Pointer */
+/* Low Level */
 
 void ring_vm_generallib_callgc ( void *pPointer )
 {
@@ -2263,7 +1975,7 @@ void ring_vm_generallib_state_resume ( void *pPointer )
 	}
 	ring_vm_mainloop(pRingState->pVM);
 }
-/* Ring See and Give */
+/* Ring Input/Output */
 
 void ring_vm_generallib_see ( void *pPointer )
 {
@@ -2514,23 +2226,311 @@ void ring_vm_generallib_customprint ( void *pPointer,const char *cCommand )
 	}
 	ring_string_delete_gc(pVM->pRingState,pRingCode);
 }
-/* Performance */
 
-void ring_vm_generallib_checkoverflow ( void *pPointer )
+void ring_vm_generallib_input ( void *pPointer )
 {
+	char cInput[RING_LARGEBUF]  ;
+	char *cLine  ;
+	int nSize,nOutput  ;
+	if ( RING_API_PARACOUNT == 0 ) {
+		ring_general_readline(cInput,RING_LARGEBUF);
+		RING_API_RETSTRING(cInput);
+		return ;
+	}
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
+	/* Set nSize value */
 	if ( RING_API_ISNUMBER(1) ) {
-		if ( RING_API_GETNUMBER(1) == 1 ) {
-			((VM *) pPointer)->lCheckOverFlow = 1 ;
-		}
-		else {
-			((VM *) pPointer)->lCheckOverFlow = 0 ;
-		}
+		nSize = RING_API_GETNUMBER(1);
+	}
+	else if ( RING_API_ISSTRING(1) ) {
+		nSize = ring_vm_stringtonum((VM *) pPointer,RING_API_GETSTRING(1));
 	}
 	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
 	}
+	if ( nSize > 0 ) {
+		cLine = (char *) RING_API_MALLOC(nSize);
+		/* Get Input From the User and save it in the variable */
+		nOutput = RING_SETBINARY ;
+		fread( cLine , sizeof(char) , nSize , stdin );
+		/* Return String */
+		RING_API_RETSTRING2(cLine,nSize);
+		RING_API_FREE(cLine);
+	}
+	else {
+		RING_API_ERROR(RING_API_BADPARARANGE);
+	}
+}
+
+void ring_vm_generallib_getchar ( void *pPointer )
+{
+	char cStr[RING_CHARBUF]  ;
+	int nOutput  ;
+	nOutput = RING_SETBINARY ;
+	cStr[0] = getchar() ;
+	RING_API_RETSTRING2(cStr,RING_ONE);
+}
+/* Date and Time */
+
+void ring_vm_generallib_clock ( void *pPointer )
+{
+	clock_t nNum1  ;
+	nNum1 = clock();
+	RING_API_RETNUMBER((double) nNum1);
+}
+
+void ring_vm_generallib_clockspersecond ( void *pPointer )
+{
+	RING_API_RETNUMBER(CLOCKS_PER_SEC);
+}
+
+void ring_vm_generallib_time ( void *pPointer )
+{
+	time_t vTimer  ;
+	char cBuffer[RING_SMALLBUF]  ;
+	struct tm*vTimeInfo  ;
+	time(&vTimer);
+	vTimeInfo = localtime(&vTimer);
+	strftime(cBuffer,RING_SMALLBUF,"%H:%M:%S", vTimeInfo);
+	RING_API_RETSTRING(cBuffer);
+}
+
+void ring_vm_generallib_timelist ( void *pPointer )
+{
+	time_t vTimer  ;
+	char cBuffer[RING_SMALLBUF]  ;
+	struct tm*vTimeInfo  ;
+	List *pList  ;
+	pList = RING_API_NEWLIST ;
+	time(&vTimer);
+	vTimeInfo = localtime(&vTimer);
+	/*
+	**  Add List Items 
+	**  abbreviated weekday name 
+	*/
+	strftime(cBuffer,RING_SMALLBUF,"%a", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
+	/* full weekday name */
+	strftime(cBuffer,RING_SMALLBUF,"%A", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
+	/* abbreviated month name */
+	strftime(cBuffer,RING_SMALLBUF,"%b", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
+	/* full month name */
+	strftime(cBuffer,RING_SMALLBUF,"%B", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
+	/* Date & Time */
+	strftime(cBuffer,RING_SMALLBUF,"%c", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
+	/* Day of the month */
+	strftime(cBuffer,RING_SMALLBUF,"%d", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
+	/* Hour (24) */
+	strftime(cBuffer,RING_SMALLBUF,"%H", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
+	/* Hour (12) */
+	strftime(cBuffer,RING_SMALLBUF,"%I", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
+	/* Day of the year */
+	strftime(cBuffer,RING_SMALLBUF,"%j", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
+	/* Month of the year */
+	strftime(cBuffer,RING_SMALLBUF,"%m", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
+	/* Minutes after hour */
+	strftime(cBuffer,RING_SMALLBUF,"%M", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
+	/* AM or PM */
+	strftime(cBuffer,RING_SMALLBUF,"%p", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
+	/* Seconds after the hour */
+	strftime(cBuffer,RING_SMALLBUF,"%S", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
+	/* Week of the year (sun-sat) */
+	strftime(cBuffer,RING_SMALLBUF,"%U", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
+	/* day of the week */
+	strftime(cBuffer,RING_SMALLBUF,"%w", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
+	/* date */
+	strftime(cBuffer,RING_SMALLBUF,"%x", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
+	/* time */
+	strftime(cBuffer,RING_SMALLBUF,"%X", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
+	/* year of the century */
+	strftime(cBuffer,RING_SMALLBUF,"%y", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
+	/* year */
+	strftime(cBuffer,RING_SMALLBUF,"%Y", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
+	/* time zone */
+	strftime(cBuffer,RING_SMALLBUF,"%Z", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
+	/* percent sign */
+	strftime(cBuffer,RING_SMALLBUF,"%%", vTimeInfo);
+	ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,cBuffer);
+	RING_API_RETLIST(pList);
+}
+
+void ring_vm_generallib_date ( void *pPointer )
+{
+	time_t vTimer  ;
+	char cBuffer[RING_SMALLBUF]  ;
+	struct tm*vTimeInfo  ;
+	time(&vTimer);
+	vTimeInfo = localtime(&vTimer);
+	strftime(cBuffer,RING_SMALLBUF,"%d/%m/%Y", vTimeInfo);
+	RING_API_RETSTRING(cBuffer);
+}
+
+void ring_vm_generallib_adddays ( void *pPointer )
+{
+	const unsigned char *cStr  ;
+	char cBuffer[RING_SMALLBUF]  ;
+	int x,nDay,nMonth,nYear,nDaysInMonth  ;
+	int aDaysInMonth[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 } ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! (RING_API_ISSTRING(1) && RING_API_ISNUMBER(2)) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cStr = (const unsigned char *) RING_API_GETSTRING(1) ;
+	if ( (RING_API_GETSTRINGSIZE(1) == 10) ) {
+		if ( isalnum(cStr[0]) && isalnum(cStr[1]) && isalnum(cStr[3]) && isalnum(cStr[4]) && isalnum(cStr[6]) && isalnum(cStr[7]) && isalnum(cStr[8]) && isalnum(cStr[9]) ) {
+			sprintf( cBuffer , "%c%c" , cStr[0],cStr[1] ) ;
+			nDay = atoi(cBuffer) + ((int) RING_API_GETNUMBER(2)) ;
+			sprintf( cBuffer , "%c%c" , cStr[3],cStr[4] ) ;
+			nMonth = atoi(cBuffer) ;
+			sprintf( cBuffer , "%c%c%c%c" , cStr[6],cStr[7],cStr[8],cStr[9] ) ;
+			nYear = atoi(cBuffer) ;
+			/* Fix Day Number */
+			nDaysInMonth = aDaysInMonth[nMonth-1] ;
+			/* Fix Leap Year */
+			if ( (nMonth == 2) && (ring_vm_generallib_adddays_isleapyear(nYear)) ) {
+				nDaysInMonth = 29 ;
+			}
+			while ( nDay > nDaysInMonth ) {
+				nDay = nDay - nDaysInMonth ;
+				nMonth++ ;
+				if ( nMonth == 13 ) {
+					nMonth = 1 ;
+					nYear++ ;
+				}
+				nDaysInMonth = aDaysInMonth[nMonth-1] ;
+				/* Fix Leap Year */
+				if ( (nMonth == 2) && (ring_vm_generallib_adddays_isleapyear(nYear)) ) {
+					nDaysInMonth = 29 ;
+				}
+			}
+			while ( nDay < 1 ) {
+				nMonth-- ;
+				if ( nMonth == 0 ) {
+					nMonth = 12 ;
+					nYear-- ;
+				}
+				nDaysInMonth = aDaysInMonth[nMonth-1] ;
+				/* Fix Leap Year */
+				if ( (nMonth == 2) && (ring_vm_generallib_adddays_isleapyear(nYear)) ) {
+					nDaysInMonth = 29 ;
+				}
+				nDay = nDaysInMonth - abs(nDay) ;
+			}
+			sprintf(cBuffer,"%2d/%2d/%4d", nDay,nMonth,nYear);
+			for ( x = 0 ; x <= 9 ; x++ ) {
+				if ( cBuffer[x] == ' ' ) {
+					cBuffer[x] = '0' ;
+				}
+			}
+			RING_API_RETSTRING(cBuffer);
+			return ;
+		}
+	}
+	RING_API_ERROR(RING_API_BADPARATYPE);
+	return ;
+}
+
+void ring_vm_generallib_diffdays ( void *pPointer )
+{
+	const unsigned char *cStr, *cStr2  ;
+	struct tm vTimeInfo,vTimeInfo2  ;
+	time_t vTimer,vTimer2  ;
+	char cBuffer[RING_SMALLBUF]  ;
+	double nResult  ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! (RING_API_ISSTRING(1) && RING_API_ISSTRING(2)) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cStr = (const unsigned char *) RING_API_GETSTRING(1) ;
+	cStr2 = (const unsigned char *) RING_API_GETSTRING(2) ;
+	if ( (RING_API_GETSTRINGSIZE(1) == 10) && (RING_API_GETSTRINGSIZE(2) == 10) ) {
+		if ( isalnum(cStr[0]) && isalnum(cStr[1]) && isalnum(cStr[3]) && isalnum(cStr[4]) && isalnum(cStr[6]) && isalnum(cStr[7]) && isalnum(cStr[8]) && isalnum(cStr[9]) ) {
+			vTimeInfo.tm_hour = 0 ;
+			vTimeInfo.tm_min = 0 ;
+			vTimeInfo.tm_sec = 0 ;
+			sprintf( cBuffer , "%c%c" , cStr[0],cStr[1] ) ;
+			vTimeInfo.tm_mday = atoi(cBuffer) ;
+			sprintf( cBuffer , "%c%c" , cStr[3],cStr[4] ) ;
+			vTimeInfo.tm_mon = atoi(cBuffer)-1 ;
+			sprintf( cBuffer , "%c%c%c%c" , cStr[6],cStr[7],cStr[8],cStr[9] ) ;
+			vTimeInfo.tm_year = atoi(cBuffer) - 1900 ;
+			vTimer = mktime(&vTimeInfo);
+			if ( vTimeInfo.tm_year > 1097 ) {
+				/*
+				**  1097 + 1900 = 2997 
+				**  Values over limit may cause crash 
+				*/
+				RING_API_ERROR(RING_API_BADPARARANGE);
+				return ;
+			}
+			if ( isalnum(cStr2[0]) && isalnum(cStr2[1]) && isalnum(cStr2[3]) && isalnum(cStr2[4]) && isalnum(cStr2[6]) && isalnum(cStr2[7]) && isalnum(cStr2[8]) && isalnum(cStr2[9]) ) {
+				vTimeInfo2.tm_hour = 0 ;
+				vTimeInfo2.tm_min = 0 ;
+				vTimeInfo2.tm_sec = 0 ;
+				sprintf( cBuffer , "%c%c" , cStr2[0],cStr2[1] ) ;
+				vTimeInfo2.tm_mday = atoi(cBuffer) ;
+				sprintf( cBuffer , "%c%c" , cStr2[3],cStr2[4] ) ;
+				vTimeInfo2.tm_mon = atoi(cBuffer)-1 ;
+				sprintf( cBuffer , "%c%c%c%c" , cStr2[6],cStr2[7],cStr2[8],cStr2[9] ) ;
+				vTimeInfo2.tm_year = atoi(cBuffer) - 1900 ;
+				vTimer2 = mktime(&vTimeInfo2);
+				if ( vTimeInfo2.tm_year > 1097 ) {
+					/*
+					**  1097 + 1900 = 2997 
+					**  Values over limit may cause crash 
+					*/
+					RING_API_ERROR(RING_API_BADPARARANGE);
+					return ;
+				}
+				nResult = difftime(vTimer,vTimer2);
+				nResult  = ceil(ceil(nResult) / 86400 ) ;
+				RING_API_RETNUMBER(nResult);
+				return ;
+			}
+		}
+	}
+	RING_API_ERROR(RING_API_BADPARATYPE);
+	return ;
+}
+
+int ring_vm_generallib_adddays_isleapyear ( int nYear )
+{
+	if ( nYear%400 == 0 ) {
+		return 1 ;
+	}
+	if ( nYear%100 == 0 ) {
+		return 0 ;
+	}
+	return nYear % 4 == 0 ;
 }
