@@ -14,19 +14,9 @@
 	RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState ) ;
 	/* General */
 
-	void ring_vm_generallib_len ( void *pPointer ) ;
-
-	void ring_vm_generallib_ascii ( void *pPointer ) ;
-
-	void ring_vm_generallib_char ( void *pPointer ) ;
-
-	void ring_vm_generallib_filename ( void *pPointer ) ;
-
 	void ring_vm_generallib_random ( void *pPointer ) ;
 
 	void ring_vm_generallib_version ( void *pPointer ) ;
-
-	void ring_vm_generallib_prevfilename ( void *pPointer ) ;
 
 	void ring_vm_generallib_srandom ( void *pPointer ) ;
 
@@ -69,6 +59,10 @@
 	void ring_vm_generallib_list2str ( void *pPointer ) ;
 
 	void ring_vm_generallib_str2hexcstyle ( void *pPointer ) ;
+
+	void ring_vm_generallib_ascii ( void *pPointer ) ;
+
+	void ring_vm_generallib_char ( void *pPointer ) ;
 	/* String */
 
 	void ring_vm_generallib_left ( void *pPointer ) ;
@@ -88,6 +82,8 @@
 	void ring_vm_generallib_lines ( void *pPointer ) ;
 
 	void ring_vm_generallib_strcmp ( void *pPointer ) ;
+
+	void ring_vm_generallib_len ( void *pPointer ) ;
 	/* Eval */
 
 	void ring_vm_generallib_eval ( void *pPointer ) ;
@@ -96,6 +92,10 @@
 	void ring_vm_generallib_raise ( void *pPointer ) ;
 
 	void ring_vm_generallib_assert ( void *pPointer ) ;
+
+	void ring_vm_generallib_filename ( void *pPointer ) ;
+
+	void ring_vm_generallib_prevfilename ( void *pPointer ) ;
 	/* Check Characters */
 
 	void ring_vm_generallib_isfunc ( void *pPointer,int (*pFunc)(int) ) ;

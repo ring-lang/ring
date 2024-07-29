@@ -5,13 +5,8 @@
 RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState )
 {
 	/* General */
-	RING_API_REGISTER("len",ring_vm_generallib_len);
-	RING_API_REGISTER("ascii",ring_vm_generallib_ascii);
-	RING_API_REGISTER("char",ring_vm_generallib_char);
-	RING_API_REGISTER("filename",ring_vm_generallib_filename);
 	RING_API_REGISTER("random",ring_vm_generallib_random);
 	RING_API_REGISTER("version",ring_vm_generallib_version);
-	RING_API_REGISTER("prevfilename",ring_vm_generallib_prevfilename);
 	RING_API_REGISTER("srandom",ring_vm_generallib_srandom);
 	RING_API_REGISTER("nothing",ring_vm_generallib_nothing);
 	RING_API_REGISTER("optionalfunc",ring_vm_generallib_optionalfunc);
@@ -34,6 +29,8 @@ RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState )
 	RING_API_REGISTER("str2list",ring_vm_generallib_str2list);
 	RING_API_REGISTER("list2str",ring_vm_generallib_list2str);
 	RING_API_REGISTER("str2hexcstyle",ring_vm_generallib_str2hexcstyle);
+	RING_API_REGISTER("ascii",ring_vm_generallib_ascii);
+	RING_API_REGISTER("char",ring_vm_generallib_char);
 	/* String */
 	RING_API_REGISTER("left",ring_vm_generallib_left);
 	RING_API_REGISTER("right",ring_vm_generallib_right);
@@ -44,11 +41,14 @@ RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState )
 	RING_API_REGISTER("upper",ring_vm_generallib_upper);
 	RING_API_REGISTER("lines",ring_vm_generallib_lines);
 	RING_API_REGISTER("strcmp",ring_vm_generallib_strcmp);
+	RING_API_REGISTER("len",ring_vm_generallib_len);
 	/* Eval */
 	RING_API_REGISTER("eval",ring_vm_generallib_eval);
 	/* Error Handling */
 	RING_API_REGISTER("raise",ring_vm_generallib_raise);
 	RING_API_REGISTER("assert",ring_vm_generallib_assert);
+	RING_API_REGISTER("filename",ring_vm_generallib_filename);
+	RING_API_REGISTER("prevfilename",ring_vm_generallib_prevfilename);
 	/* Check Characters */
 	RING_API_REGISTER("isalnum",ring_vm_generallib_isalnum);
 	RING_API_REGISTER("isalpha",ring_vm_generallib_isalpha);
@@ -126,123 +126,10 @@ RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState )
 	RING_API_REGISTER("adddays",ring_vm_generallib_adddays);
 	RING_API_REGISTER("diffdays",ring_vm_generallib_diffdays);
 }
-/* General */
-
-void ring_vm_generallib_len ( void *pPointer )
-{
-	VM *pVM  ;
-	pVM = (VM *) pPointer ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	if ( RING_API_ISSTRING(1) ) {
-		RING_API_RETNUMBER(RING_API_GETSTRINGSIZE(1));
-	}
-	else if ( RING_API_ISLIST(1) ) {
-		if ( ring_vm_oop_isobject(RING_API_GETLIST(1)) == 0 ) {
-			RING_API_RETNUMBER(ring_list_getsize(RING_API_GETLIST(1)));
-		}
-		else {
-			RING_VM_STACK_PUSHPVALUE(RING_API_GETPOINTER(1));
-			RING_VM_STACK_OBJTYPE = RING_API_GETPOINTERTYPE(1) ;
-			ring_vm_expr_npoo(pVM,"len",RING_NOVALUE);
-			pVM->lIgnoreNULL = 1 ;
-		}
-	}
-	else {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-	}
-}
-
-void ring_vm_generallib_ascii ( void *pPointer )
-{
-	int x  ;
-	unsigned char *cString  ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	if ( RING_API_ISSTRING(1) ) {
-		if ( RING_API_GETSTRINGSIZE(1) == 1 ) {
-			cString = (unsigned char *) RING_API_GETSTRING(1) ;
-			x = (int) cString[0] ;
-			RING_API_RETNUMBER(x);
-		}
-		else {
-			RING_API_ERROR(RING_API_BADPARALENGTH);
-			return ;
-		}
-	}
-	else {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-	}
-}
-
-void ring_vm_generallib_char ( void *pPointer )
-{
-	int x  ;
-	char cStr[RING_CHARBUF]  ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	if ( RING_API_ISNUMBER(1) ) {
-		x = RING_API_GETNUMBER(1) ;
-		cStr[0] = (char) x ;
-		cStr[1] = '\0' ;
-		RING_API_RETSTRING2(cStr,RING_ONE);
-	}
-	else {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-	}
-}
-
-void ring_vm_generallib_filename ( void *pPointer )
-{
-	VM *pVM  ;
-	FuncCall *pFuncCall  ;
-	int lFunctionCall,x  ;
-	const char *cOldFile  ;
-	const char *cFile  ;
-	pVM = (VM *) pPointer ;
-	/* Get the current file name */
-	cOldFile = NULL ;
-	cFile = NULL ;
-	lFunctionCall = 0 ;
-	for ( x = RING_VM_FUNCCALLSCOUNT ; x >= 1 ; x-- ) {
-		pFuncCall = RING_VM_GETFUNCCALL(x) ;
-		/*
-		**  If we have ICO_LoadFunc but not ICO_CALL then we need to pass 
-		**  ICO_LOADFUNC is executed, but still ICO_CALL is not executed! 
-		*/
-		if ( pFuncCall->nCallerPC != 0 ) {
-			cOldFile = pFuncCall->cFileName ;
-			continue ;
-		}
-		if ( pFuncCall->nType == RING_FUNCTYPE_SCRIPT ) {
-			lFunctionCall = 1 ;
-		}
-	}
-	if ( lFunctionCall ) {
-		cFile = ring_list_getstring(pVM->pRingState->pRingFilesList,RING_ONE) ;
-	}
-	else {
-		if ( pVM->nInClassRegion ) {
-			cFile = pVM->cFileNameInClassRegion ;
-		}
-		else {
-			if ( cOldFile == NULL ) {
-				cFile = pVM->cFileName ;
-			}
-			else {
-				cFile = cOldFile ;
-			}
-		}
-	}
-	RING_API_RETSTRING(cFile);
-}
-/* 31 bit thread unsafe random generator using the seed (srand) */
+/*
+**  General 
+**  31 bit thread unsafe random generator using the seed (srand) 
+*/
 
 void ring_vm_generallib_random ( void *pPointer )
 {
@@ -285,11 +172,6 @@ void ring_vm_generallib_random ( void *pPointer )
 void ring_vm_generallib_version ( void *pPointer )
 {
 	RING_API_RETSTRING(RING_STATE_VERSION);
-}
-
-void ring_vm_generallib_prevfilename ( void *pPointer )
-{
-	RING_API_RETSTRING(((VM *) pPointer)->cPrevFileName);
 }
 
 void ring_vm_generallib_srandom ( void *pPointer )
@@ -864,6 +746,49 @@ void ring_vm_generallib_str2hexcstyle ( void *pPointer )
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
+
+void ring_vm_generallib_ascii ( void *pPointer )
+{
+	int x  ;
+	unsigned char *cString  ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		if ( RING_API_GETSTRINGSIZE(1) == 1 ) {
+			cString = (unsigned char *) RING_API_GETSTRING(1) ;
+			x = (int) cString[0] ;
+			RING_API_RETNUMBER(x);
+		}
+		else {
+			RING_API_ERROR(RING_API_BADPARALENGTH);
+			return ;
+		}
+	}
+	else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
+}
+
+void ring_vm_generallib_char ( void *pPointer )
+{
+	int x  ;
+	char cStr[RING_CHARBUF]  ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISNUMBER(1) ) {
+		x = RING_API_GETNUMBER(1) ;
+		cStr[0] = (char) x ;
+		cStr[1] = '\0' ;
+		RING_API_RETSTRING2(cStr,RING_ONE);
+	}
+	else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
+}
 /* String */
 
 void ring_vm_generallib_left ( void *pPointer )
@@ -1227,6 +1152,33 @@ void ring_vm_generallib_strcmp ( void *pPointer )
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
+
+void ring_vm_generallib_len ( void *pPointer )
+{
+	VM *pVM  ;
+	pVM = (VM *) pPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		RING_API_RETNUMBER(RING_API_GETSTRINGSIZE(1));
+	}
+	else if ( RING_API_ISLIST(1) ) {
+		if ( ring_vm_oop_isobject(RING_API_GETLIST(1)) == 0 ) {
+			RING_API_RETNUMBER(ring_list_getsize(RING_API_GETLIST(1)));
+		}
+		else {
+			RING_VM_STACK_PUSHPVALUE(RING_API_GETPOINTER(1));
+			RING_VM_STACK_OBJTYPE = RING_API_GETPOINTERTYPE(1) ;
+			ring_vm_expr_npoo(pVM,"len",RING_NOVALUE);
+			pVM->lIgnoreNULL = 1 ;
+		}
+	}
+	else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
+}
 /* Eval */
 
 void ring_vm_generallib_eval ( void *pPointer )
@@ -1287,6 +1239,56 @@ void ring_vm_generallib_assert ( void *pPointer )
 	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
+}
+
+void ring_vm_generallib_filename ( void *pPointer )
+{
+	VM *pVM  ;
+	FuncCall *pFuncCall  ;
+	int lFunctionCall,x  ;
+	const char *cOldFile  ;
+	const char *cFile  ;
+	pVM = (VM *) pPointer ;
+	/* Get the current file name */
+	cOldFile = NULL ;
+	cFile = NULL ;
+	lFunctionCall = 0 ;
+	for ( x = RING_VM_FUNCCALLSCOUNT ; x >= 1 ; x-- ) {
+		pFuncCall = RING_VM_GETFUNCCALL(x) ;
+		/*
+		**  If we have ICO_LoadFunc but not ICO_CALL then we need to pass 
+		**  ICO_LOADFUNC is executed, but still ICO_CALL is not executed! 
+		*/
+		if ( pFuncCall->nCallerPC != 0 ) {
+			cOldFile = pFuncCall->cFileName ;
+			continue ;
+		}
+		if ( pFuncCall->nType == RING_FUNCTYPE_SCRIPT ) {
+			lFunctionCall = 1 ;
+		}
+	}
+	if ( lFunctionCall ) {
+		cFile = ring_list_getstring(pVM->pRingState->pRingFilesList,RING_ONE) ;
+	}
+	else {
+		if ( pVM->nInClassRegion ) {
+			cFile = pVM->cFileNameInClassRegion ;
+		}
+		else {
+			if ( cOldFile == NULL ) {
+				cFile = pVM->cFileName ;
+			}
+			else {
+				cFile = cOldFile ;
+			}
+		}
+	}
+	RING_API_RETSTRING(cFile);
+}
+
+void ring_vm_generallib_prevfilename ( void *pPointer )
+{
+	RING_API_RETSTRING(((VM *) pPointer)->cPrevFileName);
 }
 /* Check Characters */
 

@@ -4,16 +4,6 @@ ring_vm_generallib_loadfunctions
 ring_vm_generallib_len
 Type: VM *
 pVM
-ring_vm_generallib_clock
-Type: clock_t
-nNum1
-ring_vm_generallib_input
-Type: char
-cInput[RING_LARGEBUF]
-Type: char *
-cLine
-Type: int
-nSize,nOutput
 ring_vm_generallib_ascii
 Type: int
 x
@@ -24,20 +14,6 @@ Type: int
 x
 Type: char
 cStr[RING_CHARBUF]
-ring_vm_generallib_date
-Type: time_t
-vTimer
-Type: char
-cBuffer[RING_SMALLBUF]
-Type: struct tm*
-vTimeInfo
-ring_vm_generallib_time
-Type: time_t
-vTimer
-Type: char
-cBuffer[RING_SMALLBUF]
-Type: struct tm*
-vTimeInfo
 ring_vm_generallib_filename
 Type: VM *
 pVM
@@ -49,47 +25,11 @@ Type: const char *
 cOldFile
 Type: const char *
 cFile
-ring_vm_generallib_getchar
-Type: char
-cStr[RING_CHARBUF]
-Type: int
-nOutput
 ring_vm_generallib_random
 Type: int
 nNum1,nNum2
-ring_vm_generallib_timelist
-Type: time_t
-vTimer
-Type: char
-cBuffer[RING_SMALLBUF]
-Type: struct tm*
-vTimeInfo
-Type: List *
-pList
-ring_vm_generallib_adddays
-Type: const unsigned char *
-cStr
-Type: char
-cBuffer[RING_SMALLBUF]
-Type: int
-x,nDay,nMonth,nYear,nDaysInMonth
-Type: int
-aDaysInMonth[12]
-ring_vm_generallib_diffdays
-Type: const unsigned char *
-cStr, *cStr2
-Type: struct tm
-vTimeInfo,vTimeInfo2
-Type: time_t
-vTimer,vTimer2
-Type: char
-cBuffer[RING_SMALLBUF]
-Type: double
-nResult
 ring_vm_generallib_version
-ring_vm_generallib_clockspersecond
 ring_vm_generallib_prevfilename
-ring_vm_generallib_adddays_isleapyear
 ring_vm_generallib_srandom
 Type: int
 nNum1
@@ -101,6 +41,7 @@ Type: VM *
 pVM
 Type: const char *
 cFunc
+ring_vm_generallib_checkoverflow
 ring_vm_generallib_isstring
 ring_vm_generallib_isnumber
 ring_vm_generallib_islist
@@ -415,4 +356,63 @@ Type: String *
 pRingCode
 Type: VM *
 pVM
-ring_vm_generallib_checkoverflow
+ring_vm_generallib_input
+Type: char
+cInput[RING_LARGEBUF]
+Type: char *
+cLine
+Type: int
+nSize,nOutput
+ring_vm_generallib_getchar
+Type: char
+cStr[RING_CHARBUF]
+Type: int
+nOutput
+ring_vm_generallib_clock
+Type: clock_t
+nNum1
+ring_vm_generallib_clockspersecond
+ring_vm_generallib_time
+Type: time_t
+vTimer
+Type: char
+cBuffer[RING_SMALLBUF]
+Type: struct tm*
+vTimeInfo
+ring_vm_generallib_timelist
+Type: time_t
+vTimer
+Type: char
+cBuffer[RING_SMALLBUF]
+Type: struct tm*
+vTimeInfo
+Type: List *
+pList
+ring_vm_generallib_date
+Type: time_t
+vTimer
+Type: char
+cBuffer[RING_SMALLBUF]
+Type: struct tm*
+vTimeInfo
+ring_vm_generallib_adddays
+Type: const unsigned char *
+cStr
+Type: char
+cBuffer[RING_SMALLBUF]
+Type: int
+x,nDay,nMonth,nYear,nDaysInMonth
+Type: int
+aDaysInMonth[12]
+ring_vm_generallib_diffdays
+Type: const unsigned char *
+cStr, *cStr2
+Type: struct tm
+vTimeInfo,vTimeInfo2
+Type: time_t
+vTimer,vTimer2
+Type: char
+cBuffer[RING_SMALLBUF]
+Type: double
+nResult
+ring_vm_generallib_adddays_isleapyear
