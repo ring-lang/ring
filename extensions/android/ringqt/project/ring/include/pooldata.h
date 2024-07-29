@@ -6,7 +6,7 @@
 	**  Macro 
 	**  Memory pool is thread safe because ring_vm_runcodefromthread() create new state 
 	*/
-	#if RING_MSDOS
+	#if RING_LOWMEM
 		#define RING_USEPOOLMANAGER 0
 	#else
 		#define RING_USEPOOLMANAGER 1

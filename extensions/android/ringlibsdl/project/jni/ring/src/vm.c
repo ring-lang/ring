@@ -458,7 +458,7 @@ RING_API void ring_vm_loadcode ( VM *pVM )
 	**  eval() will check if there is a need to reallocation or not 
 	**  This optimization increase the performance of applications that uses eval() 
 	*/
-	#if RING_MSDOS
+	#if RING_LOWMEM
 		nSize = RING_VM_INSTRUCTIONSLISTSIZE ;
 	#else
 		nSize = RING_VM_INSTRUCTIONSLISTSIZE+RING_VM_EXTRASIZE ;

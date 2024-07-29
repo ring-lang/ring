@@ -34,6 +34,12 @@
 	#else
 		#define RING_SETBINARY 0
 	#endif
+	/* Memory Model */
+	#if RING_MSDOS
+		#define RING_LOWMEM 1
+	#else
+		#define RING_LOWMEM 0
+	#endif
 	/* Using ANSI C */
 	#ifdef ULLONG_MAX
 		#define RING_ANSI_C 0
@@ -110,7 +116,7 @@
 	#define RING_HUGEBUF 512
 	#define RING_BYTEBITS 8
 	/* General */
-	#if RING_MSDOS
+	#if RING_LOWMEM
 		#define RING_PATHSIZE 128
 		#define RING_PATHLIMIT 256
 	#else

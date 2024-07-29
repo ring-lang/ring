@@ -6,7 +6,7 @@
 	**  Data 
 	**  Stack Size 
 	*/
-	#if RING_MSDOS
+	#if RING_LOWMEM
 		#define RING_VM_STACK_SIZE 256
 		#define RING_VM_STACK_CHECKOVERFLOW 253
 	#else
