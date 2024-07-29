@@ -1181,7 +1181,7 @@ RING_API void ring_list_print2 ( List *pList,unsigned int nDecimals )
 				}
 				else {
 					sprintf(cOptions , "%s%df" , "%.",nDecimals);
-					#if RING_MSDOS
+					#if RING_NOSNPRINTF
 						sprintf(cString, cOptions, y);
 					#else
 						snprintf(cString, RING_MEDIUMBUF, cOptions, y);

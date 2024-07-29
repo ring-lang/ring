@@ -247,7 +247,7 @@ RING_API char * ring_general_numtostring ( double nNum1,char *cStr,int nDecimals
 	}
 	else {
 		sprintf( cOptions , "%s%df" , "%.",nDecimals ) ;
-		#if RING_MSDOS
+		#if RING_NOSNPRINTF
 			sprintf(cStr, cOptions, nNum1);
 		#else
 			/* Avoid buffer overrun by using snprint() function */
