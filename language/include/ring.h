@@ -31,6 +31,17 @@
 		#else
 			#define RING_SETBINARY _setmode(_fileno(stdin), _O_BINARY)
 		#endif
+		/*
+		**  Support Windows DLL 
+		**  Support Windows XP 
+		**  To avoid error message : procedure entry point InitializeConditionVariable could not be located in 
+		*/
+		#ifdef _WIN32_WINNT
+			#undef _WIN32_WINNT
+		#endif
+		#define _WIN32_WINNT 0x502
+		#define RING_USEDLL 1
+		#define RING_BUILDLIB 1
 	#else
 		#define RING_SETBINARY 0
 		#if RING_MSDOS
@@ -38,6 +49,9 @@
 			/* Required for types like uintptr_t */
 			#include <stdint.h>
 		#endif
+		/* Linux (so files) */
+		#define RING_USEDLL 0
+		#define RING_BUILDLIB 0
 	#endif
 	/* Memory Model */
 	#if RING_MSDOS
@@ -80,27 +94,7 @@
 		#define RING_LONGLONG_HIGHVALUE 9007199254740991LL
 		#define RING_UNSIGNEDINTEGERPOINTER uintptr_t
 	#endif
-	/*
-	**  DLL/So 
-	**  Check Operating System 
-	*/
-	#ifdef _WIN32
-		/*
-		**  Windows 
-		**  Support Windows XP 
-		**  To avoid error message : procedure entry point InitializeConditionVariable could not be located in Kernel32.dll 
-		*/
-		#ifdef _WIN32_WINNT
-			#undef _WIN32_WINNT
-		#endif
-		#define _WIN32_WINNT 0x502
-		#define RING_USEDLL 1
-		#define RING_BUILDLIB 1
-		/* Linux */
-	#else
-		#define RING_USEDLL 0
-		#define RING_BUILDLIB 0
-	#endif
+	/* DLL/So */
 	#if RING_USEDLL
 		#if RING_BUILDLIB
 			#define RING_API __declspec(dllexport)
