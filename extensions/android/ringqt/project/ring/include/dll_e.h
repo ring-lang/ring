@@ -3,7 +3,6 @@
 #ifndef ring_dll_extension_h
 	#define ring_dll_extension_h
 	#ifdef _WIN32
-		#include <windows.h>
 		#define LoadDLL(cFileName) LoadLibrary(cFileName)
 		#define GetDLLFunc GetProcAddress
 		#define CloseDLL FreeLibrary

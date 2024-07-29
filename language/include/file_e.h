@@ -23,7 +23,6 @@
 	#include <sys/stat.h>
 	#ifdef _WIN32
 		/* Windows Only */
-		#include <windows.h>
 		#ifdef _MSC_VER
 			#if !defined(S_ISREG) && defined(_S_IFMT) && defined(_S_IFREG)
 				#define S_ISREG(m) (((m) & _S_IFMT) == _S_IFREG)

@@ -5,6 +5,7 @@
 	/* Windows only */
 	#include <direct.h>
 	#define GetCurrentDir _getcwd
+	#include <windows.h>
 #else
 	#if RING_MSDOS
 	#else

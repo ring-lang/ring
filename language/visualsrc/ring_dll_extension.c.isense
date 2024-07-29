@@ -9,7 +9,7 @@ CloseDLL
 LpHandleType
 RING_DLL_INITFUNC
 RING_DLL_LIBFILEMSG
-RING_DLL_POINTERNAME
+RING_VM_POINTER_DLL
 ring_vm_dll_loadfunctions
 ring_vm_dll_loadlib
 Type: LpHandleType
