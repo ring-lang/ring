@@ -298,11 +298,12 @@ void ring_vm_os_shutdown ( void *pPointer )
 	*/
 	#if defined __MACH__
 
-		int ring_vm_os_gettime ( int clk_id, struct timespec* ts )
+		int ring_vm_os_gettime ( int clk_id, struct timespec* pTS )
 		{
-			uint64_t nsec = mach_absolute_time() ;
-			ts->tv_sec = nsec / NANOSEC ;
-			ts->tv_nsec = nsec % NANOSEC; ;
+			RING_UNSIGNEDLONGLONG nSec  ;
+			nSec = mach_absolute_time() ;
+			pTS->tv_sec = nSec / NANOSEC ;
+			pTS->tv_nsec = nSec % NANOSEC; ;
 			return 0 ;
 		}
 	#endif

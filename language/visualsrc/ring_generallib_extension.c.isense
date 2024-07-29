@@ -1,12 +1,5 @@
 ring_generallib_extension_h
 C_EXPRCODESIZE
-ring_vm_generallib_random
-Type: int
-nNum1,nNum2
-ring_vm_generallib_srandom
-Type: int
-nNum1
-ring_vm_generallib_checkoverflow
 ring_vm_generallib_loadfunctions
 ring_vm_generallib_version
 ring_vm_generallib_nothing

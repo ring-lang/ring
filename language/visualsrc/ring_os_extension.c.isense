@@ -53,6 +53,8 @@ ring_vm_os_nofprocessors
 Type: SYSTEM_INFO
 sysinfo
 ring_vm_os_gettime
+Type: RING_UNSIGNEDLONGLONG
+nSec
 ring_vm_os_uptime
 Type: double
 nTime

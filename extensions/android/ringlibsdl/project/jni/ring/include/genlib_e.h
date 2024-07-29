@@ -2,12 +2,6 @@
 
 #ifndef ring_generallib_extension_h
 	#define ring_generallib_extension_h
-	#ifndef _WIN32
-		#if RING_MSDOS
-		#else
-			#include <stdint.h>
-		#endif
-	#endif
 	/* Constants */
 	#define C_EXPRCODESIZE 200
 
