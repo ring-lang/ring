@@ -25,6 +25,9 @@ void ring_vm_math_loadfunctions ( RingState *pRingState )
 	RING_API_REGISTER("unsigned",ring_vm_math_unsigned);
 	RING_API_REGISTER("decimals",ring_vm_math_decimals);
 	RING_API_REGISTER("murmur3hash",ring_vm_math_murmur3hash);
+	RING_API_REGISTER("random",ring_vm_math_random);
+	RING_API_REGISTER("srandom",ring_vm_math_srandom);
+	RING_API_REGISTER("checkoverflow",ring_vm_math_checkoverflow);
 }
 
 void ring_vm_math_sin ( void *pPointer )
@@ -406,6 +409,86 @@ void ring_vm_math_murmur3hash ( void *pPointer )
 	if ( RING_API_ISSTRING(1) && RING_API_ISNUMBER(2) ) {
 		nResult = ring_murmur3_32(RING_API_GETSTRING(1),RING_API_GETSTRINGSIZE(1),RING_API_GETNUMBER(2));
 		RING_API_RETNUMBER(nResult);
+	}
+	else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
+}
+/* 31 bit thread unsafe random generator using the seed (srand) */
+
+void ring_vm_math_random ( void *pPointer )
+{
+	int nNum1,nNum2  ;
+	nNum1 = rand() ;
+	#ifdef _MSC_VER
+		#ifdef rand_s
+			rand_s(&nNum2);
+			nNum1 |= ( nNum2 & 0xFFFF ) << 15 ;
+		#endif
+	#endif
+	if ( RING_API_PARACOUNT == 0 ) {
+		RING_API_RETNUMBER(nNum1);
+	}
+	else if ( RING_API_PARACOUNT == 1 ) {
+		if ( RING_API_ISNUMBER(1) ) {
+			nNum2 = RING_API_GETNUMBER(1) ;
+			if ( nNum2 > 0 ) {
+				RING_API_RETNUMBER(nNum1 % ++nNum2);
+			}
+			else if ( nNum2 == 0 ) {
+				RING_API_RETNUMBER(RING_ZEROF);
+			}
+			else {
+				nNum2 = -1 * nNum2 ;
+				nNum2++ ;
+				nNum2 = nNum1 % nNum2 ;
+				RING_API_RETNUMBER(-1 * nNum2);
+			}
+		}
+		else {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+		}
+	}
+	else {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+	}
+}
+
+void ring_vm_math_srandom ( void *pPointer )
+{
+	int nNum1  ;
+	if ( RING_API_PARACOUNT == 1 ) {
+		if ( RING_API_ISNUMBER(1) ) {
+			nNum1 = RING_API_GETNUMBER(1) ;
+			if ( nNum1 >= 0 ) {
+				srand(nNum1);
+			}
+			else {
+				RING_API_ERROR(RING_API_BADPARARANGE);
+			}
+		}
+		else {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+		}
+	}
+	else {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+	}
+}
+
+void ring_vm_math_checkoverflow ( void *pPointer )
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISNUMBER(1) ) {
+		if ( RING_API_GETNUMBER(1) == 1 ) {
+			((VM *) pPointer)->lCheckOverFlow = 1 ;
+		}
+		else {
+			((VM *) pPointer)->lCheckOverFlow = 0 ;
+		}
 	}
 	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);

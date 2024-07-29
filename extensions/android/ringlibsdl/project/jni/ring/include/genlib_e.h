@@ -14,17 +14,11 @@
 	RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState ) ;
 	/* General */
 
-	void ring_vm_generallib_random ( void *pPointer ) ;
-
 	void ring_vm_generallib_version ( void *pPointer ) ;
-
-	void ring_vm_generallib_srandom ( void *pPointer ) ;
 
 	void ring_vm_generallib_nothing ( void *pPointer ) ;
 
 	void ring_vm_generallib_optionalfunc ( void *pPointer ) ;
-
-	void ring_vm_generallib_checkoverflow ( void *pPointer ) ;
 	/* Check Data Type */
 
 	void ring_vm_generallib_isstring ( void *pPointer ) ;

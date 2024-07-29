@@ -1,38 +1,14 @@
 ring_generallib_extension_h
 C_EXPRCODESIZE
-ring_vm_generallib_loadfunctions
-ring_vm_generallib_len
-Type: VM *
-pVM
-ring_vm_generallib_ascii
-Type: int
-x
-Type: unsigned char *
-cString
-ring_vm_generallib_char
-Type: int
-x
-Type: char
-cStr[RING_CHARBUF]
-ring_vm_generallib_filename
-Type: VM *
-pVM
-Type: FuncCall *
-pFuncCall
-Type: int
-lFunctionCall,x
-Type: const char *
-cOldFile
-Type: const char *
-cFile
 ring_vm_generallib_random
 Type: int
 nNum1,nNum2
-ring_vm_generallib_version
-ring_vm_generallib_prevfilename
 ring_vm_generallib_srandom
 Type: int
 nNum1
+ring_vm_generallib_checkoverflow
+ring_vm_generallib_loadfunctions
+ring_vm_generallib_version
 ring_vm_generallib_nothing
 ring_vm_generallib_optionalfunc
 Type: RingState *
@@ -41,7 +17,6 @@ Type: VM *
 pVM
 Type: const char *
 cFunc
-ring_vm_generallib_checkoverflow
 ring_vm_generallib_isstring
 ring_vm_generallib_isnumber
 ring_vm_generallib_islist
@@ -120,6 +95,16 @@ Type: int
 x,nMax
 Type: char *
 cString2
+ring_vm_generallib_ascii
+Type: int
+x
+Type: unsigned char *
+cString
+ring_vm_generallib_char
+Type: int
+x
+Type: char
+cStr[RING_CHARBUF]
 ring_vm_generallib_left
 Type: double
 nNum1
@@ -169,6 +154,9 @@ cStr
 Type: int
 x,nSize,nCount
 ring_vm_generallib_strcmp
+ring_vm_generallib_len
+Type: VM *
+pVM
 ring_vm_generallib_eval
 Type: const char *
 cStr
@@ -176,6 +164,18 @@ Type: VM *
 pVM
 ring_vm_generallib_raise
 ring_vm_generallib_assert
+ring_vm_generallib_filename
+Type: VM *
+pVM
+Type: FuncCall *
+pFuncCall
+Type: int
+lFunctionCall,x
+Type: const char *
+cOldFile
+Type: const char *
+cFile
+ring_vm_generallib_prevfilename
 ring_vm_generallib_isfunc
 Type: char *
 cStr

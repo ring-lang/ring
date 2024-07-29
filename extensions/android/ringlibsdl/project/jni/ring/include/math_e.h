@@ -46,5 +46,11 @@
 	void ring_vm_math_decimals ( void *pPointer ) ;
 
 	void ring_vm_math_murmur3hash ( void *pPointer ) ;
+
+	void ring_vm_math_random ( void *pPointer ) ;
+
+	void ring_vm_math_srandom ( void *pPointer ) ;
+
+	void ring_vm_math_checkoverflow ( void *pPointer ) ;
 	#define RING_VM_DECIMALSLIMIT 90
 #endif
