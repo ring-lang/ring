@@ -171,7 +171,9 @@ void ring_vm_os_system ( void *pPointer )
 		return ;
 	}
 	if ( RING_API_ISSTRING(1) ) {
-		system(RING_API_GETSTRING(1));
+		#if RING_SYSTEMFUNCTION
+			system(RING_API_GETSTRING(1));
+		#endif
 	}
 	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
