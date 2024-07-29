@@ -17,9 +17,11 @@ int ring_general_currentdir ( char *cDirPath )
 {
 	int nSize  ;
 	nSize = RING_PATHSIZE ;
-	if ( !GetCurrentDir(cDirPath, nSize) ) {
-		return errno ;
-	}
+	#if RING_CURRENTDIRFUNCTIONS
+		if ( !GetCurrentDir(cDirPath, nSize) ) {
+			return errno ;
+		}
+	#endif
 	cDirPath[nSize-1] = '\0' ;
 	return 0 ;
 }
@@ -51,17 +53,22 @@ int ring_general_exefilename ( char *cDirPath )
 
 int ring_general_chdir ( const char *cDir )
 {
-	#ifdef _WIN32
-		/* Windows only */
-		#ifdef __BORLANDC__
-			/* Borland C/C++ */
-			return chdir(cDir) ;
+	#if RING_CURRENTDIRFUNCTIONS
+		/* Check OS */
+		#ifdef _WIN32
+			/* Windows only */
+			#ifdef __BORLANDC__
+				/* Borland C/C++ */
+				return chdir(cDir) ;
+			#else
+				/* Modern Compilers Like Visual C/C++ */
+				return _chdir(cDir) ;
+			#endif
 		#else
-			/* Modern Compilers Like Visual C/C++ */
-			return _chdir(cDir) ;
+			return chdir(cDir) ;
 		#endif
 	#else
-		return chdir(cDir) ;
+		return RING_ZERO ;
 	#endif
 }
 

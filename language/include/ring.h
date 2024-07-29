@@ -67,8 +67,13 @@
 		#define RING_EXTRAOSFUNCTIONS 1
 		#define RING_EXTRAFILEFUNCTIONS 1
 	#endif
-	/* C system() function */
+	/*
+	**  Supported Functions 
+	**  C system() function 
+	*/
 	#define RING_SYSTEMFUNCTION 1
+	/* Current Dir Functions */
+	#define RING_CURRENTDIRFUNCTIONS 1
 	/* Using ANSI C */
 	#ifdef ULLONG_MAX
 		#define RING_ANSI_C 0
