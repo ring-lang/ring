@@ -586,8 +586,7 @@ void ring_state_usageinfo ( void )
 	puts("-norun    :  Don't run the program after compiling");
 	puts("-ins      :  Print instruction operation code before execution");
 	puts("-clock    :  Print clock before and after program execution");
-	#if RING_MSDOS
-	#else
+	#if RING_GENOBJ
 		puts("-go       :  Generate object file");
 		puts("-geo      :  Generate embedded object file (C source code)");
 	#endif

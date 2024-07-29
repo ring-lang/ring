@@ -38,9 +38,11 @@
 	#if RING_MSDOS
 		#define RING_LOWMEM 1
 		#define RING_NOSNPRINTF 1
+		#define RING_GENOBJ 0
 	#else
 		#define RING_LOWMEM 0
 		#define RING_NOSNPRINTF 0
+		#define RING_GENOBJ 1
 	#endif
 	/* Using ANSI C */
 	#ifdef ULLONG_MAX
