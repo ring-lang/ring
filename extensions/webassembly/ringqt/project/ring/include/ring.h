@@ -35,7 +35,7 @@
 		#define RING_SETBINARY 0
 		#if RING_MSDOS
 		#else
-			/* Require for uintptr_t */
+			/* Required for types like uintptr_t */
 			#include <stdint.h>
 		#endif
 	#endif
