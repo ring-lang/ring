@@ -35,8 +35,7 @@ void ring_vm_file_loadfunctions ( RingState *pRingState )
 	RING_API_REGISTER("bytes2int",ring_vm_file_bytes2int);
 	RING_API_REGISTER("bytes2float",ring_vm_file_bytes2float);
 	RING_API_REGISTER("bytes2double",ring_vm_file_bytes2double);
-	#if RING_MSDOS
-	#else
+	#if RING_EXTRAFILEFUNCTIONS
 		/* Check File/Dir/Type */
 		RING_API_REGISTER("fexists",ring_vm_file_fexists);
 		RING_API_REGISTER("direxists",ring_vm_file_direxists);

@@ -20,8 +20,7 @@ void ring_vm_os_loadfunctions ( RingState *pRingState )
 	RING_API_REGISTER("getarch",ring_vm_os_getarch);
 	RING_API_REGISTER("system",ring_vm_os_system);
 	RING_API_REGISTER("shutdown",ring_vm_os_shutdown);
-	#if RING_MSDOS
-	#else
+	#if RING_EXTRAOSFUNCTIONS
 		/* Environment Variables */
 		RING_API_REGISTER("sysget",ring_vm_os_sysget);
 		RING_API_REGISTER("sysset",ring_vm_os_sysset);
