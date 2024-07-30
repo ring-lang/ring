@@ -33,8 +33,7 @@
 			#define stat _stat
 		#endif
 	#else
-		#if RING_MSDOS
-		#else
+		#if RING_EXTRAFILEFUNCTIONS
 			#include <dirent.h>
 			#include <unistd.h>
 		#endif
