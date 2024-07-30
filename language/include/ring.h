@@ -25,8 +25,7 @@
 	#endif
 	#if __XC__
 		/* Support compiling using a Microchip C compiler for 32-bit PIC Microcontrollers */
-		#define RING_LIMITEDENV 1
-		#define RING_LIMITEDSYS 1
+		#define RING_MICROCONTROLLER 1
 	#endif
 	#ifdef _WIN32
 		#include <io.h>
@@ -58,6 +57,11 @@
 		/* Linux (so files) */
 		#define RING_USEDLL 0
 		#define RING_BUILDLIB 0
+	#endif
+	#if RING_MICROCONTROLLER
+		/* Tested using Compiler for 32-bit PIC Microcontrollers & Raspberry Pi Pico Microcontroller */
+		#define RING_LIMITEDENV 1
+		#define RING_LIMITEDSYS 1
 	#endif
 	/* Memory Model */
 	#if RING_LIMITEDENV
