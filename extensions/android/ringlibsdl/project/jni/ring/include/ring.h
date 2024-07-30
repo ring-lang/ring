@@ -15,12 +15,18 @@
 	#include <limits.h>
 	#if defined(MSDOS) || defined(__MSDOS__) || defined(_MSDOS) || defined(__DOS__)
 		#define RING_MSDOS 1
+		#define RING_LIMITEDENV 1
 		#if __BORLANDC__
 			#include <dir.h>
 			#include <alloc.h>
 		#endif
 	#else
 		#define RING_MSDOS 0
+	#endif
+	#if __XC__
+		/* Support compiling using a Microchip C compiler for 32-bit PIC Microcontrollers */
+		#define RING_LIMITEDENV 1
+		#define RING_LIMITEDSYS 1
 	#endif
 	#ifdef _WIN32
 		#include <io.h>
@@ -54,7 +60,7 @@
 		#define RING_BUILDLIB 0
 	#endif
 	/* Memory Model */
-	#if RING_MSDOS
+	#if RING_LIMITEDENV
 		#define RING_LOWMEM 1
 		#define RING_NOSNPRINTF 1
 		#define RING_GENOBJ 0
@@ -67,13 +73,16 @@
 		#define RING_EXTRAOSFUNCTIONS 1
 		#define RING_EXTRAFILEFUNCTIONS 1
 	#endif
-	/*
-	**  Supported Functions 
-	**  C system() function 
-	*/
-	#define RING_SYSTEMFUNCTION 1
-	/* Current Dir Functions */
-	#define RING_CURRENTDIRFUNCTIONS 1
+	/* Supported Functions */
+	#if RING_LIMITEDSYS
+		/* C system() function */
+		#define RING_SYSTEMFUNCTION 0
+		/* Current Dir Functions */
+		#define RING_CURRENTDIRFUNCTIONS 0
+	#else
+		#define RING_SYSTEMFUNCTION 1
+		#define RING_CURRENTDIRFUNCTIONS 1
+	#endif
 	/* Using ANSI C */
 	#ifdef ULLONG_MAX
 		#define RING_ANSI_C 0
@@ -210,25 +219,25 @@
 	/* Extensions Headers */
 	#ifndef RING_EXTENSION
 		#define RING_EXTENSION
-		#ifdef RING_VM_MATH
+		#if RING_VM_MATH
 			#include "math_e.h"
 		#endif
-		#ifdef RING_VM_FILE
+		#if RING_VM_FILE
 			#include "file_e.h"
 		#endif
-		#ifdef RING_VM_OS
+		#if RING_VM_OS
 			#include "os_e.h"
 		#endif
-		#ifdef RING_VM_LISTFUNCS
+		#if RING_VM_LISTFUNCS
 			#include "list_e.h"
 		#endif
-		#ifdef RING_VM_REFMETA
+		#if RING_VM_REFMETA
 			#include "meta_e.h"
 		#endif
-		#ifdef RING_VM_INFO
+		#if RING_VM_INFO
 			#include "vminfo_e.h"
 		#endif
-		#ifdef RING_VM_DLL
+		#if RING_VM_DLL
 			#include "dll_e.h"
 		#endif
 	#endif
