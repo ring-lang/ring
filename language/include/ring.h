@@ -27,6 +27,9 @@
 		/* Support compiling using a Microchip C compiler for 32-bit PIC Microcontrollers */
 		#define RING_MICROCONTROLLER 1
 	#endif
+	#ifdef __ANDROID__
+		#define RING_SIMPLEHASHFUNC 1
+	#endif
 	#ifdef _WIN32
 		#include <io.h>
 		#include <fcntl.h>
@@ -70,6 +73,7 @@
 		#define RING_GENOBJ 0
 		#define RING_EXTRAOSFUNCTIONS 0
 		#define RING_EXTRAFILEFUNCTIONS 0
+		#define RING_SIMPLEHASHFUNC 1
 	#else
 		#define RING_LOWMEM 0
 		#define RING_NOSNPRINTF 0

@@ -16,7 +16,7 @@ HashTable * ring_hashtable_new_gc ( void *pRingState )
 unsigned int ring_hashtable_hashkey ( HashTable *pHashTable,const char *cKey )
 {
 	unsigned int nIndex  ;
-	#ifdef __ANDROID__
+	#if RING_SIMPLEHASHFUNC
 		nIndex = ring_xor_hash((unsigned char *) cKey,strlen(cKey));
 	#else
 		nIndex = ring_murmur3_32((const char *) cKey,strlen(cKey),RING_HASHTABLE_HASHFUNCSEED);
