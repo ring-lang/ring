@@ -113,6 +113,14 @@ void ring_parser_icg_setoperandint ( Parser *pParser, List *pList, int nPos, int
 	ring_list_setint_gc(NULL, pList, nPos, nValue);
 }
 
+int ring_parser_icg_getlastoperation ( Parser *pParser )
+{
+	if ( (pParser->pActiveGenCodeList == NULL) ) {
+		return -1 ;
+	}
+	return ring_list_getint(pParser->pActiveGenCodeList,RING_PARSER_ICG_OPERATIONCODE) ;
+}
+
 void ring_parser_icg_loadfunction ( Parser *pParser,const char *cFunctionName )
 {
 	ring_parser_icg_newoperation(pParser,ICO_LOADFUNC);

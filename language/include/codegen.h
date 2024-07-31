@@ -181,7 +181,6 @@
 	/* Macro */
 	#define RING_PARSER_ICG_GOTOLASTOP pParser->pActiveGenCodeList = ring_list_getlist(pParser->pGenCode,ring_list_getsize(pParser->pGenCode))
 	#define ring_parser_icg_newlabel(pParser) ( ring_list_getsize(pParser->pGenCode) + 1 + pParser->pRingState->nInstructionsCount)
-	#define ring_parser_icg_getlastoperation(pParser) ring_list_getint(pParser->pActiveGenCodeList,RING_PARSER_ICG_OPERATIONCODE)
 	#define ring_parser_icg_setlastoperation(pParser,nOPCode) ring_list_setint_gc(pParser->pRingState,pParser->pActiveGenCodeList,RING_PARSER_ICG_OPERATIONCODE,nOPCode)
 	#define ring_parser_icg_instructionscount(pParser) ring_list_getsize(pParser->pGenCode) + pParser->pRingState->nInstructionsCount
 	#define ring_parser_icg_instructionslistsize(pParser) ring_list_getsize(pParser->pGenCode)
@@ -228,6 +227,8 @@
 	const char * ring_parser_icg_getlaststring ( Parser *pParser ) ;
 
 	void ring_parser_icg_setoperandint ( Parser *pParser, List *pList, int nPos, int nValue ) ;
+
+	int ring_parser_icg_getlastoperation ( Parser *pParser ) ;
 	/* Specific Instructions */
 
 	void ring_parser_icg_loadfunction ( Parser *pParser,const char *cFunctionName ) ;

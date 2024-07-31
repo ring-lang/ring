@@ -134,7 +134,6 @@ RING_PARSER_ICG_NORMALMM
 RING_PARSER_ICG_ASSIGNPTRENABLEPOS
 RING_PARSER_ICG_GOTOLASTOP
 ring_parser_icg_newlabel(pParser)
-ring_parser_icg_getlastoperation(pParser)
 ring_parser_icg_setlastoperation(pParser,nOPCode)
 ring_parser_icg_instructionscount(pParser)
 ring_parser_icg_instructionslistsize(pParser)
@@ -168,6 +167,7 @@ ring_parser_icg_setopcode
 ring_parser_icg_deleteoperand
 ring_parser_icg_getlaststring
 ring_parser_icg_setoperandint
+ring_parser_getlastoperation
 ring_parser_icg_loadfunction
 ring_parser_icg_loadaddress
 ring_parser_icg_loadaddresstoloadfunction
