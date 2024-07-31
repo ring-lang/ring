@@ -115,7 +115,7 @@ void ring_parser_icg_setoperandint ( Parser *pParser, List *pList, int nPos, int
 
 int ring_parser_icg_getlastoperation ( Parser *pParser )
 {
-	if ( (pParser->pActiveGenCodeList == NULL) ) {
+	if ( (pParser->pActiveGenCodeList == NULL) || ( ! ring_list_getsize(pParser->pActiveGenCodeList)) ) {
 		return -1 ;
 	}
 	return ring_list_getint(pParser->pActiveGenCodeList,RING_PARSER_ICG_OPERATIONCODE) ;
