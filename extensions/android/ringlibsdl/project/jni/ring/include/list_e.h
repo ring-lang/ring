@@ -3,7 +3,7 @@
 #ifndef ring_list_extension_h
 	#define ring_list_extension_h
 
-	void ring_vm_listfuncs_loadfunctions ( RingState *pRingState ) ;
+	void ring_vm_list_loadfunctions ( RingState *pRingState ) ;
 
 	void ring_vm_listfuncs_add ( void *pPointer ) ;
 

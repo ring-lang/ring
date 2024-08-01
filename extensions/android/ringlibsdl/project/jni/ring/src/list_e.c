@@ -2,7 +2,7 @@
 
 #include "ring.h"
 
-void ring_vm_listfuncs_loadfunctions ( RingState *pRingState )
+void ring_vm_list_loadfunctions ( RingState *pRingState )
 {
 	/* Lists */
 	RING_API_REGISTER("add",ring_vm_listfuncs_add);

@@ -6,7 +6,7 @@ void ring_vm_extension ( RingState *pRingState )
 {
 	/* List */
 	#if RING_VM_LISTFUNCS
-		ring_vm_listfuncs_loadfunctions(pRingState);
+		ring_vm_list_loadfunctions(pRingState);
 	#endif
 	/* Math */
 	#if RING_VM_MATH
