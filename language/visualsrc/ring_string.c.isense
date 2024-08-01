@@ -1,6 +1,7 @@
 ring_string_h
 RING_LOOP_THRESHOLD
 RING_STRING_ARRAYSIZE
+RING_STRING_ARRAYSIZE
 Parent: String
 cStr
 Type: unsigned int

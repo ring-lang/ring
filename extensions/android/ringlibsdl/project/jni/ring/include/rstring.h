@@ -3,7 +3,11 @@
 #ifndef ring_string_h
 	#define ring_string_h
 	#define RING_LOOP_THRESHOLD 16
-	#define RING_STRING_ARRAYSIZE 32
+	#if RING_LOWMEM
+		#define RING_STRING_ARRAYSIZE 8
+	#else
+		#define RING_STRING_ARRAYSIZE 32
+	#endif
 	typedef struct String {
 		char *cStr  ;
 		unsigned int nSize  ;
