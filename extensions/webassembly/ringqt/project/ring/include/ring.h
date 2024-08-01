@@ -2,6 +2,8 @@
 
 #ifndef ring_h
 	#define ring_h
+	/* Include Custom Configuration File */
+	#include "rconfig.h"
 	/* Include C Headers */
 	#include <stdlib.h>
 	#include <stdio.h>
