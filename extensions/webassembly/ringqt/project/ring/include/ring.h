@@ -69,6 +69,7 @@
 	/* Memory Model */
 	#if RING_LIMITEDENV
 		#define RING_LOWMEM 1
+		#define RING_NODLL 1
 		#define RING_NOSNPRINTF 1
 		#define RING_GENOBJ 0
 		#define RING_EXTRAOSFUNCTIONS 0
