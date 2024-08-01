@@ -11,7 +11,6 @@ include_directories(include)
 file(GLOB SOURCES "src/*.c")
 list(REMOVE_ITEM SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/ring.c)
 list(REMOVE_ITEM SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/ringw.c)
-list(REMOVE_ITEM SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/test.c)
 
 # Check the Operating System
 IF (WIN32)
