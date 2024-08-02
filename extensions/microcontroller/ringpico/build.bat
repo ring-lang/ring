@@ -7,5 +7,5 @@ move ringappcode.h picolib/src/loadapp >nul
 
 @echo on
 rem build the project
-C:\PL\Pico151\cmake\bin\cmake.EXE --build c:/PL/Pico151samples/pico-examples/build --config Debug --target all --
+C:\PL\Pico151\cmake\bin\cmake.EXE --build c:/PL/Pico151examples/pico-examples/build --config Debug --target all --
 
