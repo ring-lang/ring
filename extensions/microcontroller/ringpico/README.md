@@ -1,7 +1,7 @@
 Ring Programming Language for Raspberry Pi Pico
 ===============================================
 
-In this folder we have extensions related to using Ring on Raspberry Pi Pico
+In this folder we have the RingPico extension for using Ring on Raspberry Pi Pico
 
 Install
 =======
@@ -23,10 +23,10 @@ Building
 Deployment
 ==========
 
-* Connect Raspberry Pi Pico using to your computer while pressing on the board button
+* Connect Raspberry Pi Pico to your computer while pressing on the BOOTSEL button.
 
-* Keep pressing the button until you see the file explorer window
+* Keep pressing the BOOTSEL button until you see the File Explorer window.
 
-* Run the deploy.bat file
+* Run the deploy.bat file which will copy ringpico.uf2 to the device
 
 Enjoy! 
