@@ -1,5 +1,6 @@
-set RING_PICO_SDK=c:\pl\pico151
-set RING_PICO_EXAMPLES=c:\pl\pico151examples
+setlocal enableextensions enabledelayedexpansion
+
+call config.bat
 
 @echo off
 rem generate ringappcode.c and ringappcode.h
@@ -12,3 +13,4 @@ move ringappcode.h picolib/src/loadapp >nul
 rem build the project
 %RING_PICO_SDK%\cmake\bin\cmake.EXE --build %RING_PICO_EXAMPLES%\pico-examples\build --config Debug --target all --
 
+endlocal
