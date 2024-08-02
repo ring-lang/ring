@@ -1,0 +1,16 @@
+<code>
+#include "pico/stdlib.h"
+
+</code>
+
+<libinitfunc> ring_vm_pico_loadfunctions
+
+<constant>
+PICO_DEFAULT_LED_PIN
+GPIO_OUT
+</constant>
+
+void gpio_init(int)
+void gpio_set_dir(int,int)
+void gpio_put(int,int)
+void sleep_ms(int)
