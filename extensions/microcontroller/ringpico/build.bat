@@ -2,7 +2,7 @@ setlocal enableextensions enabledelayedexpansion
 
 call config.bat
 
-%RING_PICO_SDK%\pico-env
+call %RING_PICO_SDK%\pico-env
 
 cd build
 cmake ..
