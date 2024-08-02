@@ -2,8 +2,8 @@
 rem generate ringappcode.c and ringappcode.h
 ring main.ring -geo -norun
 del main.c
-move ringappcode.c ringpico/src/loadapp >nul
-move ringappcode.h ringpico/src/loadapp >nul
+move ringappcode.c picolib/src/loadapp >nul
+move ringappcode.h picolib/src/loadapp >nul
 
 @echo on
 rem build the project
