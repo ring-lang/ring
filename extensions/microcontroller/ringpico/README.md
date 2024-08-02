@@ -3,8 +3,12 @@ Ring Programming Language for Raspberry Pi Pico
 
 In this folder we have the RingPico extension for using Ring on Raspberry Pi Pico
 
+This is a project folder that contains (Ring Compiler/VM, RingPico extension and Ring program)
+
 Install
 =======
+
+* Install Ring 1.21 (Required to compile the Ring program in the Building step)
 
 * Install Pico-SDK from: https://github.com/raspberrypi/pico-setup-windows
 
@@ -18,7 +22,7 @@ Programming
 Building
 ========
 
-* Just run the build.bat file 
+* Just run the build.bat file
 
 Deployment
 ==========
