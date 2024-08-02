@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.12)
 
+include(pico_sdk_import.cmake)
+
 project(ringpico)
+
+pico_sdk_init()
 
 include_directories(
 	ring/include 
@@ -27,6 +31,3 @@ target_link_libraries(${PROJECT_NAME} pico_stdlib)
 
 # create map/bin/hex/uf2 file etc.
 pico_add_extra_outputs(${PROJECT_NAME})
-
-# add url via pico_set_program_url
-example_auto_set_url(${PROJECT_NAME})
