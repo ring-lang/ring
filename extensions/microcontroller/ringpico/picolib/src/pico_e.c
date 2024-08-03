@@ -359,42 +359,6 @@ RING_FUNC(ring_gpio_set_irq_enabled)
 }
 
 
-RING_FUNC(ring_gpio_set_irq_callback)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	gpio_set_irq_callback(* (gpio_irq_callback_t  *) RING_API_GETCPOINTER(1,"gpio_irq_callback_t"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		RING_API_FREE(RING_API_GETCPOINTER(1,"gpio_irq_callback_t"));
-}
-
-
-RING_FUNC(ring_gpio_set_irq_enabled_with_callback)
-{
-	if ( RING_API_PARACOUNT != 4 ) {
-		RING_API_ERROR(RING_API_MISS4PARA);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	gpio_set_irq_enabled_with_callback( (uint ) RING_API_GETNUMBER(1), (uint32_t ) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3),* (gpio_irq_callback_t  *) RING_API_GETCPOINTER(4,"gpio_irq_callback_t"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		RING_API_FREE(RING_API_GETCPOINTER(4,"gpio_irq_callback_t"));
-}
-
-
 RING_FUNC(ring_gpio_set_dormant_irq_enabled)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
@@ -749,8 +713,6 @@ RING_API void ring_vm_pico_loadfunctions(RingState *pRingState)
 	RING_API_REGISTER("gpio_set_drive_strength",ring_gpio_set_drive_strength);
 	RING_API_REGISTER("gpio_get_drive_strength",ring_gpio_get_drive_strength);
 	RING_API_REGISTER("gpio_set_irq_enabled",ring_gpio_set_irq_enabled);
-	RING_API_REGISTER("gpio_set_irq_callback",ring_gpio_set_irq_callback);
-	RING_API_REGISTER("gpio_set_irq_enabled_with_callback",ring_gpio_set_irq_enabled_with_callback);
 	RING_API_REGISTER("gpio_set_dormant_irq_enabled",ring_gpio_set_dormant_irq_enabled);
 	RING_API_REGISTER("gpio_get_irq_event_mask",ring_gpio_get_irq_event_mask);
 	RING_API_REGISTER("gpio_acknowledge_irq",ring_gpio_acknowledge_irq);
