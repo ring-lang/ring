@@ -161,7 +161,11 @@ ring_state_runobjectstring
 ring_state_runprogram
 Type: VM *
 pVM
+ring_state_newbytecode
+Type: VM *
+pVM
 ring_state_log
+ring_state_runbytecode
 ring_state_runstring
 Type: Scanner *
 pScanner

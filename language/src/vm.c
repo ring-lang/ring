@@ -291,11 +291,13 @@ void ring_vm_start ( RingState *pRingState,VM *pVM )
 		ring_vm_defragmentation(pRingState,pVM);
 	}
 	ring_vm_loadcode(pVM);
-	ring_vm_towardsmainloop(pRingState,pVM);
+	ring_vm_towardsmainloop(pRingState);
 }
 
-RING_API void ring_vm_towardsmainloop ( RingState *pRingState,VM *pVM )
+RING_API void ring_vm_towardsmainloop ( RingState *pRingState )
 {
+	VM *pVM  ;
+	pVM = pRingState->pVM ;
 	ring_vm_loadcfunctions(pRingState);
 	/* Generate Items Array &  Hash Table */
 	ring_list_genarray(pRingState->pRingCFunctions);

@@ -549,7 +549,7 @@
 
 	void ring_vm_start ( RingState *pRingState,VM *pVM ) ;
 
-	RING_API void ring_vm_towardsmainloop ( RingState *pRingState,VM *pVM ) ;
+	RING_API void ring_vm_towardsmainloop ( RingState *pRingState ) ;
 
 	void ring_vm_fetch ( VM *pVM ) ;
 

@@ -129,6 +129,10 @@
 
 	RING_API void ring_state_runprogram ( RingState *pRingState ) ;
 
+	RING_API void ring_state_newbytecode ( RingState *pRingState,int nSize ) ;
+
+	RING_API void ring_state_runbytecode ( RingState *pRingState ) ;
+
 	RING_API void ring_state_log ( RingState *pRingState,const char *cStr ) ;
 
 	void ring_state_cgiheader ( RingState *pRingState ) ;

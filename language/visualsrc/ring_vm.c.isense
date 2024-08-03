@@ -633,6 +633,8 @@ Type: Item *
 pItem
 ring_vm_start
 ring_vm_towardsmainloop
+Type: VM *
+pVM
 ring_vm_init
 Type: Scanner *
 pScanner
