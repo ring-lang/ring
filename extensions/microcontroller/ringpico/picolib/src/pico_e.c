@@ -6,6 +6,7 @@
 #include "hardware/spi.h"
 #include "hardware/pwm.h"
 #include "hardware/uart.h"
+#include "hardware/claim.h"
 
 RING_FUNC(ring_get_pico_default_led_pin)
 {
@@ -2584,6 +2585,118 @@ RING_FUNC(ring_uart_get_dreq)
 	RING_API_RETNUMBER(uart_get_dreq((uart_inst_t *) RING_API_GETCPOINTER(1,"uart_inst_t"), (bool ) RING_API_GETNUMBER(2)));
 }
 
+
+RING_FUNC(ring_hw_claim_or_assert)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	hw_claim_or_assert((uint8_t *) RING_API_GETCPOINTER(1,"uint8_t"), (uint ) RING_API_GETNUMBER(2),RING_API_GETSTRING(3));
+}
+
+
+RING_FUNC(ring_hw_claim_unused_from_range)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(hw_claim_unused_from_range((uint8_t *) RING_API_GETCPOINTER(1,"uint8_t"), (bool ) RING_API_GETNUMBER(2), (uint ) RING_API_GETNUMBER(3), (uint ) RING_API_GETNUMBER(4),RING_API_GETSTRING(5)));
+}
+
+
+RING_FUNC(ring_hw_is_claimed)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(hw_is_claimed((uint8_t *) RING_API_GETCPOINTER(1,"uint8_t"), (uint ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_hw_claim_clear)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	hw_claim_clear((uint8_t *) RING_API_GETCPOINTER(1,"uint8_t"), (uint ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_hw_claim_lock)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(hw_claim_lock());
+}
+
+
+RING_FUNC(ring_hw_claim_unlock)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	hw_claim_unlock( (uint32_t ) RING_API_GETNUMBER(1));
+}
+
 RING_API void ring_vm_pico_loadfunctions(RingState *pRingState)
 {
 	RING_API_REGISTER("sleep_ms",ring_sleep_ms);
@@ -2735,6 +2848,12 @@ RING_API void ring_vm_pico_loadfunctions(RingState *pRingState)
 	RING_API_REGISTER("uart_default_tx_wait_blocking",ring_uart_default_tx_wait_blocking);
 	RING_API_REGISTER("uart_is_readable_within_us",ring_uart_is_readable_within_us);
 	RING_API_REGISTER("uart_get_dreq",ring_uart_get_dreq);
+	RING_API_REGISTER("hw_claim_or_assert",ring_hw_claim_or_assert);
+	RING_API_REGISTER("hw_claim_unused_from_range",ring_hw_claim_unused_from_range);
+	RING_API_REGISTER("hw_is_claimed",ring_hw_is_claimed);
+	RING_API_REGISTER("hw_claim_clear",ring_hw_claim_clear);
+	RING_API_REGISTER("hw_claim_lock",ring_hw_claim_lock);
+	RING_API_REGISTER("hw_claim_unlock",ring_hw_claim_unlock);
 	RING_API_REGISTER("get_pico_default_led_pin",ring_get_pico_default_led_pin);
 	RING_API_REGISTER("get_gpio_out",ring_get_gpio_out);
 }

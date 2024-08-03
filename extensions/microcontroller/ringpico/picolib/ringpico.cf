@@ -5,6 +5,7 @@
 #include "hardware/spi.h"
 #include "hardware/pwm.h"
 #include "hardware/uart.h"
+#include "hardware/claim.h"
 
 </code>
 
@@ -218,3 +219,14 @@ void uart_set_translate_crlf(uart_inst_t *uart, bool translate)
 void uart_default_tx_wait_blocking(void)
 bool uart_is_readable_within_us(uart_inst_t *uart, uint32_t us)
 uint uart_get_dreq(uart_inst_t *uart, bool is_tx)
+
+<comment>
+Hardware claim functions 
+</comment>
+
+void hw_claim_or_assert(uint8_t *bits, uint bit_index, const char *message)
+int hw_claim_unused_from_range(uint8_t *bits, bool required, uint bit_lsb, uint bit_msb, const char *message)
+bool hw_is_claimed(const uint8_t *bits, uint bit_index)
+void hw_claim_clear(uint8_t *bits, uint bit_index)
+uint32_t hw_claim_lock(void)
+void hw_claim_unlock(uint32_t token)
