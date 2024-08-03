@@ -1,5 +1,6 @@
 <code>
 #include "pico/stdlib.h"
+#include "hardware/adc.h"
 
 </code>
 
@@ -76,3 +77,24 @@ void gpio_add_raw_irq_handler(uint gpio, irq_handler_t handler)
 void gpio_remove_raw_irq_handler_masked(uint gpio_mask, irq_handler_t handler)
 void gpio_remove_raw_irq_handler(uint gpio, irq_handler_t handler)
 </comment>
+
+<comment>
+Hardware ADC functions 
+</comment>
+
+void adc_init(void)
+void adc_gpio_init(uint gpio)
+void adc_select_input(uint input)
+uint adc_get_selected_input(void)
+void adc_set_round_robin(uint input_mask)
+void adc_set_temp_sensor_enabled(bool enable)
+uint16_t adc_read(void)
+void adc_run(bool run)
+void adc_set_clkdiv(float clkdiv)
+void adc_fifo_setup(bool en, bool dreq_en, uint16_t dreq_thresh, bool err_in_fifo, bool byte_shift)
+bool adc_fifo_is_empty(void)
+uint8_t adc_fifo_get_level(void)
+void adc_fifo_drain(void)
+uint16_t adc_fifo_get(void)
+uint16_t adc_fifo_get_blocking(void)
+void adc_irq_set_enabled(bool enabled)

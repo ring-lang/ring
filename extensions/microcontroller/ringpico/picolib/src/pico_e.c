@@ -1,6 +1,7 @@
 #include "ring.h"
 
 #include "pico/stdlib.h"
+#include "hardware/adc.h"
 
 RING_FUNC(ring_get_pico_default_led_pin)
 {
@@ -690,6 +691,214 @@ RING_FUNC(ring_gpio_get_dir)
 	RING_API_RETNUMBER(gpio_get_dir( (uint ) RING_API_GETNUMBER(1)));
 }
 
+
+RING_FUNC(ring_adc_init)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	adc_init();
+}
+
+
+RING_FUNC(ring_adc_gpio_init)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	adc_gpio_init( (uint ) RING_API_GETNUMBER(1));
+}
+
+
+RING_FUNC(ring_adc_select_input)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	adc_select_input( (uint ) RING_API_GETNUMBER(1));
+}
+
+
+RING_FUNC(ring_adc_get_selected_input)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(adc_get_selected_input());
+}
+
+
+RING_FUNC(ring_adc_set_round_robin)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	adc_set_round_robin( (uint ) RING_API_GETNUMBER(1));
+}
+
+
+RING_FUNC(ring_adc_set_temp_sensor_enabled)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	adc_set_temp_sensor_enabled( (bool ) RING_API_GETNUMBER(1));
+}
+
+
+RING_FUNC(ring_adc_read)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(adc_read());
+}
+
+
+RING_FUNC(ring_adc_run)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	adc_run( (bool ) RING_API_GETNUMBER(1));
+}
+
+
+RING_FUNC(ring_adc_set_clkdiv)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	adc_set_clkdiv( (float ) RING_API_GETNUMBER(1));
+}
+
+
+RING_FUNC(ring_adc_fifo_setup)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	adc_fifo_setup( (bool ) RING_API_GETNUMBER(1), (bool ) RING_API_GETNUMBER(2), (uint16_t ) RING_API_GETNUMBER(3), (bool ) RING_API_GETNUMBER(4), (bool ) RING_API_GETNUMBER(5));
+}
+
+
+RING_FUNC(ring_adc_fifo_is_empty)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(adc_fifo_is_empty());
+}
+
+
+RING_FUNC(ring_adc_fifo_get_level)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(adc_fifo_get_level());
+}
+
+
+RING_FUNC(ring_adc_fifo_drain)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	adc_fifo_drain();
+}
+
+
+RING_FUNC(ring_adc_fifo_get)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(adc_fifo_get());
+}
+
+
+RING_FUNC(ring_adc_fifo_get_blocking)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(adc_fifo_get_blocking());
+}
+
+
+RING_FUNC(ring_adc_irq_set_enabled)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	adc_irq_set_enabled( (bool ) RING_API_GETNUMBER(1));
+}
+
 RING_API void ring_vm_pico_loadfunctions(RingState *pRingState)
 {
 	RING_API_REGISTER("sleep_ms",ring_sleep_ms);
@@ -735,6 +944,22 @@ RING_API void ring_vm_pico_loadfunctions(RingState *pRingState)
 	RING_API_REGISTER("gpio_set_dir",ring_gpio_set_dir);
 	RING_API_REGISTER("gpio_is_dir_out",ring_gpio_is_dir_out);
 	RING_API_REGISTER("gpio_get_dir",ring_gpio_get_dir);
+	RING_API_REGISTER("adc_init",ring_adc_init);
+	RING_API_REGISTER("adc_gpio_init",ring_adc_gpio_init);
+	RING_API_REGISTER("adc_select_input",ring_adc_select_input);
+	RING_API_REGISTER("adc_get_selected_input",ring_adc_get_selected_input);
+	RING_API_REGISTER("adc_set_round_robin",ring_adc_set_round_robin);
+	RING_API_REGISTER("adc_set_temp_sensor_enabled",ring_adc_set_temp_sensor_enabled);
+	RING_API_REGISTER("adc_read",ring_adc_read);
+	RING_API_REGISTER("adc_run",ring_adc_run);
+	RING_API_REGISTER("adc_set_clkdiv",ring_adc_set_clkdiv);
+	RING_API_REGISTER("adc_fifo_setup",ring_adc_fifo_setup);
+	RING_API_REGISTER("adc_fifo_is_empty",ring_adc_fifo_is_empty);
+	RING_API_REGISTER("adc_fifo_get_level",ring_adc_fifo_get_level);
+	RING_API_REGISTER("adc_fifo_drain",ring_adc_fifo_drain);
+	RING_API_REGISTER("adc_fifo_get",ring_adc_fifo_get);
+	RING_API_REGISTER("adc_fifo_get_blocking",ring_adc_fifo_get_blocking);
+	RING_API_REGISTER("adc_irq_set_enabled",ring_adc_irq_set_enabled);
 	RING_API_REGISTER("get_pico_default_led_pin",ring_get_pico_default_led_pin);
 	RING_API_REGISTER("get_gpio_out",ring_get_gpio_out);
 }

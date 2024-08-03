@@ -27,7 +27,7 @@ add_executable(${PROJECT_NAME}
 )
 
 # pull in common dependencies
-target_link_libraries(${PROJECT_NAME} pico_stdlib)
+target_link_libraries(${PROJECT_NAME} pico_stdlib hardware_adc)
 
 # create map/bin/hex/uf2 file etc.
 pico_add_extra_outputs(${PROJECT_NAME})
