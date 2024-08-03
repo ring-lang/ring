@@ -450,6 +450,20 @@ RING_API void ring_state_runprogram ( RingState *pRingState )
 	}
 }
 
+RING_API void ring_state_newbytecode ( RingState *pRingState,int nSize )
+{
+	VM *pVM  ;
+	pVM = ring_vm_new(pRingState);
+	pVM->pByteCode = (ByteCode *) ring_calloc(nSize,sizeof(ByteCode)) ;
+	pVM->nEvalReallocationSize = nSize ;
+	pRingState->nInstructionsCount = nSize ;
+	pVM->pCode = ring_list_new_gc(pRingState,RING_ZERO) ;
+	pVM->pRingState->pRingGenCode = pVM->pCode ;
+	pVM->pFunctionsMap = pRingState->pRingFunctionsMap ;
+	pVM->pClassesMap = pRingState->pRingClassesMap ;
+	pVM->pPackagesMap = pRingState->pRingPackagesMap ;
+}
+
 RING_API void ring_state_log ( RingState *pRingState,const char *cStr )
 {
 	/* Log File */
@@ -457,6 +471,12 @@ RING_API void ring_state_log ( RingState *pRingState,const char *cStr )
 		fprintf( pRingState->pLogFile , "%s\n" , cStr ) ;
 		fflush(pRingState->pLogFile);
 	#endif
+}
+
+RING_API void ring_state_runbytecode ( RingState *pRingState )
+{
+	ring_objfile_updateclassespointers(pRingState);
+	ring_vm_towardsmainloop(pRingState);
 }
 
 RING_API int ring_state_runstring ( RingState *pRingState,char *cString )

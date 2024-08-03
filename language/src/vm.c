@@ -2,7 +2,7 @@
 
 #include "ring.h"
 
-RING_API VM * ring_vm_new ( RingState *pRingState )
+VM * ring_vm_new ( RingState *pRingState )
 {
 	VM *pVM  ;
 	int x  ;
@@ -294,7 +294,7 @@ void ring_vm_start ( RingState *pRingState,VM *pVM )
 	ring_vm_towardsmainloop(pRingState);
 }
 
-RING_API void ring_vm_towardsmainloop ( RingState *pRingState )
+void ring_vm_towardsmainloop ( RingState *pRingState )
 {
 	VM *pVM  ;
 	pVM = pRingState->pVM ;

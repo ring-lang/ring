@@ -453,8 +453,6 @@ RING_API void ring_state_runprogram ( RingState *pRingState )
 RING_API void ring_state_newbytecode ( RingState *pRingState,int nSize )
 {
 	VM *pVM  ;
-	/* Increase size to add ICO_RETNULL at the end */
-	nSize++ ;
 	pVM = ring_vm_new(pRingState);
 	pVM->pByteCode = (ByteCode *) ring_calloc(nSize,sizeof(ByteCode)) ;
 	pVM->nEvalReallocationSize = nSize ;

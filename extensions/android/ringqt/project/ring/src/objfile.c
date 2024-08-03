@@ -532,18 +532,10 @@ void ring_objfile_writeCfile ( RingState *pRingState )
 	nFunction = ring_objfile_writelistcode(pRingState->pRingPackagesMap,fCode,RING_ONE,RING_TRUE,nFunction,RING_OBJFILE_ITEMSPERFUNCTION2);
 	fprintf( fCode , "\tpRingState->pRingPackagesMap = pList1;\n"  ) ;
 	/* Prepare Ring VM */
-	fprintf( fCode , "\tpVM = ring_vm_new(pRingState);\n"  ) ;
-	fprintf( fCode , "\tpVM->pByteCode = (ByteCode *) ring_calloc(%d,sizeof(ByteCode));\n" , ring_list_getsize(pRingState->pRingGenCode)+1 ) ;
-	fprintf( fCode , "\tpVM->nEvalReallocationSize = %d ;\n" , ring_list_getsize(pRingState->pRingGenCode)+1 ) ;
-	fprintf( fCode , "\tpVM->pRingState->nInstructionsCount = %d ;\n" , ring_list_getsize(pRingState->pRingGenCode)+1 ) ;
-	fprintf( fCode , "\tpVM->pCode = ring_list_new_gc(pRingState,RING_ZERO);\n"  ) ;
-	fprintf( fCode , "\tpVM->pRingState->pRingGenCode = pVM->pCode ;\n"  ) ;
-	fprintf( fCode , "\tpVM->pFunctionsMap = pRingState->pRingFunctionsMap;\n"  ) ;
-	fprintf( fCode , "\tpVM->pClassesMap = pRingState->pRingClassesMap;\n"  ) ;
-	fprintf( fCode , "\tpVM->pPackagesMap = pRingState->pRingPackagesMap;\n"  ) ;
+	fprintf( fCode , "\tring_state_newbytecode(pRingState,%d);\n" , ring_list_getsize(pRingState->pRingGenCode)+1 ) ;
+	fprintf( fCode , "\tpVM = pRingState->pVM;\n"  ) ;
 	ring_objfile_writebytecode(pRingState->pRingGenCode,fCode);
-	fprintf( fCode , "\tring_objfile_updateclassespointers(pRingState);  \n"  ) ;
-	fprintf( fCode , "\tring_vm_towardsmainloop(pRingState,pVM);\n"  ) ;
+	fprintf( fCode , "\tring_state_runbytecode(pRingState);  \n"  ) ;
 	fprintf( fCode , "}\n"  ) ;
 	/* Close File */
 	fclose( fCode ) ;
