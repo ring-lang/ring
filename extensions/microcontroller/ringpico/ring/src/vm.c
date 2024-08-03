@@ -2,7 +2,7 @@
 
 #include "ring.h"
 
-VM * ring_vm_new ( RingState *pRingState )
+RING_API VM * ring_vm_new ( RingState *pRingState )
 {
 	VM *pVM  ;
 	int x  ;
@@ -291,6 +291,11 @@ void ring_vm_start ( RingState *pRingState,VM *pVM )
 		ring_vm_defragmentation(pRingState,pVM);
 	}
 	ring_vm_loadcode(pVM);
+	ring_vm_towardsmainloop(pRingState,pVM);
+}
+
+RING_API void ring_vm_towardsmainloop ( RingState *pRingState,VM *pVM )
+{
 	ring_vm_loadcfunctions(pRingState);
 	/* Generate Items Array &  Hash Table */
 	ring_list_genarray(pRingState->pRingCFunctions);
@@ -577,7 +582,7 @@ void ring_vm_setreg1topointerfromstack ( VM * pVM )
 	RING_VM_IR_SETREG1TYPE(RING_VM_REGTYPE_POINTER) ;
 }
 
-void ring_vm_showbytecode ( VM *pVM )
+RING_API void ring_vm_showbytecode ( VM *pVM )
 {
 	int x,y,nCount,nType  ;
 	ByteCode *pByteCode  ;

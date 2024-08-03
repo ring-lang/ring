@@ -541,13 +541,15 @@
 	**  Main 
 	*/
 
-	VM * ring_vm_new ( RingState *pRingState ) ;
+	RING_API VM * ring_vm_new ( RingState *pRingState ) ;
 
 	VM * ring_vm_delete ( VM *pVM ) ;
 
 	RING_API void ring_vm_loadcode ( VM *pVM ) ;
 
 	void ring_vm_start ( RingState *pRingState,VM *pVM ) ;
+
+	RING_API void ring_vm_towardsmainloop ( RingState *pRingState,VM *pVM ) ;
 
 	void ring_vm_fetch ( VM *pVM ) ;
 
@@ -583,7 +585,7 @@
 
 	void ring_vm_setreg1topointerfromstack ( VM *pVM ) ;
 
-	void ring_vm_showbytecode ( VM *pVM ) ;
+	RING_API void ring_vm_showbytecode ( VM *pVM ) ;
 
 	void ring_vm_defragmentation ( RingState *pRingState,VM *pVM ) ;
 

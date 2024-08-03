@@ -513,8 +513,6 @@ void ring_objfile_writeCfile ( RingState *pRingState )
 	fprintf( fCode , "\tring_list_addstring_gc(pRingState,pRingState->pRingFilesList,\"%so\");  \n",ring_list_getstring(pRingState->pRingFilesList,RING_ONE)  ) ;
 	fprintf( fCode , "\tring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,\"%so\");  \n",ring_list_getstring(pRingState->pRingFilesList,RING_ONE)  ) ;
 	fprintf( fCode , "\tloadRingCode(pRingState);  \n"  ) ;
-	fprintf( fCode , "\tring_objfile_updateclassespointers(pRingState);  \n"  ) ;
-	fprintf( fCode , "\tring_state_runprogram(pRingState);  \n"  ) ;
 	fprintf( fCode , "\tring_state_delete(pRingState);  \n"  ) ;
 	fprintf( fCode , "\treturn 0;  \n"  ) ;
 	fprintf( fCode , "}\n\n"  ) ;
@@ -524,6 +522,8 @@ void ring_objfile_writeCfile ( RingState *pRingState )
 	fprintf( fCode , "#include \"ringappcode.h\" \n\n"  ) ;
 	fprintf( fCode , "void loadRingCode(RingState *pRingState) {\n"  ) ;
 	fprintf( fCode , "\tList *pList1,*pList2,*pList3,*pList4,*pList5,*pList6 ;\n"  ) ;
+	/* Declare Ring VM */
+	fprintf( fCode , "\tVM *pVM ;\n"  ) ;
 	/* Write Data */
 	nFunction = ring_objfile_writelistcode(pRingState->pRingFunctionsMap,fCode,RING_ONE,RING_TRUE,RING_ZERO,RING_OBJFILE_ITEMSPERFUNCTION2);
 	fprintf( fCode , "\tpRingState->pRingFunctionsMap = pList1;\n"  ) ;
@@ -531,8 +531,19 @@ void ring_objfile_writeCfile ( RingState *pRingState )
 	fprintf( fCode , "\tpRingState->pRingClassesMap = pList1;\n"  ) ;
 	nFunction = ring_objfile_writelistcode(pRingState->pRingPackagesMap,fCode,RING_ONE,RING_TRUE,nFunction,RING_OBJFILE_ITEMSPERFUNCTION2);
 	fprintf( fCode , "\tpRingState->pRingPackagesMap = pList1;\n"  ) ;
-	nFunction = ring_objfile_writelistcode(pRingState->pRingGenCode,fCode,RING_ONE,RING_TRUE,nFunction,RING_OBJFILE_ITEMSPERFUNCTION);
-	fprintf( fCode , "\tpRingState->pRingGenCode = pList1;\n"  ) ;
+	/* Prepare Ring VM */
+	fprintf( fCode , "\tpVM = ring_vm_new(pRingState);\n"  ) ;
+	fprintf( fCode , "\tpVM->pByteCode = (ByteCode *) ring_calloc(%d,sizeof(ByteCode));\n" , ring_list_getsize(pRingState->pRingGenCode) ) ;
+	fprintf( fCode , "\tpVM->nEvalReallocationSize = %d ;\n" , ring_list_getsize(pRingState->pRingGenCode) ) ;
+	fprintf( fCode , "\tpVM->pRingState->nInstructionsCount = %d ;\n" , ring_list_getsize(pRingState->pRingGenCode) ) ;
+	fprintf( fCode , "\tpVM->pCode = ring_list_new_gc(pRingState,RING_ZERO);\n"  ) ;
+	fprintf( fCode , "\tpVM->pRingState->pRingGenCode = pVM->pCode ;\n"  ) ;
+	fprintf( fCode , "\tpVM->pFunctionsMap = pRingState->pRingFunctionsMap;\n"  ) ;
+	fprintf( fCode , "\tpVM->pClassesMap = pRingState->pRingClassesMap;\n"  ) ;
+	fprintf( fCode , "\tpVM->pPackagesMap = pRingState->pRingPackagesMap;\n"  ) ;
+	ring_objfile_writebytecode(pRingState->pRingGenCode,fCode);
+	fprintf( fCode , "\tring_objfile_updateclassespointers(pRingState);  \n"  ) ;
+	fprintf( fCode , "\tring_vm_towardsmainloop(pRingState,pVM);\n"  ) ;
 	fprintf( fCode , "}\n"  ) ;
 	/* Close File */
 	fclose( fCode ) ;
@@ -615,4 +626,52 @@ int ring_objfile_writelistcode ( List *pList,FILE *fCode,int nList,int lSeparate
 		}
 	}
 	return nFunction ;
+}
+
+void ring_objfile_writebytecode ( List *pList,FILE *fCode )
+{
+	int x,x2,nReg,x3,nMax  ;
+	List *pIns  ;
+	char *cString  ;
+	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
+		pIns = ring_list_getlist(pList,x);
+		/* Operation Code */
+		fprintf( fCode , "\tpVM->pByteCode[%d].nOPCode = " , x-1 ) ;
+		fprintf( fCode , "%d ; \n" , ring_list_getint(pIns,1) ) ;
+		/* Instruction Regsiters */
+		for ( x2 = 2 ; x2 <= ring_list_getsize(pIns) ; x2++ ) {
+			/* Register Number */
+			if ( x2 == 2 ) {
+				nReg = RING_VM_IR_REG1 ;
+				fprintf( fCode , "\tpVM->pByteCode[%d].nReg1Type = " , x-1 ) ;
+			}
+			else {
+				nReg = RING_VM_IR_REG2 ;
+				fprintf( fCode , "\tpVM->pByteCode[%d].nReg2Type = " , x-1 ) ;
+			}
+			if ( ring_list_isstring(pIns,x2) ) {
+				fprintf( fCode , "RING_VM_REGTYPE_STRING ; \n"  ) ;
+				fprintf( fCode , "\tpVM->pByteCode[%d].aReg[%d].pString = ring_string_new_gc(pRingState,\"" , x-1,nReg ) ;
+				/* Add the string */
+				cString = ring_list_getstring(pIns,x2) ;
+				nMax = ring_list_getstringsize(pIns,x2) ;
+				for ( x3 = 0 ; x3 < nMax ; x3++ ) {
+					fprintf( fCode , "\\x%02x" , (unsigned char) cString[x3] ) ;
+				}
+				fprintf( fCode , "\") ; \n"  ) ;
+			}
+			else if ( ring_list_isint(pIns,x2) ) {
+				fprintf( fCode , "RING_VM_REGTYPE_INT ; \n"  ) ;
+				fprintf( fCode , "\tpVM->pByteCode[%d].aReg[%d].iNumber = %d ; \n" , x-1,nReg,ring_list_getint(pIns,x2) ) ;
+			}
+			else if ( ring_list_isdouble(pIns,x2) ) {
+				fprintf( fCode , "RING_VM_REGTYPE_DOUBLE ; \n"  ) ;
+				fprintf( fCode , "\tpVM->pByteCode[%d].aReg[%d].dNumber = %f ; \n" , x-1,nReg,ring_list_getdouble(pIns,x2) ) ;
+			}
+			else if ( ring_list_ispointer(pIns,x2) ) {
+				fprintf( fCode , "RING_VM_REGTYPE_POINTER ; \n"  ) ;
+				fprintf( fCode , "\tpVM->pByteCode[%d].aReg[%d].pPointer = NULL ; \n" , x-1,nReg ) ;
+			}
+		}
+	}
 }

@@ -46,4 +46,6 @@
 	void ring_objfile_writeCfile ( RingState *pRingState ) ;
 
 	int ring_objfile_writelistcode ( List *pList,FILE *fCode,int nList,int lSeparate,int nFunction,int nItemsPerFunction ) ;
+
+	void ring_objfile_writebytecode ( List *pList,FILE *fCode ) ;
 #endif

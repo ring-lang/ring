@@ -18,8 +18,6 @@ int main( void )
 	ring_list_addstring_gc(pRingState,pRingState->pRingFilesList,"pico.ringo");  
 	ring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,"pico.ringo");  
 	loadRingCode(pRingState);  
-	ring_objfile_updateclassespointers(pRingState);  
-	ring_state_runprogram(pRingState);  
 	ring_state_delete(pRingState);  
 	return RING_ZERO;  
 }
