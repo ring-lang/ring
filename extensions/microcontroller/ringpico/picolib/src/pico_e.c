@@ -2,6 +2,7 @@
 
 #include "pico/stdlib.h"
 #include "hardware/adc.h"
+#include "hardware/i2c.h"
 
 RING_FUNC(ring_get_pico_default_led_pin)
 {
@@ -899,6 +900,406 @@ RING_FUNC(ring_adc_irq_set_enabled)
 	adc_irq_set_enabled( (bool ) RING_API_GETNUMBER(1));
 }
 
+
+RING_FUNC(ring_i2c_init)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(i2c_init((i2c_inst_t *) RING_API_GETCPOINTER(1,"i2c_inst_t"), (uint ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_i2c_deinit)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	i2c_deinit((i2c_inst_t *) RING_API_GETCPOINTER(1,"i2c_inst_t"));
+}
+
+
+RING_FUNC(ring_i2c_set_baudrate)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(i2c_set_baudrate((i2c_inst_t *) RING_API_GETCPOINTER(1,"i2c_inst_t"), (uint ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_i2c_set_slave_mode)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	i2c_set_slave_mode((i2c_inst_t *) RING_API_GETCPOINTER(1,"i2c_inst_t"), (bool ) RING_API_GETNUMBER(2), (uint8_t ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_i2c_hw_index)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(i2c_hw_index((i2c_inst_t *) RING_API_GETCPOINTER(1,"i2c_inst_t")));
+}
+
+
+RING_FUNC(ring_i2c_write_blocking_until)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(i2c_write_blocking_until((i2c_inst_t *) RING_API_GETCPOINTER(1,"i2c_inst_t"), (uint8_t ) RING_API_GETNUMBER(2),(uint8_t *) RING_API_GETCPOINTER(3,"uint8_t"), (size_t ) RING_API_GETNUMBER(4), (bool ) RING_API_GETNUMBER(5),* (absolute_time_t  *) RING_API_GETCPOINTER(6,"absolute_time_t")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(6))
+		RING_API_FREE(RING_API_GETCPOINTER(6,"absolute_time_t"));
+}
+
+
+RING_FUNC(ring_i2c_read_blocking_until)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(i2c_read_blocking_until((i2c_inst_t *) RING_API_GETCPOINTER(1,"i2c_inst_t"), (uint8_t ) RING_API_GETNUMBER(2),(uint8_t *) RING_API_GETCPOINTER(3,"uint8_t"), (size_t ) RING_API_GETNUMBER(4), (bool ) RING_API_GETNUMBER(5),* (absolute_time_t  *) RING_API_GETCPOINTER(6,"absolute_time_t")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(6))
+		RING_API_FREE(RING_API_GETCPOINTER(6,"absolute_time_t"));
+}
+
+
+RING_FUNC(ring_i2c_write_timeout_us)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(i2c_write_timeout_us((i2c_inst_t *) RING_API_GETCPOINTER(1,"i2c_inst_t"), (uint8_t ) RING_API_GETNUMBER(2),(uint8_t *) RING_API_GETCPOINTER(3,"uint8_t"), (size_t ) RING_API_GETNUMBER(4), (bool ) RING_API_GETNUMBER(5), (uint ) RING_API_GETNUMBER(6)));
+}
+
+
+RING_FUNC(ring_i2c_read_timeout_us)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(i2c_read_timeout_us((i2c_inst_t *) RING_API_GETCPOINTER(1,"i2c_inst_t"), (uint8_t ) RING_API_GETNUMBER(2),(uint8_t *) RING_API_GETCPOINTER(3,"uint8_t"), (size_t ) RING_API_GETNUMBER(4), (bool ) RING_API_GETNUMBER(5), (uint ) RING_API_GETNUMBER(6)));
+}
+
+
+RING_FUNC(ring_i2c_write_blocking)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(i2c_write_blocking((i2c_inst_t *) RING_API_GETCPOINTER(1,"i2c_inst_t"), (uint8_t ) RING_API_GETNUMBER(2),(uint8_t *) RING_API_GETCPOINTER(3,"uint8_t"), (size_t ) RING_API_GETNUMBER(4), (bool ) RING_API_GETNUMBER(5)));
+}
+
+
+RING_FUNC(ring_i2c_read_blocking)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(i2c_read_blocking((i2c_inst_t *) RING_API_GETCPOINTER(1,"i2c_inst_t"), (uint8_t ) RING_API_GETNUMBER(2),(uint8_t *) RING_API_GETCPOINTER(3,"uint8_t"), (size_t ) RING_API_GETNUMBER(4), (bool ) RING_API_GETNUMBER(5)));
+}
+
+
+RING_FUNC(ring_i2c_get_write_available)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(i2c_get_write_available((i2c_inst_t *) RING_API_GETCPOINTER(1,"i2c_inst_t")));
+}
+
+
+RING_FUNC(ring_i2c_get_read_available)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(i2c_get_read_available((i2c_inst_t *) RING_API_GETCPOINTER(1,"i2c_inst_t")));
+}
+
+
+RING_FUNC(ring_i2c_write_raw_blocking)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	i2c_write_raw_blocking((i2c_inst_t *) RING_API_GETCPOINTER(1,"i2c_inst_t"),(uint8_t *) RING_API_GETCPOINTER(2,"uint8_t"), (size_t ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_i2c_read_raw_blocking)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	i2c_read_raw_blocking((i2c_inst_t *) RING_API_GETCPOINTER(1,"i2c_inst_t"),(uint8_t *) RING_API_GETCPOINTER(2,"uint8_t"), (size_t ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_i2c_read_byte_raw)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(i2c_read_byte_raw((i2c_inst_t *) RING_API_GETCPOINTER(1,"i2c_inst_t")));
+}
+
+
+RING_FUNC(ring_i2c_write_byte_raw)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	i2c_write_byte_raw((i2c_inst_t *) RING_API_GETCPOINTER(1,"i2c_inst_t"), (uint8_t ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_i2c_get_dreq)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(i2c_get_dreq((i2c_inst_t *) RING_API_GETCPOINTER(1,"i2c_inst_t"), (bool ) RING_API_GETNUMBER(2)));
+}
+
 RING_API void ring_vm_pico_loadfunctions(RingState *pRingState)
 {
 	RING_API_REGISTER("sleep_ms",ring_sleep_ms);
@@ -960,6 +1361,24 @@ RING_API void ring_vm_pico_loadfunctions(RingState *pRingState)
 	RING_API_REGISTER("adc_fifo_get",ring_adc_fifo_get);
 	RING_API_REGISTER("adc_fifo_get_blocking",ring_adc_fifo_get_blocking);
 	RING_API_REGISTER("adc_irq_set_enabled",ring_adc_irq_set_enabled);
+	RING_API_REGISTER("i2c_init",ring_i2c_init);
+	RING_API_REGISTER("i2c_deinit",ring_i2c_deinit);
+	RING_API_REGISTER("i2c_set_baudrate",ring_i2c_set_baudrate);
+	RING_API_REGISTER("i2c_set_slave_mode",ring_i2c_set_slave_mode);
+	RING_API_REGISTER("i2c_hw_index",ring_i2c_hw_index);
+	RING_API_REGISTER("i2c_write_blocking_until",ring_i2c_write_blocking_until);
+	RING_API_REGISTER("i2c_read_blocking_until",ring_i2c_read_blocking_until);
+	RING_API_REGISTER("i2c_write_timeout_us",ring_i2c_write_timeout_us);
+	RING_API_REGISTER("i2c_read_timeout_us",ring_i2c_read_timeout_us);
+	RING_API_REGISTER("i2c_write_blocking",ring_i2c_write_blocking);
+	RING_API_REGISTER("i2c_read_blocking",ring_i2c_read_blocking);
+	RING_API_REGISTER("i2c_get_write_available",ring_i2c_get_write_available);
+	RING_API_REGISTER("i2c_get_read_available",ring_i2c_get_read_available);
+	RING_API_REGISTER("i2c_write_raw_blocking",ring_i2c_write_raw_blocking);
+	RING_API_REGISTER("i2c_read_raw_blocking",ring_i2c_read_raw_blocking);
+	RING_API_REGISTER("i2c_read_byte_raw",ring_i2c_read_byte_raw);
+	RING_API_REGISTER("i2c_write_byte_raw",ring_i2c_write_byte_raw);
+	RING_API_REGISTER("i2c_get_dreq",ring_i2c_get_dreq);
 	RING_API_REGISTER("get_pico_default_led_pin",ring_get_pico_default_led_pin);
 	RING_API_REGISTER("get_gpio_out",ring_get_gpio_out);
 }

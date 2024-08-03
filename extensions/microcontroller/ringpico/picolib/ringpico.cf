@@ -1,6 +1,7 @@
 <code>
 #include "pico/stdlib.h"
 #include "hardware/adc.h"
+#include "hardware/i2c.h"
 
 </code>
 
@@ -23,6 +24,10 @@ aEnumTypes + "enum gpio_drive_strength"
 </runcode>
 
 void sleep_ms(int)
+
+<comment>
+Hardware GPIO functions 
+</comment>
 
 void gpio_set_function(uint gpio, enum gpio_function fn)
 enum gpio_function gpio_get_function(uint gpio)
@@ -98,3 +103,27 @@ void adc_fifo_drain(void)
 uint16_t adc_fifo_get(void)
 uint16_t adc_fifo_get_blocking(void)
 void adc_irq_set_enabled(bool enabled)
+
+
+<comment>
+Hardware i2c functions 
+</comment>
+
+uint i2c_init(i2c_inst_t *i2c, uint baudrate)
+void i2c_deinit(i2c_inst_t *i2c)
+uint i2c_set_baudrate(i2c_inst_t *i2c, uint baudrate)
+void i2c_set_slave_mode(i2c_inst_t *i2c, bool slave, uint8_t addr)
+uint i2c_hw_index(i2c_inst_t *i2c)
+int i2c_write_blocking_until(i2c_inst_t *i2c, uint8_t addr, const uint8_t *src, size_t len, bool nostop, absolute_time_t until)
+int i2c_read_blocking_until(i2c_inst_t *i2c, uint8_t addr, uint8_t *dst, size_t len, bool nostop, absolute_time_t until)
+int i2c_write_timeout_us(i2c_inst_t *i2c, uint8_t addr, const uint8_t *src, size_t len, bool nostop, uint timeout_us)
+int i2c_read_timeout_us(i2c_inst_t *i2c, uint8_t addr, uint8_t *dst, size_t len, bool nostop, uint timeout_us)
+int i2c_write_blocking(i2c_inst_t *i2c, uint8_t addr, const uint8_t *src, size_t len, bool nostop)
+int i2c_read_blocking(i2c_inst_t *i2c, uint8_t addr, uint8_t *dst, size_t len, bool nostop)
+size_t i2c_get_write_available(i2c_inst_t *i2c)
+size_t i2c_get_read_available(i2c_inst_t *i2c)
+void i2c_write_raw_blocking(i2c_inst_t *i2c, const uint8_t *src, size_t len)
+void i2c_read_raw_blocking(i2c_inst_t *i2c, uint8_t *dst, size_t len)
+uint8_t i2c_read_byte_raw(i2c_inst_t *i2c)
+void i2c_write_byte_raw(i2c_inst_t *i2c, uint8_t value)
+uint i2c_get_dreq(i2c_inst_t *i2c, bool is_tx)
