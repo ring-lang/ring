@@ -91,3 +91,10 @@ Type: char *
 cString
 Type: char
 cFileName[RING_HUGEBUF]
+ring_objfile_writebytecode
+Type: int
+x,x2,nReg,x3,nMax
+Type: List *
+pIns
+Type: char *
+cString
