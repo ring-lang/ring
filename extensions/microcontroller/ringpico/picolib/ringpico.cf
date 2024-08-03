@@ -4,6 +4,7 @@
 #include "hardware/i2c.h"
 #include "hardware/spi.h"
 #include "hardware/pwm.h"
+#include "hardware/uart.h"
 
 </code>
 
@@ -188,3 +189,32 @@ void pwm_clear_irq(uint slice_num)
 uint32_t pwm_get_irq_status_mask(void)
 void pwm_force_irq(uint slice_num)
 uint pwm_get_dreq(uint slice_num)
+
+
+<comment>
+Hardware UART functions 
+</comment>
+
+uint uart_get_index(uart_inst_t *uart)
+uint uart_init(uart_inst_t *uart, uint baudrate)
+void uart_deinit(uart_inst_t *uart)
+uint uart_set_baudrate(uart_inst_t *uart, uint baudrate)
+void uart_set_hw_flow(uart_inst_t *uart, bool cts, bool rts)
+void uart_set_format(uart_inst_t *uart, uint data_bits, uint stop_bits, uart_parity_t parity)
+void uart_set_irq_enables(uart_inst_t *uart, bool rx_has_data, bool tx_needs_data)
+bool uart_is_enabled(uart_inst_t *uart)
+void uart_set_fifo_enabled(uart_inst_t *uart, bool enabled)
+bool uart_is_writable(uart_inst_t *uart)
+void uart_tx_wait_blocking(uart_inst_t *uart)
+bool uart_is_readable(uart_inst_t *uart)
+void uart_write_blocking(uart_inst_t *uart, const uint8_t *src, size_t len)
+void uart_read_blocking(uart_inst_t *uart, uint8_t *dst, size_t len)
+void uart_putc_raw(uart_inst_t *uart, char c)
+void uart_putc(uart_inst_t *uart, char c)
+void uart_puts(uart_inst_t *uart, const char *s)
+char uart_getc(uart_inst_t *uart)
+void uart_set_break(uart_inst_t *uart, bool en)
+void uart_set_translate_crlf(uart_inst_t *uart, bool translate)
+void uart_default_tx_wait_blocking(void)
+bool uart_is_readable_within_us(uart_inst_t *uart, uint32_t us)
+uint uart_get_dreq(uart_inst_t *uart, bool is_tx)

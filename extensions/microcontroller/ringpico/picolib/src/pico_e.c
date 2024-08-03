@@ -5,6 +5,7 @@
 #include "hardware/i2c.h"
 #include "hardware/spi.h"
 #include "hardware/pwm.h"
+#include "hardware/uart.h"
 
 RING_FUNC(ring_get_pico_default_led_pin)
 {
@@ -2183,6 +2184,406 @@ RING_FUNC(ring_pwm_get_dreq)
 	RING_API_RETNUMBER(pwm_get_dreq( (uint ) RING_API_GETNUMBER(1)));
 }
 
+
+RING_FUNC(ring_uart_get_index)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uart_get_index((uart_inst_t *) RING_API_GETCPOINTER(1,"uart_inst_t")));
+}
+
+
+RING_FUNC(ring_uart_init)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uart_init((uart_inst_t *) RING_API_GETCPOINTER(1,"uart_inst_t"), (uint ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_uart_deinit)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uart_deinit((uart_inst_t *) RING_API_GETCPOINTER(1,"uart_inst_t"));
+}
+
+
+RING_FUNC(ring_uart_set_baudrate)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uart_set_baudrate((uart_inst_t *) RING_API_GETCPOINTER(1,"uart_inst_t"), (uint ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_uart_set_hw_flow)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uart_set_hw_flow((uart_inst_t *) RING_API_GETCPOINTER(1,"uart_inst_t"), (bool ) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_uart_set_format)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uart_set_format((uart_inst_t *) RING_API_GETCPOINTER(1,"uart_inst_t"), (uint ) RING_API_GETNUMBER(2), (uint ) RING_API_GETNUMBER(3),* (uart_parity_t  *) RING_API_GETCPOINTER(4,"uart_parity_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"uart_parity_t"));
+}
+
+
+RING_FUNC(ring_uart_set_irq_enables)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uart_set_irq_enables((uart_inst_t *) RING_API_GETCPOINTER(1,"uart_inst_t"), (bool ) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_uart_is_enabled)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uart_is_enabled((uart_inst_t *) RING_API_GETCPOINTER(1,"uart_inst_t")));
+}
+
+
+RING_FUNC(ring_uart_set_fifo_enabled)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uart_set_fifo_enabled((uart_inst_t *) RING_API_GETCPOINTER(1,"uart_inst_t"), (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_uart_is_writable)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uart_is_writable((uart_inst_t *) RING_API_GETCPOINTER(1,"uart_inst_t")));
+}
+
+
+RING_FUNC(ring_uart_tx_wait_blocking)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uart_tx_wait_blocking((uart_inst_t *) RING_API_GETCPOINTER(1,"uart_inst_t"));
+}
+
+
+RING_FUNC(ring_uart_is_readable)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uart_is_readable((uart_inst_t *) RING_API_GETCPOINTER(1,"uart_inst_t")));
+}
+
+
+RING_FUNC(ring_uart_write_blocking)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uart_write_blocking((uart_inst_t *) RING_API_GETCPOINTER(1,"uart_inst_t"),(uint8_t *) RING_API_GETCPOINTER(2,"uint8_t"), (size_t ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_uart_read_blocking)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uart_read_blocking((uart_inst_t *) RING_API_GETCPOINTER(1,"uart_inst_t"),(uint8_t *) RING_API_GETCPOINTER(2,"uint8_t"), (size_t ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_uart_putc_raw)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uart_putc_raw((uart_inst_t *) RING_API_GETCPOINTER(1,"uart_inst_t"), (char ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_uart_putc)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uart_putc((uart_inst_t *) RING_API_GETCPOINTER(1,"uart_inst_t"), (char ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_uart_puts)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uart_puts((uart_inst_t *) RING_API_GETCPOINTER(1,"uart_inst_t"),RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_uart_getc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uart_getc((uart_inst_t *) RING_API_GETCPOINTER(1,"uart_inst_t")));
+}
+
+
+RING_FUNC(ring_uart_set_break)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uart_set_break((uart_inst_t *) RING_API_GETCPOINTER(1,"uart_inst_t"), (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_uart_set_translate_crlf)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uart_set_translate_crlf((uart_inst_t *) RING_API_GETCPOINTER(1,"uart_inst_t"), (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_uart_default_tx_wait_blocking)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	uart_default_tx_wait_blocking();
+}
+
+
+RING_FUNC(ring_uart_is_readable_within_us)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uart_is_readable_within_us((uart_inst_t *) RING_API_GETCPOINTER(1,"uart_inst_t"), (uint32_t ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_uart_get_dreq)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uart_get_dreq((uart_inst_t *) RING_API_GETCPOINTER(1,"uart_inst_t"), (bool ) RING_API_GETNUMBER(2)));
+}
+
 RING_API void ring_vm_pico_loadfunctions(RingState *pRingState)
 {
 	RING_API_REGISTER("sleep_ms",ring_sleep_ms);
@@ -2311,6 +2712,29 @@ RING_API void ring_vm_pico_loadfunctions(RingState *pRingState)
 	RING_API_REGISTER("pwm_get_irq_status_mask",ring_pwm_get_irq_status_mask);
 	RING_API_REGISTER("pwm_force_irq",ring_pwm_force_irq);
 	RING_API_REGISTER("pwm_get_dreq",ring_pwm_get_dreq);
+	RING_API_REGISTER("uart_get_index",ring_uart_get_index);
+	RING_API_REGISTER("uart_init",ring_uart_init);
+	RING_API_REGISTER("uart_deinit",ring_uart_deinit);
+	RING_API_REGISTER("uart_set_baudrate",ring_uart_set_baudrate);
+	RING_API_REGISTER("uart_set_hw_flow",ring_uart_set_hw_flow);
+	RING_API_REGISTER("uart_set_format",ring_uart_set_format);
+	RING_API_REGISTER("uart_set_irq_enables",ring_uart_set_irq_enables);
+	RING_API_REGISTER("uart_is_enabled",ring_uart_is_enabled);
+	RING_API_REGISTER("uart_set_fifo_enabled",ring_uart_set_fifo_enabled);
+	RING_API_REGISTER("uart_is_writable",ring_uart_is_writable);
+	RING_API_REGISTER("uart_tx_wait_blocking",ring_uart_tx_wait_blocking);
+	RING_API_REGISTER("uart_is_readable",ring_uart_is_readable);
+	RING_API_REGISTER("uart_write_blocking",ring_uart_write_blocking);
+	RING_API_REGISTER("uart_read_blocking",ring_uart_read_blocking);
+	RING_API_REGISTER("uart_putc_raw",ring_uart_putc_raw);
+	RING_API_REGISTER("uart_putc",ring_uart_putc);
+	RING_API_REGISTER("uart_puts",ring_uart_puts);
+	RING_API_REGISTER("uart_getc",ring_uart_getc);
+	RING_API_REGISTER("uart_set_break",ring_uart_set_break);
+	RING_API_REGISTER("uart_set_translate_crlf",ring_uart_set_translate_crlf);
+	RING_API_REGISTER("uart_default_tx_wait_blocking",ring_uart_default_tx_wait_blocking);
+	RING_API_REGISTER("uart_is_readable_within_us",ring_uart_is_readable_within_us);
+	RING_API_REGISTER("uart_get_dreq",ring_uart_get_dreq);
 	RING_API_REGISTER("get_pico_default_led_pin",ring_get_pico_default_led_pin);
 	RING_API_REGISTER("get_gpio_out",ring_get_gpio_out);
 }

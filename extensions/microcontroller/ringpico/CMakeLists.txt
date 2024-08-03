@@ -33,6 +33,7 @@ target_link_libraries(${PROJECT_NAME}
 	hardware_i2c
 	hardware_spi
 	hardware_pwm
+	hardware_uart
 )
 
 # create map/bin/hex/uf2 file etc.
