@@ -13,6 +13,8 @@ GPIO_OUT
 <runcode>
 aNumberTypes + "uint"
 aNumberTypes + "bool"
+aNumberTypes + "uint8_t"
+aNumberTypes + "uint16_t"
 aNumberTypes + "uint32_t"
 aEnumTypes + "enum gpio_function"
 aEnumTypes + "enum gpio_slew_rate"
