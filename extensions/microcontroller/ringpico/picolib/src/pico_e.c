@@ -19,20 +19,6 @@ RING_FUNC(ring_get_gpio_out)
 }
 
 
-RING_FUNC(ring_sleep_ms)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	sleep_ms( (int) RING_API_GETNUMBER(1));
-}
-
-
 RING_FUNC(ring_gpio_set_function)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -2697,9 +2683,50 @@ RING_FUNC(ring_hw_claim_unlock)
 	hw_claim_unlock( (uint32_t ) RING_API_GETNUMBER(1));
 }
 
+
+RING_FUNC(ring_sleep_ms)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	sleep_ms( (int) RING_API_GETNUMBER(1));
+}
+
+
+RING_FUNC(ring_ring_malloc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(ring_malloc( (size_t ) RING_API_GETNUMBER(1)),"void");
+}
+
+
+RING_FUNC(ring_ring_free)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ring_free((void *) RING_API_GETCPOINTER(1,"void"));
+}
+
 RING_API void ring_vm_pico_loadfunctions(RingState *pRingState)
 {
-	RING_API_REGISTER("sleep_ms",ring_sleep_ms);
 	RING_API_REGISTER("gpio_set_function",ring_gpio_set_function);
 	RING_API_REGISTER("gpio_get_function",ring_gpio_get_function);
 	RING_API_REGISTER("gpio_set_pulls",ring_gpio_set_pulls);
@@ -2854,6 +2881,9 @@ RING_API void ring_vm_pico_loadfunctions(RingState *pRingState)
 	RING_API_REGISTER("hw_claim_clear",ring_hw_claim_clear);
 	RING_API_REGISTER("hw_claim_lock",ring_hw_claim_lock);
 	RING_API_REGISTER("hw_claim_unlock",ring_hw_claim_unlock);
+	RING_API_REGISTER("sleep_ms",ring_sleep_ms);
+	RING_API_REGISTER("ring_malloc",ring_ring_malloc);
+	RING_API_REGISTER("ring_free",ring_ring_free);
 	RING_API_REGISTER("get_pico_default_led_pin",ring_get_pico_default_led_pin);
 	RING_API_REGISTER("get_gpio_out",ring_get_gpio_out);
 }

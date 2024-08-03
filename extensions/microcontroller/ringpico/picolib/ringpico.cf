@@ -27,8 +27,6 @@ aEnumTypes + "enum gpio_slew_rate"
 aEnumTypes + "enum gpio_drive_strength"
 </runcode>
 
-void sleep_ms(int)
-
 <comment>
 Hardware GPIO functions 
 </comment>
@@ -230,3 +228,11 @@ bool hw_is_claimed(const uint8_t *bits, uint bit_index)
 void hw_claim_clear(uint8_t *bits, uint bit_index)
 uint32_t hw_claim_lock(void)
 void hw_claim_unlock(uint32_t token)
+
+<comment>
+More functions
+</comment>
+
+void sleep_ms(int)
+void *ring_malloc(size_t nsize)
+void ring_free(void *ptr)
