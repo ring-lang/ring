@@ -10,7 +10,66 @@ PICO_DEFAULT_LED_PIN
 GPIO_OUT
 </constant>
 
-void gpio_init(int)
-void gpio_set_dir(int,int)
-void gpio_put(int,int)
+<runcode>
+aNumberTypes + "uint"
+aNumberTypes + "bool"
+aNumberTypes + "uint32_t"
+aEnumTypes + "enum gpio_function"
+aEnumTypes + "enum gpio_slew_rate"
+aEnumTypes + "enum gpio_drive_strength"
+</runcode>
+
 void sleep_ms(int)
+
+void gpio_set_function(uint gpio, enum gpio_function fn)
+enum gpio_function gpio_get_function(uint gpio)
+void gpio_set_pulls(uint gpio, bool up, bool down)
+void gpio_pull_up(uint gpio)
+bool gpio_is_pulled_up(uint gpio)
+void gpio_pull_down(uint gpio)
+bool gpio_is_pulled_down(uint gpio)
+void gpio_disable_pulls(uint gpio)
+void gpio_set_irqover(uint gpio, uint value)
+void gpio_set_outover(uint gpio, uint value)
+void gpio_set_inover(uint gpio, uint value)
+void gpio_set_oeover(uint gpio, uint value)
+void gpio_set_input_enabled(uint gpio, bool enabled)
+void gpio_set_input_hysteresis_enabled(uint gpio, bool enabled)
+bool gpio_is_input_hysteresis_enabled(uint gpio)
+void gpio_set_slew_rate(uint gpio, enum gpio_slew_rate slew)
+enum gpio_slew_rate gpio_get_slew_rate(uint gpio)
+void gpio_set_drive_strength(uint gpio, enum gpio_drive_strength drive)
+enum gpio_drive_strength gpio_get_drive_strength(uint gpio)
+void gpio_set_irq_enabled(uint gpio, uint32_t event_mask, bool enabled)
+void gpio_set_irq_callback(gpio_irq_callback_t callback)
+void gpio_set_irq_enabled_with_callback(uint gpio, uint32_t event_mask, bool enabled, gpio_irq_callback_t callback)
+void gpio_set_dormant_irq_enabled(uint gpio, uint32_t event_mask, bool enabled)
+uint32_t gpio_get_irq_event_mask(uint gpio)
+void gpio_acknowledge_irq(uint gpio, uint32_t event_mask)
+<comment>
+void gpio_add_raw_irq_handler_with_order_priority_masked(uint gpio_mask, irq_handler_t handler, uint8_t order_priority)
+void gpio_add_raw_irq_handler_with_order_priority(uint gpio, irq_handler_t handler, uint8_t order_priority)
+void gpio_add_raw_irq_handler_masked(uint gpio_mask, irq_handler_t handler)
+void gpio_add_raw_irq_handler(uint gpio, irq_handler_t handler)
+void gpio_remove_raw_irq_handler_masked(uint gpio_mask, irq_handler_t handler)
+void gpio_remove_raw_irq_handler(uint gpio, irq_handler_t handler)
+</comment>
+void gpio_init(uint gpio)
+void gpio_deinit(uint gpio)
+void gpio_init_mask(uint gpio_mask)
+bool gpio_get(uint gpio)
+uint32_t gpio_get_all(void)
+void gpio_set_mask(uint32_t mask)
+void gpio_clr_mask(uint32_t mask)
+void gpio_xor_mask(uint32_t mask)
+void gpio_put_masked(uint32_t mask, uint32_t value)
+void gpio_put_all(uint32_t value)
+void gpio_put(uint gpio, bool value)
+bool gpio_get_out_level(uint gpio)
+void gpio_set_dir_out_masked(uint32_t mask)
+void gpio_set_dir_in_masked(uint32_t mask)
+void gpio_set_dir_masked(uint32_t mask, uint32_t value)
+void gpio_set_dir_all_bits(uint32_t values)
+void gpio_set_dir(uint gpio, bool out)
+bool gpio_is_dir_out(uint gpio)
+uint gpio_get_dir(uint gpio)
