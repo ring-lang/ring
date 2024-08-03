@@ -2,6 +2,7 @@
 #include "pico/stdlib.h"
 #include "hardware/adc.h"
 #include "hardware/i2c.h"
+#include "hardware/spi.h"
 
 </code>
 
@@ -127,3 +128,25 @@ void i2c_read_raw_blocking(i2c_inst_t *i2c, uint8_t *dst, size_t len)
 uint8_t i2c_read_byte_raw(i2c_inst_t *i2c)
 void i2c_write_byte_raw(i2c_inst_t *i2c, uint8_t value)
 uint i2c_get_dreq(i2c_inst_t *i2c, bool is_tx)
+
+<comment>
+Hardware spi functions 
+</comment>
+
+uint spi_init(spi_inst_t *spi, uint baudrate)
+void spi_deinit(spi_inst_t *spi)
+uint spi_set_baudrate(spi_inst_t *spi, uint baudrate)
+uint spi_get_baudrate(const spi_inst_t *spi)
+uint spi_get_index(const spi_inst_t *spi)
+void spi_set_format(spi_inst_t *spi, uint data_bits, spi_cpol_t cpol, spi_cpha_t cpha, __unused spi_order_t order)
+void spi_set_slave(spi_inst_t *spi, bool slave)
+bool spi_is_writable(const spi_inst_t *spi)
+bool spi_is_readable(const spi_inst_t *spi)
+bool spi_is_busy(const spi_inst_t *spi)
+int spi_write_read_blocking(spi_inst_t *spi, const uint8_t *src, uint8_t *dst, size_t len)
+int spi_write_blocking(spi_inst_t *spi, const uint8_t *src, size_t len)
+int spi_read_blocking(spi_inst_t *spi, uint8_t repeated_tx_data, uint8_t *dst, size_t len)
+int spi_write16_read16_blocking(spi_inst_t *spi, const uint16_t *src, uint16_t *dst, size_t len)
+int spi_write16_blocking(spi_inst_t *spi, const uint16_t *src, size_t len)
+int spi_read16_blocking(spi_inst_t *spi, uint16_t repeated_tx_data, uint16_t *dst, size_t len)
+uint spi_get_dreq(spi_inst_t *spi, bool is_tx)

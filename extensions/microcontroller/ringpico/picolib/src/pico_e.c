@@ -3,6 +3,7 @@
 #include "pico/stdlib.h"
 #include "hardware/adc.h"
 #include "hardware/i2c.h"
+#include "hardware/spi.h"
 
 RING_FUNC(ring_get_pico_default_led_pin)
 {
@@ -1300,6 +1301,334 @@ RING_FUNC(ring_i2c_get_dreq)
 	RING_API_RETNUMBER(i2c_get_dreq((i2c_inst_t *) RING_API_GETCPOINTER(1,"i2c_inst_t"), (bool ) RING_API_GETNUMBER(2)));
 }
 
+
+RING_FUNC(ring_spi_init)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(spi_init((spi_inst_t *) RING_API_GETCPOINTER(1,"spi_inst_t"), (uint ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_spi_deinit)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	spi_deinit((spi_inst_t *) RING_API_GETCPOINTER(1,"spi_inst_t"));
+}
+
+
+RING_FUNC(ring_spi_set_baudrate)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(spi_set_baudrate((spi_inst_t *) RING_API_GETCPOINTER(1,"spi_inst_t"), (uint ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_spi_get_baudrate)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(spi_get_baudrate((spi_inst_t *) RING_API_GETCPOINTER(1,"spi_inst_t")));
+}
+
+
+RING_FUNC(ring_spi_get_index)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(spi_get_index((spi_inst_t *) RING_API_GETCPOINTER(1,"spi_inst_t")));
+}
+
+
+RING_FUNC(ring_spi_set_format)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	spi_set_format((spi_inst_t *) RING_API_GETCPOINTER(1,"spi_inst_t"), (uint ) RING_API_GETNUMBER(2),* (spi_cpol_t  *) RING_API_GETCPOINTER(3,"spi_cpol_t"),* (spi_cpha_t  *) RING_API_GETCPOINTER(4,"spi_cpha_t"),* (__unused spi_order_t  *) RING_API_GETCPOINTER(5,"__unused spi_order_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		RING_API_FREE(RING_API_GETCPOINTER(3,"spi_cpol_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		RING_API_FREE(RING_API_GETCPOINTER(4,"spi_cpha_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		RING_API_FREE(RING_API_GETCPOINTER(5,"__unused spi_order_t"));
+}
+
+
+RING_FUNC(ring_spi_set_slave)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	spi_set_slave((spi_inst_t *) RING_API_GETCPOINTER(1,"spi_inst_t"), (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_spi_is_writable)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(spi_is_writable((spi_inst_t *) RING_API_GETCPOINTER(1,"spi_inst_t")));
+}
+
+
+RING_FUNC(ring_spi_is_readable)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(spi_is_readable((spi_inst_t *) RING_API_GETCPOINTER(1,"spi_inst_t")));
+}
+
+
+RING_FUNC(ring_spi_is_busy)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(spi_is_busy((spi_inst_t *) RING_API_GETCPOINTER(1,"spi_inst_t")));
+}
+
+
+RING_FUNC(ring_spi_write_read_blocking)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(spi_write_read_blocking((spi_inst_t *) RING_API_GETCPOINTER(1,"spi_inst_t"),(uint8_t *) RING_API_GETCPOINTER(2,"uint8_t"),(uint8_t *) RING_API_GETCPOINTER(3,"uint8_t"), (size_t ) RING_API_GETNUMBER(4)));
+}
+
+
+RING_FUNC(ring_spi_write_blocking)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(spi_write_blocking((spi_inst_t *) RING_API_GETCPOINTER(1,"spi_inst_t"),(uint8_t *) RING_API_GETCPOINTER(2,"uint8_t"), (size_t ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_spi_read_blocking)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(spi_read_blocking((spi_inst_t *) RING_API_GETCPOINTER(1,"spi_inst_t"), (uint8_t ) RING_API_GETNUMBER(2),(uint8_t *) RING_API_GETCPOINTER(3,"uint8_t"), (size_t ) RING_API_GETNUMBER(4)));
+}
+
+
+RING_FUNC(ring_spi_write16_read16_blocking)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(spi_write16_read16_blocking((spi_inst_t *) RING_API_GETCPOINTER(1,"spi_inst_t"),(uint16_t *) RING_API_GETCPOINTER(2,"uint16_t"),(uint16_t *) RING_API_GETCPOINTER(3,"uint16_t"), (size_t ) RING_API_GETNUMBER(4)));
+}
+
+
+RING_FUNC(ring_spi_write16_blocking)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(spi_write16_blocking((spi_inst_t *) RING_API_GETCPOINTER(1,"spi_inst_t"),(uint16_t *) RING_API_GETCPOINTER(2,"uint16_t"), (size_t ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_spi_read16_blocking)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(spi_read16_blocking((spi_inst_t *) RING_API_GETCPOINTER(1,"spi_inst_t"), (uint16_t ) RING_API_GETNUMBER(2),(uint16_t *) RING_API_GETCPOINTER(3,"uint16_t"), (size_t ) RING_API_GETNUMBER(4)));
+}
+
+
+RING_FUNC(ring_spi_get_dreq)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(spi_get_dreq((spi_inst_t *) RING_API_GETCPOINTER(1,"spi_inst_t"), (bool ) RING_API_GETNUMBER(2)));
+}
+
 RING_API void ring_vm_pico_loadfunctions(RingState *pRingState)
 {
 	RING_API_REGISTER("sleep_ms",ring_sleep_ms);
@@ -1379,6 +1708,23 @@ RING_API void ring_vm_pico_loadfunctions(RingState *pRingState)
 	RING_API_REGISTER("i2c_read_byte_raw",ring_i2c_read_byte_raw);
 	RING_API_REGISTER("i2c_write_byte_raw",ring_i2c_write_byte_raw);
 	RING_API_REGISTER("i2c_get_dreq",ring_i2c_get_dreq);
+	RING_API_REGISTER("spi_init",ring_spi_init);
+	RING_API_REGISTER("spi_deinit",ring_spi_deinit);
+	RING_API_REGISTER("spi_set_baudrate",ring_spi_set_baudrate);
+	RING_API_REGISTER("spi_get_baudrate",ring_spi_get_baudrate);
+	RING_API_REGISTER("spi_get_index",ring_spi_get_index);
+	RING_API_REGISTER("spi_set_format",ring_spi_set_format);
+	RING_API_REGISTER("spi_set_slave",ring_spi_set_slave);
+	RING_API_REGISTER("spi_is_writable",ring_spi_is_writable);
+	RING_API_REGISTER("spi_is_readable",ring_spi_is_readable);
+	RING_API_REGISTER("spi_is_busy",ring_spi_is_busy);
+	RING_API_REGISTER("spi_write_read_blocking",ring_spi_write_read_blocking);
+	RING_API_REGISTER("spi_write_blocking",ring_spi_write_blocking);
+	RING_API_REGISTER("spi_read_blocking",ring_spi_read_blocking);
+	RING_API_REGISTER("spi_write16_read16_blocking",ring_spi_write16_read16_blocking);
+	RING_API_REGISTER("spi_write16_blocking",ring_spi_write16_blocking);
+	RING_API_REGISTER("spi_read16_blocking",ring_spi_read16_blocking);
+	RING_API_REGISTER("spi_get_dreq",ring_spi_get_dreq);
 	RING_API_REGISTER("get_pico_default_led_pin",ring_get_pico_default_led_pin);
 	RING_API_REGISTER("get_gpio_out",ring_get_gpio_out);
 }
