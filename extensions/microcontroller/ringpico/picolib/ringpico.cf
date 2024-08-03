@@ -3,6 +3,7 @@
 #include "hardware/adc.h"
 #include "hardware/i2c.h"
 #include "hardware/spi.h"
+#include "hardware/pwm.h"
 
 </code>
 
@@ -150,3 +151,40 @@ int spi_write16_read16_blocking(spi_inst_t *spi, const uint16_t *src, uint16_t *
 int spi_write16_blocking(spi_inst_t *spi, const uint16_t *src, size_t len)
 int spi_read16_blocking(spi_inst_t *spi, uint16_t repeated_tx_data, uint16_t *dst, size_t len)
 uint spi_get_dreq(spi_inst_t *spi, bool is_tx)
+
+<comment>
+Hardware PWM functions 
+</comment>
+
+uint pwm_gpio_to_slice_num(uint gpio)
+uint pwm_gpio_to_channel(uint gpio)
+void pwm_config_set_phase_correct(pwm_config *c, bool phase_correct)
+void pwm_config_set_clkdiv(pwm_config *c, float div)
+void pwm_config_set_clkdiv_int_frac(pwm_config *c, uint8_t integer, uint8_t fract)
+void pwm_config_set_clkdiv_int(pwm_config *c, uint div)
+void pwm_config_set_clkdiv_mode(pwm_config *c, enum pwm_clkdiv_mode mode)
+void pwm_config_set_output_polarity(pwm_config *c, bool a, bool b)
+void pwm_config_set_wrap(pwm_config *c, uint16_t wrap)
+void pwm_init(uint slice_num, pwm_config *c, bool start)
+pwm_config pwm_get_default_config(void)
+void pwm_set_wrap(uint slice_num, uint16_t wrap)
+void pwm_set_chan_level(uint slice_num, uint chan, uint16_t level)
+void pwm_set_both_levels(uint slice_num, uint16_t level_a, uint16_t level_b)
+void pwm_set_gpio_level(uint gpio, uint16_t level)
+uint16_t pwm_get_counter(uint slice_num)
+void pwm_set_counter(uint slice_num, uint16_t c)
+void pwm_advance_count(uint slice_num)
+void pwm_retard_count(uint slice_num)
+void pwm_set_clkdiv_int_frac(uint slice_num, uint8_t integer, uint8_t fract)
+void pwm_set_clkdiv(uint slice_num, float divider)
+void pwm_set_output_polarity(uint slice_num, bool a, bool b)
+void pwm_set_clkdiv_mode(uint slice_num, enum pwm_clkdiv_mode mode)
+void pwm_set_phase_correct(uint slice_num, bool phase_correct)
+void pwm_set_enabled(uint slice_num, bool enabled)
+void pwm_set_mask_enabled(uint32_t mask)
+void pwm_set_irq_enabled(uint slice_num, bool enabled)
+void pwm_set_irq_mask_enabled(uint32_t slice_mask, bool enabled)
+void pwm_clear_irq(uint slice_num)
+uint32_t pwm_get_irq_status_mask(void)
+void pwm_force_irq(uint slice_num)
+uint pwm_get_dreq(uint slice_num)

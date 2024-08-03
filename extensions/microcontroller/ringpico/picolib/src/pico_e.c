@@ -4,6 +4,7 @@
 #include "hardware/adc.h"
 #include "hardware/i2c.h"
 #include "hardware/spi.h"
+#include "hardware/pwm.h"
 
 RING_FUNC(ring_get_pico_default_led_pin)
 {
@@ -1629,6 +1630,559 @@ RING_FUNC(ring_spi_get_dreq)
 	RING_API_RETNUMBER(spi_get_dreq((spi_inst_t *) RING_API_GETCPOINTER(1,"spi_inst_t"), (bool ) RING_API_GETNUMBER(2)));
 }
 
+
+RING_FUNC(ring_pwm_gpio_to_slice_num)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pwm_gpio_to_slice_num( (uint ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_pwm_gpio_to_channel)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pwm_gpio_to_channel( (uint ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_pwm_config_set_phase_correct)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pwm_config_set_phase_correct((pwm_config *) RING_API_GETCPOINTER(1,"pwm_config"), (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_pwm_config_set_clkdiv)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pwm_config_set_clkdiv((pwm_config *) RING_API_GETCPOINTER(1,"pwm_config"), (float ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_pwm_config_set_clkdiv_int_frac)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pwm_config_set_clkdiv_int_frac((pwm_config *) RING_API_GETCPOINTER(1,"pwm_config"), (uint8_t ) RING_API_GETNUMBER(2), (uint8_t ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_pwm_config_set_clkdiv_int)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pwm_config_set_clkdiv_int((pwm_config *) RING_API_GETCPOINTER(1,"pwm_config"), (uint ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_pwm_config_set_clkdiv_mode)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pwm_config_set_clkdiv_mode((pwm_config *) RING_API_GETCPOINTER(1,"pwm_config"),* (enum pwm_clkdiv_mode  *) RING_API_GETCPOINTER(2,"enum pwm_clkdiv_mode"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"enum pwm_clkdiv_mode"));
+}
+
+
+RING_FUNC(ring_pwm_config_set_output_polarity)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pwm_config_set_output_polarity((pwm_config *) RING_API_GETCPOINTER(1,"pwm_config"), (bool ) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_pwm_config_set_wrap)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pwm_config_set_wrap((pwm_config *) RING_API_GETCPOINTER(1,"pwm_config"), (uint16_t ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_pwm_init)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pwm_init( (uint ) RING_API_GETNUMBER(1),(pwm_config *) RING_API_GETCPOINTER(2,"pwm_config"), (bool ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_pwm_get_default_config)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	{
+		pwm_config *pValue ; 
+		pValue = (pwm_config *) RING_API_MALLOC(sizeof(pwm_config)) ;
+		*pValue = pwm_get_default_config();
+		RING_API_RETMANAGEDCPOINTER(pValue,"pwm_config",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_pwm_set_wrap)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pwm_set_wrap( (uint ) RING_API_GETNUMBER(1), (uint16_t ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_pwm_set_chan_level)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pwm_set_chan_level( (uint ) RING_API_GETNUMBER(1), (uint ) RING_API_GETNUMBER(2), (uint16_t ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_pwm_set_both_levels)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pwm_set_both_levels( (uint ) RING_API_GETNUMBER(1), (uint16_t ) RING_API_GETNUMBER(2), (uint16_t ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_pwm_set_gpio_level)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pwm_set_gpio_level( (uint ) RING_API_GETNUMBER(1), (uint16_t ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_pwm_get_counter)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pwm_get_counter( (uint ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_pwm_set_counter)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pwm_set_counter( (uint ) RING_API_GETNUMBER(1), (uint16_t ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_pwm_advance_count)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pwm_advance_count( (uint ) RING_API_GETNUMBER(1));
+}
+
+
+RING_FUNC(ring_pwm_retard_count)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pwm_retard_count( (uint ) RING_API_GETNUMBER(1));
+}
+
+
+RING_FUNC(ring_pwm_set_clkdiv_int_frac)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pwm_set_clkdiv_int_frac( (uint ) RING_API_GETNUMBER(1), (uint8_t ) RING_API_GETNUMBER(2), (uint8_t ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_pwm_set_clkdiv)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pwm_set_clkdiv( (uint ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_pwm_set_output_polarity)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pwm_set_output_polarity( (uint ) RING_API_GETNUMBER(1), (bool ) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_pwm_set_clkdiv_mode)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pwm_set_clkdiv_mode( (uint ) RING_API_GETNUMBER(1),* (enum pwm_clkdiv_mode  *) RING_API_GETCPOINTER(2,"enum pwm_clkdiv_mode"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		RING_API_FREE(RING_API_GETCPOINTER(2,"enum pwm_clkdiv_mode"));
+}
+
+
+RING_FUNC(ring_pwm_set_phase_correct)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pwm_set_phase_correct( (uint ) RING_API_GETNUMBER(1), (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_pwm_set_enabled)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pwm_set_enabled( (uint ) RING_API_GETNUMBER(1), (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_pwm_set_mask_enabled)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pwm_set_mask_enabled( (uint32_t ) RING_API_GETNUMBER(1));
+}
+
+
+RING_FUNC(ring_pwm_set_irq_enabled)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pwm_set_irq_enabled( (uint ) RING_API_GETNUMBER(1), (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_pwm_set_irq_mask_enabled)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pwm_set_irq_mask_enabled( (uint32_t ) RING_API_GETNUMBER(1), (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_pwm_clear_irq)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pwm_clear_irq( (uint ) RING_API_GETNUMBER(1));
+}
+
+
+RING_FUNC(ring_pwm_get_irq_status_mask)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(pwm_get_irq_status_mask());
+}
+
+
+RING_FUNC(ring_pwm_force_irq)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pwm_force_irq( (uint ) RING_API_GETNUMBER(1));
+}
+
+
+RING_FUNC(ring_pwm_get_dreq)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pwm_get_dreq( (uint ) RING_API_GETNUMBER(1)));
+}
+
 RING_API void ring_vm_pico_loadfunctions(RingState *pRingState)
 {
 	RING_API_REGISTER("sleep_ms",ring_sleep_ms);
@@ -1725,6 +2279,38 @@ RING_API void ring_vm_pico_loadfunctions(RingState *pRingState)
 	RING_API_REGISTER("spi_write16_blocking",ring_spi_write16_blocking);
 	RING_API_REGISTER("spi_read16_blocking",ring_spi_read16_blocking);
 	RING_API_REGISTER("spi_get_dreq",ring_spi_get_dreq);
+	RING_API_REGISTER("pwm_gpio_to_slice_num",ring_pwm_gpio_to_slice_num);
+	RING_API_REGISTER("pwm_gpio_to_channel",ring_pwm_gpio_to_channel);
+	RING_API_REGISTER("pwm_config_set_phase_correct",ring_pwm_config_set_phase_correct);
+	RING_API_REGISTER("pwm_config_set_clkdiv",ring_pwm_config_set_clkdiv);
+	RING_API_REGISTER("pwm_config_set_clkdiv_int_frac",ring_pwm_config_set_clkdiv_int_frac);
+	RING_API_REGISTER("pwm_config_set_clkdiv_int",ring_pwm_config_set_clkdiv_int);
+	RING_API_REGISTER("pwm_config_set_clkdiv_mode",ring_pwm_config_set_clkdiv_mode);
+	RING_API_REGISTER("pwm_config_set_output_polarity",ring_pwm_config_set_output_polarity);
+	RING_API_REGISTER("pwm_config_set_wrap",ring_pwm_config_set_wrap);
+	RING_API_REGISTER("pwm_init",ring_pwm_init);
+	RING_API_REGISTER("pwm_get_default_config",ring_pwm_get_default_config);
+	RING_API_REGISTER("pwm_set_wrap",ring_pwm_set_wrap);
+	RING_API_REGISTER("pwm_set_chan_level",ring_pwm_set_chan_level);
+	RING_API_REGISTER("pwm_set_both_levels",ring_pwm_set_both_levels);
+	RING_API_REGISTER("pwm_set_gpio_level",ring_pwm_set_gpio_level);
+	RING_API_REGISTER("pwm_get_counter",ring_pwm_get_counter);
+	RING_API_REGISTER("pwm_set_counter",ring_pwm_set_counter);
+	RING_API_REGISTER("pwm_advance_count",ring_pwm_advance_count);
+	RING_API_REGISTER("pwm_retard_count",ring_pwm_retard_count);
+	RING_API_REGISTER("pwm_set_clkdiv_int_frac",ring_pwm_set_clkdiv_int_frac);
+	RING_API_REGISTER("pwm_set_clkdiv",ring_pwm_set_clkdiv);
+	RING_API_REGISTER("pwm_set_output_polarity",ring_pwm_set_output_polarity);
+	RING_API_REGISTER("pwm_set_clkdiv_mode",ring_pwm_set_clkdiv_mode);
+	RING_API_REGISTER("pwm_set_phase_correct",ring_pwm_set_phase_correct);
+	RING_API_REGISTER("pwm_set_enabled",ring_pwm_set_enabled);
+	RING_API_REGISTER("pwm_set_mask_enabled",ring_pwm_set_mask_enabled);
+	RING_API_REGISTER("pwm_set_irq_enabled",ring_pwm_set_irq_enabled);
+	RING_API_REGISTER("pwm_set_irq_mask_enabled",ring_pwm_set_irq_mask_enabled);
+	RING_API_REGISTER("pwm_clear_irq",ring_pwm_clear_irq);
+	RING_API_REGISTER("pwm_get_irq_status_mask",ring_pwm_get_irq_status_mask);
+	RING_API_REGISTER("pwm_force_irq",ring_pwm_force_irq);
+	RING_API_REGISTER("pwm_get_dreq",ring_pwm_get_dreq);
 	RING_API_REGISTER("get_pico_default_led_pin",ring_get_pico_default_led_pin);
 	RING_API_REGISTER("get_gpio_out",ring_get_gpio_out);
 }
