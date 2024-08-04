@@ -643,14 +643,14 @@ void ring_objfile_writebytecode ( List *pList,FILE *fCode )
 			}
 			if ( ring_list_isstring(pIns,x2) ) {
 				fprintf( fCode , "RING_VM_REGTYPE_STRING ; \n"  ) ;
-				fprintf( fCode , "\tpVM->pByteCode[%d].aReg[%d].pString = ring_string_new(\"" , x-1,nReg ) ;
+				fprintf( fCode , "\tpVM->pByteCode[%d].aReg[%d].pString = ring_string_new2(\"" , x-1,nReg ) ;
 				/* Add the string */
 				cString = ring_list_getstring(pIns,x2) ;
 				nMax = ring_list_getstringsize(pIns,x2) ;
 				for ( x3 = 0 ; x3 < nMax ; x3++ ) {
 					fprintf( fCode , "\\x%02x" , (unsigned char) cString[x3] ) ;
 				}
-				fprintf( fCode , "\") ; \n"  ) ;
+				fprintf( fCode , "\",%d) ; \n" , nMax ) ;
 			}
 			else if ( ring_list_isint(pIns,x2) ) {
 				fprintf( fCode , "RING_VM_REGTYPE_INT ; \n"  ) ;
