@@ -18,6 +18,12 @@
 	#define RING_VM_ARGCACHE_SIZE RING_VM_STACK_SIZE
 	#define RING_VM_BC_ITEMS_COUNT 2
 	#define RING_VM_MAXDIGITSINNUMBER 15
+	/* Check if we can use double in the byte code */
+	#if RING_USEDOUBLEINBYTECODE
+		#define RING_BYTECODEDOUBLE double
+	#else
+		#define RING_BYTECODEDOUBLE float
+	#endif
 	/* Register Type */
 	#define RING_VM_REGTYPE_NOTHING 0
 	#define RING_VM_REGTYPE_INT 1
@@ -25,11 +31,11 @@
 	#define RING_VM_REGTYPE_STRING 3
 	#define RING_VM_REGTYPE_POINTER 4
 	typedef union Register {
-		int aNumber[2]  ;
 		int iNumber  ;
-		String *pString  ;
-		double dNumber  ;
+		int aNumber[2]  ;
 		void *pPointer  ;
+		String *pString  ;
+		RING_BYTECODEDOUBLE dNumber  ;
 	} Register ;
 	typedef struct ByteCode {
 		unsigned int nOPCode: 8  ;
