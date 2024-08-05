@@ -22,6 +22,7 @@ Type: List *
 pList
 Type: FuncCall *
 pFuncCall
+ring_vm_returnn
 ring_vm_returnnull
 ring_vm_newfunc
 Type: int
@@ -93,4 +94,3 @@ Type: FuncCall *
 pFuncCall
 Type: int
 x
-ring_vm_returnn

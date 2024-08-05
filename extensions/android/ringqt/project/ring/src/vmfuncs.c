@@ -723,11 +723,11 @@ void ring_vm_freetemplistsins ( VM *pVM )
 int ring_vm_timetofreetemplists ( VM *pVM )
 {
 	/* We must start by executing the instruction for the first time (So we use decrement) */
-	if ( RING_VM_IR_GETINTREG == 0 ) {
-		RING_VM_IR_SETINTREG(RING_VM_TEMPLISTSCOUNTERMAX);
+	if ( RING_VM_IR_GETSMALLINTREG == 0 ) {
+		RING_VM_IR_SETSMALLINTREG(RING_VM_TEMPLISTSCOUNTERMAX);
 		return 1 ;
 	}
-	RING_VM_IR_SETINTREG(RING_VM_IR_GETINTREG -1);
+	RING_VM_IR_SETSMALLINTREG(RING_VM_IR_GETSMALLINTREG -1);
 	return 0 ;
 }
 
@@ -797,7 +797,7 @@ void ring_vm_freetemplists ( VM *pVM, int *nTempCount, int *nScopeID )
 	}
 	if ( lListsDeleted == 0 ) {
 		/* Delay (Free Temp. Lists) operation in the future */
-		RING_VM_IR_SETINTREG(RING_VM_TEMPLISTSCOUNTERMAX*100);
+		RING_VM_IR_SETSMALLINTREG(RING_VM_TEMPLISTSCOUNTERMAX*100);
 	}
 }
 
