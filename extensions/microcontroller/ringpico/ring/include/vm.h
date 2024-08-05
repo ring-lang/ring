@@ -32,7 +32,6 @@
 	#define RING_VM_REGTYPE_POINTER 4
 	typedef union Register {
 		int iNumber  ;
-		int aNumber[2]  ;
 		void *pPointer  ;
 		String *pString  ;
 		RING_BYTECODEDOUBLE dNumber  ;
@@ -291,10 +290,6 @@
 	#define RING_VM_IR_SETREG1TOPOINTERFROMSTACK ring_vm_setreg1topointerfromstack(pVM)
 	#define RING_VM_IR_SETREG1TYPE(nType) pVM->pByteCodeIR->nReg1Type = nType
 	#define RING_VM_IR_SETREG2TYPE(nType) pVM->pByteCodeIR->nReg2Type = nType
-	#define RING_VM_IR_READLOWIVALUE(nReg) pVM->pByteCodeIR->aReg[nReg].aNumber[0]
-	#define RING_VM_IR_READHIGHIVALUE(nReg) pVM->pByteCodeIR->aReg[nReg].aNumber[1]
-	#define RING_VM_IR_ITEMSETLOWINT(pItem,nValue) (* pItem).aNumber[0]  = nValue
-	#define RING_VM_IR_ITEMSETHIGHINT(pItem,nValue) (* pItem).aNumber[1]  = nValue
 	#define RING_VM_IR_REG1 0
 	#define RING_VM_IR_REG2 1
 	#define RING_VM_IR_SETFLAGREG2(nValue) pVM->pByteCodeIR->nFlagReg2 = nValue
