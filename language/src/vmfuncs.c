@@ -716,7 +716,7 @@ List * ring_vm_prevtempmem ( VM *pVM )
 void ring_vm_freetemplistsins ( VM *pVM )
 {
 	if ( ring_vm_timetofreetemplists(pVM) ) {
-		ring_vm_freetemplists(pVM, & RING_VM_IR_READI, & RING_VM_IR_READIVALUE(RING_VM_IR_REG2));
+		ring_vm_freetemplists(pVM);
 	}
 }
 
@@ -731,7 +731,7 @@ int ring_vm_timetofreetemplists ( VM *pVM )
 	return 0 ;
 }
 
-void ring_vm_freetemplists ( VM *pVM, int *nTempCount, int *nScopeID )
+void ring_vm_freetemplists ( VM *pVM )
 {
 	List *pTempMem, *pList, *pList2  ;
 	int x,x2,lFound,nStart,lListsDeleted  ;

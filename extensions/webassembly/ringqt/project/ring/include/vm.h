@@ -1073,7 +1073,7 @@
 
 	void ring_vm_freetemplistsins ( VM *pVM ) ;
 
-	void ring_vm_freetemplists ( VM *pVM,int *nTempCount, int *nScopeID ) ;
+	void ring_vm_freetemplists ( VM *pVM ) ;
 
 	int ring_vm_timetofreetemplists ( VM *pVM ) ;
 	/* Better Performance */

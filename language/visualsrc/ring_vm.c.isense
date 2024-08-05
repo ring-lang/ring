@@ -17,15 +17,15 @@ RING_VM_REGTYPE_STRING
 RING_VM_REGTYPE_POINTER
 Parent: Register
 Type: int
-aNumber[2]
-Type: int
 iNumber
-Type: String *
-pString
-Type: double
-dNumber
+Type: int
+aNumber[2]
 Type: void *
 pPointer
+Type: String *
+pString
+Type: RING_BYTECODEDOUBLE
+dNumber
 END:
 Type: Register
 Register
