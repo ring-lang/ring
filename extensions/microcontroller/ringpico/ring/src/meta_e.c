@@ -86,14 +86,16 @@ void ring_vm_refmeta_functions ( void *pPointer )
 
 void ring_vm_refmeta_cfunctions ( void *pPointer )
 {
-	VM *pVM  ;
 	int x  ;
-	List *pList, *pList2  ;
+	VM *pVM  ;
+	List *pList  ;
+	CFunction *pCFunc  ;
 	pVM = (VM *) pPointer ;
 	pList = RING_API_NEWLIST ;
-	for ( x = 1 ; x <= ring_list_getsize(pVM->pCFunctionsList) ; x++ ) {
-		pList2 = ring_list_getlist(pVM->pCFunctionsList,x);
-		ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,ring_list_getstring(pList2,RING_FUNCMAP_NAME));
+	pCFunc = pVM->pCFunction ;
+	while ( pCFunc != NULL ) {
+		ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,pCFunc->cName);
+		pCFunc = pCFunc->pNext ;
 	}
 	RING_API_RETLIST(pList);
 }

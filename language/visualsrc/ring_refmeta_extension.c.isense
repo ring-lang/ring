@@ -1,5 +1,4 @@
 ring_refmeta_extension_h
-RING_REFMETA_ITEMSTOCHECKMEMPOOL
 ring_vm_refmeta_loadfunctions
 ring_vm_refmeta_locals
 Type: VM *
@@ -23,12 +22,14 @@ x
 Type: List *
 pList, *pList2
 ring_vm_refmeta_cfunctions
-Type: VM *
-pVM
 Type: int
 x
+Type: VM *
+pVM
 Type: List *
-pList, *pList2
+pList
+Type: CFunction *
+pCFunc
 ring_vm_refmeta_islocal
 Type: VM *
 pVM
@@ -213,104 +214,3 @@ Type: List *
 pList
 Type: char *
 cStr
-ring_vm_refmeta_ringvmfileslist
-Type: VM *
-pVM
-Type: List *
-pList
-ring_vm_refmeta_ringvmcalllist
-Type: VM *
-pVM
-Type: List *
-pList, *pList2
-Type: int
-x
-Type: FuncCall *
-pFuncCall
-ring_vm_refmeta_ringvmmemorylist
-Type: VM *
-pVM
-Type: List *
-pList, *pList2
-ring_vm_refmeta_ringvmfunctionslist
-Type: VM *
-pVM
-Type: List *
-pList
-ring_vm_refmeta_ringvmclasseslist
-Type: VM *
-pVM
-Type: List *
-pList
-ring_vm_refmeta_ringvmpackageslist
-Type: VM *
-pVM
-Type: List *
-pList
-ring_vm_refmeta_ringvmcfunctionslist
-Type: VM *
-pVM
-Type: List *
-pList
-ring_vm_refmeta_ringvmsettrace
-Type: VM *
-pVM
-Type: char *
-cStr
-ring_vm_refmeta_ringvmtracedata
-Type: VM *
-pVM
-Type: List *
-pList
-ring_vm_refmeta_ringvmtraceevent
-Type: VM *
-pVM
-ring_vm_refmeta_ringvmtracefunc
-Type: VM *
-pVM
-ring_vm_refmeta_ringvmscopescount
-Type: VM *
-pVM
-ring_vm_refmeta_ringvmevalinscope
-Type: VM *
-pVM
-Type: List *
-pActiveMem
-Type: const char *
-cStr
-Type: int
-nScope,nSize
-Type: VMState *
-pVMState
-ring_vm_refmeta_ringvmpasserror
-Type: VM *
-pVM
-ring_vm_refmeta_ringvmhideerrormsg
-Type: VM *
-pVM
-ring_vm_refmeta_ringvmcallfunc
-Type: VM *
-pVM
-Type: String *
-pString
-ring_vm_refmeta_ringvminfo
-Type: VM *
-pVM
-Type: List *
-pList
-ring_vm_refmeta_ringvmgenarray
-Type: VM *
-pVM
-ring_vm_refmeta_ringvmcodelist
-Type: VM *
-pVM
-Type: List *
-pList
-ring_vm_refmeta_ringvmismempool
-Type: VM *
-pVM
-Type: List *
-pList
-ring_vm_refmeta_ringvmruncode
-Type: VM *
-pVM
