@@ -46,6 +46,11 @@
 		unsigned int nIntReg: 32  ;
 		Register aReg[RING_VM_BC_ITEMS_COUNT]  ;
 	} ByteCode ;
+	typedef struct CFunction {
+		const char *cName  ;
+		void (*pFunc)(void *) ;
+		struct CFunction *pNext  ;
+	} CFunction ;
 	typedef struct FuncCall {
 		const char *cName  ;
 		char *cFileName  ;
@@ -174,6 +179,7 @@
 		FuncCall aFuncCall[RING_VM_STACK_SIZE]  ;
 		List aScopes[RING_VM_STACK_SIZE]  ;
 		List *pArgCache[RING_VM_ARGCACHE_SIZE]  ;
+		CFunction *pCFunction  ;
 	} VM ;
 	/*
 	**  Macro & Constants 

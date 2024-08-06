@@ -18,8 +18,6 @@ RING_VM_REGTYPE_POINTER
 Parent: Register
 Type: int
 iNumber
-Type: int
-aNumber[2]
 Type: void *
 pPointer
 Type: String *
@@ -55,6 +53,20 @@ struct ByteCode *
 Type: ByteCode
 Mark: ->
 ByteCode *
+Parent: CFunction
+Type: const char *
+cName
+Type: struct CFunction *
+pNext
+END:
+Type: CFunction
+struct CFunction
+Type: CFunction
+Mark: ->
+struct CFunction *
+Type: CFunction
+Mark: ->
+CFunction *
 Parent: FuncCall
 Type: const char *
 cName
@@ -306,6 +318,8 @@ Type: List
 aScopes[RING_VM_STACK_SIZE]
 Type: List *
 pArgCache[RING_VM_ARGCACHE_SIZE]
+Type: CFunction *
+pCFunction
 END:
 Type: VM
 struct VM
@@ -413,10 +427,6 @@ RING_VM_IR_GETFLAGREG
 RING_VM_IR_SETREG1TOPOINTERFROMSTACK
 RING_VM_IR_SETREG1TYPE(nType)
 RING_VM_IR_SETREG2TYPE(nType)
-RING_VM_IR_READLOWIVALUE(nReg)
-RING_VM_IR_READHIGHIVALUE(nReg)
-RING_VM_IR_ITEMSETLOWINT(pItem,nValue)
-RING_VM_IR_ITEMSETHIGHINT(pItem,nValue)
 RING_VM_IR_REG1
 RING_VM_IR_REG2
 RING_VM_IR_SETFLAGREG2(nValue)

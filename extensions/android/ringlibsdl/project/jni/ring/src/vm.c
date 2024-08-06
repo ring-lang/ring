@@ -59,6 +59,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	}
 	pVM->pCFunctionsList = pRingState->pRingCFunctions ;
 	pVM->lCallMainFunction = 0 ;
+	pVM->pCFunction = NULL ;
 	/* Support for Exit/Loop Commands inside For/While loops. */
 	pVM->pExitMark = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	pVM->pLoopMark = ring_list_new_gc(pVM->pRingState,RING_ZERO);

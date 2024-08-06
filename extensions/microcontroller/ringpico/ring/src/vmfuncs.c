@@ -16,6 +16,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 	List *pList,*pList2  ;
 	int y  ;
 	FuncCall *pFuncCall  ;
+	CFunction *pCFunc  ;
 	/* Search */
 	for ( y = 2 ; y >= 1 ; y-- ) {
 		/* For OOP Support - Search in the Class Methods */
@@ -112,14 +113,20 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 		return 0 ;
 	}
 	/* Find Function in C Functions List */
-	pList = (List *) ring_hashtable_findpointer(ring_list_gethashtable(pVM->pCFunctionsList),cStr);
-	if ( pList != NULL ) {
+	pCFunc = pVM->pCFunction ;
+	while ( pCFunc != NULL ) {
+		if ( strcmp(pCFunc->cName,cStr) == 0 ) {
+			break ;
+		}
+		pCFunc = pCFunc->pNext ;
+	}
+	if ( pCFunc != NULL ) {
 		/* Add FuncCall Structure */
 		pFuncCall = ring_vm_funccall_new(pVM);
 		if (pFuncCall == NULL) return 1 ;
 		pFuncCall->nType = RING_FUNCTYPE_C ;
 		pFuncCall->cName = cStr ;
-		pFuncCall->pFunc = ring_list_getfuncpointer(pList,RING_FUNCMAP_PC) ;
+		pFuncCall->pFunc = pCFunc->pFunc ;
 		pFuncCall->nSP = pVM->nSP ;
 		/*
 		**  File Name 

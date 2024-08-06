@@ -5,12 +5,12 @@
 RING_API void ring_vm_funcregister2 ( RingState *pRingState,const char *cStr, void (*pFunc)(void *) )
 {
 	List *pList  ;
-	if ( pRingState->pRingCFunctions == NULL ) {
-		pRingState->pRingCFunctions = ring_list_new_gc(pRingState,RING_ZERO);
-	}
-	pList = ring_list_newlist_gc(pRingState,pRingState->pRingCFunctions);
-	ring_list_addstring_gc(pRingState,pList,cStr);
-	ring_list_addfuncpointer_gc(pRingState,pList,pFunc);
+	CFunction *pCFunc  ;
+	pCFunc = (CFunction *) ring_state_malloc(pRingState,sizeof(CFunction));
+	pCFunc->cName = cStr ;
+	pCFunc->pFunc = pFunc ;
+	pCFunc->pNext = pRingState->pVM->pCFunction ;
+	pRingState->pVM->pCFunction = pCFunc ;
 }
 
 RING_API void ring_vm_loadcfunctions ( RingState *pRingState )

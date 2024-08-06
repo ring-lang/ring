@@ -77,6 +77,8 @@ RING_API_SCOPESCOUNT
 ring_vm_funcregister2
 Type: List *
 pList
+Type: CFunction *
+pCFunc
 ring_vm_loadcfunctions
 ring_vm_api_isstring
 Type: VM *

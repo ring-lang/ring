@@ -6,6 +6,8 @@ Type: int
 y
 Type: FuncCall *
 pFuncCall
+Type: CFunction *
+pCFunc
 ring_vm_call
 ring_vm_call2
 Type: List *
