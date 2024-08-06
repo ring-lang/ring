@@ -144,6 +144,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	ring_list_copy(pState->pVM->pCFunctionsList,pVM->pRingState->pRingCFunctions);
 	ring_list_genarray(pState->pVM->pCFunctionsList);
 	ring_list_genhashtable2(pState->pVM->pCFunctionsList);
+	pState->pVM->pCFunction = pVM->pCFunction ;
 	pState->pRingFunctionsMap = pState->pVM->pFunctionsMap ;
 	pState->pRingClassesMap = pState->pVM->pClassesMap ;
 	pState->pRingPackagesMap = pState->pVM->pPackagesMap ;
