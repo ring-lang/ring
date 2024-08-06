@@ -46,9 +46,6 @@ Samples
 		<td>
 			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/microcontroller/ringpico/projects/blink/main.ring"> Blink </a>
 		</td>
-		<td>
-			 Blink
-		</td>
 	</tr>
 	<tr>
 		<td>
@@ -56,9 +53,6 @@ Samples
 		</td>
 		<td>
 			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/microcontroller/ringpico/projects/leds/main.ring"> LEDs </a>
-		</td>
-		<td>
-			 LEDs
 		</td>
 	</tr>
 	<tr>
@@ -68,9 +62,6 @@ Samples
 		<td>
 			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/microcontroller/ringpico/projects/ledandswitch/main.ring"> LED and Switch (Main File) </a>
 		</td>
-		<td>
-			 LED and Switch
-		</td>
 	</tr>
 	<tr>
 		<td>
@@ -78,9 +69,6 @@ Samples
 		</td>
 		<td>
 			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/microcontroller/ringpico/projects/ledandswitch/mylib.ring"> LED and Switch (Library) </a>
-		</td>
-		<td>
-			 LED and Switch (Classes)
 		</td>
 	</tr>
 </table>
