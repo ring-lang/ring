@@ -35,6 +35,45 @@ Deployment
 
 * Run the deploy.bat file which will copy ringpico.uf2 to the device
 
+Samples
+=======
+
+<table>
+	<tr>
+		<td>
+			1
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/microcontroller/ringpico/projects/blink/main.ring"> Drawing Cube </a>
+		</td>
+		<td>
+			 Blink
+		</td>
+	</tr>
+	<tr>
+		<td>
+			2
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/microcontroller/ringpico/projects/leds/main.ring"> Drawing Cube </a>
+		</td>
+		<td>
+			 LEDs
+		</td>
+	</tr>
+	<tr>
+		<td>
+			3
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/microcontroller/ringpico/projects/ledandswitch/main.ring"> Drawing Cube </a>
+		</td>
+		<td>
+			 LED and Switch
+		</td>
+	</tr>
+</table>
+
 Contributors
 ============
 
