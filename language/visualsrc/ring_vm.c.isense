@@ -643,6 +643,8 @@ Type: List *
 pRecord
 Type: Item *
 pItem
+Type: CFunction *
+pCFunc
 ring_vm_start
 ring_vm_towardsmainloop
 Type: VM *

@@ -74,6 +74,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	RingState *pState  ;
 	List *pList,*pList2,*pList3,*pList4,*pList5,*pGlobal, *pVarList, *pBlocks, *pGlobalScopes, *pScope  ;
 	RING_SHAREDSCOPETYPE pItem  ;
+	CFunction *pCFunc, *pCFunc2  ;
 	unsigned int x, y  ;
 	/* Create the RingState */
 	pState = ring_state_init();
@@ -145,6 +146,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	ring_list_genarray(pState->pVM->pCFunctionsList);
 	ring_list_genhashtable2(pState->pVM->pCFunctionsList);
 	pState->pVM->pCFunction = pVM->pCFunction ;
+	pCFunc = pVM->pCFunction ;
 	pState->pRingFunctionsMap = pState->pVM->pFunctionsMap ;
 	pState->pRingClassesMap = pState->pVM->pClassesMap ;
 	pState->pRingPackagesMap = pState->pVM->pPackagesMap ;
@@ -190,6 +192,14 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	pState->pVM->pFuncMutexUnlock = NULL ;
 	pState->pVM->pMutex = NULL ;
 	pState->vPoolManager.pMutex = NULL ;
+	/* Delete Extra C Functions (Loaded by the Sub Thread) */
+	while ( pState->pVM->pCFunction != pCFunc ) {
+		pCFunc2 = pState->pVM->pCFunction ;
+		pState->pVM->pCFunction = pState->pVM->pCFunction->pNext ;
+		ring_state_free(NULL,pCFunc2);
+	}
+	/* Avoid deleting C functions loaded by the Main thread */
+	pState->pVM->pCFunction = NULL ;
 	/* Avoid deleting the Shared Memory Blocks */
 	pState->vPoolManager.pBlocks = pBlocks ;
 	ring_vm_mutexunlock(pVM);

@@ -226,6 +226,7 @@ VM * ring_vm_delete ( VM *pVM )
 	int x  ;
 	List *pRecord  ;
 	Item *pItem  ;
+	CFunction *pCFunc  ;
 	pVM->pNestedLists = ring_list_delete_gc(pVM->pRingState,pVM->pNestedLists);
 	pVM->pFuncCallList = ring_list_delete_gc(pVM->pRingState,pVM->pFuncCallList);
 	pVM->pPCBlockFlag = ring_list_delete_gc(pVM->pRingState,pVM->pPCBlockFlag);
@@ -276,6 +277,12 @@ VM * ring_vm_delete ( VM *pVM )
 	pVM->pTrackedVariables = ring_list_delete_gc(pVM->pRingState,pVM->pTrackedVariables);
 	/* Delete Arguments Cache */
 	ring_vm_deleteargcache(pVM);
+	/* Delete C Functions */
+	while ( pVM->pCFunction != NULL ) {
+		pCFunc = pVM->pCFunction ;
+		pVM->pCFunction = pVM->pCFunction->pNext ;
+		ring_state_free(pVM->pRingState,pCFunc);
+	}
 	pVM->pRingState->pVM = NULL ;
 	ring_state_free(pVM->pRingState,pVM);
 	pVM = NULL ;

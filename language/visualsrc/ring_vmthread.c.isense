@@ -13,6 +13,8 @@ Type: List *
 pList,*pList2,*pList3,*pList4,*pList5,*pGlobal, *pVarList, *pBlocks, *pGlobalScopes, *pScope
 Type: RING_SHAREDSCOPETYPE
 pItem
+Type: CFunction *
+pCFunc, *pCFunc2
 Type: unsigned int
 x, y
 ring_vm_bytecodefornewthread
