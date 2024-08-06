@@ -33,4 +33,8 @@ Deployment
 
 * Run the deploy.bat file which will copy ringpico.uf2 to the device
 
-Enjoy! 
+Contributors
+============
+
+* Mahmoud Fayed
+* Ahmad Fayed
