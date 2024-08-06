@@ -1,1 +1,1 @@
-load "picolib/constants.ring"
+load "constants.ring"
