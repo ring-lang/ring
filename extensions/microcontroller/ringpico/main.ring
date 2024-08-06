@@ -4,6 +4,6 @@
 **	Then we load our program file
 */
 
-load "picolib.ring"
+load "picolib/picolib.ring"
 
 load "projects/blink/main.ring"
