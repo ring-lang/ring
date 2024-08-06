@@ -192,14 +192,16 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	pState->pVM->pFuncMutexUnlock = NULL ;
 	pState->pVM->pMutex = NULL ;
 	pState->vPoolManager.pMutex = NULL ;
-	/* Delete Extra C Functions (Loaded by the Sub Thread) */
-	while ( pState->pVM->pCFunction != pCFunc ) {
-		pCFunc2 = pState->pVM->pCFunction ;
-		pState->pVM->pCFunction = pState->pVM->pCFunction->pNext ;
-		ring_state_free(NULL,pCFunc2);
+	if ( pState->pVM->pCFunction != NULL ) {
+		/* Delete Extra C Functions (Loaded by the Sub Thread) */
+		while ( pState->pVM->pCFunction != pCFunc ) {
+			pCFunc2 = pState->pVM->pCFunction ;
+			pState->pVM->pCFunction = pState->pVM->pCFunction->pNext ;
+			ring_state_free(NULL,pCFunc2);
+		}
+		/* Avoid deleting C functions loaded by the Main thread */
+		pState->pVM->pCFunction = NULL ;
 	}
-	/* Avoid deleting C functions loaded by the Main thread */
-	pState->pVM->pCFunction = NULL ;
 	/* Avoid deleting the Shared Memory Blocks */
 	pState->vPoolManager.pBlocks = pBlocks ;
 	ring_vm_mutexunlock(pVM);

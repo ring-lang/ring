@@ -281,7 +281,7 @@ VM * ring_vm_delete ( VM *pVM )
 	while ( pVM->pCFunction != NULL ) {
 		pCFunc = pVM->pCFunction ;
 		pVM->pCFunction = pVM->pCFunction->pNext ;
-		ring_state_free(pVM->pRingState,pCFunc);
+		ring_state_free(NULL,pCFunc);
 	}
 	pVM->pRingState->pVM = NULL ;
 	ring_state_free(pVM->pRingState,pVM);
