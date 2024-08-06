@@ -86,7 +86,6 @@ void ring_vm_refmeta_functions ( void *pPointer )
 
 void ring_vm_refmeta_cfunctions ( void *pPointer )
 {
-	int x  ;
 	VM *pVM  ;
 	List *pList  ;
 	CFunction *pCFunc  ;
@@ -188,9 +187,9 @@ void ring_vm_refmeta_isfunction ( void *pPointer )
 void ring_vm_refmeta_iscfunction ( void *pPointer )
 {
 	VM *pVM  ;
-	int x  ;
-	List *pList, *pList2  ;
+	List *pList  ;
 	char *cStr  ;
+	CFunction *pCFunc  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
@@ -199,12 +198,14 @@ void ring_vm_refmeta_iscfunction ( void *pPointer )
 		pVM = (VM *) pPointer ;
 		cStr = ring_string_lower(RING_API_GETSTRING(1)) ;
 		pList = pVM->pCFunctionsList ;
-		for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
-			pList2 = ring_list_getlist(pList,x);
-			if ( strcmp(ring_list_getstring(pList2,RING_FUNCMAP_NAME),cStr) == 0 ) {
+		/* Linear Search */
+		pCFunc = pVM->pCFunction ;
+		while ( pCFunc != NULL ) {
+			if ( strcmp(pCFunc->cName,cStr) == 0 ) {
 				RING_API_RETNUMBER(1);
 				return ;
 			}
+			pCFunc = pCFunc->pNext ;
 		}
 		RING_API_RETNUMBER(0);
 	}

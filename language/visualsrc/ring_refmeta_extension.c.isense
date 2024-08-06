@@ -22,8 +22,6 @@ x
 Type: List *
 pList, *pList2
 ring_vm_refmeta_cfunctions
-Type: int
-x
 Type: VM *
 pVM
 Type: List *
@@ -60,12 +58,12 @@ cStr
 ring_vm_refmeta_iscfunction
 Type: VM *
 pVM
-Type: int
-x
 Type: List *
-pList, *pList2
+pList
 Type: char *
 cStr
+Type: CFunction *
+pCFunc
 ring_vm_refmeta_packages
 Type: VM *
 pVM
