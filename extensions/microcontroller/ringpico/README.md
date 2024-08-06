@@ -3,7 +3,7 @@ Ring Programming Language for Raspberry Pi Pico
 
 In this folder we have the RingPico extension for using Ring on Raspberry Pi Pico
 
-This is a project folder that contains (Ring Compiler/VM, RingPico extension and Ring program)
+This is a project folder that contains (Ring Compiler/VM, RingPico extension and Samples)
 
 Install
 =======
@@ -17,9 +17,9 @@ Install
 Programming
 ===========
 
-* Samples exist in the (programs) folder
-* Create a sub folder for your project in the (programs) folder
-* You can update the Ring code in (main.ring) file to load your project
+* Samples exist in the (projects) folder
+* You can create a sub folder for your project in the (projects) folder
+* You can update the (main.ring) file to load your project
 
 Building
 ========

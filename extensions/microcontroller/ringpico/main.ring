@@ -6,4 +6,4 @@
 
 load "picolib.ring"
 
-load "programs/blink/main.ring"
+load "projects/blink/main.ring"
