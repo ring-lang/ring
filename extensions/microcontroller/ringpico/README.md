@@ -44,7 +44,7 @@ Samples
 			1
 		</td>
 		<td>
-			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/microcontroller/ringpico/projects/blink/main.ring"> Drawing Cube </a>
+			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/microcontroller/ringpico/projects/blink/main.ring"> Blink </a>
 		</td>
 		<td>
 			 Blink
@@ -55,7 +55,7 @@ Samples
 			2
 		</td>
 		<td>
-			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/microcontroller/ringpico/projects/leds/main.ring"> Drawing Cube </a>
+			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/microcontroller/ringpico/projects/leds/main.ring"> LEDs </a>
 		</td>
 		<td>
 			 LEDs
@@ -66,7 +66,7 @@ Samples
 			3
 		</td>
 		<td>
-			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/microcontroller/ringpico/projects/ledandswitch/main.ring"> Drawing Cube </a>
+			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/microcontroller/ringpico/projects/ledandswitch/main.ring"> LED and Switch </a>
 		</td>
 		<td>
 			 LED and Switch
