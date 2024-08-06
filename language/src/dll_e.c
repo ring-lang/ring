@@ -35,11 +35,7 @@ void ring_vm_dll_loadlib ( void *pPointer )
 			RING_API_ERROR(RING_VM_ERROR_NORINGLIBINIT);
 			return ;
 		}
-		ring_list_deletearray_gc(pRingState,pRingState->pRingCFunctions);
 		(*pFunc)(pRingState) ;
-		/* Generate Hash Table */
-		ring_list_genarray(pRingState->pRingCFunctions);
-		ring_list_genhashtable2(pRingState->pRingCFunctions);
 		ring_list_addpointer_gc(pRingState,pVM->pCLibraries,pHandle);
 		RING_API_RETCPOINTER(pHandle,RING_VM_POINTER_DLL);
 	}

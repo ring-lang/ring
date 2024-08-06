@@ -152,11 +152,7 @@ void ring_vm_generallib_optionalfunc ( void *pPointer )
 	}
 	if ( RING_API_ISSTRING(1) ) {
 		cFunc = RING_API_GETSTRING(1) ;
-		ring_list_deletearray_gc(pRingState,pRingState->pRingCFunctions);
 		RING_API_REGISTER(cFunc,ring_vm_generallib_nothing);
-		/* Refresh the HashTable */
-		ring_list_genarray(pRingState->pRingCFunctions);
-		ring_list_genhashtable2(pRingState->pRingCFunctions);
 	}
 	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);

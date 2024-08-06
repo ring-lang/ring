@@ -85,7 +85,6 @@
 		List *pNestedLists  ;
 		List *pPCBlockFlag  ;
 		List *pFuncCallList  ;
-		List *pCFunctionsList  ;
 		List *pExitMark  ;
 		List *pLoopMark  ;
 		List *pTry  ;

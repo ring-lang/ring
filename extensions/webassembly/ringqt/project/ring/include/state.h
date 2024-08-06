@@ -21,8 +21,6 @@
 		List *pRingPackagesMap  ;
 		/* Custom global scope list */
 		List *pCustomGlobalScopeStack  ;
-		/* First use by ring_vm_new */
-		List *pRingCFunctions  ;
 		/* Command line parameters count */
 		int nArgc  ;
 		/* Scanner Error Code */

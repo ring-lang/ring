@@ -187,7 +187,6 @@ void ring_vm_refmeta_isfunction ( void *pPointer )
 void ring_vm_refmeta_iscfunction ( void *pPointer )
 {
 	VM *pVM  ;
-	List *pList  ;
 	char *cStr  ;
 	CFunction *pCFunc  ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -197,7 +196,6 @@ void ring_vm_refmeta_iscfunction ( void *pPointer )
 	if ( RING_API_ISSTRING(1) ) {
 		pVM = (VM *) pPointer ;
 		cStr = ring_string_lower(RING_API_GETSTRING(1)) ;
-		pList = pVM->pCFunctionsList ;
 		/* Linear Search */
 		pCFunc = pVM->pCFunction ;
 		while ( pCFunc != NULL ) {

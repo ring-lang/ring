@@ -111,9 +111,15 @@ void ring_vm_info_ringvmcfunctionslist ( void *pPointer )
 {
 	VM *pVM  ;
 	List *pList  ;
+	CFunction *pCFunc  ;
 	pVM = (VM *) pPointer ;
 	pList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
-	ring_list_copy_gc(pVM->pRingState,pList,pVM->pCFunctionsList);
+	/* Add C Functions to the list */
+	pCFunc = pVM->pCFunction ;
+	while ( pCFunc != NULL ) {
+		ring_list_addstring_gc(pVM->pRingState,pList,pCFunc->cName);
+		pCFunc = pCFunc->pNext ;
+	}
 	RING_API_RETLIST(pList);
 	ring_list_delete_gc(pVM->pRingState,pList);
 }

@@ -12,7 +12,6 @@ RING_API RingState * ring_state_new ( void )
 	pRingState->pRingFunctionsMap = NULL ;
 	pRingState->pRingClassesMap = NULL ;
 	pRingState->pRingPackagesMap = NULL ;
-	pRingState->pRingCFunctions = NULL ;
 	pRingState->lISCGI = 0 ;
 	pRingState->lRun = 1 ;
 	pRingState->lPrintIC = 0 ;
@@ -66,10 +65,6 @@ RING_API RingState * ring_state_delete ( RingState *pRingState )
 		pRingState->pRingFunctionsMap = ring_list_delete_gc(pRingState,pRingState->pRingFunctionsMap);
 		pRingState->pRingClassesMap = ring_list_delete_gc(pRingState,pRingState->pRingClassesMap);
 		pRingState->pRingPackagesMap = ring_list_delete_gc(pRingState,pRingState->pRingPackagesMap);
-		if ( pRingState->pRingCFunctions != NULL ) {
-			/* We check because the execution may end by the compiler error */
-			pRingState->pRingCFunctions = ring_list_delete_gc(pRingState,pRingState->pRingCFunctions);
-		}
 	}
 	if ( pRingState->pVM != NULL ) {
 		ring_vm_delete(pRingState->pVM);

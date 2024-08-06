@@ -72,7 +72,7 @@ RING_API void ring_vm_custmutexdestroy ( VM *pVM, void *pMutex )
 RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 {
 	RingState *pState  ;
-	List *pList,*pList2,*pList3,*pList4,*pList5,*pGlobal, *pVarList, *pBlocks, *pGlobalScopes, *pScope  ;
+	List *pList,*pList2,*pList3,*pList4,*pGlobal, *pVarList, *pBlocks, *pGlobalScopes, *pScope  ;
 	RING_SHAREDSCOPETYPE pItem  ;
 	CFunction *pCFunc, *pCFunc2  ;
 	unsigned int x, y  ;
@@ -130,7 +130,6 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	pList2 = pState->pVM->pFunctionsMap ;
 	pList3 = pState->pVM->pClassesMap ;
 	pList4 = pState->pVM->pPackagesMap ;
-	pList5 = pState->pVM->pCFunctionsList ;
 	/*
 	**  Share the code between the VMs 
 	**  Copy Functions/Classes/Packages lists 
@@ -138,19 +137,14 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	pState->pVM->pFunctionsMap = ring_list_new(RING_ZERO) ;
 	pState->pVM->pClassesMap = ring_list_new(RING_ZERO) ;
 	pState->pVM->pPackagesMap = ring_list_new(RING_ZERO) ;
-	pState->pVM->pCFunctionsList = ring_list_new(RING_ZERO) ;
 	ring_list_copy(pState->pVM->pFunctionsMap,pVM->pRingState->pRingFunctionsMap);
 	ring_list_copy(pState->pVM->pClassesMap,pVM->pRingState->pRingClassesMap);
 	ring_list_copy(pState->pVM->pPackagesMap,pVM->pRingState->pRingPackagesMap);
-	ring_list_copy(pState->pVM->pCFunctionsList,pVM->pRingState->pRingCFunctions);
-	ring_list_genarray(pState->pVM->pCFunctionsList);
-	ring_list_genhashtable2(pState->pVM->pCFunctionsList);
 	pState->pVM->pCFunction = pVM->pCFunction ;
 	pCFunc = pVM->pCFunction ;
 	pState->pRingFunctionsMap = pState->pVM->pFunctionsMap ;
 	pState->pRingClassesMap = pState->pVM->pClassesMap ;
 	pState->pRingPackagesMap = pState->pVM->pPackagesMap ;
-	pState->pRingCFunctions = pState->pVM->pCFunctionsList ;
 	/* Get a copy from the byte code List */
 	pState->pVM->nScopeID = pVM->nScopeID + RING_VM_SCOPERANGEFORNEWTHREAD ;
 	pState->pVM->pCode = ring_list_new(RING_ZERO) ;
@@ -170,7 +164,6 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	ring_list_delete_gc(pState,pState->pVM->pFunctionsMap);
 	ring_list_delete_gc(pState,pState->pVM->pClassesMap);
 	ring_list_delete_gc(pState,pState->pVM->pPackagesMap);
-	ring_list_delete_gc(pState,pState->pVM->pCFunctionsList);
 	/* Restore the first scope - global scope */
 	RING_VM_RESTOREGLOBALSCOPE(pState->pVM,pItem);
 	/* Restore other global scopes */
@@ -180,12 +173,10 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	pState->pVM->pFunctionsMap = pList2 ;
 	pState->pVM->pClassesMap = pList3 ;
 	pState->pVM->pPackagesMap = pList4 ;
-	pState->pVM->pCFunctionsList = pList5 ;
 	pState->pRingGenCode = pList ;
 	pState->pRingFunctionsMap = pList2 ;
 	pState->pRingClassesMap = pList3 ;
 	pState->pRingPackagesMap = pList4 ;
-	pState->pRingCFunctions = pList5 ;
 	pState->pVM->pFuncMutexCreate = NULL ;
 	pState->pVM->pFuncMutexDestroy = NULL ;
 	pState->pVM->pFuncMutexLock = NULL ;

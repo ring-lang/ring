@@ -54,10 +54,6 @@ VM * ring_vm_new ( RingState *pRingState )
 	/* Calling Functions */
 	pVM->pFuncCallList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	pVM->nFuncSP = 0 ;
-	if ( pRingState->pRingCFunctions == NULL ) {
-		pRingState->pRingCFunctions = ring_list_new_gc(pVM->pRingState,RING_ZERO);
-	}
-	pVM->pCFunctionsList = pRingState->pRingCFunctions ;
 	pVM->lCallMainFunction = 0 ;
 	pVM->pCFunction = NULL ;
 	/* Support for Exit/Loop Commands inside For/While loops. */
@@ -307,9 +303,6 @@ void ring_vm_towardsmainloop ( RingState *pRingState )
 	VM *pVM  ;
 	pVM = pRingState->pVM ;
 	ring_vm_loadcfunctions(pRingState);
-	/* Generate Items Array &  Hash Table */
-	ring_list_genarray(pRingState->pRingCFunctions);
-	ring_list_genhashtable2(pRingState->pRingCFunctions);
 	if ( RING_VM_INSTRUCTIONSCOUNT > 0 ) {
 		pVM->nPC = 1 ;
 		ring_vm_mainloop(pVM);
