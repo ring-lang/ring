@@ -66,10 +66,21 @@ Samples
 			3
 		</td>
 		<td>
-			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/microcontroller/ringpico/projects/ledandswitch/main.ring"> LED and Switch </a>
+			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/microcontroller/ringpico/projects/ledandswitch/main.ring"> LED and Switch (Main File) </a>
 		</td>
 		<td>
 			 LED and Switch
+		</td>
+	</tr>
+	<tr>
+		<td>
+			4
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/microcontroller/ringpico/projects/ledandswitch/mylib.ring"> LED and Switch (Library) </a>
+		</td>
+		<td>
+			 LED and Switch (Classes)
 		</td>
 	</tr>
 </table>
