@@ -17,7 +17,9 @@ Install
 Programming
 ===========
 
-* You can write/update the Ring code in main.ring file
+* Samples exist in the (programs) folder
+* Create a sub folder for your project in the (programs) folder
+* You can update the Ring code in (main.ring) file to load your project
 
 Building
 ========
