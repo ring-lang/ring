@@ -61,13 +61,7 @@ Samples
 		</td>
 		<td>
 			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/microcontroller/ringpico/projects/ledandswitch/main.ring"> LED and Switch (Main File) </a>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			4
-		</td>
-		<td>
+			 <br />
 			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/microcontroller/ringpico/projects/ledandswitch/mylib.ring"> LED and Switch (Library) </a>
 		</td>
 	</tr>
