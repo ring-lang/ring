@@ -11,6 +11,7 @@
 
 int main( void )
 {
+	stdio_init_all();
 	RingState *pRingState;  
 	pRingState = ring_state_new();  
 	pRingState->pRingFilesList  = ring_list_new_gc(pRingState,RING_ZERO);  
