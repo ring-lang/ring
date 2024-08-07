@@ -65,6 +65,16 @@ Samples
 			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/microcontroller/ringpico/projects/ledandswitch/mylib.ring"> LED and Switch (Library) </a>
 		</td>
 	</tr>
+	<tr>
+		<td>
+			4
+		</td>
+		<td>
+			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/microcontroller/ringpico/projects/declarative/main.ring"> Declarative Programming (Main File) </a>
+			 <br />
+			 <a href="https://github.com/ring-lang/ring/tree/master/extensions/microcontroller/ringpico/projects/declarative/circuit.ring"> Implementation (Library) </a>
+		</td>
+	</tr>
 </table>
 
 Contributors
