@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/ringpico.uf2'
+elf = 'build/ringpico.elf'

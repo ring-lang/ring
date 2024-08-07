@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "author": "Fayed",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": 73.9,
+      "left": 132.55,
+      "rotate": 90,
+      "attrs": { "env": "ring-community" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 86,
+      "left": 172.8,
+      "attrs": { "value": "1000" }
+    },
+    { "type": "wokwi-led", "id": "led1", "top": 54, "left": 138.2, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 86,
+      "left": 100.8,
+      "attrs": { "value": "1000" }
+    },
+    { "type": "wokwi-led", "id": "led2", "top": 54, "left": 80.2, "attrs": { "color": "blue" } }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ], 
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "pico:GP14", "r1:2", "green", [ "v0" ] ],
+    [ "pico:GP15", "r2:2", "green", [ "v0" ] ],
+    [ "r1:1", "led1:A", "green", [ "v0" ] ],
+    [ "r2:1", "led2:A", "green", [ "v0" ] ],
+    [ "pico:GND.3", "led1:C", "black", [ "v-19.2", "h9.6" ] ],
+    [ "pico:GND.4", "led2:C", "black", [ "v-19.2", "h9.6" ] ]
+  ]
+}
