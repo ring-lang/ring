@@ -33,7 +33,7 @@
 	typedef union Register {
 		int iNumber  ;
 		void *pPointer  ;
-		String *pString  ;
+		char *pString  ;
 		RING_BYTECODEDOUBLE dNumber  ;
 	} Register ;
 	typedef struct ByteCode {
@@ -188,7 +188,7 @@
 	#define RING_VM_SP_INC pVM->nSP++ ;
 	#define RING_VM_SP_VALUE pVM->nSP
 	/* Add */
-	#define RING_VM_STACK_PUSHC RING_VM_SP_INC ; ring_itemarray_setstring2_gc(pVM->pRingState,pVM->aStack, pVM->nSP, ring_string_get(pVM->pByteCodeIR->aReg[0].pString), ring_string_size(pVM->pByteCodeIR->aReg[0].pString)  )
+	#define RING_VM_STACK_PUSHC RING_VM_SP_INC ; ring_itemarray_setstring_gc(pVM->pRingState,pVM->aStack, pVM->nSP, pVM->pByteCodeIR->aReg[0].pString)
 	#define RING_VM_STACK_PUSHNL RING_VM_SP_INC ; ring_itemarray_setstring_gc(pVM->pRingState,pVM->aStack, pVM->nSP, "\n")
 	#define RING_VM_STACK_PUSHN RING_VM_SP_INC ; ring_itemarray_setdouble_gc(pVM->pRingState,pVM->aStack, pVM->nSP , pVM->pByteCodeIR->aReg[0].dNumber)
 	#define RING_VM_STACK_PUSHP RING_VM_SP_INC ; ring_itemarray_setpointer_gc(pVM->pRingState,pVM->aStack, pVM->nSP , pVM->pByteCodeIR->aReg[0].pPointer )
@@ -264,8 +264,8 @@
 	#define RING_VM_DELETELASTINSTRUCTION ring_vm_deletebytecode(pVM,RING_VM_INSTRUCTIONSCOUNT); pVM->pRingState->nInstructionsCount--
 	/* IR (Instruction Register) */
 	#define RING_VM_JUMP pVM->nPC = pVM->pByteCodeIR->aReg[0].iNumber
-	#define RING_VM_IR_READC ring_string_get(pVM->pByteCodeIR->aReg[0].pString)
-	#define RING_VM_IR_READCVALUE(nReg) ring_string_get(pVM->pByteCodeIR->aReg[nReg].pString)
+	#define RING_VM_IR_READC pVM->pByteCodeIR->aReg[0].pString
+	#define RING_VM_IR_READCVALUE(nReg) pVM->pByteCodeIR->aReg[nReg].pString
 	#define RING_VM_IR_READP pVM->pByteCodeIR->aReg[0].pPointer
 	#define RING_VM_IR_READPVALUE(nReg) pVM->pByteCodeIR->aReg[nReg].pPointer
 	#define RING_VM_IR_READI pVM->pByteCodeIR->aReg[0].iNumber

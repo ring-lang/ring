@@ -204,7 +204,7 @@ RING_API void ring_vm_bytecodefornewthread ( VM *pVM,VM *pOldVM )
 {
 	int x,y,nSize,nType  ;
 	ByteCode *pByteCode  ;
-	String *pString  ;
+	char *pString  ;
 	/* Get the Instructions Count */
 	pVM->pRingState->nInstructionsCount = pOldVM->pRingState->nInstructionsCount ;
 	/* Allocate memory for the Byte Code */
@@ -226,7 +226,7 @@ RING_API void ring_vm_bytecodefornewthread ( VM *pVM,VM *pOldVM )
 			}
 			/* Create new string */
 			if ( nType == RING_VM_REGTYPE_STRING ) {
-				pString = ring_string_new2(ring_string_get(pByteCode->aReg[y].pString),ring_string_size(pByteCode->aReg[y].pString));
+				pString = ring_string_strdup(NULL,pByteCode->aReg[y].pString);
 				pByteCode->aReg[y].pString = pString ;
 			}
 		}

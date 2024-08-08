@@ -531,7 +531,7 @@ void ring_vm_tobytecode ( VM *pVM,int nIns )
 				break ;
 			case ITEMTYPE_STRING :
 				pString = ring_item_getstring(pItem) ;
-				pByteCode->aReg[x-2].pString = ring_string_new2_gc(NULL,ring_string_get(pString),ring_string_size(pString)) ;
+				pByteCode->aReg[x-2].pString = ring_string_strdup(NULL,ring_string_get(pString)) ;
 				nType = RING_VM_REGTYPE_STRING ;
 				break ;
 			case ITEMTYPE_POINTER :
@@ -565,13 +565,13 @@ void ring_vm_clearregisterstring ( VM *pVM,int nReg )
 	switch ( nReg ) {
 		case RING_VM_IR_REG1 :
 			if ( pVM->pByteCodeIR->nReg1Type == RING_VM_REGTYPE_STRING ) {
-				ring_string_delete_gc(pVM->pRingState,pVM->pByteCodeIR->aReg[RING_VM_IR_REG1].pString);
+				ring_state_free(pVM->pRingState,pVM->pByteCodeIR->aReg[RING_VM_IR_REG1].pString);
 				pVM->pByteCodeIR->nReg1Type = RING_VM_REGTYPE_NOTHING ;
 			}
 			break ;
 		case RING_VM_IR_REG2 :
 			if ( pVM->pByteCodeIR->nReg2Type == RING_VM_REGTYPE_STRING ) {
-				ring_string_delete_gc(pVM->pRingState,pVM->pByteCodeIR->aReg[RING_VM_IR_REG2].pString);
+				ring_state_free(pVM->pRingState,pVM->pByteCodeIR->aReg[RING_VM_IR_REG2].pString);
 				pVM->pByteCodeIR->nReg2Type = RING_VM_REGTYPE_NOTHING ;
 			}
 			break ;
@@ -613,7 +613,7 @@ RING_API void ring_vm_showbytecode ( VM *pVM )
 				/* Display the Register Value */
 				switch ( nType ) {
 					case RING_VM_REGTYPE_STRING :
-						printf( " %18s ",ring_string_get(pByteCode->aReg[y].pString) ) ;
+						printf( " %18s ",pByteCode->aReg[y].pString ) ;
 						break ;
 					case RING_VM_REGTYPE_INT :
 						printf( " %18d ",pByteCode->aReg[y].iNumber ) ;
@@ -659,7 +659,7 @@ void ring_vm_bytecode2list ( VM *pVM, List *pOutput )
 				/* Add the Register Value */
 				switch ( nType ) {
 					case RING_VM_REGTYPE_STRING :
-						ring_list_addstring_gc(pVM->pRingState,pIns,ring_string_get(pByteCode->aReg[y].pString));
+						ring_list_addstring_gc(pVM->pRingState,pIns,pByteCode->aReg[y].pString);
 						break ;
 					case RING_VM_REGTYPE_INT :
 						ring_list_adddouble_gc(pVM->pRingState,pIns,pByteCode->aReg[y].iNumber);

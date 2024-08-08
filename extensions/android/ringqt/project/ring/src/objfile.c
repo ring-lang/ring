@@ -643,7 +643,7 @@ void ring_objfile_writebytecode ( List *pList,FILE *fCode )
 			}
 			if ( ring_list_isstring(pIns,x2) ) {
 				fprintf( fCode , "RING_VM_REGTYPE_STRING ; \n"  ) ;
-				fprintf( fCode , "\tpVM->pByteCode[%d].aReg[%d].pString = ring_string_new2(\"" , x-1,nReg ) ;
+				fprintf( fCode , "\tpVM->pByteCode[%d].aReg[%d].pString = ring_string_strdup(NULL,\"" , x-1,nReg ) ;
 				/* Add the string */
 				cString = ring_list_getstring(pIns,x2) ;
 				nMax = ring_list_getstringsize(pIns,x2) ;
