@@ -6,4 +6,4 @@
 
 load "picolib/picolib.ring"
 
-load "projects/leds/main.ring"
+load "projects/blink/main.ring"

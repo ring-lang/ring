@@ -10,7 +10,7 @@ ring_vm_runcodefromthread
 Type: RingState *
 pState
 Type: List *
-pList,*pList2,*pList3,*pList4,*pList5,*pGlobal, *pVarList, *pBlocks, *pGlobalScopes, *pScope
+pList,*pList2,*pList3,*pList4,*pGlobal, *pVarList, *pBlocks, *pGlobalScopes, *pScope
 Type: RING_SHAREDSCOPETYPE
 pItem
 Type: CFunction *
