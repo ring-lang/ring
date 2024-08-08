@@ -443,7 +443,7 @@ void ring_vm_newfunc ( VM *pVM )
 	if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG2) > 0 ) {
 		/* Read Parameters (Separated by Space) */
 		cParameters = RING_VM_IR_READCVALUE(RING_VM_IR_REG1) ;
-		nMax = RING_VM_IR_READCVALUESIZE(RING_VM_IR_REG1) ;
+		nMax = strlen(cParameters) ;
 		lFreeParameter = nMax > RING_FUNCPARA_EXPECTEDSIZE - 1 ;
 		if ( lFreeParameter ) {
 			pParameter = (char *) ring_state_malloc(pVM->pRingState,nMax+1);

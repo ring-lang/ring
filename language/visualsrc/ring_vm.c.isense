@@ -139,8 +139,6 @@ pPCBlockFlag
 Type: List *
 pFuncCallList
 Type: List *
-pCFunctionsList
-Type: List *
 pExitMark
 Type: List *
 pLoopMark
