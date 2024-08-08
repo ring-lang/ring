@@ -650,7 +650,7 @@ void ring_objfile_writebytecode ( List *pList,FILE *fCode )
 				for ( x3 = 0 ; x3 < nMax ; x3++ ) {
 					fprintf( fCode , "\\x%02x" , (unsigned char) cString[x3] ) ;
 				}
-				fprintf( fCode , "\",%d) ; \n" , nMax ) ;
+				fprintf( fCode , "\") ; \n"  ) ;
 			}
 			else if ( ring_list_isint(pIns,x2) ) {
 				fprintf( fCode , "RING_VM_REGTYPE_INT ; \n"  ) ;
