@@ -866,7 +866,7 @@ void ring_vm_funccall_delete ( void *pState,void *pMemory )
 
 void ring_vm_funccall_useloadfuncp ( VM *pVM,FuncCall *pFuncCall,int nPerformance )
 {
-	if ( nPerformance == 1 ) {
+	if ( (nPerformance == 1) || (pFuncCall->nType == RING_FUNCTYPE_C) ) {
 		/* Replace Instruction with ICO_LOADFUNCP for better performance */
 		RING_VM_IR_OPCODE = ICO_LOADFUNCP ;
 		/* Leave the first parameter (contains the function name as wanted) */
