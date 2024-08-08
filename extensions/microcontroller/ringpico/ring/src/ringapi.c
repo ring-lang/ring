@@ -6,7 +6,11 @@ RING_API void ring_vm_funcregister2 ( RingState *pRingState,const char *cStr, vo
 {
 	List *pList  ;
 	CFunction *pCFunc  ;
-	pCFunc = (CFunction *) ring_state_malloc(NULL,sizeof(CFunction));
+	#if RING_LOWMEM
+		pCFunc = (CFunction *) ring_state_malloc(NULL,sizeof(CFunction));
+	#else
+		pCFunc = (CFunction *) ring_state_malloc(pRingState,sizeof(CFunction));
+	#endif
 	pCFunc->cName = cStr ;
 	pCFunc->pFunc = pFunc ;
 	pCFunc->pNext = pRingState->pVM->pCFunction ;

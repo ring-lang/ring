@@ -20,7 +20,7 @@ Type: int
 iNumber
 Type: void *
 pPointer
-Type: const char *
+Type: char *
 pString
 Type: RING_BYTECODEDOUBLE
 dNumber

@@ -277,7 +277,7 @@ VM * ring_vm_delete ( VM *pVM )
 	while ( pVM->pCFunction != NULL ) {
 		pCFunc = pVM->pCFunction ;
 		pVM->pCFunction = pVM->pCFunction->pNext ;
-		ring_state_free(NULL,pCFunc);
+		ring_state_free(pVM->pRingState,pCFunc);
 	}
 	pVM->pRingState->pVM = NULL ;
 	ring_state_free(pVM->pRingState,pVM);
@@ -531,7 +531,7 @@ void ring_vm_tobytecode ( VM *pVM,int nIns )
 				break ;
 			case ITEMTYPE_STRING :
 				pString = ring_item_getstring(pItem) ;
-				pByteCode->aReg[x-2].pString = ring_string_strdup(NULL,ring_string_get(pString)) ;
+				pByteCode->aReg[x-2].pString = ring_string_strdup(pVM->pRingState,ring_string_get(pString)) ;
 				nType = RING_VM_REGTYPE_STRING ;
 				break ;
 			case ITEMTYPE_POINTER :
