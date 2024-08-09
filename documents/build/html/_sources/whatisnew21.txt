@@ -45,6 +45,7 @@ More Improvements
 * AddMethod() - Produce runtime error if the method is already defined
 * RingInternetLib - Set CURLOPT_USERAGENT in Download() function
 * RingQt - Qt version is updated from Qt 5.15.16 to 5.15.17
+* RingQt - QDateTimeEdit - Added Class Events
 * Ring API - Implementation through functions that get a pointer to the VM structure  
 * Ring Compiler - Add new lines between error messages
 * Ring Compiler - Check argument duplication during function definition
