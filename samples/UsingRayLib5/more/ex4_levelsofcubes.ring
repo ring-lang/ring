@@ -74,7 +74,7 @@ if GPU_FAST
 		for i = 1 to 5
 			DrawModel(model, cubePosition, 1.0, WHITE)
 			cubePosition.y += 1
-			cubePosition.z - = 8
+			cubePosition.z -= 8
 		next
 else
 		cubePosition.y = 5.5
