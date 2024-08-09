@@ -3230,6 +3230,12 @@ Parent Class : QAbstractSpinBox
 * void setDate(QDate)
 * void setDateTime(QDateTime)
 * void setTime(QTime)
+* void setdateChangedEvent(const char *)
+* void setdateTimeChangedEvent(const char *)
+* void settimeChangedEvent(const char *)
+* const char *getdateChangedEvent(void)
+* const char *getdateTimeChangedEvent(void)
+* const char *gettimeChangedEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QDepthTest Class
