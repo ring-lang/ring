@@ -54,6 +54,7 @@ extern "C" {
 #include "gcolordialog.h"
 #include "gfontdialog.h"
 #include "gfiledialog.h"
+#include "gdatetimeedit.h"
 #include "mscompleter.h"
 #include <QtWidgets>
 
