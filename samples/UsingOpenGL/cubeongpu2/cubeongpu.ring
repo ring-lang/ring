@@ -403,14 +403,14 @@ class Cube
 			color2 =  float2bytes(color_list[2])
 			color3 =  float2bytes(color_list[3])
 			for i = 1 to col_len step 9
-				colrs + = color1
-				colrs + = color2
-				colrs + = color3
+				colrs += color1
+				colrs += color2
+				colrs += color3
 			next
 		else
 			color =  float2bytes(1.0)
 			for i = 1 to col_len step 3
-				colrs + = color
+				colrs += color
 			next
 		ok
 
