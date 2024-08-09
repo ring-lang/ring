@@ -111,6 +111,7 @@ SOURCES +=   \
     cpp/src/gfontdialog.cpp \
     cpp/src/gfiledialog.cpp \
     cpp/src/mscompleter.cpp \
+    cpp/src/gdatetimeedit.cpp \
     cpp/src/ring_qt.cpp
 
 HEADERS  += \
@@ -212,7 +213,8 @@ HEADERS  += \
     cpp/include/gcolordialog.h \
     cpp/include/gfontdialog.h \
     cpp/include/gfiledialog.h \
-    cpp/include/mscompleter.h
+    cpp/include/mscompleter.h \
+    cpp/include/gdatetimeedit.h
 
 INCLUDEPATH += ../../language/include
 INCLUDEPATH += cpp/include
