@@ -38,6 +38,7 @@ load "widgets/qtabbar.ring"
 load "widgets/qfiledialog.ring"
 load "widgets/qcolordialog.ring"
 load "widgets/qfontdialog.ring"
+load "widgets/qdatetimeedit.ring"
 #-------------------------------------------------------------------------#
 load "printsupport/qprintpreviewwidget.ring"
 load "printsupport/qprintpreviewdialog.ring"
