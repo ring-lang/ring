@@ -17200,6 +17200,24 @@ Class QDateTimeEdit from QAbstractSpinBox
 	Func setTime P1
 		return QDateTimeEdit_setTime(pObject,GetObjectPointerFromRingObject(P1))
 
+	Func setdateChangedEvent P1
+		return QDateTimeEdit_setdateChangedEvent(pObject,P1)
+
+	Func setdateTimeChangedEvent P1
+		return QDateTimeEdit_setdateTimeChangedEvent(pObject,P1)
+
+	Func settimeChangedEvent P1
+		return QDateTimeEdit_settimeChangedEvent(pObject,P1)
+
+	Func getdateChangedEvent 
+		return QDateTimeEdit_getdateChangedEvent(pObject)
+
+	Func getdateTimeChangedEvent 
+		return QDateTimeEdit_getdateTimeChangedEvent(pObject)
+
+	Func gettimeChangedEvent 
+		return QDateTimeEdit_gettimeChangedEvent(pObject)
+
 Class QAbstractSpinBox from QWidget
 
 	pObject
