@@ -49,6 +49,7 @@ extern "C" {
 #include "gcolordialog.h"
 #include "gfontdialog.h"
 #include "gfiledialog.h"
+#include "gdatetimeedit.h"
 #include "mscompleter.h"
 #include <QtWidgets>
 
@@ -98484,7 +98485,7 @@ RING_FUNC(ring_QSlider_getvalueChangedEvent)
 
 RING_FUNC(ring_QDateTimeEdit_calendarPopup)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -98494,14 +98495,14 @@ RING_FUNC(ring_QDateTimeEdit_calendarPopup)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	RING_API_RETNUMBER(pObject->calendarPopup());
 }
 
 
 RING_FUNC(ring_QDateTimeEdit_calendarWidget)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -98511,14 +98512,14 @@ RING_FUNC(ring_QDateTimeEdit_calendarWidget)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	RING_API_RETCPOINTER(pObject->calendarWidget(),"QCalendarWidget");
 }
 
 
 RING_FUNC(ring_QDateTimeEdit_clearMaximumDate)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -98528,14 +98529,14 @@ RING_FUNC(ring_QDateTimeEdit_clearMaximumDate)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->clearMaximumDate();
 }
 
 
 RING_FUNC(ring_QDateTimeEdit_clearMaximumDateTime)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -98545,14 +98546,14 @@ RING_FUNC(ring_QDateTimeEdit_clearMaximumDateTime)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->clearMaximumDateTime();
 }
 
 
 RING_FUNC(ring_QDateTimeEdit_clearMaximumTime)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -98562,14 +98563,14 @@ RING_FUNC(ring_QDateTimeEdit_clearMaximumTime)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->clearMaximumTime();
 }
 
 
 RING_FUNC(ring_QDateTimeEdit_clearMinimumDate)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -98579,14 +98580,14 @@ RING_FUNC(ring_QDateTimeEdit_clearMinimumDate)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->clearMinimumDate();
 }
 
 
 RING_FUNC(ring_QDateTimeEdit_clearMinimumDateTime)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -98596,14 +98597,14 @@ RING_FUNC(ring_QDateTimeEdit_clearMinimumDateTime)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->clearMinimumDateTime();
 }
 
 
 RING_FUNC(ring_QDateTimeEdit_clearMinimumTime)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -98613,14 +98614,14 @@ RING_FUNC(ring_QDateTimeEdit_clearMinimumTime)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->clearMinimumTime();
 }
 
 
 RING_FUNC(ring_QDateTimeEdit_currentSection)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -98630,14 +98631,14 @@ RING_FUNC(ring_QDateTimeEdit_currentSection)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	RING_API_RETNUMBER(pObject->currentSection());
 }
 
 
 RING_FUNC(ring_QDateTimeEdit_currentSectionIndex)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -98647,14 +98648,14 @@ RING_FUNC(ring_QDateTimeEdit_currentSectionIndex)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	RING_API_RETNUMBER(pObject->currentSectionIndex());
 }
 
 
 RING_FUNC(ring_QDateTimeEdit_date)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -98664,7 +98665,7 @@ RING_FUNC(ring_QDateTimeEdit_date)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	{
 		QDate *pValue ; 
 		pValue = new QDate() ;
@@ -98676,7 +98677,7 @@ RING_FUNC(ring_QDateTimeEdit_date)
 
 RING_FUNC(ring_QDateTimeEdit_dateTime)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -98686,7 +98687,7 @@ RING_FUNC(ring_QDateTimeEdit_dateTime)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	{
 		QDateTime *pValue ; 
 		pValue = new QDateTime() ;
@@ -98698,7 +98699,7 @@ RING_FUNC(ring_QDateTimeEdit_dateTime)
 
 RING_FUNC(ring_QDateTimeEdit_displayFormat)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -98708,14 +98709,14 @@ RING_FUNC(ring_QDateTimeEdit_displayFormat)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	RING_API_RETSTRING(pObject->displayFormat().toStdString().c_str());
 }
 
 
 RING_FUNC(ring_QDateTimeEdit_displayedSections)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -98725,14 +98726,14 @@ RING_FUNC(ring_QDateTimeEdit_displayedSections)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	RING_API_RETNUMBER(pObject->displayedSections());
 }
 
 
 RING_FUNC(ring_QDateTimeEdit_maximumDate)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -98742,7 +98743,7 @@ RING_FUNC(ring_QDateTimeEdit_maximumDate)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	{
 		QDate *pValue ; 
 		pValue = new QDate() ;
@@ -98754,7 +98755,7 @@ RING_FUNC(ring_QDateTimeEdit_maximumDate)
 
 RING_FUNC(ring_QDateTimeEdit_maximumDateTime)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -98764,7 +98765,7 @@ RING_FUNC(ring_QDateTimeEdit_maximumDateTime)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	{
 		QDateTime *pValue ; 
 		pValue = new QDateTime() ;
@@ -98776,7 +98777,7 @@ RING_FUNC(ring_QDateTimeEdit_maximumDateTime)
 
 RING_FUNC(ring_QDateTimeEdit_maximumTime)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -98786,7 +98787,7 @@ RING_FUNC(ring_QDateTimeEdit_maximumTime)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	{
 		QTime *pValue ; 
 		pValue = new QTime() ;
@@ -98798,7 +98799,7 @@ RING_FUNC(ring_QDateTimeEdit_maximumTime)
 
 RING_FUNC(ring_QDateTimeEdit_minimumDate)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -98808,7 +98809,7 @@ RING_FUNC(ring_QDateTimeEdit_minimumDate)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	{
 		QDate *pValue ; 
 		pValue = new QDate() ;
@@ -98820,7 +98821,7 @@ RING_FUNC(ring_QDateTimeEdit_minimumDate)
 
 RING_FUNC(ring_QDateTimeEdit_minimumDateTime)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -98830,7 +98831,7 @@ RING_FUNC(ring_QDateTimeEdit_minimumDateTime)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	{
 		QDateTime *pValue ; 
 		pValue = new QDateTime() ;
@@ -98842,7 +98843,7 @@ RING_FUNC(ring_QDateTimeEdit_minimumDateTime)
 
 RING_FUNC(ring_QDateTimeEdit_minimumTime)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -98852,7 +98853,7 @@ RING_FUNC(ring_QDateTimeEdit_minimumTime)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	{
 		QTime *pValue ; 
 		pValue = new QTime() ;
@@ -98864,7 +98865,7 @@ RING_FUNC(ring_QDateTimeEdit_minimumTime)
 
 RING_FUNC(ring_QDateTimeEdit_sectionAt)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -98874,7 +98875,7 @@ RING_FUNC(ring_QDateTimeEdit_sectionAt)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -98885,7 +98886,7 @@ RING_FUNC(ring_QDateTimeEdit_sectionAt)
 
 RING_FUNC(ring_QDateTimeEdit_sectionCount)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -98895,14 +98896,14 @@ RING_FUNC(ring_QDateTimeEdit_sectionCount)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	RING_API_RETNUMBER(pObject->sectionCount());
 }
 
 
 RING_FUNC(ring_QDateTimeEdit_sectionText)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -98912,7 +98913,7 @@ RING_FUNC(ring_QDateTimeEdit_sectionText)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -98923,7 +98924,7 @@ RING_FUNC(ring_QDateTimeEdit_sectionText)
 
 RING_FUNC(ring_QDateTimeEdit_setCalendarPopup)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -98933,7 +98934,7 @@ RING_FUNC(ring_QDateTimeEdit_setCalendarPopup)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -98944,7 +98945,7 @@ RING_FUNC(ring_QDateTimeEdit_setCalendarPopup)
 
 RING_FUNC(ring_QDateTimeEdit_setCalendarWidget)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -98954,7 +98955,7 @@ RING_FUNC(ring_QDateTimeEdit_setCalendarWidget)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	if ( ! RING_API_ISCPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -98965,7 +98966,7 @@ RING_FUNC(ring_QDateTimeEdit_setCalendarWidget)
 
 RING_FUNC(ring_QDateTimeEdit_setCurrentSection)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -98975,7 +98976,7 @@ RING_FUNC(ring_QDateTimeEdit_setCurrentSection)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -98986,7 +98987,7 @@ RING_FUNC(ring_QDateTimeEdit_setCurrentSection)
 
 RING_FUNC(ring_QDateTimeEdit_setCurrentSectionIndex)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -98996,7 +98997,7 @@ RING_FUNC(ring_QDateTimeEdit_setCurrentSectionIndex)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -99007,7 +99008,7 @@ RING_FUNC(ring_QDateTimeEdit_setCurrentSectionIndex)
 
 RING_FUNC(ring_QDateTimeEdit_setDateRange)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -99017,7 +99018,7 @@ RING_FUNC(ring_QDateTimeEdit_setDateRange)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->setDateRange(* (QDate *) RING_API_GETCPOINTER(2,"QDate"),* (QDate *) RING_API_GETCPOINTER(3,"QDate"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		RING_API_FREE(RING_API_GETCPOINTER(2,"QDate"));
@@ -99028,7 +99029,7 @@ RING_FUNC(ring_QDateTimeEdit_setDateRange)
 
 RING_FUNC(ring_QDateTimeEdit_setDateTimeRange)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -99038,7 +99039,7 @@ RING_FUNC(ring_QDateTimeEdit_setDateTimeRange)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->setDateTimeRange(* (QDateTime *) RING_API_GETCPOINTER(2,"QDateTime"),* (QDateTime *) RING_API_GETCPOINTER(3,"QDateTime"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		RING_API_FREE(RING_API_GETCPOINTER(2,"QDateTime"));
@@ -99049,7 +99050,7 @@ RING_FUNC(ring_QDateTimeEdit_setDateTimeRange)
 
 RING_FUNC(ring_QDateTimeEdit_setDisplayFormat)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -99059,7 +99060,7 @@ RING_FUNC(ring_QDateTimeEdit_setDisplayFormat)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -99070,7 +99071,7 @@ RING_FUNC(ring_QDateTimeEdit_setDisplayFormat)
 
 RING_FUNC(ring_QDateTimeEdit_setMaximumDate)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -99080,7 +99081,7 @@ RING_FUNC(ring_QDateTimeEdit_setMaximumDate)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->setMaximumDate(* (QDate *) RING_API_GETCPOINTER(2,"QDate"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		RING_API_FREE(RING_API_GETCPOINTER(2,"QDate"));
@@ -99089,7 +99090,7 @@ RING_FUNC(ring_QDateTimeEdit_setMaximumDate)
 
 RING_FUNC(ring_QDateTimeEdit_setMaximumDateTime)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -99099,7 +99100,7 @@ RING_FUNC(ring_QDateTimeEdit_setMaximumDateTime)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->setMaximumDateTime(* (QDateTime *) RING_API_GETCPOINTER(2,"QDateTime"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		RING_API_FREE(RING_API_GETCPOINTER(2,"QDateTime"));
@@ -99108,7 +99109,7 @@ RING_FUNC(ring_QDateTimeEdit_setMaximumDateTime)
 
 RING_FUNC(ring_QDateTimeEdit_setMaximumTime)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -99118,7 +99119,7 @@ RING_FUNC(ring_QDateTimeEdit_setMaximumTime)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->setMaximumTime(* (QTime *) RING_API_GETCPOINTER(2,"QTime"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		RING_API_FREE(RING_API_GETCPOINTER(2,"QTime"));
@@ -99127,7 +99128,7 @@ RING_FUNC(ring_QDateTimeEdit_setMaximumTime)
 
 RING_FUNC(ring_QDateTimeEdit_setMinimumDate)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -99137,7 +99138,7 @@ RING_FUNC(ring_QDateTimeEdit_setMinimumDate)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->setMinimumDate(* (QDate *) RING_API_GETCPOINTER(2,"QDate"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		RING_API_FREE(RING_API_GETCPOINTER(2,"QDate"));
@@ -99146,7 +99147,7 @@ RING_FUNC(ring_QDateTimeEdit_setMinimumDate)
 
 RING_FUNC(ring_QDateTimeEdit_setMinimumDateTime)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -99156,7 +99157,7 @@ RING_FUNC(ring_QDateTimeEdit_setMinimumDateTime)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->setMinimumDateTime(* (QDateTime *) RING_API_GETCPOINTER(2,"QDateTime"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		RING_API_FREE(RING_API_GETCPOINTER(2,"QDateTime"));
@@ -99165,7 +99166,7 @@ RING_FUNC(ring_QDateTimeEdit_setMinimumDateTime)
 
 RING_FUNC(ring_QDateTimeEdit_setMinimumTime)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -99175,7 +99176,7 @@ RING_FUNC(ring_QDateTimeEdit_setMinimumTime)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->setMinimumTime(* (QTime *) RING_API_GETCPOINTER(2,"QTime"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		RING_API_FREE(RING_API_GETCPOINTER(2,"QTime"));
@@ -99184,7 +99185,7 @@ RING_FUNC(ring_QDateTimeEdit_setMinimumTime)
 
 RING_FUNC(ring_QDateTimeEdit_setSelectedSection)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -99194,7 +99195,7 @@ RING_FUNC(ring_QDateTimeEdit_setSelectedSection)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -99205,7 +99206,7 @@ RING_FUNC(ring_QDateTimeEdit_setSelectedSection)
 
 RING_FUNC(ring_QDateTimeEdit_setTimeRange)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -99215,7 +99216,7 @@ RING_FUNC(ring_QDateTimeEdit_setTimeRange)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->setTimeRange(* (QTime *) RING_API_GETCPOINTER(2,"QTime"),* (QTime *) RING_API_GETCPOINTER(3,"QTime"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		RING_API_FREE(RING_API_GETCPOINTER(2,"QTime"));
@@ -99226,7 +99227,7 @@ RING_FUNC(ring_QDateTimeEdit_setTimeRange)
 
 RING_FUNC(ring_QDateTimeEdit_setTimeSpec)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -99236,7 +99237,7 @@ RING_FUNC(ring_QDateTimeEdit_setTimeSpec)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -99247,7 +99248,7 @@ RING_FUNC(ring_QDateTimeEdit_setTimeSpec)
 
 RING_FUNC(ring_QDateTimeEdit_time)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -99257,7 +99258,7 @@ RING_FUNC(ring_QDateTimeEdit_time)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	{
 		QTime *pValue ; 
 		pValue = new QTime() ;
@@ -99269,7 +99270,7 @@ RING_FUNC(ring_QDateTimeEdit_time)
 
 RING_FUNC(ring_QDateTimeEdit_timeSpec)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -99279,14 +99280,14 @@ RING_FUNC(ring_QDateTimeEdit_timeSpec)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	RING_API_RETNUMBER(pObject->timeSpec());
 }
 
 
 RING_FUNC(ring_QDateTimeEdit_setDate)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -99296,7 +99297,7 @@ RING_FUNC(ring_QDateTimeEdit_setDate)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->setDate(* (QDate *) RING_API_GETCPOINTER(2,"QDate"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		RING_API_FREE(RING_API_GETCPOINTER(2,"QDate"));
@@ -99305,7 +99306,7 @@ RING_FUNC(ring_QDateTimeEdit_setDate)
 
 RING_FUNC(ring_QDateTimeEdit_setDateTime)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -99315,7 +99316,7 @@ RING_FUNC(ring_QDateTimeEdit_setDateTime)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->setDateTime(* (QDateTime *) RING_API_GETCPOINTER(2,"QDateTime"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		RING_API_FREE(RING_API_GETCPOINTER(2,"QDateTime"));
@@ -99324,7 +99325,7 @@ RING_FUNC(ring_QDateTimeEdit_setDateTime)
 
 RING_FUNC(ring_QDateTimeEdit_setTime)
 {
-	QDateTimeEdit *pObject ;
+	GDateTimeEdit *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -99334,10 +99335,124 @@ RING_FUNC(ring_QDateTimeEdit_setTime)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
 	pObject->setTime(* (QTime *) RING_API_GETCPOINTER(2,"QTime"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		RING_API_FREE(RING_API_GETCPOINTER(2,"QTime"));
+}
+
+
+RING_FUNC(ring_QDateTimeEdit_setdateChangedEvent)
+{
+	GDateTimeEdit *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setdateChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QDateTimeEdit_setdateTimeChangedEvent)
+{
+	GDateTimeEdit *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setdateTimeChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QDateTimeEdit_settimeChangedEvent)
+{
+	GDateTimeEdit *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->settimeChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QDateTimeEdit_getdateChangedEvent)
+{
+	GDateTimeEdit *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	RING_API_RETSTRING(pObject->getdateChangedEvent());
+}
+
+
+RING_FUNC(ring_QDateTimeEdit_getdateTimeChangedEvent)
+{
+	GDateTimeEdit *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	RING_API_RETSTRING(pObject->getdateTimeChangedEvent());
+}
+
+
+RING_FUNC(ring_QDateTimeEdit_gettimeChangedEvent)
+{
+	GDateTimeEdit *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+	RING_API_RETSTRING(pObject->gettimeChangedEvent());
 }
 
 
@@ -139179,7 +139294,7 @@ RING_FUNC(ring_QDateTimeEdit_new)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	QDateTimeEdit *pObject = new QDateTimeEdit((QWidget *) RING_API_GETCPOINTER(1,"QWidget"));
+	GDateTimeEdit *pObject = new GDateTimeEdit((QWidget *) RING_API_GETCPOINTER(1,"QWidget"), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QDateTimeEdit");
 }
 
@@ -142531,7 +142646,7 @@ RING_FUNC(ring_QDateEdit_delete)
 
 RING_FUNC(ring_QDateTimeEdit_delete)
 {
-	QDateTimeEdit *pObject ; 
+	GDateTimeEdit *pObject ; 
 	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
@@ -142540,7 +142655,7 @@ RING_FUNC(ring_QDateTimeEdit_delete)
 	}
 	if ( RING_API_ISCPOINTER(1) )
 	{
-		pObject = (QDateTimeEdit *) RING_API_GETCPOINTER(1,"QDateTimeEdit");
+		pObject = (GDateTimeEdit *) RING_API_GETCPOINTER(1,"GDateTimeEdit");
 		delete pObject ;
 		RING_API_SETNULLPOINTER(1);
 	}
@@ -144526,8 +144641,8 @@ void ring_QDateEdit_freefunc(void *pState,void *pPointer)
 
 void ring_QDateTimeEdit_freefunc(void *pState,void *pPointer)
 {
-	QDateTimeEdit *pObject ; 
-	pObject = (QDateTimeEdit *) pPointer;
+	GDateTimeEdit *pObject ; 
+	pObject = (GDateTimeEdit *) pPointer;
 	delete pObject ;
 }
 
@@ -149528,6 +149643,12 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qdatetimeedit_setdate",ring_QDateTimeEdit_setDate);
 	RING_API_REGISTER("qdatetimeedit_setdatetime",ring_QDateTimeEdit_setDateTime);
 	RING_API_REGISTER("qdatetimeedit_settime",ring_QDateTimeEdit_setTime);
+	RING_API_REGISTER("qdatetimeedit_setdatechangedevent",ring_QDateTimeEdit_setdateChangedEvent);
+	RING_API_REGISTER("qdatetimeedit_setdatetimechangedevent",ring_QDateTimeEdit_setdateTimeChangedEvent);
+	RING_API_REGISTER("qdatetimeedit_settimechangedevent",ring_QDateTimeEdit_settimeChangedEvent);
+	RING_API_REGISTER("qdatetimeedit_getdatechangedevent",ring_QDateTimeEdit_getdateChangedEvent);
+	RING_API_REGISTER("qdatetimeedit_getdatetimechangedevent",ring_QDateTimeEdit_getdateTimeChangedEvent);
+	RING_API_REGISTER("qdatetimeedit_gettimechangedevent",ring_QDateTimeEdit_gettimeChangedEvent);
 	RING_API_REGISTER("qabstractspinbox_alignment",ring_QAbstractSpinBox_alignment);
 	RING_API_REGISTER("qabstractspinbox_buttonsymbols",ring_QAbstractSpinBox_buttonSymbols);
 	RING_API_REGISTER("qabstractspinbox_correctionmode",ring_QAbstractSpinBox_correctionMode);

@@ -120,6 +120,7 @@ SOURCES +=   \
     ringqt/src/gcolordialog.cpp \
     ringqt/src/gfontdialog.cpp \
     ringqt/src/gfiledialog.cpp \
+    ringqt/src/gdatetimeedit.cpp \
     ringqt/src/mscompleter.cpp \
     ringqt/src/ring_qt.cpp
 
@@ -222,6 +223,7 @@ HEADERS  += \
     ringqt/include/gfontdialog.h \
     ringqt/include/gfiledialog.h \
     ringqt/include/gmovie.h \
+    ringqt/include/gdatetimeedit.h \
     ringqt/include/mscompleter.h 
 
 CONFIG += warn_off
