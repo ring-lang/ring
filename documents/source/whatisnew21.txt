@@ -55,6 +55,7 @@ More Improvements
 * Ring Compiler - Don't use ICO_BEFOREEQUAL instruction for the common case (Equal)
 * Ring Compiler - Better performance when compiling projects with many classes
 * Ring Compiler - Better performance when compiling projects with many methods
+* Ring Compiler - Don't pass spaces inside multi-characters operators 
 * Ring Compiler/VM - Added ICO_PUSHNL instruction - Push new line to the stack
 * Ring Compiler/VM - Added ICO_LISTITEMN instruction - Add number to the current list
 * Ring Compiler/VM - Added ICO_LISTITEMC instruction - Add string to the current list
