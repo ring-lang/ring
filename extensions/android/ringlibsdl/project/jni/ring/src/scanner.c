@@ -15,6 +15,7 @@ Scanner * ring_scanner_new ( RingState *pRingState )
 	pScanner->nMLComment = RING_ZERO ;
 	pScanner->nTokenIndex = RING_ZERO ;
 	pScanner->lHashComments = RING_TRUE ;
+	pScanner->lMultiCharOperators = RING_FALSE ;
 	ring_scanner_keywords(pScanner);
 	ring_scanner_operators(pScanner);
 	return pScanner ;
@@ -56,7 +57,7 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 					ring_scanner_checktoken(pScanner);
 					ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,cStr);
 					/* Check Operator Then Operator */
-					if ( ring_scanner_lasttokentype(pScanner) ==SCANNER_TOKEN_OPERATOR ) {
+					if ( pScanner->lMultiCharOperators && (ring_scanner_lasttokentype(pScanner) == SCANNER_TOKEN_OPERATOR) ) {
 						/* Check Multiline Comment */
 						if ( strcmp(cStr,"*") == 0 ) {
 							pList = ring_list_getlist(pScanner->pTokens,ring_list_getsize(pScanner->pTokens));
@@ -185,17 +186,21 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 					}
 					pScanner->nTokenIndex = nTokenIndex ;
 					ring_scanner_addtoken(pScanner,SCANNER_TOKEN_OPERATOR);
+					pScanner->lMultiCharOperators = RING_TRUE ;
 				}
 				else {
 					ring_string_add_gc(pScanner->pRingState,pScanner->pActiveToken,cStr);
+					pScanner->lMultiCharOperators = RING_FALSE ;
 				}
 			}
 			else {
 				if ( ring_scanner_isoperator(pScanner,ring_string_get(pScanner->pActiveToken)) ) {
 					ring_scanner_addtoken(pScanner,SCANNER_TOKEN_OPERATOR);
+					pScanner->lMultiCharOperators = RING_TRUE ;
 				}
 				else {
 					ring_scanner_checktoken(pScanner);
+					pScanner->lMultiCharOperators = RING_FALSE ;
 				}
 			}
 			/* Switch State */

@@ -20,6 +20,8 @@
 		char nMLComment  ;
 		/* Support comments that starts with hash */
 		char lHashComments  ;
+		/* Multi-Character Operators */
+		char lMultiCharOperators  ;
 	} Scanner ;
 	typedef enum SCANNER_KEYWORD {
 		K_IF=1 ,

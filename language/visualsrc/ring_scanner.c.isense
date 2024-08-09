@@ -24,6 +24,8 @@ Type: char
 nMLComment
 Type: char
 lHashComments
+Type: char
+lMultiCharOperators
 END:
 Type: Scanner
 struct Scanner
