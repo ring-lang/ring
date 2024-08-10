@@ -973,8 +973,8 @@ RING_API void ring_state_unregisterblock ( void *pState,void *pStart )
 	int x  ;
 	List *pList  ;
 	RingState *pRingState  ;
-	pRingState = (RingState *) pState ;
 	void *pBlockStart  ;
+	pRingState = (RingState *) pState ;
 	ring_vm_custmutexlock(pRingState->pVM,pRingState->vPoolManager.pMutex);
 	for ( x = 1 ; x <= ring_list_getsize(pRingState->vPoolManager.pBlocks) ; x++ ) {
 		pList = ring_list_getlist(pRingState->vPoolManager.pBlocks,x);
