@@ -995,8 +995,8 @@ RING_API void ring_state_willunregisterblock ( void *pState,void *pStart )
 	Item *pItem, *pNewItem  ;
 	Item vTempItem  ;
 	RingState *pRingState  ;
-	pRingState = (RingState *) pState ;
 	void *pBlockStart, *pBlockEnd  ;
+	pRingState = (RingState *) pState ;
 	/* Check lists size */
 	if ( (ring_list_getsize(pRingState->pVM->pTrackedVariables) == 0) || (ring_list_getsize(pRingState->vPoolManager.pBlocks) == 0 ) ) {
 		return ;
