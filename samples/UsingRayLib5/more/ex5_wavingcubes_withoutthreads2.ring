@@ -35,7 +35,7 @@ for c = 0 to 359
 	Add(colors, ColorFromHSV_2(c,0.75,0.9))
 next
 
-SetTargetFPS(120)
+SetTargetFPS(10000)
 
 while !WindowShouldClose()
 
