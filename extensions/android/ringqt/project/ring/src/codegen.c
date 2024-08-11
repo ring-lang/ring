@@ -336,7 +336,7 @@ void ring_parser_icg_genppmm ( Parser *pParser,int nMode,int nValue )
 	if ( (nMode == RING_PARSER_ICG_USEASSIGNMENT) || (nMode == RING_PARSER_ICG_USESETPROPERTY) ) {
 		/* Code Generation */
 		ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
-		ring_parser_icg_newoperandint(pParser,RING_ZERO);
+		ring_parser_icg_newoperandint(pParser,RING_FALSE);
 		pMark = ring_parser_icg_getactiveoperation(pParser);
 		/* Duplicate the address two times, one for the assignment (x = x+1) and one to keep the value */
 		ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
