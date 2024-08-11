@@ -77,7 +77,7 @@ Type: List *
 pList
 Type: String *
 pString
-Type: int
+Type: unsigned int
 x,nStart,nMax
 cStr
 ring_vm_generallib_str2hexcstyle
@@ -103,7 +103,7 @@ Type: double
 nNum1
 Type: const char *
 cStr
-Type: int
+Type: unsigned int
 x,nNewSize
 Type: char *
 cString
@@ -112,7 +112,7 @@ Type: double
 nNum1
 Type: const char *
 cStr
-Type: int
+Type: unsigned int
 x,nSize,nNewSize
 Type: char *
 cString
@@ -296,7 +296,7 @@ pState
 ring_vm_generallib_state_runcodeatins
 Type: RingState *
 pRingState
-Type: int
+Type: unsigned int
 nPC
 ring_vm_generallib_state_resume
 Type: RingState *

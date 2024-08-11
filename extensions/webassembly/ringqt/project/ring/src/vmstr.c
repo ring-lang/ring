@@ -61,7 +61,7 @@ void ring_vm_string_index ( VM *pVM, String *pString, double nNum1 )
 		return ;
 	}
 	cNewStr = pString->cStr ;
-	cNewStr = cNewStr + ((int) (nNum1 - 1) ) ;
+	cNewStr = cNewStr + ((unsigned int) (nNum1 - 1) ) ;
 	RING_VM_STACK_PUSHPVALUE(cNewStr);
 	RING_VM_STACK_OBJTYPE = RING_OBJTYPE_SUBSTRING ;
 }

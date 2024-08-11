@@ -290,7 +290,7 @@ void ring_vm_loadindexaddress ( VM *pVM )
 				ring_vm_error(pVM,RING_VM_ERROR_INDEXOUTOFRANGE);
 				return ;
 			}
-			cStr2[0] = RING_VM_STACK_READC[((int) nNum1)-1] ;
+			cStr2[0] = RING_VM_STACK_READC[((unsigned int) nNum1)-1] ;
 			cStr2[1] = '\0' ;
 			RING_VM_STACK_SETCVALUE2(cStr2,RING_ONE);
 			return ;

@@ -557,7 +557,7 @@ void ring_vm_generallib_list2str ( void *pPointer )
 {
 	List *pList  ;
 	String *pString  ;
-	int x,nStart,nMax  ;
+	unsigned int x,nStart,nMax  ;
 	char cStr[RING_MEDIUMBUF]  ;
 	if ( RING_API_PARACOUNT < 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -573,7 +573,7 @@ void ring_vm_generallib_list2str ( void *pPointer )
 	nStart = 1 ;
 	if ( RING_API_PARACOUNT >= 2 ) {
 		if ( RING_API_ISNUMBER(2) ) {
-			nStart = (int) RING_API_GETNUMBER(2) ;
+			nStart = (unsigned int) RING_API_GETNUMBER(2) ;
 		}
 		else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
@@ -588,7 +588,7 @@ void ring_vm_generallib_list2str ( void *pPointer )
 	nMax = ring_list_getsize(pList) ;
 	if ( RING_API_PARACOUNT == 3 ) {
 		if ( RING_API_ISNUMBER(3) ) {
-			nMax = (int) RING_API_GETNUMBER(3) ;
+			nMax = (unsigned int) RING_API_GETNUMBER(3) ;
 		}
 		else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
@@ -706,7 +706,7 @@ void ring_vm_generallib_left ( void *pPointer )
 {
 	double nNum1  ;
 	const char *cStr  ;
-	int x,nNewSize  ;
+	unsigned int x,nNewSize  ;
 	char *cString  ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -717,7 +717,7 @@ void ring_vm_generallib_left ( void *pPointer )
 			cStr = RING_API_GETSTRING(1) ;
 			nNum1 = RING_API_GETNUMBER(2) ;
 			if ( (nNum1 > 0 ) && (nNum1 <= RING_API_GETSTRINGSIZE(1) ) ) {
-				nNewSize = (int) nNum1 ;
+				nNewSize = (unsigned int) nNum1 ;
 				/* Pre-allocated the return value on the stack */
 				RING_API_RETSTRINGSIZE(nNewSize);
 				cString = ring_string_get(RING_API_GETSTRINGRAW);
@@ -738,7 +738,7 @@ void ring_vm_generallib_right ( void *pPointer )
 {
 	double nNum1  ;
 	const char *cStr  ;
-	int x,nSize,nNewSize  ;
+	unsigned int x,nSize,nNewSize  ;
 	char *cString  ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -750,7 +750,7 @@ void ring_vm_generallib_right ( void *pPointer )
 			nNum1 = RING_API_GETNUMBER(2) ;
 			nSize = RING_API_GETSTRINGSIZE(1) ;
 			if ( (nNum1 > 0 ) && (nNum1 <= nSize ) ) {
-				nNewSize = (int) nNum1 ;
+				nNewSize = (unsigned int) nNum1 ;
 				/* Pre-allocated the return value on the stack */
 				RING_API_RETSTRINGSIZE(nNewSize);
 				cString = ring_string_get(RING_API_GETSTRINGRAW);
@@ -894,7 +894,7 @@ void ring_vm_generallib_substr ( void *pPointer )
 		if ( RING_API_ISNUMBER(2) ) {
 			nNum1 = RING_API_GETNUMBER(2) ;
 			if ( nNum1 > 0 && nNum1 <= nSize ) {
-				cStr2 = cStr + ( (int) nNum1 ) - 1 ;
+				cStr2 = cStr + ( (unsigned int) nNum1 ) - 1 ;
 				RING_API_RETSTRING2(cStr2,nSize-nNum1+1);
 				return ;
 			}
@@ -924,7 +924,7 @@ void ring_vm_generallib_substr ( void *pPointer )
 				if ( (nNum2 > 0) && ( (nNum1+nNum2-1) <= nSize ) ) {
 					cString = (char *) RING_API_MALLOC(nNum2);
 					for ( x = 0 ; x < nNum2 ; x++ ) {
-						cString[x] = cStr[((int) nNum1) + x - 1 ] ;
+						cString[x] = cStr[((unsigned int) nNum1) + x - 1 ] ;
 					}
 					RING_API_RETSTRING2(cString,nNum2);
 					RING_API_FREE(cString);
@@ -983,10 +983,10 @@ void ring_vm_generallib_substr ( void *pPointer )
 			nMark = nPos + nSize2 -1 ;
 			/* Search */
 			if ( nTransform == 1 ) {
-				cString = ring_string_find2(cStr+((int) nMark),nSize-nMark,cStr2,nSize2) ;
+				cString = ring_string_find2(cStr+((unsigned int) nMark),nSize-nMark,cStr2,nSize2) ;
 			}
 			else {
-				cString = ring_string_find3(cStr+((int) nMark),nSize-nMark,cStr2,nSize2) ;
+				cString = ring_string_find3(cStr+((unsigned int) nMark),nSize-nMark,cStr2,nSize2) ;
 			}
 			if ( cString == NULL ) {
 				/* Add SubString to pString */
@@ -1415,7 +1415,7 @@ void ring_vm_generallib_pointer2string ( void *pPointer )
 	if ( ! ( RING_API_ISCPOINTER(1) && RING_API_ISNUMBER(2) && RING_API_ISNUMBER(3) ) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
-	RING_API_RETSTRING2(((const char *) RING_API_GETCPOINTER(1,"OBJECTPOINTER"))+((int) RING_API_GETNUMBER(2)),(int) RING_API_GETNUMBER(3));
+	RING_API_RETSTRING2(((const char *) RING_API_GETCPOINTER(1,"OBJECTPOINTER"))+((unsigned int) RING_API_GETNUMBER(2)),(unsigned int) RING_API_GETNUMBER(3));
 }
 
 void ring_vm_generallib_setpointer ( void *pPointer )
@@ -1821,7 +1821,7 @@ void ring_vm_generallib_state_scannererror ( void *pPointer )
 void ring_vm_generallib_state_runcodeatins ( void *pPointer )
 {
 	RingState *pRingState  ;
-	int nPC  ;
+	unsigned int nPC  ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -1836,7 +1836,7 @@ void ring_vm_generallib_state_runcodeatins ( void *pPointer )
 		RING_API_ERROR(RING_VM_ERROR_VMISNOTREADY);
 		return ;
 	}
-	nPC = (int) RING_API_GETNUMBER(2) ;
+	nPC = (unsigned int) RING_API_GETNUMBER(2) ;
 	pRingState->pVM->nPC = nPC ;
 	ring_vm_mainloop(pRingState->pVM);
 }

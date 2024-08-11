@@ -1,11 +1,11 @@
 ring_vm_string_pushv
 Type: char *
-newstr
+cNewStr
 Type: char
 cStr[RING_CHARBUF]
 ring_vm_string_assignment
 Type: char *
-newstr
+cNewStr
 Type: char
 cChar
 Type: int
@@ -14,4 +14,4 @@ Type: double
 nNum
 ring_vm_string_index
 Type: char *
-newstr
+cNewStr
