@@ -4,7 +4,7 @@
 
 void ring_parser_icg_newoperation ( Parser *pParser , IC_OPERATIONS nOPCode )
 {
-	if ( pParser->lInsertFlag == 1 ) {
+	if ( pParser->lInsertFlag == RING_TRUE ) {
 		ring_parser_icg_insertoperation(pParser,pParser->nInsertCounter,nOPCode);
 		pParser->nInsertCounter++ ;
 		return ;
@@ -68,7 +68,7 @@ void ring_parser_icg_addoperandpointer ( Parser *pParser ,List *pList , void *pV
 
 void ring_parser_icg_deletelastoperation ( Parser *pParser )
 {
-	if ( ring_list_getsize(pParser->pGenCode) > 0 ) {
+	if ( ring_list_getsize(pParser->pGenCode) ) {
 		ring_list_deleteitem_gc(NULL,pParser->pGenCode,ring_list_getsize(pParser->pGenCode));
 		pParser->pActiveGenCodeList = ring_list_getlist(pParser->pGenCode,ring_list_getsize(pParser->pGenCode));
 	}
@@ -153,7 +153,7 @@ void ring_parser_icg_freestack ( Parser *pParser )
 
 void ring_parser_icg_newline ( Parser *pParser,int nLine )
 {
-	if ( pParser->pRingState->lNoLineNumber != 0 ) {
+	if ( pParser->pRingState->lNoLineNumber ) {
 		return ;
 	}
 	if ( (pParser->pActiveGenCodeList != NULL) && (ring_parser_icg_getlastoperation(pParser) == ICO_NEWLINE) ) {
@@ -187,15 +187,15 @@ void ring_parser_icg_pushn ( Parser *pParser,double nValue )
 {
 	int nLastOperation, lChange  ;
 	/* Optimizations */
-	lChange = 0 ;
+	lChange = RING_FALSE ;
 	if ( pParser->pActiveGenCodeList != NULL ) {
 		nLastOperation = ring_parser_icg_getlastoperation(pParser) ;
 		if ( nLastOperation == ICO_PUSHN ) {
 			ring_parser_icg_setlastoperation(pParser,ICO_PUSH2N);
-			lChange = 1 ;
+			lChange = RING_TRUE ;
 		}
 	}
-	if ( lChange == 0 ) {
+	if ( ! lChange ) {
 		ring_parser_icg_newoperation(pParser,ICO_PUSHN);
 	}
 	ring_parser_icg_newoperanddouble(pParser,nValue);
@@ -243,7 +243,7 @@ void ring_parser_icg_gensetglobalscope ( Parser *pParser )
 	int nGlobalScope  ;
 	/* Note: ICO_NEWFUNC and ICO_NEWCLASS set the current global scope to zero */
 	nGlobalScope = ring_list_getint(pParser->pRingState->pCustomGlobalScopeStack,ring_list_getsize(pParser->pRingState->pCustomGlobalScopeStack));
-	if ( nGlobalScope != 0 ) {
+	if ( nGlobalScope != RING_ZERO ) {
 		ring_parser_icg_newoperation(pParser,ICO_SETGLOBALSCOPE);
 		ring_parser_icg_newoperandint(pParser,nGlobalScope);
 	}
@@ -296,7 +296,7 @@ void ring_parser_icg_gencall ( Parser *pParser,int nCallMethod )
 {
 	/* Generate Code */
 	ring_parser_icg_newoperation(pParser,ICO_CALL);
-	if ( nCallMethod == 1 ) {
+	if ( nCallMethod == RING_ONE ) {
 		/* Add 0 For Operator Overloading */
 		ring_parser_icg_newoperandint(pParser,RING_ZERO);
 		/* Add 1 so the call instruction move list from pBeforeObjState to pObjState */
@@ -381,14 +381,14 @@ void ring_parser_icg_showoutput ( List *pListGenCode )
 	puts(" Byte Code - Before Execution by the VM");
 	ring_general_printline();
 	nCount = ring_list_getsize(pListGenCode);
-	if ( nCount > 0 ) {
+	if ( nCount > RING_ZERO ) {
 		printf( "\n %6s  %18s  %19s\n", "PC","OPCode","Data" ) ;
-		for ( x = 1 ; x <= nCount ; x++ ) {
+		for ( x = RING_ONE ; x <= nCount ; x++ ) {
 			pList = ring_list_getlist(pListGenCode,x);
 			nCount2 = ring_list_getsize(pList);
 			printf( "\n %6d  %18s  ", x , RING_IC_OP[ring_list_getint(pList,RING_PARSER_ICG_OPERATIONCODE)] ) ;
-			if ( nCount2 > 1 ) {
-				for ( y = 2 ; y <= nCount2 ; y++ ) {
+			if ( nCount2 > RING_ONE ) {
+				for ( y = RING_TWO ; y <= nCount2 ; y++ ) {
 					if ( ring_list_isstring(pList,y) ) {
 						printf( " %18s ",ring_list_getstring(pList,y) ) ;
 					}
