@@ -691,7 +691,7 @@ void ring_vm_oop_import3 ( VM *pVM,List *pList )
 		pList3 = ring_list_newlist_gc(pVM->pRingState,pVM->pClassesMap);
 		ring_list_addstring_gc(pVM->pRingState,pList3,ring_list_getstring(pList2,RING_CLASSMAP_CLASSNAME));
 		ring_list_addpointer_gc(pVM->pRingState,pList3,pList2);
-		ring_list_addpointer_gc(pVM->pRingState,pList3,pVM->cFileName);
+		ring_list_addpointer_gc(pVM->pRingState,pList3,(void *) pVM->cFileName);
 	}
 }
 

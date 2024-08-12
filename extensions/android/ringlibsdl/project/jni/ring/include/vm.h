@@ -33,7 +33,7 @@
 	typedef union Register {
 		int iNumber  ;
 		void *pPointer  ;
-		char *pString  ;
+		const char *pString  ;
 		RING_BYTECODEDOUBLE dNumber  ;
 	} Register ;
 	typedef struct ByteCode {
@@ -53,8 +53,8 @@
 	} CFunction ;
 	typedef struct FuncCall {
 		const char *cName  ;
-		char *cFileName  ;
-		char *cNewFileName  ;
+		const char *cFileName  ;
+		const char *cNewFileName  ;
 		List *pTempMem  ;
 		void (*pFunc)(void *) ;
 		VMState *pVMState  ;
@@ -108,9 +108,9 @@
 		String *pTrace  ;
 		ByteCode *pByteCode  ;
 		ByteCode *pByteCodeIR  ;
-		char *cFileName  ;
-		char *cPrevFileName  ;
-		char *cFileNameInClassRegion  ;
+		const char *cFileName  ;
+		const char *cPrevFileName  ;
+		const char *cFileNameInClassRegion  ;
 		void *pGetSetObject  ;
 		void *pAssignment  ;
 		void *(*pFuncMutexCreate)(void) ;

@@ -425,7 +425,7 @@ void ring_vm_newfunc ( VM *pVM )
 	int x,nSP,nMax,lFreeParameter  ;
 	List *pList,*aRefList,*pVar,*pRef  ;
 	char *pParameter  ;
-	char *cParameters  ;
+	const char *cParameters  ;
 	char cPara[RING_FUNCPARA_EXPECTEDSIZE]  ;
 	FuncCall *pFuncCall  ;
 	/* Set the default global scope */

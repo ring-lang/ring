@@ -565,13 +565,13 @@ void ring_vm_clearregisterstring ( VM *pVM,int nReg )
 	switch ( nReg ) {
 		case RING_VM_IR_REG1 :
 			if ( pVM->pByteCodeIR->nReg1Type == RING_VM_REGTYPE_STRING ) {
-				ring_state_free(pVM->pRingState,pVM->pByteCodeIR->aReg[RING_VM_IR_REG1].pString);
+				ring_state_free(pVM->pRingState,(void *) pVM->pByteCodeIR->aReg[RING_VM_IR_REG1].pString);
 				pVM->pByteCodeIR->nReg1Type = RING_VM_REGTYPE_NOTHING ;
 			}
 			break ;
 		case RING_VM_IR_REG2 :
 			if ( pVM->pByteCodeIR->nReg2Type == RING_VM_REGTYPE_STRING ) {
-				ring_state_free(pVM->pRingState,pVM->pByteCodeIR->aReg[RING_VM_IR_REG2].pString);
+				ring_state_free(pVM->pRingState,(void *) pVM->pByteCodeIR->aReg[RING_VM_IR_REG2].pString);
 				pVM->pByteCodeIR->nReg2Type = RING_VM_REGTYPE_NOTHING ;
 			}
 			break ;

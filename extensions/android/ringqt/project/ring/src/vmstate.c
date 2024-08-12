@@ -44,7 +44,7 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 	pVMState->aNumbers[28] = pVM->nCallClassInit ;
 	pVMState->aNumbers[29] = ring_list_getint(pThis,RING_VAR_PVALUETYPE) ;
 	pVMState->aPointers[0] = pVM->pBraceObject ;
-	pVMState->aPointers[1] = pVM->cFileName ;
+	pVMState->aPointers[1] = (void *) pVM->cFileName ;
 	pVMState->aPointers[2] = pVM->pActiveMem ;
 	pVMState->aPointers[4] = pVM->pPCBlockFlag ;
 	pVMState->aPointers[5] = pVM->pGetSetObject ;
@@ -85,7 +85,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	ring_vm_backstate(pVM,pVM->pBraceObjects,pVMState->aNumbers[6]);
 	pVM->pBraceObject = (List *) pVMState->aPointers[0] ;
 	/* FileName & Packages */
-	pVM->cFileName = (char *) pVMState->aPointers[1] ;
+	pVM->cFileName = (const char *) pVMState->aPointers[1] ;
 	/* Create aListsToDelete */
 	aListsToDelete = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* pPCBlockFlag, pScopeNewObj , pActivePackage */

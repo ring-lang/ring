@@ -20,7 +20,7 @@ Type: int
 iNumber
 Type: void *
 pPointer
-Type: char *
+Type: const char *
 pString
 Type: RING_BYTECODEDOUBLE
 dNumber
@@ -70,9 +70,9 @@ CFunction *
 Parent: FuncCall
 Type: const char *
 cName
-Type: char *
+Type: const char *
 cFileName
-Type: char *
+Type: const char *
 cNewFileName
 Type: List *
 pTempMem
@@ -184,11 +184,11 @@ Type: ByteCode *
 pByteCode
 Type: ByteCode *
 pByteCodeIR
-Type: char *
+Type: const char *
 cFileName
-Type: char *
+Type: const char *
 cPrevFileName
-Type: char *
+Type: const char *
 cFileNameInClassRegion
 Type: void *
 pGetSetObject
