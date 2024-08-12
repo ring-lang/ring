@@ -25,11 +25,11 @@
 		#define RING_BYTECODEDOUBLE float
 	#endif
 	/* Register Type */
-	#define RING_VM_REGTYPE_NOTHING 0
-	#define RING_VM_REGTYPE_INT 1
-	#define RING_VM_REGTYPE_DOUBLE 2
-	#define RING_VM_REGTYPE_STRING 3
-	#define RING_VM_REGTYPE_POINTER 4
+	#define RING_VM_REGTYPE_INT 0
+	#define RING_VM_REGTYPE_DOUBLE 1
+	#define RING_VM_REGTYPE_STRING 2
+	#define RING_VM_REGTYPE_POINTER 3
+	#define RING_VM_REGTYPE_DEFAULT RING_VM_REGTYPE_INT
 	typedef union Register {
 		int iNumber  ;
 		void *pPointer  ;
@@ -37,12 +37,13 @@
 		RING_BYTECODEDOUBLE dNumber  ;
 	} Register ;
 	typedef struct ByteCode {
-		unsigned int nOPCode: 7  ;
+		unsigned int nOPCode: 8  ;
 		unsigned int lFlagReg: 1  ;
 		unsigned int lFlagReg2: 1  ;
 		unsigned int lLiteral: 1  ;
-		unsigned int nReg1Type:3  ;
-		unsigned int nReg2Type:3  ;
+		unsigned int lUnused: 1  ;
+		unsigned int nReg1Type: 2  ;
+		unsigned int nReg2Type: 2  ;
 		unsigned int nSmallIntReg: 16  ;
 		unsigned int nIntReg: 32  ;
 		Register aReg[RING_VM_BC_ITEMS_COUNT]  ;

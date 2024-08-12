@@ -10,11 +10,11 @@ RING_VM_BC_ITEMS_COUNT
 RING_VM_MAXDIGITSINNUMBER
 RING_BYTECODEDOUBLE
 RING_BYTECODEDOUBLE
-RING_VM_REGTYPE_NOTHING
 RING_VM_REGTYPE_INT
 RING_VM_REGTYPE_DOUBLE
 RING_VM_REGTYPE_STRING
 RING_VM_REGTYPE_POINTER
+RING_VM_REGTYPE_DEFAULT
 Parent: Register
 Type: int
 iNumber
@@ -29,7 +29,7 @@ Type: Register
 Register
 Parent: ByteCode
 Type: unsigned int
-nOPCode: 7
+nOPCode: 8
 Type: unsigned int
 lFlagReg: 1
 Type: unsigned int
@@ -37,9 +37,9 @@ lFlagReg2: 1
 Type: unsigned int
 lLiteral: 1
 Type: unsigned int
-nReg1Type:3
+nReg1Type: 2
 Type: unsigned int
-nReg2Type:3
+nReg2Type: 2
 Type: unsigned int
 nSmallIntReg: 16
 Type: unsigned int
