@@ -38,8 +38,8 @@
 	} Register ;
 	typedef struct ByteCode {
 		unsigned int nOPCode: 8  ;
-		unsigned int nFlagReg: 1  ;
-		unsigned int nFlagReg2: 1  ;
+		unsigned int lFlagReg: 1  ;
+		unsigned int lFlagReg2: 1  ;
 		unsigned int nReg1Type:3  ;
 		unsigned int nReg2Type:3  ;
 		unsigned int nSmallIntReg: 16  ;
@@ -289,15 +289,15 @@
 	#define RING_VM_PUSHNULLTHENJUMP RING_VM_STACK_PUSHCVALUE(RING_CSTR_EMPTY); RING_VM_JUMP
 	#define RING_VM_IR_SETINTREG(nValue) pVM->pByteCodeIR->nIntReg = nValue
 	#define RING_VM_IR_GETINTREG pVM->pByteCodeIR->nIntReg
-	#define RING_VM_IR_SETFLAGREG(nValue) pVM->pByteCodeIR->nFlagReg = nValue
-	#define RING_VM_IR_GETFLAGREG pVM->pByteCodeIR->nFlagReg
+	#define RING_VM_IR_SETFLAGREG(nValue) pVM->pByteCodeIR->lFlagReg = nValue
+	#define RING_VM_IR_GETFLAGREG pVM->pByteCodeIR->lFlagReg
 	#define RING_VM_IR_SETREG1TOPOINTERFROMSTACK ring_vm_setreg1topointerfromstack(pVM)
 	#define RING_VM_IR_SETREG1TYPE(nType) pVM->pByteCodeIR->nReg1Type = nType
 	#define RING_VM_IR_SETREG2TYPE(nType) pVM->pByteCodeIR->nReg2Type = nType
 	#define RING_VM_IR_REG1 0
 	#define RING_VM_IR_REG2 1
-	#define RING_VM_IR_SETFLAGREG2(nValue) pVM->pByteCodeIR->nFlagReg2 = nValue
-	#define RING_VM_IR_GETFLAGREG2 pVM->pByteCodeIR->nFlagReg2
+	#define RING_VM_IR_SETFLAGREG2(nValue) pVM->pByteCodeIR->lFlagReg2 = nValue
+	#define RING_VM_IR_GETFLAGREG2 pVM->pByteCodeIR->lFlagReg2
 	#define RING_VM_IR_SETSMALLINTREG(nValue) pVM->pByteCodeIR->nSmallIntReg = nValue
 	#define RING_VM_IR_GETSMALLINTREG pVM->pByteCodeIR->nSmallIntReg
 	#define RING_VM_IR_SETINTREGATINS(nIns,nValue) (pVM->pByteCode + nIns)->nIntReg = nValue
