@@ -22,6 +22,8 @@ Type: VM *
 pVM
 Type: RingState *
 pRingState
+Type: unsigned int
+lRegister
 ring_vm_dll_closelib
 Type: LpHandleType
 pHandle

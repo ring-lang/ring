@@ -15,11 +15,21 @@ void ring_vm_dll_loadlib ( void *pPointer )
 	loadlibfuncptr pFunc  ;
 	VM *pVM  ;
 	RingState *pRingState  ;
+	unsigned int lRegister  ;
 	pVM = (VM *) pPointer ;
 	pRingState = pVM->pRingState ;
-	if ( RING_API_PARACOUNT != 1 ) {
+	lRegister = RING_TRUE ;
+	if ( (RING_API_PARACOUNT < 1) || (RING_API_PARACOUNT > 2) ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
+	}
+	if ( RING_API_PARACOUNT == 2 ) {
+		if ( RING_API_ISNUMBER(2) ) {
+			lRegister = (unsigned int) RING_API_GETNUMBER(2) ;
+		}
+		else {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+		}
 	}
 	if ( RING_API_ISSTRING(1) ) {
 		cDLL = RING_API_GETSTRING(1);
@@ -36,7 +46,9 @@ void ring_vm_dll_loadlib ( void *pPointer )
 			return ;
 		}
 		(*pFunc)(pRingState) ;
-		ring_list_addpointer_gc(pRingState,pVM->pCLibraries,pHandle);
+		if ( lRegister ) {
+			ring_list_addpointer_gc(pRingState,pVM->pCLibraries,pHandle);
+		}
 		RING_API_RETCPOINTER(pHandle,RING_VM_POINTER_DLL);
 	}
 	else {
