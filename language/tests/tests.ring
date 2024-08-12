@@ -21,6 +21,7 @@ aTests = [
 	[ :name = "Procedural Programming (Part 11)"	, :Command = "ring procedural/passtemp.ring" ],
 	[ :name = "Procedural Programming (Part 12)"	, :Command = "ring procedural/passtemp2.ring" ],
 	[ :name = "Procedural Programming (Part 13)"	, :Command = "ring procedural/p9.ring" ],
+	[ :name = "Procedural Programming (Part 14)"	, :Command = "ring procedural/longpara.ring" ],
 	[ :name = "Object Oriented Programming (Part 1)", :Command = "ring objectoriented/oop.ring" ],
 	[ :name = "Object Oriented Programming (Part 2)", :Command = "ring objectoriented/oop2.ring" ],
 	[ :name = "Object Oriented Programming (Part 3)", :Command = "ring objectoriented/oop3.ring" ],
