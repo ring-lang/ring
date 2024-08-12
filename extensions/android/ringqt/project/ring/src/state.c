@@ -445,9 +445,10 @@ RING_API void ring_state_runprogram ( RingState *pRingState )
 	}
 }
 
-RING_API void ring_state_newbytecode ( RingState *pRingState,int nSize )
+RING_API void ring_state_newbytecode ( RingState *pRingState,int nSize,int lLiteral )
 {
 	VM *pVM  ;
+	int x  ;
 	pVM = ring_vm_new(pRingState);
 	pVM->pByteCode = (ByteCode *) ring_calloc(nSize,sizeof(ByteCode)) ;
 	pVM->nEvalReallocationSize = nSize ;
@@ -457,6 +458,9 @@ RING_API void ring_state_newbytecode ( RingState *pRingState,int nSize )
 	pVM->pFunctionsMap = pRingState->pRingFunctionsMap ;
 	pVM->pClassesMap = pRingState->pRingClassesMap ;
 	pVM->pPackagesMap = pRingState->pRingPackagesMap ;
+	for ( x = 0 ; x < nSize ; x++ ) {
+		pVM->pByteCode[x].lLiteral = lLiteral ;
+	}
 }
 
 RING_API void ring_state_log ( RingState *pRingState,const char *cStr )

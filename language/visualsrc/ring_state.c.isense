@@ -21,8 +21,6 @@ Type: List *
 pRingPackagesMap
 Type: List *
 pCustomGlobalScopeStack
-Type: List *
-pRingCFunctions
 Type: int
 nArgc
 Type: unsigned int
@@ -164,6 +162,8 @@ pVM
 ring_state_newbytecode
 Type: VM *
 pVM
+Type: int
+x
 ring_state_log
 ring_state_runbytecode
 ring_state_runstring
