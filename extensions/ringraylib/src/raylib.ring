@@ -1,5 +1,5 @@
 if iswindows()
-	LoadLib("ring_raylib.dll")
+	LoadLib("ring_raylib.dll",False)
 but ismacosx()
 	LoadLib("libringraylib.dylib")
 else
