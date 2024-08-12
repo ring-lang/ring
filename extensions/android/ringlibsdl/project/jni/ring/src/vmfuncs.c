@@ -456,7 +456,7 @@ void ring_vm_newfunc ( VM *pVM )
 		for ( x = RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ; x >= 1 ; x-- ) {
 			if ( nSP < pVM->nSP ) {
 				if ( RING_VM_IR_READIVALUE(RING_VM_IR_REG2) == 1 ) {
-					pParameter = cParameters ;
+					strcpy(pParameter,cParameters);
 				}
 				else {
 					ring_string_word(cParameters,x,pParameter);
