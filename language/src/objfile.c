@@ -532,7 +532,7 @@ void ring_objfile_writeCfile ( RingState *pRingState )
 	nFunction = ring_objfile_writelistcode(pRingState->pRingPackagesMap,fCode,RING_ONE,RING_TRUE,nFunction,RING_OBJFILE_ITEMSPERFUNCTION2);
 	fprintf( fCode , "\tpRingState->pRingPackagesMap = pList1;\n"  ) ;
 	/* Prepare Ring VM */
-	fprintf( fCode , "\tring_state_newbytecode(pRingState,%d);\n" , ring_list_getsize(pRingState->pRingGenCode)+1 ) ;
+	fprintf( fCode , "\tring_state_newbytecode(pRingState,%d,RING_TRUE);\n" , ring_list_getsize(pRingState->pRingGenCode)+1 ) ;
 	fprintf( fCode , "\tpVM = pRingState->pVM;\n"  ) ;
 	ring_objfile_writebytecode(pRingState->pRingGenCode,fCode);
 	fprintf( fCode , "\tring_state_runbytecode(pRingState);  \n"  ) ;
@@ -643,14 +643,14 @@ void ring_objfile_writebytecode ( List *pList,FILE *fCode )
 			}
 			if ( ring_list_isstring(pIns,x2) ) {
 				fprintf( fCode , "RING_VM_REGTYPE_STRING ; \n"  ) ;
-				fprintf( fCode , "\tpVM->pByteCode[%d].aReg[%d].pString = ring_string_strdup(NULL,\"" , x-1,nReg ) ;
+				fprintf( fCode , "\tpVM->pByteCode[%d].aReg[%d].pString = \"" , x-1,nReg ) ;
 				/* Add the string */
 				cString = ring_list_getstring(pIns,x2) ;
 				nMax = ring_list_getstringsize(pIns,x2) ;
 				for ( x3 = 0 ; x3 < nMax ; x3++ ) {
 					fprintf( fCode , "\\x%02x" , (unsigned char) cString[x3] ) ;
 				}
-				fprintf( fCode , "\") ; \n"  ) ;
+				fprintf( fCode , "\" ; \n"  ) ;
 			}
 			else if ( ring_list_isint(pIns,x2) ) {
 				fprintf( fCode , "RING_VM_REGTYPE_INT ; \n"  ) ;
