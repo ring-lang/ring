@@ -37,9 +37,10 @@
 		RING_BYTECODEDOUBLE dNumber  ;
 	} Register ;
 	typedef struct ByteCode {
-		unsigned int nOPCode: 8  ;
+		unsigned int nOPCode: 7  ;
 		unsigned int lFlagReg: 1  ;
 		unsigned int lFlagReg2: 1  ;
+		unsigned int lLiteral: 1  ;
 		unsigned int nReg1Type:3  ;
 		unsigned int nReg2Type:3  ;
 		unsigned int nSmallIntReg: 16  ;

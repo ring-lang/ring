@@ -562,6 +562,9 @@ void ring_vm_deletebytecode ( VM *pVM,int nIns )
 
 void ring_vm_clearregisterstring ( VM *pVM,int nReg )
 {
+	if ( pVM->pByteCodeIR->lLiteral ) {
+		return ;
+	}
 	switch ( nReg ) {
 		case RING_VM_IR_REG1 :
 			if ( pVM->pByteCodeIR->nReg1Type == RING_VM_REGTYPE_STRING ) {
