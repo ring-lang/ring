@@ -1,4 +1,4 @@
-load "..\SpWords.ring"
+load "../SpWords.ring"
 load "Tests.ring"
 
 t = clock()

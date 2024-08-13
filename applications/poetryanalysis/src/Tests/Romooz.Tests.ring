@@ -1,4 +1,4 @@
-Load "..\Romooz.ring"
+Load "../Romooz.ring"
 load "Tests.ring"
 
 TestToString()

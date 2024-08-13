@@ -1,4 +1,4 @@
-Load "..\AroodWrite.ring"
+Load "../AroodWrite.ring"
 load "Tests.ring"
 
 TestingAroodWrite = true

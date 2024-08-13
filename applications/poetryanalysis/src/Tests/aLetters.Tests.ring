@@ -1,4 +1,4 @@
-load "..\aLetters.ring"
+load "../aLetters.ring"
 load "Tests.ring"
 
 Test_IsTashkeel()

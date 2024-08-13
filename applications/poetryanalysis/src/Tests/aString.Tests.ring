@@ -1,4 +1,4 @@
-Load "..\aString.ring"
+Load "../aString.ring"
 Load "Tests.ring"
 # String Class Tests
 

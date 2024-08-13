@@ -1,4 +1,4 @@
-load "..\aString.ring"
+load "../aString.ring"
 a = 1
 Test(a)
 ? "a = " + a
