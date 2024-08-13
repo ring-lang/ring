@@ -616,16 +616,16 @@ RING_API void ring_vm_showbytecode ( VM *pVM )
 				/* Display the Register Value */
 				switch ( nType ) {
 					case RING_VM_REGTYPE_STRING :
-						printf( " %18s ",pByteCode->aReg[y].pString ) ;
+						printf( " %18s",pByteCode->aReg[y].pString ) ;
 						break ;
 					case RING_VM_REGTYPE_INT :
-						printf( " %18d ",pByteCode->aReg[y].iNumber ) ;
+						printf( " %18d",pByteCode->aReg[y].iNumber ) ;
 						break ;
 					case RING_VM_REGTYPE_DOUBLE :
 						printf( " %18f",pByteCode->aReg[y].dNumber ) ;
 						break ;
 					case RING_VM_REGTYPE_POINTER :
-						printf( " %18p ",pByteCode->aReg[y].pPointer ) ;
+						printf( " %18p",pByteCode->aReg[y].pPointer ) ;
 						break ;
 				}
 			}

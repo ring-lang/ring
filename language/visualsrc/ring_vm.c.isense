@@ -37,6 +37,8 @@ lFlagReg2: 1
 Type: unsigned int
 lLiteral: 1
 Type: unsigned int
+lUnused: 1
+Type: unsigned int
 nReg1Type: 2
 Type: unsigned int
 nReg2Type: 2
