@@ -15,8 +15,28 @@ List of changes and new features
 
 Ring 1.21 comes with the next features!
 
+* Lectures Tracker application
 * ForEach Keyword
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring  1.21; Lectures Tracker application
+
+Lectures Tracker application
+============================
+
+A simple Desktop/Mobile application that connects to a Web API to get some data.
+
+The application is developed using Ring & RingQt.
+
+To test the application
+
+(1) Run ring/applications/lecturestracker/webserver/server.ring
+
+(2) Run ring/applications/lecturestracker/mobileapp/lecturestracker.ring
+
+.. image:: lectrack.png
+	:alt: Lecture Tracker
 
 .. index:: 
 	pair: What is new in Ring  1.21; ForEach Keyword
