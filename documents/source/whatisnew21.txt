@@ -22,6 +22,7 @@ Ring 1.21 comes with the next features!
 * Faster Compiler
 * Reducing Memory Usage
 * ForEach Keyword
+* Better Support for Operator Overloading
 * More Improvements
 
 .. index:: 
@@ -206,6 +207,96 @@ Example:
 	ForEach x in aList
 		? x
 	Next
+
+.. index:: 
+	pair: What is new in Ring  1.21; Better Support for Operator Overloading
+
+Better Support for Operator Overloading
+=======================================
+
+We support operator overloading from the first release of the Ring language
+
+When using an object inside an expression and this object define the operator method, this
+method will be called if the object comes first.
+
+.. code-block:: none
+
+	object operator value
+	myobj + 10
+	myobj + "test"
+	myobj + [1,2,3]
+
+In this release we support that the value could come first before the object and the operator() 
+method will be called but the letter 'r' will comes before the operator (i.e. r+ instead of +)
+
+Example:
+
+.. code-block:: ring
+
+	? f(2)
+
+	mylist = new List([1,2,3])
+
+	f(mylist).print()
+
+	func f x
+		return 2+x*x	# Here 2 comes before x and x could be an object 
+
+	class List
+
+	aList = []
+
+	func init vValue
+		aList = vValue
+
+	func operator cOperator,vValue
+
+		if cOperator = "r+"  
+			cOperator = "+"
+		ok
+
+		switch cOperator 
+			on "+"
+				if isNumber(vValue) { 
+					for t in aList
+						t += vValue
+					next
+				but isObject(vValue)
+					for t = 1 to len(aList)
+						aList[t] += vValue[t]
+					next
+				ok
+			on "*"
+				if isNumber(vValue) { 
+					for t in aList 
+						t *= vValue
+					next
+				but isObject(vValue)
+					for t = 1 to len(aList)
+						aList[t] *= vValue[t]
+					next
+				ok
+			on "[]"
+				return aList[vValue]
+			on "len"
+				return len(aList)
+		off
+		return self
+
+	func print
+		? aList
+
+Output:
+
+.. code-block:: none
+
+	6
+	3
+	6
+	11
+
+.. note:: the numbers(3,6,11) are the result of applying the function f to the list items [1,2,3]
+
 
 .. index:: 
 	pair: What is new in Ring  1.21; More Improvements
