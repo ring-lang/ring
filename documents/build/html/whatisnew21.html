@@ -173,6 +173,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#faster-function-call">Faster Function Call</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#faster-arithmetic-operations">Faster Arithmetic Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#faster-compiler">Faster Compiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reducing-memory-usage">Reducing Memory Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#foreach-keyword">ForEach Keyword</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
@@ -220,6 +221,7 @@
 <li><p>Faster Function Call</p></li>
 <li><p>Faster Arithmetic Operations</p></li>
 <li><p>Faster Compiler</p></li>
+<li><p>Reducing Memory Usage</p></li>
 <li><p>ForEach Keyword</p></li>
 <li><p>More Improvements</p></li>
 </ul>
@@ -332,8 +334,19 @@ Time using Ring 1.20    --&gt; 244 ms
 <p>For example, PWCT2 compile time is reduced from 1100 ms to 790 ms</p>
 <p>Also, SoftanzaLib compile time is reduced from five seconds to one second</p>
 </section>
+<section id="reducing-memory-usage">
+<span id="index-7"></span><h2>Reducing Memory Usage<a class="headerlink" href="#reducing-memory-usage" title="Permalink to this heading"></a></h2>
+<p>We did the next updates to reduce the memory usage</p>
+<ol class="arabic simple">
+<li><p>The ByteCode registers count is reduced from four to two</p></li>
+<li><p>Setter/Getter/OperatorOverloading - Don’t use ring_vm_eval()</p></li>
+<li><p>Using GC functions when using strings in the VM stack</p></li>
+<li><p>Using the VM Stack when passing arguments to C functions</p></li>
+<li><p>Reducing memory required by RING_API_REGISTER to support C functions</p></li>
+</ol>
+</section>
 <section id="foreach-keyword">
-<span id="index-7"></span><h2>ForEach Keyword<a class="headerlink" href="#foreach-keyword" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>ForEach Keyword<a class="headerlink" href="#foreach-keyword" title="Permalink to this heading"></a></h2>
 <p>This release support using the ForEach keyword in For-in loops</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span>
@@ -344,7 +357,7 @@ Time using Ring 1.20    --&gt; 244 ms
 </div>
 </section>
 <section id="more-improvements">
-<span id="index-8"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>AddAttribute() - Produce runtime error if the attribute is already defined</p></li>
 <li><p>AddMethod() - Produce runtime error if the method is already defined</p></li>
@@ -370,12 +383,6 @@ Time using Ring 1.20    --&gt; 244 ms
 <li><p>Ring Compiler/VM - Added ICO_PUSHARG instruction to quickly access function arguments</p></li>
 <li><p>Ring Compiler/VM - Better support for operator overloading</p></li>
 <li><p>Ring Compiler/VM - String structure - Store small strings in the structure</p></li>
-<li><p>Ring VM - ByteCode registers count is reduced from four to two (reduce memory usage)</p></li>
-<li><p>Ring VM - Setter/Getter/OperatorOverloading - Don’t use ring_vm_eval()</p></li>
-<li><p>Ring VM - Use GC functions when using strings in the VM stack</p></li>
-<li><p>Ring VM - Calling C functions - Better Performance</p></li>
-<li><p>Ring VM - Calling Ring functions - Better Performance</p></li>
-<li><p>Ring VM - Use VM Stack for passing arguments to C functions</p></li>
 <li><p>Ring VM - Better support for list items of new objects when using lists during defintion</p></li>
 <li><p>Ring VM - List() function - Use blocks only if the list size is greater than 30 items</p></li>
 <li><p>Ring VM - Better code when deleting lists created using the List() function</p></li>
