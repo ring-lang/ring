@@ -172,6 +172,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#ringpdfgen-extension">RingPDFGen Extension</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#faster-function-call">Faster Function Call</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#faster-arithmetic-operations">Faster Arithmetic Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#faster-compiler">Faster Compiler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#foreach-keyword">ForEach Keyword</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
@@ -218,6 +219,7 @@
 <li><p>RingPDFGen Extension</p></li>
 <li><p>Faster Function Call</p></li>
 <li><p>Faster Arithmetic Operations</p></li>
+<li><p>Faster Compiler</p></li>
 <li><p>ForEach Keyword</p></li>
 <li><p>More Improvements</p></li>
 </ul>
@@ -323,8 +325,15 @@ Time using Ring 1.20    --&gt; 244 ms
 </pre></div>
 </div>
 </section>
+<section id="faster-compiler">
+<span id="index-6"></span><h2>Faster Compiler<a class="headerlink" href="#faster-compiler" title="Permalink to this heading"></a></h2>
+<p>This release provides better performance when compiling large projects</p>
+<p>These projects could have huge number of classes and methods</p>
+<p>For example, PWCT2 compile time is reduced from 1100 ms to 790 ms</p>
+<p>Also, SoftanzaLib compile time is reduced from five seconds to one second</p>
+</section>
 <section id="foreach-keyword">
-<span id="index-6"></span><h2>ForEach Keyword<a class="headerlink" href="#foreach-keyword" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>ForEach Keyword<a class="headerlink" href="#foreach-keyword" title="Permalink to this heading"></a></h2>
 <p>This release support using the ForEach keyword in For-in loops</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span>
@@ -335,7 +344,7 @@ Time using Ring 1.20    --&gt; 244 ms
 </div>
 </section>
 <section id="more-improvements">
-<span id="index-7"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>AddAttribute() - Produce runtime error if the attribute is already defined</p></li>
 <li><p>AddMethod() - Produce runtime error if the method is already defined</p></li>

@@ -19,6 +19,7 @@ Ring 1.21 comes with the next features!
 * RingPDFGen Extension
 * Faster Function Call
 * Faster Arithmetic Operations
+* Faster Compiler
 * ForEach Keyword
 * More Improvements
 
@@ -159,6 +160,20 @@ Results:
 	Time using Python 2.7	--> 108 ms
 	Time using Harbour 3.2	--> 110 ms
 	Time using Ring 1.20	--> 244 ms
+
+.. index:: 
+	pair: What is new in Ring  1.21; Faster Compiler
+
+Faster Compiler
+===============
+
+This release provides better performance when compiling large projects
+
+These projects could have huge number of classes and methods
+
+For example, PWCT2 compile time is reduced from 1100 ms to 790 ms 
+
+Also, SoftanzaLib compile time is reduced from five seconds to one second
 
 .. index:: 
 	pair: What is new in Ring  1.21; ForEach Keyword
