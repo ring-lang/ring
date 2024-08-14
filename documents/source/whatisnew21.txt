@@ -17,6 +17,8 @@ Ring 1.21 comes with the next features!
 
 * Lectures Tracker application
 * RingPDFGen Extension
+* Faster Function Call
+* Faster Arithmetic Operations
 * ForEach Keyword
 * More Improvements
 
@@ -86,6 +88,66 @@ Output:
 
 .. image:: PDFGen.png
 	:alt: PDFGen
+
+
+.. index:: 
+	pair: What is new in Ring  1.21; Faster Function Call
+
+Faster Function Call
+====================
+
+We improved how Ring VM manage the functions scope/arguments through pre-allocation to provide performance improvements. 
+
+As a result, the stars animation sample works at 5400 FPS (instead of 2350 FPS in Ring 1.20) 
+
+.. image:: ring21stars.png
+	:alt: Stars
+
+The waving cubes sample works at 170 FPS (instead of 40 FPS in Ring 1.20)
+
+This is faster than the Python 3.11 version which works at 85 FPS
+
+.. image:: ring21waving.png
+	:alt: Waving Cubes
+
+.. index:: 
+	pair: What is new in Ring  1.21; Faster Arithmetic Operations
+
+Faster Arithmetic Operations
+============================
+
+We introduced some new VM instructions that merge common instructions into one.
+
+This lead to speed improvements with respect to arithmetic operations.
+
+Example:
+
+.. code-block:: ring
+
+	decimals(3)
+	t1=clock()
+	for t=1 to 1_000_000 r=max(t,t*2) next
+	t2 = clock()
+	? r
+	? (t2-t1)/clockspersecond()
+
+Output:
+
+.. code-block:: ring
+
+	2000000
+	0.073
+
+Results:
+
+.. code-block:: none
+
+	Time using Ring 1.21	--> 73 ms
+	Time using Python 3.11	--> 83 ms
+	Time using VFP 9.0 SP2	--> 94 ms
+	Time using Python 2.7	--> 108 ms
+	Time using Harbour 3.2	--> 110 ms
+	Time using Ring 1.20	--> 244 ms
 
 .. index:: 
 	pair: What is new in Ring  1.21; ForEach Keyword
