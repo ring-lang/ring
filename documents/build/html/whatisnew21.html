@@ -276,9 +276,23 @@
 <span id="index-4"></span><h2>Faster Function Call<a class="headerlink" href="#faster-function-call" title="Permalink to this heading"></a></h2>
 <p>We improved how Ring VM manage the functions scope/arguments through pre-allocation to provide performance improvements.</p>
 <p>As a result, the stars animation sample works at 5400 FPS (instead of 2350 FPS in Ring 1.20)</p>
+<p>Results:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Ring 1.21 --&gt; 5400 FPS
+Ring 1.20 --&gt; 2350 FPS
+Ring 1.19 --&gt; 2350 FPS
+Ring 1.18 --&gt; 500  FPS
+</pre></div>
+</div>
 <img alt="Stars" src="_images/ring21stars.png" />
 <p>The waving cubes sample works at 170 FPS (instead of 40 FPS in Ring 1.20)</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>This is faster than the Python 3.11 version which works at 85 FPS</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The C version of this sample works at 480 FPS</p>
+</div>
 <img alt="Waving Cubes" src="_images/ring21waving.png" />
 </section>
 <section id="faster-arithmetic-operations">

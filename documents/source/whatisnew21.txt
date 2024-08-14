@@ -100,12 +100,23 @@ We improved how Ring VM manage the functions scope/arguments through pre-allocat
 
 As a result, the stars animation sample works at 5400 FPS (instead of 2350 FPS in Ring 1.20) 
 
+Results:
+
+.. code-block:: none
+
+	Ring 1.21 --> 5400 FPS
+	Ring 1.20 --> 2350 FPS
+	Ring 1.19 --> 2350 FPS
+	Ring 1.18 --> 500  FPS
+
 .. image:: ring21stars.png
 	:alt: Stars
 
 The waving cubes sample works at 170 FPS (instead of 40 FPS in Ring 1.20)
 
-This is faster than the Python 3.11 version which works at 85 FPS
+.. tip:: This is faster than the Python 3.11 version which works at 85 FPS
+
+.. note:: The C version of this sample works at 480 FPS
 
 .. image:: ring21waving.png
 	:alt: Waving Cubes
