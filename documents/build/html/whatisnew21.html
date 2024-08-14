@@ -175,7 +175,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#faster-compiler">Faster Compiler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reducing-memory-usage">Reducing Memory Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#foreach-keyword">ForEach Keyword</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#better-support-for-operator-overloading">Better Support for Operator Overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-operator-overloading">Better Operator Overloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#new-vm-instructions">New VM Instructions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
 </li>
@@ -224,7 +225,8 @@
 <li><p>Faster Compiler</p></li>
 <li><p>Reducing Memory Usage</p></li>
 <li><p>ForEach Keyword</p></li>
-<li><p>Better Support for Operator Overloading</p></li>
+<li><p>Better Operator Overloading</p></li>
+<li><p>New VM Instructions</p></li>
 <li><p>More Improvements</p></li>
 </ul>
 </section>
@@ -358,8 +360,8 @@ Time using Ring 1.20    --&gt; 244 ms
 </pre></div>
 </div>
 </section>
-<section id="better-support-for-operator-overloading">
-<span id="index-9"></span><h2>Better Support for Operator Overloading<a class="headerlink" href="#better-support-for-operator-overloading" title="Permalink to this heading"></a></h2>
+<section id="better-operator-overloading">
+<span id="index-9"></span><h2>Better Operator Overloading<a class="headerlink" href="#better-operator-overloading" title="Permalink to this heading"></a></h2>
 <p>We support operator overloading from the first release of the Ring language</p>
 <p>When using an object inside an expression and this object define the operator method, this
 method will be called if the object comes first.</p>
@@ -438,8 +440,29 @@ method will be called but the letter ‘r’ will comes before the operator (i.e
 <p>the numbers(3,6,11) are the result of applying the function f to the list items [1,2,3]</p>
 </div>
 </section>
+<section id="new-vm-instructions">
+<span id="index-10"></span><h2>New VM Instructions<a class="headerlink" href="#new-vm-instructions" title="Permalink to this heading"></a></h2>
+<p>The next instructions are added to the Ring Virtual Machine</p>
+<ul class="simple">
+<li><p>ICO_STEPFROMREG - Set the For-Loop step value</p></li>
+<li><p>ICO_PUSHNL - Push new line to the stack</p></li>
+<li><p>ICO_LISTITEMN - Add number to the current list</p></li>
+<li><p>ICO_LISTITEMC - Add string to the current list</p></li>
+<li><p>ICO_RETURNN - Return a number from a function</p></li>
+<li><p>ICO_PUSHARG - Quickly access function arguments</p></li>
+</ul>
+<p>Also, we added the next arithmetic instructions</p>
+<ul class="simple">
+<li><p>ICO_SUMN</p></li>
+<li><p>ICO_SUBN</p></li>
+<li><p>ICO_MULN</p></li>
+<li><p>ICO_DIVN</p></li>
+<li><p>ICO_MODN</p></li>
+<li><p>ICO_POWN</p></li>
+</ul>
+</section>
 <section id="more-improvements">
-<span id="index-10"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>AddAttribute() - Produce runtime error if the attribute is already defined</p></li>
 <li><p>AddMethod() - Produce runtime error if the method is already defined</p></li>
@@ -453,17 +476,7 @@ method will be called but the letter ‘r’ will comes before the operator (i.e
 <li><p>Ring Compiler - ICO_SETPROPERTY - No arguments are required</p></li>
 <li><p>Ring Compiler - ICO_NEWLINE instruction - Check if the previous instruction is ICO_NEWLINE</p></li>
 <li><p>Ring Compiler - Don’t use ICO_BEFOREEQUAL instruction for the common case (Equal)</p></li>
-<li><p>Ring Compiler - Better performance when compiling projects with many classes</p></li>
-<li><p>Ring Compiler - Better performance when compiling projects with many methods</p></li>
 <li><p>Ring Compiler - Don’t pass spaces inside multi-characters operators</p></li>
-<li><p>Ring Compiler/VM - Added ICO_PUSHNL instruction - Push new line to the stack</p></li>
-<li><p>Ring Compiler/VM - Added ICO_LISTITEMN instruction - Add number to the current list</p></li>
-<li><p>Ring Compiler/VM - Added ICO_LISTITEMC instruction - Add string to the current list</p></li>
-<li><p>Ring Compiler/VM - Added ICO_STEPFROMREG instruction</p></li>
-<li><p>Ring Compiler/VM - Added ICO_RETURNN instruction to return a number from a function</p></li>
-<li><p>Ring Compiler/VM - Added ICO_SUMN, ICO_SUBN, ICO_MULN, ICO_DIVN, ICO_MODN and ICO_POWN instructions</p></li>
-<li><p>Ring Compiler/VM - Added ICO_PUSHARG instruction to quickly access function arguments</p></li>
-<li><p>Ring Compiler/VM - Better support for operator overloading</p></li>
 <li><p>Ring Compiler/VM - String structure - Store small strings in the structure</p></li>
 <li><p>Ring VM - Better support for list items of new objects when using lists during defintion</p></li>
 <li><p>Ring VM - List() function - Use blocks only if the list size is greater than 30 items</p></li>

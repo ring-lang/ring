@@ -22,7 +22,8 @@ Ring 1.21 comes with the next features!
 * Faster Compiler
 * Reducing Memory Usage
 * ForEach Keyword
-* Better Support for Operator Overloading
+* Better Operator Overloading
+* New VM Instructions
 * More Improvements
 
 .. index:: 
@@ -209,10 +210,10 @@ Example:
 	Next
 
 .. index:: 
-	pair: What is new in Ring  1.21; Better Support for Operator Overloading
+	pair: What is new in Ring  1.21; Better Operator Overloading
 
-Better Support for Operator Overloading
-=======================================
+Better Operator Overloading
+===========================
 
 We support operator overloading from the first release of the Ring language
 
@@ -299,6 +300,30 @@ Output:
 
 
 .. index:: 
+	pair: What is new in Ring  1.21; New VM Instructions
+
+New VM Instructions
+===================
+
+The next instructions are added to the Ring Virtual Machine
+
+* ICO_STEPFROMREG - Set the For-Loop step value
+* ICO_PUSHNL - Push new line to the stack
+* ICO_LISTITEMN - Add number to the current list
+* ICO_LISTITEMC - Add string to the current list
+* ICO_RETURNN - Return a number from a function
+* ICO_PUSHARG - Quickly access function arguments
+
+Also, we added the next arithmetic instructions
+
+* ICO_SUMN
+* ICO_SUBN
+* ICO_MULN
+* ICO_DIVN
+* ICO_MODN
+* ICO_POWN
+
+.. index:: 
 	pair: What is new in Ring  1.21; More Improvements
 
 More Improvements
@@ -316,17 +341,7 @@ More Improvements
 * Ring Compiler - ICO_SETPROPERTY - No arguments are required
 * Ring Compiler - ICO_NEWLINE instruction - Check if the previous instruction is ICO_NEWLINE
 * Ring Compiler - Don't use ICO_BEFOREEQUAL instruction for the common case (Equal)
-* Ring Compiler - Better performance when compiling projects with many classes
-* Ring Compiler - Better performance when compiling projects with many methods
 * Ring Compiler - Don't pass spaces inside multi-characters operators 
-* Ring Compiler/VM - Added ICO_PUSHNL instruction - Push new line to the stack
-* Ring Compiler/VM - Added ICO_LISTITEMN instruction - Add number to the current list
-* Ring Compiler/VM - Added ICO_LISTITEMC instruction - Add string to the current list
-* Ring Compiler/VM - Added ICO_STEPFROMREG instruction
-* Ring Compiler/VM - Added ICO_RETURNN instruction to return a number from a function
-* Ring Compiler/VM - Added ICO_SUMN, ICO_SUBN, ICO_MULN, ICO_DIVN, ICO_MODN and ICO_POWN instructions
-* Ring Compiler/VM - Added ICO_PUSHARG instruction to quickly access function arguments
-* Ring Compiler/VM - Better support for operator overloading
 * Ring Compiler/VM - String structure - Store small strings in the structure
 * Ring VM - Better support for list items of new objects when using lists during defintion 
 * Ring VM - List() function - Use blocks only if the list size is greater than 30 items 
