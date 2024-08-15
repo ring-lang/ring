@@ -546,6 +546,7 @@ List * ring_vm_savestack ( VM *pVM )
 {
 	int nSP  ;
 	List *pList, *pList2  ;
+	Item *pItem  ;
 	nSP = pVM->nSP ;
 	/* Create List */
 	pList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
@@ -560,6 +561,8 @@ List * ring_vm_savestack ( VM *pVM )
 			pList2 = ring_list_newlist_gc(pVM->pRingState,pList);
 			ring_list_addpointer_gc(pVM->pRingState,pList2,RING_VM_STACK_READP);
 			ring_list_addint_gc(pVM->pRingState,pList2,RING_VM_STACK_OBJTYPE);
+			pItem = ring_list_getitem(pList,ring_list_getsize(pList));
+			pItem->lAssignment = RING_VM_STACK_ASSIGNMENTFLAG ;
 		}
 		RING_VM_STACK_POP ;
 	}
@@ -571,6 +574,7 @@ void ring_vm_restorestack ( VM *pVM,List *pList )
 {
 	int x  ;
 	List *pList2  ;
+	Item *pItem  ;
 	if ( ring_list_getsize(pList) == 0 ) {
 		return ;
 	}
@@ -586,6 +590,8 @@ void ring_vm_restorestack ( VM *pVM,List *pList )
 			pList2 = ring_list_getlist(pList,x);
 			RING_VM_STACK_PUSHPVALUE(ring_list_getpointer(pList2,RING_STACKLIST_POINTER));
 			RING_VM_STACK_OBJTYPE = ring_list_getint(pList2,RING_STACKLIST_OBJTYPE) ;
+			pItem = ring_list_getitem(pList,x);
+			RING_VM_STACK_ASSIGNMENTFLAG = pItem->lAssignment ;
 		}
 	}
 }
