@@ -54,13 +54,11 @@ ring_vm_savestack
 Type: int
 nSP
 Type: List *
-pList, *pList2
+pList
 Type: Item *
 pItem
 ring_vm_restorestack
 Type: int
 x
-Type: List *
-pList2
 Type: Item *
 pItem

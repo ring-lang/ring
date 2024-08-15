@@ -545,7 +545,7 @@ void ring_vm_backstate ( VM *pVM,List *pList,int nToSize )
 List * ring_vm_savestack ( VM *pVM )
 {
 	int nSP  ;
-	List *pList, *pList2  ;
+	List *pList  ;
 	Item *pItem  ;
 	nSP = pVM->nSP ;
 	/* Create List */
@@ -558,10 +558,9 @@ List * ring_vm_savestack ( VM *pVM )
 			ring_list_adddouble_gc(pVM->pRingState,pList,RING_VM_STACK_READN);
 		}
 		else if ( RING_VM_STACK_ISPOINTER ) {
-			pList2 = ring_list_newlist_gc(pVM->pRingState,pList);
-			ring_list_addpointer_gc(pVM->pRingState,pList2,RING_VM_STACK_READP);
-			ring_list_addint_gc(pVM->pRingState,pList2,RING_VM_STACK_OBJTYPE);
+			ring_list_addpointer_gc(pVM->pRingState,pList,RING_VM_STACK_READP);
 			pItem = ring_list_getitem(pList,ring_list_getsize(pList));
+			pItem->nObjectType = RING_VM_STACK_OBJTYPE ;
 			pItem->lAssignment = RING_VM_STACK_ASSIGNMENTFLAG ;
 		}
 		RING_VM_STACK_POP ;
@@ -573,7 +572,6 @@ List * ring_vm_savestack ( VM *pVM )
 void ring_vm_restorestack ( VM *pVM,List *pList )
 {
 	int x  ;
-	List *pList2  ;
 	Item *pItem  ;
 	if ( ring_list_getsize(pList) == 0 ) {
 		return ;
@@ -586,11 +584,10 @@ void ring_vm_restorestack ( VM *pVM,List *pList )
 		else if ( ring_list_isnumber(pList,x) ) {
 			RING_VM_STACK_PUSHNVALUE(ring_list_getdouble(pList,x));
 		}
-		else if ( ring_list_islist(pList,x) ) {
-			pList2 = ring_list_getlist(pList,x);
-			RING_VM_STACK_PUSHPVALUE(ring_list_getpointer(pList2,RING_STACKLIST_POINTER));
-			RING_VM_STACK_OBJTYPE = ring_list_getint(pList2,RING_STACKLIST_OBJTYPE) ;
+		else if ( ring_list_ispointer(pList,x) ) {
+			RING_VM_STACK_PUSHPVALUE(ring_list_getpointer(pList,x));
 			pItem = ring_list_getitem(pList,x);
+			RING_VM_STACK_OBJTYPE = pItem->nObjectType ;
 			RING_VM_STACK_ASSIGNMENTFLAG = pItem->lAssignment ;
 		}
 	}
