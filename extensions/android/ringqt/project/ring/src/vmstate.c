@@ -550,7 +550,7 @@ List * ring_vm_savestack ( VM *pVM )
 	nSP = pVM->nSP ;
 	/* Create List */
 	pList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
-	while ( pVM->nSP  != 0 ) {
+	while ( pVM->nSP  != RING_ZERO ) {
 		if ( RING_VM_STACK_ISSTRING ) {
 			ring_list_addstring2_gc(pVM->pRingState,pList,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
 		}
@@ -573,11 +573,11 @@ void ring_vm_restorestack ( VM *pVM,List *pList )
 {
 	int x  ;
 	Item *pItem  ;
-	if ( ring_list_getsize(pList) == 0 ) {
+	pVM->nSP = RING_ZERO ;
+	if ( ring_list_getsize(pList) == RING_ZERO ) {
 		return ;
 	}
-	pVM->nSP = 0 ;
-	for ( x = ring_list_getsize(pList) ; x >= 1 ; x-- ) {
+	for ( x = ring_list_getsize(pList) ; x >= RING_ONE ; x-- ) {
 		if ( ring_list_isstring(pList,x) ) {
 			RING_VM_STACK_PUSHCVALUE2(ring_list_getstring(pList,x),ring_list_getstringsize(pList,x));
 		}
