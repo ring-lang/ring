@@ -301,6 +301,7 @@
 	#define RING_VM_IR_GETSMALLINTREG pVM->pByteCodeIR->nSmallIntReg
 	#define RING_VM_IR_SETINTREGATINS(nIns,nValue) (pVM->pByteCode + nIns)->nIntReg = nValue
 	#define RING_VM_IR_INTATINS(nIns) (pVM->pByteCode + nIns)->nIntReg
+	#define RING_VM_PUSHNTHENJUMP RING_VM_STACK_PUSHN; pVM->nPC = pVM->pByteCodeIR->aReg[1].iNumber
 	/*
 	**  Calling Functions 
 	**  Note : When you insert items check performance functions for update too! 

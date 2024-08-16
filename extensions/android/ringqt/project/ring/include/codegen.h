@@ -21,6 +21,7 @@
 		ICO_JUMPZERO2 ,
 		ICO_JUMPONE2 ,
 		ICO_PUSHNULLTHENJUMP ,
+		ICO_PUSHNTHENJUMP ,
 		/* Variables */
 		ICO_LOADADDRESS ,
 		ICO_ASSIGNMENT ,
@@ -151,7 +152,7 @@
 	/* Operations Text (Array) */
 	static const char * RING_IC_OP[] = {"NewLine","FileName",
 	"Class","Func","Dup","New","Private","NewLabel",
-	"Jump","JumpZ","Jump1","JumpFor","JumpZero2","JumpOne2","PushNullThenJump",
+	"Jump","JumpZ","Jump1","JumpFor","JumpZero2","JumpOne2","PushNullThenJump","PushNThenJump",
 	"LoadA","Assignment","LoadSA","LoadIA","LoadAPushV","==","<",">","!=","<=",">=",
 	"PushC","PushNL","PushN","Push2N","PushV","PushP","PushPV","PushPLocal","PushArg",
 	"Sum","Sub","Mul","Div","Mod","Negative","Inc","IncP","Pow","SumN","SubN","MulN","DivN",

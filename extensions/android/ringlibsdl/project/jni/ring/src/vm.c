@@ -799,6 +799,9 @@ void ring_vm_execute ( VM *pVM )
 		case ICO_PUSHNULLTHENJUMP :
 			RING_VM_PUSHNULLTHENJUMP ;
 			break ;
+		case ICO_PUSHNTHENJUMP :
+			RING_VM_PUSHNTHENJUMP ;
+			break ;
 		/* Compare */
 		case ICO_LESSEQUAL :
 			ring_vm_lessequal(pVM);
