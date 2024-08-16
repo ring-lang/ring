@@ -313,6 +313,7 @@ The next instructions are added to the Ring Virtual Machine
 * ICO_LISTITEMC - Add string to the current list
 * ICO_RETURNN - Return a number from a function
 * ICO_PUSHARG - Quickly access function arguments
+* ICO_PUSHNTHENJUMP - Push number to the stack then jump
 
 Also, we added the next arithmetic instructions
 

@@ -661,6 +661,7 @@ ICO_JUMPONE		If Stack[nSize] is a number = 1 then Set PC to new value from the I
 ICO_JUMPZERO2		As ICO_JUMPZERO but add 1 to the stack (required for many 'AND' conditions)
 ICO_JUMPONE2		As ICO_JUMPONE but add 1 to the stack (required for many 'OR' conditions)
 ICO_PUSHNULLTHENJUMP	Add NULL string to the Stack then set the PC to a new value from the IR
+ICO_PUSHNTHENJUMP	Add number from REG1 to the Stack then set the PC to a new value from REG2
 =======================	============================================================================
 
 (Compare)
