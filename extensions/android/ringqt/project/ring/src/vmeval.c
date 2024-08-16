@@ -73,8 +73,12 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 			if ( lUpdate ) {
 				pIR = ring_list_getlist(pVM->pCode,x);
 				nIns = ring_list_getint(pIR,RING_PARSER_ICG_OPERATIONCODE) ;
-				if ( (nIns == ICO_RETURN) || (nIns == ICO_RETNULL) ) {
+				if ( nIns == ICO_RETURN ) {
 					ring_list_setint_gc(pVM->pRingState,pIR,RING_PARSER_ICG_OPERATIONCODE,ICO_JUMP);
+					ring_list_addint_gc(pVM->pRingState,pIR,nMark);
+				}
+				else if ( nIns == ICO_RETNULL ) {
+					ring_list_setint_gc(pVM->pRingState,pIR,RING_PARSER_ICG_OPERATIONCODE,ICO_PUSHNULLTHENJUMP);
 					ring_list_addint_gc(pVM->pRingState,pIR,nMark);
 				}
 				else if ( (nIns == ICO_NEWFUNC) || (nIns == ICO_NEWCLASS) ) {
