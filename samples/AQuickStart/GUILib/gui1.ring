@@ -1,31 +1,31 @@
-Load "guilib.ring"
+load "guilib.ring"
 
-MyApp = New qApp {
+oApp = new QApp {
 
-        win1 = new qWidget() {
+        win = new QWidget() {
 
-                setwindowtitle("Hello World")
+                setWindowTitle("Hello World")
                 setGeometry(100,100,370,250)
 
-                label1 = new qLabel(win1) {
-                        settext("What is your name ?")
+                lbl1 = new QLabel(win) {
+                        setText("What is your name ?")
                         setGeometry(10,20,350,30)
-                        setalignment(Qt_AlignHCenter)
+                        setAlignment(Qt_AlignHCenter)
                 }
 
-                btn1 = new qpushbutton(win1) {
+                btn1 = new QPushButton(win) {
                         setGeometry(10,200,100,30)
-                        settext("Say Hello")
-                        setclickevent("pHello()")
+                        setText("Say Hello")
+                        setClickEvent("pHello()")
                 }
 
-                btn2 = new qpushbutton(win1) {
+                btn2 = new qpushbutton(win) {
                         setGeometry(150,200,100,30)
-                        settext("Close")
-                        setclickevent("pClose()")
+                        setText("Close")
+                        setClickEvent("pClose()")
                 }
 
-                lineedit1 = new qlineedit(win1) {
+                lineedit1 = new QLineEdit(win) {
                         setGeometry(10,100,350,30)
                 }
 
@@ -35,8 +35,8 @@ MyApp = New qApp {
         exec()
 }
 
-Func pHello
-        lineedit1.settext( "Hello " + lineedit1.text())
+func pHello
+        lineedit1.setText( "Hello " + lineedit1.text())
 
-Func pClose
-        MyApp.quit()
+func pClose
+        oApp.quit()
