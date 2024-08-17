@@ -104,6 +104,7 @@ Contents:
    RingOpenGL (OpenGL 3.2) Functions Reference <ringopengl32funcsdoc>
    RingQt Classes and Methods Reference <qtclassesdoc>
    Using FastPro Extension <usingfastpro>
+   Using RingPDFGen Extension <usingringpdfgen>
    Using References <usingref>
    Low Level Functions <lowlevel>
    Tutorial: Ring Extensions in C/C++  <extension_tutorial>

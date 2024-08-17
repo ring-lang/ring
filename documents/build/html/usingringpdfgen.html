@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Search &mdash; Ring 1.21 documentation</title>
+  <title>Using RingPDFGen &mdash; Ring 1.21 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
-    
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -18,10 +18,10 @@
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
-    <script src="_static/searchtools.js"></script>
-    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Using References" href="usingref.html" />
+    <link rel="prev" title="Using FastPro" href="usingfastpro.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -37,14 +37,14 @@
               <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
           </a>
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
@@ -138,7 +138,12 @@
 <li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usingfastpro.html">Using FastPro Extension</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usingringpdfgen.html">Using RingPDFGen Extension</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using RingPDFGen Extension</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#constants">Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="usingref.html">Using References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
@@ -190,7 +195,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Search</li>
+      <li class="breadcrumb-item active">Using RingPDFGen</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -199,22 +204,150 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search functionality.
-    </p>
-  </div>
-  </noscript>
+  <section id="using-ringpdfgen">
+<span id="index-0"></span><h1>Using RingPDFGen<a class="headerlink" href="#using-ringpdfgen" title="Permalink to this heading"></a></h1>
+<p>In this chapter we will learn about Using the RingPDFGen extension.</p>
+<p>This extension is added to the Ring language starting from Ring 1.21.</p>
+<p>Contents:</p>
+<ul class="simple">
+<li><p>Example</p></li>
+<li><p>Constants</p></li>
+<li><p>Functions</p></li>
+</ul>
+<section id="example">
+<span id="index-1"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this heading"></a></h2>
+<p>The next source code generate a PDF file using RingPDFGen extension</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;pdfgen.ring&quot;</span>
 
-  
-  <div id="search-results">
-  
-  </div>
+<span class="n">cPDFFileName</span> <span class="o">=</span> <span class="s">&quot;output.pdf&quot;</span>
+
+<span class="n">pdf</span> <span class="o">=</span> <span class="n">pdf_create</span><span class="p">(</span><span class="n">PDF_A4_WIDTH</span><span class="p">,</span> <span class="n">PDF_A4_HEIGHT</span><span class="p">,</span> <span class="o">[</span>
+        <span class="p">:</span><span class="n">creator</span>  <span class="o">=</span> <span class="s">&quot;My software&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">producer</span> <span class="o">=</span> <span class="s">&quot;My software&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">title</span>    <span class="o">=</span> <span class="s">&quot;My document&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">author</span>   <span class="o">=</span> <span class="s">&quot;My name&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">subject</span>  <span class="o">=</span> <span class="s">&quot;My subject&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">date</span>     <span class="o">=</span> <span class="s">&quot;Today&quot;</span>
+<span class="o">]</span> <span class="p">)</span>
+
+<span class="n">pdf_set_font</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="s">&quot;Times-Roman&quot;</span><span class="p">)</span>
+<span class="n">pdf_append_page</span><span class="p">(</span><span class="n">pdf</span><span class="p">)</span>
+
+<span class="n">pdf_add_text</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">,</span> <span class="s">&quot;This is text&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">PDF_BLACK</span><span class="p">)</span>
+<span class="n">pdf_add_line</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">pdf_add_text</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">,</span> <span class="s">&quot;This is text&quot;</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">PDF_BLUE</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">30</span>
+        <span class="n">pdf_add_text</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">,</span> <span class="s">&quot;Number: &quot;</span> <span class="o">+</span> <span class="n">t</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">50</span><span class="o">+</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">t</span><span class="p">),</span> <span class="n">PDF_RED</span><span class="p">)</span>
+<span class="k">next</span>
+
+<span class="n">pdf_add_text</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">,</span> <span class="s">&quot;I LOVE PROGRAMMING!&quot;</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span><span class="n">PDF_BLUE</span><span class="p">)</span>
+
+<span class="n">pdf_save</span><span class="p">(</span><span class="n">pdf</span><span class="p">,</span> <span class="n">cPDFFileName</span><span class="p">)</span>
+<span class="n">pdf_destroy</span><span class="p">(</span><span class="n">pdf</span><span class="p">)</span>
+
+<span class="n">system</span><span class="p">(</span><span class="n">cPDFFileName</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<img alt="PDFGen" src="_images/PDFGen.png" />
+</section>
+<section id="constants">
+<span id="index-2"></span><h2>Constants<a class="headerlink" href="#constants" title="Permalink to this heading"></a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>IMAGE_PNG
+IMAGE_JPG
+IMAGE_PPM
+IMAGE_BMP
+IMAGE_UNKNOWN
+
+PNG_COLOR_GREYSCALE
+PNG_COLOR_RGB
+PNG_COLOR_INDEXED
+PNG_COLOR_GREYSCALE_A
+PNG_COLOR_RGBA
+PNG_COLOR_INVALID
+
+PPM_BINARY_COLOR_RGB
+PPM_BINARY_COLOR_GRAY
+
+PDF_LETTER_WIDTH
+PDF_LETTER_HEIGHT
+PDF_A4_WIDTH
+PDF_A4_HEIGHT
+PDF_A3_WIDTH
+PDF_A3_HEIGHT
+PDF_RED
+PDF_GREEN
+PDF_BLUE
+PDF_BLACK
+PDF_WHITE
+PDF_TRANSPARENT
+PDF_ALIGN_LEFT
+PDF_ALIGN_RIGHT
+PDF_ALIGN_CENTER
+PDF_ALIGN_JUSTIFY
+PDF_ALIGN_JUSTIFY_ALL
+PDF_ALIGN_NO_WRITE
+</pre></div>
+</div>
+</section>
+<section id="functions">
+<span id="index-3"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>struct pdf_doc *pdf_create@2(float width, float height,const struct pdf_info *info)
+void pdf_destroy(struct pdf_doc *pdf)
+
+const char *pdf_get_err(const struct pdf_doc *pdf, int *errval)
+void pdf_clear_err(struct pdf_doc *pdf)
+
+int pdf_set_font(struct pdf_doc *pdf, const char *font)
+int pdf_get_font_text_width(struct pdf_doc *pdf, const char *font_name,const char *text, float size, float *text_width);
+
+float pdf_height(const struct pdf_doc *pdf)
+float pdf_width(const struct pdf_doc *pdf)
+float pdf_page_height(const struct pdf_object *page)
+float pdf_page_width(const struct pdf_object *page)
+struct pdf_object *pdf_append_page(struct pdf_doc *pdf)
+struct pdf_object *pdf_get_page(struct pdf_doc *pdf, int page_number)
+int pdf_page_set_size(struct pdf_doc *pdf, struct pdf_object *page,float width, float height)
+
+int pdf_save(struct pdf_doc *pdf, const char *filename)
+int pdf_save_file(struct pdf_doc *pdf, FILE *fp)
+
+int pdf_add_text(struct pdf_doc *pdf, struct pdf_object *page,const char *text, float size, float xoff, float yoff,uint32_t colour)
+int pdf_add_text_rotate(struct pdf_doc *pdf, struct pdf_object *page,const char *text, float size, float xoff, float yoff,float angle, uint32_t colour)
+int pdf_add_text_wrap(struct pdf_doc *pdf, struct pdf_object *page,const char *text, float size, float xoff, float yoff,float angle, uint32_t colour, float wrap_width,int align, float *height)
+
+int pdf_add_line(struct pdf_doc *pdf, struct pdf_object *page, float x1,float y1, float x2, float y2, float width, uint32_t colour)
+int pdf_add_cubic_bezier(struct pdf_doc *pdf, struct pdf_object *page,float x1, float y1, float x2, float y2, float xq1,float yq1, float xq2, float yq2, float width,uint32_t colour)
+int pdf_add_quadratic_bezier(struct pdf_doc *pdf, struct pdf_object *page,float x1, float y1, float x2, float y2,float xq1, float yq1, float width,uint32_t colour)
+int pdf_add_custom_path(struct pdf_doc *pdf, struct pdf_object *page,const struct pdf_path_operation *operations,int operation_count, float stroke_width,uint32_t stroke_colour, uint32_t fill_colour)
+int pdf_add_ellipse(struct pdf_doc *pdf, struct pdf_object *page, float x,float y, float xradius, float yradius, float width,uint32_t colour, uint32_t fill_colour)
+int pdf_add_circle(struct pdf_doc *pdf, struct pdf_object *page, float x,float y, float radius, float width, uint32_t colour,uint32_t fill_colour)
+int pdf_add_rectangle(struct pdf_doc *pdf, struct pdf_object *page, float x,float y, float width, float height, float border_width,uint32_t colour)
+int pdf_add_filled_rectangle(struct pdf_doc *pdf, struct pdf_object *page,float x, float y, float width, float height,float border_width, uint32_t colour_fill,uint32_t colour_border)
+
+int pdf_add_bookmark(struct pdf_doc *pdf, struct pdf_object *page, int parent,const char *name)
+int pdf_add_link(struct pdf_doc *pdf, struct pdf_object *page, float x,float y, float width, float height,struct pdf_object *target_page, float target_x,float target_y)
+int pdf_add_barcode(struct pdf_doc *pdf, struct pdf_object *page, int code,float x, float y, float width, float height,const char *string, uint32_t colour)
+int pdf_add_image_data(struct pdf_doc *pdf, struct pdf_object *page, float x,float y, float display_width, float display_height,const uint8_t *data, size_t len)
+int pdf_add_rgb24(struct pdf_doc *pdf, struct pdf_object *page, float x,float y, float display_width, float display_height,const uint8_t *data, uint32_t width, uint32_t height)
+int pdf_add_grayscale8(struct pdf_doc *pdf, struct pdf_object *page, float x,float y, float display_width, float display_height,const uint8_t *data, uint32_t width, uint32_t height)
+int pdf_add_image_file(struct pdf_doc *pdf, struct pdf_object *page, float x,float y, float display_width, float display_height,const char *image_filename)
+int pdf_parse_image_header(struct pdf_img_info *info, const uint8_t *data,size_t length, char *err_msg,size_t err_msg_length)
+uint32_t PDF_RGB(int r, int g, int b)
+uint32_t PDF_ARGB(int r, int g, int b, int a)
+</pre></div>
+</div>
+</section>
+</section>
+
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="usingfastpro.html" class="btn btn-neutral float-left" title="Using FastPro" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="usingref.html" class="btn btn-neutral float-right" title="Using References" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 
@@ -236,14 +369,7 @@
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(false);
       });
-  </script>
-  <script>
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script id="searchindexloader"></script>
-   
-
+  </script> 
 
 </body>
 </html>
