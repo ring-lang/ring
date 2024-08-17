@@ -330,6 +330,7 @@ Also, we added the next arithmetic instructions
 More Improvements
 =================
 
+* Ring Notepad - Toolbar - Better icons
 * AddAttribute() - Produce runtime error if the attribute is already defined
 * AddMethod() - Produce runtime error if the method is already defined
 * RingInternetLib - Set CURLOPT_USERAGENT in Download() function
