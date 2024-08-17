@@ -357,7 +357,7 @@ the Ring programming language.</p>
 <li><p>For in Loop</p></li>
 </ul>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">identifier</span> <span class="k">in</span> <span class="kt">List</span><span class="o">/</span><span class="kt">String</span>  <span class="o">[</span><span class="k">step</span> <span class="n">expression</span><span class="o">]</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="o">|</span><span class="k">foreach</span> <span class="n">identifier</span> <span class="k">in</span> <span class="kt">List</span><span class="o">/</span><span class="kt">String</span>  <span class="o">[</span><span class="k">step</span> <span class="n">expression</span><span class="o">]</span>
         <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
 <span class="k">next</span>
 </pre></div>
@@ -366,6 +366,10 @@ the Ring programming language.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span>    <span class="c"># create list contains numbers from 1 to 10</span>
 <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span>  <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>  <span class="k">next</span>  <span class="c"># print numbers from 1 to 10</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We can use the ForEach keyword instead of the For keyword</p>
 </div>
 </section>
 <section id="using-the-step-option-with-for-in">
