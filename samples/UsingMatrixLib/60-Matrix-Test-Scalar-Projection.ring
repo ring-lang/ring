@@ -12,7 +12,7 @@
 //------------------------------------------------------------
   
 Load "stdlibcore.ring"
-Load package "MatrixLib.ring"
+Load "matrixlib.ring"
 
 //===========================
 

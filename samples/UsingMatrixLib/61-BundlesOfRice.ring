@@ -2,7 +2,7 @@
 // Bert Mariani 02024/05/01
  
 Load "stdlibcore.ring"
-Load "MatrixLib.ring"
+Load "matrixlib.ring"
 
 // 1. The yield of 1 bundle of inferior rice, 2 bundles of medium-grade rice,
 //    and 3 bundles of superior rice is 39 dou of grain.
