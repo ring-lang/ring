@@ -996,22 +996,25 @@ write(cFileName,cString)
 <tr class="row-odd"><td><p>ICO_RETNULL</p></td>
 <td><p>Return NULL from function</p></td>
 </tr>
-<tr class="row-even"><td><p>ICO_RETFROMEVAL</p></td>
+<tr class="row-even"><td><p>ICO_RETURNN</p></td>
+<td><p>Return Number (REG1) from function</p></td>
+</tr>
+<tr class="row-odd"><td><p>ICO_RETFROMEVAL</p></td>
 <td><p>Return after eval()</p></td>
 </tr>
-<tr class="row-odd"><td><p>ICO_RETITEMREF</p></td>
+<tr class="row-even"><td><p>ICO_RETITEMREF</p></td>
 <td><p>Return the list item reference - not the value</p></td>
 </tr>
-<tr class="row-even"><td><p>ICO_NEWFUNC</p></td>
+<tr class="row-odd"><td><p>ICO_NEWFUNC</p></td>
 <td><p>Start new function</p></td>
 </tr>
-<tr class="row-odd"><td><p>ICO_BLOCKFLAG</p></td>
+<tr class="row-even"><td><p>ICO_BLOCKFLAG</p></td>
 <td><p>Flag to determine where to jump later (after ICO_RETURN)</p></td>
 </tr>
-<tr class="row-even"><td><p>ICO_ANONYMOUS</p></td>
+<tr class="row-odd"><td><p>ICO_ANONYMOUS</p></td>
 <td><p>Anonymous function</p></td>
 </tr>
-<tr class="row-odd"><td><p>ICO_FREETEMPLISTS</p></td>
+<tr class="row-even"><td><p>ICO_FREETEMPLISTS</p></td>
 <td><p>Delete temp. lists</p></td>
 </tr>
 </tbody>
@@ -1073,16 +1076,19 @@ write(cFileName,cString)
 <tr class="row-even"><td><p>ICO_PUSHPLOCAL</p></td>
 <td><p>Push pointer to local variable</p></td>
 </tr>
-<tr class="row-odd"><td><p>ICO_INCLPJUMP</p></td>
+<tr class="row-odd"><td><p>ICO_PUSHARG</p></td>
+<td><p>Push pointer to argument variable using argument number (REG1)</p></td>
+</tr>
+<tr class="row-even"><td><p>ICO_INCLPJUMP</p></td>
 <td><p>Increment value using pointer to local variable then jump</p></td>
 </tr>
-<tr class="row-even"><td><p>ICO_INCPJUMPSTEP1</p></td>
+<tr class="row-odd"><td><p>ICO_INCPJUMPSTEP1</p></td>
 <td><p>Increment value using variable pointer then jump (for loop step = 1)</p></td>
 </tr>
-<tr class="row-odd"><td><p>ICO_INCLPJUMPSTEP1</p></td>
+<tr class="row-even"><td><p>ICO_INCLPJUMPSTEP1</p></td>
 <td><p>Increment value using local variable pointer then jump (for loop step = 1)</p></td>
 </tr>
-<tr class="row-even"><td><p>ICO_LEN</p></td>
+<tr class="row-odd"><td><p>ICO_LEN</p></td>
 <td><p>Remove list from the stack and push the list size</p></td>
 </tr>
 </tbody>

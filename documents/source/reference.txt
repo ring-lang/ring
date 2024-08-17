@@ -738,6 +738,7 @@ ICO_LOADFUNC		Find function
 ICO_CALL		Call function
 ICO_RETURN		Return from function
 ICO_RETNULL		Return NULL from function
+ICO_RETURNN		Return Number (REG1) from function
 ICO_RETFROMEVAL		Return after eval() 
 ICO_RETITEMREF		Return the list item reference - not the value
 ICO_NEWFUNC		Start new function
@@ -771,6 +772,7 @@ ICO_INCJUMP			Increment then jump
 ICO_INCPJUMP			Increment using pointer then jump
 ICO_LOADFUNCP			Push function pointer
 ICO_PUSHPLOCAL			Push pointer to local variable
+ICO_PUSHARG			Push pointer to argument variable using argument number (REG1)
 ICO_INCLPJUMP			Increment value using pointer to local variable then jump
 ICO_INCPJUMPSTEP1	 	Increment value using variable pointer then jump (for loop step = 1)
 ICO_INCLPJUMPSTEP1		Increment value using local variable pointer then jump (for loop step = 1)
