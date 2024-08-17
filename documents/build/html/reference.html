@@ -877,31 +877,49 @@ write(cFileName,cString)
 </thead>
 <tbody>
 <tr class="row-even"><td><p>ICO_SUM</p></td>
-<td><p>Stack[nSize-1] = Stack[nSize-1] + Stack[nSize] , POP stack[nSize]</p></td>
+<td><p>Stack[nSize-1] = Stack[nSize-1] +  Stack[nSize] , POP stack[nSize]</p></td>
 </tr>
 <tr class="row-odd"><td><p>ICO_SUB</p></td>
-<td><p>Stack[nSize-1] = Stack[nSize-1] - Stack[nSize] , POP stack[nSize]</p></td>
+<td><p>Stack[nSize-1] = Stack[nSize-1] -  Stack[nSize] , POP stack[nSize]</p></td>
 </tr>
 <tr class="row-even"><td><p>ICO_MUL</p></td>
-<td><p>Stack[nSize-1] = Stack[nSize-1] * Stack[nSize] , POP stack[nSize]</p></td>
+<td><p>Stack[nSize-1] = Stack[nSize-1] *  Stack[nSize] , POP stack[nSize]</p></td>
 </tr>
 <tr class="row-odd"><td><p>ICO_DIV</p></td>
-<td><p>Stack[nSize-1] = Stack[nSize-1] / Stack[nSize] , POP stack[nSize]</p></td>
+<td><p>Stack[nSize-1] = Stack[nSize-1] /  Stack[nSize] , POP stack[nSize]</p></td>
 </tr>
 <tr class="row-even"><td><p>ICO_MOD</p></td>
-<td><p>Stack[nSize-1] = Stack[nSize-1] % Stack[nSize] , POP stack[nSize]</p></td>
+<td><p>Stack[nSize-1] = Stack[nSize-1] %  Stack[nSize] , POP stack[nSize]</p></td>
 </tr>
 <tr class="row-odd"><td><p>ICO_POW</p></td>
-<td><p>Stack[nSize-1] = Stack[nSize-1] ^ Stack[nSize] , POP stack[nSize]</p></td>
+<td><p>Stack[nSize-1] = Stack[nSize-1] ** Stack[nSize] , POP stack[nSize]</p></td>
 </tr>
 <tr class="row-even"><td><p>ICO_NEG</p></td>
 <td><p>Stack[nSize]   = - Stack[nSize-1]</p></td>
 </tr>
 <tr class="row-odd"><td><p>ICO_PLUSPLUS</p></td>
-<td><p>Stack[nSize]   = Stack[nSize] + 1</p></td>
+<td><p>Stack[nSize]   = Stack[nSize] +  1</p></td>
 </tr>
 <tr class="row-even"><td><p>ICO_MINUSMINUS</p></td>
-<td><p>Stack[nSize]   = Stack[nSize] - 1</p></td>
+<td><p>Stack[nSize]   = Stack[nSize] -  1</p></td>
+</tr>
+<tr class="row-odd"><td><p>ICO_SUMN</p></td>
+<td><p>Stack[nSize]   = Stack[nSize] +  REG1</p></td>
+</tr>
+<tr class="row-even"><td><p>ICO_SUBN</p></td>
+<td><p>Stack[nSize]   = Stack[nSize] -  REG1</p></td>
+</tr>
+<tr class="row-odd"><td><p>ICO_MULN</p></td>
+<td><p>Stack[nSize]   = Stack[nSize] *  REG1</p></td>
+</tr>
+<tr class="row-even"><td><p>ICO_DIVN</p></td>
+<td><p>Stack[nSize]   = Stack[nSize] /  REG1</p></td>
+</tr>
+<tr class="row-odd"><td><p>ICO_MODN</p></td>
+<td><p>Stack[nSize]   = Stack[nSize] %  REG1</p></td>
+</tr>
+<tr class="row-even"><td><p>ICO_POWN</p></td>
+<td><p>Stack[nSize]   = Stack[nSize] ** REG1</p></td>
 </tr>
 </tbody>
 </table>

@@ -682,15 +682,21 @@ ICO_NOTEQUAL		If stack[nSize-1] != stack[nSize] , POP stack[nSize], set Stack[nS
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-ICO_SUM			Stack[nSize-1] = Stack[nSize-1] + Stack[nSize] , POP stack[nSize]
-ICO_SUB			Stack[nSize-1] = Stack[nSize-1] - Stack[nSize] , POP stack[nSize]
-ICO_MUL			Stack[nSize-1] = Stack[nSize-1] * Stack[nSize] , POP stack[nSize]
-ICO_DIV			Stack[nSize-1] = Stack[nSize-1] / Stack[nSize] , POP stack[nSize]
-ICO_MOD			Stack[nSize-1] = Stack[nSize-1] % Stack[nSize] , POP stack[nSize]
-ICO_POW			Stack[nSize-1] = Stack[nSize-1] ^ Stack[nSize] , POP stack[nSize]
+ICO_SUM			Stack[nSize-1] = Stack[nSize-1] +  Stack[nSize] , POP stack[nSize]
+ICO_SUB			Stack[nSize-1] = Stack[nSize-1] -  Stack[nSize] , POP stack[nSize]
+ICO_MUL			Stack[nSize-1] = Stack[nSize-1] *  Stack[nSize] , POP stack[nSize]
+ICO_DIV			Stack[nSize-1] = Stack[nSize-1] /  Stack[nSize] , POP stack[nSize]
+ICO_MOD			Stack[nSize-1] = Stack[nSize-1] %  Stack[nSize] , POP stack[nSize]
+ICO_POW			Stack[nSize-1] = Stack[nSize-1] ** Stack[nSize] , POP stack[nSize]
 ICO_NEG			Stack[nSize]   = - Stack[nSize-1]
-ICO_PLUSPLUS		Stack[nSize]   = Stack[nSize] + 1
-ICO_MINUSMINUS		Stack[nSize]   = Stack[nSize] - 1
+ICO_PLUSPLUS		Stack[nSize]   = Stack[nSize] +  1
+ICO_MINUSMINUS		Stack[nSize]   = Stack[nSize] -  1
+ICO_SUMN		Stack[nSize]   = Stack[nSize] +  REG1
+ICO_SUBN		Stack[nSize]   = Stack[nSize] -  REG1
+ICO_MULN		Stack[nSize]   = Stack[nSize] *  REG1	
+ICO_DIVN		Stack[nSize]   = Stack[nSize] /  REG1
+ICO_MODN		Stack[nSize]   = Stack[nSize] %  REG1
+ICO_POWN		Stack[nSize]   = Stack[nSize] ** REG1
 =======================	============================================================================
 
 (Logic)
