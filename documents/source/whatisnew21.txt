@@ -53,6 +53,10 @@ RingPDFGen Extension
 
 This extension support the PDFGen library
 
+The extension exist in the ring/extensions/ringpdfgen folder
+
+The supported functions exist in the configuration file: ringpdfgen.cf
+
 Example:
 
 .. code-block:: ring
