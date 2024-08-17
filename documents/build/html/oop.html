@@ -690,6 +690,74 @@ items.</p>
         <span class="o">?</span> <span class="n">nl</span><span class="o">+</span><span class="s">&quot;ClassPrint aData: &quot;</span> <span class="o">?</span> <span class="n">aData</span>
 </pre></div>
 </div>
+<p>Starting from Ring 1.21, We support that the value could come first before the object and the operator()
+method will be called but the letter ‘r’ will comes before the operator (i.e. r+ instead of +)</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">mylist</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">List</span><span class="p">(</span><span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span><span class="p">)</span>
+
+<span class="n">f</span><span class="p">(</span><span class="n">mylist</span><span class="p">).</span><span class="n">print</span><span class="p">()</span>
+
+<span class="k">func</span> <span class="n">f</span> <span class="n">x</span>
+        <span class="k">return</span> <span class="mi">2</span><span class="o">+</span><span class="n">x</span><span class="o">*</span><span class="n">x</span>    <span class="c"># Here 2 comes before x and x could be an object</span>
+
+<span class="k">class</span> <span class="kt">List</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="o">[]</span>
+
+<span class="k">func</span> <span class="n">init</span> <span class="n">vValue</span>
+        <span class="n">aList</span> <span class="o">=</span> <span class="n">vValue</span>
+
+<span class="k">func</span> <span class="n">operator</span> <span class="n">cOperator</span><span class="p">,</span><span class="n">vValue</span>
+
+        <span class="k">if</span> <span class="n">cOperator</span> <span class="o">=</span> <span class="s">&quot;r+&quot;</span>
+                <span class="n">cOperator</span> <span class="o">=</span> <span class="s">&quot;+&quot;</span>
+        <span class="k">ok</span>
+
+        <span class="k">switch</span> <span class="n">cOperator</span>
+                <span class="k">on</span> <span class="s">&quot;+&quot;</span>
+                        <span class="k">if</span> <span class="n">isNumber</span><span class="p">(</span><span class="n">vValue</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">aList</span>
+                                        <span class="n">t</span> <span class="o">+=</span> <span class="n">vValue</span>
+                                <span class="k">next</span>
+                        <span class="k">but</span> <span class="n">isObject</span><span class="p">(</span><span class="n">vValue</span><span class="p">)</span>
+                                <span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+                                        <span class="n">aList</span><span class="o">[</span><span class="n">t</span><span class="o">]</span> <span class="o">+=</span> <span class="n">vValue</span><span class="o">[</span><span class="n">t</span><span class="o">]</span>
+                                <span class="k">next</span>
+                        <span class="k">ok</span>
+                <span class="k">on</span> <span class="s">&quot;*&quot;</span>
+                        <span class="k">if</span> <span class="n">isNumber</span><span class="p">(</span><span class="n">vValue</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">aList</span>
+                                        <span class="n">t</span> <span class="o">*=</span> <span class="n">vValue</span>
+                                <span class="k">next</span>
+                        <span class="k">but</span> <span class="n">isObject</span><span class="p">(</span><span class="n">vValue</span><span class="p">)</span>
+                                <span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+                                        <span class="n">aList</span><span class="o">[</span><span class="n">t</span><span class="o">]</span> <span class="o">*=</span> <span class="n">vValue</span><span class="o">[</span><span class="n">t</span><span class="o">]</span>
+                                <span class="k">next</span>
+                        <span class="k">ok</span>
+                <span class="k">on</span> <span class="s">&quot;[]&quot;</span>
+                        <span class="k">return</span> <span class="n">aList</span><span class="o">[</span><span class="n">vValue</span><span class="o">]</span>
+                <span class="k">on</span> <span class="s">&quot;len&quot;</span>
+                        <span class="k">return</span> <span class="n">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+        <span class="k">off</span>
+        <span class="k">return</span> <span class="n">self</span>
+
+<span class="k">func</span> <span class="n">print</span>
+        <span class="o">?</span> <span class="n">aList</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>6
+3
+6
+11
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>the numbers(3,6,11) are the result of applying the function f to the list items [1,2,3]</p>
+</div>
 </section>
 <section id="inheritance">
 <span id="index-7"></span><h2>Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this heading"></a></h2>
