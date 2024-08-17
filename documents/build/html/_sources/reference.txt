@@ -625,13 +625,15 @@ Virtual Machine (VM) Instructions
 
 Definitions :-
 
-* VM : Virtual Machine
-* Stack : VM Stack
-* IR : Instruction Register
-* PC : Program Counter
-* VP : Variable Pointer
-* Stack[nSize] : Last Item in the Stack (Last In - First Out)
-* VV : Variable Value (We have a Pointer to a variable, And we access this variable value)
+* VM: Virtual Machine
+* Stack: VM Stack
+* IR: Instruction Register
+* PC: Program Counter
+* VP: Variable Pointer
+* Stack[nSize]: Last Item in the Stack (Last In - First Out)
+* VV: Variable Value (We have a Pointer to a variable, And we access this variable value)
+* REG1: The first register in the instruction
+* REG2: The second register in the instruction  
 
 (Stack and Variables)
 
