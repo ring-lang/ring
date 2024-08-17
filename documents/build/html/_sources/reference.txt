@@ -484,6 +484,10 @@ Runtime Errors
 * Error (R49) : The Ring VM is not created/ready
 * Error (R50) : Object does not support operator overloading
 * Error (R51) : Value Error
+* Error (R52) : Using Return inside function parameters is not allowed
+* Error (R53) : Function redefinition, function is already defined!
+* Error (R54) : Object attribute redefinition, attribute is already defined!
+
 
 .. index:: 
 	pair: Language Specification; Environment Errors
