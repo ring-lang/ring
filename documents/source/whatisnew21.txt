@@ -18,6 +18,7 @@ Ring 1.21 comes with the next features!
 * Lectures Tracker application
 * RingPDFGen Extension
 * Better MatrixLib
+* More Samples
 * Faster Function Call
 * Faster Arithmetic Operations
 * Faster Compiler
@@ -167,6 +168,23 @@ Output:
 	|  2 |
 	
 	Scalar projection of A onto B = 4.9193 => 4.92
+
+.. index:: 
+	pair: What is new in Ring  1.21; More Samples
+
+More Samples
+============
+
+.. image:: polarcart.png
+	:alt: PolarCartesian
+
+The next samples are added to the ring/samples folder
+
+* ring/samples/General/NetworkFlow/Matrix-Networks.ring
+* ring/samples/General/Matrix/MatrixThreePointsOnCircle.ring
+* ring/samples/Drawing/PolarCartesian/AA-Draw-Polar-Cartesian.ring
+* ring/samples/UsingMatrixLib/60-Matrix-Test-Scalar-Projection.ring
+* ring/samples/UsingMatrixLib/61-BundlesOfRice.ring
 
 .. index:: 
 	pair: What is new in Ring  1.21; Faster Function Call
