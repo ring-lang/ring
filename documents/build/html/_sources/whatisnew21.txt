@@ -26,6 +26,7 @@ Ring 1.21 comes with the next features!
 * ForEach Keyword
 * Better Operator Overloading
 * New VM Instructions
+* Better RingQt
 * More Improvements
 
 .. index:: 
@@ -417,6 +418,16 @@ Also, we added the next arithmetic instructions
 * ICO_POWN
 
 .. index:: 
+	pair: What is new in Ring  1.21; Better RingQt
+
+Better RingQt
+=============
+
+* Qt library is updated from Qt 5.15.16 to 5.15.17
+* QDateTimeEdit - Added Class Events
+
+
+.. index:: 
 	pair: What is new in Ring  1.21; More Improvements
 
 More Improvements
@@ -426,8 +437,6 @@ More Improvements
 * AddAttribute() - Produce runtime error if the attribute is already defined
 * AddMethod() - Produce runtime error if the method is already defined
 * RingInternetLib - Set CURLOPT_USERAGENT in Download() function
-* RingQt - Qt version is updated from Qt 5.15.16 to 5.15.17
-* RingQt - QDateTimeEdit - Added Class Events
 * Ring API - Implementation through functions that get a pointer to the VM structure  
 * Ring Compiler - Add new lines between error messages
 * Ring Compiler - Check argument duplication during function definition
