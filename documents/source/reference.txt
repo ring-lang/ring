@@ -30,6 +30,16 @@ Commands Count: 5
 * EnableHashComments
 * LoadSyntax
 
+Grammar:
+
+.. code-block:: none
+
+	Command ---> 'changeringkeyword' <OldKeyword> <NewKeyword>
+	Command ---> 'changeringoperator' <OldOperator> <NewOperator>
+	Command ---> 'EnableHashComments'
+	Command ---> 'DisableHashComments'
+	Command ---> 'loadsyntax' <Literal>
+
 .. index:: 
 	pair: Language Specification; Language Keywords
 
@@ -525,12 +535,6 @@ Statement ---> 'import' <Identifier> { '.' <Identifier> }
 Statement ---> 'private'
 
 Statement ---> 'load' ['package'|'again'] <Literal>
-
-Statement ---> 'loadsyntax' <Literal>
-
-Statement ---> 'changeringkeyword' <OldKeyword> <NewKeyword>
-
-Statement ---> 'changeringoperator' <OldOperator> <NewOperator>
 
 Statement ---> 'see'|'put' <Expr>
 

@@ -231,6 +231,14 @@
 <li><p>EnableHashComments</p></li>
 <li><p>LoadSyntax</p></li>
 </ul>
+<p>Grammar:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Command ---&gt; &#39;changeringkeyword&#39; &lt;OldKeyword&gt; &lt;NewKeyword&gt;
+Command ---&gt; &#39;changeringoperator&#39; &lt;OldOperator&gt; &lt;NewOperator&gt;
+Command ---&gt; &#39;EnableHashComments&#39;
+Command ---&gt; &#39;DisableHashComments&#39;
+Command ---&gt; &#39;loadsyntax&#39; &lt;Literal&gt;
+</pre></div>
+</div>
 </section>
 <section id="language-keywords">
 <span id="index-2"></span><h2>Language Keywords<a class="headerlink" href="#language-keywords" title="Permalink to this heading"></a></h2>
@@ -702,9 +710,6 @@ write(cFileName,cString)
 <p>Statement —&gt; ‘import’ &lt;Identifier&gt; { ‘.’ &lt;Identifier&gt; }</p>
 <p>Statement —&gt; ‘private’</p>
 <p>Statement —&gt; ‘load’ [‘package’|’again’] &lt;Literal&gt;</p>
-<p>Statement —&gt; ‘loadsyntax’ &lt;Literal&gt;</p>
-<p>Statement —&gt; ‘changeringkeyword’ &lt;OldKeyword&gt; &lt;NewKeyword&gt;</p>
-<p>Statement —&gt; ‘changeringoperator’ &lt;OldOperator&gt; &lt;NewOperator&gt;</p>
 <p>Statement —&gt; ‘see’|’put’ &lt;Expr&gt;</p>
 <p>Statement —&gt; ‘give’|’get’ &lt;Identifier&gt;</p>
 <p>Statement —&gt; ‘if’ &lt;Expr&gt; [‘{’] {statement} [ {‘but’|’elseif’ &lt;Expr&gt; {Statement} } ] [‘else’ {Statement} ] ‘ok’|’end’|’}’|’endif’</p>
