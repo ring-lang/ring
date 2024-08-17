@@ -171,6 +171,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lectures-tracker-application">Lectures Tracker application</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringpdfgen-extension">RingPDFGen Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-matrixlib">Better MatrixLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#faster-function-call">Faster Function Call</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#faster-arithmetic-operations">Faster Arithmetic Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#faster-compiler">Faster Compiler</a></li>
@@ -221,6 +222,7 @@
 <ul class="simple">
 <li><p>Lectures Tracker application</p></li>
 <li><p>RingPDFGen Extension</p></li>
+<li><p>Better MatrixLib</p></li>
 <li><p>Faster Function Call</p></li>
 <li><p>Faster Arithmetic Operations</p></li>
 <li><p>Faster Compiler</p></li>
@@ -283,8 +285,68 @@
 <p>Output:</p>
 <img alt="PDFGen" src="_images/PDFGen.png" />
 </section>
+<section id="better-matrixlib">
+<span id="index-4"></span><h2>Better MatrixLib<a class="headerlink" href="#better-matrixlib" title="Permalink to this heading"></a></h2>
+<p>The next functions are added to the library</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MatrixScalarProjection(U,V)             // Scalar Projection A onto B = (A.B) / |B|
+MatrixCopyCol(U-Array, Start, End)      // Create new smaller V-array from U-array
+</pre></div>
+</div>
+<p>Example</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlibcore.ring&quot;</span>
+<span class="k">Load</span> <span class="s">&quot;matrixlib.ring&quot;</span>
+
+<span class="k">Func</span> <span class="n">Main</span><span class="p">()</span>
+
+        <span class="n">A</span> <span class="o">=</span>  <span class="o">[[</span>  <span class="mi">1</span><span class="o">]</span><span class="p">,</span><span class="o">[</span>  <span class="mi">6</span><span class="o">]</span><span class="p">,</span><span class="o">[</span> <span class="mi">18</span><span class="o">]]</span>
+        <span class="n">B</span> <span class="o">=</span>  <span class="o">[[</span> <span class="mi">42</span><span class="o">]</span><span class="p">,</span><span class="o">[-</span><span class="mi">69</span><span class="o">]</span><span class="p">,</span><span class="o">[</span> <span class="mi">98</span><span class="o">]]</span>
+
+        <span class="k">See</span> <span class="s">&quot;A &quot;</span> <span class="n">MatrixPrint</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+        <span class="k">See</span> <span class="s">&quot;B &quot;</span> <span class="n">MatrixPrint</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+
+        <span class="n">SP</span> <span class="o">=</span> <span class="n">MatrixScalarProjection</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">A</span><span class="p">)</span>
+        <span class="k">See</span> <span class="s">&quot;Scalar projection of B onto A = 73.26  =&gt; &quot;</span><span class="o">+</span> <span class="n">SP</span> <span class="o">+</span><span class="n">nl</span>
+
+        <span class="n">SP</span> <span class="o">=</span> <span class="n">MatrixScalarProjection</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
+        <span class="k">See</span> <span class="s">&quot;Scalar projection of A onto B = 10.96  =&gt; &quot;</span><span class="o">+</span> <span class="n">SP</span> <span class="o">+</span><span class="n">nl</span>
+
+        <span class="n">A</span> <span class="o">=</span>  <span class="o">[[</span> <span class="mi">3</span><span class="o">]</span><span class="p">,</span><span class="o">[</span> <span class="mi">4</span><span class="o">]]</span>
+        <span class="n">B</span> <span class="o">=</span>  <span class="o">[[</span> <span class="mi">1</span><span class="o">]</span><span class="p">,</span><span class="o">[</span> <span class="mi">2</span><span class="o">]]</span>
+
+        <span class="k">See</span> <span class="s">&quot;A &quot;</span> <span class="n">MatrixPrint</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+        <span class="k">See</span> <span class="s">&quot;B &quot;</span> <span class="n">MatrixPrint</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+
+        <span class="n">SP</span> <span class="o">=</span> <span class="n">MatrixScalarProjection</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
+        <span class="k">See</span> <span class="s">&quot;Scalar projection of A onto B = 4.9193 =&gt; &quot;</span><span class="o">+</span> <span class="n">SP</span> <span class="o">+</span><span class="n">nl</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A       MatrixPrint: 3x1
+|  1  |
+|  6  |
+|  18 |
+
+B       MatrixPrint: 3x1
+|  42 |
+| -69 |
+|  98 |
+
+Scalar projection of B onto A = 73.26  =&gt; 73.26
+Scalar projection of A onto B = 10.96  =&gt; 10.96
+A       MatrixPrint: 2x1
+|  3 |
+|  4 |
+
+B       MatrixPrint: 2x1
+|  1 |
+|  2 |
+
+Scalar projection of A onto B = 4.9193 =&gt; 4.92
+</pre></div>
+</div>
+</section>
 <section id="faster-function-call">
-<span id="index-4"></span><h2>Faster Function Call<a class="headerlink" href="#faster-function-call" title="Permalink to this heading"></a></h2>
+<span id="index-5"></span><h2>Faster Function Call<a class="headerlink" href="#faster-function-call" title="Permalink to this heading"></a></h2>
 <p>We improved how Ring VM manage the functions scope/arguments through pre-allocation to provide performance improvements.</p>
 <p>As a result, the stars animation sample works at 5400 FPS (instead of 2350 FPS in Ring 1.20)</p>
 <p>Results:</p>
@@ -307,7 +369,7 @@ Ring 1.18 --&gt; 500  FPS
 <img alt="Waving Cubes" src="_images/ring21waving.png" />
 </section>
 <section id="faster-arithmetic-operations">
-<span id="index-5"></span><h2>Faster Arithmetic Operations<a class="headerlink" href="#faster-arithmetic-operations" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>Faster Arithmetic Operations<a class="headerlink" href="#faster-arithmetic-operations" title="Permalink to this heading"></a></h2>
 <p>We introduced some new VM instructions that merge common instructions into one.</p>
 <p>This lead to speed improvements with respect to arithmetic operations.</p>
 <p>Example:</p>
@@ -335,14 +397,14 @@ Time using Ring 1.20    --&gt; 244 ms
 </div>
 </section>
 <section id="faster-compiler">
-<span id="index-6"></span><h2>Faster Compiler<a class="headerlink" href="#faster-compiler" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>Faster Compiler<a class="headerlink" href="#faster-compiler" title="Permalink to this heading"></a></h2>
 <p>This release provides better performance when compiling large projects</p>
 <p>These projects could have huge number of classes and methods</p>
 <p>For example, PWCT2 compile time is reduced from 1100 ms to 790 ms</p>
 <p>Also, SoftanzaLib compile time is reduced from five seconds to one second</p>
 </section>
 <section id="reducing-memory-usage">
-<span id="index-7"></span><h2>Reducing Memory Usage<a class="headerlink" href="#reducing-memory-usage" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>Reducing Memory Usage<a class="headerlink" href="#reducing-memory-usage" title="Permalink to this heading"></a></h2>
 <p>We did the next updates to reduce the memory usage</p>
 <ol class="arabic simple">
 <li><p>The ByteCode registers count is reduced from four to two</p></li>
@@ -353,7 +415,7 @@ Time using Ring 1.20    --&gt; 244 ms
 </ol>
 </section>
 <section id="foreach-keyword">
-<span id="index-8"></span><h2>ForEach Keyword<a class="headerlink" href="#foreach-keyword" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>ForEach Keyword<a class="headerlink" href="#foreach-keyword" title="Permalink to this heading"></a></h2>
 <p>This release support using the ForEach keyword in For-in loops</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span>
@@ -364,7 +426,7 @@ Time using Ring 1.20    --&gt; 244 ms
 </div>
 </section>
 <section id="better-operator-overloading">
-<span id="index-9"></span><h2>Better Operator Overloading<a class="headerlink" href="#better-operator-overloading" title="Permalink to this heading"></a></h2>
+<span id="index-10"></span><h2>Better Operator Overloading<a class="headerlink" href="#better-operator-overloading" title="Permalink to this heading"></a></h2>
 <p>We support operator overloading from the first release of the Ring language</p>
 <p>When using an object inside an expression and this object define the operator method, this
 method will be called if the object comes first.</p>
@@ -444,7 +506,7 @@ method will be called but the letter ‘r’ will comes before the operator (i.e
 </div>
 </section>
 <section id="new-vm-instructions">
-<span id="index-10"></span><h2>New VM Instructions<a class="headerlink" href="#new-vm-instructions" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>New VM Instructions<a class="headerlink" href="#new-vm-instructions" title="Permalink to this heading"></a></h2>
 <p>The next instructions are added to the Ring Virtual Machine</p>
 <ul class="simple">
 <li><p>ICO_STEPFROMREG - Set the For-Loop step value</p></li>
@@ -466,7 +528,7 @@ method will be called but the letter ‘r’ will comes before the operator (i.e
 </ul>
 </section>
 <section id="more-improvements">
-<span id="index-11"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Ring Notepad - Toolbar - Better icons</p></li>
 <li><p>AddAttribute() - Produce runtime error if the attribute is already defined</p></li>

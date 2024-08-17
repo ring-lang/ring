@@ -17,6 +17,7 @@ Ring 1.21 comes with the next features!
 
 * Lectures Tracker application
 * RingPDFGen Extension
+* Better MatrixLib
 * Faster Function Call
 * Faster Arithmetic Operations
 * Faster Compiler
@@ -97,6 +98,75 @@ Output:
 .. image:: PDFGen.png
 	:alt: PDFGen
 
+
+.. index:: 
+	pair: What is new in Ring  1.21; Better MatrixLib
+
+Better MatrixLib
+================
+
+The next functions are added to the library
+
+.. code-block:: none
+
+	MatrixScalarProjection(U,V)  		// Scalar Projection A onto B = (A.B) / |B|
+	MatrixCopyCol(U-Array, Start, End)	// Create new smaller V-array from U-array 
+
+Example
+
+.. code-block:: ring
+
+	Load "stdlibcore.ring"
+	Load "matrixlib.ring"
+
+	Func Main()
+ 
+		A =  [[  1],[  6],[ 18]]       
+		B =  [[ 42],[-69],[ 98]]       
+                        
+		See "A " MatrixPrint(A)
+		See "B " MatrixPrint(B)
+
+		SP = MatrixScalarProjection(B,A)
+		See "Scalar projection of B onto A = 73.26  => "+ SP +nl
+		
+		SP = MatrixScalarProjection(A,B)
+		See "Scalar projection of A onto B = 10.96  => "+ SP +nl
+		
+		A =  [[ 3],[ 4]]       
+		B =  [[ 1],[ 2]] 
+		
+		See "A " MatrixPrint(A)
+		See "B " MatrixPrint(B) 
+		
+		SP = MatrixScalarProjection(A,B)
+		See "Scalar projection of A onto B = 4.9193 => "+ SP +nl
+
+Output:
+
+.. code-block:: none
+
+	A       MatrixPrint: 3x1
+	|  1  |
+	|  6  |
+	|  18 |
+	
+	B       MatrixPrint: 3x1
+	|  42 |
+	| -69 |
+	|  98 |
+	
+	Scalar projection of B onto A = 73.26  => 73.26
+	Scalar projection of A onto B = 10.96  => 10.96
+	A       MatrixPrint: 2x1
+	|  3 |
+	|  4 |
+	
+	B       MatrixPrint: 2x1
+	|  1 |
+	|  2 |
+	
+	Scalar projection of A onto B = 4.9193 => 4.92
 
 .. index:: 
 	pair: What is new in Ring  1.21; Faster Function Call
