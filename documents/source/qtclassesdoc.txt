@@ -279,6 +279,26 @@ Parent Class : QEntity
 * void setLookSpeed(float lookSpeed)
 
 .. index::
+	pair: RingQt Classes Reference; QAbstractGraphicsShapeItem Class
+
+QAbstractGraphicsShapeItem Class
+================================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qabstractgraphicsshapeitem.html
+
+
+Parameters : QGraphicsItem *
+
+
+Parent Class : QGraphicsItem
+
+* QBrush brush(void)
+* QPen pen(void)
+* void setBrush(QBrush brush)
+* void setPen(QPen pen)
+
+.. index::
 	pair: RingQt Classes Reference; QAbstractItemView Class
 
 QAbstractItemView Class
@@ -947,6 +967,20 @@ Parent Class : QObject
 * void setRootEntity(Qt3DCore::QEntityPtr root)
 * void unregisterAspect(Qt3DCore::QAbstractAspect *aspect)
 * void unregisterAspect_2(QString name)
+
+.. index::
+	pair: RingQt Classes Reference; QAudioOutput Class
+
+QAudioOutput Class
+==================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qaudiooutput.html
+
+
+Parameters : void
+
+* void setVolume(float volume)
 
 .. index::
 	pair: RingQt Classes Reference; QAxBase Class
@@ -3266,26 +3300,6 @@ C++ Reference : http://doc.qt.io/qt-5/qdesktopservices.html
 * void unsetUrlHandler(QString)
 
 .. index::
-	pair: RingQt Classes Reference; QDesktopWidget Class
-
-QDesktopWidget Class
-====================
-
-
-C++ Reference : http://doc.qt.io/qt-5/qdesktopwidget.html
-
-
-Parameters : void
-
-
-Parent Class : QWidget
-
-* QRect availableGeometry(QWidget *)
-* QScreen *screen(void)
-* QRect screenGeometry(QWidget *)
-* int screenNumber(QWidget *widget)
-
-.. index::
 	pair: RingQt Classes Reference; QDial Class
 
 QDial Class
@@ -4518,6 +4532,617 @@ Parameters : void
 * QGradient::Type type(void)
 
 .. index::
+	pair: RingQt Classes Reference; QGraphicsAnchor Class
+
+QGraphicsAnchor Class
+=====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicsanchor.html
+
+
+Parent Class : QObject
+
+* void setSizePolicy(QSizePolicy::Policy policy)
+* void setSpacing(qreal spacing)
+* QSizePolicy::Policy sizePolicy(void)
+* qreal spacing(void)
+* void unsetSpacing(void)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsAnchorLayout Class
+
+QGraphicsAnchorLayout Class
+===========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicsanchorlayout.html
+
+
+Parameters : QGraphicsLayoutItem *
+
+
+Parent Class : QGraphicsLayout
+
+* QGraphicsAnchor * addAnchor(QGraphicsLayoutItem *firstItem, Qt::AnchorPoint firstEdge, QGraphicsLayoutItem *secondItem, Qt::AnchorPoint secondEdge)
+* void addAnchors(QGraphicsLayoutItem *firstItem, QGraphicsLayoutItem *secondItem, Qt::Orientations orientations)
+* void addCornerAnchors(QGraphicsLayoutItem *firstItem, Qt::Corner firstCorner, QGraphicsLayoutItem *secondItem, Qt::Corner secondCorner)
+* QGraphicsAnchor * anchor(QGraphicsLayoutItem *firstItem, Qt::AnchorPoint firstEdge, QGraphicsLayoutItem *secondItem, Qt::AnchorPoint secondEdge)
+* qreal horizontalSpacing(void)
+* void setHorizontalSpacing(qreal spacing)
+* void setSpacing(qreal spacing)
+* void setVerticalSpacing(qreal spacing)
+* qreal verticalSpacing(void)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsEffect Class
+
+QGraphicsEffect Class
+=====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicseffect.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QObject
+
+* QRectF boundingRect(void)
+* QRectF boundingRectFor(QRectF rect)
+* bool isEnabled(void)
+* void setEnabled(bool enable)
+* void update(void)
+* void setenabledChangedEvent(const char *)
+* const char *getenabledChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsEllipseItem Class
+
+QGraphicsEllipseItem Class
+==========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicsellipseitem.html
+
+
+Parameters : QGraphicsItem *
+
+
+Parent Class : QAbstractGraphicsShapeItem
+
+* QRectF rect(void)
+* void setRect(QRectF rect)
+* void setRect_2(qreal x, qreal y, qreal width, qreal height)
+* void setSpanAngle(int angle)
+* void setStartAngle(int angle)
+* int spanAngle(void)
+* int startAngle(void)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsGridLayout Class
+
+QGraphicsGridLayout Class
+=========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicsgridlayout.html
+
+
+Parameters : QGraphicsLayoutItem *
+
+
+Parent Class : QGraphicsLayout
+
+* void addItem(QGraphicsLayoutItem *item, int row, int column, int rowSpan, int columnSpan, Qt::Alignment alignment)
+* void addItem_2(QGraphicsLayoutItem *item, int row, int column, Qt::Alignment alignment)
+* Qt::Alignment alignment(QGraphicsLayoutItem *item)
+* Qt::Alignment columnAlignment(int column)
+* int columnCount(void)
+* qreal columnMaximumWidth(int column)
+* qreal columnMinimumWidth(int column)
+* qreal columnPreferredWidth(int column)
+* qreal columnSpacing(int column)
+* int columnStretchFactor(int column)
+* qreal horizontalSpacing(void)
+* QGraphicsLayoutItem * itemAt(int row, int column)
+* void removeItem(QGraphicsLayoutItem *item)
+* Qt::Alignment rowAlignment(int row)
+* int rowCount(void)
+* qreal rowMaximumHeight(int row)
+* qreal rowMinimumHeight(int row)
+* qreal rowPreferredHeight(int row)
+* qreal rowSpacing(int row)
+* int rowStretchFactor(int row)
+* void setAlignment(QGraphicsLayoutItem *item, Qt::Alignment alignment)
+* void setColumnAlignment(int column, Qt::Alignment alignment)
+* void setColumnFixedWidth(int column, qreal width)
+* void setColumnMaximumWidth(int column, qreal width)
+* void setColumnMinimumWidth(int column, qreal width)
+* void setColumnPreferredWidth(int column, qreal width)
+* void setColumnSpacing(int column, qreal spacing)
+* void setColumnStretchFactor(int column, int stretch)
+* void setHorizontalSpacing(qreal spacing)
+* void setRowAlignment(int row, Qt::Alignment alignment)
+* void setRowFixedHeight(int row, qreal height)
+* void setRowMaximumHeight(int row, qreal height)
+* void setRowMinimumHeight(int row, qreal height)
+* void setRowPreferredHeight(int row, qreal height)
+* void setRowSpacing(int row, qreal spacing)
+* void setRowStretchFactor(int row, int stretch)
+* void setSpacing(qreal spacing)
+* void setVerticalSpacing(qreal spacing)
+* qreal verticalSpacing(void)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsItem Class
+
+QGraphicsItem Class
+===================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicsitem.html
+
+
+Parameters : QGraphicsItem *
+
+* bool acceptDrops(void)
+* bool acceptHoverEvents(void)
+* bool acceptTouchEvents(void)
+* Qt::MouseButtons acceptedMouseButtons(void)
+* void advance(int phase)
+* QRectF boundingRect(void)
+* QRegion boundingRegion(QTransform itemToDeviceTransform)
+* qreal boundingRegionGranularity(void)
+* QGraphicsItem::CacheMode cacheMode(void)
+* QList<QGraphicsItem *> childItems(void)
+* QRectF childrenBoundingRect(void)
+* void clearFocus(void)
+* QPainterPath clipPath(void)
+* bool collidesWithItem(QGraphicsItem *other, Qt::ItemSelectionMode mode)
+* bool collidesWithPath(QPainterPath path, Qt::ItemSelectionMode mode)
+* QList<QGraphicsItem *> collidingItems(Qt::ItemSelectionMode mode)
+* QGraphicsItem * commonAncestorItem(QGraphicsItem *other)
+* bool contains(QPointF point)
+* QCursor cursor(void)
+* QVariant data(int key)
+* QTransform deviceTransform(QTransform viewportTransform)
+* qreal effectiveOpacity(void)
+* void ensureVisible(QRectF rect, int xmargin, int ymargin)
+* void ensureVisible_2(qreal x, qreal y, qreal w, qreal h, int xmargin, int ymargin)
+* bool filtersChildEvents(void)
+* QGraphicsItem::GraphicsItemFlags flags(void)
+* QGraphicsItem * focusItem(void)
+* QGraphicsItem * focusProxy(void)
+* void grabKeyboard(void)
+* void grabMouse(void)
+* QGraphicsEffect * graphicsEffect(void)
+* QGraphicsItemGroup * group(void)
+* bool hasCursor(void)
+* bool hasFocus(void)
+* void hide(void)
+* Qt::InputMethodHints inputMethodHints(void)
+* void installSceneEventFilter(QGraphicsItem *filterItem)
+* bool isActive(void)
+* bool isAncestorOf(QGraphicsItem *child)
+* bool isEnabled(void)
+* bool isObscured(QRectF rect)
+* bool isObscured_2(qreal x, qreal y, qreal w, qreal h)
+* bool isObscuredBy(QGraphicsItem *item)
+* bool isPanel(void)
+* bool isSelected(void)
+* bool isUnderMouse(void)
+* bool isVisible(void)
+* bool isVisibleTo(QGraphicsItem *parent)
+* bool isWidget(void)
+* bool isWindow(void)
+* QTransform itemTransform(QGraphicsItem *other, bool *ok)
+* QPointF mapFromItem(QGraphicsItem *item, QPointF point)
+* QPolygonF mapFromItem_2(QGraphicsItem *item, QRectF rect)
+* QPolygonF mapFromItem_3(QGraphicsItem *item, QPolygonF polygon)
+* QPainterPath mapFromItem_4(QGraphicsItem *item, QPainterPath path)
+* QPointF mapFromItem_5(QGraphicsItem *item, qreal x, qreal y)
+* QPolygonF mapFromItem_6(QGraphicsItem *item, qreal x, qreal y, qreal w, qreal h)
+* QPointF mapFromParent(QPointF point)
+* QPolygonF mapFromParent_2(QRectF rect)
+* QPolygonF mapFromParent_3(QPolygonF polygon)
+* QPainterPath mapFromParent_4(QPainterPath path)
+* QPointF mapFromParent_5(qreal x, qreal y)
+* QPolygonF mapFromParent_6(qreal x, qreal y, qreal w, qreal h)
+* QPointF mapFromScene(QPointF point)
+* QPolygonF mapFromScene_2(QRectF rect)
+* QPolygonF mapFromScene_3(QPolygonF polygon)
+* QPainterPath mapFromScene_4(QPainterPath path)
+* QPointF mapFromScene_5(qreal x, qreal y)
+* QPolygonF mapFromScene_6(qreal x, qreal y, qreal w, qreal h)
+* QRectF mapRectFromItem(QGraphicsItem *item, QRectF rect)
+* QRectF mapRectFromItem_2(QGraphicsItem *item, qreal x, qreal y, qreal w, qreal h)
+* QRectF mapRectFromParent(QRectF rect)
+* QRectF mapRectFromParent_2(qreal x, qreal y, qreal w, qreal h)
+* QRectF mapRectFromScene(QRectF rect)
+* QRectF mapRectFromScene_2(qreal x, qreal y, qreal w, qreal h)
+* QRectF mapRectToItem(QGraphicsItem *item, QRectF rect)
+* QRectF mapRectToItem_2(QGraphicsItem *item, qreal x, qreal y, qreal w, qreal h)
+* QRectF mapRectToParent(QRectF rect)
+* QRectF mapRectToParent_2(qreal x, qreal y, qreal w, qreal h)
+* QRectF mapRectToScene(QRectF rect)
+* QRectF mapRectToScene_2(qreal x, qreal y, qreal w, qreal h)
+* QPointF mapToItem(QGraphicsItem *item, QPointF point)
+* QPolygonF mapToItem_2(QGraphicsItem *item, QRectF rect)
+* QPolygonF mapToItem_3(QGraphicsItem *item, QPolygonF polygon)
+* QPainterPath mapToItem_4(QGraphicsItem *item, QPainterPath path)
+* QPointF mapToItem_5(QGraphicsItem *item, qreal x, qreal y)
+* QPolygonF mapToItem_6(QGraphicsItem *item, qreal x, qreal y, qreal w, qreal h)
+* QPointF mapToParent(QPointF point)
+* QPolygonF mapToParent_2(QRectF rect)
+* QPolygonF mapToParent_3(QPolygonF polygon)
+* QPainterPath mapToParent_4(QPainterPath path)
+* QPointF mapToParent_5(qreal x, qreal y)
+* QPolygonF mapToParent_6(qreal x, qreal y, qreal w, qreal h)
+* QPointF mapToScene(QPointF point)
+* QPolygonF mapToScene_2(QRectF rect)
+* QPolygonF mapToScene_3(QPolygonF polygon)
+* QPainterPath mapToScene_4(QPainterPath path)
+* QPointF mapToScene_5(qreal x, qreal y)
+* QPolygonF mapToScene_6(qreal x, qreal y, qreal w, qreal h)
+* void moveBy(qreal dx, qreal dy)
+* qreal opacity(void)
+* QPainterPath opaqueArea(void)
+* void paint(QPainter *painter, QStyleOptionGraphicsItem *option, QWidget *widget)
+* QGraphicsItem * panel(void)
+* QGraphicsItem::PanelModality panelModality(void)
+* QGraphicsItem * parentItem(void)
+* QGraphicsObject * parentObject(void)
+* QGraphicsWidget * parentWidget(void)
+* QPointF pos(void)
+* void removeSceneEventFilter(QGraphicsItem *filterItem)
+* void resetTransform(void)
+* qreal rotation(void)
+* qreal scale(void)
+* QGraphicsScene * scene(void)
+* QRectF sceneBoundingRect(void)
+* QPointF scenePos(void)
+* QTransform sceneTransform(void)
+* void scroll(qreal dx, qreal dy, QRectF rect)
+* void setAcceptDrops(bool on)
+* void setAcceptHoverEvents(bool enabled)
+* void setAcceptTouchEvents(bool enabled)
+* void setAcceptedMouseButtons(Qt::MouseButtons buttons)
+* void setActive(bool active)
+* void setBoundingRegionGranularity(qreal granularity)
+* void setCacheMode(QGraphicsItem::CacheMode mode, QSize logicalCacheSize)
+* void setCursor(QCursor cursor)
+* void setData(int key, QVariant value)
+* void setEnabled(bool enabled)
+* void setFiltersChildEvents(bool enabled)
+* void setFlag(QGraphicsItem::GraphicsItemFlag flag, bool enabled)
+* void setFlags(QGraphicsItem::GraphicsItemFlags flags)
+* void setFocus(Qt::FocusReason focusReason)
+* void setFocusProxy(QGraphicsItem *item)
+* void setGraphicsEffect(QGraphicsEffect *effect)
+* void setGroup(QGraphicsItemGroup *group)
+* void setInputMethodHints(Qt::InputMethodHints hints)
+* void setOpacity(qreal opacity)
+* void setPanelModality(QGraphicsItem::PanelModality panelModality)
+* void setParentItem(QGraphicsItem *newParent)
+* void setPos(QPointF pos)
+* void setPos_2(qreal x, qreal y)
+* void setRotation(qreal angle)
+* void setScale(qreal factor)
+* void setSelected(bool selected)
+* void setToolTip(QString toolTip)
+* void setTransform(QTransform matrix, bool combine)
+* void setTransformOriginPoint(QPointF origin)
+* void setTransformOriginPoint_2(qreal x, qreal y)
+* void setTransformations(QList<QGraphicsTransform *> transformations)
+* void setVisible(bool visible)
+* void setX(qreal x)
+* void setY(qreal y)
+* void setZValue(qreal z)
+* QPainterPath shape(void)
+* void show(void)
+* void stackBefore(QGraphicsItem *sibling)
+* QGraphicsObject * toGraphicsObject(void)
+* QGraphicsObject * toGraphicsObject_2(void)
+* QString toolTip(void)
+* QGraphicsItem * topLevelItem(void)
+* QGraphicsWidget * topLevelWidget(void)
+* QTransform transform(void)
+* QPointF transformOriginPoint(void)
+* QList<QGraphicsTransform *> transformations(void)
+* int type(void)
+* void ungrabKeyboard(void)
+* void ungrabMouse(void)
+* void unsetCursor(void)
+* void update(QRectF rect)
+* void update_2(qreal x, qreal y, qreal width, qreal height)
+* QGraphicsWidget * window(void)
+* qreal x(void)
+* qreal y(void)
+* qreal zValue(void)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsItemGroup Class
+
+QGraphicsItemGroup Class
+========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicsitemgroup.html
+
+
+Parameters : QGraphicsItem *
+
+
+Parent Class : QGraphicsItem
+
+* void addToGroup(QGraphicsItem *item)
+* void removeFromGroup(QGraphicsItem *item)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsLayout Class
+
+QGraphicsLayout Class
+=====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicslayout.html
+
+
+Parameters : QGraphicsLayoutItem *
+
+
+Parent Class : QGraphicsLayoutItem
+
+* void activate(void)
+* int count(void)
+* void invalidate(void)
+* bool isActivated(void)
+* QGraphicsLayoutItem * itemAt(int i)
+* void removeAt(int index)
+* void setContentsMargins(qreal left, qreal top, qreal right, qreal bottom)
+* void widgetEvent(QEvent *e)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsLayoutItem Class
+
+QGraphicsLayoutItem Class
+=========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicslayoutitem.html
+
+
+Parameters : QGraphicsLayoutItem *,bool
+
+* QRectF contentsRect(void)
+* QSizeF effectiveSizeHint(Qt::SizeHint which, QSizeF constraint)
+* QRectF geometry(void)
+* void getContentsMargins(qreal *left, qreal *top, qreal *right, qreal *bottom)
+* QGraphicsItem * graphicsItem(void)
+* bool isLayout(void)
+* qreal maximumHeight(void)
+* QSizeF maximumSize(void)
+* qreal maximumWidth(void)
+* qreal minimumHeight(void)
+* QSizeF minimumSize(void)
+* qreal minimumWidth(void)
+* bool ownedByLayout(void)
+* QGraphicsLayoutItem * parentLayoutItem(void)
+* qreal preferredHeight(void)
+* QSizeF preferredSize(void)
+* qreal preferredWidth(void)
+* void setGeometry(QRectF rect)
+* void setMaximumHeight(qreal height)
+* void setMaximumSize(QSizeF size)
+* void setMaximumSize_2(qreal w, qreal h)
+* void setMaximumWidth(qreal width)
+* void setMinimumHeight(qreal height)
+* void setMinimumSize(QSizeF size)
+* void setMinimumSize_2(qreal w, qreal h)
+* void setMinimumWidth(qreal width)
+* void setParentLayoutItem(QGraphicsLayoutItem *parent)
+* void setPreferredHeight(qreal height)
+* void setPreferredSize(QSizeF size)
+* void setPreferredSize_2(qreal w, qreal h)
+* void setPreferredWidth(qreal width)
+* void setSizePolicy(QSizePolicy policy)
+* void setSizePolicy_2(QSizePolicy::Policy hPolicy, QSizePolicy::Policy vPolicy, QSizePolicy::ControlType controlType)
+* QSizePolicy sizePolicy(void)
+* void updateGeometry(void)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsLineItem Class
+
+QGraphicsLineItem Class
+=======================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicslineitem.html
+
+
+Parameters : QGraphicsItem *
+
+
+Parent Class : QGraphicsItem
+
+* QLineF line(void)
+* QPen pen(void)
+* void setLine(QLineF line)
+* void setLine_2(qreal x1, qreal y1, qreal x2, qreal y2)
+* void setPen(QPen pen)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsLinearLayout Class
+
+QGraphicsLinearLayout Class
+===========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicslinearlayout.html
+
+
+Parameters : QGraphicsLayoutItem *
+
+
+Parent Class : QGraphicsLayout
+
+* void addItem(QGraphicsLayoutItem *item)
+* void addStretch(int stretch)
+* Qt::Alignment alignment(QGraphicsLayoutItem *item)
+* void insertItem(int index, QGraphicsLayoutItem *item)
+* void insertStretch(int index, int stretch)
+* qreal itemSpacing(int index)
+* Qt::Orientation orientation(void)
+* void removeItem(QGraphicsLayoutItem *item)
+* void setAlignment(QGraphicsLayoutItem *item, Qt::Alignment alignment)
+* void setItemSpacing(int index, qreal spacing)
+* void setOrientation(Qt::Orientation orientation)
+* void setSpacing(qreal spacing)
+* void setStretchFactor(QGraphicsLayoutItem *item, int stretch)
+* qreal spacing(void)
+* int stretchFactor(QGraphicsLayoutItem *item)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsObject Class
+
+QGraphicsObject Class
+=====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicsobject.html
+
+
+Parameters : QGraphicsItem *
+
+
+Parent Class : QGraphicsItem
+
+* void grabGesture(Qt::GestureType gesture, Qt::GestureFlags flags)
+* void ungrabGesture(Qt::GestureType gesture)
+* void setenabledChangedEvent(const char *)
+* void setopacityChangedEvent(const char *)
+* void setparentChangedEvent(const char *)
+* void setrotationChangedEvent(const char *)
+* void setscaleChangedEvent(const char *)
+* void setvisibleChangedEvent(const char *)
+* void setxChangedEvent(const char *)
+* void setyChangedEvent(const char *)
+* void setzChangedEvent(const char *)
+* const char *getenabledChangedEvent(void)
+* const char *getopacityChangedEvent(void)
+* const char *getparentChangedEvent(void)
+* const char *getrotationChangedEvent(void)
+* const char *getscaleChangedEvent(void)
+* const char *getvisibleChangedEvent(void)
+* const char *getxChangedEvent(void)
+* const char *getyChangedEvent(void)
+* const char *getzChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsPathItem Class
+
+QGraphicsPathItem Class
+=======================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicspathitem.html
+
+
+Parameters : QGraphicsItem *
+
+
+Parent Class : QAbstractGraphicsShapeItem
+
+* QPainterPath path(void)
+* void setPath(QPainterPath path)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsPixmapItem Class
+
+QGraphicsPixmapItem Class
+=========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicspixmapitem.html
+
+
+Parameters : QGraphicsItem *
+
+
+Parent Class : QGraphicsItem
+
+* QPointF offset(void)
+* QPixmap pixmap(void)
+* void setOffset(QPointF offset)
+* void setOffset_2(qreal x, qreal y)
+* void setPixmap(QPixmap pixmap)
+* void setShapeMode(QGraphicsPixmapItem::ShapeMode mode)
+* void setTransformationMode(Qt::TransformationMode mode)
+* QGraphicsPixmapItem::ShapeMode shapeMode(void)
+* Qt::TransformationMode transformationMode(void)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsPolygonItem Class
+
+QGraphicsPolygonItem Class
+==========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicspolygonitem.html
+
+
+Parameters : QGraphicsItem *
+
+
+Parent Class : QAbstractGraphicsShapeItem
+
+* Qt::FillRule fillRule(void)
+* QPolygonF polygon(void)
+* void setFillRule(Qt::FillRule rule)
+* void setPolygon(QPolygonF polygon)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsProxyWidget Class
+
+QGraphicsProxyWidget Class
+==========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicsproxywidget.html
+
+
+Parameters : QGraphicsItem *,Qt::WindowFlags
+
+
+Parent Class : QGraphicsWidget
+
+* QGraphicsProxyWidget * createProxyForChildWidget(QWidget *child)
+* void setWidget(QWidget *widget)
+* QRectF subWidgetRect(QWidget *widget)
+* QWidget * widget(void)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsRectItem Class
+
+QGraphicsRectItem Class
+=======================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicsrectitem.html
+
+
+Parameters : QGraphicsItem *
+
+
+Parent Class : QAbstractGraphicsShapeItem
+
+* QRectF rect(void)
+* void setRect(QRectF rectangle)
+* void setRect_2(qreal x, qreal y, qreal width, qreal height)
+
+.. index::
 	pair: RingQt Classes Reference; QGraphicsScene Class
 
 QGraphicsScene Class
@@ -4614,6 +5239,258 @@ Parent Class : QObject
 * const char *getfocusItemChangedEvent(void)
 * const char *getsceneRectChangedEvent(void)
 * const char *getselectionChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsSceneContextMenuEvent Class
+
+QGraphicsSceneContextMenuEvent Class
+====================================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicsscenecontextmenuevent.html
+
+
+Parent Class : QGraphicsSceneEvent
+
+* Qt::KeyboardModifiers modifiers(void)
+* QPointF pos(void)
+* QGraphicsSceneContextMenuEvent::Reason reason(void)
+* QPointF scenePos(void)
+* QPoint screenPos(void)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsSceneDragDropEvent Class
+
+QGraphicsSceneDragDropEvent Class
+=================================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicsscenedragdropevent.html
+
+
+Parent Class : QGraphicsSceneEvent
+
+* void acceptProposedAction(void)
+* Qt::MouseButtons buttons(void)
+* Qt::DropAction dropAction(void)
+* QMimeData * mimeData(void)
+* Qt::KeyboardModifiers modifiers(void)
+* QPointF pos(void)
+* Qt::DropActions possibleActions(void)
+* Qt::DropAction proposedAction(void)
+* QPointF scenePos(void)
+* QPoint screenPos(void)
+* void setDropAction(Qt::DropAction action)
+* QWidget *source(void)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsSceneEvent Class
+
+QGraphicsSceneEvent Class
+=========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicssceneevent.html
+
+
+Parent Class : QEvent
+
+* QWidget * widget(void)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsSceneHelpEvent Class
+
+QGraphicsSceneHelpEvent Class
+=============================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicsscenehelpevent.html
+
+
+Parent Class : QGraphicsSceneEvent
+
+* QPointF scenePos(void)
+* QPoint screenPos(void)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsSceneHoverEvent Class
+
+QGraphicsSceneHoverEvent Class
+==============================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicsscenehoverevent.html
+
+
+Parent Class : QGraphicsSceneEvent
+
+* QPointF lastPos(void)
+* QPointF lastScenePos(void)
+* QPoint lastScreenPos(void)
+* Qt::KeyboardModifiers modifiers(void)
+* QPointF pos(void)
+* QPointF scenePos(void)
+* QPoint screenPos(void)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsSceneMouseEvent Class
+
+QGraphicsSceneMouseEvent Class
+==============================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicsscenemouseevent.html
+
+
+Parent Class : QGraphicsSceneEvent
+
+* Qt::MouseButton button(void)
+* QPointF buttonDownPos(Qt::MouseButton button)
+* QPointF buttonDownScenePos(Qt::MouseButton button)
+* QPoint buttonDownScreenPos(Qt::MouseButton button)
+* Qt::MouseButtons buttons(void)
+* Qt::MouseEventFlags flags(void)
+* QPointF lastPos(void)
+* QPointF lastScenePos(void)
+* QPoint lastScreenPos(void)
+* Qt::KeyboardModifiers modifiers(void)
+* QPointF pos(void)
+* QPointF scenePos(void)
+* QPoint screenPos(void)
+* Qt::MouseEventSource source(void)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsSceneMoveEvent Class
+
+QGraphicsSceneMoveEvent Class
+=============================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicsscenemoveevent.html
+
+
+Parent Class : QGraphicsSceneEvent
+
+* QPointF newPos(void)
+* QPointF oldPos(void)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsSceneResizeEvent Class
+
+QGraphicsSceneResizeEvent Class
+===============================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicssceneresizeevent.html
+
+
+Parent Class : QGraphicsSceneEvent
+
+* QSizeF newSize(void)
+* QSizeF oldSize(void)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsSceneWheelEvent Class
+
+QGraphicsSceneWheelEvent Class
+==============================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicsscenewheelevent.html
+
+
+Parent Class : QGraphicsSceneEvent
+
+* Qt::MouseButtons buttons(void)
+* int delta(void)
+* Qt::KeyboardModifiers modifiers(void)
+* Qt::Orientation orientation(void)
+* QPointF pos(void)
+* QPointF scenePos(void)
+* QPoint screenPos(void)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsSimpleTextItem Class
+
+QGraphicsSimpleTextItem Class
+=============================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicssimpletextitem.html
+
+
+Parameters : QGraphicsItem *
+
+
+Parent Class : QAbstractGraphicsShapeItem
+
+* QFont font(void)
+* void setFont(QFont font)
+* void setText(QString text)
+* QString text(void)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsSvgItem Class
+
+QGraphicsSvgItem Class
+======================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicssvgitem.html
+
+
+Parameters : QGraphicsItem *
+
+
+Parent Class : QGraphicsObject
+
+* QString elementId(void)
+* QSize maximumCacheSize(void)
+* QSvgRenderer * renderer(void)
+* void setElementId(QString id)
+* void setMaximumCacheSize(QSize size)
+* void setSharedRenderer(QSvgRenderer *renderer)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsTextItem Class
+
+QGraphicsTextItem Class
+=======================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicstextitem.html
+
+
+Parameters : QGraphicsItem *
+
+
+Parent Class : QGraphicsObject
+
+* void adjustSize(void)
+* QColor defaultTextColor(void)
+* QTextDocument * document(void)
+* QFont font(void)
+* bool openExternalLinks(void)
+* void setDefaultTextColor(QColor col)
+* void setDocument(QTextDocument *document)
+* void setFont(QFont font)
+* void setHtml(QString text)
+* void setOpenExternalLinks(bool open)
+* void setPlainText(QString text)
+* void setTabChangesFocus(bool b)
+* void setTextCursor(QTextCursor cursor)
+* void setTextInteractionFlags(Qt::TextInteractionFlags flags)
+* void setTextWidth(qreal width)
+* bool tabChangesFocus(void)
+* QTextCursor textCursor(void)
+* Qt::TextInteractionFlags textInteractionFlags(void)
+* qreal textWidth(void)
+* QString toHtml(void)
+* QString toPlainText(void)
+* void setlinkActivatedEvent(const char *)
+* void setlinkHoveredEvent(const char *)
+* const char *getlinkActivatedEvent(void)
+* const char *getlinkHoveredEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QGraphicsVideoItem Class
@@ -4726,6 +5603,78 @@ Parent Class : QAbstractScrollArea
 * void invalidateScene(QRectF rect, QGraphicsScene::SceneLayers layers)
 * void updateScene(QList<QRectF> rects)
 * void updateSceneRect(QRectF rect)
+* void setrubberBandChangedEvent(const char *)
+* const char *getrubberBandChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QGraphicsWidget Class
+
+QGraphicsWidget Class
+=====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qgraphicswidget.html
+
+
+Parameters : QGraphicsItem *,Qt::WindowFlags
+
+
+Parent Class : QGraphicsObject
+
+* QList<QAction *> actions(void)
+* void addAction(QAction *action)
+* void addActions(QList<QAction *> actions)
+* void adjustSize(void)
+* bool autoFillBackground(void)
+* Qt::FocusPolicy focusPolicy(void)
+* QGraphicsWidget * focusWidget(void)
+* QFont font(void)
+* void getWindowFrameMargins(qreal *left, qreal *top, qreal *right, qreal *bottom)
+* int grabShortcut(QKeySequence sequence, Qt::ShortcutContext context)
+* void insertAction(QAction *before, QAction *action)
+* void insertActions(QAction *before, QList<QAction *> actions)
+* bool isActiveWindow(void)
+* QGraphicsLayout * layout(void)
+* Qt::LayoutDirection layoutDirection(void)
+* void paintWindowFrame(QPainter *painter, QStyleOptionGraphicsItem *option, QWidget *widget)
+* QPalette palette(void)
+* QRectF rect(void)
+* void releaseShortcut(int id)
+* void removeAction(QAction *action)
+* void resize(QSizeF size)
+* void resize_2(qreal w, qreal h)
+* void setAttribute(Qt::WidgetAttribute attribute, bool on)
+* void setAutoFillBackground(bool enabled)
+* void setContentsMargins(QMarginsF margins)
+* void setContentsMargins_2(qreal left, qreal top, qreal right, qreal bottom)
+* void setFocusPolicy(Qt::FocusPolicy policy)
+* void setFont(QFont font)
+* void setGeometry(qreal x, qreal y, qreal w, qreal h)
+* void setLayout(QGraphicsLayout *layout)
+* void setLayoutDirection(Qt::LayoutDirection direction)
+* void setPalette(QPalette palette)
+* void setShortcutAutoRepeat(int id, bool enabled)
+* void setShortcutEnabled(int id, bool enabled)
+* void setStyle(QStyle *style)
+* void setWindowFlags(Qt::WindowFlags wFlags)
+* void setWindowFrameMargins(QMarginsF margins)
+* void setWindowFrameMargins_2(qreal left, qreal top, qreal right, qreal bottom)
+* void setWindowTitle(QString title)
+* QSizeF size(void)
+* QStyle * style(void)
+* bool testAttribute(Qt::WidgetAttribute attribute)
+* void unsetLayoutDirection(void)
+* void unsetWindowFrameMargins(void)
+* Qt::WindowFlags windowFlags(void)
+* QRectF windowFrameGeometry(void)
+* QRectF windowFrameRect(void)
+* QString windowTitle(void)
+* Qt::WindowType windowType(void)
+* bool close(void)
+* void setgeometryChangedEvent(const char *)
+* void setlayoutChangedEvent(const char *)
+* const char *getgeometryChangedEvent(void)
+* const char *getlayoutChangedEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QGridLayout Class
@@ -5812,6 +6761,21 @@ Parent Class : QObject
 * const char *getvisibleChangedEvent(void)
 
 .. index::
+	pair: RingQt Classes Reference; QLibraryInfo Class
+
+QLibraryInfo Class
+==================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qlibraryinfo.html
+
+
+Parameters : void
+
+* bool isDebugBuild(void)
+* QVersionNumber version(void)
+
+.. index::
 	pair: RingQt Classes Reference; QLineEdit Class
 
 QLineEdit Class
@@ -5895,6 +6859,45 @@ Parent Class : QWidget
 * const char *getreturnPressedEvent(void)
 * const char *getselectionChangedEvent(void)
 * const char *gettextEditedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QLineF Class
+
+QLineF Class
+============
+
+
+C++ Reference : http://doc.qt.io/qt-5/qlinef.html
+
+
+Parameters : qreal,qreal,qreal,qreal
+
+* QPointF p2(void)
+* qreal x1(void)
+* qreal x2(void)
+* qreal y1(void)
+* qreal y2(void)
+* qreal angle(void)
+* qreal angleTo(QLineF line)
+* QPointF center(void)
+* qreal dx(void)
+* qreal dy(void)
+* QLineF::IntersectionType intersects(QLineF line, QPointF *intersectionPoint)
+* bool isNull(void)
+* qreal length(void)
+* QLineF normalVector(void)
+* QPointF pointAt(qreal t)
+* void setP1(QPointF p1)
+* void setP2(QPointF p2)
+* void setAngle(qreal angle)
+* void setLength(qreal length)
+* void setLine(qreal x1, qreal y1, qreal x2, qreal y2)
+* void setPoints(QPointF p1, QPointF p2)
+* QLine toLine(void)
+* void translate(QPointF offset)
+* void translate_2(qreal dx, qreal dy)
+* QLineF translated(QPointF offset)
+* QLineF translated_2(qreal dx, qreal dy)
 
 .. index::
 	pair: RingQt Classes Reference; QLineSeries Class
@@ -6716,6 +7719,31 @@ Parent Class : QObject
 * void setUrls(QList<QUrl> urls)
 * QString text(void)
 * QList<QUrl> urls(void)
+
+.. index::
+	pair: RingQt Classes Reference; QModelIndex Class
+
+QModelIndex Class
+=================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qmodelindex.html
+
+
+Parameters : void
+
+* int column(void)
+* QVariant data(int role)
+* Qt::ItemFlags flags(void)
+* quintptr internalId(void)
+* void * internalPointer(void)
+* bool isValid(void)
+* QAbstractItemModel * model(void)
+* QModelIndex parent(void)
+* int row(void)
+* QModelIndex sibling(int row, int column)
+* QModelIndex siblingAtColumn(int column)
+* QModelIndex siblingAtRow(int row)
 
 .. index::
 	pair: RingQt Classes Reference; QMorphPhongMaterial Class
@@ -9290,6 +10318,114 @@ Parameters : void
 * int y(void)
 
 .. index::
+	pair: RingQt Classes Reference; QRectF Class
+
+QRectF Class
+============
+
+
+C++ Reference : http://doc.qt.io/qt-5/qrectf.html
+
+
+Parameters : qreal,qreal,qreal,qreal
+
+* void adjust(qreal dx1, qreal dy1, qreal dx2, qreal dy2)
+* QRectF adjusted(qreal dx1, qreal dy1, qreal dx2, qreal dy2)
+* qreal bottom(void)
+* QPointF bottomLeft(void)
+* QPointF bottomRight(void)
+* QPointF center(void)
+* bool contains(QPointF point)
+* bool contains_2(QRectF rectangle)
+* bool contains_3(qreal x, qreal y)
+* void getCoords(qreal *x1, qreal *y1, qreal *x2, qreal *y2)
+* void getRect(qreal *x, qreal *y, qreal *width, qreal *height)
+* qreal height(void)
+* QRectF intersected(QRectF rectangle)
+* bool intersects(QRectF rectangle)
+* bool isEmpty(void)
+* bool isNull(void)
+* bool isValid(void)
+* qreal left(void)
+* QRectF marginsAdded(QMarginsF margins)
+* QRectF marginsRemoved(QMarginsF margins)
+* void moveBottom(qreal y)
+* void moveBottomLeft(QPointF position)
+* void moveBottomRight(QPointF position)
+* void moveCenter(QPointF position)
+* void moveLeft(qreal x)
+* void moveRight(qreal x)
+* void moveTo(qreal x, qreal y)
+* void moveTo_2(QPointF position)
+* void moveTop(qreal y)
+* void moveTopLeft(QPointF position)
+* void moveTopRight(QPointF position)
+* QRectF normalized(void)
+* qreal right(void)
+* void setBottom(qreal y)
+* void setBottomLeft(QPointF position)
+* void setBottomRight(QPointF position)
+* void setCoords(qreal x1, qreal y1, qreal x2, qreal y2)
+* void setHeight(qreal height)
+* void setLeft(qreal x)
+* void setRect(qreal x, qreal y, qreal width, qreal height)
+* void setRight(qreal x)
+* void setSize(QSizeF size)
+* void setTop(qreal y)
+* void setTopLeft(QPointF position)
+* void setTopRight(QPointF position)
+* void setWidth(qreal width)
+* void setX(qreal x)
+* void setY(qreal y)
+* QSizeF size(void)
+* QRect toAlignedRect(void)
+* qreal top(void)
+* QPointF topLeft(void)
+* QPointF topRight(void)
+* void translate(qreal dx, qreal dy)
+* void translate_2(QPointF offset)
+* QRectF translated(qreal dx, qreal dy)
+* QRectF translated_2(QPointF offset)
+* QRectF transposed(void)
+* QRectF united(QRectF rectangle)
+* qreal width(void)
+* qreal x(void)
+* qreal y(void)
+
+.. index::
+	pair: RingQt Classes Reference; QRegExp Class
+
+QRegExp Class
+=============
+
+
+C++ Reference : http://doc.qt.io/qt-5/qregexp.html
+
+
+Parameters : void
+
+* QString cap(int nth)
+* int captureCount(void)
+* QStringList capturedTexts(void)
+* Qt::CaseSensitivity caseSensitivity(void)
+* QString errorString(void)
+* bool exactMatch(QString str)
+* int indexIn(QString str, int offset, QRegExp::CaretMode caretMode)
+* bool isEmpty(void)
+* bool isMinimal(void)
+* bool isValid(void)
+* int lastIndexIn(QString str, int offset, QRegExp::CaretMode caretMode)
+* int matchedLength(void)
+* QString pattern(void)
+* QRegExp::PatternSyntax patternSyntax(void)
+* int pos(int nth)
+* void setCaseSensitivity(Qt::CaseSensitivity cs)
+* void setMinimal(bool minimal)
+* void setPattern(QString pattern)
+* void setPatternSyntax(QRegExp::PatternSyntax syntax)
+* void swap(QRegExp other)
+
+.. index::
 	pair: RingQt Classes Reference; QRegion Class
 
 QRegion Class
@@ -10398,6 +11534,23 @@ Parent Class : QObject
 * Qt::Alignment visualAlignment(Qt::LayoutDirection direction, Qt::Alignment alignment)
 * QPoint visualPos(Qt::LayoutDirection direction, QRect boundingRectangle, QPoint logicalPosition)
 * QRect visualRect(Qt::LayoutDirection direction, QRect boundingRectangle, QRect logicalRectangle)
+
+.. index::
+	pair: RingQt Classes Reference; QStyleOptionGraphicsItem Class
+
+QStyleOptionGraphicsItem Class
+==============================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qstyleoptiongraphicsitem.html
+
+
+Parent Class : QStyleOption
+
+
+Parameters : void
+
+* qreal levelOfDetailFromTransform(QTransform worldTransform)
 
 .. index::
 	pair: RingQt Classes Reference; QSurfaceFormat Class
@@ -11812,6 +12965,71 @@ Parameters : Qt3DCore::QNode *
 * QMatrix4x4 rotateFromAxes(QVector3D xAxis, QVector3D yAxis, QVector3D zAxis)
 
 .. index::
+	pair: RingQt Classes Reference; QTransform2 Class
+
+QTransform2 Class
+=================
+
+
+Parameters : qreal,qreal,qreal,qreal,qreal,qreal
+
+* qreal m11(void)
+* qreal m12(void)
+* qreal m13(void)
+* qreal m21(void)
+* qreal m22(void)
+* qreal m23(void)
+* qreal m31(void)
+* qreal m32(void)
+* qreal m33(void)
+* QTransform adjoint(void)
+* qreal determinant(void)
+* qreal dx(void)
+* qreal dy(void)
+* QTransform inverted(bool *invertible)
+* bool isAffine(void)
+* bool isIdentity(void)
+* bool isInvertible(void)
+* bool isRotating(void)
+* bool isScaling(void)
+* bool isTranslating(void)
+* void map(qreal x, qreal y, qreal *tx, qreal *ty)
+* QPoint map_2(QPoint point)
+* QPointF map_3(QPointF p)
+* QLine map_4(QLine l)
+* QLineF map_5(QLineF line)
+* QPolygonF map_6(QPolygonF polygon)
+* QPolygon map_7(QPolygon polygon)
+* QRegion map_8(QRegion region)
+* QPainterPath map_9(QPainterPath path)
+* void map_10(int x, int y, int *tx, int *ty)
+* QRectF mapRect(QRectF rectangle)
+* QRect mapRect_2(QRect rectangle)
+* QPolygon mapToPolygon(QRect rectangle)
+* void reset(void)
+* QTransform rotate(qreal angle, Qt::Axis axis)
+* QTransform rotateRadians(qreal angle, Qt::Axis axis)
+* QTransform scale(qreal sx, qreal sy)
+* void setMatrix(qreal m11, qreal m12, qreal m13, qreal m21, qreal m22, qreal m23, qreal m31, qreal m32, qreal m33)
+* QTransform shear(qreal sh, qreal sv)
+* QTransform translate(qreal dx, qreal dy)
+* QTransform transposed(void)
+* QTransform::TransformationType type(void)
+
+.. index::
+	pair: RingQt Classes Reference; QTransform3 Class
+
+QTransform3 Class
+=================
+
+
+Parameters : void
+
+
+Parent Class : QTransform2
+
+
+.. index::
 	pair: RingQt Classes Reference; QTreeView Class
 
 QTreeView Class
@@ -12669,6 +13887,30 @@ Parameters : void
 * QVoice value(int i)
 
 .. index::
+	pair: RingQt Classes Reference; QVersionNumber Class
+
+QVersionNumber Class
+====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qversionnumber.html
+
+
+Parameters : void
+
+* bool isNormalized(void)
+* bool isNull(void)
+* bool isPrefixOf(QVersionNumber other)
+* int majorVersion(void)
+* int microVersion(void)
+* int minorVersion(void)
+* QVersionNumber normalized(void)
+* int segmentAt(int index)
+* int segmentCount(void)
+* QVector<int> segments(void)
+* QString toString(void)
+
+.. index::
 	pair: RingQt Classes Reference; QVideoWidget Class
 
 QVideoWidget Class
@@ -12921,6 +14163,31 @@ Parameters : QWidget *parent
 
 Parent Class : QWebEngineView
 
+* QWebHistory *history(void)
+* QAction *pageAction(QWebPage::WebAction action)
+* void setContent(QByteArray,QString,QUrl)
+* void setHtml(QString,QUrl)
+* void setPage(QWebPage *page)
+* void setZoomFactor(qreal factor)
+* QWebSettings *settings(void)
+* void triggerPageAction(QWebPage::WebAction action, bool checked)
+* QUrl url(void)
+* qreal zoomFactor(void)
+* void back(void)
+* void forward(void)
+* void print(QPrinter *printer)
+* void reload(void)
+* void stop(void)
+* void setloadProgressEvent(const char *)
+* void setloadStartedEvent(const char *)
+* void setselectionChangedEvent(const char *)
+* void seturlChangedEvent(const char *)
+* const char *getloadFinishedEvent(void)
+* const char *getloadProgressEvent(void)
+* const char *getloadStartedEvent(void)
+* const char *getselectionChangedEvent(void)
+* const char *gettitleChangedEvent(void)
+* const char *geturlChangedEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QWidget Class
