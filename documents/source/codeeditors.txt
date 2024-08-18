@@ -9,6 +9,7 @@ In the Ring/Tools/Editors folder you will find extensions for the next editors
 
 * Notepad++
 * Geany
+* nano
 * Atom
 * Sublime Text 2
 * Visual Studio IDE
@@ -52,6 +53,19 @@ Folder : ring/tools/editors/geany
 
 .. image:: editor2.png
 	:alt: Using Geany
+
+.. index:: 
+	pair: Using Other Code Editors; Using nano
+
+Using nano
+===========
+
+Folder : ring/tools/editors/nano
+
+Check the ReadMe file for installation instructions.
+
+.. image:: nano.png
+	:alt: Using nano
 
 
 .. index:: 
