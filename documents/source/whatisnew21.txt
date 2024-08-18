@@ -423,8 +423,53 @@ Also, we added the next arithmetic instructions
 Better RingQt
 =============
 
-* Qt library is updated from Qt 5.15.16 to 5.15.17
-* QDateTimeEdit - Added Class Events
+(1) Qt library is updated from Qt 5.15.16 to 5.15.17
+
+(2) QDateTimeEdit - Added Class Events
+
+(3) The next classes are added to RingQt
+
+* QAbstractGraphicsShapeItem
+* QAudioOutput 
+* QGraphicsAnchor
+* QGraphicsAnchorLayout
+* QGraphicsEffect
+* QGraphicsEllipseItem
+* QGraphicsGridLayout
+* QGraphicsItem
+* QGraphicsItemGroup
+* QGraphicsLayout
+* QGraphicsLayoutItem
+* QGraphicsLineItem
+* QGraphicsLinearLayout
+* QGraphicsObject
+* QGraphicsPathItem
+* QGraphicsPixmapItem
+* QGraphicsPolygonItem
+* QGraphicsProxyWidget
+* QGraphicsRectItem
+* QGraphicsSceneContextMenuEvent
+* QGraphicsSceneDragDropEvent
+* QGraphicsSceneEvent
+* QGraphicsSceneHelpEvent
+* QGraphicsSceneHoverEvent
+* QGraphicsSceneMouseEvent
+* QGraphicsSceneMoveEvent
+* QGraphicsSceneResizeEvent
+* QGraphicsSceneWheelEvent
+* QGraphicsSimpleTextItem
+* QGraphicsSvgItem
+* QGraphicsTextItem
+* QGraphicsWidget
+* QLibraryInfo
+* QLineF
+* QModelIndex
+* QRectF
+* QRegExp
+* QStyleOptionGraphicsItem
+* QTransform2
+* QTransform3
+* QVersionNumber
 
 
 .. index:: 
