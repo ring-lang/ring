@@ -52,9 +52,6 @@
 <loadfile> widgets/qlcdnumber.cf
 <loadfile> widgets/qinputdialog.cf
 <loadfile> widgets/qallevents.cf
-<comment>
-<loadfile> widgets/qdesktopwidget.cf
-</comment>
 <loadfile> widgets/qlistwidgetitem.cf
 <loadfile> widgets/qsystemtrayicon.cf
 <loadfile> widgets/ringcodehighlighter.cf
@@ -81,6 +78,10 @@
 <loadfile> widgets/qtabbar.cf
 <loadfile> widgets/qscrollbar.cf
 <loadfile> widgets/qstyle.cf
+
+<comment>
+<loadfile> widgets/qdesktopwidget.cf
+</comment>
 
 <filter> ((iswindows()) and sysget("RINGQT_ANDROID") = "")
 <loadfile> widgets/qopenglwidget.cf
