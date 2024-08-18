@@ -26,6 +26,7 @@ Ring 1.21 comes with the next features!
 * Reducing Memory Usage
 * ForEach Keyword
 * Better Operator Overloading
+* Ring Syntax Highlighting for nano
 * New VM Instructions
 * More Improvements
 
@@ -450,6 +451,17 @@ Output:
 
 .. note:: the numbers(3,6,11) are the result of applying the function f to the list items [1,2,3]
 
+
+.. index:: 
+	pair: What is new in Ring  1.21; Ring Syntax Highlighting for nano
+
+Ring Syntax Highlighting for nano
+=================================
+
+Check the folder: ring/tools/editors/nano
+
+.. image:: nano.png
+	:alt: nano
 
 .. index:: 
 	pair: What is new in Ring  1.21; New VM Instructions
