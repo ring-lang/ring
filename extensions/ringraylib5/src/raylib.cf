@@ -411,8 +411,8 @@ int GuiProgressBar@2(Rectangle bounds, const char *textLeft, const char *textRig
 void GuiStatusBar@2(Rectangle bounds, const char *text)
 void GuiDummyRec@2(Rectangle bounds, const char *text)
 int GuiScrollBar@2(Rectangle bounds, int value, int minValue, int maxValue)
-bool GuiListView@2(Rectangle bounds, const char *text, int *active, int *scrollIndex, bool editMode)
-bool GuiListViewEx@2(Rectangle bounds, const char **text, int count, int *enabled, int *active, int *focus, int *scrollIndex, bool editMode)
+bool GuiListView@2(Rectangle bounds, const char *text,int *scrollIndex,int *active)
+bool GuiListViewEx@2(Rectangle bounds, const char **text, int count, int *scrollIndex, int *active, int *focus)
 int GuiMessageBox@2(Rectangle bounds, const char *windowTitle, const char *message, const char *buttons)
 void GuiLoadStyleDefault(void)
 
