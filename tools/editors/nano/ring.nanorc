@@ -1,0 +1,53 @@
+## Syntax Highlighting For The Ring Programming Language.
+## Author: ysdragon
+
+syntax "Ring" "\.ring$"
+header "^#!.*/(env +)?ring[-0-9._]*( |$)"
+
+# Variables
+color green "[a-zA-Z_0-9$]*|\[=!<>]"
+
+## Language keywords
+color brightblue "\<(again|and|but|bye|call|case|catch|class|def|do|done|else|elseif|end|exit|for|foreach|from|func|get|give|if|import|in|load|loop|new|next|not|off|ok|on|or|other|package|private|put|return|see|print|step|switch|to|try|while|changeringkeyword|changeringoperator|loadsyntax|endfunc|endclass|endpackage|endif|endfor|endwhile|endswitch|endtry|function|endfunction|break|continue|default)\>"
+color brightblue "\<(Again|And|But|Bye|Call|Case|Catch|Class|Def|Do|Done|Else|Elseif|End|Exit|For|Foreach|From|Func|Get|Give|If|Import|In|Load|Loop|New|Next|Not|Off|Ok|On|Or|Other|Package|Private|Put|Return|See|Print|Step|Switch|To|Try|While|ChangeRingKeyword|ChangeRingOperator|LoadSyntax|EndFunc|EndClass|EndPackage|EndIf|EndFor|EndWhile|EndSwitch|EndTry|Function|EndFunction|Break|Continue|Default)\>"
+
+# Functions
+color brightblue "([a-zA-Z0-9_-]*)\("
+
+# Special values
+color brightmagenta "\<(true|false|null|TRUE|FALSE|NULL)\>"
+
+# Special Characters
+color cyan "\["
+color cyan "\]"
+color yellow "\{"
+color yellow "\}"
+color yellow "\)"
+color yellow "\("
+
+# Numbers
+color magenta "[+-]*([0-9]\.)*[0-9]+([eE][+-]?([0-9]\.)*[0-9])*"
+
+# Operators
+color yellow "(\+|~|-|\*|/|%|~|&|(\|)|^|!|<|>|=|\.)"
+
+# Logical Operators
+color yellow "( and | or | xor |\|\|)"
+
+## Ring ":" literals 
+icolor magenta "([ 	]|^):[0-9A-Z_]+\>"
+
+## Expression substitution.  These go inside double-quoted strings using print("like #{this}")
+color pink "#\{[^}]*\}"
+
+# String and char
+color brightred ""([^"\]|\\.)*"|'([^'\]|\\.)*'"
+color brightred "`([^`\]|\\.)*`"
+
+# Types using Ring Type Hints Library
+color bold,pink "\<(char|unsigned|signed|int|short|long|float|double|void|byte|boolean|string|list|number|object|public|static|abstract|protected|override|@override)\>"
+
+# Comments
+color brightyellow start="/\*" end="\*/"
+color brightyellow "(^|[[:blank:]])//.*"
+color brightyellow "(^|[[:blank:]])#.*"
