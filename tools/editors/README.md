@@ -11,6 +11,8 @@ Supported Editors
 
 - Geany
 
+- nano
+
 - Notepad++
 
 - Sublime Text 2
