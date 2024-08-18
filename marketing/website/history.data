@@ -1,4 +1,5 @@
 aNews = [
+  ["August 18, 2024",'<a href="https://github.com/ring-lang/ring/tree/master/tools/editors/nano"> Ring Syntax Highlighting for nano'],
   ["July 31, 2024",'<a href="https://groups.google.com/g/ring-lang/c/DnjG1OPclyk"> Towards using Ring on Raspberry Pi Pico (Microcontroller)</a>'],
   ["May 7, 2024",'<a href="https://github.com/ring-lang/ring/tree/master/applications/lecturestracker"> Application: Lectures Tracker</a>'],
   ["April 21, 2024",'<a href="https://github.com/ring-lang/ring/blob/master/extensions/ringpdfgen/README.md"> RingPDFGen Extension</a>'],
