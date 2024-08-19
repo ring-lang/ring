@@ -7,7 +7,7 @@
 # Vec3() --> Doesn't accept parameters and Return a C pointer
 #===================================================================#
 
-load "raylib5.ring"
+load "raylib.ring"
 
 screenWidth = 800
 screenHeight = 450

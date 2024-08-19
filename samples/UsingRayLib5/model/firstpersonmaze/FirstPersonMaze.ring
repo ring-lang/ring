@@ -4,7 +4,7 @@
 # 2020, accelerated by Ilir Liburn (iliribur@gmail.com)
 #--------------------------------------------------------------------------------
 
-load "raylib5.ring"
+load "raylib.ring"
 load "stdlibcore.ring"
 
 func main

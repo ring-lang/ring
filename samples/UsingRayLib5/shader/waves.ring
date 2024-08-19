@@ -4,7 +4,7 @@
 # Ported to RingRayLib by Ring Team
 #========================================================================#
 
-load "raylib5.ring"
+load "raylib.ring"
 
 func main
 

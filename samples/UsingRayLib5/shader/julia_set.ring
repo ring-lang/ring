@@ -1,7 +1,7 @@
 // Copyright (c) 2019 eggmund (@eggmund) and Ramon Santamaria (@raysan5)
 // Ported to RingRayLib by Ring Team
 
-load "raylib5.ring"
+load "raylib.ring"
 
 POINTS_OF_INTEREST = [
     [ -0.348827, 0.607167 ],

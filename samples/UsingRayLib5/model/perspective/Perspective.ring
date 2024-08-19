@@ -3,7 +3,7 @@
 # Ported to RingRayLib by Ring Team
 #===================================================================#
 
-load "raylib5.ring"
+load "raylib.ring"
 
 FOVY_PERSPECTIVE   =  45.0
 WIDTH_ORTHOGRAPHIC =  10.0

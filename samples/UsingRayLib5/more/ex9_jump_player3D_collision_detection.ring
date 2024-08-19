@@ -6,7 +6,7 @@
 #	Updated by : Ilir Liburn
 #--------------------------------------------------------------
 
-load "raylib5.ring"
+load "raylib.ring"
 
 func main
     

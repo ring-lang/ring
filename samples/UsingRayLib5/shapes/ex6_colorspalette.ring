@@ -3,7 +3,7 @@
 # Ported to RingRayLib by Ring Team
 #===================================================================#
 
-load "raylib5.ring"
+load "raylib.ring"
 
 MAX_COLORS_COUNT = 21          // Number of colors available
 

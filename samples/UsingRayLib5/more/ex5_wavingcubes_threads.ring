@@ -4,7 +4,7 @@
 # 2020, Ilir Liburn <iliribur@gmail.com>
 #===================================================================#
 
-load "raylib5.ring"
+load "raylib.ring"
 load "gamelib.ring"
 
 numBlocks    = 15

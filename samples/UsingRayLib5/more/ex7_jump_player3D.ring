@@ -4,7 +4,7 @@
 # 	Email : lemsantah.2013@gmail.com
 #             02-03-2021
 #--------------------------------------------------------------
-load "raylib5.ring"
+load "raylib.ring"
 
 func main
     

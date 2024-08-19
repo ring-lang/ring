@@ -3,7 +3,7 @@
 # Ported to RingRayLib by Ring Team
 #===================================================================#
 
-load "raylib5.ring"
+load "raylib.ring"
 
 NUM_TEXTURES = 9
 textures     = list(NUM_TEXTURES)

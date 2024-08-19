@@ -3,7 +3,7 @@
 # Update  : 03/10/2019-09:21:36
 # Author  : Gal Zsolt & Bert Mariani
 
-load "raylib5.ring"
+load "raylib.ring"
 
 screenWidth = 800
 screenHeight = 450

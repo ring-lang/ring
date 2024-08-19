@@ -1,7 +1,7 @@
 // Copyright (c) 2015 Ramon Santamaria (@raysan5)
 // Ported to RingRayLib by Ring Team
 
-load "raylib5.ring"
+load "raylib.ring"
 
 MAX_POSTPRO_SHADERS = 12
 

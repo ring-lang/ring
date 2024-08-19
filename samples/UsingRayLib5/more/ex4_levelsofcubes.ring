@@ -4,7 +4,7 @@
 
 
 # Load Libraries
-load "raylib5.ring"		# RingRayLib  Library
+load "raylib.ring"		# RingRayLib  Library
 load "opengl21lib.ring"	# RingOpenGL  Library
 
 TITLE = "Sample : Top-Down View - Many Levels of Cubes"

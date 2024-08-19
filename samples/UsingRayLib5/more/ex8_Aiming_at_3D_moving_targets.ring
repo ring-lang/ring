@@ -3,7 +3,7 @@
 # Ported to RingRayLib by (Azzeddine Remmal) 
 #=====================================================#
 
-load "raylib5.ring"
+load "raylib.ring"
 
 screenWidth = 640
 screenHeight = 360
