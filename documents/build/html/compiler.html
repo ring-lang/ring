@@ -115,7 +115,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#cgi-support">CGI Support</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#no-run">No Run</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#printing-instruction-operation-code">Printing Instruction Operation Code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#performance">Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clock">Clock</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#generate-object-file">Generate Object File</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#generate-embedded-object-file">Generate Embedded Object File</a></li>
 </ul>
@@ -150,6 +150,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usingfastpro.html">Using FastPro Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingringpdfgen.html">Using RingPDFGen Extension</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usingref.html">Using References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
@@ -242,7 +243,7 @@ also the language provide other options like</p>
 <tr class="row-even"><td><p>-ins</p></td>
 <td><p>Print instruction operation code before execution</p></td>
 </tr>
-<tr class="row-odd"><td><p>-performance</p></td>
+<tr class="row-odd"><td><p>-clock</p></td>
 <td><p>Print clock before and after program execution</p></td>
 </tr>
 <tr class="row-even"><td><p>-go</p></td>
@@ -1031,15 +1032,15 @@ Byte Code - After Execution by the VM
 <p>Output removed from the previous example because it’s very large!</p>
 </div>
 </section>
-<section id="performance">
-<span id="index-8"></span><h2>Performance<a class="headerlink" href="#performance" title="Permalink to this heading"></a></h2>
+<section id="clock">
+<span id="index-8"></span><h2>Clock<a class="headerlink" href="#clock" title="Permalink to this heading"></a></h2>
 <p>Command:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">performance</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">clock</span>
 </pre></div>
 </div>
 <p>Output:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">===================================================</span>
-<span class="n">Date</span>  <span class="p">:</span> <span class="mi">2015</span><span class="o">/</span><span class="mi">09</span><span class="o">/</span><span class="mi">15</span> <span class="n">Time</span> <span class="p">:</span> <span class="mi">15</span><span class="p">:</span><span class="mi">56</span><span class="p">:</span><span class="mi">17</span>
+<span class="n">Date</span>  <span class="p">:</span> <span class="mi">2024</span><span class="o">/</span><span class="mi">08</span><span class="o">/</span><span class="mi">19</span> <span class="n">Time</span> <span class="p">:</span> <span class="mi">20</span><span class="p">:</span><span class="mi">52</span><span class="p">:</span><span class="mi">39</span>
 <span class="n">Clock</span> <span class="p">:</span> <span class="mi">0</span>
 <span class="o">===================================================</span>
 <span class="n">Hello</span> <span class="n">World</span>
@@ -1054,12 +1055,12 @@ Byte Code - After Execution by the VM
 <span class="mi">9</span>
 <span class="mi">10</span>
 <span class="n">welcome</span>
-<span class="n">x</span><span class="p">:</span> <span class="mf">10.000000</span>
-<span class="n">y</span><span class="p">:</span> <span class="mf">20.000000</span>
-<span class="n">z</span><span class="p">:</span> <span class="mf">30.000000</span>
+<span class="n">x</span><span class="p">:</span> <span class="mi">10</span>
+<span class="n">y</span><span class="p">:</span> <span class="mi">20</span>
+<span class="n">z</span><span class="p">:</span> <span class="mi">30</span>
 
 <span class="o">===================================================</span>
-<span class="n">Date</span>  <span class="p">:</span> <span class="mi">2015</span><span class="o">/</span><span class="mi">09</span><span class="o">/</span><span class="mi">15</span> <span class="n">Time</span> <span class="p">:</span> <span class="mi">15</span><span class="p">:</span><span class="mi">56</span><span class="p">:</span><span class="mi">17</span>
+<span class="n">Date</span>  <span class="p">:</span> <span class="mi">2024</span><span class="o">/</span><span class="mi">08</span><span class="o">/</span><span class="mi">19</span> <span class="n">Time</span> <span class="p">:</span> <span class="mi">20</span><span class="p">:</span><span class="mi">52</span><span class="p">:</span><span class="mi">39</span>
 <span class="n">Clock</span> <span class="p">:</span> <span class="mi">0</span>
 <span class="o">===================================================</span>
 </pre></div>
