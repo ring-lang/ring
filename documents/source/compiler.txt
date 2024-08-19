@@ -18,10 +18,10 @@ Option		Description
 -cgi		Print http response header before error messages
 -norun		Don't run the program after compiling
 -ins		Print instruction operation code before execution
--performance	Print clock before and after program execution
--go		Generate Object File
+-clock		Print clock before and after program execution
+-go			Generate Object File
 -geo		Generate embedded object file (C source code)
--w		Display Warnings 
+-w			Display Warnings 
 ============	=======================================================
 
 .. index:: 
@@ -847,23 +847,23 @@ Output:
 .. tip:: Output removed from the previous example because it's very large!
 
 .. index:: 
-	pair: Command Line Options; Performance
+	pair: Command Line Options; Clock
 
-Performance
+Clock
 ===========
 
 Command:
 
 .. code-block:: ring
 
-	ring test.ring -performance
+	ring test.ring -clock
 
 Output:
 
 .. code-block:: ring
 
 	===================================================
-	Date  : 2015/09/15 Time : 15:56:17
+	Date  : 2024/08/19 Time : 20:52:39
 	Clock : 0 
 	===================================================
 	Hello World
@@ -878,12 +878,12 @@ Output:
 	9
 	10
 	welcome
-	x: 10.000000
-	y: 20.000000
-	z: 30.000000
-	
+	x: 10
+	y: 20
+	z: 30
+
 	===================================================
-	Date  : 2015/09/15 Time : 15:56:17
+	Date  : 2024/08/19 Time : 20:52:39
 	Clock : 0 
 	===================================================
 
