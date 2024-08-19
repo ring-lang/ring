@@ -49,7 +49,7 @@ call buildvc
 cd ..
 
 rem build Ring RayLib
-cd ringraylib\src
+cd ringraylib5\src
 call buildvc
 cd ..\..
 
@@ -257,7 +257,7 @@ copy ..\extensions\libdepwin\openssl\bin\*.dll .
 copy ..\extensions\libdepwin\Allegro5.2.8\bin\*.dll .
 copy ..\extensions\libdepwin\freeglut\bin\*.dll .
 copy ..\extensions\libdepwin\glew\bin\Release\win32\*.dll .
-copy ..\extensions\libdepwin\raylib2.5\bin\*.dll .
+copy ..\extensions\libdepwin\raylib5\bin\*.dll .
 copy ..\extensions\libdepwin\libuishared\*.dll .
 copy ..\extensions\libdepwin\tilengine\lib\*.dll .
 copy ..\extensions\libdepwin\libsdl\SDL2_vc\lib\x86\*.dll .
