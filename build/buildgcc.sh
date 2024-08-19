@@ -45,7 +45,7 @@ cd ../ringmysql
 ./buildgcc.sh
 
 # Build RingRayLib
-cd ../ringraylib/src
+cd ../ringraylib5/src
 ./gencode.sh
 ./buildgcc.sh
 
