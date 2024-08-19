@@ -493,7 +493,7 @@ if [ -f lib/libringraylib.dylib ];
 then
 ln -sf "`pwd`/lib/libringraylib.dylib" /usr/local/lib
 xattr -d com.apple.quarantine /usr/local/lib/libringraylib.dylib
-cp extensions/ringraylib/src/macOS_raylib-2.5/lib/libraylib.* /usr/local/lib
+cp extensions/ringraylib5/src/macOS_raylib-5/lib/libraylib.* /usr/local/lib
 xattr -d com.apple.quarantine /usr/local/lib/libraylib.*
 fi
 
@@ -501,8 +501,8 @@ if [ -f lib/libringraylib.so ];
 then
 sudo ln -sf "`pwd`/lib/libringraylib.so" /usr/lib
 sudo ln -sf "`pwd`/lib/libringraylib.so" /usr/lib64
-sudo cp extensions/ringraylib/src/linux_raylib-2.5/lib/libraylib.so.* /usr/lib
-sudo cp extensions/ringraylib/src/linux_raylib-2.5/lib/libraylib.so.* /usr/lib64
+sudo cp extensions/ringraylib5/src/linux_raylib-5/lib/libraylib.so.* /usr/lib
+sudo cp extensions/ringraylib5/src/linux_raylib-5/lib/libraylib.so.* /usr/lib64
 fi
 
 # Make the RingSockets library ready for use directly

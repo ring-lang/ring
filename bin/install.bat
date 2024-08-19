@@ -17,7 +17,7 @@ copy extensions\libdepwin\libuv\*.dll bin
 copy extensions\libdepwin\mysql\lib\*.dll bin
 copy extensions\libdepwin\openssl\bin\*.dll bin
 copy extensions\libdepwin\pgsql\lib\*.dll bin
-copy extensions\libdepwin\raylib2.5\bin\*.dll bin
+copy extensions\libdepwin\raylib5\bin\*.dll bin
 cd bin
 rem Delete Allegro Dlls (Debug Version)
 del allegro*debug-5.2.dll 
