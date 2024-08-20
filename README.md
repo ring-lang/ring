@@ -166,7 +166,7 @@ We provide instructions for building on the next platforms:-
 
 -  [Microsoft Windows](language/README_Windows.md)
 
--  [Ubuntu Linux](language/README_UbuntuLinux.md)
+-  [Linux](language/README_Linux.md)
 
 -  [macOS](language/README_macOS.md)
 
