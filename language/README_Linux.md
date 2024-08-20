@@ -2,17 +2,27 @@
 
 # Ring Programming Language
 
-## Building using Ubuntu Linux 
-
-This version is tested using Ubuntu 22.04 LTS
+## Building using Linux 
 
 ### Install Git
 
+- Note : don't forget to update your packages and repositories 
+
+### Ubuntu & Debian 
+
 	sudo apt-get install git
 
-### Upgrade the packages 
+### Fedora & CentOS
 
-	sudo apt-get update && sudo apt-get upgrade
+	sudo dnf install git 
+
+### Arch 
+
+ 	sudo pacman -S git 
+
+### OpenSESU 
+
+	sudo zypper install git 
 
 ### Get the source code
 
