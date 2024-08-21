@@ -15,7 +15,7 @@ get_distro_name() {
     fi
 }
 
-# Get the Linux disro name
+# Get the Linux distro name
 distro_name=$(get_distro_name)
 
 build_header() {
@@ -35,14 +35,12 @@ install() {
 
 # Check for -debug argument
 if [[ "$@" == *"-debug"* ]]; then
-    
-    # Function to build a compiler/extension/tool
+    # Function to build a compiler/extension/tool (debug)
     build() {
         local path="$1"
         local gencode_script="$2"
         local build_script="$3"
         local name="$4"
-        
         
         echo -e "\033[0;32mBuilding $name...\033[0m"
         cd "$path" || exit 1
@@ -63,13 +61,12 @@ if [[ "$@" == *"-debug"* ]]; then
         cd - > /dev/null || exit 1
     }
 else
-    # Function to build a compiler/extension/tool
+    # Function to build a compiler/extension/tool (silent)
     build() {
         local path="$1"
         local gencode_script="$2"
         local build_script="$3"
         local name="$4"
-        
         
         echo -e "\033[0;32mBuilding $name...\033[0m"
         cd "$path" || exit 1
@@ -94,7 +91,7 @@ fi
 # Check if no arguments are provided or if only -debug is provided
 if [ $# -eq 0 ] || { [ $# -eq 1 ] && [[ "$1" == "-debug" ]]; }; then
     build_header                                             "Ring"
-    # Compile ring with all extenstions
+    # Compile ring with all extensions
     build "../language/build"                   ""                  "buildgcc.sh"       "Ring Compiler/VM"      || exit 1
     build "../extensions/ringallegro"           "gencode.sh"        "buildgcc.sh"       "RingAllegro"           || exit 1
     build "../extensions/ringfreeglut"          "gencode.sh"        "buildgcc.sh"       "RingFreeGLUT"          || exit 1
@@ -143,9 +140,9 @@ for arg in "$@"; do
             build "../extensions/ringzip"               "gencode.sh"        "buildgcc.sh"       "RingZip"               || exit 1
             build "../tools/ring2exe"                   ""                  "build.sh"          "Ring2EXE"              || exit 1
             build "../tools/ringpm"                     ""                  "build.sh"          "RingPM"                || exit 1
-            build "../tools/ringrepl"                   ""                  "build.sh"          "RingREPL"
-            build "../tools/folder2qrc"                 ""                  "build.sh"          "Folder2QRC"
-            build "../language/tests"                   ""                  "build.sh"          "Tests"
+            build "../tools/ringrepl"                   ""                  "build.sh"          "RingREPL"              || exit 1
+            build "../tools/folder2qrc"                 ""                  "build.sh"          "Folder2QRC"            || exit 1
+            build "../language/tests"                   ""                  "build.sh"          "Tests"                 || exit 1
             install                                                  "Ring"
         ;;
         -ring)
@@ -156,12 +153,12 @@ for arg in "$@"; do
         -ringallegro)
             build_header "RingAllegro"
             build "../extensions/ringallegro"           "gencode.sh"        "buildgcc.sh"       "RingAllegro"           || exit 1
-            install "RingAllegro"
+            install      "RingAllegro"
         ;;
         -ringfreeglut)
             build_header "RingFreeGLUT"
             build "../extensions/ringfreeglut"          "gencode.sh"        "buildgcc.sh"       "RingFreeGLUT"          || exit 1
-            install "RingFreeGLUT"
+            install      "RingFreeGLUT"
         ;;
         -ringmurmurhash)
             build_header "RingMurmurHash"
@@ -210,7 +207,7 @@ for arg in "$@"; do
         ;;
         -ringcjson)
             build_header "RingCJSON"
-            build "../extensions/ringcjson"             "gencode.sh"       "buildgcc.sh"        "RingCJSON"             || exit 1
+            build "../extensions/ringcjson"             "gencode.sh"        "buildgcc.sh"       "RingCJSON"             || exit 1
             install      "RingCJSON"
         ;;
         -ringinternet)
@@ -225,47 +222,47 @@ for arg in "$@"; do
         ;;
         -ringrogueutil)
             build_header "RingRogueUtil"
-            build "../extensions/ringrogueutil"         "gencode.sh"       "buildgcc.sh"        "RingRogueUtil"         || exit 1
+            build "../extensions/ringrogueutil"         "gencode.sh"        "buildgcc.sh"       "RingRogueUtil"         || exit 1
             install      "RingRogueUtil"
         ;;
         -ringpdfgen)
             build_header "RingPDFGen"
-            build "../extensions/ringpdfgen"            "gencode.sh"       "buildgcc.sh"        "RingPDFGen"            || exit 1
+            build "../extensions/ringpdfgen"            "gencode.sh"        "buildgcc.sh"       "RingPDFGen"            || exit 1
             install      "RingPDFGen"
         ;;
         -ringconsolecolors)
             build_header "RingConsoleColors"
-            build "../extensions/ringconsolecolors"     "gencode.sh"       "buildgcc.sh"        "RingConsoleColors"     || exit 1
+            build "../extensions/ringconsolecolors"     "gencode.sh"        "buildgcc.sh"       "RingConsoleColors"     || exit 1
             install      "RingConsoleColors"
         ;;
         -ringlibui)
             build_header "RingLibUI"
-            build "../extensions/ringlibui"             "gencode.sh"       "buildgcc.sh"        "RingLibUI"             || exit 1
+            build "../extensions/ringlibui"             "gencode.sh"        "buildgcc.sh"       "RingLibUI"             || exit 1
             install      "RingLibUI"
         ;;
         -ringopengl)
             build_header "RingOpenGL"
-            build "../extensions/ringopengl/opengl21"   "gencode.sh"       "buildgcc.sh"        "RingOpenGL"            || exit 1
+            build "../extensions/ringopengl/opengl21"   "gencode.sh"        "buildgcc.sh"       "RingOpenGL"            || exit 1
             install      "RingOpenGL"
         ;;
         -ringsdl)
             build_header "RingSDL"
-            build "../extensions/ringsdl"                "gencode.sh"       "buildgcc.sh"       "RingSDL"               || exit 1
+            build "../extensions/ringsdl"               "gencode.sh"        "buildgcc.sh"       "RingSDL"               || exit 1
             install      "RingSDL"
         ;;
         -ringcurl)
             build_header "RingCurl"
-            build "../extensions/ringcurl"               "gencode.sh"       "buildgcc.sh"       "RingCurl"              || exit 1
+            build "../extensions/ringcurl"              "gencode.sh"        "buildgcc.sh"       "RingCurl"              || exit 1
             install      "RingCurl"
         ;;
         -ringlibuv)
             build_header "RingLibuv"
-            build "../extensions/ringlibuv"              "gencode.sh"       "buildgcc.sh"       "RingLibuv"             || exit 1
+            build "../extensions/ringlibuv"             "gencode.sh"        "buildgcc.sh"       "RingLibuv"             || exit 1
             install      "RingLibuv"
         ;;
         -ringopenssl)
             build_header "RingOpenSSL"
-            build "../extensions/ringopenssl"            ""                 "buildgcc.sh"       "RingOpenSSL"           || exit 1
+            build "../extensions/ringopenssl"           ""                  "buildgcc.sh"       "RingOpenSSL"           || exit 1
             install      "RingOpenSSL"
         ;;
         -ringsockets)
@@ -279,7 +276,7 @@ for arg in "$@"; do
             install      "RingFastPro"
         ;;
         -ringpostgresql)
-            build_header "RingPostgreSQL"
+            build_header "RingPostgreSQL"               
             build "../extensions/ringpostgresql"        "gencode.sh"        "buildgcc.sh"       "RingPostgreSQL"        || exit 1
             install      "RingPostgreSQL"
         ;;
