@@ -15,6 +15,7 @@ List of changes and new features
 
 Ring 1.21 comes with the next features!
 
+* Ring for Raspberry Pi Pico
 * Lectures Tracker application
 * RingPDFGen Extension
 * Better MatrixLib
@@ -29,6 +30,27 @@ Ring 1.21 comes with the next features!
 * Ring Syntax Highlighting for nano
 * New VM Instructions
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring  1.21; Ring for Raspberry Pi Pico
+
+Ring for Raspberry Pi Pico
+==========================
+
+In this release we present a new extension that supports Raspberry Pi Pico
+
+Using this extension and Raspberry Pi Pico SDK 
+
+We can write Ring programs that runs on the RP2040 Microcontroller
+
+The extension exists in the ring/extensions/microcontroller/ringpico folder
+
+Inside this folder we provides a README file that explain how to install and use the extension
+
+The samples exist in the ring/extensions/microcontroller/ringpico/projects folder
+
+.. image:: pico.jpg
+	:alt: Raspberry Pi Pico
 
 .. index:: 
 	pair: What is new in Ring  1.21; Lectures Tracker application
