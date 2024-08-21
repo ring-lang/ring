@@ -523,6 +523,7 @@ More Improvements
 * RingInternetLib - Set CURLOPT_USERAGENT in Download() function
 * RingRayLib - RayLib version is updated from 2.5 to 5.0  
 * Ring API - Implementation through functions that get a pointer to the VM structure  
+* Better scripts for building Ring on Linux
 * Ring Compiler - Add new lines between error messages
 * Ring Compiler - Check argument duplication during function definition
 * Ring Compiler - Call command - Better error messages
