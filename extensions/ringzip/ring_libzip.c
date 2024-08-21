@@ -20,7 +20,7 @@ char *data;
 size_t size;
 };
 
-static size_t on_extract(void *arg, unsigned long long offset, const void *data,size_t size) {
+static size_t on_extract(void *arg, uint64_t offset, const void *data,size_t size) {
 struct buffer_t *buf = (struct buffer_t *) arg;
 buf->data = realloc(buf->data, buf->size + size + 1);
 assert(NULL != buf->data);
