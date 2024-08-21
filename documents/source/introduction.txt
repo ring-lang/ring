@@ -215,7 +215,7 @@ The Ring language comes with the next features
 * A small language
 	* The Compiler + The Virtual Machine + Standard Functions are less than 25,000 lines of C code
 	* The other 500,000 lines of code are related to libraries!
-* Portable (MS-DOS, Windows, Linux, macOS, Android, WebAssembly, etc)
+* Portable (MS-DOS, Windows, Linux, macOS, Android, WebAssembly, 32-bit Microcontrollers, etc)
 * Comments (One line & Multi-lines)
 * Not Case-Sensitive
 * Dynamic Typing
@@ -313,6 +313,8 @@ The Ring language comes with the next features
 * RingHTTPLib Extension
 * RingFastPro Extension
 * RingRogueUtil Extension
+* RingPDFGen
+* RingPico - Support Raspberry Pi Pico Microcontroller
 * No Global Interpreter (VM) lock (No GIL) - Better for threads and concurrency (Faster)
 * Comes with RingPM (Package Manager)
 * Many Samples and Applications
