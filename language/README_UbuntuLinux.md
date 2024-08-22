@@ -25,15 +25,11 @@ This version is tested using Ubuntu 22.04 LTS
 
 ## Complete Build (Compiler/VM, Extensions, Tools, etc.)
 
-This will build everything
+This will build everything (Also, will call ring/bin/install.sh)
 
 	cd ring/build
 	./buildgcc.sh
 
-### To be able to call ring from any folder 
-	cd ring/bin
-	sudo ./install.sh
-	
 ### Run Ring Notepad
 	
 	ringpm run ringnotepad
