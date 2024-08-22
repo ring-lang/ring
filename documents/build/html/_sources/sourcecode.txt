@@ -310,17 +310,12 @@ Complete Build for Ubuntu Linux
 
 This will build everything (Compiler/VM, Extensions, Tools, etc.)
 
+Also, will call ring/bin/install.sh
+
 .. code-block:: none
 
 	cd ring/build
 	./buildgcc.sh
-
-To be able to call ring from any folder
-
-.. code-block:: none
-
-	cd ring/bin
-	sudo ./install.sh
 
 Run Ring Notepad
 

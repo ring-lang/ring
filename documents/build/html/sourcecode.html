@@ -138,6 +138,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usingfastpro.html">Using FastPro Extension</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingringpdfgen.html">Using RingPDFGen Extension</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usingref.html">Using References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
@@ -418,13 +419,9 @@ Add at the end the new path separated by semicolon.
 <section id="complete-build-for-ubuntu-linux">
 <h2>Complete Build for Ubuntu Linux<a class="headerlink" href="#complete-build-for-ubuntu-linux" title="Permalink to this heading"></a></h2>
 <p>This will build everything (Compiler/VM, Extensions, Tools, etc.)</p>
+<p>Also, will call ring/bin/install.sh</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/build
 ./buildgcc.sh
-</pre></div>
-</div>
-<p>To be able to call ring from any folder</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd ring/bin
-sudo ./install.sh
 </pre></div>
 </div>
 <p>Run Ring Notepad</p>
