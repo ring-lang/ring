@@ -49,6 +49,8 @@ class MainMenuScene from Scene
 		isDone = True
 
 	func exitTheGame
+		startButton.clean()
+		exitButton.clean()
 		isDone = True
 		lCloseGame = True
 		
