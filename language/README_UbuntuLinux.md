@@ -4,15 +4,15 @@
 
 ## Building using Ubuntu Linux 
 
-This version is tested using Ubuntu 22.04 LTS
-
-### Install Git
-
-	sudo apt-get install git
+This version is tested using Ubuntu 24.04 LTS
 
 ### Upgrade the packages 
 
 	sudo apt-get update && sudo apt-get upgrade
+
+### Install Git
+
+	sudo apt-get install git
 
 ### Get the source code
 
