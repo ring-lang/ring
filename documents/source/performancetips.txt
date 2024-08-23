@@ -7,7 +7,7 @@ Performance Tips
 
 In this chapter we will learn more about the Ring performance.
 
-Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11, Ring 1.19]
+Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11, Ring 1.21]
 
 .. index:: 
      pair: Performance Tips; Introduction
@@ -19,12 +19,12 @@ Ring is designed to be a simple, small and flexible language in the first place,
 
 Ring can do each of the following tasks in around one second. 
 
-(1) Compiling 100,000 lines of code
+(1) Compiling 200,000 lines of code
 (2) Executing an empty loop that count from 1 to 100,000,000
 (3) Creating list contains 7,000,000 items then summing all of the list items
 (4) Printing numbers from 1 to 40,000 using command prompt
 (5) Printing numbers from 1 to 500,000 using output redirection and Ring Notepad
-(6) Adding 50,000 nodes to the TreeWidget in GUI applications
+(6) Adding 60,000 nodes to the TreeWidget in GUI applications
 (7) Adding 60,000 items to the ListWidget in GUI applications
 (8) Executing 3000 search operations using linear search in a list contains 100,000 items, trying to find the last item (The worst case)
 
@@ -42,7 +42,7 @@ Output:
 
 .. code-block:: none
 
-	1.12
+	1.06
 
 
 Example:
@@ -50,15 +50,17 @@ Example:
 .. code-block:: ring
 
 	? "Create list contains 100,000 items"
-	aList = 1:100000
+	nMax  = 100_000
+	aList = list(nMax)
+	for t=1 to nMax aList[t] = t next
 	
 	? "Do 3000 search operations - Find the last item (Worst Case!)"
 	c = clock()
-
-	for t = 1 to 3000
-        	find(alist,100000)
+	
+	for t=1 to 3000
+        	find(alist,nMax)
 	next
-
+	
 	? "Time: " + ( clock() - c ) / clockspersecond() + " seconds"
 
 Output:
@@ -67,7 +69,7 @@ Output:
 
 	Create list contains 100,000 items
 	Do 3000 search operations - Find the last item (Worst Case!)
-	Time: 0.83 seconds
+	Time: 0.81 seconds
 
 Example:
 
@@ -75,7 +77,7 @@ Example:
 
 	load "guilib.ring"
 
-	C_NODESCOUNT = 50000
+	C_NODESCOUNT = 60000
 
 	func main
 	new QApp {
@@ -154,9 +156,9 @@ Output:
 	Create the list using the Range operator
 	Time : 0.01 seconds
 	Create the list using the For loop
-	Time : 0.11 seconds
+	Time : 0.09 seconds
 	Create the list using the list() function and the For loop
-	Time : 0.13 seconds
+	Time : 0.11 seconds
 
 
 .. note:: Creating lists using the Range operator is faster than using the For loop or the list() function
@@ -194,9 +196,9 @@ Output:
 .. code-block:: none
 
 	Using * operator
-	Time : 0.11 seconds
+	Time : 0.08 seconds
 	Using *= operator
-	Time : 0.09 seconds
+	Time : 0.07 seconds
 
 
 .. note:: Using the *= operator is faster that using the * operator
@@ -232,7 +234,7 @@ Output:
 .. code-block:: none
 
 	Using len() in the For loop
-	Time : 0.32 seconds
+	Time : 0.06 seconds
 	Using len() before the For loop
 	Time : 0.03 seconds
 
@@ -272,6 +274,14 @@ Example:
 	next
 	? "Time : " + ((clock()-t1)/clockspersecond()) + " seconds"
 
+	? "calling 100000 methods using braces (outside the loop) "
+	t1 = clock()
+	o1 {
+	for x = 1 to 100000
+		test() 
+	next
+	}
+	? "Time : " + ((clock()-t1)/clockspersecond()) + " seconds"
 
 	func test
 
@@ -284,15 +294,19 @@ Output:
 .. code-block:: none
 
 	calling 100000 functions
-	Time : 0.03 seconds
+	Time : 0.01 seconds
 	calling 100000 methods using the dot operator
-	Time : 0.06 seconds
+	Time : 0.04 seconds
 	calling 100000 methods using braces 
-	Time : 0.18 seconds
+	Time : 0.09 seconds
+	calling 100000 methods using braces (outside the loop)
+	Time : 0.03 seconds
 
 .. note:: Calling functions is faster than calling methods.
 
-.. note:: Using the dot operator to call methods is faster than using braces.
+.. note:: Using the dot operator to call a method is faster than using braces.
+
+.. tip:: Using braces before the for loop will be faster
 
 
 
