@@ -1,26 +1,25 @@
-# Welcome to the Ring programming language
+# 	Welcome to the Ring programming language
 
 /*
-The language comes with different styles
-for writing the source code
+	The language comes with different styles
+	for writing the source code
 */
 
+# The First style  
 	See "Hello, World!" + nl 
 
-#  Another Style 
+# The Second style 
 
 	Put "Hello, World!" + nl
 
-# Another Style 
+# The Third style 
 
-	load "stdlib.ring"
 	print("Hello, World! \n")
 
 /*
-Change the Language Keywords 
-You can create your style and save it in a file for reuse
+	Change the Language Keywords 
+	You can create your style and save it in a file for reuse
 */
-
-	changeringkeyword see print 
+	ChangeRingKeyword see print 
 	print "Hello, World!" + nl 
 
