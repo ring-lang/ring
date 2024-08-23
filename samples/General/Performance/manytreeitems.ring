@@ -1,6 +1,6 @@
 load "guilib.ring"
 
-C_NODESCOUNT = 50000
+C_NODESCOUNT = 60000
 
 func main
 	new QApp {
