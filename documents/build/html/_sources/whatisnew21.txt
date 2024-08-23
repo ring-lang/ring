@@ -366,6 +366,7 @@ We did the next updates to reduce the memory usage
 (3) Using GC functions when using strings in the VM stack
 (4) Using the VM Stack when passing arguments to C functions
 (5) Reducing memory required by RING_API_REGISTER to support C functions
+(6) The pre-allocated memory pool items count is reduced from 1M to 100K
 
 .. index:: 
 	pair: What is new in Ring  1.21; ForEach Keyword
