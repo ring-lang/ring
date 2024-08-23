@@ -126,8 +126,9 @@ Example:
 
 .. code-block:: ring
 
-	C_COUNT = 1_000_000
-	
+	decimals(3)
+	C_COUNT = 100_000
+
 	? "Create the list using the Range operator"
 	t1 = clock()
 	aList = 1:C_COUNT
@@ -154,15 +155,17 @@ Output:
 .. code-block:: none
 
 	Create the list using the Range operator
-	Time : 0.01 seconds
+	Time : 0.001 seconds
 	Create the list using the For loop
-	Time : 0.09 seconds
+	Time : 0.009 seconds
 	Create the list using the list() function and the For loop
-	Time : 0.11 seconds
+	Time : 0.012 seconds
 
 
 .. note:: Creating lists using the Range operator is faster than using the For loop or the list() function
 
+
+.. tip:: For large lists we always recommend using the List() function
 
 .. index:: 
      pair: Performance Tips; Arithmetic Operations

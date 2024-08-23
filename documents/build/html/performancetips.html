@@ -299,7 +299,8 @@ Time: 0.81 seconds
 <section id="creating-lists">
 <span id="index-2"></span><h2>Creating Lists<a class="headerlink" href="#creating-lists" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">C_COUNT</span> <span class="o">=</span> <span class="mi">1_000_000</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">decimals</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">C_COUNT</span> <span class="o">=</span> <span class="mi">100_000</span>
 
 <span class="o">?</span> <span class="s">&quot;Create the list using the Range operator&quot;</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
@@ -325,16 +326,20 @@ Time: 0.81 seconds
 </div>
 <p>Output:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Create the list using the Range operator
-Time : 0.01 seconds
+Time : 0.001 seconds
 Create the list using the For loop
-Time : 0.09 seconds
+Time : 0.009 seconds
 Create the list using the list() function and the For loop
-Time : 0.11 seconds
+Time : 0.012 seconds
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Creating lists using the Range operator is faster than using the For loop or the list() function</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For large lists we always recommend using the List() function</p>
 </div>
 </section>
 <section id="arithmetic-operations">
