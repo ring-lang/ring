@@ -623,7 +623,7 @@ fi
 
 # Make the RingTilengine library ready for use directly
 
-if [ -f lib/libringtilengine.so ];
+if [ -f lib/libring_tilengine.so ];
 then
 sudo ln -sf "`pwd`/lib/libring_tilengine.so" /usr/lib
 sudo ln -sf "`pwd`/lib/libring_tilengine.so" /usr/lib64
