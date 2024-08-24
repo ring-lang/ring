@@ -103,6 +103,7 @@ if [ $# -eq 0 ] || { [ $# -eq 1 ] && [[ "$1" == "-debug" ]]; }; then
     build "../extensions/ringhttplib"           "gencode.sh"        "buildgcc.sh"       "RingHTTPLib"           || exit 1
     build "../extensions/ringmysql"             ""                  "buildgcc.sh"       "RingMySQL"             || exit 1
     build "../extensions/ringraylib5/src"       "gencode.sh"        "buildgcc.sh"       "RingRayLib"            || exit 1
+    build "../extensions/ringtilengine"         "gencode.sh"        "buildgcc.sh"       "RingTilengine"         || exit 1
     build "../extensions/ringthreads"           "gencode.sh"        "buildgcc.sh"       "RingThreads"           || exit 1
     build "../extensions/ringcjson"             "gencode.sh"        "buildgcc.sh"       "RingCJSON"             || exit 1
     build "../extensions/ringinternet"          ""                  "buildgcc.sh"       "RingInternet"          || exit 1
@@ -199,6 +200,11 @@ for arg in "$@"; do
             build_header "RingRayLib"
             build "../extensions/ringraylib5/src"       "gencode.sh"        "buildgcc.sh"       "RingRayLib"            || exit 1
             install      "RingRayLib"
+        ;;
+        -ringtilengine)
+            build_header "RingTilengine"
+            build "../extensions/ringtilengine"         "gencode.sh"        "buildgcc.sh"       "RingTilengine"            || exit 1
+            install      "RingTilengine"
         ;;
         -ringthreads)
             build_header "RingThreads"
