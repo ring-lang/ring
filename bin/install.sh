@@ -620,3 +620,13 @@ then
 sudo ln -sf "`pwd`/lib/libring_rogueutil.so" /usr/lib
 sudo ln -sf "`pwd`/lib/libring_rogueutil.so" /usr/lib64
 fi
+
+# Make the RingTilengine library ready for use directly
+
+if [ -f lib/libringtilengine.so ];
+then
+sudo ln -sf "`pwd`/lib/libringtilengine.so" /usr/lib
+sudo ln -sf "`pwd`/lib/libringtilengine.so" /usr/lib64
+sudo cp extensions/ringtilengine/linux_tilengine/lib/*.so /usr/lib
+sudo cp extensions/ringtilengine/linux_tilengine/lib/*.so /usr/lib64
+fi
