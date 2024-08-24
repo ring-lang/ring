@@ -90,7 +90,7 @@ aNews = [
   ["October 5, 2019",'<a href="http://ring-lang.github.io/ref/RingBasics_ArabicBook.pdf"> Ring Basics (Arabic Book)</a>'],
   ["October 1, 2019",'<a href="https://www.youtube.com/watch?v=rOwOEFTVvg0"> Movie: Introducing Ring in 1.5 Hour!</a>'],
   ["September 15, 2019",'<a href="doc1.13/whatisnew11.html"> Ring 1.11 Released!</a>'],
-  ["June 25, 2019",'<a href="https://github.com/ring-lang/ring/tree/master/extensions/ringraylib"> RingRayLib Extension</a>'],
+  ["June 25, 2019",'<a href="https://github.com/ring-lang/ring/tree/master/extensions/ringraylib5"> RingRayLib Extension</a>'],
   ["June 10, 2019",'<a href="https://github.com/ring-lang/ring/blob/master/samples/UsingQt3D/README.md"> Qt3D Tutorial </a>'],
   ["June 3, 2019",'<a href="https://github.com/ring-lang/ring/blob/master/applications/maze"> The Maze Game </a>'],
   ["June 1, 2019",'<a href="https://github.com/ring-lang/ring/blob/master/applications/sokoban"> The Sokoban Game </a>'],
