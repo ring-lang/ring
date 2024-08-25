@@ -35,6 +35,10 @@ The documentation is created using Sphinx (A popular tool written in Python)
 
 	pip install sphinx-copybutton
 
+-  Install sphinx-rtd-dark-mode
+
+	pip install sphinx-rtd-dark-mode
+
 -  To generate CHM file, Use Microsoft Help Workshop. 
 
 	Tested using HTML Help Workshop 4.74.8702
