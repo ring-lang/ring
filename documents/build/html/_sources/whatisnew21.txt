@@ -265,6 +265,7 @@ The next samples are added to the ring/samples folder
 * ring/samples/UsingMatrixLib/60-Matrix-Test-Scalar-Projection.ring
 * ring/samples/UsingMatrixLib/61-BundlesOfRice.ring
 * ring/samples/UsingQt/GraphicsView/graphicsview.ring
+* ring/samples/UsingQt/Painter/test3.ring
 
 .. image:: polarcart.png
 	:alt: PolarCartesian
