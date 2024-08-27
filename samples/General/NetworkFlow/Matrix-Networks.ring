@@ -220,7 +220,7 @@ Func StartApp()
         
         comboEquationType = new QComboBox(win) 
         {
-            setgeometry( 0, 2, 140, 20)
+            setgeometry( 0, 2, 240, 20)
             comboList = ["NetworkEquations",
                          "--------",
                          "TrafficFlow-1",
@@ -241,7 +241,7 @@ Func StartApp()
             for x in comboList additem(x,0) next            
         }
         
-        btnCS = new qPushButton(win) { setGeometry( 150, 2, 90, 20)  
+        btnCS = new qPushButton(win) { setGeometry( 250, 2, 150, 20)  
                     setText("Start/Clear")  
                     setStyleSheet("background-color: aqua")
                     setClickEvent("StartClearScreen()") 
