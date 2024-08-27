@@ -766,5 +766,9 @@ aPackagesRegistry = [
 	[ :name = "ringtilengine",
           :description = "RingTilengine extension for the Ring programming language",
           :ProviderUserName = "ringpackages"
+        ],
+	[ :name = "dotenv",
+          :description = "dotenv package for the Ring programming language",
+          :ProviderUserName = "ysdragon"
         ]
 ]
