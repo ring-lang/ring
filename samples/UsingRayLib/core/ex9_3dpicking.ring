@@ -29,8 +29,6 @@ SetTargetFPS(60)
 
 while !WindowShouldClose()
 
-        UpdateCamera(camera,CAMERA_FREE)
-
         if IsMouseButtonPressed(MOUSE_LEFT_BUTTON)
             if !collision
                 ray = GetMouseRay(GetMousePosition(), camera)

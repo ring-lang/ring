@@ -61,14 +61,13 @@ func main
 	camera = Camera3D(0.0, 10.0, 15.0,
 						0.0, 0.0, 0.0,
 						0.0, 1.0, 0.0, 
-				        50.0, 0)  
+				        50.0, CAMERA_PERSPECTIVE)  
 	
 	SetTargetFPS(60)  
 	SetMousePosition(0,0)
 
 	while !WindowShouldClose()  
 
-		UpdateCamera(camera,CAMERA_THIRD_PERSON)    
 		dT = GetFrameTime()
 		pos = myplayer.position
 

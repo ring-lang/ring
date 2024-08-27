@@ -34,7 +34,7 @@ func main
 
 	
 	    camera = Camera3D(0.0, 5.0, 30.0,
-				          20.0, 6.0, 0.0,
+				          5.0, 6.0, 0.0,
 				          0.0, 1.0, 0.0, 
 				          50.0, CAMERA_PERSPECTIVE )  
 	
@@ -42,11 +42,6 @@ func main
   
     while !WindowShouldClose()  
         
-        # Update
-       
-                UpdateCamera(camera,CAMERA_THIRD_PERSON)    
-
-     
         if IsKeyDown(KEY_SPACE) and  myplayer.canjump
 
             myplayer.canjump = false 
