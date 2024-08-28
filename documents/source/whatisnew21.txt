@@ -20,6 +20,7 @@ Ring 1.21 comes with the next features!
 * RingPDFGen Extension
 * Better MatrixLib
 * Better RingQt
+* Better RingRayLib
 * More Samples
 * Faster Function Call
 * Faster Arithmetic Operations
@@ -244,6 +245,19 @@ Better RingQt
 
 .. image:: graphicsview.png
 	:alt: Graphics View
+
+.. index:: 
+	pair: What is new in Ring  1.21; Better RingRayLib
+
+Better RingRayLib
+=================
+
+The RayLib version is updated from 2.5 to 5.0
+
+Also, all of the samples and applications that uses RingRayLib are revised and updated.
+
+.. image:: raylib5sample.png
+	:alt: RayLib 5 sample
 
 .. index:: 
 	pair: What is new in Ring  1.21; More Samples
@@ -516,8 +530,7 @@ More Improvements
 * Ring Notepad - Toolbar - Better icons
 * AddAttribute() - Produce runtime error if the attribute is already defined
 * AddMethod() - Produce runtime error if the method is already defined
-* RingInternetLib - Set CURLOPT_USERAGENT in Download() function
-* RingRayLib - RayLib version is updated from 2.5 to 5.0  
+* RingInternetLib - Set CURLOPT_USERAGENT in Download() function  
 * Ring API - Implementation through functions that get a pointer to the VM structure  
 * Better scripts for building Ring on Linux
 * Ring Compiler - Add new lines between error messages

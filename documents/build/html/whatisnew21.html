@@ -182,6 +182,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#ringpdfgen-extension">RingPDFGen Extension</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-matrixlib">Better MatrixLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ringqt">Better RingQt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ringraylib">Better RingRayLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#faster-function-call">Faster Function Call</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#faster-arithmetic-operations">Faster Arithmetic Operations</a></li>
@@ -237,6 +238,7 @@
 <li><p>RingPDFGen Extension</p></li>
 <li><p>Better MatrixLib</p></li>
 <li><p>Better RingQt</p></li>
+<li><p>Better RingRayLib</p></li>
 <li><p>More Samples</p></li>
 <li><p>Faster Function Call</p></li>
 <li><p>Faster Arithmetic Operations</p></li>
@@ -420,8 +422,14 @@ Scalar projection of A onto B = 4.9193 =&gt; 4.92
 </ul>
 <img alt="Graphics View" src="_images/graphicsview.png" />
 </section>
+<section id="better-ringraylib">
+<span id="index-7"></span><h2>Better RingRayLib<a class="headerlink" href="#better-ringraylib" title="Permalink to this heading"></a></h2>
+<p>The RayLib version is updated from 2.5 to 5.0</p>
+<p>Also, all of the samples and applications that uses RingRayLib are revised and updated.</p>
+<img alt="RayLib 5 sample" src="_images/raylib5sample.png" />
+</section>
 <section id="more-samples">
-<span id="index-7"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
+<span id="index-8"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
 <p>The next samples are added to the ring/samples folder</p>
 <ul class="simple">
 <li><p>ring/samples/General/NetworkFlow/Matrix-Networks.ring</p></li>
@@ -435,7 +443,7 @@ Scalar projection of A onto B = 4.9193 =&gt; 4.92
 <img alt="PolarCartesian" src="_images/polarcart.png" />
 </section>
 <section id="faster-function-call">
-<span id="index-8"></span><h2>Faster Function Call<a class="headerlink" href="#faster-function-call" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>Faster Function Call<a class="headerlink" href="#faster-function-call" title="Permalink to this heading"></a></h2>
 <p>We improved how Ring VM manage the functions scope/arguments through pre-allocation to provide performance improvements.</p>
 <p>As a result, the stars animation sample works at 5400 FPS (instead of 2350 FPS in Ring 1.20)</p>
 <p>Results:</p>
@@ -458,7 +466,7 @@ Ring 1.18 --&gt; 500  FPS
 <img alt="Waving Cubes" src="_images/ring21waving.png" />
 </section>
 <section id="faster-arithmetic-operations">
-<span id="index-9"></span><h2>Faster Arithmetic Operations<a class="headerlink" href="#faster-arithmetic-operations" title="Permalink to this heading"></a></h2>
+<span id="index-10"></span><h2>Faster Arithmetic Operations<a class="headerlink" href="#faster-arithmetic-operations" title="Permalink to this heading"></a></h2>
 <p>We introduced some new VM instructions that merge common instructions into one.</p>
 <p>This lead to speed improvements with respect to arithmetic operations.</p>
 <p>Example:</p>
@@ -486,14 +494,14 @@ Time using Ring 1.20    --&gt; 244 ms
 </div>
 </section>
 <section id="faster-compiler">
-<span id="index-10"></span><h2>Faster Compiler<a class="headerlink" href="#faster-compiler" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>Faster Compiler<a class="headerlink" href="#faster-compiler" title="Permalink to this heading"></a></h2>
 <p>This release provides better performance when compiling large projects</p>
 <p>These projects could have huge number of classes and methods</p>
 <p>For example, PWCT2 compile time is reduced from 1100 ms to 790 ms</p>
 <p>Also, SoftanzaLib compile time is reduced from five seconds to one second</p>
 </section>
 <section id="reducing-memory-usage">
-<span id="index-11"></span><h2>Reducing Memory Usage<a class="headerlink" href="#reducing-memory-usage" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>Reducing Memory Usage<a class="headerlink" href="#reducing-memory-usage" title="Permalink to this heading"></a></h2>
 <p>We did the next updates to reduce the memory usage</p>
 <ol class="arabic simple">
 <li><p>The ByteCode registers count is reduced from four to two</p></li>
@@ -505,7 +513,7 @@ Time using Ring 1.20    --&gt; 244 ms
 </ol>
 </section>
 <section id="foreach-keyword">
-<span id="index-12"></span><h2>ForEach Keyword<a class="headerlink" href="#foreach-keyword" title="Permalink to this heading"></a></h2>
+<span id="index-13"></span><h2>ForEach Keyword<a class="headerlink" href="#foreach-keyword" title="Permalink to this heading"></a></h2>
 <p>This release support using the ForEach keyword in For-in loops</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span>
@@ -516,7 +524,7 @@ Time using Ring 1.20    --&gt; 244 ms
 </div>
 </section>
 <section id="better-operator-overloading">
-<span id="index-13"></span><h2>Better Operator Overloading<a class="headerlink" href="#better-operator-overloading" title="Permalink to this heading"></a></h2>
+<span id="index-14"></span><h2>Better Operator Overloading<a class="headerlink" href="#better-operator-overloading" title="Permalink to this heading"></a></h2>
 <p>We support operator overloading from the first release of the Ring language</p>
 <p>When using an object inside an expression and this object define the operator method, this
 method will be called if the object comes first.</p>
@@ -596,12 +604,12 @@ method will be called but the letter ‘r’ will comes before the operator (i.e
 </div>
 </section>
 <section id="ring-syntax-highlighting-for-nano">
-<span id="index-14"></span><h2>Ring Syntax Highlighting for nano<a class="headerlink" href="#ring-syntax-highlighting-for-nano" title="Permalink to this heading"></a></h2>
+<span id="index-15"></span><h2>Ring Syntax Highlighting for nano<a class="headerlink" href="#ring-syntax-highlighting-for-nano" title="Permalink to this heading"></a></h2>
 <p>Check the folder: ring/tools/editors/nano</p>
 <img alt="nano" src="_images/nano.png" />
 </section>
 <section id="new-vm-instructions">
-<span id="index-15"></span><h2>New VM Instructions<a class="headerlink" href="#new-vm-instructions" title="Permalink to this heading"></a></h2>
+<span id="index-16"></span><h2>New VM Instructions<a class="headerlink" href="#new-vm-instructions" title="Permalink to this heading"></a></h2>
 <p>The next instructions are added to the Ring Virtual Machine</p>
 <ul class="simple">
 <li><p>ICO_STEPFROMREG - Set the For-Loop step value</p></li>
@@ -623,13 +631,12 @@ method will be called but the letter ‘r’ will comes before the operator (i.e
 </ul>
 </section>
 <section id="more-improvements">
-<span id="index-16"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-17"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Ring Notepad - Toolbar - Better icons</p></li>
 <li><p>AddAttribute() - Produce runtime error if the attribute is already defined</p></li>
 <li><p>AddMethod() - Produce runtime error if the method is already defined</p></li>
 <li><p>RingInternetLib - Set CURLOPT_USERAGENT in Download() function</p></li>
-<li><p>RingRayLib - RayLib version is updated from 2.5 to 5.0</p></li>
 <li><p>Ring API - Implementation through functions that get a pointer to the VM structure</p></li>
 <li><p>Better scripts for building Ring on Linux</p></li>
 <li><p>Ring Compiler - Add new lines between error messages</p></li>
