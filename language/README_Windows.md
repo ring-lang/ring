@@ -6,9 +6,11 @@
 
 ### Get the source code
 
+Using HTTP
+
 	git clone http://github.com/ring-lang/ring.git
 
-## Or
+Or using SSH
 
 	git clone git@github.com:ring-lang/ring.git
 

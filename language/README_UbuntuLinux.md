@@ -16,9 +16,11 @@ This version is tested using Ubuntu 24.04 LTS
 
 ### Get the source code
 
+Using HTTP
+
 	git clone https://github.com/ring-lang/ring.git
 
-### Or 
+Or using SSH
 
 	git clone git@github.com:ring-lang/ring.git
 	
