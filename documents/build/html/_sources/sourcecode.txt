@@ -25,9 +25,17 @@ Building using Microsoft Windows
 
 Get the source code
 
+Using HTTP
+
 .. code-block:: none
 
 	git clone http://github.com/ring-lang/ring.git
+
+Or using SSH
+
+.. code-block:: none
+
+	git clone git@github.com:ring-lang/ring.git
 
 .. index:: 
 	pair: Building From Source Code; Complete Build
@@ -294,9 +302,17 @@ Install Git
 
 Get the source code
 
+Using HTTP
+
 .. code-block:: none
 
 	git clone http://github.com/ring-lang/ring.git
+
+Or using SSH
+
+.. code-block:: none
+
+	git clone git@github.com:ring-lang/ring.git
 
 Install Libraries
 
@@ -517,9 +533,17 @@ This version is tested using macOS Catalina (version 10.15)
 
 Get the source code
 
+Using HTTP
+
 .. code-block:: none
 
 	git clone http://github.com/ring-lang/ring.git
+
+Or using SSH
+
+.. code-block:: none
+
+	git clone git@github.com:ring-lang/ring.git
 
 Install homebrew (follow the directions on homebrew's homepage).
 Install Libraries
