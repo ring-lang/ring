@@ -9,7 +9,12 @@ This version is tested using macOS Catalina (version 10.15)
 ### Get the source code
 
 	git clone http://github.com/ring-lang/ring.git
-	
+
+### Or 
+
+        git clone git@github.com:ring-lang/ring.git
+
+
 ### Install homebrew (follow the directions on [homebrew's homepage](http://brew.sh/)).
 	
 ### Install Libraries 
