@@ -9,16 +9,9 @@ In this chapter we will learn about Using Ring for Raspberry Pi Pico Microcontro
 
 This extension is added to the Ring language starting from Ring 1.21.
 
-Using this extension and Raspberry Pi Pico SDK
+Using this extension We can write Ring programs that runs on the RP2040 Microcontroller
 
-We can write Ring programs that runs on the RP2040 Microcontroller
-
-The extension exists in the ring/extensions/microcontroller/ringpico folder
-
-Inside this folder we provides a README file that explain how to install and use the extension
-
-The samples exist in the ring/extensions/microcontroller/ringpico/projects folder
-
+Extension folder: ring/extensions/microcontroller/ringpico 
 
 Contents:
 
@@ -30,6 +23,7 @@ Contents:
 * LEDs sample
 * LED and Switch sample
 * Declarative Programming sample
+* Using Wokwi Simulator
 
 .. index:: 
 	pair: Using Pico; Install
@@ -337,3 +331,30 @@ Screen Shot:
 
 .. image:: pico.jpg
 	:alt: Raspberry Pi Pico
+
+.. index:: 
+	pair: Using Pico; Using Wokwi Simulator
+
+Using Wokwi Simulator
+=====================
+
+Using this simulator, We can test RingPico programs without the need to use real hardware.
+
+Steps:
+
+* Update main.ring to use the LEDs project
+
+.. code-block:: ring
+
+	load "projects/leds/main.ring"
+
+* Build the project using build.bat
+* Install Visual Studio Code
+* Install Wokwi Simulator extension
+* Open the folder ring/extensions/microcontroller/ringpico using VS Code 
+* Run the project using the Simulator (Press F1 then select Wokwi: Start Simulator)
+
+Screen Shot:
+
+.. image:: picosimulator.png
+	:alt: Wokwi Simulator

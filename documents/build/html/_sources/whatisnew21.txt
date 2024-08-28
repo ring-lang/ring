@@ -41,7 +41,7 @@ In this release we present a new extension that supports Raspberry Pi Pico
 
 Using this extension we can write Ring programs that runs on the RP2040 Microcontroller
 
-For more information check the chapter: Using Ring for Raspberry Pi Pico
+For more information check the chapter: Using Ring for Raspberry Pi Pico Microcontroller
 
 .. image:: pico.jpg
 	:alt: Raspberry Pi Pico

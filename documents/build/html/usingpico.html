@@ -162,6 +162,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#leds-sample">LEDs sample</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#led-and-switch-sample">LED and Switch sample</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#declarative-programming-sample">Declarative Programming sample</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-wokwi-simulator">Using Wokwi Simulator</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
@@ -221,11 +222,8 @@
 <span id="index-0"></span><h1>Using Ring for Raspberry Pi Pico Microcontroller<a class="headerlink" href="#using-ring-for-raspberry-pi-pico-microcontroller" title="Permalink to this heading"></a></h1>
 <p>In this chapter we will learn about Using Ring for Raspberry Pi Pico Microcontroller.</p>
 <p>This extension is added to the Ring language starting from Ring 1.21.</p>
-<p>Using this extension and Raspberry Pi Pico SDK</p>
-<p>We can write Ring programs that runs on the RP2040 Microcontroller</p>
-<p>The extension exists in the ring/extensions/microcontroller/ringpico folder</p>
-<p>Inside this folder we provides a README file that explain how to install and use the extension</p>
-<p>The samples exist in the ring/extensions/microcontroller/ringpico/projects folder</p>
+<p>Using this extension We can write Ring programs that runs on the RP2040 Microcontroller</p>
+<p>Extension folder: ring/extensions/microcontroller/ringpico</p>
 <p>Contents:</p>
 <ul class="simple">
 <li><p>Install</p></li>
@@ -236,6 +234,7 @@
 <li><p>LEDs sample</p></li>
 <li><p>LED and Switch sample</p></li>
 <li><p>Declarative Programming sample</p></li>
+<li><p>Using Wokwi Simulator</p></li>
 </ul>
 <section id="install">
 <span id="index-1"></span><h2>Install<a class="headerlink" href="#install" title="Permalink to this heading"></a></h2>
@@ -501,6 +500,26 @@
 </div>
 <p>Screen Shot:</p>
 <img alt="Raspberry Pi Pico" src="_images/pico.jpg" />
+</section>
+<section id="using-wokwi-simulator">
+<span id="index-9"></span><h2>Using Wokwi Simulator<a class="headerlink" href="#using-wokwi-simulator" title="Permalink to this heading"></a></h2>
+<p>Using this simulator, We can test RingPico programs without the need to use real hardware.</p>
+<p>Steps:</p>
+<ul class="simple">
+<li><p>Update main.ring to use the LEDs project</p></li>
+</ul>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;projects/leds/main.ring&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Build the project using build.bat</p></li>
+<li><p>Install Visual Studio Code</p></li>
+<li><p>Install Wokwi Simulator extension</p></li>
+<li><p>Open the folder ring/extensions/microcontroller/ringpico using VS Code</p></li>
+<li><p>Run the project using the Simulator (Press F1 then select Wokwi: Start Simulator)</p></li>
+</ul>
+<p>Screen Shot:</p>
+<img alt="Wokwi Simulator" src="_images/picosimulator.png" />
 </section>
 </section>
 
