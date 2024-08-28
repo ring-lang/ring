@@ -332,3 +332,8 @@ File: Circuit.ring
 				while ! getStatus() end  
 				sleep_ms(30) 
 			ok
+
+Screen Shot:
+
+.. image:: pico.jpg
+	:alt: Raspberry Pi Pico
