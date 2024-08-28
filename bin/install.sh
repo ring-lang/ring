@@ -156,6 +156,20 @@ sudo ln -sf "`pwd`/lib/libringqt_light.so" /usr/lib
 sudo ln -sf "`pwd`/lib/libringqt_light.so" /usr/lib64
 fi
 
+# Make the RingQt (Core) library ready for use directly
+	
+if [ -f lib/libringqt_core.dylib ];
+then
+ln -sf "`pwd`/lib/libringqt_core.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libringqt_core.dylib
+fi
+
+if [ -f lib/libringqt_core.so ];
+then
+sudo ln -sf "`pwd`/lib/libringqt_core.so" /usr/lib
+sudo ln -sf "`pwd`/lib/libringqt_core.so" /usr/lib64
+fi
+
 # Make the RingLibCurl library ready for use directly
 
 if [ -f lib/libring_libcurl.dylib ];
