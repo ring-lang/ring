@@ -112,6 +112,7 @@ Contents:
    Embedding Ring Language in C/C++ Programs <embedding>
    Code Generator for wrapping C/C++ Libraries <codegenerator>
    Create your first extension using the Code Generator <ringbeep>
+   Using Ring for Raspberry Pi Pico Microcontroller <usingpico>
    Release Notes: Version 1.0 <languagedesign>
    Release Notes: Version 1.1 <whatisnew>
    Release Notes: Version 1.2 <whatisnew2>
