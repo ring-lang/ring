@@ -7,6 +7,5 @@
 	load "loadlibfile.ring"
 	loadlibfile("ringqt_core")
 
-# Load the main library 
-	load "constants/qt.rh"
-	load "classes/ring_qt_core.ring"
+# Load the files
+	load "guilibfiles.ring"
