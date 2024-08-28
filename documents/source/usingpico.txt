@@ -9,16 +9,9 @@ In this chapter we will learn about Using Ring for Raspberry Pi Pico Microcontro
 
 This extension is added to the Ring language starting from Ring 1.21.
 
-Using this extension and Raspberry Pi Pico SDK
+Using this extension We can write Ring programs that runs on the RP2040 Microcontroller
 
-We can write Ring programs that runs on the RP2040 Microcontroller
-
-The extension exists in the ring/extensions/microcontroller/ringpico folder
-
-Inside this folder we provides a README file that explain how to install and use the extension
-
-The samples exist in the ring/extensions/microcontroller/ringpico/projects folder
-
+Extension folder: ring/extensions/microcontroller/ringpico 
 
 Contents:
 
