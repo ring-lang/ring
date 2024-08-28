@@ -8,6 +8,11 @@
 
 	git clone http://github.com/ring-lang/ring.git
 
+## Or
+
+	git clone git@github.com:ring-lang/ring.git
+
+
 ### Complete Build (Compiler/VM, Extensions, Tools, etc.)
 
 Install Qt 5.15.16  (in C:\Qt) so we have the folder (C:\Qt\5.15.16)
