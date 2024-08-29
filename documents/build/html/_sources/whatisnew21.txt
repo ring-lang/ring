@@ -290,6 +290,8 @@ We improved how Ring VM manage the functions scope/arguments through pre-allocat
 
 As a result, the stars animation sample works at 5400 FPS (instead of 2350 FPS in Ring 1.20) 
 
+Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]
+
 Results:
 
 .. code-block:: none
