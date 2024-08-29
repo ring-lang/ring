@@ -15,7 +15,7 @@ aLibrary = [:name = :qtcore ,
 		"api-ms-win-core-winrt-string-l1-1-0.dll",
 		"concrt140.dll",
 		"libgcc_s_dw2-1.dll",
-		"platforms\qwindows.dll",
+		"platforms\qwindows.dll"
 	 ] ,
 	 :windowsfolders = [
 		"imageformats"
