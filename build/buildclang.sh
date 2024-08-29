@@ -20,6 +20,8 @@ cd ../ringmurmurhash
 
 # Build RingQt
 cd ../ringqt
+./gencode_core.sh
+./buildclang_core.sh
 ./gencode_light.sh
 ./buildclang_light.sh
 ./gencode.sh
