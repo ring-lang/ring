@@ -198,7 +198,9 @@ Better RingQt
 
 (2) QDateTimeEdit - Added Class Events
 
-(3) The next classes are added to RingQt
+(3) Using (load "qtcore.ring") we can load the QtCore library
+
+(4) The next classes are added to RingQt
 
 * QAbstractGraphicsShapeItem
 * QAudioOutput 
