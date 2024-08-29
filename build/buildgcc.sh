@@ -96,6 +96,7 @@ if [ $# -eq 0 ] || { [ $# -eq 1 ] && [[ "$1" == "-debug" ]]; }; then
     build "../extensions/ringallegro"           "gencode.sh"        "buildgcc.sh"       "RingAllegro"           || exit 1
     build "../extensions/ringfreeglut"          "gencode.sh"        "buildgcc.sh"       "RingFreeGLUT"          || exit 1
     build "../extensions/ringmurmurhash"        ""                  "buildgcc.sh"       "RingMurmurHash"        || exit 1
+    build "../extensions/ringqt"                "gencode_core.sh"   "buildgcc_core.sh"  "RingQt (Core)"         || exit 1
     build "../extensions/ringqt"                "gencode_light.sh"  "buildgcc_light.sh" "RingQt (Light)"        || exit 1
     build "../extensions/ringqt"                "gencode.sh"        "buildgcc.sh"       "RingQt"                || exit 1
     build "../extensions/ringstbimage"          "gencode.sh"        "buildgcc.sh"       "RingStbImage"          || exit 1
@@ -165,6 +166,11 @@ for arg in "$@"; do
             build_header "RingMurmurHash"
             build "../extensions/ringmurmurhash"        ""                  "buildgcc.sh"       "RingMurmurHash"        || exit 1
             install      "RingMurmurHash"
+        ;;
+        -ringqt-core)
+            build_header "RingQt (Core)"
+            build "../extensions/ringqt"                "gencode_core.sh"   "buildgcc_core.sh"  "RingQt (Core)"        || exit 1
+            install      "RingQt (Core)"
         ;;
         -ringqt-light)
             build_header "RingQt (Light)"
