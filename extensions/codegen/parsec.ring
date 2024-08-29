@@ -175,7 +175,7 @@ Func Main
 		WriteFile(sysargv[5],cCode)
 	ok
 
-	if len($aClassesList) > 0
+	if isWindows() and (len($aClassesList) > 0)
 		cCode = ""
 		for x in $aClassesList
 			cCode += x[1] + nl
