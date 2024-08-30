@@ -26,3 +26,5 @@ cp ring.vim ~/.vim/syntax
 ```shell
 cp filetype.vim ~/.vim
 ```
+## And That's All !!
+<img src="test.png">
