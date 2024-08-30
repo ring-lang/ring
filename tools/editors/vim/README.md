@@ -27,4 +27,4 @@ cp ring.vim ~/.vim/syntax
 cp filetype.vim ~/.vim
 ```
 
-<img src="">
+<img src="test.png">
