@@ -17,8 +17,8 @@ Supported Editors
 
 - Sublime Text 2
 
+- Vim
+
 - Visual Studio 
 
 - Visual Studio Code (VSCode)
-
-- Vim
