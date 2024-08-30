@@ -538,7 +538,7 @@
 	#define RING_VM_ERROR_FUNCREDEFINE "Error (R53) : Function redefinition, function is already defined!"
 	#define RING_VM_ERROR_ATTRREDEFINE "Error (R54) : Object attribute redefinition, attribute is already defined!"
 	/* Extra Size (for eval) */
-	#define RING_VM_EXTRASIZE 1024
+	#define RING_VM_EXTRASIZE (1024*128)
 	#define RING_MAX(a,b) (((a)>(b))?(a):(b))
 	#define RING_VM_MAXNESTEDEVAL 255
 	/*
