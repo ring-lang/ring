@@ -61,8 +61,6 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 		}
 		else {
 			pVM->lEvalReallocationFlag = 0 ;
-			/* Update ReallocationSize */
-			pVM->nEvalReallocationSize = pVM->nEvalReallocationSize - (RING_VM_INSTRUCTIONSCOUNT-nLastPC) ;
 		}
 		/* Load New Code */
 		nMark = pVM->pRingState->nInstructionsCount ;
@@ -314,9 +312,6 @@ void ring_vm_cleanevalcode ( VM *pVM,int nCodeSize )
 		pVM->pByteCode = pByteCode ;
 		/* Update the Eval Reallocation Size after Reallocation */
 		pVM->nEvalReallocationSize = pVM->nEvalReallocationSize - nExtraSize ;
-	}
-	else {
-		pVM->nEvalReallocationSize = pVM->nEvalReallocationSize + nExtraSize ;
 	}
 }
 
