@@ -317,14 +317,13 @@ void ring_vm_cleanevalcode ( VM *pVM,int nCodeSize )
 
 void ring_vm_useextrabytecode ( VM *pVM )
 {
-	int x, nLastPC  ;
+	int x  ;
 	/* Prepare the Jump */
 	ring_vm_blockflag2(pVM,pVM->nPC);
 	pVM->nPC = RING_VM_INSTRUCTIONSCOUNT+1 ;
 	/* Increase the instructions count */
 	pVM->pRingState->nInstructionsCount += ring_list_getsize(pVM->pRingState->pRingGenCode) ;
 	/* Check the need for memory reallocation */
-	nLastPC = RING_VM_INSTRUCTIONSCOUNT ;
 	if ( RING_VM_INSTRUCTIONSCOUNT  > pVM->nEvalReallocationSize ) {
 		pVM->pByteCode = (ByteCode *) ring_realloc(pVM->pByteCode , sizeof(ByteCode) * RING_VM_INSTRUCTIONSCOUNT);
 		pVM->nEvalReallocationSize = RING_VM_INSTRUCTIONSCOUNT ;
