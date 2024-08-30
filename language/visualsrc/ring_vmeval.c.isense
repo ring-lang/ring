@@ -26,13 +26,11 @@ nEvalReturnPC,lEvalReallocationFlag,nPC,nRunVM,nSP,nFuncSP,nCFuncSP,nCFuncParaCo
 Type: List *
 pStackList
 ring_vm_cleanevalcode
-Type: int
-nExtraSize
 Type: ByteCode *
 pByteCode
 ring_vm_useextrabytecode
 Type: int
-x, nLastPC
+x
 ring_vm_callfuncwithouteval
 Type: int
 nPC

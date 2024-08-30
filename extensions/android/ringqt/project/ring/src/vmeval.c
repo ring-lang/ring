@@ -300,10 +300,8 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 
 void ring_vm_cleanevalcode ( VM *pVM,int nCodeSize )
 {
-	int nExtraSize  ;
 	ByteCode *pByteCode  ;
-	nExtraSize = RING_VM_INSTRUCTIONSCOUNT - nCodeSize ;
-	while ( RING_VM_INSTRUCTIONSCOUNT != nCodeSize ) {
+	while ( RING_VM_INSTRUCTIONSCOUNT > nCodeSize ) {
 		RING_VM_DELETELASTINSTRUCTION ;
 	}
 	if ( pVM->lEvalReallocationFlag == 1 ) {
@@ -311,7 +309,7 @@ void ring_vm_cleanevalcode ( VM *pVM,int nCodeSize )
 		pByteCode = (ByteCode *) ring_realloc(pVM->pByteCode , sizeof(ByteCode) * RING_VM_INSTRUCTIONSCOUNT);
 		pVM->pByteCode = pByteCode ;
 		/* Update the Eval Reallocation Size after Reallocation */
-		pVM->nEvalReallocationSize = pVM->nEvalReallocationSize - nExtraSize ;
+		pVM->nEvalReallocationSize = RING_VM_INSTRUCTIONSCOUNT ;
 	}
 }
 
