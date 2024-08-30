@@ -510,9 +510,15 @@ void ring_vm_tobytecode ( VM *pVM,int nIns )
 			break ;
 	}
 	pByteCode->nOPCode = pItem->data.iNumber ;
-	/* Set the Registers Type */
+	/* Set the default values */
+	pByteCode->lFlagReg = 0 ;
+	pByteCode->lFlagReg2 = 0 ;
+	pByteCode->lLiteral = 0 ;
+	pByteCode->lUnused = 0 ;
 	pByteCode->nReg1Type = RING_VM_REGTYPE_DEFAULT ;
 	pByteCode->nReg2Type = RING_VM_REGTYPE_DEFAULT ;
+	pByteCode->nSmallIntReg = 0 ;
+	pByteCode->nIntReg = 0 ;
 	pByteCode->aReg[RING_VM_IR_REG1].dNumber = 0.0 ;
 	pByteCode->aReg[RING_VM_IR_REG2].dNumber = 0.0 ;
 	for ( x = 2 ; x <= ring_list_getsize(pIR) ; x++ ) {
