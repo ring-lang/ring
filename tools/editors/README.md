@@ -20,3 +20,5 @@ Supported Editors
 - Visual Studio 
 
 - Visual Studio Code (VSCode)
+
+- Vim
