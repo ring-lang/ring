@@ -127,7 +127,7 @@ void ring_vm_returneval ( VM *pVM )
 	ring_vm_mutexlock(pVM);
 	aPara[0] = RING_VM_IR_READIVALUE(RING_VM_IR_REG1) ;
 	aPara[1] = RING_VM_IR_READIVALUE(RING_VM_IR_REG2) ;
-	if ( ( pVM->lRetEvalDontDelete == 0 ) && (aPara[1] == ring_list_getsize(pVM->pFunctionsMap)+ring_list_getsize(pVM->pClassesMap)+ring_list_getsize(pVM->pPackagesMap)+ring_list_getsize(pVM->pPCBlockFlag)) ) {
+	if ( aPara[1] == ring_list_getsize(pVM->pFunctionsMap)+ring_list_getsize(pVM->pClassesMap)+ring_list_getsize(pVM->pPackagesMap)+ring_list_getsize(pVM->pPCBlockFlag) ) {
 		/*
 		**  The code interpreted by eval doesn't add new functions or new classes or load new files 
 		**  This means that the code can be deleted without any problems 
@@ -300,14 +300,15 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 
 void ring_vm_cleanevalcode ( VM *pVM,int nCodeSize )
 {
-	ByteCode *pByteCode  ;
+	if ( pVM->lRetEvalDontDelete || (RING_VM_INSTRUCTIONSCOUNT <= nCodeSize) ) {
+		return ;
+	}
 	while ( RING_VM_INSTRUCTIONSCOUNT > nCodeSize ) {
 		RING_VM_DELETELASTINSTRUCTION ;
 	}
-	if ( pVM->lEvalReallocationFlag == 1 ) {
-		pVM->lEvalReallocationFlag = 0 ;
-		pByteCode = (ByteCode *) ring_realloc(pVM->pByteCode , sizeof(ByteCode) * RING_VM_INSTRUCTIONSCOUNT);
-		pVM->pByteCode = pByteCode ;
+	if ( pVM->lEvalReallocationFlag == RING_TRUE ) {
+		pVM->lEvalReallocationFlag = RING_FALSE ;
+		pVM->pByteCode = (ByteCode *) ring_realloc(pVM->pByteCode , sizeof(ByteCode) * RING_VM_INSTRUCTIONSCOUNT);
 		/* Update the Eval Reallocation Size after Reallocation */
 		pVM->nEvalReallocationSize = RING_VM_INSTRUCTIONSCOUNT ;
 	}
