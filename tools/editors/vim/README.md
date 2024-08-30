@@ -26,5 +26,5 @@ cp ring.vim ~/.vim/syntax
 ```shell
 cp filetype.vim ~/.vim
 ```
-
+### Now you can use it !
 <img src="test.png">
