@@ -1,4 +1,5 @@
 aNews = [
+  ["August 30, 2024",'<a href="https://github.com/ring-lang/ring/tree/master/tools/editors/vim"> Ring Syntax Highlighting for Vim'],
   ["August 28, 2024",'<a href="https://github.com/ysdragon/dotenv"> Package: dotenv</a>'],
   ["August 24, 2024",'<a href="https://github.com/ring-lang/ring/"> Ring has reached 40,000 commits</a>'],
   ["August 18, 2024",'<a href="https://github.com/ring-lang/ring/tree/master/tools/editors/nano"> Ring Syntax Highlighting for nano'],
