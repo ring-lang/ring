@@ -329,9 +329,6 @@ void ring_vm_useextrabytecode ( VM *pVM )
 		pVM->pByteCode = (ByteCode *) ring_realloc(pVM->pByteCode , sizeof(ByteCode) * RING_VM_INSTRUCTIONSCOUNT);
 		pVM->nEvalReallocationSize = RING_VM_INSTRUCTIONSCOUNT ;
 	}
-	else {
-		pVM->nEvalReallocationSize = pVM->nEvalReallocationSize - (RING_VM_INSTRUCTIONSCOUNT-nLastPC) ;
-	}
 	/* Add the byte code */
 	pVM->pRingState->nInstructionsCount -= ring_list_getsize(pVM->pRingState->pRingGenCode) ;
 	for ( x = 1 ; x <= RING_VM_INSTRUCTIONSLISTSIZE ; x++ ) {
