@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "",
 	:email = "",
 	:license = "MIT License",
-	:version = "1.0.23",
-	:ringversion = "1.20",
+	:version = "1.0.24",
+	:ringversion = "1.21",
 	:versions = 	[
 		[
-			:version = "1.0.23",
+			:version = "1.0.24",
 			:branch = "master"
 		]
 	],
@@ -26,11 +26,14 @@ aPackageInfo = [
 	:ringfolderfiles = 	[
 		"bin/load/guilib.ring",
 		"bin/load/lightguilib.ring",
+		"bin/load/qtcore.ring",
 		"libraries/guilib/classes/ring_qt.ring",
 		"libraries/guilib/classes/ring_qt_light.ring",
+		"libraries/guilib/classes/ring_qt_core.ring",
 		"libraries/guilib/constants/qt.rh",
 		"libraries/guilib/guilib.ring",
 		"libraries/guilib/lightguilib.ring",
+		"libraries/guilib/qtcore.ring",
 		"libraries/guilib/guilibfiles.ring",
 		"libraries/guilib/loadlibfile.ring",
 		"libraries/guilib/modernlib/appclass.ring",
@@ -42,6 +45,8 @@ aPackageInfo = [
 		"libraries/guilib/modernlib/newguiclasses.ring",
 		"libraries/guilib/modernlib/tablewidgetclass.ring",
 		"libraries/guilib/modernlib/treewidgetclass.ring",
+		"libraries/guilib/modernlib/desktopwidget.ring",
+		"libraries/guilib/modernlib/updateclasses.ring",
 		"libraries/guilib/mvc/controllerparent.ring",
 		"libraries/guilib/mvc/viewparent.ring",
 		"libraries/guilib/webassembly/webassembly.ring"
