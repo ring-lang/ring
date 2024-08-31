@@ -19,11 +19,11 @@ oServer.listen("0.0.0.0", 8080)
 
 func ins  
 
-	oServer.setContent("Fayed", "text/plain")
+	oServer.setContent("Dr. Yousef", "text/plain")
 
 func subject  
 
-	oServer.setContent("Programming", "text/plain")
+	oServer.setContent("Machine Learning", "text/plain")
 
 func attendance
 
