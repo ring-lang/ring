@@ -2,7 +2,7 @@ aLockInfo = [
 	[
 		:name = "winstartupmanager",
 		:branch = "master",
-		:version = "1.0.5",
+		:version = "1.0.6",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -86,7 +86,7 @@ aLockInfo = [
 	[
 		:name = "stdlib",
 		:branch = "master",
-		:version = "1.0.15",
+		:version = "1.0.17",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
