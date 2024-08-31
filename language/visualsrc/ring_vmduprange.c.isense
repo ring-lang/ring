@@ -1,4 +1,4 @@
-ring_vm_dup
+ring_vm_stack_dup
 Type: String *
 pString
 Type: double
@@ -15,6 +15,5 @@ cStr
 Type: List *
 pVar
 ring_vm_range_newlist
-cVarName
 Type: List *
 pVar

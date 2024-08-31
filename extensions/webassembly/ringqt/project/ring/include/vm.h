@@ -848,7 +848,7 @@
 	void ring_vm_done ( VM *pVM ) ;
 	/* Duplicate and Range */
 
-	void ring_vm_dup ( VM *pVM ) ;
+	void ring_vm_stack_dup ( VM *pVM ) ;
 
 	void ring_vm_range ( VM *pVM ) ;
 

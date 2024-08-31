@@ -992,7 +992,7 @@ void ring_vm_execute ( VM *pVM )
 			break ;
 		/* Duplicate and Range */
 		case ICO_DUPLICATE :
-			ring_vm_dup(pVM);
+			ring_vm_stack_dup(pVM);
 			break ;
 		case ICO_RANGE :
 			ring_vm_range(pVM);

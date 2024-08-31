@@ -119,7 +119,7 @@ void ring_vm_oop_newobj ( VM *pVM )
 						pList2 = pVar ;
 					}
 					nType = RING_VM_STACK_OBJTYPE ;
-					ring_vm_dup(pVM);
+					ring_vm_stack_dup(pVM);
 				}
 				ring_list_deleteallitems_gc(pVM->pRingState,pList2);
 				/* Store the Class Pointer in the Object Data */

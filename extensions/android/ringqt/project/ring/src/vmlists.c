@@ -84,7 +84,7 @@ void ring_vm_liststart ( VM *pVM )
 				pVar = (List *) RING_VM_STACK_READP ;
 			}
 			/* Support code like  aList = [1,2,3] + 4 */
-			ring_vm_dup(pVM);
+			ring_vm_stack_dup(pVM);
 		}
 		if ( nType == RING_OBJTYPE_VARIABLE ) {
 			/* Check error on assignment */

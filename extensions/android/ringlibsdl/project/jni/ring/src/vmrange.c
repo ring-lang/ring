@@ -2,7 +2,7 @@
 
 #include "ring.h"
 
-void ring_vm_dup ( VM *pVM )
+void ring_vm_stack_dup ( VM *pVM )
 {
 	String *pString  ;
 	double nNum1  ;

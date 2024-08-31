@@ -429,7 +429,7 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int nRef )
 			/* Take in mind ref(ref(ref(new obj))) */
 			ring_list_enabledontrefagain(pList);
 			/* Keep the same object (Ref() parameter) on the Stack (i.e. Return para. as output) */
-			ring_vm_dup(pVM);
+			ring_vm_stack_dup(pVM);
 			return ;
 		}
 	}
