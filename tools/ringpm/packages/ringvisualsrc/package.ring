@@ -219,5 +219,9 @@ aPackageInfo = [
 
 	],
 	:run = "ring main.ring",
-	:setup = ""
+	:setup = "",
+	:remotefolder = "ringvisualsrc",
+	:branch = "master",
+	:providerusername = "ringpackages",
+	:providerwebsite = "github.com"
 ]
