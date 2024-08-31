@@ -2,21 +2,21 @@ aLockInfo = [
 	[
 		:name = "httplib",
 		:branch = "master",
-		:version = "1.0.10",
+		:version = "1.0.11",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "weblib",
 		:branch = "master",
-		:version = "1.0.6",
+		:version = "1.0.7",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "stdlib",
 		:branch = "master",
-		:version = "1.0.13",
+		:version = "1.0.17",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -30,14 +30,14 @@ aLockInfo = [
 	[
 		:name = "ringcurl",
 		:branch = "master",
-		:version = "1.0.8",
+		:version = "1.0.12",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "codegen",
 		:branch = "master",
-		:version = "1.0.12",
+		:version = "1.0.14",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -52,13 +52,6 @@ aLockInfo = [
 		:name = "ringcurl",
 		:branch = "master",
 		:version = "1.0.3",
-		:providerusername = "ringpackages",
-		:providerwebsite = ""
-	],
-	[
-		:name = "codegen",
-		:branch = "master",
-		:version = "1.0.4",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
