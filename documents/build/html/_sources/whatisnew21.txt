@@ -28,7 +28,7 @@ Ring 1.21 comes with the next features!
 * Reducing Memory Usage
 * ForEach Keyword
 * Better Operator Overloading
-* Ring Syntax Highlighting for nano
+* Syntax Highlighting for Vim/nano
 * New VM Instructions
 * More Improvements
 
@@ -489,12 +489,12 @@ Output:
 
 
 .. index:: 
-	pair: What is new in Ring  1.21; Ring Syntax Highlighting for nano
+	pair: What is new in Ring  1.21; Syntax Highlighting for Vim/nano
 
-Ring Syntax Highlighting for nano
-=================================
+Syntax Highlighting for Vim/nano
+================================
 
-Check the folder: ring/tools/editors/nano
+Check the folders: ring/tools/editors/vim and ring/tools/editors/nano
 
 .. image:: nano.png
 	:alt: nano
@@ -532,6 +532,7 @@ More Improvements
 =================
 
 * Ring Notepad - Toolbar - Better icons
+* NaturalLib - Using (stdlibcore.ring) instead of (stdlib.ring)
 * AddAttribute() - Produce runtime error if the attribute is already defined
 * AddMethod() - Produce runtime error if the method is already defined
 * RingInternetLib - Set CURLOPT_USERAGENT in Download() function  
