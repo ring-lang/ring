@@ -2,14 +2,14 @@ aLockInfo = [
 	[
 		:name = "webassemblyringqt",
 		:branch = "master",
-		:version = "1.0.9",
+		:version = "1.0.10",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "stdlib",
 		:branch = "master",
-		:version = "1.0.15",
+		:version = "1.0.17",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -72,14 +72,14 @@ aLockInfo = [
 	[
 		:name = "ringzip",
 		:branch = "master",
-		:version = "1.0.6",
+		:version = "1.0.8",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "codegen",
 		:branch = "master",
-		:version = "1.0.13",
+		:version = "1.0.14",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	]
