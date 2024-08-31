@@ -49,7 +49,7 @@ oApp = new QApp {
 			setColumnwidth(2,130)
 			setColumnwidth(3,120)
 			setColumnwidth(4,130)
-			setColumnwidth(5,130)
+			setColumnwidth(5,165)
 			setSelectionBehavior(QAbstractItemView_SelectRows)
 			setSelectionMode(QAbstractItemView_SingleSelection)
 			setAlternatingRowColors(True)
