@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.1",
-	:ringversion = "1.20",
+	:version = "1.0.2",
+	:ringversion = "1.21",
 	:versions = 	[
 		[
-			:version = "1.0.1",
+			:version = "1.0.2",
 			:branch = "master"
 		]
 	],
@@ -26,6 +26,7 @@ aPackageInfo = [
 	:ringfolderfiles = 	[
 		"bin/load/tilengine.ring",
 		"bin/ring_tilengine.dll",
+		"bin/Tilengine.dll",
 		"extensions/ringtilengine/buildvc.bat",
 		"extensions/ringtilengine/buildvc_x64.bat",
 		"extensions/ringtilengine/document.bat",
