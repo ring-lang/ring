@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "",
 	:email = "",
 	:license = "MIT License",
-	:version = "1.0.11",
-	:ringversion = "1.20",
+	:version = "1.0.12",
+	:ringversion = "1.21",
 	:versions = 	[
 		[
-			:version = "1.0.21",
+			:version = "1.0.22",
 			:branch = "master"
 		]
 	],
@@ -33,7 +33,6 @@ aPackageInfo = [
 		"extensions/ringstbimage/gencode.bat",
 		"extensions/ringstbimage/gencode.sh",
 		"extensions/ringstbimage/ring_stbimage.c",
-		"extensions/ringstbimage/ring_stbimage.dll",
 		"extensions/ringstbimage/stbimage.cf",
 		"extensions/ringstbimage/stbimage.ring",
 		"extensions/ringstbimage/stb_image.h",
