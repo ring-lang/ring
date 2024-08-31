@@ -33,9 +33,9 @@ Also, Using stdlibclasses.ring we can load stdlib classes without loading functi
 
 
 .. index:: 
-	pair: Stdlib Functions; isappcompiled()
+	pair: Stdlib Functions; isappcompiled() Function
 
-IsAppCompiled() function
+IsAppCompiled() Function
 ========================
 
 check whether the application has been compiled using Ring2EXE
@@ -50,16 +50,16 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	Puts("Test IsAppCompiled()")
 	if IsAppCompiled() see "Application has been compiled using Ring2EXE"
 	else see "Application is running under Ring interpreter" ok
 
 .. index:: 
-	pair: Stdlib Functions; apparguments()
+	pair: Stdlib Functions; apparguments() Function
 
-AppArguments() function
+AppArguments() Function
 =======================
 
 Get the effective arguments passed to the Ring script
@@ -74,7 +74,7 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	# Application Arguments
 	Puts("Test AppArguments()")
@@ -84,9 +84,9 @@ Example:
 	else see "Ring script arguments = " + nl + list2str(argsList) + nl ok
 
 .. index:: 
-	pair: Stdlib Functions; apppath()
+	pair: Stdlib Functions; apppath() Function
 
-AppPath() function
+AppPath() Function
 ==================
 
 Get the path of the application folder
@@ -101,16 +101,16 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	# Application Path
 	Puts("Test AppPath()")
 	See AppPath() + nl
 
 .. index:: 
-	pair: Stdlib Functions; JustFilePath()
+	pair: Stdlib Functions; JustFilePath() Function
 
-JustFilePath() function
+JustFilePath() Function
 =======================
 
 Get the path of the file, remove the file name.
@@ -125,7 +125,7 @@ Example:
 
 .. code-block:: ring
 
-	load "stdlib.ring"
+	load "stdlibcore.ring"
  
 	see  justfilePath("b:\ring\applications\rnote\rnote.ring")
 
@@ -137,9 +137,9 @@ Output:
 
 
 .. index:: 
-	pair: Stdlib Functions; JustFileName()
+	pair: Stdlib Functions; JustFileName() Function
 
-JustFileName() function
+JustFileName() Function
 =======================
 
 Get the file, remove the file path.
@@ -154,7 +154,7 @@ Example:
 
 .. code-block:: ring
 
-	load "stdlib.ring"
+	load "stdlibcore.ring"
  
 	see justfileName("b:\ring\applications\rnote\rnote.ring") 
 
@@ -166,9 +166,9 @@ Output:
 
 
 .. index:: 
-	pair: Stdlib Functions; value()
+	pair: Stdlib Functions; value() Function
 
-Value() function
+Value() Function
 ================
 
 create a copy from a list or object
@@ -183,16 +183,16 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	aList = 1:10
 	del(value(aList),1) # delete first item
 	see aList 	    # print numbers from 1 to 10
 
 .. index:: 
-	pair: Stdlib Functions; times()
+	pair: Stdlib Functions; times() Function
 
-Times() function
+Times() Function
 ================
 
 Execute a Function nCount times
@@ -207,15 +207,15 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	Puts("Test Times()")
 	Times ( 3 , func { see "Hello, World!" + nl } )
 
 .. index:: 
-	pair: Stdlib Functions; map()
+	pair: Stdlib Functions; map() Function
 
-Map() function
+Map() Function
 ==============
 
 Execute a Function on each list item
@@ -230,15 +230,15 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	Puts("Test Map()")
 	See Map( 1:10, func x { return x*x } )
 
 .. index:: 
-	pair: Stdlib Functions; filter()
+	pair: Stdlib Functions; filter() Function
 
-Filter() function
+Filter() Function
 =================
 
 Execute a Function on each list item to filter items
@@ -253,15 +253,15 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	Puts("Test Filter()")
 	See Filter( 1:10 , func x { if x <= 5 return true else return false ok } )
 
 .. index:: 
-	pair: Stdlib Functions; reduce()
+	pair: Stdlib Functions; reduce() Function
 
-Reduce() function
+Reduce() Function
 =================
 
 Apply function cFunc to each result xResult from a list aList, return an 
@@ -280,7 +280,7 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	? Reduce( 1:3, func x, y { return x + y }, 0 )
 	? Reduce( ["I","Love","Ring"], func x, y { return x + y }, "" )
@@ -293,9 +293,9 @@ Output:
 	ILoveRing
 
 .. index:: 
-	pair: Stdlib Functions; split()
+	pair: Stdlib Functions; split() Function
 
-Split() function
+Split() Function
 ================
 
 Convert string words to list items
@@ -310,16 +310,16 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	Puts("Test Split()")
 	See Split("one two three four five"," ")
 
 
 .. index:: 
-	pair: Stdlib Functions; splitmany()
+	pair: Stdlib Functions; splitmany() Function
 
-SplitMany() function
+SplitMany() Function
 ====================
 
 Convert string words to list items. Allow many delimiters.
@@ -334,15 +334,15 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	Puts("Test SplitMany()")
 	See SplitMany("one,two,three,four and five"," ,")
 
 .. index:: 
-	pair: Stdlib Functions; capitalized()
+	pair: Stdlib Functions; capitalized() Function
 
-Capitalized() function
+Capitalized() Function
 ======================
 
 Return a copy of a string with the first letter capitalized
@@ -357,15 +357,15 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	Puts("Test Capitalized()")
 	See capitalized("welcome to the Ring Programming Language")
 
 .. index:: 
-	pair: Stdlib Functions; isspecial()
+	pair: Stdlib Functions; isspecial() Function
 
-IsSpecial() function
+IsSpecial() Function
 ====================
 
 Check whether a character is special or not
@@ -381,15 +381,15 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	Puts("Test Isspecial()")
 	See "Isspecial  = " + isSpecial("%") + nl
 
 .. index:: 
-	pair: Stdlib Functions; isvowel()
+	pair: Stdlib Functions; isvowel() Function
 
-IsVowel() function
+IsVowel() Function
 ==================
 
 Check whether a character is vowel or not
@@ -404,16 +404,16 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	Puts("Test Isvowel()")
 	See "Isvowel = " + isVowel("c") + nl
 
 
 .. index:: 
-	pair: Stdlib Functions; linecount()
+	pair: Stdlib Functions; linecount() Function
 
-LineCount() function
+LineCount() Function
 ====================
 
 Return the lines count in a text file.
@@ -428,15 +428,15 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	Puts("Test Linecount()")
 	See "the number of lines = " + lineCount("test.ring")
 
 .. index:: 
-	pair: Stdlib Functions; factorial()
+	pair: Stdlib Functions; factorial() Function
 
-Factorial() function
+Factorial() Function
 ====================
 
 Return the factorial of a number
@@ -451,15 +451,15 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	Puts("Test Factorial()")
 	see "6 factorial is : " + Factorial(6)
 
 .. index:: 
-	pair: Stdlib Functions; fibonacci()
+	pair: Stdlib Functions; fibonacci() Function
 
-Fibonacci() function
+Fibonacci() Function
 ====================
 
 Return the fibonacci number
@@ -474,15 +474,15 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	Puts("Test Fibonacci()")
 	see "6 Fibonacci is : " + Fibonacci(6)
 
 .. index:: 
-	pair: Stdlib Functions; isprime()
+	pair: Stdlib Functions; isprime() Function
 
-IsPrime() function
+IsPrime() Function
 ==================
 
 Check whether a number is prime or not
@@ -497,16 +497,16 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	Puts("Test Isprime()")
 	if isPrime(16) see "16 is a prime number"
 	else see "16 is not a prime number" ok
 
 .. index:: 
-	pair: Stdlib Functions; sign()
+	pair: Stdlib Functions; sign() Function
 
-Sign() function
+Sign() Function
 ===============
 
 Returns an integer value indicating the sign of a number.
@@ -521,15 +521,15 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	Puts("Test Sign()")
 	see "sign of 12 is = " + sign(12) + nl
 
 .. index:: 
-	pair: Stdlib Functions; list2file()
+	pair: Stdlib Functions; list2file() Function
 
-List2File() function
+List2File() Function
 ====================
 
 Write list items to text file (each item in new line).
@@ -544,7 +544,7 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	# Test List2File
 	Puts("Test List2File()")
@@ -552,9 +552,9 @@ Example:
 
 
 .. index:: 
-	pair: Stdlib Functions; file2list()
+	pair: Stdlib Functions; file2list() Function
 
-File2List() function
+File2List() Function
 ====================
 
 Read text file and convert lines to list items
@@ -569,16 +569,16 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	# Test File2List
 	Puts("Test File2List()")
 	see len(file2list("myfile.txt"))
 
 .. index:: 
-	pair: Stdlib Functions; startswith()
+	pair: Stdlib Functions; startswith() Function
 
-StartsWith() function
+StartsWith() Function
 =====================
 
 Returns true if the given string starts with the specified substring.
@@ -596,15 +596,15 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	Puts("Test Startswith()")
 	see Startswith("CalmoSoft", "Calmo") + nl
 
 .. index:: 
-	pair: Stdlib Functions; endswith()
+	pair: Stdlib Functions; endswith() Function
 
-EndsWith() function
+EndsWith() Function
 ===================
 
 Returns true if the given string ends with the specified substring.
@@ -621,15 +621,15 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	Puts("Test Endswith()")
 	see endsWith("CalmoSoft", "Soft") + nl
 
 .. index:: 
-	pair: Stdlib Functions; gcd()
+	pair: Stdlib Functions; gcd() Function
 
-GCD() function
+GCD() Function
 ==============
 
 Finding of the greatest common divisor of two integers.
@@ -644,16 +644,16 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	Puts("Test Gcd()")
 	see gcd (24, 32) + nl
 
 
 .. index:: 
-	pair: Stdlib Functions; lcm()
+	pair: Stdlib Functions; lcm() Function
 
-LCM() function
+LCM() Function
 ==============
 
 Compute the least common multiple of two integers.
@@ -668,15 +668,15 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	Puts("Test Lcm()")
 	see Lcm(24,36) + nl
 
 .. index:: 
-	pair: Stdlib Functions; sumlist()
+	pair: Stdlib Functions; sumlist() Function
 
-SumList() function
+SumList() Function
 ==================
 
 Compute the sum of a list of integers.
@@ -691,16 +691,16 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	Puts("Test Sumlist()")
 	aList = [1,2,3,4,5]
 	see Sumlist(aList) + nl
 
 .. index:: 
-	pair: Stdlib Functions; prodlist()
+	pair: Stdlib Functions; prodlist() Function
 
-ProdList() function
+ProdList() Function
 ===================
 
 Compute the product of a list of integers.
@@ -715,16 +715,16 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	Puts("Test Prodlist()")
 	aList = [1,2,3,4,5]
 	see Prodlist(aList) + nl
 
 .. index:: 
-	pair: Stdlib Functions; evenorodd()
+	pair: Stdlib Functions; evenorodd() Function
 
-EvenOrOdd() function
+EvenOrOdd() Function
 ====================
 
 Test whether an integer is even or odd.
@@ -741,16 +741,16 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	Puts("Test Evenorodd()")
 	nr = 17
 	see Evenorodd(nr) + nl
 
 .. index:: 
-	pair: Stdlib Functions; factors()
+	pair: Stdlib Functions; factors() Function
 
-Factors() function
+Factors() Function
 ==================
 
 Compute the factors of a positive integer.
@@ -765,7 +765,7 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	Puts("Test Factors()")
 	n = 45
@@ -777,9 +777,9 @@ Example:
 
 
 .. index:: 
-	pair: Stdlib Functions; ispalindrome()
+	pair: Stdlib Functions; ispalindrome() Function
 
-IsPalindrome() function
+IsPalindrome() Function
 =======================
 
 Check if a sequence of characters is a palindrome or not. 
@@ -794,7 +794,7 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	Puts("Test IsPalindrome()")
 	cString = "radar"
@@ -802,9 +802,9 @@ Example:
 
 
 .. index:: 
-	pair: Stdlib Functions; isleapyear()
+	pair: Stdlib Functions; isleapyear() Function
 
-IsLeapYear() function
+IsLeapYear() Function
 =====================
 
 Check whether a given year is a leap year in the Gregorian calendar. 
@@ -819,7 +819,7 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	Puts("Test Isleapyear()")
 	year = 2016
@@ -828,9 +828,9 @@ Example:
 
 
 .. index:: 
-	pair: Stdlib Functions; binarydigits()
+	pair: Stdlib Functions; binarydigits() Function
 
-BinaryDigits() function
+BinaryDigits() Function
 =======================
 
 Compute the sequence of binary digits for a given non-negative integer. 
@@ -845,16 +845,16 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	Puts("Test Binarydigits()")
 	b = 35
 	see "Binary digits of " + b + " = " + Binarydigits(b)
 
 .. index:: 
-	pair: Stdlib Functions; matrixmulti()
+	pair: Stdlib Functions; matrixmulti() Function
 
-MatrixMulti() function
+MatrixMulti() Function
 ======================
 
 Multiply two matrices together. 
@@ -869,7 +869,7 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	# Multiply two matrices together.
 	Puts("Test Matrixmulti()")
@@ -879,9 +879,9 @@ Example:
 
 
 .. index:: 
-	pair: Stdlib Functions; matrixtrans()
+	pair: Stdlib Functions; matrixtrans() Function
 
-MatrixTrans() function
+MatrixTrans() Function
 ======================
 
 Transpose an arbitrarily sized rectangular Matrix. 
@@ -896,7 +896,7 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	# Transpose an arbitrarily sized rectangular Matrix.
 	Puts("Test Matrixtrans()")
@@ -904,9 +904,9 @@ Example:
 	see Matrixtrans(matrix)
 
 .. index:: 
-	pair: Stdlib Functions; dayofweek()
+	pair: Stdlib Functions; dayofweek() Function
 
-DayOfWeek() function
+DayOfWeek() Function
 ====================
 
 Return the day of the week of given date. (yyyy-mm-dd)
@@ -921,7 +921,7 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	# Return the day of the week of given date.
 	Puts("Test Dayofweek()")
@@ -929,9 +929,9 @@ Example:
 	see "Data : " + date + " - Day : " + Dayofweek(date) + nl
 
 .. index:: 
-	pair: Stdlib Functions; permutation()
+	pair: Stdlib Functions; permutation() Function
 
-Permutation() function
+Permutation() Function
 ======================
 
 Generates all permutations of n different numerals.
@@ -946,7 +946,7 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	# Generates all permutations of n different numerals
 	Puts("Test Permutation()")
@@ -960,9 +960,9 @@ Example:
 	next
 
 .. index:: 
-	pair: Stdlib Functions; readline()
+	pair: Stdlib Functions; readline() Function
 
-ReadLine() function
+ReadLine() Function
 ===================
 
 Read line from file
@@ -977,7 +977,7 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	# Read a file line by line.
 	Puts("Test Readline()")
@@ -987,9 +987,9 @@ Example:
 	fclose(fp)
 
 .. index:: 
-	pair: Stdlib Functions; substring()
+	pair: Stdlib Functions; substring() Function
 
-SubString() function
+SubString() Function
 ====================
 
 Return a position of a substring starting from a given position in a string.
@@ -1004,7 +1004,7 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	# Return a position of a substring starting from a given position in a string.
 	Puts("Test Substring()")
@@ -1014,9 +1014,9 @@ Example:
 	see substring(a,b,i)
 
 .. index:: 
-	pair: Stdlib Functions; changestring()
+	pair: Stdlib Functions; changestring() Function
 
-ChangeString() function
+ChangeString() Function
 =======================
 
 Change substring from given position to a given position with another substring.
@@ -1031,16 +1031,16 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	# Change substring from given position for given position with a substring.
 	Puts("Test Changestring()")
 	see Changestring("Rmasdg",2,5,"in")	# Ring
 
 .. index:: 
-	pair: Stdlib Functions; sleep()
+	pair: Stdlib Functions; sleep() Function
 
-Sleep() function
+Sleep() Function
 ================
 
 Sleep for the given amount of time.
@@ -1055,7 +1055,7 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	Puts("Test Sleep()")
 	see "Wait 3 Seconds!"
@@ -1063,9 +1063,9 @@ Example:
 	see nl
 
 .. index:: 
-	pair: Stdlib Functions; ismainsourcefile()
+	pair: Stdlib Functions; ismainsourcefile() Function
 
-IsMainSourceFile() function
+IsMainSourceFile() Function
 ===========================
 
 Check if the current file is the main source file
@@ -1080,16 +1080,16 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	if ismainsourcefile()
 		# code 
 	ok
 
 .. index:: 
-	pair: Stdlib Functions; makedir()
+	pair: Stdlib Functions; makedir() Function
 
-MakeDir() function
+MakeDir() Function
 ==================
 
 Make Directory
@@ -1104,7 +1104,7 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
+	Load "stdlibcore.ring"
 
 	# Create Directory
 	puts("create Directory : myfolder")
@@ -1112,9 +1112,9 @@ Example:
 
 
 .. index:: 
-	pair: Stdlib Functions; FSize()
+	pair: Stdlib Functions; FSize() Function
 
-Fsize() function
+Fsize() Function
 ================
 
 The function return the file size in bytes.
@@ -1126,9 +1126,9 @@ Syntax:
 	FSize(File Handle) ---> Number (File Size in Bytes)
 
 .. index:: 
-	pair: Stdlib Functions; TrimAll()
+	pair: Stdlib Functions; TrimAll() Function
 
-TrimAll() function
+TrimAll() Function
 ==================
 
 Remove all spaces and tabs characters from a string
@@ -1140,9 +1140,9 @@ Syntax:
 	TrimAll(cString) ---> cString # Without Spaces and Tabs
 
 .. index:: 
-	pair: Stdlib Functions; TrimLeft()
+	pair: Stdlib Functions; TrimLeft() Function
 
-TrimLeft() function
+TrimLeft() Function
 ===================
 
 Remove all spaces and tabs characters from the left side of a string
@@ -1154,9 +1154,9 @@ Syntax:
 	TrimLeft(cString) ---> cString # Without Spaces and Tabs from the left side
 
 .. index:: 
-	pair: Stdlib Functions; TrimRight()
+	pair: Stdlib Functions; TrimRight() Function
 
-TrimRight() function
+TrimRight() Function
 ====================
 
 Remove all spaces and tabs characters from the right side of a string
@@ -1168,9 +1168,9 @@ Syntax:
 	TrimRight(cString) ---> cString # Without Spaces and Tabs from the right side
 
 .. index:: 
-	pair: Stdlib Functions; EpochTime()
+	pair: Stdlib Functions; EpochTime() Function
 
-EpochTime() function
+EpochTime() Function
 ====================
 
 Return the Epoch Time
@@ -1376,10 +1376,10 @@ Output:
 
 
 .. index:: 
-	pair: Stdlib Functions; Str2ASCIIList()
+	pair: Stdlib Functions; Str2ASCIIList() Function
 
-Str2ASCIIList()
-===============
+Str2ASCIIList() Function
+========================
 
 Convert a string of bytes to a list of numbers where each item represent
 the ASCII code of one byte in the string.
@@ -1391,10 +1391,10 @@ Syntax:
 	Str2ASCIIList(String) ---> List of numbers
 
 .. index:: 
-	pair: Stdlib Functions; ASCIIList2Str()
+	pair: Stdlib Functions; ASCIIList2Str() Function
 
-ASCIIList2Str()
-===============
+ASCIIList2Str() Function
+========================
 
 Convert a list of numbers where each item represent
 the ASCII code of one byte to a string of bytes.
@@ -1435,10 +1435,10 @@ Output:
 
 
 .. index:: 
-	pair: Stdlib Functions; IsListContainsItems()
+	pair: Stdlib Functions; IsListContainsItems() Function
 
-IsListContainsItems()
-=====================
+IsListContainsItems() Function
+==============================
 
 Syntax:
 
@@ -1456,10 +1456,10 @@ Example:
 	? IsListContainsItems(aList1,aList2)
 
 .. index:: 
-	pair: Stdlib Functions; IsBetween()
+	pair: Stdlib Functions; IsBetween() Function
 
-IsBetween()
-===========
+IsBetween() Function
+====================
 
 Syntax:
 
@@ -1478,10 +1478,10 @@ Example:
 	? isBetween(4,3,4)
 
 .. index:: 
-	pair: Stdlib Functions; TimeInfo()
+	pair: Stdlib Functions; TimeInfo() Function
 
-TimeInfo()
-==========
+TimeInfo() Function
+===================
 
 Syntax:
 
@@ -1525,10 +1525,10 @@ Example:
 	? timeInfo(:hour_12)
 
 .. index:: 
-	pair: Stdlib Functions; RandomList()
+	pair: Stdlib Functions; RandomList() Function
 
-RandomList()
-============
+RandomList() Function
+=====================
 
 Syntax:
 
@@ -1540,15 +1540,15 @@ Example:
 
 .. code-block:: ring
 
-	load "stdlib.ring"
+	load "stdlibcore.ring"
 	aList = 1:5
 	? RandomList(aList)
 
 .. index:: 
-	pair: Stdlib Functions; RandomItem()
+	pair: Stdlib Functions; RandomItem() Function
 
-RandomItem()
-============
+RandomItem() Function
+=====================
 
 Pick an item from a list (Random Choice)
 
@@ -1562,15 +1562,15 @@ Example:
 
 .. code-block:: ring
 
-	load "stdlib.ring"
+	load "stdlibcore.ring"
 	aList = 1:5
 	? RandomItem(aList)
 
 .. index:: 
-	pair: Stdlib Functions; CheckEquality()
+	pair: Stdlib Functions; CheckEquality() Function
 
-CheckEquality()
-===============
+CheckEquality() Function
+========================
 
 Check if two items are equal.
 Deep comparison is performed if the two items are lists
@@ -1587,8 +1587,49 @@ Example:
 
 .. code-block:: ring
 
-	load "stdlib.ring"
+	load "stdlibcore.ring"
 	aList1 = ["one", 2, [3]]
 	aList2 = ["one", 2]
 	aList2 + [3]
 	? CheckEquality(aList1,aList2)
+
+
+.. index:: 
+	pair: Stdlib Functions; NumOrZero() Function
+
+NumOrZero() Function
+====================
+
+This is a new function added to stdlibcore.ring
+
+Using this function we get a number as output (No runtime errors)
+
+Example:
+
+.. code-block:: ring
+
+
+	load "stdlibcore.ring"
+
+	? numorzero(10)
+	? numorzero("10")
+	? numorzero("10.2")
+	? numorzero("10.2 abc")
+	? numorzero("What")
+	? numorzero([10])
+	? numorzero(new point)
+
+	class point
+
+Output:
+
+.. code-block:: none
+
+	10
+	10
+	10.20
+	0
+	0
+	0
+	0
+

@@ -27,6 +27,7 @@ Ring 1.21 comes with the next features!
 * Faster Compiler
 * Reducing Memory Usage
 * ForEach Keyword
+* NumOrZero() Function
 * Better Operator Overloading
 * Syntax Highlighting for Vim/nano
 * New VM Instructions
@@ -397,6 +398,46 @@ Example:
 	ForEach x in aList
 		? x
 	Next
+
+.. index:: 
+	pair: What is new in Ring  1.21; NumOrZero() Function
+
+NumOrZero() Function
+====================
+
+This is a new function added to stdlibcore.ring
+
+Using this function we get a number as output (No runtime errors)
+
+Example:
+
+.. code-block:: ring
+
+
+	load "stdlibcore.ring"
+
+	? numorzero(10)
+	? numorzero("10")
+	? numorzero("10.2")
+	? numorzero("10.2 abc")
+	? numorzero("What")
+	? numorzero([10])
+	? numorzero(new point)
+
+	class point
+
+Output:
+
+.. code-block:: none
+
+	10
+	10
+	10.20
+	0
+	0
+	0
+	0
+
 
 .. index:: 
 	pair: What is new in Ring  1.21; Better Operator Overloading

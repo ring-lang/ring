@@ -189,6 +189,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#faster-compiler">Faster Compiler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reducing-memory-usage">Reducing Memory Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#foreach-keyword">ForEach Keyword</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#numorzero-function">NumOrZero() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-operator-overloading">Better Operator Overloading</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#syntax-highlighting-for-vim-nano">Syntax Highlighting for Vim/nano</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#new-vm-instructions">New VM Instructions</a></li>
@@ -245,6 +246,7 @@
 <li><p>Faster Compiler</p></li>
 <li><p>Reducing Memory Usage</p></li>
 <li><p>ForEach Keyword</p></li>
+<li><p>NumOrZero() Function</p></li>
 <li><p>Better Operator Overloading</p></li>
 <li><p>Syntax Highlighting for Vim/nano</p></li>
 <li><p>New VM Instructions</p></li>
@@ -525,8 +527,37 @@ Time using Ring 1.20    --&gt; 244 ms
 </pre></div>
 </div>
 </section>
+<section id="numorzero-function">
+<span id="index-14"></span><h2>NumOrZero() Function<a class="headerlink" href="#numorzero-function" title="Permalink to this heading"></a></h2>
+<p>This is a new function added to stdlibcore.ring</p>
+<p>Using this function we get a number as output (No runtime errors)</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlibcore.ring&quot;</span>
+
+<span class="o">?</span> <span class="n">numorzero</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">numorzero</span><span class="p">(</span><span class="s">&quot;10&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">numorzero</span><span class="p">(</span><span class="s">&quot;10.2&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">numorzero</span><span class="p">(</span><span class="s">&quot;10.2 abc&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">numorzero</span><span class="p">(</span><span class="s">&quot;What&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">numorzero</span><span class="p">(</span><span class="o">[</span><span class="mi">10</span><span class="o">]</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">numorzero</span><span class="p">(</span><span class="k">new</span> <span class="n">point</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="n">point</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>10
+10
+10.20
+0
+0
+0
+0
+</pre></div>
+</div>
+</section>
 <section id="better-operator-overloading">
-<span id="index-14"></span><h2>Better Operator Overloading<a class="headerlink" href="#better-operator-overloading" title="Permalink to this heading"></a></h2>
+<span id="index-15"></span><h2>Better Operator Overloading<a class="headerlink" href="#better-operator-overloading" title="Permalink to this heading"></a></h2>
 <p>We support operator overloading from the first release of the Ring language</p>
 <p>When using an object inside an expression and this object define the operator method, this
 method will be called if the object comes first.</p>
@@ -606,12 +637,12 @@ method will be called but the letter ‘r’ will comes before the operator (i.e
 </div>
 </section>
 <section id="syntax-highlighting-for-vim-nano">
-<span id="index-15"></span><h2>Syntax Highlighting for Vim/nano<a class="headerlink" href="#syntax-highlighting-for-vim-nano" title="Permalink to this heading"></a></h2>
+<span id="index-16"></span><h2>Syntax Highlighting for Vim/nano<a class="headerlink" href="#syntax-highlighting-for-vim-nano" title="Permalink to this heading"></a></h2>
 <p>Check the folders: ring/tools/editors/vim and ring/tools/editors/nano</p>
 <img alt="nano" src="_images/nano.png" />
 </section>
 <section id="new-vm-instructions">
-<span id="index-16"></span><h2>New VM Instructions<a class="headerlink" href="#new-vm-instructions" title="Permalink to this heading"></a></h2>
+<span id="index-17"></span><h2>New VM Instructions<a class="headerlink" href="#new-vm-instructions" title="Permalink to this heading"></a></h2>
 <p>The next instructions are added to the Ring Virtual Machine</p>
 <ul class="simple">
 <li><p>ICO_STEPFROMREG - Set the For-Loop step value</p></li>
@@ -633,7 +664,7 @@ method will be called but the letter ‘r’ will comes before the operator (i.e
 </ul>
 </section>
 <section id="more-improvements">
-<span id="index-17"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-18"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Ring Notepad - Toolbar - Better icons</p></li>
 <li><p>NaturalLib - Using (stdlibcore.ring) instead of (stdlib.ring)</p></li>
