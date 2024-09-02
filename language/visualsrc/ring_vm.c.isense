@@ -200,6 +200,8 @@ Type: void *
 pAssignment
 Type: void *
 pMutex
+Type: CFunction *
+pCFunction
 Type: unsigned int
 nCurrentGlobalScope
 Type: unsigned int
@@ -320,8 +322,6 @@ Type: List
 aScopes[RING_VM_STACK_SIZE]
 Type: List *
 pArgCache[RING_VM_ARGCACHE_SIZE]
-Type: CFunction *
-pCFunction
 END:
 Type: VM
 struct VM
