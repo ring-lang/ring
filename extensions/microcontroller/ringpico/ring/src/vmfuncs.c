@@ -847,6 +847,9 @@ FuncCall * ring_vm_funccall_new ( VM *pVM )
 	pFuncCall->nStatus = RING_FUNCSTATUS_LOAD ;
 	pFuncCall->pVMState = NULL ;
 	pFuncCall->nParaCount = 0 ;
+	if ( (pVM->nSP > 0) && RING_VM_STACK_ISPOINTER ) {
+		RING_VM_STACK_ASSIGNMENTFLAG = RING_FALSE ;
+	}
 	return pFuncCall ;
 }
 
