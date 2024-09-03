@@ -33,7 +33,7 @@ Type: List *
 pList,*aRefList,*pVar,*pRef
 Type: char *
 pParameter
-Type: char *
+Type: const char *
 cParameters
 Type: char
 cPara[RING_FUNCPARA_EXPECTEDSIZE]
