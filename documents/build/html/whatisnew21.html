@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>What is new in Ring 1.21 &mdash; Ring 1.21 documentation</title>
+  <title>What is new in Ring 1.21 &mdash; Ring 1.21.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
@@ -194,6 +194,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#syntax-highlighting-for-vim-nano">Syntax Highlighting for Vim/nano</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#new-vm-instructions">New VM Instructions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-new-in-ring-1-21-1">What is new in Ring 1.21.1?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
@@ -711,6 +712,26 @@ method will be called but the letter ‘r’ will comes before the operator (i.e
 <li><p>Ring VM - Produce runtime error if the list item is not an object and accessed by dot operator</p></li>
 <li><p>Ring VM - ring_vm_jumpfor() function - Better code to check if we need to terminate the for loop</p></li>
 <li><p>File (meta_e.c) is separated to (meta_e.c) and (vminfo_e.c)</p></li>
+</ul>
+</section>
+<section id="what-is-new-in-ring-1-21-1">
+<span id="index-19"></span><h2>What is new in Ring 1.21.1?<a class="headerlink" href="#what-is-new-in-ring-1-21-1" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Version() function - Optional parameter to display the patch number</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="n">version</span><span class="p">()</span>
+<span class="o">?</span> <span class="n">version</span><span class="p">(</span><span class="kp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1.21
+1.21.1
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Better implementation for the (Using Lists/Objects During Definition) feature</p></li>
+<li><p>Ring Source Code - VM Structure - The position of the pCFunction pointer is revised</p></li>
 </ul>
 </section>
 </section>

@@ -617,3 +617,30 @@ More Improvements
 * Ring VM - Produce runtime error if the list item is not an object and accessed by dot operator
 * Ring VM - ring_vm_jumpfor() function - Better code to check if we need to terminate the for loop
 * File (meta_e.c) is separated to (meta_e.c) and (vminfo_e.c)
+
+
+.. index:: 
+	pair: What is new in Ring  1.21; What is new in Ring 1.21.1
+
+What is new in Ring 1.21.1?
+===========================
+
+* Version() function - Optional parameter to display the patch number 
+
+Example:
+
+.. code-block:: ring
+
+	? version()
+	? version(True)
+
+Output:
+
+.. code-block:: none
+
+	1.21
+	1.21.1
+
+* Better implementation for the (Using Lists/Objects During Definition) feature
+* Ring Source Code - VM Structure - The position of the pCFunction pointer is revised
+
