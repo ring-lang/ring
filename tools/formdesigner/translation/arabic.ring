@@ -364,5 +364,5 @@ T_FORMDESIGNER_GUILIB_INFO  = "تم التطوير باستخدام مكتبة Q
 
 T_FORMDESIGNER_ABOUT_TITLE = "حول البرنامج"
 T_FORMDESIGNER_ABOUT_INFO  = "تم التطوير بإستخدام لغة البرمجة رينج Ring" + nl +
-		"إصدار الرينج : " + version() + nl +
+		"إصدار الرينج : " + version(True) + nl +
 		"2018-2024, محمود سمير فايد <msfclipper@yahoo.com>"

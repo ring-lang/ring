@@ -361,5 +361,5 @@ T_FORMDESIGNER_GUILIB_INFO  = "This application uses the Qt GUI Library through 
 
 T_FORMDESIGNER_ABOUT_TITLE = "About"
 T_FORMDESIGNER_ABOUT_INFO  = "This application developed using the Ring programming language" + nl +
-		"Ring Version : " + version() + nl +
+		"Ring Version : " + version(True) + nl +
 		"2018-2024, Mahmoud Fayed <msfclipper@yahoo.com>"

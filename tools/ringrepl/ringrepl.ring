@@ -1,7 +1,7 @@
 # Application  : Read-Eval-Print-Loop (REPL) - Console Application
 # Author       : Mahmoud Fayed <msfclipper@yahoo.com>
 
-? "The Ring programming language version " + version() 
+? "The Ring programming language version " + version(True) 
 ? "REPL (Read-Eval-Print-Loop)" 
 while true
         see nl + "ring:> "
