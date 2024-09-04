@@ -781,6 +781,8 @@
 	void ring_vm_cleansetpropertylist ( VM *pVM ) ;
 
 	int ring_vm_isoperationaftersublist ( VM *pVM ) ;
+
+	int ring_vm_notusingvarduringdef ( VM *pVM ) ;
 	/* Functions */
 
 	int ring_vm_loadfunc ( VM *pVM ) ;
