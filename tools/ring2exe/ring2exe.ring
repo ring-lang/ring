@@ -470,7 +470,7 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 					if islist(aLibrary[:linuxfiles])
 						for cLibFile in aLibrary[:linuxfiles]
 							msg("Copy file: "+cLibFile)
-							OSCopyFile(exefolder()+"/lib/"+cLibFile)
+							OSCopyFile(exefolder()+"/../lib/"+cLibFile)
 							cInstallLibs = InstallLibLinux(cInstallLibs,cLibFile)
 						next
 					ok
