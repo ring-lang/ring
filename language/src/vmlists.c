@@ -28,25 +28,13 @@ void ring_vm_liststart ( VM *pVM )
 	pVM->nListStart++ ;
 	if ( pVM->nListStart == 1 ) {
 		/* Check if we need to create temp list when we call function, pass list by value */
-		nCont = 0 ;
+		nCont = 1 ;
 		if ( (pVM->nSP > pVM->nFuncSP) && RING_VM_STACK_ISPOINTER ) {
-			if ( ! RING_VM_STACK_ISASSIGNMENTDEST ) {
-				nCont = 1 ;
-			}
-			else {
+			if ( RING_VM_STACK_ISASSIGNMENTDEST ) {
+				nCont = 0 ;
 				/* Clear the Assignment Pointer */
 				pVM->pAssignment = NULL ;
-				/* Be Sure that we are modifying Object Attribute (Not Global/Local Variable) */
-				if ( pVM->nVarScope == RING_VARSCOPE_NEWOBJSTATE ) {
-					/*
-					**  When we access object attribute from braces then create temp. variable for set property operation 
-					**  We do this if we are not inside the class region (after the class name where we define attributes) 
-					*/
-					if ( (ring_list_getsize(pVM->pBraceObjects) > 0) && ( ! ring_vm_oop_callmethodinsideclass(pVM)) && (! pVM->nInClassRegion) ) {
-						nCont = 1 ;
-					}
-					ring_vm_cleansetpropertylist(pVM);
-				}
+				ring_vm_cleansetpropertylist(pVM);
 				/* Check using Ref(aList) at the Left-Side */
 				if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
 					if ( ring_list_checkrefvarinleftside(pVM->pRingState,(List *) RING_VM_STACK_READP) ) {
@@ -54,13 +42,6 @@ void ring_vm_liststart ( VM *pVM )
 					}
 				}
 			}
-		}
-		else {
-			nCont = 1 ;
-		}
-		/* If we use self.attribute = List and we don't have a setter method then access the list directly */
-		if ( pVM->nNoSetterMethod == RING_NOSETTERMETHOD_IGNORESETPROPERTY ) {
-			nCont = 0 ;
 		}
 		if ( nCont == 1 ) {
 			/* Create the Temp list */

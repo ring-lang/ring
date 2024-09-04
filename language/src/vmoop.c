@@ -79,10 +79,6 @@ void ring_vm_oop_newobj ( VM *pVM )
 						}
 					}
 				}
-				if ( ring_vm_funccall_beforecall(pVM) ) {
-					nCont = 1 ;
-					ring_vm_cleansetpropertylist(pVM);
-				}
 				if ( nCont == 1 ) {
 					/* Create the Temp Variable */
 					ring_vm_createtemplist(pVM);
@@ -93,6 +89,7 @@ void ring_vm_oop_newobj ( VM *pVM )
 					pList2 = ring_list_getlist(pVar,RING_VAR_VALUE);
 					/* When using something like Ref(new myclass) don't create new reference */
 					if ( ring_vm_funccall_beforecall(pVM) ) {
+						ring_vm_cleansetpropertylist(pVM);
 						ring_list_enabledontref(pList2);
 					}
 				}
