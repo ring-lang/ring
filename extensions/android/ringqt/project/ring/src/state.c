@@ -593,7 +593,7 @@ void ring_state_segfaultaction ( int nSig )
 void ring_state_usageinfo ( void )
 {
 	ring_general_printline();
-	printf( "Ring version %s \n2013-2024, Mahmoud Fayed <msfclipper@yahoo.com>\n",RING_STATE_VERSION ) ;
+	printf( "Ring version %s \n2013-2024, Mahmoud Fayed <msfclipper@yahoo.com>\n",RING_STATE_VERSIONANDPATCH ) ;
 	puts("Usage : ring filename.ring [Options]");
 	ring_general_printline();
 	/* Options */

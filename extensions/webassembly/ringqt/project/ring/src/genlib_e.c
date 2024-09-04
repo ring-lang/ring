@@ -127,7 +127,20 @@ RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState )
 
 void ring_vm_generallib_version ( void *pPointer )
 {
-	RING_API_RETSTRING(RING_STATE_VERSION);
+	if ( RING_API_PARACOUNT == 0 ) {
+		RING_API_RETSTRING(RING_STATE_VERSION);
+	}
+	else if ( (RING_API_PARACOUNT == 1) ) {
+		if ( (RING_API_ISNUMBER(1)) && (RING_API_GETNUMBER(1) == 1.0) ) {
+			RING_API_RETSTRING(RING_STATE_VERSIONANDPATCH);
+		}
+		else {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+		}
+	}
+	else {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+	}
 }
 
 void ring_vm_generallib_nothing ( void *pPointer )
