@@ -19,31 +19,16 @@ void ring_vm_restorenestedlists ( VM *pVM,int nListStart,int nNestedLists )
 void ring_vm_liststart ( VM *pVM )
 {
 	List *pVar,*pList,*pNewList  ;
-	int nType  ;
+	int nType,nCont  ;
 	Item *pItem  ;
-	int nCont  ;
 	pVar = NULL ;
 	pNewList = NULL ;
 	pItem = NULL ;
 	pVM->nListStart++ ;
 	if ( pVM->nListStart == 1 ) {
 		/* Check if we need to create temp list when we call function, pass list by value */
-		nCont = 1 ;
-		if ( (pVM->nSP > pVM->nFuncSP) && RING_VM_STACK_ISPOINTER ) {
-			if ( RING_VM_STACK_ISASSIGNMENTDEST ) {
-				nCont = 0 ;
-				/* Clear the Assignment Pointer */
-				pVM->pAssignment = NULL ;
-				ring_vm_cleansetpropertylist(pVM);
-				/* Check using Ref(aList) at the Left-Side */
-				if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
-					if ( ring_list_checkrefvarinleftside(pVM->pRingState,(List *) RING_VM_STACK_READP) ) {
-						nCont = 1 ;
-					}
-				}
-			}
-		}
-		if ( nCont == 1 ) {
+		nCont = ring_vm_notusingvarduringdef(pVM) ;
+		if ( nCont ) {
 			/* Create the Temp list */
 			ring_vm_createtemplist(pVM);
 			pVar = (List *) RING_VM_STACK_READP ;
@@ -556,4 +541,25 @@ int ring_vm_isoperationaftersublist ( VM *pVM )
 		}
 	}
 	return 0 ;
+}
+
+int ring_vm_notusingvarduringdef ( VM *pVM )
+{
+	int nCont  ;
+	nCont = RING_TRUE ;
+	if ( (pVM->nSP > pVM->nFuncSP) && RING_VM_STACK_ISPOINTER ) {
+		if ( RING_VM_STACK_ISASSIGNMENTDEST ) {
+			nCont = RING_FALSE ;
+			/* Clear the Assignment Pointer */
+			pVM->pAssignment = NULL ;
+			ring_vm_cleansetpropertylist(pVM);
+			/* Check using Ref(aList) at the Left-Side */
+			if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
+				if ( ring_list_checkrefvarinleftside(pVM->pRingState,(List *) RING_VM_STACK_READP) ) {
+					nCont = RING_TRUE ;
+				}
+			}
+		}
+	}
+	return nCont ;
 }

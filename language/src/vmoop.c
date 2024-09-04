@@ -20,7 +20,7 @@
 void ring_vm_oop_newobj ( VM *pVM )
 {
 	const char *cClassName,*cClassName2  ;
-	int x,nLimit,nClassPC,nType,nCont  ;
+	int x,nLimit,nClassPC,nType  ;
 	List *pList,*pList2,*pList3,*pList4,*pList5,*pVar,*pSelf, *pThis  ;
 	Item *pItem  ;
 	pList2 = NULL ;
@@ -63,23 +63,7 @@ void ring_vm_oop_newobj ( VM *pVM )
 			}
 			nClassPC = ring_list_getint(pList,RING_CLASSMAP_PC);
 			if ( strcmp(cClassName,cClassName2) == 0 ) {
-				/* Check Assignment */
-				nCont = 1 ;
-				if ( (pVM->nSP > pVM->nFuncSP) && RING_VM_STACK_ISPOINTER ) {
-					if ( RING_VM_STACK_ISASSIGNMENTDEST ) {
-						nCont = 0 ;
-						/* Clear the Assignment Pointer */
-						pVM->pAssignment = NULL ;
-						ring_vm_cleansetpropertylist(pVM);
-						/* Check using Ref(aList) at the Left-Side */
-						if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
-							if ( ring_list_checkrefvarinleftside(pVM->pRingState,(List *) RING_VM_STACK_READP) ) {
-								nCont = 1 ;
-							}
-						}
-					}
-				}
-				if ( nCont == 1 ) {
+				if ( ring_vm_notusingvarduringdef(pVM) ) {
 					/* Create the Temp Variable */
 					ring_vm_createtemplist(pVM);
 					pVar = (List *) RING_VM_STACK_READP ;

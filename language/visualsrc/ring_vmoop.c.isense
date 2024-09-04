@@ -2,7 +2,7 @@ ring_vm_oop_newobj
 Type: const char *
 cClassName,*cClassName2
 Type: int
-x,nLimit,nClassPC,nType,nCont
+x,nLimit,nClassPC,nType
 Type: List *
 pList,*pList2,*pList3,*pList4,*pList5,*pVar,*pSelf, *pThis
 Type: Item *

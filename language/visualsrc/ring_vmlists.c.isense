@@ -4,11 +4,9 @@ ring_vm_liststart
 Type: List *
 pVar,*pList,*pNewList
 Type: int
-nType
+nType,nCont
 Type: Item *
 pItem
-Type: int
-nCont
 ring_vm_listitem
 Type: String *
 pStr1
@@ -68,3 +66,6 @@ Type: int
 nOPCode
 Type: List *
 pParent, *pSub, *pVar
+ring_vm_notusingvarduringdef
+Type: int
+nCont
