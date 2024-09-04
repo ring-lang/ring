@@ -533,13 +533,21 @@ Syntax:
 
 .. code-block:: ring
 
-	version() ---> String contains the Ring version
+	version([lPatch]) ---> String contains the Ring version
+
+Example:
+
+.. code-block:: ring
+
+	? version()
+	? version(True)
 
 Output:
 
 .. code-block:: ring
 
 	1.21
+	1.21.1
 
 
 .. index:: 
