@@ -403,7 +403,7 @@ oApp = new QApp {
 		setfont(oFont)
 		oFont.delete()
 	
-		ShowMessage(aLANGUAGE[:RING_VERSION] + version() , 0)
+		ShowMessage(aLANGUAGE[:RING_VERSION] + version(True) , 0)
 		frmClients.setStatusBar(Statusbar)
 	}
 
