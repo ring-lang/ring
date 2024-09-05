@@ -613,7 +613,7 @@ func DistributeForMacOSX cBaseFolder,cFileName,aOptions
 					msg("Add "+aLibrary[:title]+" to target/macosx/lib")
 					if islist(aLibrary[:macosxfiles])
 						for cLibFile in aLibrary[:macosxfiles]
-							OSCopyFile(exefolder()+"/lib/"+cLibFile)
+							OSCopyFile(exefolder()+"/../lib/"+cLibFile)
 							cInstallLibs = InstallLibMacOSX(cInstallLibs,cLibFile)
 						next
 					ok
