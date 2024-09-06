@@ -83,12 +83,12 @@
 			Ring comes with better support for Natural Language Programming and Declarative Programming. The language support these paradigms with new practical techniques on the top of Object-Oriented Programming and Functional Programming. No need to know anything about (Compilers and Parsing). You get the language constructs ready for use to create domain-specific languages in a fraction of time.
 			</p>
 
-			<a id="ringarticle"  href="doc1.21/introduction.html#motivation-1"  class="btn btn-default"  style="width:100%">Aim</a> 			
-			<a id="ringarticle"  href="doc1.21/languagedesign.html"  class="btn btn-default"  style="width:100%">Ring Article</a> 
-			<a id="ringarticle4" href="doc1.21/syntaxflexibility.html"  class="btn btn-default"  style="width:100%">Syntax Flexibility</a> 
-			<a id="ringarticle5" href="doc1.21/declarative.html"  class="btn btn-default"  style="width:100%">The Declarative Approach</a> 
-			<a id="ringarticle3" href="doc1.21/natural.html"  class="btn btn-default"  style="width:100%">Natural Language Programming</a> 
-			<a id="ringarticle2" href="doc1.21/naturallibrary.html"  class="btn btn-default"  style="width:100%">Natural Language Programming Library</a> 
+			<a id="ringarticle"  href="doc1.21.1/introduction.html#motivation-1"  class="btn btn-default"  style="width:100%">Aim</a> 			
+			<a id="ringarticle"  href="doc1.21.1/languagedesign.html"  class="btn btn-default"  style="width:100%">Ring Article</a> 
+			<a id="ringarticle4" href="doc1.21.1/syntaxflexibility.html"  class="btn btn-default"  style="width:100%">Syntax Flexibility</a> 
+			<a id="ringarticle5" href="doc1.21.1/declarative.html"  class="btn btn-default"  style="width:100%">The Declarative Approach</a> 
+			<a id="ringarticle3" href="doc1.21.1/natural.html"  class="btn btn-default"  style="width:100%">Natural Language Programming</a> 
+			<a id="ringarticle2" href="doc1.21.1/naturallibrary.html"  class="btn btn-default"  style="width:100%">Natural Language Programming Library</a> 
 			<a id="ringpwct"     href="https://github.com/ring-lang/ring/tree/master/marketing/pwct"  class="btn btn-default"  style="width:100%">Programming Without Coding Technology (PWCT)</a> 
 		
 			
