@@ -42,7 +42,8 @@ penUseK = new qpen() { setcolor(colorBlack) setwidth(1) }
 MyApp = New qapp
 {
    win1 =  new qwidget()
-    {
+   {
+        installEventFilter( new QAllEvents(win1) { setCloseEvent("myApp.Quit()") } )
         setwindowtitle("Draw QuickSortNR - Animated")
         setgeometry(100,100,WinX, WinY)      ### On Screen      
         

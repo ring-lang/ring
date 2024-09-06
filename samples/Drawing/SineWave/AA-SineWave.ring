@@ -74,6 +74,7 @@ MyApp = new qApp
       ###------------------------------------------
       ### Mouse Event
       myfilter = new qallevents(win)
+      myfilter.setCloseEvent("MyApp.Quit()")
       myfilter.setMouseButtonPressEvent("pPress()")
       installeventfilter(myfilter)
         

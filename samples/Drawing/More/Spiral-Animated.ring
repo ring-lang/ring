@@ -30,7 +30,8 @@ penUseY = new qpen() { setcolor(colorYellow) setwidth(1) }
 MyApp = New qapp
 {
    win1 =  new qwidget()
-    {
+   {
+        installEventFilter( new QAllEvents(win1) { setCloseEvent("myApp.Quit()") } )
         setwindowtitle("Draw Spiral")
         setgeometry(100,100,600,700)
    

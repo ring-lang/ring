@@ -74,7 +74,8 @@ penArray =   [penUseW, penUseR, penUseG, penUseB, PenUseGr, penUseBr, penUseBk, 
 MyApp = New qapp
 {
    win1 =  new qwidget()
-    {
+   {
+        installEventFilter( new QAllEvents(win1) { setCloseEvent("myApp.Quit()") } )
         setwindowtitle("Draw Mandelbrot: ")
         setgeometry(100,50,WinX, WinY)      ### On Screen
 
