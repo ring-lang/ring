@@ -385,7 +385,7 @@ Functions Count: 255
         uptime() ---> nTime
         variablepointer(cVariableName,cPointerType) ---> Low Level Object (C Pointer)
         varptr(cVariableName,cPointerType) ---> Low Level Object (C Pointer)
-        version() ---> String contains the Ring version
+        version([lPatch]) ---> String contains the Ring version
         windowsnl() ---> Returns a string contains CR+LF = CHAR(13) + CHAR(10)
 	write(cFileName,cString)
 	
