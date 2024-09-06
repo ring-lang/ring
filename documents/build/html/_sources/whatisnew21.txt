@@ -641,6 +641,7 @@ Output:
 	1.21
 	1.21.1
 
+* Many animation samples are revised to close the application if the window is closed during animation
+* Ring2EXE - Revised lib path when distributing the application for Linux/macOS with specific libraries
 * Better implementation for the (Using Lists/Objects During Definition) feature
 * Ring Source Code - VM Structure - The position of the pCFunction pointer is revised
-* Ring2EXE - Revised lib path when distributing the application for Linux/macOS with specific libraries
