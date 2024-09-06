@@ -83,7 +83,6 @@ aPackageInfo = [
 		"language/src/stmt.c",
 		"language/src/test.c",
 		"language/src/vm.c",
-		"language/src/vmcui.c",
 		"language/src/vmerror.c",
 		"language/src/vmeval.c",
 		"language/src/vmexit.c",
