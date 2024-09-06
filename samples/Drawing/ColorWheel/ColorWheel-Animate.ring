@@ -3,66 +3,66 @@
 #	Author: Gal Zsolt, Bert Mariani & Ilir Liburn 
 #===================================================================#
 
-load "guilib.ring"
+load "lightguilib.ring"
  
 xWidth  = 300
 yHeight = 300
  
-MyApp = new qapp 
-        {
-         win1 = new qwidget() {
-               setwindowtitle("Color wheel")
-               setgeometry(500,150,xWidth,yHeight)
+myApp = new QApp 
+{
+	win1 = new QWidget() {
+
+		installEventFilter( new QAllEvents(win1) { setCloseEvent("myApp.Quit()") } )
+		setWindowTitle("Color wheel")
+		setGeometry(500,150,xWidth,yHeight)
             
-               Canvas = new qlabel(win1)
-               {
-                  ### daVinci paints the MonaLisa on the Canvas
-                  MonaLisa  = new qPixMap2( xWidth, yHeight)
-		  color = new qcolor() { setrgb(255,255,255,0) }
-                  MonaLisa.fill(color)
+		Canvas = new QLabel(win1)
+		{
+			### daVinci paints the MonaLisa on the Canvas
+			MonaLisa	= new QPixMap2 ( xWidth, yHeight)
+			color		= new QColor() { setRGB(255,255,255,0) }
+			MonaLisa.fill(color)
 
-                  daVinci = new qpainter()
-                  {
-                     begin(MonaLisa)
-                     #endpaint()                  ### This will Stop the Painting. For Animation comment it out
-                  }
+			daVinci = new QPainter()
+			{
+				begin(MonaLisa)
+				#endpaint()                  ### This will Stop the Painting. For Animation comment it out
+			}
 
-                  setPixMap(MonaLisa)
-               }
+			setPixMap(MonaLisa)
+		}
 
-               show()
-            }
+		show()
+	}
                
-            ColorWheel()
-            exec()
-         }
+	colorWheel()
+	exec()
+
+}
  
  
 func colorWheel()
-     pi     = 3.14
-     radius = 150
-     x = xWidth
-     y = yHeight
+
+	pi	= 3.14
+	radius	= 150
+	x	= xWidth
+	y	= yHeight
      
-     color = new qcolor() { setrgb(255,255,255,255) }
-     pen1  = new qpen() { setwidth(5) }
+	color	= new QColor() { setrgb(255,255,255,255) }
+	pen1	= new QPen()   { setwidth(5) }
 
-     for i = 1 to x
-         p = pow(i-radius,2)
-         for j = 1 to y
-
-             h = (atan2(i-radius,j-radius)+pi)/(2*pi)
-             s = sqrt(p+pow(j-radius,2))/radius
-             
-             if s < = 1 and  h < = 1
-                color.setHsvF(h,s,1,1)
-                pen1.setcolor(color)
-                daVinci.setPen(pen1)
-                daVinci.drawPoint(i,j)
-             ok
-
-         next
-            Canvas.setPixMap(MonaLisa)          ### Need this setPixMap to display imageLabel               
-            MyApp.ProcessEvents()               ### <<< EXEC the Draw
- 
-     next
+	for i = 1 to x
+		p = pow(i-radius,2)
+		for j = 1 to y
+			h = (atan2(i-radius,j-radius)+pi)/(2*pi)
+			s = sqrt(p+pow(j-radius,2))/radius
+			if s < = 1 and  h < = 1
+				color.setHsvF(h,s,1,1)
+				pen1.setcolor(color)
+				daVinci.setPen(pen1)
+				daVinci.drawPoint(i,j)
+			ok
+		next
+		Canvas.setPixMap(MonaLisa)          ### Need this setPixMap to display imageLabel               
+		myApp.ProcessEvents()               ### <<< EXEC the Draw
+	next

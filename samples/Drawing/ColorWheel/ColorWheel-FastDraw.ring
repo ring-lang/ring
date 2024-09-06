@@ -3,7 +3,7 @@
 #  Author: Gal Zsolt, Bert Mariani, Ilir Liburn & Mahmoud Fayed
 #===================================================================#
 
-load "guilib.ring"
+load "lightguilib.ring"
  
 xWidth  = 400
 yHeight = 400
