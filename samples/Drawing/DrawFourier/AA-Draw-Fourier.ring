@@ -68,6 +68,8 @@ MyApp = new qApp
 
 		  myfilter = new qallevents(win)
 
+
+				myfilter.setCloseEvent("MyApp.Quit()")
 				###------------------------------------------
 				### Mouse Event
 		  
