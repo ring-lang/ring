@@ -770,5 +770,9 @@ aPackagesRegistry = [
 	[ :name = "dotenv",
           :description = "dotenv package for the Ring programming language",
           :ProviderUserName = "ysdragon"
+        ],
+	[ :name = "SysInfo",
+          :description = "A package to retrieve essential system information for the Ring programming language",
+          :ProviderUserName = "ysdragon"
         ]
 ]
