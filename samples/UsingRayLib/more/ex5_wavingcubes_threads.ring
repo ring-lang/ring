@@ -83,13 +83,8 @@ func createThreads
 
 func thread i
 
-	color = Vec3()
-	Vec3SetY(color,0.75)
-	Vec3SetZ(color,0.9)
-	
 	colors = []
 	for c = 0 to 359
-		Vec3SetX(color, c)
 		Add(colors, ColorFromHSV_2(c,0.75,0.9))
 	next
 
