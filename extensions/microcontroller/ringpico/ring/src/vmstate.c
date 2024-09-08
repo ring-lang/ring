@@ -442,7 +442,7 @@ void ring_vm_restorestatefornewobjects ( VM *pVM )
 	pVM->nGetSetObjType = pVMState->aNumbers[21] ;
 	/* Restore pGetSetObject */
 	pVM->pGetSetObject = (List *) pVMState->aPointers[6] ;
-	/* Restore pFuncCallList */
+	/* Restore Function Call List */
 	RING_VM_BACKTOFUNCCALL(pVMState->aNumbers[22]);
 	/* Restore nNoSetterMethod */
 	pVM->nNoSetterMethod = pVMState->aNumbers[23] ;

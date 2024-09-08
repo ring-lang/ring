@@ -52,7 +52,6 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->nBlockCounter = 0 ;
 	pVM->pPCBlockFlag = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Calling Functions */
-	pVM->pFuncCallList = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	pVM->nFuncSP = 0 ;
 	pVM->lCallMainFunction = 0 ;
 	pVM->pCFunction = NULL ;
@@ -224,7 +223,6 @@ VM * ring_vm_delete ( VM *pVM )
 	Item *pItem  ;
 	CFunction *pCFunc  ;
 	pVM->pNestedLists = ring_list_delete_gc(pVM->pRingState,pVM->pNestedLists);
-	pVM->pFuncCallList = ring_list_delete_gc(pVM->pRingState,pVM->pFuncCallList);
 	pVM->pPCBlockFlag = ring_list_delete_gc(pVM->pRingState,pVM->pPCBlockFlag);
 	pVM->pTempMem = ring_list_delete_gc(pVM->pRingState,pVM->pTempMem);
 	pVM->pExitMark = ring_list_delete_gc(pVM->pRingState,pVM->pExitMark);

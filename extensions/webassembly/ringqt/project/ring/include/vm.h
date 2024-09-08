@@ -86,7 +86,6 @@
 		List *pTempMem  ;
 		List *pNestedLists  ;
 		List *pPCBlockFlag  ;
-		List *pFuncCallList  ;
 		List *pExitMark  ;
 		List *pLoopMark  ;
 		List *pTry  ;
@@ -305,7 +304,7 @@
 	/*
 	**  Calling Functions 
 	**  Note : When you insert items check performance functions for update too! 
-	**  pFuncCallList ( Type, Func Name , Position(PC) , Stack Pointer , TempMem, ... 
+	**  Function Call List ( Type, Func Name , Position(PC) , Stack Pointer , TempMem, ... 
 	**  Types 
 	*/
 	#define RING_FUNCTYPE_SCRIPT 0
