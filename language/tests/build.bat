@@ -1,1 +1,1 @@
-ring2exe test.ring -static
+ring2exe test.ring
