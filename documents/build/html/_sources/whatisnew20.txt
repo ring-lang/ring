@@ -234,7 +234,7 @@ Better Performance when using Braces
 
 Using braces to access objects is faster in Ring 1.20 than Ring 1.19
 
-The performance gain could be from 120% to 160%
+The speed up factor could be from (2.2 to 2.6 times)
 
 Tested using Victus Laptop [13th Gen Intel(R) Core(TM) i7-13700H, Windows 11]
 
