@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Demo Programs &mdash; Ring 1.22.0 documentation</title>
+  <title>What is new in Ring 1.22 &mdash; Ring 1.22.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
@@ -27,8 +27,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="ODBC Functions" href="odbc.html" />
-    <link rel="prev" title="Eval() and Debugging" href="evaldebug.html" /> 
+    <link rel="next" title="Using Other Code Editors" href="codeeditors.html" />
+    <link rel="prev" title="What is new in Ring 1.21" href="whatisnew21.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -76,11 +76,7 @@
 <li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Demo Programs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#language-shell">Language Shell</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#main-menu">Main Menu</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
@@ -180,7 +176,11 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew19.html">Release Notes: Version 1.19</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew20.html">Release Notes: Version 1.20</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew21.html">Release Notes: Version 1.21</a></li>
-<li class="toctree-l1"><a class="reference internal" href="whatisnew22.html">Release Notes: Version 1.22</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes: Version 1.22</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sourcecode.html">Building From Source Code</a></li>
@@ -203,7 +203,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Demo Programs</li>
+      <li class="breadcrumb-item active">What is new in Ring 1.22</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -212,186 +212,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="demo-programs">
-<span id="index-0"></span><h1>Demo Programs<a class="headerlink" href="#demo-programs" title="Permalink to this heading"></a></h1>
-<p>In this chapter we will see simple demo programs</p>
+  <section id="what-is-new-in-ring-1-22">
+<span id="index-0"></span><h1>What is new in Ring 1.22<a class="headerlink" href="#what-is-new-in-ring-1-22" title="Permalink to this heading"></a></h1>
+<p>In this chapter we will learn about the changes and new features in Ring 1.22 release.</p>
+<section id="list-of-changes-and-new-features">
+<span id="index-1"></span><h2>List of changes and new features<a class="headerlink" href="#list-of-changes-and-new-features" title="Permalink to this heading"></a></h2>
+<p>Ring 1.22 comes with the next features!</p>
 <ul class="simple">
-<li><p>Language Shell</p></li>
-<li><p>Main Menu</p></li>
+<li><p>More Improvements</p></li>
 </ul>
-<section id="language-shell">
-<span id="index-1"></span><h2>Language Shell<a class="headerlink" href="#language-shell" title="Permalink to this heading"></a></h2>
-<p>We can create simple interactive programming environment using the next program</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kp">true</span>
-        <span class="k">see</span> <span class="n">nl</span> <span class="o">+</span> <span class="s">&quot;code:&gt; &quot;</span>
-        <span class="k">give</span> <span class="n">cCode</span>
-        <span class="k">try</span>
-                <span class="n">eval</span><span class="p">(</span><span class="n">cCode</span><span class="p">)</span>
-        <span class="k">catch</span>
-                <span class="k">see</span> <span class="n">cCatchError</span>
-        <span class="k">done</span>
-<span class="k">end</span>
-</pre></div>
-</div>
-<p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">code</span><span class="p">:</span><span class="o">&gt;</span> <span class="k">see</span> <span class="s">&quot;hello world&quot;</span>
-<span class="n">hello</span> <span class="n">world</span>
-<span class="n">code</span><span class="p">:</span><span class="o">&gt;</span> <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span> <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="k">next</span>
-<span class="mi">1</span>
-<span class="mi">2</span>
-<span class="mi">3</span>
-<span class="mi">4</span>
-<span class="mi">5</span>
-<span class="mi">6</span>
-<span class="mi">7</span>
-<span class="mi">8</span>
-<span class="mi">9</span>
-<span class="mi">10</span>
-
-<span class="n">code</span><span class="p">:</span><span class="o">&gt;</span> <span class="k">func</span> <span class="n">test</span> <span class="k">see</span> <span class="s">&quot;Hello from test&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-
-<span class="n">code</span><span class="p">:</span><span class="o">&gt;</span> <span class="n">test</span><span class="p">()</span>
-<span class="n">Hello</span> <span class="k">from</span> <span class="n">test</span>
-
-<span class="n">code</span><span class="p">:</span><span class="o">&gt;</span> <span class="k">bye</span>
-</pre></div>
-</div>
 </section>
-<section id="main-menu">
-<span id="index-2"></span><h2>Main Menu<a class="headerlink" href="#main-menu" title="Permalink to this heading"></a></h2>
-<p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># Demo Program</span>
-
-<span class="k">while</span> <span class="kp">true</span>
-
-        <span class="k">see</span> <span class="s">&quot;</span>
-
-        <span class="n">Main</span> <span class="n">Menu</span>
-        <span class="o">===========</span>
-        <span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="n">Say</span> <span class="n">Hello</span>
-        <span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="n">Sum</span> <span class="n">two</span> <span class="n">numbers</span>
-        <span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="n">Stars</span>
-        <span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="n">Fact</span>
-        <span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="k">Exit</span>
-
-        <span class="s">&quot; give nMenu see nl</span>
-
-        <span class="c"># we can use Switch-ON-Other-OFF instead of IF-BUT-ELSE-OK</span>
-
-        <span class="k">Switch</span> <span class="n">nMenu</span>
-        <span class="k">On</span> <span class="mi">1</span> <span class="n">sayhello</span><span class="p">()</span>
-        <span class="k">On</span> <span class="mi">2</span> <span class="n">Sum</span><span class="p">()</span>
-        <span class="k">On</span> <span class="mi">3</span> <span class="n">Stars</span><span class="p">()</span>
-        <span class="k">On</span> <span class="mi">4</span>
-                <span class="k">see</span> <span class="s">&quot;Enter Number : &quot;</span> <span class="k">give</span> <span class="n">x</span>
-                <span class="k">see</span> <span class="s">&quot;Output : &quot;</span>
-
-                <span class="k">Try</span>
-                        <span class="k">see</span> <span class="n">Fact</span><span class="p">(</span><span class="n">number</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-                <span class="k">Catch</span>
-                        <span class="k">see</span> <span class="s">&quot;Error in parameters!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-                <span class="k">Done</span>
-
-        <span class="k">On</span> <span class="s">&quot;5&quot;</span> <span class="k">return</span>
-        <span class="k">Other</span> <span class="k">see</span> <span class="s">&quot;bad option&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">Off</span>
-
-<span class="k">end</span>
-
-<span class="k">func</span> <span class="n">sayhello</span>
-        <span class="k">see</span> <span class="s">&quot;Enter your name ? &quot;</span> <span class="k">give</span> <span class="n">fname</span>
-        <span class="k">see</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">fname</span> <span class="o">+</span> <span class="n">nl</span>
-
-<span class="k">func</span> <span class="n">sum</span>
-        <span class="k">see</span> <span class="s">&quot;number 1 : &quot;</span> <span class="k">give</span> <span class="n">num1</span> <span class="k">see</span> <span class="s">&quot;number 2 : &quot;</span> <span class="k">give</span> <span class="n">num2</span>
-        <span class="k">see</span> <span class="s">&quot;Sum : &quot;</span> <span class="k">see</span> <span class="mi">0</span> <span class="o">+</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span>
-
-<span class="k">func</span> <span class="n">stars</span>
-        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
-                <span class="k">see</span> <span class="n">space</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
-                <span class="k">for</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">x</span> <span class="k">see</span> <span class="s">&quot;*&quot;</span> <span class="k">next</span> <span class="k">see</span> <span class="n">nl</span>
-        <span class="k">next</span>
-
-<span class="k">func</span> <span class="n">fact</span> <span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">return</span> <span class="mi">1</span> <span class="k">else</span> <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">fact</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">ok</span>
-
-<span class="k">func</span> <span class="n">space</span> <span class="n">x</span> <span class="n">y</span> <span class="o">=</span> <span class="s">&quot;&quot;</span> <span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">x</span> <span class="n">y</span> <span class="o">+=</span> <span class="s">&quot; &quot;</span> <span class="k">next</span> <span class="k">return</span> <span class="n">y</span>
-</pre></div>
-</div>
-<p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>        <span class="n">Main</span> <span class="n">Menu</span>
-        <span class="o">===========</span>
-        <span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="n">Say</span> <span class="n">Hello</span>
-        <span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="n">Sum</span> <span class="n">two</span> <span class="n">numbers</span>
-        <span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="n">Stars</span>
-        <span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="n">Fact</span>
-        <span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="k">Exit</span>
-
-        <span class="mi">1</span>
-
-<span class="n">Enter</span> <span class="n">your</span> <span class="n">name</span> <span class="o">?</span> <span class="n">Mahmoud</span> <span class="n">Fayed</span>
-<span class="n">Hello</span> <span class="n">Mahmoud</span> <span class="n">Fayed</span>
-
-
-        <span class="n">Main</span> <span class="n">Menu</span>
-        <span class="o">===========</span>
-        <span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="n">Say</span> <span class="n">Hello</span>
-        <span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="n">Sum</span> <span class="n">two</span> <span class="n">numbers</span>
-        <span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="n">Stars</span>
-        <span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="n">Fact</span>
-        <span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="k">Exit</span>
-
-        <span class="mi">2</span>
-
-<span class="n">number</span> <span class="mi">1</span> <span class="p">:</span> <span class="mi">3</span>
-<span class="n">number</span> <span class="mi">2</span> <span class="p">:</span> <span class="mi">4</span>
-<span class="n">Sum</span> <span class="p">:</span> <span class="mi">7</span>
-
-        <span class="n">Main</span> <span class="n">Menu</span>
-        <span class="o">===========</span>
-        <span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="n">Say</span> <span class="n">Hello</span>
-        <span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="n">Sum</span> <span class="n">two</span> <span class="n">numbers</span>
-        <span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="n">Stars</span>
-        <span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="n">Fact</span>
-        <span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="k">Exit</span>
-
-        <span class="mi">3</span>
-
-        <span class="o">*</span>
-        <span class="o">**</span>
-        <span class="o">***</span>
-        <span class="o">****</span>
-        <span class="o">*****</span>
-        <span class="o">******</span>
-        <span class="o">*******</span>
-        <span class="o">********</span>
-        <span class="o">*********</span>
-        <span class="o">**********</span>
-
-
-        <span class="n">Main</span> <span class="n">Menu</span>
-        <span class="o">===========</span>
-        <span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="n">Say</span> <span class="n">Hello</span>
-        <span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="n">Sum</span> <span class="n">two</span> <span class="n">numbers</span>
-        <span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="n">Stars</span>
-        <span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="n">Fact</span>
-        <span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="k">Exit</span>
-
-        <span class="mi">4</span>
-
-<span class="n">Enter</span> <span class="n">Number</span> <span class="p">:</span> <span class="mi">5</span>
-<span class="n">Output</span> <span class="p">:</span> <span class="mi">120</span>
-
-        <span class="n">Main</span> <span class="n">Menu</span>
-        <span class="o">===========</span>
-        <span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="n">Say</span> <span class="n">Hello</span>
-        <span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="n">Sum</span> <span class="n">two</span> <span class="n">numbers</span>
-        <span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="n">Stars</span>
-        <span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="n">Fact</span>
-        <span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="k">Exit</span>
-
-        <span class="mi">5</span>
-</pre></div>
-</div>
+<section id="more-improvements">
+<span id="index-2"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 </section>
 </section>
 
@@ -399,8 +231,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="evaldebug.html" class="btn btn-neutral float-left" title="Eval() and Debugging" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="odbc.html" class="btn btn-neutral float-right" title="ODBC Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="whatisnew21.html" class="btn btn-neutral float-left" title="What is new in Ring 1.21" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="codeeditors.html" class="btn btn-neutral float-right" title="Using Other Code Editors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

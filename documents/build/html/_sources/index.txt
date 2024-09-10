@@ -135,6 +135,7 @@ Contents:
    Release Notes: Version 1.19 <whatisnew19>
    Release Notes: Version 1.20 <whatisnew20>
    Release Notes: Version 1.21 <whatisnew21>
+   Release Notes: Version 1.22 <whatisnew22>
    Using Other Code Editors <codeeditors>
    Frequently Asked Questions (FAQ) <faq>
    Building From Source Code <sourcecode>
