@@ -848,10 +848,12 @@ Func chomp(cStr)
 */
 
 func SystemCmd(cmd)
-	System(cmd + "> cmd.txt")
-	cStr = read("cmd.txt")
+	# generate writable temporary file path to use for command output
+	cTmpFilePath = tempname()
+	System(cmd + "> " + cTmpFilePath)
+	cStr = read(cTmpFilePath)
 	# delete result file after get value
-	OSDeleteFile("cmd.txt")
+	OSDeleteFile(cTmpFilePath)
 	if right(cStr,1) = nl
 		cStr = left(cStr,len(cStr)-1)
 	ok
