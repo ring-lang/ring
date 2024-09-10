@@ -18,6 +18,9 @@ get_distro_name() {
 # Get the Linux distro name
 distro_name=$(get_distro_name)
 
+# Get the directory of the current script
+DIR="$(dirname "$(realpath "$0")")"
+
 build_header() {
     local name="$1"
     echo -e "\033[1;33mBuilding \033[1;34m$name\033[1;33m on $distro_name...\033[0m"
@@ -27,66 +30,57 @@ build_header() {
 install() {
     local name="$1"
     
-    cd ../bin || exit 1
+    cd $DIR/../bin || exit 1
     echo -e "\033[0;32mInstalling...\033[0m"
     ./install.sh || exit 1
     echo -e "\033[1;34m$name\033[1;33m has been successfully compiled and installed!\033[0m"
 }
 
+# Initialize and set DEBUG to false by default
+DEBUG=false
+
 # Check for -debug argument
 if [[ "$@" == *"-debug"* ]]; then
-    # Function to build a compiler/extension/tool (debug)
-    build() {
-        local path="$1"
-        local gencode_script="$2"
-        local build_script="$3"
-        local name="$4"
-        
-        echo -e "\033[0;32mBuilding $name...\033[0m"
-        cd "$path" || exit 1
-        if [ -n "$gencode_script" ]; then
-            ./"$gencode_script"
-            if [ $? -ne 0 ]; then
-                echo -e "\033[0;31mError: Failed to run gencode for $name.\033[0m"
-                cd - > /dev/null || exit 1
-                return 1
-            fi
-        fi
-        ./"$build_script"
-        if [ $? -ne 0 ]; then
-            echo -e "\033[0;31mError: Failed to build $name.\033[0m"
-            cd - > /dev/null || exit 1
-            return 1
-        fi
-        cd - > /dev/null || exit 1
-    }
-else
-    # Function to build a compiler/extension/tool (silent)
-    build() {
-        local path="$1"
-        local gencode_script="$2"
-        local build_script="$3"
-        local name="$4"
-        
-        echo -e "\033[0;32mBuilding $name...\033[0m"
-        cd "$path" || exit 1
-        if [ -n "$gencode_script" ]; then
-            ./"$gencode_script" > /dev/null 2>&1
-            if [ $? -ne 0 ]; then
-                echo -e "\033[0;31mError: Failed to run gencode for $name.\033[0m"
-                cd - > /dev/null || exit 1
-                return 1
-            fi
-        fi
-        ./"$build_script" > /dev/null 2>&1
-        if [ $? -ne 0 ]; then
-            echo -e "\033[0;31mError: Failed to build $name.\033[0m"
-            cd - > /dev/null || exit 1
-            return 1
-        fi
-        cd - > /dev/null || exit 1
-    }
+    DEBUG=true
 fi
+
+# Function to build a compiler/extension/tool
+build() {
+    local path="$DIR/$1"
+    local gencode_script="$2"
+    local build_script="$3"
+    local name="$4"
+    
+    echo -e "\033[0;32mBuilding $name...\033[0m"
+
+    cd "$path" || exit 1
+
+    if [ -n "$gencode_script" ]; then
+        if $DEBUG; then
+            ./"$gencode_script"
+        else
+            ./"$gencode_script" > /dev/null 2>&1
+        fi
+        if [ $? -ne 0 ]; then
+            echo -e "\033[0;31mError: Failed to run gencode for $name.\033[0m"
+            cd - > /dev/null || exit 1
+            return 1
+        fi
+    fi
+
+    if $DEBUG; then
+        ./"$build_script"
+    else
+        ./"$build_script" > /dev/null 2>&1
+    fi
+    if [ $? -ne 0 ]; then
+        echo -e "\033[0;31mError: Failed to build $name.\033[0m"
+        cd - > /dev/null || exit 1
+        return 1
+    fi
+
+    cd - > /dev/null || exit 1
+}
 
 # Check if no arguments are provided or if only -debug is provided
 if [ $# -eq 0 ] || { [ $# -eq 1 ] && [[ "$1" == "-debug" ]]; }; then
