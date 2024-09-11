@@ -205,5 +205,7 @@ ring_vm_file_tempname
 _tmpfile
 Type: errno_t
 error
-Type: char *
-_tmpfile
+Type: char
+_tmpfile[]
+Type: int
+fd
