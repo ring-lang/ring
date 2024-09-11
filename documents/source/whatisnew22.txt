@@ -25,6 +25,7 @@ More Improvements
 
 * samples/UsingRayLib/more/ex5_wavingcubes_threads.ring - Better Code
 * StdLib - SystemCmd() function - Avoid error if the current directory is not writable
+* TempName() function - Better implementation for Linux
 * build/buildgcc.sh - Better script (callable from any directory)
 * ring/tools - Batch Files - Avoid the (-static) option
 * Ring VM - Remove old code related to pFuncCallList
