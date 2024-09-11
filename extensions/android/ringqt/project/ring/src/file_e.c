@@ -934,8 +934,15 @@ void ring_vm_file_freefunc ( void *pRingState,void *pPointer )
 			RING_API_RETSTRING(tmpnam(NULL));
 			/* Linux */
 		#else
-			char _tmpfile[RING_SMALLBUF] = "/tmp/ringtempXXXXXX" ;
-			RING_API_RETSTRING(mkdtemp(_tmpfile));
+			char *_tmpfile = (char *) RING_API_MALLOC(RING_LARGEBUF) ;
+			strcpy(_tmpfile,"/tmp/ringtempXXXXXX");
+			if ( mkstemp(_tmpfile) == -1 ) {
+				RING_API_FREE(_tmpfile);
+				RING_API_ERROR(RING_VM_ERROR_TEMPFILENAME);
+				return ;
+			}
+			RING_API_RETSTRING(_tmpfile);
+			RING_API_FREE(_tmpfile);
 		#endif
 	}
 #endif
