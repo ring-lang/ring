@@ -75,8 +75,8 @@
 		/* Pool Manager */
 		PoolManager vPoolManager  ;
 	} RingState ;
-	#define RING_STATE_VERSION "1.22"
-	#define RING_STATE_VERSIONANDPATCH (RING_STATE_VERSION ".0")
+	#define RING_STATE_VERSION "1.21"
+	#define RING_STATE_VERSIONANDPATCH (RING_STATE_VERSION ".2")
 	#define RING_WARNING_UNKNOWNOPTION "Warning (W1): Unrecognized option: "
 	#define RING_WARNING_DUPLICATIONINFILENAME "Warning (W2) : Duplication in file name : "
 	#define RING_WARNING_CHANGEKEYWORDPARA "Warning (W3) : The Compiler command  ChangeRingKeyword requires two words as parameters"
