@@ -546,8 +546,8 @@ Output:
 
 .. code-block:: ring
 
-	1.22
-	1.22.0
+	1.21
+	1.21.2
 
 
 .. index:: 

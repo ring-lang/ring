@@ -645,3 +645,17 @@ Output:
 * Ring2EXE - Revised lib path when distributing the application for Linux/macOS with specific libraries
 * Better implementation for the (Using Lists/Objects During Definition) feature
 * Ring Source Code - VM Structure - The position of the pCFunction pointer is revised
+
+
+.. index:: 
+	pair: What is new in Ring  1.21; What is new in Ring 1.21.2
+
+What is new in Ring 1.21.2?
+===========================
+
+* samples/UsingRayLib/more/ex5_wavingcubes_threads.ring - Better Code
+* StdLib - SystemCmd() function - Avoid error if the current directory is not writable
+* TempName() function - Better implementation for Linux
+* build/buildgcc.sh - Better script (callable from any directory)
+* ring/tools - Batch Files - Avoid the (-static) option
+* Ring VM - Remove old code related to pFuncCallList

@@ -329,7 +329,7 @@ The Ring Programming Language
 
 http://ring-lang.net/
 
-Version 1.22.0
+Version 1.21.2
 
 The MIT License (MIT)
 
