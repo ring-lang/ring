@@ -200,7 +200,11 @@ class CommonAttributesMethods
 		cOutput = substr(cOutput,"#{f3}",""+y())
 		cOutput = substr(cOutput,"#{f4}",""+width())
 		cOutput = substr(cOutput,"#{f5}",""+height())
-		cOutput = substr(cOutput,"#{f6}",textcolor())
+		if textcolor() != NULL {
+			cOutput = substr(cOutput,"#{f6}",textcolor())
+		else 
+			cOutput = substr(cOutput,"#{f6}","none")
+		}
 		cOutput = substr(cOutput,"#{f7}",backcolor())
 		cOutput = substr(cOutput,"#{f8}",fontproperty())
 		cOutput = substr(cOutput,"#{f9}",AddTabs(GenerateCustomCode(oDesigner),3))
