@@ -19,7 +19,7 @@ func UpdatePackage cPackageName
 			return
 		ok
 	# Install Update 
-		Style("Updating ",:YellowBlack) see cPackageName
+		Style("Updating ",:YellowBlack) see cPackageName + " (" + aPackageInfo[:version] + ")"
 		GetPackage(aPackageInfo[:remotefolder],cBranchName,
 				cProviderUserName,cProviderWebsite,
 				True) # True = Update Operation (Not Install)
