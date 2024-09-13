@@ -188,8 +188,6 @@ Ring 1.20 is released on April 11, 2024
 
 Ring 1.21 is released on September 1, 2024
 
-This is Ring 1.22 documentation!
-
 .. index:: 
 	pair: Introduction; Features
 
