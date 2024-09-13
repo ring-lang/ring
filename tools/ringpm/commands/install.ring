@@ -344,7 +344,7 @@ class InstallCommand
 		eval(read(C_REGISTRYFILE))
 		# Now we have aPackagesRegistry
 		for aPackage in aPackagesRegistry	
-			if aPackage[:name] = cPackageName
+			if lower(aPackage[:name]) = lower(cPackageName)
 				# Install from registry 
 					oInstall = new InstallCommand 
 					oInstall.InstallFrom(aPackage[:ProviderUserName])
