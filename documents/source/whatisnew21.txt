@@ -653,7 +653,7 @@ Output:
 What is new in Ring 1.21.2?
 ===========================
 
-* Package (SysInfo) added to RingPM Registry
+* The SysInfo package has been added to the RingPM Registry
 * Ring Notepad - Distribute Menu - Better description for the options
 * Form Designer - Default value (none) for Text Color when generating the source code
 * samples/UsingRayLib/more/ex5_wavingcubes_threads.ring - Better Code
