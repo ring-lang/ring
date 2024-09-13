@@ -1,4 +1,5 @@
 aNews = [
+  ["September 13, 2024",'<a href="https://github.com/idrassi/DirSize"> Directory Size Analyzer</a>'],
   ["September 8, 2024",'<a href="https://github.com/ysdragon/SysInfo"> Package: SysInfo</a>'],
   ["September 1, 2024",'<a href="doc1.21/whatisnew21.html"> Ring 1.21 Released!</a>'],
   ["August 30, 2024",'<a href="https://github.com/ring-lang/ring/tree/master/tools/editors/vim"> Ring Syntax Highlighting for Vim'],
