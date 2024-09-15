@@ -325,9 +325,7 @@ License
 
 The Ring Programming Language
 
-http://ring-lang.net/
-
-Version 1.21.2
+Version 1.22.0
 
 The MIT License (MIT)
 
