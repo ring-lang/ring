@@ -588,6 +588,7 @@ aTests = [
 	[ :name = "General Tests (Part 214)", :Command = "ring general/conversion12.ring" ],
 	[ :name = "General Tests (Part 215)", :Command = "ring general/keyvaluelistsize.ring" ],
 	[ :name = "General Tests (Part 216)", :Command = "ring general/multicharop.ring" ],
+	[ :name = "General Tests (Part 217)", :Command = "ring general/testprint3.ring" ],
 	[ :name = "Using lists during definition (Part 1)", :Command = "ring listsduringdef/usinglistduringdef.ring" ],
 	[ :name = "Using lists during definition (Part 2)", :Command = "ring listsduringdef/usinglistduringdef2.ring" ],
 	[ :name = "Using lists during definition (Part 3)", :Command = "ring listsduringdef/usinglistduringdef3.ring" ],

@@ -1,0 +1,3 @@
+
+Line 3 Error (R24) : Using uninitialized variable: name 
+in file general/testprint3.ring 
