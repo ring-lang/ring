@@ -1,7 +1,7 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = 20 , : y = -99  , 
+		 :x = 0 , : y = 0  , 
 		 :width =  494 , :height = 594 , 
 		 :title =  "Prediction" , 
 		 :backcolor =  "" , 
@@ -9,7 +9,8 @@ aObjectsList = [
 		 :mainlayout =  "" ,
 		 :WindowIcon =  "images/BK.png" , 
 		 :Menubar =  ""  ,
-		 :IndexType =  0  
+		 :IndexType =  0  ,
+		 :GUILibrary =  0  
 
 		]
 	],
