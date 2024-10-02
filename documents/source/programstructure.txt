@@ -15,24 +15,25 @@ Source Code File Sections
 
 Each source code file may contains the next sections (in the same order).
 
-+--------------------------------+
-| Source Code File Sections	 |
-+================================+
-| Load Files			 |
-+--------------------------------+
-| Statements and Global Variables|
-+--------------------------------+
-| Functions 			 |
-+--------------------------------+
-| Packages and Classes		 |
-+--------------------------------+
++------------------------------------------+
+| Source Code File Sections	           |
++==========================================+
+| Load Files			           |
++------------------------------------------+
+| Top-Level Statements and Global Variables|
++------------------------------------------+
+| Functions 			           |
++------------------------------------------+
+| Packages and Classes	                   |
++------------------------------------------+
 
 The application maybe one or more of files.
 
-
-.. note:: In Ring, using braces during function, package, class, or method definitions doesn’t carry any semantic meaning; the Ring Compiler simply ignores them. Similarly, employing special keywords (such as ‘END’) to conclude function, package, class, or method definitions also lacks semantic significance and is likewise ignored by the Ring Compiler
+.. note:: In Ring, using braces during function, package, class, or method definitions doesn’t carry any semantic meaning; the Ring Compiler simply ignores them. Similarly, employing special keywords (such as 'END') to conclude function, package, class, or method definitions also lacks semantic significance and is likewise ignored by the Ring Compiler
 
 .. tip:: In Ring, the language syntax is designed so we don't need keywords like EndFunction, EndPackage, EndClass, etc. (They are optional) 
+
+Top-level statements are only supported before functions. In other words, we can’t use the 'END' keyword to declare the end of a function and then follow it with top-level statements because the compiler will ignore the 'END' keyword and the added statements will becomes part of the function code. If you want to mix functions and Top-level statements, consider using anonymous functions.
 
 
 .. index:: 
