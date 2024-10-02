@@ -29,6 +29,12 @@ Each source code file may contains the next sections (in the same order).
 
 The application maybe one or more of files.
 
+
+.. note:: In Ring, using braces during function, package, class, or method definitions doesn’t carry any semantic meaning; the Ring Compiler simply ignores them. Similarly, employing special keywords (such as ‘END’) to conclude function, package, class, or method definitions also lacks semantic significance and is likewise ignored by the Ring Compiler
+
+.. tip:: In Ring, the language syntax is designed so we don't need keywords like EndFunction, EndPackage, EndClass, etc. (They are optional) 
+
+
 .. index:: 
 	pair: Program Structure;  Using Many Source Code Files
 
