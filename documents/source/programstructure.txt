@@ -33,7 +33,7 @@ The application maybe one or more of files.
 
 .. tip:: In Ring, the language syntax is designed so we don't need keywords like EndFunction, EndPackage, EndClass, etc. (They are optional) 
 
-Top-level statements are only supported before functions. In other words, we can’t use the 'END' keyword to declare the end of a function and then follow it with top-level statements because the compiler will ignore the 'END' keyword and the added statements will becomes part of the function code. If you want to mix functions and Top-level statements, consider using anonymous functions.
+Top-level statements are only supported before functions. In other words, we can’t use the ‘END’ keyword to declare the end of a function and then follow it with top-level statements. The compiler will ignore the ‘END’ keyword, and any added statements will become part of the function code. If you want to mix functions and top-level statements, consider using anonymous functions.
 
 
 .. index:: 
