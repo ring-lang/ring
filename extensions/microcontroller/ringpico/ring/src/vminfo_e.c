@@ -56,6 +56,8 @@ void ring_vm_info_ringvmcalllist ( void *pPointer )
 		ring_list_addint_gc(pVM->pRingState,pList2,pFuncCall->nSP);
 		ring_list_addint_gc(pVM->pRingState,pList2,pFuncCall->lMethod);
 		ring_list_addint_gc(pVM->pRingState,pList2,pFuncCall->nCallerPC);
+		ring_list_addint_gc(pVM->pRingState,pList2,pFuncCall->nLineNumber);
+		ring_list_addint_gc(pVM->pRingState,pList2,pFuncCall->nParaCount);
 	}
 	RING_API_RETLIST(pList);
 	ring_list_delete_gc(pVM->pRingState,pList);
