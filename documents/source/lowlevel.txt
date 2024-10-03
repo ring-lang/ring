@@ -854,6 +854,8 @@ Each List Member is a list contains the next items
 * Stack Pointer (SP)
 * Method or Function Flag
 * Caller PC
+* Caller Line Number
+* Parameters Count
 
 Syntax:
 
