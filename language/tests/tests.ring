@@ -333,6 +333,7 @@ aTests = [
 	[ :name = "Tracing Library (Part 6)", :Command = "ring tracelib/test6.ring < tracelib/test6in.txt" ],
 	[ :name = "Tracing Library (Part 7)", :Command = "ring tracelib/test7.ring" ],
 	[ :name = "Tracing Library (Part 8)", :Command = "ring tracelib/test8.ring < tracelib/test8in.txt" ],
+	[ :name = "Tracing Library (Part 9)", :Command = "ring tracelib/calllist.ring" ],
 	[ :name = "Exit and Loop (Part 1)", :Command = "ring exitandloop/test1.ring" ],
 	[ :name = "Exit and Loop (Part 2)", :Command = "ring exitandloop/test2.ring" ],
 	[ :name = "Exit and Loop (Part 3)", :Command = "ring exitandloop/test3.ring" ],

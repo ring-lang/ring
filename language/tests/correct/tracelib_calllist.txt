@@ -1,0 +1,6 @@
+test1
+test2
+test3
+This function (test3) is called from line: 9
+This function (test3) need parameters: 3
+done
