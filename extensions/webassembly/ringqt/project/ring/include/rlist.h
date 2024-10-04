@@ -12,8 +12,8 @@
 		struct Items *pFirst  ;
 		struct Items *pLast  ;
 		unsigned int nSize  ;
-		unsigned int nNextItemAfterLastAccess  ;
-		struct Items *pLastItemLastAccess  ;
+		unsigned int nNextItem  ;
+		struct Items *pLastItem  ;
 		struct Item **pItemsArray  ;
 		struct HashTable *pHashTable  ;
 		struct ListBlocks *pBlocks  ;

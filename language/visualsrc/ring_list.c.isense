@@ -23,7 +23,7 @@ pLast
 Type: unsigned int
 nSize
 Type: unsigned int
-nNextItemAfterLastAccess
+nNextItem
 Type: struct Items *
 pLastItemLastAccess
 Type: struct Item **

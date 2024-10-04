@@ -197,16 +197,16 @@ RING_API void ring_list_addblock_gc ( void *pState,List *pList,void *pMemory,int
 
 RING_API void ring_list_clearcache ( void *pState,List *pList )
 {
-	pList->nNextItemAfterLastAccess = 0 ;
-	pList->pLastItemLastAccess = NULL ;
+	pList->nNextItem = 0 ;
+	pList->pLastItem = NULL ;
 	/* Free Items Array */
 	ring_list_deletearray_gc(pState,pList);
 }
 
 RING_API void ring_list_setcache ( void *pState,List *pList, struct Items *pItems, unsigned int nNextItem )
 {
-	pList->pLastItemLastAccess = pItems ;
-	pList->nNextItemAfterLastAccess = nNextItem ;
+	pList->pLastItem = pItems ;
+	pList->nNextItem = nNextItem ;
 }
 /* List Items */
 
@@ -255,21 +255,21 @@ RING_API Item * ring_list_getitem ( List *pList,unsigned int nIndex )
 			return pList->pLast->pValue ;
 		}
 		/* Quickly get the next item */
-		else if ( ( nIndex == pList->nNextItemAfterLastAccess ) && ( pList->pLastItemLastAccess != NULL ) ) {
-			if ( pList->pLastItemLastAccess->pNext  != NULL ) {
-				pList->pLastItemLastAccess = pList->pLastItemLastAccess->pNext ;
-				pList->nNextItemAfterLastAccess++ ;
-				return pList->pLastItemLastAccess->pValue ;
+		else if ( ( nIndex == pList->nNextItem ) && ( pList->pLastItem != NULL ) ) {
+			if ( pList->pLastItem->pNext  != NULL ) {
+				pList->pLastItem = pList->pLastItem->pNext ;
+				pList->nNextItem++ ;
+				return pList->pLastItem->pValue ;
 			}
 		}
 		/* Quickly get the current item */
-		else if ( (nIndex == pList->nNextItemAfterLastAccess - 1) && ( pList->pLastItemLastAccess != NULL ) ) {
-			return pList->pLastItemLastAccess->pValue ;
+		else if ( (nIndex == pList->nNextItem - 1) && ( pList->pLastItem != NULL ) ) {
+			return pList->pLastItem->pValue ;
 		}
 		/* Quickly get item after the current item */
-		else if ( (nIndex > pList->nNextItemAfterLastAccess ) && ( (nIndex - pList->nNextItemAfterLastAccess) < (pList->nSize - nIndex))  && ( pList->pLastItemLastAccess != NULL ) ) {
-			pItems = pList->pLastItemLastAccess ;
-			for ( x = pList->nNextItemAfterLastAccess - 1 ; x <= nIndex ; x++ ) {
+		else if ( (nIndex > pList->nNextItem ) && ( (nIndex - pList->nNextItem) < (pList->nSize - nIndex))  && ( pList->pLastItem != NULL ) ) {
+			pItems = pList->pLastItem ;
+			for ( x = pList->nNextItem - 1 ; x <= nIndex ; x++ ) {
 				if ( x == nIndex ) {
 					ring_list_setcache(NULL,pList,pItems,nIndex+1);
 				}
@@ -279,9 +279,9 @@ RING_API Item * ring_list_getitem ( List *pList,unsigned int nIndex )
 			return pItem ;
 		}
 		/* Quickly get item before the current item */
-		else if ( (nIndex < pList->nNextItemAfterLastAccess) &&  ( (pList->nNextItemAfterLastAccess - nIndex) < nIndex)  && ( pList->pLastItemLastAccess != NULL ) ) {
-			pItems = pList->pLastItemLastAccess ;
-			for ( x = pList->nNextItemAfterLastAccess - 1 ; x >= nIndex ; x-- ) {
+		else if ( (nIndex < pList->nNextItem) &&  ( (pList->nNextItem - nIndex) < nIndex)  && ( pList->pLastItem != NULL ) ) {
+			pItems = pList->pLastItem ;
+			for ( x = pList->nNextItem - 1 ; x >= nIndex ; x-- ) {
 				if ( x == nIndex ) {
 					ring_list_setcache(NULL,pList,pItems,nIndex+1);
 				}
@@ -567,10 +567,10 @@ RING_API void ring_list_insertitem_gc ( void *pState,List *pList,unsigned int x 
 	}
 	/*
 	**  Get the position 
-	**  When we get an item, pLastItemLastAccess will be changed to Items * of that item 
+	**  When we get an item, pLastItem will be changed to Items * of that item 
 	*/
 	ring_list_getitem(pList,x);
-	pPos = pList->pLastItemLastAccess ;
+	pPos = pList->pLastItem ;
 	if ( (pPos == NULL) || (pList->pItemsArray != NULL) ) {
 		/* This support making list cache optional without having problems here */
 		pPos = ring_list_getitemcontainer(pList,x) ;
