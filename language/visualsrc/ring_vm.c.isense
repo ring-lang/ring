@@ -141,8 +141,6 @@ pNestedLists
 Type: List *
 pPCBlockFlag
 Type: List *
-pFuncCallList
-Type: List *
 pExitMark
 Type: List *
 pLoopMark

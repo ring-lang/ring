@@ -981,6 +981,15 @@ void ring_vm_execute ( VM *pVM )
 		case ICO_INCLPJUMPSTEP1 :
 			ring_vm_inclpjumpstep1(pVM);
 			break ;
+		case ICO_LEN :
+			ring_vm_len(pVM);
+			break ;
+		case ICO_SETOPCODE :
+			ring_vm_setopcode(pVM);
+			break ;
+		case ICO_CHECKBRACEMETHOD :
+			ring_vm_oop_checkbracemethod(pVM);
+			break ;
 		/* Try-Catch-Done */
 		case ICO_TRY :
 			ring_vm_try(pVM);
@@ -1035,19 +1044,6 @@ void ring_vm_execute ( VM *pVM )
 		case ICO_CALLCLASSINIT :
 			ring_vm_oop_callclassinit(pVM);
 			break ;
-		/* Other */
-		case ICO_SETREFERENCE :
-			ring_vm_setreference(pVM);
-			break ;
-		case ICO_KILLREFERENCE :
-			ring_vm_gc_killreference(pVM);
-			break ;
-		case ICO_ASSIGNMENTPOINTER :
-			ring_vm_assignmentpointer(pVM);
-			break ;
-		case ICO_BEFOREEQUAL :
-			pVM->nBeforeEqual = RING_VM_IR_READI ;
-			break ;
 		/* Bitwise Operators */
 		case ICO_BITAND :
 			ring_vm_bitand(pVM);
@@ -1094,19 +1090,22 @@ void ring_vm_execute ( VM *pVM )
 		case ICO_FREETEMPLISTS :
 			ring_vm_freetemplistsins(pVM);
 			break ;
-		/* Better Performance */
-		case ICO_LEN :
-			ring_vm_len(pVM);
-			break ;
-		case ICO_SETOPCODE :
-			ring_vm_setopcode(pVM);
-			break ;
-		case ICO_CHECKBRACEMETHOD :
-			ring_vm_oop_checkbracemethod(pVM);
-			break ;
 		/* Optional Loop */
 		case ICO_OPTIONALLOOP :
 			ring_vm_optionalloop(pVM);
+			break ;
+		/* Other */
+		case ICO_SETREFERENCE :
+			ring_vm_setreference(pVM);
+			break ;
+		case ICO_KILLREFERENCE :
+			ring_vm_gc_killreference(pVM);
+			break ;
+		case ICO_ASSIGNMENTPOINTER :
+			ring_vm_assignmentpointer(pVM);
+			break ;
+		case ICO_BEFOREEQUAL :
+			pVM->nBeforeEqual = RING_VM_IR_READI ;
 			break ;
 	}
 }
