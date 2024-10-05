@@ -7,7 +7,7 @@ int ring_parser_class ( Parser *pParser )
 	List *pList,*pList2,*pList3,*pMark,*pNewClass  ;
 	int x  ;
 	String *pString  ;
-	/* Statement --> Class Identifier  [ From Identifier ] */
+	/* Statement --> Class Identifier  [ From|:|< Identifier ] */
 	if ( ring_parser_iskeyword(pParser,K_CLASS) ) {
 		ring_parser_nexttoken(pParser);
 		RING_PARSER_IGNORENEWLINE ;
@@ -118,7 +118,7 @@ int ring_parser_class ( Parser *pParser )
 			return RING_PARSER_FAIL ;
 		}
 	}
-	/* Statement --> Func|Def Identifier [PARALIST] */
+	/* Statement --> Function|Func|Def Identifier [PARALIST] */
 	if ( ring_parser_iskeyword(pParser,K_FUNC) || ring_parser_iskeyword(pParser,K_FUNCTION) || ring_parser_iskeyword(pParser,K_DEF) ) {
 		ring_parser_nexttoken(pParser);
 		RING_PARSER_IGNORENEWLINE ;
