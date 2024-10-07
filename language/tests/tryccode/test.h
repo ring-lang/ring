@@ -1,5 +1,4 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
-
 #ifndef ring_test_h
 	#define ring_test_h
 
