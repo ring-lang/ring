@@ -1,0 +1,34 @@
+ring_xor_hash
+Type: unsigned char *
+cData
+Type: unsigned
+nHash
+Type: int
+i
+ring_murmur3_32
+Type: static const unsigned int
+c1
+Type: static const unsigned int
+c2
+Type: static const unsigned int
+r1
+Type: static const unsigned int
+r2
+Type: static const unsigned int
+m
+Type: static const unsigned int
+n
+Type: unsigned int
+cHash
+Type: const int
+nBlocks
+Type: const unsigned int *
+pBlocks
+Type: int
+i
+Type: const unsigned char *
+tail
+Type: unsigned int
+k1
+Type: unsigned int
+k
