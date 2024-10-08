@@ -50,3 +50,6 @@ QString simplified(void)
 QString toCaseFolded(void)
 QString trimmed(void)
 void truncate(int position)
+
+qsizetype length(void)
+qsizetype size(void)

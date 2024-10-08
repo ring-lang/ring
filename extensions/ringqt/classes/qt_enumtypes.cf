@@ -1,4 +1,11 @@
+<comment>
+Numbers & Enum Types
+</comment>
+
 <runcode>
+
+aNumberTypes + "qsizetype"
+
 aEnumTypes + "Qt::GestureType"
 aEnumTypes + "Qt::GestureFlag"
 aEnumTypes + "Qt::ShortcutContext"
@@ -468,4 +475,5 @@ aEnumTypes + "QGraphicsWidget::anonymous"
 aEnumTypes + "QTransform::TransformationType"
 aEnumTypes + "QRegExp::CaretMode"
 aEnumTypes + "QRegExp::PatternSyntax"
+
 </runcode>

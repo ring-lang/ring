@@ -15576,6 +15576,40 @@ RING_FUNC(ring_QString2_truncate)
 }
 
 
+RING_FUNC(ring_QString2_length)
+{
+	QString *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QString *) RING_API_GETCPOINTER(1,"QString2");
+	RING_API_RETNUMBER(pObject->length());
+}
+
+
+RING_FUNC(ring_QString2_size)
+{
+	QString *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QString *) RING_API_GETCPOINTER(1,"QString2");
+	RING_API_RETNUMBER(pObject->size());
+}
+
+
 RING_FUNC(ring_QStringRef_appendTo)
 {
 	QStringRef *pObject ;
@@ -30940,6 +30974,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qstring2_tocasefolded",ring_QString2_toCaseFolded);
 	RING_API_REGISTER("qstring2_trimmed",ring_QString2_trimmed);
 	RING_API_REGISTER("qstring2_truncate",ring_QString2_truncate);
+	RING_API_REGISTER("qstring2_length",ring_QString2_length);
+	RING_API_REGISTER("qstring2_size",ring_QString2_size);
 	RING_API_REGISTER("qstringref_appendto",ring_QStringRef_appendTo);
 	RING_API_REGISTER("qstringref_at",ring_QStringRef_at);
 	RING_API_REGISTER("qstringref_clear",ring_QStringRef_clear);

@@ -3003,6 +3003,12 @@ Class QString2
 	Func truncate P1
 		return QString2_truncate(pObject,P1)
 
+	Func length 
+		return QString2_length(pObject)
+
+	Func size 
+		return QString2_size(pObject)
+
 Class QStringRef
 
 	pObject
