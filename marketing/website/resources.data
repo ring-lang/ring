@@ -65,15 +65,6 @@
 				]
 			]
 	     ],
-	     ["Japanese Resources",[
-				[
-					'<a href="http://ring-lang-081.osdn.jp/" >Ring Website</a>'
-				],
-				[
-					'<a href="http://ring-lang-081.osdn.jp/docs-1.16/index.html" >Ring Documentation</a>'
-				]
-			]
-	     ],
 	     ["Languages & Projects influenced by Ring",[
 				[
 					'<a href="https://github.com/theratioproject/simple" >Simple programming language</a>'
