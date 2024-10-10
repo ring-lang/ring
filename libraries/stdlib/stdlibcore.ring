@@ -236,21 +236,24 @@ Func Split(cString, delimiter)
 	singleSpace = " "
 	singleTab   = char(9)
 	
-	if ( (delimiter = singleTab) or (delimiter = singleSpace) )
+	if delimiter = singleTab
 		delimiter = singleSpace
 	ok
 
 	if ( delimiter = singleSpace )
+		# Replace Tab with Space
 		do
-			cString = substr(cstring, singleTab, singleSpace)   ### Replace Tab with Space
+			cString = substr(cstring, singleTab, singleSpace)   
 		again substr(cString, singleTab)
 
+		# Replace DoubleSpace with Space
 		do
-			cString = substr(cString, doubleSpace, singleSpace) ### Replace DoubleSpace with Space
+			cString = substr(cString, doubleSpace, singleSpace) 
 		again substr(cString, doubleSpace)
 	ok
 	
-	cString = trim(cString) ### Remove leading and trailing spaces
+	# Remove leading and trailing spaces
+	cString  = trim(cString) 
 	cStrList = str2list(substr(cString, delimiter, nl))
 
 	return cStrList
