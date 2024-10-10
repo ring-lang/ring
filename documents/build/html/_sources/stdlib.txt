@@ -300,6 +300,10 @@ Split() Function
 
 Convert string words to list items
 
+.. note:: This function remove all leading and trailing spaces from a string.
+
+.. tip:: To avoid removing all leading and trailing spaces use the SplitMany() function.
+
 Syntax:
 
 .. code-block:: ring
