@@ -1,9 +1,9 @@
 {
-    "name": "Ring",
+    "name": "ring",
     "displayName": "Ring",
     "description": "Ring programming language support in VSCode",
-    "version": "1.20.0",
-    "publisher": "Ring Team",
+    "version": "1.21.2",
+    "publisher": "Ring-Team",
     "icon": "images/ring.jpg",
     "engines": {
         "vscode": "^1.58.0"
@@ -14,9 +14,13 @@
     "contributes": {
         "languages": [{
             "id": "ring",
-            "aliases": ["ring", "ring"],
-            "extensions": ["ring","rh","rform"],
-            "configuration": "./language-configuration.json"
+            "aliases": ["Ring"],
+            "extensions": ["ring", "rh", "rform"],
+            "configuration": "./language-configuration.json",
+            "icon": {
+                "light": "./icons/ring.ico",
+                "dark": "./icons/ring.ico"
+            }
         }],
         "grammars": [{
             "language": "ring",
@@ -24,7 +28,7 @@
             "path": "./syntaxes/ring.tmLanguage.json"
         }]
     },
-	  "scripts": {
+    "scripts": {
         "vscode:prepublish": "ring ./",
         "compile": "ring ./",
         "postinstall": "ring",

@@ -1,171 +1,314 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "ring",
+	"scopeName": "source.ring",
+	"fileTypes": [
+		"ring",
+		"rh",
+		"rform"
+	],
 	"patterns": [
 		{
+			"include": "#comments"
+		},
+		{
 			"include": "#keywords"
+		},
+		{
+			"include": "#controls"
+		},
+		{
+			"include": "#builtins"
+		},
+		{
+			"include": "#types"
+		},
+		{
+			"include": "#functions"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#special_values"
 		},
 		{
 			"include": "#strings"
 		},
 		{
-			"include": "#comment"
+			"include": "#variables"
 		},
 		{
-			"include": "#expression-operators"
+			"include": "#constants"
 		},
 		{
-			"include": "#conditional-operator"
+			"include": "#colon_literals"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#logical_operators"
+		},
+		{
+			"include": "#braces"
+		},
+		{
+			"include": "#lists"
+		},
+		{
+			"include": "#classes"
 		}
 	],
 	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.ring",
-				"match": "\\b(again|and|but|bye|call|case|catch|changeringkeyword|changeringoperator|class|def|disablehashcomments|do|done|else|elseif|end|exit|for|foreach|from|func|get|give|if|import|in|load|loadsyntax|loop|new|next|not|off|ok|on|or|other|package|private|put|return|see|step|switch|to|try|while|enablehashcomments|endfunc|endclass|endpackage|endif|endfor|endwhile|endswitch|endtry|function|endfunction|break|continue)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.ring",
-			"begin": "\"",
-			"end": "\"",
+		"comments": {
 			"patterns": [
 				{
-					"name": "constant.character.escape.ring",
-					"match": "\\\\."
+					"match": "#.*$",
+					"name": "comment.line.ring"
+				},
+				{
+					"match": "//.*$",
+					"name": "comment.line.ring"
+				},
+				{
+					"begin": "/\\*",
+					"end": "\\*/",
+					"name": "comment.block.ring"
 				}
 			]
 		},
-		"identifier": {
-			"name": "variable.other.readwrite.ring",
-			"match": "@?[_[:alpha:]][_[:alnum:]]*"
+		"keywords": {
+			"match": "\\b(?i)(enablehashcomments|disablehashcomments|call|class|from|get|give|import|load|new|package|private|changeringkeyword|changeringoperator|loadsyntax|endclass|endpackage)\\b",
+			"name": "keyword.control.ring"
 		},
-		"comment": {
+		"controls": {
+			"match": "\\b(?i)(if|but|else|elseif|ok|for|foreach|to|next|catch|step|endfor|while|other|end|do|endwhile|endswitch|endtry|try|break|bye|continue|default|endfunc|endfunction|return|switch|case|on|off|do|again|exit|loop|done|in)\\b",
+			"name": "keyword.control.conditional.ring"
+		},
+		"builtins": {
+			"match": "\\b(?i)(nl|see|put|print)\\b|\\?",
+			"name": "support.function.builtin.ring"
+		},
+		"types": {
+			"match": "\\b(?i)(char|unsigned|signed|int|short|long|float|double|void|byte|boolean|string|list|number|object|public|static|abstract|protected|override|@override)\\b",
+			"name": "storage.type.ring"
+		},
+		"functions": {
 			"patterns": [
 				{
-					"name": "comment.block.ring",
-					"begin": "/\\*",
-					"beginCaptures": {
-						"0": {
-							"name": "punctuation.definition.comment.ring"
-						}
-					},
-					"end": "\\*/",
-					"endCaptures": {
-						"0": {
-							"name": "punctuation.definition.comment.ring"
+					"match": "\\b(?i)(func|def)\\s+([a-zA-Z_]\\w*)",
+					"captures": {
+						"1": {
+							"name": "storage.type.function.ring"
+						},
+						"2": {
+							"name": "entity.name.function.ring"
 						}
 					}
 				},
 				{
-					"begin": "(^\\s+)?(?=//|#)",
-					"beginCaptures": {
+					"match": "\\b(?!print|see|put\\b)([a-zA-Z_]\\w*)\\s*\\(",
+					"captures": {
 						"1": {
-							"name": "punctuation.whitespace.comment.leading.ring"
+							"name": "support.function.ring"
 						}
-					},
-					"end": "(?=$)",
+					}
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"match": "(?:(?:[-]?)(?:[0-9e]*)(?:[.]){1}(?:[0-9]+))",
+					"name": "constant.numeric.float.decimal.ring"
+				},
+				{
+					"match": "\\b(?:0[xX])(?:[0-9a-fA-F]+)",
+					"name": "constant.numeric.hex.ring"
+				},
+				{
+					"match": "\\b(?:[-]?)(?:[0-9]+)",
+					"name": "constant.numeric.integer.decimal.ring"
+				}
+			]
+		},
+		"special_values": {
+			"match": "\\b(?i)(true|false|null)\\b",
+			"name": "constant.language.ring"
+		},
+		"strings": {
+			"patterns": [
+				{
+					"name": "string.quoted.double.ring",
+					"begin": "\"",
+					"end": "\"",
 					"patterns": [
 						{
-							"name": "comment.block.documentation.ring",
-							"begin": "(?<!/)///(?!/)",
-							"beginCaptures": {
-								"0": {
-									"name": "punctuation.definition.comment.ring"
-								}
-							},
-							"end": "(?=$)",
-							"patterns": [
-								{
-									"include": "#xml-doc-comment"
-								}
-							]
+							"include": "#string_interpolation"
+						}
+					]
+				},
+				{
+					"name": "string.quoted.single.ring",
+					"begin": "'",
+					"end": "'",
+					"patterns": [
+						{
+							"match": "\\\\'|\\\\\\\\",
+							"name": "constant.character.escape.ring"
 						},
 						{
-							"name": "comment.line.double-slash.ring",
-							"begin": "(?<!/)//|#(?:(?!/)|(?=//|#))",
-							"beginCaptures": {
-								"0": {
-									"name": "punctuation.definition.comment.ring"
-								}
-							},
-							"end": "(?=$)"
+							"include": "#string_interpolation"
+						}
+					]
+				},
+				{
+					"name": "string.interpolated.ring",
+					"begin": "`",
+					"end": "`",
+					"patterns": [
+						{
+							"include": "#string_interpolation"
 						}
 					]
 				}
 			]
 		},
-		"expression-operators": {
+		"string_interpolation": {
 			"patterns": [
 				{
-					"name": "keyword.operator.assignment.compound.ring",
-					"match": "\\*=|/=|%=|\\+=|-="
+					"begin": "(#)({)",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.template-expression.begin.ring"
+						},
+						"2": {
+							"name": "punctuation.definition.template-expression.begin.ring"
+						}
+					},
+					"end": "}",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.template-expression.end.ring"
+						}
+					},
+					"name": "meta.template.expression.ring",
+					"contentName": "meta.embedded.line.ring",
+					"patterns": [
+						{
+							"include": "$self"
+						}
+					]
 				},
 				{
-					"name": "keyword.operator.assignment.compound.bitwise.ring",
-					"match": "\\&=|\\^=|<<=|>>=|\\|="
-				},
-				{
-					"name": "keyword.operator.bitwise.shift.ring",
-					"match": "<<|>>"
-				},
-				{
-					"name": "keyword.operator.comparison.ring",
-					"match": "==|!="
-				},
-				{
-					"name": "keyword.operator.relational.ring",
-					"match": "<=|>=|<|>"
-				},
-				{
-					"name": "keyword.operator.logical.ring",
-					"match": "\\!|&&|\\|\\|"
-				},
-				{
-					"name": "keyword.operator.bitwise.ring",
-					"match": "\\&|~|\\^|\\|"
-				},
-				{
-					"name": "keyword.operator.assignment.ring",
-					"match": "\\="
-				},
-				{
-					"name": "keyword.operator.decrement.ring",
-					"match": "--"
-				},
-				{
-					"name": "keyword.operator.increment.ring",
-					"match": "\\+\\+"
-				},
-				{
-					"name": "keyword.operator.arithmetic.ring",
-					"match": "%|\\*|/|-|\\+"
-				},
-				{
-					"name": "keyword.operator.null-coalescing.ring",
-					"match": "\\?\\?"
+					"match": "#([A-Za-z_]\\w*)",
+					"captures": {
+						"0": {
+							"name": "meta.template.expression.ring"
+						},
+						"1": {
+							"name": "variable.other.interpolated.ring"
+						}
+					}
 				}
 			]
 		},
-		"conditional-operator": {
-			"begin": "(?<!\\?)\\?(?!\\?|\\.|\\[)",
-			"beginCaptures": {
-				"0": {
-					"name": "keyword.operator.conditional.question-mark.ring"
+		"variables": {
+			"match": "\\b([a-zA-Z_]\\w*)\\s*(=)",
+			"captures": {
+				"1": {
+					"name": "variable.other.ring"
+				},
+				"2": {
+					"name": "keyword.operator.assignment.ring"
 				}
-			},
-			"end": ":",
-			"endCaptures": {
-				"0": {
-					"name": "keyword.operator.conditional.colon.ring"
-				}
-			},
+			}
+		},
+		"constants": {
+			"match": "\\b([A-Z][A-Z0-9_]*_[A-Z0-9_]*)\\b",
+			"name": "constant.other.ring"
+		},
+		"colon_literals": {
+			"match": "\\:([a-zA-Z_]\\w*)\\b",
+			"name": "constant.other.ring"
+		},
+		"operators": {
+			"match": "(\\+|~|-|\\*|/|%|&|(\\|)|\\^|!|<|>|=|\\.)",
+			"name": "keyword.operator.ring"
+		},
+		"logical_operators": {
+			"match": "\\b(and|or|not)\\b",
+			"name": "keyword.operator.logical.ring"
+		},
+		"braces": {
+			"match": "[{}]",
+			"name": "punctuation.section.braces.ring"
+		},
+		"lists": {
+			"begin": "\\[",
+			"end": "\\]",
+			"name": "meta.structure.list.ring",
 			"patterns": [
 				{
-					"include": "#expression"
+					"include": "$self"
+				},
+				{
+					"match": ",",
+					"name": "punctuation.separator.list.ring"
+				}
+			]
+		},
+		"classes": {
+			"patterns": [
+				{
+					"match": "\\b(class)\\s+([A-Za-z_]\\w*)",
+					"captures": {
+						"1": {
+							"name": "keyword.control.class.ring"
+						},
+						"2": {
+							"name": "entity.name.type.class.ring"
+						}
+					}
+				},
+				{
+					"match": "\\b(func|def)\\s+(init)\\b",
+					"captures": {
+						"1": {
+							"name": "keyword.control.ring"
+						},
+						"2": {
+							"name": "entity.name.function.constructor.ring"
+						}
+					}
+				},
+				{
+					"match": "\\b(func|def)\\s+([A-Za-z_]\\w*)",
+					"captures": {
+						"1": {
+							"name": "keyword.control.ring"
+						},
+						"2": {
+							"name": "entity.name.function.ring"
+						}
+					}
+				},
+				{
+					"match": "\\b(new)\\s+([A-Za-z_]\\w*)",
+					"captures": {
+						"1": {
+							"name": "keyword.operator.new.ring"
+						},
+						"2": {
+							"name": "support.class.ring"
+						}
+					}
+				},
+				{
+					"match": "\\b(?i)self\\b",
+					"name": "variable.language.self.ring"
 				}
 			]
 		}
-	},
-	"scopeName": "source.ring"
+	}
 }
