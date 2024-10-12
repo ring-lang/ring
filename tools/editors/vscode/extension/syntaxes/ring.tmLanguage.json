@@ -225,7 +225,7 @@
 			}
 		},
 		"constants": {
-			"match": "\\b([A-Z][A-Z0-9_]*)\\b",
+			"match": "\\b([A-Z][A-Z0-9_]*_[A-Z0-9_]*)\\b",
 			"name": "constant.other.ring"
 		},
 		"colon_literals": {
@@ -305,7 +305,7 @@
 					}
 				},
 				{
-					"match": "\\bself\\b",
+					"match": "\\b(?i)self\\b",
 					"name": "variable.language.self.ring"
 				}
 			]
