@@ -8,30 +8,176 @@
     "engines": {
         "vscode": "^1.58.0"
     },
+    "keywords": [
+        "Ring",
+        "ring",
+        "ring language",
+        "ring lang",
+        "The Ring Programming Language"
+    ],
     "categories": [
+        "Snippets",
         "Programming Languages"
     ],
-    "contributes": {
-        "languages": [{
-            "id": "ring",
-            "aliases": ["Ring"],
-            "extensions": ["ring", "rh", "rform"],
-            "configuration": "./language-configuration.json",
-            "icon": {
-                "light": "./icons/ring.ico",
-                "dark": "./icons/ring.ico"
-            }
-        }],
-        "grammars": [{
-            "language": "ring",
-            "scopeName": "source.ring",
-            "path": "./syntaxes/ring.tmLanguage.json"
-        }]
-    },
     "scripts": {
-        "vscode:prepublish": "ring ./",
-        "compile": "ring ./",
-        "postinstall": "ring",
-        "test": "ring"
+        "vscode:prepublish": "cross-env NODE_ENV=production node ./scripts/build.js",
+        "compile": "node ./scripts/build.js",
+        "package": "vsce package"
+    },
+    "contributes": {
+        "languages": [
+            {
+                "id": "ring",
+                "aliases": [
+                    "Ring"
+                ],
+                "extensions": [
+                    "ring",
+                    "rh",
+                    "rform"
+                ],
+                "configuration": "./language-configuration.json",
+                "icon": {
+                    "light": "./icons/ring.ico",
+                    "dark": "./icons/ring.ico"
+                }
+            }
+        ],
+        "grammars": [
+            {
+                "language": "ring",
+                "scopeName": "source.ring",
+                "path": "./syntaxes/ring.tmLanguage.json"
+            }
+        ],
+        "configuration": {
+            "title": "Ring",
+            "properties": {
+                "ring.executablePath": {
+                    "scope": "resource",
+                    "type": "string",
+                    "description": "Custom path to the Ring compiler executable (`ring`)."
+                },
+                "ring2exe.executablePath": {
+                    "scope": "resource",
+                    "type": "string",
+                    "description": "Custom path to the Ring2EXE executable (`ring2exe`)."
+                }
+            }
+        },
+        "configurationDefaults": {
+            "[ring]": {
+                "editor.insertSpaces": false
+            }
+        },
+        "keybindings": [
+            {
+                "command": "ring.run",
+                "key": "ctrl+i ctrl+i"
+            },
+            {
+                "command": "ring.clock",
+                "key": "ctrl+i ctrl+c"
+            },
+            {
+                "command": "ring.ring2exe",
+                "key": "ctrl+i ctrl+d"
+            },
+            {
+                "command": "ring.ring2exe_static",
+                "key": "ctrl+i ctrl+e"
+            },
+            {
+                "command": "ring.ring2exe_dist",
+                "key": "ctrl+i ctrl+f"
+            },
+            {
+                "command": "ring.ring2exe_dist_allruntime",
+                "key": "ctrl+i ctrl+g"
+            }
+        ],
+        "commands": [
+            {
+                "command": "ring.run",
+                "title": "Run current file",
+                "category": "Ring"
+            },
+            {
+                "command": "ring.clock",
+                "title": "Run current file with clock (execution time)",
+                "category": "Ring"
+            },
+            {
+                "command": "ring.ring2exe",
+                "title": "Create executable from current file",
+                "category": "Ring2EXE"
+            },
+            {
+                "command": "ring.ring2exe_static",
+                "title": "Create static executable from current file",
+                "category": "Ring2EXE"
+            },
+            {
+                "command": "ring.ring2exe_dist",
+                "title": "Distribute executable from current file",
+                "category": "Ring2EXE"
+            },
+            {
+                "command": "ring.ring2exe_dist_allruntime",
+                "title": "Distribute executable from current file (with all runtime)",
+                "category": "Ring2EXE"
+            }
+        ],
+        "menus": {
+            "commandPalette": [
+                {
+                    "command": "ring.run",
+                    "when": "editorLangId == ring"
+                },
+                {
+                    "command": "ring.clock",
+                    "when": "editorLangId == ring"
+                },
+                {
+                    "command": "ring.ring2exe",
+                    "when": "editorLangId == ring"
+                },
+                {
+                    "command": "ring.ring2exe_static",
+                    "when": "editorLangId == ring"
+                },
+                {
+                    "command": "ring.ring2exe_dist",
+                    "when": "editorLangId == ring"
+                },
+                {
+                    "command": "ring.ring2exe_dist_allruntime",
+                    "when": "editorLangId == ring"
+                }
+            ]
+        },
+        "breakpoints": [
+            {
+                "language": "ring"
+            }
+        ]
+    },
+    "activationEvents": [
+        "workspaceContains:**/*.{ring,rh,rform}",
+        "onLanguage:ring",
+        "onCommand:ring.run",
+        "onCommand:ring.clock",
+        "onCommand:ring.ring2exe",
+        "onCommand:ring.ring2exe_static",
+        "onCommand:ring.ring2exe_dist",
+        "onCommand:ring.ring2exe_dist_allruntime"
+    ],
+    "main": "./out/extension.js",
+    "devDependencies": {
+        "vscode": "^1.1.37",
+        "@types/node": "^22.7.5",
+        "child_process": "^1.0.2",
+        "esbuild": "^0.24.0",
+        "cross-env": "^7.0.3"
     }
 }
