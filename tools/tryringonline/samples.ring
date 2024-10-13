@@ -187,12 +187,13 @@ aSamples  = [
 	# Our Class
 	class journey
 
-	    hello=0 it=0 is=0 me=0
+	    hello it is me
 
 	    func GetHello
-	        See "Hello" + nl
+	        ? "Hello"
+
 	    func braceEnd
-	        See "Goodbye!" + nl	
+	        ? "Goodbye!"	
 	`],
 	["Main Menu",`
 
