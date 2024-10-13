@@ -53,8 +53,8 @@ Also keywords that can be ignored like the 'the' keyword
 		# Here we don't define the window attribute again
 			title 
 			nWindowTitle = 0
-		# Keywords to ignore, just give them any value
-			the=0	
+		# Keywords to ignore
+			the	
 
 		func geti
 			if nIwantwindow = 0
@@ -132,8 +132,8 @@ Example:
 			# Here we don't define the window attribute again
 					title
 					nWindowTitle = 0
-			# Keywords to ignore, just give them any value
-					the=0  and=0
+			# Keywords to ignore
+					the  and
 
 	ChangeRingKeyword	_and  and
 
@@ -250,8 +250,8 @@ Example:
 			# Here we don't define the window attribute again
 					title
 					nWindowTitle = 0
-			# Keywords to ignore, just give them any value
-					the=0  and=0
+			# Keywords to ignore
+					the  and
 
 	ChangeRingKeyword	_and  and
 
@@ -322,8 +322,8 @@ Example:
 		  # Here we don't define the window attribute again
 			  title
 			  nWindowTitle = 0
-		  # Keywords to ignore, just give them any value
-			  the=0  
+		  # Keywords to ignore
+			  the  
 
 		  ChangeRingKeyword  and  _and
 			  and=0
@@ -578,8 +578,8 @@ This means that this class process only one natural statement that end with lite
 			# Here we don't define the window attribute again
 					title is 
 					nWindowTitle = 0
-			# Keywords to ignore, just give them any value
-					the=0  and=0
+			# Keywords to ignore
+					the  and
 			# Data
 					literal = ""
 
