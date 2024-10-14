@@ -2,7 +2,7 @@ import { window, Terminal } from 'vscode';
 import { getRing2EXECommand, getRingExecCommand } from './utils';
 import cp from 'child_process';
 
-let ringRunTerm: Terminal = null;
+let ringRunTerm: Terminal | null = null;
 
 /**
  * Execute Ring in the terminal.
@@ -21,8 +21,8 @@ export function execRingInTerminal(args: string[]): void {
  * Execute Ring2EXE in the background.
  */
 export function execRing2EXEInBg(args: string[]): void {
-	const vexec = getRing2EXECommand();
-	const cmd = `${vexec} ${args.join(' ')}`;
+	const ring2exe_exec = getRing2EXECommand();
+	const cmd = `${ring2exe_exec} ${args.join(' ')}`;
 
 	cp.exec(cmd);
 }

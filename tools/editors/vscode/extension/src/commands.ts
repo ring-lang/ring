@@ -5,7 +5,13 @@ import { execRingInTerminal, execRing2EXEInBg } from './exec';
  * Run the current file.
  */
 export async function run(): Promise<void> {
-	const document = window.activeTextEditor.document;
+	const editor = window.activeTextEditor;
+	if (!editor) {
+		window.showErrorMessage('Error');
+		return;
+	}
+
+	const document = editor.document;
 	await document.save();
 	const filePath = `"${document.fileName}"`;
 
@@ -16,7 +22,13 @@ export async function run(): Promise<void> {
  * Run the current file with clock argument.
  */
 export async function clock(): Promise<void> {
-	const document = window.activeTextEditor.document;
+	const editor = window.activeTextEditor;
+	if (!editor) {
+		window.showErrorMessage('Error');
+		return;
+	}
+
+	const document = editor.document;
 	await document.save();
 	const filePath = `"${document.fileName}"`;
 
@@ -27,7 +39,13 @@ export async function clock(): Promise<void> {
  * Create an executable file using Ring2EXE.
  */
 export async function ring2exe(): Promise<void> {
-	const document = window.activeTextEditor.document;
+	const editor = window.activeTextEditor;
+	if (!editor) {
+		window.showErrorMessage('Error');
+		return;
+	}
+
+	const document = editor.document;
 	await document.save();
 	const filePath = `"${document.fileName}"`;
 
@@ -38,7 +56,13 @@ export async function ring2exe(): Promise<void> {
  * Create a static executable file using Ring2EXE.
  */
 export async function ring2exe_static(): Promise<void> {
-	const document = window.activeTextEditor.document;
+	const editor = window.activeTextEditor;
+	if (!editor) {
+		window.showErrorMessage('Error');
+		return;
+	}
+
+	const document = editor.document;
 	await document.save();
 	const filePath = `"${document.fileName}"`;
 
@@ -49,7 +73,13 @@ export async function ring2exe_static(): Promise<void> {
  * Distribute a dynamic executable file using Ring2EXE.
  */
 export async function ring2exe_dist(): Promise<void> {
-	const document = window.activeTextEditor.document;
+	const editor = window.activeTextEditor;
+	if (!editor) {
+		window.showErrorMessage('Error');
+		return;
+	}
+
+	const document = editor.document;
 	await document.save();
 	const filePath = `"${document.fileName}"`;
 
@@ -60,9 +90,16 @@ export async function ring2exe_dist(): Promise<void> {
  * Distribute an executable file using Ring2EXE with all runtime.
  */
 export async function ring2exe_dist_allruntime(): Promise<void> {
-	const document = window.activeTextEditor.document;
+	const editor = window.activeTextEditor;
+	if (!editor) {
+		window.showErrorMessage('Error');
+		return;
+	}
+
+	const document = editor.document;
 	await document.save();
 	const filePath = `"${document.fileName}"`;
 
 	execRing2EXEInBg([filePath, "-dist -allruntime"]);
 }
+
