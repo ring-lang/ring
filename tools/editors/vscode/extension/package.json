@@ -25,6 +25,12 @@
         "package": "vsce package"
     },
     "contributes": {
+        "snippets": [
+            {
+                "language": "ring",
+                "path": "snippets/snippets.json"
+            }
+        ],
         "languages": [
             {
                 "id": "ring",

@@ -1,0 +1,1992 @@
+{
+	"see": {
+		"prefix": "see",
+		"body": [
+			"see ${1:cString}"
+		],
+		"description": "Print to console"
+	},
+	"put": {
+		"prefix": "put",
+		"body": [
+			"put ${1:cString}"
+		],
+		"description": "Print to console"
+	},
+	"print": {
+		"prefix": "print",
+		"body": [
+			"print(${1:cString})"
+		],
+		"description": "Print to console"
+	},
+	"func": {
+		"prefix": "func",
+		"body": [
+			"func ${1:functionName} ${2:parameters}",
+			"\t${0}",
+			"\treturn"
+		],
+		"description": "Define a function"
+	},
+	"def": {
+		"prefix": "def",
+		"body": [
+			"def ${1:functionName} ${2:parameters}",
+			"\t${0}",
+			"\treturn",
+			"end"
+		],
+		"description": "Define a function"
+	},
+	"if Statement": {
+		"prefix": "if",
+		"body": [
+			"if ${1:condition}",
+			"\t${0}",
+			"ok"
+		],
+		"description": "if Statement"
+	},
+	"if-else Statement": {
+		"prefix": "if-else",
+		"body": [
+			"if ${1:condition}",
+			"\t${2}",
+			"else",
+			"\t${0}",
+			"ok"
+		],
+		"description": "if-else Statement"
+	},
+	"if-elseif Statement": {
+		"prefix": "if-elseif",
+		"body": [
+			"if ${1:condition}",
+			"\t${2}",
+			"elseif ${2:condition}",
+			"\t${0}",
+			"Ok"
+		],
+		"description": "if-elseif Statement"
+	},
+	"if-elseif-else Statement": {
+		"prefix": "if-elseif-else",
+		"body": [
+			"if ${1:condition}",
+			"\t${2}",
+			"elseif ${2:condition}",
+			"\t${1}",
+			"else",
+			"\t${1}",
+			"ok"
+		],
+		"description": "if-elseif-else Statement"
+	},
+	"For Loop": {
+		"prefix": "for",
+		"body": [
+			"for ${1:i} = ${2:1} to ${3:10}",
+			"\t${0}",
+			"next"
+		],
+		"description": "For loop"
+	},
+	"For-in Loop": {
+		"prefix": "for-in",
+		"body": [
+			"for ${1:i} in ${2:1ist}",
+			"\t${0}",
+			"next"
+		],
+		"description": "For-in loop"
+	},
+	"While Loop": {
+		"prefix": "while",
+		"body": [
+			"while ${1:condition}",
+			"\t${0}",
+			"end"
+		],
+		"description": "While loop"
+	},
+	"Switch Statement": {
+		"prefix": "switch",
+		"body": [
+			"switch ${1:expression}",
+			"on ${2:value1} ${3:statement1}",
+			"on ${4:value2} ${5:statement2}",
+			"other ${6:defaultStatement}",
+			"off"
+		],
+		"description": "Switch statement"
+	},
+	"Try-Catch": {
+		"prefix": "Try-Catch",
+		"body": [
+			"try",
+			"\t${1}",
+			"catch",
+			"\t${0}",
+			"done"
+		],
+		"description": "Try-Catch block"
+	},
+	"Class": {
+		"prefix": "Class",
+		"body": [
+			"class ${1:ClassName}",
+			"\t${0}"
+		],
+		"description": "Define a class"
+	},
+	"Load": {
+		"prefix": "Load",
+		"body": [
+			"load \"${1:filename}.ring\""
+		],
+		"description": "Load a Ring file/package"
+	},
+	"Loadlib": {
+		"prefix": "loadlib()",
+		"body": [
+			"loadlib(\"${1:library}\")"
+		],
+		"description": "Load a dynamic library"
+	},
+	"Package": {
+		"prefix": "package",
+		"body": [
+			"package ${1:PackageName}",
+			"\t${0}"
+		],
+		"description": "Define a package"
+	},
+	"Import": {
+		"prefix": "import",
+		"body": [
+			"import ${1:PackageName}"
+		],
+		"description": "Import a package"
+	},
+	"changeringkeyword": {
+		"prefix": "changeringkeyword",
+		"body": [
+			"changeringkeyword ${1:OldKeyword} ${2:NewKeyword}"
+		],
+		"description": "Modify Ring language keywords"
+	},
+	"changeringoperator": {
+		"prefix": "changeringoperator",
+		"body": [
+			"changeringoperator ${1:OldOperator} ${2:NewOperator}"
+		],
+		"description": "Modify Ring language operators"
+	},
+	"enablehashcomments": {
+		"prefix": "enablehashcomments",
+		"body": [
+			"enablehashcomments"
+		],
+		"description": "Enable '#' for single-line comments"
+	},
+	"disablehashcomments": {
+		"prefix": "disablehashcomments",
+		"body": [
+			"disablehashcomments"
+		],
+		"description": "Disable '#' for single-line comments"
+	},
+	"loadsyntax": {
+		"prefix": "loadsyntax",
+		"body": [
+			"loadsyntax \"${1:syntax_rules_filename}\""
+		],
+		"description": "Load custom syntax rules from a file"
+	},
+	"acos": {
+		"prefix": "acos",
+		"body": [
+			"acos(${1:x})"
+		],
+		"description": "The principal value of the arc cosine of x, expressed in radians"
+	},
+	"add": {
+		"prefix": "add",
+		"body": [
+			"add(${1:List}, ${2:Item})"
+		],
+		"description": "Add item to list"
+	},
+	"addattribute": {
+		"prefix": "addattribute",
+		"body": [
+			"addattribute(${1:Object}, ${2:cAttributeName|aAttributesList})"
+		],
+		"description": "Add attribute to object"
+	},
+	"adddays": {
+		"prefix": "adddays",
+		"body": [
+			"adddays(${1:cDate}, ${2:nDays})"
+		],
+		"description": "Date from cDate and after nDays"
+	},
+	"addmethod": {
+		"prefix": "addmethod",
+		"body": [
+			"addmethod(${1:Object}, ${2:cNewMethodName}, ${3:cMethodName|AnonymousFunction})"
+		],
+		"description": "Add method to object"
+	},
+	"ascii": {
+		"prefix": "ascii",
+		"body": [
+			"ascii(${1:character})"
+		],
+		"description": "ASCII Code"
+	},
+	"asin": {
+		"prefix": "asin",
+		"body": [
+			"asin(${1:x})"
+		],
+		"description": "The principal value of the arc sine of x, expressed in radians"
+	},
+	"assert": {
+		"prefix": "assert",
+		"body": [
+			"assert(${1:condition})"
+		],
+		"description": "Assert condition"
+	},
+	"atan": {
+		"prefix": "atan",
+		"body": [
+			"atan(${1:x})"
+		],
+		"description": "The principal value of the arc tangent of x, expressed in radians"
+	},
+	"atan2": {
+		"prefix": "atan2",
+		"body": [
+			"atan2(${1:y}, ${2:x})"
+		],
+		"description": "The principal arc tangent of y/x, in the interval [-pi,+pi] radians"
+	},
+	"attributes": {
+		"prefix": "attributes",
+		"body": [
+			"attributes(${1:object})"
+		],
+		"description": "Returns a list contains the object attributes"
+	},
+	"binarysearch": {
+		"prefix": "binarysearch",
+		"body": [
+			"binarysearch(${1:List}, ${2:ItemValue}${3:, ${4:nColumn}})"
+		],
+		"description": "Search in list, returns the Item Index"
+	},
+	"bytes2double": {
+		"prefix": "bytes2double",
+		"body": [
+			"bytes2double(${1:cBytes})"
+		],
+		"description": "Convert bytes to double"
+	},
+	"bytes2float": {
+		"prefix": "bytes2float",
+		"body": [
+			"bytes2float(${1:cBytes})"
+		],
+		"description": "Convert bytes to float"
+	},
+	"bytes2int": {
+		"prefix": "bytes2int",
+		"body": [
+			"bytes2int(${1:cBytes})"
+		],
+		"description": "Convert bytes to int"
+	},
+	"callgarbagecollector": {
+		"prefix": "callgarbagecollector",
+		"body": [
+			"callgarbagecollector()"
+		],
+		"description": "Call garbage collector"
+	},
+	"callgc": {
+		"prefix": "callgc",
+		"body": [
+			"callgc()"
+		],
+		"description": "Call garbage collector"
+	},
+	"ceil": {
+		"prefix": "ceil",
+		"body": [
+			"ceil(${1:x})"
+		],
+		"description": "The smallest integer value greater than or equal to x"
+	},
+	"cfunctions": {
+		"prefix": "cfunctions",
+		"body": [
+			"cfunctions()"
+		],
+		"description": "A list contains functions names"
+	},
+	"char": {
+		"prefix": "char",
+		"body": [
+			"char(${1:ASCII Code})"
+		],
+		"description": "Convert ASCII Code to character"
+	},
+	"chdir": {
+		"prefix": "chdir",
+		"body": [
+			"chdir(${1:cNewPath})"
+		],
+		"description": "Change the current directory"
+	},
+	"checkoverflow": {
+		"prefix": "checkoverflow",
+		"body": [
+			"checkoverflow(${1:lFlag})"
+		],
+		"description": "Check overflow"
+	},
+	"classes": {
+		"prefix": "classes",
+		"body": [
+			"classes()"
+		],
+		"description": "A list contains classes names"
+	},
+	"classname": {
+		"prefix": "classname",
+		"body": [
+			"classname(${1:object})"
+		],
+		"description": "Returns the object class name"
+	},
+	"clearerr": {
+		"prefix": "clearerr",
+		"body": [
+			"clearerr(${1:FileHandle})"
+		],
+		"description": "Clear error indicator for file"
+	},
+	"clock": {
+		"prefix": "clock",
+		"body": [
+			"clock()"
+		],
+		"description": "The number of clock ticks from program start"
+	},
+	"clockspersecond": {
+		"prefix": "clockspersecond",
+		"body": [
+			"clockspersecond()"
+		],
+		"description": "Number of clocks in one second"
+	},
+	"closelib": {
+		"prefix": "closelib",
+		"body": [
+			"closelib(${1:pDLL})"
+		],
+		"description": "Close dynamic library"
+	},
+	"copy": {
+		"prefix": "copy",
+		"body": [
+			"copy(\"${1:cString}\", ${2:nCount})"
+		],
+		"description": "String replicated nCount times"
+	},
+	"cos": {
+		"prefix": "cos",
+		"body": [
+			"cos(${1:x})"
+		],
+		"description": "The cosine of an angle of x radians"
+	},
+	"cosh": {
+		"prefix": "cosh",
+		"body": [
+			"cosh(${1:x})"
+		],
+		"description": "The hyperbolic cosine of x radians"
+	},
+	"currentdir": {
+		"prefix": "currentdir",
+		"body": [
+			"currentdir()"
+		],
+		"description": "String contains the path of the current directory"
+	},
+	"date": {
+		"prefix": "date",
+		"body": [
+			"date()"
+		],
+		"description": "String represent the date \"dd/mm/yyyy\""
+	},
+	"dec": {
+		"prefix": "dec",
+		"body": [
+			"dec(${1:hexadecimal})"
+		],
+		"description": "Convert hexadecimal to decimal"
+	},
+	"decimals": {
+		"prefix": "decimals",
+		"body": [
+			"decimals(${1:n})"
+		],
+		"description": "Determine the decimals digits after the point in float/double numbers"
+	},
+	"del": {
+		"prefix": "del",
+		"body": [
+			"del(${1:list}, ${2:index})"
+		],
+		"description": "Delete item from list"
+	},
+	"diffdays": {
+		"prefix": "diffdays",
+		"body": [
+			"diffdays(${1:cDate1}, ${2:cDate2})"
+		],
+		"description": "Number of days (Date1 - Date2)"
+	},
+	"dir": {
+		"prefix": "dir",
+		"body": [
+			"dir(${1:cFolderPath})"
+		],
+		"description": "List contains files & sub folders"
+	},
+	"direxists": {
+		"prefix": "direxists",
+		"body": [
+			"direxists(${1:cDirPath})"
+		],
+		"description": "Returns 1 if the directory exists"
+	},
+	"double2bytes": {
+		"prefix": "double2bytes",
+		"body": [
+			"double2bytes(${1:nNumber})"
+		],
+		"description": "Convert double to bytes"
+	},
+	"eval": {
+		"prefix": "eval",
+		"body": [
+			"eval(${1:cCode})"
+		],
+		"description": "Evaluate code"
+	},
+	"exefilename": {
+		"prefix": "exefilename",
+		"body": [
+			"exefilename()"
+		],
+		"description": "String contains the Ring executable file name"
+	},
+	"exefolder": {
+		"prefix": "exefolder",
+		"body": [
+			"exefolder()"
+		],
+		"description": "String contains the Ring executable path"
+	},
+	"exp": {
+		"prefix": "exp",
+		"body": [
+			"exp(${1:x})"
+		],
+		"description": "The value of e raised to the xth power"
+	},
+	"fabs": {
+		"prefix": "fabs",
+		"body": [
+			"fabs(${1:x})"
+		],
+		"description": "The absolute value of x"
+	},
+	"fclose": {
+		"prefix": "fclose",
+		"body": [
+			"fclose(${1:FileHandle})"
+		],
+		"description": "Close file stream"
+	},
+	"feof": {
+		"prefix": "feof",
+		"body": [
+			"feof(${1:FileHandle})"
+		],
+		"description": "Returns 1 if EOF and 0 if not"
+	},
+	"ferror": {
+		"prefix": "ferror",
+		"body": [
+			"ferror(${1:FileHandle})"
+		],
+		"description": "Returns 1 if error and 0 if not"
+	},
+	"fexists": {
+		"prefix": "fexists",
+		"body": [
+			"fexists(${1:cFileName})"
+		],
+		"description": "Returns 1 if the file exists"
+	},
+	"fflush": {
+		"prefix": "fflush",
+		"body": [
+			"fflush(${1:FileHandle})"
+		],
+		"description": "Flush file buffer"
+	},
+	"fgetc": {
+		"prefix": "fgetc",
+		"body": [
+			"fgetc(${1:FileHandle})"
+		],
+		"description": "Returns character or EOF"
+	},
+	"fgetpos": {
+		"prefix": "fgetpos",
+		"body": [
+			"fgetpos(${1:FileHandle})"
+		],
+		"description": "Position handle"
+	},
+	"fgets": {
+		"prefix": "fgets",
+		"body": [
+			"fgets(${1:FileHandle}, ${2:nSize})"
+		],
+		"description": "Read new line from the stream"
+	},
+	"filename": {
+		"prefix": "filename",
+		"body": [
+			"filename()"
+		],
+		"description": "String contains the active source file name"
+	},
+	"find": {
+		"prefix": "find",
+		"body": [
+			"find(${1:List}, ${2:ItemValue}${3:, ${4:nColumn}}${5:, ${6:cAttribute}})"
+		],
+		"description": "Find item in list"
+	},
+	"float2bytes": {
+		"prefix": "float2bytes",
+		"body": [
+			"float2bytes(${1:nNumber})"
+		],
+		"description": "Convert float to bytes"
+	},
+	"floor": {
+		"prefix": "floor",
+		"body": [
+			"floor(${1:x})"
+		],
+		"description": "The largest integer value less than or equal to x"
+	},
+	"fopen": {
+		"prefix": "fopen",
+		"body": [
+			"fopen(${1:cFileName}, ${2:cMode})"
+		],
+		"description": "Open file"
+	},
+	"fputc": {
+		"prefix": "fputc",
+		"body": [
+			"fputc(${1:FileHandle}, ${2:cChar})"
+		],
+		"description": "Write character to file"
+	},
+	"fputs": {
+		"prefix": "fputs",
+		"body": [
+			"fputs(${1:FileHandle}, ${2:cString})"
+		],
+		"description": "Write string to file"
+	},
+	"fread": {
+		"prefix": "fread",
+		"body": [
+			"fread(${1:FileHandle}, ${2:nSize})"
+		],
+		"description": "Read from file"
+	},
+	"freopen": {
+		"prefix": "freopen",
+		"body": [
+			"freopen(${1:cFileName}, ${2:cMode}, ${3:FileHandle})"
+		],
+		"description": "Reopen file"
+	},
+	"fseek": {
+		"prefix": "fseek",
+		"body": [
+			"fseek(${1:FileHandle}, ${2:nOffset}, ${3:nWhence})"
+		],
+		"description": "Set the file position"
+	},
+	"fsetpos": {
+		"prefix": "fsetpos",
+		"body": [
+			"fsetpos(${1:FileHandle}, ${2:PositionHandle})"
+		],
+		"description": "Set the file position"
+	},
+	"ftell": {
+		"prefix": "ftell",
+		"body": [
+			"ftell(${1:FileHandle})"
+		],
+		"description": "Get file position"
+	},
+	"functions": {
+		"prefix": "functions",
+		"body": [
+			"functions()"
+		],
+		"description": "A list contains functions names"
+	},
+	"fwrite": {
+		"prefix": "fwrite",
+		"body": [
+			"fwrite(${1:FileHandle}, ${2:cString})"
+		],
+		"description": "Write to file"
+	},
+	"getarch": {
+		"prefix": "getarch",
+		"body": [
+			"getarch()"
+		],
+		"description": "The name of the architecture of the Ring executable"
+	},
+	"getattribute": {
+		"prefix": "getattribute",
+		"body": [
+			"getattribute(${1:oObject}, ${2:cAttributeName})"
+		],
+		"description": "Get attribute value"
+	},
+	"getchar": {
+		"prefix": "getchar",
+		"body": [
+			"getchar()"
+		],
+		"description": "Get character from standard input"
+	},
+	"getfilesize": {
+		"prefix": "getfilesize",
+		"body": [
+			"getfilesize(${1:cFilePath})"
+		],
+		"description": "Get file size"
+	},
+	"getnumber": {
+		"prefix": "getnumber",
+		"body": [
+			"getnumber()"
+		],
+		"description": "Get number from standard  input"
+	},
+	"getpathtype": {
+		"prefix": "getpathtype",
+		"body": [
+			"getpathtype(${1:cPath})"
+		],
+		"description": "Get path type"
+	},
+	"getpointer": {
+		"prefix": "getpointer",
+		"body": [
+			"getpointer(${1:pointer})"
+		],
+		"description": "Get pointer address"
+	},
+	"getptr": {
+		"prefix": "getptr",
+		"body": [
+			"getptr(${1:pointer})"
+		],
+		"description": "Get pointer address"
+	},
+	"getstring": {
+		"prefix": "getstring",
+		"body": [
+			"getstring()"
+		],
+		"description": "Get string from standard input"
+	},
+	"globals": {
+		"prefix": "globals",
+		"body": [
+			"globals()"
+		],
+		"description": "A list contains variables names in the global scope"
+	},
+	"hex": {
+		"prefix": "hex",
+		"body": [
+			"hex(${1:decimal})"
+		],
+		"description": "Convert decimal to hexadecimal"
+	},
+	"hex2str": {
+		"prefix": "hex2str",
+		"body": [
+			"hex2str(\"${1:Hexadecimal string}\")"
+		],
+		"description": "Convert hexadecimal string to string"
+	},
+	"importpackage": {
+		"prefix": "importpackage",
+		"body": [
+			"importpackage(${1:cPackageName})"
+		],
+		"description": "Import package"
+	},
+	"input": {
+		"prefix": "input",
+		"body": [
+			"input(${1:nCount})"
+		],
+		"description": "Get input from standard input"
+	},
+	"insert": {
+		"prefix": "insert",
+		"body": [
+			"insert(${1:List}, ${2:Index}, ${3:Item})"
+		],
+		"description": "Insert item into list"
+	},
+	"int2bytes": {
+		"prefix": "int2bytes",
+		"body": [
+			"int2bytes(${1:nNumber})"
+		],
+		"description": "Convert int to bytes"
+	},
+	"intvalue": {
+		"prefix": "intvalue",
+		"body": [
+			"intvalue(${1:cVariableName})"
+		],
+		"description": "Get integer value of variable"
+	},
+	"isalnum": {
+		"prefix": "isalnum",
+		"body": [
+			"isalnum(${1:value})"
+		],
+		"description": "Check if the value is digit/letter"
+	},
+	"isalpha": {
+		"prefix": "isalpha",
+		"body": [
+			"isalpha(${1:value})"
+		],
+		"description": "Check if the value is a letter"
+	},
+	"isandroid": {
+		"prefix": "isandroid",
+		"body": [
+			"isandroid()"
+		],
+		"description": "Check if the operating system is Android"
+	},
+	"isattribute": {
+		"prefix": "isattribute",
+		"body": [
+			"isattribute(${1:object}, ${2:cAttributeName})"
+		],
+		"description": "Check if attribute exists"
+	},
+	"iscfunction": {
+		"prefix": "iscfunction",
+		"body": [
+			"iscfunction(${1:cFunctionName})"
+		],
+		"description": "Check if the C function is defined"
+	},
+	"isclass": {
+		"prefix": "isclass",
+		"body": [
+			"isclass(${1:cClassName})"
+		],
+		"description": "Check if the Class is defined"
+	},
+	"iscntrl": {
+		"prefix": "iscntrl",
+		"body": [
+			"iscntrl(${1:value})"
+		],
+		"description": "Check if value is a control character"
+	},
+	"isdigit": {
+		"prefix": "isdigit",
+		"body": [
+			"isdigit(${1:value})"
+		],
+		"description": "Check if value is a digit"
+	},
+	"isfreebsd": {
+		"prefix": "isfreebsd",
+		"body": [
+			"isfreebsd()"
+		],
+		"description": "Check if the operating system is FreeBSD"
+	},
+	"isfunction": {
+		"prefix": "isfunction",
+		"body": [
+			"isfunction(${1:cFunctionName})"
+		],
+		"description": "Check if the Ring function is defined"
+	},
+	"isglobal": {
+		"prefix": "isglobal",
+		"body": [
+			"isglobal(${1:cVariableName})"
+		],
+		"description": "Check if the variable is defined in the global scope"
+	},
+	"isgraph": {
+		"prefix": "isgraph",
+		"body": [
+			"isgraph(${1:value})"
+		],
+		"description": "Check if value can be printed (Except space)"
+	},
+	"islinux": {
+		"prefix": "islinux",
+		"body": [
+			"islinux()"
+		],
+		"description": "Check if the operating system is Linux"
+	},
+	"islist": {
+		"prefix": "islist",
+		"body": [
+			"islist(${1:value})"
+		],
+		"description": "Check if the value is a list"
+	},
+	"islocal": {
+		"prefix": "islocal",
+		"body": [
+			"islocal(${1:cVariableName})"
+		],
+		"description": "Check if the variable is defined in the local scope"
+	},
+	"islower": {
+		"prefix": "islower",
+		"body": [
+			"islower(${1:value})"
+		],
+		"description": "Check if the value is lowercase letter"
+	},
+	"ismacosx": {
+		"prefix": "ismacosx",
+		"body": [
+			"ismacosx()"
+		],
+		"description": "Check if the operating system is macOS"
+	},
+	"ismethod": {
+		"prefix": "ismethod",
+		"body": [
+			"ismethod(${1:object}, ${2:cMethodName})"
+		],
+		"description": "Check if the object class contains the method"
+	},
+	"ismsdos": {
+		"prefix": "ismsdos",
+		"body": [
+			"ismsdos()"
+		],
+		"description": "Check if the operating system is MS-DOS"
+	},
+	"isnull": {
+		"prefix": "isnull",
+		"body": [
+			"isnull(${1:value})"
+		],
+		"description": "Check if the value is NULL"
+	},
+	"isnumber": {
+		"prefix": "isnumber",
+		"body": [
+			"isnumber(${1:value})"
+		],
+		"description": "Check if the value is a number"
+	},
+	"isobject": {
+		"prefix": "isobject",
+		"body": [
+			"isobject(${1:variable})"
+		],
+		"description": "Check if it's an object"
+	},
+	"ispackage": {
+		"prefix": "ispackage",
+		"body": [
+			"ispackage(${1:cPackageName})"
+		],
+		"description": "Check if the Package is defined"
+	},
+	"ispackageclass": {
+		"prefix": "ispackageclass",
+		"body": [
+			"ispackageclass(${1:cPackageName}, ${2:cClassName})"
+		],
+		"description": "Check if the Class is defined in the package"
+	},
+	"ispointer": {
+		"prefix": "ispointer",
+		"body": [
+			"ispointer(${1:vPara})"
+		],
+		"description": "Check if the value is a pointer"
+	},
+	"isprint": {
+		"prefix": "isprint",
+		"body": [
+			"isprint(${1:value})"
+		],
+		"description": "Check if value can be printed"
+	},
+	"isprivateattribute": {
+		"prefix": "isprivateattribute",
+		"body": [
+			"isprivateattribute(${1:object}, ${2:cAttributeName})"
+		],
+		"description": "Check if the attribute is private"
+	},
+	"isprivatemethod": {
+		"prefix": "isprivatemethod",
+		"body": [
+			"isprivatemethod(${1:object}, ${2:cMethodName})"
+		],
+		"description": "Check if the method is private"
+	},
+	"ispunct": {
+		"prefix": "ispunct",
+		"body": [
+			"ispunct(${1:value})"
+		],
+		"description": "Check if value is a punctuation character"
+	},
+	"isspace": {
+		"prefix": "isspace",
+		"body": [
+			"isspace(${1:value})"
+		],
+		"description": "Check if value is a white-space"
+	},
+	"isstring": {
+		"prefix": "isstring",
+		"body": [
+			"isstring(${1:value})"
+		],
+		"description": "Check if the value is a string"
+	},
+	"isunix": {
+		"prefix": "isunix",
+		"body": [
+			"isunix()"
+		],
+		"description": "Check if the operating system is Unix-like"
+	},
+	"isupper": {
+		"prefix": "isupper",
+		"body": [
+			"isupper(${1:value})"
+		],
+		"description": "Check if the value is uppercase letter"
+	},
+	"iswindows": {
+		"prefix": "iswindows",
+		"body": [
+			"iswindows()"
+		],
+		"description": "Check if the operating system is Windows"
+	},
+	"iswindows64": {
+		"prefix": "iswindows64",
+		"body": [
+			"iswindows64()"
+		],
+		"description": "Check if the operating system is Windows 64bit"
+	},
+	"isxdigit": {
+		"prefix": "isxdigit",
+		"body": [
+			"isxdigit(${1:value})"
+		],
+		"description": "Check if value is a hexadecimal digit"
+	},
+	"left": {
+		"prefix": "left",
+		"body": [
+			"left(${1:cString}, ${2:count})"
+		],
+		"description": "Get characters starting from the left"
+	},
+	"len": {
+		"prefix": "len",
+		"body": [
+			"len(${1:string|List})"
+		],
+		"description": "Get length of string or list"
+	},
+	"lines": {
+		"prefix": "lines",
+		"body": [
+			"lines(${1:cString})"
+		],
+		"description": "Number of lines inside the string"
+	},
+	"list": {
+		"prefix": "list",
+		"body": [
+			"list(${1:nSize})"
+		],
+		"description": "Create a new list"
+	},
+	"list2str": {
+		"prefix": "list2str",
+		"body": [
+			"list2str(${1:list})"
+		],
+		"description": "Convert list to string"
+	},
+	"locals": {
+		"prefix": "locals",
+		"body": [
+			"locals()"
+		],
+		"description": "A list contains variables names in the current scope"
+	},
+	"log": {
+		"prefix": "log",
+		"body": [
+			"log(${1:x}${2:, ${3:b}})"
+		],
+		"description": "The natural logarithm of x (the base of e)"
+	},
+	"log10": {
+		"prefix": "log10",
+		"body": [
+			"log10(${1:x})"
+		],
+		"description": "The common logarithm (base-10 logarithm) of x"
+	},
+	"lower": {
+		"prefix": "lower",
+		"body": [
+			"lower(${1:cString})"
+		],
+		"description": "Convert string letters to lower case"
+	},
+	"max": {
+		"prefix": "max",
+		"body": [
+			"max(${1:nNumber1}, ${2:nNumber2})"
+		],
+		"description": "Maximum number"
+	},
+	"memcpy": {
+		"prefix": "memcpy",
+		"body": [
+			"memcpy(${1:pDestinationPointer}, ${2:cSourceString}, ${3:nSize})"
+		],
+		"description": "Copy memory"
+	},
+	"memorycopy": {
+		"prefix": "memorycopy",
+		"body": [
+			"memorycopy(${1:pDestinationPointer}, ${2:cSourceString}, ${3:nSize})"
+		],
+		"description": "Copy memory"
+	},
+	"mergemethods": {
+		"prefix": "mergemethods",
+		"body": [
+			"mergemethods(${1:cClassNameDestination}, ${2:cClassNameSource})"
+		],
+		"description": "Merge methods from one class to another"
+	},
+	"methods": {
+		"prefix": "methods",
+		"body": [
+			"methods(${1:object})"
+		],
+		"description": "Returns a list contains the object methods"
+	},
+	"min": {
+		"prefix": "min",
+		"body": [
+			"min(${1:nNumber1}, ${2:nNumber2})"
+		],
+		"description": "Minimum number"
+	},
+	"murmur3hash": {
+		"prefix": "murmur3hash",
+		"body": [
+			"murmur3hash(${1:cString}, ${2:nNumber})"
+		],
+		"description": "Calculate MurmurHash3 hash"
+	},
+	"newlist": {
+		"prefix": "newlist",
+		"body": [
+			"newlist(${1:nSize})"
+		],
+		"description": "Create a new list"
+	},
+	"nofprocessors": {
+		"prefix": "nofprocessors",
+		"body": [
+			"nofprocessors()"
+		],
+		"description": "Get number of processors"
+	},
+	"nothing": {
+		"prefix": "nothing",
+		"body": [
+			"nothing(${1:Any number/type of parameters})"
+		],
+		"description": "Return Zero (0)"
+	},
+	"nullpointer": {
+		"prefix": "nullpointer",
+		"body": [
+			"nullpointer()"
+		],
+		"description": "Get NULL pointer"
+	},
+	"nullptr": {
+		"prefix": "nullptr",
+		"body": [
+			"nullptr()"
+		],
+		"description": "Get NULL pointer"
+	},
+	"number": {
+		"prefix": "number",
+		"body": [
+			"number(${1:cString})"
+		],
+		"description": "Convert string to number"
+	},
+	"obj2ptr": {
+		"prefix": "obj2ptr",
+		"body": [
+			"obj2ptr(${1:List|Object})"
+		],
+		"description": "Convert to Low Level Object (C Pointer)"
+	},
+	"object2pointer": {
+		"prefix": "object2pointer",
+		"body": [
+			"object2pointer(${1:List|Object})"
+		],
+		"description": "Convert to Low Level Object (C Pointer)"
+	},
+	"objectid": {
+		"prefix": "objectid",
+		"body": [
+			"objectid(${1:object})"
+		],
+		"description": "Returns the object id"
+	},
+	"optionalfunc": {
+		"prefix": "optionalfunc",
+		"body": [
+			"optionalfunc(${1:cFuncName})"
+		],
+		"description": "Define optional function"
+	},
+	"packageclasses": {
+		"prefix": "packageclasses",
+		"body": [
+			"packageclasses(${1:cPackageName})"
+		],
+		"description": "A list contains classes names inside the package"
+	},
+	"packagename": {
+		"prefix": "packagename",
+		"body": [
+			"packagename()"
+		],
+		"description": "Returns the package name of the latest successful import"
+	},
+	"packages": {
+		"prefix": "packages",
+		"body": [
+			"packages()"
+		],
+		"description": "A list contains packages names"
+	},
+	"parentclassname": {
+		"prefix": "parentclassname",
+		"body": [
+			"parentclassname(${1:object})"
+		],
+		"description": "Returns the parent class name of the object class"
+	},
+	"perror": {
+		"prefix": "perror",
+		"body": [
+			"perror(${1:cErrorMessage})"
+		],
+		"description": "Print error message"
+	},
+	"pointer2object": {
+		"prefix": "pointer2object",
+		"body": [
+			"pointer2object(${1:Low Level Object})"
+		],
+		"description": "Convert Low Level Object to List|Object"
+	},
+	"pointer2string": {
+		"prefix": "pointer2string",
+		"body": [
+			"pointer2string(${1:pointer}, ${2:nStart}, ${3:nCount})"
+		],
+		"description": "Convert pointer to string"
+	},
+	"pointercompare": {
+		"prefix": "pointercompare",
+		"body": [
+			"pointercompare(${1:oObject1}, ${2:oObject2})"
+		],
+		"description": "Compare two pointers"
+	},
+	"pow": {
+		"prefix": "pow",
+		"body": [
+			"pow(${1:x}, ${2:y})"
+		],
+		"description": "x raised to the power of y"
+	},
+	"prevfilename": {
+		"prefix": "prevfilename",
+		"body": [
+			"prevfilename()"
+		],
+		"description": "String contains the previous source file name"
+	},
+	"print2str": {
+		"prefix": "print2str",
+		"body": [
+			"print2str(${1:cString})"
+		],
+		"description": "Convert print output to string"
+	},
+	"ptr2obj": {
+		"prefix": "ptr2obj",
+		"body": [
+			"ptr2obj(${1:Low Level Object})"
+		],
+		"description": "Convert Low Level Object to List|Object"
+	},
+	"ptr2str": {
+		"prefix": "ptr2str",
+		"body": [
+			"ptr2str(${1:pointer}, ${2:nStart}, ${3:nCount})"
+		],
+		"description": "Convert pointer to string"
+	},
+	"ptrcmp": {
+		"prefix": "ptrcmp",
+		"body": [
+			"ptrcmp(${1:oObject1}, ${2:oObject2})"
+		],
+		"description": "Compare two pointers"
+	},
+	"puts": {
+		"prefix": "puts",
+		"body": [
+			"puts(${1:cString})"
+		],
+		"description": "Print string with new line"
+	},
+	"raise": {
+		"prefix": "raise",
+		"body": [
+			"raise(${1:cErrorMessage})"
+		],
+		"description": "Raise an exception"
+	},
+	"random": {
+		"prefix": "random",
+		"body": [
+			"random(${1:x})"
+		],
+		"description": "Generate a random number in the range [0,x]"
+	},
+	"randomize": {
+		"prefix": "randomize",
+		"body": [
+			"randomize(${1:nNumber})"
+		],
+		"description": "Initialize random number generator"
+	},
+	"read": {
+		"prefix": "read",
+		"body": [
+			"read(${1:cFileName})"
+		],
+		"description": "Read file content"
+	},
+	"ref": {
+		"prefix": "ref",
+		"body": [
+			"ref(${1:aList|oObject})"
+		],
+		"description": "Get List/Object reference"
+	},
+	"reference": {
+		"prefix": "reference",
+		"body": [
+			"reference(${1:aList|oObject})"
+		],
+		"description": "Get List/Object reference"
+	},
+	"refcount": {
+		"prefix": "refcount",
+		"body": [
+			"refcount(${1:aList|oObject})"
+		],
+		"description": "Get References Count"
+	},
+	"remove": {
+		"prefix": "remove",
+		"body": [
+			"remove(${1:cFileName})"
+		],
+		"description": "Delete file"
+	},
+	"rename": {
+		"prefix": "rename",
+		"body": [
+			"rename(${1:cOldFileName}, ${2:cNewFileName})"
+		],
+		"description": "Rename file"
+	},
+	"reverse": {
+		"prefix": "reverse",
+		"body": [
+			"reverse(${1:List|String})"
+		],
+		"description": "Reverse List|String"
+	},
+	"rewind": {
+		"prefix": "rewind",
+		"body": [
+			"rewind(${1:FileHandle})"
+		],
+		"description": "Set the file position to the beginning of the file"
+	},
+	"right": {
+		"prefix": "right",
+		"body": [
+			"right(${1:cString}, ${2:count})"
+		],
+		"description": "Get characters starting from the right"
+	},
+	"ring_give": {
+		"prefix": "ring_give",
+		"body": [
+			"ring_give(${1:cVariable})"
+		],
+		"description": "Get variable value"
+	},
+	"ring_see": {
+		"prefix": "ring_see",
+		"body": [
+			"ring_see(${1:cMessage})"
+		],
+		"description": "Print message"
+	},
+	"ring_state_delete": {
+		"prefix": "ring_state_delete",
+		"body": [
+			"ring_state_delete(${1:oState})"
+		],
+		"description": "Delete Ring state"
+	},
+	"ring_state_filetokens": {
+		"prefix": "ring_state_filetokens",
+		"body": [
+			"ring_state_filetokens(${1:oState}, ${2:cRingFileName})"
+		],
+		"description": "Get file tokens"
+	},
+	"ring_state_findvar": {
+		"prefix": "ring_state_findvar",
+		"body": [
+			"ring_state_findvar(${1:oState}, ${2:cVariableName})"
+		],
+		"description": "Find variable"
+	},
+	"ring_state_init": {
+		"prefix": "ring_state_init",
+		"body": [
+			"ring_state_init()"
+		],
+		"description": "Initialize Ring state"
+	},
+	"ring_state_main": {
+		"prefix": "ring_state_main",
+		"body": [
+			"ring_state_main(${1:cRingFileName})"
+		],
+		"description": "Run Ring program"
+	},
+	"ring_state_mainfile": {
+		"prefix": "ring_state_mainfile",
+		"body": [
+			"ring_state_mainfile(${1:oState}, ${2:cRingFileName|cRingoFileName})"
+		],
+		"description": "Run Ring program"
+	},
+	"ring_state_new": {
+		"prefix": "ring_state_new",
+		"body": [
+			"ring_state_new()"
+		],
+		"description": "Create new Ring state"
+	},
+	"ring_state_newvar": {
+		"prefix": "ring_state_newvar",
+		"body": [
+			"ring_state_newvar(${1:oState}, ${2:cVariableName})"
+		],
+		"description": "Create new variable"
+	},
+	"ring_state_resume": {
+		"prefix": "ring_state_resume",
+		"body": [
+			"ring_state_resume(${1:oState}${2:, ${3:cPara|nPara}}${4:, ${5:lUseReturn}})"
+		],
+		"description": "Resume Ring state"
+	},
+	"ring_state_runcode": {
+		"prefix": "ring_state_runcode",
+		"body": [
+			"ring_state_runcode(${1:oState}, ${2:cCode})"
+		],
+		"description": "Run Ring code"
+	},
+	"ring_state_runcodeatins": {
+		"prefix": "ring_state_runcodeatins",
+		"body": [
+			"ring_state_runcodeatins(${1:oState}, ${2:nPC})"
+		],
+		"description": "Run Ring code at instruction"
+	},
+	"ring_state_runfile": {
+		"prefix": "ring_state_runfile",
+		"body": [
+			"ring_state_runfile(${1:oState}, ${2:cRingFileName})"
+		],
+		"description": "Run Ring file"
+	},
+	"ring_state_runobjectfile": {
+		"prefix": "ring_state_runobjectfile",
+		"body": [
+			"ring_state_runobjectfile(${1:oState}, ${2:cRingObjectFileName})"
+		],
+		"description": "Run Ring object file"
+	},
+	"ring_state_scannererror": {
+		"prefix": "ring_state_scannererror",
+		"body": [
+			"ring_state_scannererror(${1:oState})"
+		],
+		"description": "Get scanner error"
+	},
+	"ring_state_setvar": {
+		"prefix": "ring_state_setvar",
+		"body": [
+			"ring_state_setvar(${1:oState}, ${2:cVariableName}, ${3:Value})"
+		],
+		"description": "Set variable value"
+	},
+	"ring_state_stringtokens": {
+		"prefix": "ring_state_stringtokens",
+		"body": [
+			"ring_state_stringtokens(${1:oState}, ${2:cRingFileName}${3:, ${4:lCaseSensitive}})"
+		],
+		"description": "Get string tokens"
+	},
+	"ringvm_callfunc": {
+		"prefix": "ringvm_callfunc",
+		"body": [
+			"ringvm_callfunc(${1:cFuncName})"
+		],
+		"description": "Call Ring function"
+	},
+	"ringvm_calllist": {
+		"prefix": "ringvm_calllist",
+		"body": [
+			"ringvm_calllist()"
+		],
+		"description": "Get call list"
+	},
+	"ringvm_cfunctionslist": {
+		"prefix": "ringvm_cfunctionslist",
+		"body": [
+			"ringvm_cfunctionslist()"
+		],
+		"description": "Get C functions list"
+	},
+	"ringvm_classeslist": {
+		"prefix": "ringvm_classeslist",
+		"body": [
+			"ringvm_classeslist()"
+		],
+		"description": "Get classes list"
+	},
+	"ringvm_codelist": {
+		"prefix": "ringvm_codelist",
+		"body": [
+			"ringvm_codelist()"
+		],
+		"description": "Get code list"
+	},
+	"ringvm_evalinscope": {
+		"prefix": "ringvm_evalinscope",
+		"body": [
+			"ringvm_evalinscope(${1:nScope}, ${2:cCode})"
+		],
+		"description": "Evaluate code in specific scope"
+	},
+	"ringvm_fileslist": {
+		"prefix": "ringvm_fileslist",
+		"body": [
+			"ringvm_fileslist()"
+		],
+		"description": "Get files list"
+	},
+	"ringvm_functionslist": {
+		"prefix": "ringvm_functionslist",
+		"body": [
+			"ringvm_functionslist()"
+		],
+		"description": "Get functions list"
+	},
+	"ringvm_genarray": {
+		"prefix": "ringvm_genarray",
+		"body": [
+			"ringvm_genarray(${1:aList})"
+		],
+		"description": "Generate array"
+	},
+	"ringvm_give": {
+		"prefix": "ringvm_give",
+		"body": [
+			"ringvm_give(${1:cVariableName})"
+		],
+		"description": "Get variable value"
+	},
+	"ringvm_hideerrormsg": {
+		"prefix": "ringvm_hideerrormsg",
+		"body": [
+			"ringvm_hideerrormsg(${1:lStatus})"
+		],
+		"description": "Hide error message"
+	},
+	"ringvm_info": {
+		"prefix": "ringvm_info",
+		"body": [
+			"ringvm_info()"
+		],
+		"description": "Get VM information"
+	},
+	"ringvm_ismempool": {
+		"prefix": "ringvm_ismempool",
+		"body": [
+			"ringvm_ismempool()"
+		],
+		"description": "Check if memory pool is used"
+	},
+	"ringvm_memorylist": {
+		"prefix": "ringvm_memorylist",
+		"body": [
+			"ringvm_memorylist()"
+		],
+		"description": "Get memory list"
+	},
+	"ringvm_packageslist": {
+		"prefix": "ringvm_packageslist",
+		"body": [
+			"ringvm_packageslist()"
+		],
+		"description": "Get packages list"
+	},
+	"ringvm_passerror": {
+		"prefix": "ringvm_passerror",
+		"body": [
+			"ringvm_passerror()"
+		],
+		"description": "Pass error"
+	},
+	"ringvm_runcode": {
+		"prefix": "ringvm_runcode",
+		"body": [
+			"ringvm_runcode(${1:cCode})"
+		],
+		"description": "Run Ring code"
+	},
+	"ringvm_scopescount": {
+		"prefix": "ringvm_scopescount",
+		"body": [
+			"ringvm_scopescount()"
+		],
+		"description": "Get scopes count"
+	},
+	"ringvm_see": {
+		"prefix": "ringvm_see",
+		"body": [
+			"ringvm_see(${1:cMessage})"
+		],
+		"description": "Print message"
+	},
+	"ringvm_settrace": {
+		"prefix": "ringvm_settrace",
+		"body": [
+			"ring_settrace(${1:cCode})"
+		],
+		"description": "Set trace function"
+	},
+	"ringvm_tracedata": {
+		"prefix": "ringvm_tracedata",
+		"body": [
+			"ringvm_tracedata()"
+		],
+		"description": "Get trace data"
+	},
+	"ringvm_traceevent": {
+		"prefix": "ringvm_traceevent",
+		"body": [
+			"ringvm_traceevent()"
+		],
+		"description": "Get trace event"
+	},
+	"ringvm_tracefunc": {
+		"prefix": "ringvm_tracefunc",
+		"body": [
+			"ringvm_tracefunc()"
+		],
+		"description": "Get trace function"
+	},
+	"round": {
+		"prefix": "round",
+		"body": [
+			"round(${1:x})"
+		],
+		"description": "Round to the nearest integer"
+	},
+	"scanf": {
+		"prefix": "scanf",
+		"body": [
+			"scanf(${1:cFormatString})"
+		],
+		"description": "Read formatted input"
+	},
+	"setattribute": {
+		"prefix": "setattribute",
+		"body": [
+			"setattribute(${1:oObject}, ${2:cAttributeName}, ${3:Value})"
+		],
+		"description": "Set attribute value"
+	},
+	"setpointer": {
+		"prefix": "setpointer",
+		"body": [
+			"setpointer(${1:pointer}, ${2:nNewAddress})"
+		],
+		"description": "Set pointer address"
+	},
+	"setptr": {
+		"prefix": "setptr",
+		"body": [
+			"setptr(${1:pointer}, ${2:nNewAddress})"
+		],
+		"description": "Set pointer address"
+	},
+	"shutdown": {
+		"prefix": "shutdown",
+		"body": [
+			"shutdown(${1:nStatus})"
+		],
+		"description": "Shutdown the application"
+	},
+	"sin": {
+		"prefix": "sin",
+		"body": [
+			"sin(${1:x})"
+		],
+		"description": "The sine of an angle of x radians"
+	},
+	"sinh": {
+		"prefix": "sinh",
+		"body": [
+			"sinh(${1:x})"
+		],
+		"description": "The hyperbolic sine of x radians"
+	},
+	"sort": {
+		"prefix": "sort",
+		"body": [
+			"sort(${1:List}${2:, ${3:nColumn}}${4:, ${5:cAttribute}})"
+		],
+		"description": "Sort list"
+	},
+	"space": {
+		"prefix": "space",
+		"body": [
+			"space(${1:nBytesCount})"
+		],
+		"description": "Create string with spaces"
+	},
+	"sqrt": {
+		"prefix": "sqrt",
+		"body": [
+			"sqrt(${1:x})"
+		],
+		"description": "The square root of x"
+	},
+	"srandom": {
+		"prefix": "srandom",
+		"body": [
+			"srandom(${1:x})"
+		],
+		"description": "Initialize random number generator"
+	},
+	"str2hex": {
+		"prefix": "str2hex",
+		"body": [
+			"str2hex(${1:cString})"
+		],
+		"description": "Convert string to hexadecimal string"
+	},
+	"str2hexcstyle": {
+		"prefix": "str2hexcstyle",
+		"body": [
+			"str2hexcstyle(${1:cString})"
+		],
+		"description": "Convert string to hexadecimal string (C style)"
+	},
+	"str2list": {
+		"prefix": "str2list",
+		"body": [
+			"str2list(${1:cString})"
+		],
+		"description": "Convert string to list"
+	},
+	"strcmp": {
+		"prefix": "strcmp",
+		"body": [
+			"strcmp(${1:cString1}, ${2:cString2})"
+		],
+		"description": "Compare two strings"
+	},
+	"string": {
+		"prefix": "string",
+		"body": [
+			"string(${1:number})"
+		],
+		"description": "Convert number to string"
+	},
+	"substr": {
+		"prefix": "substr",
+		"body": [
+			"substr(${1:cString}, ${2:substring|position}${3:, ${4:count|newsubstring}}${5:, ${6:1}})"
+		],
+		"description": "Get substring or transform string"
+	},
+	"swap": {
+		"prefix": "swap",
+		"body": [
+			"swap(${1:aList}, ${2:nItem1}, ${3:nItem2})"
+		],
+		"description": "Swap two items in a list"
+	},
+	"sysget": {
+		"prefix": "sysget",
+		"body": [
+			"sysget(${1:cVariable})"
+		],
+		"description": "Get environment variable"
+	},
+	"sysset": {
+		"prefix": "sysset",
+		"body": [
+			"sysset(${1:cVariable}, ${2:cValue})"
+		],
+		"description": "Set environment variable"
+	},
+	"syssleep": {
+		"prefix": "syssleep",
+		"body": [
+			"syssleep(${1:nMilliSecs})"
+		],
+		"description": "Sleep for milliseconds"
+	},
+	"system": {
+		"prefix": "system",
+		"body": [
+			"system(${1:cCommand})"
+		],
+		"description": "Execute system command"
+	},
+	"sysunset": {
+		"prefix": "sysunset",
+		"body": [
+			"sysunset(${1:cVariable})"
+		],
+		"description": "Unset environment variable"
+	},
+	"tan": {
+		"prefix": "tan",
+		"body": [
+			"tan(${1:x})"
+		],
+		"description": "Tangent of an angle of x radians"
+	},
+	"tanh": {
+		"prefix": "tanh",
+		"body": [
+			"tanh(${1:x})"
+		],
+		"description": "The hyperbolic tangent of x radians"
+	},
+	"tempfile": {
+		"prefix": "tempfile",
+		"body": [
+			"tempfile()"
+		],
+		"description": "Create temporary file"
+	},
+	"tempname": {
+		"prefix": "tempname",
+		"body": [
+			"tempname()"
+		],
+		"description": "Generate temporary file name"
+	},
+	"time": {
+		"prefix": "time",
+		"body": [
+			"time()"
+		],
+		"description": "Get current time"
+	},
+	"timelist": {
+		"prefix": "timelist",
+		"body": [
+			"timelist()"
+		],
+		"description": "Get time list"
+	},
+	"trim": {
+		"prefix": "trim",
+		"body": [
+			"trim(${1:cString})"
+		],
+		"description": "Remove spaces from right and left"
+	},
+	"type": {
+		"prefix": "type",
+		"body": [
+			"type(${1:value})"
+		],
+		"description": "Get variable type"
+	},
+	"ungetc": {
+		"prefix": "ungetc",
+		"body": [
+			"ungetc(${1:FileHandle}, ${2:character})"
+		],
+		"description": "Push character back to stream"
+	},
+	"unsigned": {
+		"prefix": "unsigned",
+		"body": [
+			"unsigned(${1:nNum1}, ${2:nNum2}, ${3:cOperator})"
+		],
+		"description": "Perform operation using unsigned numbers"
+	},
+	"upper": {
+		"prefix": "upper",
+		"body": [
+			"upper(${1:cString})"
+		],
+		"description": "Convert string letters to UPPER case"
+	},
+	"uptime": {
+		"prefix": "uptime",
+		"body": [
+			"uptime()"
+		],
+		"description": "Get system uptime"
+	},
+	"variablepointer": {
+		"prefix": "variablepointer",
+		"body": [
+			"variablepointer(${1:cVariableName}, ${2:cPointerType})"
+		],
+		"description": "Get variable pointer"
+	},
+	"varptr": {
+		"prefix": "varptr",
+		"body": [
+			"varptr(${1:cVariableName}, ${2:cPointerType})"
+		],
+		"description": "Get variable pointer"
+	},
+	"version": {
+		"prefix": "version",
+		"body": [
+			"version(${1:[lPatch]})"
+		],
+		"description": "Get Ring version"
+	},
+	"windowsnl": {
+		"prefix": "windowsnl",
+		"body": [
+			"windowsnl()"
+		],
+		"description": "Get Windows new line"
+	},
+	"write": {
+		"prefix": "write",
+		"body": [
+			"write(${1:cFileName}, ${2:cString})"
+		],
+		"description": "Write to file"
+	}
+}
