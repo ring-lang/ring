@@ -107,6 +107,9 @@
               		  <li><a href="doc1.21.2/jsonlib.html">Using JSONLib</a></li>
               		  <li><a href="doc1.21.2/httplib.html">RingHTTPLib Extension</a></li> 
               		  <li><a href="doc1.21.2/libui.html">RingLibUI Extension</a></li> 
+              		  <li><a href="doc1.21.2/libuv.html">RingLibuv Extension</a></li> 
+              		  <li><a href="doc1.21.2/socket.html">RingSocket Extension</a></li> 
+              		  <li><a href="doc1.21.2/threads.html">RingThreads Extension</a></li> 
               		  <li><a href="doc1.21.2/performancetips.html">Performance Tips</a></li> 
               		  <li><a href="doc1.21.2/compiler.html">Command Line Options</a></li>              
 			  <li><a href="doc1.21.2/generalinfo.html">General Information</a></li>
