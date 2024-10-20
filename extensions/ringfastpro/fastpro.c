@@ -364,6 +364,9 @@ RING_FUNC(ring_updatelist)
             return ;
         }
     }
+    else if ( strcmp(cOperation,"serial") == 0 ) {
+        nOPCode += 800 ;
+    }
     else {
         RING_API_ERROR("The second parameter must be a string: [Set | Add | Sub | Mul | Div | Copy | Merge ]");
         return ;
@@ -737,6 +740,20 @@ RING_FUNC(ring_updatelist)
         case 705 :
             /* Merge Items */
 		RING_API_ERROR("The merge operation is not defined for all of the list items");
+            break ;
+        case 802 :
+            /* Serial Column */
+            for ( x = nStart ; x <= nEnd ; x++ ) {
+                if ( ring_list_islist(pList,x) ) {
+                    pSubList = ring_list_getlist(pList,x) ;
+                    if ( ring_list_getsize(pSubList) >= nCol ) {
+                        if ( ring_list_isdouble(pSubList,nCol) ) {
+                            ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,  
+				x + nValue);
+                        }
+                    }
+                }
+            }
             break ;
     }
 }
