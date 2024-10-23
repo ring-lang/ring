@@ -741,6 +741,16 @@ RING_FUNC(ring_updatelist)
             /* Merge Items */
 		RING_API_ERROR("The merge operation is not defined for all of the list items");
             break ;
+        case 801 :
+            /* Serial Row */
+            if ( ring_list_islist(pList,nRow) ) {
+                pRow2 = ring_list_getlist(pList,nRow) ;
+                for ( x = nStart ; x <= nEnd ; x++ ) {
+	                ring_list_setdouble_gc(pVM->pRingState,pRow2,x,
+				x+nValue);
+                }
+            }
+            break ;
         case 802 :
             /* Serial Column */
             for ( x = nStart ; x <= nEnd ; x++ ) {
