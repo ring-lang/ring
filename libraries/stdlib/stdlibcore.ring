@@ -345,7 +345,13 @@ Func Factorial n  if n = 0 return 1 ok nRes = 1 for t=1 to n nRes *= t next retu
 Func Fibonacci n
 	if n = 0 return 0 ok
 	if n = 1 return 1 ok 
-	if n > 1 return fibonacci(n-1) + fibonacci(n-2) ok
+	aFibRes = [ ["0", 0], ["1", 1] ]
+	if n > 1
+		for t=2 to n
+			aFibRes[""+t] = aFibRes[""+(t-1)] + aFibRes[""+(t-2)]
+		next 
+		return aFibRes[""+n]
+	ok
     
 /*
 	Function Name	: isprime
