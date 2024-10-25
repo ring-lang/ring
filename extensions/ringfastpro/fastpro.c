@@ -1131,6 +1131,12 @@ RING_FUNC(ring_updatebytescolumn)
 			aInsOPCode[nCurrentIns] = INS_MERGE;
 		} else if ( strcmp(cCommand,"copy") == 0 ) {
 			aInsOPCode[nCurrentIns] = INS_COPY;
+		} else if ( strcmp(cCommand,"serial") == 0 ) {
+			aInsOPCode[nCurrentIns] = INS_SERIAL;
+		} else if ( strcmp(cCommand,"pow") == 0 ) {
+			aInsOPCode[nCurrentIns] = INS_POW;
+		} else if ( strcmp(cCommand,"rem") == 0 ) {
+			aInsOPCode[nCurrentIns] = INS_REM;
 		}
 		aInsCol[nCurrentIns]    = nCol;
 		aInsiValue[nCurrentIns] = iValue;
@@ -1197,6 +1203,34 @@ RING_FUNC(ring_updatebytescolumn)
 					if ( dCalc > 1 ) dCalc = 1;
 				dCalc *= nDec;
 				pBytes[(x-1)+(iValue-1)] = (char) dCalc;
+			} else if ( aInsOPCode[nCurrentIns] == INS_SERIAL ) {
+				dCalc = (double) pBytes[(x-1)+(nCol-1)];
+				dCalc = dCalc / nDec;
+				dCalc = x+dValue;
+				if ( nDec != 1 )
+					if ( dCalc > 1 ) dCalc = 1;
+				dCalc *= nDec;
+				pBytes[(x-1)+(nCol-1)] = (char) dCalc;
+			} else if ( aInsOPCode[nCurrentIns] == INS_POW ) {
+				dCalc = (double) pBytes[(x-1)+(nCol-1)];
+				dCalc = dCalc / nDec;
+				dCalc = pow(dCalc,dValue);
+				if ( nDec != 1 )
+					if ( dCalc > 1 ) dCalc = 1;
+				dCalc *= nDec;
+				pBytes[(x-1)+(nCol-1)] = (char) dCalc;
+			} else if ( aInsOPCode[nCurrentIns] == INS_REM ) {
+       				if ( dValue == 0 ) {
+           					RING_API_ERROR("Can't divide by zero");
+           					return ;
+       				}
+				dCalc = (double) pBytes[(x-1)+(nCol-1)];
+				dCalc /= nDec;
+				(int) dCalc %= (int) dValue;
+				if ( nDec != 1 )
+					if ( dCalc > 1 ) dCalc = 1;
+				dCalc *= nDec;
+				pBytes[(x-1)+(nCol-1)] = (char) dCalc;
 			}				
 		}
 	}
