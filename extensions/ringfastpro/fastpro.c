@@ -367,6 +367,9 @@ RING_FUNC(ring_updatelist)
     else if ( strcmp(cOperation,"serial") == 0 ) {
         nOPCode += 800 ;
     }
+    else if ( strcmp(cOperation,"pow") == 0 ) {
+        nOPCode += 900 ;
+    }
     else {
         RING_API_ERROR("The second parameter must be a string: [Set | Add | Sub | Mul | Div | Copy | Merge ]");
         return ;
@@ -707,9 +710,10 @@ RING_FUNC(ring_updatelist)
                 pRow2 = ring_list_getlist(pList,iValue) ;
                 for ( x = nStart ; x <= nEnd ; x++ ) {
                     if ( x <= ring_list_getsize(pRow2) ) {
-			             if (ring_list_isdouble(pRow2,x)) {
-                             ring_list_setdouble_gc(pVM->pRingState,pRow,x, ring_list_getdouble(pRow,x) +
-									                                        ring_list_getdouble(pRow2,x));
+  	                if (ring_list_isdouble(pRow2,x)) {
+                             ring_list_setdouble_gc(pVM->pRingState,pRow,x, 
+				ring_list_getdouble(pRow,x) +
+                                ring_list_getdouble(pRow2,x));
 			}
                     }
                 }
@@ -722,8 +726,9 @@ RING_FUNC(ring_updatelist)
                     pSubList = ring_list_getlist(pList,x) ;
                     if ( (ring_list_getsize(pSubList) >= nCol) && (ring_list_getsize(pSubList) >= nValue) ) {
                         if ( ring_list_isdouble(pSubList,nCol) && ring_list_isdouble(pSubList,nValue) ) {
-                            ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,  ring_list_getdouble(pSubList,nCol) + 
-																				   ring_list_getdouble(pSubList,nValue));
+                            ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,  
+				ring_list_getdouble(pSubList,nCol) + 
+				ring_list_getdouble(pSubList,nValue));
                         }
                     }
                 }
@@ -762,6 +767,69 @@ RING_FUNC(ring_updatelist)
 				x + nValue);
                         }
                     }
+                }
+            }
+            break ;
+        /* Pow */
+        case 901 :
+            /* Pow Row */
+            for ( x = nStart ; x <= nEnd ; x++ ) {
+                if ( ring_list_isdouble(pRow,x) ) {
+                    ring_list_setdouble_gc(pVM->pRingState,pRow,x, 
+			pow(ring_list_getdouble(pRow,x),nValue) );
+                }
+            }
+            break ;						
+        case 902 :
+            /* Pow Col */
+            for ( x = nStart ; x <= nEnd ; x++ ) {
+                if ( ring_list_islist(pList,x) ) {
+                    pSubList = ring_list_getlist(pList,x) ;					
+                    if ( ring_list_getsize(pSubList) >= nCol ) {						
+                        if ( ring_list_isdouble(pSubList,nCol) ) {
+			    ring_list_setdouble_gc(pVM->pRingState,pSubList,dCol, 
+				pow(ring_list_getdouble(pSubList,nCol),nValue));
+                        }
+                    }
+                }
+            }
+            break ;
+        case 903 :
+            /* Pow cells in Many Rows */
+            for ( x = nStart ; x <= nEnd ; x++ ) {
+                if ( ring_list_islist(pList,x) ) {
+                    pRow = ring_list_getlist(pList,x) ;
+                    for ( y = 1 ; y <= ring_list_getsize(pRow) ; y++ ) {
+                        if ( ring_list_isdouble(pRow,y) ) {
+                            ring_list_setdouble_gc(pVM->pRingState,pRow,y,
+				pow(ring_list_getdouble(pRow,y),nValue) );
+                        }
+                    }
+                }
+            }
+            break ;
+        case 904 :
+            /* Pow cells in Many Columns */
+            for ( nCol = nStart ; nCol <= nEnd ; nCol++ ) {
+                for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
+                    if ( ring_list_islist(pList,x) ) {
+                        pSubList = ring_list_getlist(pList,x) ;
+                        if ( ring_list_getsize(pSubList) >= nCol ) {
+                            if ( ring_list_isdouble(pSubList,nCol) ) {
+                                ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
+					pow(ring_list_getdouble(pSubList,nCol),nValue));
+                            }
+                        }
+                    }
+                }
+            }
+            break ;
+        case 905 :
+            /* Pow Items */
+            for ( x = nStart ; x <= nEnd ; x++ ) {
+                if ( ring_list_isdouble(pList,x) ) {
+                    ring_list_setdouble_gc(pVM->pRingState,pList,x,
+			pow(ring_list_getdouble(pList,x),nValue));
                 }
             }
             break ;
