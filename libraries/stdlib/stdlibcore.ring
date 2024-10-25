@@ -333,7 +333,7 @@ Func LineCount text
 	Output		: factorial of a number.
 */
 
-Func Factorial n if n = 0 return 1 else return n * factorial(n-1) ok
+Func Factorial n  if n = 0 return 1 ok nRes = 1 for t=1 to n nRes *= t next return nRes
 
 /*
 	Function Name	: fibonacci
