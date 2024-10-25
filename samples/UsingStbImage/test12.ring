@@ -1,3 +1,6 @@
+# This version is slow because it will create the image from scratch in each frame!
+# For a faster version, check (test15.ring)
+
 width    = 640
 height   = 480
 channels = 3
