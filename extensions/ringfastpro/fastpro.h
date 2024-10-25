@@ -7,5 +7,8 @@ enum updateListInstructions {
 	INS_MUL,
 	INS_DIV,
 	INS_MERGE,
-	INS_COPY
+	INS_COPY,
+	INS_SERIAL,
+	INS_POW,
+	INS_REM
 };

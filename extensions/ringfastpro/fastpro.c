@@ -973,6 +973,12 @@ RING_FUNC(ring_updatecolumn)
 			aInsOPCode[nCurrentIns] = INS_MERGE;
 		} else if ( strcmp(cCommand,"copy") == 0 ) {
 			aInsOPCode[nCurrentIns] = INS_COPY;
+		} else if ( strcmp(cCommand,"serial") == 0 ) {
+			aInsOPCode[nCurrentIns] = INS_SERIAL;
+		} else if ( strcmp(cCommand,"pow") == 0 ) {
+			aInsOPCode[nCurrentIns] = INS_POW;
+		} else if ( strcmp(cCommand,"rem") == 0 ) {
+			aInsOPCode[nCurrentIns] = INS_REM;
 		}
 		aInsCol[nCurrentIns]    = nCol;
 		aInsiValue[nCurrentIns] = iValue;
@@ -1032,6 +1038,25 @@ RING_FUNC(ring_updatecolumn)
 							ring_list_setdouble_gc(pVM->pRingState,pSubList,iValue,
 							ring_list_getdouble(pSubList,nCol));
 						}
+					}
+				} else if ( aInsOPCode[nCurrentIns] == INS_SERIAL ) {
+					if ( ring_list_isdouble(pSubList,nCol) ) {
+						ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
+						x+dValue );
+					}
+				} else if ( aInsOPCode[nCurrentIns] == INS_POW ) {
+					if ( ring_list_isdouble(pSubList,nCol) ) {
+						ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
+						pow(ring_list_getdouble(pSubList,nCol),dValue) );
+					}
+				} else if ( aInsOPCode[nCurrentIns] == INS_REM ) {
+        				if ( dValue == 0 ) {
+            					RING_API_ERROR("Can't divide by zero");
+            					return ;
+        				}
+					if ( ring_list_isdouble(pSubList,nCol) ) {
+						ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
+						(int) ring_list_getdouble(pSubList,nCol) % (int) dValue);
 					}
 				}				
 			}
