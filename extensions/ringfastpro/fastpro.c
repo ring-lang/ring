@@ -370,6 +370,13 @@ RING_FUNC(ring_updatelist)
     else if ( strcmp(cOperation,"pow") == 0 ) {
         nOPCode += 900 ;
     }
+    else if ( strcmp(cOperation,"rem") == 0 ) {
+        nOPCode += 1000 ;
+        if ( nValue == 0 ) {
+            RING_API_ERROR("Can't divide by zero");
+            return ;
+        }
+    }
     else {
         RING_API_ERROR("The second parameter must be a string: [Set | Add | Sub | Mul | Div | Copy | Merge ]");
         return ;
@@ -833,6 +840,70 @@ RING_FUNC(ring_updatelist)
                 }
             }
             break ;
+        /* Rem */
+        case 1001 :
+            /* Rem Row */
+            for ( x = nStart ; x <= nEnd ; x++ ) {
+                if ( ring_list_isdouble(pRow,x) ) {
+                    ring_list_setdouble_gc(pVM->pRingState,pRow,x,
+			(int) ring_list_getdouble(pRow,x) % (int) nValue);
+                }
+            }
+            break ;
+        case 1002 :
+            /* Rem Col */
+            for ( x = nStart ; x <= nEnd ; x++ ) {
+                if ( ring_list_islist(pList,x) ) {
+                    pSubList = ring_list_getlist(pList,x) ;
+                    if ( ring_list_getsize(pSubList) >= nCol ) {
+                        if ( ring_list_isdouble(pSubList,nCol) ) {
+			    ring_list_setdouble_gc(pVM->pRingState,pSubList,dCol,
+				(int) ring_list_getdouble(pSubList,nCol) % (int) nValue);							
+                        }
+                    }
+                }
+            }
+            break ;
+        case 1003 :
+            /* Rem cells in Many Rows */
+            for ( x = nStart ; x <= nEnd ; x++ ) {
+                if ( ring_list_islist(pList,x) ) {
+                    pRow = ring_list_getlist(pList,x) ;
+                    for ( y = 1 ; y <= ring_list_getsize(pRow) ; y++ ) {
+                        if ( ring_list_isdouble(pRow,y) ) {
+                            ring_list_setdouble_gc(pVM->pRingState,pRow,y,
+				(int) ring_list_getdouble(pRow,y) % (int) nValue);
+                        }
+                    }
+                }
+            }
+            break ;
+        case 1004 :
+            /* Rem cells in Many Columns */
+            for ( nCol = nStart ; nCol <= nEnd ; nCol++ ) {
+                for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
+                    if ( ring_list_islist(pList,x) ) {
+                        pSubList = ring_list_getlist(pList,x) ;
+                        if ( ring_list_getsize(pSubList) >= nCol ) {
+                            if ( ring_list_isdouble(pSubList,nCol) ) {
+                                ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
+					(int) ring_list_getdouble(pSubList,nCol) % (int) nValue);
+                            }
+                        }
+                    }
+                }
+            }
+            break ;
+        case 1005 :
+            /* Rem Items */
+            for ( x = nStart ; x <= nEnd ; x++ ) {
+                if ( ring_list_isdouble(pList,x) ) {
+                    ring_list_setdouble_gc(pVM->pRingState,pList,x,
+			(int) ring_list_getdouble(pList,x) % (int) nValue);
+                }
+            }
+            break ;
+
     }
 }
 
