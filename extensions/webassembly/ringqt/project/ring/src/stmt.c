@@ -1204,20 +1204,20 @@ int ring_parser_list ( Parser *pParser )
 		ring_parser_icg_newoperation(pParser,ICO_LISTSTART);
 		ring_parser_nexttoken(pParser);
 		RING_PARSER_IGNORENEWLINE ;
-		if ( ring_parser_isoperator2(pParser,OP_LCLOSE) ) {
-			ring_parser_nexttoken(pParser);
-			/* Generate Code */
-			ring_parser_icg_newoperation(pParser,ICO_LISTEND);
-			RING_STATE_PRINTRULE(RING_RULE_LIST) ;
-			return RING_PARSER_OK ;
-		}
-		while ( 1 ) {
-			pParser->lAssignmentFlag = 0 ;
+		while ( RING_TRUE ) {
+			if ( ring_parser_isoperator2(pParser,OP_LCLOSE) ) {
+				ring_parser_nexttoken(pParser);
+				/* Generate Code */
+				ring_parser_icg_newoperation(pParser,ICO_LISTEND);
+				RING_STATE_PRINTRULE(RING_RULE_LIST) ;
+				return RING_PARSER_OK ;
+			}
+			pParser->lAssignmentFlag = RING_FALSE ;
 			if ( ring_parser_expr(pParser) ) {
 				/* Generate Code */
 				ring_parser_icg_listitem(pParser);
-				pParser->lNewObject = 0 ;
-				pParser->lAssignmentFlag = 1 ;
+				pParser->lNewObject = RING_FALSE ;
+				pParser->lAssignmentFlag = RING_TRUE ;
 				RING_PARSER_IGNORENEWLINE ;
 				if ( ring_parser_isoperator2(pParser,OP_COMMA) ) {
 					ring_parser_nexttoken(pParser);
