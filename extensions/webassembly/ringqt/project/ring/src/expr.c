@@ -402,7 +402,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 {
 	int x,x2,x3,nLastOperation,nCount,nNOOP,nToken,nMark,nFlag2,lThisOrSelfLoadA,lThisLoadA,lNewFrom,lAfterListEnd  ;
 	List *pLoadAPos, *pLoadAMark,*pList, *pMark,*pAssignmentPointerPos  ;
-	char lSetProperty,lequal,nBeforeEqual,lNewAfterEqual  ;
+	char lSetProperty,lequal,nBeforeEqual,lNewAfterEqual,lNegative  ;
 	char cFuncName[RING_MEDIUMBUF]  ;
 	char cKeyword[RING_MEDIUMBUF]  ;
 	/* Set Identifier Flag - is 1 when we have Factor -->Identifier */
@@ -682,17 +682,20 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			return RING_PARSER_OK ;
 		}
 	}
-	/* Factor --> Negative (-) Factor */
-	if ( ring_parser_isoperator2(pParser,OP_MINUS) ) {
+	/* Factor --> Negative (-) Factor  ||  Positive (+) Factor */
+	if ( ring_parser_isoperator2(pParser,OP_MINUS) || ring_parser_isoperator2(pParser,OP_PLUS) ) {
+		lNegative = ring_parser_isoperator2(pParser,OP_MINUS) ;
 		ring_parser_nexttoken(pParser);
 		x = ring_parser_factor(pParser,&nFlag2);
-		/* Generate Code */
-		ring_parser_icg_newoperation(pParser,ICO_NEG);
-		RING_STATE_PRINTRULE(RING_RULE_NEGATIVE) ;
+		if ( lNegative ) {
+			/* Generate Code */
+			ring_parser_icg_newoperation(pParser,ICO_NEG);
+			RING_STATE_PRINTRULE(RING_RULE_NEGATIVE) ;
+		}
 		return x ;
 	}
+	/* bitnot (~) Expr */
 	else if ( ring_parser_isoperator2(pParser,OP_BITNOT) ) {
-		/* bitnot (~) Expr */
 		ring_parser_nexttoken(pParser);
 		x = ring_parser_expr(pParser);
 		/* Generate Code */
