@@ -1226,7 +1226,7 @@ RING_FUNC(ring_updatebytescolumn)
        				}
 				dCalc = (double) pBytes[(x-1)+(nCol-1)];
 				dCalc /= nDec;
-				(int) dCalc %= (int) dValue;
+				dCalc = (int)dCalc % (int)dValue;
 				if ( nDec != 1 )
 					if ( dCalc > 1 ) dCalc = 1;
 				dCalc *= nDec;
