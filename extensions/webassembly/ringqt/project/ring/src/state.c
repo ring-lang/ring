@@ -587,7 +587,7 @@ void ring_state_segfaultaction ( int nSig )
 		printf( RING_SEGFAULT ) ;
 		printf( " : %d ",nSig ) ;
 	}
-	exit(RING_EXIT_OK);
+	exit(RING_EXIT_FAIL);
 }
 
 void ring_state_usageinfo ( void )
