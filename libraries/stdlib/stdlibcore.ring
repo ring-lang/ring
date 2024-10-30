@@ -980,12 +980,12 @@ func OSDeleteFolder cFolder
 	Copy File to the current directory
 */
 func OSCopyFile cFile
-	if len(cFile) >= 1
-		if cFile[1] != '"'
-			cFile = '"' + cFile + '"'
-		ok
-	ok
 	if isWindows()
+		if len(cFile) >= 1
+			if cFile[1] != '"'
+				cFile = '"' + cFile + '"'
+			ok
+		ok
 		cFile = substr(cFile,"/","\")
 		systemSilent("copy " + cFile)
 	else 
