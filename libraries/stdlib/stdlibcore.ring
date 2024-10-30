@@ -961,7 +961,7 @@ func OSCopyFolder cParentFolder,cFolder
 	if isWindows()
 		systemsilent("xcopy /e /y /j " + cCompleteFolderPath)
 	else 
-		systemsilent("cp -R " + cCompleteFolderPath + " ./")
+		systemsilent("cp -R " + cCompleteFolderPath + " ../")
 	ok
 	chdir(cCurrentFolder)
 
