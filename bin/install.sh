@@ -645,6 +645,8 @@ sudo cp extensions/ringtilengine/linux_tilengine/lib/*.so /usr/lib
 sudo cp extensions/ringtilengine/linux_tilengine/lib/*.so /usr/lib64
 fi
 
+# Make the RingPDFGen library ready for use directly
+
 if [ -f lib/libring_pdfgen.dylib ];
 then
 ln -sf "`pwd`/lib/libring_pdfgen.dylib" /usr/local/lib
