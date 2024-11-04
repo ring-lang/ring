@@ -644,3 +644,15 @@ sudo ln -sf "`pwd`/lib/libring_tilengine.so" /usr/lib64
 sudo cp extensions/ringtilengine/linux_tilengine/lib/*.so /usr/lib
 sudo cp extensions/ringtilengine/linux_tilengine/lib/*.so /usr/lib64
 fi
+
+if [ -f lib/libring_pdfgen.dylib ];
+then
+ln -sf "`pwd`/lib/libring_pdfgen.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_pdfgen.dylib
+fi
+
+if [ -f lib/libring_pdfgen.so ];
+then
+sudo ln -sf "`pwd`/lib/libring_pdfgen.so" /usr/lib
+sudo ln -sf "`pwd`/lib/libring_pdfgen.so" /usr/lib64
+fi
