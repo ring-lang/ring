@@ -1,0 +1,22 @@
+I want window and the window title   is Hello.
+I want label  and the label  caption is Welcome.
+I want button and the button caption is Close.
+
+The window back color is white.
+
+The window width is 350. and the window height is 200.
+
+The label font size is 50.
+The label width is 300. and the label height is 80.
+The label fore color is purple.
+The label back color is white.
+
+The button top is 100. and the button left is 20.
+The button width is 300. and the button name is btn1.
+The button fore color is purple.
+The button back color is white.
+
+Btn1 MouseClick. instructions are
+	You close window
+End of instructions
+
