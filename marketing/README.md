@@ -16,3 +16,5 @@ In this folder we have files related to the Ring language marketing
 - Chess 3D (Qt3D Sample)
 
 - PWCT Development
+
+- Research
