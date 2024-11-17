@@ -1,0 +1,711 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 0 , : y = 0  , 
+		 :width =  1609 , :height = 1188 , 
+		 :title =  "Ring Project Architecture" , 
+		 :backcolor =  "#00ffff" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "tools.png" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  ,
+		 :GUILibrary =  0  
+
+		]
+	],
+	[ :name = "Frame1" , :id = 2 , :classname = "formdesigner_qframe3" , :data = [
+		 :x = 7 , : y = 509  , 
+		 :width =  1574 , :height = 591 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "#ffffff" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :FrameType =  1
+		]
+	],
+	[ :name = "Frame7" , :id = 3 , :classname = "formdesigner_qframe3" , :data = [
+		 :x = 5 , : y = 9  , 
+		 :width =  1577 , :height = 220 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "#ffffff" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :FrameType =  1
+		]
+	],
+	[ :name = "Frame61" , :id = 4 , :classname = "formdesigner_qframe3" , :data = [
+		 :x = 267 , : y = 17  , 
+		 :width =  1303 , :height = 203 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "#00aaff" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :FrameType =  2
+		]
+	],
+	[ :name = "Frame5" , :id = 5 , :classname = "formdesigner_qframe3" , :data = [
+		 :x = 5 , : y = 232  , 
+		 :width =  1577 , :height = 264 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "#ffffff" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :FrameType =  2
+		]
+	],
+	[ :name = "Frame29" , :id = 6 , :classname = "formdesigner_qframe3" , :data = [
+		 :x = 517 , : y = 245  , 
+		 :width =  1053 , :height = 233 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "#00aaff" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :FrameType =  2
+		]
+	],
+	[ :name = "Frame24" , :id = 7 , :classname = "formdesigner_qframe3" , :data = [
+		 :x = 1193 , : y = 617  , 
+		 :width =  371 , :height = 263 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "#00aaff" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :FrameType =  2
+		]
+	],
+	[ :name = "Frame6" , :id = 8 , :classname = "formdesigner_qframe3" , :data = [
+		 :x = 815 , : y = 620  , 
+		 :width =  371 , :height = 260 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "#00aaff" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :FrameType =  2
+		]
+	],
+	[ :name = "Label1" , :id = 9 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 119 , : y = 552  , 
+		 :width =  231 , :height = 47 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "#ffffff" , 
+		 :font =  "Tahoma,18,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Language Layer",
+		 :textalign =  0
+		]
+	],
+	[ :name = "Label6" , :id = 10 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 101 , : y = 254  , 
+		 :width =  341 , :height = 37 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "#ffffff" , 
+		 :font =  "Tahoma,18,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Batteries Included Layer",
+		 :textalign =  0
+		]
+	],
+	[ :name = "Label8" , :id = 11 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 62 , : y = 84  , 
+		 :width =  171 , :height = 46 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "#ffffff" , 
+		 :font =  "Tahoma,18,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Tools Layer",
+		 :textalign =  0
+		]
+	],
+	[ :name = "Button1" , :id = 12 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 59 , : y = 630  , 
+		 :width =  331 , :height = 78 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "#75ffea" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Visual Implementation",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button12" , :id = 13 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 433 , : y = 533  , 
+		 :width =  371 , :height = 78 , 
+		 :textcolor =  "white" , 
+		 :backcolor =  "#263796" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Loader",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button13" , :id = 14 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 815 , : y = 531  , 
+		 :width =  371 , :height = 78 , 
+		 :textcolor =  "white" , 
+		 :backcolor =  "#263796" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Compiler",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button14" , :id = 15 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 1193 , : y = 532  , 
+		 :width =  371 , :height = 78 , 
+		 :textcolor =  "white" , 
+		 :backcolor =  "#263796" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Virtual Machine (VM)",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button15" , :id = 16 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 59 , : y = 954  , 
+		 :width =  331 , :height = 78 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Automated Tests",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button6" , :id = 17 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 832 , : y = 631  , 
+		 :width =  339 , :height = 72 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Scanner",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button17" , :id = 18 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 832 , : y = 710  , 
+		 :width =  339 , :height = 72 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Parser",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button18" , :id = 19 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 832 , : y = 788  , 
+		 :width =  339 , :height = 72 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Code Generator",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button19" , :id = 20 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 1209 , : y = 788  , 
+		 :width =  109 , :height = 72 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "API",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button20" , :id = 21 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 1209 , : y = 710  , 
+		 :width =  339 , :height = 72 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "VM Modules",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button21" , :id = 22 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 1209 , : y = 631  , 
+		 :width =  339 , :height = 72 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Execution Loop",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button22" , :id = 23 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 1329 , : y = 788  , 
+		 :width =  219 , :height = 72 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Built-in Functions",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Frame25" , :id = 24 , :classname = "formdesigner_qframe3" , :data = [
+		 :x = 433 , : y = 617  , 
+		 :width =  371 , :height = 263 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "#00aaff" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :FrameType =  2
+		]
+	],
+	[ :name = "Button26" , :id = 25 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 450 , : y = 631  , 
+		 :width =  339 , :height = 72 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "System State",
+		 :BtnImage =  "",
+		 :setClickEvent =  "System_State"
+		]
+	],
+	[ :name = "Button27" , :id = 26 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 450 , : y = 710  , 
+		 :width =  339 , :height = 72 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Code/ByteCode File Handler",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button28" , :id = 27 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 450 , : y = 788  , 
+		 :width =  339 , :height = 72 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Code/ByteCode String Handler",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Image1" , :id = 28 , :classname = "formdesigner_qimage" , :data = [
+		 :x = 1185 , : y = 251  , 
+		 :width =  374 , :height = 220 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :imagefile =  "extensions.png"
+		]
+	],
+	[ :name = "btnbind" , :id = 29 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 31 , : y = 394  , 
+		 :width =  271 , :height = 78 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "#75ffea" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Binding Generator",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "btnext" , :id = 30 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 317 , : y = 394  , 
+		 :width =  181 , :height = 78 , 
+		 :textcolor =  "white" , 
+		 :backcolor =  "#263796" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Extensions",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "btnlib" , :id = 31 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 32 , : y = 310  , 
+		 :width =  465 , :height = 78 , 
+		 :textcolor =  "white" , 
+		 :backcolor =  "#263796" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Libraries",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button30" , :id = 32 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 858 , : y = 260  , 
+		 :width =  149 , :height = 72 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "GUI",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button31" , :id = 33 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 699 , : y = 344  , 
+		 :width =  149 , :height = 72 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "DB",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button32" , :id = 34 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 858 , : y = 344  , 
+		 :width =  149 , :height = 72 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Graphics",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button33" , :id = 35 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 1017 , : y = 344  , 
+		 :width =  149 , :height = 72 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Network",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button34" , :id = 36 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 540 , : y = 260  , 
+		 :width =  149 , :height = 72 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "CSV",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button35" , :id = 37 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 699 , : y = 260  , 
+		 :width =  149 , :height = 72 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "JSON",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button36" , :id = 38 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 540 , : y = 344  , 
+		 :width =  149 , :height = 72 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "PDF",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button37" , :id = 39 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 1017 , : y = 260  , 
+		 :width =  149 , :height = 72 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Game Engine",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Frame39" , :id = 40 , :classname = "formdesigner_qframe3" , :data = [
+		 :x = 777 , : y = 435  , 
+		 :width =  29 , :height = 30 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :FrameType =  0
+		]
+	],
+	[ :name = "Frame40" , :id = 41 , :classname = "formdesigner_qframe3" , :data = [
+		 :x = 818 , : y = 435  , 
+		 :width =  27 , :height = 30 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :FrameType =  0
+		]
+	],
+	[ :name = "Frame41" , :id = 42 , :classname = "formdesigner_qframe3" , :data = [
+		 :x = 855 , : y = 435  , 
+		 :width =  29 , :height = 30 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :FrameType =  0
+		]
+	],
+	[ :name = "Frame42" , :id = 43 , :classname = "formdesigner_qframe3" , :data = [
+		 :x = 893 , : y = 435  , 
+		 :width =  29 , :height = 30 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :FrameType =  0
+		]
+	],
+	[ :name = "Button44" , :id = 44 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 59 , : y = 846  , 
+		 :width =  331 , :height = 78 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Build Scripts",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button45" , :id = 45 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 282 , : y = 29  , 
+		 :width =  201 , :height = 78 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Code Editor",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button46" , :id = 46 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 493 , : y = 29  , 
+		 :width =  201 , :height = 78 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Form Designer",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button47" , :id = 47 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 914 , : y = 30  , 
+		 :width =  201 , :height = 78 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Find In Files",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button48" , :id = 48 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 704 , : y = 124  , 
+		 :width =  201 , :height = 78 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "REPL",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button49" , :id = 49 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 915 , : y = 124  , 
+		 :width =  201 , :height = 78 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Ring2EXE",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button50" , :id = 50 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 493 , : y = 124  , 
+		 :width =  201 , :height = 78 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Debugger",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button51" , :id = 51 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 282 , : y = 124  , 
+		 :width =  201 , :height = 78 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Package Manager",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button52" , :id = 52 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 704 , : y = 29  , 
+		 :width =  201 , :height = 78 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Web Tools",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Frame53" , :id = 53 , :classname = "formdesigner_qframe3" , :data = [
+		 :x = 1139 , : y = 57  , 
+		 :width =  29 , :height = 30 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :FrameType =  0
+		]
+	],
+	[ :name = "Frame54" , :id = 54 , :classname = "formdesigner_qframe3" , :data = [
+		 :x = 1139 , : y = 103  , 
+		 :width =  29 , :height = 30 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :FrameType =  0
+		]
+	],
+	[ :name = "Frame55" , :id = 55 , :classname = "formdesigner_qframe3" , :data = [
+		 :x = 1138 , : y = 148  , 
+		 :width =  29 , :height = 30 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :FrameType =  0
+		]
+	],
+	[ :name = "Image54" , :id = 56 , :classname = "formdesigner_qimage" , :data = [
+		 :x = 1204 , : y = 25  , 
+		 :width =  344 , :height = 190 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :imagefile =  "tools.png"
+		]
+	],
+	[ :name = "Button55" , :id = 57 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 433 , : y = 899  , 
+		 :width =  1131 , :height = 78 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "#263796" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "General Library",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Frame56" , :id = 58 , :classname = "formdesigner_qframe3" , :data = [
+		 :x = 433 , : y = 988  , 
+		 :width =  1131 , :height = 83 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "#00aaff" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :FrameType =  2
+		]
+	],
+	[ :name = "Button57" , :id = 59 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 450 , : y = 994  , 
+		 :width =  339 , :height = 72 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Common Data Structures",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button58" , :id = 60 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 832 , : y = 994  , 
+		 :width =  339 , :height = 72 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Memory Pool",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button59" , :id = 61 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 1209 , : y = 993  , 
+		 :width =  339 , :height = 72 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Utility Functions",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button60" , :id = 62 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 59 , : y = 737  , 
+		 :width =  331 , :height = 78 , 
+		 :textcolor =  "white" , 
+		 :backcolor =  "#263796" , 
+		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Generated Code (ANSI C)",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	]
+]
+# End Form Designer File
