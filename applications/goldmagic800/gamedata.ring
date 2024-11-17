@@ -103,8 +103,9 @@ class GameData from GameBase
 		bitmapnewwall	texturenewWall
 		bitmapMainMenu	textureMainMenu
 		bitmapLogo	bitmapStoryBackGround
-				bitmapStoryBackGround2
-				bitmapStoryBackGround3
+		bitmapStoryBackGround2
+		bitmapStoryBackGround3
+		bitmapsoGoodBack
 		bitmapManyGold
 		bitmapTheBox
 		bitmapGameEnv

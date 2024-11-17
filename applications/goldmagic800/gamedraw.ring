@@ -13,7 +13,7 @@ Class GameDraw
 		if nLevel % 2
 			DrawFullScreenImage(bitmapStoryBackground2,SCREEN_W,SCREEN_H)
 		else 
-			DrawFullScreenImage(bitmap,SCREEN_W,SCREEN_H)
+			DrawFullScreenImage(bitmapSoGoodBack,SCREEN_W,SCREEN_H)
 		ok
 
 	func DrawWinBackGroundImage
