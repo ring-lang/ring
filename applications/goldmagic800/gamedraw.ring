@@ -10,10 +10,15 @@ Class GameDraw
 		al_get_bitmap_height(oBitmap),0,0,nWidth,nHeight,1)
 
 	func DrawBackGroundImage
-		if nLevel % 2
-			DrawFullScreenImage(bitmapStoryBackground2,SCREEN_W,SCREEN_H)
+
+		if true
+			if nLevel % 2
+				DrawFullScreenImage(bitmapStoryBackground2,SCREEN_W,SCREEN_H)
+			else 
+				DrawFullScreenImage(bitmapSoGoodBack,SCREEN_W,SCREEN_H)
+			ok
 		else 
-			DrawFullScreenImage(bitmapSoGoodBack,SCREEN_W,SCREEN_H)
+			DrawFullScreenImage(bitmap,SCREEN_W,SCREEN_H)
 		ok
 
 	func DrawWinBackGroundImage
