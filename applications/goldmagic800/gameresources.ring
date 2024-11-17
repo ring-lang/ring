@@ -15,8 +15,13 @@ class GameResources
 		fontArial172 	= al_load_ttf_font("font/arial.ttf",172,0 )
 		CheckFatalError(fontArial172,"Can't load the font file font/arial.ttf - Font Size : 172 ")
 
-		bitmap 	= al_load_bitmap("images/playback.jpg")
-		CheckFatalError(bitmap,"Can't load the image file images/playback.jpg")
+		if false 
+			bitmap 	= al_load_bitmap("images/playback.jpg")
+			CheckFatalError(bitmap,"Can't load the image file images/playback.jpg")
+		else 
+			bitmap 	= al_load_bitmap("images/storyback2.jpg")
+			CheckFatalError(bitmap,"Can't load the image file images/playback.jpg")
+		ok
 		texture = al_get_opengl_texture(bitmap)
 
 		bitmapWinBackground 	= al_load_bitmap("images/winback.jpg")
