@@ -83,7 +83,7 @@ int main(int argc, char *argv[])
     	waiting.show();
     #endif
 
-    // Create Ring State and register functions
+    // Create Ring State
     RingState *pRingState;
     pRingState = ring_state_new();
 
