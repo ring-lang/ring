@@ -68,24 +68,6 @@ extern "C" {
 void ringapp_delete_file(QString path,const char *cFile) ;
 void ringapp_deleteappfiles(void) ;
 
-RING_FUNC(ring_loadlib)
-{
-    // Just a prototype to pass functions calls to loadlib() from Ring Object File
-    // We don't need loadlib() because ring_qt.cpp is already embedded in the Qt project
-}
-
-RING_FUNC(ring_ismobileqt)
-{
-    // A function used by RingQt (Appfile() function) to access files using resources
-    RING_API_RETNUMBER(1);
-}
-
-RING_FUNC(ring_qDebug)
-{
-    // A function used by RingQt (Appfile() function) to access files using resources
-    qDebug( "%s", RING_API_GETSTRING(1) );
-}
-
 int main(int argc, char *argv[])
 {
 
@@ -104,9 +86,6 @@ int main(int argc, char *argv[])
     // Create Ring State and register functions
     RingState *pRingState;
     pRingState = ring_state_new();
-    RING_API_REGISTER("loadlib",ring_loadlib);
-    RING_API_REGISTER("ismobileqt",ring_ismobileqt);
-    RING_API_REGISTER("qdebug",ring_qDebug);
 
     // Set the application folder
     QString path ;
@@ -166,4 +145,24 @@ void ringapp_deleteappfiles(void)
     path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) ;
     QDir::setCurrent(path);
     ringapp_delete_file(path,"ringapp.ringo");
+}
+
+// Custom functions (See ring/src/ext.c for RING_API_REGISTER usage)
+
+RING_FUNC(ring_loadlib)
+{
+    // Just a prototype to pass functions calls to loadlib() from Ring Object File
+    // We don't need loadlib() because ring_qt.cpp is already embedded in the Qt project
+}
+
+RING_FUNC(ring_ismobileqt)
+{
+    // A function used by RingQt (Appfile() function) to access files using resources
+    RING_API_RETNUMBER(1);
+}
+
+RING_FUNC(ring_qDebug)
+{
+    // A function used by RingQt (Appfile() function) to access files using resources
+    qDebug( "%s", RING_API_GETSTRING(1) );
 }
