@@ -1,7 +1,7 @@
 /* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
 
-#define RINGFORMOBILE_CLEARSCREEN	0
-#define RINGFORMOBILE_WRITERINGOFILE	0
+#define RINGFORWEBASM_CLEARSCREEN	0
+#define RINGFORWEBASM_WRITERINGOFILE	0
 
 #include <QApplication>
 #include <QWidget>
@@ -68,31 +68,6 @@ extern "C" {
 void ringapp_delete_file(QString path,const char *cFile) ;
 void ringapp_deleteappfiles(void) ;
 
-RING_FUNC(ring_loadlib)
-{
-    // Just a prototype to pass functions calls to loadlib() from Ring Object File
-    // We don't need loadlib() because ring_qt.cpp is already embedded in the Qt project
-}
-
-RING_FUNC(ring_ismobileqt)
-{
-    // A function used by RingQt (Appfile() function) to access files using resources
-    RING_API_RETNUMBER(0);
-}
-
-RING_FUNC(ring_iswebassemblyqt)
-{
-    // A function used by RingQt (Appfile() function) to access files using resources
-    RING_API_RETNUMBER(1);
-}
-
-
-RING_FUNC(ring_qDebug)
-{
-    // A function used by RingQt (Appfile() function) to access files using resources
-    qDebug( "%s", RING_API_GETSTRING(1) );
-}
-
 int main(int argc, char *argv[])
 {
 
@@ -102,26 +77,22 @@ int main(int argc, char *argv[])
 	QtWebEngine::initialize();
     #endif
 	
-    #if RINGFORMOBILE_CLEARSCREEN == 1
+    #if RINGFORWEBASM_CLEARSCREEN == 1
     	QWidget waiting ;
     	waiting.setStyleSheet("background-color:black;");
     	waiting.show();
     #endif
 
-    // Create Ring State and register functions
+    // Create Ring State 
     RingState *pRingState;
     pRingState = ring_state_new();
-    RING_API_REGISTER("loadlib",ring_loadlib);
-    RING_API_REGISTER("ismobileqt",ring_ismobileqt);
-    RING_API_REGISTER("iswebassemblyqt",ring_iswebassemblyqt);
-    RING_API_REGISTER("qdebug",ring_qDebug);
 
     // Set the application folder
     QString path ;
     path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) ;
     QDir::setCurrent(path);
 
-    #if RINGFORMOBILE_WRITERINGOFILE == 1
+    #if RINGFORWEBASM_WRITERINGOFILE == 1
 
     	// Delete the application files
 	ringapp_deleteappfiles();
@@ -174,4 +145,32 @@ void ringapp_deleteappfiles(void)
     path = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) ;
     QDir::setCurrent(path);
     ringapp_delete_file(path,"ringapp.ringo");
+}
+
+
+// Custom Functions (See ring/src/ext.c for RING_API_REGISTER usage)
+
+RING_FUNC(ring_loadlib)
+{
+    // Just a prototype to pass functions calls to loadlib() from Ring Object File
+    // We don't need loadlib() because ring_qt.cpp is already embedded in the Qt project
+}
+
+RING_FUNC(ring_ismobileqt)
+{
+    // A function used by RingQt (Appfile() function) to access files using resources
+    RING_API_RETNUMBER(0);
+}
+
+RING_FUNC(ring_iswebassemblyqt)
+{
+    // A function used by RingQt (Appfile() function) to access files using resources
+    RING_API_RETNUMBER(1);
+}
+
+
+RING_FUNC(ring_qDebug)
+{
+    // A function used by RingQt (Appfile() function) to access files using resources
+    qDebug( "%s", RING_API_GETSTRING(1) );
 }
