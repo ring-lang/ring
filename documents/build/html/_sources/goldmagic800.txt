@@ -37,7 +37,7 @@ Your mission is to solve all of these puzzles and get this box forever to be the
 How to play?
 ============
 
-The Gold Magic 800 is a puzzle game that will teach your unconscious mind to think like an entrepreneur.
+The Gold Magic 800 is a puzzle game about moving your box through the right way.
 
 The game is based on moving your box around to get gold score (=800) to open the 
 First Door (Box Number 1) Then directly put your box on the Door (this will open the next door), 
@@ -76,7 +76,7 @@ We can select the level
 .. image:: gmshot2.png
 	:alt: Gold Magic 800 - Screen Shot 2
 
-The next screen shot for level (1)
+The next screen shot for level (31)
 
 .. image:: gmshot3.png
 	:alt: Gold Magic 800 - Screen Shot 3
