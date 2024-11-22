@@ -35,8 +35,8 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Frame61" , :id = 4 , :classname = "formdesigner_qframe3" , :data = [
-		 :x = 267 , : y = 17  , 
-		 :width =  1303 , :height = 203 , 
+		 :x = 517 , : y = 17  , 
+		 :width =  1054 , :height = 203 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "#00aaff" , 
 		 :font =  "Arial" , 
@@ -107,7 +107,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Label8" , :id = 11 , :classname = "formdesigner_qlabel" , :data = [
-		 :x = 62 , : y = 84  , 
+		 :x = 182 , : y = 84  , 
 		 :width =  171 , :height = 46 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "#ffffff" , 
@@ -502,8 +502,8 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Button45" , :id = 45 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 282 , : y = 29  , 
-		 :width =  201 , :height = 78 , 
+		 :x = 541 , : y = 29  , 
+		 :width =  221 , :height = 78 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "" , 
 		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
@@ -514,8 +514,8 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Button46" , :id = 46 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 493 , : y = 29  , 
-		 :width =  201 , :height = 78 , 
+		 :x = 794 , : y = 29  , 
+		 :width =  221 , :height = 78 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "" , 
 		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
@@ -526,8 +526,8 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Button47" , :id = 47 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 914 , : y = 30  , 
-		 :width =  201 , :height = 78 , 
+		 :x = 1294 , : y = 29  , 
+		 :width =  221 , :height = 78 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "" , 
 		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
@@ -538,8 +538,8 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Button48" , :id = 48 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 704 , : y = 124  , 
-		 :width =  201 , :height = 78 , 
+		 :x = 1045 , : y = 124  , 
+		 :width =  221 , :height = 78 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "" , 
 		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
@@ -550,8 +550,8 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Button49" , :id = 49 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 915 , : y = 124  , 
-		 :width =  201 , :height = 78 , 
+		 :x = 1294 , : y = 124  , 
+		 :width =  221 , :height = 78 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "" , 
 		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
@@ -562,8 +562,8 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Button50" , :id = 50 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 493 , : y = 124  , 
-		 :width =  201 , :height = 78 , 
+		 :x = 794 , : y = 124  , 
+		 :width =  221 , :height = 78 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "" , 
 		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
@@ -574,8 +574,8 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Button51" , :id = 51 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 282 , : y = 124  , 
-		 :width =  201 , :height = 78 , 
+		 :x = 541 , : y = 124  , 
+		 :width =  221 , :height = 78 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "" , 
 		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
@@ -586,8 +586,8 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Button52" , :id = 52 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 704 , : y = 29  , 
-		 :width =  201 , :height = 78 , 
+		 :x = 1045 , : y = 29  , 
+		 :width =  221 , :height = 78 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "" , 
 		 :font =  "Tahoma,14,-1,5,50,0,0,0,0,0,Regular" , 
@@ -598,7 +598,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Frame53" , :id = 53 , :classname = "formdesigner_qframe3" , :data = [
-		 :x = 1139 , : y = 57  , 
+		 :x = 1532 , : y = 57  , 
 		 :width =  29 , :height = 30 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "" , 
@@ -608,7 +608,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Frame54" , :id = 54 , :classname = "formdesigner_qframe3" , :data = [
-		 :x = 1139 , : y = 103  , 
+		 :x = 1532 , : y = 103  , 
 		 :width =  29 , :height = 30 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "" , 
@@ -618,23 +618,13 @@ aObjectsList = [
 		]
 	],
 	[ :name = "Frame55" , :id = 55 , :classname = "formdesigner_qframe3" , :data = [
-		 :x = 1138 , : y = 148  , 
+		 :x = 1531 , : y = 148  , 
 		 :width =  29 , :height = 30 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :FrameType =  0
-		]
-	],
-	[ :name = "Image54" , :id = 56 , :classname = "formdesigner_qimage" , :data = [
-		 :x = 1204 , : y = 25  , 
-		 :width =  344 , :height = 190 , 
-		 :textcolor =  "" , 
-		 :backcolor =  "" , 
-		 :font =  "Arial" , 
-		 :parent =  "win"  ,
-		 :imagefile =  "tools.png"
 		]
 	],
 	[ :name = "Button55" , :id = 57 , :classname = "formdesigner_qpushbutton" , :data = [
