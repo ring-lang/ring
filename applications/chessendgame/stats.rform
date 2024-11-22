@@ -2,7 +2,7 @@
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
 		 :x = -139 , : y = -39  , 
-		 :width =  1079 , :height = 634 , 
+		 :width =  1079 , :height = 659 , 
 		 :title =  "Statistics" , 
 		 :backcolor =  "" , 
 		 :windowflags =  "Qt_Window | Qt_WindowTitleHint | Qt_WindowCloseButtonHint | Qt_CustomizeWindowHint" , 
@@ -16,7 +16,7 @@ aObjectsList = [
 	],
 	[ :name = "StatsTableWidget" , :id = 2 , :classname = "formdesigner_qtablewidget" , :data = [
 		 :x = 12 , : y = 28  , 
-		 :width =  422 , :height = 564 , 
+		 :width =  422 , :height = 574 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
