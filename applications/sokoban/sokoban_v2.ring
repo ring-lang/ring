@@ -341,13 +341,13 @@ func DisplayYouWin oGame
 func NewButton oGame,nX,nY,nWidth,nHeight,cText,cFunc
     oGame {
         Object {
-                        x = nX y=nY width = nWidth height=nHeight
+            x = nX y=nY width = nWidth height=nHeight
             AddAttribute(self,:Text)
             AddAttribute(self,:EventCode)
             Text = cText
             EventCode = cFunc
-                        draw = func oGame,oSelf {
-                                oSelf {
+            draw = func oGame,oSelf {
+                oSelf {
                     gl_draw_filled_rectangle(x,y,x+width,y+height,gl_map_rgb(0,100,255))
                     gl_draw_rectangle(x,y,x+width,y+height,gl_map_rgb(0,0,0),2)
                     oFont = oResources.LoadFont("fonts/pirulen.ttf",20)
