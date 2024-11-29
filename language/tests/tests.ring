@@ -597,6 +597,7 @@ aTests = [
 	[ :name = "General Tests (Part 218)", :Command = "ring general/testprint4.ring" ],
 	[ :name = "General Tests (Part 219)", :Command = "ring general/plus.ring" ],
 	[ :name = "General Tests (Part 220)", :Command = "ring general/trailingcomma.ring" ],
+	[ :name = "General Tests (Part 221)", :Command = "ring general/andorprecedance.ring" ],
 	[ :name = "Using lists during definition (Part 1)", :Command = "ring listsduringdef/usinglistduringdef.ring" ],
 	[ :name = "Using lists during definition (Part 2)", :Command = "ring listsduringdef/usinglistduringdef2.ring" ],
 	[ :name = "Using lists during definition (Part 3)", :Command = "ring listsduringdef/usinglistduringdef3.ring" ],
