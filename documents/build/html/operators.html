@@ -574,16 +574,19 @@ lower precedence.</p>
 </tr>
 <tr class="row-even"><td><p>not   !</p></td>
 </tr>
-<tr class="row-odd"><td><p>and   or   &amp;&amp;    ||</p></td>
+<tr class="row-odd"><td><p>and   &amp;&amp;</p></td>
 </tr>
-<tr class="row-even"><td><p>Assignment = += -= *= /= %=&gt;&gt;= &lt;&lt;= &amp;= ^= |=</p></td>
+<tr class="row-even"><td><p>or   ||</p></td>
 </tr>
-<tr class="row-odd"><td><p>?</p></td>
+<tr class="row-odd"><td><p>Assignment = += -= *= /= %=&gt;&gt;= &lt;&lt;= &amp;= ^= |=</p></td>
+</tr>
+<tr class="row-even"><td><p>?</p></td>
 </tr>
 </tbody>
 </table>
 <p>Example (1):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="mi">3</span><span class="o">+</span><span class="mi">5</span><span class="o">*</span><span class="mi">4</span>       <span class="c"># prints 23</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="mi">3</span><span class="o">+</span><span class="mi">5</span><span class="o">*</span><span class="mi">4</span>                         <span class="c"># prints 23</span>
+<span class="o">?</span> <span class="kp">True</span> <span class="ow">or</span> <span class="kp">False</span> <span class="ow">and</span> <span class="kp">False</span>       <span class="c"># prints 1 (True)</span>
 </pre></div>
 </div>
 </section>
