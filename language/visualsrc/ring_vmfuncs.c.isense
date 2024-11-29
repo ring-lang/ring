@@ -24,6 +24,8 @@ Type: List *
 pList
 Type: FuncCall *
 pFuncCall
+Type: void *
+pThisObject, *pCallerThisObject
 ring_vm_returnn
 ring_vm_returnnull
 ring_vm_newfunc

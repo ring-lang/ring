@@ -305,6 +305,8 @@ void ring_vm_return ( VM *pVM )
 {
 	List *pList  ;
 	FuncCall *pFuncCall  ;
+	void *pThisObject, *pCallerThisObject  ;
+	pThisObject = ring_list_getpointer(ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_THIS) ,RING_VAR_VALUE) ;
 	/* Support for nested "Load" instructions */
 	if ( pVM->nBlockCounter >= 1 ) {
 		ring_vm_removeblockflag(pVM);
@@ -359,11 +361,6 @@ void ring_vm_return ( VM *pVM )
 			if ( ring_vm_isstackpointertoobjstate(pVM) == 0 ) {
 				ring_vm_movetoprevscope(pVM,RING_FUNCTYPE_SCRIPT);
 			}
-			else {
-				if ( (pVM->nRetItemRef == 0) && (pVM->nLoadAddressScope == RING_VARSCOPE_OBJSTATE) ) {
-					pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
-				}
-			}
 		}
 		ring_vm_deletescope(pVM);
 		/* Restore State */
@@ -385,6 +382,16 @@ void ring_vm_return ( VM *pVM )
 		if ( RING_VM_FUNCCALLSCOUNT > 0 ) {
 			pFuncCall = RING_VM_LASTFUNCCALL ;
 			pVM->nFuncSP = pFuncCall->nSP ;
+			pCallerThisObject = ring_list_getpointer(ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_THIS) ,RING_VAR_VALUE) ;
+			if ( (! (pFuncCall->lMethod && (pThisObject == pCallerThisObject) ) ) && (pVM->nRetItemRef == 0) && (pVM->nLoadAddressScope == RING_VARSCOPE_OBJSTATE) ) {
+				/*
+				**  When we return object attribute that contains a list by reference 
+				**  We keep supporting this from multiple methods calls (From the same class) 
+				**  But we disable this if we have a call from a function (not method) 
+				**  Or we have a call from a method in another class 
+				*/
+				pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
+			}
 		}
 		else {
 			pVM->nFuncSP = 0 ;
