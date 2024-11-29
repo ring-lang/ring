@@ -145,6 +145,7 @@
 	#define RING_RULE_PARALISTEPSILON "Rule : ParaList --> Epsilon"
 	#define RING_RULE_PARALISTIDENTIFIER "Rule : ParaList --> Identifier {',' Identifier}"
 	#define RING_RULE_LIST "Rule : List --> '[' Expr { ',' Expr } ']'"
+	#define RING_RULE_EXPRISLOGICAND "Rule : Expr --> LogicAND"
 	#define RING_RULE_EXPRISLOGICNOT "Rule : Expr --> LogicNot"
 	#define RING_RULE_EXPRANDEXPR "Rule : Expr --> Expr 'And' Expr"
 	#define RING_RULE_EXPROREXPR "Rule : Expr --> Expr 'Or' Expr"
@@ -221,6 +222,8 @@
 	int ring_parser_paralist ( Parser *pParser ) ;
 
 	int ring_parser_expr ( Parser *pParser ) ;
+
+	int ring_parser_logicand ( Parser *pParser ) ;
 
 	int ring_parser_logicnot ( Parser *pParser ) ;
 

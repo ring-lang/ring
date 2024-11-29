@@ -6,43 +6,54 @@ int ring_parser_expr ( Parser *pParser )
 {
 	int x,nMark  ;
 	List *pMark  ;
-	/* Expr --> LogicNot { and|or LogicNot } */
+	/* Expr --> LogicAnd { or LogicAnd } */
+	if ( ring_parser_logicand(pParser) ) {
+		x = 1 ;
+		RING_STATE_PRINTRULE(RING_RULE_EXPRISLOGICAND) ;
+		while ( ring_parser_iskeyword(pParser,K_OR) || ring_parser_isoperator2(pParser,OP_LOGOR) ) {
+			/* Generate Code */
+			ring_parser_icg_newoperation(pParser,ICO_JUMPONE2);
+			pMark = ring_parser_icg_getactiveoperation(pParser);
+			ring_parser_nexttoken(pParser);
+			RING_PARSER_IGNORENEWLINE ;
+			x = ring_parser_logicand(pParser);
+			if ( x == RING_PARSER_FAIL ) {
+				return RING_PARSER_FAIL ;
+			}
+			RING_STATE_PRINTTWORULES(RING_RULE_EXPRISLOGICNOT,RING_RULE_EXPROREXPR) ;
+			/* Generate Code */
+			ring_parser_icg_newoperation(pParser,ICO_OR);
+			nMark = ring_parser_icg_newlabel(pParser);
+			ring_parser_icg_addoperandint(pParser,pMark,nMark);
+		}
+		return x ;
+	}
+	return RING_PARSER_FAIL ;
+}
+
+int ring_parser_logicand ( Parser *pParser )
+{
+	int x,nMark  ;
+	List *pMark  ;
+	/* Expr --> LogicNot { and LogicNot } */
 	if ( ring_parser_logicnot(pParser) ) {
 		x = 1 ;
 		RING_STATE_PRINTRULE(RING_RULE_EXPRISLOGICNOT) ;
-		while ( ring_parser_iskeyword(pParser,K_AND) || ring_parser_isoperator2(pParser,OP_LOGAND)  || ring_parser_iskeyword(pParser,K_OR) || ring_parser_isoperator2(pParser,OP_LOGOR) ) {
-			if ( ring_parser_iskeyword(pParser,K_AND) || ring_parser_isoperator2(pParser,OP_LOGAND) ) {
-				/* Generate Code */
-				ring_parser_icg_newoperation(pParser,ICO_JUMPZERO2);
-				pMark = ring_parser_icg_getactiveoperation(pParser);
-				ring_parser_nexttoken(pParser);
-				RING_PARSER_IGNORENEWLINE ;
-				x = ring_parser_logicnot(pParser);
-				if ( x == RING_PARSER_FAIL ) {
-					return RING_PARSER_FAIL ;
-				}
-				/* Generate Code */
-				ring_parser_icg_newoperation(pParser,ICO_AND);
-				nMark = ring_parser_icg_newlabel(pParser);
-				ring_parser_icg_addoperandint(pParser,pMark,nMark);
-				RING_STATE_PRINTTWORULES(RING_RULE_EXPRISLOGICNOT,RING_RULE_EXPRANDEXPR) ;
+		while ( ring_parser_iskeyword(pParser,K_AND) || ring_parser_isoperator2(pParser,OP_LOGAND) ) {
+			/* Generate Code */
+			ring_parser_icg_newoperation(pParser,ICO_JUMPZERO2);
+			pMark = ring_parser_icg_getactiveoperation(pParser);
+			ring_parser_nexttoken(pParser);
+			RING_PARSER_IGNORENEWLINE ;
+			x = ring_parser_logicnot(pParser);
+			if ( x == RING_PARSER_FAIL ) {
+				return RING_PARSER_FAIL ;
 			}
-			else {
-				/* Generate Code */
-				ring_parser_icg_newoperation(pParser,ICO_JUMPONE2);
-				pMark = ring_parser_icg_getactiveoperation(pParser);
-				ring_parser_nexttoken(pParser);
-				RING_PARSER_IGNORENEWLINE ;
-				x = ring_parser_logicnot(pParser);
-				if ( x == RING_PARSER_FAIL ) {
-					return RING_PARSER_FAIL ;
-				}
-				RING_STATE_PRINTTWORULES(RING_RULE_EXPRISLOGICNOT,RING_RULE_EXPROREXPR) ;
-				/* Generate Code */
-				ring_parser_icg_newoperation(pParser,ICO_OR);
-				nMark = ring_parser_icg_newlabel(pParser);
-				ring_parser_icg_addoperandint(pParser,pMark,nMark);
-			}
+			/* Generate Code */
+			ring_parser_icg_newoperation(pParser,ICO_AND);
+			nMark = ring_parser_icg_newlabel(pParser);
+			ring_parser_icg_addoperandint(pParser,pMark,nMark);
+			RING_STATE_PRINTTWORULES(RING_RULE_EXPRISLOGICNOT,RING_RULE_EXPRANDEXPR) ;
 		}
 		return x ;
 	}

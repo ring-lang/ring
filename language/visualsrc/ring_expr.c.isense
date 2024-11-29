@@ -3,6 +3,11 @@ Type: int
 x,nMark
 Type: List *
 pMark
+ring_parser_logicand
+Type: int
+x,nMark
+Type: List *
+pMark
 ring_parser_logicnot
 Type: int
 x
