@@ -184,6 +184,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#better-functions">Better Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ringfastpro">Better RingFastPro</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-compiler">Better Compiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#return-attribute-by-reference">Return Attribute by Reference</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
 </li>
@@ -231,6 +232,7 @@
 <li><p>Better Functions</p></li>
 <li><p>Better RingFastPro</p></li>
 <li><p>Better Compiler</p></li>
+<li><p>Return Attribute by Reference</p></li>
 <li><p>More Improvements</p></li>
 </ul>
 </section>
@@ -374,8 +376,48 @@ three
 </pre></div>
 </div>
 </section>
+<section id="return-attribute-by-reference">
+<span id="index-8"></span><h2>Return Attribute by Reference<a class="headerlink" href="#return-attribute-by-reference" title="Permalink to this heading"></a></h2>
+<p>This release support advanced cases when we return an object’s attribute by reference.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o</span> <span class="o">=</span> <span class="k">new</span> <span class="n">myclass</span>
+
+<span class="n">o</span><span class="p">.</span><span class="n">getObject</span><span class="p">().</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">o</span><span class="p">.</span><span class="n">getObject</span><span class="p">().</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2000</span>
+<span class="n">o</span><span class="p">.</span><span class="n">getObject</span><span class="p">().</span><span class="n">z</span> <span class="o">=</span> <span class="mi">3000</span>
+
+<span class="o">?</span> <span class="n">o</span><span class="p">.</span><span class="n">aList</span>
+
+
+<span class="k">class</span> <span class="n">myclass</span>
+
+        <span class="n">aList</span> <span class="o">=</span> <span class="o">[</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span>  <span class="n">y</span><span class="o">=</span><span class="mi">20</span>  <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="p">},</span>
+                  <span class="k">new</span> <span class="n">point</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span> <span class="n">y</span><span class="o">=</span><span class="mi">200</span> <span class="n">z</span><span class="o">=</span><span class="mi">300</span><span class="p">}</span>  <span class="o">]</span>
+
+        <span class="k">func</span> <span class="n">getObject</span>
+                <span class="k">return</span> <span class="n">myMethod</span><span class="p">()</span>
+
+        <span class="k">func</span> <span class="n">myMethod</span>
+                <span class="k">return</span> <span class="n">aList</span><span class="o">[</span><span class="n">myIndex</span><span class="p">()</span><span class="o">]</span>
+
+        <span class="k">func</span> <span class="n">myIndex</span>
+                <span class="k">return</span> <span class="mi">2</span>
+
+<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x: 10
+y: 20
+z: 30
+x: 1000
+y: 2000
+z: 3000
+</pre></div>
+</div>
+</section>
 <section id="more-improvements">
-<span id="index-8"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Better documentation - Chapter: Program Structure.</p></li>
 <li><p>Better vscode extension - Ring build system and snippets.</p></li>
@@ -389,7 +431,6 @@ three
 <li><p>Ring Compiler/VM source code - language/src/vm.c - Organize the instructions.</p></li>
 <li><p>Ring Compiler/VM source code - List structure - Rename members (Use shorter names).</p></li>
 <li><p>Ring Visual Source - Added: language/visualsrc/ring_hashlib.ssf</p></li>
-<li><p>Ring VM - Support advanced cases when we return an object attribute by reference.</p></li>
 </ul>
 </section>
 </section>

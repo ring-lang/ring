@@ -21,6 +21,7 @@ Ring 1.22 comes with the next features!
 * Better Functions
 * Better RingFastPro
 * Better Compiler
+* Return Attribute by Reference
 * More Improvements
 
 .. index:: 
@@ -193,6 +194,54 @@ Output:
 
 
 .. index:: 
+	pair: What is new in Ring  1.22; Return Attribute by Reference
+
+Return Attribute by Reference
+=============================
+
+This release support advanced cases when we return an object's attribute by reference.
+
+Example:
+
+.. code-block:: ring
+
+	o = new myclass
+
+	o.getObject().x = 1000
+	o.getObject().y = 2000
+	o.getObject().z = 3000
+
+	? o.aList
+
+
+	class myclass
+
+		aList = [ new point {x=10  y=20  z=30 },
+			  new point {x=100 y=200 z=300}  ]
+
+		func getObject
+			return myMethod()
+
+		func myMethod
+			return aList[myIndex()]
+	
+		func myIndex
+			return 2
+
+	class point x y z
+
+Output:
+
+.. code-block:: none
+
+	x: 10
+	y: 20
+	z: 30
+	x: 1000
+	y: 2000
+	z: 3000
+	
+.. index:: 
 	pair: What is new in Ring  1.22; More Improvements
 
 More Improvements
@@ -210,6 +259,4 @@ More Improvements
 * Ring Compiler/VM source code - language/src/vm.c - Organize the instructions.
 * Ring Compiler/VM source code - List structure - Rename members (Use shorter names).
 * Ring Visual Source - Added: language/visualsrc/ring_hashlib.ssf
-* Ring VM - Support advanced cases when we return an object attribute by reference.
-
 
