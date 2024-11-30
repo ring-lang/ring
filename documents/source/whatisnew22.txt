@@ -16,41 +16,42 @@ List of changes and new features
 Ring 1.22 comes with the next features!
 
 * Research Paper
-* PWCT 2.0 (Free Software)
-* GitHub Action - Build Ring Project
-* Ring syntax highlighting for Sublime Text 4
-* EpochTime application
-* Support (+) operator before numbers
-* Support trailing comma in lists
-* Revising operator precedence (And/Or)
+* Better Applications
+* Better Samples
+* Better Functions
 * Better RingFastPro
-* Better ringvm_calllist() function
-* More Samples
+* Better Compiler
 * More Improvements
 
 .. index:: 
-	pair: What is new in Ring 1.22?; Details
+	pair: What is new in Ring 1.22?; Research Paper
 
-Details
-=======
+Research Paper
+==============
 
-* Research Paper (https://www.mdpi.com/2079-9292/13/23/4627)
+URL: https://www.mdpi.com/2079-9292/13/23/4627
+
+.. index:: 
+	pair: What is new in Ring 1.22?; Better Applications
+
+Better Applications
+===================
+
 * PWCT 2.0 - Free Software (https://store.steampowered.com/app/1953110/Programming_Without_Coding_Technology_20/)
 * GitHub Action - Build Ring Project - (https://github.com/marketplace/actions/build-ring-project)
 * Ring syntax highlighting for Sublime Text 4 (https://github.com/ysdragon/ring-sublime)
-* ‎applications/epochtime 
-* Ring Compiler - Support (+) operator before numbers.
-* Ring Compiler - Lists - Support trailing comma.
-* Ring Compiler - Revise operator precedence - Logical AND have higher precedence than Logical OR.
-* ringvm_calllist() function - Add the parameters count & the line number of the caller
+* EpochTime application
+
+.. index:: 
+	pair: What is new in Ring 1.22?; Better Samples
+
+Better Samples
+==============
 
 * Added: samples/UsingJSONLib/test11.ring
 * Added: samples/ProblemSolving/GetQuotesHistory/Curl-YahooHistory-JSON.ring
 * Added: samples/Language/ChangeSyntax/swapkeywordandoperator.ring
 * applications/getquoteshistory is updated
-* Better documentation - Chapter: Program Structure
-* RingQt - QString Class - Add: size()/length() methods 
-* Revise split() function
 * Improve vscode extension
 * Add Ring build system for VSCode
 * Add snippets support for VSCode and improve the extension
@@ -58,28 +59,52 @@ Details
 * RingFastPro - Define command (Serial)
 * Add: extensions/ringfastpro/test2.ring
 * Add Sample: extensions/ringfastpro/test3.ring
-* Update RingFastPro - updateList() function - Support (pow)
 * Add: extensions/ringfastpro/test4.ring - Example about using (pow)
-* Update RingFastPro - updateList() function - Support (Rem) command.
 * Update RingFastPro - Add: extensions/ringfastpro/test5.ring
-* Update RingFastPro - updateColumn() function - Support (Serial, Pow and Rem)
 * Add Sample: samples/UsingStbImage/test15.ring - Fast Animation (1024x768 image - Over 60 FPS)
 * Update samples/UsingStbImage/test12.ring - Comments (Point to a faster version of the sample)
 * Update samples/UsingStbImage/test15.ring - Code Format!
-* Update StdLib - libraries/stdlib/stdlibcore.ring - Factorial() function - Better implementation.
-* Update StdLib - libraries/stdlib/stdlibcore.ring - Fibonacci() function - Better implementation.
 * Update Visual Source (Using PWCT) - Revise exit() usage
-* Update libraries/stdlib/stdlibcore.ring - Revise OSCopyFile() implementation
-* Update libraries/stdlib/stdlibcore.ring - OSCopyFolder() function 
 * Update Hours Counter application - Revise UI.
 * Add: samples/General/TriangleLib/TriangleLibrary.ring
 * GoldMagic800 - Draw background based on level number.
-* Update RingQt for Android/WebAssembly - Revise RING_API_REGISTER usage 
-* Update marketing/presentation/Ring.pptx - Use https in the website URL.
 * Add: samples/Drawing/HeartEquation/HeartEquation.ring
 * Add: samples/UsingBingChat/examples/chat13.ring
 * Update applications/sokoban/sokoban_v2.ring - Revise the code format.
-* Update Form Designer - tools/formdesigner/mainwindow/formdesignercontroller.ring - Remove old code.
+
+.. index:: 
+	pair: What is new in Ring 1.22?; Better Functions
+
+Better Functions
+================
+
+* ringvm_calllist() function - Add the parameters count & the line number of the caller
+* RingQt - QString Class - Add: size()/length() methods 
+* Revise split() function
+* Update libraries/stdlib/stdlibcore.ring - Revise OSCopyFile() implementation
+* Update libraries/stdlib/stdlibcore.ring - OSCopyFolder() function 
+* Update StdLib - libraries/stdlib/stdlibcore.ring - Factorial() function - Better implementation.
+* Update StdLib - libraries/stdlib/stdlibcore.ring - Fibonacci() function - Better implementation.
+
+.. index:: 
+	pair: What is new in Ring 1.22?; Better Ring FastPro
+
+Better RingFastPro
+===================
+
+* Update RingFastPro - updateList() function - Support (pow)
+* Update RingFastPro - updateList() function - Support (Rem) command.
+* Update RingFastPro - updateColumn() function - Support (Serial, Pow and Rem)
+
+.. index:: 
+	pair: What is new in Ring 1.22?; Better Compiler
+
+Better Compiler
+===============
+
+* Ring Compiler - Support (+) operator before numbers.
+* Ring Compiler - Lists - Support trailing comma.
+* Ring Compiler - Revise operator precedence - Logical AND have higher precedence than Logical OR.
 
 .. index:: 
 	pair: What is new in Ring  1.22; More Improvements
@@ -87,6 +112,10 @@ Details
 More Improvements
 =================
 
+* Better documentation - Chapter: Program Structure
+* Update RingQt for Android/WebAssembly - Revise RING_API_REGISTER usage 
+* Update marketing/presentation/Ring.pptx - Use https in the website URL.
+* tools/formdesigner/mainwindow/formdesignercontroller.ring - Remove old code.
 * The file language/CMakeLists.txt is updated (Use /etc/os-release to get the Distro name)
 * The file buildgccstatic.sh is updated - Make the Ring executable fully static
 * Output the pdfgen library to the lib directory and install it accordingly
