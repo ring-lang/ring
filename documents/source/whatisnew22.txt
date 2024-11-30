@@ -1,0 +1,71 @@
+.. index:: 
+	single: What is new in Ring 1.22; Introduction
+
+========================
+What is new in Ring 1.22
+========================
+
+In this chapter we will learn about the changes and new features in Ring 1.22 release.
+
+.. index:: 
+	pair: What is new in Ring 1.22?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring 1.22 comes with the next features!
+
+* Research Paper (https://www.mdpi.com/2079-9292/13/23/4627)
+* PWCT 2.0 - Free Software (https://store.steampowered.com/app/1953110/Programming_Without_Coding_Technology_20/)
+* GitHub Action - Build Ring Project - (https://github.com/marketplace/actions/build-ring-project)
+* Ring syntax highlighting for Sublime Text 4 (https://github.com/ysdragon/ring-sublime)
+* ‎applications/epochtime 
+* Ring Compiler - Support (+) operator before numbers.
+* Ring Compiler - Lists - Support trailing comma.
+* Ring Compiler - Revise operator precedence - Logical AND have higher precedence than Logical OR.
+* ringvm_calllist() function - Add the parameters count & the line number of the caller
+* The file language/CMakeLists.txt is updated (Use /etc/os-release to get the Distro name)
+* Added: samples/UsingJSONLib/test11.ring
+* Added: samples/ProblemSolving/GetQuotesHistory/Curl-YahooHistory-JSON.ring
+* The file buildgccstatic.sh is updated - Make the Ring executable fully static
+* Added: samples/Language/ChangeSyntax/swapkeywordandoperator.ring
+* applications/getquoteshistory is updated
+* Better documentation - Chapter: Program Structure
+* RingQt - QString Class - Add: size()/length() methods 
+* Revise split() function
+* Improve vscode extension
+* Add Ring build system for VSCode
+* Add snippets support for VSCode and improve the extension
+* Revise samples in TryRingOnline - tools/tryringonline/samples.ring
+* RingFastPro - Define command (Serial)
+* Add: extensions/ringfastpro/test2.ring
+* Add Sample: extensions/ringfastpro/test3.ring
+* Update RingFastPro - updateList() function - Support (pow)
+* Add: extensions/ringfastpro/test4.ring - Example about using (pow)
+* Update RingFastPro - updateList() function - Support (Rem) command.
+* Update RingFastPro - Add: extensions/ringfastpro/test5.ring
+* Update RingFastPro - updateColumn() function - Support (Serial, Pow and Rem)
+* Add Sample: samples/UsingStbImage/test15.ring - Fast Animation (1024x768 image - Over 60 FPS)
+* Update samples/UsingStbImage/test12.ring - Comments (Point to a faster version of the sample)
+* Update samples/UsingStbImage/test15.ring - Code Format!
+* Update StdLib - libraries/stdlib/stdlibcore.ring - Factorial() function - Better implementation.
+* Update StdLib - libraries/stdlib/stdlibcore.ring - Fibonacci() function - Better implementation.
+* Update Visual Source (Using PWCT) - Revise exit() usage
+* Update libraries/stdlib/stdlibcore.ring - Revise OSCopyFile() implementation
+* Update libraries/stdlib/stdlibcore.ring - OSCopyFolder() function 
+* Output the pdfgen library to the lib directory and install it accordingly
+* Fix the extensions/ringfastpro build script so that it outputs the library to the lib directory
+* Update Hours Counter application - Revise UI.
+* Add: samples/General/TriangleLib/TriangleLibrary.ring
+* GoldMagic800 - Draw background based on level number.
+* Update RingQt for Android/WebAssembly - Revise RING_API_REGISTER usage 
+* Update marketing/presentation/Ring.pptx - Use https in the website URL.
+* Add: samples/Drawing/HeartEquation/HeartEquation.ring
+* Add: samples/UsingBingChat/examples/chat13.ring
+* Update applications/sokoban/sokoban_v2.ring - Revise the code format.
+* Update Form Designer - tools/formdesigner/mainwindow/formdesignercontroller.ring - Remove old code.
+* List structure - Rename members (Use shorter names).
+* language/src/stmt.c - Revise comments.
+* language/src/vm.c - Organize the instructions.
+* Add: language/visualsrc/ring_hashlib.ssf
+* Ring VM - Take in mind advanced cases when we return object attribute by reference
