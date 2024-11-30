@@ -109,6 +109,38 @@ Better Compiler
 * Support (+) operator before numbers.
 * Logical AND have higher precedence than Logical OR.
 
+Example:
+
+.. code-block:: ring
+
+	aList = ["one",
+		 "two",
+		 "three",
+		]
+
+	nNum1 = +10
+	nNum2 = -10
+
+	lRes  = True OR False AND False
+
+	? aList
+	? nNum1
+	? nNum2
+	? lRes
+
+Output:
+
+.. code-block:: none
+
+	one
+	two
+	three
+
+	10
+	-10
+	1 		# True	
+
+
 .. index:: 
 	pair: What is new in Ring  1.22; More Improvements
 

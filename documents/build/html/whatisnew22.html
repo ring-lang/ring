@@ -302,6 +302,33 @@
 <li><p>Support (+) operator before numbers.</p></li>
 <li><p>Logical AND have higher precedence than Logical OR.</p></li>
 </ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;one&quot;</span><span class="p">,</span>
+         <span class="s">&quot;two&quot;</span><span class="p">,</span>
+         <span class="s">&quot;three&quot;</span><span class="p">,</span>
+        <span class="o">]</span>
+
+<span class="n">nNum1</span> <span class="o">=</span> <span class="o">+</span><span class="mi">10</span>
+<span class="n">nNum2</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>
+
+<span class="n">lRes</span>  <span class="o">=</span> <span class="kp">True</span> <span class="ow">OR</span> <span class="kp">False</span> <span class="ow">AND</span> <span class="kp">False</span>
+
+<span class="o">?</span> <span class="n">aList</span>
+<span class="o">?</span> <span class="n">nNum1</span>
+<span class="o">?</span> <span class="n">nNum2</span>
+<span class="o">?</span> <span class="n">lRes</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>one
+two
+three
+
+10
+-10
+1               # True
+</pre></div>
+</div>
 </section>
 <section id="more-improvements">
 <span id="index-8"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
