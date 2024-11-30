@@ -48,29 +48,29 @@ Better Applications
 Better Samples
 ==============
 
-* Added: samples/UsingJSONLib/test11.ring
-* Added: samples/ProblemSolving/GetQuotesHistory/Curl-YahooHistory-JSON.ring
-* Added: samples/Language/ChangeSyntax/swapkeywordandoperator.ring
-* applications/getquoteshistory is updated
-* Improve vscode extension
-* Add Ring build system for VSCode
-* Add snippets support for VSCode and improve the extension
-* Revise samples in TryRingOnline - tools/tryringonline/samples.ring
-* RingFastPro - Define command (Serial)
-* Add: extensions/ringfastpro/test2.ring
-* Add Sample: extensions/ringfastpro/test3.ring
-* Add: extensions/ringfastpro/test4.ring - Example about using (pow)
-* Update RingFastPro - Add: extensions/ringfastpro/test5.ring
-* Add Sample: samples/UsingStbImage/test15.ring - Fast Animation (1024x768 image - Over 60 FPS)
-* Update samples/UsingStbImage/test12.ring - Comments (Point to a faster version of the sample)
-* Update samples/UsingStbImage/test15.ring - Code Format!
-* Update Visual Source (Using PWCT) - Revise exit() usage
-* Update Hours Counter application - Revise UI.
-* Add: samples/General/TriangleLib/TriangleLibrary.ring
+The next samples are added:
+
+* samples/UsingJSONLib/test11.ring
+* samples/ProblemSolving/GetQuotesHistory/Curl-YahooHistory-JSON.ring
+* samples/Language/ChangeSyntax/swapkeywordandoperator.ring
+* samples/UsingStbImage/test15.ring - Fast Animation (1024x768 image - Over 60 FPS)
+* samples/General/TriangleLib/TriangleLibrary.ring
+* samples/Drawing/HeartEquation/HeartEquation.ring
+* samples/UsingBingChat/examples/chat13.ring
+* extensions/ringfastpro/test2.ring
+* extensions/ringfastpro/test3.ring
+* extensions/ringfastpro/test4.ring
+* extensions/ringfastpro/test5.ring
+
+The next applications and samples are revised:
+
+* Sokoban - Code Format
+* HoursCounter - User Interface.
 * GoldMagic800 - Draw background based on level number.
-* Add: samples/Drawing/HeartEquation/HeartEquation.ring
-* Add: samples/UsingBingChat/examples/chat13.ring
-* Update applications/sokoban/sokoban_v2.ring - Revise the code format.
+* tools/tryringonline/samples.ring
+* samples/UsingStbImage/test12.ring
+* samples/UsingStbImage/test15.ring
+
 
 .. index:: 
 	pair: What is new in Ring 1.22?; Better Functions
@@ -78,7 +78,7 @@ Better Samples
 Better Functions
 ================
 
-* ringvm_calllist() function - Add the parameters count & the line number of the caller
+* ringvm_calllist() function - Add the parameters count and the line number of the caller
 * RingQt - QString Class - Add: size()/length() methods 
 * Revise split() function
 * Update libraries/stdlib/stdlibcore.ring - Revise OSCopyFile() implementation
@@ -92,6 +92,7 @@ Better Functions
 Better RingFastPro
 ===================
 
+* RingFastPro - Define command (Serial)
 * Update RingFastPro - updateList() function - Support (pow)
 * Update RingFastPro - updateList() function - Support (Rem) command.
 * Update RingFastPro - updateColumn() function - Support (Serial, Pow and Rem)
@@ -112,6 +113,10 @@ Better Compiler
 More Improvements
 =================
 
+* applications/getquoteshistory is updated
+* Improve vscode extension
+* Add Ring build system for VSCode
+* Add snippets support for VSCode and improve the extension
 * Better documentation - Chapter: Program Structure
 * Update RingQt for Android/WebAssembly - Revise RING_API_REGISTER usage 
 * Update marketing/presentation/Ring.pptx - Use https in the website URL.
@@ -125,5 +130,5 @@ More Improvements
 * language/src/vm.c - Organize the instructions.
 * Add: language/visualsrc/ring_hashlib.ssf
 * Ring VM - Take in mind advanced cases when we return object attribute by reference
-
+* Update Visual Source (Using PWCT) - Revise exit() usage
 
