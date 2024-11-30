@@ -55,11 +55,11 @@ Better Samples
 The next samples are added:
 
 * samples/UsingJSONLib/test11.ring
-* samples/ProblemSolving/GetQuotesHistory/Curl-YahooHistory-JSON.ring
-* samples/Language/ChangeSyntax/swapkeywordandoperator.ring
-* samples/UsingStbImage/test15.ring - Fast Animation (1024x768 image - Over 60 FPS)
 * samples/General/TriangleLib/TriangleLibrary.ring
 * samples/Drawing/HeartEquation/HeartEquation.ring
+* samples/Language/ChangeSyntax/swapkeywordandoperator.ring
+* samples/ProblemSolving/GetQuotesHistory/Curl-YahooHistory-JSON.ring
+* samples/UsingStbImage/test15.ring - Fast Animation (1024x768 image - Over 60 FPS)
 * samples/UsingBingChat/examples/chat13.ring
 * extensions/ringfastpro/test2.ring
 * extensions/ringfastpro/test3.ring
@@ -68,13 +68,12 @@ The next samples are added:
 
 The next applications and samples are revised:
 
-* Sokoban - Code Format
-* HoursCounter - User Interface.
-* GoldMagic800 - Draw background based on level number.
-* tools/tryringonline/samples.ring
 * samples/UsingStbImage/test12.ring
 * samples/UsingStbImage/test15.ring
-
+* tools/tryringonline/samples.ring
+* Sokoban - Code Format.
+* HoursCounter - User Interface.
+* GoldMagic800 - Draw background based on level number.
 
 .. index:: 
 	pair: What is new in Ring 1.22?; Better Functions
@@ -82,13 +81,13 @@ The next applications and samples are revised:
 Better Functions
 ================
 
-* ringvm_calllist() function - Add the parameters count and the line number of the caller
-* RingQt - QString Class - Add: size()/length() methods 
-* Revise split() function
-* Update libraries/stdlib/stdlibcore.ring - Revise OSCopyFile() implementation
-* Update libraries/stdlib/stdlibcore.ring - OSCopyFolder() function 
-* Update StdLib - libraries/stdlib/stdlibcore.ring - Factorial() function - Better implementation.
-* Update StdLib - libraries/stdlib/stdlibcore.ring - Fibonacci() function - Better implementation.
+* StdLib - Split() function - Better implementation.
+* StdLib - OSCopyFile() function - Better support for Linux.
+* StdLib - OSCopyFolder() function - Better support for Linux. 
+* StdLib - Factorial() function - Better performance.
+* StdLib - Fibonacci() function - Better performance.
+* RingQt - QString Class - Added: size()/length() methods. 
+* ringvm_calllist() function - Added the parameters count and the line number to the output.
 
 .. index:: 
 	pair: What is new in Ring 1.22?; Better Ring FastPro
@@ -96,10 +95,9 @@ Better Functions
 Better RingFastPro
 ===================
 
-* RingFastPro - Define command (Serial)
-* Update RingFastPro - updateList() function - Support (pow)
-* Update RingFastPro - updateList() function - Support (Rem) command.
-* Update RingFastPro - updateColumn() function - Support (Serial, Pow and Rem)
+* updateList() function - Support (Pow) option.
+* updateList() function - Support (Rem) option.
+* updateColumn() function - Support Serial/Pow/Rem option.
 
 .. index:: 
 	pair: What is new in Ring 1.22?; Better Compiler
@@ -107,9 +105,9 @@ Better RingFastPro
 Better Compiler
 ===============
 
-* Ring Compiler - Support (+) operator before numbers.
-* Ring Compiler - Lists - Support trailing comma.
-* Ring Compiler - Revise operator precedence - Logical AND have higher precedence than Logical OR.
+* Lists - Support trailing comma.
+* Support (+) operator before numbers.
+* Logical AND have higher precedence than Logical OR.
 
 .. index:: 
 	pair: What is new in Ring  1.22; More Improvements
