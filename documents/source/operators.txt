@@ -231,7 +231,6 @@ Example (1):
 	? 3+5*4				# prints 23
 	? True or False and False	# prints 1 (True)
 
-
 .. index:: 
 	pair: Operators; Mixing Arithmetic Operators and Types
 
@@ -527,3 +526,41 @@ Example (8):
 	nNum = 100
 	nNum += 200
 	? nNum		# 300
+
+
+.. index:: 
+	pair: Operators; Unary Positive and Unary Negative
+
+Unary Positive and Unary Negative
+=================================
+
+Rules:
+
+* Using unary positive (+) before any number/variable does nothing.
+
+* Using unary negative (-) before any number will negate the number.
+
+* Using unary negative (-) before a string will convert it to a number then negate the number.
+
+* Using unary negative (-) before a list/object will produce a runtime error.
+
+Example (9):
+
+.. code-block:: ring
+
+	x = +10
+	? x		# 10
+	? +x		# 10
+	y = "10"
+	? +y		# 10	
+	? type(+y)	# STRING
+
+	x = 10
+	? -x		# -10
+	y = "10"
+	? -y		# -10
+	? type(-y)	# NUMBER
+
+	aList = [1,2,3]
+	? - aList	# RUNTIME ERROR	
+ 

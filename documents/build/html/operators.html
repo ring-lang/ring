@@ -72,6 +72,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#mixing-logical-operators-and-types">Mixing Logical Operators and Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mixing-bitwise-operators-and-types">Mixing Bitwise Operators and Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mixing-assignment-operators-and-types">Mixing Assignment Operators and Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unary-positive-and-unary-negative">Unary Positive and Unary Negative</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
@@ -1287,6 +1288,34 @@ lower precedence.</p>
 <span class="n">nNum</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">nNum</span> <span class="o">+=</span> <span class="mi">200</span>
 <span class="o">?</span> <span class="n">nNum</span>          <span class="c"># 300</span>
+</pre></div>
+</div>
+</section>
+<section id="unary-positive-and-unary-negative">
+<span id="index-13"></span><h2>Unary Positive and Unary Negative<a class="headerlink" href="#unary-positive-and-unary-negative" title="Permalink to this heading"></a></h2>
+<p>Rules:</p>
+<ul class="simple">
+<li><p>Using unary positive (+) before any number/variable does nothing.</p></li>
+<li><p>Using unary negative (-) before any number will negate the number.</p></li>
+<li><p>Using unary negative (-) before a string will convert it to a number then negate the number.</p></li>
+<li><p>Using unary negative (-) before a list/object will produce a runtime error.</p></li>
+</ul>
+<p>Example (9):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="o">+</span><span class="mi">10</span>
+<span class="o">?</span> <span class="n">x</span>             <span class="c"># 10</span>
+<span class="o">?</span> <span class="o">+</span><span class="n">x</span>            <span class="c"># 10</span>
+<span class="n">y</span> <span class="o">=</span> <span class="s">&quot;10&quot;</span>
+<span class="o">?</span> <span class="o">+</span><span class="n">y</span>            <span class="c"># 10</span>
+<span class="o">?</span> <span class="n">type</span><span class="p">(</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>      <span class="c"># STRING</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="o">?</span> <span class="o">-</span><span class="n">x</span>            <span class="c"># -10</span>
+<span class="n">y</span> <span class="o">=</span> <span class="s">&quot;10&quot;</span>
+<span class="o">?</span> <span class="o">-</span><span class="n">y</span>            <span class="c"># -10</span>
+<span class="o">?</span> <span class="n">type</span><span class="p">(</span><span class="o">-</span><span class="n">y</span><span class="p">)</span>      <span class="c"># NUMBER</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span>
+<span class="o">?</span> <span class="o">-</span> <span class="n">aList</span>       <span class="c"># RUNTIME ERROR</span>
 </pre></div>
 </div>
 </section>
