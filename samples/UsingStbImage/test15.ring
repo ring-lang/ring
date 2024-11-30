@@ -1,4 +1,4 @@
-load "guilib.ring"
+load "lightguilib.ring"
 load "fastpro.ring"
 
 width      = 1024
