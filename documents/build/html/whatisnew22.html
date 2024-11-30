@@ -295,6 +295,49 @@
 <li><p>The build script is revised to use the ring/lib directory.</p></li>
 <li><p>updateList()/updateColumn() functions - Support Serial/Pow/Rem options.</p></li>
 </ul>
+<p>Example:</p>
+<p>The code begins by loading the RingFastPro extension and initializing a 5x5 list called aList.
+It then updates this list with values incremented by 5 in each column.
+After printing a row of 20 asterisks, the code iterates through the list, printing each element
+with hyphens between them, except for the last element in each row.</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;fastpro.ring&quot;</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span>
+        <span class="kt">list</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+        <span class="kt">list</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+        <span class="kt">list</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+        <span class="kt">list</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+        <span class="kt">list</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">]</span>
+
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">serial</span><span class="p">,:</span><span class="n">col</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">serial</span><span class="p">,:</span><span class="n">col</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">serial</span><span class="p">,:</span><span class="n">col</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">serial</span><span class="p">,:</span><span class="n">col</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">serial</span><span class="p">,:</span><span class="n">col</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">5</span>
+        <span class="k">for</span> <span class="n">y</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">5</span>
+                <span class="n">print</span><span class="p">(</span><span class="n">aList</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">]</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">y</span> <span class="o">!=</span> <span class="mi">5</span> <span class="n">print</span> <span class="p">(</span><span class="s">&quot;-&quot;</span><span class="p">)</span> <span class="k">ok</span>
+        <span class="k">next</span>
+        <span class="o">?</span> <span class="s">&quot;&quot;</span>
+<span class="k">next</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p>The output displays a row of asterisks followed by the elements of the list arranged
+in a structured format.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>********************
+1-6-11-16-21
+2-7-12-17-22
+3-8-13-18-23
+4-9-14-19-24
+5-10-15-20-25
+</pre></div>
+</div>
 </section>
 <section id="better-compiler">
 <span id="index-7"></span><h2>Better Compiler<a class="headerlink" href="#better-compiler" title="Permalink to this heading"></a></h2>

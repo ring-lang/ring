@@ -100,6 +100,56 @@ Better RingFastPro
 * The build script is revised to use the ring/lib directory.
 * updateList()/updateColumn() functions - Support Serial/Pow/Rem options.
 
+Example:
+
+The code begins by loading the RingFastPro extension and initializing a 5x5 list called aList. 
+It then updates this list with values incremented by 5 in each column. 
+After printing a row of 20 asterisks, the code iterates through the list, printing each element 
+with hyphens between them, except for the last element in each row. 
+
+.. code-block:: ring
+
+	load "fastpro.ring"
+
+	aList = [
+		list(5),
+		list(5),
+		list(5),
+		list(5),
+		list(5)
+	]
+
+	updateList(aList,:serial,:col,1,0)
+	updateList(aList,:serial,:col,2,5)
+	updateList(aList,:serial,:col,3,10)
+	updateList(aList,:serial,:col,4,15)
+	updateList(aList,:serial,:col,5,20)
+
+	? copy("*",20)
+
+	for x=1 to 5
+		for y=1 to 5
+			print(aList[x][y])
+			if y != 5 print ("-") ok
+		next
+		? ""
+	next
+
+Output:
+
+The output displays a row of asterisks followed by the elements of the list arranged 
+in a structured format.
+
+.. code-block:: none
+
+	********************
+	1-6-11-16-21
+	2-7-12-17-22
+	3-8-13-18-23
+	4-9-14-19-24
+	5-10-15-20-25
+
+
 .. index:: 
 	pair: What is new in Ring 1.22?; Better Compiler
 
