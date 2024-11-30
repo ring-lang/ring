@@ -95,9 +95,8 @@ Better Functions
 Better RingFastPro
 ===================
 
-* updateList() function - Support (Pow) option.
-* updateList() function - Support (Rem) option.
-* updateColumn() function - Support Serial/Pow/Rem option.
+* updateList() function - Support Serial/Pow/Rem options.
+* updateColumn() function - Support Serial/Pow/Rem options.
 
 .. index:: 
 	pair: What is new in Ring 1.22?; Better Compiler
