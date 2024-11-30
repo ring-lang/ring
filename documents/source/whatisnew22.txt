@@ -45,7 +45,7 @@ More Applications
 * DirSize - Directory Size Analyzer (GitHub project)
 * GitHub Action - Build Ring Project (GitHub project)
 * Ring Syntax Highlighting for Sublime Text 4 (GitHub project)
-* Ring Syntax Highlighting for Lite XL editor (GitHub project)
+* Ring Syntax Highlighting for Lite XL editor (ring/tools/editors folder)
 * Programming Without Coding Technology 2.0 - Free Software (Steam Platform)
 
 The following screenshot is from the PWCT 2.0 software:
