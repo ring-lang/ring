@@ -240,7 +240,9 @@ Output:
 	x: 1000
 	y: 2000
 	z: 3000
-	
+
+.. note:: For advanced usage of references with full customization, refer to the 'Using References' chapter, which explains the Ref()/Reference() function.
+
 .. index:: 
 	pair: What is new in Ring  1.22; More Improvements
 
