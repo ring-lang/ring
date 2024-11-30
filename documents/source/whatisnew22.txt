@@ -199,7 +199,7 @@ Output:
 Return Attribute by Reference
 =============================
 
-This release support advanced cases when we return an object's attribute by reference.
+In early Ring releases, returning an attribute that contains a List/Object would return a shared reference to this List/Object. This release supports advanced cases for using this feature, allowing nested method calls before returning the List/Object.
 
 Example:
 
