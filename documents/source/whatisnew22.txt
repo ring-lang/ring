@@ -83,13 +83,13 @@ The following screenshot is from the Heart Equation sample:
 
 The next applications and samples are revised:
 
-* samples/UsingStbImage/test12.ring
-* samples/UsingStbImage/test15.ring
-* tools/tryringonline/samples.ring
 * Sokoban - Code Format.
 * HoursCounter - User Interface.
 * GetQuotesHistory - Better implementation.
 * GoldMagic800 - Draw background based on level number.
+* samples/UsingStbImage/test12.ring
+* samples/UsingStbImage/test15.ring
+* tools/tryringonline/samples.ring
 
 .. index:: 
 	pair: What is new in Ring 1.22?; Better Functions
