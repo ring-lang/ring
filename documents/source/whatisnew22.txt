@@ -147,13 +147,13 @@ Output:
 More Improvements
 =================
 
-* File: buildgccstatic.sh - Make the Ring executable fully static.
-* File: marketing/presentation/Ring.pptx - Use https in the website URL.
-* File: language/CMakeLists.txt - Use /etc/os-release to get the Distro name.
 * Better documentation - Chapter: Program Structure.
 * Better vscode extension - Ring build system and snippets.
 * Better RingQt for Android/WebAssembly - RING_API_REGISTER usage is revised. 
 * Output the RingPDFGen library to the ring/lib directory and install it accordingly.
+* File: buildgccstatic.sh - Make the Ring executable fully static.
+* File: marketing/presentation/Ring.pptx - Use https in the website URL.
+* File: language/CMakeLists.txt - Use /etc/os-release to get the Distro name.
 * Ring Compiler/VM source code - Revise exit() function usage.
 * Ring Compiler/VM source code - language/src/stmt.c - Revise comments.
 * Ring Compiler/VM source code - language/src/vm.c - Organize the instructions.
