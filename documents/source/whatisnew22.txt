@@ -73,6 +73,7 @@ The next applications and samples are revised:
 * tools/tryringonline/samples.ring
 * Sokoban - Code Format.
 * HoursCounter - User Interface.
+* GetQuotesHistory - Better implementation.
 * GoldMagic800 - Draw background based on level number.
 
 .. index:: 
@@ -97,6 +98,7 @@ Better RingFastPro
 
 * updateList() function - Support Serial/Pow/Rem options.
 * updateColumn() function - Support Serial/Pow/Rem options.
+* The build script is revised to use the ring/lib directory.
 
 .. index:: 
 	pair: What is new in Ring 1.22?; Better Compiler
@@ -114,22 +116,18 @@ Better Compiler
 More Improvements
 =================
 
-* applications/getquoteshistory is updated
-* Improve vscode extension
-* Add Ring build system for VSCode
-* Add snippets support for VSCode and improve the extension
-* Better documentation - Chapter: Program Structure
-* Update RingQt for Android/WebAssembly - Revise RING_API_REGISTER usage 
-* Update marketing/presentation/Ring.pptx - Use https in the website URL.
-* tools/formdesigner/mainwindow/formdesignercontroller.ring - Remove old code.
-* The file language/CMakeLists.txt is updated (Use /etc/os-release to get the Distro name)
-* The file buildgccstatic.sh is updated - Make the Ring executable fully static
-* Output the pdfgen library to the lib directory and install it accordingly
-* Revise the extensions/ringfastpro build script to use the ring/lib directory
-* List structure - Rename members (Use shorter names).
-* language/src/stmt.c - Revise comments.
-* language/src/vm.c - Organize the instructions.
-* Add: language/visualsrc/ring_hashlib.ssf
-* Ring VM - Take in mind advanced cases when we return object attribute by reference
-* Update Visual Source (Using PWCT) - Revise exit() usage
+* File: buildgccstatic.sh - Make the Ring executable fully static.
+* File: marketing/presentation/Ring.pptx - Use https in the website URL.
+* File: language/CMakeLists.txt - Use /etc/os-release to get the Distro name.
+* Better documentation - Chapter: Program Structure.
+* Better vscode extension - Ring build system and snippets.
+* Better RingQt for Android/WebAssembly - RING_API_REGISTER usage is revised. 
+* Output the RingPDFGen library to the lib directory and install it accordingly.
+* Ring Compiler/VM source code - Revise exit() function usage.
+* Ring Compiler/VM source code - language/src/stmt.c - Revise comments.
+* Ring Compiler/VM source code - language/src/vm.c - Organize the instructions.
+* Ring Compiler/VM source code - List structure - Rename members (Use shorter names).
+* Ring Visual Source - Added: language/visualsrc/ring_hashlib.ssf
+* Ring VM - Support advanced cases when we return an object attribute by reference.
+
 
