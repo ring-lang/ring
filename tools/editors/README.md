@@ -11,6 +11,8 @@ Supported Editors
 
 - Geany
 
+- Lite XL
+
 - nano
 
 - Notepad++
