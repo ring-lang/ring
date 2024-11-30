@@ -74,13 +74,6 @@ The following screenshot is from the Heart Equation sample:
 .. image:: hearteq.png
 	:alt: Heart Equation
 
-The following screenshot is from the Fast Animation sample: 
-
-The sample uses RingFastPro extension to generate 1024x768 images (Over 60 FPS)
-
-.. image:: fastanimation.png
-	:alt: Fast Animation
-
 The next applications and samples are revised:
 
 * samples/UsingStbImage/test12.ring
@@ -201,6 +194,13 @@ in a structured format.
 	3-8-13-18-23
 	4-9-14-19-24
 	5-10-15-20-25
+
+The following screenshot is from the Fast Animation sample: 
+
+The sample uses RingFastPro extension to generate 1024x768 images (Over 60 FPS)
+
+.. image:: fastanimation.png
+	:alt: Fast Animation
 
 .. index:: 
 	pair: What is new in Ring  1.22; Return Attribute by Reference
