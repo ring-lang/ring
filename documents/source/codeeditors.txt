@@ -16,6 +16,7 @@ In the Ring/Tools/Editors folder you will find extensions for the next editors
 * Emacs
 * Visual Studio Code (VSCode)
 * SpaceVim
+* Lite XL
 
 .. index:: 
 	pair: Using Other Code Editors; Using Notepad++
@@ -176,3 +177,14 @@ Screen Shot:
 
 .. image:: ringinvim.png
 	:alt: Ring in SpaceVim
+
+
+Lite XL
+=======
+
+Folder: ring/tools/editors/lite-xl
+
+Screen Shot:
+
+.. image:: litexl1.png
+	:alt: Ring in Lite XL
