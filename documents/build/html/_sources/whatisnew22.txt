@@ -175,11 +175,13 @@ Example:
 	nNum2 = -10
 
 	lRes  = True OR False AND False
+	lRes2 = True || False &&  False
 
 	? aList
 	? nNum1
 	? nNum2
 	? lRes
+	? lRes2
 
 Output:
 
@@ -192,6 +194,7 @@ Output:
 	10
 	-10
 	1 		# True	
+	1 		# True
 
 
 .. index:: 
