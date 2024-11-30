@@ -16,7 +16,7 @@ List of changes and new features
 Ring 1.22 comes with the next features!
 
 * Research Article
-* Better Applications
+* More Applications
 * Better Samples
 * Better Functions
 * Better RingFastPro Extension
@@ -36,10 +36,10 @@ URL: https://doi.org/10.3390/electronics13234627
 	:alt: Research Article
 
 .. index:: 
-	pair: What is new in Ring 1.22?; Better Applications
+	pair: What is new in Ring 1.22?; More Applications
 
-Better Applications
-===================
+More Applications
+=================
 
 * EpochTime application (ring/applications folder)
 * DirSize - Directory Size Analyzer (GitHub project)
