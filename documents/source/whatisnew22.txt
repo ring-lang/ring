@@ -54,9 +54,6 @@ Better Applications
 Better Samples
 ==============
 
-.. image:: hearteq.png
-	:alt: Heart Equation
-
 The next samples are added:
 
 * samples/UsingJSONLib/test11.ring
@@ -64,13 +61,23 @@ The next samples are added:
 * samples/Drawing/HeartEquation/HeartEquation.ring
 * samples/Language/ChangeSyntax/swapkeywordandoperator.ring
 * samples/ProblemSolving/GetQuotesHistory/Curl-YahooHistory-JSON.ring
-* samples/UsingStbImage/test15.ring - Fast Animation (1024x768 image - Over 60 FPS)
+* samples/UsingStbImage/test15.ring - Fast Animation 
 * samples/UsingBingChat/examples/chat13.ring
 * samples/UsingFastPro/test2.ring
 * samples/UsingFastPro/test3.ring
 * samples/UsingFastPro/test4.ring
 * samples/UsingFastPro/test5.ring
 * samples/UsingFastPro/test6.ring
+
+The following screenshot is from the Heart Equation sample:
+
+.. image:: hearteq.png
+	:alt: Heart Equation
+
+The following screenshot is from the Fast Animation sample (1024x768 image - Over 60 FPS):
+
+.. image:: fastanimation.png
+	:alt: Fast Animation
 
 The next applications and samples are revised:
 
@@ -192,7 +199,6 @@ in a structured format.
 	3-8-13-18-23
 	4-9-14-19-24
 	5-10-15-20-25
-
 
 .. index:: 
 	pair: What is new in Ring  1.22; Return Attribute by Reference
