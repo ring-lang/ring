@@ -21,7 +21,20 @@ Example:
 
 	aList = [1,2,3,4,5]
 
-Also we can create new lists using the : operator
+Ring support trailing comma.
+
+Example:
+
+.. code-block:: ring
+	
+	aList = ["one",
+        	 "two",
+         	 "three",
+        	]
+
+	? aList
+
+Also, we can create new lists using the : operator
 
 
 Example:
