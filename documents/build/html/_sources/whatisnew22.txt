@@ -15,7 +15,7 @@ List of changes and new features
 
 Ring 1.22 comes with the next features!
 
-* Research Paper
+* Research Article
 * Better Applications
 * Better Samples
 * Better Functions
@@ -25,15 +25,15 @@ Ring 1.22 comes with the next features!
 * More Improvements
 
 .. index:: 
-	pair: What is new in Ring 1.22?; Research Paper
+	pair: What is new in Ring 1.22?; Research Article
 
-Research Paper
-==============
+Research Article
+================
 
 URL: https://doi.org/10.3390/electronics13234627
 
 .. image:: researchcover.png
-	:alt: Research Paper
+	:alt: Research Article
 
 .. index:: 
 	pair: What is new in Ring 1.22?; Better Applications
