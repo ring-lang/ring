@@ -91,9 +91,6 @@ The next applications and samples are revised:
 * GetQuotesHistory - Better implementation.
 * GoldMagic800 - Draw background based on level number.
 
-.. image:: newgm800image.png
-	:alt: GoldMagic800
-
 .. index:: 
 	pair: What is new in Ring 1.22?; Better Functions
 
