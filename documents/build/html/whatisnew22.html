@@ -292,6 +292,10 @@
 <li><p>ringvm_calllist() function - Added the parameters count and the line number to the output.</p></li>
 </ul>
 <p>Example:</p>
+<p>The next Ring code defines a SumRows class that processes and sums rows of numbers given within
+curly braces. The braceExprEval() method evaluates each value, updating the sum for the current
+row and printing the sum when the row changes.
+The braceEnd() method prints the sum of the last row.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">SumRows</span> <span class="p">{</span>
         <span class="mi">10</span> <span class="mi">20</span> <span class="mi">30</span>                <span class="c"># 60</span>
         <span class="mi">10</span>                      <span class="c"># 10</span>

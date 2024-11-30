@@ -95,6 +95,11 @@ Better Functions
 
 Example:
 
+The next Ring code defines a SumRows class that processes and sums rows of numbers given within
+curly braces. The braceExprEval() method evaluates each value, updating the sum for the current
+row and printing the sum when the row changes. 
+The braceEnd() method prints the sum of the last row.
+
 .. code-block:: ring
 
 	new SumRows {
