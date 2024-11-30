@@ -45,6 +45,7 @@ Better Applications
 * Programming Without Coding Technology 2.0 - Free Software (Steam Platform)
 * Ring syntax highlighting for Sublime Text 4 (GitHub project)
 * GitHub Action - Build Ring Project (GitHub project)
+* DirSize - Directory Size Analyzer (GitHub project)
 * EpochTime application (ring/applications folder)
 
 .. index:: 
