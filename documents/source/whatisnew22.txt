@@ -74,7 +74,9 @@ The following screenshot is from the Heart Equation sample:
 .. image:: hearteq.png
 	:alt: Heart Equation
 
-The following screenshot is from the Fast Animation sample (1024x768 image - Over 60 FPS):
+The following screenshot is from the Fast Animation sample: 
+
+The sample uses RingFastPro extension to generate 1024x768 images (Over 60 FPS)
 
 .. image:: fastanimation.png
 	:alt: Fast Animation
