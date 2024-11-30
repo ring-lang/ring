@@ -48,6 +48,13 @@ Better Applications
 * DirSize - Directory Size Analyzer (GitHub project)
 * EpochTime application (ring/applications folder)
 
+The following screenshot is from the PWCT 2.0 software:
+
+URL: https://store.steampowered.com/app/1953110/Programming_Without_Coding_Technology_20/
+
+.. image:: pwct2.png
+	:alt: PWCT2
+
 .. index:: 
 	pair: What is new in Ring 1.22?; Better Samples
 
