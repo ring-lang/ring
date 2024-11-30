@@ -61,10 +61,11 @@ The next samples are added:
 * samples/ProblemSolving/GetQuotesHistory/Curl-YahooHistory-JSON.ring
 * samples/UsingStbImage/test15.ring - Fast Animation (1024x768 image - Over 60 FPS)
 * samples/UsingBingChat/examples/chat13.ring
-* extensions/ringfastpro/test2.ring
-* extensions/ringfastpro/test3.ring
-* extensions/ringfastpro/test4.ring
-* extensions/ringfastpro/test5.ring
+* samples/UsingFastPro/test2.ring
+* samples/UsingFastPro/test3.ring
+* samples/UsingFastPro/test4.ring
+* samples/UsingFastPro/test5.ring
+* samples/UsingFastPro/test6.ring
 
 The next applications and samples are revised:
 
