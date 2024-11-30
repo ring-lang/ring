@@ -291,6 +291,34 @@
 <li><p>RingQt - QString Class - Added: size()/length() methods.</p></li>
 <li><p>ringvm_calllist() function - Added the parameters count and the line number to the output.</p></li>
 </ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">SumRows</span> <span class="p">{</span>
+        <span class="mi">10</span> <span class="mi">20</span> <span class="mi">30</span>                <span class="c"># 60</span>
+        <span class="mi">10</span>                      <span class="c"># 10</span>
+        <span class="mi">400</span> <span class="mi">100</span>                 <span class="c"># 500</span>
+        <span class="mi">30</span> <span class="mi">40</span>                   <span class="c"># 70</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="n">SumRows</span>
+
+        <span class="n">nSum</span>     <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">nLastRow</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">func</span> <span class="n">braceExprEval</span>  <span class="n">value</span>
+
+                <span class="n">aCallList</span> <span class="o">=</span> <span class="n">ringvm_calllist</span><span class="p">()</span>
+                <span class="n">nLine</span>     <span class="o">=</span> <span class="n">aCallList</span><span class="o">[</span><span class="n">len</span><span class="p">(</span><span class="n">aCallList</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="o">][</span><span class="mi">7</span><span class="o">]</span>
+
+                <span class="k">if</span> <span class="n">nLastRow</span>  <span class="o">=</span> <span class="mi">0</span>      <span class="n">nLastRow</span> <span class="o">=</span> <span class="n">nLine</span>            <span class="n">nSum</span> <span class="o">=</span> <span class="n">value</span> <span class="k">return</span> <span class="k">ok</span>
+                <span class="k">if</span> <span class="n">nLastRow</span> <span class="o">!=</span> <span class="n">nLine</span>  <span class="n">nLastRow</span> <span class="o">=</span> <span class="n">nLine</span>   <span class="o">?</span> <span class="n">nSum</span>   <span class="n">nSum</span> <span class="o">=</span> <span class="n">value</span> <span class="k">return</span> <span class="k">ok</span>
+
+                <span class="n">nSum</span> <span class="o">+=</span> <span class="n">value</span>
+
+        <span class="k">func</span> <span class="n">braceEnd</span>
+
+                <span class="o">?</span> <span class="n">nSum</span>
+</pre></div>
+</div>
 </section>
 <section id="better-ringfastpro-extension">
 <span id="index-6"></span><h2>Better RingFastPro Extension<a class="headerlink" href="#better-ringfastpro-extension" title="Permalink to this heading"></a></h2>
