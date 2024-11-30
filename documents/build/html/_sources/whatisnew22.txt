@@ -19,9 +19,9 @@ Ring 1.22 comes with the next features!
 * Better Applications
 * Better Samples
 * Better Functions
-* Better RingFastPro
-* Better Compiler
+* Better RingFastPro Extension
 * Return Attribute by Reference
+* Better Compiler
 * More Improvements
 
 .. index:: 
@@ -94,10 +94,10 @@ Better Functions
 * ringvm_calllist() function - Added the parameters count and the line number to the output.
 
 .. index:: 
-	pair: What is new in Ring 1.22?; Better Ring FastPro
+	pair: What is new in Ring 1.22?; Better Ring FastPro Extension
 
-Better RingFastPro
-===================
+Better RingFastPro Extension
+============================
 
 * The build script is revised to use the ring/lib directory.
 * updateList()/updateColumn() functions - Support Serial/Pow/Rem options.
@@ -153,6 +153,56 @@ in a structured format.
 
 
 .. index:: 
+	pair: What is new in Ring  1.22; Return Attribute by Reference
+
+Return Attribute by Reference
+=============================
+
+In early Ring releases, returning an attribute that contains a List/Object would return a shared reference to this List/Object. This release supports advanced cases for using this feature, allowing nested method calls before returning the List/Object.
+
+.. note:: For advanced usage of references with full customization, refer to the 'Using References' chapter, which explains the Ref()/Reference() function.
+
+Example:
+
+.. code-block:: ring
+
+	o = new myclass
+
+	o.getObject().x = 1000
+	o.getObject().y = 2000
+	o.getObject().z = 3000
+
+	? o.aList
+
+
+	class myclass
+
+		aList = [ new point {x=10  y=20  z=30 },
+			  new point {x=100 y=200 z=300}  ]
+
+		func getObject
+			return myMethod()
+
+		func myMethod
+			return aList[myIndex()]
+	
+		func myIndex
+			return 2
+
+	class point x y z
+
+Output:
+
+.. code-block:: none
+
+	x: 10
+	y: 20
+	z: 30
+	x: 1000
+	y: 2000
+	z: 3000
+
+.. index:: 
 	pair: What is new in Ring 1.22?; Better Compiler
 
 Better Compiler
@@ -195,57 +245,6 @@ Output:
 	-10
 	1 		# True	
 	1 		# True
-
-
-.. index:: 
-	pair: What is new in Ring  1.22; Return Attribute by Reference
-
-Return Attribute by Reference
-=============================
-
-In early Ring releases, returning an attribute that contains a List/Object would return a shared reference to this List/Object. This release supports advanced cases for using this feature, allowing nested method calls before returning the List/Object.
-
-Example:
-
-.. code-block:: ring
-
-	o = new myclass
-
-	o.getObject().x = 1000
-	o.getObject().y = 2000
-	o.getObject().z = 3000
-
-	? o.aList
-
-
-	class myclass
-
-		aList = [ new point {x=10  y=20  z=30 },
-			  new point {x=100 y=200 z=300}  ]
-
-		func getObject
-			return myMethod()
-
-		func myMethod
-			return aList[myIndex()]
-	
-		func myIndex
-			return 2
-
-	class point x y z
-
-Output:
-
-.. code-block:: none
-
-	x: 10
-	y: 20
-	z: 30
-	x: 1000
-	y: 2000
-	z: 3000
-
-.. note:: For advanced usage of references with full customization, refer to the 'Using References' chapter, which explains the Ref()/Reference() function.
 
 .. index:: 
 	pair: What is new in Ring  1.22; More Improvements

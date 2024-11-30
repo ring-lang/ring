@@ -182,9 +182,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#better-applications">Better Applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-samples">Better Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-functions">Better Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#better-ringfastpro">Better RingFastPro</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#better-compiler">Better Compiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ringfastpro-extension">Better RingFastPro Extension</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#return-attribute-by-reference">Return Attribute by Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-compiler">Better Compiler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
 </li>
@@ -230,9 +230,9 @@
 <li><p>Better Applications</p></li>
 <li><p>Better Samples</p></li>
 <li><p>Better Functions</p></li>
-<li><p>Better RingFastPro</p></li>
-<li><p>Better Compiler</p></li>
+<li><p>Better RingFastPro Extension</p></li>
 <li><p>Return Attribute by Reference</p></li>
+<li><p>Better Compiler</p></li>
 <li><p>More Improvements</p></li>
 </ul>
 </section>
@@ -292,8 +292,8 @@
 <li><p>ringvm_calllist() function - Added the parameters count and the line number to the output.</p></li>
 </ul>
 </section>
-<section id="better-ringfastpro">
-<span id="index-6"></span><h2>Better RingFastPro<a class="headerlink" href="#better-ringfastpro" title="Permalink to this heading"></a></h2>
+<section id="better-ringfastpro-extension">
+<span id="index-6"></span><h2>Better RingFastPro Extension<a class="headerlink" href="#better-ringfastpro-extension" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>The build script is revised to use the ring/lib directory.</p></li>
 <li><p>updateList()/updateColumn() functions - Support Serial/Pow/Rem options.</p></li>
@@ -342,47 +342,13 @@ in a structured format.</p>
 </pre></div>
 </div>
 </section>
-<section id="better-compiler">
-<span id="index-7"></span><h2>Better Compiler<a class="headerlink" href="#better-compiler" title="Permalink to this heading"></a></h2>
-<ul class="simple">
-<li><p>Lists - Support trailing comma.</p></li>
-<li><p>Support (+) operator before numbers.</p></li>
-<li><p>Logical AND have higher precedence than Logical OR.</p></li>
-</ul>
-<p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;one&quot;</span><span class="p">,</span>
-         <span class="s">&quot;two&quot;</span><span class="p">,</span>
-         <span class="s">&quot;three&quot;</span><span class="p">,</span>
-        <span class="o">]</span>
-
-<span class="n">nNum1</span> <span class="o">=</span> <span class="o">+</span><span class="mi">10</span>
-<span class="n">nNum2</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>
-
-<span class="n">lRes</span>  <span class="o">=</span> <span class="kp">True</span> <span class="ow">OR</span> <span class="kp">False</span> <span class="ow">AND</span> <span class="kp">False</span>
-<span class="n">lRes2</span> <span class="o">=</span> <span class="kp">True</span> <span class="o">||</span> <span class="kp">False</span> <span class="o">&amp;&amp;</span>  <span class="kp">False</span>
-
-<span class="o">?</span> <span class="n">aList</span>
-<span class="o">?</span> <span class="n">nNum1</span>
-<span class="o">?</span> <span class="n">nNum2</span>
-<span class="o">?</span> <span class="n">lRes</span>
-<span class="o">?</span> <span class="n">lRes2</span>
-</pre></div>
-</div>
-<p>Output:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>one
-two
-three
-
-10
--10
-1               # True
-1               # True
-</pre></div>
-</div>
-</section>
 <section id="return-attribute-by-reference">
-<span id="index-8"></span><h2>Return Attribute by Reference<a class="headerlink" href="#return-attribute-by-reference" title="Permalink to this heading"></a></h2>
+<span id="index-7"></span><h2>Return Attribute by Reference<a class="headerlink" href="#return-attribute-by-reference" title="Permalink to this heading"></a></h2>
 <p>In early Ring releases, returning an attribute that contains a List/Object would return a shared reference to this List/Object. This release supports advanced cases for using this feature, allowing nested method calls before returning the List/Object.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For advanced usage of references with full customization, refer to the ‘Using References’ chapter, which explains the Ref()/Reference() function.</p>
+</div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o</span> <span class="o">=</span> <span class="k">new</span> <span class="n">myclass</span>
 
@@ -419,9 +385,43 @@ y: 2000
 z: 3000
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For advanced usage of references with full customization, refer to the ‘Using References’ chapter, which explains the Ref()/Reference() function.</p>
+</section>
+<section id="better-compiler">
+<span id="index-8"></span><h2>Better Compiler<a class="headerlink" href="#better-compiler" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Lists - Support trailing comma.</p></li>
+<li><p>Support (+) operator before numbers.</p></li>
+<li><p>Logical AND have higher precedence than Logical OR.</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;one&quot;</span><span class="p">,</span>
+         <span class="s">&quot;two&quot;</span><span class="p">,</span>
+         <span class="s">&quot;three&quot;</span><span class="p">,</span>
+        <span class="o">]</span>
+
+<span class="n">nNum1</span> <span class="o">=</span> <span class="o">+</span><span class="mi">10</span>
+<span class="n">nNum2</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>
+
+<span class="n">lRes</span>  <span class="o">=</span> <span class="kp">True</span> <span class="ow">OR</span> <span class="kp">False</span> <span class="ow">AND</span> <span class="kp">False</span>
+<span class="n">lRes2</span> <span class="o">=</span> <span class="kp">True</span> <span class="o">||</span> <span class="kp">False</span> <span class="o">&amp;&amp;</span>  <span class="kp">False</span>
+
+<span class="o">?</span> <span class="n">aList</span>
+<span class="o">?</span> <span class="n">nNum1</span>
+<span class="o">?</span> <span class="n">nNum2</span>
+<span class="o">?</span> <span class="n">lRes</span>
+<span class="o">?</span> <span class="n">lRes2</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>one
+two
+three
+
+10
+-10
+1               # True
+1               # True
+</pre></div>
 </div>
 </section>
 <section id="more-improvements">
