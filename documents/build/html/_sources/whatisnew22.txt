@@ -121,7 +121,7 @@ More Improvements
 * Better documentation - Chapter: Program Structure.
 * Better vscode extension - Ring build system and snippets.
 * Better RingQt for Android/WebAssembly - RING_API_REGISTER usage is revised. 
-* Output the RingPDFGen library to the lib directory and install it accordingly.
+* Output the RingPDFGen library to the ring/lib directory and install it accordingly.
 * Ring Compiler/VM source code - Revise exit() function usage.
 * Ring Compiler/VM source code - language/src/stmt.c - Revise comments.
 * Ring Compiler/VM source code - language/src/vm.c - Organize the instructions.
