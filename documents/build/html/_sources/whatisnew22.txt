@@ -41,12 +41,12 @@ URL: https://doi.org/10.3390/electronics13234627
 Better Applications
 ===================
 
-* Programming Without Coding Technology 2.0 - Free Software (Steam Platform)
+* EpochTime application (ring/applications folder)
+* DirSize - Directory Size Analyzer (GitHub project)
+* GitHub Action - Build Ring Project (GitHub project)
 * Ring Syntax Highlighting for Sublime Text 4 (GitHub project)
 * Ring Syntax Highlighting for Lite XL editor (GitHub project)
-* GitHub Action - Build Ring Project (GitHub project)
-* DirSize - Directory Size Analyzer (GitHub project)
-* EpochTime application (ring/applications folder)
+* Programming Without Coding Technology 2.0 - Free Software (Steam Platform)
 
 The following screenshot is from the PWCT 2.0 software:
 
