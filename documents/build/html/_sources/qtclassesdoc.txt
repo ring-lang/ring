@@ -11372,6 +11372,8 @@ Parameters : void
 * QString toCaseFolded(void)
 * QString trimmed(void)
 * void truncate(int position)
+* qsizetype length(void)
+* qsizetype size(void)
 
 .. index::
 	pair: RingQt Classes Reference; QStringList Class
