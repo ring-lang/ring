@@ -5,7 +5,7 @@
 Using Other Code Editors
 ========================
 
-In the Ring/Tools/Editors folder you will find extensions for the next editors
+We have extensions for the next editors:
 
 * Notepad++
 * Geany
