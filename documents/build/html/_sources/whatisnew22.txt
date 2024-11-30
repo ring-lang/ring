@@ -15,6 +15,25 @@ List of changes and new features
 
 Ring 1.22 comes with the next features!
 
+* Research Paper
+* PWCT 2.0 (Free Software)
+* GitHub Action - Build Ring Project
+* Ring syntax highlighting for Sublime Text 4
+* EpochTime application
+* Support (+) operator before numbers
+* Support trailing comma in lists
+* Revising operator precedence (And/Or)
+* Better RingFastPro
+* Better ringvm_calllist() function
+* More Samples
+* More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.22?; Details
+
+Details
+=======
+
 * Research Paper (https://www.mdpi.com/2079-9292/13/23/4627)
 * PWCT 2.0 - Free Software (https://store.steampowered.com/app/1953110/Programming_Without_Coding_Technology_20/)
 * GitHub Action - Build Ring Project - (https://github.com/marketplace/actions/build-ring-project)
