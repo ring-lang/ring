@@ -96,6 +96,7 @@ The next applications and samples are revised:
 * HoursCounter - User Interface.
 * GetQuotesHistory - Better implementation.
 * GoldMagic800 - Draw background based on level number.
+* Othello - Better colors and images.
 * samples/UsingStbImage/test12.ring
 * samples/UsingStbImage/test15.ring
 * tools/tryringonline/samples.ring
@@ -316,6 +317,8 @@ More Improvements
 =================
 
 * Better documentation - Chapter: Program Structure.
+* Form Designer - Copy object style when using the Duplicate button.
+* Form Designer - Avoid name duplication when using the Duplicate button.
 * Better vscode extension - Ring build system and snippets.
 * Better RingQt for Android/WebAssembly - RING_API_REGISTER usage is revised. 
 * Output the RingPDFGen library to the ring/lib directory and install it accordingly.
