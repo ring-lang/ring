@@ -8,5 +8,5 @@ func main
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
 	chdir(exefolder()+"/../applications/getquoteshistory")
-	system("ring GetQuotesHistoryDraw-v1.3.ring")
+	system("ring GetQuotesHistoryDraw.ring")
 	chdir(cDir)
