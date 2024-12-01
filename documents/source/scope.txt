@@ -23,6 +23,8 @@ These application may uses
 
 * Natural Programming
 
+.. note:: In Ring, we can have multiple global scopes using the Load Package command. This feature can help in large programs and avoid conflicts. The solutions in this chapter does not use this feature.
+
 .. index:: 
 	pair: Scope Rules; Three Scopes
 
