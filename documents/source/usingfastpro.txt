@@ -59,7 +59,7 @@ Syntax:
 
 	updateList(<aList>,<cCommand>,<cSelection>,<nPara1>,[<nPara2>],[nPara3])
 
-cCommand could be :set, :add, :sub, :mul, :div, :merge and :copy
+cCommand could be :set, :add, :sub, :mul, :div, :rem, :pow, :serial, :merge and :copy
 
 cSelection could be :col, :row, :manycols, :manyrows and :items
 
@@ -200,8 +200,6 @@ The list will be [ [10,20,100], [30,40,300], [50,60,500] ]
 
 Using :manyrows or :manycols we can do operations on many rows/columns
 
-
-
 Example:
 
 .. code-block:: ring
@@ -262,6 +260,53 @@ The list will be [2000,2000,2000,2000,2000]
 	2000
 	2000
 
+Using :serial, we can set default values for multiple items based on their positions.
+
+Example:
+
+The next code updates the list with values incremented by 5 in each column. 
+
+.. code-block:: ring
+
+	load "fastpro.ring"
+
+	aList = [
+		list(5),
+		list(5),
+		list(5),
+		list(5),
+		list(5)
+	]
+
+	updateList(aList,:serial,:col,1,0)
+	updateList(aList,:serial,:col,2,5)
+	updateList(aList,:serial,:col,3,10)
+	updateList(aList,:serial,:col,4,15)
+	updateList(aList,:serial,:col,5,20)
+
+	? copy("*",20)
+
+	for x=1 to 5
+		for y=1 to 5
+			print(aList[x][y])
+			if y != 5 print ("-") ok
+		next
+		? ""
+	next
+
+Output:
+
+The output displays a row of asterisks followed by the elements of the list arranged 
+in a structured format.
+
+.. code-block:: none
+
+	********************
+	1-6-11-16-21
+	2-7-12-17-22
+	3-8-13-18-23
+	4-9-14-19-24
+	5-10-15-20-25
 
 .. index:: 
 	pair: Using FastPro; UpdateColumn()

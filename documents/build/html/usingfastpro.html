@@ -252,7 +252,7 @@
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>updateList(&lt;aList&gt;,&lt;cCommand&gt;,&lt;cSelection&gt;,&lt;nPara1&gt;,[&lt;nPara2&gt;],[nPara3])
 </pre></div>
 </div>
-<p>cCommand could be :set, :add, :sub, :mul, :div, :merge and :copy</p>
+<p>cCommand could be :set, :add, :sub, :mul, :div, :rem, :pow, :serial, :merge and :copy</p>
 <p>cSelection could be :col, :row, :manycols, :manyrows and :items</p>
 <p>Example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>updateList(&lt;aList&gt;,:set,:row,&lt;nRow&gt;,&lt;nValue&gt;)
@@ -414,6 +414,47 @@ updateList(&lt;aList&gt;,:mul,:col,&lt;nCol&gt;,&lt;nValue&gt;,&lt;nColDest&gt;)
 2000
 2000
 2000
+</pre></div>
+</div>
+<p>Using :serial, we can set default values for multiple items based on their positions.</p>
+<p>Example:</p>
+<p>The next code updates the list with values incremented by 5 in each column.</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;fastpro.ring&quot;</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span>
+        <span class="kt">list</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+        <span class="kt">list</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+        <span class="kt">list</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+        <span class="kt">list</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+        <span class="kt">list</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">]</span>
+
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">serial</span><span class="p">,:</span><span class="n">col</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">serial</span><span class="p">,:</span><span class="n">col</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">serial</span><span class="p">,:</span><span class="n">col</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">serial</span><span class="p">,:</span><span class="n">col</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">updateList</span><span class="p">(</span><span class="n">aList</span><span class="p">,:</span><span class="n">serial</span><span class="p">,:</span><span class="n">col</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">5</span>
+        <span class="k">for</span> <span class="n">y</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">5</span>
+                <span class="n">print</span><span class="p">(</span><span class="n">aList</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">]</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">y</span> <span class="o">!=</span> <span class="mi">5</span> <span class="n">print</span> <span class="p">(</span><span class="s">&quot;-&quot;</span><span class="p">)</span> <span class="k">ok</span>
+        <span class="k">next</span>
+        <span class="o">?</span> <span class="s">&quot;&quot;</span>
+<span class="k">next</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<p>The output displays a row of asterisks followed by the elements of the list arranged
+in a structured format.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>********************
+1-6-11-16-21
+2-7-12-17-22
+3-8-13-18-23
+4-9-14-19-24
+5-10-15-20-25
 </pre></div>
 </div>
 </section>
