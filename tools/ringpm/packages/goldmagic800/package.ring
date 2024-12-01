@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.3",
-	:ringversion = "1.19",
+	:version = "1.0.4",
+	:ringversion = "1.22",
 	:versions = 	[
 		[
-			:version = "1.0.3",
+			:version = "1.0.4",
 			:branch = "master"
 		]
 	],
@@ -99,6 +99,7 @@ aPackageInfo = [
 		"applications/goldmagic800/images/wall3.jpg",
 		"applications/goldmagic800/images/wall4.jpg",
 		"applications/goldmagic800/images/winback.jpg",
+		"applications/goldmagic800/images/sogoodback.jpg",
 		"applications/goldmagic800/levels/level1.level",
 		"applications/goldmagic800/levels/level10.level",
 		"applications/goldmagic800/levels/level11.level",
