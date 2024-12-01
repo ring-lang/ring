@@ -1,7 +1,7 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = 0 , : y = 0  , 
+		 :x = 0 , : y = -454  , 
 		 :width =  1609 , :height = 1188 , 
 		 :title =  "Ring Project Architecture" , 
 		 :backcolor =  "#00ffff" , 
@@ -14,7 +14,7 @@ aObjectsList = [
 
 		]
 	],
-	[ :name = "Frame1" , :id = 2 , :classname = "formdesigner_qframe3" , :data = [
+	[ :name = "layerLanguage" , :id = 2 , :classname = "formdesigner_qframe3" , :data = [
 		 :x = 7 , : y = 509  , 
 		 :width =  1574 , :height = 591 , 
 		 :textcolor =  "" , 
@@ -24,7 +24,7 @@ aObjectsList = [
 		 :FrameType =  1
 		]
 	],
-	[ :name = "Frame7" , :id = 3 , :classname = "formdesigner_qframe3" , :data = [
+	[ :name = "layerTools" , :id = 3 , :classname = "formdesigner_qframe3" , :data = [
 		 :x = 5 , : y = 9  , 
 		 :width =  1577 , :height = 220 , 
 		 :textcolor =  "" , 
@@ -34,7 +34,7 @@ aObjectsList = [
 		 :FrameType =  1
 		]
 	],
-	[ :name = "Frame61" , :id = 4 , :classname = "formdesigner_qframe3" , :data = [
+	[ :name = "frameTools" , :id = 4 , :classname = "formdesigner_qframe3" , :data = [
 		 :x = 517 , : y = 17  , 
 		 :width =  1054 , :height = 203 , 
 		 :textcolor =  "" , 
@@ -44,7 +44,7 @@ aObjectsList = [
 		 :FrameType =  2
 		]
 	],
-	[ :name = "Frame5" , :id = 5 , :classname = "formdesigner_qframe3" , :data = [
+	[ :name = "layerLibs" , :id = 5 , :classname = "formdesigner_qframe3" , :data = [
 		 :x = 5 , : y = 232  , 
 		 :width =  1577 , :height = 264 , 
 		 :textcolor =  "" , 
@@ -106,7 +106,7 @@ aObjectsList = [
 		 :textalign =  0
 		]
 	],
-	[ :name = "Label8" , :id = 11 , :classname = "formdesigner_qlabel" , :data = [
+	[ :name = "lblTools" , :id = 11 , :classname = "formdesigner_qlabel" , :data = [
 		 :x = 182 , : y = 84  , 
 		 :width =  171 , :height = 46 , 
 		 :textcolor =  "" , 
@@ -117,7 +117,7 @@ aObjectsList = [
 		 :textalign =  0
 		]
 	],
-	[ :name = "Button1" , :id = 12 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnVisual" , :id = 12 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 59 , : y = 630  , 
 		 :width =  331 , :height = 78 , 
 		 :textcolor =  "" , 
@@ -129,7 +129,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button12" , :id = 13 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnLoader" , :id = 13 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 433 , : y = 533  , 
 		 :width =  371 , :height = 78 , 
 		 :textcolor =  "white" , 
@@ -141,7 +141,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button13" , :id = 14 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnCompiler" , :id = 14 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 815 , : y = 531  , 
 		 :width =  371 , :height = 78 , 
 		 :textcolor =  "white" , 
@@ -153,7 +153,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button14" , :id = 15 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnVM" , :id = 15 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 1193 , : y = 532  , 
 		 :width =  371 , :height = 78 , 
 		 :textcolor =  "white" , 
@@ -165,7 +165,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button15" , :id = 16 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnTests" , :id = 16 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 59 , : y = 954  , 
 		 :width =  331 , :height = 78 , 
 		 :textcolor =  "" , 
@@ -177,7 +177,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button6" , :id = 17 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnScanner" , :id = 17 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 832 , : y = 631  , 
 		 :width =  339 , :height = 72 , 
 		 :textcolor =  "" , 
@@ -189,7 +189,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button17" , :id = 18 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnParser" , :id = 18 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 832 , : y = 710  , 
 		 :width =  339 , :height = 72 , 
 		 :textcolor =  "" , 
@@ -201,7 +201,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button18" , :id = 19 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnCodeGenerator" , :id = 19 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 832 , : y = 788  , 
 		 :width =  339 , :height = 72 , 
 		 :textcolor =  "" , 
@@ -213,7 +213,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button19" , :id = 20 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnAPI" , :id = 20 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 1209 , : y = 788  , 
 		 :width =  109 , :height = 72 , 
 		 :textcolor =  "" , 
@@ -225,7 +225,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button20" , :id = 21 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnVMModules" , :id = 21 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 1209 , : y = 710  , 
 		 :width =  339 , :height = 72 , 
 		 :textcolor =  "" , 
@@ -237,7 +237,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button21" , :id = 22 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnExeLoop" , :id = 22 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 1209 , : y = 631  , 
 		 :width =  339 , :height = 72 , 
 		 :textcolor =  "" , 
@@ -249,7 +249,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button22" , :id = 23 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnBuiltinFuncs" , :id = 23 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 1329 , : y = 788  , 
 		 :width =  219 , :height = 72 , 
 		 :textcolor =  "" , 
@@ -261,7 +261,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Frame25" , :id = 24 , :classname = "formdesigner_qframe3" , :data = [
+	[ :name = "frameLanguage" , :id = 24 , :classname = "formdesigner_qframe3" , :data = [
 		 :x = 433 , : y = 617  , 
 		 :width =  371 , :height = 263 , 
 		 :textcolor =  "" , 
@@ -271,7 +271,7 @@ aObjectsList = [
 		 :FrameType =  2
 		]
 	],
-	[ :name = "Button26" , :id = 25 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnSysState" , :id = 25 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 450 , : y = 631  , 
 		 :width =  339 , :height = 72 , 
 		 :textcolor =  "" , 
@@ -280,10 +280,10 @@ aObjectsList = [
 		 :parent =  "win"  ,
 		 :text =  "System State",
 		 :BtnImage =  "",
-		 :setClickEvent =  "System_State"
+		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button27" , :id = 26 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnFileHandler" , :id = 26 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 450 , : y = 710  , 
 		 :width =  339 , :height = 72 , 
 		 :textcolor =  "" , 
@@ -295,7 +295,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button28" , :id = 27 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnStringHandler" , :id = 27 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 450 , : y = 788  , 
 		 :width =  339 , :height = 72 , 
 		 :textcolor =  "" , 
@@ -307,7 +307,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Image1" , :id = 28 , :classname = "formdesigner_qimage" , :data = [
+	[ :name = "imageLibs" , :id = 28 , :classname = "formdesigner_qimage" , :data = [
 		 :x = 1185 , : y = 251  , 
 		 :width =  374 , :height = 220 , 
 		 :textcolor =  "" , 
@@ -317,7 +317,7 @@ aObjectsList = [
 		 :imagefile =  "extensions.png"
 		]
 	],
-	[ :name = "btnbind" , :id = 29 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnGenerator" , :id = 29 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 31 , : y = 394  , 
 		 :width =  271 , :height = 78 , 
 		 :textcolor =  "" , 
@@ -329,7 +329,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "btnext" , :id = 30 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnExtensions" , :id = 30 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 317 , : y = 394  , 
 		 :width =  181 , :height = 78 , 
 		 :textcolor =  "white" , 
@@ -341,7 +341,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "btnlib" , :id = 31 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnLibraries" , :id = 31 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 32 , : y = 310  , 
 		 :width =  465 , :height = 78 , 
 		 :textcolor =  "white" , 
@@ -353,7 +353,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button30" , :id = 32 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnGUI" , :id = 32 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 858 , : y = 260  , 
 		 :width =  149 , :height = 72 , 
 		 :textcolor =  "" , 
@@ -365,7 +365,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button31" , :id = 33 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnDB" , :id = 33 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 699 , : y = 344  , 
 		 :width =  149 , :height = 72 , 
 		 :textcolor =  "" , 
@@ -377,7 +377,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button32" , :id = 34 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnGraphics" , :id = 34 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 858 , : y = 344  , 
 		 :width =  149 , :height = 72 , 
 		 :textcolor =  "" , 
@@ -389,7 +389,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button33" , :id = 35 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnNetwork" , :id = 35 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 1017 , : y = 344  , 
 		 :width =  149 , :height = 72 , 
 		 :textcolor =  "" , 
@@ -401,7 +401,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button34" , :id = 36 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnCSV" , :id = 36 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 540 , : y = 260  , 
 		 :width =  149 , :height = 72 , 
 		 :textcolor =  "" , 
@@ -413,7 +413,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button35" , :id = 37 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnJSON" , :id = 37 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 699 , : y = 260  , 
 		 :width =  149 , :height = 72 , 
 		 :textcolor =  "" , 
@@ -425,7 +425,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button36" , :id = 38 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnPDF" , :id = 38 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 540 , : y = 344  , 
 		 :width =  149 , :height = 72 , 
 		 :textcolor =  "" , 
@@ -437,7 +437,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button37" , :id = 39 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnGameEngine" , :id = 39 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 1017 , : y = 260  , 
 		 :width =  149 , :height = 72 , 
 		 :textcolor =  "" , 
@@ -449,7 +449,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Frame39" , :id = 40 , :classname = "formdesigner_qframe3" , :data = [
+	[ :name = "frameMore4" , :id = 40 , :classname = "formdesigner_qframe3" , :data = [
 		 :x = 777 , : y = 435  , 
 		 :width =  29 , :height = 30 , 
 		 :textcolor =  "" , 
@@ -459,7 +459,7 @@ aObjectsList = [
 		 :FrameType =  0
 		]
 	],
-	[ :name = "Frame40" , :id = 41 , :classname = "formdesigner_qframe3" , :data = [
+	[ :name = "frameMore5" , :id = 41 , :classname = "formdesigner_qframe3" , :data = [
 		 :x = 818 , : y = 435  , 
 		 :width =  27 , :height = 30 , 
 		 :textcolor =  "" , 
@@ -469,7 +469,7 @@ aObjectsList = [
 		 :FrameType =  0
 		]
 	],
-	[ :name = "Frame41" , :id = 42 , :classname = "formdesigner_qframe3" , :data = [
+	[ :name = "frameMore6" , :id = 42 , :classname = "formdesigner_qframe3" , :data = [
 		 :x = 855 , : y = 435  , 
 		 :width =  29 , :height = 30 , 
 		 :textcolor =  "" , 
@@ -479,7 +479,7 @@ aObjectsList = [
 		 :FrameType =  0
 		]
 	],
-	[ :name = "Frame42" , :id = 43 , :classname = "formdesigner_qframe3" , :data = [
+	[ :name = "frameMore7" , :id = 43 , :classname = "formdesigner_qframe3" , :data = [
 		 :x = 893 , : y = 435  , 
 		 :width =  29 , :height = 30 , 
 		 :textcolor =  "" , 
@@ -489,7 +489,7 @@ aObjectsList = [
 		 :FrameType =  0
 		]
 	],
-	[ :name = "Button44" , :id = 44 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnBuild" , :id = 44 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 59 , : y = 846  , 
 		 :width =  331 , :height = 78 , 
 		 :textcolor =  "" , 
@@ -501,7 +501,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button45" , :id = 45 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnCodeEditor" , :id = 45 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 541 , : y = 29  , 
 		 :width =  221 , :height = 78 , 
 		 :textcolor =  "" , 
@@ -513,7 +513,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button46" , :id = 46 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnFormDesigner" , :id = 46 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 794 , : y = 29  , 
 		 :width =  221 , :height = 78 , 
 		 :textcolor =  "" , 
@@ -525,7 +525,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button47" , :id = 47 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnFindInFiles" , :id = 47 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 1294 , : y = 29  , 
 		 :width =  221 , :height = 78 , 
 		 :textcolor =  "" , 
@@ -537,7 +537,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button48" , :id = 48 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnREPL" , :id = 48 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 1045 , : y = 124  , 
 		 :width =  221 , :height = 78 , 
 		 :textcolor =  "" , 
@@ -549,7 +549,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button49" , :id = 49 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnRing2EXE" , :id = 49 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 1294 , : y = 124  , 
 		 :width =  221 , :height = 78 , 
 		 :textcolor =  "" , 
@@ -561,7 +561,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button50" , :id = 50 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnDebugger" , :id = 50 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 794 , : y = 124  , 
 		 :width =  221 , :height = 78 , 
 		 :textcolor =  "" , 
@@ -573,7 +573,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button51" , :id = 51 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnPackageManager" , :id = 51 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 541 , : y = 124  , 
 		 :width =  221 , :height = 78 , 
 		 :textcolor =  "" , 
@@ -585,7 +585,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button52" , :id = 52 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnWebTools" , :id = 52 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 1045 , : y = 29  , 
 		 :width =  221 , :height = 78 , 
 		 :textcolor =  "" , 
@@ -597,8 +597,8 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Frame53" , :id = 53 , :classname = "formdesigner_qframe3" , :data = [
-		 :x = 1532 , : y = 57  , 
+	[ :name = "frameMore1" , :id = 53 , :classname = "formdesigner_qframe3" , :data = [
+		 :x = 1533 , : y = 56  , 
 		 :width =  29 , :height = 30 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "" , 
@@ -607,7 +607,7 @@ aObjectsList = [
 		 :FrameType =  0
 		]
 	],
-	[ :name = "Frame54" , :id = 54 , :classname = "formdesigner_qframe3" , :data = [
+	[ :name = "frameMore2" , :id = 54 , :classname = "formdesigner_qframe3" , :data = [
 		 :x = 1532 , : y = 103  , 
 		 :width =  29 , :height = 30 , 
 		 :textcolor =  "" , 
@@ -617,7 +617,7 @@ aObjectsList = [
 		 :FrameType =  0
 		]
 	],
-	[ :name = "Frame55" , :id = 55 , :classname = "formdesigner_qframe3" , :data = [
+	[ :name = "frameMore3" , :id = 55 , :classname = "formdesigner_qframe3" , :data = [
 		 :x = 1531 , : y = 148  , 
 		 :width =  29 , :height = 30 , 
 		 :textcolor =  "" , 
@@ -627,7 +627,7 @@ aObjectsList = [
 		 :FrameType =  0
 		]
 	],
-	[ :name = "Button55" , :id = 57 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnGeneral" , :id = 56 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 433 , : y = 899  , 
 		 :width =  1131 , :height = 78 , 
 		 :textcolor =  "#ffffff" , 
@@ -639,7 +639,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Frame56" , :id = 58 , :classname = "formdesigner_qframe3" , :data = [
+	[ :name = "frameGeneralLib" , :id = 57 , :classname = "formdesigner_qframe3" , :data = [
 		 :x = 433 , : y = 988  , 
 		 :width =  1131 , :height = 83 , 
 		 :textcolor =  "" , 
@@ -649,7 +649,7 @@ aObjectsList = [
 		 :FrameType =  2
 		]
 	],
-	[ :name = "Button57" , :id = 59 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnDS" , :id = 58 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 450 , : y = 994  , 
 		 :width =  339 , :height = 72 , 
 		 :textcolor =  "" , 
@@ -661,7 +661,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button58" , :id = 60 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnMemPool" , :id = 59 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 832 , : y = 994  , 
 		 :width =  339 , :height = 72 , 
 		 :textcolor =  "" , 
@@ -673,7 +673,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button59" , :id = 61 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnFunctions" , :id = 60 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 1209 , : y = 993  , 
 		 :width =  339 , :height = 72 , 
 		 :textcolor =  "" , 
@@ -685,7 +685,7 @@ aObjectsList = [
 		 :setClickEvent =  ""
 		]
 	],
-	[ :name = "Button60" , :id = 62 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnANSIC" , :id = 61 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 59 , : y = 737  , 
 		 :width =  331 , :height = 78 , 
 		 :textcolor =  "white" , 
