@@ -2,7 +2,7 @@ aLockInfo = [
 	[
 		:name = "hourscounter",
 		:branch = "master",
-		:version = "1.0.1",
+		:version = "1.0.2",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -30,7 +30,7 @@ aLockInfo = [
 	[
 		:name = "codegen",
 		:branch = "master",
-		:version = "1.0.12",
+		:version = "1.0.14",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
