@@ -1259,6 +1259,10 @@ class FormDesignerController from WindowsControllerParent
 							}
 						}
 						item[:name] = substr(item[:name]," ","")
+					# Avoid name duplication 
+						while find(oModel.aObjectsList,item[:name]+(oModel.ObjectsCount()+nIndex-1),1) {
+							nIndex++						
+						}
 					# Add New number to the name
 						# -1 to avoid counting the window object
 							item[:name] += "" + (oModel.ObjectsCount()+nIndex-1)
