@@ -1,0 +1,10 @@
+10
+10
+10
+STRING
+-10
+-10
+NUMBER
+
+Line 15 Error (R21) : Using operator with values of incorrect type 
+in file general/unary.ring 
