@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "",
 	:email = "",
 	:license = "MIT License",
-	:version = "1.0.2",
-	:ringversion = "1.21",
+	:version = "1.0.3",
+	:ringversion = "1.22",
 	:versions = 	[
 		[
-			:version = "1.0.2",
+			:version = "1.0.3",
 			:branch = "master"
 		]
 	],
@@ -34,7 +34,6 @@ aPackageInfo = [
 		"extensions/ringfastpro/fastpro.h",
 		"extensions/ringfastpro/fastpro.ring",
 		"extensions/ringfastpro/README.md",
-		"extensions/ringfastpro/test.ring",
 		"samples/UsingFastPro/genimage.ring",
 		"samples/UsingFastPro/genimage2.ring",
 		"samples/UsingFastPro/updatelist.ring",
@@ -44,6 +43,12 @@ aPackageInfo = [
 		"samples/UsingFastPro/updatelist5.ring",
 		"samples/UsingFastPro/DestCol.ring",
 		"samples/UsingFastPro/DestCol2.ring",
+		"samples/UsingFastPro/test.ring",
+		"samples/UsingFastPro/test2.ring",
+		"samples/UsingFastPro/test3.ring",
+		"samples/UsingFastPro/test4.ring",
+		"samples/UsingFastPro/test5.ring",
+		"samples/UsingFastPro/test6.ring",
 		"tools/ring2exe/libs/fastpro.ring"
 	],
 	:windowsfiles = 	[
