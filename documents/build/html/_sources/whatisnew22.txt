@@ -16,7 +16,8 @@ List of changes and new features
 Ring 1.22 comes with the next features!
 
 * Research Article
-* More Applications
+* PWCT 2.0 (Free Software)
+* More Projects
 * Better Samples
 * Better Functions
 * Better RingFastPro Extension
@@ -36,24 +37,32 @@ URL: https://doi.org/10.3390/electronics13234627
 	:alt: Research Article
 
 .. index:: 
-	pair: What is new in Ring 1.22?; More Applications
+	pair: What is new in Ring 1.22?; PWCT 2.0 (Free Software)
 
-More Applications
-=================
+PWCT 2.0 (Free Software)
+========================
+
+Programming Without Coding Technology 2.0 is free software available on the Steam platform.
+
+URL: https://store.steampowered.com/app/1953110/Programming_Without_Coding_Technology_20/
+
+.. image:: pwct2.png
+	:alt: PWCT2
+
+.. index:: 
+	pair: What is new in Ring 1.22?; More Projects
+
+More Projects
+=============
 
 * EpochTime application (ring/applications folder)
 * DirSize - Directory Size Analyzer (GitHub project)
 * GitHub Action - Build Ring Project (GitHub project)
 * Ring Syntax Highlighting for Sublime Text 4 (GitHub project)
 * Ring Syntax Highlighting for Lite XL editor (ring/tools/editors folder)
-* Programming Without Coding Technology 2.0 - Free Software (Steam Platform)
 
-The following screenshot is from the PWCT 2.0 software:
-
-URL: https://store.steampowered.com/app/1953110/Programming_Without_Coding_Technology_20/
-
-.. image:: pwct2.png
-	:alt: PWCT2
+.. image:: litexl1.png
+	:alt: Ring in Lite XL
 
 .. index:: 
 	pair: What is new in Ring 1.22?; Better Samples
