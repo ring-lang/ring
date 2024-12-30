@@ -1,6 +1,14 @@
 Programming Without Coding Technology (PWCT) 2.0
 ================================================
 
+## Introduction
+
+Apply programming concepts and develop applications and 2D games using the Ring programming language. 
+
+PWCT2 is a programming tool to enjoy visual programming & interactive visualization. 
+
+A replacement for the Ring Code Editor.
+
 ## Get PWCT2
 
 PWCT 2.0 was released on 1 March 2023
