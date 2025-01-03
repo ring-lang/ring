@@ -1,13 +1,11 @@
-Programming Without Coding Technology (PWCT) 2.0
+Programming Without Coding Technology (PWCT) 2.0 
 ================================================
 
 ## Introduction
 
-Apply programming concepts and develop applications and 2D games using the Ring programming language. 
+PWCT2 is a visual programming language designed for enjoying visual programming and interactive visualization. 
 
-PWCT2 is a programming tool to enjoy visual programming & interactive visualization. 
-
-A replacement for the Ring Code Editor.
+It is written in the Ring programming language and supports importing and exporting Ring code.
 
 ## Running PWCT 2.0 from Source Code (Windows/Linux/macOS)
 
@@ -28,6 +26,19 @@ A replacement for the Ring Code Editor.
 
 URL: https://store.steampowered.com/app/1953110/Programming_Without_Coding_Technology_20/
 
+## Documentation
+
+Check the Documents folder for HTML/CHM/PDF files.
+
+Online version: https://doublesvsoop.sourceforge.net/pwct2
+
+## Screen Shots
+
+![gamedev](https://raw.githubusercontent.com/PWCT/PWCT2/master/documents/source/images/demo/demoshot1.png)
+
+![guidev](https://raw.githubusercontent.com/PWCT/PWCT2/master/documents/source/images/demo/demoshot2.png)
+
+
 ## Videos
 
 The next videos demonstrates some of the PWCT 2.0 features:
@@ -35,6 +46,7 @@ The next videos demonstrates some of the PWCT 2.0 features:
 * [Introduction to PWCT 2.0](https://cdn.akamai.steamstatic.com/steam/apps/256883333/movie_max_vp9.webm?t=1657472871)
 * [Templates & AutoRun](https://cdn.akamai.steamstatic.com/steam/apps/256893582/movie_max_vp9.webm?t=1656153375)
 * [Web Development](https://cdn.akamai.steamstatic.com/steam/apps/256883763/movie_max_vp9.webm?t=1657473295)
+* [From Natural Language to Visual Programming](https://www.youtube.com/watch?v=Fx--dNZvncc)
 
 Tutorials
 
