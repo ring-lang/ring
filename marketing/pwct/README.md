@@ -102,7 +102,7 @@ More videos
 
 ## Related Projects
 
-PWCT introduces innovative concepts to the realm of visual programming languages (VPLs), such as the Graphical Code Replacement (GCR) method, which replaces the traditional Drag-and-Drop (DAG) approach. 
+PWCT introduces innovative concepts to the realm of visual programming languages (VPLs), such as the Graphical Code Replacement (GCR) method, which replaces the traditional Drag-and-Drop approach. 
 Additionally, PWCT integrates the Time Dimension at the program design level and includes a feature to play programs as a movie, enabling step-by-step implementation visualization. 
 However, the design of PWCT is influenced by projects such as Lava, Forms/3, Limnor, Scratch, and Envision.
 
