@@ -1,7 +1,7 @@
 Programming Without Coding Technology (PWCT) 2.0 
 ================================================
 
-## Introduction
+## 🤨Introduction
 
 Apply programming concepts and develop applications and 2D games.
 
@@ -9,7 +9,7 @@ PWCT2 is a visual programming language designed for enjoying visual programming 
 
 It is written in the Ring programming language and supports importing and exporting Ring code.
 
-## Running PWCT 2.0 from Source Code (Windows/Linux/macOS)
+## 🚀 Running PWCT 2.0 from Source Code (Windows/Linux/macOS)
 
 ### Install the Ring programming language from https://ring-lang.github.io
 
@@ -24,17 +24,17 @@ It is written in the Ring programming language and supports importing and export
 	cd pwct2
 	ring pwct.ring 
 
-## Get PWCT 2.0 from Steam (Windows)
+## 🎮Get PWCT 2.0 from Steam (Windows)
 
 URL: https://store.steampowered.com/app/1953110/Programming_Without_Coding_Technology_20/
 
-## Documentation
+## 📖Documentation
 
 Check the Documents folder for HTML/CHM/PDF files.
 
 Online version: https://doublesvsoop.sourceforge.net/pwct2
 
-## Screen Shots
+## 🖼️Screen Shots
 
 ![gamedev](https://raw.githubusercontent.com/PWCT/PWCT2/master/documents/source/images/demo/demo1.png)
 
@@ -44,13 +44,13 @@ Online version: https://doublesvsoop.sourceforge.net/pwct2
 
 ![richcomments](https://raw.githubusercontent.com/PWCT/PWCT2/master/documents/source/images/demo/demo4.png)
 
-## The concept
+## ⚡The concept and related projects
 
 PWCT introduces innovative concepts to the realm of visual programming languages (VPLs), such as the Graphical Code Replacement (GCR) method, which replaces the traditional Drag-and-Drop approach. 
 Additionally, PWCT integrates the Time Dimension at the program design level and includes a feature to play programs as a movie, enabling step-by-step implementation visualization. 
 However, the design of PWCT is influenced by projects such as Lava, Forms/3, Limnor, Scratch, and Envision.
 
-## Features
+## 🎯Features
 
 It supports various modes:
 
@@ -64,7 +64,7 @@ It supports various modes:
 
 These different modes are designed to accommodate various programming preferences. If you prefer textual programming, simply write code. If you prefer visual programming through the mouse or keyboard, those options are available as well.
 
-## Videos
+## 📸Videos
 
 The next videos demonstrates some of the PWCT 2.0 features:
 
@@ -73,7 +73,7 @@ The next videos demonstrates some of the PWCT 2.0 features:
 * [Web Development](https://cdn.akamai.steamstatic.com/steam/apps/256883763/movie_max_vp9.webm?t=1657473295)
 * [From Natural Language to Visual Programming](https://www.youtube.com/watch?v=Fx--dNZvncc)
 
-Tutorials
+### 🚶Tutorials
 
 * [1 - Print Text component](https://www.youtube.com/watch?v=zd2jUEIlr8Y)
 * [2 - Goal Designer features](https://www.youtube.com/watch?v=f9fbPKSiP4k)
@@ -108,7 +108,7 @@ Tutorials
 * [31- Math Functions](https://www.youtube.com/watch?v=p3OP676l_W4)
 * [32- Using Files](https://www.youtube.com/watch?v=0M1I2llBLrc)
 
-More videos
+### ✨More videos
 
 * [String Length](https://www.youtube.com/watch?v=4vpyVzTXBO8)
 * [Adding user input to a list](https://www.youtube.com/watch?v=DV5zq2sH_Yg)
@@ -117,12 +117,12 @@ More videos
 * [Read-only TextEdit](https://www.youtube.com/watch?v=DNW3Iu5-Mns)
 * [Creating a Menubar](https://www.youtube.com/watch?v=bT9yKd6O38g)
 
-## Publications
+## 📚Publications
 
 * [Fayed, Mahmoud Samir, and Yousef A. Alohali. "Ring: A Lightweight and Versatile Cross-Platform Dynamic Programming Language Developed Using Visual Programming." Electronics 13, no. 23 (2024): 4627.](https://www.mdpi.com/2079-9292/13/23/4627)
 * [Fayed, Mahmoud S., Muhammad Al-Qurishi, Atif Alamri, M. Anwar Hossain, and Ahmad A. Al-Daraiseh. "PWCT: a novel general-purpose visual programming language in support of pervasive application development." CCF Transactions on Pervasive Computing and Interaction 2 (2020): 164-177.](https://link.springer.com/article/10.1007/s42486-020-00038-y)
 * [Fayed, Mahmoud S., Muhammad Al-Qurishi, Atif Alamri, and Ahmad A. Al-Daraiseh. "PWCT: visual language for IoT and cloud computing applications and systems." In Proceedings of the Second International Conference on Internet of things, Data and Cloud Computing, pp. 1-5. 2017.](https://dl.acm.org/doi/10.1145/3018896.3056782)
 
-# License 
+## 📝License 
 
 The PWCT 2.0 software is distributed under the MIT License.
