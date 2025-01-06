@@ -3,6 +3,8 @@ Programming Without Coding Technology (PWCT) 2.0
 
 ## Introduction
 
+Apply programming concepts and develop applications and 2D games.
+
 PWCT2 is a visual programming language designed for enjoying visual programming and interactive visualization. 
 
 It is written in the Ring programming language and supports importing and exporting Ring code.
@@ -42,6 +44,25 @@ Online version: https://doublesvsoop.sourceforge.net/pwct2
 
 ![richcomments](https://raw.githubusercontent.com/PWCT/PWCT2/master/documents/source/images/demo/demo4.png)
 
+## The concept
+
+PWCT introduces innovative concepts to the realm of visual programming languages (VPLs), such as the Graphical Code Replacement (GCR) method, which replaces the traditional Drag-and-Drop approach. 
+Additionally, PWCT integrates the Time Dimension at the program design level and includes a feature to play programs as a movie, enabling step-by-step implementation visualization. 
+However, the design of PWCT is influenced by projects such as Lava, Forms/3, Limnor, Scratch, and Envision.
+
+## Features
+
+It supports various modes:
+
+* **Visual Programming with Mouse:** This mode is useful for browsing components and exploring the system's offerings.
+
+* **Visual Programming with Keyboard Shortcuts:** If you know the component name, you can avoid using the mouse and accomplish everything with the keyboard.
+
+* **Reading/Modifying Programs through Visual Components and Time Machine:** You can read and modify programs using visual components and the Time Machine. Additionally, playing programs as movies is a convenient way to enjoy reading programs without using the mouse or keyboard; just click play and watch.
+
+* **Textual Programming:** You can type Ring code directly at any location in the Steps Tree, and the environment will convert it to a visual representation. This approach combines the writability of textual programming with the readability of visual programming.
+
+These different modes are designed to accommodate various programming preferences. If you prefer textual programming, simply write code. If you prefer visual programming through the mouse or keyboard, those options are available as well.
 
 ## Videos
 
@@ -101,12 +122,6 @@ More videos
 * [Fayed, Mahmoud Samir, and Yousef A. Alohali. "Ring: A Lightweight and Versatile Cross-Platform Dynamic Programming Language Developed Using Visual Programming." Electronics 13, no. 23 (2024): 4627.](https://www.mdpi.com/2079-9292/13/23/4627)
 * [Fayed, Mahmoud S., Muhammad Al-Qurishi, Atif Alamri, M. Anwar Hossain, and Ahmad A. Al-Daraiseh. "PWCT: a novel general-purpose visual programming language in support of pervasive application development." CCF Transactions on Pervasive Computing and Interaction 2 (2020): 164-177.](https://link.springer.com/article/10.1007/s42486-020-00038-y)
 * [Fayed, Mahmoud S., Muhammad Al-Qurishi, Atif Alamri, and Ahmad A. Al-Daraiseh. "PWCT: visual language for IoT and cloud computing applications and systems." In Proceedings of the Second International Conference on Internet of things, Data and Cloud Computing, pp. 1-5. 2017.](https://dl.acm.org/doi/10.1145/3018896.3056782)
-
-## Related Projects
-
-PWCT introduces innovative concepts to the realm of visual programming languages (VPLs), such as the Graphical Code Replacement (GCR) method, which replaces the traditional Drag-and-Drop approach. 
-Additionally, PWCT integrates the Time Dimension at the program design level and includes a feature to play programs as a movie, enabling step-by-step implementation visualization. 
-However, the design of PWCT is influenced by projects such as Lava, Forms/3, Limnor, Scratch, and Envision.
 
 # License 
 
