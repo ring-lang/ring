@@ -1,7 +1,7 @@
 Programming Without Coding Technology (PWCT) 2.0 
 ================================================
 
-## 🤨Introduction
+## 📘Introduction
 
 Apply programming concepts and develop applications and 2D games.
 
@@ -11,14 +11,14 @@ It is written in the Ring programming language and supports importing and export
 
 ## 🚀 Running PWCT 2.0 from Source Code (Windows/Linux/macOS)
 
-### Install the Ring programming language from https://ring-lang.github.io
+### 💾Install the Ring programming language from https://ring-lang.github.io
 
-### Get a copy from the source code
+### 📥Get a copy from the source code
 
 
 	git clone https://github.com/pwct/pwct2
 
-### Run the main source file
+### ▶️Run the main source file
 
 
 	cd pwct2
