@@ -41,6 +41,8 @@ It is written in the Ring programming language and supports importing and export
 
 URL: https://store.steampowered.com/app/1953110/Programming_Without_Coding_Technology_20/
 
+Alternatively, you can check GitHub releases to download a binary release for Windows: https://github.com/PWCT/PWCT2/releases
+
 # 📄Documentation
 
 Check the Documents folder for HTML/CHM/PDF files.
