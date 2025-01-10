@@ -4,12 +4,12 @@ Programming Without Coding Technology (PWCT) 2.0
 # 📖Contents:
 
 - [📘Introduction](#introduction)
-- [🚀Running PWCT 2.0 from Source Code (Windows/Linux/macOS)](#-running-pwct-20-from-source-code-windowslinuxmacos)
-- [🎮Get PWCT 2.0 from Steam (Windows)](#get-pwct-20-from-steam-windows)
-- [📄Documentation](#documentation)
 - [🖼️Screen Shots](#%EF%B8%8Fscreen-shots)
 - [⚡The concept and related projects](#the-concept-and-related-projects)
 - [🎯Features](#features)
+- [🚀Running PWCT 2.0 from Source Code (Windows/Linux/macOS)](#-running-pwct-20-from-source-code-windowslinuxmacos)
+- [🎮Get PWCT 2.0 from Steam (Windows)](#get-pwct-20-from-steam-windows)
+- [📄Documentation](#documentation)
 - [📸Videos](#videos)
 - [📚Publications](#publications)
 - [📝License](#license)
@@ -21,6 +21,37 @@ Apply programming concepts and develop applications and 2D games.
 PWCT2 is a visual programming language designed for enjoying visual programming and interactive visualization. 
 
 It is written in the Ring programming language and supports importing and exporting Ring code.
+
+# 🖼️Screen Shots
+
+![gamedev](https://raw.githubusercontent.com/PWCT/PWCT2/master/documents/source/images/demo/demo1.png)
+
+![guidev](https://raw.githubusercontent.com/PWCT/PWCT2/master/documents/source/images/demo/demo2.png)
+
+![3ddev](https://raw.githubusercontent.com/PWCT/PWCT2/master/documents/source/images/demo/demo3.png)
+
+![richcomments](https://raw.githubusercontent.com/PWCT/PWCT2/master/documents/source/images/demo/demo4.png)
+
+# ⚡The concept and related projects
+
+PWCT introduces innovative concepts to the realm of visual programming languages (VPLs), such as the Graphical Code Replacement (GCR) method, which replaces the traditional Drag-and-Drop approach. 
+GCR is based on Automatic Steps Tree Generation and Update in response to interaction with components that provide to the user simple data entry forms. The idea behind this new method is to mix between programming using Diagrammatic approach and programming using Form-based approach where the integration between the two approaches are done seamlessly through an Automatic Visual Representation Generation process.
+Additionally, PWCT integrates the Time Dimension at the program design level and includes a feature to play programs as a movie, enabling step-by-step implementation visualization. 
+However, the design of PWCT is influenced by projects such as Lava, Forms/3, Limnor, Scratch, and Envision.
+
+# 🎯Features
+
+It supports various modes:
+
+* **Visual Programming with Mouse:** This mode is useful for browsing components and exploring the system's offerings.
+
+* **Visual Programming with Keyboard Shortcuts:** If you know the component name, you can avoid using the mouse and accomplish everything with the keyboard.
+
+* **Reading/Modifying Programs through Visual Components and Time Machine:** You can read and modify programs using visual components and the Time Machine. Additionally, playing programs as movies is a convenient way to enjoy reading programs without using the mouse or keyboard; just click play and watch.
+
+* **Textual Programming:** You can type Ring code directly at any location in the Steps Tree, and the environment will convert it to a visual representation. This approach combines the writability of textual programming with the readability of visual programming.
+
+These different modes are designed to accommodate various programming preferences. If you prefer textual programming, simply write code. If you prefer visual programming through the mouse or keyboard, those options are available as well.
 
 # 🚀 Running PWCT 2.0 from Source Code (Windows/Linux/macOS)
 
@@ -48,36 +79,6 @@ Alternatively, you can check GitHub releases to download a binary release for Wi
 Check the Documents folder for HTML/CHM/PDF files.
 
 Online version: https://doublesvsoop.sourceforge.net/pwct2
-
-# 🖼️Screen Shots
-
-![gamedev](https://raw.githubusercontent.com/PWCT/PWCT2/master/documents/source/images/demo/demo1.png)
-
-![guidev](https://raw.githubusercontent.com/PWCT/PWCT2/master/documents/source/images/demo/demo2.png)
-
-![3ddev](https://raw.githubusercontent.com/PWCT/PWCT2/master/documents/source/images/demo/demo3.png)
-
-![richcomments](https://raw.githubusercontent.com/PWCT/PWCT2/master/documents/source/images/demo/demo4.png)
-
-# ⚡The concept and related projects
-
-PWCT introduces innovative concepts to the realm of visual programming languages (VPLs), such as the Graphical Code Replacement (GCR) method, which replaces the traditional Drag-and-Drop approach. 
-Additionally, PWCT integrates the Time Dimension at the program design level and includes a feature to play programs as a movie, enabling step-by-step implementation visualization. 
-However, the design of PWCT is influenced by projects such as Lava, Forms/3, Limnor, Scratch, and Envision.
-
-# 🎯Features
-
-It supports various modes:
-
-* **Visual Programming with Mouse:** This mode is useful for browsing components and exploring the system's offerings.
-
-* **Visual Programming with Keyboard Shortcuts:** If you know the component name, you can avoid using the mouse and accomplish everything with the keyboard.
-
-* **Reading/Modifying Programs through Visual Components and Time Machine:** You can read and modify programs using visual components and the Time Machine. Additionally, playing programs as movies is a convenient way to enjoy reading programs without using the mouse or keyboard; just click play and watch.
-
-* **Textual Programming:** You can type Ring code directly at any location in the Steps Tree, and the environment will convert it to a visual representation. This approach combines the writability of textual programming with the readability of visual programming.
-
-These different modes are designed to accommodate various programming preferences. If you prefer textual programming, simply write code. If you prefer visual programming through the mouse or keyboard, those options are available as well.
 
 # 📸Videos
 
