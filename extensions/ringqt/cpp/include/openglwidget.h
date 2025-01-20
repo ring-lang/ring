@@ -1,8 +1,8 @@
-/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2025 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #ifndef MYGLWIDGET_H
 #define MYGLWIDGET_H
-
+#include "ringqt.h"
 #include <QOpenGLWidget>
 
 extern "C" {
@@ -21,9 +21,9 @@ public:
 
     VM *pVM;
     List *pParaList;
-    char cInitEvent[100];
-    char cPaintEvent[100];
-    char cResizeEvent[100];
+    char cInitEvent[RINGQT_EVENT_SIZE];
+    char cPaintEvent[RINGQT_EVENT_SIZE];
+    char cResizeEvent[RINGQT_EVENT_SIZE];
     void geteventparameters(void) ;
     void setInitEvent(const char *cStr);
     const char *getInitEvent(void);
