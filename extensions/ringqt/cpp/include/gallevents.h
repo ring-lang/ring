@@ -1,7 +1,8 @@
-/* Copyright (c) 2013-2018 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2025 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #ifndef GALLEVENTS_H
 #define GALLEVENTS_H
+#include "ringqt.h"
 #include <QApplication>
 #include <QWidget>
 #include <QObject>
@@ -32,69 +33,69 @@ class GAllEvents : public QWidget
     int nButton ;
     int nButtons ;
 
-    char cKeyPressEvent[100];
-    char cMouseButtonPressEvent[100];
-    char cMouseButtonReleaseEvent[100];
-    char cMouseButtonDblClickEvent[100];
-    char cMouseMoveEvent[100];
-    char cCloseEvent[100];
-    char cContextMenuEvent[100];
-    char cDragEnterEvent[100];
-    char cDragLeaveEvent[100];
-    char cDragMoveEvent[100];
-    char cDropEvent[100];
-    char cEnterEvent[100];
-    char cFocusInEvent[100];
-    char cFocusOutEvent[100];
-    char cKeyReleaseEvent[100];
-    char cLeaveEvent[100];
-    char cNonClientAreaMouseButtonDblClickEvent[100];
-    char cNonClientAreaMouseButtonPressEvent[100];
-    char cNonClientAreaMouseButtonReleaseEvent[100];
-    char cNonClientAreaMouseMoveEvent[100];
-    char cMoveEvent[100];
-    char cResizeEvent[100];
-    char cWindowActivateEvent[100];
-    char cWindowBlockedEvent[100];
-    char cWindowDeactivateEvent[100];
-    char cWindowStateChangeEvent[100];
-    char cWindowUnblockedEvent[100];
-    char cPaintEvent[100];
-    char cChildAddedEvent[100];
-    char cChildPolishedEvent[100];
-    char cChildRemovedEvent[100];	
+    char cKeyPressEvent[RINGQT_EVENT_SIZE];
+    char cMouseButtonPressEvent[RINGQT_EVENT_SIZE];
+    char cMouseButtonReleaseEvent[RINGQT_EVENT_SIZE];
+    char cMouseButtonDblClickEvent[RINGQT_EVENT_SIZE];
+    char cMouseMoveEvent[RINGQT_EVENT_SIZE];
+    char cCloseEvent[RINGQT_EVENT_SIZE];
+    char cContextMenuEvent[RINGQT_EVENT_SIZE];
+    char cDragEnterEvent[RINGQT_EVENT_SIZE];
+    char cDragLeaveEvent[RINGQT_EVENT_SIZE];
+    char cDragMoveEvent[RINGQT_EVENT_SIZE];
+    char cDropEvent[RINGQT_EVENT_SIZE];
+    char cEnterEvent[RINGQT_EVENT_SIZE];
+    char cFocusInEvent[RINGQT_EVENT_SIZE];
+    char cFocusOutEvent[RINGQT_EVENT_SIZE];
+    char cKeyReleaseEvent[RINGQT_EVENT_SIZE];
+    char cLeaveEvent[RINGQT_EVENT_SIZE];
+    char cNonClientAreaMouseButtonDblClickEvent[RINGQT_EVENT_SIZE];
+    char cNonClientAreaMouseButtonPressEvent[RINGQT_EVENT_SIZE];
+    char cNonClientAreaMouseButtonReleaseEvent[RINGQT_EVENT_SIZE];
+    char cNonClientAreaMouseMoveEvent[RINGQT_EVENT_SIZE];
+    char cMoveEvent[RINGQT_EVENT_SIZE];
+    char cResizeEvent[RINGQT_EVENT_SIZE];
+    char cWindowActivateEvent[RINGQT_EVENT_SIZE];
+    char cWindowBlockedEvent[RINGQT_EVENT_SIZE];
+    char cWindowDeactivateEvent[RINGQT_EVENT_SIZE];
+    char cWindowStateChangeEvent[RINGQT_EVENT_SIZE];
+    char cWindowUnblockedEvent[RINGQT_EVENT_SIZE];
+    char cPaintEvent[RINGQT_EVENT_SIZE];
+    char cChildAddedEvent[RINGQT_EVENT_SIZE];
+    char cChildPolishedEvent[RINGQT_EVENT_SIZE];
+    char cChildRemovedEvent[RINGQT_EVENT_SIZE];	
 
-    char cKeyPressFunc[100];
-    char cMouseButtonPressFunc[100];
-    char cMouseButtonReleaseFunc[100];
-    char cMouseButtonDblClickFunc[100];
-    char cMouseMoveFunc[100];
-    char cCloseFunc[100];
-    char cContextMenuFunc[100];
-    char cDragEnterFunc[100];
-    char cDragLeaveFunc[100];
-    char cDragMoveFunc[100];
-    char cDropFunc[100];
-    char cEnterFunc[100];
-    char cFocusInFunc[100];
-    char cFocusOutFunc[100];
-    char cKeyReleaseFunc[100];
-    char cLeaveFunc[100];
-    char cNonClientAreaMouseButtonDblClickFunc[100];
-    char cNonClientAreaMouseButtonPressFunc[100];
-    char cNonClientAreaMouseButtonReleaseFunc[100];
-    char cNonClientAreaMouseMoveFunc[100];
-    char cMoveFunc[100];
-    char cResizeFunc[100];
-    char cWindowActivateFunc[100];
-    char cWindowBlockedFunc[100];
-    char cWindowDeactivateFunc[100];
-    char cWindowStateChangeFunc[100];
-    char cWindowUnblockedFunc[100];
-    char cPaintFunc[100];
-    char cChildAddedFunc[100];
-    char cChildPolishedFunc[100];
-    char cChildRemovedFunc[100];	
+    char cKeyPressFunc[RINGQT_EVENT_SIZE];
+    char cMouseButtonPressFunc[RINGQT_EVENT_SIZE];
+    char cMouseButtonReleaseFunc[RINGQT_EVENT_SIZE];
+    char cMouseButtonDblClickFunc[RINGQT_EVENT_SIZE];
+    char cMouseMoveFunc[RINGQT_EVENT_SIZE];
+    char cCloseFunc[RINGQT_EVENT_SIZE];
+    char cContextMenuFunc[RINGQT_EVENT_SIZE];
+    char cDragEnterFunc[RINGQT_EVENT_SIZE];
+    char cDragLeaveFunc[RINGQT_EVENT_SIZE];
+    char cDragMoveFunc[RINGQT_EVENT_SIZE];
+    char cDropFunc[RINGQT_EVENT_SIZE];
+    char cEnterFunc[RINGQT_EVENT_SIZE];
+    char cFocusInFunc[RINGQT_EVENT_SIZE];
+    char cFocusOutFunc[RINGQT_EVENT_SIZE];
+    char cKeyReleaseFunc[RINGQT_EVENT_SIZE];
+    char cLeaveFunc[RINGQT_EVENT_SIZE];
+    char cNonClientAreaMouseButtonDblClickFunc[RINGQT_EVENT_SIZE];
+    char cNonClientAreaMouseButtonPressFunc[RINGQT_EVENT_SIZE];
+    char cNonClientAreaMouseButtonReleaseFunc[RINGQT_EVENT_SIZE];
+    char cNonClientAreaMouseMoveFunc[RINGQT_EVENT_SIZE];
+    char cMoveFunc[RINGQT_EVENT_SIZE];
+    char cResizeFunc[RINGQT_EVENT_SIZE];
+    char cWindowActivateFunc[RINGQT_EVENT_SIZE];
+    char cWindowBlockedFunc[RINGQT_EVENT_SIZE];
+    char cWindowDeactivateFunc[RINGQT_EVENT_SIZE];
+    char cWindowStateChangeFunc[RINGQT_EVENT_SIZE];
+    char cWindowUnblockedFunc[RINGQT_EVENT_SIZE];
+    char cPaintFunc[RINGQT_EVENT_SIZE];
+    char cChildAddedFunc[RINGQT_EVENT_SIZE];
+    char cChildPolishedFunc[RINGQT_EVENT_SIZE];
+    char cChildRemovedFunc[RINGQT_EVENT_SIZE];	
 
 
     bool lEventOutput ;	
