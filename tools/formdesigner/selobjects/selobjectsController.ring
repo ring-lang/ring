@@ -47,5 +47,5 @@ class selobjectsController from windowsControllerParent
 		close()
 
  	func Close 
-		oView.win.close()
+		closeAction()
 

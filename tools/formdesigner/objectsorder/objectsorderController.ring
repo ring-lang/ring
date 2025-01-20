@@ -51,5 +51,4 @@ class objectsorderController from windowsControllerParent
 		oView.listObjects.setcurrentrow(nIndex+1,0)
 
 	func Close 
-		oView.win.close()
-
+		closeAction()
