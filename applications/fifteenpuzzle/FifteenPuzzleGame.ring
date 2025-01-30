@@ -281,7 +281,6 @@ func pHere
            }
            n_degree = 0
            empty = button_size*button_size-1
-           btn_degree[empty][1] = "In"
            button[button_size*button_size-1]{settext("In")}
            for n = 1 to button_size*button_size
 	   button[n].setenabled(false)
@@ -746,7 +745,7 @@ func draw
 			if btn_degree[empty] [1]="In" p1 = -8 p2=0 
 				translate(p1,p2) ok ok
 		if n_degree = 0
-			if btn_degree[empty] [1]<10 p1 = 10 p2=10 else p1=5 p2=10 ok
+ 			if btn_degree[empty] [1]<10 p1 = 10 p2=10 else p1=5 p2=10 ok
 			translate(p1,p2)
 		but n_degree = 90
 			if btn_degree[empty] [1]<10 p=-10 else p=-15 ok
