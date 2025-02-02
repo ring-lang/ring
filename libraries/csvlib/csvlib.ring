@@ -121,13 +121,6 @@ func CSV2List cString
 			switch t { 
 				case char(34)
 					lSupportComma = ! lSupportComma
-					if (nIndex !=1) AND (nIndex != nSize) { 
-						if cLine[nIndex+1] != "," { 
-							if lSupportComma { 
-								cToken += t
-							}
-						}
-					}
 				case ","
 					if lSupportComma { 
 						CSV2List_AddItem(aSubList, cToken)
