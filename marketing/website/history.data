@@ -1,4 +1,5 @@
 aNews = [
+  ["February 2, 2025",'<a href="https://www.mdpi.com/2076-3417/15/3/1521"> PWCT2: A Self-Hosting Visual Programming Language Based on Ring with Interactive Textual-to-Visual Code Conversion</a>'],
   ["January 3, 2025",'<a href="https://github.com/PWCT/pwct2"> PWCT 2.0 (Source Code - MIT License)</a>'],
   ["December 1, 2024",'<a href="doc1.22/whatisnew22.html"> Ring 1.22 Released!</a>'],
   ["November 25, 2024",'<a href="https://store.steampowered.com/app/1953110/Programming_Without_Coding_Technology/"> PWCT 2.0 (Free Software)</a>'],
