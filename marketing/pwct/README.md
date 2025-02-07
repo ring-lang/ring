@@ -31,8 +31,6 @@ However, the design of PWCT is influenced by projects such as Lava, Forms/3, Lim
 
 # 🎯Features
 
-It supports various modes:
-
 * **Visual Programming with Mouse:** This mode is useful for browsing components and exploring the system's offerings.
 
 * **Visual Programming with Keyboard Shortcuts:** If you know the component name, you can avoid using the mouse and accomplish everything with the keyboard.
@@ -41,7 +39,9 @@ It supports various modes:
 
 * **Textual Programming:** You can type Ring code directly at any location in the Steps Tree, and the environment will convert it to a visual representation. This approach combines the writability of textual programming with the readability of visual programming.
 
-These different modes are designed to accommodate various programming preferences. If you prefer textual programming, simply write code. If you prefer visual programming through the mouse or keyboard, those options are available as well.
+* **Self-hosting VPL:** A complete version of PWCT2, developed using PWCT2 (see folder: pwct2/selfhosting)
+
+These features and different modes are designed to accommodate various programming preferences. If you prefer textual programming, simply write code. If you prefer visual programming through the mouse or keyboard, those options are available as well.
 
 # 🚀 Running PWCT 2.0 from Source Code (Windows/Linux/macOS)
 
