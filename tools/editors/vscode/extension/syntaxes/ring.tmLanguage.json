@@ -82,7 +82,7 @@
 			"name": "keyword.control.ring"
 		},
 		"controls": {
-			"match": "\\b(?i)(if|but|else|elseif|ok|for|foreach|to|next|catch|step|endfor|while|other|end|do|endwhile|endswitch|endtry|try|break|bye|continue|default|endfunc|endfunction|return|switch|case|on|off|do|again|exit|loop|done|in)\\b",
+			"match": "\\b(?i)(if|but|else|elseif|ok|for|foreach|to|next|catch|step|endfor|while|other|end|do|endif|endwhile|endswitch|endtry|try|break|bye|continue|default|endfunc|endfunction|return|switch|case|on|off|do|again|exit|loop|done|in)\\b",
 			"name": "keyword.control.conditional.ring"
 		},
 		"builtins": {
