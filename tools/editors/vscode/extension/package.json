@@ -181,9 +181,9 @@
     "main": "./out/extension.js",
     "devDependencies": {
         "vscode": "^1.1.37",
-        "@types/node": "^22.7.5",
+        "@types/node": "^22.13.4",
         "child_process": "^1.0.2",
-        "esbuild": "^0.24.0",
+        "esbuild": "^0.25.0",
         "cross-env": "^7.0.3"
     }
 }
