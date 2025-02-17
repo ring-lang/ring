@@ -92,6 +92,10 @@ brushE      = new qbrush() { setstyle(0)  setcolor (colorYellow)}   ### Empty
         setWindowTitle("   Rotation Illusion")
         setGeometry(xPos, yPos, xWidth, yHeight)    ### Window Pos and Size
 
+        oFilter = new QAllevents(win)
+        oFilter.setCloseEvent("myApp.Quit()")
+        installeventfilter(oFilter)
+
         Canvas = new qlabel(win)
         {
             ### daVinci Paints the MonaLisa on the Canvas
