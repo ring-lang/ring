@@ -24,11 +24,11 @@ decimals(6)  // 4
 PI         = 3.14159265
 Radius     = 300       // Size of Display
 
-ImageScale = 4         // Reduce Image by the Factor Scal
+ImageScale = 4         // 4 Reduce Image by the Factor Scal
 ImageSize  = Radius    // Size of Image PNG file || ImageC1.imageSize = image.width()
 
-SleepDelay = 0.001
-MoveInc    = 0.010
+SleepDelay = 0.001     // 0.001
+MoveInc    = 0.010     // 0.010
 aShowBa    = [0,0,0,0,  0,0,0,0,  1,0,0,0,  1,0,0,0]   // Array=0  Ring=1  1..8   9..15
 
 
@@ -115,66 +115,66 @@ brushE      = new qbrush() { setstyle(0)  setcolor (colorYellow)}   ### Empty
 
             imageC1 = new qlabel(win)
             {
-                image = new qPixMap("aRed.png")
-                setpixmap( image.scaled(image.width()/ImageScale, image.height()/ImageScale , 0, 0) )
-                setGeometry( -900, -900, image.Width(), image.Height())
-                xPos = (xWidth  - image.width()  ) / 2
-                yPos = (yHeight - image.height() ) / 2
-                imageSize = image.width()
+                image1 = new qPixMap("aRed.png")
+                setpixmap( image1.scaled(image1.width()/ImageScale, image1.height()/ImageScale , 0, 0) )
+                setGeometry( -900, -900, image1.Width(), image1.Height())
+                xPos = (xWidth  - image1.width()  ) / 2
+                yPos = (yHeight - image1.height() ) / 2
+                imageSize = image1.width()
             }
 
 
             imageC2 = new qlabel(win)
             {
-                image = new qPixMap("aBlu.png")
-                setpixmap( image.scaled(image.width()/ImageScale, image.height()/ImageScale , 0, 0) )
-                setGeometry( -900, -900, image.Width(), image.Height())
+                image2 = new qPixMap("aBlu.png")
+                setpixmap( image2.scaled(image2.width()/ImageScale, image2.height()/ImageScale , 0, 0) )
+                setGeometry( -900, -900, image2.Width(), image2.Height())
             }
 
             imageC3 = new qlabel(win)
             {
-                image = new qPixMap("aOra.png")
-                setpixmap( image.scaled(image.width()/ImageScale, image.height()/ImageScale , 0, 0) )
-                setGeometry( -900, -900, image.Width(), image.Height())
+                image3 = new qPixMap("aOra.png")
+                setpixmap( image3.scaled(image3.width()/ImageScale, image3.height()/ImageScale , 0, 0) )
+                setGeometry( -900, -900, image3.Width(), image3.Height())
             }
 
 
             imageC4 = new qlabel(win)
             {
-                image = new qPixMap("aGre.png")
-                setpixmap( image.scaled(image.width()/ImageScale, image.height()/ImageScale , 0, 0) )
-                setGeometry( -900, -900, image.Width(), image.Height())
+                image4 = new qPixMap("aGre.png")
+                setpixmap( image4.scaled(image4.width()/ImageScale, image4.height()/ImageScale , 0, 0) )
+                setGeometry( -900, -900, image4.Width(), image4.Height())
             }
 
             //-----
 
               imageC5 = new qlabel(win)
             {
-                image = new qPixMap("aRed.png")
-                setpixmap( image.scaled(image.width()/ImageScale, image.height()/ImageScale , 0, 0) )
-                setGeometry( -900, -900, image.Width(), image.Height())
+                image5 = new qPixMap("aRed.png")
+                setpixmap( image5.scaled(image5.width()/ImageScale, image5.height()/ImageScale , 0, 0) )
+                setGeometry( -900, -900, image5.Width(), image5.Height())
             }
 
              imageC6 = new qlabel(win)
             {
-                image = new qPixMap("aBlu.png")
-                setpixmap( image.scaled(image.width()/ImageScale, image.height()/ImageScale , 0, 0) )
-                setGeometry( -900, -900, image.Width(), image.Height())
+                image6 = new qPixMap("aBlu.png")
+                setpixmap( image6.scaled(image6.width()/ImageScale, image6.height()/ImageScale , 0, 0) )
+                setGeometry( -900, -900, image6.Width(), image6.Height())
             }
 
             imageC7 = new qlabel(win)
             {
-                image = new qPixMap("aOra.png")
-                setpixmap( image.scaled(image.width()/ImageScale, image.height()/ImageScale , 0, 0) )
-                setGeometry( -900, -900, image.Width(), image.Height())
+                image7 = new qPixMap("aOra.png")
+                setpixmap( image7.scaled(image7.width()/ImageScale, image7.height()/ImageScale , 0, 0) )
+                setGeometry( -900, -900, image7.Width(), image7.Height())
             }
 
 
             imageC8 = new qlabel(win)
             {
-                image = new qPixMap("aGre.png")
-                setpixmap( image.scaled(image.width()/ImageScale, image.height()/ImageScale , 0, 0) )
-                setGeometry( -900, -900, image.Width(), image.Height())
+                image8 = new qPixMap("aGre.png")
+                setpixmap( image8.scaled(image8.width()/ImageScale, image8.height()/ImageScale , 0, 0) )
+                setGeometry( -900, -900, image8.Width(), image8.Height())
             }
 
             //-------------------------------
@@ -184,46 +184,110 @@ brushE      = new qbrush() { setstyle(0)  setcolor (colorYellow)}   ### Empty
         //======================================================
         //======================================================
 
-        btnGo  = new qPushButton(win) { setGeometry( 300, 2, 110, 20)
+
+        //==============================
+
+        eCheckBal1s  =  new qCheckBox(win)  { setgeometry( 120, 2, 140, 20)
+                            settext(" Show Balls") setStyleSheet("background-color: yellow")}
+
+        eCheckBa1  =  new qCheckBox(win)  { setgeometry( 120, 24, 100, 20)
+                          settext(" 1") setStyleSheet("background-color: yellow")}
+
+        eCheckBa2  =  new qCheckBox(win)  { setgeometry( 120, 46, 100, 20)
+                          settext(" 2") setStyleSheet("background-color: yellow")}
+
+        eCheckBa3  =  new qCheckBox(win)  { setgeometry( 120, 68, 100, 20)
+                          settext(" 3") setStyleSheet("background-color: yellow")}
+
+        eCheckBa4  =  new qCheckBox(win)  { setgeometry( 120, 90, 100, 20)
+                          settext(" 4") setStyleSheet("background-color: yellow")}
+						  
+        eCheckBa5  =  new qCheckBox(win)  { setgeometry( 120, 112, 100, 20)
+                          settext(" 5") setStyleSheet("background-color: yellow")}
+
+        eCheckBa6  =  new qCheckBox(win)  { setgeometry( 120, 134, 100, 20)
+                          settext(" 6") setStyleSheet("background-color: yellow")}
+
+        eCheckBa7  =  new qCheckBox(win)  { setgeometry( 120, 156, 100, 20)
+                            settext(" 7") setStyleSheet("background-color: yellow")}
+
+        eCheckBa8  =  new qCheckBox(win)  { setgeometry( 120, 178, 100, 20)
+                            settext(" 8") setStyleSheet("background-color: yellow")}
+
+        //==============================
+
+        eCheckLines  =  new qCheckBox(win)  { setgeometry( 270, 2, 140, 20)
+                            settext(" Show Lines")    setStyleSheet("background-color: yellow")}
+							
+		//==============================
+
+        btnGo  = new qPushButton(win) { setGeometry( 2, 2, 110, 20)
                                         setText(" GoBalls")
                                         setStyleSheet("background-color: aqua")
                                         setClickEvent("GoBalls()")
                                       }
 
         //==============================
+       ###=================================
+	   
+        lImage  =  new qLabel(win) { setgeometry( 420, 2 , 100, 20)  
+                                       settext(" Image-Siize")  
+                                       setStyleSheet("background-color: yellow")
+                                   }	   
+	   
+	    SliderImage = new qSlider(win)
+        {
+          //setgeometry(620,btnVertPos+3,140,btnSize-6)
+	  	    setgeometry( 420, 22 , 100, 20)
+            setOrientation(1)
+            setstylesheet("color:red;background-color:white;")
+            setMinimum(1)
+            setMaximum(10)
+            setValue(4)
+            setsliderReleasedEvent("pSliderImageReleased()")    ### Released - on Drag -
+            //setvalueChangedEvent("pSliderImageReleased()")   ### Changed  - on Click -
+        }
 
-        eCheckLines  =  new qCheckBox(win)  { setgeometry( 150, 2, 140, 20)
-                            settext(" Show Lines")    setStyleSheet("background-color: yellow")}
+        //------------------------------------
 
-        //==============================
+        lSpeed  =  new qLabel(win) { setgeometry( 530, 2 , 100, 20)  
+                                       settext("Move-Speed")  
+                                       setStyleSheet("background-color: yellow")
+                                   }
 
-        eCheckBal1s  =  new qCheckBox(win)  { setgeometry( 2, 2, 140, 20)
-                            settext(" Show Balls") setStyleSheet("background-color: yellow")}
+	    SliderSpeed = new qSlider(win)
+        {
+          //setgeometry(620,btnVertPos+3,140,btnSize-6)
+	  	    setgeometry( 530, 22 , 100, 20)
+            setOrientation(1)
+            setstylesheet("color:red;background-color:white;")
+            setMinimum(1)
+            setMaximum(20)
+            setValue(5)
+            setsliderReleasedEvent("pSliderSpeedReleased()")    ### Released - on Drag -
+            //setvalueChangedEvent("pSliderSpeedReleased()")   ### Changed  - on Click -
+        }	
 
-        eCheckBa1  =  new qCheckBox(win)  { setgeometry( 2, 24, 100, 20)
-                          settext(" 1") setStyleSheet("background-color: yellow")}
+        //-------------------------------
 
-        eCheckBa2  =  new qCheckBox(win)  { setgeometry( 2, 46, 100, 20)
-                          settext(" 2") setStyleSheet("background-color: yellow")}
-
-        eCheckBa3  =  new qCheckBox(win)  { setgeometry( 2, 68, 100, 20)
-                          settext(" 3") setStyleSheet("background-color: yellow")}
-
-        eCheckBa4  =  new qCheckBox(win)  { setgeometry( 2, 90, 100, 20)
-                          settext(" 4") setStyleSheet("background-color: yellow")}
-						  
-        eCheckBa5  =  new qCheckBox(win)  { setgeometry( 2, 112, 100, 20)
-                          settext(" 5") setStyleSheet("background-color: yellow")}
-
-        eCheckBa6  =  new qCheckBox(win)  { setgeometry( 2, 134, 100, 20)
-                          settext(" 6") setStyleSheet("background-color: yellow")}
-
-        eCheckBa7  =  new qCheckBox(win)  { setgeometry( 2, 156, 100, 20)
-                            settext(" 7") setStyleSheet("background-color: yellow")}
-
-        eCheckBa8  =  new qCheckBox(win)  { setgeometry( 2, 178, 100, 20)
-                            settext(" 8") setStyleSheet("background-color: yellow")}
-
+        lRadius  =  new qLabel(win) { setgeometry( 640, 2 , 100, 20)  
+                                       settext("Circle-Radius")  
+                                       setStyleSheet("background-color: yellow")
+                                   }		
+		
+	    SliderRadius = new qSlider(win)
+        {
+          //setgeometry(620,btnVertPos+3,140,btnSize-6)
+	  	    setgeometry( 640, 22 , 100, 20)
+            setOrientation(1)
+            setstylesheet("color:red;background-color:white;")
+            setMinimum(100)
+            setMaximum(600)
+            setValue(300)
+            setsliderReleasedEvent("pSliderRadiusReleased()")    ### Released - on Drag -
+            //setvalueChangedEvent("pSliderRadiusReleased()")   ### Changed  - on Click -
+        }			
+		
 
        ###-----------------------------------
        ### Font Type and Size
@@ -303,7 +367,7 @@ Func GoBalls()
      PI     = 3.14159265358979323846
      Circle = pi * 2 // 2PI Radians = Circle of 360 degrees
      len  = 16       // Number of Lines Division of Circle
-     hlen = len / 2  // Half len = Number of Balls
+     hlen = len / 2  // Half len = Number of Balls  b
      cx   =  0       // Center-X
      cy   =  0       // Center-Y
      w    =  Radius  // Width
@@ -402,6 +466,65 @@ Return
 
 //==========================================================
 //==========================================================
+###-----------------------------
+### Slider Dragged and Released
+### ImageScale = 4 // 4 Reduce Image by the Factor Sca
+Func pSliderImageReleased()
+
+  number = SliderImage.value()
+  See "SliderImageReleased: "+ SliderImage.value() +nl
+
+  ImageScale = number
+    
+  imageC1.setpixmap( image1.scaled(image1.width()/ImageScale, image1.height()/ImageScale , 0, 0) )   
+  imageC2.setpixmap( image2.scaled(image2.width()/ImageScale, image2.height()/ImageScale , 0, 0) ) 
+  imageC3.setpixmap( image3.scaled(image3.width()/ImageScale, image3.height()/ImageScale , 0, 0) )  
+  imageC4.setpixmap( image4.scaled(image4.width()/ImageScale, image4.height()/ImageScale , 0, 0) )  
+  imageC5.setpixmap( image5.scaled(image5.width()/ImageScale, image5.height()/ImageScale , 0, 0) )  
+  imageC6.setpixmap( image6.scaled(image6.width()/ImageScale, image6.height()/ImageScale , 0, 0) )  
+  imageC7.setpixmap( image7.scaled(image7.width()/ImageScale, image7.height()/ImageScale , 0, 0) )  
+  imageC8.setpixmap( image8.scaled(image8.width()/ImageScale, image8.height()/ImageScale , 0, 0) )    
+  
+  GoBalls()
+
+return
+
+
+//==========================================================
+//==========================================================
+###-----------------------------
+### Slider Dragged and Released
+### MoveInc    = 0.010     // 0.010
+
+Func pSliderSpeedReleased()
+
+  number = SliderSpeed.value()
+  See "SlideSpeedReleased: "+ SliderSpeed.value() +nl
+
+   MoveInc = number / 1000    // 1..20  / 1000 
+  
+  GoBalls()
+
+return
+
+
+//==========================================================
+//==========================================================
+###-----------------------------
+### Slider Dragged and Released
+### Radius     = 300       // Size of Display
+
+Func pSliderRadiusReleased()
+
+  number = SliderRadius.value()
+  See "SliderRadiusReleased: "+ SliderRadius.value() +nl
+
+  Radius = number
+  
+  GoBalls()
+
+return
+
 
 //============================================
 //============================================
