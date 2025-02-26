@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2025 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #ifndef ring_state_h
 	#define ring_state_h
@@ -75,7 +75,7 @@
 		/* Pool Manager */
 		PoolManager vPoolManager  ;
 	} RingState ;
-	#define RING_STATE_VERSION "1.22"
+	#define RING_STATE_VERSION "1.23"
 	#define RING_STATE_VERSIONANDPATCH (RING_STATE_VERSION ".0")
 	#define RING_WARNING_UNKNOWNOPTION "Warning (W1): Unrecognized option: "
 	#define RING_WARNING_DUPLICATIONINFILENAME "Warning (W2) : Duplication in file name : "
