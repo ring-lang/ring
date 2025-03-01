@@ -1,18 +1,33 @@
-// Bert Mariani
-// GetHistoryDraw-57-A2-YieldMACD.ring
+// GetQuotesHistoryDraw-6.ring
 //
-// cd C:\MyStuff\AA-GetQuotesHistoryDraw
-// c:\ring\bin\ring.exe  GetQuotesHistoryDraw-57-A5-YieldMACD.ring
+// Program Name : GetQuotesHistoryDraw-6.ring
+// Date         : 2016.04.21 ... 2024-10-15 .. 2025-03-01
+// Author       : Bert Mariani
+// Purpose      : Fetch stock quotes history from finance.yahoo.com and Draw Chart
+//
+//    cd C:\GetQuotes
+//    c:\ring\bin\ring.exe  GetQuotesHistoryDraw-8.ring
 //
 // HISTORY
 // $url = 'https://query1.finance.yahoo.com/v8/finance/chart/AAPL?metrics=high?&interval=1wk&range=1mo'
+//         https://query1.finance.yahoo.com/v8/finance/chart/BMO.TO?metrics=high?&interval=1wk&range=1mo
 //
 // DIVIDENDS
-// $url1 = 'view-source:https://www.tickertech.net/bnkinvest/cgi/?n=2&ticker='
-// $url1 =             'https://www.tickertech.net/bnkinvest/cgi/?n=2&ticker='
-// $url2 = 'BMO.CA'
-// $url3 = '&js=on&head=1&a=historical&w=dividends2&noform=1&footer=off'
-// $url  =  $url1 + $url2 + $url3
+//         https://dividendhistory.org/payout/JPM/
+//         https://dividendhistory.org/payout/tsx/BMO/   ### Canada uses /tsx/ before Symbol
+//         https://dividendhistory.org/payout/tsx/RY/
+//
+//         $url1 = 'https://dividendhistory.org/payout/'
+//         $url2 = 'JPM'
+//         $url  =  $url1 + $url2
+//
+// 2025-03-01
+// "Mozilla/5.0 (Windows; U;"
+// curl_easy_setopt(curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows; U;"+
+// 
+// curl_easy_setopt(curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows; U;"+
+// " Windows NT 5.1; en-US; rv:1.8.1.3) Gecko/20070309 Firefox/2.0.0.3")
+// 
 //----------------------------------------------------------------------
 
 load "guilib.ring"
@@ -20,20 +35,13 @@ load "libcurl.ring"
 load "stdlibcore.ring"
 load "jsonlib.ring"
 
-/*
- +---------------------------------------------------------------------------------------------------------
- +        Program Name : GetQuotesHistoryDraw-v1.2.ring
- +        Date         : 2016.04.21
- +        Author       : Bert Mariani
- +        Purpose      : Fetch stock quotes history from finance.yahoo.com and Draw Chart
-
- +---------------------------------------------------------------------------------------------------------
-*/
-
 ###-------------------------------------------------
 
-Today     = " "
-YesterDay = " "
+gSymbol = "BMO.TO"               // Save who is current
+ 
+$Today     = " "
+$Yesterday = " "
+$TotalDividends  = 0             // Total from $Today and $OldDate
 
 
 Table1 = NULL
@@ -106,44 +114,12 @@ Canvas     = 0
     arrayClose    = list(360)
     arrayVolume   = list(360)
     arrayAdjClose = list(360)
+	arrayTimeStamp = list(360)
 
     arrayDivDate  = list(360)
     arrayDividend = list(360)
 
-###----------------------------------------------------
-### For BALANCE calc for 2 stocks re-balancing
-### Pass Ticker Symbol ZXY to FetchData as an exception
-    Z1arrayDate     = list(360)
-    Z1arrayOpen     = list(360)
-    Z1arrayHigh     = list(360)
-    Z1arrayLow      = list(360)
-    Z1arrayClose    = list(360)
-    Z1arrayVolume   = list(360)
-    Z1arrayAdjClose = list(360)
 
-    Z2arrayDate     = list(360)
-    Z2arrayOpen     = list(360)
-    Z2arrayHigh     = list(360)
-    Z2arrayLow      = list(360)
-    Z2arrayClose    = list(360)
-    Z2arrayVolume   = list(360)
-    Z2arrayAdjClose = list(360)
-
-    Z3arrayDate     = list(360)
-    Z3arrayOpen     = list(360)
-    Z3arrayHigh     = list(360)
-    Z3arrayLow      = list(360)
-    Z3arrayClose    = list(360)
-    Z3arrayVolume   = list(360)
-    Z3arrayAdjClose = list(360)
-
-    Z4arrayDate     = list(360)
-    Z4arrayOpen     = list(360)
-    Z4arrayHigh     = list(360)
-    Z4arrayLow      = list(360)
-    Z4arrayClose    = list(360)
-    Z4arrayVolume   = list(360)
-    Z4arrayAdjClose = list(360)
 
     Normalize            = 0  ### How many inital shares can be bought for 100000. calc value for all weeks
     NormalizeHigh        = 1
@@ -186,7 +162,7 @@ Canvas     = 0
     WinBaseY  = BoxHeight -50       ### WinBaseY Line Bottom  where Price=0
    
    BoxOffsetPrice  = 45
-   BoxOffsetLine   = 60
+   BoxOffsetLine   = 100   // 60
 
 
 ###---------------------------
@@ -225,31 +201,32 @@ Canvas     = 0
     penBlue1   = new qpen() { setcolor(colorBlue)   setwidth(1) }
     penRed1    = new qpen() { setcolor(colorRed)    setwidth(1) }
     penGreen1  = new qpen() { setcolor(colorGreen)  setwidth(1) }
-	penBlack1  = new qpen() { setcolor(colorBlack)  setwidth(1) }
-	
+    penBlack1  = new qpen() { setcolor(colorBlack)  setwidth(1) }
+    
     penRed    = new qpen() { setcolor(colorRed)    setwidth(2) }
     penGreen  = new qpen() { setcolor(colorGreen)  setwidth(2) }
     penBlue   = new qpen() { setcolor(colorBlue)   setwidth(2) }
     penGray   = new qpen() { setcolor(colorGray)   setwidth(2) }
-															
+                                                            
     penBrown  = new qpen() { setcolor(colorBrown)  setwidth(2) }
     penBlack  = new qpen() { setcolor(colorBlack)  setwidth(2) }
     penWhite  = new qpen() { setcolor(colorWhite)  setwidth(2) }
     penOrange = new qpen() { setcolor(colorOrange) setwidth(2) }
-															
+                                                            
     penYellow = new qpen() { setcolor(colorYellow) setwidth(2) }
     penPurple = new qpen() { setcolor(colorPurple) setwidth(2) }
     penPink   = new qpen() { setcolor(colorPink)   setwidth(2) }
     penLime   = new qpen() { setcolor(colorLime)   setwidth(2) }
 
     penGreen3  = new qpen() { setcolor(colorGreen)  setwidth(2) }
+	penBlue3   = new qpen() { setcolor(colorBlue)   setwidth(3) }
 
 
     arrayPenColor = [penRed,penBlue,PenRed,PenGreen,PenBlack,PenOrange,PenPurple,PenLime,PenYellow]
 
 ###---------------------------
-    Today       = Date()
-    StartDate   = Date()
+    $Today       = Date()
+    $StartDate   = Date()   // $Today-s Date
 
 ###---------------------------
     itemList  = ["Symbol","Name","Group"]   ### Fill in Window Title Bar
@@ -285,7 +262,7 @@ winApp1 =New qapp
 
     win1 = new qMainWindow()
     {
-    	setWinIcon(self,"appicon.png")
+    
         ###--------------------------------------------
         ### FILTERS 
          
@@ -441,8 +418,10 @@ winApp1 =New qapp
 
             label1 = new qlabel(win1) {
             setGeometry(BoxLeft, BoxTop, BoxWidth, BoxHeight)
-            //setText("RightBox")
+            setText("RightBox")
+            //setstylesheet("background-color: black")
             setstylesheet("color: blue ; font-size: 12pt;")
+
             }
 
             ###-------------------------------
@@ -451,6 +430,7 @@ winApp1 =New qapp
             label2 = new qlabel(win1) {
             setgeometry(LBoxLeft, LBoxTop, LBoxWidth, LBoxHeight)
             //settext("LeftBox")
+
             }
 
 
@@ -491,30 +471,33 @@ winApp1 =New qapp
             }
 
             ###---------------------------------------------------
-            ### Text Field Position and Size. TODAY is End Date
+            ### Text Field Position and Size. $Today is End Date
+			//  $Today field
 
-            Today = Date()
+            $Today = Date()
             lineedit2 = new qlineedit(win1) {
                     setGeometry(BoxLeft +240+50, BoxTop -BoxTop, 70, 20)
-                    lineedit2.settext(Today)
+                    lineedit2.settext($Today)
             }
 
             ###----------------------------------------------------------------
-            ### Text Field Position and Size. YESTERDAY is *** 7 YEARS AGO ***
+            ### Text Field Position and Size. $Yesterday is *** 7 YEARS AGO ***
+			// $Yesterday Field = -7 Years 
 
-            Yesterday = Date()
-                aDateDMY  = Split(Today, "/")
+            $Yesterday = Date()
+                aDateDMY  = Split($Today, "/")
                 OldDay    = aDateDMY[2]
                 OldMonth  = aDateDMY[1]
                 OldYear   = aDateDMY[3] - 7
-                Yesterday = OldMonth +"/"+ OldDay +"/"+ OldYear
+                $Yesterday = OldMonth +"/"+ OldDay +"/"+ OldYear
 
             ###----------------------------------------------
-            ### Text Field Position and Size ==> YESTERDAY
+            ### Text Field Position and Size ==> $Yesterday
+			// $Yesterday
 
-            lineedit2 = new qlineedit(win1) {
+            lineedit3 = new qlineedit(win1) {
                     setGeometry(BoxLeft +310+50, BoxTop -BoxTop, 70, 20)
-                    lineedit2.settext(Yesterday)
+                    lineedit3.settext($Yesterday)
             }
 
             ###--------------------------------------------------------
@@ -576,6 +559,7 @@ winApp1 =New qapp
             musicButton = new qpushbutton(win1)
             {
                   setGeometry(BoxLeft +920, (BoxTop -BoxTop), 80, 20)
+				  setStyleSheet("background-color: aqua")
                   settext("PlayVideo")
                   setclickevent("PlayVideo()")  ### ==>> Func PlayVideo --  Movie Button
             }
@@ -587,13 +571,18 @@ winApp1 =New qapp
             //    setstylesheet("background-color: green")
             //}
 
+            // Insert Here
             player = new QMediaPlayer()
             {
-             videowidget = new qvideowidget(win1)  // insert here
-                setMedia(new qurl("stock.mp3"))
+             videowidget = new qvideowidget(win1)  { 
+                             //setGeometry( BoxLeft, 30, 120, 120 ) //  10,50,300,300)
+							 //  setGeometry( 10,50,300,300)
+							   
+                           }
+                //setMedia(new qurl("stock.mp3"))
                 setVideoOutput(videowidget)
                 play()
-
+			
             }
 
             ###--------------------------------------------------
@@ -1034,16 +1023,16 @@ Func Draw(theseTickers)
             Add(theseTickers, $Symbol)
         ok
       
-      if( CheckCompareSPY.isChecked() )
-         Add(theseTickers, "SPY")   
-         ###Reverse(theseTickers)
-      ok
+		if( CheckCompareSPY.isChecked() )
+		    Add(theseTickers, "SPY")   
+		    ###Reverse(theseTickers)
+		ok
       
       
-            oFont = new qFont("Calibri",12,33,0)    ### name, intensity, italic
-            setFont( oFont)
+        oFont = new qFont("Calibri",12,50,0)    ### name, intensity, italic  ("Calibri",12,33,0)
+        setFont( oFont)
 
-      colorNbr = i
+         colorNbr = i
 
     //=================================================
     //=================================================
@@ -1059,112 +1048,57 @@ Func Draw(theseTickers)
     if( isList(theseTickers) )              ### Draw MULTIPLE Tickers -- Compare:
         colorNbr = 1                        ### INCREMENT IT LATER --Draw each stock a new color, Red, Blue, Green etc
         for $Symbol in theseTickers
+		
+		    gSymbol = $Symbol               // Save who is current
 
             See "Draw: " + $Symbol +nl      // Draw: BMO
 
-                    ###-----------------------------------------------------------------
-                    ### LIVE Yahoo or HISTORY Data or Balance or ConstantInvesting Data
-                    ###-----------------------------------------------------------------
+			###-----------------------------
+			### ===>>> Use YAHOO DATA - PRICE
+			###-----------------------------
 
-                        ### From Func BALANCE - 2 Stocks Re-Balance results
-                        ### Info already extracted and formatted in array
+            // ===>>> 
+			returnCode = FetchData($Symbol,"Price")         ### <<<=== returnCode = GET YAHOO DATA
 
-                    if ( substr($symbol,1,3) = "Z1-" )      ### $symbol = "Z1"
-                            arrayDate     = Z1arrayDate
-                            arrayOpen     = Z1arrayOpen
-                            arrayHigh     = Z1arrayHigh
-                            arrayLow      = Z1arrayLow
-                            arrayClose    = Z1arrayClose
-                            arrayVolume   = Z1arrayVolume
-                            arrayAdjClose = Z1arrayAdjClose
-
-                    but ( substr($Symbol,1,3) = "Z2-" )     ### $symbol = "Z2"
-                            arrayDate     = Z2arrayDate
-                            arrayOpen     = Z2arrayOpen
-                            arrayHigh     = Z2arrayHigh
-                            arrayLow      = Z2arrayLow
-                            arrayClose    = Z2arrayClose
-                            arrayVolume   = Z2arrayVolume
-                            arrayAdjClose = Z2arrayAdjClose
-
-                    but ( substr($Symbol,1,3) = "Z3-"  )    ### $symbol = "Z3"
-                            arrayDate     = Z3arrayDate
-                            arrayOpen     = Z3arrayOpen
-                            arrayHigh     = Z3arrayHigh
-                            arrayLow      = Z3arrayLow
-                            arrayClose    = Z3arrayClose
-                            arrayVolume   = Z3arrayVolume
-                            arrayAdjClose = Z3arrayAdjClose
-
-                    but ( substr($Symbol,1,3) = "Z4-"  )    ### $symbol = "Z4"
-                            arrayDate     = Z4arrayDate
-                            arrayOpen     = Z4arrayOpen
-                            arrayHigh     = Z4arrayHigh
-                            arrayLow      = Z4arrayLow
-                            arrayClose    = Z4arrayClose
-                            arrayVolume   = Z4arrayVolume
-                            arrayAdjClose = Z4arrayAdjClose
-
-                    ###-----------------------------------------
-                    ### Use HISORY DATA
-                    ###-----------------------------------------
-
-                    else
-
-                        ###-----------------------------
-                        ### Use YAHOO DATA - PRICE
-                        ###-----------------------------
-
-                        returnCode = FetchData($Symbol,"Price")         ### <<<=== returnCode = GET YAHOO DATA
-
-                        if returnCode = "BAD"
-                            See "Ticker return code: " + returnCode + " :for Symbol: " + $Symbol +nl
-                            lineedit1.settext( "BadTkr-" + $Symbol )
-                            return
-                        ok
+			if returnCode = "BAD"
+				See "Ticker return code: " + returnCode + " :for Symbol: " + $Symbol +nl
+				lineedit1.settext( "BadTkr-" + $Symbol )
+				return
+			ok
  
-                    ok
 
-            ###----------------------------------------------------------
+			###------------------------------
+			### Normal Single Stock display
+			###------------------------------
 
+			maxHighPrice      = max(arrayAdjClose)
+			minLowPrice       = min(arrayAdjClose)
 
-            ###------------------------------------------------------------------------
-            ### Note AAPL split 7 to 1 -- maxHighPrice 129.88 maxActualHiPrice 705.07
-            ###------------------------------------------------------------------------
+			maxActualHiPrice  = max(arrayClose)         ###  NEW YAHOO mess  --- max(arrayHigh)
+			minActualLoPrice  = min(arrayLow)
 
+			###------------------------------------
+			### Normalize Call from Compare Button
+			###------------------------------------
 
-                ###------------------------------
-                ### Normal Single Stock display
-                ###------------------------------
+			if  Normalize = 1                                           ### Normalize ON =1
+				maxHighPrice     = NormalizeHigh
+				maxActualHiPrice = NormalizeActualHigh
 
-                maxHighPrice      = max(arrayAdjClose)
-                minLowPrice       = min(arrayAdjClose)
+				AmountInit = 100000
+				SharesInit = AmountInit / arrayAdjClose[1]          ### Starting Price
 
-                maxActualHiPrice  = max(arrayClose)         ###  NEW YAHOO mess  --- max(arrayHigh)
-                minActualLoPrice  = min(arrayLow)
+				for i = 1 to len(arrayAdjClose)
+					ValueInit = arrayAdjClose[i] *  SharesInit
 
-                ###------------------------------------
-                ### Normalize Call from Compare Button
-                ###------------------------------------
+					arrayOpen[i]     = ValueInit
+					arrayHigh[i]     = ValueInit
+					arrayLow[i]      = ValueInit
+					arrayClose[i]    = ValueInit
+					arrayAdjClose[i] = ValueInit
 
-                if  Normalize = 1                                           ### Normalize ON =1
-                    maxHighPrice     = NormalizeHigh
-                    maxActualHiPrice = NormalizeActualHigh
-
-                        AmountInit = 100000
-                        SharesInit = AmountInit / arrayAdjClose[1]          ### Starting Price
-
-                        for i = 1 to len(arrayAdjClose)
-                            ValueInit = arrayAdjClose[i] *  SharesInit
-
-                            arrayOpen[i]     = ValueInit
-                            arrayHigh[i]     = ValueInit
-                            arrayLow[i]      = ValueInit
-                            arrayClose[i]    = ValueInit
-                            arrayAdjClose[i] = ValueInit
-
-                        next
-                ok
+				next
+			ok
 
                            
             sizeOfData = len(arrayClose)
@@ -1214,9 +1148,9 @@ DrawHorizontalLines()
 
             setpen(penRed)
 
-                if( isList(theseTickers) )                          ### Draw Multiple Tickers -- Compare:
+                if( isList(theseTickers) )                                  ### Draw Multiple Tickers -- Compare:
                     daVinci.setpen(arrayPenColor[colorNbr % 8 +1] )         ### Change color for easch stock
-                    colorNbr++                                      ### Next color
+                    colorNbr++                                              ### Next color
                     daVinci.drawText( 60, ( 20 * colorNbr) , $Symbol )      ### Draw Symbol to match Color
 
                 ok
@@ -1238,8 +1172,8 @@ ok
 
 
             if chartType = "Bar"
-			
-			    //daVinci.setPen(penBlue1)
+            
+                daVinci.setPen(penBlue1)
                 for x = 1 to z
                     SplitAdjRatio = ( arrayAdjClose[x] / arrayClose[x] )
 
@@ -1261,7 +1195,7 @@ ok
                     ok
 
                 next
-				//daVinci.setPen(penBlue)
+                daVinci.setPen(penBlue)
             ok
 
 
@@ -1395,10 +1329,10 @@ if CheckDividend.isChecked() = 1  ||  CheckYield.isChecked() = 1
    DrawDividendChart( $Symbol)
 ok
         ok
-		
+        
         $LastSymbol = $Symbol    // SAVE Needed because very last in List is Blank , ALSO for WinTitle    
 
-     	###-----------------------------------
+        ###-----------------------------------
         ### END of MULTIPLE TICKERS Sectiob
         ###-----------------------------------
       
@@ -1411,21 +1345,21 @@ ok
 
     Normalize = 0   ### Turn OFF  Compare, Balance, ConstantValue
 
-	###-----------------------------------------
-	### END of DRAW TYPES
-	###-----------------------------------------
+    ###-----------------------------------------
+    ### END of DRAW TYPES
+    ###-----------------------------------------
 
             ###----------------------------
             ### RATIO NBR -- CALC DRAW for this stock
             ### Used for Ranking system
-			
+            
 if CheckRatio.isChecked() = 1
    DrawRatioChart()
 ok   
-			
-			###-------------------------------------
+            
+            ###-------------------------------------
             ### Draw Line Chart FRAME and WinINFO
-			
+            
 DrawFrameWinTitleInfo($LastSymbol)
 
            
@@ -1653,31 +1587,24 @@ Func FetchData($thisSymbol, TypeOfData  )
 
     TimePeriod = comboTimePeriod.currentText()  ### "w-Weekly", "d-Daily", "m-Monthly, v-dividend"
 
-    Today    = Date()                           ### 14/05/2016  mm/dd/yyyy
-    aDateDMY = Split(Today, "/")                ### 14 05 2016
+    $Today    = Date()                           ### 14/05/2016  mm/dd/yyyy
+    aDateDMY = Split($Today, "/")                ### 14 05 2016
 
         if TimePeriod = "Weekly"
                 #Period = 7                                 ### 7 years of Weekly => 364 periods
                 $DayWeekMonth = "1wk"
-                StartDate = AddDays(Today, ( -365.25 * 7 ))
+                $StartDate = AddDays($Today, ( -365.25 * 7 ))
 
         but TimePeriod = "Daily"
                 #Period = 2                                 ### 2 years of Daily => 260 -> 520 periods
                 $DayWeekMonth = "1d"
-                StartDate = AddDays(Today, ( -580 ))        ### 524 days ~ 360 stock periods
+                $StartDate = AddDays($Today, ( -580 ))        ### 524 days ~ 360 stock periods
 
         else TimePeriod = "Monthly"
                 #Period = 30                                ### 30 years of Monthly => 360 periods
                 $DayWeekMonth = "1mo"
-                StartDate = AddDays(Today, ( -365.25 * 30 ))
+                $StartDate = AddDays($Today, ( -365.25 * 30 ))
         ok
-
-        ManualDate = lineedit2.text()
-
-      
-      if StartDate != ManualDate
-         StartDate = ManualDate     ### Manual Start Date in label2
-      ok
 
 
         ###------------------------
@@ -1697,7 +1624,6 @@ Func FetchData($thisSymbol, TypeOfData  )
     ###   URL - Put it together -- $urlbase + $symbol + $urlbaseType
     ###--------------------------------------------------------------------
 
-    arrayStartDate = split(StartDate, "/")                ### How far back to go in time, days, weeks, months
 
 
     ###----------------------------------
@@ -1708,16 +1634,13 @@ Func FetchData($thisSymbol, TypeOfData  )
         $symbol   =  $thisSymbol                         ### "AAPL"
 
 
-        $Period1 = EpochTime( StartDate, "00:00:00")    ### 7 years ago
-        $Period2 = EpochTime( Date(), "18:00:00" )          ### Today 11 PM
-
-
     //=====================================================================================
     // Part 1
-    // CURL INIT
+    // CURL INIT -- QUOTES
+	// WAS  "curl/7.54.1"
 
     curl = curl_easy_init()              // START CURL INIT     
-    curl_easy_setopt(curl, CURLOPT_USERAGENT, "curl/7.54.1" )   // FIX "Too many requests"  
+    curl_easy_setopt(curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows; U;" )  
     
     //=====================================================================================
     // Part 2 --- Send URL as Request
@@ -1730,25 +1653,23 @@ Func FetchData($thisSymbol, TypeOfData  )
     $Range    = '10y'                      // <<< Range     $url6 
     
     
-                chartPeriod = comboTimePeriod.currentText()                        // "Weekly", "Daily", "Monthly"
+               chartPeriod =  comboTimePeriod.currentText()                        // "Weekly", "Daily", "Monthly"
             if chartPeriod = "Weekly"  $Range =  '10y'   $Interval = '1wk'    ok    // 360 weeks = 7 years
             if chartPeriod = "Monthly" $Range =  'max'   $Interval = '1m'    ok    // 360 months = 30 Years
             if chartPeriod = "Daily"   $Range =  '2y'    $Interval = '1d'    ok    // 360 days   = 16 monts 72 weeks
 
     
     $url1 = 'https://query1.finance.yahoo.com/v8/finance/chart/'
-    $url2 =  $Symbol                            // <<< Ticker 'RY'
+    $url2 =  $Symbol                            // <<< Ticker 'RY, RY.TO '
     $url3 = '?metrics=high?&interval='
     $url4 =  $Interval                        // <<< Interval   1wk'                           
     $url5 = '&range='
     $url6 =  $Range     
     
-    $url2 = $Symbol                          // <<< Ticker
-    $url4 = $Interval                        // <<< Interval                             
-    $url6 = $Range                           // <<< Range       
-
-
-    $url = $url1 + $url2 + $url3 + $url4 + $url5 + $url6            
+    $url2 =  $Symbol                          // <<< Ticker
+    $url4 =  $Interval                        // <<< Interval                             
+    $url6 =  $Range                           // <<< Range       
+         
             
     //----------------------------------------------------
     // BUILT URL COMBO => to GET DATA HISTORY
@@ -1757,15 +1678,15 @@ Func FetchData($thisSymbol, TypeOfData  )
     
     //========================================================================
     // Part 3
-    // CURL GET DATA  $URL ===>>> Site
+    // CURL GET - QUOTES DATA  $URL ===>>> Site
           
     curl_easy_setopt(curl, CURLOPT_URL, $url);   ### <<<=== SetOpt + URL               
     cStr = curl_easy_perform_silent(curl)        ### <<<=== GET DATA ===>>> cStr
  
             //----------------------------------------       
             // DEBUG        
-            //See "===== cStr Data: ===== "+nl+nl
-            //See cStr  
+            // See "===== cStr Data: ===== "+nl+nl
+            // See cStr  
     
     //===========================================================================
     // Part 4 Data Returned in JSON format. Convert it to Array aList
@@ -1773,31 +1694,38 @@ Func FetchData($thisSymbol, TypeOfData  )
 
     aList = JSON2List( cStr )   // Reads cStr Json format returned
     
-    
+
     if substr( cStr, 'No data found, symbol may be delisted') 
        See aList[:chart][:error][:code]  +" | "+ aList[:chart][:error][:description]  +nl
        return "BAD"
     ok
 
-    
+
     aOpen      =  aList[:chart][:result][1][:indicators][:quote][1][:open]
     aHigh      =  aList[:chart][:result][1][:indicators][:quote][1][:high]
     aLow       =  aList[:chart][:result][1][:indicators][:quote][1][:low]
     aClose     =  aList[:chart][:result][1][:indicators][:quote][1][:close]
     aVolume    =  aList[:chart][:result][1][:indicators][:quote][1][:volume]
     aAdjClose  =  aList[:chart][:result][1][:indicators][:adjclose][1][:adjclose]
-    aTimeStamp =  aList[:chart][:result][1][:timestamp]
-    aTimeDate  =  list(len(aTimeStamp))
+    aTimeStamp =  aList[:chart][:result][1][:timestamp]   // 1726459200
+    aTimeDate  =  list(len(aTimeStamp))                   // 15-06-2015
     aHistory   =  list(len(aTimeStamp))
     
     //--------------------------------------------------
     // Convert EPOCH Seconds to Human Readable Date format
+	// BeginAtDate =     20171016
+	// aTimeDate[k]: 522 07-10-2024
+    // aTimeDate[k]: 523 14-10-2024
+    // aTimeDate[k]: 524 16-10-2024
     
+
     for k = 1 to len(aTimeStamp)
-          $EpochStart  = aList[:chart][:result][1][:timestamp][k]
-          aTimeDate[k] = EpochToDate($EpochStart) 
-    next    
-    
+          $EpochStart  = aList[:chart][:result][1][:timestamp][k] // 17123456
+          aTimeDate[k] = EpochToDate($EpochStart)                 // 14-10-2024
+		  	  
+    next   
+
+   
     //-----------------------------------------------------
     // SHOW LINES of HISTORY DATA - Oldest to Newest
     // 16/09/2024,86.08,90.07,85.76,89.91,4813300,89.91
@@ -1805,65 +1733,129 @@ Func FetchData($thisSymbol, TypeOfData  )
     // 25/09/2024,89.82,90.23,89.92,89.96,12033,89.96   
     // aHistory[len(aTimeStamp)] = 'Date,Open,High,Low,Close,Adj Close,Volume'
     //------------------------------------------------------------------------
+    // RY.TO
+    // $NextLine: 07-10-2024,166.22,170.53,164.98,170.38,21314800,170.38
+    // $NextLine: 14-10-2024,null,null,null,null,null,null
+    // $NextLine: 15-10-2024,169.84,171.68,169.68,171.53,7777193,171.53 
+    //-------------------------------------------------------------------------
     
+	//------------------
+	// FIX NULL Price Entry from Data
+	
     for k = 1 to len(aTimeStamp) 
         $NextLine   = aTimeDate[k] +","+ aOpen[k] +","+ aHigh[k] +","+ aLow[k] +","+ aClose[k] +","+  aVolume[k] +","+ aAdjClose[k] 
+ 
+        if substr( $NextLine, 'null' )
+           $NextLine = aHistory[k-1]     // Use Previous Line
+           
+            aOpen[k]      =  aOpen[k-1]   
+            aHigh[k]      =  aHigh[k-1] 
+            aLow[k]       =  aLow[k-1]  
+            aClose[k]     =  aClose[k-1]   
+            aVolume[k]    =  aVolume[k-1]  
+            aAdjClose[k]  =  aAdjClose[k-1]  
+            aTimeStamp[k] =  aTimeStamp[k-1]		// Epoch	
+               
+        ok
+
         aHistory[k] = $NextLine
+                
     next    
 
     //--------------------------
     
     endData  = len(aTimeStamp)                // BMO 524   SMR 136  lines
-    srtData  = endData - 360                  //     164      -224  start point
-      
+	srtData  = endData - 360                  // endData: 524 srtData: 164
+    // See "endData: "+endData +" srtData: "+ srtData +nl
+	
+			// $StartDate: 16/10/2017 RY
+			// BeginAtDate: 20171016
+			// endData: 524 srtData: 164
+
     //--------------------------------
     // DATA < 360 entries for Stock: SMR
     
-    if srtData < 0
-       fillpt  = -(srtData)  // -224 => 224
+    if srtData < 0                            // Negative = Not Enough Entries
+       fillpoint  = -(srtData)                // SMR endData: 139 srtData: -221
 
-        // Fil lwith first valid data
-        for r = 1 to fillpt                   // 1-224 Fill In  
-            arrayDate[r]       = aTimeDate[1]
-            arrayOpen[r]       =     aOpen[1]
-            arrayHigh[r]       =     aHigh[1]
-            arrayLow [r]       =      aLow[1]
-            arrayClose[r]      =    aClose[1]
-            arrayVolume        =   aVolume[1]
-            arrayAdjClose[r]   = aAdjClose[1]       
+
+        // Fill with first valid data
+        for r = 1 to fillpoint                   // 1-221 Fill In  
+            arrayDate[r]      = aTimeDate[1]    // Make Same from 1 to 221
+            arrayOpen[r]      =     aOpen[1]
+            arrayHigh[r]      =     aHigh[1]
+            arrayLow[r]       =      aLow[1]
+            arrayClose[r]     =    aClose[1]
+            arrayVolume[r]    =   aVolume[1]
+            arrayAdjClose[r]  = aAdjClose[1]       
+			arrayTimeStamp[r] = aTimeStamp[1]
         next
-            fillpt = r
-            s = 1
-        for r = fillpt to 360                   // 1-224 Fill In  
+        
+            fillpoint = r
+            s         = 1
+            
+        for r = fillpoint to 360                   // 1-221 = Same || Fill In Rest  221 to 360  = 139 points
             arrayDate[r]       = aTimeDate[s]
             arrayOpen[r]       =     aOpen[s]
             arrayHigh[r]       =     aHigh[s]
-            arrayLow [r]       =      aLow[s]
+            arrayLow[r]        =      aLow[s]
             arrayClose[r]      =    aClose[s]
-            arrayVolume        =   aVolume[s]
-            arrayAdjClose[r]   = aAdjClose[s]   
+            arrayVolume[r]     =   aVolume[s]
+            arrayAdjClose[r]   = aAdjClose[s] 
+            arrayTimeStamp[r]  = aTimeStamp[s]	
+			
             s++         
         next            
             
        
     else    
-        //------------------------------------
-        // DATA <= 360 entries for Stock: BMO
+        //---------------------------------------------------------------
+        // DATA >= 360 entries for Stock: BMO endData: 524 srtData: 164 = Diff 360
         
-        for r = 1 to 360         // Stocks with 360 data points
-            arrayDate[r]       = aTimeDate[r + srtData ]
+        for r = 1  to 360                                 // 1 to 360 Stocks with 360 data points
+            arrayDate[r]       = aTimeDate[r + srtData ]  // Start at 164. Fill in 164 to 524 = 360
             arrayOpen[r]       =     aOpen[r + srtData ]
             arrayHigh[r]       =     aHigh[r + srtData ]
-            arrayLow [r]       =      aLow[r + srtData ]
+            arrayLow[r]        =      aLow[r + srtData ]
             arrayClose[r]      =    aClose[r + srtData ]
-            arrayVolume        =   aVolume[r + srtData ]
+            arrayVolume[r]     =   aVolume[r + srtData ]
             arrayAdjClose[r]   = aAdjClose[r + srtData ]
-        
+			arrayTimeStamp[r]  = aTimeStamp[r + srtData ]
         next
     
     ok
+	
+	//--------------------------------------------------------------------
 
-    
+	ManualDate  = lineedit3.text()   ### Manual Start Date in label2 15/02/2017
+    // See "ManualDate3: "+ManualDate +nl
+	
+	BeginAtDate = EpochTime( ManualDate, "00:00:00")      ### 1731801640000  = 2024-10-17
+ 
+	
+    for k = 360 to 1 step -1
+	
+	    if BeginAtDate > arrayTimeStamp[k]
+ 
+		   for r = k to 1 step -1
+			   
+			   arrayDate[r]       =   arrayDate[k]    
+			   arrayOpen[r]       =   arrayOpen[k]    
+			   arrayHigh[r]       =   arrayHigh[k]    
+			   arrayLow [r]       =   arrayLow[k]     
+			   arrayClose[r]      =   arrayClose[k]   
+			   arrayVolume[r]     =   arrayVolume[k]  
+			   arrayAdjClose[r]   =   arrayAdjClose[k]
+			   arrayTimeStamp[r]  =   arrayDate[k] // FIX when No Data: aTimeStamp[k]
+			   	   
+		   next
+		   exit  // break out 
+		  
+		ok
+	
+	next
+	
+   
 Return
 
 
@@ -2019,7 +2011,7 @@ return
 ### maxHighPriceBig
 
 Func CompareStocks()
-    cStr = lineedit1Compare.text()                               ### lineedit2.settext(Today)
+    cStr = lineedit1Compare.text()                               ### lineedit2.settext($Today)
     
         cStr = Upper( lineedit1Compare.text()  )          ### Read text field
         lineedit1Compare.setText(cStr)
@@ -2030,7 +2022,7 @@ Func CompareStocks()
 
     cStr = substr(cStr, "/",",")   ### F.Slash to Comma
     cStr = substr(cStr, ":",",")   ### Colon to Comma
-    cStr = substr(cStr,"  "," ")  ### Double space to Single space
+    cStr = substr(cStr,"  "," ")   ### Double space to Single space
     cStr = substr(cStr, " ",",")   ### Space to Comma
     delimiter = ","
 
@@ -2038,7 +2030,7 @@ Func CompareStocks()
 
 //    See "CompareStock List" +nl
 //    See  compareStockList
-//	  See "================="+nl
+//    See "================="+nl
 
     ###=======================================
     AmountInit       = 100000
@@ -2050,7 +2042,7 @@ Func CompareStocks()
     //   BMO     1.52    59.69   77.56   90.57   0       13.01   13.01   0       16.77  
     
 
-    See "Sym."+tab+"Mult"+tab+"Adj.."+tab+"Start"+tab+"End.."+tab+"Div$."+tab+"Price+"+tab+"Profit"+tab+"Div%"+tab+ "Price% " +nl
+    See "Sym."+tab+"Mult"+tab+"PctPrf"+tab+"Adj.."+tab+"Start"+tab+"End.."+tab+"Div$."+tab+"Price+"+tab+"Profit"+tab+"Div%"+tab+ "Price% " +nl
     
     divPrf = 0; pricePrf = 0    // initialize
           
@@ -2065,15 +2057,15 @@ Func CompareStocks()
             lineedit1.settext( "BadTkr: " + ticker)
             return
         ok
-		
-		if CheckDividend.isChecked() = 1  ||  CheckYield.isChecked() = 1 
-		   FetchDividend( ticker, "dividend"  )
-		else
-			for i = 1 to 360
-				arrayDivDate[i]  =  "1992-03-04"
-				arrayDividend[i] =  0.00
-			next	   
-		ok
+        
+        if CheckDividend.isChecked() = 1  ||  CheckYield.isChecked() = 1 
+           FetchDividend( ticker, "dividend"  )
+        else
+            for i = 1 to 360
+                arrayDivDate[i]  =  "1992-03-04"
+                arrayDividend[i] =  0.00
+            next       
+        ok
 
         ###-------------------------------------------------
         ### NORMALIZE VTI and BLV
@@ -2107,38 +2099,38 @@ Func CompareStocks()
     if chartPeriod = "Weekly"  DaysAgo = 365 * 7    ok
     if chartPeriod = "Monthly" DaysAgo = 365 * 30   ok
     if chartPeriod = "Daily"   DaysAgo = 365 + 5    ok
-	
-	
-    // Today: 29/09/2024  DaysAgo: 2555  Yesterday: 01/10/2017
-	 Yester = AddDays( Date(), -DaysAgo)
+    
+    
+    // $Today: 29/09/2024  DaysAgo: 2555  $Yesterday: 01/10/2017
+     Yester = AddDays( Date(), -DaysAgo)
     aYester = split( Yester, '/')                   // 01/10/2017
     nYester = aYester[3] + aYester[2] + aYester[1]  // 20171001
 
-	divAmount     = 0
-	
-	$StartDiv = 2
-	for i = 2 to len(arrayDividend)                    // -1
-	    aToday  = split( arrayDivDate[i], '-')         // 2024-04-24
-		nToday  = aToday[1]  + aToday[2] + aToday[3]
+    divAmount     = 0
+    
+    $StartDiv = 2
+    for i = 2 to len(arrayDividend)                    // -1
+        aToday  = split( arrayDivDate[i], '-')         // 2024-04-24
+        nToday  = aToday[1]  + aToday[2] + aToday[3]
 
-	    if nToday >= nYester	
-		   $StartDiv = i
-		   exit
-		ok
-	next
+        if nToday >= nYester    
+           $StartDiv = i
+           exit
+        ok
+    next
 
-	for i = $StartDiv to len(arrayDividend)          //-1    
-     		if arrayDivDate[i] != arrayDivDate[i-1]
-			   divDate     = arrayDivDate[i]       
-			   divAmount  += arrayDividend[i]  
-				  //See "DivTicker: "+ ticker +" Date: "+ arrayDivDate[i] +" "+ arrayDividend[i] +nl
-			ok
-	next  
-	
-	//TotalDiv for Period |  divAmount  += arrayDividend[i]   // 360
-	
-//--------------------------------		 
-		 
+    for i = $StartDiv to len(arrayDividend)          //-1    
+            if arrayDivDate[i] != arrayDivDate[i-1]
+               divDate     = arrayDivDate[i]       
+               divAmount  += arrayDividend[i]  
+                  //See "DivTicker: "+ ticker +" Date: "+ arrayDivDate[i] +" "+ arrayDividend[i] +nl
+            ok
+    next  
+    
+    //TotalDiv for Period |  divAmount  += arrayDividend[i]   // 360
+    
+//--------------------------------       
+         
 
       maxHighPrice  = max(arrayAdjClose)   
       PercentChange = maxHighPrice / startPrice
@@ -2147,6 +2139,7 @@ Func CompareStocks()
       Add( maxPercentChange, PercentChange)
       
       multiple = endPrice    / startPrice
+	  percentPrf = multiple * 100 -100
       pricePrf = endPriceAct - startPriceAct
       totalPrf = pricePrf    + divAmount
       divPct   = divAmount   / startPriceAct * 100
@@ -2159,6 +2152,7 @@ Func CompareStocks()
       See ""+      
       ticker         +tab+
       multiple       +tab+  
+	  percentPrf     +tab+
       startPrice     +tab+ 
       startPriceAct  +tab+  
       endPriceAct    +tab+ 
@@ -2343,7 +2337,10 @@ return
 
 //================================================================
 //================================================================
-// DIVIDENDS
+//================================================================
+//
+// FETCH-DIVIDENDS
+//
 // $url1 = 'view-source:https://www.tickertech.net/bnkinvest/cgi/?n=2&ticker='
 // $url1 =             'https://www.tickertech.net/bnkinvest/cgi/?n=2&ticker='
 // $url2 = 'BMO.CA'
@@ -2356,7 +2353,8 @@ Func FetchDividend($Symbol, TypeOfData  )
     //--------------------
     // Pre-Fill with 0.00
     
-    count         = 360
+    count = 360
+    
     for i = 1 to 360
         arrayDivDate[i]  =  "1992-03-04"
         arrayDividend[i] =  0.00
@@ -2364,37 +2362,41 @@ Func FetchDividend($Symbol, TypeOfData  )
 
 
     //--------------------------
-    // Convert Canada .TO symbol to .ca
+    // Convert Canada RY.TO symbol to tsx/RY
                    
-    if substr( $Symbol, ".TO" )                      // HR-UN.TO 
-       //See "Convert: |"+ $Symbol  +"|"                
-       $SymbolT = substr( $Symbol,  ".TO", "" )      // Remove .TO  -> HR-UN    
-       $SymbolU = substr( $SymbolT, "-UN", ".UN" )   // HR.UN
-       $SymbolD = substr( $SymbolU, "-", "." )       // Change Dash to Dot
-       $SymbolB = $SymbolD + ".CA"                   // HR.UN.CA   
-       $Symbol  = $SymbolB   
-       //See " ==> |" + $Symbol +"|" +nl
+    if substr( $Symbol, ".TO" )                             // HR-UN.TO 
+      
+        if substr( $Symbol, ".TO" )                         // RY.TO  HR-UN.TO 
+           //See "Convert: |"+ $Symbol    +"|"                
+              $SymbolT = substr( $Symbol,  ".TO", "" )      // RY     Remove .TO  -> HR-UN 
+              $SymbolD = substr( $SymbolT,  "-", "." )
+              $Symbol  = 'tsx/' +$SymbolD                   // tsx/RY          
+           //See " ==> |" + $Symbol +"|" +nl
+        ok
+
     ok
     //----------------------------------------------- 
                     
     
-
-    $url1 = 'https://www.tickertech.net/bnkinvest/cgi/?n=2&ticker='
-    $url2 = $Symbol
-    $url3 = '&js=on&head=1&a=historical&w=dividends2&noform=1&footer=off'
+    $url1 = 'https://dividendhistory.org/payout/'
+    $url2 =  $Symbol
+    $url3 = '/'
     $url  =  $url1 + $url2 + $url3
+    
 
     //=====================================================================================
-    // CURL INIT
+    // CURL INIT -DIVIDENDS
 
     curl = curl_easy_init()              // START CURL INIT     
-    curl_easy_setopt(curl, CURLOPT_USERAGENT, "curl/7.54.1" )   // FIX "Too many requests"  
+ //   curl_easy_setopt(curl, CURLOPT_USERAGENT, "curl/7.54.1" )   // FIX "Too many requests"  
+	
+	curl_easy_setopt(curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows; U;") 
     
     //=====================================================================================
 
 
     //=========================================================================== 
-    // CURL GET ===>>>  
+    // CURL GET -- DIVIDENDS  ===>>>  
 
     curl_easy_setopt(curl, CURLOPT_URL, $url);   ### <<<=== SetOpt + URL               
     cStr = curl_easy_perform_silent(curl)        ### <<<=== GET DATA ===>>> cStr
@@ -2406,121 +2408,140 @@ Func FetchDividend($Symbol, TypeOfData  )
     
     //===========================================================================
 
-    FlagFoundDate = 0                  // cSTR does it have "DATE"
-    kPos = 1                           // Lines Nbr pointer SAVE FOR Next k  
+    //---------------------------------------------
+    // Find RANGE -- start-edn lines needed
     
-    for k = kPos to len(aLines)-4        // Current position in aLines / cStr
-        Line = aLines[k]  
-        countDiv = 1      // Get 40 dividens
+    strPos    = substr(cStr, 'Cash Amount' )                          # start of div
+    endPos    = substr(cStr, '</td></tr></tbody></table> </div>' )    # end of div
+    countChar = endPos - strPos
+    //See "strPos: "+ strPos +" endPos: "+endPos +" countChar: "+countChar +nl # range to copy
+
+    cStrToEnd =substr(cStr,strPos, countChar)       //  ---> Get substring starting from position to end
          
-        nPos = substr( Line, '222">Date</' )     // FOUND DATE in cSTR  >Date<  the >Div< 
-     
-        if nPos = 0
-            //  Not found in this Line in cStr from DividendChannel
-        else
-        
-        //--------------------------------------------------------------
-        // Firt "DATE" position found. Start in Lines +4 for next symbol
-        // FOUND DATE in cSTR 
+    NewString = substr( cStrToEnd, '<td data-astro-cid-metutpl4',  nl )
+    String2   = substr( NewString, '</td></tr><tr class="" data-astro-cid-metutpl4>', '' )
+
+    //See "===== String2 ====="+nl    See String2    See "===== End String2   ====="+nl
+   
+   
+    aLines = str2list(String2)                     // Array of cStr -> Lines
+
+//  See "Working on $url2 Symbol: "+ $Symbol  +nl
+//  See "===== Lines ========="+nl
+//  See aLines
+//  See "===== Lines End ====="+nl
+
     
-        FlagFoundDate = 1                 // cSTR does it have "DATE"
-        kPos = k+4   
-                      
-            for k2 = kPos to len(aLines)-4 Step 4
-            
-                    //-----------------------
-                    // Inspect 4 Lines
-                    
-                    for p = 0 to 3
-                        NextLine = aLines[k2+p]                  // Find data value between >...<
-    
-                        if substr( NextLine, 'Data may be adjusted for splits' )   // END of DIVIDENDS
-                           //See $Symbol + " EndOfDiv: Data may be adjusted for splits" + nl
-                           exit 2
-                        else
-              
-                        
-                        nPos1 = substr( NextLine, '222">' ) 
-                        nPos2 = substr( NextLine, '</font' ) 
-                                                
-                                //------------------------                  
-                                // Get data between >..< positions
-                        
-                                if nPos1 > 0 
-                                    Value = substr(NextLine, nPos1+5, (nPos2 - nPos1 -5) ) 
-                            
-                                    if p = 0   $Date  = Value     ok      // >07/30/24<
-                                    if p = 1   $Div   = Value     ok      // >1.119<        
-                                    if p = 2   $tr1   = "abc"     ok      // blank data     
-                                    if p = 3   $tr2   = "xyz"     ok      // blank data
+    //===========================================================================
+    //    1234567890123456
+    //    >2025-04-04</td>
+    //    >2025-04-30</td>
+    //    >$1.25</td> 
+    //    >
+    //----------------------------- 
+  
+    InfoDateDiv = ""                   // Create One Long String to write to file
+    FlagExDate  = 0
+    $TotalDividends = 0                // Total Divs for the Period
+			
+    for k = 1 to len(aLines)           // Current Line
+        Line = aLines[k]  
+         
+
+        // FIX: EXTRACT 16 chars to strShort    
+        strShort = substr(Line, 1, min(16,len(Line))  )                  
+        endPos   = substr(  strShort, '</td' )
         
-                                else
-                                    // Nada
-                                ok                      
-                        ok
-                        
-                    next
-                            
-                            
+        // DATE ??
+        if substr( strShort, '>19') OR   substr(  strShort, '>20' )  
+            if FlagExDate = 0                                          // ExDivDate
+                $Date  = substr(  strShort, 2, endPos -2 )                      
+                FlagExDate = 1                                         // Ignore PayDate
+            ok
+        ok
+        
+           
+		// DIVIDEND $1.05 ??  | + Canada Stocks   2025-02-10
+        // RY  $Dividend: K: |4|  |1.48 CAD|
+        // RY  $Dividend: K: |8|  |1.48 CAD|
+        // JPM $Dividend: K: |4|  |1.25|
+        // JPM $Dividend: K: |8|  |1.25|
+		
 
-                    //-----------------------------------------------------
-                    // Modify DIVIDEND To
-                    // Draw: BMO
-                    // 360 1 07/30/24  1.119  mm/dd/yy
-                    // 359 1 04/26/24  1.106
-                    // 358 1 01/29/24  1.123
-                    //
-                    // Date,Dividends
-                    // 2022-02-14,1.940000    yyy-mm-dd
-                    //------------------------------------------    
+        if  substr(  strShort, '>$' )                                             
+				
+				$DivLong  = substr( strShort, 3, endPos -3)
+				$Dividend = substr( $DivLong, " CAD", "" )
+				
+                FlagExDate = 0
+                
+                // No Future Date, Past Dates ONLY
+                $DateYYYYMMDD = substr($Date, "-", "" )                    // 2024-10-04 => 20241004                      
+                $ddmmyyy      = split( Date(), "/" )                       // 03/09/2024
+                $Today        = $ddmmyyy[3] + $ddmmyyy[2] + $ddmmyyy[1]    // 03/09/2024 => 20240903
+				
+				$OldDate      = lineEdit3.text()
+				$ddmmyyy      = split( $OldDate, "/" )                   // Range Period from $Yesterday
+                $OldDateYMD   = $ddmmyyy[3] + $ddmmyyy[2] + $ddmmyyy[1]    // 07/12/2017 => 20171207
+ 
+                if $DateYYYYMMDD <= $Today  AND                      // Past Date dividends
+				 $DateYYYYMMDD   >= $OldDateYMD                       // From $yesterday to Today Range
+                               
+                    arrayDivDate[count]  =  $Date                     ### ADD Data to arrayLists
+                    arrayDividend[count] =  $Dividend            
 
-                    aDate     = split( $Date, "/")
-                    yearDate  = aDate[3]
-                    monthDate = aDate[1]
-                    dayDate   = aDate[2]
-                    
-                    if yearDate > 80
-                       yearDate = "19" + yearDate
-                    else
-                       yearDate = "20"+ yearDate
-                    ok
-                    
-                    $Date = yearDate +"-"+ monthDate +"-"+ dayDate    // yyyy-mm-dd
-                                
-                    arrayDivDate[count]  =  $Date                ### ADD Data to arrayLists
-                    arrayDividend[count] =  $Div            
-                                
-                    count--
-                                      
-                    //-----------------------------------------------------                 
-                                                      
-            next 
-            
-                    //--------------------------
-                    // Canada Restore .CA symbol Name to .TO
-                    
-                    $Ticker = $Symbol
-                    if substr( $Ticker, ".CA" )                   // RY.CA -> RT.TO
-                       //See "Restore: |"+ $Ticker  +"|"
-                       $TickerU = substr( $Ticker, ".CA", "" )
-                       $TickerD = substr( $TickerU, ".", "-" )
-                       $Ticker  = $TickerD + ".TO"      
-                       $Symbol = $Ticker                       
-                       //See " ==> |"+ $Symbol  +"|" +nl
-                       
-                    ok
-                    //---------------------------
-                    
-
-            //See "Exit to Here --Data may be adjusted for splits-- Dividends Done"+nl +nl              
-            //See $Symbol  +tab   +" FetchDiv Done: "  +nl  
-            
-                                             
-        ok                 // if else nPos=0
-             
+                    $TotalDividends += $Dividend
+                 // See "Count: "+count +" $T: "+$Today  +" $Y: "+$OldDateYMD  +" D: "+ $Date +" Div: "+ $Dividend +" $T: "+$TotalDividends  +nl 
+				 // See "Count: "+count +" D: "+ $Date +" Div: "+ $Dividend +" $T: "+$TotalDividends  +nl 
+ 
+                    count-- 
+                ok          
+        ok
+           
+        // OTHER Type line: NOT Printed
+   
     next                  // forloop  k in Line
     
+                    
+    
 Return                    // Return GetQuotes
+
+
+//================================================================
+//================================================================
+// EPOCH CONVERSION
+// See "ModInfo: "+ ModifiedInfo +nl
+// ModInfo: JPM, 2024-10-04, 1.25, 1728003723, 2, 12
+// ModInfo: JPM, 2024-07-05, 1.15, 1720141323, 15, 103
+// ModInfo: JPM, 2024-04-04, 1.15, 1712192523, 28, 195
+
+Func ModifyToEpoch($Ticker, $Date, $Dividend) 
+                                    
+                    $date     = $Date                    //   Info: 2025-04-0 1.25 1  
+                    $dividend = $Dividend                //   1.060,
+
+                    aListYMD   = split($date, "-" )
+                    $year      = aListYMD[1]          
+                    $month     = aListYMD[2]   
+                    $day       = aListYMD[3]   
+
+                   
+                    $newDate = $day +"/"+ $month +"/"+ $year                     // 15/02/2019  to Epoch()
+                    $timeCur = EpochTime( Date(), Time() )                       // 1247854462              
+                    $timeAgo = EpochTime( $newDate, "01:02:03" )                 // 1216699200
+
+                    $weeks   = ceil(($timecur - $timeago) / 604800)               // (7*24*60*60)
+                    $days    = ceil(($timecur - $timeago) /  86400)               //    24*60*60)    
+
+                    $date    = $year +"-"+ $month +"-"+ $day             // 2024-06-18 to xxx.Div.csv
+                    $modLine = $Ticker +", "+ $date  +", "+ $dividend  +", "+ $timeAgo +", "+ $weeks +", "+ $days +nl                      
+  
+  
+
+                                      
+Return $modLine
+
+
 
 //================================================================
 //================================================================
@@ -2822,6 +2843,7 @@ Func DrawHeikenAshiChart()
     ### Draw last horizontal line to show closing price
     daVinci.drawline( (H*SP ), WinBaseY -yCl , (H*SP +10), WinBaseY - yCl )  ### Thick - 2 lines
 
+
  
 return
 
@@ -2847,6 +2869,12 @@ Func DrawLineChart()
         yOld = y
         xOld = x
     next
+	
+	//$symbol = Upper( lineedit1.text() )          ### Read text field
+	daVinci.setPen(penBlue3)
+	daVinci.drawText(  (xOld * HzSp) +10 , WinBaseY - yOld +10 , gSymbol )  // 43  Line --Symbol next to last price point
+
+
 
 return
 
@@ -2860,7 +2888,7 @@ Func DrawHorizontalLines()
     daVinci.setpen(penBlue1)
  
     # HzSp = 2    ### Horizontal spacing every 2 lines
-    HzSp = ( ( BoxWidth - BoxOffsetLine ) / sizeOfData )                         ### Horizon Space self adjusting as per width of Box
+    HzSp = ( ( BoxWidth - BoxOffsetLine ) / sizeOfData )     ### Horizon Space self adjusting as per width of Box
 
 
 
@@ -2871,7 +2899,7 @@ Func DrawHorizontalLines()
 
 
     ###--------------------
-    ### TODAY's DATE
+    ### $Today's DATE
     ###
     ### Date,Open,High,Low,Close,Volume,Adj Close
     ### 2016-08-22,76.510002,77.010002,75.629997,76.269997,743900,76.269997
@@ -2880,7 +2908,7 @@ Func DrawHorizontalLines()
 
     cDate1    = date()
 
-    aDateDMY  = Split(cDate1, "/")                              ### TODAY dd/mm/yyyy  16/06/2016
+    aDateDMY  = Split(cDate1, "/")                              ### $Today dd/mm/yyyy  16/06/2016
     Year      = number(aDateDMY[3]) +1                          ### Present Year 2016
     cDate2    = "01/01/" + Year                                 ### Next    Year 2017
 
@@ -3012,19 +3040,24 @@ Func DrawVerticalLine(theseTickers, $Symbol)
             if (chartType = "Log")
                 daVinci.drawline( 10, WinBaseY - (1 * vLine) , BoxWidth, WinBaseY - (1 * vLine ) )
 
-                daVinci.drawText( 10, WinBaseY - (1 * vLine) +10, priceInc )                            ### Price on Left and Right
+                daVinci.drawText( 10, WinBaseY - (1 * vLine) +10, priceInc )                 ### Price on Left and Right
                 daVinci.drawText( BoxWidth - BoxOffsetPrice, WinBaseY - (1 * vLine) +10, priceInc )                           
-                daVinci.drawText( BoxWidth - BoxOffsetPrice, (BoxTop -BoxTop) +20 ,      $Symbol  )
+                daVinci.drawText( BoxWidth - BoxOffsetPrice +15, (BoxTop -BoxTop) +10 ,  $Symbol  )
 
             else
                 ### Other Charts - Line, Bar, Mountain, Heiken-Ashi
                 vLine    = WinBaseY / BaseNbr
                 daVinci.drawline( 10, WinBaseY - (y * vLine)    , BoxWidth, WinBaseY - (y * vLine) )
                 
-                daVinci.drawText( 10, WinBaseY - (y * vLine) +10, priceInc )                           ### Draw Price Below the Horizontal Price Line
+                daVinci.drawText( 10, WinBaseY - (y * vLine) +10, priceInc )    ### Draw Price Below the Horizontal Price Line
                 daVinci.drawText( BoxWidth - BoxOffsetPrice, WinBaseY - (y * vLine) +15, priceInc )
-                daVinci.drawText( BoxWidth - BoxOffsetPrice, (BoxTop -BoxTop) +35,       $Symbol  )                  
+					
             ok
+			
+			if (chartType = "HeikenAshi" )
+			   //daVinci.drawText( BoxWidth - BoxOffsetPrice +15, (BoxTop -BoxTop) +30, gSymbol  )  // +15
+			   daVinci.drawText( BoxWidth - BoxOffsetPrice , (BoxTop -BoxTop) +30, gSymbol  )  // +15
+			ok
 
 
     next
@@ -3127,7 +3160,7 @@ Func DrawDividendChart($Symbol)
 
     FetchDividend($Symbol, "Dividend"  )   // <<<===
 
-    cDate1    = date()                     // Todays Date
+    cDate1    = date()                     // $Todays Date
     
     chartPeriod = comboTimePeriod.currentText()                    ### "Weekly", "Daily", "Monthly"
     if chartPeriod = "Weekly"  Interval = ( 7 )             ok
@@ -3201,33 +3234,33 @@ Func DrawDividendChart($Symbol)
             ###----------------------------
             ### RATIO NBR -- CALC DRAW for this stock
             ### Used for Ranking system
-			
-		
-Func DrawRatioChart()		
+            
+        
+Func DrawRatioChart()       
 
     z  = len(arrayClose)   ### <<< SIZE OF DATA
-	
-	TotalRatio     = RatioCalc()
-	#maxHighPrice  = max(arrayAdjClose)
-	ScaleRatio     = WinBaseY / 200          ### Max RatioCalc - set at 200
+    
+    TotalRatio     = RatioCalc()
+    #maxHighPrice  = max(arrayAdjClose)
+    ScaleRatio     = WinBaseY / 200          ### Max RatioCalc - set at 200
 
-	daVinci.setpen(penOrange)
-	x    = 1
-	yOld = arrayRatio[x] * ScaleRatio
-	xOld = 1
+    daVinci.setpen(penOrange)
+    x    = 1
+    yOld = arrayRatio[x] * ScaleRatio
+    xOld = 1
 
-	for x = 1 to z
-		y = arrayRatio[x] * ScaleRatio
-		daVinci.drawline( xOld * HzSp , WinBaseY - yOld , (x*HzSp), WinBaseY - y)
+    for x = 1 to z
+        y = arrayRatio[x] * ScaleRatio
+        daVinci.drawline( xOld * HzSp , WinBaseY - yOld , (x*HzSp), WinBaseY - y)
 
-		yOld = y
-		xOld = x
-	next
+        yOld = y
+        xOld = x
+    next
 
-	### Draw stright line reference 100
+    ### Draw stright line reference 100
     daVinci.setpen(penRed)
-	y = 100 * ScaleRatio
-	daVinci.drawline( 1 * HzSp , WinBaseY - y, (z*HzSp), WinBaseY - y)
+    y = 100 * ScaleRatio
+    daVinci.drawline( 1 * HzSp , WinBaseY - y, (z*HzSp), WinBaseY - y)
 
 Return
 
@@ -3240,87 +3273,107 @@ Return
 
 Func DrawFrameWinTitleInfo($LastSymbol)
 
-	daVinci.setpen(penGreen)
+    daVinci.setpen(penGreen)
 
-			
-	daVinci.drawline(        1,            1,        1, BoxHeight    )             ### WinLeft Line vetical
-	daVinci.drawline(        1, BoxHeight -1, BoxWidth, BoxHeight -1 )             ### Bottom Line horizontal
+            
+    daVinci.drawline(        1,            1,        1, BoxHeight    )             ### WinLeft Line vetical
+    daVinci.drawline(        1, BoxHeight -1, BoxWidth, BoxHeight -1 )             ### Bottom Line horizontal
 
             
             ###--------------------------------------------------
             ### Win Title Info: PRICE  HIGH LOW DIVIDENDS
             
-	Yield    = 0
-	TotalDiv = 0 
-	Dividend = 0
-	DividendDate = date()
+    Yield    = 0
+    TotalDiv = 0
+    CurDiv   = 0    
+    Dividend = 0
+    DividendDate = date()
 
          
-	if CheckDividend.isChecked() = 1
-	
+    if CheckDividend.isChecked() = 1
+    
 
 
-		//-----------------------------------------------
-		// Dividend add 360 weeks or 52 weeks or 30Years
-		
-		chartPeriod = comboTimePeriod.currentText()                    ### "Weekly", "Daily", "Monthly"
-		if chartPeriod = "Weekly"  DaysAgo = 365 * 7    ok
-		if chartPeriod = "Monthly" DaysAgo = 365 * 30   ok
-		if chartPeriod = "Daily"   DaysAgo = 365 + 5    ok
-		
-		
-		// Today: 29/09/2024  DaysAgo: 2555  Yesterday: 01/10/2017
-		 Yester = AddDays( Date(), -DaysAgo)
-		aYester = split( Yester, '/')                   // 01/10/2017
-		nYester = aYester[3] + aYester[2] + aYester[1]  // 20171001
+        //-----------------------------------------------
+        // Dividend add 360 weeks or 52 weeks or 30Years
+        
+        chartPeriod = comboTimePeriod.currentText()                    ### "Weekly", "Daily", "Monthly"
+        if chartPeriod = "Weekly"  DaysAgo = 365 * 7    ok
+        if chartPeriod = "Monthly" DaysAgo = 365 * 30   ok
+        if chartPeriod = "Daily"   DaysAgo = 365 + 5    ok
+        
+        
+        // $Today: 29/09/2024  DaysAgo: 2555  $Yesterday: 01/10/2017
+         Yester = AddDays( Date(), -DaysAgo)
+        aYester = split( Yester, '/')                   // 01/10/2017
+        nYester = aYester[3] + aYester[2] + aYester[1]  // 20171001
 
-		divAmount     = 0
-		
-		$StartDiv = 2
-		for i = 2 to len(arrayDividend)                    // -1
-			aToday  = split( arrayDivDate[i], '-')         // 2024-04-24
-			nToday  = aToday[1]  + aToday[2] + aToday[3]
+        divAmount     = 0
+        
+        $StartDiv = 2
+        for i = 2 to len(arrayDividend)                    // -1
+            aToday  = split( arrayDivDate[i], '-')         // 2024-04-24
+            nToday  = aToday[1]  + aToday[2] + aToday[3]
 
-			if nToday >= nYester	
-			   $StartDiv = i
-			   exit
-			ok
-		next
+            if nToday >= nYester    
+               $StartDiv = i
+               exit
+            ok
+        next
 
-		for i = $StartDiv to len(arrayDividend)          //-1    
-				if arrayDivDate[i] != arrayDivDate[i-1]
-				   divDate     = arrayDivDate[i]       
-				   divAmount  += arrayDividend[i]  
-					  //See "DivTicker: "+ ticker +" Date: "+ arrayDivDate[i] +" "+ arrayDividend[i] +nl
-				ok
-		next  
-		
-		//TotalDiv for Period |  divAmount  += arrayDividend[i]   // 360
+        for i = $StartDiv to len(arrayDividend)          //-1    
+                if arrayDivDate[i] != arrayDivDate[i-1]
+                   divDate     = arrayDivDate[i]       
+                   divAmount  += arrayDividend[i]  
+                      //See "DivTicker: "+ ticker +" Date: "+ arrayDivDate[i] +" "+ arrayDividend[i] +nl
+                ok
+        next  
+        
+        //---------------------------------------------------------------
+        //TotalDiv for Period of One Year  |  divAmount  += arrayDividend[i]   // 360
 
-		TotalDiv = divAmount
+        cDate = Date() 
+        cDate = AddDays(cDate, -366 )
+        aDate = split( cDate, '/')
 
+    
+        $LastYear = aDate[3] + aDate[2] +aDate[1]              // 20241015  
+        TotalDiv  = 0.0
+        
+        for k = 360 to 340 step -1
+            $DivDate = substr( arrayDivDate[k], '-', '' )             // 2023-10-15 => 20231015
+            
+            if $DivDate >= $LastYear
+               TotalDiv = TotalDiv + arrayDividend[k]       
+            else
+               exit
+            ok
+        
+        next
+        //-----------------------------------------`````````````````````
+    
+        CurDiv   = arrayDividend[360]       
 
+        Yield = TotalDiv / arrayClose[360] *100
+        //See "|"+ $LastSymbol +"| Last 360 days: TotalDiv: "+ TotalDiv  +" Yield: "+Yield +" Price360: "+ arrayClose[360] +nl
 
-		Yield = TotalDiv / arrayClose[360] *100
-		See "|"+ $LastSymbol +"| Last 360 days: TotalDiv: "+ TotalDiv  +" Yield: "+Yield +" Price360: "+ arrayClose[360] +nl
+    ok
+    
 
-	ok
-	
+    //---------------------------------------------------
 
-	//---------------------------------------------------
-
-	PriceChange = arrayClose[360] - arrayClose[359]
-	$symbol     = lineedit1.text() 
-	$maxHigh    = max(arrayHigh)
+    PriceChange = arrayClose[360] - arrayClose[359]
+    $symbol     = lineedit1.text() 
+    $maxHigh    = max(arrayHigh)
  
-	win1{ setwindowtitle("Symbol:  " + $symbol +"  -- Low: "+ minLowPrice +" High: "+ $maxHigh +" Cur: "+
-	      arrayClose[360] +" Chg: "+ PriceChange +" --- "+ itemList[1] +" "+  itemList[2] +" "+ 
-		  itemList[3]  +" --- CurDIV: "+ Dividend +" TotDIV: "+ TotalDiv +" YIELD: "+ Yield +"%" +
-		  " Date: "+ DividendDate +" --- Ratio: "+ TotalRatio ) 
-		}
+    win1{ setwindowtitle("Symbol:  " + $symbol +"  -- Low: "+ minLowPrice +" High: "+ $maxHigh +" Cur: "+
+          arrayClose[360] +" Chg: "+ PriceChange +" --- "+ itemList[1] +" "+  itemList[2] +" "+ 
+          itemList[3]  +" --- CurDIV: "+ CurDiv +" TotDIV: "+ TotalDiv +" YIELD: "+ Yield +"%" +
+          " Date: "+ DividendDate +" --- Ratio: "+ TotalRatio  +" TotAccDiv: "+ $TotalDividends ) 
+        }
 
     ###-------------------------------------------
-	
+    
 return
 //==================================================================
 //==================================================================
@@ -3330,28 +3383,28 @@ Func DrawLogChart()
 
     z  = len(arrayClose)   ### <<< SIZE OF DATA
 
-	
-	// FROM VerticalLines               
-	BaseNbr  = 12
-	vLine    = 0                                               ### Log Chart bottom line
-	Magnify  = BaseNbr                                         ### MAGNIFY LOG Chart
-	maxLog   = log(maxHighPrice  )* log(BaseNbr * Magnify)     ### 728 = 6.8 log     
-	scaleLog = WinBaseY / maxlog                               ### WinBaseY / 6.8  = 124
+    
+    // FROM VerticalLines               
+    BaseNbr  = 12
+    vLine    = 0                                               ### Log Chart bottom line
+    Magnify  = BaseNbr                                         ### MAGNIFY LOG Chart
+    maxLog   = log(maxHighPrice  )* log(BaseNbr * Magnify)     ### 728 = 6.8 log     
+    scaleLog = WinBaseY / maxlog                               ### WinBaseY / 6.8  = 124
 
-	x = 1
-	yOld =  log( arrayAdjClose[x] ) * scaleLog * log((arrayAdjClose[x]  / maxHighPrice ) *   BaseNbr * Magnify)          ### Last Price
-	xOld = 1
+    x = 1
+    yOld =  log( arrayAdjClose[x] ) * scaleLog * log((arrayAdjClose[x]  / maxHighPrice ) *   BaseNbr * Magnify)          ### Last Price
+    xOld = 1
 
-	for x = 1 to z
-		pL = log( arrayAdjClose[x] ) * log( (arrayAdjClose[x]  / maxHighPrice ) * BaseNbr * Magnify)
-		yL = scaleLog * pL
-		y  = yL
-		daVinci.drawline( xOld * HzSp , WinBaseY - yOld , (x*HzSp), WinBaseY - y)
+    for x = 1 to z
+        pL = log( arrayAdjClose[x] ) * log( (arrayAdjClose[x]  / maxHighPrice ) * BaseNbr * Magnify)
+        yL = scaleLog * pL
+        y  = yL
+        daVinci.drawline( xOld * HzSp , WinBaseY - yOld , (x*HzSp), WinBaseY - y)
 
-		yOld = y
-		xOld = x
+        yOld = y
+        xOld = x
 
-	next
+    next
 
 
 Return
