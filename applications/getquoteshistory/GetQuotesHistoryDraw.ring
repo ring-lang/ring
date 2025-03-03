@@ -985,11 +985,16 @@ Func DrawStockButton()
         ### CLEAR arrayClose
         ###-----------------------------
 
+        if lineedit1.text() = ""    // Ticker field is blanl
+		   lineedit1.setText("SPY")
+		ok
+		
         $symbol = Upper( lineedit1.text() )          ### Read text field
         lineedit1.setText($Symbol)
 
         itemList[1] = $symbol               ### Win Title >>> Symbol Name Group
-
+  
+  
 
         Draw($symbol)
 return
@@ -1640,7 +1645,7 @@ Func FetchData($thisSymbol, TypeOfData  )
 	// WAS  "curl/7.54.1"
 
     curl = curl_easy_init()              // START CURL INIT     
-    curl_easy_setopt(curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows; U;" )  
+    curl_easy_setopt(curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows; U;" )   // FIX "Too many requests"  
     
     //=====================================================================================
     // Part 2 --- Send URL as Request
@@ -1694,13 +1699,13 @@ Func FetchData($thisSymbol, TypeOfData  )
 
     aList = JSON2List( cStr )   // Reads cStr Json format returned
     
-
+    
     if substr( cStr, 'No data found, symbol may be delisted') 
        See aList[:chart][:error][:code]  +" | "+ aList[:chart][:error][:description]  +nl
        return "BAD"
     ok
 
-
+    
     aOpen      =  aList[:chart][:result][1][:indicators][:quote][1][:open]
     aHigh      =  aList[:chart][:result][1][:indicators][:quote][1][:high]
     aLow       =  aList[:chart][:result][1][:indicators][:quote][1][:low]
@@ -2011,7 +2016,12 @@ return
 ### maxHighPriceBig
 
 Func CompareStocks()
-    cStr = lineedit1Compare.text()                               ### lineedit2.settext($Today)
+ 
+    if lineedit1Compare.text() = ""
+	   lineedit1Compare.setText("SPY,QQQ")
+	ok
+
+    cStr = lineedit1Compare.text()                       ### lineedit2.settext($Today)
     
         cStr = Upper( lineedit1Compare.text()  )          ### Read text field
         lineedit1Compare.setText(cStr)
