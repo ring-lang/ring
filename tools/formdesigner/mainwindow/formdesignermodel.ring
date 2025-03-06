@@ -173,182 +173,182 @@ Class FormDesignerModel
 
 	func AddPushButton oObject
 		nPushButtonsCount++
-		AddObject("Button"+nPushButtonsCount,oObject)
+		AddObject(T_FROMDESIGNER_TOOLBOX_BUTTON+nPushButtonsCount,oObject)
 
 	func PushButtonsCount
 		return nPushButtonsCount
 
 	func AddLineEdit oObject
 		nLineEditsCount++
-		AddObject("LineEdit"+nLineEditsCount,oObject)
+		AddObject(T_FROMDESIGNER_TOOLBOX_LINEEDIT+nLineEditsCount,oObject)
 
 	func LineEditsCount
 		return nLineEditsCount
 
 	func AddTextEdit oObject
 		nTextEditsCount++
-		AddObject("TextEdit"+nTextEditsCount,oObject)
+		AddObject(T_FROMDESIGNER_TOOLBOX_TEXTEDIT+nTextEditsCount,oObject)
 
 	func TextEditsCount
 		return nTextEditsCount
 
 	func AddListWidget oObject
 		nListWidgetsCount++
-		AddObject("ListWidget"+nListWidgetsCount,oObject)
+		AddObject(T_FROMDESIGNER_TOOLBOX_LISTWIDGET+nListWidgetsCount,oObject)
 
 	func ListWidgetsCount
 		return nListWidgetsCount
 
 	func AddCheckBox oObject
 		nCheckBoxesCount++
-		AddObject("CheckBox"+nCheckBoxesCount,oObject)
+		AddObject(T_FROMDESIGNER_TOOLBOX_CHECKBOX+nCheckBoxesCount,oObject)
 
 	func CheckBoxesCount
 		return nCheckBoxesCount
 
 	func AddImage oObject
 		nImagesCount++
-		AddObject("Image"+nImagesCount,oObject)
+		AddObject(T_FROMDESIGNER_TOOLBOX_IMAGE+nImagesCount,oObject)
 
 	func ImagesCount
 		return nImagesCount
 
 	func AddSlider oObject
 		nSlidersCount++
-		AddObject("Slider"+nSlidersCount,oObject)
+		AddObject(T_FROMDESIGNER_TOOLBOX_SLIDER+nSlidersCount,oObject)
 
 	func SlidersCount
 		return nSlidersCount
 
 	func AddProgressbar oObject
 		nProgressbarsCount++
-		AddObject("Progressbar"+nProgressbarsCount,oObject)
+		AddObject(T_FROMDESIGNER_TOOLBOX_PROGRESSBAR+nProgressbarsCount,oObject)
 
 	func ProgressbarsCount
 		return nProgressbarsCount
 
 	func AddSpinBox oObject
 		nSpinBoxesCount++
-		AddObject("Spinbox"+nSpinBoxesCount,oObject)
+		AddObject(T_FROMDESIGNER_TOOLBOX_SPINBOX+nSpinBoxesCount,oObject)
 
 	func SpinBoxesCount
 		return nSpinBoxesCount
 
 	func AddComboBox oObject
 		nComboBoxesCount++
-		AddObject("Combobox"+nComboBoxesCount,oObject)
+		AddObject(T_FROMDESIGNER_TOOLBOX_COMBOBOX+nComboBoxesCount,oObject)
 
 	func ComboBoxesCount
 		return nComboBoxesCount
 
 	func AddDateTimeEdit oObject
 		nDateTimeEditsCount++
-		AddObject("Datetimeedit"+nDateTimeEditsCount,oObject)
+		AddObject(T_FROMDESIGNER_TOOLBOX_DATETIMEEDIT+nDateTimeEditsCount,oObject)
 
 	func DateTimeEditsCount
 		return nDateTimeEditsCount
 
 	func AddTableWidget oObject
 		nTableWidgetsCount++
-		AddObject("TableWidget"+nTableWidgetsCount,oObject)
+		AddObject(T_FROMDESIGNER_TOOLBOX_TABLEWIDGET+nTableWidgetsCount,oObject)
 
 	func TableWidgetsCount
 		return nTableWidgetsCount
 
 	func AddTreeWidget oObject
 		nTreeWidgetsCount++
-		AddObject("TreeWidget"+nTreeWidgetsCount,oObject)
+		AddObject(T_FROMDESIGNER_TOOLBOX_TREEWIDGET+nTreeWidgetsCount,oObject)
 
 	func TreeWidgetsCount
 		return nTreeWidgetsCount
 
 	func AddRadioButton oObject
 		nRadioButtonsCount++
-		AddObject("RadioButton"+nRadioButtonsCount,oObject)
+		AddObject(T_FROMDESIGNER_TOOLBOX_RADIOBUTTON+nRadioButtonsCount,oObject)
 
 	func RadioButtonsCount
 		return nRadioButtonsCount
 
 	func AddWebView oObject
 		nWebViewsCount++
-		AddObject("WebView"+nWebViewsCount,oObject)
+		AddObject(T_FROMDESIGNER_TOOLBOX_WEBVIEW+nWebViewsCount,oObject)
 
 	func WebViewsCount
 		return nWebViewsCount
 
 	func AddDial oObject
 		nDialsCount++
-		AddObject("Dial"+nDialsCount,oObject)
+		AddObject(T_FROMDESIGNER_TOOLBOX_DIALSLIDER+nDialsCount,oObject)
 
 	func DialsCount
 		return nDialsCount
 
 	func AddVideoWidget oObject
 		nVideoWidgetsCount++
-		AddObject("VideoWidget"+nVideoWidgetsCount,oObject)
+		AddObject(T_FROMDESIGNER_TOOLBOX_VIDEOWIDGET+nVideoWidgetsCount,oObject)
 
 	func VideoWidgetsCount
 		return nVideoWidgetsCount
 
 	func AddFrame oObject
 		nFramesCount++
-		AddObject("Frame"+nFramesCount,oObject)
+		AddObject(T_FROMDESIGNER_TOOLBOX_FRAME+nFramesCount,oObject)
 
 	func FramesCount
 		return nFramesCount
 
 	func AddLCDNumber oObject
 		nLCDNumbersCount++
-		AddObject("LCDNumber"+nLCDNumbersCount,oObject)
+		AddObject(T_FROMDESIGNER_TOOLBOX_LCDNUMBER+nLCDNumbersCount,oObject)
 
 	func LCDNumbersCount
 		return nLCDNumbersCount
 
 	func AddHyperLink oObject
 		nHyperLinksCount++
-		AddObject("HyperLink"+nHyperLinksCount,oObject)
+		AddObject(T_FROMDESIGNER_TOOLBOX_HYPERLINK+nHyperLinksCount,oObject)
 
 	func HyperLinksCount
 		return nHyperLinksCount
 
 	func AddTimer oObject
 		nTimersCount++
-		AddObject("Timer"+nTimersCount,oObject)
+		AddObject(T_FROMDESIGNER_TOOLBOX_TIMER+nTimersCount,oObject)
 
 	func TimersCount
 		return nTimersCount
 
 	func AddAllEvents oObject
 		nAllEventsCount++
-		AddObject("AllEvents"+nAllEventsCount,oObject)
+		AddObject(T_FROMDESIGNER_TOOLBOX_ALLEVENTS+nAllEventsCount,oObject)
 
 	func AllEventsCount
 		return nAllEventsCount
 
 	func AddLayout oObject
 		nLayoutsCount++
-		AddObject("Layout"+nLayoutsCount,oObject)
+		AddObject(T_FROMDESIGNER_TOOLBOX_LAYOUT+nLayoutsCount,oObject)
 
 	func LayoutsCount
 		return nLayoutsCount
 
 	func AddTab oObject
 		nTabsCount++
-		AddObject("Tab"+nTabsCount,oObject)
+		AddObject(T_FROMDESIGNER_TOOLBOX_TABWIDGET+nTabsCount,oObject)
 
 	func TabsCount
 		return nTabsCount
 
 	func AddStatusbar oObject
 		nStatusbarsCount++
-		AddObject("Statusbar"+nStatusbarsCount,oObject)
+		AddObject(T_FROMDESIGNER_TOOLBOX_STATUSBAR+nStatusbarsCount,oObject)
 
 	func StatusbarsCount
 		return nStatusbarsCount
 
 	func AddToolbar oObject
 		nToolbarsCount++
-		AddObject("Toolbar"+nToolbarsCount,oObject)
+		AddObject(T_FROMDESIGNER_TOOLBOX_TOOLBAR+nToolbarsCount,oObject)
 
 	func ToolbarsCount
 		return nToolbarsCount

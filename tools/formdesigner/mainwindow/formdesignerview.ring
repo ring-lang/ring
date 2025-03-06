@@ -40,7 +40,7 @@ Class FormDesignerView from WindowsViewParent
 	func CreateMainWindow oModel
 
 		# Create the form
-			oModel.AddObject("Window",
+			oModel.AddObject(T_FORMDESIGNER_WINDOW,
 				 new FormDesigner_qWidget() {
 					setWindowTitle(T_FORMDESIGNER_FORMTITLE) # "Form1"
 				}
