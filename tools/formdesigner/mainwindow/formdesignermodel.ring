@@ -115,7 +115,7 @@ Class FormDesignerModel
 
 	func AddLabel oObject
 		nLabelsCount++
-		AddObject("Label"+nLabelsCount,oObject)
+		AddObject(T_FROMDESIGNER_TOOLBOX_LABEL+nLabelsCount,oObject)
 
 	func LabelsCount
 		return nLabelsCount
