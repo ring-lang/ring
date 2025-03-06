@@ -12,8 +12,8 @@ class FormDesigner_QHyperLink from QLabel
 	CreateCommonAttributes()
 	CreateMoveResizeCornersAttributes()
 
-	cLink = "http://www.ring-lang.net"
-	cText = "Ring Language Website"
+	cLink = T_FORMDESIGNER_HYPERLINK_URL
+	cText = T_FORMDESIGNER_HYPERLINK_URLTEXT
 
 	func LinkValue
 		return cLink

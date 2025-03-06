@@ -364,3 +364,7 @@ T_FORMDESIGNER_ABOUT_TITLE = "About"
 T_FORMDESIGNER_ABOUT_INFO  = "This application developed using the Ring programming language" + nl +
 		"Ring Version : " + version(True) + nl +
 		"2018-2025, Mahmoud Fayed <msfclipper@yahoo.com>"
+
+
+T_FORMDESIGNER_HYPERLINK_URL = "http://www.ring-lang.net"
+T_FORMDESIGNER_HYPERLINK_URLTEXT = "Ring Language Website"
