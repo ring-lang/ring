@@ -155,7 +155,7 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
-			NewControlEvents("Label",oModel.LabelsCount())
+			NewControlEvents(T_FROMDESIGNER_TOOLBOX_LABEL,oModel.LabelsCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn3.ischecked()   # Create QPushButton
 			HideCorners()
@@ -169,7 +169,7 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
-			NewControlEvents("Button",oModel.PushButtonsCount())
+			NewControlEvents(T_FROMDESIGNER_TOOLBOX_BUTTON,oModel.PushButtonsCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn4.ischecked()   # Create QLineEdit
 			HideCorners()
@@ -183,7 +183,7 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
-			NewControlEvents("LineEdit",oModel.LineEditsCount())
+			NewControlEvents(T_FROMDESIGNER_TOOLBOX_LINEEDIT,oModel.LineEditsCount())
 			oModel.ActiveObject().updatestylesheets()
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn5.ischecked()   # Create QTextEdit
@@ -198,7 +198,7 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
-			NewControlEvents("TextEdit",oModel.TextEditsCount())
+			NewControlEvents(T_FROMDESIGNER_TOOLBOX_TEXTEDIT,oModel.TextEditsCount())
 			oModel.ActiveObject().updatestylesheets()
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn6.ischecked()   # Create QListWidget
@@ -213,7 +213,7 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
-			NewControlEvents("ListWidget",oModel.ListWidgetsCount())
+			NewControlEvents(T_FROMDESIGNER_TOOLBOX_LISTWIDGET,oModel.ListWidgetsCount())
 			oModel.ActiveObject().updatestylesheets()
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn7.ischecked()   # Create QCheckBox
@@ -228,7 +228,7 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
-			NewControlEvents("CheckBox",oModel.CheckBoxesCount())
+			NewControlEvents(T_FROMDESIGNER_TOOLBOX_CHECKBOX,oModel.CheckBoxesCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn8.ischecked()   # Create QImage
 			HideCorners()
@@ -242,7 +242,7 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
-			NewControlEvents("Image",oModel.ImagesCount())
+			NewControlEvents(T_FROMDESIGNER_TOOLBOX_IMAGE,oModel.ImagesCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn9.ischecked()   # Create QSlider
 			HideCorners()
@@ -256,7 +256,7 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
-			NewControlEvents("Slider",oModel.SlidersCount())
+			NewControlEvents(T_FROMDESIGNER_TOOLBOX_SLIDER,oModel.SlidersCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn10.ischecked()   # Create QProgressBar
 			HideCorners()
@@ -270,7 +270,7 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
-			NewControlEvents("Progressbar",oModel.ProgressbarsCount())
+			NewControlEvents(T_FROMDESIGNER_TOOLBOX_PROGRESSBAR,oModel.ProgressbarsCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn11.ischecked()   # Create QSpinBox
 			HideCorners()
@@ -284,7 +284,7 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
-			NewControlEvents("SpinBox",oModel.SpinBoxesCount())
+			NewControlEvents(T_FROMDESIGNER_TOOLBOX_SPINBOX,oModel.SpinBoxesCount())
 			oModel.ActiveObject().updatestylesheets()
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn12.ischecked()   # Create QComboBox
@@ -299,7 +299,7 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
-			NewControlEvents("ComboBox",oModel.ComboBoxesCount())
+			NewControlEvents(T_FROMDESIGNER_TOOLBOX_COMBOBOX,oModel.ComboBoxesCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn13.ischecked()   # Create QDateTimeEdit
 			HideCorners()
@@ -313,7 +313,7 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
-			NewControlEvents("DateTimeEdit",oModel.DateTimeEditsCount())
+			NewControlEvents(T_FROMDESIGNER_TOOLBOX_DATETIMEEDIT,oModel.DateTimeEditsCount())
 			oModel.ActiveObject().updatestylesheets()
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn14.ischecked()   # Create QTableWidget
@@ -328,7 +328,7 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
-			NewControlEvents("TableWidget",oModel.TableWidgetsCount())
+			NewControlEvents(T_FROMDESIGNER_TOOLBOX_TABLEWIDGET,oModel.TableWidgetsCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn15.ischecked()   # Create QTreeWidget
 			HideCorners()
@@ -342,7 +342,7 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
-			NewControlEvents("TreeWidget",oModel.TreeWidgetsCount())
+			NewControlEvents(T_FROMDESIGNER_TOOLBOX_TREEWIDGET,oModel.TreeWidgetsCount())
 			oModel.ActiveObject().updatestylesheets()
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn16.ischecked()   # Create QRadioButton
@@ -357,7 +357,7 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
-			NewControlEvents("RadioButton",oModel.RadioButtonsCount())
+			NewControlEvents(T_FROMDESIGNER_TOOLBOX_RADIOBUTTON,oModel.RadioButtonsCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn17.ischecked()   # Create QWebView
 			HideCorners()
@@ -371,7 +371,7 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
-			NewControlEvents("WebView",oModel.WebViewsCount())
+			NewControlEvents(T_FROMDESIGNER_TOOLBOX_WEBVIEW,oModel.WebViewsCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn18.ischecked()   # Create QDial
 			HideCorners()
@@ -385,7 +385,7 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
-			NewControlEvents("Dial",oModel.DialsCount())
+			NewControlEvents(T_FROMDESIGNER_TOOLBOX_DIALSLIDER,oModel.DialsCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn19.ischecked()   # Create QVideoWidget
 			HideCorners()
@@ -399,7 +399,7 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
-			NewControlEvents("VideoWidget",oModel.VideoWidgetsCount())
+			NewControlEvents(T_FROMDESIGNER_TOOLBOX_VIDEOWIDGET,oModel.VideoWidgetsCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn20.ischecked()   # Create QFrame
 			HideCorners()
@@ -413,7 +413,7 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
-			NewControlEvents("Frame",oModel.FramesCount())
+			NewControlEvents(T_FROMDESIGNER_TOOLBOX_FRAME,oModel.FramesCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn21.ischecked()   # Create QLCDNumber
 			HideCorners()
@@ -427,7 +427,7 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
-			NewControlEvents("LCDNumber",oModel.LCDNumbersCount())
+			NewControlEvents(T_FROMDESIGNER_TOOLBOX_LCDNUMBER,oModel.LCDNumbersCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn22.ischecked()   # Create QHyperLink
 			HideCorners()
@@ -441,7 +441,7 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
-			NewControlEvents("HyperLink",oModel.HyperLinksCount())
+			NewControlEvents(T_FROMDESIGNER_TOOLBOX_HYPERLINK,oModel.HyperLinksCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn23.ischecked()   # Create QTimer
 			HideCorners()
@@ -455,7 +455,7 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
-			NewControlEvents("Timer",oModel.TimersCount())
+			NewControlEvents(T_FROMDESIGNER_TOOLBOX_TIMER,oModel.TimersCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn24.ischecked()   # Create QAllEvents
 			HideCorners()
@@ -469,7 +469,7 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
-			NewControlEvents("AllEvents",oModel.AllEventsCount())
+			NewControlEvents(T_FROMDESIGNER_TOOLBOX_ALLEVENTS,oModel.AllEventsCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn25.ischecked()   # Create QLayout
 			HideCorners()
@@ -483,7 +483,7 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
-			NewControlEvents("Layout",oModel.LayoutsCount())
+			NewControlEvents(T_FROMDESIGNER_TOOLBOX_LAYOUT,oModel.LayoutsCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn26.ischecked()   # Create QTab
 			HideCorners()
@@ -497,7 +497,7 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
-			NewControlEvents("Tab",oModel.TabsCount())
+			NewControlEvents(T_FROMDESIGNER_TOOLBOX_TABWIDGET,oModel.TabsCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn27.ischecked()   # Create QStatusBar
 			HideCorners()
@@ -511,7 +511,7 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
-			NewControlEvents("StatusBar",oModel.StatusBarsCount())
+			NewControlEvents(T_FROMDESIGNER_TOOLBOX_STATUSBAR,oModel.StatusBarsCount())
 			SetToolboxModeToSelectAfterDraw()
 		elseif oView.oToolBtn28.ischecked()   # Create QToolbar
 			HideCorners()
@@ -525,7 +525,7 @@ class FormDesignerController from WindowsControllerParent
 				}
 			)
 			oModel.ActiveObject().setCurrentParentName(cParent)
-			NewControlEvents("ToolBar",oModel.ToolBarsCount())
+			NewControlEvents(T_FROMDESIGNER_TOOLBOX_TOOLBAR,oModel.ToolBarsCount())
 			SetToolboxModeToSelectAfterDraw()
 		}
 
