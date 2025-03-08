@@ -1,4 +1,5 @@
 aNews = [
+  ["March 9, 2025",'<a href="https://www.youtube.com/watch?v=x8aOyM9Zw4Y&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=582"> Over 500 videos about Ring in Hassouna Academy</a>'],
   ["February 2, 2025",'<a href="https://www.mdpi.com/2076-3417/15/3/1521"> PWCT2: A Self-Hosting Visual Programming Language Based on Ring with Interactive Textual-to-Visual Code Conversion</a>'],
   ["January 3, 2025",'<a href="https://github.com/PWCT/pwct2"> PWCT 2.0 (Source Code - MIT License)</a>'],
   ["December 1, 2024",'<a href="doc1.22/whatisnew22.html"> Ring 1.22 Released!</a>'],
