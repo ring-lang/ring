@@ -269,6 +269,11 @@ Quotes about Ring
 |	**"Congratulations to the author and maintainers! If this tool can do even 25% of what is stated, I am going to be amazed. I searched extensively, trying languages like Rust, Elixir, Go, TypeScript, Euphoria, Factor, F#, C, Beef, V, Odin, and OCaml. None of them gave me that thrilling sense of connection to the syntax, which is so important to me. SQL spoiled me; it’s my favorite. then I came across Ring, thanks to a suggestion by Claude AI. I'm incredibly excited to get started and blown away that this project is already stable! I love that there is a dedicated IDE—the installation was EASY, unlike so many languages that get this part wrong"**
 |		, Pookiepats
 
+
+|	**"Ring programming language is awesome! Fast compiler, and develop UI and Web apps fast!"**
+|		, CinergyTech (YouTube)
+
+
 .. index:: 
 	pair: Applications developed in a few hours; FetchStockData Application
 
