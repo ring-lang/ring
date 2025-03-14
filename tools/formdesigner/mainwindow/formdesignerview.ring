@@ -696,7 +696,7 @@ Class FormDesignerView from WindowsViewParent
 		oScroll = new qScrollArea(null) {
 			setWidget(oToolBox)
 			if not isMobile() {
-				setMiniMumWidth(this.oDesktop.Width()*0.12)
+				setMiniMumWidth(this.oDesktop.Width()*0.15)
 			}
 			setwidgetresizable(True)
 		}
@@ -943,7 +943,7 @@ Class FormDesignerView from WindowsViewParent
 			setAlternatingRowColors(true)
 			setitemChangedEvent(this.Method(:UpdateProperties))
 			if T_LAYOUTDIRECTION {
-				setminimumwidth(this.oDesktop.width()*0.21)
+				setminimumwidth(this.oDesktop.width()*0.23)
 			else 
 				setminimumwidth(this.oDesktop.width()*0.22)
 			}
