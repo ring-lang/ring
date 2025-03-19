@@ -370,3 +370,5 @@ T_FORMDESIGNER_ABOUT_INFO  = "تم التطوير بإستخدام لغة الب
 
 T_FORMDESIGNER_HYPERLINK_URL = "http://www.ring-lang.net"
 T_FORMDESIGNER_HYPERLINK_URLTEXT = "لغة البرمجة رينج"
+
+T_FILENAME_CONTROLLER = "المتحكم"

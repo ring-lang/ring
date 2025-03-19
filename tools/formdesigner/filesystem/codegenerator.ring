@@ -63,7 +63,7 @@ class FormDesignerCodeGenerator
 			cSourceFileName = oDesigner.oFile.FileNameEncoding(cSourceFileName)
 			write(cSourceFileName,cOutput)
 		# Write the Controller Source File
-			cSourceFileName = substr(cFormFileName,".rform","Controller.ring")
+			cSourceFileName = substr(cFormFileName,".rform",T_FILENAME_CONTROLLER+".ring")
 			GenerateControllerClassInParent(oDesigner,cSourceFileName)
 			if fexists(cSourceFileName) { return }
 			cOutput = `# Form/Window Controller - Source Code File

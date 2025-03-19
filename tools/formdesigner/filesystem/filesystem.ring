@@ -140,7 +140,7 @@ class FormDesignerFileSystem from ObjectsParent
 	func OpenControllerClassInParent oDesigner
 		if oDesigner.IsParent() {
 			if isMethod(oDesigner.Parent(),"openfile") {
-				cDir = oDesigner.Parent().openfile(substr(cFileName,".rform","Controller.ring"))
+				cDir = oDesigner.Parent().openfile(substr(cFileName,".rform",T_FILENAME_CONTROLLER+".ring"))
 			}
 		}
 

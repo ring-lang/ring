@@ -368,3 +368,5 @@ T_FORMDESIGNER_ABOUT_INFO  = "This application developed using the Ring programm
 
 T_FORMDESIGNER_HYPERLINK_URL = "http://www.ring-lang.net"
 T_FORMDESIGNER_HYPERLINK_URLTEXT = "Ring Language Website"
+
+T_FILENAME_CONTROLLER = "Controller"
