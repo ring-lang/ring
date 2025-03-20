@@ -12,8 +12,8 @@ class FormDesignerCodeGenerator
 	cSourceFileName
 
 	func Generate oDesigner,cFormFileName
-		cSourceFileName = substr(cFormFileName,".rform","View.ring")
-		cFormName = GetFileNameOnlyWithoutPath(substr(cFormFileName,".rform",""))
+		cSourceFileName = substr(cFormFileName,"." + T_FORMDESIGNER_FILEEXTENSION,"View.ring")
+		cFormName = GetFileNameOnlyWithoutPath(substr(cFormFileName,"." + T_FORMDESIGNER_FILEEXTENSION,""))
 		cClassName = cFormName + "View"
 		cClassName = PrepareClassName(cClassName)
 		cClassName2 = cFormName + "Controller"
@@ -63,7 +63,7 @@ class FormDesignerCodeGenerator
 			cSourceFileName = oDesigner.oFile.FileNameEncoding(cSourceFileName)
 			write(cSourceFileName,cOutput)
 		# Write the Controller Source File
-			cSourceFileName = substr(cFormFileName,".rform",T_FILENAME_CONTROLLER+".ring")
+			cSourceFileName = substr(cFormFileName,"." + T_FORMDESIGNER_FILEEXTENSION,T_FILENAME_CONTROLLER+".ring")
 			GenerateControllerClassInParent(oDesigner,cSourceFileName)
 			if fexists(cSourceFileName) { return }
 			cOutput = `# Form/Window Controller - Source Code File
