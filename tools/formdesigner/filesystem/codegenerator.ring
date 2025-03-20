@@ -12,7 +12,7 @@ class FormDesignerCodeGenerator
 	cSourceFileName
 
 	func Generate oDesigner,cFormFileName
-		cSourceFileName = substr(cFormFileName,"." + T_FORMDESIGNER_FILEEXTENSION,"View.ring")
+		cSourceFileName = substr(cFormFileName,"." + T_FORMDESIGNER_FILEEXTENSION,T_FORMDESIGNER_VIEWFILE)
 		cFormName = GetFileNameOnlyWithoutPath(substr(cFormFileName,"." + T_FORMDESIGNER_FILEEXTENSION,""))
 		cClassName = cFormName + "View"
 		cClassName = PrepareClassName(cClassName)
@@ -68,7 +68,7 @@ class FormDesignerCodeGenerator
 			if fexists(cSourceFileName) { return }
 			cOutput = `# Form/Window Controller - Source Code File
 
-load "#{f1}View.ring"
+load "#{f1}#{f6}"
 
 #{f4}
 
@@ -84,6 +84,7 @@ class #{f2} from windowsControllerParent
 
 	oView = new #{f3}
 `
+			cOutput = substr(cOutput,"#{f6}",T_FORMDESIGNER_VIEWFILE)
 			cOutput = substr(cOutput,"#{f1}",cFormName)
 			cOutput = substr(cOutput,"#{f2}",cClassName2)
 			cOutput = substr(cOutput,"#{f3}",cClassName)
