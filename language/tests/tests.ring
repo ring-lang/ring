@@ -372,6 +372,7 @@ aTests = [
 	[ :name = "For-In Loop (Part 19)", :Command = "ring forinloop/forinandlistfunc3.ring" ],
 	[ :name = "For-In Loop (Part 20)", :Command = "ring forinloop/forinandlistfunc4.ring" ],
 	[ :name = "For-In Loop (Part 21)", :Command = "ring forinloop/forinandfuncarg.ring" ],
+	[ :name = "For-In Loop (Part 22)", :Command = "ring forinloop/3dlist.ring" ],
 	[ :name = "Standard Functions (Part 1)", :Command = "ring libs/substr1.ring" ],
 	[ :name = "Standard Functions (Part 2)", :Command = "ring libs/substr2.ring" ],
 	[ :name = "Standard Functions (Part 3)", :Command = "ring libs/substr3.ring" ],
