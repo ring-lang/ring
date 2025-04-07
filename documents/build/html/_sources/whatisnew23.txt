@@ -16,6 +16,7 @@ List of changes and new features
 Ring 1.23 comes with the next features!
 
 * Research Article
+* PWCT 2.0 (Source Code)
 * More Improvements
 
 .. index:: 
@@ -28,6 +29,16 @@ URL: https://doi.org/10.3390/app15031521
 
 .. image:: researchcover2.png
 	:alt: Research Article
+
+.. index:: 
+	pair: What is new in Ring 1.23?; PWCT 2.0 (Source Code)
+
+PWCT 2.0 (Source Code)
+======================
+
+Programming Without Coding Technology 2.0 source code is released on GitHub.
+
+URL: https://github.com/PWCT/pwct2
 
 .. index:: 
 	pair: What is new in Ring  1.23; More Improvements
