@@ -36,3 +36,4 @@ More Improvements
 =================
 
 * More samples
+* Qt version is updated to Qt 5.15.18
