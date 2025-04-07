@@ -17,6 +17,7 @@ Ring 1.23 comes with the next features!
 
 * Research Article
 * PWCT 2.0 (Source Code)
+* Better Samples and Applications
 * More Improvements
 
 .. index:: 
@@ -41,13 +42,35 @@ Programming Without Coding Technology 2.0 source code is released on GitHub.
 URL: https://github.com/PWCT/pwct2
 
 .. index:: 
+	pair: What is new in Ring  1.23; Better Samples and Applications
+
+Better Samples and Applications
+===============================
+
+The next samples and applications are added:
+
+* applications/snakesandladders2
+* ‎applications/trianglecalculator
+* samples/UsingCSVLib/usinglist2csv.ring 
+* samples/General/EpochToDateTime/EpochToDateTime.ring
+* samples/Drawing/Keplers3Laws/Keplers3Laws.ring 
+* samples/Drawing/RotationIllusion/Rotation-Illusion.ring
+* samples/Drawing/OrbitPlanetRetrograde/Orbit-Planet-Retrograde.ring
+
+The next applications are revised:
+
+* applications/fifteenpuzzle/FifteenPuzzleGame.ring 
+* applications/getquoteshistory/GetQuotesHistoryDraw.ring
+* applications/othellogame/OthelloGame.ring 
+
+.. index:: 
 	pair: What is new in Ring  1.23; More Improvements
 
 More Improvements
 =================
 
-* More samples
 * Qt version is updated to Qt 5.15.18
 * Form Designer - Better support for translation
 * Form Designer - Objects Order - Using closeAction() method
 * RingQt - OpenGLWidget/QAllEvents classes - Use: RINGQT_EVENT_SIZE
+* VSCode Extension - Added support for the EndIf keyword
