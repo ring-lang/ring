@@ -48,3 +48,6 @@ More Improvements
 
 * More samples
 * Qt version is updated to Qt 5.15.18
+* Form Designer - Better support for translation
+* Form Designer - Objects Order - Using closeAction() method
+* RingQt - OpenGLWidget/QAllEvents classes - Use: RINGQT_EVENT_SIZE
