@@ -32,6 +32,9 @@
 	#ifdef __ANDROID__
 		#define RING_SIMPLEHASHFUNC 1
 	#endif
+	#ifdef __FreeBSD__
+		#include <sys/sysctl.h>
+	#endif
 	#ifdef _WIN32
 		#include <io.h>
 		#include <fcntl.h>
