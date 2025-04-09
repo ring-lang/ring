@@ -2,6 +2,7 @@
 ** ListPro extension
 ** 2023, Mahmoud Fayed
 ** 2024, Bert Mariani (Added DestCol support in updateList() as a six parameter) 
+** 2025, Bert Mariani (Added mergemul -- multiply 2 rows or 2 col ==> dCil destination 
 */
 
 #include "ring.h"
@@ -167,7 +168,7 @@ RING_FUNC(ring_updatelist)
     char *cSelection  ;
     List *pList, *pSubList, *pRow, *pRow2  ;
     int nOPCode,nRow,nCol,nStart,nEnd,iValue  ;
-    int dCol ;                               
+    int dCol ;  // Destination Column if Parm 6                              
     int x,y  ;
     double nValue  ;
     VM *pVM  ;
@@ -196,7 +197,7 @@ RING_FUNC(ring_updatelist)
     nOPCode = 0 ;
     nRow = 0 ;
     nCol = 0 ;
-    dCol = 0 ;     
+    dCol = 0 ;   // Destination Column if Param 6  
     nStart = 0 ;
     nEnd = 0 ;
     pRow = NULL ;	
@@ -377,6 +378,14 @@ RING_FUNC(ring_updatelist)
             return ;
         }
     }
+	
+    else if ( strcmp(cOperation,"mergemul") == 0 ) {
+        nOPCode += 1100 ;
+        if ( nValue == 0 ) {
+            RING_API_ERROR("Can't divide by zero");
+            return ;
+        }
+    }	
     else {
         RING_API_ERROR("The second parameter must be a string: [Set | Add | Sub | Mul | Div | Copy | Merge ]");
         return ;
@@ -733,7 +742,7 @@ RING_FUNC(ring_updatelist)
                     pSubList = ring_list_getlist(pList,x) ;
                     if ( (ring_list_getsize(pSubList) >= nCol) && (ring_list_getsize(pSubList) >= nValue) ) {
                         if ( ring_list_isdouble(pSubList,nCol) && ring_list_isdouble(pSubList,nValue) ) {
-                            ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,  
+                            ring_list_setdouble_gc(pVM->pRingState,pSubList,dCol,  
 				ring_list_getdouble(pSubList,nCol) + 
 				ring_list_getdouble(pSubList,nValue));
                         }
@@ -770,7 +779,7 @@ RING_FUNC(ring_updatelist)
                     pSubList = ring_list_getlist(pList,x) ;
                     if ( ring_list_getsize(pSubList) >= nCol ) {
                         if ( ring_list_isdouble(pSubList,nCol) ) {
-                            ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,  
+                            ring_list_setdouble_gc(pVM->pRingState,pSubList,dCol,  
 				x + nValue);
                         }
                     }
@@ -823,7 +832,7 @@ RING_FUNC(ring_updatelist)
                         pSubList = ring_list_getlist(pList,x) ;
                         if ( ring_list_getsize(pSubList) >= nCol ) {
                             if ( ring_list_isdouble(pSubList,nCol) ) {
-                                ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
+                                ring_list_setdouble_gc(pVM->pRingState,pSubList,dCol,
 					pow(ring_list_getdouble(pSubList,nCol),nValue));
                             }
                         }
@@ -903,6 +912,50 @@ RING_FUNC(ring_updatelist)
                 }
             }
             break ;
+		
+        case 1101 :
+            /* Merge-Multiply two rows */
+            if ( (iValue < 1) ||  (iValue > ring_list_getsize(pList) ) ) {
+                RING_API_ERROR("The selected row is outside the range of the list");
+                return ;
+            }
+            if ( ring_list_islist(pList,iValue) ) {
+                pRow2 = ring_list_getlist(pList,iValue) ;
+                
+				for ( x = nStart ; x <= nEnd ; x++ ) {
+                    
+					if ( x <= ring_list_getsize(pRow2) ) {
+  	                    
+						if (ring_list_isdouble(pRow2,x)) {
+                             ring_list_setdouble_gc(pVM->pRingState,pRow,x, 
+				             ring_list_getdouble(pRow,x) *
+                             ring_list_getdouble(pRow2,x));
+			            }
+                    }
+                }
+            }
+            break ;
+        case 1102 :
+            /* Merge-Multiply two columns */
+            for ( x = nStart ; x <= nEnd ; x++ ) {
+                
+				if ( ring_list_islist(pList,x) ) {
+                    pSubList = ring_list_getlist(pList,x) ;
+                    
+					if ( (ring_list_getsize(pSubList) >= nCol) && 
+					     (ring_list_getsize(pSubList) >= nValue) ) {
+                        
+						if ( ring_list_isdouble(pSubList,nCol) && 
+						     ring_list_isdouble(pSubList,nValue) ) {
+						
+                            ring_list_setdouble_gc(pVM->pRingState,pSubList,dCol,  
+				            ring_list_getdouble(pSubList,nCol) * 
+				            ring_list_getdouble(pSubList,nValue));
+                        }
+                    }
+                }
+            }
+            break ;	
 
     }
 }
