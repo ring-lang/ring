@@ -56,6 +56,7 @@ The next samples and applications are added:
 * samples/Drawing/Keplers3Laws/Keplers3Laws.ring 
 * samples/Drawing/RotationIllusion/Rotation-Illusion.ring
 * samples/Drawing/OrbitPlanetRetrograde/Orbit-Planet-Retrograde.ring
+* samples/UsingFastPro/MergeMultiply.ring
 
 The next applications are revised:
 
