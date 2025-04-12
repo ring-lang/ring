@@ -57,6 +57,8 @@ The next samples and applications are added:
 * samples/Drawing/RotationIllusion/Rotation-Illusion.ring
 * samples/Drawing/OrbitPlanetRetrograde/Orbit-Planet-Retrograde.ring
 * samples/UsingFastPro/MergeMultiply.ring
+* samples/UsingFastPro/RegAddSubMulDivColRowDest.ring
+* samples/UsingFastPro/MergeAddSubMulDivColRowDest.ring
 
 The next applications are revised:
 
