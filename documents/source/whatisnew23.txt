@@ -59,6 +59,7 @@ The next samples and applications are added:
 * samples/UsingFastPro/MergeMultiply.ring
 * samples/UsingFastPro/RegAddSubMulDivColRowDest.ring
 * samples/UsingFastPro/MergeAddSubMulDivColRowDest.ring
+* samples/UsingFastPro/SetManyCopySerialPowRemItemsColRow.ring
 
 The next applications are revised:
 
