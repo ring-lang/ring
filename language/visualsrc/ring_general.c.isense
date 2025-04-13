@@ -9,6 +9,10 @@ nSize
 ring_general_exefilename
 Type: unsigned int
 nSize
+Type: int
+mib[4]
+Type: size_t
+cb
 ring_general_chdir
 ring_general_exefolder
 Type: char

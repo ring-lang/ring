@@ -43,11 +43,11 @@ int ring_general_exefilename ( char *cDirPath )
 		}
 	#elif __FreeBSD__
 		/* FreeBSD */
-		int mib[4] = { CTL_KERN, KERN_PROC, KERN_PROC_PATHNAME, -1 };
-		size_t cb = nSize;
+		int mib[4] = { CTL_KERN, KERN_PROC, KERN_PROC_PATHNAME, -1 } ;
+		size_t cb = nSize ;
 		memset(cDirPath, RING_ZERO, nSize);
-		if (sysctl(mib, 4, cDirPath, &cb, NULL, 0) != 0) {
-			return 0;
+		if ( sysctl(mib, 4, cDirPath, &cb, NULL, 0) != 0 ) {
+			return 0 ;
 		}
 	#elif __linux__
 		/* readlink() doesn't null terminate */
