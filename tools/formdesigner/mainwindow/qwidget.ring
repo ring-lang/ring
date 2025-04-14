@@ -26,6 +26,9 @@ class FormDesigner_QWidget from QWidget
 		nClockValue = 0
 		nClocksCount = clockspersecond() / 4
 
+	# Using move() method for widget position 
+		lMove = False
+
 	func init
 		super.init()
 		return self
@@ -324,9 +327,11 @@ class FormDesigner_QWidget from QWidget
 		return cOutput
 
 	func GenerateCode oDesigner
-		cOutput = char(9) + char(9) +
-		'move(#{f1},#{f2})
-		resize(#{f3},#{f4})
+		cOutput = char(9) + char(9) 
+		if lMove {
+			cOutput += 'move(#{f1},#{f2})' + nl
+		}
+		cOutput += 'resize(#{f3},#{f4})
 		setWindowTitle("#{f5}")
 		setstylesheet("background-color:#{f6};") ' + nl
 		if not WindowFlagsValue() = NULL {
@@ -341,8 +346,10 @@ class FormDesigner_QWidget from QWidget
 			cOutput += '
 		#{f9} ' + nl
 		}
-		cOutput = substr(cOutput,"#{f1}",""+max(parentwidget().x(),0))
-		cOutput = substr(cOutput,"#{f2}",""+max(parentwidget().y(),0))
+		if lMove { 
+			cOutput = substr(cOutput,"#{f1}",""+max(parentwidget().x(),0))
+			cOutput = substr(cOutput,"#{f2}",""+max(parentwidget().y(),0))
+		}
 		cOutput = substr(cOutput,"#{f3}",""+parentwidget().width())
 		cOutput = substr(cOutput,"#{f4}",""+max(parentwidget().height()-26,0))
 		cOutput = substr(cOutput,"#{f5}",windowtitle())
