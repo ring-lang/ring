@@ -76,6 +76,7 @@ More Improvements
 * Qt version is updated to Qt 5.15.18
 * Form Designer - Better support for translation
 * Form Designer - Objects Order - Using closeAction() method
+* Form Designer - Display forms at the centre of the screen
 * RingQt - OpenGLWidget/QAllEvents classes - Use: RINGQT_EVENT_SIZE
 * VSCode Extension - Added support for the EndIf keyword
 * Added FreeBSD support in ring.h and general.c for executable path retrieval
