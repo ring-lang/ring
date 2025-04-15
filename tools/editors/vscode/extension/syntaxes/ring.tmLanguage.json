@@ -11,7 +11,7 @@
 			"include": "#comments"
 		},
 		{
-			"include": "#classes"
+			"include": "#strings"
 		},
 		{
 			"include": "#keywords"
@@ -20,25 +20,10 @@
 			"include": "#controls"
 		},
 		{
-			"include": "#builtins"
-		},
-		{
 			"include": "#types"
 		},
 		{
-			"include": "#functions"
-		},
-		{
-			"include": "#numbers"
-		},
-		{
 			"include": "#special_values"
-		},
-		{
-			"include": "#strings"
-		},
-		{
-			"include": "#variables"
 		},
 		{
 			"include": "#constants"
@@ -47,16 +32,52 @@
 			"include": "#colon_literals"
 		},
 		{
-			"include": "#operators"
+			"include": "#classes"
 		},
 		{
-			"include": "#logical_operators"
+			"include": "#function_definition_named"
 		},
 		{
-			"include": "#braces"
+			"include": "#function_definition_anonymous"
+		},
+		{
+			"include": "#call_expression"
+		},
+		{
+			"include": "#function_call"
+		},
+		{
+			"include": "#variables_definition"
+		},
+		{
+			"include": "#builtins"
+		},
+		{
+			"include": "#object_block"
+		},
+		{
+			"include": "#numbers"
 		},
 		{
 			"include": "#lists"
+		},
+		{
+			"include": "#operators_logical"
+		},
+		{
+			"include": "#operators_general"
+		},
+		{
+			"include": "#member_access"
+		},
+		{
+			"include": "#identifiers"
+		},
+		{
+			"include": "#brackets"
+		},
+		{
+			"include": "#parentheses"
 		}
 	],
 	"repository": {
@@ -78,7 +99,7 @@
 			]
 		},
 		"keywords": {
-			"match": "\\b(?i)(enablehashcomments|disablehashcomments|call|class|from|import|new|package|private|endclass|endpackage)\\b",
+			"match": "\\b(?i)(enablehashcomments|disablehashcomments|import)\\b",
 			"name": "keyword.control.ring"
 		},
 		"controls": {
@@ -88,7 +109,7 @@
 		"builtins": {
 			"patterns": [
 				{
-					"match": "\\b(?i)(nl|see|put|print|get|give|load|changeringkeyword|changeringoperator|loadsyntax|acos|add|addattribute|adddays|addmethod|ascii|asin|assert|atan|atan2|attributes|binarysearch|bytes2double|bytes2float|bytes2int|callgarbagecollector|callgc|ceil|cfunctions|char|chdir|checkoverflow|classes|classname|clearerr|clock|clockspersecond|closelib|copy|cos|cosh|currentdir|date|dec|decimals|del|diffdays|dir|direxists|double2bytes|eval|exefilename|exefolder|exp|fabs|fclose|feof|ferror|fexists|fflush|fgetc|fgetpos|fgets|filename|find|float2bytes|floor|fopen|fputc|fputs|fread|freopen|fseek|fsetpos|ftell|functions|fwrite|getarch|getattribute|getchar|getfilesize|getnumber|getpathtype|getpointer|getptr|getstring|globals|hex|hex2str|importpackage|input|insert|int2bytes|intvalue|isalnum|isalpha|isandroid|isattribute|iscfunction|isclass|iscntrl|isdigit|isfreebsd|isfunction|isglobal|isgraph|islinux|islist|islocal|islower|ismacosx|ismethod|ismsdos|isnull|isnumber|isobject|ispackage|ispackageclass|ispointer|isprint|isprivateattribute|isprivatemethod|ispunct|isspace|isstring|isunix|isupper|iswindows|iswindows64|isxdigit|left|len|lines|list|list2str|loadlib|locals|log|log10|lower|max|memcpy|memorycopy|mergemethods|methods|min|murmur3hash|newlist|nofprocessors|nothing|nullpointer|nullptr|number|obj2ptr|object2pointer|objectid|optionalfunc|packageclasses|packagename|packages|parentclassname|perror|pointer2object|pointer2string|pointercompare|pow|prevfilename|print|print2str|ptr2obj|ptr2str|ptrcmp|puts|raise|random|randomize|read|ref|reference|refcount|remove|rename|reverse|rewind|right|ring_give|ring_see|ring_state_delete|ring_state_filetokens|ring_state_findvar|ring_state_init|ring_state_main|ring_state_mainfile|ring_state_new|ring_state_newvar|ring_state_resume|ring_state_runcode|ring_state_runcodeatins|ring_state_runfile|ring_state_runobjectfile|ring_state_scannererror|ring_state_setvar|ring_state_stringtokens|ringvm_callfunc|ringvm_calllist|ringvm_cfunctionslist|ringvm_classeslist|ringvm_codelist|ringvm_evalinscope|ringvm_fileslist|ringvm_functionslist|ringvm_genarray|ringvm_give|ringvm_hideerrormsg|ringvm_info|ringvm_ismempool|ringvm_memorylist|ringvm_packageslist|ringvm_passerror|ringvm_runcode|ringvm_scopescount|ringvm_see|ringvm_settrace|ringvm_tracedata|ringvm_traceevent|ringvm_tracefunc|setattribute|setpointer|setptr|shutdown|sin|sinh|sort|space|sqrt|srandom|str2hex|str2hexcstyle|str2list|strcmp|string|substr|swap|sysget|sysset|syssleep|system|sysunset|tan|tanh|tempfile|tempname|time|timelist|trim|type|ungetc|unsigned|upper|uptime|variablepointer|varptr|version|windowsnl|write)\\b(?!\\w)",
+					"match": "\\b(?i)(nl|see|put|print|get|give|load|changeringkeyword|changeringoperator|loadsyntax|acos|add|addattribute|adddays|addmethod|ascii|asin|assert|atan|atan2|attributes|binarysearch|bytes2double|bytes2float|bytes2int|callgarbagecollector|callgc|ceil|cfunctions|char|chdir|checkoverflow|classes|classname|clearerr|clock|clockspersecond|closelib|copy|cos|cosh|currentdir|date|dec|decimals|del|diffdays|dir|direxists|double2bytes|eval|exefilename|exefolder|exp|fabs|fclose|feof|ferror|fexists|fflush|fgetc|fgetpos|fgets|filename|find|float2bytes|floor|fopen|fputc|fputs|fread|freopen|fseek|fsetpos|ftell|functions|fwrite|getarch|getattribute|getchar|getfilesize|getnumber|getpathtype|getpointer|getptr|getstring|globals|hex|hex2str|importpackage|input|insert|int2bytes|intvalue|isalnum|isalpha|isandroid|isattribute|iscfunction|isclass|iscntrl|isdigit|isfreebsd|isfunction|isglobal|isgraph|islinux|islist|islocal|islower|ismacosx|ismethod|ismsdos|isnull|isnumber|isobject|ispackage|ispackageclass|ispointer|isprint|isprivateattribute|isprivatemethod|ispunct|isspace|isstring|isunix|isupper|iswindows|iswindows64|isxdigit|left|len|lines|list|list2str|loadlib|locals|log|log10|lower|max|memcpy|memorycopy|mergemethods|min|murmur3hash|newlist|nofprocessors|nothing|nullpointer|nullptr|number|obj2ptr|object2pointer|objectid|optionalfunc|packageclasses|packagename|packages|parentclassname|perror|pointer2object|pointer2string|pointercompare|pow|prevfilename|print|print2str|ptr2obj|ptr2str|ptrcmp|puts|raise|random|randomize|read|ref|reference|refcount|remove|rename|reverse|rewind|right|ring_give|ring_see|ring_state_delete|ring_state_filetokens|ring_state_findvar|ring_state_init|ring_state_main|ring_state_mainfile|ring_state_new|ring_state_newvar|ring_state_resume|ring_state_runcode|ring_state_runcodeatins|ring_state_runfile|ring_state_runobjectfile|ring_state_scannererror|ring_state_setvar|ring_state_stringtokens|ringvm_callfunc|ringvm_calllist|ringvm_cfunctionslist|ringvm_classeslist|ringvm_codelist|ringvm_evalinscope|ringvm_fileslist|ringvm_functionslist|ringvm_genarray|ringvm_give|ringvm_hideerrormsg|ringvm_info|ringvm_ismempool|ringvm_memorylist|ringvm_packageslist|ringvm_passerror|ringvm_runcode|ringvm_scopescount|ringvm_see|ringvm_settrace|ringvm_tracedata|ringvm_traceevent|ringvm_tracefunc|setattribute|setpointer|setptr|shutdown|sin|sinh|sort|space|sqrt|srandom|str2hex|str2hexcstyle|str2list|strcmp|string|substr|swap|sysget|sysset|syssleep|system|sysunset|tan|tanh|tempfile|tempname|time|timelist|trim|type|ungetc|unsigned|upper|uptime|variablepointer|varptr|version|windowsnl|write)\\b(?!\\w)",
 					"name": "support.function.builtin.ring"
 				},
 				{
@@ -98,31 +119,55 @@
 			]
 		},
 		"types": {
-			"match": "\\b(?i)(char|unsigned|signed|int|short|long|float|double|void|byte|boolean|string|list|number|object|public|static|abstract|protected|override|@override)\\b",
+			"match": "\\b(?i)(char|unsigned|signed|int|short|long|float|double|void|byte|boolean|string|number|object|public|static|abstract|protected|override|@override)\\b",
 			"name": "storage.type.ring"
 		},
-		"functions": {
-			"patterns": [
-				{
-					"match": "\\b(?i)(func|def)\\s+([a-zA-Z_]\\w*\\d*)",
-					"captures": {
-						"1": {
-							"name": "storage.type.function.ring"
-						},
-						"2": {
-							"name": "entity.name.function.ring"
-						}
-					}
+			"function_definition_named": {
+			"match": "\\b(?i)(func|def)\\s+([a-zA-Z_]\\w*\\d*)",
+			"captures": {
+				"1": {
+					"name": "storage.type.function.ring"
 				},
-				{
-					"match": "\\b([a-zA-Z_]\\w*\\d*)\\s*\\(",
-					"captures": {
-						"1": {
-							"name": "support.function.ring"
-						}
-					}
+				"2": {
+					"name": "entity.name.function.ring"
 				}
-			]
+			}
+		},
+		"function_definition_anonymous": {
+			"match": "\\b(?i)(func|def)\\s*(?:([a-zA-Z_]\\w*(?:\\s+[a-zA-Z_]\\w*)*))?\\s*(?={)",
+			"captures": {
+				"1": {
+					"name": "storage.type.function.ring"
+				},
+				"2": {
+					"name": "variable.parameter.function.ring"
+				}
+			}
+		},
+		"function_call": {
+			"match": "\\b([a-zA-Z_]\\w*\\d*)\\s*(\\()",
+			"captures": {
+				"1": {
+					"name": "entity.name.function.call.ring"
+				},
+				"2": {
+					"name": "punctuation.definition.arguments.begin.ring"
+				}
+			}
+		},
+		"call_expression": {
+			"match": "\\b(?i)(call)\\s+([a-zA-Z_]\\w*\\d*)\\s*(\\()",
+			"captures": {
+				"1": {
+					"name": "keyword.control.flow.ring"
+				},
+				"2": {
+					"name": "entity.name.function.call.ring"
+				},
+				"3": {
+					"name": "punctuation.definition.arguments.begin.ring"
+				}
+			}
 		},
 		"numbers": {
 			"patterns": [
@@ -135,7 +180,7 @@
 					"name": "constant.numeric.hex.ring"
 				},
 				{
-					"match": "\\b(?:[-]?)(?:[0-9]+)",
+					"match": "\\b(?:[-]?)(?:[0-9]+(?:_[0-9]+)*)\\b",
 					"name": "constant.numeric.integer.decimal.ring"
 				}
 			]
@@ -152,6 +197,14 @@
 					"end": "\"",
 					"patterns": [
 						{
+								"match": "\\\\#",
+								"name": "constant.character.escape.ring"
+						},
+						{
+							"match": "\\\\.",
+							"name": "constant.character.escape.ring"
+						},
+						{
 							"include": "#string_interpolation"
 						}
 					]
@@ -162,7 +215,11 @@
 					"end": "'",
 					"patterns": [
 						{
-							"match": "\\\\'|\\\\\\\\",
+								"match": "\\\\#",
+								"name": "constant.character.escape.ring"
+						},
+						{
+							"match": "\\\\['\\\\#]",
 							"name": "constant.character.escape.ring"
 						},
 						{
@@ -175,6 +232,14 @@
 					"begin": "`",
 					"end": "`",
 					"patterns": [
+						{
+								"match": "\\\\#",
+								"name": "constant.character.escape.ring"
+						},
+						{
+							"match": "\\\\.",
+							"name": "constant.character.escape.ring"
+						},
 						{
 							"include": "#string_interpolation"
 						}
@@ -221,48 +286,80 @@
 				}
 			]
 		},
-		"variables": {
-			"match": "\\b([a-zA-Z_]\\w*)\\s*(=)",
+		"variables_definition": {
+			"match": "\\b([a-zA-Z_]\\w*)\\s*(=)(?!>)",
 			"captures": {
 				"1": {
-					"name": "variable.other.ring"
+					"name": "variable.other.definition.ring"
 				},
 				"2": {
 					"name": "keyword.operator.assignment.ring"
 				}
 			}
 		},
+		"identifiers": {
+			"match": "\\b([a-zA-Z_]\\w*)\\b",
+			"name": "variable.other.readwrite.ring"
+		},
+		"member_access": {
+			"match": "(\\.)(\\b[a-zA-Z_]\\w*\\b)",
+			"captures": {
+				"1": { "name": "punctuation.accessor.ring" },
+				"2": { "name": "variable.other.property.ring" }
+			}
+		},
 		"constants": {
-			"match": "\\b([A-Z][A-Z0-9_]*_[A-Z0-9_]*)\\b",
+			"match": "\\b([A-Z][A-Z0-9_]*)\\b",
 			"name": "constant.other.ring"
 		},
 		"colon_literals": {
-			"match": "\\:([a-zA-Z_]\\w*)\\b",
-			"name": "constant.other.ring"
+			"match": "(\\:)([a-zA-Z_]\\w*)\\b",
+			"captures": {
+				"1": { "name": "punctuation.definition.constant.ring" },
+				"2": { "name": "constant.language.symbol.ring" }
+			}
 		},
-		"operators": {
-			"match": "(\\+|~|-|\\*|/|%|&|(\\|)|\\^|!|<|>|=|\\.)",
+		"operators_general": {
+			"match": "(\\+|~|-|\\*|/|%|&|\\||\\^|!|<|>)",
 			"name": "keyword.operator.ring"
 		},
 		"logical_operators": {
 			"match": "\\b(and|or|not)\\b",
 			"name": "keyword.operator.logical.ring"
 		},
-		"braces": {
-			"match": "[{}]",
-			"name": "punctuation.section.braces.ring"
+		"brackets": {
+			"match": "[\\[\\]]",
+			"name": "punctuation.bracket.ring"
+		},
+		"parentheses": {
+			"match": "[()]",
+			"name": "punctuation.parenthesis.ring"
 		},
 		"lists": {
-			"begin": "\\[",
-			"end": "\\]",
+			"begin": "(\\[)",
+			"end": "(\\])",
+			"beginCaptures": {
+				"1": { "name": "punctuation.definition.list.begin.ring" }
+			},
+			"endCaptures": {
+				"1": { "name": "punctuation.definition.list.end.ring" }
+			},
 			"name": "meta.structure.list.ring",
 			"patterns": [
 				{
-					"include": "$self"
+					"match": "(\\:)([a-zA-Z_]\\w*)\\s*(=)",
+					"captures": {
+						"1": { "name": "punctuation.definition.constant.ring" },
+						"2": { "name": "constant.language.symbol.ring" },
+						"3": { "name": "keyword.operator.assignment.ring" }
+					}
 				},
 				{
 					"match": ",",
 					"name": "punctuation.separator.list.ring"
+				},
+				{
+					"include": "$self"
 				}
 			]
 		},
@@ -280,24 +377,17 @@
 					}
 				},
 				{
+					"match": "\\b(?i)(package|private|endclass|endpackage|protected|static|abstract|override|@override)\\b",
+					"name": "keyword.control.class.ring"
+				},
+				{
 					"match": "\\b(?i)(func|def)\\s+(?i)(init)\\b",
 					"captures": {
 						"1": {
-							"name": "keyword.control.ring"
+							"name": "storage.type.function.ring"
 						},
 						"2": {
 							"name": "entity.name.function.constructor.ring"
-						}
-					}
-				},
-				{
-					"match": "\\b(?i)(func|def)\\s+([A-Za-z_]\\w*)",
-					"captures": {
-						"1": {
-							"name": "keyword.control.ring"
-						},
-						"2": {
-							"name": "entity.name.function.ring"
 						}
 					}
 				},
@@ -308,7 +398,7 @@
 							"name": "keyword.operator.new.ring"
 						},
 						"2": {
-							"name": "support.class.ring"
+							"name": "entity.name.type.class.ring"
 						}
 					}
 				},
@@ -318,6 +408,35 @@
 				}
 			],
 			"name": "meta.class.ring"
+		},
+		"object_block": {
+			"name": "meta.block.braces.ring",
+			"begin": "({)",
+			"end": "(})",
+			"beginCaptures": {
+				"1": { "name": "punctuation.section.block.begin.ring" }
+			},
+			"endCaptures": {
+				"1": { "name": "punctuation.section.block.end.ring" }
+			},
+			"patterns": [
+				{ "include": "#property_assignment" },
+				{ "include": "#property_followed_by_block" },
+				{ "include": "$self" }
+			]
+		},
+		"property_assignment": {
+			"match": "\\b([a-zA-Z_]\\w*)\\s*(=)(?!>)",
+			"captures": {
+				"1": { "name": "variable.other.property.ring" },
+				"2": { "name": "keyword.operator.assignment.ring" }
+			}
+		},
+		"property_followed_by_block": {
+			"match": "\\b([a-zA-Z_]\\w*)\\b(?=\\s*{)",
+			"captures": {
+				"1": { "name": "variable.other.property.ring" }
+			}
 		}
 	}
 }
