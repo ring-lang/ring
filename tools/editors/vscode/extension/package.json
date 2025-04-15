@@ -2,7 +2,7 @@
     "name": "ring",
     "displayName": "Ring",
     "description": "Ring programming language support in VSCode",
-    "version": "1.21.2",
+    "version": "1.23.0",
     "publisher": "Ring-Team",
     "icon": "images/ring.jpg",
     "engines": {
@@ -181,9 +181,9 @@
     "main": "./out/extension.js",
     "devDependencies": {
         "vscode": "^1.1.37",
-        "@types/node": "^22.13.4",
+        "@types/node": "^22.14.1",
         "child_process": "^1.0.2",
-        "esbuild": "^0.25.0",
+        "esbuild": "^0.25.2",
         "cross-env": "^7.0.3"
     }
 }

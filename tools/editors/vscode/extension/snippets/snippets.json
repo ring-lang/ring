@@ -141,7 +141,7 @@
 		"description": "Define a class"
 	},
 	"Load": {
-		"prefix": "Load",
+		"prefix": "load",
 		"body": [
 			"load \"${1:filename}.ring\""
 		],
