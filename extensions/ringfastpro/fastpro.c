@@ -165,6 +165,33 @@ RING_FUNC(ring_list2bytes)
     RING_API_FREE(cData);
 }
 
+//===========================================================
+// FOR UPDATELIST()
+//
+//  Set the Selection Code
+//  strcmp(cSelection,"row")       nOPCode = 1 ;
+//  strcmp(cSelection,"col")       nOPCode = 2 ;
+//  strcmp(cSelection,"manyrows")  nOPCode = 3 ;
+//  strcmp(cSelection,"manycols")  nOPCode = 4 ;
+//  strcmp(cSelection,"items")     nOPCode = 5
+//  
+//  Set the Operation code. Add Selection Code for Jump => 503
+//  strcmp(cOperation,"set")       nOPCode += 100 ;
+//  strcmp(cOperation,"add")       nOPCode += 200 ;
+//  strcmp(cOperation,"sub")       nOPCode += 300 ;
+//  strcmp(cOperation,"mul") n     OPCode  += 400 ;
+//  strcmp(cOperation,"div")       nOPCode += 500 ;
+//  strcmp(cOperation,"copy")      nOPCode += 600 ;
+//  strcmp(cOperation,"merge")     nOPCode += 700 ;
+//  strcmp(cOperation,"serial")    nOPCode += 800 ;
+//  strcmp(cOperation,"pow")       nOPCode += 900 ;
+//  strcmp(cOperation,"rem")       nOPCode += 1000 ;
+//  strcmp(cOperation,"mergesub")  nOPCode += 1100 ;
+//  strcmp(cOperation,"mergemul")  nOPCode += 1200 ;
+//  strcmp(cOperation,"mergediv")  nOPCode += 1300 ;
+//===============================================================
+
+
 RING_FUNC(ring_updatelist)
 {
     char *cOperation  ;
@@ -204,8 +231,8 @@ RING_FUNC(ring_updatelist)
     nOPCode = 0 ;
     nRow = 0 ;
     nCol = 0 ;
-    dCol = 0 ;     // Dest Column if Param 6 
-    dRow = 0 ;     // Dest Row if Param 6    
+    dCol = 0 ;      // Dest Column if Param 6 
+    dRow = 0 ;      // Dest Row    if Param 6    
     nStart = 0 ;
     nEnd   = 0 ;
     pRow   = NULL ;
@@ -289,6 +316,8 @@ RING_FUNC(ring_updatelist)
             return ;
         }
     }
+	
+	// MANYROWS
     else if ( strcmp(cSelection,"manyrows") == 0 ) {
         if ( RING_API_PARACOUNT == 6 ) {
             if ( RING_API_ISNUMBER(4) && RING_API_ISNUMBER(5) && RING_API_ISNUMBER(6) ) {
@@ -297,8 +326,8 @@ RING_FUNC(ring_updatelist)
                 nEnd = (int) RING_API_GETNUMBER(5) ;
                 nValue = RING_API_GETNUMBER(6) ;
                 if ( (nStart < 1) || (nStart > ring_list_getsize(pList)) || (nEnd < 1) || 
-            (nEnd > ring_list_getsize(pList)) || (nEnd < nStart) ) {
-                    RING_API_ERROR("The selected rows are outside the range of the list");
+                     (nEnd > ring_list_getsize(pList)) || (nEnd < nStart) ) {
+                      RING_API_ERROR("The selected rows are outside the range of the list");
                     return ;
                 }
             }
@@ -312,13 +341,16 @@ RING_FUNC(ring_updatelist)
             return ;
         }
     }
+	
+	// MANYCOLS
     else if ( strcmp(cSelection,"manycols") == 0 ) {
         if ( RING_API_PARACOUNT == 6 ) {
             if ( RING_API_ISNUMBER(4) && RING_API_ISNUMBER(5) && RING_API_ISNUMBER(6) ) {
                 nOPCode = 4 ;
-                nStart = (int) RING_API_GETNUMBER(4) ;
-                nEnd = (int) RING_API_GETNUMBER(5) ;
-                nValue = RING_API_GETNUMBER(6) ;
+                nStart  = (int) RING_API_GETNUMBER(4) ;
+                nEnd    = (int) RING_API_GETNUMBER(5) ;
+                nValue  = RING_API_GETNUMBER(6) ;
+				
                 if ( (nStart < 1) || (nEnd < 1)  || (nEnd < nStart) ) {
                     RING_API_ERROR("The selected columns are outside the range of the list");
                     return ;
@@ -334,6 +366,8 @@ RING_FUNC(ring_updatelist)
             return ;
         }
     }
+	
+	// ITEMS
     else if ( strcmp(cSelection,"items") == 0 ) {
         if ( RING_API_PARACOUNT == 4 ) {
             if ( RING_API_ISNUMBER(4) ) {
@@ -431,6 +465,7 @@ RING_FUNC(ring_updatelist)
         RING_API_ERROR("The second parameter must be a string: [Set | Add | Sub | Mul | Div | Copy | Merge | MergeSub |  MergeMul | MergeDiv |");
         return ;
     }
+	
     /* Execute */
     switch ( nOPCode ) {
         /* Set */
@@ -440,6 +475,7 @@ RING_FUNC(ring_updatelist)
                 ring_list_setdouble_gc(pVM->pRingState,pRow,x,nValue);
             }
             break ;
+			
         case 102 :
             /* Set Col */
             for ( x = nStart ; x <= nEnd ; x++ ) {
@@ -451,6 +487,7 @@ RING_FUNC(ring_updatelist)
                 }
             }
             break ;
+			
         case 103 :
             /* Set Many Rows */
             for ( x = nStart ; x <= nEnd ; x++ ) {
@@ -462,6 +499,7 @@ RING_FUNC(ring_updatelist)
                 }
             }
             break ;
+			
         case 104 :
             /* Set Many Columns */
             for ( nCol = nStart ; nCol <= nEnd ; nCol++ ) {
@@ -475,12 +513,16 @@ RING_FUNC(ring_updatelist)
                 }
             }
             break ;
+			
         case 105 :
             /* Set Items */
             for ( x = nStart ; x <= nEnd ; x++ ) {
                 ring_list_setdouble_gc(pVM->pRingState,pList,x,nValue);
             }
             break ;
+			
+		//====================
+		
         case 201 :
             /* Add to Row */                
             for ( x = nStart ; x <= nEnd ; x++ ) {
@@ -655,6 +697,9 @@ RING_FUNC(ring_updatelist)
                 }
             }
             break ;
+			
+		//======================
+		
         /* Div */
         case 501 :
             /* Div Row */
@@ -664,6 +709,7 @@ RING_FUNC(ring_updatelist)
                 }
             }
             break ;
+			
         case 502 :
             /* Div Col */
             for ( x = nStart ; x <= nEnd ; x++ ) {
@@ -677,6 +723,7 @@ RING_FUNC(ring_updatelist)
                 }
             }
             break ;
+			
         case 503 :
             /* Div cells in Many Rows */
             for ( x = nStart ; x <= nEnd ; x++ ) {
@@ -684,12 +731,13 @@ RING_FUNC(ring_updatelist)
                     pRow = ring_list_getlist(pList,x) ;
                     for ( y = 1 ; y <= ring_list_getsize(pRow) ; y++ ) {
                         if ( ring_list_isdouble(pRow,y) ) {
-                            ring_list_setdouble_gc(pVM->pRingState,pRow,y,ring_list_getdouble(pRow,y)/nValue);
+                            ring_list_setdouble_gc(pVM->pRingState,pRow,y,ring_list_getdouble(pRow,y) / nValue);
                         }
                     }
                 }
             }
             break ;
+			
         case 504 :
             /* Div cells in Many Columns */
             for ( nCol = nStart ; nCol <= nEnd ; nCol++ ) {
@@ -698,21 +746,25 @@ RING_FUNC(ring_updatelist)
                         pSubList = ring_list_getlist(pList,x) ;
                         if ( ring_list_getsize(pSubList) >= nCol ) {
                             if ( ring_list_isdouble(pSubList,nCol) ) {
-                                ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,ring_list_getdouble(pSubList,nCol)/nValue);
+                                ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,ring_list_getdouble(pSubList,nCol) / nValue);
                             }
                         }
                     }
                 }
             }
             break ;
+			
         case 505 :
             /* Div Items */
             for ( x = nStart ; x <= nEnd ; x++ ) {
                 if ( ring_list_isdouble(pList,x) ) {
-                    ring_list_setdouble_gc(pVM->pRingState,pList,x,ring_list_getdouble(pList,x)/nValue);
+                    ring_list_setdouble_gc(pVM->pRingState,pList,x,ring_list_getdouble(pList,x) / nValue);
                 }
             }
             break ;
+			
+		//===========================
+			
         /* Copy */
         case 601 :
             /* Copy Row */
@@ -801,13 +853,14 @@ RING_FUNC(ring_updatelist)
             /* Merge Items */
         RING_API_ERROR("The merge operation is not defined for all of the list items");
             break ;
+			
+		//========================	
         case 801 :
             /* Serial Row */
             if ( ring_list_islist(pList,nRow) ) {
                 pRow2 = ring_list_getlist(pList,nRow) ;
                 for ( x = nStart ; x <= nEnd ; x++ ) {
-                    ring_list_setdouble_gc(pVM->pRingState,pRow2,x,
-                x+nValue);
+                    ring_list_setdouble_gc(pVM->pRingState,pRow2,x, x+nValue);
                 }
             }
             break ;
@@ -818,20 +871,58 @@ RING_FUNC(ring_updatelist)
                     pSubList = ring_list_getlist(pList,x) ;
                     if ( ring_list_getsize(pSubList) >= nCol ) {
                         if ( ring_list_isdouble(pSubList,nCol) ) {
-                            ring_list_setdouble_gc(pVM->pRingState,pSubList,dCol,  
-                x + nValue);
+                            ring_list_setdouble_gc(pVM->pRingState,pSubList,dCol, 
+							x + nValue);
                         }
                     }
                 }
             }
             break ;
+			
+        case 803 :
+            /* Serial ManyRows */	
+            for ( x = nStart ; x <= nEnd ; x++ ) {
+                if ( ring_list_islist(pList,x) ) {
+                    pRow = ring_list_getlist(pList,x) ;
+                    for ( y = 1 ; y <= ring_list_getsize(pRow) ; y++ ) {
+                        if ( ring_list_isdouble(pRow,y) ) {
+                             ring_list_setdouble_gc(pVM->pRingState,pRow,y,
+							 ring_list_getdouble(pRow,y) + nValue);
+                        }
+                    }
+                }
+            }
+            break ;			
+			
+
+
+        case 804 :
+            /* Serial ManyCols */	
+
+            for ( nCol = nStart ; nCol <= nEnd ; nCol++ ) {
+                for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
+                    if ( ring_list_islist(pList,x) ) {
+                        pSubList = ring_list_getlist(pList,x) ;
+                        if ( ring_list_getsize(pSubList) >= nCol ) {
+                            if ( ring_list_isdouble(pSubList,nCol) ) {
+                                ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
+								ring_list_getdouble(pSubList,nCol) + nValue);
+                            }
+                        }
+                    }
+                }
+            }
+            break ;		
+					
+		//========================			
+			
         /* Pow */
         case 901 :
             /* Pow Row */
             for ( x = nStart ; x <= nEnd ; x++ ) {
                 if ( ring_list_isdouble(pRow,x) ) {
                     ring_list_setdouble_gc(pVM->pRingState,pRow,x, 
-            pow(ring_list_getdouble(pRow,x),nValue) );
+                    pow(ring_list_getdouble(pRow,x),nValue) );
                 }
             }
             break ;                     
@@ -842,52 +933,62 @@ RING_FUNC(ring_updatelist)
                     pSubList = ring_list_getlist(pList,x) ;                 
                     if ( ring_list_getsize(pSubList) >= nCol ) {                        
                         if ( ring_list_isdouble(pSubList,nCol) ) {
-                ring_list_setdouble_gc(pVM->pRingState,pSubList,dCol, 
-                pow(ring_list_getdouble(pSubList,nCol),nValue));
+                             ring_list_setdouble_gc(pVM->pRingState,pSubList,dCol, 
+                             pow(ring_list_getdouble(pSubList,nCol),nValue));
                         }
                     }
                 }
             }
             break ;
-        case 903 :
-            /* Pow cells in Many Rows */
-            for ( x = nStart ; x <= nEnd ; x++ ) {
-                if ( ring_list_islist(pList,x) ) {
-                    pRow = ring_list_getlist(pList,x) ;
-                    for ( y = 1 ; y <= ring_list_getsize(pRow) ; y++ ) {
-                        if ( ring_list_isdouble(pRow,y) ) {
-                            ring_list_setdouble_gc(pVM->pRingState,pRow,y,
-                pow(ring_list_getdouble(pRow,y),nValue) );
-                        }
-                    }
-                }
-            }
-            break ;
-        case 904 :
-            /* Pow cells in Many Columns */
+			
+       case 903 :
+           /* Pow cells in Many Rows */
+           for ( x = nStart ; x <= nEnd ; x++ ) {
+               if ( ring_list_islist(pList,x) ) {
+                   pRow = ring_list_getlist(pList,x) ;
+					
+                   for ( y = 1 ; y <= ring_list_getsize(pRow) ; y++ ) {
+                       if ( ring_list_isdouble(pRow,y) ) {
+                           ring_list_setdouble_gc(pVM->pRingState,pRow,y,
+                           pow(ring_list_getdouble(pRow,y), nValue) );
+                       }
+                   }
+               }
+           }
+           break ;
+			
+			
+        case 904 :		
+            /* Pow ManyCols */	
+
             for ( nCol = nStart ; nCol <= nEnd ; nCol++ ) {
                 for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
                     if ( ring_list_islist(pList,x) ) {
                         pSubList = ring_list_getlist(pList,x) ;
                         if ( ring_list_getsize(pSubList) >= nCol ) {
                             if ( ring_list_isdouble(pSubList,nCol) ) {
-                                ring_list_setdouble_gc(pVM->pRingState,pSubList,dCol,
-                    pow(ring_list_getdouble(pSubList,nCol),nValue));
+                                ring_list_setdouble_gc(pVM->pRingState,pSubList,nCol,
+								pow(ring_list_getdouble(pSubList,nCol) , nValue));
                             }
                         }
                     }
                 }
             }
-            break ;
+            break ;			
+			
+			
         case 905 :
             /* Pow Items */
             for ( x = nStart ; x <= nEnd ; x++ ) {
                 if ( ring_list_isdouble(pList,x) ) {
                     ring_list_setdouble_gc(pVM->pRingState,pList,x,
-            pow(ring_list_getdouble(pList,x),nValue));
+                    pow(ring_list_getdouble(pList,x), nValue));
                 }
             }
             break ;
+			
+		//===========================	
+			
         /* Rem */
         case 1001 :
             /* Rem Row */
@@ -898,6 +999,7 @@ RING_FUNC(ring_updatelist)
                 }
             }
             break ;
+			
         case 1002 :
             /* Rem Col */
             for ( x = nStart ; x <= nEnd ; x++ ) {
@@ -912,6 +1014,7 @@ RING_FUNC(ring_updatelist)
                 }
             }
             break ;
+			
         case 1003 :
             /* Rem cells in Many Rows */
             for ( x = nStart ; x <= nEnd ; x++ ) {
