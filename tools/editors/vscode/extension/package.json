@@ -28,7 +28,7 @@
         "snippets": [
             {
                 "language": "ring",
-                "path": "snippets/snippets.json"
+                "path": "./snippets/snippets.json"
             }
         ],
         "languages": [
