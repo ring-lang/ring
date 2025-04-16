@@ -6,188 +6,163 @@
 		"rh",
 		"rform"
 	],
+	"foldingStartMarker": "(?i)^\\s*(package|class|func|def|function|if|switch|for|foreach|while|do|try)\\b.*|\\{\\s*$",
+	"foldingStopMarker": "(?i)^\\s*(end|endpackage|endclass|endfunc|endfunction|ok|endif|off|endswitch|next|endfor|endwhile|again|done|endtry)\\b.*|^\\s*\\}",
 	"patterns": [
-		{
-			"include": "#comments"
-		},
-		{
-			"include": "#strings"
-		},
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#controls"
-		},
-		{
-			"include": "#types"
-		},
-		{
-			"include": "#special_values"
-		},
-		{
-			"include": "#constants"
-		},
-		{
-			"include": "#colon_literals"
-		},
-		{
-			"include": "#classes"
-		},
-		{
-			"include": "#function_definition_named"
-		},
-		{
-			"include": "#function_definition_anonymous"
-		},
-		{
-			"include": "#call_expression"
-		},
-		{
-			"include": "#function_call"
-		},
-		{
-			"include": "#variables_definition"
-		},
-		{
-			"include": "#builtins"
-		},
-		{
-			"include": "#object_block"
-		},
-		{
-			"include": "#numbers"
-		},
-		{
-			"include": "#lists"
-		},
-		{
-			"include": "#operators_logical"
-		},
-		{
-			"include": "#operators_general"
-		},
-		{
-			"include": "#member_access"
-		},
-		{
-			"include": "#identifiers"
-		},
-		{
-			"include": "#brackets"
-		},
-		{
-			"include": "#parentheses"
-		}
+		{ "include": "#comments" },
+		{ "include": "#scanner_commands" },
+		{ "include": "#strings" },
+		{ "include": "#storage_modifiers" },
+		{ "include": "#storage_types" },
+		{ "include": "#control_keywords" },
+		{ "include": "#operator_keywords" },
+		{ "include": "#other_keywords" },
+		{ "include": "#support_functions_io" },
+		{ "include": "#classes" },
+		{ "include": "#function_definition_named" },
+		{ "include": "#function_definition_anonymous" },
+		{ "include": "#typed_variable_definition" },
+		{ "include": "#untyped_variable_definition" },
+		{ "include": "#call_expression" },
+		{ "include": "#builtins" },
+		{ "include": "#function_call" },
+		{ "include": "#constants" },
+		{ "include": "#special_values" },
+		{ "include": "#colon_literals" },
+		{ "include": "#numbers" },
+		{ "include": "#object_block" },
+		{ "include": "#lists" },
+		{ "include": "#operators_comparison" },
+		{ "include": "#operators_logical_symbolic" },
+		{ "include": "#operators_bitwise" },
+		{ "include": "#operators_assignment" },
+		{ "include": "#operators_arithmetic" },
+		{ "include": "#operators_range" },
+		{ "include": "#operators_output" },
+		{ "include": "#operators_increment_decrement" },
+		{ "include": "#operators_accessor" },
+		{ "include": "#member_access" },
+		{ "include": "#identifiers" },
+		{ "include": "#brackets" },
+		{ "include": "#parentheses" },
+		{ "include": "#braces" }
 	],
 	"repository": {
 		"comments": {
 			"patterns": [
+				{ "match": "//.*$", "name": "comment.line.double-slash.ring" },
+				{ "match": "#(?!\\s*(?i)(EnableHashComments|DisableHashComments)).*$", "name": "comment.line.number-sign.ring" },
+				{ "begin": "/\\*", "end": "\\*/", "name": "comment.block.ring", "patterns": [{ "include": "#comments"}] }
+			]
+		},
+		"scanner_commands": {
+			"patterns": [
 				{
-					"match": "#.*$",
-					"name": "comment.line.ring"
-				},
-				{
-					"match": "//.*$",
-					"name": "comment.line.ring"
-				},
-				{
-					"begin": "/\\*",
-					"end": "\\*/",
-					"name": "comment.block.ring"
+					"match": "(?i)^\\s*(changeringkeyword|changeringoperator|EnableHashComments|DisableHashComments|loadsyntax)\\b",
+					"name": "keyword.control.directive.ring"
 				}
 			]
 		},
-		"keywords": {
-			"match": "\\b(?i)(enablehashcomments|disablehashcomments|import)\\b",
+		"storage_modifiers": {
+			"match": "\\b(?i)(private|public|static|abstract|protected|override|@override)\\b",
+			"name": "storage.modifier.ring"
+		},
+		"storage_types": {
+			"match": "\\b(?i)(func|def|function|package)(?=\\s+[a-zA-Z_]\\w*)",
+			"name": "storage.type.ring"
+		},
+		"control_keywords": {
+			"match": "\\b(?i)(if|but|else|elseif|ok|endif|for|foreach|to|next|step|endfor|while|endwhile|do|again|switch|case|on|off|other|endswitch|try|catch|done|endtry|return|break|bye|continue|exit|loop)\\b",
 			"name": "keyword.control.ring"
 		},
-		"controls": {
-			"match": "\\b(?i)(if|but|else|elseif|ok|for|foreach|to|next|catch|step|endfor|while|other|end|do|endif|endwhile|endswitch|endtry|try|break|bye|continue|default|endfunc|endfunction|return|switch|case|on|off|do|again|exit|loop|done|in)\\b",
-			"name": "keyword.control.conditional.ring"
+		"operator_keywords": {
+			"patterns": [
+				{ "match": "\\b(?i)(and|or|not)\\b", "name": "keyword.operator.logical.ring" },
+				{ "match": "\\b(?i)(in)\\b", "name": "keyword.operator.word.ring" }
+			]
+		},
+		"other_keywords": {
+			"match": "\\b(?i)(import|load|from|call|end|endfunc|endfunction|endclass|endpackage)\\b",
+			"name": "keyword.other.ring"
+		},
+		"support_functions_io": {
+			"match": "\\b(?i)(see|put|get|give)\\b",
+			"name": "support.function.io.ring"
 		},
 		"builtins": {
 			"patterns": [
 				{
-					"match": "\\b(?i)(nl|see|put|print|get|give|load|changeringkeyword|changeringoperator|loadsyntax|acos|add|addattribute|adddays|addmethod|ascii|asin|assert|atan|atan2|attributes|binarysearch|bytes2double|bytes2float|bytes2int|callgarbagecollector|callgc|ceil|cfunctions|char|chdir|checkoverflow|classes|classname|clearerr|clock|clockspersecond|closelib|copy|cos|cosh|currentdir|date|dec|decimals|del|diffdays|dir|direxists|double2bytes|eval|exefilename|exefolder|exp|fabs|fclose|feof|ferror|fexists|fflush|fgetc|fgetpos|fgets|filename|find|float2bytes|floor|fopen|fputc|fputs|fread|freopen|fseek|fsetpos|ftell|functions|fwrite|getarch|getattribute|getchar|getfilesize|getnumber|getpathtype|getpointer|getptr|getstring|globals|hex|hex2str|importpackage|input|insert|int2bytes|intvalue|isalnum|isalpha|isandroid|isattribute|iscfunction|isclass|iscntrl|isdigit|isfreebsd|isfunction|isglobal|isgraph|islinux|islist|islocal|islower|ismacosx|ismethod|ismsdos|isnull|isnumber|isobject|ispackage|ispackageclass|ispointer|isprint|isprivateattribute|isprivatemethod|ispunct|isspace|isstring|isunix|isupper|iswindows|iswindows64|isxdigit|left|len|lines|list|list2str|loadlib|locals|log|log10|lower|max|memcpy|memorycopy|mergemethods|min|murmur3hash|newlist|nofprocessors|nothing|nullpointer|nullptr|number|obj2ptr|object2pointer|objectid|optionalfunc|packageclasses|packagename|packages|parentclassname|perror|pointer2object|pointer2string|pointercompare|pow|prevfilename|print|print2str|ptr2obj|ptr2str|ptrcmp|puts|raise|random|randomize|read|ref|reference|refcount|remove|rename|reverse|rewind|right|ring_give|ring_see|ring_state_delete|ring_state_filetokens|ring_state_findvar|ring_state_init|ring_state_main|ring_state_mainfile|ring_state_new|ring_state_newvar|ring_state_resume|ring_state_runcode|ring_state_runcodeatins|ring_state_runfile|ring_state_runobjectfile|ring_state_scannererror|ring_state_setvar|ring_state_stringtokens|ringvm_callfunc|ringvm_calllist|ringvm_cfunctionslist|ringvm_classeslist|ringvm_codelist|ringvm_evalinscope|ringvm_fileslist|ringvm_functionslist|ringvm_genarray|ringvm_give|ringvm_hideerrormsg|ringvm_info|ringvm_ismempool|ringvm_memorylist|ringvm_packageslist|ringvm_passerror|ringvm_runcode|ringvm_scopescount|ringvm_see|ringvm_settrace|ringvm_tracedata|ringvm_traceevent|ringvm_tracefunc|setattribute|setpointer|setptr|shutdown|sin|sinh|sort|space|sqrt|srandom|str2hex|str2hexcstyle|str2list|strcmp|string|substr|swap|sysget|sysset|syssleep|system|sysunset|tan|tanh|tempfile|tempname|time|timelist|trim|type|ungetc|unsigned|upper|uptime|variablepointer|varptr|version|windowsnl|write)\\b(?!\\w)",
-					"name": "support.function.builtin.ring"
-				},
-				{
-					"match": "\\?",
+					"match": "\\b(?i)(acos|add|addattribute|unsigned|char|methods|adddays|addmethod|ascii|asin|assert|atan|atan2|attributes|binarysearch|bytes2double|bytes2float|bytes2int|callgarbagecollector|callgc|ceil|cfunctions|chdir|checkoverflow|classes|classname|clearerr|clock|clockspersecond|closelib|copy|cos|cosh|currentdir|date|dec|decimals|del|diffdays|dir|direxists|double2bytes|eval|exefilename|exefolder|exp|fabs|fclose|feof|ferror|fexists|fflush|fgetc|fgetpos|fgets|filename|find|float2bytes|floor|fopen|fputc|fputs|fread|freopen|fseek|fsetpos|ftell|functions|fwrite|getarch|getattribute|getchar|getfilesize|getnumber|getpathtype|getpointer|getptr|getstring|globals|hex|hex2str|importpackage|input|insert|int2bytes|intvalue|isalnum|isalpha|isandroid|isattribute|iscfunction|isclass|iscntrl|isdigit|isfreebsd|isfunction|isglobal|isgraph|islinux|islist|islocal|islower|ismacosx|ismethod|ismsdos|isnull|isnumber|isobject|ispackage|ispackageclass|ispointer|isprint|isprivateattribute|isprivatemethod|ispunct|isspace|isstring|isunix|isupper|iswindows|iswindows64|isxdigit|left|len|lines|list|list2str|loadlib|locals|log|log10|lower|max|memcpy|memorycopy|mergemethods|min|murmur3hash|newlist|nofprocessors|nothing|nullpointer|nullptr|number|obj2ptr|object2pointer|objectid|optionalfunc|packageclasses|packagename|packages|parentclassname|perror|pointer2object|pointer2string|pointercompare|pow|prevfilename|print|print2str|ptr2obj|ptr2str|ptrcmp|puts|raise|random|randomize|read|ref|reference|refcount|remove|rename|reverse|rewind|right|ring_give|ring_see|ring_state_delete|ring_state_filetokens|ring_state_findvar|ring_state_init|ring_state_main|ring_state_mainfile|ring_state_new|ring_state_newvar|ring_state_resume|ring_state_runcode|ring_state_runcodeatins|ring_state_runfile|ring_state_runobjectfile|ring_state_scannererror|ring_state_setvar|ring_state_stringtokens|ringvm_callfunc|ringvm_calllist|ringvm_cfunctionslist|ringvm_classeslist|ringvm_codelist|ringvm_evalinscope|ringvm_fileslist|ringvm_functionslist|ringvm_genarray|ringvm_give|ringvm_hideerrormsg|ringvm_info|ringvm_ismempool|ringvm_memorylist|ringvm_packageslist|ringvm_passerror|ringvm_runcode|ringvm_scopescount|ringvm_see|ringvm_settrace|ringvm_tracedata|ringvm_traceevent|ringvm_tracefunc|setattribute|setpointer|setptr|shutdown|sin|sinh|sort|space|sqrt|srandom|str2hex|str2hexcstyle|str2list|strcmp|string|substr|swap|sysget|sysset|syssleep|system|sysunset|tan|tanh|tempfile|tempname|time|timelist|trim|type|ungetc|upper|uptime|variablepointer|varptr|version|windowsnl|write)\\b(?=\\s*\\()",
 					"name": "support.function.builtin.ring"
 				}
 			]
 		},
-		"types": {
-			"match": "\\b(?i)(char|unsigned|signed|int|short|long|float|double|void|byte|boolean|string|number|object|public|static|abstract|protected|override|@override)\\b",
-			"name": "storage.type.ring"
-		},
-			"function_definition_named": {
-			"match": "\\b(?i)(func|def)\\s+([a-zA-Z_]\\w*\\d*)",
-			"captures": {
-				"1": {
-					"name": "storage.type.function.ring"
+		"function_definition_named": {
+			"begin": "(?:((?:\\b(?i)(?:public|static|abstract|protected|override|@override)\\b)\\s+)*)?(?:(\\b(?:(?i)(?:char|unsigned|signed|int|short|long|float|double|void|byte|boolean|string|list|number|object)|[a-zA-Z_]\\w*)\\b)\\s+)?(\\b(?i)(func|def|function)\\b)\\s+([a-zA-Z_]\\w*)\\s*(\\()",
+			"beginCaptures": {
+				"1": { "name": "storage.modifier.ring" },
+				"2": { "name": "storage.type.function.return.ring" },
+				"3": { "name": "storage.type.function.ring" },
+				"4": { "name": "entity.name.function.ring" },
+				"5": { "name": "punctuation.definition.parameters.begin.ring" }
+			},
+			"end": "\\)",
+			"endCaptures": {
+				"0": { "name": "punctuation.definition.parameters.end.ring" }
+			},
+			"name": "meta.function.definition.ring",
+			"patterns": [
+				{
+					"match": "\\b((?i)(?:char|unsigned|signed|int|short|long|float|double|void|byte|boolean|string|list|number|object)|[a-zA-Z_]\\w*)\\s+([a-zA-Z_]\\w*)",
+					"captures": {
+						"1": { "name": "storage.type.parameter.ring" },
+						"2": { "name": "variable.parameter.function.ring" }
+					}
 				},
-				"2": {
-					"name": "entity.name.function.ring"
-				}
-			}
+				{
+					"match": "\\b([a-zA-Z_]\\w*)\\b",
+					"captures": { "1": { "name": "variable.parameter.function.ring" } }
+				},
+				{ "match": ",", "name": "punctuation.separator.parameters.ring" },
+				{ "include": "#comments" }
+			]
 		},
 		"function_definition_anonymous": {
-			"match": "\\b(?i)(func|def)\\s*(?:([a-zA-Z_]\\w*(?:\\s+[a-zA-Z_]\\w*)*))?\\s*(?={)",
+			"match": "\\b(?i)(func|def|function)\\s*(?:\\(\\s*([a-zA-Z_]\\w*(?:\\s*,\\s*[a-zA-Z_]\\w*)*)?\\s*\\))?\\s*(?={)",
 			"captures": {
-				"1": {
-					"name": "storage.type.function.ring"
-				},
-				"2": {
-					"name": "variable.parameter.function.ring"
-				}
+				"1": { "name": "storage.type.function.anonymous.ring" },
+				"2": { "patterns": [ { "match": "[a-zA-Z_]\\w*", "name": "variable.parameter.function.anonymous.ring"}, { "match": ",", "name": "punctuation.separator.parameters.ring" } ]}
 			}
 		},
 		"function_call": {
 			"match": "\\b([a-zA-Z_]\\w*\\d*)\\s*(\\()",
 			"captures": {
-				"1": {
-					"name": "entity.name.function.call.ring"
-				},
-				"2": {
-					"name": "punctuation.definition.arguments.begin.ring"
-				}
+				"1": { "name": "entity.name.function.call.ring" },
+				"2": { "name": "punctuation.definition.arguments.begin.ring" }
 			}
 		},
 		"call_expression": {
 			"match": "\\b(?i)(call)\\s+([a-zA-Z_]\\w*\\d*)\\s*(\\()",
 			"captures": {
-				"1": {
-					"name": "keyword.control.flow.ring"
-				},
-				"2": {
-					"name": "entity.name.function.call.ring"
-				},
-				"3": {
-					"name": "punctuation.definition.arguments.begin.ring"
-				}
+				"1": { "name": "keyword.control.ring" },
+				"2": { "name": "entity.name.function.call.explicit.ring" },
+				"3": { "name": "punctuation.definition.arguments.begin.ring" }
 			}
 		},
 		"numbers": {
 			"patterns": [
-				{
-					"match": "(?:(?:[-]?)(?:[0-9e]*)(?:[.]){1}(?:[0-9]+))",
-					"name": "constant.numeric.float.decimal.ring"
-				},
-				{
-					"match": "\\b(?:0[xX])(?:[0-9a-fA-F]+)",
-					"name": "constant.numeric.hex.ring"
-				},
-				{
-					"match": "\\b(?:[-]?)(?:[0-9]+(?:_[0-9]+)*)\\b",
-					"name": "constant.numeric.integer.decimal.ring"
-				}
+				{ "match": "\\b-?\\d+(?:_\\d+)*\\.\\d+(?:_\\d+)*(?:[eE][-+]?\\d+(?:_\\d+)*)?\\b", "name": "constant.numeric.float.ring" },
+				{ "match": "\\b-?\\.\\d+(?:_\\d+)*(?:[eE][-+]?\\d+(?:_\\d+)*)?\\b", "name": "constant.numeric.float.ring" },
+				{ "match": "\\b-?\\d+(?:_\\d+)*(?:[eE][-+]?\\d+(?:_\\d+)*)\\b", "name": "constant.numeric.float.ring" },
+				{ "match": "\\b(?:0[xX])(?:[0-9a-fA-F]+(?:_[0-9a-fA-F]+)*)\\b", "name": "constant.numeric.hex.ring" },
+				{ "match": "\\b-?\\d+(?:_\\d+)*\\b", "name": "constant.numeric.integer.decimal.ring" }
 			]
 		},
 		"special_values": {
-			"match": "\\b(?i)(true|false|null)\\b",
-			"name": "constant.language.ring"
+			"patterns": [
+				{ "match": "\\b(?i)(true|false|null|nil)\\b", "name": "constant.language.ring" },
+				{ "match": "\\b(?i)(nl)\\b", "name": "constant.language.ring" }
+			]
 		},
 		"strings": {
 			"patterns": [
@@ -196,17 +171,9 @@
 					"begin": "\"",
 					"end": "\"",
 					"patterns": [
-						{
-								"match": "\\\\#",
-								"name": "constant.character.escape.ring"
-						},
-						{
-							"match": "\\\\.",
-							"name": "constant.character.escape.ring"
-						},
-						{
-							"include": "#string_interpolation"
-						}
+						{ "match": "\\\\([nt\\\\rbfave#]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|U[0-9a-fA-F]{8})", "name": "constant.character.escape.ring" },
+						{ "match": "\\\\(?=\")", "name": "string.quoted.double.ring" },
+						{ "include": "#string_interpolation" }
 					]
 				},
 				{
@@ -214,35 +181,19 @@
 					"begin": "'",
 					"end": "'",
 					"patterns": [
-						{
-								"match": "\\\\#",
-								"name": "constant.character.escape.ring"
-						},
-						{
-							"match": "\\\\['\\\\#]",
-							"name": "constant.character.escape.ring"
-						},
-						{
-							"include": "#string_interpolation"
-						}
+						{ "match": "\\\\([nt\\\\rbfave#]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|U[0-9a-fA-F]{8})", "name": "constant.character.escape.ring" },
+						{ "match": "\\\\(?=')", "name": "string.quoted.single.ring" },
+						{ "include": "#string_interpolation" }
 					]
 				},
 				{
-					"name": "string.interpolated.ring",
+					"name": "string.quoted.backtick.ring",
 					"begin": "`",
 					"end": "`",
 					"patterns": [
-						{
-								"match": "\\\\#",
-								"name": "constant.character.escape.ring"
-						},
-						{
-							"match": "\\\\.",
-							"name": "constant.character.escape.ring"
-						},
-						{
-							"include": "#string_interpolation"
-						}
+						{ "match": "\\\\([nt\\\\rbfave#]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|U[0-9a-fA-F]{8})", "name": "constant.character.escape.ring" },
+						{ "match": "\\\\(?=`)", "name": "string.quoted.backtick.ring" },
+						{ "include": "#string_interpolation" }
 					]
 				}
 			]
@@ -252,191 +203,171 @@
 				{
 					"begin": "(#)({)",
 					"beginCaptures": {
-						"1": {
-							"name": "punctuation.definition.template-expression.begin.ring"
-						},
-						"2": {
-							"name": "punctuation.definition.template-expression.begin.ring"
-						}
+						"1": { "name": "punctuation.definition.template-expression.begin.ring" },
+						"2": { "name": "punctuation.definition.template-expression.begin.ring" }
 					},
 					"end": "}",
-					"endCaptures": {
-						"0": {
-							"name": "punctuation.definition.template-expression.end.ring"
-						}
-					},
+					"endCaptures": { "0": { "name": "punctuation.definition.template-expression.end.ring" } },
 					"name": "meta.template.expression.ring",
 					"contentName": "meta.embedded.line.ring",
-					"patterns": [
-						{
-							"include": "$self"
-						}
-					]
+					"patterns": [ { "include": "$base" } ]
 				},
 				{
 					"match": "#([A-Za-z_]\\w*)",
 					"captures": {
-						"0": {
-							"name": "meta.template.expression.ring"
-						},
-						"1": {
-							"name": "variable.other.interpolated.ring"
-						}
+						"0": { "name": "meta.template.expression.variable.ring" },
+						"1": { "name": "variable.other.interpolated.ring" }
 					}
 				}
 			]
 		},
-		"variables_definition": {
-			"match": "\\b([a-zA-Z_]\\w*)\\s*(=)(?!>)",
+		"untyped_variable_definition": {
+			"match": "\\b([a-zA-Z_]\\w*)\\s*(=)(?!>|=)",
 			"captures": {
-				"1": {
-					"name": "variable.other.definition.ring"
-				},
-				"2": {
-					"name": "keyword.operator.assignment.ring"
-				}
+				"1": { "name": "variable.other.definition.ring" },
+				"2": { "name": "keyword.operator.assignment.ring" }
+			}
+		},
+		"typed_variable_definition": {
+			"match": "\\b((?i)(?:char|unsigned|signed|int|short|long|float|double|void|byte|boolean|string|list|number|object)|[A-Za-z_]\\w*)\\s+([a-zA-Z_]\\w*)\\s*(=)(?!>|=)",
+			"captures": {
+				"1": { "name": "storage.type.ring" },
+				"2": { "name": "variable.other.definition.typed.ring" },
+				"3": { "name": "keyword.operator.assignment.ring" }
 			}
 		},
 		"identifiers": {
 			"match": "\\b([a-zA-Z_]\\w*)\\b",
-			"name": "variable.other.readwrite.ring"
+			"name": "variable.other.ring"
 		},
 		"member_access": {
 			"match": "(\\.)(\\b[a-zA-Z_]\\w*\\b)",
 			"captures": {
-				"1": { "name": "punctuation.accessor.ring" },
+				"1": { "name": "punctuation.accessor.dot.ring" },
 				"2": { "name": "variable.other.property.ring" }
 			}
 		},
 		"constants": {
 			"match": "\\b([A-Z][A-Z0-9_]*)\\b",
-			"name": "constant.other.ring"
+			"name": "constant.other.caps.ring"
 		},
 		"colon_literals": {
-			"match": "(\\:)([a-zA-Z_]\\w*)\\b",
+			"match": "(:)([a-zA-Z_]\\w*)\\b",
 			"captures": {
-				"1": { "name": "punctuation.definition.constant.ring" },
+				"1": { "name": "punctuation.definition.constant.symbol.ring" },
 				"2": { "name": "constant.language.symbol.ring" }
 			}
 		},
-		"operators_general": {
-			"match": "(\\+|~|-|\\*|/|%|&|\\||\\^|!|<|>)",
-			"name": "keyword.operator.ring"
+		"operators_assignment": {
+			"match": "\\+=|-=|\\*=|/=|%=|<<=|>>=|&=|\\|=|\\^=|=",
+			"name": "keyword.operator.assignment.ring"
 		},
-		"logical_operators": {
-			"match": "\\b(and|or|not)\\b",
+		"operators_comparison": {
+			"match": "!=|>=|<=|>|<",
+			"name": "keyword.operator.comparison.ring"
+		 },
+		"operators_arithmetic": {
+			"match": "\\*\\*|\\^\\^|\\*|/|%|\\+|-",
+			"name": "keyword.operator.arithmetic.ring"
+		},
+		"operators_bitwise": {
+			"match": "<<|>>|&|\\||\\^|~",
+			"name": "keyword.operator.bitwise.ring"
+		 },
+		"operators_logical_symbolic": {
+			"match": "&&|\\|\\||!",
 			"name": "keyword.operator.logical.ring"
+		 },
+		"operators_increment_decrement": {
+			"match": "\\+\\+|--",
+			"name": "keyword.operator.increment-decrement.ring"
 		},
-		"brackets": {
-			"match": "[\\[\\]]",
-			"name": "punctuation.bracket.ring"
+		"operators_range": {
+			"match": "(?<=\\w|\\d|\\]|\\))\\s*(:)\\s*(?=\\w|\\d|\\[|\\(|\"|'|`|:)",
+			"captures": {
+				"1": { "name": "keyword.operator.range.ring" }
+			}
 		},
-		"parentheses": {
-			"match": "[()]",
-			"name": "punctuation.parenthesis.ring"
+		"operators_output": {
+			"match": "^\\s*(\\?)",
+			"captures": {
+				"1": { "name": "keyword.operator.output.ring" }
+			}
 		},
+		"operators_accessor": {
+			"match": "\\.",
+			"name": "punctuation.accessor.dot.ring"
+		},
+		"brackets": { "match": "[\\[\\]]", "name": "punctuation.bracket.square.ring" },
+		"parentheses": { "match": "[()]", "name": "punctuation.parenthesis.ring" },
+		"braces": { "match": "[{}]", "name": "punctuation.brace.curly.ring" },
 		"lists": {
-			"begin": "(\\[)",
-			"end": "(\\])",
-			"beginCaptures": {
-				"1": { "name": "punctuation.definition.list.begin.ring" }
-			},
-			"endCaptures": {
-				"1": { "name": "punctuation.definition.list.end.ring" }
-			},
+			"begin": "(\\[)", "end": "(\\])",
+			"beginCaptures": { "1": { "name": "punctuation.definition.list.begin.ring" } },
+			"endCaptures": { "1": { "name": "punctuation.definition.list.end.ring" } },
 			"name": "meta.structure.list.ring",
 			"patterns": [
 				{
 					"match": "(\\:)([a-zA-Z_]\\w*)\\s*(=)",
 					"captures": {
-						"1": { "name": "punctuation.definition.constant.ring" },
-						"2": { "name": "constant.language.symbol.ring" },
-						"3": { "name": "keyword.operator.assignment.ring" }
+						"1": { "name": "punctuation.definition.constant.symbol.ring" },
+						"2": { "name": "constant.language.symbol.list.key.ring" },
+						"3": { "name": "keyword.operator.assignment.list.ring" }
 					}
 				},
-				{
-					"match": ",",
-					"name": "punctuation.separator.list.ring"
-				},
-				{
-					"include": "$self"
-				}
+				{ "match": ",", "name": "punctuation.separator.list.ring" },
+				{ "include": "$base" }
 			]
 		},
 		"classes": {
 			"patterns": [
 				{
-					"match": "\\b(?i)(class|from)\\s+([A-Za-z_]\\w*)",
+					"match": "\\b(?i)(class)\\s+([A-Za-z_]\\w*)\\s*(?:(?:(?i)(from)|:|\\<)\\s*([A-Za-z_]\\w*))?",
 					"captures": {
-						"1": {
-							"name": "keyword.control.class.ring"
-						},
-						"2": {
-							"name": "entity.name.type.class.ring"
-						}
+						"1": { "name": "storage.type.class.ring" },
+						"2": { "name": "entity.name.type.class.ring" },
+						"3": { "name": "storage.modifier.inheritance.ring" },
+						"4": { "name": "entity.other.inherited-class.ring" }
 					}
 				},
 				{
-					"match": "\\b(?i)(package|private|endclass|endpackage|protected|static|abstract|override|@override)\\b",
-					"name": "keyword.control.class.ring"
-				},
-				{
-					"match": "\\b(?i)(func|def)\\s+(?i)(init)\\b",
+					"match": "\\b(?i)(new)(?:\\s+((?i)from))?\\s+([A-Za-z_]\\w*)",
 					"captures": {
-						"1": {
-							"name": "storage.type.function.ring"
-						},
-						"2": {
-							"name": "entity.name.function.constructor.ring"
-						}
+						"1": { "name": "keyword.operator.new.ring" },
+						"2": { "name": "storage.modifier.inheritance.ring" },
+						"3": { "name": "support.class.ring" } 
 					}
 				},
 				{
-					"match": "\\b(?i)(new)\\s+([A-Za-z_]\\w*)",
+					"match": "\\b(?i)(func|def)\\s+(?i)(init)\\b(?=\\s*\\()",
 					"captures": {
-						"1": {
-							"name": "keyword.operator.new.ring"
-						},
-						"2": {
-							"name": "entity.name.type.class.ring"
-						}
+						"1": { "name": "storage.type.function.ring" },
+						"2": { "name": "entity.name.function.constructor.ring" }
 					}
 				},
-				{
-					"match": "\\b(?i)(self|super)\\b",
-					"name": "variable.language.self.ring"
-				}
+				{ "match": "\\b(?i)(self|super)\\b", "name": "variable.language.this.ring" }
 			],
 			"name": "meta.class.ring"
 		},
 		"object_block": {
 			"name": "meta.block.braces.ring",
-			"begin": "({)",
-			"end": "(})",
-			"beginCaptures": {
-				"1": { "name": "punctuation.section.block.begin.ring" }
-			},
-			"endCaptures": {
-				"1": { "name": "punctuation.section.block.end.ring" }
-			},
+			"begin": "({)", "end": "(})",
+			"beginCaptures": { "1": { "name": "punctuation.section.block.begin.curly.ring" } },
+			"endCaptures": { "1": { "name": "punctuation.section.block.end.curly.ring" } },
 			"patterns": [
-				{ "include": "#property_assignment" },
-				{ "include": "#property_followed_by_block" },
-				{ "include": "$self" }
+				{
+					"match": "\\b([a-zA-Z_]\\w*)\\s*(=)(?!>|=)",
+					"captures": {
+						"1": { "name": "variable.other.property.object.ring" },
+						"2": { "name": "keyword.operator.assignment.object.ring" }
+					}
+				},
+				{
+					"match": "\\b([a-zA-Z_]\\w*)\\b(?=\\s*{)",
+					"captures": { "1": { "name": "variable.other.property.object.ring" } }
+				},
+				{ "include": "$base" }
 			]
-		},
-		"property_assignment": {
-			"match": "\\b([a-zA-Z_]\\w*)\\s*(=)(?!>)",
-			"captures": {
-				"1": { "name": "variable.other.property.ring" },
-				"2": { "name": "keyword.operator.assignment.ring" }
-			}
-		},
-		"property_followed_by_block": {
-			"match": "\\b([a-zA-Z_]\\w*)\\b(?=\\s*{)",
-			"captures": {
-				"1": { "name": "variable.other.property.ring" }
-			}
 		}
 	}
 }
