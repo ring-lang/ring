@@ -61,6 +61,8 @@ The next samples and applications are added:
 * samples/UsingFastPro/MergeAddSubMulDivColRowDest.ring
 * samples/UsingFastPro/SetManyCopySerialPowRemItemsColRow.ring
 * ‎samples/UsingFastPro/ManyAddSubMulDivSerialPowRem.ring
+* samples/UsingFastPro/MatrixAddSubMul.ring
+* samples/UsingFastPro/SpeedMatrixMul.ring
 
 The next applications are revised:
 
