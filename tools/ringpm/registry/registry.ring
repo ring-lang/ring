@@ -778,5 +778,9 @@ aPackagesRegistry = [
 	[ :name = "ringregex",
           :description = "Regular expression library built on top of the PCRE2",
           :ProviderUserName = "azzeddine2017"
+        ],
+	[ :name = "RingThreadPro",
+          :description = "Threads management library",
+          :ProviderUserName = "azzeddine2017"
         ]
 ]
