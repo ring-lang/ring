@@ -1,3 +1,5 @@
+# In Ring identifiers could start with a number
+
 2025_month = "April"
 ? 2025_month
 
