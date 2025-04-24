@@ -774,5 +774,9 @@ aPackagesRegistry = [
 	[ :name = "SysInfo",
           :description = "A package to retrieve essential system information for the Ring programming language",
           :ProviderUserName = "ysdragon"
+        ],
+	[ :name = "ringregex",
+          :description = "Regular expression library built on top of the PCRE2",
+          :ProviderUserName = "azzeddine2017"
         ]
 ]
