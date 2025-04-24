@@ -707,7 +707,7 @@ aPackagesRegistry = [
 	  :description = "An easy to use pattern matching",
 	  :ProviderUserName = "thexxiv"
 	],
-	[ :name = "softanzalib",
+	[ :name = "stzlib",
 	  :description = "Softanza Library for the Ring programming language",
 	  :ProviderUserName = "mayouni"
 	],
