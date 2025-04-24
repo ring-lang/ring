@@ -786,5 +786,9 @@ aPackagesRegistry = [
 	[ :name = "ringsubprocess",
           :description = "subprocess management extension for creating and managing system processes",
           :ProviderUserName = "azzeddine2017"
+        ],
+	[ :name = "Advanced-Trace",
+          :description = "Performance analysis and concurrent operations tracing",
+          :ProviderUserName = "azzeddine2017"
         ]
 ]
