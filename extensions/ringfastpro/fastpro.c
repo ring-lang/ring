@@ -1,5 +1,5 @@
 /*
-** ListPro extension
+** RingFastPro extension
 ** 2023, Mahmoud Fayed
 ** 2024, Bert Mariani (Added DestCol support in updateList() as a six parameter)
 ** 2025, Bert Mariani (Added mergemul - multiply 2 rows or 2 col ==> dCol dDestination
@@ -204,7 +204,7 @@ RING_FUNC(ring_list2bytes)
 //  strcmp(cSelection,"manycols")  nOPCode = 4 ;
 //  strcmp(cSelection,"items")     nOPCode = 5 ;
 //  strcmp(cSelection,"matrix")    nOPCode = 6 ;       // Add, Sub, Mul -- Matrix
-//a
+//
 //===============================================================
 
 
@@ -245,9 +245,7 @@ RING_FUNC(ring_updatelist)
     /* Check Parameters */
 
     if ( (RING_API_PARACOUNT < 3) || (RING_API_PARACOUNT > 6) ) {
-        //RING_API_ERROR(RING_API_BADPARACOUNT);
-          RING_API_ERROR("BADPARACOUNT must be between 3:6");
-
+        RING_API_ERROR("BADPARACOUNT must be between 3:6");
         return ;
     }
 
