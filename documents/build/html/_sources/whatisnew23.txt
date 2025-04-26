@@ -63,6 +63,8 @@ The next samples and applications are added:
 * ‎samples/UsingFastPro/ManyAddSubMulDivSerialPowRem.ring
 * samples/UsingFastPro/MatrixAddSubMul.ring
 * samples/UsingFastPro/SpeedMatrixMul.ring
+* samples/UsingFastPro/MatrixScalar.ring
+* samples/UsingFastPro/MatrixTranspose.ring
 
 The next applications are revised:
 
