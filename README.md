@@ -24,6 +24,7 @@
   * [🔓No Global Interpreter (VM) Lock - No GIL](#no-global-interpreter-vm-lock---no-gil)
   * [🚀Fast Enough For Many Applications](#fast-enough-for-many-applications)
 - [🔧Building from source code](#building-from-source-code)
+- [📚Publications](#publications)
 - [📜License](#license)
 
 
@@ -169,6 +170,11 @@ We provide instructions for building on the next platforms:-
 -  [Ubuntu Linux](language/README_UbuntuLinux.md)
 
 -  [macOS](language/README_macOS.md)
+
+# 📚Publications
+
+* [Fayed, Mahmoud Samir, and Yousef A. Alohali. "Ring: A Lightweight and Versatile Cross-Platform Dynamic Programming Language Developed Using Visual Programming." Electronics 13, no. 23 (2024): 4627.](https://www.mdpi.com/2079-9292/13/23/4627)
+* [Fayed, Mahmoud Samir, and Yousef A. Alohali. "PWCT2: A Self-Hosting Visual Programming Language Based on Ring with Interactive Textual-to-Visual Code Conversion." Appl. Sci. 2025,15, 1521.](https://www.mdpi.com/2076-3417/15/3/1521)
 
 # 📜License 
 
