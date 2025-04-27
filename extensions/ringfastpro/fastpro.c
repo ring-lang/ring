@@ -1,10 +1,11 @@
 /*
 ** RingFastPro extension
 ** 2023, Mahmoud Fayed
-** 2024, Bert Mariani (Added DestCol support in updateList() as a six parameter)
-** 2025, Bert Mariani (Added mergemul - multiply 2 rows or 2 col ==> dCol dDestination
-** 2025, Bert Mariani (Added mergesub, mergediv,
-**                    (Added Row Destination => pRowD if Param = 6
+** 2024, Bert Mariani Added DestCol support in updateList() as a 6 parameter)
+** 2025, Bert Mariani Added merge mergemul mergesub, mergediv
+**                     Can use 2 rows or col ==> dRow or dCol dDestination
+** 2025, Bert Mariani manyrows, manycols can use range 
+** 2025, Bert Mariani Added Transpose, Scalar, DotProduct 1D
 */
 
 #include "ring.h"
@@ -228,7 +229,7 @@ RING_FUNC(ring_updatelist)
     List *pRowD ; // Dest Row    if Parm 6
 
     double Sum, valueA, valueB, valueC ;           // Matrix Multiply
-    int    i, j, k ;
+    int    i, j, k , v, h;
     int    vA, vB, vC, hA, hB, hC ;
     int    sizeX, sizeY ;
     List  *pSubListA,*pSubListB, *pSubListC ;
@@ -1560,8 +1561,11 @@ RING_FUNC(ring_updatelist)
          //===End 1506 ==============================    
          
         case 1606 :
-            /* DotProduct Matrix-A  * Matrix-B ==> Scalar Number */ 
+            /* 1D DotProduct Matrix-A * Matrix-B ==> Scalar Number */ 
             // 3 Rows by 1 Col
+			
+		    /* 2D DotProduct-1D Matrix-A * Matrix-B ==> MAtrix-C */ 
+            // 3 Rows by 3 Col
 
         // pList  = RING_API_GETLIST(1) ;
            pListB = RING_API_GETLIST(4) ;
@@ -1576,7 +1580,7 @@ RING_FUNC(ring_updatelist)
 
            //--- CREATE Output List - Outside Dims.-----
            sizeX   = nRow  ;  sizeY   = nEndB ;
-           pListC  = RING_API_NEWLISTUSINGBLOCKS2D( 5, 5) ;
+           pListC  = RING_API_NEWLISTUSINGBLOCKS2D( nRow, nEnd) ;
 
            nRowC   = ring_list_getsize(pListC) ;        // Row-C vert for vC
            pRowC   = ring_list_getlist(pListC,nRowC);                
@@ -1585,9 +1589,13 @@ RING_FUNC(ring_updatelist)
 
            vA = nRow ;        hA = nEnd ;
            vB = nRowB;        hB = nEndB;
+
+        if( (hA == 1) && (hB == 1) )			   
+		{ // Single Dimension 1D Return Scalar
+		   
   
            if( (hA != 1 || hB != 1) ||  (vA != vB) )
-           {   RING_API_ERROR("Dot Product Dimension: Not same size Vector");
+           {   RING_API_ERROR("Dot Product 1D Dimension: Not same size Vector");
                return ;
            }
 
@@ -1603,9 +1611,41 @@ RING_FUNC(ring_updatelist)
                 valueC    = valueA * valueB ;          
                 Sum      += valueC;
            }
-
-
             RING_API_RETNUMBER(Sum);
+		}
+
+		else	 
+		{   if( (hA != hB ) ||  (vA != vB) )
+		    { RING_API_ERROR("Dot Product 2D Dimension: Not same size array");
+	           return ;
+			}
+         
+            for(  v = 1; v <= vA; v++)
+            {   for(h = 1; h <= hB ; h++)
+				{
+				   Sum = 0;
+				   for( k = 1; k <= hA; k++)
+			       {
+                      pSubList  = ring_list_getlist(pList, v) ;         // Row 1 2 3
+                      valueA    = ring_list_getdouble( pSubList, k ) ;  // Col 1
+                      
+                      pSubListB = ring_list_getlist(pListB, k) ;         // Row
+                      valueB    = ring_list_getdouble( pSubListB, h ) ;  // Col 1
+                      
+                      valueC    = valueA * valueB ;
+                      Sum	    += valueC;				
+				    } 
+					
+				    pSubListC = ring_list_getlist(pListC, v ) ;
+                    ring_list_setdouble_gc(pVM->pRingState,pSubListC, h, Sum );
+				   
+				} 
+            }
+            RING_API_RETLIST( pListC );	
+		}	
+			
+		
+            //==============		
             break ;
 
         //===End 1606 ==============================
