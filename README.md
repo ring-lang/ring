@@ -173,8 +173,8 @@ We provide instructions for building on the next platforms:-
 
 # 📚Publications
 
-* [Fayed, Mahmoud Samir, and Yousef A. Alohali. "Ring: A Lightweight and Versatile Cross-Platform Dynamic Programming Language Developed Using Visual Programming." Electronics 13, no. 23 (2024): 4627.](https://www.mdpi.com/2079-9292/13/23/4627)
-* [Fayed, Mahmoud Samir, and Yousef A. Alohali. "PWCT2: A Self-Hosting Visual Programming Language Based on Ring with Interactive Textual-to-Visual Code Conversion." Appl. Sci. 2025,15, 1521.](https://www.mdpi.com/2076-3417/15/3/1521)
+* [Ring: A Lightweight and Versatile Cross-Platform Dynamic Programming Language Developed Using Visual Programming](https://www.mdpi.com/2079-9292/13/23/4627)
+* [PWCT2: A Self-Hosting Visual Programming Language Based on Ring with Interactive Textual-to-Visual Code Conversion](https://www.mdpi.com/2076-3417/15/3/1521)
 
 # 📜License 
 
