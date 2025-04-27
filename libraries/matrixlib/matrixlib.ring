@@ -93,16 +93,45 @@ Func MatrixFlatPrint(U)
 return
 //============================================
 //============================================
-// Alternate Name
+// Alternate Name -- Code from StdLibCore
 
-Func MatrixMultiply(U,V)
-    W = MatrixMulti(U,V)
-return W
+Func Matrixmultiply(A, B)
+
+	vertA = len(A)    horzA = len(A[1])
+	vertB = len(B)    horzB = len(B[1])
+	vertC = len(A)    horzC = len(B)
+	C     = list(vertA, horzB)         // Make array bigV and bigH
+      
+	if horzA != vertB 
+		See "Error: Matrix dimension: Horz-A:"+horzA +" MUST EQUAL vert-B:"+vertB +nl
+		return 1
+	ok   
+   
+	for vA = 1 to vertA
+		for hB = 1 to horzB
+			Sum = 0
+			for k = 1 to horzA             
+				Sum += A[vA][k] * B[k][hB]    
+			next
+			
+			C[va][hB] = Sum          
+		next
+	next
+return C     
 
 
-Func MatrixTranspose(U)
-     W = MatrixTrans(U)
-return W
+//===============================	
+
+Func MatrixTranspose(matrix)
+	rows = len(matrix)
+	cols = len(matrix[1])	
+	transpose = newlist(cols,rows)
+	for i = 1 to cols
+		for j = 1 to rows
+			transpose[i][j] = matrix[j][i]             
+		next         
+	next
+return transpose
 
 //============================================
 //============================================
