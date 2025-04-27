@@ -174,11 +174,12 @@ RING_FUNC(ring_list2bytes)
 //  updateList(<aList>,:add,:manyrows,<nRowStart>,<nRowEnd>,<nValue>)
 //  updateList(<aList>,:add,:manycols,<nColStart>,<nColEnd>,<nValue>)
 //
-//  aListC = updateList(<aList>,:add,:matrix,<aListB>)
+//  aListC = updateList(<aList>,:add,:matrix,<aListB>) 
 //  aListC = updateList(<aList>,:sub,:matrix,<aListB>)
-//  aListC = updateList(<aList>,:mul,:matrix,<aListB>)
+//  aListC = updateList(<aList>,:mul,:matrix,<aListB>)  // 4 Parms
 //  aListC = updateList(<aList>,:transpose,:matrix )    // 3 Parms
 //  aListC = updateList(<aList>,:scalar,<nValue> )
+//  valueA = updateList(<aList>,:dotproduct,:matrix,<aListB>) // Result Scalar Number
 //
 //  Set the Operation code. Add Selection Code for Jump => 503
 //  strcmp(cOperation,"set")       nOPCode += 100 ;
@@ -194,8 +195,9 @@ RING_FUNC(ring_list2bytes)
 //  strcmp(cOperation,"mergesub")  nOPCode += 1100 ;
 //  strcmp(cOperation,"mergemul")  nOPCode += 1200 ;
 //  strcmp(cOperation,"mergediv")  nOPCode += 1300 ;
-//  strcmp(cOperation,"transpose") nOPCode += 1400 ;   // Transpose-Matrix 1406
-//  strcmp(cOperation,"scalar")    nOPCode += 1500 ;   // Scalar-Matrix 1506
+//  strcmp(cOperation,"transpose") nOPCode += 1400 ;   // Transpose-Matrix  1406
+//  strcmp(cOperation,"scalar")    nOPCode += 1500 ;   // Scalar-Matrix     1506
+//  strcmp(cOperation,"dotproduct") nOPCode += 1600 ;  // DotProduct-Matrix 1606
 //
 //  Set the Selection Code
 //  strcmp(cSelection,"row")       nOPCode = 1 ;
@@ -226,8 +228,8 @@ RING_FUNC(ring_updatelist)
     List *pRowD ; // Dest Row    if Parm 6
 
     double Sum, valueA, valueB, valueC ;           // Matrix Multiply
-    int    i, j ;
-    int    vA,  hB, k ;
+    int    i, j, k ;
+    int    vA, vB, vC, hA, hB, hC ;
     int    sizeX, sizeY ;
     List  *pSubListA,*pSubListB, *pSubListC ;
 
@@ -441,16 +443,16 @@ RING_FUNC(ring_updatelist)
 
     //============================================
     // MATRIX aList
-    // updateList(<aList>,:add,      :matrix,<aListB>)          ADD       4 Params
-	//  aListC = updateList(<aList>,:scalar,   <nValue> )       SCALAR    4 = Number
-    //  aListC = updateList(<aList>,:transpose,:matrix)         TRANSPOSE 3 Params
+    //           updateList(<aList>,:add,:matrix,<aListB>)  ADD       4 Params list list
+    //  aListC = updateList(<aList>,:scalar, <nValue> )     SCALAR    4 Params list number
+    //  aListC = updateList(<aList>,:transpose,:matrix)     TRANSPOSE 3 Params list
 
     else if ( strcmp(cSelection,"matrix") == 0 ) {
         if ( RING_API_PARACOUNT == 3 || RING_API_PARACOUNT == 4 ) {
 
             if ( RING_API_PARACOUNT == 3) {
                    nOPCode = 6 ;
-				   nValue  = 1;
+                   nValue  = 1;
                  //pList   = RING_API_GETLIST(1) ;     // Transpose
             }
             else if ( RING_API_ISLIST(4) ) {
@@ -560,6 +562,10 @@ RING_FUNC(ring_updatelist)
             RING_API_ERROR("Can't multiply by zero");
             return ;
         }
+    }
+    
+    else if ( strcmp(cOperation,"dotproduct") == 0 ) {
+        nOPCode += 1600 ;
     }
 
     else {
@@ -1551,10 +1557,61 @@ RING_FUNC(ring_updatelist)
             RING_API_RETLIST( pListC );
             break ;
 
-         //===End 1506 ==============================
+         //===End 1506 ==============================    
+         
+        case 1606 :
+            /* DotProduct Matrix-A  * Matrix-B ==> Scalar Number */ 
+            // 3 Rows by 1 Col
 
+        // pList  = RING_API_GETLIST(1) ;
+           pListB = RING_API_GETLIST(4) ;
+
+           nRow   = ring_list_getsize(pList);           // Row-A vert for vA 
+           pRow   = ring_list_getlist(pList,nRow);
+           nEnd   = ring_list_getsize(pRow) ;           // Col-A horz for hB
+
+           nRowB   = ring_list_getsize(pListB) ;        // Row-B vert for vB
+           pRowB   = ring_list_getlist(pListB,nRowB);
+           nEndB   = ring_list_getsize(pRowB) ;         // Col-C horz for hB 
+
+           //--- CREATE Output List - Outside Dims.-----
+           sizeX   = nRow  ;  sizeY   = nEndB ;
+           pListC  = RING_API_NEWLISTUSINGBLOCKS2D( 5, 5) ;
+
+           nRowC   = ring_list_getsize(pListC) ;        // Row-C vert for vC
+           pRowC   = ring_list_getlist(pListC,nRowC);                
+           nEndC   = ring_list_getsize(pRowC) ;         // Col-C horzf or hC
+           //------------------------------------        
+
+           vA = nRow ;        hA = nEnd ;
+           vB = nRowB;        hB = nEndB;
+  
+           if( (hA != 1 || hB != 1) ||  (vA != vB) )
+           {   RING_API_ERROR("Dot Product Dimension: Not same size Vector");
+               return ;
+           }
+
+           Sum = 0;
+           for( vA = 1; vA <= nRow; vA++)
+           {   
+                pSubList  = ring_list_getlist(pList, vA) ;        // Row 1 2 3
+                valueA    = ring_list_getdouble( pSubList, 1 ) ;  // Col 1
+                
+                pSubListB = ring_list_getlist(pListB, vA) ;        // Row
+                valueB    = ring_list_getdouble( pSubListB, 1 ) ;   // Col 1
+                
+                valueC    = valueA * valueB ;          
+                Sum      += valueC;
+           }
+
+
+            RING_API_RETNUMBER(Sum);
+            break ;
+
+        //===End 1606 ==============================
+         
     //=== End CASES =================================
-	
+    
     }
 }
 
