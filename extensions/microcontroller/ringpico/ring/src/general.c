@@ -196,21 +196,21 @@ RING_FILE ring_custom_fopen ( const char *cFileName, const char *cMode )
 		wchar_t cPath[MAX_PATH]  ;
 		wchar_t cWMode[MAX_PATH]  ;
 		/* Set Variables */
-		nLen1 = 0 ;
-		nLen2 = 0 ;
+		nLen1 = RING_ZERO ;
+		nLen2 = RING_ZERO ;
 		nFileNameSize = strlen(cFileName) ;
 		nModeSize = strlen(cMode) ;
-		if ( (nFileNameSize == 0) || (nModeSize==0) ) {
+		if ( (nFileNameSize == RING_ZERO) || (nModeSize == RING_ZERO) ) {
 			return NULL ;
 		}
-		nLen1 = MultiByteToWideChar(CP_UTF8, 0, cFileName, nFileNameSize, cPath, MAX_PATH) ;
-		if ( nLen1 >= MAX_PATH ) {
-			return NULL ;
+		nLen1 = MultiByteToWideChar(CP_UTF8, MB_ERR_INVALID_CHARS, cFileName, nFileNameSize, cPath, MAX_PATH) ;
+		if ( (nLen1 == RING_ZERO) || (nLen1 >= MAX_PATH) ) {
+			return RING_OPENFILE(cFileName, cMode) ;
 		}
 		cPath[nLen1] = L'\0' ;
-		nLen2 = MultiByteToWideChar(CP_UTF8, 0, cMode, nModeSize, cWMode, MAX_PATH) ;
-		if ( nLen2 >= MAX_PATH ) {
-			return NULL ;
+		nLen2 = MultiByteToWideChar(CP_UTF8,MB_ERR_INVALID_CHARS, cMode, nModeSize, cWMode, MAX_PATH) ;
+		if ( (nLen2 == RING_ZERO) || (nLen2 >= MAX_PATH) ) {
+			return RING_OPENFILE(cFileName, cMode) ;
 		}
 		cWMode[nLen2] = L'\0' ;
 		pFile = _wfopen(cPath, cWMode);

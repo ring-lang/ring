@@ -705,12 +705,12 @@ void ring_vm_file_freefunc ( void *pRingState,void *pPointer )
 			wchar_t cPath[MAX_PATH]  ;
 			int nLen1,nFileNameSize  ;
 			nFileNameSize = strlen(cFileName) ;
-			nLen1 = MultiByteToWideChar(CP_UTF8, 0, cFileName, nFileNameSize, cPath, MAX_PATH) ;
-			if ( nLen1 >= MAX_PATH ) {
-				return 0 ;
+			nLen1 = MultiByteToWideChar(CP_UTF8,MB_ERR_INVALID_CHARS, cFileName, nFileNameSize, cPath, MAX_PATH) ;
+			if ( (nLen1 == RING_ZERO) || (nLen1 >= MAX_PATH) ) {
+				return ring_general_fexists(cFileName) ;
 			}
 			cPath[nLen1] = L'\0' ;
-			if ( _wstat(cPath, &sb) == 0 ) {
+			if ( _wstat(cPath, &sb) == RING_ZERO ) {
 				if ( S_ISREG(sb.st_mode) ) {
 					/* Path exists and it is a regular file */
 					return 1 ;
@@ -718,14 +718,14 @@ void ring_vm_file_freefunc ( void *pRingState,void *pPointer )
 			}
 		#else
 			struct stat sb  ;
-			if ( stat(cFileName, &sb) == 0 ) {
+			if ( stat(cFileName, &sb) == RING_ZERO ) {
 				if ( S_ISREG(sb.st_mode) ) {
 					/* Path exists and it is a regular file */
-					return 1 ;
+					return RING_TRUE ;
 				}
 			}
 		#endif
-		return 0 ;
+		return RING_FALSE ;
 	}
 
 	int ring_direxists ( const char *cDirPath )
