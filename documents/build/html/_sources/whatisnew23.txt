@@ -67,6 +67,7 @@ The next samples and applications are added:
 * samples/UsingFastPro/MatrixTranspose.ring
 * samples/UsingFastPro/MatrixDotProduct.ring
 * samples/UsingFastPro/Matrix2DDotProduct.ring
+* samples/UsingFastPro/FillMatrix.ring
 
 The next applications are revised:
 
