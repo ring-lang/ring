@@ -705,7 +705,7 @@ void ring_vm_file_freefunc ( void *pRingState,void *pPointer )
 			wchar_t cPath[MAX_PATH]  ;
 			int nLen1,nFileNameSize  ;
 			nFileNameSize = strlen(cFileName) ;
-			nLen1 = MultiByteToWideChar(CP_UTF8, 0, cFileName, nFileNameSize, cPath, nFileNameSize) ;
+			nLen1 = MultiByteToWideChar(CP_UTF8, 0, cFileName, nFileNameSize, cPath, MAX_PATH) ;
 			if ( nLen1 >= MAX_PATH ) {
 				return 0 ;
 			}

@@ -203,12 +203,12 @@ RING_FILE ring_custom_fopen ( const char *cFileName, const char *cMode )
 		if ( (nFileNameSize == 0) || (nModeSize==0) ) {
 			return NULL ;
 		}
-		nLen1 = MultiByteToWideChar(CP_UTF8, 0, cFileName, nFileNameSize, cPath, nFileNameSize) ;
+		nLen1 = MultiByteToWideChar(CP_UTF8, 0, cFileName, nFileNameSize, cPath, MAX_PATH) ;
 		if ( nLen1 >= MAX_PATH ) {
 			return NULL ;
 		}
 		cPath[nLen1] = L'\0' ;
-		nLen2 = MultiByteToWideChar(CP_UTF8, 0, cMode, nModeSize, cWMode, nModeSize) ;
+		nLen2 = MultiByteToWideChar(CP_UTF8, 0, cMode, nModeSize, cWMode, MAX_PATH) ;
 		if ( nLen2 >= MAX_PATH ) {
 			return NULL ;
 		}

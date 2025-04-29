@@ -206,6 +206,6 @@ _tmpfile
 Type: errno_t
 error
 Type: char
-_tmpfile[]
+_tmpfile[RING_SMALLBUF]
 Type: int
 fd
