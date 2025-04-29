@@ -3,9 +3,10 @@
 ** 2023, Mahmoud Fayed
 ** 2024, Bert Mariani Added DestCol support in updateList() as a 6 parameter)
 ** 2025, Bert Mariani Added merge mergemul mergesub, mergediv
-**                     Can use 2 rows or col ==> dRow or dCol dDestination
-** 2025, Bert Mariani manyrows, manycols can use range 
-** 2025, Bert Mariani Added Transpose, Scalar, DotProduct 1D
+**                          Can use 2 rows or col ==> dRow or dCol dDestination
+**                    manyrows, manycols can use range 
+**                    Added Transpose, Scalar, DotProduct-1D,2D
+**                    Added Fill-Matrix
 */
 
 #include "ring.h"
@@ -177,10 +178,11 @@ RING_FUNC(ring_list2bytes)
 //
 //  aListC = updateList(<aList>,:add,:matrix,<aListB>) 
 //  aListC = updateList(<aList>,:sub,:matrix,<aListB>)
-//  aListC = updateList(<aList>,:mul,:matrix,<aListB>)  // 4 Parms
-//  aListC = updateList(<aList>,:transpose,:matrix )    // 3 Parms
-//  aListC = updateList(<aList>,:scalar,<nValue> )
-//  valueA = updateList(<aList>,:dotproduct,:matrix,<aListB>) // Result Scalar Number
+//  aListC = updateList(<aList>,:mul,:matrix,<aListB>)      // 4 Parms
+//  aListC = updateList(<aList>,:transpose,:matrix )        // 3 Parms - Rotate matrix
+//  aListC = updateList(<aList>,:scalar,:matrix,<nValue> )  // Matrix mul by nValue or  Div by use (1/Value)
+//  valueA/aListC = updateList(<aList>,:dotproduct,:matrix,<aListB>) // Result 1D = Scalar Number, 2D = Matrix
+//  aListC = updateList(<aList>,:fill,:matrix,<nValue> )    // Matrix fill with nValue
 //
 //  Set the Operation code. Add Selection Code for Jump => 503
 //  strcmp(cOperation,"set")       nOPCode += 100 ;
@@ -199,6 +201,7 @@ RING_FUNC(ring_list2bytes)
 //  strcmp(cOperation,"transpose") nOPCode += 1400 ;   // Transpose-Matrix  1406
 //  strcmp(cOperation,"scalar")    nOPCode += 1500 ;   // Scalar-Matrix     1506
 //  strcmp(cOperation,"dotproduct") nOPCode += 1600 ;  // DotProduct-Matrix 1606
+//  strcmp(cOperation,"fill")      nOPCode += 1700 ;   // DotProduct-Matrix 1706
 //
 //  Set the Selection Code
 //  strcmp(cSelection,"row")       nOPCode = 1 ;
@@ -567,6 +570,10 @@ RING_FUNC(ring_updatelist)
     
     else if ( strcmp(cOperation,"dotproduct") == 0 ) {
         nOPCode += 1600 ;
+    }
+	
+	else if ( strcmp(cOperation,"fill") == 0 ) {
+        nOPCode += 1700 ;
     }
 
     else {
@@ -1561,10 +1568,10 @@ RING_FUNC(ring_updatelist)
          //===End 1506 ==============================    
          
         case 1606 :
-            /* 1D DotProduct Matrix-A * Matrix-B ==> Scalar Number */ 
+            /* 1D DotProduct Matrix-A * Matrix-B ==> Scalar Number   Row 5 Col 1 */ 
             // 3 Rows by 1 Col
 			
-		    /* 2D DotProduct-1D Matrix-A * Matrix-B ==> MAtrix-C */ 
+		    /* 2D DotProduct Matrix-A * Matrix-B ==> Matrix-C        Row 5 Col 5 */
             // 3 Rows by 3 Col
 
         // pList  = RING_API_GETLIST(1) ;
@@ -1649,6 +1656,35 @@ RING_FUNC(ring_updatelist)
             break ;
 
         //===End 1606 ==============================
+		
+        //---------------------------------------
+        
+        case 1706 :
+            /* Fill Matrix-A  with k nValue */
+           
+            // pList  = RING_API_GETLIST(1) ;
+                   k  = RING_API_GETNUMBER(4);           // Fill with nValue
+           
+            nRow   = ring_list_getsize(pList);           //  Row-A
+            pRow   = ring_list_getlist(pList,nRow);
+            nEnd   = ring_list_getsize(pRow) ;           //  Col-A
+
+            //------------------------------------
+           
+            for( vA = 1; vA <= nRow ; vA++)
+            {   for( hB = 1; hB <= nEnd; hB++)
+                {   
+                  pSubList  = ring_list_getlist(pList, vA) ;                // Row
+                              ring_list_getdouble( pSubList, hB ) ;         // Col 
+               
+                  ring_list_setdouble_gc(pVM->pRingState,pSubList, hB, k);  // Set R-C = k
+                }
+            }       
+        
+            RING_API_RETLIST( pList );
+            break ;
+
+         //===End 1706 ============================== 		
          
     //=== End CASES =================================
     
