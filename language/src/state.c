@@ -41,7 +41,7 @@ RING_API RingState * ring_state_new ( void )
 	ring_list_addint(pRingState->pCustomGlobalScopeStack,pRingState->nCustomGlobalScopeCounter);
 	/* Log File */
 	#if RING_LOGFILE
-		pRingState->pLogFile = fopen(RING_FILES_LOGFILE , "w+" );
+		pRingState->pLogFile = ring_custom_fopen(RING_FILES_LOGFILE , "w+");
 	#endif
 	/* Tokens Only */
 	pRingState->lOnlyTokens = 0 ;
