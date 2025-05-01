@@ -6,7 +6,7 @@
 ** 	Author : Mahmoud Fayed <msfclipper@yahoo.com>
 */
 
-T_LANGUAGE = "arabic"
+T_LANGUAGE = :Arabic
 T_LAYOUTDIRECTION = 1		# Right to Left
 
 T_FORMDESIGNER_FORMDESIGNER 		= "مصمم النماذج"
