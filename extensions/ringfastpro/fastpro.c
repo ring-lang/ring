@@ -7,6 +7,7 @@
 **                    manyrows, manycols can use range 
 **                    Added Transpose, Scalar, DotProduct-1D,2D
 **                    Added Fill-Matrix
+**                    Added Maximum-Matrix  1= Diagonal or 0 Entire Matrix
 */
 
 #include "ring.h"
@@ -178,30 +179,32 @@ RING_FUNC(ring_list2bytes)
 //
 //  aListC = updateList(<aList>,:add,:matrix,<aListB>) 
 //  aListC = updateList(<aList>,:sub,:matrix,<aListB>)
-//  aListC = updateList(<aList>,:mul,:matrix,<aListB>)      // 4 Parms
-//  aListC = updateList(<aList>,:transpose,:matrix )        // 3 Parms - Rotate matrix
-//  aListC = updateList(<aList>,:scalar,:matrix,<nValue> )  // Matrix mul by nValue or  Div by use (1/Value)
+//  aListC = updateList(<aList>,:mul,:matrix,<aListB>)        // 4 Parms
+//  aListC = updateList(<aList>,:transpose,:matrix )          // 3 Parms - Rotate matrix
+//  aListC = updateList(<aList>,:scalar,:matrix,<nValue> )    // Matrix mul by nValue or  Div by use (1/Value)
 //  valueA/aListC = updateList(<aList>,:dotproduct,:matrix,<aListB>) // Result 1D = Scalar Number, 2D = Matrix
-//  aListC = updateList(<aList>,:fill,:matrix,<nValue> )    // Matrix fill with nValue
+//  aListC = updateList(<aList>,:fill,:matrix,<nValue> )      // Matrix fill with nValue
+//  valueA = updateList(<aList>,:maximum,:matrix,<nValue> )   // nValue = 0/1  Entire/Diagonal
 //
 //  Set the Operation code. Add Selection Code for Jump => 503
-//  strcmp(cOperation,"set")       nOPCode += 100 ;
-//  strcmp(cOperation,"add")       nOPCode += 200 ;
-//  strcmp(cOperation,"sub")       nOPCode += 300 ;
-//  strcmp(cOperation,"mul")       OPCode  += 400 ;
-//  strcmp(cOperation,"div")       nOPCode += 500 ;
-//  strcmp(cOperation,"copy")      nOPCode += 600 ;
-//  strcmp(cOperation,"merge")     nOPCode += 700 ;
-//  strcmp(cOperation,"serial")    nOPCode += 800 ;
-//  strcmp(cOperation,"pow")       nOPCode += 900 ;
-//  strcmp(cOperation,"rem")       nOPCode += 1000 ;
-//  strcmp(cOperation,"mergesub")  nOPCode += 1100 ;
-//  strcmp(cOperation,"mergemul")  nOPCode += 1200 ;
-//  strcmp(cOperation,"mergediv")  nOPCode += 1300 ;
-//  strcmp(cOperation,"transpose") nOPCode += 1400 ;   // Transpose-Matrix  1406
-//  strcmp(cOperation,"scalar")    nOPCode += 1500 ;   // Scalar-Matrix     1506
-//  strcmp(cOperation,"dotproduct") nOPCode += 1600 ;  // DotProduct-Matrix 1606
-//  strcmp(cOperation,"fill")      nOPCode += 1700 ;   // DotProduct-Matrix 1706
+//  strcmp(cOperation,"set")        nOPCode += 100 ;
+//  strcmp(cOperation,"add")        nOPCode += 200 ;
+//  strcmp(cOperation,"sub")        nOPCode += 300 ;
+//  strcmp(cOperation,"mul")        OPCode  += 400 ;
+//  strcmp(cOperation,"div")        nOPCode += 500 ;
+//  strcmp(cOperation,"copy")       nOPCode += 600 ;
+//  strcmp(cOperation,"merge")      nOPCode += 700 ;
+//  strcmp(cOperation,"serial")     nOPCode += 800 ;
+//  strcmp(cOperation,"pow")        nOPCode += 900 ;
+//  strcmp(cOperation,"rem")        nOPCode += 1000 ;
+//  strcmp(cOperation,"mergesub")   nOPCode += 1100 ;
+//  strcmp(cOperation,"mergemul")   nOPCode += 1200 ;
+//  strcmp(cOperation,"mergediv")   nOPCode += 1300 ;
+//  strcmp(cOperation,"transpose")  nOPCode += 1400 ;   // Transpose-Matrix  1406
+//  strcmp(cOperation,"scalar")     nOPCode += 1500 ;   // Scalar-Matrix     1506
+//  strcmp(cOperation,"dotproduct") nOPCode += 1600 ;   // DotProduct-Matrix 1606
+//  strcmp(cOperation,"fill")       nOPCode += 1700 ;   // Fill-Matrix       1706
+//  strcmp(cOperation,"maximum")    nOPCode += 1800 ;   // Maximum-Matrix    1806
 //
 //  Set the Selection Code
 //  strcmp(cSelection,"row")       nOPCode = 1 ;
@@ -232,8 +235,8 @@ RING_FUNC(ring_updatelist)
     List *pRowD ; // Dest Row    if Parm 6
 
     double Sum, valueA, valueB, valueC ;           // Matrix Multiply
-    int    i, j, k , v, h;
-    int    vA, vB, vC, hA, hB, hC ;
+    int    i, j, k , v, h ;
+    int    vA, vB, vC, hA, hB, hC, Axis ;
     int    sizeX, sizeY ;
     List  *pSubListA,*pSubListB, *pSubListC ;
 
@@ -571,9 +574,13 @@ RING_FUNC(ring_updatelist)
     else if ( strcmp(cOperation,"dotproduct") == 0 ) {
         nOPCode += 1600 ;
     }
-	
-	else if ( strcmp(cOperation,"fill") == 0 ) {
+    
+    else if ( strcmp(cOperation,"fill") == 0 ) {
         nOPCode += 1700 ;
+    }
+        
+    else if ( strcmp(cOperation,"maximum") == 0 ) {
+        nOPCode += 1800 ;
     }
 
     else {
@@ -1570,8 +1577,8 @@ RING_FUNC(ring_updatelist)
         case 1606 :
             /* 1D DotProduct Matrix-A * Matrix-B ==> Scalar Number   Row 5 Col 1 */ 
             // 3 Rows by 1 Col
-			
-		    /* 2D DotProduct Matrix-A * Matrix-B ==> Matrix-C        Row 5 Col 5 */
+            
+            /* 2D DotProduct Matrix-A * Matrix-B ==> Matrix-C        Row 5 Col 5 */
             // 3 Rows by 3 Col
 
         // pList  = RING_API_GETLIST(1) ;
@@ -1597,9 +1604,9 @@ RING_FUNC(ring_updatelist)
            vA = nRow ;        hA = nEnd ;
            vB = nRowB;        hB = nEndB;
 
-        if( (hA == 1) && (hB == 1) )			   
-		{ // Single Dimension 1D Return Scalar
-		   
+        if( (hA == 1) && (hB == 1) )               
+        { // Single Dimension 1D Return Scalar
+           
   
            if( (hA != 1 || hB != 1) ||  (vA != vB) )
            {   RING_API_ERROR("Dot Product 1D Dimension: Not same size Vector");
@@ -1619,20 +1626,20 @@ RING_FUNC(ring_updatelist)
                 Sum      += valueC;
            }
             RING_API_RETNUMBER(Sum);
-		}
+        }
 
-		else	 
-		{   if( (hA != hB ) ||  (vA != vB) )
-		    { RING_API_ERROR("Dot Product 2D Dimension: Not same size array");
-	           return ;
-			}
+        else     
+        {   if( (hA != hB ) ||  (vA != vB) )
+            { RING_API_ERROR("Dot Product 2D Dimension: Not same size array");
+               return ;
+            }
          
             for(  v = 1; v <= vA; v++)
             {   for(h = 1; h <= hB ; h++)
-				{
-				   Sum = 0;
-				   for( k = 1; k <= hA; k++)
-			       {
+                {
+                   Sum = 0;
+                   for( k = 1; k <= hA; k++)
+                   {
                       pSubList  = ring_list_getlist(pList, v) ;         // Row 1 2 3
                       valueA    = ring_list_getdouble( pSubList, k ) ;  // Col 1
                       
@@ -1640,23 +1647,23 @@ RING_FUNC(ring_updatelist)
                       valueB    = ring_list_getdouble( pSubListB, h ) ;  // Col 1
                       
                       valueC    = valueA * valueB ;
-                      Sum	    += valueC;				
-				    } 
-					
-				    pSubListC = ring_list_getlist(pListC, v ) ;
+                      Sum       += valueC;              
+                    } 
+                    
+                    pSubListC = ring_list_getlist(pListC, v ) ;
                     ring_list_setdouble_gc(pVM->pRingState,pSubListC, h, Sum );
-				   
-				} 
+                   
+                } 
             }
-            RING_API_RETLIST( pListC );	
-		}	
-			
-		
-            //==============		
+            RING_API_RETLIST( pListC ); 
+        }   
+            
+        
+            //==============        
             break ;
 
         //===End 1606 ==============================
-		
+        
         //---------------------------------------
         
         case 1706 :
@@ -1684,7 +1691,59 @@ RING_FUNC(ring_updatelist)
             RING_API_RETLIST( pList );
             break ;
 
-         //===End 1706 ============================== 		
+         //===End 1706 ==============================   
+
+        case 1806 :
+            /* Maximum in  Matrix-A  nValue = Axis  0=ALL  1=Diagonal */    
+
+            // pList  = RING_API_GETLIST(1) ;
+               Axis   = RING_API_GETNUMBER(4);           // Axis  0=ALL  1=Diagonal         
+
+            nRow   = ring_list_getsize(pList);           //  Row-A
+            pRow   = ring_list_getlist(pList,nRow);
+            nEnd   = ring_list_getsize(pRow) ;           //  Col-A      
+        
+            if(Axis == 1)  
+            {   valueB = 0;
+        
+                for( v = 1; v <= nRow; v++)  
+                {                           
+                   pSubList  = ring_list_getlist(pList, v) ;                // Row
+                   valueA    = ring_list_getdouble( pSubList, v ) ;         // Col  = value 
+                   
+                   if( valueA > valueB )
+                   {   valueB = valueA ;
+                   }  
+                }               
+                RING_API_RETNUMBER(valueB); 
+            }
+  
+            else if( Axis == 0 )
+            {       valueB = 0 ;
+                    for( v = 1; v <= nRow; v++)  
+                    {   for( h = 1; h <= nEnd; h++ )
+                        {
+                              pSubList  = ring_list_getlist(pList, v) ;              // Row                     
+                              valueA    = ring_list_getdouble( pSubList, h ) ;       // Col = value 
+                       
+                           if( valueA > valueB )
+                           {   valueB = valueA ;
+                           }                        
+                        } 
+                    } 
+                    RING_API_RETNUMBER(valueB);
+                
+            }
+            else
+            {RING_API_ERROR("BAD nValue. 1=Diagonal  0=Entire Matrix");         
+            } 
+
+            break ;
+            
+         //===End 1806 ============================== 
+
+
+         
          
     //=== End CASES =================================
     
