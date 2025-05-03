@@ -7,8 +7,9 @@
 **                    manyrows, manycols can use range 
 **                    Added Transpose, Scalar, DotProduct-1D,2D
 **                    Added Fill-Matrix
-**                    Added Maximum-Matrix  1= Diagonal or 0 Entire Matrix
-**                    Added Identity-Matrix Make Diagonal - 1's , rest               
+**                    Added Maximum-Matrix  Find Max in: 0=Entire, 1 Diagonal 
+**                    Added Identity-Matrix Make Diagonal - 1's, Rest 0's   
+**                    Added Random-Matrix           
 */
 
 #include "ring.h"
@@ -182,11 +183,12 @@ RING_FUNC(ring_list2bytes)
 //  aListC = updateList(<aList>,:sub,:matrix,<aListB>)
 //  aListC = updateList(<aList>,:mul,:matrix,<aListB>)        // 4 Parms
 //  aListC = updateList(<aList>,:transpose,:matrix )          // 3 Parms - Rotate matrix
-//  aListC = updateList(<aList>,:scalar,:matrix,<nValue> )    // Matrix mul by nValue or  Div by use (1/Value)
+//  aListC = updateList(<aList>,:scalar,:matrix,<nValue> )    // Matrix Mul/Div (1/Value)
 //  valueA/aListC = updateList(<aList>,:dotproduct,:matrix,<aListB>) // Result 1D = Scalar Number, 2D = Matrix
 //  aListC = updateList(<aList>,:fill,:matrix,<nValue> )      // Matrix fill with nValue
 //  valueA = updateList(<aList>,:maximum,:matrix,<nValue> )   // nValue = 0/1  Entire/Diagonal
-//  valueA = updateList(<aList>,:identity,:matrix )           // 3 Parms. Make Diagonal = 1's
+//  aList  = updateList(<aList>,:identity,:matrix )           // 3 Parms. Make Diagonal = 1's
+//  aList  = updateList(<aList>,:random,:matrix )             // 3 Parms. Random numbers
 //
 //  Set the Operation code. Add Selection Code for Jump => 503
 //  strcmp(cOperation,"set")        nOPCode += 100 ;
@@ -208,6 +210,8 @@ RING_FUNC(ring_list2bytes)
 //  strcmp(cOperation,"fill")       nOPCode += 1700 ;   // Fill-Matrix       1706
 //  strcmp(cOperation,"maximum")    nOPCode += 1800 ;   // Maximum-Matrix    1806
 //  strcmp(cOperation,"identity")   nOPCode += 1900 ;   // Identity-Matrix   1906
+//  strcmp(cOperation,"random")     nOPCode += 2000 ;   // Random-Matrix     2006
+
 //
 //  Set the Selection Code
 //  strcmp(cSelection,"row")       nOPCode = 1 ;
@@ -589,9 +593,13 @@ RING_FUNC(ring_updatelist)
 	else if ( strcmp(cOperation,"identity") == 0 ) {
         nOPCode += 1900 ;
     }	
+	
+	else if ( strcmp(cOperation,"random") == 0 ) {
+        nOPCode += 2000 ;
+    }	
 
     else {
-        RING_API_ERROR("The second parameter must be a string: [Set | Add | Sub | Mul | Div | Copy | Merge | MergeSub |  MergeMul | MergeDiv |");
+        RING_API_ERROR("The second parameter must be a string: [Set | Add | Sub | Mul | Div | Copy | Merge | MergeSub |  MergeMul | MergeDiv | etc ");
         return ;
     }
 
@@ -1750,7 +1758,7 @@ RING_FUNC(ring_updatelist)
          //===End 1806 ============================== 
 
         case 1906 :
-            /*Identity Matrix-A  */    
+            /* Identity Matrix-A  */    
 
             // pList  = RING_API_GETLIST(1) ;
 
@@ -1765,7 +1773,7 @@ RING_FUNC(ring_updatelist)
             // Set 0's All
 		    for( v = 1; v <= nRow; v++) 
 			{
-		       for( h = 1; h <= nRow; h++) 
+		       for( h = 1; h <= nEnd; h++) 
 			   { 				
 				   pSubList  = ring_list_getlist(pList, v) ;   // Row                     
 					           ring_list_setdouble_gc(pVM->pRingState,pSubList, h, 0);  // Set R-C==     
@@ -1784,6 +1792,33 @@ RING_FUNC(ring_updatelist)
 
          //===End 1906 ==============================    
 
+       case 2006 :
+         /* Random Matrix-A  */    
+
+         // pList  = RING_API_GETLIST(1) ;
+
+         nRow   = ring_list_getsize(pList);           //  Row-A
+         pRow   = ring_list_getlist(pList,nRow);
+         nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
+		
+         // Set Random Number All
+		
+		 srand( time( NULL));
+	     for( v = 1; v <= nRow; v++ ) 
+		 {  
+           for( h = 1; h <= nEnd; h++ ) 
+		   { 		
+               valueA = (double)(rand() % 100 + 1) / 100;  // Random 0.00 to 1.00
+	   
+			   pSubList  = ring_list_getlist(pList, v) ;   // Row                     
+				           ring_list_setdouble_gc(pVM->pRingState,pSubList, h, valueA );      
+		   }		
+	     }
+
+         //----------------
+         break ;
+
+      //===End 2006 ==============================  
 		 
          
     //=== End CASES =================================
