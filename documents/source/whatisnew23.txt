@@ -69,6 +69,7 @@ The next samples and applications are added:
 * samples/UsingFastPro/Matrix2DDotProduct.ring
 * samples/UsingFastPro/FillMatrix.ring
 * samples/UsingFastPro/MatrixMaximunAllDiag.ring
+* samples/UsingFastPro/MatrixIdentity.ring
 
 The next applications are revised:
 
