@@ -135,10 +135,10 @@ The next videos demonstrates some of the PWCT 2.0 features:
 
 # 📚Publications
 
-* [Fayed, Mahmoud Samir, and Yousef A. Alohali. "PWCT2: A Self-Hosting Visual Programming Language Based on Ring with Interactive Textual-to-Visual Code Conversion." Appl. Sci. 2025,15, 1521.](https://www.mdpi.com/2076-3417/15/3/1521)
-* [Fayed, Mahmoud Samir, and Yousef A. Alohali. "Ring: A Lightweight and Versatile Cross-Platform Dynamic Programming Language Developed Using Visual Programming." Electronics 13, no. 23 (2024): 4627.](https://www.mdpi.com/2079-9292/13/23/4627)
-* [Fayed, Mahmoud S., Muhammad Al-Qurishi, Atif Alamri, M. Anwar Hossain, and Ahmad A. Al-Daraiseh. "PWCT: a novel general-purpose visual programming language in support of pervasive application development." CCF Transactions on Pervasive Computing and Interaction 2 (2020): 164-177.](https://link.springer.com/article/10.1007/s42486-020-00038-y)
-* [Fayed, Mahmoud S., Muhammad Al-Qurishi, Atif Alamri, and Ahmad A. Al-Daraiseh. "PWCT: visual language for IoT and cloud computing applications and systems." In Proceedings of the Second International Conference on Internet of things, Data and Cloud Computing, pp. 1-5. 2017.](https://dl.acm.org/doi/10.1145/3018896.3056782)
+* [PWCT2: A Self-Hosting Visual Programming Language Based on Ring with Interactive Textual-to-Visual Code Conversion](https://www.mdpi.com/2076-3417/15/3/1521)
+* [Ring: A Lightweight and Versatile Cross-Platform Dynamic Programming Language Developed Using Visual Programming](https://www.mdpi.com/2079-9292/13/23/4627)
+* [PWCT: a novel general-purpose visual programming language in support of pervasive application development](https://link.springer.com/article/10.1007/s42486-020-00038-y)
+* [PWCT: visual language for IoT and cloud computing applications and systems](https://dl.acm.org/doi/10.1145/3018896.3056782)
 
 # 📝License 
 
