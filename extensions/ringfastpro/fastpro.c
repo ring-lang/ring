@@ -8,6 +8,7 @@
 **                    Added Transpose, Scalar, DotProduct-1D,2D
 **                    Added Fill-Matrix
 **                    Added Maximum-Matrix  1= Diagonal or 0 Entire Matrix
+**                    Added Identity-Matrix Make Diagonal - 1's , rest               
 */
 
 #include "ring.h"
@@ -185,6 +186,7 @@ RING_FUNC(ring_list2bytes)
 //  valueA/aListC = updateList(<aList>,:dotproduct,:matrix,<aListB>) // Result 1D = Scalar Number, 2D = Matrix
 //  aListC = updateList(<aList>,:fill,:matrix,<nValue> )      // Matrix fill with nValue
 //  valueA = updateList(<aList>,:maximum,:matrix,<nValue> )   // nValue = 0/1  Entire/Diagonal
+//  valueA = updateList(<aList>,:identity,:matrix )           // 3 Parms. Make Diagonal = 1's
 //
 //  Set the Operation code. Add Selection Code for Jump => 503
 //  strcmp(cOperation,"set")        nOPCode += 100 ;
@@ -205,6 +207,7 @@ RING_FUNC(ring_list2bytes)
 //  strcmp(cOperation,"dotproduct") nOPCode += 1600 ;   // DotProduct-Matrix 1606
 //  strcmp(cOperation,"fill")       nOPCode += 1700 ;   // Fill-Matrix       1706
 //  strcmp(cOperation,"maximum")    nOPCode += 1800 ;   // Maximum-Matrix    1806
+//  strcmp(cOperation,"identity")   nOPCode += 1900 ;   // Identity-Matrix   1906
 //
 //  Set the Selection Code
 //  strcmp(cSelection,"row")       nOPCode = 1 ;
@@ -578,10 +581,14 @@ RING_FUNC(ring_updatelist)
     else if ( strcmp(cOperation,"fill") == 0 ) {
         nOPCode += 1700 ;
     }
-        
+	 
     else if ( strcmp(cOperation,"maximum") == 0 ) {
         nOPCode += 1800 ;
     }
+	
+	else if ( strcmp(cOperation,"identity") == 0 ) {
+        nOPCode += 1900 ;
+    }	
 
     else {
         RING_API_ERROR("The second parameter must be a string: [Set | Add | Sub | Mul | Div | Copy | Merge | MergeSub |  MergeMul | MergeDiv |");
@@ -1742,8 +1749,42 @@ RING_FUNC(ring_updatelist)
             
          //===End 1806 ============================== 
 
+        case 1906 :
+            /*Identity Matrix-A  */    
 
-         
+            // pList  = RING_API_GETLIST(1) ;
+
+            nRow   = ring_list_getsize(pList);           //  Row-A
+            pRow   = ring_list_getlist(pList,nRow);
+            nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
+			
+			if( nRow != nEnd)
+			{   RING_API_ERROR("Matrix must be square. Row != Col ");
+			}
+
+            // Set 0's All
+		    for( v = 1; v <= nRow; v++) 
+			{
+		       for( h = 1; h <= nRow; h++) 
+			   { 				
+				   pSubList  = ring_list_getlist(pList, v) ;   // Row                     
+					           ring_list_setdouble_gc(pVM->pRingState,pSubList, h, 0);  // Set R-C==     
+			   }		
+		    }
+
+            // Set 1's Diagonal
+		    for( v = 1; v <= nRow; v++) 
+			{  
+				pSubList  = ring_list_getlist(pList, v) ;   // Row                     
+					        ring_list_setdouble_gc(pVM->pRingState,pSubList, v, 1);  // Set R-C=1      
+		    }
+
+            //----------------
+            break ;
+
+         //===End 1906 ==============================    
+
+		 
          
     //=== End CASES =================================
     
