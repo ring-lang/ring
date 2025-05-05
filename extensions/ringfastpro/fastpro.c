@@ -5,11 +5,12 @@
 ** 2025, Bert Mariani Added merge mergemul mergesub, mergediv
 **                          Can use 2 rows or col ==> dRow or dCol dDestination
 **                    manyrows, manycols can use range 
-**                    Added Transpose, Scalar, DotProduct-1D,2D
-**                    Added Fill-Matrix
-**                    Added Maximum-Matrix  Find Max in: 0=Entire, 1 Diagonal 
-**                    Added Identity-Matrix Make Diagonal - 1's, Rest 0's   
-**                    Added Random-Matrix           
+**                    Transpose, Scalar, DotProduct-1D,2D
+**                    Fill-Matrix
+**                    Maximum-Matrix  Find Max in: 0=Entire, 1 Diagonal 
+**                    Identity-Matrix Make Diagonal - 1's, Rest 0's   
+**                    Random-Matrix  
+**                    Mean-Matrix    
 */
 
 #include "ring.h"
@@ -189,6 +190,7 @@ RING_FUNC(ring_list2bytes)
 //  valueA = updateList(<aList>,:maximum,:matrix,<nValue> )   // nValue = 0/1  Entire/Diagonal
 //  aList  = updateList(<aList>,:identity,:matrix )           // 3 Parms. Make Diagonal = 1's
 //  aList  = updateList(<aList>,:random,:matrix )             // 3 Parms. Random numbers
+//  valueA = updateList(<aList>,:mean,:matrix )               // 3 Parms. Arith. Mean
 //
 //  Set the Operation code. Add Selection Code for Jump => 503
 //  strcmp(cOperation,"set")        nOPCode += 100 ;
@@ -211,7 +213,7 @@ RING_FUNC(ring_list2bytes)
 //  strcmp(cOperation,"maximum")    nOPCode += 1800 ;   // Maximum-Matrix    1806
 //  strcmp(cOperation,"identity")   nOPCode += 1900 ;   // Identity-Matrix   1906
 //  strcmp(cOperation,"random")     nOPCode += 2000 ;   // Random-Matrix     2006
-
+//  strcmp(cOperation,"mean")       nOPCode += 2100 ;   // Mean-Matrix       2106
 //
 //  Set the Selection Code
 //  strcmp(cSelection,"row")       nOPCode = 1 ;
@@ -585,18 +587,22 @@ RING_FUNC(ring_updatelist)
     else if ( strcmp(cOperation,"fill") == 0 ) {
         nOPCode += 1700 ;
     }
-	 
+     
     else if ( strcmp(cOperation,"maximum") == 0 ) {
         nOPCode += 1800 ;
     }
-	
-	else if ( strcmp(cOperation,"identity") == 0 ) {
+    
+    else if ( strcmp(cOperation,"identity") == 0 ) {
         nOPCode += 1900 ;
-    }	
-	
-	else if ( strcmp(cOperation,"random") == 0 ) {
+    }   
+    
+    else if ( strcmp(cOperation,"random") == 0 ) {
         nOPCode += 2000 ;
-    }	
+    }   
+    
+    else if ( strcmp(cOperation,"mean") == 0 ) {
+        nOPCode += 2100 ;
+    }   
 
     else {
         RING_API_ERROR("The second parameter must be a string: [Set | Add | Sub | Mul | Div | Copy | Merge | MergeSub |  MergeMul | MergeDiv | etc ");
@@ -1738,8 +1744,8 @@ RING_FUNC(ring_updatelist)
                     for( v = 1; v <= nRow; v++)  
                     {   for( h = 1; h <= nEnd; h++ )
                         {
-                              pSubList  = ring_list_getlist(pList, v) ;              // Row                     
-                              valueA    = ring_list_getdouble( pSubList, h ) ;       // Col = value 
+                              pSubList  = ring_list_getlist(pList, v) ;        // Row                     
+                              valueA    = ring_list_getdouble( pSubList, h ) ; // Col = value 
                        
                            if( valueA > valueB )
                            {   valueB = valueA ;
@@ -1765,27 +1771,27 @@ RING_FUNC(ring_updatelist)
             nRow   = ring_list_getsize(pList);           //  Row-A
             pRow   = ring_list_getlist(pList,nRow);
             nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
-			
-			if( nRow != nEnd)
-			{   RING_API_ERROR("Matrix must be square. Row != Col ");
-			}
+            
+            if( nRow != nEnd)
+            {   RING_API_ERROR("Matrix must be square. Row != Col ");
+            }
 
             // Set 0's All
-		    for( v = 1; v <= nRow; v++) 
-			{
-		       for( h = 1; h <= nEnd; h++) 
-			   { 				
-				   pSubList  = ring_list_getlist(pList, v) ;   // Row                     
-					           ring_list_setdouble_gc(pVM->pRingState,pSubList, h, 0);  // Set R-C==     
-			   }		
-		    }
+            for( v = 1; v <= nRow; v++) 
+            {
+               for( h = 1; h <= nEnd; h++) 
+               {                
+                   pSubList  = ring_list_getlist(pList, v) ;   // Row                     
+                               ring_list_setdouble_gc(pVM->pRingState,pSubList, h, 0);  // Set R-C==     
+               }        
+            }
 
             // Set 1's Diagonal
-		    for( v = 1; v <= nRow; v++) 
-			{  
-				pSubList  = ring_list_getlist(pList, v) ;   // Row                     
-					        ring_list_setdouble_gc(pVM->pRingState,pSubList, v, 1);  // Set R-C=1      
-		    }
+            for( v = 1; v <= nRow; v++) 
+            {  
+                pSubList  = ring_list_getlist(pList, v) ;   // Row                     
+                            ring_list_setdouble_gc(pVM->pRingState,pSubList, v, 1);  // Set R-C=1      
+            }
 
             //----------------
             break ;
@@ -1800,26 +1806,55 @@ RING_FUNC(ring_updatelist)
          nRow   = ring_list_getsize(pList);           //  Row-A
          pRow   = ring_list_getlist(pList,nRow);
          nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
-		
+        
          // Set Random Number All
-		
-		 srand( time( NULL));
-	     for( v = 1; v <= nRow; v++ ) 
-		 {  
+        
+         srand( time( NULL));
+         for( v = 1; v <= nRow; v++ ) 
+         {  
            for( h = 1; h <= nEnd; h++ ) 
-		   { 		
-               valueA = (double)(rand() % 100 + 1) / 100;  // Random 0.00 to 1.00
-	   
-			   pSubList  = ring_list_getlist(pList, v) ;   // Row                     
-				           ring_list_setdouble_gc(pVM->pRingState,pSubList, h, valueA );      
-		   }		
-	     }
+           {        
+               valueA = (double)(rand() % 100 + 1) ;  // Random 1 to 100
+       
+               pSubList  = ring_list_getlist(pList, v) ;   // Row                     
+                           ring_list_setdouble_gc(pVM->pRingState,pSubList, h, valueA );      
+           }        
+         }
 
          //----------------
          break ;
 
       //===End 2006 ==============================  
-		 
+      
+       case 2106 :
+         /* Mean Matrix-A  */    
+
+         // pList  = RING_API_GETLIST(1) ;
+
+         nRow   = ring_list_getsize(pList);           //  Row-A
+         pRow   = ring_list_getlist(pList,nRow);
+         nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
+        
+         Sum = 0;
+         for( v = 1; v <= nRow; v++ ) 
+         {  
+           for( h = 1; h <= nEnd; h++ ) 
+           {        
+                pSubList  = ring_list_getlist(pList, v) ;        // Row                     
+                valueA    = ring_list_getdouble( pSubList, h ) ; // Col = value 
+                Sum      += valueA ;
+           }        
+         }
+         
+         valueC = Sum / (nRow * nEnd);   // Total / entries
+         RING_API_RETNUMBER(valueC);
+
+         //----------------
+         break ;
+
+      //===End 2006 ==============================        
+      
+         
          
     //=== End CASES =================================
     
