@@ -73,6 +73,7 @@ The next samples and applications are added:
 * samples/UsingFastPro/MatrixRandom.ring
 * samples/UsingFastPro/MatrixMean.ring
 * samples/UsingFastPro/MatrixSqrt.ring
+* samples/UsingFastPro/MatrixSquare.ring
 
 The next applications are revised:
 
