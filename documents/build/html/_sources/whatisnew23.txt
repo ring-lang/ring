@@ -74,6 +74,7 @@ The next samples and applications are added:
 * samples/UsingFastPro/MatrixMean.ring
 * samples/UsingFastPro/MatrixSqrt.ring
 * samples/UsingFastPro/MatrixSquare.ring
+* samples/UsingFastPro/MatrixSigmoid.ring
 
 The next applications are revised:
 
