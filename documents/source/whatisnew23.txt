@@ -75,6 +75,7 @@ The next samples and applications are added:
 * samples/UsingFastPro/MatrixSqrt.ring
 * samples/UsingFastPro/MatrixSquare.ring
 * samples/UsingFastPro/MatrixSigmoid.ring
+* samples/UsingFastPro/MatrixSigmoidPrime.ring
 
 The next applications are revised:
 
@@ -96,3 +97,4 @@ More Improvements
 * VSCode Extension - Added support for the EndIf keyword
 * Added FreeBSD support in ring.h and general.c for executable path retrieval
 * VSCode Extension - Support for using underscore inside numbers
+* RingLibuv - Support compilation on Linux with GCC 14/Clang 19+
