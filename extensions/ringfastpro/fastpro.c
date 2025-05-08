@@ -14,6 +14,7 @@
 **                    Sqrt-Matrix  
 **                    Square-Matrix
 **                    Sigmoid-Matrix
+**                    SigmoidPrime-Matrix
 */
 
 #include "ring.h"
@@ -197,6 +198,7 @@ RING_FUNC(ring_list2bytes)
 //  aListC = updateList(<aList>,:sqrt,:matrix )               // 3 Parms, Sqrt of Each entry 
 //  aListC = updateList(<aList>,:square,:matrix )             // 3 Parms, Sqrt of Each entry 
 //  aListC = updateList(<aList>,:sigmoid,:matrix )            // 3 Parms, Sigmoid of Each entry 
+//  aListC = updateList(<aList>,:sigmoidprime,:matrix )       // 3 Parms, SigmoidPrime of Each entry
 //
 //  Set the Operation code. Add Selection Code for Jump => 503
 //  strcmp(cOperation,"set")        nOPCode += 100 ;
@@ -223,6 +225,7 @@ RING_FUNC(ring_list2bytes)
 //  strcmp(cOperation,"sqrt")       nOPCode += 2200 ;   // Sqrt-Matrix       2206
 //  strcmp(cOperation,"square")     nOPCode += 2300 ;   // Square-Matrix     2306
 //  strcmp(cOperation,"sigmoid")    nOPCode += 2400 ;   // Sigmoid-Matrix    2406
+//  strcmp(cOperation,"sigmoidprime") nOPCode += 2500 ;   // Sigmoid-Matrix    2506
 //
 //  Set the Selection Code
 //  strcmp(cSelection,"row")       nOPCode = 1 ;
@@ -623,7 +626,11 @@ RING_FUNC(ring_updatelist)
     
     else if ( strcmp(cOperation,"sigmoid") == 0 ) {
         nOPCode += 2400 ;
-    } 
+    }
+    
+    else if ( strcmp(cOperation,"sigmoidprime") == 0 ) {
+        nOPCode += 2500 ;
+    }   
     
     else {
         RING_API_ERROR("The second parameter must be a string: [Set | Add | Sub | Mul | Div | Copy | Merge | MergeSub |  MergeMul | MergeDiv | etc ");
@@ -1986,7 +1993,46 @@ RING_FUNC(ring_updatelist)
          //----------
          break ;
 
-      //===End 2406 ==============================        
+      //===End 2406 ==============================   
+
+        case 2506 :
+         /* SIGMOID-PRIME Matrix-A  */    
+
+         // pList  = RING_API_GETLIST(1) ;
+
+         nRow   = ring_list_getsize(pList);           //  Row-A
+         pRow   = ring_list_getlist(pList,nRow);
+         nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
+
+         //--- CREATE Output List-C - Outside Dims.-----
+         pListC  = RING_API_NEWLISTUSINGBLOCKS2D( nRow, nEnd) ;
+
+         nRowC   = ring_list_getsize(pListC) ;        // Row-C v
+         pRowC   = ring_list_getlist(pListC,nRowC);                
+         nEndC   = ring_list_getsize(pRowC) ;         // Col-C h
+         
+        //-------------------
+
+         for( v = 1; v <= nRow; v++ ) 
+         {  
+           for( h = 1; h <= nEnd; h++ ) 
+           {        
+                pSubList  = ring_list_getlist(pList, v) ;        // Row-A                     
+                valueA    = ring_list_getdouble( pSubList, h ) ; // Col-A = value 
+                
+                valueC    = valueA * (1 - valueA) ;
+
+                pSubListC = ring_list_getlist(pListC, v) ;       // Row                     
+                            ring_list_setdouble_gc(pVM->pRingState,pSubListC, h, valueC );                             
+           }        
+         }
+         
+         RING_API_RETLIST( pListC );
+         
+         //----------
+         break ;
+
+      //===End 2506 ==============================        
  
     //=== End CASES =================================
     
