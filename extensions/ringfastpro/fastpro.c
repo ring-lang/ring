@@ -18,6 +18,7 @@
 **                    Tanh-Matrix
 **                    LeakyReLU-Matrix
 **                    LeakyReLUPrime-Matrix
+**                    ReLu-Matrix
 */
 
 #include "ring.h"
@@ -204,7 +205,8 @@ RING_FUNC(ring_list2bytes)
 //  aListC = updateList(<aList>,:sigmoidprime,:matrix )       // 3 Parms, SigmoidPrime 
 //  aListC = updateList(<aList>,:tanh,:matrix )               // 3 Parms, Tanh of Each entry
 //  aListC = updateList(<aList>,:leakyrelu,:matrix )          // 3 Parms, LeakyReLU of Each entry
-//  aListC = updateList(<aList>,:leakyreluprimw,:matrix )     // 3 Parms, LeakyReLUPrime
+//  aListC = updateList(<aList>,:leakyreluprime,:matrix )     // 3 Parms, LeakyReLUPrime
+//  aListC = updateList(<aList>,:relu,:matrix )               // 3 Parms, ReLu
 //
 //  Set the Operation code. Add Selection Code for Jump => 503
 //  strcmp(cOperation,"set")        nOPCode += 100 ;
@@ -231,10 +233,11 @@ RING_FUNC(ring_list2bytes)
 //  strcmp(cOperation,"sqrt")       nOPCode += 2200 ;   // Sqrt-Matrix       2206
 //  strcmp(cOperation,"square")     nOPCode += 2300 ;   // Square-Matrix     2306
 //  strcmp(cOperation,"sigmoid")    nOPCode += 2400 ;   // Sigmoid-Matrix    2406
-//  strcmp(cOperation,"sigmoidprime")   nOPCode += 2500 ;  // Sigmoid-Matrix   2506
+//  strcmp(cOperation,"sigmoidprime")   nOPCode += 2500 ;  // Sigmoid-Matrix 2506
 //  strcmp(cOperation,"tanh")       nOPCode += 2600 ;   // Tanh-Matrix       2606
-//  strcmp(cOperation,"leakyrelu")  nOPCode += 2700 ;       // LeakyReLu-Matrix  2706
-//  strcmp(cOperation,"leakyreluprime") nOPCode += 2800 ;   // LeakyReLuPrime-Matrix  2806
+//  strcmp(cOperation,"leakyrelu")  nOPCode += 2700 ;       // LeakyReLu-Matrix 2706
+//  strcmp(cOperation,"leakyreluprime") nOPCode += 2800 ;   // LeakyReLuPrime-Matrix 2806
+//  strcmp(cOperation,"relu")       nOPCode += 2900 ;   // ReLu-Matrix       2906
 //
 //  Set the Selection Code
 //  strcmp(cSelection,"row")       nOPCode = 1 ;
@@ -653,6 +656,9 @@ RING_FUNC(ring_updatelist)
         nOPCode += 2800 ;
     }
     
+    else if ( strcmp(cOperation,"relu") == 0 ) {
+        nOPCode += 2900 ;
+    }
    
     else {
         RING_API_ERROR("The second parameter must be a string: [Set | Add | Sub | Mul | Div | Copy | Merge | MergeSub |  MergeMul | MergeDiv | etc ");
@@ -2185,6 +2191,51 @@ RING_FUNC(ring_updatelist)
          break ;
 
       //===End 2806 ==============================  
+
+        case 2906 :
+         /* ReLu Matrix-A  */    
+
+         // pList  = RING_API_GETLIST(1) ;
+
+         nRow   = ring_list_getsize(pList);           //  Row-A
+         pRow   = ring_list_getlist(pList,nRow);
+         nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
+
+         //--- CREATE Output List-C - Outside Dims.-----
+         pListC  = RING_API_NEWLISTUSINGBLOCKS2D( nRow, nEnd) ;
+
+         nRowC   = ring_list_getsize(pListC) ;        // Row-C v
+         pRowC   = ring_list_getlist(pListC,nRowC);                
+         nEndC   = ring_list_getsize(pRowC) ;         // Col-C h
+         
+        //-------------------
+
+         for( v = 1; v <= nRow; v++ ) 
+         {  
+           for( h = 1; h <= nEnd; h++ ) 
+           {        
+                pSubList  = ring_list_getlist(pList, v) ;        // Row-A                     
+                valueA    = ring_list_getdouble( pSubList, h ) ; // Col-A = value 
+                             
+
+                if( valueA < 0 ) 
+                {   valueC = 0 ;
+                }
+                else
+                {    valueC = valueA ;
+                } 
+
+                pSubListC = ring_list_getlist(pListC, v) ;       // Row                     
+                            ring_list_setdouble_gc(pVM->pRingState,pSubListC, h, valueC );                             
+           }        
+         }
+         
+         RING_API_RETLIST( pListC );
+         
+         //----------
+         break ;
+
+      //===End 2906 ==============================  
 
 
       
