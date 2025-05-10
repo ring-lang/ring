@@ -16,6 +16,7 @@
 **                    Sigmoid-Matrix
 **                    SigmoidPrime-Matrix
 **                    Tanh-Matrix
+**                    LeakyReLU-Matrix
 */
 
 #include "ring.h"
@@ -199,8 +200,9 @@ RING_FUNC(ring_list2bytes)
 //  aListC = updateList(<aList>,:sqrt,:matrix )               // 3 Parms, Sqrt of Each entry 
 //  aListC = updateList(<aList>,:square,:matrix )             // 3 Parms, Sqrt of Each entry 
 //  aListC = updateList(<aList>,:sigmoid,:matrix )            // 3 Parms, Sigmoid of Each entry 
-//  aListC = updateList(<aList>,:sigmoidprime,:matrix )       // 3 Parms, SigmoidPrime of Each entry
+//  aListC = updateList(<aList>,:sigmoidprime,:matrix )       // 3 Parms, SigmoidPrime 
 //  aListC = updateList(<aList>,:tanh,:matrix )               // 3 Parms, Tanh of Each entry
+//  aListC = updateList(<aList>,:leakyrelu,:matrix )          // 3 Parms, LeakyReLU of Each entry
 //
 //  Set the Operation code. Add Selection Code for Jump => 503
 //  strcmp(cOperation,"set")        nOPCode += 100 ;
@@ -227,9 +229,9 @@ RING_FUNC(ring_list2bytes)
 //  strcmp(cOperation,"sqrt")       nOPCode += 2200 ;   // Sqrt-Matrix       2206
 //  strcmp(cOperation,"square")     nOPCode += 2300 ;   // Square-Matrix     2306
 //  strcmp(cOperation,"sigmoid")    nOPCode += 2400 ;   // Sigmoid-Matrix    2406
-//  strcmp(cOperation,"sigmoidprime") nOPCode += 2500 ;   // Sigmoid-Matrix    2506
-//  strcmp(cOperation,"tanh")       nOPCode += 2600 ;   // Tanh-Matrix    2606
-
+//  strcmp(cOperation,"sigmoidprime") nOPCode += 2500 ;  // Sigmoid-Matrix   2506
+//  strcmp(cOperation,"tanh")       nOPCode += 2600 ;   // Tanh-Matrix       2606
+//  strcmp(cOperation,"leakyrelu")  nOPCode += 2700 ;   // LeakyReLu-Matrix  2706
 //
 //  Set the Selection Code
 //  strcmp(cSelection,"row")       nOPCode = 1 ;
@@ -639,7 +641,10 @@ RING_FUNC(ring_updatelist)
     else if ( strcmp(cOperation,"tanh") == 0 ) {
         nOPCode += 2600 ;
     }   
-    
+ 
+    else if ( strcmp(cOperation,"leakyrelu") == 0 ) {
+        nOPCode += 2700 ;
+    }  
    
     else {
         RING_API_ERROR("The second parameter must be a string: [Set | Add | Sub | Mul | Div | Copy | Merge | MergeSub |  MergeMul | MergeDiv | etc ");
@@ -2043,7 +2048,6 @@ RING_FUNC(ring_updatelist)
 
       //===End 2506 ==============================   
    
-
         case 2606 :
          /* TANH Matrix-A  */    
 
@@ -2081,8 +2085,57 @@ RING_FUNC(ring_updatelist)
          //----------
          break ;
 
-      //===End 2606 ==============================        
- 
+      //===End 2606 ==============================   
+
+
+        case 2706 :
+         /* LeakyReLU Matrix-A  */    
+
+         // pList  = RING_API_GETLIST(1) ;
+
+         nRow   = ring_list_getsize(pList);           //  Row-A
+         pRow   = ring_list_getlist(pList,nRow);
+         nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
+
+         //--- CREATE Output List-C - Outside Dims.-----
+         pListC  = RING_API_NEWLISTUSINGBLOCKS2D( nRow, nEnd) ;
+
+         nRowC   = ring_list_getsize(pListC) ;        // Row-C v
+         pRowC   = ring_list_getlist(pListC,nRowC);                
+         nEndC   = ring_list_getsize(pRowC) ;         // Col-C h
+         
+        //-------------------
+
+         for( v = 1; v <= nRow; v++ ) 
+         {  
+           for( h = 1; h <= nEnd; h++ ) 
+           {        
+                pSubList  = ring_list_getlist(pList, v) ;        // Row-A                     
+                valueA    = ring_list_getdouble( pSubList, h ) ; // Col-A = value 
+                
+
+			    if( valueA < 0 ) 
+			    {   valueC = valueA * 0.01 ;
+				}
+		        else
+			    {    valueC = valueA ;
+		        } 
+
+                pSubListC = ring_list_getlist(pListC, v) ;       // Row                     
+                            ring_list_setdouble_gc(pVM->pRingState,pSubListC, h, valueC );                             
+           }        
+         }
+         
+         RING_API_RETLIST( pListC );
+         
+         //----------
+         break ;
+
+      //===End 2706 ==============================  
+
+
+	  
+    //===============================================
     //=== End CASES =================================
     
     }
