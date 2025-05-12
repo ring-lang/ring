@@ -21,6 +21,7 @@
 **                    ReLu-Matrix
 **                    ReLuPrime-Matrix
 **                    Exp-Matrix
+**                    Sum-Matrix  // Axis 1=Rows, 0=Cols
 */
 
 #include "ring.h"
@@ -211,6 +212,7 @@ RING_FUNC(ring_list2bytes)
 //  aListC = updateList(<aList>,:relu,:matrix )               // 3 Parms, ReLu
 //  aListC = updateList(<aList>,:reluprime,:matrix )          // 3 Parms, ReLuPrime
 //  aListC = updateList(<aList>,:exp,:matrix )                // 3 Parms, Exp
+//  aListC = updateList(<aList>,:sum,:matrix )                // 3 Parms, Sum Axis 1=Rows 0=Cols
 //
 //  Set the Operation code. Add Selection Code for Jump => 503
 //  strcmp(cOperation,"set")        nOPCode += 100 ;
@@ -243,7 +245,8 @@ RING_FUNC(ring_list2bytes)
 //  strcmp(cOperation,"leakyreluprime") nOPCode += 2800 ;   // LeakyReLuPrime-Matrix 2806
 //  strcmp(cOperation,"relu")       nOPCode += 2900 ;   // ReLu-Matrix       2906
 //  strcmp(cOperation,"reluprime")  nOPCode += 3000 ;   // ReLuPrime-Matrix  3006
-//  strcmp(cOperation,"exp")        nOPCode += 3100 ;   // Exp-Matrix  3006
+//  strcmp(cOperation,"exp")        nOPCode += 3100 ;   // Exp-Matrix        3106
+//  strcmp(cOperation,"sum")        nOPCode += 3200 ;   // Sum-Matrix        3206
 //
 //  Set the Selection Code
 //  strcmp(cSelection,"row")       nOPCode = 1 ;
@@ -273,7 +276,7 @@ RING_FUNC(ring_updatelist)
     int   dRow ;  // Dest Row    if Parm 6
     List *pRowD ; // Dest Row    if Parm 6
 
-    double Sum, valueA, valueB, valueC ;           // Matrix Multiply
+    double Sum, valueA, valueB, valueC, nSum ;     // Matrix Multiply
     int    i, j, k , v, h ;
     int    vA, vB, vC, hA, hB, hC, Axis ;
     int    sizeX, sizeY ;
@@ -620,6 +623,10 @@ RING_FUNC(ring_updatelist)
      
     else if ( strcmp(cOperation,"maximum") == 0 ) {
         nOPCode += 1800 ;
+            if ( nValue > 1 ) {
+            RING_API_ERROR("Maximum Axis must be 0-ALL, 1=Diagonal");
+            return ;
+        }
     }
     
     else if ( strcmp(cOperation,"identity") == 0 ) {
@@ -672,6 +679,14 @@ RING_FUNC(ring_updatelist)
 
     else if ( strcmp(cOperation,"exp") == 0 ) {
         nOPCode += 3100 ;
+    } 
+
+    else if ( strcmp(cOperation,"sum") == 0 ) {
+        nOPCode += 3200 ;
+            if ( nValue > 1 ) {
+            RING_API_ERROR("Sum Axis must be 1=Rows, 0=Cols");
+            return ;
+        }
     }   
     
     else {
@@ -2334,6 +2349,78 @@ RING_FUNC(ring_updatelist)
          break ;
 
       //===End 3106 ==============================        
+
+        case 3206 :
+         /* SUM Matrix-A Axis 1=Rows, 0=Cols */    
+
+         // pList  = RING_API_GETLIST(1) ;
+         Axis   = RING_API_GETNUMBER(4);              // Axis 1=Rows 0=Cols
+
+         nRow   = ring_list_getsize(pList);           //  Row-A
+         pRow   = ring_list_getlist(pList,nRow);
+         nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
+
+         //--- CREATE Output List-C - Outside Dims.-----
+        if(Axis == 1)   // Rows
+        { pListC  = RING_API_NEWLISTUSINGBLOCKS2D( nRow,1) ;
+        }
+        else
+        { pListC  = RING_API_NEWLISTUSINGBLOCKS2D( 1,nEnd) ;
+        }
+
+         nRowC   = ring_list_getsize(pListC) ;        // Row-C v
+         pRowC   = ring_list_getlist(pListC,nRowC);                
+         nEndC   = ring_list_getsize(pRowC) ;         // Col-C h
+         
+        //---------------------------------------------
+        // ONLY NEED 1 Loop. For Rows-Sum or Col-sum
+        
+        if(Axis == 1)   // Rows
+        {  
+            for( v = 1; v <= nRow; v++ ) 
+            {  
+                //--- Sum up the COLS-k in that Row -----
+                nSum = 0;
+                for( k = 1; k <= nEnd; k++ )   
+                {   
+                   pSubList  = ring_list_getlist(pList, v) ;        // Row-A                     
+                   nSum     += ring_list_getdouble( pSubList, k ) ; // Col-A = value 
+                }             
+            
+                pSubListC = ring_list_getlist(pListC, v) ;       // Row                     
+                            ring_list_setdouble_gc(pVM->pRingState,pSubListC, 1, nSum );                             
+            
+            }
+            
+            RING_API_RETLIST( pListC );
+         
+        }
+        else if( Axis == 0 )
+        {   
+            for( h = 1; h <= nEnd; h++ ) 
+            {   
+                 //--- Sum up the ROWS-k in that Col -----
+                 nSum = 0;
+                 for( k = 1; k <= nRow; k++ )
+                 { pSubList  = ring_list_getlist(pList, k) ; // Row-A                     
+                   nSum     += ring_list_getdouble( pSubList, h ) ; // Col-A = 
+                 } 
+         
+                 pSubListC = ring_list_getlist(pListC, 1) ;       // Row                     
+                             ring_list_setdouble_gc(pVM->pRingState,pSubListC, h, nSum );                             
+            }        
+           
+           RING_API_RETLIST( pListC );
+         
+        }
+        else
+          {RING_API_ERROR("Sum BAD nValue. 1=Rows  0=Cols");         
+        } 
+         
+         //----------
+         break ;
+
+      //===End 3206 ==============================        
 
 
       
