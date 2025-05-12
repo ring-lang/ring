@@ -82,6 +82,7 @@ The next samples and applications are added:
 * samples/UsingFastPro/MatrixReLu.ring
 * samples/UsingFastPro/MatrixReLuPrime.ring
 * samples/UsingFastPro/MatrixExp.ring
+* samples/UsingFastPro/MatrixSumAxis.ring 
 
 The next applications are revised:
 
