@@ -1077,6 +1077,117 @@ func ASCIIList2Str aList
 	return cStr 
 
 /*
+	Function Name	: StringToBase64 
+	Usage		: Convert a string to base64 encoded string
+	Parameters	: String to encode
+	Output		: Base64 encoded string
+*/
+func StringToBase64 cInputString
+    cBase64Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+    cOutputString = ""
+    nInputLen = len(cInputString)
+
+    if nInputLen = 0
+        return NULL
+    ok
+
+    nInputIndex = 1
+    while nInputIndex <= nInputLen
+        nByte1 = ascii(cInputString[nInputIndex])
+        nInputIndex++
+        
+        nByte2 = NULL
+        if nInputIndex <= nInputLen
+            nByte2 = ascii(cInputString[nInputIndex])
+            nInputIndex++
+        ok
+        
+        nByte3 = NULL
+        if nInputIndex <= nInputLen
+            nByte3 = ascii(cInputString[nInputIndex])
+            nInputIndex++
+        ok
+
+        nEnc1 = nByte1 >> 2
+        cOutputString += cBase64Chars[nEnc1 + 1]
+
+        nEnc2 = (nByte1 & 3) << 4
+        if not isNull(nByte2)
+            nEnc2 = nEnc2 | (nByte2 >> 4)
+        ok
+        cOutputString += cBase64Chars[nEnc2 + 1]
+
+        if not isNull(nByte2)
+            nEnc3 = (nByte2 & 15) << 2
+            if not isNull(nByte3)
+                nEnc3 = nEnc3 | (nByte3 >> 6)
+            ok
+            cOutputString += cBase64Chars[nEnc3 + 1]
+        else 
+            cOutputString += "="
+        ok
+        
+        if not isNull(nByte3)
+            nEnc4 = nByte3 & 63
+            cOutputString += cBase64Chars[nEnc4 + 1]
+        else
+            cOutputString += "="
+        ok
+    end
+
+    return cOutputString
+
+/*
+	Function Name	: Base64ToString
+	Usage		: Convert a base64 encoded string back to original string
+	Parameters	: Base64 encoded string to decode
+	Output		: Decoded string
+*/
+func Base64ToString cInputString
+    cBase64Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+    cOutputString = NULL
+
+    cCleanInput = NULL
+    for i = 1 to len(cInputString)
+        if substr(cBase64Chars, cInputString[i]) > 0 or cInputString[i] = "="
+            cCleanInput += cInputString[i]
+        ok
+    next
+
+    nInputLen = len(cCleanInput)
+    
+    if nInputLen % 4 != 0
+        return NULL
+    ok
+    
+    nInputIndex = 1
+    while nInputIndex <= nInputLen
+        nEnc1 = substr(cBase64Chars, cInputString[nInputIndex]) - 1
+        nInputIndex++
+        nEnc2 = substr(cBase64Chars, cInputString[nInputIndex]) - 1
+        nInputIndex++
+        nEnc3 = substr(cBase64Chars, cInputString[nInputIndex]) - 1
+        nInputIndex++
+        nEnc4 = substr(cBase64Chars, cInputString[nInputIndex]) - 1
+        nInputIndex++
+        
+        nByte1 = (nEnc1 << 2) | (nEnc2 >> 4)
+        cOutputString += char(nByte1)
+        
+        if cInputString[nInputIndex - 2] != "="
+            nByte2 = ((nEnc2 & 15) << 4) | (nEnc3 >> 2)
+            cOutputString += char(nByte2)
+        ok
+        
+        if cInputString[nInputIndex - 1] != "="
+            nByte3 = ((nEnc3 & 3) << 6) | nEnc4
+            cOutputString += char(nByte3)
+        ok
+    end
+    
+    return cOutputString
+
+/*
 	Get Item from time information list
 */
 func timeInfo( item )

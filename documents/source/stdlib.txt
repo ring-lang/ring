@@ -1439,6 +1439,54 @@ Output:
 
 
 .. index:: 
+	pair: Stdlib Functions; StringToBase64() Function
+
+StringToBase64() Function
+=======================
+
+Convert a string to base64 encoded string.
+
+Syntax:
+
+.. code-block:: ring
+
+	StringToBase64(string) ---> base64 encoded string
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlibcore.ring"
+
+	cStr = "Hello World"
+	see StringToBase64(cStr)	# Output: SGVsbG8gV29ybGQ=
+
+
+.. index:: 
+	pair: Stdlib Functions; Base64ToString() Function
+
+Base64ToString() Function
+=======================
+
+Convert a base64 encoded string back to original string.
+
+Syntax:
+
+.. code-block:: ring
+
+	Base64ToString(base64string) ---> decoded string
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlibcore.ring"
+
+	cBase64 = "SGVsbG8gV29ybGQ="
+	see Base64ToString(cBase64)	# Output: Hello World
+
+
+.. index:: 
 	pair: Stdlib Functions; IsListContainsItems() Function
 
 IsListContainsItems() Function
