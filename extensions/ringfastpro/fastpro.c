@@ -23,6 +23,8 @@
 **                    Exp-Matrix
 **                    Sum-Matrix      // Axis 1=Rows, 0=Cols
 **                    Softmax-Matrix
+**                    ScalarDiv
+**                    HorStack
 */
 
 #include "ring.h"
@@ -197,7 +199,6 @@ RING_FUNC(ring_list2bytes)
 //  aListC = updateList(<aList>,:mul,:matrix,<aListB>)        // 4 Parms
 //  aListC = updateList(<aList>,:transpose,:matrix )          // 3 Parms - Rotate matrix
 //  aListC = updateList(<aList>,:scalar,:matrix,<nValue> )    // Matrix Multiply
-//  aListC = updateList(<aList>,:scalardiv,:matrix,<nValue> ) // Matrix Divide
 //  valueA/aListC = updateList(<aList>,:dotproduct,:matrix,<aListB>) // Result 1D=Scalar-Nbr, 2D=Matrix
 //  aListC = updateList(<aList>,:fill,:matrix,<nValue> )      // Matrix fill with nValue
 //  valueA = updateList(<aList>,:maximum,:matrix,<nValue> )   // nValue = 0/1  Entire/Diagonal
@@ -216,6 +217,8 @@ RING_FUNC(ring_list2bytes)
 //  aListC = updateList(<aList>,:exp,:matrix )                // 3 Parms, Exp
 //  aListC = updateList(<aList>,:sum,:matrix )                // 3 Parms, Sum Axis 1=Rows 0=Cols
 //  aListC = updateList(<aList>,:softmax,:matrix )            // 3 Parms, Softmax
+//  aListC = updateList(<aList>,:scalardiv,:matrix,<nValue> ) // Matrix Divide
+//  aListC = updateList(<aList>,:horstack,:matrix,:matrix )   // Matrix HorStack
 //
 //  Set the Operation code. Add Selection Code for Jump => 503
 //  strcmp(cOperation,"set")        nOPCode += 100 ;
@@ -253,6 +256,7 @@ RING_FUNC(ring_list2bytes)
 //  strcmp(cOperation,"sum")        nOPCode += 3200 ;   // Sum-Matrix        3206
 //  strcmp(cOperation,"softmax")    nOPCode += 3300 ;   // Softmax-Matrix    3306
 //  strcmp(cOperation,"scalardiv")  nOPCode += 3400 ;   // ScalarDiv-Matrix  3406
+//  strcmp(cOperation,"horstack")   nOPCode += 3500 ;   // HorStack-Matrix   3506
 //
 //  Set the Selection Code
 //  strcmp(cSelection,"row")       nOPCode = 1 ;
@@ -706,7 +710,11 @@ RING_FUNC(ring_updatelist)
             RING_API_ERROR("Can't divide by zero");
             return ;
         }
-    }   
+    }
+    
+    else if ( strcmp(cOperation,"horstack") == 0 ) {
+        nOPCode += 3500 ;
+    }       
     
     else {
         RING_API_ERROR("The second parameter must be a string: [Set | Add | Sub | Mul | Div | Copy | Merge | MergeSub |  MergeMul | MergeDiv | etc ");
@@ -2443,6 +2451,7 @@ RING_FUNC(ring_updatelist)
 
         case 3306 :
          /* SoftMax Matrix-A   Can NOT self call updateList()*/ 
+         // NOT IMPLEMENTED -- Use FastProSoftMax() Function 
          
       // pList  = RING_API_GETLIST(1) ;
 
@@ -2458,20 +2467,9 @@ RING_FUNC(ring_updatelist)
          nEndC   = ring_list_getsize(pRowC) ;         // Col-C h
          
         //-------------------
-        
-        
-//       aListC = updateList(<aList>,:exp,:matrix )
-//       aListC = updateList(<aList>,:sum,:matrix )
-//       aListC = updateList(<aList>,:scalardiv,:matrix,<nValue> )
-
-//       func Softmax (Matrix) { 
-//            MatrixExp  = MExp(Matrix)
-//            MatrixSum  = MSum(MatrixExp,0)
-//            MtxSoftmax = DivByNum(MatrixExp,MatrixSum[1][1])
-//            return MtxSoftmax
-//       } 
-
-       RING_API_RETLIST( pList );
+ 
+         RING_API_ERROR("SoftMAx: NOT IMPLEMENTED -- Use FastProSoftMax() Function "); 
+       //RING_API_RETLIST( pList );
         
         //----------
         break ;
@@ -2494,14 +2492,16 @@ RING_FUNC(ring_updatelist)
            
             nRowC   = ring_list_getsize(pListC) ;        // Row-C vert
             pRowC   = ring_list_getlist(pListC,nRowC);
-            nEndC   = ring_list_getsize(pRowC) ;         // Col-C horz
+            nEndC   = ring_list_getsize(pRowC) ;         // Col-C horz          
+            
+            
             //------------------------------------
            
             for( vA = 1; vA <= nRow ; vA++)
-            {   for( hB = 1; hB <= nEnd; hB++)
-                { // aListC[vA][hB] = k / (aList[vA][hB])  
-
-                  pSubList  = ring_list_getlist(pList, vA) ;        // Row
+            {   pSubList  = ring_list_getlist(pList, vA) ;         // Row
+        
+                for( hB = 1; hB <= nEnd; hB++)
+                {   
                   valueA    = ring_list_getdouble( pSubList, hB ) ; // Col
                   valueC    = valueA / k;
 
@@ -2515,6 +2515,66 @@ RING_FUNC(ring_updatelist)
 
          //===End 3406 ==============================   
 
+
+        case 3506 :
+         /* HorStack Matrix-A Matric-C => Matrix-C */ 
+         
+      // pList  = RING_API_GETLIST(1) ;
+         pListB = RING_API_GETLIST(4) ;
+
+         nRow   = ring_list_getsize(pList);           //  Row-A  5x5
+         pRow   = ring_list_getlist(pList,nRow);
+         nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
+         
+         nRowB   = ring_list_getsize(pListB);         //  Row-A  5x5
+         pRowB   = ring_list_getlist(pList,nRowB);
+         nEndB   = ring_list_getsize(pRowB) ;         //  Col-A          
+
+         //--- CREATE Output List-C - Outside Dims.-----
+         pListC  = RING_API_NEWLISTUSINGBLOCKS2D( nRow, (nRow+nRowB) ) ; // Wide 2x
+
+         nRowC   = ring_list_getsize(pListC) ;        // Row-C v
+         pRowC   = ring_list_getlist(pListC,nRowC);                
+         nEndC   = ring_list_getsize(pRowC) ;         // Col-C h
+         
+        //-------------------
+        
+        if( nRow != nRowB )
+        { RING_API_ERROR("HorStack: Number of Rows Not Equal in Matrix-A and Matrix-B ");           
+        }
+
+        for( i = 1; i <= nRow; i++)      // Row-A
+        {   pSubList = ring_list_getlist(pList, i) ;            // Row-A
+        
+            for( j = 1; j <= nEnd; j++)  // Col-A
+            {           
+                valueA    = ring_list_getdouble( pSubList, j ) ; // Col-A
+                
+                pSubListC = ring_list_getlist(pListC, i ) ;
+                ring_list_setdouble_gc(pVM->pRingState,pSubListC, j, valueA); // Offset 
+                      
+            }
+        }
+
+    
+        for( i = 1; i <= nRowB; i++)      // Row-B
+        {   pSubListB = ring_list_getlist(pListB, i) ;           // Row-B
+            for( j = 1; j <= nEndB; j++)  // Col-B
+            {
+                valueB    = ring_list_getdouble( pSubListB, j ) ; // Col-B
+                
+                pSubListC = ring_list_getlist(pListC, i ) ;
+                ring_list_setdouble_gc(pVM->pRingState,pSubListC, nEnd + j, valueB ); // Offset Col-A
+                      
+            }
+        }   
+
+       RING_API_RETLIST( pListC );
+        
+        //----------
+        break ;
+
+      //===End 3306 ==============================             
       
     //===============================================
     //=== End CASES =================================
