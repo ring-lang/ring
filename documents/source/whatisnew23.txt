@@ -99,6 +99,7 @@ The next samples and applications are added:
 * samples/UsingFastPro/MatrixSoftMax.ring
 * samples/UsingFastPro/MatrixHorStack.ring
 * samples/UsingFastPro/MatrixScalarDiv.ring
+* samples/UsingFastPro/MatrixVertStack.ring 
 
 The next applications are revised:
 
