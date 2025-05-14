@@ -1,0 +1,116 @@
+# Author: Bert Mariani 
+
+load "matrixlib.ring"
+load "fastpro.ring"
+
+Decimals(2) 
+ 
+           
+aListA = [ 1:5,
+           2:6,
+           3:7,
+           4:8,
+           5:9]   
+		   
+	 	   
+aListB = [ 6:10,
+           7:11,
+           8:12,
+           9:13,
+           10:14]
+		   	   
+    
+See"aListA " MatrixPrint(aListA)
+See"aListB " MatrixPrint(aListB)
+
+//==================================
+// Ring
+
+aListC = VerStack ( aListA, aListB)
+see " Ring VerStack"  MatrixPrint(aListC)
+
+
+
+// FastPro
+
+aListC = updatelist(aListA,:verstack,:matrix,aListB)
+see "FastPro VerStack"  MatrixPrint(aListC)
+
+
+//==================================
+
+
+//====================================
+//====================================
+// SPEED TEST
+
+
+X = 1000
+Y = 1000
+aListA = list(X,Y)
+
+         updateList(aListA,:random,:matrix )  // 0.00 to 1.00
+aListA = updateList(aListA,:scalar,:matrix,10 ) 
+aListB = updateList(aListA,:scalar,:matrix,2 )
+
+//See " Generate aListA " MatrixPrint(aListA)
+
+
+//==================================
+
+// FastPro
+
+         t1 = clock()
+aListC = updatelist(aListA,:verstack,:matrix,aListB)
+         t2   = clock()
+         Diff = t2 -t1
+
+See "FastPro VerStack "+X +"x"+Y  +" Time "+ Diff +" millisecs"+nl
+//See "FastPro Sum "  MatrixPrint(aListC
+
+
+//=================================
+// RING
+
+         t1   = clock()
+aListC = VerStack ( aListA, aListB)
+         t2   = clock()
+         Diff = t2 -t1
+
+See "RING VerStack "+X +"x"+Y +" Time "+ Diff +" millisecs"+nl
+//See "Ring Softmax "  MatrixPrint(aListC)
+
+
+
+//===================================
+//===================================
+
+
+See nl+"FINISHED"+nl
+
+//===================================
+//===================================
+
+	func HorStack (MatrixA,MatrixB) { 
+		aHorStack = MatrixA
+		
+		for i = 1 to len(MatrixB) {          // Row
+			for j = 1 to len(MatrixB[1]) {   // Col
+				aHorStack[i] + MatrixB[i][j] // add cell
+			} 
+		} 
+		return aHorStack
+	}
+
+//===================================
+
+	func VerStack (MatrixA,MatrixB) { 
+		aVerStack = MatrixA
+		
+		for i = 1 to len(MatrixB) {    // Row
+			aVerStack + MatrixB[i]     // add row line
+		} 
+		return aVerStack
+	} 
+
+//===================================	
