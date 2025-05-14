@@ -17,6 +17,7 @@ Ring 1.23 comes with the next features!
 
 * Research Article
 * PWCT 2.0 (Source Code)
+* Better StdLib
 * Better Samples and Applications
 * More Improvements
 
@@ -40,6 +41,18 @@ PWCT 2.0 (Source Code)
 Programming Without Coding Technology 2.0 source code is released on GitHub.
 
 URL: https://github.com/PWCT/pwct2
+
+.. index:: 
+	pair: What is new in Ring  1.23; Better StdLib
+
+Better StdLib
+=============
+
+The next functions are added to StdLib:
+
+* StringToBase64(cString) ---> cBase64
+* Base64ToString(cBase64) ---> cString
+
 
 .. index:: 
 	pair: What is new in Ring  1.23; Better Samples and Applications

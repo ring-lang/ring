@@ -1442,7 +1442,7 @@ Output:
 	pair: Stdlib Functions; StringToBase64() Function
 
 StringToBase64() Function
-=======================
+=========================
 
 Convert a string to base64 encoded string.
 
@@ -1466,7 +1466,7 @@ Example:
 	pair: Stdlib Functions; Base64ToString() Function
 
 Base64ToString() Function
-=======================
+=========================
 
 Convert a base64 encoded string back to original string.
 

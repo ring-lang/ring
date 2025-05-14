@@ -155,6 +155,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#list2code-function">List2Code() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#str2asciilist-function">Str2ASCIIList() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#asciilist2str-function">ASCIIList2Str() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stringtobase64-function">StringToBase64() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#base64tostring-function">Base64ToString() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#islistcontainsitems-function">IsListContainsItems() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#isbetween-function">IsBetween() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#timeinfo-function">TimeInfo() Function</a></li>
@@ -246,6 +248,7 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew20.html">Release Notes: Version 1.20</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew21.html">Release Notes: Version 1.21</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew22.html">Release Notes: Version 1.22</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew23.html">Release Notes: Version 1.23</a></li>
 <li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sourcecode.html">Building From Source Code</a></li>
@@ -1210,8 +1213,38 @@ MmMm
 </pre></div>
 </div>
 </section>
+<section id="stringtobase64-function">
+<span id="index-61"></span><h2>StringToBase64() Function<a class="headerlink" href="#stringtobase64-function" title="Permalink to this heading"></a></h2>
+<p>Convert a string to base64 encoded string.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">StringToBase64</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">base64</span> <span class="n">encoded</span> <span class="kt">string</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlibcore.ring&quot;</span>
+
+<span class="n">cStr</span> <span class="o">=</span> <span class="s">&quot;Hello World&quot;</span>
+<span class="k">see</span> <span class="n">StringToBase64</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>        <span class="c"># Output: SGVsbG8gV29ybGQ=</span>
+</pre></div>
+</div>
+</section>
+<section id="base64tostring-function">
+<span id="index-62"></span><h2>Base64ToString() Function<a class="headerlink" href="#base64tostring-function" title="Permalink to this heading"></a></h2>
+<p>Convert a base64 encoded string back to original string.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Base64ToString</span><span class="p">(</span><span class="n">base64string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">decoded</span> <span class="kt">string</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlibcore.ring&quot;</span>
+
+<span class="n">cBase64</span> <span class="o">=</span> <span class="s">&quot;SGVsbG8gV29ybGQ=&quot;</span>
+<span class="k">see</span> <span class="n">Base64ToString</span><span class="p">(</span><span class="n">cBase64</span><span class="p">)</span>     <span class="c"># Output: Hello World</span>
+</pre></div>
+</div>
+</section>
 <section id="islistcontainsitems-function">
-<span id="index-61"></span><h2>IsListContainsItems() Function<a class="headerlink" href="#islistcontainsitems-function" title="Permalink to this heading"></a></h2>
+<span id="index-63"></span><h2>IsListContainsItems() Function<a class="headerlink" href="#islistcontainsitems-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsListContainsItems</span><span class="p">(</span><span class="n">aParent</span><span class="p">,</span><span class="n">aChild</span><span class="p">)</span> <span class="o">----&gt;</span> <span class="kp">True</span><span class="o">/</span><span class="kp">False</span>
 </pre></div>
@@ -1225,7 +1258,7 @@ MmMm
 </div>
 </section>
 <section id="isbetween-function">
-<span id="index-62"></span><h2>IsBetween() Function<a class="headerlink" href="#isbetween-function" title="Permalink to this heading"></a></h2>
+<span id="index-64"></span><h2>IsBetween() Function<a class="headerlink" href="#isbetween-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsBetween</span><span class="p">(</span><span class="n">nNumber</span><span class="p">,</span><span class="n">nMin</span><span class="p">,</span><span class="n">nMax</span><span class="p">)</span> <span class="o">----&gt;</span> <span class="kp">True</span><span class="o">/</span><span class="kp">False</span>
 </pre></div>
@@ -1240,7 +1273,7 @@ MmMm
 </div>
 </section>
 <section id="timeinfo-function">
-<span id="index-63"></span><h2>TimeInfo() Function<a class="headerlink" href="#timeinfo-function" title="Permalink to this heading"></a></h2>
+<span id="index-65"></span><h2>TimeInfo() Function<a class="headerlink" href="#timeinfo-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">TimeInfo</span><span class="p">(</span><span class="n">cInformation</span><span class="p">)</span> <span class="o">----&gt;</span> <span class="kt">String</span>
 </pre></div>
@@ -1278,7 +1311,7 @@ MmMm
 </div>
 </section>
 <section id="randomlist-function">
-<span id="index-64"></span><h2>RandomList() Function<a class="headerlink" href="#randomlist-function" title="Permalink to this heading"></a></h2>
+<span id="index-66"></span><h2>RandomList() Function<a class="headerlink" href="#randomlist-function" title="Permalink to this heading"></a></h2>
 <p>Syntax:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>RandomList(aList) --&gt; List contains the same items using Random order
 </pre></div>
@@ -1291,7 +1324,7 @@ MmMm
 </div>
 </section>
 <section id="randomitem-function">
-<span id="index-65"></span><h2>RandomItem() Function<a class="headerlink" href="#randomitem-function" title="Permalink to this heading"></a></h2>
+<span id="index-67"></span><h2>RandomItem() Function<a class="headerlink" href="#randomitem-function" title="Permalink to this heading"></a></h2>
 <p>Pick an item from a list (Random Choice)</p>
 <p>Syntax:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>RandomItem(aList) --&gt; Item
@@ -1305,7 +1338,7 @@ MmMm
 </div>
 </section>
 <section id="checkequality-function">
-<span id="index-66"></span><h2>CheckEquality() Function<a class="headerlink" href="#checkequality-function" title="Permalink to this heading"></a></h2>
+<span id="index-68"></span><h2>CheckEquality() Function<a class="headerlink" href="#checkequality-function" title="Permalink to this heading"></a></h2>
 <p>Check if two items are equal.
 Deep comparison is performed if the two items are lists
 Return 1 if both items are equal and 0 otherwise</p>
@@ -1324,7 +1357,7 @@ Return 1 if both items are equal and 0 otherwise</p>
 </div>
 </section>
 <section id="numorzero-function">
-<span id="index-67"></span><h2>NumOrZero() Function<a class="headerlink" href="#numorzero-function" title="Permalink to this heading"></a></h2>
+<span id="index-69"></span><h2>NumOrZero() Function<a class="headerlink" href="#numorzero-function" title="Permalink to this heading"></a></h2>
 <p>This is a new function added to stdlibcore.ring</p>
 <p>Using this function we get a number as output (No runtime errors)</p>
 <p>Example:</p>
