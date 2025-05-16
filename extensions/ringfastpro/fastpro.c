@@ -28,6 +28,7 @@
 **                    VerStack
 **                    Ravel
 **                    ZeroLike
+**                    AtLeast2D
 */
 
 #include "ring.h"
@@ -225,6 +226,7 @@ RING_FUNC(ring_list2bytes)
 //  aListC = updateList(<aList>,:verstack,:matrix,:matrix )   // Matrix verStack
 //  aListC = updateList(<aList>,:ravel,:matrix )              // 3 Parms Matrix Ravel
 //  aListC = updateList(<aList>,:zerolike,:matrix )           // 3 Parms Matrix ZeroLike 
+//  aListC = updateList(<aList>,:atleast2d,:matrix )          // 3 Parms Matrix AtLeast2D 
 //
 //  Set the Operation code. Add Selection Code for Jump => 503
 //  strcmp(cOperation,"set")        nOPCode += 100 ;
@@ -266,6 +268,7 @@ RING_FUNC(ring_list2bytes)
 //  strcmp(cOperation,"verstack")   nOPCode += 3600 ;   // VerStack-Matrix   3606
 //  strcmp(cOperation,"ravel")      nOPCode += 3700 ;   // Ravel-Matrix      3706
 //  strcmp(cOperation,"zerolike")   nOPCode += 3800 ;   // ZeroLike-Matrix   3806
+//  strcmp(cOperation,"atleast2d")  nOPCode += 3900 ;   // AtLeast2D-Matrix  3906
 //
 //  Set the Selection Code
 //  strcmp(cSelection,"row")       nOPCode = 1 ;
@@ -735,7 +738,12 @@ RING_FUNC(ring_updatelist)
 
     else if ( strcmp(cOperation,"zerolike") == 0 ) {
         nOPCode += 3800 ;
-    }   
+    }  
+
+    else if ( strcmp(cOperation,"atleast2d") == 0 ) {
+        nOPCode += 3900 ;
+    }
+    
     else {
         RING_API_ERROR("The second parameter must be a string: [Set | Add | Sub | Mul | Div | Copy | Merge | MergeSub |  MergeMul | MergeDiv | etc ");
         return ;
@@ -2734,6 +2742,39 @@ RING_FUNC(ring_updatelist)
       //===End 3806 ==============================        
 
 
+        case 3906 :
+         /* AtLeast2D Flat Matrix-A to 2D -- 1 x TotalLen */    
+
+         // pList  = RING_API_GETLIST(1) ;
+
+         nRow   = ring_list_getsize(pList);           //  Row-A
+         pRow   = ring_list_getlist(pList,nRow);
+         nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
+
+         //--- CREATE Output List-C -----
+         pListC  = RING_API_NEWLISTUSINGBLOCKS2D( 1, nRow) ; // FLAT 1-Row Many-Cols
+
+         nRowC   = ring_list_getsize(pListC) ;        // Row-C v
+         pRowC   = ring_list_getlist(pListC,nRowC);                
+         nEndC   = ring_list_getsize(pRowC) ;         // Col-C h
+         
+        //----------------------------------------
+        // nRow = len(FlatArray). No Col in Flat array
+        
+        for( vA = 1; vA <= nRow ; vA++)  
+        {   
+             valueA    = ring_list_getdouble( pList, vA );   // Start of Row-List  Col-vA
+
+             pSubListC = ring_list_getlist(pListC, 1 );      // Row-C-1
+             ring_list_setdouble_gc(pVM->pRingState,pSubListC, vA, valueA ); // Col-vA       
+        } 
+
+         RING_API_RETLIST( pListC );
+         
+         //----------
+         break ;
+
+      //===End 3906 ==============================        
 
       
     //===============================================
