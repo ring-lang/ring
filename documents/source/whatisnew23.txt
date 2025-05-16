@@ -101,6 +101,7 @@ The next samples and applications are added:
 * samples/UsingFastPro/MatrixScalarDiv.ring
 * samples/UsingFastPro/MatrixVertStack.ring 
 * samples/UsingFastPro/MatrixRavel.ring
+* samples/UsingFastPro/MatrixZeroLike.ring
 
 The next applications are revised:
 
