@@ -1701,6 +1701,85 @@ RING_FUNC(ring_curl_easy_getinfo_6)
 	}
 }
 
+RING_FUNC(ring_curl_simple_getinfo_1)
+{
+	char *sValue = NULL;
+	CURLcode res;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	res = curl_easy_getinfo((CURL *) RING_API_GETCPOINTER(1,"CURL"), (CURLINFO) (int) RING_API_GETNUMBER(2), &sValue);
+	if (res == CURLE_OK && sValue != NULL) {
+		RING_API_RETSTRING(sValue);
+	} else {
+		RING_API_RETSTRING("");
+	}
+}
+
+
+RING_FUNC(ring_curl_simple_getinfo_2)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		long lValue = 0;
+		CURLcode res = curl_easy_getinfo((CURL *) RING_API_GETCPOINTER(1,"CURL"),
+			(CURLINFO) (int) RING_API_GETNUMBER(2), &lValue);
+		
+		if (res == CURLE_OK) {
+			RING_API_RETNUMBER(lValue);
+		} else {
+			RING_API_RETNUMBER(-1);
+		}
+	}
+}
+
+
+RING_FUNC(ring_curl_simple_getinfo_3)
+{
+	double dValue = 0.0;
+	CURLcode res;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	res = curl_easy_getinfo((CURL *) RING_API_GETCPOINTER(1,"CURL"), (CURLINFO) (int) RING_API_GETNUMBER(2), &dValue);
+	if (res == CURLE_OK) {
+		RING_API_RETNUMBER(dValue);
+	} else {
+		RING_API_RETNUMBER(-1.0);
+	}
+}
 
 RING_FUNC(ring_curl_version)
 {
@@ -2209,6 +2288,9 @@ RING_LIBINIT
 	RING_API_REGISTER("curl_easy_getinfo_4",ring_curl_easy_getinfo_4);
 	RING_API_REGISTER("curl_easy_getinfo_5",ring_curl_easy_getinfo_5);
 	RING_API_REGISTER("curl_easy_getinfo_6",ring_curl_easy_getinfo_6);
+	RING_API_REGISTER("curl_simple_getinfo_1",ring_curl_simple_getinfo_1);
+	RING_API_REGISTER("curl_simple_getinfo_2",ring_curl_simple_getinfo_2);
+	RING_API_REGISTER("curl_simple_getinfo_3",ring_curl_simple_getinfo_3);
 	RING_API_REGISTER("curl_version",ring_curl_version);
 	RING_API_REGISTER("curl_getdate",ring_curl_getdate);
 	RING_API_REGISTER("curl_formadd_1",ring_curl_formadd_1);
