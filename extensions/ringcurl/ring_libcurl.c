@@ -1721,6 +1721,7 @@ RING_FUNC(ring_curl_simple_getinfo_1)
 	res = curl_easy_getinfo((CURL *) RING_API_GETCPOINTER(1,"CURL"), (CURLINFO) (int) RING_API_GETNUMBER(2), &sValue);
 	if (res == CURLE_OK && sValue != NULL) {
 		RING_API_RETSTRING(sValue);
+		free(sValue);
 	} else {
 		RING_API_RETSTRING("");
 	}
