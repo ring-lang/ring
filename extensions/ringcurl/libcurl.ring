@@ -35,70 +35,70 @@ func curl_getContentLength p1
 	return curl_simple_getinfo_3(p1, CURLINFO_CONTENT_LENGTH_DOWNLOAD)
 
 func curl_getEffectiveUrl p1
-    return curl_simple_getinfo_1(p1, CURLINFO_EFFECTIVE_URL)
+	return curl_simple_getinfo_1(p1, CURLINFO_EFFECTIVE_URL)
 
 func curl_getRedirectUrl p1
-    return curl_simple_getinfo_1(p1, CURLINFO_REDIRECT_URL)
+	return curl_simple_getinfo_1(p1, CURLINFO_REDIRECT_URL)
 
 func curl_getRedirectCount p1
-    return curl_simple_getinfo_2(p1, CURLINFO_REDIRECT_COUNT)
+	return curl_simple_getinfo_2(p1, CURLINFO_REDIRECT_COUNT)
 
 func curl_getTotalTime p1
-    return curl_simple_getinfo_3(p1, CURLINFO_TOTAL_TIME)
+	return curl_simple_getinfo_3(p1, CURLINFO_TOTAL_TIME)
 
 func curl_getNameLookupTime p1
-    return curl_simple_getinfo_3(p1, CURLINFO_NAMELOOKUP_TIME)
+	return curl_simple_getinfo_3(p1, CURLINFO_NAMELOOKUP_TIME)
 
 func curl_getConnectTime p1
-    return curl_simple_getinfo_3(p1, CURLINFO_CONNECT_TIME)
+	return curl_simple_getinfo_3(p1, CURLINFO_CONNECT_TIME)
 
 func curl_getRequestSize p1
-    return curl_simple_getinfo_2(p1, CURLINFO_REQUEST_SIZE)
+	return curl_simple_getinfo_2(p1, CURLINFO_REQUEST_SIZE)
 
 func curl_getHeaderSize p1
-    return curl_simple_getinfo_2(p1, CURLINFO_HEADER_SIZE)
+	return curl_simple_getinfo_2(p1, CURLINFO_HEADER_SIZE)
 
 func curl_getSpeedDownload p1
-    return curl_simple_getinfo_3(p1, CURLINFO_SPEED_DOWNLOAD)
+	return curl_simple_getinfo_3(p1, CURLINFO_SPEED_DOWNLOAD)
 
 func curl_getSpeedUpload p1
-    return curl_simple_getinfo_3(p1, CURLINFO_SPEED_UPLOAD)
+	return curl_simple_getinfo_3(p1, CURLINFO_SPEED_UPLOAD)
 
 func curl_getSSLVerifyResult p1
-    return curl_simple_getinfo_2(p1, CURLINFO_SSL_VERIFYRESULT)
+	return curl_simple_getinfo_2(p1, CURLINFO_SSL_VERIFYRESULT)
 
 func curl_getPrimaryIP p1
-    return curl_simple_getinfo_1(p1, CURLINFO_PRIMARY_IP)
+	return curl_simple_getinfo_1(p1, CURLINFO_PRIMARY_IP)
 
 func curl_getPrimaryPort p1
-    return curl_simple_getinfo_2(p1, CURLINFO_PRIMARY_PORT)
+	return curl_simple_getinfo_2(p1, CURLINFO_PRIMARY_PORT)
 
 func curl_getLocalIP p1
-    return curl_simple_getinfo_1(p1, CURLINFO_LOCAL_IP)
+	return curl_simple_getinfo_1(p1, CURLINFO_LOCAL_IP)
 
 func curl_getLocalPort p1
-    return curl_simple_getinfo_2(p1, CURLINFO_LOCAL_PORT)
+	return curl_simple_getinfo_2(p1, CURLINFO_LOCAL_PORT)
 
 func curl_getContentLengthUpload p1
-    return curl_simple_getinfo_3(p1, CURLINFO_CONTENT_LENGTH_UPLOAD)
+	return curl_simple_getinfo_3(p1, CURLINFO_CONTENT_LENGTH_UPLOAD)
 
 func curl_getDownloadSize p1
-    return curl_simple_getinfo_3(p1, CURLINFO_SIZE_DOWNLOAD)
+	return curl_simple_getinfo_3(p1, CURLINFO_SIZE_DOWNLOAD)
 
 func curl_getUploadSize p1
-    return curl_simple_getinfo_3(p1, CURLINFO_SIZE_UPLOAD)
+	return curl_simple_getinfo_3(p1, CURLINFO_SIZE_UPLOAD)
 
 func curl_getFiletime p1
-    return curl_simple_getinfo_2(p1, CURLINFO_FILETIME)
+	return curl_simple_getinfo_2(p1, CURLINFO_FILETIME)
 
 func curl_getAppConnectTime p1
-    return curl_simple_getinfo_3(p1, CURLINFO_APPCONNECT_TIME)
+	return curl_simple_getinfo_3(p1, CURLINFO_APPCONNECT_TIME)
 
 func curl_getContentLengthHeader p1
-    return curl_simple_getinfo_3(p1, CURLINFO_CONTENT_LENGTH_DOWNLOAD)
+	return curl_simple_getinfo_3(p1, CURLINFO_CONTENT_LENGTH_DOWNLOAD)
 
 func curl_getStartTransferTime p1
-    return curl_simple_getinfo_3(p1, CURLINFO_STARTTRANSFER_TIME)
+	return curl_simple_getinfo_3(p1, CURLINFO_STARTTRANSFER_TIME)
 
 func curl_getPreTransferTime p1
-    return curl_simple_getinfo_3(p1, CURLINFO_PRETRANSFER_TIME)
+	return curl_simple_getinfo_3(p1, CURLINFO_PRETRANSFER_TIME)
