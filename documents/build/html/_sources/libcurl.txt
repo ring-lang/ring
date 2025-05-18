@@ -214,3 +214,112 @@ Output:
 	2010-07-05,110.650002,117.480003,109.000000,117.260002,117.260002,21000400
 	2010-07-12,117.809998,124.879997,117.320000,118.489998,118.489998,29407300
 	2010-07-19,118.379997,121.250000,105.800003,118.870003,118.870003,74252100
+
+.. index:: 
+	pair: RingLibCurl; Helper Functions
+
+Helper Functions
+================
+
+RingLibCurl provides several helper functions to easily retrieve information about HTTP responses.
+
+.. index:: 
+	pair: RingLibCurl; Get Response Information
+
+Get Response Information
+========================
+
+Example:
+
+.. code-block:: ring
+
+	load "libcurl.ring"
+
+	curl = curl_easy_init()
+
+	curl_easy_setopt_2(curl, CURLOPT_URL, "https://ring-lang.net")
+	curl_easy_setopt_2(curl, CURLOPT_USERAGENT, "RingLibCurl")
+	curl_easy_setopt_1(curl, CURLOPT_FOLLOWLOCATION, 1)
+
+	curl_easy_perform_silent(curl)
+	
+	? "Response Code: " + curl_getResponseCode(curl)
+	? "Content Type: " + curl_getContentType(curl)
+	? "Content Length: " + curl_getContentLength(curl)
+	? "Effective URL: " + curl_getEffectiveUrl(curl)
+	? "Redirect URL: " + curl_getRedirectUrl(curl)
+	? "Redirect Count: " + curl_getRedirectCount(curl)
+	? "Total Time: " + curl_getTotalTime(curl)
+	? "Name Lookup Time: " + curl_getNameLookupTime(curl)
+	? "Connect Time: " + curl_getConnectTime(curl)
+	? "Request Size: " + curl_getRequestSize(curl)
+	? "Header Size: " + curl_getHeaderSize(curl)
+	? "Speed Download: " + curl_getSpeedDownload(curl)
+	? "Speed Upload: " + curl_getSpeedUpload(curl)
+	? "SSL Verify Result: " + curl_getSSLVerifyResult(curl)
+	? "Primary IP: " + curl_getPrimaryIP(curl)
+	? "Primary Port: " + curl_getPrimaryPort(curl)
+	? "Local IP: " + curl_getLocalIP(curl)
+	? "Local Port: " + curl_getLocalPort(curl)
+	? "Content Length Upload: " + curl_getContentLengthUpload(curl)
+	? "Download Size: " + curl_getDownloadSize(curl)
+	? "Upload Size: " + curl_getUploadSize(curl)
+	? "File Time: " + curl_getFiletime(curl)
+	? "App Connect Time: " + curl_getAppConnectTime(curl)
+	? "Content Length Header: " + curl_getContentLengthHeader(curl)
+	? "Start Transfer Time: " + curl_getStartTransferTime(curl)
+	? "Pre Transfer Time: " + curl_getPreTransferTime(curl)
+
+	curl_easy_cleanup(curl)
+
+.. index:: 
+	pair: RingLibCurl; Download and Check Status
+
+Download and Check Status
+=========================
+
+Example:
+
+.. code-block:: ring
+
+	load "libcurl.ring"
+
+	# Download a file from URL and save it to a local file
+	downloadFile("https://ring-lang.net", "test_download.txt")
+
+	# Function to download file from URL and save to specified local path
+	func downloadFile URL, cFile
+		# Initialize a new curl session
+		curl = curl_easy_init()
+		
+		# Open file in binary write mode
+		fp = fopen(cFile,"wb")
+		
+		# Set curl options:
+		# Specify where to write the downloaded data
+		curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp)
+		# Set the URL to download from
+		curl_easy_setopt(curl, CURLOPT_URL, URL)
+		# Follow redirects if any
+		curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1)
+		
+		# Perform the download
+		curl_easy_perform(curl)
+		
+		# Get response information
+		nResponseCode = curl_getResponseCode(curl)
+		cContentType = curl_getContentType(curl)
+		
+		# Clean up: close file and curl session
+		fclose(fp)
+		curl_easy_cleanup(curl)
+		
+		# Check if download was successful (HTTP 200 OK)
+		if nResponseCode = 200
+			? "File downloaded successfully!"
+			return true
+		else
+			? "Failed to download file."
+			? "HTTP Response Code: " + nResponseCode
+			return false
+		ok

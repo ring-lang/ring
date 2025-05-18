@@ -131,6 +131,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#facebook-login">Facebook Login</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#save-output-to-string">Save Output to String</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#get-stock-data-from-yahoo">Get Stock Data From Yahoo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#helper-functions">Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-response-information">Get Response Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-and-check-status">Download and Check Status</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
@@ -184,6 +187,7 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew20.html">Release Notes: Version 1.20</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew21.html">Release Notes: Version 1.21</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew22.html">Release Notes: Version 1.22</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew23.html">Release Notes: Version 1.23</a></li>
 <li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sourcecode.html">Building From Source Code</a></li>
@@ -394,6 +398,101 @@
 <span class="mi">2010</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">05</span><span class="p">,</span><span class="mf">110.650002</span><span class="p">,</span><span class="mf">117.480003</span><span class="p">,</span><span class="mf">109.000000</span><span class="p">,</span><span class="mf">117.260002</span><span class="p">,</span><span class="mf">117.260002</span><span class="p">,</span><span class="mi">21000400</span>
 <span class="mi">2010</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span><span class="mf">117.809998</span><span class="p">,</span><span class="mf">124.879997</span><span class="p">,</span><span class="mf">117.320000</span><span class="p">,</span><span class="mf">118.489998</span><span class="p">,</span><span class="mf">118.489998</span><span class="p">,</span><span class="mi">29407300</span>
 <span class="mi">2010</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">19</span><span class="p">,</span><span class="mf">118.379997</span><span class="p">,</span><span class="mf">121.250000</span><span class="p">,</span><span class="mf">105.800003</span><span class="p">,</span><span class="mf">118.870003</span><span class="p">,</span><span class="mf">118.870003</span><span class="p">,</span><span class="mi">74252100</span>
+</pre></div>
+</div>
+</section>
+<section id="helper-functions">
+<span id="index-6"></span><h2>Helper Functions<a class="headerlink" href="#helper-functions" title="Permalink to this heading"></a></h2>
+<p>RingLibCurl provides several helper functions to easily retrieve information about HTTP responses.</p>
+</section>
+<section id="get-response-information">
+<span id="index-7"></span><h2>Get Response Information<a class="headerlink" href="#get-response-information" title="Permalink to this heading"></a></h2>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libcurl.ring&quot;</span>
+
+<span class="n">curl</span> <span class="o">=</span> <span class="n">curl_easy_init</span><span class="p">()</span>
+
+<span class="n">curl_easy_setopt_2</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="s">&quot;https://ring-lang.net&quot;</span><span class="p">)</span>
+<span class="n">curl_easy_setopt_2</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_USERAGENT</span><span class="p">,</span> <span class="s">&quot;RingLibCurl&quot;</span><span class="p">)</span>
+<span class="n">curl_easy_setopt_1</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_FOLLOWLOCATION</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">curl_easy_perform_silent</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s">&quot;Response Code: &quot;</span> <span class="o">+</span> <span class="n">curl_getResponseCode</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Content Type: &quot;</span> <span class="o">+</span> <span class="n">curl_getContentType</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Content Length: &quot;</span> <span class="o">+</span> <span class="n">curl_getContentLength</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Effective URL: &quot;</span> <span class="o">+</span> <span class="n">curl_getEffectiveUrl</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Redirect URL: &quot;</span> <span class="o">+</span> <span class="n">curl_getRedirectUrl</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Redirect Count: &quot;</span> <span class="o">+</span> <span class="n">curl_getRedirectCount</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Total Time: &quot;</span> <span class="o">+</span> <span class="n">curl_getTotalTime</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Name Lookup Time: &quot;</span> <span class="o">+</span> <span class="n">curl_getNameLookupTime</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Connect Time: &quot;</span> <span class="o">+</span> <span class="n">curl_getConnectTime</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Request Size: &quot;</span> <span class="o">+</span> <span class="n">curl_getRequestSize</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Header Size: &quot;</span> <span class="o">+</span> <span class="n">curl_getHeaderSize</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Speed Download: &quot;</span> <span class="o">+</span> <span class="n">curl_getSpeedDownload</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Speed Upload: &quot;</span> <span class="o">+</span> <span class="n">curl_getSpeedUpload</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;SSL Verify Result: &quot;</span> <span class="o">+</span> <span class="n">curl_getSSLVerifyResult</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Primary IP: &quot;</span> <span class="o">+</span> <span class="n">curl_getPrimaryIP</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Primary Port: &quot;</span> <span class="o">+</span> <span class="n">curl_getPrimaryPort</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Local IP: &quot;</span> <span class="o">+</span> <span class="n">curl_getLocalIP</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Local Port: &quot;</span> <span class="o">+</span> <span class="n">curl_getLocalPort</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Content Length Upload: &quot;</span> <span class="o">+</span> <span class="n">curl_getContentLengthUpload</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Download Size: &quot;</span> <span class="o">+</span> <span class="n">curl_getDownloadSize</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Upload Size: &quot;</span> <span class="o">+</span> <span class="n">curl_getUploadSize</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;File Time: &quot;</span> <span class="o">+</span> <span class="n">curl_getFiletime</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;App Connect Time: &quot;</span> <span class="o">+</span> <span class="n">curl_getAppConnectTime</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Content Length Header: &quot;</span> <span class="o">+</span> <span class="n">curl_getContentLengthHeader</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Start Transfer Time: &quot;</span> <span class="o">+</span> <span class="n">curl_getStartTransferTime</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Pre Transfer Time: &quot;</span> <span class="o">+</span> <span class="n">curl_getPreTransferTime</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+
+<span class="n">curl_easy_cleanup</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="download-and-check-status">
+<span id="index-8"></span><h2>Download and Check Status<a class="headerlink" href="#download-and-check-status" title="Permalink to this heading"></a></h2>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libcurl.ring&quot;</span>
+
+<span class="c"># Download a file from URL and save it to a local file</span>
+<span class="n">downloadFile</span><span class="p">(</span><span class="s">&quot;https://ring-lang.net&quot;</span><span class="p">,</span> <span class="s">&quot;test_download.txt&quot;</span><span class="p">)</span>
+
+<span class="c"># Function to download file from URL and save to specified local path</span>
+<span class="k">func</span> <span class="n">downloadFile</span> <span class="n">URL</span><span class="p">,</span> <span class="n">cFile</span>
+        <span class="c"># Initialize a new curl session</span>
+        <span class="n">curl</span> <span class="o">=</span> <span class="n">curl_easy_init</span><span class="p">()</span>
+
+        <span class="c"># Open file in binary write mode</span>
+        <span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">cFile</span><span class="p">,</span><span class="s">&quot;wb&quot;</span><span class="p">)</span>
+
+        <span class="c"># Set curl options:</span>
+        <span class="c"># Specify where to write the downloaded data</span>
+        <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_WRITEDATA</span><span class="p">,</span> <span class="n">fp</span><span class="p">)</span>
+        <span class="c"># Set the URL to download from</span>
+        <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="n">URL</span><span class="p">)</span>
+        <span class="c"># Follow redirects if any</span>
+        <span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_FOLLOWLOCATION</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="c"># Perform the download</span>
+        <span class="n">curl_easy_perform</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+
+        <span class="c"># Get response information</span>
+        <span class="n">nResponseCode</span> <span class="o">=</span> <span class="n">curl_getResponseCode</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+        <span class="n">cContentType</span> <span class="o">=</span> <span class="n">curl_getContentType</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+
+        <span class="c"># Clean up: close file and curl session</span>
+        <span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+        <span class="n">curl_easy_cleanup</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+
+        <span class="c"># Check if download was successful (HTTP 200 OK)</span>
+        <span class="k">if</span> <span class="n">nResponseCode</span> <span class="o">=</span> <span class="mi">200</span>
+                <span class="o">?</span> <span class="s">&quot;File downloaded successfully!&quot;</span>
+                <span class="k">return</span> <span class="kp">true</span>
+        <span class="k">else</span>
+                <span class="o">?</span> <span class="s">&quot;Failed to download file.&quot;</span>
+                <span class="o">?</span> <span class="s">&quot;HTTP Response Code: &quot;</span> <span class="o">+</span> <span class="n">nResponseCode</span>
+                <span class="k">return</span> <span class="kp">false</span>
+        <span class="k">ok</span>
 </pre></div>
 </div>
 </section>

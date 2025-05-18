@@ -219,7 +219,7 @@ Output:
 	pair: RingLibCurl; Helper Functions
 
 Helper Functions
-===============
+================
 
 RingLibCurl provides several helper functions to easily retrieve information about HTTP responses.
 
@@ -227,7 +227,7 @@ RingLibCurl provides several helper functions to easily retrieve information abo
 	pair: RingLibCurl; Get Response Information
 
 Get Response Information
-=======================
+========================
 
 Example:
 
@@ -276,7 +276,7 @@ Example:
 	pair: RingLibCurl; Download and Check Status
 
 Download and Check Status
-========================
+=========================
 
 Example:
 

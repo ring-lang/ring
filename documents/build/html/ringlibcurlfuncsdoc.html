@@ -478,38 +478,64 @@
 <li><p>CURLFORM_STREAM</p></li>
 <li><p>CURLFORM_ARRAY</p></li>
 <li><p>CURLFORM_CONTENTHEADER</p></li>
+<li><p>curl_getResponseCode(CURL <a href="#id1"><span class="problematic" id="id2">*</span></a>handle)</p></li>
+<li><p>curl_getContentType(CURL <a href="#id3"><span class="problematic" id="id4">*</span></a>handle)</p></li>
+<li><p>curl_getContentLength(CURL <a href="#id5"><span class="problematic" id="id6">*</span></a>handle)</p></li>
+<li><p>curl_getEffectiveUrl(CURL <a href="#id7"><span class="problematic" id="id8">*</span></a>handle)</p></li>
+<li><p>curl_getRedirectUrl(CURL <a href="#id9"><span class="problematic" id="id10">*</span></a>handle)</p></li>
+<li><p>curl_getRedirectCount(CURL <a href="#id11"><span class="problematic" id="id12">*</span></a>handle)</p></li>
+<li><p>curl_getTotalTime(CURL <a href="#id13"><span class="problematic" id="id14">*</span></a>handle)</p></li>
+<li><p>curl_getNameLookupTime(CURL <a href="#id15"><span class="problematic" id="id16">*</span></a>handle)</p></li>
+<li><p>curl_getConnectTime(CURL <a href="#id17"><span class="problematic" id="id18">*</span></a>handle)</p></li>
+<li><p>curl_getRequestSize(CURL <a href="#id19"><span class="problematic" id="id20">*</span></a>handle)</p></li>
+<li><p>curl_getHeaderSize(CURL <a href="#id21"><span class="problematic" id="id22">*</span></a>handle)</p></li>
+<li><p>curl_getSpeedDownload(CURL <a href="#id23"><span class="problematic" id="id24">*</span></a>handle)</p></li>
+<li><p>curl_getSpeedUpload(CURL <a href="#id25"><span class="problematic" id="id26">*</span></a>handle)</p></li>
+<li><p>curl_getSSLVerifyResult(CURL <a href="#id27"><span class="problematic" id="id28">*</span></a>handle)</p></li>
+<li><p>curl_getPrimaryIP(CURL <a href="#id29"><span class="problematic" id="id30">*</span></a>handle)</p></li>
+<li><p>curl_getPrimaryPort(CURL <a href="#id31"><span class="problematic" id="id32">*</span></a>handle)</p></li>
+<li><p>curl_getLocalIP(CURL <a href="#id33"><span class="problematic" id="id34">*</span></a>handle)</p></li>
+<li><p>curl_getLocalPort(CURL <a href="#id35"><span class="problematic" id="id36">*</span></a>handle)</p></li>
+<li><p>curl_getContentLengthUpload(CURL <a href="#id37"><span class="problematic" id="id38">*</span></a>handle)</p></li>
+<li><p>curl_getDownloadSize(CURL <a href="#id39"><span class="problematic" id="id40">*</span></a>handle)</p></li>
+<li><p>curl_getUploadSize(CURL <a href="#id41"><span class="problematic" id="id42">*</span></a>handle)</p></li>
+<li><p>curl_getFiletime(CURL <a href="#id43"><span class="problematic" id="id44">*</span></a>handle)</p></li>
+<li><p>curl_getAppConnectTime(CURL <a href="#id45"><span class="problematic" id="id46">*</span></a>handle)</p></li>
+<li><p>curl_getContentLengthHeader(CURL <a href="#id47"><span class="problematic" id="id48">*</span></a>handle)</p></li>
+<li><p>curl_getStartTransferTime(CURL <a href="#id49"><span class="problematic" id="id50">*</span></a>handle)</p></li>
+<li><p>curl_getPreTransferTime(CURL <a href="#id51"><span class="problematic" id="id52">*</span></a>handle)</p></li>
 <li><p>CURLcode curl_global_init(long flags)</p></li>
-<li><p>CURL <a href="#id1"><span class="problematic" id="id2">*</span></a>curl_easy_init(void)</p></li>
+<li><p>CURL <a href="#id53"><span class="problematic" id="id54">*</span></a>curl_easy_init(void)</p></li>
 <li><p>void curl_easy_cleanup(CURL * handle )</p></li>
-<li><p>CURLcode curl_easy_setopt_1(CURL <a href="#id3"><span class="problematic" id="id4">*</span></a>handle, CURLoption option, int)</p></li>
-<li><p>CURLcode curl_easy_setopt_2(CURL <a href="#id5"><span class="problematic" id="id6">*</span></a>handle, CURLoption option, const char <a href="#id7"><span class="problematic" id="id8">*</span></a>)</p></li>
-<li><p>CURLcode curl_easy_setopt_3(CURL <a href="#id9"><span class="problematic" id="id10">*</span></a>handle, CURLoption option, void <a href="#id11"><span class="problematic" id="id12">*</span></a>)</p></li>
-<li><p>CURLcode curl_easy_setopt_4(CURL <a href="#id13"><span class="problematic" id="id14">*</span></a>handle, CURLoption option, CURLLIST <a href="#id15"><span class="problematic" id="id16">*</span></a>)</p></li>
+<li><p>CURLcode curl_easy_setopt_1(CURL <a href="#id55"><span class="problematic" id="id56">*</span></a>handle, CURLoption option, int)</p></li>
+<li><p>CURLcode curl_easy_setopt_2(CURL <a href="#id57"><span class="problematic" id="id58">*</span></a>handle, CURLoption option, const char <a href="#id59"><span class="problematic" id="id60">*</span></a>)</p></li>
+<li><p>CURLcode curl_easy_setopt_3(CURL <a href="#id61"><span class="problematic" id="id62">*</span></a>handle, CURLoption option, void <a href="#id63"><span class="problematic" id="id64">*</span></a>)</p></li>
+<li><p>CURLcode curl_easy_setopt_4(CURL <a href="#id65"><span class="problematic" id="id66">*</span></a>handle, CURLoption option, CURLLIST <a href="#id67"><span class="problematic" id="id68">*</span></a>)</p></li>
 <li><p>CURLcode curl_easy_perform(CURL * easy_handle )</p></li>
-<li><p>String <a href="#id17"><span class="problematic" id="id18">*</span></a>curl_easy_perform_silent(CURL * easy_handle )</p></li>
-<li><p>CURLcode curl_easy_getinfo_1(CURL <a href="#id19"><span class="problematic" id="id20">*</span></a>handle, CURLINFO info, char <a href="#id21"><span class="problematic" id="id22">**</span></a>urlp)</p></li>
-<li><p>CURLcode curl_easy_getinfo_2(CURL <a href="#id23"><span class="problematic" id="id24">*</span></a>handle, CURLINFO info, long <a href="#id25"><span class="problematic" id="id26">*</span></a>codep)</p></li>
-<li><p>CURLcode curl_easy_getinfo_3(CURL <a href="#id27"><span class="problematic" id="id28">*</span></a>handle, CURLINFO info, double <a href="#id29"><span class="problematic" id="id30">*</span></a>timep)</p></li>
-<li><p>CURLcode curl_easy_getinfo_4(CURL <a href="#id31"><span class="problematic" id="id32">*</span></a>handle, CURLINFO info, CURLLIST <a href="#id33"><span class="problematic" id="id34">**</span></a>engine_list)</p></li>
-<li><p>CURLcode curl_easy_getinfo_5(CURL <a href="#id35"><span class="problematic" id="id36">*</span></a>handle, CURLINFO info, struct curl_certinfo <a href="#id37"><span class="problematic" id="id38">*</span></a>chainp)</p></li>
-<li><p>CURLcode curl_easy_getinfo_6(CURL <a href="#id39"><span class="problematic" id="id40">*</span></a>handle, CURLINFO info, struct curl_tlssessioninfo <a href="#id41"><span class="problematic" id="id42">**</span></a>session)</p></li>
-<li><p>CURLcode curl_simple_getinfo_1(CURL <a href="#id43"><span class="problematic" id="id44">*</span></a>handle, CURLINFO info)</p></li>
-<li><p>CURLcode curl_simple_getinfo_2(CURL <a href="#id45"><span class="problematic" id="id46">*</span></a>handle, CURLINFO info)</p></li>
-<li><p>CURLcode curl_simple_getinfo_3(CURL <a href="#id47"><span class="problematic" id="id48">*</span></a>handle, CURLINFO info)</p></li>
-<li><p>char <a href="#id49"><span class="problematic" id="id50">*</span></a>curl_version(void)</p></li>
-<li><p>time_t curl_getdate(char * datestring , time_t <a href="#id51"><span class="problematic" id="id52">*</span></a>now )</p></li>
-<li><p>CURLFORMcode curl_formadd_1(struct curl_httppost <a href="#id53"><span class="problematic" id="id54">**</span></a>firstitem, struct curl_httppost <a href="#id55"><span class="problematic" id="id56">**</span></a>lastitem, CURLformoption, const char <a href="#id57"><span class="problematic" id="id58">*</span></a>, CURLformoption, const char <a href="#id59"><span class="problematic" id="id60">*</span></a>, CURLformoption)</p></li>
-<li><p>CURLFORMcode curl_formadd_2(struct curl_httppost <a href="#id61"><span class="problematic" id="id62">**</span></a>firstitem, struct curl_httppost <a href="#id63"><span class="problematic" id="id64">**</span></a>lastitem, CURLformoption, const char <a href="#id65"><span class="problematic" id="id66">*</span></a>, CURLformoption, const char <a href="#id67"><span class="problematic" id="id68">*</span></a>,CURLformoption, const char <a href="#id69"><span class="problematic" id="id70">*</span></a>, CURLformoption)</p></li>
-<li><p>CURLFORMcode curl_formadd_3(struct curl_httppost <a href="#id71"><span class="problematic" id="id72">**</span></a>firstitem, struct curl_httppost <a href="#id73"><span class="problematic" id="id74">**</span></a>lastitem, CURLformoption, const char <a href="#id75"><span class="problematic" id="id76">*</span></a>, CURLformoption, void <a href="#id77"><span class="problematic" id="id78">*</span></a>, CURLformoption)</p></li>
-<li><p>CURLFORMcode curl_formadd_4(struct curl_httppost <a href="#id79"><span class="problematic" id="id80">**</span></a>firstitem, struct curl_httppost <a href="#id81"><span class="problematic" id="id82">**</span></a>lastitem, CURLformoption, const char <a href="#id83"><span class="problematic" id="id84">*</span></a>, CURLformoption, void <a href="#id85"><span class="problematic" id="id86">*</span></a>,CURLformoption, long , CURLformoption)</p></li>
-<li><p>CURLFORMcode curl_formadd_5(struct curl_httppost <a href="#id87"><span class="problematic" id="id88">**</span></a>firstitem, struct curl_httppost <a href="#id89"><span class="problematic" id="id90">**</span></a>lastitem, CURLformoption, const char <em>, CURLformoption, void *,CURLformoption, long , CURLformoption, const char</em> , CURLformoption)</p></li>
-<li><p>CURLFORMcode curl_formadd_6(struct curl_httppost <a href="#id91"><span class="problematic" id="id92">**</span></a>firstitem, struct curl_httppost <a href="#id93"><span class="problematic" id="id94">**</span></a>lastitem, CURLformoption, const char <a href="#id95"><span class="problematic" id="id96">*</span></a>, CURLformoption, const char <a href="#id97"><span class="problematic" id="id98">*</span></a>,CURLformoption, void * , CURLformoption, long , CURLformoption)</p></li>
-<li><p>CURLFORMcode curl_formadd_7(struct curl_httppost <a href="#id99"><span class="problematic" id="id100">**</span></a>firstitem, struct curl_httppost <a href="#id101"><span class="problematic" id="id102">**</span></a>lastitem, CURLformoption, const char <a href="#id103"><span class="problematic" id="id104">*</span></a>, CURLformoption,  struct curl_forms [], CURLformoption)</p></li>
+<li><p>String <a href="#id69"><span class="problematic" id="id70">*</span></a>curl_easy_perform_silent(CURL * easy_handle )</p></li>
+<li><p>CURLcode curl_easy_getinfo_1(CURL <a href="#id71"><span class="problematic" id="id72">*</span></a>handle, CURLINFO info, char <a href="#id73"><span class="problematic" id="id74">**</span></a>urlp)</p></li>
+<li><p>CURLcode curl_easy_getinfo_2(CURL <a href="#id75"><span class="problematic" id="id76">*</span></a>handle, CURLINFO info, long <a href="#id77"><span class="problematic" id="id78">*</span></a>codep)</p></li>
+<li><p>CURLcode curl_easy_getinfo_3(CURL <a href="#id79"><span class="problematic" id="id80">*</span></a>handle, CURLINFO info, double <a href="#id81"><span class="problematic" id="id82">*</span></a>timep)</p></li>
+<li><p>CURLcode curl_easy_getinfo_4(CURL <a href="#id83"><span class="problematic" id="id84">*</span></a>handle, CURLINFO info, CURLLIST <a href="#id85"><span class="problematic" id="id86">**</span></a>engine_list)</p></li>
+<li><p>CURLcode curl_easy_getinfo_5(CURL <a href="#id87"><span class="problematic" id="id88">*</span></a>handle, CURLINFO info, struct curl_certinfo <a href="#id89"><span class="problematic" id="id90">*</span></a>chainp)</p></li>
+<li><p>CURLcode curl_easy_getinfo_6(CURL <a href="#id91"><span class="problematic" id="id92">*</span></a>handle, CURLINFO info, struct curl_tlssessioninfo <a href="#id93"><span class="problematic" id="id94">**</span></a>session)</p></li>
+<li><p>CURLcode curl_simple_getinfo_1(CURL <a href="#id95"><span class="problematic" id="id96">*</span></a>handle, CURLINFO info)</p></li>
+<li><p>CURLcode curl_simple_getinfo_2(CURL <a href="#id97"><span class="problematic" id="id98">*</span></a>handle, CURLINFO info)</p></li>
+<li><p>CURLcode curl_simple_getinfo_3(CURL <a href="#id99"><span class="problematic" id="id100">*</span></a>handle, CURLINFO info)</p></li>
+<li><p>char <a href="#id101"><span class="problematic" id="id102">*</span></a>curl_version(void)</p></li>
+<li><p>time_t curl_getdate(char * datestring , time_t <a href="#id103"><span class="problematic" id="id104">*</span></a>now )</p></li>
+<li><p>CURLFORMcode curl_formadd_1(struct curl_httppost <a href="#id105"><span class="problematic" id="id106">**</span></a>firstitem, struct curl_httppost <a href="#id107"><span class="problematic" id="id108">**</span></a>lastitem, CURLformoption, const char <a href="#id109"><span class="problematic" id="id110">*</span></a>, CURLformoption, const char <a href="#id111"><span class="problematic" id="id112">*</span></a>, CURLformoption)</p></li>
+<li><p>CURLFORMcode curl_formadd_2(struct curl_httppost <a href="#id113"><span class="problematic" id="id114">**</span></a>firstitem, struct curl_httppost <a href="#id115"><span class="problematic" id="id116">**</span></a>lastitem, CURLformoption, const char <a href="#id117"><span class="problematic" id="id118">*</span></a>, CURLformoption, const char <a href="#id119"><span class="problematic" id="id120">*</span></a>,CURLformoption, const char <a href="#id121"><span class="problematic" id="id122">*</span></a>, CURLformoption)</p></li>
+<li><p>CURLFORMcode curl_formadd_3(struct curl_httppost <a href="#id123"><span class="problematic" id="id124">**</span></a>firstitem, struct curl_httppost <a href="#id125"><span class="problematic" id="id126">**</span></a>lastitem, CURLformoption, const char <a href="#id127"><span class="problematic" id="id128">*</span></a>, CURLformoption, void <a href="#id129"><span class="problematic" id="id130">*</span></a>, CURLformoption)</p></li>
+<li><p>CURLFORMcode curl_formadd_4(struct curl_httppost <a href="#id131"><span class="problematic" id="id132">**</span></a>firstitem, struct curl_httppost <a href="#id133"><span class="problematic" id="id134">**</span></a>lastitem, CURLformoption, const char <a href="#id135"><span class="problematic" id="id136">*</span></a>, CURLformoption, void <a href="#id137"><span class="problematic" id="id138">*</span></a>,CURLformoption, long , CURLformoption)</p></li>
+<li><p>CURLFORMcode curl_formadd_5(struct curl_httppost <a href="#id139"><span class="problematic" id="id140">**</span></a>firstitem, struct curl_httppost <a href="#id141"><span class="problematic" id="id142">**</span></a>lastitem, CURLformoption, const char <em>, CURLformoption, void *,CURLformoption, long , CURLformoption, const char</em> , CURLformoption)</p></li>
+<li><p>CURLFORMcode curl_formadd_6(struct curl_httppost <a href="#id143"><span class="problematic" id="id144">**</span></a>firstitem, struct curl_httppost <a href="#id145"><span class="problematic" id="id146">**</span></a>lastitem, CURLformoption, const char <a href="#id147"><span class="problematic" id="id148">*</span></a>, CURLformoption, const char <a href="#id149"><span class="problematic" id="id150">*</span></a>,CURLformoption, void * , CURLformoption, long , CURLformoption)</p></li>
+<li><p>CURLFORMcode curl_formadd_7(struct curl_httppost <a href="#id151"><span class="problematic" id="id152">**</span></a>firstitem, struct curl_httppost <a href="#id153"><span class="problematic" id="id154">**</span></a>lastitem, CURLformoption, const char <a href="#id155"><span class="problematic" id="id156">*</span></a>, CURLformoption,  struct curl_forms [], CURLformoption)</p></li>
 <li><p>void curl_formfree(struct curl_httppost * form)</p></li>
-<li><p>CURLLIST <a href="#id105"><span class="problematic" id="id106">*</span></a>curl_slist_append(CURLLIST * list, const char * string )</p></li>
+<li><p>CURLLIST <a href="#id157"><span class="problematic" id="id158">*</span></a>curl_slist_append(CURLLIST * list, const char * string )</p></li>
 <li><p>void curl_slist_free_all(CURLLIST * list)</p></li>
-<li><p>char <a href="#id107"><span class="problematic" id="id108">*</span></a>curl_easy_escape( CURL * curl , const char * string , int length )</p></li>
-<li><p>char <a href="#id109"><span class="problematic" id="id110">*</span></a>curl_easy_unescape( CURL * curl , const char * url , int inlength , int * outlength )</p></li>
+<li><p>char <a href="#id159"><span class="problematic" id="id160">*</span></a>curl_easy_escape( CURL * curl , const char * string , int length )</p></li>
+<li><p>char <a href="#id161"><span class="problematic" id="id162">*</span></a>curl_easy_unescape( CURL * curl , const char * url , int inlength , int * outlength )</p></li>
 </ul>
 </section>
 </section>
