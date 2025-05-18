@@ -69,6 +69,12 @@ The next samples and applications are added:
 * samples/Drawing/Keplers3Laws/Keplers3Laws.ring 
 * samples/Drawing/RotationIllusion/Rotation-Illusion.ring
 * samples/Drawing/OrbitPlanetRetrograde/Orbit-Planet-Retrograde.ring
+* samples/UsingLibCurl/t5.ring
+* samples/UsingLibCurl/t6.ring
+* samples/UsingLibCurl/t7.ring
+* samples/UsingLibCurl/t8.ring
+* samples/UsingLibCurl/t9.ring
+* samples/UsingLibCurl/t10.ring
 * samples/UsingFastPro/MergeMultiply.ring
 * samples/UsingFastPro/RegAddSubMulDivColRowDest.ring
 * samples/UsingFastPro/MergeAddSubMulDivColRowDest.ring
