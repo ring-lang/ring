@@ -101,6 +101,10 @@ class predictionController from windowsControllerParent
 	
 		cOutput = curl_easy_perform_silent(curl)   
 
+		if cOutput = NULL 	
+			cOutput = "Can't connect to the Model to predict the game result."
+		ok
+
 		oView.txtOutput.setText(cOutput)
 
 	func closeWindow 
