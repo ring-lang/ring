@@ -75,6 +75,7 @@ The next samples and applications are added:
 * samples/UsingLibCurl/t8.ring
 * samples/UsingLibCurl/t9.ring
 * samples/UsingLibCurl/t10.ring
+* samples/UsingLibCurl/t11.ring
 * samples/UsingFastPro/MergeMultiply.ring
 * samples/UsingFastPro/RegAddSubMulDivColRowDest.ring
 * samples/UsingFastPro/MergeAddSubMulDivColRowDest.ring
