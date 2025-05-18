@@ -29,6 +29,7 @@
 **                    Ravel
 **                    ZeroLike
 **                    AtLeast2D
+**                    ArgMax       // Flat array find Index of Max number  
 */
 
 #include "ring.h"
@@ -227,6 +228,7 @@ RING_FUNC(ring_list2bytes)
 //  aListC = updateList(<aList>,:ravel,:matrix )              // 3 Parms Matrix Ravel
 //  aListC = updateList(<aList>,:zerolike,:matrix )           // 3 Parms Matrix ZeroLike 
 //  aListC = updateList(<aList>,:atleast2d,:matrix )          // 3 Parms Matrix AtLeast2D 
+//  valueA = updateList(<aList>,:argmax,:matrix )             // 3 Parms Matrix ArgMax 
 //
 //  Set the Operation code. Add Selection Code for Jump => 503
 //  strcmp(cOperation,"set")        nOPCode += 100 ;
@@ -269,6 +271,7 @@ RING_FUNC(ring_list2bytes)
 //  strcmp(cOperation,"ravel")      nOPCode += 3700 ;   // Ravel-Matrix      3706
 //  strcmp(cOperation,"zerolike")   nOPCode += 3800 ;   // ZeroLike-Matrix   3806
 //  strcmp(cOperation,"atleast2d")  nOPCode += 3900 ;   // AtLeast2D-Matrix  3906
+//  strcmp(cOperation,"atrgmax")    nOPCode += 4000 ;   // ArgMax-Matrix  3906
 //
 //  Set the Selection Code
 //  strcmp(cSelection,"row")       nOPCode = 1 ;
@@ -744,6 +747,10 @@ RING_FUNC(ring_updatelist)
         nOPCode += 3900 ;
     }
     
+    else if ( strcmp(cOperation,"argmax") == 0 ) {
+        nOPCode += 4000 ;
+    }
+  
     else {
         RING_API_ERROR("The second parameter must be a string: [Set | Add | Sub | Mul | Div | Copy | Merge | MergeSub |  MergeMul | MergeDiv | etc ");
         return ;
@@ -2774,7 +2781,37 @@ RING_FUNC(ring_updatelist)
          //----------
          break ;
 
-      //===End 3906 ==============================        
+      //===End 3906 ============================== 
+
+
+        case 4006 :
+         /* ArgMax Flat Matrix-A Finf Max-Value - return Position Index*/    
+
+         // pList  = RING_API_GETLIST(1) ;
+
+         nRow   = ring_list_getsize(pList);           //  Row-A
+         pRow   = ring_list_getlist(pList,nRow);
+         nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
+     
+        //----------------------------------------
+        // nRow = len(FlatArray). No Col in Flat array
+        
+		valueC = 0;
+        for( vA = 1; vA <= nRow ; vA++)  
+        {   
+            valueA     = ring_list_getdouble( pList, vA );   // Start of Row-List  Col-vA
+            if( valueA > valueC )
+			{   valueC = valueA ;  // New Max
+		        hA     = vA ;      // Position-Index
+			}     
+        } 
+
+         RING_API_RETNUMBER(hA) ;
+
+         //----------
+         break ;
+
+      //===End 4006 ============================== 		 
 
       
     //===============================================
