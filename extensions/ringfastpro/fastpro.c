@@ -30,6 +30,7 @@
 **                    ZeroLike
 **                    AtLeast2D
 **                    ArgMax       // Flat array find Index of Max number  
+**                    DeReport     // Flat array Remove duplicatevalue
 */
 
 #include "ring.h"
@@ -228,7 +229,8 @@ RING_FUNC(ring_list2bytes)
 //  aListC = updateList(<aList>,:ravel,:matrix )              // 3 Parms Matrix Ravel
 //  aListC = updateList(<aList>,:zerolike,:matrix )           // 3 Parms Matrix ZeroLike 
 //  aListC = updateList(<aList>,:atleast2d,:matrix )          // 3 Parms Matrix AtLeast2D 
-//  valueA = updateList(<aList>,:argmax,:matrix )             // 3 Parms Matrix ArgMax 
+//  valueA = updateList(<aList>,:argmax,:matrix )             // 3 Parms Matrix ArgMax
+//  aListC = updateList(<aList>,:derepeat,:matrix )           // 3 Parms Matrix DeRepeat  
 //
 //  Set the Operation code. Add Selection Code for Jump => 503
 //  strcmp(cOperation,"set")        nOPCode += 100 ;
@@ -271,7 +273,8 @@ RING_FUNC(ring_list2bytes)
 //  strcmp(cOperation,"ravel")      nOPCode += 3700 ;   // Ravel-Matrix      3706
 //  strcmp(cOperation,"zerolike")   nOPCode += 3800 ;   // ZeroLike-Matrix   3806
 //  strcmp(cOperation,"atleast2d")  nOPCode += 3900 ;   // AtLeast2D-Matrix  3906
-//  strcmp(cOperation,"atrgmax")    nOPCode += 4000 ;   // ArgMax-Matrix  3906
+//  strcmp(cOperation,"atrgmax")    nOPCode += 4000 ;   // ArgMax-Matrix     4006
+//  strcmp(cOperation,"derepeat")   nOPCode += 4100 ;   // ArgMax-Matrix     4106
 //
 //  Set the Selection Code
 //  strcmp(cSelection,"row")       nOPCode = 1 ;
@@ -750,7 +753,11 @@ RING_FUNC(ring_updatelist)
     else if ( strcmp(cOperation,"argmax") == 0 ) {
         nOPCode += 4000 ;
     }
-  
+    
+    else if ( strcmp(cOperation,"derepeat") == 0 ) {
+        nOPCode += 4100 ;
+    }
+    
     else {
         RING_API_ERROR("The second parameter must be a string: [Set | Add | Sub | Mul | Div | Copy | Merge | MergeSub |  MergeMul | MergeDiv | etc ");
         return ;
@@ -2785,7 +2792,7 @@ RING_FUNC(ring_updatelist)
 
 
         case 4006 :
-         /* ArgMax Flat Matrix-A Finf Max-Value - return Position Index*/    
+         /* ArgMax Flat Matrix-A Find Max-Value - return Position Index*/    
 
          // pList  = RING_API_GETLIST(1) ;
 
@@ -2796,14 +2803,14 @@ RING_FUNC(ring_updatelist)
         //----------------------------------------
         // nRow = len(FlatArray). No Col in Flat array
         
-		valueC = 0;
+        valueC = 0;
         for( vA = 1; vA <= nRow ; vA++)  
         {   
             valueA     = ring_list_getdouble( pList, vA );   // Start of Row-List  Col-vA
             if( valueA > valueC )
-			{   valueC = valueA ;  // New Max
-		        hA     = vA ;      // Position-Index
-			}     
+            {   valueC = valueA ;  // New Max
+                hA     = vA ;      // Position-Index
+            }     
         } 
 
          RING_API_RETNUMBER(hA) ;
@@ -2811,7 +2818,81 @@ RING_FUNC(ring_updatelist)
          //----------
          break ;
 
-      //===End 4006 ============================== 		 
+      //===End 4006 ==============================       
+
+
+        case 4106 :
+         /* DeRepeat Flat Matrix-A Remove Duplicate value*/  
+         // Incredibly SLOW Alogrithm !n     
+
+         // pList  = RING_API_GETLIST(1) ;
+
+         nRow   = ring_list_getsize(pList);           //  Row-A
+         pRow   = ring_list_getlist(pList,nRow);
+         nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
+ 
+         //--- CREATE Output List-C -----
+         pListC  = RING_API_NEWLISTUSINGBLOCKS2D( 1, nRow) ;  // 1xSize
+
+         nRowC   = ring_list_getsize(pListC) ;        // Row-C v
+         pRowC   = ring_list_getlist(pListC,nRowC);                
+         nEndC   = ring_list_getsize(pRowC) ;         // Col-C h
+ 
+        //----------------------------------------
+        // DeRepeat nRow = len(FlatArray). No Col in Flat array
+       
+        valueC = 0;
+        j      = 1;
+        int isDuplicate = 0;
+        
+        pSubListC = ring_list_getlist(pListC, 1 );     // Row-C..1
+        
+        for( i = 1; i <= nRow ; i++)  
+        {   valueA = ring_list_getdouble( pList, i);   // Flat Row-A  Col-i
+            isDuplicate = 0 ;
+            
+            for (int k = 1; k <= j; k++) {
+                valueC = ring_list_getdouble( pSubListC, k); 
+                
+                if (valueA == valueC) {
+                    isDuplicate = 1;
+                    break;
+                }
+            }   
+            
+            if (!isDuplicate) {
+                ring_list_setdouble( pSubListC, j++, valueA ); // J is 1 bigger when Fin
+            }           
+        }
+        
+        // RING_API_RETLIST( pListC );
+        
+
+         //--- CREATE Output List-B New 1x(j-1) Size without Dups -----
+         pListB  = RING_API_NEWLISTUSINGBLOCKS2D( 1, (j-1) ) ;  
+        
+         nRowB   = ring_list_getsize(pListB) ;        // Row-C v
+         pRowB   = ring_list_getlist(pListC,nRowB);                
+         nEndB   = ring_list_getsize(pRowB) ;         // Col-C h
+        
+        //----------------------------------------      
+        // Copy unique elements PListB
+        
+         pSubListB = ring_list_getlist(pListB, 1 );          // Row-B..1
+        
+         for (int i = 1; i <= (j-1) ; i++) {
+             valueA = ring_list_getdouble( pSubListC, i);           // Row-C-i
+                      ring_list_setdouble( pSubListB, i, valueA );  // Row-B-i 
+        
+         }  
+    
+         RING_API_RETLIST( pListB );
+
+         //----------
+         break ;
+
+      //===End 4106 ==============================       
+
 
       
     //===============================================
