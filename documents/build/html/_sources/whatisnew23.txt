@@ -101,6 +101,7 @@ The next samples and applications are added:
 * samples/UsingFastPro/MatrixZeroLike.ring
 * samples/UsingFastPro/MatrixAtLeast2D.ring
 * samples/UsingFastPro/MatrixArgMax.ring
+* samples/UsingFastPro/MatrixDeRepeat.ring
 
 The next applications are revised:
 
