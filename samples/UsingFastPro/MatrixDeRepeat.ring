@@ -1,4 +1,4 @@
-# Author: Bert Mariani 
+# Author: Bert Mariani
 
 load "matrixlib.ring"
 load "fastpro.ring"
