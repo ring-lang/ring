@@ -30,7 +30,9 @@
 **                    ZeroLike
 **                    AtLeast2D
 **                    ArgMax       // Flat array find Index of Max number  
-**                    DeReport     // Flat array Remove duplicatevalue
+**                    DeRepeat     // Flat array Remove duplicatevalue
+**                    Append
+**                    AllSum
 */
 
 #include "ring.h"
@@ -231,6 +233,8 @@ RING_FUNC(ring_list2bytes)
 //  aListC = updateList(<aList>,:atleast2d,:matrix )          // 3 Parms Matrix AtLeast2D 
 //  valueA = updateList(<aList>,:argmax,:matrix )             // 3 Parms Matrix ArgMax
 //  aListC = updateList(<aList>,:derepeat,:matrix )           // 3 Parms Matrix DeRepeat  
+//  aListC = updateList(<aList>,:append,:matrix,aListB,nValue )  // 5 -Matrix Append 
+//  valueA = updateList(<aList>,:allsum,:matrix )             // 3 Parms Matrix AllSum
 //
 //  Set the Operation code. Add Selection Code for Jump => 503
 //  strcmp(cOperation,"set")        nOPCode += 100 ;
@@ -274,7 +278,9 @@ RING_FUNC(ring_list2bytes)
 //  strcmp(cOperation,"zerolike")   nOPCode += 3800 ;   // ZeroLike-Matrix   3806
 //  strcmp(cOperation,"atleast2d")  nOPCode += 3900 ;   // AtLeast2D-Matrix  3906
 //  strcmp(cOperation,"atrgmax")    nOPCode += 4000 ;   // ArgMax-Matrix     4006
-//  strcmp(cOperation,"derepeat")   nOPCode += 4100 ;   // ArgMax-Matrix     4106
+//  strcmp(cOperation,"derepeat")   nOPCode += 4100 ;   // DeRepeat-Matrix   4106
+//  strcmp(cOperation,"append")     nOPCode += 4200 ;   // Append-Matrix     4206
+//  strcmp(cOperation,"allsum")     nOPCode += 4300 ;   // AllSum-Matrix     4306
 //
 //  Set the Selection Code
 //  strcmp(cSelection,"row")       nOPCode = 1 ;
@@ -324,12 +330,16 @@ RING_FUNC(ring_updatelist)
     //========================
     /* Check Parameters */
 
-    if ( (RING_API_PARACOUNT < 3) || (RING_API_PARACOUNT > 6) ) {
+    if ( (RING_API_PARACOUNT < 2) || (RING_API_PARACOUNT > 6) ) {
         RING_API_ERROR("BADPARACOUNT must be between 3:6");
         return ;
     }
 
-    //------------------ aList        nOpCode(100-1300)      SecectionCode(1-6)
+    //------------------ 
+    // ISLIST(1)   = aList        
+    // ISSTRING(2) = nOpCode(100-1300)      
+    // ISSTRING(3) = SecectionCode(1-6)
+    
     if ( ! ( RING_API_ISLIST(1) && RING_API_ISSTRING(2) && RING_API_ISSTRING(3) ) ) {
         RING_API_ERROR(RING_API_BADPARATYPE);
         return ;
@@ -521,12 +531,17 @@ RING_FUNC(ring_updatelist)
 
     //============================================
     // MATRIX aList
-    //           updateList(<aList>,:add,:matrix,<aListB>)  ADD       4 Params list list
-    //  aListC = updateList(<aList>,:scalar, <nValue> )     SCALAR    4 Params list number
-    //  aListC = updateList(<aList>,:transpose,:matrix)     TRANSPOSE 3 Params list
+    //          updateList(<aList>,:add,      :matrix,<aListB>)        ADD 4-P list-list
+    // aListC = updateList(<aList>,:scalar,  <nValue> )             SCALAR 3-P list-number
+    // aListC = updateList(<aList>,:transpose,:matrix)           TRANSPOSE 3-P list-list
+    // aListC = updatelist(aListA,:append,    :matrix,aListB, Axis) APPEND 5-P list-list-nbr
+    // sum    = updatelist(aListA,:allsum,    :matrix)              ALLSUM 2-P list
 
     else if ( strcmp(cSelection,"matrix") == 0 ) {
-        if ( RING_API_PARACOUNT == 3 || RING_API_PARACOUNT == 4 ) {
+        if ( RING_API_PARACOUNT == 3 || 
+             RING_API_PARACOUNT == 4 || 
+             RING_API_PARACOUNT == 5  ) {
+                 
 
             if ( RING_API_PARACOUNT == 3) {
                    nOPCode = 6 ;
@@ -555,7 +570,6 @@ RING_FUNC(ring_updatelist)
     }
 
     //=================================
-
 
     //==========================================
     /* SET THE OPERATION CODE */
@@ -757,9 +771,17 @@ RING_FUNC(ring_updatelist)
     else if ( strcmp(cOperation,"derepeat") == 0 ) {
         nOPCode += 4100 ;
     }
-    
+        
+    else if ( strcmp(cOperation,"append") == 0 ) {
+        nOPCode += 4200 ;
+    }
+         
+    else if ( strcmp(cOperation,"allsum") == 0 ) {
+        nOPCode += 4300 ;
+    }
+     
     else {
-        RING_API_ERROR("The second parameter must be a string: [Set | Add | Sub | Mul | Div | Copy | Merge | MergeSub |  MergeMul | MergeDiv | etc ");
+        RING_API_ERROR("The second parameter -cOperation- must be a string: [Set | Add | Sub | Mul | Div | Copy | Merge | MergeSub |  MergeMul | MergeDiv | Matrix | etc ");
         return ;
     }
 
@@ -2892,6 +2914,146 @@ RING_FUNC(ring_updatelist)
          break ;
 
       //===End 4106 ==============================       
+
+
+        case 4206 :
+         /* Append  Matrix-A + MatricB  Axis: 0=Vert  1=Horz */    
+         // aListC = updatelist(aListA,:append,:matrix,aListB, 1)
+
+         // pList  = RING_API_GETLIST(1) ;
+         pListB = RING_API_GETLIST(4) ;
+         Axis   = RING_API_GETNUMBER(5);             // Axis  0=Vert  1=Horz
+
+         
+         nRow   = ring_list_getsize(pList);           //  Row-A
+         pRow   = ring_list_getlist(pList,nRow);
+         nEnd   = ring_list_getsize(pRow) ;           //  Col-A 
+
+         nRowB   = ring_list_getsize(pListB);         //  Row-B
+         pRowB   = ring_list_getlist(pListB,nRow);
+         nEndB   = ring_list_getsize(pRowB) ;         //  Col-B 
+
+
+         //--- CREATE Output List --- Axis: 0=Vert
+         // Axis 0=VERT Add Rows
+         if( Axis == 0 ) { 
+             pListC  = RING_API_NEWLISTUSINGBLOCKS2D( nRow + nRowB, nEnd) ;
+             
+             nRowC   = ring_list_getsize(pListC) ;        // Row-C v
+             pRowC   = ring_list_getlist(pListC,nRowC);                
+             nEndC   = ring_list_getsize(pRowC) ;         // Col-C h
+         }
+         
+         //--- CREATE Output List --- Axis: 1=Horz
+         // Axis 1=Horz Add Cols
+         if( Axis == 1 ) {  
+            pListC  = RING_API_NEWLISTUSINGBLOCKS2D(nRow, nEnd + nEndB) ;
+
+            nRowC   = ring_list_getsize(pListC) ;        // Row-C v
+            pRowC   = ring_list_getlist(pListC,nRowC);                
+            nEndC   = ring_list_getsize(pRowC) ;         // Col-C h      
+         }
+         
+        //-------------------
+
+         if( Axis == 0 )
+         {
+            // Get Data from aListA
+            for( vA = 1; vA<= nRow; vA++) { 
+               pSubList  = ring_list_getlist(pList, vA) ;        // Row-A
+               pSubListC = ring_list_getlist(pListC,vA) ;        // Row-C   
+           
+               for( hA = 1; hA <= nEnd; hA++) {   
+                    valueA = ring_list_getdouble( pSubList, hA);           // Row-A-i              
+                    ring_list_setdouble_gc(pVM->pRingState,pSubListC, hA, valueA );
+               } 
+            }
+            
+            // GetData from aListB - offst it into Row of  aListC
+            for( vA = 1; vA<= nRow; vA++) { 
+               pSubListB  = ring_list_getlist(pListB, vA) ;         // Row-B
+               pSubListC = ring_list_getlist(pListC,vA +nRowB ) ;   // Row-C + nRowB 
+           
+               for( hA = 1; hA <= nEnd; hA++) {   
+                    valueA = ring_list_getdouble( pSubListB, hA);        // Row-B-i            
+                    ring_list_setdouble_gc(pVM->pRingState,pSubListC, hA, valueA );
+               } 
+            }
+                        
+            
+         }  
+ 
+        //-------------------
+        // 1 = Horz
+
+         if( Axis == 1 )
+         {
+            // Get Data from aListA
+            for( vA = 1; vA<= nRow; vA++) { 
+               pSubList  = ring_list_getlist(pList, vA) ;        // Row-A
+               pSubListC = ring_list_getlist(pListC,vA) ;        // Row-C   
+           
+               for( hA = 1; hA <= nEnd; hA++) {   
+                    valueA = ring_list_getdouble( pSubList, hA);           // Row-A-i              
+                    ring_list_setdouble_gc(pVM->pRingState,pSubListC, hA, valueA );
+               } 
+            }
+            
+            // GetData from aListB - offst it into Row of  aListC
+            for( vA = 1; vA<= nRow; vA++) { 
+               pSubListB  = ring_list_getlist(pListB, vA) ;    // Row-B
+               pSubListC = ring_list_getlist(pListC,vA  ) ;    // Row-C  
+           
+               for( hA = 1; hA <= nEnd; hA++) {   
+                    valueA = ring_list_getdouble( pSubListB, hA);        // Row-B-i            
+                    ring_list_setdouble_gc(pVM->pRingState,pSubListC, hA + nEnd, valueA );
+               } 
+            }
+                        
+            
+         }
+
+ 
+         
+         RING_API_RETLIST( pListC );
+         
+         //----------
+         break ;
+
+      //===End 4206 ==============================        
+
+
+        case 4306 :
+         /* AllSuM Matrix-A  Sum of All values */    
+
+         // pList  = RING_API_GETLIST(1) ;
+
+         nRow   = ring_list_getsize(pList);           //  Row-A
+         pRow   = ring_list_getlist(pList,nRow);
+         nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
+        
+        //---------------------------------------------
+        // ONLY NEED 1 Loop. For Rows-Sum 
+        
+         nSum = 0;
+         for( vA = 1; vA <= nRow; vA++ ) 
+         {  
+             pSubList  = ring_list_getlist(pList, vA) ;        // Row-A 
+             
+             for( hA = 1; hA <= nEnd; hA++ )                   // Col-A
+             {                    
+                 valueA = ring_list_getdouble( pSubList, hA ) ; // Col-A = value 
+                 nSum  += valueA ;
+             }             
+                            
+         }
+            
+            RING_API_RETNUMBER( nSum );
+      
+         //----------
+         break ;
+
+      //===End 4306 ==============================  
 
 
       
