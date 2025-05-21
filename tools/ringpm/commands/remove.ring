@@ -56,7 +56,8 @@ func DeletePackageFiles cFolder
 		but fexists(exefolder()+"/fedora.txt")
 			DeleteFilesInRingFolder(aPackageInfo,:FedoraRingFolderFiles)
 		ok
-
+	but isFreeBSD()
+		DeleteFilesInRingFolder(aPackageInfo,:FreeBSDRingFolderFiles)
 	but isMacOSX()
 		DeleteFilesInRingFolder(aPackageInfo,:MacOSRingFolderFiles)
 	ok
