@@ -55,6 +55,7 @@ The next samples and applications are added:
 * applications/snakesandladders2
 * ‎applications/trianglecalculator
 * samples/UsingCSVLib/usinglist2csv.ring 
+* samples/Language/SwitchCheck/switchcheck.ring
 * samples/General/EpochToDateTime/EpochToDateTime.ring
 * samples/Drawing/Keplers3Laws/Keplers3Laws.ring 
 * samples/Drawing/RotationIllusion/Rotation-Illusion.ring
