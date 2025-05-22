@@ -152,6 +152,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#generate-image">Generate Image</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#updatebytescolumn-function">UpdateBytesColumn() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#addbytescolumn-function">AddBytesColumn() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#updatelist-and-matrix-support">updateList() and Matrix support</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="usingringpdfgen.html">Using RingPDFGen Extension</a></li>
@@ -186,6 +187,7 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew20.html">Release Notes: Version 1.20</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew21.html">Release Notes: Version 1.21</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew22.html">Release Notes: Version 1.22</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew23.html">Release Notes: Version 1.23</a></li>
 <li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sourcecode.html">Building From Source Code</a></li>
@@ -229,6 +231,7 @@
 <li><p>UpdateColumn() function</p></li>
 <li><p>UpdateBytesColumn() function</p></li>
 <li><p>AddBytesColumn() function</p></li>
+<li><p>updateList() and Matrix support</p></li>
 </ul>
 <section id="bytes2list-function">
 <span id="index-1"></span><h2>Bytes2List() function<a class="headerlink" href="#bytes2list-function" title="Permalink to this heading"></a></h2>
@@ -253,7 +256,8 @@
 </pre></div>
 </div>
 <p>cCommand could be :set, :add, :sub, :mul, :div, :rem, :pow, :serial, :merge and :copy</p>
-<p>cSelection could be :col, :row, :manycols, :manyrows and :items</p>
+<p>cSelection could be :col, :row, :manycols, :manyrows, :items and :matrix</p>
+<p>For matrix operations see the updateList() and Matrix support in this chapter.</p>
 <p>Example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>updateList(&lt;aList&gt;,:set,:row,&lt;nRow&gt;,&lt;nValue&gt;)
 updateList(&lt;aList&gt;,:set,:col,&lt;nCol&gt;,&lt;nValue&gt;)
@@ -636,6 +640,45 @@ in a structured format.</p>
 <span class="k">else</span>
         <span class="n">cImageData</span> <span class="o">=</span> <span class="n">stbi_load</span><span class="p">(</span><span class="n">cImageFile</span><span class="p">,:</span><span class="n">nImageWidth</span><span class="p">,:</span><span class="n">nImageHeight</span><span class="p">,:</span><span class="n">nImageChannels</span><span class="p">,</span><span class="n">STBI_rgb_alpha</span><span class="p">)</span>
 <span class="k">ok</span>
+</pre></div>
+</div>
+</section>
+<section id="updatelist-and-matrix-support">
+<span id="index-8"></span><h2>updateList() and Matrix support<a class="headerlink" href="#updatelist-and-matrix-support" title="Permalink to this heading"></a></h2>
+<p>The updateList() function comes with the next features for Matrix support.</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">add</span><span class="p">,:</span><span class="n">matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">aListB</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">sub</span><span class="p">,:</span><span class="n">matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">aListB</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">mul</span><span class="p">,:</span><span class="n">matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">aListB</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">transpose</span><span class="p">,:</span><span class="n">matrix</span> <span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">scalar</span><span class="p">,:</span><span class="n">matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">nValue</span><span class="o">&gt;</span> <span class="p">)</span>
+<span class="n">valueA</span><span class="o">/</span><span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">dotproduct</span><span class="p">,:</span><span class="n">matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">aListB</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">fill</span><span class="p">,:</span><span class="n">matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">nValue</span><span class="o">&gt;</span> <span class="p">)</span>
+<span class="n">valueA</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">maximum</span><span class="p">,:</span><span class="n">matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">nValue</span><span class="o">&gt;</span> <span class="p">)</span>
+<span class="n">aList</span>  <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">identity</span><span class="p">,:</span><span class="n">matrix</span> <span class="p">)</span>
+<span class="n">aList</span>  <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">random</span><span class="p">,:</span><span class="n">matrix</span> <span class="p">)</span>
+<span class="n">valueA</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">mean</span><span class="p">,:</span><span class="n">matrix</span> <span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">sqrt</span><span class="p">,:</span><span class="n">matrix</span> <span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">square</span><span class="p">,:</span><span class="n">matrix</span> <span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">sigmoid</span><span class="p">,:</span><span class="n">matrix</span> <span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">sigmoidprime</span><span class="p">,:</span><span class="n">matrix</span> <span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">tanh</span><span class="p">,:</span><span class="n">matrix</span> <span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">leakyrelu</span><span class="p">,:</span><span class="n">matrix</span> <span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">leakyreluprime</span><span class="p">,:</span><span class="n">matrix</span> <span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">relu</span><span class="p">,:</span><span class="n">matrix</span> <span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">reluprime</span><span class="p">,:</span><span class="n">matrix</span> <span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">exp</span><span class="p">,:</span><span class="n">matrix</span> <span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">sum</span><span class="p">,:</span><span class="n">matrix</span> <span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">softmax</span><span class="p">,:</span><span class="n">matrix</span> <span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">scalardiv</span><span class="p">,:</span><span class="n">matrix</span><span class="p">,</span><span class="o">&lt;</span><span class="n">nValue</span><span class="o">&gt;</span> <span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">horstack</span><span class="p">,:</span><span class="n">matrix</span><span class="p">,:</span><span class="n">matrix</span> <span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">verstack</span><span class="p">,:</span><span class="n">matrix</span><span class="p">,:</span><span class="n">matrix</span> <span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">ravel</span><span class="p">,:</span><span class="n">matrix</span> <span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">zerolike</span><span class="p">,:</span><span class="n">matrix</span> <span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">atleast2d</span><span class="p">,:</span><span class="n">matrix</span> <span class="p">)</span>
+<span class="n">valueA</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">argmax</span><span class="p">,:</span><span class="n">matrix</span> <span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">derepeat</span><span class="p">,:</span><span class="n">matrix</span> <span class="p">)</span>
+<span class="n">aListC</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">append</span><span class="p">,:</span><span class="n">matrix</span><span class="p">,</span><span class="n">aListB</span><span class="p">,</span><span class="n">nValue</span> <span class="p">)</span>
+<span class="n">valueA</span> <span class="o">=</span> <span class="n">updateList</span><span class="p">(</span><span class="o">&lt;</span><span class="n">aList</span><span class="o">&gt;</span><span class="p">,:</span><span class="n">allsum</span><span class="p">,:</span><span class="n">matrix</span> <span class="p">)</span>
 </pre></div>
 </div>
 </section>
