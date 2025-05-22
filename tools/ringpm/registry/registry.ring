@@ -790,5 +790,9 @@ aPackagesRegistry = [
 	[ :name = "Advanced-Trace",
           :description = "Performance analysis and concurrent operations tracing",
           :ProviderUserName = "azzeddine2017"
+        ],
+	[ :name = "markdown",
+          :description = "A Markdown parser and HTML converter extension for the Ring programming language",
+          :ProviderUserName = "ysdragon"
         ]
 ]

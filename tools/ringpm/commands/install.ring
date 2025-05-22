@@ -236,6 +236,9 @@ class InstallCommand
 				DownloadListOfFiles(aPackageInfo,:FedoraFiles)
 				DownloadListOfFilesInRingFolder(aPackageInfo,:FedoraRingFolderFiles)
 			ok
+		but isFreeBSD()
+			DownloadListOfFiles(aPackageInfo,:FreeBSDFiles)
+			DownloadListOfFilesInRingFolder(aPackageInfo,:FreeBSDRingFolderFiles)
 		but isMacOSX()
 			DownloadListOfFiles(aPackageInfo,:MacOSFiles)
 			DownloadListOfFilesInRingFolder(aPackageInfo,:MacOSRingFolderFiles)
