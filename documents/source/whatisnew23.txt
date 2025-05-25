@@ -17,6 +17,7 @@ Ring 1.23 comes with the next features!
 
 * Research Article
 * PWCT 2.0 (Source Code)
+*  Snakes and Ladders 2
 * Better Samples and Applications
 * Better StdLib
 * Better RingLibCurl
@@ -43,6 +44,13 @@ Programming Without Coding Technology 2.0 source code is released on GitHub.
 
 URL: https://github.com/PWCT/pwct2
 
+.. index:: 
+	pair: What is new in Ring  1.23; Snakes and Ladders 2
+
+Snakes and Ladders 2
+====================
+
+Two players version of the game (applications/snakesandladders2)
 
 .. index:: 
 	pair: What is new in Ring  1.23; Better Samples and Applications
@@ -52,7 +60,6 @@ Better Samples and Applications
 
 The next samples and applications are added:
 
-* applications/snakesandladders2
 * ‎applications/trianglecalculator
 * samples/UsingCSVLib/usinglist2csv.ring 
 * samples/Language/AnonFunctions/me.ring
