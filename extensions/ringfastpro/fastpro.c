@@ -33,6 +33,7 @@
 **                    DeRepeat     // Flat array Remove duplicatevalue
 **                    Append
 **                    AllSum
+**                    Mandelbrot
 */
 
 #include "ring.h"
@@ -235,6 +236,7 @@ RING_FUNC(ring_list2bytes)
 //  aListC = updateList(<aList>,:derepeat,:matrix )           // 3 Parms Matrix DeRepeat  
 //  aListC = updateList(<aList>,:append,:matrix,aListB,nValue )  // 5 -Matrix Append 
 //  valueA = updateList(<aList>,:allsum,:matrix )             // 3 Parms Matrix AllSum
+//  aListC = updateList(<aList>,:mandelbrot,:matrix,aFlatB )  // Matrix MandelBrot
 //
 //  Set the Operation code. Add Selection Code for Jump => 503
 //  strcmp(cOperation,"set")        nOPCode += 100 ;
@@ -281,6 +283,7 @@ RING_FUNC(ring_list2bytes)
 //  strcmp(cOperation,"derepeat")   nOPCode += 4100 ;   // DeRepeat-Matrix   4106
 //  strcmp(cOperation,"append")     nOPCode += 4200 ;   // Append-Matrix     4206
 //  strcmp(cOperation,"allsum")     nOPCode += 4300 ;   // AllSum-Matrix     4306
+//  strcmp(cOperation,"mandelbrot") nOPCode += 4400 ;   // MandelBrot-Matrix 4406
 //
 //  Set the Selection Code
 //  strcmp(cSelection,"row")       nOPCode = 1 ;
@@ -302,7 +305,8 @@ RING_FUNC(ring_updatelist)
 
     //=====================================
     // Add MATRIX pList + pListB => pListC
-    List *pListB, *pListC,*pListD, *pRowB, *pRowC ; // *pRowD ;
+    
+    List *pListB, *pListC, *pListD, *pRowB, *pRowC ; // *pRowD ;
     int   nRowB, nColB, nStartB, nEndB;
     int   nRowC, nColC, nStartC, nEndC;
     int   nRowD, nColD, nStartD, nEndD;
@@ -314,7 +318,8 @@ RING_FUNC(ring_updatelist)
     double Sum, valueA, valueB, valueC, nSum ;     // Matrix Multiply
     int    i, j, k , v, h ;
     int    vA, vB, vC, hA, hB, hC, Axis ;
-    int    sizeX, sizeY ;
+    int    sizeX, sizeY ;   
+    
     List  *pSubListA,*pSubListB, *pSubListC ;
 
     String *pString ;                              // Use to Debug - message
@@ -778,6 +783,10 @@ RING_FUNC(ring_updatelist)
          
     else if ( strcmp(cOperation,"allsum") == 0 ) {
         nOPCode += 4300 ;
+    }
+    
+    else if ( strcmp(cOperation,"mandelbrot") == 0 ) {
+        nOPCode += 4400 ;
     }
      
     else {
@@ -3012,9 +3021,7 @@ RING_FUNC(ring_updatelist)
                         
             
          }
-
- 
-         
+      
          RING_API_RETLIST( pListC );
          
          //----------
@@ -3054,6 +3061,100 @@ RING_FUNC(ring_updatelist)
          break ;
 
       //===End 4306 ==============================  
+
+
+        case 4406 :
+         /* MandelBrot Matrix-A (800x800)  MatrixB = Parameters aFlat */ 
+         // aListC = updatelist(aListA,:mandelBrot,:matrix,aFlatB ) 
+     
+         //----------------------------------------
+         double minI, maxI, minR, maxR ;
+         double stepR, stepI ;
+         double pointI, pointR ;
+         double zI,zR;
+         double aZ, bZ ;
+         
+         int    width, height;
+         int    iter ;
+         int    nZ;   // x, y    
+             
+         //-----------------------------------------
+
+          pList  = RING_API_GETLIST(1) ;
+          pListB = RING_API_GETLIST(4) ;
+         
+          nRow   = ring_list_getsize(pList);           //  Row-A  size 800
+          pRow   = ring_list_getlist(pList,nRow);
+          nEnd   = ring_list_getsize(pRow) ;           //  Col-A  size800 
+          
+         
+         // nRowB = len(FlatArray). No Col in Flat array  
+        
+         nRowB   = ring_list_getsize(pListB);          //  Row-B  size 9 Flat
+         pRowB   = ring_list_getlist(pList,nRowB);
+         nEndB   = ring_list_getsize(pRowB) ;          //  Col-B  size 0         
+               
+        //-------------------        
+
+        //----------------------------------------------
+        // READ aListB PARAMS 
+         
+                  minI   = ring_list_getdouble( pListB, 1) ;  // Col-A = value 
+                  maxI   = ring_list_getdouble( pListB, 2) ;
+                  minR   = ring_list_getdouble( pListB, 3) ;
+                  maxR   = ring_list_getdouble( pListB, 4) ;
+                  iter   = ring_list_getdouble( pListB, 5) ;
+                  stepI  = ring_list_getdouble( pListB, 6) ;
+                  stepR  = ring_list_getdouble( pListB, 7) ;
+                  width  = ring_list_getdouble( pListB, 8) ;
+                  height = ring_list_getdouble( pListB, 9) ;
+                  
+        //--------------------------------------------  
+
+    //-------------------------------------------------------------
+    // Update the Table ROWS and COLUMS  X-Y. 
+    // We want Height and Width Y-X
+  
+    for (y = 1 ; y <= nRow ; y++ )
+    {   
+       pSubList = ring_list_getlist(pList, y) ;   // Row       
+       pointI   = minI + (stepI * y );         // Imaginary + Step
+
+            
+       for (x = 1 ; x <= nEnd ; x++ )      
+       {  
+          pointR = minR + (stepR * x) ;        // Real horizontal + Step
+
+          zR = pointR ;                        // Depth - horizontal-real
+          zI = pointI ;                        // Depth - vertical-imaginary
+
+          for (nZ = 0 ; nZ < iter; nZ++)
+          {                                    // Does it leave Orbit ?
+                  aZ = zR * zR ;               // zR^2  - horizontal-real
+                  bZ = zI * zI ;               // zI^2  - vertical-imaginary
+
+                  if ( (aZ + bZ) > 4 )
+                  {
+                     break;
+                  }                                // Beyond boundary limits +-2
+ 
+                  zI = (2 * zR * zI) + pointI ;    // Vertical-imaginary + Step
+                  zR = (aZ - bZ) + pointR ;        // Horizontal-real
+
+          }  
+          
+          ring_list_setdouble( pSubList, x, nZ );  // Col, N = color to draw
+
+       }
+   } 
+  
+         RING_API_RETLIST( pList );
+        
+         //----------
+         break ;
+        
+
+      //===End 4406 ==============================  
 
 
       
