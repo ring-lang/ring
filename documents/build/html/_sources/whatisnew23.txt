@@ -158,3 +158,4 @@ More Improvements
 * RingPM - Support FreeBSD files in install and remove commands
 * VSCode Extension - Support for using underscore inside numbers
 * RingLibuv - Support compilation on Linux with GCC 14/Clang 19+
+* RingLibSDL - Support compilation on Linux with GCC 14/Clang 19+
