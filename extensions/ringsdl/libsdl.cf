@@ -1,7 +1,7 @@
 <code>
 /* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "SDL.h"
-#include "SDL_image.h"
+#include "SDL_image.h"
 #include "SDL_ttf.h"
 #include "SDL_mixer.h"
 #include "SDL_net.h"
@@ -1131,7 +1131,7 @@ double SDL_acos(double x)
 SDL_Image
 </comment>
 
-int IMG_Init(int flags)
+int IMG_Init(int flags)
 void IMG_Quit(void)
 SDL_Surface *IMG_Load(const char *file)
 SDL_Surface *IMG_Load_RW(SDL_RWops *src, int freesrc)
@@ -1139,27 +1139,27 @@ SDL_Surface *IMG_LoadTyped_RW(SDL_RWops *src, int freesrc, char *type)
 SDL_Surface *IMG_LoadCUR_RW(SDL_RWops *src)
 SDL_Surface *IMG_LoadBMP_RW(SDL_RWops *src)
 SDL_Surface *IMG_LoadPNM_RW(SDL_RWops *src)
-SDL_Surface *IMG_LoadXPM_RW(SDL_RWops *src)
+SDL_Surface *IMG_LoadXPM_RW(SDL_RWops *src)
 SDL_Surface *IMG_LoadXCF_RW(SDL_RWops *src)
 SDL_Surface *IMG_LoadPCX_RW(SDL_RWops *src)
 SDL_Surface *IMG_LoadGIF_RW(SDL_RWops *src)
 SDL_Surface *IMG_LoadJPG_RW(SDL_RWops *src)
 SDL_Surface *IMG_LoadTIF_RW(SDL_RWops *src)
 SDL_Surface *IMG_LoadPNG_RW(SDL_RWops *src)
-SDL_Surface *IMG_LoadTGA_RW(SDL_RWops *src)
+SDL_Surface *IMG_LoadTGA_RW(SDL_RWops *src)
 SDL_Surface *IMG_LoadLBM_RW(SDL_RWops *src)
 SDL_Surface *IMG_LoadXV_RW(SDL_RWops *src)
 SDL_Surface *IMG_ReadXPMFromArray(char **xpm)
 int IMG_isCUR(SDL_RWops *src)
 int IMG_isICO(SDL_RWops *src)
-int IMG_isBMP(SDL_RWops *src)
+int IMG_isBMP(SDL_RWops *src)
 int IMG_isPNM(SDL_RWops *src)
 int IMG_isXPM(SDL_RWops *src)
-int IMG_isXCF(SDL_RWops *src)
-int IMG_isPCX(SDL_RWops *src)
+int IMG_isXCF(SDL_RWops *src)
+int IMG_isPCX(SDL_RWops *src)
 int IMG_isGIF(SDL_RWops *src)
-int IMG_isJPG(SDL_RWops *src)
-int IMG_isTIF(SDL_RWops *src)
+int IMG_isJPG(SDL_RWops *src)
+int IMG_isTIF(SDL_RWops *src)
 int IMG_isPNG(SDL_RWops *src)
 int IMG_isLBM(SDL_RWops *src)
 int IMG_isXV(SDL_RWops *src)
@@ -1177,42 +1177,43 @@ int TTF_WasInit(void)
 void TTF_Quit(void)
 TTF_Font *TTF_OpenFont(const char *file, int ptsize)
 TTF_Font *TTF_OpenFontRW(SDL_RWops *src, int freesrc, int ptsize)
-TTF_Font *TTF_OpenFontIndex(const char *file, int ptsize, long index)
+TTF_Font *TTF_OpenFontIndex(const char *file, int ptsize, long index)
+
 TTF_Font *TTF_OpenFontIndexRW(SDL_RWops *src, int freesrc, int ptsize, long index)
 void TTF_CloseFont(TTF_Font *font)
 void TTF_ByteSwappedUNICODE(int swapped)
 int TTF_GetFontStyle(TTF_Font *font)
-void TTF_SetFontStyle(TTF_Font *font, int style)
+void TTF_SetFontStyle(TTF_Font *font, int style)
 int TTF_GetFontOutline(TTF_Font *font)
-void TTF_SetFontOutline(TTF_Font *font, int outline)
+void TTF_SetFontOutline(TTF_Font *font, int outline)
 int TTF_GetFontHinting(TTF_Font *font)
 void TTF_SetFontHinting(TTF_Font *font, int hinting)
-int TTF_GetFontKerning(TTF_Font *font)
+int TTF_GetFontKerning(TTF_Font *font)
 void TTF_SetFontKerning(TTF_Font *font, int allowed)
 int TTF_FontHeight(const TTF_Font *font)
-int TTF_FontAscent(const TTF_Font *font)
-int TTF_FontDescent(const TTF_Font *font)
+int TTF_FontAscent(const TTF_Font *font)
+int TTF_FontDescent(const TTF_Font *font)
 int TTF_FontLineSkip(const TTF_Font *font)
-long TTF_FontFaces(const TTF_Font *font)
+long TTF_FontFaces(const TTF_Font *font)
 int TTF_FontFaceIsFixedWidth(const TTF_Font *font)
 char *TTF_FontFaceFamilyName(const TTF_Font *font)
 char *TTF_FontFaceStyleName(const TTF_Font *font)
-int TTF_GlyphIsProvided(const TTF_Font *font, Uint16 ch)
+int TTF_GlyphIsProvided(const TTF_Font *font, Uint16 ch)
 int TTF_GlyphMetrics(TTF_Font *font, Uint16 ch, int *minx, int *maxx, int *miny, int *maxy, int *advance)
 int TTF_SizeText(TTF_Font *font, const char *text, int *w, int *h)
-int TTF_SizeUTF8(TTF_Font *font, const char *text, int *w, int *h)
-int TTF_SizeUNICODE(TTF_Font *font, const Uint16 *text, int *w, int *h)
+int TTF_SizeUTF8(TTF_Font *font, const char *text, int *w, int *h)
+int TTF_SizeUNICODE(TTF_Font *font, const Uint16 *text, int *w, int *h)
 SDL_Surface *TTF_RenderText_Solid(TTF_Font *font, const char *text, SDL_Color fg)
 SDL_Surface *TTF_RenderUTF8_Solid(TTF_Font *font, const char *text,SDL_Color fg)
-SDL_Surface *TTF_RenderUNICODE_Solid(TTF_Font *font, const Uint16 *text,SDL_Color fg)
+SDL_Surface *TTF_RenderUNICODE_Solid(TTF_Font *font, const Uint16 *text,SDL_Color fg)
 SDL_Surface *TTF_RenderGlyph_Solid(TTF_Font *font, Uint16 ch, SDL_Color fg)
-SDL_Surface *TTF_RenderText_Shaded(TTF_Font *font, const char *text,SDL_Color fg, SDL_Color bg)
-SDL_Surface *TTF_RenderUTF8_Shaded(TTF_Font *font, const char *text,SDL_Color fg, SDL_Color bg)
-SDL_Surface *TTF_RenderUNICODE_Shaded(TTF_Font *font, const Uint16 *text,SDL_Color fg, SDL_Color bg)
-SDL_Surface *TTF_RenderGlyph_Shaded(TTF_Font *font, Uint16 ch, SDL_Color fg,SDL_Color bg)
-SDL_Surface *TTF_RenderText_Blended(TTF_Font *font, const char *text,SDL_Color fg)
-SDL_Surface *TTF_RenderUTF8_Blended(TTF_Font *font, const char *text,SDL_Color fg)
-SDL_Surface *TTF_RenderUNICODE_Blended(TTF_Font *font, const Uint16 *text,SDL_Color fg)
+SDL_Surface *TTF_RenderText_Shaded(TTF_Font *font, const char *text,SDL_Color fg, SDL_Color bg)
+SDL_Surface *TTF_RenderUTF8_Shaded(TTF_Font *font, const char *text,SDL_Color fg, SDL_Color bg)
+SDL_Surface *TTF_RenderUNICODE_Shaded(TTF_Font *font, const Uint16 *text,SDL_Color fg, SDL_Color bg)
+SDL_Surface *TTF_RenderGlyph_Shaded(TTF_Font *font, Uint16 ch, SDL_Color fg,SDL_Color bg)
+SDL_Surface *TTF_RenderText_Blended(TTF_Font *font, const char *text,SDL_Color fg)
+SDL_Surface *TTF_RenderUTF8_Blended(TTF_Font *font, const char *text,SDL_Color fg)
+SDL_Surface *TTF_RenderUNICODE_Blended(TTF_Font *font, const Uint16 *text,SDL_Color fg)
 SDL_Surface *TTF_RenderGlyph_Blended(TTF_Font *font, Uint16 ch, SDL_Color fg)
 <comment>
 void TTF_SetError(const char *fmt)
@@ -1398,6 +1399,22 @@ SDL_Thread *SDL_CreateThread(SDL_ThreadFunction fn,const char *name,void *data)
 
 <code>
 
+static void * sdl_mutex_create(void) {
+	return SDL_CreateMutex();
+}
+
+static void sdl_mutex_lock(void *mutex) {
+	SDL_LockMutex((SDL_mutex *)mutex);
+}
+
+static void sdl_mutex_unlock(void *mutex) {
+	SDL_UnlockMutex((SDL_mutex *)mutex);
+}
+
+static void sdl_mutex_destroy(void *mutex) {
+	SDL_DestroyMutex((SDL_mutex *)mutex);
+}
+
 int SDL_Thread_Function(void *pPointer) {
 	VM *pVM;
 	List *pList;
@@ -1421,13 +1438,12 @@ RING_FUNC(ring_SDL_CreateThread) {
 	pList = ring_list_new(0) ;
 	ring_list_addpointer(pList,pPointer);
 	ring_list_addstring(pList,RING_API_GETSTRING(1));
-	ring_vm_mutexfunctions((VM *) pPointer,SDL_CreateMutex,
-                SDL_LockMutex,SDL_UnlockMutex,SDL_DestroyMutex);
+	ring_vm_mutexfunctions((VM *) pPointer, sdl_mutex_create,
+            	sdl_mutex_lock, sdl_mutex_unlock, sdl_mutex_destroy);
 	SDL_CreateThread(SDL_Thread_Function, RING_API_GETSTRING(2), (void *) pList);
 	
 }
 </code>
-
 
 void SDL_DetachThread(SDL_Thread *thread)
 SDL_threadID SDL_GetThreadID(SDL_Thread *thread)
