@@ -68,6 +68,7 @@ The next samples and applications are added:
 * samples/Drawing/Keplers3Laws/Keplers3Laws.ring 
 * samples/Drawing/RotationIllusion/Rotation-Illusion.ring
 * samples/Drawing/OrbitPlanetRetrograde/Orbit-Planet-Retrograde.ring
+* samples/ProblemSolving/RandomLatinSquares/LatinSquaresUsingGUILib.ring
 * samples/UsingLibCurl/t5.ring
 * samples/UsingLibCurl/t6.ring
 * samples/UsingLibCurl/t7.ring
