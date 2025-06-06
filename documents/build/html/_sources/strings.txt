@@ -394,6 +394,9 @@ Syntax:
 	list2str(aList)   		---> string contains the list items
 	list2str(aList,[nStart],[nEnd]) ---> string contains the list items from nStart to nEnd
 
+
+.. note:: The list2str() function processes a single dimension of items (numbers/strings) and ignores sublists.
+
 Example:
 
 .. code-block:: ring
