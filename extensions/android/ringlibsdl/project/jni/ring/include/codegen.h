@@ -5,7 +5,7 @@
 	/* Intermediate Code */
 	typedef enum IC_OPERATIONS {
 		/* General */
-		ICO_NEWLINE=0 ,
+		ICO_NEWLINE = RING_ZERO ,
 		ICO_FILENAME ,
 		ICO_NEWCLASS ,
 		ICO_NEWFUNC ,
@@ -169,20 +169,20 @@
 	"FreeTempLists","Len","SetOPCode","CheckBraceMethod","OptionalLoop"} ;
 	/* Constants */
 	#define RING_PARSER_ICG_INSTRUCTIONSLISTTYPE List
-	#define RING_PARSER_ICG_OPERATIONCODE 1
-	#define RING_PARSER_ICG_PARA1 2
-	#define RING_PARSER_ICG_PARA2 3
-	#define RING_PARSER_ICG_PARENTCLASSPOS 4
-	#define RING_PARSER_ICG_LOADASETTERPOS 3
-	#define RING_PARSER_ICG_USEASSIGNMENT 1
-	#define RING_PARSER_ICG_USESETPROPERTY 2
-	#define RING_PARSER_ICG_NORMALPP 3
-	#define RING_PARSER_ICG_NORMALMM 4
-	#define RING_PARSER_ICG_ASSIGNPTRENABLEPOS 2
+	#define RING_PARSER_ICG_OPERATIONCODE RING_ONE
+	#define RING_PARSER_ICG_PARA1 RING_TWO
+	#define RING_PARSER_ICG_PARA2 RING_THREE
+	#define RING_PARSER_ICG_PARENTCLASSPOS RING_FOUR
+	#define RING_PARSER_ICG_LOADASETTERPOS RING_THREE
+	#define RING_PARSER_ICG_USEASSIGNMENT RING_ONE
+	#define RING_PARSER_ICG_USESETPROPERTY RING_TWO
+	#define RING_PARSER_ICG_NORMALPP RING_THREE
+	#define RING_PARSER_ICG_NORMALMM RING_FOUR
+	#define RING_PARSER_ICG_ASSIGNPTRENABLEPOS RING_TWO
 	/* Macro */
 	#define RING_PARSER_ICG_GOTOLASTOP pParser->pActiveGenCodeList = ring_list_getlist(pParser->pGenCode,ring_list_getsize(pParser->pGenCode))
-	#define RING_PARSER_ICG_NOOPERATION -1
-	#define ring_parser_icg_newlabel(pParser) ( ring_list_getsize(pParser->pGenCode) + 1 + pParser->pRingState->nInstructionsCount)
+	#define RING_PARSER_ICG_NOOPERATION RING_MINUSONE
+	#define ring_parser_icg_newlabel(pParser) ( ring_list_getsize(pParser->pGenCode) + RING_ONE + pParser->pRingState->nInstructionsCount)
 	#define ring_parser_icg_setlastoperation(pParser,nOPCode) ring_list_setint_gc(pParser->pRingState,pParser->pActiveGenCodeList,RING_PARSER_ICG_OPERATIONCODE,nOPCode)
 	#define ring_parser_icg_instructionscount(pParser) ring_list_getsize(pParser->pGenCode) + pParser->pRingState->nInstructionsCount
 	#define ring_parser_icg_instructionslistsize(pParser) ring_list_getsize(pParser->pGenCode)
