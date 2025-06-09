@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2025 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #include "ring.h"
 
@@ -855,6 +855,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			x3 = pParser->nBracesCounter ;
 			x4 = pParser->lFuncCallOnly ;
 			pParser->lAssignmentFlag = 1 ;
+			pParser->lNewObject = 0 ;
 			pParser->nBracesCounter = 0 ;
 			pParser->lFuncCallOnly = 0 ;
 			RING_PARSER_ACCEPTSTATEMENTS ;
