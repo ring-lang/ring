@@ -705,10 +705,10 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		}
 		return x ;
 	}
-	/* bitnot (~) Expr */
+	/* bitnot (~) Factor */
 	else if ( ring_parser_isoperator2(pParser,OP_BITNOT) ) {
 		ring_parser_nexttoken(pParser);
-		x = ring_parser_expr(pParser);
+		x = ring_parser_factor(pParser,&nFlag2);
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_BITNOT);
 		RING_STATE_PRINTRULE(RING_RULE_BITNOT) ;
