@@ -600,6 +600,8 @@ Factor ---> ':' <Identifier>
 
 Factor ---> '-' <Factor>
 
+Factor ---> '~' <Factor>
+
 Factor ---> '(' <Expr> ')'
 
 Factor ---> <List>
