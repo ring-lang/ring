@@ -606,6 +606,7 @@ aTests = [
 	[ :name = "General Tests (Part 222)", :Command = "ring general/unary.ring" ],
 	[ :name = "General Tests (Part 223)", :Command = "ring general/substr1.ring" ],
 	[ :name = "General Tests (Part 224)", :Command = "ring general/substr2.ring" ],
+	[ :name = "General Tests (Part 225)", :Command = "ring general/bitnot.ring" ],
 	[ :name = "Using lists during definition (Part 1)", :Command = "ring listsduringdef/usinglistduringdef.ring" ],
 	[ :name = "Using lists during definition (Part 2)", :Command = "ring listsduringdef/usinglistduringdef2.ring" ],
 	[ :name = "Using lists during definition (Part 3)", :Command = "ring listsduringdef/usinglistduringdef3.ring" ],
