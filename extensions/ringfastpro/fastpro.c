@@ -3159,7 +3159,7 @@ RING_FUNC(ring_updatelist)
     // 800x800x4 = 2560000
     
        int  nItems  = width * height * 4 ; 
-       char *FList = (char *) malloc(nItems * sizeof(char));
+       char *FList = (char *) RING_API_MALLOC(nItems * sizeof(char));
             
        int N = 0; 
        int nPenID = 0;
@@ -3216,7 +3216,7 @@ RING_FUNC(ring_updatelist)
        RING_API_RETSTRING2( FList, nItems );   // ?? Ret Char Array 
 
        // Free memory
-       free(FList); 
+       RING_API_FREE(FList); 
 
        //----------
        break ;
@@ -3607,7 +3607,7 @@ RING_FUNC(ring_addbytescolumn)
 
     RING_API_RETSTRING2(pNewBytes,nNewBytesSize);
 
-    free(pNewBytes);
+    RING_API_FREE(pNewBytes);
 
 }
 
