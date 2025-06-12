@@ -13,8 +13,6 @@ load "stdlib.ring"
 load "fastpro.ring"
 load "matrixlib.ring"
 
-? "Loading Library"
-
 decimals(12) 
 
 ###----------------------------------
