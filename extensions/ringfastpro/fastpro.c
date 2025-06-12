@@ -3165,7 +3165,6 @@ RING_FUNC(ring_updatelist)
        int nPenID = 0;
        int nLastPenID = 0;
 
-
        //--- DrawBytes() Color Table uses CHAR value---
        char aCHR[16][4] = 
                   {
@@ -3607,6 +3606,8 @@ RING_FUNC(ring_addbytescolumn)
     }
 
     RING_API_RETSTRING2(pNewBytes,nNewBytesSize);
+
+    free(pNewBytes);
 
 }
 
