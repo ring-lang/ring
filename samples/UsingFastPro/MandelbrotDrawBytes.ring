@@ -239,7 +239,7 @@ MyApp = New qapp
             comboCalc = new QComboBox(win1)  // 720
             {
                 setgeometry( 10, ButtonY, 120, ButtonH)
-                comboList = ["DisplayBYTES","DisplayRGB","DisplayHSV"]
+                comboList = ["DisplayBYTES"]
                 for x in comboList additem(x,0) next                    
             }
                 
@@ -353,11 +353,16 @@ Func Draw()
     ###----------------------------------------------------------
     ### CALCULATOR FASTPRO Draw X-Y Mandelbrot Points Values
     ### Imaginary-Vertical and Real-Horizontal. Limits are +-2
-    ### minI = -2.0    maxI = 2.0    minR = -2.0    maxR = 2.0     # Default limits 
+    ### minI = -2.0    maxI = 2.0    minR = -2.0    maxR = 2.0  # Default limits 
+    
+    // 100x100xx =   40000   40x40x4 = 6400
+    // 200x200x4 =  160000
+    // 400x400x4 =  640000
+    // 800x800x4 = 2560000
     
     
-     //width    = 20 // Debug
-     //height   = 20 // Debug
+     //width    = 400 // DEBUG 
+     //height   = 400 // DEBUG
 
      stepR = (maxR - minR) / width               ### step-Real-horizontal
      stepI = (maxI - minI) / height              ### step-Virtual-vertical
@@ -378,32 +383,6 @@ Func Draw()
 
     //=======================================================  
     //FASTPRO
-    
-    
-        //----------------  
-             startCalcClock = clock()
-        updatelist(aList,:mandelBrot,:matrix,aFlatB )
-             stopCalcClock  = clock() 
-        
-        ? "TimeCalc = " + ((stopCalcClock - startCalcClock)) + " millisecs"
-
-        i = 0
-        for y = 1 to height                         ### Each vertical point Ring at 1
-            for x = 1 to width                      ### Each horizontal point Ring at 1
-                N = aList[x][y]
-            
-                if N > 0 and N < iter              // Color
-                   i++                             // Why we counting i -- for fList?
-                ok
-            next
-        next        
-                
-        //See "Return Fastpro aListA: "+nl  
-        //MatrixPrint(aList)
-    
-
-      
-    ###====================================================
 
 
     ###========================================================
@@ -412,38 +391,11 @@ Func Draw()
     ###          aList = list(width,height)   
     ### (1) DrawHSVFList( Ring List of points where each item is a sub list contains x,y,h,s,v,f )
     ### (2) DrawRGBFList( Ring List of points where each item is a sub list contains x,y,r,g,b,f )
+  
 
-          ### RGB  Divide by 255 for daVinci.DrawRGBFList(FList)
-          aRGB = [ [255/255, 255/255, 255/255, 1], 
-                   [204/255, 000/255, 000/255, 1], 
-                   [000/255, 204/255, 000/255, 1], 
-                   [000/255, 000/255, 255/255, 1], 
-                   [128/255, 128/255, 128/255, 1], 
-                   [153/255, 076/255, 000/255, 1], 
-                   [255/255, 178/255, 159/255, 1], 
-                   [255/255, 128/255, 000/255, 1], 
-                   [255/255, 255/255, 000/255, 1], 
-                   [153/255, 153/255, 255/255, 1], 
-                   [255/255, 051/255, 255/255, 1], 
-                   [128/255, 255/255, 000/255, 1]
-                 ]              
-                 
-          ### HVS  Divide by 360 for daVinci.DrawHVSFList(FList)     
-          aHSV = [[     0, 0.00, 1.00, 1], 
-                   [      0, 1.00, 0.80, 1], 
-                   [120/360, 1.00, 0.80, 1], 
-                   [240/360, 1.00, 1.00, 1], 
-                   [      0, 0.00, 0.50, 1], 
-                   [ 30/360, 1.00, 0.60, 1],
-                   [ 12/360, 0.37, 1.00, 1], 
-                   [ 30/360, 1.00, 1.00, 1], 
-                   [ 60/360, 1.00, 1.00, 1], 
-                   [240/360, 0.40, 1.00, 1], 
-                   [300/360, 0.80, 1.00, 1], 
-                   [ 90/360, 1.00, 1.00, 1] 
-                 ]    
-
-  	        ### DrawBytes() uses 00-ff CHAR value  
+            ### DrawBytes() uses 00-ff CHAR value
+            ### Table is in FastPro C format with { }   
+            
             aCHR = [[ char(255), char(255), char(255), char(255)], 
                     [ char(204), char(000), char(000), char(255)], 
                     [ char(000), char(204), char(000), char(255)], 
@@ -456,108 +408,42 @@ Func Draw()
                     [ char(153), char(153), char(255), char(255)], 
                     [ char(255), char(051), char(255), char(255)], 
                     [ char(128), char(255), char(000), char(255)],
-					[ char(000), char(000), char(000), char(255)]   // Black
-          	       ]
-				 
+                    [ char(000), char(000), char(000), char(255)]   // Black
+                   ]
+                 
         //---------------------------------------
-		
-    DrawType = comboCalc.currentText()   // DisplayRGB  DisplayHSV  DisplayBYTES			
-	
-	//---------------------------
-	// DISPLAY RGB
-	
-	if DrawType = "DisplayRGB"
-	   See "DisplayRGB"+nl
-		
-       startDrawClock = clock()
-       
-       FList = list(i)
-       nLastPenID = 0
-       i = 0
-	   
-       for y = 1 to height                        // Vertical
-           for x = 1 to width                     // Horizontal
-               N = alist[x][y]                    // N number in the cell
-                                      
-               if N > 0 and N < iter              // Color, i = counter used by Calc Routine
-                   nPenID = N % 12 + 1
-                   FList[i++] = [y+offset, x+offset, aRGB[nPenID][1], aRGB[nPenID][2], aRGB[nPenID][3], aRGB[nPenID][4] ]
-               ok
-          next           
-        next
+        
+    DrawType = comboCalc.currentText()   // DisplayRGB  DisplayHSV  DisplayBYTES            
+    
+    //---------------------------
+    // DISPLAY RGB - Removed
  
-       daVinci.DrawRGBFList(FList)   // RGB color array
- 
-       ? "TimeDraw RGB = " + ((clock()-startDrawClock)) + " millisecs" 
-         
-    ok   
-	
-	//------------------------------
-	// DISPLAY HSV
-	
-	if DrawType = "DisplayHSV"
-	   See "DisplayHSV"+nl
-		
-       startDrawClock = clock()
-       
-       FList = list(i)
-       nLastPenID = 0
-       i = 0
-	   
-       for y = 1 to height                        // Vertical
-           for x = 1 to width                     // Horizontal
-               N = alist[x][y]                    // N number in the cell
-                                      
-               if N > 0 and N < iter              // Color, i = counter used by Calc Routine
-                   nPenID = N % 12 + 1
-                   FList[i++] = [y+offset, x+offset, aHSV[nPenID][1], aHSV[nPenID][2], aHSV[nPenID][3], aHSV[nPenID][4] ]
-               ok
-          next           
-        next
- 
-       daVinci.DrawHSVFList(FList)   // HVS color array
- 
-       ? "TimeDraw HSV = " + ((clock()-startDrawClock)) + " millisecs" 
-         
-    ok   
+    //------------------------------
+    // DISPLAY HSV - Removed
 
-	//-----------------------------------
-	// DISPLAY BYTES
-	
-	if DrawType = "DisplayBYTES"
-	   See "DisplayBYTES"+nl         
-		
-       startDrawClock = clock()
-       
-       FList = space( width * height * 4)   // STRING Array
+    //-----------------------------------
+    // DISPLAY BYTES
+    
+    if DrawType = "DisplayBYTES"
+       See "DisplayBYTES"+nl         
+        
+       //--------------------------------
+       // Generate FList with FastPro
+
+          startClock1 = clock()  
+       Flist = updatelist(aList,:mandelBrot,:matrix,aFlatB )
 	   
-       nLastPenID = 0
-       i = 0
-	   
-       for x = 1 to width                         // Rotate Imgae H  Vertical
-           for y = 1 to height                    //              V  Horizontal
-               N = alist[x][y]                    // N number in the cell = Color
-                                      
-               if N > 0 and N < iter              // Color, i = counter used by Calc Routine
-                   nPenID = N % 12 + 1
-                   FList[i++] = aCHR[nPenID][1]
-				   FList[i++] = aCHR[nPenID][2]
-				   FList[i++] = aCHR[nPenID][3]
-				   FList[i++] = aCHR[nPenID][4] 
-				   
-			   else
-                   i = i+4  // Skip over Black pixel
-               ok
-			   		   
-          next           
-        next
- 
+          startClock2 = clock()
        daVinci.DrawBytes( offset, offset, FList, width, height, 4)   // Bytes color array
+	   
+          startClock3 = clock()
  
-       ? "TimeDraw BYTES = " + ((clock()-startDrawClock)) + " millisecs" 
+       ? " "
+       ? "TimeCalc FList = " + ((startClock2 - startClock1)) + " millisecs" 
+       ? "TimeDraw BYTES = " + ((startClock3 - startClock2)) + " millisecs"
          
-    ok   	
-	
+    ok      
+    
 
     ###========================================================    
     ###--------------------------------------------------------
