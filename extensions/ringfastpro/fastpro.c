@@ -3109,9 +3109,11 @@ RING_FUNC(ring_updatelist)
                   width  = ring_list_getdouble( pListB, 8) ;
                   height = ring_list_getdouble( pListB, 9) ;
                   
+                  
         //--------------------------------------------  
 
     //-------------------------------------------------------------
+    // PART 1
     // Update the Table ROWS and COLUMS  X-Y. 
     // We want Height and Width Y-X
   
@@ -3146,12 +3148,76 @@ RING_FUNC(ring_updatelist)
           ring_list_setdouble( pSubList, x, nZ );  // Col, N = color to draw
 
        }
-   } 
-  
-         RING_API_RETLIST( pList );
+    } 
+   
+    //==============================================================
+    // PART 2
+    // Calc DrawBYTES Color char value for each N in pList 2D array
+    // 100x100xx =   40000   40x40x4 = 6400
+    // 200x200x4 =  160000
+    // 400x400x4 =  640000
+    // 800x800x4 = 2560000
+    
+       int  nItems  = width * height * 4 ; 
+       char *FList = (char *)malloc(nItems * sizeof(char));
+            
+       int N = 0; 
+       int nPenID = 0;
+       int nLastPenID = 0;
+
+
+       //--- DrawBytes() Color Table uses CHAR value---
+       char aCHR[16][4] = 
+                  {
+                    { 255, 255, 255, 255},   //  0  1 White 
+                    { 204,   0, 255, 255},   //  1  2 Red-Blue   
+                    {   0, 204,   0, 255},   //  2  3 Green 
+                    {   0,   0, 255, 255},   //  3  4 Blue  
+                    { 128, 128, 128, 255},   //  4  5 Gray  
+                    { 153,  76,   0, 255},   //  5  6 Brown 
+                    { 255, 178, 159, 255},   //  6  7 Grape 
+                    { 255, 128,   0, 255},   //  7  8 Orange
+                    { 255, 255,   0, 255},   //  8  9 Yellow
+                    { 153, 153, 255, 255},   //  9 10 Purple
+                    { 255,  51, 255, 255},   // 10 11 Pink  
+                    { 128, 255,   0, 255},   // 11 12 Lime  
+                                                  
+                  };                              
+                  
+       //----------------------------------------------
         
-         //----------
-         break ;
+       i = 0;
+       for( x = 1; x <= width; x++)                    // Rotate Image using x-y Horz-Vert
+       {    pSubList = ring_list_getlist(pList, x) ;   // Row
+       
+            for( y = 1; y <= height; y++)              // Col
+            {              
+               //N = alist[x][y] ;                     // N number in the cell = Color
+
+               N = ring_list_getdouble( pSubList, y ); // Row-x  Col-y 
+
+               if( N > 0 && N < iter )                 // 1..50 Color N to char
+               { // nPenID = ((N % 12)+1 );            // Ring=1 N=1..49 Mod=1..11,0 
+                    nPenID = ((N % 12) );              // C=0    N=1..49 Mod=1..11,0
+                   
+                   FList[++i] = aCHR[nPenID][1] ;   // 0 1  
+                   FList[++i] = aCHR[nPenID][2] ;   // 1 2             
+                   FList[++i] = aCHR[nPenID][3] ;   // 2 3             
+                   FList[++i] = aCHR[nPenID][4] ;   // 3`4  
+               }   
+               else
+               {   
+                 i = i+4 ;    // Skip over Black pixel
+               }
+  
+            }           
+       }  
+
+       // Return CHAR Array as String nItems
+       RING_API_RETSTRING2( FList, nItems );   // ?? Ret Char Array 
+        
+       //----------
+       break ;
         
 
       //===End 4406 ==============================  
