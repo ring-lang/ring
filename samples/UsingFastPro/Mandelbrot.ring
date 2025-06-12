@@ -3,63 +3,7 @@
 ###  Mandelbrot - Colorized and Animated
 ###  2019-02-25  Bert Mariani
 ###
-###  MyApp.ProcessEvents()  ###<<< EXEC the Draw MonaLisa between each step of array sorting
-###
-###--------------------------------------------------------------------
-#
-# Use mylibMandel.c  as input to VisualStudio-2019-Community
-# Use buildvc-2.bat  batch to Build the mylibMandel.dll required
-#
-###--------------------------------------------------------------------
-### OUTPUT
-#
-#* *********************************************************************
-#  ** Visual Studio 2017 Developer Command Prompt v15.9.9
-#  ** Copyright (c) 2017 Microsoft Corporation
-#  **********************************************************************
-#  Microsoft (R) C/C++ Optimizing Compiler Version 19.16.27027.1 for x86
-#  Copyright (C) Microsoft Corporation.  All rights reserved.
-#
-#  mylibMandel.c
-#  Microsoft (R) Incremental Linker Version 14.16.27027.1
-#  Copyright (C) Microsoft Corporation.  All rights reserved.
-#  
-#  Press any key to continue . . .
-#  
-###--------------------------------------------------------------------
-### DIRECTORY
-#
-#      C:\MyStuff\AA-Mandelbrot-2>dir
-#       Volume in drive C has no label.
-#       Volume Serial Number is 4EAE-5066
-#
-#       Directory of C:\MyStuff\AA-Mandelbrot-2
-#
-#     2020-10-22  06:39 PM    <DIR>          .
-#     2020-10-22  06:39 PM    <DIR>          ..
-#     2020-10-22  05:50 PM               257 buildvc-2.bat
-#     2020-10-22  06:33 PM            19,895 Mandelbrot-10.ring
-#     2019-05-25  03:41 PM             6,047 mylibMandel.c
-#     2020-10-22  06:28 PM           420,352 mylibMandel.dll
-#     2020-10-22  06:28 PM               695 mylibMandel.exp
-#     2020-10-22  06:28 PM         1,846,236 mylibMandel.ilk
-#     2020-10-22  06:28 PM             1,766 mylibMandel.lib
-#     2020-10-22  06:28 PM         6,524,928 mylibMandel.pdb
-#                    9 File(s)      8,820,300 bytes
-#                    2 Dir(s)  164,299,460,608 bytes free
-#
-###--------------------------------------------------------------------
-###  BATCH Script
-###
-# :: buildvc-2.bat
-# 
-# cls
-# call c:\ring\language\build\locatevc.bat   
-# cl /c /DEBUG mylibMandel.c -I"c:\ring\language\include"
-# link /DEBUG mylibMandel.obj c:\ring\lib\ring.lib /DLL /OUT:mylibMandel.dll /SUBSYSTEM:CONSOLE,"5.01"
-# del mylibMandel.obj
-# pause
-#
+###  2025-06-07 Use FastPro and DrawBytes()
 ###--------------------------------------------------------------------
 
 //================================
@@ -69,7 +13,7 @@ load "stdlib.ring"
 load "fastpro.ring"
 load "matrixlib.ring"
 
-decimals(12) //
+decimals(12) 
 
 ###----------------------------------
 ### ScreenValues
@@ -293,7 +237,7 @@ MyApp = New qapp
             comboCalc = new QComboBox(win1)  // 720
             {
                 setgeometry( 10, ButtonY, 120, ButtonH)
-                comboList = ["Fastpro"]
+                comboList = ["DisplayBYTES"]
                 for x in comboList additem(x,0) next                    
             }
                 
@@ -316,8 +260,7 @@ MyApp = New qapp
 
             setpixmap(MonaLisa)
         }
-
-        
+       
        show()   ### Will show Painting ONLY after exec
     }
    exec()
@@ -406,15 +349,18 @@ Func Draw()
     decimals(12)   // 12      
 
     ###----------------------------------------------------------
-    ### CALCULATOR Draw X-Y Mandelbrot Points Values
+    ### CALCULATOR FASTPRO Draw X-Y Mandelbrot Points Values
     ### Imaginary-Vertical and Real-Horizontal. Limits are +-2
-    ### minI = -2.0    maxI = 2.0    minR = -2.0    maxR = 2.0     # Default limits 
+    ### minI = -2.0    maxI = 2.0    minR = -2.0    maxR = 2.0  # Default limits 
     
-    CalcName = comboCalc.currentText()   // "Ring" "Ccalc" "Fastpro"
-    See nl+"Selected Calc: "+CalcName +nl
+    // 100x100xx =   40000   40x40x4 = 6400
+    // 200x200x4 =  160000
+    // 400x400x4 =  640000
+    // 800x800x4 = 2560000
     
-     //width    = 20 // Debug
-     //height   = 20 // Debug
+    
+     //width    = 400 // DEBUG 
+     //height   = 400 // DEBUG
 
      stepR = (maxR - minR) / width               ### step-Real-horizontal
      stepI = (maxI - minI) / height              ### step-Virtual-vertical
@@ -433,100 +379,68 @@ Func Draw()
     aFlatB = [minI, maxI, minR, maxR, iter, stepI, stepR, width, height]  
 
 
-
     //=======================================================  
     //FASTPRO
-    
-    if CalcName = "Fastpro"
-    
-        //----------------  
-        startCalcClock = clock()
-        updatelist(aList,:mandelBrot,:matrix,aFlatB )
-        stopCalcClock  = clock() 
-        
-        ? "TimeCalc = " + ((stopCalcClock - startCalcClock)) + " millisecs"
-
-        i = 0
-        for y = 1 to height                         ### Each vertical point Ring at 1
-            for x = 1 to width                      ### Each horizontal point Ring at 1
-                N = aList[x][y]
-            
-                if N > 0 and N < iter              // Color
-                   i++                             // Why we counting i -- for fList?
-                ok
-            next
-        next        
-                
-        //See "Return Fastpro aListA: "+nl  
-        //MatrixPrint(aList)
-    
-    ok
-
-      
-    ###====================================================
 
 
     ###========================================================
     ###--------------------------------------------------------
-    ### FAST Draw the aList[x][y]  N-values that were calculated
+    ### FAST DRAW the aList[x][y]  N-values that were calculated
     ###          aList = list(width,height)   
     ### (1) DrawHSVFList( Ring List of points where each item is a sub list contains x,y,h,s,v,f )
     ### (2) DrawRGBFList( Ring List of points where each item is a sub list contains x,y,r,g,b,f )
+  
 
-          ### RGB  Divide by 255 for daVinci.DrawRGBFList(FList)
-          aRGB = [ [255/255, 255/255, 255/255, 1], 
-                   [204/255, 000/255, 000/255, 1], 
-                   [000/255, 204/255, 000/255, 1], 
-                   [000/255, 000/255, 255/255, 1], 
-                   [128/255, 128/255, 128/255, 1], 
-                   [153/255, 076/255, 000/255, 1], 
-                   [255/255, 178/255, 159/255, 1], 
-                   [255/255, 128/255, 000/255, 1], 
-                   [255/255, 255/255, 000/255, 1], 
-                   [153/255, 153/255, 255/255, 1], 
-                   [255/255, 051/255, 255/255, 1], 
-                   [128/255, 255/255, 000/255, 1]
-                 ]              
+            ### DrawBytes() uses 00-ff CHAR value
+            ### Table is in FastPro C format with { }   
+            
+            aCHR = [[ char(255), char(255), char(255), char(255)], 
+                    [ char(204), char(000), char(000), char(255)], 
+                    [ char(000), char(204), char(000), char(255)], 
+                    [ char(000), char(000), char(255), char(255)], 
+                    [ char(128), char(128), char(128), char(255)], 
+                    [ char(153), char(076), char(000), char(255)], 
+                    [ char(255), char(178), char(159), char(255)], 
+                    [ char(255), char(128), char(000), char(255)], 
+                    [ char(255), char(255), char(000), char(255)], 
+                    [ char(153), char(153), char(255), char(255)], 
+                    [ char(255), char(051), char(255), char(255)], 
+                    [ char(128), char(255), char(000), char(255)],
+                    [ char(000), char(000), char(000), char(255)]   // Black
+                   ]
                  
-          ### HVS  Divide by 360 for daVinci.DrawHVSFList(FList)     
-          xaRGB = [[     0, 0.00, 1.00, 1], 
-                  [      0, 1.00, 0.80, 1], 
-                  [120/360, 1.00, 0.80, 1], 
-                  [240/360, 1.00, 1.00, 1], 
-                  [      0, 0.00, 0.50, 1], 
-                  [ 30/360, 1.00, 0.60, 1],
-                  [ 12/360, 0.37, 1.00, 1], 
-                  [ 30/360, 1.00, 1.00, 1], 
-                  [ 60/360, 1.00, 1.00, 1], 
-                  [240/360, 0.40, 1.00, 1], 
-                  [300/360, 0.80, 1.00, 1], 
-                  [ 90/360, 1.00, 1.00, 1] 
-                 ]                               
-
-    startDrawClock = clock()
-    FList = list(i)
-    nLastPenID = 0
-    i = 0
-
-    for y = 1 to height                        // Vertical
-        for x = 1 to width                     // Horizontal
-            N = alist[x][y]                    // N number in the cell
-                                   
-            if N > 0 and N < iter              // Color, i = counter used by Calc Routine
-                nPenID = N % 12 + 1
-                FList[i++] = [y+offset, x+offset, aRGB[nPenID][1], aRGB[nPenID][2], aRGB[nPenID][3], aRGB[nPenID][4] ]
-            ok
-       next           
-     next
-
-    //See "Finish FList y-x: "+ y +" "+ x +nl
+        //---------------------------------------
+        
+    DrawType = comboCalc.currentText()   // DisplayRGB  DisplayHSV  DisplayBYTES            
+    
+    //---------------------------
+    // DISPLAY RGB - Removed
  
-   daVinci.DrawRGBFList(FList)   // RGB color array
- //daVinci.DrawHSVFList(FList)   // HVS color array
- 
+    //------------------------------
+    // DISPLAY HSV - Removed
 
-    ? "TimeDraw = " + ((clock()-startDrawClock)) + " millisecs" 
+    //-----------------------------------
+    // DISPLAY BYTES
+    
+    if DrawType = "DisplayBYTES"
+       See "DisplayBYTES"+nl         
+        
+       //--------------------------------
+       // Generate FList with FastPro
+
+          startClock1 = clock()  
+       Flist = updatelist(aList,:mandelBrot,:matrix,aFlatB )
+	   
+          startClock2 = clock()
+       daVinci.DrawBytes( offset, offset, FList, width, height, 4)   // Bytes color array
+	   
+          startClock3 = clock()
+ 
+       ? " "
+       ? "TimeCalc FList = " + ((startClock2 - startClock1)) + " millisecs" 
+       ? "TimeDraw BYTES = " + ((startClock3 - startClock2)) + " millisecs"
          
+    ok      
     
 
     ###========================================================    
