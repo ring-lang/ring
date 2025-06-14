@@ -274,6 +274,9 @@ Quotes about Ring
 |		, CinergyTech (YouTube)
 
 
+|	**"In 2024, I began working on CSV data manipulation and started looking for a simple, effective programming language. That’s when I discovered Ring, which I found to be a highly viable solution. It was easy to learn—I went through the documentation in about two weeks and was already writing real applications shortly afterward."**
+|		, Clement
+
 .. index:: 
 	pair: Applications developed in a few hours; FetchStockData Application
 
