@@ -794,5 +794,9 @@ aPackagesRegistry = [
 	[ :name = "markdown",
           :description = "A Markdown parser and HTML converter extension for the Ring programming language",
           :ProviderUserName = "ysdragon"
+        ],
+	[ :name = "Adhkar_Ring_App",
+          :description = "Application: Adhkar (Arabic/WebAssembly)",
+          :ProviderUserName = "mohannad-aldulaimi"
         ]
 ]
