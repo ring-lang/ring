@@ -1841,62 +1841,33 @@ aList = "nice"
 
 </div>
 
-
-
-
-<div id = "researchpapers" class="container-fluid" style="color:white ; background: linear-gradient(to bottom, rgb(30, 32, 42) 0%, rgb(50, 52, 62) 47%, rgb(60, 62, 72) 50%) repeat scroll 0% 0% ; margin-bottom: 0%;">
+<div id = "booksandresearchpapers" class="container-fluid" style="color:white ; background: linear-gradient(to bottom, rgb(30, 32, 42) 0%, rgb(50, 52, 62) 47%, rgb(60, 62, 72) 50%) repeat scroll 0% 0% ; margin-bottom: 0%;">
 <div class="container" style=" margin-bottom: 2%;">
 <br> <br>
 	<div class="row">
 	
-		<div class="col-sm-8 visible-xs">
-			<table> 
-				<td>
-					<a href="https://github.com/ring-lang/ring/releases/download/v1.22/RingDoc_1.22.pdf">
-					<img src="ringbookbyfayed.png" width="150" height="200">
-					</a> 
-				</td>
-				<td>
-					<a href="https://www.mdpi.com/2079-9292/13/23/4627">
-					<img src="ringpaper.png" width="150" height="200">
-					</a> 
-				</td> 
-				<td> 		
-					<a href="https://www.mdpi.com/2076-3417/15/3/1521">
-					<img src="pwct2paper.png" width="150" height="200">
-					</a> 
-				</td>
-				<td>
-					<a href="https://www.apress.com/gp/book/9781484258323">
-					<img src="ringbookbyapress.png" width="150" height="200">
-					</a> 
-				</td> 
-			</table>
-			<br> <br>
-		</div>
-
-		<div class="col-md-3 hidden-xs">
+		<div class="col-md-3">
 		<div>
 			<a href="https://github.com/ring-lang/ring/releases/download/v1.22/RingDoc_1.22.pdf">
 			<img src="ringbookbyfayed.png" width="250" height="370">
 			</a>
 		</div>
 		</div>	
-		<div class="col-md-3 hidden-xs">
+		<div class="col-md-3">
 		<div>
 			<a href="https://www.mdpi.com/2079-9292/13/23/4627">
 			<img src="ringpaper.png" width="250" height="370">
 			</a>
 		</div>
 		</div>	
-		<div class="col-md-3 hidden-xs">
+		<div class="col-md-3">
 		<div>
 			<a href="https://www.mdpi.com/2076-3417/15/3/1521">
 			<img src="pwct2paper.png" width="250" height="370">
 			</a>
 		</div>
 		</div>
-		<div class="col-md-3 hidden-xs">
+		<div class="col-md-3">
 			<div>
 				<a href="https://www.apress.com/gp/book/9781484258323">
 				<img src="ringbookbyapress.png" width="250" height="370">
