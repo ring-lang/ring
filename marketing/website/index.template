@@ -1848,31 +1848,43 @@ aList = "nice"
 	
 		<div class="col-md-3">
 		<div>
+			<br>
 			<a href="https://github.com/ring-lang/ring/releases/download/v1.22/RingDoc_1.22.pdf">
 			<img src="ringbookbyfayed.png" width="250" height="370">
 			</a>
+			<br>
+			<br>
 		</div>
 		</div>	
 		<div class="col-md-3">
 		<div>
+			<br>
 			<a href="https://www.mdpi.com/2079-9292/13/23/4627">
 			<img src="ringpaper.png" width="250" height="370">
 			</a>
+			<br>
+			<br>
 		</div>
 		</div>	
 		<div class="col-md-3">
 		<div>
+			<br>
 			<a href="https://www.mdpi.com/2076-3417/15/3/1521">
 			<img src="pwct2paper.png" width="250" height="370">
 			</a>
+			<br>
+			<br>
 		</div>
 		</div>
 		<div class="col-md-3">
-			<div>
-				<a href="https://www.apress.com/gp/book/9781484258323">
-				<img src="ringbookbyapress.png" width="250" height="370">
-				</a>
-			</div>
+		<div>
+			<br>
+			<a href="https://www.apress.com/gp/book/9781484258323">
+			<img src="ringbookbyapress.png" width="250" height="370">
+			</a>
+			<br>
+			<br>
+		</div>
 		</div>	
 
 		<br>
