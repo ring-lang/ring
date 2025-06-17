@@ -244,6 +244,7 @@ aTests = [
 	[ :name = "Comments (Part 3)", :Command = "ring comment/comment3.ring" ],
 	[ :name = "Comments (Part 4)", :Command = "ring comment/comment4.ring" ],
 	[ :name = "Comments (Part 5)", :Command = "ring comment/comment5.ring" ],
+	[ :name = "Comments (Part 6)", :Command = "ring comment/comment6.ring" ],
 	[ :name = "Semicolon (Part 1)", :Command = "ring semicolon/semicolon.ring" ],
 	[ :name = "Semicolon (Part 2)", :Command = "ring semicolon/semicolon2.ring" ],
 	[ :name = "Semicolon (Part 3)", :Command = "ring semicolon/semicolon3.ring" ],
