@@ -269,7 +269,10 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 						/* The next step is important to avoid storing * as identifier! */
 						ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,RING_CSTR_EMPTY);
 					}
-					pScanner->nMLComment = 0 ;
+					if ( strcmp(cStr,"*") != 0 ) {
+						/* We can repeat stars */
+						pScanner->nMLComment = 0 ;
+					}
 					return ;
 			}
 			break ;
