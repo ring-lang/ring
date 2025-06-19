@@ -72,7 +72,9 @@
 			#define ring_vm_os_gettime clock_gettime
 		#endif
 		#ifdef __FreeBSD__
-			#define CLOCK_UPTIME CLOCK_UPTIME_PRECISE
+			#ifndef CLOCK_UPTIME
+				#define CLOCK_UPTIME CLOCK_UPTIME_PRECISE
+			#endif
 		#else
 			#if !defined(CLOCK_MONOTONIC_RAW)
 				#define CLOCK_MONOTONIC_RAW 0

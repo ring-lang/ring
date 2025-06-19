@@ -183,7 +183,7 @@ void ring_general_showtime ( void )
 	ring_general_printline();
 	puts(cBuffer);
 	vClock = clock();
-	printf( "Clock : %ld \n", (long)vClock ) ;
+	printf( "Clock : %ld \n", (long) vClock ) ;
 	ring_general_printline();
 }
 
