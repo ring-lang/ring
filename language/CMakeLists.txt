@@ -1,7 +1,8 @@
 # Description : Build Ring using CMake
 # Author      : Mahmoud Fayed <msfclipper@yahoo.com>
+#             : Youssef Saeed <youssefelkholey@gmail.com>
 
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.16)
 project(ring)
 
 # Header Files
@@ -23,16 +24,21 @@ if(WIN32)
     target_link_libraries(ringstatic m)
 else()
     if(APPLE)
-        message("Building Ring for MacOS X")
+        message("Building Ring for macOS")
     else()
-        # Read the contents of /etc/os-release
-        file(READ "/etc/os-release" OS_RELEASE_CONTENT)
-        # Extract the distro name from the content (From PRETTY_NAME)
-        string(REGEX MATCH "PRETTY_NAME=\"([^\"]+)\"" MATCHED_NAME "${OS_RELEASE_CONTENT}")
-        # If a match is found, extract the name
-        if(MATCHED_NAME)
-            string(REGEX REPLACE "PRETTY_NAME=\"([^\"]+)\"" "\\1" DISTRO_NAME "${MATCHED_NAME}")
-            message(STATUS "Building Ring for: ${DISTRO_NAME}")
+        # Check if /etc/os-release exists before reading it
+        if(EXISTS "/etc/os-release")
+            # Read the contents of /etc/os-release
+            file(READ "/etc/os-release" OS_RELEASE_CONTENT)
+            # Extract the OS name from PRETTY_NAME field in os-release file
+            string(REGEX MATCH "PRETTY_NAME=\"([^\"]+)\"" MATCHED_NAME "${OS_RELEASE_CONTENT}")
+            # If a match is found, extract the name
+            if(MATCHED_NAME)
+                string(REGEX REPLACE "PRETTY_NAME=\"([^\"]+)\"" "\\1" OS_NAME "${MATCHED_NAME}")
+                message(STATUS "Building Ring for: ${OS_NAME}")
+            else()
+                message(STATUS "Building Ring for: Unknown")
+            endif()
         else()
             message(STATUS "Building Ring for: Unknown")
         endif()
@@ -51,10 +57,11 @@ target_link_libraries(ringlang ring)
 set_target_properties(ringlang PROPERTIES OUTPUT_NAME ring)
 
 # Check the Operating System for installation
+get_filename_component(PARENT_DIR ${CMAKE_CURRENT_SOURCE_DIR} DIRECTORY)
 if(WIN32)
-    install(TARGETS ringlang ring DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/../bin)
-    install(TARGETS ring ringstatic DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/../lib)
+    install(TARGETS ringlang ring DESTINATION ${PARENT_DIR}/bin)
+    install(TARGETS ring ringstatic DESTINATION ${PARENT_DIR}/lib)
 else()
-    install(TARGETS ringlang DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/../bin)
-    install(TARGETS ring ringstatic DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/../lib)
+    install(TARGETS ringlang DESTINATION ${PARENT_DIR}/bin)
+    install(TARGETS ring ringstatic DESTINATION ${PARENT_DIR}/lib)
 endif()
