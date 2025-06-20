@@ -160,6 +160,7 @@ More Improvements
 * VSCode Extension - Support for using underscore inside numbers
 * RingLibuv - Support compilation on Linux with GCC 14/Clang 19+
 * RingLibSDL - Support compilation on Linux with GCC 14/Clang 19+
+* CMakeLists.txt - Require version 3.16 and improve OS detection messages
 * Ring Compiler - Scanner - Support repeating stars in multi-line comments
 * Ring VM - Save/Restore pParser->lFuncCallOnly when using anonymous function
 * Ring VM - The ~ operator precedence is revised to follow the documentation
