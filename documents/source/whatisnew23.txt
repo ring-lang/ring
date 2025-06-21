@@ -42,7 +42,12 @@ PWCT 2.0 (Source Code)
 
 Programming Without Coding Technology 2.0 source code is released on GitHub.
 
+PWCT2 comes with Arabic/English translations.
+
 URL: https://github.com/PWCT/pwct2
+
+.. image:: pwct2arabic.png
+	:alt: PWCT2Arabic
 
 .. index:: 
 	pair: What is new in Ring  1.23; Snakes and Ladders 2
