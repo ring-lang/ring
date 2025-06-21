@@ -5,12 +5,17 @@
 Applications developed in a few hours
 =====================================
 
-Ring is a new programming language that focuses on the Natural Language Programming and Declarative Programming paradigms 
+Ring is a dynamic programming language that focuses on the Natural Language Programming and Declarative Programming paradigms 
 and will let you think different about programming and how to solve your problems in a better way.   
 In little days after the first release we got thousands of downloads and many developers started learning and 
 using the language. Their feedback are the secret behind the language progress and success. 
 They said that Ring is powerful, beautiful and easy to learn, Some of them provided good examples about what can be done using Ring in a few hours. 
 They are very happy with the language productivity.
+
+The language is lightweight, embeddable and cross-platform (desktop, web, mobile, and microcontroller). 
+It utilizes a deterministic, scope-based memory management system with escape analysis and optional reference counting with cycle detection. 
+It is specifically designed for developing applications, tools, and domain-specific languages (DSLs).
+
 
 .. index:: 
 	pair: Applications developed in a few hours; Quotes about Ring
@@ -278,28 +283,6 @@ Quotes about Ring
 |		, Clement
 
 .. index:: 
-	pair: Applications developed in a few hours; Squares Puzzle Game
-
-Squares Puzzle Game
-===================
-
-An implementation for the popular Squares Puzzle game.
-
-.. image:: ringapps_shot2.png
-	:alt: Ring Application
-
-.. index:: 
-	pair: Applications developed in a few hours; FetchStockData Application
-
-FetchStockData Application
-==========================
-
-It will fetch stock data from Yahoo and draw various types of charts.
-
-.. image:: getquotesmac.png
-	:alt: GetQuotesHistory on MacOS X
-
-.. index:: 
 	pair: Applications developed in a few hours; Samples in this book
 
 Samples in this book
@@ -347,10 +330,6 @@ https://www.codeproject.com/Articles/1137388/Syntax-Flexibility-in-the-Ring-Prog
 * The Ring Programming Language : 
 https://www.codeproject.com/Articles/1089887/The-Ring-Programming-Language
 
-
-.. image:: ringnatural.png
-	:alt: NLP in Ring
-
 .. index:: 
 	pair: Applications developed in a few hours; Practical
 
@@ -370,3 +349,6 @@ Also we can run it in the Web Browser as a web application using WebAssembly
 
 .. image:: formdesignerwasm.png
 	:alt: Form Designer - Web
+
+
+
