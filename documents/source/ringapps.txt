@@ -13,7 +13,8 @@ They said that Ring is powerful, beautiful and easy to learn, Some of them provi
 They are very happy with the language productivity.
 
 The language is lightweight, embeddable and cross-platform (desktop, web, mobile, and microcontroller). 
-It utilizes a deterministic, scope-based memory management system with escape analysis and optional reference counting with cycle detection. 
+It utilizes a deterministic, safe, and flexible scope-based memory management system that incorporates escape analysis 
+and optional reference counting with cycle detection. 
 It is specifically designed for developing applications, tools, and domain-specific languages (DSLs).
 
 
