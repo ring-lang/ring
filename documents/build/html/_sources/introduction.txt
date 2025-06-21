@@ -84,7 +84,7 @@ Ring is designed to be a language for application development that can stay for 
 
 To achieve this, Ring is a free and open-source project that works on different platforms and has a small implementation that other programmers could understand and improve. It comes with a visual implementation  that could help in this process. Ring is designed and implemented in a way that enables other programmers to easily understand its design and implementation in a short time.
 
-The selection of data types, How the Garbage Collector works, How does the language support threads? All of these decisions are made in a specific way to keep the language very portable and ready for the future (As much as we can, Since we don't know the future, but we can try to invent/predict it!).
+The selection of data types, How the Memory Management System works, How does the language support threads? All of these decisions are made in a specific way to keep the language very portable and ready for the future (As much as we can, Since we don't know the future, but we can try to invent/predict it!).
 
 .. note:: We can run Ring on a very old operating system like MS-DOS. Also, we can run it using a modern platform like WebAssembly. 
 
@@ -228,8 +228,8 @@ The Ring language comes with the next features
 * Default scope for variables inside functions (Local)
 * Default scope for variables outside functions (global)
 * We can have separate global scope for each library or sub project
-* Garbage Collector - Automatic Memory Management (Escape Analysis and Reference Counting)
-* In most cases (90%) Ring VM uses Escape Analysis an no need to run the Garbage Collector (Faster)
+* Automatic Memory Management (Scope-Based, Escape Analysis and Optional Reference Counting)
+* In most cases Ring VM uses Scope-Based Memory Management (SBMM) and Escape Analysis (Faster)
 * Structure Programming
 * Rich control structures & Operators
 * For in get item by reference not value, you can read/edit the item
