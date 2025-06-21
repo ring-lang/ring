@@ -31,7 +31,7 @@ Contents:
 Install
 =======
 
-* Install Ring 1.21 (Required to compile the Ring program in the Building step)
+* Install Ring (Required to compile the Ring program in the Building step)
 * Install Pico-SDK from: https://github.com/raspberrypi/pico-setup-windows
 * Update config.bat to point to the Pico-SDK folder on your computer
 
