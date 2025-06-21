@@ -278,17 +278,6 @@ Quotes about Ring
 |		, Clement
 
 .. index:: 
-	pair: Applications developed in a few hours; FetchStockData Application
-
-FetchStockData Application
-==========================
-
-It will fetch stock data from Yahoo and draw various types of charts.
-
-.. image:: getquotesmac.png
-	:alt: GetQuotesHistory on MacOS X
-
-.. index:: 
 	pair: Applications developed in a few hours; Squares Puzzle Game
 
 Squares Puzzle Game
@@ -298,6 +287,17 @@ An implementation for the popular Squares Puzzle game.
 
 .. image:: ringapps_shot2.png
 	:alt: Ring Application
+
+.. index:: 
+	pair: Applications developed in a few hours; FetchStockData Application
+
+FetchStockData Application
+==========================
+
+It will fetch stock data from Yahoo and draw various types of charts.
+
+.. image:: getquotesmac.png
+	:alt: GetQuotesHistory on MacOS X
 
 .. index:: 
 	pair: Applications developed in a few hours; Samples in this book

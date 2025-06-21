@@ -17,7 +17,7 @@ Ring 1.23 comes with the next features!
 
 * Research Article
 * PWCT 2.0 (Source Code)
-*  Snakes and Ladders 2
+* Snakes and Ladders 2
 * Better Samples and Applications
 * Better StdLib
 * Better RingLibCurl
@@ -60,7 +60,7 @@ Better Samples and Applications
 
 The next samples and applications are added:
 
-* ‎applications/trianglecalculator
+* applications/trianglecalculator
 * samples/UsingCSVLib/usinglist2csv.ring 
 * samples/Language/AnonFunctions/me.ring
 * samples/Language/SwitchCheck/switchcheck.ring
@@ -80,7 +80,7 @@ The next samples and applications are added:
 * samples/UsingFastPro/RegAddSubMulDivColRowDest.ring
 * samples/UsingFastPro/MergeAddSubMulDivColRowDest.ring
 * samples/UsingFastPro/SetManyCopySerialPowRemItemsColRow.ring
-* ‎samples/UsingFastPro/ManyAddSubMulDivSerialPowRem.ring
+* samples/UsingFastPro/ManyAddSubMulDivSerialPowRem.ring
 * samples/UsingFastPro/MatrixAddSubMul.ring
 * samples/UsingFastPro/SpeedMatrixMul.ring
 * samples/UsingFastPro/MatrixScalar.ring
