@@ -149,6 +149,7 @@ Better RingLibCurl
 More Improvements
 =================
 
+* Better Documentation
 * Qt version is updated to Qt 5.15.19
 * Form Designer - Better support for translation
 * Form Designer - Objects Order - Using closeAction() method
