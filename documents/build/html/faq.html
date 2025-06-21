@@ -412,22 +412,23 @@ We use the term Ring Extension —&gt; When the library code is Written in C or 
 <p>2.2 Use the Assignment operator</p>
 <p>2.3 Use callgc() function (delete temp. lists only)</p>
 <ol class="arabic simple" start="3">
-<li><p>Ring Garbage Collector uses Escape Analysis and Reference Counting</p></li>
+<li><p>Ring Memory Management System is Scope Based and uses Escape Analysis and Optional Reference Counting with cycle detection</p></li>
 </ol>
-<p>In 90% of cases, the Escape Analysis is used so we don’t waste time in running the garbage collector
+<p>In most cases, the SBMM and Escape Analysis is used.
 We directly know what will be deleted and what will remain in the memory.</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Escape_analysis">https://en.wikipedia.org/wiki/Escape_analysis</a></p>
-<p>In 10% of cases (or less than that) Ring may use Reference Counting.</p>
+<p>In some cases Ring may use Reference Counting.</p>
 <p>For example when we pass a list and sub list to a function
 Ring will pass the lists by reference, but what will happens if we deleted the Parent List?
 In this case, the Sub List will use reference counting, and when deleting the Parent List, it will stay in memory until the end of the function.</p>
 <p>Remember that Ring encourage us to avoid using references, and the
 Assignment Operator will copy lists by value, so Ring usage of reference counting is
-very limited to special cases and in most cases the Escape Analysis is enough which is very fast.</p>
+very limited to special cases and in most cases the SBMM &amp; Escape Analysis is enough which is very fast.</p>
 <p>Starting from Ring 1.9 we extended the Reference Counting support to Ring Extensions and low level C pointers.
 So we don’t have to care about using fclose() when we use fopen() for example. and the same for
 other extensions like RingODBC, RingSQLite, RingMySQL, RingQt, etc.</p>
-<p>All of the allocated resources will be cleaned by the Garbage Collector when we finish using it (when we lost the last reference).</p>
+<p>All of the allocated resources will be cleaned when we finish using it (when we lost the last reference).</p>
+<p>Starting from Ring 1.18 we added optional references using the Ref() function.</p>
 </section>
 <section id="what-about-data-representation-in-ring">
 <span id="index-5"></span><h2>What about Data Representation in Ring?<a class="headerlink" href="#what-about-data-representation-in-ring" title="Permalink to this heading"></a></h2>
@@ -590,7 +591,7 @@ without code (using natural languages) and is designed to support that.</p>
 <ol class="arabic simple" start="3">
 <li><p>Ring is more productive and natural than C/C++.</p></li>
 <li><p>Ring is a dynamic language. We can generate and execute code during the runtime. Ring is dynamically typed and weakly typed for flexibility.</p></li>
-<li><p>The Garbage collector is generational (escape analysis) and also uses reference counting. it’s very fast and still provides control to the programmer who can delete memory at any time.</p></li>
+<li><p>Automatic Memory Management (Scope Based &amp; Escape Analysis) and also support optional reference counting with cycle detection. it’s very fast and still provides control to the programmer who can delete memory at any time.</p></li>
 <li><p>Ring’s compiler and virtual machine are just 20,000 lines of ANSI C code that can be compiled and used in any platform.</p></li>
 <li><p>You can use C/C++ libraries and Ring comes with code generator to create wrappers from C functions or C++ classes. so when you need more performance or when you need to use more libraries you can easily do that.</p></li>
 </ol>
@@ -613,7 +614,7 @@ the Programming Without Coding Technology (PWCT) software so I started the Ring 
 <p>Critical changes are</p>
 <ol class="arabic simple">
 <li><p>Small Language : The Ring compiler + Virtual Machine = 15K lines of C code , the other 500K lines are related to libraries and are optional when we go for using the language in C/C++ programs.</p></li>
-<li><p>The Garbage collector : Uses Escape Analysis/Reference counting and give the programmer the ability to determine when to delete memory using the assignment operator</p></li>
+<li><p>Automatic Memory Management : Scope Based/Escape Analysis/Optional Reference counting with cycle detection. This give the programmer the ability to determine when to delete memory using the assignment operator</p></li>
 <li><p>Compact Syntax : Ring is not line sensitive, you don’t need to write ; or press ENTER to separate between statements</p></li>
 <li><p>Using { } to access the object then using the object attributes and methods directly</p></li>
 <li><p>Natural Programming : It’s very easy to create natural interfaces using Ring based on OOP</p></li>
@@ -923,7 +924,7 @@ between using values or references, You don’t have to write the scope (Lexical
 </dl>
 </li>
 <li><dl class="simple">
-<dt>In Ring, we have smart garbage collector (Simple &amp; Fast), We can delete the memory directly</dt><dd><p>at any time using the Assignment operator too. Reducing references usage or using them through
+<dt>In Ring, we have smart memory management system (Simple &amp; Fast), We can delete the memory directly</dt><dd><p>at any time using the Assignment operator too. Reducing references usage or using them through
 managers helps a lot to achieve this goal. by doing this we have full control.</p>
 </dd>
 </dl>

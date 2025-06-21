@@ -171,14 +171,14 @@ All of this will be deleted directly after the end of the function call (end of 
 
 2.3 Use callgc() function (delete temp. lists only)
 
-(3) Ring Garbage Collector uses Escape Analysis and Reference Counting
+(3) Ring Memory Management System is Scope Based and uses Escape Analysis and Optional Reference Counting with cycle detection
 
-In 90% of cases, the Escape Analysis is used so we don't waste time in running the garbage collector
+In most cases, the SBMM and Escape Analysis is used.
 We directly know what will be deleted and what will remain in the memory.
 
 https://en.wikipedia.org/wiki/Escape_analysis
 
-In 10% of cases (or less than that) Ring may use Reference Counting.
+In some cases Ring may use Reference Counting.
 
 For example when we pass a list and sub list to a function
 Ring will pass the lists by reference, but what will happens if we deleted the Parent List?
@@ -186,14 +186,15 @@ In this case, the Sub List will use reference counting, and when deleting the Pa
 
 Remember that Ring encourage us to avoid using references, and the
 Assignment Operator will copy lists by value, so Ring usage of reference counting is
-very limited to special cases and in most cases the Escape Analysis is enough which is very fast.
+very limited to special cases and in most cases the SBMM & Escape Analysis is enough which is very fast.
 
 Starting from Ring 1.9 we extended the Reference Counting support to Ring Extensions and low level C pointers.
 So we don't have to care about using fclose() when we use fopen() for example. and the same for
 other extensions like RingODBC, RingSQLite, RingMySQL, RingQt, etc.
 
-All of the allocated resources will be cleaned by the Garbage Collector when we finish using it (when we lost the last reference).
+All of the allocated resources will be cleaned when we finish using it (when we lost the last reference).
 
+Starting from Ring 1.18 we added optional references using the Ref() function.
 
 .. index:: 
 	pair: Frequently Asked Questions; What about Data Representation in Ring?
@@ -422,7 +423,7 @@ for example you can create a game engine using object-oriented programming but w
 
 (4) Ring is a dynamic language. We can generate and execute code during the runtime. Ring is dynamically typed and weakly typed for flexibility.
 
-(5) The Garbage collector is generational (escape analysis) and also uses reference counting. it's very fast and still provides control to the programmer who can delete memory at any time.
+(5) Automatic Memory Management (Scope Based & Escape Analysis) and also support optional reference counting with cycle detection. it's very fast and still provides control to the programmer who can delete memory at any time.
 
 (6) Ring's compiler and virtual machine are just 20,000 lines of ANSI C code that can be compiled and used in any platform.
 
@@ -460,7 +461,7 @@ Critical changes are
 
 (1) Small Language : The Ring compiler + Virtual Machine = 15K lines of C code , the other 500K lines are related to libraries and are optional when we go for using the language in C/C++ programs.
 
-(2) The Garbage collector : Uses Escape Analysis/Reference counting and give the programmer the ability to determine when to delete memory using the assignment operator
+(2) Automatic Memory Management : Scope Based/Escape Analysis/Optional Reference counting with cycle detection. This give the programmer the ability to determine when to delete memory using the assignment operator
 
 (3) Compact Syntax : Ring is not line sensitive, you don't need to write ; or press ENTER to separate between statements
 
@@ -907,7 +908,7 @@ approach to deep vs. shallow copies is to prefer deep copies until proven otherw
 	conversions between numbers and strings (Weakly Typed) and you don't have to select
 	between using values or references, You don't have to write the scope (Lexical Scoping).
 
-(10) In Ring, we have smart garbage collector (Simple & Fast), We can delete the memory directly
+(10) In Ring, we have smart memory management system (Simple & Fast), We can delete the memory directly
 	at any time using the Assignment operator too. Reducing references usage or using them through
 	managers helps a lot to achieve this goal. by doing this we have full control.
 
