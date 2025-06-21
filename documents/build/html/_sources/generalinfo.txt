@@ -58,14 +58,14 @@ All of this will be deleted directly after the end of the function call (end of 
 
 2.3 Use callgc() function (delete temp. lists only)
 
-(3) Ring Garbage Collector uses Escape Analysis and Reference Counting
+(3) Ring Memory Management system is Scope-Based and uses Escape Analysis and Optional Reference Counting with cycle detection
 
-In 90% of cases, the Escape Analysis is used so we don't waste time in running the garbage collector
+In most cases, the SBMM/Escape Analysis is used.
 We directly know what will be deleted and what will remain in the memory.
 
 https://en.wikipedia.org/wiki/Escape_analysis
 
-In 10% of cases (or less than that) Ring may use Reference Counting.
+In some cases Ring may use Reference Counting.
 
 For example when we pass a list and sub list to a function
 Ring will pass the lists by reference, but what will happens if we deleted the Parent List?
@@ -79,8 +79,9 @@ Starting from Ring 1.9 we extended the Reference Counting support to Ring Extens
 So we don't have to care about using fclose() when we use fopen() for example. and the same for
 other extensions like RingODBC, RingSQLite, RingMySQL, RingQt, etc.
 
-All of the allocated resources will be cleaned by the Garbage Collector when we finish using it (when we lost the last reference).
+All of the allocated resources will be cleaned by the Memory Management System when we finish using it (when we lost the last reference).
 
+Starting from Ring 1.18 we added optional references using the Ref() function.
 
 .. index:: 
 	pair: General Information; Data Representation
