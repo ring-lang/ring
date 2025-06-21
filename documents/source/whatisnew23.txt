@@ -52,6 +52,9 @@ Snakes and Ladders 2
 
 Two players version of the game (applications/snakesandladders2)
 
+.. image:: sal2.png
+	:alt: SnakesAndLadders2
+
 .. index:: 
 	pair: What is new in Ring  1.23; Better Samples and Applications
 
