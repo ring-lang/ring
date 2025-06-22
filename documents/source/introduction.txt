@@ -228,8 +228,9 @@ The Ring language comes with the next features
 * Default scope for variables inside functions (Local)
 * Default scope for variables outside functions (global)
 * We can have separate global scope for each library or sub project
-* Automatic Memory Management (Scope-Based, Escape Analysis and Optional Reference Counting)
+* Automatic Memory Management (Deterministic, Scope-Based, Escape Analysis and Optional Reference Counting)
 * In most cases Ring VM uses Scope-Based Memory Management (SBMM) and Escape Analysis (Faster)
+* Create references at any time using Ref() function (Reference Counting with cycle detection)
 * Structure Programming
 * Rich control structures & Operators
 * For in get item by reference not value, you can read/edit the item
@@ -246,12 +247,11 @@ The Ring language comes with the next features
 * First Class Variables, Lists, Objects and Functions
 * Store/Copy Lists/Objects by value (Deep Copy)
 * Pass Lists/Objects by reference
-* Create references at any time using Ref() function
 * Native Object-Oriented Support
 
 	* Encapsulation
 	* Setter/Getter (optional)
-	* private state (optional)
+	* Private state (optional)
 	* Instantiation
 	* Polymorphism 
 	* Composition 
