@@ -284,19 +284,24 @@ Quotes about Ring
 |		, Clement
 
 .. index:: 
-	pair: Applications developed in a few hours; Samples in this book
+	pair: Applications developed in a few hours; Applications and samples
 
-Samples in this book
-====================
+Applications and samples
+========================
 
-The book comes with many samples that are developed in a few hours.
+Ring comes with many applications and games in the ring/applications folder.
 
-The next screen shot for the Gold Magic 800 Game
+Hundreds of samples exist in the ring/samples folder.
+
+.. image:: ringapps.png
+	:alt: RingApps
+
+The next screen shot for the Gold Magic 800 Game.
 
 .. image:: gmshot3.png
 	:alt: Gold Magic 800 
 
-The next screen shot from the Web Development chapter
+The next screen shot from the Web Development chapter.
 
 .. image:: ex24_2.jpg
 	:alt: Ring Application
@@ -340,16 +345,9 @@ Practical
 Many of the Ring libraries (StdLib, WebLib, Natural Library, Games Engine, etc.) and 
 the Ring IDE (Ring Notepad, Form Designer, etc.) are written in the Ring language 
 itself. Ring is ready for use in production and increase the developers productivity. 
-
-Check the Form Designer source code : 
-https://github.com/ring-lang/ring/tree/master/tools/formdesigner
-
-We can run the Form Designer as Android application!
-
-Also we can run it in the Web Browser as a web application using WebAssembly
+We can run the Form Designer as Android application. 
+Also we can run it in the Web Browser as a web application using WebAssembly.
+The source code exists in the ring/tools/formdesigner folder.
 
 .. image:: formdesignerwasm.png
 	:alt: Form Designer - Web
-
-
-
