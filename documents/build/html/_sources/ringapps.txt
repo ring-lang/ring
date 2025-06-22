@@ -301,10 +301,10 @@ The next screen shot for the Gold Magic 800 Game.
 .. image:: gmshot3.png
 	:alt: Gold Magic 800 
 
-The next screen shot from the Web Development chapter.
+The next screen shot for the MyCoffee application.
 
-.. image:: ex24_2.jpg
-	:alt: Ring Application
+.. image:: mycoffee.png
+	:alt: MyCoffee Application
 
 .. index:: 
 	pair: Applications developed in a few hours; Technical Articles
