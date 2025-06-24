@@ -70,18 +70,16 @@ More Projects
 
 The next packages are added to RingPM registry
 
-* ringregex: Regular expression library built on top of the PCRE2
+* RingRegex: Regular expression library built on top of the PCRE2
 * RingThreadPro: Threads management library
-* ringsubprocess: Creating and managing system processes
-* Advanced-Trace: Performance analysis and concurrent operations tracing
-* markdown: A Markdown parser and HTML converter
-* Adhkar_Ring_App: Application (Arabic/WebAssembly)
+* RingSubProcess: Creating and managing system processes
+* Markdown: A Markdown parser and HTML converter
 
 Example:
 
 .. code-block:: none
 
-	ringpm install Adhkar_Ring_App
+	ringpm install Markdown
 
 
 .. index:: 
