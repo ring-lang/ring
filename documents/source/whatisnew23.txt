@@ -18,7 +18,7 @@ Ring 1.23 comes with the next features!
 * Research Article
 * PWCT 2.0 (Source Code)
 * Snakes and Ladders 2
-* More Projects
+* More RingPM Packages
 * Better Samples and Applications
 * Better StdLib
 * Better RingLibCurl
@@ -63,12 +63,12 @@ Two players version of the game (applications/snakesandladders2)
 
 
 .. index:: 
-	pair: What is new in Ring 1.23?; More Projects
+	pair: What is new in Ring 1.23?; More RingPM Packages
 
-More Projects
-=============
+More RingPM Packages
+====================
 
-The next packages are added to RingPM registry
+The following packages have been added to the RingPM registry.
 
 * RingRegex: Regular expression library built on top of the PCRE2
 * RingThreadPro: Threads management library
