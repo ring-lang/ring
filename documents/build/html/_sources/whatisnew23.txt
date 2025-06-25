@@ -99,6 +99,7 @@ The next samples and applications are added:
 * samples/Drawing/RotationIllusion/Rotation-Illusion.ring
 * samples/Drawing/OrbitPlanetRetrograde/Orbit-Planet-Retrograde.ring
 * samples/ProblemSolving/RandomLatinSquares/LatinSquaresUsingGUILib.ring
+* samples/UsingQt/ObjectPointer/test.ring
 * samples/UsingLibCurl/t5.ring
 * samples/UsingLibCurl/t6.ring
 * samples/UsingLibCurl/t7.ring
