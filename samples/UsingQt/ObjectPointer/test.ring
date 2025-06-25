@@ -23,7 +23,7 @@ func main
 				new QPushButton(oWin) {
 					move(100,100+t*30)
 					setText("Click Me")
-					setClickEvent("myEvent("+btnPtrForEvent(self)+","+t+")")
+					setClickEvent("myEvent("+btnPtr2Str(self)+","+t+")")
 				}
 			next
 			show()
@@ -31,19 +31,19 @@ func main
 		exec()
 	}
 
-func myEvent pPtr, nIndex
+func myEvent cPtr, nIndex
 
-	oTempBtn = btnPtr2Obj(pPtr)
+	oTempBtn = btnStr2Obj(cPtr)
 	oTempBtn.setText("Button: " + nIndex)
 
-func btnPtrForEvent btn
+func btnPtr2Str oBtn
 
-	return getpointer(btn.pObject)	
+	return getpointer(oBtn.pObject)	
 
-func btnPtr2Obj cPtr
+func btnStr2Obj cPtr
 
-	myPtr    = NULLPointer()
-	setPointer(myPtr,cPtr)
+	oTempPtr = NULLPointer()
+	setPointer(oTempPtr,cPtr)
 	oTempBtn = new QPushButton
-	oTempBtn.pObject = myPtr
+	oTempBtn.pObject = oTempPtr
 	return oTempBtn
