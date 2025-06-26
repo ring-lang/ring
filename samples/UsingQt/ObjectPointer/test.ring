@@ -4,8 +4,8 @@
 # In this example we use the next features
 # 1- Each GUI object contains the pObject attribute (Pointer to the Widget)
 # 2- Using NULLPointer() we can create a new pointer
-# 3- Using getPointer()  we can get the pointer address as string
-# 4- Using setPointer()  we can change the pointer address using a string (contains address)
+# 3- Using getPointer()  we can get the pointer address as number
+# 4- Using setPointer()  we can change the pointer address using a number (contains address)
 
 # Note: This way is not the recommended way for Ring applications
 # For small applications, Just use global variables for GUI widgets.
@@ -37,13 +37,12 @@ func myEvent cPtr, nIndex
 	oTempBtn.setText("Button: " + nIndex)
 
 func btnPtr2Str oBtn
-
-	return getpointer(oBtn.pObject)	
+	return char(34) + getpointer(oBtn.pObject) + char(34)	
 
 func btnStr2Obj cPtr
 
 	oTempPtr = NULLPointer()
-	setPointer(oTempPtr,cPtr)
+	setPointer(oTempPtr,0+cPtr)
 	oTempBtn = new QPushButton
 	oTempBtn.pObject = oTempPtr
 	return oTempBtn
