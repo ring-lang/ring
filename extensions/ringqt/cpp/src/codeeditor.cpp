@@ -91,9 +91,9 @@ int CodeEditor::lineNumberAreaWidth()
         ++digits;
     }
 
-    int space = 3 + fontMetrics().horizontalAdvance(QLatin1Char('9')) * digits;
+    int space = 3 + document()->defaultFont().pointSize() * digits;
 
-    return space*2;
+    return space;
 }
 
 
@@ -132,7 +132,7 @@ void CodeEditor::lineNumberAreaPaintEvent(QPaintEvent *event)
     QPainter painter(lineNumberArea);
 
     QFont font = painter.font() ;
-    font.setPointSize(fontMetrics().height());
+    font.setPointSize(document()->defaultFont().pointSize());
     painter.setFont(font);
 
     painter.fillRect(event->rect(), this->areaBackColor);
