@@ -186,6 +186,7 @@ More Improvements
 * Form Designer - Objects Order - Using closeAction() method
 * Form Designer - Display forms at the centre of the screen
 * RingQt - OpenGLWidget/QAllEvents classes - Use: RINGQT_EVENT_SIZE
+* RingQt - CodeEditor control - Same font size for code/line number
 * VSCode Extension - Added support for the EndIf keyword
 * Added FreeBSD support in ring.h and general.c for executable path retrieval
 * RingPM - Support FreeBSD files in install and remove commands
