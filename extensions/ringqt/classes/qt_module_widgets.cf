@@ -83,6 +83,6 @@
 <loadfile> widgets/qdesktopwidget.cf
 </comment>
 
-<filter> ((iswindows()) and sysget("RINGQT_ANDROID") = "")
+<filter> ((iswindows()) and sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOOPENGL") = "")
 <loadfile> widgets/qopenglwidget.cf
 </filter>
