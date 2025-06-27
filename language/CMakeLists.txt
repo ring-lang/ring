@@ -5,6 +5,9 @@
 cmake_minimum_required(VERSION 3.16)
 project(ring)
 
+# An option to build a static ring executable
+option(RING_STATIC "Build a static 'ring' executable." OFF)
+
 # Header Files
 include_directories(include)
 
@@ -16,12 +19,13 @@ list(REMOVE_ITEM SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/ringw.c)
 # Check the Operating System
 if(WIN32)
     message("Building Ring for Windows")
-    # Create Shared Library
-    add_library(ring SHARED ${SOURCES})
-    target_link_libraries(ring)
+    # Create Shared Library (if not building a static executable)
+    if(NOT RING_STATIC)
+        add_library(ring SHARED ${SOURCES})
+        target_link_libraries(ring)
+    endif()
     # Create Static Library
     add_library(ringstatic STATIC ${SOURCES})
-    target_link_libraries(ringstatic m)
 else()
     if(APPLE)
         message("Building Ring for macOS")
@@ -43,25 +47,40 @@ else()
             message(STATUS "Building Ring for: Unknown")
         endif()
     endif()
-    # Create Shared Library
-    add_library(ring SHARED ${SOURCES})
-    target_link_libraries(ring m dl)
+    # Create Shared Library (if not building a static executable)
+    if(NOT RING_STATIC)
+        add_library(ring SHARED ${SOURCES})
+        target_link_libraries(ring PUBLIC m dl)
+    endif()
     # Create Static Library
     add_library(ringstatic STATIC ${SOURCES})
-    target_link_libraries(ringstatic m dl)
+    target_link_libraries(ringstatic PUBLIC m dl)
 endif()
 
 # Create Executable 
 add_executable(ringlang ${CMAKE_CURRENT_SOURCE_DIR}/src/ring.c)
-target_link_libraries(ringlang ring)
 set_target_properties(ringlang PROPERTIES OUTPUT_NAME ring)
+
+if(RING_STATIC)
+    target_link_libraries(ringlang ringstatic)
+    if(NOT WIN32 AND NOT APPLE)
+        set_target_properties(ringlang PROPERTIES LINK_FLAGS "-static")
+    endif()
+else()
+    target_link_libraries(ringlang ring)
+endif()
 
 # Check the Operating System for installation
 get_filename_component(PARENT_DIR ${CMAKE_CURRENT_SOURCE_DIR} DIRECTORY)
-if(WIN32)
-    install(TARGETS ringlang ring DESTINATION ${PARENT_DIR}/bin)
-    install(TARGETS ring ringstatic DESTINATION ${PARENT_DIR}/lib)
-else()
+if(RING_STATIC)
     install(TARGETS ringlang DESTINATION ${PARENT_DIR}/bin)
-    install(TARGETS ring ringstatic DESTINATION ${PARENT_DIR}/lib)
+    install(TARGETS ringstatic DESTINATION ${PARENT_DIR}/lib)
+else()
+    if(WIN32)
+        install(TARGETS ringlang ring DESTINATION ${PARENT_DIR}/bin)
+        install(TARGETS ring ringstatic DESTINATION ${PARENT_DIR}/lib)
+    else()
+        install(TARGETS ringlang DESTINATION ${PARENT_DIR}/bin)
+        install(TARGETS ring ringstatic DESTINATION ${PARENT_DIR}/lib)
+    endif()
 endif()
