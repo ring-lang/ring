@@ -16,7 +16,8 @@
 			Ring is distributed as a Free-Open Source project under the MIT License.
 		</p>
 		<div style="text-align:center;">
-			<a href="web/tryringonline/project.html">Try Ring (Open in Playground)</a>
+			<a href="web/tryringonline/project.html">Try Ring (Open in Playground)</a> ... 
+			<a href="https://github.com/ring-lang/ring/tree/master/tools/tryringonline">Explore the Code Behind 'Try Ring'</a>
 		</div>			
 		
        </div>
