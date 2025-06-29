@@ -2,6 +2,9 @@
 
 #ifndef ring_gc_h
 	#define ring_gc_h
+	/* Constants */
+	#define RING_LISTREF_INC 1
+	#define RING_LISTREF_DEC -1
 	/*
 	**  Functions 
 	**  Item GC Functions 

@@ -201,6 +201,7 @@ Type: PoolManager
 Mark: ->
 PoolManager *
 ring_gc_h
+RING_LISTREF_INC
 ring_vm_gc_cleardata(pItem)
 ring_vm_gc_newitemreference(pItem)
 ring_vm_gc_checknewreference
