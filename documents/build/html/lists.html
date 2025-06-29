@@ -384,6 +384,13 @@
 <span class="n">Find</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">,</span><span class="n">nColumn</span><span class="p">,</span><span class="n">cAttribute</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Item</span> <span class="n">Index</span>
 </pre></div>
 </div>
+<p>The type of the item value passed as a parameter to the Find() function could be one of several types.</p>
+<ul class="simple">
+<li><p>String</p></li>
+<li><p>Number</p></li>
+<li><p>A list that wraps a C pointer (created using extensions written in C/C++ or low-level functions)</p></li>
+<li><p>A list or object reference (created using the Ref() or Reference() function)</p></li>
+</ul>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="s">&quot;three&quot;</span><span class="p">,</span><span class="s">&quot;four&quot;</span><span class="p">,</span><span class="s">&quot;five&quot;</span><span class="o">]</span>
 <span class="k">see</span> <span class="n">find</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="s">&quot;three&quot;</span><span class="p">)</span>         <span class="c"># print 3</span>

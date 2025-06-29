@@ -237,6 +237,13 @@ Syntax:
 	Find(List,ItemValue,nColumn) ---> Search in nColumn, returns the Item Index 
 	Find(List,ItemValue,nColumn,cAttribute) ---> Item Index
 
+The type of the item value passed as a parameter to the Find() function could be one of several types.
+
+* String
+* Number
+* A list that wraps a C pointer (created using extensions written in C/C++ or low-level functions)
+* A list or object reference (created using the Ref() or Reference() function)
+
 Example:
 
 .. code-block:: ring
