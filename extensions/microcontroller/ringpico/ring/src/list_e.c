@@ -248,10 +248,16 @@ void ring_vm_listfuncs_find ( void *pPointer )
 			if ( RING_API_PARACOUNT == 4 ) {
 				if ( RING_API_ISSTRING(4) ) {
 					if ( RING_API_ISSTRING(2) ) {
-						nNum1 = ring_list_findinlistofobjs(pList,RING_LISTOFOBJS_FINDSTRING,RING_ZEROF,RING_API_GETSTRING(2),nColumn,RING_API_GETSTRING(4));
+						nNum1 = ring_list_findinlistofobjs(pList,RING_LISTOFOBJS_FINDSTRING,RING_ZEROF,RING_API_GETSTRING(2),NULL,nColumn,RING_API_GETSTRING(4));
 					}
 					else if ( RING_API_ISNUMBER(2) ) {
-						nNum1 = ring_list_findinlistofobjs(pList,RING_LISTOFOBJS_FINDNUMBER,RING_API_GETNUMBER(2),RING_CSTR_EMPTY,nColumn,RING_API_GETSTRING(4));
+						nNum1 = ring_list_findinlistofobjs(pList,RING_LISTOFOBJS_FINDNUMBER,RING_API_GETNUMBER(2),RING_CSTR_EMPTY,NULL,nColumn,RING_API_GETSTRING(4));
+					}
+					else if ( RING_API_ISCPOINTER(2) ) {
+						nNum1 = ring_list_findinlistofobjs(pList,RING_LISTOFOBJS_FINDCPOINTER,RING_ZEROF,RING_CSTR_EMPTY,RING_API_GETLIST(2),nColumn,RING_API_GETSTRING(4));
+					}
+					else if ( RING_API_ISLIST(2) ) {
+						nNum1 = ring_list_findinlistofobjs(pList,RING_LISTOFOBJS_FINDLISTREF,RING_ZEROF,RING_CSTR_EMPTY,RING_API_GETLIST(2),nColumn,RING_API_GETSTRING(4));
 					}
 					else {
 						RING_API_ERROR(RING_API_BADPARATYPE);

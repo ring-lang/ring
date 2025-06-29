@@ -1251,7 +1251,7 @@ RING_API void ring_list_print2 ( List *pList,unsigned int nDecimals )
 	}
 }
 
-RING_API int ring_list_findinlistofobjs ( List *pList,int nType,double nNum1,const char *cStr,unsigned int nColumn,char *cAttribute )
+RING_API int ring_list_findinlistofobjs ( List *pList,int nType,double nNum1,const char *cStr,List *pValue,unsigned int nColumn,char *cAttribute )
 {
 	unsigned int x,nCount,nPos  ;
 	List *pList2  ;
@@ -1282,13 +1282,33 @@ RING_API int ring_list_findinlistofobjs ( List *pList,int nType,double nNum1,con
 			pList2 = ring_list_getlist(pList2,RING_OBJECT_OBJECTDATA) ;
 			pList2 = ring_list_getlist(pList2,nPos) ;
 			if ( nType  == RING_LISTOFOBJS_FINDSTRING ) {
-				if ( strcmp(cStr,ring_list_getstring(pList2,RING_VAR_VALUE)) == 0 ) {
-					return x ;
+				if ( ring_list_isstring(pList2,RING_VAR_VALUE) ) {
+					if ( strcmp(cStr,ring_list_getstring(pList2,RING_VAR_VALUE)) == 0 ) {
+						return x ;
+					}
 				}
 			}
-			else {
-				if ( ring_list_getdouble(pList2,RING_VAR_VALUE) == nNum1 ) {
-					return x ;
+			else if ( nType  == RING_LISTOFOBJS_FINDNUMBER ) {
+				if ( ring_list_isdouble(pList2,RING_VAR_VALUE) ) {
+					if ( ring_list_getdouble(pList2,RING_VAR_VALUE) == nNum1 ) {
+						return x ;
+					}
+				}
+			}
+			else if ( nType  == RING_LISTOFOBJS_FINDCPOINTER ) {
+				if ( ring_list_islist(pList2,RING_VAR_VALUE) ) {
+					if ( ring_list_iscpointerlist(ring_list_getlist(pList2,RING_VAR_VALUE)) ) {
+						if ( ring_list_cpointercmp(ring_list_getlist(pList2,RING_VAR_VALUE),pValue) ) {
+							return x ;
+						}
+					}
+				}
+			}
+			else if ( nType  == RING_LISTOFOBJS_FINDLISTREF ) {
+				if ( ring_list_islist(pList2,RING_VAR_VALUE) ) {
+					if ( ring_list_getlist(pList2,RING_VAR_VALUE) == pValue ) {
+						return x ;
+					}
 				}
 			}
 		}

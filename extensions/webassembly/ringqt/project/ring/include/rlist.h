@@ -21,8 +21,10 @@
 		ListGCData vGC  ;
 	} List ;
 	/* Constants */
-	#define RING_LISTOFOBJS_FINDSTRING 1
 	#define RING_LISTOFOBJS_FINDNUMBER 0
+	#define RING_LISTOFOBJS_FINDSTRING 1
+	#define RING_LISTOFOBJS_FINDCPOINTER 2
+	#define RING_LISTOFOBJS_FINDLISTREF 3
 	#define RING_LISTREF_INC 1
 	#define RING_LISTREF_DEC -1
 	#define RING_LISTBLOCKTYPE_ITEM 1
@@ -272,7 +274,7 @@
 
 	RING_API void ring_list_print2 ( List *pList,unsigned int nDecimals ) ;
 
-	RING_API int ring_list_findinlistofobjs ( List *pList,int nType,double nNum1,const char *cStr,unsigned int nColumn,char *cAttribute ) ;
+	RING_API int ring_list_findinlistofobjs ( List *pList,int nType,double nNum1,const char *cStr,List *pValue,unsigned int nColumn,char *cAttribute ) ;
 
 	RING_API int ring_list_findcpointer ( List *pList,List *pValue,unsigned int nColumn ) ;
 
