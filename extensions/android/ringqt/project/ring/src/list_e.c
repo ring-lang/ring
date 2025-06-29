@@ -274,6 +274,9 @@ void ring_vm_listfuncs_find ( void *pPointer )
 				else if ( RING_API_ISCPOINTER(2) ) {
 					nNum1 = ring_list_findcpointer(pList,RING_API_GETLIST(2),nColumn);
 				}
+				else if ( RING_API_ISLIST(2) ) {
+					nNum1 = ring_list_findlistref(pList,RING_API_GETLIST(2),nColumn);
+				}
 				else {
 					RING_API_ERROR(RING_API_BADPARATYPE);
 				}

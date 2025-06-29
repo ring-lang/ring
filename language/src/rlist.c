@@ -782,6 +782,41 @@ RING_API int ring_list_findpointer ( List *pList,void *pPointer )
 	}
 	return 0 ;
 }
+
+RING_API int ring_list_findlistref ( List *pList,List *pValue,unsigned int nColumn )
+{
+	unsigned int x,nCount  ;
+	List *pList2, *pList3  ;
+	nCount = ring_list_getsize(pList);
+	/* Find Item */
+	if ( nCount > 0 ) {
+		if ( nColumn == 0 ) {
+			for ( x = 1 ; x <= nCount ; x++ ) {
+				if ( ring_list_islist(pList,x) ) {
+					pList2 = ring_list_getlist(pList,x);
+					if ( pList2 == pValue ) {
+						return x ;
+					}
+				}
+			}
+		}
+		else {
+			for ( x = 1 ; x <= nCount ; x++ ) {
+				if ( ring_list_islist(pList,x) == 0 ) {
+					continue ;
+				}
+				pList2 = ring_list_getlist(pList,x);
+				if ( ring_list_islist(pList2,nColumn) ) {
+					pList3 = ring_list_getlist(pList2,nColumn);
+					if ( pList3 == pValue ) {
+						return x ;
+					}
+				}
+			}
+		}
+	}
+	return 0 ;
+}
 /* Sort (QuickSort) and Binary Search */
 
 RING_API void ring_list_sortnum ( List *pList,int left,int right,unsigned int nColumn,const char *cAttribute )

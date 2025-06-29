@@ -1,5 +1,5 @@
 ring_list_extension_h
-ring_vm_listfuncs_loadfunctions
+ring_vm_list_loadfunctions
 ring_vm_listfuncs_add
 Type: List *
 pList,*pList2

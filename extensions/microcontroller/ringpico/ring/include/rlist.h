@@ -161,6 +161,8 @@
 	RING_API int ring_list_finddouble ( List *pList,double nNum1,unsigned int nColumn ) ;
 
 	RING_API int ring_list_findpointer ( List *pList,void *pPointer ) ;
+
+	RING_API int ring_list_findlistref ( List *pList,List *pValue,unsigned int nColumn ) ;
 	/* Sort and Binary Search */
 
 	RING_API void ring_list_sortnum ( List *pList,int left,int right,unsigned int nColumn,const char *cAttribute ) ;
