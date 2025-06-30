@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2025 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #include "ring.h"
 
@@ -202,7 +202,7 @@ void ring_vm_info_ringvmevalinscope ( void *pPointer )
 		cStr = RING_API_GETSTRING(2) ;
 		pActiveMem = pVM->pActiveMem ;
 		pVM->pActiveMem = RING_VM_GETSCOPE(nScope) ;
-		pVM->nActiveScopeID++ ;
+		ring_vm_newscopeid(pVM);
 		/* Prepare the current scope */
 		nSize = RING_VM_SCOPESCOUNT ;
 		RING_VM_SETCURRENTSCOPE(nScope);

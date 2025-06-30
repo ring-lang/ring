@@ -58,8 +58,6 @@ cStr
 ring_vm_refmeta_iscfunction
 Type: VM *
 pVM
-Type: List *
-pList
 Type: char *
 cStr
 Type: CFunction *
