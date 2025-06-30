@@ -700,6 +700,11 @@ Type: ByteCode *
 pByteCode
 Type: List *
 pIns
+ring_vm_afterscopeidoverflow
+Type: int
+x,y,nCount
+Type: ByteCode *
+pByteCode
 ring_vm_mainloop
 ring_vm_fetch
 ring_vm_fetch2

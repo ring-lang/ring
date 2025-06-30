@@ -100,3 +100,4 @@ Type: FuncCall *
 pFuncCall
 Type: int
 x
+ring_vm_newscopeid

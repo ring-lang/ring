@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2025 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #include "ring.h"
 
@@ -678,6 +678,32 @@ void ring_vm_bytecode2list ( VM *pVM, List *pOutput )
 						ring_list_addpointer_gc(pVM->pRingState,pIns,pByteCode->aReg[y].pPointer);
 						break ;
 				}
+			}
+		}
+	}
+}
+
+void ring_vm_afterscopeidoverflow ( VM *pVM )
+{
+	int x,y,nCount  ;
+	ByteCode *pByteCode  ;
+	nCount = RING_VM_INSTRUCTIONSCOUNT ;
+	for ( x = 1 ; x <= nCount ; x++ ) {
+		/* Get the Instruction */
+		pByteCode = pVM->pByteCode + x - 1 ;
+		for ( y = 0 ; y < RING_VM_BC_ITEMS_COUNT ; y++ ) {
+			switch ( pByteCode->nOPCode ) {
+				case ICO_PUSHPLOCAL :
+					pByteCode->nOPCode = ICO_LOADADDRESS ;
+					pByteCode->aReg[RING_VM_IR_REG2].iNumber = RING_ZERO ;
+					pByteCode->nReg2Type = RING_VM_REGTYPE_INT ;
+					break ;
+				case ICO_INCLPJUMP :
+					pByteCode->nOPCode = ICO_INCJUMP ;
+					break ;
+				case ICO_INCLPJUMPSTEP1 :
+					pByteCode->nOPCode = ICO_INCJUMP ;
+					break ;
 			}
 		}
 	}

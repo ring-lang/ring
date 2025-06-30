@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2025 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #ifndef ring_vm_h
 	#define ring_vm_h
@@ -598,6 +598,8 @@
 	void ring_vm_bytecode2list ( VM *pVM, List *pOutput ) ;
 
 	void ring_vm_useextrabytecode ( VM *pVM ) ;
+
+	void ring_vm_afterscopeidoverflow ( VM *pVM ) ;
 	/* Stack and Variables */
 
 	void ring_vm_pushv ( VM *pVM ) ;
@@ -833,6 +835,8 @@
 	int ring_vm_funccall_beforecall ( VM *pVM ) ;
 
 	int ring_vm_funccall_paracount ( VM *pVM ) ;
+
+	void ring_vm_newscopeid ( VM *pVM ) ;
 	/* String As Array */
 
 	void ring_vm_string_pushv ( VM *pVM ) ;

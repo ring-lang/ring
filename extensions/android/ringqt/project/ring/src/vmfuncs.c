@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2025 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #include "ring.h"
 
@@ -446,7 +446,7 @@ void ring_vm_newfunc ( VM *pVM )
 	/* Create new scope */
 	ring_vm_newscope(pVM);
 	/* Set the Local Scope ID */
-	pVM->nActiveScopeID = ++ pVM->nScopeID ;
+	ring_vm_newscopeid(pVM);
 	/* Set the SP then Check Parameters */
 	pFuncCall = RING_VM_LASTFUNCCALL ;
 	pFuncCall->nStatus = RING_FUNCSTATUS_STARTED ;
@@ -918,4 +918,14 @@ int ring_vm_funccall_paracount ( VM *pVM )
 		}
 	}
 	return RING_ZERO ;
+}
+
+void ring_vm_newscopeid ( VM *pVM )
+{
+	/* Set the Local Scope ID */
+	pVM->nActiveScopeID = ++ pVM->nScopeID ;
+	/* Check Scope ID overflow */
+	if ( pVM->nActiveScopeID == 0 ) {
+		ring_vm_afterscopeidoverflow(pVM);
+	}
 }
