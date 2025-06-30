@@ -200,3 +200,4 @@ More Improvements
 * Ring Compiler - Scanner - Support repeating stars in multi-line comments
 * Ring VM - Save/Restore pParser->lFuncCallOnly when using anonymous function
 * Ring VM - The ~ operator precedence is revised to follow the documentation
+* Ring VM - Check for a scope ID overflow and reset any associated instructions
