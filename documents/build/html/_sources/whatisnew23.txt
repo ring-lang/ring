@@ -57,7 +57,7 @@ URL: https://github.com/PWCT/pwct2
 Snakes and Ladders 2
 ====================
 
-Two players version of the game (applications/snakesandladders2)
+Two players version of the game (applications/snakesandladders2).
 
 .. image:: sal2.png
 	:alt: SnakesAndLadders2
@@ -69,14 +69,18 @@ Two players version of the game (applications/snakesandladders2)
 Adhkar App (Arabic/WASM)
 ========================
 
-This applications is developed using Ring and RingQt
+This applications is developed using Ring and RingQt.
 
-We can get the application using the Ring Package Manager (RingPM)
+We can get the application using the Ring Package Manager (RingPM).
 
 .. code-block:: none
 
 	ringpm install Adhkar_Ring_App
 	ringpm run Adhkar_Ring_App
+
+The previous commands will launch the desktop version of the application.
+
+The next screenshot shows the online version (using WebAssembly).
 
 .. image:: adhkarapp.png
 	:alt: AdhkarApp
