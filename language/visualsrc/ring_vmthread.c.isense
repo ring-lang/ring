@@ -22,5 +22,5 @@ Type: int
 x,y,nSize,nType
 Type: ByteCode *
 pByteCode
-Type: String *
+Type: char *
 pString

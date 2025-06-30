@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2025 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #include "ring.h"
 
@@ -146,7 +146,6 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	pState->pRingClassesMap = pState->pVM->pClassesMap ;
 	pState->pRingPackagesMap = pState->pVM->pPackagesMap ;
 	/* Get a copy from the byte code List */
-	pState->pVM->nScopeID = pVM->nScopeID + RING_VM_SCOPERANGEFORNEWTHREAD ;
 	pState->pVM->pCode = ring_list_new(RING_ZERO) ;
 	pState->pRingGenCode = pState->pVM->pCode ;
 	/* Get a copy from the Byte Code */
