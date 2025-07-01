@@ -198,6 +198,8 @@
 
 	int ring_scanner_isnumber ( String *pStr ) ;
 
+	void ring_scanner_processnumber ( String *pTokenString ) ;
+
 	int ring_scanner_checklasttoken ( Scanner *pScanner ) ;
 
 	int ring_scanner_isoperator ( Scanner *pScanner,const char *cStr ) ;
@@ -235,6 +237,4 @@
 	void ring_scanner_setandgenendofline ( Scanner *pScanner,int nLine ) ;
 
 	int ring_scanner_checkmulticharoperator ( Scanner *pScanner, const char *cStr, int nTokenIndex ) ;
-
-	void ring_scanner_normalize_number_token ( String *pTokenString ) ;
 #endif

@@ -320,7 +320,7 @@ void ring_scanner_checktoken ( Scanner *pScanner )
 				ring_scanner_addtoken(pScanner,SCANNER_TOKEN_IDENTIFIER);
 			}
 			else {
-				ring_scanner_normalize_number_token(pScanner->pActiveToken);
+				ring_scanner_processnumber(pScanner->pActiveToken);
 				ring_scanner_addtoken(pScanner,SCANNER_TOKEN_NUMBER);
 			}
 		}
@@ -371,6 +371,43 @@ int ring_scanner_isnumber ( String *pStr )
 		}
 	}
 	return RING_TRUE ;
+}
+
+void ring_scanner_processnumber ( String *pTokenString )
+{
+	int nLen,nWriteIndex,nReadIndex,lHex,hexDetection,leadingZeros  ;
+	char *cStr  ;
+	char ch  ;
+	cStr = ring_string_get(pTokenString);
+	nLen = ring_string_size(pTokenString);
+	nWriteIndex = RING_ZERO ;
+	nReadIndex = RING_ZERO ;
+	lHex = RING_FALSE ;
+	hexDetection = RING_TRUE ;
+	leadingZeros = RING_TRUE ;
+	while ( nReadIndex < nLen ) {
+		ch = cStr[nReadIndex++] ;
+		if ( ch == '_' ) {
+			continue ;
+		}
+		if ( hexDetection ) {
+			if ( ch == '0' ) {
+				/* Stay in HexDetection state */
+			}
+			else if ( (ch=='x'||ch=='X') && leadingZeros ) {
+				lHex = RING_TRUE ;
+			}
+			else {
+				hexDetection = RING_FALSE ;
+				leadingZeros = RING_FALSE ;
+			}
+		}
+		if ( !lHex && ( (ch=='f'||ch=='F') && (nReadIndex==nLen) ) ) {
+			continue ;
+		}
+		cStr[nWriteIndex++] = ch ;
+	}
+	cStr[nWriteIndex] = '\0' ;
 }
 
 int ring_scanner_checklasttoken ( Scanner *pScanner )
@@ -857,41 +894,4 @@ int ring_scanner_checkmulticharoperator ( Scanner *pScanner, const char *cStr, i
 		}
 	}
 	return nTokenIndex ;
-}
-
-void ring_scanner_normalize_number_token ( String *pTokenString )
-{
-	int nLen,nWriteIndex,nReadIndex,lHex,hexDetection,leadingZeros  ;
-	char *cStr  ;
-	char ch  ;
-	cStr = ring_string_get(pTokenString);
-	nLen = ring_string_size(pTokenString);
-	nWriteIndex = RING_ZERO ;
-	nReadIndex = RING_ZERO ;
-	lHex = RING_FALSE ;
-	hexDetection = RING_TRUE ;
-	leadingZeros = RING_TRUE ;
-	while ( nReadIndex < nLen ) {
-		ch = cStr[nReadIndex++] ;
-		if ( ch == '_' ) {
-			continue ;
-		}
-		if ( hexDetection ) {
-			if ( ch == '0' ) {
-				/* Stay in HexDetection state */
-			}
-			else if ( (ch=='x'||ch=='X') && leadingZeros ) {
-				lHex = RING_TRUE ;
-			}
-			else {
-				hexDetection = RING_FALSE ;
-				leadingZeros = RING_FALSE ;
-			}
-		}
-		if ( !lHex && ( (ch=='f'||ch=='F') && (nReadIndex==nLen) ) ) {
-			continue ;
-		}
-		cStr[nWriteIndex++] = ch ;
-	}
-	cStr[nWriteIndex] = '\0' ;
 }
