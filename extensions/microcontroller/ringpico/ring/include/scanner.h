@@ -233,4 +233,6 @@
 	const char * ring_scanner_processtoken ( Scanner *pScanner,int nType ) ;
 
 	void ring_scanner_setandgenendofline ( Scanner *pScanner,int nLine ) ;
+
+	int ring_scanner_checkmulticharoperator ( Scanner *pScanner, const char *cStr, int nTokenIndex ) ;
 #endif

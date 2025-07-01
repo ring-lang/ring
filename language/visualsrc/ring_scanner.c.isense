@@ -204,7 +204,7 @@ pString
 Type: const char *
 cLastToken
 Type: int
-x, lOperatorFound, nTokenIndex
+nTokenIndex
 ring_scanner_keywords
 Type: char
 cKeyword[RING_SMALLBUF]
@@ -302,3 +302,8 @@ Type: char *
 pStart, *pChar
 Type: int
 t,nPos,nSize,lXExist
+ring_scanner_checkmulticharoperator
+Type: int
+x, lOperatorFound
+Type: const char *
+cLastToken

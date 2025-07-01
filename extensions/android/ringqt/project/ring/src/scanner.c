@@ -37,33 +37,7 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 	List *pList  ;
 	String *pString  ;
 	const char *cLastToken  ;
-	int x, lOperatorFound, nTokenIndex  ;
-	/* Operators (Compound and Multi-character) */
-	static const OperatorInfo OP_COMPOUND[] = {
-	{"+","+=",OP_PLUSEQUAL},
-	{"-","-=",OP_MINUSEQUAL},
-	{"*","*=",OP_MULEQUAL},
-	{"/","/=",OP_DIVEQUAL},
-	{"%","%=",OP_MODEQUAL},
-	{"&","&=",OP_BITANDEQUAL},
-	{"|","|=",OP_BITOREQUAL},
-	{"^","^=",OP_BITXOREQUAL},
-	{"<<","<<=",OP_SHLEQUAL},
-	{">>",">>=",OP_SHREQUAL},
-	{"**","**=",OP_POWEQUAL},
-	{NULL,NULL,0}
-	} ;
-	static const OperatorInfo OP_MULTI[] = {
-	{"<","<<",OP_SHL},
-	{">",">>",OP_SHR},
-	{"*","**",OP_POW},
-	{"^","**",OP_POW},
-	{"+","++",OP_INC},
-	{"-","--",OP_DEC},
-	{"&","&&",OP_LOGAND},
-	{"|","||",OP_LOGOR},
-	{NULL,NULL,0}
-	} ;
+	int nTokenIndex  ;
 	/* Set Variables */
 	cStr[0] = c ;
 	cStr[1] = '\0' ;
@@ -104,30 +78,8 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 								return ;
 							}
 						}
-						/* Check Multi-character operators */
-						lOperatorFound = 0 ;
-						cLastToken = ring_scanner_lasttokenvalue(pScanner);
-						for ( x = 0 ; OP_MULTI[x].cOperator != NULL ; x++ ) {
-							if ( (strcmp(cStr,OP_MULTI[x].cOperator) == 0) && (strcmp(cLastToken,OP_MULTI[x].cOperator) == 0) ) {
-								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,OP_MULTI[x].cSecond);
-								nTokenIndex = OP_MULTI[x].nToken ;
-								lOperatorFound = 1 ;
-								break ;
-							}
-						}
-						/* Check Operator then Equal */
-						if ( !lOperatorFound && (strcmp(cStr,"=") == 0) ) {
-							cLastToken = ring_scanner_lasttokenvalue(pScanner);
-							for ( x = 0 ; OP_COMPOUND[x].cOperator != NULL ; x++ ) {
-								if ( strcmp(cLastToken,OP_COMPOUND[x].cOperator) == 0 ) {
-									RING_SCANNER_DELETELASTTOKEN ;
-									ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,OP_COMPOUND[x].cSecond);
-									nTokenIndex = OP_COMPOUND[x].nToken ;
-									break ;
-								}
-							}
-						}
+						/* Check Multi-character Operators */
+						nTokenIndex = ring_scanner_checkmulticharoperator(pScanner,cStr,nTokenIndex);
 					}
 					pScanner->nTokenIndex = nTokenIndex ;
 					ring_scanner_addtoken(pScanner,SCANNER_TOKEN_OPERATOR);
@@ -848,4 +800,61 @@ const char * ring_scanner_processtoken ( Scanner *pScanner,int nType )
 		}
 	}
 	return pStart ;
+}
+
+int ring_scanner_checkmulticharoperator ( Scanner *pScanner, const char *cStr, int nTokenIndex )
+{
+	int x, lOperatorFound  ;
+	const char *cLastToken  ;
+	/* Operators (Compound and Multi-character) */
+	static const OperatorInfo OP_COMPOUND[] = {
+	{"+","+=",OP_PLUSEQUAL},
+	{"-","-=",OP_MINUSEQUAL},
+	{"*","*=",OP_MULEQUAL},
+	{"/","/=",OP_DIVEQUAL},
+	{"%","%=",OP_MODEQUAL},
+	{"&","&=",OP_BITANDEQUAL},
+	{"|","|=",OP_BITOREQUAL},
+	{"^","^=",OP_BITXOREQUAL},
+	{"<<","<<=",OP_SHLEQUAL},
+	{">>",">>=",OP_SHREQUAL},
+	{"**","**=",OP_POWEQUAL},
+	{NULL,NULL,0}
+	} ;
+	static const OperatorInfo OP_MULTI[] = {
+	{"<","<<",OP_SHL},
+	{">",">>",OP_SHR},
+	{"*","**",OP_POW},
+	{"^","**",OP_POW},
+	{"+","++",OP_INC},
+	{"-","--",OP_DEC},
+	{"&","&&",OP_LOGAND},
+	{"|","||",OP_LOGOR},
+	{NULL,NULL,0}
+	} ;
+	/* Check Multi-character operators */
+	lOperatorFound = 0 ;
+	cLastToken = ring_scanner_lasttokenvalue(pScanner);
+	for ( x = 0 ; OP_MULTI[x].cOperator != NULL ; x++ ) {
+		if ( (strcmp(cStr,OP_MULTI[x].cOperator) == 0) && (strcmp(cLastToken,OP_MULTI[x].cOperator) == 0) ) {
+			RING_SCANNER_DELETELASTTOKEN ;
+			ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,OP_MULTI[x].cSecond);
+			nTokenIndex = OP_MULTI[x].nToken ;
+			lOperatorFound = 1 ;
+			break ;
+		}
+	}
+	/* Check Operator then Equal */
+	if ( !lOperatorFound && (strcmp(cStr,"=") == 0) ) {
+		cLastToken = ring_scanner_lasttokenvalue(pScanner);
+		for ( x = 0 ; OP_COMPOUND[x].cOperator != NULL ; x++ ) {
+			if ( strcmp(cLastToken,OP_COMPOUND[x].cOperator) == 0 ) {
+				RING_SCANNER_DELETELASTTOKEN ;
+				ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,OP_COMPOUND[x].cSecond);
+				nTokenIndex = OP_COMPOUND[x].nToken ;
+				break ;
+			}
+		}
+	}
+	return nTokenIndex ;
 }
