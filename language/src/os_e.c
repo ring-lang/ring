@@ -166,16 +166,14 @@ void ring_vm_os_getarch ( void *pPointer )
 
 void ring_vm_os_system ( void *pPointer )
 {
-	int nResult = -1;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
-		return;
+		return ;
 	}
 	if ( RING_API_ISSTRING(1) ) {
 		#if RING_SYSTEMFUNCTION
-			nResult = system(RING_API_GETSTRING(1));
+			system(RING_API_GETSTRING(1));
 		#endif
-		RING_API_RETNUMBER(nResult);
 	}
 	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
