@@ -1,39 +1,35 @@
-/* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2025 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #include "ring.h"
-
-/* Data Operators (Compound and Multi-character) */
 typedef struct OperatorInfo {
-	const char *cOperator;
-	const char *cSecond;
-	int nToken;
+	const char *cOperator  ;
+	const char *cSecond  ;
+	int nToken  ;
 } OperatorInfo ;
-
 static const OperatorInfo OP_COMPOUND[] = {
-	{"+","+=",OP_PLUSEQUAL},
-	{"-","-=",OP_MINUSEQUAL},
-	{"*","*=",OP_MULEQUAL},
-	{"/","/=",OP_DIVEQUAL},
-	{"%","%=",OP_MODEQUAL},
-	{"&","&=",OP_BITANDEQUAL},
-	{"|","|=",OP_BITOREQUAL},
-	{"^","^=",OP_BITXOREQUAL},
-	{"<<","<<=",OP_SHLEQUAL},
-	{">>",">>=",OP_SHREQUAL},
-	{"**","**=",OP_POWEQUAL},
-	{NULL,NULL,0}
+{"+","+=",OP_PLUSEQUAL},
+{"-","-=",OP_MINUSEQUAL},
+{"*","*=",OP_MULEQUAL},
+{"/","/=",OP_DIVEQUAL},
+{"%","%=",OP_MODEQUAL},
+{"&","&=",OP_BITANDEQUAL},
+{"|","|=",OP_BITOREQUAL},
+{"^","^=",OP_BITXOREQUAL},
+{"<<","<<=",OP_SHLEQUAL},
+{">>",">>=",OP_SHREQUAL},
+{"**","**=",OP_POWEQUAL},
+{NULL,NULL,0}
 } ;
-
 static const OperatorInfo OP_MULTI[] = {
-	{"<","<<",OP_SHL},
-	{">",">>",OP_SHR},
-	{"*","**",OP_POW},
-	{"^","**",OP_POW},
-	{"+","++",OP_INC},
-	{"-","--",OP_DEC},
-	{"&","&&",OP_LOGAND},
-	{"|","||",OP_LOGOR},
-	{NULL,NULL,0}
+{"<","<<",OP_SHL},
+{">",">>",OP_SHR},
+{"*","**",OP_POW},
+{"^","**",OP_POW},
+{"+","++",OP_INC},
+{"-","--",OP_DEC},
+{"&","&&",OP_LOGAND},
+{"|","||",OP_LOGOR},
+{NULL,NULL,0}
 } ;
 
 Scanner * ring_scanner_new ( RingState *pRingState )
@@ -71,7 +67,7 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 	List *pList  ;
 	String *pString  ;
 	int nTokenIndex  ;
-	const char *cLastToken ;
+	const char *cLastToken  ;
 	int x, lOperatorFound  ;
 	/* Set Variables */
 	cStr[0] = c ;
@@ -114,26 +110,26 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 							}
 						}
 						/* Check Multi-character operators */
-						lOperatorFound = 0;
+						lOperatorFound = 0 ;
 						cLastToken = ring_scanner_lasttokenvalue(pScanner);
-						for ( x = 0; OP_MULTI[x].cOperator != NULL ; x++ ) {
+						for ( x = 0 ; OP_MULTI[x].cOperator != NULL ; x++ ) {
 							if ( (strcmp(cStr,OP_MULTI[x].cOperator) == 0) && (strcmp(cLastToken,OP_MULTI[x].cOperator) == 0) ) {
 								RING_SCANNER_DELETELASTTOKEN ;
 								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,OP_MULTI[x].cSecond);
 								nTokenIndex = OP_MULTI[x].nToken ;
-								lOperatorFound = 1;
-								break;
+								lOperatorFound = 1 ;
+								break ;
 							}
 						}
-						/* Check += -= *= /= %= &= |= ^= <<= >>= **= */
+						/* Check Operator then Equal */
 						if ( !lOperatorFound && (strcmp(cStr,"=") == 0) ) {
 							cLastToken = ring_scanner_lasttokenvalue(pScanner);
-							for ( x = 0; OP_COMPOUND[x].cOperator != NULL ; x++ ) {
+							for ( x = 0 ; OP_COMPOUND[x].cOperator != NULL ; x++ ) {
 								if ( strcmp(cLastToken,OP_COMPOUND[x].cOperator) == 0 ) {
 									RING_SCANNER_DELETELASTTOKEN ;
 									ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,OP_COMPOUND[x].cSecond);
 									nTokenIndex = OP_COMPOUND[x].nToken ;
-									break;
+									break ;
 								}
 							}
 						}
