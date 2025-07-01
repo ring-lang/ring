@@ -147,6 +147,22 @@ END:
 Type: SCANNER_OPERATOR
 SCANNER_OPERATOR
 RING_SCANNER_OPERATORSCOUNT
+Parent: OperatorInfo
+Type: const char *
+cOperator
+Type: const char *
+cSecond
+Type: int
+nToken
+END:
+Type: OperatorInfo
+struct OperatorInfo
+Type: OperatorInfo
+Mark: ->
+struct OperatorInfo *
+Type: OperatorInfo
+Mark: ->
+OperatorInfo *
 RING_SCANNER_TOKENTYPE
 RING_SCANNER_TOKENVALUE
 RING_SCANNER_TOKENINDEX
@@ -174,22 +190,6 @@ SCANNER_FLOATMARK_START
 SCANNER_FLOATMARK_NUMBER
 SCANNER_FLOATMARK_NUMBERDOT
 RING_SCANNER_DELETELASTTOKEN
-Parent: OperatorInfo
-Type: const char *
-cOperator
-Type: const char *
-cSecond
-Type: int
-nToken
-END:
-Type: OperatorInfo
-struct OperatorInfo
-Type: OperatorInfo
-Mark: ->
-struct OperatorInfo *
-Type: OperatorInfo
-Mark: ->
-OperatorInfo *
 ring_scanner_new
 Type: Scanner *
 pScanner
@@ -201,10 +201,10 @@ Type: List *
 pList
 Type: String *
 pString
-Type: int
-nTokenIndex
 Type: const char *
 cLastToken
+Type: int
+nTokenIndex
 Type: int
 x, lOperatorFound
 ring_scanner_keywords

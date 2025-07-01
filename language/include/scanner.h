@@ -150,6 +150,12 @@
 	static const char * RING_OPERATORS[] = {"+","-","*","/","%",".","(",")","=",
 	",","!",">","<","[","]",":","{","}","&","|","~","^","?"} ;
 	#define RING_SCANNER_OPERATORSCOUNT 23
+	/* Operators (Compound and Multi-character) */
+	typedef struct OperatorInfo {
+		const char *cOperator  ;
+		const char *cSecond  ;
+		int nToken  ;
+	} OperatorInfo ;
 	#define RING_SCANNER_TOKENTYPE 1
 	#define RING_SCANNER_TOKENVALUE 2
 	#define RING_SCANNER_TOKENINDEX 3

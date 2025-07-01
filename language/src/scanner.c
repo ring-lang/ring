@@ -1,36 +1,6 @@
 /* Copyright (c) 2013-2025 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #include "ring.h"
-typedef struct OperatorInfo {
-	const char *cOperator  ;
-	const char *cSecond  ;
-	int nToken  ;
-} OperatorInfo ;
-static const OperatorInfo OP_COMPOUND[] = {
-{"+","+=",OP_PLUSEQUAL},
-{"-","-=",OP_MINUSEQUAL},
-{"*","*=",OP_MULEQUAL},
-{"/","/=",OP_DIVEQUAL},
-{"%","%=",OP_MODEQUAL},
-{"&","&=",OP_BITANDEQUAL},
-{"|","|=",OP_BITOREQUAL},
-{"^","^=",OP_BITXOREQUAL},
-{"<<","<<=",OP_SHLEQUAL},
-{">>",">>=",OP_SHREQUAL},
-{"**","**=",OP_POWEQUAL},
-{NULL,NULL,0}
-} ;
-static const OperatorInfo OP_MULTI[] = {
-{"<","<<",OP_SHL},
-{">",">>",OP_SHR},
-{"*","**",OP_POW},
-{"^","**",OP_POW},
-{"+","++",OP_INC},
-{"-","--",OP_DEC},
-{"&","&&",OP_LOGAND},
-{"|","||",OP_LOGOR},
-{NULL,NULL,0}
-} ;
 
 Scanner * ring_scanner_new ( RingState *pRingState )
 {
@@ -66,9 +36,34 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 	char cStr[RING_CHARBUF]  ;
 	List *pList  ;
 	String *pString  ;
-	int nTokenIndex  ;
 	const char *cLastToken  ;
-	int x, lOperatorFound  ;
+	int x, lOperatorFound, nTokenIndex  ;
+	/* Operators (Compound and Multi-character) */
+	static const OperatorInfo OP_COMPOUND[] = {
+	{"+","+=",OP_PLUSEQUAL},
+	{"-","-=",OP_MINUSEQUAL},
+	{"*","*=",OP_MULEQUAL},
+	{"/","/=",OP_DIVEQUAL},
+	{"%","%=",OP_MODEQUAL},
+	{"&","&=",OP_BITANDEQUAL},
+	{"|","|=",OP_BITOREQUAL},
+	{"^","^=",OP_BITXOREQUAL},
+	{"<<","<<=",OP_SHLEQUAL},
+	{">>",">>=",OP_SHREQUAL},
+	{"**","**=",OP_POWEQUAL},
+	{NULL,NULL,0}
+	} ;
+	static const OperatorInfo OP_MULTI[] = {
+	{"<","<<",OP_SHL},
+	{">",">>",OP_SHR},
+	{"*","**",OP_POW},
+	{"^","**",OP_POW},
+	{"+","++",OP_INC},
+	{"-","--",OP_DEC},
+	{"&","&&",OP_LOGAND},
+	{"|","||",OP_LOGOR},
+	{NULL,NULL,0}
+	} ;
 	/* Set Variables */
 	cStr[0] = c ;
 	cStr[1] = '\0' ;
