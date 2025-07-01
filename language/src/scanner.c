@@ -2,6 +2,40 @@
 
 #include "ring.h"
 
+/* Data Operators (Compound and Multi-character) */
+typedef struct OperatorInfo {
+	const char *cOperator;
+	const char *cSecond;
+	int nToken;
+} OperatorInfo ;
+
+static const OperatorInfo OP_COMPOUND[] = {
+	{"+","+=",OP_PLUSEQUAL},
+	{"-","-=",OP_MINUSEQUAL},
+	{"*","*=",OP_MULEQUAL},
+	{"/","/=",OP_DIVEQUAL},
+	{"%","%=",OP_MODEQUAL},
+	{"&","&=",OP_BITANDEQUAL},
+	{"|","|=",OP_BITOREQUAL},
+	{"^","^=",OP_BITXOREQUAL},
+	{"<<","<<=",OP_SHLEQUAL},
+	{">>",">>=",OP_SHREQUAL},
+	{"**","**=",OP_POWEQUAL},
+	{NULL,NULL,0}
+} ;
+
+static const OperatorInfo OP_MULTI[] = {
+	{"<","<<",OP_SHL},
+	{">",">>",OP_SHR},
+	{"*","**",OP_POW},
+	{"^","**",OP_POW},
+	{"+","++",OP_INC},
+	{"-","--",OP_DEC},
+	{"&","&&",OP_LOGAND},
+	{"|","||",OP_LOGOR},
+	{NULL,NULL,0}
+} ;
+
 Scanner * ring_scanner_new ( RingState *pRingState )
 {
 	Scanner *pScanner  ;
@@ -37,6 +71,8 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 	List *pList  ;
 	String *pString  ;
 	int nTokenIndex  ;
+	const char *cLastToken ;
+	int x, lOperatorFound  ;
 	/* Set Variables */
 	cStr[0] = c ;
 	cStr[1] = '\0' ;
@@ -77,110 +113,28 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 								return ;
 							}
 						}
-						/* Check << | >>|**|^^ operators */
-						if ( ( strcmp(cStr,"<") == 0 ) | ( strcmp(cStr,">") == 0 ) | ( strcmp(cStr,"*") == 0 ) | ( strcmp(cStr,"^") == 0) ) {
-							if ( strcmp(cStr,ring_scanner_lasttokenvalue(pScanner)) ==  0 ) {
+						/* Check Multi-character operators */
+						lOperatorFound = 0;
+						cLastToken = ring_scanner_lasttokenvalue(pScanner);
+						for ( x = 0; OP_MULTI[x].cOperator != NULL ; x++ ) {
+							if ( (strcmp(cStr,OP_MULTI[x].cOperator) == 0) && (strcmp(cLastToken,OP_MULTI[x].cOperator) == 0) ) {
 								RING_SCANNER_DELETELASTTOKEN ;
-								if ( strcmp(cStr,"<") == 0 ) {
-									ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"<<");
-									nTokenIndex = OP_SHL ;
-								}
-								else if ( (strcmp(cStr,"*") == 0) | ( strcmp(cStr,"^") == 0 ) ) {
-									ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"**");
-									nTokenIndex = OP_POW ;
-								}
-								else {
-									ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,">>");
-									nTokenIndex = OP_SHR ;
-								}
+								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,OP_MULTI[x].cSecond);
+								nTokenIndex = OP_MULTI[x].nToken ;
+								lOperatorFound = 1;
+								break;
 							}
 						}
 						/* Check += -= *= /= %= &= |= ^= <<= >>= **= */
-						else if ( strcmp(cStr,"=") == 0 ) {
-							if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"+") == 0 ) {
-								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"+=");
-								nTokenIndex = OP_PLUSEQUAL ;
-							}
-							else if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"-") == 0 ) {
-								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"-=");
-								nTokenIndex = OP_MINUSEQUAL ;
-							}
-							else if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"*") == 0 ) {
-								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"*=");
-								nTokenIndex = OP_MULEQUAL ;
-							}
-							else if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"/") == 0 ) {
-								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"/=");
-								nTokenIndex = OP_DIVEQUAL ;
-							}
-							else if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"%") == 0 ) {
-								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"%=");
-								nTokenIndex = OP_MODEQUAL ;
-							}
-							else if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"&") == 0 ) {
-								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"&=");
-								nTokenIndex = OP_BITANDEQUAL ;
-							}
-							else if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"|") == 0 ) {
-								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"|=");
-								nTokenIndex = OP_BITOREQUAL ;
-							}
-							else if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"^") == 0 ) {
-								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set(pScanner->pActiveToken,"^=");
-								nTokenIndex = OP_BITXOREQUAL ;
-							}
-							else if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"<<") == 0 ) {
-								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"<<=");
-								nTokenIndex = OP_SHLEQUAL ;
-							}
-							else if ( strcmp(ring_scanner_lasttokenvalue(pScanner),">>") == 0 ) {
-								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,">>=");
-								nTokenIndex = OP_SHREQUAL ;
-							}
-							else if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"**") == 0 ) {
-								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"**=");
-								nTokenIndex = OP_POWEQUAL ;
-							}
-						}
-						/* Check ++ and -- */
-						else if ( strcmp(cStr,"+") == 0 ) {
-							if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"+") == 0 ) {
-								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"++");
-								nTokenIndex = OP_INC ;
-							}
-						}
-						else if ( strcmp(cStr,"-") == 0 ) {
-							if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"-") == 0 ) {
-								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"--");
-								nTokenIndex = OP_DEC ;
-							}
-						}
-						/* Check && and || */
-						else if ( strcmp(cStr,"&") == 0 ) {
-							if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"&") == 0 ) {
-								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"&&");
-								nTokenIndex = OP_LOGAND ;
-							}
-						}
-						else if ( strcmp(cStr,"|") == 0 ) {
-							if ( strcmp(ring_scanner_lasttokenvalue(pScanner),"|") == 0 ) {
-								RING_SCANNER_DELETELASTTOKEN ;
-								ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,"||");
-								nTokenIndex = OP_LOGOR ;
+						if ( !lOperatorFound && (strcmp(cStr,"=") == 0) ) {
+							cLastToken = ring_scanner_lasttokenvalue(pScanner);
+							for ( x = 0; OP_COMPOUND[x].cOperator != NULL ; x++ ) {
+								if ( strcmp(cLastToken,OP_COMPOUND[x].cOperator) == 0 ) {
+									RING_SCANNER_DELETELASTTOKEN ;
+									ring_string_set_gc(pScanner->pRingState,pScanner->pActiveToken,OP_COMPOUND[x].cSecond);
+									nTokenIndex = OP_COMPOUND[x].nToken ;
+									break;
+								}
 							}
 						}
 					}
