@@ -331,7 +331,7 @@ int ring_scanner_isnumber ( String *pStr )
 {
 	unsigned int x,x2,lHex  ;
 	char *cStr  ;
-	size_t nLen  ;
+	unsigned int nLen  ;
 	lHex = RING_FALSE ;
 	cStr = ring_string_get(pStr);
 	nLen = ring_string_size(pStr);
@@ -375,37 +375,37 @@ int ring_scanner_isnumber ( String *pStr )
 
 void ring_scanner_processnumber ( String *pTokenString )
 {
-	int nLen,nWriteIndex,nReadIndex,lHex,hexDetection,leadingZeros  ;
+	int nLen,nWriteIndex,nReadIndex,lHex,lHexDetection,lLeadingZeros  ;
 	char *cStr  ;
-	char ch  ;
+	char c  ;
 	cStr = ring_string_get(pTokenString);
 	nLen = ring_string_size(pTokenString);
 	nWriteIndex = RING_ZERO ;
 	nReadIndex = RING_ZERO ;
 	lHex = RING_FALSE ;
-	hexDetection = RING_TRUE ;
-	leadingZeros = RING_TRUE ;
+	lHexDetection = RING_TRUE ;
+	lLeadingZeros = RING_TRUE ;
 	while ( nReadIndex < nLen ) {
-		ch = cStr[nReadIndex++] ;
-		if ( ch == '_' ) {
+		c = cStr[nReadIndex++] ;
+		if ( c == '_' ) {
 			continue ;
 		}
-		if ( hexDetection ) {
-			if ( ch == '0' ) {
-				/* Stay in HexDetection state */
+		if ( lHexDetection ) {
+			if ( c == '0' ) {
+				/* Stay in llHexDetection state */
 			}
-			else if ( (ch=='x'||ch=='X') && leadingZeros ) {
+			else if ( (c == 'x' || c == 'X') && lLeadingZeros ) {
 				lHex = RING_TRUE ;
 			}
 			else {
-				hexDetection = RING_FALSE ;
-				leadingZeros = RING_FALSE ;
+				lHexDetection = RING_FALSE ;
+				lLeadingZeros = RING_FALSE ;
 			}
 		}
-		if ( !lHex && ( (ch=='f'||ch=='F') && (nReadIndex==nLen) ) ) {
+		if ( !lHex && ( ( c == 'f' || c == 'F') && (nReadIndex == nLen) ) ) {
 			continue ;
 		}
-		cStr[nWriteIndex++] = ch ;
+		cStr[nWriteIndex++] = c ;
 	}
 	cStr[nWriteIndex] = '\0' ;
 }
