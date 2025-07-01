@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2024 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2025 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #ifndef ring_scanner_h
 	#define ring_scanner_h
@@ -150,6 +150,12 @@
 	static const char * RING_OPERATORS[] = {"+","-","*","/","%",".","(",")","=",
 	",","!",">","<","[","]",":","{","}","&","|","~","^","?"} ;
 	#define RING_SCANNER_OPERATORSCOUNT 23
+	/* Operators (Compound and Multi-character) */
+	typedef struct OperatorInfo {
+		const char *cOperator  ;
+		const char *cSecond  ;
+		int nToken  ;
+	} OperatorInfo ;
 	#define RING_SCANNER_TOKENTYPE 1
 	#define RING_SCANNER_TOKENVALUE 2
 	#define RING_SCANNER_TOKENINDEX 3
@@ -227,4 +233,6 @@
 	const char * ring_scanner_processtoken ( Scanner *pScanner,int nType ) ;
 
 	void ring_scanner_setandgenendofline ( Scanner *pScanner,int nLine ) ;
+
+	int ring_scanner_checkmulticharoperator ( Scanner *pScanner, const char *cStr, int nTokenIndex ) ;
 #endif
