@@ -826,8 +826,6 @@ void ring_vm_retitemref ( VM *pVM )
 	List *pList  ;
 	FuncCall *pFuncCall  ;
 	pVM->nRetItemRef++ ;
-	/* We free the stack to avoid effects on nLoadAddressScope which is used by isstackpointertoobjstate */
-	ring_vm_freestack(pVM);
 	/*
 	**  Check if we are in the operator method to increment the counter again 
 	**  We do this to avoid another PUSHV on the list item 
