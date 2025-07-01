@@ -223,6 +223,10 @@ cActiveStr
 ring_scanner_isnumber
 Type: unsigned int
 x,x2,lHex
+Type: char *
+cStr
+Type: size_t
+nLen
 ring_scanner_checklasttoken
 ring_scanner_isoperator
 Type: int
@@ -307,3 +311,10 @@ Type: int
 x, lOperatorFound
 Type: const char *
 cLastToken
+ring_scanner_normalize_number_token
+Type: int
+nLen,nWriteIndex,nReadIndex,lHex,hexDetection,leadingZeros
+Type: char *
+cStr
+Type: char
+ch

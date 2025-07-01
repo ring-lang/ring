@@ -2,49 +2,6 @@
 
 #include "ring.h"
 
-/*  This function normalizes a number token by removing underscores, handling hexadecimal prefixes,
- ** and dropping the 'f' suffix if it is not part of a hexadecimal number.
- **  It is called after a number token is identified to ensure that the token is in a standard format.
- */
-void ring_scanner_normalize_number_token ( String *pTokenString )
-{
-	char *cStr = ring_string_get(pTokenString) ;
-	int  nLen		  = ring_string_size(pTokenString) ;
-	int  nWriteIndex  = 0 ;
-	int  nReadIndex   = 0 ;
-	int  lHex		  = 0 ;
-	int  hexDetection = 1 ;
-	int  leadingZeros = 1 ;
-
-	/* Single-pass copy + hex detection + drop _, optional 'f' suffix */
-	while ( nReadIndex < nLen ) {
-		char ch = cStr[nReadIndex++];
-		if ( ch == '_' ) {
-			continue; /* skip any underscore */
-		}
-		/* detect 0[xX] prefix */
-		if ( hexDetection ) {
-			if ( ch == '0' ) {
-				/* stay in hexDetection state until we see 'x'/'X' or some other char */
-			}
-			else if ( (ch=='x'||ch=='X') && leadingZeros ) {
-				lHex  = 1;   // we're in hex now
-				hexDetection = 0;
-			}
-			else {
-				hexDetection = 0;
-				leadingZeros = 0;
-			}
-		}
-		/* drop trailing 'f'/'F' only for non-hex */
-		if ( !lHex && ( (ch=='f'||ch=='F') && (nReadIndex==nLen) ) ) {
-			continue;
-		}
-		cStr[nWriteIndex++] = ch;
-	}
-	cStr[nWriteIndex] = '\0';
-}
-
 Scanner * ring_scanner_new ( RingState *pRingState )
 {
 	Scanner *pScanner  ;
@@ -373,11 +330,12 @@ void ring_scanner_checktoken ( Scanner *pScanner )
 int ring_scanner_isnumber ( String *pStr )
 {
 	unsigned int x,x2,lHex  ;
-	lHex = 0 ;
-	char *cStr = ring_string_get(pStr) ;
-	size_t nLen = ring_string_size(pStr) ;
-
-	for ( x = 0 ; x < nLen ; x++ ) {
+	char *cStr  ;
+	size_t nLen  ;
+	lHex = RING_FALSE ;
+	cStr = ring_string_get(pStr);
+	nLen = ring_string_size(pStr);
+	for ( x = 0 ; x < strlen(cStr) ; x++ ) {
 		/* Accept Hexadecimal values */
 		if ( (x == 0) && (nLen > 2) ) {
 			if ( cStr[0] == '0' ) {
@@ -388,7 +346,7 @@ int ring_scanner_isnumber ( String *pStr )
 				}
 				/* Support 0x */
 				if ( (cStr[x2] == 'x') || (cStr[x2] == 'X') ) {
-					lHex = 1 ;
+					lHex = RING_TRUE ;
 					x = x2+1 ;
 					continue ;
 				}
@@ -406,13 +364,13 @@ int ring_scanner_isnumber ( String *pStr )
 		}
 		/* Accept f in the end of the number */
 		if ( (x > 0) && (x == nLen - 1) && ( (cStr[x] == 'f') || (cStr[x] == 'F') ) ) {
-			return 1 ;
+			return RING_TRUE ;
 		}
 		if ( (cStr[x] < 48 || cStr[x] > 57) ) {
-			return 0 ;
+			return RING_FALSE ;
 		}
 	}
-	return 1 ;
+	return RING_TRUE ;
 }
 
 int ring_scanner_checklasttoken ( Scanner *pScanner )
@@ -899,4 +857,41 @@ int ring_scanner_checkmulticharoperator ( Scanner *pScanner, const char *cStr, i
 		}
 	}
 	return nTokenIndex ;
+}
+
+void ring_scanner_normalize_number_token ( String *pTokenString )
+{
+	int nLen,nWriteIndex,nReadIndex,lHex,hexDetection,leadingZeros  ;
+	char *cStr  ;
+	char ch  ;
+	cStr = ring_string_get(pTokenString);
+	nLen = ring_string_size(pTokenString);
+	nWriteIndex = RING_ZERO ;
+	nReadIndex = RING_ZERO ;
+	lHex = RING_FALSE ;
+	hexDetection = RING_TRUE ;
+	leadingZeros = RING_TRUE ;
+	while ( nReadIndex < nLen ) {
+		ch = cStr[nReadIndex++] ;
+		if ( ch == '_' ) {
+			continue ;
+		}
+		if ( hexDetection ) {
+			if ( ch == '0' ) {
+				/* Stay in HexDetection state */
+			}
+			else if ( (ch=='x'||ch=='X') && leadingZeros ) {
+				lHex = RING_TRUE ;
+			}
+			else {
+				hexDetection = RING_FALSE ;
+				leadingZeros = RING_FALSE ;
+			}
+		}
+		if ( !lHex && ( (ch=='f'||ch=='F') && (nReadIndex==nLen) ) ) {
+			continue ;
+		}
+		cStr[nWriteIndex++] = ch ;
+	}
+	cStr[nWriteIndex] = '\0' ;
 }
