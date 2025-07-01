@@ -15,6 +15,6 @@ class Referer
         function operator(cOperator,vValue)
                 switch cOperator
                         on "[]"
-                                return ref(&this[vValue])
+                                return & ref(this[vValue])
 
                 off
