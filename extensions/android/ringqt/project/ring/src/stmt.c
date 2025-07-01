@@ -872,6 +872,12 @@ int ring_parser_stmt ( Parser *pParser )
 		if ( ring_parser_isendline(pParser) == 0 ) {
 			/* Generate Code */
 			ring_parser_icg_newoperation(pParser,ICO_FREELOADASCOPE);
+			/* Check using & to return item reference */
+			if ( ring_parser_isoperator2(pParser,OP_BITAND) ) {
+				ring_parser_nexttoken(pParser);
+				/* Generate Code */
+				ring_parser_icg_newoperation(pParser,ICO_RETITEMREF);
+			}
 			pParser->lAssignmentFlag = 0 ;
 			x = ring_parser_expr(pParser);
 			pParser->lAssignmentFlag = 1 ;

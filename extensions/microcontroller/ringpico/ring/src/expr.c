@@ -714,15 +714,6 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		RING_STATE_PRINTRULE(RING_RULE_BITNOT) ;
 		return x ;
 	}
-	/* Factor --> & */
-	else if ( ring_parser_isoperator2(pParser,OP_BITAND) ) {
-		ring_parser_nexttoken(pParser);
-		/* Generate Code */
-		ring_parser_icg_newoperation(pParser,ICO_RETITEMREF);
-		if ( ring_parser_expr(pParser) ) {
-			return RING_PARSER_OK ;
-		}
-	}
 	/* Factor --> ( Expr ) */
 	if ( ring_parser_isoperator2(pParser,OP_FOPEN) ) {
 		ring_parser_nexttoken(pParser);
