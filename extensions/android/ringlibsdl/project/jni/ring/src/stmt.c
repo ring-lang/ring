@@ -878,20 +878,22 @@ int ring_parser_stmt ( Parser *pParser )
 			lRetItemRef = RING_FALSE ;
 			if ( ring_parser_isoperator2(pParser,OP_BITAND) ) {
 				ring_parser_nexttoken(pParser);
-				if ( ring_parser_isidentifier(pParser) ) {
-					/* Generate Code */
-					ring_parser_icg_newoperation(pParser,ICO_RETITEMREF);
-					lRetItemRef = RING_TRUE ;
-				}
+				lRetItemRef = RING_TRUE ;
 			}
 			pParser->lAssignmentFlag = 0 ;
-			if ( lRetItemRef ) {
-				x = ring_parser_factor(pParser, &nFactorFlag);
-			}
-			else {
-				x = ring_parser_expr(pParser);
-			}
+			x = ring_parser_expr(pParser);
 			pParser->lAssignmentFlag = 1 ;
+			if ( lRetItemRef ) {
+				if ( ring_parser_icg_getlastoperation(pParser) == ICO_NEWLINE ) {
+					ring_parser_icg_deletelastoperation(pParser);
+				}
+				if ( ring_parser_icg_getlastoperation(pParser) == ICO_PUSHV ) {
+					ring_parser_icg_deletelastoperation(pParser);
+					/* Generate Code */
+					ring_parser_icg_newoperation(pParser,ICO_RETITEMREF);
+					ring_parser_icg_newoperation(pParser,ICO_PUSHV);
+				}
+			}
 			/* Generate Code */
 			if ( x == RING_PARSER_OK ) {
 				ring_parser_icg_returnn(pParser);
