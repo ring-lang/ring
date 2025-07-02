@@ -158,35 +158,51 @@ HashTable * ring_hashtable_delete_gc ( void *pRingState,HashTable *pHashTable )
 
 void ring_hashtable_rebuild_gc ( void *pRingState,HashTable *pHashTable )
 {
-	HashItem **pArray  ;
-	int nLinkedLists,x  ;
-	HashItem *pItem,*pItem2  ;
+	HashItem **pOldArray  ;
+	int nOldLinkedLists, x, nNewIndex  ;
+	HashItem *pItem, *pNextItem  ;
+
+	/* If the number of items doesn't meet the rebuild threshold, do nothing. */
 	if ( pHashTable->nItems != pHashTable->nRebuildSize ) {
 		return ;
 	}
-	pArray = pHashTable->pArray ;
-	nLinkedLists = pHashTable->nLinkedLists ;
-	pHashTable->nRebuildSize *= 2 ;
-	pHashTable->nLinkedLists *= 2 ;
-	pHashTable->pArray = (HashItem **) ring_state_calloc(pRingState,pHashTable->nLinkedLists,sizeof(HashItem *));
-	for ( x = 0 ; x < nLinkedLists ; x++ ) {
-		pItem = pArray[x] ;
+
+	/* Store old table properties */
+	pOldArray = pHashTable->pArray;
+	nOldLinkedLists = pHashTable->nLinkedLists;
+
+	/* Create the new, larger table structure */
+	pHashTable->nLinkedLists *= 2;
+	pHashTable->nRebuildSize *= 2;
+	pHashTable->pArray = (HashItem **) ring_state_calloc(pRingState, pHashTable->nLinkedLists, sizeof(HashItem *));
+
+	/*
+	** Re-hash and move all items from the old table to the new one.
+	** This is highly efficient as it avoids freeing and re-allocating
+	** every HashItem and its key string. We simply re-link the existing nodes.
+	*/
+	for ( x = 0; x < nOldLinkedLists; x++ ) {
+		pItem = pOldArray[x];
 		while ( pItem != NULL ) {
-			/* Rehash the item */
-			if ( pItem->nItemType == RING_HASHITEMTYPE_NUMBER ) {
-				ring_hashtable_newnumber(pHashTable,pItem->cKey,pItem->HashValue.nIndex);
-			}
-			else if ( pItem->nItemType == RING_HASHITEMTYPE_POINTER ) {
-				ring_hashtable_newpointer(pHashTable,pItem->cKey,pItem->HashValue.pValue);
-			}
-			pItem2 = pItem->pNext ;
-			ring_state_free(pRingState,pItem->cKey);
-			ring_state_free(pRingState,pItem);
-			pItem = pItem2 ;
-			pHashTable->nItems-- ;
+			/* Save the next item in the old chain before we modify pItem->pNext */
+			pNextItem = pItem->pNext;
+
+			/* Calculate the new bucket index in the new, larger table */
+			nNewIndex = ring_hashtable_hashkey(pHashTable, pItem->cKey);
+
+			/* Insert the item at the head of the new bucket's linked list */
+			pItem->pNext = pHashTable->pArray[nNewIndex];
+			pHashTable->pArray[nNewIndex] = pItem;
+
+			/* Move to the next item in the old chain */
+			pItem = pNextItem;
 		}
 	}
-	ring_state_free(pRingState,pArray);
+
+	/* The number of items has not changed, so we don't need to adjust the count. */
+
+	/* Finally, free the old array of linked-list pointers. */
+	ring_state_free(pRingState, pOldArray);
 }
 
 void ring_hashtable_print ( HashTable *pHashTable )
