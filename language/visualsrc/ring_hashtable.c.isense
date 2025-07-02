@@ -85,11 +85,11 @@ Type: HashItem *
 pItem,*pItem2
 ring_hashtable_rebuild_gc
 Type: HashItem **
-pArray
+pOldArray
 Type: int
-nLinkedLists,x
+nOldLinkedLists, x, nNewIndex
 Type: HashItem *
-pItem,*pItem2
+pItem, *pNextItem
 ring_hashtable_print
 Type: int
 x
