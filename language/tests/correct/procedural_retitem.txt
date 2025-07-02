@@ -1,0 +1,21 @@
+Hello
+10
+Error (R34) : Variable is required for the assignment operation
+1000
+10
+Error (R34) : Variable is required for the assignment operation
+10
+10
+20
+10
+10
+12
+24
+24
+Error (R34) : Variable is required for the assignment operation
+24
+24
+120
+100
+Error (R34) : Variable is required for the assignment operation
+Thanks!
