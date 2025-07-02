@@ -93,8 +93,10 @@ myApp = new qApp
     win = new qWidget()
     {
 
-        myfilter = new qallevents(win)
-        myfilter.setCloseEvent("MyApp.Quit()")
+        oFilter = new qallevents(win)
+        oFilter.setCloseEvent("MyApp.Quit()")
+	installEventFilter(oFilter)
+
 
         setWindowTitle("Matrix Multiplication 3D Cube Rotation")
         setGeometry(xPos, yPos, xWidth, yHeight)    ### Window Pos and Size
