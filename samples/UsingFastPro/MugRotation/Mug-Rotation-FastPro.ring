@@ -7,20 +7,6 @@ Load "guilib.ring"
 Load "stdlibcore.ring"
 load "fastpro.ring"
 
-? "Loading Library - the DLL for the mylibCalcMug() "
-
-// buildvc.bat   // buildvc.c => /DEBUG mylib.c               /DEBUG mylibCalcMug.c           
-// mylib.c       // mylib.c    => RING_FUNC(ring_myfunction)  RING_FUNC(ring_myCalcMug)
-//
-
-if iswindows()
-    LoadLib("mylibCalcMug.dll")            // buildvc.bat  => mylib.dll         mylibCalcMug.dll
-    ? "Windows loaded mylibCalcMug.dll"    // mylib.dll    => func "myfunction" func "myCalcMug"
-ok
-
-UseCcalculator = 1   ###<<< True-1. Ring calls C-Calculator
-//UseCcalculator = 0
-
 //----------------------------------
 
 flag = 0
@@ -106,6 +92,10 @@ myApp = new qApp
 {
     win = new qWidget()
     {
+
+        myfilter = new qallevents(win)
+        myfilter.setCloseEvent("MyApp.Quit()")
+
         setWindowTitle("Matrix Multiplication 3D Cube Rotation")
         setGeometry(xPos, yPos, xWidth, yHeight)    ### Window Pos and Size
 
@@ -458,14 +448,8 @@ Func DrawMatrix()
                       
                 RC  = ShapeMug           // Keep ShapeMug Array as is 12890x4 * 4x4 
 				
-				FlagFastPro = 1          // <<<===  1=FastPro  0=C-Calc
-				
-				if FlagFastPro = 1    
-				
-				   RC =  updateList(RC, :mul,:matrix, FC)	 // FastPro 
-				else
-                   myMugCalc(FC, RC)     // C-Calc ( FC x RC => RC) --- 12890x4 * 4x4
-				ok
+	
+ 	        RC =  updateList(RC, :mul,:matrix, FC)	 // FastPro 
  			
     
       //------------------------------------
@@ -496,14 +480,8 @@ Func DrawMatrix()
    stopClock  = clock()
    elapseTime = stopClock - startClock  
    See "Completed Rotations: "+ elapseTime +" msec  iter: "+ iteration +nl
-   
-   if FlagFastPro = 1          // <<<===  1=FastPro  0=C-Calc
-      See"Flag FastPro=1: "+FlagFastPro +nl
-	else  
-	  See"Flag C-Calc=0: "+FlagFastPro +nl
-	ok  
-  
-   win.setWindowTitle("Matrix Multiply 3D Cube Rotation: "+ elapseTime +" msec iter: "+ iteration +" FlagFastPro: "+FlagFastPro )
+    
+   win.setWindowTitle("Matrix Multiply 3D Cube Rotation: "+ elapseTime +" msec iter: "+ iteration  )
    
    
 
