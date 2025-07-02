@@ -331,8 +331,6 @@ void ring_vm_listpushv ( VM *pVM )
 	/* Push Item Data */
 	if ( ring_item_gettype(pItem) == ITEMTYPE_STRING ) {
 		if ( pVM->nRetItemRef ) {
-			RING_VM_STACK_SETPVALUE(pItem);
-			RING_VM_STACK_OBJTYPE = RING_OBJTYPE_LISTITEM ;
 			pVM->nRetItemRef-- ;
 			return ;
 		}
@@ -340,8 +338,6 @@ void ring_vm_listpushv ( VM *pVM )
 	}
 	else if ( ring_item_gettype(pItem) == ITEMTYPE_NUMBER ) {
 		if ( pVM->nRetItemRef ) {
-			RING_VM_STACK_SETPVALUE(pItem);
-			RING_VM_STACK_OBJTYPE = RING_OBJTYPE_LISTITEM ;
 			pVM->nRetItemRef-- ;
 			return ;
 		}
@@ -351,14 +347,10 @@ void ring_vm_listpushv ( VM *pVM )
 		if ( pVM->nRetItemRef ) {
 			pVM->nRetItemRef-- ;
 		}
-		RING_VM_STACK_SETPVALUE(pItem);
-		RING_VM_STACK_OBJTYPE = RING_OBJTYPE_LISTITEM ;
 		ring_vm_oop_setbraceobj(pVM, (List *) ring_item_getlist(pItem));
 	}
 	else if ( ring_item_gettype(pItem) == ITEMTYPE_POINTER ) {
 		if ( pVM->nRetItemRef ) {
-			RING_VM_STACK_SETPVALUE(pItem);
-			RING_VM_STACK_OBJTYPE = RING_OBJTYPE_LISTITEM ;
 			pVM->nRetItemRef-- ;
 			return ;
 		}
