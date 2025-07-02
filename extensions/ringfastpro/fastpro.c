@@ -1163,11 +1163,12 @@ RING_FUNC(ring_updatelist)
 
         case 406 :
             /* Mul Matrix A*B => C */
+			// Chec[nRowA x nColA] * [nRowB x nColB] 
+			// Must:        nColA = nRowB 
+			// Result Size: nRowA x nColB
 
         // pList  = RING_API_GETLIST(1) ;
            pListB = RING_API_GETLIST(4) ;
-
-
 
            nRow   = ring_list_getsize(pList);           // 5 Row-A vert for vA = 1 to vertA
            pRow   = ring_list_getlist(pList,nRow);
@@ -1177,6 +1178,11 @@ RING_FUNC(ring_updatelist)
            nRowB   = ring_list_getsize(pListB) ;        // 3 Row-B vert
            pRowB   = ring_list_getlist(pListB,nRowB);
            nEndB   = ring_list_getsize(pRowB) ;         // 4 Col-C horz for hB = 1 to horzB
+
+           if( nEnd != nRowB ) 
+		   {   RING_API_ERROR("Mul-Matrix: nColA != nRowB for [nRowA x nColA] * [nRowB x nColB]" );
+               return ;
+		   }
 
            //--- CREATE Output List - Outside Dims.-----
            sizeX   = nRow  ;  sizeY   = nEndB ;
@@ -1188,25 +1194,23 @@ RING_FUNC(ring_updatelist)
            //------------------------------------
 
             for (vA = 1; vA <= nRow; vA++)
-            {   for (hB = 1; hB <= nEndB; hB++)
+            {   pSubList  = ring_list_getlist(pList,  vA) ;          // Row-A vA 12890x4
+		
+		        for (hB = 1; hB <= nEndB; hB++)
                 {
                     Sum = 0;
 
                     for (k = 1; k <=  nEnd; k++)
                     {   // Sum += A[vA][k] * B[k][hB]
-                        //         R   C      R  C
-
-                         pSubList  = ring_list_getlist(pList,  vA) ;          // Row-A  vA
-                         valueA    = ring_list_getdouble( pSubList, k ) ;     // Col     k
-
-                         pSubListB = ring_list_getlist(pListB, k) ;           // Row-B   k
-                         valueB    = ring_list_getdouble( pSubListB, hB ) ;   // Col    hB
-
-                         valueC    = valueA * valueB ;
-                         Sum      += valueC  ;
+                        //          R   C      R  C
+                        
+						pSubListB = ring_list_getlist(pListB, k) ;       // Row-B k 4x4
+						
+                        valueA  = ring_list_getdouble( pSubList, k ) ;   // Col-A  k
+                        valueB  = ring_list_getdouble( pSubListB, hB ) ; // Col-B   hB
+                        valueC  = valueA * valueB ;
+                        Sum    += valueC  ;
                     }
-
-                    // C[va][hB] = Sum
 
                     pSubListC = ring_list_getlist(pListC, vA ) ;                  // Row#
                     ring_list_setdouble_gc(pVM->pRingState,pSubListC, hB, Sum );  // Col#
@@ -1214,7 +1218,9 @@ RING_FUNC(ring_updatelist)
                 }
             }
 
-            RING_API_RETLIST( pListC );
+            //RING_API_RETLIST( pListC );    // Slower and Slower each iteration
+			  RING_API_RETLISTBYREF(pListC); // FAST
+			  
             break ;
 
         //======================================================
