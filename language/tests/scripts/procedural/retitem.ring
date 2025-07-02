@@ -1,23 +1,35 @@
 /*
 
 	Return list item by reference from functions 
-	Works if the list is a global list or inside object state
+	Works if the list is a global list or belongs to the object state
+
+	This feature was added to the Ring language for specific use case
+
+	* To be used by the Operator() method to return list items by reference
+
+	This sample is about a different use-case (The item belongs to a global list)
 
 	This feature is revised & improved in Ring 1.23
 
 	Syntax:
-	Return & <expr>  # where expr result is a list item (global/ObjState)
+		Return & <expr>  # where expr result is a list item (global/ObjState)
+
+	Note: This feature return item as reference but doesn't create a reference
+              i.e. No reference counting in this operation (It's not required)
 
 	We can assign a value to this item reference from the caller
 
-	Passing this item reference from the caller to another function will be pass by value
-	Assigning this item reference to another value will create another value
+	Passing this returned item reference from the caller to another function 
+	will be pass the item by value
 
-	Using 
+	Assigning this item reference to another variable/list item will create another value
+
+	When we use:  
 		return & test()		
-	will return item reference if test() does this in the first place
+	This will return item reference if test() does this in the first place
 
-	If return & is used with expr which is not a list item, & will do nothing (pass error)
+	If (return &) is used with <expr> which is not a list item
+	Then & will do nothing (i.e. Ring will pass the error)
 
 */
 
