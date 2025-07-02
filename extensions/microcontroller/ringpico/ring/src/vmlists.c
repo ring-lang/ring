@@ -328,32 +328,23 @@ void ring_vm_listpushv ( VM *pVM )
 	Item *pItem  ;
 	char cPointer[RING_SMALLBUF]  ;
 	pItem = (Item *) RING_VM_STACK_READP ;
+	/* Check if we need to access an object */
+	if ( ring_item_gettype(pItem) == ITEMTYPE_LIST ) {
+		ring_vm_oop_setbraceobj(pVM, (List *) ring_item_getlist(pItem));
+	}
+	/* Check if we just need to return an item by reference */
+	if ( pVM->nRetItemRef ) {
+		pVM->nRetItemRef-- ;
+		return ;
+	}
 	/* Push Item Data */
 	if ( ring_item_gettype(pItem) == ITEMTYPE_STRING ) {
-		if ( pVM->nRetItemRef ) {
-			pVM->nRetItemRef-- ;
-			return ;
-		}
 		RING_VM_STACK_SETCVALUE2(ring_string_get(ring_item_getstring(pItem)),ring_string_size(ring_item_getstring(pItem)));
 	}
 	else if ( ring_item_gettype(pItem) == ITEMTYPE_NUMBER ) {
-		if ( pVM->nRetItemRef ) {
-			pVM->nRetItemRef-- ;
-			return ;
-		}
 		RING_VM_STACK_SETNVALUE(ring_item_getnumber(pItem));
 	}
-	else if ( ring_item_gettype(pItem) == ITEMTYPE_LIST ) {
-		if ( pVM->nRetItemRef ) {
-			pVM->nRetItemRef-- ;
-		}
-		ring_vm_oop_setbraceobj(pVM, (List *) ring_item_getlist(pItem));
-	}
 	else if ( ring_item_gettype(pItem) == ITEMTYPE_POINTER ) {
-		if ( pVM->nRetItemRef ) {
-			pVM->nRetItemRef-- ;
-			return ;
-		}
 		sprintf( cPointer , "%p" , ring_item_getpointer(pItem) ) ;
 		RING_VM_STACK_SETCVALUE2(cPointer,strlen(cPointer));
 	}
