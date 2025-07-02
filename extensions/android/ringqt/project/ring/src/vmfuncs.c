@@ -832,6 +832,10 @@ void ring_vm_retitemref ( VM *pVM )
 	if ( ! ( (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM) || (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_SUBSTRING) ) ) {
 		return ;
 	}
+	/* Check if we are not using object state */
+	if ( ! ring_vm_isstackpointertoobjstate(pVM) ) {
+		return ;
+	}
 	pVM->nRetItemRef = RING_ONE ;
 	/*
 	**  Check if we are in the operator method to increment the counter again 
