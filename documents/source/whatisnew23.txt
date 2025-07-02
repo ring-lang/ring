@@ -220,8 +220,10 @@ More Improvements
 * RingLibSDL - Support compilation on Linux with GCC 14/Clang 19+
 * CMakeLists.txt - Require version 3.16 and improve OS detection messages
 * language/README_CMake.md - Better documentation for build instructions
+* Ring Compiler/VM - Faster hash table rebuild process
 * Ring Compiler - Scanner - Support repeating stars in multi-line comments
 * Ring Compiler - Using & to return item reference is supported only after Return 
 * Ring VM - Save/Restore pParser->lFuncCallOnly when using anonymous function
 * Ring VM - The ~ operator precedence is revised to follow the documentation
 * Ring VM - Check for a scope ID overflow and reset any associated instructions
+* Ring VM - Uninitialized variable - Correct errors message when name contains underscores
