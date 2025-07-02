@@ -554,7 +554,7 @@ Statement ---> 'do' {statement} 'again' <Expr>
 
 Statement ---> 'try' {statement} ['{'] 'catch' {statement} 'done'|'end'|'}'|'endtry'
 
-Statement ---> 'return' <Expr>
+Statement ---> 'return' ['&'] <Expr>
 
 Statement ---> 'bye'
 
@@ -746,7 +746,7 @@ ICO_RETURN		Return from function
 ICO_RETNULL		Return NULL from function
 ICO_RETURNN		Return Number (REG1) from function
 ICO_RETFROMEVAL		Return after eval() 
-ICO_RETITEMREF		Return the list item reference - not the value
+ICO_RETITEMREF		Return the Global/ObjState list item reference (not the value)
 ICO_NEWFUNC		Start new function
 ICO_BLOCKFLAG		Flag to determine where to jump later (after ICO_RETURN)
 ICO_ANONYMOUS		Anonymous function
