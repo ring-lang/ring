@@ -30,3 +30,10 @@ nNum1
 ring_vm_math_murmur3hash
 Type: unsigned int
 nResult
+ring_vm_math_random
+Type: int
+nNum1,nNum2
+ring_vm_math_srandom
+Type: int
+nNum1
+ring_vm_math_checkoverflow

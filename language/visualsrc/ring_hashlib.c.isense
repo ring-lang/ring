@@ -1,5 +1,4 @@
 ring_hashlib_h
-ring_murmur3_32
 ring_xor_hash
 Type: unsigned char *
 cData

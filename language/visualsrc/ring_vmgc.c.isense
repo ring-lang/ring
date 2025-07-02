@@ -202,6 +202,7 @@ Mark: ->
 PoolManager *
 ring_gc_h
 RING_LISTREF_INC
+RING_LISTREF_DEC
 ring_vm_gc_cleardata(pItem)
 ring_vm_gc_newitemreference(pItem)
 ring_vm_gc_checknewreference
