@@ -169,6 +169,7 @@ The next samples and applications are added:
 * samples/UsingFastPro/MatrixAppend.ring
 * samples/UsingFastPro/MatrixAllSum.ring
 * samples/UsingFastPro/Mandelbrot.ring
+* samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro.ring
 
 The next applications are revised:
 
