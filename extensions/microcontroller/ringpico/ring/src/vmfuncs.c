@@ -588,7 +588,7 @@ void ring_vm_movetoprevscope ( VM *pVM,int nFuncType )
 			return ;
 		}
 	}
-	else if ( RING_VM_STACK_OBJTYPE ==RING_OBJTYPE_LISTITEM ) {
+	else if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM ) {
 		pItem = (Item *) RING_VM_STACK_READP ;
 		pList = ring_item_getlist(pItem);
 	}
@@ -825,7 +825,14 @@ void ring_vm_retitemref ( VM *pVM )
 {
 	List *pList  ;
 	FuncCall *pFuncCall  ;
-	pVM->nRetItemRef++ ;
+	/* Check if we don't have item pointer */
+	if ( ! RING_VM_STACK_ISPOINTER ) {
+		return ;
+	}
+	if ( ! ( (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM) || (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_SUBSTRING) ) ) {
+		return ;
+	}
+	pVM->nRetItemRef = RING_ONE ;
 	/*
 	**  Check if we are in the operator method to increment the counter again 
 	**  We do this to avoid another PUSHV on the list item 
@@ -835,8 +842,8 @@ void ring_vm_retitemref ( VM *pVM )
 	*/
 	if ( RING_VM_FUNCCALLSCOUNT > 0 ) {
 		pFuncCall = RING_VM_LASTFUNCCALL ;
-		if ( strcmp(pFuncCall->cName,RING_CSTR_OPERATOR) == 0 ) {
-			pVM->nRetItemRef++ ;
+		if ( (pFuncCall->lMethod == RING_TRUE) && (strcmp(pFuncCall->cName,RING_CSTR_OPERATOR) == RING_ZERO) ) {
+			pVM->nRetItemRef = RING_TWO ;
 		}
 	}
 }
