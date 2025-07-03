@@ -172,6 +172,7 @@ void ring_hashtable_rebuild_gc ( void *pRingState,HashTable *pHashTable )
 	pHashTable->nRebuildSize *= 2 ;
 	pHashTable->nLinkedLists *= 2 ;
 	pHashTable->pArray = (HashItem **) ring_state_calloc(pRingState,pHashTable->nLinkedLists,sizeof(HashItem *));
+	pHashTable->nItems = RING_ZERO ;
 	/* Re-hash and move all items from the old table to the new one */
 	for ( x = 0 ; x < nOldLinkedLists ; x++ ) {
 		pItem = pOldArray[x] ;
@@ -187,7 +188,6 @@ void ring_hashtable_rebuild_gc ( void *pRingState,HashTable *pHashTable )
 			ring_state_free(pRingState,pItem->cKey);
 			ring_state_free(pRingState,pItem);
 			pItem = pNextItem ;
-			pHashTable->nItems-- ;
 		}
 	}
 	ring_state_free(pRingState,pOldArray);
