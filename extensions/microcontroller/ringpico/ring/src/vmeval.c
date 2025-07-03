@@ -40,7 +40,7 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 		**  Generate Code 
 		**  Generate  Hash Table 
 		*/
-		ring_list_genhashtable2(pVM->pFunctionsMap);
+		ring_list_genhashtable2_gc(pVM->pRingState,pVM->pFunctionsMap);
 		if ( pVM->lEvalCalledFromRingCode ) {
 			ring_scanner_addreturn3(pVM->pRingState,aPara);
 		}

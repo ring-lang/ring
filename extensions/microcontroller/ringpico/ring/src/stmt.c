@@ -26,7 +26,7 @@ int ring_parser_class ( Parser *pParser )
 			if ( ring_list_getsize(pParser->pClassesMap) ) {
 				/* Generate the HashTable */
 				if ( ring_list_gethashtable(pParser->pClassesMap) == NULL ) {
-					ring_list_genhashtable2(pParser->pClassesMap);
+					ring_list_genhashtable2_gc(pParser->pRingState,pParser->pClassesMap);
 				}
 				if ( ring_hashtable_findpointer(ring_list_gethashtable(pParser->pClassesMap),pParser->cTokenText) != NULL ) {
 					ring_parser_error(pParser,RING_PARSER_ERROR_CLASSREDEFINE);
@@ -40,7 +40,7 @@ int ring_parser_class ( Parser *pParser )
 			ring_parser_icg_newoperandpointer(pParser,pList);
 			/* Add the class to the HashTable */
 			if ( ring_list_gethashtable(pParser->pClassesMap) != NULL ) {
-				ring_hashtable_newpointer_gc(NULL,ring_list_gethashtable(pParser->pClassesMap),pParser->cTokenText,pList);
+				ring_hashtable_newpointer_gc(pParser->pRingState,ring_list_gethashtable(pParser->pClassesMap),pParser->cTokenText,pList);
 			}
 			ring_parser_nexttoken(pParser);
 			/* [From Identifier] */
@@ -136,7 +136,7 @@ int ring_parser_class ( Parser *pParser )
 			if ( ring_list_getsize(pParser->pFunctionsMap) ) {
 				/* Generate the HashTable */
 				if ( ring_list_gethashtable(pParser->pFunctionsMap) == NULL ) {
-					ring_list_genhashtable2(pParser->pFunctionsMap);
+					ring_list_genhashtable2_gc(pParser->pRingState,pParser->pFunctionsMap);
 				}
 				if ( ring_hashtable_findpointer(ring_list_gethashtable(pParser->pFunctionsMap),pParser->cTokenText) != NULL ) {
 					ring_parser_error(pParser,RING_PARSER_ERROR_FUNCREDEFINE);
@@ -155,7 +155,7 @@ int ring_parser_class ( Parser *pParser )
 			}
 			/* Add the function to the HashTable */
 			if ( ring_list_gethashtable(pParser->pFunctionsMap) != NULL ) {
-				ring_hashtable_newpointer_gc(NULL,ring_list_gethashtable(pParser->pFunctionsMap),pParser->cTokenText,pList2);
+				ring_hashtable_newpointer_gc(pParser->pRingState,ring_list_gethashtable(pParser->pFunctionsMap),pParser->cTokenText,pList2);
 			}
 			ring_parser_nexttoken(pParser);
 			if ( ring_parser_isidentifier(pParser) || ring_parser_isoperator2(pParser,OP_FOPEN) ) {
