@@ -965,7 +965,7 @@ RING_FUNC(ring_updatelist)
                     }
                 }
 
-                RING_API_RETLIST( pListC );
+                RING_API_RETLISTBYREF( pListC );
                 break ;
 
             } else {
@@ -1089,7 +1089,7 @@ RING_FUNC(ring_updatelist)
                     }
                 }
 
-                RING_API_RETLIST( pListC );
+                RING_API_RETLISTBYREF( pListC );
                 break ;
 
             } else {
@@ -1163,7 +1163,7 @@ RING_FUNC(ring_updatelist)
 
         case 406 :
             /* Mul Matrix A*B => C */
-			// Chec[nRowA x nColA] * [nRowB x nColB] 
+			// Check[nRowA x nColA] * [nRowB x nColB] 
 			// Must:        nColA = nRowB 
 			// Result Size: nRowA x nColB
 
@@ -1218,8 +1218,7 @@ RING_FUNC(ring_updatelist)
                 }
             }
 
-            //RING_API_RETLIST( pListC );    // Slower and Slower each iteration
-			  RING_API_RETLISTBYREF(pListC); // FAST
+            RING_API_RETLISTBYREF(pListC); // FAST
 			  
             break ;
 
@@ -1744,7 +1743,7 @@ RING_FUNC(ring_updatelist)
                 }
             }
 
-            RING_API_RETLIST( pListC );
+            RING_API_RETLISTBYREF( pListC );
             break ;
 
 
@@ -1781,7 +1780,7 @@ RING_FUNC(ring_updatelist)
                 }
             }       
         
-            RING_API_RETLIST( pListC );
+            RING_API_RETLISTBYREF( pListC );
             break ;
 
          //===End 1506 ==============================    
@@ -1867,7 +1866,7 @@ RING_FUNC(ring_updatelist)
                    
                 } 
             }
-            RING_API_RETLIST( pListC ); 
+            RING_API_RETLISTBYREF( pListC ); 
         }   
             
         
@@ -1900,7 +1899,7 @@ RING_FUNC(ring_updatelist)
                 }
             }       
         
-            RING_API_RETLIST( pList );
+            RING_API_RETLISTBYREF( pList );
             break ;
 
          //===End 1706 ==============================   
@@ -2076,7 +2075,7 @@ RING_FUNC(ring_updatelist)
            }        
          }
          
-         RING_API_RETLIST( pListC );
+         RING_API_RETLISTBYREF( pListC );
          
          //----------
          break ;
@@ -2114,7 +2113,7 @@ RING_FUNC(ring_updatelist)
            }        
          }
          
-         RING_API_RETLIST( pListC );
+         RING_API_RETLISTBYREF( pListC );
          
          //----------
          break ;
@@ -2151,7 +2150,7 @@ RING_FUNC(ring_updatelist)
            }        
          }
          
-         RING_API_RETLIST( pListC );
+         RING_API_RETLISTBYREF( pListC );
          
          //----------
          break ;
@@ -2190,7 +2189,7 @@ RING_FUNC(ring_updatelist)
            }        
          }
          
-         RING_API_RETLIST( pListC );
+         RING_API_RETLISTBYREF( pListC );
          
          //----------
          break ;
@@ -2229,7 +2228,7 @@ RING_FUNC(ring_updatelist)
            }        
          }
          
-         RING_API_RETLIST( pListC );
+         RING_API_RETLISTBYREF( pListC );
          
          //----------
          break ;
@@ -2275,7 +2274,7 @@ RING_FUNC(ring_updatelist)
            }        
          }
          
-         RING_API_RETLIST( pListC );
+         RING_API_RETLISTBYREF( pListC );
          
          //----------
          break ;
@@ -2320,7 +2319,7 @@ RING_FUNC(ring_updatelist)
            }        
          }
          
-         RING_API_RETLIST( pListC );
+         RING_API_RETLISTBYREF( pListC );
          
          //----------
          break ;
@@ -2365,7 +2364,7 @@ RING_FUNC(ring_updatelist)
            }        
          }
          
-         RING_API_RETLIST( pListC );
+         RING_API_RETLISTBYREF( pListC );
          
          //----------
          break ;
@@ -2410,7 +2409,7 @@ RING_FUNC(ring_updatelist)
            }        
          }
          
-         RING_API_RETLIST( pListC );
+         RING_API_RETLISTBYREF( pListC );
          
          //----------
          break ;
@@ -2449,7 +2448,7 @@ RING_FUNC(ring_updatelist)
            }        
          }
          
-         RING_API_RETLIST( pListC );
+         RING_API_RETLISTBYREF( pListC );
          
          //----------
          break ;
@@ -2498,7 +2497,7 @@ RING_FUNC(ring_updatelist)
             
             }
             
-            RING_API_RETLIST( pListC );
+            RING_API_RETLISTBYREF( pListC );
          
         }
         else if( Axis == 0 )
@@ -2516,7 +2515,7 @@ RING_FUNC(ring_updatelist)
                              ring_list_setdouble_gc(pVM->pRingState,pSubListC, h, nSum );                             
             }        
            
-           RING_API_RETLIST( pListC );
+           RING_API_RETLISTBYREF( pListC );
          
         }
         else
@@ -2548,7 +2547,6 @@ RING_FUNC(ring_updatelist)
         //-------------------
  
          RING_API_ERROR("SoftMAx: NOT IMPLEMENTED -- Use FastProSoftMax() Function "); 
-       //RING_API_RETLIST( pList );
         
         //----------
         break ;
@@ -2589,7 +2587,7 @@ RING_FUNC(ring_updatelist)
                 }
             }       
         
-            RING_API_RETLIST( pListC );
+            RING_API_RETLISTBYREF( pListC );
             break ;
 
          //===End 3406 ==============================   
@@ -2649,7 +2647,7 @@ RING_FUNC(ring_updatelist)
             }
         }   
 
-       RING_API_RETLIST( pListC );
+       RING_API_RETLISTBYREF( pListC );
         
         //----------
         break ;
@@ -2711,7 +2709,7 @@ RING_FUNC(ring_updatelist)
             }
         }   
 
-       RING_API_RETLIST( pListC );
+       RING_API_RETLISTBYREF( pListC );
         
         //----------
         break ;
@@ -2750,7 +2748,7 @@ RING_FUNC(ring_updatelist)
             } 
         } 
     
-         RING_API_RETLIST( pListC );
+         RING_API_RETLISTBYREF( pListC );
          
          //----------
          break ;
@@ -2785,7 +2783,7 @@ RING_FUNC(ring_updatelist)
             } 
         } 
     
-         RING_API_RETLIST( pListC );
+         RING_API_RETLISTBYREF( pListC );
          
          //----------
          break ;
@@ -2820,7 +2818,7 @@ RING_FUNC(ring_updatelist)
              ring_list_setdouble_gc(pVM->pRingState,pSubListC, vA, valueA ); // Col-vA       
         } 
 
-         RING_API_RETLIST( pListC );
+         RING_API_RETLISTBYREF( pListC );
          
          //----------
          break ;
@@ -2902,9 +2900,6 @@ RING_FUNC(ring_updatelist)
             }           
         }
         
-        // RING_API_RETLIST( pListC );
-        
-
          //--- CREATE Output List-B New 1x(j-1) Size without Dups -----
          pListB  = RING_API_NEWLISTUSINGBLOCKS2D( 1, (j-1) ) ;  
         
@@ -2923,7 +2918,7 @@ RING_FUNC(ring_updatelist)
         
          }  
     
-         RING_API_RETLIST( pListB );
+         RING_API_RETLISTBYREF( pListB );
 
          //----------
          break ;
@@ -3028,7 +3023,7 @@ RING_FUNC(ring_updatelist)
             
          }
       
-         RING_API_RETLIST( pListC );
+         RING_API_RETLISTBYREF( pListC );
          
          //----------
          break ;
