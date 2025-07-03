@@ -653,13 +653,15 @@ void ring_vm_refmeta_addmethod ( void *pPointer )
 				pList2 = ring_list_getlist(pVM->pFunctionsMap,x);
 				if ( strcmp(ring_list_getstring(pList2,RING_FUNCMAP_NAME),cStr) == 0 ) {
 					/* Add new list to the class methods list */
-					pList3 = ring_list_newlist_gc(((VM *) pPointer)->pRingState,pList);
+					pList3 = ring_list_newlist_gc(pVM->pRingState,pList);
 					/* Copy function to class methods */
 					ring_list_copy_gc(pVM->pRingState,pList3,pList2);
 					/* Set the Function Name */
-					ring_list_setstring_gc(((VM *) pPointer)->pRingState,pList3,RING_FUNCMAP_NAME,ring_string_lower(RING_API_GETSTRING(2)));
+					ring_list_setstring_gc(pVM->pRingState,pList3,RING_FUNCMAP_NAME,ring_string_lower(RING_API_GETSTRING(2)));
 					/* Refresh the HashTable */
-					ring_list_genhashtable2(pList);
+					if ( pList->pHashTable != NULL ) {
+						ring_list_genhashtable2_gc(pVM->pRingState,pList);
+					}
 					RING_API_RETNUMBER(1);
 					return ;
 				}
@@ -817,6 +819,10 @@ void ring_vm_refmeta_mergemethods ( void *pPointer )
 		}
 		/* Copy Methods from Source to Dest */
 		ring_list_copy_gc(pVM->pRingState,pList2,pList3);
+		/* Refresh the HashTable */
+		if ( pList2->pHashTable != NULL ) {
+			ring_list_genhashtable2_gc(pVM->pRingState,pList2);
+		}
 	}
 	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
