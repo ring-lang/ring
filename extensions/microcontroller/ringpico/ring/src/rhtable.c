@@ -158,19 +158,23 @@ HashTable * ring_hashtable_delete_gc ( void *pRingState,HashTable *pHashTable )
 
 void ring_hashtable_rebuild_gc ( void *pRingState,HashTable *pHashTable )
 {
-	HashItem **pArray  ;
-	int nLinkedLists,x  ;
-	HashItem *pItem,*pItem2  ;
+	HashItem **pOldArray  ;
+	int nOldLinkedLists,x  ;
+	HashItem *pItem,*pNextItem  ;
+	/* If the number of items doesn't meet the rebuild threshoud, do nothing */
 	if ( pHashTable->nItems != pHashTable->nRebuildSize ) {
 		return ;
 	}
-	pArray = pHashTable->pArray ;
-	nLinkedLists = pHashTable->nLinkedLists ;
+	/* Store old table properties */
+	pOldArray = pHashTable->pArray ;
+	nOldLinkedLists = pHashTable->nLinkedLists ;
+	/* Create the new, larger table structure */
 	pHashTable->nRebuildSize *= 2 ;
 	pHashTable->nLinkedLists *= 2 ;
 	pHashTable->pArray = (HashItem **) ring_state_calloc(pRingState,pHashTable->nLinkedLists,sizeof(HashItem *));
-	for ( x = 0 ; x < nLinkedLists ; x++ ) {
-		pItem = pArray[x] ;
+	/* Re-hash and move all items from the old table to the new one */
+	for ( x = 0 ; x < nOldLinkedLists ; x++ ) {
+		pItem = pOldArray[x] ;
 		while ( pItem != NULL ) {
 			/* Rehash the item */
 			if ( pItem->nItemType == RING_HASHITEMTYPE_NUMBER ) {
@@ -179,14 +183,14 @@ void ring_hashtable_rebuild_gc ( void *pRingState,HashTable *pHashTable )
 			else if ( pItem->nItemType == RING_HASHITEMTYPE_POINTER ) {
 				ring_hashtable_newpointer(pHashTable,pItem->cKey,pItem->HashValue.pValue);
 			}
-			pItem2 = pItem->pNext ;
+			pNextItem = pItem->pNext ;
 			ring_state_free(pRingState,pItem->cKey);
 			ring_state_free(pRingState,pItem);
-			pItem = pItem2 ;
+			pItem = pNextItem ;
 			pHashTable->nItems-- ;
 		}
 	}
-	ring_state_free(pRingState,pArray);
+	ring_state_free(pRingState,pOldArray);
 }
 
 void ring_hashtable_print ( HashTable *pHashTable )

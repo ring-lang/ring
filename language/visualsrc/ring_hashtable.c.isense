@@ -90,6 +90,13 @@ Type: int
 nOldLinkedLists, x, nNewIndex
 Type: HashItem *
 pItem, *pNextItem
+ring_hashtable_rebuild_gc
+Type: HashItem **
+pOldArray
+Type: int
+nOldLinkedLists,x
+Type: HashItem *
+pItem,*pNextItem
 ring_hashtable_print
 Type: int
 x
