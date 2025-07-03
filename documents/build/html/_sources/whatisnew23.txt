@@ -20,7 +20,7 @@ Ring 1.23 comes with the next features!
 * Snakes and Ladders 2
 * Adhkar App (Arabic/WASM)
 * More RingPM Packages
-* Better Samples and Applications
+* Better Applications and Samples
 * Better StdLib
 * Better RingLibCurl
 * More Improvements
@@ -106,10 +106,16 @@ Example:
 
 
 .. index:: 
-	pair: What is new in Ring  1.23; Better Samples and Applications
+	pair: What is new in Ring  1.23; Better Applications and Samples
 
-Better Samples and Applications
+Better Applications and Samples
 ===============================
+
+The next applications are revised:
+
+* applications/othellogame/OthelloGame.ring 
+* applications/fifteenpuzzle/FifteenPuzzleGame.ring 
+* applications/getquoteshistory/GetQuotesHistoryDraw.ring
 
 The next samples and applications are added:
 
@@ -170,13 +176,6 @@ The next samples and applications are added:
 * samples/UsingFastPro/MatrixAllSum.ring
 * samples/UsingFastPro/Mandelbrot.ring
 * samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro.ring
-
-The next applications are revised:
-
-* applications/fifteenpuzzle/FifteenPuzzleGame.ring 
-* applications/getquoteshistory/GetQuotesHistoryDraw.ring
-* applications/othellogame/OthelloGame.ring 
-
 
 .. index:: 
 	pair: What is new in Ring  1.23; Better StdLib
