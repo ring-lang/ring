@@ -210,7 +210,8 @@ More Improvements
 * Form Designer - Objects Order - Using closeAction() method
 * Form Designer - Display forms at the centre of the screen
 * Find() function - Support searching in lists/Attributes using list/object reference
-* Find() function - Support searching in lists/Attributes using lists that wrap C Pointers 
+* Find() function - Support searching in lists/Attributes using lists that wrap C Pointers
+* addMethod()/mergeMethods() functions - Better implementation 
 * RingQt - OpenGLWidget/QAllEvents classes - Use: RINGQT_EVENT_SIZE
 * RingQt - CodeEditor control - Same font size for code/line number
 * VSCode Extension - Added support for the EndIf keyword
