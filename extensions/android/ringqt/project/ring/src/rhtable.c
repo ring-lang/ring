@@ -179,10 +179,10 @@ void ring_hashtable_rebuild_gc ( void *pRingState,HashTable *pHashTable )
 		while ( pItem != NULL ) {
 			/* Rehash the item */
 			if ( pItem->nItemType == RING_HASHITEMTYPE_NUMBER ) {
-				ring_hashtable_newnumber(pHashTable,pItem->cKey,pItem->HashValue.nIndex);
+				ring_hashtable_newnumber_gc(pRingState,pHashTable,pItem->cKey,pItem->HashValue.nIndex);
 			}
 			else if ( pItem->nItemType == RING_HASHITEMTYPE_POINTER ) {
-				ring_hashtable_newpointer(pHashTable,pItem->cKey,pItem->HashValue.pValue);
+				ring_hashtable_newpointer_gc(pRingState,pHashTable,pItem->cKey,pItem->HashValue.pValue);
 			}
 			pNextItem = pItem->pNext ;
 			ring_state_free(pRingState,pItem->cKey);
