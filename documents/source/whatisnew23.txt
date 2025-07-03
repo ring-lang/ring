@@ -211,7 +211,7 @@ More Improvements
 * Form Designer - Display forms at the centre of the screen
 * Find() function - Support searching in lists/Attributes using list/object reference
 * Find() function - Support searching in lists/Attributes using lists that wrap C Pointers
-* addMethod()/mergeMethods() functions - Better implementation 
+* AddMethod()/MergeMethods() functions - Better implementation 
 * RingQt - OpenGLWidget/QAllEvents classes - Use: RINGQT_EVENT_SIZE
 * RingQt - CodeEditor control - Same font size for code/line number
 * VSCode Extension - Added support for the EndIf keyword
@@ -229,3 +229,4 @@ More Improvements
 * Ring VM - Check for a scope ID overflow and reset any associated instructions
 * Ring VM - Uninitialized variable - Correct errors message when name contains underscores
 * Ring VM - ring_vm_retitemref() - Better implementation (used by Return &)
+* Ring Compiler/VM - Use GC functions for internal HashTable operations
