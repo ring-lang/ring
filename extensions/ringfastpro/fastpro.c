@@ -3138,18 +3138,17 @@ RING_FUNC(ring_updatelist)
        
             for( y = 1; y <= height; y++)              // Col
             {              
-               //N = alist[x][y] ;                     // N number in the cell = Color
 
                N = ring_list_getdouble( pSubList, y ); // Row-x  Col-y 
 
                if( N > 0 && N < iter )                 // 1..50 Color N to char
-               { // nPenID = ((N % 12)+1 );            // Ring=1 N=1..49 Mod=1..11,0 
-                    nPenID = ((N % 12) );              // C=0    N=1..49 Mod=1..11,0
+               { 
+                   nPenID = ((N % 12) );              // C=0    N=1..49 Mod=1..11,0
                    
-                   FList[++i] = aCHR[nPenID][1] ;   // 0 1  
-                   FList[++i] = aCHR[nPenID][2] ;   // 1 2             
-                   FList[++i] = aCHR[nPenID][3] ;   // 2 3             
-                   FList[++i] = aCHR[nPenID][4] ;   // 3`4  
+                   FList[++i] = aCHR[nPenID][0] ;     
+                   FList[++i] = aCHR[nPenID][1] ;               
+                   FList[++i] = aCHR[nPenID][2] ;                
+                   FList[++i] = aCHR[nPenID][3] ;    
                }   
                else
                {   
