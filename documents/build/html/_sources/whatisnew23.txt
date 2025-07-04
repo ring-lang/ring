@@ -98,6 +98,7 @@ The following packages have been added to the RingPM registry.
 * RingThreadPro: Threads management library
 * RingSubProcess: Creating and managing system processes
 * Markdown: A Markdown parser and HTML converter
+* TOML: A comprehensive TOML parser
 
 Example:
 
