@@ -1167,7 +1167,6 @@ RING_FUNC(ring_updatelist)
 			// Must:        nColA = nRowB 
 			// Result Size: nRowA x nColB
 
-        // pList  = RING_API_GETLIST(1) ;
            pListB = RING_API_GETLIST(4) ;
 
            nRow   = ring_list_getsize(pList);           // 5 Row-A vert for vA = 1 to vertA
@@ -1717,8 +1716,6 @@ RING_FUNC(ring_updatelist)
         case 1406 :
             /* Transpose Matrix-A ==> MatriX-C */
 
-           // pList  = RING_API_GETLIST(1) ;
-
            nRow   = ring_list_getsize(pList);           //  Row-A
            pRow   = ring_list_getlist(pList,nRow);
            nEnd   = ring_list_getsize(pRow) ;           //  Col-A
@@ -1752,8 +1749,7 @@ RING_FUNC(ring_updatelist)
         case 1506 :
             /* Scalar Matrix-A  * K ==> MatriX-C */
            
-            // pList  = RING_API_GETLIST(1) ;
-                   k  = RING_API_GETNUMBER(4);
+            k  = RING_API_GETNUMBER(4);
            
             nRow   = ring_list_getsize(pList);           //  Row-A
             pRow   = ring_list_getlist(pList,nRow);
@@ -1792,7 +1788,6 @@ RING_FUNC(ring_updatelist)
             /* 2D DotProduct Matrix-A * Matrix-B ==> Matrix-C        Row 5 Col 5 */
             // 3 Rows by 3 Col
 
-        // pList  = RING_API_GETLIST(1) ;
            pListB = RING_API_GETLIST(4) ;
 
            nRow   = ring_list_getsize(pList);           // Row-A vert for vA 
@@ -1880,8 +1875,7 @@ RING_FUNC(ring_updatelist)
         case 1706 :
             /* Fill Matrix-A  with k nValue */
            
-            // pList  = RING_API_GETLIST(1) ;
-                   k  = RING_API_GETNUMBER(4);           // Fill with nValue
+            k  = RING_API_GETNUMBER(4);           // Fill with nValue
            
             nRow   = ring_list_getsize(pList);           //  Row-A
             pRow   = ring_list_getlist(pList,nRow);
@@ -1907,8 +1901,7 @@ RING_FUNC(ring_updatelist)
         case 1806 :
             /* Maximum in  Matrix-A  nValue = Axis  0=ALL  1=Diagonal */    
 
-            // pList  = RING_API_GETLIST(1) ;
-               Axis   = RING_API_GETNUMBER(4);           // Axis  0=ALL  1=Diagonal         
+            Axis   = RING_API_GETNUMBER(4);           // Axis  0=ALL  1=Diagonal         
 
             nRow   = ring_list_getsize(pList);           //  Row-A
             pRow   = ring_list_getlist(pList,nRow);
@@ -1956,8 +1949,6 @@ RING_FUNC(ring_updatelist)
         case 1906 :
             /* Identity Matrix-A  */    
 
-            // pList  = RING_API_GETLIST(1) ;
-
             nRow   = ring_list_getsize(pList);           //  Row-A
             pRow   = ring_list_getlist(pList,nRow);
             nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
@@ -1991,8 +1982,6 @@ RING_FUNC(ring_updatelist)
        case 2006 :
          /* Random Matrix-A  */    
 
-         // pList  = RING_API_GETLIST(1) ;
-
          nRow   = ring_list_getsize(pList);           //  Row-A
          pRow   = ring_list_getlist(pList,nRow);
          nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
@@ -2019,8 +2008,6 @@ RING_FUNC(ring_updatelist)
        case 2106 :
          /* Mean Matrix-A  */    
 
-         // pList  = RING_API_GETLIST(1) ;
-
          nRow   = ring_list_getsize(pList);           //  Row-A
          pRow   = ring_list_getlist(pList,nRow);
          nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
@@ -2046,8 +2033,6 @@ RING_FUNC(ring_updatelist)
  
        case 2206 :
          /* SQRT Matrix-A  */    
-
-         // pList  = RING_API_GETLIST(1) ;
 
          nRow   = ring_list_getsize(pList);           //  Row-A
          pRow   = ring_list_getlist(pList,nRow);
@@ -2085,8 +2070,6 @@ RING_FUNC(ring_updatelist)
        case 2306 :
          /* SQUARE Matrix-A  */    
 
-         // pList  = RING_API_GETLIST(1) ;
-
          nRow   = ring_list_getsize(pList);           //  Row-A
          pRow   = ring_list_getlist(pList,nRow);
          nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
@@ -2123,8 +2106,6 @@ RING_FUNC(ring_updatelist)
         case 2406 :
          /* SIGMOID Matrix-A  */    
 
-         // pList  = RING_API_GETLIST(1) ;
-
          nRow   = ring_list_getsize(pList);           //  Row-A
          pRow   = ring_list_getlist(pList,nRow);
          nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
@@ -2159,8 +2140,6 @@ RING_FUNC(ring_updatelist)
 
         case 2506 :
          /* SIGMOID-PRIME Matrix-A  */    
-
-         // pList  = RING_API_GETLIST(1) ;
 
          nRow   = ring_list_getsize(pList);           //  Row-A
          pRow   = ring_list_getlist(pList,nRow);
@@ -2199,8 +2178,6 @@ RING_FUNC(ring_updatelist)
         case 2606 :
          /* TANH Matrix-A  */    
 
-         // pList  = RING_API_GETLIST(1) ;
-
          nRow   = ring_list_getsize(pList);           //  Row-A
          pRow   = ring_list_getlist(pList,nRow);
          nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
@@ -2238,8 +2215,6 @@ RING_FUNC(ring_updatelist)
 
         case 2706 :
          /* LeakyReLU Matrix-A  */    
-
-         // pList  = RING_API_GETLIST(1) ;
 
          nRow   = ring_list_getsize(pList);           //  Row-A
          pRow   = ring_list_getlist(pList,nRow);
@@ -2284,8 +2259,6 @@ RING_FUNC(ring_updatelist)
         case 2806 :
          /* LeakyReLUPrime Matrix-A  */    
 
-         // pList  = RING_API_GETLIST(1) ;
-
          nRow   = ring_list_getsize(pList);           //  Row-A
          pRow   = ring_list_getlist(pList,nRow);
          nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
@@ -2328,8 +2301,6 @@ RING_FUNC(ring_updatelist)
 
         case 2906 :
          /* ReLu Matrix-A  */    
-
-         // pList  = RING_API_GETLIST(1) ;
 
          nRow   = ring_list_getsize(pList);           //  Row-A
          pRow   = ring_list_getlist(pList,nRow);
@@ -2374,8 +2345,6 @@ RING_FUNC(ring_updatelist)
         case 3006 :
          /* ReLuPrime Matrix-A  */    
 
-         // pList  = RING_API_GETLIST(1) ;
-
          nRow   = ring_list_getsize(pList);           //  Row-A
          pRow   = ring_list_getlist(pList,nRow);
          nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
@@ -2419,8 +2388,6 @@ RING_FUNC(ring_updatelist)
         case 3106 :
          /* EXP Matrix-A  */    
 
-         // pList  = RING_API_GETLIST(1) ;
-
          nRow   = ring_list_getsize(pList);           //  Row-A
          pRow   = ring_list_getlist(pList,nRow);
          nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
@@ -2458,7 +2425,6 @@ RING_FUNC(ring_updatelist)
         case 3206 :
          /* SUM Matrix-A Axis 1=Rows, 0=Cols */    
 
-         // pList  = RING_API_GETLIST(1) ;
          Axis   = RING_API_GETNUMBER(4);              // Axis 1=Rows 0=Cols
 
          nRow   = ring_list_getsize(pList);           //  Row-A
@@ -2531,8 +2497,6 @@ RING_FUNC(ring_updatelist)
          /* SoftMax Matrix-A   Can NOT self call updateList()*/ 
          // NOT IMPLEMENTED -- Use FastProSoftMax() Function 
          
-      // pList  = RING_API_GETLIST(1) ;
-
          nRow   = ring_list_getsize(pList);           //  Row-A  5x5
          pRow   = ring_list_getlist(pList,nRow);
          nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
@@ -2557,8 +2521,7 @@ RING_FUNC(ring_updatelist)
         case 3406 :
             /* ScalarDiv Matrix-A / K  ==> MatriX-C */
            
-            // pList  = RING_API_GETLIST(1) ;
-                   k  = RING_API_GETNUMBER(4);           // DivideBy nValue
+            k  = RING_API_GETNUMBER(4);           // DivideBy nValue
            
             nRow   = ring_list_getsize(pList);           //  Row-A
             pRow   = ring_list_getlist(pList,nRow);
@@ -2596,7 +2559,6 @@ RING_FUNC(ring_updatelist)
         case 3506 :
          /* HorStack Matrix-A Matric-C => Matrix-C */ 
          
-      // pList  = RING_API_GETLIST(1) ;
          pListB = RING_API_GETLIST(4) ;
 
          nRow   = ring_list_getsize(pList);           //  Row-A  5x5
@@ -2658,7 +2620,6 @@ RING_FUNC(ring_updatelist)
         case 3606 :
          /* VerStack Matrix-A Matric-C => Matrix-C */ 
          
-      // pList  = RING_API_GETLIST(1) ;
          pListB = RING_API_GETLIST(4) ;
 
          nRow   = ring_list_getsize(pList);           //  Row-A  5x5
@@ -2720,8 +2681,6 @@ RING_FUNC(ring_updatelist)
         case 3706 :
          /* RAVEL Matrix-A - Flaten the 2D Matrix */    
 
-         // pList  = RING_API_GETLIST(1) ;
-
          nRow   = ring_list_getsize(pList);           //  Row-A
          pRow   = ring_list_getlist(pList,nRow);
          nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
@@ -2759,8 +2718,6 @@ RING_FUNC(ring_updatelist)
         case 3806 :
          /* ZeroLike Matrix-A Fill with 0 */    
 
-         // pList  = RING_API_GETLIST(1) ;
-
          nRow   = ring_list_getsize(pList);           //  Row-A
          pRow   = ring_list_getlist(pList,nRow);
          nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
@@ -2793,8 +2750,6 @@ RING_FUNC(ring_updatelist)
 
         case 3906 :
          /* AtLeast2D Flat Matrix-A to 2D -- 1 x TotalLen */    
-
-         // pList  = RING_API_GETLIST(1) ;
 
          nRow   = ring_list_getsize(pList);           //  Row-A
          pRow   = ring_list_getlist(pList,nRow);
@@ -2829,8 +2784,6 @@ RING_FUNC(ring_updatelist)
         case 4006 :
          /* ArgMax Flat Matrix-A Find Max-Value - return Position Index*/    
 
-         // pList  = RING_API_GETLIST(1) ;
-
          nRow   = ring_list_getsize(pList);           //  Row-A
          pRow   = ring_list_getlist(pList,nRow);
          nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
@@ -2859,8 +2812,6 @@ RING_FUNC(ring_updatelist)
         case 4106 :
          /* DeRepeat Flat Matrix-A Remove Duplicate value*/  
          // Incredibly SLOW Alogrithm !n     
-
-         // pList  = RING_API_GETLIST(1) ;
 
          nRow   = ring_list_getsize(pList);           //  Row-A
          pRow   = ring_list_getlist(pList,nRow);
@@ -2930,7 +2881,6 @@ RING_FUNC(ring_updatelist)
          /* Append  Matrix-A + MatricB  Axis: 0=Vert  1=Horz */    
          // aListC = updatelist(aListA,:append,:matrix,aListB, 1)
 
-         // pList  = RING_API_GETLIST(1) ;
          pListB = RING_API_GETLIST(4) ;
          Axis   = RING_API_GETNUMBER(5);             // Axis  0=Vert  1=Horz
 
@@ -3034,8 +2984,6 @@ RING_FUNC(ring_updatelist)
         case 4306 :
          /* AllSuM Matrix-A  Sum of All values */    
 
-         // pList  = RING_API_GETLIST(1) ;
-
          nRow   = ring_list_getsize(pList);           //  Row-A
          pRow   = ring_list_getlist(pList,nRow);
          nEnd   = ring_list_getsize(pRow) ;           //  Col-A  
@@ -3088,9 +3036,7 @@ RING_FUNC(ring_updatelist)
           pRow   = ring_list_getlist(pList,nRow);
           nEnd   = ring_list_getsize(pRow) ;           //  Col-A  size800 
           
-         
-         // nRowB = len(FlatArray). No Col in Flat array  
-        
+               
          nRowB   = ring_list_getsize(pListB);          //  Row-B  size 9 Flat
          pRowB   = ring_list_getlist(pList,nRowB);
          nEndB   = ring_list_getsize(pRowB) ;          //  Col-B  size 0         
@@ -3225,8 +3171,7 @@ RING_FUNC(ring_updatelist)
 
       //===End 4406 ==============================  
 
-
-      
+     
     //===============================================
     //=== End CASES =================================
     
