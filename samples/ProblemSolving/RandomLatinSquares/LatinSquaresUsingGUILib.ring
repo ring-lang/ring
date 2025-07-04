@@ -119,7 +119,6 @@ func pInit(win)
 		resize(580,270)
 		setcolumncount(10) 
 		setrowcount(10)
-                setcellClickedEvent("pDec()")
 
 		for x = 1 to Table.rowcount()
 			for y = 1 to Table.columncount()
