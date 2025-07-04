@@ -798,5 +798,9 @@ aPackagesRegistry = [
 	[ :name = "Adhkar_Ring_App",
           :description = "Application: Adhkar (Arabic/WebAssembly)",
           :ProviderUserName = "mohannad-aldulaimi"
+        ],
+	[ :name = "toml",
+          :description = "A comprehensive TOML parser extension for the Ring programming language",
+          :ProviderUserName = "ysdragon"
         ]
 ]
