@@ -1894,7 +1894,7 @@ RING_FUNC(ring_updatelist)
                 }
             }       
         
-            RING_API_RETLISTBYREF( pList );
+            RING_API_RETLIST( pList );
             break ;
 
          //===End 1706 ==============================   
