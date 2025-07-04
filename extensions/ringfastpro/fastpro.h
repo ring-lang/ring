@@ -12,3 +12,5 @@ enum updateListInstructions {
 	INS_POW,
 	INS_REM
 };
+
+void ring_mandelbrot(void *pPointer) ;

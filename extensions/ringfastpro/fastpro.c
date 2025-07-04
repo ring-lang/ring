@@ -194,6 +194,7 @@ RING_FUNC(ring_list2bytes)
     RING_API_FREE(cData);
 }
 
+
 //===========================================================
 // FOR UPDATELIST()
 //
@@ -3014,6 +3015,26 @@ RING_FUNC(ring_updatelist)
 
         case 4406 :
 
+            ring_mandelbrot(pPointer);
+
+         //----------
+         break ;
+        
+
+      //===End 4406 ==============================  
+
+     
+    //===============================================
+    //=== End CASES =================================
+    
+    }
+}
+
+
+void ring_mandelbrot(void *pPointer) {
+
+         List *pList, *pListB, *pRow, *pRowB, *pSubList;
+
          /* MandelBrot Matrix-A (800x800)  MatrixB = Parameters aFlat */ 
 
          // aListC = updatelist(aListA,:mandelBrot,:matrix,aFlatB ) 
@@ -3021,7 +3042,7 @@ RING_FUNC(ring_updatelist)
          //----------------------------------------
          double stepR, stepI, pointI, pointR, zI, zR, aZ, bZ, minI, maxI, minR, maxR ;
          
-         int    width, height, iter, nZ;  
+         int    width, height, iter, nZ, nRow, nEnd, nRowB, nEndB, x, i, y;  
              
          //-----------------------------------------
 
@@ -3160,17 +3181,8 @@ RING_FUNC(ring_updatelist)
        // Free memory
        RING_API_FREE(FList); 
 
-       //----------
-       break ;
-        
 
-      //===End 4406 ==============================  
 
-     
-    //===============================================
-    //=== End CASES =================================
-    
-    }
 }
 
 //=================================================
