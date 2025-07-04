@@ -3013,19 +3013,15 @@ RING_FUNC(ring_updatelist)
 
 
         case 4406 :
+
          /* MandelBrot Matrix-A (800x800)  MatrixB = Parameters aFlat */ 
+
          // aListC = updatelist(aListA,:mandelBrot,:matrix,aFlatB ) 
      
          //----------------------------------------
-         double minI, maxI, minR, maxR ;
-         double stepR, stepI ;
-         double pointI, pointR ;
-         double zI,zR;
-         double aZ, bZ ;
+         double stepR, stepI, pointI, pointR, zI, zR, aZ, bZ, minI, maxI, minR, maxR ;
          
-         int    width, height;
-         int    iter ;
-         int    nZ;   // x, y    
+         int    width, height, iter, nZ;  
              
          //-----------------------------------------
 
