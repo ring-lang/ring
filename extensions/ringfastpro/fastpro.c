@@ -3109,7 +3109,7 @@ RING_FUNC(ring_updatelist)
        int nLastPenID = 0;
 
        //--- DrawBytes() Color Table uses CHAR value---
-       char aCHR[16][4] = 
+       char aCHR[12][4] = 
                   {
                     { 255, 255, 255, 255},   //  0  1 White 
                     { 204,   0, 255, 255},   //  1  2 Red-Blue   
