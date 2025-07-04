@@ -130,6 +130,28 @@ The next samples and applications are added:
 * samples/Drawing/OrbitPlanetRetrograde/Orbit-Planet-Retrograde.ring
 * samples/ProblemSolving/RandomLatinSquares/LatinSquaresUsingGUILib.ring
 * samples/UsingQt/ObjectPointer/test.ring
+
+.. index:: 
+	pair: What is new in Ring  1.23; Better StdLib
+
+Better StdLib
+=============
+
+The next functions are added to StdLib:
+
+* StringToBase64(cString) ---> cBase64
+* Base64ToString(cBase64) ---> cString
+
+.. index:: 
+	pair: What is new in Ring  1.23; Better RingLibCurl
+
+Better RingLibCurl
+==================
+
+The extension is updated with more helper functions.
+
+The next samples are added to introduce these features:
+
 * samples/UsingLibCurl/t5.ring
 * samples/UsingLibCurl/t6.ring
 * samples/UsingLibCurl/t7.ring
@@ -137,6 +159,17 @@ The next samples and applications are added:
 * samples/UsingLibCurl/t9.ring
 * samples/UsingLibCurl/t10.ring
 * samples/UsingLibCurl/t11.ring
+
+.. index:: 
+	pair: What is new in Ring  1.23; Better RingFastPro
+
+Better RingFastPro
+==================
+
+The updateList() function is improved to support many new operations and features.
+
+The next samples are added to introduce these features:
+
 * samples/UsingFastPro/MergeMultiply.ring
 * samples/UsingFastPro/RegAddSubMulDivColRowDest.ring
 * samples/UsingFastPro/MergeAddSubMulDivColRowDest.ring
@@ -177,33 +210,6 @@ The next samples and applications are added:
 * samples/UsingFastPro/MatrixAllSum.ring
 * samples/UsingFastPro/Mandelbrot.ring
 * samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro.ring
-
-.. index:: 
-	pair: What is new in Ring  1.23; Better StdLib
-
-Better StdLib
-=============
-
-The next functions are added to StdLib:
-
-* StringToBase64(cString) ---> cBase64
-* Base64ToString(cBase64) ---> cString
-
-.. index:: 
-	pair: What is new in Ring  1.23; Better RingLibCurl
-
-Better RingLibCurl
-==================
-
-* The extension is updated with more helper functions.
-
-.. index:: 
-	pair: What is new in Ring  1.23; Better RingFastPro
-
-Better RingFastPro
-==================
-
-* The updateList() function is improved to support many new operations and features
 
 .. index:: 
 	pair: What is new in Ring  1.23; More Improvements
