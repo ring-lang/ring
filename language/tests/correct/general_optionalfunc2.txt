@@ -1,0 +1,5 @@
+test
+
+Error (R43) : The variable contains a protected value
+test
+
