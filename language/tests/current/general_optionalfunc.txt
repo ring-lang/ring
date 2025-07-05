@@ -1,0 +1,12 @@
+Declare optional functions
+Call optional functions
+Print list of optional functions
+one
+two
+three
+
+Define optional functions
+Call optional functions
+Message from one() function
+Message from two() function
+Message from three() function
