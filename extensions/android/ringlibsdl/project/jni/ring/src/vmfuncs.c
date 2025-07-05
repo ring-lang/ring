@@ -129,7 +129,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 		if ( nPos != RING_ZERO ) {
 			pCFunc = &vCFunc ;
 			pCFunc->cName = ring_list_getstring(pOptionalFunctions,nPos) ;
-			pCFunc->pFunc = ring_vm_generallib_nothing ;
+			pCFunc->pFunc = ring_vm_optionalfunc ;
 			pCFunc->pNext = NULL ;
 		}
 	}
@@ -950,4 +950,11 @@ void ring_vm_newscopeid ( VM *pVM )
 	if ( pVM->nActiveScopeID == 0 ) {
 		ring_vm_afterscopeidoverflow(pVM);
 	}
+}
+
+void ring_vm_optionalfunc ( void *pPointer )
+{
+	VM *pVM  ;
+	pVM = (VM *) pPointer ;
+	RING_VM_STACK_PUSHNVALUE(RING_ZERO);
 }

@@ -837,6 +837,8 @@
 	int ring_vm_funccall_paracount ( VM *pVM ) ;
 
 	void ring_vm_newscopeid ( VM *pVM ) ;
+
+	void ring_vm_optionalfunc ( void *pPointer ) ;
 	/* String As Array */
 
 	void ring_vm_string_pushv ( VM *pVM ) ;
