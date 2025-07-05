@@ -225,6 +225,7 @@ More Improvements
 * Form Designer - Display forms at the centre of the screen
 * Find() function - Support searching in lists/Attributes using list/object reference
 * Find() function - Support searching in lists/Attributes using lists that wrap C Pointers
+* OptionalFunc() function - Add the function name to the RingOptionalFunctions variable
 * AddMethod()/MergeMethods() functions - Better implementation 
 * RingQt - OpenGLWidget/QAllEvents classes - Use: RINGQT_EVENT_SIZE
 * RingQt - CodeEditor control - Same font size for code/line number
