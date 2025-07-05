@@ -212,6 +212,7 @@
 	#define RING_CSTR_TABVAR "tab"
 	#define RING_CSTR_CRVAR "cr"
 	#define RING_CSTR_THISVAR RING_CSTR_THIS
+	#define RING_CSTR_RINGOPTIONALFUNCTIONS "ringoptionalfunctions"
 	/* Exit */
 	#define RING_EXIT_OK 0
 	#define RING_EXIT_FAIL 1

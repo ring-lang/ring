@@ -10,6 +10,8 @@ Type: VM *
 pVM
 Type: const char *
 cFunc
+Type: List *
+pList
 ring_vm_generallib_isstring
 ring_vm_generallib_isnumber
 ring_vm_generallib_islist
