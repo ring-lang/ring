@@ -167,6 +167,7 @@ void ring_vm_generallib_optionalfunc ( void *pPointer )
 	if ( RING_API_ISSTRING(1) ) {
 		cFunc = RING_API_GETSTRING(1) ;
 		/*
+		**  We don't use RING_API_REGISTER 
 		**  Since cFunc is a temp. string, we need a global string that will stay during runtime 
 		**  We don't use strdup, because VM C Functions are expected to be read only static literals (No Free() is required) 
 		**  The VM will not free these literals, and adding a flag to force this requires memory (Not good for Microcontrollers) 
@@ -174,15 +175,10 @@ void ring_vm_generallib_optionalfunc ( void *pPointer )
 		*/
 		pList = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_OPTIONALFUNCTIONS);
 		pList = ring_list_getlist(pList,RING_VAR_VALUE);
-		if ( ring_list_findstring(pList,cFunc,RING_ZERO) == RING_FALSE ) {
+		/* If the optional function is already defined, we pass the error */
+		if ( ring_list_findstring(pList,cFunc,RING_ZERO) == RING_ZERO ) {
 			ring_list_addstring_gc(pRingState,pList,cFunc);
-			cFunc = ring_list_getstring(pList,ring_list_getsize(pList));
 		}
-		else {
-			/* If the optional function is already defined, we pass the error */
-			return ;
-		}
-		RING_API_REGISTER(cFunc,ring_vm_generallib_nothing);
 	}
 	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);

@@ -1,13 +1,15 @@
 ring_vm_loadfunc
 ring_vm_loadfunc2
 Type: List *
-pList,*pList2
+pList, *pList2, *pOptionalFunctions
 Type: int
-y
+y, nPos
 Type: FuncCall *
 pFuncCall
 Type: CFunction *
 pCFunc
+Type: CFunction
+vCFunc
 ring_vm_call
 ring_vm_call2
 Type: List *

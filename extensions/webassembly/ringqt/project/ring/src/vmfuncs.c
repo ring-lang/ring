@@ -13,10 +13,11 @@ int ring_vm_loadfunc ( VM *pVM )
 
 int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 {
-	List *pList,*pList2  ;
-	int y  ;
+	List *pList, *pList2, *pOptionalFunctions  ;
+	int y, nPos  ;
 	FuncCall *pFuncCall  ;
 	CFunction *pCFunc  ;
+	CFunction vCFunc  ;
 	/* Search */
 	for ( y = 2 ; y >= 1 ; y-- ) {
 		/* For OOP Support - Search in the Class Methods */
@@ -119,6 +120,18 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 			break ;
 		}
 		pCFunc = pCFunc->pNext ;
+	}
+	/* Check Optional Functions */
+	if ( pCFunc == NULL ) {
+		pOptionalFunctions = ring_list_getlist(pVM->pDefinedGlobals,RING_GLOBALVARPOS_OPTIONALFUNCTIONS);
+		pOptionalFunctions = ring_list_getlist(pOptionalFunctions,RING_VAR_VALUE);
+		nPos = ring_list_findstring(pOptionalFunctions,cStr,RING_ZERO) ;
+		if ( nPos != RING_ZERO ) {
+			pCFunc = &vCFunc ;
+			pCFunc->cName = ring_list_getstring(pOptionalFunctions,nPos) ;
+			pCFunc->pFunc = ring_vm_generallib_nothing ;
+			pCFunc->pNext = NULL ;
+		}
 	}
 	if ( pCFunc != NULL ) {
 		/* Add FuncCall Structure */
