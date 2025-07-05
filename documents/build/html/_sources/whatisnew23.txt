@@ -244,4 +244,5 @@ More Improvements
 * Ring VM - Check for a scope ID overflow and reset any associated instructions
 * Ring VM - Uninitialized variable - Correct error message when name contains underscores
 * Ring VM - ring_vm_retitemref() - Better implementation (used by Return &)
+* Ring VM - ring_hashtable_rebuild_gc() - Faster implementation
 * Ring Compiler/VM - Use GC functions for internal HashTable operations
