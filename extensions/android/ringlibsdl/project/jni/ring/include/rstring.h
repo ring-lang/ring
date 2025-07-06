@@ -8,10 +8,14 @@
 	#else
 		#define RING_STRING_ARRAYSIZE 32
 	#endif
+	/*
+	**  nSize is (Allocation Size - 1) i.e. String length execulding the NULL terminator 
+	**  nCapacity is the allocated buffer size 
+	*/
 	typedef struct String {
 		char *cStr  ;
 		unsigned int nSize  ;
-		/* Note : nSize is (Allocation Size - 1) */
+		unsigned int nCapacity  ;
 		char cStrArray[RING_STRING_ARRAYSIZE]  ;
 	} String ;
 	#define ring_string_tolower(pString) ring_string_lower(pString->cStr)
@@ -57,12 +61,6 @@
 
 	RING_API int ring_string_looksempty ( const char *cStr,int nSize ) ;
 
-	RING_API char * ring_string_alloc_gc ( void *pState,String *pString,int nSize ) ;
-
-	RING_API void * ring_string_free_gc ( void *pState,String *pString,char *cStr ) ;
-
-	RING_API char * ring_string_realloc_gc ( void *pState,String *pString,int nOldSize,int nNewSize ) ;
-
 	RING_API String * ring_string_new2 ( const char *cStr,int nStrSize ) ;
 
 	RING_API String * ring_string_new ( const char *cStr ) ;
@@ -86,6 +84,4 @@
 	RING_API void ring_string_setfromint ( String *pString,int x ) ;
 
 	RING_API void ring_string_word ( const char *cStr,int nIndex,char *cOutput ) ;
-
-	RING_API void ring_string_swaptwostrings ( String *pString1,String *pString2 ) ;
 #endif

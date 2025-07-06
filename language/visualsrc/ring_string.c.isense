@@ -6,6 +6,8 @@ Parent: String
 cStr
 Type: unsigned int
 nSize
+Type: unsigned int
+nCapacity
 Type: char
 cStrArray[RING_STRING_ARRAYSIZE]
 END:
@@ -27,22 +29,24 @@ x
 ring_string_new2_gc
 Type: String *
 pString
-Type: int
-x
+Type: unsigned int
+x, nSize
 ring_string_delete_gc
 ring_string_size
 ring_string_set_gc
 Type: int
 x
 ring_string_set2_gc
-Type: int
-x
+Type: unsigned int
+x, nRequiredSize, nNewCapacity
 ring_string_add_gc
 Type: int
 x
 ring_string_add2_gc
-Type: int
-x,x2,nOriginalSize
+Type: unsigned int
+x, nAddSize, nOriginalSize, nRequiredSize, nNewCapacity
+Type: char *
+pNewStr
 ring_string_print
 ring_string_setfromint_gc
 cStr[RING_SMALLBUF]
@@ -79,13 +83,6 @@ x,nSize
 ring_string_looksempty
 Type: int
 x
-ring_string_alloc_gc
-ring_string_free_gc
-ring_string_realloc_gc
-Type: char *
-cStr, *cNewStr
-Type: int
-x
 ring_string_new2
 ring_string_new
 ring_string_add
@@ -102,6 +99,3 @@ Type: char *
 cString
 Type: int
 x,nStart,nEnd,nSize,nWord,nOutIndex
-ring_string_swaptwostrings
-Type: String
-TempString

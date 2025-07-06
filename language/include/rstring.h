@@ -8,10 +8,14 @@
 	#else
 		#define RING_STRING_ARRAYSIZE 32
 	#endif
+	/*
+	**  nSize is (Allocation Size - 1) i.e. String length execulding the NULL terminator 
+	**  nCapacity is the allocated buffer size 
+	*/
 	typedef struct String {
 		char *cStr  ;
-		unsigned int nSize  ; /* Current length of the string, excluding the null terminator. */
-		unsigned int nCapacity  ; /* Allocated buffer size. For SSO, this is RING_STRING_ARRAYSIZE. */
+		unsigned int nSize  ;
+		unsigned int nCapacity  ;
 		char cStrArray[RING_STRING_ARRAYSIZE]  ;
 	} String ;
 	#define ring_string_tolower(pString) ring_string_lower(pString->cStr)
