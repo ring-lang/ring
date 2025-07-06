@@ -245,4 +245,5 @@ More Improvements
 * Ring VM - Uninitialized variable - Correct error message when name contains underscores
 * Ring VM - ring_vm_retitemref() - Better implementation (used by Return &)
 * Ring VM - ring_hashtable_rebuild_gc() - Faster implementation
+* Ring VM - ring_state_realloc() - Using RING_MEMCPY
 * Ring Compiler/VM - Use GC functions for internal HashTable operations
