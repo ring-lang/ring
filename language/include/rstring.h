@@ -57,6 +57,8 @@
 
 	RING_API char * ring_string_find3_gc ( void *pState,char *cStr1,int nStrSize1,char *cStr2,int nStrSize2 ) ;
 
+	RING_API char * ring_string_findsubstr_gc ( void *pState,char *cStr1,int nStrSize1,char *cStr2,int nStrSize2,int lNotCaseSensitive ) ;
+
 	RING_API char * ring_string_strdup ( void *pState,const char *cStr ) ;
 
 	RING_API int ring_string_looksempty ( const char *cStr,int nSize ) ;

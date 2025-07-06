@@ -64,17 +64,10 @@ Type: int
 x
 ring_string_find_gc
 ring_string_find2_gc
-Type: int
-nPos,x
 ring_string_find3_gc
+ring_string_findsubstr_gc
 Type: int
-nPos,x
-Type: char *
-cStr3
-Type: char *
-cStr4
-Type: char *
-pOutput
+x, nPos
 ring_string_strdup
 Type: char *
 cString

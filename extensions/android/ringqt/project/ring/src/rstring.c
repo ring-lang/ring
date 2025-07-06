@@ -201,73 +201,40 @@ RING_API char * ring_string_find_gc ( void *pState,char *cStr1,char *cStr2 )
 
 RING_API char * ring_string_find2_gc ( void *pState,char *cStr1,int nStrSize1,char *cStr2,int nStrSize2 )
 {
-	int nPos,x  ;
-	nPos = 0 ;
-	if ( (nStrSize1 - nStrSize2) < 0 ) {
-		return NULL ;
-	}
-	while ( nPos <= (nStrSize1 - nStrSize2) ) {
-		if ( nStrSize2 < RING_LOOP_THRESHOLD ) {
-			x = 0 ;
-			while ( (x < nStrSize2) && (cStr1[nPos+x] == cStr2[x] ) ) {
-				x++ ;
-			}
-			if ( x == nStrSize2 ) {
-				return cStr1+nPos ;
-			}
-		}
-		else {
-			if ( memcmp(cStr1+nPos,cStr2,nStrSize2) == 0 ) {
-				return cStr1+nPos ;
-			}
-		}
-		nPos++ ;
-	}
-	return NULL ;
+	return ring_string_findsubstr_gc(pState,cStr1,nStrSize1,cStr2,nStrSize2,RING_FALSE) ;
 }
 
 RING_API char * ring_string_find3_gc ( void *pState,char *cStr1,int nStrSize1,char *cStr2,int nStrSize2 )
 {
-	int nPos,x  ;
-	char *cStr3  ;
-	char *cStr4  ;
-	char *pOutput  ;
-	/* This function is not case sensitive and work on a copy from cStr1 and cStr2 */
+	return ring_string_findsubstr_gc(pState,cStr1,nStrSize1,cStr2,nStrSize2,RING_TRUE) ;
+}
+
+RING_API char * ring_string_findsubstr_gc ( void *pState,char *cStr1,int nStrSize1,char *cStr2,int nStrSize2,int lNotCaseSensitive )
+{
+	int x, nPos  ;
 	nPos = 0 ;
 	if ( (nStrSize1 - nStrSize2) < 0 ) {
 		return NULL ;
 	}
-	/* Copy Strings and convert to lower case */
-	cStr3 = (char *) ring_state_malloc(pState,nStrSize1+1);
-	cStr4 = (char *) ring_state_malloc(pState,nStrSize2+1);
-	RING_MEMCPY(cStr3,cStr1,nStrSize1);
-	RING_MEMCPY(cStr4,cStr2,nStrSize2);
-	ring_string_lower2(cStr3,nStrSize1);
-	ring_string_lower2(cStr4,nStrSize2);
-	pOutput = NULL ;
 	while ( nPos <= (nStrSize1 - nStrSize2) ) {
-		if ( nStrSize2 < RING_LOOP_THRESHOLD ) {
-			x = 0 ;
-			while ( (x < nStrSize2) && (cStr3[nPos+x] == cStr4[x] ) ) {
+		x = 0 ;
+		/* Compare Characters */
+		if ( lNotCaseSensitive ) {
+			while ( (x < nStrSize2) && ( tolower((unsigned char) cStr1[nPos+x]) == tolower((unsigned char)cStr2[x]) ) ) {
 				x++ ;
-			}
-			if ( x == nStrSize2 ) {
-				pOutput = cStr1+nPos ;
-				break ;
 			}
 		}
 		else {
-			if ( memcmp(cStr3+nPos,cStr4,nStrSize2) == 0 ) {
-				pOutput = cStr1+nPos ;
-				break ;
+			while ( (x < nStrSize2) && ( cStr1[nPos+x] == cStr2[x] ) ) {
+				x++ ;
 			}
+		}
+		if ( x == nStrSize2 ) {
+			return cStr1+nPos ;
 		}
 		nPos++ ;
 	}
-	/* Free Memory */
-	ring_state_free(pState,cStr3);
-	ring_state_free(pState,cStr4);
-	return pOutput ;
+	return NULL ;
 }
 
 RING_API char * ring_string_strdup ( void *pState,const char *cStr )
