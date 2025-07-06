@@ -900,7 +900,8 @@ RING_API void * ring_state_realloc ( void *pState,void *pPointer,size_t nAllocat
 		PoolData *pPoolData  ;
 		PoolDataL2 *pPoolDataL2  ;
 		PoolDataL3 *pPoolDataL3  ;
-		int x, nLevel, nUseMalloc  ;
+		int nLevel, nUseMalloc  ;
+		size_t x  ;
 		nUseMalloc = 0 ;
 		if ( pState != NULL ) {
 			if ( ((RingState *) pState)->pVM != NULL ) {
@@ -943,9 +944,7 @@ RING_API void * ring_state_realloc ( void *pState,void *pPointer,size_t nAllocat
 					/* Allocate new buffer, copy data to it and then free existing pointer from pool */
 					pMemory = ring_state_malloc(pState,nSize);
 					/* Copy existing data */
-					for ( x = 0 ; x < nAllocatedSize ; x++ ) {
-						((unsigned char *) pMemory)[x] = ((unsigned char *) pPointer)[x] ;
-					}
+					RING_MEMCPY(((unsigned char *) pMemory),((unsigned char *) pPointer),nAllocatedSize) ;
 					ring_poolmanager_free(((RingState *) pState),pPointer);
 					return pMemory ;
 				}
