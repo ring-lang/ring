@@ -944,7 +944,7 @@ RING_API void * ring_state_realloc ( void *pState,void *pPointer,size_t nAllocat
 					/* Allocate new buffer, copy data to it and then free existing pointer from pool */
 					pMemory = ring_state_malloc(pState,nSize);
 					/* Copy existing data */
-					RING_MEMCPY(((unsigned char *) pMemory),((unsigned char *) pPointer),nAllocatedSize) ;
+					RING_MEMCPY((unsigned char *) pMemory, (unsigned char *) pPointer, nAllocatedSize);
 					ring_poolmanager_free(((RingState *) pState),pPointer);
 					return pMemory ;
 				}
