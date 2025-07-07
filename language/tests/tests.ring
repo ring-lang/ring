@@ -777,6 +777,7 @@ aTests = [
 	[ :name = "Using References (Part 120)", :Command = "ring references/tryandref.ring" ],
 	[ :name = "Using References (Part 121)", :Command = "ring references/cirrefinlistashash.ring" ],
 	[ :name = "Using References (Part 122)", :Command = "ring references/refmanager.ring" ],
+	[ :name = "Using References (Part 123)", :Command = "ring references/observer2.ring" ],
 	[ :name = "Memory Usage (Part 1)", :Command = "ring memory/ismempool.ring" ],
 	[ :name = "Memory Usage (Part 2)", :Command = "ring memory/leak1.ring" ],
 	[ :name = "Memory Usage (Part 3)", :Command = "ring memory/leak2.ring" ],

@@ -1,0 +1,5 @@
+ObserverA received value: 42
+ObserverB received value: 42
+ObserverA received value: 99
+ObserverB received value: 99
+ObserverB received value: 101
