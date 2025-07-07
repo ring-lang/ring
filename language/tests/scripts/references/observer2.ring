@@ -16,21 +16,21 @@ func main
 
 class Subject
 
-    oObservers = []
+    aObservers = []
     value      = 0
 
     func addObserver(observer)
-        add(oObservers, ref(observer))
+        add(aObservers, ref(observer))
 
     func removeObserver(observer)
-        nPos = find(oObservers,observer)
+        nPos = find(aObservers,observer)
         if nPos 
-            del(oObservers,nPos)
+            del(aObservers,nPos)
         ok
 
     func notify()
-        for i = 1 to len(oObservers)
-            oObservers[i].update(value)
+        for oObj in aObservers
+            oObj.update(value)
         next
 
     func setValue(newValue)
