@@ -422,9 +422,35 @@ ringpm run Adhkar_Ring_App
 <span id="index-12"></span><h2>Better Find() function<a class="headerlink" href="#better-find-function" title="Permalink to this heading"></a></h2>
 <p>The find() function is revised and improved:</p>
 <ul class="simple">
+<li><p>Support searching in lists/Attributes using C Pointers</p></li>
 <li><p>Support searching in lists/Attributes using list/object reference</p></li>
-<li><p>Support searching in lists/Attributes using lists that wrap C Pointers</p></li>
 </ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">fp1</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">(),</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">fp2</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">(),</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">fp3</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">(),</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="n">fp3</span><span class="p">,</span> <span class="n">fp2</span><span class="p">,</span> <span class="n">fp1</span><span class="o">]</span>
+
+<span class="o">?</span> <span class="n">find</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">fp1</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">find</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">fp2</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">find</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">fp3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>3
+2
+1
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The fopen() function returns a Ring list that wraps a C Pointer.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is not necessary to call the fclose() function, as Ring automatically manages this.</p>
+</div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
 

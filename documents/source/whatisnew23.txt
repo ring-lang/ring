@@ -274,8 +274,36 @@ Better Find() function
 
 The find() function is revised and improved:
 
+* Support searching in lists/Attributes using C Pointers
 * Support searching in lists/Attributes using list/object reference
-* Support searching in lists/Attributes using lists that wrap C Pointers
+
+Example:
+
+.. code-block:: ring
+
+	fp1 = fopen(filename(),"r")
+	fp2 = fopen(filename(),"r")
+	fp3 = fopen(filename(),"r")
+
+	aList = [fp3, fp2, fp1]
+
+	? find(aList,fp1)
+	? find(aList,fp2)
+	? find(aList,fp3)
+
+Output:
+
+.. code-block:: none
+
+	3
+	2
+	1
+
+
+.. note:: The fopen() function returns a Ring list that wraps a C Pointer.
+
+.. tip:: It is not necessary to call the fclose() function, as Ring automatically manages this.
+
 
 Example:
 
@@ -348,6 +376,7 @@ Output:
 	ObserverA received value: 99
 	ObserverB received value: 99
 	ObserverB received value: 101
+
 
 .. index:: 
 	pair: What is new in Ring  1.23; More Improvements
