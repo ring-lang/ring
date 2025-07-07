@@ -20,8 +20,7 @@ void *uv_new_mutex(void);
 RING_API void ringlib_init(RingState *pRingState)
 {
 	pVMLibUV = pRingState->pVM;
-	ring_vm_mutexfunctions(pVMLibUV, uv_new_mutex,
-						   (void (*)(void *))uv_mutex_lock, (void (*)(void *))uv_mutex_unlock, (void (*)(void *))uv_mutex_destroy);
+	ring_vm_mutexfunctions(pVMLibUV, uv_new_mutex,(void (*)(void *))uv_mutex_lock, (void (*)(void *))uv_mutex_unlock, (void (*)(void *))uv_mutex_destroy);
 	ring_libuv_start(pRingState);
 }
 
@@ -253,11 +252,8 @@ void uv_fs_callback(uv_fs_t *req)
 
 void *uv_new_mutex(void)
 {
-	if (pMutexLibUV == NULL)
-	{
-		pMutexLibUV = (uv_mutex_t *) malloc(sizeof(uv_mutex_t));
-		uv_mutex_init(pMutexLibUV);
-	}
+	pMutexLibUV = (uv_mutex_t *) malloc(sizeof(uv_mutex_t));
+	uv_mutex_init(pMutexLibUV);
 	return pMutexLibUV;
 }
 
