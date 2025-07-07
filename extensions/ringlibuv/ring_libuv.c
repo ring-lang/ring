@@ -252,9 +252,12 @@ void uv_fs_callback(uv_fs_t *req)
 
 void *uv_new_mutex(void)
 {
-	pMutexLibUV = (uv_mutex_t *) malloc(sizeof(uv_mutex_t));
-	uv_mutex_init(pMutexLibUV);
-	return pMutexLibUV;
+	uv_mutex_t *pMutex;
+	pMutex = (uv_mutex_t *) malloc(sizeof(uv_mutex_t));
+	uv_mutex_init(pMutex);
+	if (pMutexLibUV == NULL)
+		pMutexLibUV = pMutex;
+	return pMutex;
 }
 
 void uv_thread_callback(void *obj)
