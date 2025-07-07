@@ -190,6 +190,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#better-ringfastpro">Better RingFastPro</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#faster-string-operations">Faster String Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-find-function">Better Find() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-optionalfunc-function">Better OptionalFunc() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
 </li>
@@ -242,6 +243,7 @@
 <li><p>Better RingFastPro</p></li>
 <li><p>Faster String Operations</p></li>
 <li><p>Better Find() function</p></li>
+<li><p>Better OptionalFunc() function</p></li>
 <li><p>More Improvements</p></li>
 </ul>
 </section>
@@ -519,15 +521,95 @@ ObserverB received value: 101
 </pre></div>
 </div>
 </section>
+<section id="better-optionalfunc-function">
+<span id="index-13"></span><h2>Better OptionalFunc() function<a class="headerlink" href="#better-optionalfunc-function" title="Permalink to this heading"></a></h2>
+<p>The OptionalFunc() function implementation is revised.</p>
+<p>The new optional function name will be added to the RingOptionalFunctions list.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Declare optional functions&quot;</span>
+<span class="n">optionalFunc</span><span class="p">(:</span><span class="n">one</span><span class="p">)</span>
+<span class="n">optionalFunc</span><span class="p">(:</span><span class="n">two</span><span class="p">)</span>
+<span class="n">optionalFunc</span><span class="p">(:</span><span class="n">three</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s">&quot;Call optional functions&quot;</span>
+<span class="n">one</span><span class="p">()</span> <span class="n">two</span><span class="p">()</span> <span class="n">three</span><span class="p">()</span>
+
+<span class="o">?</span> <span class="s">&quot;Print list of optional functions&quot;</span>
+<span class="o">?</span> <span class="n">RingOptionalFunctions</span>
+
+<span class="o">?</span> <span class="s">&quot;Define optional functions&quot;</span>
+<span class="n">eval</span><span class="p">(`</span>
+<span class="k">func</span> <span class="n">one</span>   <span class="o">?</span> <span class="s">&quot;Message from one() function&quot;</span>
+<span class="k">func</span> <span class="n">two</span>   <span class="o">?</span> <span class="s">&quot;Message from two() function&quot;</span>
+<span class="k">func</span> <span class="n">three</span> <span class="o">?</span> <span class="s">&quot;Message from three() function&quot;</span>
+<span class="p">`)</span>
+
+<span class="o">?</span> <span class="s">&quot;Call optional functions&quot;</span>
+<span class="n">one</span><span class="p">()</span> <span class="n">two</span><span class="p">()</span> <span class="n">three</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Declare optional functions
+Call optional functions
+Print list of optional functions
+one
+two
+three
+
+Define optional functions
+Call optional functions
+Message from one() function
+Message from two() function
+Message from three() function
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Add</span><span class="p">(</span><span class="n">RingOptionalFunctions</span><span class="p">,</span> <span class="o">[</span>
+        <span class="p">:</span><span class="n">one</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">two</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">three</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">four</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">five</span>
+<span class="o">]</span><span class="p">,</span> <span class="kp">True</span><span class="p">)</span>
+
+<span class="n">one</span><span class="p">()</span> <span class="n">two</span><span class="p">()</span> <span class="n">three</span><span class="p">()</span> <span class="n">four</span><span class="p">()</span> <span class="n">five</span><span class="p">()</span>       <span class="c"># No Error</span>
+
+<span class="n">eval</span><span class="p">(`</span>
+<span class="k">func</span> <span class="n">one</span>   <span class="o">?</span> <span class="mi">1</span>
+<span class="k">func</span> <span class="n">two</span>   <span class="o">?</span> <span class="mi">2</span>
+<span class="k">func</span> <span class="n">three</span> <span class="o">?</span> <span class="mi">3</span>
+<span class="k">func</span> <span class="n">four</span>  <span class="o">?</span> <span class="mi">4</span>
+<span class="k">func</span> <span class="n">five</span>  <span class="o">?</span> <span class="mi">5</span>
+<span class="p">`)</span>
+
+<span class="o">?</span> <span class="n">RingOptionalFunctions</span>                 <span class="c"># Print Names</span>
+
+<span class="n">one</span><span class="p">()</span> <span class="n">two</span><span class="p">()</span> <span class="n">three</span><span class="p">()</span> <span class="n">four</span><span class="p">()</span> <span class="n">five</span><span class="p">()</span>       <span class="c"># Print Numbers</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>one
+two
+three
+four
+five
+
+1
+2
+3
+4
+5
+</pre></div>
+</div>
+</section>
 <section id="more-improvements">
-<span id="index-13"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-14"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Better Documentation</p></li>
 <li><p>Qt version is updated to Qt 5.15.19</p></li>
 <li><p>Form Designer - Better support for translation</p></li>
 <li><p>Form Designer - Objects Order - Using closeAction() method</p></li>
 <li><p>Form Designer - Display forms at the centre of the screen</p></li>
-<li><p>OptionalFunc() function - Add the function name to the RingOptionalFunctions variable</p></li>
 <li><p>AddMethod()/MergeMethods() functions - Better implementation</p></li>
 <li><p>RingQt - OpenGLWidget/QAllEvents classes - Use: RINGQT_EVENT_SIZE</p></li>
 <li><p>RingQt - CodeEditor control - Same font size for code/line number</p></li>

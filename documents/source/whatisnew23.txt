@@ -26,6 +26,7 @@ Ring 1.23 comes with the next features!
 * Better RingFastPro
 * Faster String Operations
 * Better Find() function
+* Better OptionalFunc() function
 * More Improvements
 
 .. index:: 
@@ -377,6 +378,99 @@ Output:
 	ObserverB received value: 99
 	ObserverB received value: 101
 
+.. index:: 
+	pair: What is new in Ring  1.23; Better OptionalFunc() function
+
+Better OptionalFunc() function
+==============================
+
+The OptionalFunc() function implementation is revised.
+
+The new optional function name will be added to the RingOptionalFunctions list.
+
+Example:
+
+.. code-block:: ring
+
+	? "Declare optional functions"
+	optionalFunc(:one)
+	optionalFunc(:two)
+	optionalFunc(:three)
+
+	? "Call optional functions"
+	one() two() three()
+
+	? "Print list of optional functions"
+	? RingOptionalFunctions
+
+	? "Define optional functions"
+	eval(`
+	func one   ? "Message from one() function"
+	func two   ? "Message from two() function"
+	func three ? "Message from three() function"
+	`)
+
+	? "Call optional functions"
+	one() two() three()
+
+Output:
+
+.. code-block:: none
+
+	Declare optional functions
+	Call optional functions
+	Print list of optional functions
+	one
+	two
+	three
+	
+	Define optional functions
+	Call optional functions
+	Message from one() function
+	Message from two() function
+	Message from three() function
+
+Example:
+
+.. code-block:: ring
+
+	Add(RingOptionalFunctions, [
+		:one,
+		:two,
+		:three,
+		:four,
+		:five
+	], True)
+
+	one() two() three() four() five()	# No Error
+
+	eval(`
+	func one   ? 1
+	func two   ? 2
+	func three ? 3
+	func four  ? 4
+	func five  ? 5
+	`)
+
+	? RingOptionalFunctions			# Print Names
+
+	one() two() three() four() five()	# Print Numbers
+
+Output:
+
+.. code-block:: none
+
+	one
+	two
+	three
+	four
+	five
+	
+	1
+	2
+	3
+	4
+	5	
 
 .. index:: 
 	pair: What is new in Ring  1.23; More Improvements
@@ -389,7 +483,6 @@ More Improvements
 * Form Designer - Better support for translation
 * Form Designer - Objects Order - Using closeAction() method
 * Form Designer - Display forms at the centre of the screen
-* OptionalFunc() function - Add the function name to the RingOptionalFunctions variable
 * AddMethod()/MergeMethods() functions - Better implementation 
 * RingQt - OpenGLWidget/QAllEvents classes - Use: RINGQT_EVENT_SIZE
 * RingQt - CodeEditor control - Same font size for code/line number
