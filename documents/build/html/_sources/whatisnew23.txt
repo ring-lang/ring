@@ -24,6 +24,7 @@ Ring 1.23 comes with the next features!
 * Better StdLib
 * Better RingLibCurl
 * Better RingFastPro
+* Faster String Operations
 * More Improvements
 
 .. index:: 
@@ -211,6 +212,36 @@ The next samples are added to introduce these features:
 * samples/UsingFastPro/MatrixAllSum.ring
 * samples/UsingFastPro/Mandelbrot.ring
 * samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro.ring
+
+.. index:: 
+	pair: What is new in Ring  1.23; Faster String Operations
+
+Faster String Operations
+========================
+
+This release brings optimized string operations for improved performance.
+
+Example:
+
+.. code-block:: ring
+
+	Decimals(3)
+	t1 = clock()
+	cStr = "Welcome"
+
+	for t=1 to 200_000
+		cStr += "Welcome"
+	next
+
+	? (clock()-t1)/clocksPerSecond()
+
+Output:
+
+.. code-block:: none
+
+	0.014		# Ring 1.23
+	0.038		# Ring 1.22
+
 
 .. index:: 
 	pair: What is new in Ring  1.23; More Improvements

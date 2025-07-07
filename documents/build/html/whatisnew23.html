@@ -188,6 +188,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#better-stdlib">Better StdLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ringlibcurl">Better RingLibCurl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ringfastpro">Better RingFastPro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#faster-string-operations">Faster String Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
 </li>
@@ -238,6 +239,7 @@
 <li><p>Better StdLib</p></li>
 <li><p>Better RingLibCurl</p></li>
 <li><p>Better RingFastPro</p></li>
+<li><p>Faster String Operations</p></li>
 <li><p>More Improvements</p></li>
 </ul>
 </section>
@@ -376,8 +378,29 @@ ringpm run Adhkar_Ring_App
 <li><p>samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro.ring</p></li>
 </ul>
 </section>
+<section id="faster-string-operations">
+<span id="index-11"></span><h2>Faster String Operations<a class="headerlink" href="#faster-string-operations" title="Permalink to this heading"></a></h2>
+<p>This release brings optimized string operations for improved performance.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Decimals</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
+<span class="n">cStr</span> <span class="o">=</span> <span class="s">&quot;Welcome&quot;</span>
+
+<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">200_000</span>
+        <span class="n">cStr</span> <span class="o">+=</span> <span class="s">&quot;Welcome&quot;</span>
+<span class="k">next</span>
+
+<span class="o">?</span> <span class="p">(</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clocksPerSecond</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>0.014           # Ring 1.23
+0.038           # Ring 1.22
+</pre></div>
+</div>
+</section>
 <section id="more-improvements">
-<span id="index-11"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Better Documentation</p></li>
 <li><p>Qt version is updated to Qt 5.15.19</p></li>
