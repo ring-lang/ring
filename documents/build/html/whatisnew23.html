@@ -189,6 +189,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#better-ringlibcurl">Better RingLibCurl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ringfastpro">Better RingFastPro</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#faster-string-operations">Faster String Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-find-function">Better Find() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
 </li>
@@ -240,6 +241,7 @@
 <li><p>Better RingLibCurl</p></li>
 <li><p>Better RingFastPro</p></li>
 <li><p>Faster String Operations</p></li>
+<li><p>Better Find() function</p></li>
 <li><p>More Improvements</p></li>
 </ul>
 </section>
@@ -416,16 +418,89 @@ ringpm run Adhkar_Ring_App
 </pre></div>
 </div>
 </section>
+<section id="better-find-function">
+<span id="index-12"></span><h2>Better Find() function<a class="headerlink" href="#better-find-function" title="Permalink to this heading"></a></h2>
+<p>The find() function is revised and improved:</p>
+<ul class="simple">
+<li><p>Support searching in lists/Attributes using list/object reference</p></li>
+<li><p>Support searching in lists/Attributes using lists that wrap C Pointers</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
+
+        <span class="n">subject</span>   <span class="o">=</span> <span class="k">new</span> <span class="n">Subject</span>
+        <span class="n">observer1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObserverA</span>
+        <span class="n">observer2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObserverB</span>
+
+        <span class="n">subject</span><span class="p">.</span><span class="n">addObserver</span><span class="p">(</span><span class="n">observer1</span><span class="p">)</span>
+        <span class="n">subject</span><span class="p">.</span><span class="n">addObserver</span><span class="p">(</span><span class="n">observer2</span><span class="p">)</span>
+
+        <span class="n">subject</span><span class="p">.</span><span class="n">setValue</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+        <span class="n">subject</span><span class="p">.</span><span class="n">setValue</span><span class="p">(</span><span class="mi">99</span><span class="p">)</span>
+
+        <span class="n">subject</span><span class="p">.</span><span class="n">removeObserver</span><span class="p">(</span><span class="n">observer1</span><span class="p">)</span>
+
+        <span class="n">subject</span><span class="p">.</span><span class="n">setValue</span><span class="p">(</span><span class="mi">101</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="n">Subject</span>
+
+        <span class="n">aObservers</span> <span class="o">=</span> <span class="o">[]</span>
+        <span class="n">value</span>      <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">func</span> <span class="n">addObserver</span><span class="p">(</span><span class="n">observer</span><span class="p">)</span>
+                <span class="n">add</span><span class="p">(</span><span class="n">aObservers</span><span class="p">,</span> <span class="n">ref</span><span class="p">(</span><span class="n">observer</span><span class="p">))</span>
+
+        <span class="k">func</span> <span class="n">removeObserver</span><span class="p">(</span><span class="n">observer</span><span class="p">)</span>
+                <span class="n">nPos</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">aObservers</span><span class="p">,</span><span class="n">observer</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">nPos</span>
+                        <span class="n">del</span><span class="p">(</span><span class="n">aObservers</span><span class="p">,</span><span class="n">nPos</span><span class="p">)</span>
+                <span class="k">ok</span>
+
+        <span class="k">func</span> <span class="n">notify</span><span class="p">()</span>
+                <span class="k">for</span> <span class="n">oObj</span> <span class="k">in</span> <span class="n">aObservers</span>
+                        <span class="n">oObj</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                <span class="k">next</span>
+
+        <span class="k">func</span> <span class="n">setValue</span><span class="p">(</span><span class="n">newValue</span><span class="p">)</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">newValue</span>
+                <span class="n">notify</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="n">Observer</span>
+
+        <span class="k">func</span> <span class="n">update</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+                <span class="o">?</span> <span class="s">&quot;Observer updated with value: &quot;</span> <span class="o">+</span> <span class="n">value</span>
+
+<span class="k">class</span> <span class="n">ObserverA</span> <span class="k">from</span> <span class="n">Observer</span>
+
+        <span class="k">func</span> <span class="n">update</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+                <span class="o">?</span> <span class="s">&quot;ObserverA received value: &quot;</span> <span class="o">+</span> <span class="n">value</span>
+
+<span class="k">class</span> <span class="n">ObserverB</span> <span class="k">from</span> <span class="n">Observer</span>
+
+        <span class="k">func</span> <span class="n">update</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+                <span class="o">?</span> <span class="s">&quot;ObserverB received value: &quot;</span> <span class="o">+</span> <span class="n">value</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ObserverA received value: 42
+ObserverB received value: 42
+ObserverA received value: 99
+ObserverB received value: 99
+ObserverB received value: 101
+</pre></div>
+</div>
+</section>
 <section id="more-improvements">
-<span id="index-12"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-13"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Better Documentation</p></li>
 <li><p>Qt version is updated to Qt 5.15.19</p></li>
 <li><p>Form Designer - Better support for translation</p></li>
 <li><p>Form Designer - Objects Order - Using closeAction() method</p></li>
 <li><p>Form Designer - Display forms at the centre of the screen</p></li>
-<li><p>Find() function - Support searching in lists/Attributes using list/object reference</p></li>
-<li><p>Find() function - Support searching in lists/Attributes using lists that wrap C Pointers</p></li>
 <li><p>OptionalFunc() function - Add the function name to the RingOptionalFunctions variable</p></li>
 <li><p>AddMethod()/MergeMethods() functions - Better implementation</p></li>
 <li><p>RingQt - OpenGLWidget/QAllEvents classes - Use: RINGQT_EVENT_SIZE</p></li>

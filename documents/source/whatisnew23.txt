@@ -25,6 +25,7 @@ Ring 1.23 comes with the next features!
 * Better RingLibCurl
 * Better RingFastPro
 * Faster String Operations
+* Better Find() function
 * More Improvements
 
 .. index:: 
@@ -264,6 +265,90 @@ Output:
 	0.077		# Ring 1.23
 	0.114		# Ring 1.22
 
+
+.. index:: 
+	pair: What is new in Ring  1.23; Better Find() function
+
+Better Find() function
+======================
+
+The find() function is revised and improved:
+
+* Support searching in lists/Attributes using list/object reference
+* Support searching in lists/Attributes using lists that wrap C Pointers
+
+Example:
+
+.. code-block:: ring
+
+	func main
+
+		subject   = new Subject
+		observer1 = new ObserverA
+		observer2 = new ObserverB
+
+		subject.addObserver(observer1)
+		subject.addObserver(observer2)
+
+		subject.setValue(42)
+		subject.setValue(99)
+
+		subject.removeObserver(observer1)
+
+		subject.setValue(101)
+
+	class Subject
+
+		aObservers = []
+		value      = 0
+
+		func addObserver(observer)
+			add(aObservers, ref(observer))
+
+		func removeObserver(observer)
+			nPos = find(aObservers,observer)
+			if nPos 
+				del(aObservers,nPos)
+			ok
+
+		func notify()
+			for oObj in aObservers
+				oObj.update(value)
+			next
+
+		func setValue(newValue)
+			value = newValue
+			notify()
+
+	class Observer
+
+		func update(value)
+
+			? "Observer updated with value: " + value
+
+	class ObserverA from Observer
+
+		func update(value)
+
+			? "ObserverA received value: " + value
+
+	class ObserverB from Observer
+
+		func update(value)
+
+			? "ObserverB received value: " + value
+	
+
+Output:
+
+.. code-block:: none
+
+	ObserverA received value: 42
+	ObserverB received value: 42
+	ObserverA received value: 99
+	ObserverB received value: 99
+	ObserverB received value: 101
+
 .. index:: 
 	pair: What is new in Ring  1.23; More Improvements
 
@@ -275,8 +360,6 @@ More Improvements
 * Form Designer - Better support for translation
 * Form Designer - Objects Order - Using closeAction() method
 * Form Designer - Display forms at the centre of the screen
-* Find() function - Support searching in lists/Attributes using list/object reference
-* Find() function - Support searching in lists/Attributes using lists that wrap C Pointers
 * OptionalFunc() function - Add the function name to the RingOptionalFunctions variable
 * AddMethod()/MergeMethods() functions - Better implementation 
 * RingQt - OpenGLWidget/QAllEvents classes - Use: RINGQT_EVENT_SIZE
