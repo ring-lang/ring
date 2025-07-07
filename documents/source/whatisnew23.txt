@@ -234,6 +234,9 @@ The next samples are added to introduce these features:
 * samples/UsingFastPro/Mandelbrot.ring
 * samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro.ring
 
+.. image:: mugrotationfastpro.png
+	:alt: Mug Rotation
+
 .. index:: 
 	pair: What is new in Ring  1.23; Faster String Operations
 
