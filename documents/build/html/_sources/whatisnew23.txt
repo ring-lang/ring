@@ -243,6 +243,27 @@ Output:
 	0.038		# Ring 1.22
 
 
+Example:
+
+.. code-block:: ring
+
+	Decimals(3)
+	t1 = clock()
+	cStr = "Welcome to the Ring programming language"
+
+	for t=1 to 200_000
+		cStr2 = subStr(cStr,"Ring","***Ring***",True)
+	next
+
+	? (clock()-t1)/clocksPerSecond()
+
+Output:
+
+.. code-block:: none
+
+	0.077		# Ring 1.23
+	0.114		# Ring 1.22
+
 .. index:: 
 	pair: What is new in Ring  1.23; More Improvements
 
