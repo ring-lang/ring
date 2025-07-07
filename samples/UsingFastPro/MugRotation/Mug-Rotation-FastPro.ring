@@ -82,7 +82,7 @@ fp = fopen("mug.txt","r")
       ShapeMug[i][4] = 0    
     next
     
-ShapeType =  "ShapeMug"           
+ShapeType =  "Mug"           
 ShapeLen  =  len(ShapeMug)                  
 Corners   =  ShapeMug        //  Size of Shape array of Mug
 
@@ -95,7 +95,7 @@ myApp = new qApp
 
         oFilter = new qallevents(win)
         oFilter.setCloseEvent("MyApp.Quit()")
-	installEventFilter(oFilter)
+        installEventFilter(oFilter)
 
 
         setWindowTitle("Matrix Multiplication 3D Cube Rotation")
@@ -117,14 +117,14 @@ myApp = new qApp
             setPixMap(MonaLisa)
         }
 
-        btn = new qPushButton(win) { setGeometry(0, 2, 100, 20)  setText("DrawMatrix")  setStyleSheet("background-color: yellow")
+        btn = new qPushButton(win) { setGeometry(0, 2, 80, 20)  setText("Draw")  setStyleSheet("background-color: yellow")
                                      setClickEvent("DrawMatrix()") 
                                    }
 
         comboShapeType = new QComboBox(win) 
         {
-            setgeometry(110, 2, 100, 20)
-            comboList = ["ShapeMug"]
+            setgeometry(80, 2, 70, 20)
+            comboList = ["Mug"]
             for x in comboList additem(x,0) next                    
         }
 
@@ -132,7 +132,7 @@ myApp = new qApp
       //-------------------------------------------------------------
       // ROTATION
       
-         lRotation =  new qLabel(win)  { setgeometry( 0, 30 , 60, 20)  settext("ROTATON") setStyleSheet("background-color: yellow")}
+         lRotation =  new qLabel(win)  { setgeometry( 0, 30 , 80, 20)  settext("ROTATON") setStyleSheet("background-color: yellow")}
 
          lRotX  =  new qLabel(win)     { setgeometry( 0, 50 , 30, 20)  settext("X:")  setStyleSheet("background-color: yellow")}
          eRotXV =  new qlineedit(win)  { setgeometry(30, 50 , 30, 20)  settext("1.0") }           
@@ -150,7 +150,7 @@ myApp = new qApp
       //-------------------------------------------------------------
       // SCALE
       
-         lScale   =  new qLabel(win)    { setgeometry( 0, 120 , 60, 20)  settext("SCALE") setStyleSheet("background-color: yellow")}
+         lScale   =  new qLabel(win)    { setgeometry( 0, 120 , 80, 20)  settext("SCALE") setStyleSheet("background-color: yellow")}
 
          lScaleX  =  new qLabel(win)    { setgeometry( 0, 140 , 30, 20)  settext("X:")  setStyleSheet("background-color: yellow")}
          eScaleXV =  new qlineedit(win) { setgeometry(30, 140 , 30, 20)  settext("3.0") }          
@@ -169,7 +169,7 @@ myApp = new qApp
       //-------------------------------------------------------------
       // TRANSLATE
       
-         lTranslate =  new qLabel(win)    { setgeometry( 0, 210 , 60, 20)  settext("TRANSLATE") setStyleSheet("background-color: yellow")}
+         lTranslate =  new qLabel(win)    { setgeometry( 0, 210 , 80, 20)  settext("TRANSLATE") setStyleSheet("background-color: yellow")}
 
          lTransX    =  new qLabel(win)    { setgeometry( 0, 230 , 30, 20)  settext("X:")  setStyleSheet("background-color: yellow")}
          eTransXV   =  new qlineedit(win) { setgeometry(30, 230 , 30, 20)  settext("0.0") }          
@@ -188,7 +188,7 @@ myApp = new qApp
       //-------------------------------------------------------------      
       // SHEAR
       
-         lShear   =  new qLabel(win)    { setgeometry( 0, 300 , 60, 20)  settext("SHEAR") setStyleSheet("background-color: yellow")}
+         lShear   =  new qLabel(win)    { setgeometry( 0, 300 , 80, 20)  settext("SHEAR") setStyleSheet("background-color: yellow")}
 
          lShearX  =  new qLabel(win)    { setgeometry( 0, 320 , 30, 20)  settext("X:")  setStyleSheet("background-color: yellow")}
          eShearXV =  new qlineedit(win) { setgeometry(30, 320 , 30, 20)  settext("0.0") }          
@@ -207,7 +207,7 @@ myApp = new qApp
       //-------------------------------------------------------------      
       // REFLECTION
       
-         lReflection =  new qLabel(win)    { setgeometry( 0, 390 , 60, 20)  settext("REFLECTION") setStyleSheet("background-color: yellow")}
+         lReflection =  new qLabel(win)    { setgeometry( 0, 390 , 80, 20)  settext("REFLECTION") setStyleSheet("background-color: yellow")}
 
          lReflX      =  new qLabel(win)    { setgeometry( 0, 410 , 30, 20)  settext("X:")  setStyleSheet("background-color: yellow")}
          eReflXV     =  new qlineedit(win) { setgeometry(30, 410 , 30, 20)  settext("-1") }          
@@ -225,7 +225,7 @@ myApp = new qApp
       //-------------------------------------------------------------      
       // SPEED and INCREMENT
       
-         lSpeed      =  new qLabel(win)    { setgeometry( 0, 480 , 60, 20)  settext("SPEED") setStyleSheet("background-color: yellow")}
+         lSpeed      =  new qLabel(win)    { setgeometry( 0, 480 , 80, 20)  settext("SPEED") setStyleSheet("background-color: yellow")}
 
          lSpeedX    =  new qLabel(win)    { setgeometry( 0, 500 , 30, 20)  settext("Delay:")  setStyleSheet("background-color: yellow")}
          eSpeedXV   =  new qlineedit(win) { setgeometry(30, 500 , 30, 20)  settext("0.00") }                           
@@ -238,7 +238,7 @@ myApp = new qApp
       //-------------------------------------------------------------      
       // TIMER per Cycle
       
-         lTime     =  new qLabel(win)    { setgeometry( 0, 550 , 60, 20)  settext("TimeCycle:") setStyleSheet("background-color: yellow")}
+         lTime     =  new qLabel(win)    { setgeometry( 0, 550 , 80, 20)  settext("TimeCycle:") setStyleSheet("background-color: yellow")}
 
          lTimeX    =  new qLabel(win)    { setgeometry( 0, 570 , 30, 20)  settext("MSec::")  setStyleSheet("background-color: yellow")}
          eTimeXV   =  new qlineedit(win) { setgeometry(30, 570 , 30, 20)  settext("0.00") }                           
@@ -505,7 +505,7 @@ Func DoDraw(C)      // Called by DoDraw(Corners)
    daVinci.drawLine(  300, -300, -300,  300 )  
   
 
-   if ShapeType = "ShapeMug"
+   if ShapeType = "Mug"
       daVinci.setpen(penYellow) 
       for i = 1 to len(ShapeMug) -1
             daVinci.drawPoint( C[i][1], C[i][2])  // Dray X-Y Point
