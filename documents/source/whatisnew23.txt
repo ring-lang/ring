@@ -22,7 +22,6 @@ Ring 1.23 comes with the next features!
 * More RingPM Packages
 * Better Applications and Samples
 * Better StdLib
-* Better RingLibCurl
 * Better RingFastPro
 * Faster String Operations
 * Better Find() function
@@ -125,6 +124,13 @@ The next applications are revised:
 The next samples and applications are added:
 
 * applications/trianglecalculator
+* samples/UsingLibCurl/t5.ring
+* samples/UsingLibCurl/t6.ring
+* samples/UsingLibCurl/t7.ring
+* samples/UsingLibCurl/t8.ring
+* samples/UsingLibCurl/t9.ring
+* samples/UsingLibCurl/t10.ring
+* samples/UsingLibCurl/t11.ring
 * samples/UsingCSVLib/usinglist2csv.ring 
 * samples/Language/AnonFunctions/me.ring
 * samples/Language/SwitchCheck/switchcheck.ring
@@ -134,6 +140,7 @@ The next samples and applications are added:
 * samples/Drawing/OrbitPlanetRetrograde/Orbit-Planet-Retrograde.ring
 * samples/ProblemSolving/RandomLatinSquares/LatinSquaresUsingGUILib.ring
 * samples/UsingQt/ObjectPointer/test.ring
+
 
 .. index:: 
 	pair: What is new in Ring  1.23; Better StdLib
@@ -164,24 +171,6 @@ Output:
 	
 	SGVsbG8gV29ybGQ=
 	Hello World
-
-.. index:: 
-	pair: What is new in Ring  1.23; Better RingLibCurl
-
-Better RingLibCurl
-==================
-
-The extension is updated with more helper functions.
-
-The next samples are added to introduce these features:
-
-* samples/UsingLibCurl/t5.ring
-* samples/UsingLibCurl/t6.ring
-* samples/UsingLibCurl/t7.ring
-* samples/UsingLibCurl/t8.ring
-* samples/UsingLibCurl/t9.ring
-* samples/UsingLibCurl/t10.ring
-* samples/UsingLibCurl/t11.ring
 
 .. index:: 
 	pair: What is new in Ring  1.23; Better RingFastPro
@@ -512,6 +501,7 @@ More Improvements
 * Added FreeBSD support in ring.h and general.c for executable path retrieval
 * RingPM - Support FreeBSD files in install and remove commands
 * VSCode Extension - Support for using underscore inside numbers
+* RingLibCurl - The extension is updated with more helper functions
 * RingLibuv - Support compilation on Linux with GCC 14/Clang 19+
 * RingLibSDL - Support compilation on Linux with GCC 14/Clang 19+
 * CMakeLists.txt - Require version 3.16 and improve OS detection messages

@@ -186,7 +186,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#more-ringpm-packages">More RingPM Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-applications-and-samples">Better Applications and Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-stdlib">Better StdLib</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#better-ringlibcurl">Better RingLibCurl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ringfastpro">Better RingFastPro</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#faster-string-operations">Faster String Operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-find-function">Better Find() function</a></li>
@@ -239,7 +238,6 @@
 <li><p>More RingPM Packages</p></li>
 <li><p>Better Applications and Samples</p></li>
 <li><p>Better StdLib</p></li>
-<li><p>Better RingLibCurl</p></li>
 <li><p>Better RingFastPro</p></li>
 <li><p>Faster String Operations</p></li>
 <li><p>Better Find() function</p></li>
@@ -302,6 +300,13 @@ ringpm run Adhkar_Ring_App
 <p>The next samples and applications are added:</p>
 <ul class="simple">
 <li><p>applications/trianglecalculator</p></li>
+<li><p>samples/UsingLibCurl/t5.ring</p></li>
+<li><p>samples/UsingLibCurl/t6.ring</p></li>
+<li><p>samples/UsingLibCurl/t7.ring</p></li>
+<li><p>samples/UsingLibCurl/t8.ring</p></li>
+<li><p>samples/UsingLibCurl/t9.ring</p></li>
+<li><p>samples/UsingLibCurl/t10.ring</p></li>
+<li><p>samples/UsingLibCurl/t11.ring</p></li>
 <li><p>samples/UsingCSVLib/usinglist2csv.ring</p></li>
 <li><p>samples/Language/AnonFunctions/me.ring</p></li>
 <li><p>samples/Language/SwitchCheck/switchcheck.ring</p></li>
@@ -336,22 +341,8 @@ Hello World
 </pre></div>
 </div>
 </section>
-<section id="better-ringlibcurl">
-<span id="index-9"></span><h2>Better RingLibCurl<a class="headerlink" href="#better-ringlibcurl" title="Permalink to this heading"></a></h2>
-<p>The extension is updated with more helper functions.</p>
-<p>The next samples are added to introduce these features:</p>
-<ul class="simple">
-<li><p>samples/UsingLibCurl/t5.ring</p></li>
-<li><p>samples/UsingLibCurl/t6.ring</p></li>
-<li><p>samples/UsingLibCurl/t7.ring</p></li>
-<li><p>samples/UsingLibCurl/t8.ring</p></li>
-<li><p>samples/UsingLibCurl/t9.ring</p></li>
-<li><p>samples/UsingLibCurl/t10.ring</p></li>
-<li><p>samples/UsingLibCurl/t11.ring</p></li>
-</ul>
-</section>
 <section id="better-ringfastpro">
-<span id="index-10"></span><h2>Better RingFastPro<a class="headerlink" href="#better-ringfastpro" title="Permalink to this heading"></a></h2>
+<span id="index-9"></span><h2>Better RingFastPro<a class="headerlink" href="#better-ringfastpro" title="Permalink to this heading"></a></h2>
 <p>The updateList() function is improved to support many new operations and features.</p>
 <p>The next samples are added to introduce these features:</p>
 <ul class="simple">
@@ -399,7 +390,7 @@ Hello World
 <img alt="Mug Rotation" src="_images/mugrotationfastpro.png" />
 </section>
 <section id="faster-string-operations">
-<span id="index-11"></span><h2>Faster String Operations<a class="headerlink" href="#faster-string-operations" title="Permalink to this heading"></a></h2>
+<span id="index-10"></span><h2>Faster String Operations<a class="headerlink" href="#faster-string-operations" title="Permalink to this heading"></a></h2>
 <p>This release brings optimized string operations for improved performance.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Decimals</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -437,7 +428,7 @@ Hello World
 </div>
 </section>
 <section id="better-find-function">
-<span id="index-12"></span><h2>Better Find() function<a class="headerlink" href="#better-find-function" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>Better Find() function<a class="headerlink" href="#better-find-function" title="Permalink to this heading"></a></h2>
 <p>The find() function is revised and improved:</p>
 <ul class="simple">
 <li><p>Support searching in lists/Attributes using C Pointers</p></li>
@@ -538,7 +529,7 @@ ObserverB received value: 101
 </div>
 </section>
 <section id="better-optionalfunc-function">
-<span id="index-13"></span><h2>Better OptionalFunc() function<a class="headerlink" href="#better-optionalfunc-function" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>Better OptionalFunc() function<a class="headerlink" href="#better-optionalfunc-function" title="Permalink to this heading"></a></h2>
 <p>The OptionalFunc() function implementation is revised.</p>
 <p>The new optional function name will be added to the RingOptionalFunctions list.</p>
 <p>Example:</p>
@@ -619,7 +610,7 @@ five
 </div>
 </section>
 <section id="more-improvements">
-<span id="index-14"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-13"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Better Documentation</p></li>
 <li><p>Qt version is updated to Qt 5.15.19</p></li>
@@ -633,6 +624,7 @@ five
 <li><p>Added FreeBSD support in ring.h and general.c for executable path retrieval</p></li>
 <li><p>RingPM - Support FreeBSD files in install and remove commands</p></li>
 <li><p>VSCode Extension - Support for using underscore inside numbers</p></li>
+<li><p>RingLibCurl - The extension is updated with more helper functions</p></li>
 <li><p>RingLibuv - Support compilation on Linux with GCC 14/Clang 19+</p></li>
 <li><p>RingLibSDL - Support compilation on Linux with GCC 14/Clang 19+</p></li>
 <li><p>CMakeLists.txt - Require version 3.16 and improve OS detection messages</p></li>
