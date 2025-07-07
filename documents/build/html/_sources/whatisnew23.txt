@@ -502,6 +502,7 @@ More Improvements
 * RingPM - Support FreeBSD files in install and remove commands
 * VSCode Extension - Support for using underscore inside numbers
 * RingLibCurl - The extension is updated with more helper functions
+* RingLibuv - The implementation of the internal uv_new_mutex() function has been revised
 * RingLibuv - Support compilation on Linux with GCC 14/Clang 19+
 * RingLibSDL - Support compilation on Linux with GCC 14/Clang 19+
 * CMakeLists.txt - Require version 3.16 and improve OS detection messages
