@@ -146,6 +146,25 @@ The next functions are added to StdLib:
 * StringToBase64(cString) ---> cBase64
 * Base64ToString(cBase64) ---> cString
 
+Example:
+
+.. code-block:: ring
+
+	load "stdlibcore.ring"
+
+	cStr = "Hello World"
+	? StringToBase64(cStr)	
+
+	cBase64 = "SGVsbG8gV29ybGQ="
+	? Base64ToString(cBase64)	
+
+Output:
+
+.. code-block:: none
+	
+	SGVsbG8gV29ybGQ=
+	Hello World
+
 .. index:: 
 	pair: What is new in Ring  1.23; Better RingLibCurl
 
