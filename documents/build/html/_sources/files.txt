@@ -194,6 +194,10 @@ Mode	Description
 "a+"	reading & appending
 =====	==========================================
 
+.. note:: The fopen() function returns a Ring list that wraps a C Pointer.
+
+.. tip:: It is not necessary to call the fclose() function, as Ring automatically manages this.
+
 .. index:: 
 	pair: Files; Fclose()
 
