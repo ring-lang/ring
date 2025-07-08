@@ -578,3 +578,5 @@ The updateList() function comes with the next features for Matrix support.
 	aListC = updateList(<aList>,:append,:matrix,<aListB>,<nValue>)
 	valueA = updateList(<aList>,:allsum,:matrix)
 	aListC = updateList(<aList>,:mandelbrot,:matrix,<aFlatB>)    
+
+.. note:: We have many samples in the ring/samples/UsingFastPro folder.
