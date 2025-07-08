@@ -1287,6 +1287,86 @@ Me too!
 Ok, Thanks!
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The new optional function name will be added to the RingOptionalFunctions list.</p>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Declare optional functions&quot;</span>
+<span class="n">optionalFunc</span><span class="p">(:</span><span class="n">one</span><span class="p">)</span>
+<span class="n">optionalFunc</span><span class="p">(:</span><span class="n">two</span><span class="p">)</span>
+<span class="n">optionalFunc</span><span class="p">(:</span><span class="n">three</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s">&quot;Call optional functions&quot;</span>
+<span class="n">one</span><span class="p">()</span> <span class="n">two</span><span class="p">()</span> <span class="n">three</span><span class="p">()</span>
+
+<span class="o">?</span> <span class="s">&quot;Print list of optional functions&quot;</span>
+<span class="o">?</span> <span class="n">RingOptionalFunctions</span>
+
+<span class="o">?</span> <span class="s">&quot;Define optional functions&quot;</span>
+<span class="n">eval</span><span class="p">(`</span>
+<span class="k">func</span> <span class="n">one</span>   <span class="o">?</span> <span class="s">&quot;Message from one() function&quot;</span>
+<span class="k">func</span> <span class="n">two</span>   <span class="o">?</span> <span class="s">&quot;Message from two() function&quot;</span>
+<span class="k">func</span> <span class="n">three</span> <span class="o">?</span> <span class="s">&quot;Message from three() function&quot;</span>
+<span class="p">`)</span>
+
+<span class="o">?</span> <span class="s">&quot;Call optional functions&quot;</span>
+<span class="n">one</span><span class="p">()</span> <span class="n">two</span><span class="p">()</span> <span class="n">three</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Declare optional functions
+Call optional functions
+Print list of optional functions
+one
+two
+three
+
+Define optional functions
+Call optional functions
+Message from one() function
+Message from two() function
+Message from three() function
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Add</span><span class="p">(</span><span class="n">RingOptionalFunctions</span><span class="p">,</span> <span class="o">[</span>
+        <span class="p">:</span><span class="n">one</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">two</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">three</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">four</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">five</span>
+<span class="o">]</span><span class="p">,</span> <span class="kp">True</span><span class="p">)</span>
+
+<span class="n">one</span><span class="p">()</span> <span class="n">two</span><span class="p">()</span> <span class="n">three</span><span class="p">()</span> <span class="n">four</span><span class="p">()</span> <span class="n">five</span><span class="p">()</span>       <span class="c"># No Error</span>
+
+<span class="n">eval</span><span class="p">(`</span>
+<span class="k">func</span> <span class="n">one</span>   <span class="o">?</span> <span class="mi">1</span>
+<span class="k">func</span> <span class="n">two</span>   <span class="o">?</span> <span class="mi">2</span>
+<span class="k">func</span> <span class="n">three</span> <span class="o">?</span> <span class="mi">3</span>
+<span class="k">func</span> <span class="n">four</span>  <span class="o">?</span> <span class="mi">4</span>
+<span class="k">func</span> <span class="n">five</span>  <span class="o">?</span> <span class="mi">5</span>
+<span class="p">`)</span>
+
+<span class="o">?</span> <span class="n">RingOptionalFunctions</span>                 <span class="c"># Print Names</span>
+
+<span class="n">one</span><span class="p">()</span> <span class="n">two</span><span class="p">()</span> <span class="n">three</span><span class="p">()</span> <span class="n">four</span><span class="p">()</span> <span class="n">five</span><span class="p">()</span>       <span class="c"># Print Numbers</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>one
+two
+three
+four
+five
+
+1
+2
+3
+4
+5
+</pre></div>
+</div>
 </section>
 </section>
 

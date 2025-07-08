@@ -1403,3 +1403,91 @@ Output:
 	I love Programming, What about you?
 	Me too!
 	Ok, Thanks!
+
+.. note:: The new optional function name will be added to the RingOptionalFunctions list.
+
+Example:
+
+.. code-block:: ring
+
+	? "Declare optional functions"
+	optionalFunc(:one)
+	optionalFunc(:two)
+	optionalFunc(:three)
+
+	? "Call optional functions"
+	one() two() three()
+
+	? "Print list of optional functions"
+	? RingOptionalFunctions
+
+	? "Define optional functions"
+	eval(`
+	func one   ? "Message from one() function"
+	func two   ? "Message from two() function"
+	func three ? "Message from three() function"
+	`)
+
+	? "Call optional functions"
+	one() two() three()
+
+Output:
+
+.. code-block:: none
+
+	Declare optional functions
+	Call optional functions
+	Print list of optional functions
+	one
+	two
+	three
+	
+	Define optional functions
+	Call optional functions
+	Message from one() function
+	Message from two() function
+	Message from three() function
+
+Example:
+
+.. code-block:: ring
+
+	Add(RingOptionalFunctions, [
+		:one,
+		:two,
+		:three,
+		:four,
+		:five
+	], True)
+
+	one() two() three() four() five()	# No Error
+
+	eval(`
+	func one   ? 1
+	func two   ? 2
+	func three ? 3
+	func four  ? 4
+	func five  ? 5
+	`)
+
+	? RingOptionalFunctions			# Print Names
+
+	one() two() three() four() five()	# Print Numbers
+
+Output:
+
+.. code-block:: none
+
+	one
+	two
+	three
+	four
+	five
+	
+	1
+	2
+	3
+	4
+	5	
+
+
