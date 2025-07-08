@@ -1,9 +1,9 @@
 .. index:: 
 	single: Using FastPro; Introduction
 
-================
+=============
 Using FastPro
-================
+=============
 
 In this chapter we will learn about Using the FastPro extension.
 
@@ -17,7 +17,7 @@ Contents:
 * UpdateColumn() function
 * UpdateBytesColumn() function
 * AddBytesColumn() function
-* updateList() and Matrix support 
+* UpdateList() and Matrix support 
 
 .. index:: 
 	pair: Using FastPro; Bytes2List() function
@@ -535,9 +535,9 @@ Example:
 
 
 .. index:: 
-	pair: Using FastPro; updateList() and Matrix support
+	pair: Using FastPro; UpdateList() and Matrix support
 
-updateList() and Matrix support
+UpdateList() and Matrix support
 ===============================
 
 The updateList() function comes with the next features for Matrix support.
@@ -547,33 +547,34 @@ The updateList() function comes with the next features for Matrix support.
 	aListC = updateList(<aList>,:add,:matrix,<aListB>)
 	aListC = updateList(<aList>,:sub,:matrix,<aListB>)
 	aListC = updateList(<aList>,:mul,:matrix,<aListB>)
-	aListC = updateList(<aList>,:transpose,:matrix )
-	aListC = updateList(<aList>,:scalar,:matrix,<nValue> )
+	aListC = updateList(<aList>,:transpose,:matrix)
+	aListC = updateList(<aList>,:scalar,:matrix,<nValue>)
 	valueA/aListC = updateList(<aList>,:dotproduct,:matrix,<aListB>)
-	aListC = updateList(<aList>,:fill,:matrix,<nValue> )
-	valueA = updateList(<aList>,:maximum,:matrix,<nValue> )
-	aList  = updateList(<aList>,:identity,:matrix )
-	aList  = updateList(<aList>,:random,:matrix )
-	valueA = updateList(<aList>,:mean,:matrix )
-	aListC = updateList(<aList>,:sqrt,:matrix )
-	aListC = updateList(<aList>,:square,:matrix )
-	aListC = updateList(<aList>,:sigmoid,:matrix )
-	aListC = updateList(<aList>,:sigmoidprime,:matrix )
-	aListC = updateList(<aList>,:tanh,:matrix )
-	aListC = updateList(<aList>,:leakyrelu,:matrix )
-	aListC = updateList(<aList>,:leakyreluprime,:matrix )
-	aListC = updateList(<aList>,:relu,:matrix )
-	aListC = updateList(<aList>,:reluprime,:matrix )
-	aListC = updateList(<aList>,:exp,:matrix )
-	aListC = updateList(<aList>,:sum,:matrix )
-	aListC = updateList(<aList>,:softmax,:matrix )
-	aListC = updateList(<aList>,:scalardiv,:matrix,<nValue> )
-	aListC = updateList(<aList>,:horstack,:matrix,:matrix )
-	aListC = updateList(<aList>,:verstack,:matrix,:matrix )
-	aListC = updateList(<aList>,:ravel,:matrix )
-	aListC = updateList(<aList>,:zerolike,:matrix )
-	aListC = updateList(<aList>,:atleast2d,:matrix )
-	valueA = updateList(<aList>,:argmax,:matrix )
-	aListC = updateList(<aList>,:derepeat,:matrix )
-	aListC = updateList(<aList>,:append,:matrix,aListB,nValue )
-	valueA = updateList(<aList>,:allsum,:matrix )    
+	aListC = updateList(<aList>,:fill,:matrix,<nValue>)
+	valueA = updateList(<aList>,:maximum,:matrix,<nValue>)
+	aList  = updateList(<aList>,:identity,:matrix)
+	aList  = updateList(<aList>,:random,:matrix)
+	valueA = updateList(<aList>,:mean,:matrix)
+	aListC = updateList(<aList>,:sqrt,:matrix)
+	aListC = updateList(<aList>,:square,:matrix)
+	aListC = updateList(<aList>,:sigmoid,:matrix)
+	aListC = updateList(<aList>,:sigmoidprime,:matrix)
+	aListC = updateList(<aList>,:tanh,:matrix)
+	aListC = updateList(<aList>,:leakyrelu,:matrix)
+	aListC = updateList(<aList>,:leakyreluprime,:matrix)
+	aListC = updateList(<aList>,:relu,:matrix)
+	aListC = updateList(<aList>,:reluprime,:matrix)
+	aListC = updateList(<aList>,:exp,:matrix)
+	aListC = updateList(<aList>,:sum,:matrix)
+	aListC = updateList(<aList>,:softmax,:matrix)
+	aListC = updateList(<aList>,:scalardiv,:matrix,<nValue>)
+	aListC = updateList(<aList>,:horstack,:matrix,<aListB>)
+	aListC = updateList(<aList>,:verstack,:matrix,<aListB>)
+	aListC = updateList(<aList>,:ravel,:matrix)
+	aListC = updateList(<aList>,:zerolike,:matrix)
+	aListC = updateList(<aList>,:atleast2d,:matrix)
+	valueA = updateList(<aList>,:argmax,:matrix)
+	aListC = updateList(<aList>,:derepeat,:matrix)
+	aListC = updateList(<aList>,:append,:matrix,<aListB>,<nValue>)
+	valueA = updateList(<aList>,:allsum,:matrix)
+	aListC = updateList(<aList>,:mandelbrot,:matrix,<aFlatB>)    
