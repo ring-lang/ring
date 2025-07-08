@@ -132,6 +132,7 @@ The next samples and applications are added:
 * samples/UsingLibCurl/t10.ring
 * samples/UsingLibCurl/t11.ring
 * samples/UsingCSVLib/usinglist2csv.ring 
+* samples/UsingQt/ObjectPointer/test.ring
 * samples/Language/AnonFunctions/me.ring
 * samples/Language/SwitchCheck/switchcheck.ring
 * samples/General/EpochToDateTime/EpochToDateTime.ring
@@ -139,7 +140,7 @@ The next samples and applications are added:
 * samples/Drawing/RotationIllusion/Rotation-Illusion.ring
 * samples/Drawing/OrbitPlanetRetrograde/Orbit-Planet-Retrograde.ring
 * samples/ProblemSolving/RandomLatinSquares/LatinSquaresUsingGUILib.ring
-* samples/UsingQt/ObjectPointer/test.ring
+* samples/General/SmallExamples/Delivery/delivery.ring
 
 
 .. index:: 
