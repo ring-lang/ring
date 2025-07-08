@@ -23,6 +23,7 @@ Contents:
 * Nested Ref()
 * Ref() in left side
 * Ref() and sub lists
+* Find() and Ref()
 
 
 .. index:: 
@@ -570,3 +571,84 @@ Output:
 	
 	done
  
+
+.. index:: 
+	pair: Using References; Find() and Ref()
+
+Find() and Ref()
+================
+
+The Find() function supports searching within lists or attributes using list or object references.
+
+Example:
+
+.. code-block:: ring
+
+	func main
+
+		subject   = new Subject
+		observer1 = new ObserverA
+		observer2 = new ObserverB
+
+		subject.addObserver(observer1)
+		subject.addObserver(observer2)
+
+		subject.setValue(42)
+		subject.setValue(99)
+
+		subject.removeObserver(observer1)
+
+		subject.setValue(101)
+
+	class Subject
+
+		aObservers = []
+		value      = 0
+
+		func addObserver(observer)
+			add(aObservers, ref(observer))
+
+		func removeObserver(observer)
+			nPos = find(aObservers,observer)
+			if nPos 
+				del(aObservers,nPos)
+			ok
+
+		func notify()
+			for oObj in aObservers
+				oObj.update(value)
+			next
+
+		func setValue(newValue)
+			value = newValue
+			notify()
+
+	class Observer
+
+		func update(value)
+
+			? "Observer updated with value: " + value
+
+	class ObserverA from Observer
+
+		func update(value)
+
+			? "ObserverA received value: " + value
+
+	class ObserverB from Observer
+
+		func update(value)
+
+			? "ObserverB received value: " + value
+	
+
+Output:
+
+.. code-block:: none
+
+	ObserverA received value: 42
+	ObserverB received value: 42
+	ObserverA received value: 99
+	ObserverB received value: 99
+	ObserverB received value: 101
+

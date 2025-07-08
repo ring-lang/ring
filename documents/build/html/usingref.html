@@ -159,6 +159,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#nested-ref">Nested Ref()</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ref-in-left-side">Ref() in left side</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ref-and-sub-lists">Ref() and sub lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#find-and-ref">Find() and Ref()</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
@@ -241,6 +242,7 @@
 <li><p>Nested Ref()</p></li>
 <li><p>Ref() in left side</p></li>
 <li><p>Ref() and sub lists</p></li>
+<li><p>Find() and Ref()</p></li>
 </ul>
 <section id="introduction">
 <span id="index-1"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
@@ -688,6 +690,77 @@ i.e. will not change the value.</p>
 6
 
 done
+</pre></div>
+</div>
+</section>
+<section id="find-and-ref">
+<span id="index-13"></span><h2>Find() and Ref()<a class="headerlink" href="#find-and-ref" title="Permalink to this heading"></a></h2>
+<p>The Find() function supports searching within lists or attributes using list or object references.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
+
+        <span class="n">subject</span>   <span class="o">=</span> <span class="k">new</span> <span class="n">Subject</span>
+        <span class="n">observer1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObserverA</span>
+        <span class="n">observer2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObserverB</span>
+
+        <span class="n">subject</span><span class="p">.</span><span class="n">addObserver</span><span class="p">(</span><span class="n">observer1</span><span class="p">)</span>
+        <span class="n">subject</span><span class="p">.</span><span class="n">addObserver</span><span class="p">(</span><span class="n">observer2</span><span class="p">)</span>
+
+        <span class="n">subject</span><span class="p">.</span><span class="n">setValue</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+        <span class="n">subject</span><span class="p">.</span><span class="n">setValue</span><span class="p">(</span><span class="mi">99</span><span class="p">)</span>
+
+        <span class="n">subject</span><span class="p">.</span><span class="n">removeObserver</span><span class="p">(</span><span class="n">observer1</span><span class="p">)</span>
+
+        <span class="n">subject</span><span class="p">.</span><span class="n">setValue</span><span class="p">(</span><span class="mi">101</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="n">Subject</span>
+
+        <span class="n">aObservers</span> <span class="o">=</span> <span class="o">[]</span>
+        <span class="n">value</span>      <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">func</span> <span class="n">addObserver</span><span class="p">(</span><span class="n">observer</span><span class="p">)</span>
+                <span class="n">add</span><span class="p">(</span><span class="n">aObservers</span><span class="p">,</span> <span class="n">ref</span><span class="p">(</span><span class="n">observer</span><span class="p">))</span>
+
+        <span class="k">func</span> <span class="n">removeObserver</span><span class="p">(</span><span class="n">observer</span><span class="p">)</span>
+                <span class="n">nPos</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">aObservers</span><span class="p">,</span><span class="n">observer</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">nPos</span>
+                        <span class="n">del</span><span class="p">(</span><span class="n">aObservers</span><span class="p">,</span><span class="n">nPos</span><span class="p">)</span>
+                <span class="k">ok</span>
+
+        <span class="k">func</span> <span class="n">notify</span><span class="p">()</span>
+                <span class="k">for</span> <span class="n">oObj</span> <span class="k">in</span> <span class="n">aObservers</span>
+                        <span class="n">oObj</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                <span class="k">next</span>
+
+        <span class="k">func</span> <span class="n">setValue</span><span class="p">(</span><span class="n">newValue</span><span class="p">)</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">newValue</span>
+                <span class="n">notify</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="n">Observer</span>
+
+        <span class="k">func</span> <span class="n">update</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+                <span class="o">?</span> <span class="s">&quot;Observer updated with value: &quot;</span> <span class="o">+</span> <span class="n">value</span>
+
+<span class="k">class</span> <span class="n">ObserverA</span> <span class="k">from</span> <span class="n">Observer</span>
+
+        <span class="k">func</span> <span class="n">update</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+                <span class="o">?</span> <span class="s">&quot;ObserverA received value: &quot;</span> <span class="o">+</span> <span class="n">value</span>
+
+<span class="k">class</span> <span class="n">ObserverB</span> <span class="k">from</span> <span class="n">Observer</span>
+
+        <span class="k">func</span> <span class="n">update</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+                <span class="o">?</span> <span class="s">&quot;ObserverB received value: &quot;</span> <span class="o">+</span> <span class="n">value</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ObserverA received value: 42
+ObserverB received value: 42
+ObserverA received value: 99
+ObserverB received value: 99
+ObserverB received value: 101
 </pre></div>
 </div>
 </section>
