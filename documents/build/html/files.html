@@ -107,6 +107,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#getfilesize-function">Getfilesize() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#numbers-and-bytes">Numbers and Bytes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-find-with-a-file-handle">Using Find() with a File Handle</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
@@ -280,6 +281,7 @@
 <li><p>getpathtype()</p></li>
 <li><p>getfilesize()</p></li>
 <li><p>Numbers and Bytes</p></li>
+<li><p>Using Find() with a File Handle</p></li>
 </ul>
 <section id="read-function">
 <span id="index-1"></span><h2>Read() Function<a class="headerlink" href="#read-function" title="Permalink to this heading"></a></h2>
@@ -835,6 +837,29 @@ function</p>
 <span class="k">see</span> <span class="n">r</span> <span class="o">+</span> <span class="n">nl</span>
 <span class="n">decimals</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="k">see</span> <span class="n">Bytes2Double</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+</section>
+<section id="using-find-with-a-file-handle">
+<span id="index-34"></span><h2>Using Find() with a File Handle<a class="headerlink" href="#using-find-with-a-file-handle" title="Permalink to this heading"></a></h2>
+<p>The find() function supports searching through lists or attributes using C pointers.</p>
+<p>The fopen() function returns a file handle represented as a Ring list that wraps a C pointer.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">fp1</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">(),</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">fp2</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">(),</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">fp3</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">(),</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="n">fp3</span><span class="p">,</span> <span class="n">fp2</span><span class="p">,</span> <span class="n">fp1</span><span class="o">]</span>
+
+<span class="o">?</span> <span class="n">find</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">fp1</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">find</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">fp2</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">find</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="n">fp3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>3
+2
+1
 </pre></div>
 </div>
 </section>
