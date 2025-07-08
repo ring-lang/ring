@@ -882,6 +882,8 @@ Example:
 	see Matrixmulti(A, B)
 
 
+.. tip:: For better performance use the updateList() function from the RingFastPro extension.
+
 .. index:: 
 	pair: Stdlib Functions; matrixtrans() Function
 
@@ -906,6 +908,8 @@ Example:
 	Puts("Test Matrixtrans()")
 	matrix = [[78,19,30,12,36], [49,10,65,42,50], [30,93,24,78,10], [39,68,27,64,29]]
 	see Matrixtrans(matrix)
+
+.. tip:: For better performance use the updateList() function from the RingFastPro extension.
 
 .. index:: 
 	pair: Stdlib Functions; dayofweek() Function
