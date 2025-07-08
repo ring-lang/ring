@@ -228,16 +228,16 @@ RING_FUNC(ring_list2bytes)
 //  aListC = updateList(<aList>,:sum,:matrix )                // 3 Parms, Sum Axis 1=Rows 0=Cols
 //  aListC = updateList(<aList>,:softmax,:matrix )            // 3 Parms, Softmax
 //  aListC = updateList(<aList>,:scalardiv,:matrix,<nValue> ) // Matrix Scalar Divide
-//  aListC = updateList(<aList>,:horstack,:matrix,:matrix )   // Matrix HorStack
-//  aListC = updateList(<aList>,:verstack,:matrix,:matrix )   // Matrix verStack
+//  aListC = updateList(<aList>,:horstack,:matrix,<aListB> )   // Matrix HorStack
+//  aListC = updateList(<aList>,:verstack,:matrix,<aListB> )   // Matrix verStack
 //  aListC = updateList(<aList>,:ravel,:matrix )              // 3 Parms Matrix Ravel
 //  aListC = updateList(<aList>,:zerolike,:matrix )           // 3 Parms Matrix ZeroLike 
 //  aListC = updateList(<aList>,:atleast2d,:matrix )          // 3 Parms Matrix AtLeast2D 
 //  valueA = updateList(<aList>,:argmax,:matrix )             // 3 Parms Matrix ArgMax
 //  aListC = updateList(<aList>,:derepeat,:matrix )           // 3 Parms Matrix DeRepeat  
-//  aListC = updateList(<aList>,:append,:matrix,aListB,nValue )  // 5 -Matrix Append 
+//  aListC = updateList(<aList>,:append,:matrix,<aListB>,<nValue> )  // 5 -Matrix Append 
 //  valueA = updateList(<aList>,:allsum,:matrix )             // 3 Parms Matrix AllSum
-//  aListC = updateList(<aList>,:mandelbrot,:matrix,aFlatB )  // Matrix MandelBrot
+//  aListC = updateList(<aList>,:mandelbrot,:matrix,<aFlatB> )  // Matrix MandelBrot
 //
 //  Set the Operation code. Add Selection Code for Jump => 503
 //  strcmp(cOperation,"set")        nOPCode += 100 ;
