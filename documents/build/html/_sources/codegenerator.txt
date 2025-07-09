@@ -1309,5 +1309,5 @@ the next examples
 After generating the code, You will need to build the library, You can learn from the next examples
 
 * RingAllegro : https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/buildvc.bat
-* RingQt : https://github.com/ring-lang/ring/blob/master/extensions/ringqt/buildmingw32.bat
+* RingQt : https://github.com/ring-lang/ring/blob/master/extensions/ringqt/buildvc.bat
 * RingLibSDL : https://github.com/ring-lang/ring/blob/master/extensions/ringsdl/buildvc.bat
