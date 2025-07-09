@@ -224,7 +224,7 @@
 <section id="introduction">
 <span id="index-1"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
 <p>We created a new project and tutorial to explain how to deploy Ring web applications in the Cloud using Heroku</p>
-<p>Project : <a class="reference external" href="https://github.com/ring-lang/RingWebAppOnHeroku">https://github.com/ring-lang/RingWebAppOnHeroku</a></p>
+<p>Project : <a class="reference external" href="https://github.com/ringpackages/RingWebAppOnHeroku">https://github.com/ringpackages/RingWebAppOnHeroku</a></p>
 <p>Heroku Website : <a class="reference external" href="https://www.heroku.com/">https://www.heroku.com/</a></p>
 <img alt="Ring Web Application in the Cloud" src="_images/ringincloud.png" />
 </section>
@@ -252,7 +252,7 @@
 <ol class="arabic simple" start="5">
 <li><p>Clone this project using Git (Don’t forget the dot in the end to clone in the current directory)</p></li>
 </ol>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/ring-lang/RingWebAppOnHeroku .
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/ringpackages/RingWebAppOnHeroku .
 </pre></div>
 </div>
 <ol class="arabic simple" start="6">
@@ -271,8 +271,8 @@
 <ol class="arabic simple" start="8">
 <li><p>Set the buildpacks (So Heroku can know how to support your project)</p></li>
 </ol>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>heroku buildpacks:add --index 1 https://github.com/ring-lang/heroku-buildpack-apt
-heroku buildpacks:add --index 2 https://github.com/ring-lang/heroku-buildpack-ring
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>heroku buildpacks:add --index 1 https://github.com/ringpackages/heroku-buildpack-apt
+heroku buildpacks:add --index 2 https://github.com/ringpackages/heroku-buildpack-ring
 </pre></div>
 </div>
 <ol class="arabic simple" start="9">
