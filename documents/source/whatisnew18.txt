@@ -391,7 +391,7 @@ In Ring 1.18 We updated the packages to use a modern Ring version
 
 The project is tested using Heroku-22 (Ubuntu 22.04)
 
-URL: https://github.com/ring-lang/RingWebAppOnHeroku
+URL: https://github.com/ringpackages/RingWebAppOnHeroku
 
 .. index:: 
 	pair: What is new in Ring  1.18; New From

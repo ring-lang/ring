@@ -265,7 +265,7 @@ In Ring 1.15 We updated the packages to use a modern Ring version
 
 Also to avoid all of the reported problems during installation
 
-URL: https://github.com/ring-lang/RingWebAppOnHeroku
+URL: https://github.com/ringpackages/RingWebAppOnHeroku
 
 .. index:: 
 	pair: What is new in Ring 1.15?; Using ':' then Numbers
