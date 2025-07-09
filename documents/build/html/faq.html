@@ -1535,8 +1535,7 @@ z: 3.000000
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/link /SUBSYSTEM:CONSOLE,&quot;5.01&quot;
 </pre></div>
 </div>
-<p>To the batch file to support Windows XP</p>
-<p>See : <a class="reference external" href="https://github.com/ring-lang/ring/blob/master/language/src/buildvc.bat">https://github.com/ring-lang/ring/blob/master/language/src/buildvc.bat</a></p>
+<p>To the batch files to support Windows XP</p>
 </section>
 <section id="why-we-don-t-use-after-the-qapp-class-name">
 <span id="index-45"></span><h2>Why we don’t use () after the QApp class name?<a class="headerlink" href="#why-we-don-t-use-after-the-qapp-class-name" title="Permalink to this heading"></a></h2>
@@ -1784,9 +1783,6 @@ add specific solutions that match specific paradigms (OOP, Functional, Declarati
 <span id="index-52"></span><h2>How to extend RingQt and add more classes?<a class="headerlink" href="#how-to-extend-ringqt-and-add-more-classes" title="Permalink to this heading"></a></h2>
 <p>You have many options</p>
 <p>In general you can extend Ring using C or C++ code</p>
-<p>Ring from Ring code you can call C Functions or use C++ Classes &amp; Methods</p>
-<p>This chapter in the documentation explains this part in the language
-<a class="reference external" href="https://ring-lang.github.io/doc1.16/extension.html">https://ring-lang.github.io/doc1.16/extension.html</a></p>
 <p>For example the next code in <em>.c file can be compiled to a DLL file using the Ring library (</em>.lib)</p>
 <div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;ring.h&quot;</span>
 
@@ -1819,7 +1815,7 @@ Message from dlfunc
 <p>To save our time, and to quickly generate wrappers for C/C++ Libraries to be used in Ring</p>
 <p>We have this code generator</p>
 <p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/codegen/parsec.ring">https://github.com/ring-lang/ring/blob/master/extensions/codegen/parsec.ring</a></p>
-<p>The code generator is just a Ring program &lt; 1200 lines of Ring code</p>
+<p>The code generator is just a Ring program &lt; 2000 lines of Ring code</p>
 <p>The generator take as input a configuration file contains the C/C++ library information</p>
 <p>like Functions Prototype, Classes and Methods, Constants, Enum, Structures and members , etc.</p>
 <p>Then the generator will generate</p>
@@ -1838,7 +1834,7 @@ Message from dlfunc
 <p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/gencode.sh">https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/gencode.sh</a></p>
 <p>I get the generated source code file</p>
 <p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/ring_allegro.c">https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/ring_allegro.c</a></p>
-<p>The generated source code file (ring_allegro.c) is around 12,000 Lines of code (12 KLOC)</p>
+<p>The generated source code file (ring_allegro.c) is around 13,000 Lines of code (13 KLOC)</p>
 <p>While the configuration file is less than 1 KLOC</p>
 <p>To build the library (create the DLL files)</p>
 <p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/buildvc.bat">https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/buildvc.bat</a></p>
@@ -1865,7 +1861,7 @@ Message from dlfunc
 <p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringqt/gencode.sh">https://github.com/ring-lang/ring/blob/master/extensions/ringqt/gencode.sh</a></p>
 <p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringqt/gencodeandroid.bat">https://github.com/ring-lang/ring/blob/master/extensions/ringqt/gencodeandroid.bat</a></p>
 <p>To build the DLL/so/Dylib files</p>
-<p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringqt/buildmingw32.bat">https://github.com/ring-lang/ring/blob/master/extensions/ringqt/buildmingw32.bat</a></p>
+<p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringqt/buildvc.bat">https://github.com/ring-lang/ring/blob/master/extensions/ringqt/buildvc.bat</a></p>
 <p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringqt/buildgcc.sh">https://github.com/ring-lang/ring/blob/master/extensions/ringqt/buildgcc.sh</a></p>
 <p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringqt/buildclang.sh">https://github.com/ring-lang/ring/blob/master/extensions/ringqt/buildclang.sh</a></p>
 <p>Study RingQt</p>

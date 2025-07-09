@@ -1780,9 +1780,7 @@ For example, We added
 
 	/link /SUBSYSTEM:CONSOLE,"5.01" 
 
-To the batch file to support Windows XP
-
-See : https://github.com/ring-lang/ring/blob/master/language/src/buildvc.bat
+To the batch files to support Windows XP
 
 .. index:: 
 	pair: Frequently Asked Questions; Why we don't use () after the QApp class name?
@@ -2095,11 +2093,6 @@ You have many options
 
 In general you can extend Ring using C or C++ code
 
-Ring from Ring code you can call C Functions or use C++ Classes & Methods
-
-This chapter in the documentation explains this part in the language
-https://ring-lang.github.io/doc1.16/extension.html
-
 For example the next code in *.c file can be compiled to a DLL file using the Ring library (*.lib)
 
 .. code-block:: c
@@ -2145,7 +2138,7 @@ We have this code generator
 
 https://github.com/ring-lang/ring/blob/master/extensions/codegen/parsec.ring
 
-The code generator is just a Ring program < 1200 lines of Ring code
+The code generator is just a Ring program < 2000 lines of Ring code
 
 The generator take as input a configuration file contains the C/C++ library information
 
@@ -2183,7 +2176,7 @@ I get the generated source code file
 
 https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/ring_allegro.c
 
-The generated source code file (ring_allegro.c) is around 12,000 Lines of code (12 KLOC)
+The generated source code file (ring_allegro.c) is around 13,000 Lines of code (13 KLOC)
 
 While the configuration file is less than 1 KLOC
 
@@ -2233,7 +2226,7 @@ https://github.com/ring-lang/ring/blob/master/extensions/ringqt/gencodeandroid.b
 
 To build the DLL/so/Dylib files
 
-https://github.com/ring-lang/ring/blob/master/extensions/ringqt/buildmingw32.bat
+https://github.com/ring-lang/ring/blob/master/extensions/ringqt/buildvc.bat
 
 https://github.com/ring-lang/ring/blob/master/extensions/ringqt/buildgcc.sh
 
