@@ -543,6 +543,7 @@ More Improvements
 * RingLibuv - The implementation of the internal uv_new_mutex() function has been revised
 * RingLibuv - Support compilation on Linux with GCC 14/Clang 19+
 * RingLibSDL - Support compilation on Linux with GCC 14/Clang 19+
+* RingThreads - Support Windows (32bit/64bit), Linux & macOS
 * CMakeLists.txt - Require version 3.16 and improve OS detection messages
 * language/README_CMake.md - Better documentation for build instructions
 * Ring Compiler - Scanner - Support repeating stars in multi-line comments
