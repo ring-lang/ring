@@ -7,9 +7,7 @@ Threads Extension
 
 In this chapter we will learn about using the Threads extension.
 
-Supported platforms: Windows (32bit), Linux & macOS
-
-If you are developing for Windows (64bit), Use threads from other extensions like GameLib (RingAllegro) or RingLibuv.
+Supported platforms: Windows (32bit/64bit), Linux & macOS
 
 .. index:: 
 	pair: Threads; Creating Threads
