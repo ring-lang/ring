@@ -262,7 +262,8 @@ winApp1 =New qapp
 
     win1 = new qMainWindow()
     {
-    
+
+        setWinIcon(self,"appicon.png")    
         ###--------------------------------------------
         ### FILTERS 
          
