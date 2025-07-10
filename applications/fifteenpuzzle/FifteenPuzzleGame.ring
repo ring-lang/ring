@@ -739,7 +739,7 @@ func draw
 		begin(picture)        
 		setpen(pen)
 		oFont = new qfont("Courier New",12,75,0)
-		oFont.setpointsize(20)
+		oFont.setpointsize(15)
 		setfont(oFont)
 		if n_degree = 0
 			if btn_degree[empty] [1]="In" p1 = -8 p2=0 
