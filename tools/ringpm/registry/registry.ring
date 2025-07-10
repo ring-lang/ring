@@ -802,5 +802,9 @@ aPackagesRegistry = [
 	[ :name = "toml",
           :description = "A comprehensive TOML parser extension for the Ring programming language",
           :ProviderUserName = "ysdragon"
-        ]
+        ],
+	[ :name = "snakesandladders2",
+	  :description = "SnakesAndLadders2 Game for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	]
 ]
