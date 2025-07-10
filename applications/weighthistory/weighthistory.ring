@@ -25,7 +25,7 @@ class App
 		layoutButtons = new qhboxlayout()
 		{
 			label1 = new qLabel(win1) { setText("Weight") }
-			text1 = new qlineedit(win1)
+			text1 = new qlineedit(win1) { setInputMask("999.99") }
 			btnAdd = new qpushbutton(win1) { 
 					setText("Add") 
 					setClickEvent($ApplicationObject+".AddWeight()") 
