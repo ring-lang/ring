@@ -48,8 +48,8 @@ class TcpServer from ObjectControllerParent
 
   func start()
   {
-    al_init()
-    accept_thread = al_create_thread(Method(:run_accept))
+    accept_thread = new_thrd_t()
+    thrd_create(accept_thread,Method(:run_accept))
   }
 
   func run_accept()

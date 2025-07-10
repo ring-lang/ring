@@ -23,9 +23,9 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 load "stdlibcore.ring"
-load "guilib.ring"
+load "lightguilib.ring"
 load "objectslib.ring"
-load "gamelib.ring"
+load "threads.ring"
 load "sockets.ring"
 
 load "TcpServer.ring"
