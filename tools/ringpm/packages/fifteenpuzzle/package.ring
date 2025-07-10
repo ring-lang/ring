@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "msfclipper@yahoo.com",
 	:email = "Mahmoud Fayed",
 	:license = "MIT License",
-	:version = "1.0.1",
+	:version = "1.0.2",
 	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.1",
+			:version = "1.0.2",
 			:branch = "master"
 		]
 	],
@@ -31,6 +31,7 @@ aPackageInfo = [
 	],
 	:ringfolderfiles = 	[
 		"applications/fifteenpuzzle/FifteenPuzzleGame.ring",
+		"applications/fifteenpuzzle/fifteen.png",
 		"applications/fifteenpuzzle/README.md"
 	],
 	:windowsfiles = 	[
