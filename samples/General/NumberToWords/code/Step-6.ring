@@ -62,6 +62,7 @@ MyApp = New qApp {
          
          lineedit1 = new qlineedit(win1) {
                setGeometry(10,30,420,30)
+               setInputMask("9999999999999999999999999999999999999999999999999999999999")
          }
          
          show()
