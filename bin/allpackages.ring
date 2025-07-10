@@ -135,7 +135,8 @@ aAllPackagesInfo = [
 		"randomuser",
 		"planetaryorbits",
 		"hourscounter",
-		"imagepixel"
+		"imagepixel",
+		"snakesandladders2"
 	],
 	:ringallegro = 	[
 		"gameengine",
@@ -225,7 +226,8 @@ aAllPackagesInfo = [
 		"randomuser",
 		"planetaryorbits",
 		"hourscounter",
-		"imagepixel"
+		"imagepixel",
+		"snakesandladders2"
 	],
 	:findinfiles = 	[
 		"ringnotepad"
@@ -380,6 +382,9 @@ aAllPackagesInfo = [
 
 	],
 	:cloc = 	[
+
+	],
+	:snakesandladders2 = 	[
 
 	]
 ]
