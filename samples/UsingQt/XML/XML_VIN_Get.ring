@@ -20,9 +20,15 @@ url_request = url + call_type + request
     See "URL Request: "+ url_request +nl
 
 curl_easy_setopt(curl, curlopt_url, url_request)
-response = curl_easy_perform_silent(curl);
+response = curl_easy_perform_silent(curl)
+
+cServerDown = "application is currently undergoing Maintenance"
+if substr(response,cServerDown)
+	? cServerDown
+	return
+ok
     
-    See nl +"Response Raw: "+ response +nl +nl
+See nl +"Response Raw: "+ response +nl +nl
 
 curl_easy_cleanup(curl)
 
