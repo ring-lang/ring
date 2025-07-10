@@ -120,6 +120,8 @@ The next applications are revised:
 * applications/othellogame/OthelloGame.ring 
 * applications/fifteenpuzzle/FifteenPuzzleGame.ring 
 * applications/getquoteshistory/GetQuotesHistoryDraw.ring
+* applications/weighthistory/weighthistory.ring
+* applications/employee/Emp.ring 
 
 The next samples and applications are added:
 
