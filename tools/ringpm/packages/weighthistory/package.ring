@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.0",
+	:version = "1.0.1",
 	:ringversion = "1.10",
 	:versions = 	[
 		[
-			:version = "1.0.0",
+			:version = "1.0.1",
 			:branch = "master"
 		]
 	],
@@ -33,7 +33,9 @@ aPackageInfo = [
 		"applications/weighthistory/main.cpp",
 		"applications/weighthistory/project.qrc",
 		"applications/weighthistory/weighthistory.db",
-		"applications/weighthistory/weighthistory.ring"
+		"applications/weighthistory/weighthistory.ring",
+		"applications/weighthistory/README.md",
+		"applications/weighthistory/icon.png"
 	],
 	:windowsfiles = 	[
 
