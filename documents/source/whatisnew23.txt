@@ -115,15 +115,18 @@ Example:
 Better Applications and Samples
 ===============================
 
-The next applications are revised:
+The next applications and samples are revised:
 
-* applications/othellogame/OthelloGame.ring 
-* applications/fifteenpuzzle/FifteenPuzzleGame.ring 
-* applications/getquoteshistory/GetQuotesHistoryDraw.ring
-* applications/weighthistory/weighthistory.ring
-* applications/employee/Emp.ring 
+* applications/othellogame 
+* applications/fifteenpuzzle 
+* applications/getquoteshistory
+* applications/weighthistory
+* applications/employee
+* samples/UsingQt/XML 
+* samples/General/TimeServer
+* samples/General/NumberToWords/
 
-The next samples and applications are added:
+The next applications and samples are added:
 
 * applications/trianglecalculator
 * samples/UsingLibCurl/t5.ring
