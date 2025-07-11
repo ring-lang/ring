@@ -2,7 +2,7 @@ aLockInfo = [
 	[
 		:name = "ringqt",
 		:branch = "master",
-		:version = "1.0.37",
+		:version = "1.0.38",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -23,14 +23,14 @@ aLockInfo = [
 	[
 		:name = "ringqtruntime",
 		:branch = "master",
-		:version = "1.0.25",
+		:version = "1.0.28",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "guilib",
 		:branch = "master",
-		:version = "1.0.23",
+		:version = "1.0.24",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
