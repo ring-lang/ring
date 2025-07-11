@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.40",
+	:version = "1.0.41",
 	:ringversion = "1.22",
 	:versions = 	[
 		[
-			:version = "1.0.40",
+			:version = "1.0.41",
 			:branch = "master"
 		]
 	],
