@@ -137,7 +137,8 @@ aAllPackagesInfo = [
 		"planetaryorbits",
 		"hourscounter",
 		"imagepixel",
-		"snakesandladders2"
+		"snakesandladders2",
+		"trianglecalculator"
 	],
 	:ringallegro = 	[
 		"gameengine",
@@ -228,7 +229,8 @@ aAllPackagesInfo = [
 		"planetaryorbits",
 		"hourscounter",
 		"imagepixel",
-		"snakesandladders2"
+		"snakesandladders2",
+		"trianglecalculator"
 	],
 	:findinfiles = 	[
 		"ringnotepad"
