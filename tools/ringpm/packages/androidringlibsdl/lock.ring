@@ -2,7 +2,7 @@ aLockInfo = [
 	[
 		:name = "androidringlibsdl",
 		:branch = "master",
-		:version = "1.0.15",
+		:version = "1.0.16",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -16,21 +16,21 @@ aLockInfo = [
 	[
 		:name = "ringallegro",
 		:branch = "master",
-		:version = "1.0.10",
+		:version = "1.0.7",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "codegen",
 		:branch = "master",
-		:version = "1.0.14",
+		:version = "1.0.12",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "ringlibsdl",
 		:branch = "master",
-		:version = "1.0.7",
+		:version = "1.0.5",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -38,6 +38,13 @@ aLockInfo = [
 		:name = "ringzip",
 		:branch = "master",
 		:version = "1.0.8",
+		:providerusername = "ringpackages",
+		:providerwebsite = ""
+	],
+	[
+		:name = "codegen",
+		:branch = "master",
+		:version = "1.0.14",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	]
