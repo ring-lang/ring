@@ -265,6 +265,7 @@ The next samples are added to introduce these features:
 * samples/UsingFastPro/MatrixAllSum.ring
 * samples/UsingFastPro/Mandelbrot.ring
 * samples/UsingFastPro/MugRotation/Mug-Rotation-FastPro.ring
+* samples/UsingFastPro/MandelbrotAnimate/MandelbrotAnimate.ring
 
 .. image:: mugrotationfastpro.png
 	:alt: Mug Rotation
