@@ -40,7 +40,8 @@ aAllPackagesInfo = [
 		"webassemblyringqt",
 		"RandomUser",
 		"libdepwin_allegro528",
-		"randomuser"
+		"randomuser",
+		"ringhelphtml"
 	],
 	:ringopenssl = 	[
 		"stdlib"
