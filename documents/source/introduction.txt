@@ -190,7 +190,7 @@ Ring 1.21 is released on September 1, 2024
 
 Ring 1.22 is released on December 1, 2024
 
-This is Ring 1.23 documentation
+Ring 1.23 is released on July 12, 2025
 
 .. index:: 
 	pair: Introduction; Features
@@ -239,6 +239,7 @@ The Ring language comes with the next features
 * Main Function (Optional - To avoid using the Global Scope)
 * Call Function before the definition (Top-Down Programming)
 * Recursion
+* Optional functions using OptionalFunc() and RingOptionalFunctions list
 * Multi-line literals
 * Access (read/write) string letter by index
 * The list index start by 1
