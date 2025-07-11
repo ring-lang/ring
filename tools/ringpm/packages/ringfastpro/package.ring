@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "",
 	:email = "",
 	:license = "MIT License",
-	:version = "1.0.4",
+	:version = "1.0.5",
 	:ringversion = "1.22",
 	:versions = 	[
 		[
-			:version = "1.0.4",
+			:version = "1.0.5",
 			:branch = "master"
 		]
 	],
@@ -40,6 +40,7 @@ aPackageInfo = [
 		"samples/UsingFastPro/genimage.ring",
 		"samples/UsingFastPro/genimage2.ring",
 		"samples/UsingFastPro/Mandelbrot.ring",
+		"samples/UsingFastPro/MandelbrotAnimate/MandelbrotAnimate.ring",
 		"samples/UsingFastPro/ManyAddSubMulDivSerialPowRem.ring",
 		"samples/UsingFastPro/Matrix2DDotProduct.ring",
 		"samples/UsingFastPro/MatrixAddSubMul.ring",
