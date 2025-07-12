@@ -2,11 +2,11 @@
 		["Ring 1.23 All Platforms",[
 						 [
 							'<a href="https://github.com/ring-lang/ring/releases/download/v1.23/Ring_1.23_Windows_32bit.exe"  >Ring 1.23 For Windows (32bit)</a>',
-							'423 MB'						
+							'414 MB'						
 						 ],
 						 [
 							'<a href="https://github.com/ring-lang/ring/releases/download/v1.23/Ring_1.23_Windows_64bit.exe"  >Ring 1.23 For Windows (64bit)</a>',
-							'414 MB'						
+							'423 MB'						
 						 ],
 						 [
 							'<a href="https://github.com/ring-lang/ring/releases/download/v1.23/Ring_1.23_Ubuntu.zip">Ring 1.23 For Ubuntu Linux (64bit)</a>',
