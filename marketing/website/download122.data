@@ -1,0 +1,45 @@
+﻿aDownload = [
+		["Ring 1.22 All Platforms",[
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.22/Ring_1.22_Windows_32bit.exe"  >Ring 1.22 For Windows (32bit)</a>',
+							'406 MB'						
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.22/Ring_1.22_Windows_64bit.exe"  >Ring 1.22 For Windows (64bit)</a>',
+							'418 MB'						
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.22/Ring_1.22_Ubuntu.zip">Ring 1.22 For Ubuntu Linux (64bit)</a>',
+							'439 MB</a>'						
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.22/Ring_1.22_macOS.zip">Ring 1.22 For macOS (64bit)</a>',
+							'445 MB'						
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.22/RingDoc_1.22.pdf">Ring 1.22 Documentation (PDF)</a> ',
+							'54 MB'
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.22/RingDoc_1.22.chm">Ring 1.22 Documentation (CHM)</a>',
+							'53.9 MB'							
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.22/RingDoc_1.22.zip">Ring 1.22 Documentation (HTML)</a>',
+							'57.1 MB'							
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.22/Ring_1.22_LightRelease_Windows_Binary_64bit.zip">Ring 1.22 (Light Release - Windows Binary - 64bit)</a>',
+							'6.2 MB'
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.22/Ring_1.22_LightRelease_SourceCode.zip">Ring 1.22 (Light Release - Source Code - All Platforms)</a>',
+							'2.9 MB'
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.22/Ring_1.22_MSDOS.zip">Ring 1.22 For MS-DOS</a>',
+							'497 KB</a>'						
+						 ]
+			]
+		]
+]
