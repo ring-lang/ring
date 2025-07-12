@@ -80,12 +80,12 @@
 			Ring comes with better support for Natural Language Programming and Declarative Programming. The language support these paradigms with new practical techniques on the top of Object-Oriented Programming and Functional Programming. No need to know anything about (Compilers and Parsing). You get the language constructs ready for use to create domain-specific languages in a fraction of time.
 			</p>
 
-			<a id="ringarticle"  href="doc1.22/introduction.html#motivation-1"  class="btn btn-default"  style="width:100%">Aim</a> 			
-			<a id="ringarticle"  href="doc1.22/languagedesign.html"  class="btn btn-default"  style="width:100%">Ring Article</a> 
-			<a id="ringarticle4" href="doc1.22/syntaxflexibility.html"  class="btn btn-default"  style="width:100%">Syntax Flexibility</a> 
-			<a id="ringarticle5" href="doc1.22/declarative.html"  class="btn btn-default"  style="width:100%">The Declarative Approach</a> 
-			<a id="ringarticle3" href="doc1.22/natural.html"  class="btn btn-default"  style="width:100%">Natural Language Programming</a> 
-			<a id="ringarticle2" href="doc1.22/naturallibrary.html"  class="btn btn-default"  style="width:100%">Natural Language Programming Library</a> 
+			<a id="ringarticle"  href="doc1.23/introduction.html#motivation-1"  class="btn btn-default"  style="width:100%">Aim</a> 			
+			<a id="ringarticle"  href="doc1.23/languagedesign.html"  class="btn btn-default"  style="width:100%">Ring Article</a> 
+			<a id="ringarticle4" href="doc1.23/syntaxflexibility.html"  class="btn btn-default"  style="width:100%">Syntax Flexibility</a> 
+			<a id="ringarticle5" href="doc1.23/declarative.html"  class="btn btn-default"  style="width:100%">The Declarative Approach</a> 
+			<a id="ringarticle3" href="doc1.23/natural.html"  class="btn btn-default"  style="width:100%">Natural Language Programming</a> 
+			<a id="ringarticle2" href="doc1.23/naturallibrary.html"  class="btn btn-default"  style="width:100%">Natural Language Programming Library</a> 
 			<a id="ringpwct"     href="https://github.com/PWCT/pwct2"  class="btn btn-default"  style="width:100%">Programming Without Coding Technology (PWCT)</a> 
 		
 			
@@ -1923,22 +1923,22 @@ aList = "nice"
 	</div>
 	<div class="row">
 			<div class="col-md-3">
-				<a href="doc1.22/usingopengl2.html">
+				<a href="doc1.23/usingopengl2.html">
 				<img src="libs_opengl.png">
 				</a>
 			</div>
 			<div class="col-md-3">
-				<a href="doc1.22/usingopengl.html">
+				<a href="doc1.23/usingopengl.html">
 				<img src="libs_freeglut.png">
 				</a>
 			</div>
 			<div class="col-md-3">
-				<a href="doc1.22/qt.html">
+				<a href="doc1.23/qt.html">
 				<img src="libs_qt.png">
 				</a>
 			</div>
 			<div class="col-md-3">
-				<a href="doc1.22/qtwebassembly.html">
+				<a href="doc1.23/qtwebassembly.html">
 				<img src="libs_wa.png">
 				</a>
 			</div>
@@ -1946,22 +1946,22 @@ aList = "nice"
 	</div>
 	<div class="row">
 			<div class="col-md-3">
-				<a href="doc1.22/allegro.html">
+				<a href="doc1.23/allegro.html">
 				<img src="libs_allegro.png">
 				</a>
 			</div>
 			<div class="col-md-3">
-				<a href="doc1.22/libsdl.html">
+				<a href="doc1.23/libsdl.html">
 				<img src="libs_sdl.png">
 				</a>
 			</div>
 			<div class="col-md-3">
-				<a href="doc1.22/ringraylib.html">
+				<a href="doc1.23/ringraylib.html">
 				<img src="libs_raylib.png">
 				</a>
 			</div>
 			<div class="col-md-3">
-				<a href="doc1.22/tilengine.html">
+				<a href="doc1.23/tilengine.html">
 				<img src="libs_tilengine.png">
 				</a>
 			</div>
@@ -1969,22 +1969,22 @@ aList = "nice"
 	</div>
 	<div class="row">
 			<div class="col-md-3">
-				<a href="doc1.22/web.html">
+				<a href="doc1.23/web.html">
 				<img src="libs_apache.png">
 				</a>
 			</div>
 			<div class="col-md-3">
-				<a href="doc1.22/secfunc.html">
+				<a href="doc1.23/secfunc.html">
 				<img src="libs_openssl.png">
 				</a>
 			</div>
 			<div class="col-md-3">
-				<a href="doc1.22/libcurl.html">
+				<a href="doc1.23/libcurl.html">
 				<img src="libs_curl.png">
 				</a>
 			</div>
 			<div class="col-md-3">
-				<a href="doc1.22/libuv.html">
+				<a href="doc1.23/libuv.html">
 				<img src="libs_libuv.png">
 				</a>
 			</div>
@@ -1992,22 +1992,22 @@ aList = "nice"
 	</div>
 	<div class="row">
 			<div class="col-md-3">
-				<a href="doc1.22/odbc.html">
+				<a href="doc1.23/odbc.html">
 				<img src="libs_odbc.png">
 				</a>
 			</div>
 			<div class="col-md-3">
-				<a href="doc1.22/sqlite.html">
+				<a href="doc1.23/sqlite.html">
 				<img src="libs_sqlite.png">
 				</a>
 			</div>
 			<div class="col-md-3">
-				<a href="doc1.22/mysql.html">
+				<a href="doc1.23/mysql.html">
 				<img src="libs_mysql.png">
 				</a>
 			</div>
 			<div class="col-md-3">
-				<a href="doc1.22/postgresql.html">
+				<a href="doc1.23/postgresql.html">
 				<img src="libs_postgresql.png">
 				</a>
 			</div>
