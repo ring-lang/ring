@@ -41,6 +41,8 @@ However, the design of PWCT is influenced by projects such as Lava, Forms/3, Lim
 
 * **Self-hosting VPL:** A complete version of PWCT2, developed using PWCT2 (see folder: pwct2/selfhosting)
 
+* **Arabic Translation:** A complete Arabic version of PWCT2 (ring pwct.ring arabic)
+
 These features and different modes are designed to accommodate various programming preferences. If you prefer textual programming, simply write code. If you prefer visual programming through the mouse or keyboard, those options are available as well.
 
 # 🚀 Running PWCT 2.0 from Source Code (Windows/Linux/macOS)
