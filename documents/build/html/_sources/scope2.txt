@@ -24,7 +24,7 @@ How Ring find the Functions and Methods?
 
 When you call a method or function, Ring will start a search process to find this function
 
-If found --> Call the function and store the function pointer in the cache so Ring can use it again with doing another search.
+If found --> Call the function and store the function pointer in the cache so Ring can use it again when doing another search.
 
 If not found ---> Runtime error message (That you can avoid using Try/Catch)
 
