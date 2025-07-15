@@ -4,7 +4,7 @@ In this folder we have the Ring website files
 http://ring-lang.net
 
 Please never modify the html files directly because these files are generated
-automatically from templates by the Ring script (source/build.ring)
+automatically from templates using a simple Ring program
 
 To modify the data in the website just modify the data files in the source folder
 
