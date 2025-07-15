@@ -75,7 +75,7 @@
 		/* Pool Manager */
 		PoolManager vPoolManager  ;
 	} RingState ;
-	#define RING_STATE_VERSION "1.23"
+	#define RING_STATE_VERSION "1.24"
 	#define RING_STATE_VERSIONANDPATCH (RING_STATE_VERSION ".0")
 	#define RING_WARNING_UNKNOWNOPTION "Warning (W1): Unrecognized option: "
 	#define RING_WARNING_DUPLICATIONINFILENAME "Warning (W2) : Duplication in file name : "
