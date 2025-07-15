@@ -192,6 +192,8 @@ Ring 1.22 is released on December 1, 2024
 
 Ring 1.23 is released on July 12, 2025
 
+This is Ring 1.24 documentation!
+
 .. index:: 
 	pair: Introduction; Features
 
@@ -330,7 +332,7 @@ License
 
 The Ring Programming Language
 
-Version 1.23.0
+Version 1.24.0
 
 The MIT License (MIT)
 
