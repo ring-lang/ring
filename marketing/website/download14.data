@@ -3,17 +3,17 @@ aDownload = [
 						 [
 							'Ring 1.4 (All Platforms)',
 							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.4/Fayed_Ring_1.4_All_Platforms.zip/download" target="_blank">Download</a>',
-							'<img src="ring14.jpg" width="40%">'
+							'<img src="images/ring14.jpg" width="40%">'
 						 ],
 						 [
 							'Ring 1.4 Documentation (PDF)',
 							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.4/Fayed_RingDoc_1.4.pdf/download" target="_blank">Download</a>',
-							'<img src="book9.jpg" width="40%">'
+							'<img src="images/book9.jpg" width="40%">'
 						 ],
 						 [
 							'Ring 1.4 Documentation (CHM)',
 							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.4/Fayed_RingDoc_1.4.chm/download" target="_blank">Download</a>',
-							'<img src="book10.jpg" width="40%">'
+							'<img src="images/book10.jpg" width="40%">'
 						 ]
 			]
 		]

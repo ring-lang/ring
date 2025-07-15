@@ -1,45 +1,45 @@
 ﻿aTeam = [
 		[
 			'Mahmoud Samir Fayed<br/>Software Developer (The Creator of Ring)',
-			'<img src="fayed.jpg" width="150" height="170">'
+			'<img src="images/fayed.jpg" width="150" height="170">'
 		],
 		[
 			'Bert Mariani<br/>Software Developer (Applications Master)',
-			'<img src="UmbertoMariani.png" width="150" height="170">'
+			'<img src="images/UmbertoMariani.png" width="150" height="170">'
 		],
 		[
 			'Ahmed Hassouna<br/>Software Developer (Training Master)',
-			'<img src="AhmedHassouna.jpg" width="150" height="170">'
+			'<img src="images/AhmedHassouna.jpg" width="150" height="170">'
 		],
 		[
 			'Mansour Ayouni<br/>Software Developer (Writing Master)',
-			'<img src="mansour.jpg" width="150" height="170">'
+			'<img src="images/mansour.jpg" width="150" height="170">'
 		],
 		[
 			'Majdi Sobain<br/>Software Developer (Extensions Master)',
-			'<img src="majdi.jpg" width="150" height="170">'
+			'<img src="images/majdi.jpg" width="150" height="170">'
 		]
 ]
 aManyThanks = [
 		[
 			'Gal Zsolt',
-			'<img src="GalZsolt.png" width="150" height="170">'
+			'<img src="images/GalZsolt.png" width="150" height="170">'
 		],
 		[
 			'José Rosado',
-			'<img src="jose.jpg" width="150" height="170">'
+			'<img src="images/jose.jpg" width="150" height="170">'
 		],
 		[
 			'Marino Esteban',
-			'<img src="marino.jpg" width="150" height="170">'
+			'<img src="images/marino.jpg" width="150" height="170">'
 		],
 		[
 			'Ahmed Baryyan',
-			'<img src="ahmedbarayan1.jpg" width="150" height="170">'
+			'<img src="images/ahmedbarayan1.jpg" width="150" height="170">'
 		],
 		[
 			'Amin Najah',
-			'<img src="amine.jpg" width="150" height="170">'
+			'<img src="images/amine.jpg" width="150" height="170">'
 		]				  
 ]
 aTopContributors = [

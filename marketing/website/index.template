@@ -142,7 +142,7 @@
 					<div class="carousel-inner" role="listbox">
 
 					  <div class="item active">
-						<img src="newringdemo1.png" alt="" width="1366" height="729">
+						<img src="images/newringdemo1.png" alt="" width="1366" height="729">
 						<div class="carousel-caption">
 						  <h3></h3>
 						  <p></p>
@@ -151,7 +151,7 @@
 
 					 
 					  <div class="item">
-						<img src="newringdemo2.png" alt="" width="1366" height="729">
+						<img src="images/newringdemo2.png" alt="" width="1366" height="729">
 						<div class="carousel-caption">
 						  <h3></h3>
 						  <p></p>
@@ -206,7 +206,7 @@
 					<div class="carousel-inner" role="listbox">
 
 					  <div class="item active">
-						<img src="newringdemo6.png" alt="" width="1366" height="729">
+						<img src="images/newringdemo6.png" alt="" width="1366" height="729">
 						<div class="carousel-caption">
 						  <h3></h3>
 						  <p></p>
@@ -214,7 +214,7 @@
 					  </div>
 
 					  <div class="item">
-						<img src="newringdemo5.png" alt="" width="1366" height="729">
+						<img src="images/newringdemo5.png" alt="" width="1366" height="729">
 						<div class="carousel-caption">
 						  <h3></h3>
 						  <p></p>
@@ -273,7 +273,7 @@
 					<div class="carousel-inner" role="listbox">
 
 					  <div class="item active">
-						<img src="ringdemo13.png" alt="" width="1366" height="729">
+						<img src="images/ringdemo13.png" alt="" width="1366" height="729">
 						<div class="carousel-caption">
 						  <h3></h3>
 						  <p></p>
@@ -281,7 +281,7 @@
 					  </div>		
 
 					  <div class="item">
-						<img src="goldmagic800.png" alt="" width="1366" height="729">
+						<img src="images/goldmagic800.png" alt="" width="1366" height="729">
 						<div class="carousel-caption">
 						  <h3></h3>
 						  <p></p>
@@ -289,7 +289,7 @@
 					  </div>
 					  
 					  <div class="item">
-						<img src="sokobangamecode.png" alt="" width="1366" height="729">
+						<img src="images/sokobangamecode.png" alt="" width="1366" height="729">
 						<div class="carousel-caption">
 						  <h3></h3>
 						  <p></p>
@@ -345,7 +345,7 @@
 					<div class="carousel-inner" role="listbox">
 
 					  <div class="item active">
-						<img src="wasm_demo4.png" alt="" width="1366" height="729">
+						<img src="images/wasm_demo4.png" alt="" width="1366" height="729">
 						<div class="carousel-caption">
 						  <h3></h3>
 						  <p></p>
@@ -353,7 +353,7 @@
 					  </div>					
 					
 					  <div class="item ">
-						<img src="wasm_demo1.png" alt="" width="1366" height="729">
+						<img src="images/wasm_demo1.png" alt="" width="1366" height="729">
 						<div class="carousel-caption">
 						  <h3></h3>
 						  <p></p>
@@ -361,7 +361,7 @@
 					  </div>
 
 					  <div class="item">
-						<img src="wasm_demo2.png" alt="" width="1366" height="729">
+						<img src="images/wasm_demo2.png" alt="" width="1366" height="729">
 						<div class="carousel-caption">
 						  <h3></h3>
 						  <p></p>
@@ -369,7 +369,7 @@
 					  </div>
 
 					  <div class="item">
-						<img src="wasm_demo3.png" alt="" width="1366" height="729">
+						<img src="images/wasm_demo3.png" alt="" width="1366" height="729">
 						<div class="carousel-caption">
 						  <h3></h3>
 						  <p></p>
@@ -377,7 +377,7 @@
 					  </div>
 
 					<div class="item">
-						<img src="wasm_demo5.png" alt="" width="1366" height="729">
+						<img src="images/wasm_demo5.png" alt="" width="1366" height="729">
 						<div class="carousel-caption">
 						  <h3></h3>
 						  <p></p>
@@ -434,7 +434,7 @@
 					<div class="carousel-inner" role="listbox">
 
 					  <div class="item active">
-						<img src="mycoffee.png" alt="" width="1366" height="729">
+						<img src="images/mycoffee.png" alt="" width="1366" height="729">
 						<div class="carousel-caption">
 						  <h3></h3>
 						  <p></p>
@@ -442,7 +442,7 @@
 					  </div>
 					  
 					  <div class="item">
-						<img src="newringdemo9.png" alt="" width="1366" height="729">
+						<img src="images/newringdemo9.png" alt="" width="1366" height="729">
 						<div class="carousel-caption">
 						  <h3></h3>
 						  <p></p>
@@ -450,7 +450,7 @@
 					  </div>
 
 					  <div class="item">
-						<img src="newringdemo12.png" alt="" width="1366" height="729">
+						<img src="images/newringdemo12.png" alt="" width="1366" height="729">
 						<div class="carousel-caption">
 						  <h3></h3>
 						  <p></p>
@@ -501,7 +501,7 @@
 					<div class="carousel-inner" role="listbox">
 
 					<div class="item active">
-						<img src="android_demo1.png" alt="" width="1366" height="729">
+						<img src="images/android_demo1.png" alt="" width="1366" height="729">
 						<div class="carousel-caption">
 						  <h3></h3>
 						  <p></p>
@@ -510,7 +510,7 @@
 
 					
 					  <div class="item">
-						<img src="android_demo3.png" alt="" width="1366" height="729">
+						<img src="images/android_demo3.png" alt="" width="1366" height="729">
 						<div class="carousel-caption">
 						  <h3></h3>
 						  <p></p>
@@ -567,7 +567,7 @@
 					<div class="carousel-inner" role="listbox">
 
 					  <div class="item active">
-						<img src="cmddemo2.png" alt="" width="1345" height="679">
+						<img src="images/cmddemo2.png" alt="" width="1345" height="679">
 						<div class="carousel-caption">
 						  <h3></h3>
 						  <p></p>
@@ -575,7 +575,7 @@
 					  </div>
 	
 					  <div class="item">
-						<img src="cmddemo3.png" alt="" width="1345" height="679">
+						<img src="images/cmddemo3.png" alt="" width="1345" height="679">
 						<div class="carousel-caption">
 						  <h3></h3>
 						  <p></p>
@@ -1408,7 +1408,7 @@ Byte Code - Before Execution by the VM
     <div class="carousel-inner" role="listbox">
 
       <div class="item active">
-        <img src="ringvisualsrc1.jpg" alt="" width="1366" height="729">
+        <img src="images/ringvisualsrc1.jpg" alt="" width="1366" height="729">
         <div class="carousel-caption">
           <h3></h3>
           <p></p>
@@ -1416,7 +1416,7 @@ Byte Code - Before Execution by the VM
       </div>
 
       <div class="item">
-        <img src="ringvisualsrc2.jpg" alt="" width="1366" height="729">
+        <img src="images/ringvisualsrc2.jpg" alt="" width="1366" height="729">
         <div class="carousel-caption">
           <h3></h3>
           <p></p>
@@ -1547,7 +1547,7 @@ aList = "nice"
     <div class="carousel-inner" role="listbox">
 
       <div class="item active">
-        <img src="ringdemo1_speed.png" alt="" width="1366" height="729">
+        <img src="images/ringdemo1_speed.png" alt="" width="1366" height="729">
         <div class="carousel-caption">
           <h3></h3>
           <p></p>
@@ -1555,7 +1555,7 @@ aList = "nice"
       </div>
 
       <div class="item">
-        <img src="ringdemo2_speed.png" alt="" width="1366" height="729">
+        <img src="images/ringdemo2_speed.png" alt="" width="1366" height="729">
         <div class="carousel-caption">
           <h3></h3>
           <p></p>
@@ -1563,7 +1563,7 @@ aList = "nice"
       </div>
     
       <div class="item">
-        <img src="ringdemo3_speed.png" alt="" width="1366" height="729">
+        <img src="images/ringdemo3_speed.png" alt="" width="1366" height="729">
         <div class="carousel-caption">
           <h3></h3>
           <p></p>
@@ -1571,7 +1571,7 @@ aList = "nice"
       </div>
 
       <div class="item">
-        <img src="ringdemo4_speed.png" alt="" width="1366" height="729">
+        <img src="images/ringdemo4_speed.png" alt="" width="1366" height="729">
         <div class="carousel-caption">
           <h3></h3>
           <p></p>
@@ -1851,7 +1851,7 @@ aList = "nice"
 		<div>
 			<br>
 			<a href="https://github.com/ring-lang/ring/releases/download/v1.23/RingDoc_1.23.pdf">
-			<img src="ringbookbyfayed.png" width="250" height="370">
+			<img src="images/ringbookbyfayed.png" width="250" height="370">
 			</a>
 			<br>
 			<br>
@@ -1861,7 +1861,7 @@ aList = "nice"
 		<div>
 			<br>
 			<a href="https://www.mdpi.com/2079-9292/13/23/4627">
-			<img src="ringpaper.png" width="250" height="370">
+			<img src="images/ringpaper.png" width="250" height="370">
 			</a>
 			<br>
 			<br>
@@ -1871,7 +1871,7 @@ aList = "nice"
 		<div>
 			<br>
 			<a href="https://www.mdpi.com/2076-3417/15/3/1521">
-			<img src="pwct2paper.png" width="250" height="370">
+			<img src="images/pwct2paper.png" width="250" height="370">
 			</a>
 			<br>
 			<br>
@@ -1881,7 +1881,7 @@ aList = "nice"
 		<div>
 			<br>
 			<a href="https://www.apress.com/gp/book/9781484258323">
-			<img src="ringbookbyapress.png" width="250" height="370">
+			<img src="images/ringbookbyapress.png" width="250" height="370">
 			</a>
 			<br>
 			<br>
@@ -1924,22 +1924,22 @@ aList = "nice"
 	<div class="row">
 			<div class="col-md-3">
 				<a href="doc1.23/usingopengl2.html">
-				<img src="libs_opengl.png">
+				<img src="images/libs_opengl.png">
 				</a>
 			</div>
 			<div class="col-md-3">
 				<a href="doc1.23/usingopengl.html">
-				<img src="libs_freeglut.png">
+				<img src="images/libs_freeglut.png">
 				</a>
 			</div>
 			<div class="col-md-3">
 				<a href="doc1.23/qt.html">
-				<img src="libs_qt.png">
+				<img src="images/libs_qt.png">
 				</a>
 			</div>
 			<div class="col-md-3">
 				<a href="doc1.23/qtwebassembly.html">
-				<img src="libs_wa.png">
+				<img src="images/libs_wa.png">
 				</a>
 			</div>
 			<br>
@@ -1947,22 +1947,22 @@ aList = "nice"
 	<div class="row">
 			<div class="col-md-3">
 				<a href="doc1.23/allegro.html">
-				<img src="libs_allegro.png">
+				<img src="images/libs_allegro.png">
 				</a>
 			</div>
 			<div class="col-md-3">
 				<a href="doc1.23/libsdl.html">
-				<img src="libs_sdl.png">
+				<img src="images/libs_sdl.png">
 				</a>
 			</div>
 			<div class="col-md-3">
 				<a href="doc1.23/ringraylib.html">
-				<img src="libs_raylib.png">
+				<img src="images/libs_raylib.png">
 				</a>
 			</div>
 			<div class="col-md-3">
 				<a href="doc1.23/tilengine.html">
-				<img src="libs_tilengine.png">
+				<img src="images/libs_tilengine.png">
 				</a>
 			</div>
 			<br>
@@ -1970,22 +1970,22 @@ aList = "nice"
 	<div class="row">
 			<div class="col-md-3">
 				<a href="doc1.23/web.html">
-				<img src="libs_apache.png">
+				<img src="images/libs_apache.png">
 				</a>
 			</div>
 			<div class="col-md-3">
 				<a href="doc1.23/secfunc.html">
-				<img src="libs_openssl.png">
+				<img src="images/libs_openssl.png">
 				</a>
 			</div>
 			<div class="col-md-3">
 				<a href="doc1.23/libcurl.html">
-				<img src="libs_curl.png">
+				<img src="images/libs_curl.png">
 				</a>
 			</div>
 			<div class="col-md-3">
 				<a href="doc1.23/libuv.html">
-				<img src="libs_libuv.png">
+				<img src="images/libs_libuv.png">
 				</a>
 			</div>
 			<br>
@@ -1993,22 +1993,22 @@ aList = "nice"
 	<div class="row">
 			<div class="col-md-3">
 				<a href="doc1.23/odbc.html">
-				<img src="libs_odbc.png">
+				<img src="images/libs_odbc.png">
 				</a>
 			</div>
 			<div class="col-md-3">
 				<a href="doc1.23/sqlite.html">
-				<img src="libs_sqlite.png">
+				<img src="images/libs_sqlite.png">
 				</a>
 			</div>
 			<div class="col-md-3">
 				<a href="doc1.23/mysql.html">
-				<img src="libs_mysql.png">
+				<img src="images/libs_mysql.png">
 				</a>
 			</div>
 			<div class="col-md-3">
 				<a href="doc1.23/postgresql.html">
-				<img src="libs_postgresql.png">
+				<img src="images/libs_postgresql.png">
 				</a>
 			</div>
 			<br>
