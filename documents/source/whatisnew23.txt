@@ -554,11 +554,11 @@ More Improvements
 * language/README_CMake.md - Better documentation for build instructions
 * Ring Compiler - Scanner - Support repeating stars in multi-line comments
 * Ring Compiler - Using & to return item reference is supported only after Return 
-* Ring VM - Save/Restore pParser->lFuncCallOnly when using anonymous function
-* Ring VM - The ~ operator precedence is revised to follow the documentation
+* Ring Compiler - Save/Restore pParser->lFuncCallOnly when using anonymous function
+* Ring Compiler - The ~ operator precedence is revised to follow the documentation
 * Ring VM - Check for a scope ID overflow and reset any associated instructions
 * Ring VM - Uninitialized variable - Correct error message when name contains underscores
 * Ring VM - ring_vm_retitemref() - Better implementation (used by Return &)
-* Ring VM - ring_hashtable_rebuild_gc() - Faster implementation
-* Ring VM - ring_state_realloc() - Using RING_MEMCPY
+* Ring Compiler/VM - ring_hashtable_rebuild_gc() - Faster implementation
+* Ring Compiler/VM - ring_state_realloc() - Using RING_MEMCPY
 * Ring Compiler/VM - Use GC functions for internal HashTable operations
