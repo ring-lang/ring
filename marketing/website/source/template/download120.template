@@ -1,2 +1,2 @@
-﻿<%  eval(read("download120.data"))   %>
+﻿<%  eval(read("data/download120.data"))   %>
 <%= read("downloadfiles.template") %>

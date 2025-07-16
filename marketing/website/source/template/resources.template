@@ -1,4 +1,4 @@
-  <%  eval(read("applications.data"))  %>
+  <%  eval(read("data/applications.data"))  %>
 
   <% nAppsCount = 0 
 	 for aGroup in aApplications 
@@ -56,7 +56,7 @@
   </div>  
 
 
-  <%  eval(read("resources.data"))  %>
+  <%  eval(read("data/resources.data"))  %>
 
   <% nResourcesCount = 0 
 	 for aGroup in aResources

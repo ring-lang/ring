@@ -1,4 +1,4 @@
-﻿  <% eval(read("team.data"))  %>
+﻿  <% eval(read("data/team.data"))  %>
   <div id="team" class="panel-group">
     <div class="panel panel-default">
       <div class="panel-heading"><h4>Ring Team <span class="badge"><%= len(aTeam) %></span></h4></div>
