@@ -6,12 +6,12 @@ http://ring-lang.net
 Please never modify the html files directly because these files are generated
 automatically from templates using a simple Ring program
 
-To modify the data in the website just modify the data files in the source folder
+To modify the data in the website just modify the data files in the source/data folder
 
-To modify the representation/style just modify the template files in the source folder
+To modify the representation/style just modify the template files in the source/template folder
 
 After modifying data/template files run the source/build.bat file
-to generate the HTML files (This will run build.ring)
+to generate the HTML files (This will run source/build.ring)
 
 ## Advantages
 
