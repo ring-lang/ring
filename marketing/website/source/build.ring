@@ -6,7 +6,7 @@
 */
 
 # Load the pages list from the pages.data file!
-eval(read("pages.data"))
+eval(read("data/pages.data"))
 
 # Message after finishing an operation
 C_DONE = "Done..." + nl
@@ -21,8 +21,9 @@ Func Main
 	cFooter = read(C_FOOTER)
 	for x in aPages	
 		checkfile(x)
-		createPage(cHeader,x,cFooter,
-			   substr(x,".template",".html"))
+		cHTMLFile = substr(x,".template",".html")
+		cHTMLFile = substr(cHTMLFile,"template/","")
+		createPage(cHeader,x,cFooter,cHTMLFile)
 	next
 	See C_DONE
 
