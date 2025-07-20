@@ -43,9 +43,12 @@ func List2JSON aList
 	if ! isList(aList) 
 		raise(C_ERROR_EXPECTALIST)
 	ok
-	cOutput = "{" + nl
-	cOutput += List2JSON_process(aList,1)
-	cOutput += "}"
+	cOutput = List2JSON_process(aList,1)
+	cTrimOut = trimAll(cOutput)
+	if cTrimOut and cTrimOut[1] = "[" 
+			return cOutput
+	ok
+	cOutput = "{" + nl + cOutput + "}"
 	return cOutput
 
 func List2JSON_process aList,nTabs 
