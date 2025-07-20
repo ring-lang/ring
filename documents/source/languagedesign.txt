@@ -613,11 +613,11 @@ After the second line directly, The list [1,2,3,4,5] will be deleted from the me
 No Global Interpreter (VM) Lock - No GIL
 ========================================
 
-When we use threads in Ring applications, We don't have global interpreter (VM) lock (No GIL)
+When we use threads in Ring applications, We don't have Global Interpreter Lock (No GIL)
 
 So threads can work in parallel and execute Ring instructions at the same time
 
-This is better for threads and concurrency (More Faster!)
+This enables true parallelism for faster multi-threaded execution
 
 .. index:: 
 	pair: Language Design; Fast Enough For Many Applications

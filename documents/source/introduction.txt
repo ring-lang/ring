@@ -322,7 +322,7 @@ The Ring language comes with the next features
 * RingRogueUtil Extension
 * RingPDFGen
 * RingPico - Support Raspberry Pi Pico Microcontroller
-* No Global Interpreter (VM) lock (No GIL) - Better for threads and concurrency (Faster)
+* No Global Interpreter Lock (Enables true parallelism for faster multi-threaded execution)
 * Comes with RingPM (Package Manager)
 * Many Samples and Applications
 * Complete Documentation.
