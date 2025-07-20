@@ -15,7 +15,18 @@ List of changes and new features
 
 Ring 1.24 comes with the next features!
 
+* More Samples
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring  1.24; More Samples
+
+More Samples
+============
+
+The next samples are added:
+
+* ring/samples/UsingJSONLib/test12.ring
 
 .. index:: 
 	pair: What is new in Ring  1.24; More Improvements
@@ -23,5 +34,6 @@ Ring 1.24 comes with the next features!
 More Improvements
 =================
 
+* JSONLib: Handle a case when the input is an array only
 * RingLibCurl: ring_curl_simple_getinfo_1() function - Remove unnecessary free() 
  
