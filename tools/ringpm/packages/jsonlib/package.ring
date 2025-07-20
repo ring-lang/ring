@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "",
 	:email = "",
 	:license = "MIT License",
-	:version = "1.0.14",
-	:ringversion = "1.21",
+	:version = "1.0.15",
+	:ringversion = "1.23",
 	:versions = 	[
 		[
-			:version = "1.0.14",
+			:version = "1.0.15",
 			:branch = "master"
 		]
 	],
@@ -56,6 +56,8 @@ aPackageInfo = [
 		"samples/UsingJSONLib/test8.ring",
 		"samples/UsingJSONLib/test9.ring",
 		"samples/UsingJSONLib/test10.ring",
+		"samples/UsingJSONLib/test11.ring",
+		"samples/UsingJSONLib/test12.ring",
 		"tools/ring2exe/libs/jsonlib.ring"
 	],
 	:windowsfiles = 	[
