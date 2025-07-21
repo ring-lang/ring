@@ -17,10 +17,6 @@ func main
         thrd_detach(aThreads[i])
     next
 
-    for i = 1 to THREAD_NUM
-        thrd_join(aThreads[i], :res) 
-    next
-
     thrd_exit(0)
 
 func routine
