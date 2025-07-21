@@ -119,8 +119,7 @@ func startThread(nThread)
 
     if lDebug ? nl+"End of thread: " + nThread ok
 
-    result = 0
-    thrd_exit(result)
+    thrd_exit(0)
 
 class Task 
 

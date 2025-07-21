@@ -52,3 +52,5 @@ func routine
             ok
         ok
     next
+
+    thrd_exit(0)

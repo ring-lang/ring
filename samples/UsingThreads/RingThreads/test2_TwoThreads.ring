@@ -18,6 +18,10 @@ func Hello
 
 	? "Message from the Hello() function"
 
+	thrd_exit(0)
+
 func Hello2
 
 	? "Message from the Hello2() function"
+
+	thrd_exit(0)

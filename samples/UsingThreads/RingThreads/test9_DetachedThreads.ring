@@ -12,7 +12,7 @@ res         = 0
 func main
     
     for i = 1 to THREAD_NUM
-				aThreads[i] = new_thrd_t()
+        aThreads[i] = new_thrd_t()
         thrd_create(aThreads[i],"routine()")
         thrd_detach(aThreads[i])
     next
@@ -27,3 +27,5 @@ func routine
 
     sleep(2)
     ? "Finished execution ."
+
+    thrd_exit(0)

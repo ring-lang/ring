@@ -24,3 +24,5 @@ func Hello x
 	for r=1 to 100
 		? "("+r+") Message from the Hello("+x+") function"
 	next
+
+	thrd_exit(0)

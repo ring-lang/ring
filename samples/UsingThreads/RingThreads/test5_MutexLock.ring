@@ -76,6 +76,7 @@ func deposit(amount)
 	  # unlock to make the critical section available to other threads
 	  mtx_unlock(mutex)
 	
+	  thrd_exit(0)
 
 #  What is a race condition? 
 #

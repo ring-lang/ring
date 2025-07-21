@@ -39,6 +39,8 @@ func fuel_filling
         sleep(1)
     next
 
+    thrd_exit(0)
+
 func car
 
     mtx_lock(mutexFuel)
@@ -53,3 +55,5 @@ func car
     fuel -= 40
     see "Got fuel. Now left:" + fuel + nl
     mtx_unlock(mutexFuel)
+
+    thrd_exit(0)

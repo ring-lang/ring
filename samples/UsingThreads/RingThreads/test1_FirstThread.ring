@@ -10,3 +10,4 @@ func main
 func Hello
 
 	? "Message from the Hello() function"
+	thrd_exit(0)
