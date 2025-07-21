@@ -28,6 +28,10 @@ The next samples are added:
 
 * ring/samples/UsingJSONLib/test12.ring
 
+The next samples are improved
+
+* ring/samples/UsingThreads/RingThreads
+
 .. index:: 
 	pair: What is new in Ring  1.24; More Improvements
 
