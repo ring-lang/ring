@@ -234,11 +234,10 @@
 <span class="k">func</span> <span class="n">Hello</span>
 
         <span class="o">?</span> <span class="s">&quot;Message from the Hello() function&quot;</span>
+
+        <span class="n">thrd_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="more-examples">
-<span id="index-2"></span><h2>More Examples<a class="headerlink" href="#more-examples" title="Permalink to this heading"></a></h2>
 <p>Example (2):</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;threads.ring&quot;</span>
 
@@ -260,9 +259,13 @@
 
         <span class="o">?</span> <span class="s">&quot;Message from the Hello() function&quot;</span>
 
+        <span class="n">thrd_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
 <span class="k">func</span> <span class="n">Hello2</span>
 
         <span class="o">?</span> <span class="s">&quot;Message from the Hello2() function&quot;</span>
+
+        <span class="n">thrd_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example (3):</p>
@@ -285,13 +288,13 @@
 
         <span class="o">?</span> <span class="p">:</span><span class="k">Done</span>
 
-        <span class="n">shutdown</span><span class="p">()</span>
-
 <span class="k">func</span> <span class="n">Hello</span> <span class="n">x</span>
 
         <span class="k">for</span> <span class="n">r</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">100</span>
                 <span class="o">?</span> <span class="s">&quot;Message from the Hello(&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s">&quot;) function&quot;</span>
         <span class="k">next</span>
+
+        <span class="n">thrd_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example (4):</p>
@@ -321,8 +324,14 @@
         <span class="k">for</span> <span class="n">r</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">100</span>
                 <span class="o">?</span> <span class="s">&quot;(&quot;</span><span class="o">+</span><span class="n">r</span><span class="o">+</span><span class="s">&quot;) Message from the Hello(&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s">&quot;) function&quot;</span>
         <span class="k">next</span>
+
+        <span class="n">thrd_exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
+</section>
+<section id="more-examples">
+<span id="index-2"></span><h2>More Examples<a class="headerlink" href="#more-examples" title="Permalink to this heading"></a></h2>
+<p>We have more examples in the ring/samples/UsingThreads/RingThreads folder.</p>
 </section>
 <section id="reference">
 <span id="index-3"></span><h2>Reference<a class="headerlink" href="#reference" title="Permalink to this heading"></a></h2>
