@@ -6,6 +6,7 @@
 #	(1) Using mtx_unlock() before using Exit from While loop 
 #	(2) Using thrd_exit() at the end of thread execution
 #	(3) Enabling the Debug flag & changing THREAD_NUM value to 20
+#	(4) Using Del() to delete tasks from Queue instead of Shifting items
 
 load "stdlibcore.ring"
 load "threads.ring"
@@ -96,9 +97,9 @@ func startThread(nThread)
         end
 
         Task = aTaskQueue[1]
-        for i = 1 to nTaskCount 
-            aTaskQueue[i] = aTaskQueue[i + 1]
-        next
+        # Delete task from queue 
+            del(aTaskQueue,1)
+            aTaskQueue + 0
         nTaskCount--
 
         if Task.taskFunction = :bye 
