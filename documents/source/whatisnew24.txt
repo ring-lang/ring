@@ -26,7 +26,8 @@ More Samples
 
 The next samples are added:
 
-* ring/samples/UsingJSONLib/test12.ring
+* samples/UsingJSONLib/test12.ring
+* samples/UsingJSONLib/test13.ring
 
 The next samples are improved
 
