@@ -810,5 +810,9 @@ aPackagesRegistry = [
 	[ :name = "trianglecalculator",
 	  :description = "TriangleCalculator application for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
-	]
+	],
+	[ :name = "webview",
+          :description = "Create beautiful, cross-platform desktop apps with Ring and web technologies.",
+          :ProviderUserName = "ysdragon"
+        ]
 ]
