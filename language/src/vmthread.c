@@ -73,7 +73,6 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 {
 	RingState *pState  ;
 	pState = ring_vm_createthreadstate(pVM);
-	/* Run the code */
 	ring_state_runcode(pState,cStr);
 	ring_vm_deletethreadstate(pVM,pState);
 }

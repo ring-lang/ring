@@ -17,13 +17,9 @@ Type: CFunction *
 pCFunc, *pCFunc2
 Type: unsigned int
 x, y
-ring_vm_bytecodefornewthread
-Type: int
-x,y,nSize,nType
-Type: ByteCode *
-pByteCode
-Type: char *
-pString
+ring_vm_runcodefromthread
+Type: RingState *
+pState
 ring_vm_createthreadstate
 Type: RingState *
 pState
@@ -36,6 +32,10 @@ Type: List *
 pList,*pList2,*pList3,*pList4, *pBlocks
 Type: CFunction *
 pCFunc, *pCFunc2
-ring_vm_runcodefromthread
-Type: RingState *
-pState
+ring_vm_bytecodefornewthread
+Type: int
+x,y,nSize,nType
+Type: ByteCode *
+pByteCode
+Type: char *
+pString
