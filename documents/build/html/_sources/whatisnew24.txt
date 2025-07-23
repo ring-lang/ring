@@ -40,5 +40,6 @@ More Improvements
 =================
 
 * JSONLib: Handle a case when the input is an array only
-* RingLibCurl: ring_curl_simple_getinfo_1() function - Remove unnecessary free() 
+* RingLibCurl: ring_curl_simple_getinfo_1() function - Remove unnecessary free()
+* Ring API: Better functions for threads support 
  
