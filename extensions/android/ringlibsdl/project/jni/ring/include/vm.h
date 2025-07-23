@@ -1057,6 +1057,10 @@
 	RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr ) ;
 
 	RING_API void ring_vm_bytecodefornewthread ( VM *pVM,VM *pOldVM ) ;
+
+	RING_API RingState * ring_vm_createthreadstate ( VM *pVM ) ;
+
+	RING_API void ring_vm_deletethreadstate ( VM *pVM, RingState *pState ) ;
 	/* Trace */
 
 	void ring_vm_traceevent ( VM *pVM,char nEvent ) ;

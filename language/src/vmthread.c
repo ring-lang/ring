@@ -72,9 +72,16 @@ RING_API void ring_vm_custmutexdestroy ( VM *pVM, void *pMutex )
 RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 {
 	RingState *pState  ;
-	List *pList,*pList2,*pList3,*pList4,*pGlobal, *pVarList, *pBlocks, *pGlobalScopes, *pScope  ;
-	RING_SHAREDSCOPETYPE pItem  ;
-	CFunction *pCFunc, *pCFunc2  ;
+	pState = ring_vm_createthreadstate(pVM);
+	/* Run the code */
+	ring_state_runcode(pState,cStr);
+	ring_vm_deletethreadstate(pVM,pState);
+}
+
+RING_API RingState * ring_vm_createthreadstate ( VM *pVM )
+{
+	RingState *pState  ;
+	List *pGlobal, *pVarList, *pScope  ;
 	unsigned int x, y  ;
 	/* Create the RingState */
 	pState = ring_state_init();
@@ -90,7 +97,6 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	pState->pVM->pMutex = pVM->pMutex ;
 	pState->vPoolManager.pMutex = pVM->pRingState->vPoolManager.pMutex ;
 	/* Share the global scope between threads */
-	pItem = RING_VM_SAVEGLOBALSCOPE(pState->pVM) ;
 	RING_VM_SHAREGLOBALSCOPE(pState->pVM,pVM);
 	pGlobal = RING_VM_GETSCOPE(RING_MEMORY_GLOBALSCOPE) ;
 	if ( pGlobal->pItemsArray == NULL ) {
@@ -103,7 +109,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 		}
 	}
 	/* Share the other global scopes */
-	pGlobalScopes = pState->pVM->pGlobalScopes ;
+	ring_list_delete(pState->pVM->pGlobalScopes);
 	pState->pVM->pGlobalScopes = pVM->pGlobalScopes ;
 	if ( pVM->pGlobalScopes->pItemsArray  == NULL ) {
 		ring_list_genarray(pVM->pGlobalScopes);
@@ -123,13 +129,13 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	/* Get Items for the Memory Pool From the Main Thread */
 	ring_poolmanager_newblockfromsubthread(pState,RING_VM_ITEMSFORNEWTHREAD,pVM->pRingState);
 	/* Share Memory Blocks (Could be used for Lists in Global Scope) */
-	pBlocks = pState->vPoolManager.pBlocks ;
+	ring_list_delete(pState->vPoolManager.pBlocks);
 	pState->vPoolManager.pBlocks = pVM->pRingState->vPoolManager.pBlocks ;
 	/* Save the state */
-	pList = pState->pVM->pCode ;
-	pList2 = pState->pVM->pFunctionsMap ;
-	pList3 = pState->pVM->pClassesMap ;
-	pList4 = pState->pVM->pPackagesMap ;
+	pState->pVM->pCode = ring_list_delete(pState->pVM->pCode);
+	pState->pVM->pFunctionsMap = ring_list_delete(pState->pVM->pFunctionsMap);
+	pState->pVM->pClassesMap = ring_list_delete(pState->pVM->pClassesMap);
+	pState->pVM->pPackagesMap = ring_list_delete(pState->pVM->pPackagesMap);
 	/*
 	**  Share the code between the VMs 
 	**  Copy Functions/Classes/Packages lists 
@@ -141,7 +147,6 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	ring_list_copy(pState->pVM->pClassesMap,pVM->pRingState->pRingClassesMap);
 	ring_list_copy(pState->pVM->pPackagesMap,pVM->pRingState->pRingPackagesMap);
 	pState->pVM->pCFunction = pVM->pCFunction ;
-	pCFunc = pVM->pCFunction ;
 	pState->pRingFunctionsMap = pState->pVM->pFunctionsMap ;
 	pState->pRingClassesMap = pState->pVM->pClassesMap ;
 	pState->pRingPackagesMap = pState->pVM->pPackagesMap ;
@@ -153,8 +158,13 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	/* Avoid the call to the main function */
 	pState->pVM->lCallMainFunction = 1 ;
 	ring_vm_mutexunlock(pVM);
-	/* Run the code */
-	ring_state_runcode(pState,cStr);
+	return pState ;
+}
+
+RING_API void ring_vm_deletethreadstate ( VM *pVM,RingState *pState )
+{
+	List *pList,*pList2,*pList3,*pList4, *pBlocks  ;
+	CFunction *pCFunc, *pCFunc2  ;
 	ring_vm_mutexlock(pVM);
 	/* Return Memory Pool Items to the Main Thread */
 	ring_poolmanager_deleteblockfromsubthread(pState,pVM->pRingState);
@@ -163,10 +173,13 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	ring_list_delete_gc(pState,pState->pVM->pFunctionsMap);
 	ring_list_delete_gc(pState,pState->pVM->pClassesMap);
 	ring_list_delete_gc(pState,pState->pVM->pPackagesMap);
-	/* Restore the first scope - global scope */
-	RING_VM_RESTOREGLOBALSCOPE(pState->pVM,pItem);
 	/* Restore other global scopes */
-	pState->pVM->pGlobalScopes = pGlobalScopes ;
+	pState->pVM->pGlobalScopes = ring_list_new(RING_ZERO) ;
+	/* Create Lists */
+	pList = ring_list_new(RING_ZERO) ;
+	pList2 = ring_list_new(RING_ZERO) ;
+	pList3 = ring_list_new(RING_ZERO) ;
+	pList4 = ring_list_new(RING_ZERO) ;
 	/* Avoid deleting the shared lists and the Mutex */
 	pState->pVM->pCode = pList ;
 	pState->pVM->pFunctionsMap = pList2 ;
@@ -182,6 +195,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	pState->pVM->pFuncMutexUnlock = NULL ;
 	pState->pVM->pMutex = NULL ;
 	pState->vPoolManager.pMutex = NULL ;
+	pCFunc = pVM->pCFunction ;
 	if ( pState->pVM->pCFunction != NULL ) {
 		/* Delete Extra C Functions (Loaded by the Sub Thread) */
 		while ( pState->pVM->pCFunction != pCFunc ) {
@@ -193,7 +207,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 		pState->pVM->pCFunction = NULL ;
 	}
 	/* Avoid deleting the Shared Memory Blocks */
-	pState->vPoolManager.pBlocks = pBlocks ;
+	pState->vPoolManager.pBlocks = ring_list_new(RING_ZERO) ;
 	ring_vm_mutexunlock(pVM);
 	/* Delete the RingState */
 	ring_state_delete(pState);
