@@ -162,7 +162,7 @@ RING_API RingState * ring_vm_createthreadstate ( VM *pVM )
 
 RING_API void ring_vm_deletethreadstate ( VM *pVM,RingState *pState )
 {
-	List *pList,*pList2,*pList3,*pList4, *pBlocks  ;
+	List *pList,*pList2,*pList3,*pList4  ;
 	CFunction *pCFunc, *pCFunc2  ;
 	ring_vm_mutexlock(pVM);
 	/* Return Memory Pool Items to the Main Thread */
