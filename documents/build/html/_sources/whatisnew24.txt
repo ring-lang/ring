@@ -15,8 +15,26 @@ List of changes and new features
 
 Ring 1.24 comes with the next features!
 
+* More RingPM Packages
 * More Samples
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.24?; More RingPM Packages
+
+More RingPM Packages
+====================
+
+The following packages have been added to the RingPM registry.
+
+* WebView: Create beautiful, cross-platform desktop apps using Ring and web technologies
+
+Example:
+
+.. code-block:: none
+
+	ringpm install webview
+
 
 .. index:: 
 	pair: What is new in Ring  1.24; More Samples
