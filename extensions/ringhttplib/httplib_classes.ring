@@ -103,4 +103,8 @@ class Response from HTTPLib_Response
 
 class Request from HTTPLib_Request
 
+	func body
+			return HTTPLib_Request_body(pObject)
+
+
 class Client from HTTPLib_Client
