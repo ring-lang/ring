@@ -162,7 +162,6 @@ RING_API RingState * ring_vm_createthreadstate ( VM *pVM )
 
 RING_API void ring_vm_deletethreadstate ( VM *pVM,RingState *pState )
 {
-	List *pList,*pList2,*pList3,*pList4  ;
 	CFunction *pCFunc, *pCFunc2  ;
 	ring_vm_mutexlock(pVM);
 	/* Return Memory Pool Items to the Main Thread */
@@ -174,20 +173,15 @@ RING_API void ring_vm_deletethreadstate ( VM *pVM,RingState *pState )
 	ring_list_delete_gc(pState,pState->pVM->pPackagesMap);
 	/* Restore other global scopes */
 	pState->pVM->pGlobalScopes = ring_list_new(RING_ZERO) ;
-	/* Create Lists */
-	pList = ring_list_new(RING_ZERO) ;
-	pList2 = ring_list_new(RING_ZERO) ;
-	pList3 = ring_list_new(RING_ZERO) ;
-	pList4 = ring_list_new(RING_ZERO) ;
 	/* Avoid deleting the shared lists and the Mutex */
-	pState->pVM->pCode = pList ;
-	pState->pVM->pFunctionsMap = pList2 ;
-	pState->pVM->pClassesMap = pList3 ;
-	pState->pVM->pPackagesMap = pList4 ;
-	pState->pRingGenCode = pList ;
-	pState->pRingFunctionsMap = pList2 ;
-	pState->pRingClassesMap = pList3 ;
-	pState->pRingPackagesMap = pList4 ;
+	pState->pVM->pCode = ring_list_new(RING_ZERO) ;
+	pState->pVM->pFunctionsMap = ring_list_new(RING_ZERO) ;
+	pState->pVM->pClassesMap = ring_list_new(RING_ZERO) ;
+	pState->pVM->pPackagesMap = ring_list_new(RING_ZERO) ;
+	pState->pRingGenCode = pState->pVM->pCode ;
+	pState->pRingFunctionsMap = pState->pVM->pFunctionsMap ;
+	pState->pRingClassesMap = pState->pVM->pClassesMap ;
+	pState->pRingPackagesMap = pState->pVM->pPackagesMap ;
 	pState->pVM->pFuncMutexCreate = NULL ;
 	pState->pVM->pFuncMutexDestroy = NULL ;
 	pState->pVM->pFuncMutexLock = NULL ;
