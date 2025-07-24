@@ -162,7 +162,7 @@ RING_API RingState * ring_vm_createthreadstate ( VM *pVM )
 
 RING_API void ring_vm_deletethreadstate ( VM *pVM,RingState *pState )
 {
-	CFunction *pCFunc, *pCFunc2  ;
+	CFunction *pCFunc  ;
 	ring_vm_mutexlock(pVM);
 	/* Return Memory Pool Items to the Main Thread */
 	ring_poolmanager_deleteblockfromsubthread(pState,pVM->pRingState);
@@ -188,13 +188,12 @@ RING_API void ring_vm_deletethreadstate ( VM *pVM,RingState *pState )
 	pState->pVM->pFuncMutexUnlock = NULL ;
 	pState->pVM->pMutex = NULL ;
 	pState->vPoolManager.pMutex = NULL ;
-	pCFunc = pVM->pCFunction ;
 	if ( pState->pVM->pCFunction != NULL ) {
 		/* Delete Extra C Functions (Loaded by the Sub Thread) */
-		while ( pState->pVM->pCFunction != pCFunc ) {
-			pCFunc2 = pState->pVM->pCFunction ;
+		while ( pState->pVM->pCFunction != pVM->pCFunction ) {
+			pCFunc = pState->pVM->pCFunction ;
 			pState->pVM->pCFunction = pState->pVM->pCFunction->pNext ;
-			ring_state_free(NULL,pCFunc2);
+			ring_state_free(NULL,pCFunc);
 		}
 		/* Avoid deleting C functions loaded by the Main thread */
 		pState->pVM->pCFunction = NULL ;

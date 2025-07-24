@@ -18,7 +18,7 @@ Type: unsigned int
 x, y
 ring_vm_deletethreadstate
 Type: CFunction *
-pCFunc, *pCFunc2
+pCFunc
 ring_vm_bytecodefornewthread
 Type: int
 x,y,nSize,nType
