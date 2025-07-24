@@ -1497,6 +1497,21 @@ RING_FUNC(ring_HTTPLib_Request_get_multipartformdata_content2)
 	RING_API_RETSTRING2(pMyPointer->content.c_str(),pMyPointer->content.size());
 }
 
+RING_FUNC(ring_HTTPLib_Request_body)
+{
+	Request *pObject;
+	if (RING_API_PARACOUNT != 1) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return;
+	}
+	if (!RING_API_ISCPOINTER(1)) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	pObject = (Request *)RING_API_GETCPOINTER(1, "HTTPLib_Request");
+	RING_API_RETSTRING2(pObject->body.c_str(), pObject->body.size());
+}
+
 RING_FUNC(ring_HTTPLib_Request_matches)
 {
 	Request *pObject ;
@@ -2539,6 +2554,7 @@ RING_LIBINIT
 	RING_API_REGISTER("httplib_request_get_file_value",ring_HTTPLib_Request_get_file_value);
 	RING_API_REGISTER("httplib_request_get_multipartformdata_content2",ring_HTTPLib_Request_get_multipartformdata_content2);
 	RING_API_REGISTER("httplib_request_matches",ring_HTTPLib_Request_matches);
+	RING_API_REGISTER("httplib_request_body",ring_HTTPLib_Request_body);
 	RING_API_REGISTER("httplib_client_download",ring_HTTPLib_Client_download);
 	RING_API_REGISTER("httplib_client_is_valid",ring_HTTPLib_Client_is_valid);
 	RING_API_REGISTER("httplib_client_is_socket_open",ring_HTTPLib_Client_is_socket_open);
