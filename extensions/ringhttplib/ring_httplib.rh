@@ -224,6 +224,9 @@ Class HTTPLib_Request
 	Func matches P1
 		return HTTPLib_Request_matches(pObject,P1)
 
+	Func body 
+		return HTTPLib_Request_body(pObject)
+
 Class HTTPLib_Client
 
 	pObject
