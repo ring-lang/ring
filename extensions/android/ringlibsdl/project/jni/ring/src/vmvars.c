@@ -500,9 +500,11 @@ List * ring_vm_addstringarg ( VM *pVM,const char *cVar,const char  *cStr,int nSt
 	}
 	ring_list_setlisttype(pList,RING_VM_STRING);
 	/* Add Pointer to the HashTable */
+	ring_vm_custmutexlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_VARHASHTABLE]);
 	if ( ring_list_gethashtable(pParent) != NULL ) {
 		ring_hashtable_newpointer_gc(pVM->pRingState,ring_list_gethashtable(pParent),cVar,pList);
 	}
+	ring_vm_custmutexunlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_VARHASHTABLE]);
 	return pList ;
 }
 
@@ -524,9 +526,11 @@ List * ring_vm_addnumberarg ( VM *pVM,const char *cVar,double nNumber )
 	}
 	ring_list_setlisttype(pList,RING_VM_NUMBER);
 	/* Add Pointer to the HashTable */
+	ring_vm_custmutexlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_VARHASHTABLE]);
 	if ( ring_list_gethashtable(pParent) != NULL ) {
 		ring_hashtable_newpointer_gc(pVM->pRingState,ring_list_gethashtable(pParent),cVar,pList);
 	}
+	ring_vm_custmutexunlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_VARHASHTABLE]);
 	return pList ;
 }
 
@@ -552,9 +556,11 @@ List * ring_vm_addpointerarg ( VM *pVM,const char *cVar,void *pPointer,int nType
 	/* Reference Counting */
 	ring_vm_gc_checknewreference(pVM,pPointer,nType,pList,RING_VAR_VALUE);
 	/* Add Pointer to the HashTable */
+	ring_vm_custmutexlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_VARHASHTABLE]);
 	if ( ring_list_gethashtable(pParent) != NULL ) {
 		ring_hashtable_newpointer_gc(pVM->pRingState,ring_list_gethashtable(pParent),cVar,pList);
 	}
+	ring_vm_custmutexunlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_VARHASHTABLE]);
 	return pList ;
 }
 
@@ -583,9 +589,11 @@ List * ring_vm_addlistarg ( VM *pVM,const char *cVar )
 	}
 	ring_list_setlisttype(pList,RING_VM_LIST);
 	/* Add Pointer to the HashTable */
+	ring_vm_custmutexlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_VARHASHTABLE]);
 	if ( ring_list_gethashtable(pParent) != NULL ) {
 		ring_hashtable_newpointer_gc(pVM->pRingState,ring_list_gethashtable(pParent),cVar,pList);
 	}
+	ring_vm_custmutexunlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_VARHASHTABLE]);
 	return pList ;
 }
 
