@@ -15,7 +15,7 @@ pState
 Type: List *
 pGlobal, *pVarList, *pScope
 Type: unsigned int
-x, y
+x
 ring_vm_deletethreadstate
 Type: CFunction *
 pCFunc

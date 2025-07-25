@@ -80,8 +80,8 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 RING_API RingState * ring_vm_createthreadstate ( VM *pVM )
 {
 	RingState *pState  ;
-	List *pGlobal, *pVarList, *pScope  ;
-	unsigned int x, y  ;
+	List *pGlobal, *pScope  ;
+	unsigned int x  ;
 	/* Create the RingState */
 	pState = ring_state_init();
 	/* Flag that we are running from thread */
@@ -101,12 +101,6 @@ RING_API RingState * ring_vm_createthreadstate ( VM *pVM )
 	if ( pGlobal->pItemsArray == NULL ) {
 		ring_list_genarray(pGlobal);
 	}
-	for ( x = 1 ; x <= ring_list_getsize(pGlobal) ; x++ ) {
-		pVarList = ring_list_getlist(pGlobal,x) ;
-		if ( pVarList->pItemsArray == NULL ) {
-			ring_list_genarray(pVarList);
-		}
-	}
 	/* Share the other global scopes */
 	ring_list_delete(pState->pVM->pGlobalScopes);
 	pState->pVM->pGlobalScopes = pVM->pGlobalScopes ;
@@ -117,12 +111,6 @@ RING_API RingState * ring_vm_createthreadstate ( VM *pVM )
 		pScope = ring_list_getlist(pVM->pGlobalScopes,x) ;
 		if ( pScope->pItemsArray == NULL ) {
 			ring_list_genarray(pScope);
-		}
-		for ( y = 1 ; y <= ring_list_getsize(pScope) ; y++ ) {
-			pVarList = ring_list_getlist(pScope,y) ;
-			if ( pVarList->pItemsArray == NULL ) {
-				ring_list_genarray(pVarList);
-			}
 		}
 	}
 	/* Get Items for the Memory Pool From the Main Thread */
