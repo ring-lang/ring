@@ -245,6 +245,29 @@ RING_API Item * ring_list_getitem ( List *pList,unsigned int nIndex )
 		if ( pList->pItemsArray != NULL ) {
 			return pList->pItemsArray[nIndex-1] ;
 		}
+		/* Avoid cache for small lists (from 1 to 5 items) */
+		if ( ring_list_getsize(pList) <= 5 ) {
+			if ( nIndex == 1 ) {
+				return pList->pFirst->pValue ;
+			}
+			else if ( nIndex == ring_list_getsize(pList) ) {
+				return pList->pLast->pValue ;
+			}
+			else if ( nIndex == 2 ) {
+				return pList->pFirst->pNext->pValue ;
+			}
+			else if ( nIndex == 3 ) {
+				if ( ring_list_getsize(pList) == 4 ) {
+					return pList->pLast->pPrev->pValue ;
+				}
+				else {
+					return pList->pFirst->pNext->pNext->pValue ;
+				}
+			}
+			else if ( nIndex == 4 ) {
+				return pList->pLast->pPrev->pValue ;
+			}
+		}
 		/* Quickly Get The First or The Last Item */
 		if ( nIndex == 1 ) {
 			ring_list_setcache(NULL,pList,pList->pFirst,nIndex+1);
