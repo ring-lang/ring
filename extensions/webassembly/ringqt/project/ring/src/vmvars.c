@@ -311,10 +311,12 @@ List * ring_vm_newvar2 ( VM *pVM,const char *cStr,List *pParent )
 	ring_list_addint_gc(pVM->pRingState,pList,RING_OBJTYPE_NOTYPE);
 	/* HashTable */
 	if ( pParent != NULL ) {
+		ring_vm_custmutexlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_VARHASHTABLE]);
 		/* Add Pointer to the HashTable */
 		if ( ring_list_gethashtable(pParent) != NULL ) {
 			ring_hashtable_newpointer_gc(pVM->pRingState,ring_list_gethashtable(pParent),cStr,pList);
 		}
+		ring_vm_custmutexunlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_VARHASHTABLE]);
 	}
 	return pList ;
 }

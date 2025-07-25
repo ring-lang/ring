@@ -47,12 +47,14 @@ int ring_vm_checknull ( VM *pVM,int lShowError )
 				pString = ring_string_new2_gc(pVM->pRingState,ring_list_getstring(pVar,RING_VAR_NAME),ring_list_getstringsize(pVar,RING_VAR_NAME));
 				if ( ring_list_islist(pVM->pActiveMem,ring_list_getsize(pVM->pActiveMem)) ) {
 					if ( ring_list_getlist(pVM->pActiveMem,ring_list_getsize(pVM->pActiveMem)) == pVar ) {
+						ring_vm_custmutexlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_VARHASHTABLE]);
 						/* Delete the Item from the HashTable */
 						if ( ring_list_gethashtable(pVM->pActiveMem) != NULL ) {
 							ring_hashtable_deleteitem_gc(pVM->pRingState,ring_list_gethashtable(pVM->pActiveMem),ring_list_getstring(pVar,RING_VAR_NAME));
 						}
 						/* Delete the variable from the active scope */
 						ring_list_deletelastitem_gc(pVM->pRingState,pVM->pActiveMem);
+						ring_vm_custmutexunlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_VARHASHTABLE]);
 						/* We deleted the variable, so we remove it from the Stack to avoid usage after delete */
 						RING_VM_STACK_POP ;
 						/* We replace it with NULL */
