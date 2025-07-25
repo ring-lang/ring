@@ -847,12 +847,12 @@ RING_API void ring_state_free ( void *pState,void *pMemory )
 	#endif
 	/* Check sections inside Memory Blocks */
 	if ( pRingState != NULL ) {
+		lFound = 0 ;
+		if ( pRingState->pVM != NULL ) {
+			ring_vm_custmutexlock(pRingState->pVM,pRingState->vPoolManager.pMutex);
+		}
 		pBlocks = pRingState->vPoolManager.pBlocks ;
 		if ( pBlocks != NULL ) {
-			lFound = 0 ;
-			if ( pRingState->pVM != NULL ) {
-				ring_vm_custmutexlock(pRingState->pVM,pRingState->vPoolManager.pMutex);
-			}
 			for ( x = 1 ; x <= ring_list_getsize(pBlocks) ; x++ ) {
 				pBlock = ring_list_getlist(pBlocks,x) ;
 				pBlockStart = ring_list_getpointer(pBlock,RING_VM_BLOCKSTART);
@@ -863,12 +863,12 @@ RING_API void ring_state_free ( void *pState,void *pMemory )
 					break ;
 				}
 			}
-			if ( pRingState->pVM != NULL ) {
-				ring_vm_custmutexunlock(pRingState->pVM,pRingState->vPoolManager.pMutex);
-			}
-			if ( lFound == 1 ) {
-				return ;
-			}
+		}
+		if ( pRingState->pVM != NULL ) {
+			ring_vm_custmutexunlock(pRingState->pVM,pRingState->vPoolManager.pMutex);
+		}
+		if ( lFound == 1 ) {
+			return ;
 		}
 	}
 	ring_free(pMemory);
@@ -997,10 +997,14 @@ RING_API void ring_state_willunregisterblock ( void *pState,void *pStart )
 	void *pBlockStart, *pBlockEnd  ;
 	pRingState = (RingState *) pState ;
 	/* Check lists size */
-	if ( (ring_list_getsize(pRingState->pVM->pTrackedVariables) == 0) || (ring_list_getsize(pRingState->vPoolManager.pBlocks) == 0 ) ) {
+	if ( ring_list_getsize(pRingState->pVM->pTrackedVariables) == 0 ) {
 		return ;
 	}
 	ring_vm_custmutexlock(pRingState->pVM,pRingState->vPoolManager.pMutex);
+	if ( ring_list_getsize(pRingState->vPoolManager.pBlocks) == 0 ) {
+		ring_vm_custmutexunlock(pRingState->pVM,pRingState->vPoolManager.pMutex);
+		return ;
+	}
 	for ( x = 1 ; x <= ring_list_getsize(pRingState->vPoolManager.pBlocks) ; x++ ) {
 		pList = ring_list_getlist(pRingState->vPoolManager.pBlocks,x);
 		pBlockStart = ring_list_getpointer(pList,RING_VM_BLOCKSTART) ;
