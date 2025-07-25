@@ -46,6 +46,7 @@ The next samples are added:
 
 * samples/UsingJSONLib/test12.ring
 * samples/UsingJSONLib/test13.ring
+* samples/UsingHTTPLib/test20.ring
 
 The next samples are improved
 
@@ -59,5 +60,7 @@ More Improvements
 
 * JSONLib: Handle a case when the input is an array only
 * RingLibCurl: ring_curl_simple_getinfo_1() function - Remove unnecessary free()
+* RingHTTPLib: Added body() method to HTTPLib_Request class
 * Ring API: Better functions for threads support 
+* Ring VM: ring_list_getitem() - Avoid cache for small lists (Up to 5 items)
  
