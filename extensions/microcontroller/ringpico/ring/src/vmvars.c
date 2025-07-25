@@ -118,10 +118,12 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 			}
 			else {
 				/* Search Using the HashTable */
+				ring_vm_custmutexlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_VARHASHTABLE]);
 				if ( ring_list_gethashtable(pList) == NULL ) {
 					ring_list_genhashtable2_gc(pVM->pRingState,pList);
 				}
 				pList2 = (List *) ring_hashtable_findpointer(ring_list_gethashtable(pList),cStr);
+				ring_vm_custmutexunlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_VARHASHTABLE]);
 				if ( pList2 != NULL ) {
 					return ring_vm_findvar2(pVM,x,pList2,cStr) ;
 				}

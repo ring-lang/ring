@@ -42,10 +42,13 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 			/* pFunctionsMap is a list of lists (Functions in the program) */
 			pList = pVM->pFunctionsMap ;
 		}
+		/* Use the HashTable */
+		ring_vm_custmutexlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_FUNCHASHTABLE]);
 		if ( ring_list_gethashtable(pList) == NULL ) {
 			ring_list_genhashtable2_gc(pVM->pRingState,pList);
 		}
 		pList2 = (List *) ring_hashtable_findpointer(ring_list_gethashtable(pList),cStr);
+		ring_vm_custmutexunlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_FUNCHASHTABLE]);
 		if ( pList2 != NULL ) {
 			/* Error when the method is private */
 			if ( ring_list_getint(pList2,RING_FUNCMAP_PRIVATEFLAG) == 1 ) {

@@ -16,6 +16,9 @@
 		#define RING_VM_FREE_STACK_IN_CLASS_REGION_AFTER 100
 	#endif
 	#define RING_VM_ARGCACHE_SIZE RING_VM_STACK_SIZE
+	#define RING_VM_CUSTOMMUTEX_COUNT 2
+	#define RING_VM_CUSTOMMUTEX_VARHASHTABLE 0
+	#define RING_VM_CUSTOMMUTEX_FUNCHASHTABLE 1
 	#define RING_VM_BC_ITEMS_COUNT 2
 	#define RING_VM_MAXDIGITSINNUMBER 15
 	/* Check if we can use double in the byte code */
@@ -180,6 +183,7 @@
 		FuncCall aFuncCall[RING_VM_STACK_SIZE]  ;
 		List aScopes[RING_VM_STACK_SIZE]  ;
 		List *aArgCache[RING_VM_ARGCACHE_SIZE]  ;
+		void *aCustomMutex[RING_VM_CUSTOMMUTEX_COUNT]  ;
 	} VM ;
 	/*
 	**  Macro & Constants 

@@ -1,7 +1,11 @@
 ring_vm_mutexfunctions
+Type: int
+x
 ring_vm_mutexlock
 ring_vm_mutexunlock
 ring_vm_mutexdestroy
+Type: int
+x
 ring_vm_custmutexcreate
 ring_vm_custmutexlock
 ring_vm_custmutexunlock
@@ -13,7 +17,7 @@ ring_vm_createthreadstate
 Type: RingState *
 pState
 Type: List *
-pGlobal, *pVarList, *pScope
+pGlobal, *pScope
 Type: unsigned int
 x
 ring_vm_deletethreadstate

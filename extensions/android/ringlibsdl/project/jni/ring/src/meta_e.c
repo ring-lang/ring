@@ -659,9 +659,11 @@ void ring_vm_refmeta_addmethod ( void *pPointer )
 					/* Set the Function Name */
 					ring_list_setstring_gc(pVM->pRingState,pList3,RING_FUNCMAP_NAME,ring_string_lower(RING_API_GETSTRING(2)));
 					/* Refresh the HashTable */
+					ring_vm_custmutexlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_FUNCHASHTABLE]);
 					if ( ring_list_gethashtable(pList) != NULL ) {
 						ring_list_genhashtable2_gc(pVM->pRingState,pList);
 					}
+					ring_vm_custmutexunlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_FUNCHASHTABLE]);
 					RING_API_RETNUMBER(1);
 					return ;
 				}
@@ -820,9 +822,11 @@ void ring_vm_refmeta_mergemethods ( void *pPointer )
 		/* Copy Methods from Source to Dest */
 		ring_list_copy_gc(pVM->pRingState,pList2,pList3);
 		/* Refresh the HashTable */
+		ring_vm_custmutexlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_FUNCHASHTABLE]);
 		if ( ring_list_gethashtable(pList2) != NULL ) {
 			ring_list_genhashtable2_gc(pVM->pRingState,pList2);
 		}
+		ring_vm_custmutexunlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_FUNCHASHTABLE]);
 	}
 	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);

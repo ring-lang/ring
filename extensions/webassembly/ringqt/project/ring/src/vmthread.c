@@ -4,6 +4,7 @@
 
 RING_API void ring_vm_mutexfunctions ( VM *pVM,void *(*pFuncCreate)(void),void (*pFuncLock)(void *),void (*pFuncUnlock)(void *),void (*pFuncDestroy)(void *) )
 {
+	int x  ;
 	if ( pVM->pMutex == NULL ) {
 		pVM->pFuncMutexCreate = pFuncCreate ;
 		pVM->pFuncMutexLock = pFuncLock ;
@@ -12,6 +13,9 @@ RING_API void ring_vm_mutexfunctions ( VM *pVM,void *(*pFuncCreate)(void),void (
 		if ( pFuncCreate != NULL ) {
 			pVM->pMutex = pFuncCreate() ;
 			pVM->pRingState->vPoolManager.pMutex = pFuncCreate() ;
+			for ( x = 0 ; x < RING_VM_CUSTOMMUTEX_COUNT ; x++ ) {
+				pVM->aCustomMutex[x] = pFuncCreate() ;
+			}
 		}
 	}
 }
@@ -32,11 +36,16 @@ RING_API void ring_vm_mutexunlock ( VM *pVM )
 
 RING_API void ring_vm_mutexdestroy ( VM *pVM )
 {
+	int x  ;
 	if ( (pVM->pMutex != NULL) && (pVM->pFuncMutexDestroy != NULL) ) {
 		pVM->pFuncMutexDestroy(pVM->pMutex);
 		pVM->pMutex = NULL ;
 		pVM->pFuncMutexDestroy(pVM->pRingState->vPoolManager.pMutex);
 		pVM->pRingState->vPoolManager.pMutex = NULL ;
+		for ( x = 0 ; x < RING_VM_CUSTOMMUTEX_COUNT ; x++ ) {
+			pVM->pFuncMutexDestroy(pVM->aCustomMutex[x]);
+			pVM->aCustomMutex[x] = NULL ;
+		}
 	}
 }
 
