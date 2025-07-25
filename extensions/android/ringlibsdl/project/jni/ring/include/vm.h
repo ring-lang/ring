@@ -733,6 +733,8 @@
 	int ring_vm_var_getprivateflag ( VM *pVM,List *pVar ) ;
 
 	void ring_vm_copyscopestolist ( VM *pVM,List *pList ) ;
+
+	void ring_vm_addvarpointertoscopehash ( VM *pVM,List *pParent,const char *cVar,List *pList ) ;
 	/* Parameters */
 
 	void ring_vm_newargcache ( VM *pVM ) ;

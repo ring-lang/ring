@@ -85,3 +85,4 @@ ring_vm_setglobalscope
 ring_vm_getglobalscope
 Type: List *
 pList
+ring_vm_addvarpointertoscopehash
