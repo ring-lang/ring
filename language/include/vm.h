@@ -179,7 +179,7 @@
 		Item aStack[RING_VM_STACK_SIZE]  ;
 		FuncCall aFuncCall[RING_VM_STACK_SIZE]  ;
 		List aScopes[RING_VM_STACK_SIZE]  ;
-		List *pArgCache[RING_VM_ARGCACHE_SIZE]  ;
+		List *aArgCache[RING_VM_ARGCACHE_SIZE]  ;
 	} VM ;
 	/*
 	**  Macro & Constants 

@@ -412,7 +412,7 @@ void ring_vm_deletescope ( VM *pVM )
 				/* Clean Memory */
 				ring_vm_gc_checkupdatereference(pVM,pList);
 				ring_list_setdouble_gc(pVM->pRingState,pList,RING_VAR_VALUE,RING_ZEROF);
-				pVM->pArgCache[pVM->nArgCacheCount++] = pList ;
+				pVM->aArgCache[pVM->nArgCacheCount++] = pList ;
 				continue ;
 			}
 		}
@@ -465,7 +465,7 @@ void ring_vm_newargcache ( VM *pVM )
 		ring_list_enableargcache(pList);
 		ring_list_setlisttype(pList,RING_VM_NUMBER);
 		ring_list_enabledontdelete(pList);
-		pVM->pArgCache[pVM->nArgCacheCount++] = pList ;
+		pVM->aArgCache[pVM->nArgCacheCount++] = pList ;
 	}
 }
 
@@ -473,8 +473,8 @@ void ring_vm_deleteargcache ( VM *pVM )
 {
 	int x  ;
 	for ( x = 0 ; x < RING_VM_ARGCACHE_SIZE ; x++ ) {
-		ring_list_disabledontdelete(pVM->pArgCache[x]);
-		pVM->pArgCache[x] = ring_list_delete_gc(pVM->pRingState,pVM->pArgCache[x]);
+		ring_list_disabledontdelete(pVM->aArgCache[x]);
+		pVM->aArgCache[x] = ring_list_delete_gc(pVM->pRingState,pVM->aArgCache[x]);
 	}
 }
 
@@ -489,7 +489,7 @@ List * ring_vm_addstringarg ( VM *pVM,const char *cVar,const char  *cStr,int nSt
 		ring_list_addstring2_gc(pVM->pRingState,pList,cStr,nStrSize);
 	}
 	else {
-		pList = ring_list_newlistbyptr_gc(pVM->pRingState,pParent,pVM->pArgCache[--(pVM->nArgCacheCount)]);
+		pList = ring_list_newlistbyptr_gc(pVM->pRingState,pParent,pVM->aArgCache[--(pVM->nArgCacheCount)]);
 		ring_list_setstring_gc(pVM->pRingState,pList,RING_VAR_NAME,cVar);
 		ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_STRING);
 		ring_list_setstring2_gc(pVM->pRingState,pList,RING_VAR_VALUE,cStr,nStrSize);
@@ -513,7 +513,7 @@ List * ring_vm_addnumberarg ( VM *pVM,const char *cVar,double nNumber )
 		ring_list_adddouble_gc(pVM->pRingState,pList,nNumber);
 	}
 	else {
-		pList = ring_list_newlistbyptr_gc(pVM->pRingState,pParent,pVM->pArgCache[--(pVM->nArgCacheCount)]);
+		pList = ring_list_newlistbyptr_gc(pVM->pRingState,pParent,pVM->aArgCache[--(pVM->nArgCacheCount)]);
 		ring_list_setstring_gc(pVM->pRingState,pList,RING_VAR_NAME,cVar);
 		ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_NUMBER);
 		ring_list_setdouble_gc(pVM->pRingState,pList,RING_VAR_VALUE,nNumber);
@@ -538,7 +538,7 @@ List * ring_vm_addpointerarg ( VM *pVM,const char *cVar,void *pPointer,int nType
 		ring_list_addint_gc(pVM->pRingState,pList,nType);
 	}
 	else {
-		pList = ring_list_newlistbyptr_gc(pVM->pRingState,pParent,pVM->pArgCache[--(pVM->nArgCacheCount)]);
+		pList = ring_list_newlistbyptr_gc(pVM->pRingState,pParent,pVM->aArgCache[--(pVM->nArgCacheCount)]);
 		ring_list_setstring_gc(pVM->pRingState,pList,RING_VAR_NAME,cVar);
 		ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_POINTER);
 		ring_list_setpointer_gc(pVM->pRingState,pList,RING_VAR_VALUE,pPointer);
@@ -572,7 +572,7 @@ List * ring_vm_addlistarg ( VM *pVM,const char *cVar )
 		ring_list_newlist_gc(pVM->pRingState,pList);
 	}
 	else {
-		pList = ring_list_newlistbyptr_gc(pVM->pRingState,pParent,pVM->pArgCache[--(pVM->nArgCacheCount)]);
+		pList = ring_list_newlistbyptr_gc(pVM->pRingState,pParent,pVM->aArgCache[--(pVM->nArgCacheCount)]);
 		ring_list_setstring_gc(pVM->pRingState,pList,RING_VAR_NAME,cVar);
 		ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_LIST);
 		ring_list_setlist_gc(pVM->pRingState,pList,RING_VAR_VALUE);
