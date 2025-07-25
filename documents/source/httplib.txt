@@ -32,6 +32,7 @@ Server Class Methods
 * cookies() -> aList
 * getFileContent(cFile) -> cString
 * getFileName(cFile) -> cString
+* request().body() -> cString
 
 .. index:: 
 	pair: Using HTTPLib; Example
@@ -402,6 +403,45 @@ Example(2):
 		}	
 
 		oServer.setHTMLPage(oPage)
+
+.. index::
+	pair: Using HTTPLib; Getting the Request Body
+
+Getting the Request Body
+========================
+
+When building APIs, it's common to receive data, like JSON, in the raw body of a POST request. The `oServer["key"]` syntax is for form-data, not raw bodies. To get the raw body, use the `body()` method on the request object.
+
+Example: Receiving JSON Data
+
+.. code-block:: ring
+
+	load "httplib.ring"
+	load "jsonlib.ring"
+
+	? "Start the server..."
+	oServer = new Server
+
+	? `Try: curl -X POST -H "Content-Type: application/json" -d '{"name": "Ring"}' http://localhost:8080/data`
+	oServer.route(:Post, "/data", :process_data)
+
+	? "Listen to port 8080"
+	oServer.listen("0.0.0.0", 8080)
+
+	func process_data
+		// Get the request object
+		oRequest = oServer.request()
+
+		// Get the raw body as a string
+		cBody = oRequest.body()
+
+		? "Received raw body: " + cBody
+
+		// Now you can parse it (e.g., as JSON)
+		aJson = json2list(cBody)
+		cName = aJson["name"]
+
+		oServer.setContent("Hello, " + cName + "!", "text/plain")
 
 .. index:: 
 	pair: Using HTTPLib; More Samples
