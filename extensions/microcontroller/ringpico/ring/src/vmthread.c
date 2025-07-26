@@ -179,10 +179,10 @@ RING_API void ring_vm_deletethreadstate ( VM *pVM,RingState *pState )
 	}
 	/* Avoid deleting the Shared Memory Blocks */
 	pState->vPoolManager.pBlocks = ring_list_new(RING_ZERO) ;
-	/* Unlock */
-	ring_vm_mutexunlock(pVM);
 	/* Delete the RingState */
 	ring_state_delete(pState);
+	/* Unlock */
+	ring_vm_mutexunlock(pVM);
 }
 
 RING_API void ring_vm_bytecodefornewthread ( VM *pVM,VM *pOldVM )
