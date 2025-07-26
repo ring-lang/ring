@@ -40,6 +40,12 @@ class Server from HTTPLib_Server
 	func setHTMLPage oPage
 		setContent(oPage.Output(),"text/html")
 
+	func setStatus nStatus
+		return response().set_status(nStatus)
+
+	func getStatus
+		return response().get_status()
+
 	func variable cPara
 		if ! isString (cPara)
 			raise("Bad parameter type!")
@@ -100,6 +106,12 @@ class Response from HTTPLib_Response
 
 	func setContent p1,p2
 		return set_content(p1,p2)
+
+	func setStatus nStatus
+		return set_status(nStatus)
+
+	func getStatus
+		return get_status()
 
 class Request from HTTPLib_Request
 
