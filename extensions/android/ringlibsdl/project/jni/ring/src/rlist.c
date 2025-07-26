@@ -245,8 +245,8 @@ RING_API Item * ring_list_getitem ( List *pList,unsigned int nIndex )
 		if ( pList->pItemsArray != NULL ) {
 			return pList->pItemsArray[nIndex-1] ;
 		}
-		/* Avoid cache for small lists (from 1 to 5 items) */
-		if ( ring_list_getsize(pList) <= 5 ) {
+		/* Avoid cache for small lists (up to 6 items) */
+		if ( ring_list_getsize(pList) <= 6 ) {
 			if ( nIndex == 1 ) {
 				return pList->pFirst->pValue ;
 			}
@@ -265,6 +265,14 @@ RING_API Item * ring_list_getitem ( List *pList,unsigned int nIndex )
 				}
 			}
 			else if ( nIndex == 4 ) {
+				if ( ring_list_getsize(pList) == 5 ) {
+					return pList->pLast->pPrev->pValue ;
+				}
+				else {
+					return pList->pLast->pPrev->pPrev->pValue ;
+				}
+			}
+			else if ( nIndex == 5 ) {
 				return pList->pLast->pPrev->pValue ;
 			}
 		}
