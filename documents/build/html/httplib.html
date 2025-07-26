@@ -133,6 +133,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#using-weblib">Using WebLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-http-post">Using HTTP Post</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#getting-the-request-body">Getting the Request Body</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rest-api-authentication">REST API Authentication</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-cookies">Using Cookies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#uploading-files">Uploading Files</a></li>
@@ -247,6 +248,8 @@
 <li><p>getFileContent(cFile) -&gt; cString</p></li>
 <li><p>getFileName(cFile) -&gt; cString</p></li>
 <li><p>request().body() -&gt; cString</p></li>
+<li><p>setStatus(nStatusCode)</p></li>
+<li><p>getStatus() -&gt; nStatusCode</p></li>
 </ul>
 </section>
 <section id="example">
@@ -614,8 +617,93 @@
 </pre></div>
 </div>
 </section>
+<section id="rest-api-authentication">
+<span id="index-10"></span><h2>REST API Authentication<a class="headerlink" href="#rest-api-authentication" title="Permalink to this heading"></a></h2>
+<p>A common way to secure a REST API is by requiring an API key sent in an HTTP header. The <cite>setStatus()</cite> method is useful here to send the correct HTTP status codes, like <cite>401 Unauthorized</cite> for failed authentication or <cite>200 OK</cite> for success.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;jsonlib.ring&quot;</span>
+
+<span class="c"># A simple list of valid API keys.</span>
+<span class="n">aValidApiKeys</span> <span class="o">=</span> <span class="o">[</span>
+        <span class="s">&quot;secret-key-123&quot;</span><span class="p">,</span>
+        <span class="s">&quot;power-user-456&quot;</span><span class="p">,</span>
+        <span class="s">&quot;limited-access-789&quot;</span>
+<span class="o">]</span>
+
+<span class="c"># Create the main server object</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span> <span class="p">{</span>
+
+        <span class="c"># Define the protected API route</span>
+        <span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span> <span class="s">&quot;/api/data&quot;</span><span class="p">,</span> <span class="k">func</span><span class="p">()</span> <span class="p">{</span>
+
+                <span class="c"># Authentication check</span>
+                <span class="k">if</span> <span class="n">isAuthenticated</span><span class="p">(</span><span class="n">oServer</span><span class="p">.</span><span class="n">request</span><span class="p">())</span>
+                        <span class="c"># Success: Client is Authenticated</span>
+                        <span class="o">?</span> <span class="s">&quot;Request received with valid API Key. Sending data.&quot;</span>
+
+                        <span class="c"># Prepare the JSON data response</span>
+                        <span class="n">aJsonData</span> <span class="o">=</span> <span class="o">[</span>
+                                <span class="p">:</span><span class="n">status</span> <span class="o">=</span> <span class="s">&quot;success&quot;</span><span class="p">,</span>
+                                <span class="p">:</span><span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Welcome, authenticated user!&quot;</span><span class="p">,</span>
+                                <span class="p">:</span><span class="n">data</span> <span class="o">=</span> <span class="o">[</span>
+                                        <span class="p">:</span><span class="n">user_id</span> <span class="o">=</span> <span class="mi">12345</span><span class="p">,</span>
+                                        <span class="p">:</span><span class="n">permissions</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;read_data&quot;</span><span class="p">,</span> <span class="s">&quot;view_reports&quot;</span><span class="o">]</span>
+                                <span class="o">]</span>
+                        <span class="o">]</span>
+                        <span class="n">cJsonResponse</span> <span class="o">=</span> <span class="n">list2json</span><span class="p">(</span><span class="n">aJsonData</span><span class="p">)</span>
+
+                        <span class="c"># Send the 200 OK response with the JSON data</span>
+                        <span class="n">oServer</span><span class="p">.</span><span class="n">setStatus</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+                        <span class="o">?</span> <span class="s">&quot;Status for &#39;/api/data&#39; route is: &quot;</span> <span class="o">+</span> <span class="n">oServer</span><span class="p">.</span><span class="n">getStatus</span><span class="p">()</span>
+                        <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="n">cJsonResponse</span><span class="p">,</span> <span class="s">&quot;application/json&quot;</span><span class="p">)</span>
+
+                <span class="k">else</span>
+                        <span class="c"># Failure: Client is Not Authenticated</span>
+                        <span class="o">?</span> <span class="s">&quot;Request received with missing or invalid API Key. Denying access.&quot;</span>
+
+                        <span class="c"># Prepare the JSON error response</span>
+                        <span class="n">aErrorData</span> <span class="o">=</span> <span class="o">[</span>
+                                <span class="p">:</span><span class="n">error</span> <span class="o">=</span> <span class="s">&quot;Unauthorized&quot;</span><span class="p">,</span>
+                                <span class="p">:</span><span class="n">message</span> <span class="o">=</span> <span class="s">&quot;A valid &#39;X-API-KEY&#39; header is required to access this resource.&quot;</span>
+                        <span class="o">]</span>
+                        <span class="n">cErrorResponse</span> <span class="o">=</span> <span class="n">list2json</span><span class="p">(</span><span class="n">aErrorData</span><span class="p">)</span>
+
+                        <span class="c"># Send the 401 Unauthorized response</span>
+                        <span class="n">oServer</span><span class="p">.</span><span class="n">setStatus</span><span class="p">(</span><span class="mi">401</span><span class="p">)</span>
+                        <span class="o">?</span> <span class="s">&quot;Status for &#39;/api/data&#39; route is: &quot;</span> <span class="o">+</span> <span class="n">oServer</span><span class="p">.</span><span class="n">getStatus</span><span class="p">()</span>
+                        <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="n">cErrorResponse</span><span class="p">,</span> <span class="s">&quot;application/json&quot;</span><span class="p">)</span>
+                <span class="k">ok</span>
+        <span class="p">})</span>
+
+        <span class="o">?</span> <span class="s">&quot;REST API Server listening at http://localhost:8080&quot;</span>
+        <span class="o">?</span> <span class="s">&quot;Try accessing the protected route &#39;/api/data&#39; with and without an API key.&quot;</span>
+        <span class="o">?</span> <span class="s">&quot;Try: curl -H &#39;X-API-KEY: secret-key-123&#39; http://localhost:8080/api/data&quot;</span>
+        <span class="o">?</span> <span class="s">&quot;Or without a key: curl -v http://localhost:8080/api/data&quot;</span>
+        <span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c"># Helper function to check for a valid API key in the request headers</span>
+<span class="k">func</span> <span class="n">isAuthenticated</span> <span class="n">oRequest</span>
+        <span class="c"># Check if the &#39;X-API-KEY&#39; header is present</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">oRequest</span><span class="p">.</span><span class="n">has_header</span><span class="p">(</span><span class="s">&quot;X-API-KEY&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kp">false</span>
+        <span class="k">ok</span>
+
+        <span class="c"># Get the key provided by the client</span>
+        <span class="n">cClientKey</span> <span class="o">=</span> <span class="n">oRequest</span><span class="p">.</span><span class="n">get_header_value</span><span class="p">(</span><span class="s">&quot;X-API-KEY&quot;</span><span class="p">)</span>
+
+        <span class="c"># Check if the client&#39;s key exists in our list of valid keys</span>
+        <span class="k">if</span> <span class="n">find</span><span class="p">(</span><span class="n">aValidApiKeys</span><span class="p">,</span> <span class="n">cClientKey</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kp">true</span>
+        <span class="k">else</span>
+                <span class="k">return</span> <span class="kp">false</span>
+        <span class="k">ok</span>
+</pre></div>
+</div>
+</section>
 <section id="more-samples">
-<span id="index-10"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
+<span id="index-11"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
 <p>Using Gradients:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
 <span class="k">load</span> <span class="s">&quot;weblib.ring&quot;</span>
@@ -773,7 +861,7 @@
 </div>
 </section>
 <section id="using-cookies">
-<span id="index-11"></span><h2>Using Cookies<a class="headerlink" href="#using-cookies" title="Permalink to this heading"></a></h2>
+<span id="index-12"></span><h2>Using Cookies<a class="headerlink" href="#using-cookies" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
 <span class="k">load</span> <span class="s">&quot;weblib.ring&quot;</span>
@@ -829,7 +917,7 @@
 </div>
 </section>
 <section id="uploading-files">
-<span id="index-12"></span><h2>Uploading Files<a class="headerlink" href="#uploading-files" title="Permalink to this heading"></a></h2>
+<span id="index-13"></span><h2>Uploading Files<a class="headerlink" href="#uploading-files" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
 <span class="k">load</span> <span class="s">&quot;weblib.ring&quot;</span>
@@ -916,7 +1004,7 @@
 </div>
 </section>
 <section id="using-templates">
-<span id="index-13"></span><h2>Using Templates<a class="headerlink" href="#using-templates" title="Permalink to this heading"></a></h2>
+<span id="index-14"></span><h2>Using Templates<a class="headerlink" href="#using-templates" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
 <span class="k">load</span> <span class="s">&quot;weblib.ring&quot;</span>
@@ -971,7 +1059,7 @@
 </div>
 </section>
 <section id="regular-expressions">
-<span id="index-14"></span><h2>Regular Expressions<a class="headerlink" href="#regular-expressions" title="Permalink to this heading"></a></h2>
+<span id="index-15"></span><h2>Regular Expressions<a class="headerlink" href="#regular-expressions" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
 
@@ -993,7 +1081,7 @@
 </div>
 </section>
 <section id="stop-the-server">
-<span id="index-15"></span><h2>Stop the Server<a class="headerlink" href="#stop-the-server" title="Permalink to this heading"></a></h2>
+<span id="index-16"></span><h2>Stop the Server<a class="headerlink" href="#stop-the-server" title="Permalink to this heading"></a></h2>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
 
