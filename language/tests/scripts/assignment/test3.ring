@@ -6,6 +6,8 @@ o1 = new test  { go() }
 
 ? :done
 
+fflush(stdout)
+
 class test
 
 	
