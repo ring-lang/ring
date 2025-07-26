@@ -62,5 +62,5 @@ More Improvements
 * RingLibCurl: ring_curl_simple_getinfo_1() function - Remove unnecessary free()
 * RingHTTPLib: Added body() method to HTTPLib_Request class
 * Ring API: Better functions for threads support 
-* Ring VM: ring_list_getitem() - Avoid cache for small lists (Up to 5 items)
+* Ring VM: ring_list_getitem() - Avoid cache for small lists (Up to 6 items)
  
