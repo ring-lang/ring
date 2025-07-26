@@ -96,8 +96,12 @@ RING_API RingState * ring_vm_createthreadstate ( VM *pVM )
 	/* Flag that we are running from thread */
 	pState->lRunFromThread = 1 ;
 	pState->lPrintInstruction = pVM->pRingState->lPrintInstruction ;
-	/* Share the same Mutex between VMs */
+	/* Lock */
 	ring_vm_mutexlock(pVM);
+	ring_vm_custmutexlock(pVM,pVM->pRingState->vPoolManager.pMutex);
+	ring_vm_custmutexlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_FUNCHASHTABLE]);
+	ring_vm_custmutexlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_VARHASHTABLE]);
+	/* Share the same Mutex between VMs */
 	pState->pVM->pFuncMutexCreate = pVM->pFuncMutexCreate ;
 	pState->pVM->pFuncMutexDestroy = pVM->pFuncMutexDestroy ;
 	pState->pVM->pFuncMutexLock = pVM->pFuncMutexLock ;
@@ -153,13 +157,18 @@ RING_API RingState * ring_vm_createthreadstate ( VM *pVM )
 	ring_vm_bytecodefornewthread(pState->pVM,pVM);
 	/* Avoid the call to the main function */
 	pState->pVM->lCallMainFunction = 1 ;
+	/* Unlock */
 	ring_vm_mutexunlock(pVM);
+	ring_vm_custmutexunlock(pVM,pVM->pRingState->vPoolManager.pMutex);
+	ring_vm_custmutexunlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_FUNCHASHTABLE]);
+	ring_vm_custmutexunlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_VARHASHTABLE]);
 	return pState ;
 }
 
 RING_API void ring_vm_deletethreadstate ( VM *pVM,RingState *pState )
 {
 	CFunction *pCFunc  ;
+	/* Lock */
 	ring_vm_mutexlock(pVM);
 	/* Return Memory Pool Items to the Main Thread */
 	ring_poolmanager_deleteblockfromsubthread(pState,pVM->pRingState);
@@ -197,6 +206,7 @@ RING_API void ring_vm_deletethreadstate ( VM *pVM,RingState *pState )
 	}
 	/* Avoid deleting the Shared Memory Blocks */
 	pState->vPoolManager.pBlocks = ring_list_new(RING_ZERO) ;
+	/* Unlock */
 	ring_vm_mutexunlock(pVM);
 	/* Delete the RingState */
 	ring_state_delete(pState);
