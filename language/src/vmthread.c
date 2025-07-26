@@ -101,13 +101,20 @@ RING_API RingState * ring_vm_createthreadstate ( VM *pVM )
 	ring_vm_custmutexlock(pVM,pVM->pRingState->vPoolManager.pMutex);
 	ring_vm_custmutexlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_FUNCHASHTABLE]);
 	ring_vm_custmutexlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_VARHASHTABLE]);
-	/* Share the same Mutex between VMs */
+	/*
+	**  Share the same Mutex between VMs 
+	**  Share Mutex Functions 
+	*/
 	pState->pVM->pFuncMutexCreate = pVM->pFuncMutexCreate ;
 	pState->pVM->pFuncMutexDestroy = pVM->pFuncMutexDestroy ;
 	pState->pVM->pFuncMutexLock = pVM->pFuncMutexLock ;
 	pState->pVM->pFuncMutexUnlock = pVM->pFuncMutexUnlock ;
+	/* Share Mutex Objects */
 	pState->pVM->pMutex = pVM->pMutex ;
 	pState->vPoolManager.pMutex = pVM->pRingState->vPoolManager.pMutex ;
+	for ( x = 0 ; x < RING_VM_CUSTOMMUTEX_COUNT ; x++ ) {
+		pState->pVM->aCustomMutex[x] = pVM->aCustomMutex[x] ;
+	}
 	/* Share the global scope between threads */
 	RING_VM_SHAREGLOBALSCOPE(pState->pVM,pVM);
 	pGlobal = RING_VM_GETSCOPE(RING_MEMORY_GLOBALSCOPE) ;
@@ -154,6 +161,7 @@ RING_API RingState * ring_vm_createthreadstate ( VM *pVM )
 RING_API void ring_vm_deletethreadstate ( VM *pVM,RingState *pState )
 {
 	CFunction *pCFunc  ;
+	unsigned int x  ;
 	/* Lock */
 	ring_vm_mutexlock(pVM);
 	/* Return Memory Pool Items to the Main Thread */
@@ -167,6 +175,9 @@ RING_API void ring_vm_deletethreadstate ( VM *pVM,RingState *pState )
 	pState->pVM->pFuncMutexUnlock = NULL ;
 	pState->pVM->pMutex = NULL ;
 	pState->vPoolManager.pMutex = NULL ;
+	for ( x = 0 ; x < RING_VM_CUSTOMMUTEX_COUNT ; x++ ) {
+		pState->pVM->aCustomMutex[x] = NULL ;
+	}
 	if ( pState->pVM->pCFunction != NULL ) {
 		/* Delete Extra C Functions (Loaded by the Sub Thread) */
 		while ( pState->pVM->pCFunction != pVM->pCFunction ) {
