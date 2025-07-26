@@ -1206,6 +1206,45 @@ RING_FUNC(ring_HTTPLib_Response_set_content_2)
 	pObject->set_content(RING_API_GETSTRING(2), (size_t ) RING_API_GETNUMBER(3),RING_API_GETSTRING(4));
 }
 
+RING_FUNC(ring_HTTPLib_Response_set_status)
+{
+	Response *pObject;
+	if (RING_API_PARACOUNT != 2)
+	{
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return;
+	}
+	RING_API_IGNORECPOINTERTYPE;
+	if (!RING_API_ISCPOINTER(1))
+	{
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	pObject = (Response *)RING_API_GETCPOINTER(1, "HTTPLib_Response");
+	if (!RING_API_ISNUMBER(2))
+	{
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	pObject->status = (int)RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_HTTPLib_Response_get_status)
+{
+	Response *pObject;
+	if (RING_API_PARACOUNT != 1)
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return;
+	}
+	if (!RING_API_ISCPOINTER(1))
+	{
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	pObject = (Response *)RING_API_GETCPOINTER(1, "HTTPLib_Response");
+	RING_API_RETNUMBER(pObject->status);
+}
 
 RING_FUNC(ring_HTTPLib_Request_has_header)
 {
@@ -2539,6 +2578,8 @@ RING_LIBINIT
 	RING_API_REGISTER("httplib_response_set_redirect_2",ring_HTTPLib_Response_set_redirect_2);
 	RING_API_REGISTER("httplib_response_set_content",ring_HTTPLib_Response_set_content);
 	RING_API_REGISTER("httplib_response_set_content_2",ring_HTTPLib_Response_set_content_2);
+	RING_API_REGISTER("httplib_response_set_status",ring_HTTPLib_Response_set_status);
+	RING_API_REGISTER("httplib_response_get_status",ring_HTTPLib_Response_get_status);
 	RING_API_REGISTER("httplib_request_has_header",ring_HTTPLib_Request_has_header);
 	RING_API_REGISTER("httplib_request_get_header_value",ring_HTTPLib_Request_get_header_value);
 	RING_API_REGISTER("httplib_request_get_header_value_2",ring_HTTPLib_Request_get_header_value_2);
