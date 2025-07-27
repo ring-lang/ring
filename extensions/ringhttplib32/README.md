@@ -1,10 +1,14 @@
-# RingHTTPLib Extension
+# RingHTTPLib32 Extension
 
 ## Introduction
 
-This extension provides support for the httplib library
+This extension provides support for an old version of the cpp-httplib library (32bit/64bit)
 
 URL: https://github.com/yhirose/cpp-httplib
+
+Newer versions of cpp-httplib doesn't support 32bit 
+
+For using a newer version check ring/extensions/ringhttplib folder
 
 ## Install
 
