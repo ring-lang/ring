@@ -109,7 +109,7 @@ call buildvc
 cd ..
 
 rem build RingHTTPLib
-cd ringhttplib
+cd ringhttplib32
 call buildvc
 cd ..
 
