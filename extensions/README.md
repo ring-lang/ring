@@ -1,5 +1,4 @@
-Ring Extensions in C/C++
-========================
+# Ring Extensions in C/C++
 
 The Tutorial folder contains simple examples about using C code in Ring programs
 
@@ -7,7 +6,7 @@ The CodeGen folder contains a tool (Written in Ring)
 to generate C/C++ code that wraps C/C++ functions/classes
 to be used from Ring code
 
-The LibDepWin folder contains the libraries required to 
+The LibDepWin folder contains the libraries required to
 build Ring extensions on Microsoft Windows
 
 The Android folder contains Ring extensions for the Android platform
@@ -22,23 +21,23 @@ The RingMouseEvent folder Another simple example to learn how to create an exten
 
 The RingWinLib folder contains simple extension that provide the RightToLeft() function
 
-The RingInternet folder contains functions that uses the LibCurl library  
+The RingInternet folder contains functions that uses the LibCurl library
 
-The RingCurl folder contains the Ring binding to the LibCurl library  
+The RingCurl folder contains the Ring binding to the LibCurl library
 
-The RingOpenssl folder contains the Ring binding to the OpenSSL library  
+The RingOpenssl folder contains the Ring binding to the OpenSSL library
 
-The RingODBC folder contains the Ring binding to the ODBC library  
+The RingODBC folder contains the Ring binding to the ODBC library
 
-The RingMySQL folder contains the Ring binding to the MySQL library  
+The RingMySQL folder contains the Ring binding to the MySQL library
 
-The RingSqlite folder contains the Ring binding to the SQLite library  
+The RingSqlite folder contains the Ring binding to the SQLite library
 
-The RingPostgreSQL folder contains the Ring binding to the PostgreSQL library  
+The RingPostgreSQL folder contains the Ring binding to the PostgreSQL library
 
 The RingQt folder contains the Ring binding to the Qt framework
 
-The RingAllegro folder contains the Ring binding to the Allegro 
+The RingAllegro folder contains the Ring binding to the Allegro
 game programming library
 
 The RingSDL folder contains the Ring binding to the LibSDL
@@ -51,7 +50,7 @@ The RingFreeGLUT folder contains the Ring binding to the FreeGLUT library
 
 The RingOpenGL folder contains the Ring binding to the OpenGL library
 
-The RingZip folder contains functions for *.zip files
+The RingZip folder contains functions for \*.zip files
 
 The RingConsoleColors folder contains the Ring binding to the ConsoleColors Library
 
@@ -63,7 +62,7 @@ The RingWinAPI folder contains the Ring binding to some functions in Windows API
 
 The RingWinCREG folder contains some functions for using the Windows Registry
 
-The RingStbImage folder contains the Ring binding to the stb_image library
+The RingStbImage folder contains the Ring binding to the stb\_image library
 
 The RingLibUI folder contains the Ring binding to the libui library
 
@@ -75,7 +74,9 @@ The RingThreads folder contains the Ring binding to TinyCThread
 
 The RingCJSON folder contains the Ring binding to CJSON library
 
-The RingHTTPLib folder contains the Ring binding to CPPHTTPLib library
+The RingHTTPLib folder contains the Ring binding to CPPHTTPLib library (New version - 64bit only)
+
+The RingHTTPLib32 folder contains the Ring binding to CPPHTTPLib library (Old version - 32bit/64bit)
 
 The RingRogueUtil folder contains the Ring binding to RogueUtil library
 
@@ -84,3 +85,4 @@ The RingFastPro folder contains functions for bytes/list processing
 The RingNAPPGUI folder contains the Ring binding to NAPPGUI (Cross-Platform C SDK)
 
 The RingPDFGen folder contains the Ring binding to PDFGen library
+
