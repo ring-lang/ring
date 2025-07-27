@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This extension provides support for the httplib library
+This extension provides support for the cpp-httplib library (64bit)
 
 URL: https://github.com/yhirose/cpp-httplib
 
