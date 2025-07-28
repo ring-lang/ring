@@ -1,0 +1,1 @@
+load "../../tools/ringpm/packages/mylib/mylib.ring"
