@@ -1497,5 +1497,5 @@ example:
 	ointernet = new internet
 	See "Test the internet Class Methods" + nl
 	ointernet { 
-		see download("www.ring-lang.sf.net")
+		see download("https://ring-lang.github.io/")
 	}
