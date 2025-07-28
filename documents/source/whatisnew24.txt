@@ -65,6 +65,7 @@ More Improvements
 * RingHTTPLib: Added body() method to HTTPLib_Request class
 * RingHTTPLib: Added setStatus() and getStatus() to Server class
 * RingHTTPLib: The file httplib.h is updated (Using 0.23.1)
+* Ring PM: Tests are revised and improved
 * Ring API: Better functions for threads support 
 * Ring VM: ring_list_getitem() - Avoid cache for small lists (Up to 6 items)
  
