@@ -366,7 +366,7 @@ T_FORMDESIGNER_ABOUT_INFO  = "This application developed using the Ring programm
 		"2018-2025, Mahmoud Fayed <msfclipper@yahoo.com>"
 
 
-T_FORMDESIGNER_HYPERLINK_URL = "http://www.ring-lang.github.io"
+T_FORMDESIGNER_HYPERLINK_URL = "http://ring-lang.github.io"
 T_FORMDESIGNER_HYPERLINK_URLTEXT = "Ring Language Website"
 
 T_FILENAME_CONTROLLER = "Controller"

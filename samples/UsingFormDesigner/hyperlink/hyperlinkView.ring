@@ -30,7 +30,7 @@ class hyperlinkView from WindowsViewParent
 			oFont.fromstring("Arial")
 			setfont(oFont)
 			oFont.delete()
-			setText('<a href="http://www.ring-lang.github.io">Ring Language Website</a>')
+			setText('<a href="http://ring-lang.github.io">Ring Language Website</a>')
 			
 		}
 		HyperLink2 = new label(win) {

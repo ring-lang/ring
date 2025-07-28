@@ -296,7 +296,7 @@ oApp = new QApp {
 		setfont(oFont)
 		oFont.delete()
 		setOpenExternallinks(true)
-		setText('<a href="http://www.ring-lang.github.io">'+aLANGUAGE[:RING_LANGUAGE_WEBSITE]+'</a>')
+		setText('<a href="http://ring-lang.github.io">'+aLANGUAGE[:RING_LANGUAGE_WEBSITE]+'</a>')
 	}
 
 	lblCount = new qlabel(frmClients){

@@ -30,7 +30,7 @@ class webviewView from WindowsViewParent
 			oFont.fromstring("Arial")
 			setfont(oFont)
 			oFont.delete()
-			loadpage(new qURL("http://www.ring-lang.github.io"))
+			loadpage(new qURL("http://ring-lang.github.io"))
 			setloadProgressEvent ("")
 			setloadStartedEvent ("")
 			setselectionChangedEvent ("")
