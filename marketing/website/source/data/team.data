@@ -20,6 +20,28 @@
 			'<img src="images/majdi.jpg" width="150" height="170">'
 		]
 ]
+aTopContributors = [
+		  [
+                    'Ilir Liburn (Creator of Ring2A/Ring2B)',
+                    'C/C++ Expert'                    
+                  ],
+		  [
+                    'Mounir IDRASSI (Creator of VeraCrypt)',
+                    'C/C++ Expert'                    
+		  ],
+		  [
+                    'Youssef Saeed',
+                    'Full Stack Developer'                    
+		  ],
+		  [
+                    'Azzeddine Remmal',
+                    'Qt/3D/AI Master'                    
+		  ],
+		  [
+                    'Ahmad Zakaria',
+                    'RayLib Master'                    
+		  ]
+]
 aManyThanks = [
 		[
 			'Gal Zsolt',
@@ -41,32 +63,6 @@ aManyThanks = [
 			'Amin Najah',
 			'<img src="images/amine.jpg" width="150" height="170">'
 		]				  
-]
-aTopContributors = [
-		  [
-                    'Ilir Liburn (Creator of Ring2A/Ring2B)',
-                    'C/C++ Expert'                    
-                  ],
-		  [
-                    'Mounir IDRASSI (Creator of VeraCrypt)',
-                    'C/C++ Expert'                    
-		  ],
-		  [
-                    'Azzeddine Remmal',
-                    'Qt3D Master'                    
-		  ],
-		  [
-                    'Youssef Saeed',
-                    'Full Stack Developer'                    
-		  ],
-		  [
-                    'isVowel / GreenWing',
-                    'Translation Master'                    
-		  ],
-		  [
-                    'Ahmad Zakaria',
-                    'RayLib Master'                    
-		  ]
 ]
 aGraphicDesigners = [
 				  [
@@ -108,11 +104,15 @@ aGraphicDesigners = [
 aTutorials = [
 		[
 			'Sara Hamdy Mohamed',
-			'Tutorials'
+			'Arabic Tutorials'
+		],
+		[
+			'isVowel / GreenWing',
+			'Japanese tutorials'                    
 		],
 		[
 			'Alaa Mohammed Elockle',
-			'Tutorials'
+			'Arabic Tutorials'
 		],
 		[
 			'Amr Essam',
