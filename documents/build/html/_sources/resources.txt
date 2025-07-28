@@ -15,7 +15,7 @@ Ring Language Website
 
 For news about the language check the website
 
-URL: http://ring-lang.net
+URL: https://ring-lang.github.io/
 
 .. index:: 
 	pair: Resources; Source Code
@@ -43,4 +43,4 @@ URL: https://groups.google.com/g/ring-lang
 Ring Team
 =========
 
-URL: http://ring-lang.net/team.html
+URL: https://ring-lang.github.io/team.html

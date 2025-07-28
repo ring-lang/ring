@@ -23,7 +23,7 @@ Example:
 
 	curl_easy_setopt(curl, CURLOPT_USERAGENT, "curl/7.54.1")
 	curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1)
-	curl_easy_setopt(curl, CURLOPT_URL, "http://ring-lang.sf.net")
+	curl_easy_setopt(curl, CURLOPT_URL, "https://ring-lang.github.io/")
 
 	curl_easy_perform(curl)
 
@@ -129,7 +129,7 @@ Example:
 
 	curl_easy_setopt(curl, CURLOPT_USERAGENT, "curl/7.54.1")
 	curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1)
-	curl_easy_setopt(curl, CURLOPT_URL, "http://ring-lang.sf.net")
+	curl_easy_setopt(curl, CURLOPT_URL, "https://ring-lang.github.io/")
 
 	cOutput = curl_easy_perform_silent(curl)
 
@@ -237,7 +237,7 @@ Example:
 
 	curl = curl_easy_init()
 
-	curl_easy_setopt_2(curl, CURLOPT_URL, "https://ring-lang.net")
+	curl_easy_setopt_2(curl, CURLOPT_URL, "https://ring-lang.github.io/")
 	curl_easy_setopt_2(curl, CURLOPT_USERAGENT, "RingLibCurl")
 	curl_easy_setopt_1(curl, CURLOPT_FOLLOWLOCATION, 1)
 
@@ -285,7 +285,7 @@ Example:
 	load "libcurl.ring"
 
 	# Download a file from URL and save it to a local file
-	downloadFile("https://ring-lang.net", "test_download.txt")
+	downloadFile("https://ring-lang.github.io/", "test_download.txt")
 
 	# Function to download file from URL and save to specified local path
 	func downloadFile URL, cFile
