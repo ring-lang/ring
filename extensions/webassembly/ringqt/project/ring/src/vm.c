@@ -213,6 +213,10 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->pTrackedVariables = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Create Arguments Cache */
 	ring_vm_newargcache(pVM);
+	/* Custom Mutex Array */
+	for ( x = 0 ; x < RING_VM_CUSTOMMUTEX_COUNT ; x++ ) {
+		pVM->aCustomMutex[x] = NULL ;
+	}
 	return pVM ;
 }
 
