@@ -1,4 +1,4 @@
-firstpackage (master) ---> firstpackage
+firstpackage (master) ---> firstpackage (1.0.2)
 firstpackage
 test.ring
 sub1/sub.ring

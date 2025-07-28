@@ -1,5 +1,5 @@
-secondpackage (master) ---> secondpackage
-firstpackage (master) ---> firstpackage
+secondpackage (master) ---> secondpackage (1.0.1)
+firstpackage (master) ---> firstpackage (1.0.2)
  - Note : Package Already Exists
 secondpackage
 test.ring

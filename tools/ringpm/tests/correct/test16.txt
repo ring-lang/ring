@@ -1,12 +1,12 @@
-a (master) ---> a
-b (master) ---> b
-d (master) ---> d
+a (master) ---> a (1.0.0)
+b (master) ---> b (1.0.0)
+d (master) ---> d (1.0.0)
 d
 test.ring
 b
 test.ring
-c (master) ---> c
-d (master) ---> d
+c (master) ---> c (1.0.0)
+d (master) ---> d (1.0.0)
  - Note : Package Already Exists
 c
 test.ring
