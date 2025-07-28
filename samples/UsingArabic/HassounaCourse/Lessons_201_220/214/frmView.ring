@@ -30,7 +30,7 @@ class frmView from WindowsViewParent
 			oFont.fromstring("MS Shell Dlg 2,18,-1,5,50,0,0,0,0,0")
 			setfont(oFont)
 			oFont.delete()
-			setText('<a href="http://www.ring-lang.net">Ring Language Website</a>')
+			setText('<a href="http://www.ring-lang.github.io">Ring Language Website</a>')
 			
 		}
 		HyperLink2 = new label(win) {
