@@ -1,4 +1,16 @@
-thirdpackage
-secondpackage
-firstpackage
-Deleting Deleting Deleting 
+aLockInfo = [
+	[
+		:name = "c",
+		:branch = "master",
+		:version = "1.0.0",
+		:providerusername = "",
+		:providerwebsite = ""
+	],
+	[
+		:name = "d",
+		:branch = "master",
+		:version = "1.0.0",
+		:providerusername = "",
+		:providerwebsite = ""
+	]
+]

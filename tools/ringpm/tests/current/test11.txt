@@ -1,3 +1,30 @@
-secondpackage
-Note : Avoid deleting the package (secondpackage) It's used by the Package (thirdpackage)
-Deleting 
+aLockInfo = [
+	[
+		:name = "a",
+		:branch = "master",
+		:version = "1.0.0",
+		:providerusername = "",
+		:providerwebsite = ""
+	],
+	[
+		:name = "b",
+		:branch = "master",
+		:version = "1.0.0",
+		:providerusername = "",
+		:providerwebsite = ""
+	],
+	[
+		:name = "d",
+		:branch = "master",
+		:version = "1.0.0",
+		:providerusername = "",
+		:providerwebsite = ""
+	],
+	[
+		:name = "c",
+		:branch = "master",
+		:version = "1.0.0",
+		:providerusername = "",
+		:providerwebsite = ""
+	]
+]

@@ -1,1 +1,6 @@
-Wow, It's my first Ring package!
+secondpackage (master) ---> secondpackage (1.0.1)
+firstpackage (master) ---> firstpackage (1.0.2)
+ - Note : Package Already Exists
+secondpackage
+test.ring
+Installing Installing Download Package Files For Download File : 

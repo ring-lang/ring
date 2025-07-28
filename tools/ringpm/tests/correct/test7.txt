@@ -1,6 +1,3 @@
-thirdpackage (master) ---> thirdpackage (1.0.3)
-secondpackage (master) ---> secondpackage (1.0.1)
- - Note : Package Already Exists
-thirdpackage
-test.ring
-Installing Installing Download Package Files For Download File : 
+secondpackage
+Note : Avoid deleting the package (secondpackage) It's used by the Package (thirdpackage)
+Deleting 

@@ -1,16 +1,8 @@
-aLockInfo = [
-	[
-		:name = "c",
-		:branch = "master",
-		:version = "1.0.0",
-		:providerusername = "",
-		:providerwebsite = ""
-	],
-	[
-		:name = "d",
-		:branch = "master",
-		:version = "1.0.0",
-		:providerusername = "",
-		:providerwebsite = ""
-	]
-]
+myapp (master) ---> myapp (1.0.0)
+mylib (master) ---> mylib (1.0.0)
+mylib
+lib.ring
+bin/load/mylib.ring
+myapp
+myapp.ring
+Installing Installing Download Package Files For Download File : Download File : Download Package Files For Download File : 
