@@ -1,10 +1,6 @@
 ﻿aDownload = [
 		["Ring 1.23 All Platforms",[
 						 [
-							'<a href="https://github.com/ring-lang/ring/releases/download/v1.23/Ring_1.23_Windows_32bit.exe"  >Ring 1.23 For Windows (32bit)</a>',
-							'414 MB'						
-						 ],
-						 [
 							'<a href="https://github.com/ring-lang/ring/releases/download/v1.23/Ring_1.23_Windows_64bit.exe"  >Ring 1.23 For Windows (64bit)</a>',
 							'423 MB'						
 						 ],
@@ -15,6 +11,10 @@
 						 [
 							'<a href="https://github.com/ring-lang/ring/releases/download/v1.23/Ring_1.23_macOS.zip">Ring 1.23 For macOS (64bit)</a>',
 							'451 MB'						
+						 ],
+						 [
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.23/Ring_1.23_Windows_32bit.exe"  >Ring 1.23 For Windows (32bit)</a>',
+							'414 MB'						
 						 ],
 						 [
 							'<a href="https://github.com/ring-lang/ring/releases/download/v1.23/RingDoc_1.23.pdf">Ring 1.23 Documentation (PDF)</a> ',
