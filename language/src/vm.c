@@ -252,10 +252,7 @@ VM * ring_vm_delete ( VM *pVM )
 		ring_list_deleteallitems_gc(pVM->pRingState,RING_VM_GETSCOPE(x));
 	}
 	/* Delete the bytecode */
-	for ( x = 1 ; x <= RING_VM_INSTRUCTIONSCOUNT ; x++ ) {
-		ring_vm_deletebytecode(pVM,x);
-	}
-	ring_state_free(pVM->pRingState,pVM->pByteCode);
+	ring_vm_deleteallbytecode(pVM);
 	/* Delete Mutex */
 	ring_vm_mutexdestroy(pVM);
 	pVM->pPackageName = ring_string_delete_gc(pVM->pRingState,pVM->pPackageName);
@@ -716,6 +713,15 @@ void ring_vm_afterscopeidoverflow ( VM *pVM )
 			}
 		}
 	}
+}
+
+void ring_vm_deleteallbytecode ( VM *pVM )
+{
+	int x  ;
+	for ( x = 1 ; x <= RING_VM_INSTRUCTIONSCOUNT ; x++ ) {
+		ring_vm_deletebytecode(pVM,x);
+	}
+	ring_state_free(pVM->pRingState,pVM->pByteCode);
 }
 
 void ring_vm_mainloop ( VM *pVM )

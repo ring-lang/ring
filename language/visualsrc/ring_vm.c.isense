@@ -711,6 +711,9 @@ Type: int
 x,y,nCount
 Type: ByteCode *
 pByteCode
+ring_vm_deleteallbytecode
+Type: int
+x
 ring_vm_mainloop
 ring_vm_fetch
 ring_vm_fetch2

@@ -606,6 +606,8 @@
 	void ring_vm_afterscopeidoverflow ( VM *pVM ) ;
 
 	void ring_vm_deletecfunctions ( VM *pVM ) ;
+
+	void ring_vm_deleteallbytecode ( VM *pVM ) ;
 	/* Stack and Variables */
 
 	void ring_vm_pushv ( VM *pVM ) ;
