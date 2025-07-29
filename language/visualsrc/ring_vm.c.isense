@@ -646,8 +646,6 @@ Type: List *
 pRecord
 Type: Item *
 pItem
-Type: CFunction *
-pCFunc
 ring_vm_start
 ring_vm_towardsmainloop
 Type: VM *
@@ -672,6 +670,9 @@ Type: char
 cPackageName[RING_HUGEBUF]
 Type: char
 cClassName[RING_HUGEBUF]
+ring_vm_deletecfunctions
+Type: CFunction *
+pCFunc
 ring_vm_loadcode
 Type: int
 x,nSize

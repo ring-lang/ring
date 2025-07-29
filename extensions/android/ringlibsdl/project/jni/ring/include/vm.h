@@ -604,6 +604,8 @@
 	void ring_vm_useextrabytecode ( VM *pVM ) ;
 
 	void ring_vm_afterscopeidoverflow ( VM *pVM ) ;
+
+	void ring_vm_deletecfunctions ( VM *pVM ) ;
 	/* Stack and Variables */
 
 	void ring_vm_pushv ( VM *pVM ) ;

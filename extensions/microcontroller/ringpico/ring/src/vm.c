@@ -225,7 +225,6 @@ VM * ring_vm_delete ( VM *pVM )
 	int x  ;
 	List *pRecord  ;
 	Item *pItem  ;
-	CFunction *pCFunc  ;
 	pVM->pNestedLists = ring_list_delete_gc(pVM->pRingState,pVM->pNestedLists);
 	pVM->pPCBlockFlag = ring_list_delete_gc(pVM->pRingState,pVM->pPCBlockFlag);
 	pVM->pTempMem = ring_list_delete_gc(pVM->pRingState,pVM->pTempMem);
@@ -276,11 +275,7 @@ VM * ring_vm_delete ( VM *pVM )
 	/* Delete Arguments Cache */
 	ring_vm_deleteargcache(pVM);
 	/* Delete C Functions */
-	while ( pVM->pCFunction != NULL ) {
-		pCFunc = pVM->pCFunction ;
-		pVM->pCFunction = pVM->pCFunction->pNext ;
-		ring_state_free(pVM->pRingState,pCFunc);
-	}
+	ring_vm_deletecfunctions(pVM);
 	pVM->pRingState->pVM = NULL ;
 	ring_state_free(pVM->pRingState,pVM);
 	pVM = NULL ;
@@ -457,6 +452,16 @@ void ring_vm_updateclassespointers ( RingState *pRingState )
 				ring_list_setpointer(pList,RING_PARSER_ICG_PARA2,NULL);
 			}
 		}
+	}
+}
+
+void ring_vm_deletecfunctions ( VM *pVM )
+{
+	CFunction *pCFunc  ;
+	while ( pVM->pCFunction != NULL ) {
+		pCFunc = pVM->pCFunction ;
+		pVM->pCFunction = pVM->pCFunction->pNext ;
+		ring_state_free(pVM->pRingState,pCFunc);
 	}
 }
 
