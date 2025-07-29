@@ -28,6 +28,10 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->nCurrentFuncCall = RING_ZERO ;
 	memset(&(pVM->aFuncCall[0]),RING_ZERO,RING_VM_STACK_SIZE*sizeof(FuncCall));
 	pVM->nCurrentScope = RING_ZERO ;
+	/* Custom Mutex Array */
+	for ( x = 0 ; x < RING_VM_CUSTOMMUTEX_COUNT ; x++ ) {
+		pVM->aCustomMutex[x] = NULL ;
+	}
 	for ( x = 0 ; x < RING_VM_STACK_SIZE ; x++ ) {
 		ring_item_init(&(pVM->aStack[x]));
 		ring_list_new2_gc(pVM->pRingState,RING_VM_GETSCOPE(x),RING_ZERO);
@@ -213,10 +217,6 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->pTrackedVariables = ring_list_new_gc(pVM->pRingState,RING_ZERO);
 	/* Create Arguments Cache */
 	ring_vm_newargcache(pVM);
-	/* Custom Mutex Array */
-	for ( x = 0 ; x < RING_VM_CUSTOMMUTEX_COUNT ; x++ ) {
-		pVM->aCustomMutex[x] = NULL ;
-	}
 	return pVM ;
 }
 
