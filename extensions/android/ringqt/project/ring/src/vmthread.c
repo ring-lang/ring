@@ -133,7 +133,11 @@ RING_API RingState * ring_vm_createthreadstate ( VM *pVM )
 			ring_list_genarray(pScope);
 		}
 	}
-	/* Get Items for the Memory Pool From the Main Thread */
+	/*
+	**  Get Items for the Memory Pool From the Main Thread 
+	**  The next function call avoid deleting the Shared Memory Blocks 
+	**  By setting vPoolManager.lDeleteMemory to zero (false) 
+	*/
 	ring_poolmanager_newblockfromsubthread(pState,RING_VM_ITEMSFORNEWTHREAD,pVM->pRingState);
 	/* Share Memory Blocks (Could be used for Lists in Global Scope) */
 	ring_list_delete(pState->vPoolManager.pBlocks);
@@ -188,8 +192,6 @@ RING_API void ring_vm_deletethreadstate ( VM *pVM,RingState *pState )
 		/* Avoid deleting C functions loaded by the Main thread */
 		pState->pVM->pCFunction = NULL ;
 	}
-	/* Avoid deleting the Shared Memory Blocks */
-	pState->vPoolManager.pBlocks = ring_list_new(RING_ZERO) ;
 	/* Delete the RingState */
 	ring_state_delete(pState);
 	/* Unlock */
