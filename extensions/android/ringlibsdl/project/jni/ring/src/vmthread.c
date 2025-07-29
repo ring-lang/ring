@@ -96,6 +96,8 @@ RING_API RingState * ring_vm_createthreadstate ( VM *pVM )
 	/* Flag that we are running from thread */
 	pState->lRunFromThread = RING_TRUE ;
 	pState->lPrintInstruction = pVM->pRingState->lPrintInstruction ;
+	/* Delete the C Functions */
+	ring_vm_deletecfunctions(pState->pVM);
 	/* Lock */
 	ring_vm_mutexlock(pVM);
 	ring_vm_custmutexlock(pVM,pVM->pRingState->vPoolManager.pMutex);
