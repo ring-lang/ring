@@ -98,6 +98,8 @@ int ring_objfile_readstring ( RingState *pRingState,char *cString )
 int ring_objfile_readfromsource ( RingState *pRingState,char *cSource,int nSource )
 {
 	List *pListFunctions, *pListClasses, *pListPackages, *pListCode, *pListFiles, *pListStack  ;
+	int lFail  ;
+	lFail = RING_FALSE ;
 	/* Create Lists */
 	pListFunctions = ring_list_new_gc(pRingState,RING_ZERO);
 	pListClasses = ring_list_new_gc(pRingState,RING_ZERO);
@@ -108,17 +110,28 @@ int ring_objfile_readfromsource ( RingState *pRingState,char *cSource,int nSourc
 	/* Process Content (File or String) */
 	if ( nSource == RING_OBJFILE_READFROMFILE ) {
 		if ( ! ring_objfile_processfile(pRingState,cSource,pListFunctions, pListClasses, pListPackages, pListCode, pListFiles, pListStack) ) {
-			return 0 ;
+			lFail = RING_TRUE ;
 		}
 	}
 	else if ( nSource ==RING_OBJFILE_READFROMSTRING ) {
 		if ( ! ring_objfile_processstring(pRingState,cSource,pListFunctions, pListClasses, pListPackages, pListCode, pListFiles, pListStack) ) {
-			return 0 ;
+			lFail = RING_TRUE ;
 		}
 	}
 	ring_list_delete_gc(pRingState,pListStack);
-	/* Update Ring State */
-	/* Update Lists */
+	if ( lFail ) {
+		/* Delete Lists */
+		ring_list_delete_gc(pRingState,pListFunctions);
+		ring_list_delete_gc(pRingState,pListClasses);
+		ring_list_delete_gc(pRingState,pListPackages);
+		ring_list_delete_gc(pRingState,pListCode);
+		ring_list_delete_gc(pRingState,pListFiles);
+		return RING_FALSE ;
+	}
+	/*
+	**  Update Ring State 
+	**  Update Lists 
+	*/
 	pRingState->pRingFunctionsMap = pListFunctions ;
 	pRingState->pRingClassesMap = pListClasses ;
 	pRingState->pRingPackagesMap = pListPackages ;
@@ -134,9 +147,11 @@ int ring_objfile_readfromsource ( RingState *pRingState,char *cSource,int nSourc
 	**  So we get the first item using ring_list_getlist() function 
 	*/
 	ring_list_copy_gc(pRingState,pRingState->pRingFilesList,ring_list_getlist(pListFiles,RING_ONE));
+	/* Delete pListFiles */
+	ring_list_delete_gc(pRingState,pListFiles);
 	/* Update Classes Pointers */
 	ring_objfile_updateclassespointers(pRingState);
-	return 1 ;
+	return RING_TRUE ;
 }
 
 int ring_objfile_processfile ( RingState *pRingState,char *cFileName,List *pListFunctions,List  *pListClasses,List  *pListPackages,List  *pListCode, List *pListFiles,List  *pListStack )

@@ -29,6 +29,8 @@ ring_objfile_readstring
 ring_objfile_readfromsource
 Type: List *
 pListFunctions, *pListClasses, *pListPackages, *pListCode, *pListFiles, *pListStack
+Type: int
+lFail
 ring_objfile_processfile
 fObj
 Type: signed char
