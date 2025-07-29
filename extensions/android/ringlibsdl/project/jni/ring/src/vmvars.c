@@ -460,7 +460,6 @@ void ring_vm_newargcache ( VM *pVM )
 		ring_list_addint_gc(pVM->pRingState,pList,RING_VM_NUMBER);
 		ring_list_adddouble_gc(pVM->pRingState,pList,RING_ZEROF);
 		ring_list_addint_gc(pVM->pRingState,pList,RING_ZERO);
-		ring_list_genarray(pList);
 		ring_list_enableargcache(pList);
 		ring_list_setlisttype(pList,RING_VM_NUMBER);
 		ring_list_enabledontdelete(pList);
