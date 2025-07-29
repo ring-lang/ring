@@ -48,6 +48,7 @@ The next samples are added:
 * samples/UsingJSONLib/test13.ring
 * samples/UsingHTTPLib/test20.ring
 * samples/UsingHTTPLib/test21.ring
+* samples/Language/ClassMethods/genfunctopassmethod.ring
 
 
 The next samples are improved
