@@ -243,6 +243,7 @@ CURLOPT_TELNETOPTIONS
 CURLE_OK 
 CURLE_UNKNOWN_OPTION
 CURLE_NOT_BUILT_IN
+CURLE_AGAIN
 
 CURLINFO_EFFECTIVE_URL
 CURLINFO_RESPONSE_CODE
@@ -303,6 +304,32 @@ CURLFORM_BUFFERLENGTH
 CURLFORM_STREAM
 CURLFORM_ARRAY
 CURLFORM_CONTENTHEADER
+
+CURLM_CALL_MULTI_PERFORM
+CURLM_OK
+CURLM_BAD_HANDLE
+CURLM_BAD_EASY_HANDLE
+CURLM_OUT_OF_MEMORY
+CURLM_INTERNAL_ERROR
+CURLM_BAD_SOCKET
+CURLM_UNKNOWN_OPTION
+CURLM_ADDED_ALREADY
+CURLM_RECURSIVE_API_CALL
+CURLM_BAD_FUNCTION_ARGUMENT
+CURLM_ABORTED_BY_CALLBACK
+CURLM_LAST
+CURLMSG_DONE
+
+CURLOPT_WS_OPTIONS
+CURLWS_RAW_MODE
+CURLWS_NOAUTOPONG
+CURLWS_TEXT
+CURLWS_BINARY
+CURLWS_CONT
+CURLWS_CLOSE
+CURLWS_PING
+CURLWS_OFFSET
+CURLWS_PONG
 </constant>
 
 <comment>
@@ -348,6 +375,7 @@ aEnumTypes + "CURLformoption"
 </runcode>
 
 CURLcode curl_global_init(long flags)
+void curl_global_cleanup(void)
 
 CURL *curl_easy_init(void)
 void curl_easy_cleanup(CURL * handle )
@@ -509,5 +537,232 @@ void curl_slist_free_all(CURLLIST * list)
 char *curl_easy_escape( CURL * curl , const char * string , int length )
 char *curl_easy_unescape( CURL * curl , const char * url , int inlength , int * outlength )
 
+<comment>
+Multi Interface
+</comment>
 
+CURLM *curl_multi_init(void)
+CURLMcode curl_multi_cleanup(CURLM *multi_handle)
+CURLMcode curl_multi_add_handle(CURLM *multi_handle, CURL *curl_handle)
+CURLMcode curl_multi_remove_handle(CURLM *multi_handle, CURL *curl_handle)
 
+<code>
+RING_FUNC(ring_curl_multi_perform)
+{
+    CURLM *pMulti;
+    int nRunningHandles = 0;
+    CURLMcode result;
+    List *pList;
+
+    if (RING_API_PARACOUNT != 1 || !RING_API_ISCPOINTER(1)) {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+        return;
+    }
+
+    pMulti = (CURLM *) RING_API_GETCPOINTER(1, "CURLM");
+    if (pMulti == NULL) {
+        RING_API_ERROR(RING_API_NULLPOINTER);
+        return;
+    }
+
+    result = curl_multi_perform(pMulti, &nRunningHandles);
+
+    pList = RING_API_NEWLIST;
+    ring_list_adddouble(pList, (double)result);
+    ring_list_adddouble(pList, (double)nRunningHandles);
+    RING_API_RETLIST(pList);
+}
+
+RING_FUNC(ring_curl_multi_wait)
+{
+    CURLM *pMulti;
+    int nTimeout;
+    int nNumFds = 0;
+    CURLMcode result;
+    List *pList;
+
+    if (RING_API_PARACOUNT != 2 || !RING_API_ISCPOINTER(1) || !RING_API_ISNUMBER(2)) {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+        return;
+    }
+
+    pMulti = (CURLM *) RING_API_GETCPOINTER(1, "CURLM");
+    nTimeout = (int) RING_API_GETNUMBER(2);
+    if (pMulti == NULL) {
+        RING_API_ERROR(RING_API_NULLPOINTER);
+        return;
+    }
+
+    result = curl_multi_wait(pMulti, NULL, 0, nTimeout, &nNumFds);
+
+    pList = RING_API_NEWLIST;
+    ring_list_adddouble(pList, (double)result);
+    ring_list_adddouble(pList, (double)nNumFds);
+    RING_API_RETLIST(pList);
+}
+
+RING_FUNC(ring_curl_multi_info_read)
+{
+    CURLM *pMulti;
+    int nMsgsInQueue = 0;
+    CURLMsg *pMsg;
+    List *pList;
+
+    if (RING_API_PARACOUNT != 1 || !RING_API_ISCPOINTER(1)) {
+        RING_API_ERROR(RING_API_MISS1PARA);
+        return;
+    }
+    
+    pMulti = (CURLM *) RING_API_GETCPOINTER(1, "CURLM");
+    if (pMulti == NULL) {
+        RING_API_ERROR(RING_API_NULLPOINTER);
+        return;
+    }
+
+    pMsg = curl_multi_info_read(pMulti, &nMsgsInQueue);
+    
+    pList = RING_API_NEWLIST;
+
+    if (pMsg) {
+        ring_list_adddouble(pList, (double)pMsg->msg); 
+        ring_list_addcpointer(pList, pMsg->easy_handle, "CURL");
+        ring_list_adddouble(pList, (double)pMsg->data.result);
+    }
+    
+    ring_list_adddouble_gc(((VM *)pPointer)->pRingState, pList, (double)nMsgsInQueue);
+    
+    RING_API_RETLIST(pList);
+}
+</code>
+
+<register>
+List* curl_multi_perform(CURLM *multi_handle)
+List* curl_multi_wait(CURLM* multi_handle, double timeout_ms)
+List* curl_multi_info_read(CURLM *multi_handle)
+</register>
+
+<comment>
+WebSocket
+</comment>
+
+<code>
+/* Helper to convert curl_ws_frame struct to a Ring list */
+static List * ring_curl_ws_frame_to_list(VM *pVM, const struct curl_ws_frame *pFrame)
+{
+    List *pList = ring_vm_api_newlist(pVM);
+    if (pFrame) {
+        ring_list_adddouble_gc(pVM->pRingState, pList, (double)pFrame->age);
+        ring_list_adddouble_gc(pVM->pRingState, pList, (double)pFrame->flags);
+        ring_list_adddouble_gc(pVM->pRingState, pList, (double)pFrame->offset);
+        ring_list_adddouble_gc(pVM->pRingState, pList, (double)pFrame->bytesleft);
+        ring_list_adddouble_gc(pVM->pRingState, pList, (double)pFrame->len);
+    }
+    return pList;
+}
+
+RING_FUNC(ring_curl_ws_send)
+{
+	CURL *pCurl;
+	const void *cBuffer;
+	size_t nBufferLen;
+	size_t nSent;
+	curl_off_t nFragSize;
+	unsigned int nFlags;
+	CURLcode result;
+	List *pList;
+
+	if (RING_API_PARACOUNT != 4) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
+
+	if (!RING_API_ISCPOINTER(1) || !RING_API_ISSTRING(2) || !RING_API_ISNUMBER(3) || !RING_API_ISNUMBER(4)) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	
+	pCurl = (CURL *) RING_API_GETCPOINTER(1, "CURL");
+	cBuffer = (const void *) RING_API_GETSTRING(2);
+	nBufferLen = (size_t) RING_API_GETSTRINGSIZE(2);
+	nFragSize = (curl_off_t) RING_API_GETNUMBER(3);
+	nFlags = (unsigned int) RING_API_GETNUMBER(4);
+	
+	result = curl_ws_send(pCurl, cBuffer, nBufferLen, &nSent, nFragSize, nFlags);
+
+	pList = RING_API_NEWLIST;
+	ring_list_adddouble(pList, (double)result);
+	ring_list_adddouble(pList, (double)nSent);
+	RING_API_RETLIST(pList);
+}
+
+RING_FUNC(ring_curl_ws_recv)
+{
+	CURL *pCurl;
+	char *cBuffer;
+	size_t nBufferLen;
+	size_t nReceived;
+	const struct curl_ws_frame *pMeta;
+	CURLcode result;
+	List *pList, *pMetaList, *pFrameDataList;
+
+	if (RING_API_PARACOUNT != 2) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return;
+	}
+	
+	if (!RING_API_ISCPOINTER(1) || !RING_API_ISNUMBER(2)) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	
+	pCurl = (CURL *) RING_API_GETCPOINTER(1, "CURL");
+	nBufferLen = (size_t) RING_API_GETNUMBER(2);
+	
+	cBuffer = (char *) RING_API_MALLOC(nBufferLen);
+	if (cBuffer == NULL) {
+		RING_API_ERROR(RING_OOM);
+		return;
+	}
+
+	result = curl_ws_recv(pCurl, cBuffer, nBufferLen, &nReceived, &pMeta);
+	
+	pList = RING_API_NEWLIST;
+	ring_list_adddouble_gc(((VM *)pPointer)->pRingState, pList, (double)result);
+	ring_list_addstring2_gc(((VM *)pPointer)->pRingState, pList, cBuffer, nReceived);
+	ring_list_adddouble_gc(((VM *)pPointer)->pRingState, pList, (double)nReceived);
+	
+	pMetaList = ring_list_newlist_gc(((VM *)pPointer)->pRingState, pList);
+	pFrameDataList = ring_curl_ws_frame_to_list((VM *)pPointer, pMeta);
+	ring_list_copy_gc(((VM *)pPointer)->pRingState, pMetaList, pFrameDataList);
+	
+	RING_API_FREE(cBuffer);
+	RING_API_RETLIST(pList);
+}
+
+RING_FUNC(ring_curl_ws_meta)
+{
+	CURL *pCurl;
+	const struct curl_ws_frame *pMeta;
+
+	if (RING_API_PARACOUNT != 1) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return;
+	}
+
+	if (!RING_API_ISCPOINTER(1)) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+
+	pCurl = (CURL *) RING_API_GETCPOINTER(1, "CURL");
+	pMeta = curl_ws_meta(pCurl);
+	
+	RING_API_RETLIST(ring_curl_ws_frame_to_list((VM *)pPointer, pMeta));
+}
+</code>
+
+<register>
+List* curl_ws_send(CURL *curl, const char *buffer, double fragsize, int flags)
+List* curl_ws_recv(CURL *curl, double buflen)
+List* curl_ws_meta(CURL *curl)
+</register>
