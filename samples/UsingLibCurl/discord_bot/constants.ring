@@ -1,0 +1,11 @@
+# Configuration
+BOT_TOKEN = "DISCORD_BOT_TOKEN"
+GATEWAY_URL = "wss://gateway.discord.gg/?v=10&encoding=json"
+
+# Discord Gateway Opcodes
+DISCORD_OP_DISPATCH = 0
+DISCORD_OP_HEARTBEAT = 1
+DISCORD_OP_IDENTIFY = 2
+DISCORD_OP_HELLO = 10
+DISCORD_OP_HEARTBEAT_ACK = 11
+DISCORD_OP_RECONNECT = 7
