@@ -1044,6 +1044,11 @@ RING_FUNC(ring_get_curle_not_built_in)
 	RING_API_RETNUMBER(CURLE_NOT_BUILT_IN);
 }
 
+RING_FUNC(ring_get_curle_again)
+{
+	RING_API_RETNUMBER(CURLE_AGAIN);
+}
+
 RING_FUNC(ring_get_curlinfo_effective_url)
 {
 	RING_API_RETNUMBER(CURLINFO_EFFECTIVE_URL);
@@ -1329,6 +1334,121 @@ RING_FUNC(ring_get_curlform_contentheader)
 	RING_API_RETNUMBER(CURLFORM_CONTENTHEADER);
 }
 
+RING_FUNC(ring_get_curlm_call_multi_perform)
+{
+	RING_API_RETNUMBER(CURLM_CALL_MULTI_PERFORM);
+}
+
+RING_FUNC(ring_get_curlm_ok)
+{
+	RING_API_RETNUMBER(CURLM_OK);
+}
+
+RING_FUNC(ring_get_curlm_bad_handle)
+{
+	RING_API_RETNUMBER(CURLM_BAD_HANDLE);
+}
+
+RING_FUNC(ring_get_curlm_bad_easy_handle)
+{
+	RING_API_RETNUMBER(CURLM_BAD_EASY_HANDLE);
+}
+
+RING_FUNC(ring_get_curlm_out_of_memory)
+{
+	RING_API_RETNUMBER(CURLM_OUT_OF_MEMORY);
+}
+
+RING_FUNC(ring_get_curlm_internal_error)
+{
+	RING_API_RETNUMBER(CURLM_INTERNAL_ERROR);
+}
+
+RING_FUNC(ring_get_curlm_bad_socket)
+{
+	RING_API_RETNUMBER(CURLM_BAD_SOCKET);
+}
+
+RING_FUNC(ring_get_curlm_unknown_option)
+{
+	RING_API_RETNUMBER(CURLM_UNKNOWN_OPTION);
+}
+
+RING_FUNC(ring_get_curlm_added_already)
+{
+	RING_API_RETNUMBER(CURLM_ADDED_ALREADY);
+}
+
+RING_FUNC(ring_get_curlm_recursive_api_call)
+{
+	RING_API_RETNUMBER(CURLM_RECURSIVE_API_CALL);
+}
+
+RING_FUNC(ring_get_curlm_bad_function_argument)
+{
+	RING_API_RETNUMBER(CURLM_BAD_FUNCTION_ARGUMENT);
+}
+
+RING_FUNC(ring_get_curlm_aborted_by_callback)
+{
+	RING_API_RETNUMBER(CURLM_ABORTED_BY_CALLBACK);
+}
+
+RING_FUNC(ring_get_curlm_last)
+{
+	RING_API_RETNUMBER(CURLM_LAST);
+}
+
+RING_FUNC(ring_get_curlmsg_done)
+{
+	RING_API_RETNUMBER(CURLMSG_DONE);
+}
+
+RING_FUNC(ring_get_curlopt_ws_options)
+{
+	RING_API_RETNUMBER(CURLOPT_WS_OPTIONS);
+}
+
+RING_FUNC(ring_get_curlws_raw_mode)
+{
+	RING_API_RETNUMBER(CURLWS_RAW_MODE);
+}
+
+RING_FUNC(ring_get_curlws_text)
+{
+	RING_API_RETNUMBER(CURLWS_TEXT);
+}
+
+RING_FUNC(ring_get_curlws_binary)
+{
+	RING_API_RETNUMBER(CURLWS_BINARY);
+}
+
+RING_FUNC(ring_get_curlws_cont)
+{
+	RING_API_RETNUMBER(CURLWS_CONT);
+}
+
+RING_FUNC(ring_get_curlws_close)
+{
+	RING_API_RETNUMBER(CURLWS_CLOSE);
+}
+
+RING_FUNC(ring_get_curlws_ping)
+{
+	RING_API_RETNUMBER(CURLWS_PING);
+}
+
+RING_FUNC(ring_get_curlws_offset)
+{
+	RING_API_RETNUMBER(CURLWS_OFFSET);
+}
+
+RING_FUNC(ring_get_curlws_pong)
+{
+	RING_API_RETNUMBER(CURLWS_PONG);
+}
+
 
 RING_FUNC(ring_curl_global_init)
 {
@@ -1347,6 +1467,17 @@ RING_FUNC(ring_curl_global_init)
 		*pValue = curl_global_init( (long ) RING_API_GETNUMBER(1));
 		RING_API_RETMANAGEDCPOINTER(pValue,"CURLcode",RING_API_FREEFUNC);
 	}
+}
+
+
+RING_FUNC(ring_curl_global_cleanup)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	curl_global_cleanup();
 }
 
 
@@ -2271,9 +2402,288 @@ RING_FUNC(ring_curl_easy_unescape)
 	RING_API_ACCEPTINTVALUE(4) ;
 }
 
+
+RING_FUNC(ring_curl_multi_init)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	RING_API_RETCPOINTER(curl_multi_init(),"CURLM");
+}
+
+
+RING_FUNC(ring_curl_multi_cleanup)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		CURLMcode *pValue ; 
+		pValue = (CURLMcode *) RING_API_MALLOC(sizeof(CURLMcode)) ;
+		*pValue = curl_multi_cleanup((CURLM *) RING_API_GETCPOINTER(1,"CURLM"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"CURLMcode",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_curl_multi_add_handle)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		CURLMcode *pValue ; 
+		pValue = (CURLMcode *) RING_API_MALLOC(sizeof(CURLMcode)) ;
+		*pValue = curl_multi_add_handle((CURLM *) RING_API_GETCPOINTER(1,"CURLM"),(CURL *) RING_API_GETCPOINTER(2,"CURL"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"CURLMcode",RING_API_FREEFUNC);
+	}
+}
+
+
+RING_FUNC(ring_curl_multi_remove_handle)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		CURLMcode *pValue ; 
+		pValue = (CURLMcode *) RING_API_MALLOC(sizeof(CURLMcode)) ;
+		*pValue = curl_multi_remove_handle((CURLM *) RING_API_GETCPOINTER(1,"CURLM"),(CURL *) RING_API_GETCPOINTER(2,"CURL"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"CURLMcode",RING_API_FREEFUNC);
+	}
+}
+
+RING_FUNC(ring_curl_multi_perform)
+{
+CURLM *pMulti;
+int nRunningHandles = 0;
+CURLMcode result;
+List *pList;
+
+if (RING_API_PARACOUNT != 1 || !RING_API_ISCPOINTER(1)) {
+RING_API_ERROR(RING_API_BADPARATYPE);
+return;
+}
+
+pMulti = (CURLM *) RING_API_GETCPOINTER(1, "CURLM");
+if (pMulti == NULL) {
+RING_API_ERROR(RING_API_NULLPOINTER);
+return;
+}
+
+result = curl_multi_perform(pMulti, &nRunningHandles);
+
+pList = RING_API_NEWLIST;
+ring_list_adddouble(pList, (double)result);
+ring_list_adddouble(pList, (double)nRunningHandles);
+RING_API_RETLIST(pList);
+}
+
+RING_FUNC(ring_curl_multi_wait)
+{
+CURLM *pMulti;
+int nTimeout;
+int nNumFds = 0;
+CURLMcode result;
+List *pList;
+
+if (RING_API_PARACOUNT != 2 || !RING_API_ISCPOINTER(1) || !RING_API_ISNUMBER(2)) {
+RING_API_ERROR(RING_API_BADPARATYPE);
+return;
+}
+
+pMulti = (CURLM *) RING_API_GETCPOINTER(1, "CURLM");
+nTimeout = (int) RING_API_GETNUMBER(2);
+if (pMulti == NULL) {
+RING_API_ERROR(RING_API_NULLPOINTER);
+return;
+}
+
+result = curl_multi_wait(pMulti, NULL, 0, nTimeout, &nNumFds);
+
+pList = RING_API_NEWLIST;
+ring_list_adddouble(pList, (double)result);
+ring_list_adddouble(pList, (double)nNumFds);
+RING_API_RETLIST(pList);
+}
+
+RING_FUNC(ring_curl_multi_info_read)
+{
+CURLM *pMulti;
+int nMsgsInQueue = 0;
+CURLMsg *pMsg;
+List *pList;
+
+if (RING_API_PARACOUNT != 1 || !RING_API_ISCPOINTER(1)) {
+RING_API_ERROR(RING_API_MISS1PARA);
+return;
+}
+
+pMulti = (CURLM *) RING_API_GETCPOINTER(1, "CURLM");
+if (pMulti == NULL) {
+RING_API_ERROR(RING_API_NULLPOINTER);
+return;
+}
+
+pMsg = curl_multi_info_read(pMulti, &nMsgsInQueue);
+
+pList = RING_API_NEWLIST;
+
+if (pMsg) {
+ring_list_adddouble(pList, (double)pMsg->msg);
+ring_list_addcpointer(pList, pMsg->easy_handle, "CURL");
+ring_list_adddouble(pList, (double)pMsg->data.result);
+}
+
+ring_list_adddouble_gc(((VM *)pPointer)->pRingState, pList, (double)nMsgsInQueue);
+
+RING_API_RETLIST(pList);
+}
+/* Helper to convert curl_ws_frame struct to a Ring list */
+static List * ring_curl_ws_frame_to_list(VM *pVM, const struct curl_ws_frame *pFrame)
+{
+List *pList = ring_vm_api_newlist(pVM);
+if (pFrame) {
+ring_list_adddouble_gc(pVM->pRingState, pList, (double)pFrame->age);
+ring_list_adddouble_gc(pVM->pRingState, pList, (double)pFrame->flags);
+ring_list_adddouble_gc(pVM->pRingState, pList, (double)pFrame->offset);
+ring_list_adddouble_gc(pVM->pRingState, pList, (double)pFrame->bytesleft);
+ring_list_adddouble_gc(pVM->pRingState, pList, (double)pFrame->len);
+}
+return pList;
+}
+
+RING_FUNC(ring_curl_ws_send)
+{
+	CURL *pCurl;
+	const void *cBuffer;
+	size_t nBufferLen;
+	size_t nSent;
+	curl_off_t nFragSize;
+	unsigned int nFlags;
+	CURLcode result;
+	List *pList;
+
+	if (RING_API_PARACOUNT != 4) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
+
+	if (!RING_API_ISCPOINTER(1) || !RING_API_ISSTRING(2) || !RING_API_ISNUMBER(3) || !RING_API_ISNUMBER(4)) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	
+	pCurl = (CURL *) RING_API_GETCPOINTER(1, "CURL");
+	cBuffer = (const void *) RING_API_GETSTRING(2);
+	nBufferLen = (size_t) RING_API_GETSTRINGSIZE(2);
+	nFragSize = (curl_off_t) RING_API_GETNUMBER(3);
+	nFlags = (unsigned int) RING_API_GETNUMBER(4);
+	
+	result = curl_ws_send(pCurl, cBuffer, nBufferLen, &nSent, nFragSize, nFlags);
+
+	pList = RING_API_NEWLIST;
+	ring_list_adddouble(pList, (double)result);
+	ring_list_adddouble(pList, (double)nSent);
+	RING_API_RETLIST(pList);
+}
+
+RING_FUNC(ring_curl_ws_recv)
+{
+	CURL *pCurl;
+	char *cBuffer;
+	size_t nBufferLen;
+	size_t nReceived;
+	const struct curl_ws_frame *pMeta;
+	CURLcode result;
+	List *pList, *pMetaList, *pFrameDataList;
+
+	if (RING_API_PARACOUNT != 2) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return;
+	}
+	
+	if (!RING_API_ISCPOINTER(1) || !RING_API_ISNUMBER(2)) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+	
+	pCurl = (CURL *) RING_API_GETCPOINTER(1, "CURL");
+	nBufferLen = (size_t) RING_API_GETNUMBER(2);
+	
+	cBuffer = (char *) RING_API_MALLOC(nBufferLen);
+	if (cBuffer == NULL) {
+		RING_API_ERROR(RING_OOM);
+		return;
+	}
+
+	result = curl_ws_recv(pCurl, cBuffer, nBufferLen, &nReceived, &pMeta);
+	
+	pList = RING_API_NEWLIST;
+	ring_list_adddouble_gc(((VM *)pPointer)->pRingState, pList, (double)result);
+	ring_list_addstring2_gc(((VM *)pPointer)->pRingState, pList, cBuffer, nReceived);
+	ring_list_adddouble_gc(((VM *)pPointer)->pRingState, pList, (double)nReceived);
+	
+	pMetaList = ring_list_newlist_gc(((VM *)pPointer)->pRingState, pList);
+	pFrameDataList = ring_curl_ws_frame_to_list((VM *)pPointer, pMeta);
+	ring_list_copy_gc(((VM *)pPointer)->pRingState, pMetaList, pFrameDataList);
+	
+	RING_API_FREE(cBuffer);
+	RING_API_RETLIST(pList);
+}
+
+RING_FUNC(ring_curl_ws_meta)
+{
+	CURL *pCurl;
+	const struct curl_ws_frame *pMeta;
+
+	if (RING_API_PARACOUNT != 1) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return;
+	}
+
+	if (!RING_API_ISCPOINTER(1)) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+
+	pCurl = (CURL *) RING_API_GETCPOINTER(1, "CURL");
+	pMeta = curl_ws_meta(pCurl);
+	
+	RING_API_RETLIST(ring_curl_ws_frame_to_list((VM *)pPointer, pMeta));
+}
 RING_LIBINIT
 {
 	RING_API_REGISTER("curl_global_init",ring_curl_global_init);
+	RING_API_REGISTER("curl_global_cleanup",ring_curl_global_cleanup);
 	RING_API_REGISTER("curl_easy_init",ring_curl_easy_init);
 	RING_API_REGISTER("curl_easy_cleanup",ring_curl_easy_cleanup);
 	RING_API_REGISTER("curl_easy_setopt_1",ring_curl_easy_setopt_1);
@@ -2305,6 +2715,16 @@ RING_LIBINIT
 	RING_API_REGISTER("curl_slist_free_all",ring_curl_slist_free_all);
 	RING_API_REGISTER("curl_easy_escape",ring_curl_easy_escape);
 	RING_API_REGISTER("curl_easy_unescape",ring_curl_easy_unescape);
+	RING_API_REGISTER("curl_multi_init",ring_curl_multi_init);
+	RING_API_REGISTER("curl_multi_cleanup",ring_curl_multi_cleanup);
+	RING_API_REGISTER("curl_multi_add_handle",ring_curl_multi_add_handle);
+	RING_API_REGISTER("curl_multi_remove_handle",ring_curl_multi_remove_handle);
+	RING_API_REGISTER("curl_multi_perform",ring_curl_multi_perform);
+	RING_API_REGISTER("curl_multi_wait",ring_curl_multi_wait);
+	RING_API_REGISTER("curl_multi_info_read",ring_curl_multi_info_read);
+	RING_API_REGISTER("curl_ws_send",ring_curl_ws_send);
+	RING_API_REGISTER("curl_ws_recv",ring_curl_ws_recv);
+	RING_API_REGISTER("curl_ws_meta",ring_curl_ws_meta);
 	RING_API_REGISTER("new_curllist",ring_new_curllist);
 	RING_API_REGISTER("new_managed_curllist",ring_new_managed_curllist);
 	RING_API_REGISTER("destroy_curllist",ring_destroy_curllist);
@@ -2507,6 +2927,7 @@ RING_LIBINIT
 	RING_API_REGISTER("get_curle_ok",ring_get_curle_ok);
 	RING_API_REGISTER("get_curle_unknown_option",ring_get_curle_unknown_option);
 	RING_API_REGISTER("get_curle_not_built_in",ring_get_curle_not_built_in);
+	RING_API_REGISTER("get_curle_again",ring_get_curle_again);
 	RING_API_REGISTER("get_curlinfo_effective_url",ring_get_curlinfo_effective_url);
 	RING_API_REGISTER("get_curlinfo_response_code",ring_get_curlinfo_response_code);
 	RING_API_REGISTER("get_curlinfo_http_connectcode",ring_get_curlinfo_http_connectcode);
@@ -2564,4 +2985,27 @@ RING_LIBINIT
 	RING_API_REGISTER("get_curlform_stream",ring_get_curlform_stream);
 	RING_API_REGISTER("get_curlform_array",ring_get_curlform_array);
 	RING_API_REGISTER("get_curlform_contentheader",ring_get_curlform_contentheader);
+	RING_API_REGISTER("get_curlm_call_multi_perform",ring_get_curlm_call_multi_perform);
+	RING_API_REGISTER("get_curlm_ok",ring_get_curlm_ok);
+	RING_API_REGISTER("get_curlm_bad_handle",ring_get_curlm_bad_handle);
+	RING_API_REGISTER("get_curlm_bad_easy_handle",ring_get_curlm_bad_easy_handle);
+	RING_API_REGISTER("get_curlm_out_of_memory",ring_get_curlm_out_of_memory);
+	RING_API_REGISTER("get_curlm_internal_error",ring_get_curlm_internal_error);
+	RING_API_REGISTER("get_curlm_bad_socket",ring_get_curlm_bad_socket);
+	RING_API_REGISTER("get_curlm_unknown_option",ring_get_curlm_unknown_option);
+	RING_API_REGISTER("get_curlm_added_already",ring_get_curlm_added_already);
+	RING_API_REGISTER("get_curlm_recursive_api_call",ring_get_curlm_recursive_api_call);
+	RING_API_REGISTER("get_curlm_bad_function_argument",ring_get_curlm_bad_function_argument);
+	RING_API_REGISTER("get_curlm_aborted_by_callback",ring_get_curlm_aborted_by_callback);
+	RING_API_REGISTER("get_curlm_last",ring_get_curlm_last);
+	RING_API_REGISTER("get_curlmsg_done",ring_get_curlmsg_done);
+	RING_API_REGISTER("get_curlopt_ws_options",ring_get_curlopt_ws_options);
+	RING_API_REGISTER("get_curlws_raw_mode",ring_get_curlws_raw_mode);
+	RING_API_REGISTER("get_curlws_text",ring_get_curlws_text);
+	RING_API_REGISTER("get_curlws_binary",ring_get_curlws_binary);
+	RING_API_REGISTER("get_curlws_cont",ring_get_curlws_cont);
+	RING_API_REGISTER("get_curlws_close",ring_get_curlws_close);
+	RING_API_REGISTER("get_curlws_ping",ring_get_curlws_ping);
+	RING_API_REGISTER("get_curlws_offset",ring_get_curlws_offset);
+	RING_API_REGISTER("get_curlws_pong",ring_get_curlws_pong);
 }
