@@ -15,9 +15,30 @@ List of changes and new features
 
 Ring 1.24 comes with the next features!
 
+* Better RingLibCurl
 * More RingPM Packages
 * More Samples
 * More Improvements
+
+
+Better RingLibCurl
+==================
+
+The next functions are added to the extension
+
+.. code-block:: none
+
+	* void curl_global_cleanup(void)
+	* CURLM *curl_multi_init(void)
+	* CURLMcode curl_multi_cleanup(CURLM *multi_handle)
+	* CURLMcode curl_multi_add_handle(CURLM *multi_handle, CURL *curl_handle)
+	* CURLMcode curl_multi_remove_handle(CURLM *multi_handle, CURL *curl_handle)
+	* List* curl_multi_perform(CURLM *multi_handle)
+	* List* curl_multi_wait(CURLM* multi_handle, double timeout_ms)
+	* List* curl_multi_info_read(CURLM *multi_handle)
+	* List* curl_ws_send(CURL *curl, const char *buffer, double fragsize, int flags)
+	* List* curl_ws_recv(CURL *curl, double buflen)
+	* List* curl_ws_meta(CURL *curl)
 
 .. index:: 
 	pair: What is new in Ring 1.24?; More RingPM Packages
@@ -44,6 +65,8 @@ More Samples
 
 The next samples are added:
 
+* samples/UsingLibCurl/t12.ring
+* samples/UsingLibCurl/t13.ring
 * samples/UsingJSONLib/test12.ring
 * samples/UsingJSONLib/test13.ring
 * samples/UsingHTTPLib/test20.ring
