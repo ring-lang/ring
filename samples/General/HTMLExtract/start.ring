@@ -1,9 +1,14 @@
 load "stdlibcore.ring"
 
-if ! fexists(JustFilePath(EXEFileName()) + "/load/ringregex.ring")
+cRingBinFolder = JustFilePath(EXEFileName())
+if ! fexists(cRingBinFolder + "/load/ringregex.ring")
 	? "Package: RingRegex is not installed!"
 	? "Using: ringpm install ringregex from ringpackages"
-	system("ringpm install ringregex from ringpackages")
+	# Take in mind if ring/bin is not added to the PATH
+		cDir = CurrentDir()
+		ChDir(cRingBinFolder)
+		System("ringpm install ringregex from ringpackages")
+		ChDir(cDir)
 ok
 
-system("ring HTMLExtract.ring")
+System("ring HTMLExtract.ring")
