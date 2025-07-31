@@ -65,9 +65,10 @@ More Samples
 
 The next samples are added:
 
+* samples/General/HTMLExtract
+* samples/UsingLibCurl/DiscordBot
 * samples/UsingLibCurl/t12.ring
 * samples/UsingLibCurl/t13.ring
-* samples/UsingLibCurl/DiscordBot
 * samples/UsingJSONLib/test12.ring
 * samples/UsingJSONLib/test13.ring
 * samples/UsingHTTPLib/test20.ring
