@@ -1,4 +1,5 @@
 aNews = [
+  ["August 1, 2025",'<a href="https://github.com/ysdragon/dialog"> Dialog: Native OS dialogs</a>'],
   ["July 23, 2025",'<a href="https://github.com/ysdragon/webview"> WebView: Create beautiful, cross-platform desktop apps using Ring and web technologies</a>'],
   ["July 12, 2025",'<a href="doc1.23/whatisnew23.html"> Ring 1.23 Released!</a>'],
   ["July 5, 2025",'<a href="https://github.com/ysdragon/toml"> A comprehensive TOML parser</a>'],
