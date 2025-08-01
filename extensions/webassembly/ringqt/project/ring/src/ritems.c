@@ -29,11 +29,10 @@ Items * ring_items_delete_gc ( void *pState,Items *pItems )
 {
 	char *pMem  ;
 	Item *pItem  ;
+	pItems->pValue = ring_item_delete_gc(pState,pItems->pValue);
 	if ( ! pItems->lDelete ) {
-		ring_item_delete_gc(pState,pItems->pValue);
 		return NULL ;
 	}
-	pItems->pValue = ring_item_delete_gc(pState,pItems->pValue);
 	pMem = (char *) pItems ;
 	pMem = pMem - sizeof(Item) ;
 	pItem = (Item *) pMem ;
