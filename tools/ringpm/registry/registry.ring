@@ -812,7 +812,11 @@ aPackagesRegistry = [
 	  :ProviderUserName = "ringpackages"
 	],
 	[ :name = "webview",
-          :description = "Create beautiful, cross-platform desktop apps with Ring and web technologies.",
+          :description = "Create beautiful, cross-platform desktop apps with Ring and web technologies",
+          :ProviderUserName = "ysdragon"
+        ],
+	[ :name = "dialog",
+          :description = "Ring bindings for osdialog, a cross-platform library for native OS dialogs",
           :ProviderUserName = "ysdragon"
         ]
 ]
