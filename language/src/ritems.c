@@ -9,15 +9,16 @@ Items * ring_items_new_gc ( void *pState )
 	Item *pItem  ;
 	pMem = (char *) ring_state_malloc(pState,sizeof(Item)+sizeof(Items));
 	pItem = (Item *) pMem ;
-	/* Clear Item */
+	pMem = pMem + sizeof(Item) ;
+	pItems = (Items *) pMem ;
+	/* Set the Item Structure data */
 	pItem->nType = ITEMTYPE_NOTHING ;
 	pItem->nObjectType = 0 ;
 	pItem->data.dNumber = 0 ;
 	pItem->nNumberFlag = ITEM_NUMBERFLAG_NOTHING ;
 	ring_vm_gc_cleardata(pItem);
 	ring_vm_gc_newitemreference(pItem);
-	pMem = pMem + sizeof(Item) ;
-	pItems = (Items *) pMem ;
+	/* Set the Items Structure data */
 	pItems->pValue = pItem ;
 	pItems->pNext = NULL ;
 	pItems->pPrev = NULL ;
