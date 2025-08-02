@@ -30,7 +30,7 @@ class InstallCommand
 		else 
 			Style("Updating ",:YellowBlack) 
 		ok
-		see Width(cPackageName + " (" + cBranchName + ")" , 10)
+		see Width(cPackageName + " (" + cBranchName + ")" , 10) 
 		GetPackage(cPackageName)
 
 	func GetPackage cPackageName
@@ -267,8 +267,9 @@ class InstallCommand
 		cFileURL 	= cPackageURL + cFileName
 		cFileContent 	= DownloadFile(cFileURL)
 		if lInstallError = True 
-			? nl+"Can't download the file : " + cFileURL
-			loop
+			? "Can't download the file : " + cFileURL
+			lInstallError = False
+			return
 		ok
 		cDir  = CurrentDir()
 		CreateSubFolders(cFileName)
@@ -340,8 +341,12 @@ class InstallCommand
 			ok
 			return Read(cURL)
 		ok
-		return Download(AddTimeStamp(cURL))
-
+		cFileContent = Download(AddTimeStamp(cURL))
+		if cFileContent = "404: Not Found"
+			lInstallError 	= True
+			return 
+		ok
+		return cFileContent
 
 	func InstallFromRegistry cPackageName 
 		eval(read(C_REGISTRYFILE))
