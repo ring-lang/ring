@@ -3,9 +3,16 @@ class resources
 	aimages = []
 	afonts = []
 
+	func checkFile cFileName
+		if ! fexists(cFileName)
+			? "File doesn't exist: " + cFileName
+			gl_exit()
+		ok
+
 	func loadimage cFileName
 		npos = find(aimages,cFileName,1)
 		if npos = 0
+			checkFile(cFileName)
 			aimages + [cFileName,gl_load_bitmap(cFileName)]
 			npos = len(aimages)
 		ok
@@ -27,6 +34,7 @@ class resources
 			ok
 		next
 		if npos = 0 or aFonts[nPos][2] != nSize
+			checkFile(cFileName)
 			afonts + [cFileName,nSize,gl_load_ttf_font(cFileName,nSize,0)]
 			npos = len(afonts)
 		ok
