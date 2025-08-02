@@ -95,6 +95,7 @@ More Improvements
 * RingHTTPLib: The file httplib.h is updated (Using 0.23.1)
 * Ring Tests: Add/Use: nIgnoreCount
 * Ring PM: Tests are revised and improved
+* Ring PM: Clear error message when the package contains a file that doesn't exist
 * Ring API: Better functions for threads support 
 * Ring VM: ring_objfile_readfromsource() - Better implementation
 * Ring VM: ring_list_getitem() - Avoid cache for small lists (Up to 6 items)
