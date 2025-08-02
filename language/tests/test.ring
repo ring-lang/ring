@@ -45,6 +45,7 @@ func RunTests()
 				Width(aTest[:Name],65)
 				see " --- "
 				style("IGNORE",:BlackYellow)
+				nIgnoreCount++
 				loop
 			ok
 		ok
@@ -59,9 +60,10 @@ func RunTests()
 	? nl line()	
 	style(Width(" The Report Summary ",90), :BlackWhite)  			? ""
 	line()	
-	style(Width(" Tests Count : " + nMax,90)		, ReportColor)  ? ""
+	style(Width(" Tests Count : " + nMax,90)	, ReportColor)  ? ""
 	style(Width(" PASS        : " + nPassCount,90)	, ReportColor)  ? ""
 	style(Width(" FAIL        : " + nFailCount,90)	, ReportColor)  ? ""
+	style(Width(" IGNORE      : " + nIgnoreCount,90), ReportColor)  ? ""
 	line()
 
 

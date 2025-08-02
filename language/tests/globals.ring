@@ -17,3 +17,4 @@ cOutputFolder 		= "../"
 
 nPassCount		= 0
 nFailCount		= 0
+nIgnoreCount		= 0
