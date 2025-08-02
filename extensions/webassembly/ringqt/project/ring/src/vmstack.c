@@ -441,14 +441,16 @@ void ring_vm_list_copy ( VM *pVM,List *pNewList, List *pList )
 	}
 	/* Check if the List is a C Pointer List */
 	if ( ring_list_iscpointerlist(pList) ) {
-		/* Mark the C Pointer List as Not Copied */
-		ring_list_setint_gc(pVM->pRingState,pList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_NOTCOPIED);
-		ring_list_setint_gc(pVM->pRingState,pNewList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_NOTCOPIED);
 		/* Copy The Pointer by Reference */
 		pNewList->pFirst->pValue = ring_item_delete_gc(pVM->pRingState,pNewList->pFirst->pValue);
 		pItem = ring_list_getitem(pList,RING_CPOINTER_POINTER) ;
 		pNewList->pFirst->pValue = pItem ;
+		ring_vm_custmutexlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
 		ring_vm_gc_newitemreference(pItem);
+		/* Mark the C Pointer List as Not Copied */
+		ring_list_setint_gc(pVM->pRingState,pList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_NOTCOPIED);
+		ring_list_setint_gc(pVM->pRingState,pNewList,RING_CPOINTER_STATUS,RING_CPOINTERSTATUS_NOTCOPIED);
+		ring_vm_custmutexunlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
 	}
 }
 

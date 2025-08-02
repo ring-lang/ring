@@ -13,7 +13,8 @@ void ring_vm_gc_checknewreference ( VM *pVM,void *pPointer,int nType, List *pCon
 	*/
 	if ( nType == RING_OBJTYPE_LISTITEM ) {
 		pItem = (Item *) pPointer ;
-		pItem->nGCReferenceCount++ ;
+		ring_vm_custmutexlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
+		ring_vm_gc_newitemreference(pItem);
 		/* Set the Free Function */
 		pItem = ring_list_getitem(pContainer,nIndex) ;
 		ring_vm_gc_setfreefunc(pItem, (void(*)(void *, void *)) ring_vm_gc_deleteitem_gc);
@@ -22,6 +23,7 @@ void ring_vm_gc_checknewreference ( VM *pVM,void *pPointer,int nType, List *pCon
 			pContainer->vGC.lTrackedList = 1 ;
 			ring_list_addpointer_gc(pVM->pRingState,pVM->pTrackedVariables,pContainer);
 		}
+		ring_vm_custmutexunlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
 	}
 }
 
@@ -39,7 +41,25 @@ void ring_vm_gc_checkupdatereference ( VM *pVM,List *pList )
 
 void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem )
 {
-	if ( pItem->nGCReferenceCount == 0 ) {
+	VM *pVM  ;
+	int nRefCount  ;
+	/* Get pVM */
+	if ( pState != NULL ) {
+		pVM = ((RingState *) pState)->pVM ;
+	}
+	else {
+		pVM = NULL ;
+	}
+	/* Get nRefCount */
+	if ( pVM != NULL ) {
+		ring_vm_custmutexlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
+		nRefCount = pItem->nGCReferenceCount ;
+		ring_vm_custmutexunlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
+	}
+	else {
+		nRefCount = pItem->nGCReferenceCount ;
+	}
+	if ( nRefCount == 0 ) {
 		/* Call Free Function */
 		if ( pItem->nType == ITEMTYPE_POINTER ) {
 			ring_vm_gc_freefunc((RingState *) pState,pItem);
@@ -48,7 +68,14 @@ void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem )
 		ring_state_free(pState,pItem);
 	}
 	else {
-		pItem->nGCReferenceCount-- ;
+		if ( pVM != NULL ) {
+			ring_vm_custmutexlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
+			pItem->nGCReferenceCount-- ;
+			ring_vm_custmutexunlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
+		}
+		else {
+			pItem->nGCReferenceCount-- ;
+		}
 	}
 }
 
