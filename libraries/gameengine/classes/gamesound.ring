@@ -1,10 +1,14 @@
 Class Sound from gameobject
 
-	file sample  csoundfile sampleid
+	file sample  cSoundFile sampleid
 	playing = false
 	type = 0
 	once = false
-	func setfile cfilename
+	func setfile cFileName
+		if ! fexists(cFileName)
+			? "File doesn't exist: " + cFileName
+			gl_exit()
+		ok
 		sample = gl_load_sample(cfilename)
 		csoundfile = cfilename
 
