@@ -818,5 +818,9 @@ aPackagesRegistry = [
 	[ :name = "dialog",
           :description = "Ring bindings for osdialog, a cross-platform library for native OS dialogs",
           :ProviderUserName = "ysdragon"
-        ]
+        ],
+	[ :name = "worm",
+	  :description = "Worm Game developed using Ring Game Engine for 2D Games",
+	  :ProviderUserName = "ringpackages"
+	]
 ]
