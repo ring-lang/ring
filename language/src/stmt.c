@@ -375,19 +375,6 @@ int ring_parser_stmt ( Parser *pParser )
 		ring_parser_icg_freestack(pParser);
 		RING_STATE_PRINTRULE(RING_RULE_QEXPR) ;
 		return x ;
-		/*
-		**  Generate code to use the See function 
-		**  Print the Expression 
-		*/
-		x = ring_parser_ringvmsee(pParser);
-		/* Print the New Line */
-		ring_parser_icg_loadfunction(pParser,RING_CSTR_RINGVMSEE);
-		/* Parameters */
-		ring_parser_icg_newoperation(pParser,ICO_PUSHNL);
-		ring_parser_icg_newoperation(pParser,ICO_CALL);
-		ring_parser_icg_newoperandint(pParser,RING_ZERO);
-		ring_parser_icg_newoperation(pParser,ICO_NOOP);
-		ring_parser_icg_freestack(pParser);
 	}
 	/* Statement --> Give|Get Identifier */
 	if ( ring_parser_iskeyword(pParser,K_GIVE) | ring_parser_iskeyword(pParser,K_GET) ) {
