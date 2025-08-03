@@ -63,6 +63,9 @@ Output:
 	16
 	25
 
+.. note:: Try rewriting the previous program to avoid the For-Loop (Try using Functions/Recursion).
+
+.. tip:: The stdlibcore.ring comes with helpful functions like Map(), Filter() and Reduce().
 
 .. index:: 
 	pair: Functional Programming; First-Class Functions
@@ -146,6 +149,8 @@ Output:
 	Message from the test function!
 	Message from the test function!
 	Message from the test function!
+
+.. note:: The stdlibcore.ring comes with the Times() function.
 
 .. index:: 
 	pair: Functional Programming; Anonymous and Nested Functions
@@ -253,6 +258,10 @@ Output:
 	even
 	odd
 	even
+
+.. note:: Try modifying the Map() implementation in the previous example to avoid updating the list.
+
+.. tip:: The stdlibcore.ring comes with the Map() function which will return a new list.
 
 .. index:: 
 	pair: Functional Programming; Equality of functions
