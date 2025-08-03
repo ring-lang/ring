@@ -43,6 +43,21 @@ void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem )
 {
 	VM *pVM  ;
 	int nRefCount  ;
+	/* Single Thread */
+	if ( pState==NULL || ( ((RingState *) pState)->pVM == NULL) || ( ((RingState *) pState)->pVM->pMutex == NULL) ) {
+		if ( pItem->nGCReferenceCount == 0 ) {
+			/* Call Free Function */
+			if ( pItem->nType == ITEMTYPE_POINTER ) {
+				ring_vm_gc_freefunc((RingState *) pState,pItem);
+			}
+			ring_item_deletecontent_gc(pState,pItem);
+			ring_state_free(pState,pItem);
+		}
+		else {
+			pItem->nGCReferenceCount-- ;
+		}
+		return ;
+	}
 	/* Get pVM */
 	if ( pState != NULL ) {
 		pVM = ((RingState *) pState)->pVM ;
