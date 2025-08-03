@@ -39,6 +39,16 @@ void ring_vm_gc_checkupdatereference ( VM *pVM,List *pList )
 	}
 }
 
+void ring_vm_gc_finishitemdelete ( void *pState,Item *pItem )
+{
+	/* Call Free Function */
+	if ( pItem->nType == ITEMTYPE_POINTER ) {
+		ring_vm_gc_freefunc((RingState *) pState,pItem);
+	}
+	ring_item_deletecontent_gc(pState,pItem);
+	ring_state_free(pState,pItem);
+}
+
 void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem )
 {
 	VM *pVM  ;
@@ -46,12 +56,7 @@ void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem )
 	/* Single Thread */
 	if ( pState==NULL || ( ((RingState *) pState)->pVM == NULL) || ( ((RingState *) pState)->pVM->pMutex == NULL) ) {
 		if ( pItem->nGCReferenceCount == 0 ) {
-			/* Call Free Function */
-			if ( pItem->nType == ITEMTYPE_POINTER ) {
-				ring_vm_gc_freefunc((RingState *) pState,pItem);
-			}
-			ring_item_deletecontent_gc(pState,pItem);
-			ring_state_free(pState,pItem);
+			ring_vm_gc_finishitemdelete(pState,pItem);
 		}
 		else {
 			pItem->nGCReferenceCount-- ;
@@ -69,12 +74,7 @@ void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem )
 	ring_vm_custmutexunlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
 	/* Delete/RefCountDecrement */
 	if ( nRefCount == 0 ) {
-		/* Call Free Function */
-		if ( pItem->nType == ITEMTYPE_POINTER ) {
-			ring_vm_gc_freefunc((RingState *) pState,pItem);
-		}
-		ring_item_deletecontent_gc(pState,pItem);
-		ring_state_free(pState,pItem);
+		ring_vm_gc_finishitemdelete(pState,pItem);
 	}
 	else {
 		ring_vm_custmutexlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);

@@ -145,6 +145,8 @@
 
 	RING_API void * ring_state_realloc ( void *pState,void *pPointer,size_t nAllocatedSize,size_t nSize ) ;
 
+	void ring_vm_gc_finishitemdelete ( void *pState,Item *pItem ) ;
+
 	void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem ) ;
 
 	RING_API void ring_state_registerblock ( void *pState,void *pStart, void *pEnd ) ;
