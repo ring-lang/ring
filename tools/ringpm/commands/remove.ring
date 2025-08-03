@@ -75,7 +75,7 @@ func RunRemoveScripts aPackageInfo,cPackageFolderName
 		cRemove = aPackageInfo[:remove]
 		if cRemove != NULL or aPackageInfo[:WindowsRemove] != NULL or 
 			aPackageInfo[:LinuxRemove] != NULL or aPackageInfo[:MacOSRemove] != NULL 
-			Style("Removing files and folders ",:YellowBlack)
+			? Style("Removing files and folders ",:YellowBlack)
 			cDir = CurrentDir()
 			chdir(cMainPackagesFolder+"/"+cPackageFolderName)
 			system(cRemove)
