@@ -22,7 +22,7 @@ RING_API Item * ring_item_new_gc ( void *pState,unsigned int nItemType )
 
 RING_API Item * ring_item_delete_gc ( void *pState,Item *pItem )
 {
-	ring_vm_gc_deleteitem_gc(pState,pItem);
+	ring_vm_gc_deleteitem(pState,pItem);
 	return NULL ;
 }
 

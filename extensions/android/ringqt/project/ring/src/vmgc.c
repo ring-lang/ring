@@ -17,7 +17,7 @@ void ring_vm_gc_checknewreference ( VM *pVM,void *pPointer,int nType, List *pCon
 		ring_vm_gc_newitemreference(pItem);
 		/* Set the Free Function */
 		pItem = ring_list_getitem(pContainer,nIndex) ;
-		ring_vm_gc_setfreefunc(pItem, (void(*)(void *, void *)) ring_vm_gc_deleteitem_gc);
+		ring_vm_gc_setfreefunc(pItem, (void(*)(void *, void *)) ring_vm_gc_deleteitem);
 		/* Add the variable list to Tracked Variables */
 		if ( ! pContainer->vGC.lTrackedList ) {
 			pContainer->vGC.lTrackedList = 1 ;
@@ -49,7 +49,7 @@ void ring_vm_gc_finishitemdelete ( void *pState,Item *pItem )
 	ring_state_free(pState,pItem);
 }
 
-void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem )
+void ring_vm_gc_deleteitem ( void *pState,Item *pItem )
 {
 	VM *pVM  ;
 	int nRefCount  ;
@@ -1070,11 +1070,6 @@ RING_API void ring_state_willunregisterblock ( void *pState,void *pStart )
 		}
 	}
 	ring_vm_custmutexunlock(pRingState->pVM,pRingState->vPoolManager.pMutex);
-}
-
-void ring_vm_gc_deleteitem ( Item *pItem )
-{
-	ring_vm_gc_deleteitem_gc(NULL,pItem);
 }
 /* Pool Manager Functions */
 

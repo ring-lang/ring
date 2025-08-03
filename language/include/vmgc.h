@@ -15,8 +15,6 @@
 
 	void ring_vm_gc_checkupdatereference ( VM *pVM,List *pList ) ;
 
-	void ring_vm_gc_deleteitem ( Item *pItem ) ;
-
 	void ring_vm_gc_killreference ( VM *pVM ) ;
 
 	void ring_vm_gc_deletetemplists ( VM *pVM ) ;
@@ -147,7 +145,7 @@
 
 	void ring_vm_gc_finishitemdelete ( void *pState,Item *pItem ) ;
 
-	void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem ) ;
+	void ring_vm_gc_deleteitem ( void *pState,Item *pItem ) ;
 
 	RING_API void ring_state_registerblock ( void *pState,void *pStart, void *pEnd ) ;
 
