@@ -47,6 +47,7 @@ class InstallCommand
 						? nl+C_ERROR_PACKAGENOTFOUND
 					ok
 				ok
+				see nl
 				return 
 			ok
 		aPackageInfo = aCheck[2]
