@@ -58,22 +58,16 @@ void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem )
 		}
 		return ;
 	}
-	/* Get pVM */
-	if ( pState != NULL ) {
-		pVM = ((RingState *) pState)->pVM ;
-	}
-	else {
-		pVM = NULL ;
-	}
+	/*
+	**  Many Threads 
+	**  Get pVM 
+	*/
+	pVM = ((RingState *) pState)->pVM ;
 	/* Get nRefCount */
-	if ( pVM != NULL ) {
-		ring_vm_custmutexlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
-		nRefCount = pItem->nGCReferenceCount ;
-		ring_vm_custmutexunlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
-	}
-	else {
-		nRefCount = pItem->nGCReferenceCount ;
-	}
+	ring_vm_custmutexlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
+	nRefCount = pItem->nGCReferenceCount ;
+	ring_vm_custmutexunlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
+	/* Delete/RefCountDecrement */
 	if ( nRefCount == 0 ) {
 		/* Call Free Function */
 		if ( pItem->nType == ITEMTYPE_POINTER ) {
@@ -83,14 +77,9 @@ void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem )
 		ring_state_free(pState,pItem);
 	}
 	else {
-		if ( pVM != NULL ) {
-			ring_vm_custmutexlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
-			pItem->nGCReferenceCount-- ;
-			ring_vm_custmutexunlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
-		}
-		else {
-			pItem->nGCReferenceCount-- ;
-		}
+		ring_vm_custmutexlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
+		pItem->nGCReferenceCount-- ;
+		ring_vm_custmutexunlock(pVM,pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
 	}
 }
 
