@@ -216,6 +216,7 @@ RING_API void ring_state_main ( int nArgc, char *pArgv[] )
 	/* Print Version */
 	if ( (nArgc == 1) || (cStr == NULL) ) {
 		ring_state_usageinfo();
+		exit(RING_EXIT_OK);
 	}
 	ring_state_execute(cStr,lCGI,lRun,lPrintIC,lPrintICFinal,lTokens,lRules,lIns,lGenObj,lGenCObj,lWarn,nArgc,pArgv);
 	if ( lPerformance ) {
@@ -617,5 +618,4 @@ void ring_state_usageinfo ( void )
 	#endif
 	puts("-w        :  Display Warnings");
 	ring_general_printline();
-	exit(RING_EXIT_OK);
 }
