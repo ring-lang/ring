@@ -22,10 +22,6 @@ RING_API List * ring_list_new2_gc ( void *pState,List *pList,unsigned int nSize 
 		pItemsLast = pItems ;
 		for ( x = 2 ; x <= nSize ; x++ ) {
 			pItems = ring_items_new_gc(pState);
-			if ( pItems == NULL ) {
-				printf( RING_OOM ) ;
-				exit(RING_EXIT_FAIL);
-			}
 			/* Set Item type and value */
 			ring_item_settype_gc(pState,pItems->pValue,ITEMTYPE_NUMBER);
 			pItemsLast->pNext = pItems ;
