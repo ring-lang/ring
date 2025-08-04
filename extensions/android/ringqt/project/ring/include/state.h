@@ -134,6 +134,8 @@
 
 	RING_API void ring_state_log ( RingState *pRingState,const char *cStr ) ;
 
+	RING_API void ring_state_exit ( RingState *pRingState,int nExitCode ) ;
+
 	void ring_state_cgiheader ( RingState *pRingState ) ;
 
 	void ring_state_segfaultaction ( int nSig ) ;

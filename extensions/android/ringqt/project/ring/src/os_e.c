@@ -184,11 +184,11 @@ void ring_vm_os_shutdown ( void *pPointer )
 {
 	if ( RING_API_PARACOUNT == 1 ) {
 		if ( RING_API_ISNUMBER(1) ) {
-			exit(RING_API_GETNUMBER(1));
+			ring_state_exit(((VM *) pPointer)->pRingState,RING_API_GETNUMBER(1));
 			return ;
 		}
 	}
-	exit(RING_EXIT_OK);
+	ring_state_exit(((VM *) pPointer)->pRingState,RING_EXIT_OK);
 }
 #if RING_EXTRAOSFUNCTIONS
 	/* Environment Variables */

@@ -571,6 +571,12 @@ RING_API int ring_state_runstring ( RingState *pRingState,char *cString )
 	return lRunVM ;
 }
 
+RING_API void ring_state_exit ( RingState *pRingState,int nExitCode )
+{
+	ring_state_delete(pRingState);
+	exit(nExitCode);
+}
+
 void ring_state_cgiheader ( RingState *pRingState )
 {
 	if ( pRingState->lISCGI == 1 ) {

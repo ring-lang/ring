@@ -45,7 +45,7 @@ void ring_vm_newscope ( VM *pVM )
 	/* Check scopes count */
 	if ( RING_VM_FUNCCALLSCOUNT >= RING_VM_STACK_CHECKOVERFLOW ) {
 		ring_vm_error(pVM,RING_VM_ERROR_STACKOVERFLOW);
-		exit(RING_EXIT_FAIL);
+		ring_state_exit(pVM->pRingState,RING_EXIT_FAIL);
 	}
 	pVM->pActiveMem = RING_VM_NEWSCOPE ;
 }
@@ -391,7 +391,7 @@ void ring_vm_deletescope ( VM *pVM )
 	int x  ;
 	if ( RING_VM_SCOPESCOUNT < 2 ) {
 		printf( RING_NOSCOPE ) ;
-		exit(RING_EXIT_FAIL);
+		ring_state_exit(pVM->pRingState,RING_EXIT_FAIL);
 	}
 	/* Process Lists */
 	for ( x = ring_list_getsize(pVM->pActiveMem) ; x >= 1 ; x-- ) {
