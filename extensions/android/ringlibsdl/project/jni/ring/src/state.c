@@ -207,20 +207,20 @@ RING_API void ring_state_main ( int nArgc, char *pArgv[] )
 	/* Check Startup ring.ring */
 	if ( ring_general_fexists(RING_FILES_AUTOLOADSRC) && nArgc == 1 ) {
 		ring_state_execute((char *) RING_FILES_AUTOLOADSRC,lCGI,lRun,lPrintIC,lPrintICFinal,lTokens,lRules,lIns,lGenObj,lGenCObj,lWarn,nArgc,pArgv);
-		exit(RING_EXIT_OK);
 	}
-	if ( ring_general_fexists(RING_FILES_AUTOLOADOBJ) && nArgc == 1 ) {
+	else if ( ring_general_fexists(RING_FILES_AUTOLOADOBJ) && nArgc == 1 ) {
 		ring_state_execute((char *) RING_FILES_AUTOLOADOBJ,lCGI,lRun,lPrintIC,lPrintICFinal,lTokens,lRules,lIns,lGenObj,lGenCObj,lWarn,nArgc,pArgv);
-		exit(RING_EXIT_OK);
 	}
 	/* Print Version */
-	if ( (nArgc == 1) || (cStr == NULL) ) {
+	else if ( (nArgc == 1) || (cStr == NULL) ) {
 		ring_state_usageinfo();
-		exit(RING_EXIT_OK);
 	}
-	ring_state_execute(cStr,lCGI,lRun,lPrintIC,lPrintICFinal,lTokens,lRules,lIns,lGenObj,lGenCObj,lWarn,nArgc,pArgv);
-	if ( lPerformance ) {
-		ring_general_showtime();
+	/* Execute source file */
+	else {
+		ring_state_execute(cStr,lCGI,lRun,lPrintIC,lPrintICFinal,lTokens,lRules,lIns,lGenObj,lGenCObj,lWarn,nArgc,pArgv);
+		if ( lPerformance ) {
+			ring_general_showtime();
+		}
 	}
 }
 
