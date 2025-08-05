@@ -40,14 +40,15 @@ void ring_vm_addglobalvariables ( VM *pVM )
 **  When we find variable or create new variable we push variable pointer to the stack 
 */
 
-void ring_vm_newscope ( VM *pVM )
+int ring_vm_newscope ( VM *pVM )
 {
 	/* Check scopes count */
 	if ( RING_VM_FUNCCALLSCOUNT >= RING_VM_STACK_CHECKOVERFLOW ) {
 		ring_vm_error(pVM,RING_VM_ERROR_STACKOVERFLOW);
-		ring_state_exit(pVM->pRingState,RING_EXIT_FAIL);
+		return RING_FALSE ;
 	}
 	pVM->pActiveMem = RING_VM_NEWSCOPE ;
+	return RING_TRUE ;
 }
 
 int ring_vm_findvar ( VM *pVM,const char *cStr )
@@ -390,7 +391,7 @@ void ring_vm_deletescope ( VM *pVM )
 	ListBlocks *pArg  ;
 	int x  ;
 	if ( RING_VM_SCOPESCOUNT < 2 ) {
-		printf( RING_NOSCOPE ) ;
+		ring_vm_error(pVM,RING_NOSCOPE);
 		ring_state_exit(pVM->pRingState,RING_EXIT_FAIL);
 	}
 	/* Process Lists */

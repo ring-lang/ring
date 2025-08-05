@@ -460,7 +460,9 @@ void ring_vm_newfunc ( VM *pVM )
 	/* Set the default global scope */
 	pVM->nCurrentGlobalScope = 0 ;
 	/* Create new scope */
-	ring_vm_newscope(pVM);
+	if ( ! ring_vm_newscope(pVM) ) {
+		return ;
+	}
 	/* Set the Local Scope ID */
 	ring_vm_newscopeid(pVM);
 	/* Set the SP then Check Parameters */

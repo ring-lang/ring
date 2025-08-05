@@ -708,7 +708,7 @@
 	int ring_vm_listtologicvalue ( VM *pVM,List *pList ) ;
 	/* Variables */
 
-	void ring_vm_newscope ( VM *pVM ) ;
+	int ring_vm_newscope ( VM *pVM ) ;
 
 	void ring_vm_deletescope ( VM *pVM ) ;
 
