@@ -1,0 +1,6 @@
+Start
+Hello from sub Ring VM
+Main - Before Shutdown() in Sub VM
+Sub - before Shutdown()
+Main - After Shutdown() in Sub VM
+Done
