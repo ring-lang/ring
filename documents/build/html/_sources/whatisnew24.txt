@@ -95,6 +95,7 @@ More Improvements
 * RingHTTPLib: Added body() method to HTTPLib_Request class
 * RingHTTPLib: Added setStatus() and getStatus() to Server class
 * RingHTTPLib: The file httplib.h is updated (Using 0.23.1)
+* Shutdown() function: Don't terminate Main Ring VM State when used from Sub Ring VM State
 * Ring Tests: Add/Use: nIgnoreCount
 * Ring PM: Tests are revised and improved
 * Ring PM: Better format for output messages
