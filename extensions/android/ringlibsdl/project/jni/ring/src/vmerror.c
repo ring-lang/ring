@@ -41,13 +41,8 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 			return ;
 		}
 		pVM->lActiveError = 1 ;
-		if ( pVM->pRingState->nRingInsideRing == 0 ) {
-			ring_state_exit(pVM->pRingState,RING_EXIT_FAIL);
-		}
-		else {
-			ring_vm_bye(pVM);
-			return ;
-		}
+		ring_vm_shutdown(pVM,RING_EXIT_FAIL);
+		return ;
 	}
 	/*
 	**  Check Eval In Scope 
@@ -72,6 +67,16 @@ void ring_vm_error2 ( VM *pVM,const char *cStr,const char *cStr2 )
 	ring_string_add_gc(pVM->pRingState,pError,cStr2);
 	ring_vm_error(pVM,ring_string_get(pError));
 	ring_string_delete_gc(pVM->pRingState,pError);
+}
+
+RING_API void ring_vm_shutdown ( VM *pVM,int nExitCode )
+{
+	if ( pVM->pRingState->nRingInsideRing == 0 ) {
+		ring_state_exit(pVM->pRingState,nExitCode);
+	}
+	else {
+		ring_vm_bye(pVM);
+	}
 }
 
 RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )

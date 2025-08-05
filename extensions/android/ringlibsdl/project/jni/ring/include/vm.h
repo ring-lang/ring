@@ -569,13 +569,15 @@
 
 	RING_API void ring_vm_error ( VM *pVM,const char *cStr ) ;
 
+	void ring_vm_error2 ( VM *pVM,const char *cStr,const char *cStr2 ) ;
+
+	RING_API void ring_vm_shutdown ( VM *pVM, int nExitCode ) ;
+
 	int ring_vm_eval ( VM *pVM,const char *cStr ) ;
 
 	void ring_vm_tobytecode ( VM *pVM,int nIns ) ;
 
 	void ring_vm_deletebytecode ( VM *pVM,int nIns ) ;
-
-	void ring_vm_error2 ( VM *pVM,const char *cStr,const char *cStr2 ) ;
 
 	void ring_vm_mainloop ( VM *pVM ) ;
 

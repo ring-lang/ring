@@ -38,6 +38,8 @@ cDirPath[RING_PATHSIZE]
 ring_vm_os_getarch
 ring_vm_os_system
 ring_vm_os_shutdown
+Type: int
+nExitCode
 ring_vm_os_sysget
 Type: char *
 pData

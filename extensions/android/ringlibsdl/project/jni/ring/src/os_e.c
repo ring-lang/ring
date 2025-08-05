@@ -182,13 +182,22 @@ void ring_vm_os_system ( void *pPointer )
 
 void ring_vm_os_shutdown ( void *pPointer )
 {
+	int nExitCode  ;
+	nExitCode = RING_EXIT_OK ;
 	if ( RING_API_PARACOUNT == 1 ) {
 		if ( RING_API_ISNUMBER(1) ) {
-			ring_state_exit(((VM *) pPointer)->pRingState,RING_API_GETNUMBER(1));
+			nExitCode = RING_API_GETNUMBER(1) ;
+		}
+		else {
+			RING_API_ERROR(RING_API_BADPARATYPE);
 			return ;
 		}
 	}
-	ring_state_exit(((VM *) pPointer)->pRingState,RING_EXIT_OK);
+	else if ( RING_API_PARACOUNT > 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	ring_vm_shutdown((VM *) pPointer,nExitCode);
 }
 #if RING_EXTRAOSFUNCTIONS
 	/* Environment Variables */

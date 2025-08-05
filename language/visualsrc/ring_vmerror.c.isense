@@ -4,6 +4,7 @@ pList
 ring_vm_error2
 Type: String *
 pError
+ring_vm_shutdown
 ring_vm_showerrormessage
 Type: int
 x,lFunctionCall,nRecursion,nPos
