@@ -2,8 +2,7 @@
 
 #include "ring.h"
 
-int main ( int nArgc, char *pArgv[] )
-{
-	ring_state_main(nArgc,pArgv);
-	return RING_EXIT_OK ;
+int main(int nArgc, char *pArgv[]) {
+	ring_state_main(nArgc, pArgv);
+	return RING_EXIT_OK;
 }
