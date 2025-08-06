@@ -35,10 +35,10 @@ void ring_vm_dll_loadlib(void *pPointer) {
 /* Check homebrew path (macOS - Apple silicon) */
 #if defined(__APPLE__) || defined(__MACH__)
 		if (pHandle == NULL) {
-				pString = ring_string_new_gc(pRingState,"/opt/homebrew/lib/"));
-				ring_string_add_gc(pRingState, pString, cDLL);
-				pHandle = LoadDLL(ring_string_get(pString));
-				ring_string_delete_gc(pRingState, pString);
+			pString = ring_string_new_gc(pRingState, "/opt/homebrew/lib/");
+			ring_string_add_gc(pRingState, pString, cDLL);
+			pHandle = LoadDLL(ring_string_get(pString));
+			ring_string_delete_gc(pRingState, pString);
 		}
 #endif
 		if (pHandle == NULL) {
