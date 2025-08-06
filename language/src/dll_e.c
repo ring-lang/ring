@@ -11,6 +11,7 @@ void ring_vm_dll_loadlib(void *pPointer) {
 	LpHandleType pHandle;
 	const char *cDLL;
 	loadlibfuncptr pFunc;
+	String *pString;
 	VM *pVM;
 	RingState *pRingState;
 	unsigned int lRegister;
@@ -31,8 +32,17 @@ void ring_vm_dll_loadlib(void *pPointer) {
 	if (RING_API_ISSTRING(1)) {
 		cDLL = RING_API_GETSTRING(1);
 		pHandle = LoadDLL(cDLL);
+/* Check homebrew path (macOS - Apple silicon) */
+#if defined(__APPLE__) || defined(__MACH__)
 		if (pHandle == NULL) {
-			printf("\n%s%s", RING_DLL_LIBFILEMSG, RING_API_GETSTRING(1));
+				pString = ring_string_new_gc(pRingState,"/opt/homebrew/lib/"));
+				ring_string_add_gc(pRingState, pString, cDLL);
+				pHandle = LoadDLL(ring_string_get(pString));
+				ring_string_delete_gc(pRingState, pString);
+		}
+#endif
+		if (pHandle == NULL) {
+			printf("\n%s%s", RING_DLL_LIBFILEMSG, cDLL);
 			RING_API_ERROR(RING_VM_ERROR_LIBLOADERROR);
 			return;
 		}

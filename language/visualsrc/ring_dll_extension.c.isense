@@ -18,6 +18,8 @@ Type: const char *
 cDLL
 Type: loadlibfuncptr
 pFunc
+Type: String *
+pString
 Type: VM *
 pVM
 Type: RingState *
