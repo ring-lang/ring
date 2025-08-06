@@ -5968,7 +5968,7 @@ RING_FUNC(ring_al_run_detached_thread)
 	pList = ring_list_new(0);
 	ring_list_addstring(pList,RING_API_GETSTRING(1));
 	ring_list_addpointer(pList,pPointer);
-	ring_vm_mutexfunctions((VM *) pPointer,al_create_mutex,al_lock_mutex,al_unlock_mutex,al_destroy_mutex);
+	ring_vm_mutexfunctions((VM *) pPointer,ringallegro_mutex_create,ringallegro_mutex_lock,ringallegro_mutex_unlock,ringallegro_mutex_destroy);
 	al_run_detached_thread(al_func_detached_thread, pList);
 }
 
