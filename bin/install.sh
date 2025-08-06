@@ -1,29 +1,32 @@
 # Simple Script to copy ring binary file and libraries to the system
-# 2016-2018, Mahmoud Fayed <msfclipper@yahoo.com>
+# 2016-2025, Mahmoud Fayed <msfclipper@yahoo.com>
 
 # To be able to call ring from any folder 
 
 if [ -f ../lib/libring.dylib ];
 then
-ln -sf "`pwd`/ring" /usr/local/bin/ring
-xattr -d com.apple.quarantine /usr/local/bin/ring
 
-ln -sf "`pwd`/ring2exe" /usr/local/bin/ring2exe
-xattr -d com.apple.quarantine /usr/local/bin/ring2exe
+BREW_PREFIX=$(brew --prefix)
 
-ln -sf "`pwd`/folder2qrc" /usr/local/bin/folder2qrc
-xattr -d com.apple.quarantine /usr/local/bin/folder2qrc
+ln -sf "`pwd`/ring" $BREW_PREFIX/bin/ring
+xattr -d com.apple.quarantine $BREW_PREFIX/bin/ring
 
-ln -sf "`pwd`/ringpm" /usr/local/bin/ringpm
-xattr -d com.apple.quarantine /usr/local/bin/ringpm
+ln -sf "`pwd`/ring2exe" $BREW_PREFIX/bin/ring2exe
+xattr -d com.apple.quarantine $BREW_PREFIX/bin/ring2exe
 
-ln -sf "`pwd`/ringrepl" /usr/local/bin/ringrepl
-xattr -d com.apple.quarantine /usr/local/bin/ringrepl
+ln -sf "`pwd`/folder2qrc" $BREW_PREFIX/bin/folder2qrc
+xattr -d com.apple.quarantine $BREW_PREFIX/bin/folder2qrc
+
+ln -sf "`pwd`/ringpm" $BREW_PREFIX/bin/ringpm
+xattr -d com.apple.quarantine $BREW_PREFIX/bin/ringpm
+
+ln -sf "`pwd`/ringrepl" $BREW_PREFIX/bin/ringrepl
+xattr -d com.apple.quarantine $BREW_PREFIX/bin/ringrepl
 
 cd ..
 
-ln -sf "`pwd`/lib/libring.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring.dylib
+ln -sf "`pwd`/lib/libring.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring.dylib
 
 fi
 
@@ -48,8 +51,8 @@ fi
 
 if [ -f lib/libring_odbc.dylib ];
 then
-ln -sf "`pwd`/lib/libring_odbc.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_odbc.dylib
+ln -sf "`pwd`/lib/libring_odbc.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_odbc.dylib
 fi
 
 if [ -f lib/libring_odbc.so ];
@@ -62,8 +65,8 @@ fi
 
 if [ -f lib/libring_mysql.dylib ];
 then
-ln -sf "`pwd`/lib/libring_mysql.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_mysql.dylib
+ln -sf "`pwd`/lib/libring_mysql.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_mysql.dylib
 fi
 
 if [ -f lib/libring_mysql.so ];
@@ -76,8 +79,8 @@ fi
 
 if [ -f lib/libring_sqlite.dylib ];
 then
-ln -sf "`pwd`/lib/libring_sqlite.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_sqlite.dylib
+ln -sf "`pwd`/lib/libring_sqlite.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_sqlite.dylib
 fi
 
 if [ -f lib/libring_sqlite.so ];
@@ -90,8 +93,8 @@ fi
 
 if [ -f lib/libring_internet.dylib ];
 then
-ln -sf "`pwd`/lib/libring_internet.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_internet.dylib
+ln -sf "`pwd`/lib/libring_internet.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_internet.dylib
 fi
 
 if [ -f lib/libring_internet.so ];
@@ -104,8 +107,8 @@ fi
 
 if [ -f lib/libring_openssl.dylib ];
 then
-ln -sf "`pwd`/lib/libring_openssl.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_openssl.dylib
+ln -sf "`pwd`/lib/libring_openssl.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_openssl.dylib
 fi
 
 if [ -f lib/libring_openssl.so ];
@@ -118,8 +121,8 @@ fi
 	
 if [ -f lib/libringallegro.dylib ];
 then
-ln -sf "`pwd`/lib/libringallegro.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libringallegro.dylib
+ln -sf "`pwd`/lib/libringallegro.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libringallegro.dylib
 fi
 
 if [ -f lib/libringallegro.so ];
@@ -132,8 +135,8 @@ fi
 	
 if [ -f lib/libringqt.dylib ];
 then
-ln -sf "`pwd`/lib/libringqt.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libringqt.dylib
+ln -sf "`pwd`/lib/libringqt.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libringqt.dylib
 fi
 
 if [ -f lib/libringqt.so ];
@@ -146,8 +149,8 @@ fi
 	
 if [ -f lib/libringqt_light.dylib ];
 then
-ln -sf "`pwd`/lib/libringqt_light.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libringqt_light.dylib
+ln -sf "`pwd`/lib/libringqt_light.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libringqt_light.dylib
 fi
 
 if [ -f lib/libringqt_light.so ];
@@ -160,8 +163,8 @@ fi
 	
 if [ -f lib/libringqt_core.dylib ];
 then
-ln -sf "`pwd`/lib/libringqt_core.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libringqt_core.dylib
+ln -sf "`pwd`/lib/libringqt_core.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libringqt_core.dylib
 fi
 
 if [ -f lib/libringqt_core.so ];
@@ -174,8 +177,8 @@ fi
 
 if [ -f lib/libring_libcurl.dylib ];
 then
-ln -sf "`pwd`/lib/libring_libcurl.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_libcurl.dylib
+ln -sf "`pwd`/lib/libring_libcurl.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_libcurl.dylib
 fi
 
 if [ -f lib/libring_libcurl.so ];
@@ -188,8 +191,8 @@ fi
 
 if [ -f lib/libring_libzip.dylib ];
 then
-ln -sf "`pwd`/lib/libring_libzip.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_libzip.dylib
+ln -sf "`pwd`/lib/libring_libzip.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_libzip.dylib
 fi
 
 if [ -f lib/libring_libzip.so ];
@@ -202,8 +205,8 @@ fi
 
 if [ -f lib/libring_freeglut.dylib ];
 then
-ln -sf "`pwd`/lib/libring_freeglut.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_freeglut.dylib
+ln -sf "`pwd`/lib/libring_freeglut.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_freeglut.dylib
 fi
 
 if [ -f lib/libring_freeglut.so ];
@@ -216,8 +219,8 @@ fi
 
 if [ -f lib/libring_opengl11.dylib ];
 then
-ln -sf "`pwd`/lib/libring_opengl11.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_opengl11.dylib
+ln -sf "`pwd`/lib/libring_opengl11.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_opengl11.dylib
 fi
 
 if [ -f lib/libring_opengl11.so ];
@@ -229,8 +232,8 @@ fi
 
 if [ -f lib/libring_opengl12.dylib ];
 then
-ln -sf "`pwd`/lib/libring_opengl12.dylib" /usr/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_opengl12.dylib
+ln -sf "`pwd`/lib/libring_opengl12.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_opengl12.dylib
 fi
 
 if [ -f lib/libring_opengl12.so ];
@@ -241,8 +244,8 @@ fi
 
 if [ -f lib/libring_opengl13.dylib ];
 then
-ln -sf "`pwd`/lib/libring_opengl13.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_opengl13.dylib
+ln -sf "`pwd`/lib/libring_opengl13.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_opengl13.dylib
 fi
 
 if [ -f lib/libring_opengl13.so ];
@@ -253,8 +256,8 @@ fi
 
 if [ -f lib/libring_opengl14.dylib ];
 then
-ln -sf "`pwd`/lib/libring_opengl14.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_opengl14.dylib
+ln -sf "`pwd`/lib/libring_opengl14.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_opengl14.dylib
 fi
 
 if [ -f lib/libring_opengl14.so ];
@@ -265,8 +268,8 @@ fi
 
 if [ -f lib/libring_opengl15.dylib ];
 then
-ln -sf "`pwd`/lib/libring_opengl15.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_opengl15.dylib
+ln -sf "`pwd`/lib/libring_opengl15.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_opengl15.dylib
 fi
 
 if [ -f lib/libring_opengl15.so ];
@@ -277,8 +280,8 @@ fi
 
 if [ -f lib/libring_opengl20.dylib ];
 then
-ln -sf "`pwd`/lib/libring_opengl20.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_opengl20.dylib
+ln -sf "`pwd`/lib/libring_opengl20.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_opengl20.dylib
 fi
 
 if [ -f lib/libring_opengl20.so ];
@@ -289,8 +292,8 @@ fi
 
 if [ -f lib/libring_opengl21.dylib ];
 then
-ln -sf "`pwd`/lib/libring_opengl21.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_opengl21.dylib
+ln -sf "`pwd`/lib/libring_opengl21.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_opengl21.dylib
 fi
 
 if [ -f lib/libring_opengl21.so ];
@@ -301,8 +304,8 @@ fi
 
 if [ -f lib/libring_opengl30.dylib ];
 then
-ln -sf "`pwd`/lib/libring_opengl30.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_opengl30.dylib
+ln -sf "`pwd`/lib/libring_opengl30.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_opengl30.dylib
 fi
 
 if [ -f lib/libring_opengl30.so ];
@@ -313,8 +316,8 @@ fi
 
 if [ -f lib/libring_opengl31.dylib ];
 then
-ln -sf "`pwd`/lib/libring_opengl31.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_opengl31.dylib
+ln -sf "`pwd`/lib/libring_opengl31.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_opengl31.dylib
 fi
 
 if [ -f lib/libring_opengl31.so ];
@@ -325,8 +328,8 @@ fi
 
 if [ -f lib/libring_opengl32.dylib ];
 then
-ln -sf "`pwd`/lib/libring_opengl32.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_opengl32.dylib
+ln -sf "`pwd`/lib/libring_opengl32.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_opengl32.dylib
 fi
 
 if [ -f lib/libring_opengl32.so ];
@@ -337,8 +340,8 @@ fi
 
 if [ -f lib/libring_opengl33.dylib ];
 then
-ln -sf "`pwd`/lib/libring_opengl33.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_opengl33.dylib
+ln -sf "`pwd`/lib/libring_opengl33.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_opengl33.dylib
 fi
 
 if [ -f lib/libring_opengl33.so ];
@@ -349,8 +352,8 @@ fi
 
 if [ -f lib/libring_opengl40.dylib ];
 then
-ln -sf "`pwd`/lib/libring_opengl40.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_opengl40.dylib
+ln -sf "`pwd`/lib/libring_opengl40.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_opengl40.dylib
 fi
 
 if [ -f lib/libring_opengl40.so ];
@@ -361,8 +364,8 @@ fi
 
 if [ -f lib/libring_opengl41.dylib ];
 then
-ln -sf "`pwd`/lib/libring_opengl41.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_opengl41.dylib
+ln -sf "`pwd`/lib/libring_opengl41.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_opengl41.dylib
 fi
 
 if [ -f lib/libring_opengl41.so ];
@@ -373,8 +376,8 @@ fi
 
 if [ -f lib/libring_opengl42.dylib ];
 then
-ln -sf "`pwd`/lib/libring_opengl42.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_opengl42.dylib
+ln -sf "`pwd`/lib/libring_opengl42.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_opengl42.dylib
 fi
 
 if [ -f lib/libring_opengl42.so ];
@@ -385,8 +388,8 @@ fi
 
 if [ -f lib/libring_opengl43.dylib ];
 then
-ln -sf "`pwd`/lib/libring_opengl43.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_opengl43.dylib
+ln -sf "`pwd`/lib/libring_opengl43.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_opengl43.dylib
 fi
 
 if [ -f lib/libring_opengl43.so ];
@@ -397,8 +400,8 @@ fi
 
 if [ -f lib/libring_opengl44.dylib ];
 then
-ln -sf "`pwd`/lib/libring_opengl44.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_opengl44.dylib
+ln -sf "`pwd`/lib/libring_opengl44.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_opengl44.dylib
 fi
 
 if [ -f lib/libring_opengl44.so ];
@@ -409,8 +412,8 @@ fi
 
 if [ -f lib/libring_opengl45.dylib ];
 then
-ln -sf "`pwd`/lib/libring_opengl45.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_opengl45.dylib
+ln -sf "`pwd`/lib/libring_opengl45.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_opengl45.dylib
 fi
 
 if [ -f lib/libring_opengl45.so ];
@@ -421,8 +424,8 @@ fi
 
 if [ -f lib/libring_opengl46.dylib ];
 then
-ln -sf "`pwd`/lib/libring_opengl46.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_opengl46.dylib
+ln -sf "`pwd`/lib/libring_opengl46.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_opengl46.dylib
 fi
 
 if [ -f lib/libring_opengl46.so ];
@@ -435,8 +438,8 @@ fi
 
 if [ -f lib/libring_murmurhash.dylib ];
 then
-ln -sf "`pwd`/lib/libring_murmurhash.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_murmurhash.dylib
+ln -sf "`pwd`/lib/libring_murmurhash.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_murmurhash.dylib
 fi
 
 if [ -f lib/libring_murmurhash.so ];
@@ -449,8 +452,8 @@ fi
 
 if [ -f lib/libring_uv.dylib ];
 then
-ln -sf "`pwd`/lib/libring_uv.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_uv.dylib
+ln -sf "`pwd`/lib/libring_uv.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_uv.dylib
 fi
 
 if [ -f lib/libring_uv.so ];
@@ -463,8 +466,8 @@ fi
 
 if [ -f lib/libring_pgsql.dylib ];
 then
-ln -sf "`pwd`/lib/libring_pgsql.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_pgsql.dylib
+ln -sf "`pwd`/lib/libring_pgsql.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_pgsql.dylib
 fi
 
 if [ -f lib/libring_pgsql.so ];
@@ -477,8 +480,8 @@ fi
 
 if [ -f lib/libring_consolecolors.dylib ];
 then
-ln -sf "`pwd`/lib/libring_consolecolors.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_consolecolors.dylib
+ln -sf "`pwd`/lib/libring_consolecolors.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_consolecolors.dylib
 fi
 
 if [ -f lib/libring_consolecolors.so ];
@@ -491,8 +494,8 @@ fi
 
 if [ -f lib/libringsdl.dylib ];
 then
-ln -sf "`pwd`/lib/libringsdl.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libringsdl.dylib
+ln -sf "`pwd`/lib/libringsdl.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libringsdl.dylib
 fi
 
 if [ -f lib/libringsdl.so ];
@@ -505,10 +508,10 @@ fi
 
 if [ -f lib/libringraylib.dylib ];
 then
-ln -sf "`pwd`/lib/libringraylib.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libringraylib.dylib
-cp extensions/ringraylib5/src/macOS_raylib-5/lib/libraylib.* /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libraylib.*
+ln -sf "`pwd`/lib/libringraylib.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libringraylib.dylib
+cp extensions/ringraylib5/src/macOS_raylib-5/lib/libraylib.* $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libraylib.*
 fi
 
 if [ -f lib/libringraylib.so ];
@@ -523,8 +526,8 @@ fi
 
 if [ -f lib/libring_sockets.dylib ];
 then
-ln -sf "`pwd`/lib/libring_sockets.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_sockets.dylib
+ln -sf "`pwd`/lib/libring_sockets.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_sockets.dylib
 fi
 
 if [ -f lib/libring_sockets.so ];
@@ -537,8 +540,8 @@ fi
 
 if [ -f lib/libring_threads.dylib ];
 then
-ln -sf "`pwd`/lib/libring_threads.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_threads.dylib
+ln -sf "`pwd`/lib/libring_threads.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_threads.dylib
 fi
 
 if [ -f lib/libring_threads.so ];
@@ -551,10 +554,10 @@ fi
 
 if [ -f lib/libring_libui.dylib ];
 then
-ln -sf "`pwd`/lib/libring_libui.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_libui.dylib
-cp extensions/ringlibui/macOS/libui.* /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libui.*
+ln -sf "`pwd`/lib/libring_libui.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_libui.dylib
+cp extensions/ringlibui/macOS/libui.* $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libui.*
 fi
 
 if [ -f lib/libring_libui.so ];
@@ -569,8 +572,8 @@ fi
 
 if [ -f lib/libring_cjson.dylib ];
 then
-ln -sf "`pwd`/lib/libring_cjson.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_cjson.dylib
+ln -sf "`pwd`/lib/libring_cjson.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_cjson.dylib
 fi
 
 if [ -f lib/libring_cjson.so ];
@@ -583,8 +586,8 @@ fi
 
 if [ -f lib/libring_httplib.dylib ];
 then
-ln -sf "`pwd`/lib/libring_httplib.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_httplib.dylib
+ln -sf "`pwd`/lib/libring_httplib.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_httplib.dylib
 fi
 
 if [ -f lib/libring_httplib.so ];
@@ -597,8 +600,8 @@ fi
 
 if [ -f lib/libring_stbimage.dylib ];
 then
-ln -sf "`pwd`/lib/libring_stbimage.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_stbimage.dylib
+ln -sf "`pwd`/lib/libring_stbimage.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_stbimage.dylib
 fi
 
 if [ -f lib/libring_stbimage.so ];
@@ -611,8 +614,8 @@ fi
 
 if [ -f lib/libring_fastpro.dylib ];
 then
-ln -sf "`pwd`/lib/libring_fastpro.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_fastpro.dylib
+ln -sf "`pwd`/lib/libring_fastpro.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_fastpro.dylib
 fi
 
 if [ -f lib/libring_fastpro.so ];
@@ -625,8 +628,8 @@ fi
 
 if [ -f lib/libring_rogueutil.dylib ];
 then
-ln -sf "`pwd`/lib/libring_rogueutil.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_rogueutil.dylib
+ln -sf "`pwd`/lib/libring_rogueutil.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_rogueutil.dylib
 fi
 
 if [ -f lib/libring_rogueutil.so ];
@@ -649,8 +652,8 @@ fi
 
 if [ -f lib/libring_pdfgen.dylib ];
 then
-ln -sf "`pwd`/lib/libring_pdfgen.dylib" /usr/local/lib
-xattr -d com.apple.quarantine /usr/local/lib/libring_pdfgen.dylib
+ln -sf "`pwd`/lib/libring_pdfgen.dylib" $BREW_PREFIX/lib
+xattr -d com.apple.quarantine $BREW_PREFIX/lib/libring_pdfgen.dylib
 fi
 
 if [ -f lib/libring_pdfgen.so ];
