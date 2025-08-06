@@ -3632,6 +3632,13 @@ int libui_windowevent(uiWindow *obj,void *data)
 	return 0;
 }
 
+void libui_windowevent2(uiWindow *obj,void *data)
+{
+	activeWindow = obj;
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
+}
+
 void libui_buttonevent(uiButton *obj,void *data)
 {
 	activeButton = obj;
@@ -3824,7 +3831,7 @@ RING_FUNC(ring_uiWindowOnContentSizeChanged)
 		return ;
 	}
 	uiWindowOnContentSizeChanged(RING_API_GETCPOINTER(1,"uiWindow"),
-		libui_windowevent,RegisterEvent(RING_API_GETSTRING(2)));
+		libui_windowevent2,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
 RING_FUNC(ring_uiCheckboxOnToggled)
