@@ -531,6 +531,23 @@ void *al_func_detached_thread(void *pPointer)
 	return al_func_thread(NULL,pPointer);
 }
 
+static void *ringallegro_mutex_create(void) {
+	return al_create_mutex();
+}
+
+static void ringallegro_mutex_lock(void *mutex) {
+	al_lock_mutex((ALLEGRO_MUTEX *) mutex);
+}
+
+static void ringallegro_mutex_unlock(void *mutex) {
+	al_unlock_mutex((ALLEGRO_MUTEX *) mutex);
+}
+
+static void ringallegro_mutex_destroy(void *mutex) {
+	al_destroy_mutex((ALLEGRO_MUTEX *) mutex);
+}
+
+
 RING_FUNC(ring_al_create_thread)
 {
 	ALLEGRO_THREAD *pThread;
@@ -546,7 +563,7 @@ RING_FUNC(ring_al_create_thread)
 	pList = ring_list_new(0);
 	ring_list_addstring(pList,RING_API_GETSTRING(1));
 	ring_list_addpointer(pList,pPointer);
-	ring_vm_mutexfunctions((VM *) pPointer,al_create_mutex,al_lock_mutex,al_unlock_mutex,al_destroy_mutex);
+	ring_vm_mutexfunctions((VM *) pPointer,ringallegro_mutex_create,ringallegro_mutex_lock,ringallegro_mutex_unlock,ringallegro_mutex_destroy);
 	pThread = al_create_thread(al_func_thread, pList);
 	al_start_thread(pThread);
 	RING_API_RETCPOINTER(pThread,"ALLEGRO_THREAD");	
