@@ -70,6 +70,22 @@ void *custom_mtx_init(void)
 	return pMutex;
 }
 
+static void *ringtheads_mutex_create(void) {
+	return custom_mtx_init();
+}
+
+static void ringtheads_mutex_lock(void *mutex) {
+	mtx_lock((mtx_t *) mutex);
+}
+
+static void ringtheads_mutex_unlock(void *mutex) {
+	mtx_unlock((mtx_t *) mutex);
+}
+
+static void ringtheads_mutex_destroy(void *mutex) {
+	mtx_destroy((mtx_t *) mutex);
+}
+
 int custom_thrd_start_t(void *arg)
 {
 	List *pList;
@@ -106,7 +122,7 @@ RING_FUNC(ring_thrd_create)
 	pList = ring_list_new(0);
 	ring_list_addstring(pList,RING_API_GETSTRING(2));
 	ring_list_addpointer(pList,pPointer);
-	ring_vm_mutexfunctions((VM *) pPointer,custom_mtx_init,mtx_lock,mtx_unlock,mtx_destroy);
+	ring_vm_mutexfunctions((VM *) pPointer,ringtheads_mutex_create,ringtheads_mutex_lock,ringtheads_mutex_unlock,ringtheads_mutex_destroy);
 	RING_API_RETNUMBER(thrd_create( (thrd_t *) 	RING_API_GETCPOINTER(1,"thrd_t"),custom_thrd_start_t,pList ));
 
 }
