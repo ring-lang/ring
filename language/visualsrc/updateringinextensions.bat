@@ -1,0 +1,11 @@
+cd ..\..\
+set TEMP_RING_DIR = %cd%
+cd %TEMP_RING_DIR%\extensions\android\ringlibsdl\update_ring
+call update.bat
+cd %TEMP_RING_DIR%\extensions\android\ringqt\update_ring
+call updateringonly.bat
+cd %TEMP_RING_DIR%\extensions\webassembly\ringqt\update_ring
+call updateringonly.bat
+cd %TEMP_RING_DIR%\extensions\microcontroller\ringpico\ring\update
+call update.bat
+
