@@ -1,10 +1,10 @@
-![Ring](https://ring-lang.github.io/theringlogo.jpg)
+![Ring](https://ring-lang.github.io/images/theringlogo.jpg)
 
 # Ring Programming Language
 
 ## Building using macOS
 
-This version is tested using macOS Catalina (version 10.15)
+This version is tested using macOS 13 (Intel)
 
 ### Get the source code
 
