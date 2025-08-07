@@ -57,7 +57,7 @@ RING_API void ring_item_init(Item *pItem) {
 }
 
 RING_API void ring_item_deletecontent_gc(void *pState, Item *pItem) {
-	int nType;
+	unsigned int nType;
 	nType = pItem->nType;
 	/* Set Type */
 	ring_item_init(pItem);
@@ -141,7 +141,7 @@ RING_API void ring_itemarray_setstring_gc(void *pState, Item aItems[], unsigned 
 }
 
 RING_API void ring_itemarray_setstring2_gc(void *pState, Item aItems[], unsigned int nIndex, const char *cStr,
-					   int nStrSize) {
+					   unsigned int nStrSize) {
 	ring_item_settype_gc(pState, &aItems[nIndex], ITEMTYPE_STRING);
 	ring_string_set2_gc(pState, aItems[nIndex].data.pString, cStr, nStrSize);
 }
@@ -152,7 +152,7 @@ RING_API void ring_item_setstring_gc(void *pState, Item *pItem, const char *cStr
 	ring_string_set_gc(pState, ring_item_getstring(pItem), cStr);
 }
 
-RING_API void ring_item_setstring2_gc(void *pState, Item *pItem, const char *cStr, int nStrSize) {
+RING_API void ring_item_setstring2_gc(void *pState, Item *pItem, const char *cStr, unsigned int nStrSize) {
 	ring_item_settype_gc(pState, pItem, ITEMTYPE_STRING);
 	ring_string_set2_gc(pState, ring_item_getstring(pItem), cStr, nStrSize);
 }
@@ -201,7 +201,7 @@ RING_API void ring_itemarray_setstring(Item aItems[], unsigned int nIndex, const
 	ring_itemarray_setstring_gc(NULL, aItems, nIndex, cStr);
 }
 
-RING_API void ring_itemarray_setstring2(Item aItems[], unsigned int nIndex, const char *cStr, int nStrSize) {
+RING_API void ring_itemarray_setstring2(Item aItems[], unsigned int nIndex, const char *cStr, unsigned int nStrSize) {
 	ring_itemarray_setstring2_gc(NULL, aItems, nIndex, cStr, nStrSize);
 }
 /* Functions to deal with one item */
@@ -214,7 +214,7 @@ RING_API void ring_item_setpointer(Item *pItem, void *pValue) { ring_item_setpoi
 
 RING_API void ring_item_setint(Item *pItem, int x) { ring_item_setint_gc(NULL, pItem, x); }
 
-RING_API void ring_item_setstring2(Item *pItem, const char *cStr, int nStrSize) {
+RING_API void ring_item_setstring2(Item *pItem, const char *cStr, unsigned int nStrSize) {
 	ring_item_setstring2_gc(NULL, pItem, cStr, nStrSize);
 }
 /* Functions to deal with Numbers (int/double) */

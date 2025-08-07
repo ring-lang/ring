@@ -89,7 +89,7 @@ RING_API void ring_itemarray_setdouble_gc(void *pState, Item aItems[], unsigned 
 RING_API void ring_itemarray_setstring_gc(void *pState, Item aItems[], unsigned int nIndex, const char *cStr);
 
 RING_API void ring_itemarray_setstring2_gc(void *pState, Item aItems[], unsigned int nIndex, const char *cStr,
-					   int nStrSize);
+					   unsigned int nStrSize);
 /* Functions to deal with one item */
 
 RING_API void ring_item_setstring_gc(void *pState, Item *pItem, const char *cStr);
@@ -100,7 +100,7 @@ RING_API void ring_item_setpointer_gc(void *pState, Item *pItem, void *pValue);
 
 RING_API void ring_item_setint_gc(void *pState, Item *pItem, int x);
 
-RING_API void ring_item_setstring2_gc(void *pState, Item *pItem, const char *cStr, int nStrSize);
+RING_API void ring_item_setstring2_gc(void *pState, Item *pItem, const char *cStr, unsigned int nStrSize);
 
 RING_API void ring_item_init(Item *pItem);
 /* Functions without state pointer */
@@ -128,7 +128,7 @@ RING_API void ring_itemarray_setdouble(Item aItems[], unsigned int nIndex, doubl
 
 RING_API void ring_itemarray_setstring(Item aItems[], unsigned int nIndex, const char *cStr);
 
-RING_API void ring_itemarray_setstring2(Item aItems[], unsigned int nIndex, const char *cStr, int nStrSize);
+RING_API void ring_itemarray_setstring2(Item aItems[], unsigned int nIndex, const char *cStr, unsigned int nStrSize);
 /* Functions to deal with one item */
 
 RING_API void ring_item_setstring(Item *pItem, const char *cStr);
@@ -139,7 +139,7 @@ RING_API void ring_item_setpointer(Item *pItem, void *pValue);
 
 RING_API void ring_item_setint(Item *pItem, int x);
 
-RING_API void ring_item_setstring2(Item *pItem, const char *cStr, int nStrSize);
+RING_API void ring_item_setstring2(Item *pItem, const char *cStr, unsigned int nStrSize);
 /* Functions to deal with numbers (int/double) */
 
 RING_API double ring_item_getnumber(Item *pItem);
