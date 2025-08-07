@@ -54,19 +54,19 @@ ring_string_lower
 Type: unsigned int
 x, nLen
 ring_string_lower2
-Type: int
+Type: unsigned int
 x
 ring_string_upper
 Type: unsigned int
 x, nLen
 ring_string_upper2
-Type: int
+Type: unsigned int
 x
 ring_string_find_gc
 ring_string_find2_gc
 ring_string_find3_gc
 ring_string_findsubstr_gc
-Type: int
+Type: unsigned int
 x, nPos
 ring_string_strdup
 Type: char *
@@ -74,7 +74,7 @@ cString
 Type: int
 x,nSize
 ring_string_looksempty
-Type: int
+Type: unsigned int
 x
 ring_string_new2
 ring_string_new
@@ -90,5 +90,5 @@ ring_string_setfromint
 ring_string_word
 Type: char *
 cString
-Type: int
+Type: unsigned int
 x,nStart,nEnd,nSize,nWord,nOutIndex

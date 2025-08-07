@@ -8,7 +8,7 @@ RING_API String *ring_string_new_gc(void *pState, const char *cStr) {
 	return ring_string_new2_gc(pState, cStr, x);
 }
 
-RING_API String *ring_string_new2_gc(void *pState, const char *cStr, int nStrSize) {
+RING_API String *ring_string_new2_gc(void *pState, const char *cStr, unsigned int nStrSize) {
 	String *pString;
 	unsigned int x, nSize;
 	nSize = (unsigned int)nStrSize;
@@ -49,7 +49,7 @@ RING_API void ring_string_set_gc(void *pState, String *pString, const char *cStr
 	ring_string_set2_gc(pState, pString, cStr, x);
 }
 
-RING_API void ring_string_set2_gc(void *pState, String *pString, const char *cStr, int nStrSize) {
+RING_API void ring_string_set2_gc(void *pState, String *pString, const char *cStr, unsigned int nStrSize) {
 	unsigned int x, nRequiredSize, nNewCapacity;
 	nRequiredSize = (unsigned int)nStrSize;
 	if ((pString->cStr == cStr) && (pString->nSize == nRequiredSize)) {
@@ -86,7 +86,7 @@ RING_API void ring_string_add_gc(void *pState, String *pString, const char *cStr
 	ring_string_add2_gc(pState, pString, cStr, x);
 }
 
-RING_API void ring_string_add2_gc(void *pState, String *pString, const char *cStr, int nStrSize) {
+RING_API void ring_string_add2_gc(void *pState, String *pString, const char *cStr, unsigned int nStrSize) {
 	unsigned int x, nAddSize, nOriginalSize, nRequiredSize, nNewCapacity;
 	char *pNewStr;
 	if (nStrSize == 0) {
@@ -142,8 +142,8 @@ RING_API char *ring_string_lower(char *cStr) {
 	return cStr;
 }
 
-RING_API char *ring_string_lower2(char *cStr, int nStrSize) {
-	int x;
+RING_API char *ring_string_lower2(char *cStr, unsigned int nStrSize) {
+	unsigned int x;
 	for (x = 0; x < nStrSize; x++) {
 		if (isalpha((unsigned char)cStr[x])) {
 			cStr[x] = tolower(cStr[x]);
@@ -163,8 +163,8 @@ RING_API char *ring_string_upper(char *cStr) {
 	return cStr;
 }
 
-RING_API char *ring_string_upper2(char *cStr, int nStrSize) {
-	int x;
+RING_API char *ring_string_upper2(char *cStr, unsigned int nStrSize) {
+	unsigned int x;
 	for (x = 0; x < nStrSize; x++) {
 		if (isalpha((unsigned char)cStr[x])) {
 			cStr[x] = toupper(cStr[x]);
@@ -187,13 +187,13 @@ RING_API char *ring_string_find3_gc(void *pState, char *cStr1, int nStrSize1, ch
 
 RING_API char *ring_string_findsubstr_gc(void *pState, char *cStr1, int nStrSize1, char *cStr2, int nStrSize2,
 					 int lNotCaseSensitive) {
-	int x, nPos;
-	nPos = 0;
-	if ((nStrSize1 - nStrSize2) < 0) {
+	unsigned int x, nPos;
+	nPos = RING_ZERO;
+	if ((nStrSize1 - nStrSize2) < RING_ZERO) {
 		return NULL;
 	}
 	while (nPos <= (nStrSize1 - nStrSize2)) {
-		x = 0;
+		x = RING_ZERO;
 		/* Compare Characters */
 		if (lNotCaseSensitive) {
 			while ((x < nStrSize2) &&
@@ -223,32 +223,34 @@ RING_API char *ring_string_strdup(void *pState, const char *cStr) {
 	return cString;
 }
 
-RING_API int ring_string_looksempty(const char *cStr, int nSize) {
-	int x;
-	if (nSize == 0) {
-		return 1;
+RING_API int ring_string_looksempty(const char *cStr, unsigned int nSize) {
+	unsigned int x;
+	if (nSize == RING_ZERO) {
+		return RING_TRUE;
 	}
-	for (x = 0; x < nSize; x++) {
+	for (x = RING_ZERO; x < nSize; x++) {
 		if (!((cStr[x] == ' ') || (cStr[x] == '\r') || (cStr[x] == '\n') || (cStr[x] == '\t'))) {
-			return 0;
+			return RING_FALSE;
 		}
 	}
-	return 1;
+	return RING_TRUE;
 }
 
-RING_API String *ring_string_new2(const char *cStr, int nStrSize) { return ring_string_new2_gc(NULL, cStr, nStrSize); }
+RING_API String *ring_string_new2(const char *cStr, unsigned int nStrSize) {
+	return ring_string_new2_gc(NULL, cStr, nStrSize);
+}
 
 RING_API String *ring_string_new(const char *cStr) { return ring_string_new_gc(NULL, cStr); }
 
 RING_API void ring_string_add(String *pString, const char *cStr) { ring_string_add_gc(NULL, pString, cStr); }
 
-RING_API void ring_string_add2(String *pString, const char *cStr, int nStrSize) {
+RING_API void ring_string_add2(String *pString, const char *cStr, unsigned int nStrSize) {
 	ring_string_add2_gc(NULL, pString, cStr, nStrSize);
 }
 
 RING_API void ring_string_set(String *pString, const char *cStr) { ring_string_set_gc(NULL, pString, cStr); }
 
-RING_API void ring_string_set2(String *pString, const char *cStr, int nStrSize) {
+RING_API void ring_string_set2(String *pString, const char *cStr, unsigned int nStrSize) {
 	ring_string_set2_gc(NULL, pString, cStr, nStrSize);
 }
 
@@ -266,9 +268,9 @@ RING_API String *ring_string_delete(String *pString) { return ring_string_delete
 
 RING_API void ring_string_setfromint(String *pString, int x) { ring_string_setfromint_gc(NULL, pString, x); }
 
-RING_API void ring_string_word(const char *cStr, int nIndex, char *cOutput) {
+RING_API void ring_string_word(const char *cStr, unsigned int nIndex, char *cOutput) {
 	char *cString;
-	int x, nStart, nEnd, nSize, nWord, nOutIndex;
+	unsigned int x, nStart, nEnd, nSize, nWord, nOutIndex;
 	/* This function will return a specific word from a string using the word index */
 	nSize = strlen(cStr);
 	/* Determine the start of the word */
