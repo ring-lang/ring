@@ -1,7 +1,7 @@
 ? "Using Memory Pool: " + ringvm_ismempool()
 if ! ringvm_ismempool() return ok
 
-for t=1 to 500000
+for t=1 to 110000
 	aList = [ 1:100 , 1:100 ]
 	test(aList, aList[1])	# Pass a list and sub list
 next

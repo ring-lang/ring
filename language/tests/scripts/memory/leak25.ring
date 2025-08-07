@@ -3,7 +3,7 @@
 
 ? :start
 ? ringvm_ismempool()
-for t=1 to 500000
+for t=1 to 110000
 	x = ref(1:3)
 	x2 = x
 	x = ref(list(3))

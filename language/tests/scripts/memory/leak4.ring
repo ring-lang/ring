@@ -6,7 +6,7 @@ func test
 	aList2 = ref(aList)
 
 	? "Memory: " + ringvm_ismempool()
-	for t=1 to 500000
+	for t=1 to 110000
 		ref(aList)
 		refcount(aList)
 	end

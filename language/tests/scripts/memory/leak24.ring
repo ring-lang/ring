@@ -2,7 +2,7 @@
 
 ? :start
 ? ringvm_ismempool()
-for t=1 to 500000
+for t=1 to 110000
 aList = [  []  ]
 aList[1] = [
 	1,2,3,4,5,

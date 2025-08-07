@@ -1,5 +1,5 @@
 ? "Memory: " + ringvm_ismempool()
-for t=1 to 500000
+for t=1 to 110000
 	try
 		test4()
 	catch

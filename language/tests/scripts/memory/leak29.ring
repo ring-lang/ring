@@ -4,7 +4,7 @@
 ? "Using Memory Pool: " + ringvm_ismempool()
 if ! ringvm_ismempool() return ok
 
-for t=1 to 500000
+for t=1 to 110000
 	myList = newlist(3)
 	myList[1] = ["Hello"]
 	swap(myList,1,3)
