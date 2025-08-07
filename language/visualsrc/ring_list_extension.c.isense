@@ -28,7 +28,7 @@ pVM
 ring_vm_listfuncs_list
 Type: List *
 pList, *pList2
-Type: int
+Type: unsigned int
 x,y,nSize,nSize2
 Type: Items *
 pItems

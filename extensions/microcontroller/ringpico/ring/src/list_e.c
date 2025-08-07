@@ -165,7 +165,7 @@ void ring_vm_listfuncs_swap(void *pPointer) {
 
 void ring_vm_listfuncs_list(void *pPointer) {
 	List *pList, *pList2;
-	int x, y, nSize, nSize2;
+	unsigned int x, y, nSize, nSize2;
 	Items *pItems;
 	Item *pItem;
 	VM *pVM;
