@@ -3,7 +3,7 @@
 #include "ring.h"
 
 RING_API String *ring_string_new_gc(void *pState, const char *cStr) {
-	int x;
+	unsigned int x;
 	x = strlen(cStr);
 	return ring_string_new2_gc(pState, cStr, x);
 }
@@ -40,7 +40,7 @@ RING_API String *ring_string_delete_gc(void *pState, String *pString) {
 RING_API int ring_string_size(String *pString) { return pString->nSize; }
 
 RING_API void ring_string_set_gc(void *pState, String *pString, const char *cStr) {
-	int x;
+	unsigned int x;
 	if (pString->cStr == cStr) {
 		/* Setting the string by itself - Do nothing! */
 		return;
@@ -81,7 +81,7 @@ RING_API void ring_string_set2_gc(void *pState, String *pString, const char *cSt
 }
 
 RING_API void ring_string_add_gc(void *pState, String *pString, const char *cStr) {
-	int x;
+	unsigned int x;
 	x = strlen(cStr);
 	ring_string_add2_gc(pState, pString, cStr, x);
 }
@@ -134,7 +134,7 @@ RING_API void ring_string_setfromint_gc(void *pState, String *pString, int x) {
 RING_API char *ring_string_lower(char *cStr) {
 	unsigned int x, nLen;
 	nLen = strlen(cStr);
-	for (x = 0; x < nLen; x++) {
+	for (x = RING_ZERO; x < nLen; x++) {
 		if (isalpha((unsigned char)cStr[x])) {
 			cStr[x] = tolower(cStr[x]);
 		}
@@ -144,7 +144,7 @@ RING_API char *ring_string_lower(char *cStr) {
 
 RING_API char *ring_string_lower2(char *cStr, unsigned int nStrSize) {
 	unsigned int x;
-	for (x = 0; x < nStrSize; x++) {
+	for (x = RING_ZERO; x < nStrSize; x++) {
 		if (isalpha((unsigned char)cStr[x])) {
 			cStr[x] = tolower(cStr[x]);
 		}
@@ -155,7 +155,7 @@ RING_API char *ring_string_lower2(char *cStr, unsigned int nStrSize) {
 RING_API char *ring_string_upper(char *cStr) {
 	unsigned int x, nLen;
 	nLen = strlen(cStr);
-	for (x = 0; x < nLen; x++) {
+	for (x = RING_ZERO; x < nLen; x++) {
 		if (isalpha((unsigned char)cStr[x])) {
 			cStr[x] = toupper(cStr[x]);
 		}
@@ -165,7 +165,7 @@ RING_API char *ring_string_upper(char *cStr) {
 
 RING_API char *ring_string_upper2(char *cStr, unsigned int nStrSize) {
 	unsigned int x;
-	for (x = 0; x < nStrSize; x++) {
+	for (x = RING_ZERO; x < nStrSize; x++) {
 		if (isalpha((unsigned char)cStr[x])) {
 			cStr[x] = toupper(cStr[x]);
 		}
@@ -215,9 +215,9 @@ RING_API char *ring_string_findsubstr_gc(void *pState, char *cStr1, int nStrSize
 
 RING_API char *ring_string_strdup(void *pState, const char *cStr) {
 	char *cString;
-	int x, nSize;
+	unsigned int x, nSize;
 	nSize = strlen(cStr);
-	cString = (char *)ring_state_malloc(pState, nSize + 1);
+	cString = (char *)ring_state_malloc(pState, nSize + RING_ONE);
 	RING_MEMCPY(cString, cStr, nSize);
 	cString[nSize] = '\0';
 	return cString;

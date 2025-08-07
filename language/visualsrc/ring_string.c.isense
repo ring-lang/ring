@@ -24,7 +24,7 @@ ring_string_toupper(pString)
 ring_string_get(pString)
 RING_MEMCPY(cStrDest,cStrSrc,nSize)
 ring_string_new_gc
-Type: int
+Type: unsigned int
 x
 ring_string_new2_gc
 Type: String *
@@ -34,13 +34,13 @@ x, nSize
 ring_string_delete_gc
 ring_string_size
 ring_string_set_gc
-Type: int
+Type: unsigned int
 x
 ring_string_set2_gc
 Type: unsigned int
 x, nRequiredSize, nNewCapacity
 ring_string_add_gc
-Type: int
+Type: unsigned int
 x
 ring_string_add2_gc
 Type: unsigned int
@@ -71,7 +71,7 @@ x, nPos
 ring_string_strdup
 Type: char *
 cString
-Type: int
+Type: unsigned int
 x,nSize
 ring_string_looksempty
 Type: unsigned int
