@@ -6,7 +6,7 @@ Parent: String
 cStr
 Type: unsigned int
 nSize
-Type: unsigned int
+Type: size_t
 nCapacity
 Type: char
 cStrArray[RING_STRING_ARRAYSIZE]

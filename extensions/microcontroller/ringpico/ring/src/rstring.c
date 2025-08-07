@@ -177,16 +177,18 @@ RING_API char *ring_string_find_gc(void *pState, char *cStr1, char *cStr2) {
 	return ring_string_find2_gc(pState, cStr1, strlen(cStr1), cStr2, strlen(cStr2));
 }
 
-RING_API char *ring_string_find2_gc(void *pState, char *cStr1, int nStrSize1, char *cStr2, int nStrSize2) {
+RING_API char *ring_string_find2_gc(void *pState, char *cStr1, unsigned int nStrSize1, char *cStr2,
+				    unsigned int nStrSize2) {
 	return ring_string_findsubstr_gc(pState, cStr1, nStrSize1, cStr2, nStrSize2, RING_FALSE);
 }
 
-RING_API char *ring_string_find3_gc(void *pState, char *cStr1, int nStrSize1, char *cStr2, int nStrSize2) {
+RING_API char *ring_string_find3_gc(void *pState, char *cStr1, unsigned int nStrSize1, char *cStr2,
+				    unsigned int nStrSize2) {
 	return ring_string_findsubstr_gc(pState, cStr1, nStrSize1, cStr2, nStrSize2, RING_TRUE);
 }
 
-RING_API char *ring_string_findsubstr_gc(void *pState, char *cStr1, int nStrSize1, char *cStr2, int nStrSize2,
-					 int lNotCaseSensitive) {
+RING_API char *ring_string_findsubstr_gc(void *pState, char *cStr1, unsigned int nStrSize1, char *cStr2,
+					 unsigned int nStrSize2, int lNotCaseSensitive) {
 	unsigned int x, nPos;
 	nPos = RING_ZERO;
 	if (nStrSize1 < nStrSize2) {
@@ -256,11 +258,11 @@ RING_API void ring_string_set2(String *pString, const char *cStr, unsigned int n
 
 RING_API char *ring_string_find(char *cStr1, char *cStr2) { return ring_string_find_gc(NULL, cStr1, cStr2); }
 
-RING_API char *ring_string_find2(char *cStr1, int nStrSize1, char *cStr2, int nStrSize2) {
+RING_API char *ring_string_find2(char *cStr1, unsigned int nStrSize1, char *cStr2, unsigned int nStrSize2) {
 	return ring_string_find2_gc(NULL, cStr1, nStrSize1, cStr2, nStrSize2);
 }
 
-RING_API char *ring_string_find3(char *cStr1, int nStrSize1, char *cStr2, int nStrSize2) {
+RING_API char *ring_string_find3(char *cStr1, unsigned int nStrSize1, char *cStr2, unsigned int nStrSize2) {
 	return ring_string_find3_gc(NULL, cStr1, nStrSize1, cStr2, nStrSize2);
 }
 
