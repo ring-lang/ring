@@ -822,5 +822,9 @@ aPackagesRegistry = [
 	[ :name = "worm",
 	  :description = "Worm Game developed using Ring Game Engine for 2D Games",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "tictactoeplus",
+	  :description = "An implementation for the TicTacToe game (large board) using RingQt",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
