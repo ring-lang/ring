@@ -1176,7 +1176,7 @@ void ring_vm_expr_npoo(VM *pVM, const char *cStr, double nNum1) {
 	}
 }
 
-void ring_vm_expr_spoo(VM *pVM, const char *cStr, const char *pStr2, int nSize) {
+void ring_vm_expr_spoo(VM *pVM, const char *cStr, const char *pStr2, unsigned int nStrSize) {
 	List *pList;
 	Item *pItem;
 	if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE) {
@@ -1191,7 +1191,7 @@ void ring_vm_expr_spoo(VM *pVM, const char *cStr, const char *pStr2, int nSize) 
 	}
 	if (strcmp(cStr, "+") == 0) {
 		if (ring_vm_oop_isobject(pList) == 0) {
-			ring_list_addstring2_gc(pVM->pRingState, pList, pStr2, nSize);
+			ring_list_addstring2_gc(pVM->pRingState, pList, pStr2, nStrSize);
 			return;
 		}
 	} else if (strcmp(cStr, "=") == 0) {

@@ -322,7 +322,7 @@ void ring_vm_addnewstringvar(VM *pVM, const char *cStr, const char *cStr2) {
 	ring_list_setstring_gc(pVM->pRingState, pList, RING_VAR_VALUE, cStr2);
 }
 
-void ring_vm_addnewstringvar2(VM *pVM, const char *cStr, const char *cStr2, int nStrSize) {
+void ring_vm_addnewstringvar2(VM *pVM, const char *cStr, const char *cStr2, unsigned int nStrSize) {
 	List *pList;
 	pList = ring_vm_newvar2(pVM, cStr, pVM->pActiveMem);
 	ring_list_setint_gc(pVM->pRingState, pList, RING_VAR_TYPE, RING_VM_STRING);
@@ -455,7 +455,7 @@ void ring_vm_deleteargcache(VM *pVM) {
 	}
 }
 
-List *ring_vm_addstringarg(VM *pVM, const char *cVar, const char *cStr, int nStrSize) {
+List *ring_vm_addstringarg(VM *pVM, const char *cVar, const char *cStr, unsigned int nStrSize) {
 	List *pList, *pParent;
 	pParent = pVM->pActiveMem;
 	if (!pVM->nArgCacheCount) {

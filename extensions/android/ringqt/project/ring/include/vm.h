@@ -734,7 +734,7 @@ void ring_vm_expr_ppoo(VM *pVM, const char *cStr);
 
 void ring_vm_expr_npoo(VM *pVM, const char *cStr, double nNum1);
 
-void ring_vm_expr_spoo(VM *pVM, const char *cStr, const char *cStr2, int nSize);
+void ring_vm_expr_spoo(VM *pVM, const char *cStr, const char *cStr2, unsigned int nStrSize);
 
 void ring_vm_plusplus(VM *pVM);
 
@@ -784,7 +784,7 @@ List *ring_vm_addnewlistvar(VM *pVM, const char *cStr);
 
 void ring_vm_newtempvar(VM *pVM, const char *cStr, List *pTempList);
 
-void ring_vm_addnewstringvar2(VM *pVM, const char *cStr, const char *cStr2, int nStrSize);
+void ring_vm_addnewstringvar2(VM *pVM, const char *cStr, const char *cStr2, unsigned int nStrSize);
 
 void ring_vm_addnewcpointervar(VM *pVM, const char *cStr, void *pPointer, const char *cStr2);
 
@@ -801,7 +801,7 @@ void ring_vm_newargcache(VM *pVM);
 
 void ring_vm_deleteargcache(VM *pVM);
 
-List *ring_vm_addstringarg(VM *pVM, const char *cVar, const char *cStr, int nStrSize);
+List *ring_vm_addstringarg(VM *pVM, const char *cVar, const char *cStr, unsigned int nStrSize);
 
 List *ring_vm_addnumberarg(VM *pVM, const char *cVar, double nNumber);
 
