@@ -189,7 +189,7 @@ RING_API char *ring_string_findsubstr_gc(void *pState, char *cStr1, int nStrSize
 					 int lNotCaseSensitive) {
 	unsigned int x, nPos;
 	nPos = RING_ZERO;
-	if ((nStrSize1 - nStrSize2) < RING_ZERO) {
+	if (nStrSize1 < nStrSize2) {
 		return NULL;
 	}
 	while (nPos <= (nStrSize1 - nStrSize2)) {
