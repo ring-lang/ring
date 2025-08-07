@@ -104,7 +104,7 @@ RING_API void ring_vm_api_setptr(void *pPointer, int nPara, void *pPtr, int nTyp
 
 RING_API char *ring_vm_api_getstring(void *pPointer, int nPara);
 
-RING_API int ring_vm_api_getstringsize(void *pPointer, int nPara);
+RING_API unsigned int ring_vm_api_getstringsize(void *pPointer, int nPara);
 
 RING_API double ring_vm_api_getnumber(void *pPointer, int nPara);
 
@@ -157,7 +157,7 @@ RING_API void ring_vm_api_floatvalue(void *pPointer, const char *cStr);
 
 RING_API List *ring_vm_api_newlist(VM *pVM);
 
-RING_API List *ring_vm_api_newlistusingblocks(VM *pVM, int nSize, int nSize2);
+RING_API List *ring_vm_api_newlistusingblocks(VM *pVM, unsigned int nSize, unsigned int nSize2);
 
 RING_API List *ring_vm_api_callerscope(VM *pVM);
 
@@ -171,9 +171,9 @@ RING_API void ring_vm_api_retnumber(VM *pVM, double nNumber);
 
 RING_API void ring_vm_api_retstring(VM *pVM, const char *cStr);
 
-RING_API void ring_vm_api_retstring2(VM *pVM, const char *cStr, int nSize);
+RING_API void ring_vm_api_retstring2(VM *pVM, const char *cStr, unsigned int nSize);
 
-RING_API void ring_vm_api_retstringsize(VM *pVM, int nSize);
+RING_API void ring_vm_api_retstringsize(VM *pVM, unsigned int nSize);
 
 RING_API String *ring_vm_api_getstringraw(VM *pVM);
 #endif

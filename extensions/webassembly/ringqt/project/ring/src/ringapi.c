@@ -53,7 +53,7 @@ RING_API char *ring_vm_api_getstring(void *pPointer, int nPara) {
 	return RING_VM_STACK_READCVALUE(pVM->nCFuncSP + nPara);
 }
 
-RING_API int ring_vm_api_getstringsize(void *pPointer, int nPara) {
+RING_API unsigned int ring_vm_api_getstringsize(void *pPointer, int nPara) {
 	VM *pVM;
 	pVM = (VM *)pPointer;
 	return RING_VM_STACK_STRINGSIZEVALUE(pVM->nCFuncSP + nPara);
@@ -455,7 +455,7 @@ RING_API List *ring_vm_api_newlist(VM *pVM) {
 	return pList;
 }
 
-RING_API List *ring_vm_api_newlistusingblocks(VM *pVM, int nSize, int nSize2) {
+RING_API List *ring_vm_api_newlistusingblocks(VM *pVM, unsigned int nSize, unsigned int nSize2) {
 	List *pList, *pList2, *pList3, *pSubLists;
 	int x, y, lUseBlocks;
 	Items *pItems;
@@ -617,9 +617,11 @@ RING_API void ring_vm_api_retnumber(VM *pVM, double nNumber) { RING_VM_STACK_PUS
 
 RING_API void ring_vm_api_retstring(VM *pVM, const char *cStr) { RING_VM_STACK_PUSHCVALUE(cStr); }
 
-RING_API void ring_vm_api_retstring2(VM *pVM, const char *cStr, int nSize) { RING_VM_STACK_PUSHCVALUE2(cStr, nSize); }
+RING_API void ring_vm_api_retstring2(VM *pVM, const char *cStr, unsigned int nSize) {
+	RING_VM_STACK_PUSHCVALUE2(cStr, nSize);
+}
 
-RING_API void ring_vm_api_retstringsize(VM *pVM, int nSize) {
+RING_API void ring_vm_api_retstringsize(VM *pVM, unsigned int nSize) {
 	RING_VM_SP_INC;
 	ring_itemarray_setstring2_gc(pVM->pRingState, pVM->aStack, pVM->nSP, NULL, nSize);
 }
