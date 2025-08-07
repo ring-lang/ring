@@ -172,23 +172,28 @@ void ring_vm_listfuncs_list(void *pPointer) {
 	pVM = (VM *)pPointer;
 	if (RING_API_PARACOUNT == 1) {
 		if (RING_API_ISNUMBER(1)) {
-			nSize = RING_API_GETNUMBER(1);
-			if (nSize > 0) {
-				pList = RING_API_NEWLISTUSINGBLOCKS1D(nSize);
-				RING_API_RETLISTBYREF(pList);
+			if ((RING_API_GETNUMBER(1) < 1.0) || (RING_API_GETNUMBER(1) > UINT_MAX)) {
+				RING_API_ERROR(RING_API_BADPARARANGE);
 				return;
 			}
+			nSize = RING_API_GETNUMBER(1);
+			pList = RING_API_NEWLISTUSINGBLOCKS1D(nSize);
+			RING_API_RETLISTBYREF(pList);
+			return;
 		}
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	} else if (RING_API_PARACOUNT == 2) {
 		if (RING_API_ISNUMBER(1) && RING_API_ISNUMBER(2)) {
-			nSize = RING_API_GETNUMBER(1);
-			nSize2 = RING_API_GETNUMBER(2);
-			if ((nSize > 0) && (nSize2 > 0)) {
-				pList = RING_API_NEWLISTUSINGBLOCKS2D(nSize, nSize2);
-				RING_API_RETLISTBYREF(pList);
+			if ((RING_API_GETNUMBER(1) < 1.0) || (RING_API_GETNUMBER(1) > UINT_MAX) ||
+			    (RING_API_GETNUMBER(2) < 1.0) || (RING_API_GETNUMBER(2) > UINT_MAX)) {
+				RING_API_ERROR(RING_API_BADPARARANGE);
 				return;
 			}
+			nSize = RING_API_GETNUMBER(1);
+			nSize2 = RING_API_GETNUMBER(2);
+			pList = RING_API_NEWLISTUSINGBLOCKS2D(nSize, nSize2);
+			RING_API_RETLISTBYREF(pList);
+			return;
 		}
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	} else {
