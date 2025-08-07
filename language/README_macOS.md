@@ -4,7 +4,7 @@
 
 ## Building using macOS
 
-This version is tested using macOS 13 (Intel)
+This version is tested using macOS 13 (Intel) and macOS 15 (Apple Silicon).   
 
 ### Get the source code
 

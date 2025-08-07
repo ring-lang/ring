@@ -529,7 +529,7 @@ Run Ring Notepad
 Building using MacOS X
 ======================
 
-This version is tested using macOS 13 (Intel)
+This version is tested using macOS 13 (Intel) and macOS 15 (Apple Silicon).   
 
 Get the source code
 
