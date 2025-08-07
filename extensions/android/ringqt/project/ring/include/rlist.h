@@ -171,10 +171,11 @@ RING_API int ring_list_findpointer(List *pList, void *pPointer);
 RING_API int ring_list_findlistref(List *pList, List *pValue, unsigned int nColumn);
 /* Sort and Binary Search */
 
-RING_API void ring_list_sortnum(List *pList, int left, int right, unsigned int nColumn, const char *cAttribute);
+RING_API void ring_list_sortnum(List *pList, unsigned int left, unsigned int right, unsigned int nColumn,
+				const char *cAttribute);
 
-RING_API void ring_list_sortstr_gc(void *pState, List *pList, int left, int right, unsigned int nColumn,
-				   const char *cAttribute);
+RING_API void ring_list_sortstr_gc(void *pState, List *pList, unsigned int left, unsigned int right,
+				   unsigned int nColumn, const char *cAttribute);
 
 RING_API int ring_list_binarysearchnum(List *pList, double nNum1, unsigned int nColumn, const char *cAttribute);
 
@@ -267,7 +268,8 @@ RING_API void ring_list_insertfuncpointer(List *pList, unsigned int nPos, void (
 
 RING_API List *ring_list_insertlist(List *pList, unsigned int nPos);
 
-RING_API void ring_list_sortstr(List *pList, int left, int right, unsigned int nColumn, const char *cAttribute);
+RING_API void ring_list_sortstr(List *pList, unsigned int left, unsigned int right, unsigned int nColumn,
+				const char *cAttribute);
 /* List Items to HashTable */
 
 RING_API void ring_list_genhashtable(List *pList);

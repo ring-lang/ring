@@ -769,7 +769,8 @@ RING_API int ring_list_findlistref(List *pList, List *pValue, unsigned int nColu
 }
 /* Sort (QuickSort) and Binary Search */
 
-RING_API void ring_list_sortnum(List *pList, int left, int right, unsigned int nColumn, const char *cAttribute) {
+RING_API void ring_list_sortnum(List *pList, unsigned int left, unsigned int right, unsigned int nColumn,
+				const char *cAttribute) {
 	unsigned int x, y, nMid;
 	double nMidvalue;
 	x = left;
@@ -797,8 +798,8 @@ RING_API void ring_list_sortnum(List *pList, int left, int right, unsigned int n
 	}
 }
 
-RING_API void ring_list_sortstr_gc(void *pState, List *pList, int left, int right, unsigned int nColumn,
-				   const char *cAttribute) {
+RING_API void ring_list_sortstr_gc(void *pState, List *pList, unsigned int left, unsigned int right,
+				   unsigned int nColumn, const char *cAttribute) {
 	unsigned int x, y, nMid;
 	String *pMidvalue;
 	x = left;
@@ -847,7 +848,7 @@ RING_API int ring_list_binarysearchnum(List *pList, double nNum1, unsigned int n
 }
 
 RING_API int ring_list_binarysearchstr(List *pList, const char *cFind, unsigned int nColumn, const char *cAttribute) {
-	int nFirst, nMid, nLast, nRes;
+	unsigned int nFirst, nMid, nLast, nRes;
 	nFirst = 1;
 	nLast = ring_list_getsize(pList);
 	while (nFirst <= nLast) {
@@ -1038,7 +1039,8 @@ RING_API List *ring_list_insertlist(List *pList, unsigned int nPos) {
 	return ring_list_insertlist_gc(NULL, pList, nPos);
 }
 
-RING_API void ring_list_sortstr(List *pList, int left, int right, unsigned int nColumn, const char *cAttribute) {
+RING_API void ring_list_sortstr(List *pList, unsigned int left, unsigned int right, unsigned int nColumn,
+				const char *cAttribute) {
 	ring_list_sortstr_gc(NULL, pList, left, right, nColumn, cAttribute);
 }
 /* List Items to HashTable */
@@ -1213,7 +1215,7 @@ RING_API int ring_list_findcpointer(List *pList, List *pValue, unsigned int nCol
 
 RING_API double ring_list_getdoublecolumn(List *pList, unsigned int nIndex, unsigned int nColumn,
 					  const char *cAttribute) {
-	int nPos;
+	unsigned int nPos;
 	if (nColumn == 0) {
 		return ring_list_getdouble(pList, nIndex);
 	} else {
@@ -1240,7 +1242,7 @@ RING_API double ring_list_getdoublecolumn(List *pList, unsigned int nIndex, unsi
 
 RING_API char *ring_list_getstringcolumn(List *pList, unsigned int nIndex, unsigned int nColumn,
 					 const char *cAttribute) {
-	int nPos;
+	unsigned int nPos;
 	static char nullstring[] = RING_CSTR_EMPTY;
 	if (nColumn == 0) {
 		return ring_list_getstring(pList, nIndex);

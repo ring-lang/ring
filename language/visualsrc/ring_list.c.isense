@@ -235,7 +235,7 @@ ring_list_binarysearchnum
 Type: int
 nFirst,nMid,nLast
 ring_list_binarysearchstr
-Type: int
+Type: unsigned int
 nFirst,nMid,nLast,nRes
 ring_list_swap
 Type: Item *
@@ -319,10 +319,10 @@ x,nCount
 Type: List *
 pList2, *pList3
 ring_list_getdoublecolumn
-Type: int
+Type: unsigned int
 nPos
 ring_list_getstringcolumn
-Type: int
+Type: unsigned int
 nPos
 Type: static char
 nullstring[]
