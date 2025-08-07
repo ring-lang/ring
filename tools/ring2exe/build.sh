@@ -1,3 +1,5 @@
+BREW_PREFIX=$(brew --prefix)
+
 ring ring2exe.ring ring2exe.ring
 ./cleartemp.sh
 
@@ -6,8 +8,8 @@ cp ring2exe $PWD/../../bin/ring2exe
 if [ -f ../../lib/libring.dylib ];
 then
 cd ../../bin
-ln -sf "`pwd`/ring2exe" /usr/local/bin/ring2exe
-chmod +x /usr/local/bin/ring2exe
+ln -sf "`pwd`/ring2exe" $BREW_PREFIX/bin/ring2exe
+chmod +x $BREW_PREFIX/bin/ring2exe
 fi
 
 if [ -f ../../lib/libring.so ];

@@ -1,3 +1,5 @@
+BREW_PREFIX=$(brew --prefix)
+
 ring ../ring2exe/ring2exe.ring folder2qrc.ring 
 
 cp folder2qrc $PWD/../../bin/folder2qrc 
@@ -5,8 +7,8 @@ cp folder2qrc $PWD/../../bin/folder2qrc
 if [ -f ../../lib/libring.dylib ];
 then
 cd ../../bin
-ln -sf "`pwd`/folder2qrc" /usr/local/bin/folder2qrc
-chmod +x /usr/local/bin/folder2qrc
+ln -sf "`pwd`/folder2qrc" $BREW_PREFIX/bin/folder2qrc
+chmod +x $BREW_PREFIX/bin/folder2qrc
 fi
 
 if [ -f ../../lib/libring.so ];
