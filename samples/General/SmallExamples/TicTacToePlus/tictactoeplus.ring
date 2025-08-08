@@ -33,7 +33,7 @@ func checkWinner
 				cCell=aMap[nRow+1][nCol+1] and
 				cCell=aMap[nRow+2][nCol+2] and  cCell=aMap[nRow+3][nCol+3] ) OR
 
-			( nRow > 3 and nCol <= (C_WIDTH-3)  and cCell=aMap[nRow-1][nCol+1] and
+			( nRow > 3 and nCol + 3 <= C_WIDTH  and cCell=aMap[nRow-1][nCol+1] and
 				cCell=aMap[nRow-2][nCol+2] and  cCell=aMap[nRow-3][nCol+3] ) 
 
 				lWin=True exit 2 
