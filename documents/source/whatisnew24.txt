@@ -90,6 +90,7 @@ The next samples are added:
 * samples/UsingHTTPLib/test21.ring
 * samples/Language/ClassMethods/genfunctopassmethod.ring
 * samples/Language/ClassMethods/genfunctopassmethod2.ring
+* samples/Language/ChangeSyntax/NewKeywordsInsideClasses.ring
 
 
 The next samples are improved
