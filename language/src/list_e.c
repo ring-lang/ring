@@ -177,7 +177,14 @@ void ring_vm_listfuncs_list(void *pPointer) {
 				return;
 			}
 			nSize = RING_API_GETNUMBER(1);
-			pList = RING_API_NEWLISTUSINGBLOCKS1D(nSize);
+			if (nSize <= RING_VM_SMALLLISTSIZE) {
+				pList = RING_API_NEWLIST;
+				for (x = 1; x <= nSize; x++) {
+					ring_list_adddouble_gc(pVM->pRingState, pList, RING_ZEROF);
+				}
+			} else {
+				pList = RING_API_NEWLISTUSINGBLOCKS1D(nSize);
+			}
 			RING_API_RETLISTBYREF(pList);
 			return;
 		}
