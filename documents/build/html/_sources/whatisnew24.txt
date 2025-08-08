@@ -91,6 +91,7 @@ The next samples are added:
 * samples/Language/ClassMethods/genfunctopassmethod.ring
 * samples/Language/ClassMethods/genfunctopassmethod2.ring
 * samples/Language/ChangeSyntax/newkeywordsinsideclasses.ring
+* samples/General/SmallExamples/TicTacToePlus/tictactoeplus.ring
 
 
 The next samples are improved
