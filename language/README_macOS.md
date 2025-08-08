@@ -14,7 +14,7 @@ Using HTTP
 
 Or using SSH
 
-        git clone git@github.com:ring-lang/ring.git
+	git clone git@github.com:ring-lang/ring.git
 
 
 ### Install homebrew (follow the directions on [homebrew's homepage](http://brew.sh/)).
