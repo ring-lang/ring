@@ -110,8 +110,8 @@ More Improvements
 * RingHTTPLib: Added body() method to HTTPLib_Request class
 * RingHTTPLib: Added setStatus() and getStatus() to Server class
 * RingHTTPLib: The file httplib.h is updated (Using 0.23.1)
-* List() function: Don't accept values over UINT_MAX
 * Space() function: Don't accept values over UINT_MAX
+* List() function: Don't accept values over UINT_MAX and don't use blocks for small 1D lists
 * Shutdown() function: Don't terminate Ring VM (Main State) when used from Ring VM (Sub State)
 * Ring Tests: Add/Use: nIgnoreCount
 * Ring PM: Tests are revised and improved
