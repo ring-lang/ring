@@ -180,6 +180,7 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew23.html">Release Notes: Version 1.23</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes: Version 1.24</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ring-for-macos-apple-silicon">Ring for macOS (Apple silicon)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ringlibcurl">Better RingLibCurl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-ringpm-packages">More RingPM Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
@@ -224,14 +225,20 @@
 <span id="index-1"></span><h2>List of changes and new features<a class="headerlink" href="#list-of-changes-and-new-features" title="Permalink to this heading"></a></h2>
 <p>Ring 1.24 comes with the next features!</p>
 <ul class="simple">
+<li><p>Ring for macOS (Apple silicon)</p></li>
 <li><p>Better RingLibCurl</p></li>
 <li><p>More RingPM Packages</p></li>
 <li><p>More Samples</p></li>
 <li><p>More Improvements</p></li>
 </ul>
 </section>
+<section id="ring-for-macos-apple-silicon">
+<span id="index-2"></span><h2>Ring for macOS (Apple silicon)<a class="headerlink" href="#ring-for-macos-apple-silicon" title="Permalink to this heading"></a></h2>
+<p>Build scripts are revised to support both of macOS (Intel) and macOS (Apple silicon)</p>
+<p>Tested using macOS 13 (Intel) and macOS 15 (Apple silicon)</p>
+</section>
 <section id="better-ringlibcurl">
-<h2>Better RingLibCurl<a class="headerlink" href="#better-ringlibcurl" title="Permalink to this heading"></a></h2>
+<span id="index-3"></span><h2>Better RingLibCurl<a class="headerlink" href="#better-ringlibcurl" title="Permalink to this heading"></a></h2>
 <p>The next functions are added to the extension</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* void curl_global_cleanup(void)
 * CURLM *curl_multi_init(void)
@@ -248,7 +255,7 @@
 </div>
 </section>
 <section id="more-ringpm-packages">
-<span id="index-2"></span><h2>More RingPM Packages<a class="headerlink" href="#more-ringpm-packages" title="Permalink to this heading"></a></h2>
+<span id="index-4"></span><h2>More RingPM Packages<a class="headerlink" href="#more-ringpm-packages" title="Permalink to this heading"></a></h2>
 <p>The following packages have been added to the RingPM registry.</p>
 <ul class="simple">
 <li><p>WebView: Create beautiful, cross-platform desktop apps using Ring and web technologies</p></li>
@@ -261,7 +268,7 @@
 </div>
 </section>
 <section id="more-samples">
-<span id="index-3"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
+<span id="index-5"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this heading"></a></h2>
 <p>The next samples are added:</p>
 <ul class="simple">
 <li><p>samples/General/HTMLExtract</p></li>
@@ -281,7 +288,7 @@
 </ul>
 </section>
 <section id="more-improvements">
-<span id="index-4"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
+<span id="index-6"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>GameEngine: Clear error message if image/font/sound file doesn’t exist</p></li>
 <li><p>JSONLib: Handle a case when the input is an array only</p></li>
@@ -289,7 +296,9 @@
 <li><p>RingHTTPLib: Added body() method to HTTPLib_Request class</p></li>
 <li><p>RingHTTPLib: Added setStatus() and getStatus() to Server class</p></li>
 <li><p>RingHTTPLib: The file httplib.h is updated (Using 0.23.1)</p></li>
-<li><p>Shutdown() function: Don’t terminate Main Ring VM State when used from Sub Ring VM State</p></li>
+<li><p>List() function: Don’t accept values over UINT_MAX</p></li>
+<li><p>Space() function: Don’t accept values over UINT_MAX</p></li>
+<li><p>Shutdown() function: Don’t terminate Ring VM (Main State) when used from Ring VM (Sub State)</p></li>
 <li><p>Ring Tests: Add/Use: nIgnoreCount</p></li>
 <li><p>Ring PM: Tests are revised and improved</p></li>
 <li><p>Ring PM: Better format for output messages</p></li>
@@ -299,6 +308,7 @@
 <li><p>Ring VM: Better functions for threads support</p></li>
 <li><p>Ring VM: Thread safe reference counting for List items that wraps C pointers</p></li>
 <li><p>Ring VM: Support handling stack overflow error using Try/Catch</p></li>
+<li><p>Ring VM: String functions - get index as (unsigned int) instead of (int)</p></li>
 <li><p>Ring VM: Clean memory after runtime errors before returning to the operating system</p></li>
 </ul>
 </section>

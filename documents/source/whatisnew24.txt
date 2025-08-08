@@ -15,11 +15,24 @@ List of changes and new features
 
 Ring 1.24 comes with the next features!
 
+* Ring for macOS (Apple silicon)
 * Better RingLibCurl
 * More RingPM Packages
 * More Samples
 * More Improvements
 
+.. index:: 
+	pair: What is new in Ring 1.24?; Ring for macOS (Apple silicon)
+
+Ring for macOS (Apple silicon)
+==============================
+
+Build scripts are revised to support both of macOS (Intel) and macOS (Apple silicon)
+
+Tested using macOS 13 (Intel) and macOS 15 (Apple silicon)
+
+.. index:: 
+	pair: What is new in Ring 1.24?; Better RingLibCurl
 
 Better RingLibCurl
 ==================
@@ -95,7 +108,9 @@ More Improvements
 * RingHTTPLib: Added body() method to HTTPLib_Request class
 * RingHTTPLib: Added setStatus() and getStatus() to Server class
 * RingHTTPLib: The file httplib.h is updated (Using 0.23.1)
-* Shutdown() function: Don't terminate Main Ring VM State when used from Sub Ring VM State
+* List() function: Don't accept values over UINT_MAX
+* Space() function: Don't accept values over UINT_MAX
+* Shutdown() function: Don't terminate Ring VM (Main State) when used from Ring VM (Sub State)
 * Ring Tests: Add/Use: nIgnoreCount
 * Ring PM: Tests are revised and improved
 * Ring PM: Better format for output messages
@@ -105,5 +120,5 @@ More Improvements
 * Ring VM: Better functions for threads support
 * Ring VM: Thread safe reference counting for List items that wraps C pointers
 * Ring VM: Support handling stack overflow error using Try/Catch
+* Ring VM: String functions - get index as (unsigned int) instead of (int)
 * Ring VM: Clean memory after runtime errors before returning to the operating system
- 
