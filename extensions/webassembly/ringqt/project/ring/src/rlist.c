@@ -522,12 +522,12 @@ RING_API void ring_list_insertitem_gc(void *pState, List *pList, unsigned int x)
 	}
 	pItems = ring_items_new_gc(pState);
 	/* Insert Item at the first of the list */
-	if (x == 0) {
+	if (x == RING_ZERO) {
 		pItems->pNext = pList->pFirst;
 		pItems->pPrev = NULL;
 		pList->pFirst->pPrev = pItems;
 		pList->pFirst = pItems;
-		pList->nSize = pList->nSize + 1;
+		pList->nSize++;
 		/* Clear the cache to delete the array of items if it does exist */
 		ring_list_clearcache(pState, pList);
 		return;
@@ -546,10 +546,9 @@ RING_API void ring_list_insertitem_gc(void *pState, List *pList, unsigned int x)
 	pItems->pNext->pPrev = pItems;
 	pItems->pPrev = pPos;
 	pPos->pNext = pItems;
-	pList->nSize = pList->nSize + 1;
+	pList->nSize++;
 	/* Clear the cache to delete the array of items if it does exist */
 	ring_list_clearcache(pState, pList);
-	ring_list_setcache(pState, pList, pItems, x + 2);
 }
 
 RING_API void ring_list_insertint_gc(void *pState, List *pList, unsigned int nPos, int x) {
