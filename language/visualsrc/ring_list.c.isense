@@ -96,8 +96,8 @@ pNewList2
 ring_list_addblock_gc
 Type: ListBlocks *
 pBlocks
-ring_list_clearcache
-ring_list_setcache
+ring_list_clearcache_gc
+ring_list_setcache_gc_gc
 ring_list_newitem_gc
 Type: Items *
 pItems

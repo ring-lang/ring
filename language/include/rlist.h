@@ -75,9 +75,9 @@ RING_API int ring_list_gettype(List *pList, unsigned int nIndex);
 
 RING_API void ring_list_addblock_gc(void *pState, List *pList, void *pMemory, int nType);
 
-RING_API void ring_list_clearcache(void *pState, List *pList);
+RING_API void ring_list_clearcache_gc(void *pState, List *pList);
 
-RING_API void ring_list_setcache(void *pState, List *pList, struct Items *pItems, unsigned int nNextItem);
+RING_API void ring_list_setcache_gc(void *pState, List *pList, struct Items *pItems, unsigned int nNextItem);
 
 RING_API Items *ring_list_getitemcontainer(List *pList, unsigned int nIndex);
 /* int */
