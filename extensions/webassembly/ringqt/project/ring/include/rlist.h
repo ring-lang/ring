@@ -177,9 +177,11 @@ RING_API void ring_list_sortnum_gc(void *pState, List *pList, unsigned int left,
 RING_API void ring_list_sortstr_gc(void *pState, List *pList, unsigned int left, unsigned int right,
 				   unsigned int nColumn, const char *cAttribute);
 
-RING_API int ring_list_binarysearchnum(List *pList, double nNum1, unsigned int nColumn, const char *cAttribute);
+RING_API int ring_list_binarysearchnum_gc(void *pState, List *pList, double nNum1, unsigned int nColumn,
+					  const char *cAttribute);
 
-RING_API int ring_list_binarysearchstr(List *pList, const char *cFind, unsigned int nColumn, const char *cAttribute);
+RING_API int ring_list_binarysearchstr_gc(void *pState, List *pList, const char *cFind, unsigned int nColumn,
+					  const char *cAttribute);
 
 RING_API void ring_list_swap_gc(void *pState, List *pList, unsigned int x, unsigned int y);
 /* List Items to Array */

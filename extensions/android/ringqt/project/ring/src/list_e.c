@@ -576,6 +576,8 @@ void ring_vm_listfuncs_binarysearch(void *pPointer) {
 	List *pList, *pList2;
 	int nParaCount;
 	unsigned int x, nColumn;
+	VM *pVM;
+	pVM = (VM *)pPointer;
 	nParaCount = RING_API_PARACOUNT;
 	if ((nParaCount != 2) && (nParaCount != 3)) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -595,8 +597,8 @@ void ring_vm_listfuncs_binarysearch(void *pPointer) {
 						return;
 					}
 				}
-				RING_API_RETNUMBER(ring_list_binarysearchstr(pList, RING_API_GETSTRING(2), RING_ZERO,
-									     RING_CSTR_EMPTY));
+				RING_API_RETNUMBER(ring_list_binarysearchstr_gc(
+				    pVM->pRingState, pList, RING_API_GETSTRING(2), RING_ZERO, RING_CSTR_EMPTY));
 			} else if (RING_API_ISNUMBER(2)) {
 				/* Check that all items are numbers */
 				for (x = 1; x <= ring_list_getsize(pList); x++) {
@@ -605,8 +607,8 @@ void ring_vm_listfuncs_binarysearch(void *pPointer) {
 						return;
 					}
 				}
-				RING_API_RETNUMBER(ring_list_binarysearchnum(pList, RING_API_GETNUMBER(2), RING_ZERO,
-									     RING_CSTR_EMPTY));
+				RING_API_RETNUMBER(ring_list_binarysearchnum_gc(
+				    pVM->pRingState, pList, RING_API_GETNUMBER(2), RING_ZERO, RING_CSTR_EMPTY));
 			} else {
 				RING_API_ERROR(RING_API_BADPARATYPE);
 			}
@@ -621,8 +623,8 @@ void ring_vm_listfuncs_binarysearch(void *pPointer) {
 						return;
 					}
 				}
-				RING_API_RETNUMBER(
-				    ring_list_binarysearchstr(pList, RING_API_GETSTRING(2), nColumn, RING_CSTR_EMPTY));
+				RING_API_RETNUMBER(ring_list_binarysearchstr_gc(
+				    pVM->pRingState, pList, RING_API_GETSTRING(2), nColumn, RING_CSTR_EMPTY));
 			} else if (RING_API_ISNUMBER(2)) {
 				/* Check that all items are numbers */
 				for (x = 1; x <= ring_list_getsize(pList); x++) {
@@ -632,8 +634,8 @@ void ring_vm_listfuncs_binarysearch(void *pPointer) {
 						return;
 					}
 				}
-				RING_API_RETNUMBER(
-				    ring_list_binarysearchnum(pList, RING_API_GETNUMBER(2), nColumn, RING_CSTR_EMPTY));
+				RING_API_RETNUMBER(ring_list_binarysearchnum_gc(
+				    pVM->pRingState, pList, RING_API_GETNUMBER(2), nColumn, RING_CSTR_EMPTY));
 			} else {
 				RING_API_ERROR(RING_API_BADPARATYPE);
 			}

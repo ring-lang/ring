@@ -829,7 +829,8 @@ RING_API void ring_list_sortstr_gc(void *pState, List *pList, unsigned int left,
 	}
 }
 
-RING_API int ring_list_binarysearchnum(List *pList, double nNum1, unsigned int nColumn, const char *cAttribute) {
+RING_API int ring_list_binarysearchnum_gc(void *pState, List *pList, double nNum1, unsigned int nColumn,
+					  const char *cAttribute) {
 	int nFirst, nMid, nLast;
 	nFirst = 1;
 	nLast = ring_list_getsize(pList);
@@ -846,7 +847,8 @@ RING_API int ring_list_binarysearchnum(List *pList, double nNum1, unsigned int n
 	return 0;
 }
 
-RING_API int ring_list_binarysearchstr(List *pList, const char *cFind, unsigned int nColumn, const char *cAttribute) {
+RING_API int ring_list_binarysearchstr_gc(void *pState, List *pList, const char *cFind, unsigned int nColumn,
+					  const char *cAttribute) {
 	unsigned int nFirst, nMid, nLast, nRes;
 	nFirst = 1;
 	nLast = ring_list_getsize(pList);

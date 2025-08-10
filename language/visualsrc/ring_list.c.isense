@@ -231,10 +231,10 @@ Type: unsigned int
 x,y,nMid
 Type: String *
 pMidvalue
-ring_list_binarysearchnum
+ring_list_binarysearchnum_gc
 Type: int
 nFirst,nMid,nLast
-ring_list_binarysearchstr
+ring_list_binarysearchstr_gc
 Type: unsigned int
 nFirst,nMid,nLast,nRes
 ring_list_swap_gc
