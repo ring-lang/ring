@@ -216,8 +216,32 @@ int ring_parser_start(List *pTokens, RingState *pRingState);
 Parser *ring_parser_new(List *pTokens, RingState *pRingState);
 
 Parser *ring_parser_delete(Parser *pParser);
+/* Check Token */
 
-void ring_parser_printtokens(Parser *pParser);
+void ring_parser_loadtoken(Parser *pParser);
+
+int ring_parser_nexttoken(Parser *pParser);
+
+int ring_parser_iskeyword(Parser *pParser, SCANNER_KEYWORD nKeyword);
+
+int ring_parser_isoperator(Parser *pParser, const char *cStr);
+
+int ring_parser_isliteral(Parser *pParser);
+
+int ring_parser_isnumber(Parser *pParser);
+
+int ring_parser_isidentifier(Parser *pParser);
+
+int ring_parser_isendline(Parser *pParser);
+
+int ring_parser_settoken(Parser *pParser, int nToken);
+
+int ring_parser_isanykeyword(Parser *pParser);
+
+int ring_parser_isoperator2(Parser *pParser, SCANNER_OPERATOR nType);
+/* Display Errors */
+
+void ring_parser_error(Parser *pParser, const char *cStr);
 /* Grammar */
 
 int ring_parser_class(Parser *pParser);
@@ -273,30 +297,4 @@ int ring_parser_objattributes(Parser *pParser);
 int ring_parser_bracesandend(Parser *pParser, int lClass, SCANNER_KEYWORD nKeyword);
 
 int ring_parser_ringvmsee(Parser *pParser);
-/* Check Token */
-
-void ring_parser_loadtoken(Parser *pParser);
-
-int ring_parser_nexttoken(Parser *pParser);
-
-int ring_parser_iskeyword(Parser *pParser, SCANNER_KEYWORD nKeyword);
-
-int ring_parser_isoperator(Parser *pParser, const char *cStr);
-
-int ring_parser_isliteral(Parser *pParser);
-
-int ring_parser_isidentifier(Parser *pParser);
-
-int ring_parser_isnumber(Parser *pParser);
-
-int ring_parser_isendline(Parser *pParser);
-
-int ring_parser_settoken(Parser *pParser, int nToken);
-
-int ring_parser_isanykeyword(Parser *pParser);
-
-int ring_parser_isoperator2(Parser *pParser, SCANNER_OPERATOR nType);
-/* Display Errors */
-
-void ring_parser_error(Parser *pParser, const char *cStr);
 #endif
