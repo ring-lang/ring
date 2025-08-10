@@ -117,12 +117,12 @@ lRingStateCGI
 ring_state_new
 Type: RingState *
 pRingState
-ring_state_delete
 ring_state_init
 Type: RingState *
 pRingState
 Type: unsigned int
 lDisablePoolManager
+ring_state_delete
 ring_state_runcode
 ring_state_findvar
 Type: VM *
@@ -134,14 +134,6 @@ Type: VM *
 pVM
 Type: List *
 pList
-ring_state_main
-Type: int
-x,lCGI,lRun,lPrintIC,lPrintICFinal,lTokens,lRules,lIns,lPerformance,lSrc,lGenObj,lGenCObj,lWarn
-Type: char *
-cStr
-ring_state_execute
-Type: RingState *
-pRingState
 ring_state_runfile
 Type: Scanner *
 pScanner
@@ -179,5 +171,13 @@ x,lCont,lRunVM,lFreeFilesList
 c
 ring_state_exit
 ring_state_cgiheader
+ring_state_main
+Type: int
+x,lCGI,lRun,lPrintIC,lPrintICFinal,lTokens,lRules,lIns,lPerformance,lSrc,lGenObj,lGenCObj,lWarn
+Type: char *
+cStr
+ring_state_execute
+Type: RingState *
+pRingState
 ring_state_segfaultaction
 ring_state_usageinfo

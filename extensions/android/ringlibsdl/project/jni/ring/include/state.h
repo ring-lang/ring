@@ -106,20 +106,15 @@ static int lRingStateCGI;
 
 RING_API RingState *ring_state_new(void);
 
-RING_API RingState *ring_state_delete(RingState *pRingState);
-
 RING_API RingState *ring_state_init(void);
+
+RING_API RingState *ring_state_delete(RingState *pRingState);
 
 RING_API void ring_state_runcode(RingState *pRingState, const char *cStr);
 
 RING_API List *ring_state_findvar(RingState *pRingState, const char *cStr);
 
 RING_API List *ring_state_newvar(RingState *pRingState, const char *cStr);
-
-RING_API void ring_state_main(int nArgc, char *pArgv[]);
-
-RING_API void ring_state_execute(char *cFileName, int lISCGI, int lRun, int lPrintIC, int lPrintICFinal, int lTokens,
-				 int lRules, int lIns, int lGenObj, int lGenCObj, int lWarn, int nArgc, char *pArgv[]);
 
 RING_API int ring_state_runfile(RingState *pRingState, char *cFileName);
 
@@ -139,9 +134,14 @@ RING_API void ring_state_log(RingState *pRingState, const char *cStr);
 
 RING_API void ring_state_exit(RingState *pRingState, int nExitCode);
 
-void ring_state_cgiheader(RingState *pRingState);
+RING_API void ring_state_cgiheader(RingState *pRingState);
 
-void ring_state_segfaultaction(int nSig);
+RING_API void ring_state_main(int nArgc, char *pArgv[]);
 
-void ring_state_usageinfo(void);
+RING_API void ring_state_execute(char *cFileName, int lISCGI, int lRun, int lPrintIC, int lPrintICFinal, int lTokens,
+				 int lRules, int lIns, int lGenObj, int lGenCObj, int lWarn, int nArgc, char *pArgv[]);
+
+RING_API void ring_state_segfaultaction(int nSig);
+
+RING_API void ring_state_usageinfo(void);
 #endif
