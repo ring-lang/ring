@@ -41,6 +41,28 @@ typedef struct Item {
 #define ITEM_NUMBERFLAG_DOUBLE 2
 #define ITEM_OBJTYPE_NOTHING 0
 /* Macro */
+#define ring_item_getstring_gc(pState, pItem) pItem->data.pString
+#define ring_item_getdouble_gc(pState, pItem) pItem->data.dNumber
+#define ring_item_getint_gc(pState, pItem) pItem->data.iNumber
+#define ring_item_getlist_gc(pState, pItem) pItem->data.pList
+#define ring_item_getpointer_gc(pState, pItem) pItem->data.pPointer
+#define ring_item_gettype_gc(pState, pItem) pItem->nType
+#define ring_itemarray_getint_gc(pState, pList, nIndex) (pList[nIndex].data.iNumber)
+#define ring_itemarray_getpointer_gc(pState, pList, nIndex) (pList[nIndex].data.pPointer)
+#define ring_itemarray_getdouble_gc(pState, pList, nIndex) pList[nIndex].data.dNumber
+#define ring_itemarray_getstringraw_gc(pState, pList, nIndex) (pList[nIndex].data.pString)
+#define ring_itemarray_getstring_gc(pState, pList, nIndex) ring_string_get(pList[nIndex].data.pString)
+#define ring_itemarray_getstringsize_gc(pState, pList, nIndex) ring_string_size(pList[nIndex].data.pString)
+/* Check */
+#define ring_itemarray_isstring_gc(pState, pList, nIndex) (pList[nIndex].nType == ITEMTYPE_STRING)
+#define ring_itemarray_isnumber_gc(pState, pList, nIndex) (pList[nIndex].nType == ITEMTYPE_NUMBER)
+#define ring_itemarray_ispointer_gc(pState, pList, nIndex) (pList[nIndex].nType == ITEMTYPE_POINTER)
+#define ring_item_isstring_gc(pState, pItem) (pItem->nType == ITEMTYPE_STRING)
+#define ring_item_islist_gc(pState, pItem) (pItem->nType == ITEMTYPE_LIST)
+#define ring_item_isdouble_gc(pState, pItem)                                                                           \
+	((pItem->nType == ITEMTYPE_NUMBER) && (pItem->nNumberFlag == ITEM_NUMBERFLAG_DOUBLE))
+#define ring_item_incdouble_gc(pState, pItem) ++pItem->data.dNumber
+/* Macro without state pointer */
 #define ring_item_getstring(pItem) pItem->data.pString
 #define ring_item_getdouble(pItem) pItem->data.dNumber
 #define ring_item_getint(pItem) pItem->data.iNumber
