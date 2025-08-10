@@ -97,12 +97,12 @@ ring_list_addblock_gc
 Type: ListBlocks *
 pBlocks
 ring_list_clearcache_gc
-ring_list_setcache_gc_gc
+ring_list_setcache_gc
 ring_list_newitem_gc
 Type: Items *
 pItems
 ring_list_newitembyitemsptr_gc
-ring_list_getitem
+ring_list_getitem_gc
 Type: Items *
 pItems
 Type: Item *
@@ -264,6 +264,7 @@ ring_list_delete
 ring_list_deletearray
 ring_list_newitem
 ring_list_deleteitem
+ring_list_getitem
 ring_list_setint
 ring_list_addint
 ring_list_setpointer

@@ -63,7 +63,7 @@ RING_API Item *ring_list_newitem_gc(void *pState, List *pList);
 
 RING_API void ring_list_newitembyitemsptr_gc(void *pState, List *pList, Items *pItems);
 
-RING_API Item *ring_list_getitem(List *pList, unsigned int nIndex);
+RING_API Item *ring_list_getitem_gc(void *pState, List *pList, unsigned int nIndex);
 
 RING_API List *ring_list_delete_gc(void *pState, List *pList);
 
@@ -212,6 +212,8 @@ RING_API void ring_list_deletearray(List *pList);
 RING_API void ring_list_newitem(List *pList);
 
 RING_API void ring_list_deleteitem(List *pList, unsigned int nIndex);
+
+RING_API Item *ring_list_getitem(List *pList, unsigned int nIndex);
 /* int */
 
 RING_API void ring_list_setint(List *pList, unsigned int nIndex, int nNumber);
