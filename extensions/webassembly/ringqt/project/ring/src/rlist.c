@@ -1280,7 +1280,7 @@ RING_API void ring_list_addcustomringpointer_gc(void *pState, List *pList, void 
 	List *pPointerList;
 	Item *pItem;
 	ring_list_addpointer_gc(pState, pList, pValue);
-	pItem = ring_list_getitem(pList, ring_list_getsize(pList));
+	pItem = ring_list_getitem_gc(pState, pList, ring_list_getsize(pList));
 	ring_vm_gc_setfreefunc(pItem, pFreeFunc);
 }
 
