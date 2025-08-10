@@ -31,7 +31,7 @@ int ring_vm_eval(VM *pVM, const char *cStr) {
 	/* Call Parser */
 	if (nCont == 1) {
 		pVM->pRingState->lNoLineNumber = 1;
-		nRunVM = ring_parser_start(pScanner->pTokens, pVM->pRingState);
+		nRunVM = ring_parser_start(pVM->pRingState, pScanner->pTokens);
 		pVM->pRingState->lNoLineNumber = 0;
 	}
 	/* Prepare the ByteCode */

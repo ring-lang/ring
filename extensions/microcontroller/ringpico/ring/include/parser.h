@@ -211,9 +211,9 @@ typedef struct Parser {
 			break;
 /* Functions */
 
-int ring_parser_start(List *pTokens, RingState *pRingState);
+int ring_parser_start(RingState *pRingState, List *pTokens);
 
-Parser *ring_parser_new(List *pTokens, RingState *pRingState);
+Parser *ring_parser_new(RingState *pRingState, List *pTokens);
 
 Parser *ring_parser_delete(Parser *pParser);
 /* Check Token */

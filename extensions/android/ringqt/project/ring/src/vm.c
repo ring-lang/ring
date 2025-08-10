@@ -316,7 +316,7 @@ void ring_vm_init(RingState *pRingState) {
 	/* Add Token "End of Line" to the end of any program */
 	ring_scanner_endofline(pScanner);
 	/* Call Parser */
-	nRunVM = ring_parser_start(pScanner->pTokens, pRingState);
+	nRunVM = ring_parser_start(pRingState, pScanner->pTokens);
 	ring_scanner_delete(pScanner);
 	/* Files List */
 	ring_list_deleteitem_gc(pRingState, pRingState->pRingFilesStack,

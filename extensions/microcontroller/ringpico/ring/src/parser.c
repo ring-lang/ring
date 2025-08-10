@@ -2,10 +2,10 @@
 
 #include "ring.h"
 
-int ring_parser_start(List *pTokens, RingState *pRingState) {
+int ring_parser_start(RingState *pRingState, List *pTokens) {
 	Parser *pParser;
 	int nResult, nRingActiveFile;
-	pParser = ring_parser_new(pTokens, pRingState);
+	pParser = ring_parser_new(pRingState, pTokens);
 	/* Parse Tokens */
 	ring_parser_nexttoken(pParser);
 	do {
@@ -33,7 +33,7 @@ int ring_parser_start(List *pTokens, RingState *pRingState) {
 	return RING_PARSER_FAIL;
 }
 
-Parser *ring_parser_new(List *pTokens, RingState *pRingState) {
+Parser *ring_parser_new(RingState *pRingState, List *pTokens) {
 	Parser *pParser;
 	pParser = (Parser *)ring_state_malloc(pRingState, sizeof(Parser));
 	/* Ring State */
