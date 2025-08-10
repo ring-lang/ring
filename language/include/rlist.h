@@ -287,6 +287,8 @@ RING_API int ring_list_findstring(List *pList, const char *cStr, unsigned int nC
 RING_API int ring_list_finddouble(List *pList, double nNum1, unsigned int nColumn);
 
 RING_API int ring_list_findpointer(List *pList, void *pPointer);
+
+RING_API void ring_list_swap(List *pList, unsigned int x, unsigned int y);
 /* Functions that know about using Lists for Ring Objects & C Pointers */
 
 RING_API void ring_list_print(List *pList);

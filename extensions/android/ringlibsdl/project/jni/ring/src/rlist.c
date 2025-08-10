@@ -1065,6 +1065,8 @@ RING_API int ring_list_finddouble(List *pList, double nNum1, unsigned int nColum
 RING_API int ring_list_findpointer(List *pList, void *pPointer) {
 	return ring_list_findpointer_gc(NULL, pList, pPointer);
 }
+
+RING_API void ring_list_swap(List *pList, unsigned int x, unsigned int y) { ring_list_swap_gc(NULL, pList, x, y); }
 /* Swap two lists */
 
 RING_API void ring_list_swaptwolists(List *pList1, List *pList2) {
