@@ -37,8 +37,6 @@ int ring_objfile_processfile(RingState *pRingState, char *cFileName, List *pList
 int ring_objfile_processstring(RingState *pRingState, char *cContent, List *pListFunctions, List *pListClasses,
 			       List *pListPackages, List *pListCode, List *pListFiles, List *pListStack);
 
-RING_API void ring_objfile_updateclassespointers(RingState *pRingState);
-
 void ring_objfile_xorstring(char *cString, int nStringSize, char *cKey, int nKeySize);
 
 void ring_objfile_readc(RingState *pRingState, char **cSource, char *cDest, int nCount);
@@ -51,4 +49,6 @@ int ring_objfile_writelistcode(List *pList, FILE *fCode, int nList, int lSeparat
 			       int nItemsPerFunction);
 
 void ring_objfile_writebytecode(List *pList, FILE *fCode);
+
+RING_API void ring_objfile_updateclassespointers(RingState *pRingState);
 #endif

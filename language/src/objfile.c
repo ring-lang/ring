@@ -457,8 +457,6 @@ int ring_objfile_processstring(RingState *pRingState, char *cContent, List *pLis
 	return 1;
 }
 
-RING_API void ring_objfile_updateclassespointers(RingState *pRingState) { ring_vm_updateclassespointers(pRingState); }
-
 void ring_objfile_xorstring(char *cString, int nStringSize, char *cKey, int nKeySize) {
 	int x;
 	for (x = 1; x <= nStringSize; x++) {
@@ -671,3 +669,5 @@ void ring_objfile_writebytecode(List *pList, FILE *fCode) {
 	}
 	fprintf(fCode, "\tpVM->pByteCode[%d].nOPCode = ICO_RETNULL ; \n", ring_list_getsize(pList));
 }
+
+RING_API void ring_objfile_updateclassespointers(RingState *pRingState) { ring_vm_updateclassespointers(pRingState); }
