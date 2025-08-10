@@ -69,9 +69,14 @@ RING_API Item *ring_item_delete_gc(void *pState, Item *pItem);
 
 RING_API void ring_item_settype_gc(void *pState, Item *pItem, unsigned int nItemType);
 
+RING_API void ring_item_deletecontent_gc(void *pState, Item *pItem);
+
 RING_API void ring_item_print_gc(void *pState, Item *pItem);
 
-RING_API void ring_item_deletecontent_gc(void *pState, Item *pItem);
+RING_API void ring_item_init_gc(void *pState, Item *pItem);
+/* Functions to deal with numbers (int/double) */
+
+RING_API double ring_item_getnumber_gc(void *pState, Item *pItem);
 /*
 **  Functions to deal with array of items
 **  int
@@ -101,11 +106,6 @@ RING_API void ring_item_setpointer_gc(void *pState, Item *pItem, void *pValue);
 RING_API void ring_item_setint_gc(void *pState, Item *pItem, int x);
 
 RING_API void ring_item_setstring2_gc(void *pState, Item *pItem, const char *cStr, unsigned int nStrSize);
-
-RING_API void ring_item_init_gc(void *pState, Item *pItem);
-/* Functions to deal with numbers (int/double) */
-
-RING_API double ring_item_getnumber_gc(void *pState, Item *pItem);
 /* Functions without state pointer */
 
 RING_API Item *ring_item_new(unsigned int nItemType);

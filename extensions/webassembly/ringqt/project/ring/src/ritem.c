@@ -24,55 +24,6 @@ RING_API Item *ring_item_delete_gc(void *pState, Item *pItem) {
 	return NULL;
 }
 
-RING_API void ring_item_print_gc(void *pState, Item *pItem) {
-	unsigned int nItemType;
-	nItemType = pItem->nType;
-	switch (nItemType) {
-	case ITEMTYPE_NOTHING:
-		break;
-	case ITEMTYPE_STRING:
-		ring_string_print(pItem->data.pString);
-		break;
-	case ITEMTYPE_NUMBER:
-		if (pItem->nNumberFlag == ITEM_NUMBERFLAG_INT) {
-			printf("%d\n ", pItem->data.iNumber);
-		} else {
-			printf("%f \n", pItem->data.dNumber);
-		}
-		break;
-	case ITEMTYPE_POINTER:
-		printf("%p", pItem->data.pPointer);
-		break;
-	case ITEMTYPE_LIST:
-		ring_list_print(pItem->data.pList);
-		break;
-	}
-}
-
-RING_API void ring_item_init_gc(void *pState, Item *pItem) {
-	pItem->nType = ITEMTYPE_NOTHING;
-	pItem->nNumberFlag = ITEM_NUMBERFLAG_NOTHING;
-	pItem->nObjectType = ITEM_OBJTYPE_NOTHING;
-	pItem->lAssignment = RING_ZERO;
-}
-
-RING_API void ring_item_deletecontent_gc(void *pState, Item *pItem) {
-	unsigned int nType;
-	nType = pItem->nType;
-	/* Set Type */
-	ring_item_init_gc(pState, pItem);
-	switch (nType) {
-	case ITEMTYPE_STRING:
-		pItem->data.pString = ring_string_delete_gc(pState, pItem->data.pString);
-		break;
-	case ITEMTYPE_LIST:
-		pItem->data.pList = ring_list_delete_gc(pState, pItem->data.pList);
-		break;
-	}
-	/* Clear Data */
-	pItem->data.dNumber = 0;
-}
-
 RING_API void ring_item_settype_gc(void *pState, Item *pItem, unsigned int nItemType) {
 	if ((nItemType == pItem->nType) && ((nItemType == ITEMTYPE_STRING) || (nItemType == ITEMTYPE_NUMBER))) {
 		/*
@@ -114,6 +65,55 @@ RING_API void ring_item_settype_gc(void *pState, Item *pItem, unsigned int nItem
 		pItem->data.pFunc = NULL;
 		break;
 	}
+}
+
+RING_API void ring_item_deletecontent_gc(void *pState, Item *pItem) {
+	unsigned int nType;
+	nType = pItem->nType;
+	/* Set Type */
+	ring_item_init_gc(pState, pItem);
+	switch (nType) {
+	case ITEMTYPE_STRING:
+		pItem->data.pString = ring_string_delete_gc(pState, pItem->data.pString);
+		break;
+	case ITEMTYPE_LIST:
+		pItem->data.pList = ring_list_delete_gc(pState, pItem->data.pList);
+		break;
+	}
+	/* Clear Data */
+	pItem->data.dNumber = 0;
+}
+
+RING_API void ring_item_print_gc(void *pState, Item *pItem) {
+	unsigned int nItemType;
+	nItemType = pItem->nType;
+	switch (nItemType) {
+	case ITEMTYPE_NOTHING:
+		break;
+	case ITEMTYPE_STRING:
+		ring_string_print(pItem->data.pString);
+		break;
+	case ITEMTYPE_NUMBER:
+		if (pItem->nNumberFlag == ITEM_NUMBERFLAG_INT) {
+			printf("%d\n ", pItem->data.iNumber);
+		} else {
+			printf("%f \n", pItem->data.dNumber);
+		}
+		break;
+	case ITEMTYPE_POINTER:
+		printf("%p", pItem->data.pPointer);
+		break;
+	case ITEMTYPE_LIST:
+		ring_list_print(pItem->data.pList);
+		break;
+	}
+}
+
+RING_API void ring_item_init_gc(void *pState, Item *pItem) {
+	pItem->nType = ITEMTYPE_NOTHING;
+	pItem->nNumberFlag = ITEM_NUMBERFLAG_NOTHING;
+	pItem->nObjectType = ITEM_OBJTYPE_NOTHING;
+	pItem->lAssignment = RING_ZERO;
 }
 /* Functions to deal with Numbers (int/double) */
 
