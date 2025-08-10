@@ -511,33 +511,6 @@ void ring_scanner_endofline(Scanner *pScanner) {
 	}
 }
 
-void ring_scanner_addreturn(RingState *pRingState) {
-	List *pList;
-	/* Add return to the end of the program */
-	pList = ring_list_newlist_gc(pRingState, pRingState->pRingGenCode);
-	ring_list_addint_gc(pRingState, pList, ICO_RETNULL);
-}
-
-void ring_scanner_addreturn2(RingState *pRingState) {
-	List *pList;
-	/* Add return to the end of the program */
-	pList = ring_list_newlist_gc(pRingState, pRingState->pRingGenCode);
-	ring_list_addint_gc(pRingState, pList, ICO_RETURN);
-}
-
-void ring_scanner_addreturn3(RingState *pRingState, int aPara[2]) {
-	List *pList;
-	/* Push Empty String */
-	pList = ring_list_newlist_gc(pRingState, pRingState->pRingGenCode);
-	ring_list_addint_gc(pRingState, pList, ICO_PUSHC);
-	ring_list_addstring_gc(pRingState, pList, RING_CSTR_EMPTY);
-	/* Add return from eval to the end of the eval() code */
-	pList = ring_list_newlist_gc(pRingState, pRingState->pRingGenCode);
-	ring_list_addint_gc(pRingState, pList, ICO_RETFROMEVAL);
-	ring_list_addint_gc(pRingState, pList, aPara[0]);
-	ring_list_addint_gc(pRingState, pList, aPara[1]);
-}
-
 void ring_scanner_printtokens(Scanner *pScanner) {
 	int x, nType, nPos;
 	List *pList;
@@ -575,8 +548,6 @@ void ring_scanner_printtokens(Scanner *pScanner) {
 	printf("\n");
 	ring_general_printline();
 }
-
-const char *ring_scanner_getkeywordtext(const char *cStr) { return RING_KEYWORDS[atoi(cStr) - 1]; }
 
 void ring_scanner_changekeyword(Scanner *pScanner) {
 	char *cStr;
@@ -838,4 +809,35 @@ int ring_scanner_checkmulticharoperator(Scanner *pScanner, const char *cStr, int
 		}
 	}
 	return nTokenIndex;
+}
+
+const char *ring_scanner_getkeywordtext(RingState *pRingState, const char *cStr) {
+	return RING_KEYWORDS[atoi(cStr) - 1];
+}
+
+void ring_scanner_addreturn(RingState *pRingState) {
+	List *pList;
+	/* Add return to the end of the program */
+	pList = ring_list_newlist_gc(pRingState, pRingState->pRingGenCode);
+	ring_list_addint_gc(pRingState, pList, ICO_RETNULL);
+}
+
+void ring_scanner_addreturn2(RingState *pRingState) {
+	List *pList;
+	/* Add return to the end of the program */
+	pList = ring_list_newlist_gc(pRingState, pRingState->pRingGenCode);
+	ring_list_addint_gc(pRingState, pList, ICO_RETURN);
+}
+
+void ring_scanner_addreturn3(RingState *pRingState, int aPara[2]) {
+	List *pList;
+	/* Push Empty String */
+	pList = ring_list_newlist_gc(pRingState, pRingState->pRingGenCode);
+	ring_list_addint_gc(pRingState, pList, ICO_PUSHC);
+	ring_list_addstring_gc(pRingState, pList, RING_CSTR_EMPTY);
+	/* Add return from eval to the end of the eval() code */
+	pList = ring_list_newlist_gc(pRingState, pRingState->pRingGenCode);
+	ring_list_addint_gc(pRingState, pList, ICO_RETFROMEVAL);
+	ring_list_addint_gc(pRingState, pList, aPara[0]);
+	ring_list_addint_gc(pRingState, pList, aPara[1]);
 }

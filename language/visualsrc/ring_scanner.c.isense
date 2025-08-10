@@ -255,15 +255,6 @@ pList
 Type: String *
 pString
 ring_scanner_endofline
-ring_scanner_addreturn
-Type: List *
-pList
-ring_scanner_addreturn2
-Type: List *
-pList
-ring_scanner_addreturn3
-Type: List *
-pList
 ring_scanner_printtokens
 Type: int
 x,nType,nPos
@@ -271,7 +262,6 @@ Type: List *
 pList
 Type: char *
 cString
-ring_scanner_getkeywordtext
 ring_scanner_changekeyword
 Type: char *
 cStr
@@ -318,3 +308,13 @@ Type: int
 x, lOperatorFound
 Type: const char *
 cLastToken
+ring_scanner_getkeywordtext
+ring_scanner_addreturn
+Type: List *
+pList
+ring_scanner_addreturn2
+Type: List *
+pList
+ring_scanner_addreturn3
+Type: List *
+pList

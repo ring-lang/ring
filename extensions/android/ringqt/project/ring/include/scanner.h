@@ -267,15 +267,7 @@ void ring_scanner_floatmark(Scanner *pScanner, int nType);
 
 void ring_scanner_endofline(Scanner *pScanner);
 
-void ring_scanner_addreturn(RingState *pRingState);
-
-void ring_scanner_addreturn2(RingState *pRingState);
-
-void ring_scanner_addreturn3(RingState *pRingState, int aPara[2]);
-
 void ring_scanner_printtokens(Scanner *pScanner);
-
-const char *ring_scanner_getkeywordtext(const char *cStr);
 
 void ring_scanner_changekeyword(Scanner *pScanner);
 
@@ -283,11 +275,19 @@ void ring_scanner_changeoperator(Scanner *pScanner);
 
 void ring_scanner_loadsyntax(Scanner *pScanner);
 
+void ring_scanner_setandgenendofline(Scanner *pScanner, int nLine);
+
 void ring_scanner_readtwoparameters(Scanner *pScanner, const char *cStr);
 
 const char *ring_scanner_processtoken(Scanner *pScanner, int nType);
 
-void ring_scanner_setandgenendofline(Scanner *pScanner, int nLine);
-
 int ring_scanner_checkmulticharoperator(Scanner *pScanner, const char *cStr, int nTokenIndex);
+
+const char *ring_scanner_getkeywordtext(RingState *pRingState, const char *cStr);
+
+void ring_scanner_addreturn(RingState *pRingState);
+
+void ring_scanner_addreturn2(RingState *pRingState);
+
+void ring_scanner_addreturn3(RingState *pRingState, int aPara[2]);
 #endif
