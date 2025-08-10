@@ -1,4 +1,4 @@
-Applications Folder
-===================
+# Applications Folder
 
-In this folder, we store the applications and games that are developed using Ring. 
+In this folder, we store the applications and games developed using Ring.
+
