@@ -351,9 +351,9 @@ RING_API void ring_list_deleteitem_gc(void *pState, List *pList, unsigned int nI
 	ring_list_clearcache_gc(pState, pList);
 }
 
-RING_API int ring_list_gettype(List *pList, unsigned int nIndex) {
+RING_API int ring_list_gettype_gc(void *pState, List *pList, unsigned int nIndex) {
 	Item *pItem;
-	pItem = ring_list_getitem(pList, nIndex);
+	pItem = ring_list_getitem_gc(pState, pList, nIndex);
 	if (pItem != NULL) {
 		return ring_item_gettype(pItem);
 	}
@@ -954,6 +954,8 @@ RING_API void ring_list_newitem(List *pList) { ring_list_newitem_gc(NULL, pList)
 RING_API void ring_list_deleteitem(List *pList, unsigned int nIndex) { ring_list_deleteitem_gc(NULL, pList, nIndex); }
 
 RING_API Item *ring_list_getitem(List *pList, unsigned int nIndex) { return ring_list_getitem_gc(NULL, pList, nIndex); }
+
+RING_API int ring_list_gettype(List *pList, unsigned int nIndex) { return ring_list_gettype_gc(NULL, pList, nIndex); }
 /* int */
 
 RING_API void ring_list_setint(List *pList, unsigned int nIndex, int nNumber) {

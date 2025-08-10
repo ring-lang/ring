@@ -71,7 +71,7 @@ RING_API void ring_list_deletecontent_gc(void *pState, List *pList);
 
 RING_API void ring_list_deleteitem_gc(void *pState, List *pList, unsigned int nIndex);
 
-RING_API int ring_list_gettype(List *pList, unsigned int nIndex);
+RING_API int ring_list_gettype_gc(void *pState, List *pList, unsigned int nIndex);
 
 RING_API void ring_list_addblock_gc(void *pState, List *pList, void *pMemory, int nType);
 
@@ -277,6 +277,8 @@ RING_API void ring_list_sortstr(List *pList, unsigned int left, unsigned int rig
 RING_API void ring_list_genhashtable(List *pList);
 
 RING_API void ring_list_genhashtable2(List *pList);
+
+RING_API int ring_list_gettype(List *pList, unsigned int nIndex);
 /* Functions that know about using Lists for Ring Objects & C Pointers */
 
 RING_API void ring_list_print(List *pList);

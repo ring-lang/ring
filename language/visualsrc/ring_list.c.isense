@@ -114,7 +114,7 @@ Type: unsigned int
 x
 Type: Items *
 pItems,*pItemsPrev
-ring_list_gettype
+ring_list_gettype_gc
 Type: Item *
 pItem
 ring_list_isstring
@@ -265,6 +265,7 @@ ring_list_deletearray
 ring_list_newitem
 ring_list_deleteitem
 ring_list_getitem
+ring_list_gettype
 ring_list_setint
 ring_list_addint
 ring_list_setpointer
