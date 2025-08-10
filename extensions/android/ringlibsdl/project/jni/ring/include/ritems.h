@@ -18,4 +18,6 @@ void ring_items_print_gc(void *pState, Items *pItems);
 Items *ring_items_new(void);
 
 Items *ring_items_delete(Items *pItems);
+
+void ring_items_print(Items *pItems);
 #endif

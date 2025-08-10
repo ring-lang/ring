@@ -32,3 +32,4 @@ pItem
 ring_items_print_gc
 ring_items_new
 ring_items_delete
+ring_items_print

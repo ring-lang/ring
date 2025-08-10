@@ -44,3 +44,5 @@ void ring_items_print_gc(void *pState, Items *pItems) { ring_item_print_gc(pStat
 Items *ring_items_new(void) { return ring_items_new_gc(NULL); }
 
 Items *ring_items_delete(Items *pItems) { return ring_items_delete_gc(NULL, pItems); }
+
+void ring_items_print(Items *pItems) { ring_items_print_gc(NULL, pItems); }
