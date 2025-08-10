@@ -1053,6 +1053,18 @@ RING_API void ring_list_sortstr(List *pList, unsigned int left, unsigned int rig
 RING_API void ring_list_genhashtable(List *pList) { ring_list_genhashtable_gc(NULL, pList); }
 
 RING_API void ring_list_genhashtable2(List *pList) { ring_list_genhashtable2_gc(NULL, pList); }
+
+RING_API int ring_list_findstring(List *pList, const char *cStr, unsigned int nColumn) {
+	return ring_list_findstring_gc(NULL, pList, cStr, nColumn);
+}
+
+RING_API int ring_list_finddouble(List *pList, double nNum1, unsigned int nColumn) {
+	return ring_list_finddouble_gc(NULL, pList, nNum1, nColumn);
+}
+
+RING_API int ring_list_findpointer(List *pList, void *pPointer) {
+	return ring_list_findpointer_gc(NULL, pList, pPointer);
+}
 /* Swap two lists */
 
 RING_API void ring_list_swaptwolists(List *pList1, List *pList2) {

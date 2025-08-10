@@ -281,6 +281,12 @@ RING_API void ring_list_genhashtable(List *pList);
 RING_API void ring_list_genhashtable2(List *pList);
 
 RING_API int ring_list_gettype(List *pList, unsigned int nIndex);
+
+RING_API int ring_list_findstring(List *pList, const char *cStr, unsigned int nColumn);
+
+RING_API int ring_list_finddouble(List *pList, double nNum1, unsigned int nColumn);
+
+RING_API int ring_list_findpointer(List *pList, void *pPointer);
 /* Functions that know about using Lists for Ring Objects & C Pointers */
 
 RING_API void ring_list_print(List *pList);
