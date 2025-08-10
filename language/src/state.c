@@ -293,7 +293,7 @@ RING_API void ring_state_runprogram(RingState *pRingState) {
 	/* Add return to the end of the program */
 	ring_scanner_addreturn(pRingState);
 	if (pRingState->lPrintIC) {
-		ring_parser_icg_showoutput(pRingState->pRingGenCode);
+		ring_parser_icg_showoutput(pRingState);
 	}
 	if (!pRingState->lRun) {
 		return;

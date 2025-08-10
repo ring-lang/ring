@@ -211,4 +211,4 @@ ring_parser_icg_showoutput
 Type: int
 x,y,nCount,nCount2
 Type: List *
-pList
+pList, *pListGenCode

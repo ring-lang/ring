@@ -327,9 +327,10 @@ void ring_parser_icg_genppmm(Parser *pParser, int nMode, int nValue) {
 	}
 }
 
-void ring_parser_icg_showoutput(List *pListGenCode) {
+void ring_parser_icg_showoutput(RingState *pRingState) {
 	int x, y, nCount, nCount2;
-	List *pList;
+	List *pList, *pListGenCode;
+	pListGenCode = pRingState->pRingGenCode;
 	/* Header */
 	printf("\n\n");
 	ring_general_printline();
