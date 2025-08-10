@@ -198,7 +198,7 @@ Type: Item *
 pItem2
 Type: List *
 pList2
-ring_list_getitemcontainer
+ring_list_getitemcontainer_gc
 Type: Items *
 pItems
 Type: unsigned int

@@ -540,7 +540,7 @@ RING_API void ring_list_insertitem_gc(void *pState, List *pList, unsigned int x)
 	pPos = pList->pLastItem;
 	if ((pPos == NULL) || (pList->pItemsArray != NULL)) {
 		/* This support making list cache optional without having problems here */
-		pPos = ring_list_getitemcontainer(pList, x);
+		pPos = ring_list_getitemcontainer_gc(pState, pList, x);
 	}
 	pItems->pNext = pPos->pNext;
 	pItems->pNext->pPrev = pItems;
@@ -634,7 +634,7 @@ RING_API int ring_list_deliteminsidelist_gc(void *pState, List *pList, Item *pIt
 }
 /* Get Items * using item index */
 
-RING_API Items *ring_list_getitemcontainer(List *pList, unsigned int nIndex) {
+RING_API Items *ring_list_getitemcontainer_gc(void *pState, List *pList, unsigned int nIndex) {
 	Items *pItems;
 	unsigned int x;
 	pItems = NULL;
@@ -870,8 +870,8 @@ RING_API void ring_list_swap_gc(void *pState, List *pList, unsigned int x, unsig
 	Item *pItem;
 	Items *pItems, *pItems2;
 	pItem = ring_list_getitem_gc(pState, pList, x);
-	pItems = ring_list_getitemcontainer(pList, x);
-	pItems2 = ring_list_getitemcontainer(pList, y);
+	pItems = ring_list_getitemcontainer_gc(pState, pList, x);
+	pItems2 = ring_list_getitemcontainer_gc(pState, pList, y);
 	pItems->pValue = pItems2->pValue;
 	pItems2->pValue = pItem;
 }
