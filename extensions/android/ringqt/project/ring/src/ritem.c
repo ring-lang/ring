@@ -115,7 +115,6 @@ RING_API void ring_item_init_gc(void *pState, Item *pItem) {
 	pItem->nObjectType = ITEM_OBJTYPE_NOTHING;
 	pItem->lAssignment = RING_ZERO;
 }
-/* Functions to deal with Numbers (int/double) */
 
 RING_API double ring_item_getnumber_gc(void *pState, Item *pItem) {
 	if (pItem->nNumberFlag == ITEM_NUMBERFLAG_INT) {
@@ -191,6 +190,12 @@ RING_API Item *ring_item_delete(Item *pItem) { return ring_item_delete_gc(NULL, 
 RING_API void ring_item_settype(Item *pItem, unsigned int nItemType) { ring_item_settype_gc(NULL, pItem, nItemType); }
 
 RING_API void ring_item_deletecontent(Item *pItem) { ring_item_deletecontent_gc(NULL, pItem); }
+
+RING_API void ring_item_print(Item *pItem) { ring_item_print_gc(NULL, pItem); }
+
+RING_API void ring_item_init(Item *pItem) { ring_item_init_gc(NULL, pItem); }
+
+RING_API double ring_item_getnumber(Item *pItem) { return ring_item_getnumber_gc(NULL, pItem); }
 /* Functions to deal with array of items */
 
 RING_API void ring_itemarray_setint(Item aItems[], unsigned int nIndex, int nNumber) {

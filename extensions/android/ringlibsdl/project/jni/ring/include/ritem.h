@@ -74,7 +74,6 @@ RING_API void ring_item_deletecontent_gc(void *pState, Item *pItem);
 RING_API void ring_item_print_gc(void *pState, Item *pItem);
 
 RING_API void ring_item_init_gc(void *pState, Item *pItem);
-/* Functions to deal with numbers (int/double) */
 
 RING_API double ring_item_getnumber_gc(void *pState, Item *pItem);
 /*
@@ -115,6 +114,12 @@ RING_API Item *ring_item_delete(Item *pItem);
 RING_API void ring_item_settype(Item *pItem, unsigned int nItemType);
 
 RING_API void ring_item_deletecontent(Item *pItem);
+
+RING_API void ring_item_print(Item *pItem);
+
+RING_API void ring_item_init(Item *pItem);
+
+RING_API double ring_item_getnumber(Item *pItem);
 /*
 **  Functions to deal with array of items
 **  int
