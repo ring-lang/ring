@@ -167,7 +167,7 @@ RING_API void ring_vm_api_retcpointer2(void *pPointer, void *pGeneral, const cha
 	ring_list_addint_gc(((VM *)pPointer)->pRingState, pList, RING_CPOINTERSTATUS_NOTASSIGNED);
 	/* Set the Free Function */
 	if (pFreeFunc != NULL) {
-		pItem = ring_list_getitem(pList, RING_CPOINTER_POINTER);
+		pItem = ring_list_getitem_gc(((VM *)pPointer)->pRingState, pList, RING_CPOINTER_POINTER);
 		ring_vm_gc_setfreefunc(pItem, pFreeFunc);
 	}
 	RING_API_RETLIST(pList);
@@ -247,7 +247,7 @@ RING_API void *ring_vm_api_varptr(void *pPointer, const char *cStr, const char *
 	pList = (List *)RING_VM_STACK_READP;
 	RING_VM_STACK_POP;
 	if (ring_list_getint(pList, RING_VAR_TYPE) == RING_VM_NUMBER) {
-		pItem = ring_list_getitem(pList, RING_VAR_VALUE);
+		pItem = ring_list_getitem_gc(pVM->pRingState, pList, RING_VAR_VALUE);
 		if (strcmp(cStr2, "double") == 0) {
 			return &(pItem->data.dNumber);
 		} else if (strcmp(cStr2, "int") == 0) {
@@ -258,7 +258,7 @@ RING_API void *ring_vm_api_varptr(void *pPointer, const char *cStr, const char *
 			return &(pItem->data.fNumber);
 		}
 	} else if (ring_list_getint(pList, RING_VAR_TYPE) == RING_VM_STRING) {
-		pItem = ring_list_getitem(pList, RING_VAR_VALUE);
+		pItem = ring_list_getitem_gc(pVM->pRingState, pList, RING_VAR_VALUE);
 		return pItem->data.pString->cStr;
 	}
 	return NULL;
@@ -289,7 +289,7 @@ RING_API void ring_vm_api_varvalue(void *pPointer, const char *cStr, int nType) 
 	pList = (List *)RING_VM_STACK_READP;
 	RING_VM_STACK_POP;
 	if (ring_list_getint(pList, RING_VAR_TYPE) == RING_VM_NUMBER) {
-		pItem = ring_list_getitem(pList, RING_VAR_VALUE);
+		pItem = ring_list_getitem_gc(pVM->pRingState, pList, RING_VAR_VALUE);
 		if (nType == RING_VARVALUE_INT) {
 			pItem->data.dNumber = (double)pItem->data.iNumber;
 		} else {
@@ -346,7 +346,8 @@ RING_API void *ring_vm_api_getcpointer2pointer(void *pPointer, int nPara, const 
 					     RING_CPOINTERSTATUS_NOTCOPIED) ||
 					    (ring_list_getint(pList, RING_CPOINTER_STATUS) ==
 					     RING_CPOINTERSTATUS_NOTASSIGNED)) {
-						pItem = ring_list_getitem(pList, RING_CPOINTER_POINTER);
+						pItem = ring_list_getitem_gc(((VM *)pPointer)->pRingState, pList,
+									     RING_CPOINTER_POINTER);
 						return &(pItem->data.pPointer);
 					}
 					ring_list_setpointer_gc(((VM *)pPointer)->pRingState, pList,

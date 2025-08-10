@@ -1226,7 +1226,7 @@ void ring_vm_addlisttolist(VM *pVM, List *pList, List *pList2) {
 	*/
 	if (ring_list_isref(pList)) {
 		ring_list_insertlist(pList2, ring_list_getsize(pList2));
-		pItem = ring_list_getitem(pList2, ring_list_getsize(pList2));
+		pItem = ring_list_getitem_gc(pVM->pRingState, pList2, ring_list_getsize(pList2));
 		ring_list_assignreftoitem_gc(pVM->pRingState, pList, pItem);
 		return;
 	}
@@ -1246,14 +1246,14 @@ void ring_vm_addlisttolist(VM *pVM, List *pList, List *pList2) {
 		**  Without this modification using self may lead to crash or using corrupted memory
 		*/
 		ring_vm_oop_updateselfpointer(pVM, pList3, RING_OBJTYPE_LISTITEM,
-					      ring_list_getitem(pList2, ring_list_getsize(pList2)));
+					      ring_list_getitem_gc(pVM->pRingState, pList2, ring_list_getsize(pList2)));
 	} else if ((ring_vm_oop_isobject(pList3) == 1) && (pVM->pBraceObject != pList)) {
 		/*
 		**  in ring code if we used mylist + new obj() the init method will be called
 		**  the pVM->pBraceObject will not == pList but we have to update the self pointer!
 		*/
 		ring_vm_oop_updateselfpointer(pVM, pList3, RING_OBJTYPE_LISTITEM,
-					      ring_list_getitem(pList2, ring_list_getsize(pList2)));
+					      ring_list_getitem_gc(pVM->pRingState, pList2, ring_list_getsize(pList2)));
 	}
 }
 

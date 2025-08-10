@@ -549,7 +549,7 @@ List *ring_vm_savestack(VM *pVM) {
 			ring_list_adddouble_gc(pVM->pRingState, pList, RING_VM_STACK_READN);
 		} else if (RING_VM_STACK_ISPOINTER) {
 			ring_list_addpointer_gc(pVM->pRingState, pList, RING_VM_STACK_READP);
-			pItem = ring_list_getitem(pList, ring_list_getsize(pList));
+			pItem = ring_list_getitem_gc(pVM->pRingState, pList, ring_list_getsize(pList));
 			pItem->nObjectType = RING_VM_STACK_OBJTYPE;
 			pItem->lAssignment = RING_VM_STACK_ASSIGNMENTFLAG;
 		}
@@ -573,7 +573,7 @@ void ring_vm_restorestack(VM *pVM, List *pList) {
 			RING_VM_STACK_PUSHNVALUE(ring_list_getdouble(pList, x));
 		} else if (ring_list_ispointer(pList, x)) {
 			RING_VM_STACK_PUSHPVALUE(ring_list_getpointer(pList, x));
-			pItem = ring_list_getitem(pList, x);
+			pItem = ring_list_getitem_gc(pVM->pRingState, pList, x);
 			RING_VM_STACK_OBJTYPE = pItem->nObjectType;
 			RING_VM_STACK_ASSIGNMENTFLAG = pItem->lAssignment;
 		}

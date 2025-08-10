@@ -75,7 +75,7 @@ void ring_vm_incjump(VM *pVM) {
 	}
 	pVar = (List *)RING_VM_STACK_READP;
 	RING_VM_STACK_POP;
-	pItem = ring_list_getitem(pVar, RING_VAR_VALUE);
+	pItem = ring_list_getitem_gc(pVM->pRingState, pVar, RING_VAR_VALUE);
 	nNum1 = ring_list_getdouble(pVM->pForStep, ring_list_getsize(pVM->pForStep));
 	/* Check Data */
 	if (!ring_list_isnumber(pVar, RING_VAR_VALUE)) {

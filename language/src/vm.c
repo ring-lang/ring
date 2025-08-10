@@ -499,7 +499,7 @@ void ring_vm_tobytecode(VM *pVM, int nIns) {
 		exit(RING_EXIT_FAIL);
 	}
 	/* Get the Operation Code */
-	pItem = ring_list_getitem(pIR, RING_PARSER_ICG_OPERATIONCODE);
+	pItem = ring_list_getitem_gc(pVM->pRingState, pIR, RING_PARSER_ICG_OPERATIONCODE);
 	/* Avoid Performance Instructions (Happens when called from New Thread) */
 	switch (pItem->data.iNumber) {
 	case ICO_PUSHPLOCAL:
@@ -525,7 +525,7 @@ void ring_vm_tobytecode(VM *pVM, int nIns) {
 	pByteCode->aReg[RING_VM_IR_REG1].dNumber = 0.0;
 	pByteCode->aReg[RING_VM_IR_REG2].dNumber = 0.0;
 	for (x = 2; x <= ring_list_getsize(pIR); x++) {
-		pItem = ring_list_getitem(pIR, x);
+		pItem = ring_list_getitem_gc(pVM->pRingState, pIR, x);
 		/* Copy the item data */
 		switch (pItem->nType) {
 		case ITEMTYPE_NUMBER:

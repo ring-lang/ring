@@ -15,7 +15,7 @@ void ring_vm_gc_checknewreference(VM *pVM, void *pPointer, int nType, List *pCon
 		ring_vm_custmutexlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
 		ring_vm_gc_newitemreference(pItem);
 		/* Set the Free Function */
-		pItem = ring_list_getitem(pContainer, nIndex);
+		pItem = ring_list_getitem_gc(pVM->pRingState, pContainer, nIndex);
 		ring_vm_gc_setfreefunc(pItem, (void (*)(void *, void *))ring_vm_gc_deleteitem);
 		/* Add the variable list to Tracked Variables */
 		if (!pContainer->vGC.lTrackedList) {
@@ -253,7 +253,7 @@ RING_API void ring_list_acceptlistbyref_gc(void *pState, List *pList, unsigned i
 	pRealList = ring_list_getlist(pList, index);
 	ring_list_delete_gc(pState, pRealList);
 	/* Set the Item as a List reference */
-	pItem = ring_list_getitem(pList, index);
+	pItem = ring_list_getitem_gc(pState, pList, index);
 	pItem->data.pList = pRef;
 }
 
@@ -472,7 +472,7 @@ RING_API List *ring_list_collectcycles_gc(void *pState, List *pList) {
 						ring_list_addpointer_gc(pState, aProcess, pSubList);
 					}
 					if (pSubList == pList) {
-						pItem = ring_list_getitem(pActiveList, y);
+						pItem = ring_list_getitem_gc(pState, pActiveList, y);
 						pItem->nType = ITEMTYPE_STRING;
 						pItem->data.pString = ring_string_new_gc(pState, RING_CSTR_EMPTY);
 					}

@@ -424,7 +424,8 @@ void ring_vm_list_copy(VM *pVM, List *pNewList, List *pList) {
 				ring_vm_list_copy(pVM, pNewList2, pSourceList);
 				/* Update Self Object Pointer */
 				if (ring_vm_oop_isobject(pNewList2)) {
-					pItem = ring_list_getitem(pNewList, ring_list_getsize(pNewList));
+					pItem = ring_list_getitem_gc(pVM->pRingState, pNewList,
+								     ring_list_getsize(pNewList));
 					ring_vm_oop_updateselfpointer(pVM, pNewList2, RING_OBJTYPE_LISTITEM, pItem);
 				}
 			}
@@ -434,7 +435,7 @@ void ring_vm_list_copy(VM *pVM, List *pNewList, List *pList) {
 	if (ring_list_iscpointerlist(pList)) {
 		/* Copy The Pointer by Reference */
 		pNewList->pFirst->pValue = ring_item_delete_gc(pVM->pRingState, pNewList->pFirst->pValue);
-		pItem = ring_list_getitem(pList, RING_CPOINTER_POINTER);
+		pItem = ring_list_getitem_gc(pVM->pRingState, pList, RING_CPOINTER_POINTER);
 		pNewList->pFirst->pValue = pItem;
 		ring_vm_custmutexlock(pVM, pVM->aCustomMutex[RING_VM_CUSTOMMUTEX_ITEMREFCOUNT]);
 		ring_vm_gc_newitemreference(pItem);

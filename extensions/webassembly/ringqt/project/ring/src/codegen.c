@@ -23,8 +23,8 @@ void ring_parser_icg_newoperand(Parser *pParser, const char *cStr) {
 
 void ring_parser_icg_addtooperand(Parser *pParser, const char *cStr) {
 	String *pString;
-	pString = ring_item_getstring(
-	    ring_list_getitem(pParser->pActiveGenCodeList, ring_list_getsize(pParser->pActiveGenCodeList)));
+	pString = ring_item_getstring(ring_list_getitem_gc(pParser->pRingState, pParser->pActiveGenCodeList,
+							   ring_list_getsize(pParser->pActiveGenCodeList)));
 	ring_string_add_gc(NULL, pString, cStr);
 }
 

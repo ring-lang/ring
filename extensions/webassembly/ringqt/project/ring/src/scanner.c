@@ -489,9 +489,12 @@ void ring_scanner_floatmark(Scanner *pScanner, int nType) {
 						ring_list_getsize(pScanner->pTokens));
 			pList = ring_list_getlist(pScanner->pTokens, ring_list_getsize(pScanner->pTokens));
 			ring_string_add_gc(pScanner->pRingState,
-					   ring_item_getstring(ring_list_getitem(pList, RING_SCANNER_TOKENVALUE)), ".");
+					   ring_item_getstring(ring_list_getitem_gc(pScanner->pRingState, pList,
+										    RING_SCANNER_TOKENVALUE)),
+					   ".");
 			ring_string_add_gc(pScanner->pRingState,
-					   ring_item_getstring(ring_list_getitem(pList, RING_SCANNER_TOKENVALUE)),
+					   ring_item_getstring(ring_list_getitem_gc(pScanner->pRingState, pList,
+										    RING_SCANNER_TOKENVALUE)),
 					   ring_string_get(pString));
 			ring_string_delete_gc(pScanner->pRingState, pString);
 		}
