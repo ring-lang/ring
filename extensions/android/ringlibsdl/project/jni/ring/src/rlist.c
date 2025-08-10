@@ -240,10 +240,10 @@ RING_API Item *ring_list_getitem_gc(void *pState, List *pList, unsigned int nInd
 		}
 		/* Quickly Get The First or The Last Item */
 		if (nIndex == 1) {
-			ring_list_setcache_gc(NULL, pList, pList->pFirst, nIndex + 1);
+			ring_list_setcache_gc(pState, pList, pList->pFirst, nIndex + 1);
 			return pList->pFirst->pValue;
 		} else if (nIndex == ring_list_getsize(pList)) {
-			ring_list_setcache_gc(NULL, pList, pList->pLast, nIndex + 1);
+			ring_list_setcache_gc(pState, pList, pList->pLast, nIndex + 1);
 			return pList->pLast->pValue;
 		}
 		/* Quickly get the next item */
@@ -264,7 +264,7 @@ RING_API Item *ring_list_getitem_gc(void *pState, List *pList, unsigned int nInd
 			pItems = pList->pLastItem;
 			for (x = pList->nNextItem - 1; x <= nIndex; x++) {
 				if (x == nIndex) {
-					ring_list_setcache_gc(NULL, pList, pItems, nIndex + 1);
+					ring_list_setcache_gc(pState, pList, pItems, nIndex + 1);
 				}
 				pItem = pItems->pValue;
 				pItems = pItems->pNext;
@@ -277,7 +277,7 @@ RING_API Item *ring_list_getitem_gc(void *pState, List *pList, unsigned int nInd
 			pItems = pList->pLastItem;
 			for (x = pList->nNextItem - 1; x >= nIndex; x--) {
 				if (x == nIndex) {
-					ring_list_setcache_gc(NULL, pList, pItems, nIndex + 1);
+					ring_list_setcache_gc(pState, pList, pItems, nIndex + 1);
 				}
 				pItem = pItems->pValue;
 				pItems = pItems->pPrev;
@@ -289,7 +289,7 @@ RING_API Item *ring_list_getitem_gc(void *pState, List *pList, unsigned int nInd
 			pItems = pList->pFirst;
 			for (x = 1; x <= nIndex; x++) {
 				if (x == nIndex) {
-					ring_list_setcache_gc(NULL, pList, pItems, nIndex + 1);
+					ring_list_setcache_gc(pState, pList, pItems, nIndex + 1);
 				}
 				pItem = pItems->pValue;
 				pItems = pItems->pNext;
@@ -299,7 +299,7 @@ RING_API Item *ring_list_getitem_gc(void *pState, List *pList, unsigned int nInd
 			pItems = pList->pLast;
 			for (x = pList->nSize; x >= nIndex; x--) {
 				if (x == nIndex) {
-					ring_list_setcache_gc(NULL, pList, pItems, nIndex + 1);
+					ring_list_setcache_gc(pState, pList, pItems, nIndex + 1);
 				}
 				pItem = pItems->pValue;
 				pItems = pItems->pPrev;
