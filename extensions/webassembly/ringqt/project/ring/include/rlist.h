@@ -30,13 +30,36 @@ typedef struct List {
 #define RING_LISTBLOCKTYPE_LIST 3
 #define RING_LIST_KEYINDEX 1
 /* Macro */
+#define ring_list_isdouble_gc(pState, pList, nIndex)                                                                   \
+	(ring_list_gettype_gc(pState, pList, nIndex) == ITEMTYPE_NUMBER) &&                                            \
+	    (ring_list_getitem_gc(pState, pList, nIndex)->nNumberFlag == ITEM_NUMBERFLAG_DOUBLE)
+#define ring_list_isint_gc(pState, pList, nIndex)                                                                      \
+	(ring_list_gettype_gc(pState, pList, nIndex) == ITEMTYPE_NUMBER) &&                                            \
+	    (ring_list_getitem_gc(pState, pList, nIndex)->nNumberFlag == ITEM_NUMBERFLAG_INT)
+#define ring_list_gethashtable_gc(pState, pList) (pList->pHashTable)
+#define ring_list_getint_gc(pState, pList, nIndex) (ring_list_getitem_gc(pState, pList, nIndex)->data.iNumber)
+#define ring_list_getpointer_gc(pState, pList, nIndex) (ring_list_getitem_gc(pState, pList, nIndex)->data.pPointer)
+#define ring_list_getpointertype_gc(pState, pList, nIndex) (ring_list_getitem_gc(pState, pList, nIndex)->nObjectType)
+#define ring_list_getfuncpointer_gc(pState, pList, nIndex) (ring_list_getitem_gc(pState, pList, nIndex)->data.pFunc)
+#define ring_list_callfuncpointer_gc(pState, pList, nIndex, pPointer)                                                  \
+	(ring_list_getitem_gc(pState, pList, nIndex)->data.pFunc(pPointer))
+#define ring_list_getdouble_gc(pState, pList, nIndex) ring_list_getitem_gc(pState, pList, nIndex)->data.dNumber
+#define ring_list_getstring_gc(pState, pList, nIndex)                                                                  \
+	(ring_string_get(ring_item_getstring(ring_list_getitem(pList, nIndex))))
+#define ring_list_getstringobject_gc(pState, pList, nIndex)                                                            \
+	(ring_item_getstring(ring_list_getitem_gc(pState, pList, nIndex)))
+#define ring_list_getstringsize_gc(pState, pList, nIndex)                                                              \
+	(ring_string_size(ring_item_getstring(ring_list_getitem_gc(pState, pList, nIndex))))
+#define ring_list_getsize_gc(pState, pList) (pList->nSize)
+#define ring_list_incdouble_gc(pState, pList, nIndex) ++ring_list_getitem_gc(pState, pList, nIndex)->data.dNumber
+#define ring_list_deletelastitem_gc(pState, pList) ring_list_deleteitem_gc(pState, pList, ring_list_getsize(pList))
+/* Macro (Without State Pointer) */
 #define ring_list_isdouble(pList, nIndex)                                                                              \
 	(ring_list_gettype(pList, nIndex) == ITEMTYPE_NUMBER) &&                                                       \
 	    (ring_list_getitem(pList, nIndex)->nNumberFlag == ITEM_NUMBERFLAG_DOUBLE)
 #define ring_list_isint(pList, nIndex)                                                                                 \
 	(ring_list_gettype(pList, nIndex) == ITEMTYPE_NUMBER) &&                                                       \
 	    (ring_list_getitem(pList, nIndex)->nNumberFlag == ITEM_NUMBERFLAG_INT)
-#define ring_list_deletelastitem(pList) ring_list_deleteitem(pList, ring_list_getsize(pList))
 #define ring_list_gethashtable(pList) (pList->pHashTable)
 #define ring_list_getint(pList, nIndex) (ring_list_getitem(pList, nIndex)->data.iNumber)
 #define ring_list_getpointer(pList, nIndex) (ring_list_getitem(pList, nIndex)->data.pPointer)
@@ -48,8 +71,8 @@ typedef struct List {
 #define ring_list_getstringobject(pList, nIndex) (ring_item_getstring(ring_list_getitem(pList, nIndex)))
 #define ring_list_getstringsize(pList, nIndex) (ring_string_size(ring_item_getstring(ring_list_getitem(pList, nIndex))))
 #define ring_list_getsize(pList) (pList->nSize)
-#define ring_list_deletelastitem_gc(pState, pList) ring_list_deleteitem_gc(pState, pList, ring_list_getsize(pList))
 #define ring_list_incdouble(pList, nIndex) ++ring_list_getitem(pList, nIndex)->data.dNumber
+#define ring_list_deletelastitem(pList) ring_list_deleteitem(pList, ring_list_getsize(pList))
 /*
 **  Functions
 **  Main List Functions

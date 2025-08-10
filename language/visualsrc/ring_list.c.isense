@@ -51,9 +51,23 @@ RING_LISTBLOCKTYPE_ITEM
 RING_LISTBLOCKTYPE_ITEMS
 RING_LISTBLOCKTYPE_LIST
 RING_LIST_KEYINDEX
+ring_list_isdouble_gc(pState,pList,nIndex)
+ring_list_isint_gc(pState,pList,nIndex)
+ring_list_gethashtable_gc(pState,pList)
+ring_list_getint_gc(pState,pList,nIndex)
+ring_list_getpointer_gc(pState,pList,nIndex)
+ring_list_getpointertype_gc(pState,pList,nIndex)
+ring_list_getfuncpointer_gc(pState,pList,nIndex)
+ring_list_callfuncpointer_gc(pState,pList,nIndex,pPointer)
+ring_list_getdouble_gc(pState,pList,nIndex)
+ring_list_getstring_gc(pState,pList,nIndex)
+ring_list_getstringobject_gc(pState,pList,nIndex)
+ring_list_getstringsize_gc(pState,pList,nIndex)
+ring_list_getsize_gc(pState,pList)
+ring_list_incdouble_gc(pState,pList,nIndex)
+ring_list_deletelastitem_gc(pState,pList)
 ring_list_isdouble(pList,nIndex)
 ring_list_isint(pList,nIndex)
-ring_list_deletelastitem(pList)
 ring_list_gethashtable(pList)
 ring_list_getint(pList,nIndex)
 ring_list_getpointer(pList,nIndex)
@@ -65,8 +79,8 @@ ring_list_getstring(pList,nIndex)
 ring_list_getstringobject(pList,nIndex)
 ring_list_getstringsize(pList,nIndex)
 ring_list_getsize(pList)
-ring_list_deletelastitem_gc(pState,pList)
 ring_list_incdouble(pList,nIndex)
+ring_list_deletelastitem(pList)
 ring_list_new_gc
 Type: List *
 pList
