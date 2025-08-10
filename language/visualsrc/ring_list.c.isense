@@ -221,7 +221,7 @@ Type: unsigned int
 x,nCount
 Type: List *
 pList2, *pList3
-ring_list_sortnum
+ring_list_sortnum_gc
 Type: unsigned int
 x,y,nMid
 Type: double
@@ -237,7 +237,7 @@ nFirst,nMid,nLast
 ring_list_binarysearchstr
 Type: unsigned int
 nFirst,nMid,nLast,nRes
-ring_list_swap
+ring_list_swap_gc
 Type: Item *
 pItem
 Type: Items *

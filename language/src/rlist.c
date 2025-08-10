@@ -768,8 +768,8 @@ RING_API int ring_list_findlistref(List *pList, List *pValue, unsigned int nColu
 }
 /* Sort (QuickSort) and Binary Search */
 
-RING_API void ring_list_sortnum(List *pList, unsigned int left, unsigned int right, unsigned int nColumn,
-				const char *cAttribute) {
+RING_API void ring_list_sortnum_gc(void *pState, List *pList, unsigned int left, unsigned int right,
+				   unsigned int nColumn, const char *cAttribute) {
 	unsigned int x, y, nMid;
 	double nMidvalue;
 	x = left;
@@ -784,16 +784,16 @@ RING_API void ring_list_sortnum(List *pList, unsigned int left, unsigned int rig
 			y--;
 		}
 		if (x <= y) {
-			ring_list_swap(pList, x, y);
+			ring_list_swap_gc(pState, pList, x, y);
 			x++;
 			y--;
 		}
 	}
 	if (left < y) {
-		ring_list_sortnum(pList, left, y, nColumn, cAttribute);
+		ring_list_sortnum_gc(pState, pList, left, y, nColumn, cAttribute);
 	}
 	if (y < right) {
-		ring_list_sortnum(pList, x, right, nColumn, cAttribute);
+		ring_list_sortnum_gc(pState, pList, x, right, nColumn, cAttribute);
 	}
 }
 
@@ -815,7 +815,7 @@ RING_API void ring_list_sortstr_gc(void *pState, List *pList, unsigned int left,
 			y--;
 		}
 		if (x <= y) {
-			ring_list_swap(pList, x, y);
+			ring_list_swap_gc(pState, pList, x, y);
 			x++;
 			y--;
 		}
@@ -864,10 +864,10 @@ RING_API int ring_list_binarysearchstr(List *pList, const char *cFind, unsigned 
 	return 0;
 }
 
-RING_API void ring_list_swap(List *pList, unsigned int x, unsigned int y) {
+RING_API void ring_list_swap_gc(void *pState, List *pList, unsigned int x, unsigned int y) {
 	Item *pItem;
 	Items *pItems, *pItems2;
-	pItem = ring_list_getitem(pList, x);
+	pItem = ring_list_getitem_gc(pState, pList, x);
 	pItems = ring_list_getitemcontainer(pList, x);
 	pItems2 = ring_list_getitemcontainer(pList, y);
 	pItems->pValue = pItems2->pValue;

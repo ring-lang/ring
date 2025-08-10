@@ -150,7 +150,7 @@ void ring_vm_listfuncs_swap(void *pPointer) {
 			nNum2 = RING_API_GETNUMBER(3);
 			nSize = ring_list_getsize(pList);
 			if ((nNum1 > 0) && (nNum2 > 0) && (nNum1 != nNum2) && (nNum1 <= nSize) && (nNum2 <= nSize)) {
-				ring_list_swap(pList, (unsigned int)nNum1, (unsigned int)nNum2);
+				ring_list_swap_gc(pVM->pRingState, pList, (unsigned int)nNum1, (unsigned int)nNum2);
 				ring_list_clearcache_gc(pVM->pRingState, pList);
 			} else {
 				RING_API_ERROR(RING_API_BADPARARANGE);
@@ -490,8 +490,8 @@ void ring_vm_listfuncs_sort(void *pPointer) {
 						return;
 					}
 				}
-				ring_list_sortnum(pList, RING_ONE, ring_list_getsize(pList), RING_ZERO,
-						  RING_CSTR_EMPTY);
+				ring_list_sortnum_gc(pVM->pRingState, pList, RING_ONE, ring_list_getsize(pList),
+						     RING_ZERO, RING_CSTR_EMPTY);
 			} else if (ring_list_isstring(pList, RING_ONE)) {
 				/* Check that all items are strings */
 				for (x = 1; x <= ring_list_getsize(pList); x++) {
@@ -517,7 +517,8 @@ void ring_vm_listfuncs_sort(void *pPointer) {
 						return;
 					}
 				}
-				ring_list_sortnum(pList, RING_ONE, ring_list_getsize(pList), nColumn, RING_CSTR_EMPTY);
+				ring_list_sortnum_gc(pVM->pRingState, pList, RING_ONE, ring_list_getsize(pList),
+						     nColumn, RING_CSTR_EMPTY);
 			} else if (ring_list_isstring(pList3, nColumn)) {
 				/* Check that all items are strings */
 				for (x = 1; x <= ring_list_getsize(pList); x++) {
@@ -553,8 +554,8 @@ void ring_vm_listfuncs_sort(void *pPointer) {
 					ring_list_sortstr(pList, RING_ONE, ring_list_getsize(pList), nColumn,
 							  cAttribute);
 				} else if (ring_list_isnumber(pList3, RING_VAR_VALUE)) {
-					ring_list_sortnum(pList, RING_ONE, ring_list_getsize(pList), nColumn,
-							  cAttribute);
+					ring_list_sortnum_gc(pVM->pRingState, pList, RING_ONE, ring_list_getsize(pList),
+							     nColumn, cAttribute);
 				} else {
 					RING_API_ERROR(RING_API_BADPARATYPE);
 				}

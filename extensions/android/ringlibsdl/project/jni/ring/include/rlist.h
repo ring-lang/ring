@@ -171,8 +171,8 @@ RING_API int ring_list_findpointer(List *pList, void *pPointer);
 RING_API int ring_list_findlistref(List *pList, List *pValue, unsigned int nColumn);
 /* Sort and Binary Search */
 
-RING_API void ring_list_sortnum(List *pList, unsigned int left, unsigned int right, unsigned int nColumn,
-				const char *cAttribute);
+RING_API void ring_list_sortnum_gc(void *pState, List *pList, unsigned int left, unsigned int right,
+				   unsigned int nColumn, const char *cAttribute);
 
 RING_API void ring_list_sortstr_gc(void *pState, List *pList, unsigned int left, unsigned int right,
 				   unsigned int nColumn, const char *cAttribute);
@@ -181,7 +181,7 @@ RING_API int ring_list_binarysearchnum(List *pList, double nNum1, unsigned int n
 
 RING_API int ring_list_binarysearchstr(List *pList, const char *cFind, unsigned int nColumn, const char *cAttribute);
 
-RING_API void ring_list_swap(List *pList, unsigned int x, unsigned int y);
+RING_API void ring_list_swap_gc(void *pState, List *pList, unsigned int x, unsigned int y);
 /* List Items to Array */
 
 RING_API void ring_list_genarray_gc(void *pState, List *pList);
