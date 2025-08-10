@@ -29,6 +29,6 @@ Type: char *
 pMem
 Type: Item *
 pItem
-ring_items_print
+ring_items_print_gc
 ring_items_new
 ring_items_delete

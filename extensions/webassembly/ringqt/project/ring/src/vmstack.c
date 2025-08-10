@@ -693,7 +693,7 @@ void ring_vm_printstack(VM *pVM) {
 					ring_list_print2((List *)RING_VM_STACK_READP, pVM->nDecimals);
 				} else if (RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM) {
 					printf("(Pointer Type) : ListItem \n");
-					ring_item_print((Item *)RING_VM_STACK_READP);
+					ring_item_print_gc(pVM->pRingState, (Item *)RING_VM_STACK_READP);
 				}
 			}
 			RING_VM_STACK_POP;

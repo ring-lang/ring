@@ -24,7 +24,7 @@ RING_API Item *ring_item_delete_gc(void *pState, Item *pItem) {
 	return NULL;
 }
 
-RING_API void ring_item_print(Item *pItem) {
+RING_API void ring_item_print_gc(void *pState, Item *pItem) {
 	unsigned int nItemType;
 	nItemType = pItem->nType;
 	switch (nItemType) {
@@ -49,7 +49,7 @@ RING_API void ring_item_print(Item *pItem) {
 	}
 }
 
-RING_API void ring_item_init(Item *pItem) {
+RING_API void ring_item_init_gc(void *pState, Item *pItem) {
 	pItem->nType = ITEMTYPE_NOTHING;
 	pItem->nNumberFlag = ITEM_NUMBERFLAG_NOTHING;
 	pItem->nObjectType = ITEM_OBJTYPE_NOTHING;
@@ -60,7 +60,7 @@ RING_API void ring_item_deletecontent_gc(void *pState, Item *pItem) {
 	unsigned int nType;
 	nType = pItem->nType;
 	/* Set Type */
-	ring_item_init(pItem);
+	ring_item_init_gc(pState, pItem);
 	switch (nType) {
 	case ITEMTYPE_STRING:
 		pItem->data.pString = ring_string_delete_gc(pState, pItem->data.pString);

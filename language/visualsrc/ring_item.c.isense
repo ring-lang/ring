@@ -66,12 +66,12 @@ ring_item_new_gc
 Type: Item *
 pItem
 ring_item_delete_gc
-ring_item_print
+ring_item_print_gc
 Type: unsigned int
 nItemType
-ring_item_init
+ring_item_init_gc
 ring_item_deletecontent_gc
-Type: int
+Type: unsigned int
 nType
 ring_item_settype_gc
 ring_itemarray_setint_gc

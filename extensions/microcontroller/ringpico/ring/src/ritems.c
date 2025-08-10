@@ -39,7 +39,7 @@ Items *ring_items_delete_gc(void *pState, Items *pItems) {
 	return NULL;
 }
 
-void ring_items_print(Items *pItems) { ring_item_print(pItems->pValue); }
+void ring_items_print_gc(void *pState, Items *pItems) { ring_item_print_gc(pState, pItems->pValue); }
 
 Items *ring_items_new(void) { return ring_items_new_gc(NULL); }
 

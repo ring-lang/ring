@@ -32,7 +32,7 @@ VM *ring_vm_new(RingState *pRingState) {
 		pVM->aCustomMutex[x] = NULL;
 	}
 	for (x = 0; x < RING_VM_STACK_SIZE; x++) {
-		ring_item_init(&(pVM->aStack[x]));
+		ring_item_init_gc(pRingState, &(pVM->aStack[x]));
 		ring_list_new2_gc(pVM->pRingState, RING_VM_GETSCOPE(x), RING_ZERO);
 	}
 	ring_vm_newscope(pVM);

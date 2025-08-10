@@ -13,7 +13,7 @@ Items *ring_items_new_gc(void *pState);
 
 Items *ring_items_delete_gc(void *pState, Items *pItems);
 
-void ring_items_print(Items *pItems);
+void ring_items_print_gc(void *pState, Items *pItems);
 
 Items *ring_items_new(void);
 
