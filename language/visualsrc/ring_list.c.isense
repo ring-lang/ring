@@ -184,7 +184,7 @@ Type: Item *
 pItem
 Type: List *
 pList2
-ring_list_isiteminsidelist
+ring_list_isiteminsidelist_gc
 Type: unsigned int
 x
 Type: Item *

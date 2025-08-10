@@ -159,7 +159,7 @@ RING_API void ring_list_insertfuncpointer_gc(void *pState, List *pList, unsigned
 RING_API List *ring_list_insertlist_gc(void *pState, List *pList, unsigned int nPos);
 /* Is item inside list, support nested Lists */
 
-RING_API int ring_list_isiteminsidelist(List *pList, Item *pItem);
+RING_API int ring_list_isiteminsidelist_gc(void *pState, List *pList, Item *pItem);
 /* Linear Search */
 
 RING_API int ring_list_findstring(List *pList, const char *cStr, unsigned int nColumn);

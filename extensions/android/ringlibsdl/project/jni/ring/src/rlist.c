@@ -593,18 +593,18 @@ RING_API List *ring_list_insertlist_gc(void *pState, List *pList, unsigned int n
 }
 /* Is item inside list, support nested Lists */
 
-RING_API int ring_list_isiteminsidelist(List *pList, Item *pItem) {
+RING_API int ring_list_isiteminsidelist_gc(void *pState, List *pList, Item *pItem) {
 	unsigned int x;
 	Item *pItem2;
 	List *pList2;
 	for (x = 1; x <= ring_list_getsize(pList); x++) {
-		pItem2 = ring_list_getitem(pList, x);
+		pItem2 = ring_list_getitem_gc(pState, pList, x);
 		if (pItem == pItem2) {
 			return 1;
 		}
 		if (ring_list_islist(pList, x)) {
 			pList2 = ring_item_getlist(pItem2);
-			if (ring_list_isiteminsidelist(pList2, pItem)) {
+			if (ring_list_isiteminsidelist_gc(pState, pList2, pItem)) {
 				return 1;
 			}
 		}
@@ -625,7 +625,7 @@ RING_API int ring_list_deliteminsidelist_gc(void *pState, List *pList, Item *pIt
 		}
 		if (ring_list_islist(pList, x)) {
 			pList2 = ring_item_getlist(pItem2);
-			if (ring_list_isiteminsidelist(pList2, pItem)) {
+			if (ring_list_isiteminsidelist_gc(pState, pList2, pItem)) {
 				return 1;
 			}
 		}
