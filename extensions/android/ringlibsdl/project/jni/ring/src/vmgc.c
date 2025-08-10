@@ -139,7 +139,7 @@ void ring_vm_gc_killreference(VM *pVM) {
 					/* Set variable value to Number */
 					ring_list_setint_gc(pVM->pRingState, pList, RING_VAR_TYPE, RING_VM_NUMBER);
 					ring_list_setdouble_gc(pVM->pRingState, pList, RING_VAR_VALUE,
-							       ring_item_getnumber(pItem));
+							       ring_item_getnumber_gc(pVM->pRingState, pItem));
 				} else {
 					ring_list_setint_gc(pVM->pRingState, pList, RING_VAR_TYPE, RING_VM_STRING);
 					ring_list_setstring_gc(pVM->pRingState, pList, RING_VAR_VALUE, RING_CSTR_EMPTY);

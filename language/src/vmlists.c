@@ -308,7 +308,7 @@ void ring_vm_listpushv(VM *pVM) {
 		RING_VM_STACK_SETCVALUE2(ring_string_get(ring_item_getstring(pItem)),
 					 ring_string_size(ring_item_getstring(pItem)));
 	} else if (ring_item_gettype(pItem) == ITEMTYPE_NUMBER) {
-		RING_VM_STACK_SETNVALUE(ring_item_getnumber(pItem));
+		RING_VM_STACK_SETNVALUE(ring_item_getnumber_gc(pVM->pRingState, pItem));
 	} else if (ring_item_gettype(pItem) == ITEMTYPE_POINTER) {
 		sprintf(cPointer, "%p", ring_item_getpointer(pItem));
 		RING_VM_STACK_SETCVALUE2(cPointer, strlen(cPointer));

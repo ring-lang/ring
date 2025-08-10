@@ -74,6 +74,7 @@ ring_item_deletecontent_gc
 Type: unsigned int
 nType
 ring_item_settype_gc
+ring_item_getnumber
 ring_itemarray_setint_gc
 ring_itemarray_setpointer_gc
 ring_itemarray_setdouble_gc
@@ -98,4 +99,3 @@ ring_item_setdouble
 ring_item_setpointer
 ring_item_setint
 ring_item_setstring2
-ring_item_getnumber

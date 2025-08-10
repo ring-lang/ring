@@ -115,6 +115,14 @@ RING_API void ring_item_settype_gc(void *pState, Item *pItem, unsigned int nItem
 		break;
 	}
 }
+/* Functions to deal with Numbers (int/double) */
+
+RING_API double ring_item_getnumber_gc(void *pState, Item *pItem) {
+	if (pItem->nNumberFlag == ITEM_NUMBERFLAG_INT) {
+		return (double)pItem->data.iNumber;
+	}
+	return pItem->data.dNumber;
+}
 
 RING_API void ring_itemarray_setint_gc(void *pState, Item aItems[], unsigned int nIndex, int nNumber) {
 	ring_item_settype_gc(pState, &aItems[nIndex], ITEMTYPE_NUMBER);
@@ -216,12 +224,4 @@ RING_API void ring_item_setint(Item *pItem, int x) { ring_item_setint_gc(NULL, p
 
 RING_API void ring_item_setstring2(Item *pItem, const char *cStr, unsigned int nStrSize) {
 	ring_item_setstring2_gc(NULL, pItem, cStr, nStrSize);
-}
-/* Functions to deal with Numbers (int/double) */
-
-RING_API double ring_item_getnumber(Item *pItem) {
-	if (pItem->nNumberFlag == ITEM_NUMBERFLAG_INT) {
-		return (double)pItem->data.iNumber;
-	}
-	return pItem->data.dNumber;
 }

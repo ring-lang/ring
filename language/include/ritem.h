@@ -103,6 +103,9 @@ RING_API void ring_item_setint_gc(void *pState, Item *pItem, int x);
 RING_API void ring_item_setstring2_gc(void *pState, Item *pItem, const char *cStr, unsigned int nStrSize);
 
 RING_API void ring_item_init_gc(void *pState, Item *pItem);
+/* Functions to deal with numbers (int/double) */
+
+RING_API double ring_item_getnumber_gc(void *pState, Item *pItem);
 /* Functions without state pointer */
 
 RING_API Item *ring_item_new(unsigned int nItemType);
@@ -140,7 +143,4 @@ RING_API void ring_item_setpointer(Item *pItem, void *pValue);
 RING_API void ring_item_setint(Item *pItem, int x);
 
 RING_API void ring_item_setstring2(Item *pItem, const char *cStr, unsigned int nStrSize);
-/* Functions to deal with numbers (int/double) */
-
-RING_API double ring_item_getnumber(Item *pItem);
 #endif
