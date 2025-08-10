@@ -112,13 +112,13 @@ void ring_vm_restorestate(VM *pVM, List *pList, int nPos, int nFlag) {
 				/* Delete pPCBlockFlag */
 				pListPointer = (List *)pVMStateForFunc->aPointers[2];
 				if (pListPointer != pVM->pPCBlockFlag) {
-					if (!ring_list_findpointer(aListsToDelete, pListPointer)) {
+					if (!ring_list_findpointer_gc(pVM->pRingState, aListsToDelete, pListPointer)) {
 						ring_list_addpointer_gc(pVM->pRingState, aListsToDelete, pListPointer);
 					}
 				}
 				/* Delete pSetProperty */
 				pListPointer = (List *)pVMStateForFunc->aPointers[6];
-				if (!ring_list_findpointer(aListsToDelete, pListPointer)) {
+				if (!ring_list_findpointer_gc(pVM->pRingState, aListsToDelete, pListPointer)) {
 					ring_list_addpointer_gc(pVM->pRingState, aListsToDelete, pListPointer);
 				}
 			}
@@ -136,13 +136,13 @@ void ring_vm_restorestate(VM *pVM, List *pList, int nPos, int nFlag) {
 			/* Delete pPCBlockFlag */
 			pListPointer = (List *)pVMStateForObj->aPointers[7];
 			if (pListPointer != pVM->pPCBlockFlag) {
-				if (!ring_list_findpointer(aListsToDelete, pListPointer)) {
+				if (!ring_list_findpointer_gc(pVM->pRingState, aListsToDelete, pListPointer)) {
 					ring_list_addpointer_gc(pVM->pRingState, aListsToDelete, pListPointer);
 				}
 			}
 			/* Delete pSetProperty */
 			pListPointer = (List *)pVMStateForObj->aPointers[8];
-			if (!ring_list_findpointer(aListsToDelete, pListPointer)) {
+			if (!ring_list_findpointer_gc(pVM->pRingState, aListsToDelete, pListPointer)) {
 				ring_list_addpointer_gc(pVM->pRingState, aListsToDelete, pListPointer);
 			}
 		}

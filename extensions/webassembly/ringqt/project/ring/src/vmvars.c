@@ -106,7 +106,7 @@ int ring_vm_findvar(VM *pVM, const char *cStr) {
 			}
 			if (ring_list_getsize(pList) < RING_VARSCOPE_SIZETOUSEHASHTABLE) {
 				/* Search Using Linear Search */
-				nPos = ring_list_findstring(pList, cStr, RING_VAR_NAME);
+				nPos = ring_list_findstring_gc(pVM->pRingState, pList, cStr, RING_VAR_NAME);
 				if (nPos != 0) {
 					if (ring_list_islist(pList, nPos)) {
 						pList2 = ring_list_getlist(pList, nPos);

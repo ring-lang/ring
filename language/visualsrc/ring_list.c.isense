@@ -203,20 +203,20 @@ Type: Items *
 pItems
 Type: unsigned int
 x
-ring_list_findstring
+ring_list_findstring_gc
 Type: unsigned int
 x,nCount
 Type: List *
 pList2
-ring_list_finddouble
+ring_list_finddouble_gc
 Type: unsigned int
 x,nCount
 Type: List *
 pList2
-ring_list_findpointer
+ring_list_findpointer_gc
 Type: unsigned int
 x
-ring_list_findlistref
+ring_list_findlistref_gc
 Type: unsigned int
 x,nCount
 Type: List *
@@ -310,20 +310,20 @@ Type: char
 cOptions[RING_SMALLBUF]
 Type: char
 cString[RING_MEDIUMBUF]
-ring_list_findinlistofobjs
+ring_list_findinlistofobjs_gc
 Type: unsigned int
 x,nCount,nPos
 Type: List *
 pList2
-ring_list_findcpointer
+ring_list_findcpointer_gc
 Type: unsigned int
 x,nCount
 Type: List *
 pList2, *pList3
-ring_list_getdoublecolumn
+ring_list_getdoublecolumn_gc
 Type: unsigned int
 nPos
-ring_list_getstringcolumn
+ring_list_getstringcolumn_gc
 Type: unsigned int
 nPos
 Type: static char

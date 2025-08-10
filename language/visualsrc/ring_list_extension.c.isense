@@ -90,6 +90,8 @@ Type: int
 nParaCount
 Type: unsigned int
 x, nColumn
+Type: VM *
+pVM
 ring_vm_listfuncs_reverse
 Type: List *
 pList,*pList2,*pList3

@@ -654,7 +654,7 @@ RING_API Items *ring_list_getitemcontainer_gc(void *pState, List *pList, unsigne
 }
 /* Linear Search */
 
-RING_API int ring_list_findstring(List *pList, const char *cStr, unsigned int nColumn) {
+RING_API int ring_list_findstring_gc(void *pState, List *pList, const char *cStr, unsigned int nColumn) {
 	unsigned int x, nCount;
 	List *pList2;
 	nCount = ring_list_getsize(pList);
@@ -688,7 +688,7 @@ RING_API int ring_list_findstring(List *pList, const char *cStr, unsigned int nC
 	return 0;
 }
 
-RING_API int ring_list_finddouble(List *pList, double nNum1, unsigned int nColumn) {
+RING_API int ring_list_finddouble_gc(void *pState, List *pList, double nNum1, unsigned int nColumn) {
 	unsigned int x, nCount;
 	List *pList2;
 	nCount = ring_list_getsize(pList);
@@ -722,7 +722,7 @@ RING_API int ring_list_finddouble(List *pList, double nNum1, unsigned int nColum
 	return 0;
 }
 
-RING_API int ring_list_findpointer(List *pList, void *pPointer) {
+RING_API int ring_list_findpointer_gc(void *pState, List *pList, void *pPointer) {
 	unsigned int x;
 	for (x = 1; x <= ring_list_getsize(pList); x++) {
 		if (ring_list_ispointer(pList, x)) {
@@ -734,7 +734,7 @@ RING_API int ring_list_findpointer(List *pList, void *pPointer) {
 	return 0;
 }
 
-RING_API int ring_list_findlistref(List *pList, List *pValue, unsigned int nColumn) {
+RING_API int ring_list_findlistref_gc(void *pState, List *pList, List *pValue, unsigned int nColumn) {
 	unsigned int x, nCount;
 	List *pList2, *pList3;
 	nCount = ring_list_getsize(pList);
@@ -775,12 +775,12 @@ RING_API void ring_list_sortnum_gc(void *pState, List *pList, unsigned int left,
 	x = left;
 	y = right;
 	nMid = (x + y) / 2;
-	nMidvalue = ring_list_getdoublecolumn(pList, nMid, nColumn, cAttribute);
+	nMidvalue = ring_list_getdoublecolumn_gc(pState, pList, nMid, nColumn, cAttribute);
 	while (x <= y) {
-		while (ring_list_getdoublecolumn(pList, x, nColumn, cAttribute) < nMidvalue) {
+		while (ring_list_getdoublecolumn_gc(pState, pList, x, nColumn, cAttribute) < nMidvalue) {
 			x++;
 		}
-		while (ring_list_getdoublecolumn(pList, y, nColumn, cAttribute) > nMidvalue) {
+		while (ring_list_getdoublecolumn_gc(pState, pList, y, nColumn, cAttribute) > nMidvalue) {
 			y--;
 		}
 		if (x <= y) {
@@ -804,14 +804,14 @@ RING_API void ring_list_sortstr_gc(void *pState, List *pList, unsigned int left,
 	x = left;
 	y = right;
 	nMid = (x + y) / 2;
-	pMidvalue = ring_string_new_gc(pState, ring_list_getstringcolumn(pList, nMid, nColumn, cAttribute));
+	pMidvalue = ring_string_new_gc(pState, ring_list_getstringcolumn_gc(pState, pList, nMid, nColumn, cAttribute));
 	while (x <= y) {
-		while (strcmp(ring_list_getstringcolumn(pList, x, nColumn, cAttribute), ring_string_get(pMidvalue)) <
-		       0) {
+		while (strcmp(ring_list_getstringcolumn_gc(pState, pList, x, nColumn, cAttribute),
+			      ring_string_get(pMidvalue)) < 0) {
 			x++;
 		}
-		while (strcmp(ring_list_getstringcolumn(pList, y, nColumn, cAttribute), ring_string_get(pMidvalue)) >
-		       0) {
+		while (strcmp(ring_list_getstringcolumn_gc(pState, pList, y, nColumn, cAttribute),
+			      ring_string_get(pMidvalue)) > 0) {
 			y--;
 		}
 		if (x <= y) {
@@ -836,9 +836,9 @@ RING_API int ring_list_binarysearchnum_gc(void *pState, List *pList, double nNum
 	nLast = ring_list_getsize(pList);
 	while (nFirst <= nLast) {
 		nMid = (nFirst + nLast) / 2;
-		if (ring_list_getdoublecolumn(pList, nMid, nColumn, cAttribute) == nNum1) {
+		if (ring_list_getdoublecolumn_gc(pState, pList, nMid, nColumn, cAttribute) == nNum1) {
 			return nMid;
-		} else if (ring_list_getdoublecolumn(pList, nMid, nColumn, cAttribute) < nNum1) {
+		} else if (ring_list_getdoublecolumn_gc(pState, pList, nMid, nColumn, cAttribute) < nNum1) {
 			nFirst = nMid + 1;
 		} else {
 			nLast = nMid - 1;
@@ -854,7 +854,7 @@ RING_API int ring_list_binarysearchstr_gc(void *pState, List *pList, const char 
 	nLast = ring_list_getsize(pList);
 	while (nFirst <= nLast) {
 		nMid = (nFirst + nLast) / 2;
-		nRes = strcmp(ring_list_getstringcolumn(pList, nMid, nColumn, cAttribute), cFind);
+		nRes = strcmp(ring_list_getstringcolumn_gc(pState, pList, nMid, nColumn, cAttribute), cFind);
 		if (nRes == 0) {
 			return nMid;
 		} else if (nRes < 0) {
@@ -1120,8 +1120,8 @@ RING_API void ring_list_print2(List *pList, unsigned int nDecimals) {
 	}
 }
 
-RING_API int ring_list_findinlistofobjs(List *pList, int nType, double nNum1, const char *cStr, List *pValue,
-					unsigned int nColumn, char *cAttribute) {
+RING_API int ring_list_findinlistofobjs_gc(void *pState, List *pList, int nType, double nNum1, const char *cStr,
+					   List *pValue, unsigned int nColumn, char *cAttribute) {
 	unsigned int x, nCount, nPos;
 	List *pList2;
 	nCount = ring_list_getsize(pList);
@@ -1143,8 +1143,8 @@ RING_API int ring_list_findinlistofobjs(List *pList, int nType, double nNum1, co
 			if (ring_list_isobject(pList2) == 0) {
 				continue;
 			}
-			nPos = ring_list_findstring(ring_list_getlist(pList2, RING_OBJECT_OBJECTDATA), cAttribute,
-						    RING_VAR_NAME);
+			nPos = ring_list_findstring_gc(pState, ring_list_getlist(pList2, RING_OBJECT_OBJECTDATA),
+						       cAttribute, RING_VAR_NAME);
 			if (nPos == 0) {
 				return -1;
 			}
@@ -1183,7 +1183,7 @@ RING_API int ring_list_findinlistofobjs(List *pList, int nType, double nNum1, co
 	return 0;
 }
 
-RING_API int ring_list_findcpointer(List *pList, List *pValue, unsigned int nColumn) {
+RING_API int ring_list_findcpointer_gc(void *pState, List *pList, List *pValue, unsigned int nColumn) {
 	unsigned int x, nCount;
 	List *pList2, *pList3;
 	nCount = ring_list_getsize(pList);
@@ -1218,8 +1218,8 @@ RING_API int ring_list_findcpointer(List *pList, List *pValue, unsigned int nCol
 	return 0;
 }
 
-RING_API double ring_list_getdoublecolumn(List *pList, unsigned int nIndex, unsigned int nColumn,
-					  const char *cAttribute) {
+RING_API double ring_list_getdoublecolumn_gc(void *pState, List *pList, unsigned int nIndex, unsigned int nColumn,
+					     const char *cAttribute) {
 	unsigned int nPos;
 	if (nColumn == 0) {
 		return ring_list_getdouble(pList, nIndex);
@@ -1232,8 +1232,8 @@ RING_API double ring_list_getdoublecolumn(List *pList, unsigned int nIndex, unsi
 				pList = ring_list_getlist(pList, nColumn);
 			}
 			if (ring_list_isobject(pList)) {
-				nPos = ring_list_findstring(ring_list_getlist(pList, RING_OBJECT_OBJECTDATA),
-							    cAttribute, RING_VAR_NAME);
+				nPos = ring_list_findstring_gc(pState, ring_list_getlist(pList, RING_OBJECT_OBJECTDATA),
+							       cAttribute, RING_VAR_NAME);
 				pList = ring_list_getlist(pList, RING_OBJECT_OBJECTDATA);
 				pList = ring_list_getlist(pList, nPos);
 				if (ring_list_isdouble(pList, RING_VAR_VALUE)) {
@@ -1245,8 +1245,8 @@ RING_API double ring_list_getdoublecolumn(List *pList, unsigned int nIndex, unsi
 	return 0.0;
 }
 
-RING_API char *ring_list_getstringcolumn(List *pList, unsigned int nIndex, unsigned int nColumn,
-					 const char *cAttribute) {
+RING_API char *ring_list_getstringcolumn_gc(void *pState, List *pList, unsigned int nIndex, unsigned int nColumn,
+					    const char *cAttribute) {
 	unsigned int nPos;
 	static char nullstring[] = RING_CSTR_EMPTY;
 	if (nColumn == 0) {
@@ -1260,8 +1260,8 @@ RING_API char *ring_list_getstringcolumn(List *pList, unsigned int nIndex, unsig
 				pList = ring_list_getlist(pList, nColumn);
 			}
 			if (ring_list_isobject(pList)) {
-				nPos = ring_list_findstring(ring_list_getlist(pList, RING_OBJECT_OBJECTDATA),
-							    cAttribute, RING_VAR_NAME);
+				nPos = ring_list_findstring_gc(pState, ring_list_getlist(pList, RING_OBJECT_OBJECTDATA),
+							       cAttribute, RING_VAR_NAME);
 				pList = ring_list_getlist(pList, RING_OBJECT_OBJECTDATA);
 				pList = ring_list_getlist(pList, nPos);
 				if (ring_list_isstring(pList, RING_VAR_VALUE)) {

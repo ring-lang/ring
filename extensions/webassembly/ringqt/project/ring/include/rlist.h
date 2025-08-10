@@ -162,13 +162,13 @@ RING_API List *ring_list_insertlist_gc(void *pState, List *pList, unsigned int n
 RING_API int ring_list_isiteminsidelist_gc(void *pState, List *pList, Item *pItem);
 /* Linear Search */
 
-RING_API int ring_list_findstring(List *pList, const char *cStr, unsigned int nColumn);
+RING_API int ring_list_findstring_gc(void *pState, List *pList, const char *cStr, unsigned int nColumn);
 
-RING_API int ring_list_finddouble(List *pList, double nNum1, unsigned int nColumn);
+RING_API int ring_list_finddouble_gc(void *pState, List *pList, double nNum1, unsigned int nColumn);
 
-RING_API int ring_list_findpointer(List *pList, void *pPointer);
+RING_API int ring_list_findpointer_gc(void *pState, List *pList, void *pPointer);
 
-RING_API int ring_list_findlistref(List *pList, List *pValue, unsigned int nColumn);
+RING_API int ring_list_findlistref_gc(void *pState, List *pList, List *pValue, unsigned int nColumn);
 /* Sort and Binary Search */
 
 RING_API void ring_list_sortnum_gc(void *pState, List *pList, unsigned int left, unsigned int right,
@@ -287,16 +287,16 @@ RING_API void ring_list_print(List *pList);
 
 RING_API void ring_list_print2(List *pList, unsigned int nDecimals);
 
-RING_API int ring_list_findinlistofobjs(List *pList, int nType, double nNum1, const char *cStr, List *pValue,
-					unsigned int nColumn, char *cAttribute);
+RING_API int ring_list_findinlistofobjs_gc(void *pState, List *pList, int nType, double nNum1, const char *cStr,
+					   List *pValue, unsigned int nColumn, char *cAttribute);
 
-RING_API int ring_list_findcpointer(List *pList, List *pValue, unsigned int nColumn);
+RING_API int ring_list_findcpointer_gc(void *pState, List *pList, List *pValue, unsigned int nColumn);
 
-RING_API double ring_list_getdoublecolumn(List *pList, unsigned int nIndex, unsigned int nColumn,
-					  const char *cAttribute);
+RING_API double ring_list_getdoublecolumn_gc(void *pState, List *pList, unsigned int nIndex, unsigned int nColumn,
+					     const char *cAttribute);
 
-RING_API char *ring_list_getstringcolumn(List *pList, unsigned int nIndex, unsigned int nColumn,
-					 const char *cAttribute);
+RING_API char *ring_list_getstringcolumn_gc(void *pState, List *pList, unsigned int nIndex, unsigned int nColumn,
+					    const char *cAttribute);
 
 RING_API void ring_list_addringpointer(List *pList, void *pValue);
 

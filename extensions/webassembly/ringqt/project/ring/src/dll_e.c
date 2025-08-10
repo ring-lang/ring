@@ -76,7 +76,7 @@ void ring_vm_dll_closelib(void *pPointer) {
 		CloseDLL(pHandle);
 		RING_API_SETNULLPOINTER(1);
 		/* Remove the pointer */
-		nIndex = ring_list_findpointer(pVM->pCLibraries, pHandle);
+		nIndex = ring_list_findpointer_gc(pVM->pRingState, pVM->pCLibraries, pHandle);
 		if (nIndex) {
 			ring_list_deleteitem_gc(pVM->pRingState, pVM->pCLibraries, nIndex);
 		}

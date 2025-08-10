@@ -172,7 +172,7 @@ void ring_vm_generallib_optionalfunc(void *pPointer) {
 		pList = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_OPTIONALFUNCTIONS);
 		pList = ring_list_getlist(pList, RING_VAR_VALUE);
 		/* If the optional function is already defined, we pass the error */
-		if (ring_list_findstring(pList, cFunc, RING_ZERO) == RING_ZERO) {
+		if (ring_list_findstring_gc(pVM->pRingState, pList, cFunc, RING_ZERO) == RING_ZERO) {
 			ring_list_addstring_gc(pRingState, pList, cFunc);
 		}
 	} else {

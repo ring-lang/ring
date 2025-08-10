@@ -243,21 +243,24 @@ void ring_vm_listfuncs_find(void *pPointer) {
 			if (RING_API_PARACOUNT == 4) {
 				if (RING_API_ISSTRING(4)) {
 					if (RING_API_ISSTRING(2)) {
-						nNum1 = ring_list_findinlistofobjs(
-						    pList, RING_LISTOFOBJS_FINDSTRING, RING_ZEROF,
+						nNum1 = ring_list_findinlistofobjs_gc(
+						    pVM->pRingState, pList, RING_LISTOFOBJS_FINDSTRING, RING_ZEROF,
 						    RING_API_GETSTRING(2), NULL, nColumn, RING_API_GETSTRING(4));
 					} else if (RING_API_ISNUMBER(2)) {
-						nNum1 = ring_list_findinlistofobjs(
-						    pList, RING_LISTOFOBJS_FINDNUMBER, RING_API_GETNUMBER(2),
-						    RING_CSTR_EMPTY, NULL, nColumn, RING_API_GETSTRING(4));
+						nNum1 = ring_list_findinlistofobjs_gc(
+						    pVM->pRingState, pList, RING_LISTOFOBJS_FINDNUMBER,
+						    RING_API_GETNUMBER(2), RING_CSTR_EMPTY, NULL, nColumn,
+						    RING_API_GETSTRING(4));
 					} else if (RING_API_ISCPOINTER(2)) {
-						nNum1 = ring_list_findinlistofobjs(
-						    pList, RING_LISTOFOBJS_FINDCPOINTER, RING_ZEROF, RING_CSTR_EMPTY,
-						    RING_API_GETLIST(2), nColumn, RING_API_GETSTRING(4));
+						nNum1 = ring_list_findinlistofobjs_gc(
+						    pVM->pRingState, pList, RING_LISTOFOBJS_FINDCPOINTER, RING_ZEROF,
+						    RING_CSTR_EMPTY, RING_API_GETLIST(2), nColumn,
+						    RING_API_GETSTRING(4));
 					} else if (RING_API_ISLIST(2)) {
-						nNum1 = ring_list_findinlistofobjs(
-						    pList, RING_LISTOFOBJS_FINDLISTREF, RING_ZEROF, RING_CSTR_EMPTY,
-						    RING_API_GETLIST(2), nColumn, RING_API_GETSTRING(4));
+						nNum1 = ring_list_findinlistofobjs_gc(
+						    pVM->pRingState, pList, RING_LISTOFOBJS_FINDLISTREF, RING_ZEROF,
+						    RING_CSTR_EMPTY, RING_API_GETLIST(2), nColumn,
+						    RING_API_GETSTRING(4));
 					} else {
 						RING_API_ERROR(RING_API_BADPARATYPE);
 					}
@@ -269,13 +272,17 @@ void ring_vm_listfuncs_find(void *pPointer) {
 				}
 			} else {
 				if (RING_API_ISSTRING(2)) {
-					nNum1 = ring_list_findstring(pList, RING_API_GETSTRING(2), nColumn);
+					nNum1 = ring_list_findstring_gc(pVM->pRingState, pList, RING_API_GETSTRING(2),
+									nColumn);
 				} else if (RING_API_ISNUMBER(2)) {
-					nNum1 = ring_list_finddouble(pList, RING_API_GETNUMBER(2), nColumn);
+					nNum1 = ring_list_finddouble_gc(pVM->pRingState, pList, RING_API_GETNUMBER(2),
+									nColumn);
 				} else if (RING_API_ISCPOINTER(2)) {
-					nNum1 = ring_list_findcpointer(pList, RING_API_GETLIST(2), nColumn);
+					nNum1 = ring_list_findcpointer_gc(pVM->pRingState, pList, RING_API_GETLIST(2),
+									  nColumn);
 				} else if (RING_API_ISLIST(2)) {
-					nNum1 = ring_list_findlistref(pList, RING_API_GETLIST(2), nColumn);
+					nNum1 = ring_list_findlistref_gc(pVM->pRingState, pList, RING_API_GETLIST(2),
+									 nColumn);
 				} else {
 					RING_API_ERROR(RING_API_BADPARATYPE);
 				}
@@ -542,8 +549,9 @@ void ring_vm_listfuncs_sort(void *pPointer) {
 				pList3 = ring_list_getlist(pList3, nColumn);
 			}
 			if (ring_vm_oop_isobject(pList3)) {
-				nPos = ring_list_findstring(ring_list_getlist(pList3, RING_OBJECT_OBJECTDATA),
-							    cAttribute, RING_VAR_NAME);
+				nPos = ring_list_findstring_gc(pVM->pRingState,
+							       ring_list_getlist(pList3, RING_OBJECT_OBJECTDATA),
+							       cAttribute, RING_VAR_NAME);
 				if (nPos == 0) {
 					RING_API_ERROR(RING_VM_ERROR_PROPERTYNOTFOUND);
 					return;

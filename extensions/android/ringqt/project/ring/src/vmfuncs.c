@@ -131,7 +131,7 @@ int ring_vm_loadfunc2(VM *pVM, const char *cStr, int nPerformance) {
 	if (pCFunc == NULL) {
 		pOptionalFunctions = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_OPTIONALFUNCTIONS);
 		pOptionalFunctions = ring_list_getlist(pOptionalFunctions, RING_VAR_VALUE);
-		nPos = ring_list_findstring(pOptionalFunctions, cStr, RING_ZERO);
+		nPos = ring_list_findstring_gc(pVM->pRingState, pOptionalFunctions, cStr, RING_ZERO);
 		if (nPos != RING_ZERO) {
 			pCFunc = &vCFunc;
 			pCFunc->cName = ring_list_getstring(pOptionalFunctions, nPos);

@@ -254,7 +254,7 @@ RING_API int ring_state_runfile(RingState *pRingState, char *cFileName) {
 		ring_list_addstring_gc(pRingState, pRingState->pRingFilesStack, cFileName);
 		lFreeFilesList = 1;
 	} else {
-		if (ring_list_findstring(pRingState->pRingFilesList, cFileName, RING_ZERO) == 0) {
+		if (ring_list_findstring_gc(pRingState, pRingState->pRingFilesList, cFileName, RING_ZERO) == 0) {
 			ring_list_addstring_gc(pRingState, pRingState->pRingFilesList, cFileName);
 			ring_list_addstring_gc(pRingState, pRingState->pRingFilesStack, cFileName);
 		} else {
@@ -467,7 +467,7 @@ RING_API int ring_state_runstring(RingState *pRingState, char *cString) {
 		ring_list_addstring_gc(pRingState, pRingState->pRingFilesStack, cFileName);
 		lFreeFilesList = 1;
 	} else {
-		if (ring_list_findstring(pRingState->pRingFilesList, cFileName, RING_ZERO) == 0) {
+		if (ring_list_findstring_gc(pRingState, pRingState->pRingFilesList, cFileName, RING_ZERO) == 0) {
 			ring_list_addstring_gc(pRingState, pRingState->pRingFilesList, cFileName);
 			ring_list_addstring_gc(pRingState, pRingState->pRingFilesStack, cFileName);
 		} else {

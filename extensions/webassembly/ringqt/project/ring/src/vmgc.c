@@ -213,7 +213,7 @@ void ring_vm_gc_deletelistinitem(void *pState, void *pList) { ring_list_delete_g
 void ring_vm_gc_removetrack(RingState *pState, List *pList) {
 	int nPos;
 	if (pList->vGC.lTrackedList) {
-		nPos = ring_list_findpointer(pState->pVM->pTrackedVariables, pList);
+		nPos = ring_list_findpointer_gc(pState, pState->pVM->pTrackedVariables, pList);
 		if (nPos) {
 			ring_list_deleteitem_gc(pState, pState->pVM->pTrackedVariables, nPos);
 		}
@@ -394,7 +394,7 @@ RING_API List *ring_list_collectcycles_gc(void *pState, List *pList) {
 			if (ring_list_islist(pActiveList, y)) {
 				pSubList = ring_list_getlist(pActiveList, y);
 				pSubList->vGC.nTempRC = -1;
-				if (!ring_list_findpointer(aProcess, pSubList)) {
+				if (!ring_list_findpointer_gc(pState, aProcess, pSubList)) {
 					ring_list_addpointer_gc(pState, aProcess, pSubList);
 				}
 			}
@@ -411,7 +411,7 @@ RING_API List *ring_list_collectcycles_gc(void *pState, List *pList) {
 			if (ring_list_islist(pActiveList, y)) {
 				pSubList = ring_list_getlist(pActiveList, y);
 				pSubList->vGC.nTempRC++;
-				if (!ring_list_findpointer(aProcess, pSubList)) {
+				if (!ring_list_findpointer_gc(pState, aProcess, pSubList)) {
 					ring_list_addpointer_gc(pState, aProcess, pSubList);
 				}
 			}
@@ -434,7 +434,7 @@ RING_API List *ring_list_collectcycles_gc(void *pState, List *pList) {
 						break;
 					}
 				}
-				if (!ring_list_findpointer(aProcess, pSubList)) {
+				if (!ring_list_findpointer_gc(pState, aProcess, pSubList)) {
 					ring_list_addpointer_gc(pState, aProcess, pSubList);
 				}
 			}
@@ -456,7 +456,7 @@ RING_API List *ring_list_collectcycles_gc(void *pState, List *pList) {
 			for (y = 1; y <= ring_list_getsize(pActiveList); y++) {
 				if (ring_list_islist(pActiveList, y)) {
 					pSubList = ring_list_getlist(pActiveList, y);
-					if (!ring_list_findpointer(aProcess, pSubList)) {
+					if (!ring_list_findpointer_gc(pState, aProcess, pSubList)) {
 						ring_list_addpointer_gc(pState, aProcess, pSubList);
 					}
 					if (pSubList == pList) {
@@ -489,7 +489,7 @@ RING_API int ring_list_containssublist_gc(void *pState, List *pList, List *pChec
 		for (y = 1; y <= ring_list_getsize(pActiveList); y++) {
 			if (ring_list_islist(pActiveList, y)) {
 				pSubList = ring_list_getlist(pActiveList, y);
-				if (!ring_list_findpointer(aProcess, pSubList)) {
+				if (!ring_list_findpointer_gc(pState, aProcess, pSubList)) {
 					ring_list_addpointer_gc(pState, aProcess, pSubList);
 				}
 				if (pSubList == pCheck) {
