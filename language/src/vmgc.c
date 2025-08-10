@@ -210,18 +210,6 @@ void ring_vm_gc_setfreefunc(Item *pItem, void (*pFreeFunc)(void *, void *)) { pI
 
 void ring_vm_gc_deletelistinitem(void *pState, void *pList) { ring_list_delete_gc(pState, (List *)pList); }
 
-void ring_vm_gc_listpointerismine(List *pList, int nIndex) {
-	Item *pItem;
-	pItem = ring_list_getitem(pList, nIndex);
-	ring_vm_gc_setfreefunc(pItem, ring_vm_gc_deletelistinitem);
-}
-
-void ring_vm_gc_listpointerisnotmine(List *pList, int nIndex) {
-	Item *pItem;
-	pItem = ring_list_getitem(pList, nIndex);
-	ring_vm_gc_setfreefunc(pItem, NULL);
-}
-
 void ring_vm_gc_removetrack(RingState *pState, List *pList) {
 	int nPos;
 	if (pList->vGC.lTrackedList) {
