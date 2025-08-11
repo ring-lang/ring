@@ -1080,60 +1080,6 @@ RING_API void ring_list_swaptwolists(List *pList1, List *pList2) {
 }
 /* List Functions that know about using Lists for Ring Objects & C Pointers */
 
-RING_API void ring_list_print(List *pList) { ring_list_print2(pList, RING_DECIMALS); }
-
-RING_API void ring_list_print2(List *pList, unsigned int nDecimals) {
-	unsigned int x, t, nSize;
-	double y;
-	const char *cStr;
-	List *pList2;
-	char cOptions[RING_SMALLBUF];
-	char cString[RING_MEDIUMBUF];
-	/* Print Items */
-	for (x = 1; x <= ring_list_getsize(pList); x++) {
-		if (ring_list_isstring(pList, x)) {
-			cStr = ring_list_getstring(pList, x);
-			nSize = ring_list_getstringsize(pList, x);
-			for (t = 0; t < nSize; t++) {
-				printf("%c", cStr[t]);
-			}
-			printf("\n");
-		} else if (ring_list_isnumber(pList, x)) {
-			if (ring_list_isdouble(pList, x)) {
-				y = ring_list_getdouble(pList, x);
-				if (y == (int)y) {
-					printf("%.0f\n", y);
-				} else {
-					sprintf(cOptions, "%s%df", "%.", nDecimals);
-#if RING_NOSNPRINTF
-					sprintf(cString, cOptions, y);
-#else
-					snprintf(cString, RING_MEDIUMBUF, cOptions, y);
-#endif
-					printf("%s\n", cString);
-				}
-			} else if (ring_list_isint(pList, x)) {
-				printf("%d\n", ring_list_getint(pList, x));
-			}
-		} else if (ring_list_islist(pList, x)) {
-			pList2 = ring_list_getlist(pList, x);
-			if (ring_list_isobject(pList2)) {
-				ring_list_printobj(pList2, nDecimals);
-			} else {
-				if (ring_list_isref(pList2)) {
-					printf("[...] (RC:%d)\n", ring_list_getrefcount(pList2));
-				} else {
-					ring_list_print2(pList2, nDecimals);
-				}
-			}
-		} else if (ring_list_ispointer(pList, x)) {
-			printf("%p\n", ring_list_getpointer(pList, x));
-		} else if (ring_list_isfuncpointer(pList, x)) {
-			printf("%p\n", ring_list_getfuncpointer(pList, x));
-		}
-	}
-}
-
 RING_API int ring_list_findinlistofobjs_gc(void *pState, List *pList, int nType, double nNum1, const char *cStr,
 					   List *pValue, unsigned int nColumn, char *cAttribute) {
 	unsigned int x, nCount, nPos;
@@ -1287,8 +1233,6 @@ RING_API char *ring_list_getstringcolumn_gc(void *pState, List *pList, unsigned 
 	return nullstring;
 }
 
-RING_API void ring_list_addringpointer(List *pList, void *pValue) { ring_list_addringpointer_gc(NULL, pList, pValue); }
-
 RING_API void ring_list_addringpointer_gc(void *pState, List *pList, void *pValue) {
 	ring_list_addcustomringpointer_gc(pState, pList, pValue, ring_state_free);
 }
@@ -1302,10 +1246,70 @@ RING_API void ring_list_addcustomringpointer_gc(void *pState, List *pList, void 
 	ring_vm_gc_setfreefunc(pItem, pFreeFunc);
 }
 
-RING_API int ring_list_isobject(List *pList) {
-	return ((pList != NULL) && (ring_list_getsize(pList) == RING_OBJECT_LISTSIZE) &&
-		ring_list_ispointer(pList, RING_OBJECT_CLASSPOINTER) &&
-		ring_list_islist(pList, RING_OBJECT_OBJECTDATA));
+RING_API void ring_list_addcpointer_gc(void *pState, List *pList, void *pGeneral, const char *cType) {
+	List *pList2;
+	/* create sub list */
+	pList2 = ring_list_newlist_gc(pState, pList);
+	/* The variable value will be a list contains the pointer */
+	ring_list_addpointer_gc(pState, pList2, pGeneral);
+	/* Add the pointer type */
+	ring_list_addstring_gc(pState, pList2, cType);
+	/* Add the status number ( 0 = Not Copied , 1 = Copied  2 = Not Assigned yet) */
+	ring_list_addint_gc(pState, pList2, RING_CPOINTERSTATUS_NOTASSIGNED);
+}
+
+RING_API void ring_list_print(List *pList) { ring_list_print2(pList, RING_DECIMALS); }
+
+RING_API void ring_list_print2(List *pList, unsigned int nDecimals) {
+	unsigned int x, t, nSize;
+	double y;
+	const char *cStr;
+	List *pList2;
+	char cOptions[RING_SMALLBUF];
+	char cString[RING_MEDIUMBUF];
+	/* Print Items */
+	for (x = 1; x <= ring_list_getsize(pList); x++) {
+		if (ring_list_isstring(pList, x)) {
+			cStr = ring_list_getstring(pList, x);
+			nSize = ring_list_getstringsize(pList, x);
+			for (t = 0; t < nSize; t++) {
+				printf("%c", cStr[t]);
+			}
+			printf("\n");
+		} else if (ring_list_isnumber(pList, x)) {
+			if (ring_list_isdouble(pList, x)) {
+				y = ring_list_getdouble(pList, x);
+				if (y == (int)y) {
+					printf("%.0f\n", y);
+				} else {
+					sprintf(cOptions, "%s%df", "%.", nDecimals);
+#if RING_NOSNPRINTF
+					sprintf(cString, cOptions, y);
+#else
+					snprintf(cString, RING_MEDIUMBUF, cOptions, y);
+#endif
+					printf("%s\n", cString);
+				}
+			} else if (ring_list_isint(pList, x)) {
+				printf("%d\n", ring_list_getint(pList, x));
+			}
+		} else if (ring_list_islist(pList, x)) {
+			pList2 = ring_list_getlist(pList, x);
+			if (ring_list_isobject(pList2)) {
+				ring_list_printobj(pList2, nDecimals);
+			} else {
+				if (ring_list_isref(pList2)) {
+					printf("[...] (RC:%d)\n", ring_list_getrefcount(pList2));
+				} else {
+					ring_list_print2(pList2, nDecimals);
+				}
+			}
+		} else if (ring_list_ispointer(pList, x)) {
+			printf("%p\n", ring_list_getpointer(pList, x));
+		} else if (ring_list_isfuncpointer(pList, x)) {
+			printf("%p\n", ring_list_getfuncpointer(pList, x));
+		}
+	}
 }
 
 RING_API void ring_list_printobj(List *pList, unsigned int nDecimals) {
@@ -1332,6 +1336,12 @@ RING_API void ring_list_printobj(List *pList, unsigned int nDecimals) {
 	}
 }
 
+RING_API int ring_list_isobject(List *pList) {
+	return ((pList != NULL) && (ring_list_getsize(pList) == RING_OBJECT_LISTSIZE) &&
+		ring_list_ispointer(pList, RING_OBJECT_CLASSPOINTER) &&
+		ring_list_islist(pList, RING_OBJECT_OBJECTDATA));
+}
+
 RING_API int ring_list_iscpointerlist(List *pList) {
 	return ((ring_list_getsize(pList) == RING_CPOINTER_LISTSIZE) &&
 		ring_list_ispointer(pList, RING_CPOINTER_POINTER) && ring_list_isstring(pList, RING_CPOINTER_TYPE) &&
@@ -1343,17 +1353,7 @@ RING_API int ring_list_cpointercmp(List *pList, List *pList2) {
 	       ring_list_getpointer(pList2, RING_CPOINTER_POINTER);
 }
 
-RING_API void ring_list_addcpointer_gc(void *pState, List *pList, void *pGeneral, const char *cType) {
-	List *pList2;
-	/* create sub list */
-	pList2 = ring_list_newlist_gc(pState, pList);
-	/* The variable value will be a list contains the pointer */
-	ring_list_addpointer_gc(pState, pList2, pGeneral);
-	/* Add the pointer type */
-	ring_list_addstring_gc(pState, pList2, cType);
-	/* Add the status number ( 0 = Not Copied , 1 = Copied  2 = Not Assigned yet) */
-	ring_list_addint_gc(pState, pList2, RING_CPOINTERSTATUS_NOTASSIGNED);
-}
+RING_API void ring_list_addringpointer(List *pList, void *pValue) { ring_list_addringpointer_gc(NULL, pList, pValue); }
 
 RING_API void ring_list_addcpointer(List *pList, void *pGeneral, const char *cType) {
 	List *pList2;
