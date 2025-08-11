@@ -85,9 +85,11 @@ void ring_vm_dll_closelib(void *pPointer) {
 	}
 }
 
-void ring_vm_dll_closealllibs(VM *pVM) {
+void ring_vm_dll_closealllibs(void *pPointer) {
 	int x;
 	LpHandleType pHandle;
+	VM *pVM;
+	pVM = (VM *)pPointer;
 	for (x = 1; x <= ring_list_getsize(pVM->pCLibraries); x++) {
 		pHandle = ring_list_getpointer(pVM->pCLibraries, x);
 		CloseDLL(pHandle);

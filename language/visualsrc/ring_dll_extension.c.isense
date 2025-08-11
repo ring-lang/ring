@@ -38,3 +38,5 @@ Type: int
 x
 Type: LpHandleType
 pHandle
+Type: VM *
+pVM
