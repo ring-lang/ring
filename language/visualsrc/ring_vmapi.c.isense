@@ -153,9 +153,6 @@ Type: List *
 pList, *pActiveMem
 Type: Item *
 pItem
-ring_list_addcpointer
-Type: List *
-pList2
 ring_vm_api_iscpointerlist
 ring_vm_api_iscpointer
 ring_vm_api_isobject
@@ -165,9 +162,6 @@ Type: List *
 pList
 Type: Item *
 pItem
-ring_list_addcpointer_gc
-Type: List *
-pList2
 ring_vm_api_retcpointer
 ring_vm_api_retlist2
 Type: int

@@ -426,19 +426,23 @@ RING_API void ring_vm_api_floatvalue(void *pPointer, const char *cStr) {
 	ring_vm_api_varvalue(pPointer, cStr, RING_VARVALUE_FLOAT);
 }
 
-RING_API List *ring_vm_api_newlist(VM *pVM) {
+RING_API List *ring_vm_api_newlist(void *pPointer) {
 	List *pList;
 	FuncCall *pFuncCall;
+	VM *pVM;
+	pVM = (VM *)pPointer;
 	pFuncCall = RING_VM_LASTFUNCCALL;
 	pList = ring_list_newlist_gc(pVM->pRingState, ring_vm_prevtempmem(pVM));
 	return pList;
 }
 
-RING_API List *ring_vm_api_newlistusingblocks(VM *pVM, unsigned int nSize, unsigned int nSize2) {
+RING_API List *ring_vm_api_newlistusingblocks(void *pPointer, unsigned int nSize, unsigned int nSize2) {
 	List *pList, *pList2, *pList3, *pSubLists;
 	int x, y, lUseBlocks;
 	Items *pItems;
 	Item *pItem;
+	VM *pVM;
+	pVM = (VM *)pPointer;
 	pList = ring_vm_api_newlist(pVM);
 #if RING_USEPOOLMANAGER
 	/*
@@ -584,25 +588,57 @@ RING_API List *ring_vm_api_newlistusingblocks(VM *pVM, unsigned int nSize, unsig
 	return pList;
 }
 
-RING_API List *ring_vm_api_callerscope(VM *pVM) { return RING_VM_GETLASTSCOPE; }
+RING_API List *ring_vm_api_callerscope(void *pPointer) {
+	VM *pVM;
+	pVM = (VM *)pPointer;
+	return RING_VM_GETLASTSCOPE;
+}
 
-RING_API int ring_vm_api_scopescount(VM *pVM) { return RING_VM_SCOPESCOUNT; }
+RING_API int ring_vm_api_scopescount(void *pPointer) {
+	VM *pVM;
+	pVM = (VM *)pPointer;
+	return RING_VM_SCOPESCOUNT;
+}
 
-RING_API int ring_vm_api_paracount(VM *pVM) { return pVM->nCFuncParaCount; }
+RING_API int ring_vm_api_paracount(void *pPointer) {
+	VM *pVM;
+	pVM = (VM *)pPointer;
+	return pVM->nCFuncParaCount;
+}
 
-RING_API void ring_vm_api_ignorecpointertypecheck(VM *pVM) { pVM->lIgnoreCPointerTypeCheck = 1; }
+RING_API void ring_vm_api_ignorecpointertypecheck(void *pPointer) {
+	VM *pVM;
+	pVM = (VM *)pPointer;
+	pVM->lIgnoreCPointerTypeCheck = 1;
+}
 
-RING_API void ring_vm_api_retnumber(VM *pVM, double nNumber) { RING_VM_STACK_PUSHNVALUE(nNumber); }
+RING_API void ring_vm_api_retnumber(void *pPointer, double nNumber) {
+	VM *pVM;
+	pVM = (VM *)pPointer;
+	RING_VM_STACK_PUSHNVALUE(nNumber);
+}
 
-RING_API void ring_vm_api_retstring(VM *pVM, const char *cStr) { RING_VM_STACK_PUSHCVALUE(cStr); }
+RING_API void ring_vm_api_retstring(void *pPointer, const char *cStr) {
+	VM *pVM;
+	pVM = (VM *)pPointer;
+	RING_VM_STACK_PUSHCVALUE(cStr);
+}
 
-RING_API void ring_vm_api_retstring2(VM *pVM, const char *cStr, unsigned int nSize) {
+RING_API void ring_vm_api_retstring2(void *pPointer, const char *cStr, unsigned int nSize) {
+	VM *pVM;
+	pVM = (VM *)pPointer;
 	RING_VM_STACK_PUSHCVALUE2(cStr, nSize);
 }
 
-RING_API void ring_vm_api_retstringsize(VM *pVM, unsigned int nSize) {
+RING_API void ring_vm_api_retstringsize(void *pPointer, unsigned int nSize) {
+	VM *pVM;
+	pVM = (VM *)pPointer;
 	RING_VM_SP_INC;
 	ring_itemarray_setstring2_gc(pVM->pRingState, pVM->aStack, pVM->nSP, NULL, nSize);
 }
 
-RING_API String *ring_vm_api_getstringraw(VM *pVM) { return ring_itemarray_getstringraw(pVM->aStack, pVM->nSP); }
+RING_API String *ring_vm_api_getstringraw(void *pPointer) {
+	VM *pVM;
+	pVM = (VM *)pPointer;
+	return ring_itemarray_getstringraw(pVM->aStack, pVM->nSP);
+}
