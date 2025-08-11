@@ -314,20 +314,6 @@ ring_list_swap
 ring_list_swaptwolists
 Type: List
 pTempList
-ring_list_print
-ring_list_print2
-Type: unsigned int
-x,t,nSize
-Type: double
-y
-Type: const char *
-cStr
-Type: List *
-pList2
-Type: char
-cOptions[RING_SMALLBUF]
-Type: char
-cString[RING_MEDIUMBUF]
 ring_list_findinlistofobjs_gc
 Type: unsigned int
 x,nCount,nPos
@@ -346,14 +332,29 @@ Type: unsigned int
 nPos
 Type: static char
 nullstring[]
-ring_list_addringpointer
 ring_list_addringpointer_gc
 ring_list_addcustomringpointer_gc
 Type: List *
 pPointerList
 Type: Item *
 pItem
-ring_list_isobject
+ring_list_addcpointer_gc
+Type: List *
+pList2
+ring_list_print
+ring_list_print2
+Type: unsigned int
+x,t,nSize
+Type: double
+y
+Type: const char *
+cStr
+Type: List *
+pList2
+Type: char
+cOptions[RING_SMALLBUF]
+Type: char
+cString[RING_MEDIUMBUF]
 ring_list_printobj
 Type: List *
 pList2,*pList3
@@ -361,11 +362,8 @@ Type: unsigned int
 x
 Type: char
 cStr[RING_MEDIUMBUF]
+ring_list_isobject
 ring_list_iscpointerlist
 ring_list_cpointercmp
-ring_list_addcpointer_gc
-Type: List *
-pList2
+ring_list_addringpointer
 ring_list_addcpointer
-Type: List *
-pList2
