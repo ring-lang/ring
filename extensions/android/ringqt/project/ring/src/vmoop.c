@@ -981,7 +981,7 @@ void ring_vm_oop_setproperty(VM *pVM) {
 	}
 }
 
-List *ring_vm_oop_objvarfromobjlist(List *pList) {
+List *ring_vm_oop_objvarfromobjlist(VM *pVM, List *pList) {
 	int nType;
 	Item *pItem;
 	/* Get Object State List */
@@ -999,7 +999,7 @@ List *ring_vm_oop_objvarfromobjlist(List *pList) {
 	return pList;
 }
 
-int ring_vm_oop_objtypefromobjlist(List *pList) {
+int ring_vm_oop_objtypefromobjlist(VM *pVM, List *pList) {
 	int nType;
 	/* Get Object State List */
 	pList = ring_list_getlist(pList, RING_OBJECT_OBJECTDATA);
@@ -1010,7 +1010,7 @@ int ring_vm_oop_objtypefromobjlist(List *pList) {
 	return nType;
 }
 
-Item *ring_vm_oop_objitemfromobjlist(List *pList) {
+Item *ring_vm_oop_objitemfromobjlist(VM *pVM, List *pList) {
 	Item *pItem;
 	/* Get Object State List */
 	pList = ring_list_getlist(pList, RING_OBJECT_OBJECTDATA);
@@ -1033,14 +1033,14 @@ void ring_vm_oop_operatoroverloading(VM *pVM, List *pObj, const char *cStr1, int
 		ring_vm_error(pVM, RING_VM_ERROR_NOOPERATORMETHOD);
 		return;
 	}
-	nObjType = ring_vm_oop_objtypefromobjlist(pObj);
+	nObjType = ring_vm_oop_objtypefromobjlist(pVM, pObj);
 	/* Set Variable ring_gettemp_var */
 	pList2 = ring_list_getlist(pVM->pDefinedGlobals, RING_GLOBALVARPOS_GETTEMPVAR);
 	if (nObjType == RING_OBJTYPE_VARIABLE) {
-		pObj = ring_vm_oop_objvarfromobjlist(pObj);
+		pObj = ring_vm_oop_objvarfromobjlist(pVM, pObj);
 		ring_list_setpointer_gc(pVM->pRingState, pList2, RING_VAR_VALUE, pObj);
 	} else if (nObjType == RING_OBJTYPE_LISTITEM) {
-		pItem = ring_vm_oop_objitemfromobjlist(pObj);
+		pItem = ring_vm_oop_objitemfromobjlist(pVM, pObj);
 		ring_list_setpointer_gc(pVM->pRingState, pList2, RING_VAR_VALUE, pItem);
 	}
 	ring_list_setint_gc(pVM->pRingState, pList2, RING_VAR_PVALUETYPE, nObjType);

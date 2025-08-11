@@ -992,11 +992,11 @@ void ring_vm_oop_setproperty(VM *pVM);
 void ring_vm_oop_operatoroverloading(VM *pVM, List *pObj, const char *cStr1, int nType, const char *cStr2, double nNum1,
 				     void *pPointer, int nPointerType);
 
-List *ring_vm_oop_objvarfromobjlist(List *pList);
+List *ring_vm_oop_objvarfromobjlist(VM *pVM, List *pList);
 
-int ring_vm_oop_objtypefromobjlist(List *pList);
+int ring_vm_oop_objtypefromobjlist(VM *pVM, List *pList);
 
-Item *ring_vm_oop_objitemfromobjlist(List *pList);
+Item *ring_vm_oop_objitemfromobjlist(VM *pVM, List *pList);
 
 void ring_vm_oop_callmethodfrombrace(VM *pVM);
 

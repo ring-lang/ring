@@ -221,13 +221,13 @@ int ring_vm_findvar2(VM *pVM, int nLevel, List *pList2, const char *cStr) {
 				}
 				/* Get Object List */
 				pList = (List *)ring_list_getpointer(pList, RING_BRACEOBJECTS_BRACEOBJECT);
-				nType = ring_vm_oop_objtypefromobjlist(pList);
+				nType = ring_vm_oop_objtypefromobjlist(pVM, pList);
 				/* Set Object Pointer & Type */
 				if (nType == RING_OBJTYPE_VARIABLE) {
-					pList = ring_vm_oop_objvarfromobjlist(pList);
+					pList = ring_vm_oop_objvarfromobjlist(pVM, pList);
 					pVM->pGetSetObject = pList;
 				} else if (nType == RING_OBJTYPE_LISTITEM) {
-					pItem = ring_vm_oop_objitemfromobjlist(pList);
+					pItem = ring_vm_oop_objitemfromobjlist(pVM, pList);
 					pVM->pGetSetObject = pItem;
 				}
 				pVM->nGetSetObjType = nType;
